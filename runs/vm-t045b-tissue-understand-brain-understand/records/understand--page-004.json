@@ -1,0 +1,1662 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "understand",
+ "unit": "page-004",
+ "status": "passed",
+ "instructions_version": "understand-page/2",
+ "rulebook_version": "content_types@2026-10-22.2+simple_hindi@2026-10-23.1+vision-2026-10-21@2026-10-21.9",
+ "rulebook_digest": "28605da59d26c73736de5b33795b73d03bdd42650b2c6e83491a617748b00791",
+ "rules_used": [
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-05",
+  "S1-01",
+  "S1-02",
+  "S1-03",
+  "S1-04",
+  "S1-05",
+  "S1-06",
+  "S1-07",
+  "S1-08",
+  "S1-09",
+  "S1-10",
+  "S1-11"
+ ],
+ "maker_route": "codex",
+ "reviewer_route": "google",
+ "maker_model": "gpt-6.1-sol",
+ "reviewer_model": "google/gemini-4-argon",
+ "reviewer_independence": "other_company",
+ "inputs_digest": "5f3edce7dd4a605d4f030c3643df11b104898fc84bc4b7c285222331faa1eb1d",
+ "card": {
+  "card": "bie.task-card/1",
+  "card_id": "understand.read_page@10-tissues-and-its-types/page-004",
+  "section": "understand",
+  "task": "read_page",
+  "prefix": {
+   "prefix_id": "understand.read_page/2",
+   "rulebook_version": "content_types@2026-10-22.2+simple_hindi@2026-10-23.1+vision-2026-10-21@2026-10-21.9",
+   "content_types_version": "2026-10-22.2",
+   "schema_id": "bie.brain.understand-page/2",
+   "sha256": "4d60d99dd550bc3482ed18e5f2d02b143cc83c7be874e1ca898690158f205235"
+  },
+  "unit": {
+   "unit_id": "page-004",
+   "title": "Page 4 of 14",
+   "pages": [
+    4
+   ]
+  },
+  "parts": [
+   {
+    "part_id": "b1",
+    "item_ids": [
+     "p0004-b0002"
+    ],
+    "type": "comparison",
+    "questions": [
+     "compare",
+     "difference"
+    ],
+    "focus": "BIE proposes comparison (weak): 'similar'"
+   },
+   {
+    "part_id": "b2",
+    "item_ids": [
+     "p0004-b0004"
+    ],
+    "type": "comparison",
+    "questions": [
+     "compare",
+     "difference"
+    ],
+    "focus": "BIE proposes comparison (weak): 'similar'"
+   },
+   {
+    "part_id": "b3",
+    "item_ids": [
+     "p0004-b0005"
+    ],
+    "type": "structure",
+    "questions": [
+     "what",
+     "where"
+    ],
+    "focus": "BIE proposes structure (strong): 'layer'; 'outer'"
+   },
+   {
+    "part_id": "b4",
+    "item_ids": [
+     "p0004-b0009"
+    ],
+    "type": "structure",
+    "questions": [
+     "what",
+     "where"
+    ],
+    "focus": "BIE proposes structure (weak): 'layer'"
+   },
+   {
+    "part_id": "b5",
+    "item_ids": [
+     "p0004-b0015"
+    ],
+    "type": "process",
+    "questions": [
+     "how",
+     "when"
+    ],
+    "focus": "BIE proposes process (weak): 'then'"
+   },
+   {
+    "part_id": "b6",
+    "item_ids": [
+     "p0004-b0019"
+    ],
+    "type": "structure",
+    "questions": [
+     "what",
+     "where"
+    ],
+    "focus": "BIE proposes structure (weak): 'parts'"
+   },
+   {
+    "part_id": "b7",
+    "item_ids": [
+     "p0004-b0026"
+    ],
+    "type": "structure",
+    "questions": [
+     "what",
+     "where"
+    ],
+    "focus": "BIE proposes structure (strong): pattern 'made up of'; 'made up of'"
+   },
+   {
+    "part_id": "img",
+    "item_ids": [
+     "p0004-image"
+    ],
+    "type": "none",
+    "questions": [
+     "what"
+    ],
+    "focus": "The page image: capture every table, diagram, label and arrow it shows (S1-01); its items get the type of what they show."
+   }
+  ],
+  "rules": [
+   "G-01",
+   "G-02",
+   "G-03",
+   "G-05",
+   "S1-01",
+   "S1-02",
+   "S1-03",
+   "S1-04",
+   "S1-05",
+   "S1-06",
+   "S1-07",
+   "S1-08",
+   "S1-09",
+   "S1-10",
+   "S1-11"
+  ],
+  "output": {
+   "schema_id": "bie.brain.understand-page/2",
+   "mode": "full",
+   "max_output_tokens": 32000
+  },
+  "coverage": {
+   "must_cover": [
+    "p0004-b0002",
+    "p0004-b0003",
+    "p0004-b0004",
+    "p0004-b0005",
+    "p0004-b0006",
+    "p0004-b0007",
+    "p0004-b0008",
+    "p0004-b0009",
+    "p0004-b0010",
+    "p0004-b0011",
+    "p0004-b0012",
+    "p0004-b0013",
+    "p0004-b0014",
+    "p0004-b0015",
+    "p0004-b0016",
+    "p0004-b0017",
+    "p0004-b0018",
+    "p0004-b0019",
+    "p0004-b0020",
+    "p0004-b0021",
+    "p0004-b0022",
+    "p0004-b0023",
+    "p0004-b0024",
+    "p0004-b0025",
+    "p0004-b0026"
+   ],
+   "claim_field": "items[].block_ids or boilerplate_block_ids",
+   "may_skip": [
+    {
+     "item_id": "p0004-b0001",
+     "reason": "running header (the same first line as the next or previous page)"
+    },
+    {
+     "item_id": "p0004-b0027",
+     "reason": "page number"
+    }
+   ]
+  },
+  "context": {
+   "map_slice": [],
+   "before": "epithelial cells",
+   "after": " Few cells present in the intercellular framework"
+  },
+  "source": {
+   "block_ids": [
+    "p0004-b0001",
+    "p0004-b0002",
+    "p0004-b0003",
+    "p0004-b0004",
+    "p0004-b0005",
+    "p0004-b0006",
+    "p0004-b0007",
+    "p0004-b0008",
+    "p0004-b0009",
+    "p0004-b0010",
+    "p0004-b0011",
+    "p0004-b0012",
+    "p0004-b0013",
+    "p0004-b0014",
+    "p0004-b0015",
+    "p0004-b0016",
+    "p0004-b0017",
+    "p0004-b0018",
+    "p0004-b0019",
+    "p0004-b0020",
+    "p0004-b0021",
+    "p0004-b0022",
+    "p0004-b0023",
+    "p0004-b0024",
+    "p0004-b0025",
+    "p0004-b0026",
+    "p0004-b0027"
+   ],
+   "page_images": [
+    {
+     "page": 4,
+     "sha256": "3e37fef553d9c6e3ef96360b7e6a738e5e3ecfa8dc1c144c8904f737e0aa54cc"
+    }
+   ]
+  }
+ },
+ "prefix_sha256": "4d60d99dd550bc3482ed18e5f2d02b143cc83c7be874e1ca898690158f205235",
+ "review_prefix_sha256": "56cfd1b1e246b3c4f1b1f41a21fed8cc4a16babcc603df929a12d3fa7160646d",
+ "inputs": {
+  "system": "BIE task prefix understand.read_page/2 · rulebook content_types@2026-10-22.2+simple_hindi@2026-10-23.1+vision-2026-10-21@2026-10-21.9 · content types 2026-10-22.2 · schema bie.brain.understand-page/2\n\nYou are BIE's book-understanding section: an expert teacher of Science and Technology for UPSC / State PCS aspirants preparing for UPSC / State PCS.\nYou read one page of a book chapter with two eyes, the page's native text blocks and the page image, and turn it into a complete,\nquestion-based teacher's understanding. Later BIE sections build the video lessons, the chapter game and the notes only from what you\ncapture, so anything you miss is missing from the whole course. Your output is internal to BIE: write it in clear English and keep the\nbook's own terms and spellings.\nCourse: \"10. Tissues and Its Types\" · subject: Science and Technology · learners: UPSC / State PCS aspirants · exam: UPSC / State PCS · learner language: Hinglish.\n\nNavin's rules for this task (follow every one):\n[G-01] Everything taught comes from the book. Knowledge from outside the book is allowed only to explain the book better; it is marked as outside, standard textbook-level and correct. Never invent facts, numbers, names or quotations.\n[G-02] Work like the best teacher of these learners and this exam, not like a summariser. Depth beats brevity: nothing teachable on the page is skipped or compressed away, and every explanation makes a student understand, not just remember.\n[G-03] Before the output, fill 'notes' with brief notes for the reviewer and for Navin: what this unit is about, the key questions a teacher must answer about it, the main decisions you made with a one-line reason each, and anything uncertain. Keep the notes short; they explain the work, they are not the work.\n[G-05] Never shorten work to fit a length. If a unit of work is too large, it is split by BIE into smaller units; within a unit, completeness wins.\n[S1-01] Read the page with two eyes: the native text blocks (exact words and numbers) and the page image (tables, diagrams, labels, arrows, equations, layout). Items that exist only in the image are as important as text items. A page whose text layer is empty or nearly empty is read entirely from the image.\n[S1-02] Every native text block is either covered by an item (its id in that item's block_ids) or listed as boilerplate. Boilerplate is only running headers, page numbers, publisher adverts, contact lines and watermarks; nothing teachable is boilerplate.\n[S1-03] Every table becomes one 'table' item plus one 'table_row' item per row, in order, each row's content giving every cell with its column header, for example 'Smooth muscle | Location: G.I. tract, uterus, eye, blood vessels | Function: peristalsis, blood pressure, pupil size, erects hairs | Appearance: no striations, one central nucleus | Control: involuntary'. A table continued from the previous page continues the same table.\n[S1-04] Every diagram, chart, flow or tree becomes one 'diagram' item that says what it shows and how its parts connect (arrows, branches, flows, sequence), plus one 'diagram_label' item per label naming what the label points to. A classification tree lists every branch and leaf with its parent.\n[S1-05] Every equation, formula, chemical formula and symbol is read exactly and each symbol's meaning and unit are stated.\n[S1-06] Understand every teachable item by questioning it like a teacher. Ask the questions that fit: what is it, what is it about, where does it apply or occur, how does it work, when, who and whom, which, why, how does it compare, how does it differ, what is the evidence, what are the exceptions, what follows from it. Then keep asking 'why' and 'how' on your own answers (depth 2, 3 ...) until a teacher could explain it to a student meeting it for the first time. Answers explain; they never just repeat the item's words.\n[S1-07] Mark every answer's basis: 'book' only when the page itself states it, 'outside' when any part comes from general knowledge. Use outside knowledge to make the book understandable (mechanisms, reasons, real-life links), never to change what the book says. Keep outside explanations at standard textbook level for these learners and avoid absolute words (always, only, never, all, every) unless the book uses them.\n[S1-08] Give every item its true content type, one of BIE's nine: process, structure, classification, comparison, timeline, cause_effect, facts_numbers, figure, definition (bie/brain/rulebook/content_types.json). An example takes the type of what it illustrates; a question or an answer option is a role, not a type. BIE's code proposes a type before you read the page; when you choose another, say why. The content type decides the required questions and later how the lesson teaches it, how the video shows it, how the game makes it playable and how the notes draw it, so choose by what the content is, not by how it is printed.\n[S1-09] Name the prerequisites a student must already understand for each item, as concrete concepts ('cell and its nucleus', 'what a nerve impulse is'), never vague ('basic biology'). Prerequisites are taught later, not just listed.\n[S1-10] Judge exam importance for the course's exam (for UPSC / State PCS: classifications, comparisons, locations, functions, examples and odd-one-out facts are high). Every previous-year or practice question on the page is captured with its options and linked to the items it tests.\n[S1-11] Where the text layer and the image disagree (garbled symbols, missing words, wrong order), report the disagreement. Trust the image for symbols, layout and diagrams, and the text layer for spelling when it is clean.\n\nBIE's content types (the type of an item decides its required questions and how it is taught, shown, played and drawn):\n- process · Process: Something that happens in steps or stages over time: a mechanism, a procedure, a cycle (photosynthesis, cell division, how a bill becomes law). Required questions: how (kaise), when (kab). Other questions: what (kya), where (kahan), why (kyun), consequence (nateeja).\n- structure · Structure: Something made of parts arranged in space, each part with a function (a cell, a leaf, the heart, a machine, the Parliament). Required questions: what (kya), where (kahan). Other questions: how (kaise), why (kyun), which (kaun).\n- classification · Classification: A group divided into kinds by a stated basis (types of tissues, kinds of rocks, kinds of writs). Required questions: which (kaun), difference (tulna). Other questions: what (kya), evidence (saboot), where (kahan).\n- comparison · Comparison: Two or more things set side by side on stated criteria (plant and animal cells, Lok Sabha and Rajya Sabha). Required questions: compare (tulna), difference (tulna). Other questions: what (kya), why (kyun), evidence (saboot).\n- timeline · Timeline: Events placed in time: history, the development of an idea, stages of a life (the Revolt of 1857, evolution of cell theory). Required questions: when (kab), why (kyun). Other questions: who (kaun), where (kahan), consequence (nateeja).\n- cause_effect · Reasoning (cause and effect): Why something happens: causes, effects, conditions and chains of reasoning (why tissues specialise, why prices rise, why a law was needed). Required questions: why (kyun), how (kaise). Other questions: consequence (nateeja), evidence (saboot), exception (tulna).\n- facts_numbers · Facts and numbers: Stated facts, quantities, measurements, statistics and formulas (heart rate 72 per minute, 3,000 against 50,000 soldiers at Plassey, F = ma). Required questions: what (kya), evidence (saboot). Other questions: compare (tulna), why (kyun).\n- figure · Figure: A diagram, photo, map, graph or table drawing on the page whose content is visual (tissue pages 2, 7 and 8 are figures only). Required questions: what (kya), which (kaun). Other questions: how (kaise), why (kyun).\n- definition · Definition: A term and its meaning as the book states it (tissue, meristem, sovereignty). Required questions: what (kya), evidence (saboot). Other questions: about (kya), why (kyun).\n\nOutput schema (JSON):\n{\"additionalProperties\":false,\"properties\":{\"boilerplate_block_ids\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"items\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"block_ids\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"content\":{\"type\":\"string\"},\"content_type\":{\"enum\":[\"process\",\"structure\",\"classification\",\"comparison\",\"timeline\",\"cause_effect\",\"facts_numbers\",\"figure\",\"definition\",\"none\"],\"type\":\"string\"},\"exam_importance\":{\"enum\":[\"high\",\"medium\",\"low\"],\"type\":\"string\"},\"exam_note\":{\"type\":\"string\"},\"item_id\":{\"type\":\"string\"},\"kind\":{\"enum\":[\"heading\",\"paragraph\",\"definition\",\"list_point\",\"example\",\"table\",\"table_row\",\"diagram\",\"diagram_label\",\"equation\",\"symbol\",\"box_note\",\"caption\",\"question\",\"answer_option\",\"other\"],\"type\":\"string\"},\"parent_item_id\":{\"type\":\"string\"},\"prerequisites\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"source\":{\"enum\":[\"text\",\"image\",\"both\"],\"type\":\"string\"},\"teachable\":{\"type\":\"boolean\"},\"teacher_understanding\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"answer\":{\"type\":\"string\"},\"ask\":{\"enum\":[\"what\",\"about\",\"where\",\"how\",\"when\",\"who\",\"whom\",\"which\",\"why\",\"compare\",\"difference\",\"evidence\",\"exception\",\"consequence\"],\"type\":\"string\"},\"basis\":{\"enum\":[\"book\",\"outside\"],\"type\":\"string\"},\"depth\":{\"description\":\"1 for a first question; 2, 3 ... for a deeper why/how on an earlier answer\",\"type\":\"integer\"},\"question\":{\"type\":\"string\"}},\"required\":[\"depth\",\"ask\",\"question\",\"answer\",\"basis\"],\"type\":\"object\"},\"type\":\"array\"},\"tests_item_ids\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"type_note\":{\"type\":\"string\"},\"where_on_page\":{\"type\":\"string\"}},\"required\":[\"item_id\",\"kind\",\"parent_item_id\",\"source\",\"block_ids\",\"where_on_page\",\"content\",\"content_type\",\"type_note\",\"teachable\",\"teacher_understanding\",\"prerequisites\",\"exam_importance\",\"exam_note\",\"tests_item_ids\"],\"type\":\"object\"},\"type\":\"array\"},\"notes\":{\"additionalProperties\":false,\"properties\":{\"about\":{\"description\":\"What this unit of work is about and how it fits the whole (one or two sentences).\",\"type\":\"string\"},\"decisions\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"decision\":{\"type\":\"string\"},\"reason\":{\"type\":\"string\"}},\"required\":[\"decision\",\"reason\"],\"type\":\"object\"},\"type\":\"array\"},\"key_questions\":{\"description\":\"The key questions a teacher must answer about this unit.\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"uncertain\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"}},\"required\":[\"about\",\"key_questions\",\"decisions\",\"uncertain\"],\"type\":\"object\"},\"page_summary\":{\"type\":\"string\"},\"text_image_disagreements\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"block_ids\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"image_shows\":{\"type\":\"string\"},\"text_says\":{\"type\":\"string\"}},\"required\":[\"block_ids\",\"text_says\",\"image_shows\"],\"type\":\"object\"},\"type\":\"array\"}},\"required\":[\"notes\",\"page_summary\",\"items\",\"boilerplate_block_ids\",\"text_image_disagreements\"],\"type\":\"object\"}\n\nHow BIE talks to you: every request is a task card (JSON) followed by its source. The card names the unit, its parts with their content type and required questions, the ids of the rules above that apply, the output, the ids you must cover and the context. The card is BIE's instruction; the source is the material.\nFor a read_page card:\n- card.parts: BIE's code has already proposed a content type for groups of this page's native text blocks (item_ids are block ids;\n  \"pNNNN-image\" is the page image), with the evidence in \"focus\". It is a proposal from keywords and patterns, not a verdict: give\n  every item its true type (S1-08). When you choose another type than BIE's proposal for an item's blocks, say why in one line in that\n  item's type_note; BIE's code compares every item and sends unexplained differences back to you.\n- card.coverage: every id in must_cover must be in some item's block_ids or in boilerplate_block_ids; may_skip lists blocks BIE thinks are\n  running headers or page numbers. Never list an id that is not on this page.\n- card.context.before and after: one line from the previous and the next page, for context only.\nHow to fill the JSON:\n- notes: brief notes for the reviewer: what the page is about and how it fits the chapter, the key questions a teacher must answer,\n  your main decisions (how you split items, how you read an unclear part, a type you chose against BIE's proposal) with a reason each,\n  and what is uncertain.\n- items: everything on the page, in reading order.\n  - item_id: short and unique on this page (\"i1\", \"i2\", ...).\n  - kind: heading, paragraph, definition, list_point, example, table (the whole table), table_row (one per row), diagram (the whole figure),\n    diagram_label (one per label), equation, symbol, box_note, caption, question (a PYQ or practice question), answer_option, other.\n  - parent_item_id: the table of a table_row, the diagram of a diagram_label, the question of an answer_option, else \"\".\n  - source: \"text\" if the item comes from native text blocks, \"image\" if it is visible only in the image, \"both\" if both show it.\n  - block_ids: the ids of the native text blocks this item covers ([] for image-only items). Use only ids from the card.\n  - where_on_page: where it is (\"top table, row 2\", \"right diagram, label at the axon end\").\n  - content: the exact words for text items; a complete, faithful reading for image items (every cell with its column header for a\n    table_row; what a label names and what it points to for a diagram_label; all branches for a tree).\n  - content_type: one of BIE's nine type ids above, by what the content is. An example takes the type of what it illustrates; a table\n    row or a diagram label usually takes its table's or diagram's type. \"none\" only for a question, an answer option or an item that is\n    not teachable.\n  - type_note: \"\" when you agree with BIE's proposal for this item's blocks (or there is none); otherwise one line on why your type fits.\n  - teachable: false only for pure headings and containers whose children carry the content.\n  - teacher_understanding: the teacher's questions and answers for this item (S1-06); depth 1 for first questions, 2 and more for\n    \"why\"/\"how\" on an earlier answer; basis \"book\" only if the page states it, else \"outside\". BIE's code checks every teachable item:\n    at least two questions, at least one \"why\" or \"how\", and at least the required questions of its content type.\n  - prerequisites: concrete concepts a student must understand first.\n  - exam_importance and exam_note: for this exam.\n  - tests_item_ids: for a question, the ids on this page that it tests ([] if they are on other pages).\n- boilerplate_block_ids: ids of running headers, page numbers, adverts, contact lines and watermarks only.\n- text_image_disagreements: where the text layer and the image differ.\nReply with the JSON object only.",
+  "user": [
+   {
+    "type": "text",
+    "text": "BIE task card (JSON):\n{\"card\":\"bie.task-card/1\",\"card_id\":\"understand.read_page@10-tissues-and-its-types/page-004\",\"section\":\"understand\",\"task\":\"read_page\",\"prefix\":{\"prefix_id\":\"understand.read_page/2\",\"rulebook_version\":\"content_types@2026-10-22.2+simple_hindi@2026-10-23.1+vision-2026-10-21@2026-10-21.9\",\"content_types_version\":\"2026-10-22.2\",\"schema_id\":\"bie.brain.understand-page/2\",\"sha256\":\"4d60d99dd550bc3482ed18e5f2d02b143cc83c7be874e1ca898690158f205235\"},\"unit\":{\"unit_id\":\"page-004\",\"title\":\"Page 4 of 14\",\"pages\":[4]},\"parts\":[{\"part_id\":\"b1\",\"item_ids\":[\"p0004-b0002\"],\"type\":\"comparison\",\"questions\":[\"compare\",\"difference\"],\"focus\":\"BIE proposes comparison (weak): 'similar'\"},{\"part_id\":\"b2\",\"item_ids\":[\"p0004-b0004\"],\"type\":\"comparison\",\"questions\":[\"compare\",\"difference\"],\"focus\":\"BIE proposes comparison (weak): 'similar'\"},{\"part_id\":\"b3\",\"item_ids\":[\"p0004-b0005\"],\"type\":\"structure\",\"questions\":[\"what\",\"where\"],\"focus\":\"BIE proposes structure (strong): 'layer'; 'outer'\"},{\"part_id\":\"b4\",\"item_ids\":[\"p0004-b0009\"],\"type\":\"structure\",\"questions\":[\"what\",\"where\"],\"focus\":\"BIE proposes structure (weak): 'layer'\"},{\"part_id\":\"b5\",\"item_ids\":[\"p0004-b0015\"],\"type\":\"process\",\"questions\":[\"how\",\"when\"],\"focus\":\"BIE proposes process (weak): 'then'\"},{\"part_id\":\"b6\",\"item_ids\":[\"p0004-b0019\"],\"type\":\"structure\",\"questions\":[\"what\",\"where\"],\"focus\":\"BIE proposes structure (weak): 'parts'\"},{\"part_id\":\"b7\",\"item_ids\":[\"p0004-b0026\"],\"type\":\"structure\",\"questions\":[\"what\",\"where\"],\"focus\":\"BIE proposes structure (strong): pattern 'made up of'; 'made up of'\"},{\"part_id\":\"img\",\"item_ids\":[\"p0004-image\"],\"type\":\"none\",\"questions\":[\"what\"],\"focus\":\"The page image: capture every table, diagram, label and arrow it shows (S1-01); its items get the type of what they show.\"}],\"rules\":[\"G-01\",\"G-02\",\"G-03\",\"G-05\",\"S1-01\",\"S1-02\",\"S1-03\",\"S1-04\",\"S1-05\",\"S1-06\",\"S1-07\",\"S1-08\",\"S1-09\",\"S1-10\",\"S1-11\"],\"output\":{\"schema_id\":\"bie.brain.understand-page/2\",\"mode\":\"full\",\"max_output_tokens\":32000},\"coverage\":{\"must_cover\":[\"p0004-b0002\",\"p0004-b0003\",\"p0004-b0004\",\"p0004-b0005\",\"p0004-b0006\",\"p0004-b0007\",\"p0004-b0008\",\"p0004-b0009\",\"p0004-b0010\",\"p0004-b0011\",\"p0004-b0012\",\"p0004-b0013\",\"p0004-b0014\",\"p0004-b0015\",\"p0004-b0016\",\"p0004-b0017\",\"p0004-b0018\",\"p0004-b0019\",\"p0004-b0020\",\"p0004-b0021\",\"p0004-b0022\",\"p0004-b0023\",\"p0004-b0024\",\"p0004-b0025\",\"p0004-b0026\"],\"claim_field\":\"items[].block_ids or boilerplate_block_ids\",\"may_skip\":[{\"item_id\":\"p0004-b0001\",\"reason\":\"running header (the same first line as the next or previous page)\"},{\"item_id\":\"p0004-b0027\",\"reason\":\"page number\"}]},\"context\":{\"map_slice\":[],\"before\":\"epithelial cells\",\"after\":\" Few cells present in the intercellular framework\"},\"source\":{\"block_ids\":[\"p0004-b0001\",\"p0004-b0002\",\"p0004-b0003\",\"p0004-b0004\",\"p0004-b0005\",\"p0004-b0006\",\"p0004-b0007\",\"p0004-b0008\",\"p0004-b0009\",\"p0004-b0010\",\"p0004-b0011\",\"p0004-b0012\",\"p0004-b0013\",\"p0004-b0014\",\"p0004-b0015\",\"p0004-b0016\",\"p0004-b0017\",\"p0004-b0018\",\"p0004-b0019\",\"p0004-b0020\",\"p0004-b0021\",\"p0004-b0022\",\"p0004-b0023\",\"p0004-b0024\",\"p0004-b0025\",\"p0004-b0026\",\"p0004-b0027\"],\"page_images\":[{\"page\":4,\"sha256\":\"3e37fef553d9c6e3ef96360b7e6a738e5e3ecfa8dc1c144c8904f737e0aa54cc\"}]}}\n\nNative text blocks of this page (id | text):\np0004-b0001 | Science and Technology\np0004-b0002 | Pseudo-stratified Columnar Respiratory passage and Similar to columnar Protection, secretion and\np0004-b0003 | ducts of many glands epithelium but all the cells are movement of mucous\np0004-b0004 | not of similar height\np0004-b0005 | Keratinised The outer or apical layer of Mostly dead and devoid of Protection against abrasion\np0004-b0006 | the cell nucleus and cytoplasm. The\np0004-b0007 | cytoplasm gets replaced by\np0004-b0008 | keratin, which makes the\np0004-b0009 | layer waterproof\np0004-b0010 | Transitional epithelia or Urinary bladder, urethra, Stratified epithelium, which Stretch readily to\np0004-b0011 | urothelium ureter can contract or expand as per accommodate the different\np0004-b0012 | the requirement. Cells are volume of liquids\np0004-b0013 | cuboidal when not stretched, Act as a barrier and have tight\np0004-b0014 | but when the organ stretches, junctions to prevent\np0004-b0015 | then tissue gets compressed reabsorption of toxic\np0004-b0016 | and cells appear irregular and substances\np0004-b0017 | squamous-shaped\np0004-b0018 | Connective Tissues\np0004-b0019 | • Connects body parts\np0004-b0020 | • Prevents organs from getting displaced by body movement.\np0004-b0021 | • Acts like binding, supporting and packing material.\np0004-b0022 | • Cells are loosely spaced.\np0004-b0023 | • Cells are embedded in an intercellular matrix.\np0004-b0024 | • Matrix may be jelly, fluid, dense or rigid.\np0004-b0025 |  Connective tissues, support and connect different tissues and organs of the body.\np0004-b0026 |  Connective tissue is made up of :-\np0004-b0027 | 90"
+   },
+   {
+    "type": "text",
+    "text": "The page image:"
+   },
+   {
+    "type": "image",
+    "media_type": "image/png",
+    "sha256": "4e1738b8b312ae1af22de2a1e04d1c8c37a621ec88e705ce5f733a9aee33d7be",
+    "base64_chars": 767240
+   },
+   {
+    "type": "text",
+    "text": "Read this page with both eyes and answer the card with the page understanding JSON."
+   }
+  ]
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "started_at": 1792742222.52256,
+   "mode": "full",
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "accfb8bdfc0fd66e029376315f4420d10aa56b5dcf0c212c17d8e05b68f12920",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 22251,
+    "output_tokens": 9093,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "The page completes a table of epithelial tissues, illustrates seven epithelial forms, and introduces the functions and matrix-based structure of connective tissues.",
+    "key_questions": [
+     "How do pseudo-stratified columnar, keratinised and transitional epithelia differ in location, structure and function?",
+     "How do epithelial cell shape and number of layers distinguish the seven illustrated forms?",
+     "How does transitional epithelium accommodate changing liquid volume while maintaining a barrier?",
+     "How do loosely spaced cells and an intercellular matrix help connective tissues bind, support and pack organs?"
+    ],
+    "decisions": [
+     {
+      "decision": "Read the upper table as a continuation with columns for tissue type, location, structure and function.",
+      "reason": "Its header is absent on this page, but the cell arrangement makes these column roles clear."
+     },
+     {
+      "decision": "Preserve the unusual location wording in the Keratinised row and explain its limitations separately.",
+      "reason": "The image and native text agree; silently replacing it would change the source."
+     },
+     {
+      "decision": "Treat the table as comparison and the epithelial drawings as figures.",
+      "reason": "The table compares tissues on shared criteria, whereas the drawings teach visual recognition."
+     },
+     {
+      "decision": "Capture each connective-tissue bullet separately, including the repeated support statement.",
+      "reason": "Each printed point must remain available to later teaching stages."
+     }
+    ],
+    "uncertain": [
+     "The table's original column headings are on an earlier page; the headings used here are inferred from the visible cells.",
+     "The Keratinised row gives 'The outer or apical layer of the cell' in the location column; this is awkward biological wording.",
+     "The connective-tissue composition list begins here but its components are not supplied on this page.",
+     "The schematic pseudo-stratified drawing does not clearly establish every cell's contact with a basement membrane; that explanation is marked outside."
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "The page completes a table of epithelial tissues, illustrates seven epithelial forms, and introduces the functions and matrix-based structure of connective tissues.",
+     "key_questions": [
+      "How do pseudo-stratified columnar, keratinised and transitional epithelia differ in location, structure and function?",
+      "How do epithelial cell shape and number of layers distinguish the seven illustrated forms?",
+      "How does transitional epithelium accommodate changing liquid volume while maintaining a barrier?",
+      "How do loosely spaced cells and an intercellular matrix help connective tissues bind, support and pack organs?"
+     ],
+     "decisions": [
+      {
+       "decision": "Read the upper table as a continuation with columns for tissue type, location, structure and function.",
+       "reason": "Its header is absent on this page, but the cell arrangement makes these column roles clear."
+      },
+      {
+       "decision": "Preserve the unusual location wording in the Keratinised row and explain its limitations separately.",
+       "reason": "The image and native text agree; silently replacing it would change the source."
+      },
+      {
+       "decision": "Treat the table as comparison and the epithelial drawings as figures.",
+       "reason": "The table compares tissues on shared criteria, whereas the drawings teach visual recognition."
+      },
+      {
+       "decision": "Capture each connective-tissue bullet separately, including the repeated support statement.",
+       "reason": "Each printed point must remain available to later teaching stages."
+      }
+     ],
+     "uncertain": [
+      "The table's original column headings are on an earlier page; the headings used here are inferred from the visible cells.",
+      "The Keratinised row gives 'The outer or apical layer of the cell' in the location column; this is awkward biological wording.",
+      "The connective-tissue composition list begins here but its components are not supplied on this page.",
+      "The schematic pseudo-stratified drawing does not clearly establish every cell's contact with a basement membrane; that explanation is marked outside."
+     ]
+    },
+    "page_summary": "A continued epithelial-tissue table compares pseudo-stratified columnar, keratinised and transitional epithelia. Seven drawings show epithelial forms. The page then introduces connective tissues as supporting, binding and packing tissues with loosely spaced cells embedded in a matrix that may be jelly, fluid, dense or rigid.",
+    "items": [
+     {
+      "item_id": "i1",
+      "kind": "table",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [],
+      "where_on_page": "upper half, blue table",
+      "content": "Continued epithelial-tissue table. Inferred column headings: Type of epithelium | Location | Structure/characteristics | Function. Three visible rows: Pseudo-stratified Columnar; Keratinised; Transitional epithelia or urothelium.",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": false,
+      "teacher_understanding": [],
+      "prerequisites": [
+       "epithelial tissue",
+       "cell shape and tissue layers"
+      ],
+      "exam_importance": "high",
+      "exam_note": "The rows support matching tissue types with locations, characteristics and functions.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i2",
+      "kind": "table_row",
+      "parent_item_id": "i1",
+      "source": "both",
+      "block_ids": [
+       "p0004-b0002",
+       "p0004-b0003",
+       "p0004-b0004"
+      ],
+      "where_on_page": "top table, first visible row",
+      "content": "Type: Pseudo-stratified Columnar | Location: Respiratory passage and ducts of many glands | Structure/characteristics: Similar to columnar epithelium but all the cells are not of similar height | Function: Protection, secretion and movement of mucous",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How does the book compare pseudo-stratified columnar epithelium with columnar epithelium?",
+        "answer": "It resembles columnar epithelium, but its cells are not all of similar height. Unequal cell heights are the distinction highlighted in this row.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "How does pseudo-stratified epithelium differ from genuinely stratified epithelium?",
+        "answer": "Pseudo-stratified epithelium is a single layer whose nuclei lie at different levels, creating an appearance of several layers. Its cells contact the basement membrane, although some do not reach the free surface. Stratified epithelium has several actual cell layers.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Where does this row locate the tissue, and what functions does it assign?",
+        "answer": "It occurs in the respiratory passage and ducts of many glands. The listed functions are protection, secretion and movement of mucous.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can this epithelium help protect a respiratory passage?",
+        "answer": "In ciliated respiratory examples, mucus traps inhaled particles and cilia move the mucus along the surface. This connects secretion and mucus movement with protection; the row does not establish that every listed gland duct has the same specialisations.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "epithelial tissue",
+       "columnar cell shape",
+       "nucleus",
+       "cilia and mucus"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Know the locations, unequal cell heights, apparent stratification and listed functions.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i3",
+      "kind": "table_row",
+      "parent_item_id": "i1",
+      "source": "both",
+      "block_ids": [
+       "p0004-b0005",
+       "p0004-b0006",
+       "p0004-b0007",
+       "p0004-b0008",
+       "p0004-b0009"
+      ],
+      "where_on_page": "top table, second visible row",
+      "content": "Type: Keratinised | Location: The outer or apical layer of the cell | Structure/characteristics: Mostly dead and devoid of nucleus and cytoplasm. The cytoplasm gets replaced by keratin, which makes the layer waterproof | Function: Protection against abrasion",
+      "content_type": "comparison",
+      "type_note": "The layer-related blocks belong to a tissue-comparison row organised by location, characteristics and function.",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How does the Keratinised row compare with the pseudo-stratified columnar row?",
+        "answer": "The Keratinised row emphasises a mostly dead surface layer, loss of nucleus and cytoplasm, keratin and protection against abrasion. The pseudo-stratified row emphasises unequal cell heights and protection, secretion and movement of mucous.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "What distinguishes the keratinised layer described here?",
+        "answer": "Its cells are described as mostly dead and devoid of nucleus and cytoplasm, with keratin replacing the cytoplasm and making the layer waterproof.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "What location wording does the book provide, and how should a teacher explain it?",
+        "answer": "The printed location is 'The outer or apical layer of the cell'. In standard tissue terminology, keratinisation concerns superficial cells of an epithelium, as in the epidermis; the printed phrase should not be interpreted as a separate tissue layer inside an individual cell.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why does keratinisation suit protection against abrasion?",
+        "answer": "Keratin makes the surface tough, while superficial dead cells can be shed as the surface experiences friction. The surface also helps reduce water loss, explaining the book's waterproof description.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "nucleus and cytoplasm",
+       "epithelial surface",
+       "keratin",
+       "abrasion as wearing by friction"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Associate keratinisation with a tough superficial layer and protection against abrasion; handle the printed location cautiously.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i4",
+      "kind": "table_row",
+      "parent_item_id": "i1",
+      "source": "both",
+      "block_ids": [
+       "p0004-b0010",
+       "p0004-b0011",
+       "p0004-b0012",
+       "p0004-b0013",
+       "p0004-b0014",
+       "p0004-b0015",
+       "p0004-b0016",
+       "p0004-b0017"
+      ],
+      "where_on_page": "top table, third visible row",
+      "content": "Type: Transitional epithelia or urothelium | Location: Urinary bladder, urethra, ureter | Structure/characteristics: Stratified epithelium, which can contract or expand as per the requirement. Cells are cuboidal when not stretched, but when the organ stretches, then tissue gets compressed and cells appear irregular and squamous-shaped | Function: Stretch readily to accommodate the different volume of liquids. Act as a barrier and have tight junctions to prevent reabsorption of toxic substances",
+      "content_type": "comparison",
+      "type_note": "The stretch sequence is part of a complete comparison row covering tissue location, characteristics and functions.",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How does transitional epithelium compare in its unstretched and stretched states?",
+        "answer": "The book describes the cells as cuboidal when the tissue is not stretched. As the organ stretches, the tissue becomes compressed and the cells appear irregular and squamous-shaped.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "What distinguishes transitional epithelium from the other two table entries?",
+        "answer": "This row specifically describes a stratified lining that changes its appearance with stretching and accommodates different liquid volumes. The other rows emphasise unequal cell heights or a keratinised protective surface.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Which organs are listed for transitional epithelia or urothelium?",
+        "answer": "The page lists urinary bladder, urethra and ureter.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does the change in tissue shape help a liquid-containing organ?",
+        "answer": "Expansion allows the lining to accommodate a larger liquid volume. The page links stretching of the organ with compression of the tissue and a flatter, squamous-like cellular appearance.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "when",
+        "question": "When does the flattened appearance become relevant in a urinary bladder?",
+        "answer": "As the bladder fills, its wall stretches and the lining becomes thinner in appearance. After emptying, the lining can return toward a thicker, less stretched arrangement.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do tight junctions contribute to the barrier function?",
+        "answer": "Tight junctions seal pathways between neighbouring cells, limiting movement of urinary substances through the spaces between them. This helps explain the book's statement about preventing reabsorption of toxic substances.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "exception",
+        "question": "Does the urethra entry mean the entire urethra has transitional epithelium?",
+        "answer": "No. In standard anatomy, the epithelial lining varies along the urethra. The table's location entry should be taught as a broad association rather than a claim about its entire length.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "stratified epithelium",
+       "cuboidal and squamous cell shapes",
+       "urinary bladder and urinary passages",
+       "cell junctions"
+      ],
+      "exam_importance": "high",
+      "exam_note": "High-value location–structure–function match: urothelium, stretching, changing cell appearance and a tight-junction barrier.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i5",
+      "kind": "diagram",
+      "parent_item_id": "",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "middle, illustrated panel below the table",
+      "content": "Seven schematic epithelial tissue blocks arranged for visual comparison. Upper portion: Simple squamous, Simple cuboidal and Simple columnar. Lower portion: Stratified squamous, Stratified cuboidal and Pseudostratified columnar. Transitional is at the right. The blocks show differences in cell shape, number of layers and levels of nuclei. There are no arrows or sequential links.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does this figure show?",
+        "answer": "It shows seven labelled epithelial forms so that their cell shapes and layering can be compared visually.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which epithelial forms are illustrated?",
+        "answer": "Simple squamous, Simple cuboidal, Simple columnar, Stratified squamous, Stratified cuboidal, Pseudostratified columnar and Transitional.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How should a student identify an epithelial tissue in such a drawing?",
+        "answer": "First examine whether there is one actual layer or several, then examine the shape of the surface cells. Nuclei at different heights can suggest pseudostratification, but establishing actual layering requires attention to cell boundaries and basement-membrane contact.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell boundaries and nuclei",
+       "cell layers",
+       "flat, cube-like and tall cell shapes"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Useful for image identification and distinguishing simple, stratified and pseudostratified arrangements.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i6",
+      "kind": "diagram_label",
+      "parent_item_id": "i5",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "figure, upper left",
+      "content": "Simple squamous: label beneath a single thin sheet of flattened, tile-like cells.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What visual structure does Simple squamous name?",
+        "answer": "The upper-left drawing shows a thin sheet of flattened cells.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which features explain the two words in the label?",
+        "answer": "'Simple' means one cell layer, while 'squamous' describes flattened cells.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why can this arrangement suit exchange across a lining?",
+        "answer": "A thin layer gives substances a short distance to cross, supporting diffusion in suitable locations.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell layer",
+       "diffusion"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Recognise one layer of flattened cells.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i7",
+      "kind": "diagram_label",
+      "parent_item_id": "i5",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "figure, upper middle",
+      "content": "Simple cuboidal: label beneath one layer of cube-like cells with visible dark nuclei.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does the Simple cuboidal drawing show?",
+        "answer": "It shows one layer of cube-like cells with nuclei visible inside them.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which feature distinguishes it from Simple columnar?",
+        "answer": "The cuboidal cells are approximately as tall as they are wide, while the columnar cells are visibly taller.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does the label describe both arrangement and shape?",
+        "answer": "'Simple' identifies one layer and 'cuboidal' identifies the cube-like form of its cells.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell layer",
+       "nucleus",
+       "cube-like cell shape"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Distinguish cell shape from layer number.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i8",
+      "kind": "diagram_label",
+      "parent_item_id": "i5",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "figure, upper centre-right",
+      "content": "Simple columnar: label beneath a single row of tall column-like cells containing dark nuclei.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does Simple columnar identify?",
+        "answer": "It identifies the drawing with a single row of tall, column-like cells.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which visible feature separates it from Simple squamous?",
+        "answer": "Its cells are tall, whereas the simple squamous cells form a flattened sheet.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How should a student interpret tall cells with visible nuclei?",
+        "answer": "Cell height determines the columnar description; the presence of several visible nuclei across neighbouring cells does not make the tissue stratified. Layer number concerns how cells are stacked from the base to the free surface.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell layer",
+       "nucleus",
+       "free surface of an epithelium"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Recognise a single layer of tall cells.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i9",
+      "kind": "diagram_label",
+      "parent_item_id": "i5",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "figure, lower left",
+      "content": "Stratified squamous: label beneath a thick multilayered block with flattened surface cells and deeper cells of different shapes.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does the Stratified squamous drawing show?",
+        "answer": "It shows several stacked cell layers with flattened cells at the surface.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which cells determine the squamous name in a stratified epithelium?",
+        "answer": "The surface cells determine the shape-based name; deeper cells can have different shapes.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why do several layers help a protective lining?",
+        "answer": "Superficial cells can withstand wear and be shed while underlying layers continue to cover the tissue beneath.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "surface and basal cells",
+       "multiple cell layers",
+       "abrasion"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Recognise true layering and classification by surface-cell shape.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i10",
+      "kind": "diagram_label",
+      "parent_item_id": "i5",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "figure, lower middle",
+      "content": "Stratified cuboidal: label beneath a block showing two layers of cube-like cells.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does Stratified cuboidal identify in the figure?",
+        "answer": "It identifies the block with two visible layers of cube-like cells.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which feature distinguishes this drawing from Simple cuboidal?",
+        "answer": "Both show cube-like cells, but the stratified drawing shows stacked layers while the simple drawing shows one layer.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How should the two layers in this schematic be interpreted?",
+        "answer": "They demonstrate stratification. The important naming feature is more than one cell layer, rather than treating the exact schematic layer count as a universal definition.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cuboidal cell shape",
+       "simple and stratified arrangements"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Separate the criterion of cell shape from that of layer number.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i11",
+      "kind": "diagram_label",
+      "parent_item_id": "i5",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "figure, lower centre-right",
+      "content": "Pseudostratified columnar: label beneath tall cells with nuclei at differing heights, producing an apparent layered pattern.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does the Pseudostratified columnar drawing emphasise?",
+        "answer": "Tall cells contain nuclei at different heights, giving the block an apparently layered appearance.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which visible clue suggests pseudostratification?",
+        "answer": "The nuclei occur at noticeably different levels within the epithelial block.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why does the prefix pseudo matter?",
+        "answer": "It means the stratification is apparent: this tissue has one actual layer, with cells contacting the basement membrane even though some do not reach the free surface.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "nucleus",
+       "basement membrane",
+       "actual and apparent cell layers"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Avoid equating nuclei at different heights with true multiple layers.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i12",
+      "kind": "diagram_label",
+      "parent_item_id": "i5",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "figure, far right",
+      "content": "Transitional: label above a multilayered block with large rounded surface cells and smaller underlying cells.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does the Transitional drawing show?",
+        "answer": "It shows a layered epithelium with large rounded surface cells over smaller underlying cells.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which table entry explains this drawing?",
+        "answer": "The entry 'Transitional epithelia or urothelium' describes a stratified tissue that changes cell appearance when stretched.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How would the appearance change as the lining stretches?",
+        "answer": "The table states that the tissue becomes compressed and the cells appear irregular and squamous-shaped, rather than retaining the unstretched cuboidal appearance.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "stratified epithelium",
+       "stretching",
+       "surface-cell shape"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Link the rounded surface appearance with a stretchable urinary lining.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i13",
+      "kind": "heading",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0004-b0018"
+      ],
+      "where_on_page": "below the epithelial figure",
+      "content": "Connective Tissues",
+      "content_type": "none",
+      "type_note": "",
+      "teachable": false,
+      "teacher_understanding": [],
+      "prerequisites": [],
+      "exam_importance": "high",
+      "exam_note": "Introduces the next major tissue category.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i14",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0004-b0019"
+      ],
+      "where_on_page": "Connective Tissues, first bullet",
+      "content": "Connects body parts",
+      "content_type": "facts_numbers",
+      "type_note": "This states a function; it does not describe an arrangement of parts.",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What basic function gives connective tissue its name?",
+        "answer": "It connects body parts, helping maintain their physical relationships.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "evidence",
+        "question": "Which other statement on this page reinforces that function?",
+        "answer": "The later bullet says connective tissues support and connect different tissues and organs of the body.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can a tissue connect separate body structures?",
+        "answer": "Cells produce extracellular material, including fibres in many connective tissues, that forms physical links. Tendons joining muscle to bone provide a standard example.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "tissues and organs",
+       "physical attachment"
+      ],
+      "exam_importance": "high",
+      "exam_note": "A core function used to distinguish connective tissue from other tissue groups.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i15",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0004-b0020"
+      ],
+      "where_on_page": "Connective Tissues, second bullet",
+      "content": "Prevents organs from getting displaced by body movement.",
+      "content_type": "facts_numbers",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What stabilising role does connective tissue perform during body movement?",
+        "answer": "It helps keep organs in their proper positions as the body moves.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "evidence",
+        "question": "What condition does the page specifically connect with this role?",
+        "answer": "The page specifically mentions body movement as the situation in which organs are protected from displacement.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can support permit movement while limiting displacement?",
+        "answer": "Connective attachments and packing support organs while allowing some normal motion. Their role is stabilisation, rather than making organs completely immobile.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "organs",
+       "body movement",
+       "supporting attachments"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Recognise organ stabilisation as a connective-tissue function.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i16",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0004-b0021"
+      ],
+      "where_on_page": "Connective Tissues, third bullet",
+      "content": "Acts like binding, supporting and packing material.",
+      "content_type": "facts_numbers",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "Which three roles are grouped in this bullet?",
+        "answer": "Connective tissue acts as binding material, supporting material and packing material.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "evidence",
+        "question": "Which neighbouring statements support these roles?",
+        "answer": "The page says it connects body parts and prevents organs from becoming displaced during movement, supporting the binding and stabilising roles.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do binding, supporting and packing differ?",
+        "answer": "Binding joins structures, supporting helps maintain their position or shape, and packing fills spaces around structures and can cushion them.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "organs and spaces between them",
+       "physical support"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Learn these parallel functions together.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i17",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0004-b0022"
+      ],
+      "where_on_page": "Connective Tissues, fourth bullet",
+      "content": "Cells are loosely spaced.",
+      "content_type": "structure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What cellular arrangement does the page describe?",
+        "answer": "Connective-tissue cells are loosely spaced rather than forming a closely packed sheet.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Where does this loose cellular spacing occur?",
+        "answer": "It is presented as a structural feature of connective tissues.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How are the spaces between these cells occupied?",
+        "answer": "The next bullet states that cells are embedded in an intercellular matrix; the tissue therefore includes material between its cells.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "difference",
+        "question": "How does this general arrangement differ from an epithelial sheet?",
+        "answer": "Epithelial cells are closely joined to form a covering or lining, whereas connective tissues generally have more extracellular material separating their cells.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cells",
+       "cell spacing",
+       "epithelial sheet"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Cell spacing and matrix are key epithelial-versus-connective distinctions.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i18",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0004-b0023"
+      ],
+      "where_on_page": "Connective Tissues, fifth bullet",
+      "content": "Cells are embedded in an intercellular matrix.",
+      "content_type": "structure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is the structural relationship between connective-tissue cells and the matrix?",
+        "answer": "The cells are embedded in the matrix, so the tissue contains cells as well as material surrounding them.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Where is an intercellular matrix located?",
+        "answer": "It lies outside and between cells. 'Intercellular' means between cells, distinguishing it from the cytoplasm inside a cell.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is the matrix important when explaining connective tissue?",
+        "answer": "The matrix contributes strongly to the tissue's physical properties. Its material and organisation help determine whether a tissue provides flexible support, firm support or a fluid medium.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell boundary",
+       "cytoplasm",
+       "inside versus outside a cell"
+      ],
+      "exam_importance": "high",
+      "exam_note": "The intercellular matrix is a defining structural feature for comparisons.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i19",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0004-b0024"
+      ],
+      "where_on_page": "Connective Tissues, sixth bullet",
+      "content": "Matrix may be jelly, fluid, dense or rigid.",
+      "content_type": "structure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What physical forms of connective-tissue matrix does the book list?",
+        "answer": "The matrix may be jelly, fluid, dense or rigid.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Where are these different matrix forms found?",
+        "answer": "They are forms of the intercellular material in connective tissues, surrounding the embedded cells.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do different matrix properties support different functions?",
+        "answer": "A fluid matrix permits transport, while a rigid matrix provides firm support. For example, blood has a fluid matrix called plasma and bone has a mineralised rigid matrix.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why should dense and rigid not be treated as identical descriptions?",
+        "answer": "Dense connective tissue can contain many closely arranged fibres and still be flexible. Rigidity describes resistance to deformation, as in mineralised bone.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "intercellular matrix",
+       "fluid and solid physical properties"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Connect matrix properties to tissue functions and standard examples.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i20",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0004-b0025"
+      ],
+      "where_on_page": "lower section, separated bullet below the first six points",
+      "content": "Connective tissues, support and connect different tissues and organs of the body.",
+      "content_type": "facts_numbers",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does this statement identify as the objects of connective-tissue support?",
+        "answer": "Different tissues and organs of the body are supported and connected.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "evidence",
+        "question": "Which earlier points express the same general role?",
+        "answer": "The earlier points say connective tissue connects body parts, prevents displacement of organs and acts as binding, supporting and packing material.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does this role help explain an organ's organisation?",
+        "answer": "An organ contains several tissue types. Connective tissue provides supporting material and attachments that help these tissues remain organised together.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "difference between tissue and organ",
+       "multiple tissues within an organ"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Reinforces the central function of the connective-tissue group.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i21",
+      "kind": "heading",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0004-b0026"
+      ],
+      "where_on_page": "bottom of teaching text, final bold bullet",
+      "content": "Connective tissue is made up of :-",
+      "content_type": "none",
+      "type_note": "This is an incomplete introductory heading; the components it introduces are not printed on this page.",
+      "teachable": false,
+      "teacher_understanding": [],
+      "prerequisites": [
+       "connective tissue",
+       "intercellular matrix"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Signals a composition list continued beyond this page; no missing list elements are inferred.",
+      "tests_item_ids": []
+     }
+    ],
+    "boilerplate_block_ids": [
+     "p0004-b0001",
+     "p0004-b0027"
+    ],
+    "text_image_disagreements": [
+     {
+      "block_ids": [
+       "p0004-b0002",
+       "p0004-b0003",
+       "p0004-b0004",
+       "p0004-b0005",
+       "p0004-b0006",
+       "p0004-b0007",
+       "p0004-b0008",
+       "p0004-b0009",
+       "p0004-b0010",
+       "p0004-b0011",
+       "p0004-b0012",
+       "p0004-b0013",
+       "p0004-b0014",
+       "p0004-b0015",
+       "p0004-b0016",
+       "p0004-b0017"
+      ],
+      "text_says": "The native blocks combine text from several table columns into each extracted line, obscuring the boundaries between location, characteristics and function.",
+      "image_shows": "A four-column table with three separate tissue rows. The image supplies the cell boundaries used to reconstruct the rows; there is no substantive wording conflict."
+     }
+    ]
+   },
+   "code_problems": [],
+   "observed": {
+    "type_check": [
+     {
+      "item_id": "i1",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i2",
+      "ai_type": "comparison",
+      "code_type": "comparison",
+      "strength": "weak",
+      "evidence": [
+       "'similar'"
+      ],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i3",
+      "ai_type": "comparison",
+      "code_type": "structure",
+      "strength": "strong",
+      "evidence": [
+       "'layer'",
+       "'outer'"
+      ],
+      "status": "follows_parent",
+      "type_note": "The layer-related blocks belong to a tissue-comparison row organised by location, characteristics and function."
+     },
+     {
+      "item_id": "i4",
+      "ai_type": "comparison",
+      "code_type": "process",
+      "strength": "weak",
+      "evidence": [
+       "'then'"
+      ],
+      "status": "follows_parent",
+      "type_note": "The stretch sequence is part of a complete comparison row covering tissue location, characteristics and functions."
+     },
+     {
+      "item_id": "i5",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i6",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i7",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i8",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i9",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i10",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i11",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i12",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i13",
+      "ai_type": "none",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i14",
+      "ai_type": "facts_numbers",
+      "code_type": "structure",
+      "strength": "weak",
+      "evidence": [
+       "'parts'"
+      ],
+      "status": "explained",
+      "type_note": "This states a function; it does not describe an arrangement of parts."
+     },
+     {
+      "item_id": "i15",
+      "ai_type": "facts_numbers",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i16",
+      "ai_type": "facts_numbers",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i17",
+      "ai_type": "structure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i18",
+      "ai_type": "structure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i19",
+      "ai_type": "structure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i20",
+      "ai_type": "facts_numbers",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i21",
+      "ai_type": "none",
+      "code_type": "structure",
+      "strength": "strong",
+      "evidence": [
+       "pattern 'made up of'",
+       "'made up of'"
+      ],
+      "status": "explained",
+      "type_note": "This is an incomplete introductory heading; the components it introduces are not printed on this page."
+     }
+    ],
+    "type_summary": {
+     "code_silent": 9,
+     "explained": 2,
+     "follows_parent": 10
+    }
+   },
+   "review": {
+    "route": "google",
+    "provider": "google",
+    "model": "google/gemini-4-argon",
+    "via": "aicredits",
+    "returned_model": "google/gemini-4-argon",
+    "request_hash": "7235ebef46765be834cb6126d366e82df6db3346f9e68e752e415fb7eb2fec16",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 15161,
+    "output_tokens": 1233,
+    "cost_usd": 0.046917,
+    "value": {
+     "notes": {
+      "about": "Review of page 4 covering the continuation of the epithelial tissue table (pseudo-stratified, keratinised, transitional), a seven-part figure of epithelial types, and the introductory characteristics of connective tissues.",
+      "key_questions": [
+       "Are all three table rows reconstructed accurately from the image columns and given deep teacher explanations?",
+       "Are all seven diagram labels in the epithelial figure captured individually?",
+       "Are all bullet points under Connective Tissues captured with appropriate content types and basis markings?"
+      ],
+      "decisions": [
+       {
+        "decision": "Pass the unit with no blocking issues.",
+        "reason": "Every table cell, diagram label, and bullet point is thoroughly captured, content types and overrides are well-reasoned, and the awkward wording in the Keratinised row is handled transparently without altering the source."
+       }
+      ],
+      "uncertain": []
+     },
+     "verdict": "pass",
+     "missing": [],
+     "wrong": [
+      {
+       "item_id": "i17",
+       "problem": "The first question ('What cellular arrangement does the page describe?') is marked with basis 'outside' because the answer adds 'rather than forming a closely packed sheet', even though the core statement ('Connective-tissue cells are loosely spaced') is directly from the book.",
+       "fix": "Either keep the answer strictly to the book's statement and mark basis 'book', or separate the comparison with epithelial sheets into the depth 2 'difference' question (which already exists).",
+       "severity": "minor"
+      }
+     ],
+     "shallow": [],
+     "checklist": [
+      {
+       "rule_id": "G-01",
+       "met": true,
+       "note": "All statements are accurately derived from the book or clearly marked as outside knowledge."
+      },
+      {
+       "rule_id": "G-02",
+       "met": true,
+       "note": "Explanations are thorough, biologically sound, and pitched appropriately for UPSC/State PCS learners."
+      },
+      {
+       "rule_id": "G-03",
+       "met": true,
+       "note": "Notes clearly state the scope, key pedagogical decisions, and uncertainties (such as inferred table headers and awkward source phrasing)."
+      },
+      {
+       "rule_id": "G-05",
+       "met": true,
+       "note": "Nothing is truncated, merged away, or left as 'etc.'."
+      },
+      {
+       "rule_id": "S1-01",
+       "met": true,
+       "note": "The upper table, the middle seven-part diagram, and all lower text bullets are completely captured."
+      },
+      {
+       "rule_id": "S1-02",
+       "met": true,
+       "note": "Only the running header (p0004-b0001) and page number (p0004-b0027) are marked as boilerplate."
+      },
+      {
+       "rule_id": "S1-03",
+       "met": true,
+       "note": "All three table rows (i2, i3, i4) appear as their own items with all four cells and inferred column headers clearly stated."
+      },
+      {
+       "rule_id": "S1-04",
+       "met": true,
+       "note": "The diagram (i5) and all seven of its labels (i6 through i12) are captured with clear descriptions of what each label points to."
+      },
+      {
+       "rule_id": "S1-05",
+       "met": true,
+       "note": "No equations or mathematical symbols appear on this page."
+      },
+      {
+       "rule_id": "S1-06",
+       "met": true,
+       "note": "Questions and answers explain the underlying 'why' and 'how' (e.g., why pseudostratified looks layered, how tight junctions and keratin work) rather than merely restating the text."
+      },
+      {
+       "rule_id": "S1-07",
+       "met": true,
+       "note": "Basis markings are accurate and outside knowledge is standard textbook biology (with one minor mix of book and outside phrasing in i17)."
+      },
+      {
+       "rule_id": "S1-08",
+       "met": true,
+       "note": "Content types and type_note explanations for overriding weak/strong proposals (e.g., comparison for table rows, none for the incomplete trailing heading) are sensible."
+      },
+      {
+       "rule_id": "S1-09",
+       "met": true,
+       "note": "Prerequisites list concrete foundational concepts."
+      },
+      {
+       "rule_id": "S1-10",
+       "met": true,
+       "note": "Exam importance and notes are well-tailored to UPSC/State PCS science questions."
+      },
+      {
+       "rule_id": "S1-11",
+       "met": true,
+       "note": "The line-by-line merging of table columns in the native text extraction is properly reported in text_image_disagreements."
+      }
+     ]
+    }
+   },
+   "review_problems": [],
+   "review_minor": [
+    {
+     "item_id": "i17",
+     "problem": "The first question ('What cellular arrangement does the page describe?') is marked with basis 'outside' because the answer adds 'rather than forming a closely packed sheet', even though the core statement ('Connective-tissue cells are loosely spaced') is directly from the book.",
+     "fix": "Either keep the answer strictly to the book's statement and mark basis 'book', or separate the comparison with epithelial sheets into the depth 2 'difference' question (which already exists).",
+     "kind": "wrong"
+    }
+   ],
+   "passed": true,
+   "finished_at": 1792742480.4089093
+  }
+ ],
+ "avoid_rounds": [],
+ "cost_usd": 0.046917,
+ "seconds": 257.9,
+ "navin_verdict": null
+}

@@ -1,0 +1,2077 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "understand",
+ "unit": "page-012",
+ "status": "passed",
+ "instructions_version": "understand-page/2",
+ "rulebook_version": "content_types@2026-10-22.2+simple_hindi@2026-10-23.1+vision-2026-10-21@2026-10-21.9",
+ "rulebook_digest": "28605da59d26c73736de5b33795b73d03bdd42650b2c6e83491a617748b00791",
+ "rules_used": [
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-05",
+  "S1-01",
+  "S1-02",
+  "S1-03",
+  "S1-04",
+  "S1-05",
+  "S1-06",
+  "S1-07",
+  "S1-08",
+  "S1-09",
+  "S1-10",
+  "S1-11"
+ ],
+ "maker_route": "codex",
+ "reviewer_route": "google",
+ "maker_model": "gpt-6.1-sol",
+ "reviewer_model": "google/gemini-4-argon",
+ "reviewer_independence": "other_company",
+ "inputs_digest": "81e4b3e5f3eb50d6cf092f0ccbab27975a56f391e3470c1d89e5833caa53dee0",
+ "card": {
+  "card": "bie.task-card/1",
+  "card_id": "understand.read_page@10-tissues-and-its-types/page-012",
+  "section": "understand",
+  "task": "read_page",
+  "prefix": {
+   "prefix_id": "understand.read_page/2",
+   "rulebook_version": "content_types@2026-10-22.2+simple_hindi@2026-10-23.1+vision-2026-10-21@2026-10-21.9",
+   "content_types_version": "2026-10-22.2",
+   "schema_id": "bie.brain.understand-page/2",
+   "sha256": "4d60d99dd550bc3482ed18e5f2d02b143cc83c7be874e1ca898690158f205235"
+  },
+  "unit": {
+   "unit_id": "page-012",
+   "title": "Page 12 of 14",
+   "pages": [
+    12
+   ]
+  },
+  "parts": [
+   {
+    "part_id": "b1",
+    "item_ids": [
+     "p0012-b0002"
+    ],
+    "type": "classification",
+    "questions": [
+     "which",
+     "difference"
+    ],
+    "focus": "BIE proposes classification (weak): classification: pattern 'types of', 'types of'; structure: pattern 'made up of', 'made up of'"
+   },
+   {
+    "part_id": "b2",
+    "item_ids": [
+     "p0012-b0005"
+    ],
+    "type": "structure",
+    "questions": [
+     "what",
+     "where"
+    ],
+    "focus": "BIE proposes structure (weak): 'parts'"
+   },
+   {
+    "part_id": "b3",
+    "item_ids": [
+     "p0012-b0007"
+    ],
+    "type": "timeline",
+    "questions": [
+     "when",
+     "why"
+    ],
+    "focus": "BIE proposes timeline (strong): pattern '2020'"
+   },
+   {
+    "part_id": "img",
+    "item_ids": [
+     "p0012-image"
+    ],
+    "type": "none",
+    "questions": [
+     "what"
+    ],
+    "focus": "The page image: capture every table, diagram, label and arrow it shows (S1-01); its items get the type of what they show."
+   }
+  ],
+  "rules": [
+   "G-01",
+   "G-02",
+   "G-03",
+   "G-05",
+   "S1-01",
+   "S1-02",
+   "S1-03",
+   "S1-04",
+   "S1-05",
+   "S1-06",
+   "S1-07",
+   "S1-08",
+   "S1-09",
+   "S1-10",
+   "S1-11"
+  ],
+  "output": {
+   "schema_id": "bie.brain.understand-page/2",
+   "mode": "full",
+   "max_output_tokens": 32000
+  },
+  "coverage": {
+   "must_cover": [
+    "p0012-b0002",
+    "p0012-b0003",
+    "p0012-b0004",
+    "p0012-b0005",
+    "p0012-b0006",
+    "p0012-b0007",
+    "p0012-b0008",
+    "p0012-b0009",
+    "p0012-b0010",
+    "p0012-b0011",
+    "p0012-b0012",
+    "p0012-b0013",
+    "p0012-b0014",
+    "p0012-b0015",
+    "p0012-b0016",
+    "p0012-b0017",
+    "p0012-b0018"
+   ],
+   "claim_field": "items[].block_ids or boilerplate_block_ids",
+   "may_skip": [
+    {
+     "item_id": "p0012-b0001",
+     "reason": "running header (the same first line as the next or previous page)"
+    },
+    {
+     "item_id": "p0012-b0019",
+     "reason": "page number"
+    }
+   ]
+  },
+  "context": {
+   "map_slice": [],
+   "before": " Xylem fibres are mainly supportive in function.",
+   "after": "a. 1 only"
+  },
+  "source": {
+   "block_ids": [
+    "p0012-b0001",
+    "p0012-b0002",
+    "p0012-b0003",
+    "p0012-b0004",
+    "p0012-b0005",
+    "p0012-b0006",
+    "p0012-b0007",
+    "p0012-b0008",
+    "p0012-b0009",
+    "p0012-b0010",
+    "p0012-b0011",
+    "p0012-b0012",
+    "p0012-b0013",
+    "p0012-b0014",
+    "p0012-b0015",
+    "p0012-b0016",
+    "p0012-b0017",
+    "p0012-b0018",
+    "p0012-b0019"
+   ],
+   "page_images": [
+    {
+     "page": 12,
+     "sha256": "4d6586b1ef3ac97114ec4bf7209c77d2fb3277dd83101b304d9fe2c068b8f0f7"
+    }
+   ]
+  }
+ },
+ "prefix_sha256": "4d60d99dd550bc3482ed18e5f2d02b143cc83c7be874e1ca898690158f205235",
+ "review_prefix_sha256": "56cfd1b1e246b3c4f1b1f41a21fed8cc4a16babcc603df929a12d3fa7160646d",
+ "inputs": {
+  "system": "BIE task prefix understand.read_page/2 · rulebook content_types@2026-10-22.2+simple_hindi@2026-10-23.1+vision-2026-10-21@2026-10-21.9 · content types 2026-10-22.2 · schema bie.brain.understand-page/2\n\nYou are BIE's book-understanding section: an expert teacher of Science and Technology for UPSC / State PCS aspirants preparing for UPSC / State PCS.\nYou read one page of a book chapter with two eyes, the page's native text blocks and the page image, and turn it into a complete,\nquestion-based teacher's understanding. Later BIE sections build the video lessons, the chapter game and the notes only from what you\ncapture, so anything you miss is missing from the whole course. Your output is internal to BIE: write it in clear English and keep the\nbook's own terms and spellings.\nCourse: \"10. Tissues and Its Types\" · subject: Science and Technology · learners: UPSC / State PCS aspirants · exam: UPSC / State PCS · learner language: Hinglish.\n\nNavin's rules for this task (follow every one):\n[G-01] Everything taught comes from the book. Knowledge from outside the book is allowed only to explain the book better; it is marked as outside, standard textbook-level and correct. Never invent facts, numbers, names or quotations.\n[G-02] Work like the best teacher of these learners and this exam, not like a summariser. Depth beats brevity: nothing teachable on the page is skipped or compressed away, and every explanation makes a student understand, not just remember.\n[G-03] Before the output, fill 'notes' with brief notes for the reviewer and for Navin: what this unit is about, the key questions a teacher must answer about it, the main decisions you made with a one-line reason each, and anything uncertain. Keep the notes short; they explain the work, they are not the work.\n[G-05] Never shorten work to fit a length. If a unit of work is too large, it is split by BIE into smaller units; within a unit, completeness wins.\n[S1-01] Read the page with two eyes: the native text blocks (exact words and numbers) and the page image (tables, diagrams, labels, arrows, equations, layout). Items that exist only in the image are as important as text items. A page whose text layer is empty or nearly empty is read entirely from the image.\n[S1-02] Every native text block is either covered by an item (its id in that item's block_ids) or listed as boilerplate. Boilerplate is only running headers, page numbers, publisher adverts, contact lines and watermarks; nothing teachable is boilerplate.\n[S1-03] Every table becomes one 'table' item plus one 'table_row' item per row, in order, each row's content giving every cell with its column header, for example 'Smooth muscle | Location: G.I. tract, uterus, eye, blood vessels | Function: peristalsis, blood pressure, pupil size, erects hairs | Appearance: no striations, one central nucleus | Control: involuntary'. A table continued from the previous page continues the same table.\n[S1-04] Every diagram, chart, flow or tree becomes one 'diagram' item that says what it shows and how its parts connect (arrows, branches, flows, sequence), plus one 'diagram_label' item per label naming what the label points to. A classification tree lists every branch and leaf with its parent.\n[S1-05] Every equation, formula, chemical formula and symbol is read exactly and each symbol's meaning and unit are stated.\n[S1-06] Understand every teachable item by questioning it like a teacher. Ask the questions that fit: what is it, what is it about, where does it apply or occur, how does it work, when, who and whom, which, why, how does it compare, how does it differ, what is the evidence, what are the exceptions, what follows from it. Then keep asking 'why' and 'how' on your own answers (depth 2, 3 ...) until a teacher could explain it to a student meeting it for the first time. Answers explain; they never just repeat the item's words.\n[S1-07] Mark every answer's basis: 'book' only when the page itself states it, 'outside' when any part comes from general knowledge. Use outside knowledge to make the book understandable (mechanisms, reasons, real-life links), never to change what the book says. Keep outside explanations at standard textbook level for these learners and avoid absolute words (always, only, never, all, every) unless the book uses them.\n[S1-08] Give every item its true content type, one of BIE's nine: process, structure, classification, comparison, timeline, cause_effect, facts_numbers, figure, definition (bie/brain/rulebook/content_types.json). An example takes the type of what it illustrates; a question or an answer option is a role, not a type. BIE's code proposes a type before you read the page; when you choose another, say why. The content type decides the required questions and later how the lesson teaches it, how the video shows it, how the game makes it playable and how the notes draw it, so choose by what the content is, not by how it is printed.\n[S1-09] Name the prerequisites a student must already understand for each item, as concrete concepts ('cell and its nucleus', 'what a nerve impulse is'), never vague ('basic biology'). Prerequisites are taught later, not just listed.\n[S1-10] Judge exam importance for the course's exam (for UPSC / State PCS: classifications, comparisons, locations, functions, examples and odd-one-out facts are high). Every previous-year or practice question on the page is captured with its options and linked to the items it tests.\n[S1-11] Where the text layer and the image disagree (garbled symbols, missing words, wrong order), report the disagreement. Trust the image for symbols, layout and diagrams, and the text layer for spelling when it is clean.\n\nBIE's content types (the type of an item decides its required questions and how it is taught, shown, played and drawn):\n- process · Process: Something that happens in steps or stages over time: a mechanism, a procedure, a cycle (photosynthesis, cell division, how a bill becomes law). Required questions: how (kaise), when (kab). Other questions: what (kya), where (kahan), why (kyun), consequence (nateeja).\n- structure · Structure: Something made of parts arranged in space, each part with a function (a cell, a leaf, the heart, a machine, the Parliament). Required questions: what (kya), where (kahan). Other questions: how (kaise), why (kyun), which (kaun).\n- classification · Classification: A group divided into kinds by a stated basis (types of tissues, kinds of rocks, kinds of writs). Required questions: which (kaun), difference (tulna). Other questions: what (kya), evidence (saboot), where (kahan).\n- comparison · Comparison: Two or more things set side by side on stated criteria (plant and animal cells, Lok Sabha and Rajya Sabha). Required questions: compare (tulna), difference (tulna). Other questions: what (kya), why (kyun), evidence (saboot).\n- timeline · Timeline: Events placed in time: history, the development of an idea, stages of a life (the Revolt of 1857, evolution of cell theory). Required questions: when (kab), why (kyun). Other questions: who (kaun), where (kahan), consequence (nateeja).\n- cause_effect · Reasoning (cause and effect): Why something happens: causes, effects, conditions and chains of reasoning (why tissues specialise, why prices rise, why a law was needed). Required questions: why (kyun), how (kaise). Other questions: consequence (nateeja), evidence (saboot), exception (tulna).\n- facts_numbers · Facts and numbers: Stated facts, quantities, measurements, statistics and formulas (heart rate 72 per minute, 3,000 against 50,000 soldiers at Plassey, F = ma). Required questions: what (kya), evidence (saboot). Other questions: compare (tulna), why (kyun).\n- figure · Figure: A diagram, photo, map, graph or table drawing on the page whose content is visual (tissue pages 2, 7 and 8 are figures only). Required questions: what (kya), which (kaun). Other questions: how (kaise), why (kyun).\n- definition · Definition: A term and its meaning as the book states it (tissue, meristem, sovereignty). Required questions: what (kya), evidence (saboot). Other questions: about (kya), why (kyun).\n\nOutput schema (JSON):\n{\"additionalProperties\":false,\"properties\":{\"boilerplate_block_ids\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"items\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"block_ids\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"content\":{\"type\":\"string\"},\"content_type\":{\"enum\":[\"process\",\"structure\",\"classification\",\"comparison\",\"timeline\",\"cause_effect\",\"facts_numbers\",\"figure\",\"definition\",\"none\"],\"type\":\"string\"},\"exam_importance\":{\"enum\":[\"high\",\"medium\",\"low\"],\"type\":\"string\"},\"exam_note\":{\"type\":\"string\"},\"item_id\":{\"type\":\"string\"},\"kind\":{\"enum\":[\"heading\",\"paragraph\",\"definition\",\"list_point\",\"example\",\"table\",\"table_row\",\"diagram\",\"diagram_label\",\"equation\",\"symbol\",\"box_note\",\"caption\",\"question\",\"answer_option\",\"other\"],\"type\":\"string\"},\"parent_item_id\":{\"type\":\"string\"},\"prerequisites\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"source\":{\"enum\":[\"text\",\"image\",\"both\"],\"type\":\"string\"},\"teachable\":{\"type\":\"boolean\"},\"teacher_understanding\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"answer\":{\"type\":\"string\"},\"ask\":{\"enum\":[\"what\",\"about\",\"where\",\"how\",\"when\",\"who\",\"whom\",\"which\",\"why\",\"compare\",\"difference\",\"evidence\",\"exception\",\"consequence\"],\"type\":\"string\"},\"basis\":{\"enum\":[\"book\",\"outside\"],\"type\":\"string\"},\"depth\":{\"description\":\"1 for a first question; 2, 3 ... for a deeper why/how on an earlier answer\",\"type\":\"integer\"},\"question\":{\"type\":\"string\"}},\"required\":[\"depth\",\"ask\",\"question\",\"answer\",\"basis\"],\"type\":\"object\"},\"type\":\"array\"},\"tests_item_ids\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"type_note\":{\"type\":\"string\"},\"where_on_page\":{\"type\":\"string\"}},\"required\":[\"item_id\",\"kind\",\"parent_item_id\",\"source\",\"block_ids\",\"where_on_page\",\"content\",\"content_type\",\"type_note\",\"teachable\",\"teacher_understanding\",\"prerequisites\",\"exam_importance\",\"exam_note\",\"tests_item_ids\"],\"type\":\"object\"},\"type\":\"array\"},\"notes\":{\"additionalProperties\":false,\"properties\":{\"about\":{\"description\":\"What this unit of work is about and how it fits the whole (one or two sentences).\",\"type\":\"string\"},\"decisions\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"decision\":{\"type\":\"string\"},\"reason\":{\"type\":\"string\"}},\"required\":[\"decision\",\"reason\"],\"type\":\"object\"},\"type\":\"array\"},\"key_questions\":{\"description\":\"The key questions a teacher must answer about this unit.\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"uncertain\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"}},\"required\":[\"about\",\"key_questions\",\"decisions\",\"uncertain\"],\"type\":\"object\"},\"page_summary\":{\"type\":\"string\"},\"text_image_disagreements\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"block_ids\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"image_shows\":{\"type\":\"string\"},\"text_says\":{\"type\":\"string\"}},\"required\":[\"block_ids\",\"text_says\",\"image_shows\"],\"type\":\"object\"},\"type\":\"array\"}},\"required\":[\"notes\",\"page_summary\",\"items\",\"boilerplate_block_ids\",\"text_image_disagreements\"],\"type\":\"object\"}\n\nHow BIE talks to you: every request is a task card (JSON) followed by its source. The card names the unit, its parts with their content type and required questions, the ids of the rules above that apply, the output, the ids you must cover and the context. The card is BIE's instruction; the source is the material.\nFor a read_page card:\n- card.parts: BIE's code has already proposed a content type for groups of this page's native text blocks (item_ids are block ids;\n  \"pNNNN-image\" is the page image), with the evidence in \"focus\". It is a proposal from keywords and patterns, not a verdict: give\n  every item its true type (S1-08). When you choose another type than BIE's proposal for an item's blocks, say why in one line in that\n  item's type_note; BIE's code compares every item and sends unexplained differences back to you.\n- card.coverage: every id in must_cover must be in some item's block_ids or in boilerplate_block_ids; may_skip lists blocks BIE thinks are\n  running headers or page numbers. Never list an id that is not on this page.\n- card.context.before and after: one line from the previous and the next page, for context only.\nHow to fill the JSON:\n- notes: brief notes for the reviewer: what the page is about and how it fits the chapter, the key questions a teacher must answer,\n  your main decisions (how you split items, how you read an unclear part, a type you chose against BIE's proposal) with a reason each,\n  and what is uncertain.\n- items: everything on the page, in reading order.\n  - item_id: short and unique on this page (\"i1\", \"i2\", ...).\n  - kind: heading, paragraph, definition, list_point, example, table (the whole table), table_row (one per row), diagram (the whole figure),\n    diagram_label (one per label), equation, symbol, box_note, caption, question (a PYQ or practice question), answer_option, other.\n  - parent_item_id: the table of a table_row, the diagram of a diagram_label, the question of an answer_option, else \"\".\n  - source: \"text\" if the item comes from native text blocks, \"image\" if it is visible only in the image, \"both\" if both show it.\n  - block_ids: the ids of the native text blocks this item covers ([] for image-only items). Use only ids from the card.\n  - where_on_page: where it is (\"top table, row 2\", \"right diagram, label at the axon end\").\n  - content: the exact words for text items; a complete, faithful reading for image items (every cell with its column header for a\n    table_row; what a label names and what it points to for a diagram_label; all branches for a tree).\n  - content_type: one of BIE's nine type ids above, by what the content is. An example takes the type of what it illustrates; a table\n    row or a diagram label usually takes its table's or diagram's type. \"none\" only for a question, an answer option or an item that is\n    not teachable.\n  - type_note: \"\" when you agree with BIE's proposal for this item's blocks (or there is none); otherwise one line on why your type fits.\n  - teachable: false only for pure headings and containers whose children carry the content.\n  - teacher_understanding: the teacher's questions and answers for this item (S1-06); depth 1 for first questions, 2 and more for\n    \"why\"/\"how\" on an earlier answer; basis \"book\" only if the page states it, else \"outside\". BIE's code checks every teachable item:\n    at least two questions, at least one \"why\" or \"how\", and at least the required questions of its content type.\n  - prerequisites: concrete concepts a student must understand first.\n  - exam_importance and exam_note: for this exam.\n  - tests_item_ids: for a question, the ids on this page that it tests ([] if they are on other pages).\n- boilerplate_block_ids: ids of running headers, page numbers, adverts, contact lines and watermarks only.\n- text_image_disagreements: where the text layer and the image differ.\nReply with the JSON object only.",
+  "user": [
+   {
+    "type": "text",
+    "text": "BIE task card (JSON):\n{\"card\":\"bie.task-card/1\",\"card_id\":\"understand.read_page@10-tissues-and-its-types/page-012\",\"section\":\"understand\",\"task\":\"read_page\",\"prefix\":{\"prefix_id\":\"understand.read_page/2\",\"rulebook_version\":\"content_types@2026-10-22.2+simple_hindi@2026-10-23.1+vision-2026-10-21@2026-10-21.9\",\"content_types_version\":\"2026-10-22.2\",\"schema_id\":\"bie.brain.understand-page/2\",\"sha256\":\"4d60d99dd550bc3482ed18e5f2d02b143cc83c7be874e1ca898690158f205235\"},\"unit\":{\"unit_id\":\"page-012\",\"title\":\"Page 12 of 14\",\"pages\":[12]},\"parts\":[{\"part_id\":\"b1\",\"item_ids\":[\"p0012-b0002\"],\"type\":\"classification\",\"questions\":[\"which\",\"difference\"],\"focus\":\"BIE proposes classification (weak): classification: pattern 'types of', 'types of'; structure: pattern 'made up of', 'made up of'\"},{\"part_id\":\"b2\",\"item_ids\":[\"p0012-b0005\"],\"type\":\"structure\",\"questions\":[\"what\",\"where\"],\"focus\":\"BIE proposes structure (weak): 'parts'\"},{\"part_id\":\"b3\",\"item_ids\":[\"p0012-b0007\"],\"type\":\"timeline\",\"questions\":[\"when\",\"why\"],\"focus\":\"BIE proposes timeline (strong): pattern '2020'\"},{\"part_id\":\"img\",\"item_ids\":[\"p0012-image\"],\"type\":\"none\",\"questions\":[\"what\"],\"focus\":\"The page image: capture every table, diagram, label and arrow it shows (S1-01); its items get the type of what they show.\"}],\"rules\":[\"G-01\",\"G-02\",\"G-03\",\"G-05\",\"S1-01\",\"S1-02\",\"S1-03\",\"S1-04\",\"S1-05\",\"S1-06\",\"S1-07\",\"S1-08\",\"S1-09\",\"S1-10\",\"S1-11\"],\"output\":{\"schema_id\":\"bie.brain.understand-page/2\",\"mode\":\"full\",\"max_output_tokens\":32000},\"coverage\":{\"must_cover\":[\"p0012-b0002\",\"p0012-b0003\",\"p0012-b0004\",\"p0012-b0005\",\"p0012-b0006\",\"p0012-b0007\",\"p0012-b0008\",\"p0012-b0009\",\"p0012-b0010\",\"p0012-b0011\",\"p0012-b0012\",\"p0012-b0013\",\"p0012-b0014\",\"p0012-b0015\",\"p0012-b0016\",\"p0012-b0017\",\"p0012-b0018\"],\"claim_field\":\"items[].block_ids or boilerplate_block_ids\",\"may_skip\":[{\"item_id\":\"p0012-b0001\",\"reason\":\"running header (the same first line as the next or previous page)\"},{\"item_id\":\"p0012-b0019\",\"reason\":\"page number\"}]},\"context\":{\"map_slice\":[],\"before\":\" Xylem fibres are mainly supportive in function.\",\"after\":\"a. 1 only\"},\"source\":{\"block_ids\":[\"p0012-b0001\",\"p0012-b0002\",\"p0012-b0003\",\"p0012-b0004\",\"p0012-b0005\",\"p0012-b0006\",\"p0012-b0007\",\"p0012-b0008\",\"p0012-b0009\",\"p0012-b0010\",\"p0012-b0011\",\"p0012-b0012\",\"p0012-b0013\",\"p0012-b0014\",\"p0012-b0015\",\"p0012-b0016\",\"p0012-b0017\",\"p0012-b0018\",\"p0012-b0019\"],\"page_images\":[{\"page\":12,\"sha256\":\"4d6586b1ef3ac97114ec4bf7209c77d2fb3277dd83101b304d9fe2c068b8f0f7\"}]}}\n\nNative text blocks of this page (id | text):\np0012-b0001 | Science and Technology\np0012-b0002 |  Phloem is made up of five types of cells: sieve cells, sieve tubes, companion cells, phloem\np0012-b0003 | fibres and the phloem parenchyma.\np0012-b0004 |  Sieve tubes are tubular cells with perforated walls.\np0012-b0005 |  Phloem transports food from leaves to other parts of the plant.\np0012-b0006 |  Except phloem fibres, other phloem cells are living cells.\np0012-b0007 | Q. Fat present below the skin surface in our body, acts as a barrier against: (HPAS 2020)\np0012-b0008 | a. Loss of heat from our body\np0012-b0009 | b. Loss of essential body nutrients\np0012-b0010 | c. Loss of salts from the body\np0012-b0011 | d. Entry of harmful micro-organisms from the environments\np0012-b0012 | PRACTICE QUESTIONS\np0012-b0013 | Q. Consider the following statements:\np0012-b0014 | Tissue Location\np0012-b0015 | 1. Apical Present at root tips only\np0012-b0016 | 2. Lateral Present beneath bark\np0012-b0017 | 3. Intercalary Present at base of leaves or internodes\np0012-b0018 | Choose the correct statement(s):\np0012-b0019 | 98"
+   },
+   {
+    "type": "text",
+    "text": "The page image:"
+   },
+   {
+    "type": "image",
+    "media_type": "image/png",
+    "sha256": "0e8fd742782434dc28cf08e0c6a25a7869be859ea2d33b49e24e3d5390366e9b",
+    "base64_chars": 751224
+   },
+   {
+    "type": "text",
+    "text": "Read this page with both eyes and answer the card with the page understanding JSON."
+   }
+  ]
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "started_at": 1792743216.9194453,
+   "mode": "full",
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "307ceebb211246fd765cafec855e6072bc3b52148844ba7d4c23e500773fbca0",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 21857,
+    "output_tokens": 11919,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "This page completes the discussion of phloem, compares xylem and phloem, and illustrates their arrangement. It also tests the insulating role of subcutaneous fat and the locations of meristematic tissues.",
+    "key_questions": [
+     "What are the five cell types listed for phloem, and which is the non-living exception?",
+     "How do xylem and phloem differ in transport, cell walls and support?",
+     "How should the simplified comparison table be explained without treating its generalisations as universal facts?",
+     "What do the vascular-tissue diagram and its arrows show?",
+     "Why does fat below the skin reduce heat loss?",
+     "Which meristem-location statements are correct, and why is 'root tips only' incorrect?"
+    ],
+    "decisions": [
+     {
+      "decision": "Read the comparison table and vascular diagram from the image, with separate rows and labels.",
+      "reason": "Their teaching content is absent from the native text blocks."
+     },
+     {
+      "decision": "Classify phloem transport as facts_numbers and the HPAS item as a question with type none.",
+      "reason": "A stated function is not spatial structure, and an examination year does not make a question a timeline."
+     },
+     {
+      "decision": "Preserve the table's wording while marking qualifications as outside knowledge.",
+      "reason": "Several entries generalise properties of particular cell types to an entire complex tissue."
+     },
+     {
+      "decision": "Resolve the two questions in teacher understanding, distinguishing supplied statements from inferred answers.",
+      "reason": "The page prints neither an answer key nor the continuation of the practice-question options."
+     }
+    ],
+    "uncertain": [
+     "The comparison table says xylem cells are 'impermeable to the water'; this needs qualification rather than literal application to the entire transport tissue.",
+     "The diagram has no caption identifying the plant organ or specimen; its small overview is treated as a schematic vascular arrangement.",
+     "The practice question's answer options continue beyond this page and are not supplied here."
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "This page completes the discussion of phloem, compares xylem and phloem, and illustrates their arrangement. It also tests the insulating role of subcutaneous fat and the locations of meristematic tissues.",
+     "key_questions": [
+      "What are the five cell types listed for phloem, and which is the non-living exception?",
+      "How do xylem and phloem differ in transport, cell walls and support?",
+      "How should the simplified comparison table be explained without treating its generalisations as universal facts?",
+      "What do the vascular-tissue diagram and its arrows show?",
+      "Why does fat below the skin reduce heat loss?",
+      "Which meristem-location statements are correct, and why is 'root tips only' incorrect?"
+     ],
+     "decisions": [
+      {
+       "decision": "Read the comparison table and vascular diagram from the image, with separate rows and labels.",
+       "reason": "Their teaching content is absent from the native text blocks."
+      },
+      {
+       "decision": "Classify phloem transport as facts_numbers and the HPAS item as a question with type none.",
+       "reason": "A stated function is not spatial structure, and an examination year does not make a question a timeline."
+      },
+      {
+       "decision": "Preserve the table's wording while marking qualifications as outside knowledge.",
+       "reason": "Several entries generalise properties of particular cell types to an entire complex tissue."
+      },
+      {
+       "decision": "Resolve the two questions in teacher understanding, distinguishing supplied statements from inferred answers.",
+       "reason": "The page prints neither an answer key nor the continuation of the practice-question options."
+      }
+     ],
+     "uncertain": [
+      "The comparison table says xylem cells are 'impermeable to the water'; this needs qualification rather than literal application to the entire transport tissue.",
+      "The diagram has no caption identifying the plant organ or specimen; its small overview is treated as a schematic vascular arrangement.",
+      "The practice question's answer options continue beyond this page and are not supplied here."
+     ]
+    },
+    "page_summary": "Phloem contains five listed cell types and transports food from leaves; phloem fibres are the non-living exception. An image-only table compares xylem and phloem on six criteria, and a labelled diagram shows vascular arrangement and transport arrows. Questions test heat insulation by fat and locations of apical, lateral and intercalary meristems.",
+    "items": [
+     {
+      "item_id": "i1",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0012-b0002",
+       "p0012-b0003"
+      ],
+      "where_on_page": "top, first bullet",
+      "content": "Phloem is made up of five types of cells: sieve cells, sieve tubes, companion cells, phloem fibres and the phloem parenchyma.",
+      "content_type": "classification",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which five cell types does the page list in phloem?",
+        "answer": "It lists sieve cells, sieve tubes, companion cells, phloem fibres and phloem parenchyma.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "How do their roles differ?",
+        "answer": "Sieve cells and sieve-tube elements conduct food; companion cells assist sieve-tube elements; phloem parenchyma contributes to storage and local transport; phloem fibres provide support.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is phloem called a complex tissue?",
+        "answer": "Different cell types work together in the tissue, rather than the tissue consisting of one similar cell type.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "exception",
+        "question": "Does this list mean each plant has both sieve cells and sieve tubes?",
+        "answer": "No. The list describes phloem elements across plant groups: sieve cells occur in groups such as gymnosperms, whereas sieve tubes with companion cells characterise angiosperms.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell",
+       "tissue",
+       "living and dead cells"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Know the component list, the complex-tissue classification and the fibre exception.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i2",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0012-b0004"
+      ],
+      "where_on_page": "top, second bullet",
+      "content": "Sieve tubes are tubular cells with perforated walls.",
+      "content_type": "structure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What structural feature identifies sieve tubes here?",
+        "answer": "They are tubular cells with perforated walls.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Where are sieve tubes found, and where are their characteristic perforations?",
+        "answer": "They form conducting elements of phloem; their end walls form perforated sieve plates between successive sieve-tube elements.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do perforated end walls help food transport?",
+        "answer": "Their pores allow phloem sap to pass between adjoining elements, connecting the elements into a conducting pathway.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell wall",
+       "phloem",
+       "adjoining cells"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Connect the sieve-tube structure with its transport function.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i3",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0012-b0005"
+      ],
+      "where_on_page": "top, third bullet",
+      "content": "Phloem transports food from leaves to other parts of the plant.",
+      "content_type": "facts_numbers",
+      "type_note": "This states a tissue's transport function, not the spatial arrangement of its parts.",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does phloem transport according to this page?",
+        "answer": "It transports food from leaves to other parts of the plant.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "evidence",
+        "question": "What other page content reinforces this function?",
+        "answer": "The comparison table says phloem carries food materials from leaves to the growing parts of the plant.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why must food move from leaves to other plant parts?",
+        "answer": "Photosynthetic leaves produce sugars, while roots, developing organs and other consuming or storing tissues require a supply of organic nutrients.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How should the direction in this statement be understood?",
+        "answer": "It is a common source-to-sink example. Phloem transport follows the locations of sugar sources and sinks, so it is not restricted to downward movement.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "photosynthesis",
+       "leaves and roots",
+       "transport tissue"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Distinguish food transport by phloem from water and mineral transport by xylem.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i4",
+      "kind": "table",
+      "parent_item_id": "",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "upper-middle left",
+      "content": "Comparison table with columns S.No., Xylem and Phloem. Six rows compare transported materials, living or dead cells, wall thickness, permeability, wall material and mechanical strength.",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": false,
+      "teacher_understanding": [],
+      "prerequisites": [
+       "xylem",
+       "phloem",
+       "cell wall"
+      ],
+      "exam_importance": "high",
+      "exam_note": "A central comparison table for statement-based questions; use the qualifications in its row explanations.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i5",
+      "kind": "table_row",
+      "parent_item_id": "i4",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "comparison table, row 1",
+      "content": "S.No.: 1. | Xylem: It carries water and minerals from roots to leaves. | Phloem: It carries food materials from the leaves to the growing parts of the plant.",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "What materials and routes does the table associate with the two tissues?",
+        "answer": "Xylem carries water and minerals from roots to leaves; phloem carries food materials from leaves to growing plant parts.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "What is the main functional distinction?",
+        "answer": "Xylem supplies water and minerals, whereas phloem distributes food materials.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why does the plant need both transport functions?",
+        "answer": "Water and minerals absorbed by roots must reach aerial tissues, while sugars made in photosynthetic tissues must reach tissues that consume or store them.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "root absorption",
+       "photosynthesis",
+       "plant organs"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Transported substance is a basic distinction in tissue questions.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i6",
+      "kind": "table_row",
+      "parent_item_id": "i4",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "comparison table, row 2",
+      "content": "S.No.: 2. | Xylem: It is composed of dead cells. | Phloem: It is composed of living cells.",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How does the table compare the tissues by cell vitality?",
+        "answer": "It describes xylem as composed of dead cells and phloem as composed of living cells.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "What qualifications prevent this comparison from becoming misleading?",
+        "answer": "Mature xylem conducting elements are dead, but xylem parenchyma is living. Most phloem elements are living, but mature phloem fibres are dead.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why can dead xylem conducting elements still carry water?",
+        "answer": "After losing their living contents, they retain hollow, reinforced walls that form passages for water movement.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "living cell contents",
+       "xylem elements",
+       "phloem elements"
+      ],
+      "exam_importance": "high",
+      "exam_note": "The exceptions are essential for evaluating absolute statements.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i7",
+      "kind": "table_row",
+      "parent_item_id": "i4",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "comparison table, row 3",
+      "content": "S.No.: 3. | Xylem: It has a thick cell wall. | Phloem: It has a thin cell wall.",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "What wall-thickness contrast does the table give?",
+        "answer": "It associates xylem with thick cell walls and phloem with thin cell walls.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "How should this contrast be applied to component cells?",
+        "answer": "It broadly contrasts thick-walled xylem conducting elements with thinner-walled phloem conducting cells; thick-walled phloem fibres are an exception.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why are reinforced walls useful in xylem?",
+        "answer": "They help conducting elements resist collapse during water transport and contribute to support.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell wall",
+       "conducting cells",
+       "mechanical support"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Do not extend the thin-wall description to phloem fibres.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i8",
+      "kind": "table_row",
+      "parent_item_id": "i4",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "comparison table, row 4",
+      "content": "S.No.: 4. | Xylem: Its cells are impermeable to the water. | Phloem: Its cells are permeable to food components.",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "What permeability contrast is printed?",
+        "answer": "The table describes xylem cells as impermeable to water and phloem cells as permeable to food components.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "What distinction is needed to understand the xylem statement?",
+        "answer": "Resistance to water passage through lignified wall regions differs from movement along a conducting lumen. Water can also move between xylem elements through pits; the printed statement is too broad if applied to the whole tissue.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can phloem carry food without being freely permeable to every food substance?",
+        "answer": "Sugars move through connected sieve elements, while membranes regulate their loading and unloading. Transport does not imply unrestricted permeability.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "permeability",
+       "cell wall and cell membrane",
+       "lumen",
+       "pits"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Preserve the printed comparison but teach its limitations; do not infer that xylem cannot conduct water.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i9",
+      "kind": "table_row",
+      "parent_item_id": "i4",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "comparison table, row 5",
+      "content": "S.No.: 5. | Xylem: Its cells are made up of lignin. | Phloem: Its cells are made up of cellulose.",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "Which materials does the table associate with xylem and phloem?",
+        "answer": "It associates xylem with lignin and phloem with cellulose.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "How should 'cells are made up of' be interpreted here?",
+        "answer": "This is a simplified wall-material comparison. Xylem conducting walls contain cellulose and are reinforced with lignin; phloem conducting walls are mainly cellulosic, while phloem fibres may be lignified.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why does lignin matter to xylem function?",
+        "answer": "Lignin strengthens the walls and helps them withstand the forces associated with water transport.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cellulose",
+       "lignin",
+       "cell wall"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Avoid treating lignin and cellulose as mutually exclusive ingredients of entire cells.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i10",
+      "kind": "table_row",
+      "parent_item_id": "i4",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "comparison table, row 6",
+      "content": "S.No.: 6. | Xylem: It gives mechanical strength to the plants. | Phloem: Phloem does not give mechanical strength",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "What support-related contrast does the table print?",
+        "answer": "It says xylem gives mechanical strength to plants and phloem does not give mechanical strength.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "What qualification is needed for phloem?",
+        "answer": "Food conduction is phloem's main function, but its fibres can provide mechanical support. Thus the statement should not be applied to every phloem component.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does xylem contribute to mechanical strength?",
+        "answer": "Its thick, lignified elements, including fibres, reinforce plant organs and resist deformation.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "mechanical strength",
+       "lignified walls",
+       "plant fibres"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Relate support to wall structure and remember the role of phloem fibres.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i11",
+      "kind": "diagram",
+      "parent_item_id": "",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "right of comparison table",
+      "content": "A small plant-axis overview labels epidermis, cortex, pith, cambium, xylem and phloem. A curved red arrow leads from a marked vascular region to an enlarged longitudinal view. The enlarged view places xylem on the left, cambium in the middle and phloem on the right. Black arrows point upward in xylem and downward in the illustrated phloem pathway; transverse perforated partitions are visible in the conducting tubes.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does the diagram show?",
+        "answer": "It relates a small overview of plant tissues to an enlarged view of xylem, cambium and phloem, with arrows indicating transport direction in the drawing.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which tissue lies between xylem and phloem in the enlargement?",
+        "answer": "Cambium lies between the xylem on the left and phloem on the right.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How should the red and black arrows be read?",
+        "answer": "The red arrow connects the selected region to its enlargement; the black arrows show upward flow in xylem and downward flow in the depicted phloem pathway.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "exception",
+        "question": "Does the downward phloem arrow establish a universal direction?",
+        "answer": "No. It illustrates one route. Phloem transport follows source-to-sink relationships, which can involve upward or downward movement in different pathways.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "plant tissue",
+       "cross-sectional and longitudinal views",
+       "transport arrows"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Practise identifying the tissues and interpreting arrows without overgeneralising phloem direction.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i12",
+      "kind": "diagram_label",
+      "parent_item_id": "i11",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "small overview, upper-left label",
+      "content": "epidermis — points to the outermost covering of the small plant-axis overview.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does the epidermis label identify?",
+        "answer": "The outermost covering in the overview.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which labelled tissue is external to the cortex?",
+        "answer": "The epidermis.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is an outer covering useful?",
+        "answer": "It protects underlying tissues and can help regulate exchange with the surroundings.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "outer surface of a plant organ"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Identify the external protective layer.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i13",
+      "kind": "diagram_label",
+      "parent_item_id": "i11",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "small overview, label below epidermis",
+      "content": "cortex — points to the tissue region inside the epidermis and outside the vascular region.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What region does cortex name?",
+        "answer": "The region beneath the epidermis and outside the vascular tissues in the overview.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which label identifies the region between the outer covering and vascular tissues?",
+        "answer": "Cortex.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can cortical tissue contribute to a plant organ?",
+        "answer": "Depending on the organ, cortical cells can store materials and contribute to support or local movement of substances.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "epidermis",
+       "vascular tissue"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Recognise relative tissue positions.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i14",
+      "kind": "diagram_label",
+      "parent_item_id": "i11",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "small overview, upper central label",
+      "content": "pith — points to the central tissue region of the overview.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does pith identify?",
+        "answer": "The central tissue region in the small overview.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which labelled region occupies the centre?",
+        "answer": "Pith.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does pith commonly contribute to a stem?",
+        "answer": "Its parenchymatous cells commonly provide storage space for materials such as water and food reserves.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "central and peripheral positions",
+       "parenchyma"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Distinguish central pith from peripheral cortex.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i15",
+      "kind": "diagram_label",
+      "parent_item_id": "i11",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "small overview, upper-right label",
+      "content": "cambium — points to the narrow region between xylem and phloem in the overview.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does this cambium label identify?",
+        "answer": "The narrow tissue region between xylem and phloem.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which labelled region separates the two conducting tissues?",
+        "answer": "Cambium.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does vascular cambium contribute to growth?",
+        "answer": "Its dividing cells produce secondary xylem inward and secondary phloem outward, increasing the organ's girth.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "xylem",
+       "phloem",
+       "cell division"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Connect cambium's position with lateral growth.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i16",
+      "kind": "diagram_label",
+      "parent_item_id": "i11",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "small overview, lower-left label",
+      "content": "xylem — points to the inner conducting region of the selected vascular tissue.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does this xylem label identify?",
+        "answer": "The inner conducting region in the overview.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which labelled transport tissue lies inward of cambium?",
+        "answer": "Xylem.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does the page connect this region to plant transport?",
+        "answer": "The comparison table identifies xylem as carrying water and minerals from roots to leaves.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "vascular tissue",
+       "inner and outer positions"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Identify xylem by position and function.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i17",
+      "kind": "diagram_label",
+      "parent_item_id": "i11",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "small overview, lower-right label",
+      "content": "phloem — points to the outer conducting region of the selected vascular tissue.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does this phloem label identify?",
+        "answer": "The outer conducting region in the overview.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which labelled transport tissue lies outward of cambium?",
+        "answer": "Phloem.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does this tissue serve other plant parts?",
+        "answer": "It transports food from leaves to other parts, as stated in the page's bullet and comparison table.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "vascular tissue",
+       "food transport"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Identify phloem by position and function.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i18",
+      "kind": "diagram_label",
+      "parent_item_id": "i11",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "enlarged diagram, bottom-left",
+      "content": "xylem — bracket labels the left-hand elongated conducting elements, which contain upward-pointing arrows.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does the enlarged xylem label cover?",
+        "answer": "The elongated conducting elements on the left of the enlargement.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which labelled tissue contains upward arrows?",
+        "answer": "Xylem.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does water commonly move upward through xylem?",
+        "answer": "Transpiration from leaves creates tension that pulls a continuous column of water through xylem conducting elements.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "water transport",
+       "transpiration",
+       "diagram arrows"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Read arrow direction and tissue identity together.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i19",
+      "kind": "diagram_label",
+      "parent_item_id": "i11",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "enlarged diagram, bottom-centre",
+      "content": "cambium — bracket labels the narrow central band of cells between enlarged xylem and phloem.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does the central cambium label identify?",
+        "answer": "The narrow band of cells between xylem and phloem in the enlargement.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which labelled band is positioned between the two transport pathways?",
+        "answer": "Cambium.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is cambium relevant to a question about lateral meristem?",
+        "answer": "Vascular cambium is a lateral meristem whose cell divisions contribute to growth in girth.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "meristem",
+       "cell division",
+       "growth in girth"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Connect the visual band to lateral meristem.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i20",
+      "kind": "diagram_label",
+      "parent_item_id": "i11",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "enlarged diagram, bottom-right",
+      "content": "phloem — bracket labels the right-hand conducting tissue; black arrows point downward through the illustrated tube.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does the enlarged phloem label identify?",
+        "answer": "The conducting tissue on the right of the enlargement.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which labelled tissue contains the downward arrows?",
+        "answer": "Phloem.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can this direction fit food transport from leaves?",
+        "answer": "A leaf can supply sugars to a lower sink such as a root, giving downward transport along that pathway. Other source-sink arrangements can give a different direction.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "phloem",
+       "source and sink",
+       "diagram arrows"
+      ],
+      "exam_importance": "high",
+      "exam_note": "The shown downward route is an example, not a universal rule.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i21",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0012-b0006"
+      ],
+      "where_on_page": "below comparison table",
+      "content": "Except phloem fibres, other phloem cells are living cells.",
+      "content_type": "classification",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which phloem element is the exception to the living-cell description?",
+        "answer": "Phloem fibres are the exception; the other phloem cells are described as living.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "How do mature phloem fibres differ from the other listed phloem elements?",
+        "answer": "Mature fibres are dead supporting cells, while the other listed elements retain living contents.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why can a dead fibre still be useful?",
+        "answer": "Its strong wall remains after the living contents disappear and can provide mechanical support.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "exception",
+        "question": "Does a living sieve-tube element necessarily have a nucleus?",
+        "answer": "No. A mature sieve-tube element is living but lacks a nucleus and depends on its associated companion cell for metabolic support.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "phloem components",
+       "living cell",
+       "cell nucleus",
+       "supporting fibres"
+      ],
+      "exam_importance": "high",
+      "exam_note": "A frequent exception-based distinction; also qualifies the table's living-phloem statement.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i22",
+      "kind": "question",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0012-b0007"
+      ],
+      "where_on_page": "middle, below phloem bullet",
+      "content": "Q. Fat present below the skin surface in our body, acts as a barrier against: (HPAS 2020)",
+      "content_type": "none",
+      "type_note": "This is a previous-year question about a tissue's function; 2020 is the exam year, not a timeline.",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "Which option answers the HPAS question?",
+        "answer": "Option a, 'Loss of heat from our body', is correct.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why does fat beneath the skin reduce heat loss?",
+        "answer": "Subcutaneous adipose tissue is a poor conductor of heat. A fat layer slows heat transfer from warmer internal tissues toward the cooler surroundings.",
+        "basis": "outside"
+       },
+       {
+        "depth": 3,
+        "ask": "how",
+        "question": "How should a learner distinguish insulation from other protective functions?",
+        "answer": "Insulation concerns heat transfer. Skin's surface barrier helps exclude microbes and limit fluid loss, while salt and nutrient balance involve additional physiological mechanisms.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "adipose tissue",
+       "skin",
+       "heat transfer"
+      ],
+      "exam_importance": "high",
+      "exam_note": "HPAS 2020 previous-year question; the page does not print its answer.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i23",
+      "kind": "answer_option",
+      "parent_item_id": "i22",
+      "source": "both",
+      "block_ids": [
+       "p0012-b0008"
+      ],
+      "where_on_page": "HPAS question, option a",
+      "content": "a. Loss of heat from our body",
+      "content_type": "none",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "Is option a correct?",
+        "answer": "Yes. It identifies the insulating function of subcutaneous fat.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does insulation affect heat loss?",
+        "answer": "It slows heat transfer through the tissue layer; it does not completely prevent heat from leaving the body.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "thermal insulation",
+       "subcutaneous fat"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Correct option, inferred from standard tissue biology.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i24",
+      "kind": "answer_option",
+      "parent_item_id": "i22",
+      "source": "both",
+      "block_ids": [
+       "p0012-b0009"
+      ],
+      "where_on_page": "HPAS question, option b",
+      "content": "b. Loss of essential body nutrients",
+      "content_type": "none",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "Is prevention of nutrient loss the function being tested?",
+        "answer": "No. The question tests heat insulation by fat below the skin.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why might nutrient storage make this distractor tempting?",
+        "answer": "Adipose tissue stores energy as fat, but storing an energy reserve differs from acting as a barrier against the loss of essential nutrients.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "energy storage",
+       "adipose tissue"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Distinguish energy storage from thermal insulation.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i25",
+      "kind": "answer_option",
+      "parent_item_id": "i22",
+      "source": "both",
+      "block_ids": [
+       "p0012-b0010"
+      ],
+      "where_on_page": "HPAS question, option c",
+      "content": "c. Loss of salts from the body",
+      "content_type": "none",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "Is option c the correct protective function of subcutaneous fat?",
+        "answer": "No. Salt retention is not the insulating function tested here.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is salt loss a different issue from heat loss?",
+        "answer": "Salts leave the body in fluids such as sweat and urine; fat's poor heat conduction does not itself block these routes.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "salts in body fluids",
+       "sweat",
+       "heat conduction"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Separate material loss from transfer of heat.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i26",
+      "kind": "answer_option",
+      "parent_item_id": "i22",
+      "source": "both",
+      "block_ids": [
+       "p0012-b0011"
+      ],
+      "where_on_page": "HPAS question, option d",
+      "content": "d. Entry of harmful micro-organisms from the environments",
+      "content_type": "none",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "Is option d the function attributed to the fat layer?",
+        "answer": "No. The relevant function of the subcutaneous fat layer is heat insulation.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is this a plausible but incorrect distractor?",
+        "answer": "Skin protects against entry of microorganisms, but that barrier role is mainly associated with the skin surface and its defences, rather than the insulating fat beneath it.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "skin as a protective barrier",
+       "microorganisms",
+       "subcutaneous location"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Distinguish the epidermal barrier from the underlying fat layer.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i27",
+      "kind": "heading",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0012-b0012"
+      ],
+      "where_on_page": "lower-middle, centred",
+      "content": "PRACTICE QUESTIONS",
+      "content_type": "none",
+      "type_note": "",
+      "teachable": false,
+      "teacher_understanding": [],
+      "prerequisites": [],
+      "exam_importance": "low",
+      "exam_note": "Section heading.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i28",
+      "kind": "question",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0012-b0013",
+       "p0012-b0018"
+      ],
+      "where_on_page": "lower section, surrounding Tissue–Location statements",
+      "content": "Q. Consider the following statements:\nChoose the correct statement(s):",
+      "content_type": "none",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which of the three statements are correct?",
+        "answer": "Statements 2 and 3 are correct in the standard school-level description; statement 1 is incorrect because apical meristems occur at shoot tips as well as root tips.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is the word 'only' decisive in statement 1?",
+        "answer": "Root tips are a valid location, but the statement excludes shoot tips. That restriction makes the complete statement false.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can meristem location be related to growth?",
+        "answer": "Apical meristems extend roots and shoots, lateral meristems increase girth, and intercalary meristems support growth at regions such as leaf bases or internodes.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "meristematic tissue",
+       "root tip",
+       "shoot tip",
+       "internode",
+       "growth in length and girth"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Statement-based practice question. Options and a printed answer key are absent from this page.",
+      "tests_item_ids": [
+       "i30",
+       "i31",
+       "i32"
+      ]
+     },
+     {
+      "item_id": "i29",
+      "kind": "table",
+      "parent_item_id": "i28",
+      "source": "both",
+      "block_ids": [
+       "p0012-b0014"
+      ],
+      "where_on_page": "practice question, two-column statement layout",
+      "content": "Tissue | Location\nThree numbered statements pair Apical, Lateral and Intercalary tissues with stated locations.",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": false,
+      "teacher_understanding": [],
+      "prerequisites": [
+       "meristematic tissue",
+       "plant organ locations"
+      ],
+      "exam_importance": "high",
+      "exam_note": "These are statements to evaluate, not an endorsed reference table.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i30",
+      "kind": "table_row",
+      "parent_item_id": "i29",
+      "source": "both",
+      "block_ids": [
+       "p0012-b0015"
+      ],
+      "where_on_page": "practice table, statement 1",
+      "content": "1. Tissue: Apical | Location: Present at root tips only",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How does the proposed location compare with the accepted location of apical meristems?",
+        "answer": "It includes root tips but incorrectly excludes shoot tips.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "What is the difference between 'at root tips' and 'at root tips only'?",
+        "answer": "The first names a valid location; the second claims there are no other locations and is false because shoot tips also contain apical meristems.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why are apical meristems found at growing tips?",
+        "answer": "Their cell divisions supply new cells for primary growth, allowing roots and shoots to extend in length.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "apical meristem",
+       "root and shoot tips",
+       "primary growth"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Incorrect statement; the restrictive word 'only' is the trap.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i31",
+      "kind": "table_row",
+      "parent_item_id": "i29",
+      "source": "both",
+      "block_ids": [
+       "p0012-b0016"
+      ],
+      "where_on_page": "practice table, statement 2",
+      "content": "2. Tissue: Lateral | Location: Present beneath bark",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How does this proposed location fit lateral meristem?",
+        "answer": "It matches the standard school-level description of lateral meristem occurring in lateral regions beneath bark.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "How does lateral meristem differ from apical meristem in location and growth?",
+        "answer": "Lateral meristems occur along the sides of suitable stems and roots and contribute to girth; apical meristems occur at tips and contribute to length.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do lateral meristems increase girth?",
+        "answer": "Their divisions add tissues along the sides of an organ; vascular cambium produces secondary vascular tissues, while cork cambium produces protective tissues.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "lateral meristem",
+       "bark",
+       "cambium",
+       "secondary growth"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Correct in the intended school-level question; 'beneath bark' is a simplified location description.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i32",
+      "kind": "table_row",
+      "parent_item_id": "i29",
+      "source": "both",
+      "block_ids": [
+       "p0012-b0017"
+      ],
+      "where_on_page": "practice table, statement 3",
+      "content": "3. Tissue: Intercalary | Location: Present at base of leaves or internodes",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How does this location compare with the accepted location of intercalary meristem?",
+        "answer": "It matches the standard description: intercalary meristems occur at the bases of leaves or internodes in plants such as grasses.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "How does an intercalary meristem differ in position from an apical meristem?",
+        "answer": "An apical meristem occupies a growing tip; an intercalary meristem lies between more mature tissues, for example at a leaf base or the base of an internode.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can this position help grasses regrow after cutting or grazing?",
+        "answer": "If the basal growing region remains intact, its cell divisions can continue supplying cells for elongation even after upper portions have been removed.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "intercalary meristem",
+       "leaf base",
+       "node and internode",
+       "cell division"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Correct statement; associate the location with elongation and regrowth.",
+      "tests_item_ids": []
+     }
+    ],
+    "boilerplate_block_ids": [
+     "p0012-b0001",
+     "p0012-b0019"
+    ],
+    "text_image_disagreements": []
+   },
+   "code_problems": [],
+   "observed": {
+    "type_check": [
+     {
+      "item_id": "i1",
+      "ai_type": "classification",
+      "code_type": "classification",
+      "strength": "weak",
+      "evidence": [
+       "classification: pattern 'types of', 'types of'",
+       "structure: pattern 'made up of', 'made up of'"
+      ],
+      "status": "agree",
+      "type_note": ""
+     },
+     {
+      "item_id": "i2",
+      "ai_type": "structure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i3",
+      "ai_type": "facts_numbers",
+      "code_type": "structure",
+      "strength": "weak",
+      "evidence": [
+       "'parts'"
+      ],
+      "status": "explained",
+      "type_note": "This states a tissue's transport function, not the spatial arrangement of its parts."
+     },
+     {
+      "item_id": "i4",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i5",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i6",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i7",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i8",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i9",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i10",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i11",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i12",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i13",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i14",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i15",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i16",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i17",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i18",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i19",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i20",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i21",
+      "ai_type": "classification",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i22",
+      "ai_type": "none",
+      "code_type": "timeline",
+      "strength": "strong",
+      "evidence": [
+       "pattern '2020'"
+      ],
+      "status": "role",
+      "type_note": "This is a previous-year question about a tissue's function; 2020 is the exam year, not a timeline."
+     },
+     {
+      "item_id": "i23",
+      "ai_type": "none",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "role",
+      "type_note": ""
+     },
+     {
+      "item_id": "i24",
+      "ai_type": "none",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "role",
+      "type_note": ""
+     },
+     {
+      "item_id": "i25",
+      "ai_type": "none",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "role",
+      "type_note": ""
+     },
+     {
+      "item_id": "i26",
+      "ai_type": "none",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "role",
+      "type_note": ""
+     },
+     {
+      "item_id": "i27",
+      "ai_type": "none",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i28",
+      "ai_type": "none",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "role",
+      "type_note": ""
+     },
+     {
+      "item_id": "i29",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i30",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i31",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i32",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     }
+    ],
+    "type_summary": {
+     "agree": 1,
+     "code_silent": 6,
+     "explained": 1,
+     "follows_parent": 18,
+     "role": 6
+    }
+   },
+   "review": {
+    "route": "google",
+    "provider": "google",
+    "model": "google/gemini-4-argon",
+    "via": "aicredits",
+    "returned_model": "google/gemini-4-argon",
+    "request_hash": "9d39daa2633842a139afd3fc191c8c9045a04a401e3d6986eec128930565e819",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 16928,
+    "output_tokens": 1227,
+    "cost_usd": 0.050739,
+    "value": {
+     "notes": {
+      "about": "Review of page 12 covering phloem characteristics, the image-only xylem-phloem comparison table and vascular-bundle diagram, a previous-year HPAS MCQ on subcutaneous fat, and a practice question on meristematic tissue locations.",
+      "key_questions": [
+       "Were the image-only table (all 6 rows and 3 columns) and diagram (all 9 labels and directional arrows) completely captured?",
+       "Are the oversimplifications in the comparison table (such as xylem being 'impermeable to the water' or composed strictly of dead cells) properly qualified as outside knowledge without altering the book text?",
+       "Are the content types, required questions, and basis tags accurate across all 32 items?"
+      ],
+      "decisions": [
+       {
+        "decision": "Pass the unit with no blocking issues.",
+        "reason": "Every native text block and every visual element (table rows, diagram labels, arrows) has been thoroughly captured, accurately typed, and explained with appropriate textbook-level biological nuance."
+       }
+      ],
+      "uncertain": []
+     },
+     "verdict": "pass",
+     "missing": [],
+     "wrong": [],
+     "shallow": [],
+     "checklist": [
+      {
+       "rule_id": "G-01",
+       "met": true,
+       "note": "All statements from the book and image are marked 'book', and all biological qualifications, exceptions, and question resolutions are accurately marked 'outside'."
+      },
+      {
+       "rule_id": "G-02",
+       "met": true,
+       "note": "Explanations are complete and deep, properly addressing the nuances of complex tissues (e.g., xylem parenchyma being alive, phloem fibres being dead, sieve tubes lacking nuclei, and source-to-sink transport)."
+      },
+      {
+       "rule_id": "G-03",
+       "met": true,
+       "note": "The maker's notes clearly state what the unit is about, explain key classification and extraction decisions, and note uncertainties regarding table generalisations and truncated question options."
+      },
+      {
+       "rule_id": "G-05",
+       "met": true,
+       "note": "Nothing is cut short, merged away, or left as 'etc.'."
+      },
+      {
+       "rule_id": "S1-01",
+       "met": true,
+       "note": "Both the image-only comparison table and the vascular tissue diagram (along with all labels and arrows) are fully captured as items."
+      },
+      {
+       "rule_id": "S1-02",
+       "met": true,
+       "note": "Only the running header (p0012-b0001) and page number (p0012-b0019) are marked as boilerplate."
+      },
+      {
+       "rule_id": "S1-03",
+       "met": true,
+       "note": "Every row of the xylem-phloem comparison table (i5–i10) and every row of the practice question statement table (i30–i32) is captured as its own table_row item with column headers."
+      },
+      {
+       "rule_id": "S1-04",
+       "met": true,
+       "note": "All nine labels across both the small overview (i12–i17) and the enlarged view (i18–i20), as well as the red and black arrows, are captured with clear descriptions of what they point to."
+      },
+      {
+       "rule_id": "S1-05",
+       "met": true,
+       "note": "No equations or mathematical symbols appear on this page."
+      },
+      {
+       "rule_id": "S1-06",
+       "met": true,
+       "note": "Questions and answers reach solid teacher-level understanding, explaining mechanisms and correcting potential misconceptions from simplified table statements."
+      },
+      {
+       "rule_id": "S1-07",
+       "met": true,
+       "note": "Basis markings ('book' vs 'outside') are exact and all outside biological explanations are standard and accurate."
+      },
+      {
+       "rule_id": "S1-08",
+       "met": true,
+       "note": "Content types fit the material well, and sensible type_notes are provided where the maker overrode weak/false-positive proposals (such as '2020' in an exam citation triggering timeline)."
+      },
+      {
+       "rule_id": "S1-09",
+       "met": true,
+       "note": "Prerequisites are concrete, foundational concepts appropriate for each item."
+      },
+      {
+       "rule_id": "S1-10",
+       "met": true,
+       "note": "Exam importance ratings and tests_item_ids links for the statement-based practice question are sensible for UPSC/State PCS."
+      },
+      {
+       "rule_id": "S1-11",
+       "met": true,
+       "note": "No text-image disagreements exist among the blocks present in both; image-only elements were properly extracted with source='image'."
+      }
+     ]
+    }
+   },
+   "review_problems": [],
+   "review_minor": [],
+   "passed": true,
+   "finished_at": 1792743521.169443
+  }
+ ],
+ "avoid_rounds": [],
+ "cost_usd": 0.050739,
+ "seconds": 304.3,
+ "navin_verdict": null
+}
