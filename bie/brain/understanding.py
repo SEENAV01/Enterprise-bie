@@ -518,7 +518,7 @@ def page_step(course: Course, page, *, page_count: int, previous=None, following
 
     def review_user(value):
         shown = {k: value[k] for k in ("notes", "page_summary", "items", "boilerplate_block_ids", "text_image_disagreements")}
-        return cards.user_message(card, source + "\n\nThe understanding to review (JSON):\n" + json.dumps(shown, ensure_ascii=False),
+        return cards.user_message(card, source + "\n\nThe understanding to review (JSON):\n" + cards.compact(shown),
                                   image, "Review the understanding against the page and the card; reply with the review JSON.")
 
     def observe(value):
@@ -570,7 +570,7 @@ def connect_step(course: Course, items: dict, *, rulebook, max_rounds=3, max_out
     user = cards.user_message(card, source, (), "Answer the card with the chapter map JSON.")
 
     def review_user(value):
-        return cards.user_message(card, source + "\n\nThe chapter map to review (JSON):\n" + json.dumps(value, ensure_ascii=False),
+        return cards.user_message(card, source + "\n\nThe chapter map to review (JSON):\n" + cards.compact(value),
                                   (), "Review the chapter map; reply with the review JSON.")
 
     def check(value):

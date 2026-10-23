@@ -483,7 +483,7 @@ def plan_step(course: Course, chapter, *, rulebook, max_rounds=3, naksha=None, m
     user = cards.user_message(card, source, (), "Answer the card with the lesson plan JSON.")
 
     def review_user(value):
-        return cards.user_message(card, source + "\n\nThe lesson plan to review (JSON):\n" + json.dumps(value, ensure_ascii=False),
+        return cards.user_message(card, source + "\n\nThe lesson plan to review (JSON):\n" + cards.compact(value),
                                   (), "Review the plan; reply with the review JSON.")
 
     observe = lambda value: engines.plan_checks(value.get("videos") or [], [], (chapter.get("map") or {}).get(
@@ -509,7 +509,7 @@ def script_step(course: Course, chapter, plan, video, *, rulebook, max_rounds=3,
     user = cards.user_message(card, source, (), "Answer the card with the teacher script JSON.")
 
     def review_user(value):
-        return cards.user_message(card, source + "\n\nThe teacher script to review (JSON):\n" + json.dumps(value, ensure_ascii=False),
+        return cards.user_message(card, source + "\n\nThe teacher script to review (JSON):\n" + cards.compact(value),
                                   (), "Review the script; reply with the review JSON.")
 
     def observe(value):

@@ -1,5 +1,5 @@
 """Task 045 offline test lane: content-type detection, the naksha, task cards, the old KI, PR, RE and PED engines as
-code checks, Sections 1 and 2 on the card (fake AI) and the seekh → code sets (earlier passed outputs re-checked with
+code checks, Sections 1 and 2 on the card (fake AI) and the seekh → BIE sets (earlier passed outputs re-checked with
 today's checks) — plus the Task 044, 043, 039 and 038 lanes they build on. No network, no keys, no money.
 
 Writes a producer-lane receipt ({"summary", "results"}) that tools/ci_failure_annotation.py can read.

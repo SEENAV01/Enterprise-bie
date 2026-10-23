@@ -1,9 +1,9 @@
-"""Task 045 PR B, seekh → code: earlier passed outputs stay passed, and the changes learned from the tissue run (offline).
+"""Task 045 PR B, seekh → BIE: earlier passed outputs stay passed, and the changes learned from the tissue run (offline).
 
-Navin's standing rule (CLAUDE.md, 23 October 2026): after every live run Claude turns the findings that repeated into BIE
-code without asking, every change ships with tests, and no change may fail an output that passed before. The sets in
-tests/fixtures/passed_outputs/ are BIE's own passed work from live runs (not accepted examples); every set must pass
-today's code checks.
+Navin's standing rule (CLAUDE.md, 23 October 2026): after every live run Claude uses what it taught to improve BIE without
+asking; every change ships with tests, is measured (docs/roadmap/SEEKH_LOG.md) and may not fail an output that passed
+before. The sets in tests/fixtures/passed_outputs/ are BIE's own passed work from live runs (not accepted examples);
+every set must pass today's code checks.
 """
 from __future__ import annotations
 
@@ -162,6 +162,26 @@ class InstructionsLearnedFromJob1(unittest.TestCase):
         self.assertEqual({items[i]["parent_item_id"] for i in ("i1", "i2", "i3", "i4")}, {"i20"})
         self.assertEqual(items["i20"]["kind"], "question")
         self.assertEqual([p for p in regression.check(passed) if p.startswith("page 14")], [])
+
+
+class CheaperCheckerInput(unittest.TestCase):
+    """Job 1: the checker read every answer with a space after each comma and colon (16.7% of those tokens, o200k)."""
+
+    def test_the_checker_reads_compact_json(self):
+        from bie.brain.pages import Page
+        from bie.brain.understanding import page_step
+        course = Course("10. Tissues and Its Types", "Science and Technology", "UPSC aspirants", "UPSC", "Hinglish")
+        step = page_step(course, Page(5, blocks("Types:", "a. Skeletal"), b"\x89PNG" + b"7" * 40), page_count=14,
+                         rulebook=rulebook.load())
+        value = {"notes": {"about": "x"}, "page_summary": "Muscle: three kinds", "items": [{"item_id": "i1", "content": "a, b"}],
+                 "boilerplate_block_ids": [], "text_image_disagreements": []}
+        shown = step.review_user(value)[0]["text"].split("The understanding to review (JSON):\n", 1)[1]
+        self.assertEqual(shown, '{"notes":{"about":"x"},"page_summary":"Muscle: three kinds","items":[{"item_id":"i1",'
+                                '"content":"a, b"}],"boilerplate_block_ids":[],"text_image_disagreements":[]}')
+        for name in ("bie/brain/understanding.py", "bie/brain/lesson.py"):          # the map, plan and script copies too
+            source = (ROOT / name).read_text(encoding="utf-8")
+            self.assertNotIn('to review (JSON):\\n" + json.dumps', source)
+            self.assertEqual(source.count('to review (JSON):\\n" + cards.compact('), 2)
 
 
 if __name__ == "__main__":

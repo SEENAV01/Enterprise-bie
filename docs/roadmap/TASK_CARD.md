@@ -84,7 +84,7 @@ them (lesson and notes), as part of the source, never the whole chapter.
 chapter (no AI involved): BIE's code proposes `classification` for "There are mainly four different types of tissues
 present in our body." and the four numbered lines under it (list context), structure or classification for other lines,
 lists the page number as `may_skip` and every other block in `must_cover`. It is 4,453 characters compact (about 1,300
-tokens). Its prefix (`understand.read_page/2`) is 15,189 characters (about 4,430 tokens) and is the same bytes for
+tokens). Its prefix (`understand.read_page/2`) is 15,237 characters (about 4,440 tokens) and is the same bytes for
 every page of the run (rebuilt on 23 October 2026 after the seekh → code changes of job 1).
 
 The design example of Task 043 (a lesson card for page 3) showed why the card names the type: Section 1 typed the four

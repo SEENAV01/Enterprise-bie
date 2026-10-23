@@ -4,7 +4,7 @@
          [--records <earlier run folder> ...] [--lesson <lesson run folder>]
   python tools/passed_outputs.py check <set.json.gz> [...]      (exit 1 when an earlier passed output now fails)
 
-Seekh → code (CLAUDE.md): a new code check may not fail any output that passed before; the sets in
+Seekh → BIE (CLAUDE.md): no change to BIE may fail an output that passed before; the sets in
 tests/fixtures/passed_outputs/ are checked by tests/test_task045_seekh.py on every pull request.
 """
 from __future__ import annotations

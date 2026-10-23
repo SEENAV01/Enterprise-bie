@@ -1,8 +1,8 @@
 """Passed outputs stay passed: today's code checks re-run on everything that passed in earlier live runs.
 
-Navin's standing rule "seekh → code" (CLAUDE.md, 23 October 2026) lets Claude turn reviewer findings that repeated
-into new code checks without asking, on one condition: a new check must not fail any output that passed before.
-This module keeps that promise checkable. ``export`` turns a run's passed work into a compact set (``bie.brain.
+Navin's standing rule "seekh → BIE" (CLAUDE.md, 23 October 2026) lets Claude change BIE after every live run without
+asking (new checks, instructions, code that takes work from the AI), on the condition that no change fails an output
+that passed before. This module keeps that promise checkable. ``export`` turns a run's passed work into a compact set (``bie.brain.
 passed-outputs/1``): every passed page's items with the page's native text blocks and the card's coverage, the
 chapter map when it passed, the lesson plan and every passed script. ``check`` runs today's code checks (the same
 functions the section runner uses) on such a set and returns every problem; an empty list means every earlier
