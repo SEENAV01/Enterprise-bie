@@ -773,7 +773,7 @@ def render_markdown(chapter: dict) -> str:
              f"chapter map: {chapter['map_status']}",
              f"- Items: {q['items']} ({q['teachable_items']} teachable, {q['items_from_image']} read from the image)",
              f"- Teacher questions: {q['teacher_questions']} ({q['deeper_questions']} deeper why/how, {q['outside_answers']} from outside the book)",
-             f"- Estimated cost: ${q['cost_usd']:.4f} (${q['cost_usd_per_page']:.4f} per page)"]
+             f"- Estimated cost: {money(q['cost_usd'], chapter)} ({money(q['cost_usd_per_page'], chapter)} per page)"]
     if chapter.get("naksha"):
         n = chapter["naksha"]
         lines.append(f"- Naksha (the compact map later sections get slices of): {n['items']} items, {n['concepts']} concepts, "
@@ -810,7 +810,7 @@ def render_markdown(chapter: dict) -> str:
     lines += ["## Pages", "", "| Page | Result | Rounds | Items | Cost |", "| --- | --- | --- | --- | --- |"]
     for p in chapter["pages"]:
         result = p["status"] + (" (reused)" if p.get("reused") else "")
-        cost = "—" if p.get("reused") else f"${p.get('cost_usd') or 0:.4f}"
+        cost = "—" if p.get("reused") else money(p.get("cost_usd") or 0, chapter)
         lines.append(f"| {p['page']} | {result} | {p['rounds']} | {len(p['item_ids'])} | {cost} |")
     open_pages = [p for p in chapter["pages"] if p["status"] != "passed" and p["last_problems"]]
     if open_pages:
@@ -818,6 +818,13 @@ def render_markdown(chapter: dict) -> str:
         lines += [f"- Page {p['page']}: " + "; ".join(x[:160] for x in p["last_problems"][:3]) for p in open_pages]
     lines += ["", "Every item with its teacher questions: `PAGES.md`.", ""]
     return "\n".join(lines)
+
+
+def money(usd: float, run: dict) -> str:
+    """Rupees when the run's exchange rate is known (``run["usd_inr"]``, set by tools/render_run.py from SUMMARY.json),
+    else dollars. The amount is the ledger's estimate, not the bill."""
+    rate = run.get("usd_inr")
+    return f"₹{usd * rate:.2f}" if rate else f"${usd:.4f}"
 
 
 def render_pages(chapter: dict) -> str:

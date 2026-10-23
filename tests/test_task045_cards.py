@@ -810,6 +810,12 @@ class ReadablePagesAndRunResume(unittest.TestCase):
         written = render_run.render(Path(self.tmp.name, "u"), Path(self.tmp.name, "u", "readable"))
         self.assertEqual(written[:3], ["MAP.md", "PAGES.md", "SCRIPT.md"])
         self.assertTrue(Path(self.tmp.name, "u", "readable", "scripts", "v1.md").exists())
+        rate = json.loads(Path(self.tmp.name, "u", "SUMMARY.json").read_text(encoding="utf-8"))["cost"]["usd_inr"]
+        chapter = json.loads(Path(self.tmp.name, "u", "chapter_map.json").read_text(encoding="utf-8"))
+        self.assertIn(f"- Estimated cost: ₹{chapter['cost_usd'] * rate:.2f} (",
+                      Path(self.tmp.name, "u", "readable", "MAP.md").read_text(encoding="utf-8"))   # rupees for Navin
+        self.assertIn("estimated cost ₹", Path(self.tmp.name, "u", "readable", "SCRIPT.md").read_text(encoding="utf-8"))
+        self.assertIn("- Estimated cost: $", Path(self.tmp.name, "u", "MAP.md").read_text(encoding="utf-8"))  # the run's own page
         with self.assertRaises(SystemExit):
             render_run.main([str(Path(self.tmp.name, "empty"))])
 

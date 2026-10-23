@@ -4,7 +4,8 @@
 
 Reads ``chapter_map.json`` (Section 1) and ``lesson_plan.json`` (Section 2) from the run folder and writes MAP.md and
 PAGES.md, SCRIPT.md and scripts/<video id>.md with today's renderers, by default into ``<run folder>/readable/`` so
-the run's own outputs stay as they were written. Nothing is sent to any model; the pages only show what BIE made.
+the run's own outputs stay as they were written. Costs are shown in rupees at the rate of the run's SUMMARY.json. Nothing
+is sent to any model; the pages only show what BIE made.
 """
 from __future__ import annotations
 
@@ -20,12 +21,22 @@ from bie.brain import lesson as lesson_module  # noqa: E402
 from bie.brain import understanding  # noqa: E402
 
 
+def usd_inr(run: Path):
+    """The exchange rate the run's cost guard used (SUMMARY.json), so the pages show rupees; None when unknown."""
+    try:
+        return json.loads((run / "SUMMARY.json").read_text(encoding="utf-8"))["cost"]["usd_inr"]
+    except (OSError, ValueError, KeyError, TypeError):
+        return None
+
+
 def render(run: Path, out: Path) -> list:
     out.mkdir(parents=True, exist_ok=True)
     written = []
+    rate = usd_inr(run)
     chapter_path = run / "chapter_map.json"
     if chapter_path.exists():
         chapter = json.loads(chapter_path.read_text(encoding="utf-8"))
+        chapter.setdefault("usd_inr", rate)
         chapter.setdefault("quality", understanding.quality(chapter))
         (out / "MAP.md").write_text(understanding.render_markdown(chapter), encoding="utf-8")
         (out / "PAGES.md").write_text(understanding.render_pages(chapter), encoding="utf-8")
@@ -33,6 +44,7 @@ def render(run: Path, out: Path) -> list:
     lesson_path = run / "lesson_plan.json"
     if lesson_path.exists():
         lesson = json.loads(lesson_path.read_text(encoding="utf-8"))
+        lesson.setdefault("usd_inr", rate)
         for video in lesson.get("videos") or []:
             video.setdefault("card_parts", [])
             video.setdefault("parts", [])

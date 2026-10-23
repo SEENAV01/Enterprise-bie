@@ -37,7 +37,7 @@ from . import hinglish
 from . import naksha as naksha_module
 from .common import SEVERITY, S, arr as _arr, checklist_text as _checklist_text, fmt as _fmt, obj as _obj, review_problems
 from .runner import NOTES_SCHEMA, Step
-from .understanding import DEFAULT_OUTPUT_TOKENS, Course, chapter_id
+from .understanding import DEFAULT_OUTPUT_TOKENS, Course, chapter_id, money
 
 SECTION = "lesson"
 PLAN_VERSION = "lesson-plan/2"
@@ -658,7 +658,7 @@ def render_markdown(lesson: dict) -> str:
              + f"; scripts passed: {q['videos_passed']} of {q['videos']}"
              + (f" ({q['videos_reused']} reused)" if q.get("videos_reused") else "")
              + f"; {q['beats']} beats, {q['spoken_words']} spoken words (about {q['estimated_minutes_at_130_wpm']} minutes); "
-             f"estimated cost ${q['cost_usd']:.4f}." + checker.get(independence, ""), ""]
+             f"estimated cost {money(q['cost_usd'], lesson)}." + checker.get(independence, ""), ""]
     if lesson["plan"].get("chapter_flow"):
         lines += [lesson["plan"]["chapter_flow"], ""]
     lines += ["| Video | Title | Result | Rounds | Minutes planned |", "| --- | --- | --- | --- | --- |"]
