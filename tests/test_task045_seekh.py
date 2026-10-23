@@ -225,5 +225,46 @@ class LeanCodexCalls(unittest.TestCase):
         self.assertEqual(call["args"][-2:], ["--", "-"])
 
 
+class MeasuredTheSameWay(unittest.TestCase):
+    """Every seekh change is measured before and after with one tool, from the run folders' records."""
+
+    @staticmethod
+    def folder(root, name, rate, records):
+        Path(root, name, "records").mkdir(parents=True)
+        Path(root, name, "SUMMARY.json").write_text(json.dumps({"cost": {"usd_inr": rate}}), encoding="utf-8")
+        for file, record in records.items():
+            Path(root, name, "records", file).write_text(json.dumps(record), encoding="utf-8")
+        return Path(root, name)
+
+    def test_first_try_rounds_tokens_rupees_and_round_one_problems(self):
+        import seekh_measure
+        maker = {"input_tokens": 100, "output_tokens": 40}
+        page = {"section": "understand", "unit": "page-001", "status": "passed", "cost_usd": 0.01, "seconds": 120, "rounds": [
+            {"maker": maker, "code_problems": ["[code] item i3: an answer_option needs its question as parent_item_id"]},
+            {"maker": maker, "review": {"input_tokens": 50, "output_tokens": 5,
+                                        "value": {"wrong": [{"severity": "minor"}], "missing": [], "shallow": []}}}]}
+        stopped = {"section": "connect", "unit": "chapter", "status": "stopped", "cost_usd": 0.0, "seconds": 30, "rounds": [
+            {"maker": maker, "code_problems": ["[code] concept c34: give it its main content type, not 'none'"]}]}
+        passed = {"section": "connect", "unit": "chapter", "status": "passed", "cost_usd": 0.02, "seconds": 60, "rounds": [
+            {"maker": maker, "code_problems": [], "review": {"input_tokens": 80, "output_tokens": 8, "value": {"problems": []}}}]}
+        with tempfile.TemporaryDirectory() as root:
+            first = self.folder(root, "first", 100.0, {"understand--page-001.json": page, "connect--chapter.json": stopped})
+            later = self.folder(root, "later", 90.0, {"connect--chapter.json": passed})
+            got = seekh_measure.measure([first, later])
+            self.assertEqual(list(got), ["pages", "map"])
+            pages, chapter_map = got["pages"], got["map"]
+            self.assertEqual((pages["passed"], pages["first_try"], pages["rounds_per_unit"]), (1, 0, 2.0))
+            self.assertEqual((pages["maker_tokens_per_unit"], pages["checker_tokens_per_unit"]), ([200, 80], [50, 5]))
+            self.assertEqual((pages["inr_per_unit"], pages["minutes_per_unit"]), (1.0, 2.0))
+            self.assertEqual(pages["round_one_code_problems"], {"item _: an answer_option needs its question as parent_item_id": 1})
+            self.assertEqual(pages["reviewer_findings"], {"minor": 1})
+            self.assertEqual((chapter_map["first_try"], chapter_map["inr_total"]), (1, 1.8))     # the later run's map replaced it
+            code, text = quiet(seekh_measure.main, [str(first), str(later)])
+            self.assertEqual(code, 0)
+            self.assertIn("| First-try pass | 0 of 1 (0%) | 1 of 1 (100%) |", text)
+            with self.assertRaises(SystemExit):
+                seekh_measure.main([str(Path(root, "missing"))])
+
+
 if __name__ == "__main__":
     unittest.main()

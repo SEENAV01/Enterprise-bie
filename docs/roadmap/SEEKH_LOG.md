@@ -20,6 +20,8 @@ security-sensitive changes, budget, teaching-quality verdicts and locking accept
   only expected is written as expected.
 - **Guard:** every change is re-checked on the earlier passed outputs (`tests/fixtures/passed_outputs/`,
   `tests/test_task045_seekh.py`); an output that passed before and fails now blocks the merge.
+- **Tool:** `python tools/seekh_measure.py <run folder> ...` prints these measures per step (page reading, chapter map,
+  lesson plan, scripts) from the run folders' process records, the same way every time.
 
 ## Baseline · tissue chapter, Section 1 (23 October 2026)
 
