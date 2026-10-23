@@ -279,3 +279,39 @@ checker Gemini 4 Argon. 34.6 minutes, Gemini ₹78.17 of the ₹150 cap (ledger)
 - Live: the reviewer and patch-round changes can only be measured on a live run. Next: resume job 3 so only the 5
   failed scripts run again, within the rest of the ₹150 cap (₹71.83 left).
 
+## Entry 5 · job 3 resumed after PR #57, 23 October 2026
+
+VM job `t045c-tissue-lesson-v2-resume` (`blindtest-results:runs/vm-t045c-tissue-lesson-v2-resume-brain-lesson/`), on main
+`0dd27ec2`: the trimmed map, the plan and the 6 passed scripts reused, only v2, v4, v5, v7 and v9 run again. 14 minutes,
+Gemini ₹21.39 (cap ₹71).
+
+| Measure | Job 3 (the same 5 scripts) | Resumed |
+| --- | --- | --- |
+| Scripts passed | 0 of 5 | 4 of 5 (v2, v4, v5, v7) |
+| Reviewer findings | blocking 22 (all 11 scripts) | blocking 0, minor 3 |
+| Reviews passed on first review | — | 4 of 4 scripts that reached the reviewer |
+| Rounds per script | 3.0 | 2.4 |
+| Gemini per script | ₹6.35 | ₹4.26 (17,237 · 649 tokens) |
+| Minutes per script | 5.5 | 4.7 |
+| First-try pass | 0 of 5 | 0 of 5 (round 1 too long: v2 16.9 minutes against 9.3–12.4) |
+
+The chapter now: 10 of 11 videos passed, 113.9 spoken minutes in all (v0 7.4, topic videos 106.5 against 84–112). Gemini for
+the whole rerun: ₹99.56 of the ₹150 cap.
+
+**Taught**
+
+1. The reviewer change worked: no blocking finding, every reviewed script passed on its first review.
+2. v9 failed by 0.1 minute (13.1 against 13.0): to save time its two patches removed b30, b80, then b6 and b15, and
+   three of the four were the only beat of a teaching-pattern step (the recaps), so the step check failed.
+3. Round 1 is still too long in every script; the maker writes first and cuts later.
+4. New everyday words: पड़ोस, बेवजह, मुताबिक, राह; formal ones still flagged rightly: अतिरिक्त, भ्रम, मुख्यतः.
+
+**Changed in BIE** (branch `task045-protect-pattern-beats`; IMPLEMENTED)
+
+- A patch round names the beats that are the only beat of a pattern step and says never to remove them, only to shorten
+  them (`sole_step_beats`).
+- `simple_hindi.json` 2026-10-23.4: the 4 everyday words.
+
+**Next:** resume once more for v9 only, within the ₹50.44 left of the ₹150 cap. Making round 1 shorter (for example a
+word budget per part on the card) is the next lever for first-try pass.
+

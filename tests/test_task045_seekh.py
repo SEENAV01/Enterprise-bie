@@ -696,5 +696,30 @@ class ScriptReviewerFollowsTheTimeRule(unittest.TestCase):
         self.assertIn("at most about 70 spoken words with one new item, 50 with two and 30 with three", maker.text)
 
 
+class PatchesKeepEveryPatternStep(unittest.TestCase):
+    """Job 3 resumed (t045c resume): 4 of the 5 failed scripts passed with no blocking review finding; v9 failed by 0.1
+    minute because two patches cut beats that were the only beat of a pattern step (its recaps) to save time."""
+
+    def test_sole_step_beats_are_named_in_the_patch_hint(self):
+        from bie.brain.lesson import script_step, sole_step_beats
+        beats = [dict(say_beat("b1", 5), part_id="c1.1", step=1), dict(say_beat("b2", 5), part_id="c1.1", step=2),
+                 dict(say_beat("b3", 5), part_id="c1.1", step=2), dict(say_beat("b4", 5), part_id="", step=0)]
+        self.assertEqual(sole_step_beats(beats), ["b1"])
+        chapter = tiny_chapter()
+        plan = {"videos": [plan_video("v0", [], 6, "prerequisites", ["Idea 1"]), plan_video("v1", ["c1", "c2"], 14)]}
+        step = script_step(Course(**chapter["course"]), chapter, plan, plan["videos"][1], rulebook=rulebook.load())
+        hint = step.patch_hint({"beats": beats})
+        self.assertIn("Never remove beats b1: each is the only beat of a teaching-pattern step", hint)
+        self.assertNotIn("Never remove", step.patch_hint({"beats": beats[3:]}))       # a hook beat has no step
+
+    def test_words_from_the_resumed_run(self):
+        from bie.brain import hinglish
+        simple = hinglish.load()
+        for word in ("पड़ोस", "बेवजह", "मुताबिक", "राहों"):
+            self.assertTrue(simple.is_simple(word), word)
+        for word in ("अतिरिक्त", "भ्रम"):
+            self.assertFalse(simple.is_simple(word), word)
+
+
 if __name__ == "__main__":
     unittest.main()

@@ -232,6 +232,18 @@ verdict is "pass" when nothing is blocking. Fill your own brief notes first. Rep
 
 SCRIPT_TIME_HINT = (" BIE's code measured this script at {spoken} spoken minutes; the video's narration time is {low}-{high} minutes "
                     "(S2-01). Stay within it: pay for every addition with a cut of repetition or side-tracks in the same patch.")
+SCRIPT_KEEP_HINT = (" Never remove beats {beats}: each is the only beat of a teaching-pattern step (recaps too); shorten them "
+                    "instead.")
+
+
+def sole_step_beats(beats) -> list:
+    """Beat ids that are the only beat of their part's teaching-pattern step: removing one drops a required step (job 3,
+    v9: two patches cut recap beats to save time and the script failed for the missing steps)."""
+    by_step = {}
+    for beat in beats:
+        if beat.get("part_id") and beat.get("step"):
+            by_step.setdefault((beat["part_id"], beat["step"]), []).append(beat["beat_id"])
+    return [ids[0] for ids in by_step.values() if len(ids) == 1]
 
 
 def question_ids(item: dict):
@@ -747,8 +759,11 @@ def script_step(course: Course, chapter, plan, video, *, rulebook, max_rounds=3,
 
     def patch_hint(value):
         low, high = budget or (None, None)
-        return SCRIPT_PATCH_HINT + (SCRIPT_TIME_HINT.format(spoken=spoken_minutes(value.get("beats") or []), low=low, high=high)
-                                    if budget else "")
+        beats = value.get("beats") or []
+        keep = sole_step_beats(beats)
+        return (SCRIPT_PATCH_HINT
+                + (SCRIPT_TIME_HINT.format(spoken=spoken_minutes(beats), low=low, high=high) if budget else "")
+                + (SCRIPT_KEEP_HINT.format(beats=", ".join(keep[:60])) if keep else ""))
 
     def observe(value):
         found = frame_problems(value, card)[1]
