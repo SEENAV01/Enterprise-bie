@@ -54,7 +54,7 @@ The ledger now records `cached_input_tokens` per call (Task 043), so cache hits 
 | Field | What it holds | Checked by code |
 | --- | --- | --- |
 | `card`, `card_id` | Format version; `<section>.<task>@<chapter>/<unit>` | unique in the run |
-| `section`, `task` | Which section and which of its tasks (`read_page`, `build_chapter_map`, `plan_videos`, `write_script`, `direct_scenes`, `plan_assets`, `choose_asset`, `lay_out_scene`, `design_game`, `build_mission`, `write_notes`, `review`) | task belongs to the section |
+| `section`, `task` | Which section and which of its tasks (`read_page`, `build_chapter_map`, `trim_prerequisites`, `plan_videos`, `write_script`, `direct_scenes`, `plan_assets`, `choose_asset`, `lay_out_scene`, `design_game`, `build_mission`, `write_notes`, `review`) | task belongs to the section |
 | `prefix` | `prefix_id`, rulebook version, content-types version, output schema id, prefix hash | matches the system message actually sent |
 | `unit` | Unit id, title, pages | pages exist in the chapter |
 | `parts` | For each part: `item_ids`, one content `type`, the `questions` it must answer, one-line `focus` | every item id exists in the chapter map; the questions include the type's `required_asks` |

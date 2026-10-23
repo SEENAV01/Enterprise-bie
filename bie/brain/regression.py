@@ -9,17 +9,43 @@ functions the section runner uses) on such a set and returns every problem; an e
 passed output still passes. The sets live in ``tests/fixtures/passed_outputs/`` and a test runs them all.
 
 These sets are BIE's own outputs kept for regression; they are not accepted examples (that needs Navin's verdict).
+
+When Navin changes a rule, older passed work can break the new rule on purpose. Such a problem is not a regression:
+``RULE_CHANGES`` names the rule, Navin's decision, the first rulebook version with it and the BIE step that upgrades
+older work (never a hand edit). ``check`` leaves those problems out for sets made before the change and
+``changed_rule_problems`` lists them, so they stay visible.
 """
 from __future__ import annotations
 
 import gzip
 import json
+import re
 from pathlib import Path
 
 from . import content_types as ct
 from . import engines
 
 SCHEMA = "bie.brain.passed-outputs/1"
+
+RULE_CHANGES = (
+    {"rule": "S1-12", "rulebook": "2026-10-21.10",
+     "decision": "Navin, 23 October 2026: only direct prerequisites, at most 8, taught in one short video",
+     "upgraded_by": "bie/brain/prerequisites.py (trim_prerequisites, run before a lesson is planned)",
+     "match": re.compile(r"^map: prerequisites_to_teach has \d+ prerequisites")},
+)
+
+
+def _version(text: str) -> tuple:
+    return tuple(int(n) for n in re.findall(r"\d+", text or ""))
+
+
+def _changed(passed: dict, problem: str):
+    """The rule change that explains ``problem`` in a set made before it, or None."""
+    made = _version(passed.get("rulebook", ""))
+    for change in RULE_CHANGES:
+        if made < _version(change["rulebook"]) and change["match"].search(problem):
+            return change
+    return None
 
 
 def _page_cards(record_folders) -> dict:
@@ -33,7 +59,8 @@ def _page_cards(record_folders) -> dict:
     return cards
 
 
-def export(chapter: dict, page_blocks: dict, *, record_folders=(), lesson: dict | None = None, source: str = "") -> dict:
+def export(chapter: dict, page_blocks: dict, *, record_folders=(), lesson: dict | None = None, source: str = "",
+           rulebook: str = "") -> dict:
     """The passed work of one run. ``page_blocks`` is {page number: (has image, [(block id, text), ...])}."""
     from .understanding import passed_pages
 
@@ -43,8 +70,8 @@ def export(chapter: dict, page_blocks: dict, *, record_folders=(), lesson: dict 
         has_image, blocks = page_blocks[number]
         pages.append({"page": number, "image": bool(has_image), "blocks": [list(b) for b in blocks],
                       "coverage": coverage.get(number), "value": value})
-    out = {"schema": SCHEMA, "source": source, "course": chapter["course"], "source_sha256": chapter.get("source_sha256"),
-           "pages": pages, "map": None, "lesson": None}
+    out = {"schema": SCHEMA, "source": source, "rulebook": rulebook,
+           "course": chapter["course"], "source_sha256": chapter.get("source_sha256"), "pages": pages, "map": None, "lesson": None}
     if chapter.get("map_status") == "passed":
         out["map"] = {"items": chapter["items"], "map": chapter["map"]}
     if lesson and lesson.get("plan_status") == "passed":
@@ -68,9 +95,20 @@ def load(path) -> dict:
 
 
 def check(passed: dict, rulebook=None) -> list:
-    """Every problem today's code checks find in earlier passed work (empty: all still pass)."""
+    """Every problem today's code checks find in earlier passed work (empty: all still pass), except problems of a rule
+    Navin changed after the set was made (``changed_rule_problems``)."""
+    return [p for p in all_problems(passed, rulebook) if not _changed(passed, p)]
+
+
+def changed_rule_problems(passed: dict, rulebook=None) -> list:
+    """[(problem, rule change)] for the problems that only a later rule change finds in the set."""
+    return [(p, change) for p in all_problems(passed, rulebook) for change in [_changed(passed, p)] if change]
+
+
+def all_problems(passed: dict, rulebook=None) -> list:
+    """Every problem today's code checks find in the set, rule changes included."""
     from . import rulebook as rulebook_module
-    from .lesson import check_plan, check_script, chapter_naksha, script_card, script_prefixes
+    from .lesson import check_plan, check_script, chapter_naksha, script_card, script_prefixes, video_budget
     from .pages import Block, Page
     from .understanding import Course, check_connect, check_page
 
@@ -100,6 +138,7 @@ def check(passed: dict, rulebook=None) -> list:
         for video in passed["lesson"]["videos"]:
             card = script_card(course, chapter, naksha, plan, videos[video["video_id"]], rulebook=rulebook, prefix=prefix)
             value = {"notes": None, "title": video["title"], "parts": video["parts"], "beats": video["beats"]}
-            for p in check_script(value, chapter, videos[video["video_id"]], course.language, card):
+            budget = video_budget(chapter, plan["videos"], videos[video["video_id"]])
+            for p in check_script(value, chapter, videos[video["video_id"]], course.language, card, budget):
                 problems.append(f"script {video['video_id']}: {p}")
     return problems

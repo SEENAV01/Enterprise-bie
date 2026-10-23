@@ -77,19 +77,58 @@ def _payload(user_text: str):
     return value
 
 
+BUDGET = re.compile(r"(\S+) (\d+\.\d)-(\d+\.\d)")
+SCRIPT_TIME = re.compile(r"Narration time \(S2-01\): [\d.]+-[\d.]+ minutes, about (\d+)-(\d+) spoken words")
+FILLER = "ये बात ध्यान से समझिए, क्योंकि आगे यही बात बार बार काम आएगी और exam में भी पूछी जा सकती है।"
+
+
 def plan_answer(user_text: str):
+    """A prerequisite video first when the map has prerequisites, then one topic video per concept, each in its budget."""
     card = cards.read_card(user_text)
     section = user_text.split("Prerequisites to teach", 1)[-1].split("BIE's teaching order", 1)[0]
     names = [line[2:].split(" · ")[0] for line in section.splitlines() if line.startswith("- ")]
-    videos = [{"video_id": f"v{n}", "title": f"वीडियो {n}: {cid}", "goal": "Offline goal.", "concept_ids": [cid],
-               "prerequisites_taught": names if n == 1 else [], "opening_hook": "Offline hook.", "story_or_analogy": "",
-               "estimated_minutes": 1, "why_this_unit": "Offline."}
-              for n, cid in enumerate(card["coverage"]["must_cover"], 1)]
+    budget_text = user_text.split("Minutes per concept", 1)[-1]
+    budget = {cid: (float(lo), float(hi)) for cid, lo, hi in BUDGET.findall(budget_text)}
+    video = lambda vid, title, kind, cids, taught, minutes: {
+        "video_id": vid, "title": title, "goal": "Offline goal.", "kind": kind, "concept_ids": cids, "prerequisites_taught": taught,
+        "opening_hook": "Offline hook.", "story_or_analogy": "", "estimated_minutes": minutes, "length_note": "",
+        "why_this_unit": "Offline."}
+    videos = [video("v0", "पहले यह जान लो", "prerequisites", [], names, 6)] if names else []
+    groups, low, high = [], 0.0, 0.0             # concepts in order, a new video once the last one has 6-8 minutes
+    for cid in card["coverage"]["must_cover"]:
+        if not groups or high >= 8:
+            groups.append([[], 0.0, 0.0])
+        lo, hi = budget.get(cid, (1.0, 1.0))
+        groups[-1][0].append(cid)
+        groups[-1][1] += lo
+        groups[-1][2] += hi
+        low, high = groups[-1][1], groups[-1][2]
+    if len(groups) > 1 and groups[-1][2] < 3:     # a short tail joins the video before it
+        tail = groups.pop()
+        groups[-1] = [groups[-1][0] + tail[0], groups[-1][1] + tail[1], groups[-1][2] + tail[2]]
+    for n, (cids, low, high) in enumerate(groups, 1):
+        videos.append(video(f"v{n}", f"वीडियो {n}", "topic", cids, [], max(1, round((low + high) / 2))))
     return {"notes": NOTES, "videos": videos, "chapter_flow": "Offline flow."}
 
 
 def script_answer(user_text: str):
-    """One beat per item for the first pattern step, then one beat per further step; a frame for every part."""
+    """One beat per item for the first pattern step (several items per beat when the narration time is short), then one beat
+    per further step; a frame for every part; filler transitions up to the narration time."""
+    time = SCRIPT_TIME.search(user_text)
+    for per_beat in range(1, 40):
+        value = _script(user_text, per_beat)
+        if not time or sum(len(b["say"].split()) for b in value["beats"]) <= int(time.group(2)):
+            break
+    if time:                                    # speak as long as the card's narration time asks (S2-01)
+        beats = value["beats"]
+        target = (int(time.group(1)) + int(time.group(2))) // 2
+        while sum(len(b["say"].split()) for b in beats) + len(FILLER.split()) <= target:
+            beats.insert(-1, {"beat_id": f"b{len(beats)}x", "part_id": "", "step": 0, "purpose": "transition", "say": FILLER,
+                              "covers_item_ids": [], "answers": [], "on_screen": "Offline.", "basis": "book"})
+    return value
+
+
+def _script(user_text: str, per_beat: int):
     card = cards.read_card(user_text)
     types = ct.load()
     questions = {}
@@ -102,9 +141,12 @@ def script_answer(user_text: str):
         parts.append({"part_id": part["part_id"], "frame": {k: f"offline {k}" for k in ("process", "how", "when", "conditions",
                                                                                            "atmosphere")}})
         first_step = 1 if types.pattern(part["type"]) else 0
-        for iid in part["item_ids"]:
+        ids = part["item_ids"]
+        for group in (ids[n:n + per_beat] for n in range(0, len(ids), per_beat)):
+            say = (f"ये offline explanation है: {group[0]}। इसे ध्यान से समझिए, ये exam में बहुत काम आएगा।" if per_beat == 1 else
+                   f"ये offline explanation है: {', '.join(group)}।")
             beats.append({"beat_id": f"b{len(beats)}", "part_id": part["part_id"], "step": first_step, "purpose": "explain",
-                          "say": f"ये offline explanation है: {iid}। इसे ध्यान से समझिए, ये exam में बहुत काम आएगा।", "covers_item_ids": [iid], "answers": questions.get(iid, []),
+                          "say": say, "covers_item_ids": group, "answers": [q for iid in group for q in questions.get(iid, [])],
                           "on_screen": "Offline.", "basis": "book"})
         for step in range(2, len(types.pattern(part["type"])) + 1):
             beats.append({"beat_id": f"b{len(beats)}", "part_id": part["part_id"], "step": step, "purpose": "explain",
@@ -113,6 +155,17 @@ def script_answer(user_text: str):
     beats.append({"beat_id": "b-end", "part_id": "", "step": 0, "purpose": "recap", "say": "तो आज हमने offline recap किया। अगली video में हम आगे की बात करेंगे।",
                   "covers_item_ids": [], "answers": [], "on_screen": "Offline.", "basis": "book"})
     return {"notes": NOTES, "title": card["unit"]["title"], "parts": parts, "beats": beats}
+
+
+def trim_answer(user_text: str):
+    """Keep the first prerequisites (at most 8, needed by the first concept of the map), drop the rest."""
+    card = cards.read_card(user_text)
+    rows = [line.split(" | ") for line in user_text.split("Current prerequisites", 1)[-1].splitlines() if line.startswith("pre")]
+    concept = next((row[0] for row in card["context"]["map_slice"]), "c1")
+    kept = [{"name": row[1], "why_needed": "Offline.", "needed_for": [concept], "basis": "outside", "from_ids": [row[0]]}
+            for row in rows[:8]]
+    return {"notes": NOTES, "prerequisites": kept, "dropped": [{"id": row[0], "reason": "offline: not needed directly"}
+                                                                for row in rows[8:]]}
 
 
 def director_answer(user_text: str):
@@ -264,6 +317,8 @@ class BrainFakeClient:
             value = connect_answer(user)
         elif "videos" in props:
             value = plan_answer(user)
+        elif "dropped" in props:
+            value = trim_answer(user)
         elif "beats" in props:
             value = script_answer(user)
         else:

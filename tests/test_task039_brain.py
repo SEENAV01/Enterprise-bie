@@ -390,11 +390,15 @@ class Lesson(unittest.TestCase):
 
     def test_plan_checks(self):
         from bie.brain.lesson import check_plan
-        self.assertEqual(check_plan({"videos": [self.video]}, self.chapter), [])
+        # Navin, 23 October 2026: the prerequisites in one "pehle yeh jaan lo" video first, then topic videos of 6-8
+        # minutes per book page (S2-01, S2-03); this chapter has one teachable page.
+        first = dict(self.video, video_id="v0", kind="prerequisites", concept_ids=[], prerequisites_taught=["Cell"], estimated_minutes=6)
+        topic = dict(self.video, kind="topic", prerequisites_taught=[], estimated_minutes=7)
+        self.assertEqual(check_plan({"videos": [first, topic]}, self.chapter), [])
         problems = check_plan({"videos": [dict(self.video, concept_ids=["c9"], prerequisites_taught=[], estimated_minutes=0)]},
                               self.chapter)
         for fragment in ("unknown concept 'c9'", "concept c1 (Tissue) is in no video", "prerequisite 'Cell' is taught in no video",
-                         "estimated_minutes must be at least 1"):
+                         "estimated_minutes must be at least 1", "the plan needs exactly one prerequisite video"):
             self.assertTrue(any(fragment in p for p in problems), fragment)
 
     def test_script_checks(self):
@@ -403,11 +407,13 @@ class Lesson(unittest.TestCase):
         good = {"beats": [self.beat("b1"), self.beat("b2", covers=["p001-i1"], answers=["p001-i1#q1", "p001-i1#q2"]),
                           self.beat("b3")]}
         self.assertEqual(check_script(good, self.chapter, self.video, "Hinglish"), [])
-        bad = {"beats": [self.beat("b1", say="This is English only.", covers=["p009-i1"], answers=["p001-i1#q1"]),
+        bad = {"beats": [self.beat("b1", say="This is English only.", covers=["p009-i1"], answers=["p001-i1#q2"]),
                          self.beat("b1", say="Still English.")]}
         problems = check_script(bad, self.chapter, self.video, "Hinglish")
+        # Only the question answered from the book (q1) must be answered; q2 is answered from outside (S2-02).
         for fragment in ("beat_id 'b1' is used more than once", "'p009-i1' is not an item of this video",
-                         "1 items are covered by no beat", "1 teacher questions are answered by no beat", "Devanagari",
+                         "1 items are covered by no beat", "1 teacher questions answered from the book are answered by no beat",
+                         "Devanagari",
                          "more than a couple of beats"):
             self.assertTrue(any(fragment in p for p in problems), fragment)
 

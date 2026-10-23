@@ -27,6 +27,14 @@ def page_blocks(pdf_bytes: bytes) -> dict:
     return {p.number: (True, [(b.id, b.text) for b in p.blocks]) for p in pages}
 
 
+def rulebook_of(folder: Path) -> str:
+    """The rulebook version a run was made with (its SUMMARY.json), or "" when unknown."""
+    try:
+        return json.loads((folder / "SUMMARY.json").read_text(encoding="utf-8")).get("rulebook") or ""
+    except (OSError, ValueError):
+        return ""
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = parser.add_subparsers(dest="command", required=True)
@@ -43,17 +51,23 @@ def main(argv=None):
         from run_blind_test import read_source
         chapter = json.loads((args.run / "chapter_map.json").read_text(encoding="utf-8"))
         lesson = json.loads((args.lesson / "lesson_plan.json").read_text(encoding="utf-8")) if args.lesson else None
+        made = [rulebook_of(folder) for folder in (args.run, args.lesson) if folder]
         passed = regression.export(chapter, page_blocks(read_source(args.pdf)), record_folders=[args.run, *args.records],
-                                   lesson=lesson, source=args.run.name)
+                                   lesson=lesson, source=args.run.name,
+                                   rulebook=min((m for m in made if m), key=regression._version, default=""))
         regression.save(passed, args.out)
         print(json.dumps({"pages": len(passed["pages"]), "map": bool(passed["map"]),
                           "scripts": len((passed["lesson"] or {}).get("videos") or [])}))
         return 0
     failed = 0
     for path in args.sets:
-        problems = regression.check(regression.load(path))
+        passed = regression.load(path)
+        problems = regression.check(passed)
         failed += len(problems)
-        print(json.dumps({"set": path.name, "problems": problems[:50], "count": len(problems)}, ensure_ascii=False))
+        changed = [{"problem": p, "rule": c["rule"], "upgraded_by": c["upgraded_by"]}
+                   for p, c in regression.changed_rule_problems(passed)]
+        print(json.dumps({"set": path.name, "problems": problems[:50], "count": len(problems), "changed_rules": changed[:20]},
+                         ensure_ascii=False))
     return 1 if failed else 0
 
 

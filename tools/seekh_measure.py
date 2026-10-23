@@ -3,7 +3,7 @@
   python tools/seekh_measure.py <run folder> [<run folder> ...] [--json]
 
 Reads each folder's process records (``records/*.json``) and ``SUMMARY.json`` and reports, per step (page reading,
-chapter map, lesson plan, scripts): units and how many passed, first-try pass (passed in round 1), rounds per unit,
+chapter map, prerequisite trim, lesson plan, scripts): units and how many passed, first-try pass (passed in round 1), rounds per unit,
 maker and checker tokens per unit, rupees per unit (the checker on the API; a maker on a subscription is ₹0), minutes
 per unit, what sent round 1 back (BIE's code problems, grouped with their ids removed) and the reviewer's findings by
 severity. Folders are read in order and a unit in a later folder replaces the same unit of an earlier one (a resumed run
@@ -18,7 +18,7 @@ import sys
 from collections import Counter
 from pathlib import Path
 
-STEPS = ("pages", "map", "plan", "scripts")
+STEPS = ("pages", "map", "trim", "plan", "scripts")
 FINDING_KEYS = ("missing", "wrong", "shallow", "problems")
 IDS = re.compile(r"\bp\d{3,4}-[ib]\d+\b|\b[icbvq]\d+(?:\.\d+)?\b")     # p013-i1, p0005-b0021, i21, c34, c1.1, v2
 QUOTED = re.compile(r"'[^']{13,}'|\"[^\"]{13,}\"")                    # a quoted question or sentence, not 'none'
@@ -29,7 +29,7 @@ def step_of(record: dict) -> str:
     if section == "understand":
         return "pages"
     if section == "connect":
-        return "map"
+        return "trim" if unit == "prerequisites" else "map"
     if section == "lesson":
         return "plan" if unit == "plan" else "scripts"
     return section or "other"

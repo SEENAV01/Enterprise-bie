@@ -282,7 +282,7 @@ class Estimate(unittest.TestCase):
                             with_visual=True)
         self.assertEqual(list(est["sections"]), ["understand", "connect", "notes", "game", "lesson", "director", "visual"])
         self.assertEqual({k for k, v in est["sections"].items() if v["basis"] == "assumed"},
-                         {"notes", "game", "lesson", "director", "visual"})
+                         {"notes", "game", "director", "visual"})            # the lesson was measured by job 2 (Task 045)
         self.assertIn("(assumed)", cost.estimate_line(est, 300))
         self.assertLess(est["measured_share_inr"], est["total_inr"])
 

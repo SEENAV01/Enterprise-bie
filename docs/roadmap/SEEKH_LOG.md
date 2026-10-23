@@ -114,3 +114,85 @@ Maker Codex (`gpt-6.1-sol`, ChatGPT plan), checker Gemini 4 Argon (AICredits). P
   needs an output schema that both Codex and Gemini accept, and a live check that quality and first-try pass do not drop.
 - BIE's code reads PYQ blocks before the maker (the question, options a–d, options continued from the previous page),
   so their structure is given to the maker instead of written by it.
+
+## Baseline · tissue chapter, Section 2 (job 2, 23 October 2026)
+
+VM job `t045b-tissue-lesson` (`blindtest-results:runs/vm-t045b-tissue-lesson-brain-lesson/`): the lesson plan and 17
+scripts from job 1's map. Maker Codex (`gpt-6.1-sol`, ChatGPT plan), checker Gemini 4 Argon (AICredits). Measured with
+`tools/seekh_measure.py`.
+
+| Measure | Plan | Scripts |
+| --- | --- | --- |
+| Passed | 1 of 1 | 15 of 17 |
+| First-try pass | 1 of 1 | 0 of 17 |
+| Rounds per unit | 1.0 | 2.76 |
+| Codex tokens per unit (in · out) | 26,034 · 7,172 | 97,566 · 24,495 |
+| Gemini tokens per unit (in · out) | 21,086 · 995 | 23,051 · 990 |
+| Gemini ₹ per unit | ₹5.42 | ₹5.83 (₹104.56 for the job, ₹7.47 per page) |
+| Minutes per unit | 4.9 | 10.6 |
+| Narration | — | 458 minutes for 14 pages (about 33 per page) |
+| Reviewer findings | none | 1 blocking, 15 minor |
+
+## Entry 2 · tissue Section 2 (job 2) and Navin's decisions, 23 October 2026
+
+**Taught**
+
+1. Of the 897 code problems that sent scripts back, 838 were everyday Hindi words that BIE's word list did not know
+   (तथा ×22, इससे ×18, करके ×16, तौर ×14, आसपास, जिससे, दिए …); the list had no word forms (आता, आएगा) and no
+   fixed phrases. The passed scripts carried 612 brackets after everyday words or inside idioms ("आम तौर (usually) पर",
+   "नहीं के बराबर (equal to)"). v1 failed on जिसे, a form of an everyday word.
+2. v11 passed its checks but the reviewer failed it: a patch round's notes ("local correction to beat b34") replaced
+   the notes of the whole script. Job 1's page 11 had the same minor finding.
+3. Narration was 458 minutes for 14 pages. Navin: 6–8 minutes per book page.
+4. The map listed 30 prerequisites, most of them background to other prerequisites, and the plan spread them over
+   the topic videos. Navin: only what the chapter directly needs, in one short video first.
+5. Every Gemini call of jobs 1 and 2 reported 0 cached input tokens. AICredits' docs (read 23 October 2026): prompt
+   caching is explicit for Claude and automatic for OpenAI-style models, "Other providers: Not supported"; BIE's
+   `no_cache` only bypasses AICredits' semantic cache, which is not enabled on the hosted platform. Not settled
+   until the probe below runs.
+6. The lesson estimate was assumed at ₹31.78; the ledger said ₹104.56.
+
+**Changed in BIE** (branch `task045-seekh-checks`, PR #53; all IMPLEMENTED, none INTEGRATED until the next live run)
+
+- Hindi (S2-04, `bie/brain/hinglish.py`, word list `simple_hindi.json` 2026-10-23.2): 1,909 everyday words, word
+  forms through suffixes, stems and causatives, and 94 fixed phrases. Before the checks, code removes a bracket after
+  an everyday word or inside a fixed phrase (a new runner hook, `Step.normalize`, recorded in every round as
+  `normalized`); option marks such as "(b)" stay. The script prefix explains the rule with examples instead of the
+  whole word list.
+- Notes: a patch round adds its decisions to the unit's notes instead of replacing them (`runner.merge_notes`;
+  pages, map and scripts).
+- Time (S2-01, `bie/brain/lesson.py`): every teachable item has an equal share of its page; a topic video's budget is
+  6–8 minutes per page of its items, up to 25% more only with a `length_note`; the topic videos together stay within
+  6–8 minutes per book page (84–112 for this chapter). The plan is checked per video and for the chapter; a script is
+  checked by its spoken words at 130 a minute (over the top fails, under 85% of the bottom fails). Claude's addition,
+  following from S2-01: a topic video gets at least 3 minutes (smaller ones merge), because the hook and recap need
+  room. Only teacher questions answered from the book must be answered (S2-02); must_cover is unchanged.
+- Prerequisites (S1-12, S2-03): a map keeps at most 8 direct prerequisites, each naming the concepts that need it.
+  An older map is trimmed once before its lesson (`bie/brain/prerequisites.py`, task `trim_prerequisites` of the
+  connect section): the maker keeps, merges or drops every current prerequisite with a reason, the checker reviews
+  it, code checks it, and `MAP.md` shows what was dropped. The plan starts with one "pehle yeh jaan lo" video (`v0`,
+  5–8 minutes, one part per prerequisite); a topic video reminds of a prerequisite in at most 2 beats.
+- Section 1 (S1-13, S1-14): a printed typo stays as printed with the right word, "Cartiage [Cartilage]"; an answer
+  that mixes the book and an outside explanation becomes two answers, each with its own basis.
+- Guard: a set made before a rule change can break the new rule on purpose. `regression.RULE_CHANGES` names the
+  rule, Navin's decision and the BIE step that upgrades older work; such problems are listed, not hidden. Job 1's
+  map breaks the new S1-12 (30 prerequisites); the trim step upgrades it. Sets now record their rulebook version.
+- Readable pages show each video's kind, budget and spoken minutes. `tools/seekh_measure.py` counts the trim step on
+  its own. The lesson estimate uses job 2's measured cost (on the high side, since scripts get shorter).
+- Cache probe (`tools/run_blind_test.py --mode cache-probe`, workflow mode `cache-probe`): two small calls with one
+  4,300-token prefix (BIE's real script-review prefix), the cached tokens and AICredits' own billed rupees
+  (`usage.cost`); capped at ₹10, run with ₹3.
+
+**Measured**
+
+- Offline on job 2 (in sample: some of the new everyday words came from job 2's own scripts, so the next run is the
+  real test): Hindi problems in round 1 838 → 0 (no beat of the 1,215 round-1 beats is flagged); the cleanup removes
+  273 brackets from the round-1 answers and 612 from the passed scripts, and keeps 6 (सघन, सतह).
+- Prompt sizes (o200k tokens, before → after): script maker prefix 4,337 → 3,805 (−532 per script call); script
+  review prefix 2,219 → 2,276; page maker prefix 3,626 → 3,882 (+256 for S1-13 and S1-14); page review 1,976 →
+  2,024; plan instructions 2,691 → 3,139, plan source 9,438 → 7,785 (30 → 8 prerequisites).
+- Time, offline with the fake AI on job 1's real map (proves the plumbing, not quality): trim 30 → 8, 12 videos
+  (v0 and 11 topic videos), 105 minutes against 84–112, all checks pass.
+- Guard: job 1's 14 pages pass today's checks; its map's only new problem is the S1-12 count (rule change).
+- Live: the next run (map trim and script step, Gemini cap ₹150) measures first-try pass, rounds, tokens and rupees
+  against the baseline above. Expected, not measured: far fewer round-1 problems, scripts about a quarter as long.

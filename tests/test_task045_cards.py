@@ -617,7 +617,9 @@ class MixedScript(unittest.TestCase):
         self.assertIn("सतह (surface)", s204.rule)
         self.assertIn("यानी", s204.rule)
         prefix, _ = script_prefixes(COURSE, BOOK)
-        self.assertIn("Simple everyday Hindi words (list", prefix.text)
+        # The prefix explains the rule with examples (23 October 2026); the full word list stays in BIE's code checks.
+        self.assertIn("Brackets (word list 2026-10-23.", prefix.text)
+        self.assertIn("आम तौर (usually) पर", prefix.text)
         self.assertIn("सतह, यानी surface", prefix.text)
 
 
@@ -738,13 +740,14 @@ class LessonResumeAndPages(unittest.TestCase):
         with tempfile.TemporaryDirectory() as first, tempfile.TemporaryDirectory() as second:
             lesson, _ = self.run_lesson(first)
             previous = copy.deepcopy(lesson)
+            self.assertEqual([v["video_id"] for v in lesson["videos"]], ["v0", "v1", "v2"])   # v0: the prerequisite video
             previous["videos"][0]["status"] = "stopped"                       # stopped by the cap or the plan limit
             previous["videos"][1]["beats"] = previous["videos"][1]["beats"][:1]   # would fail today's coverage check
             again, calls = self.run_lesson(second, previous=previous)
             self.assertTrue(again["plan_reused"])
             self.assertEqual([v["reused"] for v in again["videos"]], [False, False, True])
             self.assertTrue(calls)
-            self.assertTrue(any("v2 fails today's checks" in n for n in again["resume_notes"]))
+            self.assertTrue(any("v1 fails today's checks" in n for n in again["resume_notes"]))
             self.assertEqual(again["quality"]["videos_passed"], 3)
 
     def test_nothing_is_reused_when_the_chapter_map_changed(self):
@@ -760,13 +763,18 @@ class LessonResumeAndPages(unittest.TestCase):
     def test_one_readable_page_per_video(self):
         with tempfile.TemporaryDirectory() as folder:
             lesson, _ = self.run_lesson(folder)
-            first = lesson["videos"][0]
+            first = lesson["videos"][1]
             page = Path(folder, "scripts", "v1.md").read_text(encoding="utf-8")
             self.assertTrue(page.startswith(f"# {first['title']}"))
             self.assertIn(f"## v1 · {first['title']} · passed", page)
+            self.assertIn("Kind: topic video · budget 6.0-8.0 minutes · spoken about", page)
             self.assertIn("### Part c1.1 · definition", page)
             self.assertEqual(len(list(Path(folder, "scripts").glob("*.md"))), len(lesson["videos"]))
-            self.assertIn(f"| v2 | {lesson['videos'][1]['title']} | passed |", Path(folder, "SCRIPT.md").read_text(encoding="utf-8"))
+            index = Path(folder, "SCRIPT.md").read_text(encoding="utf-8")
+            self.assertIn(f"| v2 | topic | {lesson['videos'][2]['title']} | passed |", index)
+            self.assertIn("| v0 | prerequisites | ", index)
+            self.assertIn("Narration time (S2-01): 6-8 minutes per book page", index)
+            self.assertIn("Kind: pehle yeh jaan lo (prerequisite video)", Path(folder, "scripts", "v0.md").read_text(encoding="utf-8"))
 
 
 class ReadablePagesAndRunResume(unittest.TestCase):

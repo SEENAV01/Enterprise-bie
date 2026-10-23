@@ -22,11 +22,21 @@ record per step under ``records/``.
 Resume (``previous_lesson``): a run that stopped (the plan's own limit, the rupee cap) continues from its
 ``lesson_plan.json``. The plan and every script that passed are reused when the chapter map is the same (same
 naksha) and they still pass today's code checks; everything else runs again.
+
+Time and prerequisites (Navin, 23 October 2026; S2-01, S2-02, S2-03): narration is 6-8 minutes per book page.
+Every teachable item has an equal share of its page; a concept's budget is the sum of its items' shares, and a
+video's budget the sum of its concepts' (a very dense video may go up to 25% over with ``length_note``). The plan
+starts with one 5-8 minute "pehle yeh jaan lo" video (``kind`` "prerequisites", video_id "v0") that teaches every
+prerequisite of the map (ids "pre1", "pre2" ... in the map's order); a topic video reminds of them in at most two
+beats. Every book item stays in must_cover and every teacher question answered from the book must be answered;
+outside answers are optional, the time is won by cutting repetition and side-tracks.
 """
 from __future__ import annotations
 
 import json
+import math
 import re
+from collections import Counter, defaultdict
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
@@ -36,13 +46,13 @@ from . import engines
 from . import hinglish
 from . import naksha as naksha_module
 from .common import SEVERITY, S, arr as _arr, checklist_text as _checklist_text, fmt as _fmt, obj as _obj, review_problems
-from .runner import NOTES_SCHEMA, Step
+from .runner import NOTES_SCHEMA, Step, merge_notes
 from .understanding import DEFAULT_OUTPUT_TOKENS, Course, chapter_id, money
 
 SECTION = "lesson"
-PLAN_VERSION = "lesson-plan/2"
-SCRIPT_VERSION = "lesson-script/2"
-PLAN_SCHEMA_ID = "bie.brain.lesson-plan/2"
+PLAN_VERSION = "lesson-plan/3"
+SCRIPT_VERSION = "lesson-script/3"
+PLAN_SCHEMA_ID = "bie.brain.lesson-plan/3"
 SCRIPT_SCHEMA_ID = "bie.brain.lesson-script/2"
 PURPOSES = ["hook", "prerequisite", "explain", "example", "analogy", "story", "compare", "process_walkthrough",
             "misconception", "exam_tip", "question_to_student", "recap", "transition"]
@@ -51,6 +61,14 @@ DEVANAGARI_DIGIT = re.compile(r"[०-९]")
 SENTENCE_END = re.compile(r"[।?!.]+")
 LONGEST_SENTENCE = 40        # words; Navin's style is short spoken sentences (S2-04)
 FRAME = ("process", "how", "when", "conditions", "atmosphere")
+MINUTES_PER_PAGE = (6.0, 8.0)        # S2-01, Navin 23 October 2026
+DENSE_ALLOWANCE = 1.25               # a very dense video, with the reason in length_note
+PREREQUISITE_MINUTES = (5.0, 8.0)    # the "pehle yeh jaan lo" video
+PREREQUISITE_VIDEO = "prerequisites"
+WORDS_PER_MINUTE = 130
+SCRIPT_FLOOR = 0.85                  # a script may run up to 15% under its range (must_cover keeps the content); never over
+MAX_REMINDER_BEATS = 2
+MIN_TOPIC_MINUTES = 3.0               # a topic video's highest budget: a hook, the teaching and a recap need room               # prerequisite reminders in a topic video (S2-03)
 # The frame questions a type cannot answer with "n/a" (S3-01 asks all five of every topic).
 FRAME_NEEDS = {"process": ("process", "how", "when", "conditions"), "timeline": ("when", "conditions", "atmosphere"),
                "cause_effect": ("how", "conditions"), "structure": ("how",), "figure": ("how",)}
@@ -61,11 +79,13 @@ PLAN_SCHEMA = _obj({
         "video_id": S,
         "title": S,
         "goal": S,
+        "kind": {"type": "string", "enum": [PREREQUISITE_VIDEO, "topic"]},
         "concept_ids": _arr(S),
         "prerequisites_taught": _arr(S),
         "opening_hook": S,
         "story_or_analogy": S,
         "estimated_minutes": {"type": "integer"},
+        "length_note": S,
         "why_this_unit": S,
     })),
     "chapter_flow": S,
@@ -117,7 +137,7 @@ def apply_script_patch(previous: dict, patch: dict) -> dict:
         beats.insert(at, entry["beat"])
     frames = {p["part_id"]: p for p in patch.get("replace_parts") or []}
     parts = [frames.pop(p["part_id"], p) for p in previous.get("parts") or []] + list(frames.values())
-    return dict(previous, notes=patch.get("notes") or previous.get("notes"), beats=beats, parts=parts)
+    return dict(previous, notes=merge_notes(previous.get("notes"), patch.get("notes")), beats=beats, parts=parts)
 
 
 PLAN_ROLE = """You are BIE's lesson section: the best teacher of {subject} for {learners} preparing for {exam}, planning the video
@@ -132,11 +152,15 @@ PLAN_HOW = """For a plan_videos card:
 How to fill the JSON:
 - notes: brief notes for the reviewer: what the chapter is about, the key questions the plan must serve, your main decisions with a
   reason each, what is uncertain.
-- videos: in teaching order. video_id "v1", "v2" ...; title in the learner language; goal = what the student will understand after it;
-  concept_ids = the concept ids taught in it, in order (every concept in some video); prerequisites_taught = names from the prerequisites
-  to teach that this video teaches first, spelled exactly as given; opening_hook = a real-life question, puzzle or surprise that opens it;
-  story_or_analogy = the story or analogy that genuinely helps, or "" if none fits; estimated_minutes from the content (a teacher
-  explaining every item and question at a natural pace), never a fixed length; why_this_unit = why these concepts belong together.
+- videos: in teaching order. First, when the source lists prerequisites, the "pehle yeh jaan lo" video: video_id "v0", kind
+  "prerequisites", concept_ids [], prerequisites_taught = every prerequisite name exactly as given, estimated_minutes 5-8. Then the
+  topic videos "v1", "v2" ...: kind "topic", prerequisites_taught [] (a topic video only reminds of a prerequisite, in at most 2 beats).
+  title in the learner language; goal = what the student will understand after it; concept_ids = the concept ids taught in it, in
+  order (every concept in some topic video); opening_hook = a real-life question, puzzle or surprise that opens it; story_or_analogy =
+  the story or analogy that genuinely helps, or "" if none fits; estimated_minutes = within the video's narration budget: the sum of
+  its concepts' minutes in the source (6-8 minutes per book page, S2-01); length_note = "" or, only for a very dense video, why it needs
+  up to 25% more; why_this_unit = why these concepts belong together. Group concepts so that every topic video gets at least 3
+  minutes (its hook, teaching and recap need room). All videos together stay within the chapter's minutes.
 - chapter_flow: how the videos build on each other.
 Reply with the JSON object only."""
 
@@ -164,12 +188,20 @@ How to fill the JSON:
   purpose (hook, prerequisite, explain, example, analogy, story, compare, process_walkthrough, misconception, exam_tip,
   question_to_student, recap, transition); say = the exact spoken words, one to four short spoken sentences in Navin's Hinglish (S2-04):
   mixed script: Hindi words in Devanagari, English words (above all the book's technical terms, spelled as the book spells them) in
-  Roman, as in "आज हम tissue के बारे में पढ़ेंगे"; a Hindi word that is not in the simple everyday list below gets its English word in
-  brackets right after it, as in "सतह (surface)" (BIE's code checks it, shows the bracket on screen and makes the voice say
-  "सतह, यानी surface"); never write an English term in Devanagari or a Hindi word in Roman; numbers as digits; addressed to one student; covers_item_ids = the item ids this beat really explains; answers = the teacher question ids this beat
-  really answers; on_screen = what the student should see while hearing it (for the director); basis = book, outside or mixed.
-Every item in must_cover and every teacher question listed for this video must be covered by some beat. A beat introduces at most a
-few new items: BIE's code measures the load of every beat and asks you to split heavy ones. Reply with the JSON object only."""
+  Roman, as in "आज हम tissue के बारे में पढ़ेंगे"; brackets only after a genuinely difficult Hindi word (see "Brackets" below; the
+  screen shows the bracket and the voice says "सतह, यानी surface"); never write an English term in Devanagari or a Hindi word in Roman;
+  numbers as digits; addressed to one student; covers_item_ids = the item ids this beat really explains; answers = the teacher question
+  ids this beat really answers; on_screen = what the student should see while hearing it (for the director); basis = book, outside or
+  mixed.
+Time (S2-01): the source gives this video's narration time; BIE's code counts the spoken words (130 a minute) and the script must stay
+within it. Win the time by cutting repetition and side-tracks, never book content: every item in must_cover is taught and every
+teacher question whose basis is "book" is answered; questions answered from outside the book are used only where they help and the
+time allows.
+Prerequisites (S2-03): in a topic video they were already taught in the prerequisite video; remind of one in at most 2 beats (purpose
+"prerequisite"). In the prerequisite video (card parts "pre1", "pre2" ...) teach each prerequisite simply, with an everyday example, in
+the order given: part_id = the prerequisite id, step 0, covers_item_ids = the prerequisite ids the beat teaches, answers [].
+A beat introduces at most a few new items: BIE's code measures the load of every beat and asks you to split heavy ones. Reply with
+the JSON object only."""
 
 REVIEW_ROLE = """You are BIE's independent reviewer for the lesson section. Another AI wrote the work below from BIE's task card. You check
 it as Navin would: is this how the best teacher would teach it?"""
@@ -195,6 +227,113 @@ def chapter_naksha(chapter: dict) -> dict:
     return naksha_module.build(chapter)
 
 
+def prerequisites_of(chapter) -> list:
+    """[(prerequisite id, prerequisite)] in the map's order: "pre1", "pre2" ..."""
+    return [(f"pre{n}", p) for n, p in enumerate((chapter.get("map") or {}).get("prerequisites_to_teach") or [], 1)]
+
+
+def is_prerequisite_video(video: dict) -> bool:
+    return video.get("kind") == PREREQUISITE_VIDEO
+
+
+def book_pages(chapter) -> int:
+    """The pages that have something to teach (S2-01 counts these)."""
+    return len({item["page"] for item in chapter["items"].values() if item.get("teachable")})
+
+
+def concept_pages(chapter) -> dict:
+    """{concept id: page equivalents}: every teachable item has an equal share of its page, split between the concepts
+    it belongs to; a concept's pages are the sum of its items' shares (all concepts together: the book pages)."""
+    items, per_page, owners = chapter["items"], Counter(), defaultdict(set)
+    for item in items.values():
+        if item.get("teachable"):
+            per_page[item["page"]] += 1
+    for cid, concept in _concepts(chapter).items():
+        for iid in concept.get("item_ids") or []:
+            if items.get(iid, {}).get("teachable"):
+                owners[iid].add(cid)
+    out = defaultdict(float)
+    for iid, cids in owners.items():
+        for cid in cids:
+            out[cid] += 1 / per_page[items[iid]["page"]] / len(cids)
+    return dict(out)
+
+
+def video_budget(chapter, videos, video, pages=None) -> tuple:
+    """(lowest, highest) narration minutes of a video (S2-01): 5-8 for the prerequisite video; for a topic video 6-8 per
+    book page of its items (a concept in two videos is shared), the highest x1.25 when the plan gives a length_note."""
+    if is_prerequisite_video(video):
+        return PREREQUISITE_MINUTES
+    pages = pages if pages is not None else concept_pages(chapter)
+    count = Counter(cid for v in videos for cid in v.get("concept_ids") or [])
+    share = sum(pages.get(cid, 0.0) / max(1, count[cid]) for cid in video.get("concept_ids") or [])
+    low, high = share * MINUTES_PER_PAGE[0], share * MINUTES_PER_PAGE[1]
+    if (video.get("length_note") or "").strip():
+        high *= DENSE_ALLOWANCE
+    return round(low, 1), round(high, 1)
+
+
+def chapter_budget(chapter, videos) -> tuple:
+    """(lowest, highest) minutes of the topic videos together (S2-01: 6-8 per book page); the prerequisite video's 5-8
+    minutes come on top, so a short chapter can always meet the rule."""
+    total = book_pages(chapter)
+    pages = concept_pages(chapter)
+    extra = sum(video_budget(chapter, videos, v, pages)[1] * (1 - 1 / DENSE_ALLOWANCE) for v in videos
+                if not is_prerequisite_video(v) and (v.get("length_note") or "").strip())
+    return round(total * MINUTES_PER_PAGE[0], 1), round(total * MINUTES_PER_PAGE[1] + extra, 1)
+
+
+def time_problems(value, chapter) -> list:
+    """S2-01 and S2-03 in the plan: one prerequisite video first, every video within its budget, the chapter in its time."""
+    problems = []
+    videos = value.get("videos") or []
+    prerequisites = prerequisites_of(chapter)
+    first = [v for v in videos if is_prerequisite_video(v)]
+    if prerequisites and len(first) != 1:
+        problems.append(f"the plan needs exactly one prerequisite video (kind \"{PREREQUISITE_VIDEO}\", the \"pehle yeh jaan lo\" "
+                        f"video) that teaches the chapter's {len(prerequisites)} prerequisites; it has {len(first)} (S2-01, S2-03)")
+    elif first and not prerequisites:
+        problems.append("the chapter map lists no prerequisites, so the plan has no prerequisite video (S2-03)")
+    elif first and videos[0] is not first[0]:
+        problems.append(f"the prerequisite video {first[0]['video_id']} comes first (S2-01)")
+    names = {p["name"].strip().lower(): p["name"] for _, p in prerequisites}
+    pages = concept_pages(chapter)
+    for video in videos:
+        low, high = video_budget(chapter, videos, video, pages)
+        if is_prerequisite_video(video):
+            if video.get("concept_ids"):
+                problems.append(f"video {video['video_id']}: the prerequisite video teaches only the prerequisites; its concept_ids "
+                                "are []")
+            taught = {n.strip().lower() for n in video.get("prerequisites_taught") or []}
+            missing = [names[n] for n in names if n not in taught]
+            unknown = sorted(taught - set(names))
+            if missing:
+                problems.append(f"video {video['video_id']}: prerequisites not taught: {missing[:10]} (use the exact names; S2-03)")
+            if unknown:
+                problems.append(f"video {video['video_id']}: {unknown[:5]} are not prerequisites of the chapter map")
+        elif video.get("prerequisites_taught"):
+            problems.append(f"video {video['video_id']}: prerequisites are taught in the prerequisite video, so prerequisites_taught "
+                            "is []; a topic video reminds of them in at most 2 beats (S2-03)")
+        elif high < MIN_TOPIC_MINUTES and len([v for v in videos if not is_prerequisite_video(v)]) > 1:
+            problems.append(f"video {video['video_id']}: its concepts get only {low}-{high} minutes; a topic video needs at least "
+                            f"{MIN_TOPIC_MINUTES:g} minutes for its hook, teaching and recap, so merge it with the video before or "
+                            "after (S2-01)")
+        minutes = video.get("estimated_minutes", 0)
+        if minutes < math.floor(low) or minutes > math.ceil(high):
+            why = ("the prerequisite video is 5-8 minutes" if is_prerequisite_video(video) else
+                   "6-8 minutes per book page of its items, up to 25% more only with a length_note")
+            problems.append(f"video {video['video_id']}: {minutes} minutes is outside its narration budget of {low}-{high} "
+                            f"minutes ({why}; S2-01)")
+    topics = [v for v in videos if not is_prerequisite_video(v)]
+    if topics:
+        low, high = chapter_budget(chapter, videos)
+        total = sum(v.get("estimated_minutes", 0) for v in topics)
+        if total < math.floor(low) or total > math.ceil(high):
+            problems.append(f"the topic videos add up to {total} minutes; {book_pages(chapter)} book pages get {low}-{high} "
+                            "minutes (6-8 per page; the prerequisite video's 5-8 minutes come on top; S2-01)")
+    return problems
+
+
 def check_plan(value, chapter):
     problems = []
     concepts = _concepts(chapter)
@@ -209,19 +348,33 @@ def check_plan(value, chapter):
             taught.add(cid)
         if video["estimated_minutes"] < 1:
             problems.append(f"video {video['video_id']}: estimated_minutes must be at least 1")
-        if not video["concept_ids"]:
+        if not video["concept_ids"] and not is_prerequisite_video(video):
             problems.append(f"video {video['video_id']}: teaches no concept")
     for cid in sorted(set(concepts) - taught):
         problems.append(f"concept {cid} ({concepts[cid]['name']}) is in no video (S2-01)")
     problems += engines.plan_checks(value.get("videos") or [], list(concepts.values()),
                                     (chapter.get("map") or {}).get("prerequisites_to_teach", []))[0]
+    problems += time_problems(value, chapter)
     if not value.get("videos"):
         problems.append("the plan has no videos")
     return problems
 
 
+def book_questions(chapter, questions) -> list:
+    """The teacher questions answered from the book: these must be answered in the script (S2-02)."""
+    out = []
+    for qid in questions:
+        iid, n = qid.rsplit("#q", 1)
+        qa = (chapter["items"].get(iid, {}).get("teacher_understanding") or [])[int(n) - 1:int(n)]
+        if qa and qa[0].get("basis") == "book":
+            out.append(qid)
+    return out
+
+
 def video_scope(chapter, video):
-    """The items and teacher questions a video must cover."""
+    """The items and teacher questions a video must cover (the prerequisite video: its prerequisites, no questions)."""
+    if is_prerequisite_video(video):
+        return [{"item_id": pid, "page": 0, "teachable": True, "kind": "prerequisite"} for pid, _ in prerequisites_of(chapter)], []
     concepts = _concepts(chapter)
     item_ids = []
     for cid in video["concept_ids"]:
@@ -274,9 +427,16 @@ def _plan_source(chapter, naksha) -> str:
     prereq = "\n".join(f"- {p['name']} · needed for {', '.join(p.get('needed_for') or [])} · {p.get('basis', '')} · {p.get('why_needed', '')}"
                        for p in m.get("prerequisites_to_teach") or [])
     focus = "\n".join(f"- {f['concept_id']}: {f['why']}" for f in m.get("exam_focus") or [])
+    pages = concept_pages(chapter)
+    total = book_pages(chapter)
+    budget = " | ".join(f"{cid} {pages.get(cid, 0) * MINUTES_PER_PAGE[0]:.1f}-{pages.get(cid, 0) * MINUTES_PER_PAGE[1]:.1f}"
+                        for cid in _concepts(chapter))
+    time = (f"Narration time (S2-01): 6-8 minutes per book page; this chapter has {total} book pages, so the topic videos together "
+            f"{total * MINUTES_PER_PAGE[0]:.0f}-{total * MINUTES_PER_PAGE[1]:.0f} minutes, plus the 5-8 minute prerequisite video. "
+            f"Minutes per concept (a topic video's budget is the sum of its concepts'):\n{budget}")
     return (f"Chapter summary: {m.get('chapter_summary', '')}\n\nHow the concepts link (from link to):\n{links or '(none)'}\n\n"
             f"Prerequisites to teach (name · needed for · basis · why):\n{prereq or '(none)'}\n\n"
-            f"BIE's teaching order: {', '.join(naksha['order'])}\n\nExam focus:\n{focus or '(none)'}")
+            f"BIE's teaching order: {', '.join(naksha['order'])}\n\nExam focus:\n{focus or '(none)'}\n\n{time}")
 
 
 def script_parts(chapter, naksha, video, types=None) -> list:
@@ -314,33 +474,56 @@ def script_parts(chapter, naksha, video, types=None) -> list:
 def script_card(course, chapter, naksha, plan, video, *, rulebook, prefix, max_output_tokens=DEFAULT_OUTPUT_TOKENS) -> dict:
     types = ct.load()
     index = naksha_module.Index(naksha)
+    order = [v["video_id"] for v in plan["videos"]]
+    position = order.index(video["video_id"])
+    around = dict(before=plan["videos"][position - 1]["title"] if position else "",
+                  after=plan["videos"][position + 1]["title"] if position + 1 < len(order) else "")
+    if is_prerequisite_video(video):
+        prerequisites = prerequisites_of(chapter)
+        parts = [cards.part(pid, [pid], ct.NONE, f"prerequisite: {naksha_module.short(p['name'], 80)}: explain it simply with an "
+                            "everyday example", types=types) for pid, p in prerequisites]
+        needed = list(dict.fromkeys(c for _, p in prerequisites for c in p.get("needed_for") or [] if c in index.concepts))
+        card = cards.make(
+            prefix=prefix, chapter_id=chapter_id(course),
+            unit={"unit_id": video["video_id"], "title": video["title"],
+                  "pages": sorted({row[2] for row in naksha["items"]}) or [1]},
+            parts=parts, rules=_rules(rulebook), mode="full", max_output_tokens=max_output_tokens,
+            must_cover=[pid for pid, _ in prerequisites], claim_field="beats[].covers_item_ids", may_skip=[],
+            map_slice=[index.concept_row(cid) for cid in needed], block_ids=[], page_images=[], **around)
+        return cards.require_valid(card, prefix=prefix, rulebook=rulebook, types=types,
+                                   known_ids=_known(chapter, index) | {pid for pid, _ in prerequisites})
     items, _ = video_scope(chapter, video)
     parts = script_parts(chapter, naksha, video, types)
     must = [i for p in parts for i in p["item_ids"]]
     skip = [{"item_id": i["item_id"], "reason": "not teachable (heading or container)"} for i in items if not i.get("teachable")]
-    order = [v["video_id"] for v in plan["videos"]]
-    position = order.index(video["video_id"])
     card = cards.make(
         prefix=prefix, chapter_id=chapter_id(course),
         unit={"unit_id": video["video_id"], "title": video["title"], "pages": sorted({i["page"] for i in items})},
         parts=parts or [cards.part("none", [video["concept_ids"][0]], "facts_numbers", "no teachable items", types=types)],
         rules=_rules(rulebook), mode="full", max_output_tokens=max_output_tokens, must_cover=must,
         claim_field="beats[].covers_item_ids", may_skip=skip, map_slice=naksha_module.slice_rows(naksha, must, index=index),
-        before=plan["videos"][position - 1]["title"] if position else "",
-        after=plan["videos"][position + 1]["title"] if position + 1 < len(order) else "",
-        block_ids=[b for i in items for b in i.get("block_ids") or []], page_images=[])
+        block_ids=[b for i in items for b in i.get("block_ids") or []], page_images=[], **around)
     return cards.require_valid(card, prefix=prefix, rulebook=rulebook, known_ids=_known(chapter, index), types=types)
 
 
-def _script_source(chapter, video) -> str:
+def _script_source(chapter, video, budget=None) -> str:
     items, _ = video_scope(chapter, video)
-    prereq = [p for p in (chapter.get("map") or {}).get("prerequisites_to_teach", [])
-              if p["name"].strip().lower() in {x.strip().lower() for x in video["prerequisites_taught"]}]
+    low, high = budget or (None, None)
     lines = [f"Video {video['video_id']}: {video['title']}", f"Goal: {video['goal']}", f"Opening hook: {video['opening_hook']}",
              f"Story or analogy: {video['story_or_analogy'] or '(none)'}", f"Planned minutes: {video['estimated_minutes']}"]
-    if prereq:
-        lines.append("Prerequisites to teach first in this video (name · basis · why):")
-        lines += [f"- {p['name']} · {p['basis']} · {p['why_needed']}" for p in prereq]
+    if budget:
+        lines.append(f"Narration time (S2-01): {low}-{high} minutes, about {round(low * WORDS_PER_MINUTE)}-"
+                     f"{round(high * WORDS_PER_MINUTE)} spoken words (BIE counts {WORDS_PER_MINUTE} words a minute)")
+    concepts = _concepts(chapter)
+    if is_prerequisite_video(video):
+        lines.append("\nPrerequisites to teach, in this order (id | name | basis | needed for | why):")
+        for pid, p in prerequisites_of(chapter):
+            needed = ", ".join(concepts.get(c, {}).get("name", c) for c in p.get("needed_for") or [])
+            lines.append(f"{pid} | {p['name']} | {p.get('basis', '')} | {needed} | {p.get('why_needed', '')}")
+        return "\n".join(lines)
+    names = [p["name"] for _, p in prerequisites_of(chapter)]
+    if names:
+        lines.append("Prerequisites already taught in the prerequisite video (remind of one in at most 2 beats): " + "; ".join(names))
     lines.append("\nItems (item id | page | kind | type | content), each with its teacher questions "
                  "(question id | ask | question → answer | basis):")
     for item in items:
@@ -431,7 +614,7 @@ def frame_problems(value, card, types=None) -> tuple:
     return problems, observed
 
 
-def check_script(value, chapter, video, language, card=None):
+def check_script(value, chapter, video, language, card=None, budget=None):
     problems = []
     items, questions = video_scope(chapter, video)
     scope_items = {i["item_id"] for i in items}
@@ -459,15 +642,42 @@ def check_script(value, chapter, video, language, card=None):
         missing_items = [i for i in teachable if i not in covered]
         if missing_items:
             problems.append(f"{len(missing_items)} items are covered by no beat (S2-02): {', '.join(missing_items[:40])}")
-    missing_q = [q for q in questions if q not in answered]
+    missing_q = [q for q in book_questions(chapter, questions) if q not in answered]
     if missing_q:
-        problems.append(f"{len(missing_q)} teacher questions are answered by no beat (S2-02): {', '.join(missing_q[:40])}")
+        problems.append(f"{len(missing_q)} teacher questions answered from the book are answered by no beat (S2-02): "
+                        f"{', '.join(missing_q[:40])}")
     problems += spoken_problems(beats, language)
+    problems += length_problems(beats, video, budget)
     if len(beats) < 3:
         problems.append("a video needs more than a couple of beats")
     if card is not None:
         problems += frame_problems(value, card)[0]
-        problems += engines.script_checks(beats, card["coverage"]["must_cover"], planned_minutes=video.get("estimated_minutes"))[0]
+        problems += engines.script_checks(beats, card["coverage"]["must_cover"], planned_minutes=video.get("estimated_minutes"),
+                                          minutes_range=budget)[0]
+    return problems
+
+
+def spoken_minutes(beats) -> float:
+    return round(sum(len(b.get("say", "").split()) for b in beats) / WORDS_PER_MINUTE, 1)
+
+
+def length_problems(beats, video, budget) -> list:
+    """S2-01 and S2-03 in a script: within its narration time, and at most 2 prerequisite reminders in a topic video."""
+    problems = []
+    if budget:
+        low, high = budget
+        spoken = spoken_minutes(beats)
+        if spoken > high:
+            problems.append(f"the script speaks about {spoken} minutes; this video's narration time is {low}-{high} minutes "
+                            f"(S2-01): cut repetition and side-tracks, never book content")
+        elif spoken < round(low * SCRIPT_FLOOR, 1):
+            problems.append(f"the script speaks only about {spoken} minutes; this video's narration time is {low}-{high} minutes "
+                            "(S2-01): explain the book's items fully")
+    if not is_prerequisite_video(video):
+        reminders = [b["beat_id"] for b in beats if b.get("purpose") == "prerequisite"]
+        if len(reminders) > MAX_REMINDER_BEATS:
+            problems.append(f"beats {', '.join(reminders[:10])} are prerequisite beats; a topic video reminds of prerequisites in at "
+                            f"most {MAX_REMINDER_BEATS} beats, they are taught in the prerequisite video (S2-03)")
     return problems
 
 
@@ -505,7 +715,8 @@ def script_step(course: Course, chapter, plan, video, *, rulebook, max_rounds=3,
     naksha = naksha or chapter_naksha(chapter)
     prefix, review_prefix = prefixes or script_prefixes(course, rulebook)
     card = script_card(course, chapter, naksha, plan, video, rulebook=rulebook, prefix=prefix, max_output_tokens=max_output_tokens)
-    source = _script_source(chapter, video)
+    budget = video_budget(chapter, plan["videos"], video)
+    source = _script_source(chapter, video, budget)
     user = cards.user_message(card, source, (), "Answer the card with the teacher script JSON.")
 
     def review_user(value):
@@ -515,14 +726,28 @@ def script_step(course: Course, chapter, plan, video, *, rulebook, max_rounds=3,
     def observe(value):
         found = frame_problems(value, card)[1]
         found.update(engines.script_checks(value.get("beats") or [], card["coverage"]["must_cover"],
-                                           planned_minutes=video.get("estimated_minutes"))[1])
+                                           planned_minutes=video.get("estimated_minutes"), minutes_range=budget)[1])
         return found
 
     return Step(section=SECTION, unit=f"script-{video['video_id']}", instructions_version=SCRIPT_VERSION, system=prefix.text,
-                user=user, schema=SCRIPT_SCHEMA, check=lambda value: check_script(value, chapter, video, course.language, card),
+                user=user, schema=SCRIPT_SCHEMA,
+                check=lambda value: check_script(value, chapter, video, course.language, card, budget),
                 review_system=review_prefix.text, review_user=review_user, review_schema=REVIEW_SCHEMA,
                 review_problems=review_problems, patch_schema=SCRIPT_PATCH_SCHEMA, apply_patch=apply_script_patch,
-                patch_hint=SCRIPT_PATCH_HINT, max_rounds=max_rounds, card=card, observe=observe)
+                patch_hint=SCRIPT_PATCH_HINT, max_rounds=max_rounds, card=card, observe=observe, normalize=tidy_script)
+
+
+def tidy_script(value: dict) -> tuple:
+    """(value, changes): BIE's code removes brackets after everyday Hindi words and inside fixed phrases (S2-04), so the
+    maker is never sent back for them and the reviewer reads the tidy script."""
+    removed, beats = [], []
+    for beat in value.get("beats") or []:
+        say, gone = hinglish.clean(beat.get("say", ""))
+        if gone:
+            removed.append({"beat_id": beat.get("beat_id"), "removed": gone})
+            beat = dict(beat, say=say)
+        beats.append(beat)
+    return (dict(value, beats=beats), {"brackets_removed": removed}) if removed else (value, {})
 
 
 def _script_value(video_entry: dict) -> dict:
@@ -556,8 +781,8 @@ def reusable(previous: dict | None, chapter: dict, naksha: dict, course: Course,
         if not entry or entry.get("status") != "passed":
             continue
         card = script_card(course, chapter, naksha, plan, video, rulebook=rulebook, prefix=prefix)
-        value = _script_value(entry)
-        problems = check_script(value, chapter, video, course.language, card)
+        value = tidy_script(_script_value(entry))[0]
+        problems = check_script(value, chapter, video, course.language, card, video_budget(chapter, plan["videos"], video))
         if problems:
             notes.append(f"{video['video_id']} fails today's checks ({problems[0][:120]}), so it runs again")
             continue
@@ -618,6 +843,9 @@ def run_lesson(chapter: dict, course: Course, runner, out_dir, *, workers: int =
             "card_parts": [{k: p[k] for k in ("part_id", "type", "item_ids")} for p in step.card["parts"]],
             "beats": [dict(b, subtitle=hinglish.subtitle_text(b["say"]), voice=hinglish.voice_text(b["say"]))
                       for b in (result.output or {}).get("beats", [])],
+            "kind": video.get("kind", "topic"),
+            "budget_minutes": list(video_budget(chapter, videos, video)),
+            "spoken_minutes": spoken_minutes((result.output or {}).get("beats", [])),
             "checks": (result.rounds[-1].get("observed") if result.rounds else None) or {},
             "last_problems": (result.rounds[-1].get("code_problems") or []) + (result.rounds[-1].get("review_problems") or [])
             if result.rounds and not result.passed else [],
@@ -632,6 +860,9 @@ def run_lesson(chapter: dict, course: Course, runner, out_dir, *, workers: int =
                          "videos_reused": sum(1 for v in lesson["videos"] if v["reused"]),
                          "plan_passed": plan_result.passed, "beats": sum(len(v["beats"]) for v in lesson["videos"]),
                          "spoken_words": words, "estimated_minutes_at_130_wpm": round(words / 130, 1),
+                         "budget_minutes": {"topic_videos": list(chapter_budget(chapter, videos)) if videos else None,
+                                            "prerequisite_video": list(PREREQUISITE_MINUTES), "per_page": list(MINUTES_PER_PAGE),
+                                            "book_pages": book_pages(chapter)},
                          "cost_usd": lesson["cost_usd"]}
     (out / "lesson_plan.json").write_text(json.dumps(lesson, ensure_ascii=False, indent=1), encoding="utf-8")
     write_pages(lesson, out)
@@ -659,14 +890,23 @@ def render_markdown(lesson: dict) -> str:
              + (f" ({q['videos_reused']} reused)" if q.get("videos_reused") else "")
              + f"; {q['beats']} beats, {q['spoken_words']} spoken words (about {q['estimated_minutes_at_130_wpm']} minutes); "
              f"estimated cost {money(q['cost_usd'], lesson)}." + checker.get(independence, ""), ""]
+    budget = q.get("budget_minutes") or {}
+    if budget.get("topic_videos"):
+        low, high = budget["topic_videos"]
+        lines += [f"Narration time (S2-01): {budget['per_page'][0]:g}-{budget['per_page'][1]:g} minutes per book page, "
+                  f"{budget['book_pages']} pages, topic videos {low}-{high} minutes; the prerequisite video "
+                  f"{budget['prerequisite_video'][0]:g}-{budget['prerequisite_video'][1]:g} minutes on top.", ""]
     if lesson["plan"].get("chapter_flow"):
         lines += [lesson["plan"]["chapter_flow"], ""]
-    lines += ["| Video | Title | Result | Rounds | Minutes planned |", "| --- | --- | --- | --- | --- |"]
+    lines += ["| Video | Kind | Title | Result | Rounds | Minutes planned | Budget | Spoken (130 words/min) |",
+              "| --- | --- | --- | --- | --- | --- | --- | --- |"]
     plans = {v["video_id"]: v for v in lesson["plan"].get("videos", [])}
     for video in lesson["videos"]:
         minutes = plans.get(video["video_id"], {}).get("estimated_minutes", "")
-        lines.append(f"| {video['video_id']} | {video['title']} | {video['status']}" + (" (reused)" if video.get("reused") else "")
-                     + f" | {video['rounds']} | {minutes} |")
+        lines.append(f"| {video['video_id']} | {video.get('kind', 'topic')} | {video['title']} | {video['status']}"
+                     + (" (reused)" if video.get("reused") else "") + f" | {video['rounds']} | {minutes} | "
+                     + ("{}-{}".format(*video["budget_minutes"]) if video.get("budget_minutes") else "") + " | "
+                     + (f"{video['spoken_minutes']}" if video.get("spoken_minutes") is not None else "") + " |")
     lines.append("")
     for video in lesson["videos"]:
         lines += video_lines(lesson, video, level=2)
@@ -686,6 +926,10 @@ def video_lines(lesson: dict, video: dict, *, level: int) -> list:
     p = {v["video_id"]: v for v in lesson["plan"].get("videos", [])}.get(video["video_id"], {})
     lines = [f"{h} {video['video_id']} · {video['title']} · {video['status']} after {video['rounds']} round(s)"
              + (" · reused" if video.get("reused") else ""), "",
+             (f"Kind: {'pehle yeh jaan lo (prerequisite video)' if video.get('kind') == PREREQUISITE_VIDEO else 'topic video'}"
+              + (" · budget {}-{} minutes".format(*video["budget_minutes"]) if video.get("budget_minutes") else "")
+              + (f" · spoken about {video['spoken_minutes']} minutes" if video.get("spoken_minutes") is not None else "")
+              + (f" · length note: {p['length_note']}" if p.get("length_note") else "")),
              f"Goal: {p.get('goal', '')}", f"Hook: {p.get('opening_hook', '')}",
              f"Story or analogy: {p.get('story_or_analogy', '') or '(none)'}", ""]
     if video["last_problems"]:

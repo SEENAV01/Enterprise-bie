@@ -10,6 +10,10 @@ GPT-6.1 Sol direct, reviewer Gemini 4 Argon via AICredits, both priced at $2 / $
 - understand: run 39620281561, all 14 pages incl. retries and remakes: $2.5286 -> $0.181 per page.
 - connect (chapter map): run 39627682253, maker $0.7785 for 14 pages; the reviewer call failed there,
   so its share is assumed from run 39617164262 (2 pages, $0.052) -> about $0.06 per page.
+- lesson: VM job t045b-tissue-lesson (job 2, 23 October 2026), maker Codex on the ChatGPT plan, checker Gemini 4 Argon:
+  $1.1046 of checker for 14 pages, so $0.0789 per page is the reviewer's 16% share -> $0.493 per page on the basis. That
+  run spoke 458 minutes; the time rule of 23 October (6-8 minutes per page) makes scripts about a quarter as long, so
+  this basis is on the high side until the next lesson run is measured.
 When the run's models are priced differently, the estimate scales by their blended price (output
 tokens dominate: 30% input, 70% output price), maker 84% and reviewer 16% of the cost as measured.
 """
@@ -24,7 +28,7 @@ PER_PAGE_USD = {
     "connect": (0.060, "measured", "run 39627682253 maker + run 39617164262 reviewer share"),
     "notes": (0.12, "assumed", "not measured yet; about two thirds of a page reading"),
     "game": (0.05, "assumed", "not measured yet; one design step per chapter"),
-    "lesson": (0.15, "assumed", "not measured yet; plan plus spoken scripts"),
+    "lesson": (0.493, "measured", "VM job t045b-tissue-lesson, 14 pages (458 minutes spoken, before the time rule)"),
     "director": (0.20, "assumed", "not measured yet; scenes with timed actions"),
     "visual": (0.25, "assumed", "not measured yet; asset choice by sight and layouts reviewed on frames"),
 }

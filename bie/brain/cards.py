@@ -33,7 +33,7 @@ SCHEMA = json.loads(SCHEMA_PATH.read_text(encoding="utf-8"))
 ORDER = tuple(SCHEMA["properties"])
 SECTION_TASKS = {
     "understand": ("read_page",),
-    "connect": ("build_chapter_map",),
+    "connect": ("build_chapter_map", "trim_prerequisites"),
     "lesson": ("plan_videos", "write_script"),
     "director": ("direct_scenes",),
     "visual": ("plan_assets", "choose_asset", "lay_out_scene"),

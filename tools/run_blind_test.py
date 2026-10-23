@@ -6,6 +6,11 @@
   --mode access      which candidate models this key may really call: one tiny preflight call per model
                      (--models google=a|b|c); a refused model costs nothing, an allowed one about Rs 0.05;
                      capped at Rs 5 by the cost guard
+  --mode cache-probe does the route cache a repeated prompt prefix? Two small calls per provider with the same
+                     ~4,300-token prefix (BIE's real script-review prefix and part of a passed chapter map),
+                     then the cached input tokens, the gateway's raw usage fields and its billed rupees
+                     (AICredits ``usage.cost``); not streamed, so the billed cost is returned; capped by
+                     --max-inr (default 3; Navin's yes of 23 October 2026 for about Rs 1)
 
 Keys come only from environment variables (GitHub Actions secrets in CI). Outputs go to --out:
 SUMMARY.json (no generated content; also printed as ::notice annotations), LEDGER.jsonl, and for the
@@ -133,6 +138,64 @@ def access(candidates: dict, fake: bool, ledger) -> dict:
     return out
 
 
+CACHE_PROBE_VERSION = "bie-cache-probe/1"
+PROBE_OUTPUT_TOKENS = 600
+PROBE_MAX_INR = 10.0
+
+
+def cache_probe_prefix() -> tuple:
+    """(system, stable user block): BIE's real script-review prefix (the same bytes on every script review of a run)
+    and the first concepts of the tissue regression set's chapter map, about 4,300 tokens together (o200k count),
+    above the largest implicit-cache minimum the providers state (4,096 tokens)."""
+    from bie.brain import regression, rulebook
+    from bie.brain.lesson import script_prefixes
+    from bie.brain.understanding import Course
+    passed = regression.load(ROOT / "tests" / "fixtures" / "passed_outputs" / "tissue-t045b-understand.json.gz")
+    review = script_prefixes(Course(**passed["course"]), rulebook.load())[1].text
+    concepts = json.dumps(passed["map"]["map"]["concepts"][:9], ensure_ascii=False, separators=(",", ":"))
+    return review, "Context (a chapter map's concepts, for the cache test only):\n" + concepts
+
+
+def cache_probe(routes: dict, ledger, *, max_inr: float, calls: int = 2, pause: float = 3.0, sleep=None) -> dict:
+    """{provider: {"calls": [...], "cache_hit": bool}}: ``calls`` requests with one prefix and a different last line."""
+    import time
+    sleep = sleep or time.sleep
+    system, stable = cache_probe_prefix()
+    for adapter in routes.values():          # tiny answers: a small output cap, so the guard reserves little per call
+        client = adapter.client
+        name = "max_output_tokens" if isinstance(getattr(client, "max_output_tokens", None), int) else "max_tokens"
+        setattr(client, name, PROBE_OUTPUT_TOKENS)
+    gateway = LiveGateway(routes, ledger=ledger, guard=CostGuard(max_inr), max_repairs=0)
+    out = {}
+    for route in routes:
+        rows = []
+        for n in range(1, calls + 1):
+            if n > 1:
+                sleep(pause)
+            request = ModelRequest(request_id=f"cache-probe:{route}:{n}", messages=(
+                {"role": "system", "content": system},
+                {"role": "user", "content": stable + f"\n\nCache test call {n}: set status to ready and language to the "
+                                                      "name of the language of this sentence."}),
+                response_schema=SMOKE_SCHEMA)
+            before = len(ledger.rows)
+            try:
+                gateway.complete(route, request, prompt_version=CACHE_PROBE_VERSION)
+                status = "ok"
+            except ProviderError as exc:
+                status = f"failed: {exc.kind}"
+            row = ledger.rows[before] if len(ledger.rows) > before else {}
+            raw = getattr(getattr(routes[route], "client", None), "last_usage_raw", None)
+            rows.append({"call": n, "status": status, "input_tokens": row.get("input_tokens"),
+                         "cached_input_tokens": row.get("cached_input_tokens"), "output_tokens": row.get("output_tokens"),
+                         "ledger_cost_usd": row.get("cost_usd"), "billed_inr": (raw or {}).get("cost"),
+                         "raw_usage": raw})
+            if status != "ok":
+                break
+        out[route] = {"calls": rows, "cache_hit": any((r["cached_input_tokens"] or 0) > 0 for r in rows[1:]),
+                      "spent_inr": gateway.guard.spent_inr if getattr(gateway, "guard", None) else None}
+    return out
+
+
 def _family(provider, model_id):
     names = {"anthropic": ("claude",), "openai": ("gpt", "o3", "o4"), "google": ("gemini",)}[provider] + ("fake",)
     return any(t in model_id for t in names)
@@ -144,7 +207,8 @@ def write_json(path: Path, value):
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("--mode", choices=("probe", "smoke", "blind-test", "access"), required=True)
+    parser.add_argument("--mode", choices=("probe", "smoke", "blind-test", "access", "cache-probe"), required=True)
+    parser.add_argument("--max-inr", type=float, default=3.0, help="cache-probe: hard cost cap in rupees (default 3)")
     parser.add_argument("--providers", default=",".join(PROVIDERS))
     parser.add_argument("--out", required=True)
     parser.add_argument("--fake", action="store_true", help="offline deterministic fake providers")
@@ -242,6 +306,18 @@ def main(argv=None):
                 notice(f"smoke {route}", json.dumps({**item, "usage": summary["usage"].get(route)}),
                        "notice" if item["status"] == "ok" else "error")
             summary["passed"] = all(item["status"] == "ok" for item in results.values()) and not missing
+            return 0 if summary["passed"] else 1
+
+        if args.mode == "cache-probe":
+            if not 0 < args.max_inr <= PROBE_MAX_INR:
+                raise SystemExit(f"CACHE_PROBE_CAP: --max-inr must be above 0 and at most {PROBE_MAX_INR:g} rupees")
+            result = cache_probe(routes, ledger, max_inr=args.max_inr, sleep=(lambda s: None) if args.fake else None)
+            summary["cache_probe"] = result
+            summary["usage"] = ledger.summary()
+            for route, item in result.items():
+                notice(f"cache-probe {route}", json.dumps(item, ensure_ascii=False),
+                       "notice" if all(r["status"] == "ok" for r in item["calls"]) else "error")
+            summary["passed"] = all(all(r["status"] == "ok" for r in item["calls"]) for item in result.values()) and not missing
             return 0 if summary["passed"] else 1
 
         if not args.source:

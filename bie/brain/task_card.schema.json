@@ -49,6 +49,7 @@
    "enum": [
     "read_page",
     "build_chapter_map",
+    "trim_prerequisites",
     "plan_videos",
     "write_script",
     "direct_scenes",
@@ -242,7 +243,7 @@
      "items": {
       "type": "string"
      },
-     "description": "Ids the answer must claim in claim_field: block ids (read_page), item ids (build_chapter_map, write_script) or concept ids (plan_videos)."
+     "description": "Ids the answer must claim in claim_field: block ids (read_page), item ids (build_chapter_map, write_script), concept ids (plan_videos) or prerequisite ids (trim_prerequisites)."
     },
     "claim_field": {
      "type": "string",

@@ -43,6 +43,7 @@ class OpenAICompatChatClient:
         self.schema_mode = "json_schema"
         self.stream = stream
         self.last_model = None
+        self.last_usage_raw = None      # the gateway's own usage object of the last answer (tokens, cache fields, INR cost)
 
     def _headers(self):
         return {"authorization": "Bearer " + self._key}
@@ -111,6 +112,7 @@ class OpenAICompatChatClient:
             raise ProviderError(classify(None, text), text[:300], provider=self.via)
         self.last_model = raw.get("model")
         usage = raw.get("usage") or {}
+        self.last_usage_raw = {k: v for k, v in usage.items() if isinstance(v, (int, float, str, dict, type(None)))}
         details = usage.get("completion_tokens_details") or {}
         normalized = {
             "input_tokens": int(usage.get("prompt_tokens") or 0),

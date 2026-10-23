@@ -286,5 +286,324 @@ class MeasuredTheSameWay(unittest.TestCase):
                 seekh_measure.main([str(Path(root, "missing"))])
 
 
+# ---------------------------------------------------------------- job 2 and Navin's decisions of 23 October 2026
+
+def tiny_chapter(prerequisites=1):
+    """Two book pages: page 1 has two teachable items (c1 and c2), page 2 one (c2); c1 is half a page, c2 one and a half."""
+    def item(iid, page, teachable=True):
+        return {"item_id": iid, "page": page, "kind": "paragraph", "parent_item_id": "", "source": "text", "block_ids": [],
+                "content": "Cells form tissues.", "content_type": "definition", "teachable": teachable, "tests_item_ids": [],
+                "teacher_understanding": [
+                    {"depth": 1, "ask": "what", "question": "What?", "answer": "A group of cells.", "basis": "book"},
+                    {"depth": 2, "ask": "why", "question": "Why?", "answer": "Division of labour.", "basis": "outside"}]}
+    items = {"p001-i1": item("p001-i1", 1), "p001-i2": item("p001-i2", 1), "p002-i1": item("p002-i1", 2),
+             "p002-i2": item("p002-i2", 2, teachable=False)}
+    concepts = [{"concept_id": "c1", "name": "Tissue", "item_ids": ["p001-i1"], "content_type": "definition", "core_explanation": "x"},
+                {"concept_id": "c2", "name": "Kinds", "item_ids": ["p001-i2", "p002-i1", "p002-i2"], "content_type": "definition",
+                 "core_explanation": "x"}]
+    pre = [{"name": f"Idea {n}", "why_needed": "x", "needed_for": ["c1"], "basis": "outside"} for n in range(1, prerequisites + 1)]
+    return {"course": {"title": "T", "subject": "Biology", "learners": "UPSC", "exam": "UPSC", "language": "Hinglish"},
+            "items": items, "map": {"concepts": concepts, "prerequisites_to_teach": pre, "teaching_order": ["c1", "c2"],
+                                    "relations": [], "exam_focus": []}}
+
+
+def plan_video(vid, cids, minutes, kind="topic", taught=(), note=""):
+    return {"video_id": vid, "title": vid, "goal": "", "kind": kind, "concept_ids": list(cids), "prerequisites_taught": list(taught),
+            "opening_hook": "", "story_or_analogy": "", "estimated_minutes": minutes, "length_note": note, "why_this_unit": ""}
+
+
+def say_beat(bid, words, purpose="explain"):
+    return {"beat_id": bid, "part_id": "", "purpose": purpose, "say": " ".join(["बात"] * words), "covers_item_ids": [], "answers": [],
+            "on_screen": "", "basis": "book"}
+
+
+class SimpleHindiAndBrackets(unittest.TestCase):
+    """Job 2: 838 of about 880 round problems were everyday words flagged as hard, and the passed scripts carried 546
+    needless brackets ("आम तौर (usually) पर"). Navin (23 October): brackets only on genuinely difficult words, never
+    inside an idiom or a fixed phrase."""
+
+    def test_word_forms_of_everyday_words_are_everyday(self):
+        from bie.brain import hinglish
+        simple = hinglish.load()
+        for word in ("आता", "आते", "आएगा", "करवाना", "पड़ता", "बनावट", "मौजूद", "तय"):
+            self.assertTrue(simple.is_simple(word), word)
+        for word in ("सतह", "घर्षण", "सघन"):
+            self.assertFalse(simple.is_simple(word), word)
+
+    def test_code_removes_brackets_after_everyday_words_and_inside_fixed_phrases(self):
+        from bie.brain import hinglish
+        self.assertEqual(hinglish.clean("आम तौर (usually) पर cells छोटे होते हैं।"),
+                         ("आम तौर पर cells छोटे होते हैं।", ["तौर (usually)"]))
+        self.assertEqual(hinglish.clean("यह नहीं के बराबर (equal to) है।")[0], "यह नहीं के बराबर है।")
+        self.assertEqual(hinglish.clean("मुख्य (main) बात")[0], "मुख्य बात")
+        for kept in ("पत्ती की सतह (surface) देखिए।", "सही option (b) है।", "तो option कौन सा (a) है?"):
+            self.assertEqual(hinglish.clean(kept), (kept, []))
+        self.assertEqual(hinglish.difficult_words("आम तौर पर पत्ती की सतह गीली रहती है।"), ["सतह"])
+        self.assertEqual(hinglish.bracket_problems("सही option (b) है।"), [])
+
+    def test_the_script_step_tidies_brackets_before_the_checks_and_records_it(self):
+        from bie.brain.lesson import tidy_script
+        value = {"beats": [dict(say_beat("b1", 1), say="आम तौर (usually) पर ऐसा होता है।"), dict(say_beat("b2", 1), say="ठीक है।")]}
+        tidy, changes = tidy_script(value)
+        self.assertEqual(tidy["beats"][0]["say"], "आम तौर पर ऐसा होता है।")
+        self.assertEqual(changes, {"brackets_removed": [{"beat_id": "b1", "removed": ["तौर (usually)"]}]})
+        self.assertEqual(tidy_script({"beats": [value["beats"][1]]}), ({"beats": [value["beats"][1]]}, {}))
+
+    def test_the_runner_records_what_code_normalized(self):
+        import types
+        from bie.brain.runner import SectionRunner, Step
+
+        class Stub:
+            def complete(self, route, request, prompt_version=None):
+                return types.SimpleNamespace(content={"x": " a "}, provenance={"via": "fake"}, model="stub", provider="stub",
+                                             usage={"input_tokens": 1, "output_tokens": 1})
+
+        seen = []
+        step = Step(section="lesson", unit="script-v1", instructions_version="v", system="S", user="U", schema={},
+                    check=lambda value: seen.append(value) or [], normalize=lambda v: ({"x": v["x"].strip()}, {"stripped": 1}))
+        result = SectionRunner(Stub(), maker="stub", reviewer=None, rulebook=rulebook.load()).run(step)
+        self.assertEqual((result.status, result.output, seen), ("passed", {"x": "a"}, [{"x": "a"}]))
+        self.assertEqual(result.rounds[0]["normalized"], {"stripped": 1})
+
+    def test_patch_notes_keep_the_whole_units_notes(self):
+        from bie.brain.runner import merge_notes
+        first = {"about": "Tissue video", "key_questions": ["What is a tissue?"], "decisions": [{"decision": "a", "reason": "r"}],
+                 "uncertain": ["x"]}
+        patch = {"about": "local correction to beat b34", "key_questions": [], "decisions": [{"decision": "b", "reason": "r"}],
+                 "uncertain": []}
+        self.assertEqual(merge_notes(first, patch), {"about": "Tissue video", "key_questions": ["What is a tissue?"],
+                                                     "decisions": first["decisions"] + patch["decisions"], "uncertain": []})
+        self.assertEqual(merge_notes(None, patch), patch)
+
+
+class NarrationTime(unittest.TestCase):
+    """Job 2 spoke 458 minutes for 14 pages. Navin (23 October): 6-8 minutes of narration per book page, up to 25% more
+    for a very dense video that says why; one 5-8 minute prerequisite video first; book content is never dropped."""
+
+    def test_budgets_come_from_each_videos_share_of_the_pages(self):
+        from bie.brain.lesson import book_pages, chapter_budget, concept_pages, video_budget
+        chapter = tiny_chapter()
+        self.assertEqual(book_pages(chapter), 2)
+        self.assertEqual(concept_pages(chapter), {"c1": 0.5, "c2": 1.5})
+        videos = [plan_video("v0", [], 6, "prerequisites", ["Idea 1"]), plan_video("v1", ["c1"], 4), plan_video("v2", ["c2"], 10)]
+        self.assertEqual([video_budget(chapter, videos, v) for v in videos], [(5.0, 8.0), (3.0, 4.0), (9.0, 12.0)])
+        self.assertEqual(chapter_budget(chapter, videos), (12.0, 16.0))
+        dense = plan_video("v2", ["c2"], 14, note="Six terms on one page")
+        self.assertEqual(video_budget(chapter, videos[:2] + [dense], dense), (9.0, 15.0))
+        self.assertEqual(chapter_budget(chapter, videos[:2] + [dense]), (12.0, 19.0))
+
+    def test_the_plan_needs_the_prerequisite_video_first_and_every_video_in_its_time(self):
+        from bie.brain.lesson import check_plan, time_problems
+        chapter = tiny_chapter()
+        good = {"videos": [plan_video("v0", [], 6, "prerequisites", ["Idea 1"]), plan_video("v1", ["c1", "c2"], 14)]}
+        self.assertEqual(check_plan(good, chapter), [])
+        cases = {
+            "no prerequisite video": ([plan_video("v1", ["c1", "c2"], 14)], "needs exactly one prerequisite video"),
+            "not first": ([plan_video("v1", ["c1", "c2"], 14), plan_video("v0", [], 6, "prerequisites", ["Idea 1"])],
+                          "the prerequisite video v0 comes first"),
+            "a concept in it": ([plan_video("v0", ["c1"], 6, "prerequisites", ["Idea 1"]), plan_video("v1", ["c2"], 9)],
+                                "its concept_ids are []"),
+            "a name missing": ([plan_video("v0", [], 6, "prerequisites", []), plan_video("v1", ["c1", "c2"], 14)],
+                               "prerequisites not taught: ['Idea 1']"),
+            "taught in a topic video": ([plan_video("v0", [], 6, "prerequisites", ["Idea 1"]),
+                                         plan_video("v1", ["c1", "c2"], 14, taught=["Idea 1"])], "prerequisites_taught is []"),
+            "too long": ([plan_video("v0", [], 6, "prerequisites", ["Idea 1"]), plan_video("v1", ["c1", "c2"], 30)],
+                         "30 minutes is outside its narration budget of 12.0-16.0"),
+        }
+        for name, (videos, fragment) in cases.items():
+            with self.subTest(name):
+                self.assertTrue(any(fragment in p for p in time_problems({"videos": videos}, chapter)), fragment)
+        crowded = copy.deepcopy(chapter)                 # a third item on page 1: c1 is a third of a page, 2.0-2.7 minutes
+        crowded["items"]["p001-i3"] = dict(crowded["items"]["p001-i2"], item_id="p001-i3")
+        crowded["map"]["concepts"][1]["item_ids"].append("p001-i3")
+        short = [plan_video("v0", [], 6, "prerequisites", ["Idea 1"]), plan_video("v1", ["c1"], 2), plan_video("v2", ["c2"], 12)]
+        self.assertTrue(any("merge it with the video before or after" in p for p in time_problems({"videos": short}, crowded)))
+        none = tiny_chapter(prerequisites=0)
+        self.assertTrue(any("lists no prerequisites" in p for p in time_problems(good, none)))
+        self.assertEqual(time_problems({"videos": [plan_video("v1", ["c1", "c2"], 14)]}, none), [])
+
+    def test_a_dense_video_may_go_25_percent_over_only_with_its_reason(self):
+        from bie.brain.lesson import time_problems
+        chapter = tiny_chapter()
+        long = lambda note: {"videos": [plan_video("v0", [], 6, "prerequisites", ["Idea 1"]), plan_video("v1", ["c1", "c2"], 19, note=note)]}
+        self.assertTrue(time_problems(long(""), chapter))
+        self.assertEqual(time_problems(long("Pages 1 and 2 hold eleven terms the exam asks."), chapter), [])
+
+    def test_the_script_is_checked_by_its_spoken_words(self):
+        from bie.brain.lesson import length_problems, spoken_minutes
+        topic = plan_video("v1", ["c1"], 4)
+        self.assertEqual(spoken_minutes([say_beat("b1", 260)]), 2.0)
+        self.assertEqual(length_problems([say_beat("b1", 455)], topic, (3.0, 4.0)), [])            # 3.5 minutes
+        self.assertIn("speaks about 4.5 minutes", length_problems([say_beat("b1", 585)], topic, (3.0, 4.0))[0])
+        self.assertIn("speaks only about 2.0 minutes", length_problems([say_beat("b1", 260)], topic, (3.0, 4.0))[0])
+        self.assertEqual(length_problems([say_beat("b1", 340)], topic, (3.0, 4.0)), [])            # 2.6 >= 0.85 x 3
+        reminders = [say_beat(f"b{n}", 400 if n == 1 else 5, "prerequisite") for n in range(1, 4)]
+        self.assertIn("at most 2 beats", length_problems(reminders, topic, (3.0, 4.0))[0])
+        first = plan_video("v0", [], 6, "prerequisites", ["Idea 1"])
+        self.assertEqual(length_problems([say_beat("b1", 780, "prerequisite")] * 1, first, (5.0, 8.0)), [])
+
+    def test_the_prerequisite_video_has_one_part_per_prerequisite(self):
+        from bie.brain.lesson import chapter_naksha, script_card, script_prefixes, video_budget, _script_source
+        chapter = tiny_chapter(prerequisites=2)
+        plan = {"videos": [plan_video("v0", [], 6, "prerequisites", ["Idea 1", "Idea 2"]), plan_video("v1", ["c1", "c2"], 14)]}
+        book = rulebook.load()
+        course = Course(**chapter["course"])
+        card = script_card(course, chapter, chapter_naksha(chapter), plan, plan["videos"][0], rulebook=book,
+                           prefix=script_prefixes(course, book)[0])
+        self.assertEqual([p["part_id"] for p in card["parts"]], ["pre1", "pre2"])
+        self.assertEqual(card["coverage"]["must_cover"], ["pre1", "pre2"])
+        source = _script_source(chapter, plan["videos"][0], video_budget(chapter, plan["videos"], plan["videos"][0]))
+        self.assertIn("Narration time (S2-01): 5.0-8.0 minutes, about 650-1040 spoken words", source)
+        self.assertIn("pre2 | Idea 2", source)
+
+    def test_only_questions_answered_from_the_book_are_required(self):
+        from bie.brain.lesson import book_questions
+        chapter = tiny_chapter()
+        self.assertEqual(book_questions(chapter, ["p001-i1#q1", "p001-i1#q2", "p002-i1#q1"]), ["p001-i1#q1", "p002-i1#q1"])
+
+
+class PrerequisiteTrim(unittest.TestCase):
+    """Job 1's map listed 30 prerequisites, most of them background to other prerequisites. Navin (23 October): only what
+    the chapter directly needs (at most 8), never a chain; an older map is trimmed once before its lesson is planned."""
+
+    def setUp(self):
+        from bie.brain.understanding import quality
+        passed = regression.load(TISSUE)
+        self.chapter = {"course": passed["course"], "items": passed["map"]["items"], "map": passed["map"]["map"],
+                        "source_sha256": passed["source_sha256"], "pages": [], "maker_route": "codex", "reviewer_route": "google",
+                        "rulebook_version": "2026-10-21.9", "map_status": "passed", "cost_usd": 0.0}
+        self.chapter["quality"] = quality(self.chapter)        # a chapter_map.json as job 1 wrote it, without its pages
+
+    def test_job_1s_map_needs_the_trim_and_the_rule_change_is_visible(self):
+        from bie.brain.prerequisites import needs_trim
+        self.assertTrue(needs_trim(self.chapter))
+        changed = regression.changed_rule_problems(regression.load(TISSUE))
+        self.assertEqual([(p.split(";")[0], c["rule"]) for p, c in changed],
+                         [("map: prerequisites_to_teach has 30 prerequisites", "S1-12")])
+        newer = dict(regression.load(TISSUE), rulebook="2026-10-21.10")      # a set made under the new rule gets no waiver
+        self.assertEqual(len(regression.check(newer)), 1)
+
+    def test_the_trim_check_wants_every_current_prerequisite_kept_merged_or_dropped_once(self):
+        from bie.brain.prerequisites import check_trim, current
+        ids = [pid for pid, _ in current(self.chapter)]
+        self.assertEqual(len(ids), 30)
+        keep = lambda from_ids: {"name": "Cell", "why_needed": "x", "needed_for": ["c01"], "basis": "outside", "from_ids": from_ids}
+        good = {"prerequisites": [keep(ids[:2])], "dropped": [{"id": i, "reason": "background"} for i in ids[2:]]}
+        self.assertEqual(check_trim(good, self.chapter), [])
+        bad = {"prerequisites": [keep(ids[:2]), keep([ids[1], "pre99"])] + [dict(keep([]), name=f"P{n}") for n in range(8)],
+               "dropped": [{"id": i, "reason": "x"} for i in ids[3:]]}
+        problems = check_trim(bad, self.chapter)
+        for fragment in ("has 10 prerequisites", "'cell' is listed more than once", "pre2 must be in exactly one kept",
+                         "pre3 must be in exactly one kept prerequisite's from_ids or in dropped (it is in 0)",
+                         "unknown prerequisite ids ['pre99']", "from_ids must name the current prerequisites"):
+            self.assertTrue(any(fragment in p for p in problems), fragment)
+
+    def test_the_trim_runs_once_and_its_map_passes_todays_checks(self):
+        from bie.brain.prerequisites import needs_trim, run_trim
+        from bie.brain.understanding import check_connect
+        from bie.model_gateway.claude_adapter import ClaudeAdapter
+        from bie.model_gateway.gpt_adapter import GPTAdapter
+        from bie.model_gateway.live.gateway import LiveGateway
+        from bie.brain.fake import BrainFakeClient
+        from bie.brain.runner import SectionRunner
+        maker, reviewer = BrainFakeClient("anthropic"), BrainFakeClient("openai")
+        gateway = LiveGateway({"anthropic": ClaudeAdapter(maker, "fake-claude"), "openai": GPTAdapter(reviewer, "fake-gpt")},
+                              sleep=lambda s: None)
+        course = Course(**self.chapter["course"])
+        with tempfile.TemporaryDirectory() as folder:
+            runner = SectionRunner(gateway, maker="anthropic", reviewer="openai", rulebook=rulebook.load(),
+                                   records_dir=Path(folder, "records"))
+            trimmed, summary = run_trim(self.chapter, course, runner, folder)
+            self.assertEqual((summary["status"], summary["before"], summary["after"]), ("passed", 30, 8))
+            self.assertFalse(needs_trim(trimmed))
+            self.assertEqual(check_connect(trimmed["map"], trimmed["items"]), [])
+            self.assertEqual(trimmed["map"]["concepts"], self.chapter["map"]["concepts"])          # nothing else changes
+            self.assertEqual(len(trimmed["prerequisite_trim"]["dropped"]), 22)
+            saved = json.loads(Path(folder, "chapter_map.json").read_text(encoding="utf-8"))
+            self.assertEqual(saved["naksha"]["sha256"], json.loads(Path(folder, "naksha.json").read_text(encoding="utf-8"))["sha256"])
+            self.assertIn("Trimmed from 30 to 8 prerequisites", Path(folder, "MAP.md").read_text(encoding="utf-8"))
+            calls = len(maker.calls)
+            again, summary = run_trim(trimmed, course, runner, folder)
+            self.assertEqual((summary["status"], len(maker.calls)), ("not needed", calls))
+            self.assertIs(again, trimmed)
+
+    def test_a_lesson_run_trims_an_old_map_first_and_plans_the_prerequisite_video(self):
+        with tempfile.TemporaryDirectory() as folder:
+            path = Path(folder, "chapter_map.json")
+            path.write_text(json.dumps(self.chapter, ensure_ascii=False), encoding="utf-8")
+            with contextlib.redirect_stdout(io.StringIO()), contextlib.redirect_stderr(io.StringIO()):
+                code = run_brain.main(["--fake", "--section", "lesson", "--chapter-map", str(path), "--out", str(Path(folder, "run")),
+                                       "--workers", "1", "--max-inr", "100000"])
+            self.assertEqual(code, 0)
+            summary = json.loads(Path(folder, "run", "SUMMARY.json").read_text(encoding="utf-8"))
+            self.assertEqual({k: summary["prerequisite_trim"][k] for k in ("status", "before", "after")},
+                             {"status": "passed", "before": 30, "after": 8})
+            lesson = json.loads(Path(folder, "run", "lesson_plan.json").read_text(encoding="utf-8"))
+            first = lesson["plan"]["videos"][0]
+            self.assertEqual((first["video_id"], first["kind"], len(first["prerequisites_taught"])), ("v0", "prerequisites", 8))
+            self.assertEqual(lesson["quality"]["videos_passed"], lesson["quality"]["videos"])
+            low, high = lesson["quality"]["budget_minutes"]["topic_videos"]
+            spoken = sum(v["spoken_minutes"] for v in lesson["videos"] if v["kind"] == "topic")
+            self.assertTrue(low <= spoken <= high, (low, spoken, high))
+            self.assertTrue(Path(folder, "run", "scripts", "v0.md").exists())
+
+    def test_the_trim_card_belongs_to_the_connect_section(self):
+        from bie.brain import cards
+        from bie.brain.prerequisites import trim_step
+        step = trim_step(Course(**self.chapter["course"]), self.chapter, rulebook=rulebook.load())
+        self.assertEqual((step.card["section"], step.card["task"]), ("connect", "trim_prerequisites"))
+        self.assertIn("trim_prerequisites", cards.SECTION_TASKS["connect"])
+        self.assertEqual(len(step.card["coverage"]["must_cover"]), 30)
+        self.assertIn("at most 8", step.system)
+
+
+class Section1RulesOfNavin(unittest.TestCase):
+    def test_typos_stay_as_printed_and_one_answer_has_one_basis(self):
+        book = rulebook.load()
+        rules = {r.id: r.rule for r in book.rules}
+        self.assertIn("Cartiage [Cartilage]", rules["S1-13"])
+        self.assertIn("two answers", rules["S1-14"])
+        self.assertIn("Cartiage [Cartilage]", PAGE_HOW)
+        self.assertIn("S1-14", PAGE_HOW)
+        self.assertIn("at most 8", CONNECT_HOW)
+        self.assertIn("6-8 minutes per book page", rules["S2-01"])
+
+
+class CacheProbe(unittest.TestCase):
+    """Every Gemini call of jobs 1 and 2 reported 0 cached input tokens. Navin (23 October): yes to a ~Rs 1 probe."""
+
+    def test_the_probe_runs_two_calls_with_one_long_prefix_under_a_small_cap(self):
+        import run_blind_test
+        system, stable = run_blind_test.cache_probe_prefix()
+        self.assertGreater(len(system) + len(stable), 15000)          # about 4,300 tokens: above the 4,096-token minimum
+        with tempfile.TemporaryDirectory() as folder:
+            code, out = quiet(run_blind_test.main, ["--mode", "cache-probe", "--fake", "--providers", "google", "--out", folder])
+            self.assertEqual(code, 0)
+            summary = json.loads(Path(folder, "SUMMARY.json").read_text(encoding="utf-8"))
+            calls = summary["cache_probe"]["google"]["calls"]
+            self.assertEqual([c["call"] for c in calls], [1, 2])
+            self.assertFalse(summary["cache_probe"]["google"]["cache_hit"])        # the fake reports no cached tokens
+            rows = [json.loads(line) for line in Path(folder, "LEDGER.jsonl").read_text(encoding="utf-8").splitlines()]
+            self.assertEqual([r["request_id"] for r in rows], ["cache-probe:google:1", "cache-probe:google:2"])
+            with self.assertRaises(SystemExit):
+                run_blind_test.main(["--mode", "cache-probe", "--fake", "--providers", "google", "--out", folder, "--max-inr", "50"])
+
+    def test_the_compat_client_keeps_the_gateways_own_usage_fields(self):
+        from bie.model_gateway.live.compat_client import OpenAICompatChatClient
+        client = OpenAICompatChatClient("sk-test-key")
+        parsed = client.parse({"model": "google/gemini-4-argon", "choices": [{"message": {"content": "{}"}, "finish_reason": "stop"}],
+                               "usage": {"prompt_tokens": 4300, "completion_tokens": 20, "cost": 0.85,
+                                         "prompt_tokens_details": {"cached_tokens": 2048}}})
+        self.assertEqual(parsed["usage"]["cached_input_tokens"], 2048)
+        self.assertEqual(client.last_usage_raw["cost"], 0.85)
+
+    def test_the_lesson_estimate_uses_job_2s_measured_cost(self):
+        from bie.brain import cost
+        est = cost.estimate("lesson", 14, rate=94.59, maker_model="gpt-6.1-sol", reviewer_model="google/gemini-4-argon",
+                            maker_subscription=True)
+        self.assertEqual(est["sections"]["lesson"]["basis"], "measured")
+        self.assertAlmostEqual(est["total_inr"], 104.48, delta=0.5)       # job 2's ledger: Rs 104.48 for the lesson
+
+
 if __name__ == "__main__":
     unittest.main()
