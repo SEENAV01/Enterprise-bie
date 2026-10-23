@@ -37,9 +37,9 @@ from .runner import NOTES_SCHEMA, SectionRunner, Step, merge_notes
 SECTION = "understand"
 CONNECT = "connect"
 PAGE_VERSION = "understand-page/2"
-CONNECT_VERSION = "understand-connect/2"
+CONNECT_VERSION = "understand-connect/3"
 PAGE_SCHEMA_ID = "bie.brain.understand-page/2"
-CONNECT_SCHEMA_ID = "bie.brain.chapter-connect/2"
+CONNECT_SCHEMA_ID = "bie.brain.chapter-connect/3"
 DEFAULT_OUTPUT_TOKENS = 32000
 
 KINDS = ["heading", "paragraph", "definition", "list_point", "example", "table", "table_row", "diagram",
@@ -112,6 +112,7 @@ CONNECT_SCHEMA = _obj({
     "relations": _arr(_obj({"from_concept": S, "relation": {"type": "string", "enum": RELATIONS}, "to_concept": S, "note": S})),
     "prerequisites_to_teach": _arr(_obj({"name": S, "why_needed": S, "needed_for": _arr(S),
                                          "basis": {"type": "string", "enum": ["book", "outside"]}})),
+    "prerequisite_note": S,
     "cross_references": _arr(_obj({"from_item_id": S, "reference_text": S, "resolved_item_id": S})),
     "question_links": _arr(_obj({"question_item_id": S, "tests_concepts": _arr(S)})),
     "teaching_order": _arr(S),
@@ -229,8 +230,11 @@ How to fill the JSON:
   means A comes before B in time or in a process. BIE's code checks with its prerequisite and reasoning engines: prerequisites never go
   in a circle, the teaching order teaches a prerequisite before what needs it, cause and effect never go in a circle, and dated concepts
   never go back in time.
-- prerequisites_to_teach: only what this chapter directly needs (at most 8; never a prerequisite of a prerequisite), each with why it
+- prerequisites_to_teach: only what this chapter directly needs, never a prerequisite of a prerequisite (no chains), each with why it
   is needed and needed_for = the chapter concept ids that need it. BIE teaches them in one short video before the chapter (S1-12, S2-03).
+  Usually that is 8 or fewer; never drop a prerequisite the chapter directly needs to stay under 8.
+- prerequisite_note: "" when there are 8 or fewer prerequisites; with more than 8, why every one of them is directly needed (BIE's code
+  asks for this note; it is a warning, not a limit).
 - cross_references: every reference such as "Fig. 6.10" or "see table" resolved to the item it means.
 - question_links: every question item (a question "continued from the previous page" too) linked to the concepts it tests; link the
   question item, never its answer options.
@@ -424,15 +428,17 @@ def check_page(value: dict, page, *, proposals: dict | None = None, card: dict |
     return problems
 
 
-MAX_PREREQUISITES = 8       # S1-12: one 5-8 minute video teaches them all (Navin, 23 October 2026)
+PREREQUISITE_WARNING = 8    # S1-12: above this the maker says why each one is directly needed (a warning, not a cap; Navin, 23 Oct 2026)
 
 
-def prerequisite_problems(prerequisites: list, known_concepts) -> list:
-    """S1-12 and S2-03: only direct prerequisites, at most 8, each needed by named chapter concepts."""
+def prerequisite_problems(prerequisites: list, known_concepts, note: str = "") -> list:
+    """S1-12 and S2-03: only what the chapter directly needs (no chains), each needed by named chapter concepts. Navin's rule is
+    not a number: more than 8 is a warning the maker answers with a prerequisite_note, never a cap that drops a needed one."""
     problems = []
-    if len(prerequisites) > MAX_PREREQUISITES:
+    if len(prerequisites) > PREREQUISITE_WARNING and not (note or "").strip():
         problems.append(f"prerequisites_to_teach has {len(prerequisites)} prerequisites; keep only what this chapter directly needs, "
-                        f"at most {MAX_PREREQUISITES}, never a prerequisite of a prerequisite (S1-12)")
+                        f"never a prerequisite of a prerequisite; with more than {PREREQUISITE_WARNING}, say in prerequisite_note why "
+                        "every one is directly needed (S1-12)")
     names = [p["name"].strip().lower() for p in prerequisites]
     for dup in sorted({n for n in names if names.count(n) > 1}):
         problems.append(f"prerequisite {dup!r} is listed more than once")
@@ -464,7 +470,7 @@ def check_connect(value: dict, items: dict) -> list:
         for end in (rel["from_concept"], rel["to_concept"]):
             if end not in known_concepts:
                 problems.append(f"relation uses unknown concept {end!r}")
-    problems += prerequisite_problems(value.get("prerequisites_to_teach") or [], known_concepts)
+    problems += prerequisite_problems(value.get("prerequisites_to_teach") or [], known_concepts, value.get("prerequisite_note", ""))
     for ref in value.get("cross_references") or []:
         for iid in (ref["from_item_id"], ref["resolved_item_id"]):
             if iid not in items:
@@ -820,6 +826,8 @@ def render_markdown(chapter: dict) -> str:
             f"- **{p['name']}** ({p['basis']}): {p['why_needed']}" + (f" · needed for {', '.join(names.get(c, c) for c in p['needed_for'])}"
                                                                     if p.get("needed_for") else "")
             for p in m.get("prerequisites_to_teach", [])] + [""]
+        if len(m.get("prerequisites_to_teach", [])) > PREREQUISITE_WARNING:
+            lines += [f"More than {PREREQUISITE_WARNING} prerequisites (warning, S1-12): {m.get('prerequisite_note') or '(no reason given)'}", ""]
         trim = chapter.get("prerequisite_trim")
         if trim:
             before = {b["id"]: b["name"] for b in trim["before"]}

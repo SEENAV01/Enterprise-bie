@@ -29,7 +29,7 @@ SCHEMA = "bie.brain.passed-outputs/1"
 
 RULE_CHANGES = (
     {"rule": "S1-12", "rulebook": "2026-10-21.10",
-     "decision": "Navin, 23 October 2026: only direct prerequisites, at most 8, taught in one short video",
+     "decision": "Navin, 23 October 2026: only direct prerequisites, no chains, taught in one short video; more than 8 needs a reason",
      "upgraded_by": "bie/brain/prerequisites.py (trim_prerequisites, run before a lesson is planned)",
      "match": re.compile(r"^map: prerequisites_to_teach has \d+ prerequisites")},
 )

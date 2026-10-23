@@ -464,7 +464,8 @@ class NarrationTime(unittest.TestCase):
 
 class PrerequisiteTrim(unittest.TestCase):
     """Job 1's map listed 30 prerequisites, most of them background to other prerequisites. Navin (23 October): only what
-    the chapter directly needs (at most 8), never a chain; an older map is trimmed once before its lesson is planned."""
+    the chapter directly needs, never a chain; more than 8 needs a reason (a warning, not a cap); an older map is trimmed
+    once before its lesson is planned."""
 
     def setUp(self):
         from bie.brain.understanding import quality
@@ -497,6 +498,23 @@ class PrerequisiteTrim(unittest.TestCase):
                          "pre3 must be in exactly one kept prerequisite's from_ids or in dropped (it is in 0)",
                          "unknown prerequisite ids ['pre99']", "from_ids must name the current prerequisites"):
             self.assertTrue(any(fragment in p for p in problems), fragment)
+
+    def test_more_than_8_is_a_warning_the_maker_answers_never_a_cap(self):
+        # Navin, 23 October 2026: "only what is directly needed, no chains", not a number.
+        from bie.brain.prerequisites import check_trim, current
+        from bie.brain.understanding import prerequisite_problems, render_markdown
+        ids = [pid for pid, _ in current(self.chapter)]
+        keep = [{"name": f"P{n}", "why_needed": "x", "needed_for": ["c01"], "basis": "outside", "from_ids": [ids[n]]}
+                for n in range(10)]
+        dropped = [{"id": i, "reason": "background"} for i in ids[10:]]
+        without = check_trim({"prerequisites": keep, "dropped": dropped, "prerequisite_note": ""}, self.chapter)
+        self.assertTrue(any("has 10 prerequisites" in p and "prerequisite_note" in p for p in without))
+        note = "Each of the ten is used directly by a chapter concept; none is background to another."
+        self.assertEqual(check_trim({"prerequisites": keep, "dropped": dropped, "prerequisite_note": note}, self.chapter), [])
+        self.assertEqual(prerequisite_problems(keep, {"c01"}, note), [])
+        chapter = copy.deepcopy(self.chapter)
+        chapter["map"]["prerequisites_to_teach"], chapter["map"]["prerequisite_note"] = keep, note
+        self.assertIn("More than 8 prerequisites (warning, S1-12): " + note, render_markdown(chapter))
 
     def test_the_trim_runs_once_and_its_map_passes_todays_checks(self):
         from bie.brain.prerequisites import needs_trim, run_trim
@@ -554,7 +572,8 @@ class PrerequisiteTrim(unittest.TestCase):
         self.assertEqual((step.card["section"], step.card["task"]), ("connect", "trim_prerequisites"))
         self.assertIn("trim_prerequisites", cards.SECTION_TASKS["connect"])
         self.assertEqual(len(step.card["coverage"]["must_cover"]), 30)
-        self.assertIn("at most 8", step.system)
+        self.assertIn("never drop one the chapter directly needs to reach a number", step.system)
+        self.assertIn("prerequisite_note", step.system)
 
 
 class Section1RulesOfNavin(unittest.TestCase):
@@ -565,7 +584,9 @@ class Section1RulesOfNavin(unittest.TestCase):
         self.assertIn("two answers", rules["S1-14"])
         self.assertIn("Cartiage [Cartilage]", PAGE_HOW)
         self.assertIn("S1-14", PAGE_HOW)
-        self.assertIn("at most 8", CONNECT_HOW)
+        self.assertIn("never drop a prerequisite the chapter directly needs to stay under 8", CONNECT_HOW)
+        self.assertIn("a warning, not a limit", CONNECT_HOW)
+        self.assertIn("the rule is not a number", rules["S1-12"])
         self.assertIn("6-8 minutes per book page", rules["S2-01"])
 
 

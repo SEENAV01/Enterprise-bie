@@ -1,9 +1,10 @@
 {
  "rulebook": "bie-vision",
- "version": "2026-10-21.10",
+ "version": "2026-10-21.11",
  "source": "Navin's vision, agreed point by point on 21 October 2026 (docs/vision/VISION_SPEC.md, section 'Agreed on 21 October 2026')",
  "notes": "Each rule is an instruction for the section that makes the work (rule) and a yes/no question for the reviewer (check). Rules change only through a reviewed version bump; Navin approves every new or changed rule.",
  "changes": [
+  "2026-10-21.11 (23 October 2026, Navin): S1-12's prerequisite count is a warning, not a cap: the rule is 'only what is directly needed, no chains'; more than 8 needs a stated reason (prerequisite_note) and a directly needed prerequisite is never dropped to reach a number.",
   "2026-10-21.10 (23 October 2026, Navin's decisions on the tissue run): S2-01 narration 6-8 minutes per book page (up to 25% over with a stated reason) and one 5-8 minute prerequisite video first; S2-02 every book item and book-answered question, outside answers only where they help; S2-03 only direct prerequisites, taught in that video, at most 2 reminder beats per topic video; S2-04 brackets only on genuinely difficult words, never after everyday words or inside idioms; G-02 and G-05 say how the time target and completeness fit together; S1-12 at most 8 direct prerequisites; new S1-13 printed typos kept with the right word shown; new S1-14 one answer, one basis.",
   "2026-10-21.9 (Task 045b, 23 October 2026, Navin's teaching decision): S2-04 is mixed script: Hindi in Devanagari, English terms in Roman, a difficult Hindi word (not in rulebook/simple_hindi.json) followed by its English word in brackets; subtitles show the bracket, the voice says it with 'यानी'.",
   "2026-10-21.8 (Task 045, 22 October 2026, from Navin's Task 045 brief): S1-08 names BIE's nine content types (content_types.json) instead of the old list and says BIE's code proposes a type first; new S2-06: every part of a lesson answers the universal frame and is taught through the teaching pattern of its content type."
@@ -166,7 +167,7 @@
     "connect"
    ],
    "status": "locked",
-   "rule": "Connect the whole chapter: group items into concepts; record how concepts relate (part of, type of, depends on, causes, contrasts with, example of, sequence); resolve every cross-reference such as 'Fig. 6.10' to its item; list only the prerequisites this chapter directly needs (at most 8, never a prerequisite of a prerequisite), each with why it is needed and the chapter concepts that need it; propose a teaching order that starts from what the student already knows.",
+   "rule": "Connect the whole chapter: group items into concepts; record how concepts relate (part of, type of, depends on, causes, contrasts with, example of, sequence); resolve every cross-reference such as 'Fig. 6.10' to its item; list only the prerequisites this chapter directly needs, never a prerequisite of a prerequisite (no chains), each with why it is needed and the chapter concepts that need it; the rule is not a number: usually that is 8 or fewer, more than 8 needs a stated reason why every one is directly needed, and a directly needed prerequisite is never dropped to reach a number; propose a teaching order that starts from what the student already knows.",
    "check": "Does the chapter map connect every concept, resolve cross-references, list only direct prerequisites and give a sensible teaching order?"
   },
   {

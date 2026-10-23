@@ -67,7 +67,7 @@ def connect_answer(user_text: str):
                          "core_explanation": "Offline concept."})
     links = [{"question_item_id": r[0], "tests_concepts": [f"c{r[1]}"]} for r in rows if r[2] == "question"]
     return {"notes": NOTES, "chapter_title": "Offline", "chapter_summary": "Offline map.", "concepts": concepts,
-            "relations": [], "prerequisites_to_teach": [], "cross_references": [], "question_links": links,
+            "relations": [], "prerequisites_to_teach": [], "prerequisite_note": "", "cross_references": [], "question_links": links,
             "teaching_order": [c["concept_id"] for c in concepts], "exam_focus": []}
 
 
@@ -158,14 +158,14 @@ def _script(user_text: str, per_beat: int):
 
 
 def trim_answer(user_text: str):
-    """Keep the first prerequisites (at most 8, needed by the first concept of the map), drop the rest."""
+    """Keep the first 8 prerequisites (needed by the first concept of the map), drop the rest."""
     card = cards.read_card(user_text)
     rows = [line.split(" | ") for line in user_text.split("Current prerequisites", 1)[-1].splitlines() if line.startswith("pre")]
     concept = next((row[0] for row in card["context"]["map_slice"]), "c1")
     kept = [{"name": row[1], "why_needed": "Offline.", "needed_for": [concept], "basis": "outside", "from_ids": [row[0]]}
             for row in rows[:8]]
     return {"notes": NOTES, "prerequisites": kept, "dropped": [{"id": row[0], "reason": "offline: not needed directly"}
-                                                                for row in rows[8:]]}
+                                                                for row in rows[8:]], "prerequisite_note": ""}
 
 
 def director_answer(user_text: str):

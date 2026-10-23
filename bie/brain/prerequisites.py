@@ -2,11 +2,13 @@
 
 The tissue map of 23 October listed 30 prerequisites, most of them background to other prerequisites. Navin's rule:
 only what this chapter directly needs, never a prerequisite of a prerequisite, taught in one short "pehle yeh jaan lo"
-video (5-8 minutes). Maps made from now on follow the rule in the connect step; an older map is trimmed here once,
-before its lesson is planned: the maker keeps, merges or drops every current prerequisite (each with a reason), the
-independent reviewer checks that nothing directly needed was dropped and nothing kept is only background, and BIE's
-code checks the result (at most 8, each needed by named chapter concepts, every current prerequisite kept, merged
-or dropped exactly once). Nothing else in the map changes; the naksha is built again, so its sha256 changes.
+video (5-8 minutes). The rule is not a number: more than 8 is a warning the maker answers with a reason, never a cap
+that drops a needed prerequisite. Maps made from now on follow the rule in the connect step; an older map is trimmed
+here once, before its lesson is planned: the maker keeps, merges or drops every current prerequisite (each with a
+reason), the independent reviewer checks that nothing directly needed was dropped and nothing kept is only
+background, and BIE's code checks the result (each needed by named chapter concepts, a prerequisite_note when more
+than 8 are kept, every current prerequisite kept, merged or dropped exactly once). Nothing else in the map changes;
+the naksha is built again, so its sha256 changes.
 """
 from __future__ import annotations
 
@@ -19,7 +21,7 @@ from . import content_types as ct
 from . import naksha as naksha_module
 from .common import S, arr as _arr, checklist_text as _checklist_text, obj as _obj, review_problems
 from .runner import NOTES_SCHEMA, Step
-from .understanding import (CONNECT, CONNECT_REVIEW_SCHEMA, DEFAULT_OUTPUT_TOKENS, MAX_PREREQUISITES, chapter_id, fmt,
+from .understanding import (CONNECT, CONNECT_REVIEW_SCHEMA, DEFAULT_OUTPUT_TOKENS, PREREQUISITE_WARNING, chapter_id, fmt,
                             prerequisite_problems, render_markdown)
 
 TASK = "trim_prerequisites"
@@ -30,6 +32,7 @@ SCHEMA = _obj({
     "prerequisites": _arr(_obj({"name": S, "why_needed": S, "needed_for": _arr(S),
                                 "basis": {"type": "string", "enum": ["book", "outside"]}, "from_ids": _arr(S)})),
     "dropped": _arr(_obj({"id": S, "reason": S})),
+    "prerequisite_note": S,
 })
 
 ROLE = """You are BIE's book-understanding section: an expert teacher of {subject} for {learners} preparing for {exam}. The chapter
@@ -44,12 +47,14 @@ HOW = """For a trim_prerequisites card:
 How to fill the JSON:
 - notes: brief notes for the reviewer: what the chapter needs, your main keep, merge and drop decisions with a reason each, what is
   uncertain.
-- prerequisites: at most {max_prerequisites}. Only what a student must already understand to follow this chapter's concepts directly;
-  never a prerequisite of a prerequisite (if A is needed only to understand prerequisite B, drop A or fold it into B in one simple
-  line); merge overlapping ones. Each: name (short, in clear English), why_needed (one sentence), needed_for (the chapter concept ids
-  that need it directly), basis ("book" or "outside"), from_ids (the current ids it keeps or merges).
+- prerequisites: only what a student must already understand to follow this chapter's concepts directly; never a prerequisite of a
+  prerequisite (if A is needed only to understand prerequisite B, drop A or fold it into B in one simple line); merge overlapping ones.
+  Usually that is {warning} or fewer, but never drop one the chapter directly needs to reach a number. Each: name (short, in clear
+  English), why_needed (one sentence), needed_for (the chapter concept ids that need it directly), basis ("book" or "outside"),
+  from_ids (the current ids it keeps or merges).
 - dropped: every current prerequisite that is not kept or merged, with the reason (only background for another prerequisite; taught
   in the chapter itself; not needed to follow the chapter; ...).
+- prerequisite_note: "" when you keep {warning} or fewer; with more, why every kept one is directly needed (BIE's code asks for it).
 BIE teaches the kept prerequisites in one 5-8 minute "pehle yeh jaan lo" video, so each must be small and concrete.
 Reply with the JSON object only."""
 
@@ -69,16 +74,16 @@ def current(chapter: dict) -> list:
 
 
 def needs_trim(chapter: dict) -> bool:
-    """True when the map's prerequisites break S1-12 (too many, or not tied to chapter concepts)."""
+    """True when the map's prerequisites break S1-12 (more than 8 without a reason, or not tied to chapter concepts)."""
     m = chapter.get("map") or {}
     known = {c["concept_id"] for c in m.get("concepts") or []}
-    return bool(prerequisite_problems(m.get("prerequisites_to_teach") or [], known))
+    return bool(prerequisite_problems(m.get("prerequisites_to_teach") or [], known, m.get("prerequisite_note", "")))
 
 
 def check_trim(value: dict, chapter: dict) -> list:
     """Code checks: S1-12 on the kept list, and every current prerequisite kept, merged or dropped exactly once."""
     known = {c["concept_id"] for c in (chapter.get("map") or {}).get("concepts") or []}
-    problems = prerequisite_problems(value.get("prerequisites") or [], known)
+    problems = prerequisite_problems(value.get("prerequisites") or [], known, value.get("prerequisite_note", ""))
     ids = [pid for pid, _ in current(chapter)]
     used = [i for p in value.get("prerequisites") or [] for i in p.get("from_ids") or []] + \
            [d["id"] for d in value.get("dropped") or []]
@@ -96,7 +101,7 @@ def check_trim(value: dict, chapter: dict) -> list:
 
 def trim_step(course, chapter: dict, *, rulebook, max_rounds=3, max_output_tokens=DEFAULT_OUTPUT_TOKENS) -> Step:
     types = ct.load()
-    how = HOW.replace("{max_prerequisites}", str(MAX_PREREQUISITES))
+    how = HOW.replace("{warning}", str(PREREQUISITE_WARNING))
     prefix = cards.build_prefix(section=CONNECT, task=TASK, version=1, schema_id=SCHEMA_ID, schema=SCHEMA,
                                 role=fmt(ROLE, course), how=how, rulebook=rulebook, course=course, types=types)
     review_prefix = cards.build_prefix(section=CONNECT, task=TASK, version=1, schema_id="bie.brain.prerequisites-trim-review/1",
@@ -138,6 +143,7 @@ def apply_trim(chapter: dict, value: dict, *, record: str | None = None, ruleboo
     before = current(chapter)
     out["map"]["prerequisites_to_teach"] = [{k: p[k] for k in ("name", "why_needed", "needed_for", "basis", "from_ids")}
                                             for p in value.get("prerequisites") or []]
+    out["map"]["prerequisite_note"] = value.get("prerequisite_note", "")
     out["prerequisite_trim"] = {"before": [{"id": pid, "name": p["name"]} for pid, p in before],
                                 "dropped": value.get("dropped") or [], "record": record, "rulebook_version": rulebook_version,
                                 "rule": "S1-12 and S2-03, Navin, 23 October 2026"}

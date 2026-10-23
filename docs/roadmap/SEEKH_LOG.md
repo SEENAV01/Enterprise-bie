@@ -165,9 +165,11 @@ scripts from job 1's map. Maker Codex (`gpt-6.1-sol`, ChatGPT plan), checker Gem
   6–8 minutes per page of its items, up to 25% more only with a `length_note`; the topic videos together stay within
   6–8 minutes per book page (84–112 for this chapter). The plan is checked per video and for the chapter; a script is
   checked by its spoken words at 130 a minute (over the top fails, under 85% of the bottom fails). Claude's addition,
-  following from S2-01: a topic video gets at least 3 minutes (smaller ones merge), because the hook and recap need
-  room. Only teacher questions answered from the book must be answered (S2-02); must_cover is unchanged.
-- Prerequisites (S1-12, S2-03): a map keeps at most 8 direct prerequisites, each naming the concepts that need it.
+  following from S2-01, approved by Navin on 23 October 2026: a topic video gets at least 3 minutes (smaller ones merge),
+  because the hook and recap need room. Only teacher questions answered from the book must be answered (S2-02); must_cover is unchanged.
+- Prerequisites (S1-12, S2-03): a map keeps only the prerequisites the chapter directly needs (no chains), each naming the
+  concepts that need it. The rule is not a number (Navin, 23 October 2026): more than 8 is a warning the maker answers with a
+  `prerequisite_note` saying why each one is directly needed; a needed prerequisite is never dropped to reach a number.
   An older map is trimmed once before its lesson (`bie/brain/prerequisites.py`, task `trim_prerequisites` of the
   connect section): the maker keeps, merges or drops every current prerequisite with a reason, the checker reviews
   it, code checks it, and `MAP.md` shows what was dropped. The plan starts with one "pehle yeh jaan lo" video (`v0`,
