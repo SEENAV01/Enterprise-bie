@@ -198,3 +198,28 @@ scripts from job 1's map. Maker Codex (`gpt-6.1-sol`, ChatGPT plan), checker Gem
 - Guard: job 1's 14 pages pass today's checks; its map's only new problem is the S1-12 count (rule change).
 - Live: the next run (map trim and script step, Gemini cap ₹150) measures first-try pass, rounds, tokens and rupees
   against the baseline above. Expected, not measured: far fewer round-1 problems, scripts about a quarter as long.
+
+## Entry 3 · cache probe, 23 October 2026
+
+Run 40007533161 (`tools/run_blind_test.py --mode cache-probe`, Navin's yes for about ₹1, cap ₹3): two calls to Gemini 4
+Argon through AICredits with the same 5,246-token prefix (BIE's real script-review prefix and part of a passed chapter
+map), not streamed, so AICredits returned its own billed rupees.
+
+**Taught**
+
+1. No prompt caching on this route: the second call reported `cached_tokens` 0 and `cache_write_tokens` 0, the same
+   prompt cost as the first (₹1.18 each). This matches AICredits' docs ("Other providers: Not supported").
+2. AICredits returns the billed rupees in `usage.cost` for an answer that is not streamed: ₹1.22 and ₹1.21, ₹2.43 in
+   all, against BIE's ledger estimate of ₹2.24. The bill is 8.5% above the ledger (within the 15% rule of
+   `COST_LOG.md`); the input is billed at about $2.38 per million tokens against the $2.20 the price table assumes.
+3. The probe cost ₹2.43, above the "about ₹1" planned, because the prefix had to be above the providers' 4,096-token
+   caching minimum; it stayed within its ₹3 cap.
+
+**What follows** (not built yet)
+
+- Gemini rupees go down only through fewer checker tokens (shorter scripts under the time rule, compact JSON, fewer
+  rounds), not through caching on this route. Gemini's own API caches repeated prefixes, but using the direct Gemini
+  key instead of AICredits is Navin's decision (keys and budget), so it is only noted here.
+- BIE can record AICredits' billed rupees for every call instead of an estimate, if the checker's answers are not
+  streamed (streamed answers carry no `usage.cost`), and correct the price table for Gemini 4 Argon input.
+
