@@ -708,5 +708,111 @@ class Chain(unittest.TestCase):
         self.assertEqual(lesson["quality"]["videos_passed"], lesson["quality"]["videos"])
 
 
+
+# ---------------------------------------------------------------- resume and readable pages (Task 045 PR B)
+
+class LessonResumeAndPages(unittest.TestCase):
+    def run_lesson(self, folder, previous=None, chapter=None):
+        from bie.brain.lesson import run_lesson
+        maker, reviewer = BrainFakeClient("anthropic"), BrainFakeClient("openai")
+        runner = SectionRunner(gateway(maker, reviewer), maker="anthropic", reviewer="openai", rulebook=BOOK,
+                               records_dir=Path(folder, "records"))
+        lesson = run_lesson(chapter or small_chapter(), COURSE, runner, folder, workers=1, previous_lesson=previous)
+        return lesson, maker.calls + reviewer.calls
+
+    def test_a_finished_lesson_is_reused_without_any_call(self):
+        with tempfile.TemporaryDirectory() as first, tempfile.TemporaryDirectory() as second:
+            lesson, calls = self.run_lesson(first)
+            self.assertTrue(calls)
+            self.assertEqual(lesson["quality"]["videos_reused"], 0)
+            again, calls = self.run_lesson(second, previous=lesson)
+            self.assertEqual(calls, [])
+            self.assertTrue(again["plan_reused"])
+            self.assertEqual(again["quality"]["videos_reused"], again["quality"]["videos"])
+            self.assertEqual(again["quality"]["videos_passed"], again["quality"]["videos"])
+            self.assertTrue(all(v["reused"] and v["record"] for v in again["videos"]))
+            self.assertEqual([b["say"] for b in again["videos"][0]["beats"]], [b["say"] for b in lesson["videos"][0]["beats"]])
+            self.assertIn("(reused)", Path(second, "SCRIPT.md").read_text(encoding="utf-8"))
+
+    def test_only_what_did_not_pass_or_fails_today_runs_again(self):
+        with tempfile.TemporaryDirectory() as first, tempfile.TemporaryDirectory() as second:
+            lesson, _ = self.run_lesson(first)
+            previous = copy.deepcopy(lesson)
+            previous["videos"][0]["status"] = "stopped"                       # stopped by the cap or the plan limit
+            previous["videos"][1]["beats"] = previous["videos"][1]["beats"][:1]   # would fail today's coverage check
+            again, calls = self.run_lesson(second, previous=previous)
+            self.assertTrue(again["plan_reused"])
+            self.assertEqual([v["reused"] for v in again["videos"]], [False, False, True])
+            self.assertTrue(calls)
+            self.assertTrue(any("v2 fails today's checks" in n for n in again["resume_notes"]))
+            self.assertEqual(again["quality"]["videos_passed"], 3)
+
+    def test_nothing_is_reused_when_the_chapter_map_changed(self):
+        with tempfile.TemporaryDirectory() as first, tempfile.TemporaryDirectory() as second:
+            lesson, _ = self.run_lesson(first)
+            changed = small_chapter()
+            changed["items"]["p002-i1"]["content"] = "Cells divide by meiosis in steps."
+            again, calls = self.run_lesson(second, previous=lesson, chapter=changed)
+            self.assertFalse(again["plan_reused"])
+            self.assertEqual(again["quality"]["videos_reused"], 0)
+            self.assertIn("the chapter map changed", again["resume_notes"][0])
+
+    def test_one_readable_page_per_video(self):
+        with tempfile.TemporaryDirectory() as folder:
+            lesson, _ = self.run_lesson(folder)
+            first = lesson["videos"][0]
+            page = Path(folder, "scripts", "v1.md").read_text(encoding="utf-8")
+            self.assertTrue(page.startswith(f"# {first['title']}"))
+            self.assertIn(f"## v1 · {first['title']} · passed", page)
+            self.assertIn("### Part c1.1 · definition", page)
+            self.assertEqual(len(list(Path(folder, "scripts").glob("*.md"))), len(lesson["videos"]))
+            self.assertIn(f"| v2 | {lesson['videos'][1]['title']} | passed |", Path(folder, "SCRIPT.md").read_text(encoding="utf-8"))
+
+
+class ReadablePagesAndRunResume(unittest.TestCase):
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.tmp.cleanup)
+        lines = [["There are mainly four different types of tissues present in our body.", "1. Epithelial- provides covering"],
+                 ["Cells divide by mitosis.", "The heart beats 72 times per minute."]]
+        self.pdf = Path(self.tmp.name, "chapter.pdf")
+        self.pdf.write_bytes(positioned_text_pdf([[(72, 720 - i * 20, t) for i, t in enumerate(page)] for page in lines]))
+
+    def args(self, out, *extra):
+        return ["--fake", "--out", str(Path(self.tmp.name, out)), "--workers", "1", "--max-inr", "100000",
+                "--course", "title=T;subject=Biology;learners=UPSC;exam=UPSC;language=Hinglish", *extra]
+
+    def test_map_is_short_and_pages_hold_every_item(self):
+        code, _ = run(self.args("u", "--section", "understand", "--source", str(self.pdf)))
+        self.assertEqual(code, 0)
+        text = Path(self.tmp.name, "u", "MAP.md").read_text(encoding="utf-8")
+        self.assertIn("| Page | Result | Rounds | Items | Cost |", text)
+        self.assertIn("| 1 | passed | 1 |", text)
+        self.assertNotIn("p001-i1** ·", text)
+        self.assertIn("p001-i1** ·", Path(self.tmp.name, "u", "PAGES.md").read_text(encoding="utf-8"))
+
+    def test_lesson_resume_from_an_earlier_run_folder(self):
+        run(self.args("u", "--section", "understand", "--source", str(self.pdf)))
+        chapter_map = str(Path(self.tmp.name, "u", "chapter_map.json"))
+        code, _ = run(self.args("l1", "--section", "lesson", "--chapter-map", chapter_map))
+        self.assertEqual(code, 0)
+        code, _ = run(self.args("l2", "--section", "lesson", "--chapter-map", chapter_map,
+                                "--resume-from", str(Path(self.tmp.name, "l1"))))
+        self.assertEqual(code, 0)
+        summary = json.loads(Path(self.tmp.name, "l2", "SUMMARY.json").read_text(encoding="utf-8"))
+        self.assertTrue(summary["resume"]["plan_reused"])
+        self.assertEqual(summary["resume"]["scripts_reused"], summary["lesson_quality"]["videos"])
+        self.assertEqual(set(summary["cost"]["sections"]), {"preflight"})         # no lesson call was paid again
+
+    def test_render_run_rebuilds_the_readable_pages_of_a_folder(self):
+        import render_run
+        run(self.args("u", "--section", "chain", "--source", str(self.pdf)))
+        written = render_run.render(Path(self.tmp.name, "u"), Path(self.tmp.name, "u", "readable"))
+        self.assertEqual(written[:3], ["MAP.md", "PAGES.md", "SCRIPT.md"])
+        self.assertTrue(Path(self.tmp.name, "u", "readable", "scripts", "v1.md").exists())
+        with self.assertRaises(SystemExit):
+            render_run.main([str(Path(self.tmp.name, "empty"))])
+
+
 if __name__ == "__main__":
     unittest.main()
