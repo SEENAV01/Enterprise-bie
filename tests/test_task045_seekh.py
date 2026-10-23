@@ -184,6 +184,26 @@ class CheaperCheckerInput(unittest.TestCase):
             self.assertNotIn('to review (JSON):\\n" + json.dumps', source)
             self.assertEqual(source.count('to review (JSON):\\n" + cards.compact('), 2)
 
+    def test_a_remake_shows_the_maker_its_answer_as_compact_json(self):
+        import types
+        from bie.brain.runner import SectionRunner, Step
+
+        class Stub:
+            def __init__(self, answers):
+                self.answers, self.requests = list(answers), []
+
+            def complete(self, route, request, prompt_version=None):
+                self.requests.append(request)
+                return types.SimpleNamespace(content=self.answers.pop(0), provenance={"via": "fake"}, model="stub",
+                                             provider="stub", usage={"input_tokens": 1, "output_tokens": 1})
+
+        stub = Stub([{"ok": False, "text": "a, b: c"}, {"ok": True, "text": ""}])
+        step = Step(section="understand", unit="page-001", instructions_version="v", system="S", user="U", schema={},
+                    check=lambda value: [] if value["ok"] else ["not ok"])
+        result = SectionRunner(stub, maker="stub", reviewer=None, rulebook=rulebook.load()).run(step)
+        self.assertEqual(result.status, "passed")
+        self.assertEqual(stub.requests[1].messages[2], {"role": "assistant", "content": '{"ok":false,"text":"a, b: c"}'})
+
 
 class LeanCodexCalls(unittest.TestCase):
     """Job 1: every Codex call carried Codex's own agent instructions and tools (14,208 tokens for a one-line preflight)."""

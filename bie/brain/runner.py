@@ -219,7 +219,7 @@ class SectionRunner:
             if not problems:
                 status = "passed"
                 break
-            previous = json.dumps(value, ensure_ascii=False)
+            previous = json.dumps(value, ensure_ascii=False, separators=(",", ":"))     # compact: the maker reads it again
             patching = step.patch_schema is not None and step.apply_patch is not None
             schema = step.patch_schema if patching else step.schema
             instruction = (PATCH_INSTRUCTION.format(problems=_problems_text(problems), hint=step.patch_hint) if patching

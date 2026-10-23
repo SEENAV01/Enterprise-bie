@@ -82,7 +82,7 @@ Maker Codex (`gpt-6.1-sol`, ChatGPT plan), checker Gemini 4 Argon (AICredits). P
   outputs, not accepted examples); `tools/passed_outputs.py` exports and checks sets; tests in
   `tests/test_task045_seekh.py`.
 - Readable pages show rupees at the run's own exchange rate (`tools/render_run.py`).
-- The checker reads every answer (pages, map, plan, scripts) as compact JSON, without the spaces.
+- The checker reads every answer (pages, map, plan, scripts) as compact JSON, without the spaces; a remake round shows the maker its earlier answer the same way.
 - Lean Codex calls (`bie/model_gateway/live/codex_client.py`): Codex's built-in agent instructions are replaced by a
   short BIE text and the tools and features BIE never uses are switched off (shell and command tools, browser and
   computer use, apps, plugins, web search, image tools, multi-agent, the skills catalog). The model can no longer run
