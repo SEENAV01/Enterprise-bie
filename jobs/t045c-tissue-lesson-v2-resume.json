@@ -1,0 +1,15 @@
+{
+ "job": "bie.vm-job/1",
+ "id": "t045c-tissue-lesson-v2-resume",
+ "section": "lesson",
+ "chapter_map": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t045c-tissue-lesson-v2-brain-lesson/chapter_map.json",
+ "resume_from": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t045c-tissue-lesson-v2-brain-lesson",
+ "maker": "codex",
+ "reviewer": "google",
+ "models": "google=google/gemini-4-argon",
+ "routes": "google=aicredits",
+ "max_inr": 71,
+ "workers": 2,
+ "max_rounds": 3,
+ "note": "Task 045, job 3 resumed after the seekh fixes of PR #57 (script reviewer follows S2-01/S2-02): the trimmed map and the passed plan and scripts are reused, only the 5 failed scripts (v2, v4, v5, v7, v9) run again. Gemini cap Rs 71 = the rest of Navin's Rs 150 for this rerun (Rs 78.17 spent)"
+}
