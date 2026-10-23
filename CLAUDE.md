@@ -41,6 +41,7 @@ Book → LLM → Remotion shortcut.
 - Never force-push, rewrite published history or delete branches you did not create.
 - Update `docs/roadmap/STATUS.md` in the same PR when a task changes state.
 - Before pushing from a shallow clone: `git fetch origin main` and rebase if needed.
+- **Seekh → code (standing approval, Navin, 23 Oct 2026).** After every live run, Claude turns the reviewer findings that repeated into BIE code checks without asking first. Every new check ships with tests and must not fail any output that passed before (it is run against the earlier passed outputs before it is merged). Every run report lists the checks added and why. Locking an output as an accepted example still needs Navin's verdict.
 
 ## Engineering rules (binding)
 
