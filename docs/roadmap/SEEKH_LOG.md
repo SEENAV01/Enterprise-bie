@@ -315,3 +315,20 @@ the whole rerun: ₹99.56 of the ₹150 cap.
 **Next:** resume once more for v9 only, within the ₹50.44 left of the ₹150 cap. Making round 1 shorter (for example a
 word budget per part on the card) is the next lever for first-try pass.
 
+## Entry 6 · v9 after PR #58, 23 October 2026
+
+VM job `t045c-tissue-lesson-v9` (`blindtest-results:runs/vm-t045c-tissue-lesson-v9-brain-lesson/`), on main `2d1bafa4`: the 10
+passed scripts reused, only v9 again. 5.2 minutes, Gemini ₹6.87 (cap ₹50).
+
+- v9 passed in 3 rounds: 13.9 → 12.7 → 12.8 spoken minutes against 9.7–13.0; no step lost in a patch; the reviewer passed it
+  with no finding. Round 1 and 2 were sent back by code only (too long; the formal words स्तर, अवस्था, नकारना, सहित).
+- **The tissue chapter's script step is complete: 11 of 11 videos pass BIE's checks and the independent reviewer** (v0 7.4
+  minutes; the 10 topic videos 106.2 minutes against 84–112; 113.6 spoken minutes in all, against 458 in job 2).
+- Gemini for the whole rerun under Navin's rules (trim, plan, 11 scripts and two resumes): ₹78.17 + ₹21.39 + ₹6.87 =
+  ₹106.43 of the ₹150 cap (ledger), against ₹104.56 for job 2's 17 longer scripts.
+- Still open for the next seekh round: first-try pass is 0 (every round 1 is too long or has a formal word), so each script
+  costs 2–3 rounds. The next lever is a word budget per part on the script card, so round 1 is written to length.
+
+Status: the scripts are IMPLEMENTED BIE output (passed BIE's code checks and its independent checker); nothing is ACCEPTED
+until Navin's teaching-quality verdict.
+
