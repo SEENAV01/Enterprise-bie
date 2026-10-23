@@ -1,0 +1,94 @@
+{
+  "cache_probe": {
+    "google": {
+      "cache_hit": false,
+      "calls": [
+        {
+          "billed_inr": 1.2155926672002964,
+          "cached_input_tokens": 0,
+          "call": 1,
+          "input_tokens": 5246,
+          "ledger_cost_usd": 0.01186,
+          "output_tokens": 29,
+          "raw_usage": {
+            "completion_tokens": 29,
+            "completion_tokens_details": {
+              "audio_tokens": 0,
+              "image_tokens": 0,
+              "reasoning_tokens": 0
+            },
+            "cost": 1.2155926672002964,
+            "cost_details": {
+              "completion_cost_inr": 0.03269540655612001,
+              "prompt_cost_inr": 1.182897260644176
+            },
+            "is_byok": false,
+            "latency_ms": 4774,
+            "prompt_tokens": 5246,
+            "prompt_tokens_details": {
+              "audio_tokens": 0,
+              "cache_write_tokens": 0,
+              "cached_tokens": 0,
+              "video_tokens": 0
+            },
+            "total_tokens": 5275
+          },
+          "status": "ok"
+        },
+        {
+          "billed_inr": 1.211082955951176,
+          "cached_input_tokens": 0,
+          "call": 2,
+          "input_tokens": 5246,
+          "ledger_cost_usd": 0.011816,
+          "output_tokens": 25,
+          "raw_usage": {
+            "completion_tokens": 25,
+            "completion_tokens_details": {
+              "audio_tokens": 0,
+              "image_tokens": 0,
+              "reasoning_tokens": 0
+            },
+            "cost": 1.211082955951176,
+            "cost_details": {
+              "completion_cost_inr": 0.02818569530700001,
+              "prompt_cost_inr": 1.182897260644176
+            },
+            "is_byok": false,
+            "latency_ms": 3942,
+            "prompt_tokens": 5246,
+            "prompt_tokens_details": {
+              "audio_tokens": 0,
+              "cache_write_tokens": 0,
+              "cached_tokens": 0,
+              "video_tokens": 0
+            },
+            "total_tokens": 5271
+          },
+          "status": "ok"
+        }
+      ],
+      "spent_inr": 2.24
+    }
+  },
+  "evidence_kind": "TECHNICAL_RUN",
+  "fake": false,
+  "mode": "cache-probe",
+  "not_configured": [],
+  "passed": true,
+  "product_accepted": false,
+  "providers": [
+    "google"
+  ],
+  "usage": {
+    "google": {
+      "cache_hits": 0,
+      "calls": 2,
+      "cost_complete": true,
+      "cost_usd": 0.023676,
+      "failed_calls": 0,
+      "input_tokens": 10492,
+      "output_tokens": 54
+    }
+  }
+}
