@@ -13,7 +13,7 @@ from types import CodeType, FrameType, FunctionType, ModuleType
 LEGACY_SCHEMA = "bie.task036.m1.parent-exception-site-observation/1"
 LEGACY_SOURCE_SHA256 = "aeedfc527fb47df33c448ad2bf1a2553574015e3124a14e35fae1e94f75c2963"
 SCHEMA = "bie.task036.m1.parent-exception-site-observation/2"
-SOURCE_SHA256 = "be4ac9863c6b5153568dec53d052e3d95973b4562e04d1efa2a0d8d5180e0aea"
+SOURCE_SHA256 = "79fe3e08958d2e45edc1118e4024f783245cff2e019da19e470dbd0161baca4a"
 UNKNOWN = "UNKNOWN"
 MAX_EVENTS = 32
 REASONS = frozenset({"NONE", "SOURCE_UNAVAILABLE", "EXISTING_TRACER", "SETUP_FAILED",
@@ -37,14 +37,14 @@ DEFAULTS = {"run_chromium_isolated": "RUN_OTHER", "_grant": "GRANT_OTHER",
 LOCATIONS = {"run_chromium_isolated": {}, "_grant": {},
     "bounded_read": {76: "BOUNDED_READ_OPEN_OR_READ"},
     "file_sha": {71: "FILE_HASH_OPEN",72: "FILE_HASH_READ"},
-    "observe_frozen_member": {376:"MONITOR_EXE_OR_ROOT_LINK",377:"MONITOR_EXE_OR_ROOT_LINK"},
-    "capture_frozen_member": {376:"MONITOR_EXE_OR_ROOT_LINK",377:"MONITOR_EXE_OR_ROOT_LINK"},
+    "observe_frozen_member": {395:"MONITOR_EXE_OR_ROOT_LINK",396:"MONITOR_EXE_OR_ROOT_LINK"},
+    "capture_frozen_member": {395:"MONITOR_EXE_OR_ROOT_LINK",396:"MONITOR_EXE_OR_ROOT_LINK"},
     "_monitor_read": {}, "_monitor_identity": {}}
 DEFAULTS.update(observe_frozen_member="RUN_OTHER",_monitor_read="BOUNDED_READ_OTHER",
     _monitor_identity="RUN_OTHER",capture_frozen_member="RUN_OTHER")
-LOCATIONS['run_chromium_isolated'].update({508:'MONITOR_COMMAND_READ',530:'DRIVER_COMMUNICATE',
-    533:'DRIVER_RESULT_READ',546:'POST_RUN_ENGINE_HASH',547:'POST_RUN_BROWSER_HASH',
-    556:'CLEANUP_GROUP',563:'CLEANUP_DRIVER',565:'CLEANUP_TEMPORARY',570:'RESOURCE_RECEIPT_PUBLICATION'})
+LOCATIONS['run_chromium_isolated'].update({527:'MONITOR_COMMAND_READ',549:'DRIVER_COMMUNICATE',
+    552:'DRIVER_RESULT_READ',565:'POST_RUN_ENGINE_HASH',566:'POST_RUN_BROWSER_HASH',
+    575:'CLEANUP_GROUP',582:'CLEANUP_DRIVER',584:'CLEANUP_TEMPORARY',589:'RESOURCE_RECEIPT_PUBLICATION'})
 
 
 def empty_observation(reason="SOURCE_UNAVAILABLE"):

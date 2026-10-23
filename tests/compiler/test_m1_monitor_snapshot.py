@@ -302,6 +302,53 @@ class SnapshotControls(unittest.TestCase):
             worker.observe_frozen_member(group,7,Path('/synthetic/browser'),[])
         opened.assert_not_called()
 
+    def fake_clock(self,*readings):
+        # worker-local clock only; real time is never patched or slept on.
+        clock=SimpleNamespace(monotonic=Mock(side_effect=readings),sleep=Mock())
+        return clock,patch.object(worker,'time',clock)
+
+    def test_transient_unfrozen_while_freeze_requested_waits_then_captures(self):
+        # F-11: a fatal signal to a frozen member (pid-namespace zap / parent-death
+        # signal) drops frozen to 0 until that member exits; cgroup.freeze stays 1.
+        stack,group,closed=self.setup_member();group.freeze_requested.return_value=True
+        clock,clocked=self.fake_clock(0.0,0.1,0.2)
+        events=Mock(side_effect=[{'frozen':0},{'frozen':0},{'frozen':1}])
+        with stack,clocked,patch.object(worker,'counters',events),patch.object(worker.os,'open',return_value=8) as opened:
+            self.assertIsNone(worker.observe_frozen_member(group,7,Path('/synthetic/browser'),[]))
+        self.assertEqual(events.call_count,3);self.assertEqual(group.freeze_requested.call_count,2)
+        self.assertEqual(clock.sleep.call_count,2);opened.assert_called_once()
+        group.freeze.assert_not_called()   # waits only; never writes cgroup.freeze or thaws
+        group.members.assert_called()      # identity/membership checks still ran after the wait
+
+    def test_unfrozen_past_bounded_wait_still_rejected_before_open(self):
+        stack,group,closed=self.setup_member();group.freeze_requested.return_value=True
+        clock,clocked=self.fake_clock(0.0,1.0,2.0)
+        with stack,clocked,patch.object(worker,'counters',return_value={'frozen':0}),patch.object(worker.os,'open') as opened,self.assertRaises(worker.CompilerQAError) as caught:
+            worker.observe_frozen_member(group,7,Path('/synthetic/browser'),[])
+        self.assertEqual(str(caught.exception),'CHROMIUM_RESOURCE_MONITOR_NOT_FROZEN')
+        opened.assert_not_called();group.freeze.assert_not_called();self.assertEqual(clock.sleep.call_count,1)
+
+    def test_unfrozen_without_our_freeze_request_is_rejected_without_waiting(self):
+        for requested in (False,None,1,b'1',Mock()):
+            stack,group,closed=self.setup_member();group.freeze_requested.return_value=requested
+            clock,clocked=self.fake_clock(0.0,0.0)
+            with stack,clocked,patch.object(worker,'counters',return_value={'frozen':0}),patch.object(worker.os,'open') as opened,self.assertRaises(worker.CompilerQAError) as caught:
+                worker.observe_frozen_member(group,7,Path('/synthetic/browser'),[])
+            self.assertEqual(str(caught.exception),'CHROMIUM_RESOURCE_MONITOR_NOT_FROZEN')
+            opened.assert_not_called();clock.sleep.assert_not_called()
+
+    def test_freeze_request_reads_only_exact_bounded_owned_control(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as directory:
+            group=object.__new__(worker.OwnedMemoryGroup);group.path=Path(directory)
+            for raw,expected in ((b'1\n',True),(b'0\n',False),(b'',False),(b'11\n',False)):
+                (group.path/'cgroup.freeze').write_bytes(raw)
+                self.assertIs(group.freeze_requested(),expected)
+            (group.path/'cgroup.freeze').write_bytes(b'1'*17)
+            with self.assertRaises(worker.CompilerQAError):group.freeze_requested()
+            (group.path/'cgroup.freeze').unlink()
+            with self.assertRaises(FileNotFoundError):group.freeze_requested()
+
     def test_coerced_or_out_of_bounds_pid_rejected_before_open(self):
         for pid in (True,0,-1,2**31,7.0,'7'):
             stack,group,closed=self.setup_member()

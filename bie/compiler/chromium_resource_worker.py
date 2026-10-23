@@ -160,6 +160,7 @@ class OwnedMemoryGroup:
         (self.path/'cgroup.freeze').write_text(str(int(value)));end=time.monotonic()+2
         while counters(self.path/'cgroup.events')['frozen']!=int(value):
             require(time.monotonic()<end,'FREEZE_DEADLINE');time.sleep(.005)
+    def freeze_requested(self):return bounded_read(self.path/'cgroup.freeze',16).strip()==b'1'
     def receipt(self):
         return dict(memory_max=int((self.path/'memory.max').read_text()),swap_max=int((self.path/'memory.swap.max').read_text()),
             pids_max=int((self.path/'pids.max').read_text()),memory_peak=int((self.path/'memory.peak').read_text()),
@@ -349,6 +350,24 @@ def _monitor_identity(directory,pid):
         fields[19].isdigit() and int(fields[19])>0,'MONITOR_IDENTITY')
     return pid,int(fields[19])
 
+def _settled_frozen(group):
+    """Leaf frozen value for one capture; waits only through a kernel re-freeze.
+
+    cgroup v2 reports frozen=1 while every task in the leaf is counted frozen. A
+    counted member that then takes a fatal signal leaves the count until it exits
+    (get_signal fatal path, cgroup_leave_frozen(true)), so frozen reads 0 although
+    our freeze request is unchanged: a kill sent before this freeze to a member
+    that had not run since the last thaw, or a pid-namespace zap/parent-death
+    signal sent from another member's exit after its own cgroup_exit. Wait,
+    bounded like freeze(), only while that request is in force. Never writes
+    cgroup.freeze; the caller still requires 1 and every identity check.
+    """
+    end=time.monotonic()+2
+    while (frozen:=counters(group.path/'cgroup.events').get('frozen'))!=1:
+        if group.freeze_requested() is not True or time.monotonic()>=end:break
+        time.sleep(.005)
+    return frozen
+
 def capture_frozen_member(group,pid,browser,grants):
     """Read-only, identity-bound observation; no grant or terminal omission.
 
@@ -360,7 +379,7 @@ def capture_frozen_member(group,pid,browser,grants):
     directory=pidfd=None;failure=None
     try:
         require(type(pid) is int and 0<pid<2**31 and type(group) is OwnedMemoryGroup and
-            counters(group.path/'cgroup.events').get('frozen')==1,
+            _settled_frozen(group)==1,
             'MONITOR_NOT_FROZEN')
         directory=os.open('/proc/'+str(pid),os.O_DIRECTORY|os.O_NOFOLLOW|os.O_CLOEXEC)
         require(type(directory) is int and directory>=0 and
