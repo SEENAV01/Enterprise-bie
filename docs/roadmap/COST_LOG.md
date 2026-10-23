@@ -24,3 +24,4 @@ Runs before 22 October were estimated in dollars; their rupee values below use t
 | 2026-10-22 | 39734021966, 39734670129 | probe (model lists) | Gemini (AICredits) | ₹0 | — | — |
 | 2026-10-22 | 39734293232 | live smoke, `max_inr` 5: stopped at preflight (checker model not allowed on the key) | Gemini 4 Argon maker, Gemini 3.1 Pro checker | ₹0.08 | not recorded | — |
 | 2026-10-22 | 39735198529 | access check of 6 Gemini models (5 refused at no cost) | Gemini (AICredits) | ₹0.08 | not recorded | — |
+| 2026-10-23 | VM job t044-step5-tissue | Section 1, tissue pages 1, 7, 11, 13; map stopped by the ₹30 cap | Codex maker (ChatGPT plan, ₹0), Gemini 4 Argon (AICredits) checker | ₹23.55 | not recorded | — |
