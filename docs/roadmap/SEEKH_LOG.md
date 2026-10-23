@@ -223,3 +223,59 @@ map), not streamed, so AICredits returned its own billed rupees.
 - BIE can record AICredits' billed rupees for every call instead of an estimate, if the checker's answers are not
   streamed (streamed answers carry no `usage.cost`), and correct the price table for Gemini 4 Argon input.
 
+## Entry 4 · tissue rerun under Navin's rules (job 3), 23 October 2026
+
+VM job `t045c-tissue-lesson-v2` (`blindtest-results:runs/vm-t045c-tissue-lesson-v2-brain-lesson/`), on main `0ca5763d`:
+the map's prerequisites trimmed once, then the plan and every script under the 6–8 minutes per page rule. Maker Codex,
+checker Gemini 4 Argon. 34.6 minutes, Gemini ₹78.17 of the ₹150 cap (ledger).
+
+| Measure | Job 2 (before the rules) | Job 3 |
+| --- | --- | --- |
+| Prerequisites | 30 | 8 (19 dropped with a reason, 3 merged; 1 round, ₹3.63) |
+| Videos | 17 | 11 (v0 and 10 topic videos) |
+| Scripts passed | 15 of 17 | 6 of 11 |
+| First-try pass, scripts | 0 of 17 | 0 of 11 |
+| Rounds per script | 2.76 | 2.73 |
+| Codex tokens per script (in · out) | 97,566 · 24,495 | 62,780 · 14,343 |
+| Gemini per script | 23,051 · 990 tokens, ₹5.83 | 22,840 · 1,539 tokens, ₹6.35 |
+| Gemini for the lesson | ₹104.48 (₹7.47 per page) | ₹74.46 plus ₹3.63 trim (₹5.58 per page) |
+| Minutes per script | 10.6 | 5.5 |
+| Spoken minutes | 458 | 125.5 (all 11 scripts, failed ones included); topic budget 84–112 plus v0 5–8 |
+| Reviewer findings, scripts | 1 blocking, 15 minor | 22 blocking, 14 minor |
+
+**Taught**
+
+1. All 5 failed scripts failed in the same loop. Round 2 cut the script into its time; the reviewer then blocked it
+   for leaving out teacher questions answered from outside the book (optional under S2-02) and asked for them back
+   ("add explanations marked as outside"); round 3 added them and the script was too long again. The reviewer's
+   instructions were still the plan-and-script text that called every uncovered teacher question a problem.
+2. The reviewer also counted the words itself and got them wrong (v2: "1,105 words" when BIE's code counted about
+   1,590), then judged the length on its own count.
+3. Round-1 code problems (110 in 11 scripts): 58 Hindi words, 34 beats too heavy for one breath, 10 facts_numbers
+   parts without step 5 "a formula built term by term when there is one" (there was no formula), 8 too long.
+4. Of the 58 flagged Hindi words, most were everyday (पड़ोसी, मर्ज़ी, गुजरना, झड़ना, संभव, समूह …); some were
+   rightly flagged as formal (पदार्थ, प्रभावित, मुख्यतः, नियंत्रित, निष्कर्ष).
+5. The trim worked as intended in one round; its reasons are short and concrete.
+
+**Changed in BIE** (branch `task045-script-review-alignment`; IMPLEMENTED)
+
+- The script reviewer has its own instructions (`SCRIPT_REVIEW_HOW`, schema id `bie.brain.lesson-script-review/3`):
+  required are the must_cover items and the book-answered questions; an outside question is optional and never
+  blocking; the reviewer never counts words (the review message gives BIE's measured minutes) and must say what may be
+  cut when it asks for an addition.
+- A patch round tells the maker its measured spoken minutes and the video's narration time, and that every addition
+  is paid for with a cut (`Step.patch_hint` may now be built from the current answer).
+- A teaching-pattern step that says "when there is one" is optional in BIE's check.
+- The maker reads the beat load limit up front: about 70 spoken words with one new item, 50 with two, 30 with three.
+- Word list `simple_hindi.json` 2026-10-23.3: 41 everyday words from job 3 (1,909 → 1,950); the formal ones stay
+  difficult.
+- Job 3's passed work (the trimmed map, the plan and the 6 passed scripts) is a second regression set
+  (`tests/fixtures/passed_outputs/tissue-t045c-lesson.json.gz`); both sets pass today's checks.
+
+**Measured**
+
+- Offline on job 3's round-1 answers: code problems 110 → 55 (Hindi words 58 → 13, all formal; pattern step 10 → 0;
+  heavy beats 34 and length 8 unchanged, since only the maker can fix those).
+- Live: the reviewer and patch-round changes can only be measured on a live run. Next: resume job 3 so only the 5
+  failed scripts run again, within the rest of the ₹150 cap (₹71.83 left).
+
