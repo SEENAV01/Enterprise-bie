@@ -171,7 +171,9 @@ How to fill the JSON:
   - item_id: short and unique on this page ("i1", "i2", ...).
   - kind: heading, paragraph, definition, list_point, example, table (the whole table), table_row (one per row), diagram (the whole figure),
     diagram_label (one per label), equation, symbol, box_note, caption, question (a PYQ or practice question), answer_option, other.
-  - parent_item_id: the table of a table_row, the diagram of a diagram_label, the question of an answer_option, else "".
+  - parent_item_id: the table of a table_row, the diagram of a diagram_label, the question of an answer_option, else "". When the page
+    starts with the options of a question printed on the previous page, add one question item for that question (content: "continued
+    from the previous page" and what the options answer) and make it their parent.
   - source: "text" if the item comes from native text blocks, "image" if it is visible only in the image, "both" if both show it.
   - block_ids: the ids of the native text blocks this item covers ([] for image-only items). Use only ids from the card.
   - where_on_page: where it is ("top table, row 2", "right diagram, label at the axon end").
@@ -184,7 +186,8 @@ How to fill the JSON:
   - teachable: false only for pure headings and containers whose children carry the content.
   - teacher_understanding: the teacher's questions and answers for this item (S1-06); depth 1 for first questions, 2 and more for
     "why"/"how" on an earlier answer; basis "book" only if the page states it, else "outside". BIE's code checks every teachable item:
-    at least two questions, at least one "why" or "how", and at least the required questions of its content type.
+    at least two questions, at least one "why" or "how", at least the required questions of its content type, and no answer that only
+    repeats its question or the item's words.
   - prerequisites: concrete concepts a student must understand first.
   - exam_importance and exam_note: for this exam.
   - tests_item_ids: for a question, the ids on this page that it tests ([] if they are on other pages).
@@ -217,15 +220,16 @@ CONNECT_HOW = """For a build_chapter_map card:
 - The source lines are "item id | page | kind | type | teachable | exam | content | prerequisites".
 How to fill the JSON:
 - concepts: group the items into the chapter's concepts; every teachable item belongs to at least one concept (use the item ids exactly
-  as given); content_type is the concept's main type (one of BIE's nine ids); core_explanation says the concept's heart in two or three
-  sentences a teacher would say.
+  as given); content_type is the concept's main type (one of BIE's nine ids, never "none": a concept of practice or PYQ questions takes
+  the type of what its questions test); core_explanation says the concept's heart in two or three sentences a teacher would say.
 - relations: how concepts relate, using concept ids. "A depends_on B" means B must be understood first; "A causes B"; "A sequence_next B"
   means A comes before B in time or in a process. BIE's code checks with its prerequisite and reasoning engines: prerequisites never go
   in a circle, the teaching order teaches a prerequisite before what needs it, cause and effect never go in a circle, and dated concepts
   never go back in time.
 - prerequisites_to_teach: what the student must understand before this chapter (or before a concept), why, and for which concept ids.
 - cross_references: every reference such as "Fig. 6.10" or "see table" resolved to the item it means.
-- question_links: every question item linked to the concepts it tests.
+- question_links: every question item (a question "continued from the previous page" too) linked to the concepts it tests; link the
+  question item, never its answer options.
 - teaching_order: every concept id exactly once, in the order a teacher should teach them, starting from what the student knows.
 - exam_focus: the concepts most important for this exam and why.
 Reply with the JSON object only."""

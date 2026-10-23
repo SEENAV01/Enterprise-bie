@@ -1,6 +1,6 @@
 """Task 045 offline test lane: content-type detection, the naksha, task cards, the old KI, PR, RE and PED engines as
-code checks, and Sections 1 and 2 on the card (fake AI) — plus the Task 044, 043, 039 and 038 lanes they build on.
-No network, no keys, no money.
+code checks, Sections 1 and 2 on the card (fake AI) and the seekh → code sets (earlier passed outputs re-checked with
+today's checks) — plus the Task 044, 043, 039 and 038 lanes they build on. No network, no keys, no money.
 
 Writes a producer-lane receipt ({"summary", "results"}) that tools/ci_failure_annotation.py can read.
 """
@@ -19,7 +19,7 @@ from run_task039_tests import NEW as TASK039  # noqa: E402
 from run_task043_tests import NEW as TASK043  # noqa: E402
 from run_task044_tests import NEW as TASK044  # noqa: E402
 
-NEW = ("tests/test_task045_cards.py",)
+NEW = ("tests/test_task045_cards.py", "tests/test_task045_seekh.py")
 
 
 def main(argv=None):

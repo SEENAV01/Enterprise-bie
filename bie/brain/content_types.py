@@ -2,7 +2,8 @@
 
 Before the maker AI reads a page, BIE's code proposes a content type for every native text block from the
 detection hints in the type map (keywords, patterns, and a little list context: a numbered or bulleted list
-takes the type of the line that introduces it, "There are four types of tissues" → classification). The
+takes the type of the line that introduces it, "There are four types of tissues" → classification; a line
+ending in a colon only introduces what follows, so its own proposal is a hint). The
 proposal is evidence, not a verdict. The maker sees it on its task card and decides; the code compares the
 maker's type with its own, every difference is recorded in the process record, and a strong proposal that
 the maker contradicts without a reason (``type_note``) goes back to the maker as a problem.
@@ -25,6 +26,10 @@ NONE = "none"
 PRECEDENCE = ("figure", "definition", "classification", "comparison", "timeline", "process", "cause_effect", "structure",
               "facts_numbers")
 LIST_MARKER = re.compile(r"^\s*(?:\(?(?:\d{1,2}|[ivx]{1,4}|[a-hA-H])[.)]|[•●▪◦\-–*])\s*\S")
+ORDERED_MARKER = re.compile(r"^\s*\(?(\d{1,2}|[ivx]{1,4}|[a-hA-H])[.)]")
+ROMAN = {"i": 1, "v": 5, "x": 10}
+COLON_END = re.compile(r":\s*[-–]?\s*$")     # "Types:", "Connective tissue is made up of :-"
+INTRO_MARK = "ends in a colon: it introduces what follows"
 LEAD_IN_TYPES = ("classification", "process", "structure", "comparison", "timeline")
 NUMBERED_LIST_HINT = r"^\s*\(?[0-9ivx]+[.)]\s+\w+"     # the process hint that on its own only says "numbered list"
 PATTERN_MARK = "pattern "       # evidence: "pattern 'types of'" (the matched words) or "'types of'" (a keyword)
@@ -172,15 +177,25 @@ def propose(text: str, types: ContentTypes | None = None) -> Proposal:
     return Proposal(tied[0], strength, evidence)
 
 
-def _marker_style(text: str) -> str:
-    head = _clean(text).lstrip()[:3]
-    if head[:1].isdigit():
-        return "number"
-    if head[:1].lower() in "ivx" and head[1:2] in ".)":
-        return "roman"
-    if head[:1].isalpha() or head[:1] == "(":
-        return "letter"
-    return "bullet"
+def _roman(token: str) -> int:
+    total = 0
+    for here, after in zip(token, token[1:] + " "):
+        total += -ROMAN[here] if ROMAN.get(after, 0) > ROMAN[here] else ROMAN[here]
+    return total
+
+
+def _marker(text: str) -> tuple:
+    """(style, position) of a list line's marker: ("number", 3) for "3.", ("letter", 1) for "(a)", ("roman", 2) for
+    "ii)", ("bullet", None) for a bullet or a dash."""
+    match = ORDERED_MARKER.match(_clean(text))
+    if not match:
+        return "bullet", None
+    token = match.group(1)
+    if token.isdigit():
+        return "number", int(token)
+    if set(token) <= set(ROMAN):
+        return "roman", _roman(token)
+    return "letter", ord(token.lower()) - ord("a") + 1
 
 
 def _lead_in(text: str, proposal: Proposal) -> bool:
@@ -194,23 +209,26 @@ def propose_blocks(blocks, types: ContentTypes | None = None) -> dict:
 
     A list line takes the type of the line that introduces its list (a strong classification or process line,
     or a structure, comparison or timeline line ending in a colon), unless its own text is strong. The list
-    ends at the first line that is not a list line or that uses another marker (1. 2. then bullets).
+    ends at the first line that is not a list line, that uses another marker (1. 2. then bullets) or that starts
+    its numbering again (a. b. c. then "a. Skeletal Muscle Tissue:", the first kind's own section). A line ending
+    in a colon introduces what follows, so its own proposal is at most weak; it still leads its list.
     """
     types = types or load()
-    out, lead, style = {}, None, None
+    out, lead, style, last = {}, None, None, None
     for block in blocks:
         own = propose(block.text, types)
         if is_list_item(block.text):
-            current = _marker_style(block.text)
-            if style is None:
-                style = current
-            elif current != style:
+            current, position = _marker(block.text)
+            if style is not None and (current != style or (None not in (position, last) and position <= last)):
                 lead = None
+            style, last = current, position
             if lead is not None and not own.strong:
                 own = Proposal(lead[0], "strong", (f"list under {lead[1]!r}",))
         else:
             lead = (own.type, block.text.strip()[:60]) if _lead_in(block.text, own) else None
-            style = None
+            style, last = None, None
+        if own.strong and COLON_END.search(_clean(block.text)):
+            own = Proposal(own.type, "weak", own.evidence + (INTRO_MARK,))
         out[block.id] = own
     return out
 
