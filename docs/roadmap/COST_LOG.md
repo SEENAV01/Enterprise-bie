@@ -27,3 +27,4 @@ Runs before 22 October were estimated in dollars; their rupee values below use t
 | 2026-10-23 | VM job t044-step5-tissue | Section 1, tissue pages 1, 7, 11, 13; map stopped by the ₹30 cap | Codex maker (ChatGPT plan, ₹0), Gemini 4 Argon (AICredits) checker | ₹23.55 | not recorded | — |
 | 2026-10-23 | VM job t045b-tissue-understand (job 1) | Section 1, tissue pages 2–6, 8–10, 12, 14 and the chapter map | Codex maker (ChatGPT plan, ₹0), Gemini 4 Argon (AICredits) checker | ₹60.99 | not recorded | — |
 | 2026-10-23 | VM job t045b-tissue-lesson (job 2) | Section 2, tissue lesson plan and 17 scripts | Codex maker (ChatGPT plan, ₹0), Gemini 4 Argon (AICredits) checker | ₹104.56 | not recorded | — |
+| 2026-10-23 | 40007533161 | cache probe: 2 calls with one 5,246-token prefix (no cache hit) | Gemini 4 Argon (AICredits) | ₹2.24 | ₹2.43 (AICredits `usage.cost` in the answers) | the bill is 8.5% above the ledger |
