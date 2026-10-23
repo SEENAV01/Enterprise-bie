@@ -17,7 +17,7 @@ from types import BuiltinFunctionType, CodeType, FrameType, FunctionType, Module
 LEGACY_SCHEMA = 'bie.task036.m1.proc-link-identity-observation/1'
 LEGACY_SOURCE_SHA256 = 'aeedfc527fb47df33c448ad2bf1a2553574015e3124a14e35fae1e94f75c2963'
 SCHEMA = 'bie.task036.m1.proc-link-identity-observation/2'
-SOURCE_SHA256 = 'be4ac9863c6b5153568dec53d052e3d95973b4562e04d1efa2a0d8d5180e0aea'
+SOURCE_SHA256 = '79fe3e08958d2e45edc1118e4024f783245cff2e019da19e470dbd0161baca4a'
 MAX_EVENTS = 32
 UNKNOWN = 'UNKNOWN'
 REASONS = frozenset({'NONE', 'SOURCE_UNAVAILABLE', 'KERNEL_API_UNAVAILABLE',
@@ -246,7 +246,7 @@ def observe_proc_links():
                 try:
                     caller = frame_reader(1)
                     if (type(caller) is FrameType and caller.f_code is target
-                            and caller.f_globals is namespace and caller.f_lineno in (376,377)):
+                            and caller.f_globals is namespace and caller.f_lineno in (395,396)):
                         request = monitor_request(args, kwargs)
                         if request is None:
                             request = anchored_monitor_request(args,kwargs,original)

@@ -72,9 +72,19 @@ python -m pip install -r .integration/tools/requirements-validation.txt 2>&1 | t
 python -m pip install 'pyproj==3.7.2' 'certifi==2026.5.20' 2>&1 | tee "$EVIDENCE/regression-extras-install.log"
 python -m pip check
 npm install --global typescript@5.8.3 2>&1 | tee "$EVIDENCE/typescript-install.log"
+# F-11(a): download each apt package set first, time-bounded with one fail-over
+# to the image's next mirror; the unchanged installs below then use the local
+# cache. Same packages, versions and signed-index verification as before.
+source "$GITHUB_WORKSPACE/tools/ci_apt_prefetch.sh"
+SYSTEM_DEBS=(ffmpeg bubblewrap libseccomp2 apparmor apparmor-utils)
+PLAYWRIGHT_DEBS_TEXT="$(python -m playwright install-deps --dry-run chromium | apt_packages_from_playwright_dry_run)"
+read -r -a PLAYWRIGHT_DEBS <<< "$PLAYWRIGHT_DEBS_TEXT"
+apt_get_bounded 90 update
+apt_prefetch --no-install-recommends "${PLAYWRIGHT_DEBS[@]}"
 python -m playwright install --with-deps chromium
 sudo apt-get update
-sudo apt-get install -y ffmpeg bubblewrap libseccomp2 apparmor apparmor-utils
+apt_prefetch "${SYSTEM_DEBS[@]}"
+sudo apt-get install -y "${SYSTEM_DEBS[@]}"
 
 # Ubuntu's documented per-application permission, not a system-wide disable:
 # https://documentation.ubuntu.com/release-notes/24.04/#unprivileged-user-namespace-restrictions
