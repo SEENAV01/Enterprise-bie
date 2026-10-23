@@ -16,6 +16,7 @@ Updated: 23 October 2026 · Read this first in every new session, then show Navi
 
 ## Task 045 · understanding and script on the tarazu (22 October 2026, PR A merged)
 
+- **PR B tooling (23 October 2026):** the script step resumes like page reading (`--resume-from` an earlier lesson run: the plan and every script that passed are reused when the chapter map is the same and they still pass today's checks; anything else runs again), so the plan's own limit or the cap never loses work. Readable pages: `MAP.md` is now the map itself (teaching order, concepts, relations, engine checks, type differences, a pass/fail table per page) and every item with its teacher questions moved to `PAGES.md`; every video also gets its own page `scripts/<video id>.md`; `tools/render_run.py` rebuilds these pages for an earlier run folder (into `readable/`, the run's own files stay as written).
 - **PR #45 merged** at `c08d51cb` after all 6 checks that ran on its head `7d8d9d2b` passed (Post-DIR canonical, Section 16 combined, Section 18 canonical-regression, native-render and section16-regression, Task038 offline with the Task 045 lane; the live job is skipped on pull requests).
 
 What is built (all offline; nothing live yet):

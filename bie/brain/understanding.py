@@ -15,8 +15,9 @@ checked with the old prerequisite, reasoning and knowledge engines (``engines.py
 compact map every later section shares (``naksha.py``), is built from it.
 
 Outputs (``run_chapter``): ``chapter_map.json`` (the full record), ``naksha.json`` (what later sections get
-slices of), ``MAP.md`` (the map for a human to check, with the type differences between code and AI), one
-process record per step under ``records/``.
+slices of), ``MAP.md`` (the map for a human to read: teaching order, concepts, relations, the engine checks, the
+type differences between code and AI and a pass/fail line per page), ``PAGES.md`` (every item of every page with
+its teacher questions), one process record per step under ``records/``.
 """
 from __future__ import annotations
 
@@ -728,6 +729,7 @@ def run_chapter(pdf_bytes: bytes, course: Course, runner: SectionRunner, out_dir
     chapter["quality"] = quality(chapter)
     (out / "chapter_map.json").write_text(json.dumps(chapter, ensure_ascii=False, indent=1), encoding="utf-8")
     (out / "MAP.md").write_text(render_markdown(chapter), encoding="utf-8")
+    (out / "PAGES.md").write_text(render_pages(chapter), encoding="utf-8")
     return chapter
 
 
@@ -801,9 +803,24 @@ def render_markdown(chapter: dict) -> str:
         if checks:
             lines += ["## Engine checks on the map (PR, RE, KI)", ""] + [f"- {k}: {json.dumps(v, ensure_ascii=False)}"
                                                                           for k, v in checks.items()] + [""]
-    lines += ["## Pages", ""]
+    lines += ["## Pages", "", "| Page | Result | Rounds | Items | Cost |", "| --- | --- | --- | --- | --- |"]
     for p in chapter["pages"]:
-        lines += [f"### Page {p['page']} · {p['status']} after {p['rounds']} round(s)" + (" · reused" if p.get("reused") else ""),
+        result = p["status"] + (" (reused)" if p.get("reused") else "")
+        cost = "—" if p.get("reused") else f"${p.get('cost_usd') or 0:.4f}"
+        lines.append(f"| {p['page']} | {result} | {p['rounds']} | {len(p['item_ids'])} | {cost} |")
+    open_pages = [p for p in chapter["pages"] if p["status"] != "passed" and p["last_problems"]]
+    if open_pages:
+        lines += ["", "Open problems of the pages that did not pass:", ""]
+        lines += [f"- Page {p['page']}: " + "; ".join(x[:160] for x in p["last_problems"][:3]) for p in open_pages]
+    lines += ["", "Every item with its teacher questions: `PAGES.md`.", ""]
+    return "\n".join(lines)
+
+
+def render_pages(chapter: dict) -> str:
+    """Every item of every page with its teacher questions (the long companion of MAP.md)."""
+    lines = [f"# Pages · {chapter['course']['title']}", ""]
+    for p in chapter["pages"]:
+        lines += [f"## Page {p['page']} · {p['status']} after {p['rounds']} round(s)" + (" · reused" if p.get("reused") else ""),
                   "", p["summary"], ""]
         if p["last_problems"]:
             lines += ["Open problems:", ""] + [f"- {x}" for x in p["last_problems"][:15]] + [""]

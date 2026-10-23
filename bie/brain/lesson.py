@@ -16,7 +16,12 @@ both ways, Navin's spoken Hinglish, and (through the old PED engine) objective c
 prerequisites and length.
 
 Outputs (``run_lesson``): ``lesson_plan.json`` (plan plus scripts, what the director consumes),
-``SCRIPT.md`` (readable), one process record per step under ``records/``.
+``SCRIPT.md`` (all scripts, readable), ``scripts/<video id>.md`` (one readable page per video), one process
+record per step under ``records/``.
+
+Resume (``previous_lesson``): a run that stopped (the plan's own limit, the rupee cap) continues from its
+``lesson_plan.json``. The plan and every script that passed are reused when the chapter map is the same (same
+naksha) and they still pass today's code checks; everything else runs again.
 """
 from __future__ import annotations
 
@@ -520,8 +525,50 @@ def script_step(course: Course, chapter, plan, video, *, rulebook, max_rounds=3,
                 patch_hint=SCRIPT_PATCH_HINT, max_rounds=max_rounds, card=card, observe=observe)
 
 
+def _script_value(video_entry: dict) -> dict:
+    """A script as the maker wrote it, from a lesson_plan.json video (without the code-made subtitle and voice)."""
+    beats = [{k: v for k, v in b.items() if k not in ("subtitle", "voice")} for b in video_entry.get("beats") or []]
+    return {"notes": None, "title": video_entry.get("title", ""), "parts": video_entry.get("parts") or [], "beats": beats}
+
+
+def reusable(previous: dict | None, chapter: dict, naksha: dict, course: Course, rulebook) -> tuple:
+    """(plan or None, {video id: script value}, notes): what an earlier lesson run may give this one.
+
+    Nothing is reused when the chapter map changed (another naksha). The plan is reused when it passed and still
+    passes today's checks; a script only with its plan, when it passed and still passes today's checks on today's card.
+    """
+    notes = []
+    if not previous:
+        return None, {}, notes
+    if previous.get("naksha_sha256") != naksha["sha256"]:
+        return None, {}, ["the chapter map changed since the earlier run, so nothing is reused"]
+    plan = previous.get("plan") or {}
+    if previous.get("plan_status") != "passed" or not plan.get("videos"):
+        return None, {}, ["the earlier plan did not pass, so the plan and the scripts run again"]
+    problems = check_plan(plan, chapter)
+    if problems:
+        return None, {}, [f"the earlier plan fails today's checks ({problems[0][:120]}), so it runs again"]
+    prefix = script_prefixes(course, rulebook)[0]
+    scripts = {}
+    by_id = {v["video_id"]: v for v in previous.get("videos") or []}
+    for video in plan["videos"]:
+        entry = by_id.get(video["video_id"])
+        if not entry or entry.get("status") != "passed":
+            continue
+        card = script_card(course, chapter, naksha, plan, video, rulebook=rulebook, prefix=prefix)
+        value = _script_value(entry)
+        problems = check_script(value, chapter, video, course.language, card)
+        if problems:
+            notes.append(f"{video['video_id']} fails today's checks ({problems[0][:120]}), so it runs again")
+            continue
+        scripts[video["video_id"]] = value
+    return plan, scripts, notes
+
+
 def run_lesson(chapter: dict, course: Course, runner, out_dir, *, workers: int = 4, max_rounds: int = 3,
-               max_output_tokens: int = DEFAULT_OUTPUT_TOKENS):
+               max_output_tokens: int = DEFAULT_OUTPUT_TOKENS, previous_lesson: dict | None = None):
+    from .runner import StepResult
+
     out = Path(out_dir)
     out.mkdir(parents=True, exist_ok=True)
     naksha = chapter_naksha(chapter)
@@ -529,7 +576,11 @@ def run_lesson(chapter: dict, course: Course, runner, out_dir, *, workers: int =
     step = plan_step(course, chapter, rulebook=runner.rulebook, max_rounds=max_rounds, naksha=naksha,
                      max_output_tokens=max_output_tokens)
     book.add(step.card)
-    plan_result = runner.run(step)
+    old_plan, old_scripts, resume_notes = reusable(previous_lesson, chapter, naksha, course, runner.rulebook)
+    if old_plan is not None:
+        plan_result = StepResult(SECTION, "plan", "passed", dict(old_plan, notes=None), record_path=None)
+    else:
+        plan_result = runner.run(step)
     plan = plan_result.output or {"videos": []}
     videos = plan.get("videos") or [] if plan_result.passed else []
     prefixes = script_prefixes(course, runner.rulebook)
@@ -537,8 +588,13 @@ def run_lesson(chapter: dict, course: Course, runner, out_dir, *, workers: int =
                          prefixes=prefixes, max_output_tokens=max_output_tokens) for v in videos]
     for step in steps:
         book.add(step.card)
+    fresh = [(v, s) for v, s in zip(videos, steps) if v["video_id"] not in old_scripts]
     with ThreadPoolExecutor(max_workers=max(1, workers)) as pool:
-        scripts = list(pool.map(runner.run, steps))
+        done = dict(zip([v["video_id"] for v, _ in fresh], pool.map(runner.run, [s for _, s in fresh])))
+    previous_videos = {v["video_id"]: v for v in (previous_lesson or {}).get("videos") or []}
+    scripts = [done[v["video_id"]] if v["video_id"] in done else
+               StepResult(SECTION, f"script-{v['video_id']}", "passed", old_scripts[v["video_id"]], record_path=None)
+               for v in videos]
     lesson = {
         "schema": "bie.brain.lesson/2",
         "course": chapter["course"],
@@ -549,12 +605,15 @@ def run_lesson(chapter: dict, course: Course, runner, out_dir, *, workers: int =
         "reviewer_route": runner.reviewer,
         "reviewer_independence": runner.independence,
         "plan_status": plan_result.status,
+        "plan_reused": old_plan is not None,
+        "resume_notes": resume_notes,
         "plan": {k: v for k, v in plan.items() if k != "notes"},
         "videos": [{
             "video_id": video["video_id"],
             "title": (result.output or {}).get("title") or video["title"],
             "status": result.status,
-            "rounds": len(result.rounds),
+            "rounds": len(result.rounds) if video["video_id"] not in old_scripts else previous_videos[video["video_id"]]["rounds"],
+            "reused": video["video_id"] in old_scripts,
             "parts": (result.output or {}).get("parts", []),
             "card_parts": [{k: p[k] for k in ("part_id", "type", "item_ids")} for p in step.card["parts"]],
             "beats": [dict(b, subtitle=hinglish.subtitle_text(b["say"]), voice=hinglish.voice_text(b["say"]))
@@ -562,60 +621,94 @@ def run_lesson(chapter: dict, course: Course, runner, out_dir, *, workers: int =
             "checks": (result.rounds[-1].get("observed") if result.rounds else None) or {},
             "last_problems": (result.rounds[-1].get("code_problems") or []) + (result.rounds[-1].get("review_problems") or [])
             if result.rounds and not result.passed else [],
-            "record": Path(result.record_path).name if result.record_path else None,
+            "record": (Path(result.record_path).name if result.record_path else
+                       previous_videos.get(video["video_id"], {}).get("record") if video["video_id"] in old_scripts else None),
             "cost_usd": result.cost_usd,
         } for video, step, result in zip(videos, steps, scripts)],
         "cost_usd": round(plan_result.cost_usd + sum(r.cost_usd for r in scripts), 6),
     }
     words = sum(len(b["say"].split()) for v in lesson["videos"] for b in v["beats"])
     lesson["quality"] = {"videos": len(videos), "videos_passed": sum(1 for v in lesson["videos"] if v["status"] == "passed"),
+                         "videos_reused": sum(1 for v in lesson["videos"] if v["reused"]),
                          "plan_passed": plan_result.passed, "beats": sum(len(v["beats"]) for v in lesson["videos"]),
                          "spoken_words": words, "estimated_minutes_at_130_wpm": round(words / 130, 1),
                          "cost_usd": lesson["cost_usd"]}
     (out / "lesson_plan.json").write_text(json.dumps(lesson, ensure_ascii=False, indent=1), encoding="utf-8")
-    (out / "SCRIPT.md").write_text(render_markdown(lesson), encoding="utf-8")
+    write_pages(lesson, out)
     return lesson
+
+
+def write_pages(lesson: dict, out) -> None:
+    """SCRIPT.md (every video) and scripts/<video id>.md (one readable page per video)."""
+    out = Path(out)
+    (out / "SCRIPT.md").write_text(render_markdown(lesson), encoding="utf-8")
+    folder = out / "scripts"
+    folder.mkdir(exist_ok=True)
+    for video in lesson["videos"]:
+        (folder / f"{video['video_id']}.md").write_text(render_video_page(lesson, video), encoding="utf-8")
 
 
 def render_markdown(lesson: dict) -> str:
     q = lesson["quality"]
-    types = ct.load()
     independence = lesson.get("reviewer_independence")
     checker = {"same_company_temporary": " Checker: the same company, another model (kamzor jaanch, a weaker check).",
                "same_model_temporary": " Checker: the same model in a fresh call (kamzor jaanch, the weakest check)."}
     lines = [f"# Lesson plan and scripts · {lesson['course']['title']}", "",
-             f"Plan: {lesson['plan_status']}; scripts passed: {q['videos_passed']} of {q['videos']}; {q['beats']} beats, "
-             f"{q['spoken_words']} spoken words (about {q['estimated_minutes_at_130_wpm']} minutes); estimated cost ${q['cost_usd']:.4f}."
-             + checker.get(independence, ""), ""]
+             f"Plan: {lesson['plan_status']}" + (" (reused)" if lesson.get("plan_reused") else "")
+             + f"; scripts passed: {q['videos_passed']} of {q['videos']}"
+             + (f" ({q['videos_reused']} reused)" if q.get("videos_reused") else "")
+             + f"; {q['beats']} beats, {q['spoken_words']} spoken words (about {q['estimated_minutes_at_130_wpm']} minutes); "
+             f"estimated cost ${q['cost_usd']:.4f}." + checker.get(independence, ""), ""]
     if lesson["plan"].get("chapter_flow"):
         lines += [lesson["plan"]["chapter_flow"], ""]
+    lines += ["| Video | Title | Result | Rounds | Minutes planned |", "| --- | --- | --- | --- | --- |"]
     plans = {v["video_id"]: v for v in lesson["plan"].get("videos", [])}
     for video in lesson["videos"]:
-        p = plans.get(video["video_id"], {})
-        lines += [f"## {video['video_id']} · {video['title']} · {video['status']} after {video['rounds']} round(s)", "",
-                  f"Goal: {p.get('goal', '')}", f"Hook: {p.get('opening_hook', '')}",
-                  f"Story or analogy: {p.get('story_or_analogy', '') or '(none)'}", ""]
-        if video["last_problems"]:
-            lines += ["Open problems:", ""] + [f"- {x}" for x in video["last_problems"][:15]] + [""]
-        kinds = {cp["part_id"]: cp["type"] for cp in video.get("card_parts") or []}
-        frames = {part["part_id"]: part["frame"] for part in video.get("parts") or []}
-        current = None
-        for beat in video["beats"]:
-            pid = beat.get("part_id") or ""
-            if pid != current and pid:
-                kind = kinds.get(pid, "")
-                lines.append(f"### Part {pid}" + (f" · {kind}" if kind else ""))
-                frame = frames.get(pid) or {}
-                if frame:
-                    lines.append("_frame: " + " · ".join(f"{k}: {frame.get(k, '')}" for k in FRAME) + "_")
-                lines.append("")
-            current = pid
-            step = beat.get("step") or 0
-            pattern = types.pattern(kinds.get(pid, "")) if pid else ()
-            label = f" · step {step}: {pattern[step - 1]}" if pid and 1 <= step <= len(pattern) else ""
-            lines.append(f"**{beat['beat_id']} · {beat['purpose']}{label}** — {beat['say']}")
-            if beat.get("voice") and beat["voice"] != beat["say"]:
-                lines.append(f"  _voice: {beat['voice']}_")
-            lines.append(f"  _screen: {beat['on_screen']}_")
-            lines.append("")
+        minutes = plans.get(video["video_id"], {}).get("estimated_minutes", "")
+        lines.append(f"| {video['video_id']} | {video['title']} | {video['status']}" + (" (reused)" if video.get("reused") else "")
+                     + f" | {video['rounds']} | {minutes} |")
+    lines.append("")
+    for video in lesson["videos"]:
+        lines += video_lines(lesson, video, level=2)
     return "\n".join(lines)
+
+
+def render_video_page(lesson: dict, video: dict) -> str:
+    """One video's script as its own readable page."""
+    head = [f"# {video['title']}", "", f"{lesson['course']['title']} · {lesson['course']['subject']} · "
+            f"{lesson['course']['learners']} · video {video['video_id']}", ""]
+    return "\n".join(head + video_lines(lesson, video, level=2))
+
+
+def video_lines(lesson: dict, video: dict, *, level: int) -> list:
+    types = ct.load()
+    h = "#" * level
+    p = {v["video_id"]: v for v in lesson["plan"].get("videos", [])}.get(video["video_id"], {})
+    lines = [f"{h} {video['video_id']} · {video['title']} · {video['status']} after {video['rounds']} round(s)"
+             + (" · reused" if video.get("reused") else ""), "",
+             f"Goal: {p.get('goal', '')}", f"Hook: {p.get('opening_hook', '')}",
+             f"Story or analogy: {p.get('story_or_analogy', '') or '(none)'}", ""]
+    if video["last_problems"]:
+        lines += ["Open problems:", ""] + [f"- {x}" for x in video["last_problems"][:15]] + [""]
+    kinds = {cp["part_id"]: cp["type"] for cp in video.get("card_parts") or []}
+    frames = {part["part_id"]: part["frame"] for part in video.get("parts") or []}
+    current = None
+    for beat in video["beats"]:
+        pid = beat.get("part_id") or ""
+        if pid != current and pid:
+            kind = kinds.get(pid, "")
+            lines.append(f"{h}# Part {pid}" + (f" · {kind}" if kind else ""))
+            frame = frames.get(pid) or {}
+            if frame:
+                lines.append("_frame: " + " · ".join(f"{k}: {frame.get(k, '')}" for k in FRAME) + "_")
+            lines.append("")
+        current = pid
+        step = beat.get("step") or 0
+        pattern = types.pattern(kinds.get(pid, "")) if pid else ()
+        label = f" · step {step}: {pattern[step - 1]}" if pid and 1 <= step <= len(pattern) else ""
+        lines.append(f"**{beat['beat_id']} · {beat['purpose']}{label}** — {beat['say']}")
+        if beat.get("voice") and beat["voice"] != beat["say"]:
+            lines.append(f"  _voice: {beat['voice']}_")
+        lines.append(f"  _screen: {beat['on_screen']}_")
+        lines.append("")
+    return lines

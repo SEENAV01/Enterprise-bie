@@ -154,7 +154,8 @@ def main(argv=None):
     parser.add_argument("--source", help="chapter PDF (understand, chain)")
     parser.add_argument("--chapter-map", help="chapter_map.json from an earlier run (lesson)")
     parser.add_argument("--from-run", help="folder or https URL of an earlier run with chapter_map.json and lesson_plan.json (director)")
-    parser.add_argument("--resume-from", help="folder or https URL of an earlier understand/chain run: its passed pages are reused")
+    parser.add_argument("--resume-from", help="folder or https URL of an earlier run: understand/chain reuse its passed pages, "
+                                              "lesson reuses its passed plan and scripts (when they pass today's checks)")
     parser.add_argument("--videos", default="", help="visual: only these video ids, for example v1,v2")
     parser.add_argument("--render", action="store_true", help="visual: also render a silent MP4 preview of every video")
     parser.add_argument("--with-visual", action="store_true", help="chain: also run Section 4")
@@ -199,7 +200,7 @@ def main(argv=None):
     summary = {"section": args.section, "fake": args.fake, "maker": args.maker, "reviewer": args.reviewer}
     rate = usd_inr()
     guard = CostGuard(args.max_inr, rate=rate)
-    pages = 0
+    pages, previous_lesson = 0, None
     try:
         gateway, reviewer = build_gateway(args.maker, args.reviewer, fake=args.fake, ledger=ledger,
                                           max_output_tokens=args.max_output_tokens, reviewer_model=args.reviewer_model,
@@ -226,6 +227,8 @@ def main(argv=None):
             if not args.chapter_map:
                 raise SystemExit("CHAPTER_MAP_REQUIRED")
             chapter = json.loads(read_text(args.chapter_map))
+            if args.section == "lesson" and args.resume_from:
+                previous_lesson = json.loads(read_text(args.resume_from.rstrip("/") + "/lesson_plan.json"))
             course = Course(**chapter["course"]) if not args.course else course
             pages = chapter_pages(chapter)
         else:
@@ -278,7 +281,10 @@ def main(argv=None):
             summary.update(status=stop_status(guard), stop_reason=guard.stop_reason)
         if args.section in ("lesson", "chain") and summary["status"] == "ok":
             lesson = run_lesson(chapter, course, runner, out, workers=args.workers, max_rounds=args.max_rounds,
-                                max_output_tokens=args.max_output_tokens)
+                                max_output_tokens=args.max_output_tokens, previous_lesson=previous_lesson)
+            if lesson.get("resume_notes") or lesson.get("plan_reused"):
+                summary["resume"] = dict(summary.get("resume") or {}, plan_reused=lesson["plan_reused"],
+                                         scripts_reused=lesson["quality"]["videos_reused"], notes=lesson["resume_notes"])
             summary.update(lesson_quality=lesson["quality"],
                            videos=[{k: v[k] for k in ("video_id", "status", "rounds", "cost_usd")} for v in lesson["videos"]])
             if guard.stopped:
