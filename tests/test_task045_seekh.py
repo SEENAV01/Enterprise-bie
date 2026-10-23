@@ -11,6 +11,7 @@ import contextlib
 import copy
 import io
 import json
+import os
 import sys
 import tempfile
 import unittest
@@ -182,6 +183,46 @@ class CheaperCheckerInput(unittest.TestCase):
             source = (ROOT / name).read_text(encoding="utf-8")
             self.assertNotIn('to review (JSON):\\n" + json.dumps', source)
             self.assertEqual(source.count('to review (JSON):\\n" + cards.compact('), 2)
+
+
+class LeanCodexCalls(unittest.TestCase):
+    """Job 1: every Codex call carried Codex's own agent instructions and tools (14,208 tokens for a one-line preflight)."""
+
+    def call(self):
+        from bie.model_gateway.live.codex_client import CodexExecClient
+        with tempfile.TemporaryDirectory() as state:
+            environment = dict(os.environ, BIE_FAKE_CODEX_STATE=state, BIE_FAKE_CODEX_MODE="ok")
+            client = CodexExecClient(executable=f"{sys.executable} {ROOT / 'bie' / 'brain' / 'fake_codex.py'}", env=environment)
+            content = [{"type": "text", "text": "Set status to ready."},
+                       {"type": "image", "media_type": "image/png", "data": "iVBORw0KGgo="}]
+            schema = {"type": "object", "additionalProperties": False, "required": ["status"],
+                      "properties": {"status": {"type": "string", "enum": ["ready"]}}}
+            raw = client.responses_create(model="gpt-6.1-sol", messages=[{"role": "system", "content": "Be exact."},
+                                                                         {"role": "user", "content": content}],
+                                          response_schema=schema)
+            self.assertEqual(json.loads(raw["content"]), {"status": "ready"})
+            return json.loads(Path(state, "calls.jsonl").read_text().splitlines()[0])
+
+    def test_a_lean_call_replaces_codex_instructions_and_switches_tools_off(self):
+        from bie.model_gateway.live import codex_client as cc
+        call = self.call()
+        self.assertEqual(call["instructions"], cc.LEAN_INSTRUCTIONS)
+        self.assertIn("--strict-config", call["args"])              # a renamed setting stops codex before any request
+        self.assertTrue(set(cc.LEAN_SETTINGS) <= set(call["settings"]))
+        self.assertEqual(call["disabled"], list(cc.LEAN_FEATURES_OFF))
+        self.assertTrue({"shell_tool", "unified_exec", "browser_use", "computer_use", "apps"} <= set(call["disabled"]))
+        self.assertEqual(call["args"][-2:], ["--", "-"])          # the prompt on stdin is never read as an image file
+        self.assertEqual((call["images"], call["images_exist"]), ([".png"], True))
+        self.assertGreater(call["prompt_chars"], 0)
+
+    def test_lean_calls_can_be_switched_off(self):
+        from unittest import mock
+        with mock.patch.dict(os.environ, {"BIE_CODEX_LEAN": "0"}):
+            call = self.call()
+        self.assertIsNone(call["instructions"])
+        self.assertEqual(call["disabled"], [])
+        self.assertNotIn("--strict-config", call["args"])
+        self.assertEqual(call["args"][-2:], ["--", "-"])
 
 
 if __name__ == "__main__":
