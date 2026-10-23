@@ -32,14 +32,14 @@ from . import content_types as ct
 from . import engines
 from . import naksha as naksha_module
 from .common import SEVERITY, S, arr, checklist_text, fmt, obj, review_problems
-from .runner import NOTES_SCHEMA, SectionRunner, Step
+from .runner import NOTES_SCHEMA, SectionRunner, Step, merge_notes
 
 SECTION = "understand"
 CONNECT = "connect"
 PAGE_VERSION = "understand-page/2"
-CONNECT_VERSION = "understand-connect/2"
+CONNECT_VERSION = "understand-connect/3"
 PAGE_SCHEMA_ID = "bie.brain.understand-page/2"
-CONNECT_SCHEMA_ID = "bie.brain.chapter-connect/2"
+CONNECT_SCHEMA_ID = "bie.brain.chapter-connect/3"
 DEFAULT_OUTPUT_TOKENS = 32000
 
 KINDS = ["heading", "paragraph", "definition", "list_point", "example", "table", "table_row", "diagram",
@@ -112,6 +112,7 @@ CONNECT_SCHEMA = _obj({
     "relations": _arr(_obj({"from_concept": S, "relation": {"type": "string", "enum": RELATIONS}, "to_concept": S, "note": S})),
     "prerequisites_to_teach": _arr(_obj({"name": S, "why_needed": S, "needed_for": _arr(S),
                                          "basis": {"type": "string", "enum": ["book", "outside"]}})),
+    "prerequisite_note": S,
     "cross_references": _arr(_obj({"from_item_id": S, "reference_text": S, "resolved_item_id": S})),
     "question_links": _arr(_obj({"question_item_id": S, "tests_concepts": _arr(S)})),
     "teaching_order": _arr(S),
@@ -142,7 +143,7 @@ def apply_page_patch(previous: dict, patch: dict) -> dict:
             continue
         items.append(replace.pop(item["item_id"], item))
     items.extend(i for i in (patch.get("replace_items") or []) if i["item_id"] in replace)
-    return dict(previous, notes=patch.get("notes") or previous.get("notes"), items=items,
+    return dict(previous, notes=merge_notes(previous.get("notes"), patch.get("notes")), items=items,
                 boilerplate_block_ids=patch.get("boilerplate_block_ids") or previous.get("boilerplate_block_ids") or [],
                 text_image_disagreements=patch.get("text_image_disagreements") or previous.get("text_image_disagreements") or [])
 
@@ -171,20 +172,26 @@ How to fill the JSON:
   - item_id: short and unique on this page ("i1", "i2", ...).
   - kind: heading, paragraph, definition, list_point, example, table (the whole table), table_row (one per row), diagram (the whole figure),
     diagram_label (one per label), equation, symbol, box_note, caption, question (a PYQ or practice question), answer_option, other.
-  - parent_item_id: the table of a table_row, the diagram of a diagram_label, the question of an answer_option, else "".
+  - parent_item_id: the table of a table_row, the diagram of a diagram_label, the question of an answer_option, else "". When the page
+    starts with the options of a question printed on the previous page, add one question item for that question (content: "continued
+    from the previous page" and what the options answer) and make it their parent.
   - source: "text" if the item comes from native text blocks, "image" if it is visible only in the image, "both" if both show it.
   - block_ids: the ids of the native text blocks this item covers ([] for image-only items). Use only ids from the card.
   - where_on_page: where it is ("top table, row 2", "right diagram, label at the axon end").
   - content: the exact words for text items; a complete, faithful reading for image items (every cell with its column header for a
-    table_row; what a label names and what it points to for a diagram_label; all branches for a tree).
+    table_row; what a label names and what it points to for a diagram_label; all branches for a tree). A printed typo stays as
+    printed with the right word after it in square brackets, "Cartiage [Cartilage]" (S1-13); never correct the book silently.
   - content_type: one of BIE's nine type ids above, by what the content is. An example takes the type of what it illustrates; a table
     row or a diagram label usually takes its table's or diagram's type. "none" only for a question, an answer option or an item that is
     not teachable.
   - type_note: "" when you agree with BIE's proposal for this item's blocks (or there is none); otherwise one line on why your type fits.
   - teachable: false only for pure headings and containers whose children carry the content.
   - teacher_understanding: the teacher's questions and answers for this item (S1-06); depth 1 for first questions, 2 and more for
-    "why"/"how" on an earlier answer; basis "book" only if the page states it, else "outside". BIE's code checks every teachable item:
-    at least two questions, at least one "why" or "how", and at least the required questions of its content type.
+    "why"/"how" on an earlier answer; basis "book" only if the page states it, else "outside"; one answer, one basis: an answer that
+    would mix what the book says with an outside explanation becomes two answers, one "book" and one "outside" (S1-14). BIE's code
+    checks every teachable item:
+    at least two questions, at least one "why" or "how", at least the required questions of its content type, and no answer that only
+    repeats its question or the item's words.
   - prerequisites: concrete concepts a student must understand first.
   - exam_importance and exam_note: for this exam.
   - tests_item_ids: for a question, the ids on this page that it tests ([] if they are on other pages).
@@ -217,15 +224,20 @@ CONNECT_HOW = """For a build_chapter_map card:
 - The source lines are "item id | page | kind | type | teachable | exam | content | prerequisites".
 How to fill the JSON:
 - concepts: group the items into the chapter's concepts; every teachable item belongs to at least one concept (use the item ids exactly
-  as given); content_type is the concept's main type (one of BIE's nine ids); core_explanation says the concept's heart in two or three
-  sentences a teacher would say.
+  as given); content_type is the concept's main type (one of BIE's nine ids, never "none": a concept of practice or PYQ questions takes
+  the type of what its questions test); core_explanation says the concept's heart in two or three sentences a teacher would say.
 - relations: how concepts relate, using concept ids. "A depends_on B" means B must be understood first; "A causes B"; "A sequence_next B"
   means A comes before B in time or in a process. BIE's code checks with its prerequisite and reasoning engines: prerequisites never go
   in a circle, the teaching order teaches a prerequisite before what needs it, cause and effect never go in a circle, and dated concepts
   never go back in time.
-- prerequisites_to_teach: what the student must understand before this chapter (or before a concept), why, and for which concept ids.
+- prerequisites_to_teach: only what this chapter directly needs, never a prerequisite of a prerequisite (no chains), each with why it
+  is needed and needed_for = the chapter concept ids that need it. BIE teaches them in one short video before the chapter (S1-12, S2-03).
+  Usually that is 8 or fewer; never drop a prerequisite the chapter directly needs to stay under 8.
+- prerequisite_note: "" when there are 8 or fewer prerequisites; with more than 8, why every one of them is directly needed (BIE's code
+  asks for this note; it is a warning, not a limit).
 - cross_references: every reference such as "Fig. 6.10" or "see table" resolved to the item it means.
-- question_links: every question item linked to the concepts it tests.
+- question_links: every question item (a question "continued from the previous page" too) linked to the concepts it tests; link the
+  question item, never its answer options.
 - teaching_order: every concept id exactly once, in the order a teacher should teach them, starting from what the student knows.
 - exam_focus: the concepts most important for this exam and why.
 Reply with the JSON object only."""
@@ -416,6 +428,29 @@ def check_page(value: dict, page, *, proposals: dict | None = None, card: dict |
     return problems
 
 
+PREREQUISITE_WARNING = 8    # S1-12: above this the maker says why each one is directly needed (a warning, not a cap; Navin, 23 Oct 2026)
+
+
+def prerequisite_problems(prerequisites: list, known_concepts, note: str = "") -> list:
+    """S1-12 and S2-03: only what the chapter directly needs (no chains), each needed by named chapter concepts. Navin's rule is
+    not a number: more than 8 is a warning the maker answers with a prerequisite_note, never a cap that drops a needed one."""
+    problems = []
+    if len(prerequisites) > PREREQUISITE_WARNING and not (note or "").strip():
+        problems.append(f"prerequisites_to_teach has {len(prerequisites)} prerequisites; keep only what this chapter directly needs, "
+                        f"never a prerequisite of a prerequisite; with more than {PREREQUISITE_WARNING}, say in prerequisite_note why "
+                        "every one is directly needed (S1-12)")
+    names = [p["name"].strip().lower() for p in prerequisites]
+    for dup in sorted({n for n in names if names.count(n) > 1}):
+        problems.append(f"prerequisite {dup!r} is listed more than once")
+    for pre in prerequisites:
+        if not pre.get("needed_for"):
+            problems.append(f"prerequisite {pre['name']!r}: needed_for must name the chapter concepts that need it directly")
+        for cid in pre.get("needed_for") or []:
+            if cid not in known_concepts:
+                problems.append(f"prerequisite {pre['name']!r}: needed_for has unknown concept {cid!r}")
+    return problems
+
+
 def check_connect(value: dict, items: dict) -> list:
     problems = []
     concept_ids = [c["concept_id"] for c in value.get("concepts") or []]
@@ -435,10 +470,7 @@ def check_connect(value: dict, items: dict) -> list:
         for end in (rel["from_concept"], rel["to_concept"]):
             if end not in known_concepts:
                 problems.append(f"relation uses unknown concept {end!r}")
-    for pre in value.get("prerequisites_to_teach") or []:
-        for cid in pre.get("needed_for") or []:
-            if cid not in known_concepts:
-                problems.append(f"prerequisite {pre['name']!r}: needed_for has unknown concept {cid!r}")
+    problems += prerequisite_problems(value.get("prerequisites_to_teach") or [], known_concepts, value.get("prerequisite_note", ""))
     for ref in value.get("cross_references") or []:
         for iid in (ref["from_item_id"], ref["resolved_item_id"]):
             if iid not in items:
@@ -514,7 +546,7 @@ def page_step(course: Course, page, *, page_count: int, previous=None, following
 
     def review_user(value):
         shown = {k: value[k] for k in ("notes", "page_summary", "items", "boilerplate_block_ids", "text_image_disagreements")}
-        return cards.user_message(card, source + "\n\nThe understanding to review (JSON):\n" + json.dumps(shown, ensure_ascii=False),
+        return cards.user_message(card, source + "\n\nThe understanding to review (JSON):\n" + cards.compact(shown),
                                   image, "Review the understanding against the page and the card; reply with the review JSON.")
 
     def observe(value):
@@ -566,7 +598,7 @@ def connect_step(course: Course, items: dict, *, rulebook, max_rounds=3, max_out
     user = cards.user_message(card, source, (), "Answer the card with the chapter map JSON.")
 
     def review_user(value):
-        return cards.user_message(card, source + "\n\nThe chapter map to review (JSON):\n" + json.dumps(value, ensure_ascii=False),
+        return cards.user_message(card, source + "\n\nThe chapter map to review (JSON):\n" + cards.compact(value),
                                   (), "Review the chapter map; reply with the review JSON.")
 
     def check(value):
@@ -769,7 +801,7 @@ def render_markdown(chapter: dict) -> str:
              f"chapter map: {chapter['map_status']}",
              f"- Items: {q['items']} ({q['teachable_items']} teachable, {q['items_from_image']} read from the image)",
              f"- Teacher questions: {q['teacher_questions']} ({q['deeper_questions']} deeper why/how, {q['outside_answers']} from outside the book)",
-             f"- Estimated cost: ${q['cost_usd']:.4f} (${q['cost_usd_per_page']:.4f} per page)"]
+             f"- Estimated cost: {money(q['cost_usd'], chapter)} ({money(q['cost_usd_per_page'], chapter)} per page)"]
     if chapter.get("naksha"):
         n = chapter["naksha"]
         lines.append(f"- Naksha (the compact map later sections get slices of): {n['items']} items, {n['concepts']} concepts, "
@@ -791,7 +823,19 @@ def render_markdown(chapter: dict) -> str:
         names = {c["concept_id"]: c["name"] for c in m.get("concepts", [])}
         lines += ["## Teaching order", ""] + [f"{n}. {names.get(c, c)}" for n, c in enumerate(m.get("teaching_order", []), 1)] + [""]
         lines += ["## Prerequisites to teach first", ""] + [
-            f"- **{p['name']}** ({p['basis']}): {p['why_needed']}" for p in m.get("prerequisites_to_teach", [])] + [""]
+            f"- **{p['name']}** ({p['basis']}): {p['why_needed']}" + (f" · needed for {', '.join(names.get(c, c) for c in p['needed_for'])}"
+                                                                    if p.get("needed_for") else "")
+            for p in m.get("prerequisites_to_teach", [])] + [""]
+        if len(m.get("prerequisites_to_teach", [])) > PREREQUISITE_WARNING:
+            lines += [f"More than {PREREQUISITE_WARNING} prerequisites (warning, S1-12): {m.get('prerequisite_note') or '(no reason given)'}", ""]
+        trim = chapter.get("prerequisite_trim")
+        if trim:
+            before = {b["id"]: b["name"] for b in trim["before"]}
+            lines += [f"Trimmed from {len(trim['before'])} to {len(m.get('prerequisites_to_teach', []))} prerequisites "
+                      f"({trim['rule']}). Dropped:", ""]
+            lines += [f"- {before.get(d['id'], d['id'])}: {d['reason']}" for d in trim["dropped"]] + [""]
+            merged = [(p["name"], [before.get(i, i) for i in p.get("from_ids") or []]) for p in m.get("prerequisites_to_teach", [])]
+            lines += [f"- **{name}** keeps or merges: {'; '.join(ids)}" for name, ids in merged if len(ids) > 1] + [""]
         lines += ["## Concepts", ""]
         for c in m.get("concepts", []):
             lines += [f"### {c['name']} · {c['content_type']}", "", c["core_explanation"], "", "Items: " + ", ".join(c["item_ids"]), ""]
@@ -806,7 +850,7 @@ def render_markdown(chapter: dict) -> str:
     lines += ["## Pages", "", "| Page | Result | Rounds | Items | Cost |", "| --- | --- | --- | --- | --- |"]
     for p in chapter["pages"]:
         result = p["status"] + (" (reused)" if p.get("reused") else "")
-        cost = "—" if p.get("reused") else f"${p.get('cost_usd') or 0:.4f}"
+        cost = "—" if p.get("reused") else money(p.get("cost_usd") or 0, chapter)
         lines.append(f"| {p['page']} | {result} | {p['rounds']} | {len(p['item_ids'])} | {cost} |")
     open_pages = [p for p in chapter["pages"] if p["status"] != "passed" and p["last_problems"]]
     if open_pages:
@@ -814,6 +858,13 @@ def render_markdown(chapter: dict) -> str:
         lines += [f"- Page {p['page']}: " + "; ".join(x[:160] for x in p["last_problems"][:3]) for p in open_pages]
     lines += ["", "Every item with its teacher questions: `PAGES.md`.", ""]
     return "\n".join(lines)
+
+
+def money(usd: float, run: dict) -> str:
+    """Rupees when the run's exchange rate is known (``run["usd_inr"]``, set by tools/render_run.py from SUMMARY.json),
+    else dollars. The amount is the ledger's estimate, not the bill."""
+    rate = run.get("usd_inr")
+    return f"₹{usd * rate:.2f}" if rate else f"${usd:.4f}"
 
 
 def render_pages(chapter: dict) -> str:

@@ -84,6 +84,7 @@ class Step:
     max_rounds: int = 3
     card: dict | None = None                  # the task card sent with this step (Task 045)
     observe: Callable[[dict], dict] | None = None   # code findings to record per round, never sent back
+    normalize: Callable[[dict], tuple] | None = None  # (value, changes): code tidies the answer before checks and review
 
 
 @dataclass
@@ -133,6 +134,18 @@ def _call_info(response, route):
             "cache_hit": bool(prov.get("cache_hit")), "attempts": prov.get("attempts"),
             "input_tokens": response.usage.get("input_tokens", 0), "output_tokens": response.usage.get("output_tokens", 0),
             "cost_usd": cost or 0.0}
+
+
+def merge_notes(previous: dict | None, patch: dict | None) -> dict | None:
+    """The notes of a patched answer: the whole unit's notes stay (about, key questions); the patch's decisions are added
+    and its uncertainties replace the old ones. A patch round's notes alone describe only the patch (job 2, v11: the
+    reviewer failed a passed script for notes that read "local correction to beat b34")."""
+    if not previous or not patch:
+        return patch or previous
+    return {"about": previous.get("about") or patch.get("about", ""),
+            "key_questions": previous.get("key_questions") or patch.get("key_questions") or [],
+            "decisions": list(previous.get("decisions") or []) + list(patch.get("decisions") or []),
+            "uncertain": patch.get("uncertain") if patch.get("uncertain") is not None else previous.get("uncertain", [])}
 
 
 def _problems_text(problems):
@@ -187,6 +200,10 @@ class SectionRunner:
             if patching:
                 entry["patch"] = value
                 value = step.apply_patch(output, value)
+            if step.normalize is not None:
+                value, changes = step.normalize(value)
+                if changes:
+                    entry["normalized"] = changes
             entry["maker"] = _call_info(response, self.maker)
             entry["notes"] = value.get("notes")
             entry["output"] = value
@@ -219,7 +236,7 @@ class SectionRunner:
             if not problems:
                 status = "passed"
                 break
-            previous = json.dumps(value, ensure_ascii=False)
+            previous = json.dumps(value, ensure_ascii=False, separators=(",", ":"))     # compact: the maker reads it again
             patching = step.patch_schema is not None and step.apply_patch is not None
             schema = step.patch_schema if patching else step.schema
             instruction = (PATCH_INSTRUCTION.format(problems=_problems_text(problems), hint=step.patch_hint) if patching

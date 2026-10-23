@@ -16,6 +16,12 @@ Rules this client keeps (OpenAI docs, read 22 Oct 2026, learn.chatgpt.com/docs/n
 Usage is billed to the subscription, not in rupees: each call reports ``billing: subscription``,
 the token counts Codex reports and the wall time. A used-up plan window raises ``plan_limit`` (never
 retried); BIE stops the run as "stopped: plan limit" and it can be resumed later.
+
+Lean calls (seekh → BIE, from the tissue run of 23 Oct 2026): Codex sends its own agent instructions and
+tool definitions with every call, which BIE never uses (14,208 input tokens for job 1's preflight of a
+one-line question). A lean call replaces those instructions with ``LEAN_INSTRUCTIONS`` and switches off
+the tools and features in ``LEAN_FEATURES_OFF``; the model can then not run commands, browse or start
+agents at all. ``BIE_CODEX_LEAN=0`` turns it off.
 """
 from __future__ import annotations
 
@@ -39,6 +45,19 @@ DEFAULT_TIMEOUT = 1800.0
 SUFFIX = {"image/png": ".png", "image/jpeg": ".jpg", "image/webp": ".webp"}
 ANSWER_RULES = ("Answer from this message and the attached images only. Do not run commands, read or write files, "
                 "or browse. Reply with one JSON object that matches the required schema, nothing else.")
+LEAN_INSTRUCTIONS = ("You are the model engine behind BIE (Book Intelligence Engine), run by BIE through Codex with no "
+                     "person watching. Each message holds BIE's instructions, one task, sometimes your earlier answer "
+                     "with findings to fix, and the attached page images. Work only from that message and the images: "
+                     "no commands, files, browsing, questions or other agents. Take the time the task needs, then reply "
+                     "with exactly one JSON object that matches the output schema, and nothing else.")
+# Codex 0.162.1 (pinned in deployment/codex-vm/setup.sh). A request captured offline against a local stand-in server
+# carried about 12,200 tokens of Codex's own instructions, tools and agent texts (o200k tokenizer); with these settings
+# about 3,800 remain (the few Codex always sends). Every name was checked against that version: an unknown setting or
+# feature stops codex before it sends anything (--strict-config), so a renamed one fails at BIE's preflight.
+LEAN_SETTINGS = ('web_search="disabled"', "agents.enabled=false", "skills.max_context_tokens=1")
+LEAN_FEATURES_OFF = ("shell_tool", "unified_exec", "code_mode_host", "sleep_tool", "view_image", "browser_use", "computer_use",
+                     "apps", "plugins", "image_generation", "hooks", "multi_agent", "goals", "skill_search", "tool_suggest",
+                     "workspace_dependencies", "worktrees")
 PLAN_LIMIT_TEXT = re.compile(r"(?i)usage limit|usage_limit|hit your usage|reached your usage|try again at|rate_limit_reached|"
                              r"quota_exceeded|usage_not_included|credits? (are )?depleted|out of credits|credit limit")
 AUTH_TEXT = re.compile(r"(?i)\b401\b|unauthori[sz]ed|not logged in|authentication required|missing bearer|"
@@ -122,11 +141,13 @@ class CodexExecClient:
     billing = "subscription"
 
     def __init__(self, *, executable: str | None = None, timeout: float = DEFAULT_TIMEOUT, codex_home: str | None = None,
-                 reasoning_effort: str | None = None, env=None, run=subprocess.run, clock=time.monotonic):
+                 reasoning_effort: str | None = None, lean: bool | None = None, env=None, run=subprocess.run,
+                 clock=time.monotonic):
         self.command = shlex.split(executable or os.environ.get("BIE_CODEX_BIN") or "codex")
         self.timeout = timeout
         self.codex_home = codex_home or os.environ.get("CODEX_HOME")
         self.reasoning_effort = reasoning_effort or os.environ.get("BIE_CODEX_REASONING") or None
+        self.lean = lean if lean is not None else os.environ.get("BIE_CODEX_LEAN", "1") != "0"
         self._env, self._run, self._clock = env, run, clock
         self.last_model = None
         self.last_thread = None
@@ -172,6 +193,14 @@ class CodexExecClient:
                                   "--ignore-rules", "--color", "never", "-C", str(work), "-o", str(last), "-m", model]
             if self.reasoning_effort:
                 cmd += ["-c", f'model_reasoning_effort="{self.reasoning_effort}"']
+            if self.lean:
+                instructions = folder / "instructions.md"
+                instructions.write_text(LEAN_INSTRUCTIONS, encoding="utf-8")
+                cmd += ["--strict-config", "-c", f"model_instructions_file={json.dumps(str(instructions))}"]
+                for setting in LEAN_SETTINGS:
+                    cmd += ["-c", setting]
+                for feature in LEAN_FEATURES_OFF:
+                    cmd += ["--disable", feature]
             if schema is not None:
                 schema_path = folder / "schema.json"
                 schema_path.write_text(json.dumps(provider_schema(schema, "openai"), ensure_ascii=False), encoding="utf-8")
@@ -180,7 +209,7 @@ class CodexExecClient:
                 path = folder / f"image-{number:02d}{SUFFIX[part['media_type']]}"
                 path.write_bytes(base64.b64decode(part["data"]))
                 cmd += ["--image", str(path)]
-            cmd.append("-")
+            cmd += ["--", "-"]          # "--": "-" (the prompt on stdin) is not read as one more --image file
             started = self._clock()
             try:
                 done = self._run(cmd, input=prompt, capture_output=True, text=True, timeout=self.timeout, env=self.child_env())

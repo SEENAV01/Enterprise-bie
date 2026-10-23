@@ -53,6 +53,7 @@ from bie.brain.runner import SectionRunner  # noqa: E402
 from bie.brain.director import run_director  # noqa: E402
 from bie.brain.game import run_game_design  # noqa: E402
 from bie.brain.lesson import run_lesson  # noqa: E402
+from bie.brain.prerequisites import run_trim  # noqa: E402
 from bie.brain.notes import run_notes  # noqa: E402
 from bie.brain.understanding import Course, run_chapter  # noqa: E402
 from bie.brain.visual import run_visual  # noqa: E402
@@ -280,6 +281,13 @@ def main(argv=None):
         if guard.stopped and summary["status"] == "ok":
             summary.update(status=stop_status(guard), stop_reason=guard.stop_reason)
         if args.section in ("lesson", "chain") and summary["status"] == "ok":
+            chapter, trim = run_trim(chapter, course, runner, out, max_rounds=args.max_rounds)
+            summary["prerequisite_trim"] = trim
+            if trim["status"] not in ("not needed", "passed"):
+                summary.update(status="stopped", error="the map's prerequisites could not be trimmed (S1-12), so no lesson was planned")
+            elif guard.stopped:
+                summary.update(status=stop_status(guard), stop_reason=guard.stop_reason)
+        if args.section in ("lesson", "chain") and summary["status"] == "ok":
             lesson = run_lesson(chapter, course, runner, out, workers=args.workers, max_rounds=args.max_rounds,
                                 max_output_tokens=args.max_output_tokens, previous_lesson=previous_lesson)
             if lesson.get("resume_notes") or lesson.get("plan_reused"):
@@ -334,7 +342,7 @@ def main(argv=None):
            + ". Ledger estimate, not the bill.", "warning" if guard.stopped else "notice")
     level = ("notice" if summary["status"] == "ok" else "warning" if summary["status"] in GRACEFUL else "error")
     notice("bie brain " + args.section, redact(json.dumps({k: summary.get(k) for k in
-                                                         ("status", "stop_reason", "quality", "map_status", "notes_quality",
+                                                         ("status", "stop_reason", "quality", "map_status", "prerequisite_trim", "notes_quality",
                                                           "game_quality", "lesson_quality", "director_quality",
                                                           "visual_quality", "render_errors", "ledger_cost_usd", "error")},
                                                         ensure_ascii=False), secrets), level)

@@ -69,23 +69,33 @@ def _answer(prompt, schema, images):
 
 
 def _exec(args):
-    options, images, i = {}, [], 0
+    options, images, settings, disabled, i = {}, [], [], [], 0
     while i < len(args):
         arg = args[i]
+        if arg == "--":
+            break
         if arg in ("-o", "--output-last-message", "--output-schema", "-m", "--model", "-C", "--cd", "-s", "--sandbox",
-                   "-c", "--config", "--color"):
+                   "--color"):
             options[arg] = args[i + 1]
+            i += 2
+        elif arg in ("-c", "--config"):
+            settings.append(args[i + 1])
+            i += 2
+        elif arg == "--disable":
+            disabled.append(args[i + 1])
             i += 2
         elif arg in ("-i", "--image"):
             images.append(args[i + 1])
             i += 2
         else:
             i += 1
+    instructions = next((json.loads(s.split("=", 1)[1]) for s in settings if s.startswith("model_instructions_file=")), None)
     prompt = sys.stdin.read() if args and args[-1] == "-" else ""
     number = _count()
     mode = _mode()
     _log({"call": number, "args": args, "images": [Path(p).suffix for p in images],
-          "images_exist": all(Path(p).exists() for p in images),
+          "images_exist": all(Path(p).exists() for p in images), "settings": settings, "disabled": disabled,
+          "instructions": Path(instructions).read_text(encoding="utf-8") if instructions else None,
           "api_key_visible": any(any(w in k for w in ("KEY", "TOKEN", "SECRET")) for k in os.environ),
           "codex_home": os.environ.get("CODEX_HOME"), "model": options.get("-m"), "prompt_chars": len(prompt)})
     print(json.dumps({"type": "thread.started", "thread_id": f"fake-thread-{number}"}))

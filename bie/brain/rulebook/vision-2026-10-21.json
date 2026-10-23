@@ -1,278 +1,381 @@
 {
-  "rulebook": "bie-vision",
-  "version": "2026-10-21.9",
-  "source": "Navin's vision, agreed point by point on 21 October 2026 (docs/vision/VISION_SPEC.md, section 'Agreed on 21 October 2026')",
-  "notes": "Each rule is an instruction for the section that makes the work (rule) and a yes/no question for the reviewer (check). Rules change only through a reviewed version bump; Navin approves every new or changed rule.",
-  "changes": [
-    "2026-10-21.9 (Task 045b, 23 October 2026, Navin's teaching decision): S2-04 is mixed script: Hindi in Devanagari, English terms in Roman, a difficult Hindi word (not in rulebook/simple_hindi.json) followed by its English word in brackets; subtitles show the bracket, the voice says it with 'यानी'.",
-    "2026-10-21.8 (Task 045, 22 October 2026, from Navin's Task 045 brief): S1-08 names BIE's nine content types (content_types.json) instead of the old list and says BIE's code proposes a type first; new S2-06: every part of a lesson answers the universal frame and is taught through the teaching pattern of its content type."
-  ],
-  "rules": [
-    {
-      "id": "G-01",
-      "sections": ["*"],
-      "status": "locked",
-      "rule": "Everything taught comes from the book. Knowledge from outside the book is allowed only to explain the book better; it is marked as outside, standard textbook-level and correct. Never invent facts, numbers, names or quotations.",
-      "check": "Is every statement either from the book or clearly marked as outside knowledge that is correct and standard?"
-    },
-    {
-      "id": "G-02",
-      "sections": ["*"],
-      "status": "locked",
-      "rule": "Work like the best teacher of these learners and this exam, not like a summariser. Depth beats brevity: nothing teachable on the page is skipped or compressed away, and every explanation makes a student understand, not just remember.",
-      "check": "Would a top teacher of these learners accept this as complete and deep, not a summary?"
-    },
-    {
-      "id": "G-03",
-      "sections": ["*"],
-      "status": "locked",
-      "rule": "Before the output, fill 'notes' with brief notes for the reviewer and for Navin: what this unit is about, the key questions a teacher must answer about it, the main decisions you made with a one-line reason each, and anything uncertain. Keep the notes short; they explain the work, they are not the work.",
-      "check": "Do the notes say what the unit is about, the main decisions with reasons, and what is uncertain?"
-    },
-    {
-      "id": "G-04",
-      "sections": ["lesson", "director", "game", "notes", "voice"],
-      "status": "locked",
-      "rule": "Learner-facing language follows the course setting. For the first course (UPSC / State PCS) it is Hinglish: natural Hindi sentence flow, English technical terms, the way Navin teaches.",
-      "check": "Does the learner-facing language match the course language and sound like a natural teacher?"
-    },
-    {
-      "id": "G-05",
-      "sections": ["*"],
-      "status": "locked",
-      "rule": "Never shorten work to fit a length. If a unit of work is too large, it is split by BIE into smaller units; within a unit, completeness wins.",
-      "check": "Is anything visibly cut short, merged away or left as 'etc.'?"
-    },
-    {
-      "id": "S1-01",
-      "sections": ["understand"],
-      "status": "locked",
-      "rule": "Read the page with two eyes: the native text blocks (exact words and numbers) and the page image (tables, diagrams, labels, arrows, equations, layout). Items that exist only in the image are as important as text items. A page whose text layer is empty or nearly empty is read entirely from the image.",
-      "check": "Has everything visible in the page image (tables, diagrams, labels, arrows, equations) been captured as items?"
-    },
-    {
-      "id": "S1-02",
-      "sections": ["understand"],
-      "status": "locked",
-      "rule": "Every native text block is either covered by an item (its id in that item's block_ids) or listed as boilerplate. Boilerplate is only running headers, page numbers, publisher adverts, contact lines and watermarks; nothing teachable is boilerplate.",
-      "check": "Is anything teachable wrongly treated as boilerplate?"
-    },
-    {
-      "id": "S1-03",
-      "sections": ["understand"],
-      "status": "locked",
-      "rule": "Every table becomes one 'table' item plus one 'table_row' item per row, in order, each row's content giving every cell with its column header, for example 'Smooth muscle | Location: G.I. tract, uterus, eye, blood vessels | Function: peristalsis, blood pressure, pupil size, erects hairs | Appearance: no striations, one central nucleus | Control: involuntary'. A table continued from the previous page continues the same table.",
-      "check": "Does every table row appear as its own item with every cell and its column header?"
-    },
-    {
-      "id": "S1-04",
-      "sections": ["understand"],
-      "status": "locked",
-      "rule": "Every diagram, chart, flow or tree becomes one 'diagram' item that says what it shows and how its parts connect (arrows, branches, flows, sequence), plus one 'diagram_label' item per label naming what the label points to. A classification tree lists every branch and leaf with its parent.",
-      "check": "Does every diagram have its labels, branches and arrows captured, with what each label points to?"
-    },
-    {
-      "id": "S1-05",
-      "sections": ["understand"],
-      "status": "locked",
-      "rule": "Every equation, formula, chemical formula and symbol is read exactly and each symbol's meaning and unit are stated.",
-      "check": "Are equations and symbols read exactly, with each symbol's meaning?"
-    },
-    {
-      "id": "S1-06",
-      "sections": ["understand"],
-      "status": "locked",
-      "rule": "Understand every teachable item by questioning it like a teacher. Ask the questions that fit: what is it, what is it about, where does it apply or occur, how does it work, when, who and whom, which, why, how does it compare, how does it differ, what is the evidence, what are the exceptions, what follows from it. Then keep asking 'why' and 'how' on your own answers (depth 2, 3 ...) until a teacher could explain it to a student meeting it for the first time. Answers explain; they never just repeat the item's words.",
-      "check": "For each teachable item, do the questions and answers reach teacher-level understanding (why and how answered, not restated)?"
-    },
-    {
-      "id": "S1-07",
-      "sections": ["understand", "connect"],
-      "status": "locked",
-      "rule": "Mark every answer's basis: 'book' only when the page itself states it, 'outside' when any part comes from general knowledge. Use outside knowledge to make the book understandable (mechanisms, reasons, real-life links), never to change what the book says. Keep outside explanations at standard textbook level for these learners and avoid absolute words (always, only, never, all, every) unless the book uses them.",
-      "check": "Is every answer's basis marked correctly, and is every outside answer correct?"
-    },
-    {
-      "id": "S1-08",
-      "sections": ["understand"],
-      "status": "locked",
-      "rule": "Give every item its true content type, one of BIE's nine: process, structure, classification, comparison, timeline, cause_effect, facts_numbers, figure, definition (bie/brain/rulebook/content_types.json). An example takes the type of what it illustrates; a question or an answer option is a role, not a type. BIE's code proposes a type before you read the page; when you choose another, say why. The content type decides the required questions and later how the lesson teaches it, how the video shows it, how the game makes it playable and how the notes draw it, so choose by what the content is, not by how it is printed.",
-      "check": "Is each item's content type what the content really is?"
-    },
-    {
-      "id": "S1-09",
-      "sections": ["understand", "connect"],
-      "status": "locked",
-      "rule": "Name the prerequisites a student must already understand for each item, as concrete concepts ('cell and its nucleus', 'what a nerve impulse is'), never vague ('basic biology'). Prerequisites are taught later, not just listed.",
-      "check": "Are the prerequisites concrete concepts a student must know first?"
-    },
-    {
-      "id": "S1-10",
-      "sections": ["understand", "connect"],
-      "status": "locked",
-      "rule": "Judge exam importance for the course's exam (for UPSC / State PCS: classifications, comparisons, locations, functions, examples and odd-one-out facts are high). Every previous-year or practice question on the page is captured with its options and linked to the items it tests.",
-      "check": "Are exam importance and question-to-item links sensible for this exam?"
-    },
-    {
-      "id": "S1-11",
-      "sections": ["understand"],
-      "status": "locked",
-      "rule": "Where the text layer and the image disagree (garbled symbols, missing words, wrong order), report the disagreement. Trust the image for symbols, layout and diagrams, and the text layer for spelling when it is clean.",
-      "check": "Are text and image disagreements reported rather than silently copied?"
-    },
-    {
-      "id": "S1-12",
-      "sections": ["connect"],
-      "status": "locked",
-      "rule": "Connect the whole chapter: group items into concepts; record how concepts relate (part of, type of, depends on, causes, contrasts with, example of, sequence); resolve every cross-reference such as 'Fig. 6.10' to its item; list the prerequisites to teach before the chapter with why each is needed; propose a teaching order that starts from what the student already knows.",
-      "check": "Does the chapter map connect every concept, resolve cross-references and give a sensible teaching order?"
-    },
-    {
-      "id": "S2-01",
-      "sections": ["lesson"],
-      "status": "locked",
-      "rule": "Plan the chapter's videos from the chapter map: how many, in what order, prerequisites taught first. Video length follows the content, never a fixed length.",
-      "check": "Does the plan follow the chapter map, teach prerequisites first and size videos by content?"
-    },
-    {
-      "id": "S2-02",
-      "sections": ["lesson"],
-      "status": "locked",
-      "rule": "Write a spoken teacher script in beats with a natural teacher flow. Stories and analogies only where they genuinely help that topic. Every question in the chapter map's teacher understanding is answered somewhere in the script.",
-      "check": "Does the script flow like a real teacher and answer every chapter-map question?"
-    },
-    {
-      "id": "S2-03",
-      "sections": ["lesson"],
-      "status": "locked",
-      "rule": "Prerequisites are taught, not named: a prerequisite gets its own beats with a simple explanation and an example before the chapter uses it.",
-      "check": "Is every prerequisite actually taught with an explanation and example before it is used?"
-    },
-    {
-      "id": "S2-04",
-      "sections": ["lesson"],
-      "status": "locked",
-      "rule": "Spoken Hinglish the way Navin teaches, in mixed script (Navin, 21 and 23 October 2026): Hindi words in Devanagari, English words, above all the book's technical terms, in Roman exactly as the book spells them, as in 'आज हम tissue के बारे में पढ़ेंगे'; a Hindi word that is not in the simple everyday word list (rulebook/simple_hindi.json) gets its English word in brackets right after it, as in 'सतह (surface)'; the screen and subtitles show the bracket and the voice says 'सतह, यानी surface'. Never an English term in Devanagari or a Hindi word in Roman. Numbers as digits; short spoken sentences addressed to one student; questions to the student and natural pauses; no reading out of lists.",
-      "check": "Is the script in Navin's mixed script (Hindi in Devanagari, English terms in Roman, difficult Hindi words followed by their English word in brackets) with short spoken sentences?"
-    },
-    {
-      "id": "S2-05",
-      "sections": ["lesson"],
-      "status": "locked",
-      "rule": "Every beat states which chapter-map items it covers and which teacher questions it answers, and those claims must be true: the beat really explains that item and really answers that question.",
-      "check": "Are the beats' coverage claims true (the beat really explains the item and answers the question)?"
-    },
-    {
-      "id": "S2-06",
-      "sections": ["lesson"],
-      "status": "locked",
-      "rule": "Teach every part of a video through the universal frame (what the process is, how it works, when and in what order, under which conditions, in what atmosphere) and through the teaching pattern of its content type, step by step in the pattern's order; every item on the task card is really taught, none only named.",
-      "check": "Does every part answer the universal frame and follow its content type's teaching pattern, with every card item really taught?"
-    },
-    {
-      "id": "S3-01",
-      "sections": ["director"],
-      "status": "locked",
-      "rule": "For every topic first ask: what is the process, how does it work, what happened, how and when, what were the conditions and the atmosphere, who changed what. Then apply the subject's style: biology zooms inside structures and shows processes running; history uses maps, timelines and characters; mathematics shows what each step means.",
-      "check": "Did the director answer the universal questions and use the subject's style?"
-    },
-    {
-      "id": "S3-02",
-      "sections": ["director"],
-      "status": "locked",
-      "rule": "Mathematics is a visual language for every subject: wherever there are numbers, comparisons or change, show them to scale and let the numbers raise the question (for example 3,000 against 50,000 soldiers at Plassey).",
-      "check": "Are numbers, comparisons and changes shown visually where they exist?"
-    },
-    {
-      "id": "S3-03",
-      "sections": ["director"],
-      "status": "locked",
-      "rule": "The screen shows what is being said at that moment. Every camera move and every visual action is tied to the exact word in the beat that triggers it, so the animation lands on the spoken word.",
-      "check": "Does every visual action land on the word that is being spoken about it?"
-    },
-    {
-      "id": "S3-04",
-      "sections": ["director"],
-      "status": "locked",
-      "rule": "Describe every visual at the detail Navin asked for: name the structure, the parts that must be visible, their arrangement and the labels, so that an anatomy-level asset can be found or built. Processes are shown happening inside the structure (zoom in, then the steps run), never as a static picture with text.",
-      "check": "Is every visual described precisely enough for an anatomy-level asset, with processes shown happening inside the structure?"
-    },
-    {
-      "id": "S3-05",
-      "sections": ["director"],
-      "status": "locked",
-      "rule": "The video is interactive: mark the moments where the player pauses for a question (taken from the chapter map's teacher questions) or lets the student tap a structure to look inside. Use them where they make the student think, not at every scene.",
-      "check": "Are pause questions and tap-to-explore moments placed where they make the student think?"
-    },
-    {
-      "id": "S4-01",
-      "sections": ["visual"],
-      "status": "locked",
-      "rule": "Detail comes from assets, not simple code shapes: 3D models the camera can enter, detailed SVG and science illustrations with recorded licences, and AI images only for what the library lacks. Labels are always added by code. No AI video-generation models.",
-      "check": "Is the visual detail at anatomy level from licensed assets, with code labels and no video-generation model?"
-    },
-    {
-      "id": "S4-02",
-      "sections": ["visual"],
-      "status": "locked",
-      "rule": "Choose the asset that shows the described structure most accurately and in the most detail, with an allowed licence; a picture that is only roughly related is not good enough. Every asset is credited on screen.",
-      "check": "Is each chosen asset accurate and detailed enough for what the scene must show, and credited?"
-    },
-    {
-      "id": "S4-03",
-      "sections": ["visual"],
-      "status": "locked",
-      "rule": "Lay out every frame so a student on a phone can read it: one idea at a time, nothing overlapping, labels short and pointing exactly at their part, text large, the camera moving inside the structure for processes. What appears and when follows the spoken words.",
-      "check": "In every frame, is the layout clear on a phone screen, are labels on the right parts, and does the screen show what is being said?"
-    },
-    {
-      "id": "S5-01",
-      "sections": ["voice"],
-      "status": "locked",
-      "rule": "The voice must sound like a real teacher. Every on-screen reveal is bound to the spoken word it belongs to.",
-      "check": "Does the voice sound natural, and does every reveal land on its word?"
-    },
-    {
-      "id": "S6-01",
-      "sections": ["game"],
-      "status": "locked",
-      "rule": "The learning is the game: the student performs the content (runs the process, makes the historical choice, builds the structure, moves the slider and predicts). A mission that can be won by picking one of four options is a quiz and is not allowed.",
-      "check": "Is every mission learning-by-doing, with no hidden quiz?"
-    },
-    {
-      "id": "S6-02",
-      "sections": ["game"],
-      "status": "locked",
-      "rule": "One game per chapter, designed only from that chapter's map; every key item is played in some mission; no story or fact drifts away from the chapter.",
-      "check": "Is every key item of the chapter played, with nothing off-chapter?"
-    },
-    {
-      "id": "S6-03",
-      "sections": ["game"],
-      "status": "locked",
-      "rule": "Choose the mission's mechanic from the content type: a process is run step by step and breaks visibly on a wrong step; events become choices as a character of that time, and the timeline breaks on a wrong choice; a structure is built and works only when every part is right; numbers and relations become sliders where the student predicts first and then sees the result; places become a map the student changes; laws and rules become cases the student judges. Every wrong move shows what goes wrong and why, so failing teaches.",
-      "check": "Does each mission's mechanic follow its content type, and does every failure show what went wrong and why?"
-    },
-    {
-      "id": "S7-01",
-      "sections": ["notes"],
-      "status": "locked",
-      "rule": "Notes are question-based: what, why, how, who/whom, when/where, evidence, reasoning, insights, differences, limitations and exceptions, conclusion, chosen by the content. Three depths: quick essence, understand, deep dive. 'The book does not say' where the book is silent. Every statement links to its source page. What the book says and what is new now are kept apart; an update carries its source link and checked date.",
-      "check": "Are the notes question-based, in three depths, source-linked, with nothing invented?"
-    },
-    {
-      "id": "S7-02",
-      "sections": ["notes"],
-      "status": "locked",
-      "rule": "Visuals in notes are drawn by code from the content type: process as a flow, dates as a timeline, comparison as a difference table, numbers as a chart, cause and effect as a relationship diagram, main idea and branches as a concept map.",
-      "check": "Does each note visual match its content type?"
-    },
-    {
-      "id": "R-01",
-      "sections": ["review"],
-      "status": "locked",
-      "rule": "Review against the source and the rulebook, never against your own taste, and judge at the level of a standard textbook for these learners and this exam. Every finding has a severity. Blocking: teachable content missing; a fact that is wrong at this level; a wrong reading of the source; a wrong book/outside label; an important item explained too shallowly for these learners; a broken rule. Minor: precision beyond this level, wording preferences, optional extra depth. Pass when there is nothing blocking; report minor findings as suggestions.",
-      "check": "n/a"
-    }
-  ]
+ "rulebook": "bie-vision",
+ "version": "2026-10-21.11",
+ "source": "Navin's vision, agreed point by point on 21 October 2026 (docs/vision/VISION_SPEC.md, section 'Agreed on 21 October 2026')",
+ "notes": "Each rule is an instruction for the section that makes the work (rule) and a yes/no question for the reviewer (check). Rules change only through a reviewed version bump; Navin approves every new or changed rule.",
+ "changes": [
+  "2026-10-21.11 (23 October 2026, Navin): S1-12's prerequisite count is a warning, not a cap: the rule is 'only what is directly needed, no chains'; more than 8 needs a stated reason (prerequisite_note) and a directly needed prerequisite is never dropped to reach a number.",
+  "2026-10-21.10 (23 October 2026, Navin's decisions on the tissue run): S2-01 narration 6-8 minutes per book page (up to 25% over with a stated reason) and one 5-8 minute prerequisite video first; S2-02 every book item and book-answered question, outside answers only where they help; S2-03 only direct prerequisites, taught in that video, at most 2 reminder beats per topic video; S2-04 brackets only on genuinely difficult words, never after everyday words or inside idioms; G-02 and G-05 say how the time target and completeness fit together; S1-12 at most 8 direct prerequisites; new S1-13 printed typos kept with the right word shown; new S1-14 one answer, one basis.",
+  "2026-10-21.9 (Task 045b, 23 October 2026, Navin's teaching decision): S2-04 is mixed script: Hindi in Devanagari, English terms in Roman, a difficult Hindi word (not in rulebook/simple_hindi.json) followed by its English word in brackets; subtitles show the bracket, the voice says it with 'यानी'.",
+  "2026-10-21.8 (Task 045, 22 October 2026, from Navin's Task 045 brief): S1-08 names BIE's nine content types (content_types.json) instead of the old list and says BIE's code proposes a type first; new S2-06: every part of a lesson answers the universal frame and is taught through the teaching pattern of its content type."
+ ],
+ "rules": [
+  {
+   "id": "G-01",
+   "sections": [
+    "*"
+   ],
+   "status": "locked",
+   "rule": "Everything taught comes from the book. Knowledge from outside the book is allowed only to explain the book better; it is marked as outside, standard textbook-level and correct. Never invent facts, numbers, names or quotations.",
+   "check": "Is every statement either from the book or clearly marked as outside knowledge that is correct and standard?"
+  },
+  {
+   "id": "G-02",
+   "sections": [
+    "*"
+   ],
+   "status": "locked",
+   "rule": "Work like the best teacher of these learners and this exam, not like a summariser. Depth beats brevity: nothing teachable on the page is skipped or compressed away, and every explanation makes a student understand, not just remember. Depth means understanding, not length: lesson narration keeps S2-01's time by cutting repetition and side-tracks, never book content.",
+   "check": "Would a top teacher of these learners accept this as complete and deep, not a summary?"
+  },
+  {
+   "id": "G-03",
+   "sections": [
+    "*"
+   ],
+   "status": "locked",
+   "rule": "Before the output, fill 'notes' with brief notes for the reviewer and for Navin: what this unit is about, the key questions a teacher must answer about it, the main decisions you made with a one-line reason each, and anything uncertain. Keep the notes short; they explain the work, they are not the work.",
+   "check": "Do the notes say what the unit is about, the main decisions with reasons, and what is uncertain?"
+  },
+  {
+   "id": "G-04",
+   "sections": [
+    "lesson",
+    "director",
+    "game",
+    "notes",
+    "voice"
+   ],
+   "status": "locked",
+   "rule": "Learner-facing language follows the course setting. For the first course (UPSC / State PCS) it is Hinglish: natural Hindi sentence flow, English technical terms, the way Navin teaches.",
+   "check": "Does the learner-facing language match the course language and sound like a natural teacher?"
+  },
+  {
+   "id": "G-05",
+   "sections": [
+    "*"
+   ],
+   "status": "locked",
+   "rule": "Never drop or compress away what the book teaches to fit a length. If a unit of work is too large, it is split by BIE into smaller units; within a unit, the book's content is complete. Lesson narration has a time target (S2-01), met by cutting repetition and side-tracks, never book content.",
+   "check": "Is anything the book teaches visibly cut short, merged away or left as 'etc.'?"
+  },
+  {
+   "id": "S1-01",
+   "sections": [
+    "understand"
+   ],
+   "status": "locked",
+   "rule": "Read the page with two eyes: the native text blocks (exact words and numbers) and the page image (tables, diagrams, labels, arrows, equations, layout). Items that exist only in the image are as important as text items. A page whose text layer is empty or nearly empty is read entirely from the image.",
+   "check": "Has everything visible in the page image (tables, diagrams, labels, arrows, equations) been captured as items?"
+  },
+  {
+   "id": "S1-02",
+   "sections": [
+    "understand"
+   ],
+   "status": "locked",
+   "rule": "Every native text block is either covered by an item (its id in that item's block_ids) or listed as boilerplate. Boilerplate is only running headers, page numbers, publisher adverts, contact lines and watermarks; nothing teachable is boilerplate.",
+   "check": "Is anything teachable wrongly treated as boilerplate?"
+  },
+  {
+   "id": "S1-03",
+   "sections": [
+    "understand"
+   ],
+   "status": "locked",
+   "rule": "Every table becomes one 'table' item plus one 'table_row' item per row, in order, each row's content giving every cell with its column header, for example 'Smooth muscle | Location: G.I. tract, uterus, eye, blood vessels | Function: peristalsis, blood pressure, pupil size, erects hairs | Appearance: no striations, one central nucleus | Control: involuntary'. A table continued from the previous page continues the same table.",
+   "check": "Does every table row appear as its own item with every cell and its column header?"
+  },
+  {
+   "id": "S1-04",
+   "sections": [
+    "understand"
+   ],
+   "status": "locked",
+   "rule": "Every diagram, chart, flow or tree becomes one 'diagram' item that says what it shows and how its parts connect (arrows, branches, flows, sequence), plus one 'diagram_label' item per label naming what the label points to. A classification tree lists every branch and leaf with its parent.",
+   "check": "Does every diagram have its labels, branches and arrows captured, with what each label points to?"
+  },
+  {
+   "id": "S1-05",
+   "sections": [
+    "understand"
+   ],
+   "status": "locked",
+   "rule": "Every equation, formula, chemical formula and symbol is read exactly and each symbol's meaning and unit are stated.",
+   "check": "Are equations and symbols read exactly, with each symbol's meaning?"
+  },
+  {
+   "id": "S1-06",
+   "sections": [
+    "understand"
+   ],
+   "status": "locked",
+   "rule": "Understand every teachable item by questioning it like a teacher. Ask the questions that fit: what is it, what is it about, where does it apply or occur, how does it work, when, who and whom, which, why, how does it compare, how does it differ, what is the evidence, what are the exceptions, what follows from it. Then keep asking 'why' and 'how' on your own answers (depth 2, 3 ...) until a teacher could explain it to a student meeting it for the first time. Answers explain; they never just repeat the item's words.",
+   "check": "For each teachable item, do the questions and answers reach teacher-level understanding (why and how answered, not restated)?"
+  },
+  {
+   "id": "S1-07",
+   "sections": [
+    "understand",
+    "connect"
+   ],
+   "status": "locked",
+   "rule": "Mark every answer's basis: 'book' only when the page itself states it, 'outside' when any part comes from general knowledge. Use outside knowledge to make the book understandable (mechanisms, reasons, real-life links), never to change what the book says. Keep outside explanations at standard textbook level for these learners and avoid absolute words (always, only, never, all, every) unless the book uses them.",
+   "check": "Is every answer's basis marked correctly, and is every outside answer correct?"
+  },
+  {
+   "id": "S1-08",
+   "sections": [
+    "understand"
+   ],
+   "status": "locked",
+   "rule": "Give every item its true content type, one of BIE's nine: process, structure, classification, comparison, timeline, cause_effect, facts_numbers, figure, definition (bie/brain/rulebook/content_types.json). An example takes the type of what it illustrates; a question or an answer option is a role, not a type. BIE's code proposes a type before you read the page; when you choose another, say why. The content type decides the required questions and later how the lesson teaches it, how the video shows it, how the game makes it playable and how the notes draw it, so choose by what the content is, not by how it is printed.",
+   "check": "Is each item's content type what the content really is?"
+  },
+  {
+   "id": "S1-09",
+   "sections": [
+    "understand",
+    "connect"
+   ],
+   "status": "locked",
+   "rule": "Name the prerequisites a student must already understand for each item, as concrete concepts ('cell and its nucleus', 'what a nerve impulse is'), never vague ('basic biology'). Prerequisites are taught later, not just listed.",
+   "check": "Are the prerequisites concrete concepts a student must know first?"
+  },
+  {
+   "id": "S1-10",
+   "sections": [
+    "understand",
+    "connect"
+   ],
+   "status": "locked",
+   "rule": "Judge exam importance for the course's exam (for UPSC / State PCS: classifications, comparisons, locations, functions, examples and odd-one-out facts are high). Every previous-year or practice question on the page is captured with its options and linked to the items it tests.",
+   "check": "Are exam importance and question-to-item links sensible for this exam?"
+  },
+  {
+   "id": "S1-11",
+   "sections": [
+    "understand"
+   ],
+   "status": "locked",
+   "rule": "Where the text layer and the image disagree (garbled symbols, missing words, wrong order), report the disagreement. Trust the image for symbols, layout and diagrams, and the text layer for spelling when it is clean.",
+   "check": "Are text and image disagreements reported rather than silently copied?"
+  },
+  {
+   "id": "S1-12",
+   "sections": [
+    "connect"
+   ],
+   "status": "locked",
+   "rule": "Connect the whole chapter: group items into concepts; record how concepts relate (part of, type of, depends on, causes, contrasts with, example of, sequence); resolve every cross-reference such as 'Fig. 6.10' to its item; list only the prerequisites this chapter directly needs, never a prerequisite of a prerequisite (no chains), each with why it is needed and the chapter concepts that need it; the rule is not a number: usually that is 8 or fewer, more than 8 needs a stated reason why every one is directly needed, and a directly needed prerequisite is never dropped to reach a number; propose a teaching order that starts from what the student already knows.",
+   "check": "Does the chapter map connect every concept, resolve cross-references, list only direct prerequisites and give a sensible teaching order?"
+  },
+  {
+   "id": "S1-13",
+   "sections": [
+    "understand"
+   ],
+   "status": "locked",
+   "rule": "A printed typo stays as printed, with the right word after it in square brackets: 'Cartiage [Cartilage]' (Navin, 23 October 2026). The teacher answers use the right word. Never correct the book silently.",
+   "check": "Are printed typos kept as printed with the right word shown, never silently corrected?"
+  },
+  {
+   "id": "S1-14",
+   "sections": [
+    "understand"
+   ],
+   "status": "locked",
+   "rule": "One answer, one basis (Navin, 23 October 2026): an answer that would mix what the book says with an outside explanation becomes two answers, one with basis 'book' (only what the page states) and one with basis 'outside'.",
+   "check": "Does every answer keep to one basis, with book and outside explanations split into separate answers?"
+  },
+  {
+   "id": "S2-01",
+   "sections": [
+    "lesson"
+   ],
+   "status": "locked",
+   "rule": "Plan the chapter's videos from the chapter map: first one short 'pehle yeh jaan lo' video (5-8 minutes) that teaches the chapter's prerequisites, then the topic videos in teaching order. Narration is 6-8 minutes per book page (Navin, 23 October 2026; the 14-page tissue chapter about 85-110 minutes of topic videos, plus the prerequisite video): each topic video gets the share of the pages its items come from, and a very dense page may go up to 25% over when the plan says why. Understanding (Section 1) and the chapter map have no time limit.",
+   "check": "Does the plan start with one 5-8 minute prerequisite video, follow the chapter map and keep every topic video within 6-8 minutes per book page (up to 25% over only with a stated reason)?"
+  },
+  {
+   "id": "S2-02",
+   "sections": [
+    "lesson"
+   ],
+   "status": "locked",
+   "rule": "Write a spoken teacher script in beats with a natural teacher flow. Stories and analogies only where they genuinely help that topic. Every item the book teaches is taught and every teacher question answered from the book is answered; questions answered from outside the book are used only where they help and the time allows. Cut repetition and side-tracks, never book content.",
+   "check": "Does the script flow like a real teacher, teach every book item and answer every question the book answers, without repetition or side-tracks?"
+  },
+  {
+   "id": "S2-03",
+   "sections": [
+    "lesson"
+   ],
+   "status": "locked",
+   "rule": "Prerequisites are only what this chapter directly needs, never a prerequisite of a prerequisite. They are taught, not named, in the chapter's 'pehle yeh jaan lo' video, each with a simple explanation and an example; a topic video may remind of them in at most 2 beats.",
+   "check": "Is every prerequisite directly needed and actually taught in the prerequisite video, and does each topic video remind of prerequisites in at most 2 beats?"
+  },
+  {
+   "id": "S2-04",
+   "sections": [
+    "lesson"
+   ],
+   "status": "locked",
+   "rule": "Spoken Hinglish the way Navin teaches, in mixed script (Navin, 21 and 23 October 2026): Hindi words in Devanagari, English words, above all the book's technical terms, in Roman exactly as the book spells them, as in 'आज हम tissue के बारे में पढ़ेंगे'; a genuinely difficult Hindi word (formal, literary or technical; not in BIE's everyday word list rulebook/simple_hindi.json) gets its English word in brackets right after it, as in 'सतह (surface)'; the screen and subtitles show the bracket and the voice says 'सतह, यानी surface'. Never a bracket after an everyday word or inside an idiom or a fixed phrase ('आम तौर पर', not 'आम तौर (usually) पर'; 'नहीं के बराबर', not 'नहीं के बराबर (equal to)'). Never an English term in Devanagari or a Hindi word in Roman. Numbers as digits; short spoken sentences addressed to one student; questions to the student and natural pauses; no reading out of lists.",
+   "check": "Is the script in Navin's mixed script (Hindi in Devanagari, English terms in Roman, difficult Hindi words followed by their English word in brackets) with short spoken sentences?"
+  },
+  {
+   "id": "S2-05",
+   "sections": [
+    "lesson"
+   ],
+   "status": "locked",
+   "rule": "Every beat states which chapter-map items it covers and which teacher questions it answers, and those claims must be true: the beat really explains that item and really answers that question.",
+   "check": "Are the beats' coverage claims true (the beat really explains the item and answers the question)?"
+  },
+  {
+   "id": "S2-06",
+   "sections": [
+    "lesson"
+   ],
+   "status": "locked",
+   "rule": "Teach every part of a video through the universal frame (what the process is, how it works, when and in what order, under which conditions, in what atmosphere) and through the teaching pattern of its content type, step by step in the pattern's order; every item on the task card is really taught, none only named.",
+   "check": "Does every part answer the universal frame and follow its content type's teaching pattern, with every card item really taught?"
+  },
+  {
+   "id": "S3-01",
+   "sections": [
+    "director"
+   ],
+   "status": "locked",
+   "rule": "For every topic first ask: what is the process, how does it work, what happened, how and when, what were the conditions and the atmosphere, who changed what. Then apply the subject's style: biology zooms inside structures and shows processes running; history uses maps, timelines and characters; mathematics shows what each step means.",
+   "check": "Did the director answer the universal questions and use the subject's style?"
+  },
+  {
+   "id": "S3-02",
+   "sections": [
+    "director"
+   ],
+   "status": "locked",
+   "rule": "Mathematics is a visual language for every subject: wherever there are numbers, comparisons or change, show them to scale and let the numbers raise the question (for example 3,000 against 50,000 soldiers at Plassey).",
+   "check": "Are numbers, comparisons and changes shown visually where they exist?"
+  },
+  {
+   "id": "S3-03",
+   "sections": [
+    "director"
+   ],
+   "status": "locked",
+   "rule": "The screen shows what is being said at that moment. Every camera move and every visual action is tied to the exact word in the beat that triggers it, so the animation lands on the spoken word.",
+   "check": "Does every visual action land on the word that is being spoken about it?"
+  },
+  {
+   "id": "S3-04",
+   "sections": [
+    "director"
+   ],
+   "status": "locked",
+   "rule": "Describe every visual at the detail Navin asked for: name the structure, the parts that must be visible, their arrangement and the labels, so that an anatomy-level asset can be found or built. Processes are shown happening inside the structure (zoom in, then the steps run), never as a static picture with text.",
+   "check": "Is every visual described precisely enough for an anatomy-level asset, with processes shown happening inside the structure?"
+  },
+  {
+   "id": "S3-05",
+   "sections": [
+    "director"
+   ],
+   "status": "locked",
+   "rule": "The video is interactive: mark the moments where the player pauses for a question (taken from the chapter map's teacher questions) or lets the student tap a structure to look inside. Use them where they make the student think, not at every scene.",
+   "check": "Are pause questions and tap-to-explore moments placed where they make the student think?"
+  },
+  {
+   "id": "S4-01",
+   "sections": [
+    "visual"
+   ],
+   "status": "locked",
+   "rule": "Detail comes from assets, not simple code shapes: 3D models the camera can enter, detailed SVG and science illustrations with recorded licences, and AI images only for what the library lacks. Labels are always added by code. No AI video-generation models.",
+   "check": "Is the visual detail at anatomy level from licensed assets, with code labels and no video-generation model?"
+  },
+  {
+   "id": "S4-02",
+   "sections": [
+    "visual"
+   ],
+   "status": "locked",
+   "rule": "Choose the asset that shows the described structure most accurately and in the most detail, with an allowed licence; a picture that is only roughly related is not good enough. Every asset is credited on screen.",
+   "check": "Is each chosen asset accurate and detailed enough for what the scene must show, and credited?"
+  },
+  {
+   "id": "S4-03",
+   "sections": [
+    "visual"
+   ],
+   "status": "locked",
+   "rule": "Lay out every frame so a student on a phone can read it: one idea at a time, nothing overlapping, labels short and pointing exactly at their part, text large, the camera moving inside the structure for processes. What appears and when follows the spoken words.",
+   "check": "In every frame, is the layout clear on a phone screen, are labels on the right parts, and does the screen show what is being said?"
+  },
+  {
+   "id": "S5-01",
+   "sections": [
+    "voice"
+   ],
+   "status": "locked",
+   "rule": "The voice must sound like a real teacher. Every on-screen reveal is bound to the spoken word it belongs to.",
+   "check": "Does the voice sound natural, and does every reveal land on its word?"
+  },
+  {
+   "id": "S6-01",
+   "sections": [
+    "game"
+   ],
+   "status": "locked",
+   "rule": "The learning is the game: the student performs the content (runs the process, makes the historical choice, builds the structure, moves the slider and predicts). A mission that can be won by picking one of four options is a quiz and is not allowed.",
+   "check": "Is every mission learning-by-doing, with no hidden quiz?"
+  },
+  {
+   "id": "S6-02",
+   "sections": [
+    "game"
+   ],
+   "status": "locked",
+   "rule": "One game per chapter, designed only from that chapter's map; every key item is played in some mission; no story or fact drifts away from the chapter.",
+   "check": "Is every key item of the chapter played, with nothing off-chapter?"
+  },
+  {
+   "id": "S6-03",
+   "sections": [
+    "game"
+   ],
+   "status": "locked",
+   "rule": "Choose the mission's mechanic from the content type: a process is run step by step and breaks visibly on a wrong step; events become choices as a character of that time, and the timeline breaks on a wrong choice; a structure is built and works only when every part is right; numbers and relations become sliders where the student predicts first and then sees the result; places become a map the student changes; laws and rules become cases the student judges. Every wrong move shows what goes wrong and why, so failing teaches.",
+   "check": "Does each mission's mechanic follow its content type, and does every failure show what went wrong and why?"
+  },
+  {
+   "id": "S7-01",
+   "sections": [
+    "notes"
+   ],
+   "status": "locked",
+   "rule": "Notes are question-based: what, why, how, who/whom, when/where, evidence, reasoning, insights, differences, limitations and exceptions, conclusion, chosen by the content. Three depths: quick essence, understand, deep dive. 'The book does not say' where the book is silent. Every statement links to its source page. What the book says and what is new now are kept apart; an update carries its source link and checked date.",
+   "check": "Are the notes question-based, in three depths, source-linked, with nothing invented?"
+  },
+  {
+   "id": "S7-02",
+   "sections": [
+    "notes"
+   ],
+   "status": "locked",
+   "rule": "Visuals in notes are drawn by code from the content type: process as a flow, dates as a timeline, comparison as a difference table, numbers as a chart, cause and effect as a relationship diagram, main idea and branches as a concept map.",
+   "check": "Does each note visual match its content type?"
+  },
+  {
+   "id": "R-01",
+   "sections": [
+    "review"
+   ],
+   "status": "locked",
+   "rule": "Review against the source and the rulebook, never against your own taste, and judge at the level of a standard textbook for these learners and this exam. Every finding has a severity. Blocking: teachable content missing; a fact that is wrong at this level; a wrong reading of the source; a wrong book/outside label; an important item explained too shallowly for these learners; a broken rule. Minor: precision beyond this level, wording preferences, optional extra depth. Pass when there is nothing blocking; report minor findings as suggestions.",
+   "check": "n/a"
+  }
+ ]
 }

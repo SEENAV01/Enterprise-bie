@@ -170,8 +170,9 @@ def beat_loads(beats, must_cover) -> list:
     return loads
 
 
-def script_checks(beats, must_cover, *, planned_minutes: int | None) -> tuple:
-    """(problems, observed) for one script, from the PED engine."""
+def script_checks(beats, must_cover, *, planned_minutes: int | None, minutes_range: tuple | None = None) -> tuple:
+    """(problems, observed) for one script, from the PED engine. With ``minutes_range`` the lesson's time rule (S2-01)
+    replaces PED's "not under half the planned minutes" check; the lesson section checks the range itself."""
     problems, observed = [], {}
     by_item = {}
     for beat in beats:
@@ -193,7 +194,9 @@ def script_checks(beats, must_cover, *, planned_minutes: int | None) -> tuple:
     words = sum(len(b.get("say", "").split()) for b in beats)
     spoken = round(words / 130, 1)
     observed["duration"] = {"spoken_minutes_at_130_wpm": spoken, "planned_minutes": planned_minutes}
-    if planned_minutes and spoken < 0.5 * planned_minutes:
+    if minutes_range is not None:
+        observed["duration"]["range"] = list(minutes_range)
+    elif planned_minutes and spoken < 0.5 * planned_minutes:
         problems.append(f"the script speaks about {spoken} minutes but the plan gives this video {planned_minutes}; "
                         f"nothing may be compressed away (G-05, PED duration check)")
     return problems, observed
