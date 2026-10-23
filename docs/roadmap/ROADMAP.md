@@ -141,6 +141,8 @@ PR B, Navin's decision (23 October 2026): the tissue chapter first, all 14 pages
 Codex (ChatGPT plan, no rupee cap; the plan's own limit stops a run, which is resumable), checker Gemini 4 Argon with a
 ₹250 cap for the whole chapter. The other five chapters wait until Navin has judged this one.
 
+Tissue run decisions (Navin, 23 October 2026), built as seekh → BIE before the map trim and the script run again (Gemini cap ₹150): narration 6–8 minutes per book page (up to 25% over for a dense page with the reason stated; must_cover stays); only direct prerequisites, taught in one 5–8 minute "pehle yeh jaan lo" video per chapter, at most 1–2 reminder beats in a topic video; printed typos kept with the right word shown; mixed book/outside answers split in two; brackets only on genuinely difficult words and never inside an idiom; the caching probe; CI rule CI-2.
+
 **046 · Director, asset finder v2 and silent video** — the director's scene plan drives the asset finder:
 the library first, then Wikimedia Commons and Openverse; SVG preferred; part locations read from SVG text;
 choice by a vision AI; an AI-drawn SVG as the last fallback; adapt the asset to the scene; add it to the
