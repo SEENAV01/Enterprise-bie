@@ -65,6 +65,8 @@ Maker Codex (`gpt-6.1-sol`, ChatGPT plan), checker Gemini 4 Argon (AICredits). P
    readings of image items 6%, text copied from native blocks 2%; the repeated JSON key names make the answer about 27%
    longer than a row format would. The checker's copy of each answer is sent with a space after every comma and colon,
    4.8% more characters, paid on Gemini.
+8. Codex sends its own agent instructions and tool definitions with every call: the one-line preflight cost 14,208
+   input tokens, and that block is about 64% of a page call's input. BIE never uses those tools.
 
 **Changed in BIE** (branch `task045-seekh-checks`, pull request after #51; IMPLEMENTED)
 
@@ -78,6 +80,13 @@ Maker Codex (`gpt-6.1-sol`, ChatGPT plan), checker Gemini 4 Argon (AICredits). P
   outputs, not accepted examples); `tools/passed_outputs.py` exports and checks sets; tests in
   `tests/test_task045_seekh.py`.
 - Readable pages show rupees at the run's own exchange rate (`tools/render_run.py`).
+- The checker reads every answer (pages, map, plan, scripts) as compact JSON, without the spaces.
+- Lean Codex calls (`bie/model_gateway/live/codex_client.py`): Codex's built-in agent instructions are replaced by a
+  short BIE text and the tools and features BIE never uses are switched off (shell and command tools, browser and
+  computer use, apps, plugins, web search, image tools, multi-agent, the skills catalog). The model can no longer run
+  commands, browse or start agents. Every name was checked on the pinned Codex 0.162.1; an unknown one stops Codex
+  before it sends anything. `BIE_CODEX_LEAN=0` switches it off. Also fixed: the prompt marker `-` was read by Codex as
+  one more image file.
 
 **Measured**
 
@@ -85,13 +94,19 @@ Maker Codex (`gpt-6.1-sol`, ChatGPT plan), checker Gemini 4 Argon (AICredits). P
   wrong strong proposals become weak or silent (p004-i21, p005-i23) and no new difference appears. Page maker prefix
   14,941 → 15,237 characters (+296, about +86 tokens per page call, in the cacheable part); map prefix 10,418 → 10,618
   (+200, once per chapter); the checker prefixes are unchanged.
+- Checker input, offline with the o200k tokenizer (Gemini's own count comes from the next run): the checker's copy of
+  job 1's 14 page answers 156,429 → 130,289 tokens (−16.7%), about 1,900 fewer tokens per page review (about 11% of
+  the checker's input per page).
+- Codex input, offline: a real BIE request for page 5, sent by the pinned `codex` 0.162.1 to a local stand-in server
+  (no sign-in, nothing sent to OpenAI) and counted with the o200k tokenizer: 17,893 → 9,893 text tokens per call
+  (−8,000, −45%; the page image not counted). Job 1 made 16 Codex calls, so about 128,000 fewer input tokens per
+  chapter for Section 1.
 - Live: to be measured on the next run that uses these changes, against the baseline above. Expected, not measured:
   pages like 5, 11, 13 and 14 pass in round 1 (up to 14 of 14), about 34,000 Codex input tokens saved per such page,
   and the map in one round (about 48,000 input and 22,500 output tokens saved).
 
 **Next from the same run** (planned, not built yet)
 
-- Send the checker compact JSON (no spaces): 4.8% fewer characters in every answer it reads (pages, map, plan, scripts).
 - A compact answer format for pages (rows instead of repeated key names): about 27% fewer characters per page answer
   (586,740 → 425,835 on job 1's 14 pages), so fewer Codex output tokens and fewer Gemini rupees for the checker. It
   needs an output schema that both Codex and Gemini accept, and a live check that quality and first-try pass do not drop.
