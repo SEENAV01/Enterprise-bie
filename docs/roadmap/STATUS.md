@@ -1,6 +1,6 @@
 # BIE Status
 
-Updated: 22 October 2026 · Read this first in every new session, then show Navin the current task card.
+Updated: 23 October 2026 · Read this first in every new session, then show Navin the current task card.
 
 ## Now
 
@@ -8,8 +8,8 @@ Updated: 22 October 2026 · Read this first in every new session, then show Navi
 | --- | --- |
 | Phase | 1 · BIE as one whole system; plan agreed on 22 October 2026 (ROADMAP, "Agreed on 22 October 2026") |
 | Current task | 045 PR B · the tissue chapter live: all 14 pages, the chapter map and the script (maker Codex, checker Gemini 4 Argon) |
-| Branch | `task045-seekh-code-rule` (docs); runs as jobs on `codex-jobs` |
-| State | Job 1 (14 pages and the map) queued on Navin's machine on 23 October 2026; job 2 (the script) follows. Gemini cap ₹250 for the whole chapter; Codex has no rupee cap. The other five chapters wait for Navin's verdict on this one. Task 044b is not started |
+| Branch | `task045-seekh-bie-rule` (docs); `task045-seekh-checks` (seekh → BIE from job 1); runs as jobs on `codex-jobs` |
+| State | Job 1 (14 pages and the map) finished on 23 October 2026: 14 of 14 pages and the map passed, Gemini ₹60.99; job 2 (the script, Gemini cap ₹189 = 250 − 60.99) is running on Navin's machine. Codex has no rupee cap. The other five chapters wait for Navin's verdict on this one. Task 044b is not started |
 | Next task | 045 PR B · live runs of Sections 1 and 2 on cards, then 046 |
 | Canonical main | `c08d51cb` (PR #45 merged: Task 045 PR A) |
 | Keys | Never the Anthropic key. GPT API key off. Gemini key (AICredits) for the checker; it may call only `google/gemini-4-argon`. GPT only through ChatGPT Pro, signed in with Codex on Navin's machine (Hostinger KVM 2, Mumbai) |
@@ -214,7 +214,7 @@ PR B (only after Navin's yes): live runs on the Gemini key, maker `google/gemini
 - [x] Task 044 Step 5 — yes (23 October 2026); done, see Task 044.
 - [x] Task 045 PR B maker and checker — maker Codex (ChatGPT plan, ₹0), checker Gemini 4 Argon (another company); `gemini-3.1-pro-preview` stays off (Navin, 23 October 2026).
 - [x] Task 045 PR B — the tissue chapter first (all 14 pages, map, script); Codex maker without a rupee cap (the plan's limit stops and resumes); Gemini checker cap ₹250 for the chapter; the other five chapters after Navin's verdict on this one (23 October 2026).
-- [x] Seekh → code — standing approval: after every live run, repeated reviewer findings become code checks with tests that do not fail earlier passed outputs; each run report lists them; locking still needs Navin's verdict (23 October 2026; written in `CLAUDE.md` and ROADMAP).
+- [x] Seekh → BIE — standing approval, replacing the narrower "seekh → code": after every live run, use what it taught to build whatever BIE needs (code, architecture, tools, libraries, resources; move work from AI to code wherever code can do it) for Navin's quality at lower cost, without asking; tests, no earlier passed output broken, measured before and after in `docs/roadmap/SEEKH_LOG.md`; security, budget, teaching-quality verdicts and locking stay Navin's (23 October 2026; written in `CLAUDE.md` and ROADMAP).
 - [ ] Task 045 PR B: Navin's verdict on the tissue chapter's map and scripts (then the other five chapters and their PDFs).
 - [ ] Task 045 PR B: one chapter PDF each of History, Geography, Polity, Economics and Physics/Maths (Navin chooses the chapters).
 - [ ] Optional (Task 044c): approve a one-time Sign in with ChatGPT probe on the laptop, as an exception to "never run things locally" (`docs/roadmap/SIWC_FEASIBILITY.md`, section 5).

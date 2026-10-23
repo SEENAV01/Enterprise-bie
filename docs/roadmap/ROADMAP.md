@@ -91,9 +91,13 @@ replace and retire) and fixing task, is `docs/roadmap/TARAZU.md`.
 4. Wire everything into a one-button software.
 5. Only then: decide the heavy or light method, optimise cost, and later train BIE's own model.
 
-**Seekh → code (standing approval, Navin, 23 October 2026).** After every live run, the reviewer findings that repeated
-become BIE code checks without asking first; each new check has tests and must not fail any output that passed before;
-every run report lists the checks added and why. Locking an output as an accepted example still needs Navin's verdict.
+**Seekh → BIE (standing approval, Navin, 23 October 2026; replaces the narrower "seekh → code").** After every live
+run, what the run taught is used to build whatever BIE needs to make what Navin wants at the quality he wants, and to
+make it cheaper: any code, architecture, tools, libraries or resources. Build what is missing, improve what exists, and
+move work from AI to code wherever code can do it; code checks for repeated reviewer findings are one part of this, not
+the whole. Claude does it without asking. Every change has tests, must not break outputs that passed before, and is
+measured before and after (quality, first-try pass rate, rounds, tokens, ₹ per page) in `docs/roadmap/SEEKH_LOG.md`.
+Still Navin's: security-sensitive changes, budget, teaching-quality verdicts and locking accepted examples.
 
 **Cost.** Target ₹50–300 per book. Optimisation comes later, but the cost guard is in place from Task 043:
 estimate before a run, preflight, hard cap (`max_inr`, default 300), rupees per section and per page after.
