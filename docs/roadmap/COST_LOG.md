@@ -30,3 +30,4 @@ Runs before 22 October were estimated in dollars; their rupee values below use t
 | 2026-10-23 | 40007533161 | cache probe: 2 calls with one 5,246-token prefix (no cache hit) | Gemini 4 Argon (AICredits) | ₹2.24 | ₹2.43 (AICredits `usage.cost` in the answers) | the bill is 8.5% above the ledger |
 | 2026-10-23 | VM job t045c-tissue-lesson-v2 (job 3) | prerequisite trim, lesson plan and 11 scripts under the 23 October rules | Codex maker (ChatGPT plan, ₹0), Gemini 4 Argon (AICredits) checker | ₹78.17 | not recorded | — |
 | 2026-10-23 | VM job t045c-tissue-lesson-v2-resume | the 5 failed tissue scripts again (4 passed) | Codex maker (ChatGPT plan, ₹0), Gemini 4 Argon (AICredits) checker | ₹21.39 | not recorded | — |
+| 2026-10-23 | VM job t045c-tissue-lesson-v9 | tissue v9 again (passed); the chapter's 11 scripts all pass | Codex maker (ChatGPT plan, ₹0), Gemini 4 Argon (AICredits) checker | ₹6.87 | not recorded | — |
