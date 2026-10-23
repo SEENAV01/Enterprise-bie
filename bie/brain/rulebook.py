@@ -17,7 +17,7 @@ from pathlib import Path
 
 RULEBOOK_DIR = Path(__file__).resolve().parent / "rulebook"
 STATUSES = ("locked", "proposed", "retired")
-DATA_SCHEMAS = ("bie.brain.content-types/1",)
+DATA_SCHEMAS = ("bie.brain.content-types/1", "bie.brain.simple-hindi/1")
 
 
 class RulebookError(ValueError):

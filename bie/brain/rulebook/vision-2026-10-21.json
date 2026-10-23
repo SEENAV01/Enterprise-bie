@@ -1,9 +1,10 @@
 {
   "rulebook": "bie-vision",
-  "version": "2026-10-21.8",
+  "version": "2026-10-21.9",
   "source": "Navin's vision, agreed point by point on 21 October 2026 (docs/vision/VISION_SPEC.md, section 'Agreed on 21 October 2026')",
   "notes": "Each rule is an instruction for the section that makes the work (rule) and a yes/no question for the reviewer (check). Rules change only through a reviewed version bump; Navin approves every new or changed rule.",
   "changes": [
+    "2026-10-21.9 (Task 045b, 23 October 2026, Navin's teaching decision): S2-04 is mixed script: Hindi in Devanagari, English terms in Roman, a difficult Hindi word (not in rulebook/simple_hindi.json) followed by its English word in brackets; subtitles show the bracket, the voice says it with 'यानी'.",
     "2026-10-21.8 (Task 045, 22 October 2026, from Navin's Task 045 brief): S1-08 names BIE's nine content types (content_types.json) instead of the old list and says BIE's code proposes a type first; new S2-06: every part of a lesson answers the universal frame and is taught through the teaching pattern of its content type."
   ],
   "rules": [
@@ -151,8 +152,8 @@
       "id": "S2-04",
       "sections": ["lesson"],
       "status": "locked",
-      "rule": "Spoken Hinglish the way Navin teaches (he approved this style on 21 October 2026): Hindi sentence flow written in Devanagari, English technical terms in Latin script exactly as the book spells them, numbers as digits; short spoken sentences addressed to one student; questions to the student and natural pauses; no reading out of lists.",
-      "check": "Does the script sound like Navin's spoken Hinglish (Devanagari Hindi, English terms in Latin script, short spoken sentences)?"
+      "rule": "Spoken Hinglish the way Navin teaches, in mixed script (Navin, 21 and 23 October 2026): Hindi words in Devanagari, English words, above all the book's technical terms, in Roman exactly as the book spells them, as in 'आज हम tissue के बारे में पढ़ेंगे'; a Hindi word that is not in the simple everyday word list (rulebook/simple_hindi.json) gets its English word in brackets right after it, as in 'सतह (surface)'; the screen and subtitles show the bracket and the voice says 'सतह, यानी surface'. Never an English term in Devanagari or a Hindi word in Roman. Numbers as digits; short spoken sentences addressed to one student; questions to the student and natural pauses; no reading out of lists.",
+      "check": "Is the script in Navin's mixed script (Hindi in Devanagari, English terms in Roman, difficult Hindi words followed by their English word in brackets) with short spoken sentences?"
     },
     {
       "id": "S2-05",

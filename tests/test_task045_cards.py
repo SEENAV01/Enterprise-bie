@@ -570,6 +570,57 @@ class SectionTwoOnTheCard(unittest.TestCase):
         self.assertNotIn("b-end", [b["beat_id"] for b in patched["beats"]])
 
 
+
+# ---------------------------------------------------------------- mixed-script narration (Task 045b)
+
+class MixedScript(unittest.TestCase):
+    def test_simple_words_inflections_and_spelling_variants(self):
+        from bie.brain import hinglish
+        simple = hinglish.load()
+        self.assertTrue(simple.version)
+        for word in ("पढ़ेंगे", "पढेंगे", "समझते", "हमने", "आँख", "आंख", "आएगा", "बच्चों", "जरा", "ज़रा"):
+            self.assertTrue(simple.is_simple(word), word)
+        for word in ("ऊतक", "सतह", "कोशिकाएँ", "विभाजन"):
+            self.assertFalse(simple.is_simple(word), word)
+
+    def test_the_check_wants_brackets_after_difficult_words_only(self):
+        from bie.brain import hinglish
+        self.assertEqual(hinglish.difficult_words("आज हम tissue के बारे में पढ़ेंगे।"), [])
+        self.assertEqual(hinglish.difficult_words("पत्ती की सतह (surface) पर cells होते हैं।"), [])
+        self.assertEqual(hinglish.difficult_words("पत्ती की सतह पर ऊतक होते हैं।"), ["सतह", "ऊतक"])
+        self.assertEqual(hinglish.bracket_problems("सतह (surface) ठीक है"), [])
+        self.assertTrue(hinglish.bracket_problems("सतह (सतह)")[0].endswith("in Roman letters"))
+        self.assertEqual(hinglish.roman_hindi("ye tissue hai aur cells"), ["aur", "hai"])
+        self.assertEqual(hinglish.roman_hindi("Mitosis is important to cells"), [])     # English is never flagged
+
+    def test_voice_says_yani_and_subtitles_keep_the_bracket(self):
+        from bie.brain import hinglish
+        say = "पत्ती की सतह (surface) पर cells होते हैं।"
+        self.assertEqual(hinglish.voice_text(say), "पत्ती की सतह, यानी surface पर cells होते हैं।")
+        self.assertEqual(hinglish.subtitle_text(say), say)
+
+    def test_spoken_problems_enforce_s2_04_without_forcing_scripts(self):
+        good = [beat("b1", say="आज हम tissue के बारे में पढ़ेंगे।"), beat("b2", say="पत्ती की सतह (surface) देखिए।"),
+                beat("b3", say="Epidermis एक layer है।")]
+        self.assertEqual(spoken_problems(good, "Hinglish"), [])
+        bad = [beat("b1", say="पत्ती की सतह पर ऊतक है।"), beat("b2", say="ये tissue hai aur ये layer है।"),
+               beat("b3", say="ये सतह (सतह) है।")]
+        problems = spoken_problems(bad, "Hinglish")
+        self.assertTrue(any("beat b1: the Hindi words ['सतह', 'ऊतक'] are not simple" in p for p in problems))
+        self.assertTrue(any("beat b2: the Hindi words ['aur', 'hai'] are written in Roman" in p for p in problems))
+        self.assertTrue(any("beat b3: (सतह) must hold the English word in Roman letters" in p for p in problems))
+
+    def test_rule_and_word_list_are_in_the_rulebook_and_the_prefix(self):
+        book = rulebook.load()
+        self.assertIn("simple_hindi@", book.version)
+        s204 = next(r for r in book.rules if r.id == "S2-04")
+        self.assertIn("सतह (surface)", s204.rule)
+        self.assertIn("यानी", s204.rule)
+        prefix, _ = script_prefixes(COURSE, BOOK)
+        self.assertIn("Simple everyday Hindi words (list", prefix.text)
+        self.assertIn("सतह, यानी surface", prefix.text)
+
+
 # ---------------------------------------------------------------- the whole chain offline
 
 class Chain(unittest.TestCase):
