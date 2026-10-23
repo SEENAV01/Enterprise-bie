@@ -7,9 +7,9 @@ Updated: 22 October 2026 · Read this first in every new session, then show Navi
 | Field | Value |
 | --- | --- |
 | Phase | 1 · BIE as one whole system; plan agreed on 22 October 2026 (ROADMAP, "Agreed on 22 October 2026") |
-| Current task | 044 Step 5 · first live test of the Codex maker on Navin's machine (then 045 PR B) |
-| Branch | `task044-live-test` (docs) |
-| State | The Codex machine is ready (Hostinger KVM 2, Mumbai). The Step 5 live test **waits for Navin's yes** to its estimate. Task 045 PR A is merged; PR B (live runs) waits for Navin's decisions (cap, checker, five chapter PDFs). Task 044b is not started |
+| Current task | 045 PR B · live runs of Sections 1 and 2 on cards (maker Codex, checker Gemini 4 Argon) |
+| Branch | `task044-step5-results` (docs) |
+| State | Step 5 done on Navin's machine: all 4 tissue pages passed with the Codex maker; the map was stopped by the ₹30 cap before its check; Gemini ₹23.55, plan 0% → 1%. PR B waits for Navin's yes to the new estimate and the five chapter PDFs. Task 044b is not started |
 | Next task | 045 PR B · live runs of Sections 1 and 2 on cards, then 046 |
 | Canonical main | `c08d51cb` (PR #45 merged: Task 045 PR A) |
 | Keys | Never the Anthropic key. GPT API key off. Gemini key (AICredits) for the checker; it may call only `google/gemini-4-argon`. GPT only through ChatGPT Pro, signed in with Codex on Navin's machine (Hostinger KVM 2, Mumbai) |
@@ -51,7 +51,12 @@ PR B (only after Navin's yes): live runs on the Gemini key, maker `google/gemini
 
 - **PR #43 merged** at `9fbb256a` (code, tests and the machine kit).
 - **The machine (22 October 2026):** Navin chose **Hostinger KVM 2 in Mumbai** (Ubuntu 24.04), not AWS Lightsail: about ₹1,300 a month, a 1-month term with a 30-day refund. He ran `setup.sh` and `sudo bie-setup` himself: Gemini key set on the machine only, Codex signed in with his ChatGPT Pro plan, the GitHub deploy key added (approved by adding it), the 2-minute poll timer active, plan usage 0% before any job.
-- **Step 5 live test (next, after Navin's yes):** brain-understand on tissue pages 1, 7, 11 and 13 (the four that failed in run 39627682253), resume from that run, maker Codex, checker Gemini 4 Argon (AICredits), `max_inr` 30, as a job on the `codex-jobs` branch. Since Task 045 the old passed pages no longer pass today's checks, so the resume reuses nothing and the chapter map covers these four pages only; the full chapter is Task 045 PR B. Estimate: ₹14.6 by the measured basis (Codex maker ₹0); because the checker now reads the card prefix and the maker's whole answer (about ₹3.7–5.7 per checker call), the real figure may be ₹20–35, so the cap can stop the run before the map is checked (passed pages are kept and can be resumed).
+- **Step 5 live test (23 October 2026, job `t044-step5-tissue`, results `blindtest-results:runs/vm-t044-step5-tissue-brain-understand/`):** tissue pages 1, 7, 11 and 13 on the machine, maker Codex (`gpt-6.1-sol` through ChatGPT; Codex reports the plan as `prolite`), checker Gemini 4 Argon (AICredits, another company), cap ₹30, 29.7 minutes.
+  - **All 4 pages passed** (they had failed in run 39627682253): pages 1 and 7 in one round, 11 and 13 in two; 185 items (171 teachable), 536 teacher questions (199 deeper why/how, 237 marked outside the book). Type check: 6 agree with the code, no unexplained difference; 43 items the code had no hint for (mostly read from the image).
+  - **Chapter map: stopped by the cap.** Its first round had three code problems (a question link to a non-question item, an unlinked question, a concept typed `none`); the maker fixed them, and the checker call of round 2 (projected ₹14.57) would have crossed the cap, so it was not sent. Passed pages are kept; a resume can finish the map.
+  - **Gemini spent ₹23.55** (ledger estimate, not the bill): preflight ₹0.39, page checks ₹23.16 for 5 checker calls (85,563 tokens in, 5,148 out; about ₹4.6 a call, ₹5.8 a page). The measured-basis estimate was ₹14.6; the checker reads more since Task 045.
+  - **Codex (₹0, the plan):** 6 page calls (159,134 tokens in, 43,136 of them cached; 68,687 out; 32 minutes of call time) and 2 map calls (71,142 in, 26,865 out); the weekly plan window went from 0% to 1%.
+  - **Status words:** the Codex maker route is INTEGRATED for Section 1 page reading (real machine, real ChatGPT plan, real pages, real downstream map step); the map is not checked yet. Nothing is ACCEPTED.
 - **PR #42 merged** at `afe169b1` after all 7 checks on its head `f432e245` passed.
 - **Hosting decision** (`deployment/codex-vm/README.md`), from OpenAI's docs read on 22 Oct 2026 and the Codex CLI itself (0.162.1, installed in the cloud workspace without signing in):
   - ChatGPT sign-in for automation is for trusted private machines only ("Do not use this workflow for public or open-source repositories"); this repository is public, so its GitHub Actions never sign in. The Anthropic and GPT API key secrets were removed from the live workflow step.
@@ -198,8 +203,9 @@ PR B (only after Navin's yes): live runs on the Gemini key, maker `google/gemini
 - [x] Cost target — ₹50–300 per book; a cost guard now, optimisation later (22 October 2026).
 - [x] Keys — never the Anthropic key; GPT API key off; only the Gemini key (AICredits) until ChatGPT Pro is connected (22 October 2026).
 - [x] The Codex machine — Hostinger KVM 2, Mumbai, Ubuntu 24.04, about ₹1,300 a month, 1-month term with a 30-day refund (instead of AWS Lightsail); `bie-setup` done and the deploy key added (22 October 2026).
-- [ ] Task 044 Step 5: yes or no to the first live test (tissue pages 1, 7, 11, 13; Codex maker; Gemini 4 Argon checker; cap ₹30; estimate ₹14.6, possibly ₹20–35).
-- [ ] Task 045 PR B: yes or no to the live runs with their estimate (tissue chapter about ₹319 for understanding plus about ₹199 for the script; a ₹30 cap per run means several resumed runs), and the checker: allow `google/gemini-3.1-pro-preview` on the AICredits key (better) or let Gemini 4 Argon check itself (`same`, kamzor jaanch).
+- [x] Task 044 Step 5 — yes (23 October 2026); done, see Task 044.
+- [x] Task 045 PR B maker and checker — maker Codex (ChatGPT plan, ₹0), checker Gemini 4 Argon (another company); `gemini-3.1-pro-preview` stays off (Navin, 23 October 2026).
+- [ ] Task 045 PR B: yes or no to the estimate from Step 5's real numbers — per 14-page chapter about ₹80 for page checks (₹5.8 a page) plus about ₹50–100 for checking the chapter map (its checker call is large: about ₹3.6 a page per round) plus about ₹30–60 for checking the script (assumed): about ₹160–240 a chapter, about ₹1,000–1,450 for the six chapters; Codex about 3–5% of the weekly plan window per chapter. A ₹30 cap per run cannot check a whole chapter's map; about ₹250 per chapter run is suggested.
 - [ ] Task 045 PR B: one chapter PDF each of History, Geography, Polity, Economics and Physics/Maths (Navin chooses the chapters).
 - [ ] Optional (Task 044c): approve a one-time Sign in with ChatGPT probe on the laptop, as an exception to "never run things locally" (`docs/roadmap/SIWC_FEASIBILITY.md`, section 5).
 - [ ] Optional (Task 044c): fill in OpenAI's interest form to ask whether BIE may use the plan from a rented server Navin alone controls (Claude can draft the answers).

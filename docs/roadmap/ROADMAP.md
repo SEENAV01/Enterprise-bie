@@ -115,7 +115,8 @@ about ₹1,340 a month), never in this public repository's Actions. The route, t
 machine kit are built first; the live test runs once Navin has said yes and signed the machine in.
 Machine (22 October 2026): Navin chose Hostinger KVM 2 in Mumbai (Ubuntu 24.04, about ₹1,300 a month, 1-month term,
 30-day refund) instead of Lightsail and finished `bie-setup`; the Step 5 live test (tissue pages 1, 7, 11, 13, cap ₹30)
-runs after his yes to its estimate.
+runs after his yes to its estimate. Done 23 October 2026: all 4 pages passed with the Codex maker (Gemini ₹23.55, plan
+0% → 1%); the map check was stopped by the cap.
 Task 044c (22 October 2026, report only, `docs/roadmap/SIWC_FEASIBILITY.md`): the Codex route stays primary;
 Sign in with ChatGPT is an optional later route, only after a one-time probe (needs Navin's yes) and an answer
 from OpenAI on where tokens may be stored.
