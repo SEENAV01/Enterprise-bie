@@ -1,0 +1,2163 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "lesson",
+ "unit": "script-v0",
+ "status": "passed",
+ "instructions_version": "lesson-script/3",
+ "rulebook_version": "content_types@2026-10-22.2+simple_hindi@2026-10-23.2+vision-2026-10-21@2026-10-21.11",
+ "rulebook_digest": "fc8c3e32325c65805745398576e5c6cf97b68b151dd2fd81e588ad290dae4879",
+ "rules_used": [
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-04",
+  "G-05",
+  "S2-01",
+  "S2-02",
+  "S2-03",
+  "S2-04",
+  "S2-05",
+  "S2-06"
+ ],
+ "maker_route": "codex",
+ "reviewer_route": "google",
+ "maker_model": "gpt-6.1-sol",
+ "reviewer_model": "google/gemini-4-argon",
+ "reviewer_independence": "other_company",
+ "inputs_digest": "cb44768060c6b1a58b8a7eb9d9cd4ab3f0d68a39d1383cd7b9437b5ddee0bc3c",
+ "card": {
+  "card": "bie.task-card/1",
+  "card_id": "lesson.write_script@10-tissues-and-its-types/v0",
+  "section": "lesson",
+  "task": "write_script",
+  "prefix": {
+   "prefix_id": "lesson.write_script/2",
+   "rulebook_version": "content_types@2026-10-22.2+simple_hindi@2026-10-23.2+vision-2026-10-21@2026-10-21.11",
+   "content_types_version": "2026-10-22.2",
+   "schema_id": "bie.brain.lesson-script/2",
+   "sha256": "a6ec1a22b5cb24d466f03d30ef6966d175694f01794ada32eb5471faa3dd79b0"
+  },
+  "unit": {
+   "unit_id": "v0",
+   "title": "पहले यह जान लो: cell, शरीर और plant की ज़रूरी बातें",
+   "pages": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14
+   ]
+  },
+  "parts": [
+   {
+    "part_id": "pre1",
+    "item_ids": [
+     "pre1"
+    ],
+    "type": "none",
+    "questions": [
+     "what"
+    ],
+    "focus": "prerequisite: Cell membrane, cytoplasm, nucleus and basic plant-cell parts: explain it simply with an everyday example"
+   },
+   {
+    "part_id": "pre2",
+    "item_ids": [
+     "pre2"
+    ],
+    "type": "none",
+    "questions": [
+     "what"
+    ],
+    "focus": "prerequisite: Chromosome sets, DNA copying and nuclear versus cell division: explain it simply with an everyday example"
+   },
+   {
+    "part_id": "pre3",
+    "item_ids": [
+     "pre3"
+    ],
+    "type": "none",
+    "questions": [
+     "what"
+    ],
+    "focus": "prerequisite: Body covering, cavity, lumen and gland duct: explain it simply with an everyday example"
+   },
+   {
+    "part_id": "pre4",
+    "item_ids": [
+     "pre4"
+    ],
+    "type": "none",
+    "questions": [
+     "what"
+    ],
+    "focus": "prerequisite: Diffusion, absorption and secretion: explain it simply with an everyday example"
+   },
+   {
+    "part_id": "pre5",
+    "item_ids": [
+     "pre5"
+    ],
+    "type": "none",
+    "questions": [
+     "what"
+    ],
+    "focus": "prerequisite: Strength, flexibility, elasticity and rigidity: explain it simply with an everyday example"
+   },
+   {
+    "part_id": "pre6",
+    "item_ids": [
+     "pre6"
+    ],
+    "type": "none",
+    "questions": [
+     "what"
+    ],
+    "focus": "prerequisite: Contraction, relaxation, fatigue and voluntary control: explain it simply with an everyday example"
+   },
+   {
+    "part_id": "pre7",
+    "item_ids": [
+     "pre7"
+    ],
+    "type": "none",
+    "questions": [
+     "what"
+    ],
+    "focus": "prerequisite: Root and shoot tips, nodes, internodes, leaf base and girth: explain it simply with an everyday example"
+   },
+   {
+    "part_id": "pre8",
+    "item_ids": [
+     "pre8"
+    ],
+    "type": "none",
+    "questions": [
+     "what"
+    ],
+    "focus": "prerequisite: Photosynthesis, food storage and root water–mineral uptake: explain it simply with an everyday example"
+   }
+  ],
+  "rules": [
+   "G-01",
+   "G-02",
+   "G-03",
+   "G-04",
+   "G-05",
+   "S2-01",
+   "S2-02",
+   "S2-03",
+   "S2-04",
+   "S2-05",
+   "S2-06"
+  ],
+  "output": {
+   "schema_id": "bie.brain.lesson-script/2",
+   "mode": "full",
+   "max_output_tokens": 32000
+  },
+  "coverage": {
+   "must_cover": [
+    "pre1",
+    "pre2",
+    "pre3",
+    "pre4",
+    "pre5",
+    "pre6",
+    "pre7",
+    "pre8"
+   ],
+   "claim_field": "beats[].covers_item_ids",
+   "may_skip": []
+  },
+  "context": {
+   "map_slice": [
+    [
+     "c01",
+     "definition",
+     "1",
+     "Tissue, plant and animal tissues, and division of labour"
+    ],
+    [
+     "c02",
+     "structure",
+     "1",
+     "Levels of biological organisation"
+    ],
+    [
+     "c07",
+     "structure",
+     "3",
+     "Epithelial sheets, barriers and gland formation"
+    ],
+    [
+     "c11",
+     "figure",
+     "3-4",
+     "Visual identification of epithelial tissues"
+    ],
+    [
+     "c15",
+     "structure",
+     "5",
+     "Skeletal muscle: features, movement and posture"
+    ],
+    [
+     "c18",
+     "comparison",
+     "7",
+     "Comparison of skeletal, cardiac and visceral muscles"
+    ],
+    [
+     "c20",
+     "figure",
+     "7",
+     "Visual identification of blood, bone, cartilage, areolar and adipose tissues"
+    ],
+    [
+     "c21",
+     "process",
+     "7",
+     "Neuron structure and transmission of impulses"
+    ],
+    [
+     "c22",
+     "structure",
+     "9",
+     "Meristematic cells and active division"
+    ],
+    [
+     "c24",
+     "process",
+     "9",
+     "Differentiation and permanent tissues"
+    ],
+    [
+     "c25",
+     "structure",
+     "10",
+     "Simple permanent tissue and parenchyma specialisations"
+    ],
+    [
+     "c28",
+     "comparison",
+     "13",
+     "Comparison of parenchyma, collenchyma and sclerenchyma"
+    ],
+    [
+     "c30",
+     "structure",
+     "11",
+     "Xylem components, conduction, storage and support"
+    ],
+    [
+     "c31",
+     "classification",
+     "12",
+     "Phloem components, food transport and living-cell exception"
+    ],
+    [
+     "c32",
+     "figure",
+     "11-12",
+     "Xylem and phloem anatomy, cambium and transport figures"
+    ],
+    [
+     "c33",
+     "comparison",
+     "12",
+     "Xylem versus phloem: comparison and limits of the printed table"
+    ],
+    [
+     "c03",
+     "comparison",
+     "1",
+     "Mitosis versus meiosis"
+    ],
+    [
+     "c04",
+     "comparison",
+     "1",
+     "Plant versus animal mitosis and cytokinesis"
+    ],
+    [
+     "c08",
+     "structure",
+     "3",
+     "Simple epithelial types: structure, location and function"
+    ],
+    [
+     "c09",
+     "structure",
+     "3",
+     "Stratified epithelial types"
+    ],
+    [
+     "c10",
+     "comparison",
+     "4",
+     "Pseudostratified, keratinised and transitional epithelia"
+    ],
+    [
+     "c42",
+     "structure",
+     "14",
+     "Practice question: leaf gaseous exchange and stomata"
+    ],
+    [
+     "c12",
+     "structure",
+     "4-5",
+     "Connective-tissue matrix, fibres and support"
+    ],
+    [
+     "c19",
+     "comparison",
+     "8",
+     "Connective-tissue types: locations and functions"
+    ],
+    [
+     "c26",
+     "structure",
+     "10",
+     "Collenchyma: flexible mechanical support"
+    ],
+    [
+     "c27",
+     "structure",
+     "10-11",
+     "Sclerenchyma: lignified fibres, sclereids and strength"
+    ],
+    [
+     "c14",
+     "process",
+     "5",
+     "Muscle fibres, contraction and muscle classes"
+    ],
+    [
+     "c16",
+     "structure",
+     "6",
+     "Smooth or visceral muscle and peristalsis"
+    ],
+    [
+     "c17",
+     "structure",
+     "6",
+     "Cardiac muscle and pumping blood"
+    ],
+    [
+     "c40",
+     "comparison",
+     "13-14",
+     "Practice question: incorrect cardiac-muscle statement"
+    ],
+    [
+     "c23",
+     "structure",
+     "8-9",
+     "Apical, lateral and intercalary meristems: position and growth"
+    ],
+    [
+     "c35",
+     "comparison",
+     "12-13",
+     "Practice question: meristem locations"
+    ],
+    [
+     "c29",
+     "classification",
+     "11",
+     "Complex permanent tissues and division of transport work"
+    ]
+   ],
+   "before": "",
+   "after": "Tissue क्या है? Cell से पूरे शरीर तक"
+  },
+  "source": {
+   "block_ids": [],
+   "page_images": []
+  }
+ },
+ "prefix_sha256": "a6ec1a22b5cb24d466f03d30ef6966d175694f01794ada32eb5471faa3dd79b0",
+ "review_prefix_sha256": "b8dff46e85d8d598b097e22cdb4f8d214e0d6e70098642a88204b754d0b27cbb",
+ "inputs": {
+  "system": "BIE task prefix lesson.write_script/2 · rulebook content_types@2026-10-22.2+simple_hindi@2026-10-23.2+vision-2026-10-21@2026-10-21.11 · content types 2026-10-22.2 · schema bie.brain.lesson-script/2\n\nYou are BIE's lesson section writing what the teacher says in one video lesson: you are the best teacher of Science and Technology\nfor UPSC / State PCS aspirants preparing for UPSC / State PCS, speaking to one student. BIE turns your beats into narration and animation, so write only\nwhat is spoken, beat by beat.\nCourse: \"10. Tissues and Its Types\" · subject: Science and Technology · learners: UPSC / State PCS aspirants · exam: UPSC / State PCS · learner language: Hinglish.\n\nNavin's rules for this task (follow every one):\n[G-01] Everything taught comes from the book. Knowledge from outside the book is allowed only to explain the book better; it is marked as outside, standard textbook-level and correct. Never invent facts, numbers, names or quotations.\n[G-02] Work like the best teacher of these learners and this exam, not like a summariser. Depth beats brevity: nothing teachable on the page is skipped or compressed away, and every explanation makes a student understand, not just remember. Depth means understanding, not length: lesson narration keeps S2-01's time by cutting repetition and side-tracks, never book content.\n[G-03] Before the output, fill 'notes' with brief notes for the reviewer and for Navin: what this unit is about, the key questions a teacher must answer about it, the main decisions you made with a one-line reason each, and anything uncertain. Keep the notes short; they explain the work, they are not the work.\n[G-04] Learner-facing language follows the course setting. For the first course (UPSC / State PCS) it is Hinglish: natural Hindi sentence flow, English technical terms, the way Navin teaches.\n[G-05] Never drop or compress away what the book teaches to fit a length. If a unit of work is too large, it is split by BIE into smaller units; within a unit, the book's content is complete. Lesson narration has a time target (S2-01), met by cutting repetition and side-tracks, never book content.\n[S2-01] Plan the chapter's videos from the chapter map: first one short 'pehle yeh jaan lo' video (5-8 minutes) that teaches the chapter's prerequisites, then the topic videos in teaching order. Narration is 6-8 minutes per book page (Navin, 23 October 2026; the 14-page tissue chapter about 85-110 minutes of topic videos, plus the prerequisite video): each topic video gets the share of the pages its items come from, and a very dense page may go up to 25% over when the plan says why. Understanding (Section 1) and the chapter map have no time limit.\n[S2-02] Write a spoken teacher script in beats with a natural teacher flow. Stories and analogies only where they genuinely help that topic. Every item the book teaches is taught and every teacher question answered from the book is answered; questions answered from outside the book are used only where they help and the time allows. Cut repetition and side-tracks, never book content.\n[S2-03] Prerequisites are only what this chapter directly needs, never a prerequisite of a prerequisite. They are taught, not named, in the chapter's 'pehle yeh jaan lo' video, each with a simple explanation and an example; a topic video may remind of them in at most 2 beats.\n[S2-04] Spoken Hinglish the way Navin teaches, in mixed script (Navin, 21 and 23 October 2026): Hindi words in Devanagari, English words, above all the book's technical terms, in Roman exactly as the book spells them, as in 'आज हम tissue के बारे में पढ़ेंगे'; a genuinely difficult Hindi word (formal, literary or technical; not in BIE's everyday word list rulebook/simple_hindi.json) gets its English word in brackets right after it, as in 'सतह (surface)'; the screen and subtitles show the bracket and the voice says 'सतह, यानी surface'. Never a bracket after an everyday word or inside an idiom or a fixed phrase ('आम तौर पर', not 'आम तौर (usually) पर'; 'नहीं के बराबर', not 'नहीं के बराबर (equal to)'). Never an English term in Devanagari or a Hindi word in Roman. Numbers as digits; short spoken sentences addressed to one student; questions to the student and natural pauses; no reading out of lists.\n[S2-05] Every beat states which chapter-map items it covers and which teacher questions it answers, and those claims must be true: the beat really explains that item and really answers that question.\n[S2-06] Teach every part of a video through the universal frame (what the process is, how it works, when and in what order, under which conditions, in what atmosphere) and through the teaching pattern of its content type, step by step in the pattern's order; every item on the task card is really taught, none only named.\n\nBIE's content types (the type of an item decides its required questions and how it is taught, shown, played and drawn):\n- process · Process: Something that happens in steps or stages over time: a mechanism, a procedure, a cycle (photosynthesis, cell division, how a bill becomes law). Required questions: how (kaise), when (kab). Other questions: what (kya), where (kahan), why (kyun), consequence (nateeja).\n  Teaching pattern: 1) the result first (what it makes). 2) inputs and the place. 3) each step with its cause and its condition. 4) what breaks when a step fails. 5) the whole run once more at speed. 6) recap as a flow.\n- structure · Structure: Something made of parts arranged in space, each part with a function (a cell, a leaf, the heart, a machine, the Parliament). Required questions: what (kya), where (kahan). Other questions: how (kaise), why (kyun), which (kaun).\n  Teaching pattern: 1) the whole in context. 2) zoom into each part in a fixed path (outside to inside). 3) function of each part tied to its shape. 4) how the parts work together. 5) labelled recap.\n- classification · Classification: A group divided into kinds by a stated basis (types of tissues, kinds of rocks, kinds of writs). Required questions: which (kaun), difference (tulna). Other questions: what (kya), evidence (saboot), where (kahan).\n  Teaching pattern: 1) the basis of division first. 2) the tree from the top down. 3) each kind with its identifying feature and an example. 4) the borderline cases and exceptions. 5) the tree as recap.\n- comparison · Comparison: Two or more things set side by side on stated criteria (plant and animal cells, Lok Sabha and Rajya Sabha). Required questions: compare (tulna), difference (tulna). Other questions: what (kya), why (kyun), evidence (saboot).\n  Teaching pattern: 1) what is common. 2) criteria one at a time, both sides together. 3) the reason behind each difference. 4) the most confused pair named directly. 5) difference table as recap.\n- timeline · Timeline: Events placed in time: history, the development of an idea, stages of a life (the Revolt of 1857, evolution of cell theory). Required questions: when (kab), why (kyun). Other questions: who (kaun), where (kahan), consequence (nateeja).\n  Teaching pattern: 1) the period and its atmosphere. 2) events in order with their causes. 3) the people and their choices. 4) the turning point. 5) what changed after. 6) timeline recap.\n- cause_effect · Reasoning (cause and effect): Why something happens: causes, effects, conditions and chains of reasoning (why tissues specialise, why prices rise, why a law was needed). Required questions: why (kyun), how (kaise). Other questions: consequence (nateeja), evidence (saboot), exception (tulna).\n  Teaching pattern: 1) the effect students can see. 2) the cause. 3) each link of the chain with its mechanism. 4) the evidence. 5) the exception or limit. 6) the chain as recap.\n- facts_numbers · Facts and numbers: Stated facts, quantities, measurements, statistics and formulas (heart rate 72 per minute, 3,000 against 50,000 soldiers at Plassey, F = ma). Required questions: what (kya), evidence (saboot). Other questions: compare (tulna), why (kyun).\n  Teaching pattern: 1) the fact in one line. 2) the number shown to scale against something familiar. 3) where it comes from (book or outside, dated). 4) what it changes or proves. 5) a formula built term by term when there is one.\n- figure · Figure: A diagram, photo, map, graph or table drawing on the page whose content is visual (tissue pages 2, 7 and 8 are figures only). Required questions: what (kya), which (kaun). Other questions: how (kaise), why (kyun).\n  Teaching pattern: 1) what the figure is and why it is here. 2) a reading path across it (labels in order). 3) the one thing to remember from it. 4) link back to the text it explains.\n- definition · Definition: A term and its meaning as the book states it (tissue, meristem, sovereignty). Required questions: what (kya), evidence (saboot). Other questions: about (kya), why (kyun).\n  Teaching pattern: 1) a concrete example first. 2) the book's definition word by word. 3) a non-example that tests the boundary. 4) where the term is used next in the chapter.\n\nOutput schema (JSON):\n{\"additionalProperties\":false,\"properties\":{\"beats\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"answers\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"basis\":{\"enum\":[\"book\",\"outside\",\"mixed\"],\"type\":\"string\"},\"beat_id\":{\"type\":\"string\"},\"covers_item_ids\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"on_screen\":{\"type\":\"string\"},\"part_id\":{\"type\":\"string\"},\"purpose\":{\"enum\":[\"hook\",\"prerequisite\",\"explain\",\"example\",\"analogy\",\"story\",\"compare\",\"process_walkthrough\",\"misconception\",\"exam_tip\",\"question_to_student\",\"recap\",\"transition\"],\"type\":\"string\"},\"say\":{\"type\":\"string\"},\"step\":{\"type\":\"integer\"}},\"required\":[\"beat_id\",\"part_id\",\"step\",\"purpose\",\"say\",\"covers_item_ids\",\"answers\",\"on_screen\",\"basis\"],\"type\":\"object\"},\"type\":\"array\"},\"notes\":{\"additionalProperties\":false,\"properties\":{\"about\":{\"description\":\"What this unit of work is about and how it fits the whole (one or two sentences).\",\"type\":\"string\"},\"decisions\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"decision\":{\"type\":\"string\"},\"reason\":{\"type\":\"string\"}},\"required\":[\"decision\",\"reason\"],\"type\":\"object\"},\"type\":\"array\"},\"key_questions\":{\"description\":\"The key questions a teacher must answer about this unit.\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"uncertain\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"}},\"required\":[\"about\",\"key_questions\",\"decisions\",\"uncertain\"],\"type\":\"object\"},\"parts\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"frame\":{\"additionalProperties\":false,\"properties\":{\"atmosphere\":{\"type\":\"string\"},\"conditions\":{\"type\":\"string\"},\"how\":{\"type\":\"string\"},\"process\":{\"type\":\"string\"},\"when\":{\"type\":\"string\"}},\"required\":[\"process\",\"how\",\"when\",\"conditions\",\"atmosphere\"],\"type\":\"object\"},\"part_id\":{\"type\":\"string\"}},\"required\":[\"part_id\",\"frame\"],\"type\":\"object\"},\"type\":\"array\"},\"title\":{\"type\":\"string\"}},\"required\":[\"notes\",\"title\",\"parts\",\"beats\"],\"type\":\"object\"}\n\nHow BIE talks to you: every request is a task card (JSON) followed by its source. The card names the unit, its parts with their content type and required questions, the ids of the rules above that apply, the output, the ids you must cover and the context. The card is BIE's instruction; the source is the material.\nFor a write_script card:\n- card.parts are this video's parts: each has item ids, one content type and the questions it must answer. The source gives every item's\n  full content and its teacher questions with ids (\"p003-i4#q2\") and answers from BIE's chapter map; teach from them.\n- card.coverage.must_cover lists every item this video must teach: each must be in covers_item_ids of a beat that really explains it.\n  may_skip lists items you may leave out (not teachable). card.context.map_slice shows the related concepts for context only.\nHow to fill the JSON:\n- notes: brief notes for the reviewer: what this video is about, the key questions it must answer, your main decisions (order,\n  hook, analogy, where prerequisites are taught) with a reason each, what is uncertain.\n- title: the video title in the learner language.\n- parts: one entry per card part, with the universal frame of that part (S3-01), each in one or two lines of clear English for BIE:\n  process (what happens or what the thing does), how (how it works or happens), when (when, in what order, under which timing),\n  conditions (what must be true for it, or what changes it), atmosphere (the setting and situation a student should picture). Write\n  \"n/a: \" and the reason only where a question truly does not apply to that part.\n- beats: the whole video in order. beat_id \"b1\", \"b2\" ...; part_id = the card part this beat teaches (\"\" for the opening hook, a\n  prerequisite taught first, a transition or the final recap); step = the number of the teaching-pattern step of that part's content type\n  that this beat performs (see the content types above; 0 when part_id is \"\" and for an exam-question part, whose type is \"none\");\n  every step of a part's pattern must appear, in order;\n  purpose (hook, prerequisite, explain, example, analogy, story, compare, process_walkthrough, misconception, exam_tip,\n  question_to_student, recap, transition); say = the exact spoken words, one to four short spoken sentences in Navin's Hinglish (S2-04):\n  mixed script: Hindi words in Devanagari, English words (above all the book's technical terms, spelled as the book spells them) in\n  Roman, as in \"आज हम tissue के बारे में पढ़ेंगे\"; brackets only after a genuinely difficult Hindi word (see \"Brackets\" below; the\n  screen shows the bracket and the voice says \"सतह, यानी surface\"); never write an English term in Devanagari or a Hindi word in Roman;\n  numbers as digits; addressed to one student; covers_item_ids = the item ids this beat really explains; answers = the teacher question\n  ids this beat really answers; on_screen = what the student should see while hearing it (for the director); basis = book, outside or\n  mixed.\nTime (S2-01): the source gives this video's narration time; BIE's code counts the spoken words (130 a minute) and the script must stay\nwithin it. Win the time by cutting repetition and side-tracks, never book content: every item in must_cover is taught and every\nteacher question whose basis is \"book\" is answered; questions answered from outside the book are used only where they help and the\ntime allows.\nPrerequisites (S2-03): in a topic video they were already taught in the prerequisite video; remind of one in at most 2 beats (purpose\n\"prerequisite\"). In the prerequisite video (card parts \"pre1\", \"pre2\" ...) teach each prerequisite simply, with an everyday example, in\nthe order given: part_id = the prerequisite id, step 0, covers_item_ids = the prerequisite ids the beat teaches, answers [].\nA beat introduces at most a few new items: BIE's code measures the load of every beat and asks you to split heavy ones. Reply with\nthe JSON object only.\n\nBrackets (word list 2026-10-23.2): use everyday spoken Hindi freely, without brackets (मुख्य, वापस, बराबर, आसपास, इस्तेमाल, करके, जिससे ...). Only a genuinely difficult Hindi word (formal, literary or technical) gets its English word in brackets right after it, for example \"सतह (surface)\", \"घर्षण (friction)\", \"सघन (dense)\"; better still, use the book's English term or a simpler Hindi word. Never put a bracket inside an idiom or a fixed phrase: \"आम तौर पर\", not \"आम तौर (usually) पर\"; \"नहीं के बराबर\", not \"नहीं के बराबर (equal to)\". BIE's code removes a bracket after an everyday word and asks for one only after a Hindi word it does not know as everyday.",
+  "user": [
+   {
+    "type": "text",
+    "text": "BIE task card (JSON):\n{\"card\":\"bie.task-card/1\",\"card_id\":\"lesson.write_script@10-tissues-and-its-types/v0\",\"section\":\"lesson\",\"task\":\"write_script\",\"prefix\":{\"prefix_id\":\"lesson.write_script/2\",\"rulebook_version\":\"content_types@2026-10-22.2+simple_hindi@2026-10-23.2+vision-2026-10-21@2026-10-21.11\",\"content_types_version\":\"2026-10-22.2\",\"schema_id\":\"bie.brain.lesson-script/2\",\"sha256\":\"a6ec1a22b5cb24d466f03d30ef6966d175694f01794ada32eb5471faa3dd79b0\"},\"unit\":{\"unit_id\":\"v0\",\"title\":\"पहले यह जान लो: cell, शरीर और plant की ज़रूरी बातें\",\"pages\":[1,2,3,4,5,6,7,8,9,10,11,12,13,14]},\"parts\":[{\"part_id\":\"pre1\",\"item_ids\":[\"pre1\"],\"type\":\"none\",\"questions\":[\"what\"],\"focus\":\"prerequisite: Cell membrane, cytoplasm, nucleus and basic plant-cell parts: explain it simply with an everyday example\"},{\"part_id\":\"pre2\",\"item_ids\":[\"pre2\"],\"type\":\"none\",\"questions\":[\"what\"],\"focus\":\"prerequisite: Chromosome sets, DNA copying and nuclear versus cell division: explain it simply with an everyday example\"},{\"part_id\":\"pre3\",\"item_ids\":[\"pre3\"],\"type\":\"none\",\"questions\":[\"what\"],\"focus\":\"prerequisite: Body covering, cavity, lumen and gland duct: explain it simply with an everyday example\"},{\"part_id\":\"pre4\",\"item_ids\":[\"pre4\"],\"type\":\"none\",\"questions\":[\"what\"],\"focus\":\"prerequisite: Diffusion, absorption and secretion: explain it simply with an everyday example\"},{\"part_id\":\"pre5\",\"item_ids\":[\"pre5\"],\"type\":\"none\",\"questions\":[\"what\"],\"focus\":\"prerequisite: Strength, flexibility, elasticity and rigidity: explain it simply with an everyday example\"},{\"part_id\":\"pre6\",\"item_ids\":[\"pre6\"],\"type\":\"none\",\"questions\":[\"what\"],\"focus\":\"prerequisite: Contraction, relaxation, fatigue and voluntary control: explain it simply with an everyday example\"},{\"part_id\":\"pre7\",\"item_ids\":[\"pre7\"],\"type\":\"none\",\"questions\":[\"what\"],\"focus\":\"prerequisite: Root and shoot tips, nodes, internodes, leaf base and girth: explain it simply with an everyday example\"},{\"part_id\":\"pre8\",\"item_ids\":[\"pre8\"],\"type\":\"none\",\"questions\":[\"what\"],\"focus\":\"prerequisite: Photosynthesis, food storage and root water–mineral uptake: explain it simply with an everyday example\"}],\"rules\":[\"G-01\",\"G-02\",\"G-03\",\"G-04\",\"G-05\",\"S2-01\",\"S2-02\",\"S2-03\",\"S2-04\",\"S2-05\",\"S2-06\"],\"output\":{\"schema_id\":\"bie.brain.lesson-script/2\",\"mode\":\"full\",\"max_output_tokens\":32000},\"coverage\":{\"must_cover\":[\"pre1\",\"pre2\",\"pre3\",\"pre4\",\"pre5\",\"pre6\",\"pre7\",\"pre8\"],\"claim_field\":\"beats[].covers_item_ids\",\"may_skip\":[]},\"context\":{\"map_slice\":[[\"c01\",\"definition\",\"1\",\"Tissue, plant and animal tissues, and division of labour\"],[\"c02\",\"structure\",\"1\",\"Levels of biological organisation\"],[\"c07\",\"structure\",\"3\",\"Epithelial sheets, barriers and gland formation\"],[\"c11\",\"figure\",\"3-4\",\"Visual identification of epithelial tissues\"],[\"c15\",\"structure\",\"5\",\"Skeletal muscle: features, movement and posture\"],[\"c18\",\"comparison\",\"7\",\"Comparison of skeletal, cardiac and visceral muscles\"],[\"c20\",\"figure\",\"7\",\"Visual identification of blood, bone, cartilage, areolar and adipose tissues\"],[\"c21\",\"process\",\"7\",\"Neuron structure and transmission of impulses\"],[\"c22\",\"structure\",\"9\",\"Meristematic cells and active division\"],[\"c24\",\"process\",\"9\",\"Differentiation and permanent tissues\"],[\"c25\",\"structure\",\"10\",\"Simple permanent tissue and parenchyma specialisations\"],[\"c28\",\"comparison\",\"13\",\"Comparison of parenchyma, collenchyma and sclerenchyma\"],[\"c30\",\"structure\",\"11\",\"Xylem components, conduction, storage and support\"],[\"c31\",\"classification\",\"12\",\"Phloem components, food transport and living-cell exception\"],[\"c32\",\"figure\",\"11-12\",\"Xylem and phloem anatomy, cambium and transport figures\"],[\"c33\",\"comparison\",\"12\",\"Xylem versus phloem: comparison and limits of the printed table\"],[\"c03\",\"comparison\",\"1\",\"Mitosis versus meiosis\"],[\"c04\",\"comparison\",\"1\",\"Plant versus animal mitosis and cytokinesis\"],[\"c08\",\"structure\",\"3\",\"Simple epithelial types: structure, location and function\"],[\"c09\",\"structure\",\"3\",\"Stratified epithelial types\"],[\"c10\",\"comparison\",\"4\",\"Pseudostratified, keratinised and transitional epithelia\"],[\"c42\",\"structure\",\"14\",\"Practice question: leaf gaseous exchange and stomata\"],[\"c12\",\"structure\",\"4-5\",\"Connective-tissue matrix, fibres and support\"],[\"c19\",\"comparison\",\"8\",\"Connective-tissue types: locations and functions\"],[\"c26\",\"structure\",\"10\",\"Collenchyma: flexible mechanical support\"],[\"c27\",\"structure\",\"10-11\",\"Sclerenchyma: lignified fibres, sclereids and strength\"],[\"c14\",\"process\",\"5\",\"Muscle fibres, contraction and muscle classes\"],[\"c16\",\"structure\",\"6\",\"Smooth or visceral muscle and peristalsis\"],[\"c17\",\"structure\",\"6\",\"Cardiac muscle and pumping blood\"],[\"c40\",\"comparison\",\"13-14\",\"Practice question: incorrect cardiac-muscle statement\"],[\"c23\",\"structure\",\"8-9\",\"Apical, lateral and intercalary meristems: position and growth\"],[\"c35\",\"comparison\",\"12-13\",\"Practice question: meristem locations\"],[\"c29\",\"classification\",\"11\",\"Complex permanent tissues and division of transport work\"]],\"before\":\"\",\"after\":\"Tissue क्या है? Cell से पूरे शरीर तक\"},\"source\":{\"block_ids\":[],\"page_images\":[]}}\n\nVideo v0: पहले यह जान लो: cell, शरीर और plant की ज़रूरी बातें\nGoal: तुम cell के parts, chromosome sets, शरीर के अंदर की जगहों और plant positions को छोटे examples से समझोगे; आगे tissue की बनावट और काम जोड़ पाओगे।\nOpening hook: एक cell की बनावट देखकर उसके काम का अंदाज़ा कैसे लगाओगे?\nStory or analogy: खाली tube से lumen और lining का फर्क; मुड़ती पट्टी और खिंचकर लौटते rubber band से flexibility और elasticity का फर्क दिखाएँगे। ये outside, standard textbook-level examples हैं।\nPlanned minutes: 7\nNarration time (S2-01): 5.0-8.0 minutes, about 650-1040 spoken words (BIE counts 130 words a minute)\n\nPrerequisites to teach, in this order (id | name | basis | needed for | why):\npre1 | Cell membrane, cytoplasm, nucleus and basic plant-cell parts | outside | Tissue, plant and animal tissues, and division of labour, Levels of biological organisation, Epithelial sheets, barriers and gland formation, Visual identification of epithelial tissues, Skeletal muscle: features, movement and posture, Comparison of skeletal, cardiac and visceral muscles, Visual identification of blood, bone, cartilage, areolar and adipose tissues, Neuron structure and transmission of impulses, Meristematic cells and active division, Differentiation and permanent tissues, Simple permanent tissue and parenchyma specialisations, Comparison of parenchyma, collenchyma and sclerenchyma, Xylem components, conduction, storage and support, Phloem components, food transport and living-cell exception, Xylem and phloem anatomy, cambium and transport figures, Xylem versus phloem: comparison and limits of the printed table | Cell ke andar aur bahar ka fark, nucleus, wall, vacuole aur chloroplast pehchanne se tissue-cell structure aur living/dead cell comparisons samajh aate hain.\npre2 | Chromosome sets, DNA copying and nuclear versus cell division | outside | Mitosis versus meiosis, Plant versus animal mitosis and cytokinesis | Diploid/haploid sets, copied chromosomes, nuclear division versus cytoplasmic separation, spindle/centriole/aster ke brief meanings aur somatic versus reproductive cells ka fark mitosis–meiosis tables padhne ke liye chahiye.\npre3 | Body covering, cavity, lumen and gland duct | outside | Epithelial sheets, barriers and gland formation, Simple epithelial types: structure, location and function, Stratified epithelial types, Pseudostratified, keratinised and transitional epithelia, Visual identification of epithelial tissues | Hollow organ ke andar ke space, uski lining, exposed surface aur underlying tissue ka spatial relation epithelial layers aur gland formation ko samajhne deta hai.\npre4 | Diffusion, absorption and secretion | outside | Epithelial sheets, barriers and gland formation, Simple epithelial types: structure, location and function, Pseudostratified, keratinised and transitional epithelia, Practice question: leaf gaseous exchange and stomata | Concentration difference se movement, uptake aur release ka fark epithelial structure ko uske exchange function se jodne ke liye chahiye; cilia aur microvilli chapter ke saath samjhaye jayenge.\npre5 | Strength, flexibility, elasticity and rigidity | outside | Connective-tissue matrix, fibres and support, Connective-tissue types: locations and functions, Collenchyma: flexible mechanical support, Sclerenchyma: lignified fibres, sclereids and strength, Comparison of parenchyma, collenchyma and sclerenchyma | Pull ko resist karna, bend hona, stretch ke baad shape recover karna aur stiff rehna alag properties hain, jinse animal aur plant supporting tissues ke functions samajh aate hain.\npre6 | Contraction, relaxation, fatigue and voluntary control | outside | Muscle fibres, contraction and muscle classes, Skeletal muscle: features, movement and posture, Smooth or visceral muscle and peristalsis, Cardiac muscle and pumping blood, Comparison of skeletal, cardiac and visceral muscles, Practice question: incorrect cardiac-muscle statement | Force generation, relaxation, performance ghatna aur conscious control ka basic meaning muscle-type comparisons samajhne ke liye chahiye, bina cellular energy pathways padhe.\npre7 | Root and shoot tips, nodes, internodes, leaf base and girth | outside | Meristematic cells and active division, Apical, lateral and intercalary meristems: position and growth, Practice question: meristem locations | Plant ke in positions aur length versus thickness ka fark jaanna meristem location aur growth-direction comparisons ko meaningful banata hai.\npre8 | Photosynthesis, food storage and root water–mineral uptake | outside | Simple permanent tissue and parenchyma specialisations, Complex permanent tissues and division of transport work, Xylem components, conduction, storage and support, Phloem components, food transport and living-cell exception, Xylem versus phloem: comparison and limits of the printed table | Leaves mein food banana, cells mein food store hona aur roots se water–minerals lena samajhne se parenchyma aur transport tissues ke alag kaam clear hote hain."
+   },
+   {
+    "type": "text",
+    "text": "Answer the card with the teacher script JSON."
+   }
+  ]
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "started_at": 1792782186.8390775,
+   "mode": "full",
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "150adf01fb798ebcef68bd43a9f0cb0a5852cbe3c8f9589af25c257dddb8f872",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 9950,
+    "output_tokens": 4465,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "This prerequisite video builds the cell, body-space, material-property and plant-position vocabulary needed for the tissue chapter. All teaching is standard textbook-level outside explanation explicitly requested by the card.",
+    "key_questions": [
+     "How do cell parts and chromosome sets help us read tissue descriptions?",
+     "How do lining, lumen, absorption and secretion differ?",
+     "How do supporting and muscular properties differ?",
+     "Where are plant growth positions, and how do food production and water uptake differ?"
+    ],
+    "decisions": [
+     {
+      "decision": "Teach all eight prerequisites in the supplied order, using step 0 and no teacher-question IDs.",
+      "reason": "The card specifies prerequisite sequencing and supplies no question IDs."
+     },
+     {
+      "decision": "Use short everyday examples without teaching the later tissue classifications.",
+      "reason": "This prepares the learner without duplicating topic videos."
+     },
+     {
+      "decision": "Keep narration within the supplied 650–1040-word range.",
+      "reason": "The prerequisite video has a 5–8-minute allowance."
+     }
+    ],
+    "uncertain": [
+     "No book pages are supplied for this unit; explanations follow the prerequisite descriptions rather than claiming book wording."
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "This prerequisite video builds the cell, body-space, material-property and plant-position vocabulary needed for the tissue chapter. All teaching is standard textbook-level outside explanation explicitly requested by the card.",
+     "key_questions": [
+      "How do cell parts and chromosome sets help us read tissue descriptions?",
+      "How do lining, lumen, absorption and secretion differ?",
+      "How do supporting and muscular properties differ?",
+      "Where are plant growth positions, and how do food production and water uptake differ?"
+     ],
+     "decisions": [
+      {
+       "decision": "Teach all eight prerequisites in the supplied order, using step 0 and no teacher-question IDs.",
+       "reason": "The card specifies prerequisite sequencing and supplies no question IDs."
+      },
+      {
+       "decision": "Use short everyday examples without teaching the later tissue classifications.",
+       "reason": "This prepares the learner without duplicating topic videos."
+      },
+      {
+       "decision": "Keep narration within the supplied 650–1040-word range.",
+       "reason": "The prerequisite video has a 5–8-minute allowance."
+      }
+     ],
+     "uncertain": [
+      "No book pages are supplied for this unit; explanations follow the prerequisite descriptions rather than claiming book wording."
+     ]
+    },
+    "title": "पहले यह जान लो: cell, शरीर और plant की ज़रूरी बातें",
+    "parts": [
+     {
+      "part_id": "pre1",
+      "frame": {
+       "process": "Identify basic cell compartments and plant-cell parts.",
+       "how": "Move from the cell boundary inward and connect each part with its role.",
+       "when": "Before interpreting tissue-cell structure.",
+       "conditions": "Plant-cell parts vary; not every plant cell contains chloroplasts.",
+       "atmosphere": "A simple cell diagram beside a familiar room."
+      }
+     },
+     {
+      "part_id": "pre2",
+      "frame": {
+       "process": "Distinguish chromosome sets, DNA copying and the division of nucleus and cell.",
+       "how": "Use paired instruction books to separate set number from copying.",
+       "when": "DNA copying precedes the divisions being introduced; nuclear and cytoplasmic division are distinguished.",
+       "conditions": "Use a typical diploid body cell and haploid gamete as introductory examples.",
+       "atmosphere": "A cell diagram with paired books and chromosome copies."
+      }
+     },
+     {
+      "part_id": "pre3",
+      "frame": {
+       "process": "Locate coverings, cavities, lumens, linings and ducts.",
+       "how": "Read a hollow tube from its open space through its wall.",
+       "when": "Before epithelial layers and glands.",
+       "conditions": "Distinguish an organ's internal passage from its lining and underlying tissue.",
+       "atmosphere": "A cut-open tube beside a simplified hollow organ."
+      }
+     },
+     {
+      "part_id": "pre4",
+      "frame": {
+       "process": "Distinguish diffusion, absorption and secretion.",
+       "how": "Compare movement down a concentration difference with uptake and cellular release.",
+       "when": "During exchange, nutrient uptake and gland activity.",
+       "conditions": "Diffusion requires a concentration difference and a path permitting movement.",
+       "atmosphere": "Perfume spreading, intestinal uptake and a saliva-producing gland."
+      }
+     },
+     {
+      "part_id": "pre5",
+      "frame": {
+       "process": "Distinguish strength, flexibility, elasticity and rigidity.",
+       "how": "Compare resistance to pulling, bending, recovery and stiffness.",
+       "when": "When interpreting the mechanical roles of tissues.",
+       "conditions": "The properties are distinct and may coexist in a material.",
+       "atmosphere": "Rope, a bendable strip, a rubber band and a stiff ruler."
+      }
+     },
+     {
+      "part_id": "pre6",
+      "frame": {
+       "process": "Explain contraction, relaxation, fatigue and voluntary control.",
+       "how": "Connect force generation and reduced tension to simple body movements.",
+       "when": "During activity, release and repeated effort.",
+       "conditions": "Contraction need not shorten a muscle; conscious control differs across muscle actions.",
+       "atmosphere": "Lifting and holding a book, then lowering the arm."
+      }
+     },
+     {
+      "part_id": "pre7",
+      "frame": {
+       "process": "Locate plant tips, nodes, internodes, leaf bases and girth.",
+       "how": "Trace a seedling from root tip upward and compare length with thickness.",
+       "when": "Before locating growth tissues.",
+       "conditions": "Positions are defined relative to plant organs, not simply height above ground.",
+       "atmosphere": "A whole seedling with a magnified stem segment."
+      }
+     },
+     {
+      "part_id": "pre8",
+      "frame": {
+       "process": "Separate food production, food storage and water–mineral uptake.",
+       "how": "Follow inputs into a leaf and distinguish production from storage and root uptake.",
+       "when": "Photosynthesis occurs under suitable light conditions; stored food can be used later.",
+       "conditions": "Photosynthesis needs light, chlorophyll, carbon dioxide and water.",
+       "atmosphere": "A plant in sunlight with leaves, roots and a food-storing potato."
+      }
+     }
+    ],
+    "beats": [
+     {
+      "beat_id": "b1",
+      "part_id": "",
+      "step": 0,
+      "purpose": "hook",
+      "say": "एक cell की बनावट देखकर उसके काम का अंदाज़ा कैसे लगाओगे? पहले उसके parts और काम बताने वाले कुछ शब्द समझो। फिर tissue पढ़ते समय shape और function का रिश्ता पकड़ पाओगे।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Cell diagram → structure → function; prerequisite video title.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b2",
+      "part_id": "pre1",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Cell को छोटे कमरे की तरह सोचो, लेकिन यह living unit है। Cell membrane उसकी boundary है और चीज़ों के अंदर-बाहर जाने को control करती है। अंदर cytoplasm होता है, जहाँ कई cell activities चलती हैं।",
+      "covers_item_ids": [
+       "pre1"
+      ],
+      "answers": [],
+      "on_screen": "Room analogy beside a cell; label cell membrane and cytoplasm.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b3",
+      "part_id": "pre1",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Nucleus में DNA होता है, जिसमें cell के काम के instructions रहते हैं। Plant cell में membrane के बाहर cell wall भी होती है, जो support देती है। Wall और membrane को एक ही चीज़ मत समझना।",
+      "covers_item_ids": [
+       "pre1"
+      ],
+      "answers": [],
+      "on_screen": "Outside-to-inside labels: cell wall, cell membrane, cytoplasm, nucleus; DNA inside nucleus.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b4",
+      "part_id": "pre1",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Vacuole को storage space की तरह समझो; इसमें पानी और घुले पदार्थ रह सकते हैं। बड़े vacuole का पानी plant cell को तना हुआ रखने में भी मदद करता है। Chloroplast में photosynthesis होता है, लेकिन हर plant cell में chloroplast नहीं होता; आम root cells इसका example हैं।",
+      "covers_item_ids": [
+       "pre1"
+      ],
+      "answers": [],
+      "on_screen": "Plant cell with large vacuole and chloroplasts; contrast with a typical root cell.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b5",
+      "part_id": "pre2",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "अब DNA को instruction book समझो। DNA, proteins के साथ chromosomes में व्यवस्थित रहता है। Chromosome set का मतलब हर तरह के chromosome की 1 पूरी collection है; diploid में 2 sets और haploid में 1 set होता है।",
+      "covers_item_ids": [
+       "pre2"
+      ],
+      "answers": [],
+      "on_screen": "One complete colour-coded chromosome collection = haploid; two matching collections = diploid.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b6",
+      "part_id": "pre2",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "आम body cells को somatic cells कहते हैं; ये सामान्य तौर पर diploid होते हैं। Reproduction में काम आने वाले sperm और egg जैसे gametes haploid होते हैं। Gametes बनाने वाली शुरुआती cells और तैयार gametes को एक जैसा मत मानना।",
+      "covers_item_ids": [
+       "pre2"
+      ],
+      "answers": [],
+      "on_screen": "Typical somatic cell: 2 sets; sperm and egg: 1 set each; precursor distinguished from gamete.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b7",
+      "part_id": "pre2",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "DNA copying में instruction की copy बनती है; इसे नया chromosome set आ जाना मत समझना। Copied chromosome की 2 जुड़ी copies को sister chromatids कहते हैं। जैसे किताब की photocopy करने से उसके chapters की किस्में नहीं बढ़ जातीं।",
+      "covers_item_ids": [
+       "pre2"
+      ],
+      "answers": [],
+      "on_screen": "Uncopied chromosome → copied chromosome with two labelled sister chromatids; set count unchanged.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b8",
+      "part_id": "pre2",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Nuclear division में nucleus के chromosomes अलग groups में बाँटे जाते हैं। Cytokinesis में cytoplasm अलग होता है और अलग cells बनती हैं। सामान के 2 हिस्से करना और उनके बीच अलग कमरे बना देना, दोनों अलग काम हैं।",
+      "covers_item_ids": [
+       "pre2"
+      ],
+      "answers": [],
+      "on_screen": "Nuclear division followed by a separately labelled cytokinesis panel.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b9",
+      "part_id": "pre2",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Spindle, fibres की व्यवस्था है जो division में chromosomes को अलग करने में मदद करती है। Animal cells में centrioles, spindle organise करने वाले region से जुड़े होते हैं। Aster वहाँ से बाहर की ओर फैली star जैसी fibres हैं; अधिकतर higher plant cells centrioles और asters के बिना spindle बनाती हैं।",
+      "covers_item_ids": [
+       "pre2"
+      ],
+      "answers": [],
+      "on_screen": "Label spindle, centriole and aster; adjacent higher-plant spindle without centrioles or asters.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b10",
+      "part_id": "pre3",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "अब खाली pipe देखो। बीच का खाली रास्ता lumen है; उसे घेरे हुए अंदर की layer lining है। Intestine जैसे hollow organ में भी अंदर का रास्ता और उसकी lining अलग चीज़ें हैं।",
+      "covers_item_ids": [
+       "pre3"
+      ],
+      "answers": [],
+      "on_screen": "Cut-open pipe beside intestine cross-section; lumen and lining highlighted separately.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b11",
+      "part_id": "pre3",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Body covering बाहर ढकती है, जैसे skin; cavity शरीर के अंदर की जगह है। Lining के नीचे supporting tissue होता है, lumen नहीं। Gland duct वह passage है जो gland का बनाया पदार्थ आगे पहुँचाता है, जैसे saliva को mouth तक लाने वाला duct।",
+      "covers_item_ids": [
+       "pre3"
+      ],
+      "answers": [],
+      "on_screen": "Body covering and cavity; enlarged lumen → lining → underlying tissue; gland → duct → mouth.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b12",
+      "part_id": "pre4",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Perfume की खुशबू पास से दूर तक कैसे पहुँचती है? Diffusion में particles का net movement ज़्यादा concentration से कम concentration की ओर होता है। Concentration का मतलब किसी जगह की तय मात्रा में particles कितने हैं; रास्ता खुला या उनके लिए पार होने योग्य होना चाहिए।",
+      "covers_item_ids": [
+       "pre4"
+      ],
+      "answers": [],
+      "on_screen": "Perfume particles spreading; high → low concentration with net-movement arrow.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b13",
+      "part_id": "pre4",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Absorption में पदार्थ अंदर लिया जाता है, जैसे intestine से nutrients शरीर में जाना। Secretion में cell पदार्थ बनाकर बाहर छोड़ता है, जैसे gland से saliva निकलना। Diffusion movement का तरीका बताता है; absorption और secretion में ध्यान अंदर लेने और बाहर छोड़ने पर है।",
+      "covers_item_ids": [
+       "pre4"
+      ],
+      "answers": [],
+      "on_screen": "Three distinct panels: diffusion, nutrient absorption, saliva secretion.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b14",
+      "part_id": "pre5",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "रस्सी खींचने पर आसानी से न टूटे, तो उसमें pulling force सहने की strength है। कोई पट्टी आसानी से मुड़ जाए, तो वह flexible है। इसलिए strong होने का मतलब हमेशा कड़ा होना नहीं है; रस्सी strong भी हो सकती है और flexible भी।",
+      "covers_item_ids": [
+       "pre5"
+      ],
+      "answers": [],
+      "on_screen": "Rope resisting pull, then bending; strength ≠ rigidity.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b15",
+      "part_id": "pre5",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Rubber band को सीमा के अंदर खींचकर छोड़ो, वह पुरानी shape में लौटता है: यह elasticity है। केवल मुड़ जाना flexibility है; वापस लौटना उसका ज़रूरी हिस्सा नहीं। Rigidity shape बदलने का विरोध है, जैसे stiff ruler का आसानी से न मुड़ना।",
+      "covers_item_ids": [
+       "pre5"
+      ],
+      "answers": [],
+      "on_screen": "Bendable strip; rubber band stretching and recovering; stiff ruler resisting bending.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b16",
+      "part_id": "pre6",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "किताब उठाते समय muscle force बनाती है: इसे contraction कहते हैं। Contraction में muscle छोटी हो सकती है, लेकिन किताब स्थिर पकड़े रहने पर भी force बनता है। इसलिए contraction का मतलब केवल छोटा होना नहीं है।",
+      "covers_item_ids": [
+       "pre6"
+      ],
+      "answers": [],
+      "on_screen": "Arm lifting a book, then holding it still; force indicated in both.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b17",
+      "part_id": "pre6",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Relaxation में muscle का active tension घटता है। बार-बार काम करने पर force बनाए रखने की क्षमता घटे, तो वह fatigue है। अपनी इच्छा से हाथ उठाना voluntary control है; heartbeat को हर बार तुम्हारे आदेश की ज़रूरत नहीं, इसलिए वह involuntary है।",
+      "covers_item_ids": [
+       "pre6"
+      ],
+      "answers": [],
+      "on_screen": "Reduced muscle tension; repeated effort with falling performance; voluntary arm movement versus heartbeat.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b18",
+      "part_id": "pre7",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "एक छोटे plant में root का सबसे आगे वाला सिरा root tip है। Shoot tip ऊपर बढ़ते shoot का सिरा है। इन्हें केवल नीचे और ऊपर मत याद करना; tip का मतलब उस root या shoot का अपना end है।",
+      "covers_item_ids": [
+       "pre7"
+      ],
+      "answers": [],
+      "on_screen": "Seedling with main and branching root tips and shoot tip labelled.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b19",
+      "part_id": "pre7",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Stem पर जहाँ leaf जुड़ती है, वह node है। लगातार 2 nodes के बीच का stem, internode है; जैसे गाँठों वाली डंडी में गाँठ और बीच का हिस्सा। Leaf base, leaf का वह हिस्सा है जिससे वह stem से जुड़ती है।",
+      "covers_item_ids": [
+       "pre7"
+      ],
+      "answers": [],
+      "on_screen": "Magnified stem: two nodes, intervening internode and leaf base.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b20",
+      "part_id": "pre7",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Plant का लंबा होना और मोटा होना अलग हैं। Girth का मतलब तने या root की मोटाई से जुड़ा चारों ओर का माप है। Pencil की लंबाई और उसके चारों ओर धागा लपेटकर लिया माप सोचो; दोनों अलग दिशाओं की growth समझाते हैं।",
+      "covers_item_ids": [
+       "pre7"
+      ],
+      "answers": [],
+      "on_screen": "Length arrow along a stem; measuring loop around it labelled girth.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b21",
+      "part_id": "pre8",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "हरे leaf में chloroplasts, light energy की मदद से carbon dioxide और water से food बनाते हैं: यह photosynthesis है। Chlorophyll light पकड़ने में मदद करता है और oxygen निकलती है। Plant अपना food बनाता है; मिट्टी से तैयार food नहीं खींचता।",
+      "covers_item_ids": [
+       "pre8"
+      ],
+      "answers": [],
+      "on_screen": "Sunlight + carbon dioxide + water → food + oxygen; chloroplast enlarged.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b22",
+      "part_id": "pre8",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "बना हुआ कुछ food बाद के लिए cells में store हो सकता है, जैसे potato में starch। Roots मिट्टी से water और dissolved minerals लेती हैं; यह food बनाने से अलग काम है। जैसे kitchen में खाना बनाना, सामान पहुँचाना और खाना store करना अलग काम हैं।",
+      "covers_item_ids": [
+       "pre8"
+      ],
+      "answers": [],
+      "on_screen": "Roots taking up water and minerals; leaf producing food; potato storing starch.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b23",
+      "part_id": "",
+      "step": 0,
+      "purpose": "transition",
+      "say": "अब किसी cell को देखते समय पूछना: उसके parts क्या हैं, वह कहाँ है और क्या काम करता है? यही सवाल tissue की बनावट और काम को जोड़ेंगे। आगे समझेंगे कि cells मिलकर tissue कैसे बनाते हैं।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Parts → location → function; next: Tissue क्या है?",
+      "basis": "outside"
+     }
+    ]
+   },
+   "code_problems": [
+    "[code] beat b1: the Hindi words ['अंदाज़ा'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b4: the Hindi words ['पदार्थ'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b5: the Hindi words ['व्यवस्थित'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b7: the Hindi words ['किस्में'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b9: the Hindi words ['व्यवस्था'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b11: the Hindi words ['पदार्थ'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b12: the Hindi words ['खुशबू', 'योग्य'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b13: the Hindi words ['पदार्थ'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b14: the Hindi words ['पट्टी'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b19: the Hindi words ['गाँठों', 'डंडी', 'गाँठ'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b20: the Hindi words ['लपेटकर'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)"
+   ],
+   "observed": {
+    "pattern_order": [],
+    "objective_coverage": {
+     "coverage": 1.0,
+     "uncovered": []
+    },
+    "cognitive_load": {
+     "max": 1.34,
+     "abrupt_jumps": []
+    },
+    "duration": {
+     "spoken_minutes_at_130_wpm": 7.3,
+     "planned_minutes": 7,
+     "range": [
+      5.0,
+      8.0
+     ]
+    }
+   },
+   "passed": false,
+   "finished_at": 1792782309.0801332
+  },
+  {
+   "round": 2,
+   "started_at": 1792782309.0802665,
+   "mode": "patch",
+   "patch": {
+    "notes": {
+     "about": "Language-only corrections to the prerequisite video; teaching order and scientific content remain unchanged.",
+     "key_questions": [
+      "Do the corrected beats retain their explanations while using simpler Hinglish?"
+     ],
+     "decisions": [
+      {
+       "decision": "Replace flagged Hindi words with simple phrasing or standard English terms.",
+       "reason": "Meet S2-04 without adding unnecessary spoken brackets."
+      }
+     ],
+     "uncertain": []
+    },
+    "replace_parts": [],
+    "replace_beats": [
+     {
+      "beat_id": "b1",
+      "part_id": "",
+      "step": 0,
+      "purpose": "hook",
+      "say": "एक cell की बनावट देखकर उसके काम को कैसे समझोगे? पहले उसके parts और काम बताने वाले कुछ शब्द समझो। फिर tissue पढ़ते समय shape और function का रिश्ता पकड़ पाओगे।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Cell diagram → structure → function; prerequisite video title.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b4",
+      "part_id": "pre1",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Vacuole को storage space की तरह समझो; इसमें पानी और उसमें घुली चीज़ें रह सकती हैं। बड़े vacuole का पानी plant cell को तना हुआ रखने में भी मदद करता है। Chloroplast में photosynthesis होता है, लेकिन हर plant cell में chloroplast नहीं होता; आम root cells इसका example हैं।",
+      "covers_item_ids": [
+       "pre1"
+      ],
+      "answers": [],
+      "on_screen": "Plant cell with large vacuole and chloroplasts; contrast with a typical root cell.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b5",
+      "part_id": "pre2",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "अब DNA को instruction book समझो। DNA, proteins के साथ मिलकर chromosomes बनाता है। Chromosome set का मतलब हर तरह के chromosome की 1 पूरी collection है; diploid में 2 sets और haploid में 1 set होता है।",
+      "covers_item_ids": [
+       "pre2"
+      ],
+      "answers": [],
+      "on_screen": "One complete colour-coded chromosome collection = haploid; two matching collections = diploid.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b7",
+      "part_id": "pre2",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "DNA copying में instruction की copy बनती है; इसे नया chromosome set आ जाना मत समझना। Copied chromosome की 2 जुड़ी copies को sister chromatids कहते हैं। जैसे किताब की photocopy करने से उसमें नए तरह के chapters नहीं जुड़ जाते।",
+      "covers_item_ids": [
+       "pre2"
+      ],
+      "answers": [],
+      "on_screen": "Uncopied chromosome → copied chromosome with two labelled sister chromatids; set count unchanged.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b9",
+      "part_id": "pre2",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Spindle, fibres से बना structure है जो division में chromosomes को अलग करने में मदद करता है। Animal cells में centrioles, spindle organise करने वाले region से जुड़े होते हैं। Aster वहाँ से बाहर की ओर फैली star जैसी fibres हैं; अधिकतर higher plant cells centrioles और asters के बिना spindle बनाती हैं।",
+      "covers_item_ids": [
+       "pre2"
+      ],
+      "answers": [],
+      "on_screen": "Label spindle, centriole and aster; adjacent higher-plant spindle without centrioles or asters.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b11",
+      "part_id": "pre3",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Body covering बाहर ढकती है, जैसे skin; cavity शरीर के अंदर की जगह है। Lining के नीचे supporting tissue होता है, lumen नहीं। Gland duct वह passage है जो gland की बनाई चीज़ आगे पहुँचाता है, जैसे saliva को mouth तक लाने वाला duct।",
+      "covers_item_ids": [
+       "pre3"
+      ],
+      "answers": [],
+      "on_screen": "Body covering and cavity; enlarged lumen → lining → underlying tissue; gland → duct → mouth.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b12",
+      "part_id": "pre4",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Perfume की smell पास से दूर तक कैसे पहुँचती है? Diffusion में particles का net movement ज़्यादा concentration से कम concentration की ओर होता है। Concentration का मतलब किसी जगह की तय मात्रा में particles कितने हैं; रास्ता ऐसा होना चाहिए जिससे वे गुजर सकें।",
+      "covers_item_ids": [
+       "pre4"
+      ],
+      "answers": [],
+      "on_screen": "Perfume particles spreading; high → low concentration with net-movement arrow.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b13",
+      "part_id": "pre4",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Absorption में कोई चीज़ अंदर ली जाती है, जैसे intestine से nutrients शरीर में जाना। Secretion में cell कोई चीज़ बनाकर बाहर छोड़ता है, जैसे gland से saliva निकलना। Diffusion movement का तरीका बताता है; absorption और secretion में ध्यान अंदर लेने और बाहर छोड़ने पर है।",
+      "covers_item_ids": [
+       "pre4"
+      ],
+      "answers": [],
+      "on_screen": "Three distinct panels: diffusion, nutrient absorption, saliva secretion.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b14",
+      "part_id": "pre5",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "रस्सी खींचने पर आसानी से न टूटे, तो उसमें pulling force सहने की strength है। कोई strip आसानी से मुड़ जाए, तो वह flexible है। इसलिए strong होने का मतलब हमेशा कड़ा होना नहीं है; रस्सी strong भी हो सकती है और flexible भी।",
+      "covers_item_ids": [
+       "pre5"
+      ],
+      "answers": [],
+      "on_screen": "Rope resisting pull, then bending; strength ≠ rigidity.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b19",
+      "part_id": "pre7",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Stem पर जहाँ leaf जुड़ती है, वह node है। लगातार 2 nodes के बीच का stem, internode है; किसी छोटी branch पर 2 leaves के जुड़ने की जगह और बीच का हिस्सा देखो। Leaf base, leaf का वह हिस्सा है जिससे वह stem से जुड़ती है।",
+      "covers_item_ids": [
+       "pre7"
+      ],
+      "answers": [],
+      "on_screen": "Magnified stem: two nodes, intervening internode and leaf base.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b20",
+      "part_id": "pre7",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Plant का लंबा होना और मोटा होना अलग हैं। Girth का मतलब तने या root की मोटाई से जुड़ा चारों ओर का माप है। Pencil की लंबाई और उसके चारों ओर धागे से लिया माप सोचो; दोनों अलग दिशाओं की growth समझाते हैं।",
+      "covers_item_ids": [
+       "pre7"
+      ],
+      "answers": [],
+      "on_screen": "Length arrow along a stem; measuring loop around it labelled girth.",
+      "basis": "outside"
+     }
+    ],
+    "insert_beats": [],
+    "remove_beat_ids": []
+   },
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "40c9d089846cf408d7613960e92aa7acf049a0918a350669cc9bd4f6d58b19e2",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 14344,
+    "output_tokens": 1398,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "This prerequisite video builds the cell, body-space, material-property and plant-position vocabulary needed for the tissue chapter. All teaching is standard textbook-level outside explanation explicitly requested by the card.",
+    "key_questions": [
+     "How do cell parts and chromosome sets help us read tissue descriptions?",
+     "How do lining, lumen, absorption and secretion differ?",
+     "How do supporting and muscular properties differ?",
+     "Where are plant growth positions, and how do food production and water uptake differ?"
+    ],
+    "decisions": [
+     {
+      "decision": "Teach all eight prerequisites in the supplied order, using step 0 and no teacher-question IDs.",
+      "reason": "The card specifies prerequisite sequencing and supplies no question IDs."
+     },
+     {
+      "decision": "Use short everyday examples without teaching the later tissue classifications.",
+      "reason": "This prepares the learner without duplicating topic videos."
+     },
+     {
+      "decision": "Keep narration within the supplied 650–1040-word range.",
+      "reason": "The prerequisite video has a 5–8-minute allowance."
+     },
+     {
+      "decision": "Replace flagged Hindi words with simple phrasing or standard English terms.",
+      "reason": "Meet S2-04 without adding unnecessary spoken brackets."
+     }
+    ],
+    "uncertain": []
+   },
+   "output": {
+    "notes": {
+     "about": "This prerequisite video builds the cell, body-space, material-property and plant-position vocabulary needed for the tissue chapter. All teaching is standard textbook-level outside explanation explicitly requested by the card.",
+     "key_questions": [
+      "How do cell parts and chromosome sets help us read tissue descriptions?",
+      "How do lining, lumen, absorption and secretion differ?",
+      "How do supporting and muscular properties differ?",
+      "Where are plant growth positions, and how do food production and water uptake differ?"
+     ],
+     "decisions": [
+      {
+       "decision": "Teach all eight prerequisites in the supplied order, using step 0 and no teacher-question IDs.",
+       "reason": "The card specifies prerequisite sequencing and supplies no question IDs."
+      },
+      {
+       "decision": "Use short everyday examples without teaching the later tissue classifications.",
+       "reason": "This prepares the learner without duplicating topic videos."
+      },
+      {
+       "decision": "Keep narration within the supplied 650–1040-word range.",
+       "reason": "The prerequisite video has a 5–8-minute allowance."
+      },
+      {
+       "decision": "Replace flagged Hindi words with simple phrasing or standard English terms.",
+       "reason": "Meet S2-04 without adding unnecessary spoken brackets."
+      }
+     ],
+     "uncertain": []
+    },
+    "title": "पहले यह जान लो: cell, शरीर और plant की ज़रूरी बातें",
+    "parts": [
+     {
+      "part_id": "pre1",
+      "frame": {
+       "process": "Identify basic cell compartments and plant-cell parts.",
+       "how": "Move from the cell boundary inward and connect each part with its role.",
+       "when": "Before interpreting tissue-cell structure.",
+       "conditions": "Plant-cell parts vary; not every plant cell contains chloroplasts.",
+       "atmosphere": "A simple cell diagram beside a familiar room."
+      }
+     },
+     {
+      "part_id": "pre2",
+      "frame": {
+       "process": "Distinguish chromosome sets, DNA copying and the division of nucleus and cell.",
+       "how": "Use paired instruction books to separate set number from copying.",
+       "when": "DNA copying precedes the divisions being introduced; nuclear and cytoplasmic division are distinguished.",
+       "conditions": "Use a typical diploid body cell and haploid gamete as introductory examples.",
+       "atmosphere": "A cell diagram with paired books and chromosome copies."
+      }
+     },
+     {
+      "part_id": "pre3",
+      "frame": {
+       "process": "Locate coverings, cavities, lumens, linings and ducts.",
+       "how": "Read a hollow tube from its open space through its wall.",
+       "when": "Before epithelial layers and glands.",
+       "conditions": "Distinguish an organ's internal passage from its lining and underlying tissue.",
+       "atmosphere": "A cut-open tube beside a simplified hollow organ."
+      }
+     },
+     {
+      "part_id": "pre4",
+      "frame": {
+       "process": "Distinguish diffusion, absorption and secretion.",
+       "how": "Compare movement down a concentration difference with uptake and cellular release.",
+       "when": "During exchange, nutrient uptake and gland activity.",
+       "conditions": "Diffusion requires a concentration difference and a path permitting movement.",
+       "atmosphere": "Perfume spreading, intestinal uptake and a saliva-producing gland."
+      }
+     },
+     {
+      "part_id": "pre5",
+      "frame": {
+       "process": "Distinguish strength, flexibility, elasticity and rigidity.",
+       "how": "Compare resistance to pulling, bending, recovery and stiffness.",
+       "when": "When interpreting the mechanical roles of tissues.",
+       "conditions": "The properties are distinct and may coexist in a material.",
+       "atmosphere": "Rope, a bendable strip, a rubber band and a stiff ruler."
+      }
+     },
+     {
+      "part_id": "pre6",
+      "frame": {
+       "process": "Explain contraction, relaxation, fatigue and voluntary control.",
+       "how": "Connect force generation and reduced tension to simple body movements.",
+       "when": "During activity, release and repeated effort.",
+       "conditions": "Contraction need not shorten a muscle; conscious control differs across muscle actions.",
+       "atmosphere": "Lifting and holding a book, then lowering the arm."
+      }
+     },
+     {
+      "part_id": "pre7",
+      "frame": {
+       "process": "Locate plant tips, nodes, internodes, leaf bases and girth.",
+       "how": "Trace a seedling from root tip upward and compare length with thickness.",
+       "when": "Before locating growth tissues.",
+       "conditions": "Positions are defined relative to plant organs, not simply height above ground.",
+       "atmosphere": "A whole seedling with a magnified stem segment."
+      }
+     },
+     {
+      "part_id": "pre8",
+      "frame": {
+       "process": "Separate food production, food storage and water–mineral uptake.",
+       "how": "Follow inputs into a leaf and distinguish production from storage and root uptake.",
+       "when": "Photosynthesis occurs under suitable light conditions; stored food can be used later.",
+       "conditions": "Photosynthesis needs light, chlorophyll, carbon dioxide and water.",
+       "atmosphere": "A plant in sunlight with leaves, roots and a food-storing potato."
+      }
+     }
+    ],
+    "beats": [
+     {
+      "beat_id": "b1",
+      "part_id": "",
+      "step": 0,
+      "purpose": "hook",
+      "say": "एक cell की बनावट देखकर उसके काम को कैसे समझोगे? पहले उसके parts और काम बताने वाले कुछ शब्द समझो। फिर tissue पढ़ते समय shape और function का रिश्ता पकड़ पाओगे।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Cell diagram → structure → function; prerequisite video title.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b2",
+      "part_id": "pre1",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Cell को छोटे कमरे की तरह सोचो, लेकिन यह living unit है। Cell membrane उसकी boundary है और चीज़ों के अंदर-बाहर जाने को control करती है। अंदर cytoplasm होता है, जहाँ कई cell activities चलती हैं।",
+      "covers_item_ids": [
+       "pre1"
+      ],
+      "answers": [],
+      "on_screen": "Room analogy beside a cell; label cell membrane and cytoplasm.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b3",
+      "part_id": "pre1",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Nucleus में DNA होता है, जिसमें cell के काम के instructions रहते हैं। Plant cell में membrane के बाहर cell wall भी होती है, जो support देती है। Wall और membrane को एक ही चीज़ मत समझना।",
+      "covers_item_ids": [
+       "pre1"
+      ],
+      "answers": [],
+      "on_screen": "Outside-to-inside labels: cell wall, cell membrane, cytoplasm, nucleus; DNA inside nucleus.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b4",
+      "part_id": "pre1",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Vacuole को storage space की तरह समझो; इसमें पानी और उसमें घुली चीज़ें रह सकती हैं। बड़े vacuole का पानी plant cell को तना हुआ रखने में भी मदद करता है। Chloroplast में photosynthesis होता है, लेकिन हर plant cell में chloroplast नहीं होता; आम root cells इसका example हैं।",
+      "covers_item_ids": [
+       "pre1"
+      ],
+      "answers": [],
+      "on_screen": "Plant cell with large vacuole and chloroplasts; contrast with a typical root cell.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b5",
+      "part_id": "pre2",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "अब DNA को instruction book समझो। DNA, proteins के साथ मिलकर chromosomes बनाता है। Chromosome set का मतलब हर तरह के chromosome की 1 पूरी collection है; diploid में 2 sets और haploid में 1 set होता है।",
+      "covers_item_ids": [
+       "pre2"
+      ],
+      "answers": [],
+      "on_screen": "One complete colour-coded chromosome collection = haploid; two matching collections = diploid.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b6",
+      "part_id": "pre2",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "आम body cells को somatic cells कहते हैं; ये सामान्य तौर पर diploid होते हैं। Reproduction में काम आने वाले sperm और egg जैसे gametes haploid होते हैं। Gametes बनाने वाली शुरुआती cells और तैयार gametes को एक जैसा मत मानना।",
+      "covers_item_ids": [
+       "pre2"
+      ],
+      "answers": [],
+      "on_screen": "Typical somatic cell: 2 sets; sperm and egg: 1 set each; precursor distinguished from gamete.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b7",
+      "part_id": "pre2",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "DNA copying में instruction की copy बनती है; इसे नया chromosome set आ जाना मत समझना। Copied chromosome की 2 जुड़ी copies को sister chromatids कहते हैं। जैसे किताब की photocopy करने से उसमें नए तरह के chapters नहीं जुड़ जाते।",
+      "covers_item_ids": [
+       "pre2"
+      ],
+      "answers": [],
+      "on_screen": "Uncopied chromosome → copied chromosome with two labelled sister chromatids; set count unchanged.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b8",
+      "part_id": "pre2",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Nuclear division में nucleus के chromosomes अलग groups में बाँटे जाते हैं। Cytokinesis में cytoplasm अलग होता है और अलग cells बनती हैं। सामान के 2 हिस्से करना और उनके बीच अलग कमरे बना देना, दोनों अलग काम हैं।",
+      "covers_item_ids": [
+       "pre2"
+      ],
+      "answers": [],
+      "on_screen": "Nuclear division followed by a separately labelled cytokinesis panel.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b9",
+      "part_id": "pre2",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Spindle, fibres से बना structure है जो division में chromosomes को अलग करने में मदद करता है। Animal cells में centrioles, spindle organise करने वाले region से जुड़े होते हैं। Aster वहाँ से बाहर की ओर फैली star जैसी fibres हैं; अधिकतर higher plant cells centrioles और asters के बिना spindle बनाती हैं।",
+      "covers_item_ids": [
+       "pre2"
+      ],
+      "answers": [],
+      "on_screen": "Label spindle, centriole and aster; adjacent higher-plant spindle without centrioles or asters.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b10",
+      "part_id": "pre3",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "अब खाली pipe देखो। बीच का खाली रास्ता lumen है; उसे घेरे हुए अंदर की layer lining है। Intestine जैसे hollow organ में भी अंदर का रास्ता और उसकी lining अलग चीज़ें हैं।",
+      "covers_item_ids": [
+       "pre3"
+      ],
+      "answers": [],
+      "on_screen": "Cut-open pipe beside intestine cross-section; lumen and lining highlighted separately.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b11",
+      "part_id": "pre3",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Body covering बाहर ढकती है, जैसे skin; cavity शरीर के अंदर की जगह है। Lining के नीचे supporting tissue होता है, lumen नहीं। Gland duct वह passage है जो gland की बनाई चीज़ आगे पहुँचाता है, जैसे saliva को mouth तक लाने वाला duct।",
+      "covers_item_ids": [
+       "pre3"
+      ],
+      "answers": [],
+      "on_screen": "Body covering and cavity; enlarged lumen → lining → underlying tissue; gland → duct → mouth.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b12",
+      "part_id": "pre4",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Perfume की smell पास से दूर तक कैसे पहुँचती है? Diffusion में particles का net movement ज़्यादा concentration से कम concentration की ओर होता है। Concentration का मतलब किसी जगह की तय मात्रा में particles कितने हैं; रास्ता ऐसा होना चाहिए जिससे वे गुजर सकें।",
+      "covers_item_ids": [
+       "pre4"
+      ],
+      "answers": [],
+      "on_screen": "Perfume particles spreading; high → low concentration with net-movement arrow.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b13",
+      "part_id": "pre4",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Absorption में कोई चीज़ अंदर ली जाती है, जैसे intestine से nutrients शरीर में जाना। Secretion में cell कोई चीज़ बनाकर बाहर छोड़ता है, जैसे gland से saliva निकलना। Diffusion movement का तरीका बताता है; absorption और secretion में ध्यान अंदर लेने और बाहर छोड़ने पर है।",
+      "covers_item_ids": [
+       "pre4"
+      ],
+      "answers": [],
+      "on_screen": "Three distinct panels: diffusion, nutrient absorption, saliva secretion.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b14",
+      "part_id": "pre5",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "रस्सी खींचने पर आसानी से न टूटे, तो उसमें pulling force सहने की strength है। कोई strip आसानी से मुड़ जाए, तो वह flexible है। इसलिए strong होने का मतलब हमेशा कड़ा होना नहीं है; रस्सी strong भी हो सकती है और flexible भी।",
+      "covers_item_ids": [
+       "pre5"
+      ],
+      "answers": [],
+      "on_screen": "Rope resisting pull, then bending; strength ≠ rigidity.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b15",
+      "part_id": "pre5",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Rubber band को सीमा के अंदर खींचकर छोड़ो, वह पुरानी shape में लौटता है: यह elasticity है। केवल मुड़ जाना flexibility है; वापस लौटना उसका ज़रूरी हिस्सा नहीं। Rigidity shape बदलने का विरोध है, जैसे stiff ruler का आसानी से न मुड़ना।",
+      "covers_item_ids": [
+       "pre5"
+      ],
+      "answers": [],
+      "on_screen": "Bendable strip; rubber band stretching and recovering; stiff ruler resisting bending.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b16",
+      "part_id": "pre6",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "किताब उठाते समय muscle force बनाती है: इसे contraction कहते हैं। Contraction में muscle छोटी हो सकती है, लेकिन किताब स्थिर पकड़े रहने पर भी force बनता है। इसलिए contraction का मतलब केवल छोटा होना नहीं है।",
+      "covers_item_ids": [
+       "pre6"
+      ],
+      "answers": [],
+      "on_screen": "Arm lifting a book, then holding it still; force indicated in both.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b17",
+      "part_id": "pre6",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Relaxation में muscle का active tension घटता है। बार-बार काम करने पर force बनाए रखने की क्षमता घटे, तो वह fatigue है। अपनी इच्छा से हाथ उठाना voluntary control है; heartbeat को हर बार तुम्हारे आदेश की ज़रूरत नहीं, इसलिए वह involuntary है।",
+      "covers_item_ids": [
+       "pre6"
+      ],
+      "answers": [],
+      "on_screen": "Reduced muscle tension; repeated effort with falling performance; voluntary arm movement versus heartbeat.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b18",
+      "part_id": "pre7",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "एक छोटे plant में root का सबसे आगे वाला सिरा root tip है। Shoot tip ऊपर बढ़ते shoot का सिरा है। इन्हें केवल नीचे और ऊपर मत याद करना; tip का मतलब उस root या shoot का अपना end है।",
+      "covers_item_ids": [
+       "pre7"
+      ],
+      "answers": [],
+      "on_screen": "Seedling with main and branching root tips and shoot tip labelled.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b19",
+      "part_id": "pre7",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Stem पर जहाँ leaf जुड़ती है, वह node है। लगातार 2 nodes के बीच का stem, internode है; किसी छोटी branch पर 2 leaves के जुड़ने की जगह और बीच का हिस्सा देखो। Leaf base, leaf का वह हिस्सा है जिससे वह stem से जुड़ती है।",
+      "covers_item_ids": [
+       "pre7"
+      ],
+      "answers": [],
+      "on_screen": "Magnified stem: two nodes, intervening internode and leaf base.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b20",
+      "part_id": "pre7",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Plant का लंबा होना और मोटा होना अलग हैं। Girth का मतलब तने या root की मोटाई से जुड़ा चारों ओर का माप है। Pencil की लंबाई और उसके चारों ओर धागे से लिया माप सोचो; दोनों अलग दिशाओं की growth समझाते हैं।",
+      "covers_item_ids": [
+       "pre7"
+      ],
+      "answers": [],
+      "on_screen": "Length arrow along a stem; measuring loop around it labelled girth.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b21",
+      "part_id": "pre8",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "हरे leaf में chloroplasts, light energy की मदद से carbon dioxide और water से food बनाते हैं: यह photosynthesis है। Chlorophyll light पकड़ने में मदद करता है और oxygen निकलती है। Plant अपना food बनाता है; मिट्टी से तैयार food नहीं खींचता।",
+      "covers_item_ids": [
+       "pre8"
+      ],
+      "answers": [],
+      "on_screen": "Sunlight + carbon dioxide + water → food + oxygen; chloroplast enlarged.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b22",
+      "part_id": "pre8",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "बना हुआ कुछ food बाद के लिए cells में store हो सकता है, जैसे potato में starch। Roots मिट्टी से water और dissolved minerals लेती हैं; यह food बनाने से अलग काम है। जैसे kitchen में खाना बनाना, सामान पहुँचाना और खाना store करना अलग काम हैं।",
+      "covers_item_ids": [
+       "pre8"
+      ],
+      "answers": [],
+      "on_screen": "Roots taking up water and minerals; leaf producing food; potato storing starch.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b23",
+      "part_id": "",
+      "step": 0,
+      "purpose": "transition",
+      "say": "अब किसी cell को देखते समय पूछना: उसके parts क्या हैं, वह कहाँ है और क्या काम करता है? यही सवाल tissue की बनावट और काम को जोड़ेंगे। आगे समझेंगे कि cells मिलकर tissue कैसे बनाते हैं।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Parts → location → function; next: Tissue क्या है?",
+      "basis": "outside"
+     }
+    ]
+   },
+   "code_problems": [
+    "[code] beat b12: the Hindi words ['गुजर'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)"
+   ],
+   "observed": {
+    "pattern_order": [],
+    "objective_coverage": {
+     "coverage": 1.0,
+     "uncovered": []
+    },
+    "cognitive_load": {
+     "max": 1.3,
+     "abrupt_jumps": []
+    },
+    "duration": {
+     "spoken_minutes_at_130_wpm": 7.4,
+     "planned_minutes": 7,
+     "range": [
+      5.0,
+      8.0
+     ]
+    }
+   },
+   "passed": false,
+   "finished_at": 1792782334.4362493
+  },
+  {
+   "round": 3,
+   "started_at": 1792782334.436381,
+   "mode": "patch",
+   "patch": {
+    "notes": {
+     "about": "Targeted language correction to the prerequisite video; all other content remains unchanged.",
+     "key_questions": [],
+     "decisions": [
+      {
+       "decision": "Replace 'गुजर सकें' with 'जा सकें' in b12.",
+       "reason": "Use simpler everyday Hindi while preserving the diffusion explanation."
+      }
+     ],
+     "uncertain": []
+    },
+    "replace_parts": [],
+    "replace_beats": [
+     {
+      "beat_id": "b12",
+      "part_id": "pre4",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Perfume की smell पास से दूर तक कैसे पहुँचती है? Diffusion में particles का net movement ज़्यादा concentration से कम concentration की ओर होता है। Concentration का मतलब किसी जगह की तय मात्रा में particles कितने हैं; रास्ता ऐसा होना चाहिए जिससे वे जा सकें।",
+      "covers_item_ids": [
+       "pre4"
+      ],
+      "answers": [],
+      "on_screen": "Perfume particles spreading; high → low concentration with net-movement arrow.",
+      "basis": "outside"
+     }
+    ],
+    "insert_beats": [],
+    "remove_beat_ids": []
+   },
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "29faf121c49696e4df73f6aa1f841ab99099a6fe133a8022bb1460d3a83b565c",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 13820,
+    "output_tokens": 214,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "This prerequisite video builds the cell, body-space, material-property and plant-position vocabulary needed for the tissue chapter. All teaching is standard textbook-level outside explanation explicitly requested by the card.",
+    "key_questions": [
+     "How do cell parts and chromosome sets help us read tissue descriptions?",
+     "How do lining, lumen, absorption and secretion differ?",
+     "How do supporting and muscular properties differ?",
+     "Where are plant growth positions, and how do food production and water uptake differ?"
+    ],
+    "decisions": [
+     {
+      "decision": "Teach all eight prerequisites in the supplied order, using step 0 and no teacher-question IDs.",
+      "reason": "The card specifies prerequisite sequencing and supplies no question IDs."
+     },
+     {
+      "decision": "Use short everyday examples without teaching the later tissue classifications.",
+      "reason": "This prepares the learner without duplicating topic videos."
+     },
+     {
+      "decision": "Keep narration within the supplied 650–1040-word range.",
+      "reason": "The prerequisite video has a 5–8-minute allowance."
+     },
+     {
+      "decision": "Replace flagged Hindi words with simple phrasing or standard English terms.",
+      "reason": "Meet S2-04 without adding unnecessary spoken brackets."
+     },
+     {
+      "decision": "Replace 'गुजर सकें' with 'जा सकें' in b12.",
+      "reason": "Use simpler everyday Hindi while preserving the diffusion explanation."
+     }
+    ],
+    "uncertain": []
+   },
+   "output": {
+    "notes": {
+     "about": "This prerequisite video builds the cell, body-space, material-property and plant-position vocabulary needed for the tissue chapter. All teaching is standard textbook-level outside explanation explicitly requested by the card.",
+     "key_questions": [
+      "How do cell parts and chromosome sets help us read tissue descriptions?",
+      "How do lining, lumen, absorption and secretion differ?",
+      "How do supporting and muscular properties differ?",
+      "Where are plant growth positions, and how do food production and water uptake differ?"
+     ],
+     "decisions": [
+      {
+       "decision": "Teach all eight prerequisites in the supplied order, using step 0 and no teacher-question IDs.",
+       "reason": "The card specifies prerequisite sequencing and supplies no question IDs."
+      },
+      {
+       "decision": "Use short everyday examples without teaching the later tissue classifications.",
+       "reason": "This prepares the learner without duplicating topic videos."
+      },
+      {
+       "decision": "Keep narration within the supplied 650–1040-word range.",
+       "reason": "The prerequisite video has a 5–8-minute allowance."
+      },
+      {
+       "decision": "Replace flagged Hindi words with simple phrasing or standard English terms.",
+       "reason": "Meet S2-04 without adding unnecessary spoken brackets."
+      },
+      {
+       "decision": "Replace 'गुजर सकें' with 'जा सकें' in b12.",
+       "reason": "Use simpler everyday Hindi while preserving the diffusion explanation."
+      }
+     ],
+     "uncertain": []
+    },
+    "title": "पहले यह जान लो: cell, शरीर और plant की ज़रूरी बातें",
+    "parts": [
+     {
+      "part_id": "pre1",
+      "frame": {
+       "process": "Identify basic cell compartments and plant-cell parts.",
+       "how": "Move from the cell boundary inward and connect each part with its role.",
+       "when": "Before interpreting tissue-cell structure.",
+       "conditions": "Plant-cell parts vary; not every plant cell contains chloroplasts.",
+       "atmosphere": "A simple cell diagram beside a familiar room."
+      }
+     },
+     {
+      "part_id": "pre2",
+      "frame": {
+       "process": "Distinguish chromosome sets, DNA copying and the division of nucleus and cell.",
+       "how": "Use paired instruction books to separate set number from copying.",
+       "when": "DNA copying precedes the divisions being introduced; nuclear and cytoplasmic division are distinguished.",
+       "conditions": "Use a typical diploid body cell and haploid gamete as introductory examples.",
+       "atmosphere": "A cell diagram with paired books and chromosome copies."
+      }
+     },
+     {
+      "part_id": "pre3",
+      "frame": {
+       "process": "Locate coverings, cavities, lumens, linings and ducts.",
+       "how": "Read a hollow tube from its open space through its wall.",
+       "when": "Before epithelial layers and glands.",
+       "conditions": "Distinguish an organ's internal passage from its lining and underlying tissue.",
+       "atmosphere": "A cut-open tube beside a simplified hollow organ."
+      }
+     },
+     {
+      "part_id": "pre4",
+      "frame": {
+       "process": "Distinguish diffusion, absorption and secretion.",
+       "how": "Compare movement down a concentration difference with uptake and cellular release.",
+       "when": "During exchange, nutrient uptake and gland activity.",
+       "conditions": "Diffusion requires a concentration difference and a path permitting movement.",
+       "atmosphere": "Perfume spreading, intestinal uptake and a saliva-producing gland."
+      }
+     },
+     {
+      "part_id": "pre5",
+      "frame": {
+       "process": "Distinguish strength, flexibility, elasticity and rigidity.",
+       "how": "Compare resistance to pulling, bending, recovery and stiffness.",
+       "when": "When interpreting the mechanical roles of tissues.",
+       "conditions": "The properties are distinct and may coexist in a material.",
+       "atmosphere": "Rope, a bendable strip, a rubber band and a stiff ruler."
+      }
+     },
+     {
+      "part_id": "pre6",
+      "frame": {
+       "process": "Explain contraction, relaxation, fatigue and voluntary control.",
+       "how": "Connect force generation and reduced tension to simple body movements.",
+       "when": "During activity, release and repeated effort.",
+       "conditions": "Contraction need not shorten a muscle; conscious control differs across muscle actions.",
+       "atmosphere": "Lifting and holding a book, then lowering the arm."
+      }
+     },
+     {
+      "part_id": "pre7",
+      "frame": {
+       "process": "Locate plant tips, nodes, internodes, leaf bases and girth.",
+       "how": "Trace a seedling from root tip upward and compare length with thickness.",
+       "when": "Before locating growth tissues.",
+       "conditions": "Positions are defined relative to plant organs, not simply height above ground.",
+       "atmosphere": "A whole seedling with a magnified stem segment."
+      }
+     },
+     {
+      "part_id": "pre8",
+      "frame": {
+       "process": "Separate food production, food storage and water–mineral uptake.",
+       "how": "Follow inputs into a leaf and distinguish production from storage and root uptake.",
+       "when": "Photosynthesis occurs under suitable light conditions; stored food can be used later.",
+       "conditions": "Photosynthesis needs light, chlorophyll, carbon dioxide and water.",
+       "atmosphere": "A plant in sunlight with leaves, roots and a food-storing potato."
+      }
+     }
+    ],
+    "beats": [
+     {
+      "beat_id": "b1",
+      "part_id": "",
+      "step": 0,
+      "purpose": "hook",
+      "say": "एक cell की बनावट देखकर उसके काम को कैसे समझोगे? पहले उसके parts और काम बताने वाले कुछ शब्द समझो। फिर tissue पढ़ते समय shape और function का रिश्ता पकड़ पाओगे।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Cell diagram → structure → function; prerequisite video title.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b2",
+      "part_id": "pre1",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Cell को छोटे कमरे की तरह सोचो, लेकिन यह living unit है। Cell membrane उसकी boundary है और चीज़ों के अंदर-बाहर जाने को control करती है। अंदर cytoplasm होता है, जहाँ कई cell activities चलती हैं।",
+      "covers_item_ids": [
+       "pre1"
+      ],
+      "answers": [],
+      "on_screen": "Room analogy beside a cell; label cell membrane and cytoplasm.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b3",
+      "part_id": "pre1",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Nucleus में DNA होता है, जिसमें cell के काम के instructions रहते हैं। Plant cell में membrane के बाहर cell wall भी होती है, जो support देती है। Wall और membrane को एक ही चीज़ मत समझना।",
+      "covers_item_ids": [
+       "pre1"
+      ],
+      "answers": [],
+      "on_screen": "Outside-to-inside labels: cell wall, cell membrane, cytoplasm, nucleus; DNA inside nucleus.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b4",
+      "part_id": "pre1",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Vacuole को storage space की तरह समझो; इसमें पानी और उसमें घुली चीज़ें रह सकती हैं। बड़े vacuole का पानी plant cell को तना हुआ रखने में भी मदद करता है। Chloroplast में photosynthesis होता है, लेकिन हर plant cell में chloroplast नहीं होता; आम root cells इसका example हैं।",
+      "covers_item_ids": [
+       "pre1"
+      ],
+      "answers": [],
+      "on_screen": "Plant cell with large vacuole and chloroplasts; contrast with a typical root cell.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b5",
+      "part_id": "pre2",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "अब DNA को instruction book समझो। DNA, proteins के साथ मिलकर chromosomes बनाता है। Chromosome set का मतलब हर तरह के chromosome की 1 पूरी collection है; diploid में 2 sets और haploid में 1 set होता है।",
+      "covers_item_ids": [
+       "pre2"
+      ],
+      "answers": [],
+      "on_screen": "One complete colour-coded chromosome collection = haploid; two matching collections = diploid.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b6",
+      "part_id": "pre2",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "आम body cells को somatic cells कहते हैं; ये सामान्य तौर पर diploid होते हैं। Reproduction में काम आने वाले sperm और egg जैसे gametes haploid होते हैं। Gametes बनाने वाली शुरुआती cells और तैयार gametes को एक जैसा मत मानना।",
+      "covers_item_ids": [
+       "pre2"
+      ],
+      "answers": [],
+      "on_screen": "Typical somatic cell: 2 sets; sperm and egg: 1 set each; precursor distinguished from gamete.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b7",
+      "part_id": "pre2",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "DNA copying में instruction की copy बनती है; इसे नया chromosome set आ जाना मत समझना। Copied chromosome की 2 जुड़ी copies को sister chromatids कहते हैं। जैसे किताब की photocopy करने से उसमें नए तरह के chapters नहीं जुड़ जाते।",
+      "covers_item_ids": [
+       "pre2"
+      ],
+      "answers": [],
+      "on_screen": "Uncopied chromosome → copied chromosome with two labelled sister chromatids; set count unchanged.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b8",
+      "part_id": "pre2",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Nuclear division में nucleus के chromosomes अलग groups में बाँटे जाते हैं। Cytokinesis में cytoplasm अलग होता है और अलग cells बनती हैं। सामान के 2 हिस्से करना और उनके बीच अलग कमरे बना देना, दोनों अलग काम हैं।",
+      "covers_item_ids": [
+       "pre2"
+      ],
+      "answers": [],
+      "on_screen": "Nuclear division followed by a separately labelled cytokinesis panel.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b9",
+      "part_id": "pre2",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Spindle, fibres से बना structure है जो division में chromosomes को अलग करने में मदद करता है। Animal cells में centrioles, spindle organise करने वाले region से जुड़े होते हैं। Aster वहाँ से बाहर की ओर फैली star जैसी fibres हैं; अधिकतर higher plant cells centrioles और asters के बिना spindle बनाती हैं।",
+      "covers_item_ids": [
+       "pre2"
+      ],
+      "answers": [],
+      "on_screen": "Label spindle, centriole and aster; adjacent higher-plant spindle without centrioles or asters.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b10",
+      "part_id": "pre3",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "अब खाली pipe देखो। बीच का खाली रास्ता lumen है; उसे घेरे हुए अंदर की layer lining है। Intestine जैसे hollow organ में भी अंदर का रास्ता और उसकी lining अलग चीज़ें हैं।",
+      "covers_item_ids": [
+       "pre3"
+      ],
+      "answers": [],
+      "on_screen": "Cut-open pipe beside intestine cross-section; lumen and lining highlighted separately.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b11",
+      "part_id": "pre3",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Body covering बाहर ढकती है, जैसे skin; cavity शरीर के अंदर की जगह है। Lining के नीचे supporting tissue होता है, lumen नहीं। Gland duct वह passage है जो gland की बनाई चीज़ आगे पहुँचाता है, जैसे saliva को mouth तक लाने वाला duct।",
+      "covers_item_ids": [
+       "pre3"
+      ],
+      "answers": [],
+      "on_screen": "Body covering and cavity; enlarged lumen → lining → underlying tissue; gland → duct → mouth.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b12",
+      "part_id": "pre4",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Perfume की smell पास से दूर तक कैसे पहुँचती है? Diffusion में particles का net movement ज़्यादा concentration से कम concentration की ओर होता है। Concentration का मतलब किसी जगह की तय मात्रा में particles कितने हैं; रास्ता ऐसा होना चाहिए जिससे वे जा सकें।",
+      "covers_item_ids": [
+       "pre4"
+      ],
+      "answers": [],
+      "on_screen": "Perfume particles spreading; high → low concentration with net-movement arrow.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b13",
+      "part_id": "pre4",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Absorption में कोई चीज़ अंदर ली जाती है, जैसे intestine से nutrients शरीर में जाना। Secretion में cell कोई चीज़ बनाकर बाहर छोड़ता है, जैसे gland से saliva निकलना। Diffusion movement का तरीका बताता है; absorption और secretion में ध्यान अंदर लेने और बाहर छोड़ने पर है।",
+      "covers_item_ids": [
+       "pre4"
+      ],
+      "answers": [],
+      "on_screen": "Three distinct panels: diffusion, nutrient absorption, saliva secretion.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b14",
+      "part_id": "pre5",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "रस्सी खींचने पर आसानी से न टूटे, तो उसमें pulling force सहने की strength है। कोई strip आसानी से मुड़ जाए, तो वह flexible है। इसलिए strong होने का मतलब हमेशा कड़ा होना नहीं है; रस्सी strong भी हो सकती है और flexible भी।",
+      "covers_item_ids": [
+       "pre5"
+      ],
+      "answers": [],
+      "on_screen": "Rope resisting pull, then bending; strength ≠ rigidity.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b15",
+      "part_id": "pre5",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Rubber band को सीमा के अंदर खींचकर छोड़ो, वह पुरानी shape में लौटता है: यह elasticity है। केवल मुड़ जाना flexibility है; वापस लौटना उसका ज़रूरी हिस्सा नहीं। Rigidity shape बदलने का विरोध है, जैसे stiff ruler का आसानी से न मुड़ना।",
+      "covers_item_ids": [
+       "pre5"
+      ],
+      "answers": [],
+      "on_screen": "Bendable strip; rubber band stretching and recovering; stiff ruler resisting bending.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b16",
+      "part_id": "pre6",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "किताब उठाते समय muscle force बनाती है: इसे contraction कहते हैं। Contraction में muscle छोटी हो सकती है, लेकिन किताब स्थिर पकड़े रहने पर भी force बनता है। इसलिए contraction का मतलब केवल छोटा होना नहीं है।",
+      "covers_item_ids": [
+       "pre6"
+      ],
+      "answers": [],
+      "on_screen": "Arm lifting a book, then holding it still; force indicated in both.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b17",
+      "part_id": "pre6",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Relaxation में muscle का active tension घटता है। बार-बार काम करने पर force बनाए रखने की क्षमता घटे, तो वह fatigue है। अपनी इच्छा से हाथ उठाना voluntary control है; heartbeat को हर बार तुम्हारे आदेश की ज़रूरत नहीं, इसलिए वह involuntary है।",
+      "covers_item_ids": [
+       "pre6"
+      ],
+      "answers": [],
+      "on_screen": "Reduced muscle tension; repeated effort with falling performance; voluntary arm movement versus heartbeat.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b18",
+      "part_id": "pre7",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "एक छोटे plant में root का सबसे आगे वाला सिरा root tip है। Shoot tip ऊपर बढ़ते shoot का सिरा है। इन्हें केवल नीचे और ऊपर मत याद करना; tip का मतलब उस root या shoot का अपना end है।",
+      "covers_item_ids": [
+       "pre7"
+      ],
+      "answers": [],
+      "on_screen": "Seedling with main and branching root tips and shoot tip labelled.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b19",
+      "part_id": "pre7",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Stem पर जहाँ leaf जुड़ती है, वह node है। लगातार 2 nodes के बीच का stem, internode है; किसी छोटी branch पर 2 leaves के जुड़ने की जगह और बीच का हिस्सा देखो। Leaf base, leaf का वह हिस्सा है जिससे वह stem से जुड़ती है।",
+      "covers_item_ids": [
+       "pre7"
+      ],
+      "answers": [],
+      "on_screen": "Magnified stem: two nodes, intervening internode and leaf base.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b20",
+      "part_id": "pre7",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Plant का लंबा होना और मोटा होना अलग हैं। Girth का मतलब तने या root की मोटाई से जुड़ा चारों ओर का माप है। Pencil की लंबाई और उसके चारों ओर धागे से लिया माप सोचो; दोनों अलग दिशाओं की growth समझाते हैं।",
+      "covers_item_ids": [
+       "pre7"
+      ],
+      "answers": [],
+      "on_screen": "Length arrow along a stem; measuring loop around it labelled girth.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b21",
+      "part_id": "pre8",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "हरे leaf में chloroplasts, light energy की मदद से carbon dioxide और water से food बनाते हैं: यह photosynthesis है। Chlorophyll light पकड़ने में मदद करता है और oxygen निकलती है। Plant अपना food बनाता है; मिट्टी से तैयार food नहीं खींचता।",
+      "covers_item_ids": [
+       "pre8"
+      ],
+      "answers": [],
+      "on_screen": "Sunlight + carbon dioxide + water → food + oxygen; chloroplast enlarged.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b22",
+      "part_id": "pre8",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "बना हुआ कुछ food बाद के लिए cells में store हो सकता है, जैसे potato में starch। Roots मिट्टी से water और dissolved minerals लेती हैं; यह food बनाने से अलग काम है। जैसे kitchen में खाना बनाना, सामान पहुँचाना और खाना store करना अलग काम हैं।",
+      "covers_item_ids": [
+       "pre8"
+      ],
+      "answers": [],
+      "on_screen": "Roots taking up water and minerals; leaf producing food; potato storing starch.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b23",
+      "part_id": "",
+      "step": 0,
+      "purpose": "transition",
+      "say": "अब किसी cell को देखते समय पूछना: उसके parts क्या हैं, वह कहाँ है और क्या काम करता है? यही सवाल tissue की बनावट और काम को जोड़ेंगे। आगे समझेंगे कि cells मिलकर tissue कैसे बनाते हैं।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Parts → location → function; next: Tissue क्या है?",
+      "basis": "outside"
+     }
+    ]
+   },
+   "code_problems": [],
+   "observed": {
+    "pattern_order": [],
+    "objective_coverage": {
+     "coverage": 1.0,
+     "uncovered": []
+    },
+    "cognitive_load": {
+     "max": 1.3,
+     "abrupt_jumps": []
+    },
+    "duration": {
+     "spoken_minutes_at_130_wpm": 7.4,
+     "planned_minutes": 7,
+     "range": [
+      5.0,
+      8.0
+     ]
+    }
+   },
+   "review": {
+    "route": "google",
+    "provider": "google",
+    "model": "google/gemini-4-argon",
+    "via": "aicredits",
+    "returned_model": "google/gemini-4-argon",
+    "request_hash": "47dbe31f6c4695be7deb3a96d4c41605742f86564cd710363af8e1b5608633d2",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 9496,
+    "output_tokens": 1082,
+    "cost_usd": 0.032793,
+    "value": {
+     "notes": {
+      "about": "This review evaluates the prerequisite script (v0) for the chapter 'Tissues and Its Types', checking that all eight foundational concepts (pre1 to pre8) are taught clearly with everyday examples in natural Hinglish within the 5-8 minute window.",
+      "key_questions": [
+       "Are all eight prerequisite items (pre1–pre8) and their specific sub-concepts from the task card accurately and clearly explained?",
+       "Does the narration stay within the 5-8 minute (650–1040 words) limit and follow Navin's spoken Hinglish rules?"
+      ],
+      "decisions": [
+       {
+        "decision": "Pass the script with no blocking issues.",
+        "reason": "All eight prerequisites and their sub-elements (including vacuole, chloroplast, diploid/haploid, sister chromatids, spindle/centriole/aster, lumen/lining/duct, diffusion/absorption/secretion, mechanical properties, muscle properties, plant anatomy positions, and photosynthesis/storage/uptake) are accurately taught with concrete everyday analogies in ~850 spoken words (~6.5 minutes)."
+       }
+      ],
+      "uncertain": []
+     },
+     "verdict": "pass",
+     "problems": [
+      {
+       "where": "b16",
+       "problem": "In 'किताब स्थिर पकड़े रहने पर भी force बनता है', the word 'स्थिर' is slightly formal Hindi that could have an English bracket (still/steady) or be replaced by a simpler word like 'एक जगह'.",
+       "fix": "Consider changing 'स्थिर पकड़े रहने' to 'एक ही जगह पकड़े रहने' or 'स्थिर (steady) पकड़े रहने'.",
+       "severity": "minor"
+      }
+     ],
+     "checklist": [
+      {
+       "rule_id": "G-01",
+       "met": true,
+       "note": "Every beat is properly marked with basis 'outside' as required for the prerequisite video, and all facts are standard textbook-level biology."
+      },
+      {
+       "rule_id": "G-02",
+       "met": true,
+       "note": "A top UPSC/State PCS teacher would accept this prerequisite foundation; it carefully addresses common conceptual confusions (e.g., cell wall vs membrane, DNA copying vs chromosome set count, contraction vs shortening, flexibility vs elasticity)."
+      },
+      {
+       "rule_id": "G-03",
+       "met": true,
+       "note": "The maker's notes clearly state what the unit is about, the key questions, and the main decisions with reasons."
+      },
+      {
+       "rule_id": "G-04",
+       "met": true,
+       "note": "The learner-facing language is natural, conversational Hinglish suited for UPSC/State PCS aspirants."
+      },
+      {
+       "rule_id": "G-05",
+       "met": true,
+       "note": "Nothing required by the prerequisite card is cut short or left as 'etc.'"
+      },
+      {
+       "rule_id": "S2-01",
+       "met": true,
+       "note": "This is the 5-8 minute prerequisite video (planned 7 minutes; actual word count is ~850 spoken words, which is ~6.5 minutes at 130 wpm)."
+      },
+      {
+       "rule_id": "S2-02",
+       "met": true,
+       "note": "The script flows smoothly from cell structure to division, body spaces, transport/exchange, mechanical and muscle properties, and plant positions/functions without repetition or side-tracks."
+      },
+      {
+       "rule_id": "S2-03",
+       "met": true,
+       "note": "All 8 prerequisites (pre1 to pre8) and their specific sub-items listed in the card are directly needed and thoroughly taught."
+      },
+      {
+       "rule_id": "S2-04",
+       "met": true,
+       "note": "Hindi is in Devanagari, technical English terms are in Roman script, and sentences are short and spoken."
+      },
+      {
+       "rule_id": "S2-05",
+       "met": true,
+       "note": "Each beat's covers_item_ids claim accurately reflects the prerequisite item taught in that beat."
+      },
+      {
+       "rule_id": "S2-06",
+       "met": true,
+       "note": "Every part has a complete universal frame and teaches its assigned prerequisite item with everyday examples as requested."
+      }
+     ]
+    }
+   },
+   "review_problems": [],
+   "review_minor": [
+    {
+     "where": "b16",
+     "problem": "In 'किताब स्थिर पकड़े रहने पर भी force बनता है', the word 'स्थिर' is slightly formal Hindi that could have an English bracket (still/steady) or be replaced by a simpler word like 'एक जगह'.",
+     "fix": "Consider changing 'स्थिर पकड़े रहने' to 'एक ही जगह पकड़े रहने' or 'स्थिर (steady) पकड़े रहने'.",
+     "kind": "problems"
+    }
+   ],
+   "passed": true,
+   "finished_at": 1792782359.0354028
+  }
+ ],
+ "avoid_rounds": [
+  1,
+  2
+ ],
+ "cost_usd": 0.032793,
+ "seconds": 172.2,
+ "navin_verdict": null
+}
