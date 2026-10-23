@@ -1,0 +1,4573 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "understand",
+ "unit": "page-013",
+ "status": "passed",
+ "instructions_version": "understand-page/2",
+ "rulebook_version": "content_types@2026-10-22.2+vision-2026-10-21@2026-10-21.8",
+ "rulebook_digest": "ba8a07e8186b9396d9e0e0713a2d71b70cbf3afd7a9caf5e32089ac7d7ee99b0",
+ "rules_used": [
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-05",
+  "S1-01",
+  "S1-02",
+  "S1-03",
+  "S1-04",
+  "S1-05",
+  "S1-06",
+  "S1-07",
+  "S1-08",
+  "S1-09",
+  "S1-10",
+  "S1-11"
+ ],
+ "maker_route": "codex",
+ "reviewer_route": "google",
+ "maker_model": "gpt-6.1-sol",
+ "reviewer_model": "google/gemini-4-argon",
+ "reviewer_independence": "other_company",
+ "inputs_digest": "6710bd4fc5ba4892d5792029e92a0a7e84f5e009c12754853c2b9558bb359ba7",
+ "card": {
+  "card": "bie.task-card/1",
+  "card_id": "understand.read_page@10-tissues-and-its-types/page-013",
+  "section": "understand",
+  "task": "read_page",
+  "prefix": {
+   "prefix_id": "understand.read_page/2",
+   "rulebook_version": "content_types@2026-10-22.2+vision-2026-10-21@2026-10-21.8",
+   "content_types_version": "2026-10-22.2",
+   "schema_id": "bie.brain.understand-page/2",
+   "sha256": "96c38767ba78dac39a419994862a1c726cc497f92820d8f32447f8cec8109313"
+  },
+  "unit": {
+   "unit_id": "page-013",
+   "title": "Page 13 of 14",
+   "pages": [
+    13
+   ]
+  },
+  "parts": [
+   {
+    "part_id": "b1",
+    "item_ids": [
+     "p0013-b0019"
+    ],
+    "type": "structure",
+    "questions": [
+     "what",
+     "where"
+    ],
+    "focus": "BIE proposes structure (weak): 'parts'"
+   },
+   {
+    "part_id": "b2",
+    "item_ids": [
+     "p0013-b0024"
+    ],
+    "type": "structure",
+    "questions": [
+     "what",
+     "where"
+    ],
+    "focus": "BIE proposes structure (weak): 'wall'"
+   },
+   {
+    "part_id": "img",
+    "item_ids": [
+     "p0013-image"
+    ],
+    "type": "none",
+    "questions": [
+     "what"
+    ],
+    "focus": "The page image: capture every table, diagram, label and arrow it shows (S1-01); its items get the type of what they show."
+   }
+  ],
+  "rules": [
+   "G-01",
+   "G-02",
+   "G-03",
+   "G-05",
+   "S1-01",
+   "S1-02",
+   "S1-03",
+   "S1-04",
+   "S1-05",
+   "S1-06",
+   "S1-07",
+   "S1-08",
+   "S1-09",
+   "S1-10",
+   "S1-11"
+  ],
+  "output": {
+   "schema_id": "bie.brain.understand-page/2",
+   "mode": "full",
+   "max_output_tokens": 32000
+  },
+  "coverage": {
+   "must_cover": [
+    "p0013-b0002",
+    "p0013-b0003",
+    "p0013-b0004",
+    "p0013-b0005",
+    "p0013-b0006",
+    "p0013-b0007",
+    "p0013-b0008",
+    "p0013-b0009",
+    "p0013-b0010",
+    "p0013-b0011",
+    "p0013-b0012",
+    "p0013-b0013",
+    "p0013-b0014",
+    "p0013-b0015",
+    "p0013-b0016",
+    "p0013-b0017",
+    "p0013-b0018",
+    "p0013-b0019",
+    "p0013-b0020",
+    "p0013-b0021",
+    "p0013-b0022",
+    "p0013-b0023",
+    "p0013-b0024",
+    "p0013-b0025",
+    "p0013-b0026",
+    "p0013-b0027",
+    "p0013-b0028",
+    "p0013-b0029",
+    "p0013-b0030",
+    "p0013-b0031",
+    "p0013-b0032",
+    "p0013-b0033",
+    "p0013-b0034",
+    "p0013-b0035",
+    "p0013-b0036",
+    "p0013-b0037",
+    "p0013-b0038"
+   ],
+   "claim_field": "items[].block_ids or boilerplate_block_ids",
+   "may_skip": [
+    {
+     "item_id": "p0013-b0001",
+     "reason": "running header (the same first line as the next or previous page)"
+    },
+    {
+     "item_id": "p0013-b0039",
+     "reason": "page number"
+    }
+   ]
+  },
+  "context": {
+   "map_slice": [],
+   "before": " Xylem fibres are mainly supportive in function.",
+   "after": ""
+  },
+  "source": {
+   "block_ids": [
+    "p0013-b0001",
+    "p0013-b0002",
+    "p0013-b0003",
+    "p0013-b0004",
+    "p0013-b0005",
+    "p0013-b0006",
+    "p0013-b0007",
+    "p0013-b0008",
+    "p0013-b0009",
+    "p0013-b0010",
+    "p0013-b0011",
+    "p0013-b0012",
+    "p0013-b0013",
+    "p0013-b0014",
+    "p0013-b0015",
+    "p0013-b0016",
+    "p0013-b0017",
+    "p0013-b0018",
+    "p0013-b0019",
+    "p0013-b0020",
+    "p0013-b0021",
+    "p0013-b0022",
+    "p0013-b0023",
+    "p0013-b0024",
+    "p0013-b0025",
+    "p0013-b0026",
+    "p0013-b0027",
+    "p0013-b0028",
+    "p0013-b0029",
+    "p0013-b0030",
+    "p0013-b0031",
+    "p0013-b0032",
+    "p0013-b0033",
+    "p0013-b0034",
+    "p0013-b0035",
+    "p0013-b0036",
+    "p0013-b0037",
+    "p0013-b0038",
+    "p0013-b0039"
+   ],
+   "page_images": [
+    {
+     "page": 13,
+     "sha256": "42102fadec22af6c57edd385c7d16d83c2b87ceebccc98092625f2e29c91d4e9"
+    }
+   ]
+  }
+ },
+ "prefix_sha256": "96c38767ba78dac39a419994862a1c726cc497f92820d8f32447f8cec8109313",
+ "review_prefix_sha256": "f65ba5283c0fd5b4aa45c3f755a60cc9b98ca92a23ceead63e29a942cc9b1153",
+ "inputs": {
+  "system": "BIE task prefix understand.read_page/2 · rulebook content_types@2026-10-22.2+vision-2026-10-21@2026-10-21.8 · content types 2026-10-22.2 · schema bie.brain.understand-page/2\n\nYou are BIE's book-understanding section: an expert teacher of Science and Technology for UPSC / State PCS aspirants preparing for UPSC / State PCS.\nYou read one page of a book chapter with two eyes, the page's native text blocks and the page image, and turn it into a complete,\nquestion-based teacher's understanding. Later BIE sections build the video lessons, the chapter game and the notes only from what you\ncapture, so anything you miss is missing from the whole course. Your output is internal to BIE: write it in clear English and keep the\nbook's own terms and spellings.\nCourse: \"10. Tissues and Its Types\" · subject: Science and Technology · learners: UPSC / State PCS aspirants · exam: UPSC / State PCS · learner language: Hinglish.\n\nNavin's rules for this task (follow every one):\n[G-01] Everything taught comes from the book. Knowledge from outside the book is allowed only to explain the book better; it is marked as outside, standard textbook-level and correct. Never invent facts, numbers, names or quotations.\n[G-02] Work like the best teacher of these learners and this exam, not like a summariser. Depth beats brevity: nothing teachable on the page is skipped or compressed away, and every explanation makes a student understand, not just remember.\n[G-03] Before the output, fill 'notes' with brief notes for the reviewer and for Navin: what this unit is about, the key questions a teacher must answer about it, the main decisions you made with a one-line reason each, and anything uncertain. Keep the notes short; they explain the work, they are not the work.\n[G-05] Never shorten work to fit a length. If a unit of work is too large, it is split by BIE into smaller units; within a unit, completeness wins.\n[S1-01] Read the page with two eyes: the native text blocks (exact words and numbers) and the page image (tables, diagrams, labels, arrows, equations, layout). Items that exist only in the image are as important as text items. A page whose text layer is empty or nearly empty is read entirely from the image.\n[S1-02] Every native text block is either covered by an item (its id in that item's block_ids) or listed as boilerplate. Boilerplate is only running headers, page numbers, publisher adverts, contact lines and watermarks; nothing teachable is boilerplate.\n[S1-03] Every table becomes one 'table' item plus one 'table_row' item per row, in order, each row's content giving every cell with its column header, for example 'Smooth muscle | Location: G.I. tract, uterus, eye, blood vessels | Function: peristalsis, blood pressure, pupil size, erects hairs | Appearance: no striations, one central nucleus | Control: involuntary'. A table continued from the previous page continues the same table.\n[S1-04] Every diagram, chart, flow or tree becomes one 'diagram' item that says what it shows and how its parts connect (arrows, branches, flows, sequence), plus one 'diagram_label' item per label naming what the label points to. A classification tree lists every branch and leaf with its parent.\n[S1-05] Every equation, formula, chemical formula and symbol is read exactly and each symbol's meaning and unit are stated.\n[S1-06] Understand every teachable item by questioning it like a teacher. Ask the questions that fit: what is it, what is it about, where does it apply or occur, how does it work, when, who and whom, which, why, how does it compare, how does it differ, what is the evidence, what are the exceptions, what follows from it. Then keep asking 'why' and 'how' on your own answers (depth 2, 3 ...) until a teacher could explain it to a student meeting it for the first time. Answers explain; they never just repeat the item's words.\n[S1-07] Mark every answer's basis: 'book' only when the page itself states it, 'outside' when any part comes from general knowledge. Use outside knowledge to make the book understandable (mechanisms, reasons, real-life links), never to change what the book says. Keep outside explanations at standard textbook level for these learners and avoid absolute words (always, only, never, all, every) unless the book uses them.\n[S1-08] Give every item its true content type, one of BIE's nine: process, structure, classification, comparison, timeline, cause_effect, facts_numbers, figure, definition (bie/brain/rulebook/content_types.json). An example takes the type of what it illustrates; a question or an answer option is a role, not a type. BIE's code proposes a type before you read the page; when you choose another, say why. The content type decides the required questions and later how the lesson teaches it, how the video shows it, how the game makes it playable and how the notes draw it, so choose by what the content is, not by how it is printed.\n[S1-09] Name the prerequisites a student must already understand for each item, as concrete concepts ('cell and its nucleus', 'what a nerve impulse is'), never vague ('basic biology'). Prerequisites are taught later, not just listed.\n[S1-10] Judge exam importance for the course's exam (for UPSC / State PCS: classifications, comparisons, locations, functions, examples and odd-one-out facts are high). Every previous-year or practice question on the page is captured with its options and linked to the items it tests.\n[S1-11] Where the text layer and the image disagree (garbled symbols, missing words, wrong order), report the disagreement. Trust the image for symbols, layout and diagrams, and the text layer for spelling when it is clean.\n\nBIE's content types (the type of an item decides its required questions and how it is taught, shown, played and drawn):\n- process · Process: Something that happens in steps or stages over time: a mechanism, a procedure, a cycle (photosynthesis, cell division, how a bill becomes law). Required questions: how (kaise), when (kab). Other questions: what (kya), where (kahan), why (kyun), consequence (nateeja).\n- structure · Structure: Something made of parts arranged in space, each part with a function (a cell, a leaf, the heart, a machine, the Parliament). Required questions: what (kya), where (kahan). Other questions: how (kaise), why (kyun), which (kaun).\n- classification · Classification: A group divided into kinds by a stated basis (types of tissues, kinds of rocks, kinds of writs). Required questions: which (kaun), difference (tulna). Other questions: what (kya), evidence (saboot), where (kahan).\n- comparison · Comparison: Two or more things set side by side on stated criteria (plant and animal cells, Lok Sabha and Rajya Sabha). Required questions: compare (tulna), difference (tulna). Other questions: what (kya), why (kyun), evidence (saboot).\n- timeline · Timeline: Events placed in time: history, the development of an idea, stages of a life (the Revolt of 1857, evolution of cell theory). Required questions: when (kab), why (kyun). Other questions: who (kaun), where (kahan), consequence (nateeja).\n- cause_effect · Reasoning (cause and effect): Why something happens: causes, effects, conditions and chains of reasoning (why tissues specialise, why prices rise, why a law was needed). Required questions: why (kyun), how (kaise). Other questions: consequence (nateeja), evidence (saboot), exception (tulna).\n- facts_numbers · Facts and numbers: Stated facts, quantities, measurements, statistics and formulas (heart rate 72 per minute, 3,000 against 50,000 soldiers at Plassey, F = ma). Required questions: what (kya), evidence (saboot). Other questions: compare (tulna), why (kyun).\n- figure · Figure: A diagram, photo, map, graph or table drawing on the page whose content is visual (tissue pages 2, 7 and 8 are figures only). Required questions: what (kya), which (kaun). Other questions: how (kaise), why (kyun).\n- definition · Definition: A term and its meaning as the book states it (tissue, meristem, sovereignty). Required questions: what (kya), evidence (saboot). Other questions: about (kya), why (kyun).\n\nOutput schema (JSON):\n{\"additionalProperties\":false,\"properties\":{\"boilerplate_block_ids\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"items\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"block_ids\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"content\":{\"type\":\"string\"},\"content_type\":{\"enum\":[\"process\",\"structure\",\"classification\",\"comparison\",\"timeline\",\"cause_effect\",\"facts_numbers\",\"figure\",\"definition\",\"none\"],\"type\":\"string\"},\"exam_importance\":{\"enum\":[\"high\",\"medium\",\"low\"],\"type\":\"string\"},\"exam_note\":{\"type\":\"string\"},\"item_id\":{\"type\":\"string\"},\"kind\":{\"enum\":[\"heading\",\"paragraph\",\"definition\",\"list_point\",\"example\",\"table\",\"table_row\",\"diagram\",\"diagram_label\",\"equation\",\"symbol\",\"box_note\",\"caption\",\"question\",\"answer_option\",\"other\"],\"type\":\"string\"},\"parent_item_id\":{\"type\":\"string\"},\"prerequisites\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"source\":{\"enum\":[\"text\",\"image\",\"both\"],\"type\":\"string\"},\"teachable\":{\"type\":\"boolean\"},\"teacher_understanding\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"answer\":{\"type\":\"string\"},\"ask\":{\"enum\":[\"what\",\"about\",\"where\",\"how\",\"when\",\"who\",\"whom\",\"which\",\"why\",\"compare\",\"difference\",\"evidence\",\"exception\",\"consequence\"],\"type\":\"string\"},\"basis\":{\"enum\":[\"book\",\"outside\"],\"type\":\"string\"},\"depth\":{\"description\":\"1 for a first question; 2, 3 ... for a deeper why/how on an earlier answer\",\"type\":\"integer\"},\"question\":{\"type\":\"string\"}},\"required\":[\"depth\",\"ask\",\"question\",\"answer\",\"basis\"],\"type\":\"object\"},\"type\":\"array\"},\"tests_item_ids\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"type_note\":{\"type\":\"string\"},\"where_on_page\":{\"type\":\"string\"}},\"required\":[\"item_id\",\"kind\",\"parent_item_id\",\"source\",\"block_ids\",\"where_on_page\",\"content\",\"content_type\",\"type_note\",\"teachable\",\"teacher_understanding\",\"prerequisites\",\"exam_importance\",\"exam_note\",\"tests_item_ids\"],\"type\":\"object\"},\"type\":\"array\"},\"notes\":{\"additionalProperties\":false,\"properties\":{\"about\":{\"description\":\"What this unit of work is about and how it fits the whole (one or two sentences).\",\"type\":\"string\"},\"decisions\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"decision\":{\"type\":\"string\"},\"reason\":{\"type\":\"string\"}},\"required\":[\"decision\",\"reason\"],\"type\":\"object\"},\"type\":\"array\"},\"key_questions\":{\"description\":\"The key questions a teacher must answer about this unit.\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"uncertain\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"}},\"required\":[\"about\",\"key_questions\",\"decisions\",\"uncertain\"],\"type\":\"object\"},\"page_summary\":{\"type\":\"string\"},\"text_image_disagreements\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"block_ids\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"image_shows\":{\"type\":\"string\"},\"text_says\":{\"type\":\"string\"}},\"required\":[\"block_ids\",\"text_says\",\"image_shows\"],\"type\":\"object\"},\"type\":\"array\"}},\"required\":[\"notes\",\"page_summary\",\"items\",\"boilerplate_block_ids\",\"text_image_disagreements\"],\"type\":\"object\"}\n\nHow BIE talks to you: every request is a task card (JSON) followed by its source. The card names the unit, its parts with their content type and required questions, the ids of the rules above that apply, the output, the ids you must cover and the context. The card is BIE's instruction; the source is the material.\nFor a read_page card:\n- card.parts: BIE's code has already proposed a content type for groups of this page's native text blocks (item_ids are block ids;\n  \"pNNNN-image\" is the page image), with the evidence in \"focus\". It is a proposal from keywords and patterns, not a verdict: give\n  every item its true type (S1-08). When you choose another type than BIE's proposal for an item's blocks, say why in one line in that\n  item's type_note; BIE's code compares every item and sends unexplained differences back to you.\n- card.coverage: every id in must_cover must be in some item's block_ids or in boilerplate_block_ids; may_skip lists blocks BIE thinks are\n  running headers or page numbers. Never list an id that is not on this page.\n- card.context.before and after: one line from the previous and the next page, for context only.\nHow to fill the JSON:\n- notes: brief notes for the reviewer: what the page is about and how it fits the chapter, the key questions a teacher must answer,\n  your main decisions (how you split items, how you read an unclear part, a type you chose against BIE's proposal) with a reason each,\n  and what is uncertain.\n- items: everything on the page, in reading order.\n  - item_id: short and unique on this page (\"i1\", \"i2\", ...).\n  - kind: heading, paragraph, definition, list_point, example, table (the whole table), table_row (one per row), diagram (the whole figure),\n    diagram_label (one per label), equation, symbol, box_note, caption, question (a PYQ or practice question), answer_option, other.\n  - parent_item_id: the table of a table_row, the diagram of a diagram_label, the question of an answer_option, else \"\".\n  - source: \"text\" if the item comes from native text blocks, \"image\" if it is visible only in the image, \"both\" if both show it.\n  - block_ids: the ids of the native text blocks this item covers ([] for image-only items). Use only ids from the card.\n  - where_on_page: where it is (\"top table, row 2\", \"right diagram, label at the axon end\").\n  - content: the exact words for text items; a complete, faithful reading for image items (every cell with its column header for a\n    table_row; what a label names and what it points to for a diagram_label; all branches for a tree).\n  - content_type: one of BIE's nine type ids above, by what the content is. An example takes the type of what it illustrates; a table\n    row or a diagram label usually takes its table's or diagram's type. \"none\" only for a question, an answer option or an item that is\n    not teachable.\n  - type_note: \"\" when you agree with BIE's proposal for this item's blocks (or there is none); otherwise one line on why your type fits.\n  - teachable: false only for pure headings and containers whose children carry the content.\n  - teacher_understanding: the teacher's questions and answers for this item (S1-06); depth 1 for first questions, 2 and more for\n    \"why\"/\"how\" on an earlier answer; basis \"book\" only if the page states it, else \"outside\". BIE's code checks every teachable item:\n    at least two questions, at least one \"why\" or \"how\", and at least the required questions of its content type.\n  - prerequisites: concrete concepts a student must understand first.\n  - exam_importance and exam_note: for this exam.\n  - tests_item_ids: for a question, the ids on this page that it tests ([] if they are on other pages).\n- boilerplate_block_ids: ids of running headers, page numbers, adverts, contact lines and watermarks only.\n- text_image_disagreements: where the text layer and the image differ.\nReply with the JSON object only.",
+  "user": [
+   {
+    "type": "text",
+    "text": "BIE task card (JSON):\n{\"card\":\"bie.task-card/1\",\"card_id\":\"understand.read_page@10-tissues-and-its-types/page-013\",\"section\":\"understand\",\"task\":\"read_page\",\"prefix\":{\"prefix_id\":\"understand.read_page/2\",\"rulebook_version\":\"content_types@2026-10-22.2+vision-2026-10-21@2026-10-21.8\",\"content_types_version\":\"2026-10-22.2\",\"schema_id\":\"bie.brain.understand-page/2\",\"sha256\":\"96c38767ba78dac39a419994862a1c726cc497f92820d8f32447f8cec8109313\"},\"unit\":{\"unit_id\":\"page-013\",\"title\":\"Page 13 of 14\",\"pages\":[13]},\"parts\":[{\"part_id\":\"b1\",\"item_ids\":[\"p0013-b0019\"],\"type\":\"structure\",\"questions\":[\"what\",\"where\"],\"focus\":\"BIE proposes structure (weak): 'parts'\"},{\"part_id\":\"b2\",\"item_ids\":[\"p0013-b0024\"],\"type\":\"structure\",\"questions\":[\"what\",\"where\"],\"focus\":\"BIE proposes structure (weak): 'wall'\"},{\"part_id\":\"img\",\"item_ids\":[\"p0013-image\"],\"type\":\"none\",\"questions\":[\"what\"],\"focus\":\"The page image: capture every table, diagram, label and arrow it shows (S1-01); its items get the type of what they show.\"}],\"rules\":[\"G-01\",\"G-02\",\"G-03\",\"G-05\",\"S1-01\",\"S1-02\",\"S1-03\",\"S1-04\",\"S1-05\",\"S1-06\",\"S1-07\",\"S1-08\",\"S1-09\",\"S1-10\",\"S1-11\"],\"output\":{\"schema_id\":\"bie.brain.understand-page/2\",\"mode\":\"full\",\"max_output_tokens\":32000},\"coverage\":{\"must_cover\":[\"p0013-b0002\",\"p0013-b0003\",\"p0013-b0004\",\"p0013-b0005\",\"p0013-b0006\",\"p0013-b0007\",\"p0013-b0008\",\"p0013-b0009\",\"p0013-b0010\",\"p0013-b0011\",\"p0013-b0012\",\"p0013-b0013\",\"p0013-b0014\",\"p0013-b0015\",\"p0013-b0016\",\"p0013-b0017\",\"p0013-b0018\",\"p0013-b0019\",\"p0013-b0020\",\"p0013-b0021\",\"p0013-b0022\",\"p0013-b0023\",\"p0013-b0024\",\"p0013-b0025\",\"p0013-b0026\",\"p0013-b0027\",\"p0013-b0028\",\"p0013-b0029\",\"p0013-b0030\",\"p0013-b0031\",\"p0013-b0032\",\"p0013-b0033\",\"p0013-b0034\",\"p0013-b0035\",\"p0013-b0036\",\"p0013-b0037\",\"p0013-b0038\"],\"claim_field\":\"items[].block_ids or boilerplate_block_ids\",\"may_skip\":[{\"item_id\":\"p0013-b0001\",\"reason\":\"running header (the same first line as the next or previous page)\"},{\"item_id\":\"p0013-b0039\",\"reason\":\"page number\"}]},\"context\":{\"map_slice\":[],\"before\":\" Xylem fibres are mainly supportive in function.\",\"after\":\"\"},\"source\":{\"block_ids\":[\"p0013-b0001\",\"p0013-b0002\",\"p0013-b0003\",\"p0013-b0004\",\"p0013-b0005\",\"p0013-b0006\",\"p0013-b0007\",\"p0013-b0008\",\"p0013-b0009\",\"p0013-b0010\",\"p0013-b0011\",\"p0013-b0012\",\"p0013-b0013\",\"p0013-b0014\",\"p0013-b0015\",\"p0013-b0016\",\"p0013-b0017\",\"p0013-b0018\",\"p0013-b0019\",\"p0013-b0020\",\"p0013-b0021\",\"p0013-b0022\",\"p0013-b0023\",\"p0013-b0024\",\"p0013-b0025\",\"p0013-b0026\",\"p0013-b0027\",\"p0013-b0028\",\"p0013-b0029\",\"p0013-b0030\",\"p0013-b0031\",\"p0013-b0032\",\"p0013-b0033\",\"p0013-b0034\",\"p0013-b0035\",\"p0013-b0036\",\"p0013-b0037\",\"p0013-b0038\",\"p0013-b0039\"],\"page_images\":[{\"page\":13,\"sha256\":\"42102fadec22af6c57edd385c7d16d83c2b87ceebccc98092625f2e29c91d4e9\"}]}}\n\nNative text blocks of this page (id | text):\np0013-b0001 | Science and Technology\np0013-b0002 | a. 1 only\np0013-b0003 | b. 1 and 2.\np0013-b0004 | c. 2 and 3.\np0013-b0005 | d. All are correct\np0013-b0006 | Q. Consider the following statement(s):\np0013-b0007 | Tissue Function and\np0013-b0008 | constituents\np0013-b0009 | 1. Parenchyma Large vacuole and store\np0013-b0010 | food\np0013-b0011 | 2. Sclerenchyma In climber plants and\np0013-b0012 | provide mechanical strength\np0013-b0013 | 3. Collenchyma contain lignin\np0013-b0014 | Choose the correct option:\np0013-b0015 | a. 1 only.\np0013-b0016 | b. 2 only.\np0013-b0017 | c. 1 and 3 only.\np0013-b0018 | d. All are incorrect.\np0013-b0019 | Q. All are parts of xylem except:\np0013-b0020 | A. Companion cells\np0013-b0021 | B. Tracheid\np0013-b0022 | C. Parenchyma\np0013-b0023 | D. Xylem vessel\np0013-b0024 | Q. Lignin is present in cell wall of which tissue:\np0013-b0025 | a. Parenchyma\np0013-b0026 | b. Sclerenchyma\np0013-b0027 | c. Collenchyma\np0013-b0028 | d. None\np0013-b0029 | Q. Specialised cell of parenchyma present in aquatic plants to provide them buoyancy\np0013-b0030 | a. Chlorenchyma\np0013-b0031 | b. Sieve tube\np0013-b0032 | c. Aerenchyma\np0013-b0033 | d. Companion cells\np0013-b0034 | Q. Which statement is incorrect with reference to cardiac tissue:\np0013-b0035 | 1. They are striated\np0013-b0036 | 2. They are voluntary in nature\np0013-b0037 | 3. They have features of both skeletal and visceral tissue.\np0013-b0038 | Option:\np0013-b0039 | 99"
+   },
+   {
+    "type": "text",
+    "text": "The page image:"
+   },
+   {
+    "type": "image",
+    "media_type": "image/png",
+    "sha256": "2919ef59f360df676697fcc43f526051a47f4baf0c4f1a96a4b27c656384298f",
+    "base64_chars": 763828
+   },
+   {
+    "type": "text",
+    "text": "Read this page with both eyes and answer the card with the page understanding JSON."
+   }
+  ]
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "started_at": 1792723078.5342872,
+   "mode": "full",
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "427dfc3a2cffbc2c3f8a51dc6d2ec5d4a63a5d6dd24b943fcfebf7c22b2a3048",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 22262,
+    "output_tokens": 14995,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "This practice page tests plant tissues, xylem components, aquatic parenchyma and cardiac tissue. An image-only comparison table supplies detailed structural and functional differences among parenchyma, collenchyma and sclerenchyma.",
+    "key_questions": [
+     "How do the three simple permanent plant tissues differ in cell walls, living contents, spaces, occurrence and function?",
+     "Which tissue contains lignin, and how does its wall support the plant?",
+     "Which structures belong to xylem, and why are companion cells excluded?",
+     "How does aerenchyma provide buoyancy?",
+     "Which cardiac-tissue statement is incorrect, and why?"
+    ],
+    "decisions": [
+     {
+      "decision": "Captured the image-only comparison as a table with eight rows and the three cell drawings as separate diagrams with labels.",
+      "reason": "The native text omits this substantial teaching content."
+     },
+     {
+      "decision": "Preserved the tissue–function statements as question claims rather than treating them as established facts.",
+      "reason": "The exercise deliberately includes incorrect pairings."
+     },
+     {
+      "decision": "Classified the xylem question as classification and the lignin question as structure.",
+      "reason": "The first tests membership in a tissue; the second tests cell-wall composition."
+     },
+     {
+      "decision": "Kept the opening options and closing cardiac question explicitly incomplete.",
+      "reason": "The opening stem and the closing answer choices are absent from this page."
+     },
+     {
+      "decision": "Marked supplied solutions and mechanisms as outside whenever the page does not explicitly establish them.",
+      "reason": "The page provides questions without a printed answer key."
+     }
+    ],
+    "uncertain": [
+     "The opening four options belong to a question whose stem is not visible; its answer cannot be determined.",
+     "The cardiac question ends at 'Option:'; no answer choices are visible.",
+     "The statement linking sclerenchyma with climber plants is imprecise: sclerenchyma does provide mechanical strength, but the intended flexible-support association is conventionally collenchyma.",
+     "The comparison table makes broad claims, including absence of collenchyma in monocots and roots and absence of cytoplasm and nucleus in sclerenchyma. These are preserved as printed and should be taught in their usual school-level context.",
+     "The tiny orange word beneath the collenchyma drawing appears to read 'Collenchyma'; the main heading clearly identifies the drawing."
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "This practice page tests plant tissues, xylem components, aquatic parenchyma and cardiac tissue. An image-only comparison table supplies detailed structural and functional differences among parenchyma, collenchyma and sclerenchyma.",
+     "key_questions": [
+      "How do the three simple permanent plant tissues differ in cell walls, living contents, spaces, occurrence and function?",
+      "Which tissue contains lignin, and how does its wall support the plant?",
+      "Which structures belong to xylem, and why are companion cells excluded?",
+      "How does aerenchyma provide buoyancy?",
+      "Which cardiac-tissue statement is incorrect, and why?"
+     ],
+     "decisions": [
+      {
+       "decision": "Captured the image-only comparison as a table with eight rows and the three cell drawings as separate diagrams with labels.",
+       "reason": "The native text omits this substantial teaching content."
+      },
+      {
+       "decision": "Preserved the tissue–function statements as question claims rather than treating them as established facts.",
+       "reason": "The exercise deliberately includes incorrect pairings."
+      },
+      {
+       "decision": "Classified the xylem question as classification and the lignin question as structure.",
+       "reason": "The first tests membership in a tissue; the second tests cell-wall composition."
+      },
+      {
+       "decision": "Kept the opening options and closing cardiac question explicitly incomplete.",
+       "reason": "The opening stem and the closing answer choices are absent from this page."
+      },
+      {
+       "decision": "Marked supplied solutions and mechanisms as outside whenever the page does not explicitly establish them.",
+       "reason": "The page provides questions without a printed answer key."
+      }
+     ],
+     "uncertain": [
+      "The opening four options belong to a question whose stem is not visible; its answer cannot be determined.",
+      "The cardiac question ends at 'Option:'; no answer choices are visible.",
+      "The statement linking sclerenchyma with climber plants is imprecise: sclerenchyma does provide mechanical strength, but the intended flexible-support association is conventionally collenchyma.",
+      "The comparison table makes broad claims, including absence of collenchyma in monocots and roots and absence of cytoplasm and nucleus in sclerenchyma. These are preserved as printed and should be taught in their usual school-level context.",
+      "The tiny orange word beneath the collenchyma drawing appears to read 'Collenchyma'; the main heading clearly identifies the drawing."
+     ]
+    },
+    "page_summary": "Practice questions cover simple permanent plant tissues, components of xylem, lignified sclerenchyma, buoyant aerenchyma and involuntary cardiac muscle. A visual table compares parenchyma, collenchyma and sclerenchyma across eight criteria, with drawings of their contrasting cell walls.",
+    "items": [
+     {
+      "item_id": "i1",
+      "kind": "answer_option",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0013-b0002",
+       "p0013-b0003",
+       "p0013-b0004",
+       "p0013-b0005"
+      ],
+      "where_on_page": "upper left, above the first complete question",
+      "content": "a. 1 only\nb. 1 and 2.\nc. 2 and 3.\nd. All are correct",
+      "content_type": "none",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What do these options establish?",
+        "answer": "They offer combinations of numbered statements, but the statements and question stem are not visible on this page.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why can no correct option be selected from this page?",
+        "answer": "The truth of the numbered statements must be known before their combinations can be evaluated; those statements are missing.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "the missing question and its numbered statements"
+      ],
+      "exam_importance": "low",
+      "exam_note": "Incomplete continuation; do not infer an answer.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i2",
+      "kind": "question",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0013-b0006",
+       "p0013-b0014"
+      ],
+      "where_on_page": "upper left",
+      "content": "Q. Consider the following statement(s):\nChoose the correct option:",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How should the three tissue–function pairings be evaluated?",
+        "answer": "Compare each claimed feature with the tissue: the reference table supports large vacuoles and food storage in parenchyma, mechanical strength in sclerenchyma, and lignified walls in sclerenchyma rather than collenchyma.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "Which pairing is the intended correct one?",
+        "answer": "Statement 1 is correct, giving option a, '1 only.' Statement 3 is incorrect because collenchyma is not characteristically lignified. Statement 2 is intended to be incorrect because the familiar climber-support association is collenchyma, although sclerenchyma itself does provide mechanical strength.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How should a statement containing two linked claims be handled?",
+        "answer": "Check both claims. A correct general function does not automatically validate the accompanying location or example. Here the wording about climbers is imprecise, so the intended answer should be distinguished from an absolute biological claim.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "plant tissue",
+       "cell wall",
+       "vacuole",
+       "mechanical support"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Statement-based comparison; intended answer a, with a wording caveat for statement 2.",
+      "tests_item_ids": [
+       "i4",
+       "i5",
+       "i6",
+       "i10",
+       "i13",
+       "i16"
+      ]
+     },
+     {
+      "item_id": "i3",
+      "kind": "table",
+      "parent_item_id": "i2",
+      "source": "both",
+      "block_ids": [
+       "p0013-b0007",
+       "p0013-b0008"
+      ],
+      "where_on_page": "upper-left question, two-column statement list",
+      "content": "Columns: Tissue | Function and constituents. Three numbered tissue–feature pairings follow.",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": false,
+      "teacher_understanding": [],
+      "prerequisites": [],
+      "exam_importance": "high",
+      "exam_note": "Question table; its entries are claims to assess.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i4",
+      "kind": "table_row",
+      "parent_item_id": "i3",
+      "source": "both",
+      "block_ids": [
+       "p0013-b0009",
+       "p0013-b0010"
+      ],
+      "where_on_page": "left question table, row 1",
+      "content": "1. Tissue: Parenchyma | Function and constituents: Large vacuole and store food",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How does this claim compare with the reference table?",
+        "answer": "It agrees: parenchyma has a large vacuole and food storage is one of its functions.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "How does its vacuole compare with that of sclerenchyma?",
+        "answer": "The table lists a large vacuole in parenchyma and absent vacuoles in sclerenchyma.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do living parenchyma cells store food?",
+        "answer": "They retain living contents and can accumulate reserves. Starch is stored in plastids, while dissolved substances can occur in vacuoles; food storage should not be reduced to the vacuole alone.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "plant cell",
+       "vacuole",
+       "food reserves"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Correct statement; distinguish storage function from the precise site of each stored substance.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i5",
+      "kind": "table_row",
+      "parent_item_id": "i3",
+      "source": "both",
+      "block_ids": [
+       "p0013-b0011",
+       "p0013-b0012"
+      ],
+      "where_on_page": "left question table, row 2",
+      "content": "2. Tissue: Sclerenchyma | Function and constituents: In climber plants and provide mechanical strength",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "Which part of this pairing agrees with the reference table?",
+        "answer": "Mechanical strength agrees with the table's listed functions for sclerenchyma; the table does not specifically list climber plants as its occurrence.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "What distinction is this statement apparently intended to test?",
+        "answer": "Collenchyma is conventionally associated with flexible support in young stems and climbing structures, while sclerenchyma gives firmer support through lignified walls. The statement should not be interpreted to mean that climbers cannot contain sclerenchyma.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is the wording potentially misleading?",
+        "answer": "A whole plant can contain several tissue types. Naming 'climber plants' without specifying the organ or kind of support does not uniquely identify one tissue.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "mechanical strength",
+       "climbing plant",
+       "lignified wall",
+       "flexible support"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Intended incorrect pairing; retain the qualification about its wording.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i6",
+      "kind": "table_row",
+      "parent_item_id": "i3",
+      "source": "both",
+      "block_ids": [
+       "p0013-b0013"
+      ],
+      "where_on_page": "left question table, row 3",
+      "content": "3. Tissue: Collenchyma | Function and constituents: contain lignin",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How does this claim compare with the reference table?",
+        "answer": "The table identifies lignified secondary walls with sclerenchyma and uneven wall thickening with collenchyma, so this is the incorrect tissue–feature association.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "What wall difference should replace the incorrect association?",
+        "answer": "Typical collenchyma has unevenly thickened, non-lignified primary walls, whereas mature sclerenchyma has thick lignified secondary walls.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why does this wall distinction matter functionally?",
+        "answer": "Collenchyma can support organs that are still growing and bending; lignified sclerenchyma provides more rigid reinforcement.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "primary wall",
+       "secondary wall",
+       "lignin"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Common reversal of collenchyma and sclerenchyma wall properties.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i7",
+      "kind": "answer_option",
+      "parent_item_id": "i2",
+      "source": "both",
+      "block_ids": [
+       "p0013-b0015",
+       "p0013-b0016",
+       "p0013-b0017",
+       "p0013-b0018"
+      ],
+      "where_on_page": "left, below the tissue statement table",
+      "content": "a. 1 only.\nb. 2 only.\nc. 1 and 3 only.\nd. All are incorrect.",
+      "content_type": "none",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which option is the intended answer?",
+        "answer": "Option a, '1 only,' is the intended answer; the climber wording in statement 2 needs the qualification given above.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why can options c and d be rejected directly from the reference table?",
+        "answer": "Option c includes the lignin–collenchyma claim, whereas the table assigns lignified walls to sclerenchyma. Option d rejects statement 1, even though the table supports parenchyma's large vacuole and food storage.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "evaluation of the three tissue statements"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Options preserved in full; intended answer a.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i8",
+      "kind": "table",
+      "parent_item_id": "",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "upper right",
+      "content": "Comparison table. Columns: Features | Parenchyma | Collenchyma | Sclerenchyma. Eight rows compare cell shape, cell wall, cytoplasm, nucleus, vacuoles, intercellular spaces, occurrence and functions. A drawing of each tissue appears above its column.",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": false,
+      "teacher_understanding": [],
+      "prerequisites": [],
+      "exam_importance": "high",
+      "exam_note": "Central reference for identifying simple permanent plant tissues.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i9",
+      "kind": "table_row",
+      "parent_item_id": "i8",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "right table, row 1",
+      "content": "Features: 1. Cell shape | Parenchyma: Isodiametric cells which are oval, spherical or polygonal in shape | Collenchyma: Circular, oval or polyhedral | Sclerenchyma: Variable in shape. Fibres and sclereids",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How does cell shape vary among the tissues?",
+        "answer": "Parenchyma is described as isodiametric, with oval, spherical or polygonal cells; collenchyma as circular, oval or polyhedral; sclerenchyma as variable, including fibres and sclereids.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "What is distinctive about the sclerenchyma entry?",
+        "answer": "It names fibres and sclereids as forms rather than giving one shared geometric shape.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How should a learner interpret these shape descriptions?",
+        "answer": "Isodiametric means broadly similar dimensions in different directions. Fibres are elongated and sclereids have varied, often shorter forms. Circular or polygonal profiles may reflect a section through cells, so shape alone is insufficient for identification.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell shape",
+       "section through a tissue"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Recognise fibres and sclereids; combine shape with wall and living-status evidence.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i10",
+      "kind": "table_row",
+      "parent_item_id": "i8",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "right table, row 2",
+      "content": "Features: 2. Cell wall | Parenchyma: Thin cellulosic cell wall | Collenchyma: Uneven thickening on their cell wall. | Sclerenchyma: Lignified secondary cell wall present",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "What are the three contrasting wall conditions?",
+        "answer": "Parenchyma has a thin cellulosic wall; collenchyma has uneven wall thickening; sclerenchyma has a lignified secondary wall.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "Which tissue is identified by secondary-wall lignification?",
+        "answer": "Sclerenchyma is the tissue explicitly identified by that feature.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why do these wall differences produce different kinds of support?",
+        "answer": "Thin walls suit living packing and storage cells. Uneven primary-wall thickening reinforces growing organs while permitting flexibility. A thick lignified secondary wall provides greater rigidity.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cellulose",
+       "primary and secondary cell walls",
+       "lignin"
+      ],
+      "exam_importance": "high",
+      "exam_note": "High-value distinction for statement questions and tissue identification.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i11",
+      "kind": "table_row",
+      "parent_item_id": "i8",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "right table, row 3",
+      "content": "Features: 3. Cytoplasm | Parenchyma: Abundant | Collenchyma: Present | Sclerenchyma: Absent",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How does the table compare cytoplasm?",
+        "answer": "It lists abundant cytoplasm in parenchyma, cytoplasm present in collenchyma and cytoplasm absent in sclerenchyma.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "Which tissue differs by lacking cytoplasm?",
+        "answer": "Sclerenchyma differs from the two living tissues in this row.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why should 'absent' be understood in relation to maturity?",
+        "answer": "Typical sclerenchyma cells lose their living protoplast as they mature, leaving the supporting wall. Developing cells must have living contents while producing that wall.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cytoplasm",
+       "living cell",
+       "cell maturation"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Teach absence of cytoplasm as the usual mature sclerenchyma condition.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i12",
+      "kind": "table_row",
+      "parent_item_id": "i8",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "right table, row 4",
+      "content": "Features: 4. Nucleus | Parenchyma: Present, (Living tissue) | Collenchyma: Present, (Living tissue) | Sclerenchyma: Absent (Dead tissue)",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How does nuclear presence distinguish the tissues?",
+        "answer": "Parenchyma and collenchyma are listed as living tissues with nuclei; sclerenchyma is listed as dead tissue without a nucleus.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "Which pair shares the same nuclear condition?",
+        "answer": "Parenchyma and collenchyma both retain nuclei in the table.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can dead sclerenchyma still function?",
+        "answer": "Its mechanical role depends mainly on the strength of its persistent cell wall, so support can continue after the protoplast has been lost.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "nucleus",
+       "protoplast",
+       "mechanical support by cell walls"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Living versus dead tissue is a frequent distinguishing criterion.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i13",
+      "kind": "table_row",
+      "parent_item_id": "i8",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "right table, row 5",
+      "content": "Features: 5. Vacuoles | Parenchyma: Large vacuole | Collenchyma: Vacuolated | Sclerenchyma: Absent",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "What vacuolar conditions does the table list?",
+        "answer": "Parenchyma has a large vacuole, collenchyma is vacuolated and sclerenchyma has no vacuoles.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "Does a vacuole alone distinguish parenchyma from collenchyma?",
+        "answer": "No. Both are shown as vacuolated; parenchyma's entry specifically emphasises a large vacuole.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does a vacuole contribute to a living plant cell?",
+        "answer": "It stores cell sap and helps maintain turgor as water enters the cell. Turgor presses the cell contents against the wall and contributes to support.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "vacuole",
+       "water movement",
+       "cell wall"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Directly supports statement 1 in the tissue-pairing question.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i14",
+      "kind": "table_row",
+      "parent_item_id": "i8",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "right table, row 6",
+      "content": "Features: 6. Intercellular spaces | Parenchyma: Present | Collenchyma: Absent | Sclerenchyma: Absent",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How are spaces between cells compared?",
+        "answer": "The table records intercellular spaces in parenchyma and their absence in collenchyma and sclerenchyma.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "Which distinction must be kept clear when reading this row?",
+        "answer": "Intercellular spaces are between neighbouring cells; they are different from vacuoles within a cell.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can intercellular spaces become important in aquatic plants?",
+        "answer": "Large air-filled spaces in aerenchyma reduce tissue density and allow gases to move through the plant, contributing to buoyancy and internal aeration.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell boundary",
+       "vacuole",
+       "space between cells"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Connect with aerenchyma while retaining the table's generalised comparison.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i15",
+      "kind": "table_row",
+      "parent_item_id": "i8",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "right table, row 7",
+      "content": "Features: 7. Occurrence | Parenchyma: Basically packing tissue, All soft part of plant, Pith, cortex, medullary rays | Collenchyma: Dicot stems, petiole and beneath the epidermis. Absent in monocot and roots | Sclerenchyma: Dicot hypodermis, bundle sheath, pericycle, Seed, pulp of fruits.",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "Where does the table place each tissue?",
+        "answer": "Parenchyma is placed in soft packing regions, including pith, cortex and medullary rays. Collenchyma is placed in dicot stems and petioles, beneath the epidermis, and described as absent in monocots and roots. Sclerenchyma is listed in dicot hypodermis, bundle sheath, pericycle, seed and fruit pulp.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "How do the listed locations reflect different tissue roles?",
+        "answer": "Parenchyma occupies much soft ground tissue, whereas the supporting tissues are associated with reinforcing regions, vascular surroundings or hard elements within organs.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why should the occurrence list not be treated as a universal rule for every plant?",
+        "answer": "Tissue distribution varies with species, organ and maturity. For example, dicot hypodermis is commonly taught as collenchymatous, while sclerenchymatous hypodermis is common in monocot stems; some listed examples therefore need broader anatomical context.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can sclerenchyma occur in fruit pulp?",
+        "answer": "Sclereids can occur among softer cells and produce a gritty texture, as in pear pulp. This does not mean the entire pulp is sclerenchyma.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "dicot and monocot",
+       "stem and root",
+       "epidermis and hypodermis",
+       "petiole",
+       "cortex and pith",
+       "vascular bundle",
+       "pericycle"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Locations are examinable; preserve the printed list while qualifying broad or problematic generalisations.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i16",
+      "kind": "table_row",
+      "parent_item_id": "i8",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "right table, row 8",
+      "content": "Features: 8. Functions | Parenchyma: Food storage, Photosynthesis | Collenchyma: Provide tensile strength, Mechanical support, Photosynthesis | Sclerenchyma: Protection from stress and strain, Mechanical strength",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How do the functions of the three tissues compare?",
+        "answer": "Parenchyma is listed for food storage and photosynthesis; collenchyma for tensile strength, mechanical support and photosynthesis; sclerenchyma for protection from stress and strain and mechanical strength.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "What separates the two supporting tissues functionally?",
+        "answer": "Collenchyma provides flexible support suited to growing organs, whereas lignified sclerenchyma provides more rigid reinforcement.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can a supporting tissue also photosynthesise?",
+        "answer": "Living collenchyma cells may contain chloroplasts. Mechanical support comes from their walls, while photosynthesis occurs in chloroplasts, so the functions can coexist.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why should photosynthesis not be assigned to every parenchyma or collenchyma cell?",
+        "answer": "Photosynthesis requires chloroplasts and suitable light. The table lists tissue capabilities, not a guarantee that each cell in every location performs them.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "food storage",
+       "photosynthesis",
+       "chloroplast",
+       "tension",
+       "cell-wall strength"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Functions and their structural explanations are central comparison points.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i17",
+      "kind": "diagram",
+      "parent_item_id": "i8",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "right table header, parenchyma column",
+      "content": "Parenchyma drawing: a cluster of rounded or polygonal green cells with thin boundaries and visible spaces between some cells. A label identifies the thin primary cell wall. No process arrows are shown.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does this drawing show?",
+        "answer": "It shows the cellular arrangement and thin walls of parenchyma, with spaces between some neighbouring cells.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which visible clues identify it as parenchyma?",
+        "answer": "The thin wall label and loosely arranged cells correspond to the table's thin cellulosic walls and intercellular spaces.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How should the drawing be used for identification?",
+        "answer": "Combine wall thickness and spaces with the comparison table; the green colour of a schematic alone cannot establish that every parenchyma cell contains chloroplasts.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell wall",
+       "intercellular space",
+       "schematic tissue section"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Visual identification of parenchyma.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i18",
+      "kind": "diagram_label",
+      "parent_item_id": "i17",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "above parenchyma drawing",
+      "content": "Parenchyma — names the left tissue drawing.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What tissue does the heading name?",
+        "answer": "It names the illustrated tissue as parenchyma.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which drawing belongs to this heading?",
+        "answer": "The left cluster of thin-walled cells above the parenchyma comparison column.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why relate the heading to the column beneath it?",
+        "answer": "The drawing provides the visual example for the same tissue whose properties are listed down that column.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "reading a comparison table"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Connect tissue name to its visual features.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i19",
+      "kind": "diagram_label",
+      "parent_item_id": "i17",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "beneath parenchyma drawing",
+      "content": "thin primary cell wall — identifies the thin cell boundary in the parenchyma drawing.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What structure does the label identify?",
+        "answer": "The thin primary wall surrounding a parenchyma cell.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which other wall condition in the figure contrasts with this?",
+        "answer": "The thick secondary wall labelled in sclerenchyma contrasts with parenchyma's thin primary wall.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does a primary wall relate to cell growth?",
+        "answer": "A primary wall is formed while the cell is growing and can accommodate expansion; a secondary wall is deposited internally after much of that expansion.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell wall",
+       "cell growth"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Distinguish primary from secondary wall.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i20",
+      "kind": "diagram",
+      "parent_item_id": "i8",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "right table header, collenchyma column",
+      "content": "Collenchyma drawing: a compact group of polygonal cells whose primary walls show uneven thickening, especially around cell junctions. The wall label reads 'Irregularly Thickened Primary Cell Wall'; a small orange tissue label appears beneath it. No process arrows are shown.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does this drawing emphasise?",
+        "answer": "It emphasises closely arranged collenchyma cells and irregularly thickened primary walls.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which feature distinguishes it from the adjacent parenchyma drawing?",
+        "answer": "Its wall thickening is uneven and more prominent, whereas the parenchyma wall is labelled thin.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is uneven wall thickening useful?",
+        "answer": "It reinforces living tissue while retaining flexibility, helping young organs withstand bending.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "primary wall",
+       "cell junction",
+       "flexible support"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Recognise uneven primary-wall thickening.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i21",
+      "kind": "diagram_label",
+      "parent_item_id": "i20",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "above collenchyma drawing",
+      "content": "Collenchyma — names the middle tissue drawing.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What tissue is named?",
+        "answer": "Collenchyma.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which drawing does the name identify?",
+        "answer": "The middle cluster of compact cells with unevenly thickened walls.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can the name be associated with a diagnostic feature?",
+        "answer": "Use the uneven primary-wall thickening shown beneath the heading rather than relying on the general polygonal cell shape.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "cell-wall thickness"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Tissue-name recognition.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i22",
+      "kind": "diagram_label",
+      "parent_item_id": "i20",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "beneath collenchyma drawing",
+      "content": "Irregularly Thickened Primary Cell Wall — identifies the uneven cell-wall thickening in the collenchyma drawing.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What wall feature is labelled?",
+        "answer": "Irregular thickening of the primary cell wall.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which tissue has this labelled wall?",
+        "answer": "Collenchyma.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why should this not be confused with a lignified secondary wall?",
+        "answer": "The label specifically identifies a primary wall; the separate sclerenchyma illustration identifies the thick secondary wall, and the table assigns lignification to sclerenchyma.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "primary and secondary cell walls"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Diagnostic wall label.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i23",
+      "kind": "diagram_label",
+      "parent_item_id": "i20",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "small orange text below the collenchyma wall label",
+      "content": "Collenchyma — small repeated tissue name beneath the middle drawing; the tiny text is less clear than the main heading.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does the small repeated label appear to name?",
+        "answer": "It appears to repeat 'Collenchyma,' matching the clear heading above the drawing.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which illustration does it accompany?",
+        "answer": "The middle drawing with irregularly thickened primary walls.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can the tissue be identified despite the tiny lettering?",
+        "answer": "The clear column heading and the accompanying primary-wall label establish the drawing's identity.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "reading diagram labels"
+      ],
+      "exam_importance": "low",
+      "exam_note": "Repeated identification; tiny lettering is uncertain.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i24",
+      "kind": "diagram",
+      "parent_item_id": "i8",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "right table header, sclerenchyma column",
+      "content": "Sclerenchyma drawing: a group of cells with thick surrounding walls and relatively narrow central spaces. Labels distinguish 'thick secondary cell wall' and 'primary cell wall'. No process arrows are shown.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does the sclerenchyma drawing show?",
+        "answer": "It shows thick-walled cells and distinguishes the primary wall from the thick secondary wall.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which visible feature is diagnostic?",
+        "answer": "The prominent thick secondary wall is the main distinguishing feature.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does secondary-wall deposition affect the central space?",
+        "answer": "Secondary wall material is deposited inward from the primary wall, reducing the remaining cell cavity, or lumen.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "primary wall",
+       "secondary wall",
+       "cell lumen"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Visual identification of thick-walled sclerenchyma.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i25",
+      "kind": "diagram_label",
+      "parent_item_id": "i24",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "above sclerenchyma drawing",
+      "content": "Sclerenchyma — names the right tissue drawing.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What tissue does the heading name?",
+        "answer": "Sclerenchyma.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which illustration belongs to this name?",
+        "answer": "The right-hand group of thick-walled cells.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is this drawing consistent with the comparison column?",
+        "answer": "The drawing labels a thick secondary wall, while the column describes a lignified secondary cell wall.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "secondary cell wall"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Associate name with diagnostic wall structure.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i26",
+      "kind": "diagram_label",
+      "parent_item_id": "i24",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "beneath sclerenchyma drawing, left label",
+      "content": "thick secondary cell wall — identifies the thick wall layer surrounding a sclerenchyma cell's central space.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does this label identify?",
+        "answer": "The thick secondary cell wall in sclerenchyma.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which table property explains its composition?",
+        "answer": "The cell-wall row describes the secondary wall as lignified.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is this layer important to sclerenchyma?",
+        "answer": "The reinforced wall bears mechanical loads and continues to provide support after the cell loses its living contents.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "lignin",
+       "secondary cell wall",
+       "mechanical load"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Links wall structure with support and lignification.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i27",
+      "kind": "diagram_label",
+      "parent_item_id": "i24",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "beneath sclerenchyma drawing, right label",
+      "content": "primary cell wall — identifies the primary wall outside the thick secondary wall in the sclerenchyma drawing.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What structure does this label identify?",
+        "answer": "The primary cell wall of a sclerenchyma cell.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which two wall layers are distinguished in this drawing?",
+        "answer": "The primary cell wall and the thick secondary cell wall.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How are these layers arranged?",
+        "answer": "The secondary wall is deposited on the inner side of the earlier primary wall, so the presence of a secondary wall does not mean the primary wall disappears.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell-wall layers",
+       "cell growth"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Avoid treating primary and secondary walls as mutually exclusive structures.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i28",
+      "kind": "question",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0013-b0019"
+      ],
+      "where_on_page": "middle left, below tissue question",
+      "content": "Q. All are parts of xylem except:",
+      "content_type": "classification",
+      "type_note": "Classification fits because the question tests membership among xylem components, rather than their spatial arrangement.",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which listed structure is not a component of xylem?",
+        "answer": "Companion cells, option A, belong to phloem rather than xylem.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "How do the other options differ from companion cells?",
+        "answer": "Tracheids, xylem parenchyma and vessel elements are xylem components. Xylem fibres are another xylem component, although they are not offered as an option here.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why are companion cells associated with phloem?",
+        "answer": "They are living cells closely associated with sieve-tube elements and support their transport activities. This association places them in phloem.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "xylem",
+       "phloem",
+       "complex permanent tissue",
+       "sieve-tube element"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Odd-one-out question; answer A.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i29",
+      "kind": "answer_option",
+      "parent_item_id": "i28",
+      "source": "both",
+      "block_ids": [
+       "p0013-b0020",
+       "p0013-b0021",
+       "p0013-b0022",
+       "p0013-b0023"
+      ],
+      "where_on_page": "below xylem question",
+      "content": "A. Companion cells\nB. Tracheid\nC. Parenchyma\nD. Xylem vessel",
+      "content_type": "none",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "How should each option be classified?",
+        "answer": "A is a phloem component and is the exception. B is a xylem water-conducting element. C is understood here as xylem parenchyma. D is a xylem conducting structure formed from vessel elements.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why does the broad word 'Parenchyma' remain a valid xylem option?",
+        "answer": "Parenchyma is a cell type that can occur within complex tissues. Xylem parenchyma provides a living component of xylem, so the question's context determines the intended meaning.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "xylem components",
+       "phloem components",
+       "simple and complex tissues"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Answer A; interpret C in its xylem context.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i30",
+      "kind": "question",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0013-b0024"
+      ],
+      "where_on_page": "middle left",
+      "content": "Q. Lignin is present in cell wall of which tissue:",
+      "content_type": "structure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "Which tissue is identified by lignin in its cell wall?",
+        "answer": "Sclerenchyma, option b; the reference table explicitly lists a lignified secondary cell wall.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Where is the lignified wall located?",
+        "answer": "It forms the secondary wall surrounding the cell cavity, internal to the primary wall.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is lignin associated with mechanical strength?",
+        "answer": "Lignin reinforces the wall, increasing rigidity and resistance to compression. That supports sclerenchyma's mechanical role.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell wall",
+       "lignin",
+       "secondary wall"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Direct structure-identification question; answer b.",
+      "tests_item_ids": [
+       "i10",
+       "i24",
+       "i26"
+      ]
+     },
+     {
+      "item_id": "i31",
+      "kind": "answer_option",
+      "parent_item_id": "i30",
+      "source": "both",
+      "block_ids": [
+       "p0013-b0025",
+       "p0013-b0026",
+       "p0013-b0027",
+       "p0013-b0028"
+      ],
+      "where_on_page": "below lignin question",
+      "content": "a. Parenchyma\nb. Sclerenchyma\nc. Collenchyma\nd. None",
+      "content_type": "none",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which answer is supported by the table?",
+        "answer": "Option b, Sclerenchyma.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why are the other choices unsuitable in this comparison?",
+        "answer": "The table describes parenchyma as thin-walled and cellulosic, collenchyma as unevenly thickened, and sclerenchyma specifically as lignified. Therefore 'None' is also unsuitable.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "wall differences among simple permanent tissues"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Answer b; common collenchyma–sclerenchyma distractor.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i32",
+      "kind": "question",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0013-b0029"
+      ],
+      "where_on_page": "lower middle",
+      "content": "Q. Specialised cell of parenchyma present in aquatic plants to provide them buoyancy",
+      "content_type": "classification",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which specialised form of parenchyma provides buoyancy in aquatic plants?",
+        "answer": "Aerenchyma, option c.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "How does aerenchyma differ from chlorenchyma?",
+        "answer": "Aerenchyma is characterised by large air spaces and is associated with buoyancy and aeration; chlorenchyma is chloroplast-containing parenchyma associated with photosynthesis.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do air spaces contribute to buoyancy?",
+        "answer": "They increase the volume occupied with relatively little added mass, lowering the tissue's average density and helping aquatic organs remain supported by water.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is aerenchyma better understood as a tissue arrangement than as a single specialised cell?",
+        "answer": "Its characteristic air spaces arise within an arrangement of cells. The question uses 'cell' loosely, while the buoyancy feature depends on the tissue's air-space system.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "parenchyma",
+       "intercellular spaces",
+       "aquatic plant",
+       "density and buoyancy",
+       "chloroplast"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Answer c; connect structure, habitat and function.",
+      "tests_item_ids": [
+       "i14"
+      ]
+     },
+     {
+      "item_id": "i33",
+      "kind": "answer_option",
+      "parent_item_id": "i32",
+      "source": "both",
+      "block_ids": [
+       "p0013-b0030",
+       "p0013-b0031",
+       "p0013-b0032",
+       "p0013-b0033"
+      ],
+      "where_on_page": "below aquatic parenchyma question",
+      "content": "a. Chlorenchyma\nb. Sieve tube\nc. Aerenchyma\nd. Companion cells",
+      "content_type": "none",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which option matches the buoyancy function?",
+        "answer": "Option c, Aerenchyma. Chlorenchyma specialises in photosynthesis; sieve tubes and companion cells belong to phloem.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why are sieve tubes and companion cells poor matches?",
+        "answer": "Their principal association is transport of organic substances in phloem, whereas the question asks for an air-space-rich form of parenchyma suited to aquatic plants.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "aerenchyma",
+       "chlorenchyma",
+       "phloem"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Answer c; distinguish parenchyma specialisations from phloem elements.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i34",
+      "kind": "question",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0013-b0034",
+       "p0013-b0038"
+      ],
+      "where_on_page": "bottom left",
+      "content": "Q. Which statement is incorrect with reference to cardiac tissue:\nOption:",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How does cardiac muscle compare with skeletal and visceral muscle?",
+        "answer": "Cardiac muscle is striated like skeletal muscle but involuntary like visceral smooth muscle. This explains the question's statement that it has features of both.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "Which numbered statement is incorrect?",
+        "answer": "Statement 2, 'They are voluntary in nature,' is incorrect. The answer choices themselves are not visible.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is cardiac contraction described as involuntary?",
+        "answer": "The heartbeat is generated by specialised pacemaker activity and is regulated without requiring a conscious command for each contraction.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "muscle tissue",
+       "striations",
+       "voluntary and involuntary control",
+       "skeletal muscle",
+       "visceral smooth muscle"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Incorrect statement is 2; no option letter can be assigned from this page.",
+      "tests_item_ids": [
+       "i35",
+       "i36",
+       "i37"
+      ]
+     },
+     {
+      "item_id": "i35",
+      "kind": "list_point",
+      "parent_item_id": "i34",
+      "source": "both",
+      "block_ids": [
+       "p0013-b0035"
+      ],
+      "where_on_page": "bottom, cardiac statement 1",
+      "content": "1. They are striated",
+      "content_type": "structure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "Is striation a correct feature of cardiac muscle?",
+        "answer": "Yes. Cardiac muscle fibres show alternating light and dark bands.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Where are these striations seen?",
+        "answer": "They are seen along cardiac muscle fibres under a microscope; cardiac muscle forms the muscular wall of the heart.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why do the fibres appear striated?",
+        "answer": "Their contractile filaments are organised into repeating sarcomeres, producing the banded appearance.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "muscle fibre",
+       "microscopic bands",
+       "contractile filaments"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Correct statement; striation does not imply voluntary control.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i36",
+      "kind": "list_point",
+      "parent_item_id": "i34",
+      "source": "both",
+      "block_ids": [
+       "p0013-b0036"
+      ],
+      "where_on_page": "bottom, cardiac statement 2",
+      "content": "2. They are voluntary in nature",
+      "content_type": "classification",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which control category actually applies to cardiac muscle?",
+        "answer": "Involuntary control; the printed statement is the incorrect one.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "How does this differ from typical skeletal-muscle control?",
+        "answer": "Typical skeletal muscle can be activated through conscious motor commands, while cardiac muscle contracts rhythmically without a conscious command for each beat.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can heartbeat change if it is involuntary?",
+        "answer": "Autonomic nerves and hormones can alter the rate and force of cardiac activity while its rhythmic contractions continue without conscious initiation.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "voluntary and involuntary action",
+       "heartbeat",
+       "autonomic regulation"
+      ],
+      "exam_importance": "high",
+      "exam_note": "This is the statement to select as incorrect.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i37",
+      "kind": "list_point",
+      "parent_item_id": "i34",
+      "source": "both",
+      "block_ids": [
+       "p0013-b0037"
+      ],
+      "where_on_page": "bottom, cardiac statement 3",
+      "content": "3. They have features of both skeletal and visceral tissue.",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "Which features does cardiac tissue share with the two muscle types?",
+        "answer": "It shares striation with skeletal muscle and involuntary control with visceral smooth muscle.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "Does sharing features make cardiac muscle a mixture of the other tissues?",
+        "answer": "No. Cardiac muscle is a distinct muscle type; the statement compares selected features rather than claiming a mixture.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is this combination a useful exam distinction?",
+        "answer": "Appearance and control are separate criteria. Cardiac muscle demonstrates that striated muscle can be involuntary, preventing the mistaken equation of striation with voluntary action.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "skeletal muscle",
+       "visceral smooth muscle",
+       "striations",
+       "involuntary control"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Correct comparative statement in the intended school-level sense.",
+      "tests_item_ids": []
+     }
+    ],
+    "boilerplate_block_ids": [
+     "p0013-b0001",
+     "p0013-b0039"
+    ],
+    "text_image_disagreements": [
+     {
+      "block_ids": [],
+      "text_says": "The native text contains no transcription of the right-hand comparison table or its tissue drawings.",
+      "image_shows": "A comparison table with three tissue columns and eight feature rows, plus three labelled tissue drawings."
+     },
+     {
+      "block_ids": [
+       "p0013-b0007",
+       "p0013-b0008",
+       "p0013-b0009",
+       "p0013-b0010",
+       "p0013-b0011",
+       "p0013-b0012",
+       "p0013-b0013"
+      ],
+      "text_says": "The table heading and several row entries are split across separate linear text blocks.",
+      "image_shows": "A two-column question layout headed 'Tissue' and 'Function and constituents'; wrapped lines belong to the same numbered tissue–feature pairing."
+     }
+    ]
+   },
+   "code_problems": [
+    "[code] item i1: an answer_option needs its question as parent_item_id"
+   ],
+   "observed": {
+    "type_check": [
+     {
+      "item_id": "i1",
+      "ai_type": "none",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "role",
+      "type_note": ""
+     },
+     {
+      "item_id": "i2",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "role",
+      "type_note": ""
+     },
+     {
+      "item_id": "i3",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i4",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i5",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i6",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i7",
+      "ai_type": "none",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "role",
+      "type_note": ""
+     },
+     {
+      "item_id": "i8",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i9",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i10",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i11",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i12",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i13",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i14",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i15",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i16",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i17",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i18",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i19",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i20",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i21",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i22",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i23",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i24",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i25",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i26",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i27",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i28",
+      "ai_type": "classification",
+      "code_type": "structure",
+      "strength": "weak",
+      "evidence": [
+       "'parts'"
+      ],
+      "status": "role",
+      "type_note": "Classification fits because the question tests membership among xylem components, rather than their spatial arrangement."
+     },
+     {
+      "item_id": "i29",
+      "ai_type": "none",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "role",
+      "type_note": ""
+     },
+     {
+      "item_id": "i30",
+      "ai_type": "structure",
+      "code_type": "structure",
+      "strength": "weak",
+      "evidence": [
+       "'wall'"
+      ],
+      "status": "role",
+      "type_note": ""
+     },
+     {
+      "item_id": "i31",
+      "ai_type": "none",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "role",
+      "type_note": ""
+     },
+     {
+      "item_id": "i32",
+      "ai_type": "classification",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "role",
+      "type_note": ""
+     },
+     {
+      "item_id": "i33",
+      "ai_type": "none",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "role",
+      "type_note": ""
+     },
+     {
+      "item_id": "i34",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "role",
+      "type_note": ""
+     },
+     {
+      "item_id": "i35",
+      "ai_type": "structure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i36",
+      "ai_type": "classification",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i37",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     }
+    ],
+    "type_summary": {
+     "code_silent": 8,
+     "follows_parent": 19,
+     "role": 10
+    }
+   },
+   "passed": false,
+   "finished_at": 1792723476.476984
+  },
+  {
+   "round": 2,
+   "started_at": 1792723476.4772427,
+   "mode": "patch",
+   "patch": {
+    "notes": {
+     "about": "Corrected the parent linkage for the opening answer options, which continue a question from the preceding page.",
+     "key_questions": [
+      "How should options be represented when their question stem is absent from this page?"
+     ],
+     "decisions": [
+      {
+       "decision": "Added an explicitly incomplete question container i38 and assigned it as the parent of i1.",
+       "reason": "Every answer_option requires a question parent; the missing stem must not be invented."
+      }
+     ],
+     "uncertain": [
+      "The opening question stem and numbered statements are absent, so its subject and correct answer remain unknown."
+     ]
+    },
+    "replace_items": [
+     {
+      "item_id": "i38",
+      "kind": "question",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [],
+      "where_on_page": "upper left, question continued from the preceding page",
+      "content": "Question continued from the preceding page; its stem and numbered statements are not visible on this page. The visible answer options are captured in i1.",
+      "content_type": "none",
+      "type_note": "",
+      "teachable": false,
+      "teacher_understanding": [],
+      "prerequisites": [],
+      "exam_importance": "low",
+      "exam_note": "Incomplete question container; no answer can be determined from the visible options alone.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i1",
+      "kind": "answer_option",
+      "parent_item_id": "i38",
+      "source": "both",
+      "block_ids": [
+       "p0013-b0002",
+       "p0013-b0003",
+       "p0013-b0004",
+       "p0013-b0005"
+      ],
+      "where_on_page": "upper left, above the first complete question",
+      "content": "a. 1 only\nb. 1 and 2.\nc. 2 and 3.\nd. All are correct",
+      "content_type": "none",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What do these options establish?",
+        "answer": "They offer combinations of numbered statements, but the statements and question stem are not visible on this page.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why can no correct option be selected from this page?",
+        "answer": "The truth of the numbered statements must be known before their combinations can be evaluated; those statements are missing.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "the missing question and its numbered statements"
+      ],
+      "exam_importance": "low",
+      "exam_note": "Incomplete continuation; do not infer an answer.",
+      "tests_item_ids": []
+     }
+    ],
+    "remove_item_ids": [],
+    "boilerplate_block_ids": [
+     "p0013-b0001",
+     "p0013-b0039"
+    ],
+    "text_image_disagreements": [
+     {
+      "block_ids": [],
+      "text_says": "The native text contains no transcription of the right-hand comparison table or its tissue drawings.",
+      "image_shows": "A comparison table with three tissue columns and eight feature rows, plus three labelled tissue drawings."
+     },
+     {
+      "block_ids": [
+       "p0013-b0007",
+       "p0013-b0008",
+       "p0013-b0009",
+       "p0013-b0010",
+       "p0013-b0011",
+       "p0013-b0012",
+       "p0013-b0013"
+      ],
+      "text_says": "The table heading and several row entries are split across separate linear text blocks.",
+      "image_shows": "A two-column question layout headed 'Tissue' and 'Function and constituents'; wrapped lines belong to the same numbered tissue–feature pairing."
+     }
+    ]
+   },
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "b7edb616a801d40239048ff1e1b444313a37e274352f61791fee0407ffc68303",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 35528,
+    "output_tokens": 677,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "Corrected the parent linkage for the opening answer options, which continue a question from the preceding page.",
+    "key_questions": [
+     "How should options be represented when their question stem is absent from this page?"
+    ],
+    "decisions": [
+     {
+      "decision": "Added an explicitly incomplete question container i38 and assigned it as the parent of i1.",
+      "reason": "Every answer_option requires a question parent; the missing stem must not be invented."
+     }
+    ],
+    "uncertain": [
+     "The opening question stem and numbered statements are absent, so its subject and correct answer remain unknown."
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "Corrected the parent linkage for the opening answer options, which continue a question from the preceding page.",
+     "key_questions": [
+      "How should options be represented when their question stem is absent from this page?"
+     ],
+     "decisions": [
+      {
+       "decision": "Added an explicitly incomplete question container i38 and assigned it as the parent of i1.",
+       "reason": "Every answer_option requires a question parent; the missing stem must not be invented."
+      }
+     ],
+     "uncertain": [
+      "The opening question stem and numbered statements are absent, so its subject and correct answer remain unknown."
+     ]
+    },
+    "page_summary": "Practice questions cover simple permanent plant tissues, components of xylem, lignified sclerenchyma, buoyant aerenchyma and involuntary cardiac muscle. A visual table compares parenchyma, collenchyma and sclerenchyma across eight criteria, with drawings of their contrasting cell walls.",
+    "items": [
+     {
+      "item_id": "i1",
+      "kind": "answer_option",
+      "parent_item_id": "i38",
+      "source": "both",
+      "block_ids": [
+       "p0013-b0002",
+       "p0013-b0003",
+       "p0013-b0004",
+       "p0013-b0005"
+      ],
+      "where_on_page": "upper left, above the first complete question",
+      "content": "a. 1 only\nb. 1 and 2.\nc. 2 and 3.\nd. All are correct",
+      "content_type": "none",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What do these options establish?",
+        "answer": "They offer combinations of numbered statements, but the statements and question stem are not visible on this page.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why can no correct option be selected from this page?",
+        "answer": "The truth of the numbered statements must be known before their combinations can be evaluated; those statements are missing.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "the missing question and its numbered statements"
+      ],
+      "exam_importance": "low",
+      "exam_note": "Incomplete continuation; do not infer an answer.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i2",
+      "kind": "question",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0013-b0006",
+       "p0013-b0014"
+      ],
+      "where_on_page": "upper left",
+      "content": "Q. Consider the following statement(s):\nChoose the correct option:",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How should the three tissue–function pairings be evaluated?",
+        "answer": "Compare each claimed feature with the tissue: the reference table supports large vacuoles and food storage in parenchyma, mechanical strength in sclerenchyma, and lignified walls in sclerenchyma rather than collenchyma.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "Which pairing is the intended correct one?",
+        "answer": "Statement 1 is correct, giving option a, '1 only.' Statement 3 is incorrect because collenchyma is not characteristically lignified. Statement 2 is intended to be incorrect because the familiar climber-support association is collenchyma, although sclerenchyma itself does provide mechanical strength.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How should a statement containing two linked claims be handled?",
+        "answer": "Check both claims. A correct general function does not automatically validate the accompanying location or example. Here the wording about climbers is imprecise, so the intended answer should be distinguished from an absolute biological claim.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "plant tissue",
+       "cell wall",
+       "vacuole",
+       "mechanical support"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Statement-based comparison; intended answer a, with a wording caveat for statement 2.",
+      "tests_item_ids": [
+       "i4",
+       "i5",
+       "i6",
+       "i10",
+       "i13",
+       "i16"
+      ]
+     },
+     {
+      "item_id": "i3",
+      "kind": "table",
+      "parent_item_id": "i2",
+      "source": "both",
+      "block_ids": [
+       "p0013-b0007",
+       "p0013-b0008"
+      ],
+      "where_on_page": "upper-left question, two-column statement list",
+      "content": "Columns: Tissue | Function and constituents. Three numbered tissue–feature pairings follow.",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": false,
+      "teacher_understanding": [],
+      "prerequisites": [],
+      "exam_importance": "high",
+      "exam_note": "Question table; its entries are claims to assess.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i4",
+      "kind": "table_row",
+      "parent_item_id": "i3",
+      "source": "both",
+      "block_ids": [
+       "p0013-b0009",
+       "p0013-b0010"
+      ],
+      "where_on_page": "left question table, row 1",
+      "content": "1. Tissue: Parenchyma | Function and constituents: Large vacuole and store food",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How does this claim compare with the reference table?",
+        "answer": "It agrees: parenchyma has a large vacuole and food storage is one of its functions.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "How does its vacuole compare with that of sclerenchyma?",
+        "answer": "The table lists a large vacuole in parenchyma and absent vacuoles in sclerenchyma.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do living parenchyma cells store food?",
+        "answer": "They retain living contents and can accumulate reserves. Starch is stored in plastids, while dissolved substances can occur in vacuoles; food storage should not be reduced to the vacuole alone.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "plant cell",
+       "vacuole",
+       "food reserves"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Correct statement; distinguish storage function from the precise site of each stored substance.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i5",
+      "kind": "table_row",
+      "parent_item_id": "i3",
+      "source": "both",
+      "block_ids": [
+       "p0013-b0011",
+       "p0013-b0012"
+      ],
+      "where_on_page": "left question table, row 2",
+      "content": "2. Tissue: Sclerenchyma | Function and constituents: In climber plants and provide mechanical strength",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "Which part of this pairing agrees with the reference table?",
+        "answer": "Mechanical strength agrees with the table's listed functions for sclerenchyma; the table does not specifically list climber plants as its occurrence.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "What distinction is this statement apparently intended to test?",
+        "answer": "Collenchyma is conventionally associated with flexible support in young stems and climbing structures, while sclerenchyma gives firmer support through lignified walls. The statement should not be interpreted to mean that climbers cannot contain sclerenchyma.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is the wording potentially misleading?",
+        "answer": "A whole plant can contain several tissue types. Naming 'climber plants' without specifying the organ or kind of support does not uniquely identify one tissue.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "mechanical strength",
+       "climbing plant",
+       "lignified wall",
+       "flexible support"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Intended incorrect pairing; retain the qualification about its wording.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i6",
+      "kind": "table_row",
+      "parent_item_id": "i3",
+      "source": "both",
+      "block_ids": [
+       "p0013-b0013"
+      ],
+      "where_on_page": "left question table, row 3",
+      "content": "3. Tissue: Collenchyma | Function and constituents: contain lignin",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How does this claim compare with the reference table?",
+        "answer": "The table identifies lignified secondary walls with sclerenchyma and uneven wall thickening with collenchyma, so this is the incorrect tissue–feature association.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "What wall difference should replace the incorrect association?",
+        "answer": "Typical collenchyma has unevenly thickened, non-lignified primary walls, whereas mature sclerenchyma has thick lignified secondary walls.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why does this wall distinction matter functionally?",
+        "answer": "Collenchyma can support organs that are still growing and bending; lignified sclerenchyma provides more rigid reinforcement.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "primary wall",
+       "secondary wall",
+       "lignin"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Common reversal of collenchyma and sclerenchyma wall properties.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i7",
+      "kind": "answer_option",
+      "parent_item_id": "i2",
+      "source": "both",
+      "block_ids": [
+       "p0013-b0015",
+       "p0013-b0016",
+       "p0013-b0017",
+       "p0013-b0018"
+      ],
+      "where_on_page": "left, below the tissue statement table",
+      "content": "a. 1 only.\nb. 2 only.\nc. 1 and 3 only.\nd. All are incorrect.",
+      "content_type": "none",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which option is the intended answer?",
+        "answer": "Option a, '1 only,' is the intended answer; the climber wording in statement 2 needs the qualification given above.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why can options c and d be rejected directly from the reference table?",
+        "answer": "Option c includes the lignin–collenchyma claim, whereas the table assigns lignified walls to sclerenchyma. Option d rejects statement 1, even though the table supports parenchyma's large vacuole and food storage.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "evaluation of the three tissue statements"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Options preserved in full; intended answer a.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i8",
+      "kind": "table",
+      "parent_item_id": "",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "upper right",
+      "content": "Comparison table. Columns: Features | Parenchyma | Collenchyma | Sclerenchyma. Eight rows compare cell shape, cell wall, cytoplasm, nucleus, vacuoles, intercellular spaces, occurrence and functions. A drawing of each tissue appears above its column.",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": false,
+      "teacher_understanding": [],
+      "prerequisites": [],
+      "exam_importance": "high",
+      "exam_note": "Central reference for identifying simple permanent plant tissues.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i9",
+      "kind": "table_row",
+      "parent_item_id": "i8",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "right table, row 1",
+      "content": "Features: 1. Cell shape | Parenchyma: Isodiametric cells which are oval, spherical or polygonal in shape | Collenchyma: Circular, oval or polyhedral | Sclerenchyma: Variable in shape. Fibres and sclereids",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How does cell shape vary among the tissues?",
+        "answer": "Parenchyma is described as isodiametric, with oval, spherical or polygonal cells; collenchyma as circular, oval or polyhedral; sclerenchyma as variable, including fibres and sclereids.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "What is distinctive about the sclerenchyma entry?",
+        "answer": "It names fibres and sclereids as forms rather than giving one shared geometric shape.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How should a learner interpret these shape descriptions?",
+        "answer": "Isodiametric means broadly similar dimensions in different directions. Fibres are elongated and sclereids have varied, often shorter forms. Circular or polygonal profiles may reflect a section through cells, so shape alone is insufficient for identification.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell shape",
+       "section through a tissue"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Recognise fibres and sclereids; combine shape with wall and living-status evidence.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i10",
+      "kind": "table_row",
+      "parent_item_id": "i8",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "right table, row 2",
+      "content": "Features: 2. Cell wall | Parenchyma: Thin cellulosic cell wall | Collenchyma: Uneven thickening on their cell wall. | Sclerenchyma: Lignified secondary cell wall present",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "What are the three contrasting wall conditions?",
+        "answer": "Parenchyma has a thin cellulosic wall; collenchyma has uneven wall thickening; sclerenchyma has a lignified secondary wall.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "Which tissue is identified by secondary-wall lignification?",
+        "answer": "Sclerenchyma is the tissue explicitly identified by that feature.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why do these wall differences produce different kinds of support?",
+        "answer": "Thin walls suit living packing and storage cells. Uneven primary-wall thickening reinforces growing organs while permitting flexibility. A thick lignified secondary wall provides greater rigidity.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cellulose",
+       "primary and secondary cell walls",
+       "lignin"
+      ],
+      "exam_importance": "high",
+      "exam_note": "High-value distinction for statement questions and tissue identification.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i11",
+      "kind": "table_row",
+      "parent_item_id": "i8",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "right table, row 3",
+      "content": "Features: 3. Cytoplasm | Parenchyma: Abundant | Collenchyma: Present | Sclerenchyma: Absent",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How does the table compare cytoplasm?",
+        "answer": "It lists abundant cytoplasm in parenchyma, cytoplasm present in collenchyma and cytoplasm absent in sclerenchyma.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "Which tissue differs by lacking cytoplasm?",
+        "answer": "Sclerenchyma differs from the two living tissues in this row.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why should 'absent' be understood in relation to maturity?",
+        "answer": "Typical sclerenchyma cells lose their living protoplast as they mature, leaving the supporting wall. Developing cells must have living contents while producing that wall.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cytoplasm",
+       "living cell",
+       "cell maturation"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Teach absence of cytoplasm as the usual mature sclerenchyma condition.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i12",
+      "kind": "table_row",
+      "parent_item_id": "i8",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "right table, row 4",
+      "content": "Features: 4. Nucleus | Parenchyma: Present, (Living tissue) | Collenchyma: Present, (Living tissue) | Sclerenchyma: Absent (Dead tissue)",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How does nuclear presence distinguish the tissues?",
+        "answer": "Parenchyma and collenchyma are listed as living tissues with nuclei; sclerenchyma is listed as dead tissue without a nucleus.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "Which pair shares the same nuclear condition?",
+        "answer": "Parenchyma and collenchyma both retain nuclei in the table.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can dead sclerenchyma still function?",
+        "answer": "Its mechanical role depends mainly on the strength of its persistent cell wall, so support can continue after the protoplast has been lost.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "nucleus",
+       "protoplast",
+       "mechanical support by cell walls"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Living versus dead tissue is a frequent distinguishing criterion.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i13",
+      "kind": "table_row",
+      "parent_item_id": "i8",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "right table, row 5",
+      "content": "Features: 5. Vacuoles | Parenchyma: Large vacuole | Collenchyma: Vacuolated | Sclerenchyma: Absent",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "What vacuolar conditions does the table list?",
+        "answer": "Parenchyma has a large vacuole, collenchyma is vacuolated and sclerenchyma has no vacuoles.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "Does a vacuole alone distinguish parenchyma from collenchyma?",
+        "answer": "No. Both are shown as vacuolated; parenchyma's entry specifically emphasises a large vacuole.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does a vacuole contribute to a living plant cell?",
+        "answer": "It stores cell sap and helps maintain turgor as water enters the cell. Turgor presses the cell contents against the wall and contributes to support.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "vacuole",
+       "water movement",
+       "cell wall"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Directly supports statement 1 in the tissue-pairing question.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i14",
+      "kind": "table_row",
+      "parent_item_id": "i8",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "right table, row 6",
+      "content": "Features: 6. Intercellular spaces | Parenchyma: Present | Collenchyma: Absent | Sclerenchyma: Absent",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How are spaces between cells compared?",
+        "answer": "The table records intercellular spaces in parenchyma and their absence in collenchyma and sclerenchyma.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "Which distinction must be kept clear when reading this row?",
+        "answer": "Intercellular spaces are between neighbouring cells; they are different from vacuoles within a cell.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can intercellular spaces become important in aquatic plants?",
+        "answer": "Large air-filled spaces in aerenchyma reduce tissue density and allow gases to move through the plant, contributing to buoyancy and internal aeration.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell boundary",
+       "vacuole",
+       "space between cells"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Connect with aerenchyma while retaining the table's generalised comparison.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i15",
+      "kind": "table_row",
+      "parent_item_id": "i8",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "right table, row 7",
+      "content": "Features: 7. Occurrence | Parenchyma: Basically packing tissue, All soft part of plant, Pith, cortex, medullary rays | Collenchyma: Dicot stems, petiole and beneath the epidermis. Absent in monocot and roots | Sclerenchyma: Dicot hypodermis, bundle sheath, pericycle, Seed, pulp of fruits.",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "Where does the table place each tissue?",
+        "answer": "Parenchyma is placed in soft packing regions, including pith, cortex and medullary rays. Collenchyma is placed in dicot stems and petioles, beneath the epidermis, and described as absent in monocots and roots. Sclerenchyma is listed in dicot hypodermis, bundle sheath, pericycle, seed and fruit pulp.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "How do the listed locations reflect different tissue roles?",
+        "answer": "Parenchyma occupies much soft ground tissue, whereas the supporting tissues are associated with reinforcing regions, vascular surroundings or hard elements within organs.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why should the occurrence list not be treated as a universal rule for every plant?",
+        "answer": "Tissue distribution varies with species, organ and maturity. For example, dicot hypodermis is commonly taught as collenchymatous, while sclerenchymatous hypodermis is common in monocot stems; some listed examples therefore need broader anatomical context.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can sclerenchyma occur in fruit pulp?",
+        "answer": "Sclereids can occur among softer cells and produce a gritty texture, as in pear pulp. This does not mean the entire pulp is sclerenchyma.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "dicot and monocot",
+       "stem and root",
+       "epidermis and hypodermis",
+       "petiole",
+       "cortex and pith",
+       "vascular bundle",
+       "pericycle"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Locations are examinable; preserve the printed list while qualifying broad or problematic generalisations.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i16",
+      "kind": "table_row",
+      "parent_item_id": "i8",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "right table, row 8",
+      "content": "Features: 8. Functions | Parenchyma: Food storage, Photosynthesis | Collenchyma: Provide tensile strength, Mechanical support, Photosynthesis | Sclerenchyma: Protection from stress and strain, Mechanical strength",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How do the functions of the three tissues compare?",
+        "answer": "Parenchyma is listed for food storage and photosynthesis; collenchyma for tensile strength, mechanical support and photosynthesis; sclerenchyma for protection from stress and strain and mechanical strength.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "What separates the two supporting tissues functionally?",
+        "answer": "Collenchyma provides flexible support suited to growing organs, whereas lignified sclerenchyma provides more rigid reinforcement.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can a supporting tissue also photosynthesise?",
+        "answer": "Living collenchyma cells may contain chloroplasts. Mechanical support comes from their walls, while photosynthesis occurs in chloroplasts, so the functions can coexist.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why should photosynthesis not be assigned to every parenchyma or collenchyma cell?",
+        "answer": "Photosynthesis requires chloroplasts and suitable light. The table lists tissue capabilities, not a guarantee that each cell in every location performs them.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "food storage",
+       "photosynthesis",
+       "chloroplast",
+       "tension",
+       "cell-wall strength"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Functions and their structural explanations are central comparison points.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i17",
+      "kind": "diagram",
+      "parent_item_id": "i8",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "right table header, parenchyma column",
+      "content": "Parenchyma drawing: a cluster of rounded or polygonal green cells with thin boundaries and visible spaces between some cells. A label identifies the thin primary cell wall. No process arrows are shown.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does this drawing show?",
+        "answer": "It shows the cellular arrangement and thin walls of parenchyma, with spaces between some neighbouring cells.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which visible clues identify it as parenchyma?",
+        "answer": "The thin wall label and loosely arranged cells correspond to the table's thin cellulosic walls and intercellular spaces.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How should the drawing be used for identification?",
+        "answer": "Combine wall thickness and spaces with the comparison table; the green colour of a schematic alone cannot establish that every parenchyma cell contains chloroplasts.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell wall",
+       "intercellular space",
+       "schematic tissue section"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Visual identification of parenchyma.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i18",
+      "kind": "diagram_label",
+      "parent_item_id": "i17",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "above parenchyma drawing",
+      "content": "Parenchyma — names the left tissue drawing.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What tissue does the heading name?",
+        "answer": "It names the illustrated tissue as parenchyma.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which drawing belongs to this heading?",
+        "answer": "The left cluster of thin-walled cells above the parenchyma comparison column.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why relate the heading to the column beneath it?",
+        "answer": "The drawing provides the visual example for the same tissue whose properties are listed down that column.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "reading a comparison table"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Connect tissue name to its visual features.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i19",
+      "kind": "diagram_label",
+      "parent_item_id": "i17",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "beneath parenchyma drawing",
+      "content": "thin primary cell wall — identifies the thin cell boundary in the parenchyma drawing.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What structure does the label identify?",
+        "answer": "The thin primary wall surrounding a parenchyma cell.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which other wall condition in the figure contrasts with this?",
+        "answer": "The thick secondary wall labelled in sclerenchyma contrasts with parenchyma's thin primary wall.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does a primary wall relate to cell growth?",
+        "answer": "A primary wall is formed while the cell is growing and can accommodate expansion; a secondary wall is deposited internally after much of that expansion.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell wall",
+       "cell growth"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Distinguish primary from secondary wall.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i20",
+      "kind": "diagram",
+      "parent_item_id": "i8",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "right table header, collenchyma column",
+      "content": "Collenchyma drawing: a compact group of polygonal cells whose primary walls show uneven thickening, especially around cell junctions. The wall label reads 'Irregularly Thickened Primary Cell Wall'; a small orange tissue label appears beneath it. No process arrows are shown.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does this drawing emphasise?",
+        "answer": "It emphasises closely arranged collenchyma cells and irregularly thickened primary walls.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which feature distinguishes it from the adjacent parenchyma drawing?",
+        "answer": "Its wall thickening is uneven and more prominent, whereas the parenchyma wall is labelled thin.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is uneven wall thickening useful?",
+        "answer": "It reinforces living tissue while retaining flexibility, helping young organs withstand bending.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "primary wall",
+       "cell junction",
+       "flexible support"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Recognise uneven primary-wall thickening.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i21",
+      "kind": "diagram_label",
+      "parent_item_id": "i20",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "above collenchyma drawing",
+      "content": "Collenchyma — names the middle tissue drawing.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What tissue is named?",
+        "answer": "Collenchyma.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which drawing does the name identify?",
+        "answer": "The middle cluster of compact cells with unevenly thickened walls.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can the name be associated with a diagnostic feature?",
+        "answer": "Use the uneven primary-wall thickening shown beneath the heading rather than relying on the general polygonal cell shape.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "cell-wall thickness"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Tissue-name recognition.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i22",
+      "kind": "diagram_label",
+      "parent_item_id": "i20",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "beneath collenchyma drawing",
+      "content": "Irregularly Thickened Primary Cell Wall — identifies the uneven cell-wall thickening in the collenchyma drawing.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What wall feature is labelled?",
+        "answer": "Irregular thickening of the primary cell wall.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which tissue has this labelled wall?",
+        "answer": "Collenchyma.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why should this not be confused with a lignified secondary wall?",
+        "answer": "The label specifically identifies a primary wall; the separate sclerenchyma illustration identifies the thick secondary wall, and the table assigns lignification to sclerenchyma.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "primary and secondary cell walls"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Diagnostic wall label.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i23",
+      "kind": "diagram_label",
+      "parent_item_id": "i20",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "small orange text below the collenchyma wall label",
+      "content": "Collenchyma — small repeated tissue name beneath the middle drawing; the tiny text is less clear than the main heading.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does the small repeated label appear to name?",
+        "answer": "It appears to repeat 'Collenchyma,' matching the clear heading above the drawing.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which illustration does it accompany?",
+        "answer": "The middle drawing with irregularly thickened primary walls.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can the tissue be identified despite the tiny lettering?",
+        "answer": "The clear column heading and the accompanying primary-wall label establish the drawing's identity.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "reading diagram labels"
+      ],
+      "exam_importance": "low",
+      "exam_note": "Repeated identification; tiny lettering is uncertain.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i24",
+      "kind": "diagram",
+      "parent_item_id": "i8",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "right table header, sclerenchyma column",
+      "content": "Sclerenchyma drawing: a group of cells with thick surrounding walls and relatively narrow central spaces. Labels distinguish 'thick secondary cell wall' and 'primary cell wall'. No process arrows are shown.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does the sclerenchyma drawing show?",
+        "answer": "It shows thick-walled cells and distinguishes the primary wall from the thick secondary wall.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which visible feature is diagnostic?",
+        "answer": "The prominent thick secondary wall is the main distinguishing feature.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does secondary-wall deposition affect the central space?",
+        "answer": "Secondary wall material is deposited inward from the primary wall, reducing the remaining cell cavity, or lumen.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "primary wall",
+       "secondary wall",
+       "cell lumen"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Visual identification of thick-walled sclerenchyma.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i25",
+      "kind": "diagram_label",
+      "parent_item_id": "i24",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "above sclerenchyma drawing",
+      "content": "Sclerenchyma — names the right tissue drawing.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What tissue does the heading name?",
+        "answer": "Sclerenchyma.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which illustration belongs to this name?",
+        "answer": "The right-hand group of thick-walled cells.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is this drawing consistent with the comparison column?",
+        "answer": "The drawing labels a thick secondary wall, while the column describes a lignified secondary cell wall.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "secondary cell wall"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Associate name with diagnostic wall structure.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i26",
+      "kind": "diagram_label",
+      "parent_item_id": "i24",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "beneath sclerenchyma drawing, left label",
+      "content": "thick secondary cell wall — identifies the thick wall layer surrounding a sclerenchyma cell's central space.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does this label identify?",
+        "answer": "The thick secondary cell wall in sclerenchyma.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which table property explains its composition?",
+        "answer": "The cell-wall row describes the secondary wall as lignified.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is this layer important to sclerenchyma?",
+        "answer": "The reinforced wall bears mechanical loads and continues to provide support after the cell loses its living contents.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "lignin",
+       "secondary cell wall",
+       "mechanical load"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Links wall structure with support and lignification.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i27",
+      "kind": "diagram_label",
+      "parent_item_id": "i24",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "beneath sclerenchyma drawing, right label",
+      "content": "primary cell wall — identifies the primary wall outside the thick secondary wall in the sclerenchyma drawing.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What structure does this label identify?",
+        "answer": "The primary cell wall of a sclerenchyma cell.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which two wall layers are distinguished in this drawing?",
+        "answer": "The primary cell wall and the thick secondary cell wall.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How are these layers arranged?",
+        "answer": "The secondary wall is deposited on the inner side of the earlier primary wall, so the presence of a secondary wall does not mean the primary wall disappears.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell-wall layers",
+       "cell growth"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Avoid treating primary and secondary walls as mutually exclusive structures.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i28",
+      "kind": "question",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0013-b0019"
+      ],
+      "where_on_page": "middle left, below tissue question",
+      "content": "Q. All are parts of xylem except:",
+      "content_type": "classification",
+      "type_note": "Classification fits because the question tests membership among xylem components, rather than their spatial arrangement.",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which listed structure is not a component of xylem?",
+        "answer": "Companion cells, option A, belong to phloem rather than xylem.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "How do the other options differ from companion cells?",
+        "answer": "Tracheids, xylem parenchyma and vessel elements are xylem components. Xylem fibres are another xylem component, although they are not offered as an option here.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why are companion cells associated with phloem?",
+        "answer": "They are living cells closely associated with sieve-tube elements and support their transport activities. This association places them in phloem.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "xylem",
+       "phloem",
+       "complex permanent tissue",
+       "sieve-tube element"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Odd-one-out question; answer A.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i29",
+      "kind": "answer_option",
+      "parent_item_id": "i28",
+      "source": "both",
+      "block_ids": [
+       "p0013-b0020",
+       "p0013-b0021",
+       "p0013-b0022",
+       "p0013-b0023"
+      ],
+      "where_on_page": "below xylem question",
+      "content": "A. Companion cells\nB. Tracheid\nC. Parenchyma\nD. Xylem vessel",
+      "content_type": "none",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "How should each option be classified?",
+        "answer": "A is a phloem component and is the exception. B is a xylem water-conducting element. C is understood here as xylem parenchyma. D is a xylem conducting structure formed from vessel elements.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why does the broad word 'Parenchyma' remain a valid xylem option?",
+        "answer": "Parenchyma is a cell type that can occur within complex tissues. Xylem parenchyma provides a living component of xylem, so the question's context determines the intended meaning.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "xylem components",
+       "phloem components",
+       "simple and complex tissues"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Answer A; interpret C in its xylem context.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i30",
+      "kind": "question",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0013-b0024"
+      ],
+      "where_on_page": "middle left",
+      "content": "Q. Lignin is present in cell wall of which tissue:",
+      "content_type": "structure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "Which tissue is identified by lignin in its cell wall?",
+        "answer": "Sclerenchyma, option b; the reference table explicitly lists a lignified secondary cell wall.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Where is the lignified wall located?",
+        "answer": "It forms the secondary wall surrounding the cell cavity, internal to the primary wall.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is lignin associated with mechanical strength?",
+        "answer": "Lignin reinforces the wall, increasing rigidity and resistance to compression. That supports sclerenchyma's mechanical role.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell wall",
+       "lignin",
+       "secondary wall"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Direct structure-identification question; answer b.",
+      "tests_item_ids": [
+       "i10",
+       "i24",
+       "i26"
+      ]
+     },
+     {
+      "item_id": "i31",
+      "kind": "answer_option",
+      "parent_item_id": "i30",
+      "source": "both",
+      "block_ids": [
+       "p0013-b0025",
+       "p0013-b0026",
+       "p0013-b0027",
+       "p0013-b0028"
+      ],
+      "where_on_page": "below lignin question",
+      "content": "a. Parenchyma\nb. Sclerenchyma\nc. Collenchyma\nd. None",
+      "content_type": "none",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which answer is supported by the table?",
+        "answer": "Option b, Sclerenchyma.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why are the other choices unsuitable in this comparison?",
+        "answer": "The table describes parenchyma as thin-walled and cellulosic, collenchyma as unevenly thickened, and sclerenchyma specifically as lignified. Therefore 'None' is also unsuitable.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "wall differences among simple permanent tissues"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Answer b; common collenchyma–sclerenchyma distractor.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i32",
+      "kind": "question",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0013-b0029"
+      ],
+      "where_on_page": "lower middle",
+      "content": "Q. Specialised cell of parenchyma present in aquatic plants to provide them buoyancy",
+      "content_type": "classification",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which specialised form of parenchyma provides buoyancy in aquatic plants?",
+        "answer": "Aerenchyma, option c.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "How does aerenchyma differ from chlorenchyma?",
+        "answer": "Aerenchyma is characterised by large air spaces and is associated with buoyancy and aeration; chlorenchyma is chloroplast-containing parenchyma associated with photosynthesis.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do air spaces contribute to buoyancy?",
+        "answer": "They increase the volume occupied with relatively little added mass, lowering the tissue's average density and helping aquatic organs remain supported by water.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is aerenchyma better understood as a tissue arrangement than as a single specialised cell?",
+        "answer": "Its characteristic air spaces arise within an arrangement of cells. The question uses 'cell' loosely, while the buoyancy feature depends on the tissue's air-space system.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "parenchyma",
+       "intercellular spaces",
+       "aquatic plant",
+       "density and buoyancy",
+       "chloroplast"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Answer c; connect structure, habitat and function.",
+      "tests_item_ids": [
+       "i14"
+      ]
+     },
+     {
+      "item_id": "i33",
+      "kind": "answer_option",
+      "parent_item_id": "i32",
+      "source": "both",
+      "block_ids": [
+       "p0013-b0030",
+       "p0013-b0031",
+       "p0013-b0032",
+       "p0013-b0033"
+      ],
+      "where_on_page": "below aquatic parenchyma question",
+      "content": "a. Chlorenchyma\nb. Sieve tube\nc. Aerenchyma\nd. Companion cells",
+      "content_type": "none",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which option matches the buoyancy function?",
+        "answer": "Option c, Aerenchyma. Chlorenchyma specialises in photosynthesis; sieve tubes and companion cells belong to phloem.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why are sieve tubes and companion cells poor matches?",
+        "answer": "Their principal association is transport of organic substances in phloem, whereas the question asks for an air-space-rich form of parenchyma suited to aquatic plants.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "aerenchyma",
+       "chlorenchyma",
+       "phloem"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Answer c; distinguish parenchyma specialisations from phloem elements.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i34",
+      "kind": "question",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0013-b0034",
+       "p0013-b0038"
+      ],
+      "where_on_page": "bottom left",
+      "content": "Q. Which statement is incorrect with reference to cardiac tissue:\nOption:",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How does cardiac muscle compare with skeletal and visceral muscle?",
+        "answer": "Cardiac muscle is striated like skeletal muscle but involuntary like visceral smooth muscle. This explains the question's statement that it has features of both.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "Which numbered statement is incorrect?",
+        "answer": "Statement 2, 'They are voluntary in nature,' is incorrect. The answer choices themselves are not visible.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is cardiac contraction described as involuntary?",
+        "answer": "The heartbeat is generated by specialised pacemaker activity and is regulated without requiring a conscious command for each contraction.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "muscle tissue",
+       "striations",
+       "voluntary and involuntary control",
+       "skeletal muscle",
+       "visceral smooth muscle"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Incorrect statement is 2; no option letter can be assigned from this page.",
+      "tests_item_ids": [
+       "i35",
+       "i36",
+       "i37"
+      ]
+     },
+     {
+      "item_id": "i35",
+      "kind": "list_point",
+      "parent_item_id": "i34",
+      "source": "both",
+      "block_ids": [
+       "p0013-b0035"
+      ],
+      "where_on_page": "bottom, cardiac statement 1",
+      "content": "1. They are striated",
+      "content_type": "structure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "Is striation a correct feature of cardiac muscle?",
+        "answer": "Yes. Cardiac muscle fibres show alternating light and dark bands.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Where are these striations seen?",
+        "answer": "They are seen along cardiac muscle fibres under a microscope; cardiac muscle forms the muscular wall of the heart.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why do the fibres appear striated?",
+        "answer": "Their contractile filaments are organised into repeating sarcomeres, producing the banded appearance.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "muscle fibre",
+       "microscopic bands",
+       "contractile filaments"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Correct statement; striation does not imply voluntary control.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i36",
+      "kind": "list_point",
+      "parent_item_id": "i34",
+      "source": "both",
+      "block_ids": [
+       "p0013-b0036"
+      ],
+      "where_on_page": "bottom, cardiac statement 2",
+      "content": "2. They are voluntary in nature",
+      "content_type": "classification",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which control category actually applies to cardiac muscle?",
+        "answer": "Involuntary control; the printed statement is the incorrect one.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "How does this differ from typical skeletal-muscle control?",
+        "answer": "Typical skeletal muscle can be activated through conscious motor commands, while cardiac muscle contracts rhythmically without a conscious command for each beat.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can heartbeat change if it is involuntary?",
+        "answer": "Autonomic nerves and hormones can alter the rate and force of cardiac activity while its rhythmic contractions continue without conscious initiation.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "voluntary and involuntary action",
+       "heartbeat",
+       "autonomic regulation"
+      ],
+      "exam_importance": "high",
+      "exam_note": "This is the statement to select as incorrect.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i37",
+      "kind": "list_point",
+      "parent_item_id": "i34",
+      "source": "both",
+      "block_ids": [
+       "p0013-b0037"
+      ],
+      "where_on_page": "bottom, cardiac statement 3",
+      "content": "3. They have features of both skeletal and visceral tissue.",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "Which features does cardiac tissue share with the two muscle types?",
+        "answer": "It shares striation with skeletal muscle and involuntary control with visceral smooth muscle.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "Does sharing features make cardiac muscle a mixture of the other tissues?",
+        "answer": "No. Cardiac muscle is a distinct muscle type; the statement compares selected features rather than claiming a mixture.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is this combination a useful exam distinction?",
+        "answer": "Appearance and control are separate criteria. Cardiac muscle demonstrates that striated muscle can be involuntary, preventing the mistaken equation of striation with voluntary action.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "skeletal muscle",
+       "visceral smooth muscle",
+       "striations",
+       "involuntary control"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Correct comparative statement in the intended school-level sense.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i38",
+      "kind": "question",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [],
+      "where_on_page": "upper left, question continued from the preceding page",
+      "content": "Question continued from the preceding page; its stem and numbered statements are not visible on this page. The visible answer options are captured in i1.",
+      "content_type": "none",
+      "type_note": "",
+      "teachable": false,
+      "teacher_understanding": [],
+      "prerequisites": [],
+      "exam_importance": "low",
+      "exam_note": "Incomplete question container; no answer can be determined from the visible options alone.",
+      "tests_item_ids": []
+     }
+    ],
+    "boilerplate_block_ids": [
+     "p0013-b0001",
+     "p0013-b0039"
+    ],
+    "text_image_disagreements": [
+     {
+      "block_ids": [],
+      "text_says": "The native text contains no transcription of the right-hand comparison table or its tissue drawings.",
+      "image_shows": "A comparison table with three tissue columns and eight feature rows, plus three labelled tissue drawings."
+     },
+     {
+      "block_ids": [
+       "p0013-b0007",
+       "p0013-b0008",
+       "p0013-b0009",
+       "p0013-b0010",
+       "p0013-b0011",
+       "p0013-b0012",
+       "p0013-b0013"
+      ],
+      "text_says": "The table heading and several row entries are split across separate linear text blocks.",
+      "image_shows": "A two-column question layout headed 'Tissue' and 'Function and constituents'; wrapped lines belong to the same numbered tissue–feature pairing."
+     }
+    ]
+   },
+   "code_problems": [],
+   "observed": {
+    "type_check": [
+     {
+      "item_id": "i1",
+      "ai_type": "none",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "role",
+      "type_note": ""
+     },
+     {
+      "item_id": "i2",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "role",
+      "type_note": ""
+     },
+     {
+      "item_id": "i3",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i4",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i5",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i6",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i7",
+      "ai_type": "none",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "role",
+      "type_note": ""
+     },
+     {
+      "item_id": "i8",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i9",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i10",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i11",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i12",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i13",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i14",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i15",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i16",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i17",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i18",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i19",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i20",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i21",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i22",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i23",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i24",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i25",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i26",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i27",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i28",
+      "ai_type": "classification",
+      "code_type": "structure",
+      "strength": "weak",
+      "evidence": [
+       "'parts'"
+      ],
+      "status": "role",
+      "type_note": "Classification fits because the question tests membership among xylem components, rather than their spatial arrangement."
+     },
+     {
+      "item_id": "i29",
+      "ai_type": "none",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "role",
+      "type_note": ""
+     },
+     {
+      "item_id": "i30",
+      "ai_type": "structure",
+      "code_type": "structure",
+      "strength": "weak",
+      "evidence": [
+       "'wall'"
+      ],
+      "status": "role",
+      "type_note": ""
+     },
+     {
+      "item_id": "i31",
+      "ai_type": "none",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "role",
+      "type_note": ""
+     },
+     {
+      "item_id": "i32",
+      "ai_type": "classification",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "role",
+      "type_note": ""
+     },
+     {
+      "item_id": "i33",
+      "ai_type": "none",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "role",
+      "type_note": ""
+     },
+     {
+      "item_id": "i34",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "role",
+      "type_note": ""
+     },
+     {
+      "item_id": "i35",
+      "ai_type": "structure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i36",
+      "ai_type": "classification",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i37",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i38",
+      "ai_type": "none",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "role",
+      "type_note": ""
+     }
+    ],
+    "type_summary": {
+     "code_silent": 8,
+     "follows_parent": 19,
+     "role": 11
+    }
+   },
+   "review": {
+    "route": "google",
+    "provider": "google",
+    "model": "google/gemini-4-argon",
+    "via": "aicredits",
+    "returned_model": "google/gemini-4-argon",
+    "request_hash": "ae7d435d2cf59f331289fe0e0866bdf166aa42273efac19b07dc26126c3053c8",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 20137,
+    "output_tokens": 1227,
+    "cost_usd": 0.057798,
+    "value": {
+     "notes": {
+      "about": "This page contains five practice MCQs (plus orphan options at the top and a cut-off option list at the bottom) on plant and animal tissues, accompanied by an 8-row visual comparison table of Parenchyma, Collenchyma, and Sclerenchyma with three labelled cell-wall diagrams.",
+      "key_questions": [
+       "Are all eight rows and three labelled diagrams of the image-only comparison table accurately captured as individual items?",
+       "Are the incomplete questions at the top and bottom of the page handled properly without inventing missing stems or options?",
+       "Are the biological nuances and potential ambiguities in the practice questions (such as statement 2 on climber plants and dicot hypodermis in the table) properly explained for UPSC/PCS learners?"
+      ],
+      "decisions": [
+       {
+        "decision": "Pass the understanding with no blocking issues.",
+        "reason": "Every native text block and every visual element (table, 8 rows, 3 diagrams, and all diagram labels) is thoroughly captured, accurately typed, and explained with deep, exam-appropriate biological nuance."
+       }
+      ],
+      "uncertain": []
+     },
+     "verdict": "pass",
+     "missing": [],
+     "wrong": [],
+     "shallow": [],
+     "checklist": [
+      {
+       "rule_id": "G-01",
+       "met": true,
+       "note": "All statements are accurately attributed to either the book (including the image table) or standard outside biological knowledge."
+      },
+      {
+       "rule_id": "G-02",
+       "met": true,
+       "note": "Explanations are thorough, addressing both the direct textbook facts and necessary biological nuances (e.g., sclereids in fruit pulp, climber plant support, dicot vs monocot hypodermis)."
+      },
+      {
+       "rule_id": "G-03",
+       "met": true,
+       "note": "The maker's notes clearly explain the handling of the orphaned answer options at the top of the page."
+      },
+      {
+       "rule_id": "G-05",
+       "met": true,
+       "note": "Nothing is truncated or left as 'etc.'; all options, statements, and table cells are transcribed in full."
+      },
+      {
+       "rule_id": "S1-01",
+       "met": true,
+       "note": "The upper-right comparison table and its three embedded tissue drawings and labels are completely captured from the image."
+      },
+      {
+       "rule_id": "S1-02",
+       "met": true,
+       "note": "Only the running header (p0013-b0001) and page number (p0013-b0039) are marked as boilerplate."
+      },
+      {
+       "rule_id": "S1-03",
+       "met": true,
+       "note": "Every row in both the question table (i4–i6) and the right-hand comparison table (i9–i16) appears as its own table_row item with column headers."
+      },
+      {
+       "rule_id": "S1-04",
+       "met": true,
+       "note": "All three tissue drawings (i17, i20, i24) and their associated headings and wall labels (i18, i19, i21, i22, i23, i25, i26, i27) are captured with clear descriptions of what they point to."
+      },
+      {
+       "rule_id": "S1-05",
+       "met": true,
+       "note": "No mathematical or chemical equations appear on this page."
+      },
+      {
+       "rule_id": "S1-06",
+       "met": true,
+       "note": "Teacher understanding questions cover required asks and provide deep 'how' and 'why' explanations appropriate for UPSC/State PCS aspirants."
+      },
+      {
+       "rule_id": "S1-07",
+       "met": true,
+       "note": "Basis labels ('book' vs 'outside') are accurately assigned and all outside knowledge is biologically sound."
+      },
+      {
+       "rule_id": "S1-08",
+       "met": true,
+       "note": "Content types match the nature of each item, and the override on i28 from structure to classification is well-reasoned in type_note."
+      },
+      {
+       "rule_id": "S1-09",
+       "met": true,
+       "note": "Prerequisites are concrete, relevant biological concepts."
+      },
+      {
+       "rule_id": "S1-10",
+       "met": true,
+       "note": "Exam importance and tests_item_ids links between the MCQs and the reference table rows/diagrams are sensible and accurate."
+      },
+      {
+       "rule_id": "S1-11",
+       "met": true,
+       "note": "Disagreements between the native text (which omits the image table and splits the question table lines) and the page image are clearly reported."
+      }
+     ]
+    }
+   },
+   "review_problems": [],
+   "review_minor": [],
+   "passed": true,
+   "finished_at": 1792723516.8447177
+  }
+ ],
+ "avoid_rounds": [
+  1
+ ],
+ "cost_usd": 0.057798,
+ "seconds": 438.3,
+ "navin_verdict": null
+}

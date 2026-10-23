@@ -1,0 +1,3366 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "connect",
+ "unit": "chapter",
+ "status": "stopped",
+ "instructions_version": "understand-connect/2",
+ "rulebook_version": "content_types@2026-10-22.2+vision-2026-10-21@2026-10-21.8",
+ "rulebook_digest": "ba8a07e8186b9396d9e0e0713a2d71b70cbf3afd7a9caf5e32089ac7d7ee99b0",
+ "rules_used": [
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-05",
+  "S1-07",
+  "S1-09",
+  "S1-10",
+  "S1-12"
+ ],
+ "maker_route": "codex",
+ "reviewer_route": "google",
+ "maker_model": "gpt-6.1-sol",
+ "reviewer_model": "google/gemini-4-argon",
+ "reviewer_independence": "other_company",
+ "inputs_digest": "b274142d11ed4bd97cec73a441f652d555ef75663d33c24e5c8cb8efe8712f4f",
+ "card": {
+  "card": "bie.task-card/1",
+  "card_id": "connect.build_chapter_map@10-tissues-and-its-types/chapter",
+  "section": "connect",
+  "task": "build_chapter_map",
+  "prefix": {
+   "prefix_id": "connect.build_chapter_map/2",
+   "rulebook_version": "content_types@2026-10-22.2+vision-2026-10-21@2026-10-21.8",
+   "content_types_version": "2026-10-22.2",
+   "schema_id": "bie.brain.chapter-connect/2",
+   "sha256": "cc41f820261325d65b547298d70886c97bed3017341715eacc3530d068c8a83c"
+  },
+  "unit": {
+   "unit_id": "chapter",
+   "title": "10. Tissues and Its Types",
+   "pages": [
+    1,
+    7,
+    11,
+    13
+   ]
+  },
+  "parts": [
+   {
+    "part_id": "t1",
+    "item_ids": [
+     "p001-i5",
+     "p001-i6",
+     "p011-i7",
+     "p011-i45"
+    ],
+    "type": "cause_effect",
+    "questions": [
+     "why",
+     "how"
+    ],
+    "focus": "the cause_effect items: group them into concepts and link them"
+   },
+   {
+    "part_id": "t2",
+    "item_ids": [
+     "p001-i3",
+     "p001-i4",
+     "p001-i30",
+     "p001-i31",
+     "p001-i32",
+     "p001-i33",
+     "p001-i34",
+     "p001-i35",
+     "p001-i36",
+     "p001-i37",
+     "p001-i38",
+     "p001-i39",
+     "p001-i40",
+     "p001-i41",
+     "p001-i42",
+     "p001-i43",
+     "p001-i44",
+     "p001-i45",
+     "p001-i46",
+     "p001-i47",
+     "p001-i48",
+     "p001-i49",
+     "p001-i50",
+     "p001-i51",
+     "p011-i15",
+     "p013-i28",
+     "p013-i32",
+     "p013-i36"
+    ],
+    "type": "classification",
+    "questions": [
+     "which",
+     "difference"
+    ],
+    "focus": "the classification items: group them into concepts and link them"
+   },
+   {
+    "part_id": "t3",
+    "item_ids": [
+     "p001-i14",
+     "p001-i15",
+     "p001-i16",
+     "p001-i17",
+     "p001-i18",
+     "p001-i19",
+     "p001-i20",
+     "p001-i21",
+     "p001-i22",
+     "p001-i23",
+     "p001-i24",
+     "p001-i26",
+     "p001-i27",
+     "p001-i28",
+     "p001-i29",
+     "p007-i2",
+     "p007-i4",
+     "p007-i6",
+     "p007-i8",
+     "p013-i2",
+     "p013-i4",
+     "p013-i5",
+     "p013-i6",
+     "p013-i9",
+     "p013-i10",
+     "p013-i11",
+     "p013-i12",
+     "p013-i13",
+     "p013-i14",
+     "p013-i15",
+     "p013-i16",
+     "p013-i34",
+     "p013-i37"
+    ],
+    "type": "comparison",
+    "questions": [
+     "compare",
+     "difference"
+    ],
+    "focus": "the comparison items: group them into concepts and link them"
+   },
+   {
+    "part_id": "t4",
+    "item_ids": [
+     "p001-i2"
+    ],
+    "type": "definition",
+    "questions": [
+     "what",
+     "evidence"
+    ],
+    "focus": "the definition items: group them into concepts and link them"
+   },
+   {
+    "part_id": "t5",
+    "item_ids": [
+     "p011-i3",
+     "p011-i4",
+     "p011-i9",
+     "p011-i12",
+     "p011-i14",
+     "p011-i46",
+     "p011-i47"
+    ],
+    "type": "facts_numbers",
+    "questions": [
+     "what",
+     "evidence"
+    ],
+    "focus": "the facts_numbers items: group them into concepts and link them"
+   },
+   {
+    "part_id": "t6",
+    "item_ids": [
+     "p007-i5",
+     "p007-i7",
+     "p007-i9",
+     "p007-i10",
+     "p007-i11",
+     "p007-i12",
+     "p007-i13",
+     "p007-i14",
+     "p007-i15",
+     "p007-i16",
+     "p007-i17",
+     "p007-i18",
+     "p007-i19",
+     "p007-i20",
+     "p007-i21",
+     "p007-i22",
+     "p007-i23",
+     "p007-i24",
+     "p007-i25",
+     "p007-i26",
+     "p007-i27",
+     "p007-i28",
+     "p007-i29",
+     "p007-i30",
+     "p007-i31",
+     "p007-i32",
+     "p007-i33",
+     "p007-i34",
+     "p007-i36",
+     "p007-i37",
+     "p007-i38",
+     "p007-i39",
+     "p007-i40",
+     "p007-i41",
+     "p007-i42",
+     "p007-i43",
+     "p007-i44",
+     "p007-i45",
+     "p007-i46",
+     "p007-i47",
+     "p007-i48",
+     "p007-i49",
+     "p011-i16",
+     "p011-i17",
+     "p011-i18",
+     "p011-i19",
+     "p011-i20",
+     "p011-i21",
+     "p011-i22",
+     "p011-i23",
+     "p011-i24",
+     "p011-i25",
+     "p011-i26",
+     "p011-i27",
+     "p011-i28",
+     "p011-i29",
+     "p011-i30",
+     "p011-i31",
+     "p011-i32",
+     "p011-i33",
+     "p011-i34",
+     "p011-i35",
+     "p011-i36",
+     "p011-i37",
+     "p011-i38",
+     "p011-i39",
+     "p011-i40",
+     "p011-i41",
+     "p011-i42",
+     "p013-i17",
+     "p013-i18",
+     "p013-i19",
+     "p013-i20",
+     "p013-i21",
+     "p013-i22",
+     "p013-i23",
+     "p013-i24",
+     "p013-i25",
+     "p013-i26",
+     "p013-i27"
+    ],
+    "type": "figure",
+    "questions": [
+     "what",
+     "which"
+    ],
+    "focus": "the figure items: group them into concepts and link them"
+   },
+   {
+    "part_id": "t7",
+    "item_ids": [
+     "p007-i35"
+    ],
+    "type": "process",
+    "questions": [
+     "how",
+     "when"
+    ],
+    "focus": "the process items: group them into concepts and link them"
+   },
+   {
+    "part_id": "t8",
+    "item_ids": [
+     "p001-i7",
+     "p001-i8",
+     "p001-i9",
+     "p001-i10",
+     "p001-i11",
+     "p001-i12",
+     "p011-i6",
+     "p011-i11",
+     "p011-i43",
+     "p011-i44",
+     "p013-i30",
+     "p013-i35"
+    ],
+    "type": "structure",
+    "questions": [
+     "what",
+     "where"
+    ],
+    "focus": "the structure items: group them into concepts and link them"
+   },
+   {
+    "part_id": "t9",
+    "item_ids": [
+     "p013-i1",
+     "p013-i7",
+     "p013-i29",
+     "p013-i31",
+     "p013-i33"
+    ],
+    "type": "none",
+    "questions": [
+     "what"
+    ],
+    "focus": "the none items: group them into concepts and link them"
+   }
+  ],
+  "rules": [
+   "G-01",
+   "G-02",
+   "G-03",
+   "G-05",
+   "S1-07",
+   "S1-09",
+   "S1-10",
+   "S1-12"
+  ],
+  "output": {
+   "schema_id": "bie.brain.chapter-connect/2",
+   "mode": "full",
+   "max_output_tokens": 32000
+  },
+  "coverage": {
+   "must_cover": [
+    "p001-i2",
+    "p001-i3",
+    "p001-i4",
+    "p001-i5",
+    "p001-i6",
+    "p001-i7",
+    "p001-i8",
+    "p001-i9",
+    "p001-i10",
+    "p001-i11",
+    "p001-i12",
+    "p001-i14",
+    "p001-i15",
+    "p001-i16",
+    "p001-i17",
+    "p001-i18",
+    "p001-i19",
+    "p001-i20",
+    "p001-i21",
+    "p001-i22",
+    "p001-i23",
+    "p001-i24",
+    "p001-i26",
+    "p001-i27",
+    "p001-i28",
+    "p001-i29",
+    "p001-i30",
+    "p001-i31",
+    "p001-i32",
+    "p001-i33",
+    "p001-i34",
+    "p001-i35",
+    "p001-i36",
+    "p001-i37",
+    "p001-i38",
+    "p001-i39",
+    "p001-i40",
+    "p001-i41",
+    "p001-i42",
+    "p001-i43",
+    "p001-i44",
+    "p001-i45",
+    "p001-i46",
+    "p001-i47",
+    "p001-i48",
+    "p001-i49",
+    "p001-i50",
+    "p001-i51",
+    "p007-i2",
+    "p007-i4",
+    "p007-i5",
+    "p007-i6",
+    "p007-i7",
+    "p007-i8",
+    "p007-i9",
+    "p007-i10",
+    "p007-i11",
+    "p007-i12",
+    "p007-i13",
+    "p007-i14",
+    "p007-i15",
+    "p007-i16",
+    "p007-i17",
+    "p007-i18",
+    "p007-i19",
+    "p007-i20",
+    "p007-i21",
+    "p007-i22",
+    "p007-i23",
+    "p007-i24",
+    "p007-i25",
+    "p007-i26",
+    "p007-i27",
+    "p007-i28",
+    "p007-i29",
+    "p007-i30",
+    "p007-i31",
+    "p007-i32",
+    "p007-i33",
+    "p007-i34",
+    "p007-i35",
+    "p007-i36",
+    "p007-i37",
+    "p007-i38",
+    "p007-i39",
+    "p007-i40",
+    "p007-i41",
+    "p007-i42",
+    "p007-i43",
+    "p007-i44",
+    "p007-i45",
+    "p007-i46",
+    "p007-i47",
+    "p007-i48",
+    "p007-i49",
+    "p011-i3",
+    "p011-i4",
+    "p011-i6",
+    "p011-i7",
+    "p011-i9",
+    "p011-i11",
+    "p011-i12",
+    "p011-i14",
+    "p011-i15",
+    "p011-i16",
+    "p011-i17",
+    "p011-i18",
+    "p011-i19",
+    "p011-i20",
+    "p011-i21",
+    "p011-i22",
+    "p011-i23",
+    "p011-i24",
+    "p011-i25",
+    "p011-i26",
+    "p011-i27",
+    "p011-i28",
+    "p011-i29",
+    "p011-i30",
+    "p011-i31",
+    "p011-i32",
+    "p011-i33",
+    "p011-i34",
+    "p011-i35",
+    "p011-i36",
+    "p011-i37",
+    "p011-i38",
+    "p011-i39",
+    "p011-i40",
+    "p011-i41",
+    "p011-i42",
+    "p011-i43",
+    "p011-i44",
+    "p011-i45",
+    "p011-i46",
+    "p011-i47",
+    "p013-i1",
+    "p013-i2",
+    "p013-i4",
+    "p013-i5",
+    "p013-i6",
+    "p013-i7",
+    "p013-i9",
+    "p013-i10",
+    "p013-i11",
+    "p013-i12",
+    "p013-i13",
+    "p013-i14",
+    "p013-i15",
+    "p013-i16",
+    "p013-i17",
+    "p013-i18",
+    "p013-i19",
+    "p013-i20",
+    "p013-i21",
+    "p013-i22",
+    "p013-i23",
+    "p013-i24",
+    "p013-i25",
+    "p013-i26",
+    "p013-i27",
+    "p013-i28",
+    "p013-i29",
+    "p013-i30",
+    "p013-i31",
+    "p013-i32",
+    "p013-i33",
+    "p013-i34",
+    "p013-i35",
+    "p013-i36",
+    "p013-i37"
+   ],
+   "claim_field": "concepts[].item_ids",
+   "may_skip": [
+    {
+     "item_id": "p001-i1",
+     "reason": "not teachable (heading or container)"
+    },
+    {
+     "item_id": "p001-i13",
+     "reason": "not teachable (heading or container)"
+    },
+    {
+     "item_id": "p001-i25",
+     "reason": "not teachable (heading or container)"
+    },
+    {
+     "item_id": "p007-i1",
+     "reason": "not teachable (heading or container)"
+    },
+    {
+     "item_id": "p007-i3",
+     "reason": "not teachable (heading or container)"
+    },
+    {
+     "item_id": "p011-i1",
+     "reason": "not teachable (heading or container)"
+    },
+    {
+     "item_id": "p011-i2",
+     "reason": "not teachable (heading or container)"
+    },
+    {
+     "item_id": "p011-i5",
+     "reason": "not teachable (heading or container)"
+    },
+    {
+     "item_id": "p011-i8",
+     "reason": "not teachable (heading or container)"
+    },
+    {
+     "item_id": "p011-i10",
+     "reason": "not teachable (heading or container)"
+    },
+    {
+     "item_id": "p011-i13",
+     "reason": "not teachable (heading or container)"
+    },
+    {
+     "item_id": "p013-i3",
+     "reason": "not teachable (heading or container)"
+    },
+    {
+     "item_id": "p013-i8",
+     "reason": "not teachable (heading or container)"
+    },
+    {
+     "item_id": "p013-i38",
+     "reason": "not teachable (heading or container)"
+    }
+   ]
+  },
+  "context": {
+   "map_slice": [],
+   "before": "",
+   "after": ""
+  },
+  "source": {
+   "block_ids": [],
+   "page_images": []
+  }
+ },
+ "prefix_sha256": "cc41f820261325d65b547298d70886c97bed3017341715eacc3530d068c8a83c",
+ "review_prefix_sha256": "ed87e99684c7f0ec5132c87f69c2c2383a8b485c191c915f8f87cf2e1bede019",
+ "inputs": {
+  "system": "BIE task prefix connect.build_chapter_map/2 · rulebook content_types@2026-10-22.2+vision-2026-10-21@2026-10-21.8 · content types 2026-10-22.2 · schema bie.brain.chapter-connect/2\n\nYou are BIE's book-understanding section, connecting a whole chapter. You are an expert teacher of Science and Technology for UPSC / State PCS aspirants\npreparing for UPSC / State PCS. The pages have already been read into items (given after the card, one line per item with its id); now build the\nchapter map that the lesson, director, game and notes sections will use. Write the map in clear English with the book's terms.\nCourse: \"10. Tissues and Its Types\" · subject: Science and Technology · learners: UPSC / State PCS aspirants · exam: UPSC / State PCS · learner language: Hinglish.\n\nNavin's rules for this task (follow every one):\n[G-01] Everything taught comes from the book. Knowledge from outside the book is allowed only to explain the book better; it is marked as outside, standard textbook-level and correct. Never invent facts, numbers, names or quotations.\n[G-02] Work like the best teacher of these learners and this exam, not like a summariser. Depth beats brevity: nothing teachable on the page is skipped or compressed away, and every explanation makes a student understand, not just remember.\n[G-03] Before the output, fill 'notes' with brief notes for the reviewer and for Navin: what this unit is about, the key questions a teacher must answer about it, the main decisions you made with a one-line reason each, and anything uncertain. Keep the notes short; they explain the work, they are not the work.\n[G-05] Never shorten work to fit a length. If a unit of work is too large, it is split by BIE into smaller units; within a unit, completeness wins.\n[S1-07] Mark every answer's basis: 'book' only when the page itself states it, 'outside' when any part comes from general knowledge. Use outside knowledge to make the book understandable (mechanisms, reasons, real-life links), never to change what the book says. Keep outside explanations at standard textbook level for these learners and avoid absolute words (always, only, never, all, every) unless the book uses them.\n[S1-09] Name the prerequisites a student must already understand for each item, as concrete concepts ('cell and its nucleus', 'what a nerve impulse is'), never vague ('basic biology'). Prerequisites are taught later, not just listed.\n[S1-10] Judge exam importance for the course's exam (for UPSC / State PCS: classifications, comparisons, locations, functions, examples and odd-one-out facts are high). Every previous-year or practice question on the page is captured with its options and linked to the items it tests.\n[S1-12] Connect the whole chapter: group items into concepts; record how concepts relate (part of, type of, depends on, causes, contrasts with, example of, sequence); resolve every cross-reference such as 'Fig. 6.10' to its item; list the prerequisites to teach before the chapter with why each is needed; propose a teaching order that starts from what the student already knows.\n\nBIE's content types (the type of an item decides its required questions and how it is taught, shown, played and drawn):\n- process · Process: Something that happens in steps or stages over time: a mechanism, a procedure, a cycle (photosynthesis, cell division, how a bill becomes law). Required questions: how (kaise), when (kab). Other questions: what (kya), where (kahan), why (kyun), consequence (nateeja).\n- structure · Structure: Something made of parts arranged in space, each part with a function (a cell, a leaf, the heart, a machine, the Parliament). Required questions: what (kya), where (kahan). Other questions: how (kaise), why (kyun), which (kaun).\n- classification · Classification: A group divided into kinds by a stated basis (types of tissues, kinds of rocks, kinds of writs). Required questions: which (kaun), difference (tulna). Other questions: what (kya), evidence (saboot), where (kahan).\n- comparison · Comparison: Two or more things set side by side on stated criteria (plant and animal cells, Lok Sabha and Rajya Sabha). Required questions: compare (tulna), difference (tulna). Other questions: what (kya), why (kyun), evidence (saboot).\n- timeline · Timeline: Events placed in time: history, the development of an idea, stages of a life (the Revolt of 1857, evolution of cell theory). Required questions: when (kab), why (kyun). Other questions: who (kaun), where (kahan), consequence (nateeja).\n- cause_effect · Reasoning (cause and effect): Why something happens: causes, effects, conditions and chains of reasoning (why tissues specialise, why prices rise, why a law was needed). Required questions: why (kyun), how (kaise). Other questions: consequence (nateeja), evidence (saboot), exception (tulna).\n- facts_numbers · Facts and numbers: Stated facts, quantities, measurements, statistics and formulas (heart rate 72 per minute, 3,000 against 50,000 soldiers at Plassey, F = ma). Required questions: what (kya), evidence (saboot). Other questions: compare (tulna), why (kyun).\n- figure · Figure: A diagram, photo, map, graph or table drawing on the page whose content is visual (tissue pages 2, 7 and 8 are figures only). Required questions: what (kya), which (kaun). Other questions: how (kaise), why (kyun).\n- definition · Definition: A term and its meaning as the book states it (tissue, meristem, sovereignty). Required questions: what (kya), evidence (saboot). Other questions: about (kya), why (kyun).\n\nOutput schema (JSON):\n{\"additionalProperties\":false,\"properties\":{\"chapter_summary\":{\"type\":\"string\"},\"chapter_title\":{\"type\":\"string\"},\"concepts\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"concept_id\":{\"type\":\"string\"},\"content_type\":{\"enum\":[\"process\",\"structure\",\"classification\",\"comparison\",\"timeline\",\"cause_effect\",\"facts_numbers\",\"figure\",\"definition\",\"none\"],\"type\":\"string\"},\"core_explanation\":{\"type\":\"string\"},\"item_ids\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"name\":{\"type\":\"string\"}},\"required\":[\"concept_id\",\"name\",\"item_ids\",\"content_type\",\"core_explanation\"],\"type\":\"object\"},\"type\":\"array\"},\"cross_references\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"from_item_id\":{\"type\":\"string\"},\"reference_text\":{\"type\":\"string\"},\"resolved_item_id\":{\"type\":\"string\"}},\"required\":[\"from_item_id\",\"reference_text\",\"resolved_item_id\"],\"type\":\"object\"},\"type\":\"array\"},\"exam_focus\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"concept_id\":{\"type\":\"string\"},\"why\":{\"type\":\"string\"}},\"required\":[\"concept_id\",\"why\"],\"type\":\"object\"},\"type\":\"array\"},\"notes\":{\"additionalProperties\":false,\"properties\":{\"about\":{\"description\":\"What this unit of work is about and how it fits the whole (one or two sentences).\",\"type\":\"string\"},\"decisions\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"decision\":{\"type\":\"string\"},\"reason\":{\"type\":\"string\"}},\"required\":[\"decision\",\"reason\"],\"type\":\"object\"},\"type\":\"array\"},\"key_questions\":{\"description\":\"The key questions a teacher must answer about this unit.\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"uncertain\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"}},\"required\":[\"about\",\"key_questions\",\"decisions\",\"uncertain\"],\"type\":\"object\"},\"prerequisites_to_teach\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"basis\":{\"enum\":[\"book\",\"outside\"],\"type\":\"string\"},\"name\":{\"type\":\"string\"},\"needed_for\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"why_needed\":{\"type\":\"string\"}},\"required\":[\"name\",\"why_needed\",\"needed_for\",\"basis\"],\"type\":\"object\"},\"type\":\"array\"},\"question_links\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"question_item_id\":{\"type\":\"string\"},\"tests_concepts\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"}},\"required\":[\"question_item_id\",\"tests_concepts\"],\"type\":\"object\"},\"type\":\"array\"},\"relations\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"from_concept\":{\"type\":\"string\"},\"note\":{\"type\":\"string\"},\"relation\":{\"enum\":[\"part_of\",\"type_of\",\"depends_on\",\"causes\",\"contrasts_with\",\"compares_with\",\"example_of\",\"sequence_next\",\"located_in\",\"function_of\",\"tested_by\"],\"type\":\"string\"},\"to_concept\":{\"type\":\"string\"}},\"required\":[\"from_concept\",\"relation\",\"to_concept\",\"note\"],\"type\":\"object\"},\"type\":\"array\"},\"teaching_order\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"}},\"required\":[\"notes\",\"chapter_title\",\"chapter_summary\",\"concepts\",\"relations\",\"prerequisites_to_teach\",\"cross_references\",\"question_links\",\"teaching_order\",\"exam_focus\"],\"type\":\"object\"}\n\nHow BIE talks to you: every request is a task card (JSON) followed by its source. The card names the unit, its parts with their content type and required questions, the ids of the rules above that apply, the output, the ids you must cover and the context. The card is BIE's instruction; the source is the material.\nFor a build_chapter_map card:\n- card.parts group the chapter's items by content type; card.coverage.must_cover lists every teachable item: each must be in the item_ids\n  of at least one concept.\n- The source lines are \"item id | page | kind | type | teachable | exam | content | prerequisites\".\nHow to fill the JSON:\n- concepts: group the items into the chapter's concepts; every teachable item belongs to at least one concept (use the item ids exactly\n  as given); content_type is the concept's main type (one of BIE's nine ids); core_explanation says the concept's heart in two or three\n  sentences a teacher would say.\n- relations: how concepts relate, using concept ids. \"A depends_on B\" means B must be understood first; \"A causes B\"; \"A sequence_next B\"\n  means A comes before B in time or in a process. BIE's code checks with its prerequisite and reasoning engines: prerequisites never go\n  in a circle, the teaching order teaches a prerequisite before what needs it, cause and effect never go in a circle, and dated concepts\n  never go back in time.\n- prerequisites_to_teach: what the student must understand before this chapter (or before a concept), why, and for which concept ids.\n- cross_references: every reference such as \"Fig. 6.10\" or \"see table\" resolved to the item it means.\n- question_links: every question item linked to the concepts it tests.\n- teaching_order: every concept id exactly once, in the order a teacher should teach them, starting from what the student knows.\n- exam_focus: the concepts most important for this exam and why.\nReply with the JSON object only.",
+  "user": [
+   {
+    "type": "text",
+    "text": "BIE task card (JSON):\n{\"card\":\"bie.task-card/1\",\"card_id\":\"connect.build_chapter_map@10-tissues-and-its-types/chapter\",\"section\":\"connect\",\"task\":\"build_chapter_map\",\"prefix\":{\"prefix_id\":\"connect.build_chapter_map/2\",\"rulebook_version\":\"content_types@2026-10-22.2+vision-2026-10-21@2026-10-21.8\",\"content_types_version\":\"2026-10-22.2\",\"schema_id\":\"bie.brain.chapter-connect/2\",\"sha256\":\"cc41f820261325d65b547298d70886c97bed3017341715eacc3530d068c8a83c\"},\"unit\":{\"unit_id\":\"chapter\",\"title\":\"10. Tissues and Its Types\",\"pages\":[1,7,11,13]},\"parts\":[{\"part_id\":\"t1\",\"item_ids\":[\"p001-i5\",\"p001-i6\",\"p011-i7\",\"p011-i45\"],\"type\":\"cause_effect\",\"questions\":[\"why\",\"how\"],\"focus\":\"the cause_effect items: group them into concepts and link them\"},{\"part_id\":\"t2\",\"item_ids\":[\"p001-i3\",\"p001-i4\",\"p001-i30\",\"p001-i31\",\"p001-i32\",\"p001-i33\",\"p001-i34\",\"p001-i35\",\"p001-i36\",\"p001-i37\",\"p001-i38\",\"p001-i39\",\"p001-i40\",\"p001-i41\",\"p001-i42\",\"p001-i43\",\"p001-i44\",\"p001-i45\",\"p001-i46\",\"p001-i47\",\"p001-i48\",\"p001-i49\",\"p001-i50\",\"p001-i51\",\"p011-i15\",\"p013-i28\",\"p013-i32\",\"p013-i36\"],\"type\":\"classification\",\"questions\":[\"which\",\"difference\"],\"focus\":\"the classification items: group them into concepts and link them\"},{\"part_id\":\"t3\",\"item_ids\":[\"p001-i14\",\"p001-i15\",\"p001-i16\",\"p001-i17\",\"p001-i18\",\"p001-i19\",\"p001-i20\",\"p001-i21\",\"p001-i22\",\"p001-i23\",\"p001-i24\",\"p001-i26\",\"p001-i27\",\"p001-i28\",\"p001-i29\",\"p007-i2\",\"p007-i4\",\"p007-i6\",\"p007-i8\",\"p013-i2\",\"p013-i4\",\"p013-i5\",\"p013-i6\",\"p013-i9\",\"p013-i10\",\"p013-i11\",\"p013-i12\",\"p013-i13\",\"p013-i14\",\"p013-i15\",\"p013-i16\",\"p013-i34\",\"p013-i37\"],\"type\":\"comparison\",\"questions\":[\"compare\",\"difference\"],\"focus\":\"the comparison items: group them into concepts and link them\"},{\"part_id\":\"t4\",\"item_ids\":[\"p001-i2\"],\"type\":\"definition\",\"questions\":[\"what\",\"evidence\"],\"focus\":\"the definition items: group them into concepts and link them\"},{\"part_id\":\"t5\",\"item_ids\":[\"p011-i3\",\"p011-i4\",\"p011-i9\",\"p011-i12\",\"p011-i14\",\"p011-i46\",\"p011-i47\"],\"type\":\"facts_numbers\",\"questions\":[\"what\",\"evidence\"],\"focus\":\"the facts_numbers items: group them into concepts and link them\"},{\"part_id\":\"t6\",\"item_ids\":[\"p007-i5\",\"p007-i7\",\"p007-i9\",\"p007-i10\",\"p007-i11\",\"p007-i12\",\"p007-i13\",\"p007-i14\",\"p007-i15\",\"p007-i16\",\"p007-i17\",\"p007-i18\",\"p007-i19\",\"p007-i20\",\"p007-i21\",\"p007-i22\",\"p007-i23\",\"p007-i24\",\"p007-i25\",\"p007-i26\",\"p007-i27\",\"p007-i28\",\"p007-i29\",\"p007-i30\",\"p007-i31\",\"p007-i32\",\"p007-i33\",\"p007-i34\",\"p007-i36\",\"p007-i37\",\"p007-i38\",\"p007-i39\",\"p007-i40\",\"p007-i41\",\"p007-i42\",\"p007-i43\",\"p007-i44\",\"p007-i45\",\"p007-i46\",\"p007-i47\",\"p007-i48\",\"p007-i49\",\"p011-i16\",\"p011-i17\",\"p011-i18\",\"p011-i19\",\"p011-i20\",\"p011-i21\",\"p011-i22\",\"p011-i23\",\"p011-i24\",\"p011-i25\",\"p011-i26\",\"p011-i27\",\"p011-i28\",\"p011-i29\",\"p011-i30\",\"p011-i31\",\"p011-i32\",\"p011-i33\",\"p011-i34\",\"p011-i35\",\"p011-i36\",\"p011-i37\",\"p011-i38\",\"p011-i39\",\"p011-i40\",\"p011-i41\",\"p011-i42\",\"p013-i17\",\"p013-i18\",\"p013-i19\",\"p013-i20\",\"p013-i21\",\"p013-i22\",\"p013-i23\",\"p013-i24\",\"p013-i25\",\"p013-i26\",\"p013-i27\"],\"type\":\"figure\",\"questions\":[\"what\",\"which\"],\"focus\":\"the figure items: group them into concepts and link them\"},{\"part_id\":\"t7\",\"item_ids\":[\"p007-i35\"],\"type\":\"process\",\"questions\":[\"how\",\"when\"],\"focus\":\"the process items: group them into concepts and link them\"},{\"part_id\":\"t8\",\"item_ids\":[\"p001-i7\",\"p001-i8\",\"p001-i9\",\"p001-i10\",\"p001-i11\",\"p001-i12\",\"p011-i6\",\"p011-i11\",\"p011-i43\",\"p011-i44\",\"p013-i30\",\"p013-i35\"],\"type\":\"structure\",\"questions\":[\"what\",\"where\"],\"focus\":\"the structure items: group them into concepts and link them\"},{\"part_id\":\"t9\",\"item_ids\":[\"p013-i1\",\"p013-i7\",\"p013-i29\",\"p013-i31\",\"p013-i33\"],\"type\":\"none\",\"questions\":[\"what\"],\"focus\":\"the none items: group them into concepts and link them\"}],\"rules\":[\"G-01\",\"G-02\",\"G-03\",\"G-05\",\"S1-07\",\"S1-09\",\"S1-10\",\"S1-12\"],\"output\":{\"schema_id\":\"bie.brain.chapter-connect/2\",\"mode\":\"full\",\"max_output_tokens\":32000},\"coverage\":{\"must_cover\":[\"p001-i2\",\"p001-i3\",\"p001-i4\",\"p001-i5\",\"p001-i6\",\"p001-i7\",\"p001-i8\",\"p001-i9\",\"p001-i10\",\"p001-i11\",\"p001-i12\",\"p001-i14\",\"p001-i15\",\"p001-i16\",\"p001-i17\",\"p001-i18\",\"p001-i19\",\"p001-i20\",\"p001-i21\",\"p001-i22\",\"p001-i23\",\"p001-i24\",\"p001-i26\",\"p001-i27\",\"p001-i28\",\"p001-i29\",\"p001-i30\",\"p001-i31\",\"p001-i32\",\"p001-i33\",\"p001-i34\",\"p001-i35\",\"p001-i36\",\"p001-i37\",\"p001-i38\",\"p001-i39\",\"p001-i40\",\"p001-i41\",\"p001-i42\",\"p001-i43\",\"p001-i44\",\"p001-i45\",\"p001-i46\",\"p001-i47\",\"p001-i48\",\"p001-i49\",\"p001-i50\",\"p001-i51\",\"p007-i2\",\"p007-i4\",\"p007-i5\",\"p007-i6\",\"p007-i7\",\"p007-i8\",\"p007-i9\",\"p007-i10\",\"p007-i11\",\"p007-i12\",\"p007-i13\",\"p007-i14\",\"p007-i15\",\"p007-i16\",\"p007-i17\",\"p007-i18\",\"p007-i19\",\"p007-i20\",\"p007-i21\",\"p007-i22\",\"p007-i23\",\"p007-i24\",\"p007-i25\",\"p007-i26\",\"p007-i27\",\"p007-i28\",\"p007-i29\",\"p007-i30\",\"p007-i31\",\"p007-i32\",\"p007-i33\",\"p007-i34\",\"p007-i35\",\"p007-i36\",\"p007-i37\",\"p007-i38\",\"p007-i39\",\"p007-i40\",\"p007-i41\",\"p007-i42\",\"p007-i43\",\"p007-i44\",\"p007-i45\",\"p007-i46\",\"p007-i47\",\"p007-i48\",\"p007-i49\",\"p011-i3\",\"p011-i4\",\"p011-i6\",\"p011-i7\",\"p011-i9\",\"p011-i11\",\"p011-i12\",\"p011-i14\",\"p011-i15\",\"p011-i16\",\"p011-i17\",\"p011-i18\",\"p011-i19\",\"p011-i20\",\"p011-i21\",\"p011-i22\",\"p011-i23\",\"p011-i24\",\"p011-i25\",\"p011-i26\",\"p011-i27\",\"p011-i28\",\"p011-i29\",\"p011-i30\",\"p011-i31\",\"p011-i32\",\"p011-i33\",\"p011-i34\",\"p011-i35\",\"p011-i36\",\"p011-i37\",\"p011-i38\",\"p011-i39\",\"p011-i40\",\"p011-i41\",\"p011-i42\",\"p011-i43\",\"p011-i44\",\"p011-i45\",\"p011-i46\",\"p011-i47\",\"p013-i1\",\"p013-i2\",\"p013-i4\",\"p013-i5\",\"p013-i6\",\"p013-i7\",\"p013-i9\",\"p013-i10\",\"p013-i11\",\"p013-i12\",\"p013-i13\",\"p013-i14\",\"p013-i15\",\"p013-i16\",\"p013-i17\",\"p013-i18\",\"p013-i19\",\"p013-i20\",\"p013-i21\",\"p013-i22\",\"p013-i23\",\"p013-i24\",\"p013-i25\",\"p013-i26\",\"p013-i27\",\"p013-i28\",\"p013-i29\",\"p013-i30\",\"p013-i31\",\"p013-i32\",\"p013-i33\",\"p013-i34\",\"p013-i35\",\"p013-i36\",\"p013-i37\"],\"claim_field\":\"concepts[].item_ids\",\"may_skip\":[{\"item_id\":\"p001-i1\",\"reason\":\"not teachable (heading or container)\"},{\"item_id\":\"p001-i13\",\"reason\":\"not teachable (heading or container)\"},{\"item_id\":\"p001-i25\",\"reason\":\"not teachable (heading or container)\"},{\"item_id\":\"p007-i1\",\"reason\":\"not teachable (heading or container)\"},{\"item_id\":\"p007-i3\",\"reason\":\"not teachable (heading or container)\"},{\"item_id\":\"p011-i1\",\"reason\":\"not teachable (heading or container)\"},{\"item_id\":\"p011-i2\",\"reason\":\"not teachable (heading or container)\"},{\"item_id\":\"p011-i5\",\"reason\":\"not teachable (heading or container)\"},{\"item_id\":\"p011-i8\",\"reason\":\"not teachable (heading or container)\"},{\"item_id\":\"p011-i10\",\"reason\":\"not teachable (heading or container)\"},{\"item_id\":\"p011-i13\",\"reason\":\"not teachable (heading or container)\"},{\"item_id\":\"p013-i3\",\"reason\":\"not teachable (heading or container)\"},{\"item_id\":\"p013-i8\",\"reason\":\"not teachable (heading or container)\"},{\"item_id\":\"p013-i38\",\"reason\":\"not teachable (heading or container)\"}]},\"context\":{\"map_slice\":[],\"before\":\"\",\"after\":\"\"},\"source\":{\"block_ids\":[],\"page_images\":[]}}\n\nItems of the chapter (item id | page | kind | type | teachable | exam | content | prerequisites):\np001-i1 | 1 | heading | none | no | low | 10. Tissues and Its Types\np001-i2 | 1 | definition | definition | teach | high | TISSUE: Cells combine to perform same function. | prerequisites: cell as a unit of life; cell function\np001-i3 | 1 | list_point | classification | teach | high | • When plant cells combine, they form plant tissues. | prerequisites: plant cell; tissue\np001-i4 | 1 | list_point | classification | teach | high | • When animal cells combine, they form animal tissues. | prerequisites: animal cell; tissue\np001-i5 | 1 | list_point | cause_effect | teach | high | • Causes division of labour. | prerequisites: tissue; cell specialisation; organism's life functions\np001-i6 | 1 | list_point | cause_effect | teach | medium | • Decreases workload on individual cells, hence leads to organisation. | prerequisites: division of labour; cell metabolism; tissue\np001-i7 | 1 | diagram | structure | teach | high | Cell → Tissues → Organ → Organ system → Organisms. Each rightward arrow connects a smaller biological level to the larger level into which it is organised. | prerequisites: cell; tissue; part and whole\np001-i8 | 1 | diagram_label | structure | teach | high | Cell: first level; arrow leads to Tissues. | prerequisites: cell; tissue\np001-i9 | 1 | diagram_label | structure | teach | high | Tissues: between Cell and Organ. | prerequisites: tissue; organ\np001-i10 | 1 | diagram_label | structure | teach | high | Organ: between Tissues and Organ system. | prerequisites: tissue; part and whole\np001-i11 | 1 | diagram_label | structure | teach | high | Organ system: between Organ and Organisms. | prerequisites: organ; coordination\np001-i12 | 1 | diagram_label | structure | teach | high | Organisms: final level, following Organ system. | prerequisites: organ system; living organism\np001-i13 | 1 | table | comparison | no | high | Two-column comparison headed Mitosis and Meiosis, containing 11 numbered comparison rows. | prerequisites: cell division; nucleus; chromosome\np001-i14 | 1 | table_row | comparison | teach | high | 1) Mitosis: It occurs in somatic cells. | Meiosis: It occurs in germ cells. | prerequisites: somatic cell; germ line; cell division\np001-i15 | 1 | table_row | comparison | teach | high | 2) Mitosis: Nucleus divides only once. | Meiosis: Nucleus divides twice. | prerequisites: nucleus; homologous chromosomes; sister chromatids\np001-i16 | 1 | table_row | comparison | teach | high | 3) Mitosis: Two daughter cells are formed. | Meiosis: Four daughter cells are formed. | prerequisites: daughter cell; nuclear division; cytokinesis\np001-i17 | 1 | table_row | comparison | teach | high | 4) Mitosis: Daughter cells are diploid. | Meiosis: Daughter cells are haploid. | prerequisites: chromosome set; homologous chromosomes; parent and daughter cells\np001-i18 | 1 | table_row | comparison | teach | medium | 5) Mitosis: It occurs more frequently. | Meiosis: It occurs less frequently. | prerequisites: growth; cell replacement; reproduction\np001-i19 | 1 | table_row | comparison | teach | high | 6) Mitosis: Daughter cells form somatic organs. | Meiosis: Daughter cells form gametes. | prerequisites: somatic organ; gamete; spore; plant life cycle\np001-i20 | 1 | table_row | comparison | teach | high | 7) Mitosis: There is only one prophase, one metaphase one anaphase and one telophase. | Meiosis: There are two of each phase and five sub-phases in prophase - 1. | prerequisites: chromosome; spindle; homologous chromosome; sister chromatid\np001-i21 | 1 | table_row | comparison | teach | high | 8) Mitosis: Number of chromosomes are not changed in the daughter cells. | Meiosis: Number of chromosomes are reduced to half. | prerequisites: chromosome number; homologous pair; sister chromatids\np001-i22 | 1 | table_row | comparison | teach | high | 9) Mitosis: Chromosome number doubles at the beginning of each cell division. | Meiosis: Chromosome number is not doubled. It doubles after the end of first meiotic division. | prerequisites: DNA replication; S phase; centromere; chromosome versus chromatid\np001-i23 | 1 | table_row | comparison | teach | high | 10) Mitosis: No crossing over in chromosomes. | Meiosis: Crossing over occurs chromosomes. | prerequisites: homologous chromosomes; non-sister chromatids; allele; prophase I\np001-i24 | 1 | table_row | comparison | teach | high | 11) Mitosis: Equation division. | Meiosis: Reduction division. | prerequisites: ploidy; homologous chromosomes; sister chromatids\np001-i25 | 1 | table | comparison | no | high | Table 7.3: Difference between mitosis in Plants and Animals. Columns: Plants | Animals. Four comparison rows. | prerequisites: mitosis; plant cell; animal cell\np001-i26 | 1 | table_row | comparison | teach | high | Plants: Centrioles are absent. | Animals: Centrioles are present. | prerequisites: centriole; microtubule; mitotic spindle\np001-i27 | 1 | table_row | comparison | teach | high | Plants: Asters are not formed. | Animals: Asters are formed. | prerequisites: centrosome; microtubule; spindle pole\np001-i28 | 1 | table_row | comparison | teach | high | Plants: Cell division involves formation of a cell plate. | Animals: Cell division involves furrowing and cleavage of cytoplasm. | prerequisites: cytoplasm; cell wall; cell membrane; cytokinesis\np001-i29 | 1 | table_row | comparison | teach | high | Plants: Occurs mainly at meristem. | Animals: Occurs in tissues throughout the body. | prerequisites: meristem; tissue renewal; cell specialisation\np001-i30 | 1 | diagram | classification | teach | high | Classification of Plant Tissue → Meristematic Tissue and Permanent Tissue. Meristematic Tissue → Apical Meristem, Lateral Meristem, Intercalary Meristem. Permanent Tissue → Simple and Complex. Simple → Paranchyma, Collenchyma, Sclerenchyma. Sclerenchyma → Fibres and Sclereids. Complex → Xylem and Phloem. Visible Xylem components: Tracheids, Vessels (Tracheae), Xylem parenchyma. Visible Phloem components: Sieve tubes, Companion cells, Phloem parenchyma. The bottoms of the component boxes are cropped. | prerequisites: plant tissue; cell division; cell differentiation; classification tree\np001-i31 | 1 | diagram_label | classification | teach | high | Classification of Plant Tissue: root label; branches to Meristematic Tissue and Permanent Tissue. | prerequisites: plant cell; tissue; parent and subgroup\np001-i32 | 1 | diagram_label | classification | teach | high | Meristematic Tissue: child of Classification of Plant Tissue; parent of Apical Meristem, Lateral Meristem and Intercalary Meristem. | prerequisites: mitosis; cell differentiation; plant growth\np001-i33 | 1 | diagram_label | classification | teach | high | Apical Meristem: child of Meristematic Tissue. | prerequisites: root tip; shoot tip; cell division and elongation\np001-i34 | 1 | diagram_label | classification | teach | high | Lateral Meristem: child of Meristematic Tissue. | prerequisites: stem and root; girth; cell division\np001-i35 | 1 | diagram_label | classification | teach | high | Intercalary Meristem: child of Meristematic Tissue. | prerequisites: node and internode; leaf base; meristem\np001-i36 | 1 | diagram_label | classification | teach | high | Permanent Tissue: child of Classification of Plant Tissue; parent of Simple and Complex. | prerequisites: cell differentiation; meristem; specialised function\np001-i37 | 1 | diagram_label | classification | teach | high | Simple: child of Permanent Tissue; parent of Paranchyma, Collenchyma and Sclerenchyma. | prerequisites: permanent tissue; cell type\np001-i38 | 1 | diagram_label | classification | teach | high | Complex: child of Permanent Tissue; parent of Xylem and Phloem. | prerequisites: permanent tissue; cell type; plant transport\np001-i39 | 1 | diagram_label | classification | teach | high | Paranchyma: child of Simple under Permanent Tissue; spelling as printed. | prerequisites: living plant cell; cell wall; chloroplast; permanent tissue\np001-i40 | 1 | diagram_label | classification | teach | high | Collenchyma: child of Simple under Permanent Tissue. | prerequisites: primary cell wall; living cell; mechanical support\np001-i41 | 1 | diagram_label | classification | teach | high | Sclerenchyma: child of Simple under Permanent Tissue; parent of Fibres and Sclereids. | prerequisites: primary and secondary cell walls; lignin; cell maturity\np001-i42 | 1 | diagram_label | classification | teach | high | Fibres: child of Sclerenchyma. | prerequisites: sclerenchyma; thick cell wall; cell shape\np001-i43 | 1 | diagram_label | classification | teach | high | Sclereids: child of Sclerenchyma. | prerequisites: sclerenchyma; lignified wall; cell shape\np001-i44 | 1 | diagram_label | classification | teach | high | Xylem: child of Complex under Permanent Tissue. Visible listed components: Tracheids; Vessels (Tracheae); Xylem parenchyma. Lower box edge is cropped. | prerequisites: complex tissue; water and minerals; plant transport\np001-i45 | 1 | diagram_label | classification | teach | high | Tracheids: listed component of Xylem. | prerequisites: xylem; pit in cell wall; lignin; water conduction\np001-i46 | 1 | diagram_label | classification | teach | high | Vessels (Tracheae): listed component of Xylem. | prerequisites: xylem; vessel element; cell lumen; perforation plate\np001-i47 | 1 | diagram_label | classification | teach | high | Xylem parenchyma: listed component of Xylem. | prerequisites: parenchyma; living and dead plant cells; xylem\np001-i48 | 1 | diagram_label | classification | teach | high | Phloem: child of Complex under Permanent Tissue. Visible listed components: Sieve tubes; Companion cells; Phloem parenchyma. Lower box edge is cropped. | prerequisites: complex tissue; sugar transport; source and sink\np001-i49 | 1 | diagram_label | classification | teach | high | Sieve tubes: listed component of Phloem. | prerequisites: phloem; sieve plate; cell nucleus; angiosperm\np001-i50 | 1 | diagram_label | classification | teach | high | Companion cells: listed component of Phloem. | prerequisites: phloem; sieve-tube element; nucleus; cell metabolism\np001-i51 | 1 | diagram_label | classification | teach | high | Phloem parenchyma: listed component of Phloem. | prerequisites: parenchyma; phloem; storage; lateral transport\np007-i1 | 7 | heading | classification | no | high | Three Types of Muscular Tissue\np007-i2 | 7 | table | comparison | teach | high | Comparison of Skeletal, Cardiac and Visceral (smooth muscle). Columns: tissue type, Location, Function, Appearance, Control. | prerequisites: tissue as a group of specialised cells; cell and its nucleus; muscle contraction\np007-i3 | 7 | table_row | comparison | no | medium | Tissue-type column: unlabelled | Location | Function | Appearance | Control\np007-i4 | 7 | table_row | comparison | teach | high | Skeletal | Location: skeleton | Function: movement, heat, posture | Appearance: striated, multi-nucleated (eccentric), fibers parallel | Control: voluntary | prerequisites: cell and its nucleus; skeleton; muscle contraction; voluntary action\np007-i5 | 7 | diagram | figure | teach | high | A long cylindrical pink skeletal muscle fiber with repeated transverse bands and several purple nuclei at different positions along its length. | prerequisites: muscle fiber; cell nucleus; striations\np007-i6 | 7 | table_row | comparison | teach | high | Cardiac | Location: heart | Function: pump blood continuously | Appearance: striated, one central nucleus | Control: involuntary | prerequisites: heart as a pump; blood circulation; cell nucleus; involuntary action\np007-i7 | 7 | diagram | figure | teach | high | Pink striated cardiac muscle fibers branch and connect, with purple nuclei visible within the fibers. | prerequisites: muscle fiber; cell nucleus; coordinated contraction\np007-i8 | 7 | table_row | comparison | teach | high | Visceral (smooth muscle) | Location: G.I. tract, uterus, eye, blood vessels | Function: Peristalsis, blood pressure, pupil size, erects hairs | Appearance: no striations, one central nucleus | Control: involuntary | prerequisites: digestive tract; blood vessels; pupil and iris; muscle contraction; involuntary action\np007-i9 | 7 | diagram | figure | teach | high | An elongated spindle-shaped smooth muscle cell, tapering at both ends, with a central purple nucleus and no visible transverse striations. | prerequisites: cell shape; cell nucleus; striations\np007-i10 | 7 | diagram | figure | teach | high | Five labelled panels illustrate connective tissues: (a) types of blood cells, showing different white blood corpuscles and platelets; (b) compact bone, showing circular units around Haversian canals and canaliculi; (c) hyaline cartilage, showing chondrocytes in a hyaline matrix; (d) areolar tissue, showing cells among collagen and reticular fibres; (e) adipose tissue, showing adipocytes with large fat droplets and displaced nuclei. | prerequisites: cell; extracellular matrix; connective tissue\np007-i11 | 7 | diagram_label | figure | teach | high | Different white blood corpuscles — identifies the illustrated group of white blood cells. | prerequisites: blood; cell; body defence\np007-i12 | 7 | diagram_label | figure | teach | medium | Cytoplasm — leader line points to the cell material surrounding a white blood cell's nucleus. | prerequisites: cell membrane; cell nucleus\np007-i13 | 7 | diagram_label | figure | teach | medium | Nucleus — leader line points to the darker internal structure of a white blood corpuscle. | prerequisites: cell; genetic material\np007-i14 | 7 | diagram_label | figure | teach | high | Neutrophil (polymorphonuclear leucocyte) — names the illustrated white blood cell with a lobed nucleus. | prerequisites: white blood corpuscle; cell nucleus; phagocytosis\np007-i15 | 7 | diagram_label | figure | teach | high | Eosinophil — names the upper middle white blood cell. | prerequisites: white blood corpuscle; body defence\np007-i16 | 7 | diagram_label | figure | teach | high | Basophil — names the upper-right white blood cell. | prerequisites: white blood corpuscle; inflammation\np007-i17 | 7 | diagram_label | figure | teach | high | Lymphocyte — names the lower-left white blood cell with a prominent rounded nucleus. | prerequisites: white blood corpuscle; cell nucleus; immunity\np007-i18 | 7 | diagram_label | figure | teach | high | Monocyte — names the lower middle white blood cell with an indented nuclear profile. | prerequisites: white blood corpuscle; cell nucleus; phagocytosis\np007-i19 | 7 | diagram_label | figure | teach | high | Platelets — identifies the small clustered elements beside the lower white blood cells. | prerequisites: blood; blood-vessel injury; clotting\np007-i20 | 7 | diagram_label | figure | teach | high | Haversian canal (contains blood vessels and nerve fibres) — points to the central canal of a compact-bone unit. | prerequisites: compact bone; blood vessels; living cells require nutrients\np007-i21 | 7 | diagram_label | figure | teach | high | Canaliculus (contains slender process of bone cell or osteocyte) — identifies a fine channel associated with a bone cell. | prerequisites: bone cell or osteocyte; cell process; bone matrix\np007-i22 | 7 | diagram_label | figure | teach | high | Red blood corpuscle — names the small illustrated blood element below the compact-bone region; its exact association within the crowded inset is unclear. | prerequisites: blood; oxygen transport; haemoglobin\np007-i23 | 7 | diagram_label | figure | teach | high | Chondrocyte — points to a cartilage cell embedded in the illustrated cartilage. | prerequisites: cartilage; cell; extracellular matrix\np007-i24 | 7 | diagram_label | figure | teach | high | Hyaline matrix — points to the material surrounding the cartilage cells. | prerequisites: extracellular matrix; chondrocyte; mechanical support\np007-i25 | 7 | diagram_label | figure | teach | medium | Reticular fibre — points to a fine fibre within the areolar-tissue network. | prerequisites: connective-tissue fibres; extracellular matrix\np007-i26 | 7 | diagram_label | figure | teach | high | Fibroblast — points to an elongated cell among the connective-tissue fibres. | prerequisites: connective-tissue cell; extracellular matrix\np007-i27 | 7 | diagram_label | figure | teach | high | Macrophage — points to an irregular cell among the tissue fibres. | prerequisites: cell; phagocytosis; tissue defence\np007-i28 | 7 | diagram_label | figure | teach | high | Collagen fibre — points to a prominent fibre bundle crossing the areolar-tissue illustration. | prerequisites: extracellular fibre; protein; tensile force\np007-i29 | 7 | diagram_label | figure | teach | high | Mast cell — points to a cell among the fibres of areolar tissue. | prerequisites: connective-tissue cell; inflammation\np007-i30 | 7 | diagram_label | figure | teach | high | Plasma cell — points to a rounded cell at the right of the areolar-tissue illustration. | prerequisites: B lymphocyte; antibody; cell\np007-i31 | 7 | diagram_label | figure | teach | high | Fat droplet — points to the large pale internal region of an adipocyte. | prerequisites: fat or lipid; cell; energy storage\np007-i32 | 7 | diagram_label | figure | teach | high | Nucleus — leader lines point to small dark peripheral structures in the illustrated adipocytes. | prerequisites: cell nucleus; fat droplet; cell interior\np007-i33 | 7 | diagram_label | figure | teach | high | Adipocyte — identifies a fat-storing cell in the adipose-tissue panel. | prerequisites: cell; lipid storage\np007-i34 | 7 | caption | figure | teach | high | Fig. 6.10: Types of connective tissues: (a) types of blood cells, (b) compact bone, (c) hyaline cartilage, (d) areolar tissue, (e) adipose tissue. | prerequisites: diagram panel letters; connective tissue\np007-i35 | 7 | question | process | teach | high | How do neurons transmit impulses (send message to other cells)? | prerequisites: neuron; nerve impulse; cell membrane; synapse\np007-i36 | 7 | diagram | figure | teach | high | Two neurons are arranged from lower left to upper right. An axon of a previous neuron approaches the first neuron's receiving region at a circled synapse. The first neuron has dendrites, a cell body and a nucleus. Its axon extends rightwards and curves upwards; blue arrows labelled electrical signal point along it towards axon tips. The tips approach dendrites of the next neuron at another circled synapse. The next neuron's cell body and nucleus are labelled. | prerequisites: cell body; cell nucleus; nerve impulse; directional arrows\np007-i37 | 7 | diagram_label | figure | teach | high | axon of previous neuron — points to the incoming process approaching the first neuron from the left. | prerequisites: axon; successive neurons; synapse\np007-i38 | 7 | diagram_label | figure | teach | high | synapse — points to the circled contact region between the previous neuron's axon and the first displayed neuron. | prerequisites: axon terminal; receiving neuron; neurotransmitter\np007-i39 | 7 | diagram_label | figure | teach | high | neuron cell body — points to the expanded orange central region of the first displayed neuron. | prerequisites: cell; cell nucleus; neuron\np007-i40 | 7 | diagram_label | figure | teach | medium | nucleus — points to the dark oval within the first neuron's cell body. | prerequisites: cell nucleus; genetic material; cell body\np007-i41 | 7 | diagram_label | figure | teach | high | dendrites — points to the short branching processes extending from the first neuron's cell body. | prerequisites: cell process; cell body; incoming signal\np007-i42 | 7 | diagram_label | figure | teach | high | axon — points to the long process extending from the first neuron's cell body towards the next neuron. | prerequisites: cell membrane; ion; nerve impulse; cell process\np007-i43 | 7 | diagram_label | figure | teach | high | electrical signal — names the blue directional arrows following the axon from the first neuron towards the next neuron. | prerequisites: directional arrow; axon; cell membrane; ion\np007-i44 | 7 | diagram_label | figure | teach | high | axon tips — points to the terminal branches of the first neuron's axon near the next neuron. | prerequisites: axon; synapse; neurotransmitter\np007-i45 | 7 | diagram_label | figure | teach | high | synapse — points to the circled junction between the first neuron's axon terminal and the next neuron's receiving process. | prerequisites: axon tip; receiving neuron; synapse\np007-i46 | 7 | diagram_label | figure | teach | high | neuron cell body — points to the expanded central region of the next neuron. | prerequisites: cell body; receiving signal; nerve impulse\np007-i47 | 7 | diagram_label | figure | teach | medium | nucleus — points to the dark oval within the next neuron's cell body. | prerequisites: cell nucleus; cell membrane; nerve impulse\np007-i48 | 7 | diagram_label | figure | teach | high | dendrites of next neuron — points to branching receiving processes of the next neuron. | prerequisites: dendrite; axon tip; successive neurons\np007-i49 | 7 | other | figure | teach | high | Directional arrows run along the axon from the lower-left neuron's cell-body region towards the terminal region beside the upper-right neuron. | prerequisites: directional arrows; axon; synapse\np011-i1 | 11 | heading | none | no | high | 3. Sclerenchyma Tissue\np011-i2 | 11 | heading | none | no | low | Occurrence:\np011-i3 | 11 | list_point | facts_numbers | teach | high | • In stems around vascular bundles. • In veins of leaves. • Hard covering of seeds and nuts. | prerequisites: stem and leaf; vascular bundle; seed and nut coverings\np011-i4 | 11 | example | facts_numbers | teach | high | Eg. Husk of coconut. | prerequisites: coconut husk; plant tissue\np011-i5 | 11 | heading | none | no | low | Structure:\np011-i6 | 11 | list_point | structure | teach | high | Long and narrow Walls are thickened by LIGNINS Intercellular spaces absent. Cells are dead. | prerequisites: cell wall; living cell contents; spaces between cells; lignin\np011-i7 | 11 | list_point | cause_effect | teach | high | Cell cavity is absent due to excessive thickness. | prerequisites: cell wall; cell cavity or lumen; wall thickening\np011-i8 | 11 | heading | none | no | low | Function:\np011-i9 | 11 | list_point | facts_numbers | teach | high | • Provide strength to plant cell. • Provides protection and mechanical strength | prerequisites: lignified cell wall; mechanical support; protective covering\np011-i10 | 11 | heading | none | no | high | COMPLEX PERMANENT TISSUE\np011-i11 | 11 | definition | structure | teach | high | • Made up of more than one type of cells. | prerequisites: cell; tissue; different specialised cell types\np011-i12 | 11 | list_point | facts_numbers | teach | high | • Cells co-ordinate to perform common function. | prerequisites: specialised cells; division of labour within a tissue\np011-i13 | 11 | heading | none | no | low | Functions:\np011-i14 | 11 | list_point | facts_numbers | teach | high | • Transport water, minerals and food materials. | prerequisites: water and dissolved minerals; food made by plants; transport within plants\np011-i15 | 11 | list_point | classification | teach | high | Two types: 1. Xylem 2. Phloem | prerequisites: complex permanent tissue; water and food transport\np011-i16 | 11 | diagram | figure | teach | high | Figure titled 'Complex Permanent Tissue': a green Xylem drawing on the left and a Phloem drawing on the right. Leader arrows connect component labels to cells or cell groups. Xylem labels: Xylem Parenchyma, Vessels, Tracheids, Xylem Fibres. Phloem labels: Phloem Parenchyma, Companion cell, Phloem fibres, Sieve tube. The drawings are captioned Xylem and Phloem. These are anatomical label arrows, not arrows indicating transport direction. | prerequisites: complex permanent tissue; diagram leader arrows\np011-i17 | 11 | diagram_label | figure | teach | high | Xylem Parenchyma — leader points to the rectangular cellular region at the upper right of the xylem drawing. | prerequisites: xylem; parenchyma\np011-i18 | 11 | diagram_label | figure | teach | high | Vessels — leader points to a broad, elongated conducting region in the xylem drawing. | prerequisites: xylem; tubular conducting cell\np011-i19 | 11 | diagram_label | figure | teach | high | Tracheids — leader points into an elongated, pitted cell region of the xylem drawing. | prerequisites: xylem; cell wall pits\np011-i20 | 11 | diagram_label | figure | teach | high | Xylem Fibres — leader points to a narrow, elongated component near the base of the xylem drawing. | prerequisites: xylem; thick cell walls\np011-i21 | 11 | diagram_label | figure | teach | high | Phloem Parenchyma — leader points to the small green cellular region on the outer right of the phloem drawing. | prerequisites: phloem; parenchyma\np011-i22 | 11 | diagram_label | figure | teach | high | Companion cell — leader points to the narrow elongated cell adjacent to the broad sieve-tube region. | prerequisites: phloem; sieve-tube element\np011-i23 | 11 | diagram_label | figure | teach | high | Phloem fibres — leader identifies the fibre component in the phloem drawing; the small arrow endpoint is indistinct. | prerequisites: phloem; supporting fibres\np011-i24 | 11 | diagram_label | figure | teach | high | Sieve tube — leader identifies the broad conducting tube region in the phloem drawing. | prerequisites: phloem; food transport\np011-i25 | 11 | diagram | figure | teach | high | Boxed figure with headings 'Xylem structure' and 'Phloem structure'. Xylem subfigure a. shows an isolated vessel element with pitted walls; subfigure b. shows tracheids and a group containing a xylem parenchyma cell, a vessel element and a tracheid. Phloem subfigure a. shows an elongated sieve-tube element with an end sieve plate, an associated companion cell, a nucleus label and a phloem parenchyma cells label. Phloem subfigure b. shows adjacent elongated cells labelled companion cell, sieve-tube element, sieve plate, phloem parenchyma cells and plasmo-desmata. Leader lines identify structures; the drawings show cell arrangement rather than a sequence or directional flow. | prerequisites: xylem and phloem; cell wall; diagram leader lines\np011-i26 | 11 | diagram_label | figure | teach | high | vessel elements — leader points to the isolated pink elongated cell in xylem subfigure a. | prerequisites: xylem vessel; cell end wall\np011-i27 | 11 | diagram_label | figure | teach | medium | pitted walls — leader points to wall markings on the isolated vessel element. | prerequisites: cell wall; secondary wall; water movement\np011-i28 | 11 | diagram_label | figure | teach | high | tracheids — leader points to the group of narrow pink elongated cells. | prerequisites: xylem; wall pits\np011-i29 | 11 | diagram_label | figure | teach | medium | pitted walls — leader points to the walls of the narrow tracheids. | prerequisites: tracheid; cell wall pit\np011-i30 | 11 | diagram_label | figure | teach | high | xylem parenchyma cell — leader points to the narrow grey cellular column beside the pink conducting cells. | prerequisites: xylem parenchyma; vertical and sideways conduction\np011-i31 | 11 | diagram_label | figure | teach | high | vessel element — leader points to a broad pink cell within the grouped xylem drawing. | prerequisites: vessel element; xylem\np011-i32 | 11 | diagram_label | figure | teach | high | tracheid — leader points upward to a narrow pink elongated cell at the right of the xylem group. | prerequisites: tracheid; wall pits\np011-i33 | 11 | diagram_label | figure | teach | high | sieve plate — leader points to the end surface of the isolated blue sieve-tube element. | prerequisites: sieve-tube element; cell end wall\np011-i34 | 11 | diagram_label | figure | teach | high | sieve-tube element — leader points to the long blue conducting cell in phloem subfigure a. | prerequisites: phloem; sieve plate\np011-i35 | 11 | diagram_label | figure | teach | high | companion cell — leader points to the smaller cell associated with the isolated sieve-tube element. | prerequisites: sieve-tube element; metabolic support\np011-i36 | 11 | diagram_label | figure | teach | high | phloem parenchyma cells — label identifies the parenchyma component in phloem subfigure a. | prerequisites: phloem; parenchyma\np011-i37 | 11 | diagram_label | figure | teach | high | nucleus — leader points to the dark body in the small cell associated with the sieve-tube element. | prerequisites: cell nucleus; companion cell; sieve-tube element\np011-i38 | 11 | diagram_label | figure | teach | high | companion cell — leader points to the narrow cell beside a broad sieve-tube element in phloem subfigure b. | prerequisites: companion cell; sieve-tube element; plasmodesmata\np011-i39 | 11 | diagram_label | figure | teach | high | sieve-tube element — leader points to a broad blue elongated conducting cell in phloem subfigure b. | prerequisites: sieve-tube element; sieve plate\np011-i40 | 11 | diagram_label | figure | teach | high | sieve plate — leader points to a transverse boundary between successive sieve-tube elements. | prerequisites: sieve-tube element; pores in end walls\np011-i41 | 11 | diagram_label | figure | teach | high | phloem parenchyma cells — leader points to the small cells along the lower left side of the grouped phloem drawing. | prerequisites: parenchyma; xylem and phloem\np011-i42 | 11 | diagram_label | figure | teach | medium | plasmo-desmata — printed across two lines; leader points to connections across adjoining phloem cell walls. | prerequisites: cell wall; cytoplasm; adjacent living plant cells\np011-i43 | 11 | list_point | structure | teach | high | Xylem consists of tracheids, vessels, xylem parenchyma and xylem fibres. | prerequisites: complex permanent tissue; conducting and supporting cells\np011-i44 | 11 | list_point | structure | teach | high | Tracheids and vessels have thick walls, and many are dead cells when mature. | prerequisites: cell wall; living cell contents; mature specialised cell; xylem\np011-i45 | 11 | list_point | cause_effect | teach | high | Tracheids and vessels are tubular structures. This allows them to transport water and minerals vertically. | prerequisites: tubular cell; plant axis; dissolved minerals; water transport\np011-i46 | 11 | list_point | facts_numbers | teach | high | The parenchyma stores food and help in sideways conduction of water. | prerequisites: xylem parenchyma; food storage; vertical and lateral directions\np011-i47 | 11 | list_point | facts_numbers | teach | high | Xylem fibres are mainly supportive in function. | prerequisites: xylem fibres; lignified wall; mechanical support\np013-i1 | 13 | answer_option | none | teach | low | a. 1 only b. 1 and 2. c. 2 and 3. d. All are correct | prerequisites: the missing question and its numbered statements\np013-i2 | 13 | question | comparison | teach | high | Q. Consider the following statement(s): Choose the correct option: | prerequisites: plant tissue; cell wall; vacuole; mechanical support\np013-i3 | 13 | table | comparison | no | high | Columns: Tissue | Function and constituents. Three numbered tissue–feature pairings follow.\np013-i4 | 13 | table_row | comparison | teach | high | 1. Tissue: Parenchyma | Function and constituents: Large vacuole and store food | prerequisites: plant cell; vacuole; food reserves\np013-i5 | 13 | table_row | comparison | teach | high | 2. Tissue: Sclerenchyma | Function and constituents: In climber plants and provide mechanical strength | prerequisites: mechanical strength; climbing plant; lignified wall; flexible support\np013-i6 | 13 | table_row | comparison | teach | high | 3. Tissue: Collenchyma | Function and constituents: contain lignin | prerequisites: primary wall; secondary wall; lignin\np013-i7 | 13 | answer_option | none | teach | high | a. 1 only. b. 2 only. c. 1 and 3 only. d. All are incorrect. | prerequisites: evaluation of the three tissue statements\np013-i8 | 13 | table | comparison | no | high | Comparison table. Columns: Features | Parenchyma | Collenchyma | Sclerenchyma. Eight rows compare cell shape, cell wall, cytoplasm, nucleus, vacuoles, intercellular spaces, occurrence and functions. A drawing of each tissue appears above its column.\np013-i9 | 13 | table_row | comparison | teach | high | Features: 1. Cell shape | Parenchyma: Isodiametric cells which are oval, spherical or polygonal in shape | Collenchyma: Circular, oval or polyhedral | Sclerenchyma: Variable in shape. Fibres and sclereids | prerequisites: cell shape; section through a tissue\np013-i10 | 13 | table_row | comparison | teach | high | Features: 2. Cell wall | Parenchyma: Thin cellulosic cell wall | Collenchyma: Uneven thickening on their cell wall. | Sclerenchyma: Lignified secondary cell wall present | prerequisites: cellulose; primary and secondary cell walls; lignin\np013-i11 | 13 | table_row | comparison | teach | high | Features: 3. Cytoplasm | Parenchyma: Abundant | Collenchyma: Present | Sclerenchyma: Absent | prerequisites: cytoplasm; living cell; cell maturation\np013-i12 | 13 | table_row | comparison | teach | high | Features: 4. Nucleus | Parenchyma: Present, (Living tissue) | Collenchyma: Present, (Living tissue) | Sclerenchyma: Absent (Dead tissue) | prerequisites: nucleus; protoplast; mechanical support by cell walls\np013-i13 | 13 | table_row | comparison | teach | high | Features: 5. Vacuoles | Parenchyma: Large vacuole | Collenchyma: Vacuolated | Sclerenchyma: Absent | prerequisites: vacuole; water movement; cell wall\np013-i14 | 13 | table_row | comparison | teach | high | Features: 6. Intercellular spaces | Parenchyma: Present | Collenchyma: Absent | Sclerenchyma: Absent | prerequisites: cell boundary; vacuole; space between cells\np013-i15 | 13 | table_row | comparison | teach | high | Features: 7. Occurrence | Parenchyma: Basically packing tissue, All soft part of plant, Pith, cortex, medullary rays | Collenchyma: Dicot stems, petiole and beneath the epidermis. Absent in monocot and roots | Sclerenchyma: Dicot hypodermis, bundle sheath, pericycle, Seed, pulp of fruits. | prerequisites: dicot and monocot; stem and root; epidermis and hypodermis; petiole; cortex and pith; vascular bundle; pericycle\np013-i16 | 13 | table_row | comparison | teach | high | Features: 8. Functions | Parenchyma: Food storage, Photosynthesis | Collenchyma: Provide tensile strength, Mechanical support, Photosynthesis | Sclerenchyma: Protection from stress and strain, Mechanical strength | prerequisites: food storage; photosynthesis; chloroplast; tension; cell-wall strength\np013-i17 | 13 | diagram | figure | teach | high | Parenchyma drawing: a cluster of rounded or polygonal green cells with thin boundaries and visible spaces between some cells. A label identifies the thin primary cell wall. No process arrows are shown. | prerequisites: cell wall; intercellular space; schematic tissue section\np013-i18 | 13 | diagram_label | figure | teach | medium | Parenchyma — names the left tissue drawing. | prerequisites: reading a comparison table\np013-i19 | 13 | diagram_label | figure | teach | high | thin primary cell wall — identifies the thin cell boundary in the parenchyma drawing. | prerequisites: cell wall; cell growth\np013-i20 | 13 | diagram | figure | teach | high | Collenchyma drawing: a compact group of polygonal cells whose primary walls show uneven thickening, especially around cell junctions. The wall label reads 'Irregularly Thickened Primary Cell Wall'; a small orange tissue label appears beneath it. No process arrows are shown. | prerequisites: primary wall; cell junction; flexible support\np013-i21 | 13 | diagram_label | figure | teach | medium | Collenchyma — names the middle tissue drawing. | prerequisites: cell-wall thickness\np013-i22 | 13 | diagram_label | figure | teach | high | Irregularly Thickened Primary Cell Wall — identifies the uneven cell-wall thickening in the collenchyma drawing. | prerequisites: primary and secondary cell walls\np013-i23 | 13 | diagram_label | figure | teach | low | Collenchyma — small repeated tissue name beneath the middle drawing; the tiny text is less clear than the main heading. | prerequisites: reading diagram labels\np013-i24 | 13 | diagram | figure | teach | high | Sclerenchyma drawing: a group of cells with thick surrounding walls and relatively narrow central spaces. Labels distinguish 'thick secondary cell wall' and 'primary cell wall'. No process arrows are shown. | prerequisites: primary wall; secondary wall; cell lumen\np013-i25 | 13 | diagram_label | figure | teach | medium | Sclerenchyma — names the right tissue drawing. | prerequisites: secondary cell wall\np013-i26 | 13 | diagram_label | figure | teach | high | thick secondary cell wall — identifies the thick wall layer surrounding a sclerenchyma cell's central space. | prerequisites: lignin; secondary cell wall; mechanical load\np013-i27 | 13 | diagram_label | figure | teach | medium | primary cell wall — identifies the primary wall outside the thick secondary wall in the sclerenchyma drawing. | prerequisites: cell-wall layers; cell growth\np013-i28 | 13 | question | classification | teach | high | Q. All are parts of xylem except: | prerequisites: xylem; phloem; complex permanent tissue; sieve-tube element\np013-i29 | 13 | answer_option | none | teach | high | A. Companion cells B. Tracheid C. Parenchyma D. Xylem vessel | prerequisites: xylem components; phloem components; simple and complex tissues\np013-i30 | 13 | question | structure | teach | high | Q. Lignin is present in cell wall of which tissue: | prerequisites: cell wall; lignin; secondary wall\np013-i31 | 13 | answer_option | none | teach | high | a. Parenchyma b. Sclerenchyma c. Collenchyma d. None | prerequisites: wall differences among simple permanent tissues\np013-i32 | 13 | question | classification | teach | high | Q. Specialised cell of parenchyma present in aquatic plants to provide them buoyancy | prerequisites: parenchyma; intercellular spaces; aquatic plant; density and buoyancy; chloroplast\np013-i33 | 13 | answer_option | none | teach | high | a. Chlorenchyma b. Sieve tube c. Aerenchyma d. Companion cells | prerequisites: aerenchyma; chlorenchyma; phloem\np013-i34 | 13 | question | comparison | teach | high | Q. Which statement is incorrect with reference to cardiac tissue: Option: | prerequisites: muscle tissue; striations; voluntary and involuntary control; skeletal muscle; visceral smooth muscle\np013-i35 | 13 | list_point | structure | teach | high | 1. They are striated | prerequisites: muscle fibre; microscopic bands; contractile filaments\np013-i36 | 13 | list_point | classification | teach | high | 2. They are voluntary in nature | prerequisites: voluntary and involuntary action; heartbeat; autonomic regulation\np013-i37 | 13 | list_point | comparison | teach | high | 3. They have features of both skeletal and visceral tissue. | prerequisites: skeletal muscle; visceral smooth muscle; striations; involuntary control\np013-i38 | 13 | question | none | no | low | Question continued from the preceding page; its stem and numbered statements are not visible on this page. The visible answer options are captured in i1."
+   },
+   {
+    "type": "text",
+    "text": "Answer the card with the chapter map JSON."
+   }
+  ]
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "started_at": 1792723516.8512616,
+   "mode": "full",
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "c510ddd37b6cdd7dd1b9ca2d27c5bd37bc6a6e8f03372f7e649f72f2b9daabec",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 29415,
+    "output_tokens": 13352,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "This map connects the supplied pages on tissue organisation, cell division, plant tissues, muscular tissue, connective-tissue figures and neuronal signalling. It preserves the book's comparisons, diagram labels and practice questions while distinguishing source statements from outside clarification.",
+    "key_questions": [
+     "How does grouping specialised cells produce division of labour and larger levels of organisation?",
+     "How do mitosis and meiosis differ, and which printed statements need clarification?",
+     "How are plant tissues classified, and how can their walls, contents, locations and functions identify them?",
+     "Which cells constitute xylem and phloem, and what do the supplied figures actually show?",
+     "How can muscle and connective tissues be identified from their appearance, location and function?",
+     "How does the neuron diagram show the direction of a message between cells?",
+     "Which practice questions can be answered from the supplied material, and which are incomplete?"
+    ],
+    "decisions": [
+     {
+      "decision": "Use explicit 'Book basis' and 'Outside clarification' wording within explanations because the concept schema has no separate basis field.",
+      "reason": "This preserves the required distinction without adding unsupported schema properties."
+     },
+     {
+      "decision": "Keep cell-division comparisons as chapter concepts alongside tissues.",
+      "reason": "They are teachable source items and help connect cell multiplication with tissue organisation."
+     },
+     {
+      "decision": "Separate anatomical figures from processes and retain their individual labels through item membership and explanation.",
+      "reason": "Leader lines identify parts; neuronal directional arrows communicate a sequence."
+     },
+     {
+      "decision": "Retain questionable printed claims and add clearly marked standard textbook clarification.",
+      "reason": "The map must represent the book faithfully without presenting its inaccuracies as settled biology."
+     },
+     {
+      "decision": "Represent each practice question with its visible options, including the orphaned option set.",
+      "reason": "Incomplete questions must remain visible without inventing missing stems or answer keys."
+     }
+    ],
+    "uncertain": [
+     "Only pages 1, 7, 11 and 13 are supplied; missing pages and cropped diagram content cannot be reconstructed as book evidence.",
+     "p001-i22 incorrectly describes chromosome doubling and its timing. DNA replication and chromosome number must be distinguished.",
+     "The mitosis–meiosis table uses broad statements about diploidy, germ cells and gamete formation that require contextual qualification.",
+     "The statement that the sclerenchyma cell cavity is absent is stronger than the page 13 drawing, which shows narrow central spaces.",
+     "The climber-support pairing in p013-i5 is treated as the intended incorrect pairing, but the supplied pages do not explicitly explain climber support.",
+     "p013-i1 has options without its question or statements; no answer can be determined.",
+     "The cardiac question gives three statements but no separate combination-answer options.",
+     "The exact association of the red blood corpuscle label in the crowded connective-tissue figure, the endpoint of the phloem-fibres arrow and the tiny repeated collenchyma label remain visually uncertain."
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "This map connects the supplied pages on tissue organisation, cell division, plant tissues, muscular tissue, connective-tissue figures and neuronal signalling. It preserves the book's comparisons, diagram labels and practice questions while distinguishing source statements from outside clarification.",
+     "key_questions": [
+      "How does grouping specialised cells produce division of labour and larger levels of organisation?",
+      "How do mitosis and meiosis differ, and which printed statements need clarification?",
+      "How are plant tissues classified, and how can their walls, contents, locations and functions identify them?",
+      "Which cells constitute xylem and phloem, and what do the supplied figures actually show?",
+      "How can muscle and connective tissues be identified from their appearance, location and function?",
+      "How does the neuron diagram show the direction of a message between cells?",
+      "Which practice questions can be answered from the supplied material, and which are incomplete?"
+     ],
+     "decisions": [
+      {
+       "decision": "Use explicit 'Book basis' and 'Outside clarification' wording within explanations because the concept schema has no separate basis field.",
+       "reason": "This preserves the required distinction without adding unsupported schema properties."
+      },
+      {
+       "decision": "Keep cell-division comparisons as chapter concepts alongside tissues.",
+       "reason": "They are teachable source items and help connect cell multiplication with tissue organisation."
+      },
+      {
+       "decision": "Separate anatomical figures from processes and retain their individual labels through item membership and explanation.",
+       "reason": "Leader lines identify parts; neuronal directional arrows communicate a sequence."
+      },
+      {
+       "decision": "Retain questionable printed claims and add clearly marked standard textbook clarification.",
+       "reason": "The map must represent the book faithfully without presenting its inaccuracies as settled biology."
+      },
+      {
+       "decision": "Represent each practice question with its visible options, including the orphaned option set.",
+       "reason": "Incomplete questions must remain visible without inventing missing stems or answer keys."
+      }
+     ],
+     "uncertain": [
+      "Only pages 1, 7, 11 and 13 are supplied; missing pages and cropped diagram content cannot be reconstructed as book evidence.",
+      "p001-i22 incorrectly describes chromosome doubling and its timing. DNA replication and chromosome number must be distinguished.",
+      "The mitosis–meiosis table uses broad statements about diploidy, germ cells and gamete formation that require contextual qualification.",
+      "The statement that the sclerenchyma cell cavity is absent is stronger than the page 13 drawing, which shows narrow central spaces.",
+      "The climber-support pairing in p013-i5 is treated as the intended incorrect pairing, but the supplied pages do not explicitly explain climber support.",
+      "p013-i1 has options without its question or statements; no answer can be determined.",
+      "The cardiac question gives three statements but no separate combination-answer options.",
+      "The exact association of the red blood corpuscle label in the crowded connective-tissue figure, the endpoint of the phloem-fibres arrow and the tiny repeated collenchyma label remain visually uncertain."
+     ]
+    },
+    "chapter_title": "10. Tissues and Its Types",
+    "chapter_summary": "Book basis: Cells form tissues that perform common functions, enabling division of labour and organisation into organs, organ systems and organisms. The supplied chapter material compares cell divisions, classifies plant tissues, relates simple and complex permanent tissues to their structure and function, compares three muscular tissues, illustrates connective tissues and neurons, and tests tissue identification through practice questions. Outside clarification is explicitly marked where needed to explain mechanisms, answer questions without a supplied key or qualify problematic printed statements.",
+    "concepts": [
+     {
+      "concept_id": "c01",
+      "name": "Tissue and the plant–animal distinction",
+      "item_ids": [
+       "p001-i2",
+       "p001-i3",
+       "p001-i4"
+      ],
+      "content_type": "definition",
+      "core_explanation": "Book basis: A tissue is formed when cells combine to perform the same function; plant cells form plant tissues and animal cells form animal tissues. Use the shared function to explain why a tissue is a functional group of cells rather than simply a collection of neighbouring cells."
+     },
+     {
+      "concept_id": "c02",
+      "name": "Division of labour and biological organisation",
+      "item_ids": [
+       "p001-i5",
+       "p001-i6",
+       "p001-i7",
+       "p001-i8",
+       "p001-i9",
+       "p001-i10",
+       "p001-i11",
+       "p001-i12"
+      ],
+      "content_type": "cause_effect",
+      "core_explanation": "Book basis: Tissue formation causes division of labour, reduces the workload on individual cells and leads to organisation. Read the diagram as a hierarchy of parts within larger wholes: Cell → Tissues → Organ → Organ system → Organisms, with tissues between cells and organs and organ systems between organs and the organism. Outside clarification: This is a hierarchy of organisation, not a claim that an individual cell passes through these stages during its life."
+     },
+     {
+      "concept_id": "c03",
+      "name": "Mitosis and meiosis: site, divisions and outcomes",
+      "item_ids": [
+       "p001-i14",
+       "p001-i15",
+       "p001-i16",
+       "p001-i17",
+       "p001-i18",
+       "p001-i19",
+       "p001-i21",
+       "p001-i24"
+      ],
+      "content_type": "comparison",
+      "core_explanation": "Book basis: The table contrasts mitosis in somatic cells with meiosis in germ cells, one nuclear division with two, two daughter cells with four, diploid daughters with haploid daughters, more frequent with less frequent occurrence, somatic-organ formation with gamete formation, and unchanged chromosome number with reduction to half; it prints 'Equation division' against 'Reduction division'. Outside clarification: Read 'Equation' as equational: mitosis generally preserves the starting chromosome-set number and is not restricted to diploid starting cells, whereas meiosis reduces the chromosome-set number; frequency depends on the cells and organism. Outside clarification: 'Germ cells' here means the reproductive cell lineage, and meiosis produces spores rather than gametes directly in plant life cycles."
+     },
+     {
+      "concept_id": "c04",
+      "name": "Mitosis and meiosis: phases, replication and crossing over",
+      "item_ids": [
+       "p001-i20",
+       "p001-i22",
+       "p001-i23"
+      ],
+      "content_type": "comparison",
+      "core_explanation": "Book basis: Mitosis has one prophase, metaphase, anaphase and telophase; meiosis has two of each and five subphases in prophase I, with crossing over contrasted as absent in mitosis and present in meiosis. Book basis: The replication row says chromosome number doubles at the beginning of each mitotic division and, for meiosis, after the first meiotic division; retain this as the printed claim requiring correction. Outside clarification: DNA replicates before mitosis and before meiosis I, without doubling chromosome number when chromosomes are counted by centromeres, and there is no intervening DNA replication between meiosis I and II; meiotic crossing over involves non-sister chromatids of homologous chromosomes in prophase I."
+     },
+     {
+      "concept_id": "c05",
+      "name": "Plant and animal mitosis",
+      "item_ids": [
+       "p001-i26",
+       "p001-i27",
+       "p001-i28",
+       "p001-i29"
+      ],
+      "content_type": "comparison",
+      "core_explanation": "Book basis: The plant column lists absent centrioles, no asters, cell-plate formation and division mainly at meristems; the animal column lists present centrioles, asters, furrowing and cleavage of cytoplasm, and division in tissues throughout the body. Compare the division apparatus, separation of cytoplasm and location of division as separate criteria. Outside clarification: The plant description is the usual higher-plant comparison, while animal division throughout the body does not mean that each mature animal cell retains the ability to divide."
+     },
+     {
+      "concept_id": "c06",
+      "name": "Plant-tissue classification framework",
+      "item_ids": [
+       "p001-i30",
+       "p001-i31",
+       "p001-i32",
+       "p001-i33",
+       "p001-i34",
+       "p001-i35",
+       "p001-i36",
+       "p001-i37",
+       "p001-i38"
+      ],
+      "content_type": "classification",
+      "core_explanation": "Book basis: Plant tissue branches into Meristematic Tissue and Permanent Tissue; meristematic tissue branches into Apical, Lateral and Intercalary Meristem, while permanent tissue branches into Simple and Complex. The full tree further places Paranchyma, Collenchyma and Sclerenchyma under Simple, Fibres and Sclereids under Sclerenchyma, and Xylem and Phloem under Complex; its component boxes are cropped at the bottom. Outside clarification: The main distinction is between tissues whose cells retain active division and tissues differentiated for specialised work; apical, lateral and intercalary refer respectively to tip, side and intervening growth regions."
+     },
+     {
+      "concept_id": "c07",
+      "name": "Simple permanent tissues and their subtypes",
+      "item_ids": [
+       "p001-i39",
+       "p001-i40",
+       "p001-i41",
+       "p001-i42",
+       "p001-i43"
+      ],
+      "content_type": "classification",
+      "core_explanation": "Book basis: The simple permanent tissue branch contains 'Paranchyma' as printed, Collenchyma and Sclerenchyma, and sclerenchyma branches into Fibres and Sclereids. The later comparison table uses the spelling Parenchyma for the same tissue, so retain the original diagram spelling while connecting both occurrences. Outside clarification: A simple permanent tissue is chiefly composed of one kind of cell; the fibre–sclereid distinction concerns sclerenchyma cell forms, not two additional branches parallel to the three simple tissues."
+     },
+     {
+      "concept_id": "c08",
+      "name": "Simple tissues compared: shape, walls and living contents",
+      "item_ids": [
+       "p013-i9",
+       "p013-i10",
+       "p013-i11",
+       "p013-i12",
+       "p013-i13",
+       "p013-i14"
+      ],
+      "content_type": "comparison",
+      "core_explanation": "Book basis: Parenchyma has isodiametric oval, spherical or polygonal cells, thin cellulosic walls, abundant cytoplasm, nuclei, a large vacuole and intercellular spaces; collenchyma has circular, oval or polyhedral cells, uneven wall thickening, cytoplasm, nuclei and vacuoles, with spaces listed as absent. Sclerenchyma has variable forms including fibres and sclereids, lignified secondary walls, and absent cytoplasm, nuclei, vacuoles and intercellular spaces; the table identifies parenchyma and collenchyma as living and sclerenchyma as dead. Outside clarification: A vacuole is inside a cell, an intercellular space is between cells, and the lumen is the cavity enclosed by a cell wall, so these should be compared separately."
+     },
+     {
+      "concept_id": "c09",
+      "name": "Simple tissues compared: occurrence and functions",
+      "item_ids": [
+       "p013-i15",
+       "p013-i16"
+      ],
+      "content_type": "comparison",
+      "core_explanation": "Book basis: Parenchyma is described as packing tissue in soft plant parts, pith, cortex and medullary rays, with food storage and photosynthesis; collenchyma occurs in dicot stems, petiole and beneath the epidermis, is listed as absent in monocots and roots, and provides tensile strength, mechanical support and photosynthesis. Sclerenchyma is listed in dicot hypodermis, bundle sheath, pericycle, seed and fruit pulp, with protection from stress and strain and mechanical strength. Outside clarification: Photosynthesis in parenchyma or collenchyma depends on chloroplasts being present, and the table's occurrence statements should be taught as its stated generalisations."
+     },
+     {
+      "concept_id": "c10",
+      "name": "Visual identification of simple permanent tissues",
+      "item_ids": [
+       "p013-i17",
+       "p013-i18",
+       "p013-i19",
+       "p013-i20",
+       "p013-i21",
+       "p013-i22",
+       "p013-i23",
+       "p013-i24",
+       "p013-i25",
+       "p013-i26",
+       "p013-i27"
+      ],
+      "content_type": "figure",
+      "core_explanation": "Book basis: Identify parenchyma by its rounded or polygonal cells, thin primary cell walls and visible spaces; identify collenchyma by compact cells with irregularly thickened primary walls, especially at junctions, including the repeated small tissue-name label. Identify sclerenchyma by thick secondary walls surrounding narrow central spaces and distinguish the labelled primary wall outside the secondary wall. These are structural drawings without process arrows, so the teaching task is to match visible wall patterns to tissue names."
+     },
+     {
+      "concept_id": "c11",
+      "name": "Sclerenchyma: occurrence, lignified walls and strength",
+      "item_ids": [
+       "p011-i3",
+       "p011-i4",
+       "p011-i6",
+       "p011-i7",
+       "p011-i9"
+      ],
+      "content_type": "structure",
+      "core_explanation": "Book basis: Sclerenchyma occurs around stem vascular bundles, in leaf veins and hard seed and nut coverings, with coconut husk as an example; its cells are described as long, narrow and dead, with lignin-thickened walls and absent intercellular spaces, providing protection and mechanical strength. Book basis: The text attributes an absent cell cavity to excessive wall thickness, although the supplied page 13 drawing shows narrow cavities. Outside clarification: Thick lignified walls can greatly reduce the lumen, and 'long and narrow' particularly describes fibres; sclereids account for the variable forms noted elsewhere in the book."
+     },
+     {
+      "concept_id": "c12",
+      "name": "Complex permanent tissue: coordinated cell types",
+      "item_ids": [
+       "p011-i11",
+       "p011-i12",
+       "p011-i14",
+       "p011-i15"
+      ],
+      "content_type": "structure",
+      "core_explanation": "Book basis: Complex permanent tissue contains more than one type of cell, with the cells coordinating to perform a common function. Its stated transport materials are water, minerals and food, and its two types are xylem and phloem. Outside clarification: Distinguish this from a simple tissue by the variety of constituent cell types, rather than by whether a tissue performs an important or complicated function."
+     },
+     {
+      "concept_id": "c13",
+      "name": "Xylem components and their work",
+      "item_ids": [
+       "p001-i44",
+       "p001-i45",
+       "p001-i46",
+       "p001-i47",
+       "p011-i43",
+       "p011-i44",
+       "p011-i45",
+       "p011-i46",
+       "p011-i47"
+      ],
+      "content_type": "structure",
+      "core_explanation": "Book basis: The cropped classification tree visibly lists Tracheids, Vessels (Tracheae) and Xylem parenchyma, while the later text gives the complete supplied list of tracheids, vessels, xylem parenchyma and xylem fibres. Tracheids and vessels have thick walls, many are dead at maturity, and their tubular form permits vertical transport of water and minerals. Xylem parenchyma stores food and helps sideways conduction of water, whereas xylem fibres mainly provide support."
+     },
+     {
+      "concept_id": "c14",
+      "name": "Phloem components and their arrangement",
+      "item_ids": [
+       "p001-i48",
+       "p001-i49",
+       "p001-i50",
+       "p001-i51"
+      ],
+      "content_type": "classification",
+      "core_explanation": "Book basis: Phloem is a complex permanent tissue whose cropped tree visibly lists sieve tubes, companion cells and phloem parenchyma; the page 11 figure additionally labels phloem fibres. Keep the conducting sieve-tube component distinct from its adjacent companion cell and the parenchyma and fibre components. Outside clarification: Phloem transports organic food materials, and companion cells support sieve-tube elements metabolically; these functions explain the arrangement but are not explicitly stated in the supplied phloem tree."
+     },
+     {
+      "concept_id": "c15",
+      "name": "Overview figure of xylem and phloem",
+      "item_ids": [
+       "p011-i16",
+       "p011-i17",
+       "p011-i18",
+       "p011-i19",
+       "p011-i20",
+       "p011-i21",
+       "p011-i22",
+       "p011-i23",
+       "p011-i24"
+      ],
+      "content_type": "figure",
+      "core_explanation": "Book basis: The 'Complex Permanent Tissue' drawing places xylem on the left and phloem on the right, identifying xylem parenchyma, broad vessels, elongated pitted tracheids and narrow xylem fibres, and identifying phloem parenchyma, companion cell, phloem fibres and sieve tube. In phloem, locate the narrow companion cell beside the broad sieve-tube region; retain the fibre identification while acknowledging its indistinct arrow endpoint. The arrows are anatomical leader arrows and provide no evidence of transport direction."
+     },
+     {
+      "concept_id": "c16",
+      "name": "Detailed xylem figure: vessel elements, tracheids and pits",
+      "item_ids": [
+       "p011-i25",
+       "p011-i26",
+       "p011-i27",
+       "p011-i28",
+       "p011-i29",
+       "p011-i30",
+       "p011-i31",
+       "p011-i32"
+      ],
+      "content_type": "figure",
+      "core_explanation": "Book basis: In the boxed xylem figure, subfigure a shows an isolated vessel element with pitted walls, while subfigure b labels tracheids and a group containing a xylem parenchyma cell, a broad vessel element and a narrow tracheid. Recognise both repeated pitted-wall labels and distinguish the broad conducting element, narrower tracheids and grey parenchyma column by their leader lines. The enclosing box also contains phloem subfigures; it shows arrangement rather than a time sequence or directional flow."
+     },
+     {
+      "concept_id": "c17",
+      "name": "Detailed phloem figure: sieve plates, companion cells and connections",
+      "item_ids": [
+       "p011-i33",
+       "p011-i34",
+       "p011-i35",
+       "p011-i36",
+       "p011-i37",
+       "p011-i38",
+       "p011-i39",
+       "p011-i40",
+       "p011-i41",
+       "p011-i42"
+      ],
+      "content_type": "figure",
+      "core_explanation": "Book basis: Phloem subfigure a labels an elongated sieve-tube element, its end sieve plate, an associated companion cell, a nucleus in that associated small cell and phloem parenchyma cells. Subfigure b repeats the companion cell, sieve-tube element, transverse sieve plate and parenchyma labels, and adds 'plasmo-desmata' at connections across adjoining cell walls. Outside clarification: Plasmodesmata are cytoplasmic connections between neighbouring living plant cells, and the nucleus label in the small associated cell should not be reassigned to the mature sieve-tube element."
+     },
+     {
+      "concept_id": "c18",
+      "name": "Three muscular tissues: location, function, appearance and control",
+      "item_ids": [
+       "p007-i2",
+       "p007-i4",
+       "p007-i6",
+       "p007-i8"
+      ],
+      "content_type": "comparison",
+      "core_explanation": "Book basis: Skeletal muscle is associated with the skeleton, produces movement, heat and posture, and has parallel striated fibres with multiple eccentric nuclei under voluntary control; cardiac muscle occurs in the heart, pumps blood continuously, and is striated with one central nucleus under involuntary control. Visceral or smooth muscle is listed in the G.I. tract, uterus, eye and blood vessels, with peristalsis, blood-pressure control, pupil-size control and hair erection among its functions, and it lacks striations, has one central nucleus and is involuntary. Outside clarification: Treat these functions as a set across smooth-muscle locations, rather than assigning each function to each listed organ; eccentric nuclei lie toward the cell periphery."
+     },
+     {
+      "concept_id": "c19",
+      "name": "Visual identification of skeletal, cardiac and smooth muscle",
+      "item_ids": [
+       "p007-i5",
+       "p007-i7",
+       "p007-i9"
+      ],
+      "content_type": "figure",
+      "core_explanation": "Book basis: The skeletal drawing shows a long cylindrical fibre with repeated transverse bands and several nuclei, whereas the cardiac drawing shows striated fibres that branch and connect with nuclei within them. The smooth-muscle drawing shows an elongated spindle-shaped cell tapering at both ends, with a central nucleus and no visible transverse bands. Use striations, branching, shape and nuclear pattern together, since striations alone do not distinguish skeletal from cardiac muscle."
+     },
+     {
+      "concept_id": "c20",
+      "name": "Connective-tissue figure and its five panels",
+      "item_ids": [
+       "p007-i10",
+       "p007-i34"
+      ],
+      "content_type": "figure",
+      "core_explanation": "Book basis: Fig. 6.10 illustrates (a) types of blood cells, (b) compact bone, (c) hyaline cartilage, (d) areolar tissue and (e) adipose tissue. Compare the blood-cell forms, circular bone units, cartilage cells within matrix, fibrous areolar network and large fat droplets in adipocytes. Outside clarification: These diverse appearances belong within connective tissue because their cells and extracellular surroundings are specialised for different roles."
+     },
+     {
+      "concept_id": "c21",
+      "name": "Blood-cell identification in the connective-tissue figure",
+      "item_ids": [
+       "p007-i11",
+       "p007-i12",
+       "p007-i13",
+       "p007-i14",
+       "p007-i15",
+       "p007-i16",
+       "p007-i17",
+       "p007-i18",
+       "p007-i19",
+       "p007-i22"
+      ],
+      "content_type": "figure",
+      "core_explanation": "Book basis: The blood-cell panel labels different white blood corpuscles, their cytoplasm and nuclei, neutrophil (polymorphonuclear leucocyte), eosinophil, basophil, lymphocyte, monocyte and platelets; a red blood corpuscle label also appears in the crowded region below the compact-bone area. Recognise the neutrophil's lobed nucleus, the lymphocyte's prominent rounded nucleus, the monocyte's indented nuclear profile and the small clustered platelets, while using the printed labels to identify eosinophil and basophil. Outside clarification: White blood cells participate in defence, platelets in clotting and red blood cells in oxygen transport; the red-cell label's exact panel association remains uncertain."
+     },
+     {
+      "concept_id": "c22",
+      "name": "Compact bone and hyaline cartilage labels",
+      "item_ids": [
+       "p007-i20",
+       "p007-i21",
+       "p007-i23",
+       "p007-i24"
+      ],
+      "content_type": "figure",
+      "core_explanation": "Book basis: The compact-bone panel identifies a central Haversian canal containing blood vessels and nerve fibres, and a canaliculus containing a slender process of a bone cell or osteocyte. The hyaline-cartilage panel labels a chondrocyte and the surrounding hyaline matrix. Compare a cell or cell process with its surrounding matrix or channel, rather than treating these labels as interchangeable tissue names."
+     },
+     {
+      "concept_id": "c23",
+      "name": "Areolar-tissue network and its cells",
+      "item_ids": [
+       "p007-i25",
+       "p007-i26",
+       "p007-i27",
+       "p007-i28",
+       "p007-i29",
+       "p007-i30"
+      ],
+      "content_type": "figure",
+      "core_explanation": "Book basis: The areolar panel labels fine reticular fibres, prominent collagen fibres, elongated fibroblasts, irregular macrophages, mast cells and a rounded plasma cell among the fibres. Distinguish extracellular fibres from cells before learning the individual names. Outside clarification: Fibroblasts produce matrix components, collagen contributes tensile strength, macrophages engulf material, mast cells participate in inflammation and plasma cells produce antibodies; these roles help explain the labelled network."
+     },
+     {
+      "concept_id": "c24",
+      "name": "Adipose tissue: fat droplet and peripheral nucleus",
+      "item_ids": [
+       "p007-i31",
+       "p007-i32",
+       "p007-i33"
+      ],
+      "content_type": "figure",
+      "core_explanation": "Book basis: The adipose panel labels the adipocyte, its large pale fat droplet and small dark nuclei at the cell periphery. Match the whole fat-storing cell to adipocyte, the large internal region to fat droplet and the displaced dark structure to nucleus. Outside clarification: A large stored lipid droplet occupies much of the illustrated cell and pushes the nucleus toward its edge."
+     },
+     {
+      "concept_id": "c25",
+      "name": "Neuron figure: receiving region, axon and synapses",
+      "item_ids": [
+       "p007-i36",
+       "p007-i37",
+       "p007-i38",
+       "p007-i39",
+       "p007-i40",
+       "p007-i41",
+       "p007-i42",
+       "p007-i43",
+       "p007-i44",
+       "p007-i45",
+       "p007-i46",
+       "p007-i47",
+       "p007-i48",
+       "p007-i49"
+      ],
+      "content_type": "figure",
+      "core_explanation": "Book basis: The diagram begins with the axon of a previous neuron approaching a circled synapse near the first displayed neuron's dendrites and cell body, whose nucleus is labelled; its long axon leads to axon tips beside the next neuron's dendrites, another circled synapse and the next cell body and nucleus. Blue arrows labelled electrical signal run from the lower-left cell-body region along the axon toward the upper-right terminal region. Distinguish these directional arrows from part-identifying leader lines, and recognise that the two nuclei belong to two different displayed cells."
+     },
+     {
+      "concept_id": "c26",
+      "name": "How neurons send a message to another cell",
+      "item_ids": [
+       "p007-i35"
+      ],
+      "content_type": "process",
+      "core_explanation": "Book basis: The question asks how neurons transmit impulses, and the accompanying figure shows an electrical signal travelling along an axon toward its tips and then the receiving region of the next neuron at a synapse. Outside clarification: In the illustrated type of pathway, sufficient stimulation starts an electrical impulse that propagates along the axon; when it reaches a chemical synapse, neurotransmitter is released and can trigger an electrical response in the receiving cell. Outside clarification: Teach the order of events without numerical timings, and explain that the nucleus is a cell structure rather than a station through which the impulse travels."
+     },
+     {
+      "concept_id": "c27",
+      "name": "Practice: three tissue–feature statements",
+      "item_ids": [
+       "p013-i2",
+       "p013-i4",
+       "p013-i5",
+       "p013-i6",
+       "p013-i7"
+      ],
+      "content_type": "comparison",
+      "core_explanation": "Book basis: The question asks which statements are correct: 1. Parenchyma—large vacuole and food storage; 2. Sclerenchyma—in climber plants and provides mechanical strength; 3. Collenchyma—contains lignin; options are a. 1 only, b. 2 only, c. 1 and 3 only, d. All are incorrect. Book basis: The comparison table supports statement 1 and assigns lignified secondary walls to sclerenchyma rather than collenchyma. Outside clarification: The intended answer is a, 1 only, using the usual association of flexible support in young climbing parts with collenchyma; statement 2 is imprecise because mechanical strength itself is a valid sclerenchyma function and the question should not imply sclerenchyma cannot occur in climbers."
+     },
+     {
+      "concept_id": "c28",
+      "name": "Practice: identify the component outside xylem",
+      "item_ids": [
+       "p013-i28",
+       "p013-i29"
+      ],
+      "content_type": "classification",
+      "core_explanation": "Book basis: 'All are parts of xylem except' offers A. Companion cells, B. Tracheid, C. Parenchyma, D. Xylem vessel. Book basis: Answer A, Companion cells, follows from the supplied xylem list and the figure placing companion cells in phloem. Interpret the unspecific option Parenchyma as xylem parenchyma in this question."
+     },
+     {
+      "concept_id": "c29",
+      "name": "Practice: lignin in a simple tissue wall",
+      "item_ids": [
+       "p013-i30",
+       "p013-i31"
+      ],
+      "content_type": "structure",
+      "core_explanation": "Book basis: 'Lignin is present in cell wall of which tissue' offers a. Parenchyma, b. Sclerenchyma, c. Collenchyma, d. None. Book basis: Answer b, Sclerenchyma, is supported by the lignin-thickened-wall description and the simple-tissue comparison. The identifying contrast is its lignified secondary wall against thin parenchyma walls and unevenly thickened collenchyma primary walls."
+     },
+     {
+      "concept_id": "c30",
+      "name": "Practice: aquatic parenchyma and buoyancy",
+      "item_ids": [
+       "p013-i32",
+       "p013-i33"
+      ],
+      "content_type": "classification",
+      "core_explanation": "Book basis: The question asks for specialised parenchyma in aquatic plants that provides buoyancy, with options a. Chlorenchyma, b. Sieve tube, c. Aerenchyma, d. Companion cells. Outside clarification: Answer c, Aerenchyma; its large air spaces help aquatic plant parts remain buoyant and permit internal gas movement. Outside clarification: Chlorenchyma is chloroplast-containing parenchyma associated with photosynthesis, while sieve tubes and companion cells are phloem components."
+     },
+     {
+      "concept_id": "c31",
+      "name": "Practice: identify the incorrect cardiac-tissue statement",
+      "item_ids": [
+       "p013-i34",
+       "p013-i35",
+       "p013-i36",
+       "p013-i37"
+      ],
+      "content_type": "comparison",
+      "core_explanation": "Book basis: The question asks which statement about cardiac tissue is incorrect and supplies 1. They are striated, 2. They are voluntary in nature, 3. They have features of both skeletal and visceral tissue; no separate combination options are supplied. Book basis: Statement 2 is incorrect because the muscle table identifies cardiac tissue as involuntary. Book basis: Statement 1 agrees with the table, and statement 3 is supported by cardiac tissue sharing striations with skeletal muscle and involuntary control with visceral smooth muscle."
+     },
+     {
+      "concept_id": "c32",
+      "name": "Unresolved practice-question option fragment",
+      "item_ids": [
+       "p013-i1"
+      ],
+      "content_type": "none",
+      "core_explanation": "Book basis: The visible fragment reads a. 1 only, b. 1 and 2, c. 2 and 3, d. All are correct. Its stem and numbered statements are missing, so its subject, tested concepts and correct answer cannot be established. Keep this fragment separate from the complete tissue–feature question that follows."
+     }
+    ],
+    "relations": [
+     {
+      "from_concept": "c02",
+      "relation": "depends_on",
+      "to_concept": "c01",
+      "note": "The tissue definition is needed before explaining division of labour and levels above the cell."
+     },
+     {
+      "from_concept": "c04",
+      "relation": "depends_on",
+      "to_concept": "c03",
+      "note": "Establish division outcomes before comparing phases, replication and crossing over."
+     },
+     {
+      "from_concept": "c05",
+      "relation": "depends_on",
+      "to_concept": "c03",
+      "note": "The plant–animal table compares variants of mitotic division."
+     },
+     {
+      "from_concept": "c06",
+      "relation": "depends_on",
+      "to_concept": "c01",
+      "note": "The classification branches organise plant tissues."
+     },
+     {
+      "from_concept": "c07",
+      "relation": "type_of",
+      "to_concept": "c06",
+      "note": "Simple permanent tissues occupy the Simple branch of the plant-tissue framework."
+     },
+     {
+      "from_concept": "c08",
+      "relation": "depends_on",
+      "to_concept": "c07",
+      "note": "Name the three simple tissues before comparing their cellular features."
+     },
+     {
+      "from_concept": "c09",
+      "relation": "depends_on",
+      "to_concept": "c08",
+      "note": "Wall and living-content contrasts help explain the listed functions and locations."
+     },
+     {
+      "from_concept": "c10",
+      "relation": "depends_on",
+      "to_concept": "c08",
+      "note": "Apply the wall comparison to visual identification."
+     },
+     {
+      "from_concept": "c11",
+      "relation": "type_of",
+      "to_concept": "c07",
+      "note": "Sclerenchyma is one of the three simple permanent tissues."
+     },
+     {
+      "from_concept": "c11",
+      "relation": "depends_on",
+      "to_concept": "c08",
+      "note": "Understand lignified walls and loss of living contents before the detailed sclerenchyma profile."
+     },
+     {
+      "from_concept": "c12",
+      "relation": "type_of",
+      "to_concept": "c06",
+      "note": "Complex permanent tissue is the Complex branch under Permanent Tissue."
+     },
+     {
+      "from_concept": "c12",
+      "relation": "contrasts_with",
+      "to_concept": "c07",
+      "note": "Complex tissue contains multiple cell types; the simple-tissue distinction is explained with marked outside clarification."
+     },
+     {
+      "from_concept": "c13",
+      "relation": "type_of",
+      "to_concept": "c12",
+      "note": "Xylem is one of the two complex permanent tissues."
+     },
+     {
+      "from_concept": "c14",
+      "relation": "type_of",
+      "to_concept": "c12",
+      "note": "Phloem is the other named complex permanent tissue."
+     },
+     {
+      "from_concept": "c13",
+      "relation": "compares_with",
+      "to_concept": "c14",
+      "note": "Compare constituent cells and transport roles without treating the two tissues as identical."
+     },
+     {
+      "from_concept": "c15",
+      "relation": "depends_on",
+      "to_concept": "c13",
+      "note": "The overview drawing requires recognition of the xylem component names."
+     },
+     {
+      "from_concept": "c15",
+      "relation": "depends_on",
+      "to_concept": "c14",
+      "note": "The same overview requires recognition of phloem component names."
+     },
+     {
+      "from_concept": "c16",
+      "relation": "depends_on",
+      "to_concept": "c15",
+      "note": "Move from the overview to detailed vessel-element and tracheid labels."
+     },
+     {
+      "from_concept": "c17",
+      "relation": "depends_on",
+      "to_concept": "c15",
+      "note": "Move from the overview to sieve plates, companion-cell nuclei and plasmodesmata."
+     },
+     {
+      "from_concept": "c18",
+      "relation": "depends_on",
+      "to_concept": "c01",
+      "note": "Muscular tissue is another application of cells grouped for shared functions."
+     },
+     {
+      "from_concept": "c19",
+      "relation": "depends_on",
+      "to_concept": "c18",
+      "note": "The comparison supplies the criteria used to identify muscle drawings."
+     },
+     {
+      "from_concept": "c20",
+      "relation": "depends_on",
+      "to_concept": "c01",
+      "note": "The figure presents several connective-tissue examples within the tissue framework."
+     },
+     {
+      "from_concept": "c21",
+      "relation": "part_of",
+      "to_concept": "c20",
+      "note": "Blood-cell labels belong to the connective-tissue figure, with one crowded red-cell label association unresolved."
+     },
+     {
+      "from_concept": "c22",
+      "relation": "part_of",
+      "to_concept": "c20",
+      "note": "Compact bone and hyaline cartilage are panels b and c."
+     },
+     {
+      "from_concept": "c23",
+      "relation": "part_of",
+      "to_concept": "c20",
+      "note": "The areolar cell-and-fibre network is panel d."
+     },
+     {
+      "from_concept": "c24",
+      "relation": "part_of",
+      "to_concept": "c20",
+      "note": "The adipocyte labels belong to panel e."
+     },
+     {
+      "from_concept": "c25",
+      "relation": "depends_on",
+      "to_concept": "c01",
+      "note": "Introduce the specialised neuron as a cell before reading its labelled processes."
+     },
+     {
+      "from_concept": "c26",
+      "relation": "depends_on",
+      "to_concept": "c25",
+      "note": "The message pathway requires identifying dendrites, cell body, axon, terminals and synapses."
+     },
+     {
+      "from_concept": "c27",
+      "relation": "depends_on",
+      "to_concept": "c09",
+      "note": "Evaluate storage, support and occurrence against the simple-tissue comparison."
+     },
+     {
+      "from_concept": "c27",
+      "relation": "depends_on",
+      "to_concept": "c11",
+      "note": "Lignification and mechanical strength are essential to evaluating the distractors."
+     },
+     {
+      "from_concept": "c28",
+      "relation": "depends_on",
+      "to_concept": "c13",
+      "note": "The exception question requires the xylem constituent list."
+     },
+     {
+      "from_concept": "c28",
+      "relation": "depends_on",
+      "to_concept": "c14",
+      "note": "The excluded companion cell must be recognised as a phloem component."
+     },
+     {
+      "from_concept": "c29",
+      "relation": "depends_on",
+      "to_concept": "c11",
+      "note": "The lignin question applies the sclerenchyma wall description."
+     },
+     {
+      "from_concept": "c30",
+      "relation": "depends_on",
+      "to_concept": "c08",
+      "note": "Aerenchyma is explained as a specialisation of parenchyma with enlarged spaces."
+     },
+     {
+      "from_concept": "c31",
+      "relation": "depends_on",
+      "to_concept": "c18",
+      "note": "The incorrect statement is identified from the muscle-control and striation comparison."
+     },
+     {
+      "from_concept": "c13",
+      "relation": "tested_by",
+      "to_concept": "c28",
+      "note": "The xylem question directly tests constituent membership."
+     },
+     {
+      "from_concept": "c14",
+      "relation": "tested_by",
+      "to_concept": "c28",
+      "note": "Companion cells supply the phloem-based exception."
+     },
+     {
+      "from_concept": "c11",
+      "relation": "tested_by",
+      "to_concept": "c29",
+      "note": "The question tests association of lignin with sclerenchyma."
+     },
+     {
+      "from_concept": "c08",
+      "relation": "tested_by",
+      "to_concept": "c27",
+      "note": "The statement set tests vacuoles and wall composition."
+     },
+     {
+      "from_concept": "c09",
+      "relation": "tested_by",
+      "to_concept": "c27",
+      "note": "The statement set tests food storage and mechanical support."
+     },
+     {
+      "from_concept": "c18",
+      "relation": "tested_by",
+      "to_concept": "c31",
+      "note": "The cardiac question combines striation and control criteria."
+     },
+     {
+      "from_concept": "c25",
+      "relation": "tested_by",
+      "to_concept": "c26",
+      "note": "The neuron question asks the learner to turn the labelled pathway into a process explanation."
+     }
+    ],
+    "prerequisites_to_teach": [
+     {
+      "name": "Cell as a unit of life and specialised cell functions",
+      "why_needed": "Explain that cells perform life functions and can specialise, providing the starting point for tissues, division of labour and the chapter's specialised cell examples.",
+      "needed_for": [
+       "c01",
+       "c02",
+       "c03",
+       "c06",
+       "c07",
+       "c12",
+       "c18",
+       "c20",
+       "c25"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Cell membrane, cytoplasm, nucleus and genetic material",
+      "why_needed": "Teach the boundary, internal material and genetic-control structure so that living cell contents, nuclear labels and distinctions between whole cells and cell parts are meaningful.",
+      "needed_for": [
+       "c03",
+       "c04",
+       "c05",
+       "c08",
+       "c10",
+       "c11",
+       "c17",
+       "c18",
+       "c19",
+       "c21",
+       "c23",
+       "c24",
+       "c25",
+       "c26"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Part–whole hierarchy and organs working together",
+      "why_needed": "Explain that a larger functional unit can contain smaller units and that cooperating organs form a system; this makes the biological-organisation arrows intelligible.",
+      "needed_for": [
+       "c02"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Chromosome sets, homologous pairs and sister chromatids",
+      "why_needed": "Distinguish diploid from haploid, homologous chromosomes from duplicated chromatids, and chromosome number from DNA amount before interpreting division outcomes and crossing over.",
+      "needed_for": [
+       "c03",
+       "c04"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "DNA replication in S phase and chromosome counting by centromeres",
+      "why_needed": "Teach that replication copies DNA before division while duplicated chromatids remain associated, enabling a precise explanation of the erroneous chromosome-doubling row.",
+      "needed_for": [
+       "c04"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Nuclear division, cytokinesis, spindle, centrioles and asters",
+      "why_needed": "Separate division of the nucleus from division of cytoplasm and introduce the chromosome-moving apparatus before comparing phase counts, cell plates and cleavage.",
+      "needed_for": [
+       "c03",
+       "c04",
+       "c05"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Somatic cells, reproductive cell lineage, gametes and spores",
+      "why_needed": "Explain growth and replacement versus sexual reproduction, and distinguish plant spore formation from direct gamete formation when qualifying the mitosis–meiosis table.",
+      "needed_for": [
+       "c03",
+       "c04"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Classification trees and parent–subgroup relationships",
+      "why_needed": "Show how to follow branches without confusing a parent tissue class, one of its types and a constituent cell; this also supports exception questions.",
+      "needed_for": [
+       "c06",
+       "c07",
+       "c12",
+       "c13",
+       "c14",
+       "c28",
+       "c30"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Plant growth regions, differentiation and apical, lateral and intercalary positions",
+      "why_needed": "Introduce root and shoot tips, girth, nodes, internodes and leaf bases, then explain division versus differentiation so that meristem names and the permanent-tissue branch have concrete meaning.",
+      "needed_for": [
+       "c05",
+       "c06",
+       "c07",
+       "c12"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Primary and secondary cell walls, cellulose, lignin and pits",
+      "why_needed": "Explain the initial wall, later inner thickening, wall materials and wall pits before using wall thickness and lignification to distinguish tissues and xylem cells.",
+      "needed_for": [
+       "c05",
+       "c08",
+       "c10",
+       "c11",
+       "c13",
+       "c15",
+       "c16",
+       "c17",
+       "c27",
+       "c29"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Vacuole, lumen and intercellular space",
+      "why_needed": "Locate the vacuole within a living cell, the lumen inside a wall and spaces between cells; distinguish these while comparing tissue tables, narrow sclerenchyma cavities and aerenchyma.",
+      "needed_for": [
+       "c08",
+       "c10",
+       "c11",
+       "c27",
+       "c30"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Plant anatomical locations used in the occurrence tables",
+      "why_needed": "Locate stem, root, leaf, petiole, epidermis, hypodermis, cortex, pith, medullary rays, vascular bundle, bundle sheath and pericycle, and distinguish dicots from monocots before memorising tissue locations.",
+      "needed_for": [
+       "c06",
+       "c09",
+       "c11",
+       "c27"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Food storage, chloroplasts and photosynthesis",
+      "why_needed": "Explain that stored food differs from food production and that photosynthesis requires chloroplasts, supporting parenchyma functions and the chlorenchyma distractor.",
+      "needed_for": [
+       "c07",
+       "c09",
+       "c12",
+       "c13",
+       "c14",
+       "c27",
+       "c30"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Water, dissolved minerals and vertical versus sideways transport",
+      "why_needed": "Introduce materials moving within plants and directions relative to the plant axis so that tubular conduction and parenchyma's lateral role are understood.",
+      "needed_for": [
+       "c12",
+       "c13",
+       "c15",
+       "c16"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Sieve-tube element, sieve plate and companion-cell support",
+      "why_needed": "Explain how successive conducting elements meet at porous end walls and how an adjacent living companion cell supports them before interpreting the detailed phloem labels and nucleus position.",
+      "needed_for": [
+       "c14",
+       "c15",
+       "c17",
+       "c28"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Mechanical support, tensile strength, stress and strain",
+      "why_needed": "Explain resistance to pulling and deformation so that wall structure can be connected to flexible support, rigid strength and protection.",
+      "needed_for": [
+       "c07",
+       "c09",
+       "c11",
+       "c13",
+       "c23",
+       "c27"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Muscle contraction, voluntary control and involuntary control",
+      "why_needed": "Explain contraction as force production and distinguish deliberate control from activity occurring without deliberate command before comparing muscular tissues.",
+      "needed_for": [
+       "c18",
+       "c19",
+       "c31"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Skeleton, heart pump, digestive tract, blood vessels, uterus, pupil and hair muscles",
+      "why_needed": "Locate the structures named in the muscle table and explain peristalsis, circulation, posture and pupil adjustment sufficiently to connect muscle location with function.",
+      "needed_for": [
+       "c18",
+       "c31"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Extracellular matrix, fibres and cells embedded in matrix",
+      "why_needed": "Introduce material outside cells and distinguish a cell from its surrounding matrix and fibres before interpreting connective-tissue panels.",
+      "needed_for": [
+       "c20",
+       "c22",
+       "c23",
+       "c24"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Blood, oxygen transport, defence and clotting",
+      "why_needed": "Explain the broad roles that distinguish red blood cells, white blood cells and platelets without requiring unprovided numerical counts or detailed cell functions.",
+      "needed_for": [
+       "c20",
+       "c21"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Phagocytosis, inflammation, antibodies and plasma cells",
+      "why_needed": "Teach engulfing material, inflammatory responses and antibody production to make the labelled defensive cells in blood and areolar tissue understandable.",
+      "needed_for": [
+       "c21",
+       "c23"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Bone cells, cartilage cells and cell processes",
+      "why_needed": "Introduce osteocyte and chondrocyte as cell names and a cell process as an extension, enabling correct interpretation of canaliculi and cartilage matrix.",
+      "needed_for": [
+       "c22"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Lipids as stored food and displacement within a cell",
+      "why_needed": "Explain why a large lipid droplet can occupy much of an adipocyte and position its nucleus near the edge.",
+      "needed_for": [
+       "c24"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Nerve impulse, cell-membrane ions and chemical synapse",
+      "why_needed": "Introduce an electrical change travelling along a neuron and chemical signalling across a synapse so the arrow pathway can be converted into an accurate stepwise explanation.",
+      "needed_for": [
+       "c25",
+       "c26"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Buoyancy, density and air-filled spaces in aquatic plants",
+      "why_needed": "Explain how air spaces can lower average tissue density and aid floating before identifying aerenchyma from the question.",
+      "needed_for": [
+       "c30"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Reading diagram labels, sections and directional arrows",
+      "why_needed": "Distinguish a leader identifying a part from an arrow showing motion, recognise schematic sections and follow panel letters across a compound figure.",
+      "needed_for": [
+       "c02",
+       "c06",
+       "c10",
+       "c15",
+       "c16",
+       "c17",
+       "c19",
+       "c20",
+       "c21",
+       "c22",
+       "c23",
+       "c24",
+       "c25",
+       "c26"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Evaluating numbered statements and negative question stems",
+      "why_needed": "Practise judging each statement separately, interpreting 'except' and 'incorrect', and refusing to select an answer when a stem is missing.",
+      "needed_for": [
+       "c27",
+       "c28",
+       "c29",
+       "c30",
+       "c31",
+       "c32"
+      ],
+      "basis": "outside"
+     }
+    ],
+    "cross_references": [
+     {
+      "from_item_id": "p007-i34",
+      "reference_text": "Fig. 6.10: Types of connective tissues",
+      "resolved_item_id": "p007-i10"
+     },
+     {
+      "from_item_id": "p007-i34",
+      "reference_text": "(a) types of blood cells",
+      "resolved_item_id": "p007-i10"
+     },
+     {
+      "from_item_id": "p007-i34",
+      "reference_text": "(b) compact bone",
+      "resolved_item_id": "p007-i10"
+     },
+     {
+      "from_item_id": "p007-i34",
+      "reference_text": "(c) hyaline cartilage",
+      "resolved_item_id": "p007-i10"
+     },
+     {
+      "from_item_id": "p007-i34",
+      "reference_text": "(d) areolar tissue",
+      "resolved_item_id": "p007-i10"
+     },
+     {
+      "from_item_id": "p007-i34",
+      "reference_text": "(e) adipose tissue",
+      "resolved_item_id": "p007-i10"
+     },
+     {
+      "from_item_id": "p007-i35",
+      "reference_text": "How do neurons transmit impulses (send message to other cells)? — accompanying neuron diagram",
+      "resolved_item_id": "p007-i36"
+     }
+    ],
+    "question_links": [
+     {
+      "question_item_id": "p007-i35",
+      "tests_concepts": [
+       "c25",
+       "c26"
+      ]
+     },
+     {
+      "question_item_id": "p013-i1",
+      "tests_concepts": [
+       "c32"
+      ]
+     },
+     {
+      "question_item_id": "p013-i2",
+      "tests_concepts": [
+       "c08",
+       "c09",
+       "c11",
+       "c27"
+      ]
+     },
+     {
+      "question_item_id": "p013-i28",
+      "tests_concepts": [
+       "c12",
+       "c13",
+       "c14",
+       "c28"
+      ]
+     },
+     {
+      "question_item_id": "p013-i30",
+      "tests_concepts": [
+       "c08",
+       "c11",
+       "c29"
+      ]
+     },
+     {
+      "question_item_id": "p013-i32",
+      "tests_concepts": [
+       "c07",
+       "c08",
+       "c30"
+      ]
+     },
+     {
+      "question_item_id": "p013-i34",
+      "tests_concepts": [
+       "c18",
+       "c19",
+       "c31"
+      ]
+     }
+    ],
+    "teaching_order": [
+     "c01",
+     "c02",
+     "c03",
+     "c04",
+     "c05",
+     "c06",
+     "c07",
+     "c08",
+     "c10",
+     "c09",
+     "c11",
+     "c27",
+     "c29",
+     "c30",
+     "c12",
+     "c13",
+     "c14",
+     "c15",
+     "c16",
+     "c17",
+     "c28",
+     "c18",
+     "c19",
+     "c31",
+     "c20",
+     "c21",
+     "c22",
+     "c23",
+     "c24",
+     "c25",
+     "c26",
+     "c32"
+    ],
+    "exam_focus": [
+     {
+      "concept_id": "c01",
+      "why": "The tissue definition and plant–animal distinction anchor classification questions."
+     },
+     {
+      "concept_id": "c02",
+      "why": "Ordering biological levels and connecting specialisation with division of labour are common conceptual checks."
+     },
+     {
+      "concept_id": "c03",
+      "why": "Division counts, daughter-cell counts, chromosome-set changes and somatic versus reproductive roles support direct comparison and statement questions."
+     },
+     {
+      "concept_id": "c04",
+      "why": "Crossing over, prophase I and the distinction between DNA replication and chromosome number are high-value comparison points; the printed replication row needs explicit correction."
+     },
+     {
+      "concept_id": "c05",
+      "why": "Centrioles, asters, cell plates, cleavage and meristem location are suitable matching and incorrect-statement facts."
+     },
+     {
+      "concept_id": "c06",
+      "why": "The complete plant-tissue hierarchy supports classification, subgroup and odd-one-out questions."
+     },
+     {
+      "concept_id": "c07",
+      "why": "The three simple tissues and the fibre–sclereid subdivision are essential classification facts."
+     },
+     {
+      "concept_id": "c08",
+      "why": "Wall composition, living or dead condition, nuclei, vacuoles and intercellular spaces distinguish the simple tissues."
+     },
+     {
+      "concept_id": "c09",
+      "why": "Locations, food storage, photosynthesis, tensile support and mechanical strength are high-yield matching criteria."
+     },
+     {
+      "concept_id": "c10",
+      "why": "Thin primary walls, uneven primary-wall thickening and thick secondary walls permit diagram-based identification."
+     },
+     {
+      "concept_id": "c11",
+      "why": "Lignin, coconut husk, dead mature cells and protective strength support examples, wall-composition and tissue-identification questions."
+     },
+     {
+      "concept_id": "c12",
+      "why": "Multiple coordinated cell types distinguish complex from simple permanent tissues."
+     },
+     {
+      "concept_id": "c13",
+      "why": "The four xylem components and their conducting, storage and supportive roles are tested directly by the exception question."
+     },
+     {
+      "concept_id": "c14",
+      "why": "Companion cells and sieve tubes distinguish phloem from xylem in classification questions."
+     },
+     {
+      "concept_id": "c15",
+      "why": "The overview figure provides component matching across xylem and phloem and prevents interpreting leader arrows as flow directions."
+     },
+     {
+      "concept_id": "c16",
+      "why": "Vessel elements, tracheids, pits and xylem parenchyma are recognisable anatomical labels."
+     },
+     {
+      "concept_id": "c17",
+      "why": "Sieve plates, companion cells, nucleus placement and plasmodesmata support labelled-diagram and statement questions."
+     },
+     {
+      "concept_id": "c18",
+      "why": "Location, function, striations, nuclei and voluntary control are central muscle-comparison criteria and are tested on the page."
+     },
+     {
+      "concept_id": "c19",
+      "why": "Branching striated cardiac fibres, cylindrical multinucleate skeletal fibres and spindle-shaped smooth cells support image identification."
+     },
+     {
+      "concept_id": "c20",
+      "why": "Blood, bone, cartilage, areolar and adipose tissue form a useful connective-tissue example set for classification questions."
+     },
+     {
+      "concept_id": "c21",
+      "why": "Named white blood cells, platelets and distinctive nuclear forms support identification and matching."
+     },
+     {
+      "concept_id": "c22",
+      "why": "Haversian canal contents, canaliculi, chondrocytes and hyaline matrix are distinctive bone–cartilage facts."
+     },
+     {
+      "concept_id": "c23",
+      "why": "Distinguishing collagen and reticular fibres from fibroblasts and defence cells supports connective-tissue matching."
+     },
+     {
+      "concept_id": "c24",
+      "why": "A large fat droplet and displaced nucleus are characteristic visual clues for adipocytes."
+     },
+     {
+      "concept_id": "c25",
+      "why": "Dendrites, axon, terminals and synapses provide standard structure-identification and signal-direction questions."
+     },
+     {
+      "concept_id": "c26",
+      "why": "The page explicitly asks how a neuron sends a message; the answer requires a correctly ordered pathway and a distinction between electrical propagation and chemical synaptic transfer."
+     },
+     {
+      "concept_id": "c27",
+      "why": "This practice question combines vacuoles, storage, lignification and support, with an imprecise climber statement that requires careful explanation."
+     },
+     {
+      "concept_id": "c28",
+      "why": "The explicit xylem-exception question tests whether companion cells are assigned to phloem."
+     },
+     {
+      "concept_id": "c29",
+      "why": "The explicit lignin question directly tests the sclerenchyma wall association."
+     },
+     {
+      "concept_id": "c30",
+      "why": "The explicit buoyancy question tests aerenchyma against chlorenchyma and phloem distractors."
+     },
+     {
+      "concept_id": "c31",
+      "why": "The explicit cardiac question tests the combined facts that cardiac muscle is striated and involuntary."
+     }
+    ]
+   },
+   "code_problems": [
+    "[code] question_links: 'p013-i1' is not a question item",
+    "[code] question p013-i38 is not linked to the concepts it tests",
+    "[code] concept c32: give it its main content type, not 'none'"
+   ],
+   "observed": {
+    "ki_coverage": {
+     "coverage": 1.0,
+     "passed": true,
+     "missing_critical": []
+    },
+    "orphan_concepts": [
+     "c32"
+    ]
+   },
+   "passed": false,
+   "finished_at": 1792723897.3267024
+  },
+  {
+   "round": 2,
+   "started_at": 1792723897.3269532,
+   "mode": "full",
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "c51ba1aba88f37f2da309917339aee09d130812b069c4fb0755c33e4bdafb7ed",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 41727,
+    "output_tokens": 13513,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "This map connects the supplied pages on tissue organisation, cell division, plant tissues, muscular tissue, connective-tissue figures and neuronal signalling. It preserves the book's comparisons, diagram labels and practice questions while distinguishing book statements from outside clarification.",
+    "key_questions": [
+     "How does grouping specialised cells produce division of labour and larger levels of organisation?",
+     "How do mitosis and meiosis differ, and which printed statements need clarification?",
+     "How are plant tissues classified, and how can their walls, contents, locations and functions identify them?",
+     "Which cells constitute xylem and phloem, and what do the supplied figures actually show?",
+     "How can muscle and connective tissues be identified from their appearance, location and function?",
+     "How does the neuron diagram show the direction of a message between cells?",
+     "Which practice questions can be answered from the supplied material, and which are incomplete?"
+    ],
+    "decisions": [
+     {
+      "decision": "Use explicit 'Book basis' and 'Outside clarification' wording within explanations.",
+      "reason": "The concept schema has no separate basis field, so this preserves the required distinction without adding properties."
+     },
+     {
+      "decision": "Keep cell-division comparisons alongside tissue concepts.",
+      "reason": "They are teachable source items and connect cell multiplication with tissue organisation."
+     },
+     {
+      "decision": "Separate anatomical figures from processes and preserve individual labels through item membership and explanation.",
+      "reason": "Leader lines identify parts, whereas neuronal directional arrows communicate signal direction."
+     },
+     {
+      "decision": "Retain questionable printed claims with clearly marked standard textbook clarification.",
+      "reason": "The map must represent the book faithfully without presenting inaccuracies as settled biology."
+     },
+     {
+      "decision": "Replace the question_links entry for answer-option item p013-i1 with an entry for question item p013-i38, linked to c32.",
+      "reason": "The continued question is the question item; p013-i1 supplies its visible options and remains covered by c32."
+     },
+     {
+      "decision": "Change c32's main content type from none to classification.",
+      "reason": "Its visible options classify combinations of numbered statements; the missing stem prevents identifying its biological subject or answer."
+     }
+    ],
+    "uncertain": [
+     "Only pages 1, 7, 11 and 13 are supplied; missing pages and cropped diagram content cannot be reconstructed as book evidence.",
+     "p001-i22 incorrectly describes chromosome doubling and its timing; DNA replication and chromosome number must be distinguished.",
+     "The mitosis–meiosis table uses broad statements about diploidy, germ cells and gamete formation that require contextual qualification.",
+     "The statement that the sclerenchyma cell cavity is absent is stronger than the page 13 drawing, which shows narrow central spaces.",
+     "The climber-support pairing in p013-i5 is treated as the intended incorrect pairing, but the supplied pages do not explicitly explain climber support.",
+     "p013-i38 identifies a continued question whose stem and statements are missing; p013-i1 contains its options, so its biological subject and answer remain unresolved.",
+     "The cardiac question gives three statements but no separate combination-answer options.",
+     "The exact association of the red blood corpuscle label, the endpoint of the phloem-fibres arrow and the tiny repeated collenchyma label remain visually uncertain."
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "This map connects the supplied pages on tissue organisation, cell division, plant tissues, muscular tissue, connective-tissue figures and neuronal signalling. It preserves the book's comparisons, diagram labels and practice questions while distinguishing book statements from outside clarification.",
+     "key_questions": [
+      "How does grouping specialised cells produce division of labour and larger levels of organisation?",
+      "How do mitosis and meiosis differ, and which printed statements need clarification?",
+      "How are plant tissues classified, and how can their walls, contents, locations and functions identify them?",
+      "Which cells constitute xylem and phloem, and what do the supplied figures actually show?",
+      "How can muscle and connective tissues be identified from their appearance, location and function?",
+      "How does the neuron diagram show the direction of a message between cells?",
+      "Which practice questions can be answered from the supplied material, and which are incomplete?"
+     ],
+     "decisions": [
+      {
+       "decision": "Use explicit 'Book basis' and 'Outside clarification' wording within explanations.",
+       "reason": "The concept schema has no separate basis field, so this preserves the required distinction without adding properties."
+      },
+      {
+       "decision": "Keep cell-division comparisons alongside tissue concepts.",
+       "reason": "They are teachable source items and connect cell multiplication with tissue organisation."
+      },
+      {
+       "decision": "Separate anatomical figures from processes and preserve individual labels through item membership and explanation.",
+       "reason": "Leader lines identify parts, whereas neuronal directional arrows communicate signal direction."
+      },
+      {
+       "decision": "Retain questionable printed claims with clearly marked standard textbook clarification.",
+       "reason": "The map must represent the book faithfully without presenting inaccuracies as settled biology."
+      },
+      {
+       "decision": "Replace the question_links entry for answer-option item p013-i1 with an entry for question item p013-i38, linked to c32.",
+       "reason": "The continued question is the question item; p013-i1 supplies its visible options and remains covered by c32."
+      },
+      {
+       "decision": "Change c32's main content type from none to classification.",
+       "reason": "Its visible options classify combinations of numbered statements; the missing stem prevents identifying its biological subject or answer."
+      }
+     ],
+     "uncertain": [
+      "Only pages 1, 7, 11 and 13 are supplied; missing pages and cropped diagram content cannot be reconstructed as book evidence.",
+      "p001-i22 incorrectly describes chromosome doubling and its timing; DNA replication and chromosome number must be distinguished.",
+      "The mitosis–meiosis table uses broad statements about diploidy, germ cells and gamete formation that require contextual qualification.",
+      "The statement that the sclerenchyma cell cavity is absent is stronger than the page 13 drawing, which shows narrow central spaces.",
+      "The climber-support pairing in p013-i5 is treated as the intended incorrect pairing, but the supplied pages do not explicitly explain climber support.",
+      "p013-i38 identifies a continued question whose stem and statements are missing; p013-i1 contains its options, so its biological subject and answer remain unresolved.",
+      "The cardiac question gives three statements but no separate combination-answer options.",
+      "The exact association of the red blood corpuscle label, the endpoint of the phloem-fibres arrow and the tiny repeated collenchyma label remain visually uncertain."
+     ]
+    },
+    "chapter_title": "10. Tissues and Its Types",
+    "chapter_summary": "Book basis: Cells form tissues that perform common functions, enabling division of labour and organisation into organs, organ systems and organisms. The supplied material compares cell divisions, classifies plant tissues, relates simple and complex permanent tissues to structure and function, compares three muscular tissues, illustrates connective tissues and neurons, and tests tissue identification through practice questions. Outside clarification is explicitly marked where needed to explain mechanisms, answer questions without a supplied key or qualify problematic printed statements.",
+    "concepts": [
+     {
+      "concept_id": "c01",
+      "name": "Tissue and the plant–animal distinction",
+      "item_ids": [
+       "p001-i2",
+       "p001-i3",
+       "p001-i4"
+      ],
+      "content_type": "definition",
+      "core_explanation": "Book basis: A tissue is formed when cells combine to perform the same function; plant cells form plant tissues and animal cells form animal tissues. Use the shared function to explain why a tissue is a functional group of cells rather than simply a collection of neighbouring cells."
+     },
+     {
+      "concept_id": "c02",
+      "name": "Division of labour and biological organisation",
+      "item_ids": [
+       "p001-i5",
+       "p001-i6",
+       "p001-i7",
+       "p001-i8",
+       "p001-i9",
+       "p001-i10",
+       "p001-i11",
+       "p001-i12"
+      ],
+      "content_type": "cause_effect",
+      "core_explanation": "Book basis: Tissue formation causes division of labour, reduces the workload on individual cells and leads to organisation. Read the diagram as a hierarchy of parts within larger wholes: Cell → Tissues → Organ → Organ system → Organisms, with tissues between cells and organs and organ systems between organs and the organism. Outside clarification: This is a hierarchy of organisation, not a claim that an individual cell passes through these stages during its life."
+     },
+     {
+      "concept_id": "c03",
+      "name": "Mitosis and meiosis: site, divisions and outcomes",
+      "item_ids": [
+       "p001-i14",
+       "p001-i15",
+       "p001-i16",
+       "p001-i17",
+       "p001-i18",
+       "p001-i19",
+       "p001-i21",
+       "p001-i24"
+      ],
+      "content_type": "comparison",
+      "core_explanation": "Book basis: The table contrasts mitosis in somatic cells with meiosis in germ cells, one nuclear division with two, two daughter cells with four, diploid daughters with haploid daughters, more frequent with less frequent occurrence, somatic-organ formation with gamete formation, and unchanged chromosome number with reduction to half; it prints 'Equation division' against 'Reduction division'. Outside clarification: Read 'Equation' as equational: mitosis generally preserves the starting chromosome-set number and is not restricted to diploid starting cells, whereas meiosis reduces the chromosome-set number; frequency depends on the cells and organism. Outside clarification: 'Germ cells' here means the reproductive cell lineage, and meiosis produces spores rather than gametes directly in plant life cycles."
+     },
+     {
+      "concept_id": "c04",
+      "name": "Mitosis and meiosis: phases, replication and crossing over",
+      "item_ids": [
+       "p001-i20",
+       "p001-i22",
+       "p001-i23"
+      ],
+      "content_type": "comparison",
+      "core_explanation": "Book basis: Mitosis has one prophase, metaphase, anaphase and telophase; meiosis has two of each and five subphases in prophase I, with crossing over contrasted as absent in mitosis and present in meiosis. Book basis: The replication row says chromosome number doubles at the beginning of each mitotic division and, for meiosis, after the first meiotic division; retain this as the printed claim requiring correction. Outside clarification: DNA replicates before mitosis and before meiosis I, without doubling chromosome number when chromosomes are counted by centromeres, and there is no intervening DNA replication between meiosis I and II; meiotic crossing over involves non-sister chromatids of homologous chromosomes in prophase I."
+     },
+     {
+      "concept_id": "c05",
+      "name": "Plant and animal mitosis",
+      "item_ids": [
+       "p001-i26",
+       "p001-i27",
+       "p001-i28",
+       "p001-i29"
+      ],
+      "content_type": "comparison",
+      "core_explanation": "Book basis: The plant column lists absent centrioles, no asters, cell-plate formation and division mainly at meristems; the animal column lists present centrioles, asters, furrowing and cleavage of cytoplasm, and division in tissues throughout the body. Compare the division apparatus, separation of cytoplasm and location of division as separate criteria. Outside clarification: The plant description is the usual higher-plant comparison, while animal division throughout the body does not mean that each mature animal cell retains the ability to divide."
+     },
+     {
+      "concept_id": "c06",
+      "name": "Plant-tissue classification framework",
+      "item_ids": [
+       "p001-i30",
+       "p001-i31",
+       "p001-i32",
+       "p001-i33",
+       "p001-i34",
+       "p001-i35",
+       "p001-i36",
+       "p001-i37",
+       "p001-i38"
+      ],
+      "content_type": "classification",
+      "core_explanation": "Book basis: Plant tissue branches into Meristematic Tissue and Permanent Tissue; meristematic tissue branches into Apical, Lateral and Intercalary Meristem, while permanent tissue branches into Simple and Complex. The full tree further places Paranchyma, Collenchyma and Sclerenchyma under Simple, Fibres and Sclereids under Sclerenchyma, and Xylem and Phloem under Complex; its component boxes are cropped at the bottom. Outside clarification: The main distinction is between tissues whose cells retain active division and tissues differentiated for specialised work; apical, lateral and intercalary refer respectively to tip, side and intervening growth regions."
+     },
+     {
+      "concept_id": "c07",
+      "name": "Simple permanent tissues and their subtypes",
+      "item_ids": [
+       "p001-i39",
+       "p001-i40",
+       "p001-i41",
+       "p001-i42",
+       "p001-i43"
+      ],
+      "content_type": "classification",
+      "core_explanation": "Book basis: The simple permanent tissue branch contains 'Paranchyma' as printed, Collenchyma and Sclerenchyma, and sclerenchyma branches into Fibres and Sclereids. The later comparison table uses the spelling Parenchyma for the same tissue, so retain the original diagram spelling while connecting both occurrences. Outside clarification: A simple permanent tissue is chiefly composed of one kind of cell; the fibre–sclereid distinction concerns sclerenchyma cell forms, not two additional branches parallel to the three simple tissues."
+     },
+     {
+      "concept_id": "c08",
+      "name": "Simple tissues compared: shape, walls and living contents",
+      "item_ids": [
+       "p013-i9",
+       "p013-i10",
+       "p013-i11",
+       "p013-i12",
+       "p013-i13",
+       "p013-i14"
+      ],
+      "content_type": "comparison",
+      "core_explanation": "Book basis: Parenchyma has isodiametric oval, spherical or polygonal cells, thin cellulosic walls, abundant cytoplasm, nuclei, a large vacuole and intercellular spaces; collenchyma has circular, oval or polyhedral cells, uneven wall thickening, cytoplasm, nuclei and vacuoles, with spaces listed as absent. Sclerenchyma has variable forms including fibres and sclereids, lignified secondary walls, and absent cytoplasm, nuclei, vacuoles and intercellular spaces; the table identifies parenchyma and collenchyma as living and sclerenchyma as dead. Outside clarification: A vacuole is inside a cell, an intercellular space is between cells, and the lumen is the cavity enclosed by a cell wall, so these should be compared separately."
+     },
+     {
+      "concept_id": "c09",
+      "name": "Simple tissues compared: occurrence and functions",
+      "item_ids": [
+       "p013-i15",
+       "p013-i16"
+      ],
+      "content_type": "comparison",
+      "core_explanation": "Book basis: Parenchyma is described as packing tissue in soft plant parts, pith, cortex and medullary rays, with food storage and photosynthesis; collenchyma occurs in dicot stems, petiole and beneath the epidermis, is listed as absent in monocots and roots, and provides tensile strength, mechanical support and photosynthesis. Sclerenchyma is listed in dicot hypodermis, bundle sheath, pericycle, seed and fruit pulp, with protection from stress and strain and mechanical strength. Outside clarification: Photosynthesis in parenchyma or collenchyma depends on chloroplasts being present, and the table's occurrence statements should be taught as its stated generalisations."
+     },
+     {
+      "concept_id": "c10",
+      "name": "Visual identification of simple permanent tissues",
+      "item_ids": [
+       "p013-i17",
+       "p013-i18",
+       "p013-i19",
+       "p013-i20",
+       "p013-i21",
+       "p013-i22",
+       "p013-i23",
+       "p013-i24",
+       "p013-i25",
+       "p013-i26",
+       "p013-i27"
+      ],
+      "content_type": "figure",
+      "core_explanation": "Book basis: Identify parenchyma by its rounded or polygonal cells, thin primary cell walls and visible spaces; identify collenchyma by compact cells with irregularly thickened primary walls, especially at junctions, including the repeated small tissue-name label. Identify sclerenchyma by thick secondary walls surrounding narrow central spaces and distinguish the labelled primary wall outside the secondary wall. These are structural drawings without process arrows, so the teaching task is to match visible wall patterns to tissue names."
+     },
+     {
+      "concept_id": "c11",
+      "name": "Sclerenchyma: occurrence, lignified walls and strength",
+      "item_ids": [
+       "p011-i3",
+       "p011-i4",
+       "p011-i6",
+       "p011-i7",
+       "p011-i9"
+      ],
+      "content_type": "structure",
+      "core_explanation": "Book basis: Sclerenchyma occurs around stem vascular bundles, in leaf veins and hard seed and nut coverings, with coconut husk as an example; its cells are described as long, narrow and dead, with lignin-thickened walls and absent intercellular spaces, providing protection and mechanical strength. Book basis: The text attributes an absent cell cavity to excessive wall thickness, although the supplied page 13 drawing shows narrow cavities. Outside clarification: Thick lignified walls can greatly reduce the lumen, and 'long and narrow' particularly describes fibres; sclereids account for the variable forms noted elsewhere in the book."
+     },
+     {
+      "concept_id": "c12",
+      "name": "Complex permanent tissue: coordinated cell types",
+      "item_ids": [
+       "p011-i11",
+       "p011-i12",
+       "p011-i14",
+       "p011-i15"
+      ],
+      "content_type": "structure",
+      "core_explanation": "Book basis: Complex permanent tissue contains more than one type of cell, with the cells coordinating to perform a common function. Its stated transport materials are water, minerals and food, and its two types are xylem and phloem. Outside clarification: Distinguish this from a simple tissue by the variety of constituent cell types, rather than by whether a tissue performs an important or complicated function."
+     },
+     {
+      "concept_id": "c13",
+      "name": "Xylem components and their work",
+      "item_ids": [
+       "p001-i44",
+       "p001-i45",
+       "p001-i46",
+       "p001-i47",
+       "p011-i43",
+       "p011-i44",
+       "p011-i45",
+       "p011-i46",
+       "p011-i47"
+      ],
+      "content_type": "structure",
+      "core_explanation": "Book basis: The cropped classification tree visibly lists Tracheids, Vessels (Tracheae) and Xylem parenchyma, while the later text gives the complete supplied list of tracheids, vessels, xylem parenchyma and xylem fibres. Tracheids and vessels have thick walls, many are dead at maturity, and their tubular form permits vertical transport of water and minerals. Xylem parenchyma stores food and helps sideways conduction of water, whereas xylem fibres mainly provide support."
+     },
+     {
+      "concept_id": "c14",
+      "name": "Phloem components and their arrangement",
+      "item_ids": [
+       "p001-i48",
+       "p001-i49",
+       "p001-i50",
+       "p001-i51"
+      ],
+      "content_type": "classification",
+      "core_explanation": "Book basis: Phloem is a complex permanent tissue whose cropped tree visibly lists sieve tubes, companion cells and phloem parenchyma; the page 11 figure additionally labels phloem fibres. Keep the conducting sieve-tube component distinct from its adjacent companion cell and the parenchyma and fibre components. Outside clarification: Phloem transports organic food materials, and companion cells support sieve-tube elements metabolically; these functions explain the arrangement but are not explicitly stated in the supplied phloem tree."
+     },
+     {
+      "concept_id": "c15",
+      "name": "Overview figure of xylem and phloem",
+      "item_ids": [
+       "p011-i16",
+       "p011-i17",
+       "p011-i18",
+       "p011-i19",
+       "p011-i20",
+       "p011-i21",
+       "p011-i22",
+       "p011-i23",
+       "p011-i24"
+      ],
+      "content_type": "figure",
+      "core_explanation": "Book basis: The 'Complex Permanent Tissue' drawing places xylem on the left and phloem on the right, identifying xylem parenchyma, broad vessels, elongated pitted tracheids and narrow xylem fibres, and identifying phloem parenchyma, companion cell, phloem fibres and sieve tube. In phloem, locate the narrow companion cell beside the broad sieve-tube region; retain the fibre identification while acknowledging its indistinct arrow endpoint. The arrows are anatomical leader arrows and provide no evidence of transport direction."
+     },
+     {
+      "concept_id": "c16",
+      "name": "Detailed xylem figure: vessel elements, tracheids and pits",
+      "item_ids": [
+       "p011-i25",
+       "p011-i26",
+       "p011-i27",
+       "p011-i28",
+       "p011-i29",
+       "p011-i30",
+       "p011-i31",
+       "p011-i32"
+      ],
+      "content_type": "figure",
+      "core_explanation": "Book basis: In the boxed xylem figure, subfigure a shows an isolated vessel element with pitted walls, while subfigure b labels tracheids and a group containing a xylem parenchyma cell, a broad vessel element and a narrow tracheid. Recognise both repeated pitted-wall labels and distinguish the broad conducting element, narrower tracheids and grey parenchyma column by their leader lines. The enclosing box also contains phloem subfigures; it shows arrangement rather than a time sequence or directional flow."
+     },
+     {
+      "concept_id": "c17",
+      "name": "Detailed phloem figure: sieve plates, companion cells and connections",
+      "item_ids": [
+       "p011-i33",
+       "p011-i34",
+       "p011-i35",
+       "p011-i36",
+       "p011-i37",
+       "p011-i38",
+       "p011-i39",
+       "p011-i40",
+       "p011-i41",
+       "p011-i42"
+      ],
+      "content_type": "figure",
+      "core_explanation": "Book basis: Phloem subfigure a labels an elongated sieve-tube element, its end sieve plate, an associated companion cell, a nucleus in that associated small cell and phloem parenchyma cells. Subfigure b repeats the companion cell, sieve-tube element, transverse sieve plate and parenchyma labels, and adds 'plasmo-desmata' at connections across adjoining cell walls. Outside clarification: Plasmodesmata are cytoplasmic connections between neighbouring living plant cells, and the nucleus label in the small associated cell should not be reassigned to the mature sieve-tube element."
+     },
+     {
+      "concept_id": "c18",
+      "name": "Three muscular tissues: location, function, appearance and control",
+      "item_ids": [
+       "p007-i2",
+       "p007-i4",
+       "p007-i6",
+       "p007-i8"
+      ],
+      "content_type": "comparison",
+      "core_explanation": "Book basis: Skeletal muscle is associated with the skeleton, produces movement, heat and posture, and has parallel striated fibres with multiple eccentric nuclei under voluntary control; cardiac muscle occurs in the heart, pumps blood continuously, and is striated with one central nucleus under involuntary control. Visceral or smooth muscle is listed in the G.I. tract, uterus, eye and blood vessels, with peristalsis, blood-pressure control, pupil-size control and hair erection among its functions, and it lacks striations, has one central nucleus and is involuntary. Outside clarification: Treat these functions as a set across smooth-muscle locations, rather than assigning each function to each listed organ; eccentric nuclei lie toward the cell periphery."
+     },
+     {
+      "concept_id": "c19",
+      "name": "Visual identification of skeletal, cardiac and smooth muscle",
+      "item_ids": [
+       "p007-i5",
+       "p007-i7",
+       "p007-i9"
+      ],
+      "content_type": "figure",
+      "core_explanation": "Book basis: The skeletal drawing shows a long cylindrical fibre with repeated transverse bands and several nuclei, whereas the cardiac drawing shows striated fibres that branch and connect with nuclei within them. The smooth-muscle drawing shows an elongated spindle-shaped cell tapering at both ends, with a central nucleus and no visible transverse bands. Use striations, branching, shape and nuclear pattern together, since striations alone do not distinguish skeletal from cardiac muscle."
+     },
+     {
+      "concept_id": "c20",
+      "name": "Connective-tissue figure and its five panels",
+      "item_ids": [
+       "p007-i10",
+       "p007-i34"
+      ],
+      "content_type": "figure",
+      "core_explanation": "Book basis: Fig. 6.10 illustrates (a) types of blood cells, (b) compact bone, (c) hyaline cartilage, (d) areolar tissue and (e) adipose tissue. Compare the blood-cell forms, circular bone units, cartilage cells within matrix, fibrous areolar network and large fat droplets in adipocytes. Outside clarification: These diverse appearances belong within connective tissue because their cells and extracellular surroundings are specialised for different roles."
+     },
+     {
+      "concept_id": "c21",
+      "name": "Blood-cell identification in the connective-tissue figure",
+      "item_ids": [
+       "p007-i11",
+       "p007-i12",
+       "p007-i13",
+       "p007-i14",
+       "p007-i15",
+       "p007-i16",
+       "p007-i17",
+       "p007-i18",
+       "p007-i19",
+       "p007-i22"
+      ],
+      "content_type": "figure",
+      "core_explanation": "Book basis: The blood-cell panel labels different white blood corpuscles, their cytoplasm and nuclei, neutrophil (polymorphonuclear leucocyte), eosinophil, basophil, lymphocyte, monocyte and platelets; a red blood corpuscle label also appears in the crowded region below the compact-bone area. Recognise the neutrophil's lobed nucleus, the lymphocyte's prominent rounded nucleus, the monocyte's indented nuclear profile and the small clustered platelets, while using the printed labels to identify eosinophil and basophil. Outside clarification: White blood cells participate in defence, platelets in clotting and red blood cells in oxygen transport; the red-cell label's exact panel association remains uncertain."
+     },
+     {
+      "concept_id": "c22",
+      "name": "Compact bone and hyaline cartilage labels",
+      "item_ids": [
+       "p007-i20",
+       "p007-i21",
+       "p007-i23",
+       "p007-i24"
+      ],
+      "content_type": "figure",
+      "core_explanation": "Book basis: The compact-bone panel identifies a central Haversian canal containing blood vessels and nerve fibres, and a canaliculus containing a slender process of a bone cell or osteocyte. The hyaline-cartilage panel labels a chondrocyte and the surrounding hyaline matrix. Compare a cell or cell process with its surrounding matrix or channel, rather than treating these labels as interchangeable tissue names."
+     },
+     {
+      "concept_id": "c23",
+      "name": "Areolar-tissue network and its cells",
+      "item_ids": [
+       "p007-i25",
+       "p007-i26",
+       "p007-i27",
+       "p007-i28",
+       "p007-i29",
+       "p007-i30"
+      ],
+      "content_type": "figure",
+      "core_explanation": "Book basis: The areolar panel labels fine reticular fibres, prominent collagen fibres, elongated fibroblasts, irregular macrophages, mast cells and a rounded plasma cell among the fibres. Distinguish extracellular fibres from cells before learning the individual names. Outside clarification: Fibroblasts produce matrix components, collagen contributes tensile strength, macrophages engulf material, mast cells participate in inflammation and plasma cells produce antibodies; these roles help explain the labelled network."
+     },
+     {
+      "concept_id": "c24",
+      "name": "Adipose tissue: fat droplet and peripheral nucleus",
+      "item_ids": [
+       "p007-i31",
+       "p007-i32",
+       "p007-i33"
+      ],
+      "content_type": "figure",
+      "core_explanation": "Book basis: The adipose panel labels the adipocyte, its large pale fat droplet and small dark nuclei at the cell periphery. Match the whole fat-storing cell to adipocyte, the large internal region to fat droplet and the displaced dark structure to nucleus. Outside clarification: A large stored lipid droplet occupies much of the illustrated cell and pushes the nucleus toward its edge."
+     },
+     {
+      "concept_id": "c25",
+      "name": "Neuron figure: receiving region, axon and synapses",
+      "item_ids": [
+       "p007-i36",
+       "p007-i37",
+       "p007-i38",
+       "p007-i39",
+       "p007-i40",
+       "p007-i41",
+       "p007-i42",
+       "p007-i43",
+       "p007-i44",
+       "p007-i45",
+       "p007-i46",
+       "p007-i47",
+       "p007-i48",
+       "p007-i49"
+      ],
+      "content_type": "figure",
+      "core_explanation": "Book basis: The diagram begins with the axon of a previous neuron approaching a circled synapse near the first displayed neuron's dendrites and cell body, whose nucleus is labelled; its long axon leads to axon tips beside the next neuron's dendrites, another circled synapse and the next cell body and nucleus. Blue arrows labelled electrical signal run from the lower-left cell-body region along the axon toward the upper-right terminal region. Distinguish these directional arrows from part-identifying leader lines, and recognise that the two nuclei belong to two different displayed cells."
+     },
+     {
+      "concept_id": "c26",
+      "name": "How neurons send a message to another cell",
+      "item_ids": [
+       "p007-i35"
+      ],
+      "content_type": "process",
+      "core_explanation": "Book basis: The question asks how neurons transmit impulses, and the accompanying figure shows an electrical signal travelling along an axon toward its tips and then the receiving region of the next neuron at a synapse. Outside clarification: In the illustrated type of pathway, sufficient stimulation starts an electrical impulse that propagates along the axon; when it reaches a chemical synapse, neurotransmitter is released and can trigger an electrical response in the receiving cell. Outside clarification: Teach the order of events without numerical timings, and explain that the nucleus is a cell structure rather than a station through which the impulse travels."
+     },
+     {
+      "concept_id": "c27",
+      "name": "Practice: three tissue–feature statements",
+      "item_ids": [
+       "p013-i2",
+       "p013-i4",
+       "p013-i5",
+       "p013-i6",
+       "p013-i7"
+      ],
+      "content_type": "comparison",
+      "core_explanation": "Book basis: The question asks which statements are correct: 1. Parenchyma—large vacuole and food storage; 2. Sclerenchyma—in climber plants and provides mechanical strength; 3. Collenchyma—contains lignin; options are a. 1 only, b. 2 only, c. 1 and 3 only, d. All are incorrect. Book basis: The comparison table supports statement 1 and assigns lignified secondary walls to sclerenchyma rather than collenchyma. Outside clarification: The intended answer is a, 1 only, using the usual association of flexible support in young climbing parts with collenchyma; statement 2 is imprecise because mechanical strength itself is a valid sclerenchyma function and the question should not imply sclerenchyma cannot occur in climbers."
+     },
+     {
+      "concept_id": "c28",
+      "name": "Practice: identify the component outside xylem",
+      "item_ids": [
+       "p013-i28",
+       "p013-i29"
+      ],
+      "content_type": "classification",
+      "core_explanation": "Book basis: 'All are parts of xylem except' offers A. Companion cells, B. Tracheid, C. Parenchyma, D. Xylem vessel. Book basis: Answer A, Companion cells, follows from the supplied xylem list and the figure placing companion cells in phloem. Interpret the unspecific option Parenchyma as xylem parenchyma in this question."
+     },
+     {
+      "concept_id": "c29",
+      "name": "Practice: lignin in a simple tissue wall",
+      "item_ids": [
+       "p013-i30",
+       "p013-i31"
+      ],
+      "content_type": "structure",
+      "core_explanation": "Book basis: 'Lignin is present in cell wall of which tissue' offers a. Parenchyma, b. Sclerenchyma, c. Collenchyma, d. None. Book basis: Answer b, Sclerenchyma, is supported by the lignin-thickened-wall description and the simple-tissue comparison. The identifying contrast is its lignified secondary wall against thin parenchyma walls and unevenly thickened collenchyma primary walls."
+     },
+     {
+      "concept_id": "c30",
+      "name": "Practice: aquatic parenchyma and buoyancy",
+      "item_ids": [
+       "p013-i32",
+       "p013-i33"
+      ],
+      "content_type": "classification",
+      "core_explanation": "Book basis: The question asks for specialised parenchyma in aquatic plants that provides buoyancy, with options a. Chlorenchyma, b. Sieve tube, c. Aerenchyma, d. Companion cells. Outside clarification: Answer c, Aerenchyma; its large air spaces help aquatic plant parts remain buoyant and permit internal gas movement. Outside clarification: Chlorenchyma is chloroplast-containing parenchyma associated with photosynthesis, while sieve tubes and companion cells are phloem components."
+     },
+     {
+      "concept_id": "c31",
+      "name": "Practice: identify the incorrect cardiac-tissue statement",
+      "item_ids": [
+       "p013-i34",
+       "p013-i35",
+       "p013-i36",
+       "p013-i37"
+      ],
+      "content_type": "comparison",
+      "core_explanation": "Book basis: The question asks which statement about cardiac tissue is incorrect and supplies 1. They are striated, 2. They are voluntary in nature, 3. They have features of both skeletal and visceral tissue; no separate combination options are supplied. Book basis: Statement 2 is incorrect because the muscle table identifies cardiac tissue as involuntary. Book basis: Statement 1 agrees with the table, and statement 3 is supported by cardiac tissue sharing striations with skeletal muscle and involuntary control with visceral smooth muscle."
+     },
+     {
+      "concept_id": "c32",
+      "name": "Unresolved continued question and its statement-combination options",
+      "item_ids": [
+       "p013-i1",
+       "p013-i38"
+      ],
+      "content_type": "classification",
+      "core_explanation": "Book basis: The continued question identified by p013-i38 has visible options in p013-i1: a. 1 only, b. 1 and 2, c. 2 and 3, d. All are correct; these classify possible combinations of numbered statements. Its stem and numbered statements are missing, so its biological subject, tested biological concepts and correct answer cannot be established. Keep this fragment separate from the complete tissue–feature question that follows."
+     }
+    ],
+    "relations": [
+     {
+      "from_concept": "c02",
+      "relation": "depends_on",
+      "to_concept": "c01",
+      "note": "The tissue definition is needed before explaining division of labour and levels above the cell."
+     },
+     {
+      "from_concept": "c04",
+      "relation": "depends_on",
+      "to_concept": "c03",
+      "note": "Establish division outcomes before comparing phases, replication and crossing over."
+     },
+     {
+      "from_concept": "c05",
+      "relation": "depends_on",
+      "to_concept": "c03",
+      "note": "The plant–animal table compares variants of mitotic division."
+     },
+     {
+      "from_concept": "c06",
+      "relation": "depends_on",
+      "to_concept": "c01",
+      "note": "The classification branches organise plant tissues."
+     },
+     {
+      "from_concept": "c07",
+      "relation": "type_of",
+      "to_concept": "c06",
+      "note": "Simple permanent tissues occupy the Simple branch of the plant-tissue framework."
+     },
+     {
+      "from_concept": "c08",
+      "relation": "depends_on",
+      "to_concept": "c07",
+      "note": "Name the three simple tissues before comparing their cellular features."
+     },
+     {
+      "from_concept": "c09",
+      "relation": "depends_on",
+      "to_concept": "c08",
+      "note": "Wall and living-content contrasts help explain the listed functions and locations."
+     },
+     {
+      "from_concept": "c10",
+      "relation": "depends_on",
+      "to_concept": "c08",
+      "note": "Apply the wall comparison to visual identification."
+     },
+     {
+      "from_concept": "c11",
+      "relation": "type_of",
+      "to_concept": "c07",
+      "note": "Sclerenchyma is one of the three simple permanent tissues."
+     },
+     {
+      "from_concept": "c11",
+      "relation": "depends_on",
+      "to_concept": "c08",
+      "note": "Understand lignified walls and loss of living contents before the detailed sclerenchyma profile."
+     },
+     {
+      "from_concept": "c12",
+      "relation": "type_of",
+      "to_concept": "c06",
+      "note": "Complex permanent tissue is the Complex branch under Permanent Tissue."
+     },
+     {
+      "from_concept": "c12",
+      "relation": "contrasts_with",
+      "to_concept": "c07",
+      "note": "Complex tissue contains multiple cell types; the simple-tissue distinction is explained with marked outside clarification."
+     },
+     {
+      "from_concept": "c13",
+      "relation": "type_of",
+      "to_concept": "c12",
+      "note": "Xylem is one of the two complex permanent tissues."
+     },
+     {
+      "from_concept": "c14",
+      "relation": "type_of",
+      "to_concept": "c12",
+      "note": "Phloem is the other named complex permanent tissue."
+     },
+     {
+      "from_concept": "c13",
+      "relation": "compares_with",
+      "to_concept": "c14",
+      "note": "Compare constituent cells and transport roles without treating the two tissues as identical."
+     },
+     {
+      "from_concept": "c15",
+      "relation": "depends_on",
+      "to_concept": "c13",
+      "note": "The overview drawing requires recognition of the xylem component names."
+     },
+     {
+      "from_concept": "c15",
+      "relation": "depends_on",
+      "to_concept": "c14",
+      "note": "The same overview requires recognition of phloem component names."
+     },
+     {
+      "from_concept": "c16",
+      "relation": "depends_on",
+      "to_concept": "c15",
+      "note": "Move from the overview to detailed vessel-element and tracheid labels."
+     },
+     {
+      "from_concept": "c17",
+      "relation": "depends_on",
+      "to_concept": "c15",
+      "note": "Move from the overview to sieve plates, companion-cell nuclei and plasmodesmata."
+     },
+     {
+      "from_concept": "c18",
+      "relation": "depends_on",
+      "to_concept": "c01",
+      "note": "Muscular tissue is another application of cells grouped for shared functions."
+     },
+     {
+      "from_concept": "c19",
+      "relation": "depends_on",
+      "to_concept": "c18",
+      "note": "The comparison supplies the criteria used to identify muscle drawings."
+     },
+     {
+      "from_concept": "c20",
+      "relation": "depends_on",
+      "to_concept": "c01",
+      "note": "The figure presents several connective-tissue examples within the tissue framework."
+     },
+     {
+      "from_concept": "c21",
+      "relation": "part_of",
+      "to_concept": "c20",
+      "note": "Blood-cell labels belong to the connective-tissue figure, with one crowded red-cell label association unresolved."
+     },
+     {
+      "from_concept": "c22",
+      "relation": "part_of",
+      "to_concept": "c20",
+      "note": "Compact bone and hyaline cartilage are panels b and c."
+     },
+     {
+      "from_concept": "c23",
+      "relation": "part_of",
+      "to_concept": "c20",
+      "note": "The areolar cell-and-fibre network is panel d."
+     },
+     {
+      "from_concept": "c24",
+      "relation": "part_of",
+      "to_concept": "c20",
+      "note": "The adipocyte labels belong to panel e."
+     },
+     {
+      "from_concept": "c25",
+      "relation": "depends_on",
+      "to_concept": "c01",
+      "note": "Introduce the specialised neuron as a cell before reading its labelled processes."
+     },
+     {
+      "from_concept": "c26",
+      "relation": "depends_on",
+      "to_concept": "c25",
+      "note": "The message pathway requires identifying dendrites, cell body, axon, terminals and synapses."
+     },
+     {
+      "from_concept": "c27",
+      "relation": "depends_on",
+      "to_concept": "c09",
+      "note": "Evaluate storage, support and occurrence against the simple-tissue comparison."
+     },
+     {
+      "from_concept": "c27",
+      "relation": "depends_on",
+      "to_concept": "c11",
+      "note": "Lignification and mechanical strength are essential to evaluating the distractors."
+     },
+     {
+      "from_concept": "c28",
+      "relation": "depends_on",
+      "to_concept": "c13",
+      "note": "The exception question requires the xylem constituent list."
+     },
+     {
+      "from_concept": "c28",
+      "relation": "depends_on",
+      "to_concept": "c14",
+      "note": "The excluded companion cell must be recognised as a phloem component."
+     },
+     {
+      "from_concept": "c29",
+      "relation": "depends_on",
+      "to_concept": "c11",
+      "note": "The lignin question applies the sclerenchyma wall description."
+     },
+     {
+      "from_concept": "c30",
+      "relation": "depends_on",
+      "to_concept": "c08",
+      "note": "Aerenchyma is explained as a specialisation of parenchyma with large air spaces."
+     },
+     {
+      "from_concept": "c31",
+      "relation": "depends_on",
+      "to_concept": "c18",
+      "note": "The incorrect statement is identified from the muscle-control and striation comparison."
+     },
+     {
+      "from_concept": "c13",
+      "relation": "tested_by",
+      "to_concept": "c28",
+      "note": "The xylem question directly tests constituent membership."
+     },
+     {
+      "from_concept": "c14",
+      "relation": "tested_by",
+      "to_concept": "c28",
+      "note": "Companion cells supply the phloem-based exception."
+     },
+     {
+      "from_concept": "c11",
+      "relation": "tested_by",
+      "to_concept": "c29",
+      "note": "The question tests association of lignin with sclerenchyma."
+     },
+     {
+      "from_concept": "c08",
+      "relation": "tested_by",
+      "to_concept": "c27",
+      "note": "The statement set tests vacuoles and wall composition."
+     },
+     {
+      "from_concept": "c09",
+      "relation": "tested_by",
+      "to_concept": "c27",
+      "note": "The statement set tests food storage and mechanical support."
+     },
+     {
+      "from_concept": "c18",
+      "relation": "tested_by",
+      "to_concept": "c31",
+      "note": "The cardiac question combines striation and control criteria."
+     },
+     {
+      "from_concept": "c25",
+      "relation": "tested_by",
+      "to_concept": "c26",
+      "note": "The neuron question asks the learner to turn the labelled pathway into a process explanation."
+     }
+    ],
+    "prerequisites_to_teach": [
+     {
+      "name": "Cell as a unit of life and specialised cell functions",
+      "why_needed": "Explain that cells perform life functions and can specialise, providing the starting point for tissues, division of labour and the chapter's specialised cell examples.",
+      "needed_for": [
+       "c01",
+       "c02",
+       "c03",
+       "c06",
+       "c07",
+       "c12",
+       "c18",
+       "c20",
+       "c25"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Cell membrane, cytoplasm, nucleus and genetic material",
+      "why_needed": "Teach the boundary, internal material and genetic-control structure so that living cell contents, nuclear labels and distinctions between whole cells and cell parts are meaningful.",
+      "needed_for": [
+       "c03",
+       "c04",
+       "c05",
+       "c08",
+       "c10",
+       "c11",
+       "c17",
+       "c18",
+       "c19",
+       "c21",
+       "c23",
+       "c24",
+       "c25",
+       "c26"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Part–whole hierarchy and organs working together",
+      "why_needed": "Explain that a larger functional unit can contain smaller units and that cooperating organs form a system; this makes the biological-organisation arrows intelligible.",
+      "needed_for": [
+       "c02"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Chromosome sets, homologous pairs and sister chromatids",
+      "why_needed": "Distinguish diploid from haploid, homologous chromosomes from duplicated chromatids, and chromosome number from DNA amount before interpreting division outcomes and crossing over.",
+      "needed_for": [
+       "c03",
+       "c04"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "DNA replication in S phase and chromosome counting by centromeres",
+      "why_needed": "Teach that replication copies DNA before division while duplicated chromatids remain associated, enabling a precise explanation of the erroneous chromosome-doubling row.",
+      "needed_for": [
+       "c04"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Nuclear division, cytokinesis, spindle, centrioles and asters",
+      "why_needed": "Separate division of the nucleus from division of cytoplasm and introduce the chromosome-moving apparatus before comparing phase counts, cell plates and cleavage.",
+      "needed_for": [
+       "c03",
+       "c04",
+       "c05"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Somatic cells, reproductive cell lineage, gametes and spores",
+      "why_needed": "Explain growth and replacement versus sexual reproduction, and distinguish plant spore formation from direct gamete formation when qualifying the mitosis–meiosis table.",
+      "needed_for": [
+       "c03",
+       "c04"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Classification trees and parent–subgroup relationships",
+      "why_needed": "Show how to follow branches without confusing a parent tissue class, one of its types and a constituent cell; this also supports exception questions.",
+      "needed_for": [
+       "c06",
+       "c07",
+       "c12",
+       "c13",
+       "c14",
+       "c28",
+       "c30"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Plant growth regions, differentiation and apical, lateral and intercalary positions",
+      "why_needed": "Introduce root and shoot tips, girth, nodes, internodes and leaf bases, then explain division versus differentiation so that meristem names and the permanent-tissue branch have concrete meaning.",
+      "needed_for": [
+       "c05",
+       "c06",
+       "c07",
+       "c12"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Primary and secondary cell walls, cellulose, lignin and pits",
+      "why_needed": "Explain the initial wall, later inner thickening, wall materials and wall pits before using wall thickness and lignification to distinguish tissues and xylem cells.",
+      "needed_for": [
+       "c05",
+       "c08",
+       "c10",
+       "c11",
+       "c13",
+       "c15",
+       "c16",
+       "c17",
+       "c27",
+       "c29"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Vacuole, lumen and intercellular space",
+      "why_needed": "Locate the vacuole within a living cell, the lumen inside a wall and spaces between cells; distinguish these while comparing tissue tables, narrow sclerenchyma cavities and aerenchyma.",
+      "needed_for": [
+       "c08",
+       "c10",
+       "c11",
+       "c27",
+       "c30"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Plant anatomical locations used in the occurrence tables",
+      "why_needed": "Locate stem, root, leaf, petiole, epidermis, hypodermis, cortex, pith, medullary rays, vascular bundle, bundle sheath and pericycle, and distinguish dicots from monocots before memorising tissue locations.",
+      "needed_for": [
+       "c06",
+       "c09",
+       "c11",
+       "c27"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Food storage, chloroplasts and photosynthesis",
+      "why_needed": "Explain that stored food differs from food production and that photosynthesis requires chloroplasts, supporting parenchyma functions and the chlorenchyma distractor.",
+      "needed_for": [
+       "c07",
+       "c09",
+       "c12",
+       "c13",
+       "c14",
+       "c27",
+       "c30"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Water, dissolved minerals and vertical versus sideways transport",
+      "why_needed": "Introduce materials moving within plants and directions relative to the plant axis so that tubular conduction and parenchyma's lateral role are understood.",
+      "needed_for": [
+       "c12",
+       "c13",
+       "c15",
+       "c16"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Sieve-tube element, sieve plate and companion-cell support",
+      "why_needed": "Explain how successive conducting elements meet at porous end walls and how an adjacent living companion cell supports them before interpreting the detailed phloem labels and nucleus position.",
+      "needed_for": [
+       "c14",
+       "c15",
+       "c17",
+       "c28"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Mechanical support, tensile strength, stress and strain",
+      "why_needed": "Explain resistance to pulling and deformation so that wall structure can be connected to flexible support, rigid strength and protection.",
+      "needed_for": [
+       "c07",
+       "c09",
+       "c11",
+       "c13",
+       "c23",
+       "c27"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Muscle contraction, voluntary control and involuntary control",
+      "why_needed": "Explain contraction as force production and distinguish deliberate control from activity occurring without deliberate command before comparing muscular tissues.",
+      "needed_for": [
+       "c18",
+       "c19",
+       "c31"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Skeleton, heart pump, digestive tract, blood vessels, uterus, pupil and hair muscles",
+      "why_needed": "Locate the structures named in the muscle table and explain peristalsis, circulation, posture and pupil adjustment sufficiently to connect muscle location with function.",
+      "needed_for": [
+       "c18",
+       "c31"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Extracellular matrix, fibres and cells embedded in matrix",
+      "why_needed": "Introduce material outside cells and distinguish a cell from its surrounding matrix and fibres before interpreting connective-tissue panels.",
+      "needed_for": [
+       "c20",
+       "c22",
+       "c23",
+       "c24"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Blood, oxygen transport, defence and clotting",
+      "why_needed": "Explain the broad roles that distinguish red blood cells, white blood cells and platelets without requiring unprovided numerical counts or detailed cell functions.",
+      "needed_for": [
+       "c20",
+       "c21"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Phagocytosis, inflammation, antibodies and plasma cells",
+      "why_needed": "Teach engulfing material, inflammatory responses and antibody production to make the labelled defensive cells in blood and areolar tissue understandable.",
+      "needed_for": [
+       "c21",
+       "c23"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Bone cells, cartilage cells and cell processes",
+      "why_needed": "Introduce osteocyte and chondrocyte as cell names and a cell process as an extension, enabling correct interpretation of canaliculi and cartilage matrix.",
+      "needed_for": [
+       "c22"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Lipids as stored food and displacement within a cell",
+      "why_needed": "Explain why a large lipid droplet can occupy much of an adipocyte and position its nucleus near the edge.",
+      "needed_for": [
+       "c24"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Nerve impulse, cell-membrane ions and chemical synapse",
+      "why_needed": "Introduce an electrical change travelling along a neuron and chemical signalling across a synapse so the arrow pathway can be converted into an accurate stepwise explanation.",
+      "needed_for": [
+       "c25",
+       "c26"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Buoyancy, density and air-filled spaces in aquatic plants",
+      "why_needed": "Explain how air spaces can lower average tissue density and aid floating before identifying aerenchyma from the question.",
+      "needed_for": [
+       "c30"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Reading diagram labels, sections and directional arrows",
+      "why_needed": "Distinguish a leader identifying a part from an arrow showing motion, recognise schematic sections and follow panel letters across a compound figure.",
+      "needed_for": [
+       "c02",
+       "c06",
+       "c10",
+       "c15",
+       "c16",
+       "c17",
+       "c19",
+       "c20",
+       "c21",
+       "c22",
+       "c23",
+       "c24",
+       "c25",
+       "c26"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Evaluating numbered statements and negative question stems",
+      "why_needed": "Practise judging each statement separately, interpreting 'except' and 'incorrect', and recognising that options alone cannot establish an answer when a stem is missing.",
+      "needed_for": [
+       "c27",
+       "c28",
+       "c29",
+       "c30",
+       "c31",
+       "c32"
+      ],
+      "basis": "outside"
+     }
+    ],
+    "cross_references": [
+     {
+      "from_item_id": "p007-i34",
+      "reference_text": "Fig. 6.10: Types of connective tissues",
+      "resolved_item_id": "p007-i10"
+     },
+     {
+      "from_item_id": "p007-i34",
+      "reference_text": "(a) types of blood cells",
+      "resolved_item_id": "p007-i10"
+     },
+     {
+      "from_item_id": "p007-i34",
+      "reference_text": "(b) compact bone",
+      "resolved_item_id": "p007-i10"
+     },
+     {
+      "from_item_id": "p007-i34",
+      "reference_text": "(c) hyaline cartilage",
+      "resolved_item_id": "p007-i10"
+     },
+     {
+      "from_item_id": "p007-i34",
+      "reference_text": "(d) areolar tissue",
+      "resolved_item_id": "p007-i10"
+     },
+     {
+      "from_item_id": "p007-i34",
+      "reference_text": "(e) adipose tissue",
+      "resolved_item_id": "p007-i10"
+     },
+     {
+      "from_item_id": "p007-i35",
+      "reference_text": "How do neurons transmit impulses (send message to other cells)? — accompanying neuron diagram",
+      "resolved_item_id": "p007-i36"
+     },
+     {
+      "from_item_id": "p013-i38",
+      "reference_text": "The visible answer options are captured in i1.",
+      "resolved_item_id": "p013-i1"
+     }
+    ],
+    "question_links": [
+     {
+      "question_item_id": "p007-i35",
+      "tests_concepts": [
+       "c25",
+       "c26"
+      ]
+     },
+     {
+      "question_item_id": "p013-i38",
+      "tests_concepts": [
+       "c32"
+      ]
+     },
+     {
+      "question_item_id": "p013-i2",
+      "tests_concepts": [
+       "c08",
+       "c09",
+       "c11",
+       "c27"
+      ]
+     },
+     {
+      "question_item_id": "p013-i28",
+      "tests_concepts": [
+       "c12",
+       "c13",
+       "c14",
+       "c28"
+      ]
+     },
+     {
+      "question_item_id": "p013-i30",
+      "tests_concepts": [
+       "c08",
+       "c11",
+       "c29"
+      ]
+     },
+     {
+      "question_item_id": "p013-i32",
+      "tests_concepts": [
+       "c07",
+       "c08",
+       "c30"
+      ]
+     },
+     {
+      "question_item_id": "p013-i34",
+      "tests_concepts": [
+       "c18",
+       "c19",
+       "c31"
+      ]
+     }
+    ],
+    "teaching_order": [
+     "c01",
+     "c02",
+     "c03",
+     "c04",
+     "c05",
+     "c06",
+     "c07",
+     "c08",
+     "c10",
+     "c09",
+     "c11",
+     "c27",
+     "c29",
+     "c30",
+     "c12",
+     "c13",
+     "c14",
+     "c15",
+     "c16",
+     "c17",
+     "c28",
+     "c18",
+     "c19",
+     "c31",
+     "c20",
+     "c21",
+     "c22",
+     "c23",
+     "c24",
+     "c25",
+     "c26",
+     "c32"
+    ],
+    "exam_focus": [
+     {
+      "concept_id": "c01",
+      "why": "The tissue definition and plant–animal distinction anchor classification questions."
+     },
+     {
+      "concept_id": "c02",
+      "why": "Ordering biological levels and connecting specialisation with division of labour are important conceptual checks."
+     },
+     {
+      "concept_id": "c03",
+      "why": "Division counts, daughter-cell counts, chromosome-set changes and somatic versus reproductive roles support direct comparison and statement questions."
+     },
+     {
+      "concept_id": "c04",
+      "why": "Crossing over, prophase I and the distinction between DNA replication and chromosome number are important comparison points; the printed replication row needs explicit correction."
+     },
+     {
+      "concept_id": "c05",
+      "why": "Centrioles, asters, cell plates, cleavage and meristem location are suitable matching and incorrect-statement facts."
+     },
+     {
+      "concept_id": "c06",
+      "why": "The complete plant-tissue hierarchy supports classification, subgroup and odd-one-out questions."
+     },
+     {
+      "concept_id": "c07",
+      "why": "The three simple tissues and the fibre–sclereid subdivision are essential classification facts."
+     },
+     {
+      "concept_id": "c08",
+      "why": "Wall composition, living or dead condition, nuclei, vacuoles and intercellular spaces distinguish the simple tissues."
+     },
+     {
+      "concept_id": "c09",
+      "why": "Locations, food storage, photosynthesis, tensile support and mechanical strength are important matching criteria."
+     },
+     {
+      "concept_id": "c10",
+      "why": "Thin primary walls, uneven primary-wall thickening and thick secondary walls permit diagram-based identification."
+     },
+     {
+      "concept_id": "c11",
+      "why": "Lignin, coconut husk, dead mature cells and protective strength support examples, wall-composition and tissue-identification questions."
+     },
+     {
+      "concept_id": "c12",
+      "why": "Multiple coordinated cell types distinguish complex from simple permanent tissues."
+     },
+     {
+      "concept_id": "c13",
+      "why": "The four xylem components and their conducting, storage and supportive roles are tested directly by the exception question."
+     },
+     {
+      "concept_id": "c14",
+      "why": "Companion cells and sieve tubes distinguish phloem from xylem in classification questions."
+     },
+     {
+      "concept_id": "c15",
+      "why": "The overview figure provides component matching across xylem and phloem and prevents interpreting leader arrows as flow directions."
+     },
+     {
+      "concept_id": "c16",
+      "why": "Vessel elements, tracheids, pits and xylem parenchyma are recognisable anatomical labels."
+     },
+     {
+      "concept_id": "c17",
+      "why": "Sieve plates, companion cells, nucleus placement and plasmodesmata support labelled-diagram and statement questions."
+     },
+     {
+      "concept_id": "c18",
+      "why": "Location, function, striations, nuclei and voluntary control are central muscle-comparison criteria and are tested on the page."
+     },
+     {
+      "concept_id": "c19",
+      "why": "Branching striated cardiac fibres, cylindrical multinucleate skeletal fibres and spindle-shaped smooth cells support image identification."
+     },
+     {
+      "concept_id": "c20",
+      "why": "Blood, bone, cartilage, areolar and adipose tissue form a useful connective-tissue example set for classification questions."
+     },
+     {
+      "concept_id": "c21",
+      "why": "Named white blood cells, platelets and distinctive nuclear forms support identification and matching."
+     },
+     {
+      "concept_id": "c22",
+      "why": "Haversian canal contents, canaliculi, chondrocytes and hyaline matrix are distinctive bone–cartilage facts."
+     },
+     {
+      "concept_id": "c23",
+      "why": "Distinguishing collagen and reticular fibres from fibroblasts and defence cells supports connective-tissue matching."
+     },
+     {
+      "concept_id": "c24",
+      "why": "A large fat droplet and displaced nucleus are characteristic visual clues for adipocytes."
+     },
+     {
+      "concept_id": "c25",
+      "why": "Dendrites, axon, terminals and synapses provide structure-identification and signal-direction questions."
+     },
+     {
+      "concept_id": "c26",
+      "why": "The page explicitly asks how a neuron sends a message; the answer requires a correctly ordered pathway and a distinction between electrical propagation and chemical synaptic transfer."
+     },
+     {
+      "concept_id": "c27",
+      "why": "This practice question combines vacuoles, storage, lignification and support, with an imprecise climber statement that requires careful explanation."
+     },
+     {
+      "concept_id": "c28",
+      "why": "The explicit xylem-exception question tests whether companion cells are assigned to phloem."
+     },
+     {
+      "concept_id": "c29",
+      "why": "The explicit lignin question directly tests the sclerenchyma wall association."
+     },
+     {
+      "concept_id": "c30",
+      "why": "The explicit buoyancy question tests aerenchyma against chlorenchyma and phloem distractors."
+     },
+     {
+      "concept_id": "c31",
+      "why": "The explicit cardiac question tests the combined facts that cardiac muscle is striated and involuntary."
+     }
+    ]
+   },
+   "code_problems": [],
+   "observed": {
+    "ki_coverage": {
+     "coverage": 1.0,
+     "passed": true,
+     "missing_critical": []
+    },
+    "orphan_concepts": [
+     "c32"
+    ]
+   },
+   "review_error": {
+    "kind": "budget",
+    "message": "google:budget: budget: the next call (connect:chapter:r2:review, about Rs 14.57) would cross the cap of Rs 30 (spent Rs 23.55, running Rs 0.00)"
+   },
+   "passed": false
+  }
+ ],
+ "avoid_rounds": [
+  1,
+  2
+ ],
+ "cost_usd": 0.0,
+ "seconds": 667.9,
+ "navin_verdict": null
+}

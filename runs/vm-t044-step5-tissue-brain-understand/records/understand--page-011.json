@@ -1,0 +1,5401 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "understand",
+ "unit": "page-011",
+ "status": "passed",
+ "instructions_version": "understand-page/2",
+ "rulebook_version": "content_types@2026-10-22.2+vision-2026-10-21@2026-10-21.8",
+ "rulebook_digest": "ba8a07e8186b9396d9e0e0713a2d71b70cbf3afd7a9caf5e32089ac7d7ee99b0",
+ "rules_used": [
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-05",
+  "S1-01",
+  "S1-02",
+  "S1-03",
+  "S1-04",
+  "S1-05",
+  "S1-06",
+  "S1-07",
+  "S1-08",
+  "S1-09",
+  "S1-10",
+  "S1-11"
+ ],
+ "maker_route": "codex",
+ "reviewer_route": "google",
+ "maker_model": "gpt-6.1-sol",
+ "reviewer_model": "google/gemini-4-argon",
+ "reviewer_independence": "other_company",
+ "inputs_digest": "9eb9993ec191eeb3683050f34318333a99b9e2cb5c18543109c79eb1169cabc4",
+ "card": {
+  "card": "bie.task-card/1",
+  "card_id": "understand.read_page@10-tissues-and-its-types/page-011",
+  "section": "understand",
+  "task": "read_page",
+  "prefix": {
+   "prefix_id": "understand.read_page/2",
+   "rulebook_version": "content_types@2026-10-22.2+vision-2026-10-21@2026-10-21.8",
+   "content_types_version": "2026-10-22.2",
+   "schema_id": "bie.brain.understand-page/2",
+   "sha256": "96c38767ba78dac39a419994862a1c726cc497f92820d8f32447f8cec8109313"
+  },
+  "unit": {
+   "unit_id": "page-011",
+   "title": "Page 11 of 14",
+   "pages": [
+    11
+   ]
+  },
+  "parts": [
+   {
+    "part_id": "b1",
+    "item_ids": [
+     "p0011-b0011"
+    ],
+    "type": "cause_effect",
+    "questions": [
+     "why",
+     "how"
+    ],
+    "focus": "BIE proposes cause_effect (strong): pattern 'due to'; 'due to'"
+   },
+   {
+    "part_id": "b2",
+    "item_ids": [
+     "p0011-b0018"
+    ],
+    "type": "structure",
+    "questions": [
+     "what",
+     "where"
+    ],
+    "focus": "BIE proposes structure (strong): pattern 'Made up of'; 'made up of'"
+   },
+   {
+    "part_id": "b3",
+    "item_ids": [
+     "p0011-b0025"
+    ],
+    "type": "structure",
+    "questions": [
+     "what",
+     "where"
+    ],
+    "focus": "BIE proposes structure (strong): pattern 'consists of'; 'consists of'"
+   },
+   {
+    "part_id": "img",
+    "item_ids": [
+     "p0011-image"
+    ],
+    "type": "none",
+    "questions": [
+     "what"
+    ],
+    "focus": "The page image: capture every table, diagram, label and arrow it shows (S1-01); its items get the type of what they show."
+   }
+  ],
+  "rules": [
+   "G-01",
+   "G-02",
+   "G-03",
+   "G-05",
+   "S1-01",
+   "S1-02",
+   "S1-03",
+   "S1-04",
+   "S1-05",
+   "S1-06",
+   "S1-07",
+   "S1-08",
+   "S1-09",
+   "S1-10",
+   "S1-11"
+  ],
+  "output": {
+   "schema_id": "bie.brain.understand-page/2",
+   "mode": "full",
+   "max_output_tokens": 32000
+  },
+  "coverage": {
+   "must_cover": [
+    "p0011-b0002",
+    "p0011-b0003",
+    "p0011-b0004",
+    "p0011-b0005",
+    "p0011-b0006",
+    "p0011-b0007",
+    "p0011-b0008",
+    "p0011-b0009",
+    "p0011-b0010",
+    "p0011-b0011",
+    "p0011-b0012",
+    "p0011-b0013",
+    "p0011-b0014",
+    "p0011-b0015",
+    "p0011-b0016",
+    "p0011-b0017",
+    "p0011-b0018",
+    "p0011-b0019",
+    "p0011-b0020",
+    "p0011-b0021",
+    "p0011-b0022",
+    "p0011-b0023",
+    "p0011-b0024",
+    "p0011-b0025",
+    "p0011-b0026",
+    "p0011-b0027",
+    "p0011-b0028",
+    "p0011-b0029",
+    "p0011-b0030"
+   ],
+   "claim_field": "items[].block_ids or boilerplate_block_ids",
+   "may_skip": [
+    {
+     "item_id": "p0011-b0001",
+     "reason": "running header (the same first line as the next or previous page)"
+    },
+    {
+     "item_id": "p0011-b0031",
+     "reason": "page number"
+    }
+   ]
+  },
+  "context": {
+   "map_slice": [],
+   "before": "(read from the image)",
+   "after": "a. 1 only"
+  },
+  "source": {
+   "block_ids": [
+    "p0011-b0001",
+    "p0011-b0002",
+    "p0011-b0003",
+    "p0011-b0004",
+    "p0011-b0005",
+    "p0011-b0006",
+    "p0011-b0007",
+    "p0011-b0008",
+    "p0011-b0009",
+    "p0011-b0010",
+    "p0011-b0011",
+    "p0011-b0012",
+    "p0011-b0013",
+    "p0011-b0014",
+    "p0011-b0015",
+    "p0011-b0016",
+    "p0011-b0017",
+    "p0011-b0018",
+    "p0011-b0019",
+    "p0011-b0020",
+    "p0011-b0021",
+    "p0011-b0022",
+    "p0011-b0023",
+    "p0011-b0024",
+    "p0011-b0025",
+    "p0011-b0026",
+    "p0011-b0027",
+    "p0011-b0028",
+    "p0011-b0029",
+    "p0011-b0030",
+    "p0011-b0031"
+   ],
+   "page_images": [
+    {
+     "page": 11,
+     "sha256": "0c46d4cb52d4f18419d42e11b31cf6e813f076ecf1b3774a4f4341a8e649fc1d"
+    }
+   ]
+  }
+ },
+ "prefix_sha256": "96c38767ba78dac39a419994862a1c726cc497f92820d8f32447f8cec8109313",
+ "review_prefix_sha256": "f65ba5283c0fd5b4aa45c3f755a60cc9b98ca92a23ceead63e29a942cc9b1153",
+ "inputs": {
+  "system": "BIE task prefix understand.read_page/2 · rulebook content_types@2026-10-22.2+vision-2026-10-21@2026-10-21.8 · content types 2026-10-22.2 · schema bie.brain.understand-page/2\n\nYou are BIE's book-understanding section: an expert teacher of Science and Technology for UPSC / State PCS aspirants preparing for UPSC / State PCS.\nYou read one page of a book chapter with two eyes, the page's native text blocks and the page image, and turn it into a complete,\nquestion-based teacher's understanding. Later BIE sections build the video lessons, the chapter game and the notes only from what you\ncapture, so anything you miss is missing from the whole course. Your output is internal to BIE: write it in clear English and keep the\nbook's own terms and spellings.\nCourse: \"10. Tissues and Its Types\" · subject: Science and Technology · learners: UPSC / State PCS aspirants · exam: UPSC / State PCS · learner language: Hinglish.\n\nNavin's rules for this task (follow every one):\n[G-01] Everything taught comes from the book. Knowledge from outside the book is allowed only to explain the book better; it is marked as outside, standard textbook-level and correct. Never invent facts, numbers, names or quotations.\n[G-02] Work like the best teacher of these learners and this exam, not like a summariser. Depth beats brevity: nothing teachable on the page is skipped or compressed away, and every explanation makes a student understand, not just remember.\n[G-03] Before the output, fill 'notes' with brief notes for the reviewer and for Navin: what this unit is about, the key questions a teacher must answer about it, the main decisions you made with a one-line reason each, and anything uncertain. Keep the notes short; they explain the work, they are not the work.\n[G-05] Never shorten work to fit a length. If a unit of work is too large, it is split by BIE into smaller units; within a unit, completeness wins.\n[S1-01] Read the page with two eyes: the native text blocks (exact words and numbers) and the page image (tables, diagrams, labels, arrows, equations, layout). Items that exist only in the image are as important as text items. A page whose text layer is empty or nearly empty is read entirely from the image.\n[S1-02] Every native text block is either covered by an item (its id in that item's block_ids) or listed as boilerplate. Boilerplate is only running headers, page numbers, publisher adverts, contact lines and watermarks; nothing teachable is boilerplate.\n[S1-03] Every table becomes one 'table' item plus one 'table_row' item per row, in order, each row's content giving every cell with its column header, for example 'Smooth muscle | Location: G.I. tract, uterus, eye, blood vessels | Function: peristalsis, blood pressure, pupil size, erects hairs | Appearance: no striations, one central nucleus | Control: involuntary'. A table continued from the previous page continues the same table.\n[S1-04] Every diagram, chart, flow or tree becomes one 'diagram' item that says what it shows and how its parts connect (arrows, branches, flows, sequence), plus one 'diagram_label' item per label naming what the label points to. A classification tree lists every branch and leaf with its parent.\n[S1-05] Every equation, formula, chemical formula and symbol is read exactly and each symbol's meaning and unit are stated.\n[S1-06] Understand every teachable item by questioning it like a teacher. Ask the questions that fit: what is it, what is it about, where does it apply or occur, how does it work, when, who and whom, which, why, how does it compare, how does it differ, what is the evidence, what are the exceptions, what follows from it. Then keep asking 'why' and 'how' on your own answers (depth 2, 3 ...) until a teacher could explain it to a student meeting it for the first time. Answers explain; they never just repeat the item's words.\n[S1-07] Mark every answer's basis: 'book' only when the page itself states it, 'outside' when any part comes from general knowledge. Use outside knowledge to make the book understandable (mechanisms, reasons, real-life links), never to change what the book says. Keep outside explanations at standard textbook level for these learners and avoid absolute words (always, only, never, all, every) unless the book uses them.\n[S1-08] Give every item its true content type, one of BIE's nine: process, structure, classification, comparison, timeline, cause_effect, facts_numbers, figure, definition (bie/brain/rulebook/content_types.json). An example takes the type of what it illustrates; a question or an answer option is a role, not a type. BIE's code proposes a type before you read the page; when you choose another, say why. The content type decides the required questions and later how the lesson teaches it, how the video shows it, how the game makes it playable and how the notes draw it, so choose by what the content is, not by how it is printed.\n[S1-09] Name the prerequisites a student must already understand for each item, as concrete concepts ('cell and its nucleus', 'what a nerve impulse is'), never vague ('basic biology'). Prerequisites are taught later, not just listed.\n[S1-10] Judge exam importance for the course's exam (for UPSC / State PCS: classifications, comparisons, locations, functions, examples and odd-one-out facts are high). Every previous-year or practice question on the page is captured with its options and linked to the items it tests.\n[S1-11] Where the text layer and the image disagree (garbled symbols, missing words, wrong order), report the disagreement. Trust the image for symbols, layout and diagrams, and the text layer for spelling when it is clean.\n\nBIE's content types (the type of an item decides its required questions and how it is taught, shown, played and drawn):\n- process · Process: Something that happens in steps or stages over time: a mechanism, a procedure, a cycle (photosynthesis, cell division, how a bill becomes law). Required questions: how (kaise), when (kab). Other questions: what (kya), where (kahan), why (kyun), consequence (nateeja).\n- structure · Structure: Something made of parts arranged in space, each part with a function (a cell, a leaf, the heart, a machine, the Parliament). Required questions: what (kya), where (kahan). Other questions: how (kaise), why (kyun), which (kaun).\n- classification · Classification: A group divided into kinds by a stated basis (types of tissues, kinds of rocks, kinds of writs). Required questions: which (kaun), difference (tulna). Other questions: what (kya), evidence (saboot), where (kahan).\n- comparison · Comparison: Two or more things set side by side on stated criteria (plant and animal cells, Lok Sabha and Rajya Sabha). Required questions: compare (tulna), difference (tulna). Other questions: what (kya), why (kyun), evidence (saboot).\n- timeline · Timeline: Events placed in time: history, the development of an idea, stages of a life (the Revolt of 1857, evolution of cell theory). Required questions: when (kab), why (kyun). Other questions: who (kaun), where (kahan), consequence (nateeja).\n- cause_effect · Reasoning (cause and effect): Why something happens: causes, effects, conditions and chains of reasoning (why tissues specialise, why prices rise, why a law was needed). Required questions: why (kyun), how (kaise). Other questions: consequence (nateeja), evidence (saboot), exception (tulna).\n- facts_numbers · Facts and numbers: Stated facts, quantities, measurements, statistics and formulas (heart rate 72 per minute, 3,000 against 50,000 soldiers at Plassey, F = ma). Required questions: what (kya), evidence (saboot). Other questions: compare (tulna), why (kyun).\n- figure · Figure: A diagram, photo, map, graph or table drawing on the page whose content is visual (tissue pages 2, 7 and 8 are figures only). Required questions: what (kya), which (kaun). Other questions: how (kaise), why (kyun).\n- definition · Definition: A term and its meaning as the book states it (tissue, meristem, sovereignty). Required questions: what (kya), evidence (saboot). Other questions: about (kya), why (kyun).\n\nOutput schema (JSON):\n{\"additionalProperties\":false,\"properties\":{\"boilerplate_block_ids\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"items\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"block_ids\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"content\":{\"type\":\"string\"},\"content_type\":{\"enum\":[\"process\",\"structure\",\"classification\",\"comparison\",\"timeline\",\"cause_effect\",\"facts_numbers\",\"figure\",\"definition\",\"none\"],\"type\":\"string\"},\"exam_importance\":{\"enum\":[\"high\",\"medium\",\"low\"],\"type\":\"string\"},\"exam_note\":{\"type\":\"string\"},\"item_id\":{\"type\":\"string\"},\"kind\":{\"enum\":[\"heading\",\"paragraph\",\"definition\",\"list_point\",\"example\",\"table\",\"table_row\",\"diagram\",\"diagram_label\",\"equation\",\"symbol\",\"box_note\",\"caption\",\"question\",\"answer_option\",\"other\"],\"type\":\"string\"},\"parent_item_id\":{\"type\":\"string\"},\"prerequisites\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"source\":{\"enum\":[\"text\",\"image\",\"both\"],\"type\":\"string\"},\"teachable\":{\"type\":\"boolean\"},\"teacher_understanding\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"answer\":{\"type\":\"string\"},\"ask\":{\"enum\":[\"what\",\"about\",\"where\",\"how\",\"when\",\"who\",\"whom\",\"which\",\"why\",\"compare\",\"difference\",\"evidence\",\"exception\",\"consequence\"],\"type\":\"string\"},\"basis\":{\"enum\":[\"book\",\"outside\"],\"type\":\"string\"},\"depth\":{\"description\":\"1 for a first question; 2, 3 ... for a deeper why/how on an earlier answer\",\"type\":\"integer\"},\"question\":{\"type\":\"string\"}},\"required\":[\"depth\",\"ask\",\"question\",\"answer\",\"basis\"],\"type\":\"object\"},\"type\":\"array\"},\"tests_item_ids\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"type_note\":{\"type\":\"string\"},\"where_on_page\":{\"type\":\"string\"}},\"required\":[\"item_id\",\"kind\",\"parent_item_id\",\"source\",\"block_ids\",\"where_on_page\",\"content\",\"content_type\",\"type_note\",\"teachable\",\"teacher_understanding\",\"prerequisites\",\"exam_importance\",\"exam_note\",\"tests_item_ids\"],\"type\":\"object\"},\"type\":\"array\"},\"notes\":{\"additionalProperties\":false,\"properties\":{\"about\":{\"description\":\"What this unit of work is about and how it fits the whole (one or two sentences).\",\"type\":\"string\"},\"decisions\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"decision\":{\"type\":\"string\"},\"reason\":{\"type\":\"string\"}},\"required\":[\"decision\",\"reason\"],\"type\":\"object\"},\"type\":\"array\"},\"key_questions\":{\"description\":\"The key questions a teacher must answer about this unit.\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"uncertain\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"}},\"required\":[\"about\",\"key_questions\",\"decisions\",\"uncertain\"],\"type\":\"object\"},\"page_summary\":{\"type\":\"string\"},\"text_image_disagreements\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"block_ids\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"image_shows\":{\"type\":\"string\"},\"text_says\":{\"type\":\"string\"}},\"required\":[\"block_ids\",\"text_says\",\"image_shows\"],\"type\":\"object\"},\"type\":\"array\"}},\"required\":[\"notes\",\"page_summary\",\"items\",\"boilerplate_block_ids\",\"text_image_disagreements\"],\"type\":\"object\"}\n\nHow BIE talks to you: every request is a task card (JSON) followed by its source. The card names the unit, its parts with their content type and required questions, the ids of the rules above that apply, the output, the ids you must cover and the context. The card is BIE's instruction; the source is the material.\nFor a read_page card:\n- card.parts: BIE's code has already proposed a content type for groups of this page's native text blocks (item_ids are block ids;\n  \"pNNNN-image\" is the page image), with the evidence in \"focus\". It is a proposal from keywords and patterns, not a verdict: give\n  every item its true type (S1-08). When you choose another type than BIE's proposal for an item's blocks, say why in one line in that\n  item's type_note; BIE's code compares every item and sends unexplained differences back to you.\n- card.coverage: every id in must_cover must be in some item's block_ids or in boilerplate_block_ids; may_skip lists blocks BIE thinks are\n  running headers or page numbers. Never list an id that is not on this page.\n- card.context.before and after: one line from the previous and the next page, for context only.\nHow to fill the JSON:\n- notes: brief notes for the reviewer: what the page is about and how it fits the chapter, the key questions a teacher must answer,\n  your main decisions (how you split items, how you read an unclear part, a type you chose against BIE's proposal) with a reason each,\n  and what is uncertain.\n- items: everything on the page, in reading order.\n  - item_id: short and unique on this page (\"i1\", \"i2\", ...).\n  - kind: heading, paragraph, definition, list_point, example, table (the whole table), table_row (one per row), diagram (the whole figure),\n    diagram_label (one per label), equation, symbol, box_note, caption, question (a PYQ or practice question), answer_option, other.\n  - parent_item_id: the table of a table_row, the diagram of a diagram_label, the question of an answer_option, else \"\".\n  - source: \"text\" if the item comes from native text blocks, \"image\" if it is visible only in the image, \"both\" if both show it.\n  - block_ids: the ids of the native text blocks this item covers ([] for image-only items). Use only ids from the card.\n  - where_on_page: where it is (\"top table, row 2\", \"right diagram, label at the axon end\").\n  - content: the exact words for text items; a complete, faithful reading for image items (every cell with its column header for a\n    table_row; what a label names and what it points to for a diagram_label; all branches for a tree).\n  - content_type: one of BIE's nine type ids above, by what the content is. An example takes the type of what it illustrates; a table\n    row or a diagram label usually takes its table's or diagram's type. \"none\" only for a question, an answer option or an item that is\n    not teachable.\n  - type_note: \"\" when you agree with BIE's proposal for this item's blocks (or there is none); otherwise one line on why your type fits.\n  - teachable: false only for pure headings and containers whose children carry the content.\n  - teacher_understanding: the teacher's questions and answers for this item (S1-06); depth 1 for first questions, 2 and more for\n    \"why\"/\"how\" on an earlier answer; basis \"book\" only if the page states it, else \"outside\". BIE's code checks every teachable item:\n    at least two questions, at least one \"why\" or \"how\", and at least the required questions of its content type.\n  - prerequisites: concrete concepts a student must understand first.\n  - exam_importance and exam_note: for this exam.\n  - tests_item_ids: for a question, the ids on this page that it tests ([] if they are on other pages).\n- boilerplate_block_ids: ids of running headers, page numbers, adverts, contact lines and watermarks only.\n- text_image_disagreements: where the text layer and the image differ.\nReply with the JSON object only.",
+  "user": [
+   {
+    "type": "text",
+    "text": "BIE task card (JSON):\n{\"card\":\"bie.task-card/1\",\"card_id\":\"understand.read_page@10-tissues-and-its-types/page-011\",\"section\":\"understand\",\"task\":\"read_page\",\"prefix\":{\"prefix_id\":\"understand.read_page/2\",\"rulebook_version\":\"content_types@2026-10-22.2+vision-2026-10-21@2026-10-21.8\",\"content_types_version\":\"2026-10-22.2\",\"schema_id\":\"bie.brain.understand-page/2\",\"sha256\":\"96c38767ba78dac39a419994862a1c726cc497f92820d8f32447f8cec8109313\"},\"unit\":{\"unit_id\":\"page-011\",\"title\":\"Page 11 of 14\",\"pages\":[11]},\"parts\":[{\"part_id\":\"b1\",\"item_ids\":[\"p0011-b0011\"],\"type\":\"cause_effect\",\"questions\":[\"why\",\"how\"],\"focus\":\"BIE proposes cause_effect (strong): pattern 'due to'; 'due to'\"},{\"part_id\":\"b2\",\"item_ids\":[\"p0011-b0018\"],\"type\":\"structure\",\"questions\":[\"what\",\"where\"],\"focus\":\"BIE proposes structure (strong): pattern 'Made up of'; 'made up of'\"},{\"part_id\":\"b3\",\"item_ids\":[\"p0011-b0025\"],\"type\":\"structure\",\"questions\":[\"what\",\"where\"],\"focus\":\"BIE proposes structure (strong): pattern 'consists of'; 'consists of'\"},{\"part_id\":\"img\",\"item_ids\":[\"p0011-image\"],\"type\":\"none\",\"questions\":[\"what\"],\"focus\":\"The page image: capture every table, diagram, label and arrow it shows (S1-01); its items get the type of what they show.\"}],\"rules\":[\"G-01\",\"G-02\",\"G-03\",\"G-05\",\"S1-01\",\"S1-02\",\"S1-03\",\"S1-04\",\"S1-05\",\"S1-06\",\"S1-07\",\"S1-08\",\"S1-09\",\"S1-10\",\"S1-11\"],\"output\":{\"schema_id\":\"bie.brain.understand-page/2\",\"mode\":\"full\",\"max_output_tokens\":32000},\"coverage\":{\"must_cover\":[\"p0011-b0002\",\"p0011-b0003\",\"p0011-b0004\",\"p0011-b0005\",\"p0011-b0006\",\"p0011-b0007\",\"p0011-b0008\",\"p0011-b0009\",\"p0011-b0010\",\"p0011-b0011\",\"p0011-b0012\",\"p0011-b0013\",\"p0011-b0014\",\"p0011-b0015\",\"p0011-b0016\",\"p0011-b0017\",\"p0011-b0018\",\"p0011-b0019\",\"p0011-b0020\",\"p0011-b0021\",\"p0011-b0022\",\"p0011-b0023\",\"p0011-b0024\",\"p0011-b0025\",\"p0011-b0026\",\"p0011-b0027\",\"p0011-b0028\",\"p0011-b0029\",\"p0011-b0030\"],\"claim_field\":\"items[].block_ids or boilerplate_block_ids\",\"may_skip\":[{\"item_id\":\"p0011-b0001\",\"reason\":\"running header (the same first line as the next or previous page)\"},{\"item_id\":\"p0011-b0031\",\"reason\":\"page number\"}]},\"context\":{\"map_slice\":[],\"before\":\"(read from the image)\",\"after\":\"a. 1 only\"},\"source\":{\"block_ids\":[\"p0011-b0001\",\"p0011-b0002\",\"p0011-b0003\",\"p0011-b0004\",\"p0011-b0005\",\"p0011-b0006\",\"p0011-b0007\",\"p0011-b0008\",\"p0011-b0009\",\"p0011-b0010\",\"p0011-b0011\",\"p0011-b0012\",\"p0011-b0013\",\"p0011-b0014\",\"p0011-b0015\",\"p0011-b0016\",\"p0011-b0017\",\"p0011-b0018\",\"p0011-b0019\",\"p0011-b0020\",\"p0011-b0021\",\"p0011-b0022\",\"p0011-b0023\",\"p0011-b0024\",\"p0011-b0025\",\"p0011-b0026\",\"p0011-b0027\",\"p0011-b0028\",\"p0011-b0029\",\"p0011-b0030\",\"p0011-b0031\"],\"page_images\":[{\"page\":11,\"sha256\":\"0c46d4cb52d4f18419d42e11b31cf6e813f076ecf1b3774a4f4341a8e649fc1d\"}]}}\n\nNative text blocks of this page (id | text):\np0011-b0001 | Science and Technology\np0011-b0002 | 3. Sclerenchyma Tissue\np0011-b0003 | Occurrence:\np0011-b0004 | • In stems around vascular bundles.\np0011-b0005 | • In veins of leaves.\np0011-b0006 | • Hard covering of seeds and nuts.\np0011-b0007 | Eg. Husk of coconut.\np0011-b0008 | Structure:\np0011-b0009 |  Long and narrow\np0011-b0010 |  Walls are thickened by LIGNINS\np0011-b0011 |  Cell cavity is absent due to excessive thickness.\np0011-b0012 |  Intercellular spaces absent.\np0011-b0013 |  Cells are dead.\np0011-b0014 | Function:\np0011-b0015 | • Provide strength to plant cell.\np0011-b0016 | • Provides protection and mechanical strength\np0011-b0017 | COMPLEX PERMANENT TISSUE\np0011-b0018 | • Made up of more than one type of cells.\np0011-b0019 | • Cells co-ordinate to perform common function.\np0011-b0020 | Functions:\np0011-b0021 | • Transport water, minerals and food materials.\np0011-b0022 | Two types:\np0011-b0023 | 1. Xylem\np0011-b0024 | 2. Phloem\np0011-b0025 |  Xylem consists of tracheids, vessels, xylem parenchyma and xylem fibres.\np0011-b0026 |  Tracheids and vessels have thick walls, and many are dead cells when mature.\np0011-b0027 |  Tracheids and vessels are tubular structures. This allows them to transport water and\np0011-b0028 | minerals vertically.\np0011-b0029 |  The parenchyma stores food and help in sideways conduction of water.\np0011-b0030 |  Xylem fibres are mainly supportive in function.\np0011-b0031 | 97"
+   },
+   {
+    "type": "text",
+    "text": "The page image:"
+   },
+   {
+    "type": "image",
+    "media_type": "image/png",
+    "sha256": "a6f203bd09b55f99c4bae9e10b77c0d7fef7201d3b6eb5fa26b92ebf446e2377",
+    "base64_chars": 746468
+   },
+   {
+    "type": "text",
+    "text": "Read this page with both eyes and answer the card with the page understanding JSON."
+   }
+  ]
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "started_at": 1792722941.8845458,
+   "mode": "full",
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "c348678f5d376938c662726f3e9086779f5e8b26f8736bb5323aeb3a11ba5deb",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 22129,
+    "output_tokens": 15274,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "This page completes sclerenchyma and introduces complex permanent tissues, their two types, and the components and functions of xylem. Two figures also introduce the visible cellular organisation of xylem and phloem.",
+    "key_questions": [
+     "Where does sclerenchyma occur, and how does its structure provide strength and protection?",
+     "What makes a permanent tissue complex, and which two types are shown?",
+     "Which cells constitute xylem, and how do their functions differ?",
+     "How can the labelled components of xylem and phloem be recognised in the figures?"
+    ],
+    "decisions": [
+     {
+      "decision": "Grouped related sclerenchyma structural statements while retaining their exact text and individual explanatory questions.",
+      "reason": "Shape, wall thickening, spaces and cell death together explain the tissue's mechanical role."
+     },
+     {
+      "decision": "Retained the book's statement that the cell cavity is absent, with a separate outside clarification.",
+      "reason": "A very narrow lumen may remain in sclerenchyma, so the page's wording needs careful explanation."
+     },
+     {
+      "decision": "Captured both figures and each occurrence of their anatomical labels separately.",
+      "reason": "The figures show additional phloem structures and spatial relationships absent from the native text."
+     },
+     {
+      "decision": "Treated small a. and b. markings as subfigure identifiers within the lower diagram.",
+      "reason": "They organise the drawings but do not name biological structures."
+     }
+    ],
+    "uncertain": [
+     "In the upper figure, the leader for 'Phloem fibres' is small and its precise termination is difficult to distinguish; the intended named component is clear.",
+     "The upper figure's 'Sieve tube' leader is also small; the lower figure gives a clearer view of the sieve-tube elements.",
+     "The page says many tracheids and vessels are dead when mature; standard textbook descriptions identify mature conducting tracheids and vessel elements as dead."
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "This page completes sclerenchyma and introduces complex permanent tissues, their two types, and the components and functions of xylem. Two figures also introduce the visible cellular organisation of xylem and phloem.",
+     "key_questions": [
+      "Where does sclerenchyma occur, and how does its structure provide strength and protection?",
+      "What makes a permanent tissue complex, and which two types are shown?",
+      "Which cells constitute xylem, and how do their functions differ?",
+      "How can the labelled components of xylem and phloem be recognised in the figures?"
+     ],
+     "decisions": [
+      {
+       "decision": "Grouped related sclerenchyma structural statements while retaining their exact text and individual explanatory questions.",
+       "reason": "Shape, wall thickening, spaces and cell death together explain the tissue's mechanical role."
+      },
+      {
+       "decision": "Retained the book's statement that the cell cavity is absent, with a separate outside clarification.",
+       "reason": "A very narrow lumen may remain in sclerenchyma, so the page's wording needs careful explanation."
+      },
+      {
+       "decision": "Captured both figures and each occurrence of their anatomical labels separately.",
+       "reason": "The figures show additional phloem structures and spatial relationships absent from the native text."
+      },
+      {
+       "decision": "Treated small a. and b. markings as subfigure identifiers within the lower diagram.",
+       "reason": "They organise the drawings but do not name biological structures."
+      }
+     ],
+     "uncertain": [
+      "In the upper figure, the leader for 'Phloem fibres' is small and its precise termination is difficult to distinguish; the intended named component is clear.",
+      "The upper figure's 'Sieve tube' leader is also small; the lower figure gives a clearer view of the sieve-tube elements.",
+      "The page says many tracheids and vessels are dead when mature; standard textbook descriptions identify mature conducting tracheids and vessel elements as dead."
+     ]
+    },
+    "page_summary": "Sclerenchyma occurs around vascular bundles, in leaf veins, and in hard seed and nut coverings; coconut husk is an example. Its thick, lignified, closely packed dead cells provide strength and protection. Complex permanent tissues contain different cell types working together: xylem and phloem transport materials. Xylem comprises tracheids, vessels, xylem parenchyma and xylem fibres, with roles in vertical transport, storage, sideways conduction and support. The figures label these components and additional phloem structures.",
+    "items": [
+     {
+      "item_id": "i1",
+      "kind": "heading",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0011-b0002"
+      ],
+      "where_on_page": "top left",
+      "content": "3. Sclerenchyma Tissue",
+      "content_type": "none",
+      "type_note": "",
+      "teachable": false,
+      "teacher_understanding": [],
+      "prerequisites": [],
+      "exam_importance": "high",
+      "exam_note": "Introduces a frequently tested permanent plant tissue.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i2",
+      "kind": "heading",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0011-b0003"
+      ],
+      "where_on_page": "below sclerenchyma heading",
+      "content": "Occurrence:",
+      "content_type": "none",
+      "type_note": "",
+      "teachable": false,
+      "teacher_understanding": [],
+      "prerequisites": [],
+      "exam_importance": "low",
+      "exam_note": "Organises the location statements.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i3",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0011-b0004",
+       "p0011-b0005",
+       "p0011-b0006"
+      ],
+      "where_on_page": "upper left, occurrence bullets",
+      "content": "• In stems around vascular bundles.\n• In veins of leaves.\n• Hard covering of seeds and nuts.",
+      "content_type": "facts_numbers",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "Which locations of sclerenchyma does the page list?",
+        "answer": "It occurs in stems around vascular bundles, in veins of leaves, and in the hard covering of seeds and nuts.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "evidence",
+        "question": "Which listed locations connect sclerenchyma with support and protection?",
+        "answer": "Its occurrence around stem vascular bundles and in leaf veins connects it with supporting plant parts; hard coverings connect it with protection.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is strong tissue useful at these locations?",
+        "answer": "Reinforcing tissue helps stems and leaf veins resist mechanical stress, while tough coverings help protect the seed within.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "stem and leaf",
+       "vascular bundle",
+       "seed and nut coverings"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Useful for tissue-location matching and identifying sclerenchyma examples.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i4",
+      "kind": "example",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0011-b0007"
+      ],
+      "where_on_page": "upper left, below occurrence bullets",
+      "content": "Eg. Husk of coconut.",
+      "content_type": "facts_numbers",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What example of sclerenchyma is given?",
+        "answer": "The page gives husk of coconut.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "evidence",
+        "question": "Which part of coconut is specifically named?",
+        "answer": "The husk is named; the example should be recalled using that precise plant part.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is coconut husk a useful illustration?",
+        "answer": "Its tough fibres illustrate how thick-walled sclerenchyma contributes mechanical strength.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "coconut husk",
+       "plant tissue"
+      ],
+      "exam_importance": "high",
+      "exam_note": "A standard example for identification and odd-one-out questions.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i5",
+      "kind": "heading",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0011-b0008"
+      ],
+      "where_on_page": "upper left",
+      "content": "Structure:",
+      "content_type": "none",
+      "type_note": "",
+      "teachable": false,
+      "teacher_understanding": [],
+      "prerequisites": [],
+      "exam_importance": "low",
+      "exam_note": "Organises structural properties.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i6",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0011-b0009",
+       "p0011-b0010",
+       "p0011-b0012",
+       "p0011-b0013"
+      ],
+      "where_on_page": "upper left, structure bullets",
+      "content": "Long and narrow\nWalls are thickened by LIGNINS\nIntercellular spaces absent.\nCells are dead.",
+      "content_type": "structure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What structural features does the page assign to sclerenchyma?",
+        "answer": "The cells are long and narrow, their walls are thickened by LIGNINS, intercellular spaces are absent, and the cells are dead.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Where does lignin thickening occur?",
+        "answer": "It occurs in the cell walls.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do lignified walls help the tissue perform its role?",
+        "answer": "Lignin makes the walls rigid and resistant to deformation, allowing the tissue to provide mechanical support.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why can dead cells still provide support?",
+        "answer": "The strong cell walls remain after the living contents are lost, so support depends on the persistent walls rather than active cell metabolism.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "difference",
+        "question": "How do intercellular spaces differ from a cell cavity?",
+        "answer": "Intercellular spaces lie between neighbouring cells; a cell cavity or lumen lies within an individual cell wall.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "exception",
+        "question": "Does 'long and narrow' describe every form of sclerenchyma equally well?",
+        "answer": "It particularly describes sclerenchyma fibres. Sclereids, another form of sclerenchyma, may be shorter or irregular in shape.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell wall",
+       "living cell contents",
+       "spaces between cells",
+       "lignin"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Lignified walls, dead cells and absent intercellular spaces are important identification features.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i7",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0011-b0011"
+      ],
+      "where_on_page": "upper left, third structure bullet",
+      "content": "Cell cavity is absent due to excessive thickness.",
+      "content_type": "cause_effect",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "why",
+        "question": "Why does the page describe the cell cavity as absent?",
+        "answer": "The page attributes this to excessive thickness of the cell wall.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "how",
+        "question": "How does wall thickening affect the cell cavity?",
+        "answer": "Deposition of wall material reduces the internal space enclosed by the wall.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "exception",
+        "question": "How should the word 'absent' be explained accurately?",
+        "answer": "Sclerenchyma may retain a very narrow lumen. The page's statement emphasises extreme reduction of the cavity and should not be taken to mean that a lumen is absent in every sclerenchyma cell.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell wall",
+       "cell cavity or lumen",
+       "wall thickening"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Distinguish reduced internal lumen from spaces between cells.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i8",
+      "kind": "heading",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0011-b0014"
+      ],
+      "where_on_page": "upper left, below structure",
+      "content": "Function:",
+      "content_type": "none",
+      "type_note": "",
+      "teachable": false,
+      "teacher_understanding": [],
+      "prerequisites": [],
+      "exam_importance": "low",
+      "exam_note": "Organises sclerenchyma functions.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i9",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0011-b0015",
+       "p0011-b0016"
+      ],
+      "where_on_page": "upper left, function bullets",
+      "content": "• Provide strength to plant cell.\n• Provides protection and mechanical strength",
+      "content_type": "facts_numbers",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What functions are assigned to sclerenchyma?",
+        "answer": "It provides strength to plant cells, protection and mechanical strength.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "evidence",
+        "question": "Which structural statement on the page supports these functions?",
+        "answer": "The page states that the walls are thickened by LIGNINS.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do these walls contribute to protection and strength?",
+        "answer": "Rigid walls resist bending and compression, and a tough covering helps shield underlying tissues.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "lignified cell wall",
+       "mechanical support",
+       "protective covering"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Connect the tissue's structural features with its functions.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i10",
+      "kind": "heading",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0011-b0017"
+      ],
+      "where_on_page": "middle left, red heading",
+      "content": "COMPLEX PERMANENT TISSUE",
+      "content_type": "none",
+      "type_note": "",
+      "teachable": false,
+      "teacher_understanding": [],
+      "prerequisites": [],
+      "exam_importance": "high",
+      "exam_note": "Introduces the next permanent-tissue category.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i11",
+      "kind": "definition",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0011-b0018"
+      ],
+      "where_on_page": "middle left, first bullet below red heading",
+      "content": "• Made up of more than one type of cells.",
+      "content_type": "structure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is the cellular composition of a complex permanent tissue?",
+        "answer": "It contains more than one type of cell.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Where is this mixed cellular composition illustrated on the page?",
+        "answer": "The xylem and phloem figures show several named cell types within each tissue.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is having many cells insufficient to define a tissue as complex?",
+        "answer": "Complexity here concerns different types of cells, rather than simply a large number of cells of one type.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell",
+       "tissue",
+       "different specialised cell types"
+      ],
+      "exam_importance": "high",
+      "exam_note": "The defining distinction is more than one cell type.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i12",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0011-b0019"
+      ],
+      "where_on_page": "middle left, second bullet below red heading",
+      "content": "• Cells co-ordinate to perform common function.",
+      "content_type": "facts_numbers",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What unites the different cells of a complex tissue?",
+        "answer": "They co-ordinate to perform a common function.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "evidence",
+        "question": "What later statements illustrate different roles within xylem?",
+        "answer": "Tracheids and vessels transport water and minerals, parenchyma stores food and helps sideways water conduction, and fibres provide support.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can different roles contribute to one tissue function?",
+        "answer": "Division of labour combines conducting pathways with storage and support, allowing the tissue to operate as an integrated system.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "specialised cells",
+       "division of labour within a tissue"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Tests understanding of functional unity despite cellular diversity.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i13",
+      "kind": "heading",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0011-b0020"
+      ],
+      "where_on_page": "middle left",
+      "content": "Functions:",
+      "content_type": "none",
+      "type_note": "",
+      "teachable": false,
+      "teacher_understanding": [],
+      "prerequisites": [],
+      "exam_importance": "low",
+      "exam_note": "Organises complex-tissue functions.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i14",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0011-b0021"
+      ],
+      "where_on_page": "middle left, below Functions",
+      "content": "• Transport water, minerals and food materials.",
+      "content_type": "facts_numbers",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "Which materials do complex permanent tissues transport?",
+        "answer": "Water, minerals and food materials.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "evidence",
+        "question": "Which later statement explicitly identifies a water-and-mineral pathway?",
+        "answer": "The page states that tubular tracheids and vessels transport water and minerals vertically.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How are these transport responsibilities distributed between the two tissues?",
+        "answer": "Xylem chiefly conducts water and dissolved minerals; phloem transports organic food materials, especially sugars.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "water and dissolved minerals",
+       "food made by plants",
+       "transport within plants"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Important for matching xylem and phloem to transported substances.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i15",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0011-b0022",
+       "p0011-b0023",
+       "p0011-b0024"
+      ],
+      "where_on_page": "middle left, above lower figure",
+      "content": "Two types:\n1. Xylem\n2. Phloem",
+      "content_type": "classification",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which two types of complex permanent tissue are listed?",
+        "answer": "Xylem and Phloem.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "What principal transport difference distinguishes them?",
+        "answer": "Xylem chiefly transports water and minerals, while phloem transports organic food materials.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why are both classified as complex tissues?",
+        "answer": "Each contains more than one cell type contributing to its function, as the labelled figures illustrate.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "complex permanent tissue",
+       "water and food transport"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Core classification and comparison for objective questions.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i16",
+      "kind": "diagram",
+      "parent_item_id": "",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "middle right",
+      "content": "Figure titled 'Complex Permanent Tissue': a green Xylem drawing on the left and a Phloem drawing on the right. Leader arrows connect component labels to cells or cell groups. Xylem labels: Xylem Parenchyma, Vessels, Tracheids, Xylem Fibres. Phloem labels: Phloem Parenchyma, Companion cell, Phloem fibres, Sieve tube. The drawings are captioned Xylem and Phloem. These are anatomical label arrows, not arrows indicating transport direction.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does this figure show?",
+        "answer": "It shows the component cell types of the two complex permanent tissues, xylem and phloem.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which components are labelled in each tissue?",
+        "answer": "Xylem has Xylem Parenchyma, Vessels, Tracheids and Xylem Fibres; phloem has Phloem Parenchyma, Companion cell, Phloem fibres and Sieve tube.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does the figure explain the term complex?",
+        "answer": "Each tissue drawing contains several differently labelled components, illustrating the stated presence of more than one cell type.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "complex permanent tissue",
+       "diagram leader arrows"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Supports recognition and component matching.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i17",
+      "kind": "diagram_label",
+      "parent_item_id": "i16",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "upper figure, top label beside xylem",
+      "content": "Xylem Parenchyma — leader points to the rectangular cellular region at the upper right of the xylem drawing.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does Xylem Parenchyma name?",
+        "answer": "A component of xylem shown in the figure.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which xylem component stores food and helps sideways conduction?",
+        "answer": "The parenchyma.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does parenchyma complement the conducting cells?",
+        "answer": "It contributes storage and lateral movement alongside the axial conducting system.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "xylem",
+       "parenchyma"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Match this component with storage and lateral conduction.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i18",
+      "kind": "diagram_label",
+      "parent_item_id": "i16",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "upper figure, second label beside xylem",
+      "content": "Vessels — leader points to a broad, elongated conducting region in the xylem drawing.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What structure is labelled Vessels?",
+        "answer": "A tubular conducting component of xylem.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which materials do vessels transport with tracheids?",
+        "answer": "Water and minerals.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does vessel organisation support conduction?",
+        "answer": "Vessel elements join end to end to provide a relatively continuous water pathway.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "xylem",
+       "tubular conducting cell"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Recognise vessels as xylem conducting components.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i19",
+      "kind": "diagram_label",
+      "parent_item_id": "i16",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "upper figure, third label beside xylem",
+      "content": "Tracheids — leader points into an elongated, pitted cell region of the xylem drawing.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does Tracheids identify?",
+        "answer": "A conducting component of xylem.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which other component shares their stated transport role?",
+        "answer": "Vessels also transport water and minerals vertically.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can water pass between adjoining tracheids?",
+        "answer": "It moves through pits in their walls.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "xylem",
+       "cell wall pits"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Identify tracheids and associate them with conduction.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i20",
+      "kind": "diagram_label",
+      "parent_item_id": "i16",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "upper figure, lowest label beside xylem",
+      "content": "Xylem Fibres — leader points to a narrow, elongated component near the base of the xylem drawing.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does Xylem Fibres label?",
+        "answer": "The fibre component of xylem.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which function is mainly assigned to these fibres?",
+        "answer": "Support.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why are fibres suited to support?",
+        "answer": "Their thick walls resist mechanical deformation.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "xylem",
+       "thick cell walls"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Distinguish the supportive component from conducting components.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i21",
+      "kind": "diagram_label",
+      "parent_item_id": "i16",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "upper figure, top label beside phloem",
+      "content": "Phloem Parenchyma — leader points to the small green cellular region on the outer right of the phloem drawing.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does Phloem Parenchyma identify?",
+        "answer": "Parenchyma belonging to phloem.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which of the two tissues contains this labelled component?",
+        "answer": "Phloem.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does phloem parenchyma contribute to tissue function?",
+        "answer": "It participates in storage and lateral movement of materials.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "phloem",
+       "parenchyma"
+      ],
+      "exam_importance": "high",
+      "exam_note": "A named phloem component for matching questions.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i22",
+      "kind": "diagram_label",
+      "parent_item_id": "i16",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "upper figure, second label beside phloem",
+      "content": "Companion cell — leader points to the narrow elongated cell adjacent to the broad sieve-tube region.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What cell is identified beside the sieve tube?",
+        "answer": "A Companion cell.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which tissue includes companion cells in this figure?",
+        "answer": "Phloem.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do companion cells assist sieve-tube elements?",
+        "answer": "They provide metabolic support and help with loading and unloading transported sugars.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "phloem",
+       "sieve-tube element"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Companion cells are a key phloem identification feature.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i23",
+      "kind": "diagram_label",
+      "parent_item_id": "i16",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "upper figure, third label beside phloem",
+      "content": "Phloem fibres — leader identifies the fibre component in the phloem drawing; the small arrow endpoint is indistinct.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What component does Phloem fibres name?",
+        "answer": "Fibres within phloem.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which tissue's fibres are named here?",
+        "answer": "Phloem fibres, distinct from the Xylem Fibres labelled in the other drawing.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why are fibres present in a transport tissue?",
+        "answer": "Their thick walls contribute mechanical support to the tissue.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "phloem",
+       "supporting fibres"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Recall that both xylem and phloem include fibres.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i24",
+      "kind": "diagram_label",
+      "parent_item_id": "i16",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "upper figure, lowest label beside phloem",
+      "content": "Sieve tube — leader identifies the broad conducting tube region in the phloem drawing.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What structure is labelled Sieve tube?",
+        "answer": "The tube component shown within phloem.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which complex tissue contains sieve tubes?",
+        "answer": "Phloem.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does a sieve tube serve transport?",
+        "answer": "Its connected sieve-tube elements provide a pathway for dissolved organic food materials.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "phloem",
+       "food transport"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Distinguish sieve tubes from xylem vessels.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i25",
+      "kind": "diagram",
+      "parent_item_id": "",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "lower middle left, boxed figure",
+      "content": "Boxed figure with headings 'Xylem structure' and 'Phloem structure'. Xylem subfigure a. shows an isolated vessel element with pitted walls; subfigure b. shows tracheids and a group containing a xylem parenchyma cell, a vessel element and a tracheid. Phloem subfigure a. shows an elongated sieve-tube element with an end sieve plate, an associated companion cell, a nucleus label and a phloem parenchyma cells label. Phloem subfigure b. shows adjacent elongated cells labelled companion cell, sieve-tube element, sieve plate, phloem parenchyma cells and plasmo-desmata. Leader lines identify structures; the drawings show cell arrangement rather than a sequence or directional flow.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does the boxed figure add to the upper figure?",
+        "answer": "It provides enlarged cellular views of xylem and phloem, including pitted walls, sieve plates, a nucleus and plasmo-desmata.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which visible structures distinguish its two halves?",
+        "answer": "The xylem half labels vessel elements, tracheids and pitted walls; the phloem half labels sieve-tube elements, sieve plates and companion cells.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How should a learner interpret the leader lines?",
+        "answer": "They connect names to anatomical structures and do not represent the direction of material movement.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "xylem and phloem",
+       "cell wall",
+       "diagram leader lines"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Useful for diagram identification and distinguishing conducting components.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i26",
+      "kind": "diagram_label",
+      "parent_item_id": "i25",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "boxed figure, xylem far left",
+      "content": "vessel elements — leader points to the isolated pink elongated cell in xylem subfigure a.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does vessel elements label?",
+        "answer": "The isolated elongated xylem cell at the left.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which transport structure is built from vessel elements?",
+        "answer": "A xylem vessel.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do vessel elements form a vessel?",
+        "answer": "They join end to end, with perforated end walls allowing water to pass between elements.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "xylem vessel",
+       "cell end wall"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Distinguish an individual vessel element from a vessel.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i27",
+      "kind": "diagram_label",
+      "parent_item_id": "i25",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "boxed figure, beside isolated xylem vessel element",
+      "content": "pitted walls — leader points to wall markings on the isolated vessel element.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What wall feature is labelled on the isolated vessel element?",
+        "answer": "Pitted walls.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which cell carries this label here?",
+        "answer": "The isolated vessel element.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do pits assist water movement?",
+        "answer": "They are regions with reduced secondary-wall deposition that allow lateral water exchange across the remaining pit membrane.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell wall",
+       "secondary wall",
+       "water movement"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Recognise pitted walls as a conducting-cell feature.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i28",
+      "kind": "diagram_label",
+      "parent_item_id": "i25",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "boxed figure, middle of xylem half",
+      "content": "tracheids — leader points to the group of narrow pink elongated cells.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What cells are labelled tracheids?",
+        "answer": "The narrow elongated cells in the xylem half.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which tissue includes them?",
+        "answer": "Xylem.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do adjoining tracheids exchange water?",
+        "answer": "Water passes through pits in their adjoining walls.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "xylem",
+       "wall pits"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Identify tracheids visually.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i29",
+      "kind": "diagram_label",
+      "parent_item_id": "i25",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "boxed figure, beside central tracheid group",
+      "content": "pitted walls — leader points to the walls of the narrow tracheids.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What feature is identified on the tracheids?",
+        "answer": "Pitted walls.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which other cells in this figure also have a pitted-walls label?",
+        "answer": "The isolated vessel element.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why are pits useful in tracheids?",
+        "answer": "They allow water exchange between cells despite the presence of thick secondary walls.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "tracheid",
+       "cell wall pit"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Shared structural feature of tracheids and vessel elements.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i30",
+      "kind": "diagram_label",
+      "parent_item_id": "i25",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "boxed figure, above grouped xylem cells",
+      "content": "xylem parenchyma cell — leader points to the narrow grey cellular column beside the pink conducting cells.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What cell is labelled beside the conducting cells?",
+        "answer": "A xylem parenchyma cell.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which functions does the text assign to this component?",
+        "answer": "Food storage and assistance in sideways water conduction.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does its role differ from a vessel's?",
+        "answer": "Its stated roles concern storage and sideways conduction, while vessels provide vertical water-and-mineral transport.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "xylem parenchyma",
+       "vertical and sideways conduction"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Connect the diagram label with its textual function.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i31",
+      "kind": "diagram_label",
+      "parent_item_id": "i25",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "boxed figure, top of grouped xylem drawing",
+      "content": "vessel element — leader points to a broad pink cell within the grouped xylem drawing.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What structure is identified in the grouped xylem drawing?",
+        "answer": "A vessel element.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which nearby labelled cell has a storage role?",
+        "answer": "The xylem parenchyma cell.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does a vessel element contribute to conduction?",
+        "answer": "It forms part of an end-to-end vessel pathway for water and dissolved minerals.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "vessel element",
+       "xylem"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Identify a vessel element among other xylem cells.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i32",
+      "kind": "diagram_label",
+      "parent_item_id": "i25",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "boxed figure, beneath grouped xylem drawing",
+      "content": "tracheid — leader points upward to a narrow pink elongated cell at the right of the xylem group.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does this lower label identify?",
+        "answer": "A tracheid within the grouped xylem drawing.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which component shares its vertical conduction role?",
+        "answer": "Vessels.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How is tracheid-to-tracheid water movement enabled?",
+        "answer": "Water moves between adjoining tracheids through wall pits.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "tracheid",
+       "wall pits"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Reinforces the distinction between tracheids and vessels.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i33",
+      "kind": "diagram_label",
+      "parent_item_id": "i25",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "boxed figure, top left of phloem half",
+      "content": "sieve plate — leader points to the end surface of the isolated blue sieve-tube element.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is labelled at the end of the isolated blue element?",
+        "answer": "A sieve plate.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which conducting cells are associated with sieve plates?",
+        "answer": "Sieve-tube elements.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does a sieve plate permit transport?",
+        "answer": "Its pores allow phloem sap to pass between adjoining sieve-tube elements.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "sieve-tube element",
+       "cell end wall"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Sieve plates distinguish phloem conducting structures.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i34",
+      "kind": "diagram_label",
+      "parent_item_id": "i25",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "boxed figure, left of isolated phloem drawing",
+      "content": "sieve-tube element — leader points to the long blue conducting cell in phloem subfigure a.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is the long blue cell called?",
+        "answer": "A sieve-tube element.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which tissue contains this element?",
+        "answer": "Phloem.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do sieve-tube elements form a conducting pathway?",
+        "answer": "They are arranged end to end, with sieve plates permitting passage between neighbouring elements.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "phloem",
+       "sieve plate"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Distinguish an individual sieve-tube element from the complete tube.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i35",
+      "kind": "diagram_label",
+      "parent_item_id": "i25",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "boxed figure, left of isolated phloem cells",
+      "content": "companion cell — leader points to the smaller cell associated with the isolated sieve-tube element.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is the smaller associated cell labelled?",
+        "answer": "Companion cell.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which conducting cell is it shown beside?",
+        "answer": "A sieve-tube element.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is this close association useful?",
+        "answer": "Companion cells support sieve-tube metabolism and participate in sugar loading and unloading.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "sieve-tube element",
+       "metabolic support"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Recognise the companion-cell association.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i36",
+      "kind": "diagram_label",
+      "parent_item_id": "i25",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "boxed figure, left below companion-cell label",
+      "content": "phloem parenchyma cells — label identifies the parenchyma component in phloem subfigure a.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What cells are named by this label?",
+        "answer": "Phloem parenchyma cells.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which tissue includes these cells?",
+        "answer": "Phloem.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can these cells assist phloem function?",
+        "answer": "They help store materials and support lateral transfer within the tissue.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "phloem",
+       "parenchyma"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Include parenchyma among phloem components.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i37",
+      "kind": "diagram_label",
+      "parent_item_id": "i25",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "boxed figure, right of isolated phloem drawing",
+      "content": "nucleus — leader points to the dark body in the small cell associated with the sieve-tube element.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does the nucleus label identify?",
+        "answer": "A dark internal body in the associated small cell of the isolated phloem drawing.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which associated phloem cell retains a nucleus?",
+        "answer": "The companion cell.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is the nucleated companion cell important?",
+        "answer": "Mature sieve-tube elements lack a nucleus and depend on close metabolic association with companion cells.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell nucleus",
+       "companion cell",
+       "sieve-tube element"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Useful for understanding living phloem cells and their specialisation.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i38",
+      "kind": "diagram_label",
+      "parent_item_id": "i25",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "boxed figure, above right-hand phloem group",
+      "content": "companion cell — leader points to the narrow cell beside a broad sieve-tube element in phloem subfigure b.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What cell is identified in the grouped phloem view?",
+        "answer": "A companion cell.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which conducting component is adjacent to it?",
+        "answer": "The sieve-tube element.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can companion cells communicate with sieve-tube elements?",
+        "answer": "Plasmodesmata connect their living cell contents and allow exchange.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "companion cell",
+       "sieve-tube element",
+       "plasmodesmata"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Recognise adjacent companion cells in a tissue-level view.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i39",
+      "kind": "diagram_label",
+      "parent_item_id": "i25",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "boxed figure, upper right of phloem group",
+      "content": "sieve-tube element — leader points to a broad blue elongated conducting cell in phloem subfigure b.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is the broad conducting cell labelled?",
+        "answer": "A sieve-tube element.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which nearby labelled structure marks its connection to another element?",
+        "answer": "The sieve plate.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do successive elements maintain transport continuity?",
+        "answer": "Sap passes through pores in their intervening sieve plates.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "sieve-tube element",
+       "sieve plate"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Identify phloem conducting cells within a group.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i40",
+      "kind": "diagram_label",
+      "parent_item_id": "i25",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "boxed figure, right of phloem group",
+      "content": "sieve plate — leader points to a transverse boundary between successive sieve-tube elements.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does the transverse labelled boundary represent?",
+        "answer": "A sieve plate.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which cells meet across this plate?",
+        "answer": "Successive sieve-tube elements.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why does this boundary not prevent transport?",
+        "answer": "Sieve-plate pores allow phloem sap to pass through it.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "sieve-tube element",
+       "pores in end walls"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Recognise sieve plates in longitudinal phloem views.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i41",
+      "kind": "diagram_label",
+      "parent_item_id": "i25",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "boxed figure, below right-hand phloem group",
+      "content": "phloem parenchyma cells — leader points to the small cells along the lower left side of the grouped phloem drawing.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What component is named at the lower left of the phloem group?",
+        "answer": "Phloem parenchyma cells.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which other tissue on this page also includes parenchyma?",
+        "answer": "Xylem.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do parenchyma cells contribute beyond the conducting tubes?",
+        "answer": "They provide storage and assist lateral transfer of materials.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "parenchyma",
+       "xylem and phloem"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Both complex tissues contain parenchyma.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i42",
+      "kind": "diagram_label",
+      "parent_item_id": "i25",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "boxed figure, below right-hand phloem group",
+      "content": "plasmo-desmata — printed across two lines; leader points to connections across adjoining phloem cell walls.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does the label plasmo-desmata identify?",
+        "answer": "Connections between adjoining cells in the phloem drawing.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which kind of cellular connection is meant by this printed term?",
+        "answer": "Plasmodesmata, fine cytoplasmic channels through adjoining plant cell walls.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do these channels help cells work together?",
+        "answer": "They allow exchange of substances and signals between living cells, including companion cells and sieve-tube elements.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell wall",
+       "cytoplasm",
+       "adjacent living plant cells"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Supports understanding of communication within phloem.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i43",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0011-b0025"
+      ],
+      "where_on_page": "bottom text, first bullet",
+      "content": "Xylem consists of tracheids, vessels, xylem parenchyma and xylem fibres.",
+      "content_type": "structure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What are the four components of xylem?",
+        "answer": "Tracheids, vessels, xylem parenchyma and xylem fibres.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Where are these components shown visually?",
+        "answer": "The upper figure labels all four in its left-hand Xylem drawing; the lower figure enlarges several of them.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do their stated roles differ?",
+        "answer": "Tracheids and vessels provide vertical water-and-mineral transport; parenchyma stores food and helps sideways water conduction; fibres mainly support.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why does this composition make xylem complex?",
+        "answer": "It contains several cell types performing complementary roles, matching the page's description of complex permanent tissue.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "complex permanent tissue",
+       "conducting and supporting cells"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Core component list for matching and odd-one-out questions.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i44",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0011-b0026"
+      ],
+      "where_on_page": "bottom text, second bullet",
+      "content": "Tracheids and vessels have thick walls, and many are dead cells when mature.",
+      "content_type": "structure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What wall and maturity features does the page state?",
+        "answer": "Tracheids and vessels have thick walls, and many are dead cells when mature.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Where do these conducting components occur?",
+        "answer": "In xylem.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why are thick walls useful for water-conducting cells?",
+        "answer": "Lignified walls provide reinforcement and help resist collapse during water transport.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does loss of living contents assist conduction?",
+        "answer": "It leaves an open internal pathway with less obstruction to water flow.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "exception",
+        "question": "How should the page's word 'many' be contextualised?",
+        "answer": "Standard textbook accounts describe mature conducting tracheids and vessel elements as dead. Xylem parenchyma is a living component, so the whole xylem tissue should not be described as uniformly dead.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell wall",
+       "living cell contents",
+       "mature specialised cell",
+       "xylem"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Important for questions about living and dead components of xylem.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i45",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0011-b0027",
+       "p0011-b0028"
+      ],
+      "where_on_page": "bottom text, third bullet spanning two lines",
+      "content": "Tracheids and vessels are tubular structures. This allows them to transport water and\nminerals vertically.",
+      "content_type": "cause_effect",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "why",
+        "question": "Why does the page connect tubular structure with conduction?",
+        "answer": "It states that the tubular form of tracheids and vessels allows vertical transport of water and minerals.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "how",
+        "question": "How does tubular organisation support vertical transport?",
+        "answer": "Elongated conducting cells form pathways along the plant axis through which water and dissolved minerals can move.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "Does a tubular shape itself supply the force moving water?",
+        "answer": "It provides the pathway. Forces such as transpiration pull help move water through xylem.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "difference",
+        "question": "How does the stated direction differ from the role of xylem parenchyma?",
+        "answer": "Tracheids and vessels are described as conducting vertically, while parenchyma helps sideways conduction.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "tubular cell",
+       "plant axis",
+       "dissolved minerals",
+       "water transport"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Connect anatomical form to axial conduction; contrast lateral conduction.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i46",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0011-b0029"
+      ],
+      "where_on_page": "bottom text, fourth bullet",
+      "content": "The parenchyma stores food and help in sideways conduction of water.",
+      "content_type": "facts_numbers",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What two functions are assigned to xylem parenchyma?",
+        "answer": "Food storage and assistance in sideways conduction of water.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "evidence",
+        "question": "Which wording establishes a direction different from vertical conduction?",
+        "answer": "The page explicitly says 'sideways conduction of water'.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How should sideways conduction be visualised?",
+        "answer": "It is lateral movement across neighbouring regions of tissue, rather than movement primarily along the length of a stem.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why does storage by xylem parenchyma not make xylem the main food-transport tissue?",
+        "answer": "Storage within one component differs from long-distance transport of organic food, which is chiefly a phloem function.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "xylem parenchyma",
+       "food storage",
+       "vertical and lateral directions"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Storage and lateral conduction are distinctive component-function matches.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i47",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0011-b0030"
+      ],
+      "where_on_page": "bottom text, final bullet",
+      "content": "Xylem fibres are mainly supportive in function.",
+      "content_type": "facts_numbers",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is the main function of xylem fibres?",
+        "answer": "They are mainly supportive.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "evidence",
+        "question": "Which wording identifies support as their principal role?",
+        "answer": "The statement says 'mainly supportive in function'.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do xylem fibres provide support?",
+        "answer": "Their thick, lignified walls reinforce the tissue and help it withstand mechanical stress.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "difference",
+        "question": "How does their principal role differ from that of tracheids and vessels?",
+        "answer": "Fibres mainly support, whereas tracheids and vessels are described here as transporting water and minerals vertically.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "xylem fibres",
+       "lignified wall",
+       "mechanical support"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Important supportive-versus-conducting distinction.",
+      "tests_item_ids": []
+     }
+    ],
+    "boilerplate_block_ids": [
+     "p0011-b0001",
+     "p0011-b0031"
+    ],
+    "text_image_disagreements": []
+   },
+   "code_problems": [
+    "[code] item i44: the answer to 'What wall and maturity features does the page state?' only repeats the question or the item"
+   ],
+   "observed": {
+    "type_check": [
+     {
+      "item_id": "i1",
+      "ai_type": "none",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i2",
+      "ai_type": "none",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i3",
+      "ai_type": "facts_numbers",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i4",
+      "ai_type": "facts_numbers",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i5",
+      "ai_type": "none",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i6",
+      "ai_type": "structure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i7",
+      "ai_type": "cause_effect",
+      "code_type": "cause_effect",
+      "strength": "strong",
+      "evidence": [
+       "pattern 'due to'",
+       "'due to'"
+      ],
+      "status": "agree",
+      "type_note": ""
+     },
+     {
+      "item_id": "i8",
+      "ai_type": "none",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i9",
+      "ai_type": "facts_numbers",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i10",
+      "ai_type": "none",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i11",
+      "ai_type": "structure",
+      "code_type": "structure",
+      "strength": "strong",
+      "evidence": [
+       "pattern 'Made up of'",
+       "'made up of'"
+      ],
+      "status": "agree",
+      "type_note": ""
+     },
+     {
+      "item_id": "i12",
+      "ai_type": "facts_numbers",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i13",
+      "ai_type": "none",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i14",
+      "ai_type": "facts_numbers",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i15",
+      "ai_type": "classification",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i16",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i17",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i18",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i19",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i20",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i21",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i22",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i23",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i24",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i25",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i26",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i27",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i28",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i29",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i30",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i31",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i32",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i33",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i34",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i35",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i36",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i37",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i38",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i39",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i40",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i41",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i42",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i43",
+      "ai_type": "structure",
+      "code_type": "structure",
+      "strength": "strong",
+      "evidence": [
+       "pattern 'consists of'",
+       "'consists of'"
+      ],
+      "status": "agree",
+      "type_note": ""
+     },
+     {
+      "item_id": "i44",
+      "ai_type": "structure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i45",
+      "ai_type": "cause_effect",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i46",
+      "ai_type": "facts_numbers",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i47",
+      "ai_type": "facts_numbers",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     }
+    ],
+    "type_summary": {
+     "agree": 3,
+     "code_silent": 19,
+     "follows_parent": 25
+    }
+   },
+   "passed": false,
+   "finished_at": 1792723337.7211642
+  },
+  {
+   "round": 2,
+   "started_at": 1792723337.7214575,
+   "mode": "patch",
+   "patch": {
+    "notes": {
+     "about": "This patch improves the explanation of the wall and maturity features of tracheids and vessels.",
+     "key_questions": [
+      "How do wall thickness and maturity describe different features of xylem conducting cells?"
+     ],
+     "decisions": [
+      {
+       "decision": "Replaced i44's repetitive first answer with an explanation distinguishing wall structure from the state of the mature cell.",
+       "reason": "The answer now interprets the page's two features while preserving its wording about 'many' dead cells."
+      }
+     ],
+     "uncertain": []
+    },
+    "replace_items": [
+     {
+      "item_id": "i44",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0011-b0026"
+      ],
+      "where_on_page": "bottom text, second bullet",
+      "content": "Tracheids and vessels have thick walls, and many are dead cells when mature.",
+      "content_type": "structure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What wall and maturity features does the page state?",
+        "answer": "The statement distinguishes the cell's surrounding wall from its living state: tracheids and vessels have thick walls, while many no longer have living cell contents after maturation. Their persistent walls can therefore remain part of the conducting structure after the cells die.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Where do these conducting components occur?",
+        "answer": "In xylem.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why are thick walls useful for water-conducting cells?",
+        "answer": "Lignified walls provide reinforcement and help resist collapse during water transport.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does loss of living contents assist conduction?",
+        "answer": "It leaves an open internal pathway with less obstruction to water flow.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "exception",
+        "question": "How should the page's word 'many' be contextualised?",
+        "answer": "Standard textbook accounts describe mature conducting tracheids and vessel elements as dead. Xylem parenchyma is a living component, so the whole xylem tissue should not be described as uniformly dead.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell wall",
+       "living cell contents",
+       "mature specialised cell",
+       "xylem"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Important for questions about living and dead components of xylem.",
+      "tests_item_ids": []
+     }
+    ],
+    "remove_item_ids": [],
+    "boilerplate_block_ids": [
+     "p0011-b0001",
+     "p0011-b0031"
+    ],
+    "text_image_disagreements": []
+   },
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "145b40e856a8967356fc020e4ee45a0aa4c0b99424f8704b78cbee140c6ad408",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 36389,
+    "output_tokens": 534,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "This patch improves the explanation of the wall and maturity features of tracheids and vessels.",
+    "key_questions": [
+     "How do wall thickness and maturity describe different features of xylem conducting cells?"
+    ],
+    "decisions": [
+     {
+      "decision": "Replaced i44's repetitive first answer with an explanation distinguishing wall structure from the state of the mature cell.",
+      "reason": "The answer now interprets the page's two features while preserving its wording about 'many' dead cells."
+     }
+    ],
+    "uncertain": []
+   },
+   "output": {
+    "notes": {
+     "about": "This patch improves the explanation of the wall and maturity features of tracheids and vessels.",
+     "key_questions": [
+      "How do wall thickness and maturity describe different features of xylem conducting cells?"
+     ],
+     "decisions": [
+      {
+       "decision": "Replaced i44's repetitive first answer with an explanation distinguishing wall structure from the state of the mature cell.",
+       "reason": "The answer now interprets the page's two features while preserving its wording about 'many' dead cells."
+      }
+     ],
+     "uncertain": []
+    },
+    "page_summary": "Sclerenchyma occurs around vascular bundles, in leaf veins, and in hard seed and nut coverings; coconut husk is an example. Its thick, lignified, closely packed dead cells provide strength and protection. Complex permanent tissues contain different cell types working together: xylem and phloem transport materials. Xylem comprises tracheids, vessels, xylem parenchyma and xylem fibres, with roles in vertical transport, storage, sideways conduction and support. The figures label these components and additional phloem structures.",
+    "items": [
+     {
+      "item_id": "i1",
+      "kind": "heading",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0011-b0002"
+      ],
+      "where_on_page": "top left",
+      "content": "3. Sclerenchyma Tissue",
+      "content_type": "none",
+      "type_note": "",
+      "teachable": false,
+      "teacher_understanding": [],
+      "prerequisites": [],
+      "exam_importance": "high",
+      "exam_note": "Introduces a frequently tested permanent plant tissue.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i2",
+      "kind": "heading",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0011-b0003"
+      ],
+      "where_on_page": "below sclerenchyma heading",
+      "content": "Occurrence:",
+      "content_type": "none",
+      "type_note": "",
+      "teachable": false,
+      "teacher_understanding": [],
+      "prerequisites": [],
+      "exam_importance": "low",
+      "exam_note": "Organises the location statements.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i3",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0011-b0004",
+       "p0011-b0005",
+       "p0011-b0006"
+      ],
+      "where_on_page": "upper left, occurrence bullets",
+      "content": "• In stems around vascular bundles.\n• In veins of leaves.\n• Hard covering of seeds and nuts.",
+      "content_type": "facts_numbers",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "Which locations of sclerenchyma does the page list?",
+        "answer": "It occurs in stems around vascular bundles, in veins of leaves, and in the hard covering of seeds and nuts.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "evidence",
+        "question": "Which listed locations connect sclerenchyma with support and protection?",
+        "answer": "Its occurrence around stem vascular bundles and in leaf veins connects it with supporting plant parts; hard coverings connect it with protection.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is strong tissue useful at these locations?",
+        "answer": "Reinforcing tissue helps stems and leaf veins resist mechanical stress, while tough coverings help protect the seed within.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "stem and leaf",
+       "vascular bundle",
+       "seed and nut coverings"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Useful for tissue-location matching and identifying sclerenchyma examples.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i4",
+      "kind": "example",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0011-b0007"
+      ],
+      "where_on_page": "upper left, below occurrence bullets",
+      "content": "Eg. Husk of coconut.",
+      "content_type": "facts_numbers",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What example of sclerenchyma is given?",
+        "answer": "The page gives husk of coconut.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "evidence",
+        "question": "Which part of coconut is specifically named?",
+        "answer": "The husk is named; the example should be recalled using that precise plant part.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is coconut husk a useful illustration?",
+        "answer": "Its tough fibres illustrate how thick-walled sclerenchyma contributes mechanical strength.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "coconut husk",
+       "plant tissue"
+      ],
+      "exam_importance": "high",
+      "exam_note": "A standard example for identification and odd-one-out questions.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i5",
+      "kind": "heading",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0011-b0008"
+      ],
+      "where_on_page": "upper left",
+      "content": "Structure:",
+      "content_type": "none",
+      "type_note": "",
+      "teachable": false,
+      "teacher_understanding": [],
+      "prerequisites": [],
+      "exam_importance": "low",
+      "exam_note": "Organises structural properties.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i6",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0011-b0009",
+       "p0011-b0010",
+       "p0011-b0012",
+       "p0011-b0013"
+      ],
+      "where_on_page": "upper left, structure bullets",
+      "content": "Long and narrow\nWalls are thickened by LIGNINS\nIntercellular spaces absent.\nCells are dead.",
+      "content_type": "structure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What structural features does the page assign to sclerenchyma?",
+        "answer": "The cells are long and narrow, their walls are thickened by LIGNINS, intercellular spaces are absent, and the cells are dead.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Where does lignin thickening occur?",
+        "answer": "It occurs in the cell walls.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do lignified walls help the tissue perform its role?",
+        "answer": "Lignin makes the walls rigid and resistant to deformation, allowing the tissue to provide mechanical support.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why can dead cells still provide support?",
+        "answer": "The strong cell walls remain after the living contents are lost, so support depends on the persistent walls rather than active cell metabolism.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "difference",
+        "question": "How do intercellular spaces differ from a cell cavity?",
+        "answer": "Intercellular spaces lie between neighbouring cells; a cell cavity or lumen lies within an individual cell wall.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "exception",
+        "question": "Does 'long and narrow' describe every form of sclerenchyma equally well?",
+        "answer": "It particularly describes sclerenchyma fibres. Sclereids, another form of sclerenchyma, may be shorter or irregular in shape.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell wall",
+       "living cell contents",
+       "spaces between cells",
+       "lignin"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Lignified walls, dead cells and absent intercellular spaces are important identification features.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i7",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0011-b0011"
+      ],
+      "where_on_page": "upper left, third structure bullet",
+      "content": "Cell cavity is absent due to excessive thickness.",
+      "content_type": "cause_effect",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "why",
+        "question": "Why does the page describe the cell cavity as absent?",
+        "answer": "The page attributes this to excessive thickness of the cell wall.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "how",
+        "question": "How does wall thickening affect the cell cavity?",
+        "answer": "Deposition of wall material reduces the internal space enclosed by the wall.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "exception",
+        "question": "How should the word 'absent' be explained accurately?",
+        "answer": "Sclerenchyma may retain a very narrow lumen. The page's statement emphasises extreme reduction of the cavity and should not be taken to mean that a lumen is absent in every sclerenchyma cell.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell wall",
+       "cell cavity or lumen",
+       "wall thickening"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Distinguish reduced internal lumen from spaces between cells.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i8",
+      "kind": "heading",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0011-b0014"
+      ],
+      "where_on_page": "upper left, below structure",
+      "content": "Function:",
+      "content_type": "none",
+      "type_note": "",
+      "teachable": false,
+      "teacher_understanding": [],
+      "prerequisites": [],
+      "exam_importance": "low",
+      "exam_note": "Organises sclerenchyma functions.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i9",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0011-b0015",
+       "p0011-b0016"
+      ],
+      "where_on_page": "upper left, function bullets",
+      "content": "• Provide strength to plant cell.\n• Provides protection and mechanical strength",
+      "content_type": "facts_numbers",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What functions are assigned to sclerenchyma?",
+        "answer": "It provides strength to plant cells, protection and mechanical strength.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "evidence",
+        "question": "Which structural statement on the page supports these functions?",
+        "answer": "The page states that the walls are thickened by LIGNINS.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do these walls contribute to protection and strength?",
+        "answer": "Rigid walls resist bending and compression, and a tough covering helps shield underlying tissues.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "lignified cell wall",
+       "mechanical support",
+       "protective covering"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Connect the tissue's structural features with its functions.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i10",
+      "kind": "heading",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0011-b0017"
+      ],
+      "where_on_page": "middle left, red heading",
+      "content": "COMPLEX PERMANENT TISSUE",
+      "content_type": "none",
+      "type_note": "",
+      "teachable": false,
+      "teacher_understanding": [],
+      "prerequisites": [],
+      "exam_importance": "high",
+      "exam_note": "Introduces the next permanent-tissue category.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i11",
+      "kind": "definition",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0011-b0018"
+      ],
+      "where_on_page": "middle left, first bullet below red heading",
+      "content": "• Made up of more than one type of cells.",
+      "content_type": "structure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is the cellular composition of a complex permanent tissue?",
+        "answer": "It contains more than one type of cell.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Where is this mixed cellular composition illustrated on the page?",
+        "answer": "The xylem and phloem figures show several named cell types within each tissue.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is having many cells insufficient to define a tissue as complex?",
+        "answer": "Complexity here concerns different types of cells, rather than simply a large number of cells of one type.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell",
+       "tissue",
+       "different specialised cell types"
+      ],
+      "exam_importance": "high",
+      "exam_note": "The defining distinction is more than one cell type.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i12",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0011-b0019"
+      ],
+      "where_on_page": "middle left, second bullet below red heading",
+      "content": "• Cells co-ordinate to perform common function.",
+      "content_type": "facts_numbers",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What unites the different cells of a complex tissue?",
+        "answer": "They co-ordinate to perform a common function.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "evidence",
+        "question": "What later statements illustrate different roles within xylem?",
+        "answer": "Tracheids and vessels transport water and minerals, parenchyma stores food and helps sideways water conduction, and fibres provide support.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can different roles contribute to one tissue function?",
+        "answer": "Division of labour combines conducting pathways with storage and support, allowing the tissue to operate as an integrated system.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "specialised cells",
+       "division of labour within a tissue"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Tests understanding of functional unity despite cellular diversity.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i13",
+      "kind": "heading",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0011-b0020"
+      ],
+      "where_on_page": "middle left",
+      "content": "Functions:",
+      "content_type": "none",
+      "type_note": "",
+      "teachable": false,
+      "teacher_understanding": [],
+      "prerequisites": [],
+      "exam_importance": "low",
+      "exam_note": "Organises complex-tissue functions.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i14",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0011-b0021"
+      ],
+      "where_on_page": "middle left, below Functions",
+      "content": "• Transport water, minerals and food materials.",
+      "content_type": "facts_numbers",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "Which materials do complex permanent tissues transport?",
+        "answer": "Water, minerals and food materials.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "evidence",
+        "question": "Which later statement explicitly identifies a water-and-mineral pathway?",
+        "answer": "The page states that tubular tracheids and vessels transport water and minerals vertically.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How are these transport responsibilities distributed between the two tissues?",
+        "answer": "Xylem chiefly conducts water and dissolved minerals; phloem transports organic food materials, especially sugars.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "water and dissolved minerals",
+       "food made by plants",
+       "transport within plants"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Important for matching xylem and phloem to transported substances.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i15",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0011-b0022",
+       "p0011-b0023",
+       "p0011-b0024"
+      ],
+      "where_on_page": "middle left, above lower figure",
+      "content": "Two types:\n1. Xylem\n2. Phloem",
+      "content_type": "classification",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which two types of complex permanent tissue are listed?",
+        "answer": "Xylem and Phloem.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "What principal transport difference distinguishes them?",
+        "answer": "Xylem chiefly transports water and minerals, while phloem transports organic food materials.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why are both classified as complex tissues?",
+        "answer": "Each contains more than one cell type contributing to its function, as the labelled figures illustrate.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "complex permanent tissue",
+       "water and food transport"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Core classification and comparison for objective questions.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i16",
+      "kind": "diagram",
+      "parent_item_id": "",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "middle right",
+      "content": "Figure titled 'Complex Permanent Tissue': a green Xylem drawing on the left and a Phloem drawing on the right. Leader arrows connect component labels to cells or cell groups. Xylem labels: Xylem Parenchyma, Vessels, Tracheids, Xylem Fibres. Phloem labels: Phloem Parenchyma, Companion cell, Phloem fibres, Sieve tube. The drawings are captioned Xylem and Phloem. These are anatomical label arrows, not arrows indicating transport direction.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does this figure show?",
+        "answer": "It shows the component cell types of the two complex permanent tissues, xylem and phloem.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which components are labelled in each tissue?",
+        "answer": "Xylem has Xylem Parenchyma, Vessels, Tracheids and Xylem Fibres; phloem has Phloem Parenchyma, Companion cell, Phloem fibres and Sieve tube.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does the figure explain the term complex?",
+        "answer": "Each tissue drawing contains several differently labelled components, illustrating the stated presence of more than one cell type.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "complex permanent tissue",
+       "diagram leader arrows"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Supports recognition and component matching.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i17",
+      "kind": "diagram_label",
+      "parent_item_id": "i16",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "upper figure, top label beside xylem",
+      "content": "Xylem Parenchyma — leader points to the rectangular cellular region at the upper right of the xylem drawing.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does Xylem Parenchyma name?",
+        "answer": "A component of xylem shown in the figure.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which xylem component stores food and helps sideways conduction?",
+        "answer": "The parenchyma.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does parenchyma complement the conducting cells?",
+        "answer": "It contributes storage and lateral movement alongside the axial conducting system.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "xylem",
+       "parenchyma"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Match this component with storage and lateral conduction.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i18",
+      "kind": "diagram_label",
+      "parent_item_id": "i16",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "upper figure, second label beside xylem",
+      "content": "Vessels — leader points to a broad, elongated conducting region in the xylem drawing.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What structure is labelled Vessels?",
+        "answer": "A tubular conducting component of xylem.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which materials do vessels transport with tracheids?",
+        "answer": "Water and minerals.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does vessel organisation support conduction?",
+        "answer": "Vessel elements join end to end to provide a relatively continuous water pathway.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "xylem",
+       "tubular conducting cell"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Recognise vessels as xylem conducting components.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i19",
+      "kind": "diagram_label",
+      "parent_item_id": "i16",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "upper figure, third label beside xylem",
+      "content": "Tracheids — leader points into an elongated, pitted cell region of the xylem drawing.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does Tracheids identify?",
+        "answer": "A conducting component of xylem.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which other component shares their stated transport role?",
+        "answer": "Vessels also transport water and minerals vertically.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can water pass between adjoining tracheids?",
+        "answer": "It moves through pits in their walls.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "xylem",
+       "cell wall pits"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Identify tracheids and associate them with conduction.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i20",
+      "kind": "diagram_label",
+      "parent_item_id": "i16",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "upper figure, lowest label beside xylem",
+      "content": "Xylem Fibres — leader points to a narrow, elongated component near the base of the xylem drawing.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does Xylem Fibres label?",
+        "answer": "The fibre component of xylem.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which function is mainly assigned to these fibres?",
+        "answer": "Support.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why are fibres suited to support?",
+        "answer": "Their thick walls resist mechanical deformation.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "xylem",
+       "thick cell walls"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Distinguish the supportive component from conducting components.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i21",
+      "kind": "diagram_label",
+      "parent_item_id": "i16",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "upper figure, top label beside phloem",
+      "content": "Phloem Parenchyma — leader points to the small green cellular region on the outer right of the phloem drawing.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does Phloem Parenchyma identify?",
+        "answer": "Parenchyma belonging to phloem.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which of the two tissues contains this labelled component?",
+        "answer": "Phloem.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does phloem parenchyma contribute to tissue function?",
+        "answer": "It participates in storage and lateral movement of materials.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "phloem",
+       "parenchyma"
+      ],
+      "exam_importance": "high",
+      "exam_note": "A named phloem component for matching questions.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i22",
+      "kind": "diagram_label",
+      "parent_item_id": "i16",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "upper figure, second label beside phloem",
+      "content": "Companion cell — leader points to the narrow elongated cell adjacent to the broad sieve-tube region.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What cell is identified beside the sieve tube?",
+        "answer": "A Companion cell.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which tissue includes companion cells in this figure?",
+        "answer": "Phloem.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do companion cells assist sieve-tube elements?",
+        "answer": "They provide metabolic support and help with loading and unloading transported sugars.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "phloem",
+       "sieve-tube element"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Companion cells are a key phloem identification feature.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i23",
+      "kind": "diagram_label",
+      "parent_item_id": "i16",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "upper figure, third label beside phloem",
+      "content": "Phloem fibres — leader identifies the fibre component in the phloem drawing; the small arrow endpoint is indistinct.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What component does Phloem fibres name?",
+        "answer": "Fibres within phloem.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which tissue's fibres are named here?",
+        "answer": "Phloem fibres, distinct from the Xylem Fibres labelled in the other drawing.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why are fibres present in a transport tissue?",
+        "answer": "Their thick walls contribute mechanical support to the tissue.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "phloem",
+       "supporting fibres"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Recall that both xylem and phloem include fibres.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i24",
+      "kind": "diagram_label",
+      "parent_item_id": "i16",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "upper figure, lowest label beside phloem",
+      "content": "Sieve tube — leader identifies the broad conducting tube region in the phloem drawing.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What structure is labelled Sieve tube?",
+        "answer": "The tube component shown within phloem.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which complex tissue contains sieve tubes?",
+        "answer": "Phloem.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does a sieve tube serve transport?",
+        "answer": "Its connected sieve-tube elements provide a pathway for dissolved organic food materials.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "phloem",
+       "food transport"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Distinguish sieve tubes from xylem vessels.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i25",
+      "kind": "diagram",
+      "parent_item_id": "",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "lower middle left, boxed figure",
+      "content": "Boxed figure with headings 'Xylem structure' and 'Phloem structure'. Xylem subfigure a. shows an isolated vessel element with pitted walls; subfigure b. shows tracheids and a group containing a xylem parenchyma cell, a vessel element and a tracheid. Phloem subfigure a. shows an elongated sieve-tube element with an end sieve plate, an associated companion cell, a nucleus label and a phloem parenchyma cells label. Phloem subfigure b. shows adjacent elongated cells labelled companion cell, sieve-tube element, sieve plate, phloem parenchyma cells and plasmo-desmata. Leader lines identify structures; the drawings show cell arrangement rather than a sequence or directional flow.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does the boxed figure add to the upper figure?",
+        "answer": "It provides enlarged cellular views of xylem and phloem, including pitted walls, sieve plates, a nucleus and plasmo-desmata.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which visible structures distinguish its two halves?",
+        "answer": "The xylem half labels vessel elements, tracheids and pitted walls; the phloem half labels sieve-tube elements, sieve plates and companion cells.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How should a learner interpret the leader lines?",
+        "answer": "They connect names to anatomical structures and do not represent the direction of material movement.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "xylem and phloem",
+       "cell wall",
+       "diagram leader lines"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Useful for diagram identification and distinguishing conducting components.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i26",
+      "kind": "diagram_label",
+      "parent_item_id": "i25",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "boxed figure, xylem far left",
+      "content": "vessel elements — leader points to the isolated pink elongated cell in xylem subfigure a.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does vessel elements label?",
+        "answer": "The isolated elongated xylem cell at the left.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which transport structure is built from vessel elements?",
+        "answer": "A xylem vessel.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do vessel elements form a vessel?",
+        "answer": "They join end to end, with perforated end walls allowing water to pass between elements.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "xylem vessel",
+       "cell end wall"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Distinguish an individual vessel element from a vessel.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i27",
+      "kind": "diagram_label",
+      "parent_item_id": "i25",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "boxed figure, beside isolated xylem vessel element",
+      "content": "pitted walls — leader points to wall markings on the isolated vessel element.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What wall feature is labelled on the isolated vessel element?",
+        "answer": "Pitted walls.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which cell carries this label here?",
+        "answer": "The isolated vessel element.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do pits assist water movement?",
+        "answer": "They are regions with reduced secondary-wall deposition that allow lateral water exchange across the remaining pit membrane.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell wall",
+       "secondary wall",
+       "water movement"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Recognise pitted walls as a conducting-cell feature.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i28",
+      "kind": "diagram_label",
+      "parent_item_id": "i25",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "boxed figure, middle of xylem half",
+      "content": "tracheids — leader points to the group of narrow pink elongated cells.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What cells are labelled tracheids?",
+        "answer": "The narrow elongated cells in the xylem half.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which tissue includes them?",
+        "answer": "Xylem.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do adjoining tracheids exchange water?",
+        "answer": "Water passes through pits in their adjoining walls.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "xylem",
+       "wall pits"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Identify tracheids visually.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i29",
+      "kind": "diagram_label",
+      "parent_item_id": "i25",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "boxed figure, beside central tracheid group",
+      "content": "pitted walls — leader points to the walls of the narrow tracheids.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What feature is identified on the tracheids?",
+        "answer": "Pitted walls.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which other cells in this figure also have a pitted-walls label?",
+        "answer": "The isolated vessel element.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why are pits useful in tracheids?",
+        "answer": "They allow water exchange between cells despite the presence of thick secondary walls.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "tracheid",
+       "cell wall pit"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Shared structural feature of tracheids and vessel elements.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i30",
+      "kind": "diagram_label",
+      "parent_item_id": "i25",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "boxed figure, above grouped xylem cells",
+      "content": "xylem parenchyma cell — leader points to the narrow grey cellular column beside the pink conducting cells.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What cell is labelled beside the conducting cells?",
+        "answer": "A xylem parenchyma cell.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which functions does the text assign to this component?",
+        "answer": "Food storage and assistance in sideways water conduction.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does its role differ from a vessel's?",
+        "answer": "Its stated roles concern storage and sideways conduction, while vessels provide vertical water-and-mineral transport.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "xylem parenchyma",
+       "vertical and sideways conduction"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Connect the diagram label with its textual function.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i31",
+      "kind": "diagram_label",
+      "parent_item_id": "i25",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "boxed figure, top of grouped xylem drawing",
+      "content": "vessel element — leader points to a broad pink cell within the grouped xylem drawing.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What structure is identified in the grouped xylem drawing?",
+        "answer": "A vessel element.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which nearby labelled cell has a storage role?",
+        "answer": "The xylem parenchyma cell.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does a vessel element contribute to conduction?",
+        "answer": "It forms part of an end-to-end vessel pathway for water and dissolved minerals.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "vessel element",
+       "xylem"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Identify a vessel element among other xylem cells.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i32",
+      "kind": "diagram_label",
+      "parent_item_id": "i25",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "boxed figure, beneath grouped xylem drawing",
+      "content": "tracheid — leader points upward to a narrow pink elongated cell at the right of the xylem group.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does this lower label identify?",
+        "answer": "A tracheid within the grouped xylem drawing.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which component shares its vertical conduction role?",
+        "answer": "Vessels.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How is tracheid-to-tracheid water movement enabled?",
+        "answer": "Water moves between adjoining tracheids through wall pits.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "tracheid",
+       "wall pits"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Reinforces the distinction between tracheids and vessels.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i33",
+      "kind": "diagram_label",
+      "parent_item_id": "i25",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "boxed figure, top left of phloem half",
+      "content": "sieve plate — leader points to the end surface of the isolated blue sieve-tube element.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is labelled at the end of the isolated blue element?",
+        "answer": "A sieve plate.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which conducting cells are associated with sieve plates?",
+        "answer": "Sieve-tube elements.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does a sieve plate permit transport?",
+        "answer": "Its pores allow phloem sap to pass between adjoining sieve-tube elements.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "sieve-tube element",
+       "cell end wall"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Sieve plates distinguish phloem conducting structures.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i34",
+      "kind": "diagram_label",
+      "parent_item_id": "i25",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "boxed figure, left of isolated phloem drawing",
+      "content": "sieve-tube element — leader points to the long blue conducting cell in phloem subfigure a.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is the long blue cell called?",
+        "answer": "A sieve-tube element.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which tissue contains this element?",
+        "answer": "Phloem.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do sieve-tube elements form a conducting pathway?",
+        "answer": "They are arranged end to end, with sieve plates permitting passage between neighbouring elements.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "phloem",
+       "sieve plate"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Distinguish an individual sieve-tube element from the complete tube.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i35",
+      "kind": "diagram_label",
+      "parent_item_id": "i25",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "boxed figure, left of isolated phloem cells",
+      "content": "companion cell — leader points to the smaller cell associated with the isolated sieve-tube element.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is the smaller associated cell labelled?",
+        "answer": "Companion cell.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which conducting cell is it shown beside?",
+        "answer": "A sieve-tube element.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is this close association useful?",
+        "answer": "Companion cells support sieve-tube metabolism and participate in sugar loading and unloading.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "sieve-tube element",
+       "metabolic support"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Recognise the companion-cell association.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i36",
+      "kind": "diagram_label",
+      "parent_item_id": "i25",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "boxed figure, left below companion-cell label",
+      "content": "phloem parenchyma cells — label identifies the parenchyma component in phloem subfigure a.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What cells are named by this label?",
+        "answer": "Phloem parenchyma cells.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which tissue includes these cells?",
+        "answer": "Phloem.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can these cells assist phloem function?",
+        "answer": "They help store materials and support lateral transfer within the tissue.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "phloem",
+       "parenchyma"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Include parenchyma among phloem components.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i37",
+      "kind": "diagram_label",
+      "parent_item_id": "i25",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "boxed figure, right of isolated phloem drawing",
+      "content": "nucleus — leader points to the dark body in the small cell associated with the sieve-tube element.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does the nucleus label identify?",
+        "answer": "A dark internal body in the associated small cell of the isolated phloem drawing.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which associated phloem cell retains a nucleus?",
+        "answer": "The companion cell.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is the nucleated companion cell important?",
+        "answer": "Mature sieve-tube elements lack a nucleus and depend on close metabolic association with companion cells.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell nucleus",
+       "companion cell",
+       "sieve-tube element"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Useful for understanding living phloem cells and their specialisation.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i38",
+      "kind": "diagram_label",
+      "parent_item_id": "i25",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "boxed figure, above right-hand phloem group",
+      "content": "companion cell — leader points to the narrow cell beside a broad sieve-tube element in phloem subfigure b.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What cell is identified in the grouped phloem view?",
+        "answer": "A companion cell.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which conducting component is adjacent to it?",
+        "answer": "The sieve-tube element.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can companion cells communicate with sieve-tube elements?",
+        "answer": "Plasmodesmata connect their living cell contents and allow exchange.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "companion cell",
+       "sieve-tube element",
+       "plasmodesmata"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Recognise adjacent companion cells in a tissue-level view.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i39",
+      "kind": "diagram_label",
+      "parent_item_id": "i25",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "boxed figure, upper right of phloem group",
+      "content": "sieve-tube element — leader points to a broad blue elongated conducting cell in phloem subfigure b.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is the broad conducting cell labelled?",
+        "answer": "A sieve-tube element.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which nearby labelled structure marks its connection to another element?",
+        "answer": "The sieve plate.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do successive elements maintain transport continuity?",
+        "answer": "Sap passes through pores in their intervening sieve plates.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "sieve-tube element",
+       "sieve plate"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Identify phloem conducting cells within a group.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i40",
+      "kind": "diagram_label",
+      "parent_item_id": "i25",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "boxed figure, right of phloem group",
+      "content": "sieve plate — leader points to a transverse boundary between successive sieve-tube elements.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does the transverse labelled boundary represent?",
+        "answer": "A sieve plate.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which cells meet across this plate?",
+        "answer": "Successive sieve-tube elements.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why does this boundary not prevent transport?",
+        "answer": "Sieve-plate pores allow phloem sap to pass through it.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "sieve-tube element",
+       "pores in end walls"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Recognise sieve plates in longitudinal phloem views.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i41",
+      "kind": "diagram_label",
+      "parent_item_id": "i25",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "boxed figure, below right-hand phloem group",
+      "content": "phloem parenchyma cells — leader points to the small cells along the lower left side of the grouped phloem drawing.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What component is named at the lower left of the phloem group?",
+        "answer": "Phloem parenchyma cells.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which other tissue on this page also includes parenchyma?",
+        "answer": "Xylem.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do parenchyma cells contribute beyond the conducting tubes?",
+        "answer": "They provide storage and assist lateral transfer of materials.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "parenchyma",
+       "xylem and phloem"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Both complex tissues contain parenchyma.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i42",
+      "kind": "diagram_label",
+      "parent_item_id": "i25",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "boxed figure, below right-hand phloem group",
+      "content": "plasmo-desmata — printed across two lines; leader points to connections across adjoining phloem cell walls.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does the label plasmo-desmata identify?",
+        "answer": "Connections between adjoining cells in the phloem drawing.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which kind of cellular connection is meant by this printed term?",
+        "answer": "Plasmodesmata, fine cytoplasmic channels through adjoining plant cell walls.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do these channels help cells work together?",
+        "answer": "They allow exchange of substances and signals between living cells, including companion cells and sieve-tube elements.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell wall",
+       "cytoplasm",
+       "adjacent living plant cells"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Supports understanding of communication within phloem.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i43",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0011-b0025"
+      ],
+      "where_on_page": "bottom text, first bullet",
+      "content": "Xylem consists of tracheids, vessels, xylem parenchyma and xylem fibres.",
+      "content_type": "structure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What are the four components of xylem?",
+        "answer": "Tracheids, vessels, xylem parenchyma and xylem fibres.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Where are these components shown visually?",
+        "answer": "The upper figure labels all four in its left-hand Xylem drawing; the lower figure enlarges several of them.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do their stated roles differ?",
+        "answer": "Tracheids and vessels provide vertical water-and-mineral transport; parenchyma stores food and helps sideways water conduction; fibres mainly support.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why does this composition make xylem complex?",
+        "answer": "It contains several cell types performing complementary roles, matching the page's description of complex permanent tissue.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "complex permanent tissue",
+       "conducting and supporting cells"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Core component list for matching and odd-one-out questions.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i44",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0011-b0026"
+      ],
+      "where_on_page": "bottom text, second bullet",
+      "content": "Tracheids and vessels have thick walls, and many are dead cells when mature.",
+      "content_type": "structure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What wall and maturity features does the page state?",
+        "answer": "The statement distinguishes the cell's surrounding wall from its living state: tracheids and vessels have thick walls, while many no longer have living cell contents after maturation. Their persistent walls can therefore remain part of the conducting structure after the cells die.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Where do these conducting components occur?",
+        "answer": "In xylem.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why are thick walls useful for water-conducting cells?",
+        "answer": "Lignified walls provide reinforcement and help resist collapse during water transport.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does loss of living contents assist conduction?",
+        "answer": "It leaves an open internal pathway with less obstruction to water flow.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "exception",
+        "question": "How should the page's word 'many' be contextualised?",
+        "answer": "Standard textbook accounts describe mature conducting tracheids and vessel elements as dead. Xylem parenchyma is a living component, so the whole xylem tissue should not be described as uniformly dead.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell wall",
+       "living cell contents",
+       "mature specialised cell",
+       "xylem"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Important for questions about living and dead components of xylem.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i45",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0011-b0027",
+       "p0011-b0028"
+      ],
+      "where_on_page": "bottom text, third bullet spanning two lines",
+      "content": "Tracheids and vessels are tubular structures. This allows them to transport water and\nminerals vertically.",
+      "content_type": "cause_effect",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "why",
+        "question": "Why does the page connect tubular structure with conduction?",
+        "answer": "It states that the tubular form of tracheids and vessels allows vertical transport of water and minerals.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "how",
+        "question": "How does tubular organisation support vertical transport?",
+        "answer": "Elongated conducting cells form pathways along the plant axis through which water and dissolved minerals can move.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "Does a tubular shape itself supply the force moving water?",
+        "answer": "It provides the pathway. Forces such as transpiration pull help move water through xylem.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "difference",
+        "question": "How does the stated direction differ from the role of xylem parenchyma?",
+        "answer": "Tracheids and vessels are described as conducting vertically, while parenchyma helps sideways conduction.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "tubular cell",
+       "plant axis",
+       "dissolved minerals",
+       "water transport"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Connect anatomical form to axial conduction; contrast lateral conduction.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i46",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0011-b0029"
+      ],
+      "where_on_page": "bottom text, fourth bullet",
+      "content": "The parenchyma stores food and help in sideways conduction of water.",
+      "content_type": "facts_numbers",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What two functions are assigned to xylem parenchyma?",
+        "answer": "Food storage and assistance in sideways conduction of water.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "evidence",
+        "question": "Which wording establishes a direction different from vertical conduction?",
+        "answer": "The page explicitly says 'sideways conduction of water'.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How should sideways conduction be visualised?",
+        "answer": "It is lateral movement across neighbouring regions of tissue, rather than movement primarily along the length of a stem.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why does storage by xylem parenchyma not make xylem the main food-transport tissue?",
+        "answer": "Storage within one component differs from long-distance transport of organic food, which is chiefly a phloem function.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "xylem parenchyma",
+       "food storage",
+       "vertical and lateral directions"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Storage and lateral conduction are distinctive component-function matches.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i47",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0011-b0030"
+      ],
+      "where_on_page": "bottom text, final bullet",
+      "content": "Xylem fibres are mainly supportive in function.",
+      "content_type": "facts_numbers",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is the main function of xylem fibres?",
+        "answer": "They are mainly supportive.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "evidence",
+        "question": "Which wording identifies support as their principal role?",
+        "answer": "The statement says 'mainly supportive in function'.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do xylem fibres provide support?",
+        "answer": "Their thick, lignified walls reinforce the tissue and help it withstand mechanical stress.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "difference",
+        "question": "How does their principal role differ from that of tracheids and vessels?",
+        "answer": "Fibres mainly support, whereas tracheids and vessels are described here as transporting water and minerals vertically.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "xylem fibres",
+       "lignified wall",
+       "mechanical support"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Important supportive-versus-conducting distinction.",
+      "tests_item_ids": []
+     }
+    ],
+    "boilerplate_block_ids": [
+     "p0011-b0001",
+     "p0011-b0031"
+    ],
+    "text_image_disagreements": []
+   },
+   "code_problems": [],
+   "observed": {
+    "type_check": [
+     {
+      "item_id": "i1",
+      "ai_type": "none",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i2",
+      "ai_type": "none",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i3",
+      "ai_type": "facts_numbers",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i4",
+      "ai_type": "facts_numbers",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i5",
+      "ai_type": "none",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i6",
+      "ai_type": "structure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i7",
+      "ai_type": "cause_effect",
+      "code_type": "cause_effect",
+      "strength": "strong",
+      "evidence": [
+       "pattern 'due to'",
+       "'due to'"
+      ],
+      "status": "agree",
+      "type_note": ""
+     },
+     {
+      "item_id": "i8",
+      "ai_type": "none",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i9",
+      "ai_type": "facts_numbers",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i10",
+      "ai_type": "none",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i11",
+      "ai_type": "structure",
+      "code_type": "structure",
+      "strength": "strong",
+      "evidence": [
+       "pattern 'Made up of'",
+       "'made up of'"
+      ],
+      "status": "agree",
+      "type_note": ""
+     },
+     {
+      "item_id": "i12",
+      "ai_type": "facts_numbers",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i13",
+      "ai_type": "none",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i14",
+      "ai_type": "facts_numbers",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i15",
+      "ai_type": "classification",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i16",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i17",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i18",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i19",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i20",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i21",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i22",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i23",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i24",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i25",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i26",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i27",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i28",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i29",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i30",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i31",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i32",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i33",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i34",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i35",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i36",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i37",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i38",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i39",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i40",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i41",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i42",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i43",
+      "ai_type": "structure",
+      "code_type": "structure",
+      "strength": "strong",
+      "evidence": [
+       "pattern 'consists of'",
+       "'consists of'"
+      ],
+      "status": "agree",
+      "type_note": ""
+     },
+     {
+      "item_id": "i44",
+      "ai_type": "structure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i45",
+      "ai_type": "cause_effect",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i46",
+      "ai_type": "facts_numbers",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i47",
+      "ai_type": "facts_numbers",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     }
+    ],
+    "type_summary": {
+     "agree": 3,
+     "code_silent": 19,
+     "follows_parent": 25
+    }
+   },
+   "review": {
+    "route": "google",
+    "provider": "google",
+    "model": "google/gemini-4-argon",
+    "via": "aicredits",
+    "returned_model": "google/gemini-4-argon",
+    "request_hash": "4683ebd316a58b59b0ec473fefbbd476c1e90b77eabbaad9791e6155f9883514",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 20835,
+    "output_tokens": 1165,
+    "cost_usd": 0.058652,
+    "value": {
+     "notes": {
+      "about": "This page covers the occurrence, structure, and function of sclerenchyma tissue, introduces complex permanent tissues (xylem and phloem), and details the four components of xylem along with two comprehensive anatomical diagrams.",
+      "key_questions": [
+       "What are the occurrence, structural features (lignin, absent cavity, dead cells), and functions of sclerenchyma?",
+       "What defines a complex permanent tissue and what are its two types?",
+       "How do the four components of xylem (tracheids, vessels, xylem parenchyma, xylem fibres) divide labour for vertical conduction, sideways conduction, storage, and support?",
+       "Which anatomical structures are shown and labelled in the two figures comparing xylem and phloem?"
+      ],
+      "decisions": [
+       {
+        "decision": "Pass the understanding with no blocking issues.",
+        "reason": "All text blocks and all diagram labels across both figures are thoroughly captured with accurate content types, required questions, and basis tags."
+       }
+      ],
+      "uncertain": []
+     },
+     "verdict": "pass",
+     "missing": [],
+     "wrong": [
+      {
+       "item_id": "notes",
+       "problem": "The maker's notes.about and decisions describe only a local patch ('This patch improves the explanation of the wall and maturity features of tracheids and vessels') rather than summarizing what the page unit as a whole is about.",
+       "fix": "Summarize the whole page unit (sclerenchyma, complex permanent tissues, xylem components, and the two anatomical figures) in notes.about.",
+       "severity": "minor"
+      }
+     ],
+     "shallow": [],
+     "checklist": [
+      {
+       "rule_id": "G-01",
+       "met": true,
+       "note": "All statements are accurately grounded in the book or marked as outside textbook knowledge."
+      },
+      {
+       "rule_id": "G-02",
+       "met": true,
+       "note": "Explanations are complete and deep enough for UPSC/State PCS learners, explaining why and how features work."
+      },
+      {
+       "rule_id": "G-03",
+       "met": true,
+       "note": "Notes are present and explain the main decision and reasoning, though phrased around a patch."
+      },
+      {
+       "rule_id": "G-05",
+       "met": true,
+       "note": "Nothing is truncated, merged away, or left as 'etc.'."
+      },
+      {
+       "rule_id": "S1-01",
+       "met": true,
+       "note": "Both diagrams and all of their labels and leader arrows are captured as items."
+      },
+      {
+       "rule_id": "S1-02",
+       "met": true,
+       "note": "Only the running header (p0011-b0001) and page number (p0011-b0031) are marked as boilerplate."
+      },
+      {
+       "rule_id": "S1-03",
+       "met": true,
+       "note": "No tables are present on this page."
+      },
+      {
+       "rule_id": "S1-04",
+       "met": true,
+       "note": "Every label and leader line in both the upper figure (i16–i24) and lower boxed figure (i25–i42) is captured with what it points to."
+      },
+      {
+       "rule_id": "S1-05",
+       "met": true,
+       "note": "No equations or mathematical symbols appear on this page."
+      },
+      {
+       "rule_id": "S1-06",
+       "met": true,
+       "note": "Questions and answers reach teacher-level understanding of structure-function relationships."
+      },
+      {
+       "rule_id": "S1-07",
+       "met": true,
+       "note": "Basis labels ('book' vs 'outside') are accurately assigned and outside knowledge is standard."
+      },
+      {
+       "rule_id": "S1-08",
+       "met": true,
+       "note": "Content types match the nature of each item and follow the task card's proposed types for b1, b2, and b3."
+      },
+      {
+       "rule_id": "S1-09",
+       "met": true,
+       "note": "Prerequisites are concrete concepts."
+      },
+      {
+       "rule_id": "S1-10",
+       "met": true,
+       "note": "Exam importance and notes are appropriate for UPSC/State PCS."
+      },
+      {
+       "rule_id": "S1-11",
+       "met": true,
+       "note": "Native text and page image agree; text_image_disagreements is appropriately empty."
+      }
+     ]
+    }
+   },
+   "review_problems": [],
+   "review_minor": [
+    {
+     "item_id": "notes",
+     "problem": "The maker's notes.about and decisions describe only a local patch ('This patch improves the explanation of the wall and maturity features of tracheids and vessels') rather than summarizing what the page unit as a whole is about.",
+     "fix": "Summarize the whole page unit (sclerenchyma, complex permanent tissues, xylem components, and the two anatomical figures) in notes.about.",
+     "kind": "wrong"
+    }
+   ],
+   "passed": true,
+   "finished_at": 1792723374.4994648
+  }
+ ],
+ "avoid_rounds": [
+  1
+ ],
+ "cost_usd": 0.058652,
+ "seconds": 432.6,
+ "navin_verdict": null
+}
