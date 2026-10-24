@@ -103,6 +103,18 @@ def unpack_problems(item: dict, *, profile=None, language: str = "Hinglish") -> 
         problems.append(f"item {iid}: unpack is empty; open the book line with at least one of: a term (plain meaning and an "
                         "everyday image), a why step from a need, an example or place, a consequence (S1-15)")
     hindi = language.strip().lower() in ("hinglish", "hindi")
+    if hindi:
+        from . import hinglish
+        texts = [t.get(k) or "" for t in unpack.get("terms") or [] for k in ("plain_meaning", "everyday_image")]
+        texts += [unpack.get(k) or "" for k in ("example_or_place", "consequence", "level_extra")]
+        found = {}
+        for text in texts:
+            for word, english in hinglish.technical_words(text):
+                found.setdefault(english, word)
+        if found:
+            pairs = ", ".join(f"{word} → {english}" for english, word in list(found.items())[:5])
+            problems.append(f"item {iid}: the unpack uses textbook Hindi for the book's own terms ({pairs}); the learner hears the book's "
+                            "English term in Roman, never its Hindi translation (S1-15)")
     for term in unpack.get("terms") or []:
         if not (term.get("term") or "").strip() or not (term.get("plain_meaning") or "").strip():
             problems.append(f"item {iid}: a term needs its term and its plain_meaning (S1-15)")

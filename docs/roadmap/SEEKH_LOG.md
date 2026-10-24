@@ -381,3 +381,39 @@ restating beats; the real numbers (rounds, tokens, ₹ per page, the new opened 
 Prompt size: the page prefix grows by the level profile and five teacher methods (about 900 tokens), the script prefix by
 the profile and the full bank (about 1,600 tokens); the script source grows by the unpack lines (about 60–120 tokens per
 item). Status: IMPLEMENTED; INTEGRATED after the rerun; ACCEPTED only by Navin's verdict on old v2 against new v2.
+
+## Entry 8 · Task 045d job A (the first live page with the unpack), 24 October 2026
+
+**Run:** VM job `t045d-tissue-understand` (`blindtest-results:runs/vm-t045d-tissue-understand-brain-understand/`) on main `ce0e3491`
+(PR #60): the tissue chapter read again under the teaching-soul rules, maker Codex (gpt-6.1-sol), checker Gemini 4 Argon via
+AICredits, cap ₹80 of Navin's ₹200. Level: `upsc_pcs` from the setting, book band senior secondary (12% long words), no question.
+
+**Taught:**
+
+- **Stopped after 14.2 minutes by the AICredits key budget, not by BIE's cap:** every Gemini call answered `402 insufficient_quota |
+  API Key Budget Exceeded. Raise this key's budget at aicredits.in/dashboard/keys`. The cost guard read it as a balance stop (status
+  `stopped: balance`): 1 of 14 pages passed (page 2), pages 1 and 3 had their maker answer ready and lost it at the review call,
+  11 pages were refused before any call. Gemini ₹13.51 (preflight ₹0.38, page reading ₹13.13); Codex plan 2% → 2%. The key's own
+  budget on the AICredits dashboard is Navin's to raise; BIE cannot. The resume job is ready (`resume_from` this folder, page 2 reused).
+- **Page 2 (the figure-only page, 49 teachable items):** passed in 2 rounds. Round 1 was sent back by the reviewer only, for the same
+  finding as job 1: five labels silently corrected ("Non-straited muscle", "Cartiage", "Simple cubodial"; S1-13). The unpack came
+  filled: every item one term (one item two), 7 items a two-step why chain, 42 none (labels); an example and a consequence on all.
+  Maker tokens: 12,287 in / 21,770 out (round 1), 29,732 in / 3,060 out (the patch round).
+- **The plain meanings are in textbook Hindi, not the learner's Hindi:** "जानवरों के शरीर में मिलकर काम करने वाले कोशिका-समूह",
+  "उपकला के नीचे की पतली सहायक आधार-परत". 93 of the 100 term texts (plain meaning and image) use words outside the everyday list; the
+  most frequent are translations of the book's own terms: ऊतक 17, कोशिका (forms) 16, मांसपेशी 11, संयोजी, पदार्थ, उपकला, तंत्रिका, ग्रंथि.
+  The S1-15 check only asked for Devanagari, so it let them through; the script check (S2-04) would have flagged them later as hard
+  words, but a bracket ("ऊतक (tissue)") would have rescued them. Navin's rule is the book's English term in Roman.
+- The old passed scripts use none of these translations (0 in the regression set), so the check costs nothing there.
+
+**Changed in BIE (IMPLEMENTED, offline):**
+
+- `simple_hindi.json` 2026-10-24.1: a `technical` block (62 textbook translations → the book's English term: ऊतक → tissue, कोशिका →
+  cell, उपकला → epithelium, …) and 43 everyday words the page used that the list lacked (कोहनी, चादर, टीम, कागज़, ईंट, लार, सोखना, घन …).
+- `hinglish.technical_words`: finds them with the list's suffix rules. `soul.unpack_problems` sends an item back when its plain meaning,
+  image, example, consequence or level extra uses one (S1-15, the English term named in the message); `lesson.spoken_problems` sends a
+  beat back for one even inside a bracket (S2-04); the page prompt says it up front with examples.
+
+**Measured:** before (page 2 as passed): 45 of 49 items would go back under the new check; after: expected 0 on the resumed run,
+one extra Codex round on pages where the maker still slips (₹0; time). Live effect written here after the resume.
+Status: the run is INTEGRATED only when the resumed job passes all 14 pages and the map; nothing ACCEPTED.
