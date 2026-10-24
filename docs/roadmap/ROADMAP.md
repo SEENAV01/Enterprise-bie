@@ -143,11 +143,36 @@ Codex (ChatGPT plan, no rupee cap; the plan's own limit stops a run, which is re
 
 Tissue run decisions (Navin, 23 October 2026), built as seekh → BIE before the map trim and the script run again (Gemini cap ₹150): narration 6–8 minutes per book page (up to 25% over for a dense page with the reason stated; must_cover stays); only direct prerequisites, taught in one 5–8 minute "pehle yeh jaan lo" video per chapter, at most 1–2 reminder beats in a topic video; printed typos kept with the right word shown; mixed book/outside answers split in two; brackets only on genuinely difficult words and never inside an idiom; the caching probe; CI rule CI-2.
 
-**046 · Director, asset finder v2 and silent video** — the director's scene plan drives the asset finder:
-the library first, then Wikimedia Commons and Openverse; SVG preferred; part locations read from SVG text;
-choice by a vision AI; an AI-drawn SVG as the last fallback; adapt the asset to the scene; add it to the
-library with licence and credit. One scene format decision (Scene IR vs VideoSpec, Navin's video path).
-Output: silent videos. Run on the chapters; Navin judges.
+Task 045d · teaching soul (Navin, 24 October 2026; `docs/vision/TEACHING_SOUL.md`): the tissue scripts restated the book, so
+every book line is now opened, for every subject: Section 1 writes an `unpack` per teachable item (terms with their plain meaning
+and an everyday image, a why chain from a need with its basis, an example or place, a consequence; rule S1-15); level profiles
+(`level_profiles.json`: school, neet_11_12, upsc_pcs, revision) chosen from the course setting and the book's own text, a
+disagreement stops the run for Navin; flexible pattern steps with a stated reason and a family pattern for a classification;
+the script opens every line (question first, yaani with an image, a why or an example; complete sentences; one recap per part;
+rule S2-07) with the code checks "dohraav pakad" and the `dohraav` measure; the teacher example bank
+(`teacher_examples.json`) in every prefix; the explanation library (`explanations.json`) locked only by Navin's verdict; rules
+G-06 and G-07 (BIE is the link; two layers). Run after merge: the tissue understanding and script again (maker Codex, Gemini
+checker cap ₹200), old v2 against new v2 and the dohraav number before and after; nothing ACCEPTED until Navin's verdict.
+
+**046 · Director, video blocks and the benchmark video** — the presentation layer, built to the benchmark
+(`bie/brain/rulebook/benchmarks/epithelium_animation.json`, rule S3-06): one spoken sentence is one shot of 2–4 s; about
+40–50 s per family member; said = shown, a function sentence shows motion; a term opened with "yaani" on first use and every
+name given its reason; one "A → B" summary line per member on a board that fills; the spoken words on top with the English
+terms coloured; "where found" by a zoom from the organ; a focus glow; one dark style; the depth of what is shown follows the
+level profile, the visual grammar follows the benchmark. The presentation is the same skilled quality for every learner (G-07).
+- **Blocks** (code, tested, reused): `cell_sheet`, `particle_flow`, `organ_zoom`, `focus_glow`, `kinetic_caption`,
+  `concept_arrow`, `board_build`, `mnemonic_card`; planned next: `tree`, `split_compare`, `cause_chain`. The director maps every
+  script sentence to one shot and one block, with the beat's `visual_verb` from the unpack.
+- **Two render routes, both code, no AI video model.** Route A: three.js scenes rendered through Remotion (the Scene IR and the
+  COMP compiler of Sections 13–16 extended, not replaced). Route C: 3D models made once, by Blender Python scripts or from
+  licensed models in the asset library (licence and credit recorded), animated by BIE code; the same block API renders through
+  either route. The asset finder v2 (library first, then Wikimedia Commons and Openverse, SVG preferred, a vision AI chooses, an
+  AI-drawn SVG last) feeds route A's flat assets and route C's textures.
+- **Head to head:** BIE's own engine against AI-written block code on the same benchmark, judged by Navin on the same
+  sentences. **Merge path:** an AI writes a block's code once, BIE tests it (frame checks, the said = shown check, the licence
+  check), Navin approves it, and the block joins the library and is reused for every later book.
+- One scene format decision (Scene IR vs VideoSpec, Navin's video path). Output: silent videos of the tissue chapter rendered
+  through both routes on the benchmark's shots, judged against the benchmark shot by shot. Navin judges.
 
 **047 · Voice** — extend Section 14: tested natural voices including a cloned voice (Navin chooses by ear);
 word timestamps drive the animation; close the AUDIO reconciliation.

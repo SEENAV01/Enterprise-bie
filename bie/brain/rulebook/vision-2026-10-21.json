@@ -1,9 +1,10 @@
 {
  "rulebook": "bie-vision",
- "version": "2026-10-21.11",
+ "version": "2026-10-21.12",
  "source": "Navin's vision, agreed point by point on 21 October 2026 (docs/vision/VISION_SPEC.md, section 'Agreed on 21 October 2026')",
  "notes": "Each rule is an instruction for the section that makes the work (rule) and a yes/no question for the reviewer (check). Rules change only through a reviewed version bump; Navin approves every new or changed rule.",
  "changes": [
+  "2026-10-21.12 (24 October 2026, Navin, Task 045d 'teaching soul'): new locked rules G-06 (BIE is the link between the learner and the book, like a teacher; never read the line out), G-07 (two layers: the writer layer follows the book's level, the presentation layer is the same skilled quality for every learner), S1-15 (every teachable item opened: terms with their plain meaning and an everyday image, a why chain from a need with its basis, an example or place, a consequence), S2-07 (every book line opened in the script: a question first, yaani with an image, a why or an example after a book line, complete sentences, the family pattern for a classification, steps skipped only with a reason, one recap per part) and S3-06 (the video follows the benchmark's visual grammar: one sentence = one shot, said = shown, depth from the level profile).",
   "2026-10-21.11 (23 October 2026, Navin): S1-12's prerequisite count is a warning, not a cap: the rule is 'only what is directly needed, no chains'; more than 8 needs a stated reason (prerequisite_note) and a directly needed prerequisite is never dropped to reach a number.",
   "2026-10-21.10 (23 October 2026, Navin's decisions on the tissue run): S2-01 narration 6-8 minutes per book page (up to 25% over with a stated reason) and one 5-8 minute prerequisite video first; S2-02 every book item and book-answered question, outside answers only where they help; S2-03 only direct prerequisites, taught in that video, at most 2 reminder beats per topic video; S2-04 brackets only on genuinely difficult words, never after everyday words or inside idioms; G-02 and G-05 say how the time target and completeness fit together; S1-12 at most 8 direct prerequisites; new S1-13 printed typos kept with the right word shown; new S1-14 one answer, one basis.",
   "2026-10-21.9 (Task 045b, 23 October 2026, Navin's teaching decision): S2-04 is mixed script: Hindi in Devanagari, English terms in Roman, a difficult Hindi word (not in rulebook/simple_hindi.json) followed by its English word in brackets; subtitles show the bracket, the voice says it with 'यानी'.",
@@ -58,6 +59,24 @@
    "status": "locked",
    "rule": "Never drop or compress away what the book teaches to fit a length. If a unit of work is too large, it is split by BIE into smaller units; within a unit, the book's content is complete. Lesson narration has a time target (S2-01), met by cutting repetition and side-tracks, never book content.",
    "check": "Is anything the book teaches visibly cut short, merged away or left as 'etc.'?"
+  },
+  {
+   "id": "G-06",
+   "sections": [
+    "*"
+   ],
+   "status": "locked",
+   "rule": "BIE is the link between the learner and the book, like a teacher (Navin, 24 October 2026). The book is the base; BIE carries its text, easy or hard, into the learner's mind. Never just read the line out: every book line is opened (what its words mean, why it is so, where it is seen, what follows), at the depth of the level profile.",
+   "check": "Does every book line reach the learner opened (meaning, why, example, consequence), or is it only read out in other words?"
+  },
+  {
+   "id": "G-07",
+   "sections": [
+    "*"
+   ],
+   "status": "locked",
+   "rule": "Two layers, like a film (Navin, 24 October 2026). The writer layer (understanding, plan, script) decides what is said and how deep, following the level profile and the book's own level. The presentation layer (director, video blocks, render) is the same skilled quality for every learner, from class 6 to postgraduate; only the detail shown follows the level, never the craft.",
+   "check": "Does the depth follow the level profile while the presentation stays at the same skilled quality?"
   },
   {
    "id": "S1-01",
@@ -189,6 +208,15 @@
    "check": "Does every answer keep to one basis, with book and outside explanations split into separate answers?"
   },
   {
+   "id": "S1-15",
+   "sections": [
+    "understand"
+   ],
+   "status": "locked",
+   "rule": "Open every teachable item for the learner (Navin, 24 October 2026): in unpack, the terms the learner must hold (each with its plain meaning in simple Hindi and one everyday image), a why chain of 1-4 steps that starts from a need or a problem (each step names its basis, book or standard), an example or the place where it is seen, the consequence, the visual verb the video should show, and what the level profile adds. Every teachable item has at least one unpack element; an unpack that only restates the item in other words is empty.",
+   "check": "Is every teachable item really opened (a term with its plain meaning and image, a why from a need with its basis, an example or place, a consequence), not restated?"
+  },
+  {
    "id": "S2-01",
    "sections": [
     "lesson"
@@ -243,6 +271,15 @@
    "check": "Does every part answer the universal frame and follow its content type's teaching pattern, with every card item really taught?"
   },
   {
+   "id": "S2-07",
+   "sections": [
+    "lesson"
+   ],
+   "status": "locked",
+   "rule": "Open every book line in the script, never read it out (Navin, 24 October 2026). A new topic opens with a question about something the learner can see, then the name. After any book line the beat carries at least one of: the term's plain meaning with 'yaani' and an everyday image, a why step from a need, an example or the place. Speak complete sentences, not clipped notes. A classification is taught as a family: the overview tree, then every member in the same slots (layer and shape, why it is named so, its special feature, its function with its cause, where it is found by a zoom from the organ, its consequence), then the members compared and a memory trick. A pattern step may be skipped only with a stated reason; one recap per part and one closing recap.",
+   "check": "Is every book line opened (question first, yaani with an image, a why or an example), in complete sentences, with every family member in the same slots and no duplicate recaps?"
+  },
+  {
    "id": "S3-01",
    "sections": [
     "director"
@@ -286,6 +323,16 @@
    "status": "locked",
    "rule": "The video is interactive: mark the moments where the player pauses for a question (taken from the chapter map's teacher questions) or lets the student tap a structure to look inside. Use them where they make the student think, not at every scene.",
    "check": "Are pause questions and tap-to-explore moments placed where they make the student think?"
+  },
+  {
+   "id": "S3-06",
+   "sections": [
+    "director",
+    "visual"
+   ],
+   "status": "locked",
+   "rule": "The video follows the benchmark's visual grammar (bie/brain/rulebook/benchmarks/, Task 046): one spoken sentence is one shot of 2-4 seconds; what is said is what is shown, a function sentence shows motion; a term is opened with 'yaani' on its first use and every name gets its reason; the spoken words run on top with the English terms coloured; 'where found' is a zoom from the organ; the focus glows; one dark style; the depth of what is shown follows the level profile, the visual grammar follows the benchmark.",
+   "check": "Does every shot show what its sentence says, with the benchmark's grammar (one sentence one shot, said = shown, zoom for where, focus glow, one style)?"
   },
   {
    "id": "S4-01",

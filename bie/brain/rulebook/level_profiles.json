@@ -1,0 +1,89 @@
+{
+ "schema": "bie.brain.level-profiles/1",
+ "version": "2026-10-24.1",
+ "status": "IMPLEMENTED (Task 045d, Navin's decisions of 24 October 2026). The level decides how deep the teacher layer (understanding, plan, script) opens every book line; the presentation layer is the same skilled level for every learner. Navin edits this file: change a profile, bump the version, say why in 'changes'.",
+ "changes": [
+  "2026-10-24.1 (Task 045d): first version with four profiles (school, neet_11_12, upsc_pcs, revision) and the text signals BIE uses to infer the level from the book itself."
+ ],
+ "source": "Navin, 24 October 2026: level is inferred from the book text (vocabulary, term density, depth) and combined with the course setting; when they disagree, BIE stops and asks Navin.",
+ "how_it_is_used": [
+  "bie/brain/level.py chooses the profile: the course setting names it (course.level, or words in learners/exam such as 'UPSC', 'NEET', 'Class 9'), the book text is read for its band, and a band the setting's profile does not accept stops the run with a question for Navin.",
+  "The chosen profile's text goes into every fixed task prefix of Sections 1 and 2 (how many why steps, which terms, which exam beats), so the same rule reaches the maker and the reviewer.",
+  "BIE's code checks what it can: a why chain longer than the profile's most steps is a side-track; a revision profile adds no new term; the rest is judged by the reviewer against the profile."
+ ],
+ "default": "upsc_pcs",
+ "profiles": {
+  "school": {
+   "name": "School (class 6-10)",
+   "learners": "school students of class 6 to 10 meeting the topic for the first time",
+   "accepts_bands": ["school"],
+   "setting_words": ["class 6", "class 7", "class 8", "class 9", "class 10", "class vi", "class vii", "class viii", "class ix", "class x", "school", "cbse", "icse", "state board"],
+   "terms": "book terms only: every term the book uses is opened with its plain Hindi meaning and one everyday image; no term the book does not use",
+   "why_steps": [1, 1],
+   "why_style": "one why step from a need the learner can feel ('cells bahar ki taraf hain, tootne ka chance zyada, isliye ...')",
+   "where_found": "the one or two places the book names, each by a zoom from the organ the learner knows",
+   "exam_beats": "a memory trick for every list and every name (a rhyme, a picture, a word link); no exam traps",
+   "links": "the learner's own body, home, kitchen and school",
+   "one_line_per_item": false,
+   "new_terms": true
+  },
+  "neet_11_12": {
+   "name": "NEET, class 11-12",
+   "learners": "class 11-12 students preparing for NEET and the board exam",
+   "accepts_bands": ["senior_secondary"],
+   "setting_words": ["neet", "class 11", "class 12", "class xi", "class xii", "aiims", "jee", "board exam", "intermediate"],
+   "terms": "the book's terms plus the exam's terms for the same thing (other names, the Latin or Greek root where it helps); every term opened with its meaning and an everyday image on first use",
+   "why_steps": [2, 3],
+   "why_style": "a why chain of two or three steps that starts from a need or a problem and names its basis at every step",
+   "where_found": "the full 'where found' list the book gives, each place by a zoom from the organ",
+   "exam_beats": "'yaad rakhna' exam beats (what NEET asks, the odd one out, the other names) and the traps the exam sets, named directly",
+   "links": "the body's organs and the diseases or everyday facts the exam uses as examples",
+   "one_line_per_item": false,
+   "new_terms": true
+  },
+  "upsc_pcs": {
+   "name": "UPSC / State PCS",
+   "learners": "UPSC and State PCS aspirants, often from arts backgrounds, who need understanding more than technical vocabulary",
+   "accepts_bands": ["school", "senior_secondary"],
+   "setting_words": ["upsc", "pcs", "ias", "ips", "civil services", "prelims", "mains", "state services", "ssc", "railway", "general studies"],
+   "terms": "fewer technical terms: only the ones the exam asks, each opened with its plain meaning and an everyday image; a term the exam never asks is explained in words, not named",
+   "why_steps": [2, 2],
+   "why_style": "a two-step why from a need the learner can feel, then its link to daily life, health or governance",
+   "where_found": "the main places, each linked to something the learner already knows (a disease, a food, a news item)",
+   "exam_beats": "the PYQ pattern: how this fact has been asked (statement combinations, 'which is correct', odd one out) and the wording that traps",
+   "links": "daily life, health, the news and earlier chapters of the same paper",
+   "one_line_per_item": false,
+   "new_terms": true
+  },
+  "revision": {
+   "name": "Revision",
+   "learners": "learners who have already studied the chapter and revise before the exam",
+   "accepts_bands": ["school", "senior_secondary", "exam_general"],
+   "setting_words": ["revision", "revise", "quick recap", "last minute", "crash course"],
+   "terms": "no new terms: only the ones already taught, named without opening them again",
+   "why_steps": [0, 1],
+   "why_style": "at most one why line, only where the exam asks for the reason",
+   "where_found": "the places as a list, in one line",
+   "exam_beats": "one memory trick per list and the one trap per topic",
+   "links": "one chapter map that holds every item in one line each",
+   "one_line_per_item": true,
+   "new_terms": false
+  }
+ },
+ "inference": {
+  "min_words": 150,
+  "note": "Bands from the book text. Markers (explicit words in the text) win over the measured density; without markers the share of long words (10 letters or more) and the share of very long words (13 or more) decide. Measured on the tissue chapter (a UPSC Science and Technology book): long share 0.113, very long 0.028, 8.9 words a sentence.",
+  "markers": {
+   "school": ["class vi", "class vii", "class viii", "class ix", "class x\\b", "class 6", "class 7", "class 8", "class 9", "class 10", "ncert class", "cbse", "icse"],
+   "senior_secondary": ["class xi", "class xii", "class 11", "class 12", "neet", "intermediate", "higher secondary"],
+   "exam_general": ["upsc", "state pcs", "civil services", "prelims", "mains", "previous year", "pyq", "general studies"],
+   "advanced": ["mbbs", "postgraduate", "post-graduate", "m\\.sc", "m\\.d\\.", "histology of", "pathogenesis", "undergraduate medical", "residents"]
+  },
+  "bands": {
+   "school": {"long_share_max": 0.085, "very_long_share_max": 0.018},
+   "senior_secondary": {"long_share_max": 0.145, "very_long_share_max": 0.045},
+   "advanced": {"long_share_min": 0.145}
+  },
+  "band_to_profile": {"school": "school", "senior_secondary": "neet_11_12", "exam_general": "upsc_pcs", "advanced": null}
+ }
+}

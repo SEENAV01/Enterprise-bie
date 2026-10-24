@@ -332,3 +332,52 @@ passed scripts reused, only v9 again. 5.2 minutes, Gemini ₹6.87 (cap ₹50).
 Status: the scripts are IMPLEMENTED BIE output (passed BIE's code checks and its independent checker); nothing is ACCEPTED
 until Navin's teaching-quality verdict.
 
+
+## Entry 7 · Navin's verdict on the scripts → the teaching soul (Task 045d), 24 October 2026
+
+**Run:** the tissue chapter's finished script step (job 3 and its resumes, `vm-t045c-tissue-lesson-v9-brain-lesson`,
+11 of 11 videos passed BIE's checks and the Gemini checker). Navin read the scripts.
+
+**Taught (Navin's verdict, 24 October 2026):** the scripts restate the book. "Epithelium absorptive aur secretive surfaces par
+milta hai" is the book's line in Hinglish; a teacher says what an absorptive surface is, shows one the learner knows (the gut
+soaking up food) and says why a thin sheet of cells sits there. The checks passed because nothing measured this. Measured
+with the new detector on the 11 final scripts (`tools/dohraav.py`): of 540 judged beats (explaining beats that cover book
+items), **155 (28.7%) only restate the book** (60% or more of their English content words are the covered items' own, 6 or
+more words, no yaani / why / example / contrast marker); only 153 (28.3%) carry an opening marker at all; 17 sentences are
+clipped notes without a verb ("Chain: flexible walls, supported bending, tendrils aur climber stems"); 35 topics open without
+a question; 4 videos repeat a recap. On the regression set (job 3's 6 passed scripts): 273 judged, 80 restating (29.3%), 10
+clipped. The worst videos are the table-reading ones (v3 52.8%, v1 46%, v9 41.2%); v4 (8.9%) and v0 (0%) show the maker can
+open lines when the material pushes it.
+
+**Changed in BIE (IMPLEMENTED, offline; `docs/vision/TEACHING_SOUL.md`):**
+
+- Section 1 writes an `unpack` per teachable item (terms with their plain meaning in simple Hindi and an everyday image, a
+  why chain from a need with its basis, an example or place, a consequence, a visual verb, the level's extra); rule S1-15 and
+  the code check `soul.unpack_problems` (every teachable item at least one element; every why step names its basis; a
+  chain no longer than the level allows). Page schema `bie.brain.understand-page/3`, naksha `/2` with a short unpack cell.
+- Level profiles (`level_profiles.json`: school, neet_11_12, upsc_pcs, revision) in every page, plan and script prefix;
+  the level inferred from the book's text (markers, then the share of long words) and checked against the course
+  setting; a disagreement stops the run (`stopped: level`) for Navin before any call; `--level <id> --trust-level`.
+  The tissue chapter reads as senior secondary (12% long words) and fits UPSC.
+- Section 2: flexible pattern steps (`skipped_steps` with a real reason, at most half a pattern, never a step the beats
+  perform); the family pattern for a classification (`content_types.json` 2026-10-24.1); the script source carries every
+  item's unpack and the locked explanations; rule S2-07 and the code checks: dohraav pakad (`soul.restatement_problems`),
+  clipped notes (`soul.clipped_problems`), a question at every topic's opening (`soul.opening_problems`), one recap per
+  part (`soul.recap_problems`). The `dohraav` measure is written per video and per run.
+- The teacher example bank (`teacher_examples.json`: 7 opening steps, 10 methods with examples from real teacher
+  videos and Navin's own) in the prefixes; the explanation library (`explanations.json`, 3 entries from Navin) looked up
+  by term for every page and script and locked only through `tools/lock_explanations.py` after his verdict; rules G-06
+  (BIE is the link, never read the line out) and G-07 (two layers); S3-06 and the Task 046 benchmark
+  (`benchmarks/epithelium_animation.json`, 12 rules, 22 shots).
+- Guard: the two saved sets still pass today's checks; the new rules show as waived rule changes (S1-15, S2-07 and the
+  family pattern), not hidden; the regression guard now reads each rulebook component's version.
+- A detector fix found on the way: the Hindi verb check glued the danda (।) to the verb, so "… है।" counted as verbless;
+  fixed before any number above was taken.
+
+**Measured:** before (job 3 final scripts): dohraav 28.7% (155 of 540), opened 28.3%, clipped 17, topics without a question
+35, duplicate recaps 4. After: expected from the rerun of the tissue understanding and script under Task 045d (maker
+Codex, Gemini checker cap ₹200): the code check sends every restating beat back, so the passed scripts should measure 0
+restating beats; the real numbers (rounds, tokens, ₹ per page, the new opened share) are written here after that run.
+Prompt size: the page prefix grows by the level profile and five teacher methods (about 900 tokens), the script prefix by
+the profile and the full bank (about 1,600 tokens); the script source grows by the unpack lines (about 60–120 tokens per
+item). Status: IMPLEMENTED; INTEGRATED after the rerun; ACCEPTED only by Navin's verdict on old v2 against new v2.

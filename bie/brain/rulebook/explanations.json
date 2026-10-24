@@ -1,0 +1,87 @@
+{
+ "schema": "bie.brain.explanations/1",
+ "version": "2026-10-24.1",
+ "status": "IMPLEMENTED (Task 045d). The explanation library: every term meaning, everyday image, analogy and why chain that Navin's verdict locks is stored here and reused for the same concept in later books, so the writer layer needs less AI over time. Entries are added only by tools/lock_explanations.py after Navin's verdict, or by Navin himself; nothing here is written by a model on its own.",
+ "changes": [
+  "2026-10-24.1 (Task 045d): the library starts with Navin's own examples of 24 October 2026 (absorptive and secretive surface, slender)."
+ ],
+ "how_it_is_used": [
+  "bie/brain/explanations.py looks every item's text up by term or alias (word boundary, case-insensitive, a plural allowed; 'absorptive' alone meets 'absorptive surface') and gives the matching locked entries to the page maker (as the unpack to reuse) and to the script maker (as the opening to speak). The maker uses them as they are; BIE's checks treat a locked explanation as already accepted.",
+  "An entry is locked by Navin's verdict on a real run: tools/lock_explanations.py copies the item's unpack from that run's chapter_map.json with the run id and the date. Claude never locks on its own."
+ ],
+ "entries": [
+  {
+   "key": "absorptive surface",
+   "term": "absorptive surface",
+   "subject": "biology",
+   "plain_meaning": "जहाँ चीज़ें अंदर ली जाती हैं",
+   "everyday_image": "आँत खाने के पोषक तत्व सोखती है, जैसे कागज़ पानी सोखता है",
+   "why_chain": [
+    {
+     "step": "शरीर को खाने से पोषक तत्व अंदर लेने हैं",
+     "basis": "standard"
+    },
+    {
+     "step": "इसके लिए एक पतली, लगी हुई परत चाहिए जिसे चीज़ें पार कर सकें, इसलिए यहाँ epithelium है",
+     "basis": "standard"
+    }
+   ],
+   "analogy": "",
+   "status": "locked",
+   "source": "Navin, 24 October 2026",
+   "from_run": "",
+   "concepts": [
+    "epithelial tissue"
+   ],
+   "aliases": [
+    "absorptive"
+   ]
+  },
+  {
+   "key": "secretive surface",
+   "term": "secretive surface",
+   "subject": "biology",
+   "plain_meaning": "जहाँ cells कुछ बनाकर बाहर छोड़ते हैं",
+   "everyday_image": "glands enzyme या juice बनाकर छोड़ती हैं, जैसे मुँह में लार",
+   "why_chain": [
+    {
+     "step": "शरीर को कुछ जगहों पर enzyme, mucus या juice बनाकर छोड़ना है",
+     "basis": "standard"
+    },
+    {
+     "step": "एक परत में सजे cells यह काम सीधे surface पर कर सकते हैं, इसलिए यहाँ epithelium है",
+     "basis": "standard"
+    }
+   ],
+   "analogy": "",
+   "status": "locked",
+   "source": "Navin, 24 October 2026",
+   "from_run": "",
+   "concepts": [
+    "epithelial tissue",
+    "glandular epithelium"
+   ],
+   "aliases": [
+    "secretive",
+    "secretory surface",
+    "secretory"
+   ]
+  },
+  {
+   "key": "slender",
+   "term": "slender",
+   "subject": "biology",
+   "plain_meaning": "लंबा और पतला",
+   "everyday_image": "building का pillar: लंबा, पतला, सीधा खड़ा",
+   "why_chain": [],
+   "analogy": "",
+   "status": "locked",
+   "source": "Navin, 24 October 2026 (from the benchmark video: 'slender yaani long aur narrow')",
+   "from_run": "",
+   "concepts": [
+    "simple columnar epithelium"
+   ],
+   "aliases": []
+  }
+ ]
+}

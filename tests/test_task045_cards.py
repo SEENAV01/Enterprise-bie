@@ -59,11 +59,16 @@ def qa(*asks):
              "basis": "book"} for n, a in enumerate(asks)]
 
 
+UNPACK = {"terms": [{"term": "tissue", "plain_meaning": "एक जैसे cells का समूह", "everyday_image": "ईंटों की एक दीवार"}],
+          "why_chain": [{"step": "शरीर को एक काम के लिए कई cells साथ चाहिए", "basis": "book"}],
+          "example_or_place": "त्वचा की ऊपरी परत", "consequence": "", "visual_verb": "zoom in", "level_extra": ""}
+
+
 def item(iid, block_ids, kind_type, *asks, kind="paragraph", note="", teachable=True, content=None, source="text"):
     return {"item_id": iid, "kind": kind, "parent_item_id": "", "source": source, "block_ids": list(block_ids),
             "where_on_page": "", "content": content or f"content of {iid}", "content_type": kind_type, "type_note": note,
             "teachable": teachable, "teacher_understanding": qa(*asks) if teachable else [], "prerequisites": [],
-            "exam_importance": "high", "exam_note": "", "tests_item_ids": []}
+            "exam_importance": "high", "exam_note": "", "tests_item_ids": [], "unpack": dict(UNPACK) if teachable else None}
 
 
 def gateway(maker=None, reviewer=None):
@@ -201,7 +206,8 @@ class Naksha(unittest.TestCase):
         built = nk.build(small_chapter())
         rows = {r[0]: r for r in built["items"]}
         self.assertEqual(sorted(rows), ["p001-i1", "p001-i2", "p001-i3", "p001-i4", "p002-i1", "p002-i3"])   # no heading
-        self.assertEqual(rows["p002-i1"], ["p002-i1", "process", 2, "Cells divide by mitosis in steps.", "kaise,kab", "h"])
+        self.assertEqual(rows["p002-i1"], ["p002-i1", "process", 2, "Cells divide by mitosis in steps.", "kaise,kab", "h",
+                                           "terms: tissue; why 1; eg; visual"])
         self.assertLessEqual(len(rows["p001-i2"][3]), nk.SHORT)
         self.assertTrue(rows["p001-i2"][3].endswith("…"))
         links = {tuple(link) for link in built["links"]}
@@ -257,7 +263,7 @@ class TaskCards(unittest.TestCase):
         self.assertEqual(one.card["prefix"], two.card["prefix"])
         self.assertNotIn("Page 3", one.system)
         self.assertNotIn("p0003", one.system)
-        self.assertTrue(one.system.startswith("BIE task prefix understand.read_page/2 · rulebook " + BOOK.version))
+        self.assertTrue(one.system.startswith("BIE task prefix understand.read_page/3 · rulebook " + BOOK.version))
         for rule in BOOK.for_section("understand"):
             self.assertIn(f"[{rule.id}]", one.system)
         self.assertIn("Required questions: how (kaise), when (kab)", one.system)
@@ -315,7 +321,7 @@ class TaskCards(unittest.TestCase):
         card, _ = self.card()
         book = cards.CardBook()
         book.add(card)
-        self.assertEqual(book.prefixes, {"understand.read_page/2": self.prefix.sha256})
+        self.assertEqual(book.prefixes, {"understand.read_page/3": self.prefix.sha256})
         with self.assertRaises(cards.CardError):
             book.add(card)
 
@@ -492,9 +498,11 @@ class SectionTwoOnTheCard(unittest.TestCase):
             for n in range(1, len(TYPES.pattern(part["type"])) + 1):
                 ids = part["item_ids"] if n == 1 else []
                 answers = [f"{i}#q{k}" for i in ids for k in range(1, 4)]
-                beats.append(beat(f"b{len(beats)}", part["part_id"], n, ids, answers))
+                opener = "ये सामने क्या दिख रहा है? ये बात ध्यान से समझिए, ये tissue का हिस्सा है और exam में आती है।" if n == 1 else None
+                beats.append(beat(f"b{len(beats)}", part["part_id"], n, ids, answers, say=opener))
         beats.append(beat("b-end"))
-        frames = [{"part_id": p["part_id"], "frame": {k: f"{k} of this part" for k in FRAME}} for p in self.card["parts"]]
+        frames = [{"part_id": p["part_id"], "frame": {k: f"{k} of this part" for k in FRAME}, "skipped_steps": []}
+                  for p in self.card["parts"]]
         return {"notes": {}, "title": "Tissue", "parts": frames, "beats": beats}
 
     def test_the_plan_card_carries_concepts_only(self):
@@ -530,7 +538,7 @@ class SectionTwoOnTheCard(unittest.TestCase):
         value["beats"] = [b for b in value["beats"] if "p001-i4" not in b["covers_item_ids"]]
         problems = check_script(value, self.chapter, video, "Hinglish", self.card)
         for fragment in ("part c1.1: the universal frame is missing", "frame fields ['how'] are empty",
-                         "part c2.1 (classification): teaching-pattern steps not taught: 3) each kind",
+                         "part c2.1 (classification): teaching-pattern steps not taught: 3) the members compared side by side",
                          "is not a step of the", "item 'p009-i9' is not an item of this video",
                          "ids of must_cover are not claimed in beats[].covers_item_ids (S2-02): p001-i4",
                          "write numbers in Devanagari digits", "a sentence longer than 40 words"):
@@ -670,7 +678,7 @@ class Chain(unittest.TestCase):
         self.assertTrue(all(b.get("part_id") is not None and "step" in b for b in first["beats"]))
         script = Path(self.tmp.name, "ok", "SCRIPT.md").read_text(encoding="utf-8")
         self.assertIn("### Part c1.1 · classification", script)
-        self.assertIn("step 1: the basis of division first", script)
+        self.assertIn("step 1: the overview tree first", script)
         self.assertEqual(summary["lesson_quality"]["videos_passed"], summary["lesson_quality"]["videos"])
 
     def test_resume_reuses_only_pages_that_pass_todays_checks(self):

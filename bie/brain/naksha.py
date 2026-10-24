@@ -16,8 +16,9 @@ import json
 import re
 
 from . import content_types as ct
+from . import soul
 
-SCHEMA = "bie.brain.naksha/1"
+SCHEMA = "bie.brain.naksha/2"      # /2 (Task 045d): the items carry an "unpack" cell (the terms opened, why steps, example ...)
 SHORT = 100
 # Measured: 155,907 characters of chapter-map JSON were 45,479 input tokens (run 39627682253, connect step,
 # GPT-6.1 Sol tokenizer). Other tokenizers differ a little; the ledger always has the real count.
@@ -74,7 +75,7 @@ def build(chapter: dict, types=None) -> dict:
             continue
         kind = item_type(item, concept_type.get(iid), types)
         items.append([iid, kind, item["page"], short(item.get("content", "")), ",".join(types.required_words(kind)),
-                      EXAM.get(item.get("exam_importance"), "")])
+                      EXAM.get(item.get("exam_importance"), ""), soul.unpack_short(item.get("unpack"))])
         kept.add(iid)
     concepts = [[c["concept_id"], c["name"], item_type({"content_type": c.get("content_type")}, None, types),
                  [i for i in c.get("item_ids") or [] if i in kept]] for c in m.get("concepts") or []]
@@ -101,7 +102,7 @@ def build(chapter: dict, types=None) -> dict:
                     "language": course.get("language", ""), "source_sha256": chapter.get("source_sha256", ""),
                     "pages": chapter.get("page_count") or len(chapter.get("pages") or []),
                     "rulebook": chapter.get("rulebook_version", ""), "content_types": types.version},
-        "columns": {"items": ["id", "type", "page", "short", "required_questions", "exam"],
+        "columns": {"items": ["id", "type", "page", "short", "required_questions", "exam", "unpack"],
                     "concepts": ["id", "name", "type", "item_ids"], "links": ["from", "link", "to"],
                     "prerequisites": ["name", "needed_for", "basis"]},
         "items": items,
@@ -156,7 +157,7 @@ def slice_rows(naksha: dict, item_ids, *, index: Index | None = None) -> list:
     rows, seen = [], set()
     for iid in item_ids:
         if iid in index.items and iid not in seen:
-            _, kind, page, text, _, _ = index.items[iid]
+            _, kind, page, text = index.items[iid][:4]
             rows.append([iid, kind, str(page), text])
             seen.add(iid)
     own_concepts = []
@@ -173,7 +174,7 @@ def slice_rows(naksha: dict, item_ids, *, index: Index | None = None) -> list:
     for iid in item_ids:
         for link, other in index.out.get(iid, []):
             if other in index.items and other not in seen:
-                _, kind, page, text, _, _ = index.items[other]
+                _, kind, page, text = index.items[other][:4]
                 rows.append([other, kind, str(page), text])
                 seen.add(other)
     rows += [index.concept_row(cid) for cid in related if cid in index.concepts]

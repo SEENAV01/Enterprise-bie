@@ -479,8 +479,9 @@ class PrerequisiteTrim(unittest.TestCase):
         from bie.brain.prerequisites import needs_trim
         self.assertTrue(needs_trim(self.chapter))
         changed = regression.changed_rule_problems(regression.load(TISSUE))
-        self.assertEqual([(p.split(";")[0], c["rule"]) for p, c in changed],
+        self.assertEqual([(p.split(";")[0], c["rule"]) for p, c in changed if c["rule"] == "S1-12"],
                          [("map: prerequisites_to_teach has 30 prerequisites", "S1-12")])
+        self.assertTrue(any(c["rule"] == "S1-15" for _, c in changed))         # Task 045d: the old pages have no unpack
         newer = dict(regression.load(TISSUE), rulebook="2026-10-21.10")      # a set made under the new rule gets no waiver
         self.assertEqual(len(regression.check(newer)), 1)
 
@@ -641,7 +642,7 @@ class ScriptReviewerFollowsTheTimeRule(unittest.TestCase):
         _, _, step = self.chapter_and_step()
         self.assertIn('A teacher question whose basis is "outside" is optional', step.review_system)
         self.assertIn("Never count words or judge the length yourself", step.review_system)
-        self.assertIn("bie.brain.lesson-script-review/3", step.review_system)
+        self.assertIn("bie.brain.lesson-script-review/4", step.review_system)
         shown = step.review_user({"beats": [say_beat("b1", 260)], "parts": [], "title": "t", "notes": None})[0]["text"]
         self.assertIn("BIE's code measured: 2.0 spoken minutes; narration time 12.0-16.0 minutes", shown)
 
