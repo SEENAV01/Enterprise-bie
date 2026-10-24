@@ -21,7 +21,8 @@ record per step under ``records/``.
 
 Resume (``previous_lesson``): a run that stopped (the plan's own limit, the rupee cap) continues from its
 ``lesson_plan.json``. The plan and every script that passed are reused when the chapter map is the same (same
-naksha) and they still pass today's code checks; everything else runs again.
+naksha) and they still pass today's code checks; every other script with beats continues from its last answer (round 0
+of the runner checks it with today's checks; the maker then patches only today's problems, Task 045d job B2).
 
 Time and prerequisites (Navin, 23 October 2026; S2-01, S2-02, S2-03): narration is 6-8 minutes per book page.
 Every teachable item has an equal share of its page; a concept's budget is the sum of its items' shares, and a
@@ -795,7 +796,7 @@ def script_prefixes(course, rulebook):
 
 
 def script_step(course: Course, chapter, plan, video, *, rulebook, max_rounds=3, naksha=None, prefixes=None,
-                max_output_tokens=DEFAULT_OUTPUT_TOKENS) -> Step:
+                max_output_tokens=DEFAULT_OUTPUT_TOKENS, start: dict | None = None) -> Step:
     naksha = naksha or chapter_naksha(chapter)
     prefix, review_prefix = prefixes or script_prefixes(course, rulebook)
     card = script_card(course, chapter, naksha, plan, video, rulebook=rulebook, prefix=prefix, max_output_tokens=max_output_tokens)
@@ -829,7 +830,8 @@ def script_step(course: Course, chapter, plan, video, *, rulebook, max_rounds=3,
                 check=lambda value: check_script(value, chapter, video, course.language, card, budget),
                 review_system=review_prefix.text, review_user=review_user, review_schema=REVIEW_SCHEMA,
                 review_problems=review_problems, patch_schema=SCRIPT_PATCH_SCHEMA, apply_patch=apply_script_patch,
-                patch_hint=patch_hint, max_rounds=max_rounds, card=card, observe=observe, normalize=tidy_script)
+                patch_hint=patch_hint, max_rounds=max_rounds, card=card, observe=observe, normalize=tidy_script,
+                start=start)
 
 
 def tidy_script(value: dict) -> tuple:
@@ -851,38 +853,57 @@ def _script_value(video_entry: dict) -> dict:
     return {"notes": None, "title": video_entry.get("title", ""), "parts": video_entry.get("parts") or [], "beats": beats}
 
 
+CONTINUE_LIMIT = 10        # an earlier script with at most this many problems today is finished, not written again
+
+
+def close_enough(problems: list) -> bool:
+    """An earlier script is worth continuing when it has few problems today and none of them means missing content (an
+    item or a teacher question not covered, S2-02) or a script far too short; otherwise it is written again."""
+    return len(problems) <= CONTINUE_LIMIT and not any("(S2-02)" in p or "speaks only about" in p for p in problems)
+
+
 def reusable(previous: dict | None, chapter: dict, naksha: dict, course: Course, rulebook) -> tuple:
-    """(plan or None, {video id: script value}, notes): what an earlier lesson run may give this one.
+    """(plan or None, {video id: script value}, notes, {video id: script value to continue}): what an earlier lesson run
+    may give this one.
 
     Nothing is reused when the chapter map changed (another naksha). The plan is reused when it passed and still
     passes today's checks; a script only with its plan, when it passed and still passes today's checks on today's card.
+    Every other script of that plan that has beats (it failed, stopped, or passed but fails today's checks) and is close
+    enough (``close_enough``) is continued: its last answer is the start of the new run, which fixes only today's problems
+    instead of writing it again (job B, 24 October 2026: three of the seven scripts written again from scratch failed on
+    new words of their own). A script far from passing is written again.
     """
-    notes = []
+    notes, starts = [], {}
     if not previous:
-        return None, {}, notes
+        return None, {}, notes, starts
     if previous.get("naksha_sha256") != naksha["sha256"]:
-        return None, {}, ["the chapter map changed since the earlier run, so nothing is reused"]
+        return None, {}, ["the chapter map changed since the earlier run, so nothing is reused"], starts
     plan = previous.get("plan") or {}
     if previous.get("plan_status") != "passed" or not plan.get("videos"):
-        return None, {}, ["the earlier plan did not pass, so the plan and the scripts run again"]
+        return None, {}, ["the earlier plan did not pass, so the plan and the scripts run again"], starts
     problems = check_plan(plan, chapter)
     if problems:
-        return None, {}, [f"the earlier plan fails today's checks ({problems[0][:120]}), so it runs again"]
+        return None, {}, [f"the earlier plan fails today's checks ({problems[0][:120]}), so it runs again"], starts
     prefix = script_prefixes(course, rulebook)[0]
     scripts = {}
     by_id = {v["video_id"]: v for v in previous.get("videos") or []}
     for video in plan["videos"]:
         entry = by_id.get(video["video_id"])
-        if not entry or entry.get("status") != "passed":
+        if not entry or not entry.get("beats"):
             continue
         card = script_card(course, chapter, naksha, plan, video, rulebook=rulebook, prefix=prefix)
         value = tidy_script(_script_value(entry))[0]
         problems = check_script(value, chapter, video, course.language, card, video_budget(chapter, plan["videos"], video))
-        if problems:
-            notes.append(f"{video['video_id']} fails today's checks ({problems[0][:120]}), so it runs again")
-            continue
-        scripts[video["video_id"]] = value
-    return plan, scripts, notes
+        vid, status = video["video_id"], entry.get("status", "did not pass")
+        if status == "passed" and not problems:
+            scripts[vid] = value
+        elif close_enough(problems):
+            starts[vid] = value
+            notes.append(f"{vid} fails today's checks ({problems[0][:120]}), so it continues from its last answer" if problems
+                         else f"{vid} {status} earlier, so it continues from its last answer")
+        else:
+            notes.append(f"{vid} fails today's checks ({problems[0][:120]}), so it runs again")
+    return plan, scripts, notes, starts
 
 
 def run_lesson(chapter: dict, course: Course, runner, out_dir, *, workers: int = 4, max_rounds: int = 3,
@@ -896,7 +917,7 @@ def run_lesson(chapter: dict, course: Course, runner, out_dir, *, workers: int =
     step = plan_step(course, chapter, rulebook=runner.rulebook, max_rounds=max_rounds, naksha=naksha,
                      max_output_tokens=max_output_tokens)
     book.add(step.card)
-    old_plan, old_scripts, resume_notes = reusable(previous_lesson, chapter, naksha, course, runner.rulebook)
+    old_plan, old_scripts, resume_notes, starts = reusable(previous_lesson, chapter, naksha, course, runner.rulebook)
     if old_plan is not None:
         plan_result = StepResult(SECTION, "plan", "passed", dict(old_plan, notes=None), record_path=None)
     else:
@@ -905,7 +926,8 @@ def run_lesson(chapter: dict, course: Course, runner, out_dir, *, workers: int =
     videos = plan.get("videos") or [] if plan_result.passed else []
     prefixes = script_prefixes(course, runner.rulebook)
     steps = [script_step(course, chapter, plan, v, rulebook=runner.rulebook, max_rounds=max_rounds, naksha=naksha,
-                         prefixes=prefixes, max_output_tokens=max_output_tokens) for v in videos]
+                         prefixes=prefixes, max_output_tokens=max_output_tokens,
+                         start=starts.get(v["video_id"]) if old_plan is not None else None) for v in videos]
     for step in steps:
         book.add(step.card)
     fresh = [(v, s) for v, s in zip(videos, steps) if v["video_id"] not in old_scripts]
@@ -934,6 +956,7 @@ def run_lesson(chapter: dict, course: Course, runner, out_dir, *, workers: int =
             "status": result.status,
             "rounds": len(result.rounds) if video["video_id"] not in old_scripts else previous_videos[video["video_id"]]["rounds"],
             "reused": video["video_id"] in old_scripts,
+            "continued": video["video_id"] in starts and video["video_id"] not in old_scripts and old_plan is not None,
             "parts": (result.output or {}).get("parts", []),
             "card_parts": [{k: p[k] for k in ("part_id", "type", "item_ids")} for p in step.card["parts"]],
             "beats": [dict(b, subtitle=hinglish.subtitle_text(b["say"]), voice=hinglish.voice_text(b["say"]))
@@ -958,6 +981,7 @@ def run_lesson(chapter: dict, course: Course, runner, out_dir, *, workers: int =
                                      "share": round(sum(v["dohraav"]["restating"] for v in lesson["videos"]) / judged, 3) if judged else 0.0,
                                      "opened_share": round(sum(v["dohraav"]["opened"] for v in lesson["videos"]) / judged, 3) if judged else 0.0},
                          "videos_reused": sum(1 for v in lesson["videos"] if v["reused"]),
+                         "videos_continued": sum(1 for v in lesson["videos"] if v.get("continued")),
                          "plan_passed": plan_result.passed, "beats": sum(len(v["beats"]) for v in lesson["videos"]),
                          "spoken_words": words, "estimated_minutes_at_130_wpm": round(words / 130, 1),
                          "budget_minutes": {"topic_videos": list(chapter_budget(chapter, videos)) if videos else None,
@@ -988,6 +1012,7 @@ def render_markdown(lesson: dict) -> str:
              f"Plan: {lesson['plan_status']}" + (" (reused)" if lesson.get("plan_reused") else "")
              + f"; scripts passed: {q['videos_passed']} of {q['videos']}"
              + (f" ({q['videos_reused']} reused)" if q.get("videos_reused") else "")
+             + (f" ({q['videos_continued']} continued from an earlier run)" if q.get("videos_continued") else "")
              + f"; {q['beats']} beats, {q['spoken_words']} spoken words (about {q['estimated_minutes_at_130_wpm']} minutes); "
              f"estimated cost {money(q['cost_usd'], lesson)}." + checker.get(independence, "")
              + (f" Dohraav (beats that only restate the book): {q['dohraav']['restating']} of {q['dohraav']['judged_beats']} "
@@ -1007,7 +1032,8 @@ def render_markdown(lesson: dict) -> str:
     for video in lesson["videos"]:
         minutes = plans.get(video["video_id"], {}).get("estimated_minutes", "")
         lines.append(f"| {video['video_id']} | {video.get('kind', 'topic')} | {video['title']} | {video['status']}"
-                     + (" (reused)" if video.get("reused") else "") + f" | {video['rounds']} | {minutes} | "
+                     + (" (reused)" if video.get("reused") else "") + (" (continued)" if video.get("continued") else "")
+                     + f" | {video['rounds']} | {minutes} | "
                      + ("{}-{}".format(*video["budget_minutes"]) if video.get("budget_minutes") else "") + " | "
                      + (f"{video['spoken_minutes']}" if video.get("spoken_minutes") is not None else "") + " | "
                      + (f"{video['dohraav']['restating']}/{video['dohraav']['judged']}" if video.get("dohraav") else "") + " |")
@@ -1029,7 +1055,7 @@ def video_lines(lesson: dict, video: dict, *, level: int) -> list:
     h = "#" * level
     p = {v["video_id"]: v for v in lesson["plan"].get("videos", [])}.get(video["video_id"], {})
     lines = [f"{h} {video['video_id']} · {video['title']} · {video['status']} after {video['rounds']} round(s)"
-             + (" · reused" if video.get("reused") else ""), "",
+             + (" · reused" if video.get("reused") else "") + (" · continued from an earlier run" if video.get("continued") else ""), "",
              (f"Kind: {'pehle yeh jaan lo (prerequisite video)' if video.get('kind') == PREREQUISITE_VIDEO else 'topic video'}"
               + (" · budget {}-{} minutes".format(*video["budget_minutes"]) if video.get("budget_minutes") else "")
               + (f" · spoken about {video['spoken_minutes']} minutes" if video.get("spoken_minutes") is not None else "")

@@ -756,8 +756,32 @@ class LessonResumeAndPages(unittest.TestCase):
             self.assertTrue(again["plan_reused"])
             self.assertEqual([v["reused"] for v in again["videos"]], [False, False, True])
             self.assertTrue(calls)
-            self.assertTrue(any("v1 fails today's checks" in n for n in again["resume_notes"]))
+            self.assertTrue(any("v1 fails today's checks" in n and n.endswith("so it runs again") for n in again["resume_notes"]))
+            self.assertIn("v0 stopped earlier, so it continues from its last answer", again["resume_notes"])
+            self.assertEqual([v["continued"] for v in again["videos"]], [True, False, False])   # v1 lacks content: written again
             self.assertEqual(again["quality"]["videos_passed"], 3)
+
+    def test_a_failed_script_continues_from_its_last_answer(self):
+        """Task 045d job B2: a script that failed an earlier run is not written again from scratch; round 0 checks its last
+        answer with today's checks, and a clean one goes straight to the reviewer (no maker call)."""
+        with tempfile.TemporaryDirectory() as first, tempfile.TemporaryDirectory() as second:
+            lesson, _ = self.run_lesson(first)
+            previous = copy.deepcopy(lesson)
+            previous["videos"][1]["status"] = "failed"                    # failed by a word today's list knows
+            from bie.brain.lesson import run_lesson
+            maker, reviewer = BrainFakeClient("anthropic"), BrainFakeClient("openai")
+            runner = SectionRunner(gateway(maker, reviewer), maker="anthropic", reviewer="openai", rulebook=BOOK,
+                                   records_dir=Path(second, "records"))
+            again = run_lesson(small_chapter(), COURSE, runner, second, workers=1, previous_lesson=previous)
+            self.assertEqual(maker.calls, [])                              # nothing written again
+            self.assertEqual(len(reviewer.calls), 1)                        # the review of v1's last answer
+            self.assertEqual([(v["reused"], v["continued"]) for v in again["videos"]], [(True, False), (False, True), (True, False)])
+            self.assertEqual(again["quality"]["videos_continued"], 1)
+            self.assertEqual(again["quality"]["videos_passed"], 3)
+            self.assertIn("v1 failed earlier, so it continues from its last answer", again["resume_notes"])
+            record = json.loads(Path(second, "records", again["videos"][1]["record"]).read_text(encoding="utf-8"))
+            self.assertEqual([(r["round"], r["mode"]) for r in record["rounds"]], [(0, "resume")])
+            self.assertIn("(continued)", Path(second, "SCRIPT.md").read_text(encoding="utf-8"))
 
     def test_nothing_is_reused_when_the_chapter_map_changed(self):
         with tempfile.TemporaryDirectory() as first, tempfile.TemporaryDirectory() as second:

@@ -64,7 +64,8 @@ def measure(folders) -> dict:
     for step, rows in groups.items():
         n = len(rows)
         rounds = [len(r["rounds"]) for _, r, _ in rows]
-        first = [u for u, r, _ in rows if r["status"] == "passed" and len(r["rounds"]) == 1]
+        continued = [u for u, r, _ in rows if r["rounds"] and r["rounds"][0].get("mode") == "resume"]   # round 0: an earlier answer
+        first = [u for u, r, _ in rows if r["status"] == "passed" and len(r["rounds"]) == 1 and u not in continued]
         maker_in = sum((rd.get("maker") or {}).get("input_tokens", 0) for _, r, _ in rows for rd in r["rounds"])
         maker_out = sum((rd.get("maker") or {}).get("output_tokens", 0) for _, r, _ in rows for rd in r["rounds"])
         check_in = sum((rd.get("review") or {}).get("input_tokens", 0) for _, r, _ in rows for rd in r["rounds"])
@@ -80,7 +81,7 @@ def measure(folders) -> dict:
                         severity[finding.get("severity", "blocking")] += 1
                         kinds[key] += 1
         result[step] = {
-            "units": n, "passed": sum(1 for _, r, _ in rows if r["status"] == "passed"),
+            "units": n, "passed": sum(1 for _, r, _ in rows if r["status"] == "passed"), "continued": len(continued),
             "first_try": len(first), "first_try_rate": round(len(first) / n, 3) if n else None,
             "rounds_per_unit": round(sum(rounds) / n, 2) if n else None,
             "maker_tokens_per_unit": [round(maker_in / n), round(maker_out / n)] if n else None,
@@ -103,6 +104,8 @@ def markdown(result: dict) -> str:
 
     row("Units passed", lambda m: f"{m['passed']} of {m['units']}")
     row("First-try pass", lambda m: f"{m['first_try']} of {m['units']} ({m['first_try_rate']:.0%})")
+    if any(result[s].get("continued") for s in steps):
+        row("Continued from an earlier answer", lambda m: f"{m.get('continued', 0)} of {m['units']}")
     row("Rounds per unit", lambda m: f"{m['rounds_per_unit']}")
     row("Maker tokens per unit (in · out)", lambda m: "{:,} · {:,}".format(*m["maker_tokens_per_unit"]))
     row("Checker tokens per unit (in · out)", lambda m: "{:,} · {:,}".format(*m["checker_tokens_per_unit"]))
