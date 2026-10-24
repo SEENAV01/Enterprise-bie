@@ -39,6 +39,7 @@ import hashlib
 import json
 import os
 import sys
+from dataclasses import replace
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -46,9 +47,10 @@ sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "tools"))
 
 from bie.brain import cost as cost_module  # noqa: E402
+from bie.brain import level as level_module  # noqa: E402
 from bie.brain import rulebook as rulebook_module  # noqa: E402
 from bie.brain.fake import BrainFakeClient  # noqa: E402
-from bie.brain.pages import parse_page_range  # noqa: E402
+from bie.brain.pages import load_pages, parse_page_range  # noqa: E402
 from bie.brain.runner import SectionRunner  # noqa: E402
 from bie.brain.director import run_director  # noqa: E402
 from bie.brain.game import run_game_design  # noqa: E402
@@ -129,7 +131,16 @@ def page_total(pdf_bytes: bytes, spec: str | None) -> int:
     return len(parse_page_range(spec, count))
 
 
-GRACEFUL = ("stopped", "stopped: budget", "stopped: plan limit")
+GRACEFUL = ("stopped", "stopped: budget", "stopped: plan limit", "stopped: level")
+
+
+def book_text(*, pdf: bytes | None = None, pages: str | None = None, chapter: dict | None = None) -> str:
+    """The book's own text for the level inference: the selected pages' blocks, or a chapter map's item content."""
+    if pdf is not None:
+        _, _, page_list = load_pages(pdf, pages, with_images=False)
+        return "\n".join(block.text for page in page_list for block in page.blocks)
+    items = (chapter or {}).get("items") or {}
+    return "\n".join(str(item.get("content") or "") for item in items.values())
 
 
 def chapter_pages(chapter: dict) -> int:
@@ -167,6 +178,10 @@ def main(argv=None):
     parser.add_argument("--learners", default="")
     parser.add_argument("--exam", default="")
     parser.add_argument("--language", default="Hinglish")
+    parser.add_argument("--level", default="", help="level profile id (bie/brain/rulebook/level_profiles.json: school, neet_11_12, "
+                        "upsc_pcs, revision); default: from the course words and the book's text")
+    parser.add_argument("--trust-level", action="store_true",
+                        help="Navin's answer: teach at the setting's level even where the book reads as another band")
     parser.add_argument("--maker", choices=PROVIDERS + ("codex",), default="openai",
                         help="codex = GPT through the ChatGPT Pro plan with the Codex CLI (private machine only)")
     parser.add_argument("--reviewer", choices=PROVIDERS, default="google")
@@ -185,9 +200,11 @@ def main(argv=None):
     args = parser.parse_args(argv)
     for pair in filter(None, (part.strip() for part in args.course.split(";"))):
         key, sep, value = pair.partition("=")
-        if not sep or key.strip() not in ("title", "subject", "learners", "exam", "language"):
+        if not sep or key.strip() not in ("title", "subject", "learners", "exam", "language", "level"):
             raise SystemExit("BAD_COURSE_FIELD:" + pair)
         setattr(args, key.strip(), value.strip())
+    if args.level and args.level not in level_module.load().profiles:
+        raise SystemExit("UNKNOWN_LEVEL:" + args.level + " (known: " + ", ".join(level_module.load().profiles) + ")")
     if args.maker == args.reviewer and not args.reviewer_model:
         raise SystemExit("MAKER_AND_REVIEWER_MUST_DIFFER")
     if args.max_inr <= 0:
@@ -211,7 +228,8 @@ def main(argv=None):
         runner = SectionRunner(gateway, maker=args.maker, reviewer=reviewer, rulebook=book, records_dir=out / "records")
         summary.update(reviewer_route=reviewer, reviewer_independence=runner.independence)
         course = Course(title=args.title or "Chapter", subject=args.subject or "as in the chapter",
-                        learners=args.learners or "learners of this book", exam=args.exam or "their exam", language=args.language)
+                        learners=args.learners or "learners of this book", exam=args.exam or "their exam", language=args.language,
+                        level=args.level)
         summary.update(status="ok", rulebook=book.version)
         # Inputs first, so the estimate knows the page count.
         if args.section in ("understand", "chain"):
@@ -219,6 +237,7 @@ def main(argv=None):
                 raise SystemExit("SOURCE_REQUIRED")
             pdf = read_source(args.source)
             pages = page_total(pdf, args.pages)
+            text = book_text(pdf=pdf, pages=args.pages)
             previous = json.loads(read_text(args.resume_from.rstrip("/") + "/chapter_map.json")) if args.resume_from else None
             if previous and previous.get("source_sha256") == hashlib.sha256(pdf).hexdigest():
                 selected = set(parse_page_range(args.pages, previous.get("page_count") or pages))
@@ -232,6 +251,7 @@ def main(argv=None):
                 previous_lesson = json.loads(read_text(args.resume_from.rstrip("/") + "/lesson_plan.json"))
             course = Course(**chapter["course"]) if not args.course else course
             pages = chapter_pages(chapter)
+            text = book_text(chapter=chapter)
         else:
             if not args.from_run:
                 raise SystemExit("FROM_RUN_REQUIRED")
@@ -242,6 +262,17 @@ def main(argv=None):
                 director = json.loads(read_text(base + "director.json"))
             course = Course(**chapter["course"]) if not args.course else course
             pages = chapter_pages(chapter)
+            text = book_text(chapter=chapter)
+        # The level (Task 045d): the setting's profile, checked against the book's text; a disagreement is Navin's to settle.
+        if args.level:
+            course = replace(course, level=args.level)
+        chosen = level_module.choose(course, text, trust_setting=args.trust_level)
+        course = replace(course, level=chosen.profile_id)
+        summary["level"] = chosen.as_dict()
+        notice("level", f"{chosen.profile_id} ({chosen.source}; book band: {chosen.band or 'unknown'}; {chosen.evidence.get('reason', '')})")
+        if chosen.disagreement:
+            summary.update(status="stopped: level", error=chosen.disagreement)
+            notice("level disagreement", chosen.disagreement, "warning")
         maker_via = getattr(getattr(gateway.routes[args.maker], "client", None), "via", "direct")
         estimate = cost_module.estimate(args.section, summary.get("resume", {}).get("pages_to_run", pages), rate=rate,
                                         maker_model=gateway.model_of(args.maker), reviewer_model=gateway.model_of(reviewer),
@@ -249,7 +280,8 @@ def main(argv=None):
         summary["estimate"] = estimate
         notice("pahra andaaza", cost_module.estimate_line(estimate, args.max_inr),
                "warning" if estimate["total_inr"] > args.max_inr else "notice")
-        checked = preflight(gateway, vision=args.section in ("understand", "chain", "visual"))
+        checked = (preflight(gateway, vision=args.section in ("understand", "chain", "visual")) if summary["status"] == "ok"
+                   else {"passed": False, "routes": {}, "skipped": summary["status"]})   # a level stop spends nothing
         summary["preflight"] = checked
         for route, entry in checked["routes"].items():
             if entry["status"] != "ok":
@@ -258,7 +290,7 @@ def main(argv=None):
                 notice(f"pahra wallet {route}", redact(json.dumps(entry["wallet"]), secrets))
             if entry.get("plan_usage_before"):
                 notice(f"pahra plan {route}", "before the run: " + redact(json.dumps(entry["plan_usage_before"]), secrets))
-        if not checked["passed"]:
+        if not checked["passed"] and summary["status"] == "ok":
             summary.update(status="stopped: preflight",
                            error="a preflight call failed, so no section was run (see the pahra preflight annotations)")
         if args.section in ("understand", "chain") and summary["status"] == "ok":

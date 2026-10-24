@@ -1,18 +1,56 @@
 # BIE Status
 
-Updated: 23 October 2026 · Read this first in every new session, then show Navin the current task card.
+Updated: 24 October 2026 · Read this first in every new session, then show Navin the current task card.
 
 ## Now
 
 | Field | Value |
 | --- | --- |
 | Phase | 1 · BIE as one whole system; plan agreed on 22 October 2026 (ROADMAP, "Agreed on 22 October 2026") |
-| Current task | 045 PR B · the tissue chapter live: all 14 pages, the chapter map and the script (maker Codex, checker Gemini 4 Argon) |
-| Branch | `task045-tissue-script-done` (docs); runs as jobs on `codex-jobs` |
-| State | Job 1 (14 pages, map) and job 2 (plan, 17 scripts) finished on 23 October 2026: 14/14 pages, map passed, 15/17 scripts passed; Gemini ₹165.55 of ₹250. Navin's decisions on the run are recorded below; the fixes (length rule, prerequisite video and map trim, bracket quality, Section 1 typo and basis rules, caching probe) are merged with PR #53 (`0ca5763d`, all checks green); rule CI-2 with PR #54; the F-11 native-render fix with PR #55 (`cb198dff`, Navin's yes). Caching probe done (run 40007533161): Gemini 4 Argon through AICredits gives no prompt-cache discount (a repeated 5,246-token prefix: 0 cached tokens, 0 cache writes), AICredits billed ₹2.43 against a ledger estimate of ₹2.24. Job 3 (`t045c-tissue-lesson-v2`, 34.6 minutes, Gemini ₹78.17): the map's prerequisites trimmed 30 → 8, plan with v0 and 10 topic videos, 6 of 11 scripts passed; the 5 failures were a loop between the time rule and a reviewer that still asked for optional outside questions (SEEKH_LOG entry 4). The fix merged with PR #57 (`0dd27ec2`); the resumed job passed 4 of the 5 (reviewer: 0 blocking findings), so 10 of 11 videos pass, 113.9 spoken minutes, Gemini ₹99.56 of ₹150 (SEEKH_LOG entry 5). v9 failed by 0.1 minute after its patches cut recap beats; that fix merged with PR #58 (`2d1bafa4`) and v9 then passed. **The tissue script step is complete: 11 of 11 videos pass** (113.6 spoken minutes: v0 7.4, topic videos 106.2 against 84–112); Gemini for the rerun ₹106.43 of ₹150. Final folder: `blindtest-results:runs/vm-t045c-tissue-lesson-v9-brain-lesson/` (SCRIPT.md, scripts/v0.md … v10.md). Waiting for Navin's verdict on the scripts (SEEKH_LOG entry 6). The other five chapters wait. Task 044b is not started |
-| Next task | 045 PR B · live runs of Sections 1 and 2 on cards, then 046 |
-| Canonical main | `2d1bafa4` (PR #58; before it PR #57 `0dd27ec2`, PR #53 `0ca5763d`, PR #55 F-11 `cb198dff`) |
+| Current task | 045d · teaching soul (Navin's verdict of 24 October 2026: the scripts restate the book): every book line opened, level profiles, the family pattern, dohraav pakad, the teacher example bank, the explanation library and the Task 046 benchmark (`docs/vision/TEACHING_SOUL.md`); then the tissue understanding and script run again (maker Codex, Gemini checker cap ₹200) |
+| Branch | `task045d-teaching-soul` (code, rules, docs); runs as jobs on `codex-jobs` |
+| State | **24 October 2026:** Navin read the 11 tissue scripts and gave his verdict: they restate the book ("epithelium absorptive aur secretive surfaces par milta hai") instead of opening it. Measured with the new detector: 155 of 540 judged beats (28.7%) only restate, 35 topics open without a question, 17 clipped note-sentences, 4 duplicate recaps (SEEKH_LOG entry 7). Task 045d builds the answer into BIE for every subject (section below); IMPLEMENTED offline, nothing INTEGRATED until the rerun, nothing ACCEPTED until Navin's verdict on old v2 against new v2. Earlier: job 1 (14 pages, map) and job 2 (plan, 17 scripts) finished on 23 October 2026: 14/14 pages, map passed, 15/17 scripts passed; Gemini ₹165.55 of ₹250. Navin's decisions on the run are recorded below; the fixes (length rule, prerequisite video and map trim, bracket quality, Section 1 typo and basis rules, caching probe) are merged with PR #53 (`0ca5763d`, all checks green); rule CI-2 with PR #54; the F-11 native-render fix with PR #55 (`cb198dff`, Navin's yes). Caching probe done (run 40007533161): Gemini 4 Argon through AICredits gives no prompt-cache discount (a repeated 5,246-token prefix: 0 cached tokens, 0 cache writes), AICredits billed ₹2.43 against a ledger estimate of ₹2.24. Job 3 (`t045c-tissue-lesson-v2`, 34.6 minutes, Gemini ₹78.17): the map's prerequisites trimmed 30 → 8, plan with v0 and 10 topic videos, 6 of 11 scripts passed; the 5 failures were a loop between the time rule and a reviewer that still asked for optional outside questions (SEEKH_LOG entry 4). The fix merged with PR #57 (`0dd27ec2`); the resumed job passed 4 of the 5 (reviewer: 0 blocking findings), so 10 of 11 videos pass, 113.9 spoken minutes, Gemini ₹99.56 of ₹150 (SEEKH_LOG entry 5). v9 failed by 0.1 minute after its patches cut recap beats; that fix merged with PR #58 (`2d1bafa4`) and v9 then passed. **The tissue script step is complete: 11 of 11 videos pass** (113.6 spoken minutes: v0 7.4, topic videos 106.2 against 84–112); Gemini for the rerun ₹106.43 of ₹150. Final folder: `blindtest-results:runs/vm-t045c-tissue-lesson-v9-brain-lesson/` (SCRIPT.md, scripts/v0.md … v10.md). Waiting for Navin's verdict on the scripts (SEEKH_LOG entry 6). The other five chapters wait. Task 044b is not started |
+| Next task | 045d run: the tissue understanding (14 pages + map) and the script again under the new rules, Gemini cap ₹200 in all; old v2 against new v2 and the dohraav number before and after for Navin; then 046 (director, video blocks, benchmark video) |
+| Canonical main | `c25b5852` (PR #59 docs; before it PR #58 `2d1bafa4`, PR #57 `0dd27ec2`, PR #53 `0ca5763d`, PR #55 F-11 `cb198dff`) |
 | Keys | Never the Anthropic key. GPT API key off. Gemini key (AICredits) for the checker; it may call only `google/gemini-4-argon`. GPT only through ChatGPT Pro, signed in with Codex on Navin's machine (Hostinger KVM 2, Mumbai) |
+
+## Task 045d · teaching soul (24 October 2026, PR open)
+
+Navin's decisions of 24 October 2026 (binding; `docs/vision/TEACHING_SOUL.md` summarises them): BIE is the link between the
+learner and the book, like a teacher; it never just reads the line out. The level follows the book's own text combined with
+the course setting, and a disagreement is his to settle. Two layers like a film: the writer layer (understanding, plan,
+script) follows the level; the presentation layer (director, blocks, render) is the same skilled quality for every learner.
+The video stays code-rendered through two routes (A: three.js in Remotion; C: Blender-made or licensed 3D models animated by
+BIE code), planned in ROADMAP Task 046 with a head-to-head and a merge path. Every explanation his verdict locks is reused.
+
+Built (IMPLEMENTED, offline with the fake AI; the Task 045 lane is green):
+
+- **Section 1 unpack** (`bie/brain/soul.py`, `understanding.py`, schema `bie.brain.understand-page/3`, naksha `/2`): every
+  teachable item carries terms (plain meaning in simple Hindi, everyday image), a why chain from a need with its basis, an
+  example or place, a consequence, a visual verb and the level's extra; code check S1-15 (at least one element, every why
+  step with its basis, the chain within the level); the unpack reaches the script maker and the naksha.
+- **Level profiles** (`bie/brain/level.py`, `rulebook/level_profiles.json`: school, neet_11_12, upsc_pcs, revision; Navin
+  edits the file): chosen from the course setting (`--level`, or the words of learners and exam) and checked against the
+  book's text (markers, then the share of long words); a disagreement stops the run before any call (`stopped: level`) and
+  asks Navin; `--level <id> --trust-level` records his answer in every record. The tissue chapter reads as senior secondary
+  and fits UPSC, so the rerun needs no question.
+- **Section 2** (`lesson.py`, schema `bie.brain.lesson-script/3`): pattern steps flexible with a stated reason
+  (`skipped_steps`), the family pattern for a classification (`content_types.json` 2026-10-24.1), one recap per part;
+  code checks S2-07: dohraav pakad (a beat whose English content words are 60% or more the book's own with no yaani / why /
+  example / contrast marker goes back), clipped verbless sentences, a question at every topic's opening, duplicate recaps;
+  the `dohraav` measure per video and per run, and `tools/dohraav.py` for any run folder.
+- **Teacher example bank** (`rulebook/teacher_examples.json`: 7 opening steps, 10 methods with examples, Navin's own
+  absorptive/secretive example and "slender yaani long aur narrow") in every page and script prefix; **explanation
+  library** (`bie/brain/explanations.py`, `rulebook/explanations.json`: Navin's three entries) looked up by term for every
+  page and script, locked only through `tools/lock_explanations.py` after his verdict.
+- **Rulebook** `vision-2026-10-21@2026-10-21.12`: G-06, G-07, S1-15, S2-07, S3-06; the rulebook version counts the three
+  new data files. **Benchmark** `rulebook/benchmarks/epithelium_animation.json` (12 rules, 22 shots, the blocks of Task 046).
+- **Guard:** both saved sets still pass; the new rules show as waived rule changes (S1-15, S2-07, the family pattern), the
+  regression guard reads each rulebook component's version; `tests/test_task045d_soul.py` (30 tests) joins the Task 045 lane.
+- A detector fix on the way: the Hindi verb check glued the danda to the verb ("… है।" read as verbless); fixed and tested.
+
+Run after merge (Navin's brief): the tissue understanding (14 pages + map) and the script again on the VM, maker Codex,
+Gemini checker, cap ₹200 in all; then old v2 against new v2 side by side and the dohraav number before and after.
 
 ## Task 045 · understanding and script on the tarazu (22 October 2026, PR A merged)
 

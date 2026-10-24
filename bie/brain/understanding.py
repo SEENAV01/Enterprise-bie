@@ -30,15 +30,18 @@ from pathlib import Path
 from . import cards
 from . import content_types as ct
 from . import engines
+from . import explanations
+from . import level as level_module
 from . import naksha as naksha_module
+from . import soul
 from .common import SEVERITY, S, arr, checklist_text, fmt, obj, review_problems
 from .runner import NOTES_SCHEMA, SectionRunner, Step, merge_notes
 
 SECTION = "understand"
 CONNECT = "connect"
-PAGE_VERSION = "understand-page/2"
+PAGE_VERSION = "understand-page/3"
 CONNECT_VERSION = "understand-connect/3"
-PAGE_SCHEMA_ID = "bie.brain.understand-page/2"
+PAGE_SCHEMA_ID = "bie.brain.understand-page/3"
 CONNECT_SCHEMA_ID = "bie.brain.chapter-connect/3"
 DEFAULT_OUTPUT_TOKENS = 32000
 
@@ -61,6 +64,12 @@ class Course:
     learners: str
     exam: str
     language: str
+    level: str = ""         # a level profile id (level_profiles.json); "" = from the setting's words and the book's text
+
+    def profile(self):
+        """The level profile this course teaches at (the setting's, never the book's: that is chosen in the run)."""
+        profiles = level_module.load()
+        return profiles.get(self.level) if self.level else profiles.get(profiles.from_setting(self)[0] or profiles.default)
 
 
 _obj, _arr, S = obj, arr, S
@@ -87,6 +96,7 @@ ITEM_SCHEMA = _obj({
     "exam_importance": {"type": "string", "enum": ["high", "medium", "low"]},
     "exam_note": S,
     "tests_item_ids": _arr(S),
+    "unpack": soul.UNPACK_SCHEMA,
 })
 PAGE_SCHEMA = _obj({
     "notes": NOTES_SCHEMA,
@@ -195,6 +205,18 @@ How to fill the JSON:
   - prerequisites: concrete concepts a student must understand first.
   - exam_importance and exam_note: for this exam.
   - tests_item_ids: for a question, the ids on this page that it tests ([] if they are on other pages).
+  - unpack: how a teacher opens this book line for the learner (S1-15; BIE is the link between the learner and the book, never a
+    reader of the line). For every teachable item, at the depth of the level profile below:
+    terms = the words of the line the learner must own: [{term (as the book spells it), plain_meaning (simple Hindi in Devanagari,
+    the English term in Roman: "absorptive surface" → "जहाँ चीज़ें अंदर ली जाती हैं"), everyday_image (one image from the learner's
+    home or body: "आँत खाने के पोषक तत्व सोखती है, जैसे कागज़ पानी")}]; why_chain = the why in steps, starting from a need or a
+    problem ("पेट में HCl बनता है, इसलिए अंदर एक lining चाहिए"), each step with its basis: "book" when the page says it, "standard"
+    when it is standard textbook knowledge; example_or_place = one example, or the place by a zoom from the organ the learner knows;
+    consequence = what follows, and the link to the previous or the next idea of the page; visual_verb = what visibly happens on the
+    screen when this is taught ("particles cross the thin layer"); level_extra = what this level adds (the other names, the exam's
+    trap, the memory trick) or "". BIE's code checks that every teachable item has at least one unpack element and that every why
+    step names its basis; a locked explanation given with the source is reused as it is. A question item or a pure heading leaves
+    unpack empty.
 - boilerplate_block_ids: ids of running headers, page numbers, adverts, contact lines and watermarks only.
 - text_image_disagreements: where the text layer and the image differ.
 Reply with the JSON object only."""
@@ -209,8 +231,11 @@ Report concretely, each finding with a severity ("blocking" or "minor", see R-01
 - missing: anything visible on the page that no item captures (a table row, a cell, a diagram label, an arrow, a branch of a tree, a
   sentence, an equation), with where it is on the page;
 - wrong: an item whose reading, kind, content type, basis or answer is wrong at this learners' level, with the fix;
-- shallow: a teachable item whose questions and answers do not reach the understanding these learners need, with what is missing.
-Judge at the level of a standard textbook for these learners and their exam; precision beyond that level is minor.
+- shallow: a teachable item whose questions and answers do not reach the understanding these learners need, with what is missing;
+  an unpack that only restates the line (a plain_meaning that repeats the term, a why chain that does not start from a need or
+  whose steps name the wrong basis, an everyday image that is another textbook sentence) is shallow and blocking (S1-15).
+Judge at the level of a standard textbook for these learners and their exam, and at the depth of the level profile; precision beyond
+that level is minor.
 verdict is "pass" when nothing is blocking. Fill your own brief notes first.
 Reply with the JSON object only."""
 
@@ -341,11 +366,12 @@ def type_problems(rows) -> list:
             for r in rows if r["status"] == "disagree"]
 
 
-def check_page(value: dict, page, *, proposals: dict | None = None, card: dict | None = None, types=None) -> list:
+def check_page(value: dict, page, *, proposals: dict | None = None, card: dict | None = None, types=None, profile=None,
+               language: str = "Hinglish") -> list:
     """Problems BIE's code can see without understanding the content.
 
     With ``proposals`` (BIE's type per block) unexplained strong type differences go back to the maker; with ``card``
-    the block coverage is the card's must_cover, checked both ways.
+    the block coverage is the card's must_cover, checked both ways; ``profile`` is the level profile (how many why steps).
     """
     types = types or ct.load()
     problems = []
@@ -403,6 +429,8 @@ def check_page(value: dict, page, *, proposals: dict | None = None, card: dict |
             for q in qa:
                 if q["answer"].strip().lower() in ("", q["question"].strip().lower(), item["content"].strip().lower()):
                     problems.append(f"item {iid}: the answer to {q['question']!r} only repeats the question or the item")
+            if item["kind"] not in ct.ROLE_KINDS:
+                problems += soul.unpack_problems(item, profile=profile, language=language)
     for table in (i for i in items if i["kind"] == "table"):
         if not any(i.get("parent_item_id") == table["item_id"] and i["kind"] == "table_row" for i in items):
             problems.append(f"item {table['item_id']}: a table needs one table_row item per row (S1-03)")
@@ -502,14 +530,21 @@ def check_connect(value: dict, items: dict) -> list:
 
 # ---------------------------------------------------------------- steps
 
+PAGE_TEACHER_METHODS = ("everyday_image", "word_root", "why_from_need", "link_known", "meaning_with_examples",
+                        "navin_absorptive_secretive")
+
+
 def page_prefixes(course, rulebook, types=None):
     """(maker prefix, reviewer prefix) of read_page: the same bytes for every page of the run."""
     types = types or ct.load()
-    maker = cards.build_prefix(section=SECTION, task="read_page", version=2, schema_id=PAGE_SCHEMA_ID, schema=PAGE_SCHEMA,
-                               role=fmt(PAGE_ROLE, course), how=PAGE_HOW, rulebook=rulebook, course=course, types=types)
-    reviewer = cards.build_prefix(section=SECTION, task="read_page", version=2, schema_id="bie.brain.understand-page-review/2",
-                                  schema=PAGE_REVIEW_SCHEMA, role=PAGE_REVIEW_ROLE, how=PAGE_REVIEW_HOW, rulebook=rulebook,
-                                  course=course, types=types, review=True, checklist=checklist_text(rulebook, SECTION))
+    profile = course.profile()
+    how = PAGE_HOW + "\n\n" + profile.prefix_text() + "\n\n" + soul.teacher_text(ids=PAGE_TEACHER_METHODS)
+    maker = cards.build_prefix(section=SECTION, task="read_page", version=3, schema_id=PAGE_SCHEMA_ID, schema=PAGE_SCHEMA,
+                               role=fmt(PAGE_ROLE, course), how=how, rulebook=rulebook, course=course, types=types)
+    reviewer = cards.build_prefix(section=SECTION, task="read_page", version=3, schema_id="bie.brain.understand-page-review/3",
+                                  schema=PAGE_REVIEW_SCHEMA, role=PAGE_REVIEW_ROLE, how=PAGE_REVIEW_HOW + "\n\n" + profile.prefix_text(),
+                                  rulebook=rulebook, course=course, types=types, review=True,
+                                  checklist=checklist_text(rulebook, SECTION))
     return maker, reviewer
 
 
@@ -541,6 +576,9 @@ def page_step(course: Course, page, *, page_count: int, previous=None, following
     card = page_card(course, page, page_count=page_count, previous=previous, following=following, rulebook=rulebook,
                      prefix=prefix, proposals=proposals, skip=skip, max_output_tokens=max_output_tokens, types=types)
     source = f"Native text blocks of this page (id | text):\n{_blocks_text(page)}"
+    locked = explanations.load().source_lines(" ".join(b.text for b in page.blocks), subject=course.subject)
+    if locked:
+        source += "\n\nLocked explanations (Navin's verdict; reuse them as the unpack of the items that use these terms):\n" + locked
     image = [("The page image:", page.image_part())]
     user = cards.user_message(card, source, image, "Read this page with both eyes and answer the card with the page understanding JSON.")
 
@@ -553,8 +591,10 @@ def page_step(course: Course, page, *, page_count: int, previous=None, following
         rows = ct.compare(value.get("items") or [], proposals)
         return {"type_check": rows, "type_summary": ct.summary(rows)}
 
+    profile = course.profile()
     return Step(section=SECTION, unit=f"page-{page.number:03d}", instructions_version=PAGE_VERSION, system=prefix.text, user=user,
-                schema=PAGE_SCHEMA, check=lambda value: check_page(value, page, proposals=proposals, card=card, types=types),
+                schema=PAGE_SCHEMA, check=lambda value: check_page(value, page, proposals=proposals, card=card, types=types,
+                                                                   profile=profile, language=course.language),
                 review_system=review_prefix.text, review_user=review_user, review_schema=PAGE_REVIEW_SCHEMA,
                 review_problems=review_problems, patch_schema=PAGE_PATCH_SCHEMA, apply_patch=apply_page_patch,
                 patch_hint=PAGE_PATCH_HINT, max_rounds=max_rounds, card=card, observe=observe)
@@ -659,6 +699,7 @@ def passed_pages(previous_chapter: dict) -> dict:
                         tests_item_ids=[local(t) for t in item.get("tests_item_ids") or []],
                         content_type=naksha_module.item_type(item, concept_type.get(iid), types))
             item.setdefault("type_note", "")
+            item.setdefault("unpack", dict(soul.EMPTY_UNPACK))
             items.append(item)
         reused[page["page"]] = {"notes": None, "page_summary": page.get("summary", ""), "items": items,
                                 "boilerplate_block_ids": page.get("boilerplate_block_ids", []),
@@ -687,7 +728,8 @@ def run_chapter(pdf_bytes: bytes, course: Course, runner: SectionRunner, out_dir
         if page.number in offered:
             # Reuse only what still passes today's code checks (types, required questions, coverage).
             proposals = ct.propose_blocks(page.blocks, types)
-            problems = check_page(offered[page.number], page, proposals=proposals, types=types)
+            problems = check_page(offered[page.number], page, proposals=proposals, types=types, profile=course.profile(),
+                                  language=course.language)
             rechecked[page.number] = problems
             if not problems:
                 reuse[page.number] = offered[page.number]
@@ -721,6 +763,7 @@ def run_chapter(pdf_bytes: bytes, course: Course, runner: SectionRunner, out_dir
     chapter = {
         "schema": "bie.brain.chapter-map/2",
         "course": asdict(course),
+        "level": course.profile().id,
         "source_sha256": source_sha,
         "page_count": page_count,
         "rulebook_version": runner.rulebook.version,
@@ -780,6 +823,9 @@ def quality(chapter: dict) -> dict:
         "teacher_questions": len(qa),
         "deeper_questions": sum(1 for q in qa if q["depth"] >= 2),
         "outside_answers": sum(1 for q in qa if q["basis"] == "outside"),
+        "items_unpacked": sum(1 for i in teachable if soul.unpack_elements(i.get("unpack"))),
+        "terms_opened": sum(len((i.get("unpack") or {}).get("terms") or []) for i in teachable),
+        "why_steps": sum(len((i.get("unpack") or {}).get("why_chain") or []) for i in teachable),
         "type_check": (chapter.get("type_check") or {}).get("summary", {}),
         "naksha_tokens_estimate": (chapter.get("naksha") or {}).get("tokens_estimate"),
         "cost_usd": chapter["cost_usd"],
@@ -801,6 +847,9 @@ def render_markdown(chapter: dict) -> str:
              f"chapter map: {chapter['map_status']}",
              f"- Items: {q['items']} ({q['teachable_items']} teachable, {q['items_from_image']} read from the image)",
              f"- Teacher questions: {q['teacher_questions']} ({q['deeper_questions']} deeper why/how, {q['outside_answers']} from outside the book)",
+             f"- Opened for the learner (S1-15): {q.get('items_unpacked', 0)} of {q['teachable_items']} teachable items, "
+             f"{q.get('terms_opened', 0)} terms with a plain meaning, {q.get('why_steps', 0)} why steps"
+             + (f"; level {chapter['level']}" if chapter.get("level") else ""),
              f"- Estimated cost: {money(q['cost_usd'], chapter)} ({money(q['cost_usd_per_page'], chapter)} per page)"]
     if chapter.get("naksha"):
         n = chapter["naksha"]
@@ -884,6 +933,17 @@ def render_pages(chapter: dict) -> str:
                 indent = "  " * (qa["depth"] + 1)
                 tag = "" if qa["basis"] == "book" else " _(outside the book)_"
                 lines.append(f"{indent}- {qa['ask']}: {qa['question']} → {qa['answer']}{tag}")
+            unpack = item.get("unpack") or {}
+            if soul.unpack_elements(unpack):
+                lines.append("  - **khola (unpack):**")
+                for term in unpack.get("terms") or []:
+                    lines.append(f"    - {term['term']} yaani {term['plain_meaning']}" + (f" · image: {term['everyday_image']}" if term.get("everyday_image") else ""))
+                if unpack.get("why_chain"):
+                    lines.append("    - kyon: " + " → ".join(f"{s['step']} _[{s['basis']}]_" for s in unpack["why_chain"]))
+                for key, label in (("example_or_place", "example / jagah"), ("consequence", "aage"), ("visual_verb", "screen par"),
+                                   ("level_extra", "is level ke liye")):
+                    if (unpack.get(key) or "").strip():
+                        lines.append(f"    - {label}: {unpack[key]}")
             if item.get("prerequisites"):
                 lines.append("  - prerequisites: " + "; ".join(item["prerequisites"]))
         lines.append("")

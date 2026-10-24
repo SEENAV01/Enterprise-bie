@@ -61,7 +61,7 @@ The ledger now records `cached_input_tokens` per call (Task 043), so cache hits 
 | `rules` | Rule ids that apply (texts are in the prefix) | every id is a locked rule of this section |
 | `output` | Output schema id, `full` or `patch`, output token cap | the schema is the one in the prefix |
 | `coverage` | `must_cover` item ids, the output field that claims them, `may_skip` with a reason each | after the answer: every `must_cover` id is claimed; no claimed id is unknown; skips have reasons |
-| `context` | A slice of the compact chapter map (`[id, type, page, short text]` rows) and one line each on the previous and next unit | only ids that exist |
+| `context` | A slice of the compact chapter map (`[id, type, page, short text]` rows) and one line each on the previous and next unit. Since Task 045d the naksha's own item rows also carry a short `unpack` cell (the terms opened, the why steps, an example), and the script's source lists every item's full unpack and the locked explanations (`explanations.json`) | only ids that exist |
 | `source` | Native text block ids and page images (page and hash) sent with the card | the images sent have these hashes |
 
 ## The compact chapter map (shared by every section)

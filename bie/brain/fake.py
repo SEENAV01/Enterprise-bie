@@ -28,17 +28,29 @@ def _qa(text, asks=("what",)):
              "answer": f"Offline answer ({ask}) for " + text[:40]} for n, ask in enumerate(asks)]
 
 
-def _item(iid, text, *, source="text", block_ids=(), kind="paragraph", parent="", content_type="definition"):
+def _unpack(text, *, with_terms=True):
+    """An offline unpack (S1-15): one term opened in Devanagari, one why step with its basis, one example. One why step
+    fits every level profile; the revision profile adds no terms, so the fake drops them when the prefix says so."""
+    word = next((w for w in re.findall(r"[A-Za-z][A-Za-z\-]{3,}", text)), "topic")
+    return {"terms": [{"term": word, "plain_meaning": f"{word} यानी offline सरल अर्थ", "everyday_image": "घर की एक आम चीज़"}]
+            if with_terms else [],
+            "why_chain": [{"step": "ज़रूरत है, इसलिए यह offline वजह है", "basis": "book"}],
+            "example_or_place": "offline example", "consequence": "offline consequence", "visual_verb": "show",
+            "level_extra": ""}
+
+
+def _item(iid, text, *, source="text", block_ids=(), kind="paragraph", parent="", content_type="definition", with_terms=True):
     asks = ct.load().required_asks(content_type)
     return {"item_id": iid, "kind": kind, "parent_item_id": parent, "source": source, "block_ids": list(block_ids),
             "where_on_page": "offline", "content": text, "content_type": content_type, "type_note": "", "teachable": True,
             "teacher_understanding": [dict(q, basis="book") for q in _qa(text, asks)], "prerequisites": [],
-            "exam_importance": "medium", "exam_note": "", "tests_item_ids": []}
+            "exam_importance": "medium", "exam_note": "", "tests_item_ids": [], "unpack": _unpack(text, with_terms=with_terms)}
 
 
-def page_answer(user_text: str):
+def page_answer(user_text: str, system_text: str = ""):
     """Agrees with BIE's proposed type for every block (definition where the code has none)."""
     card = cards.read_card(user_text)
+    with_terms = "- Revision: one line per item, no new terms" not in system_text
     types = ct.load()
     proposed = {i: p["type"] for p in card["parts"] for i in p["item_ids"]}
     skip = {s["item_id"] for s in card["coverage"]["may_skip"]}
@@ -46,11 +58,14 @@ def page_answer(user_text: str):
     items = []
     for bid, text in (b for b in blocks if b[0] not in skip):
         kind = proposed.get(bid, ct.NONE)
-        items.append(_item(f"i{len(items) + 1}", text, block_ids=[bid], content_type=kind if kind in types.types else "definition"))
+        items.append(_item(f"i{len(items) + 1}", text, block_ids=[bid], content_type=kind if kind in types.types else "definition",
+                           with_terms=with_terms))
     if not items:
-        items = [_item("i1", "Figure read from the image", source="image", kind="diagram", content_type="figure"),
-                 _item("i2", "First label of the figure", source="image", kind="diagram_label", parent="i1", content_type="figure"),
-                 _item("i3", "Second label of the figure", source="image", kind="diagram_label", parent="i1", content_type="figure")]
+        items = [_item("i1", "Figure read from the image", source="image", kind="diagram", content_type="figure", with_terms=with_terms),
+                 _item("i2", "First label of the figure", source="image", kind="diagram_label", parent="i1", content_type="figure",
+                       with_terms=with_terms),
+                 _item("i3", "Second label of the figure", source="image", kind="diagram_label", parent="i1", content_type="figure",
+                       with_terms=with_terms)]
     return {"notes": NOTES, "page_summary": "Offline page summary.", "items": items,
             "boilerplate_block_ids": [bid for bid, _ in blocks if bid in skip], "text_image_disagreements": []}
 
@@ -139,12 +154,12 @@ def _script(user_text: str, per_beat: int):
     beats, parts = [hook], []
     for part in card["parts"]:
         parts.append({"part_id": part["part_id"], "frame": {k: f"offline {k}" for k in ("process", "how", "when", "conditions",
-                                                                                           "atmosphere")}})
+                                                                                           "atmosphere")}, "skipped_steps": []})
         first_step = 1 if types.pattern(part["type"]) else 0
         ids = part["item_ids"]
         for group in (ids[n:n + per_beat] for n in range(0, len(ids), per_beat)):
-            say = (f"ये offline explanation है: {group[0]}। इसे ध्यान से समझिए, ये exam में बहुत काम आएगा।" if per_beat == 1 else
-                   f"ये offline explanation है: {', '.join(group)}।")
+            say = (f"ये सामने क्या दिख रहा है? ये offline explanation है: {group[0]}। इसे ध्यान से समझिए, ये exam में बहुत काम आएगा।"
+                   if per_beat == 1 else f"ये सामने क्या दिख रहा है? ये offline explanation है: {', '.join(group)}।")
             beats.append({"beat_id": f"b{len(beats)}", "part_id": part["part_id"], "step": first_step, "purpose": "explain",
                           "say": say, "covers_item_ids": group, "answers": [q for iid in group for q in questions.get(iid, [])],
                           "on_screen": "Offline.", "basis": "book"})
@@ -270,6 +285,7 @@ class BrainFakeClient:
     def _respond(self, model, messages, schema):
         split_messages(messages, provider=self.provider)
         user = text_of(messages[1]["content"])
+        system = text_of(messages[0]["content"]) if messages[0].get("role") == "system" else ""
         props = (schema or {}).get("properties", {})
         if list(props) == ["status"]:                   # the cost guard's preflight call
             value = {"status": "ready"}
@@ -312,7 +328,7 @@ class BrainFakeClient:
             value = {"notes": NOTES, "replace_items": [], "remove_item_ids": [], "boilerplate_block_ids": [],
                      "text_image_disagreements": []}
         elif "items" in props:
-            value = page_answer(user)
+            value = page_answer(user, system)
         elif "concepts" in props:
             value = connect_answer(user)
         elif "videos" in props:

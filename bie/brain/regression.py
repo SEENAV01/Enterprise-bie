@@ -27,23 +27,50 @@ from . import engines
 
 SCHEMA = "bie.brain.passed-outputs/1"
 
+VISION = "vision-2026-10-21"
 RULE_CHANGES = (
-    {"rule": "S1-12", "rulebook": "2026-10-21.10",
+    {"rule": "S1-12", "rulebook": f"{VISION}@2026-10-21.10",
      "decision": "Navin, 23 October 2026: only direct prerequisites, no chains, taught in one short video; more than 8 needs a reason",
      "upgraded_by": "bie/brain/prerequisites.py (trim_prerequisites, run before a lesson is planned)",
      "match": re.compile(r"^map: prerequisites_to_teach has \d+ prerequisites")},
+    {"rule": "S1-15", "rulebook": f"{VISION}@2026-10-21.12",
+     "decision": "Navin, 24 October 2026 (Task 045d): every teachable item is opened for the learner (terms with their plain meaning "
+                 "and an everyday image, a why chain from a need with its basis, an example or place, a consequence)",
+     "upgraded_by": "the page is read again (bie/brain/understanding.py, schema bie.brain.understand-page/3); an older page is not reused",
+     "match": re.compile(r"\(S1-15\)$")},
+    {"rule": "S2-07", "rulebook": f"{VISION}@2026-10-21.12",
+     "decision": "Navin, 24 October 2026 (Task 045d): every book line opened, not read out: a question first, yaani with an image, "
+                 "a why or an example after a book line, complete sentences, one recap per part, steps skipped only with a reason",
+     "upgraded_by": "the script is written again (bie/brain/lesson.py, schema bie.brain.lesson-script/3)",
+     "match": re.compile(r"\(S2-07\)$")},
+    {"rule": "S2-06 (classification pattern)", "rulebook": "content_types@2026-10-24.1",
+     "decision": "Navin, 24 October 2026 (Task 045d): a classification is taught as a family: the overview tree, every member in the "
+                 "same slots, the members compared, a memory trick",
+     "upgraded_by": "the script is written again (bie/brain/lesson.py)",
+     "match": re.compile(r"^script \S+: (?:part \S+ \(classification\): teaching-pattern steps not taught"
+                         r"|beat \S+: step \d+ is not a step of the classification pattern)")},
 )
 
 
-def _version(text: str) -> tuple:
-    return tuple(int(n) for n in re.findall(r"\d+", text or ""))
+def _version(text: str, component: str = VISION) -> tuple:
+    """The version tuple of one rulebook component in a full rulebook string ("content_types@…+vision-2026-10-21@…");
+    a bare version ("2026-10-21.10", the sets before Task 045c) is the vision rulebook's; a missing component is ()."""
+    text = text or ""
+    if "@" not in text:
+        return tuple(int(n) for n in re.findall(r"\d+", text)) if component == VISION else ()
+    for part in text.split("+"):
+        name, _, version = part.partition("@")
+        if name == component:
+            return tuple(int(n) for n in re.findall(r"\d+", version))
+    return ()
 
 
 def _changed(passed: dict, problem: str):
     """The rule change that explains ``problem`` in a set made before it, or None."""
-    made = _version(passed.get("rulebook", ""))
     for change in RULE_CHANGES:
-        if made < _version(change["rulebook"]) and change["match"].search(problem):
+        component, _, version = change["rulebook"].partition("@")
+        made = _version(passed.get("rulebook", ""), component)
+        if made < _version(version) and change["match"].search(problem):
             return change
     return None
 

@@ -43,17 +43,19 @@ from pathlib import Path
 from . import cards
 from . import content_types as ct
 from . import engines
+from . import explanations
 from . import hinglish
 from . import naksha as naksha_module
+from . import soul
 from .common import SEVERITY, S, arr as _arr, checklist_text as _checklist_text, fmt as _fmt, obj as _obj, review_problems
 from .runner import NOTES_SCHEMA, Step, merge_notes
 from .understanding import DEFAULT_OUTPUT_TOKENS, Course, chapter_id, money
 
 SECTION = "lesson"
-PLAN_VERSION = "lesson-plan/3"
-SCRIPT_VERSION = "lesson-script/3"
+PLAN_VERSION = "lesson-plan/4"
+SCRIPT_VERSION = "lesson-script/4"
 PLAN_SCHEMA_ID = "bie.brain.lesson-plan/3"
-SCRIPT_SCHEMA_ID = "bie.brain.lesson-script/2"
+SCRIPT_SCHEMA_ID = "bie.brain.lesson-script/3"
 PURPOSES = ["hook", "prerequisite", "explain", "example", "analogy", "story", "compare", "process_walkthrough",
             "misconception", "exam_tip", "question_to_student", "recap", "transition"]
 DEVANAGARI = re.compile(r"[ऀ-ॿ]")
@@ -92,7 +94,8 @@ PLAN_SCHEMA = _obj({
     "chapter_flow": S,
 })
 FRAME_SCHEMA = _obj({key: S for key in FRAME})
-PART_SCHEMA = _obj({"part_id": S, "frame": FRAME_SCHEMA})
+PART_SCHEMA = _obj({"part_id": S, "frame": FRAME_SCHEMA,
+                    "skipped_steps": _arr(_obj({"step": {"type": "integer"}, "why": S}))})
 BEAT_SCHEMA = _obj({
     "beat_id": S,
     "part_id": S,
@@ -161,7 +164,9 @@ How to fill the JSON:
   the story or analogy that genuinely helps, or "" if none fits; estimated_minutes = within the video's narration budget: the sum of
   its concepts' minutes in the source (6-8 minutes per book page, S2-01); length_note = "" or, only for a very dense video, why it needs
   up to 25% more; why_this_unit = why these concepts belong together. Group concepts so that every topic video gets at least 3
-  minutes (its hook, teaching and recap need room). All videos together stay within the chapter's minutes.
+  minutes (its hook, teaching and recap need room). All videos together stay within the chapter's minutes. A classification concept
+  (a family: the types of a tissue, the kinds of a rock) is taught through the family pattern (the overview tree, every member in
+  the same slots, the comparison, a memory trick), so keep a family and its members in one video where the time allows.
 - chapter_flow: how the videos build on each other.
 Reply with the JSON object only."""
 
@@ -181,19 +186,33 @@ How to fill the JSON:
 - parts: one entry per card part, with the universal frame of that part (S3-01), each in one or two lines of clear English for BIE:
   process (what happens or what the thing does), how (how it works or happens), when (when, in what order, under which timing),
   conditions (what must be true for it, or what changes it), atmosphere (the setting and situation a student should picture). Write
-  "n/a: " and the reason only where a question truly does not apply to that part.
+  "n/a: " and the reason only where a question truly does not apply to that part. skipped_steps = the teaching-pattern steps of this
+  part you leave out because there is nothing real to say for them, each with the reason ([] when every step is done); at most half
+  of a pattern, never a step that has something real; BIE's code records the reason.
 - beats: the whole video in order. beat_id "b1", "b2" ...; part_id = the card part this beat teaches ("" for the opening hook, a
   prerequisite taught first, a transition or the final recap); step = the number of the teaching-pattern step of that part's content type
   that this beat performs (see the content types above; 0 when part_id is "" and for an exam-question part, whose type is "none");
-  every step of a part's pattern must appear, in order (a step that says "when there is one" only when there is one);
+  the steps of a part's pattern appear in order, except the ones skipped with a reason; a classification part follows the family
+  pattern: the overview tree first, then every member in the same slots (layer and shape → why it is named so → its special feature
+  → its function with its cause → where it is found, by a zoom from the organ → its consequence), then the comparison, then a memory
+  trick; one recap per part and one closing recap for the video, never two recaps of the same thing;
   purpose (hook, prerequisite, explain, example, analogy, story, compare, process_walkthrough, misconception, exam_tip,
-  question_to_student, recap, transition); say = the exact spoken words, one to four short spoken sentences in Navin's Hinglish (S2-04):
+  question_to_student, recap, transition); say = the exact spoken words, one to four complete spoken sentences in Navin's Hinglish
+  (S2-04), the way a teacher speaks to one student, never clipped note-style lines ("Irregular walls. Kaisi? Irregular." is a teacher's
+  beat; "Location: kidney tubules, glandular ducts." is a note):
   mixed script: Hindi words in Devanagari, English words (above all the book's technical terms, spelled as the book spells them) in
   Roman, as in "आज हम tissue के बारे में पढ़ेंगे"; brackets only after a genuinely difficult Hindi word (see "Brackets" below; the
   screen shows the bracket and the voice says "सतह, यानी surface"); never write an English term in Devanagari or a Hindi word in Roman;
   numbers as digits; addressed to one student; covers_item_ids = the item ids this beat really explains; answers = the teacher question
   ids this beat really answers; on_screen = what the student should see while hearing it (for the director); basis = book, outside or
   mixed.
+Opening the book (S2-07; BIE is the link between the learner and the book, like a teacher, never a reader of the line): every new
+topic (every concept and every prerequisite) opens with a question about something the learner can see, then the name. After any
+book line, the beat carries at least one of: the term opened ("yaani" + its plain meaning + one everyday image), the why from a need or
+a problem, or an example or place by a zoom from the organ. The source gives every item's unpack from Section 1 (its terms, why chain,
+example, consequence, visual verb) and the locked explanations: speak them, in your own teacher's words, at the depth of the level
+profile below. BIE's code sends back a beat whose English words are the book's and that opens nothing ("dohraav pakad"), a clipped
+sentence without a verb, a topic that opens without a question, and a second recap of the same thing.
 Time (S2-01): the source gives this video's narration time; BIE's code counts the spoken words (130 a minute) and the script must stay
 within it. Win the time by cutting repetition and side-tracks, never book content: every item in must_cover is taught and every
 teacher question whose basis is "book" is answered; questions answered from outside the book are used only where they help and the
@@ -221,13 +240,19 @@ severity ("blocking" or "minor", see R-01). What this script must contain (S2-01
 - every item in card.coverage.must_cover really taught (not only named), and every teacher question whose basis is "book" really
   answered (even if claimed). A teacher question whose basis is "outside" is optional: the maker uses it only where it helps and the
   time allows, so leaving it out is never blocking; report it as minor only when leaving it out leaves a gap a student cannot cross.
-- the universal frame of every part and every teaching-pattern step really done, not only named.
+- the universal frame of every part and every teaching-pattern step really done, not only named (a step skipped with a reason in
+  skipped_steps is allowed when the reason is real).
+- every book line opened, not read out (S2-07): the term's plain meaning with an everyday image, the why from a need, an example or the
+  place; a beat that only restates the book's sentence in Hinglish is blocking; a family (classification) part gives every member the
+  same slots (layer and shape, why named, special feature, function with its cause, where found by a zoom, consequence); every new
+  topic opens with a question about something visible; complete spoken sentences; the depth follows the level profile below.
 Length (S2-01): BIE's code counts the spoken words (130 a minute) and checks the video's narration time; the review message gives the
 measured minutes. Never count words or judge the length yourself. The script must stay within its time, so when you ask for something
 to be added, say what may be cut (repetition, side-tracks, outside material), never book content.
-Blocking: a book item or book-answered question not really covered, a fact wrong at this level, a frame or pattern step missing, a
-prerequisite named but not taught, a jump a student cannot follow, language that is not natural spoken Hinglish, beats that read out
-lists. Minor: precision beyond a standard textbook for these learners, an analogy that could fit better, an optional outside question.
+Blocking: a book item or book-answered question not really covered, a fact wrong at this level, a frame or pattern step missing
+without a reason, a book line only restated, a family member without its slots, a prerequisite named but not taught, a jump a student
+cannot follow, language that is not natural spoken Hinglish, beats that read out lists. Minor: precision beyond a standard textbook for
+these learners, an analogy that could fit better, an optional outside question, a memory trick that could be better.
 verdict is "pass" when nothing is blocking. Fill your own brief notes first. Reply with the JSON object only."""
 
 SCRIPT_TIME_HINT = (" BIE's code measured this script at {spoken} spoken minutes; the video's narration time is {low}-{high} minutes "
@@ -420,12 +445,12 @@ def video_scope(chapter, video):
 
 # ---------------------------------------------------------------- cards
 
-def _prefix(course, rulebook, task, schema_id, schema, role, how, *, review=False):
+def _prefix(course, rulebook, task, schema_id, schema, role, how, *, review=False, version=3):
     if review:
-        return cards.build_prefix(section=SECTION, task=task, version=2, schema_id=schema_id, schema=schema, role=role,
+        return cards.build_prefix(section=SECTION, task=task, version=version, schema_id=schema_id, schema=schema, role=role,
                                   how=how, rulebook=rulebook, course=course, patterns=True, review=True,
                                   checklist=_checklist_text(rulebook, SECTION))
-    return cards.build_prefix(section=SECTION, task=task, version=2, schema_id=schema_id, schema=schema,
+    return cards.build_prefix(section=SECTION, task=task, version=version, schema_id=schema_id, schema=schema,
                               role=_fmt(role, course), how=how, rulebook=rulebook, course=course, patterns=True)
 
 
@@ -556,13 +581,21 @@ def _script_source(chapter, video, budget=None) -> str:
     names = [p["name"] for _, p in prerequisites_of(chapter)]
     if names:
         lines.append("Prerequisites already taught in the prerequisite video (remind of one in at most 2 beats): " + "; ".join(names))
+    lines.append("Open every book line (S2-07): " + "; ".join(soul.load_teacher()["opening_steps"]) + ".")
     lines.append("\nItems (item id | page | kind | type | content), each with its teacher questions "
-                 "(question id | ask | question → answer | basis):")
+                 "(question id | ask | question → answer | basis) and its unpack from Section 1 (term | why | example | consequence "
+                 "| visual), plus any locked explanation (Navin's verdict: speak it):")
+    library = explanations.load()
+    subject = (chapter.get("course") or {}).get("subject", "")
     for item in items:
         content = re.sub(r"\s+", " ", item.get("content", "")).strip()
         lines.append(f"{item['item_id']} | {item['page']} | {item['kind']} | {item.get('content_type', '')} | {content}")
         for qid, qa in zip(question_ids(item), item.get("teacher_understanding") or []):
             lines.append(f"  {qid} | {qa['ask']} | {qa['question']} → {qa['answer']} | {qa['basis']}")
+        lines += soul.unpack_lines(item.get("unpack"))
+        locked = library.source_lines(content, subject=subject)
+        if locked:
+            lines.append(locked)
     return "\n".join(lines)
 
 
@@ -616,6 +649,9 @@ def frame_problems(value, card, types=None) -> tuple:
             problems.append(f"part {pid}: a {part['type']} part must answer {needed} in its frame, not 'n/a'")
     for pid in sorted(set(frames) - set(card_parts)):
         problems.append(f"parts: {pid!r} is not a part of the card")
+    skip_problems, skipped = soul.skipped_step_problems(value.get("parts") or [], card["parts"], types)
+    problems += skip_problems
+    observed["skipped_steps"] = skipped
     steps = {}
     for beat in value.get("beats") or []:
         pid = beat.get("part_id") or ""
@@ -637,7 +673,11 @@ def frame_problems(value, card, types=None) -> tuple:
     for pid, part in card_parts.items():
         pattern = types.pattern(part["type"])
         done = steps.get(pid, [])
-        missing = [n for n in range(1, len(pattern) + 1) if n not in done and not CONDITIONAL_STEP.search(pattern[n - 1])]
+        for step in skipped.get(pid, {}):
+            if step in done:
+                problems.append(f"part {pid}: step {step} is listed in skipped_steps but beats perform it; skip it or do it (S2-07)")
+        missing = [n for n in range(1, len(pattern) + 1)
+                   if n not in done and n not in skipped.get(pid, {}) and not CONDITIONAL_STEP.search(pattern[n - 1])]
         if missing:
             names = "; ".join(f"{n}) {pattern[n - 1]}" for n in missing)
             problems.append(f"part {pid} ({part['type']}): teaching-pattern steps not taught: {names}")
@@ -680,9 +720,13 @@ def check_script(value, chapter, video, language, card=None, budget=None):
                         f"{', '.join(missing_q[:40])}")
     problems += spoken_problems(beats, language)
     problems += length_problems(beats, video, budget)
+    problems += soul.restatement_problems(beats, chapter["items"])
+    problems += soul.clipped_problems(beats)
+    problems += soul.recap_problems(beats)
     if len(beats) < 3:
         problems.append("a video needs more than a couple of beats")
     if card is not None:
+        problems += soul.opening_problems(beats, card["parts"])
         problems += frame_problems(value, card)[0]
         problems += engines.script_checks(beats, card["coverage"]["must_cover"], planned_minutes=video.get("estimated_minutes"),
                                           minutes_range=budget)[0]
@@ -717,9 +761,10 @@ def length_problems(beats, video, budget) -> list:
 
 def plan_step(course: Course, chapter, *, rulebook, max_rounds=3, naksha=None, max_output_tokens=DEFAULT_OUTPUT_TOKENS) -> Step:
     naksha = naksha or chapter_naksha(chapter)
-    prefix = _prefix(course, rulebook, "plan_videos", PLAN_SCHEMA_ID, PLAN_SCHEMA, PLAN_ROLE, PLAN_HOW)
+    prefix = _prefix(course, rulebook, "plan_videos", PLAN_SCHEMA_ID, PLAN_SCHEMA, PLAN_ROLE,
+                     PLAN_HOW + "\n\n" + course.profile().prefix_text())
     review_prefix = _prefix(course, rulebook, "plan_videos", "bie.brain.lesson-plan-review/2", REVIEW_SCHEMA, REVIEW_ROLE,
-                            REVIEW_HOW, review=True)
+                            REVIEW_HOW, review=True, version=2)
     card = plan_card(course, chapter, naksha, rulebook=rulebook, prefix=prefix, max_output_tokens=max_output_tokens)
     source = _plan_source(chapter, naksha)
     user = cards.user_message(card, source, (), "Answer the card with the lesson plan JSON.")
@@ -736,10 +781,11 @@ def plan_step(course: Course, chapter, *, rulebook, max_rounds=3, naksha=None, m
 
 
 def script_prefixes(course, rulebook):
-    how = SCRIPT_HOW + "\n\n" + hinglish.prefix_text()
+    profile = course.profile()
+    how = "\n\n".join([SCRIPT_HOW, profile.prefix_text(), soul.teacher_text(), hinglish.prefix_text()])
     return (_prefix(course, rulebook, "write_script", SCRIPT_SCHEMA_ID, SCRIPT_SCHEMA, SCRIPT_ROLE, how),
-            _prefix(course, rulebook, "write_script", "bie.brain.lesson-script-review/3", REVIEW_SCHEMA, REVIEW_ROLE, SCRIPT_REVIEW_HOW,
-                    review=True))
+            _prefix(course, rulebook, "write_script", "bie.brain.lesson-script-review/4", REVIEW_SCHEMA, REVIEW_ROLE,
+                    SCRIPT_REVIEW_HOW + "\n\n" + profile.prefix_text(), review=True, version=4))
 
 
 def script_step(course: Course, chapter, plan, video, *, rulebook, max_rounds=3, naksha=None, prefixes=None,
@@ -769,6 +815,7 @@ def script_step(course: Course, chapter, plan, video, *, rulebook, max_rounds=3,
         found = frame_problems(value, card)[1]
         found.update(engines.script_checks(value.get("beats") or [], card["coverage"]["must_cover"],
                                            planned_minutes=video.get("estimated_minutes"), minutes_range=budget)[1])
+        found["dohraav"] = soul.dohraav_share(value.get("beats") or [], chapter["items"])
         return found
 
     return Step(section=SECTION, unit=f"script-{video['video_id']}", instructions_version=SCRIPT_VERSION, system=prefix.text,
@@ -888,6 +935,7 @@ def run_lesson(chapter: dict, course: Course, runner, out_dir, *, workers: int =
             "kind": video.get("kind", "topic"),
             "budget_minutes": list(video_budget(chapter, videos, video)),
             "spoken_minutes": spoken_minutes((result.output or {}).get("beats", [])),
+            "dohraav": soul.dohraav_share((result.output or {}).get("beats", []), chapter["items"]),
             "checks": (result.rounds[-1].get("observed") if result.rounds else None) or {},
             "last_problems": (result.rounds[-1].get("code_problems") or []) + (result.rounds[-1].get("review_problems") or [])
             if result.rounds and not result.passed else [],
@@ -898,7 +946,11 @@ def run_lesson(chapter: dict, course: Course, runner, out_dir, *, workers: int =
         "cost_usd": round(plan_result.cost_usd + sum(r.cost_usd for r in scripts), 6),
     }
     words = sum(len(b["say"].split()) for v in lesson["videos"] for b in v["beats"])
+    judged = sum(v["dohraav"]["judged"] for v in lesson["videos"])
     lesson["quality"] = {"videos": len(videos), "videos_passed": sum(1 for v in lesson["videos"] if v["status"] == "passed"),
+                         "dohraav": {"judged_beats": judged, "restating": sum(v["dohraav"]["restating"] for v in lesson["videos"]),
+                                     "share": round(sum(v["dohraav"]["restating"] for v in lesson["videos"]) / judged, 3) if judged else 0.0,
+                                     "opened_share": round(sum(v["dohraav"]["opened"] for v in lesson["videos"]) / judged, 3) if judged else 0.0},
                          "videos_reused": sum(1 for v in lesson["videos"] if v["reused"]),
                          "plan_passed": plan_result.passed, "beats": sum(len(v["beats"]) for v in lesson["videos"]),
                          "spoken_words": words, "estimated_minutes_at_130_wpm": round(words / 130, 1),
@@ -931,7 +983,10 @@ def render_markdown(lesson: dict) -> str:
              + f"; scripts passed: {q['videos_passed']} of {q['videos']}"
              + (f" ({q['videos_reused']} reused)" if q.get("videos_reused") else "")
              + f"; {q['beats']} beats, {q['spoken_words']} spoken words (about {q['estimated_minutes_at_130_wpm']} minutes); "
-             f"estimated cost {money(q['cost_usd'], lesson)}." + checker.get(independence, ""), ""]
+             f"estimated cost {money(q['cost_usd'], lesson)}." + checker.get(independence, "")
+             + (f" Dohraav (beats that only restate the book): {q['dohraav']['restating']} of {q['dohraav']['judged_beats']} "
+                f"({q['dohraav']['share']:.0%}); beats that open a term, a why or an example: {q['dohraav']['opened_share']:.0%}."
+                if q.get("dohraav") else ""), ""]
     budget = q.get("budget_minutes") or {}
     if budget.get("topic_videos"):
         low, high = budget["topic_videos"]
@@ -940,15 +995,16 @@ def render_markdown(lesson: dict) -> str:
                   f"{budget['prerequisite_video'][0]:g}-{budget['prerequisite_video'][1]:g} minutes on top.", ""]
     if lesson["plan"].get("chapter_flow"):
         lines += [lesson["plan"]["chapter_flow"], ""]
-    lines += ["| Video | Kind | Title | Result | Rounds | Minutes planned | Budget | Spoken (130 words/min) |",
-              "| --- | --- | --- | --- | --- | --- | --- | --- |"]
+    lines += ["| Video | Kind | Title | Result | Rounds | Minutes planned | Budget | Spoken (130 words/min) | Dohraav |",
+              "| --- | --- | --- | --- | --- | --- | --- | --- | --- |"]
     plans = {v["video_id"]: v for v in lesson["plan"].get("videos", [])}
     for video in lesson["videos"]:
         minutes = plans.get(video["video_id"], {}).get("estimated_minutes", "")
         lines.append(f"| {video['video_id']} | {video.get('kind', 'topic')} | {video['title']} | {video['status']}"
                      + (" (reused)" if video.get("reused") else "") + f" | {video['rounds']} | {minutes} | "
                      + ("{}-{}".format(*video["budget_minutes"]) if video.get("budget_minutes") else "") + " | "
-                     + (f"{video['spoken_minutes']}" if video.get("spoken_minutes") is not None else "") + " |")
+                     + (f"{video['spoken_minutes']}" if video.get("spoken_minutes") is not None else "") + " | "
+                     + (f"{video['dohraav']['restating']}/{video['dohraav']['judged']}" if video.get("dohraav") else "") + " |")
     lines.append("")
     for video in lesson["videos"]:
         lines += video_lines(lesson, video, level=2)
@@ -978,6 +1034,7 @@ def video_lines(lesson: dict, video: dict, *, level: int) -> list:
         lines += ["Open problems:", ""] + [f"- {x}" for x in video["last_problems"][:15]] + [""]
     kinds = {cp["part_id"]: cp["type"] for cp in video.get("card_parts") or []}
     frames = {part["part_id"]: part["frame"] for part in video.get("parts") or []}
+    skipped = {part["part_id"]: part.get("skipped_steps") or [] for part in video.get("parts") or []}
     current = None
     for beat in video["beats"]:
         pid = beat.get("part_id") or ""
@@ -987,6 +1044,8 @@ def video_lines(lesson: dict, video: dict, *, level: int) -> list:
             frame = frames.get(pid) or {}
             if frame:
                 lines.append("_frame: " + " · ".join(f"{k}: {frame.get(k, '')}" for k in FRAME) + "_")
+            if skipped.get(pid):
+                lines.append("_skipped steps: " + "; ".join(f"{e['step']}: {e['why']}" for e in skipped[pid]) + "_")
             lines.append("")
         current = pid
         step = beat.get("step") or 0

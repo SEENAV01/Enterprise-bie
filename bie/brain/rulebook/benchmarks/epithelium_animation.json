@@ -1,0 +1,56 @@
+{
+ "schema": "bie.brain.benchmark/1",
+ "version": "2026-10-24.1",
+ "id": "epithelium_animation",
+ "status": "IMPLEMENTED (Task 045d): the benchmark for Task 046's video. It is BIE's own shot description of a reference teaching animation on epithelial tissue (written from Navin's selection of 24 October 2026, no footage copied); Task 046 builds the blocks that can render it and a BIE-made video is compared against it shot by shot.",
+ "source": "Navin, 24 October 2026: the style of a short, dark-background 3D teaching animation of the epithelium family, in which every spoken sentence is one shot and every term is opened with 'yaani' on first use. The rules below are BIE's reading of it, not a transcript.",
+ "concept": "epithelial tissue family (simple squamous, cuboidal, columnar, ciliated, glandular; stratified)",
+ "level_profile_tested": "neet_11_12",
+ "rules": [
+  {"id": "B-01", "rule": "One spoken sentence is one shot of 2-4 seconds; a shot changes when the sentence changes."},
+  {"id": "B-02", "rule": "About 40-50 seconds per family member: shape, why named, special feature, function with its cause, where found, consequence."},
+  {"id": "B-03", "rule": "Said = shown: the thing the sentence names is on screen while it is said; nothing on screen that the sentence does not name."},
+  {"id": "B-04", "rule": "A function sentence shows motion: particles cross the cell sheet for absorption, leave it for secretion, cilia beat and move the mucus."},
+  {"id": "B-05", "rule": "A term is opened with 'yaani' on its first use (slender yaani long aur narrow); the plain meaning is spoken and the image is shown at once."},
+  {"id": "B-06", "rule": "Every name gets its reason: squamous because the cells are flat like floor tiles, cuboidal because every side is about equal, columnar because they stand like pillars."},
+  {"id": "B-07", "rule": "One 'A → B' summary line per member (shape → job), built on a board that stays and fills up."},
+  {"id": "B-08", "rule": "The spoken words run on top as kinetic captions, the English terms coloured, the Hindi in white."},
+  {"id": "B-09", "rule": "'Where found' is a zoom from the organ (the lung, the kidney tubule, the intestine) down to the cell sheet, never a cut."},
+  {"id": "B-10", "rule": "The focus glows: the one structure the sentence is about is lit, the rest dims."},
+  {"id": "B-11", "rule": "One dark style for the whole video: dark background, one accent colour per member, the same camera language."},
+  {"id": "B-12", "rule": "The depth of what is shown follows the level profile; the visual grammar (B-01 to B-11) is the same for every level."}
+ ],
+ "blocks": {
+  "built_in_task_046": ["cell_sheet", "particle_flow", "organ_zoom", "focus_glow", "kinetic_caption", "concept_arrow", "board_build", "mnemonic_card"],
+  "planned": ["tree", "split_compare", "cause_chain"]
+ },
+ "shots": [
+  {"t": "0:00", "member": "intro", "say": "Skin ke upar, aant ke andar, kidney ki nali mein: yeh patli chaadar kis se bani hai?", "show": "organ_zoom: skin → a thin sheet of cells lit on a dark field", "block": "organ_zoom", "seconds": 4},
+  {"t": "0:04", "member": "intro", "say": "Yeh hai epithelial tissue: epi yaani upar, thelium yaani parat.", "show": "kinetic_caption: 'epi' and 'thelium' coloured, the sheet glows", "block": "kinetic_caption", "seconds": 3},
+  {"t": "0:07", "member": "tree", "say": "Ek parat ho to simple, kai paratein ho to stratified.", "show": "tree: two branches grow from 'epithelium'", "block": "tree", "seconds": 4},
+  {"t": "0:11", "member": "squamous", "say": "Pehla member: simple squamous. Squamous yaani chapta, farsh ki tiles jaisa.", "show": "cell_sheet: flat tiles, one layer, top view then side view", "block": "cell_sheet", "seconds": 4},
+  {"t": "0:15", "member": "squamous", "say": "Itna patla kyon? Kyunki yahan cheezon ko aar-paar jaana hai.", "show": "particle_flow: oxygen dots cross the thin sheet", "block": "particle_flow", "seconds": 4},
+  {"t": "0:19", "member": "squamous", "say": "Isliye lungs ki air sacs aur blood vessels ki andar ki parat yahi hai.", "show": "organ_zoom: lung → alveolus → the flat sheet", "block": "organ_zoom", "seconds": 4},
+  {"t": "0:23", "member": "squamous", "say": "Chapta → tez exchange.", "show": "board_build: 'squamous: chapta → exchange' written on the board", "block": "board_build", "seconds": 3},
+  {"t": "0:26", "member": "squamous", "say": "Doosre naam: pavement epithelium, kyunki yeh footpath ke patthar jaisa dikhta hai.", "show": "focus_glow on the sheet; caption 'pavement'", "block": "focus_glow", "seconds": 4},
+  {"t": "0:55", "member": "cuboidal", "say": "Ab cuboidal: cube yaani har side barabar, dice jaisa.", "show": "cell_sheet: cube cells, one layer; a die beside one cell", "block": "cell_sheet", "seconds": 4},
+  {"t": "0:59", "member": "cuboidal", "say": "Jahan cells ko kuch banana ya sokhna hai, wahan unhe jagah chahiye; isliye cube.", "show": "particle_flow: dots pulled into the cube cells", "block": "particle_flow", "seconds": 4},
+  {"t": "1:03", "member": "cuboidal", "say": "Kidney ki nali aur glands ki nali mein yahi parat hai.", "show": "organ_zoom: kidney → tubule → cube cells", "block": "organ_zoom", "seconds": 4},
+  {"t": "1:07", "member": "cuboidal", "say": "Yaad rakhna: PCT mein brush border, kyunki wahan sokhna sabse zyada hai.", "show": "focus_glow on the brush border; mnemonic_card 'PCT = brush border'", "block": "mnemonic_card", "seconds": 4},
+  {"t": "1:40", "member": "columnar", "say": "Teesra: columnar, column yaani pillar; lamba aur patla, slender.", "show": "cell_sheet: tall pillar cells; a building pillar beside one", "block": "cell_sheet", "seconds": 4},
+  {"t": "1:44", "member": "columnar", "say": "Lamba kyon? Kyunki aant mein khana sokhna bhi hai aur mucus banana bhi; dono ke liye jagah chahiye.", "show": "particle_flow: nutrients in, mucus out, both at once", "block": "particle_flow", "seconds": 5},
+  {"t": "1:49", "member": "columnar", "say": "Isliye pet aur aant ki andar ki parat columnar hai.", "show": "organ_zoom: intestine → villus → pillar cells", "block": "organ_zoom", "seconds": 4},
+  {"t": "1:53", "member": "ciliated", "say": "Agar in pillars ke upar baal jaise cilia hon, to ciliated; yeh mucus ko ek taraf dhakelte hain.", "show": "particle_flow: cilia beat, a mucus layer slides along", "block": "particle_flow", "seconds": 5},
+  {"t": "1:58", "member": "ciliated", "say": "Saans ki nali mein yahi parat dhool ko bahar bhejti hai.", "show": "organ_zoom: trachea → the ciliated lining", "block": "organ_zoom", "seconds": 4},
+  {"t": "2:10", "member": "compare", "say": "Teeno ko saath dekho: chapta, cube, pillar; jitna mota cell, utna zyada kaam andar.", "show": "split_compare: the three sheets side by side, a concept_arrow 'motai → kaam'", "block": "split_compare", "seconds": 5},
+  {"t": "2:15", "member": "stratified", "say": "Aur jahan ragad hai, skin par, wahan ek parat kaafi nahi; kai paratein, stratified.", "show": "cell_sheet: layers stack up; organ_zoom from the skin", "block": "cell_sheet", "seconds": 5},
+  {"t": "2:20", "member": "recap", "say": "Board dekho: squamous exchange, cuboidal secretion aur absorption, columnar absorption aur mucus, ciliated movement, stratified protection.", "show": "board_build: the full board, each line lit as it is said", "block": "board_build", "seconds": 7},
+  {"t": "2:27", "member": "recap", "say": "Trick: S-C-C: Soft tiles, Cube dice, Column pillar.", "show": "mnemonic_card: 'S-C-C'", "block": "mnemonic_card", "seconds": 3},
+  {"t": "2:30", "member": "end", "say": "", "show": "end card: the family tree complete, one dark style", "block": "tree", "seconds": 3}
+ ],
+ "notes": [
+  "The shot list is a target of grammar and pace, not words to copy: BIE's script for a book decides the sentences; the director maps every sentence to one shot with these blocks.",
+  "Between the listed shots (0:26-0:55, 1:07-1:40, 1:58-2:10) the same slots continue for the member (special feature, consequence, exam beat); they are left out here to keep the file short.",
+  "Routes A and C of Task 046 both render this benchmark: three.js scenes in Remotion (A), or Blender-made or licensed 3D models animated by BIE code (C); no AI video model."
+ ]
+}

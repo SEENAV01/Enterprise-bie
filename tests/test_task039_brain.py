@@ -238,7 +238,10 @@ def item(iid, **extra):
             "teacher_understanding": [
                 {"depth": 1, "ask": "what", "question": "What is a tissue?", "answer": "A group of similar cells doing one job.", "basis": "book"},
                 {"depth": 2, "ask": "why", "question": "Why group?", "answer": "Division of labour makes work efficient.", "basis": "outside"}],
-            "prerequisites": [], "exam_importance": "high", "exam_note": "", "tests_item_ids": []}
+            "prerequisites": [], "exam_importance": "high", "exam_note": "", "tests_item_ids": [],
+            "unpack": {"terms": [{"term": "tissue", "plain_meaning": "एक जैसे cells का समूह", "everyday_image": "ईंटों की दीवार"}],
+                       "why_chain": [{"step": "एक काम के लिए कई cells साथ चाहिए", "basis": "book"}], "example_or_place": "त्वचा",
+                       "consequence": "", "visual_verb": "", "level_extra": ""}}
     base.update(extra)
     return base
 

@@ -1,8 +1,9 @@
 {
   "schema": "bie.brain.content-types/1",
-  "version": "2026-10-22.2",
+  "version": "2026-10-24.1",
   "status": "IMPLEMENTED (Task 045): bie/brain/content_types.py proposes a type per block from the detection hints before the maker reads the page; the maker decides, every difference is recorded, unexplained strong differences go back to the maker.",
   "changes": [
+    "2026-10-24.1 (Task 045d, Navin's decision of 24 October 2026): the classification teaching pattern is the 'family' pattern: the overview tree first, every member in the same slots (layer and shape → why named → special feature → function with its cause → where found by a zoom from the organ → consequence), then a comparison, then a memory trick. No type, required question or hint changed.",
     "2026-10-22.1 (Task 043): first version.",
     "2026-10-22.2 (Task 045): detection hints only, after running them on the tissue chapter: a bare 'Types:' heading proposes classification; field labels such as 'Example:', 'Occurrence:', 'Function:' are no longer read as definitions; 'thus called CHLORENCHYMA' proposes a definition. No type, required question or teaching pattern changed."
   ],
@@ -104,7 +105,7 @@
         {"ask": "where", "word": "kahan", "question": "Where is each kind found?"}
       ],
       "required_asks": ["which", "difference"],
-      "teaching_pattern": ["the basis of division first", "the tree from the top down", "each kind with its identifying feature and an example", "the borderline cases and exceptions", "the tree as recap"],
+      "teaching_pattern": ["the overview tree first: the basis of division and every member named", "every member in the same slots: layer and shape, why it is named so, its special feature, its function with its cause, where it is found by a zoom from the organ, its consequence", "the members compared side by side, the most confused pair named directly", "a memory trick for the family"],
       "video_blocks": ["table", "image", "label", "highlight", "tree (planned)"],
       "visual_grammar": "concept tree; bie/visual_intelligence/grammar_registry.py",
       "game_mechanic": {"brain": ["build_structure", "judge_the_case"], "section15": ["classify_sort", "misconception_trap"], "how": "The student sorts real specimens or cases by their features; a wrong sort shows which feature was misread."},
