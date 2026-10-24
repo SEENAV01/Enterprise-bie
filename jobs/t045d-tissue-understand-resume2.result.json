@@ -1,0 +1,51 @@
+{
+ "cost_inr": 65.9,
+ "error": null,
+ "exit_code": 0,
+ "finished_at": 1792849298.087737,
+ "job": "t045d-tissue-understand-resume2",
+ "map_status": "stopped",
+ "minutes": 46.6,
+ "plan_usage_after": {
+  "codex": {
+   "rateLimitResetCredits.availableCount": 2,
+   "rateLimits.planType": "prolite",
+   "rateLimits.primary.resetsAt": 1793386784,
+   "rateLimits.primary.usedPercent": 4,
+   "rateLimits.primary.windowDurationMins": 10080,
+   "rateLimitsByLimitId.codex.planType": "prolite",
+   "rateLimitsByLimitId.codex.primary.resetsAt": 1793386784,
+   "rateLimitsByLimitId.codex.primary.usedPercent": 4,
+   "rateLimitsByLimitId.codex.primary.windowDurationMins": 10080
+  }
+ },
+ "quality": {
+  "cost_usd": 0.692661,
+  "cost_usd_per_page": 0.049476,
+  "deeper_questions": 456,
+  "items": 475,
+  "items_from_image": 475,
+  "items_unpacked": 398,
+  "map_passed": false,
+  "naksha_tokens_estimate": null,
+  "outside_answers": 662,
+  "pages": 14,
+  "pages_passed": 12,
+  "pages_reused": 0,
+  "teachable_items": 410,
+  "teacher_questions": 1269,
+  "terms_opened": 453,
+  "type_check": {
+   "agree": 26,
+   "code_silent": 130,
+   "explained": 5,
+   "follows_parent": 261,
+   "role": 53
+  },
+  "why_steps": 546
+ },
+ "results": "blindtest-results:runs/vm-t045d-tissue-understand-resume2-brain-understand",
+ "started_at": 1792846504.09474,
+ "status": "stopped: budget",
+ "stop_reason": "budget: the next call (understand:page-014:r1:review, about Rs 4.41) would cross the cap of Rs 70 (spent Rs 65.90, running Rs 0.00)"
+}
