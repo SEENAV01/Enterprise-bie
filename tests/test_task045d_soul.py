@@ -102,7 +102,9 @@ class UnpackChecks(unittest.TestCase):
         self.assertEqual([p for p in soul.unpack_problems(self.item(textbook), language="English") if "textbook" in p], [])
         self.assertEqual([p for p in soul.unpack_problems(self.item(GOOD_UNPACK)) if "textbook" in p], [])
         self.assertEqual(len(hinglish.load().technical), 62)
-        self.assertIn("simple_hindi@2026-10-24.1", BOOK.version)
+        self.assertIn("simple_hindi@2026-10-24.2", BOOK.version)
+        self.assertEqual(hinglish.difficult_words("बाँह की नोक पर रस और छन्नी, अंदरूनी जाल, रसोई की कटोरी"), [])   # job B's everyday words
+        self.assertEqual(hinglish.difficult_words("सामान्यतः पर्याप्त"), ["सामान्यतः", "पर्याप्त"])              # formal words stay hard
 
     def test_check_page_sends_an_unopened_teachable_item_back(self):
         page = t045.Page(1, (t045.Block("p0001-b0001", "Epithelium is found on absorptive and secretive surfaces.", (0, 0, 1, 1)),))
@@ -306,6 +308,28 @@ class ScriptSoulChecks(unittest.TestCase):
         good = [beat("b1", "Connective tissue शरीर को सहारा देता है और जोड़ता है।")]
         self.assertEqual([p for p in spoken_problems(good, "Hinglish") if "textbook" in p], [])
 
+    def test_job_b_taught_the_detector_more_openings_and_the_spoken_negation(self):
+        """Job B, 24 October 2026: beats that opened a line with "जैसा/जैसी", "वरना" or "क्यों" were counted as restating, and
+        "पूरा bundle 1 cell नहीं।" as a clipped note."""
+        self.assertEqual(soul.markers("Building के service duct जैसा यह रास्ता supply पहुँचाता है।"), ["example"])
+        self.assertEqual(soul.markers("टहनियों जैसी branches पर bands देखो।"), ["example"])
+        self.assertEqual(soul.markers("Chromosome number आधा; वरना fertilisation संख्या दोगुनी कर देता।"), ["why"])
+        self.assertEqual(soul.markers("चर्बी, हड्डी और Blood साथ क्यों हैं?"), ["why"])
+        self.assertEqual(soul.markers("Pet mein HCl banta hai, varna lining jal jaati."), ["why"])
+        self.assertEqual(soul.clipped_sentences("पूरा bundle 1 cell नहीं।"), [])
+        self.assertEqual(soul.clipped_sentences("Cardiac भी धारीदार है, लेकिन उसका काम voluntary नहीं।"), [])
+        self.assertEqual(len(soul.clipped_sentences("Cell से Tissues, Organ, Organ system, फिर Organisms: हिस्सों से पूरा शरीर।")), 1)
+
+    def test_a_script_three_percent_over_its_time_is_within_it(self):
+        from bie.brain.lesson import TIME_TOLERANCE, WORDS_PER_MINUTE, length_problems
+        self.assertEqual(TIME_TOLERANCE, 0.03)
+        video = {"video_id": "v1", "kind": "topic"}
+        def script(minutes):
+            return [beat("b1", " ".join(["शब्द"] * int(minutes * WORDS_PER_MINUTE)))]
+        self.assertEqual([p for p in length_problems(script(4.5), video, (3.3, 4.4)) if "speaks about" in p], [])     # 2.3% over
+        self.assertTrue(any("speaks about" in p for p in length_problems(script(4.7), video, (3.3, 4.4))))             # 6.8% over
+        self.assertTrue(any("speaks about" in p for p in length_problems(script(15.7), video, (11.4, 15.1))))
+
     def test_a_topic_opens_with_a_question_and_recaps_are_not_repeated(self):
         parts = [{"part_id": "c1.1"}, {"part_id": "c1.2"}, {"part_id": "c2.1"}]
         beats = [beat("b0", "आज क्या देखेंगे?", purpose="hook", part="", covers=()),
@@ -402,7 +426,8 @@ class RealTissueScripts(unittest.TestCase):
             for key in total:
                 total[key] += share[key]
             clipped += sum(len(soul.clipped_sentences(b["say"])) for b in video["beats"])
-        self.assertEqual(total, {"judged": 273, "restating": 80, "opened": 87})       # 29% of the judged beats only restate
+        self.assertEqual(total, {"judged": 273, "restating": 78, "opened": 93})       # 29% of the judged beats only restate
+        # (80 and 87 with the markers of PR #60; the job B markers of 24 October credit जैसा/जैसी, वरना and क्यों)
         self.assertEqual(clipped, 10)
         waived = regression.changed_rule_problems(passed)
         self.assertTrue(any(c["rule"] == "S2-07" for _, c in waived))

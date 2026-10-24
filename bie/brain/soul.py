@@ -40,10 +40,10 @@ EMPTY_UNPACK = {"terms": [], "why_chain": [], "example_or_place": "", "consequen
 
 # What opens a book line in a spoken beat: a term opened ("yaani"), a why, an example, a contrast.
 YAANI = re.compile(r"यानी|यानि|मतलब|अर्थात|(?<![a-z])(?:yaani|yani|matlab)(?![a-z])", re.IGNORECASE)
-WHY = re.compile(r"क्योंकि|क्यूंकि|इसलिए|इसीलिए|इसलिये|ताकि|वजह|कारण|(?<![a-z])(?:kyunki|kyonki|isliye|isiliye|taaki|because)(?![a-z])",
-                 re.IGNORECASE)
-EXAMPLE = re.compile(r"जैसे|मिसाल|उदाहरण|मान लो|मान लीजिए|सोचो|सोचिए|ज़रा देखो|(?<![a-z])(?:jaise|for example|example|maan lo|socho)(?![a-z])",
-                     re.IGNORECASE)
+WHY = re.compile(r"क्योंकि|क्यूंकि|इसलिए|इसीलिए|इसलिये|ताकि|वजह|कारण|वरना|नहीं तो|क्यों|इससे|इसी से|तभी"
+                 r"|(?<![a-z])(?:kyunki|kyonki|isliye|isiliye|taaki|because|varna|kyon|kyun)(?![a-z])", re.IGNORECASE)
+EXAMPLE = re.compile(r"जैसे|जैसा|जैसी|की तरह|मिसाल|उदाहरण|मान लो|मान लीजिए|सोचो|सोचिए|ज़रा देखो"
+                     r"|(?<![a-z])(?:jaise|jaisa|jaisi|ki tarah|for example|example|maan lo|socho)(?![a-z])", re.IGNORECASE)
 CONTRAST = re.compile(r"लेकिन|जबकि|फ़र्क|फर्क|बल्कि|के उलट|(?<![a-z])(?:lekin|jabki|fark|farq|unlike|whereas)(?![a-z])", re.IGNORECASE)
 MARKERS = (("yaani", YAANI), ("why", WHY), ("example", EXAMPLE), ("contrast", CONTRAST))
 
@@ -241,7 +241,12 @@ def dohraav_share(beats, items_by_id: dict) -> dict:
 HINDI_LETTERS = re.compile(r"[\u0900-\u0963\u0970-\u097f]+")     # Devanagari without the danda (।, ॥) and the digits
 
 
+NEGATION_END = re.compile(r"नहीं\s*[।.!]*\s*$")       # "पूरा bundle 1 cell नहीं।": the dropped copula is spoken Hindi, not a note
+
+
 def _has_verb(sentence: str) -> bool:
+    if NEGATION_END.search(sentence):
+        return True
     for token in HINDI_LETTERS.findall(sentence):
         if token in HINDI_VERB_WORDS or token.endswith(HINDI_VERB_SUFFIXES):
             return True
