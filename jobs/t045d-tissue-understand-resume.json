@@ -1,0 +1,16 @@
+{
+ "job": "bie.vm-job/1",
+ "id": "t045d-tissue-understand-resume",
+ "section": "understand",
+ "source": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-inputs/chapters/tissues-and-its-types.pdf",
+ "resume_from": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t045d-tissue-understand-brain-understand",
+ "course": "title=10. Tissues and Its Types;subject=Science and Technology;learners=UPSC / State PCS aspirants;exam=UPSC / State PCS;language=Hinglish",
+ "maker": "codex",
+ "reviewer": "google",
+ "models": "google=google/gemini-4-argon",
+ "routes": "google=aicredits",
+ "max_inr": 70,
+ "workers": 2,
+ "max_rounds": 3,
+ "note": "Task 045d job A resumed after the AICredits key budget stop (job A stopped at Rs 13.51 with page 2 passed): the 13 remaining pages and the chapter map; page 2 reused if it still passes today's checks (PR #61 added the textbook-Hindi check, so it may run again). Gemini cap Rs 70 (Rs 200 total for understanding + script, Rs 13.51 spent). While the key budget is still exceeded the preflight stops it at no cost."
+}
