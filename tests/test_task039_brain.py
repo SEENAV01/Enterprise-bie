@@ -214,6 +214,41 @@ class Runner(unittest.TestCase):
         self.assertEqual(reviewer.calls, [])
         self.assertEqual(result.rounds[-1]["code_problems"], ["[code] always wrong"])
 
+    def test_a_converging_answer_gets_extra_patch_rounds_at_no_reviewer_cost(self):
+        """Task 045d, job B: five scripts failed after 3 rounds with 1-4 small residues, each round smaller than the last.
+        A code-only rejection with ever fewer problems (at most 4) now continues, up to extra_rounds more rounds."""
+        reviewer = BrainFakeClient("openai")
+        runner = SectionRunner(gateway(None, reviewer), maker="anthropic", reviewer="openai", rulebook=self.book,
+                               records_dir=self.tmp.name)
+        counts = iter([6, 3, 2, 1, 0])                      # 6 → 3 → 2 → 1 → 0: converging from round 3 on
+        step = self.step(page_with(), check=lambda value: [f"residue {n}" for n in range(next(counts))])
+        result = runner.run(step)
+        self.assertEqual(result.status, "passed")
+        self.assertEqual(len(result.rounds), 5)
+        self.assertEqual([r.get("extra_round", False) for r in result.rounds], [False, False, False, True, True])
+        self.assertEqual(len(reviewer.calls), 1)            # the reviewer saw only the clean round
+        record = json.loads(Path(result.record_path).read_text(encoding="utf-8"))
+        self.assertEqual(record["avoid_rounds"], [1, 2, 3, 4])
+
+    def test_extra_rounds_stop_when_the_answer_no_longer_converges_or_runs_out(self):
+        reviewer = BrainFakeClient("openai")
+        runner = SectionRunner(gateway(None, reviewer), maker="anthropic", reviewer="openai", rulebook=self.book)
+        stuck = iter([5, 2, 2, 1])                          # round 3 equals round 2: no trend, stop at max_rounds
+        result = runner.run(self.step(page_with(), check=lambda value: ["x"] * next(stuck)))
+        self.assertEqual((result.status, len(result.rounds)), ("failed", 3))
+        wide = iter([9, 8, 7, 6])                           # falling, but far above CONVERGING_MAX: stop at max_rounds
+        result = runner.run(self.step(page_with(), check=lambda value: ["x"] * next(wide)))
+        self.assertEqual((result.status, len(result.rounds)), ("failed", 3))
+        slow = iter([4, 3, 2, 1, 1, 1, 1])                  # converging, then flat: extra rounds end after 3 at most
+        step = self.step(page_with(), check=lambda value: ["x"] * next(slow))
+        result = runner.run(step)
+        self.assertEqual((result.status, len(result.rounds)), ("failed", 5))     # round 4 extra (2 → 1), round 5 flat: stop
+        step = self.step(page_with(), check=lambda value: ["x"] * next(iter([4, 3, 2])))
+        step.extra_rounds = 0
+        result = runner.run(step)
+        self.assertEqual((result.status, len(result.rounds)), ("failed", 3))
+        self.assertEqual(reviewer.calls, [])
+
     def test_maker_error_is_recorded(self):
         class Broken(BrainFakeClient):
             def _respond(self, model, messages, schema):
