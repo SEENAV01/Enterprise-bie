@@ -31,6 +31,12 @@ ROMAN_HINDI = {"hai", "hain", "ka", "ki", "ke", "ko", "se", "mein", "aur", "yeh"
                "nahin", "hum", "aap", "tum", "toh", "bhi", "jab", "tab", "phir", "lekin", "kyunki", "matlab", "yani"}
 
 
+# The oblique forms whose dictionary form changes its last vowel (Task 045d job B2): पहिए / पहियों → पहिया, झाड़ुओं → झाड़ू.
+REWRITES = (("ियों", "िया"), ("िए", "िया"), ("िये", "िया"), ("ुओं", "ू"), ("ुएं", "ू"), ("ुए", "ू"), ("ुओ", "ू"))
+# An ordinal ending written after a digit ("10वाँ", "2री"): part of the number, not a Hindi word.
+ORDINAL = frozenset({"वां", "वीं", "वें", "वा", "वी", "वे", "रा", "री", "रे", "था", "थी", "थे", "ला", "ली", "ले"})
+
+
 def normal(word: str) -> str:
     """Spelling variants compare equal: no nukta, chandrabindu as anusvara."""
     return word.replace("़", "").replace("ँ", "ं")
@@ -58,6 +64,9 @@ class SimpleHindi:
         w = normal(word)
         if w in self.words or w + "ना" in self.words:      # a word, or a bare verb stem (रुक, हट, घुमा)
             return True
+        for end, base in REWRITES:
+            if w.endswith(end) and len(w) > len(end) and w[:-len(end)] + base in self.words:
+                return True
         for suffix in self.suffixes:
             if w.endswith(suffix) and len(w) > len(suffix):
                 if any(stem in self.words for stem in _stems(w[:-len(suffix)])):
@@ -126,6 +135,8 @@ def difficult_words(say: str, simple: SimpleHindi | None = None) -> list:
     for m in WORD.finditer(say):
         if m.start() in glossed or any(a <= m.start() < b for a, b in skip):
             continue
+        if m.start() > 0 and say[m.start() - 1].isdigit() and normal(m.group(0)) in ORDINAL:
+            continue                                      # "10वाँ": the number's ending
         if not simple.is_simple(m.group(0)) and m.group(0) not in found:
             found.append(m.group(0))
     return found

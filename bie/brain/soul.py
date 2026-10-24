@@ -38,14 +38,19 @@ UNPACK_SCHEMA = _obj({
 })
 EMPTY_UNPACK = {"terms": [], "why_chain": [], "example_or_place": "", "consequence": "", "visual_verb": "", "level_extra": ""}
 
-# What opens a book line in a spoken beat: a term opened ("yaani"), a why, an example, a contrast.
+# What opens a book line in a spoken beat: a term opened ("yaani"), a why, an example, a contrast, a memory beat.
 YAANI = re.compile(r"यानी|यानि|मतलब|अर्थात|(?<![a-z])(?:yaani|yani|matlab)(?![a-z])", re.IGNORECASE)
 WHY = re.compile(r"क्योंकि|क्यूंकि|इसलिए|इसीलिए|इसलिये|ताकि|वजह|कारण|वरना|नहीं तो|क्यों|इससे|इसी से|तभी"
                  r"|(?<![a-z])(?:kyunki|kyonki|isliye|isiliye|taaki|because|varna|kyon|kyun)(?![a-z])", re.IGNORECASE)
 EXAMPLE = re.compile(r"जैसे|जैसा|जैसी|की तरह|मिसाल|उदाहरण|मान लो|मान लीजिए|सोचो|सोचिए|ज़रा देखो"
                      r"|(?<![a-z])(?:jaise|jaisa|jaisi|ki tarah|for example|example|maan lo|socho)(?![a-z])", re.IGNORECASE)
-CONTRAST = re.compile(r"लेकिन|जबकि|फ़र्क|फर्क|बल्कि|के उलट|(?<![a-z])(?:lekin|jabki|fark|farq|unlike|whereas)(?![a-z])", re.IGNORECASE)
-MARKERS = (("yaani", YAANI), ("why", WHY), ("example", EXAMPLE), ("contrast", CONTRAST))
+# The contrast of Navin's teacher bank is also "what it is not" (job B resume: "यह सिर्फ सख्त ढाँचा नहीं है").
+CONTRAST = re.compile(r"लेकिन|जबकि|फ़र्क|फर्क|बल्कि|के उलट|(?<![ऀ-ॿ])(?:न|ना) कि(?![ऀ-ॿ])"
+                      r"|(?:सिर्फ|केवल)[^।?!.]{1,60}?नहीं|नहीं[^।?!.]{0,12}(?:सिर्फ|केवल)"
+                      r"|(?<![a-z])(?:lekin|jabki|fark|farq|unlike|whereas|not just|not only)(?![a-z])", re.IGNORECASE)
+# The memory beat of Navin's teacher bank: the exam's "yaad rakhna", the trick.
+MEMORY = re.compile(r"याद\s*रख|ट्रिक|(?<![a-z])(?:yaad\s*rakh\w*|trick|mnemonic)(?![a-z])", re.IGNORECASE)
+MARKERS = (("yaani", YAANI), ("why", WHY), ("example", EXAMPLE), ("contrast", CONTRAST), ("memory", MEMORY))
 
 ENGLISH_WORD = re.compile(r"[A-Za-z][A-Za-z\-]{3,}")
 STOP = frozenset("""with from that this these those their there where when what which while also into than then them they

@@ -17,6 +17,11 @@ Since Task 045 a step can carry its task card (``bie/brain/cards.py``): the syst
 fixed prefix, whose hash must match the card before anything is sent, and the record keeps the card, the
 prefix hash and what BIE's code observed about each round (``Step.observe``, for example the type comparison).
 
+Since Task 045d (job B2) a step can continue from an earlier answer (``Step.start``, for example a script that failed
+an earlier run by one or two words): round 0 makes no maker call; BIE's code checks that answer with today's checks and,
+when it is clean, the reviewer reads it; otherwise the first maker round is a patch of exactly today's problems. A failed
+unit is then finished, not written again from scratch (a fresh rewrite brings new problems of its own).
+
 Images are recorded by hash and size only, never by content. When the run's cost guard refuses a call
 (rupee cap reached) or the provider says its balance is used up, the step ends as "stopped", not
 "failed": nothing is wrong with the work, it simply was not paid for.
@@ -85,6 +90,7 @@ class Step:
     card: dict | None = None                  # the task card sent with this step (Task 045)
     observe: Callable[[dict], dict] | None = None   # code findings to record per round, never sent back
     normalize: Callable[[dict], tuple] | None = None  # (value, changes): code tidies the answer before checks and review
+    start: dict | None = None                 # an earlier answer to continue from (round 0: no maker call, Task 045d B2)
 
 
 @dataclass
@@ -185,70 +191,100 @@ class SectionRunner:
         rounds, output, status = [], None, "failed"
         started = self._clock()
         schema, patching = step.schema, False
-        for number in range(1, step.max_rounds + 1):
-            entry = {"round": number, "started_at": self._clock(), "mode": "patch" if patching else "full"}
-            request = ModelRequest(request_id=f"{step.section}:{step.unit}:r{number}", messages=tuple(messages),
-                                   response_schema=schema)
-            try:
-                response = self.gateway.complete(self.maker, request, prompt_version=step.instructions_version)
-            except ProviderError as exc:
-                entry.update(maker_error={"kind": exc.kind, "message": str(exc)[:300]}, passed=False)
-                rounds.append(entry)
-                status = "stopped" if exc.kind in STOP_KINDS else status
-                break
-            value = response.content
-            if patching:
-                entry["patch"] = value
-                value = step.apply_patch(output, value)
+        if step.start is not None:
+            value = json.loads(json.dumps(step.start))
+            entry = {"round": 0, "started_at": self._clock(), "mode": "resume"}
             if step.normalize is not None:
                 value, changes = step.normalize(value)
                 if changes:
                     entry["normalized"] = changes
-            entry["maker"] = _call_info(response, self.maker)
             entry["notes"] = value.get("notes")
             entry["output"] = value
-            problems = [f"[code] {p}" for p in step.check(value)]
-            entry["code_problems"] = problems
-            if step.observe is not None:
-                entry["observed"] = step.observe(value)
-            if not problems and self.reviewer and step.review_system:
-                review_messages = ({"role": "system", "content": step.review_system},
-                                   {"role": "user", "content": step.review_user(value)})
-                review_request = ModelRequest(request_id=f"{step.section}:{step.unit}:r{number}:review",
-                                              messages=review_messages, response_schema=step.review_schema)
-                try:
-                    review = self.gateway.complete(self.reviewer, review_request,
-                                                   prompt_version=step.instructions_version + "/review")
-                except ProviderError as exc:
-                    entry.update(review_error={"kind": exc.kind, "message": str(exc)[:300]}, passed=False)
-                    rounds.append(entry)
-                    output = value
-                    status = "stopped" if exc.kind in STOP_KINDS else status
-                    break
-                entry["review"] = dict(_call_info(review, self.reviewer), value=review.content)
-                problems = [f"[reviewer] {p}" for p in step.review_problems(review.content)]
-                entry["review_problems"] = problems
-                entry["review_minor"] = minor_findings(review.content)
-            entry["passed"] = not problems
-            entry["finished_at"] = self._clock()
+            problems, stop = self._judge(step, value, entry, 0)
             rounds.append(entry)
             output = value
-            if not problems:
+            if stop is not None:
+                status = stop
+            elif not problems:
                 status = "passed"
-                break
-            previous = json.dumps(value, ensure_ascii=False, separators=(",", ":"))     # compact: the maker reads it again
-            patching = step.patch_schema is not None and step.apply_patch is not None
-            schema = step.patch_schema if patching else step.schema
-            hint = step.patch_hint(value) if callable(step.patch_hint) else step.patch_hint
-            instruction = (PATCH_INSTRUCTION.format(problems=_problems_text(problems), hint=hint) if patching
-                           else REMAKE_INSTRUCTION.format(problems=_problems_text(problems)))
-            messages = [messages[0], messages[1], {"role": "assistant", "content": previous},
-                        {"role": "user", "content": instruction}]
+            else:
+                messages, schema, patching = self._next(step, messages, value, problems)
+        if status == "failed" and not (rounds and rounds[-1].get("review_error")):
+            for number in range(1, step.max_rounds + 1):
+                entry = {"round": number, "started_at": self._clock(), "mode": "patch" if patching else "full"}
+                request = ModelRequest(request_id=f"{step.section}:{step.unit}:r{number}", messages=tuple(messages),
+                                       response_schema=schema)
+                try:
+                    response = self.gateway.complete(self.maker, request, prompt_version=step.instructions_version)
+                except ProviderError as exc:
+                    entry.update(maker_error={"kind": exc.kind, "message": str(exc)[:300]}, passed=False)
+                    rounds.append(entry)
+                    status = "stopped" if exc.kind in STOP_KINDS else status
+                    break
+                value = response.content
+                if patching:
+                    entry["patch"] = value
+                    value = step.apply_patch(output, value)
+                if step.normalize is not None:
+                    value, changes = step.normalize(value)
+                    if changes:
+                        entry["normalized"] = changes
+                entry["maker"] = _call_info(response, self.maker)
+                entry["notes"] = value.get("notes")
+                entry["output"] = value
+                problems, stop = self._judge(step, value, entry, number)
+                rounds.append(entry)
+                output = value
+                if stop is not None:
+                    status = stop
+                    break
+                if not problems:
+                    status = "passed"
+                    break
+                messages, schema, patching = self._next(step, messages, value, problems)
         cost = sum(r.get("maker", {}).get("cost_usd", 0.0) + r.get("review", {}).get("cost_usd", 0.0) for r in rounds)
         result = StepResult(step.section, step.unit, status, output, rounds, cost_usd=round(cost, 6),
                             seconds=round(self._clock() - started, 1))
         result.record_path = self._save(step, result)
         return result
+
+    def _judge(self, step: Step, value: dict, entry: dict, number: int) -> tuple:
+        """(problems, stop): BIE's code checks the answer; a clean answer goes to the reviewer. ``stop`` is None, or the
+        step's status when the reviewer call failed ("stopped" for the cost cap or a used-up balance, else "failed")."""
+        problems = [f"[code] {p}" for p in step.check(value)]
+        entry["code_problems"] = problems
+        if step.observe is not None:
+            entry["observed"] = step.observe(value)
+        if not problems and self.reviewer and step.review_system:
+            review_messages = ({"role": "system", "content": step.review_system},
+                               {"role": "user", "content": step.review_user(value)})
+            review_request = ModelRequest(request_id=f"{step.section}:{step.unit}:r{number}:review",
+                                          messages=review_messages, response_schema=step.review_schema)
+            try:
+                review = self.gateway.complete(self.reviewer, review_request,
+                                               prompt_version=step.instructions_version + "/review")
+            except ProviderError as exc:
+                entry.update(review_error={"kind": exc.kind, "message": str(exc)[:300]}, passed=False)
+                return None, "stopped" if exc.kind in STOP_KINDS else "failed"
+            entry["review"] = dict(_call_info(review, self.reviewer), value=review.content)
+            problems = [f"[reviewer] {p}" for p in step.review_problems(review.content)]
+            entry["review_problems"] = problems
+            entry["review_minor"] = minor_findings(review.content)
+        entry["passed"] = not problems
+        entry["finished_at"] = self._clock()
+        return problems, None
+
+    @staticmethod
+    def _next(step: Step, messages: list, value: dict, problems: list) -> tuple:
+        """(messages, schema, patching) for the next maker round: the answer so far and the problems to fix."""
+        previous = json.dumps(value, ensure_ascii=False, separators=(",", ":"))     # compact: the maker reads it again
+        patching = step.patch_schema is not None and step.apply_patch is not None
+        schema = step.patch_schema if patching else step.schema
+        hint = step.patch_hint(value) if callable(step.patch_hint) else step.patch_hint
+        instruction = (PATCH_INSTRUCTION.format(problems=_problems_text(problems), hint=hint) if patching
+                       else REMAKE_INSTRUCTION.format(problems=_problems_text(problems)))
+        return ([messages[0], messages[1], {"role": "assistant", "content": previous},
+                 {"role": "user", "content": instruction}], schema, patching)
 
     def _model(self, route):
         try:

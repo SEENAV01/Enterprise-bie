@@ -102,7 +102,7 @@ class UnpackChecks(unittest.TestCase):
         self.assertEqual([p for p in soul.unpack_problems(self.item(textbook), language="English") if "textbook" in p], [])
         self.assertEqual([p for p in soul.unpack_problems(self.item(GOOD_UNPACK)) if "textbook" in p], [])
         self.assertEqual(len(hinglish.load().technical), 62)
-        self.assertIn("simple_hindi@2026-10-24.2", BOOK.version)
+        self.assertIn("simple_hindi@2026-10-25.1", BOOK.version)
         self.assertEqual(hinglish.difficult_words("बाँह की नोक पर रस और छन्नी, अंदरूनी जाल, रसोई की कटोरी"), [])   # job B's everyday words
         self.assertEqual(hinglish.difficult_words("सामान्यतः पर्याप्त"), ["सामान्यतः", "पर्याप्त"])              # formal words stay hard
 
@@ -426,8 +426,9 @@ class RealTissueScripts(unittest.TestCase):
             for key in total:
                 total[key] += share[key]
             clipped += sum(len(soul.clipped_sentences(b["say"])) for b in video["beats"])
-        self.assertEqual(total, {"judged": 273, "restating": 78, "opened": 93})       # 29% of the judged beats only restate
-        # (80 and 87 with the markers of PR #60; the job B markers of 24 October credit जैसा/जैसी, वरना and क्यों)
+        self.assertEqual(total, {"judged": 273, "restating": 76, "opened": 98})       # 28% of the judged beats only restate
+        # (80 and 87 with the markers of PR #60; 78 and 93 with the job B markers of 24 October, which credit जैसा/जैसी, वरना
+        # and क्यों; 76 and 98 since the job B resume, 25 October, credits Navin's "सिर्फ/केवल … नहीं" contrast and "याद रखो")
         self.assertEqual(clipped, 10)
         waived = regression.changed_rule_problems(passed)
         self.assertTrue(any(c["rule"] == "S2-07" for _, c in waived))
@@ -591,6 +592,136 @@ class FakeChainWithTheSoul(unittest.TestCase):
             self.assertIn("dohraav", script.lower())
         finally:
             fixture.tmp.cleanup()
+
+
+class JobBResumeTaught(unittest.TestCase):
+    """Job B resumed (24 October 2026, 6 of 11 scripts passed): the 5 failed ones were left with 1-4 problems each after 3
+    rounds, every one of them code-only: everyday words the list lacked or read in an oblique form (राजमे, पहिए, झाड़ुओं),
+    an ordinal after a digit (10वाँ), and Navin's own "what it is not" contrast counted as restating. Written again from
+    scratch, three of the seven scripts of job B had failed on new words of their own."""
+
+    def test_everyday_words_and_their_oblique_forms_are_simple_and_formal_ones_stay_hard(self):
+        from bie.brain import hinglish
+        simple = hinglish.load()
+        for word in ("राजमे", "राशन", "पहिए", "तीलियों", "झाड़ुओं", "दफ्तर", "गूदा", "थक्का", "भंडार", "चेहरों", "सुरंगें", "पंजों",
+                     "सीने", "रोंगटे", "किरकिराते", "किरकिरापन", "कड़कपन", "छापा", "लिपटने", "ढोती", "पचता", "दिक्कत"):
+            self.assertTrue(simple.is_simple(word), word)
+        for word in ("पर्याप्त", "प्रभावित", "मुख्यतः", "कठोर", "माध्यम", "बाधा", "विशाल", "नकारता", "घेराबंदी", "स्रोत", "अपेक्षाकृत"):
+            self.assertFalse(simple.is_simple(word), word)
+        self.assertEqual(hinglish.difficult_words("Page का 10वाँ हिस्सा और 2री line देखो।"), [])
+        self.assertEqual(hinglish.difficult_words("response और movement की अदला-बदली पकड़ना।"), [])
+        self.assertEqual(hinglish.difficult_words("Parenchyma की पहली बाहरी घेराबंदी देखो।"), ["घेराबंदी"])
+
+    def test_navins_contrast_and_memory_beats_open_a_line(self):
+        self.assertEqual(soul.markers("बहता Blood भी tissue है? Fluid connective tissue में Blood और Lymph हैं। Adipose का fat, Bone, "
+                                      "Blood और Lymph—सब Connective परिवार में हैं; यह सिर्फ सख्त ढाँचा नहीं है।"), ["contrast"])
+        self.assertEqual(soul.markers("यह fluid है, न कि solid।"), ["contrast"])
+        self.assertEqual(soul.markers("कोई भी cell न किसी से जुड़ा है।"), [])
+        self.assertEqual(soul.markers("M2B Tendon, B2B Ligament याद रखिए।"), ["memory"])
+        self.assertEqual(soul.markers("Exam trick: Sclerenchyma dead है."), ["memory"])
+        # Still sent back: the book's words with nothing that opens them.
+        self.assertEqual(soul.markers("Skeletal का काम हाथ उठाना, खड़े रहना और heat देना है; energy इस्तेमाल से गर्मी निकलती है।"), [])
+
+
+class ContinueFromAnEarlierAnswer(unittest.TestCase):
+    """Task 045d job B2: a step continues from an earlier answer (round 0 without a maker call) instead of starting over."""
+
+    class Stub:
+        def __init__(self, answers, reviews=()):
+            self.answers, self.reviews, self.requests = list(answers), list(reviews), []
+
+        def complete(self, route, request, prompt_version=None):
+            import types
+            self.requests.append((route, request))
+            content = self.reviews.pop(0) if route == "rev" else self.answers.pop(0)
+            return types.SimpleNamespace(content=content, provenance={"via": "fake"}, model="stub", provider=route,
+                                         usage={"input_tokens": 1, "output_tokens": 1})
+
+    def step(self, start, **extra):
+        from bie.brain.runner import Step
+        return Step(section="lesson", unit="script-v2", instructions_version="v", system="S", user="U", schema={"full": 1},
+                    check=lambda value: [] if value["ok"] else [f"beat b13 not ok ({value['n']})"],
+                    review_system="R", review_user=lambda value: "review this", review_schema={},
+                    review_problems=lambda review: [f["problem"] for f in review.get("problems", [])], patch_schema={"patch": 1},
+                    apply_patch=lambda old, patch: dict(old, **patch), start=start, **extra)
+
+    def runner(self, stub):
+        from bie.brain.runner import SectionRunner
+        return SectionRunner(stub, maker="maker", reviewer="rev", rulebook=BOOK)
+
+    def test_a_clean_earlier_answer_goes_straight_to_the_reviewer(self):
+        stub = self.Stub(answers=[], reviews=[{"problems": []}])
+        result = self.runner(stub).run(self.step({"ok": True, "n": 0, "notes": None}))
+        self.assertEqual(result.status, "passed")
+        self.assertEqual([route for route, _ in stub.requests], ["rev"])          # no maker call at all
+        self.assertEqual([(r["round"], r["mode"]) for r in result.rounds], [(0, "resume")])
+        self.assertEqual(stub.requests[0][1].request_id, "lesson:script-v2:r0:review")
+
+    def test_an_earlier_answer_with_problems_is_patched_not_written_again(self):
+        stub = self.Stub(answers=[{"ok": True, "n": 1}], reviews=[{"problems": []}])
+        result = self.runner(stub).run(self.step({"ok": False, "n": 0, "notes": None}))
+        self.assertEqual(result.status, "passed")
+        route, request = stub.requests[0]
+        self.assertEqual((route, request.request_id), ("maker", "lesson:script-v2:r1"))
+        self.assertEqual(request.response_schema, {"patch": 1})                 # a patch, not a fresh script
+        self.assertEqual(json.loads(request.messages[2]["content"]), {"ok": False, "n": 0, "notes": None})
+        self.assertIn("beat b13 not ok (0)", request.messages[3]["content"])
+        self.assertEqual([r["round"] for r in result.rounds], [0, 1])
+        self.assertEqual(result.rounds[0]["code_problems"], ["[code] beat b13 not ok (0)"])
+
+    def test_the_reviewers_findings_on_an_earlier_answer_go_to_the_maker_and_rounds_stay_bounded(self):
+        finding = lambda text: {"problems": [{"problem": text, "severity": "blocking"}]}
+        stub = self.Stub(answers=[{"ok": True, "n": 1}, {"ok": True, "n": 2}],
+                         reviews=[finding("too shallow"), finding("still shallow"), finding("shallow")])
+        result = self.runner(stub).run(self.step({"ok": True, "n": 0, "notes": None}, max_rounds=2))
+        self.assertEqual(result.status, "failed")
+        self.assertIn("[reviewer] too shallow", stub.requests[1][1].messages[3]["content"])
+        self.assertEqual([r["round"] for r in result.rounds], [0, 1, 2])         # round 0 and at most max_rounds maker rounds
+        self.assertEqual(result.rounds[0]["review_problems"], ["[reviewer] too shallow"])
+
+    def test_a_cost_stop_at_round_zero_stops_without_a_maker_call(self):
+        from bie.model_gateway.live.budget import STOP_KINDS
+        from bie.model_gateway.live.errors import ProviderError
+
+        class Broke(self.Stub):
+            def complete(self, route, request, prompt_version=None):
+                self.requests.append((route, request))
+                raise ProviderError(sorted(STOP_KINDS)[0], "cap reached")
+
+        stub = Broke(answers=[])
+        result = self.runner(stub).run(self.step({"ok": True, "n": 0, "notes": None}))
+        self.assertEqual(result.status, "stopped")
+        self.assertEqual([route for route, _ in stub.requests], ["rev"])
+        self.assertIn("review_error", result.rounds[0])
+
+    def test_the_real_failed_scripts_of_the_resumed_job_b_need_little_today(self):
+        """Measured offline on 25 October 2026 from the resumed job B's lesson_plan.json (run folder
+        vm-t045d-tissue-lesson-resume-brain-lesson): v2, v4 and v9 have no code problem left and go straight to the
+        reviewer; v5 keeps नकारता and one restating beat, v8 keeps घेराबंदी. The beats below are the ones that failed them."""
+        from bie.brain import hinglish
+        left = {
+            "v2 b13": "बहता Blood भी tissue है? Fluid connective tissue में Blood और Lymph हैं। Adipose का fat, Bone, Blood और "
+                      "Lymph—सब Connective परिवार में हैं; यह सिर्फ सख्त ढाँचा नहीं है।",
+            "v4 b51": "नीचे बाएँ बड़ा dark हिस्सा दिखा? Lymphocyte में nucleus ज्यादा जगह घेरता है। नीचे बीच Monocyte का nucleus "
+                      "indented है, यानी किनारे पर दबे राजमे जैसा; दोनों white blood cells हैं।",
+            "v4 b61": "आखिरी panel के pale हिस्से खाली हैं? Fat droplet यानी जमा fuel का भंडार। पूरे storage bags Adipocytes हैं: "
+                      "fat रखने वाले cells, जिनका tissue adipose है; यही fat padding और insulation भी देता है।",
+            "v8 b9": "आलू और हरा पत्ता देखो: खाना रखना और बनाना अलग हैं। Parenchyma का storage यानी राशन सँभालना; "
+                     "photosynthesis यानी light से नया खाना बनाना।",
+            "v8 b10": "फल का गूदा देखो: parenchyma नरम packing जैसा है। Stem, roots, leaves, flowers और fruits में मिलता है; "
+                      "कई हिस्सों को जगह भरने और खाना रखने वाले cells चाहिए।",
+            "v8 b63": "कटी डंडी में parenchyma की नरम packing देखो: cortex बाहरी covering के अंदर, pith बीच में है। Medullary rays "
+                      "यानी पहिए की तीलियों जैसी अंदर-बाहर जाती पट्टियाँ हैं।",
+            "v9 b42": "छोटा पड़ोसी companion cell है; dark nucleus यानी उसका काम सँभालने वाला दफ्तर। Mature sieve-tube element "
+                      "बिना nucleus भी living है; पड़ोसी उसके काम में मदद करता है।",
+        }
+        for where, say in left.items():
+            self.assertEqual(hinglish.difficult_words(say), [], where)
+        self.assertEqual(soul.markers(left["v2 b13"]), ["contrast"])
+        self.assertEqual(hinglish.difficult_words("None सबको नकारता है; Tendon सही है। M2B Tendon, B2B Ligament याद रखिए।"),
+                         ["नकारता"])
+        self.assertEqual(hinglish.difficult_words("Page 13 में Parenchyma की thin primary wall यानी पहली बाहरी घेराबंदी देखो; "
+                                                  "membrane अंदर है।"), ["घेराबंदी"])
 
 
 if __name__ == "__main__":
