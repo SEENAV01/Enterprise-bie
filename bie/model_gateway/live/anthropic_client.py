@@ -78,15 +78,15 @@ class AnthropicClient:
             "reasoning_tokens": 0,
         }
         if stop == "refusal":
-            raise ProviderError("refusal", "the model declined the request", provider=self.provider)
+            raise ProviderError("refusal", "the model declined the request", provider=self.provider, usage=normalized)
         if stop == "max_tokens":
-            raise ProviderError("truncated", f"output reached max_tokens={self.max_tokens}", provider=self.provider)
+            raise ProviderError("truncated", f"output reached max_tokens={self.max_tokens}", provider=self.provider, usage=normalized)
         blocks = raw.get("content")
         if not isinstance(blocks, list):
-            raise ProviderError("malformed", "no content blocks", provider=self.provider)
+            raise ProviderError("malformed", "no content blocks", provider=self.provider, usage=normalized)
         text = "".join(b.get("text", "") for b in blocks if isinstance(b, dict) and b.get("type") == "text")
         if not text.strip():
-            raise ProviderError("malformed", "empty text content", provider=self.provider)
+            raise ProviderError("malformed", "empty text content", provider=self.provider, usage=normalized)
         return {"content": text, "usage": normalized, "finish_reason": stop or "unknown", "model": self.last_model}
 
     def list_models(self):

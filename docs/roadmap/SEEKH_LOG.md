@@ -477,3 +477,55 @@ video under about 15 minutes). **Dohraav on the final 11 scripts: 0 of 500 judge
 Task 045d Gemini in all: understanding ₹100.28 + script ₹24.86 + ₹12.01 + ₹24.44 = **₹161.59 of Navin's ₹200**; Codex plan 2% → 8%.
 Status: the understanding and script steps are INTEGRATED (real runs through every new check); the dohraav number is a measured fact;
 nothing ACCEPTED until Navin's verdict on old v2 against new v2 (`V2_SIDE_BY_SIDE.md` in the resume2 run folder).
+
+## Entry 10 · continue a failed script from its last answer (PR #64), 25 October 2026
+
+**From the same resumed run as entry 9's seekh (PR #65):** the five failed scripts had been written again from scratch by the resume,
+and each rewrite brought everyday images with new words (67 distinct words flagged in the resumed run, most of them new): entry 9 had
+predicted that v2, v8 and v9 would pass, and their rewrites failed on words the earlier versions did not use. PR #65 extends converging
+rounds inside one run; this entry stops a resume from throwing the nearly finished scripts away.
+
+**Changed in BIE (IMPLEMENTED, offline; PR #64, on top of PR #65):**
+
+- **Continue, do not rewrite** (`bie/brain/runner.py`, `bie/brain/lesson.py`): a step may start from an earlier answer (`Step.start`).
+  Round 0 makes no maker call: BIE's code checks that answer with today's checks; a clean one goes straight to the reviewer, otherwise
+  the first maker round is a patch of exactly today's problems, and round 0's count is the "round before" for PR #65's converging
+  rounds. A lesson resume continues every earlier script that did not pass (or no longer passes) when it is close enough (at most 10
+  problems today, none about missing content or a script far too short, `close_enough`); a script far from passing is written again.
+  The lesson records `continued`, SCRIPT.md marks "(continued)", `tools/seekh_measure.py` counts continued units apart from first-try
+  passes.
+- **Words** (`simple_hindi.json` 2026-10-25.1, on PR #65's 2026-10-24.3): 30 more everyday words from the resumed run's rounds (दिक्कत,
+  चेहरा, सुरंग, थक्का, सीना, घरेलू, निशान, पुल …) and the phrase अदला-बदली; `hinglish.py` reads an oblique form whose last vowel changes
+  (पहिए → पहिया, झाड़ुओं → झाड़ू; झाड़ू was already listed) and an ordinal ending after a digit (10वाँ). Formal words stay hard: पर्याप्त,
+  प्रभावित, मुख्यतः, कठोर, माध्यम, बाधा, विशाल, स्रोत, अपेक्षाकृत.
+- **Openings** (`soul.py`): the two steps of Navin's teacher bank the detector missed: the contrast "what it is not" ("सिर्फ / केवल …
+  नहीं", "न कि"; job B resume v2 b13: "यह सिर्फ सख्त ढाँचा नहीं है") and the memory beat ("याद रखो", trick). "से अलग" and "उल्टा" were tried
+  and left out: on the old scripts they credited "अलग पहचानो" and "अलग रखती है", which open nothing.
+
+**Correction to entry 9's last paragraph (from the run's own records):** v5's round 3 ended on the **reviewer's** answer, not the
+maker's patch: the maker's round 3 answer (1,400 output tokens) passed every code check, and the review call through AICredits stopped
+with `aicredits:truncated: output reached max_tokens=32000` (ledger row `lesson:script-v5:r3:review`, outcome error). A normal script
+review is 1,000–1,600 output tokens (the other eight in these runs); this one ran away.
+
+**Taught about cost:** a call that generates an answer and then fails is billed by the provider, but the gateway recorded such a call
+with no tokens and the cost guard settled it at ₹0. v5's runaway review (about 55,000 input and 32,000 output tokens of Gemini 4 Argon
+with the AICredits markup) is estimated at ₹40–48, so job B2 cost about ₹65–72, not the ₹24.44 in its ledger, and Task 045d about
+**₹205, not ₹161.59, of Navin's ₹200**; the AICredits wallet ran out on v9's review. The AICredits dashboard has the real bill
+(`docs/roadmap/COST_LOG.md`, "real bill").
+
+**Changed in BIE for cost (IMPLEMENTED, offline; PR #64):** `ProviderError` carries the tokens a provider reports for a call that
+answered and then failed (truncated, refused, unreadable; all four clients); the gateway prices that call in the ledger and the cost
+guard settles it at that price; a truncated call without reported tokens is priced at its input and the whole output cap. A call that
+never answered (rate limit, wallet, timeout) still costs nothing. Next seekh, not built yet: a smaller output cap for review calls
+(a review needs about 1,600 tokens; the cap of 32,000 lets a runaway cost about ₹45).
+
+**Job B2's result (`vm-t045d-tissue-lesson-resume2-brain-lesson`, on PR #65's code):** 9 of 11 pass; v5 and v9 are both clean by code
+(v9 at round 4, v5 at round 3) and each needs only a review. With this PR a resume continues both from their last answers: round 0
+finds no code problem, so the next run makes no maker call and two reviews (about ₹10–12, v5's again at risk of a long answer until
+the review cap exists).
+
+**Measured (offline, 25 October 2026, on the earlier resumed run's `lesson_plan.json` with this code):** the 6 passed scripts still pass
+and are reused; the 5 failed ones would continue: v2, v4, v8 and v9 have no code problem left (straight to the reviewer, no maker call),
+v5 keeps one restating beat (b102, a patch round). Dohraav of that lesson with today's markers: 1 of 511 (0.2%), openings 65.8%. The
+old scripts (job 3, regression set): 78 → 76 restating of 273, 93 → 98 opened. Both saved regression sets still pass; the Task 045 lane
+passes. Nothing ACCEPTED until Navin's verdict.

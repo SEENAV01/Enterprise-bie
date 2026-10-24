@@ -72,7 +72,7 @@ class OpenAIClient:
         if status == "incomplete":
             reason = (raw.get("incomplete_details") or {}).get("reason") or "incomplete"
             kind = "truncated" if reason == "max_output_tokens" else "refusal"
-            raise ProviderError(kind, f"response incomplete: {reason}", provider=self.provider)
+            raise ProviderError(kind, f"response incomplete: {reason}", provider=self.provider, usage=normalized)
         if status == "failed":
             error = raw.get("error") or {}
             raise ProviderError(classify(None, error), str(error.get("message") or "response failed")[:300], provider=self.provider)
@@ -86,10 +86,10 @@ class OpenAIClient:
                 elif isinstance(part, dict) and part.get("type") == "refusal":
                     refusals.append(part.get("refusal", ""))
         if refusals and not "".join(texts).strip():
-            raise ProviderError("refusal", refusals[0][:300], provider=self.provider)
+            raise ProviderError("refusal", refusals[0][:300], provider=self.provider, usage=normalized)
         text = "".join(texts)
         if not text.strip():
-            raise ProviderError("malformed", "no output text", provider=self.provider)
+            raise ProviderError("malformed", "no output text", provider=self.provider, usage=normalized)
         return {"content": text, "usage": normalized, "finish_reason": status or "unknown", "model": self.last_model}
 
     def list_models(self):

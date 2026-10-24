@@ -122,18 +122,18 @@ class OpenAICompatChatClient:
         }
         choices = raw.get("choices")
         if not isinstance(choices, list) or not choices or not isinstance(choices[0], dict):
-            raise ProviderError("malformed", "no choices", provider=self.via)
+            raise ProviderError("malformed", "no choices", provider=self.via, usage=normalized)
         finish = choices[0].get("finish_reason") or "unknown"
         message = choices[0].get("message") or {}
         if finish == "length":
-            raise ProviderError("truncated", f"output reached max_tokens={self.max_tokens}", provider=self.via)
+            raise ProviderError("truncated", f"output reached max_tokens={self.max_tokens}", provider=self.via, usage=normalized)
         if finish == "content_filter" or (message.get("refusal") and not message.get("content")):
-            raise ProviderError("refusal", str(message.get("refusal") or finish)[:300], provider=self.via)
+            raise ProviderError("refusal", str(message.get("refusal") or finish)[:300], provider=self.via, usage=normalized)
         content = message.get("content")
         if isinstance(content, list):
             content = "".join(p.get("text", "") for p in content if isinstance(p, dict) and p.get("type") in (None, "text"))
         if not isinstance(content, str) or not content.strip():
-            raise ProviderError("malformed", "empty message content", provider=self.via)
+            raise ProviderError("malformed", "empty message content", provider=self.via, usage=normalized)
         return {"content": content, "usage": normalized, "finish_reason": finish, "model": self.last_model}
 
     def list_models(self):

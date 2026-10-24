@@ -22,10 +22,15 @@ KINDS = RETRYABLE_KINDS | frozenset({
 class ProviderError(RuntimeError):
     """A failed provider call. ``kind`` decides whether a retry is allowed."""
 
-    def __init__(self, kind: str, message: str = "", *, status: int | None = None, provider: str | None = None):
+    def __init__(self, kind: str, message: str = "", *, status: int | None = None, provider: str | None = None,
+                 usage: dict | None = None):
         if kind not in KINDS:
             raise ValueError("unknown provider error kind: " + str(kind))
         self.kind = kind
+        # The tokens the provider reports for a call that generated an answer and then failed (truncated, refused,
+        # unreadable): such a call is billed, so the gateway records its cost (Task 045d job B2: a review that ran to
+        # 32,000 output tokens cost about Rs 44 and the ledger had counted Rs 0).
+        self.usage = usage
         self.status = status
         self.provider = provider
         self.message = message[:600]

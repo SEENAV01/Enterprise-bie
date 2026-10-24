@@ -19,6 +19,12 @@ Since Task 045 a step can carry its task card (``bie/brain/cards.py``): the syst
 fixed prefix, whose hash must match the card before anything is sent, and the record keeps the card, the
 prefix hash and what BIE's code observed about each round (``Step.observe``, for example the type comparison).
 
+Since Task 045d (job B2) a step can continue from an earlier answer (``Step.start``, for example a script that failed
+an earlier run by one or two words): round 0 makes no maker call; BIE's code checks that answer with today's checks and,
+when it is clean, the reviewer reads it; otherwise the first maker round is a patch of exactly today's problems (and round
+0's count is the "round before" for converging rounds). A failed unit is then finished, not written again from scratch (a
+fresh rewrite brings new problems of its own).
+
 Images are recorded by hash and size only, never by content. When the run's cost guard refuses a call
 (rupee cap reached) or the provider says its balance is used up, the step ends as "stopped", not
 "failed": nothing is wrong with the work, it simply was not paid for.
@@ -92,6 +98,7 @@ class Step:
     card: dict | None = None                  # the task card sent with this step (Task 045)
     observe: Callable[[dict], dict] | None = None   # code findings to record per round, never sent back
     normalize: Callable[[dict], tuple] | None = None  # (value, changes): code tidies the answer before checks and review
+    start: dict | None = None                 # an earlier answer to continue from (round 0: no maker call, Task 045d B2)
 
 
 @dataclass
@@ -193,7 +200,9 @@ class SectionRunner:
         started = self._clock()
         schema, patching = step.schema, False
         number, extra_used, last_code, converging = 0, 0, None, False
-        while True:
+        if step.start is not None:
+            status, output, last_code, messages, schema, patching = self._resume(step, rounds, messages)
+        while status == "failed" and not (rounds and rounds[-1].get("review_error")):
             number += 1
             if number > step.max_rounds:
                 # A converging answer (code alone sent it back, with fewer problems than the round before, at most
@@ -233,23 +242,12 @@ class SectionRunner:
             if step.observe is not None:
                 entry["observed"] = step.observe(value)
             if not problems and self.reviewer and step.review_system:
-                review_messages = ({"role": "system", "content": step.review_system},
-                                   {"role": "user", "content": step.review_user(value)})
-                review_request = ModelRequest(request_id=f"{step.section}:{step.unit}:r{number}:review",
-                                              messages=review_messages, response_schema=step.review_schema)
-                try:
-                    review = self.gateway.complete(self.reviewer, review_request,
-                                                   prompt_version=step.instructions_version + "/review")
-                except ProviderError as exc:
-                    entry.update(review_error={"kind": exc.kind, "message": str(exc)[:300]}, passed=False)
+                problems = self._review(step, value, entry, number)
+                if problems is None:                    # the reviewer call failed
                     rounds.append(entry)
                     output = value
-                    status = "stopped" if exc.kind in STOP_KINDS else status
+                    status = "stopped" if entry["review_error"]["kind"] in STOP_KINDS else status
                     break
-                entry["review"] = dict(_call_info(review, self.reviewer), value=review.content)
-                problems = [f"[reviewer] {p}" for p in step.review_problems(review.content)]
-                entry["review_problems"] = problems
-                entry["review_minor"] = minor_findings(review.content)
                 converging = False                      # a reviewer's rejection never extends the rounds
             entry["passed"] = not problems
             entry["finished_at"] = self._clock()
@@ -258,19 +256,70 @@ class SectionRunner:
             if not problems:
                 status = "passed"
                 break
-            previous = json.dumps(value, ensure_ascii=False, separators=(",", ":"))     # compact: the maker reads it again
-            patching = step.patch_schema is not None and step.apply_patch is not None
-            schema = step.patch_schema if patching else step.schema
-            hint = step.patch_hint(value) if callable(step.patch_hint) else step.patch_hint
-            instruction = (PATCH_INSTRUCTION.format(problems=_problems_text(problems), hint=hint) if patching
-                           else REMAKE_INSTRUCTION.format(problems=_problems_text(problems)))
-            messages = [messages[0], messages[1], {"role": "assistant", "content": previous},
-                        {"role": "user", "content": instruction}]
+            messages, schema, patching = self._next(step, messages, value, problems)
         cost = sum(r.get("maker", {}).get("cost_usd", 0.0) + r.get("review", {}).get("cost_usd", 0.0) for r in rounds)
         result = StepResult(step.section, step.unit, status, output, rounds, cost_usd=round(cost, 6),
                             seconds=round(self._clock() - started, 1))
         result.record_path = self._save(step, result)
         return result
+
+    def _resume(self, step: Step, rounds: list, messages: list) -> tuple:
+        """Round 0 (Task 045d B2): the earlier answer in ``step.start`` is checked by code and, when clean, reviewed; no
+        maker call. Returns (status, output, problem count, messages, schema, patching) for the rounds that follow."""
+        value = json.loads(json.dumps(step.start))
+        entry = {"round": 0, "started_at": self._clock(), "mode": "resume"}
+        if step.normalize is not None:
+            value, changes = step.normalize(value)
+            if changes:
+                entry["normalized"] = changes
+        entry["notes"] = value.get("notes")
+        entry["output"] = value
+        problems = [f"[code] {p}" for p in step.check(value)]
+        entry["code_problems"] = problems
+        if step.observe is not None:
+            entry["observed"] = step.observe(value)
+        count = len(problems) or None
+        if not problems and self.reviewer and step.review_system:
+            problems = self._review(step, value, entry, 0)
+            if problems is None:
+                rounds.append(entry)
+                status = "stopped" if entry["review_error"]["kind"] in STOP_KINDS else "failed"
+                return status, value, count, messages, step.schema, False
+        entry["passed"] = not problems
+        entry["finished_at"] = self._clock()
+        rounds.append(entry)
+        if not problems:
+            return "passed", value, count, messages, step.schema, False
+        return ("failed", value, count) + self._next(step, messages, value, problems)
+
+    def _review(self, step: Step, value: dict, entry: dict, number: int):
+        """The reviewer's problems for a clean answer, recorded in ``entry``; None when the reviewer call failed."""
+        review_messages = ({"role": "system", "content": step.review_system},
+                           {"role": "user", "content": step.review_user(value)})
+        review_request = ModelRequest(request_id=f"{step.section}:{step.unit}:r{number}:review",
+                                      messages=review_messages, response_schema=step.review_schema)
+        try:
+            review = self.gateway.complete(self.reviewer, review_request, prompt_version=step.instructions_version + "/review")
+        except ProviderError as exc:
+            entry.update(review_error={"kind": exc.kind, "message": str(exc)[:300]}, passed=False)
+            return None
+        entry["review"] = dict(_call_info(review, self.reviewer), value=review.content)
+        problems = [f"[reviewer] {p}" for p in step.review_problems(review.content)]
+        entry["review_problems"] = problems
+        entry["review_minor"] = minor_findings(review.content)
+        return problems
+
+    @staticmethod
+    def _next(step: Step, messages: list, value: dict, problems: list) -> tuple:
+        """(messages, schema, patching) for the next maker round: the answer so far and the problems to fix."""
+        previous = json.dumps(value, ensure_ascii=False, separators=(",", ":"))     # compact: the maker reads it again
+        patching = step.patch_schema is not None and step.apply_patch is not None
+        schema = step.patch_schema if patching else step.schema
+        hint = step.patch_hint(value) if callable(step.patch_hint) else step.patch_hint
+        instruction = (PATCH_INSTRUCTION.format(problems=_problems_text(problems), hint=hint) if patching
+                       else REMAKE_INSTRUCTION.format(problems=_problems_text(problems)))
+        return ([messages[0], messages[1], {"role": "assistant", "content": previous},
+                 {"role": "user", "content": instruction}], schema, patching)
 
     def _model(self, route):
         try:
