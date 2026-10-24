@@ -1,0 +1,1215 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "lesson",
+ "unit": "script-v10",
+ "status": "passed",
+ "instructions_version": "lesson-script/4",
+ "rulebook_version": "content_types@2026-10-24.1+explanations@2026-10-24.1+level_profiles@2026-10-24.1+simple_hindi@2026-10-24.1+teacher_examples@2026-10-24.1+vision-2026-10-21@2026-10-21.12",
+ "rulebook_digest": "b6ce8b9089ed2428fec978e8b6667bd8182cc61f431233952ca9db5fabf741f7",
+ "rules_used": [
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-04",
+  "G-05",
+  "G-06",
+  "G-07",
+  "S2-01",
+  "S2-02",
+  "S2-03",
+  "S2-04",
+  "S2-05",
+  "S2-06",
+  "S2-07"
+ ],
+ "maker_route": "codex",
+ "reviewer_route": "google",
+ "maker_model": "gpt-6.1-sol",
+ "reviewer_model": "google/gemini-4-argon",
+ "reviewer_independence": "other_company",
+ "inputs_digest": "db345ca4d0643bb57bc24b8e98e9c3c4ae3ce51107b6365038643e6ff4038619",
+ "card": {
+  "card": "bie.task-card/1",
+  "card_id": "lesson.write_script@10-tissues-and-its-types/v10",
+  "section": "lesson",
+  "task": "write_script",
+  "prefix": {
+   "prefix_id": "lesson.write_script/3",
+   "rulebook_version": "content_types@2026-10-24.1+explanations@2026-10-24.1+level_profiles@2026-10-24.1+simple_hindi@2026-10-24.1+teacher_examples@2026-10-24.1+vision-2026-10-21@2026-10-21.12",
+   "content_types_version": "2026-10-24.1",
+   "schema_id": "bie.brain.lesson-script/3",
+   "sha256": "0147e7e0d13a864ea512a113a18aeb490d14d41bcf09eaf387012bb98fbbbaca"
+  },
+  "unit": {
+   "unit_id": "v10",
+   "title": "Plant की protective covering और gas exchange: questions खोलकर समझें",
+   "pages": [
+    14
+   ]
+  },
+  "parts": [
+   {
+    "part_id": "c34.q",
+    "item_ids": [
+     "p014-i6",
+     "p014-i7",
+     "p014-i8",
+     "p014-i9",
+     "p014-i10",
+     "p014-i11",
+     "p014-i12",
+     "p014-i13",
+     "p014-i14",
+     "p014-i15"
+    ],
+    "type": "none",
+    "questions": [
+     "what",
+     "which",
+     "where",
+     "how",
+     "exception",
+     "why",
+     "difference",
+     "evidence"
+    ],
+    "focus": "Practice: protective plant covering and leaf gas exchange: exam questions (PYQ); answer each as an exam tip once the concept is taught (step 0)"
+   }
+  ],
+  "rules": [
+   "G-01",
+   "G-02",
+   "G-03",
+   "G-04",
+   "G-05",
+   "G-06",
+   "G-07",
+   "S2-01",
+   "S2-02",
+   "S2-03",
+   "S2-04",
+   "S2-05",
+   "S2-06",
+   "S2-07"
+  ],
+  "output": {
+   "schema_id": "bie.brain.lesson-script/3",
+   "mode": "full",
+   "max_output_tokens": 32000
+  },
+  "coverage": {
+   "must_cover": [
+    "p014-i6",
+    "p014-i7",
+    "p014-i8",
+    "p014-i9",
+    "p014-i10",
+    "p014-i11",
+    "p014-i12",
+    "p014-i13",
+    "p014-i14",
+    "p014-i15"
+   ],
+   "claim_field": "beats[].covers_item_ids",
+   "may_skip": []
+  },
+  "context": {
+   "map_slice": [
+    [
+     "p014-i6",
+     "structure",
+     "14",
+     "Q. …………… layer is thickest and helps in protection against water loss and further secrete…"
+    ],
+    [
+     "p014-i7",
+     "structure",
+     "14",
+     "a. Sclerenchyma"
+    ],
+    [
+     "p014-i8",
+     "structure",
+     "14",
+     "b. Epidermis"
+    ],
+    [
+     "p014-i9",
+     "structure",
+     "14",
+     "c. Parenchyma"
+    ],
+    [
+     "p014-i10",
+     "facts_numbers",
+     "14",
+     "d. Suberin"
+    ],
+    [
+     "p014-i11",
+     "structure",
+     "14",
+     "Q. Site of gaseous exchange on leaf is:"
+    ],
+    [
+     "p014-i12",
+     "structure",
+     "14",
+     "a. Guard cells"
+    ],
+    [
+     "p014-i13",
+     "structure",
+     "14",
+     "b. Stomata"
+    ],
+    [
+     "p014-i14",
+     "structure",
+     "14",
+     "c. Aerenchyma"
+    ],
+    [
+     "p014-i15",
+     "structure",
+     "14",
+     "d. Chlorenchyma"
+    ],
+    [
+     "c34",
+     "structure",
+     "14",
+     "Practice: protective plant covering and leaf gas exchange"
+    ],
+    [
+     "c28",
+     "comparison",
+     "12",
+     "Xylem versus phloem and their arrangement in a stem"
+    ],
+    [
+     "c21",
+     "classification",
+     "10",
+     "Simple permanent tissue and parenchyma specialisations"
+    ]
+   ],
+   "before": "Xylem और phloem: components से transport समझें",
+   "after": ""
+  },
+  "source": {
+   "block_ids": [
+    "p0014-b0006",
+    "p0014-b0007",
+    "p0014-b0008",
+    "p0014-b0009",
+    "p0014-b0010",
+    "p0014-b0011",
+    "p0014-b0012",
+    "p0014-b0013",
+    "p0014-b0014",
+    "p0014-b0015",
+    "p0014-b0016"
+   ],
+   "page_images": []
+  }
+ },
+ "prefix_sha256": "0147e7e0d13a864ea512a113a18aeb490d14d41bcf09eaf387012bb98fbbbaca",
+ "review_prefix_sha256": "e93e52d0e0b3bbc2fae49fbd9a7c24c4d58030662b935848effd47c60ae53b06",
+ "inputs": {
+  "system": "BIE task prefix lesson.write_script/3 · rulebook content_types@2026-10-24.1+explanations@2026-10-24.1+level_profiles@2026-10-24.1+simple_hindi@2026-10-24.1+teacher_examples@2026-10-24.1+vision-2026-10-21@2026-10-21.12 · content types 2026-10-24.1 · schema bie.brain.lesson-script/3\n\nYou are BIE's lesson section writing what the teacher says in one video lesson: you are the best teacher of Science and Technology\nfor UPSC / State PCS aspirants preparing for UPSC / State PCS, speaking to one student. BIE turns your beats into narration and animation, so write only\nwhat is spoken, beat by beat.\nCourse: \"10. Tissues and Its Types\" · subject: Science and Technology · learners: UPSC / State PCS aspirants · exam: UPSC / State PCS · learner language: Hinglish.\n\nNavin's rules for this task (follow every one):\n[G-01] Everything taught comes from the book. Knowledge from outside the book is allowed only to explain the book better; it is marked as outside, standard textbook-level and correct. Never invent facts, numbers, names or quotations.\n[G-02] Work like the best teacher of these learners and this exam, not like a summariser. Depth beats brevity: nothing teachable on the page is skipped or compressed away, and every explanation makes a student understand, not just remember. Depth means understanding, not length: lesson narration keeps S2-01's time by cutting repetition and side-tracks, never book content.\n[G-03] Before the output, fill 'notes' with brief notes for the reviewer and for Navin: what this unit is about, the key questions a teacher must answer about it, the main decisions you made with a one-line reason each, and anything uncertain. Keep the notes short; they explain the work, they are not the work.\n[G-04] Learner-facing language follows the course setting. For the first course (UPSC / State PCS) it is Hinglish: natural Hindi sentence flow, English technical terms, the way Navin teaches.\n[G-05] Never drop or compress away what the book teaches to fit a length. If a unit of work is too large, it is split by BIE into smaller units; within a unit, the book's content is complete. Lesson narration has a time target (S2-01), met by cutting repetition and side-tracks, never book content.\n[G-06] BIE is the link between the learner and the book, like a teacher (Navin, 24 October 2026). The book is the base; BIE carries its text, easy or hard, into the learner's mind. Never just read the line out: every book line is opened (what its words mean, why it is so, where it is seen, what follows), at the depth of the level profile.\n[G-07] Two layers, like a film (Navin, 24 October 2026). The writer layer (understanding, plan, script) decides what is said and how deep, following the level profile and the book's own level. The presentation layer (director, video blocks, render) is the same skilled quality for every learner, from class 6 to postgraduate; only the detail shown follows the level, never the craft.\n[S2-01] Plan the chapter's videos from the chapter map: first one short 'pehle yeh jaan lo' video (5-8 minutes) that teaches the chapter's prerequisites, then the topic videos in teaching order. Narration is 6-8 minutes per book page (Navin, 23 October 2026; the 14-page tissue chapter about 85-110 minutes of topic videos, plus the prerequisite video): each topic video gets the share of the pages its items come from, and a very dense page may go up to 25% over when the plan says why. Understanding (Section 1) and the chapter map have no time limit.\n[S2-02] Write a spoken teacher script in beats with a natural teacher flow. Stories and analogies only where they genuinely help that topic. Every item the book teaches is taught and every teacher question answered from the book is answered; questions answered from outside the book are used only where they help and the time allows. Cut repetition and side-tracks, never book content.\n[S2-03] Prerequisites are only what this chapter directly needs, never a prerequisite of a prerequisite. They are taught, not named, in the chapter's 'pehle yeh jaan lo' video, each with a simple explanation and an example; a topic video may remind of them in at most 2 beats.\n[S2-04] Spoken Hinglish the way Navin teaches, in mixed script (Navin, 21 and 23 October 2026): Hindi words in Devanagari, English words, above all the book's technical terms, in Roman exactly as the book spells them, as in 'आज हम tissue के बारे में पढ़ेंगे'; a genuinely difficult Hindi word (formal, literary or technical; not in BIE's everyday word list rulebook/simple_hindi.json) gets its English word in brackets right after it, as in 'सतह (surface)'; the screen and subtitles show the bracket and the voice says 'सतह, यानी surface'. Never a bracket after an everyday word or inside an idiom or a fixed phrase ('आम तौर पर', not 'आम तौर (usually) पर'; 'नहीं के बराबर', not 'नहीं के बराबर (equal to)'). Never an English term in Devanagari or a Hindi word in Roman. Numbers as digits; short spoken sentences addressed to one student; questions to the student and natural pauses; no reading out of lists.\n[S2-05] Every beat states which chapter-map items it covers and which teacher questions it answers, and those claims must be true: the beat really explains that item and really answers that question.\n[S2-06] Teach every part of a video through the universal frame (what the process is, how it works, when and in what order, under which conditions, in what atmosphere) and through the teaching pattern of its content type, step by step in the pattern's order; every item on the task card is really taught, none only named.\n[S2-07] Open every book line in the script, never read it out (Navin, 24 October 2026). A new topic opens with a question about something the learner can see, then the name. After any book line the beat carries at least one of: the term's plain meaning with 'yaani' and an everyday image, a why step from a need, an example or the place. Speak complete sentences, not clipped notes. A classification is taught as a family: the overview tree, then every member in the same slots (layer and shape, why it is named so, its special feature, its function with its cause, where it is found by a zoom from the organ, its consequence), then the members compared and a memory trick. A pattern step may be skipped only with a stated reason; one recap per part and one closing recap.\n\nBIE's content types (the type of an item decides its required questions and how it is taught, shown, played and drawn):\n- process · Process: Something that happens in steps or stages over time: a mechanism, a procedure, a cycle (photosynthesis, cell division, how a bill becomes law). Required questions: how (kaise), when (kab). Other questions: what (kya), where (kahan), why (kyun), consequence (nateeja).\n  Teaching pattern: 1) the result first (what it makes). 2) inputs and the place. 3) each step with its cause and its condition. 4) what breaks when a step fails. 5) the whole run once more at speed. 6) recap as a flow.\n- structure · Structure: Something made of parts arranged in space, each part with a function (a cell, a leaf, the heart, a machine, the Parliament). Required questions: what (kya), where (kahan). Other questions: how (kaise), why (kyun), which (kaun).\n  Teaching pattern: 1) the whole in context. 2) zoom into each part in a fixed path (outside to inside). 3) function of each part tied to its shape. 4) how the parts work together. 5) labelled recap.\n- classification · Classification: A group divided into kinds by a stated basis (types of tissues, kinds of rocks, kinds of writs). Required questions: which (kaun), difference (tulna). Other questions: what (kya), evidence (saboot), where (kahan).\n  Teaching pattern: 1) the overview tree first: the basis of division and every member named. 2) every member in the same slots: layer and shape, why it is named so, its special feature, its function with its cause, where it is found by a zoom from the organ, its consequence. 3) the members compared side by side, the most confused pair named directly. 4) a memory trick for the family.\n- comparison · Comparison: Two or more things set side by side on stated criteria (plant and animal cells, Lok Sabha and Rajya Sabha). Required questions: compare (tulna), difference (tulna). Other questions: what (kya), why (kyun), evidence (saboot).\n  Teaching pattern: 1) what is common. 2) criteria one at a time, both sides together. 3) the reason behind each difference. 4) the most confused pair named directly. 5) difference table as recap.\n- timeline · Timeline: Events placed in time: history, the development of an idea, stages of a life (the Revolt of 1857, evolution of cell theory). Required questions: when (kab), why (kyun). Other questions: who (kaun), where (kahan), consequence (nateeja).\n  Teaching pattern: 1) the period and its atmosphere. 2) events in order with their causes. 3) the people and their choices. 4) the turning point. 5) what changed after. 6) timeline recap.\n- cause_effect · Reasoning (cause and effect): Why something happens: causes, effects, conditions and chains of reasoning (why tissues specialise, why prices rise, why a law was needed). Required questions: why (kyun), how (kaise). Other questions: consequence (nateeja), evidence (saboot), exception (tulna).\n  Teaching pattern: 1) the effect students can see. 2) the cause. 3) each link of the chain with its mechanism. 4) the evidence. 5) the exception or limit. 6) the chain as recap.\n- facts_numbers · Facts and numbers: Stated facts, quantities, measurements, statistics and formulas (heart rate 72 per minute, 3,000 against 50,000 soldiers at Plassey, F = ma). Required questions: what (kya), evidence (saboot). Other questions: compare (tulna), why (kyun).\n  Teaching pattern: 1) the fact in one line. 2) the number shown to scale against something familiar. 3) where it comes from (book or outside, dated). 4) what it changes or proves. 5) a formula built term by term when there is one.\n- figure · Figure: A diagram, photo, map, graph or table drawing on the page whose content is visual (tissue pages 2, 7 and 8 are figures only). Required questions: what (kya), which (kaun). Other questions: how (kaise), why (kyun).\n  Teaching pattern: 1) what the figure is and why it is here. 2) a reading path across it (labels in order). 3) the one thing to remember from it. 4) link back to the text it explains.\n- definition · Definition: A term and its meaning as the book states it (tissue, meristem, sovereignty). Required questions: what (kya), evidence (saboot). Other questions: about (kya), why (kyun).\n  Teaching pattern: 1) a concrete example first. 2) the book's definition word by word. 3) a non-example that tests the boundary. 4) where the term is used next in the chapter.\n\nOutput schema (JSON):\n{\"additionalProperties\":false,\"properties\":{\"beats\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"answers\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"basis\":{\"enum\":[\"book\",\"outside\",\"mixed\"],\"type\":\"string\"},\"beat_id\":{\"type\":\"string\"},\"covers_item_ids\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"on_screen\":{\"type\":\"string\"},\"part_id\":{\"type\":\"string\"},\"purpose\":{\"enum\":[\"hook\",\"prerequisite\",\"explain\",\"example\",\"analogy\",\"story\",\"compare\",\"process_walkthrough\",\"misconception\",\"exam_tip\",\"question_to_student\",\"recap\",\"transition\"],\"type\":\"string\"},\"say\":{\"type\":\"string\"},\"step\":{\"type\":\"integer\"}},\"required\":[\"beat_id\",\"part_id\",\"step\",\"purpose\",\"say\",\"covers_item_ids\",\"answers\",\"on_screen\",\"basis\"],\"type\":\"object\"},\"type\":\"array\"},\"notes\":{\"additionalProperties\":false,\"properties\":{\"about\":{\"description\":\"What this unit of work is about and how it fits the whole (one or two sentences).\",\"type\":\"string\"},\"decisions\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"decision\":{\"type\":\"string\"},\"reason\":{\"type\":\"string\"}},\"required\":[\"decision\",\"reason\"],\"type\":\"object\"},\"type\":\"array\"},\"key_questions\":{\"description\":\"The key questions a teacher must answer about this unit.\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"uncertain\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"}},\"required\":[\"about\",\"key_questions\",\"decisions\",\"uncertain\"],\"type\":\"object\"},\"parts\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"frame\":{\"additionalProperties\":false,\"properties\":{\"atmosphere\":{\"type\":\"string\"},\"conditions\":{\"type\":\"string\"},\"how\":{\"type\":\"string\"},\"process\":{\"type\":\"string\"},\"when\":{\"type\":\"string\"}},\"required\":[\"process\",\"how\",\"when\",\"conditions\",\"atmosphere\"],\"type\":\"object\"},\"part_id\":{\"type\":\"string\"},\"skipped_steps\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"step\":{\"type\":\"integer\"},\"why\":{\"type\":\"string\"}},\"required\":[\"step\",\"why\"],\"type\":\"object\"},\"type\":\"array\"}},\"required\":[\"part_id\",\"frame\",\"skipped_steps\"],\"type\":\"object\"},\"type\":\"array\"},\"title\":{\"type\":\"string\"}},\"required\":[\"notes\",\"title\",\"parts\",\"beats\"],\"type\":\"object\"}\n\nHow BIE talks to you: every request is a task card (JSON) followed by its source. The card names the unit, its parts with their content type and required questions, the ids of the rules above that apply, the output, the ids you must cover and the context. The card is BIE's instruction; the source is the material.\nFor a write_script card:\n- card.parts are this video's parts: each has item ids, one content type and the questions it must answer. The source gives every item's\n  full content and its teacher questions with ids (\"p003-i4#q2\") and answers from BIE's chapter map; teach from them.\n- card.coverage.must_cover lists every item this video must teach: each must be in covers_item_ids of a beat that really explains it.\n  may_skip lists items you may leave out (not teachable). card.context.map_slice shows the related concepts for context only.\nHow to fill the JSON:\n- notes: brief notes for the reviewer: what this video is about, the key questions it must answer, your main decisions (order,\n  hook, analogy, where prerequisites are taught) with a reason each, what is uncertain.\n- title: the video title in the learner language.\n- parts: one entry per card part, with the universal frame of that part (S3-01), each in one or two lines of clear English for BIE:\n  process (what happens or what the thing does), how (how it works or happens), when (when, in what order, under which timing),\n  conditions (what must be true for it, or what changes it), atmosphere (the setting and situation a student should picture). Write\n  \"n/a: \" and the reason only where a question truly does not apply to that part. skipped_steps = the teaching-pattern steps of this\n  part you leave out because there is nothing real to say for them, each with the reason ([] when every step is done); at most half\n  of a pattern, never a step that has something real; BIE's code records the reason.\n- beats: the whole video in order. beat_id \"b1\", \"b2\" ...; part_id = the card part this beat teaches (\"\" for the opening hook, a\n  prerequisite taught first, a transition or the final recap); step = the number of the teaching-pattern step of that part's content type\n  that this beat performs (see the content types above; 0 when part_id is \"\" and for an exam-question part, whose type is \"none\");\n  the steps of a part's pattern appear in order, except the ones skipped with a reason; a classification part follows the family\n  pattern: the overview tree first, then every member in the same slots (layer and shape → why it is named so → its special feature\n  → its function with its cause → where it is found, by a zoom from the organ → its consequence), then the comparison, then a memory\n  trick; one recap per part and one closing recap for the video, never two recaps of the same thing;\n  purpose (hook, prerequisite, explain, example, analogy, story, compare, process_walkthrough, misconception, exam_tip,\n  question_to_student, recap, transition); say = the exact spoken words, one to four complete spoken sentences in Navin's Hinglish\n  (S2-04), the way a teacher speaks to one student, never clipped note-style lines (\"Irregular walls. Kaisi? Irregular.\" is a teacher's\n  beat; \"Location: kidney tubules, glandular ducts.\" is a note):\n  mixed script: Hindi words in Devanagari, English words (above all the book's technical terms, spelled as the book spells them) in\n  Roman, as in \"आज हम tissue के बारे में पढ़ेंगे\"; brackets only after a genuinely difficult Hindi word (see \"Brackets\" below; the\n  screen shows the bracket and the voice says \"सतह, यानी surface\"); never write an English term in Devanagari or a Hindi word in Roman;\n  numbers as digits; addressed to one student; covers_item_ids = the item ids this beat really explains; answers = the teacher question\n  ids this beat really answers; on_screen = what the student should see while hearing it (for the director); basis = book, outside or\n  mixed.\nOpening the book (S2-07; BIE is the link between the learner and the book, like a teacher, never a reader of the line): every new\ntopic (every concept and every prerequisite) opens with a question about something the learner can see, then the name. After any\nbook line, the beat carries at least one of: the term opened (\"yaani\" + its plain meaning + one everyday image), the why from a need or\na problem, or an example or place by a zoom from the organ. The source gives every item's unpack from Section 1 (its terms, why chain,\nexample, consequence, visual verb) and the locked explanations: speak them, in your own teacher's words, at the depth of the level\nprofile below. BIE's code sends back a beat whose English words are the book's and that opens nothing (\"dohraav pakad\"), a clipped\nsentence without a verb, a topic that opens without a question, and a second recap of the same thing.\nTime (S2-01): the source gives this video's narration time; BIE's code counts the spoken words (130 a minute) and the script must stay\nwithin it. Win the time by cutting repetition and side-tracks, never book content: every item in must_cover is taught and every\nteacher question whose basis is \"book\" is answered; questions answered from outside the book are used only where they help and the\ntime allows.\nPrerequisites (S2-03): in a topic video they were already taught in the prerequisite video; remind of one in at most 2 beats (purpose\n\"prerequisite\"). In the prerequisite video (card parts \"pre1\", \"pre2\" ...) teach each prerequisite simply, with an everyday example, in\nthe order given: part_id = the prerequisite id, step 0, covers_item_ids = the prerequisite ids the beat teaches, answers [].\nA beat introduces at most a few new items: BIE's code measures the load of every beat (0.4 per new item plus 1 per 50 spoken words, at\nmost 1.8), so a beat holds at most about 70 spoken words with one new item, 50 with two and 30 with three; split longer beats. Reply\nwith the JSON object only.\n\nLevel profile: UPSC / State PCS (level_profiles.json; learners: UPSC and State PCS aspirants, often from arts backgrounds, who need understanding more than technical vocabulary).\n- Terms: fewer technical terms: only the ones the exam asks, each opened with its plain meaning and an everyday image; a term the exam never asks is explained in words, not named.\n- Why: 2 step(s); a two-step why from a need the learner can feel, then its link to daily life, health or governance.\n- Where found: the main places, each linked to something the learner already knows (a disease, a food, a news item).\n- Exam beats: the PYQ pattern: how this fact has been asked (statement combinations, 'which is correct', odd one out) and the wording that traps.\n- Links: daily life, health, the news and earlier chapters of the same paper.\n\nHow real teachers open a book line (teacher example bank 2026-10-24.1; use these ways, in your own words):\n- Open with a question on something visible (every new topic and every new family member): Skin aur stomach, kidney ke upar ek outer layer hai ki nahi? Yeh kis se bani hai? — phir naam: epithelial tissue.\n- One everyday image per shape or function (every term that names a shape, a layer or a job): Chaadar bichhi ho to bistar bacha rehta hai = protective sheet. Cube wala game, har side barabar = cuboidal. Building ka pillar = columnar. Farsh ki tiles = squamous, isliye tessellated bhi kehte hain.\n- The word root where it helps (a term whose parts carry its meaning): Epi yaani upar; epithelium yaani upar ki parat. Slender yaani long aur narrow.\n- Why starts from a need (every why step): Pet mein HCl banta hai, isliye andar ek lining chahiye jo khud na jale. Cells bahar ki taraf hain, tootne ka chance zyada, isliye regeneration zyada.\n- Contrast with the neighbour (members of one family, and what the exam confuses): Simple epithelium ka kaam protection nahi, woh compound ka hai. Zyada layers = pathogen andar nahi aata.\n- Ask and repeat the key word (the one word the learner must keep): Irregular walls. Kaisi? Irregular.\n- Exam memory beats by level (after the understanding, by the level profile): Yaad rakhna: brush border PCT mein. Doosre naam: pavement, tessellated. M2B = muscle to bone = tendon, B2B = bone to bone = ligament.\n- Link to something already known (a new place or a new structure): Peritoneum, jaise lungs ke aas-paas pleura aur heart ke aas-paas pericardium: wahi kaam, pet ke andar.\n- Meaning with two or three real examples (an abstract word in the book): Sensory perception yaani pehchanna: thanda lagna, dard hona, pressure mehsoos karna.\n- Open the book's adjective (Navin's example) (a book line names a kind of surface, job or place without saying what it is): Book: 'epithelium absorptive aur secretive surfaces par milta hai'. Teacher: absorptive surface yaani jahan cheezein andar li jaati hain, jaise aant khane ke poshak tatva sokhti hai; secretive yaani jahan cells kuch bana kar bahar chhodte hain, jaise glands enzyme ya juice. Aur epithelium wahan kyon? Kyunki ek patli, lagi hui parat hi cheezon ko paar jaane de sakti hai aur bana kar chhod sakti hai.\n\nBrackets (word list 2026-10-24.1): use everyday spoken Hindi freely, without brackets (मुख्य, वापस, बराबर, आसपास, इस्तेमाल, करके, जिससे ...). Only a genuinely difficult Hindi word (formal, literary or technical) gets its English word in brackets right after it, for example \"सतह (surface)\", \"घर्षण (friction)\", \"सघन (dense)\"; better still, use the book's English term or a simpler Hindi word. Never put a bracket inside an idiom or a fixed phrase: \"आम तौर पर\", not \"आम तौर (usually) पर\"; \"नहीं के बराबर\", not \"नहीं के बराबर (equal to)\". BIE's code removes a bracket after an everyday word and asks for one only after a Hindi word it does not know as everyday.",
+  "user": [
+   {
+    "type": "text",
+    "text": "BIE task card (JSON):\n{\"card\":\"bie.task-card/1\",\"card_id\":\"lesson.write_script@10-tissues-and-its-types/v10\",\"section\":\"lesson\",\"task\":\"write_script\",\"prefix\":{\"prefix_id\":\"lesson.write_script/3\",\"rulebook_version\":\"content_types@2026-10-24.1+explanations@2026-10-24.1+level_profiles@2026-10-24.1+simple_hindi@2026-10-24.1+teacher_examples@2026-10-24.1+vision-2026-10-21@2026-10-21.12\",\"content_types_version\":\"2026-10-24.1\",\"schema_id\":\"bie.brain.lesson-script/3\",\"sha256\":\"0147e7e0d13a864ea512a113a18aeb490d14d41bcf09eaf387012bb98fbbbaca\"},\"unit\":{\"unit_id\":\"v10\",\"title\":\"Plant की protective covering और gas exchange: questions खोलकर समझें\",\"pages\":[14]},\"parts\":[{\"part_id\":\"c34.q\",\"item_ids\":[\"p014-i6\",\"p014-i7\",\"p014-i8\",\"p014-i9\",\"p014-i10\",\"p014-i11\",\"p014-i12\",\"p014-i13\",\"p014-i14\",\"p014-i15\"],\"type\":\"none\",\"questions\":[\"what\",\"which\",\"where\",\"how\",\"exception\",\"why\",\"difference\",\"evidence\"],\"focus\":\"Practice: protective plant covering and leaf gas exchange: exam questions (PYQ); answer each as an exam tip once the concept is taught (step 0)\"}],\"rules\":[\"G-01\",\"G-02\",\"G-03\",\"G-04\",\"G-05\",\"G-06\",\"G-07\",\"S2-01\",\"S2-02\",\"S2-03\",\"S2-04\",\"S2-05\",\"S2-06\",\"S2-07\"],\"output\":{\"schema_id\":\"bie.brain.lesson-script/3\",\"mode\":\"full\",\"max_output_tokens\":32000},\"coverage\":{\"must_cover\":[\"p014-i6\",\"p014-i7\",\"p014-i8\",\"p014-i9\",\"p014-i10\",\"p014-i11\",\"p014-i12\",\"p014-i13\",\"p014-i14\",\"p014-i15\"],\"claim_field\":\"beats[].covers_item_ids\",\"may_skip\":[]},\"context\":{\"map_slice\":[[\"p014-i6\",\"structure\",\"14\",\"Q. …………… layer is thickest and helps in protection against water loss and further secrete…\"],[\"p014-i7\",\"structure\",\"14\",\"a. Sclerenchyma\"],[\"p014-i8\",\"structure\",\"14\",\"b. Epidermis\"],[\"p014-i9\",\"structure\",\"14\",\"c. Parenchyma\"],[\"p014-i10\",\"facts_numbers\",\"14\",\"d. Suberin\"],[\"p014-i11\",\"structure\",\"14\",\"Q. Site of gaseous exchange on leaf is:\"],[\"p014-i12\",\"structure\",\"14\",\"a. Guard cells\"],[\"p014-i13\",\"structure\",\"14\",\"b. Stomata\"],[\"p014-i14\",\"structure\",\"14\",\"c. Aerenchyma\"],[\"p014-i15\",\"structure\",\"14\",\"d. Chlorenchyma\"],[\"c34\",\"structure\",\"14\",\"Practice: protective plant covering and leaf gas exchange\"],[\"c28\",\"comparison\",\"12\",\"Xylem versus phloem and their arrangement in a stem\"],[\"c21\",\"classification\",\"10\",\"Simple permanent tissue and parenchyma specialisations\"]],\"before\":\"Xylem और phloem: components से transport समझें\",\"after\":\"\"},\"source\":{\"block_ids\":[\"p0014-b0006\",\"p0014-b0007\",\"p0014-b0008\",\"p0014-b0009\",\"p0014-b0010\",\"p0014-b0011\",\"p0014-b0012\",\"p0014-b0013\",\"p0014-b0014\",\"p0014-b0015\",\"p0014-b0016\"],\"page_images\":[]}}\n\nVideo v10: Plant की protective covering और gas exchange: questions खोलकर समझें\nGoal: आप protective covering को wall material से और stomatal pore को guard cells से अलग कर सकेंगे; supplied questions के हर option को कारण देकर जाँच सकेंगे।\nOpening hook: पत्ती की covering बचाव भी करती है और gases का आना-जाना भी होने देती है—यह दोनों काम साथ कैसे होते हैं?\nStory or analogy: Covering में opening और उसे नियंत्रित करने वाले हिस्सों का visual इस्तेमाल करेंगे; pore और guard cells को एक ही चीज मानने की सीमा वहीं साफ होगी।\nPlanned minutes: 5\nNarration time (S2-01): 4.0-5.3 minutes, about 520-689 spoken words (BIE counts 130 words a minute)\nPrerequisites already taught in the prerequisite video (remind of one in at most 2 beats): Cell boundaries, organelles and plant–animal cell differences; Chromosomes, homologous pairs, chromatids, DNA replication and chromosome sets; Somatic cells, germ cells, gametes and fertilisation; Locations and roles of the named human organs, passages and skeleton; Plant organ landmarks and sections; Diffusion, absorption, secretion and movement through walls or pores; Photosynthesis, food storage and the functions of structural biological materials; Physical meanings of tension, elasticity, pressure, buoyancy and insulation; Stimulus, nerve impulse, electrical signal and voluntary versus involuntary control\nOpen every book line (S2-07): a question about something the learner can see, then the name; every term opened: its plain meaning with 'yaani' and one everyday image (the word root where it helps); the why, starting from a need or a problem, one link at a time; an example or the place, by a zoom from the organ or the thing the learner knows; the consequence: what follows, and the link to the previous or the next idea; the contrast: what it is not, and what the exam confuses it with; the memory beat by level: the exam's 'yaad rakhna', the other names, the trick.\n\nItems (item id | page | kind | type | content), each with its teacher questions (question id | ask | question → answer | basis) and its unpack from Section 1 (term | why | example | consequence | visual), plus any locked explanation (Navin's verdict: speak it):\np014-i6 | 14 | question | structure | Q. …………… layer is thickest and helps in protection against water loss and further secrete [secretes] a waxy substance on outer surface:\n  p014-i6#q1 | what | What combination of clues is the question testing? → The stem combines a layer described as 'thickest', protection against water loss and secretion of a waxy substance on the outer surface. | book\n  p014-i6#q2 | which | Which option is intended? → Option b, Epidermis, fits the protective outer covering and waxy secretion clues. No answer is marked on this page. | outside\n  p014-i6#q3 | where | Where is this covering situated? → The epidermis forms the outer covering of primary plant organs; on many aerial parts its outer surface bears a cuticle. | outside\n  p014-i6#q4 | how | How does the waxy covering reduce water loss? → The cuticle forms a water-resistant barrier, reducing evaporation through the exposed surface. | outside\n  p014-i6#q5 | exception | Why should 'thickest' not be memorised as a general property of epidermis? → Epidermis is commonly a single cell layer. Its thickness and the thickness of its cuticle vary with the organ and environment; it is not generally the thickest plant tissue layer. | outside\np014-i7 | 14 | answer_option | structure | a. Sclerenchyma\n  p014-i7#q1 | what | What is sclerenchyma? → It is a supporting plant tissue whose mature cells usually have thick, lignified walls and lack living contents. | outside\n  p014-i7#q2 | where | Where can its support function be recognised? → Coconut husk fibres and hard seed coverings are familiar examples of sclerenchymatous support. | outside\n  p014-i7#q3 | why | Why is a thick wall not enough to make this the correct answer? → Thick lignified walls provide strength; the stem asks for an outer covering that produces a waxy barrier against water loss, which points to epidermis. | outside\n  term | Sclerenchyma | yaani पौधे का सहारा देने वाला tissue, जिसकी cell walls मोटी और कड़ी होती हैं | image: नारियल के छिलके के मजबूत रेशे\n  why | पौधे के हिस्सों को मजबूती चाहिए। [standard] → मोटी, कड़ी walls सहारा देती हैं; यह waxy बाहरी covering बनाने से अलग काम है। [standard]\n  example or place | Coconut husk fibres.\n  consequence | Wall thickness alone cannot identify the tissue described in the stem.\n  visual | thicken and brace\n  level extra | Contrast lignified support walls with epidermal cuticle.\np014-i8 | 14 | answer_option | structure | b. Epidermis\n  p014-i8#q1 | what | What does epidermis mean in this plant question? → It is the closely fitted outer cell covering that separates underlying plant tissues from the environment. | outside\n  p014-i8#q2 | where | Where is its waxy secretion especially relevant? → On exposed aerial surfaces such as leaves and young stems, epidermal cells produce materials forming the cuticle. | outside\n  p014-i8#q3 | why | Why does a plant need this barrier? → Exposed surfaces lose water to air. A water-resistant cuticle helps conserve water while the plant remains exposed to sunlight and air. | outside\n  p014-i8#q4 | difference | How do epidermis and cuticle differ? → Epidermis is the cell layer; cuticle is the protective non-cellular covering deposited on its outside. A thicker cuticle does not mean the epidermis is generally the thickest tissue. | outside\n  term | Epidermis | yaani पौधे की सबसे बाहर की cell वाली परत | image: बिस्तर पर बिछी चादर जैसी बाहर की covering\n  term | waxy substance | yaani मोम जैसा पदार्थ जो सतह से पानी निकलना कम करे | image: मोम लगी सतह पर पानी की बूँद टिकना\n  why | खुली पत्ती से पानी हवा में निकल सकता है। [standard] → Epidermis के बाहर की cuticle पानी का निकलना कम करती है। [standard]\n  example or place | Outer surface of a leaf or young stem.\n  consequence | Protection reduces surface water loss, but regulated openings are still needed for gas exchange.\n  visual | cover and repel\n  level extra | The next question supplies the complementary idea: stomata permit exchange through the protective surface.\np014-i9 | 14 | answer_option | structure | c. Parenchyma\n  p014-i9#q1 | what | What is parenchyma? → It is a simple plant tissue generally made of living cells with relatively thin walls, performing functions such as storage and, in specialised forms, photosynthesis. | outside\n  p014-i9#q2 | where | Where can a learner locate it? → It occurs in soft plant regions, including much of the fleshy storage tissue of a potato. | outside\n  p014-i9#q3 | why | Why does this option not fit the protective surface clue? → General parenchyma performs internal functions such as storage; the specialised outer cell covering responsible for the cuticle is epidermis. | outside\n  term | Parenchyma | yaani जीवित cells वाला सामान्य plant tissue, जो खाना जमा करने जैसे काम करता है | image: आलू का अंदर का गूदा\n  why | पौधे को खाना जमा रखने की जगह चाहिए। [standard] → Parenchyma की जीवित cells यह काम कर सकती हैं; बाहरी waxy barrier अलग बनावट है। [standard]\n  example or place | Storage tissue in potato.\n  consequence | The tissue's function and position eliminate this distractor.\n  visual | store inside\n  level extra | Connect this general tissue to the specialised aerenchyma and chlorenchyma options below.\np014-i10 | 14 | answer_option | facts_numbers | d. Suberin\n  p014-i10#q1 | what | What is suberin? → Suberin is a water-resistant material deposited in certain plant cell walls, notably cork cell walls; it is not the name of a tissue layer. | outside\n  p014-i10#q2 | evidence | Which familiar association helps distinguish it from epidermis? → Cork walls contain suberin, whereas the question's outer epidermal covering is associated with a cuticle containing cutin and waxes. | outside\n  p014-i10#q3 | why | Why is suberin a tempting but unsuitable option? → Its water-resistant property matches part of the stem, but the question asks for a layer that secretes an outer covering, not the name of a deposited material. | outside\n  term | Suberin | yaani कुछ plant cell walls में जमा पानी रोकने वाला पदार्थ | image: बोतल के cork जैसी पानी आसानी से न गुजरने देने वाली बनावट\n  why | कुछ बाहरी plant tissues से पानी का निकलना रोकना जरूरी है। [standard] → Cork की walls में suberin जमा होता है, पर पदार्थ का नाम cell layer का नाम नहीं है। [standard]\n  example or place | Cork cell walls.\n  consequence | A shared protective function does not make suberin interchangeable with epidermis.\n  visual | seal walls\n  level extra | Check whether an option names a substance, a tissue or an opening before matching functions.\np014-i11 | 14 | question | structure | Q. Site of gaseous exchange on leaf is:\n  p014-i11#q1 | what | What feature must the answer identify? → The question asks for the site on a leaf through which gases are exchanged. | book\n  p014-i11#q2 | where | Where does this exchange occur? → Primarily through stomatal pores in the leaf epidermis; option b is intended. | outside\n  p014-i11#q3 | how | How do gases move through these pores? → Gases diffuse along concentration differences between the outside air and internal leaf air spaces. Carbon dioxide can enter for photosynthesis, while oxygen can leave. | outside\n  p014-i11#q4 | why | Why is the distinction between stomata and guard cells important? → Stomatal pores provide the passage, while guard cells regulate its opening. A controller and the opening it controls are not the same structure. | outside\np014-i12 | 14 | answer_option | structure | a. Guard cells\n  p014-i12#q1 | what | What are guard cells? → They are specialised epidermal cells surrounding a stomatal pore and regulating its opening. | outside\n  p014-i12#q2 | where | Where are guard cells relative to the gas passage? → A pair of guard cells borders the pore; gases pass through the opening between them. | outside\n  p014-i12#q3 | how | How do they regulate the pore? → Changes in their water content and turgor alter their shape, opening or closing the pore. | outside\n  term | Guard cells | yaani पत्ती के छोटे छेद को खोलने-बंद करने वाली दो cells | image: दरवाजे के दो चलने वाले पल्ले\n  why | पत्ती को gases चाहिए, पर खुला छेद पानी भी बाहर जाने देता है। [standard] → Guard cells पानी की मात्रा के साथ आकार बदलकर छेद का खुलना नियंत्रित करती हैं। [standard]\n  example or place | Pair of cells bordering a leaf stomatal pore.\n  consequence | Changing pore size affects both gas exchange and water-vapour loss.\n  visual | swell and open\n  level extra | Separate opening, surrounding cells and regulatory function.\np014-i13 | 14 | answer_option | structure | b. Stomata\n  p014-i13#q1 | what | What are stomata? → They are tiny epidermal openings, each regulated by guard cells, that connect external air with internal leaf air spaces. | outside\n  p014-i13#q2 | where | Where are they found on leaves? → They occur in the leaf epidermis. Many terrestrial broad leaves have more on the lower surface, but distribution varies. | outside\n  p014-i13#q3 | why | Why must a protected leaf surface still have openings? → A protective covering limits water loss, but living leaf cells still need gas exchange for photosynthesis and respiration. Regulated pores help balance these needs. | outside\n  term | Stomata | yaani पत्ती की बाहरी परत के छोटे छेद, जिनसे gases अंदर-बाहर जाती हैं | image: बंद कमरे में हवा आने-जाने की खिड़की\n  why | Protective covering के बावजूद पत्ती को हवा से carbon dioxide चाहिए। [standard] → Stomata बाहर की हवा और अंदर की खाली जगहों के बीच रास्ता देते हैं। [standard]\n  example or place | Microscopic openings in a leaf epidermis.\n  consequence | Gas exchange also creates a route for water-vapour loss.\n  visual | pass through\n  level extra | Link epidermal protection with controlled exchange; stomata is plural, stoma singular.\np014-i14 | 14 | answer_option | structure | c. Aerenchyma\n  p014-i14#q1 | what | What is aerenchyma? → It is specialised parenchyma with large air spaces that facilitate internal gas movement and can aid buoyancy in aquatic plants. | outside\n  p014-i14#q2 | where | Where is it commonly associated with plant adaptation? → It is common in aquatic and waterlogged plants, where internal air spaces help gases reach tissues with limited access to air. | outside\n  p014-i14#q3 | why | Why is it not the intended answer despite its connection with gases? → It provides internal air spaces, whereas this question asks for the leaf-surface exchange site, which is the stomatal pore. | outside\n  term | Aerenchyma | yaani बड़ी हवा वाली खाली जगहों वाला plant tissue | image: स्पंज के अंदर की खाली जगहें\n  why | पानी में डूबे हिस्सों तक बाहर की हवा आसानी से नहीं पहुँचती। [standard] → बड़े अंदरूनी air spaces gases के आने-जाने में मदद करते हैं, पर ये सतह का छेद नहीं हैं। [standard]\n  example or place | Air-space tissue in aquatic plants such as water hyacinth.\n  consequence | An air-related function alone does not identify the surface gas-exchange structure.\n  visual | connect air spaces\n  level extra | Remember the structural distinction: internal spaces versus epidermal pore.\np014-i15 | 14 | answer_option | structure | d. Chlorenchyma\n  p014-i15#q1 | what | What is chlorenchyma? → It is parenchyma containing chloroplasts and specialised for photosynthesis. | outside\n  p014-i15#q2 | where | Where is it commonly found? → It occurs in green plant parts, including photosynthetic tissue inside leaves. | outside\n  p014-i15#q3 | why | Why is a photosynthetic tissue not the correct exchange-site answer? → It uses carbon dioxide after the gas reaches the tissue; the stomatal pore is the passage across the leaf surface. | outside\n  term | Chlorenchyma | yaani chloroplasts वाला plant tissue जो रोशनी से खाना बनाता है | image: हरी पत्ती के अंदर खाना बनाने की छोटी रसोई\n  why | पौधे को रोशनी की मदद से खाना बनाना है। [standard] → Chloroplasts वाला tissue यह काम करता है; carbon dioxide के प्रवेश का रास्ता stomata हैं। [standard]\n  example or place | Photosynthetic tissue within a green leaf.\n  consequence | Gas entry and gas use are related but distinct functions.\n  visual | enter then use\n  level extra | Contrast chlorenchyma–photosynthesis with aerenchyma–air spaces."
+   },
+   {
+    "type": "text",
+    "text": "Answer the card with the teacher script JSON."
+   }
+  ]
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "started_at": 1792855849.8816783,
+   "mode": "full",
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "dc16ed8d18f2648873cbdfc288c0dc51b651dde6f4defbb1594b951679488b8e",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 13601,
+    "output_tokens": 3098,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "Two practice questions distinguish protective tissue from wall material, and a gas-exchange opening from its regulators and internal tissues.",
+    "key_questions": [
+     "Why is Epidermis intended despite the misleading word 'thickest'?",
+     "How do all four options in each question differ?",
+     "How does a leaf balance protection against water loss with gas exchange?"
+    ],
+    "decisions": [
+     {
+      "decision": "Explain the clues before selecting each answer.",
+      "reason": "This develops option elimination rather than answer recall."
+     },
+     {
+      "decision": "Explicitly qualify 'thickest' and identify both answers as intended, not printed keys.",
+      "reason": "The supplied page has no marked answers and the first stem is misleading."
+     },
+     {
+      "decision": "Use standard textbook explanations supplied in the task, marked outside or mixed.",
+      "reason": "The source page supplies questions and options rather than their explanations."
+     }
+    ],
+    "uncertain": [
+     "No page image or printed answer key is supplied; Epidermis and Stomata are the intended answers inferred from the supplied explanations."
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "Two practice questions distinguish protective tissue from wall material, and a gas-exchange opening from its regulators and internal tissues.",
+     "key_questions": [
+      "Why is Epidermis intended despite the misleading word 'thickest'?",
+      "How do all four options in each question differ?",
+      "How does a leaf balance protection against water loss with gas exchange?"
+     ],
+     "decisions": [
+      {
+       "decision": "Explain the clues before selecting each answer.",
+       "reason": "This develops option elimination rather than answer recall."
+      },
+      {
+       "decision": "Explicitly qualify 'thickest' and identify both answers as intended, not printed keys.",
+       "reason": "The supplied page has no marked answers and the first stem is misleading."
+      },
+      {
+       "decision": "Use standard textbook explanations supplied in the task, marked outside or mixed.",
+       "reason": "The source page supplies questions and options rather than their explanations."
+      }
+     ],
+     "uncertain": [
+      "No page image or printed answer key is supplied; Epidermis and Stomata are the intended answers inferred from the supplied explanations."
+     ]
+    },
+    "title": "Plant covering और gas exchange: हर option की जाँच",
+    "parts": [
+     {
+      "part_id": "c34.q",
+      "frame": {
+       "process": "Evaluate two MCQs by separating protective cell layers, deposited materials, pores and internal tissues.",
+       "how": "Locate each structure, connect its structure to its job, and eliminate options that match only part of the clue.",
+       "when": "First assess the protective-covering question, then the complementary leaf gas-exchange question.",
+       "conditions": "Do not generalise 'thickest'; distinguish the exchange passage from cells controlling it.",
+       "atmosphere": "An exposed leaf must conserve water while exchanging gases with the surrounding air."
+      },
+      "skipped_steps": []
+     }
+    ],
+    "beats": [
+     {
+      "beat_id": "b1",
+      "part_id": "",
+      "step": 0,
+      "purpose": "hook",
+      "say": "पत्ती को देखो: बाहर की covering पानी बचाती है, फिर gases अंदर कैसे पहुँचती हैं? आज 2 questions से covering, उसके ऊपर के पदार्थ और उसमें बने रास्ते अलग करेंगे। हर option का काम पहचानोगे, तो मिलता-जुलता शब्द तुम्हें गलत answer तक नहीं ले जाएगा।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Leaf → protective covering → opening; two unanswered MCQs.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b2",
+      "part_id": "c34.q",
+      "step": 0,
+      "purpose": "explain",
+      "say": "पहले question में कौन-सी layer पूछी है? उसमें 3 clues हैं: ‘thickest’, water loss से protection और बाहर waxy substance बनाना। Waxy यानी मोम जैसा पदार्थ। केवल मोटाई पर answer मत चुनना; देखना है कि बाहर पानी रोकने वाली covering कौन बनाती है।",
+      "covers_item_ids": [
+       "p014-i6"
+      ],
+      "answers": [
+       "p014-i6#q1"
+      ],
+      "on_screen": "Highlight three stem clues separately; circle 'layer'.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b3",
+      "part_id": "c34.q",
+      "step": 0,
+      "purpose": "explain",
+      "say": "पत्ती या young stem की सबसे बाहर लगी चादर जैसी cell layer कौन-सी है? यह Epidermis है, जिसकी cells पास-पास लगी होती हैं। इसके बाहर cuticle बनती है, यानी cells के ऊपर की protective covering, जिसमें cutin और waxes होते हैं। खुली पत्ती से पानी हवा में निकलता है; यह barrier उसका निकलना कम करती है।",
+      "covers_item_ids": [
+       "p014-i8"
+      ],
+      "answers": [
+       "p014-i8#q1",
+       "p014-i8#q2",
+       "p014-i8#q3",
+       "p014-i8#q4",
+       "p014-i6#q3",
+       "p014-i6#q4"
+      ],
+      "on_screen": "Leaf → closely fitted epidermal cells → external cuticle containing cutin and waxes.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b4",
+      "part_id": "c34.q",
+      "step": 0,
+      "purpose": "misconception",
+      "say": "इसलिए intended answer b, Epidermis है; supplied question में answer marked नहीं है। लेकिन ‘thickest’ को general fact मत बनाना। Epidermis आम तौर पर 1 cell layer होती है; उसकी और cuticle की मोटाई जगह और environment के साथ बदलती है। मोटी cuticle और सबसे मोटी tissue layer एक बात नहीं हैं।",
+      "covers_item_ids": [
+       "p014-i6",
+       "p014-i8"
+      ],
+      "answers": [
+       "p014-i6#q2",
+       "p014-i6#q5",
+       "p014-i8#q4"
+      ],
+      "on_screen": "Intended: b. Epidermis. Warning: 'thickest' is not a general property.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b5",
+      "part_id": "c34.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "नारियल के छिलके के मजबूत रेशे याद हैं? Sclerenchyma ऐसा supporting tissue है; mature cells की walls मोटी, lignin से कड़ी और आम तौर पर अंदर से निर्जीव होती हैं। इससे मजबूती मिलती है, बाहर waxy covering बनाने वाला काम नहीं। इसलिए option a केवल ‘मोटा’ शब्द से सही नहीं होगा।",
+      "covers_item_ids": [
+       "p014-i7"
+      ],
+      "answers": [
+       "p014-i7#q1",
+       "p014-i7#q2",
+       "p014-i7#q3"
+      ],
+      "on_screen": "Coconut husk fibres → thick lignified walls → support, not waxy secretion.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b6",
+      "part_id": "c34.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "आलू के अंदर खाना कहाँ जमा रहता है? उसके storage tissue में Parenchyma मिलता है, यानी सामान्यतः पतली walls वाली living cells का tissue। यह storage करता है और इसके specialised रूप photosynthesis भी करते हैं। लेकिन यहाँ clue बाहरी waxy covering का है, अंदर खाना जमा करने का नहीं; इसलिए c हटेगा।",
+      "covers_item_ids": [
+       "p014-i9"
+      ],
+      "answers": [
+       "p014-i9#q1",
+       "p014-i9#q2",
+       "p014-i9#q3"
+      ],
+      "on_screen": "Potato interior → living thin-walled parenchyma → storage.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b7",
+      "part_id": "c34.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "बोतल के cork जैसी बनावट पानी आसानी से क्यों नहीं गुजरने देती? Cork की cell walls में Suberin जमा होता है, यानी पानी रोकने वाला material। इसलिए d लुभाता है, लेकिन Suberin पदार्थ है, cell layer नहीं। Epidermis की बाहरी cuticle को cork walls के Suberin से मत मिलाना।",
+      "covers_item_ids": [
+       "p014-i10"
+      ],
+      "answers": [
+       "p014-i10#q1",
+       "p014-i10#q2",
+       "p014-i10#q3"
+      ],
+      "on_screen": "Suberin: material in cork walls ≠ Epidermis: outer cell layer.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b8",
+      "part_id": "c34.q",
+      "step": 0,
+      "purpose": "explain",
+      "say": "अब इतनी protection के बीच पत्ती में हवा का रास्ता कहाँ है? दूसरा question यही gaseous exchange का site पूछता है। नाम है Stomata: epidermis के छोटे openings, जैसे कमरे की खिड़कियाँ। एक opening को stoma कहते हैं; ये बाहर की हवा को पत्ती के अंदर के air spaces से जोड़ते हैं।",
+      "covers_item_ids": [
+       "p014-i11",
+       "p014-i13"
+      ],
+      "answers": [
+       "p014-i11#q1",
+       "p014-i11#q2",
+       "p014-i13#q1"
+      ],
+      "on_screen": "Leaf → epidermis → stomatal pore → internal air spaces; stoma / stomata.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b9",
+      "part_id": "c34.q",
+      "step": 0,
+      "purpose": "explain",
+      "say": "Gases concentration के फर्क से diffusion करती हैं; photosynthesis के लिए carbon dioxide अंदर आ सकती है और oxygen बाहर जा सकती है। Photosynthesis और respiration के लिए exchange चाहिए, मगर इसी रास्ते water vapour भी निकल सकती है। कई जमीन वाले broad leaves में नीचे अधिक stomata होते हैं, लेकिन यह हर leaf का नियम नहीं है।",
+      "covers_item_ids": [
+       "p014-i11",
+       "p014-i13"
+      ],
+      "answers": [
+       "p014-i11#q3",
+       "p014-i13#q2",
+       "p014-i13#q3"
+      ],
+      "on_screen": "CO₂ inward; O₂ and water vapour outward; distribution varies among leaves.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b10",
+      "part_id": "c34.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "इस छोटे छेद के दोनों ओर कौन बैठा है? Guard cells की जोड़ी, यानी opening को खोलने-बंद करने वाली specialised epidermal cells। पानी की मात्रा और अंदर का pressure, यानी turgor, बदलने से इनका आकार बदलता है। दरवाजे के पल्लों जैसी ये cells रास्ता संभालती हैं; gases बीच के pore से गुजरती हैं, इसलिए a नहीं चुनेंगे।",
+      "covers_item_ids": [
+       "p014-i12"
+      ],
+      "answers": [
+       "p014-i12#q1",
+       "p014-i12#q2",
+       "p014-i12#q3",
+       "p014-i11#q4"
+      ],
+      "on_screen": "Label guard-cell pair and central pore separately; animate changing opening.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b11",
+      "part_id": "c34.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "पानी में उगते पौधे के अंदर sponge जैसी बड़ी खाली जगहें किस काम आती हैं? Aerenchyma, specialised Parenchyma है जिसमें बड़े air spaces होते हैं। Water hyacinth जैसे पौधों में ये अंदर gases पहुँचाने और तैरने में मदद करते हैं। लेकिन अंदर के air spaces, leaf के बाहर का pore नहीं हैं; इसलिए c गलत है।",
+      "covers_item_ids": [
+       "p014-i14"
+      ],
+      "answers": [
+       "p014-i14#q1",
+       "p014-i14#q2",
+       "p014-i14#q3"
+      ],
+      "on_screen": "Aquatic plant → internal air spaces → gas movement and buoyancy; not a surface pore.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b12",
+      "part_id": "c34.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "हरी पत्ती के अंदर खाना बनाने वाला tissue कौन-सा है? Chlorenchyma, यानी chloroplasts वाला Parenchyma; chloroplasts रोशनी की मदद से खाना बनाने का काम करते हैं। यह carbon dioxide इस्तेमाल करता है, जबकि Stomata उसके आने का रास्ता हैं। इसलिए d भी नहीं; दूसरे question का intended answer b, Stomata है।",
+      "covers_item_ids": [
+       "p014-i15",
+       "p014-i13"
+      ],
+      "answers": [
+       "p014-i15#q1",
+       "p014-i15#q2",
+       "p014-i15#q3",
+       "p014-i11#q2"
+      ],
+      "on_screen": "Stomatal pore: entry → Chlorenchyma: photosynthesis. Intended answer: b.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b13",
+      "part_id": "c34.q",
+      "step": 0,
+      "purpose": "recap",
+      "say": "Options अलग रखने की trick है: layer, material, opening या काम? Epidermis layer है, Suberin material; Stomata opening हैं, Guard cells उसके controllers। Sclerenchyma मजबूती, Parenchyma storage, Aerenchyma air spaces और Chlorenchyma photosynthesis से जोड़ो। केवल protection या gas शब्द मिलना काफी नहीं है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Four categories: layer / material / opening / function; options sorted beneath them.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b14",
+      "part_id": "",
+      "step": 0,
+      "purpose": "recap",
+      "say": "अब शुरुआत का सवाल सुलझ गया: पत्ती की covering पानी बचाती है और उसमें controlled openings gas exchange कराते हैं। Exam में पहले पूछी गई चीज पहचानो, फिर पूरा clue मिलाओ। ‘Thickest’ जैसी wording देखकर समझा हुआ concept मत छोड़ देना।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Protection + controlled exchange; read the complete stem before selecting.",
+      "basis": "mixed"
+     }
+    ]
+   },
+   "code_problems": [
+    "[code] beat b1: textbook Hindi for the book's own terms (पदार्थ → substance); say the book's English term in Roman, a bracket does not rescue it (S2-04)",
+    "[code] beat b2: textbook Hindi for the book's own terms (पदार्थ → substance); say the book's English term in Roman, a bracket does not rescue it (S2-04)",
+    "[code] beat b2: the Hindi words ['मोम'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b5: the Hindi words ['नारियल', 'छिलके', 'निर्जीव'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b6: the Hindi words ['आलू', 'सामान्यतः'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b7: textbook Hindi for the book's own terms (पदार्थ → substance); say the book's English term in Roman, a bracket does not rescue it (S2-04)",
+    "[code] beat b7: the Hindi words ['लुभाता'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b10: the Hindi words ['पल्लों'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b14: the Hindi words ['सुलझ'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] the script speaks about 5.4 minutes; this video's narration time is 4.0-5.3 minutes (S2-01): cut repetition and side-tracks, never book content",
+    "[code] beat b8 is too heavy for one breath (load 1.84 over 1.8: 2 items, 52 words); split it into smaller beats (PED cognitive-load check)"
+   ],
+   "observed": {
+    "pattern_order": [],
+    "skipped_steps": {},
+    "objective_coverage": {
+     "coverage": 1.0,
+     "uncovered": []
+    },
+    "cognitive_load": {
+     "max": 1.84,
+     "abrupt_jumps": []
+    },
+    "duration": {
+     "spoken_minutes_at_130_wpm": 5.4,
+     "planned_minutes": 5,
+     "range": [
+      4.0,
+      5.3
+     ]
+    },
+    "dohraav": {
+     "beats": 14,
+     "judged": 11,
+     "restating": 0,
+     "share": 0.0,
+     "opened": 11,
+     "opened_share": 1.0,
+     "restating_beats": []
+    }
+   },
+   "passed": false,
+   "finished_at": 1792855936.0633945
+  },
+  {
+   "round": 2,
+   "started_at": 1792855936.0635457,
+   "mode": "patch",
+   "patch": {
+    "notes": {
+     "about": "Targeted language and pacing corrections to the two plant-tissue practice questions.",
+     "key_questions": [
+      "How can each option be distinguished by its structure and function?",
+      "Why must 'thickest' not be generalised?"
+     ],
+     "decisions": [
+      {
+       "decision": "Replace flagged Hindi with familiar English terms or simpler phrasing.",
+       "reason": "Preserves meaning while meeting mixed-script language rules."
+      },
+      {
+       "decision": "Shorten repeated explanations and reduce b8 below its load limit.",
+       "reason": "Brings narration within the time allowance without removing teaching content."
+      }
+     ],
+     "uncertain": [
+      "The supplied questions have no marked answer key; answers remain identified as intended."
+     ]
+    },
+    "replace_parts": [],
+    "replace_beats": [
+     {
+      "beat_id": "b1",
+      "part_id": "",
+      "step": 0,
+      "purpose": "hook",
+      "say": "पत्ती की covering पानी बचाती है, फिर gases अंदर कैसे पहुँचती हैं? आज 2 questions से covering, उसके ऊपर के substance और उसमें बने रास्ते अलग करेंगे। हर option का काम पहचानकर answer चुनेंगे।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Leaf → protective covering → opening; two unanswered MCQs.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b2",
+      "part_id": "c34.q",
+      "step": 0,
+      "purpose": "explain",
+      "say": "पहले question में कौन-सी layer पूछी है? इसके clues हैं: ‘thickest’, water loss से protection और बाहर waxy substance बनाना। Waxy यानी wax जैसा substance। केवल मोटाई मत देखना; पानी रोकने वाली बाहरी covering कौन बनाती है?",
+      "covers_item_ids": [
+       "p014-i6"
+      ],
+      "answers": [
+       "p014-i6#q1"
+      ],
+      "on_screen": "Highlight three stem clues separately; circle 'layer'.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b5",
+      "part_id": "c34.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Coconut husk के मजबूत fibres देखे हैं? Sclerenchyma ऐसा supporting tissue है; mature cells की walls मोटी, lignin से कड़ी और आम तौर पर living contents के बिना होती हैं। ये मजबूती देती हैं, waxy covering नहीं बनातीं। इसलिए option a केवल ‘मोटा’ शब्द से सही नहीं होगा।",
+      "covers_item_ids": [
+       "p014-i7"
+      ],
+      "answers": [
+       "p014-i7#q1",
+       "p014-i7#q2",
+       "p014-i7#q3"
+      ],
+      "on_screen": "Coconut husk fibres → thick lignified walls → support, not waxy secretion.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b6",
+      "part_id": "c34.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Potato के अंदर खाना कहाँ जमा रहता है? उसके storage tissue में Parenchyma मिलता है, यानी आम तौर पर पतली walls वाली living cells का tissue। यह storage करता है; इसके specialised रूप photosynthesis भी करते हैं। यहाँ clue बाहरी waxy covering का है, storage का नहीं; इसलिए c हटेगा।",
+      "covers_item_ids": [
+       "p014-i9"
+      ],
+      "answers": [
+       "p014-i9#q1",
+       "p014-i9#q2",
+       "p014-i9#q3"
+      ],
+      "on_screen": "Potato interior → living thin-walled parenchyma → storage.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b7",
+      "part_id": "c34.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "बोतल के cork से पानी आसानी से क्यों नहीं गुजरता? Cork की cell walls में Suberin जमा होता है, यानी पानी रोकने वाला material। इसलिए d सही लग सकता है, लेकिन Suberin substance है, cell layer नहीं। Epidermis की बाहरी cuticle और cork walls के Suberin अलग हैं।",
+      "covers_item_ids": [
+       "p014-i10"
+      ],
+      "answers": [
+       "p014-i10#q1",
+       "p014-i10#q2",
+       "p014-i10#q3"
+      ],
+      "on_screen": "Suberin: material in cork walls ≠ Epidermis: outer cell layer.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b8",
+      "part_id": "c34.q",
+      "step": 0,
+      "purpose": "explain",
+      "say": "पत्ती की covering में हवा का रास्ता कहाँ है? दूसरा question gaseous exchange का site पूछता है। Stomata यानी epidermis के छोटे openings, कमरे की खिड़कियों जैसे; ये बाहर की हवा को अंदर के air spaces से जोड़ते हैं। एक opening को stoma कहते हैं।",
+      "covers_item_ids": [
+       "p014-i11",
+       "p014-i13"
+      ],
+      "answers": [
+       "p014-i11#q1",
+       "p014-i11#q2",
+       "p014-i13#q1"
+      ],
+      "on_screen": "Leaf → epidermis → stomatal pore → internal air spaces; stoma / stomata.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b10",
+      "part_id": "c34.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "इस छेद के दोनों ओर कौन है? Guard cells की जोड़ी, यानी opening खोलने-बंद करने वाली specialised epidermal cells। पानी की मात्रा और अंदर का pressure, यानी turgor, बदलने से इनका आकार बदलता है। दरवाजे जैसी ये cells रास्ता संभालती हैं; gases बीच के pore से गुजरती हैं, इसलिए a नहीं चुनेंगे।",
+      "covers_item_ids": [
+       "p014-i12"
+      ],
+      "answers": [
+       "p014-i12#q1",
+       "p014-i12#q2",
+       "p014-i12#q3",
+       "p014-i11#q4"
+      ],
+      "on_screen": "Label guard-cell pair and central pore separately; animate changing opening.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b14",
+      "part_id": "",
+      "step": 0,
+      "purpose": "recap",
+      "say": "तो पत्ती पानी भी बचाती है और controlled openings से gas exchange भी कराती है। Exam में पूछी गई चीज पहचानकर पूरा clue मिलाओ; ‘thickest’ जैसी wording से समझा हुआ concept मत बदलना।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Protection + controlled exchange; read the complete stem before selecting.",
+      "basis": "mixed"
+     }
+    ],
+    "insert_beats": [],
+    "remove_beat_ids": []
+   },
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "269f995ba6d56bf8179e6190fcfe25f6d47f0ae9f4992f16238a576423f53663",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 17030,
+    "output_tokens": 1266,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "Two practice questions distinguish protective tissue from wall material, and a gas-exchange opening from its regulators and internal tissues.",
+    "key_questions": [
+     "Why is Epidermis intended despite the misleading word 'thickest'?",
+     "How do all four options in each question differ?",
+     "How does a leaf balance protection against water loss with gas exchange?"
+    ],
+    "decisions": [
+     {
+      "decision": "Explain the clues before selecting each answer.",
+      "reason": "This develops option elimination rather than answer recall."
+     },
+     {
+      "decision": "Explicitly qualify 'thickest' and identify both answers as intended, not printed keys.",
+      "reason": "The supplied page has no marked answers and the first stem is misleading."
+     },
+     {
+      "decision": "Use standard textbook explanations supplied in the task, marked outside or mixed.",
+      "reason": "The source page supplies questions and options rather than their explanations."
+     },
+     {
+      "decision": "Replace flagged Hindi with familiar English terms or simpler phrasing.",
+      "reason": "Preserves meaning while meeting mixed-script language rules."
+     },
+     {
+      "decision": "Shorten repeated explanations and reduce b8 below its load limit.",
+      "reason": "Brings narration within the time allowance without removing teaching content."
+     }
+    ],
+    "uncertain": [
+     "The supplied questions have no marked answer key; answers remain identified as intended."
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "Two practice questions distinguish protective tissue from wall material, and a gas-exchange opening from its regulators and internal tissues.",
+     "key_questions": [
+      "Why is Epidermis intended despite the misleading word 'thickest'?",
+      "How do all four options in each question differ?",
+      "How does a leaf balance protection against water loss with gas exchange?"
+     ],
+     "decisions": [
+      {
+       "decision": "Explain the clues before selecting each answer.",
+       "reason": "This develops option elimination rather than answer recall."
+      },
+      {
+       "decision": "Explicitly qualify 'thickest' and identify both answers as intended, not printed keys.",
+       "reason": "The supplied page has no marked answers and the first stem is misleading."
+      },
+      {
+       "decision": "Use standard textbook explanations supplied in the task, marked outside or mixed.",
+       "reason": "The source page supplies questions and options rather than their explanations."
+      },
+      {
+       "decision": "Replace flagged Hindi with familiar English terms or simpler phrasing.",
+       "reason": "Preserves meaning while meeting mixed-script language rules."
+      },
+      {
+       "decision": "Shorten repeated explanations and reduce b8 below its load limit.",
+       "reason": "Brings narration within the time allowance without removing teaching content."
+      }
+     ],
+     "uncertain": [
+      "The supplied questions have no marked answer key; answers remain identified as intended."
+     ]
+    },
+    "title": "Plant covering और gas exchange: हर option की जाँच",
+    "parts": [
+     {
+      "part_id": "c34.q",
+      "frame": {
+       "process": "Evaluate two MCQs by separating protective cell layers, deposited materials, pores and internal tissues.",
+       "how": "Locate each structure, connect its structure to its job, and eliminate options that match only part of the clue.",
+       "when": "First assess the protective-covering question, then the complementary leaf gas-exchange question.",
+       "conditions": "Do not generalise 'thickest'; distinguish the exchange passage from cells controlling it.",
+       "atmosphere": "An exposed leaf must conserve water while exchanging gases with the surrounding air."
+      },
+      "skipped_steps": []
+     }
+    ],
+    "beats": [
+     {
+      "beat_id": "b1",
+      "part_id": "",
+      "step": 0,
+      "purpose": "hook",
+      "say": "पत्ती की covering पानी बचाती है, फिर gases अंदर कैसे पहुँचती हैं? आज 2 questions से covering, उसके ऊपर के substance और उसमें बने रास्ते अलग करेंगे। हर option का काम पहचानकर answer चुनेंगे।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Leaf → protective covering → opening; two unanswered MCQs.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b2",
+      "part_id": "c34.q",
+      "step": 0,
+      "purpose": "explain",
+      "say": "पहले question में कौन-सी layer पूछी है? इसके clues हैं: ‘thickest’, water loss से protection और बाहर waxy substance बनाना। Waxy यानी wax जैसा substance। केवल मोटाई मत देखना; पानी रोकने वाली बाहरी covering कौन बनाती है?",
+      "covers_item_ids": [
+       "p014-i6"
+      ],
+      "answers": [
+       "p014-i6#q1"
+      ],
+      "on_screen": "Highlight three stem clues separately; circle 'layer'.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b3",
+      "part_id": "c34.q",
+      "step": 0,
+      "purpose": "explain",
+      "say": "पत्ती या young stem की सबसे बाहर लगी चादर जैसी cell layer कौन-सी है? यह Epidermis है, जिसकी cells पास-पास लगी होती हैं। इसके बाहर cuticle बनती है, यानी cells के ऊपर की protective covering, जिसमें cutin और waxes होते हैं। खुली पत्ती से पानी हवा में निकलता है; यह barrier उसका निकलना कम करती है।",
+      "covers_item_ids": [
+       "p014-i8"
+      ],
+      "answers": [
+       "p014-i8#q1",
+       "p014-i8#q2",
+       "p014-i8#q3",
+       "p014-i8#q4",
+       "p014-i6#q3",
+       "p014-i6#q4"
+      ],
+      "on_screen": "Leaf → closely fitted epidermal cells → external cuticle containing cutin and waxes.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b4",
+      "part_id": "c34.q",
+      "step": 0,
+      "purpose": "misconception",
+      "say": "इसलिए intended answer b, Epidermis है; supplied question में answer marked नहीं है। लेकिन ‘thickest’ को general fact मत बनाना। Epidermis आम तौर पर 1 cell layer होती है; उसकी और cuticle की मोटाई जगह और environment के साथ बदलती है। मोटी cuticle और सबसे मोटी tissue layer एक बात नहीं हैं।",
+      "covers_item_ids": [
+       "p014-i6",
+       "p014-i8"
+      ],
+      "answers": [
+       "p014-i6#q2",
+       "p014-i6#q5",
+       "p014-i8#q4"
+      ],
+      "on_screen": "Intended: b. Epidermis. Warning: 'thickest' is not a general property.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b5",
+      "part_id": "c34.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Coconut husk के मजबूत fibres देखे हैं? Sclerenchyma ऐसा supporting tissue है; mature cells की walls मोटी, lignin से कड़ी और आम तौर पर living contents के बिना होती हैं। ये मजबूती देती हैं, waxy covering नहीं बनातीं। इसलिए option a केवल ‘मोटा’ शब्द से सही नहीं होगा।",
+      "covers_item_ids": [
+       "p014-i7"
+      ],
+      "answers": [
+       "p014-i7#q1",
+       "p014-i7#q2",
+       "p014-i7#q3"
+      ],
+      "on_screen": "Coconut husk fibres → thick lignified walls → support, not waxy secretion.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b6",
+      "part_id": "c34.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Potato के अंदर खाना कहाँ जमा रहता है? उसके storage tissue में Parenchyma मिलता है, यानी आम तौर पर पतली walls वाली living cells का tissue। यह storage करता है; इसके specialised रूप photosynthesis भी करते हैं। यहाँ clue बाहरी waxy covering का है, storage का नहीं; इसलिए c हटेगा।",
+      "covers_item_ids": [
+       "p014-i9"
+      ],
+      "answers": [
+       "p014-i9#q1",
+       "p014-i9#q2",
+       "p014-i9#q3"
+      ],
+      "on_screen": "Potato interior → living thin-walled parenchyma → storage.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b7",
+      "part_id": "c34.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "बोतल के cork से पानी आसानी से क्यों नहीं गुजरता? Cork की cell walls में Suberin जमा होता है, यानी पानी रोकने वाला material। इसलिए d सही लग सकता है, लेकिन Suberin substance है, cell layer नहीं। Epidermis की बाहरी cuticle और cork walls के Suberin अलग हैं।",
+      "covers_item_ids": [
+       "p014-i10"
+      ],
+      "answers": [
+       "p014-i10#q1",
+       "p014-i10#q2",
+       "p014-i10#q3"
+      ],
+      "on_screen": "Suberin: material in cork walls ≠ Epidermis: outer cell layer.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b8",
+      "part_id": "c34.q",
+      "step": 0,
+      "purpose": "explain",
+      "say": "पत्ती की covering में हवा का रास्ता कहाँ है? दूसरा question gaseous exchange का site पूछता है। Stomata यानी epidermis के छोटे openings, कमरे की खिड़कियों जैसे; ये बाहर की हवा को अंदर के air spaces से जोड़ते हैं। एक opening को stoma कहते हैं।",
+      "covers_item_ids": [
+       "p014-i11",
+       "p014-i13"
+      ],
+      "answers": [
+       "p014-i11#q1",
+       "p014-i11#q2",
+       "p014-i13#q1"
+      ],
+      "on_screen": "Leaf → epidermis → stomatal pore → internal air spaces; stoma / stomata.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b9",
+      "part_id": "c34.q",
+      "step": 0,
+      "purpose": "explain",
+      "say": "Gases concentration के फर्क से diffusion करती हैं; photosynthesis के लिए carbon dioxide अंदर आ सकती है और oxygen बाहर जा सकती है। Photosynthesis और respiration के लिए exchange चाहिए, मगर इसी रास्ते water vapour भी निकल सकती है। कई जमीन वाले broad leaves में नीचे अधिक stomata होते हैं, लेकिन यह हर leaf का नियम नहीं है।",
+      "covers_item_ids": [
+       "p014-i11",
+       "p014-i13"
+      ],
+      "answers": [
+       "p014-i11#q3",
+       "p014-i13#q2",
+       "p014-i13#q3"
+      ],
+      "on_screen": "CO₂ inward; O₂ and water vapour outward; distribution varies among leaves.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b10",
+      "part_id": "c34.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "इस छेद के दोनों ओर कौन है? Guard cells की जोड़ी, यानी opening खोलने-बंद करने वाली specialised epidermal cells। पानी की मात्रा और अंदर का pressure, यानी turgor, बदलने से इनका आकार बदलता है। दरवाजे जैसी ये cells रास्ता संभालती हैं; gases बीच के pore से गुजरती हैं, इसलिए a नहीं चुनेंगे।",
+      "covers_item_ids": [
+       "p014-i12"
+      ],
+      "answers": [
+       "p014-i12#q1",
+       "p014-i12#q2",
+       "p014-i12#q3",
+       "p014-i11#q4"
+      ],
+      "on_screen": "Label guard-cell pair and central pore separately; animate changing opening.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b11",
+      "part_id": "c34.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "पानी में उगते पौधे के अंदर sponge जैसी बड़ी खाली जगहें किस काम आती हैं? Aerenchyma, specialised Parenchyma है जिसमें बड़े air spaces होते हैं। Water hyacinth जैसे पौधों में ये अंदर gases पहुँचाने और तैरने में मदद करते हैं। लेकिन अंदर के air spaces, leaf के बाहर का pore नहीं हैं; इसलिए c गलत है।",
+      "covers_item_ids": [
+       "p014-i14"
+      ],
+      "answers": [
+       "p014-i14#q1",
+       "p014-i14#q2",
+       "p014-i14#q3"
+      ],
+      "on_screen": "Aquatic plant → internal air spaces → gas movement and buoyancy; not a surface pore.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b12",
+      "part_id": "c34.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "हरी पत्ती के अंदर खाना बनाने वाला tissue कौन-सा है? Chlorenchyma, यानी chloroplasts वाला Parenchyma; chloroplasts रोशनी की मदद से खाना बनाने का काम करते हैं। यह carbon dioxide इस्तेमाल करता है, जबकि Stomata उसके आने का रास्ता हैं। इसलिए d भी नहीं; दूसरे question का intended answer b, Stomata है।",
+      "covers_item_ids": [
+       "p014-i15",
+       "p014-i13"
+      ],
+      "answers": [
+       "p014-i15#q1",
+       "p014-i15#q2",
+       "p014-i15#q3",
+       "p014-i11#q2"
+      ],
+      "on_screen": "Stomatal pore: entry → Chlorenchyma: photosynthesis. Intended answer: b.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b13",
+      "part_id": "c34.q",
+      "step": 0,
+      "purpose": "recap",
+      "say": "Options अलग रखने की trick है: layer, material, opening या काम? Epidermis layer है, Suberin material; Stomata opening हैं, Guard cells उसके controllers। Sclerenchyma मजबूती, Parenchyma storage, Aerenchyma air spaces और Chlorenchyma photosynthesis से जोड़ो। केवल protection या gas शब्द मिलना काफी नहीं है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Four categories: layer / material / opening / function; options sorted beneath them.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b14",
+      "part_id": "",
+      "step": 0,
+      "purpose": "recap",
+      "say": "तो पत्ती पानी भी बचाती है और controlled openings से gas exchange भी कराती है। Exam में पूछी गई चीज पहचानकर पूरा clue मिलाओ; ‘thickest’ जैसी wording से समझा हुआ concept मत बदलना।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Protection + controlled exchange; read the complete stem before selecting.",
+      "basis": "mixed"
+     }
+    ]
+   },
+   "code_problems": [],
+   "observed": {
+    "pattern_order": [],
+    "skipped_steps": {},
+    "objective_coverage": {
+     "coverage": 1.0,
+     "uncovered": []
+    },
+    "cognitive_load": {
+     "max": 1.7,
+     "abrupt_jumps": []
+    },
+    "duration": {
+     "spoken_minutes_at_130_wpm": 5.1,
+     "planned_minutes": 5,
+     "range": [
+      4.0,
+      5.3
+     ]
+    },
+    "dohraav": {
+     "beats": 14,
+     "judged": 11,
+     "restating": 0,
+     "share": 0.0,
+     "opened": 11,
+     "opened_share": 1.0,
+     "restating_beats": []
+    }
+   },
+   "review": {
+    "route": "google",
+    "provider": "google",
+    "model": "google/gemini-4-argon",
+    "via": "aicredits",
+    "returned_model": "google/gemini-4-argon",
+    "request_hash": "b2a79daa8ee20ab9bd9ff986e12eb7567f53396486c6f4ca1914fa32f9f9b03f",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 11685,
+    "output_tokens": 1194,
+    "cost_usd": 0.038841,
+    "value": {
+     "notes": {
+      "about": "Review of video script v10, which unpacks two practice MCQs on plant protective covering (epidermis, cuticle, suberin, sclerenchyma, parenchyma) and leaf gas exchange (stomata, guard cells, aerenchyma, chlorenchyma).",
+      "key_questions": [
+       "Are all 10 items (2 question stems and 8 options) and their book-based teacher questions thoroughly taught and unpacked?",
+       "Does the script properly handle the misleading 'thickest' clue in the first question and clearly mark the intended answers since the source has no answer key?",
+       "Are terms opened with 'yaani', everyday images, two-step why, examples, and contrasts in natural Hinglish?"
+      ],
+      "decisions": [
+       {
+        "decision": "Pass the script with no blocking issues.",
+        "reason": "Every item in must_cover is genuinely explained with its unpack elements (plain meaning, everyday analogy, why, example, and reason for selection/elimination), all book-basis questions are answered, and the language and timing meet all rules."
+       }
+      ],
+      "uncertain": []
+     },
+     "verdict": "pass",
+     "problems": [],
+     "checklist": [
+      {
+       "rule_id": "G-01",
+       "met": true,
+       "note": "Book items (question stems and options) and outside standard textbook explanations are accurately distinguished with 'mixed' and 'outside' basis tags, and the lack of a printed answer key is explicitly stated."
+      },
+      {
+       "rule_id": "G-02",
+       "met": true,
+       "note": "A top UPSC/State PCS teacher would be satisfied: every distractor is used to teach the underlying plant tissue concept and exam elimination logic, including the caveat about 'thickest' in the first question."
+      },
+      {
+       "rule_id": "G-03",
+       "met": true,
+       "note": "Maker notes clearly state what the unit is about, the key teaching decisions with reasons, and the uncertainty regarding the unmarked answer key."
+      },
+      {
+       "rule_id": "G-04",
+       "met": true,
+       "note": "The Hinglish narration is natural, conversational, and clear, with short spoken sentences suitable for learners."
+      },
+      {
+       "rule_id": "G-05",
+       "met": true,
+       "note": "Nothing from the source is cut short or merged away; both questions and all eight options are individually addressed."
+      },
+      {
+       "rule_id": "G-06",
+       "met": true,
+       "note": "Every option and question stem is opened with its meaning, mechanism/why, familiar plant example, and consequence for answering the MCQ."
+      },
+      {
+       "rule_id": "G-07",
+       "met": true,
+       "note": "Matches the UPSC/State PCS level profile well by focusing on conceptual clarity, option traps (substance vs. layer, controller vs. opening, internal space vs. surface pore), and everyday visual anchors."
+      },
+      {
+       "rule_id": "S2-01",
+       "met": true,
+       "note": "Measured narration time is 5.1 minutes, well within the 4.0-5.3 minute target window."
+      },
+      {
+       "rule_id": "S2-02",
+       "met": true,
+       "note": "The script flows logically from the protective barrier question to the gas-exchange passage question, covering all items and teacher questions without repetition."
+      },
+      {
+       "rule_id": "S2-03",
+       "met": true,
+       "note": "Prerequisite concepts (like diffusion and photosynthesis) are smoothly integrated in context within 1-2 beats without side-tracking."
+      },
+      {
+       "rule_id": "S2-04",
+       "met": true,
+       "note": "Follows Navin's mixed script rules: Hindi in Devanagari, technical/standard English terms in Roman script, and simple spoken sentences."
+      },
+      {
+       "rule_id": "S2-05",
+       "met": true,
+       "note": "All coverage claims in covers_item_ids and answers are accurate and substantiated in the spoken text."
+      },
+      {
+       "rule_id": "S2-06",
+       "met": true,
+       "note": "The part frame is complete and appropriate for an exam-practice part (type 'none', step 0), and every card item is taught as an exam tip/explanation."
+      },
+      {
+       "rule_id": "S2-07",
+       "met": true,
+       "note": "Each new concept opens with a visible question, unpacks terms with 'यानी' and an everyday image (चादर, नारियल के रेशे, आलू, बोतल का cork, खिड़की, दरवाजे, sponge), gives the why and example, and ends with a clean categorisation trick."
+      }
+     ]
+    }
+   },
+   "review_problems": [],
+   "review_minor": [],
+   "passed": true,
+   "finished_at": 1792855981.6697953
+  }
+ ],
+ "avoid_rounds": [
+  1
+ ],
+ "cost_usd": 0.038841,
+ "seconds": 131.8,
+ "navin_verdict": null
+}

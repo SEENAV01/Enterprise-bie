@@ -1,0 +1,4135 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "lesson",
+ "unit": "script-v1",
+ "status": "failed",
+ "instructions_version": "lesson-script/4",
+ "rulebook_version": "content_types@2026-10-24.1+explanations@2026-10-24.1+level_profiles@2026-10-24.1+simple_hindi@2026-10-24.1+teacher_examples@2026-10-24.1+vision-2026-10-21@2026-10-21.12",
+ "rulebook_digest": "b6ce8b9089ed2428fec978e8b6667bd8182cc61f431233952ca9db5fabf741f7",
+ "rules_used": [
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-04",
+  "G-05",
+  "G-06",
+  "G-07",
+  "S2-01",
+  "S2-02",
+  "S2-03",
+  "S2-04",
+  "S2-05",
+  "S2-06",
+  "S2-07"
+ ],
+ "maker_route": "codex",
+ "reviewer_route": "google",
+ "maker_model": "gpt-6.1-sol",
+ "reviewer_model": "google/gemini-4-argon",
+ "reviewer_independence": "other_company",
+ "inputs_digest": "403bef860af16fa8ca92db46b3ae817ab448de71e5c4556187d836f6a204d8f1",
+ "card": {
+  "card": "bie.task-card/1",
+  "card_id": "lesson.write_script@10-tissues-and-its-types/v1",
+  "section": "lesson",
+  "task": "write_script",
+  "prefix": {
+   "prefix_id": "lesson.write_script/3",
+   "rulebook_version": "content_types@2026-10-24.1+explanations@2026-10-24.1+level_profiles@2026-10-24.1+simple_hindi@2026-10-24.1+teacher_examples@2026-10-24.1+vision-2026-10-21@2026-10-21.12",
+   "content_types_version": "2026-10-24.1",
+   "schema_id": "bie.brain.lesson-script/3",
+   "sha256": "0147e7e0d13a864ea512a113a18aeb490d14d41bcf09eaf387012bb98fbbbaca"
+  },
+  "unit": {
+   "unit_id": "v1",
+   "title": "Cells मिलकर tissue कैसे बनाते हैं?",
+   "pages": [
+    1
+   ]
+  },
+  "parts": [
+   {
+    "part_id": "c01.1",
+    "item_ids": [
+     "p001-i2"
+    ],
+    "type": "definition",
+    "questions": [
+     "what",
+     "evidence",
+     "why"
+    ],
+    "focus": "Tissues, division of labour and levels of organisation: teach these definition items through the definition pattern"
+   },
+   {
+    "part_id": "c01.2",
+    "item_ids": [
+     "p001-i3",
+     "p001-i4"
+    ],
+    "type": "classification",
+    "questions": [
+     "which",
+     "difference",
+     "how",
+     "why"
+    ],
+    "focus": "Tissues, division of labour and levels of organisation: teach these classification items through the classification pattern"
+   },
+   {
+    "part_id": "c01.3",
+    "item_ids": [
+     "p001-i5",
+     "p001-i6"
+    ],
+    "type": "cause_effect",
+    "questions": [
+     "why",
+     "how",
+     "consequence"
+    ],
+    "focus": "Tissues, division of labour and levels of organisation: teach these cause_effect items through the cause_effect pattern"
+   },
+   {
+    "part_id": "c01.4",
+    "item_ids": [
+     "p001-i7",
+     "p001-i8",
+     "p001-i9",
+     "p001-i10",
+     "p001-i11",
+     "p001-i12"
+    ],
+    "type": "structure",
+    "questions": [
+     "what",
+     "where",
+     "how",
+     "why"
+    ],
+    "focus": "Tissues, division of labour and levels of organisation: teach these structure items through the structure pattern"
+   },
+   {
+    "part_id": "c02.1",
+    "item_ids": [
+     "p001-i14",
+     "p001-i15",
+     "p001-i16",
+     "p001-i17",
+     "p001-i18",
+     "p001-i19",
+     "p001-i20",
+     "p001-i21",
+     "p001-i22",
+     "p001-i23",
+     "p001-i24"
+    ],
+    "type": "comparison",
+    "questions": [
+     "compare",
+     "difference",
+     "why",
+     "how"
+    ],
+    "focus": "Mitosis versus meiosis: teach these comparison items through the comparison pattern"
+   },
+   {
+    "part_id": "c03.1",
+    "item_ids": [
+     "p001-i26",
+     "p001-i27",
+     "p001-i28",
+     "p001-i29"
+    ],
+    "type": "comparison",
+    "questions": [
+     "compare",
+     "difference",
+     "how",
+     "why"
+    ],
+    "focus": "Plant versus animal mitosis: teach these comparison items through the comparison pattern"
+   }
+  ],
+  "rules": [
+   "G-01",
+   "G-02",
+   "G-03",
+   "G-04",
+   "G-05",
+   "G-06",
+   "G-07",
+   "S2-01",
+   "S2-02",
+   "S2-03",
+   "S2-04",
+   "S2-05",
+   "S2-06",
+   "S2-07"
+  ],
+  "output": {
+   "schema_id": "bie.brain.lesson-script/3",
+   "mode": "full",
+   "max_output_tokens": 32000
+  },
+  "coverage": {
+   "must_cover": [
+    "p001-i2",
+    "p001-i3",
+    "p001-i4",
+    "p001-i5",
+    "p001-i6",
+    "p001-i7",
+    "p001-i8",
+    "p001-i9",
+    "p001-i10",
+    "p001-i11",
+    "p001-i12",
+    "p001-i14",
+    "p001-i15",
+    "p001-i16",
+    "p001-i17",
+    "p001-i18",
+    "p001-i19",
+    "p001-i20",
+    "p001-i21",
+    "p001-i22",
+    "p001-i23",
+    "p001-i24",
+    "p001-i26",
+    "p001-i27",
+    "p001-i28",
+    "p001-i29"
+   ],
+   "claim_field": "beats[].covers_item_ids",
+   "may_skip": []
+  },
+  "context": {
+   "map_slice": [
+    [
+     "p001-i2",
+     "definition",
+     "1",
+     "TISSUE: Cells combine to perform same function."
+    ],
+    [
+     "p001-i3",
+     "classification",
+     "1",
+     "When plant cells combine, they form plant tissues."
+    ],
+    [
+     "p001-i4",
+     "classification",
+     "1",
+     "When animal cells combine, they form animal tissues."
+    ],
+    [
+     "p001-i5",
+     "cause_effect",
+     "1",
+     "Causes division of labour."
+    ],
+    [
+     "p001-i6",
+     "cause_effect",
+     "1",
+     "Decreases workload on individual cells, hence leads to organisation."
+    ],
+    [
+     "p001-i7",
+     "structure",
+     "1",
+     "Cell → Tissues → Organ → Organ system → Organisms. Arrows connect successive levels of biological…"
+    ],
+    [
+     "p001-i8",
+     "structure",
+     "1",
+     "Cell: starting level, pointing to Tissues."
+    ],
+    [
+     "p001-i9",
+     "structure",
+     "1",
+     "Tissues: between Cell and Organ."
+    ],
+    [
+     "p001-i10",
+     "structure",
+     "1",
+     "Organ: between Tissues and Organ system."
+    ],
+    [
+     "p001-i11",
+     "structure",
+     "1",
+     "Organ system: between Organ and Organisms."
+    ],
+    [
+     "p001-i12",
+     "structure",
+     "1",
+     "Organisms: final level after Organ system."
+    ],
+    [
+     "p001-i14",
+     "comparison",
+     "1",
+     "Mitosis: 1) It occurs in somatic cells. | Meiosis: 1) It occurs in germ cells."
+    ],
+    [
+     "p001-i15",
+     "comparison",
+     "1",
+     "Mitosis: 2) Nucleus divides only once. | Meiosis: 2) Nucleus divides twice."
+    ],
+    [
+     "p001-i16",
+     "comparison",
+     "1",
+     "Mitosis: 3) Two daughter cells are formed. | Meiosis: 3) Four daughter cells are formed."
+    ],
+    [
+     "p001-i17",
+     "comparison",
+     "1",
+     "Mitosis: 4) Daughter cells are diploid. | Meiosis: 4) Daughter cells are haploid."
+    ],
+    [
+     "p001-i18",
+     "comparison",
+     "1",
+     "Mitosis: 5) It occurs more frequently. | Meiosis: 5) It occurs less frequently."
+    ],
+    [
+     "p001-i19",
+     "comparison",
+     "1",
+     "Mitosis: 6) Daughter cells form somatic organs. | Meiosis: 6) Daughter cells form gametes."
+    ],
+    [
+     "p001-i20",
+     "comparison",
+     "1",
+     "Mitosis: 7) There is only one prophase, one metaphase one anaphase and one telophase. | Meiosis…"
+    ],
+    [
+     "p001-i21",
+     "comparison",
+     "1",
+     "Mitosis: 8) Number of chromosomes are not changed in the daughter cells. | Meiosis: 8) Number of…"
+    ],
+    [
+     "p001-i22",
+     "comparison",
+     "1",
+     "Mitosis: 9) Chromosome number doubles at the beginning of each cell division. | Meiosis: 9)…"
+    ],
+    [
+     "p001-i23",
+     "comparison",
+     "1",
+     "Mitosis: 10) No crossing over in chromosomes. | Meiosis: 10) Crossing over occurs chromosomes…"
+    ],
+    [
+     "p001-i24",
+     "comparison",
+     "1",
+     "Mitosis: 11) Equation [Equational] division. | Meiosis: 11) Reduction division."
+    ],
+    [
+     "p001-i26",
+     "comparison",
+     "1",
+     "Plants: Centrioles are absent. | Animals: Centrioles are present."
+    ],
+    [
+     "p001-i27",
+     "comparison",
+     "1",
+     "Plants: Asters are not formed. | Animals: Asters are formed."
+    ],
+    [
+     "p001-i28",
+     "comparison",
+     "1",
+     "Plants: Cell division involves formation of a cell plate. | Animals: Cell division involves…"
+    ],
+    [
+     "p001-i29",
+     "comparison",
+     "1",
+     "Plants: Occurs mainly at meristem. | Animals: Occurs in tissues throughout the body."
+    ],
+    [
+     "c01",
+     "structure",
+     "1",
+     "Tissues, division of labour and levels of organisation"
+    ],
+    [
+     "c02",
+     "comparison",
+     "1",
+     "Mitosis versus meiosis"
+    ],
+    [
+     "c03",
+     "comparison",
+     "1",
+     "Plant versus animal mitosis"
+    ],
+    [
+     "c04",
+     "classification",
+     "2-3",
+     "Animal-tissue classification and functional overview"
+    ],
+    [
+     "c18",
+     "classification",
+     "1-8",
+     "Plant-tissue classification"
+    ],
+    [
+     "c19",
+     "comparison",
+     "8-9",
+     "Meristematic cells and locations of plant growth"
+    ]
+   ],
+   "before": "पहले यह जान लो: tissue समझने के जरूरी tools",
+   "after": "Animal tissues: शरीर में कौन क्या करता है?"
+  },
+  "source": {
+   "block_ids": [
+    "p0001-b0003",
+    "p0001-b0004",
+    "p0001-b0005",
+    "p0001-b0006",
+    "p0001-b0007",
+    "p0001-b0008"
+   ],
+   "page_images": []
+  }
+ },
+ "prefix_sha256": "0147e7e0d13a864ea512a113a18aeb490d14d41bcf09eaf387012bb98fbbbaca",
+ "review_prefix_sha256": "e93e52d0e0b3bbc2fae49fbd9a7c24c4d58030662b935848effd47c60ae53b06",
+ "inputs": {
+  "system": "BIE task prefix lesson.write_script/3 · rulebook content_types@2026-10-24.1+explanations@2026-10-24.1+level_profiles@2026-10-24.1+simple_hindi@2026-10-24.1+teacher_examples@2026-10-24.1+vision-2026-10-21@2026-10-21.12 · content types 2026-10-24.1 · schema bie.brain.lesson-script/3\n\nYou are BIE's lesson section writing what the teacher says in one video lesson: you are the best teacher of Science and Technology\nfor UPSC / State PCS aspirants preparing for UPSC / State PCS, speaking to one student. BIE turns your beats into narration and animation, so write only\nwhat is spoken, beat by beat.\nCourse: \"10. Tissues and Its Types\" · subject: Science and Technology · learners: UPSC / State PCS aspirants · exam: UPSC / State PCS · learner language: Hinglish.\n\nNavin's rules for this task (follow every one):\n[G-01] Everything taught comes from the book. Knowledge from outside the book is allowed only to explain the book better; it is marked as outside, standard textbook-level and correct. Never invent facts, numbers, names or quotations.\n[G-02] Work like the best teacher of these learners and this exam, not like a summariser. Depth beats brevity: nothing teachable on the page is skipped or compressed away, and every explanation makes a student understand, not just remember. Depth means understanding, not length: lesson narration keeps S2-01's time by cutting repetition and side-tracks, never book content.\n[G-03] Before the output, fill 'notes' with brief notes for the reviewer and for Navin: what this unit is about, the key questions a teacher must answer about it, the main decisions you made with a one-line reason each, and anything uncertain. Keep the notes short; they explain the work, they are not the work.\n[G-04] Learner-facing language follows the course setting. For the first course (UPSC / State PCS) it is Hinglish: natural Hindi sentence flow, English technical terms, the way Navin teaches.\n[G-05] Never drop or compress away what the book teaches to fit a length. If a unit of work is too large, it is split by BIE into smaller units; within a unit, the book's content is complete. Lesson narration has a time target (S2-01), met by cutting repetition and side-tracks, never book content.\n[G-06] BIE is the link between the learner and the book, like a teacher (Navin, 24 October 2026). The book is the base; BIE carries its text, easy or hard, into the learner's mind. Never just read the line out: every book line is opened (what its words mean, why it is so, where it is seen, what follows), at the depth of the level profile.\n[G-07] Two layers, like a film (Navin, 24 October 2026). The writer layer (understanding, plan, script) decides what is said and how deep, following the level profile and the book's own level. The presentation layer (director, video blocks, render) is the same skilled quality for every learner, from class 6 to postgraduate; only the detail shown follows the level, never the craft.\n[S2-01] Plan the chapter's videos from the chapter map: first one short 'pehle yeh jaan lo' video (5-8 minutes) that teaches the chapter's prerequisites, then the topic videos in teaching order. Narration is 6-8 minutes per book page (Navin, 23 October 2026; the 14-page tissue chapter about 85-110 minutes of topic videos, plus the prerequisite video): each topic video gets the share of the pages its items come from, and a very dense page may go up to 25% over when the plan says why. Understanding (Section 1) and the chapter map have no time limit.\n[S2-02] Write a spoken teacher script in beats with a natural teacher flow. Stories and analogies only where they genuinely help that topic. Every item the book teaches is taught and every teacher question answered from the book is answered; questions answered from outside the book are used only where they help and the time allows. Cut repetition and side-tracks, never book content.\n[S2-03] Prerequisites are only what this chapter directly needs, never a prerequisite of a prerequisite. They are taught, not named, in the chapter's 'pehle yeh jaan lo' video, each with a simple explanation and an example; a topic video may remind of them in at most 2 beats.\n[S2-04] Spoken Hinglish the way Navin teaches, in mixed script (Navin, 21 and 23 October 2026): Hindi words in Devanagari, English words, above all the book's technical terms, in Roman exactly as the book spells them, as in 'आज हम tissue के बारे में पढ़ेंगे'; a genuinely difficult Hindi word (formal, literary or technical; not in BIE's everyday word list rulebook/simple_hindi.json) gets its English word in brackets right after it, as in 'सतह (surface)'; the screen and subtitles show the bracket and the voice says 'सतह, यानी surface'. Never a bracket after an everyday word or inside an idiom or a fixed phrase ('आम तौर पर', not 'आम तौर (usually) पर'; 'नहीं के बराबर', not 'नहीं के बराबर (equal to)'). Never an English term in Devanagari or a Hindi word in Roman. Numbers as digits; short spoken sentences addressed to one student; questions to the student and natural pauses; no reading out of lists.\n[S2-05] Every beat states which chapter-map items it covers and which teacher questions it answers, and those claims must be true: the beat really explains that item and really answers that question.\n[S2-06] Teach every part of a video through the universal frame (what the process is, how it works, when and in what order, under which conditions, in what atmosphere) and through the teaching pattern of its content type, step by step in the pattern's order; every item on the task card is really taught, none only named.\n[S2-07] Open every book line in the script, never read it out (Navin, 24 October 2026). A new topic opens with a question about something the learner can see, then the name. After any book line the beat carries at least one of: the term's plain meaning with 'yaani' and an everyday image, a why step from a need, an example or the place. Speak complete sentences, not clipped notes. A classification is taught as a family: the overview tree, then every member in the same slots (layer and shape, why it is named so, its special feature, its function with its cause, where it is found by a zoom from the organ, its consequence), then the members compared and a memory trick. A pattern step may be skipped only with a stated reason; one recap per part and one closing recap.\n\nBIE's content types (the type of an item decides its required questions and how it is taught, shown, played and drawn):\n- process · Process: Something that happens in steps or stages over time: a mechanism, a procedure, a cycle (photosynthesis, cell division, how a bill becomes law). Required questions: how (kaise), when (kab). Other questions: what (kya), where (kahan), why (kyun), consequence (nateeja).\n  Teaching pattern: 1) the result first (what it makes). 2) inputs and the place. 3) each step with its cause and its condition. 4) what breaks when a step fails. 5) the whole run once more at speed. 6) recap as a flow.\n- structure · Structure: Something made of parts arranged in space, each part with a function (a cell, a leaf, the heart, a machine, the Parliament). Required questions: what (kya), where (kahan). Other questions: how (kaise), why (kyun), which (kaun).\n  Teaching pattern: 1) the whole in context. 2) zoom into each part in a fixed path (outside to inside). 3) function of each part tied to its shape. 4) how the parts work together. 5) labelled recap.\n- classification · Classification: A group divided into kinds by a stated basis (types of tissues, kinds of rocks, kinds of writs). Required questions: which (kaun), difference (tulna). Other questions: what (kya), evidence (saboot), where (kahan).\n  Teaching pattern: 1) the overview tree first: the basis of division and every member named. 2) every member in the same slots: layer and shape, why it is named so, its special feature, its function with its cause, where it is found by a zoom from the organ, its consequence. 3) the members compared side by side, the most confused pair named directly. 4) a memory trick for the family.\n- comparison · Comparison: Two or more things set side by side on stated criteria (plant and animal cells, Lok Sabha and Rajya Sabha). Required questions: compare (tulna), difference (tulna). Other questions: what (kya), why (kyun), evidence (saboot).\n  Teaching pattern: 1) what is common. 2) criteria one at a time, both sides together. 3) the reason behind each difference. 4) the most confused pair named directly. 5) difference table as recap.\n- timeline · Timeline: Events placed in time: history, the development of an idea, stages of a life (the Revolt of 1857, evolution of cell theory). Required questions: when (kab), why (kyun). Other questions: who (kaun), where (kahan), consequence (nateeja).\n  Teaching pattern: 1) the period and its atmosphere. 2) events in order with their causes. 3) the people and their choices. 4) the turning point. 5) what changed after. 6) timeline recap.\n- cause_effect · Reasoning (cause and effect): Why something happens: causes, effects, conditions and chains of reasoning (why tissues specialise, why prices rise, why a law was needed). Required questions: why (kyun), how (kaise). Other questions: consequence (nateeja), evidence (saboot), exception (tulna).\n  Teaching pattern: 1) the effect students can see. 2) the cause. 3) each link of the chain with its mechanism. 4) the evidence. 5) the exception or limit. 6) the chain as recap.\n- facts_numbers · Facts and numbers: Stated facts, quantities, measurements, statistics and formulas (heart rate 72 per minute, 3,000 against 50,000 soldiers at Plassey, F = ma). Required questions: what (kya), evidence (saboot). Other questions: compare (tulna), why (kyun).\n  Teaching pattern: 1) the fact in one line. 2) the number shown to scale against something familiar. 3) where it comes from (book or outside, dated). 4) what it changes or proves. 5) a formula built term by term when there is one.\n- figure · Figure: A diagram, photo, map, graph or table drawing on the page whose content is visual (tissue pages 2, 7 and 8 are figures only). Required questions: what (kya), which (kaun). Other questions: how (kaise), why (kyun).\n  Teaching pattern: 1) what the figure is and why it is here. 2) a reading path across it (labels in order). 3) the one thing to remember from it. 4) link back to the text it explains.\n- definition · Definition: A term and its meaning as the book states it (tissue, meristem, sovereignty). Required questions: what (kya), evidence (saboot). Other questions: about (kya), why (kyun).\n  Teaching pattern: 1) a concrete example first. 2) the book's definition word by word. 3) a non-example that tests the boundary. 4) where the term is used next in the chapter.\n\nOutput schema (JSON):\n{\"additionalProperties\":false,\"properties\":{\"beats\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"answers\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"basis\":{\"enum\":[\"book\",\"outside\",\"mixed\"],\"type\":\"string\"},\"beat_id\":{\"type\":\"string\"},\"covers_item_ids\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"on_screen\":{\"type\":\"string\"},\"part_id\":{\"type\":\"string\"},\"purpose\":{\"enum\":[\"hook\",\"prerequisite\",\"explain\",\"example\",\"analogy\",\"story\",\"compare\",\"process_walkthrough\",\"misconception\",\"exam_tip\",\"question_to_student\",\"recap\",\"transition\"],\"type\":\"string\"},\"say\":{\"type\":\"string\"},\"step\":{\"type\":\"integer\"}},\"required\":[\"beat_id\",\"part_id\",\"step\",\"purpose\",\"say\",\"covers_item_ids\",\"answers\",\"on_screen\",\"basis\"],\"type\":\"object\"},\"type\":\"array\"},\"notes\":{\"additionalProperties\":false,\"properties\":{\"about\":{\"description\":\"What this unit of work is about and how it fits the whole (one or two sentences).\",\"type\":\"string\"},\"decisions\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"decision\":{\"type\":\"string\"},\"reason\":{\"type\":\"string\"}},\"required\":[\"decision\",\"reason\"],\"type\":\"object\"},\"type\":\"array\"},\"key_questions\":{\"description\":\"The key questions a teacher must answer about this unit.\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"uncertain\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"}},\"required\":[\"about\",\"key_questions\",\"decisions\",\"uncertain\"],\"type\":\"object\"},\"parts\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"frame\":{\"additionalProperties\":false,\"properties\":{\"atmosphere\":{\"type\":\"string\"},\"conditions\":{\"type\":\"string\"},\"how\":{\"type\":\"string\"},\"process\":{\"type\":\"string\"},\"when\":{\"type\":\"string\"}},\"required\":[\"process\",\"how\",\"when\",\"conditions\",\"atmosphere\"],\"type\":\"object\"},\"part_id\":{\"type\":\"string\"},\"skipped_steps\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"step\":{\"type\":\"integer\"},\"why\":{\"type\":\"string\"}},\"required\":[\"step\",\"why\"],\"type\":\"object\"},\"type\":\"array\"}},\"required\":[\"part_id\",\"frame\",\"skipped_steps\"],\"type\":\"object\"},\"type\":\"array\"},\"title\":{\"type\":\"string\"}},\"required\":[\"notes\",\"title\",\"parts\",\"beats\"],\"type\":\"object\"}\n\nHow BIE talks to you: every request is a task card (JSON) followed by its source. The card names the unit, its parts with their content type and required questions, the ids of the rules above that apply, the output, the ids you must cover and the context. The card is BIE's instruction; the source is the material.\nFor a write_script card:\n- card.parts are this video's parts: each has item ids, one content type and the questions it must answer. The source gives every item's\n  full content and its teacher questions with ids (\"p003-i4#q2\") and answers from BIE's chapter map; teach from them.\n- card.coverage.must_cover lists every item this video must teach: each must be in covers_item_ids of a beat that really explains it.\n  may_skip lists items you may leave out (not teachable). card.context.map_slice shows the related concepts for context only.\nHow to fill the JSON:\n- notes: brief notes for the reviewer: what this video is about, the key questions it must answer, your main decisions (order,\n  hook, analogy, where prerequisites are taught) with a reason each, what is uncertain.\n- title: the video title in the learner language.\n- parts: one entry per card part, with the universal frame of that part (S3-01), each in one or two lines of clear English for BIE:\n  process (what happens or what the thing does), how (how it works or happens), when (when, in what order, under which timing),\n  conditions (what must be true for it, or what changes it), atmosphere (the setting and situation a student should picture). Write\n  \"n/a: \" and the reason only where a question truly does not apply to that part. skipped_steps = the teaching-pattern steps of this\n  part you leave out because there is nothing real to say for them, each with the reason ([] when every step is done); at most half\n  of a pattern, never a step that has something real; BIE's code records the reason.\n- beats: the whole video in order. beat_id \"b1\", \"b2\" ...; part_id = the card part this beat teaches (\"\" for the opening hook, a\n  prerequisite taught first, a transition or the final recap); step = the number of the teaching-pattern step of that part's content type\n  that this beat performs (see the content types above; 0 when part_id is \"\" and for an exam-question part, whose type is \"none\");\n  the steps of a part's pattern appear in order, except the ones skipped with a reason; a classification part follows the family\n  pattern: the overview tree first, then every member in the same slots (layer and shape → why it is named so → its special feature\n  → its function with its cause → where it is found, by a zoom from the organ → its consequence), then the comparison, then a memory\n  trick; one recap per part and one closing recap for the video, never two recaps of the same thing;\n  purpose (hook, prerequisite, explain, example, analogy, story, compare, process_walkthrough, misconception, exam_tip,\n  question_to_student, recap, transition); say = the exact spoken words, one to four complete spoken sentences in Navin's Hinglish\n  (S2-04), the way a teacher speaks to one student, never clipped note-style lines (\"Irregular walls. Kaisi? Irregular.\" is a teacher's\n  beat; \"Location: kidney tubules, glandular ducts.\" is a note):\n  mixed script: Hindi words in Devanagari, English words (above all the book's technical terms, spelled as the book spells them) in\n  Roman, as in \"आज हम tissue के बारे में पढ़ेंगे\"; brackets only after a genuinely difficult Hindi word (see \"Brackets\" below; the\n  screen shows the bracket and the voice says \"सतह, यानी surface\"); never write an English term in Devanagari or a Hindi word in Roman;\n  numbers as digits; addressed to one student; covers_item_ids = the item ids this beat really explains; answers = the teacher question\n  ids this beat really answers; on_screen = what the student should see while hearing it (for the director); basis = book, outside or\n  mixed.\nOpening the book (S2-07; BIE is the link between the learner and the book, like a teacher, never a reader of the line): every new\ntopic (every concept and every prerequisite) opens with a question about something the learner can see, then the name. After any\nbook line, the beat carries at least one of: the term opened (\"yaani\" + its plain meaning + one everyday image), the why from a need or\na problem, or an example or place by a zoom from the organ. The source gives every item's unpack from Section 1 (its terms, why chain,\nexample, consequence, visual verb) and the locked explanations: speak them, in your own teacher's words, at the depth of the level\nprofile below. BIE's code sends back a beat whose English words are the book's and that opens nothing (\"dohraav pakad\"), a clipped\nsentence without a verb, a topic that opens without a question, and a second recap of the same thing.\nTime (S2-01): the source gives this video's narration time; BIE's code counts the spoken words (130 a minute) and the script must stay\nwithin it. Win the time by cutting repetition and side-tracks, never book content: every item in must_cover is taught and every\nteacher question whose basis is \"book\" is answered; questions answered from outside the book are used only where they help and the\ntime allows.\nPrerequisites (S2-03): in a topic video they were already taught in the prerequisite video; remind of one in at most 2 beats (purpose\n\"prerequisite\"). In the prerequisite video (card parts \"pre1\", \"pre2\" ...) teach each prerequisite simply, with an everyday example, in\nthe order given: part_id = the prerequisite id, step 0, covers_item_ids = the prerequisite ids the beat teaches, answers [].\nA beat introduces at most a few new items: BIE's code measures the load of every beat (0.4 per new item plus 1 per 50 spoken words, at\nmost 1.8), so a beat holds at most about 70 spoken words with one new item, 50 with two and 30 with three; split longer beats. Reply\nwith the JSON object only.\n\nLevel profile: UPSC / State PCS (level_profiles.json; learners: UPSC and State PCS aspirants, often from arts backgrounds, who need understanding more than technical vocabulary).\n- Terms: fewer technical terms: only the ones the exam asks, each opened with its plain meaning and an everyday image; a term the exam never asks is explained in words, not named.\n- Why: 2 step(s); a two-step why from a need the learner can feel, then its link to daily life, health or governance.\n- Where found: the main places, each linked to something the learner already knows (a disease, a food, a news item).\n- Exam beats: the PYQ pattern: how this fact has been asked (statement combinations, 'which is correct', odd one out) and the wording that traps.\n- Links: daily life, health, the news and earlier chapters of the same paper.\n\nHow real teachers open a book line (teacher example bank 2026-10-24.1; use these ways, in your own words):\n- Open with a question on something visible (every new topic and every new family member): Skin aur stomach, kidney ke upar ek outer layer hai ki nahi? Yeh kis se bani hai? — phir naam: epithelial tissue.\n- One everyday image per shape or function (every term that names a shape, a layer or a job): Chaadar bichhi ho to bistar bacha rehta hai = protective sheet. Cube wala game, har side barabar = cuboidal. Building ka pillar = columnar. Farsh ki tiles = squamous, isliye tessellated bhi kehte hain.\n- The word root where it helps (a term whose parts carry its meaning): Epi yaani upar; epithelium yaani upar ki parat. Slender yaani long aur narrow.\n- Why starts from a need (every why step): Pet mein HCl banta hai, isliye andar ek lining chahiye jo khud na jale. Cells bahar ki taraf hain, tootne ka chance zyada, isliye regeneration zyada.\n- Contrast with the neighbour (members of one family, and what the exam confuses): Simple epithelium ka kaam protection nahi, woh compound ka hai. Zyada layers = pathogen andar nahi aata.\n- Ask and repeat the key word (the one word the learner must keep): Irregular walls. Kaisi? Irregular.\n- Exam memory beats by level (after the understanding, by the level profile): Yaad rakhna: brush border PCT mein. Doosre naam: pavement, tessellated. M2B = muscle to bone = tendon, B2B = bone to bone = ligament.\n- Link to something already known (a new place or a new structure): Peritoneum, jaise lungs ke aas-paas pleura aur heart ke aas-paas pericardium: wahi kaam, pet ke andar.\n- Meaning with two or three real examples (an abstract word in the book): Sensory perception yaani pehchanna: thanda lagna, dard hona, pressure mehsoos karna.\n- Open the book's adjective (Navin's example) (a book line names a kind of surface, job or place without saying what it is): Book: 'epithelium absorptive aur secretive surfaces par milta hai'. Teacher: absorptive surface yaani jahan cheezein andar li jaati hain, jaise aant khane ke poshak tatva sokhti hai; secretive yaani jahan cells kuch bana kar bahar chhodte hain, jaise glands enzyme ya juice. Aur epithelium wahan kyon? Kyunki ek patli, lagi hui parat hi cheezon ko paar jaane de sakti hai aur bana kar chhod sakti hai.\n\nBrackets (word list 2026-10-24.1): use everyday spoken Hindi freely, without brackets (मुख्य, वापस, बराबर, आसपास, इस्तेमाल, करके, जिससे ...). Only a genuinely difficult Hindi word (formal, literary or technical) gets its English word in brackets right after it, for example \"सतह (surface)\", \"घर्षण (friction)\", \"सघन (dense)\"; better still, use the book's English term or a simpler Hindi word. Never put a bracket inside an idiom or a fixed phrase: \"आम तौर पर\", not \"आम तौर (usually) पर\"; \"नहीं के बराबर\", not \"नहीं के बराबर (equal to)\". BIE's code removes a bracket after an everyday word and asks for one only after a Hindi word it does not know as everyday.",
+  "user": [
+   {
+    "type": "text",
+    "text": "BIE task card (JSON):\n{\"card\":\"bie.task-card/1\",\"card_id\":\"lesson.write_script@10-tissues-and-its-types/v1\",\"section\":\"lesson\",\"task\":\"write_script\",\"prefix\":{\"prefix_id\":\"lesson.write_script/3\",\"rulebook_version\":\"content_types@2026-10-24.1+explanations@2026-10-24.1+level_profiles@2026-10-24.1+simple_hindi@2026-10-24.1+teacher_examples@2026-10-24.1+vision-2026-10-21@2026-10-21.12\",\"content_types_version\":\"2026-10-24.1\",\"schema_id\":\"bie.brain.lesson-script/3\",\"sha256\":\"0147e7e0d13a864ea512a113a18aeb490d14d41bcf09eaf387012bb98fbbbaca\"},\"unit\":{\"unit_id\":\"v1\",\"title\":\"Cells मिलकर tissue कैसे बनाते हैं?\",\"pages\":[1]},\"parts\":[{\"part_id\":\"c01.1\",\"item_ids\":[\"p001-i2\"],\"type\":\"definition\",\"questions\":[\"what\",\"evidence\",\"why\"],\"focus\":\"Tissues, division of labour and levels of organisation: teach these definition items through the definition pattern\"},{\"part_id\":\"c01.2\",\"item_ids\":[\"p001-i3\",\"p001-i4\"],\"type\":\"classification\",\"questions\":[\"which\",\"difference\",\"how\",\"why\"],\"focus\":\"Tissues, division of labour and levels of organisation: teach these classification items through the classification pattern\"},{\"part_id\":\"c01.3\",\"item_ids\":[\"p001-i5\",\"p001-i6\"],\"type\":\"cause_effect\",\"questions\":[\"why\",\"how\",\"consequence\"],\"focus\":\"Tissues, division of labour and levels of organisation: teach these cause_effect items through the cause_effect pattern\"},{\"part_id\":\"c01.4\",\"item_ids\":[\"p001-i7\",\"p001-i8\",\"p001-i9\",\"p001-i10\",\"p001-i11\",\"p001-i12\"],\"type\":\"structure\",\"questions\":[\"what\",\"where\",\"how\",\"why\"],\"focus\":\"Tissues, division of labour and levels of organisation: teach these structure items through the structure pattern\"},{\"part_id\":\"c02.1\",\"item_ids\":[\"p001-i14\",\"p001-i15\",\"p001-i16\",\"p001-i17\",\"p001-i18\",\"p001-i19\",\"p001-i20\",\"p001-i21\",\"p001-i22\",\"p001-i23\",\"p001-i24\"],\"type\":\"comparison\",\"questions\":[\"compare\",\"difference\",\"why\",\"how\"],\"focus\":\"Mitosis versus meiosis: teach these comparison items through the comparison pattern\"},{\"part_id\":\"c03.1\",\"item_ids\":[\"p001-i26\",\"p001-i27\",\"p001-i28\",\"p001-i29\"],\"type\":\"comparison\",\"questions\":[\"compare\",\"difference\",\"how\",\"why\"],\"focus\":\"Plant versus animal mitosis: teach these comparison items through the comparison pattern\"}],\"rules\":[\"G-01\",\"G-02\",\"G-03\",\"G-04\",\"G-05\",\"G-06\",\"G-07\",\"S2-01\",\"S2-02\",\"S2-03\",\"S2-04\",\"S2-05\",\"S2-06\",\"S2-07\"],\"output\":{\"schema_id\":\"bie.brain.lesson-script/3\",\"mode\":\"full\",\"max_output_tokens\":32000},\"coverage\":{\"must_cover\":[\"p001-i2\",\"p001-i3\",\"p001-i4\",\"p001-i5\",\"p001-i6\",\"p001-i7\",\"p001-i8\",\"p001-i9\",\"p001-i10\",\"p001-i11\",\"p001-i12\",\"p001-i14\",\"p001-i15\",\"p001-i16\",\"p001-i17\",\"p001-i18\",\"p001-i19\",\"p001-i20\",\"p001-i21\",\"p001-i22\",\"p001-i23\",\"p001-i24\",\"p001-i26\",\"p001-i27\",\"p001-i28\",\"p001-i29\"],\"claim_field\":\"beats[].covers_item_ids\",\"may_skip\":[]},\"context\":{\"map_slice\":[[\"p001-i2\",\"definition\",\"1\",\"TISSUE: Cells combine to perform same function.\"],[\"p001-i3\",\"classification\",\"1\",\"When plant cells combine, they form plant tissues.\"],[\"p001-i4\",\"classification\",\"1\",\"When animal cells combine, they form animal tissues.\"],[\"p001-i5\",\"cause_effect\",\"1\",\"Causes division of labour.\"],[\"p001-i6\",\"cause_effect\",\"1\",\"Decreases workload on individual cells, hence leads to organisation.\"],[\"p001-i7\",\"structure\",\"1\",\"Cell → Tissues → Organ → Organ system → Organisms. Arrows connect successive levels of biological…\"],[\"p001-i8\",\"structure\",\"1\",\"Cell: starting level, pointing to Tissues.\"],[\"p001-i9\",\"structure\",\"1\",\"Tissues: between Cell and Organ.\"],[\"p001-i10\",\"structure\",\"1\",\"Organ: between Tissues and Organ system.\"],[\"p001-i11\",\"structure\",\"1\",\"Organ system: between Organ and Organisms.\"],[\"p001-i12\",\"structure\",\"1\",\"Organisms: final level after Organ system.\"],[\"p001-i14\",\"comparison\",\"1\",\"Mitosis: 1) It occurs in somatic cells. | Meiosis: 1) It occurs in germ cells.\"],[\"p001-i15\",\"comparison\",\"1\",\"Mitosis: 2) Nucleus divides only once. | Meiosis: 2) Nucleus divides twice.\"],[\"p001-i16\",\"comparison\",\"1\",\"Mitosis: 3) Two daughter cells are formed. | Meiosis: 3) Four daughter cells are formed.\"],[\"p001-i17\",\"comparison\",\"1\",\"Mitosis: 4) Daughter cells are diploid. | Meiosis: 4) Daughter cells are haploid.\"],[\"p001-i18\",\"comparison\",\"1\",\"Mitosis: 5) It occurs more frequently. | Meiosis: 5) It occurs less frequently.\"],[\"p001-i19\",\"comparison\",\"1\",\"Mitosis: 6) Daughter cells form somatic organs. | Meiosis: 6) Daughter cells form gametes.\"],[\"p001-i20\",\"comparison\",\"1\",\"Mitosis: 7) There is only one prophase, one metaphase one anaphase and one telophase. | Meiosis…\"],[\"p001-i21\",\"comparison\",\"1\",\"Mitosis: 8) Number of chromosomes are not changed in the daughter cells. | Meiosis: 8) Number of…\"],[\"p001-i22\",\"comparison\",\"1\",\"Mitosis: 9) Chromosome number doubles at the beginning of each cell division. | Meiosis: 9)…\"],[\"p001-i23\",\"comparison\",\"1\",\"Mitosis: 10) No crossing over in chromosomes. | Meiosis: 10) Crossing over occurs chromosomes…\"],[\"p001-i24\",\"comparison\",\"1\",\"Mitosis: 11) Equation [Equational] division. | Meiosis: 11) Reduction division.\"],[\"p001-i26\",\"comparison\",\"1\",\"Plants: Centrioles are absent. | Animals: Centrioles are present.\"],[\"p001-i27\",\"comparison\",\"1\",\"Plants: Asters are not formed. | Animals: Asters are formed.\"],[\"p001-i28\",\"comparison\",\"1\",\"Plants: Cell division involves formation of a cell plate. | Animals: Cell division involves…\"],[\"p001-i29\",\"comparison\",\"1\",\"Plants: Occurs mainly at meristem. | Animals: Occurs in tissues throughout the body.\"],[\"c01\",\"structure\",\"1\",\"Tissues, division of labour and levels of organisation\"],[\"c02\",\"comparison\",\"1\",\"Mitosis versus meiosis\"],[\"c03\",\"comparison\",\"1\",\"Plant versus animal mitosis\"],[\"c04\",\"classification\",\"2-3\",\"Animal-tissue classification and functional overview\"],[\"c18\",\"classification\",\"1-8\",\"Plant-tissue classification\"],[\"c19\",\"comparison\",\"8-9\",\"Meristematic cells and locations of plant growth\"]],\"before\":\"पहले यह जान लो: tissue समझने के जरूरी tools\",\"after\":\"Animal tissues: शरीर में कौन क्या करता है?\"},\"source\":{\"block_ids\":[\"p0001-b0003\",\"p0001-b0004\",\"p0001-b0005\",\"p0001-b0006\",\"p0001-b0007\",\"p0001-b0008\"],\"page_images\":[]}}\n\nVideo v1: Cells मिलकर tissue कैसे बनाते हैं?\nGoal: आप division of labour से tissue, organ, organ system और organism का रिश्ता समझेंगे; mitosis–meiosis तथा plant–animal mitosis को book के सभी comparison criteria पर अलग कर सकेंगे।\nOpening hook: चोट के बाद skin ठीक होती है, लेकिन बच्चे बनने की प्रक्रिया में chromosome number आधा करना क्यों जरूरी होता है?\nStory or analogy: अलग काम करने वाली teams मिलकर एक काम पूरा करती हैं—इससे division of labour समझेंगे, फिर cell से organism तक असली biological levels पर लौटेंगे।\nPlanned minutes: 4\nNarration time (S2-01): 3.3-4.4 minutes, about 429-572 spoken words (BIE counts 130 words a minute)\nPrerequisites already taught in the prerequisite video (remind of one in at most 2 beats): Cell boundaries, organelles and plant–animal cell differences; Chromosomes, homologous pairs, chromatids, DNA replication and chromosome sets; Somatic cells, germ cells, gametes and fertilisation; Locations and roles of the named human organs, passages and skeleton; Plant organ landmarks and sections; Diffusion, absorption, secretion and movement through walls or pores; Photosynthesis, food storage and the functions of structural biological materials; Physical meanings of tension, elasticity, pressure, buoyancy and insulation; Stimulus, nerve impulse, electrical signal and voluntary versus involuntary control\nOpen every book line (S2-07): a question about something the learner can see, then the name; every term opened: its plain meaning with 'yaani' and one everyday image (the word root where it helps); the why, starting from a need or a problem, one link at a time; an example or the place, by a zoom from the organ or the thing the learner knows; the consequence: what follows, and the link to the previous or the next idea; the contrast: what it is not, and what the exam confuses it with; the memory beat by level: the exam's 'yaad rakhna', the other names, the trick.\n\nItems (item id | page | kind | type | content), each with its teacher questions (question id | ask | question → answer | basis) and its unpack from Section 1 (term | why | example | consequence | visual), plus any locked explanation (Navin's verdict: speak it):\np001-i2 | 1 | definition | definition | TISSUE: Cells combine to perform same function.\n  p001-i2#q1 | what | What makes a group of cells a tissue? → The page identifies their working together to perform the same function as the defining feature. | book\n  p001-i2#q2 | evidence | Which words identify the functional basis of the definition? → 'Perform same function' makes shared work, rather than mere closeness, central to the definition. | book\n  p001-i2#q3 | why | Why is grouping useful? → A multicellular body needs coordinated tasks; specialised groups can perform particular jobs more effectively than isolated cells doing everything. | outside\n  term | TISSUE | yaani एक जैसा काम मिलकर करने वाले cells का समूह | image: एक काम सँभालती कर्मचारियों की टीम\n  why | A large body needs many different jobs performed. [standard] → Cells group for a common function, forming tissues. [book]\n  example or place | Outside example: muscle tissue in the arm helps produce movement.\n  consequence | The definition provides the starting level for tissue classification.\n  visual | group cells into a working team\n  level extra | A common function is more important than simply counting nearby cells.\np001-i3 | 1 | list_point | classification | When plant cells combine, they form plant tissues.\n  p001-i3#q1 | which | Which tissue category is formed by plant cells? → Plant cells working together form plant tissues. | book\n  p001-i3#q2 | difference | How does this category differ from the next bullet's category? → The distinction is the cells' origin: plant cells form plant tissues, whereas animal cells form animal tissues. | book\n  p001-i3#q3 | how | How should 'combine' be understood? → Cells become organised into cooperating groups; it does not mean their contents must fuse into one giant cell. | outside\n  term | plant tissues | yaani पौधे में मिलकर काम करने वाले cells के समूह | image: पत्ते में साथ काम करते बहुत से छोटे हिस्से\n  why | Plants need growth, support and transport. [standard] → Their cells form organised tissues for these jobs. [standard]\n  example or place | Outside example: tissues in a leaf or stem.\n  consequence | Plant tissues are classified in the lower chart.\n  visual | zoom from leaf to grouped cells\n  level extra | Do not apply animal-tissue names indiscriminately to plants.\np001-i4 | 1 | list_point | classification | When animal cells combine, they form animal tissues.\n  p001-i4#q1 | which | Which category comes from animal cells? → Their organised groups constitute animal tissues. | book\n  p001-i4#q2 | difference | What distinguishes this category from plant tissues here? → The page separates the categories by whether the constituent cells belong to animals or plants. | book\n  p001-i4#q3 | why | Why do animals need organised groups of cells? → Tasks such as movement, protection and communication require different specialised groups to cooperate. | outside\n  term | animal tissues | yaani जानवरों और हमारे शरीर में मिलकर काम करने वाले cells के समूह | image: हाथ हिलाते समय साथ काम करती muscle\n  why | An animal body must perform several different tasks. [standard] → Specialised cell groups share these tasks. [standard]\n  example or place | Outside example: muscle tissue in the human arm.\n  consequence | Introduces division of labour across tissues.\n  visual | highlight cooperating groups in an arm\n  level extra | Humans belong within the animal category.\np001-i5 | 1 | list_point | cause_effect | Causes division of labour.\n  p001-i5#q1 | why | Why does tissue organisation lead to division of labour? → Different groups can specialise in different jobs instead of each cell attempting the body's whole range of tasks. | outside\n  p001-i5#q2 | how | How does this division operate in a body? → For example, muscle cells contribute to movement while other specialised cells perform protection or communication. | outside\n  term | division of labour | yaani अलग-अलग काम अलग टीमों में बाँटना | image: घर में कोई खाना बनाता है, कोई सफाई करता है\n  why | A body has more tasks than one kind of cell can efficiently perform. [standard] → Tissue organisation divides the work among specialised groups. [book]\n  example or place | Outside example: movement and protection assigned to different tissues.\n  consequence | Explains reduced workload on individual cells.\n  visual | distribute job cards among groups\n  level extra | Division of labour means specialisation, not cell division.\np001-i6 | 1 | list_point | cause_effect | Decreases workload on individual cells, hence leads to organisation.\n  p001-i6#q1 | why | Why is the workload of an individual cell reduced? → Specialisation means it need not perform every function required by the entire organism. | outside\n  p001-i6#q2 | how | How does shared work produce organisation rather than disconnected groups? → Specialised groups depend on one another and coordinate their activities within tissues, organs and organ systems. | outside\n  p001-i6#q3 | consequence | What consequence does the page state? → Reduced individual workload is linked to organisation. | book\n  term | organisation | yaani अलग हिस्सों का तालमेल से पूरा काम चलाना | image: अलग काम करती टीमें मिलकर अस्पताल चलाती हैं\n  why | Many body functions must be managed together. [standard] → Sharing tasks reduces individual workload and supports organisation. [book]\n  example or place | Outside example: digestive and transport functions cooperate after a meal.\n  consequence | Leads into the cell-to-organism hierarchy.\n  visual | connect specialised teams\n  level extra | Reduced workload does not mean cells cease their own essential life processes.\np001-i7 | 1 | diagram | structure | Cell → Tissues → Organ → Organ system → Organisms. Arrows connect successive levels of biological organisation, from component to larger organised whole.\n  p001-i7#q1 | what | What hierarchy is shown? → Cells are followed by tissues, organs, organ systems and organisms in increasing organisational scale. | book\n  p001-i7#q2 | where | Where does the tissue level sit? → It lies between the cell and the organ levels. | book\n  p001-i7#q3 | how | How are tissues and organs different? → An organ brings different tissues together for a larger coordinated function; a tissue is a functional group of cells. | outside\n  term | Organ system | yaani एक बड़े काम के लिए साथ काम करने वाले organs | image: खाना पचाने में साथ लगे पेट और आँत\n  why | Complex body functions need cooperation beyond a single tissue. [standard] → Tissues form organs and organs cooperate in systems. [standard]\n  example or place | Outside example: muscle cell → muscle tissue → stomach → digestive system → human.\n  consequence | Prevents confusing a tissue with a whole organ.\n  visual | nest smaller levels inside larger levels\n  level extra | The hierarchy describes multicellular organisation; it is not universal to unicellular life.\np001-i8 | 1 | diagram_label | structure | Cell: starting level, pointing to Tissues.\n  p001-i8#q1 | what | What does Cell represent? → A living structural and functional unit of an organism. | outside\n  p001-i8#q2 | where | Where is it in the chain? → It precedes Tissues. | book\n  p001-i8#q3 | how | How does it contribute to the next level? → Cells cooperate in groups that perform shared functions. | book\n  term | Cell | yaani शरीर की छोटी जीवित इकाई | image: इमारत की ईंट जैसा हिस्सा, पर खुद जीवित\n  example or place | Outside example: a muscle cell.\n  consequence | Groups contribute to tissue formation.\n  visual | zoom into one cell\np001-i9 | 1 | diagram_label | structure | Tissues: between Cell and Organ.\n  p001-i9#q1 | what | What does this level group? → Cells cooperating to perform a common function. | book\n  p001-i9#q2 | where | Where does this level occur in the hierarchy? → After Cell and before Organ. | book\n  p001-i9#q3 | how | How does a tissue contribute to an organ? → It supplies a particular function that combines with other tissues' functions. | outside\n  term | Tissues | yaani एक काम में जुटे cells के समूह | image: काम बाँटकर चलती एक टीम\n  example or place | Outside example: muscle tissue in the stomach.\n  consequence | Tissues contribute to organs.\n  visual | group cells\np001-i10 | 1 | diagram_label | structure | Organ: between Tissues and Organ system.\n  p001-i10#q1 | what | What is an organ? → A body structure containing different tissues that cooperate in a particular function. | outside\n  p001-i10#q2 | where | Where is Organ placed? → Between Tissues and Organ system. | book\n  p001-i10#q3 | why | Why are multiple tissues useful within an organ? → A task such as digestion needs movement, protection and other functions working together. | outside\n  term | Organ | yaani कई tissues से बना खास काम करने वाला शरीर का हिस्सा | image: पेट में कई हिस्से मिलकर खाना सँभालते हैं\n  example or place | Outside example: stomach.\n  consequence | Organs cooperate within systems.\n  visual | assemble tissues into an organ\np001-i11 | 1 | diagram_label | structure | Organ system: between Organ and Organisms.\n  p001-i11#q1 | what | What is an organ system? → A set of organs cooperating in a major body function. | outside\n  p001-i11#q2 | where | Where is it placed? → After Organ and before Organisms. | book\n  p001-i11#q3 | how | How does it extend an organ's work? → It coordinates several organs so different parts of a larger task can be completed. | outside\n  term | Organ system | yaani एक बड़ा काम मिलकर करते organs | image: पेट और आँत मिलकर खाना पचाने का काम करते हैं\n  example or place | Outside example: digestive system.\n  consequence | Systems contribute to the whole organism.\n  visual | link organs\np001-i12 | 1 | diagram_label | structure | Organisms: final level after Organ system.\n  p001-i12#q1 | what | What does Organisms refer to? → Whole living individuals, rather than one of their component tissues or organs. | outside\n  p001-i12#q2 | where | Where is the whole organism shown? → At the end of the chain after Organ system. | book\n  p001-i12#q3 | how | How is the whole sustained? → Its systems coordinate and depend on one another. | outside\n  term | Organisms | yaani पूरे जीवित प्राणी या पौधे | image: एक पूरा इंसान, सिर्फ उसका हाथ नहीं\n  example or place | Outside example: a human or a flowering plant.\n  consequence | Completes the multicellular hierarchy.\n  visual | zoom out to whole organism\n  level extra | Not all organisms possess all the intermediate levels shown.\np001-i14 | 1 | table_row | comparison | Mitosis: 1) It occurs in somatic cells. | Meiosis: 1) It occurs in germ cells.\n  p001-i14#q1 | compare | Which cell categories are contrasted? → The table associates mitosis with somatic cells and meiosis with germ cells. | book\n  p001-i14#q2 | difference | What is the difference between somatic and germ cells? → Somatic cells serve the body; the germ line contributes to sexual reproduction. | outside\n  p001-i14#q3 | why | Why must this row not be treated as an absolute rule? → Germ-line cells can also multiply by mitosis before meiosis. The row identifies usual roles, not exclusive permissions. | outside\n  term | somatic cells | yaani शरीर के सामान्य काम करने वाले cells | image: चोट के पास नई skin बनना\n  term | germ cells | yaani प्रजनन की cell-श्रृंखला से जुड़े cells | image: अगली पीढ़ी तक जानकारी पहुँचाने की कड़ी\n  why | Bodies need growth while sexual reproduction needs specialised reproductive cells. [standard] → Mitosis and meiosis meet these different needs. [standard]\n  example or place | Outside examples: dividing skin cells and meiotic cells in reproductive organs.\n  consequence | Connects division type with biological role.\n  visual | split body-maintenance and reproduction pathways\n  level extra | In plants, meiosis produces spores rather than directly producing gametes.\np001-i15 | 1 | table_row | comparison | Mitosis: 2) Nucleus divides only once. | Meiosis: 2) Nucleus divides twice.\n  p001-i15#q1 | compare | How many nuclear divisions does each have? → Mitosis has one; meiosis has two. | book\n  p001-i15#q2 | difference | What distinguishes the two meiotic divisions? → Meiosis I separates homologous chromosomes; meiosis II separates sister chromatids. | outside\n  p001-i15#q3 | why | Why are two divisions useful in meiosis? → They separate chromosome partners and then their copied strands, producing cells with a reduced chromosome-set number. | outside\n  term | Nucleus | yaani cell का हिस्सा जिसमें chromosome वाली जानकारी रहती है | image: काम की निर्देश-पुस्तिका रखने की जगह\n  why | Reproduction requires halving chromosome sets. [standard] → Meiosis uses two successive nuclear divisions. [book]\n  example or place | Outside example: sperm formation.\n  consequence | Explains the next row's two-versus-four products.\n  visual | divide once versus divide twice\n  level extra | Distinguish nuclear division from DNA replication.\np001-i16 | 1 | table_row | comparison | Mitosis: 3) Two daughter cells are formed. | Meiosis: 3) Four daughter cells are formed.\n  p001-i16#q1 | compare | What product counts does the table give? → Two daughter cells for mitosis and four for meiosis. | book\n  p001-i16#q2 | difference | How do the branching patterns differ? → One division yields two products; two successive divisions can yield four. | outside\n  p001-i16#q3 | how | Does four products mean four functional gametes in every case? → No. In human egg formation, unequal divisions produce one large ovum and smaller polar bodies. | outside\n  term | daughter cells | yaani एक cell के बँटने से बने नए cells | image: एक शाखा से निकलती नई शाखाएँ\n  why | Copied material must be distributed into new cells. [standard] → One versus two divisions gives the usual two-versus-four product pattern. [standard]\n  example or place | Outside example: four products in sperm formation.\n  consequence | Product number must be read separately from chromosome number.\n  visual | branch one into two and then four\n  level extra | Standard numerical comparison; functional gamete count has exceptions.\np001-i17 | 1 | table_row | comparison | Mitosis: 4) Daughter cells are diploid. | Meiosis: 4) Daughter cells are haploid.\n  p001-i17#q1 | compare | Which ploidy does the book assign to the products? → It assigns diploid products to mitosis and haploid products to meiosis. | book\n  p001-i17#q2 | difference | What is the difference between diploid and haploid? → Diploid means two chromosome sets, written 2n; haploid means one set, written n. Here n denotes one chromosome set, not a physical unit. | outside\n  p001-i17#q3 | why | Why is the mitosis claim qualified? → Mitosis preserves the starting ploidy; a haploid cell can also divide mitotically. Diploid products assume a diploid starting cell. | outside\n  term | diploid | yaani chromosomes के दो पूरे set | image: निर्देशों की दो पूरी गड्डियाँ\n  term | haploid | yaani chromosomes का एक पूरा set | image: निर्देशों की एक पूरी गड्डी\n  why | Fusion of reproductive cells would increase chromosome sets without reduction. [standard] → Meiosis supplies reduced-set products. [standard]\n  example or place | Outside example: human body cells usually have 46 chromosomes, gametes 23.\n  consequence | Links ploidy to chromosome conservation across generations.\n  visual | show two sets becoming one set\n  level extra | Ploidy counts sets, not DNA quantity.\np001-i18 | 1 | table_row | comparison | Mitosis: 5) It occurs more frequently. | Meiosis: 5) It occurs less frequently.\n  p001-i18#q1 | compare | What frequency contrast is printed? → Mitosis is described as more frequent and meiosis as less frequent. | book\n  p001-i18#q2 | difference | What difference in roles explains the broad comparison? → Growth and replacement involve mitosis across many tissues; meiosis is restricted to particular reproductive stages and cells. | outside\n  p001-i18#q3 | why | Why should this not be memorised as a fixed numerical law? → Actual rates vary with tissue, organism, age and reproductive activity; the table gives no measured rate. | outside\n  term | more frequently | yaani तुलना में ज्यादा बार होना | image: रोजमर्रा का काम बनाम खास मौके का काम\n  why | Bodies repeatedly need growth and replacement. [standard] → Mitosis has a broader routine role than meiosis. [standard]\n  example or place | Outside example: continuing cell replacement in skin.\n  consequence | Reinforces maintenance-versus-reproduction roles.\n  visual | contrast repeated repair with a reproductive pathway\n  level extra | Avoid treating 'more frequent' as true for every individual tissue.\np001-i19 | 1 | table_row | comparison | Mitosis: 6) Daughter cells form somatic organs. | Meiosis: 6) Daughter cells form gametes.\n  p001-i19#q1 | compare | What destinations does the table assign to daughter cells? → Somatic organs for mitotic products and gametes for meiotic products. | book\n  p001-i19#q2 | difference | How do these functions differ? → Somatic growth builds and maintains the body; gametes participate in fertilisation. | outside\n  p001-i19#q3 | why | Why does the meiosis wording need a plant-life-cycle qualification? → In plants, meiosis generally forms spores; gametes develop later through the haploid phase and mitosis. | outside\n  term | gametes | yaani fertilisation में मिलने वाले प्रजनन cells | image: sperm और egg का मिलना\n  why | Body maintenance and sexual reproduction have different chromosome needs. [standard] → Mitosis preserves sets while meiosis reduces them. [standard]\n  example or place | Outside example: human sperm and egg formation.\n  consequence | Links division to growth and reproduction.\n  visual | route products toward body growth or reproduction\n  level extra | Flag the plant spore-versus-gamete distinction.\np001-i20 | 1 | table_row | comparison | Mitosis: 7) There is only one prophase, one metaphase one anaphase and one telophase. | Meiosis: 7) There are two of each phase and five sub-phases in prophase - 1.\n  p001-i20#q1 | compare | How are the main phases counted? → The table gives one occurrence of each named phase in mitosis and two in meiosis, with five subdivisions of prophase I. | book\n  p001-i20#q2 | difference | What are the five subdivisions of prophase I? → Leptotene, zygotene, pachytene, diplotene and diakinesis. | outside\n  p001-i20#q3 | why | Why is prophase I particularly elaborate? → Homologous chromosomes pair and exchange genetic material, events not characteristic of ordinary mitotic prophase. | outside\n  term | prophase - 1 | yaani meiosis के पहले division का शुरुआती चरण | image: बँटवारे से पहले जोड़ीदार कागज़ मिलाकर तैयार करना\n  why | Homologous partners must be prepared for separation. [standard] → Prophase I includes pairing and recombination before later separation. [standard]\n  example or place | Outside example: meiotic cells in reproductive organs.\n  consequence | Prepares the crossing-over comparison.\n  visual | align phases in one versus two division cycles\n  level extra | The five names explain the printed count; they are not printed individually on this page.\np001-i21 | 1 | table_row | comparison | Mitosis: 8) Number of chromosomes are not changed in the daughter cells. | Meiosis: 8) Number of chromosomes are reduced to half.\n  p001-i21#q1 | compare | How does chromosome number change? → It is maintained in mitotic daughter cells and reduced to half through meiosis. | book\n  p001-i21#q2 | difference | What symbolic comparison expresses this? → For a diploid starting cell, mitosis gives 2n to 2n, while meiosis gives 2n to n; n means one chromosome set and has no measurement unit. | outside\n  p001-i21#q3 | why | Why is halving important? → Fusion of two haploid gametes restores the diploid number rather than doubling the species' chromosome number each generation. | outside\n  term | reduced to half | yaani शुरुआत के मुकाबले chromosome संख्या आधी | image: दो गड्डियों में से एक पूरी गड्डी मिलना\n  why | Fertilisation joins chromosome sets from two gametes. [standard] → Meiotic reduction prevents repeated doubling across generations. [standard]\n  example or place | Outside example: 46 to 23 in human meiosis.\n  consequence | Explains reduction division.\n  visual | count sets before and after division\n  level extra | Compare final products with the starting cell, not DNA amount at an intermediate stage.\np001-i22 | 1 | table_row | comparison | Mitosis: 9) Chromosome number doubles at the beginning of each cell division. | Meiosis: 9) Chromosome number is not doubled. It doubles after the end of first meiotic division.\n  p001-i22#q1 | compare | What does the printed row claim? → It claims chromosome-number doubling at the beginning of each mitotic division, and doubling after the first meiotic division. | book\n  p001-i22#q2 | difference | What is the correct distinction between chromosome number and DNA replication? → DNA replicates before mitosis and before meiosis I, producing sister chromatids without doubling the usual chromosome count. There is no DNA replication between meiosis I and II. | outside\n  p001-i22#q3 | why | Why is this printed row unsafe to learn literally? → It confuses chromosome number with DNA amount and wrongly places doubling after meiosis I. Chromosomes are conventionally counted by centromeres, not by the number of DNA copies. | outside\n  term | Chromosome number | yaani centromere के हिसाब से गिने गए chromosomes की संख्या | image: किताब की नकल बनना और किताब के set बदलना अलग बातें हैं\n  why | Daughter cells need copied genetic information. [standard] → DNA is copied before division, but meiosis has no second replication between its two divisions. [standard]\n  example or place | Outside example: a human cell still has 46 chromosomes after predivision DNA replication, although each has two sister chromatids.\n  consequence | Prevents a false inference about replication between meiotic divisions.\n  visual | copy DNA while keeping chromosome and DNA counters separate\n  level extra | This is a factual error, not merely a typographical spelling error.\np001-i23 | 1 | table_row | comparison | Mitosis: 10) No crossing over in chromosomes. | Meiosis: 10) Crossing over occurs chromosomes [occurs in chromosomes].\n  p001-i23#q1 | compare | What crossing-over contrast is printed? → The table contrasts its absence in mitosis with its occurrence in meiosis. | book\n  p001-i23#q2 | difference | What is crossing over? → It is exchange of corresponding DNA segments between non-sister chromatids of homologous chromosomes during prophase I. | outside\n  p001-i23#q3 | why | Why does it matter? → It produces new combinations of genetic information, contributing to variation among meiotic products. | outside\n  term | crossing over | yaani जोड़ीदार chromosomes की non-sister chromatids के बीच DNA के हिस्से बदलना | image: मिलते-जुलते रंगीन फीते अपने हिस्से बदलें\n  why | Sexual reproduction generates new combinations of inherited information. [standard] → Exchange between homologous partners contributes to these combinations. [standard]\n  example or place | Outside example: prophase I of meiosis.\n  consequence | Links meiosis with genetic variation.\n  visual | exchange corresponding coloured segments\n  level extra | Do not describe crossing over as exchange between unrelated chromosomes.\np001-i24 | 1 | table_row | comparison | Mitosis: 11) Equation [Equational] division. | Meiosis: 11) Reduction division.\n  p001-i24#q1 | compare | Which names summarise the two divisions? → The table calls mitosis equational division and meiosis reduction division. | book\n  p001-i24#q2 | difference | What do equational and reduction mean here? → Equational preserves chromosome number in the products; reduction lowers the chromosome-set number. | outside\n  p001-i24#q3 | why | Why distinguish meiosis I from meiosis II? → Meiosis I is the reductional division; meiosis II separates sister chromatids and is equational with respect to chromosome sets. | outside\n  term | Reduction division | yaani chromosome set घटाने वाला division | image: दो पूरे set से एक पूरा set होना\n  why | Products must either preserve or reduce starting chromosome sets. [standard] → These outcomes give the terms equational and reductional. [standard]\n  example or place | Outside example: meiosis I reduces diploid to haploid.\n  consequence | Summarises the most important table distinction.\n  visual | hold set count constant versus halve it\n  level extra | Correct the printed word 'Equation' openly.\np001-i26 | 1 | table_row | comparison | Plants: Centrioles are absent. | Animals: Centrioles are present.\n  p001-i26#q1 | compare | What centriole contrast is shown? → The plant column gives absence and the animal column presence. | book\n  p001-i26#q2 | difference | Does absence of centrioles mean plant cells cannot form a spindle? → No. Typical higher-plant cells organise spindle microtubules without the animal-type centriole-containing centrosome. | outside\n  p001-i26#q3 | how | How should the plant statement be qualified? → It describes typical higher-plant mitosis; centrioles occur in some plant groups or reproductive stages. | outside\n  term | Centrioles | yaani छोटी बेलन जैसी बनावटें जो animal cell के centrosome का हिस्सा होती हैं | image: दो छोटी खोखली नलियाँ\n  why | Chromosomes need an organised spindle for separation. [standard] → Plants and animals can organise this machinery differently. [standard]\n  example or place | Outside example: typical flowering-plant cells versus animal body cells.\n  consequence | Prepares the aster comparison.\n  visual | contrast spindle poles with and without centrioles\n  level extra | Avoid extending the textbook generalisation to every plant lineage.\np001-i27 | 1 | table_row | comparison | Plants: Asters are not formed. | Animals: Asters are formed.\n  p001-i27#q1 | compare | How are asters contrasted? → They are absent in the plant column and formed in the animal column. | book\n  p001-i27#q2 | difference | How is an aster different from the whole spindle? → An aster is a star-like array of microtubules radiating near a spindle pole, not the entire chromosome-separating spindle. | outside\n  p001-i27#q3 | why | Why does the aster comparison accompany the centriole comparison? → Typical animal centrosomes organise conspicuous radial arrays; higher-plant divisions usually lack this animal-type astral organisation. | outside\n  term | Asters | yaani spindle के सिरों के पास तारे की तरह फैले धागों के समूह | image: सूरज से बाहर निकलती किरणों का चित्र\n  why | Dividing cells must position their division machinery. [standard] → Animal cells commonly use radial astral microtubule arrays. [standard]\n  example or place | Outside example: asters at poles of a typical animal mitotic cell.\n  consequence | Adds a visible distinction between the two division patterns.\n  visual | radiate fibres from poles\n  level extra | Recognise the star-like form without confusing it with chromosomes.\np001-i28 | 1 | table_row | comparison | Plants: Cell division involves formation of a cell plate. | Animals: Cell division involves furrowing and cleavage of cytoplasm.\n  p001-i28#q1 | compare | How does the cytoplasm divide in the two columns? → Plants form a cell plate; animals divide by furrowing and cleavage. | book\n  p001-i28#q2 | difference | What directional difference helps visualise this? → The plant cell plate grows outward from the centre, whereas the animal cleavage furrow moves inward from the surface. | outside\n  p001-i28#q3 | why | Why do plants use a cell plate? → A rigid existing cell wall prevents the animal-style pinching mechanism; a new partition is assembled between daughter cells. | outside\n  term | cell plate | yaani दो नए plant cells के बीच बनने वाला नया बँटवारा | image: एक कमरे के बीच नई दीवार बनाना\n  term | furrowing | yaani बाहर से अंदर की ओर खाँच पड़कर cell का बँटना | image: नरम थैली को बीच से डोरी कसकर बाँटना\n  why | Two daughter nuclei need separate cellular compartments. [standard] → A rigid plant wall favours building a partition, while animal cells can constrict. [standard]\n  example or place | Outside example: dividing root-tip cells versus animal cells.\n  consequence | Distinguishes cytokinesis from nuclear division.\n  visual | build centre-out versus pinch outside-in\n  level extra | The row primarily describes cytokinesis, not chromosome separation.\np001-i29 | 1 | table_row | comparison | Plants: Occurs mainly at meristem. | Animals: Occurs in tissues throughout the body.\n  p001-i29#q1 | compare | Where does the table locate mitosis? → Mainly at meristems in plants and in tissues throughout the animal body. | book\n  p001-i29#q2 | difference | What does this say about growth distribution? → Plant division is concentrated in growth regions, while animal cell replacement and growth occur in many distributed tissues. | outside\n  p001-i29#q3 | why | Why is 'throughout' not the same as 'every cell divides'? → Many specialised animal cells divide little or not at all; the statement refers to tissue distribution, not universal cell activity. | outside\n  term | meristem | yaani पौधे की वह जगह जहाँ cells सक्रिय रूप से बँटकर बढ़त देते हैं | image: जड़ या टहनी की बढ़ती नोक\n  why | Plants need continuing growth at particular sites. [standard] → Meristems maintain dividing cells at these sites. [standard]\n  example or place | Outside example: root and shoot tips; animal skin renewal.\n  consequence | Directly introduces meristematic tissue in the chart.\n  visual | highlight plant growth zones and distributed animal tissues\n  level extra | Plant cells outside existing meristems can sometimes regain division capacity."
+   },
+   {
+    "type": "text",
+    "text": "Answer the card with the teacher script JSON."
+   }
+  ]
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "started_at": 1792853730.7017977,
+   "mode": "full",
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "ba0828d53b30ac236a33d321020b38896e249d02e64d31116830aa82b1eb9c9a",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 18530,
+    "output_tokens": 6414,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "This opening topic connects tissue organisation with cell division, then compares mitosis across plants and animals.",
+    "key_questions": [
+     "What makes cooperating cells a tissue?",
+     "How does shared work build higher levels of organisation?",
+     "How do mitosis and meiosis differ on every printed criterion?",
+     "Which printed claims require correction or qualification?"
+    ],
+    "decisions": [
+     {
+      "decision": "Use short paired comparisons and visual examples within the four-minute allocation.",
+      "reason": "All printed criteria must remain without lengthy phase-by-phase mechanisms."
+     },
+     {
+      "decision": "Correct the replication row explicitly and qualify diploidy, gamete formation and plant generalisations.",
+      "reason": "Literal repetition would teach factual errors or misleading absolutes."
+     },
+     {
+      "decision": "Do not impose layer-and-shape slots on plant versus animal tissue categories.",
+      "reason": "These broad categories have no single shared shape or layer arrangement."
+     }
+    ],
+    "uncertain": [
+     "No page image was supplied; wording and corrections follow the provided source transcription."
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "This opening topic connects tissue organisation with cell division, then compares mitosis across plants and animals.",
+     "key_questions": [
+      "What makes cooperating cells a tissue?",
+      "How does shared work build higher levels of organisation?",
+      "How do mitosis and meiosis differ on every printed criterion?",
+      "Which printed claims require correction or qualification?"
+     ],
+     "decisions": [
+      {
+       "decision": "Use short paired comparisons and visual examples within the four-minute allocation.",
+       "reason": "All printed criteria must remain without lengthy phase-by-phase mechanisms."
+      },
+      {
+       "decision": "Correct the replication row explicitly and qualify diploidy, gamete formation and plant generalisations.",
+       "reason": "Literal repetition would teach factual errors or misleading absolutes."
+      },
+      {
+       "decision": "Do not impose layer-and-shape slots on plant versus animal tissue categories.",
+       "reason": "These broad categories have no single shared shape or layer arrangement."
+      }
+     ],
+     "uncertain": [
+      "No page image was supplied; wording and corrections follow the provided source transcription."
+     ]
+    },
+    "title": "Cells मिलकर tissue कैसे बनाते हैं?",
+    "parts": [
+     {
+      "part_id": "c01.1",
+      "frame": {
+       "process": "Define tissue through shared cellular work.",
+       "how": "Contrast a cooperating group with mere proximity.",
+       "when": "Before classification and organisational levels.",
+       "conditions": "Cells contribute to a common function.",
+       "atmosphere": "An arm moving through coordinated muscle activity."
+      },
+      "skipped_steps": []
+     },
+     {
+      "part_id": "c01.2",
+      "frame": {
+       "process": "Separate plant and animal tissues by cellular origin.",
+       "how": "Compare leaf tissues with human muscle.",
+       "when": "After defining tissue.",
+       "conditions": "Shape and layering vary within each category and are not the division basis.",
+       "atmosphere": "A leaf beside a moving human arm."
+      },
+      "skipped_steps": []
+     },
+     {
+      "part_id": "c01.3",
+      "frame": {
+       "process": "Explain reduced individual workload through specialisation.",
+       "how": "Different groups share tasks and coordinate.",
+       "when": "As specialised groups cooperate.",
+       "conditions": "Cells retain their own essential life functions.",
+       "atmosphere": "Movement and protection performed by different groups."
+      },
+      "skipped_steps": []
+     },
+     {
+      "part_id": "c01.4",
+      "frame": {
+       "process": "Locate cells within tissues, organs, systems and organisms.",
+       "how": "Zoom inward from a human, then connect component functions outward.",
+       "when": "An organisational sequence, not a developmental timeline.",
+       "conditions": "The full hierarchy describes complex multicellular organisms.",
+       "atmosphere": "Human digestion as a nested example."
+      },
+      "skipped_steps": []
+     },
+     {
+      "part_id": "c02.1",
+      "frame": {
+       "process": "Compare mitosis and meiosis across all eleven printed criteria.",
+       "how": "Pair each criterion and explain outcomes through division count and chromosome sets.",
+       "when": "Body growth and maintenance versus reproductive pathways.",
+       "conditions": "Diploid starting-cell example; distinguish DNA amount from chromosome count.",
+       "atmosphere": "Skin repair contrasted with reproduction."
+      },
+      "skipped_steps": []
+     },
+     {
+      "part_id": "c03.1",
+      "frame": {
+       "process": "Compare typical higher-plant and animal mitosis.",
+       "how": "Contrast poles, cytoplasmic separation and distribution of dividing tissues.",
+       "when": "During mitotic division and growth.",
+       "conditions": "Typical higher plants; distributed animal division does not mean every cell divides.",
+       "atmosphere": "Root-tip division beside animal tissue renewal."
+      },
+      "skipped_steps": []
+     }
+    ],
+    "beats": [
+     {
+      "beat_id": "b1",
+      "part_id": "c01.1",
+      "step": 1,
+      "purpose": "hook",
+      "say": "हाथ कैसे हिलता है? Muscle के cells साथ काम करते हैं; ऐसी team है tissue।",
+      "covers_item_ids": [
+       "p001-i2"
+      ],
+      "answers": [],
+      "on_screen": "Moving arm → cooperating muscle cells.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b2",
+      "part_id": "c01.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "Cells combine यानी cells मिलकर same function करते हैं; पहचान shared काम है।",
+      "covers_item_ids": [
+       "p001-i2"
+      ],
+      "answers": [
+       "p001-i2#q1",
+       "p001-i2#q2"
+      ],
+      "on_screen": "Cells + common function → TISSUE.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b3",
+      "part_id": "c01.1",
+      "step": 3,
+      "purpose": "misconception",
+      "say": "सिर्फ पास रखे cells tissue नहीं; साथ काम करना जरूरी है।",
+      "covers_item_ids": [
+       "p001-i2"
+      ],
+      "answers": [],
+      "on_screen": "Proximity alone ≠ tissue.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b4",
+      "part_id": "c01.1",
+      "step": 4,
+      "purpose": "recap",
+      "say": "तो tissue की पहचान common function है; अब इसकी families देखो।",
+      "covers_item_ids": [
+       "p001-i2"
+      ],
+      "answers": [],
+      "on_screen": "Common function → classification.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b5",
+      "part_id": "c01.2",
+      "step": 1,
+      "purpose": "explain",
+      "say": "पत्ता और हाथ अलग क्यों? Cells के आधार पर 2 families हैं: plant tissues और animal tissues।",
+      "covers_item_ids": [
+       "p001-i3",
+       "p001-i4"
+      ],
+      "answers": [
+       "p001-i3#q2",
+       "p001-i4#q2"
+      ],
+      "on_screen": "Tissues → plant tissues / animal tissues.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b6",
+      "part_id": "c01.2",
+      "step": 2,
+      "purpose": "example",
+      "say": "पत्ते में कौन साथ काम करता है? Plant cells से plant tissues बनते हैं, जैसे पत्ते की teams।",
+      "covers_item_ids": [
+       "p001-i3"
+      ],
+      "answers": [
+       "p001-i3#q1"
+      ],
+      "on_screen": "Leaf → cooperating plant cells.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b7",
+      "part_id": "c01.2",
+      "step": 2,
+      "purpose": "example",
+      "say": "हाथ में कौन? Animal cells से animal tissues बनते हैं, जैसे हमारी muscle; इंसान भी animal category में है।",
+      "covers_item_ids": [
+       "p001-i4"
+      ],
+      "answers": [
+       "p001-i4#q1"
+      ],
+      "on_screen": "Arm → muscle tissue → animal cells.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b8",
+      "part_id": "c01.2",
+      "step": 3,
+      "purpose": "compare",
+      "say": "फर्क cells के origin का है, shape का नहीं; combine का मतलब एक giant cell बनना नहीं।",
+      "covers_item_ids": [
+       "p001-i3",
+       "p001-i4"
+      ],
+      "answers": [
+       "p001-i3#q3"
+      ],
+      "on_screen": "Compare origin, not one universal shape.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b9",
+      "part_id": "c01.2",
+      "step": 4,
+      "purpose": "recap",
+      "say": "याद रखो: plant से plant tissue, animal से animal tissue।",
+      "covers_item_ids": [
+       "p001-i3",
+       "p001-i4"
+      ],
+      "answers": [],
+      "on_screen": "Match each tissue family to its cells.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b10",
+      "part_id": "c01.3",
+      "step": 1,
+      "purpose": "hook",
+      "say": "हाथ हिलाना और skin की protection अलग teams क्यों सँभालती हैं? यही division of labour है।",
+      "covers_item_ids": [
+       "p001-i5"
+      ],
+      "answers": [
+       "p001-i5#q2"
+      ],
+      "on_screen": "Movement / protection: separate job cards.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b11",
+      "part_id": "c01.3",
+      "step": 2,
+      "purpose": "explain",
+      "say": "काम ज्यादा हैं; अलग groups specialise करते हैं, जैसे घर में खाना और सफाई बाँटना।",
+      "covers_item_ids": [
+       "p001-i5"
+      ],
+      "answers": [
+       "p001-i5#q1"
+      ],
+      "on_screen": "Many tasks → specialised groups.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b12",
+      "part_id": "c01.3",
+      "step": 3,
+      "purpose": "explain",
+      "say": "हर cell को सभी काम नहीं करने पड़ते; workload घटता है और तालमेल से organisation बनता है।",
+      "covers_item_ids": [
+       "p001-i6"
+      ],
+      "answers": [
+       "p001-i6#q1",
+       "p001-i6#q2",
+       "p001-i6#q3"
+      ],
+      "on_screen": "Shared tasks → reduced individual workload → organisation.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b13",
+      "part_id": "c01.3",
+      "step": 4,
+      "purpose": "example",
+      "say": "Muscle movement सँभालती है, skin protection: काम बँटने का उदाहरण देखो।",
+      "covers_item_ids": [
+       "p001-i5"
+      ],
+      "answers": [],
+      "on_screen": "Return to arm movement and protective skin.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b14",
+      "part_id": "c01.3",
+      "step": 5,
+      "purpose": "misconception",
+      "say": "लेकिन cell अपने जरूरी जीवन वाले काम बंद नहीं करता।",
+      "covers_item_ids": [
+       "p001-i6"
+      ],
+      "answers": [],
+      "on_screen": "Specialisation ≠ stopping essential cellular functions.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b15",
+      "part_id": "c01.3",
+      "step": 6,
+      "purpose": "recap",
+      "say": "Chain याद रखो: काम बाँटना, workload घटाना, organisation बनाना; यह cell division नहीं है।",
+      "covers_item_ids": [
+       "p001-i5",
+       "p001-i6"
+      ],
+      "answers": [],
+      "on_screen": "Division of labour ≠ cell division.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b16",
+      "part_id": "c01.4",
+      "step": 1,
+      "purpose": "hook",
+      "say": "पूरा इंसान सिर्फ पेट है? नहीं; Organisms पूरे जीव हैं, जिनमें कई systems साथ चलते हैं।",
+      "covers_item_ids": [
+       "p001-i12"
+      ],
+      "answers": [
+       "p001-i12#q1",
+       "p001-i12#q3"
+      ],
+      "on_screen": "Whole human with several systems highlighted.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b17",
+      "part_id": "c01.4",
+      "step": 2,
+      "purpose": "explain",
+      "say": "भीतर देखो: digestive Organ system में पेट जैसे Organ हैं; पेट में Tissues और उनमें Cell हैं।",
+      "covers_item_ids": [
+       "p001-i8",
+       "p001-i9",
+       "p001-i10",
+       "p001-i11"
+      ],
+      "answers": [
+       "p001-i8#q1",
+       "p001-i10#q1",
+       "p001-i11#q1"
+      ],
+      "on_screen": "Human → digestive system → stomach → muscle tissue → living muscle cell.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b18",
+      "part_id": "c01.4",
+      "step": 3,
+      "purpose": "explain",
+      "say": "Muscle tissue खाना हिलाती है; दूसरे tissues protection देते हैं, इसलिए Organ कई काम जोड़ता है।",
+      "covers_item_ids": [
+       "p001-i9",
+       "p001-i10"
+      ],
+      "answers": [
+       "p001-i9#q3",
+       "p001-i10#q3",
+       "p001-i7#q3"
+      ],
+      "on_screen": "Different stomach tissues contribute different functions.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b19",
+      "part_id": "c01.4",
+      "step": 4,
+      "purpose": "explain",
+      "say": "पेट और आँत मिलकर digestion पूरा करते हैं; organs का तालमेल Organ system बनाता है।",
+      "covers_item_ids": [
+       "p001-i11"
+      ],
+      "answers": [
+       "p001-i11#q3"
+      ],
+      "on_screen": "Stomach + intestine → coordinated digestive system.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b20",
+      "part_id": "c01.4",
+      "step": 5,
+      "purpose": "recap",
+      "say": "क्रम है Cell, Tissues, Organ, Organ system, Organisms; छोटे working groups से पूरा जीव बनता है।",
+      "covers_item_ids": [
+       "p001-i7",
+       "p001-i8",
+       "p001-i9",
+       "p001-i10",
+       "p001-i11",
+       "p001-i12"
+      ],
+      "answers": [
+       "p001-i7#q1",
+       "p001-i7#q2",
+       "p001-i8#q2",
+       "p001-i8#q3",
+       "p001-i9#q1",
+       "p001-i9#q2",
+       "p001-i10#q2",
+       "p001-i11#q2",
+       "p001-i12#q2"
+      ],
+      "on_screen": "Cell → Tissues → Organ → Organ system → Organisms.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b21",
+      "part_id": "c02.1",
+      "step": 1,
+      "purpose": "hook",
+      "say": "चोट भरने पर नए cells कैसे बनते हैं? Cell division से; Mitosis और Meiosis दोनों नए cells देते हैं।",
+      "covers_item_ids": [
+       "p001-i14"
+      ],
+      "answers": [],
+      "on_screen": "Healing skin → two cell-division pathways.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b22",
+      "part_id": "c02.1",
+      "step": 2,
+      "purpose": "compare",
+      "say": "Mitosis somatic यानी body cells में; Meiosis germ यानी reproduction वाली line में होता है।",
+      "covers_item_ids": [
+       "p001-i14"
+      ],
+      "answers": [
+       "p001-i14#q1",
+       "p001-i14#q2"
+      ],
+      "on_screen": "Body maintenance | reproductive pathway.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b23",
+      "part_id": "c02.1",
+      "step": 2,
+      "purpose": "compare",
+      "say": "Nucleus 1 बार बनाम 2 बार बँटता है; इसलिए daughter cells, यानी नए cells, 2 बनाम 4 होते हैं।",
+      "covers_item_ids": [
+       "p001-i15",
+       "p001-i16"
+      ],
+      "answers": [
+       "p001-i15#q1",
+       "p001-i16#q1",
+       "p001-i16#q2"
+      ],
+      "on_screen": "Mitosis: 1 → 2. Meiosis: 1 → 2 → 4.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b24",
+      "part_id": "c02.1",
+      "step": 2,
+      "purpose": "compare",
+      "say": "Diploid शुरुआत में Mitosis के products diploid, 2 sets; Meiosis के haploid, 1 set, होते हैं।",
+      "covers_item_ids": [
+       "p001-i17"
+      ],
+      "answers": [
+       "p001-i17#q1",
+       "p001-i17#q2",
+       "p001-i17#q3"
+      ],
+      "on_screen": "Two complete sets → two sets | one set.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b25",
+      "part_id": "c02.1",
+      "step": 2,
+      "purpose": "compare",
+      "say": "Body replacement बार-बार चाहिए: इसलिए book में Mitosis ज्यादा frequent, Meiosis कम है; यह fixed rate नहीं।",
+      "covers_item_ids": [
+       "p001-i18"
+      ],
+      "answers": [
+       "p001-i18#q1",
+       "p001-i18#q2",
+       "p001-i18#q3"
+      ],
+      "on_screen": "Routine replacement | restricted reproductive stages.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b26",
+      "part_id": "c02.1",
+      "step": 2,
+      "purpose": "compare",
+      "say": "Products body के somatic organs बनाते हैं बनाम gametes, जैसे sperm और egg; plants में Meiosis पहले spores देता है।",
+      "covers_item_ids": [
+       "p001-i19"
+      ],
+      "answers": [
+       "p001-i19#q1",
+       "p001-i19#q2",
+       "p001-i19#q3"
+      ],
+      "on_screen": "Body organs | animal gametes; plant qualification: spores first.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b27",
+      "part_id": "c02.1",
+      "step": 2,
+      "purpose": "compare",
+      "say": "prophase, metaphase, anaphase, telophase का cycle Mitosis में 1, Meiosis में 2 बार है; prophase I के 5 हिस्से हैं।",
+      "covers_item_ids": [
+       "p001-i20"
+      ],
+      "answers": [
+       "p001-i20#q1"
+      ],
+      "on_screen": "One phase cycle | two phase cycles; prophase I divided into five segments.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b28",
+      "part_id": "c02.1",
+      "step": 2,
+      "purpose": "compare",
+      "say": "Chromosome number Mitosis में वही, Meiosis में आधा रहता है; fertilisation में 2 sets फिर जुड़ सकेंगे।",
+      "covers_item_ids": [
+       "p001-i21"
+      ],
+      "answers": [
+       "p001-i21#q1",
+       "p001-i21#q3"
+      ],
+      "on_screen": "2n → 2n | 2n → n; n + n → 2n.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b29",
+      "part_id": "c02.1",
+      "step": 2,
+      "purpose": "misconception",
+      "say": "Row 9 गलत है: इसमें Mitosis से पहले और Meiosis I के बाद chromosome doubling लिखा है।",
+      "covers_item_ids": [
+       "p001-i22"
+      ],
+      "answers": [
+       "p001-i22#q1"
+      ],
+      "on_screen": "Printed row 9 marked incorrect.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b30",
+      "part_id": "c02.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "असल में DNA पहले copy होता है, chromosome count नहीं बढ़ता; Meiosis I और II के बीच copying नहीं होती।",
+      "covers_item_ids": [
+       "p001-i22"
+      ],
+      "answers": [
+       "p001-i22#q2",
+       "p001-i22#q3"
+      ],
+      "on_screen": "DNA copies before mitosis / meiosis I; no replication between I and II.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b31",
+      "part_id": "c02.1",
+      "step": 2,
+      "purpose": "compare",
+      "say": "रंगीन फीते हिस्से बदलें तो? यही crossing over: Meiosis में DNA exchange होता है, ordinary Mitosis में नहीं।",
+      "covers_item_ids": [
+       "p001-i23"
+      ],
+      "answers": [
+       "p001-i23#q1"
+      ],
+      "on_screen": "Corresponding coloured segments exchanged between homologous non-sister chromatids.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b32",
+      "part_id": "c02.1",
+      "step": 2,
+      "purpose": "compare",
+      "say": "इसीलिए Mitosis equational, यानी संख्या वही; Meiosis reduction division, यानी sets घटते हैं; printed Equation को equational पढ़ो।",
+      "covers_item_ids": [
+       "p001-i24"
+      ],
+      "answers": [
+       "p001-i24#q1",
+       "p001-i24#q2"
+      ],
+      "on_screen": "Equational = preserved count; reduction = reduced sets.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b33",
+      "part_id": "c02.1",
+      "step": 3,
+      "purpose": "exam_tip",
+      "say": "Trap याद रखो: DNA copying chromosome doubling नहीं; Meiosis I reductional है, II equational।",
+      "covers_item_ids": [
+       "p001-i22",
+       "p001-i24"
+      ],
+      "answers": [
+       "p001-i24#q3"
+      ],
+      "on_screen": "Separate DNA amount, chromosome count and chromosome sets.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b34",
+      "part_id": "c02.1",
+      "step": 4,
+      "purpose": "misconception",
+      "say": "Somatic और germ वाली row exclusive rule नहीं: germ-line cells भी Mitosis कर सकते हैं।",
+      "covers_item_ids": [
+       "p001-i14"
+      ],
+      "answers": [
+       "p001-i14#q3"
+      ],
+      "on_screen": "Usual roles ≠ exclusive permissions.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b35",
+      "part_id": "c02.1",
+      "step": 5,
+      "purpose": "recap",
+      "say": "Table का anchor रखो: Mitosis maintenance और संख्या वही; Meiosis reproduction और sets आधे।",
+      "covers_item_ids": [
+       "p001-i21",
+       "p001-i24"
+      ],
+      "answers": [],
+      "on_screen": "Completed eleven-row comparison with row 9 corrected.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b36",
+      "part_id": "c03.1",
+      "step": 1,
+      "purpose": "hook",
+      "say": "जड़ और skin दोनों कैसे बढ़ते हैं? दोनों में Mitosis है, लेकिन उसकी व्यवस्था अलग है।",
+      "covers_item_ids": [
+       "p001-i29"
+      ],
+      "answers": [],
+      "on_screen": "Growing root beside renewing skin.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b37",
+      "part_id": "c03.1",
+      "step": 2,
+      "purpose": "compare",
+      "say": "Typical higher plants में Centrioles, छोटी नलियाँ, absent; animals में present हैं।",
+      "covers_item_ids": [
+       "p001-i26"
+      ],
+      "answers": [
+       "p001-i26#q1",
+       "p001-i26#q3"
+      ],
+      "on_screen": "Plant pole without centrioles | animal pole with paired cylinders.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b38",
+      "part_id": "c03.1",
+      "step": 2,
+      "purpose": "compare",
+      "say": "सिरों पर तारे जैसे Asters भी plants में नहीं, animals में बनते हैं; ये फैले हुए धागे हैं।",
+      "covers_item_ids": [
+       "p001-i27"
+      ],
+      "answers": [
+       "p001-i27#q1",
+       "p001-i27#q2"
+      ],
+      "on_screen": "Highlight radial asters, distinct from the central spindle.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b39",
+      "part_id": "c03.1",
+      "step": 2,
+      "purpose": "compare",
+      "say": "Plant की rigid wall में cell plate नई दीवार बनाती है; animal में furrowing से बाहर से अंदर cytoplasm बँटता है।",
+      "covers_item_ids": [
+       "p001-i28"
+      ],
+      "answers": [
+       "p001-i28#q1",
+       "p001-i28#q2",
+       "p001-i28#q3"
+      ],
+      "on_screen": "Cell plate grows centre-out | cleavage furrow moves outside-in.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b40",
+      "part_id": "c03.1",
+      "step": 2,
+      "purpose": "compare",
+      "say": "जड़ की बढ़ती नोक देखो: meristem में division ज्यादा है; animals में skin जैसे tissues पूरे शरीर में बँटते हैं।",
+      "covers_item_ids": [
+       "p001-i29"
+      ],
+      "answers": [
+       "p001-i29#q1",
+       "p001-i29#q2"
+      ],
+      "on_screen": "Plant growth zones | distributed animal dividing tissues.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b41",
+      "part_id": "c03.1",
+      "step": 3,
+      "purpose": "explain",
+      "say": "फर्क wall और division machinery का है; Centrioles न होने पर भी plant spindle बनता है।",
+      "covers_item_ids": [
+       "p001-i26",
+       "p001-i28"
+      ],
+      "answers": [
+       "p001-i26#q2"
+      ],
+      "on_screen": "Both cells retain a chromosome-separating spindle.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b42",
+      "part_id": "c03.1",
+      "step": 4,
+      "purpose": "misconception",
+      "say": "Aster पूरा spindle नहीं; और throughout body का मतलब हर animal cell बँटता है, यह नहीं।",
+      "covers_item_ids": [
+       "p001-i27",
+       "p001-i29"
+      ],
+      "answers": [
+       "p001-i29#q3"
+      ],
+      "on_screen": "Aster ≠ whole spindle; distributed division ≠ every cell.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b43",
+      "part_id": "c03.1",
+      "step": 5,
+      "purpose": "recap",
+      "say": "Plant याद रखो: plate और meristem; animal: Centrioles, Asters और cleavage।",
+      "covers_item_ids": [
+       "p001-i26",
+       "p001-i27",
+       "p001-i28",
+       "p001-i29"
+      ],
+      "answers": [],
+      "on_screen": "Completed four-row plant–animal comparison.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b44",
+      "part_id": "",
+      "step": 0,
+      "purpose": "recap",
+      "say": "अब जोड़ समझो: division cells देता है, shared काम tissues बनाता है, और तालमेल पूरा organism चलाता है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Cell production → cooperating tissues → coordinated organism.",
+      "basis": "mixed"
+     }
+    ]
+   },
+   "code_problems": [
+    "[code] beat b12: the Hindi words ['तालमेल'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b16: the Hindi words ['जीव'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b19: the Hindi words ['तालमेल'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b20: the Hindi words ['जीव'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b31: the Hindi words ['फीते'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b40: the Hindi words ['नोक'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b44: the Hindi words ['तालमेल'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] the script speaks about 5.4 minutes; this video's narration time is 3.3-4.4 minutes (S2-01): cut repetition and side-tracks, never book content",
+    "[code] beat b24: 83% of its 6 content words are the book's own and it opens nothing: after a book line, open a term (yaani + an everyday image), give the why from a need, or an example; never just read the line out (S2-07)",
+    "[code] beat b27: 86% of its 7 content words are the book's own and it opens nothing: after a book line, open a term (yaani + an everyday image), give the why from a need, or an example; never just read the line out (S2-07)",
+    "[code] beat b28: 67% of its 6 content words are the book's own and it opens nothing: after a book line, open a term (yaani + an everyday image), give the why from a need, or an example; never just read the line out (S2-07)",
+    "[code] beat b37: 71% of its 7 content words are the book's own and it opens nothing: after a book line, open a term (yaani + an everyday image), give the why from a need, or an example; never just read the line out (S2-07)",
+    "[code] beat b17 is too heavy for one breath (load 1.94 over 1.8: 4 items, 17 words); split it into smaller beats (PED cognitive-load check)"
+   ],
+   "observed": {
+    "pattern_order": [],
+    "skipped_steps": {},
+    "objective_coverage": {
+     "coverage": 1.0,
+     "uncovered": []
+    },
+    "cognitive_load": {
+     "max": 1.94,
+     "abrupt_jumps": [
+      "b4->b5",
+      "b5->b6",
+      "b16->b17",
+      "b17->b18",
+      "b22->b23"
+     ]
+    },
+    "duration": {
+     "spoken_minutes_at_130_wpm": 5.4,
+     "planned_minutes": 4,
+     "range": [
+      3.3,
+      4.4
+     ]
+    },
+    "dohraav": {
+     "beats": 44,
+     "judged": 32,
+     "restating": 4,
+     "share": 0.125,
+     "opened": 18,
+     "opened_share": 0.562,
+     "restating_beats": [
+      "b24",
+      "b27",
+      "b28",
+      "b37"
+     ]
+    }
+   },
+   "passed": false,
+   "finished_at": 1792853854.578651
+  },
+  {
+   "round": 2,
+   "started_at": 1792853854.578852,
+   "mode": "patch",
+   "patch": {
+    "notes": {
+     "about": "Patch preserves every book comparison while shortening repeated explanations to fit the narration allocation.",
+     "key_questions": [
+      "Are all printed criteria retained and factual errors explicitly corrected?",
+      "Do shortened beats still explain rather than merely name?"
+     ],
+     "decisions": [
+      {
+       "decision": "Shorten hooks, examples and recaps across the video.",
+       "reason": "Pays for clearer explanations without removing book content or required pattern steps."
+      },
+      {
+       "decision": "Split the inward structural zoom across two existing beats.",
+       "reason": "Removes the four-item cognitive overload without adding narration."
+      },
+      {
+       "decision": "Replace flagged Hindi words with familiar English terms.",
+       "reason": "Maintains natural mixed-script narration."
+      }
+     ],
+     "uncertain": [
+      "No page image was supplied; corrections follow the supplied transcription."
+     ]
+    },
+    "replace_parts": [],
+    "replace_beats": [
+     {
+      "beat_id": "b1",
+      "part_id": "c01.1",
+      "step": 1,
+      "purpose": "hook",
+      "say": "हाथ कैसे हिलता है? Muscle cells की team से; यही tissue है।",
+      "covers_item_ids": [
+       "p001-i2"
+      ],
+      "answers": [],
+      "on_screen": "Moving arm → cooperating muscle cells.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b2",
+      "part_id": "c01.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "Cells combine यानी मिलकर same function करते हैं, एक team जैसे।",
+      "covers_item_ids": [
+       "p001-i2"
+      ],
+      "answers": [
+       "p001-i2#q1",
+       "p001-i2#q2"
+      ],
+      "on_screen": "Cells + common function → TISSUE.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b3",
+      "part_id": "c01.1",
+      "step": 3,
+      "purpose": "misconception",
+      "say": "सिर्फ पास होना काफी नहीं; shared काम चाहिए।",
+      "covers_item_ids": [
+       "p001-i2"
+      ],
+      "answers": [],
+      "on_screen": "Proximity alone ≠ tissue.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b4",
+      "part_id": "c01.1",
+      "step": 4,
+      "purpose": "recap",
+      "say": "Common function पहचान है; अब families देखो।",
+      "covers_item_ids": [
+       "p001-i2"
+      ],
+      "answers": [],
+      "on_screen": "Common function → classification.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b5",
+      "part_id": "c01.2",
+      "step": 1,
+      "purpose": "explain",
+      "say": "पत्ता और हाथ? Cells के origin से families हैं: plant tissues और animal tissues।",
+      "covers_item_ids": [
+       "p001-i3",
+       "p001-i4"
+      ],
+      "answers": [
+       "p001-i3#q2",
+       "p001-i4#q2"
+      ],
+      "on_screen": "Tissues → plant tissues / animal tissues.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b6",
+      "part_id": "c01.2",
+      "step": 2,
+      "purpose": "example",
+      "say": "पत्ते में कौन? Plant cells की teams plant tissues हैं।",
+      "covers_item_ids": [
+       "p001-i3"
+      ],
+      "answers": [
+       "p001-i3#q1"
+      ],
+      "on_screen": "Leaf → cooperating plant cells.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b7",
+      "part_id": "c01.2",
+      "step": 2,
+      "purpose": "example",
+      "say": "हमारी muscle में कौन? Animal cells के animal tissues; हम भी animals हैं।",
+      "covers_item_ids": [
+       "p001-i4"
+      ],
+      "answers": [
+       "p001-i4#q1"
+      ],
+      "on_screen": "Arm → muscle tissue → animal cells.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b8",
+      "part_id": "c01.2",
+      "step": 3,
+      "purpose": "compare",
+      "say": "फर्क origin का है; combine का मतलब cells का fusion नहीं।",
+      "covers_item_ids": [
+       "p001-i3",
+       "p001-i4"
+      ],
+      "answers": [
+       "p001-i3#q3"
+      ],
+      "on_screen": "Compare cellular origin; cooperation ≠ fusion.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b9",
+      "part_id": "c01.2",
+      "step": 4,
+      "purpose": "recap",
+      "say": "Origin याद रखो: plant या animal।",
+      "covers_item_ids": [
+       "p001-i3",
+       "p001-i4"
+      ],
+      "answers": [],
+      "on_screen": "Match each tissue family to its cells.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b10",
+      "part_id": "c01.3",
+      "step": 1,
+      "purpose": "hook",
+      "say": "Movement और protection की अलग teams क्यों? यही division of labour है।",
+      "covers_item_ids": [
+       "p001-i5"
+      ],
+      "answers": [
+       "p001-i5#q2"
+      ],
+      "on_screen": "Movement / protection: separate job cards.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b11",
+      "part_id": "c01.3",
+      "step": 2,
+      "purpose": "explain",
+      "say": "काम ज्यादा हैं, इसलिए teams specialise करती हैं।",
+      "covers_item_ids": [
+       "p001-i5"
+      ],
+      "answers": [
+       "p001-i5#q1"
+      ],
+      "on_screen": "Many tasks → specialised groups.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b12",
+      "part_id": "c01.3",
+      "step": 3,
+      "purpose": "explain",
+      "say": "हर cell सब काम नहीं करता; workload घटता है, coordination से organisation बनता है।",
+      "covers_item_ids": [
+       "p001-i6"
+      ],
+      "answers": [
+       "p001-i6#q1",
+       "p001-i6#q2",
+       "p001-i6#q3"
+      ],
+      "on_screen": "Shared tasks → reduced workload → coordinated organisation.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b13",
+      "part_id": "c01.3",
+      "step": 4,
+      "purpose": "example",
+      "say": "Muscle movement, skin protection सँभालती है।",
+      "covers_item_ids": [
+       "p001-i5"
+      ],
+      "answers": [],
+      "on_screen": "Observe movement and protection as different jobs.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b14",
+      "part_id": "c01.3",
+      "step": 5,
+      "purpose": "misconception",
+      "say": "अपने जरूरी काम cell फिर भी करता है।",
+      "covers_item_ids": [
+       "p001-i6"
+      ],
+      "answers": [],
+      "on_screen": "Essential cellular functions continue.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b15",
+      "part_id": "c01.3",
+      "step": 6,
+      "purpose": "recap",
+      "say": "काम बँटा, workload घटा, organisation बना; यह cell division नहीं।",
+      "covers_item_ids": [
+       "p001-i5",
+       "p001-i6"
+      ],
+      "answers": [],
+      "on_screen": "Division of labour ≠ cell division.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b16",
+      "part_id": "c01.4",
+      "step": 1,
+      "purpose": "hook",
+      "say": "पूरा इंसान सिर्फ पेट है? Organism में कई systems साथ चलते हैं।",
+      "covers_item_ids": [
+       "p001-i12"
+      ],
+      "answers": [
+       "p001-i12#q1",
+       "p001-i12#q3"
+      ],
+      "on_screen": "Whole human → coordinated systems.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b17",
+      "part_id": "c01.4",
+      "step": 2,
+      "purpose": "explain",
+      "say": "भीतर digestive Organ system देखो: पेट जैसे Organs की team है।",
+      "covers_item_ids": [
+       "p001-i10",
+       "p001-i11"
+      ],
+      "answers": [
+       "p001-i11#q1"
+      ],
+      "on_screen": "Human → digestive system → stomach.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b18",
+      "part_id": "c01.4",
+      "step": 3,
+      "purpose": "explain",
+      "say": "पेट के tissues में जीवित cells हैं; muscle tissue खाना हिलाती है, दूसरे tissues protection देते हैं। कई tissues मिलकर Organ बनाते हैं।",
+      "covers_item_ids": [
+       "p001-i8",
+       "p001-i9",
+       "p001-i10"
+      ],
+      "answers": [
+       "p001-i8#q1",
+       "p001-i9#q3",
+       "p001-i10#q1",
+       "p001-i10#q3",
+       "p001-i7#q3"
+      ],
+      "on_screen": "Stomach → tissues → living cells; movement and protection combine within the organ.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b19",
+      "part_id": "c01.4",
+      "step": 4,
+      "purpose": "explain",
+      "say": "पेट और आँत मिलकर digestion पूरा करते हैं।",
+      "covers_item_ids": [
+       "p001-i11"
+      ],
+      "answers": [
+       "p001-i11#q3"
+      ],
+      "on_screen": "Cooperating organs complete digestion.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b20",
+      "part_id": "c01.4",
+      "step": 5,
+      "purpose": "recap",
+      "say": "क्रम देखो: Cell, Tissues, Organ, Organ system, Organisms; छोटे हिस्सों से पूरा शरीर।",
+      "covers_item_ids": [
+       "p001-i7",
+       "p001-i8",
+       "p001-i9",
+       "p001-i10",
+       "p001-i11",
+       "p001-i12"
+      ],
+      "answers": [
+       "p001-i7#q1",
+       "p001-i7#q2",
+       "p001-i8#q2",
+       "p001-i8#q3",
+       "p001-i9#q1",
+       "p001-i9#q2",
+       "p001-i10#q2",
+       "p001-i11#q2",
+       "p001-i12#q2"
+      ],
+      "on_screen": "Cell → Tissues → Organ → Organ system → Organisms.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b21",
+      "part_id": "c02.1",
+      "step": 1,
+      "purpose": "hook",
+      "say": "चोट कैसे भरती है? Cell division से; Mitosis और Meiosis दोनों cells बनाते हैं।",
+      "covers_item_ids": [
+       "p001-i14"
+      ],
+      "answers": [],
+      "on_screen": "Healing skin → compare two division pathways.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b24",
+      "part_id": "c02.1",
+      "step": 2,
+      "purpose": "compare",
+      "say": "Diploid यानी 2 पूरी गड्डियों जैसे sets; ऐसी शुरुआत से Mitosis diploid रखता है, Meiosis haploid यानी 1 set देता है।",
+      "covers_item_ids": [
+       "p001-i17"
+      ],
+      "answers": [
+       "p001-i17#q1",
+       "p001-i17#q2",
+       "p001-i17#q3"
+      ],
+      "on_screen": "Two complete card sets → two sets versus one set.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b25",
+      "part_id": "c02.1",
+      "step": 2,
+      "purpose": "compare",
+      "say": "Replacement बार-बार चाहिए: Mitosis ज्यादा frequent, Meiosis कम; fixed rate नहीं है।",
+      "covers_item_ids": [
+       "p001-i18"
+      ],
+      "answers": [
+       "p001-i18#q1",
+       "p001-i18#q2",
+       "p001-i18#q3"
+      ],
+      "on_screen": "Routine replacement versus restricted reproductive stages.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b26",
+      "part_id": "c02.1",
+      "step": 2,
+      "purpose": "compare",
+      "say": "Products somatic organs बनाते हैं बनाम gametes, जैसे sperm और egg; plants में Meiosis पहले spores देता है।",
+      "covers_item_ids": [
+       "p001-i19"
+      ],
+      "answers": [
+       "p001-i19#q1",
+       "p001-i19#q2",
+       "p001-i19#q3"
+      ],
+      "on_screen": "Body organs versus animal gametes; plants: spores first.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b27",
+      "part_id": "c02.1",
+      "step": 2,
+      "purpose": "compare",
+      "say": "prophase, metaphase, anaphase, telophase को तैयारी से बँटवारे तक के पड़ाव समझो: Mitosis में 1 round, Meiosis में 2; prophase I के 5 हिस्से हैं।",
+      "covers_item_ids": [
+       "p001-i20"
+      ],
+      "answers": [
+       "p001-i20#q1"
+      ],
+      "on_screen": "Preparation → alignment → separation → nuclear re-formation; one round versus two; prophase I has five segments.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b28",
+      "part_id": "c02.1",
+      "step": 2,
+      "purpose": "compare",
+      "say": "Chromosome number Mitosis में वही, Meiosis में आधा; वरना fertilisation से हर पीढ़ी में संख्या दोगुनी होती।",
+      "covers_item_ids": [
+       "p001-i21"
+      ],
+      "answers": [
+       "p001-i21#q1",
+       "p001-i21#q3"
+      ],
+      "on_screen": "2n → 2n versus 2n → n; fertilisation restores 2n.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b31",
+      "part_id": "c02.1",
+      "step": 2,
+      "purpose": "compare",
+      "say": "रंगीन ribbons हिस्से बदलें तो? Crossing over में ऐसा DNA exchange Meiosis में होता है, ordinary Mitosis में नहीं।",
+      "covers_item_ids": [
+       "p001-i23"
+      ],
+      "answers": [
+       "p001-i23#q1"
+      ],
+      "on_screen": "Homologous non-sister chromatids exchange corresponding coloured segments.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b32",
+      "part_id": "c02.1",
+      "step": 2,
+      "purpose": "compare",
+      "say": "Mitosis equational यानी संख्या वही; Meiosis reduction division यानी sets घटते हैं; printed Equation गलत spelling है।",
+      "covers_item_ids": [
+       "p001-i24"
+      ],
+      "answers": [
+       "p001-i24#q1",
+       "p001-i24#q2"
+      ],
+      "on_screen": "Equation → equational; preserved count versus reduced sets.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b33",
+      "part_id": "c02.1",
+      "step": 3,
+      "purpose": "exam_tip",
+      "say": "Trap: DNA copying chromosome doubling नहीं; Meiosis I reductional, II equational है।",
+      "covers_item_ids": [
+       "p001-i22",
+       "p001-i24"
+      ],
+      "answers": [
+       "p001-i24#q3"
+      ],
+      "on_screen": "DNA amount ≠ chromosome count.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b34",
+      "part_id": "c02.1",
+      "step": 4,
+      "purpose": "misconception",
+      "say": "Germ-line cells भी Mitosis करते हैं; roles exclusive नहीं हैं।",
+      "covers_item_ids": [
+       "p001-i14"
+      ],
+      "answers": [
+       "p001-i14#q3"
+      ],
+      "on_screen": "Usual roles ≠ exclusive permissions.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b35",
+      "part_id": "c02.1",
+      "step": 5,
+      "purpose": "recap",
+      "say": "Anchor रखो: Mitosis संख्या बचाता है, Meiosis sets घटाता है।",
+      "covers_item_ids": [
+       "p001-i21",
+       "p001-i24"
+      ],
+      "answers": [],
+      "on_screen": "Completed eleven-row comparison; row 9 corrected.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b36",
+      "part_id": "c03.1",
+      "step": 1,
+      "purpose": "hook",
+      "say": "जड़ और skin कैसे बढ़ते हैं? दोनों में Mitosis, व्यवस्था अलग है।",
+      "covers_item_ids": [
+       "p001-i29"
+      ],
+      "answers": [],
+      "on_screen": "Growing root versus renewing skin.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b37",
+      "part_id": "c03.1",
+      "step": 2,
+      "purpose": "compare",
+      "say": "छोटी नलियाँ दिखीं? ये Centrioles हैं: typical higher plants में absent, animal cells में present हैं।",
+      "covers_item_ids": [
+       "p001-i26"
+      ],
+      "answers": [
+       "p001-i26#q1",
+       "p001-i26#q3"
+      ],
+      "on_screen": "Zoom to paired cylinders at an animal spindle pole; compare typical higher plant.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b38",
+      "part_id": "c03.1",
+      "step": 2,
+      "purpose": "compare",
+      "say": "तारे जैसे धागे दिखे? Asters animals में बनते हैं, typical plants में नहीं।",
+      "covers_item_ids": [
+       "p001-i27"
+      ],
+      "answers": [
+       "p001-i27#q1",
+       "p001-i27#q2"
+      ],
+      "on_screen": "Highlight radial threads at animal spindle poles.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b39",
+      "part_id": "c03.1",
+      "step": 2,
+      "purpose": "compare",
+      "say": "Cell कैसे बँटेगा? Rigid plant wall के कारण cell plate बीच से बाहर बनती है; animal में furrowing बाहर से अंदर cytoplasm बाँटती है।",
+      "covers_item_ids": [
+       "p001-i28"
+      ],
+      "answers": [
+       "p001-i28#q1",
+       "p001-i28#q2",
+       "p001-i28#q3"
+      ],
+      "on_screen": "Plant: build a central partition outward; animal: pinch inward.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b40",
+      "part_id": "c03.1",
+      "step": 2,
+      "purpose": "compare",
+      "say": "जड़ की tip क्यों बढ़ती है? वहाँ meristem, dividing cells का इलाका है; animals में division कई tissues में फैला है।",
+      "covers_item_ids": [
+       "p001-i29"
+      ],
+      "answers": [
+       "p001-i29#q1",
+       "p001-i29#q2"
+      ],
+      "on_screen": "Plant growth zones versus distributed animal dividing tissues.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b41",
+      "part_id": "c03.1",
+      "step": 3,
+      "purpose": "explain",
+      "say": "Centrioles बिना भी plant spindle बनता है; machinery की व्यवस्था अलग है।",
+      "covers_item_ids": [
+       "p001-i26"
+      ],
+      "answers": [
+       "p001-i26#q2"
+      ],
+      "on_screen": "Both cells form chromosome-separating spindles.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b42",
+      "part_id": "c03.1",
+      "step": 4,
+      "purpose": "misconception",
+      "say": "Aster पूरा spindle नहीं; throughout का मतलब हर cell नहीं।",
+      "covers_item_ids": [
+       "p001-i27",
+       "p001-i29"
+      ],
+      "answers": [
+       "p001-i29#q3"
+      ],
+      "on_screen": "Aster ≠ spindle; distributed division ≠ every cell divides.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b43",
+      "part_id": "c03.1",
+      "step": 5,
+      "purpose": "recap",
+      "say": "Plant: plate और meristem याद रखो; animal: Centrioles, Asters, cleavage।",
+      "covers_item_ids": [
+       "p001-i26",
+       "p001-i27",
+       "p001-i28",
+       "p001-i29"
+      ],
+      "answers": [],
+      "on_screen": "Completed four-row comparison.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b44",
+      "part_id": "",
+      "step": 0,
+      "purpose": "recap",
+      "say": "Division cells देता है; shared काम tissues बनाता है; coordination organism चलाता है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Cell production → shared work → coordinated whole.",
+      "basis": "mixed"
+     }
+    ],
+    "insert_beats": [],
+    "remove_beat_ids": []
+   },
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "868b0fc3c4ed9425b00a476f4957fe951cefc62744e1efd5c390277405332d28",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 24456,
+    "output_tokens": 5024,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "This opening topic connects tissue organisation with cell division, then compares mitosis across plants and animals.",
+    "key_questions": [
+     "What makes cooperating cells a tissue?",
+     "How does shared work build higher levels of organisation?",
+     "How do mitosis and meiosis differ on every printed criterion?",
+     "Which printed claims require correction or qualification?"
+    ],
+    "decisions": [
+     {
+      "decision": "Use short paired comparisons and visual examples within the four-minute allocation.",
+      "reason": "All printed criteria must remain without lengthy phase-by-phase mechanisms."
+     },
+     {
+      "decision": "Correct the replication row explicitly and qualify diploidy, gamete formation and plant generalisations.",
+      "reason": "Literal repetition would teach factual errors or misleading absolutes."
+     },
+     {
+      "decision": "Do not impose layer-and-shape slots on plant versus animal tissue categories.",
+      "reason": "These broad categories have no single shared shape or layer arrangement."
+     },
+     {
+      "decision": "Shorten hooks, examples and recaps across the video.",
+      "reason": "Pays for clearer explanations without removing book content or required pattern steps."
+     },
+     {
+      "decision": "Split the inward structural zoom across two existing beats.",
+      "reason": "Removes the four-item cognitive overload without adding narration."
+     },
+     {
+      "decision": "Replace flagged Hindi words with familiar English terms.",
+      "reason": "Maintains natural mixed-script narration."
+     }
+    ],
+    "uncertain": [
+     "No page image was supplied; corrections follow the supplied transcription."
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "This opening topic connects tissue organisation with cell division, then compares mitosis across plants and animals.",
+     "key_questions": [
+      "What makes cooperating cells a tissue?",
+      "How does shared work build higher levels of organisation?",
+      "How do mitosis and meiosis differ on every printed criterion?",
+      "Which printed claims require correction or qualification?"
+     ],
+     "decisions": [
+      {
+       "decision": "Use short paired comparisons and visual examples within the four-minute allocation.",
+       "reason": "All printed criteria must remain without lengthy phase-by-phase mechanisms."
+      },
+      {
+       "decision": "Correct the replication row explicitly and qualify diploidy, gamete formation and plant generalisations.",
+       "reason": "Literal repetition would teach factual errors or misleading absolutes."
+      },
+      {
+       "decision": "Do not impose layer-and-shape slots on plant versus animal tissue categories.",
+       "reason": "These broad categories have no single shared shape or layer arrangement."
+      },
+      {
+       "decision": "Shorten hooks, examples and recaps across the video.",
+       "reason": "Pays for clearer explanations without removing book content or required pattern steps."
+      },
+      {
+       "decision": "Split the inward structural zoom across two existing beats.",
+       "reason": "Removes the four-item cognitive overload without adding narration."
+      },
+      {
+       "decision": "Replace flagged Hindi words with familiar English terms.",
+       "reason": "Maintains natural mixed-script narration."
+      }
+     ],
+     "uncertain": [
+      "No page image was supplied; corrections follow the supplied transcription."
+     ]
+    },
+    "title": "Cells मिलकर tissue कैसे बनाते हैं?",
+    "parts": [
+     {
+      "part_id": "c01.1",
+      "frame": {
+       "process": "Define tissue through shared cellular work.",
+       "how": "Contrast a cooperating group with mere proximity.",
+       "when": "Before classification and organisational levels.",
+       "conditions": "Cells contribute to a common function.",
+       "atmosphere": "An arm moving through coordinated muscle activity."
+      },
+      "skipped_steps": []
+     },
+     {
+      "part_id": "c01.2",
+      "frame": {
+       "process": "Separate plant and animal tissues by cellular origin.",
+       "how": "Compare leaf tissues with human muscle.",
+       "when": "After defining tissue.",
+       "conditions": "Shape and layering vary within each category and are not the division basis.",
+       "atmosphere": "A leaf beside a moving human arm."
+      },
+      "skipped_steps": []
+     },
+     {
+      "part_id": "c01.3",
+      "frame": {
+       "process": "Explain reduced individual workload through specialisation.",
+       "how": "Different groups share tasks and coordinate.",
+       "when": "As specialised groups cooperate.",
+       "conditions": "Cells retain their own essential life functions.",
+       "atmosphere": "Movement and protection performed by different groups."
+      },
+      "skipped_steps": []
+     },
+     {
+      "part_id": "c01.4",
+      "frame": {
+       "process": "Locate cells within tissues, organs, systems and organisms.",
+       "how": "Zoom inward from a human, then connect component functions outward.",
+       "when": "An organisational sequence, not a developmental timeline.",
+       "conditions": "The full hierarchy describes complex multicellular organisms.",
+       "atmosphere": "Human digestion as a nested example."
+      },
+      "skipped_steps": []
+     },
+     {
+      "part_id": "c02.1",
+      "frame": {
+       "process": "Compare mitosis and meiosis across all eleven printed criteria.",
+       "how": "Pair each criterion and explain outcomes through division count and chromosome sets.",
+       "when": "Body growth and maintenance versus reproductive pathways.",
+       "conditions": "Diploid starting-cell example; distinguish DNA amount from chromosome count.",
+       "atmosphere": "Skin repair contrasted with reproduction."
+      },
+      "skipped_steps": []
+     },
+     {
+      "part_id": "c03.1",
+      "frame": {
+       "process": "Compare typical higher-plant and animal mitosis.",
+       "how": "Contrast poles, cytoplasmic separation and distribution of dividing tissues.",
+       "when": "During mitotic division and growth.",
+       "conditions": "Typical higher plants; distributed animal division does not mean every cell divides.",
+       "atmosphere": "Root-tip division beside animal tissue renewal."
+      },
+      "skipped_steps": []
+     }
+    ],
+    "beats": [
+     {
+      "beat_id": "b1",
+      "part_id": "c01.1",
+      "step": 1,
+      "purpose": "hook",
+      "say": "हाथ कैसे हिलता है? Muscle cells की team से; यही tissue है।",
+      "covers_item_ids": [
+       "p001-i2"
+      ],
+      "answers": [],
+      "on_screen": "Moving arm → cooperating muscle cells.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b2",
+      "part_id": "c01.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "Cells combine यानी मिलकर same function करते हैं, एक team जैसे।",
+      "covers_item_ids": [
+       "p001-i2"
+      ],
+      "answers": [
+       "p001-i2#q1",
+       "p001-i2#q2"
+      ],
+      "on_screen": "Cells + common function → TISSUE.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b3",
+      "part_id": "c01.1",
+      "step": 3,
+      "purpose": "misconception",
+      "say": "सिर्फ पास होना काफी नहीं; shared काम चाहिए।",
+      "covers_item_ids": [
+       "p001-i2"
+      ],
+      "answers": [],
+      "on_screen": "Proximity alone ≠ tissue.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b4",
+      "part_id": "c01.1",
+      "step": 4,
+      "purpose": "recap",
+      "say": "Common function पहचान है; अब families देखो।",
+      "covers_item_ids": [
+       "p001-i2"
+      ],
+      "answers": [],
+      "on_screen": "Common function → classification.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b5",
+      "part_id": "c01.2",
+      "step": 1,
+      "purpose": "explain",
+      "say": "पत्ता और हाथ? Cells के origin से families हैं: plant tissues और animal tissues।",
+      "covers_item_ids": [
+       "p001-i3",
+       "p001-i4"
+      ],
+      "answers": [
+       "p001-i3#q2",
+       "p001-i4#q2"
+      ],
+      "on_screen": "Tissues → plant tissues / animal tissues.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b6",
+      "part_id": "c01.2",
+      "step": 2,
+      "purpose": "example",
+      "say": "पत्ते में कौन? Plant cells की teams plant tissues हैं।",
+      "covers_item_ids": [
+       "p001-i3"
+      ],
+      "answers": [
+       "p001-i3#q1"
+      ],
+      "on_screen": "Leaf → cooperating plant cells.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b7",
+      "part_id": "c01.2",
+      "step": 2,
+      "purpose": "example",
+      "say": "हमारी muscle में कौन? Animal cells के animal tissues; हम भी animals हैं।",
+      "covers_item_ids": [
+       "p001-i4"
+      ],
+      "answers": [
+       "p001-i4#q1"
+      ],
+      "on_screen": "Arm → muscle tissue → animal cells.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b8",
+      "part_id": "c01.2",
+      "step": 3,
+      "purpose": "compare",
+      "say": "फर्क origin का है; combine का मतलब cells का fusion नहीं।",
+      "covers_item_ids": [
+       "p001-i3",
+       "p001-i4"
+      ],
+      "answers": [
+       "p001-i3#q3"
+      ],
+      "on_screen": "Compare cellular origin; cooperation ≠ fusion.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b9",
+      "part_id": "c01.2",
+      "step": 4,
+      "purpose": "recap",
+      "say": "Origin याद रखो: plant या animal।",
+      "covers_item_ids": [
+       "p001-i3",
+       "p001-i4"
+      ],
+      "answers": [],
+      "on_screen": "Match each tissue family to its cells.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b10",
+      "part_id": "c01.3",
+      "step": 1,
+      "purpose": "hook",
+      "say": "Movement और protection की अलग teams क्यों? यही division of labour है।",
+      "covers_item_ids": [
+       "p001-i5"
+      ],
+      "answers": [
+       "p001-i5#q2"
+      ],
+      "on_screen": "Movement / protection: separate job cards.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b11",
+      "part_id": "c01.3",
+      "step": 2,
+      "purpose": "explain",
+      "say": "काम ज्यादा हैं, इसलिए teams specialise करती हैं।",
+      "covers_item_ids": [
+       "p001-i5"
+      ],
+      "answers": [
+       "p001-i5#q1"
+      ],
+      "on_screen": "Many tasks → specialised groups.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b12",
+      "part_id": "c01.3",
+      "step": 3,
+      "purpose": "explain",
+      "say": "हर cell सब काम नहीं करता; workload घटता है, coordination से organisation बनता है।",
+      "covers_item_ids": [
+       "p001-i6"
+      ],
+      "answers": [
+       "p001-i6#q1",
+       "p001-i6#q2",
+       "p001-i6#q3"
+      ],
+      "on_screen": "Shared tasks → reduced workload → coordinated organisation.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b13",
+      "part_id": "c01.3",
+      "step": 4,
+      "purpose": "example",
+      "say": "Muscle movement, skin protection सँभालती है।",
+      "covers_item_ids": [
+       "p001-i5"
+      ],
+      "answers": [],
+      "on_screen": "Observe movement and protection as different jobs.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b14",
+      "part_id": "c01.3",
+      "step": 5,
+      "purpose": "misconception",
+      "say": "अपने जरूरी काम cell फिर भी करता है।",
+      "covers_item_ids": [
+       "p001-i6"
+      ],
+      "answers": [],
+      "on_screen": "Essential cellular functions continue.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b15",
+      "part_id": "c01.3",
+      "step": 6,
+      "purpose": "recap",
+      "say": "काम बँटा, workload घटा, organisation बना; यह cell division नहीं।",
+      "covers_item_ids": [
+       "p001-i5",
+       "p001-i6"
+      ],
+      "answers": [],
+      "on_screen": "Division of labour ≠ cell division.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b16",
+      "part_id": "c01.4",
+      "step": 1,
+      "purpose": "hook",
+      "say": "पूरा इंसान सिर्फ पेट है? Organism में कई systems साथ चलते हैं।",
+      "covers_item_ids": [
+       "p001-i12"
+      ],
+      "answers": [
+       "p001-i12#q1",
+       "p001-i12#q3"
+      ],
+      "on_screen": "Whole human → coordinated systems.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b17",
+      "part_id": "c01.4",
+      "step": 2,
+      "purpose": "explain",
+      "say": "भीतर digestive Organ system देखो: पेट जैसे Organs की team है।",
+      "covers_item_ids": [
+       "p001-i10",
+       "p001-i11"
+      ],
+      "answers": [
+       "p001-i11#q1"
+      ],
+      "on_screen": "Human → digestive system → stomach.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b18",
+      "part_id": "c01.4",
+      "step": 3,
+      "purpose": "explain",
+      "say": "पेट के tissues में जीवित cells हैं; muscle tissue खाना हिलाती है, दूसरे tissues protection देते हैं। कई tissues मिलकर Organ बनाते हैं।",
+      "covers_item_ids": [
+       "p001-i8",
+       "p001-i9",
+       "p001-i10"
+      ],
+      "answers": [
+       "p001-i8#q1",
+       "p001-i9#q3",
+       "p001-i10#q1",
+       "p001-i10#q3",
+       "p001-i7#q3"
+      ],
+      "on_screen": "Stomach → tissues → living cells; movement and protection combine within the organ.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b19",
+      "part_id": "c01.4",
+      "step": 4,
+      "purpose": "explain",
+      "say": "पेट और आँत मिलकर digestion पूरा करते हैं।",
+      "covers_item_ids": [
+       "p001-i11"
+      ],
+      "answers": [
+       "p001-i11#q3"
+      ],
+      "on_screen": "Cooperating organs complete digestion.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b20",
+      "part_id": "c01.4",
+      "step": 5,
+      "purpose": "recap",
+      "say": "क्रम देखो: Cell, Tissues, Organ, Organ system, Organisms; छोटे हिस्सों से पूरा शरीर।",
+      "covers_item_ids": [
+       "p001-i7",
+       "p001-i8",
+       "p001-i9",
+       "p001-i10",
+       "p001-i11",
+       "p001-i12"
+      ],
+      "answers": [
+       "p001-i7#q1",
+       "p001-i7#q2",
+       "p001-i8#q2",
+       "p001-i8#q3",
+       "p001-i9#q1",
+       "p001-i9#q2",
+       "p001-i10#q2",
+       "p001-i11#q2",
+       "p001-i12#q2"
+      ],
+      "on_screen": "Cell → Tissues → Organ → Organ system → Organisms.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b21",
+      "part_id": "c02.1",
+      "step": 1,
+      "purpose": "hook",
+      "say": "चोट कैसे भरती है? Cell division से; Mitosis और Meiosis दोनों cells बनाते हैं।",
+      "covers_item_ids": [
+       "p001-i14"
+      ],
+      "answers": [],
+      "on_screen": "Healing skin → compare two division pathways.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b22",
+      "part_id": "c02.1",
+      "step": 2,
+      "purpose": "compare",
+      "say": "Mitosis somatic यानी body cells में; Meiosis germ यानी reproduction वाली line में होता है।",
+      "covers_item_ids": [
+       "p001-i14"
+      ],
+      "answers": [
+       "p001-i14#q1",
+       "p001-i14#q2"
+      ],
+      "on_screen": "Body maintenance | reproductive pathway.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b23",
+      "part_id": "c02.1",
+      "step": 2,
+      "purpose": "compare",
+      "say": "Nucleus 1 बार बनाम 2 बार बँटता है; इसलिए daughter cells, यानी नए cells, 2 बनाम 4 होते हैं।",
+      "covers_item_ids": [
+       "p001-i15",
+       "p001-i16"
+      ],
+      "answers": [
+       "p001-i15#q1",
+       "p001-i16#q1",
+       "p001-i16#q2"
+      ],
+      "on_screen": "Mitosis: 1 → 2. Meiosis: 1 → 2 → 4.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b24",
+      "part_id": "c02.1",
+      "step": 2,
+      "purpose": "compare",
+      "say": "Diploid यानी 2 पूरी गड्डियों जैसे sets; ऐसी शुरुआत से Mitosis diploid रखता है, Meiosis haploid यानी 1 set देता है।",
+      "covers_item_ids": [
+       "p001-i17"
+      ],
+      "answers": [
+       "p001-i17#q1",
+       "p001-i17#q2",
+       "p001-i17#q3"
+      ],
+      "on_screen": "Two complete card sets → two sets versus one set.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b25",
+      "part_id": "c02.1",
+      "step": 2,
+      "purpose": "compare",
+      "say": "Replacement बार-बार चाहिए: Mitosis ज्यादा frequent, Meiosis कम; fixed rate नहीं है।",
+      "covers_item_ids": [
+       "p001-i18"
+      ],
+      "answers": [
+       "p001-i18#q1",
+       "p001-i18#q2",
+       "p001-i18#q3"
+      ],
+      "on_screen": "Routine replacement versus restricted reproductive stages.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b26",
+      "part_id": "c02.1",
+      "step": 2,
+      "purpose": "compare",
+      "say": "Products somatic organs बनाते हैं बनाम gametes, जैसे sperm और egg; plants में Meiosis पहले spores देता है।",
+      "covers_item_ids": [
+       "p001-i19"
+      ],
+      "answers": [
+       "p001-i19#q1",
+       "p001-i19#q2",
+       "p001-i19#q3"
+      ],
+      "on_screen": "Body organs versus animal gametes; plants: spores first.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b27",
+      "part_id": "c02.1",
+      "step": 2,
+      "purpose": "compare",
+      "say": "prophase, metaphase, anaphase, telophase को तैयारी से बँटवारे तक के पड़ाव समझो: Mitosis में 1 round, Meiosis में 2; prophase I के 5 हिस्से हैं।",
+      "covers_item_ids": [
+       "p001-i20"
+      ],
+      "answers": [
+       "p001-i20#q1"
+      ],
+      "on_screen": "Preparation → alignment → separation → nuclear re-formation; one round versus two; prophase I has five segments.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b28",
+      "part_id": "c02.1",
+      "step": 2,
+      "purpose": "compare",
+      "say": "Chromosome number Mitosis में वही, Meiosis में आधा; वरना fertilisation से हर पीढ़ी में संख्या दोगुनी होती।",
+      "covers_item_ids": [
+       "p001-i21"
+      ],
+      "answers": [
+       "p001-i21#q1",
+       "p001-i21#q3"
+      ],
+      "on_screen": "2n → 2n versus 2n → n; fertilisation restores 2n.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b29",
+      "part_id": "c02.1",
+      "step": 2,
+      "purpose": "misconception",
+      "say": "Row 9 गलत है: इसमें Mitosis से पहले और Meiosis I के बाद chromosome doubling लिखा है।",
+      "covers_item_ids": [
+       "p001-i22"
+      ],
+      "answers": [
+       "p001-i22#q1"
+      ],
+      "on_screen": "Printed row 9 marked incorrect.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b30",
+      "part_id": "c02.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "असल में DNA पहले copy होता है, chromosome count नहीं बढ़ता; Meiosis I और II के बीच copying नहीं होती।",
+      "covers_item_ids": [
+       "p001-i22"
+      ],
+      "answers": [
+       "p001-i22#q2",
+       "p001-i22#q3"
+      ],
+      "on_screen": "DNA copies before mitosis / meiosis I; no replication between I and II.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b31",
+      "part_id": "c02.1",
+      "step": 2,
+      "purpose": "compare",
+      "say": "रंगीन ribbons हिस्से बदलें तो? Crossing over में ऐसा DNA exchange Meiosis में होता है, ordinary Mitosis में नहीं।",
+      "covers_item_ids": [
+       "p001-i23"
+      ],
+      "answers": [
+       "p001-i23#q1"
+      ],
+      "on_screen": "Homologous non-sister chromatids exchange corresponding coloured segments.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b32",
+      "part_id": "c02.1",
+      "step": 2,
+      "purpose": "compare",
+      "say": "Mitosis equational यानी संख्या वही; Meiosis reduction division यानी sets घटते हैं; printed Equation गलत spelling है।",
+      "covers_item_ids": [
+       "p001-i24"
+      ],
+      "answers": [
+       "p001-i24#q1",
+       "p001-i24#q2"
+      ],
+      "on_screen": "Equation → equational; preserved count versus reduced sets.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b33",
+      "part_id": "c02.1",
+      "step": 3,
+      "purpose": "exam_tip",
+      "say": "Trap: DNA copying chromosome doubling नहीं; Meiosis I reductional, II equational है।",
+      "covers_item_ids": [
+       "p001-i22",
+       "p001-i24"
+      ],
+      "answers": [
+       "p001-i24#q3"
+      ],
+      "on_screen": "DNA amount ≠ chromosome count.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b34",
+      "part_id": "c02.1",
+      "step": 4,
+      "purpose": "misconception",
+      "say": "Germ-line cells भी Mitosis करते हैं; roles exclusive नहीं हैं।",
+      "covers_item_ids": [
+       "p001-i14"
+      ],
+      "answers": [
+       "p001-i14#q3"
+      ],
+      "on_screen": "Usual roles ≠ exclusive permissions.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b35",
+      "part_id": "c02.1",
+      "step": 5,
+      "purpose": "recap",
+      "say": "Anchor रखो: Mitosis संख्या बचाता है, Meiosis sets घटाता है।",
+      "covers_item_ids": [
+       "p001-i21",
+       "p001-i24"
+      ],
+      "answers": [],
+      "on_screen": "Completed eleven-row comparison; row 9 corrected.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b36",
+      "part_id": "c03.1",
+      "step": 1,
+      "purpose": "hook",
+      "say": "जड़ और skin कैसे बढ़ते हैं? दोनों में Mitosis, व्यवस्था अलग है।",
+      "covers_item_ids": [
+       "p001-i29"
+      ],
+      "answers": [],
+      "on_screen": "Growing root versus renewing skin.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b37",
+      "part_id": "c03.1",
+      "step": 2,
+      "purpose": "compare",
+      "say": "छोटी नलियाँ दिखीं? ये Centrioles हैं: typical higher plants में absent, animal cells में present हैं।",
+      "covers_item_ids": [
+       "p001-i26"
+      ],
+      "answers": [
+       "p001-i26#q1",
+       "p001-i26#q3"
+      ],
+      "on_screen": "Zoom to paired cylinders at an animal spindle pole; compare typical higher plant.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b38",
+      "part_id": "c03.1",
+      "step": 2,
+      "purpose": "compare",
+      "say": "तारे जैसे धागे दिखे? Asters animals में बनते हैं, typical plants में नहीं।",
+      "covers_item_ids": [
+       "p001-i27"
+      ],
+      "answers": [
+       "p001-i27#q1",
+       "p001-i27#q2"
+      ],
+      "on_screen": "Highlight radial threads at animal spindle poles.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b39",
+      "part_id": "c03.1",
+      "step": 2,
+      "purpose": "compare",
+      "say": "Cell कैसे बँटेगा? Rigid plant wall के कारण cell plate बीच से बाहर बनती है; animal में furrowing बाहर से अंदर cytoplasm बाँटती है।",
+      "covers_item_ids": [
+       "p001-i28"
+      ],
+      "answers": [
+       "p001-i28#q1",
+       "p001-i28#q2",
+       "p001-i28#q3"
+      ],
+      "on_screen": "Plant: build a central partition outward; animal: pinch inward.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b40",
+      "part_id": "c03.1",
+      "step": 2,
+      "purpose": "compare",
+      "say": "जड़ की tip क्यों बढ़ती है? वहाँ meristem, dividing cells का इलाका है; animals में division कई tissues में फैला है।",
+      "covers_item_ids": [
+       "p001-i29"
+      ],
+      "answers": [
+       "p001-i29#q1",
+       "p001-i29#q2"
+      ],
+      "on_screen": "Plant growth zones versus distributed animal dividing tissues.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b41",
+      "part_id": "c03.1",
+      "step": 3,
+      "purpose": "explain",
+      "say": "Centrioles बिना भी plant spindle बनता है; machinery की व्यवस्था अलग है।",
+      "covers_item_ids": [
+       "p001-i26"
+      ],
+      "answers": [
+       "p001-i26#q2"
+      ],
+      "on_screen": "Both cells form chromosome-separating spindles.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b42",
+      "part_id": "c03.1",
+      "step": 4,
+      "purpose": "misconception",
+      "say": "Aster पूरा spindle नहीं; throughout का मतलब हर cell नहीं।",
+      "covers_item_ids": [
+       "p001-i27",
+       "p001-i29"
+      ],
+      "answers": [
+       "p001-i29#q3"
+      ],
+      "on_screen": "Aster ≠ spindle; distributed division ≠ every cell divides.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b43",
+      "part_id": "c03.1",
+      "step": 5,
+      "purpose": "recap",
+      "say": "Plant: plate और meristem याद रखो; animal: Centrioles, Asters, cleavage।",
+      "covers_item_ids": [
+       "p001-i26",
+       "p001-i27",
+       "p001-i28",
+       "p001-i29"
+      ],
+      "answers": [],
+      "on_screen": "Completed four-row comparison.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b44",
+      "part_id": "",
+      "step": 0,
+      "purpose": "recap",
+      "say": "Division cells देता है; shared काम tissues बनाता है; coordination organism चलाता है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Cell production → shared work → coordinated whole.",
+      "basis": "mixed"
+     }
+    ]
+   },
+   "code_problems": [
+    "[code] beat b24: the Hindi words ['गड्डियों'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b28: the Hindi words ['पीढ़ी'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] the script speaks about 4.6 minutes; this video's narration time is 3.3-4.4 minutes (S2-01): cut repetition and side-tracks, never book content",
+    "[code] beat b5: 67% of its 6 content words are the book's own and it opens nothing: after a book line, open a term (yaani + an everyday image), give the why from a need, or an example; never just read the line out (S2-07)",
+    "[code] beat b27: 86% of its 7 content words are the book's own and it opens nothing: after a book line, open a term (yaani + an everyday image), give the why from a need, or an example; never just read the line out (S2-07)",
+    "[code] beat b40: 67% of its 6 content words are the book's own and it opens nothing: after a book line, open a term (yaani + an everyday image), give the why from a need, or an example; never just read the line out (S2-07)"
+   ],
+   "observed": {
+    "pattern_order": [],
+    "skipped_steps": {},
+    "objective_coverage": {
+     "coverage": 1.0,
+     "uncovered": []
+    },
+    "cognitive_load": {
+     "max": 1.26,
+     "abrupt_jumps": [
+      "b4->b5",
+      "b5->b6",
+      "b18->b19",
+      "b22->b23"
+     ]
+    },
+    "duration": {
+     "spoken_minutes_at_130_wpm": 4.6,
+     "planned_minutes": 4,
+     "range": [
+      3.3,
+      4.4
+     ]
+    },
+    "dohraav": {
+     "beats": 44,
+     "judged": 32,
+     "restating": 3,
+     "share": 0.094,
+     "opened": 12,
+     "opened_share": 0.375,
+     "restating_beats": [
+      "b5",
+      "b27",
+      "b40"
+     ]
+    }
+   },
+   "passed": false,
+   "finished_at": 1792853964.7398827
+  },
+  {
+   "round": 3,
+   "started_at": 1792853964.740056,
+   "mode": "patch",
+   "patch": {
+    "notes": {
+     "about": "Targeted revision of the opening tissue lesson, preserving coverage and teaching-pattern steps.",
+     "key_questions": [
+      "Are all comparison criteria retained within the narration limit?",
+      "Do the flagged lines explain rather than repeat the book?"
+     ],
+     "decisions": [
+      {
+       "decision": "Replace flagged vocabulary with sets and generation.",
+       "reason": "Avoids unfamiliar Hindi without adding narration."
+      },
+      {
+       "decision": "Open the classification, phases and meristem lines with concrete images or causes.",
+       "reason": "Explains their meaning rather than merely naming terms."
+      },
+      {
+       "decision": "Shorten repeated hooks, recap wording and comparison phrasing.",
+       "reason": "Pays for the explanatory changes and brings narration below the upper limit without deleting content."
+      }
+     ],
+     "uncertain": [
+      "No page image was supplied; the supplied transcription remains the source."
+     ]
+    },
+    "replace_parts": [],
+    "replace_beats": [
+     {
+      "beat_id": "b5",
+      "part_id": "c01.2",
+      "step": 1,
+      "purpose": "explain",
+      "say": "पत्ता और हाथ देखो: cells किसके हैं? इसी आधार पर teams plant tissues या animal tissues हैं।",
+      "covers_item_ids": [
+       "p001-i3",
+       "p001-i4"
+      ],
+      "answers": [
+       "p001-i3#q2",
+       "p001-i4#q2"
+      ],
+      "on_screen": "Leaf and arm → cellular origin → plant tissues / animal tissues.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b8",
+      "part_id": "c01.2",
+      "step": 3,
+      "purpose": "compare",
+      "say": "Origin अलग है; combine यानी सहयोग, fusion नहीं।",
+      "covers_item_ids": [
+       "p001-i3",
+       "p001-i4"
+      ],
+      "answers": [
+       "p001-i3#q3"
+      ],
+      "on_screen": "Compare cellular origin; cooperation ≠ fusion.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b15",
+      "part_id": "c01.3",
+      "step": 6,
+      "purpose": "recap",
+      "say": "काम बाँटना workload घटाता है, organisation बनाता है; cell division नहीं।",
+      "covers_item_ids": [
+       "p001-i5",
+       "p001-i6"
+      ],
+      "answers": [],
+      "on_screen": "Division of labour → reduced workload → organisation; not cell division.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b20",
+      "part_id": "c01.4",
+      "step": 5,
+      "purpose": "recap",
+      "say": "Cell से Tissues, Organ, Organ system, फिर Organisms: हिस्सों से पूरा शरीर।",
+      "covers_item_ids": [
+       "p001-i7",
+       "p001-i8",
+       "p001-i9",
+       "p001-i10",
+       "p001-i11",
+       "p001-i12"
+      ],
+      "answers": [
+       "p001-i7#q1",
+       "p001-i7#q2",
+       "p001-i8#q2",
+       "p001-i8#q3",
+       "p001-i9#q1",
+       "p001-i9#q2",
+       "p001-i10#q2",
+       "p001-i11#q2",
+       "p001-i12#q2"
+      ],
+      "on_screen": "Cell → Tissues → Organ → Organ system → Organisms.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b21",
+      "part_id": "c02.1",
+      "step": 1,
+      "purpose": "hook",
+      "say": "चोट कैसे भरती है? Cell division से; Mitosis और Meiosis नए cells बनाते हैं।",
+      "covers_item_ids": [
+       "p001-i14"
+      ],
+      "answers": [],
+      "on_screen": "Healing skin → compare two division pathways.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b23",
+      "part_id": "c02.1",
+      "step": 2,
+      "purpose": "compare",
+      "say": "Nucleus 1 बनाम 2 बार बँटता है; daughter cells यानी नए cells इसलिए 2 बनाम 4 हैं।",
+      "covers_item_ids": [
+       "p001-i15",
+       "p001-i16"
+      ],
+      "answers": [
+       "p001-i15#q1",
+       "p001-i16#q1",
+       "p001-i16#q2"
+      ],
+      "on_screen": "Mitosis: 1 → 2. Meiosis: 1 → 2 → 4.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b24",
+      "part_id": "c02.1",
+      "step": 2,
+      "purpose": "compare",
+      "say": "Diploid यानी किताबों जैसे 2 पूरे sets; ऐसी शुरुआत से Mitosis 2 रखता है, Meiosis haploid यानी 1 set देता है।",
+      "covers_item_ids": [
+       "p001-i17"
+      ],
+      "answers": [
+       "p001-i17#q1",
+       "p001-i17#q2",
+       "p001-i17#q3"
+      ],
+      "on_screen": "Two complete book sets → two sets versus one set; diploid starting cell.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b27",
+      "part_id": "c02.1",
+      "step": 2,
+      "purpose": "compare",
+      "say": "तैयारी, कतार, अलगाव और नए nuclei: ये prophase, metaphase, anaphase, telophase हैं। Mitosis में हर पड़ाव 1 बार, Meiosis में 2; prophase I के 5 हिस्से हैं।",
+      "covers_item_ids": [
+       "p001-i20"
+      ],
+      "answers": [
+       "p001-i20#q1"
+      ],
+      "on_screen": "Preparation → chromosomes line up → separate → nuclei re-form; one round versus two; prophase I has five segments.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b28",
+      "part_id": "c02.1",
+      "step": 2,
+      "purpose": "compare",
+      "say": "Chromosome number Mitosis में वही, Meiosis में आधा; वरना fertilisation हर generation में संख्या दोगुनी कर देता।",
+      "covers_item_ids": [
+       "p001-i21"
+      ],
+      "answers": [
+       "p001-i21#q1",
+       "p001-i21#q3"
+      ],
+      "on_screen": "2n → 2n versus 2n → n; fertilisation restores 2n.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b29",
+      "part_id": "c02.1",
+      "step": 2,
+      "purpose": "misconception",
+      "say": "Row 9 गलत है: chromosome doubling Mitosis से पहले, Meiosis I के बाद बताती है।",
+      "covers_item_ids": [
+       "p001-i22"
+      ],
+      "answers": [
+       "p001-i22#q1"
+      ],
+      "on_screen": "Printed row 9 marked incorrect.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b30",
+      "part_id": "c02.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "पहले DNA copy होता है, chromosome count नहीं बढ़ता; Meiosis I और II के बीच copying नहीं होती।",
+      "covers_item_ids": [
+       "p001-i22"
+      ],
+      "answers": [
+       "p001-i22#q2",
+       "p001-i22#q3"
+      ],
+      "on_screen": "DNA copies before mitosis / meiosis I; no replication between I and II.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b31",
+      "part_id": "c02.1",
+      "step": 2,
+      "purpose": "compare",
+      "say": "Ribbons हिस्से बदलें तो? ऐसा DNA exchange crossing over है: Meiosis में होता है, ordinary Mitosis में नहीं।",
+      "covers_item_ids": [
+       "p001-i23"
+      ],
+      "answers": [
+       "p001-i23#q1"
+      ],
+      "on_screen": "Homologous non-sister chromatids exchange corresponding coloured segments.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b32",
+      "part_id": "c02.1",
+      "step": 2,
+      "purpose": "compare",
+      "say": "Mitosis equational यानी संख्या वही; Meiosis reduction division यानी sets घटते हैं। Printed Equation गलत है।",
+      "covers_item_ids": [
+       "p001-i24"
+      ],
+      "answers": [
+       "p001-i24#q1",
+       "p001-i24#q2"
+      ],
+      "on_screen": "Equation → equational; preserved count versus reduced sets.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b37",
+      "part_id": "c03.1",
+      "step": 2,
+      "purpose": "compare",
+      "say": "छोटी नलियाँ दिखीं? Centrioles typical higher plants में absent, animals में present हैं।",
+      "covers_item_ids": [
+       "p001-i26"
+      ],
+      "answers": [
+       "p001-i26#q1",
+       "p001-i26#q3"
+      ],
+      "on_screen": "Paired cylinders at an animal spindle pole; absent in typical higher-plant cells.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b39",
+      "part_id": "c03.1",
+      "step": 2,
+      "purpose": "compare",
+      "say": "Cell कैसे बँटेगा? Rigid plant wall के कारण cell plate बीच से बाहर बनती है; animal furrowing बाहर से अंदर cytoplasm बाँटती है।",
+      "covers_item_ids": [
+       "p001-i28"
+      ],
+      "answers": [
+       "p001-i28#q1",
+       "p001-i28#q2",
+       "p001-i28#q3"
+      ],
+      "on_screen": "Plant: build a central partition outward; animal: pinch inward.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b40",
+      "part_id": "c03.1",
+      "step": 2,
+      "purpose": "compare",
+      "say": "जड़ की नोक क्यों बढ़ती है? Meristem में cells बँटकर लंबाई बढ़ाते हैं; animals में division कई tissues में फैला है।",
+      "covers_item_ids": [
+       "p001-i29"
+      ],
+      "answers": [
+       "p001-i29#q1",
+       "p001-i29#q2"
+      ],
+      "on_screen": "Root-tip dividing cells produce growth; contrast distributed animal tissue renewal.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b43",
+      "part_id": "c03.1",
+      "step": 5,
+      "purpose": "recap",
+      "say": "Plant में plate, meristem; animal में Centrioles, Asters, cleavage याद रखो।",
+      "covers_item_ids": [
+       "p001-i26",
+       "p001-i27",
+       "p001-i28",
+       "p001-i29"
+      ],
+      "answers": [],
+      "on_screen": "Completed four-row comparison.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b44",
+      "part_id": "",
+      "step": 0,
+      "purpose": "recap",
+      "say": "Division नए cells देता है; shared काम tissues, coordination पूरा organism चलाता है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Cell production → shared work → coordinated whole.",
+      "basis": "mixed"
+     }
+    ],
+    "insert_beats": [],
+    "remove_beat_ids": []
+   },
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "169dca6e601222808ca45a824fe8d8b8305f173645b5433ef894cffe648d5610",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 24013,
+    "output_tokens": 2039,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "This opening topic connects tissue organisation with cell division, then compares mitosis across plants and animals.",
+    "key_questions": [
+     "What makes cooperating cells a tissue?",
+     "How does shared work build higher levels of organisation?",
+     "How do mitosis and meiosis differ on every printed criterion?",
+     "Which printed claims require correction or qualification?"
+    ],
+    "decisions": [
+     {
+      "decision": "Use short paired comparisons and visual examples within the four-minute allocation.",
+      "reason": "All printed criteria must remain without lengthy phase-by-phase mechanisms."
+     },
+     {
+      "decision": "Correct the replication row explicitly and qualify diploidy, gamete formation and plant generalisations.",
+      "reason": "Literal repetition would teach factual errors or misleading absolutes."
+     },
+     {
+      "decision": "Do not impose layer-and-shape slots on plant versus animal tissue categories.",
+      "reason": "These broad categories have no single shared shape or layer arrangement."
+     },
+     {
+      "decision": "Shorten hooks, examples and recaps across the video.",
+      "reason": "Pays for clearer explanations without removing book content or required pattern steps."
+     },
+     {
+      "decision": "Split the inward structural zoom across two existing beats.",
+      "reason": "Removes the four-item cognitive overload without adding narration."
+     },
+     {
+      "decision": "Replace flagged Hindi words with familiar English terms.",
+      "reason": "Maintains natural mixed-script narration."
+     },
+     {
+      "decision": "Replace flagged vocabulary with sets and generation.",
+      "reason": "Avoids unfamiliar Hindi without adding narration."
+     },
+     {
+      "decision": "Open the classification, phases and meristem lines with concrete images or causes.",
+      "reason": "Explains their meaning rather than merely naming terms."
+     },
+     {
+      "decision": "Shorten repeated hooks, recap wording and comparison phrasing.",
+      "reason": "Pays for the explanatory changes and brings narration below the upper limit without deleting content."
+     }
+    ],
+    "uncertain": [
+     "No page image was supplied; the supplied transcription remains the source."
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "This opening topic connects tissue organisation with cell division, then compares mitosis across plants and animals.",
+     "key_questions": [
+      "What makes cooperating cells a tissue?",
+      "How does shared work build higher levels of organisation?",
+      "How do mitosis and meiosis differ on every printed criterion?",
+      "Which printed claims require correction or qualification?"
+     ],
+     "decisions": [
+      {
+       "decision": "Use short paired comparisons and visual examples within the four-minute allocation.",
+       "reason": "All printed criteria must remain without lengthy phase-by-phase mechanisms."
+      },
+      {
+       "decision": "Correct the replication row explicitly and qualify diploidy, gamete formation and plant generalisations.",
+       "reason": "Literal repetition would teach factual errors or misleading absolutes."
+      },
+      {
+       "decision": "Do not impose layer-and-shape slots on plant versus animal tissue categories.",
+       "reason": "These broad categories have no single shared shape or layer arrangement."
+      },
+      {
+       "decision": "Shorten hooks, examples and recaps across the video.",
+       "reason": "Pays for clearer explanations without removing book content or required pattern steps."
+      },
+      {
+       "decision": "Split the inward structural zoom across two existing beats.",
+       "reason": "Removes the four-item cognitive overload without adding narration."
+      },
+      {
+       "decision": "Replace flagged Hindi words with familiar English terms.",
+       "reason": "Maintains natural mixed-script narration."
+      },
+      {
+       "decision": "Replace flagged vocabulary with sets and generation.",
+       "reason": "Avoids unfamiliar Hindi without adding narration."
+      },
+      {
+       "decision": "Open the classification, phases and meristem lines with concrete images or causes.",
+       "reason": "Explains their meaning rather than merely naming terms."
+      },
+      {
+       "decision": "Shorten repeated hooks, recap wording and comparison phrasing.",
+       "reason": "Pays for the explanatory changes and brings narration below the upper limit without deleting content."
+      }
+     ],
+     "uncertain": [
+      "No page image was supplied; the supplied transcription remains the source."
+     ]
+    },
+    "title": "Cells मिलकर tissue कैसे बनाते हैं?",
+    "parts": [
+     {
+      "part_id": "c01.1",
+      "frame": {
+       "process": "Define tissue through shared cellular work.",
+       "how": "Contrast a cooperating group with mere proximity.",
+       "when": "Before classification and organisational levels.",
+       "conditions": "Cells contribute to a common function.",
+       "atmosphere": "An arm moving through coordinated muscle activity."
+      },
+      "skipped_steps": []
+     },
+     {
+      "part_id": "c01.2",
+      "frame": {
+       "process": "Separate plant and animal tissues by cellular origin.",
+       "how": "Compare leaf tissues with human muscle.",
+       "when": "After defining tissue.",
+       "conditions": "Shape and layering vary within each category and are not the division basis.",
+       "atmosphere": "A leaf beside a moving human arm."
+      },
+      "skipped_steps": []
+     },
+     {
+      "part_id": "c01.3",
+      "frame": {
+       "process": "Explain reduced individual workload through specialisation.",
+       "how": "Different groups share tasks and coordinate.",
+       "when": "As specialised groups cooperate.",
+       "conditions": "Cells retain their own essential life functions.",
+       "atmosphere": "Movement and protection performed by different groups."
+      },
+      "skipped_steps": []
+     },
+     {
+      "part_id": "c01.4",
+      "frame": {
+       "process": "Locate cells within tissues, organs, systems and organisms.",
+       "how": "Zoom inward from a human, then connect component functions outward.",
+       "when": "An organisational sequence, not a developmental timeline.",
+       "conditions": "The full hierarchy describes complex multicellular organisms.",
+       "atmosphere": "Human digestion as a nested example."
+      },
+      "skipped_steps": []
+     },
+     {
+      "part_id": "c02.1",
+      "frame": {
+       "process": "Compare mitosis and meiosis across all eleven printed criteria.",
+       "how": "Pair each criterion and explain outcomes through division count and chromosome sets.",
+       "when": "Body growth and maintenance versus reproductive pathways.",
+       "conditions": "Diploid starting-cell example; distinguish DNA amount from chromosome count.",
+       "atmosphere": "Skin repair contrasted with reproduction."
+      },
+      "skipped_steps": []
+     },
+     {
+      "part_id": "c03.1",
+      "frame": {
+       "process": "Compare typical higher-plant and animal mitosis.",
+       "how": "Contrast poles, cytoplasmic separation and distribution of dividing tissues.",
+       "when": "During mitotic division and growth.",
+       "conditions": "Typical higher plants; distributed animal division does not mean every cell divides.",
+       "atmosphere": "Root-tip division beside animal tissue renewal."
+      },
+      "skipped_steps": []
+     }
+    ],
+    "beats": [
+     {
+      "beat_id": "b1",
+      "part_id": "c01.1",
+      "step": 1,
+      "purpose": "hook",
+      "say": "हाथ कैसे हिलता है? Muscle cells की team से; यही tissue है।",
+      "covers_item_ids": [
+       "p001-i2"
+      ],
+      "answers": [],
+      "on_screen": "Moving arm → cooperating muscle cells.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b2",
+      "part_id": "c01.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "Cells combine यानी मिलकर same function करते हैं, एक team जैसे।",
+      "covers_item_ids": [
+       "p001-i2"
+      ],
+      "answers": [
+       "p001-i2#q1",
+       "p001-i2#q2"
+      ],
+      "on_screen": "Cells + common function → TISSUE.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b3",
+      "part_id": "c01.1",
+      "step": 3,
+      "purpose": "misconception",
+      "say": "सिर्फ पास होना काफी नहीं; shared काम चाहिए।",
+      "covers_item_ids": [
+       "p001-i2"
+      ],
+      "answers": [],
+      "on_screen": "Proximity alone ≠ tissue.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b4",
+      "part_id": "c01.1",
+      "step": 4,
+      "purpose": "recap",
+      "say": "Common function पहचान है; अब families देखो।",
+      "covers_item_ids": [
+       "p001-i2"
+      ],
+      "answers": [],
+      "on_screen": "Common function → classification.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b5",
+      "part_id": "c01.2",
+      "step": 1,
+      "purpose": "explain",
+      "say": "पत्ता और हाथ देखो: cells किसके हैं? इसी आधार पर teams plant tissues या animal tissues हैं।",
+      "covers_item_ids": [
+       "p001-i3",
+       "p001-i4"
+      ],
+      "answers": [
+       "p001-i3#q2",
+       "p001-i4#q2"
+      ],
+      "on_screen": "Leaf and arm → cellular origin → plant tissues / animal tissues.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b6",
+      "part_id": "c01.2",
+      "step": 2,
+      "purpose": "example",
+      "say": "पत्ते में कौन? Plant cells की teams plant tissues हैं।",
+      "covers_item_ids": [
+       "p001-i3"
+      ],
+      "answers": [
+       "p001-i3#q1"
+      ],
+      "on_screen": "Leaf → cooperating plant cells.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b7",
+      "part_id": "c01.2",
+      "step": 2,
+      "purpose": "example",
+      "say": "हमारी muscle में कौन? Animal cells के animal tissues; हम भी animals हैं।",
+      "covers_item_ids": [
+       "p001-i4"
+      ],
+      "answers": [
+       "p001-i4#q1"
+      ],
+      "on_screen": "Arm → muscle tissue → animal cells.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b8",
+      "part_id": "c01.2",
+      "step": 3,
+      "purpose": "compare",
+      "say": "Origin अलग है; combine यानी सहयोग, fusion नहीं।",
+      "covers_item_ids": [
+       "p001-i3",
+       "p001-i4"
+      ],
+      "answers": [
+       "p001-i3#q3"
+      ],
+      "on_screen": "Compare cellular origin; cooperation ≠ fusion.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b9",
+      "part_id": "c01.2",
+      "step": 4,
+      "purpose": "recap",
+      "say": "Origin याद रखो: plant या animal।",
+      "covers_item_ids": [
+       "p001-i3",
+       "p001-i4"
+      ],
+      "answers": [],
+      "on_screen": "Match each tissue family to its cells.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b10",
+      "part_id": "c01.3",
+      "step": 1,
+      "purpose": "hook",
+      "say": "Movement और protection की अलग teams क्यों? यही division of labour है।",
+      "covers_item_ids": [
+       "p001-i5"
+      ],
+      "answers": [
+       "p001-i5#q2"
+      ],
+      "on_screen": "Movement / protection: separate job cards.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b11",
+      "part_id": "c01.3",
+      "step": 2,
+      "purpose": "explain",
+      "say": "काम ज्यादा हैं, इसलिए teams specialise करती हैं।",
+      "covers_item_ids": [
+       "p001-i5"
+      ],
+      "answers": [
+       "p001-i5#q1"
+      ],
+      "on_screen": "Many tasks → specialised groups.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b12",
+      "part_id": "c01.3",
+      "step": 3,
+      "purpose": "explain",
+      "say": "हर cell सब काम नहीं करता; workload घटता है, coordination से organisation बनता है।",
+      "covers_item_ids": [
+       "p001-i6"
+      ],
+      "answers": [
+       "p001-i6#q1",
+       "p001-i6#q2",
+       "p001-i6#q3"
+      ],
+      "on_screen": "Shared tasks → reduced workload → coordinated organisation.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b13",
+      "part_id": "c01.3",
+      "step": 4,
+      "purpose": "example",
+      "say": "Muscle movement, skin protection सँभालती है।",
+      "covers_item_ids": [
+       "p001-i5"
+      ],
+      "answers": [],
+      "on_screen": "Observe movement and protection as different jobs.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b14",
+      "part_id": "c01.3",
+      "step": 5,
+      "purpose": "misconception",
+      "say": "अपने जरूरी काम cell फिर भी करता है।",
+      "covers_item_ids": [
+       "p001-i6"
+      ],
+      "answers": [],
+      "on_screen": "Essential cellular functions continue.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b15",
+      "part_id": "c01.3",
+      "step": 6,
+      "purpose": "recap",
+      "say": "काम बाँटना workload घटाता है, organisation बनाता है; cell division नहीं।",
+      "covers_item_ids": [
+       "p001-i5",
+       "p001-i6"
+      ],
+      "answers": [],
+      "on_screen": "Division of labour → reduced workload → organisation; not cell division.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b16",
+      "part_id": "c01.4",
+      "step": 1,
+      "purpose": "hook",
+      "say": "पूरा इंसान सिर्फ पेट है? Organism में कई systems साथ चलते हैं।",
+      "covers_item_ids": [
+       "p001-i12"
+      ],
+      "answers": [
+       "p001-i12#q1",
+       "p001-i12#q3"
+      ],
+      "on_screen": "Whole human → coordinated systems.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b17",
+      "part_id": "c01.4",
+      "step": 2,
+      "purpose": "explain",
+      "say": "भीतर digestive Organ system देखो: पेट जैसे Organs की team है।",
+      "covers_item_ids": [
+       "p001-i10",
+       "p001-i11"
+      ],
+      "answers": [
+       "p001-i11#q1"
+      ],
+      "on_screen": "Human → digestive system → stomach.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b18",
+      "part_id": "c01.4",
+      "step": 3,
+      "purpose": "explain",
+      "say": "पेट के tissues में जीवित cells हैं; muscle tissue खाना हिलाती है, दूसरे tissues protection देते हैं। कई tissues मिलकर Organ बनाते हैं।",
+      "covers_item_ids": [
+       "p001-i8",
+       "p001-i9",
+       "p001-i10"
+      ],
+      "answers": [
+       "p001-i8#q1",
+       "p001-i9#q3",
+       "p001-i10#q1",
+       "p001-i10#q3",
+       "p001-i7#q3"
+      ],
+      "on_screen": "Stomach → tissues → living cells; movement and protection combine within the organ.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b19",
+      "part_id": "c01.4",
+      "step": 4,
+      "purpose": "explain",
+      "say": "पेट और आँत मिलकर digestion पूरा करते हैं।",
+      "covers_item_ids": [
+       "p001-i11"
+      ],
+      "answers": [
+       "p001-i11#q3"
+      ],
+      "on_screen": "Cooperating organs complete digestion.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b20",
+      "part_id": "c01.4",
+      "step": 5,
+      "purpose": "recap",
+      "say": "Cell से Tissues, Organ, Organ system, फिर Organisms: हिस्सों से पूरा शरीर।",
+      "covers_item_ids": [
+       "p001-i7",
+       "p001-i8",
+       "p001-i9",
+       "p001-i10",
+       "p001-i11",
+       "p001-i12"
+      ],
+      "answers": [
+       "p001-i7#q1",
+       "p001-i7#q2",
+       "p001-i8#q2",
+       "p001-i8#q3",
+       "p001-i9#q1",
+       "p001-i9#q2",
+       "p001-i10#q2",
+       "p001-i11#q2",
+       "p001-i12#q2"
+      ],
+      "on_screen": "Cell → Tissues → Organ → Organ system → Organisms.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b21",
+      "part_id": "c02.1",
+      "step": 1,
+      "purpose": "hook",
+      "say": "चोट कैसे भरती है? Cell division से; Mitosis और Meiosis नए cells बनाते हैं।",
+      "covers_item_ids": [
+       "p001-i14"
+      ],
+      "answers": [],
+      "on_screen": "Healing skin → compare two division pathways.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b22",
+      "part_id": "c02.1",
+      "step": 2,
+      "purpose": "compare",
+      "say": "Mitosis somatic यानी body cells में; Meiosis germ यानी reproduction वाली line में होता है।",
+      "covers_item_ids": [
+       "p001-i14"
+      ],
+      "answers": [
+       "p001-i14#q1",
+       "p001-i14#q2"
+      ],
+      "on_screen": "Body maintenance | reproductive pathway.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b23",
+      "part_id": "c02.1",
+      "step": 2,
+      "purpose": "compare",
+      "say": "Nucleus 1 बनाम 2 बार बँटता है; daughter cells यानी नए cells इसलिए 2 बनाम 4 हैं।",
+      "covers_item_ids": [
+       "p001-i15",
+       "p001-i16"
+      ],
+      "answers": [
+       "p001-i15#q1",
+       "p001-i16#q1",
+       "p001-i16#q2"
+      ],
+      "on_screen": "Mitosis: 1 → 2. Meiosis: 1 → 2 → 4.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b24",
+      "part_id": "c02.1",
+      "step": 2,
+      "purpose": "compare",
+      "say": "Diploid यानी किताबों जैसे 2 पूरे sets; ऐसी शुरुआत से Mitosis 2 रखता है, Meiosis haploid यानी 1 set देता है।",
+      "covers_item_ids": [
+       "p001-i17"
+      ],
+      "answers": [
+       "p001-i17#q1",
+       "p001-i17#q2",
+       "p001-i17#q3"
+      ],
+      "on_screen": "Two complete book sets → two sets versus one set; diploid starting cell.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b25",
+      "part_id": "c02.1",
+      "step": 2,
+      "purpose": "compare",
+      "say": "Replacement बार-बार चाहिए: Mitosis ज्यादा frequent, Meiosis कम; fixed rate नहीं है।",
+      "covers_item_ids": [
+       "p001-i18"
+      ],
+      "answers": [
+       "p001-i18#q1",
+       "p001-i18#q2",
+       "p001-i18#q3"
+      ],
+      "on_screen": "Routine replacement versus restricted reproductive stages.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b26",
+      "part_id": "c02.1",
+      "step": 2,
+      "purpose": "compare",
+      "say": "Products somatic organs बनाते हैं बनाम gametes, जैसे sperm और egg; plants में Meiosis पहले spores देता है।",
+      "covers_item_ids": [
+       "p001-i19"
+      ],
+      "answers": [
+       "p001-i19#q1",
+       "p001-i19#q2",
+       "p001-i19#q3"
+      ],
+      "on_screen": "Body organs versus animal gametes; plants: spores first.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b27",
+      "part_id": "c02.1",
+      "step": 2,
+      "purpose": "compare",
+      "say": "तैयारी, कतार, अलगाव और नए nuclei: ये prophase, metaphase, anaphase, telophase हैं। Mitosis में हर पड़ाव 1 बार, Meiosis में 2; prophase I के 5 हिस्से हैं।",
+      "covers_item_ids": [
+       "p001-i20"
+      ],
+      "answers": [
+       "p001-i20#q1"
+      ],
+      "on_screen": "Preparation → chromosomes line up → separate → nuclei re-form; one round versus two; prophase I has five segments.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b28",
+      "part_id": "c02.1",
+      "step": 2,
+      "purpose": "compare",
+      "say": "Chromosome number Mitosis में वही, Meiosis में आधा; वरना fertilisation हर generation में संख्या दोगुनी कर देता।",
+      "covers_item_ids": [
+       "p001-i21"
+      ],
+      "answers": [
+       "p001-i21#q1",
+       "p001-i21#q3"
+      ],
+      "on_screen": "2n → 2n versus 2n → n; fertilisation restores 2n.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b29",
+      "part_id": "c02.1",
+      "step": 2,
+      "purpose": "misconception",
+      "say": "Row 9 गलत है: chromosome doubling Mitosis से पहले, Meiosis I के बाद बताती है।",
+      "covers_item_ids": [
+       "p001-i22"
+      ],
+      "answers": [
+       "p001-i22#q1"
+      ],
+      "on_screen": "Printed row 9 marked incorrect.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b30",
+      "part_id": "c02.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "पहले DNA copy होता है, chromosome count नहीं बढ़ता; Meiosis I और II के बीच copying नहीं होती।",
+      "covers_item_ids": [
+       "p001-i22"
+      ],
+      "answers": [
+       "p001-i22#q2",
+       "p001-i22#q3"
+      ],
+      "on_screen": "DNA copies before mitosis / meiosis I; no replication between I and II.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b31",
+      "part_id": "c02.1",
+      "step": 2,
+      "purpose": "compare",
+      "say": "Ribbons हिस्से बदलें तो? ऐसा DNA exchange crossing over है: Meiosis में होता है, ordinary Mitosis में नहीं।",
+      "covers_item_ids": [
+       "p001-i23"
+      ],
+      "answers": [
+       "p001-i23#q1"
+      ],
+      "on_screen": "Homologous non-sister chromatids exchange corresponding coloured segments.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b32",
+      "part_id": "c02.1",
+      "step": 2,
+      "purpose": "compare",
+      "say": "Mitosis equational यानी संख्या वही; Meiosis reduction division यानी sets घटते हैं। Printed Equation गलत है।",
+      "covers_item_ids": [
+       "p001-i24"
+      ],
+      "answers": [
+       "p001-i24#q1",
+       "p001-i24#q2"
+      ],
+      "on_screen": "Equation → equational; preserved count versus reduced sets.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b33",
+      "part_id": "c02.1",
+      "step": 3,
+      "purpose": "exam_tip",
+      "say": "Trap: DNA copying chromosome doubling नहीं; Meiosis I reductional, II equational है।",
+      "covers_item_ids": [
+       "p001-i22",
+       "p001-i24"
+      ],
+      "answers": [
+       "p001-i24#q3"
+      ],
+      "on_screen": "DNA amount ≠ chromosome count.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b34",
+      "part_id": "c02.1",
+      "step": 4,
+      "purpose": "misconception",
+      "say": "Germ-line cells भी Mitosis करते हैं; roles exclusive नहीं हैं।",
+      "covers_item_ids": [
+       "p001-i14"
+      ],
+      "answers": [
+       "p001-i14#q3"
+      ],
+      "on_screen": "Usual roles ≠ exclusive permissions.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b35",
+      "part_id": "c02.1",
+      "step": 5,
+      "purpose": "recap",
+      "say": "Anchor रखो: Mitosis संख्या बचाता है, Meiosis sets घटाता है।",
+      "covers_item_ids": [
+       "p001-i21",
+       "p001-i24"
+      ],
+      "answers": [],
+      "on_screen": "Completed eleven-row comparison; row 9 corrected.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b36",
+      "part_id": "c03.1",
+      "step": 1,
+      "purpose": "hook",
+      "say": "जड़ और skin कैसे बढ़ते हैं? दोनों में Mitosis, व्यवस्था अलग है।",
+      "covers_item_ids": [
+       "p001-i29"
+      ],
+      "answers": [],
+      "on_screen": "Growing root versus renewing skin.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b37",
+      "part_id": "c03.1",
+      "step": 2,
+      "purpose": "compare",
+      "say": "छोटी नलियाँ दिखीं? Centrioles typical higher plants में absent, animals में present हैं।",
+      "covers_item_ids": [
+       "p001-i26"
+      ],
+      "answers": [
+       "p001-i26#q1",
+       "p001-i26#q3"
+      ],
+      "on_screen": "Paired cylinders at an animal spindle pole; absent in typical higher-plant cells.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b38",
+      "part_id": "c03.1",
+      "step": 2,
+      "purpose": "compare",
+      "say": "तारे जैसे धागे दिखे? Asters animals में बनते हैं, typical plants में नहीं।",
+      "covers_item_ids": [
+       "p001-i27"
+      ],
+      "answers": [
+       "p001-i27#q1",
+       "p001-i27#q2"
+      ],
+      "on_screen": "Highlight radial threads at animal spindle poles.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b39",
+      "part_id": "c03.1",
+      "step": 2,
+      "purpose": "compare",
+      "say": "Cell कैसे बँटेगा? Rigid plant wall के कारण cell plate बीच से बाहर बनती है; animal furrowing बाहर से अंदर cytoplasm बाँटती है।",
+      "covers_item_ids": [
+       "p001-i28"
+      ],
+      "answers": [
+       "p001-i28#q1",
+       "p001-i28#q2",
+       "p001-i28#q3"
+      ],
+      "on_screen": "Plant: build a central partition outward; animal: pinch inward.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b40",
+      "part_id": "c03.1",
+      "step": 2,
+      "purpose": "compare",
+      "say": "जड़ की नोक क्यों बढ़ती है? Meristem में cells बँटकर लंबाई बढ़ाते हैं; animals में division कई tissues में फैला है।",
+      "covers_item_ids": [
+       "p001-i29"
+      ],
+      "answers": [
+       "p001-i29#q1",
+       "p001-i29#q2"
+      ],
+      "on_screen": "Root-tip dividing cells produce growth; contrast distributed animal tissue renewal.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b41",
+      "part_id": "c03.1",
+      "step": 3,
+      "purpose": "explain",
+      "say": "Centrioles बिना भी plant spindle बनता है; machinery की व्यवस्था अलग है।",
+      "covers_item_ids": [
+       "p001-i26"
+      ],
+      "answers": [
+       "p001-i26#q2"
+      ],
+      "on_screen": "Both cells form chromosome-separating spindles.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b42",
+      "part_id": "c03.1",
+      "step": 4,
+      "purpose": "misconception",
+      "say": "Aster पूरा spindle नहीं; throughout का मतलब हर cell नहीं।",
+      "covers_item_ids": [
+       "p001-i27",
+       "p001-i29"
+      ],
+      "answers": [
+       "p001-i29#q3"
+      ],
+      "on_screen": "Aster ≠ spindle; distributed division ≠ every cell divides.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b43",
+      "part_id": "c03.1",
+      "step": 5,
+      "purpose": "recap",
+      "say": "Plant में plate, meristem; animal में Centrioles, Asters, cleavage याद रखो।",
+      "covers_item_ids": [
+       "p001-i26",
+       "p001-i27",
+       "p001-i28",
+       "p001-i29"
+      ],
+      "answers": [],
+      "on_screen": "Completed four-row comparison.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b44",
+      "part_id": "",
+      "step": 0,
+      "purpose": "recap",
+      "say": "Division नए cells देता है; shared काम tissues, coordination पूरा organism चलाता है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Cell production → shared work → coordinated whole.",
+      "basis": "mixed"
+     }
+    ]
+   },
+   "code_problems": [
+    "[code] beat b40: the Hindi words ['नोक'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] the script speaks about 4.5 minutes; this video's narration time is 3.3-4.4 minutes (S2-01): cut repetition and side-tracks, never book content",
+    "[code] beat b27: 86% of its 7 content words are the book's own and it opens nothing: after a book line, open a term (yaani + an everyday image), give the why from a need, or an example; never just read the line out (S2-07)",
+    "[code] beat b28: 67% of its 6 content words are the book's own and it opens nothing: after a book line, open a term (yaani + an everyday image), give the why from a need, or an example; never just read the line out (S2-07)",
+    "[code] beat b37: 71% of its 7 content words are the book's own and it opens nothing: after a book line, open a term (yaani + an everyday image), give the why from a need, or an example; never just read the line out (S2-07)",
+    "[code] beat b20: \"Cell से Tissues, Organ, Organ system, फिर Organisms: हिस्सों से पूरा श\" is a clipped note without a verb; speak complete sentences like a teacher (S2-07)"
+   ],
+   "observed": {
+    "pattern_order": [],
+    "skipped_steps": {},
+    "objective_coverage": {
+     "coverage": 1.0,
+     "uncovered": []
+    },
+    "cognitive_load": {
+     "max": 1.26,
+     "abrupt_jumps": [
+      "b4->b5",
+      "b5->b6",
+      "b18->b19",
+      "b22->b23"
+     ]
+    },
+    "duration": {
+     "spoken_minutes_at_130_wpm": 4.5,
+     "planned_minutes": 4,
+     "range": [
+      3.3,
+      4.4
+     ]
+    },
+    "dohraav": {
+     "beats": 44,
+     "judged": 32,
+     "restating": 3,
+     "share": 0.094,
+     "opened": 12,
+     "opened_share": 0.375,
+     "restating_beats": [
+      "b27",
+      "b28",
+      "b37"
+     ]
+    }
+   },
+   "passed": false,
+   "finished_at": 1792854001.9650009
+  }
+ ],
+ "avoid_rounds": [
+  1,
+  2,
+  3
+ ],
+ "cost_usd": 0.0,
+ "seconds": 271.3,
+ "navin_verdict": null
+}

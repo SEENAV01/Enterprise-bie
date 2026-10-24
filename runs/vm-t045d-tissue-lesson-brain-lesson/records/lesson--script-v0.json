@@ -1,0 +1,2600 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "lesson",
+ "unit": "script-v0",
+ "status": "passed",
+ "instructions_version": "lesson-script/4",
+ "rulebook_version": "content_types@2026-10-24.1+explanations@2026-10-24.1+level_profiles@2026-10-24.1+simple_hindi@2026-10-24.1+teacher_examples@2026-10-24.1+vision-2026-10-21@2026-10-21.12",
+ "rulebook_digest": "b6ce8b9089ed2428fec978e8b6667bd8182cc61f431233952ca9db5fabf741f7",
+ "rules_used": [
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-04",
+  "G-05",
+  "G-06",
+  "G-07",
+  "S2-01",
+  "S2-02",
+  "S2-03",
+  "S2-04",
+  "S2-05",
+  "S2-06",
+  "S2-07"
+ ],
+ "maker_route": "codex",
+ "reviewer_route": "google",
+ "maker_model": "gpt-6.1-sol",
+ "reviewer_model": "google/gemini-4-argon",
+ "reviewer_independence": "other_company",
+ "inputs_digest": "2a02818bc584144b213912027f3372f2d03bb42f272edb6b169cb092092f6e64",
+ "card": {
+  "card": "bie.task-card/1",
+  "card_id": "lesson.write_script@10-tissues-and-its-types/v0",
+  "section": "lesson",
+  "task": "write_script",
+  "prefix": {
+   "prefix_id": "lesson.write_script/3",
+   "rulebook_version": "content_types@2026-10-24.1+explanations@2026-10-24.1+level_profiles@2026-10-24.1+simple_hindi@2026-10-24.1+teacher_examples@2026-10-24.1+vision-2026-10-21@2026-10-21.12",
+   "content_types_version": "2026-10-24.1",
+   "schema_id": "bie.brain.lesson-script/3",
+   "sha256": "0147e7e0d13a864ea512a113a18aeb490d14d41bcf09eaf387012bb98fbbbaca"
+  },
+  "unit": {
+   "unit_id": "v0",
+   "title": "पहले यह जान लो: tissue समझने के जरूरी tools",
+   "pages": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14
+   ]
+  },
+  "parts": [
+   {
+    "part_id": "pre1",
+    "item_ids": [
+     "pre1"
+    ],
+    "type": "none",
+    "questions": [
+     "what"
+    ],
+    "focus": "prerequisite: Cell boundaries, organelles and plant–animal cell differences: explain it simply with an everyday example"
+   },
+   {
+    "part_id": "pre2",
+    "item_ids": [
+     "pre2"
+    ],
+    "type": "none",
+    "questions": [
+     "what"
+    ],
+    "focus": "prerequisite: Chromosomes, homologous pairs, chromatids, DNA replication and chromosome sets: explain it simply with an everyday example"
+   },
+   {
+    "part_id": "pre3",
+    "item_ids": [
+     "pre3"
+    ],
+    "type": "none",
+    "questions": [
+     "what"
+    ],
+    "focus": "prerequisite: Somatic cells, germ cells, gametes and fertilisation: explain it simply with an everyday example"
+   },
+   {
+    "part_id": "pre4",
+    "item_ids": [
+     "pre4"
+    ],
+    "type": "none",
+    "questions": [
+     "what"
+    ],
+    "focus": "prerequisite: Locations and roles of the named human organs, passages and skeleton: explain it simply with an everyday example"
+   },
+   {
+    "part_id": "pre5",
+    "item_ids": [
+     "pre5"
+    ],
+    "type": "none",
+    "questions": [
+     "what"
+    ],
+    "focus": "prerequisite: Plant organ landmarks and sections: explain it simply with an everyday example"
+   },
+   {
+    "part_id": "pre6",
+    "item_ids": [
+     "pre6"
+    ],
+    "type": "none",
+    "questions": [
+     "what"
+    ],
+    "focus": "prerequisite: Diffusion, absorption, secretion and movement through walls or pores: explain it simply with an everyday example"
+   },
+   {
+    "part_id": "pre7",
+    "item_ids": [
+     "pre7"
+    ],
+    "type": "none",
+    "questions": [
+     "what"
+    ],
+    "focus": "prerequisite: Photosynthesis, food storage and the functions of structural biological…: explain it simply with an everyday example"
+   },
+   {
+    "part_id": "pre8",
+    "item_ids": [
+     "pre8"
+    ],
+    "type": "none",
+    "questions": [
+     "what"
+    ],
+    "focus": "prerequisite: Physical meanings of tension, elasticity, pressure, buoyancy and insulation: explain it simply with an everyday example"
+   },
+   {
+    "part_id": "pre9",
+    "item_ids": [
+     "pre9"
+    ],
+    "type": "none",
+    "questions": [
+     "what"
+    ],
+    "focus": "prerequisite: Stimulus, nerve impulse, electrical signal and voluntary versus involuntary…: explain it simply with an everyday example"
+   }
+  ],
+  "rules": [
+   "G-01",
+   "G-02",
+   "G-03",
+   "G-04",
+   "G-05",
+   "G-06",
+   "G-07",
+   "S2-01",
+   "S2-02",
+   "S2-03",
+   "S2-04",
+   "S2-05",
+   "S2-06",
+   "S2-07"
+  ],
+  "output": {
+   "schema_id": "bie.brain.lesson-script/3",
+   "mode": "full",
+   "max_output_tokens": 32000
+  },
+  "coverage": {
+   "must_cover": [
+    "pre1",
+    "pre2",
+    "pre3",
+    "pre4",
+    "pre5",
+    "pre6",
+    "pre7",
+    "pre8",
+    "pre9"
+   ],
+   "claim_field": "beats[].covers_item_ids",
+   "may_skip": []
+  },
+  "context": {
+   "map_slice": [
+    [
+     "c01",
+     "structure",
+     "1",
+     "Tissues, division of labour and levels of organisation"
+    ],
+    [
+     "c02",
+     "comparison",
+     "1",
+     "Mitosis versus meiosis"
+    ],
+    [
+     "c03",
+     "comparison",
+     "1",
+     "Plant versus animal mitosis"
+    ],
+    [
+     "c05",
+     "figure",
+     "2",
+     "Animal tissues located in the human body"
+    ],
+    [
+     "c06",
+     "structure",
+     "3",
+     "Epithelial sheets, barriers and gland formation"
+    ],
+    [
+     "c07",
+     "comparison",
+     "3-4",
+     "Epithelial types: shape, layers, locations and functions"
+    ],
+    [
+     "c08",
+     "figure",
+     "3-4",
+     "Recognising epithelial tissues in drawings"
+    ],
+    [
+     "c09",
+     "structure",
+     "4-5",
+     "Connective tissue: matrix, fibres and mechanical properties"
+    ],
+    [
+     "c11",
+     "figure",
+     "7",
+     "Connective-tissue visual atlas"
+    ],
+    [
+     "c12",
+     "process",
+     "5",
+     "Muscle fibres and contraction"
+    ],
+    [
+     "c13",
+     "structure",
+     "5",
+     "Skeletal muscle: movement and posture"
+    ],
+    [
+     "c14",
+     "structure",
+     "6",
+     "Smooth or visceral muscle"
+    ],
+    [
+     "c15",
+     "structure",
+     "6",
+     "Cardiac muscle"
+    ],
+    [
+     "c16",
+     "comparison",
+     "7",
+     "Comparing skeletal, cardiac and smooth muscle"
+    ],
+    [
+     "c17",
+     "process",
+     "7",
+     "Neuron structure and direction of impulse transmission"
+    ],
+    [
+     "c18",
+     "classification",
+     "1-8",
+     "Plant-tissue classification"
+    ],
+    [
+     "c19",
+     "comparison",
+     "8-9",
+     "Meristematic cells and locations of plant growth"
+    ],
+    [
+     "c20",
+     "process",
+     "9",
+     "Differentiation and permanent tissue"
+    ],
+    [
+     "c21",
+     "classification",
+     "10",
+     "Simple permanent tissue and parenchyma specialisations"
+    ],
+    [
+     "c22",
+     "cause_effect",
+     "10",
+     "Collenchyma: flexible mechanical support"
+    ],
+    [
+     "c23",
+     "cause_effect",
+     "11",
+     "Sclerenchyma: lignified strength and protection"
+    ],
+    [
+     "c24",
+     "comparison",
+     "10-13",
+     "Comparative anatomy of the three simple permanent tissues"
+    ],
+    [
+     "c25",
+     "structure",
+     "11",
+     "Complex permanent tissue and xylem components"
+    ],
+    [
+     "c26",
+     "structure",
+     "12",
+     "Phloem components and food transport"
+    ],
+    [
+     "c27",
+     "figure",
+     "11",
+     "Recognising xylem and phloem in labelled drawings"
+    ],
+    [
+     "c28",
+     "comparison",
+     "12",
+     "Xylem versus phloem and their arrangement in a stem"
+    ],
+    [
+     "c04",
+     "classification",
+     "2-3",
+     "Animal-tissue classification and functional overview"
+    ],
+    [
+     "c10",
+     "comparison",
+     "8",
+     "Connective-tissue varieties, locations and functions"
+    ],
+    [
+     "c29",
+     "cause_effect",
+     "12",
+     "PYQ: adipose tissue and heat conservation"
+    ],
+    [
+     "c33",
+     "comparison",
+     "13-14",
+     "Practice: cardiac striation versus voluntary control"
+    ],
+    [
+     "c35",
+     "structure",
+     "14",
+     "Practice: muscle-to-bone attachment"
+    ],
+    [
+     "c30",
+     "comparison",
+     "12-13",
+     "Practice: meristem locations"
+    ],
+    [
+     "c34",
+     "structure",
+     "14",
+     "Practice: protective plant covering and leaf gas exchange"
+    ],
+    [
+     "c31",
+     "comparison",
+     "13",
+     "Practice: simple permanent tissues and buoyancy"
+    ]
+   ],
+   "before": "",
+   "after": "Cells मिलकर tissue कैसे बनाते हैं?"
+  },
+  "source": {
+   "block_ids": [],
+   "page_images": []
+  }
+ },
+ "prefix_sha256": "0147e7e0d13a864ea512a113a18aeb490d14d41bcf09eaf387012bb98fbbbaca",
+ "review_prefix_sha256": "e93e52d0e0b3bbc2fae49fbd9a7c24c4d58030662b935848effd47c60ae53b06",
+ "inputs": {
+  "system": "BIE task prefix lesson.write_script/3 · rulebook content_types@2026-10-24.1+explanations@2026-10-24.1+level_profiles@2026-10-24.1+simple_hindi@2026-10-24.1+teacher_examples@2026-10-24.1+vision-2026-10-21@2026-10-21.12 · content types 2026-10-24.1 · schema bie.brain.lesson-script/3\n\nYou are BIE's lesson section writing what the teacher says in one video lesson: you are the best teacher of Science and Technology\nfor UPSC / State PCS aspirants preparing for UPSC / State PCS, speaking to one student. BIE turns your beats into narration and animation, so write only\nwhat is spoken, beat by beat.\nCourse: \"10. Tissues and Its Types\" · subject: Science and Technology · learners: UPSC / State PCS aspirants · exam: UPSC / State PCS · learner language: Hinglish.\n\nNavin's rules for this task (follow every one):\n[G-01] Everything taught comes from the book. Knowledge from outside the book is allowed only to explain the book better; it is marked as outside, standard textbook-level and correct. Never invent facts, numbers, names or quotations.\n[G-02] Work like the best teacher of these learners and this exam, not like a summariser. Depth beats brevity: nothing teachable on the page is skipped or compressed away, and every explanation makes a student understand, not just remember. Depth means understanding, not length: lesson narration keeps S2-01's time by cutting repetition and side-tracks, never book content.\n[G-03] Before the output, fill 'notes' with brief notes for the reviewer and for Navin: what this unit is about, the key questions a teacher must answer about it, the main decisions you made with a one-line reason each, and anything uncertain. Keep the notes short; they explain the work, they are not the work.\n[G-04] Learner-facing language follows the course setting. For the first course (UPSC / State PCS) it is Hinglish: natural Hindi sentence flow, English technical terms, the way Navin teaches.\n[G-05] Never drop or compress away what the book teaches to fit a length. If a unit of work is too large, it is split by BIE into smaller units; within a unit, the book's content is complete. Lesson narration has a time target (S2-01), met by cutting repetition and side-tracks, never book content.\n[G-06] BIE is the link between the learner and the book, like a teacher (Navin, 24 October 2026). The book is the base; BIE carries its text, easy or hard, into the learner's mind. Never just read the line out: every book line is opened (what its words mean, why it is so, where it is seen, what follows), at the depth of the level profile.\n[G-07] Two layers, like a film (Navin, 24 October 2026). The writer layer (understanding, plan, script) decides what is said and how deep, following the level profile and the book's own level. The presentation layer (director, video blocks, render) is the same skilled quality for every learner, from class 6 to postgraduate; only the detail shown follows the level, never the craft.\n[S2-01] Plan the chapter's videos from the chapter map: first one short 'pehle yeh jaan lo' video (5-8 minutes) that teaches the chapter's prerequisites, then the topic videos in teaching order. Narration is 6-8 minutes per book page (Navin, 23 October 2026; the 14-page tissue chapter about 85-110 minutes of topic videos, plus the prerequisite video): each topic video gets the share of the pages its items come from, and a very dense page may go up to 25% over when the plan says why. Understanding (Section 1) and the chapter map have no time limit.\n[S2-02] Write a spoken teacher script in beats with a natural teacher flow. Stories and analogies only where they genuinely help that topic. Every item the book teaches is taught and every teacher question answered from the book is answered; questions answered from outside the book are used only where they help and the time allows. Cut repetition and side-tracks, never book content.\n[S2-03] Prerequisites are only what this chapter directly needs, never a prerequisite of a prerequisite. They are taught, not named, in the chapter's 'pehle yeh jaan lo' video, each with a simple explanation and an example; a topic video may remind of them in at most 2 beats.\n[S2-04] Spoken Hinglish the way Navin teaches, in mixed script (Navin, 21 and 23 October 2026): Hindi words in Devanagari, English words, above all the book's technical terms, in Roman exactly as the book spells them, as in 'आज हम tissue के बारे में पढ़ेंगे'; a genuinely difficult Hindi word (formal, literary or technical; not in BIE's everyday word list rulebook/simple_hindi.json) gets its English word in brackets right after it, as in 'सतह (surface)'; the screen and subtitles show the bracket and the voice says 'सतह, यानी surface'. Never a bracket after an everyday word or inside an idiom or a fixed phrase ('आम तौर पर', not 'आम तौर (usually) पर'; 'नहीं के बराबर', not 'नहीं के बराबर (equal to)'). Never an English term in Devanagari or a Hindi word in Roman. Numbers as digits; short spoken sentences addressed to one student; questions to the student and natural pauses; no reading out of lists.\n[S2-05] Every beat states which chapter-map items it covers and which teacher questions it answers, and those claims must be true: the beat really explains that item and really answers that question.\n[S2-06] Teach every part of a video through the universal frame (what the process is, how it works, when and in what order, under which conditions, in what atmosphere) and through the teaching pattern of its content type, step by step in the pattern's order; every item on the task card is really taught, none only named.\n[S2-07] Open every book line in the script, never read it out (Navin, 24 October 2026). A new topic opens with a question about something the learner can see, then the name. After any book line the beat carries at least one of: the term's plain meaning with 'yaani' and an everyday image, a why step from a need, an example or the place. Speak complete sentences, not clipped notes. A classification is taught as a family: the overview tree, then every member in the same slots (layer and shape, why it is named so, its special feature, its function with its cause, where it is found by a zoom from the organ, its consequence), then the members compared and a memory trick. A pattern step may be skipped only with a stated reason; one recap per part and one closing recap.\n\nBIE's content types (the type of an item decides its required questions and how it is taught, shown, played and drawn):\n- process · Process: Something that happens in steps or stages over time: a mechanism, a procedure, a cycle (photosynthesis, cell division, how a bill becomes law). Required questions: how (kaise), when (kab). Other questions: what (kya), where (kahan), why (kyun), consequence (nateeja).\n  Teaching pattern: 1) the result first (what it makes). 2) inputs and the place. 3) each step with its cause and its condition. 4) what breaks when a step fails. 5) the whole run once more at speed. 6) recap as a flow.\n- structure · Structure: Something made of parts arranged in space, each part with a function (a cell, a leaf, the heart, a machine, the Parliament). Required questions: what (kya), where (kahan). Other questions: how (kaise), why (kyun), which (kaun).\n  Teaching pattern: 1) the whole in context. 2) zoom into each part in a fixed path (outside to inside). 3) function of each part tied to its shape. 4) how the parts work together. 5) labelled recap.\n- classification · Classification: A group divided into kinds by a stated basis (types of tissues, kinds of rocks, kinds of writs). Required questions: which (kaun), difference (tulna). Other questions: what (kya), evidence (saboot), where (kahan).\n  Teaching pattern: 1) the overview tree first: the basis of division and every member named. 2) every member in the same slots: layer and shape, why it is named so, its special feature, its function with its cause, where it is found by a zoom from the organ, its consequence. 3) the members compared side by side, the most confused pair named directly. 4) a memory trick for the family.\n- comparison · Comparison: Two or more things set side by side on stated criteria (plant and animal cells, Lok Sabha and Rajya Sabha). Required questions: compare (tulna), difference (tulna). Other questions: what (kya), why (kyun), evidence (saboot).\n  Teaching pattern: 1) what is common. 2) criteria one at a time, both sides together. 3) the reason behind each difference. 4) the most confused pair named directly. 5) difference table as recap.\n- timeline · Timeline: Events placed in time: history, the development of an idea, stages of a life (the Revolt of 1857, evolution of cell theory). Required questions: when (kab), why (kyun). Other questions: who (kaun), where (kahan), consequence (nateeja).\n  Teaching pattern: 1) the period and its atmosphere. 2) events in order with their causes. 3) the people and their choices. 4) the turning point. 5) what changed after. 6) timeline recap.\n- cause_effect · Reasoning (cause and effect): Why something happens: causes, effects, conditions and chains of reasoning (why tissues specialise, why prices rise, why a law was needed). Required questions: why (kyun), how (kaise). Other questions: consequence (nateeja), evidence (saboot), exception (tulna).\n  Teaching pattern: 1) the effect students can see. 2) the cause. 3) each link of the chain with its mechanism. 4) the evidence. 5) the exception or limit. 6) the chain as recap.\n- facts_numbers · Facts and numbers: Stated facts, quantities, measurements, statistics and formulas (heart rate 72 per minute, 3,000 against 50,000 soldiers at Plassey, F = ma). Required questions: what (kya), evidence (saboot). Other questions: compare (tulna), why (kyun).\n  Teaching pattern: 1) the fact in one line. 2) the number shown to scale against something familiar. 3) where it comes from (book or outside, dated). 4) what it changes or proves. 5) a formula built term by term when there is one.\n- figure · Figure: A diagram, photo, map, graph or table drawing on the page whose content is visual (tissue pages 2, 7 and 8 are figures only). Required questions: what (kya), which (kaun). Other questions: how (kaise), why (kyun).\n  Teaching pattern: 1) what the figure is and why it is here. 2) a reading path across it (labels in order). 3) the one thing to remember from it. 4) link back to the text it explains.\n- definition · Definition: A term and its meaning as the book states it (tissue, meristem, sovereignty). Required questions: what (kya), evidence (saboot). Other questions: about (kya), why (kyun).\n  Teaching pattern: 1) a concrete example first. 2) the book's definition word by word. 3) a non-example that tests the boundary. 4) where the term is used next in the chapter.\n\nOutput schema (JSON):\n{\"additionalProperties\":false,\"properties\":{\"beats\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"answers\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"basis\":{\"enum\":[\"book\",\"outside\",\"mixed\"],\"type\":\"string\"},\"beat_id\":{\"type\":\"string\"},\"covers_item_ids\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"on_screen\":{\"type\":\"string\"},\"part_id\":{\"type\":\"string\"},\"purpose\":{\"enum\":[\"hook\",\"prerequisite\",\"explain\",\"example\",\"analogy\",\"story\",\"compare\",\"process_walkthrough\",\"misconception\",\"exam_tip\",\"question_to_student\",\"recap\",\"transition\"],\"type\":\"string\"},\"say\":{\"type\":\"string\"},\"step\":{\"type\":\"integer\"}},\"required\":[\"beat_id\",\"part_id\",\"step\",\"purpose\",\"say\",\"covers_item_ids\",\"answers\",\"on_screen\",\"basis\"],\"type\":\"object\"},\"type\":\"array\"},\"notes\":{\"additionalProperties\":false,\"properties\":{\"about\":{\"description\":\"What this unit of work is about and how it fits the whole (one or two sentences).\",\"type\":\"string\"},\"decisions\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"decision\":{\"type\":\"string\"},\"reason\":{\"type\":\"string\"}},\"required\":[\"decision\",\"reason\"],\"type\":\"object\"},\"type\":\"array\"},\"key_questions\":{\"description\":\"The key questions a teacher must answer about this unit.\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"uncertain\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"}},\"required\":[\"about\",\"key_questions\",\"decisions\",\"uncertain\"],\"type\":\"object\"},\"parts\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"frame\":{\"additionalProperties\":false,\"properties\":{\"atmosphere\":{\"type\":\"string\"},\"conditions\":{\"type\":\"string\"},\"how\":{\"type\":\"string\"},\"process\":{\"type\":\"string\"},\"when\":{\"type\":\"string\"}},\"required\":[\"process\",\"how\",\"when\",\"conditions\",\"atmosphere\"],\"type\":\"object\"},\"part_id\":{\"type\":\"string\"},\"skipped_steps\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"step\":{\"type\":\"integer\"},\"why\":{\"type\":\"string\"}},\"required\":[\"step\",\"why\"],\"type\":\"object\"},\"type\":\"array\"}},\"required\":[\"part_id\",\"frame\",\"skipped_steps\"],\"type\":\"object\"},\"type\":\"array\"},\"title\":{\"type\":\"string\"}},\"required\":[\"notes\",\"title\",\"parts\",\"beats\"],\"type\":\"object\"}\n\nHow BIE talks to you: every request is a task card (JSON) followed by its source. The card names the unit, its parts with their content type and required questions, the ids of the rules above that apply, the output, the ids you must cover and the context. The card is BIE's instruction; the source is the material.\nFor a write_script card:\n- card.parts are this video's parts: each has item ids, one content type and the questions it must answer. The source gives every item's\n  full content and its teacher questions with ids (\"p003-i4#q2\") and answers from BIE's chapter map; teach from them.\n- card.coverage.must_cover lists every item this video must teach: each must be in covers_item_ids of a beat that really explains it.\n  may_skip lists items you may leave out (not teachable). card.context.map_slice shows the related concepts for context only.\nHow to fill the JSON:\n- notes: brief notes for the reviewer: what this video is about, the key questions it must answer, your main decisions (order,\n  hook, analogy, where prerequisites are taught) with a reason each, what is uncertain.\n- title: the video title in the learner language.\n- parts: one entry per card part, with the universal frame of that part (S3-01), each in one or two lines of clear English for BIE:\n  process (what happens or what the thing does), how (how it works or happens), when (when, in what order, under which timing),\n  conditions (what must be true for it, or what changes it), atmosphere (the setting and situation a student should picture). Write\n  \"n/a: \" and the reason only where a question truly does not apply to that part. skipped_steps = the teaching-pattern steps of this\n  part you leave out because there is nothing real to say for them, each with the reason ([] when every step is done); at most half\n  of a pattern, never a step that has something real; BIE's code records the reason.\n- beats: the whole video in order. beat_id \"b1\", \"b2\" ...; part_id = the card part this beat teaches (\"\" for the opening hook, a\n  prerequisite taught first, a transition or the final recap); step = the number of the teaching-pattern step of that part's content type\n  that this beat performs (see the content types above; 0 when part_id is \"\" and for an exam-question part, whose type is \"none\");\n  the steps of a part's pattern appear in order, except the ones skipped with a reason; a classification part follows the family\n  pattern: the overview tree first, then every member in the same slots (layer and shape → why it is named so → its special feature\n  → its function with its cause → where it is found, by a zoom from the organ → its consequence), then the comparison, then a memory\n  trick; one recap per part and one closing recap for the video, never two recaps of the same thing;\n  purpose (hook, prerequisite, explain, example, analogy, story, compare, process_walkthrough, misconception, exam_tip,\n  question_to_student, recap, transition); say = the exact spoken words, one to four complete spoken sentences in Navin's Hinglish\n  (S2-04), the way a teacher speaks to one student, never clipped note-style lines (\"Irregular walls. Kaisi? Irregular.\" is a teacher's\n  beat; \"Location: kidney tubules, glandular ducts.\" is a note):\n  mixed script: Hindi words in Devanagari, English words (above all the book's technical terms, spelled as the book spells them) in\n  Roman, as in \"आज हम tissue के बारे में पढ़ेंगे\"; brackets only after a genuinely difficult Hindi word (see \"Brackets\" below; the\n  screen shows the bracket and the voice says \"सतह, यानी surface\"); never write an English term in Devanagari or a Hindi word in Roman;\n  numbers as digits; addressed to one student; covers_item_ids = the item ids this beat really explains; answers = the teacher question\n  ids this beat really answers; on_screen = what the student should see while hearing it (for the director); basis = book, outside or\n  mixed.\nOpening the book (S2-07; BIE is the link between the learner and the book, like a teacher, never a reader of the line): every new\ntopic (every concept and every prerequisite) opens with a question about something the learner can see, then the name. After any\nbook line, the beat carries at least one of: the term opened (\"yaani\" + its plain meaning + one everyday image), the why from a need or\na problem, or an example or place by a zoom from the organ. The source gives every item's unpack from Section 1 (its terms, why chain,\nexample, consequence, visual verb) and the locked explanations: speak them, in your own teacher's words, at the depth of the level\nprofile below. BIE's code sends back a beat whose English words are the book's and that opens nothing (\"dohraav pakad\"), a clipped\nsentence without a verb, a topic that opens without a question, and a second recap of the same thing.\nTime (S2-01): the source gives this video's narration time; BIE's code counts the spoken words (130 a minute) and the script must stay\nwithin it. Win the time by cutting repetition and side-tracks, never book content: every item in must_cover is taught and every\nteacher question whose basis is \"book\" is answered; questions answered from outside the book are used only where they help and the\ntime allows.\nPrerequisites (S2-03): in a topic video they were already taught in the prerequisite video; remind of one in at most 2 beats (purpose\n\"prerequisite\"). In the prerequisite video (card parts \"pre1\", \"pre2\" ...) teach each prerequisite simply, with an everyday example, in\nthe order given: part_id = the prerequisite id, step 0, covers_item_ids = the prerequisite ids the beat teaches, answers [].\nA beat introduces at most a few new items: BIE's code measures the load of every beat (0.4 per new item plus 1 per 50 spoken words, at\nmost 1.8), so a beat holds at most about 70 spoken words with one new item, 50 with two and 30 with three; split longer beats. Reply\nwith the JSON object only.\n\nLevel profile: UPSC / State PCS (level_profiles.json; learners: UPSC and State PCS aspirants, often from arts backgrounds, who need understanding more than technical vocabulary).\n- Terms: fewer technical terms: only the ones the exam asks, each opened with its plain meaning and an everyday image; a term the exam never asks is explained in words, not named.\n- Why: 2 step(s); a two-step why from a need the learner can feel, then its link to daily life, health or governance.\n- Where found: the main places, each linked to something the learner already knows (a disease, a food, a news item).\n- Exam beats: the PYQ pattern: how this fact has been asked (statement combinations, 'which is correct', odd one out) and the wording that traps.\n- Links: daily life, health, the news and earlier chapters of the same paper.\n\nHow real teachers open a book line (teacher example bank 2026-10-24.1; use these ways, in your own words):\n- Open with a question on something visible (every new topic and every new family member): Skin aur stomach, kidney ke upar ek outer layer hai ki nahi? Yeh kis se bani hai? — phir naam: epithelial tissue.\n- One everyday image per shape or function (every term that names a shape, a layer or a job): Chaadar bichhi ho to bistar bacha rehta hai = protective sheet. Cube wala game, har side barabar = cuboidal. Building ka pillar = columnar. Farsh ki tiles = squamous, isliye tessellated bhi kehte hain.\n- The word root where it helps (a term whose parts carry its meaning): Epi yaani upar; epithelium yaani upar ki parat. Slender yaani long aur narrow.\n- Why starts from a need (every why step): Pet mein HCl banta hai, isliye andar ek lining chahiye jo khud na jale. Cells bahar ki taraf hain, tootne ka chance zyada, isliye regeneration zyada.\n- Contrast with the neighbour (members of one family, and what the exam confuses): Simple epithelium ka kaam protection nahi, woh compound ka hai. Zyada layers = pathogen andar nahi aata.\n- Ask and repeat the key word (the one word the learner must keep): Irregular walls. Kaisi? Irregular.\n- Exam memory beats by level (after the understanding, by the level profile): Yaad rakhna: brush border PCT mein. Doosre naam: pavement, tessellated. M2B = muscle to bone = tendon, B2B = bone to bone = ligament.\n- Link to something already known (a new place or a new structure): Peritoneum, jaise lungs ke aas-paas pleura aur heart ke aas-paas pericardium: wahi kaam, pet ke andar.\n- Meaning with two or three real examples (an abstract word in the book): Sensory perception yaani pehchanna: thanda lagna, dard hona, pressure mehsoos karna.\n- Open the book's adjective (Navin's example) (a book line names a kind of surface, job or place without saying what it is): Book: 'epithelium absorptive aur secretive surfaces par milta hai'. Teacher: absorptive surface yaani jahan cheezein andar li jaati hain, jaise aant khane ke poshak tatva sokhti hai; secretive yaani jahan cells kuch bana kar bahar chhodte hain, jaise glands enzyme ya juice. Aur epithelium wahan kyon? Kyunki ek patli, lagi hui parat hi cheezon ko paar jaane de sakti hai aur bana kar chhod sakti hai.\n\nBrackets (word list 2026-10-24.1): use everyday spoken Hindi freely, without brackets (मुख्य, वापस, बराबर, आसपास, इस्तेमाल, करके, जिससे ...). Only a genuinely difficult Hindi word (formal, literary or technical) gets its English word in brackets right after it, for example \"सतह (surface)\", \"घर्षण (friction)\", \"सघन (dense)\"; better still, use the book's English term or a simpler Hindi word. Never put a bracket inside an idiom or a fixed phrase: \"आम तौर पर\", not \"आम तौर (usually) पर\"; \"नहीं के बराबर\", not \"नहीं के बराबर (equal to)\". BIE's code removes a bracket after an everyday word and asks for one only after a Hindi word it does not know as everyday.",
+  "user": [
+   {
+    "type": "text",
+    "text": "BIE task card (JSON):\n{\"card\":\"bie.task-card/1\",\"card_id\":\"lesson.write_script@10-tissues-and-its-types/v0\",\"section\":\"lesson\",\"task\":\"write_script\",\"prefix\":{\"prefix_id\":\"lesson.write_script/3\",\"rulebook_version\":\"content_types@2026-10-24.1+explanations@2026-10-24.1+level_profiles@2026-10-24.1+simple_hindi@2026-10-24.1+teacher_examples@2026-10-24.1+vision-2026-10-21@2026-10-21.12\",\"content_types_version\":\"2026-10-24.1\",\"schema_id\":\"bie.brain.lesson-script/3\",\"sha256\":\"0147e7e0d13a864ea512a113a18aeb490d14d41bcf09eaf387012bb98fbbbaca\"},\"unit\":{\"unit_id\":\"v0\",\"title\":\"पहले यह जान लो: tissue समझने के जरूरी tools\",\"pages\":[1,2,3,4,5,6,7,8,9,10,11,12,13,14]},\"parts\":[{\"part_id\":\"pre1\",\"item_ids\":[\"pre1\"],\"type\":\"none\",\"questions\":[\"what\"],\"focus\":\"prerequisite: Cell boundaries, organelles and plant–animal cell differences: explain it simply with an everyday example\"},{\"part_id\":\"pre2\",\"item_ids\":[\"pre2\"],\"type\":\"none\",\"questions\":[\"what\"],\"focus\":\"prerequisite: Chromosomes, homologous pairs, chromatids, DNA replication and chromosome sets: explain it simply with an everyday example\"},{\"part_id\":\"pre3\",\"item_ids\":[\"pre3\"],\"type\":\"none\",\"questions\":[\"what\"],\"focus\":\"prerequisite: Somatic cells, germ cells, gametes and fertilisation: explain it simply with an everyday example\"},{\"part_id\":\"pre4\",\"item_ids\":[\"pre4\"],\"type\":\"none\",\"questions\":[\"what\"],\"focus\":\"prerequisite: Locations and roles of the named human organs, passages and skeleton: explain it simply with an everyday example\"},{\"part_id\":\"pre5\",\"item_ids\":[\"pre5\"],\"type\":\"none\",\"questions\":[\"what\"],\"focus\":\"prerequisite: Plant organ landmarks and sections: explain it simply with an everyday example\"},{\"part_id\":\"pre6\",\"item_ids\":[\"pre6\"],\"type\":\"none\",\"questions\":[\"what\"],\"focus\":\"prerequisite: Diffusion, absorption, secretion and movement through walls or pores: explain it simply with an everyday example\"},{\"part_id\":\"pre7\",\"item_ids\":[\"pre7\"],\"type\":\"none\",\"questions\":[\"what\"],\"focus\":\"prerequisite: Photosynthesis, food storage and the functions of structural biological…: explain it simply with an everyday example\"},{\"part_id\":\"pre8\",\"item_ids\":[\"pre8\"],\"type\":\"none\",\"questions\":[\"what\"],\"focus\":\"prerequisite: Physical meanings of tension, elasticity, pressure, buoyancy and insulation: explain it simply with an everyday example\"},{\"part_id\":\"pre9\",\"item_ids\":[\"pre9\"],\"type\":\"none\",\"questions\":[\"what\"],\"focus\":\"prerequisite: Stimulus, nerve impulse, electrical signal and voluntary versus involuntary…: explain it simply with an everyday example\"}],\"rules\":[\"G-01\",\"G-02\",\"G-03\",\"G-04\",\"G-05\",\"G-06\",\"G-07\",\"S2-01\",\"S2-02\",\"S2-03\",\"S2-04\",\"S2-05\",\"S2-06\",\"S2-07\"],\"output\":{\"schema_id\":\"bie.brain.lesson-script/3\",\"mode\":\"full\",\"max_output_tokens\":32000},\"coverage\":{\"must_cover\":[\"pre1\",\"pre2\",\"pre3\",\"pre4\",\"pre5\",\"pre6\",\"pre7\",\"pre8\",\"pre9\"],\"claim_field\":\"beats[].covers_item_ids\",\"may_skip\":[]},\"context\":{\"map_slice\":[[\"c01\",\"structure\",\"1\",\"Tissues, division of labour and levels of organisation\"],[\"c02\",\"comparison\",\"1\",\"Mitosis versus meiosis\"],[\"c03\",\"comparison\",\"1\",\"Plant versus animal mitosis\"],[\"c05\",\"figure\",\"2\",\"Animal tissues located in the human body\"],[\"c06\",\"structure\",\"3\",\"Epithelial sheets, barriers and gland formation\"],[\"c07\",\"comparison\",\"3-4\",\"Epithelial types: shape, layers, locations and functions\"],[\"c08\",\"figure\",\"3-4\",\"Recognising epithelial tissues in drawings\"],[\"c09\",\"structure\",\"4-5\",\"Connective tissue: matrix, fibres and mechanical properties\"],[\"c11\",\"figure\",\"7\",\"Connective-tissue visual atlas\"],[\"c12\",\"process\",\"5\",\"Muscle fibres and contraction\"],[\"c13\",\"structure\",\"5\",\"Skeletal muscle: movement and posture\"],[\"c14\",\"structure\",\"6\",\"Smooth or visceral muscle\"],[\"c15\",\"structure\",\"6\",\"Cardiac muscle\"],[\"c16\",\"comparison\",\"7\",\"Comparing skeletal, cardiac and smooth muscle\"],[\"c17\",\"process\",\"7\",\"Neuron structure and direction of impulse transmission\"],[\"c18\",\"classification\",\"1-8\",\"Plant-tissue classification\"],[\"c19\",\"comparison\",\"8-9\",\"Meristematic cells and locations of plant growth\"],[\"c20\",\"process\",\"9\",\"Differentiation and permanent tissue\"],[\"c21\",\"classification\",\"10\",\"Simple permanent tissue and parenchyma specialisations\"],[\"c22\",\"cause_effect\",\"10\",\"Collenchyma: flexible mechanical support\"],[\"c23\",\"cause_effect\",\"11\",\"Sclerenchyma: lignified strength and protection\"],[\"c24\",\"comparison\",\"10-13\",\"Comparative anatomy of the three simple permanent tissues\"],[\"c25\",\"structure\",\"11\",\"Complex permanent tissue and xylem components\"],[\"c26\",\"structure\",\"12\",\"Phloem components and food transport\"],[\"c27\",\"figure\",\"11\",\"Recognising xylem and phloem in labelled drawings\"],[\"c28\",\"comparison\",\"12\",\"Xylem versus phloem and their arrangement in a stem\"],[\"c04\",\"classification\",\"2-3\",\"Animal-tissue classification and functional overview\"],[\"c10\",\"comparison\",\"8\",\"Connective-tissue varieties, locations and functions\"],[\"c29\",\"cause_effect\",\"12\",\"PYQ: adipose tissue and heat conservation\"],[\"c33\",\"comparison\",\"13-14\",\"Practice: cardiac striation versus voluntary control\"],[\"c35\",\"structure\",\"14\",\"Practice: muscle-to-bone attachment\"],[\"c30\",\"comparison\",\"12-13\",\"Practice: meristem locations\"],[\"c34\",\"structure\",\"14\",\"Practice: protective plant covering and leaf gas exchange\"],[\"c31\",\"comparison\",\"13\",\"Practice: simple permanent tissues and buoyancy\"]],\"before\":\"\",\"after\":\"Cells मिलकर tissue कैसे बनाते हैं?\"},\"source\":{\"block_ids\":[],\"page_images\":[]}}\n\nVideo v0: पहले यह जान लो: tissue समझने के जरूरी tools\nGoal: आप cell के जरूरी हिस्से, division के basic words, body और plant के landmarks तथा transport, support और control के सीधे meanings को छोटे examples से समझ सकेंगे।\nOpening hook: एक ही शरीर में skin ढकती है, muscle खींचता है और nerve message पहुँचाती है—इनको समझने से पहले cell में क्या पहचानना जरूरी है?\nStory or analogy: छोटे visual examples: कमरे की boundary से membrane और wall का फर्क, खिंचे rubber से elasticity, पानी पर तैरती चीज से buoyancy और गरम कपड़े से insulation। हर analogy की सीमा बताई जाएगी; यह बाहर का standard textbook-level support है।\nPlanned minutes: 8\nNarration time (S2-01): 5.0-8.0 minutes, about 650-1040 spoken words (BIE counts 130 words a minute)\n\nPrerequisites to teach, in this order (id | name | basis | needed for | why):\npre1 | Cell boundaries, organelles and plant–animal cell differences | outside | Tissues, division of labour and levels of organisation, Mitosis versus meiosis, Plant versus animal mitosis, Animal tissues located in the human body, Epithelial sheets, barriers and gland formation, Epithelial types: shape, layers, locations and functions, Recognising epithelial tissues in drawings, Connective tissue: matrix, fibres and mechanical properties, Connective-tissue visual atlas, Muscle fibres and contraction, Skeletal muscle: movement and posture, Smooth or visceral muscle, Cardiac muscle, Comparing skeletal, cardiac and smooth muscle, Neuron structure and direction of impulse transmission, Plant-tissue classification, Meristematic cells and locations of plant growth, Differentiation and permanent tissue, Simple permanent tissue and parenchyma specialisations, Collenchyma: flexible mechanical support, Sclerenchyma: lignified strength and protection, Comparative anatomy of the three simple permanent tissues, Complex permanent tissue and xylem components, Phloem components and food transport, Recognising xylem and phloem in labelled drawings, Xylem versus phloem and their arrangement in a stem | Directly needed to distinguish nucleus, cytoplasm, membrane, wall, vacuole and chloroplast, and to interpret living contents, intercellular spaces, multinucleate fibres and extracellular material.\npre2 | Chromosomes, homologous pairs, chromatids, DNA replication and chromosome sets | outside | Mitosis versus meiosis, Plant versus animal mitosis | Directly needed for the eleven cell-division comparisons, including nuclear phases, ploidy, crossing over and correction of the chromosome-doubling claim.\npre3 | Somatic cells, germ cells, gametes and fertilisation | outside | Mitosis versus meiosis | Directly needed to understand where mitosis and meiosis occur, what their products do and why chromosome-number reduction matters.\npre4 | Locations and roles of the named human organs, passages and skeleton | outside | Animal-tissue classification and functional overview, Animal tissues located in the human body, Epithelial sheets, barriers and gland formation, Epithelial types: shape, layers, locations and functions, Recognising epithelial tissues in drawings, Connective-tissue varieties, locations and functions, Connective-tissue visual atlas, Skeletal muscle: movement and posture, Smooth or visceral muscle, Cardiac muscle, Comparing skeletal, cardiac and smooth muscle, Neuron structure and direction of impulse transmission, PYQ: adipose tissue and heat conservation, Practice: cardiac striation versus voluntary control, Practice: muscle-to-bone attachment | Directly needed for tissue-location lists: skin, gastrointestinal and respiratory tracts, lung air sacs, kidney tubules and urinary passages, glands and ducts, brain and spinal cord, heart, vessels, bones and joints.\npre5 | Plant organ landmarks and sections | outside | Plant versus animal mitosis, Plant-tissue classification, Meristematic cells and locations of plant growth, Simple permanent tissue and parenchyma specialisations, Collenchyma: flexible mechanical support, Sclerenchyma: lignified strength and protection, Comparative anatomy of the three simple permanent tissues, Complex permanent tissue and xylem components, Recognising xylem and phloem in labelled drawings, Xylem versus phloem and their arrangement in a stem, Practice: meristem locations, Practice: protective plant covering and leaf gas exchange | Directly needed to locate tissues using root and shoot tips, leaf base, node, internode, petiole, bark, vascular bundle, seed coverings, dicot and monocot, and the named stem regions.\npre6 | Diffusion, absorption, secretion and movement through walls or pores | outside | Epithelial sheets, barriers and gland formation, Epithelial types: shape, layers, locations and functions, Connective tissue: matrix, fibres and mechanical properties, Connective-tissue varieties, locations and functions, Complex permanent tissue and xylem components, Phloem components and food transport, Recognising xylem and phloem in labelled drawings, Xylem versus phloem and their arrangement in a stem, Practice: protective plant covering and leaf gas exchange | Directly needed to interpret thin exchange surfaces, epithelial and gland functions, microvilli, tissue-fluid movement, permeability, wall pits, sieve plates and stomatal gas exchange.\npre7 | Photosynthesis, food storage and the functions of structural biological materials | outside | Epithelial types: shape, layers, locations and functions, Connective tissue: matrix, fibres and mechanical properties, Connective-tissue varieties, locations and functions, Connective-tissue visual atlas, Muscle fibres and contraction, Differentiation and permanent tissue, Simple permanent tissue and parenchyma specialisations, Collenchyma: flexible mechanical support, Sclerenchyma: lignified strength and protection, Comparative anatomy of the three simple permanent tissues, Complex permanent tissue and xylem components, Phloem components and food transport, Xylem versus phloem and their arrangement in a stem, PYQ: adipose tissue and heat conservation, Practice: simple permanent tissues and buoyancy, Practice: protective plant covering and leaf gas exchange | Directly needed to understand chlorophyll and food production, transport from leaves, fat as an energy reserve, and how proteins, polysaccharides, cellulose, lignin, keratin and suberin differ from tissues.\npre8 | Physical meanings of tension, elasticity, pressure, buoyancy and insulation | outside | Connective tissue: matrix, fibres and mechanical properties, Connective-tissue varieties, locations and functions, Muscle fibres and contraction, Skeletal muscle: movement and posture, Smooth or visceral muscle, Cardiac muscle, Comparing skeletal, cardiac and smooth muscle, Meristematic cells and locations of plant growth, Simple permanent tissue and parenchyma specialisations, Collenchyma: flexible mechanical support, Sclerenchyma: lignified strength and protection, Comparative anatomy of the three simple permanent tissues, Complex permanent tissue and xylem components, Xylem versus phloem and their arrangement in a stem, PYQ: adipose tissue and heat conservation, Practice: simple permanent tissues and buoyancy, Practice: muscle-to-bone attachment | Directly needed to connect fibres with pulling and recoil, muscle contraction with movement or pumping, air spaces with floating, and subcutaneous fat with reduced heat loss; also distinguishes lengthwise growth from increased girth.\npre9 | Stimulus, nerve impulse, electrical signal and voluntary versus involuntary control | outside | Animal-tissue classification and functional overview, Skeletal muscle: movement and posture, Smooth or visceral muscle, Cardiac muscle, Comparing skeletal, cardiac and smooth muscle, Neuron structure and direction of impulse transmission, Practice: cardiac striation versus voluntary control | Directly needed to distinguish muscle-control categories and understand the neuron's directional signal diagram; these meanings cannot be inferred from shape or organ location alone."
+   },
+   {
+    "type": "text",
+    "text": "Answer the card with the teacher script JSON."
+   }
+  ]
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "started_at": 1792853730.7013927,
+   "mode": "full",
+   "normalized": {
+    "brackets_removed": [
+     {
+      "beat_id": "b17",
+      "removed": [
+       "क्षमता (ability)"
+      ]
+     },
+     {
+      "beat_id": "b21",
+      "removed": [
+       "औसत (average)"
+      ]
+     }
+    ]
+   },
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "0b639cf2e45ac2814f53017856238e01c56176b4c1d2bf4228c58790cde9275b",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 12343,
+    "output_tokens": 5311,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "This prerequisite video builds the cell, location, transport and control vocabulary needed for the tissue chapter. All explanations are standard textbook-level outside support, not claims drawn from supplied book pages.",
+    "key_questions": [
+     "Which cell structures and chromosome terms must the learner distinguish?",
+     "Where are the human and plant landmarks used in tissue descriptions?",
+     "How do transport, biological materials, mechanical properties and control explain tissue functions?"
+    ],
+    "decisions": [
+     {
+      "decision": "Teach the nine prerequisites in the supplied order, using short visual examples.",
+      "reason": "This supplies directly needed tools without starting the chapter's tissue classifications."
+     },
+     {
+      "decision": "Keep every prerequisite beat at step 0 and mark its basis outside.",
+      "reason": "The card specifies prerequisite parts of type none and identifies all nine prerequisites as outside."
+     },
+     {
+      "decision": "Clarify chromosome counting and analogy limits explicitly.",
+      "reason": "These prevent common misconceptions before the division comparisons."
+     }
+    ],
+    "uncertain": [
+     "No book pages or exact organ-location lists were supplied; landmarks follow the prerequisite descriptions rather than an inferred page transcription."
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "This prerequisite video builds the cell, location, transport and control vocabulary needed for the tissue chapter. All explanations are standard textbook-level outside support, not claims drawn from supplied book pages.",
+     "key_questions": [
+      "Which cell structures and chromosome terms must the learner distinguish?",
+      "Where are the human and plant landmarks used in tissue descriptions?",
+      "How do transport, biological materials, mechanical properties and control explain tissue functions?"
+     ],
+     "decisions": [
+      {
+       "decision": "Teach the nine prerequisites in the supplied order, using short visual examples.",
+       "reason": "This supplies directly needed tools without starting the chapter's tissue classifications."
+      },
+      {
+       "decision": "Keep every prerequisite beat at step 0 and mark its basis outside.",
+       "reason": "The card specifies prerequisite parts of type none and identifies all nine prerequisites as outside."
+      },
+      {
+       "decision": "Clarify chromosome counting and analogy limits explicitly.",
+       "reason": "These prevent common misconceptions before the division comparisons."
+      }
+     ],
+     "uncertain": [
+      "No book pages or exact organ-location lists were supplied; landmarks follow the prerequisite descriptions rather than an inferred page transcription."
+     ]
+    },
+    "title": "पहले यह जान लो: tissue समझने के जरूरी tools",
+    "parts": [
+     {
+      "part_id": "pre1",
+      "frame": {
+       "process": "Identify cell boundaries, internal contents and plant–animal differences.",
+       "how": "Move from membrane and wall to cytoplasm, nucleus and organelles.",
+       "when": "Before interpreting tissue cells and spaces.",
+       "conditions": "Typical plant and animal cells; specialised cells may differ.",
+       "atmosphere": "Two enlarged cells beside a familiar room-boundary image."
+      },
+      "skipped_steps": []
+     },
+     {
+      "part_id": "pre2",
+      "frame": {
+       "process": "Distinguish chromosomes, homologous partners, chromatids and sets.",
+       "how": "Follow DNA copying while keeping chromosome number separate from DNA quantity.",
+       "when": "Replication precedes division; copied chromatids later separate.",
+       "conditions": "Count chromosomes by centromeres; distinguish n from 2n.",
+       "atmosphere": "Paired instruction books and a simple chromosome diagram."
+      },
+      "skipped_steps": []
+     },
+     {
+      "part_id": "pre3",
+      "frame": {
+       "process": "Distinguish body cells, reproductive cell lineage and gametes.",
+       "how": "Connect meiosis with reduction and fertilisation with restoration of chromosome sets.",
+       "when": "Gamete formation precedes fertilisation.",
+       "conditions": "Use the human reproductive context.",
+       "atmosphere": "A body-cell example beside sperm and egg joining."
+      },
+      "skipped_steps": []
+     },
+     {
+      "part_id": "pre4",
+      "frame": {
+       "process": "Locate the organs and passages named in tissue descriptions.",
+       "how": "Trace digestive, respiratory, urinary, circulatory and nervous routes, then support structures.",
+       "when": "Before zooming from organs to their tissue linings.",
+       "conditions": "Distinguish neighbouring passages and ducts by their destinations.",
+       "atmosphere": "A simple labelled human-body outline."
+      },
+      "skipped_steps": []
+     },
+     {
+      "part_id": "pre5",
+      "frame": {
+       "process": "Locate plant organs, stem regions and section landmarks.",
+       "how": "Move from the whole plant to nodes, coverings and a stem cross-section.",
+       "when": "Before locating growth and transport tissues.",
+       "conditions": "Separate lengthwise position from outside-to-inside position.",
+       "atmosphere": "A potted plant beside a cut stem and split seeds."
+      },
+      "skipped_steps": []
+     },
+     {
+      "part_id": "pre6",
+      "frame": {
+       "process": "Distinguish diffusion, absorption, secretion and passage through openings.",
+       "how": "Use movement direction, concentration difference and selective barriers.",
+       "when": "During exchange, uptake and release.",
+       "conditions": "Movement depends on the barrier and the substance; pores do not imply unrestricted passage.",
+       "atmosphere": "An intestinal lining, a gland and a magnified plant wall."
+      },
+      "skipped_steps": []
+     },
+     {
+      "part_id": "pre7",
+      "frame": {
+       "process": "Connect food production, storage and biological materials with their jobs.",
+       "how": "Separate substances from the tissues containing or producing them.",
+       "when": "During photosynthesis, storage, support and protection.",
+       "conditions": "Materials have different properties and are not interchangeable tissue names.",
+       "atmosphere": "A green leaf, stored food and contrasting biological coverings."
+      },
+      "skipped_steps": []
+     },
+     {
+      "part_id": "pre8",
+      "frame": {
+       "process": "Interpret pulling, recoil, pressure, floating and reduced heat loss.",
+       "how": "Connect each physical term to a visible everyday effect.",
+       "when": "During stretching, contraction, pumping, floating and cooling.",
+       "conditions": "Analogies illustrate properties, not identical biological mechanisms.",
+       "atmosphere": "A rope, rubber band, pump, floating object and warm clothing."
+      },
+      "skipped_steps": []
+     },
+     {
+      "part_id": "pre9",
+      "frame": {
+       "process": "Distinguish a stimulus, its nerve signal and conscious versus automatic control.",
+       "how": "Trace detection to signalling and response.",
+       "when": "After a detectable change or during ongoing automatic activity.",
+       "conditions": "Biological electrical signalling is not metal-wire conduction; appearance does not determine control.",
+       "atmosphere": "Touching something hot, raising a hand and feeling a heartbeat."
+      },
+      "skipped_steps": []
+     }
+    ],
+    "beats": [
+     {
+      "beat_id": "b1",
+      "part_id": "",
+      "step": 0,
+      "purpose": "hook",
+      "say": "अपनी skin, चलती उँगली और किसी चीज को छूने का एहसास देखो—एक शरीर इतने अलग काम कैसे करता है? Tissue समझने से पहले cell, जगह और काम के कुछ tools साफ कर लेते हैं।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Skin, moving finger and touch sensation beside a cell magnification.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b2",
+      "part_id": "pre1",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "कमरे की boundary और दरवाजे को देखो—cell में अंदर-बाहर का रास्ता कौन सँभालता है? Cell membrane यह boundary है, जो चीजों का आना-जाना नियंत्रित (control) करती है। Plant cell में इसके बाहर cell wall भी होती है, जो सहारा देती है; animal cell में cell wall नहीं होती।",
+      "covers_item_ids": [
+       "pre1"
+      ],
+      "answers": [],
+      "on_screen": "Plant and animal cells; membrane highlighted in both, wall only in plant.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b3",
+      "part_id": "pre1",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Cell के अंदर छोटे हिस्से दिख रहे हैं? ये organelles हैं; cytoplasm इनके आसपास का अंदरूनी पदार्थ है, और nucleus में DNA की instructions रहती हैं। Vacuole भंडारण (storage) का स्थान है, plant cell में अक्सर बड़ी होती है; chloroplast हरे plant cells में food बनाने में मदद करता है। हर plant cell में chloroplast नहीं होता।",
+      "covers_item_ids": [
+       "pre1"
+      ],
+      "answers": [],
+      "on_screen": "Label cytoplasm, nucleus, vacuole and chloroplast; show a root cell without chloroplasts.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b4",
+      "part_id": "pre1",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "तो boundary, अंदर के हिस्से और बाहर की जगह अलग पहचानो। Intercellular space यानी cells के बीच जगह; extracellular material यानी cells के बाहर का पदार्थ। Multinucleate का मतलब एक cell में कई nuclei; कमरे वाली तुलना केवल जगह समझाती है, cell को सचमुच कमरा नहीं बनाती।",
+      "covers_item_ids": [
+       "pre1"
+      ],
+      "answers": [],
+      "on_screen": "One cell with several nuclei; adjacent cells with spaces and extracellular material.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b5",
+      "part_id": "pre2",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Instructions की किताब की copy बनाओ, तो जानकारी कहाँ रहती है? Cell में DNA जानकारी रखता है, और chromosomes उसकी व्यवस्थित (organised) इकाइयाँ हैं। Homologous pair में एक chromosome माँ से, दूसरा पिता से आता है; दोनों में समान तरह की जानकारी के स्थान होते हैं, लेकिन versions अलग हो सकते हैं।",
+      "covers_item_ids": [
+       "pre2"
+      ],
+      "answers": [],
+      "on_screen": "Matching maternal and paternal chromosomes with matching gene positions and different versions.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b6",
+      "part_id": "pre2",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Division से पहले DNA replication यानी DNA की copy बनती है। एक copied chromosome की 2 sister chromatids centromere पर जुड़ी रहती हैं; DNA दोगुना हुआ, chromosome संख्या अभी नहीं। गिनती centromeres से होती है; अलग होने पर chromatids अलग chromosomes कहलाती हैं।",
+      "covers_item_ids": [
+       "pre2"
+      ],
+      "answers": [],
+      "on_screen": "One chromosome → replicated chromosome with two chromatids → separated chromosomes; centromere count shown.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b7",
+      "part_id": "pre2",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "पूरा एक chromosome set n है; ऐसे 2 sets हों तो 2n। Homologous chromosomes आपस के partners हैं, sister chromatids एक chromosome की copies हैं; crossing over में homologous partners की non-sister chromatids के बीच DNA के हिस्से बदलते हैं। याद रखो, copying और sets बढ़ना अलग बातें हैं।",
+      "covers_item_ids": [
+       "pre2"
+      ],
+      "answers": [],
+      "on_screen": "n versus 2n; distinguish homologous partners from sister chromatids; small crossover inset.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b8",
+      "part_id": "pre3",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Skin की cell और sperm का काम एक जैसा है? Somatic cells शरीर के सामान्य काम करती हैं; germ cells उस reproductive line की cells हैं जिससे gametes बनते हैं। मनुष्य में sperm और egg gametes हैं; germ cell और mature gamete को एक ही stage मत मानना।",
+      "covers_item_ids": [
+       "pre3"
+      ],
+      "answers": [],
+      "on_screen": "Skin cell beside germ-cell lineage ending in sperm or egg.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b9",
+      "part_id": "pre3",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "मनुष्य में meiosis gamete बनने की प्रक्रिया में chromosome sets घटाता है। Fertilisation में sperm और egg मिलते हैं, इसलिए n और n से 2n वापस मिलता है; हर generation में sets बढ़ते नहीं जाते। Mitosis सामान्यतः growth और repair में संख्या बनाए रखता है—जैसे skin की cells बदलना।",
+      "covers_item_ids": [
+       "pre3"
+      ],
+      "answers": [],
+      "on_screen": "2n → meiosis → n gametes; n + n → fertilisation → 2n.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b10",
+      "part_id": "pre4",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "खाना और साँस शरीर में कहाँ जाते दिखते हैं? Gastrointestinal tract में food pipe से stomach और intestine तक खाना जाता है; intestine से पोषण (nutrients) लिया जाता है। Respiratory tract हवा lungs तक पहुँचाता है; वहाँ छोटे air sacs, यानी alveoli, blood से gases का exchange करते हैं।",
+      "covers_item_ids": [
+       "pre4"
+      ],
+      "answers": [],
+      "on_screen": "Separate food and air routes; zoom into intestine and lung air sacs.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b11",
+      "part_id": "pre4",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Kidney की tubules छोटी नलियाँ हैं, जहाँ छनकर आए fluid में आगे बदलाव होते हैं। Urine ureter से bladder में, फिर urethra से बाहर जाता है; gland चीज बनाती और छोड़ती है, duct उसे पहुँचाने की नली है—जैसे saliva मुँह तक पहुँचना।",
+      "covers_item_ids": [
+       "pre4"
+      ],
+      "answers": [],
+      "on_screen": "Kidney tubule inset; kidney–ureter–bladder–urethra route; salivary gland and duct.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b12",
+      "part_id": "pre4",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "बाकी body map में skin बाहर का cover है; heart blood pump करता है और vessels उसे ले जाती हैं। Brain और spinal cord messages सँभालते हैं; bones सहारा देती हैं, joints bones के मिलने की जगह हैं। आगे tissue की जगह पढ़ते समय पहले इसी organ को पहचानना।",
+      "covers_item_ids": [
+       "pre4"
+      ],
+      "answers": [],
+      "on_screen": "Human outline highlighting skin, heart, vessels, brain, spinal cord, bones and joints.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b13",
+      "part_id": "pre5",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "गमले के पौधे में पत्ती stem से कहाँ जुड़ती है? वह node है; 2 nodes के बीच internode होता है। Petiole पत्ती का डंठल है, leaf base उसका जुड़ने वाला हिस्सा; root tip जड़ का सिरा और shoot tip ऊपर बढ़ते shoot का सिरा है।",
+      "covers_item_ids": [
+       "pre5"
+      ],
+      "answers": [],
+      "on_screen": "Whole plant zooming into tips, node, internode, leaf base and petiole.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b14",
+      "part_id": "pre5",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Stem को खीरे की तरह आड़ा काटो, तो transverse section दिखेगा। बाहर epidermis, उसके भीतर cortex और बीच में pith पहचानेंगे; vascular bundle transport tissues का समूह है। Bark बाहर का covering region है, सिर्फ एक cell layer नहीं; seed coat बीज का cover है।",
+      "covers_item_ids": [
+       "pre5"
+      ],
+      "answers": [],
+      "on_screen": "Typical young dicot stem cross-section; separate older stem bark and seed-coat inset.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b15",
+      "part_id": "pre5",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "चना खोलने पर 2 seed leaves मिलती हैं; ये cotyledons हैं, इसलिए dicot। Maize monocot है, उसमें 1 cotyledon होता है। Plant map का नियम रखो: पहले organ, फिर उसकी लंबाई में जगह, फिर बाहर से अंदर का हिस्सा पहचानो।",
+      "covers_item_ids": [
+       "pre5"
+      ],
+      "answers": [],
+      "on_screen": "Chickpea with two cotyledons, maize with one; organ → position → internal region.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b16",
+      "part_id": "pre6",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "पानी में रंग की बूँद धीरे फैलते देखी है? Diffusion में particles का net movement अधिक concentration से कम concentration की ओर होता है। Absorption का मतलब चीज को अंदर लेना, जैसे intestine से nutrients; secretion में cells कुछ बनाकर छोड़ती हैं, जैसे saliva।",
+      "covers_item_ids": [
+       "pre6"
+      ],
+      "answers": [],
+      "on_screen": "Dye spreading; arrows into intestinal lining and outward from salivary cells.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b17",
+      "part_id": "pre6",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "बारीक lining exchange का रास्ता छोटा करती है; microvilli छोटी उँगली जैसी projections हैं, जो absorption के लिए area बढ़ाती हैं। Permeability यानी किसी चीज को गुजरने देने की क्षमता। Wall के pits पतले हिस्से, sieve plate के pores रास्ते और stomata leaf के openings हैं; हर रास्ता हर चीज को नहीं गुजरने देता।",
+      "covers_item_ids": [
+       "pre6"
+      ],
+      "answers": [],
+      "on_screen": "Thin exchange barrier and microvilli; separate labelled pits, sieve pores and stomata.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b18",
+      "part_id": "pre7",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "हरी पत्ती food बनाती है, लेकिन आलू में food जमा मिलता है—फर्क क्या है? Photosynthesis में chlorophyll light पकड़ने में मदद करता है; plant carbon dioxide और water से sugars बनाता है। Food दूसरी जगह transport या store हो सकता है; starch और fat energy के reserves हैं।",
+      "covers_item_ids": [
+       "pre7"
+      ],
+      "answers": [],
+      "on_screen": "Sunlit green leaf making sugars; arrows toward storage; starch and fat reserves.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b19",
+      "part_id": "pre7",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "नाखून की मजबूती और लकड़ी की कठोरता (hardness) एक ही material से आती हैं? Proteins कई काम करते हैं, जिनमें support और muscle contraction शामिल हैं; keratin एक protective protein है। Polysaccharides sugars की लंबी chains हैं; cellulose wall का ढाँचा बनाता है, lignin उसे कठोर बनाता है, और suberin पानी का गुजरना घटाता है। ये materials हैं, tissues के नाम नहीं।",
+      "covers_item_ids": [
+       "pre7"
+      ],
+      "answers": [],
+      "on_screen": "Protein and polysaccharide categories; keratin, cellulose, lignin and suberin linked to their roles.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b20",
+      "part_id": "pre8",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "रस्सी खींचो और rubber छोड़ो—दोनों में क्या फर्क दिखा? Tension खिंचाव का force है; elasticity खिंचने के बाद पुरानी shape में लौटने की property। Muscle contraction में muscle force बनाता है, अक्सर छोटा होता है; उससे खींचना या pumping हो सकती है, लेकिन muscle rubber की तरह काम नहीं करता।",
+      "covers_item_ids": [
+       "pre8"
+      ],
+      "answers": [],
+      "on_screen": "Taut rope, recoiling rubber and contracting muscle shown as distinct mechanisms.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b21",
+      "part_id": "pre8",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "पानी पर चीज क्यों तैरती है, और गरम कपड़ा ठंड से कैसे बचाता है? Buoyancy fluid का ऊपर की ओर force है; air spaces औसत density घटाकर floating में मदद कर सकती हैं। Insulation heat का निकलना धीमा करता है, बनाता नहीं; शरीर की skin के नीचे fat भी heat loss घटाता है।",
+      "covers_item_ids": [
+       "pre8"
+      ],
+      "answers": [],
+      "on_screen": "Upward force on floating object; air spaces; slower heat-loss arrows through fat.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b22",
+      "part_id": "pre8",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Pressure किसी area पर लगने वाला force है, जैसे pump पानी पर दबाव डालता है। इन tools में खींचना, वापस लौटना, दबाना, तैराना और heat बचाना अलग बातें हैं। Growth में भी लंबाई बढ़ना और girth, यानी मोटाई बढ़ना, अलग दिशाएँ हैं।",
+      "covers_item_ids": [
+       "pre8"
+      ],
+      "answers": [],
+      "on_screen": "Pressure arrow over area; lengthwise and radial growth arrows.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b23",
+      "part_id": "pre9",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "गरम चीज छूते ही हाथ हटता है—शुरुआत किससे हुई? Stimulus वह बदलाव है जिसे शरीर detect करता है, जैसे heat या pressure। Nerve impulse cell membrane में बदलावों से आगे बढ़ता electrical signal है; यह message है, metal wire में बहती बिजली जैसा हूबहू नहीं।",
+      "covers_item_ids": [
+       "pre9"
+      ],
+      "answers": [],
+      "on_screen": "Heat stimulus → detection → travelling membrane signal → response.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b24",
+      "part_id": "pre9",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "अपनी मर्जी से हाथ उठाना voluntary control है; heartbeat और intestine की हलचल आम तौर पर conscious आदेश के बिना चलती हैं, इसलिए involuntary हैं। Signal message है और control बताता है कि काम अपनी मर्जी से चल रहा है या नहीं। Muscle की धारियाँ देखकर उसका control तय मत करना।",
+      "covers_item_ids": [
+       "pre9"
+      ],
+      "answers": [],
+      "on_screen": "Voluntary hand movement versus involuntary heartbeat and gut movement; appearance ≠ control.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b25",
+      "part_id": "",
+      "step": 0,
+      "purpose": "recap",
+      "say": "अब किसी tissue को समझते समय पूछना: इसकी cells कैसी हैं, कहाँ हैं और इनकी बनावट काम में कैसे मदद करती है? Cell के tools, body और plant का map, और movement तथा control के meanings तैयार हैं। अब इन्हीं से समझेंगे कि cells मिलकर tissue कैसे बनाती हैं।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Cell → location → structure → function; next: cells working together as tissue.",
+      "basis": "outside"
+     }
+    ]
+   },
+   "code_problems": [
+    "[code] beat b1: the Hindi words ['एहसास'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b3: textbook Hindi for the book's own terms (पदार्थ → substance); say the book's English term in Roman, a bracket does not rescue it (S2-04)",
+    "[code] beat b3: the Hindi words ['अंदरूनी'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b4: textbook Hindi for the book's own terms (पदार्थ → substance); say the book's English term in Roman, a bracket does not rescue it (S2-04)",
+    "[code] beat b5: the Hindi words ['इकाइयाँ'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b8: the Hindi words ['मनुष्य'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b9: the Hindi words ['मनुष्य', 'प्रक्रिया', 'सामान्यतः'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b11: the Hindi words ['छनकर'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b13: the Hindi words ['गमले'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b14: the Hindi words ['खीरे'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b15: the Hindi words ['चना'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b16: the Hindi words ['बूँद'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b18: the Hindi words ['आलू'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b19: the Hindi words ['कठोर'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b23: the Hindi words ['हूबहू'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b24: the Hindi words ['हलचल'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] the script speaks about 9.2 minutes; this video's narration time is 5.0-8.0 minutes (S2-01): cut repetition and side-tracks, never book content"
+   ],
+   "observed": {
+    "pattern_order": [],
+    "skipped_steps": {},
+    "objective_coverage": {
+     "coverage": 1.0,
+     "uncovered": []
+    },
+    "cognitive_load": {
+     "max": 1.44,
+     "abrupt_jumps": []
+    },
+    "duration": {
+     "spoken_minutes_at_130_wpm": 9.2,
+     "planned_minutes": 8,
+     "range": [
+      5.0,
+      8.0
+     ]
+    },
+    "dohraav": {
+     "beats": 25,
+     "judged": 23,
+     "restating": 0,
+     "share": 0.0,
+     "opened": 14,
+     "opened_share": 0.609,
+     "restating_beats": []
+    }
+   },
+   "passed": false,
+   "finished_at": 1792853884.764161
+  },
+  {
+   "round": 2,
+   "started_at": 1792853884.7644017,
+   "mode": "patch",
+   "patch": {
+    "notes": {
+     "about": "This patch preserves all nine prerequisite topics while shortening narration to fit the 5–8 minute window.",
+     "key_questions": [
+      "Are cell and chromosome terms clearly distinguished?",
+      "Can the learner locate the human and plant landmarks?",
+      "Are transport, materials, mechanical properties and control explained through examples?"
+     ],
+     "decisions": [
+      {
+       "decision": "Shorten explanations and remove repeated summaries without removing prerequisite concepts.",
+       "reason": "The previous narration exceeded the allotted time."
+      },
+      {
+       "decision": "Replace flagged Hindi vocabulary with simpler wording or English technical terms; bracket remaining flagged everyday examples.",
+       "reason": "Meet the supplied language checks while preserving natural spoken explanations."
+      },
+      {
+       "decision": "Keep all existing part frames and the prerequisite order.",
+       "reason": "Their scope and teaching sequence remain correct."
+      }
+     ],
+     "uncertain": [
+      "No source page images were supplied; all prerequisite explanations remain marked outside."
+     ]
+    },
+    "replace_parts": [],
+    "replace_beats": [
+     {
+      "beat_id": "b1",
+      "part_id": "",
+      "step": 0,
+      "purpose": "hook",
+      "say": "अपनी skin और चलती उँगली देखो—एक शरीर इतने अलग काम कैसे करता है? Tissue समझने से पहले cell, जगह और काम के जरूरी tools समझ लेते हैं।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Skin and moving finger beside a magnified cell.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b2",
+      "part_id": "pre1",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "कमरे के दरवाजे जैसा cell में आना-जाना कौन सँभालता है? Cell membrane चीजों का आना-जाना control करती है। Plant cell में इसके बाहर सहारा देने वाली cell wall भी होती है; animal cell में wall नहीं होती।",
+      "covers_item_ids": [
+       "pre1"
+      ],
+      "answers": [],
+      "on_screen": "Membrane in both cells; supporting wall outside the plant cell membrane.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b3",
+      "part_id": "pre1",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Cell में ये छोटे हिस्से दिखे? Organelles अलग काम करते हैं; cytoplasm अंदर का substance है, nucleus में DNA की instructions हैं। Vacuole storage करती है, plant cell में अक्सर बड़ी होती है; chloroplast food बनाने में मदद करता है, लेकिन हर plant cell में नहीं होता।",
+      "covers_item_ids": [
+       "pre1"
+      ],
+      "answers": [],
+      "on_screen": "Label organelles, cytoplasm, nucleus, vacuole and chloroplast; root cell without chloroplasts.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b4",
+      "part_id": "pre1",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Intercellular space cells के बीच जगह है; extracellular material cells के बाहर का substance है। Multinucleate यानी एक cell में कई nuclei। अंदर, बाहर और boundary अलग पहचानो; कमरे की तुलना सिर्फ जगह समझाती है।",
+      "covers_item_ids": [
+       "pre1"
+      ],
+      "answers": [],
+      "on_screen": "Distinguish cell contents, intercellular spaces and extracellular material; multinucleate cell inset.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b5",
+      "part_id": "pre2",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Instructions की किताब जैसी cell की जानकारी कहाँ है? DNA में; chromosomes DNA के organised packages हैं। Homologous pair में एक chromosome माँ से, दूसरा पिता से आता है; जानकारी के स्थान मिलते हैं, लेकिन versions अलग हो सकते हैं।",
+      "covers_item_ids": [
+       "pre2"
+      ],
+      "answers": [],
+      "on_screen": "Maternal and paternal homologues with matching gene positions and differing versions.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b6",
+      "part_id": "pre2",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Division से पहले DNA replication में copy बनती है। Copied chromosome की 2 sister chromatids centromere पर जुड़ी हैं: DNA दोगुना, chromosome संख्या अभी नहीं। गिनती centromeres से करो; अलग होने पर chromatids अलग chromosomes हैं।",
+      "covers_item_ids": [
+       "pre2"
+      ],
+      "answers": [],
+      "on_screen": "Replication and separation; DNA quantity contrasted with chromosome count.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b7",
+      "part_id": "pre2",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "एक chromosome set n, ऐसे 2 sets 2n हैं। Homologous chromosomes partners हैं; sister chromatids एक chromosome की copies। Crossing over में homologous partners की non-sister chromatids DNA के हिस्से बदलती हैं; copying और sets बढ़ना अलग बातें हैं।",
+      "covers_item_ids": [
+       "pre2"
+      ],
+      "answers": [],
+      "on_screen": "n versus 2n; homologues versus sisters; non-sister chromatids exchanging segments.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b8",
+      "part_id": "pre3",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Skin cell और sperm का काम एक है? Somatic cells शरीर के सामान्य काम करती हैं; germ cells reproductive line की cells हैं। इंसान में sperm और egg gametes हैं; germ cell और mature gamete अलग stages हैं।",
+      "covers_item_ids": [
+       "pre3"
+      ],
+      "answers": [],
+      "on_screen": "Somatic cell beside germ-cell lineage leading to gametes.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b9",
+      "part_id": "pre3",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "इंसान में gamete बनने के दौरान meiosis sets घटाता है। Fertilisation में sperm और egg मिलने से n और n वापस 2n बनाते हैं; generation-दर-generation sets नहीं बढ़ते। Mitosis growth और repair में संख्या बनाए रखता है, जैसे skin cells बदलना।",
+      "covers_item_ids": [
+       "pre3"
+      ],
+      "answers": [],
+      "on_screen": "Meiosis reduces sets; fertilisation restores them; mitosis supports growth and repair.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b10",
+      "part_id": "pre4",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "खाना और साँस कहाँ जाते हैं? Gastrointestinal tract खाना food pipe से stomach और intestine तक पहुँचाता है; intestine nutrients लेती है। Respiratory tract हवा lungs तक लाता है; छोटे air sacs, यानी alveoli, blood से gases exchange करते हैं।",
+      "covers_item_ids": [
+       "pre4"
+      ],
+      "answers": [],
+      "on_screen": "Separate digestive and respiratory routes; intestinal lining and alveolar insets.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b11",
+      "part_id": "pre4",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Kidney tubules छोटी नलियाँ हैं, जो filtered fluid में बदलाव करती हैं। Urine ureter से bladder, फिर urethra से बाहर जाता है। Gland चीज बनाकर छोड़ती है; duct पहुँचाने की नली है, जैसे saliva को मुँह तक लाना।",
+      "covers_item_ids": [
+       "pre4"
+      ],
+      "answers": [],
+      "on_screen": "Kidney tubule; urinary route; salivary gland and duct.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b12",
+      "part_id": "pre4",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Skin बाहर का cover है; heart blood pump करता है, vessels उसे ले जाती हैं। Brain और spinal cord messages सँभालते हैं; bones सहारा देती हैं, joints उनके मिलने की जगह हैं। Tissue की जगह समझने के लिए पहले organ पहचानो।",
+      "covers_item_ids": [
+       "pre4"
+      ],
+      "answers": [],
+      "on_screen": "Body map highlighting coverings, circulation, nervous system and skeleton.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b13",
+      "part_id": "pre5",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "पौधे में पत्ती stem से कहाँ जुड़ी है? वह node है; 2 nodes के बीच internode। Petiole पत्ती का डंठल, leaf base जुड़ने वाला हिस्सा है; root tip जड़ का सिरा, shoot tip बढ़ते shoot का सिरा है।",
+      "covers_item_ids": [
+       "pre5"
+      ],
+      "answers": [],
+      "on_screen": "Whole plant with node, internode, petiole, leaf base and growing tips.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b14",
+      "part_id": "pre5",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Stem को आड़ा काटने पर क्या दिखेगा? Transverse section में बाहर epidermis, भीतर cortex, बीच में pith पहचानेंगे। Vascular bundle transport tissues का समूह है; पुराने stem में bark बाहरी covering region है, सिर्फ 1 layer नहीं; seed coat बीज का cover है।",
+      "covers_item_ids": [
+       "pre5"
+      ],
+      "answers": [],
+      "on_screen": "Typical young dicot stem section; separate older-stem bark and seed coat.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b15",
+      "part_id": "pre5",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "चना (chickpea) खोलने पर 2 seed leaves दिखती हैं; ये cotyledons हैं, इसलिए dicot। Maize monocot है, उसमें 1 cotyledon है। Plant में पहले organ, फिर लंबाई में जगह, फिर बाहर से अंदर का हिस्सा पहचानो।",
+      "covers_item_ids": [
+       "pre5"
+      ],
+      "answers": [],
+      "on_screen": "Two chickpea cotyledons versus one maize cotyledon; plant-location reading path.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b16",
+      "part_id": "pre6",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "पानी में रंग फैलते देखा? Diffusion particles का net movement अधिक से कम concentration की ओर है। Absorption अंदर लेना है, जैसे intestine nutrients लेती है; secretion में cells कुछ बनाकर छोड़ती हैं, जैसे saliva।",
+      "covers_item_ids": [
+       "pre6"
+      ],
+      "answers": [],
+      "on_screen": "Dye diffusion; absorption inward and secretion outward.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b17",
+      "part_id": "pre6",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "पतली lining exchange का रास्ता छोटा करती है; microvilli उँगली जैसे उभार (projections) हैं, absorption का area बढ़ाते हैं। Permeability गुजरने देने की क्षमता है; wall pits पतले हिस्से, sieve plate pores रास्ते, stomata leaf openings हैं। हर रास्ते से हर चीज नहीं गुजरती।",
+      "covers_item_ids": [
+       "pre6"
+      ],
+      "answers": [],
+      "on_screen": "Thin barrier, microvilli, wall pits, sieve pores and stomata shown separately.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b18",
+      "part_id": "pre7",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "हरी पत्ती food बनाती है, आलू (potato) जमा करता है—कैसे? Photosynthesis में chlorophyll light पकड़ने में मदद करता है; plant carbon dioxide और water से sugars बनाता है। Food transport या store होता है; starch और fat energy reserves हैं।",
+      "covers_item_ids": [
+       "pre7"
+      ],
+      "answers": [],
+      "on_screen": "Photosynthesis in leaf; sugar transport; starch and fat storage.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b19",
+      "part_id": "pre7",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "नाखून और लकड़ी के materials एक हैं? Proteins support और muscle contraction जैसे काम करते हैं; keratin protective protein है। Polysaccharides sugars की लंबी chains हैं; cellulose wall का ढाँचा बनाता है, lignin hard बनाता है, suberin पानी का गुजरना घटाता है। Materials tissues नहीं हैं।",
+      "covers_item_ids": [
+       "pre7"
+      ],
+      "answers": [],
+      "on_screen": "Proteins and polysaccharides; keratin, cellulose, lignin and suberin with functions.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b20",
+      "part_id": "pre8",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "रस्सी खींचने और rubber छोड़ने में फर्क? Tension खिंचाव का force है; elasticity पुरानी shape में लौटने की property। Muscle contraction force बनाता है, अक्सर muscle छोटा होता है; इससे खींचना या pumping होती है, लेकिन mechanism rubber जैसा नहीं।",
+      "covers_item_ids": [
+       "pre8"
+      ],
+      "answers": [],
+      "on_screen": "Taut rope, recoiling rubber and active muscle contraction distinguished.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b21",
+      "part_id": "pre8",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "चीज तैरती कैसे है, कपड़ा गरम कैसे रखता है? Buoyancy fluid का ऊपर का force है; air spaces औसत density घटाकर floating में मदद करती हैं। Insulation heat loss धीमा करता है, heat बनाता नहीं; skin के नीचे fat भी heat loss घटाता है।",
+      "covers_item_ids": [
+       "pre8"
+      ],
+      "answers": [],
+      "on_screen": "Buoyant force and air spaces; clothing and subcutaneous fat slowing heat loss.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b22",
+      "part_id": "pre8",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Pressure किसी area पर force है, जैसे pump पानी पर दबाव डालता है। खींचना, लौटना, दबाना, तैराना और heat बचाना अलग properties हैं। Growth में लंबाई और girth, यानी मोटाई बढ़ना भी अलग दिशाएँ हैं।",
+      "covers_item_ids": [
+       "pre8"
+      ],
+      "answers": [],
+      "on_screen": "Force over area; property icons; lengthwise versus radial growth.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b23",
+      "part_id": "pre9",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "गरम चीज छूकर हाथ क्यों हटता है? Stimulus शरीर को detect होने वाला बदलाव है, जैसे heat या pressure। Nerve impulse membrane में बदलावों से बढ़ता electrical signal है; यह message है, metal wire की बिजली जैसा बिल्कुल नहीं।",
+      "covers_item_ids": [
+       "pre9"
+      ],
+      "answers": [],
+      "on_screen": "Heat stimulus → detection → travelling membrane signal → response.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b24",
+      "part_id": "pre9",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "अपनी मर्जी से हाथ उठाना voluntary है; heartbeat और intestine की movement आम तौर पर conscious आदेश बिना चलती हैं, इसलिए involuntary। Signal message है; control काम चलाने का तरीका। Muscle की धारियाँ देखकर control तय मत करना।",
+      "covers_item_ids": [
+       "pre9"
+      ],
+      "answers": [],
+      "on_screen": "Voluntary hand movement versus involuntary heartbeat and gut movement; striations do not determine control.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b25",
+      "part_id": "",
+      "step": 0,
+      "purpose": "recap",
+      "say": "अब tissue पढ़ते समय पूछना: cells कैसी हैं, कहाँ हैं, बनावट काम में कैसे मदद करती है? Cell, body और plant के maps तथा transport, support और control के tools तैयार हैं। अब समझेंगे, cells मिलकर tissue कैसे बनाती हैं।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Cell → location → structure → function; next: cells forming tissues.",
+      "basis": "outside"
+     }
+    ],
+    "insert_beats": [],
+    "remove_beat_ids": []
+   },
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "c69499d064ef6d34f2af0d6cbb23fdcf0247f5d8316ee9c1303b980d5b8a1e77",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 17747,
+    "output_tokens": 3896,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "This prerequisite video builds the cell, location, transport and control vocabulary needed for the tissue chapter. All explanations are standard textbook-level outside support, not claims drawn from supplied book pages.",
+    "key_questions": [
+     "Which cell structures and chromosome terms must the learner distinguish?",
+     "Where are the human and plant landmarks used in tissue descriptions?",
+     "How do transport, biological materials, mechanical properties and control explain tissue functions?"
+    ],
+    "decisions": [
+     {
+      "decision": "Teach the nine prerequisites in the supplied order, using short visual examples.",
+      "reason": "This supplies directly needed tools without starting the chapter's tissue classifications."
+     },
+     {
+      "decision": "Keep every prerequisite beat at step 0 and mark its basis outside.",
+      "reason": "The card specifies prerequisite parts of type none and identifies all nine prerequisites as outside."
+     },
+     {
+      "decision": "Clarify chromosome counting and analogy limits explicitly.",
+      "reason": "These prevent common misconceptions before the division comparisons."
+     },
+     {
+      "decision": "Shorten explanations and remove repeated summaries without removing prerequisite concepts.",
+      "reason": "The previous narration exceeded the allotted time."
+     },
+     {
+      "decision": "Replace flagged Hindi vocabulary with simpler wording or English technical terms; bracket remaining flagged everyday examples.",
+      "reason": "Meet the supplied language checks while preserving natural spoken explanations."
+     },
+     {
+      "decision": "Keep all existing part frames and the prerequisite order.",
+      "reason": "Their scope and teaching sequence remain correct."
+     }
+    ],
+    "uncertain": [
+     "No source page images were supplied; all prerequisite explanations remain marked outside."
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "This prerequisite video builds the cell, location, transport and control vocabulary needed for the tissue chapter. All explanations are standard textbook-level outside support, not claims drawn from supplied book pages.",
+     "key_questions": [
+      "Which cell structures and chromosome terms must the learner distinguish?",
+      "Where are the human and plant landmarks used in tissue descriptions?",
+      "How do transport, biological materials, mechanical properties and control explain tissue functions?"
+     ],
+     "decisions": [
+      {
+       "decision": "Teach the nine prerequisites in the supplied order, using short visual examples.",
+       "reason": "This supplies directly needed tools without starting the chapter's tissue classifications."
+      },
+      {
+       "decision": "Keep every prerequisite beat at step 0 and mark its basis outside.",
+       "reason": "The card specifies prerequisite parts of type none and identifies all nine prerequisites as outside."
+      },
+      {
+       "decision": "Clarify chromosome counting and analogy limits explicitly.",
+       "reason": "These prevent common misconceptions before the division comparisons."
+      },
+      {
+       "decision": "Shorten explanations and remove repeated summaries without removing prerequisite concepts.",
+       "reason": "The previous narration exceeded the allotted time."
+      },
+      {
+       "decision": "Replace flagged Hindi vocabulary with simpler wording or English technical terms; bracket remaining flagged everyday examples.",
+       "reason": "Meet the supplied language checks while preserving natural spoken explanations."
+      },
+      {
+       "decision": "Keep all existing part frames and the prerequisite order.",
+       "reason": "Their scope and teaching sequence remain correct."
+      }
+     ],
+     "uncertain": [
+      "No source page images were supplied; all prerequisite explanations remain marked outside."
+     ]
+    },
+    "title": "पहले यह जान लो: tissue समझने के जरूरी tools",
+    "parts": [
+     {
+      "part_id": "pre1",
+      "frame": {
+       "process": "Identify cell boundaries, internal contents and plant–animal differences.",
+       "how": "Move from membrane and wall to cytoplasm, nucleus and organelles.",
+       "when": "Before interpreting tissue cells and spaces.",
+       "conditions": "Typical plant and animal cells; specialised cells may differ.",
+       "atmosphere": "Two enlarged cells beside a familiar room-boundary image."
+      },
+      "skipped_steps": []
+     },
+     {
+      "part_id": "pre2",
+      "frame": {
+       "process": "Distinguish chromosomes, homologous partners, chromatids and sets.",
+       "how": "Follow DNA copying while keeping chromosome number separate from DNA quantity.",
+       "when": "Replication precedes division; copied chromatids later separate.",
+       "conditions": "Count chromosomes by centromeres; distinguish n from 2n.",
+       "atmosphere": "Paired instruction books and a simple chromosome diagram."
+      },
+      "skipped_steps": []
+     },
+     {
+      "part_id": "pre3",
+      "frame": {
+       "process": "Distinguish body cells, reproductive cell lineage and gametes.",
+       "how": "Connect meiosis with reduction and fertilisation with restoration of chromosome sets.",
+       "when": "Gamete formation precedes fertilisation.",
+       "conditions": "Use the human reproductive context.",
+       "atmosphere": "A body-cell example beside sperm and egg joining."
+      },
+      "skipped_steps": []
+     },
+     {
+      "part_id": "pre4",
+      "frame": {
+       "process": "Locate the organs and passages named in tissue descriptions.",
+       "how": "Trace digestive, respiratory, urinary, circulatory and nervous routes, then support structures.",
+       "when": "Before zooming from organs to their tissue linings.",
+       "conditions": "Distinguish neighbouring passages and ducts by their destinations.",
+       "atmosphere": "A simple labelled human-body outline."
+      },
+      "skipped_steps": []
+     },
+     {
+      "part_id": "pre5",
+      "frame": {
+       "process": "Locate plant organs, stem regions and section landmarks.",
+       "how": "Move from the whole plant to nodes, coverings and a stem cross-section.",
+       "when": "Before locating growth and transport tissues.",
+       "conditions": "Separate lengthwise position from outside-to-inside position.",
+       "atmosphere": "A potted plant beside a cut stem and split seeds."
+      },
+      "skipped_steps": []
+     },
+     {
+      "part_id": "pre6",
+      "frame": {
+       "process": "Distinguish diffusion, absorption, secretion and passage through openings.",
+       "how": "Use movement direction, concentration difference and selective barriers.",
+       "when": "During exchange, uptake and release.",
+       "conditions": "Movement depends on the barrier and the substance; pores do not imply unrestricted passage.",
+       "atmosphere": "An intestinal lining, a gland and a magnified plant wall."
+      },
+      "skipped_steps": []
+     },
+     {
+      "part_id": "pre7",
+      "frame": {
+       "process": "Connect food production, storage and biological materials with their jobs.",
+       "how": "Separate substances from the tissues containing or producing them.",
+       "when": "During photosynthesis, storage, support and protection.",
+       "conditions": "Materials have different properties and are not interchangeable tissue names.",
+       "atmosphere": "A green leaf, stored food and contrasting biological coverings."
+      },
+      "skipped_steps": []
+     },
+     {
+      "part_id": "pre8",
+      "frame": {
+       "process": "Interpret pulling, recoil, pressure, floating and reduced heat loss.",
+       "how": "Connect each physical term to a visible everyday effect.",
+       "when": "During stretching, contraction, pumping, floating and cooling.",
+       "conditions": "Analogies illustrate properties, not identical biological mechanisms.",
+       "atmosphere": "A rope, rubber band, pump, floating object and warm clothing."
+      },
+      "skipped_steps": []
+     },
+     {
+      "part_id": "pre9",
+      "frame": {
+       "process": "Distinguish a stimulus, its nerve signal and conscious versus automatic control.",
+       "how": "Trace detection to signalling and response.",
+       "when": "After a detectable change or during ongoing automatic activity.",
+       "conditions": "Biological electrical signalling is not metal-wire conduction; appearance does not determine control.",
+       "atmosphere": "Touching something hot, raising a hand and feeling a heartbeat."
+      },
+      "skipped_steps": []
+     }
+    ],
+    "beats": [
+     {
+      "beat_id": "b1",
+      "part_id": "",
+      "step": 0,
+      "purpose": "hook",
+      "say": "अपनी skin और चलती उँगली देखो—एक शरीर इतने अलग काम कैसे करता है? Tissue समझने से पहले cell, जगह और काम के जरूरी tools समझ लेते हैं।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Skin and moving finger beside a magnified cell.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b2",
+      "part_id": "pre1",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "कमरे के दरवाजे जैसा cell में आना-जाना कौन सँभालता है? Cell membrane चीजों का आना-जाना control करती है। Plant cell में इसके बाहर सहारा देने वाली cell wall भी होती है; animal cell में wall नहीं होती।",
+      "covers_item_ids": [
+       "pre1"
+      ],
+      "answers": [],
+      "on_screen": "Membrane in both cells; supporting wall outside the plant cell membrane.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b3",
+      "part_id": "pre1",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Cell में ये छोटे हिस्से दिखे? Organelles अलग काम करते हैं; cytoplasm अंदर का substance है, nucleus में DNA की instructions हैं। Vacuole storage करती है, plant cell में अक्सर बड़ी होती है; chloroplast food बनाने में मदद करता है, लेकिन हर plant cell में नहीं होता।",
+      "covers_item_ids": [
+       "pre1"
+      ],
+      "answers": [],
+      "on_screen": "Label organelles, cytoplasm, nucleus, vacuole and chloroplast; root cell without chloroplasts.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b4",
+      "part_id": "pre1",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Intercellular space cells के बीच जगह है; extracellular material cells के बाहर का substance है। Multinucleate यानी एक cell में कई nuclei। अंदर, बाहर और boundary अलग पहचानो; कमरे की तुलना सिर्फ जगह समझाती है।",
+      "covers_item_ids": [
+       "pre1"
+      ],
+      "answers": [],
+      "on_screen": "Distinguish cell contents, intercellular spaces and extracellular material; multinucleate cell inset.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b5",
+      "part_id": "pre2",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Instructions की किताब जैसी cell की जानकारी कहाँ है? DNA में; chromosomes DNA के organised packages हैं। Homologous pair में एक chromosome माँ से, दूसरा पिता से आता है; जानकारी के स्थान मिलते हैं, लेकिन versions अलग हो सकते हैं।",
+      "covers_item_ids": [
+       "pre2"
+      ],
+      "answers": [],
+      "on_screen": "Maternal and paternal homologues with matching gene positions and differing versions.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b6",
+      "part_id": "pre2",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Division से पहले DNA replication में copy बनती है। Copied chromosome की 2 sister chromatids centromere पर जुड़ी हैं: DNA दोगुना, chromosome संख्या अभी नहीं। गिनती centromeres से करो; अलग होने पर chromatids अलग chromosomes हैं।",
+      "covers_item_ids": [
+       "pre2"
+      ],
+      "answers": [],
+      "on_screen": "Replication and separation; DNA quantity contrasted with chromosome count.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b7",
+      "part_id": "pre2",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "एक chromosome set n, ऐसे 2 sets 2n हैं। Homologous chromosomes partners हैं; sister chromatids एक chromosome की copies। Crossing over में homologous partners की non-sister chromatids DNA के हिस्से बदलती हैं; copying और sets बढ़ना अलग बातें हैं।",
+      "covers_item_ids": [
+       "pre2"
+      ],
+      "answers": [],
+      "on_screen": "n versus 2n; homologues versus sisters; non-sister chromatids exchanging segments.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b8",
+      "part_id": "pre3",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Skin cell और sperm का काम एक है? Somatic cells शरीर के सामान्य काम करती हैं; germ cells reproductive line की cells हैं। इंसान में sperm और egg gametes हैं; germ cell और mature gamete अलग stages हैं।",
+      "covers_item_ids": [
+       "pre3"
+      ],
+      "answers": [],
+      "on_screen": "Somatic cell beside germ-cell lineage leading to gametes.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b9",
+      "part_id": "pre3",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "इंसान में gamete बनने के दौरान meiosis sets घटाता है। Fertilisation में sperm और egg मिलने से n और n वापस 2n बनाते हैं; generation-दर-generation sets नहीं बढ़ते। Mitosis growth और repair में संख्या बनाए रखता है, जैसे skin cells बदलना।",
+      "covers_item_ids": [
+       "pre3"
+      ],
+      "answers": [],
+      "on_screen": "Meiosis reduces sets; fertilisation restores them; mitosis supports growth and repair.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b10",
+      "part_id": "pre4",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "खाना और साँस कहाँ जाते हैं? Gastrointestinal tract खाना food pipe से stomach और intestine तक पहुँचाता है; intestine nutrients लेती है। Respiratory tract हवा lungs तक लाता है; छोटे air sacs, यानी alveoli, blood से gases exchange करते हैं।",
+      "covers_item_ids": [
+       "pre4"
+      ],
+      "answers": [],
+      "on_screen": "Separate digestive and respiratory routes; intestinal lining and alveolar insets.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b11",
+      "part_id": "pre4",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Kidney tubules छोटी नलियाँ हैं, जो filtered fluid में बदलाव करती हैं। Urine ureter से bladder, फिर urethra से बाहर जाता है। Gland चीज बनाकर छोड़ती है; duct पहुँचाने की नली है, जैसे saliva को मुँह तक लाना।",
+      "covers_item_ids": [
+       "pre4"
+      ],
+      "answers": [],
+      "on_screen": "Kidney tubule; urinary route; salivary gland and duct.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b12",
+      "part_id": "pre4",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Skin बाहर का cover है; heart blood pump करता है, vessels उसे ले जाती हैं। Brain और spinal cord messages सँभालते हैं; bones सहारा देती हैं, joints उनके मिलने की जगह हैं। Tissue की जगह समझने के लिए पहले organ पहचानो।",
+      "covers_item_ids": [
+       "pre4"
+      ],
+      "answers": [],
+      "on_screen": "Body map highlighting coverings, circulation, nervous system and skeleton.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b13",
+      "part_id": "pre5",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "पौधे में पत्ती stem से कहाँ जुड़ी है? वह node है; 2 nodes के बीच internode। Petiole पत्ती का डंठल, leaf base जुड़ने वाला हिस्सा है; root tip जड़ का सिरा, shoot tip बढ़ते shoot का सिरा है।",
+      "covers_item_ids": [
+       "pre5"
+      ],
+      "answers": [],
+      "on_screen": "Whole plant with node, internode, petiole, leaf base and growing tips.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b14",
+      "part_id": "pre5",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Stem को आड़ा काटने पर क्या दिखेगा? Transverse section में बाहर epidermis, भीतर cortex, बीच में pith पहचानेंगे। Vascular bundle transport tissues का समूह है; पुराने stem में bark बाहरी covering region है, सिर्फ 1 layer नहीं; seed coat बीज का cover है।",
+      "covers_item_ids": [
+       "pre5"
+      ],
+      "answers": [],
+      "on_screen": "Typical young dicot stem section; separate older-stem bark and seed coat.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b15",
+      "part_id": "pre5",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "चना (chickpea) खोलने पर 2 seed leaves दिखती हैं; ये cotyledons हैं, इसलिए dicot। Maize monocot है, उसमें 1 cotyledon है। Plant में पहले organ, फिर लंबाई में जगह, फिर बाहर से अंदर का हिस्सा पहचानो।",
+      "covers_item_ids": [
+       "pre5"
+      ],
+      "answers": [],
+      "on_screen": "Two chickpea cotyledons versus one maize cotyledon; plant-location reading path.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b16",
+      "part_id": "pre6",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "पानी में रंग फैलते देखा? Diffusion particles का net movement अधिक से कम concentration की ओर है। Absorption अंदर लेना है, जैसे intestine nutrients लेती है; secretion में cells कुछ बनाकर छोड़ती हैं, जैसे saliva।",
+      "covers_item_ids": [
+       "pre6"
+      ],
+      "answers": [],
+      "on_screen": "Dye diffusion; absorption inward and secretion outward.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b17",
+      "part_id": "pre6",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "पतली lining exchange का रास्ता छोटा करती है; microvilli उँगली जैसे उभार (projections) हैं, absorption का area बढ़ाते हैं। Permeability गुजरने देने की क्षमता है; wall pits पतले हिस्से, sieve plate pores रास्ते, stomata leaf openings हैं। हर रास्ते से हर चीज नहीं गुजरती।",
+      "covers_item_ids": [
+       "pre6"
+      ],
+      "answers": [],
+      "on_screen": "Thin barrier, microvilli, wall pits, sieve pores and stomata shown separately.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b18",
+      "part_id": "pre7",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "हरी पत्ती food बनाती है, आलू (potato) जमा करता है—कैसे? Photosynthesis में chlorophyll light पकड़ने में मदद करता है; plant carbon dioxide और water से sugars बनाता है। Food transport या store होता है; starch और fat energy reserves हैं।",
+      "covers_item_ids": [
+       "pre7"
+      ],
+      "answers": [],
+      "on_screen": "Photosynthesis in leaf; sugar transport; starch and fat storage.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b19",
+      "part_id": "pre7",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "नाखून और लकड़ी के materials एक हैं? Proteins support और muscle contraction जैसे काम करते हैं; keratin protective protein है। Polysaccharides sugars की लंबी chains हैं; cellulose wall का ढाँचा बनाता है, lignin hard बनाता है, suberin पानी का गुजरना घटाता है। Materials tissues नहीं हैं।",
+      "covers_item_ids": [
+       "pre7"
+      ],
+      "answers": [],
+      "on_screen": "Proteins and polysaccharides; keratin, cellulose, lignin and suberin with functions.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b20",
+      "part_id": "pre8",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "रस्सी खींचने और rubber छोड़ने में फर्क? Tension खिंचाव का force है; elasticity पुरानी shape में लौटने की property। Muscle contraction force बनाता है, अक्सर muscle छोटा होता है; इससे खींचना या pumping होती है, लेकिन mechanism rubber जैसा नहीं।",
+      "covers_item_ids": [
+       "pre8"
+      ],
+      "answers": [],
+      "on_screen": "Taut rope, recoiling rubber and active muscle contraction distinguished.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b21",
+      "part_id": "pre8",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "चीज तैरती कैसे है, कपड़ा गरम कैसे रखता है? Buoyancy fluid का ऊपर का force है; air spaces औसत density घटाकर floating में मदद करती हैं। Insulation heat loss धीमा करता है, heat बनाता नहीं; skin के नीचे fat भी heat loss घटाता है।",
+      "covers_item_ids": [
+       "pre8"
+      ],
+      "answers": [],
+      "on_screen": "Buoyant force and air spaces; clothing and subcutaneous fat slowing heat loss.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b22",
+      "part_id": "pre8",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Pressure किसी area पर force है, जैसे pump पानी पर दबाव डालता है। खींचना, लौटना, दबाना, तैराना और heat बचाना अलग properties हैं। Growth में लंबाई और girth, यानी मोटाई बढ़ना भी अलग दिशाएँ हैं।",
+      "covers_item_ids": [
+       "pre8"
+      ],
+      "answers": [],
+      "on_screen": "Force over area; property icons; lengthwise versus radial growth.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b23",
+      "part_id": "pre9",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "गरम चीज छूकर हाथ क्यों हटता है? Stimulus शरीर को detect होने वाला बदलाव है, जैसे heat या pressure। Nerve impulse membrane में बदलावों से बढ़ता electrical signal है; यह message है, metal wire की बिजली जैसा बिल्कुल नहीं।",
+      "covers_item_ids": [
+       "pre9"
+      ],
+      "answers": [],
+      "on_screen": "Heat stimulus → detection → travelling membrane signal → response.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b24",
+      "part_id": "pre9",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "अपनी मर्जी से हाथ उठाना voluntary है; heartbeat और intestine की movement आम तौर पर conscious आदेश बिना चलती हैं, इसलिए involuntary। Signal message है; control काम चलाने का तरीका। Muscle की धारियाँ देखकर control तय मत करना।",
+      "covers_item_ids": [
+       "pre9"
+      ],
+      "answers": [],
+      "on_screen": "Voluntary hand movement versus involuntary heartbeat and gut movement; striations do not determine control.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b25",
+      "part_id": "",
+      "step": 0,
+      "purpose": "recap",
+      "say": "अब tissue पढ़ते समय पूछना: cells कैसी हैं, कहाँ हैं, बनावट काम में कैसे मदद करती है? Cell, body और plant के maps तथा transport, support और control के tools तैयार हैं। अब समझेंगे, cells मिलकर tissue कैसे बनाती हैं।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Cell → location → structure → function; next: cells forming tissues.",
+      "basis": "outside"
+     }
+    ]
+   },
+   "code_problems": [
+    "[code] beat b9: the Hindi words ['दर'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)"
+   ],
+   "observed": {
+    "pattern_order": [],
+    "skipped_steps": {},
+    "objective_coverage": {
+     "coverage": 1.0,
+     "uncovered": []
+    },
+    "cognitive_load": {
+     "max": 1.2,
+     "abrupt_jumps": []
+    },
+    "duration": {
+     "spoken_minutes_at_130_wpm": 7.5,
+     "planned_minutes": 8,
+     "range": [
+      5.0,
+      8.0
+     ]
+    },
+    "dohraav": {
+     "beats": 25,
+     "judged": 23,
+     "restating": 0,
+     "share": 0.0,
+     "opened": 14,
+     "opened_share": 0.609,
+     "restating_beats": []
+    }
+   },
+   "passed": false,
+   "finished_at": 1792853951.9694526
+  },
+  {
+   "round": 3,
+   "started_at": 1792853951.9696274,
+   "mode": "patch",
+   "patch": {
+    "notes": {
+     "about": "Minimal language correction to the prerequisite script; all other content stays unchanged.",
+     "key_questions": [
+      "How does fertilisation restore chromosome sets without increasing them in each new generation?"
+     ],
+     "decisions": [
+      {
+       "decision": "Replace ‘generation-दर-generation’ with ‘हर नई generation में’.",
+       "reason": "Removes the flagged Hindi word while preserving the explanation and narration time."
+      }
+     ],
+     "uncertain": []
+    },
+    "replace_parts": [],
+    "replace_beats": [
+     {
+      "beat_id": "b9",
+      "part_id": "pre3",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "इंसान में gamete बनने के दौरान meiosis sets घटाता है। Fertilisation में sperm और egg मिलने से n और n वापस 2n बनाते हैं; हर नई generation में sets नहीं बढ़ते। Mitosis growth और repair में संख्या बनाए रखता है, जैसे skin cells बदलना।",
+      "covers_item_ids": [
+       "pre3"
+      ],
+      "answers": [],
+      "on_screen": "Meiosis reduces sets; fertilisation restores them; mitosis supports growth and repair.",
+      "basis": "outside"
+     }
+    ],
+    "insert_beats": [],
+    "remove_beat_ids": []
+   },
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "e1d702d8e8c1939a5ece1f82f30a0108ee0b104c3d7d0bbcd6887ab00c15d527",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 16661,
+    "output_tokens": 237,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "This prerequisite video builds the cell, location, transport and control vocabulary needed for the tissue chapter. All explanations are standard textbook-level outside support, not claims drawn from supplied book pages.",
+    "key_questions": [
+     "Which cell structures and chromosome terms must the learner distinguish?",
+     "Where are the human and plant landmarks used in tissue descriptions?",
+     "How do transport, biological materials, mechanical properties and control explain tissue functions?"
+    ],
+    "decisions": [
+     {
+      "decision": "Teach the nine prerequisites in the supplied order, using short visual examples.",
+      "reason": "This supplies directly needed tools without starting the chapter's tissue classifications."
+     },
+     {
+      "decision": "Keep every prerequisite beat at step 0 and mark its basis outside.",
+      "reason": "The card specifies prerequisite parts of type none and identifies all nine prerequisites as outside."
+     },
+     {
+      "decision": "Clarify chromosome counting and analogy limits explicitly.",
+      "reason": "These prevent common misconceptions before the division comparisons."
+     },
+     {
+      "decision": "Shorten explanations and remove repeated summaries without removing prerequisite concepts.",
+      "reason": "The previous narration exceeded the allotted time."
+     },
+     {
+      "decision": "Replace flagged Hindi vocabulary with simpler wording or English technical terms; bracket remaining flagged everyday examples.",
+      "reason": "Meet the supplied language checks while preserving natural spoken explanations."
+     },
+     {
+      "decision": "Keep all existing part frames and the prerequisite order.",
+      "reason": "Their scope and teaching sequence remain correct."
+     },
+     {
+      "decision": "Replace ‘generation-दर-generation’ with ‘हर नई generation में’.",
+      "reason": "Removes the flagged Hindi word while preserving the explanation and narration time."
+     }
+    ],
+    "uncertain": []
+   },
+   "output": {
+    "notes": {
+     "about": "This prerequisite video builds the cell, location, transport and control vocabulary needed for the tissue chapter. All explanations are standard textbook-level outside support, not claims drawn from supplied book pages.",
+     "key_questions": [
+      "Which cell structures and chromosome terms must the learner distinguish?",
+      "Where are the human and plant landmarks used in tissue descriptions?",
+      "How do transport, biological materials, mechanical properties and control explain tissue functions?"
+     ],
+     "decisions": [
+      {
+       "decision": "Teach the nine prerequisites in the supplied order, using short visual examples.",
+       "reason": "This supplies directly needed tools without starting the chapter's tissue classifications."
+      },
+      {
+       "decision": "Keep every prerequisite beat at step 0 and mark its basis outside.",
+       "reason": "The card specifies prerequisite parts of type none and identifies all nine prerequisites as outside."
+      },
+      {
+       "decision": "Clarify chromosome counting and analogy limits explicitly.",
+       "reason": "These prevent common misconceptions before the division comparisons."
+      },
+      {
+       "decision": "Shorten explanations and remove repeated summaries without removing prerequisite concepts.",
+       "reason": "The previous narration exceeded the allotted time."
+      },
+      {
+       "decision": "Replace flagged Hindi vocabulary with simpler wording or English technical terms; bracket remaining flagged everyday examples.",
+       "reason": "Meet the supplied language checks while preserving natural spoken explanations."
+      },
+      {
+       "decision": "Keep all existing part frames and the prerequisite order.",
+       "reason": "Their scope and teaching sequence remain correct."
+      },
+      {
+       "decision": "Replace ‘generation-दर-generation’ with ‘हर नई generation में’.",
+       "reason": "Removes the flagged Hindi word while preserving the explanation and narration time."
+      }
+     ],
+     "uncertain": []
+    },
+    "title": "पहले यह जान लो: tissue समझने के जरूरी tools",
+    "parts": [
+     {
+      "part_id": "pre1",
+      "frame": {
+       "process": "Identify cell boundaries, internal contents and plant–animal differences.",
+       "how": "Move from membrane and wall to cytoplasm, nucleus and organelles.",
+       "when": "Before interpreting tissue cells and spaces.",
+       "conditions": "Typical plant and animal cells; specialised cells may differ.",
+       "atmosphere": "Two enlarged cells beside a familiar room-boundary image."
+      },
+      "skipped_steps": []
+     },
+     {
+      "part_id": "pre2",
+      "frame": {
+       "process": "Distinguish chromosomes, homologous partners, chromatids and sets.",
+       "how": "Follow DNA copying while keeping chromosome number separate from DNA quantity.",
+       "when": "Replication precedes division; copied chromatids later separate.",
+       "conditions": "Count chromosomes by centromeres; distinguish n from 2n.",
+       "atmosphere": "Paired instruction books and a simple chromosome diagram."
+      },
+      "skipped_steps": []
+     },
+     {
+      "part_id": "pre3",
+      "frame": {
+       "process": "Distinguish body cells, reproductive cell lineage and gametes.",
+       "how": "Connect meiosis with reduction and fertilisation with restoration of chromosome sets.",
+       "when": "Gamete formation precedes fertilisation.",
+       "conditions": "Use the human reproductive context.",
+       "atmosphere": "A body-cell example beside sperm and egg joining."
+      },
+      "skipped_steps": []
+     },
+     {
+      "part_id": "pre4",
+      "frame": {
+       "process": "Locate the organs and passages named in tissue descriptions.",
+       "how": "Trace digestive, respiratory, urinary, circulatory and nervous routes, then support structures.",
+       "when": "Before zooming from organs to their tissue linings.",
+       "conditions": "Distinguish neighbouring passages and ducts by their destinations.",
+       "atmosphere": "A simple labelled human-body outline."
+      },
+      "skipped_steps": []
+     },
+     {
+      "part_id": "pre5",
+      "frame": {
+       "process": "Locate plant organs, stem regions and section landmarks.",
+       "how": "Move from the whole plant to nodes, coverings and a stem cross-section.",
+       "when": "Before locating growth and transport tissues.",
+       "conditions": "Separate lengthwise position from outside-to-inside position.",
+       "atmosphere": "A potted plant beside a cut stem and split seeds."
+      },
+      "skipped_steps": []
+     },
+     {
+      "part_id": "pre6",
+      "frame": {
+       "process": "Distinguish diffusion, absorption, secretion and passage through openings.",
+       "how": "Use movement direction, concentration difference and selective barriers.",
+       "when": "During exchange, uptake and release.",
+       "conditions": "Movement depends on the barrier and the substance; pores do not imply unrestricted passage.",
+       "atmosphere": "An intestinal lining, a gland and a magnified plant wall."
+      },
+      "skipped_steps": []
+     },
+     {
+      "part_id": "pre7",
+      "frame": {
+       "process": "Connect food production, storage and biological materials with their jobs.",
+       "how": "Separate substances from the tissues containing or producing them.",
+       "when": "During photosynthesis, storage, support and protection.",
+       "conditions": "Materials have different properties and are not interchangeable tissue names.",
+       "atmosphere": "A green leaf, stored food and contrasting biological coverings."
+      },
+      "skipped_steps": []
+     },
+     {
+      "part_id": "pre8",
+      "frame": {
+       "process": "Interpret pulling, recoil, pressure, floating and reduced heat loss.",
+       "how": "Connect each physical term to a visible everyday effect.",
+       "when": "During stretching, contraction, pumping, floating and cooling.",
+       "conditions": "Analogies illustrate properties, not identical biological mechanisms.",
+       "atmosphere": "A rope, rubber band, pump, floating object and warm clothing."
+      },
+      "skipped_steps": []
+     },
+     {
+      "part_id": "pre9",
+      "frame": {
+       "process": "Distinguish a stimulus, its nerve signal and conscious versus automatic control.",
+       "how": "Trace detection to signalling and response.",
+       "when": "After a detectable change or during ongoing automatic activity.",
+       "conditions": "Biological electrical signalling is not metal-wire conduction; appearance does not determine control.",
+       "atmosphere": "Touching something hot, raising a hand and feeling a heartbeat."
+      },
+      "skipped_steps": []
+     }
+    ],
+    "beats": [
+     {
+      "beat_id": "b1",
+      "part_id": "",
+      "step": 0,
+      "purpose": "hook",
+      "say": "अपनी skin और चलती उँगली देखो—एक शरीर इतने अलग काम कैसे करता है? Tissue समझने से पहले cell, जगह और काम के जरूरी tools समझ लेते हैं।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Skin and moving finger beside a magnified cell.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b2",
+      "part_id": "pre1",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "कमरे के दरवाजे जैसा cell में आना-जाना कौन सँभालता है? Cell membrane चीजों का आना-जाना control करती है। Plant cell में इसके बाहर सहारा देने वाली cell wall भी होती है; animal cell में wall नहीं होती।",
+      "covers_item_ids": [
+       "pre1"
+      ],
+      "answers": [],
+      "on_screen": "Membrane in both cells; supporting wall outside the plant cell membrane.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b3",
+      "part_id": "pre1",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Cell में ये छोटे हिस्से दिखे? Organelles अलग काम करते हैं; cytoplasm अंदर का substance है, nucleus में DNA की instructions हैं। Vacuole storage करती है, plant cell में अक्सर बड़ी होती है; chloroplast food बनाने में मदद करता है, लेकिन हर plant cell में नहीं होता।",
+      "covers_item_ids": [
+       "pre1"
+      ],
+      "answers": [],
+      "on_screen": "Label organelles, cytoplasm, nucleus, vacuole and chloroplast; root cell without chloroplasts.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b4",
+      "part_id": "pre1",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Intercellular space cells के बीच जगह है; extracellular material cells के बाहर का substance है। Multinucleate यानी एक cell में कई nuclei। अंदर, बाहर और boundary अलग पहचानो; कमरे की तुलना सिर्फ जगह समझाती है।",
+      "covers_item_ids": [
+       "pre1"
+      ],
+      "answers": [],
+      "on_screen": "Distinguish cell contents, intercellular spaces and extracellular material; multinucleate cell inset.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b5",
+      "part_id": "pre2",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Instructions की किताब जैसी cell की जानकारी कहाँ है? DNA में; chromosomes DNA के organised packages हैं। Homologous pair में एक chromosome माँ से, दूसरा पिता से आता है; जानकारी के स्थान मिलते हैं, लेकिन versions अलग हो सकते हैं।",
+      "covers_item_ids": [
+       "pre2"
+      ],
+      "answers": [],
+      "on_screen": "Maternal and paternal homologues with matching gene positions and differing versions.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b6",
+      "part_id": "pre2",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Division से पहले DNA replication में copy बनती है। Copied chromosome की 2 sister chromatids centromere पर जुड़ी हैं: DNA दोगुना, chromosome संख्या अभी नहीं। गिनती centromeres से करो; अलग होने पर chromatids अलग chromosomes हैं।",
+      "covers_item_ids": [
+       "pre2"
+      ],
+      "answers": [],
+      "on_screen": "Replication and separation; DNA quantity contrasted with chromosome count.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b7",
+      "part_id": "pre2",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "एक chromosome set n, ऐसे 2 sets 2n हैं। Homologous chromosomes partners हैं; sister chromatids एक chromosome की copies। Crossing over में homologous partners की non-sister chromatids DNA के हिस्से बदलती हैं; copying और sets बढ़ना अलग बातें हैं।",
+      "covers_item_ids": [
+       "pre2"
+      ],
+      "answers": [],
+      "on_screen": "n versus 2n; homologues versus sisters; non-sister chromatids exchanging segments.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b8",
+      "part_id": "pre3",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Skin cell और sperm का काम एक है? Somatic cells शरीर के सामान्य काम करती हैं; germ cells reproductive line की cells हैं। इंसान में sperm और egg gametes हैं; germ cell और mature gamete अलग stages हैं।",
+      "covers_item_ids": [
+       "pre3"
+      ],
+      "answers": [],
+      "on_screen": "Somatic cell beside germ-cell lineage leading to gametes.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b9",
+      "part_id": "pre3",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "इंसान में gamete बनने के दौरान meiosis sets घटाता है। Fertilisation में sperm और egg मिलने से n और n वापस 2n बनाते हैं; हर नई generation में sets नहीं बढ़ते। Mitosis growth और repair में संख्या बनाए रखता है, जैसे skin cells बदलना।",
+      "covers_item_ids": [
+       "pre3"
+      ],
+      "answers": [],
+      "on_screen": "Meiosis reduces sets; fertilisation restores them; mitosis supports growth and repair.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b10",
+      "part_id": "pre4",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "खाना और साँस कहाँ जाते हैं? Gastrointestinal tract खाना food pipe से stomach और intestine तक पहुँचाता है; intestine nutrients लेती है। Respiratory tract हवा lungs तक लाता है; छोटे air sacs, यानी alveoli, blood से gases exchange करते हैं।",
+      "covers_item_ids": [
+       "pre4"
+      ],
+      "answers": [],
+      "on_screen": "Separate digestive and respiratory routes; intestinal lining and alveolar insets.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b11",
+      "part_id": "pre4",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Kidney tubules छोटी नलियाँ हैं, जो filtered fluid में बदलाव करती हैं। Urine ureter से bladder, फिर urethra से बाहर जाता है। Gland चीज बनाकर छोड़ती है; duct पहुँचाने की नली है, जैसे saliva को मुँह तक लाना।",
+      "covers_item_ids": [
+       "pre4"
+      ],
+      "answers": [],
+      "on_screen": "Kidney tubule; urinary route; salivary gland and duct.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b12",
+      "part_id": "pre4",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Skin बाहर का cover है; heart blood pump करता है, vessels उसे ले जाती हैं। Brain और spinal cord messages सँभालते हैं; bones सहारा देती हैं, joints उनके मिलने की जगह हैं। Tissue की जगह समझने के लिए पहले organ पहचानो।",
+      "covers_item_ids": [
+       "pre4"
+      ],
+      "answers": [],
+      "on_screen": "Body map highlighting coverings, circulation, nervous system and skeleton.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b13",
+      "part_id": "pre5",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "पौधे में पत्ती stem से कहाँ जुड़ी है? वह node है; 2 nodes के बीच internode। Petiole पत्ती का डंठल, leaf base जुड़ने वाला हिस्सा है; root tip जड़ का सिरा, shoot tip बढ़ते shoot का सिरा है।",
+      "covers_item_ids": [
+       "pre5"
+      ],
+      "answers": [],
+      "on_screen": "Whole plant with node, internode, petiole, leaf base and growing tips.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b14",
+      "part_id": "pre5",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Stem को आड़ा काटने पर क्या दिखेगा? Transverse section में बाहर epidermis, भीतर cortex, बीच में pith पहचानेंगे। Vascular bundle transport tissues का समूह है; पुराने stem में bark बाहरी covering region है, सिर्फ 1 layer नहीं; seed coat बीज का cover है।",
+      "covers_item_ids": [
+       "pre5"
+      ],
+      "answers": [],
+      "on_screen": "Typical young dicot stem section; separate older-stem bark and seed coat.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b15",
+      "part_id": "pre5",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "चना (chickpea) खोलने पर 2 seed leaves दिखती हैं; ये cotyledons हैं, इसलिए dicot। Maize monocot है, उसमें 1 cotyledon है। Plant में पहले organ, फिर लंबाई में जगह, फिर बाहर से अंदर का हिस्सा पहचानो।",
+      "covers_item_ids": [
+       "pre5"
+      ],
+      "answers": [],
+      "on_screen": "Two chickpea cotyledons versus one maize cotyledon; plant-location reading path.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b16",
+      "part_id": "pre6",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "पानी में रंग फैलते देखा? Diffusion particles का net movement अधिक से कम concentration की ओर है। Absorption अंदर लेना है, जैसे intestine nutrients लेती है; secretion में cells कुछ बनाकर छोड़ती हैं, जैसे saliva।",
+      "covers_item_ids": [
+       "pre6"
+      ],
+      "answers": [],
+      "on_screen": "Dye diffusion; absorption inward and secretion outward.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b17",
+      "part_id": "pre6",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "पतली lining exchange का रास्ता छोटा करती है; microvilli उँगली जैसे उभार (projections) हैं, absorption का area बढ़ाते हैं। Permeability गुजरने देने की क्षमता है; wall pits पतले हिस्से, sieve plate pores रास्ते, stomata leaf openings हैं। हर रास्ते से हर चीज नहीं गुजरती।",
+      "covers_item_ids": [
+       "pre6"
+      ],
+      "answers": [],
+      "on_screen": "Thin barrier, microvilli, wall pits, sieve pores and stomata shown separately.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b18",
+      "part_id": "pre7",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "हरी पत्ती food बनाती है, आलू (potato) जमा करता है—कैसे? Photosynthesis में chlorophyll light पकड़ने में मदद करता है; plant carbon dioxide और water से sugars बनाता है। Food transport या store होता है; starch और fat energy reserves हैं।",
+      "covers_item_ids": [
+       "pre7"
+      ],
+      "answers": [],
+      "on_screen": "Photosynthesis in leaf; sugar transport; starch and fat storage.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b19",
+      "part_id": "pre7",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "नाखून और लकड़ी के materials एक हैं? Proteins support और muscle contraction जैसे काम करते हैं; keratin protective protein है। Polysaccharides sugars की लंबी chains हैं; cellulose wall का ढाँचा बनाता है, lignin hard बनाता है, suberin पानी का गुजरना घटाता है। Materials tissues नहीं हैं।",
+      "covers_item_ids": [
+       "pre7"
+      ],
+      "answers": [],
+      "on_screen": "Proteins and polysaccharides; keratin, cellulose, lignin and suberin with functions.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b20",
+      "part_id": "pre8",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "रस्सी खींचने और rubber छोड़ने में फर्क? Tension खिंचाव का force है; elasticity पुरानी shape में लौटने की property। Muscle contraction force बनाता है, अक्सर muscle छोटा होता है; इससे खींचना या pumping होती है, लेकिन mechanism rubber जैसा नहीं।",
+      "covers_item_ids": [
+       "pre8"
+      ],
+      "answers": [],
+      "on_screen": "Taut rope, recoiling rubber and active muscle contraction distinguished.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b21",
+      "part_id": "pre8",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "चीज तैरती कैसे है, कपड़ा गरम कैसे रखता है? Buoyancy fluid का ऊपर का force है; air spaces औसत density घटाकर floating में मदद करती हैं। Insulation heat loss धीमा करता है, heat बनाता नहीं; skin के नीचे fat भी heat loss घटाता है।",
+      "covers_item_ids": [
+       "pre8"
+      ],
+      "answers": [],
+      "on_screen": "Buoyant force and air spaces; clothing and subcutaneous fat slowing heat loss.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b22",
+      "part_id": "pre8",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Pressure किसी area पर force है, जैसे pump पानी पर दबाव डालता है। खींचना, लौटना, दबाना, तैराना और heat बचाना अलग properties हैं। Growth में लंबाई और girth, यानी मोटाई बढ़ना भी अलग दिशाएँ हैं।",
+      "covers_item_ids": [
+       "pre8"
+      ],
+      "answers": [],
+      "on_screen": "Force over area; property icons; lengthwise versus radial growth.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b23",
+      "part_id": "pre9",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "गरम चीज छूकर हाथ क्यों हटता है? Stimulus शरीर को detect होने वाला बदलाव है, जैसे heat या pressure। Nerve impulse membrane में बदलावों से बढ़ता electrical signal है; यह message है, metal wire की बिजली जैसा बिल्कुल नहीं।",
+      "covers_item_ids": [
+       "pre9"
+      ],
+      "answers": [],
+      "on_screen": "Heat stimulus → detection → travelling membrane signal → response.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b24",
+      "part_id": "pre9",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "अपनी मर्जी से हाथ उठाना voluntary है; heartbeat और intestine की movement आम तौर पर conscious आदेश बिना चलती हैं, इसलिए involuntary। Signal message है; control काम चलाने का तरीका। Muscle की धारियाँ देखकर control तय मत करना।",
+      "covers_item_ids": [
+       "pre9"
+      ],
+      "answers": [],
+      "on_screen": "Voluntary hand movement versus involuntary heartbeat and gut movement; striations do not determine control.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b25",
+      "part_id": "",
+      "step": 0,
+      "purpose": "recap",
+      "say": "अब tissue पढ़ते समय पूछना: cells कैसी हैं, कहाँ हैं, बनावट काम में कैसे मदद करती है? Cell, body और plant के maps तथा transport, support और control के tools तैयार हैं। अब समझेंगे, cells मिलकर tissue कैसे बनाती हैं।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Cell → location → structure → function; next: cells forming tissues.",
+      "basis": "outside"
+     }
+    ]
+   },
+   "code_problems": [],
+   "observed": {
+    "pattern_order": [],
+    "skipped_steps": {},
+    "objective_coverage": {
+     "coverage": 1.0,
+     "uncovered": []
+    },
+    "cognitive_load": {
+     "max": 1.2,
+     "abrupt_jumps": []
+    },
+    "duration": {
+     "spoken_minutes_at_130_wpm": 7.5,
+     "planned_minutes": 8,
+     "range": [
+      5.0,
+      8.0
+     ]
+    },
+    "dohraav": {
+     "beats": 25,
+     "judged": 23,
+     "restating": 0,
+     "share": 0.0,
+     "opened": 14,
+     "opened_share": 0.609,
+     "restating_beats": []
+    }
+   },
+   "review": {
+    "route": "google",
+    "provider": "google",
+    "model": "google/gemini-4-argon",
+    "via": "aicredits",
+    "returned_model": "google/gemini-4-argon",
+    "request_hash": "49bc2220688631d796f324ad1895d54e5bcc655abeeb66a777ccc6c91be6e4d3",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 11235,
+    "output_tokens": 1073,
+    "cost_usd": 0.03652,
+    "value": {
+     "notes": {
+      "about": "Review of the prerequisite video (v0) covering foundational cell biology, chromosome terminology, human and plant anatomical landmarks, transport processes, biological materials, mechanical properties, and nervous control required for the Tissues chapter.",
+      "key_questions": [
+       "Are all nine prerequisites (pre1 to pre9) thoroughly explained with everyday examples rather than just listed?",
+       "Is the script within the 5-8 minute prerequisite time limit and written in natural mixed-script Hinglish?",
+       "Are all prerequisite beats accurately marked as 'outside' and step 0?"
+      ],
+      "decisions": [
+       {
+        "decision": "Pass the script with zero blocking issues.",
+        "reason": "All nine prerequisites and their specific sub-items required by the task card are clearly taught with everyday visual examples, analogy limits are explicitly stated, the language follows Navin's mixed-script Hinglish rules, and the length (7.5 minutes) is within the 5.0-8.0 minute prerequisite target."
+       }
+      ],
+      "uncertain": []
+     },
+     "verdict": "pass",
+     "problems": [],
+     "checklist": [
+      {
+       "rule_id": "G-01",
+       "met": true,
+       "note": "All prerequisite beats are properly marked with basis 'outside' and contain accurate, standard textbook-level explanations."
+      },
+      {
+       "rule_id": "G-02",
+       "met": true,
+       "note": "A top teacher for UPSC/State PCS learners would accept this prerequisite foundation as complete, clear, and well-guarded against common misconceptions (such as chromosome counting by centromeres, insulation slowing heat loss rather than generating heat, and striations vs voluntary control)."
+      },
+      {
+       "rule_id": "G-03",
+       "met": true,
+       "note": "The maker's notes clearly state what the unit is about, the key questions, and the main decisions with reasons."
+      },
+      {
+       "rule_id": "G-04",
+       "met": true,
+       "note": "The narration sounds like a natural teacher speaking in clear Hinglish."
+      },
+      {
+       "rule_id": "G-05",
+       "met": true,
+       "note": "None of the required prerequisite sub-items are cut short or left as 'etc.'."
+      },
+      {
+       "rule_id": "G-06",
+       "met": true,
+       "note": "Every prerequisite concept is opened with plain meaning, everyday examples, and clear boundaries."
+      },
+      {
+       "rule_id": "G-07",
+       "met": true,
+       "note": "The depth matches the UPSC/State PCS level profile, focusing on conceptual clarity and preventing exam traps."
+      },
+      {
+       "rule_id": "S2-01",
+       "met": true,
+       "note": "This is the opening prerequisite video, measured at 7.5 spoken minutes, which fits within the 5.0-8.0 minute window."
+      },
+      {
+       "rule_id": "S2-02",
+       "met": true,
+       "note": "The script flows logically from cell basics to division, organ maps, transport, materials, physics, and control without repetition."
+      },
+      {
+       "rule_id": "S2-03",
+       "met": true,
+       "note": "Every prerequisite listed in the card (pre1 through pre9) is directly needed for the chapter and actually taught."
+      },
+      {
+       "rule_id": "S2-04",
+       "met": true,
+       "note": "Written in Devanagari for Hindi and Roman for English terms, with short spoken sentences and appropriate bracketed English helpers where needed."
+      },
+      {
+       "rule_id": "S2-05",
+       "met": true,
+       "note": "All coverage claims in covers_item_ids (pre1 to pre9) are genuine and substantiated in the spoken text."
+      },
+      {
+       "rule_id": "S2-06",
+       "met": true,
+       "note": "Every part includes a complete universal frame and covers all required items from the card."
+      },
+      {
+       "rule_id": "S2-07",
+       "met": true,
+       "note": "Each prerequisite section opens with an engaging question about a familiar example, explains the concepts in complete sentences, and avoids duplicate recaps."
+      }
+     ]
+    }
+   },
+   "review_problems": [],
+   "review_minor": [],
+   "passed": true,
+   "finished_at": 1792853983.5230248
+  }
+ ],
+ "avoid_rounds": [
+  1,
+  2
+ ],
+ "cost_usd": 0.03652,
+ "seconds": 252.8,
+ "navin_verdict": null
+}
