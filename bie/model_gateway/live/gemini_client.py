@@ -85,20 +85,20 @@ class GeminiClient:
         }
         blocked = (raw.get("promptFeedback") or {}).get("blockReason")
         if blocked:
-            raise ProviderError("refusal", f"prompt blocked: {blocked}", provider=self.provider)
+            raise ProviderError("refusal", f"prompt blocked: {blocked}", provider=self.provider, usage=normalized)
         candidates = raw.get("candidates")
         if not isinstance(candidates, list) or not candidates or not isinstance(candidates[0], dict):
-            raise ProviderError("malformed", "no candidates", provider=self.provider)
+            raise ProviderError("malformed", "no candidates", provider=self.provider, usage=normalized)
         candidate = candidates[0]
         finish = candidate.get("finishReason") or "unknown"
         if finish == "MAX_TOKENS":
-            raise ProviderError("truncated", f"output reached maxOutputTokens={self.max_output_tokens}", provider=self.provider)
+            raise ProviderError("truncated", f"output reached maxOutputTokens={self.max_output_tokens}", provider=self.provider, usage=normalized)
         if finish in BLOCKED_FINISH:
-            raise ProviderError("refusal", f"finish reason {finish}", provider=self.provider)
+            raise ProviderError("refusal", f"finish reason {finish}", provider=self.provider, usage=normalized)
         parts = (candidate.get("content") or {}).get("parts") or []
         text = "".join(p.get("text", "") for p in parts if isinstance(p, dict) and not p.get("thought"))
         if not text.strip():
-            raise ProviderError("malformed", "empty text content", provider=self.provider)
+            raise ProviderError("malformed", "empty text content", provider=self.provider, usage=normalized)
         return {"content": text, "usage": normalized, "finish_reason": finish, "model": self.last_model}
 
     def list_models(self):

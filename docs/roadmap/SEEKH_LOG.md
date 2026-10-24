@@ -464,8 +464,19 @@ every round smaller than the one before (v8: 24 → 10 → 4 problems; v9: 18 �
 back with ever fewer small problems, and round 3 ends it with 1–4 left, although a patch round costs no Gemini. The runner now gives a
 converging answer (code-only rejection, fewer problems than the round before, at most 4) up to 3 extra patch rounds (`Step.extra_rounds`,
 `runner.CONVERGING_MAX`; a reviewer rejection never extends); the word list gains the 11 words (2026-10-24.3). Expected on the next
-resume: the five pass within the extra rounds at ₹0 maker cost and one review each (about ₹5). Status: the script step is INTEGRATED;
-the dohraav number is a measured fact; nothing ACCEPTED until Navin's verdict on old v2 against new v2.
+resume: the five pass within the extra rounds at ₹0 maker cost and one review each (about ₹5).
+
+**After the converging rounds (the third part, `vm-t045d-tissue-lesson-resume2-brain-lesson`, main `1c6c349d`, 19.7 minutes, Gemini
+₹24.44):** v2 and v8 passed in round 4, the first extra round (11 → 3 → 2 → 0 and 18 → 6 → 2 → 0 code problems), v4 in round 3, each
+with 0 blocking from the reviewer: **9 of 11 videos pass**. v9 reached 0 code problems in round 4 (20 → 9 → 1 → 0) and its review call
+met `402 Insufficient Balance`: the AICredits wallet is empty (this time the wallet, not the key budget), so the run stopped there; v9
+waits for one review (about ₹5) after a top-up. v5 (the longest video: 128 beats, 18.7 minutes) failed in round 3 when the maker's patch
+answer hit the 32,000 output-token limit (`truncated`): the next seekh item is a smaller patch for long scripts (or a plan that keeps a
+video under about 15 minutes). **Dohraav on the final 11 scripts: 0 of 500 judged beats (0.0%)**, opened 67.2%; before Task 045d:
+155 of 540 (28.7%), opened 28.3%. Rounds a script: 3.0 on the first run → 3.4 with the extra rounds; the extra rounds cost no Gemini.
+Task 045d Gemini in all: understanding ₹100.28 + script ₹24.86 + ₹12.01 + ₹24.44 = **₹161.59 of Navin's ₹200**; Codex plan 2% → 8%.
+Status: the understanding and script steps are INTEGRATED (real runs through every new check); the dohraav number is a measured fact;
+nothing ACCEPTED until Navin's verdict on old v2 against new v2 (`V2_SIDE_BY_SIDE.md` in the resume2 run folder).
 
 ## Entry 10 · continue a failed script from its last answer (PR #64), 25 October 2026
 
@@ -491,9 +502,30 @@ rounds inside one run; this entry stops a resume from throwing the nearly finish
   नहीं", "न कि"; job B resume v2 b13: "यह सिर्फ सख्त ढाँचा नहीं है") and the memory beat ("याद रखो", trick). "से अलग" and "उल्टा" were tried
   and left out: on the old scripts they credited "अलग पहचानो" and "अलग रखती है", which open nothing.
 
-**Measured (offline, 25 October 2026, on the resumed run's `lesson_plan.json` with this code):** the 6 passed scripts still pass and are
-reused; the 5 failed ones would continue: v2, v4, v8 and v9 have no code problem left (straight to the reviewer, no maker call), v5 keeps
-one restating beat (b102, a patch round). Dohraav of the resumed lesson with today's markers: 1 of 511 (0.2%), openings 65.8%. The old
-scripts (job 3, regression set): 78 → 76 restating of 273, 93 → 98 opened. Both saved regression sets still pass; the Task 045 lane
-passes. Live effect: the running job B2 (`t045d-tissue-lesson-resume2`, queued on PR #65's main with the last ₹62 of Navin's ₹200)
-does not use this change; the next resume or chapter does. Nothing ACCEPTED until Navin's verdict.
+**Correction to entry 9's last paragraph (from the run's own records):** v5's round 3 ended on the **reviewer's** answer, not the
+maker's patch: the maker's round 3 answer (1,400 output tokens) passed every code check, and the review call through AICredits stopped
+with `aicredits:truncated: output reached max_tokens=32000` (ledger row `lesson:script-v5:r3:review`, outcome error). A normal script
+review is 1,000–1,600 output tokens (the other eight in these runs); this one ran away.
+
+**Taught about cost:** a call that generates an answer and then fails is billed by the provider, but the gateway recorded such a call
+with no tokens and the cost guard settled it at ₹0. v5's runaway review (about 55,000 input and 32,000 output tokens of Gemini 4 Argon
+with the AICredits markup) is estimated at ₹40–48, so job B2 cost about ₹65–72, not the ₹24.44 in its ledger, and Task 045d about
+**₹205, not ₹161.59, of Navin's ₹200**; the AICredits wallet ran out on v9's review. The AICredits dashboard has the real bill
+(`docs/roadmap/COST_LOG.md`, "real bill").
+
+**Changed in BIE for cost (IMPLEMENTED, offline; PR #64):** `ProviderError` carries the tokens a provider reports for a call that
+answered and then failed (truncated, refused, unreadable; all four clients); the gateway prices that call in the ledger and the cost
+guard settles it at that price; a truncated call without reported tokens is priced at its input and the whole output cap. A call that
+never answered (rate limit, wallet, timeout) still costs nothing. Next seekh, not built yet: a smaller output cap for review calls
+(a review needs about 1,600 tokens; the cap of 32,000 lets a runaway cost about ₹45).
+
+**Job B2's result (`vm-t045d-tissue-lesson-resume2-brain-lesson`, on PR #65's code):** 9 of 11 pass; v5 and v9 are both clean by code
+(v9 at round 4, v5 at round 3) and each needs only a review. With this PR a resume continues both from their last answers: round 0
+finds no code problem, so the next run makes no maker call and two reviews (about ₹10–12, v5's again at risk of a long answer until
+the review cap exists).
+
+**Measured (offline, 25 October 2026, on the earlier resumed run's `lesson_plan.json` with this code):** the 6 passed scripts still pass
+and are reused; the 5 failed ones would continue: v2, v4, v8 and v9 have no code problem left (straight to the reviewer, no maker call),
+v5 keeps one restating beat (b102, a patch round). Dohraav of that lesson with today's markers: 1 of 511 (0.2%), openings 65.8%. The
+old scripts (job 3, regression set): 78 → 76 restating of 273, 93 → 98 opened. Both saved regression sets still pass; the Task 045 lane
+passes. Nothing ACCEPTED until Navin's verdict.

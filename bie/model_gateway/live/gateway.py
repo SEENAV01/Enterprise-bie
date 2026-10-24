@@ -19,7 +19,7 @@ from ..model_provenance import ModelProvenance, request_hash, validate as valida
 from ..retry_policy import RetryPolicy, delay, should_retry
 from ..schema_validation import SchemaValidationError, validate as validate_schema
 from ..structured_output import StructuredOutputError, parse_json
-from .budget import STOP_KINDS, output_cap
+from .budget import STOP_KINDS, input_tokens, output_cap
 from .disk_cache import cache_key
 from .errors import ProviderError
 from .ledger import UsageLedger
@@ -87,10 +87,11 @@ class LiveGateway:
             try:
                 raw = adapter.invoke(replace(request, messages=tuple(messages)))
             except ProviderError as exc:
+                spent, cost = self._failed_call_cost(exc, adapter, model, via, request, messages)
                 self.ledger.record(**base, attempt=attempt, outcome="error", error_kind=exc.kind, cache_hit=False,
-                                   latency_ms=round((self._clock() - t0) * 1000))
+                                   latency_ms=round((self._clock() - t0) * 1000), cost_usd=cost, **spent)
                 if self.guard is not None:
-                    self.guard.settle(request.request_id, reserved, 0.0, model=model)
+                    self.guard.settle(request.request_id, reserved, cost or 0.0, model=model)
                     if exc.kind in STOP_KINDS:
                         self.guard.trip(f"{exc.kind}: {provider} via {via}: {exc.message[:200]}")
                 transient += 1
@@ -136,6 +137,22 @@ class LiveGateway:
             previous = text if isinstance(text, str) else str(text)
             messages += [{"role": "assistant", "content": previous[:20000]},
                          {"role": "user", "content": REPAIR_INSTRUCTION.format(problem=problem[:300])}]
+
+    def _failed_call_cost(self, exc, adapter, model, via, request, messages) -> tuple:
+        """(token fields, estimated USD) of a failed call. A call that generated an answer and then failed (truncated,
+        refused, unreadable) is billed: its reported tokens are priced; a truncated call without reported tokens is
+        priced at its input and the whole output cap. Other failures (no answer, rate limit, wallet) cost nothing."""
+        usage = getattr(exc, "usage", None)
+        if not usage and exc.kind == "truncated":
+            usage = {"input_tokens": input_tokens(messages, request.response_schema), "output_tokens": output_cap(adapter)}
+        if not usage:
+            return {}, None
+        spent = {k: int(usage.get(k) or 0) for k in ("input_tokens", "output_tokens", "reasoning_tokens", "cached_input_tokens")}
+        returned = getattr(getattr(adapter, "client", None), "last_model", None) or model
+        cost = estimate_cost(returned, spent, self._env, via)
+        if cost is None:
+            cost = estimate_cost(model, spent, self._env, via)
+        return spent, cost
 
     def _reserve(self, request, messages, adapter, via, expected_output_tokens, base, attempt):
         """Reserve the projected cost of the next call with the guard; record and re-raise a refusal."""

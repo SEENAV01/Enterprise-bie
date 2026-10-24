@@ -724,5 +724,81 @@ class ContinueFromAnEarlierAnswer(unittest.TestCase):
                                                   "membrane अंदर है।"), [])
 
 
+class BilledFailuresAreCounted(unittest.TestCase):
+    """Job B2, 25 October 2026: v5's review through AICredits ran to the 32,000-token output limit (`truncated`). The provider
+    bills such a call (about Rs 44 here), but the ledger and the cost guard counted Rs 0, the run's ledger said Rs 24.44 and
+    the AICredits wallet ran out. A call that generated an answer and then failed is now priced."""
+
+    class Client:
+        via, last_model, max_tokens = "aicredits", "google/gemini-4-argon", 32000
+
+    class Adapter:
+        provider, model = "google", "google/gemini-4-argon"
+
+        def __init__(self, error):
+            self.client, self.error = BilledFailuresAreCounted.Client(), error
+
+        def invoke(self, request):
+            raise self.error
+
+    def gateway(self, error, guard=None):
+        from bie.model_gateway.live.gateway import LiveGateway
+        return LiveGateway({"google": self.Adapter(error)}, sleep=lambda s: None, guard=guard)
+
+    def request(self):
+        from bie.model_gateway.model_interface import ModelRequest
+        return ModelRequest(request_id="lesson:script-v5:r3:review", messages=({"role": "user", "content": "review " * 100},))
+
+    def test_the_compat_client_reports_the_tokens_of_a_truncated_answer(self):
+        from bie.model_gateway.live.compat_client import OpenAICompatChatClient as CompatClient
+        from bie.model_gateway.live.errors import ProviderError
+        client = CompatClient.__new__(CompatClient)
+        client.via, client.max_tokens, client.last_model = "aicredits", 32000, None
+        raw = {"model": "google/gemini-4-argon", "usage": {"prompt_tokens": 40000, "completion_tokens": 32000},
+               "choices": [{"finish_reason": "length", "message": {"content": "{\"verdict\": \"pass\", ..."}}]}
+        with self.assertRaises(ProviderError) as caught:
+            client.parse(raw)
+        self.assertEqual(caught.exception.kind, "truncated")
+        self.assertEqual((caught.exception.usage["input_tokens"], caught.exception.usage["output_tokens"]), (40000, 32000))
+
+    def test_a_truncated_call_is_priced_in_the_ledger_and_the_guard(self):
+        from bie.model_gateway.live.budget import CostGuard
+        from bie.model_gateway.live.errors import ProviderError
+        from bie.model_gateway.live.pricing import estimate_cost
+        guard = CostGuard(200, rate=94.59)
+        error = ProviderError("truncated", "output reached max_tokens=32000", provider="aicredits",
+                              usage={"input_tokens": 40000, "output_tokens": 32000})
+        gw = self.gateway(error, guard)
+        with self.assertRaises(ProviderError):
+            gw.complete("google", self.request(), prompt_version="lesson-script/4/review")
+        row = gw.ledger.rows[-1]
+        expected = estimate_cost("google/gemini-4-argon", {"input_tokens": 40000, "output_tokens": 32000}, None, "aicredits")
+        self.assertEqual((row["outcome"], row["error_kind"], row["output_tokens"]), ("error", "truncated", 32000))
+        self.assertAlmostEqual(row["cost_usd"], expected)
+        self.assertGreater(expected * 94.59, 40)                                   # about Rs 44, not Rs 0
+        self.assertAlmostEqual(guard.spent_usd, expected)
+
+    def test_a_truncated_call_without_reported_tokens_is_priced_at_the_whole_output_cap(self):
+        from bie.model_gateway.live.errors import ProviderError
+        gw = self.gateway(ProviderError("truncated", "output reached max_tokens=32000", provider="aicredits"))
+        with self.assertRaises(ProviderError):
+            gw.complete("google", self.request(), prompt_version="v")
+        row = gw.ledger.rows[-1]
+        self.assertEqual(row["output_tokens"], 32000)
+        self.assertGreater(row["input_tokens"], 0)
+        self.assertGreater(row["cost_usd"], 0.3)
+
+    def test_a_call_that_never_answered_still_costs_nothing(self):
+        from bie.model_gateway.live.budget import CostGuard
+        from bie.model_gateway.live.errors import ProviderError
+        guard = CostGuard(200, rate=94.59)
+        gw = self.gateway(ProviderError("balance", "402 Insufficient Balance", provider="aicredits"), guard)
+        with self.assertRaises(ProviderError):
+            gw.complete("google", self.request(), prompt_version="v")
+        row = gw.ledger.rows[-1]
+        self.assertEqual((row["error_kind"], row["cost_usd"], row["output_tokens"]), ("balance", None, None))
+        self.assertEqual(guard.spent_usd, 0.0)
+
+
 if __name__ == "__main__":
     unittest.main()
