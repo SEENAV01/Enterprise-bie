@@ -460,7 +460,7 @@ residues in round 3 (new everyday words the list still lacked: राजमा, 
 every round smaller than the one before (v8: 24 → 10 → 4 problems; v9: 18 → 8 → 1). Dohraav on the 11 scripts: **2 of 511 judged beats
 (0.4%)**, opened 64.4%. Gemini for the script step so far ₹36.87; Task 045d in all ₹137.15 of Navin's ₹200.
 
-**Seekh from the resume (IMPLEMENTED, PR #64):** the pattern is a convergence the fixed round limit cuts off: code alone sends a script
+**Seekh from the resume (IMPLEMENTED, PR #65):** the pattern is a convergence the fixed round limit cuts off: code alone sends a script
 back with ever fewer small problems, and round 3 ends it with 1–4 left, although a patch round costs no Gemini. The runner now gives a
 converging answer (code-only rejection, fewer problems than the round before, at most 4) up to 3 extra patch rounds (`Step.extra_rounds`,
 `runner.CONVERGING_MAX`; a reviewer rejection never extends); the word list gains the 11 words (2026-10-24.3). Expected on the next
