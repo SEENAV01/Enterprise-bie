@@ -414,6 +414,14 @@ AICredits, cap ₹80 of Navin's ₹200. Level: `upsc_pcs` from the setting, book
   image, example, consequence or level extra uses one (S1-15, the English term named in the message); `lesson.spoken_problems` sends a
   beat back for one even inside a bracket (S2-04); the page prompt says it up front with examples.
 
-**Measured:** before (page 2 as passed): 45 of 49 items would go back under the new check; after: expected 0 on the resumed run,
-one extra Codex round on pages where the maker still slips (₹0; time). Live effect written here after the resume.
-Status: the run is INTEGRATED only when the resumed job passes all 14 pages and the map; nothing ACCEPTED.
+**Measured:** before (page 2 as passed): 45 of 49 items would go back under the new check. After (the resumed runs `resume2` and
+`resume3` on main `7bc33267`, 24 October 2026): **14 of 14 pages and the chapter map passed**; 411 teachable items, 403 with an
+unpack (the 8 without are question and option items), 469 terms opened, 550 why steps (266 items with 2 steps, 18 with 1, 127 with
+none, mostly labels and options); 35 concepts, 9 prerequisites to teach. Page 2 was not reused: the new check refused the old unpack
+and the page ran again. Round 1 was sent back by code on 9 of the 14 pages, every time for textbook Hindi only (1–8 items a page), and
+the patch round cleared it on every page; the reviewer found **0 blocking problems on all 14 pages and the map** (first-try review
+pass 14 of 14, against 5 pages sent back by the reviewer in job 1). Three plain meanings with पदार्थ remain on question and option
+items, which the check leaves alone by design. Gemini: resume2 ₹65.90 for 12 pages (₹5.07 a page: the reviewer now reads the unpack,
+16–25k input tokens a review, against about ₹2.7 a page in job 1), resume3 ₹20.87 (pages 13 and 14 ₹9.18, the map ₹11.31); job A's
+₹13.51 before it; understanding in all ₹100.28 of Navin's ₹200. Codex plan 2% → 4%. Time: 14.2 + 46.6 + 12.0 minutes.
+Status: the understanding step is INTEGRATED (a real run through the new checks); nothing ACCEPTED until Navin's verdict.
