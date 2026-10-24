@@ -464,5 +464,16 @@ every round smaller than the one before (v8: 24 → 10 → 4 problems; v9: 18 �
 back with ever fewer small problems, and round 3 ends it with 1–4 left, although a patch round costs no Gemini. The runner now gives a
 converging answer (code-only rejection, fewer problems than the round before, at most 4) up to 3 extra patch rounds (`Step.extra_rounds`,
 `runner.CONVERGING_MAX`; a reviewer rejection never extends); the word list gains the 11 words (2026-10-24.3). Expected on the next
-resume: the five pass within the extra rounds at ₹0 maker cost and one review each (about ₹5). Status: the script step is INTEGRATED;
-the dohraav number is a measured fact; nothing ACCEPTED until Navin's verdict on old v2 against new v2.
+resume: the five pass within the extra rounds at ₹0 maker cost and one review each (about ₹5).
+
+**After the converging rounds (the third part, `vm-t045d-tissue-lesson-resume2-brain-lesson`, main `1c6c349d`, 19.7 minutes, Gemini
+₹24.44):** v2 and v8 passed in round 4, the first extra round (11 → 3 → 2 → 0 and 18 → 6 → 2 → 0 code problems), v4 in round 3, each
+with 0 blocking from the reviewer: **9 of 11 videos pass**. v9 reached 0 code problems in round 4 (20 → 9 → 1 → 0) and its review call
+met `402 Insufficient Balance`: the AICredits wallet is empty (this time the wallet, not the key budget), so the run stopped there; v9
+waits for one review (about ₹5) after a top-up. v5 (the longest video: 128 beats, 18.7 minutes) failed in round 3 when the maker's patch
+answer hit the 32,000 output-token limit (`truncated`): the next seekh item is a smaller patch for long scripts (or a plan that keeps a
+video under about 15 minutes). **Dohraav on the final 11 scripts: 0 of 500 judged beats (0.0%)**, opened 67.2%; before Task 045d:
+155 of 540 (28.7%), opened 28.3%. Rounds a script: 3.0 on the first run → 3.4 with the extra rounds; the extra rounds cost no Gemini.
+Task 045d Gemini in all: understanding ₹100.28 + script ₹24.86 + ₹12.01 + ₹24.44 = **₹161.59 of Navin's ₹200**; Codex plan 2% → 8%.
+Status: the understanding and script steps are INTEGRATED (real runs through every new check); the dohraav number is a measured fact;
+nothing ACCEPTED until Navin's verdict on old v2 against new v2 (`V2_SIDE_BY_SIDE.md` in the resume2 run folder).
