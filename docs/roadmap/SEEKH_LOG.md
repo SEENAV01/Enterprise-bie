@@ -453,7 +453,16 @@ forms); a sentence ending in नहीं is not a clipped note; a script up to 
 (`TIME_TOLERANCE`; 130 words a minute is an estimate). Re-checked offline on the 7 failed scripts' last rounds: v2, v6, v8 and v9 would
 have no code problem left, v4 one restating beat, v1 three, v5 four. The two saved regression sets still pass.
 
-**Measured:** before (job B): 4 of 11 passed, 7 failed by code after 3 rounds; after: expected from the resumed job B (the 4 passed
-scripts reused, the 7 written again): most pass within 3 rounds; the real numbers go here after that run. Status: the script step is
-INTEGRATED (a real run through the new checks); the dohraav number is a measured fact; nothing ACCEPTED until Navin's verdict on old
-v2 against new v2.
+**Measured:** before (job B): 4 of 11 passed, 7 failed by code after 3 rounds. After (the resumed job B on main `78e0cf6a`,
+`vm-t045d-tissue-lesson-resume-brain-lesson`, 23.6 minutes, Gemini ₹12.01): the plan and the 4 passed scripts reused; of the 7 written
+again, v1 and v6 passed (3 rounds each, reviewer 0 blocking), so **6 of 11 pass**; v2, v4, v5, v8 and v9 failed by code again with 1–4
+residues in round 3 (new everyday words the list still lacked: राजमा, भंडार, राशन, गूदा, पहिया, दफ्तर …; two beats counted as restating),
+every round smaller than the one before (v8: 24 → 10 → 4 problems; v9: 18 → 8 → 1). Dohraav on the 11 scripts: **2 of 511 judged beats
+(0.4%)**, opened 64.4%. Gemini for the script step so far ₹36.87; Task 045d in all ₹137.15 of Navin's ₹200.
+
+**Seekh from the resume (IMPLEMENTED, PR #65):** the pattern is a convergence the fixed round limit cuts off: code alone sends a script
+back with ever fewer small problems, and round 3 ends it with 1–4 left, although a patch round costs no Gemini. The runner now gives a
+converging answer (code-only rejection, fewer problems than the round before, at most 4) up to 3 extra patch rounds (`Step.extra_rounds`,
+`runner.CONVERGING_MAX`; a reviewer rejection never extends); the word list gains the 11 words (2026-10-24.3). Expected on the next
+resume: the five pass within the extra rounds at ₹0 maker cost and one review each (about ₹5). Status: the script step is INTEGRATED;
+the dohraav number is a measured fact; nothing ACCEPTED until Navin's verdict on old v2 against new v2.

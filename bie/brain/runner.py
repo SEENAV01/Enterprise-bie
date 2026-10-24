@@ -8,7 +8,9 @@ One step is one unit of work of one section (for example one page for "understan
 2. BIE's code checks the output (``Step.check``). Problems go straight back to the maker.
 3. An independent reviewer AI, on a different provider, checks the output against the source and
    the rulebook checklist (``Step.review_*``). Its findings go back to the maker.
-4. The maker remakes the whole output with those findings, at most ``max_rounds`` rounds in all.
+4. The maker remakes the whole output with those findings, at most ``max_rounds`` rounds in all; a converging answer
+   (code alone sends it back with ever fewer problems, at most ``CONVERGING_MAX``) gets up to ``extra_rounds`` more patch
+   rounds, which cost no reviewer call (Task 045d).
 5. Every round is kept in the process record: the maker's notes and output, the code
    problems, the reviewer's findings, models, tokens and cost. A passed step is a candidate for
    locking; failed rounds are kept and marked "avoid".
@@ -65,6 +67,9 @@ PATCH_INSTRUCTION = (
 )
 
 
+CONVERGING_MAX = 4           # a code-only rejection with at most this many problems, fewer than the round before, converges
+
+
 @dataclass
 class Step:
     section: str
@@ -82,6 +87,8 @@ class Step:
     apply_patch: Callable[[dict, dict], dict] | None = None
     patch_hint: str | Callable[[dict], str] = ""     # text, or (current answer) -> text for the next patch round
     max_rounds: int = 3
+    extra_rounds: int = 3        # converging rounds past max_rounds: only while code alone sends the answer back with ever fewer
+                                 # problems, at most CONVERGING_MAX of them (Task 045d, job B: 1-4 small residues after 3 rounds)
     card: dict | None = None                  # the task card sent with this step (Task 045)
     observe: Callable[[dict], dict] | None = None   # code findings to record per round, never sent back
     normalize: Callable[[dict], tuple] | None = None  # (value, changes): code tidies the answer before checks and review
@@ -185,8 +192,18 @@ class SectionRunner:
         rounds, output, status = [], None, "failed"
         started = self._clock()
         schema, patching = step.schema, False
-        for number in range(1, step.max_rounds + 1):
+        number, extra_used, last_code, converging = 0, 0, None, False
+        while True:
+            number += 1
+            if number > step.max_rounds:
+                # A converging answer (code alone sent it back, with fewer problems than the round before, at most
+                # CONVERGING_MAX) gets up to extra_rounds more patch rounds; these cost no reviewer call.
+                if not (converging and extra_used < step.extra_rounds):
+                    break
+                extra_used += 1
             entry = {"round": number, "started_at": self._clock(), "mode": "patch" if patching else "full"}
+            if number > step.max_rounds:
+                entry["extra_round"] = True
             request = ModelRequest(request_id=f"{step.section}:{step.unit}:r{number}", messages=tuple(messages),
                                    response_schema=schema)
             try:
@@ -209,6 +226,10 @@ class SectionRunner:
             entry["output"] = value
             problems = [f"[code] {p}" for p in step.check(value)]
             entry["code_problems"] = problems
+            converging = (bool(problems) and len(problems) <= CONVERGING_MAX
+                          and last_code is not None and len(problems) < last_code)     # one round shows no trend
+            if problems:
+                last_code = len(problems)
             if step.observe is not None:
                 entry["observed"] = step.observe(value)
             if not problems and self.reviewer and step.review_system:
@@ -229,6 +250,7 @@ class SectionRunner:
                 problems = [f"[reviewer] {p}" for p in step.review_problems(review.content)]
                 entry["review_problems"] = problems
                 entry["review_minor"] = minor_findings(review.content)
+                converging = False                      # a reviewer's rejection never extends the rounds
             entry["passed"] = not problems
             entry["finished_at"] = self._clock()
             rounds.append(entry)
