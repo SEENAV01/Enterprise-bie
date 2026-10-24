@@ -414,6 +414,46 @@ AICredits, cap ₹80 of Navin's ₹200. Level: `upsc_pcs` from the setting, book
   image, example, consequence or level extra uses one (S1-15, the English term named in the message); `lesson.spoken_problems` sends a
   beat back for one even inside a bracket (S2-04); the page prompt says it up front with examples.
 
-**Measured:** before (page 2 as passed): 45 of 49 items would go back under the new check; after: expected 0 on the resumed run,
-one extra Codex round on pages where the maker still slips (₹0; time). Live effect written here after the resume.
-Status: the run is INTEGRATED only when the resumed job passes all 14 pages and the map; nothing ACCEPTED.
+**Measured:** before (page 2 as passed): 45 of 49 items would go back under the new check. After (the resumed runs `resume2` and
+`resume3` on main `7bc33267`, 24 October 2026): **14 of 14 pages and the chapter map passed**; 411 teachable items, 403 with an
+unpack (the 8 without are question and option items), 469 terms opened, 550 why steps (266 items with 2 steps, 18 with 1, 127 with
+none, mostly labels and options); 35 concepts, 9 prerequisites to teach. Page 2 was not reused: the new check refused the old unpack
+and the page ran again. Round 1 was sent back by code on 9 of the 14 pages, every time for textbook Hindi only (1–8 items a page), and
+the patch round cleared it on every page; the reviewer found **0 blocking problems on all 14 pages and the map** (first-try review
+pass 14 of 14, against 5 pages sent back by the reviewer in job 1). Three plain meanings with पदार्थ remain on question and option
+items, which the check leaves alone by design. Gemini: resume2 ₹65.90 for 12 pages (₹5.07 a page: the reviewer now reads the unpack,
+16–25k input tokens a review, against about ₹2.7 a page in job 1), resume3 ₹20.87 (pages 13 and 14 ₹9.18, the map ₹11.31); job A's
+₹13.51 before it; understanding in all ₹100.28 of Navin's ₹200. Codex plan 2% → 4%. Time: 14.2 + 46.6 + 12.0 minutes.
+Status: the understanding step is INTEGRATED (a real run through the new checks); nothing ACCEPTED until Navin's verdict.
+
+## Entry 9 · Task 045d job B (the first scripts under the teaching soul), 24 October 2026
+
+**Run:** VM job `t045d-tissue-lesson` (`blindtest-results:runs/vm-t045d-tissue-lesson-brain-lesson/`) on main `7bc33267`, from job
+A's chapter map: prerequisite trim (not needed: 9), the plan (passed in round 1), v0 and 10 topic videos. 44.1 minutes, Gemini ₹24.86
+of the ₹99 cap (the plan ₹4.7, four script reviews ₹20; a script the code sends back costs no Gemini), Codex plan 4% → 5%.
+
+**Taught:**
+
+- **Dohraav before → after:** 155 of 540 judged beats (28.7%) → **9 of 481 (1.9%)**; beats with an opening marker 28.3% → **60.9%**
+  (with the markers of PR #60; with the markers below, which credit जैसा / जैसी, वरना and क्यों, the same scripts measure 27.6% → 1.0%
+  and 32.8% → 68.0%).
+  Every one of the 11 new scripts restates less than the old one; the table-reading videos fell from 46–53% to 0–9%
+  (`V2_SIDE_BY_SIDE.md` in the run folder has the per-video table and old v2 against new v2 beat by beat).
+- **4 of 11 videos passed** (v0, v3, v7, v10), each with 0 blocking findings from the reviewer; 7 failed after 3 rounds **by code only**,
+  the reviewer never saw them. What was left in round 3: 1–5 "hard" Hindi words a script (नोक, बाँह, रस, अंदरूनी, जाल, छन्नी, कपास,
+  रसोई …: everyday words the list lacked; 175 distinct words were flagged across the run), 1–3 beats still counted as restating, a
+  clipped sentence or two, and four scripts 1.3–2.3% over their narration time (4.5 against 4.4 minutes, 15.3 against 15.1).
+- The restating beats left were opened with "जैसा / जैसी" ("Building के service duct जैसा"), "वरना" or a "क्यों?" question, which the
+  detector did not count; "पूरा bundle 1 cell नहीं।" was counted as a clipped note although the dropped copula is spoken Hindi.
+- Total length 117.1 minutes against 84–112 + v0: the openings add words; the makers cut side-tracks under the time rule.
+
+**Changed in BIE (IMPLEMENTED, offline):** `simple_hindi.json` 2026-10-24.2 with 98 everyday words from this run (the formal ones,
+सामान्यतः, पर्याप्त, अतिरिक्त, प्रभावित, stay hard); the opening markers add जैसा / जैसी / की तरह, वरना / नहीं तो / क्यों / इससे / तभी (and their Roman
+forms); a sentence ending in नहीं is not a clipped note; a script up to 3% over its upper narration bound is within it
+(`TIME_TOLERANCE`; 130 words a minute is an estimate). Re-checked offline on the 7 failed scripts' last rounds: v2, v6, v8 and v9 would
+have no code problem left, v4 one restating beat, v1 three, v5 four. The two saved regression sets still pass.
+
+**Measured:** before (job B): 4 of 11 passed, 7 failed by code after 3 rounds; after: expected from the resumed job B (the 4 passed
+scripts reused, the 7 written again): most pass within 3 rounds; the real numbers go here after that run. Status: the script step is
+INTEGRATED (a real run through the new checks); the dohraav number is a measured fact; nothing ACCEPTED until Navin's verdict on old
+v2 against new v2.

@@ -69,6 +69,7 @@ DENSE_ALLOWANCE = 1.25               # a very dense video, with the reason in le
 PREREQUISITE_MINUTES = (5.0, 8.0)    # the "pehle yeh jaan lo" video
 PREREQUISITE_VIDEO = "prerequisites"
 WORDS_PER_MINUTE = 130
+TIME_TOLERANCE = 0.03        # 130 words a minute is an estimate: a script up to 3% over its upper bound is within it (Task 045d, job B)
 SCRIPT_FLOOR = 0.85                  # a script may run up to 15% under its range (must_cover keeps the content); never over
 MAX_REMINDER_BEATS = 2
 MIN_TOPIC_MINUTES = 3.0               # a topic video's highest budget: a hook, the teaching and a recap need room               # prerequisite reminders in a topic video (S2-03)
@@ -748,7 +749,7 @@ def length_problems(beats, video, budget) -> list:
     if budget:
         low, high = budget
         spoken = spoken_minutes(beats)
-        if spoken > high:
+        if spoken > round(high * (1 + TIME_TOLERANCE), 1):
             problems.append(f"the script speaks about {spoken} minutes; this video's narration time is {low}-{high} minutes "
                             f"(S2-01): cut repetition and side-tracks, never book content")
         elif spoken < round(low * SCRIPT_FLOOR, 1):
