@@ -1,0 +1,256 @@
+{
+  "cost": {
+    "cap": {
+      "by_section_inr": {
+        "lesson": 24.36,
+        "preflight": 0.08
+      },
+      "calls_allowed": 25,
+      "calls_refused": 0,
+      "cap_inr": 62.0,
+      "spent_inr": 24.44,
+      "spent_usd": 0.258381,
+      "stop_reason": "balance: google via aicredits: insufficient_quota | 402 | Insufficient Balance. Add credits at https://aicredits.in/dashboard/billing",
+      "stopped": true,
+      "usd_inr": 94.59
+    },
+    "inr_per_page": 1.75,
+    "note": "Ledger cost is an estimate: exact token counts times the dated price table in bie/model_gateway/live/pricing.py (plus the AICredits 10% markup), converted at usd_inr. It is not the bill. Write the provider dashboard amount for this run into real_bill_inr (and docs/roadmap/COST_LOG.md) to compare.",
+    "pages": 14,
+    "real_bill_inr": null,
+    "sections": {
+      "lesson": {
+        "calls": 23,
+        "inr": 24.36,
+        "inr_per_page": 1.74,
+        "name": "Section 2 · lesson",
+        "usd": 0.257508
+      },
+      "preflight": {
+        "calls": 2,
+        "inr": 0.08,
+        "inr_per_page": 0.01,
+        "name": "preflight",
+        "usd": 0.000873
+      }
+    },
+    "subscription": {
+      "calls": 19,
+      "failed_calls": 0,
+      "input_tokens": 646031,
+      "minutes": 32.6,
+      "note": "paid by the ChatGPT plan, no rupees; time is the sum of call times",
+      "output_tokens": 122592,
+      "reasoning_tokens": 641
+    },
+    "total_inr": 24.44,
+    "total_usd": 0.258381,
+    "usd_inr": 94.59
+  },
+  "estimate": {
+    "maker_billing": "subscription",
+    "measured_share_inr": 104.46,
+    "pages": 14,
+    "price_scale": 0.16,
+    "sections": {
+      "lesson": {
+        "basis": "measured",
+        "inr": 104.46,
+        "inr_per_page": 7.46,
+        "source": "VM job t045b-tissue-lesson, 14 pages (458 minutes spoken, before the time rule)"
+      }
+    },
+    "total_inr": 104.46,
+    "usd_inr": 94.59
+  },
+  "fake": false,
+  "ledger_calls": 25,
+  "ledger_cost_usd": 0.258381,
+  "lesson_quality": {
+    "beats": 613,
+    "budget_minutes": {
+      "book_pages": 14,
+      "per_page": [
+        6.0,
+        8.0
+      ],
+      "prerequisite_video": [
+        5.0,
+        8.0
+      ],
+      "topic_videos": [
+        84.0,
+        112.0
+      ]
+    },
+    "cost_usd": 0.257508,
+    "dohraav": {
+      "judged_beats": 500,
+      "opened_share": 0.672,
+      "restating": 0,
+      "share": 0.0
+    },
+    "estimated_minutes_at_130_wpm": 116.5,
+    "plan_passed": true,
+    "spoken_words": 15141,
+    "videos": 11,
+    "videos_passed": 9,
+    "videos_reused": 6
+  },
+  "level": {
+    "band": "senior_secondary",
+    "disagreement": null,
+    "evidence": {
+      "long_share": 0.1217,
+      "marker": "intermediate",
+      "reason": "the text says 'intermediate'",
+      "sentence_words": 10.1,
+      "setting": "course.level = upsc_pcs",
+      "very_long_share": 0.0138,
+      "words": 6096
+    },
+    "profile": "upsc_pcs",
+    "source": "course"
+  },
+  "maker": "codex",
+  "models": {
+    "codex": "gpt-6.1-sol",
+    "google": "google/gemini-4-argon"
+  },
+  "plan_usage_after": {
+    "codex": {
+      "rateLimitResetCredits.availableCount": 2,
+      "rateLimits.planType": "prolite",
+      "rateLimits.primary.resetsAt": 1793386784,
+      "rateLimits.primary.usedPercent": 8,
+      "rateLimits.primary.windowDurationMins": 10080,
+      "rateLimitsByLimitId.codex.planType": "prolite",
+      "rateLimitsByLimitId.codex.primary.resetsAt": 1793386784,
+      "rateLimitsByLimitId.codex.primary.usedPercent": 8,
+      "rateLimitsByLimitId.codex.primary.windowDurationMins": 10080
+    }
+  },
+  "preflight": {
+    "passed": true,
+    "routes": {
+      "codex": {
+        "input_tokens": 3343,
+        "login": {
+          "logged_in": true,
+          "mode": "Logged in using ChatGPT"
+        },
+        "model": "gpt-6.1-sol",
+        "output_tokens": 15,
+        "plan_usage_before": {
+          "rateLimitResetCredits.availableCount": 2,
+          "rateLimits.planType": "prolite",
+          "rateLimits.primary.resetsAt": 1793386784,
+          "rateLimits.primary.usedPercent": 7,
+          "rateLimits.primary.windowDurationMins": 10080,
+          "rateLimitsByLimitId.codex.planType": "prolite",
+          "rateLimitsByLimitId.codex.primary.resetsAt": 1793386784,
+          "rateLimitsByLimitId.codex.primary.usedPercent": 7,
+          "rateLimitsByLimitId.codex.primary.windowDurationMins": 10080
+        },
+        "returned_model": "gpt-6.1-sol",
+        "status": "ok",
+        "via": "codex"
+      },
+      "google": {
+        "input_tokens": 287,
+        "model": "google/gemini-4-argon",
+        "output_tokens": 22,
+        "returned_model": "google/gemini-4-argon",
+        "status": "ok",
+        "via": "aicredits",
+        "wallet": {
+          "unavailable": "not_found"
+        }
+      }
+    }
+  },
+  "prerequisite_trim": {
+    "count": 9,
+    "status": "not needed"
+  },
+  "resume": {
+    "notes": [],
+    "plan_reused": true,
+    "scripts_reused": 6
+  },
+  "reviewer": "google",
+  "reviewer_independence": "other_company",
+  "reviewer_route": "google",
+  "rulebook": "content_types@2026-10-24.1+explanations@2026-10-24.1+level_profiles@2026-10-24.1+simple_hindi@2026-10-24.3+teacher_examples@2026-10-24.1+vision-2026-10-21@2026-10-21.12",
+  "section": "lesson",
+  "status": "stopped: balance",
+  "stop_reason": "balance: google via aicredits: insufficient_quota | 402 | Insufficient Balance. Add credits at https://aicredits.in/dashboard/billing",
+  "videos": [
+    {
+      "cost_usd": 0.0,
+      "rounds": 3,
+      "status": "passed",
+      "video_id": "v0"
+    },
+    {
+      "cost_usd": 0.0,
+      "rounds": 3,
+      "status": "passed",
+      "video_id": "v1"
+    },
+    {
+      "cost_usd": 0.069406,
+      "rounds": 4,
+      "status": "passed",
+      "video_id": "v2"
+    },
+    {
+      "cost_usd": 0.0,
+      "rounds": 3,
+      "status": "passed",
+      "video_id": "v3"
+    },
+    {
+      "cost_usd": 0.094677,
+      "rounds": 3,
+      "status": "passed",
+      "video_id": "v4"
+    },
+    {
+      "cost_usd": 0.0,
+      "rounds": 3,
+      "status": "failed",
+      "video_id": "v5"
+    },
+    {
+      "cost_usd": 0.0,
+      "rounds": 3,
+      "status": "passed",
+      "video_id": "v6"
+    },
+    {
+      "cost_usd": 0.0,
+      "rounds": 3,
+      "status": "passed",
+      "video_id": "v7"
+    },
+    {
+      "cost_usd": 0.093425,
+      "rounds": 4,
+      "status": "passed",
+      "video_id": "v8"
+    },
+    {
+      "cost_usd": 0.0,
+      "rounds": 4,
+      "status": "stopped",
+      "video_id": "v9"
+    },
+    {
+      "cost_usd": 0.0,
+      "rounds": 2,
+      "status": "passed",
+      "video_id": "v10"
+    }
+  ]
+}
