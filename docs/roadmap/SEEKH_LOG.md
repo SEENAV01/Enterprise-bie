@@ -453,50 +453,47 @@ forms); a sentence ending in नहीं is not a clipped note; a script up to 
 (`TIME_TOLERANCE`; 130 words a minute is an estimate). Re-checked offline on the 7 failed scripts' last rounds: v2, v6, v8 and v9 would
 have no code problem left, v4 one restating beat, v1 three, v5 four. The two saved regression sets still pass.
 
-**Measured:** before (job B): 4 of 11 passed, 7 failed by code after 3 rounds; after (the resumed job B, entry 10): 6 of 11 passed (v1
-and v6 newly, 0 blocking reviewer findings), 5 failed by code after 3 rounds; dohraav 9 of 481 → 2 of 511 judged beats (0.4%). Status: the script step is
-INTEGRATED (a real run through the new checks); the dohraav number is a measured fact; nothing ACCEPTED until Navin's verdict on old
-v2 against new v2.
+**Measured:** before (job B): 4 of 11 passed, 7 failed by code after 3 rounds. After (the resumed job B on main `78e0cf6a`,
+`vm-t045d-tissue-lesson-resume-brain-lesson`, 23.6 minutes, Gemini ₹12.01): the plan and the 4 passed scripts reused; of the 7 written
+again, v1 and v6 passed (3 rounds each, reviewer 0 blocking), so **6 of 11 pass**; v2, v4, v5, v8 and v9 failed by code again with 1–4
+residues in round 3 (new everyday words the list still lacked: राजमा, भंडार, राशन, गूदा, पहिया, दफ्तर …; two beats counted as restating),
+every round smaller than the one before (v8: 24 → 10 → 4 problems; v9: 18 → 8 → 1). Dohraav on the 11 scripts: **2 of 511 judged beats
+(0.4%)**, opened 64.4%. Gemini for the script step so far ₹36.87; Task 045d in all ₹137.15 of Navin's ₹200.
 
-## Entry 10 · Task 045d job B resumed (after PR #62), 24–25 October 2026
+**Seekh from the resume (IMPLEMENTED, PR #65):** the pattern is a convergence the fixed round limit cuts off: code alone sends a script
+back with ever fewer small problems, and round 3 ends it with 1–4 left, although a patch round costs no Gemini. The runner now gives a
+converging answer (code-only rejection, fewer problems than the round before, at most 4) up to 3 extra patch rounds (`Step.extra_rounds`,
+`runner.CONVERGING_MAX`; a reviewer rejection never extends); the word list gains the 11 words (2026-10-24.3). Expected on the next
+resume: the five pass within the extra rounds at ₹0 maker cost and one review each (about ₹5). Status: the script step is INTEGRATED;
+the dohraav number is a measured fact; nothing ACCEPTED until Navin's verdict on old v2 against new v2.
 
-**Run:** VM job `t045d-tissue-lesson-resume` (`blindtest-results:runs/vm-t045d-tissue-lesson-resume-brain-lesson/`) on main `78e0cf6a`,
-resumed from job B: the plan and 4 passed scripts reused, the 7 failed scripts written again from scratch. Maker Codex
-(`gpt-6.1-sol`, ChatGPT plan 5% → 7%), checker Gemini 4 Argon through AICredits: ₹12.01 of the ₹74 cap (₹1.70 a script reviewed).
+## Entry 10 · continue a failed script from its last answer (PR #64), 25 October 2026
 
-**Taught:**
+**From the same resumed run as entry 9's seekh (PR #65):** the five failed scripts had been written again from scratch by the resume,
+and each rewrite brought everyday images with new words (67 distinct words flagged in the resumed run, most of them new): entry 9 had
+predicted that v2, v8 and v9 would pass, and their rewrites failed on words the earlier versions did not use. PR #65 extends converging
+rounds inside one run; this entry stops a resume from throwing the nearly finished scripts away.
 
-- 6 of 11 scripts pass (v0, v1, v3, v6, v7, v10; reviewer: 3 minor findings, 0 blocking). Dohraav 2 of 511 judged beats (0.4%),
-  beats with an opening 64.4%; 117.7 spoken minutes.
-- The 5 failed scripts (v2, v4, v5, v8, v9) converged and were stopped by the round limit: problems per round 14 → 6 → 1,
-  15 → 12 → 2, 36 → 6 → 2, 24 → 10 → 4, 18 → 8 → 1, all from BIE's code (the reviewer never saw them). Left in round 3:
-  everyday words the list lacked or read in an oblique form (राजमे, भंडार, राशन, गूदा, पहिए, तीलियों, दफ्तर), नकारता and घेराबंदी, and
-  two beats counted as restating, one of them opened with Navin's own "what it is not" contrast ("यह सिर्फ सख्त ढाँचा नहीं है").
-- Writing a failed script again from scratch does not converge: each new version brings everyday images with new words (67
-  distinct words flagged in this run, most of them new). Entry 9 had predicted v2, v8 and v9 would pass; their rewrites failed on
-  words the earlier versions did not use.
+**Changed in BIE (IMPLEMENTED, offline; PR #64, on top of PR #65):**
 
-**Changed in BIE (IMPLEMENTED, offline; PR `task045d-seekh-job-b2`):**
-
-- **Continue, do not rewrite** (`bie/brain/runner.py`, `bie/brain/lesson.py`): a step may start from an earlier answer
-  (`Step.start`). Round 0 makes no maker call: BIE's code checks that answer with today's checks; a clean one goes straight to
-  the reviewer, otherwise the first maker round is a patch of exactly today's problems; `max_rounds` maker rounds follow as
-  before. A lesson resume continues every earlier script that did not pass (or no longer passes) when it is close enough (at
-  most 10 problems today, none about missing content or a script far too short, `close_enough`); a script far from passing is
-  written again. The lesson records `continued`, SCRIPT.md marks "(continued)", `tools/seekh_measure.py` counts continued units
-  apart from first-try passes.
-- **Words** (`simple_hindi.json` 2026-10-25.1): 37 everyday words from this run (राजमा, राशन, पहिया, तीली, दफ्तर, गूदा, थक्का, भंडार,
-  दिक्कत, चेहरा, सुरंग …) and the phrase अदला-बदली; `hinglish.py` reads an oblique form whose last vowel changes (पहिए → पहिया, झाड़ुओं →
-  झाड़ू; झाड़ू was already in the list) and an ordinal ending after a digit (10वाँ). Formal words stay hard: पर्याप्त, प्रभावित, मुख्यतः, कठोर,
-  माध्यम, बाधा, विशाल, नकारना, घेराबंदी, स्रोत, अपेक्षाकृत.
+- **Continue, do not rewrite** (`bie/brain/runner.py`, `bie/brain/lesson.py`): a step may start from an earlier answer (`Step.start`).
+  Round 0 makes no maker call: BIE's code checks that answer with today's checks; a clean one goes straight to the reviewer, otherwise
+  the first maker round is a patch of exactly today's problems, and round 0's count is the "round before" for PR #65's converging
+  rounds. A lesson resume continues every earlier script that did not pass (or no longer passes) when it is close enough (at most 10
+  problems today, none about missing content or a script far too short, `close_enough`); a script far from passing is written again.
+  The lesson records `continued`, SCRIPT.md marks "(continued)", `tools/seekh_measure.py` counts continued units apart from first-try
+  passes.
+- **Words** (`simple_hindi.json` 2026-10-25.1, on PR #65's 2026-10-24.3): 30 more everyday words from the resumed run's rounds (दिक्कत,
+  चेहरा, सुरंग, थक्का, सीना, घरेलू, निशान, पुल …) and the phrase अदला-बदली; `hinglish.py` reads an oblique form whose last vowel changes
+  (पहिए → पहिया, झाड़ुओं → झाड़ू; झाड़ू was already listed) and an ordinal ending after a digit (10वाँ). Formal words stay hard: पर्याप्त,
+  प्रभावित, मुख्यतः, कठोर, माध्यम, बाधा, विशाल, स्रोत, अपेक्षाकृत.
 - **Openings** (`soul.py`): the two steps of Navin's teacher bank the detector missed: the contrast "what it is not" ("सिर्फ / केवल …
-  नहीं", "न कि") and the memory beat ("याद रखो", trick). "से अलग" and "उल्टा" were tried and left out: on the old scripts they credited
-  "अलग पहचानो" and "अलग रखती है", which open nothing.
+  नहीं", "न कि"; job B resume v2 b13: "यह सिर्फ सख्त ढाँचा नहीं है") and the memory beat ("याद रखो", trick). "से अलग" and "उल्टा" were tried
+  and left out: on the old scripts they credited "अलग पहचानो" and "अलग रखती है", which open nothing.
 
-**Measured (offline, 25 October 2026, on the resumed run's `lesson_plan.json` with today's code):** the 6 passed scripts still pass and
-are reused; the 5 failed ones continue: v2, v4 and v9 have no code problem left (straight to the reviewer, no maker call), v5 keeps
-नकारता and one restating beat (b102), v8 keeps घेराबंदी (one patch round each). Dohraav of the resumed lesson with today's markers: 1 of
-511 (0.2%), openings 65.8%. The old scripts (job 3, regression set): 78 → 76 restating of 273, 93 → 98 opened. Both saved regression
-sets still pass; the Task 045 lane passes (427 tests). Expected next: the resumed job B2 passes most of the 5 with about 5–7 reviews
-(about ₹10–40 of the ₹62 left of Navin's ₹200); the real numbers go here after that run. Nothing ACCEPTED until Navin's verdict.
-
+**Measured (offline, 25 October 2026, on the resumed run's `lesson_plan.json` with this code):** the 6 passed scripts still pass and are
+reused; the 5 failed ones would continue: v2, v4, v8 and v9 have no code problem left (straight to the reviewer, no maker call), v5 keeps
+one restating beat (b102, a patch round). Dohraav of the resumed lesson with today's markers: 1 of 511 (0.2%), openings 65.8%. The old
+scripts (job 3, regression set): 78 → 76 restating of 273, 93 → 98 opened. Both saved regression sets still pass; the Task 045 lane
+passes. Live effect: the running job B2 (`t045d-tissue-lesson-resume2`, queued on PR #65's main with the last ₹62 of Navin's ₹200)
+does not use this change; the next resume or chapter does. Nothing ACCEPTED until Navin's verdict.

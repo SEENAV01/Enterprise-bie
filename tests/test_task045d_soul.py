@@ -606,11 +606,11 @@ class JobBResumeTaught(unittest.TestCase):
         for word in ("राजमे", "राशन", "पहिए", "तीलियों", "झाड़ुओं", "दफ्तर", "गूदा", "थक्का", "भंडार", "चेहरों", "सुरंगें", "पंजों",
                      "सीने", "रोंगटे", "किरकिराते", "किरकिरापन", "कड़कपन", "छापा", "लिपटने", "ढोती", "पचता", "दिक्कत"):
             self.assertTrue(simple.is_simple(word), word)
-        for word in ("पर्याप्त", "प्रभावित", "मुख्यतः", "कठोर", "माध्यम", "बाधा", "विशाल", "नकारता", "घेराबंदी", "स्रोत", "अपेक्षाकृत"):
+        for word in ("पर्याप्त", "प्रभावित", "मुख्यतः", "कठोर", "माध्यम", "बाधा", "विशाल", "स्रोत", "अपेक्षाकृत"):
             self.assertFalse(simple.is_simple(word), word)
         self.assertEqual(hinglish.difficult_words("Page का 10वाँ हिस्सा और 2री line देखो।"), [])
         self.assertEqual(hinglish.difficult_words("response और movement की अदला-बदली पकड़ना।"), [])
-        self.assertEqual(hinglish.difficult_words("Parenchyma की पहली बाहरी घेराबंदी देखो।"), ["घेराबंदी"])
+        self.assertEqual(hinglish.difficult_words("Parenchyma की पहली बाहरी सामान्यतः देखो।"), ["सामान्यतः"])
 
     def test_navins_contrast_and_memory_beats_open_a_line(self):
         self.assertEqual(soul.markers("बहता Blood भी tissue है? Fluid connective tissue में Blood और Lymph हैं। Adipose का fat, Bone, "
@@ -697,7 +697,8 @@ class ContinueFromAnEarlierAnswer(unittest.TestCase):
     def test_the_real_failed_scripts_of_the_resumed_job_b_need_little_today(self):
         """Measured offline on 25 October 2026 from the resumed job B's lesson_plan.json (run folder
         vm-t045d-tissue-lesson-resume-brain-lesson): v2, v4 and v9 have no code problem left and go straight to the
-        reviewer; v5 keeps नकारता and one restating beat, v8 keeps घेराबंदी. The beats below are the ones that failed them."""
+        reviewer; with PR #65's words (नकारना, घेराबंदी) v8 has none left either and v5 keeps one restating beat (b102). The beats
+        below are the ones that failed them."""
         from bie.brain import hinglish
         left = {
             "v2 b13": "बहता Blood भी tissue है? Fluid connective tissue में Blood और Lymph हैं। Adipose का fat, Bone, Blood और "
@@ -718,10 +719,9 @@ class ContinueFromAnEarlierAnswer(unittest.TestCase):
         for where, say in left.items():
             self.assertEqual(hinglish.difficult_words(say), [], where)
         self.assertEqual(soul.markers(left["v2 b13"]), ["contrast"])
-        self.assertEqual(hinglish.difficult_words("None सबको नकारता है; Tendon सही है। M2B Tendon, B2B Ligament याद रखिए।"),
-                         ["नकारता"])
+        self.assertEqual(hinglish.difficult_words("None सबको नकारता है; Tendon सही है। M2B Tendon, B2B Ligament याद रखिए।"), [])
         self.assertEqual(hinglish.difficult_words("Page 13 में Parenchyma की thin primary wall यानी पहली बाहरी घेराबंदी देखो; "
-                                                  "membrane अंदर है।"), ["घेराबंदी"])
+                                                  "membrane अंदर है।"), [])
 
 
 if __name__ == "__main__":

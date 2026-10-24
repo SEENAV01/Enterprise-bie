@@ -8,7 +8,9 @@ One step is one unit of work of one section (for example one page for "understan
 2. BIE's code checks the output (``Step.check``). Problems go straight back to the maker.
 3. An independent reviewer AI, on a different provider, checks the output against the source and
    the rulebook checklist (``Step.review_*``). Its findings go back to the maker.
-4. The maker remakes the whole output with those findings, at most ``max_rounds`` rounds in all.
+4. The maker remakes the whole output with those findings, at most ``max_rounds`` rounds in all; a converging answer
+   (code alone sends it back with ever fewer problems, at most ``CONVERGING_MAX``) gets up to ``extra_rounds`` more patch
+   rounds, which cost no reviewer call (Task 045d).
 5. Every round is kept in the process record: the maker's notes and output, the code
    problems, the reviewer's findings, models, tokens and cost. A passed step is a candidate for
    locking; failed rounds are kept and marked "avoid".
@@ -19,8 +21,9 @@ prefix hash and what BIE's code observed about each round (``Step.observe``, for
 
 Since Task 045d (job B2) a step can continue from an earlier answer (``Step.start``, for example a script that failed
 an earlier run by one or two words): round 0 makes no maker call; BIE's code checks that answer with today's checks and,
-when it is clean, the reviewer reads it; otherwise the first maker round is a patch of exactly today's problems. A failed
-unit is then finished, not written again from scratch (a fresh rewrite brings new problems of its own).
+when it is clean, the reviewer reads it; otherwise the first maker round is a patch of exactly today's problems (and round
+0's count is the "round before" for converging rounds). A failed unit is then finished, not written again from scratch (a
+fresh rewrite brings new problems of its own).
 
 Images are recorded by hash and size only, never by content. When the run's cost guard refuses a call
 (rupee cap reached) or the provider says its balance is used up, the step ends as "stopped", not
@@ -70,6 +73,9 @@ PATCH_INSTRUCTION = (
 )
 
 
+CONVERGING_MAX = 4           # a code-only rejection with at most this many problems, fewer than the round before, converges
+
+
 @dataclass
 class Step:
     section: str
@@ -87,6 +93,8 @@ class Step:
     apply_patch: Callable[[dict, dict], dict] | None = None
     patch_hint: str | Callable[[dict], str] = ""     # text, or (current answer) -> text for the next patch round
     max_rounds: int = 3
+    extra_rounds: int = 3        # converging rounds past max_rounds: only while code alone sends the answer back with ever fewer
+                                 # problems, at most CONVERGING_MAX of them (Task 045d, job B: 1-4 small residues after 3 rounds)
     card: dict | None = None                  # the task card sent with this step (Task 045)
     observe: Callable[[dict], dict] | None = None   # code findings to record per round, never sent back
     normalize: Callable[[dict], tuple] | None = None  # (value, changes): code tidies the answer before checks and review
@@ -191,88 +199,115 @@ class SectionRunner:
         rounds, output, status = [], None, "failed"
         started = self._clock()
         schema, patching = step.schema, False
+        number, extra_used, last_code, converging = 0, 0, None, False
         if step.start is not None:
-            value = json.loads(json.dumps(step.start))
-            entry = {"round": 0, "started_at": self._clock(), "mode": "resume"}
+            status, output, last_code, messages, schema, patching = self._resume(step, rounds, messages)
+        while status == "failed" and not (rounds and rounds[-1].get("review_error")):
+            number += 1
+            if number > step.max_rounds:
+                # A converging answer (code alone sent it back, with fewer problems than the round before, at most
+                # CONVERGING_MAX) gets up to extra_rounds more patch rounds; these cost no reviewer call.
+                if not (converging and extra_used < step.extra_rounds):
+                    break
+                extra_used += 1
+            entry = {"round": number, "started_at": self._clock(), "mode": "patch" if patching else "full"}
+            if number > step.max_rounds:
+                entry["extra_round"] = True
+            request = ModelRequest(request_id=f"{step.section}:{step.unit}:r{number}", messages=tuple(messages),
+                                   response_schema=schema)
+            try:
+                response = self.gateway.complete(self.maker, request, prompt_version=step.instructions_version)
+            except ProviderError as exc:
+                entry.update(maker_error={"kind": exc.kind, "message": str(exc)[:300]}, passed=False)
+                rounds.append(entry)
+                status = "stopped" if exc.kind in STOP_KINDS else status
+                break
+            value = response.content
+            if patching:
+                entry["patch"] = value
+                value = step.apply_patch(output, value)
             if step.normalize is not None:
                 value, changes = step.normalize(value)
                 if changes:
                     entry["normalized"] = changes
+            entry["maker"] = _call_info(response, self.maker)
             entry["notes"] = value.get("notes")
             entry["output"] = value
-            problems, stop = self._judge(step, value, entry, 0)
+            problems = [f"[code] {p}" for p in step.check(value)]
+            entry["code_problems"] = problems
+            converging = (bool(problems) and len(problems) <= CONVERGING_MAX
+                          and last_code is not None and len(problems) < last_code)     # one round shows no trend
+            if problems:
+                last_code = len(problems)
+            if step.observe is not None:
+                entry["observed"] = step.observe(value)
+            if not problems and self.reviewer and step.review_system:
+                problems = self._review(step, value, entry, number)
+                if problems is None:                    # the reviewer call failed
+                    rounds.append(entry)
+                    output = value
+                    status = "stopped" if entry["review_error"]["kind"] in STOP_KINDS else status
+                    break
+                converging = False                      # a reviewer's rejection never extends the rounds
+            entry["passed"] = not problems
+            entry["finished_at"] = self._clock()
             rounds.append(entry)
             output = value
-            if stop is not None:
-                status = stop
-            elif not problems:
+            if not problems:
                 status = "passed"
-            else:
-                messages, schema, patching = self._next(step, messages, value, problems)
-        if status == "failed" and not (rounds and rounds[-1].get("review_error")):
-            for number in range(1, step.max_rounds + 1):
-                entry = {"round": number, "started_at": self._clock(), "mode": "patch" if patching else "full"}
-                request = ModelRequest(request_id=f"{step.section}:{step.unit}:r{number}", messages=tuple(messages),
-                                       response_schema=schema)
-                try:
-                    response = self.gateway.complete(self.maker, request, prompt_version=step.instructions_version)
-                except ProviderError as exc:
-                    entry.update(maker_error={"kind": exc.kind, "message": str(exc)[:300]}, passed=False)
-                    rounds.append(entry)
-                    status = "stopped" if exc.kind in STOP_KINDS else status
-                    break
-                value = response.content
-                if patching:
-                    entry["patch"] = value
-                    value = step.apply_patch(output, value)
-                if step.normalize is not None:
-                    value, changes = step.normalize(value)
-                    if changes:
-                        entry["normalized"] = changes
-                entry["maker"] = _call_info(response, self.maker)
-                entry["notes"] = value.get("notes")
-                entry["output"] = value
-                problems, stop = self._judge(step, value, entry, number)
-                rounds.append(entry)
-                output = value
-                if stop is not None:
-                    status = stop
-                    break
-                if not problems:
-                    status = "passed"
-                    break
-                messages, schema, patching = self._next(step, messages, value, problems)
+                break
+            messages, schema, patching = self._next(step, messages, value, problems)
         cost = sum(r.get("maker", {}).get("cost_usd", 0.0) + r.get("review", {}).get("cost_usd", 0.0) for r in rounds)
         result = StepResult(step.section, step.unit, status, output, rounds, cost_usd=round(cost, 6),
                             seconds=round(self._clock() - started, 1))
         result.record_path = self._save(step, result)
         return result
 
-    def _judge(self, step: Step, value: dict, entry: dict, number: int) -> tuple:
-        """(problems, stop): BIE's code checks the answer; a clean answer goes to the reviewer. ``stop`` is None, or the
-        step's status when the reviewer call failed ("stopped" for the cost cap or a used-up balance, else "failed")."""
+    def _resume(self, step: Step, rounds: list, messages: list) -> tuple:
+        """Round 0 (Task 045d B2): the earlier answer in ``step.start`` is checked by code and, when clean, reviewed; no
+        maker call. Returns (status, output, problem count, messages, schema, patching) for the rounds that follow."""
+        value = json.loads(json.dumps(step.start))
+        entry = {"round": 0, "started_at": self._clock(), "mode": "resume"}
+        if step.normalize is not None:
+            value, changes = step.normalize(value)
+            if changes:
+                entry["normalized"] = changes
+        entry["notes"] = value.get("notes")
+        entry["output"] = value
         problems = [f"[code] {p}" for p in step.check(value)]
         entry["code_problems"] = problems
         if step.observe is not None:
             entry["observed"] = step.observe(value)
+        count = len(problems) or None
         if not problems and self.reviewer and step.review_system:
-            review_messages = ({"role": "system", "content": step.review_system},
-                               {"role": "user", "content": step.review_user(value)})
-            review_request = ModelRequest(request_id=f"{step.section}:{step.unit}:r{number}:review",
-                                          messages=review_messages, response_schema=step.review_schema)
-            try:
-                review = self.gateway.complete(self.reviewer, review_request,
-                                               prompt_version=step.instructions_version + "/review")
-            except ProviderError as exc:
-                entry.update(review_error={"kind": exc.kind, "message": str(exc)[:300]}, passed=False)
-                return None, "stopped" if exc.kind in STOP_KINDS else "failed"
-            entry["review"] = dict(_call_info(review, self.reviewer), value=review.content)
-            problems = [f"[reviewer] {p}" for p in step.review_problems(review.content)]
-            entry["review_problems"] = problems
-            entry["review_minor"] = minor_findings(review.content)
+            problems = self._review(step, value, entry, 0)
+            if problems is None:
+                rounds.append(entry)
+                status = "stopped" if entry["review_error"]["kind"] in STOP_KINDS else "failed"
+                return status, value, count, messages, step.schema, False
         entry["passed"] = not problems
         entry["finished_at"] = self._clock()
-        return problems, None
+        rounds.append(entry)
+        if not problems:
+            return "passed", value, count, messages, step.schema, False
+        return ("failed", value, count) + self._next(step, messages, value, problems)
+
+    def _review(self, step: Step, value: dict, entry: dict, number: int):
+        """The reviewer's problems for a clean answer, recorded in ``entry``; None when the reviewer call failed."""
+        review_messages = ({"role": "system", "content": step.review_system},
+                           {"role": "user", "content": step.review_user(value)})
+        review_request = ModelRequest(request_id=f"{step.section}:{step.unit}:r{number}:review",
+                                      messages=review_messages, response_schema=step.review_schema)
+        try:
+            review = self.gateway.complete(self.reviewer, review_request, prompt_version=step.instructions_version + "/review")
+        except ProviderError as exc:
+            entry.update(review_error={"kind": exc.kind, "message": str(exc)[:300]}, passed=False)
+            return None
+        entry["review"] = dict(_call_info(review, self.reviewer), value=review.content)
+        problems = [f"[reviewer] {p}" for p in step.review_problems(review.content)]
+        entry["review_problems"] = problems
+        entry["review_minor"] = minor_findings(review.content)
+        return problems
 
     @staticmethod
     def _next(step: Step, messages: list, value: dict, problems: list) -> tuple:
