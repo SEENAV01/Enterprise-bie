@@ -612,7 +612,12 @@ def spoken_problems(beats, language) -> list:
         if digits:
             problems.append(f"beats {', '.join(digits[:10])} write numbers in Devanagari digits; write numbers as digits 0-9 (S2-04)")
         for b in beats:
-            hard = hinglish.difficult_words(b["say"])
+            technical = hinglish.technical_words(b["say"])
+            if technical:
+                pairs = ", ".join(f"{word} → {english}" for word, english in technical[:5])
+                problems.append(f"beat {b['beat_id']}: textbook Hindi for the book's own terms ({pairs}); say the book's English term in "
+                                "Roman, a bracket does not rescue it (S2-04)")
+            hard = [w for w in hinglish.difficult_words(b["say"]) if not any(w == t for t, _ in technical)]
             if hard:
                 problems.append(f"beat {b['beat_id']}: the Hindi words {hard[:8]} are not simple everyday words; put the English "
                                 f"word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)")

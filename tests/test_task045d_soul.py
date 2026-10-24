@@ -86,6 +86,24 @@ class UnpackChecks(unittest.TestCase):
         upsc = level.load().get("upsc_pcs")
         self.assertEqual(soul.unpack_problems(self.item(GOOD_UNPACK), profile=upsc), [])
 
+    def test_textbook_hindi_in_an_unpack_goes_back_with_the_english_term_named(self):
+        """Job A, 24 October 2026: page 2's plain meanings said ऊतक, कोशिका, उपकला; the learner hears tissue, cell, epithelium."""
+        from bie.brain import hinglish
+        self.assertEqual(hinglish.technical_words("जानवरों के शरीर में मिलकर काम करने वाले कोशिका-समूह और ऊतकों की परत"),
+                         [("कोशिका", "cell"), ("ऊतकों", "tissue")])
+        self.assertEqual(hinglish.technical_words("संयोजी ऊतक (connective tissue) सहारा देता है"), [("संयोजी", "connective"), ("ऊतक", "tissue")])
+        self.assertEqual(hinglish.technical_words("एक जैसे cells का समूह; प्रकाश संश्लेषण"), [("प्रकाश संश्लेषण", "photosynthesis")])
+        self.assertEqual(hinglish.technical_words("tissue yaani ek jaise cells ka group"), [])
+        textbook = dict(GOOD_UNPACK, terms=[{"term": "epithelium", "plain_meaning": "उपकला ऊतक की पतली परत", "everyday_image": "x"}])
+        problems = [p for p in soul.unpack_problems(self.item(textbook)) if "textbook Hindi" in p]
+        self.assertEqual(len(problems), 1)
+        self.assertIn("उपकला → epithelium, ऊतक → tissue", problems[0])
+        self.assertTrue(problems[0].endswith("(S1-15)"))
+        self.assertEqual([p for p in soul.unpack_problems(self.item(textbook), language="English") if "textbook" in p], [])
+        self.assertEqual([p for p in soul.unpack_problems(self.item(GOOD_UNPACK)) if "textbook" in p], [])
+        self.assertEqual(len(hinglish.load().technical), 62)
+        self.assertIn("simple_hindi@2026-10-24.1", BOOK.version)
+
     def test_check_page_sends_an_unopened_teachable_item_back(self):
         page = t045.Page(1, (t045.Block("p0001-b0001", "Epithelium is found on absorptive and secretive surfaces.", (0, 0, 1, 1)),))
         value = {"notes": {}, "page_summary": "", "boilerplate_block_ids": [], "text_image_disagreements": [],
@@ -279,6 +297,14 @@ class ScriptSoulChecks(unittest.TestCase):
             self.assertEqual(soul.clipped_sentences(say), [], say)
         problems = soul.clipped_problems([beat("b1", "Chain: flexible walls, supported bending, tendrils और climber stems।")])
         self.assertTrue(problems and "clipped note without a verb" in problems[0] and problems[0].endswith("(S2-07)"))
+
+    def test_a_spoken_beat_with_textbook_hindi_goes_back_even_with_a_bracket(self):
+        from bie.brain.lesson import spoken_problems
+        bad = [beat("b1", "संयोजी ऊतक (connective tissue) शरीर को सहारा देता है और जोड़ता है।")]
+        problems = spoken_problems(bad, "Hinglish")
+        self.assertTrue(any("textbook Hindi" in p and "ऊतक → tissue" in p and p.endswith("(S2-04)") for p in problems), problems)
+        good = [beat("b1", "Connective tissue शरीर को सहारा देता है और जोड़ता है।")]
+        self.assertEqual([p for p in spoken_problems(good, "Hinglish") if "textbook" in p], [])
 
     def test_a_topic_opens_with_a_question_and_recaps_are_not_repeated(self):
         parts = [{"part_id": "c1.1"}, {"part_id": "c1.2"}, {"part_id": "c2.1"}]

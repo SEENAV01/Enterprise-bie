@@ -52,6 +52,7 @@ class SimpleHindi:
     words: frozenset
     suffixes: tuple
     phrases: tuple = ()
+    technical: tuple = ()      # ((textbook Hindi word, the book's English term), ...), longest first
 
     def is_simple(self, word: str) -> bool:
         w = normal(word)
@@ -85,8 +86,27 @@ def _phrase_regex(phrases: tuple):
 def load(path: str = str(PATH)) -> SimpleHindi:
     data = json.loads(Path(path).read_text(encoding="utf-8"))
     suffixes = sorted({normal(s) for s in data["suffixes"]}, key=len, reverse=True)
+    technical = sorted(((normal(k), v) for k, v in (data.get("technical") or {}).items()), key=lambda kv: -len(kv[0]))
     return SimpleHindi(str(data["version"]), frozenset(normal(w) for w in data["words"]), tuple(suffixes),
-                       tuple(normal(p) for p in data.get("fixed_phrases") or []))
+                       tuple(normal(p) for p in data.get("fixed_phrases") or []), tuple(technical))
+
+
+def technical_words(say: str, simple: SimpleHindi | None = None) -> list:
+    """[(Hindi word as written, the book's English term)] for the textbook translations in ``say`` (ऊतक → tissue): the
+    learner hears the book's own English term in Roman, so these go back whether or not a bracket follows (Task 045d)."""
+    simple = simple or load()
+    found, seen = [], set()
+    text = normal(say or "")
+    for hindi, english in simple.technical:
+        if " " in hindi:
+            if hindi in text and hindi not in seen:
+                found.append((hindi, english)); seen.add(hindi); seen.update(hindi.split())   # its words are not counted again
+            continue
+        for word in WORD.findall(say or ""):
+            w = normal(word)
+            if (w == hindi or (w.startswith(hindi) and w[len(hindi):] in simple.suffixes)) and w not in seen:
+                found.append((word, english)); seen.add(w)
+    return found
 
 
 def phrase_spans(say: str, simple: SimpleHindi | None = None) -> list:

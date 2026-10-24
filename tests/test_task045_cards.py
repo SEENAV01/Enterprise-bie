@@ -19,7 +19,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 sys.path.insert(0, str(ROOT / "tests" / "productization" / "document_intelligence"))
 
 import run_brain  # noqa: E402
-from bie.brain import cards, engines, rulebook  # noqa: E402
+from bie.brain import cards, engines, hinglish, rulebook  # noqa: E402
 from bie.brain import content_types as ct  # noqa: E402
 from bie.brain import naksha as nk  # noqa: E402
 from bie.brain.fake import BrainFakeClient  # noqa: E402
@@ -614,7 +614,8 @@ class MixedScript(unittest.TestCase):
         bad = [beat("b1", say="पत्ती की सतह पर ऊतक है।"), beat("b2", say="ये tissue hai aur ये layer है।"),
                beat("b3", say="ये सतह (सतह) है।")]
         problems = spoken_problems(bad, "Hinglish")
-        self.assertTrue(any("beat b1: the Hindi words ['सतह', 'ऊतक'] are not simple" in p for p in problems))
+        self.assertTrue(any("beat b1: the Hindi words ['सतह'] are not simple" in p for p in problems))
+        self.assertTrue(any("beat b1: textbook Hindi for the book's own terms (ऊतक → tissue)" in p for p in problems))   # Task 045d
         self.assertTrue(any("beat b2: the Hindi words ['aur', 'hai'] are written in Roman" in p for p in problems))
         self.assertTrue(any("beat b3: (सतह) must hold the English word in Roman letters" in p for p in problems))
 
@@ -626,7 +627,7 @@ class MixedScript(unittest.TestCase):
         self.assertIn("यानी", s204.rule)
         prefix, _ = script_prefixes(COURSE, BOOK)
         # The prefix explains the rule with examples (23 October 2026); the full word list stays in BIE's code checks.
-        self.assertIn("Brackets (word list 2026-10-23.", prefix.text)
+        self.assertIn("Brackets (word list " + hinglish.load().version, prefix.text)
         self.assertIn("आम तौर (usually) पर", prefix.text)
         self.assertIn("सतह, यानी surface", prefix.text)
 

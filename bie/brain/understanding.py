@@ -207,8 +207,10 @@ How to fill the JSON:
   - tests_item_ids: for a question, the ids on this page that it tests ([] if they are on other pages).
   - unpack: how a teacher opens this book line for the learner (S1-15; BIE is the link between the learner and the book, never a
     reader of the line). For every teachable item, at the depth of the level profile below:
-    terms = the words of the line the learner must own: [{term (as the book spells it), plain_meaning (simple Hindi in Devanagari,
-    the English term in Roman: "absorptive surface" → "जहाँ चीज़ें अंदर ली जाती हैं"), everyday_image (one image from the learner's
+    terms = the words of the line the learner must own: [{term (as the book spells it), plain_meaning (everyday spoken Hindi in Devanagari
+    with the book's English terms in Roman: "tissue", "cell", "epithelium", "muscle", never their textbook Hindi ऊतक, कोशिका, उपकला, मांसपेशी;
+    BIE's code sends an item back for a textbook translation. For example "absorptive surface" → "जहाँ चीज़ें अंदर ली जाती हैं"),
+    everyday_image (one image from the learner's
     home or body: "आँत खाने के पोषक तत्व सोखती है, जैसे कागज़ पानी")}]; why_chain = the why in steps, starting from a need or a
     problem ("पेट में HCl बनता है, इसलिए अंदर एक lining चाहिए"), each step with its basis: "book" when the page says it, "standard"
     when it is standard textbook knowledge; example_or_place = one example, or the place by a zoom from the organ the learner knows;
