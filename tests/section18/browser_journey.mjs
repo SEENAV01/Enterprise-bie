@@ -44,8 +44,19 @@ async function until(expression){for(let n=0;n<100;n++){if(await evaluate(expres
 function assert(value,code){if(!value)throw new Error(code);}
 try{
  progress('BROWSER_START');
- let tabs;for(let n=0;n<300;n++){try{tabs=await (await fetch('http://127.0.0.1:'+debugPort+'/json/list')).json();break;}catch{}await sleep(100);}
- assert(tabs?.length,'BROWSER_START_FAILED');
+ // F-12 (24 October 2026): the DevTools HTTP endpoint can answer /json/list before the
+ // first tab exists. Keep polling until a page target is listed, within the same 30 s.
+ let tabs=[],startPolls=0,startAnswered=false;
+ for(let n=0;n<300;n++){startPolls=n+1;
+  try{const list=await (await fetch('http://127.0.0.1:'+debugPort+'/json/list')).json();startAnswered=true;
+   if(Array.isArray(list)){tabs=list;if(tabs.some(t=>t.type==='page'))break;}}catch{}
+  await sleep(100);}
+ if(!tabs.some(t=>t.type==='page')){
+  // Booleans and integers only, like the F-08 diagnostic below.
+  console.error('NATIVE_CDP_DIAGNOSTIC:'+JSON.stringify({startPolls,startAnswered,startTargets:tabs.length,
+    childExited:child.exitCode!==null||child.signalCode!==null}));
+  throw new Error('BROWSER_START_FAILED');
+ }
  const page=tabs.find(t=>t.type==='page');pageId=page.id;socket=new WebSocket(page.webSocketDebuggerUrl);
  await new Promise((r,j)=>{socket.onopen=r;socket.onerror=j;});
  socket.onclose=event=>{socketClose=event.code;
