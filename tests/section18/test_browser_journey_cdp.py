@@ -24,7 +24,7 @@ class FakeDevTools(socketserver.ThreadingMixIn, http.server.HTTPServer):
     daemon_threads = True
 
     def __init__(self, behaviour):
-        self.behaviour, self.methods = behaviour, []
+        self.behaviour, self.methods, self.list_calls = behaviour, [], 0
         super().__init__(('127.0.0.1', 0), Handler)
 
     @property
@@ -47,6 +47,10 @@ class Handler(http.server.BaseHTTPRequestHandler):
     def do_GET(self):
         port = self.server.port
         if self.path == '/json/list':
+            self.server.list_calls += 1
+            # F-12: a real Chromium answers /json/list before its first tab exists.
+            if self.server.behaviour == 'no_target' or (self.server.behaviour == 'late_target' and self.server.list_calls <= 3):
+                return self.reply('[]')
             return self.reply(json.dumps([{'id': 'T1', 'type': 'page', 'url': 'about:blank',
                                            'webSocketDebuggerUrl': f'ws://127.0.0.1:{port}/devtools/page/T1'}]))
         if self.path == '/healthz':
@@ -120,6 +124,31 @@ class BrowserJourneyCdpDiagnostics(unittest.TestCase):
         diagnostics = [json.loads(line.split(':', 1)[1]) for line in result.stderr.splitlines()
                        if line.startswith('NATIVE_CDP_DIAGNOSTIC:')]
         return result, failures, diagnostics, elapsed, server.methods
+
+    def test_an_empty_target_list_at_start_is_polled_again_not_a_failure(self):
+        """F-12 (PR #62 run 40109667708, tablet): /json/list answered [] before the first tab existed and the old
+        harness failed at once with BROWSER_START_FAILED. Now it keeps polling until a page target is listed."""
+        result, failures, diagnostics, elapsed, methods = self.run_harness('late_target')
+        self.assertEqual(failures, ['CDP_TIMEOUT:Page.navigate:7'])        # the start passed; the navigation is 'silent'
+        self.assertEqual(methods[:2], ['Page.enable', 'Runtime.enable'])
+        self.assertEqual(len(diagnostics), 1)
+        self.assertNotIn('startPolls', diagnostics[0])
+
+    def test_no_target_within_the_start_budget_fails_with_evidence(self):
+        result, failures, diagnostics, elapsed, methods = self.run_harness('no_target')
+        self.assertEqual(result.returncode, 1)
+        self.assertEqual(failures, ['BROWSER_START_FAILED'])
+        self.assertGreaterEqual(elapsed, 29, 'the whole 30 s start budget is used before giving up')
+        self.assertEqual(methods, [])
+        self.assertEqual(len(diagnostics), 1)
+        d = diagnostics[0]
+        self.assertEqual((d['startPolls'], d['startAnswered'], d['startTargets']), (300, True, 0))
+        self.assertIn('childExited', d)
+        sys.path.insert(0, str(Path(__file__).parent))
+        from browser_diagnostics import failure_annotation
+        body = json.loads(failure_annotation('batch002', 'tablet', result.stderr).split('::', 2)[2])
+        self.assertEqual(body['codes'], ['BROWSER_START_FAILED'])
+        self.assertEqual((body['diagnostic']['startPolls'], body['diagnostic']['startTargets']), (300, 0))
 
     def test_socket_closed_during_navigate_is_reported_at_once(self):
         result, failures, diagnostics, elapsed, methods = self.run_harness('close')
