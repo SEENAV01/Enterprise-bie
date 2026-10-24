@@ -1,0 +1,30 @@
+{
+  "evidence_kind": "TECHNICAL_RUN",
+  "fake": false,
+  "mode": "smoke",
+  "not_configured": [],
+  "passed": false,
+  "product_accepted": false,
+  "providers": [
+    "google"
+  ],
+  "smoke": {
+    "google": {
+      "error": "google:not_found:404: 404 | NOT_FOUND | models/gemini-3.1-pro is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.",
+      "error_kind": "not_found",
+      "model": "gemini-3.1-pro",
+      "status": "failed"
+    }
+  },
+  "usage": {
+    "google": {
+      "cache_hits": 0,
+      "calls": 1,
+      "cost_complete": true,
+      "cost_usd": 0.0,
+      "failed_calls": 1,
+      "input_tokens": 0,
+      "output_tokens": 0
+    }
+  }
+}
