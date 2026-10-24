@@ -2,7 +2,7 @@
 import json,re
 
 SAFE_DIAGNOSTIC=('rootResponse','domReady','loadSeen','healthStatus','childExited','contexts','sessions',
-    'requestSent','frameLoading','socketState','socketClose','targetListed')
+    'requestSent','frameLoading','socketState','socketClose','targetListed','startPolls','startAnswered','startTargets')
 def failure_annotation(scenario,mode,stderr):
     """Task 037B (F-08): CI job logs are not always downloadable, so a failed journey
     is also surfaced as a run annotation. Whitelisted codes and bool/int/null
