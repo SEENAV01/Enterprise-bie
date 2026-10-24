@@ -1,0 +1,30 @@
+{
+  "evidence_kind": "TECHNICAL_RUN",
+  "fake": false,
+  "mode": "smoke",
+  "not_configured": [],
+  "passed": false,
+  "product_accepted": false,
+  "providers": [
+    "google"
+  ],
+  "smoke": {
+    "google": {
+      "error": "google:balance:429: 429 | RESOURCE_EXHAUSTED | You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exce",
+      "error_kind": "balance",
+      "model": "gemini-4-argon",
+      "status": "failed"
+    }
+  },
+  "usage": {
+    "google": {
+      "cache_hits": 0,
+      "calls": 1,
+      "cost_complete": true,
+      "cost_usd": 0.0,
+      "failed_calls": 1,
+      "input_tokens": 0,
+      "output_tokens": 0
+    }
+  }
+}
