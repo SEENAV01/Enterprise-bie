@@ -1,0 +1,5437 @@
+# Pages · 10. Tissues and Its Types
+
+## Page 1 · passed after 2 round(s)
+
+Tissues are groups of cells performing a common function, enabling division of labour and organisation from cells to organisms. Two tables compare mitosis with meiosis and plant with animal mitosis. A classification tree divides plant tissues into meristematic and permanent tissues and shows their visible subdivisions.
+
+- **p001-i1** · heading · none · both
+  - 10. Tissues and Its Types
+- **p001-i2** · definition · definition · both · exam high
+  - TISSUE: Cells combine to perform same function.
+    - what: What makes a group of cells a tissue? → The page identifies their working together to perform the same function as the defining feature.
+    - evidence: Which words identify the functional basis of the definition? → 'Perform same function' makes shared work, rather than mere closeness, central to the definition.
+      - why: Why is grouping useful? → A multicellular body needs coordinated tasks; specialised groups can perform particular jobs more effectively than isolated cells doing everything. _(outside the book)_
+  - **khola (unpack):**
+    - TISSUE yaani एक जैसा काम मिलकर करने वाले cells का समूह · image: एक काम सँभालती कर्मचारियों की टीम
+    - kyon: A large body needs many different jobs performed. _[standard]_ → Cells group for a common function, forming tissues. _[book]_
+    - example / jagah: Outside example: muscle tissue in the arm helps produce movement.
+    - aage: The definition provides the starting level for tissue classification.
+    - screen par: group cells into a working team
+    - is level ke liye: A common function is more important than simply counting nearby cells.
+  - prerequisites: cell as a living unit; multicellular organism
+- **p001-i3** · list_point · classification · both · exam high
+  - When plant cells combine, they form plant tissues.
+    - which: Which tissue category is formed by plant cells? → Plant cells working together form plant tissues.
+    - difference: How does this category differ from the next bullet's category? → The distinction is the cells' origin: plant cells form plant tissues, whereas animal cells form animal tissues.
+      - how: How should 'combine' be understood? → Cells become organised into cooperating groups; it does not mean their contents must fuse into one giant cell. _(outside the book)_
+  - **khola (unpack):**
+    - plant tissues yaani पौधे में मिलकर काम करने वाले cells के समूह · image: पत्ते में साथ काम करते बहुत से छोटे हिस्से
+    - kyon: Plants need growth, support and transport. _[standard]_ → Their cells form organised tissues for these jobs. _[standard]_
+    - example / jagah: Outside example: tissues in a leaf or stem.
+    - aage: Plant tissues are classified in the lower chart.
+    - screen par: zoom from leaf to grouped cells
+    - is level ke liye: Do not apply animal-tissue names indiscriminately to plants.
+  - prerequisites: plant cell; tissue
+- **p001-i4** · list_point · classification · both · exam high
+  - When animal cells combine, they form animal tissues.
+    - which: Which category comes from animal cells? → Their organised groups constitute animal tissues.
+    - difference: What distinguishes this category from plant tissues here? → The page separates the categories by whether the constituent cells belong to animals or plants.
+      - why: Why do animals need organised groups of cells? → Tasks such as movement, protection and communication require different specialised groups to cooperate. _(outside the book)_
+  - **khola (unpack):**
+    - animal tissues yaani जानवरों और हमारे शरीर में मिलकर काम करने वाले cells के समूह · image: हाथ हिलाते समय साथ काम करती muscle
+    - kyon: An animal body must perform several different tasks. _[standard]_ → Specialised cell groups share these tasks. _[standard]_
+    - example / jagah: Outside example: muscle tissue in the human arm.
+    - aage: Introduces division of labour across tissues.
+    - screen par: highlight cooperating groups in an arm
+    - is level ke liye: Humans belong within the animal category.
+  - prerequisites: animal cell; tissue
+- **p001-i5** · list_point · cause_effect · both · exam medium
+  - Causes division of labour.
+    - why: Why does tissue organisation lead to division of labour? → Different groups can specialise in different jobs instead of each cell attempting the body's whole range of tasks. _(outside the book)_
+      - how: How does this division operate in a body? → For example, muscle cells contribute to movement while other specialised cells perform protection or communication. _(outside the book)_
+  - **khola (unpack):**
+    - division of labour yaani अलग-अलग काम अलग टीमों में बाँटना · image: घर में कोई खाना बनाता है, कोई सफाई करता है
+    - kyon: A body has more tasks than one kind of cell can efficiently perform. _[standard]_ → Tissue organisation divides the work among specialised groups. _[book]_
+    - example / jagah: Outside example: movement and protection assigned to different tissues.
+    - aage: Explains reduced workload on individual cells.
+    - screen par: distribute job cards among groups
+    - is level ke liye: Division of labour means specialisation, not cell division.
+  - prerequisites: tissue; specialised cell function
+- **p001-i6** · list_point · cause_effect · both · exam medium
+  - Decreases workload on individual cells, hence leads to organisation.
+    - why: Why is the workload of an individual cell reduced? → Specialisation means it need not perform every function required by the entire organism. _(outside the book)_
+      - how: How does shared work produce organisation rather than disconnected groups? → Specialised groups depend on one another and coordinate their activities within tissues, organs and organ systems. _(outside the book)_
+    - consequence: What consequence does the page state? → Reduced individual workload is linked to organisation.
+  - **khola (unpack):**
+    - organisation yaani अलग हिस्सों का तालमेल से पूरा काम चलाना · image: अलग काम करती टीमें मिलकर अस्पताल चलाती हैं
+    - kyon: Many body functions must be managed together. _[standard]_ → Sharing tasks reduces individual workload and supports organisation. _[book]_
+    - example / jagah: Outside example: digestive and transport functions cooperate after a meal.
+    - aage: Leads into the cell-to-organism hierarchy.
+    - screen par: connect specialised teams
+    - is level ke liye: Reduced workload does not mean cells cease their own essential life processes.
+  - prerequisites: division of labour; tissue
+- **p001-i7** · diagram · structure · both · exam high
+  - Cell → Tissues → Organ → Organ system → Organisms. Arrows connect successive levels of biological organisation, from component to larger organised whole.
+    - what: What hierarchy is shown? → Cells are followed by tissues, organs, organ systems and organisms in increasing organisational scale.
+    - where: Where does the tissue level sit? → It lies between the cell and the organ levels.
+      - how: How are tissues and organs different? → An organ brings different tissues together for a larger coordinated function; a tissue is a functional group of cells. _(outside the book)_
+  - **khola (unpack):**
+    - Organ system yaani एक बड़े काम के लिए साथ काम करने वाले organs · image: खाना पचाने में साथ लगे पेट और आँत
+    - kyon: Complex body functions need cooperation beyond a single tissue. _[standard]_ → Tissues form organs and organs cooperate in systems. _[standard]_
+    - example / jagah: Outside example: muscle cell → muscle tissue → stomach → digestive system → human.
+    - aage: Prevents confusing a tissue with a whole organ.
+    - screen par: nest smaller levels inside larger levels
+    - is level ke liye: The hierarchy describes multicellular organisation; it is not universal to unicellular life.
+  - prerequisites: cell; tissue; part and whole
+- **p001-i8** · diagram_label · structure · image · exam medium
+  - Cell: starting level, pointing to Tissues.
+    - what: What does Cell represent? → A living structural and functional unit of an organism. _(outside the book)_
+    - where: Where is it in the chain? → It precedes Tissues.
+      - how: How does it contribute to the next level? → Cells cooperate in groups that perform shared functions.
+  - **khola (unpack):**
+    - Cell yaani शरीर की छोटी जीवित इकाई · image: इमारत की ईंट जैसा हिस्सा, पर खुद जीवित
+    - example / jagah: Outside example: a muscle cell.
+    - aage: Groups contribute to tissue formation.
+    - screen par: zoom into one cell
+  - prerequisites: living organism
+- **p001-i9** · diagram_label · structure · image · exam high
+  - Tissues: between Cell and Organ.
+    - what: What does this level group? → Cells cooperating to perform a common function.
+    - where: Where does this level occur in the hierarchy? → After Cell and before Organ.
+      - how: How does a tissue contribute to an organ? → It supplies a particular function that combines with other tissues' functions. _(outside the book)_
+  - **khola (unpack):**
+    - Tissues yaani एक काम में जुटे cells के समूह · image: काम बाँटकर चलती एक टीम
+    - example / jagah: Outside example: muscle tissue in the stomach.
+    - aage: Tissues contribute to organs.
+    - screen par: group cells
+  - prerequisites: cell; common function
+- **p001-i10** · diagram_label · structure · image · exam high
+  - Organ: between Tissues and Organ system.
+    - what: What is an organ? → A body structure containing different tissues that cooperate in a particular function. _(outside the book)_
+    - where: Where is Organ placed? → Between Tissues and Organ system.
+      - why: Why are multiple tissues useful within an organ? → A task such as digestion needs movement, protection and other functions working together. _(outside the book)_
+  - **khola (unpack):**
+    - Organ yaani कई tissues से बना खास काम करने वाला शरीर का हिस्सा · image: पेट में कई हिस्से मिलकर खाना सँभालते हैं
+    - example / jagah: Outside example: stomach.
+    - aage: Organs cooperate within systems.
+    - screen par: assemble tissues into an organ
+  - prerequisites: tissue
+- **p001-i11** · diagram_label · structure · image · exam medium
+  - Organ system: between Organ and Organisms.
+    - what: What is an organ system? → A set of organs cooperating in a major body function. _(outside the book)_
+    - where: Where is it placed? → After Organ and before Organisms.
+      - how: How does it extend an organ's work? → It coordinates several organs so different parts of a larger task can be completed. _(outside the book)_
+  - **khola (unpack):**
+    - Organ system yaani एक बड़ा काम मिलकर करते organs · image: पेट और आँत मिलकर खाना पचाने का काम करते हैं
+    - example / jagah: Outside example: digestive system.
+    - aage: Systems contribute to the whole organism.
+    - screen par: link organs
+  - prerequisites: organ
+- **p001-i12** · diagram_label · structure · image · exam medium
+  - Organisms: final level after Organ system.
+    - what: What does Organisms refer to? → Whole living individuals, rather than one of their component tissues or organs. _(outside the book)_
+    - where: Where is the whole organism shown? → At the end of the chain after Organ system.
+      - how: How is the whole sustained? → Its systems coordinate and depend on one another. _(outside the book)_
+  - **khola (unpack):**
+    - Organisms yaani पूरे जीवित प्राणी या पौधे · image: एक पूरा इंसान, सिर्फ उसका हाथ नहीं
+    - example / jagah: Outside example: a human or a flowering plant.
+    - aage: Completes the multicellular hierarchy.
+    - screen par: zoom out to whole organism
+    - is level ke liye: Not all organisms possess all the intermediate levels shown.
+  - prerequisites: organ system; whole and part
+- **p001-i13** · table · comparison · image
+  - Comparison table with columns Mitosis and Meiosis and 11 numbered rows: occurrence, nuclear divisions, daughter-cell number, ploidy, frequency, products, phases, chromosome-number change, chromosome doubling, crossing over and type of division.
+- **p001-i14** · table_row · comparison · image · exam high
+  - Mitosis: 1) It occurs in somatic cells. | Meiosis: 1) It occurs in germ cells.
+    - compare: Which cell categories are contrasted? → The table associates mitosis with somatic cells and meiosis with germ cells.
+    - difference: What is the difference between somatic and germ cells? → Somatic cells serve the body; the germ line contributes to sexual reproduction. _(outside the book)_
+      - why: Why must this row not be treated as an absolute rule? → Germ-line cells can also multiply by mitosis before meiosis. The row identifies usual roles, not exclusive permissions. _(outside the book)_
+  - **khola (unpack):**
+    - somatic cells yaani शरीर के सामान्य काम करने वाले cells · image: चोट के पास नई skin बनना
+    - germ cells yaani प्रजनन की cell-श्रृंखला से जुड़े cells · image: अगली पीढ़ी तक जानकारी पहुँचाने की कड़ी
+    - kyon: Bodies need growth while sexual reproduction needs specialised reproductive cells. _[standard]_ → Mitosis and meiosis meet these different needs. _[standard]_
+    - example / jagah: Outside examples: dividing skin cells and meiotic cells in reproductive organs.
+    - aage: Connects division type with biological role.
+    - screen par: split body-maintenance and reproduction pathways
+    - is level ke liye: In plants, meiosis produces spores rather than directly producing gametes.
+  - prerequisites: cell; sexual reproduction
+- **p001-i15** · table_row · comparison · image · exam high
+  - Mitosis: 2) Nucleus divides only once. | Meiosis: 2) Nucleus divides twice.
+    - compare: How many nuclear divisions does each have? → Mitosis has one; meiosis has two.
+    - difference: What distinguishes the two meiotic divisions? → Meiosis I separates homologous chromosomes; meiosis II separates sister chromatids. _(outside the book)_
+      - why: Why are two divisions useful in meiosis? → They separate chromosome partners and then their copied strands, producing cells with a reduced chromosome-set number. _(outside the book)_
+  - **khola (unpack):**
+    - Nucleus yaani cell का हिस्सा जिसमें chromosome वाली जानकारी रहती है · image: काम की निर्देश-पुस्तिका रखने की जगह
+    - kyon: Reproduction requires halving chromosome sets. _[standard]_ → Meiosis uses two successive nuclear divisions. _[book]_
+    - example / jagah: Outside example: sperm formation.
+    - aage: Explains the next row's two-versus-four products.
+    - screen par: divide once versus divide twice
+    - is level ke liye: Distinguish nuclear division from DNA replication.
+  - prerequisites: nucleus; chromosome; homologous chromosomes; sister chromatids
+- **p001-i16** · table_row · comparison · image · exam high
+  - Mitosis: 3) Two daughter cells are formed. | Meiosis: 3) Four daughter cells are formed.
+    - compare: What product counts does the table give? → Two daughter cells for mitosis and four for meiosis.
+    - difference: How do the branching patterns differ? → One division yields two products; two successive divisions can yield four. _(outside the book)_
+      - how: Does four products mean four functional gametes in every case? → No. In human egg formation, unequal divisions produce one large ovum and smaller polar bodies. _(outside the book)_
+  - **khola (unpack):**
+    - daughter cells yaani एक cell के बँटने से बने नए cells · image: एक शाखा से निकलती नई शाखाएँ
+    - kyon: Copied material must be distributed into new cells. _[standard]_ → One versus two divisions gives the usual two-versus-four product pattern. _[standard]_
+    - example / jagah: Outside example: four products in sperm formation.
+    - aage: Product number must be read separately from chromosome number.
+    - screen par: branch one into two and then four
+    - is level ke liye: Standard numerical comparison; functional gamete count has exceptions.
+  - prerequisites: cell division; daughter cell
+- **p001-i17** · table_row · comparison · image · exam high
+  - Mitosis: 4) Daughter cells are diploid. | Meiosis: 4) Daughter cells are haploid.
+    - compare: Which ploidy does the book assign to the products? → It assigns diploid products to mitosis and haploid products to meiosis.
+    - difference: What is the difference between diploid and haploid? → Diploid means two chromosome sets, written 2n; haploid means one set, written n. Here n denotes one chromosome set, not a physical unit. _(outside the book)_
+      - why: Why is the mitosis claim qualified? → Mitosis preserves the starting ploidy; a haploid cell can also divide mitotically. Diploid products assume a diploid starting cell. _(outside the book)_
+  - **khola (unpack):**
+    - diploid yaani chromosomes के दो पूरे set · image: निर्देशों की दो पूरी गड्डियाँ
+    - haploid yaani chromosomes का एक पूरा set · image: निर्देशों की एक पूरी गड्डी
+    - kyon: Fusion of reproductive cells would increase chromosome sets without reduction. _[standard]_ → Meiosis supplies reduced-set products. _[standard]_
+    - example / jagah: Outside example: human body cells usually have 46 chromosomes, gametes 23.
+    - aage: Links ploidy to chromosome conservation across generations.
+    - screen par: show two sets becoming one set
+    - is level ke liye: Ploidy counts sets, not DNA quantity.
+  - prerequisites: chromosome set; parent and daughter cell
+- **p001-i18** · table_row · comparison · image · exam medium
+  - Mitosis: 5) It occurs more frequently. | Meiosis: 5) It occurs less frequently.
+    - compare: What frequency contrast is printed? → Mitosis is described as more frequent and meiosis as less frequent.
+    - difference: What difference in roles explains the broad comparison? → Growth and replacement involve mitosis across many tissues; meiosis is restricted to particular reproductive stages and cells. _(outside the book)_
+      - why: Why should this not be memorised as a fixed numerical law? → Actual rates vary with tissue, organism, age and reproductive activity; the table gives no measured rate. _(outside the book)_
+  - **khola (unpack):**
+    - more frequently yaani तुलना में ज्यादा बार होना · image: रोजमर्रा का काम बनाम खास मौके का काम
+    - kyon: Bodies repeatedly need growth and replacement. _[standard]_ → Mitosis has a broader routine role than meiosis. _[standard]_
+    - example / jagah: Outside example: continuing cell replacement in skin.
+    - aage: Reinforces maintenance-versus-reproduction roles.
+    - screen par: contrast repeated repair with a reproductive pathway
+    - is level ke liye: Avoid treating 'more frequent' as true for every individual tissue.
+  - prerequisites: growth; repair; sexual reproduction
+- **p001-i19** · table_row · comparison · image · exam high
+  - Mitosis: 6) Daughter cells form somatic organs. | Meiosis: 6) Daughter cells form gametes.
+    - compare: What destinations does the table assign to daughter cells? → Somatic organs for mitotic products and gametes for meiotic products.
+    - difference: How do these functions differ? → Somatic growth builds and maintains the body; gametes participate in fertilisation. _(outside the book)_
+      - why: Why does the meiosis wording need a plant-life-cycle qualification? → In plants, meiosis generally forms spores; gametes develop later through the haploid phase and mitosis. _(outside the book)_
+  - **khola (unpack):**
+    - gametes yaani fertilisation में मिलने वाले प्रजनन cells · image: sperm और egg का मिलना
+    - kyon: Body maintenance and sexual reproduction have different chromosome needs. _[standard]_ → Mitosis preserves sets while meiosis reduces them. _[standard]_
+    - example / jagah: Outside example: human sperm and egg formation.
+    - aage: Links division to growth and reproduction.
+    - screen par: route products toward body growth or reproduction
+    - is level ke liye: Flag the plant spore-versus-gamete distinction.
+  - prerequisites: organ; gamete; fertilisation
+- **p001-i20** · table_row · comparison · image · exam high
+  - Mitosis: 7) There is only one prophase, one metaphase one anaphase and one telophase. | Meiosis: 7) There are two of each phase and five sub-phases in prophase - 1.
+    - compare: How are the main phases counted? → The table gives one occurrence of each named phase in mitosis and two in meiosis, with five subdivisions of prophase I.
+    - difference: What are the five subdivisions of prophase I? → Leptotene, zygotene, pachytene, diplotene and diakinesis. _(outside the book)_
+      - why: Why is prophase I particularly elaborate? → Homologous chromosomes pair and exchange genetic material, events not characteristic of ordinary mitotic prophase. _(outside the book)_
+  - **khola (unpack):**
+    - prophase - 1 yaani meiosis के पहले division का शुरुआती चरण · image: बँटवारे से पहले जोड़ीदार कागज़ मिलाकर तैयार करना
+    - kyon: Homologous partners must be prepared for separation. _[standard]_ → Prophase I includes pairing and recombination before later separation. _[standard]_
+    - example / jagah: Outside example: meiotic cells in reproductive organs.
+    - aage: Prepares the crossing-over comparison.
+    - screen par: align phases in one versus two division cycles
+    - is level ke liye: The five names explain the printed count; they are not printed individually on this page.
+  - prerequisites: chromosome; homologous pair; nuclear division
+- **p001-i21** · table_row · comparison · image · exam high
+  - Mitosis: 8) Number of chromosomes are not changed in the daughter cells. | Meiosis: 8) Number of chromosomes are reduced to half.
+    - compare: How does chromosome number change? → It is maintained in mitotic daughter cells and reduced to half through meiosis.
+    - difference: What symbolic comparison expresses this? → For a diploid starting cell, mitosis gives 2n to 2n, while meiosis gives 2n to n; n means one chromosome set and has no measurement unit. _(outside the book)_
+      - why: Why is halving important? → Fusion of two haploid gametes restores the diploid number rather than doubling the species' chromosome number each generation. _(outside the book)_
+  - **khola (unpack):**
+    - reduced to half yaani शुरुआत के मुकाबले chromosome संख्या आधी · image: दो गड्डियों में से एक पूरी गड्डी मिलना
+    - kyon: Fertilisation joins chromosome sets from two gametes. _[standard]_ → Meiotic reduction prevents repeated doubling across generations. _[standard]_
+    - example / jagah: Outside example: 46 to 23 in human meiosis.
+    - aage: Explains reduction division.
+    - screen par: count sets before and after division
+    - is level ke liye: Compare final products with the starting cell, not DNA amount at an intermediate stage.
+  - prerequisites: chromosome set; fertilisation
+- **p001-i22** · table_row · comparison · image · exam high
+  - Mitosis: 9) Chromosome number doubles at the beginning of each cell division. | Meiosis: 9) Chromosome number is not doubled. It doubles after the end of first meiotic division.
+    - compare: What does the printed row claim? → It claims chromosome-number doubling at the beginning of each mitotic division, and doubling after the first meiotic division.
+    - difference: What is the correct distinction between chromosome number and DNA replication? → DNA replicates before mitosis and before meiosis I, producing sister chromatids without doubling the usual chromosome count. There is no DNA replication between meiosis I and II. _(outside the book)_
+      - why: Why is this printed row unsafe to learn literally? → It confuses chromosome number with DNA amount and wrongly places doubling after meiosis I. Chromosomes are conventionally counted by centromeres, not by the number of DNA copies. _(outside the book)_
+  - **khola (unpack):**
+    - Chromosome number yaani centromere के हिसाब से गिने गए chromosomes की संख्या · image: किताब की नकल बनना और किताब के set बदलना अलग बातें हैं
+    - kyon: Daughter cells need copied genetic information. _[standard]_ → DNA is copied before division, but meiosis has no second replication between its two divisions. _[standard]_
+    - example / jagah: Outside example: a human cell still has 46 chromosomes after predivision DNA replication, although each has two sister chromatids.
+    - aage: Prevents a false inference about replication between meiotic divisions.
+    - screen par: copy DNA while keeping chromosome and DNA counters separate
+    - is level ke liye: This is a factual error, not merely a typographical spelling error.
+  - prerequisites: DNA replication; chromosome; sister chromatids; centromere
+- **p001-i23** · table_row · comparison · image · exam high
+  - Mitosis: 10) No crossing over in chromosomes. | Meiosis: 10) Crossing over occurs chromosomes [occurs in chromosomes].
+    - compare: What crossing-over contrast is printed? → The table contrasts its absence in mitosis with its occurrence in meiosis.
+    - difference: What is crossing over? → It is exchange of corresponding DNA segments between non-sister chromatids of homologous chromosomes during prophase I. _(outside the book)_
+      - why: Why does it matter? → It produces new combinations of genetic information, contributing to variation among meiotic products. _(outside the book)_
+  - **khola (unpack):**
+    - crossing over yaani जोड़ीदार chromosomes की non-sister chromatids के बीच DNA के हिस्से बदलना · image: मिलते-जुलते रंगीन फीते अपने हिस्से बदलें
+    - kyon: Sexual reproduction generates new combinations of inherited information. _[standard]_ → Exchange between homologous partners contributes to these combinations. _[standard]_
+    - example / jagah: Outside example: prophase I of meiosis.
+    - aage: Links meiosis with genetic variation.
+    - screen par: exchange corresponding coloured segments
+    - is level ke liye: Do not describe crossing over as exchange between unrelated chromosomes.
+  - prerequisites: homologous chromosomes; chromatids; DNA
+- **p001-i24** · table_row · comparison · image · exam high
+  - Mitosis: 11) Equation [Equational] division. | Meiosis: 11) Reduction division.
+    - compare: Which names summarise the two divisions? → The table calls mitosis equational division and meiosis reduction division.
+    - difference: What do equational and reduction mean here? → Equational preserves chromosome number in the products; reduction lowers the chromosome-set number. _(outside the book)_
+      - why: Why distinguish meiosis I from meiosis II? → Meiosis I is the reductional division; meiosis II separates sister chromatids and is equational with respect to chromosome sets. _(outside the book)_
+  - **khola (unpack):**
+    - Reduction division yaani chromosome set घटाने वाला division · image: दो पूरे set से एक पूरा set होना
+    - kyon: Products must either preserve or reduce starting chromosome sets. _[standard]_ → These outcomes give the terms equational and reductional. _[standard]_
+    - example / jagah: Outside example: meiosis I reduces diploid to haploid.
+    - aage: Summarises the most important table distinction.
+    - screen par: hold set count constant versus halve it
+    - is level ke liye: Correct the printed word 'Equation' openly.
+  - prerequisites: chromosome number; meiosis I and II
+- **p001-i25** · table · comparison · image
+  - Table 7.3: Difference between mitosis in Plants and Animals. Columns: Plants | Animals. Four rows compare centrioles, asters, cell division and distribution.
+- **p001-i26** · table_row · comparison · image · exam high
+  - Plants: Centrioles are absent. | Animals: Centrioles are present.
+    - compare: What centriole contrast is shown? → The plant column gives absence and the animal column presence.
+    - difference: Does absence of centrioles mean plant cells cannot form a spindle? → No. Typical higher-plant cells organise spindle microtubules without the animal-type centriole-containing centrosome. _(outside the book)_
+      - how: How should the plant statement be qualified? → It describes typical higher-plant mitosis; centrioles occur in some plant groups or reproductive stages. _(outside the book)_
+  - **khola (unpack):**
+    - Centrioles yaani छोटी बेलन जैसी बनावटें जो animal cell के centrosome का हिस्सा होती हैं · image: दो छोटी खोखली नलियाँ
+    - kyon: Chromosomes need an organised spindle for separation. _[standard]_ → Plants and animals can organise this machinery differently. _[standard]_
+    - example / jagah: Outside example: typical flowering-plant cells versus animal body cells.
+    - aage: Prepares the aster comparison.
+    - screen par: contrast spindle poles with and without centrioles
+    - is level ke liye: Avoid extending the textbook generalisation to every plant lineage.
+  - prerequisites: cell division; spindle
+- **p001-i27** · table_row · comparison · image · exam high
+  - Plants: Asters are not formed. | Animals: Asters are formed.
+    - compare: How are asters contrasted? → They are absent in the plant column and formed in the animal column.
+    - difference: How is an aster different from the whole spindle? → An aster is a star-like array of microtubules radiating near a spindle pole, not the entire chromosome-separating spindle. _(outside the book)_
+      - why: Why does the aster comparison accompany the centriole comparison? → Typical animal centrosomes organise conspicuous radial arrays; higher-plant divisions usually lack this animal-type astral organisation. _(outside the book)_
+  - **khola (unpack):**
+    - Asters yaani spindle के सिरों के पास तारे की तरह फैले धागों के समूह · image: सूरज से बाहर निकलती किरणों का चित्र
+    - kyon: Dividing cells must position their division machinery. _[standard]_ → Animal cells commonly use radial astral microtubule arrays. _[standard]_
+    - example / jagah: Outside example: asters at poles of a typical animal mitotic cell.
+    - aage: Adds a visible distinction between the two division patterns.
+    - screen par: radiate fibres from poles
+    - is level ke liye: Recognise the star-like form without confusing it with chromosomes.
+  - prerequisites: spindle; microtubules; centriole
+- **p001-i28** · table_row · comparison · image · exam high
+  - Plants: Cell division involves formation of a cell plate. | Animals: Cell division involves furrowing and cleavage of cytoplasm.
+    - compare: How does the cytoplasm divide in the two columns? → Plants form a cell plate; animals divide by furrowing and cleavage.
+    - difference: What directional difference helps visualise this? → The plant cell plate grows outward from the centre, whereas the animal cleavage furrow moves inward from the surface. _(outside the book)_
+      - why: Why do plants use a cell plate? → A rigid existing cell wall prevents the animal-style pinching mechanism; a new partition is assembled between daughter cells. _(outside the book)_
+  - **khola (unpack):**
+    - cell plate yaani दो नए plant cells के बीच बनने वाला नया बँटवारा · image: एक कमरे के बीच नई दीवार बनाना
+    - furrowing yaani बाहर से अंदर की ओर खाँच पड़कर cell का बँटना · image: नरम थैली को बीच से डोरी कसकर बाँटना
+    - kyon: Two daughter nuclei need separate cellular compartments. _[standard]_ → A rigid plant wall favours building a partition, while animal cells can constrict. _[standard]_
+    - example / jagah: Outside example: dividing root-tip cells versus animal cells.
+    - aage: Distinguishes cytokinesis from nuclear division.
+    - screen par: build centre-out versus pinch outside-in
+    - is level ke liye: The row primarily describes cytokinesis, not chromosome separation.
+  - prerequisites: cytoplasm; cell membrane; plant cell wall
+- **p001-i29** · table_row · comparison · image · exam high
+  - Plants: Occurs mainly at meristem. | Animals: Occurs in tissues throughout the body.
+    - compare: Where does the table locate mitosis? → Mainly at meristems in plants and in tissues throughout the animal body.
+    - difference: What does this say about growth distribution? → Plant division is concentrated in growth regions, while animal cell replacement and growth occur in many distributed tissues. _(outside the book)_
+      - why: Why is 'throughout' not the same as 'every cell divides'? → Many specialised animal cells divide little or not at all; the statement refers to tissue distribution, not universal cell activity. _(outside the book)_
+  - **khola (unpack):**
+    - meristem yaani पौधे की वह जगह जहाँ cells सक्रिय रूप से बँटकर बढ़त देते हैं · image: जड़ या टहनी की बढ़ती नोक
+    - kyon: Plants need continuing growth at particular sites. _[standard]_ → Meristems maintain dividing cells at these sites. _[standard]_
+    - example / jagah: Outside example: root and shoot tips; animal skin renewal.
+    - aage: Directly introduces meristematic tissue in the chart.
+    - screen par: highlight plant growth zones and distributed animal tissues
+    - is level ke liye: Plant cells outside existing meristems can sometimes regain division capacity.
+  - prerequisites: mitosis; tissue; growth region
+- **p001-i30** · diagram · classification · image · exam high
+  - Classification of Plant Tissue. Root branches to Meristematic Tissue and Permanent Tissue. Meristematic Tissue branches to Apical Meristem, Lateral Meristem and Intercalary Meristem. Permanent Tissue branches to Simple and Complex. Simple branches to Paranchyma [Parenchyma], Collenchyma and Sclerenchyma. Sclerenchyma branches to Fibres and Sclereids. Complex branches to Xylem and Phloem. Visible Xylem entries: Tracheids; Vessels (Tracheae); Xylem parenchyma. Visible Phloem entries: Sieve tubes; Companion cells; Phloem parenchyma. The component lists meet the lower crop edge.
+    - which: Which are the two main plant-tissue branches? → Meristematic Tissue and Permanent Tissue.
+    - difference: What distinguishes the main branches? → Meristematic tissues retain active division capacity; permanent tissues are differentiated for particular functions and generally no longer divide actively. _(outside the book)_
+      - how: How should a student read the lower branches? → Follow connecting lines rather than horizontal proximity: fibres and sclereids belong to sclerenchyma; xylem and phloem belong to complex permanent tissue.
+  - **khola (unpack):**
+    - Classification yaani एक आधार पर बड़े समूह को छोटे प्रकारों में बाँटना · image: अलमारी में कपड़े अलग खानों में रखना
+    - kyon: Plant tissues perform different growth and maintenance tasks. _[standard]_ → A branching hierarchy separates division capacity and cell-type composition. _[standard]_
+    - example / jagah: Outside examples: growing root tip, supporting stem and transport in veins.
+    - aage: Provides the chapter's organising map.
+    - screen par: unfold branches from the root
+    - is level ke liye: Visible transport-component lists are not treated as complete because the image is cropped.
+  - prerequisites: plant cell; tissue; cell division; classification tree
+- **p001-i31** · diagram_label · classification · image
+  - Classification of Plant Tissue: root label; branches to Meristematic Tissue and Permanent Tissue.
+- **p001-i32** · diagram_label · classification · image · exam high
+  - Meristematic Tissue: child of Classification of Plant Tissue; parent of Apical Meristem, Lateral Meristem and Intercalary Meristem.
+    - which: Which three types occur under meristematic tissue? → Apical, lateral and intercalary meristems.
+    - difference: How does meristematic tissue differ from permanent tissue? → Its cells actively divide to supply new cells rather than primarily performing mature specialised functions. _(outside the book)_
+      - why: Why do plants retain these tissues? → They provide continuing sources of new cells for growth. _(outside the book)_
+  - **khola (unpack):**
+    - Meristematic Tissue yaani नए cells बनाकर पौधे को बढ़ाने वाला tissue · image: पौधे की बढ़ती नोक की नई बनावट
+    - kyon: A plant needs new cells to grow. _[standard]_ → Meristems preserve actively dividing cell populations. _[standard]_
+    - example / jagah: Outside example: root tip.
+    - aage: Explains the three meristem positions.
+    - screen par: multiply cells at growth zones
+    - is level ke liye: Meristem types here are classified by position.
+  - prerequisites: mitosis; plant growth
+- **p001-i33** · diagram_label · classification · image · exam high
+  - Apical Meristem: child of Meristematic Tissue.
+    - which: Which parent category contains apical meristem? → Meristematic Tissue.
+    - difference: How does apical differ from lateral meristem? → Apical meristems lie at root and shoot tips and increase length; lateral meristems chiefly increase thickness. _(outside the book)_
+      - how: How does the tip extend? → Division supplies new cells, which subsequently enlarge and differentiate. _(outside the book)_
+  - **khola (unpack):**
+    - Apical Meristem yaani जड़ और shoot की नोक पर नया बढ़ाव देने वाला tissue · image: टहनी की आगे बढ़ती नोक
+    - kyon: Roots and shoots must extend into new space. _[standard]_ → Tip meristems supply cells for length growth. _[standard]_
+    - example / jagah: Outside example: a germinating seed's root tip.
+    - aage: Distinguishes length growth from girth growth.
+    - screen par: extend a tip
+    - is level ke liye: Apical means at the apex or tip.
+  - prerequisites: root tip; shoot tip; cell division
+- **p001-i34** · diagram_label · classification · image · exam high
+  - Lateral Meristem: child of Meristematic Tissue.
+    - which: Which category contains lateral meristem? → Meristematic Tissue.
+    - difference: How does its effect differ from apical growth? → Lateral meristems increase girth in suitable stems and roots, rather than primarily extending tips. _(outside the book)_
+      - why: Why is lateral growth useful? → As a plant enlarges, additional conducting and supporting tissue can be supplied through secondary growth. _(outside the book)_
+  - **khola (unpack):**
+    - Lateral Meristem yaani किनारों के पास बढ़त देकर तना या जड़ मोटा करने वाला tissue · image: पेड़ के तने का सालों में मोटा होना
+    - kyon: A larger plant needs greater support and transport capacity. _[standard]_ → Lateral meristems add tissues that increase girth. _[standard]_
+    - example / jagah: Outside example: vascular cambium in a woody stem.
+    - aage: Separates secondary growth from tip elongation.
+    - screen par: thicken a stem cylinder
+    - is level ke liye: Do not assume pronounced secondary growth in every plant.
+  - prerequisites: stem; root; girth
+- **p001-i35** · diagram_label · classification · image · exam high
+  - Intercalary Meristem: child of Meristematic Tissue.
+    - which: Which category contains intercalary meristem? → Meristematic Tissue.
+    - difference: How is its position different from an apical meristem? → It occurs between mature regions, often near leaf or internode bases in grasses, rather than at the terminal tip. _(outside the book)_
+      - how: How can it support regrowth after grazing? → Basal growth regions may remain intact when upper portions are removed and can continue producing cells. _(outside the book)_
+  - **khola (unpack):**
+    - Intercalary Meristem yaani पौधे के पके हिस्सों के बीच बचा बढ़त वाला tissue · image: कटी घास का नीचे से फिर बढ़ना
+    - kyon: Grass may lose upper parts to cutting or grazing. _[standard]_ → Retained basal growth zones allow continued growth. _[standard]_
+    - example / jagah: Outside example: grass leaf bases.
+    - aage: Completes the positional meristem triad.
+    - screen par: regrow grass from the base
+    - is level ke liye: Intercalary means inserted between other regions.
+  - prerequisites: grass leaf; internode; meristem
+- **p001-i36** · diagram_label · classification · image · exam high
+  - Permanent Tissue: child of Classification of Plant Tissue; branches to Simple and Complex.
+    - which: Which subdivisions are shown? → Simple and Complex permanent tissues.
+    - difference: How do permanent tissues differ from meristems? → They are differentiated for particular functions and generally do not actively divide. _(outside the book)_
+      - why: Why does differentiation matter? → It equips cells for tasks such as storage, support and transport rather than continual cell production. _(outside the book)_
+  - **khola (unpack):**
+    - Permanent Tissue yaani खास काम के लिए विकसित tissue, जिसमें cells आम तौर पर सक्रिय रूप से नहीं बँटते · image: प्रशिक्षण के बाद अपना तय काम सँभालती टीम
+    - kyon: New cells must perform the plant's everyday functions. _[standard]_ → Differentiation produces specialised permanent tissues. _[standard]_
+    - example / jagah: Outside examples: leaf storage tissue and stem transport tissue.
+    - aage: Sets up the simple-versus-complex distinction.
+    - screen par: differentiate newly formed cells
+    - is level ke liye: Some living permanent cells can regain division capacity.
+  - prerequisites: cell division; specialisation
+- **p001-i37** · diagram_label · classification · image · exam high
+  - Simple: child of Permanent Tissue; branches to Paranchyma [Parenchyma], Collenchyma and Sclerenchyma.
+    - which: Which tissues are simple permanent tissues? → Parenchyma, collenchyma and sclerenchyma.
+    - difference: What distinguishes simple from complex tissue? → A simple tissue consists predominantly of one kind of similar cell; a complex tissue contains different cell types cooperating. _(outside the book)_
+      - why: Why does 'simple' not mean unimportant? → The term describes cell-type composition, not the importance or difficulty of its function. _(outside the book)_
+  - **khola (unpack):**
+    - Simple yaani मुख्य रूप से एक तरह के cells वाला tissue · image: एक जैसा काम जानने वाले लोगों की टीम
+    - kyon: Some functions can be performed by similar cells working together. _[standard]_ → Such tissues are grouped as simple permanent tissues. _[standard]_
+    - example / jagah: Outside example: parenchyma in potato storage tissue.
+    - aage: Organises the three named simple tissues.
+    - screen par: group matching cell types
+    - is level ke liye: Classification basis is composition, not number of cells.
+  - prerequisites: permanent tissue; cell type
+- **p001-i38** · diagram_label · classification · image · exam high
+  - Complex: child of Permanent Tissue; branches to Xylem and Phloem.
+    - which: Which complex tissues are named? → Xylem and phloem.
+    - difference: How do complex tissues differ from simple tissues? → Several cell types cooperate in a complex tissue, rather than predominantly one similar type. _(outside the book)_
+      - why: Why can transport tissue need several types of cells? → Conduction, support, storage and metabolic assistance are complementary tasks. _(outside the book)_
+  - **khola (unpack):**
+    - Complex yaani अलग तरह के cells का मिलकर एक काम करना · image: ड्राइवर, मैकेनिक और सहायक मिलकर परिवहन चलाएँ
+    - kyon: Plant transport needs more than a conducting channel alone. _[standard]_ → Different cell types cooperate within xylem and phloem. _[standard]_
+    - example / jagah: Outside example: vascular bundles in a stem.
+    - aage: Explains why multiple components are listed under each transport tissue.
+    - screen par: assemble unlike cells into one transport team
+    - is level ke liye: Complex tissue is still a tissue, not an organ.
+  - prerequisites: permanent tissue; cell type; transport
+- **p001-i39** · diagram_label · classification · image · exam high
+  - Paranchyma [Parenchyma]: child of Simple permanent tissue.
+    - which: Which category contains parenchyma? → Simple permanent tissue.
+    - difference: How does typical parenchyma differ from sclerenchyma? → Parenchyma usually has living, relatively thin-walled cells; mature sclerenchyma commonly has thick lignified walls and dead cells. _(outside the book)_
+      - how: How does its structure support storage? → Living cells can accumulate materials such as starch and water within their contents. _(outside the book)_
+  - **khola (unpack):**
+    - Paranchyma [Parenchyma] yaani आम तौर पर पतली दीवार वाले जीवित cells का tissue · image: आलू के अंदर भोजन जमा रखने वाला हिस्सा
+    - kyon: Plants need places to store food and carry out metabolism. _[standard]_ → Living parenchyma cells perform these adaptable roles. _[standard]_
+    - example / jagah: Outside example: potato storage tissue.
+    - aage: Contrasts with the more specialised supporting simple tissues.
+    - screen par: fill living cells with stored starch
+    - is level ke liye: Xylem parenchyma and phloem parenchyma are components of complex tissues; names do not change their parent category.
+  - prerequisites: living cell; cell wall; storage
+- **p001-i40** · diagram_label · classification · image · exam high
+  - Collenchyma: child of Simple permanent tissue.
+    - which: Which category contains collenchyma? → Simple permanent tissue.
+    - difference: How does it differ from typical parenchyma? → Collenchyma consists of living cells with unevenly thickened walls, commonly at the corners, providing flexible support. _(outside the book)_
+      - why: Why is flexible support useful? → Young growing parts need strength while still being able to bend and elongate. _(outside the book)_
+  - **khola (unpack):**
+    - Collenchyma yaani जीवित cells वाला tissue जो लचीला सहारा देता है · image: नई डंडी का बिना टूटे थोड़ा मुड़ जाना
+    - kyon: Young plant parts need support without rigidly stopping growth. _[standard]_ → Unevenly thickened living cells provide flexible reinforcement. _[standard]_
+    - example / jagah: Outside example: young dicot stems and leaf stalks.
+    - aage: Separates flexible support from sclerenchyma's rigid support.
+    - screen par: bend a supported young stalk
+    - is level ke liye: Do not confuse corner thickening with uniform lignified thickening.
+  - prerequisites: cell wall; young stem; support
+- **p001-i41** · diagram_label · classification · image · exam high
+  - Sclerenchyma: child of Simple permanent tissue; parent of Fibres and Sclereids.
+    - which: Which forms branch from sclerenchyma? → Fibres and sclereids.
+    - difference: How does it differ from collenchyma? → Sclerenchyma commonly has dead mature cells with thick lignified walls and gives rigid strength; collenchyma is living and more flexible. _(outside the book)_
+      - why: Why do thick lignified walls provide strength? → Their reinforced wall material resists deformation and helps support or protect plant parts. _(outside the book)_
+  - **khola (unpack):**
+    - Sclerenchyma yaani मोटी मजबूत दीवारों वाला tissue जो कड़ा सहारा देता है · image: नारियल का कठोर खोल
+    - kyon: Some plant parts need rigid support and protection. _[standard]_ → Thick lignified walls provide mechanical strength. _[standard]_
+    - example / jagah: Outside example: nut shells and supporting fibres.
+    - aage: Branches into two cell forms.
+    - screen par: thicken and harden cell walls
+    - is level ke liye: Remember the standard 'dead at maturity' qualification rather than assuming all permanent tissue is dead.
+  - prerequisites: cell wall; lignin; support
+- **p001-i42** · diagram_label · classification · image · exam high
+  - Fibres: child of Sclerenchyma.
+    - which: Which tissue contains fibres in this branch? → Sclerenchyma.
+    - difference: How do fibres differ from typical sclereids? → Fibres are elongated and narrow; sclereids are generally shorter and can have varied shapes. _(outside the book)_
+      - how: How does their shape support a plant? → Long, thick-walled cells arranged together provide tensile reinforcement. _(outside the book)_
+  - **khola (unpack):**
+    - Fibres yaani लंबे पतले और मजबूत दीवार वाले सहारा देने वाले cells · image: रस्सी के लंबे मजबूत रेशे
+    - kyon: Stems need resistance to pulling and bending. _[standard]_ → Bundles of long fibres reinforce them. _[standard]_
+    - example / jagah: Outside example: jute fibres.
+    - aage: Links tissue structure to useful plant fibres.
+    - screen par: bundle elongated cells into a cable
+    - is level ke liye: The chart's fibre branch is under sclerenchyma.
+  - prerequisites: sclerenchyma; cell wall
+- **p001-i43** · diagram_label · classification · image · exam high
+  - Sclereids: child of Sclerenchyma.
+    - which: Which parent tissue contains sclereids? → Sclerenchyma.
+    - difference: How do sclereids differ from fibres? → They are commonly shorter, variably shaped, thick-walled cells rather than long narrow fibres. _(outside the book)_
+      - why: Why can they make plant material hard or gritty? → Their strongly thickened walls form rigid cells that resist crushing. _(outside the book)_
+  - **khola (unpack):**
+    - Sclereids yaani छोटे या अलग आकार के बहुत कड़ी दीवार वाले cells · image: नाशपाती खाते समय महसूस होने वाले किरकिराते कण
+    - kyon: Plant parts may need hard protection. _[standard]_ → Rigid sclereids provide hardness and resistance. _[standard]_
+    - example / jagah: Outside example: gritty cells in pear flesh.
+    - aage: Completes the two sclerenchyma forms.
+    - screen par: highlight hard cells among softer cells
+    - is level ke liye: Also called stone cells in standard descriptions.
+  - prerequisites: sclerenchyma; thick cell wall
+- **p001-i44** · diagram_label · classification · image · exam high
+  - Xylem: child of Complex permanent tissue; visible entries are Tracheids, Vessels (Tracheae), and Xylem parenchyma.
+    - which: Which visible components belong to xylem? → Tracheids, vessels or tracheae, and xylem parenchyma.
+    - difference: How does xylem's main transport role differ from phloem's? → Xylem mainly conducts water and minerals; phloem transports organic food materials. _(outside the book)_
+      - why: Why is xylem classified as complex? → Different cell types contribute to conduction, storage and support within one tissue. _(outside the book)_
+  - **khola (unpack):**
+    - Xylem yaani पानी और minerals पहुँचाने वाला plant tissue · image: जड़ों से पत्तों तक पानी की पाइपलाइन
+    - kyon: Leaves need water absorbed by roots. _[standard]_ → Xylem provides conducting pathways with associated cells. _[standard]_
+    - example / jagah: Outside example: wood and leaf veins.
+    - aage: Links complex composition with transport function.
+    - screen par: carry water upward through a stem
+    - is level ke liye: Not every xylem cell is dead; xylem parenchyma is living.
+  - prerequisites: plant water uptake; complex tissue
+- **p001-i45** · diagram_label · classification · image · exam high
+  - Tracheids: component listed under Xylem.
+    - which: Which complex tissue contains tracheids? → Xylem.
+    - difference: How do tracheids differ from vessel elements? → Tracheids are elongated tapering cells without the open end perforations characteristic of vessel elements. _(outside the book)_
+      - how: How can water move between tracheids? → It passes through pits in adjoining walls; mature conducting tracheids lack living contents. _(outside the book)_
+  - **khola (unpack):**
+    - Tracheids yaani लंबे, नुकीले सिरों वाले पानी पहुँचाने के cells · image: पास-पास लगी पतली नलियाँ जिनकी दीवारों से पानी आगे जाए
+    - kyon: Water needs a continuous route through plant tissues. _[standard]_ → Overlapping tracheids pass water through wall pits. _[standard]_
+    - example / jagah: Outside example: prominent water-conducting cells in conifer wood.
+    - aage: One conducting component of xylem.
+    - screen par: pass water sideways through pits
+    - is level ke liye: Tracheids and vessels are different conducting cell forms.
+  - prerequisites: xylem; cell wall; water conduction
+- **p001-i46** · diagram_label · classification · image · exam high
+  - Vessels (Tracheae): component listed under Xylem.
+    - which: Which tissue contains vessels or tracheae? → Xylem.
+    - difference: How does a vessel differ from a tracheid? → Vessel elements join end to end through perforated end walls, forming a longer conducting tube. _(outside the book)_
+      - how: How does this arrangement aid transport? → Connected hollow elements provide a relatively continuous route for water flow. _(outside the book)_
+  - **khola (unpack):**
+    - Vessels (Tracheae) yaani एक के ऊपर एक जुड़े cells से बनी पानी की लंबी नलियाँ · image: पाइप के छोटे टुकड़ों को सिरों से जोड़ना
+    - kyon: Water must travel over long distances. _[standard]_ → End-to-end vessel elements provide a continuous channel. _[standard]_
+    - example / jagah: Outside example: vessels in flowering-plant xylem.
+    - aage: Another xylem conducting component.
+    - screen par: join hollow elements end to end
+    - is level ke liye: Mature conducting vessel elements are dead.
+  - prerequisites: xylem; cell wall; water conduction
+- **p001-i47** · diagram_label · classification · image · exam high
+  - Xylem parenchyma: component listed under Xylem.
+    - which: Which complex tissue contains xylem parenchyma? → Xylem.
+    - difference: How does it differ from mature tracheids and vessel elements? → Xylem parenchyma cells remain living and contribute storage and lateral transport rather than forming the main hollow conducting elements. _(outside the book)_
+      - why: Why is this component important for statements about xylem? → It disproves the blanket claim that all xylem cells are dead. _(outside the book)_
+  - **khola (unpack):**
+    - Xylem parenchyma yaani xylem में मौजूद जीवित cells जो सामान जमा करने और बगल की ओर पहुँचाने में मदद करें · image: पानी की मुख्य लाइन के पास भंडार और सहायक रास्ते
+    - kyon: A transport tissue also needs local storage and exchange. _[standard]_ → Living parenchyma provides these associated functions. _[standard]_
+    - example / jagah: Outside example: living parenchyma within wood.
+    - aage: Shows why xylem is a mixed-cell complex tissue.
+    - screen par: store material beside conducting tubes
+    - is level ke liye: Do not classify the whole xylem as simple because it contains parenchyma.
+  - prerequisites: parenchyma; xylem; living and dead cells
+- **p001-i48** · diagram_label · classification · image · exam high
+  - Phloem: child of Complex permanent tissue; visible entries are Sieve tubes, Companion cells and Phloem parenchyma.
+    - which: Which phloem components are visible? → Sieve tubes, companion cells and phloem parenchyma.
+    - difference: How does its transport role differ from xylem? → Phloem transports sugars and other organic materials from sources to sinks; xylem mainly carries water and minerals. _(outside the book)_
+      - why: Why does a plant need food transport? → Roots, growing parts and storage organs need materials made in photosynthetic tissues. _(outside the book)_
+  - **khola (unpack):**
+    - Phloem yaani बना हुआ भोजन पौधे के जरूरत वाले हिस्सों तक पहुँचाने वाला tissue · image: रसोई से अलग कमरों तक खाना पहुँचाने की व्यवस्था
+    - kyon: Not every plant part makes enough food for itself. _[standard]_ → Phloem distributes organic materials to consuming and storing parts. _[standard]_
+    - example / jagah: Outside example: sugar transport from leaves to developing fruits.
+    - aage: Complements xylem transport.
+    - screen par: move sugars from leaf to growing fruit
+    - is level ke liye: Transport direction depends on source and sink, not simply up versus down.
+  - prerequisites: photosynthesis; complex tissue; plant transport
+- **p001-i49** · diagram_label · classification · image · exam high
+  - Sieve tubes: component listed under Phloem.
+    - which: Which tissue contains sieve tubes? → Phloem.
+    - difference: How do sieve tubes differ from xylem vessels? → Sieve-tube elements are living conducting cells with sieve plates, whereas mature xylem vessel elements are dead hollow conducting cells. _(outside the book)_
+      - how: How do adjoining elements communicate? → Their sieve plates contain pores through which phloem sap can pass. _(outside the book)_
+  - **khola (unpack):**
+    - Sieve tubes yaani छलनी जैसे सिरों से जुड़े भोजन पहुँचाने वाले cells की नलियाँ · image: छेद वाली जाली के पार तरल का गुजरना
+    - kyon: Organic food must move between distant plant parts. _[standard]_ → Connected sieve-tube elements provide the phloem pathway. _[standard]_
+    - example / jagah: Outside example: phloem in a flowering-plant stem.
+    - aage: Explains the need for associated companion cells.
+    - screen par: pass sap through perforated sieve plates
+    - is level ke liye: A cell can remain living despite losing its nucleus when supported by associated cells.
+  - prerequisites: phloem; living cell; transport
+- **p001-i50** · diagram_label · classification · image · exam high
+  - Companion cells: component listed under Phloem.
+    - which: Which tissue contains companion cells? → Phloem.
+    - difference: How do they differ from sieve-tube elements? → Companion cells retain nuclei and provide metabolic support to associated sieve-tube elements. _(outside the book)_
+      - why: Why are companion cells needed? → Mature sieve-tube elements have reduced cellular machinery and rely on close functional connections with companion cells. _(outside the book)_
+  - **khola (unpack):**
+    - Companion cells yaani sieve tubes के साथ रहकर उनका काम चलाने में मदद करने वाले जीवित cells · image: मुख्य काम करने वाले के साथ उसका सहायक
+    - kyon: Sieve-tube elements have limited internal machinery at maturity. _[standard]_ → Companion cells provide closely linked metabolic assistance. _[standard]_
+    - example / jagah: Outside example: beside sieve-tube elements in flowering-plant phloem.
+    - aage: Demonstrates cooperation between different cell types in a complex tissue.
+    - screen par: link a nucleated helper cell to a sieve tube
+    - is level ke liye: Characteristic sieve-tube–companion-cell association in angiosperms.
+  - prerequisites: sieve tube; nucleus; metabolism
+- **p001-i51** · diagram_label · classification · image · exam high
+  - Phloem parenchyma: component listed under Phloem.
+    - which: Which complex tissue contains phloem parenchyma? → Phloem.
+    - difference: How does it differ from sieve tubes? → Phloem parenchyma mainly serves storage and local exchange, rather than constituting the main long-distance sieve-tube pathway. _(outside the book)_
+      - why: Why does transport tissue include storage cells? → Transported materials may need temporary storage and redistribution to nearby tissues. _(outside the book)_
+  - **khola (unpack):**
+    - Phloem parenchyma yaani phloem के जीवित cells जो भोजन जमा करने और आसपास पहुँचाने में मदद करें · image: खाना पहुँचाने की व्यवस्था के पास छोटा भंडार
+    - kyon: Food distribution requires local handling as well as long-distance movement. _[standard]_ → Living parenchyma contributes storage and exchange. _[standard]_
+    - example / jagah: Outside example: phloem of many dicot stems.
+    - aage: Completes the visible phloem component list without inferring cropped entries.
+    - screen par: store sugars beside the transport pathway
+    - is level ke liye: Do not assume that every listed component occurs identically in every plant group.
+  - prerequisites: parenchyma; phloem; storage
+
+## Page 2 · passed after 1 round(s)
+
+Animal tissues are shown as epithelial, muscular, connective and nervous/neural. A branching tree lists their subdivisions, while a body-centred illustration shows muscle forms, epithelial arrangements, nervous structures, tendon, bone and fat.
+
+- **p002-i1** · diagram · figure · image · exam high
+  - Animal Tissues classification tree. Animal Tissues branches into Epithelial Tissue, Muscular Tissue, Connective Tissue and Nervous / Neural Tissue. Epithelial Tissue branches into Simple squamous epithelium, Stratified squamous epithelium, Columnar epithelium, Ciliated columnar epithelium, Cuboidal epithelium and Glandular epithelium. Muscular Tissue branches into Striated muscle, Non-straited [Non-striated] muscle and Cardiac muscle. Connective Tissue branches into Connective tissue proper, Supportive connective tissue and Fluid connective tissue. Connective tissue proper branches into Areolar tissue, Adipose tissue and Fibrous tissue. Supportive connective tissue branches into Cartiage [Cartilage] and Bone. Fluid connective tissue branches into Blood and Lymph. Nervous / Neural Tissue has no further branch shown.
+    - what: What does this tree organise? → It places four major animal tissue groups under one heading and shows subdivisions of epithelial, muscular and connective tissues.
+    - which: Which branches contain blood and cardiac muscle? → Blood is under fluid connective tissue; cardiac muscle is under muscular tissue.
+      - how: How should the branches be read? → Follow each arrow from its broader parent to a narrower category; a lower label is not a fifth major tissue group.
+  - **khola (unpack):**
+    - Animal Tissues yaani जानवरों के शरीर में मिलकर काम करने वाले cell के समूह · image: शरीर में अलग-अलग काम करने वाली टीमें
+    - kyon: A body needs covering, movement, support and coordination. _[standard]_ → The tree sorts tissues into groups so their different jobs can be studied systematically. _[standard]_
+    - example / jagah: Human body in the lower illustration.
+    - aage: Read a tissue's complete parent chain before choosing its category.
+    - screen par: Branch and trace
+    - is level ke liye: Blood and lymph remain connective tissues despite being fluid.
+  - prerequisites: cell; tissue as a group of cells
+- **p002-i2** · diagram_label · figure · image · exam high
+  - Animal Tissues — root label above all four primary branches.
+    - what: What is the scope of this root label? → It includes all the tissue groups connected below it, rather than naming one organ.
+    - which: Which groups immediately follow it? → Epithelial, muscular, connective and nervous/neural tissues.
+      - why: Why can one body contain different tissue groups? → Different tasks need cells with different arrangements and specialisations. _(outside the book)_
+  - **khola (unpack):**
+    - tissue yaani एक तरह के काम में साथ लगे cell का समूह · image: एक काम करने वाली टीम
+    - example / jagah: Human body
+    - aage: One organ can contain several tissue types.
+    - screen par: Split
+    - is level ke liye: An organ is not a fifth tissue class.
+  - prerequisites: cell; organ
+- **p002-i3** · diagram_label · figure · image · exam high
+  - Epithelial Tissue — primary branch connected to six epithelial categories.
+    - what: What does the epithelial branch contain? → Six named forms, including squamous, columnar, cuboidal, ciliated and glandular categories.
+    - which: Which squamous forms are distinguished? → Simple squamous and stratified squamous epithelium.
+      - how: How does epithelium suit covering and lining? → Closely packed cells form a continuous sheet across a surface. _(outside the book)_
+  - **khola (unpack):**
+    - Epithelial Tissue yaani शरीर की सतह ढकने या अंदर lining बनाने वाले cell की परत · image: बिस्तर पर बिछी चादर
+    - kyon: Body surfaces need a boundary. _[standard]_ → A joined cell sheet provides covering and controlled exchange. _[standard]_
+    - example / jagah: Skin and gut lining
+    - aage: Different surfaces require different epithelial arrangements.
+    - screen par: Cover
+    - is level ke liye: Do not equate all epithelium with skin.
+  - prerequisites: cell; body surface
+- **p002-i4** · diagram_label · figure · image · exam high
+  - Muscular Tissue — parent of Striated muscle, Non-straited [Non-striated] muscle and Cardiac muscle.
+    - what: What does this branch organise? → The three muscle types named in the tree.
+    - which: Which types are shown? → Striated, non-striated and cardiac muscle.
+      - how: How does muscle produce movement? → Muscle cells contract, developing force that moves a body part or contents of an organ. _(outside the book)_
+  - **khola (unpack):**
+    - Muscular Tissue yaani सिकुड़कर खिंचाव और हरकत पैदा करने वाला tissue · image: हाथ मोड़ते समय उभरती muscle
+    - kyon: The body must move limbs and internal contents. _[standard]_ → Contractile tissue supplies the force. _[standard]_
+    - example / jagah: Arm, gut and heart
+    - aage: Different movements use different muscle types.
+    - screen par: Contract
+    - is level ke liye: Cardiac muscle is also striated in appearance.
+  - prerequisites: cell; movement
+- **p002-i5** · diagram_label · figure · image · exam high
+  - Connective Tissue — parent of Connective tissue proper, Supportive connective tissue and Fluid connective tissue.
+    - what: What is included in this branch? → Three categories: connective tissue proper, supportive connective tissue and fluid connective tissue.
+    - which: Which examples demonstrate its range? → The tree includes fat-related adipose tissue, bone, blood and lymph within connective tissue.
+      - why: Why can such different-looking tissues share a group? → Their cells lie within an extracellular matrix whose properties vary, allowing binding, support or transport. _(outside the book)_
+  - **khola (unpack):**
+    - Connective Tissue yaani जोड़ने, सहारा देने या चीज़ें पहुँचाने वाला tissue · image: घर का सहारा और कमरों को जोड़ते रास्ते
+    - kyon: Body parts need support and exchange between them. _[standard]_ → Different matrices let connective tissues perform these varied jobs. _[standard]_
+    - example / jagah: Bone, tendon, fat and blood
+    - aage: Matrix need not be hard.
+    - screen par: Connect
+    - is level ke liye: Common odd-one-out group.
+  - prerequisites: cell; material between cells
+- **p002-i6** · diagram_label · figure · image · exam high
+  - Nervous / Neural Tissue — fourth primary branch; no subdivisions shown.
+    - what: What does the slash indicate here? → Nervous and neural are alternative names for the same main tissue group.
+    - which: Which lower illustration corresponds to this branch? → The Nerve tissue box and the labelled brain, spinal cord and nerve.
+      - how: How does nervous tissue coordinate the body? → Specialised cells receive and transmit signals between body regions. _(outside the book)_
+  - **khola (unpack):**
+    - Neural yaani शरीर के संदेश पहुँचाने वाले nerve system से जुड़ा · image: फोन पर पहुँचता संदेश
+    - kyon: Body parts must respond together. _[standard]_ → Signal-carrying cells enable coordination. _[standard]_
+    - example / jagah: Brain and spinal cord
+    - aage: Links sensation with response.
+    - screen par: Transmit
+    - is level ke liye: Neuron, nerve and nervous tissue describe different organisational levels.
+  - prerequisites: cell; signal
+- **p002-i7** · diagram_label · figure · image · exam high
+  - Striated muscle — left child of Muscular Tissue.
+    - what: What feature does striated describe? → Visible alternating bands across muscle fibres under the microscope. _(outside the book)_
+    - which: Which lower picture represents the skeletal form? → The cylindrical bundle labelled Skeletal muscle in the muscular tissue box.
+      - why: Why must striated not automatically mean voluntary? → Cardiac muscle has striations too, but its contractions are involuntary. _(outside the book)_
+  - **khola (unpack):**
+    - Striated yaani जिसमें आड़ी धारियाँ दिखती हैं · image: धारीदार कपड़ा
+    - example / jagah: Skeletal muscles of limbs
+    - aage: Recognise banding without assuming control type.
+    - screen par: Stripe
+    - is level ke liye: Cardiac muscle is the important exception to a loose striated-equals-voluntary rule.
+  - prerequisites: muscle fibre
+- **p002-i8** · diagram_label · figure · image · exam high
+  - Non-straited [Non-striated] muscle — middle child of Muscular Tissue.
+    - what: What does non-striated mean? → Muscle without the visible cross-banding typical of striated fibres. _(outside the book)_
+    - which: Which lower label names this muscle form? → Smooth muscle is the standard name for non-striated muscle. _(outside the book)_
+      - how: How does this muscle help internal organs? → Its involuntary contractions move contents through organs such as the intestine. _(outside the book)_
+  - **khola (unpack):**
+    - Non-striated yaani जिस muscle में आड़ी धारियाँ नहीं दिखतीं · image: बिना धारियों वाला कपड़ा
+    - kyon: Food must move even without conscious instructions. _[standard]_ → Smooth muscle contracts involuntarily in the gut wall. _[standard]_
+    - example / jagah: Intestinal wall
+    - aage: Distinguish smooth muscle from skeletal and cardiac muscle.
+    - screen par: Squeeze
+    - is level ke liye: Correct the spelling in teaching, not silently in the transcription.
+  - prerequisites: muscle contraction; striations
+- **p002-i9** · diagram_label · figure · image · exam high
+  - Cardiac muscle — right child of Muscular Tissue.
+    - what: What does cardiac identify? → The specialised muscle of the heart. _(outside the book)_
+    - which: Which other muscle categories share its parent? → Striated and non-striated muscle are the other two branches shown.
+      - why: Why distinguish cardiac from skeletal muscle? → Both are striated, but cardiac fibres are branched and contract involuntarily to pump blood. _(outside the book)_
+  - **khola (unpack):**
+    - Cardiac yaani दिल से जुड़ा · image: लगातार धड़कता दिल
+    - kyon: Blood needs repeated pumping. _[standard]_ → Cardiac muscle provides coordinated involuntary contractions. _[standard]_
+    - example / jagah: Heart wall
+    - aage: Muscle appearance alone does not determine control.
+    - screen par: Beat
+    - is level ke liye: Contrast cardiac, skeletal and smooth muscle.
+  - prerequisites: heart; muscle contraction
+- **p002-i10** · diagram_label · figure · image · exam high
+  - Connective tissue proper — parent of Areolar tissue, Adipose tissue and Fibrous tissue.
+    - what: What does this intermediate branch collect? → Areolar, adipose and fibrous tissue under connective tissue proper.
+    - which: Which sibling categories must be distinguished? → Supportive connective tissue and fluid connective tissue.
+      - how: How do these examples serve different needs? → Areolar tissue packs and binds, adipose stores fat, and fibrous tissue resists pulling forces. _(outside the book)_
+  - **khola (unpack):**
+    - Connective tissue proper yaani connective tissue की वह शाखा जिसमें भराव, fat और रेशेदार tissue रखे हैं · image: कुशन का भराव और मजबूत बाँधने वाले धागे
+    - example / jagah: Under skin and between body structures
+    - aage: Do not place blood or cartilage under this branch in this tree.
+    - screen par: Group
+    - is level ke liye: Classification terminology may vary across texts; retain this page's scheme.
+  - prerequisites: connective tissue; matrix
+- **p002-i11** · diagram_label · figure · image · exam high
+  - Supportive connective tissue — parent of Cartiage [Cartilage] and Bone.
+    - what: What does this branch show? → Cartilage and bone belong to the supportive category of connective tissue.
+    - which: Which two supporting tissues are paired? → Cartilage and bone.
+      - why: Why are they useful supports? → Their firm extracellular matrices resist deformation; bone is more rigid and cartilage more flexible. _(outside the book)_
+  - **khola (unpack):**
+    - Supportive yaani शरीर को टिकाए रखने और आकार देने वाला · image: इमारत का ढाँचा
+    - kyon: Soft body parts need a framework. _[standard]_ → Firm matrices provide support with different degrees of flexibility. _[standard]_
+    - example / jagah: Skeleton and joint cartilage
+    - aage: Support is a connective-tissue role.
+    - screen par: Brace
+    - is level ke liye: Both are living tissues, not inert materials.
+  - prerequisites: matrix; support
+- **p002-i12** · diagram_label · figure · image · exam high
+  - Fluid connective tissue — parent of Blood and Lymph.
+    - what: What is grouped under fluid connective tissue? → Blood and lymph.
+    - which: Which main tissue group contains this branch? → Connective Tissue, not Nervous / Neural Tissue.
+      - why: Why is a fluid useful here? → A liquid medium can transport cells and dissolved substances between body regions. _(outside the book)_
+  - **khola (unpack):**
+    - Fluid connective tissue yaani बहने वाले माध्यम वाला connective tissue · image: पानी के रास्ते सामान पहुँचाती नाव
+    - kyon: Distant cells need supplies and waste removal. _[standard]_ → A flowing medium enables transport. _[standard]_
+    - example / jagah: Blood vessels and lymphatic vessels
+    - aage: Connective tissue includes transport as well as support.
+    - screen par: Flow
+    - is level ke liye: Blood and lymph are frequent classification traps.
+  - prerequisites: fluid; connective tissue matrix
+- **p002-i13** · diagram_label · figure · image · exam high
+  - Areolar tissue — child of Connective tissue proper.
+    - what: What is areolar tissue? → A loose connective tissue that fills spaces and binds nearby structures. _(outside the book)_
+    - which: Which branch contains it? → Connective tissue proper.
+      - how: How does a loose arrangement help? → Its fibres and ground material support surrounding tissues while permitting movement and exchange. _(outside the book)_
+  - **khola (unpack):**
+    - Areolar tissue yaani खाली जगह भरकर हिस्सों को सहारा देने वाला ढीला tissue · image: डिब्बे में सामान के बीच नरम packing
+    - example / jagah: Between skin and underlying structures
+    - aage: Packing does not require a rigid matrix.
+    - screen par: Fill
+    - is level ke liye: Distinguish areolar from fat-storing adipose tissue.
+  - prerequisites: connective tissue; fibres
+- **p002-i14** · diagram_label · figure · image · exam high
+  - Adipose tissue — child of Connective tissue proper.
+    - what: What characterises adipose tissue? → It contains cells specialised for storing fat. _(outside the book)_
+    - which: Which tree category includes it? → Connective tissue proper.
+      - why: Why is fat storage useful? → Stored fat provides an energy reserve, insulation and cushioning. _(outside the book)_
+  - **khola (unpack):**
+    - Adipose tissue yaani fat जमा करने वाले cell का tissue · image: शरीर की बचत और नरम गद्दी
+    - kyon: The body needs reserve fuel and padding. _[standard]_ → Fat-storing cells provide both. _[standard]_
+    - example / jagah: Beneath skin
+    - aage: Connects the tree to the lower fat-cell drawing.
+    - screen par: Store
+    - is level ke liye: Do not confuse adipose tissue with a gland.
+  - prerequisites: fat; energy storage
+- **p002-i15** · diagram_label · figure · image · exam high
+  - Fibrous tissue — child of Connective tissue proper.
+    - what: What does fibrous indicate? → A connective tissue rich in fibres that provide mechanical strength. _(outside the book)_
+    - which: Which category contains it? → Connective tissue proper.
+      - how: How do fibres help attachments? → Bundles resist tension, allowing force to be transmitted without easy separation. _(outside the book)_
+  - **khola (unpack):**
+    - Fibrous yaani मजबूत रेशों से भरपूर · image: कई धागों से बनी रस्सी
+    - kyon: Attachments experience pulling forces. _[standard]_ → Strong fibre bundles resist that pull. _[standard]_
+    - example / jagah: Tendon
+    - aage: Strength depends on matrix arrangement.
+    - screen par: Pull
+    - is level ke liye: Tendon and ligament are not muscle.
+  - prerequisites: fibre; pulling force
+- **p002-i16** · diagram_label · figure · image · exam high
+  - Cartiage [Cartilage] — child of Supportive connective tissue.
+    - what: What is cartilage? → A firm but relatively flexible supporting connective tissue. _(outside the book)_
+    - which: Which leaf shares its parent? → Bone.
+      - why: Why is cartilage useful at joints? → Its resilient matrix provides a smooth, cushioning surface where bones meet. _(outside the book)_
+  - **khola (unpack):**
+    - Cartilage yaani मजबूत पर कुछ लचीला सहारा देने वाला tissue · image: कान का मुड़कर वापस आ जाने वाला हिस्सा
+    - example / jagah: Outer ear and joint surfaces
+    - aage: Support need not be as rigid as bone.
+    - screen par: Bend
+    - is level ke liye: Not every flexible body part is muscle.
+  - prerequisites: joint; matrix
+- **p002-i17** · diagram_label · figure · image · exam high
+  - Bone — child of Supportive connective tissue.
+    - what: What kind of tissue is bone in this tree? → Supportive connective tissue.
+    - which: Which neighbouring leaf contrasts with bone? → Cartilage.
+      - why: Why is bone comparatively hard? → Mineral salts deposited in its matrix provide rigidity. _(outside the book)_
+  - **khola (unpack):**
+    - Bone yaani शरीर का सख्त जीवित सहारा देने वाला tissue · image: हाथ-पैर का अंदरूनी ढाँचा
+    - kyon: The body needs a load-bearing frame. _[standard]_ → A mineralised matrix provides firm support. _[standard]_
+    - example / jagah: Limb bones
+    - aage: Hardness reflects matrix, not absence of cells.
+    - screen par: Support
+    - is level ke liye: Distinguish tissue from the whole bone organ.
+  - prerequisites: skeleton; mineral
+- **p002-i18** · diagram_label · figure · image · exam high
+  - Blood — child of Fluid connective tissue.
+    - what: How does this page classify blood? → As fluid connective tissue.
+    - which: Which other fluid tissue is shown? → Lymph.
+      - how: How can blood be a tissue while flowing? → Its cells are suspended in a liquid extracellular matrix called plasma. _(outside the book)_
+  - **khola (unpack):**
+    - Blood yaani शरीर में बहकर सामान पहुँचाने वाला cell और तरल का मिश्रण · image: सामान ढोता सड़क का traffic
+    - example / jagah: Blood vessels
+    - aage: Tissue classification is not decided by solidity.
+    - screen par: Circulate
+    - is level ke liye: Plasma is the liquid matrix.
+  - prerequisites: blood cells; liquid
+- **p002-i19** · diagram_label · figure · image · exam high
+  - Lymph — child of Fluid connective tissue.
+    - what: Where does the tree place lymph? → Beside blood under fluid connective tissue.
+    - which: Which major group therefore contains lymph? → Connective Tissue.
+      - how: How does lymph connect body spaces with circulation? → Lymphatic vessels collect excess tissue fluid and return it toward the bloodstream. _(outside the book)_
+  - **khola (unpack):**
+    - Lymph yaani tissue के बीच से इकट्ठा होकर अलग नलियों में बहने वाला तरल · image: बचा पानी वापस ले जाने वाली नाली
+    - kyon: Some fluid leaves blood capillaries into tissues. _[standard]_ → Lymphatic drainage returns excess fluid. _[standard]_
+    - example / jagah: Lymphatic vessels
+    - aage: Fluid balance links tissues with circulation.
+    - screen par: Drain
+    - is level ke liye: Lymph also participates in immune defence.
+  - prerequisites: tissue fluid; blood circulation
+- **p002-i20** · diagram_label · figure · image · exam high
+  - Simple squamous epithelium — child of Epithelial Tissue.
+    - what: What do simple and squamous describe? → A single layer of thin, flattened cells. _(outside the book)_
+    - which: Which lower drawing matches this leaf? → The thin sheet labelled Simple squamous.
+      - why: Why is this arrangement useful for exchange? → A thin single layer gives substances a short distance to cross. _(outside the book)_
+  - **khola (unpack):**
+    - Simple squamous epithelium yaani चपटे cell की एक परत · image: फर्श की पतली tiles की एक तह
+    - kyon: Rapid exchange needs a short path. _[standard]_ → One thin layer reduces the crossing distance. _[standard]_
+    - example / jagah: Lung alveoli
+    - aage: Thinness favours exchange rather than heavy abrasion protection.
+    - screen par: Flatten
+    - is level ke liye: Contrast with stratified squamous.
+  - prerequisites: cell layer; diffusion
+- **p002-i21** · diagram_label · figure · image · exam high
+  - Stratified squamous epithelium — child of Epithelial Tissue.
+    - what: What does stratified squamous mean? → Several cell layers with flattened cells at the exposed surface. _(outside the book)_
+    - which: Which tree leaf provides its single-layer contrast? → Simple squamous epithelium.
+      - why: Why are multiple layers useful? → Surface cells can be worn away while deeper layers maintain protection. _(outside the book)_
+  - **khola (unpack):**
+    - Stratified yaani कई परतों में लगा हुआ · image: एक के ऊपर एक रखी चादरें
+    - kyon: Exposed surfaces experience rubbing. _[standard]_ → Multiple layers preserve a protective barrier. _[standard]_
+    - example / jagah: Skin epidermis
+    - aage: Protection and rapid diffusion favour different arrangements.
+    - screen par: Stack
+    - is level ke liye: The surface cell shape gives the squamous name.
+  - prerequisites: cell layer; abrasion
+- **p002-i22** · diagram_label · figure · image · exam high
+  - Columnar epithelium — child of Epithelial Tissue.
+    - what: What does columnar describe? → Cells that are taller than they are wide, resembling pillars. _(outside the book)_
+    - which: Which lower label shows a single-layer form? → Simple columnar.
+      - how: How can this form serve the digestive tract? → Columnar cells can specialise in absorption and secretion along the lining. _(outside the book)_
+  - **khola (unpack):**
+    - Columnar yaani खंभे जैसे लंबे cell · image: इमारत के साथ-साथ खड़े pillars
+    - example / jagah: Intestinal lining
+    - aage: A columnar cell may have further surface specialisations.
+    - screen par: Elongate
+    - is level ke liye: Distinguish cilia from absorptive microvilli.
+  - prerequisites: cell shape; lining
+- **p002-i23** · diagram_label · figure · image · exam high
+  - Ciliated columnar epithelium — child of Epithelial Tissue.
+    - what: What extra feature does ciliated add? → Hair-like motile projections on the exposed surface of columnar cells. _(outside the book)_
+    - which: Which lower drawing shows the feature? → The leftmost epithelial drawing labelled Ciliated columnar has projections on its upper surface.
+      - how: How do cilia help a lining? → Their coordinated beating moves material along the surface, such as mucus in airways. _(outside the book)_
+  - **khola (unpack):**
+    - Ciliated yaani ऊपर हिलने वाले महीन बाल-जैसे हिस्सों वाला · image: एक दिशा में झाड़ू चलाती कतार
+    - kyon: Some linings must move material along, not merely cover it. _[standard]_ → Coordinated ciliary beating sweeps the surface. _[standard]_
+    - example / jagah: Respiratory passages
+    - aage: Shape and surface equipment jointly determine function.
+    - screen par: Sweep
+    - is level ke liye: Cilia differ from microvilli.
+  - prerequisites: columnar cell; surface projection
+- **p002-i24** · diagram_label · figure · image · exam high
+  - Cuboidal epithelium — child of Epithelial Tissue.
+    - what: What does cuboidal mean? → Cells are approximately as tall as they are wide. _(outside the book)_
+    - which: Which lower label corresponds to it? → Simple cuboidal.
+      - how: How does this tissue participate in kidney function? → Cuboidal cells in many kidney tubules absorb useful substances and secrete selected substances into the tubule. _(outside the book)_
+  - **khola (unpack):**
+    - Cuboidal yaani लगभग बराबर ऊँचाई और चौड़ाई वाले cell · image: लूडो का पासा
+    - example / jagah: Kidney tubules
+    - aage: Do not confuse cube-like shape with flattened squamous cells.
+    - screen par: Tile
+    - is level ke liye: Use shape-location matching.
+  - prerequisites: cell shape; kidney tubule
+- **p002-i25** · diagram_label · figure · image · exam high
+  - Glandular epithelium — child of Epithelial Tissue.
+    - what: What makes epithelium glandular? → Its cells specialise in making and releasing substances. _(outside the book)_
+    - which: Which main branch contains this tissue? → Epithelial Tissue.
+      - why: Why does secretion need specialised cells? → Producing and releasing substances such as mucus or enzymes requires specialised cellular machinery. _(outside the book)_
+  - **khola (unpack):**
+    - Glandular epithelium yaani कुछ बनाकर बाहर छोड़ने में माहिर epithelial cell · image: मुँह में लार बनाती gland
+    - kyon: The body needs substances such as digestive secretions. _[standard]_ → Specialised epithelial cells make and release them. _[standard]_
+    - example / jagah: Salivary glands
+    - aage: Epithelial tissue does more than cover surfaces.
+    - screen par: Release
+    - is level ke liye: Do not infer that all glands release through ducts.
+  - prerequisites: cell; secretion
+- **p002-i26** · diagram · figure · image · exam high
+  - Human body surrounded by four tissue panels. Upper left: Muscular tissue, with Cardiac muscle, Skeletal muscle, Smooth muscle and Muscle cells. Upper right: Nerve tissue with branching cells labelled Nerve cell; the body also has Brain, Spinal cord and Nerve pointers. Lower left: Epithelial tissue, with Lining of gastrointestinal tract and other hollow organs, Ciliated columnar, Simple columnar, Simple cuboidal, Simple squamous, and a multilayer skin block labelled Skin surface and Basement membrane. Lower right: Connective tissue, with Tendon, Bone, Fat cells, and Fat and other Soft padding tissue. Lines link the examples to body regions.
+    - what: What does this composite add to the tree? → It associates tissue groups with visible forms, body structures and examples rather than showing hierarchy alone.
+    - which: Which four tissue panels surround the body? → Muscular, nerve, epithelial and connective tissue.
+      - how: How should the connecting lines be interpreted? → They associate representative body regions with magnified tissue drawings; they are not routes along which tissue flows.
+  - **khola (unpack):**
+    - tissue yaani अंग के भीतर काम करने वाले cell का समूह · image: एक मशीन के अलग काम करने वाले हिस्से
+    - kyon: Names alone do not show how tissues fit inside the body. _[standard]_ → Magnified examples connect familiar organs with cell arrangements. _[standard]_
+    - example / jagah: The central human body
+    - aage: One body contains all four tissue groups.
+    - screen par: Zoom
+    - is level ke liye: Do not mistake schematic drawings for exact proportions or exclusive distributions.
+  - prerequisites: organ; tissue; magnified drawing
+- **p002-i27** · diagram_label · figure · image · exam high
+  - Muscular tissue — heading of the panel showing three muscle forms.
+    - what: What does this panel illustrate? → Different forms of muscle cells grouped as muscular tissue.
+    - which: Which three forms are named? → Cardiac, skeletal and smooth muscle.
+      - how: How do these forms share a common role? → Their cells generate force through contraction, though their locations and control differ. _(outside the book)_
+  - **khola (unpack):**
+    - Muscular tissue yaani सिकुड़कर बल बनाने वाला tissue · image: वजन उठाते समय हाथ की muscle
+    - example / jagah: Heart, limbs and gut
+    - aage: Different shapes serve a shared contractile role.
+    - screen par: Contract
+    - is level ke liye: Compare shape, control and location.
+  - prerequisites: muscle contraction
+- **p002-i28** · diagram_label · figure · image · exam medium
+  - Muscle cells — pointers group the illustrated cardiac, skeletal and smooth muscle cell forms.
+    - what: What does the label identify? → The red elongated cellular forms in the muscular tissue panel.
+    - which: Which forms are compared? → Branched cardiac, cylindrical skeletal and tapered smooth muscle forms.
+      - how: How can cells generate force? → Contractile proteins inside muscle cells interact to shorten or develop tension. _(outside the book)_
+  - **khola (unpack):**
+    - Muscle cells yaani muscle बनाने वाले सिकुड़ सकने वाले cell · image: रस्सी के साथ काम करते कई धागे
+    - example / jagah: Muscular panel
+    - aage: A muscle is made of specialised cells, not a single solid strip.
+    - screen par: Magnify
+    - is level ke liye: Avoid treating every drawn bundle as one cell.
+  - prerequisites: cell; protein
+- **p002-i29** · diagram_label · figure · image · exam high
+  - Cardiac muscle — label beneath the branched red muscle drawing, associated with the heart region.
+    - what: What visual feature identifies this example? → The drawing shows branching interconnected muscle fibres.
+    - which: Which organ is associated with it? → The heart region of the central body.
+      - why: Why is coordinated contraction important there? → The heart must develop organised pumping force to move blood. _(outside the book)_
+  - **khola (unpack):**
+    - Cardiac muscle yaani दिल की धड़कन पैदा करने वाली muscle · image: बार-बार चलने वाला pump
+    - example / jagah: Heart wall
+    - aage: Connects a cell pattern with an organ's pumping task.
+    - screen par: Pulse
+    - is level ke liye: Do not classify cardiac muscle as smooth.
+  - prerequisites: heart pumping; muscle fibre
+- **p002-i30** · diagram_label · figure · image · exam high
+  - Skeletal muscle — label beneath a cylindrical bundle of red fibres.
+    - what: What shape is pictured? → Long cylindrical fibres arranged together in a bundle.
+    - which: Which upper tree term corresponds to this example? → The tree's striated muscle branch represents skeletal muscle in this introductory scheme. _(outside the book)_
+      - how: How does skeletal muscle move a limb? → Contraction pulls through attachments on bones, producing movement at joints. _(outside the book)_
+  - **khola (unpack):**
+    - Skeletal muscle yaani आम तौर पर हड्डियों को खींचकर हरकत कराने वाली muscle · image: कोहनी मोड़ता हाथ
+    - kyon: Bones cannot pull themselves. _[standard]_ → Contracting skeletal muscle supplies the pulling force. _[standard]_
+    - example / jagah: Arm muscles
+    - aage: Links muscle with the tendon example.
+    - screen par: Pull
+    - is level ke liye: Muscles pull rather than actively push bones.
+  - prerequisites: bone; joint; contraction
+- **p002-i31** · diagram_label · figure · image · exam high
+  - Smooth muscle — label beneath elongated tapered red cells.
+    - what: What cell shape is illustrated? → Elongated cells tapering toward their ends.
+    - which: Which muscle in the tree is also called smooth? → Non-striated muscle. _(outside the book)_
+      - how: How does smooth muscle move food? → Coordinated contractions of the gut wall propel contents along the digestive tract. _(outside the book)_
+  - **khola (unpack):**
+    - Smooth muscle yaani बिना आड़ी धारियों वाली, अपने-आप काम करने वाली muscle · image: खाना आगे बढ़ाती आँत
+    - example / jagah: Walls of many hollow organs
+    - aage: Internal movement need not be under conscious control.
+    - screen par: Squeeze
+    - is level ke liye: Shape recognition: tapered ends, not cylindrical bundles.
+  - prerequisites: gut wall; contraction
+- **p002-i32** · diagram_label · figure · image · exam high
+  - Brain — pointer to the organ within the head.
+    - what: What structure is identified? → The brain drawn within the head.
+    - which: Which tissue group is associated with it? → Nervous tissue. _(outside the book)_
+      - how: How does the brain contribute to coordination? → It processes incoming information and helps organise outgoing responses. _(outside the book)_
+  - **khola (unpack):**
+    - Brain yaani सिर में मौजूद संदेश समझने और काम सँभालने वाला अंग · image: शरीर का control room
+    - example / jagah: Inside the skull
+    - aage: Connects nervous tissue with an organ.
+    - screen par: Locate
+    - is level ke liye: Brain and spinal cord form the central nervous system.
+  - prerequisites: head; nerve signal
+- **p002-i33** · diagram_label · figure · image · exam high
+  - Spinal cord — pointer to the long central nervous structure descending from the brain.
+    - what: What does the pointer identify? → The central cord descending from the brain along the back.
+    - which: Which tissue system does it illustrate? → The nervous system. _(outside the book)_
+      - how: How does the spinal cord help communication? → It carries signals between brain and body and contains circuits for many reflexes. _(outside the book)_
+  - **khola (unpack):**
+    - Spinal cord yaani रीढ़ के अंदर चलने वाला nerve संदेशों का मुख्य रास्ता · image: मुख्य cable से निकलती छोटी तारें
+    - example / jagah: Within the vertebral canal
+    - aage: Links central processing with body nerves.
+    - screen par: Trace
+    - is level ke liye: Distinguish nervous cord from bony protection.
+  - prerequisites: brain; signal; backbone
+- **p002-i34** · diagram_label · figure · image · exam high
+  - Nerve — pointer to a branching yellow structure extending into the body.
+    - what: What does this label identify? → A branching nerve pathway extending away from the central nervous structures.
+    - which: Which nearby label names a cell rather than a bundle? → Nerve cell in the Nerve tissue box.
+      - how: How does a nerve differ from one neuron? → A nerve contains bundles of nerve fibres, with supporting connective tissue, rather than being one cell. _(outside the book)_
+  - **khola (unpack):**
+    - Nerve yaani संदेश ले जाने वाले कई nerve fibres का बंडल · image: कई तारों वाली cable
+    - example / jagah: Nerves running into limbs
+    - aage: Separate cell, tissue and organ-scale structures.
+    - screen par: Bundle
+    - is level ke liye: Nerve fibres are usually axons.
+  - prerequisites: neuron; fibre bundle
+- **p002-i35** · diagram_label · figure · image · exam high
+  - Nerve tissue — panel containing several branching purple nerve-cell drawings.
+    - what: What does the panel show? → Several cells with radiating processes, presented as nerve tissue.
+    - which: Which main branch corresponds to it? → Nervous / Neural Tissue in the upper tree.
+      - why: Why are cell processes useful here? → Processes allow neurons to receive inputs and communicate with other cells over distances. _(outside the book)_
+  - **khola (unpack):**
+    - Nerve tissue yaani शरीर के संदेश लेने और आगे भेजने वाला tissue · image: जुड़ा हुआ communication network
+    - example / jagah: Brain, spinal cord and nerves
+    - aage: Branching is related to connectivity.
+    - screen par: Connect
+    - is level ke liye: Nervous tissue also includes supporting cells not separately labelled here.
+  - prerequisites: cell; communication
+- **p002-i36** · diagram_label · figure · image · exam high
+  - Nerve cell — pointer to an individual branching cell in the Nerve tissue panel.
+    - what: What is a nerve cell called? → A neuron, specialised for receiving and transmitting signals. _(outside the book)_
+    - which: Which visible feature distinguishes the illustrated cells? → Processes extend outward from their central cell bodies.
+      - how: How do a neuron's processes divide communication work? → Dendrites generally receive inputs and an axon carries signals toward other cells. _(outside the book)_
+  - **khola (unpack):**
+    - Nerve cell yaani संदेश लेने और भेजने वाला खास cell · image: कई connections वाला telephone point
+    - kyon: Information must pass between separated body regions. _[standard]_ → Neuronal processes provide receiving and transmitting connections. _[standard]_
+    - example / jagah: Neuron drawings in the right panel
+    - aage: Structure supports signal transmission.
+    - screen par: Relay
+    - is level ke liye: Do not assume every neuron has the exact drawn shape.
+  - prerequisites: cell body; signal
+- **p002-i37** · diagram_label · figure · image · exam high
+  - Epithelial tissue — heading over four epithelial forms and a skin-layer block.
+    - what: What arrangements does this panel illustrate? → Ciliated columnar, simple columnar, simple cuboidal, simple squamous and a multilayered skin example.
+    - which: Which body relationships are labelled? → Lining of gastrointestinal tract and other hollow organs, skin surface and basement membrane.
+      - how: How can one tissue class have these forms? → Cell shape, number of layers and surface specialisations vary with the task of the lining. _(outside the book)_
+  - **khola (unpack):**
+    - Epithelial tissue yaani सतह और अंदर की lining बनाने वाले cell की परत · image: दीवार पर लगी tiles
+    - example / jagah: Skin and hollow-organ linings
+    - aage: The same broad class can protect, absorb or move material.
+    - screen par: Line
+    - is level ke liye: The panel is a representative selection, not every leaf in the tree.
+  - prerequisites: cell layer; body surface
+- **p002-i38** · diagram_label · figure · image · exam high
+  - Lining of gastrointestinal tract and other hollow organs — text associated with the epithelial examples and the body's digestive region.
+    - what: What is meant by lining a hollow organ? → A layer covers the inward-facing surface around the organ's internal space. _(outside the book)_
+    - which: Which tissue is linked to this lining here? → Epithelial tissue.
+      - why: Why does the digestive tract need a specialised lining? → Its surface must separate body tissues from contents while supporting region-specific protection, secretion or absorption. _(outside the book)_
+  - **khola (unpack):**
+    - Lining yaani अंदर की सतह पर बिछी परत · image: नली की अंदरूनी दीवार
+    - gastrointestinal tract yaani खाना गुजरने और पचने का पेट-आँत वाला रास्ता · image: खाने का शरीर के अंदर सफर
+    - kyon: Gut contents must be kept distinct from underlying tissues. _[standard]_ → An epithelial boundary also permits controlled absorption and secretion. _[standard]_
+    - example / jagah: Stomach and intestine
+    - aage: A lining is a functional boundary, not merely packaging.
+    - screen par: Unroll
+    - is level ke liye: The label is general and does not place every pictured subtype throughout the gut.
+  - prerequisites: digestive tract; hollow organ
+- **p002-i39** · diagram_label · figure · image · exam high
+  - Ciliated columnar — tall cells with a fringe of projections on the exposed surface.
+    - what: What two features are visible? → Tall cells and an upper fringe of hair-like projections.
+    - which: Which upper tree label matches? → Ciliated columnar epithelium.
+      - how: How does this fringe work? → Cilia beat in coordinated patterns to move material along the surface. _(outside the book)_
+  - **khola (unpack):**
+    - Ciliated columnar yaani लंबे cell जिनके ऊपर हिलने वाले बाल-जैसे हिस्से हैं · image: खंभों के ऊपर लगी चलती झाड़ू
+    - example / jagah: Airway lining
+    - aage: Surface movement distinguishes it from plain columnar epithelium.
+    - screen par: Sweep
+    - is level ke liye: Not every tall-cell drawing is ciliated.
+  - prerequisites: columnar cell; cilia
+- **p002-i40** · diagram_label · figure · image · exam high
+  - Simple columnar — drawing of a single layer of tall epithelial cells.
+    - what: What does the drawing emphasise? → A single row of tall cells forming a continuous layer.
+    - which: Which part of the name specifies layer number? → Simple means one cell layer. _(outside the book)_
+      - how: How is it useful in the intestine? → Specialised columnar cells absorb nutrients and contribute secretions at the lining. _(outside the book)_
+  - **khola (unpack):**
+    - Simple columnar yaani लंबे cell की एक परत · image: एक कतार में खड़े pillars
+    - example / jagah: Intestinal lining
+    - aage: Read both layer number and shape from the name.
+    - screen par: Align
+    - is level ke liye: Do not confuse surface microvilli with cilia.
+  - prerequisites: cell layer; absorption
+- **p002-i41** · diagram_label · figure · image · exam high
+  - Simple cuboidal — drawing of a single sheet of approximately cube-shaped cells.
+    - what: What arrangement is pictured? → One layer of cells with roughly comparable height and width.
+    - which: Which epithelial shape contrasts with this? → Columnar cells are taller; squamous cells are flatter. _(outside the book)_
+      - how: How can cuboidal cells serve a tubule? → They form its lining and can exchange selected substances between the tubule contents and surrounding tissues. _(outside the book)_
+  - **khola (unpack):**
+    - Simple cuboidal yaani पासे जैसे cell की एक परत · image: एक कतार में रखे छोटे cubes
+    - example / jagah: Many kidney tubules
+    - aage: Links shape recognition to absorption and secretion.
+    - screen par: Arrange
+    - is level ke liye: The schematic is not an exact geometric cube.
+  - prerequisites: cell shape; tubule
+- **p002-i42** · diagram_label · figure · image · exam high
+  - Simple squamous — thin, flat single-layer epithelial drawing.
+    - what: What distinguishes this pictured layer? → It is much flatter and thinner than the columnar and cuboidal examples.
+    - which: Which upper leaf is represented? → Simple squamous epithelium.
+      - why: Why does thinness favour diffusion? → Molecules have less distance to travel across the barrier. _(outside the book)_
+  - **khola (unpack):**
+    - Simple squamous yaani पतले चपटे cell की एक तह · image: फर्श पर बिछी tiles
+    - example / jagah: Alveolar gas-exchange surface
+    - aage: Contrast with the thick skin example below.
+    - screen par: Cross
+    - is level ke liye: Not the multilayered epidermis.
+  - prerequisites: diffusion; cell layer
+- **p002-i43** · diagram_label · figure · image · exam high
+  - Skin surface — label beside the multilayered epithelial block associated with the body's outer surface.
+    - what: What visual arrangement is associated with skin? → A thick block with several layers of cells.
+    - which: Which upper epithelial category matches the epidermal example? → Stratified squamous epithelium. _(outside the book)_
+      - why: Why does the skin surface need multiple layers? → Repeated friction and exposure require a durable barrier while outer cells are shed. _(outside the book)_
+  - **khola (unpack):**
+    - Skin surface yaani शरीर की बाहर वाली ढकने की सतह · image: हाथ की रोज़ रगड़ सहती त्वचा
+    - kyon: Outer surfaces suffer rubbing and exposure. _[standard]_ → Many layers protect deeper tissues as surface cells wear away. _[standard]_
+    - example / jagah: Epidermis
+    - aage: Protection contrasts with the thin diffusion barrier.
+    - screen par: Layer
+    - is level ke liye: Do not call the whole skin one epithelial sheet.
+  - prerequisites: skin; cell layers; friction
+- **p002-i44** · diagram_label · figure · image · exam high
+  - Basement membrane — pointer to the basal boundary under the multilayered epithelial block.
+    - what: What does the pointer identify? → The boundary beneath the epithelial cell layers rather than their exposed surface.
+    - which: Which side of the epithelial block is it on? → The basal, or underlying, side.
+      - how: How does the basement membrane help epithelium? → It is a specialised extracellular layer that anchors and supports the epithelium over underlying connective tissue. _(outside the book)_
+  - **khola (unpack):**
+    - Basement membrane yaani epithelium के नीचे की पतली सहारा देने वाली तह · image: tiles के नीचे का आधार
+    - kyon: A cell sheet needs anchorage to underlying tissue. _[standard]_ → The basement membrane provides an attachment interface. _[standard]_
+    - example / jagah: Base of the pictured skin epithelial block
+    - aage: The exposed and basal sides have different relationships.
+    - screen par: Anchor
+    - is level ke liye: It is extracellular, not the plasma membrane of one cell.
+  - prerequisites: epithelium; underlying connective tissue
+- **p002-i45** · diagram_label · figure · image · exam high
+  - Connective tissue — panel containing Tendon, Bone, Fat cells and Fat and other Soft padding tissue.
+    - what: What range does this panel illustrate? → A fibrous tendon, a hard bone and soft fat-related padding are presented together as connective tissue.
+    - which: Which tree branches help organise these examples? → Connective tissue proper contains fibrous and adipose tissues; supportive connective tissue contains bone.
+      - why: Why do these examples have different textures? → Their proportions of cells, fibres, stored fat and matrix materials differ according to function. _(outside the book)_
+  - **khola (unpack):**
+    - Connective tissue yaani जोड़ने, सहारा देने और padding बनाने वाला tissue · image: रस्सी, ढाँचा और गद्दी के अलग काम
+    - example / jagah: Tendon, bone and body fat
+    - aage: Appearance alone cannot exclude an example from the connective group.
+    - screen par: Compare
+    - is level ke liye: Remember blood and lymph from the upper tree too.
+  - prerequisites: connective tissue; matrix
+- **p002-i46** · diagram_label · figure · image · exam high
+  - Tendon — label beside a yellow bundle of parallel fibres.
+    - what: What visual feature is emphasised? → Closely aligned fibres arranged as a bundle.
+    - which: Which structures does a tendon typically connect? → Muscle to bone. _(outside the book)_
+      - how: How does a tendon help movement? → Its strong collagen fibres transmit the pull of a contracting muscle to bone. _(outside the book)_
+  - **khola (unpack):**
+    - Tendon yaani muscle की खींच को हड्डी तक पहुँचाने वाली मजबूत पट्टी · image: एड़ी के पीछे महसूस होने वाली मजबूत डोरी
+    - kyon: A muscle's pull must reach the skeleton. _[standard]_ → Parallel strong fibres transmit tension through the tendon. _[standard]_
+    - example / jagah: Achilles tendon near the heel
+    - aage: Connective tissue helps muscle produce joint movement.
+    - screen par: Transmit pull
+    - is level ke liye: Do not swap tendon and ligament.
+  - prerequisites: muscle contraction; bone; fibre
+- **p002-i47** · diagram_label · figure · image · exam high
+  - Bone — label beside a pale long-bone drawing.
+    - what: What example is pictured? → A long-bone-shaped structure within the connective tissue panel.
+    - which: Which upper subcategory contains bone? → Supportive connective tissue.
+      - how: How does bone contribute to movement as well as support? → Bones act as levers that muscles pull at joints. _(outside the book)_
+  - **khola (unpack):**
+    - Bone yaani शरीर को सख्त सहारा देने वाला जीवित हिस्सा · image: बाँह का अंदर का ढाँचा
+    - example / jagah: Long bones of limbs
+    - aage: Support and movement involve cooperation between tissues.
+    - screen par: Lever
+    - is level ke liye: Bone hardness comes from its mineralised matrix.
+  - prerequisites: skeleton; joint; lever
+- **p002-i48** · diagram_label · figure · image · exam high
+  - Fat and other Soft padding tissue — label associated with the soft fat example and the body's thigh region.
+    - what: What property does this label emphasise? → The soft, padding character of fat-associated connective tissue.
+    - which: Which tree term identifies fat-storing tissue? → Adipose tissue. _(outside the book)_
+      - why: Why is soft padding useful? → It cushions structures against mechanical impacts; stored fat also serves as fuel and insulation. _(outside the book)_
+  - **khola (unpack):**
+    - Soft padding tissue yaani दबाव और चोट कम करने वाली नरम भरावट · image: कुर्सी की गद्दी
+    - kyon: Body structures face pressure and knocks. _[standard]_ → Soft tissue padding cushions them. _[standard]_
+    - example / jagah: Subcutaneous fat
+    - aage: Connective tissues can cushion as well as form a hard frame.
+    - screen par: Cushion
+    - is level ke liye: Do not interpret the drawing as the only location of body fat.
+  - prerequisites: fat; cushioning
+- **p002-i49** · diagram_label · figure · image · exam high
+  - Fat cells — pointer to a small cluster of rounded yellow-orange cells.
+    - what: What does the pointer identify? → Individual rounded cells forming the pictured fat cluster.
+    - which: Which tissue contains specialised fat-storing cells? → Adipose tissue. _(outside the book)_
+      - how: How does a fat cell store energy? → It accumulates lipid inside the cell, which can later be mobilised when the body needs fuel. _(outside the book)_
+  - **khola (unpack):**
+    - Fat cells yaani अपने अंदर fat जमा करने वाले cell · image: बचत रखती छोटी गुल्लकें
+    - kyon: Energy intake and energy demand do not always coincide. _[standard]_ → Stored lipid provides a reserve for later use. _[standard]_
+    - example / jagah: Fat deposits beneath skin
+    - aage: Cell-level storage contributes to tissue-level padding and insulation.
+    - screen par: Fill and release
+    - is level ke liye: Adipose is a living cellular tissue, not just an inert oil deposit.
+  - prerequisites: cell; fat; energy reserve
+
+## Page 3 · passed after 2 round(s)
+
+Four principal tissue groups have different jobs. Epithelium forms closely packed coverings and linings supported by a basement membrane and can specialise into glands. Six epithelial types are compared through their cell arrangement, locations and functions, with four accompanying illustrations.
+
+- **p003-i1** · paragraph · classification · both · exam high
+  - There are mainly four different types of tissues present in our body.
+1. Epithelial- provides covering or lining
+2. Muscular- helps in movement
+3. Neural- responds to stimuli
+4. Connective- supports, links and cushions
+    - which: Which four tissue groups does the page identify? → Epithelial, muscular, neural and connective tissues are the four main groups identified.
+    - difference: How do their principal functions differ? → Epithelial tissue covers or lines; muscular tissue enables movement; neural tissue responds to stimuli; connective tissue supports, links and cushions.
+      - why: Why does a body need different tissue groups? → A protective boundary, movement, rapid responses and physical support involve different tasks. Groups of specialised cells divide these tasks rather than requiring one cell type to perform them equally well. _(outside the book)_
+  - **khola (unpack):**
+    - Epithelial yaani ढकने या अंदर की lining बनाने वाला tissue · image: बिस्तर पर बिछी चादर
+    - Muscular yaani सिकुड़कर शरीर के हिस्से हिलाने वाला tissue · image: कोहनी मोड़ते समय बाँह का उभरना
+    - stimuli yaani ऐसे बदलाव जिन पर शरीर जवाब देता है · image: गरम बर्तन छूते ही हाथ हटाना
+    - Connective yaani हिस्सों को सहारा देने, जोड़ने और झटका कम करने वाला tissue · image: पैकिंग में चीज़ को सहारा देता गद्देदार सामान
+    - kyon: The body needs covering, movement, responses and support. _[book]_ → Specialised cell groups divide these jobs, making tissue classification useful. _[standard]_
+    - example / jagah: Connect a covering to skin, movement to bending an arm, and a response to touching something hot.
+    - aage: The rest of the page zooms into the covering-and-lining group.
+    - screen par: Separate four jobs into four tissue groups.
+    - is level ke liye: Practise matching functions without confusing neural response with muscular movement.
+  - prerequisites: cells as living units; tissue as a group of cells performing a shared function
+- **p003-i2** · list_point · structure · both · exam high
+  - Epithelium covers most organs and cavities within the body.
+    - what: What spatial role does epithelium have? → It forms a covering or lining associated with most organs and body cavities.
+    - where: Where does the page later give examples of epithelial linings? → Examples include blood vessels, lung air sacs, kidney tubules, the digestive tract and the mouth.
+      - why: Why is a lining important at these surfaces? → A surface separates one environment from another. A lining can protect the underlying body while regulating exchange across that boundary. _(outside the book)_
+  - **khola (unpack):**
+    - lining yaani किसी खाली हिस्से की अंदर वाली सतह पर लगी परत · image: जैकेट की अंदर लगी परत
+    - kyon: Organs and cavities have surfaces that meet other spaces or materials. _[standard]_ → Epithelium covers or lines these surfaces. _[book]_
+    - example / jagah: Follow swallowed food into the digestive tract and identify its inner lining.
+    - aage: Covering is a position; the particular lining may additionally absorb, secrete or protect.
+    - screen par: Trace a continuous inner surface.
+    - is level ke liye: Distinguish covering an organ from making up the whole organ.
+  - prerequisites: organ; body cavity; surface and lining
+- **p003-i3** · list_point · cause_effect · both · exam high
+  - It also forms a barrier to keep different body systems separate.
+    - why: Why does the page describe epithelium as a barrier? → Its barrier role helps keep different body systems separate rather than leaving their contents in unrestricted contact.
+      - how: How can a barrier still allow useful exchange? → A biological barrier need not be an impermeable wall. Depending on the epithelial type, materials can cross through controlled routes while the tissue maintains a boundary. _(outside the book)_
+  - **khola (unpack):**
+    - barrier yaani बिना रोक-टोक मिल जाने से रोकने वाली हद · image: घर की दीवार में नियंत्रित आने-जाने के लिए दरवाज़ा
+    - kyon: Different body compartments need to remain distinct. _[standard]_ → Epithelium provides a separating barrier. _[book]_
+    - example / jagah: An intestinal lining separates the contents of the gut from underlying tissues.
+    - aage: A continuous sheet is suited to separating spaces.
+    - screen par: Separate two compartments with a sheet.
+    - is level ke liye: Avoid the absolute claim that epithelial barriers block every substance.
+  - prerequisites: body systems; boundary between spaces
+- **p003-i4** · list_point · structure · both · exam high
+  - Epithelial tissue cells are tightly packed and form a continuous sheet.
+    - what: How are epithelial cells arranged? → Closely adjoining cells collectively form a continuous sheet rather than a loose scattering.
+    - where: Where is this sheet arrangement used? → In the epithelial coverings and linings of organs and cavities described on the page.
+      - why: Why does close packing suit a barrier? → Large uncontrolled gaps would interrupt the boundary. Close cell contact helps a lining maintain continuity. _(outside the book)_
+  - **khola (unpack):**
+    - continuous sheet yaani पास-पास जुड़े cells की बिना बड़े खाली अंतर वाली परत · image: पास-पास लगी फ़र्श की टाइलें
+    - kyon: A boundary needs coverage without large breaks. _[standard]_ → Tightly packed epithelial cells form a continuous sheet. _[book]_
+    - example / jagah: Zoom into the mouth lining from a whole surface to adjoining cells.
+    - aage: Cell packing supports the barrier role introduced above.
+    - screen par: Fit cells edge to edge.
+    - is level ke liye: Link organisation to function rather than memorising 'tightly packed' alone.
+  - prerequisites: cell; sheet-like arrangement
+- **p003-i5** · list_point · structure · both · exam high
+  - They have only a small amount of cementing material between them and almost no intercellular spaces.
+    - what: What occupies the space between adjacent epithelial cells? → The page describes little cementing material and almost no spaces between neighbouring cells.
+    - where: What does 'intercellular' locate? → It means between cells, not inside a cell. _(outside the book)_
+      - how: How does this detail reinforce the continuous-sheet description? → When neighbouring cells lie very close together, cells themselves occupy most of the sheet, with little intervening material. _(outside the book)_
+  - **khola (unpack):**
+    - intercellular spaces yaani दो cells के बीच की खाली जगह · image: दो टाइलों के बीच की दरार
+    - cementing material yaani cells के बीच उन्हें जोड़े रखने वाला थोड़ा substance · image: टाइलों के बीच थोड़ा जोड़ भरने वाला मसाला
+    - kyon: A close boundary needs neighbouring cells to remain together. _[standard]_ → The page describes scant intervening material and almost no intercellular spaces. _[book]_
+    - example / jagah: An enlarged section through an epithelial sheet.
+    - aage: The tissue is cell-rich rather than dominated by material between cells.
+    - screen par: Zoom into the narrow gap between cells.
+    - is level ke liye: Do not confuse intercellular with intracellular.
+  - prerequisites: adjacent cells; inside versus between cells
+- **p003-i6** · list_point · structure · both · exam high
+  - All epithelium is usually separated from the underlying tissue by an extracellular fibrous basement membrane.
+    - what: What is the supporting boundary described below epithelium? → The page identifies an extracellular, fibrous basement membrane between epithelium and underlying tissue.
+    - where: Where does the basement membrane lie? → It lies beneath the epithelial layer, at its interface with the underlying tissue.
+      - why: Why is a supporting layer useful here? → An epithelial sheet needs anchorage. The basement membrane helps support and attach it to the tissue beneath. _(outside the book)_
+      - difference: How is a basement membrane different from a cell membrane? → A basement membrane is extracellular supporting material beneath a tissue; a cell membrane encloses an individual cell. _(outside the book)_
+  - **khola (unpack):**
+    - extracellular yaani cells के बाहर मौजूद · image: कमरों के बाहर बना साझा सहारा
+    - basement membrane yaani epithelium के नीचे की पतली सहारा देने वाली परत · image: टाइलों के नीचे का आधार
+    - kyon: A surface sheet needs a stable base. _[standard]_ → A basement membrane underlies and supports epithelial attachment. _[standard]_
+    - example / jagah: Show a side section of lining, basement membrane and underlying tissue.
+    - aage: The epithelial sheet is distinct from, but attached to, what lies below it.
+    - screen par: Lift the sheet to reveal its base.
+    - is level ke liye: Preserve the printed 'All ... usually' wording without teaching an unnecessary absolute.
+  - prerequisites: cell membrane; underlying tissue; extracellular means outside cells
+- **p003-i7** · list_point · process · both · exam high
+  - Epithelial cells often acquire additional specialisation as gland cells, which can secrete substances at the epithelial surface. Sometimes a portion of the epithelial tissue folds inward, and a multicellular gland is formed. This is glandular epithelium.
+    - what: What additional role can epithelial cells acquire? → They can specialise as gland cells that release substances at an epithelial surface.
+    - how: How does the page describe formation of a multicellular gland? → A portion of an epithelial sheet folds inward, producing a gland made of multiple cells.
+    - when: When is the inward-folding route described? → It occurs sometimes when epithelial tissue forms a multicellular gland; the page does not present it as the fate of every epithelial sheet.
+      - why: Why is secretion a specialisation beyond simple covering? → Secretory cells produce and release useful substances, so they do an active manufacturing-and-release job in addition to occupying a surface. _(outside the book)_
+  - **khola (unpack):**
+    - secrete yaani cell का कोई substance बनाकर बाहर छोड़ना · image: मुँह में लार बनकर आना
+    - multicellular gland yaani कई cells से बनी substance छोड़ने वाली बनावट · image: एक साथ काम करती छोटी-छोटी उत्पादन इकाइयाँ
+    - kyon: Body surfaces need useful substances such as lubricating secretions. _[standard]_ → Epithelial cells can specialise for secretion, and a folded portion can form a multicellular gland. _[book]_
+    - example / jagah: Use saliva in the mouth to make secretion tangible.
+    - aage: Epithelium is not merely a passive covering.
+    - screen par: Fold the sheet inward and release droplets.
+    - is level ke liye: Do not treat every epithelial cell as a gland cell or every gland as multicellular.
+  - prerequisites: epithelial sheet; cell specialisation; secretion
+- **p003-i8** · diagram · figure · image · exam high
+  - Four separate perspective drawings show (a) Squamous: one thin layer of flattened cells; (b) Stratified squamous: many stacked layers with flattened surface cells; (c) Cuboidal: a single layer of roughly cube-shaped cells; (d) Columnar (ciliated): tall cells with fine projections on their free surface. The drawings rest on a contrasting supporting base. There are no connecting arrows or process sequence.
+    - what: What does this figure visually compare? → It contrasts the shapes and layering of squamous, stratified squamous, cuboidal and ciliated columnar epithelia.
+    - which: Which visual features should a learner inspect first? → Inspect the number of cell layers, the shape of surface cells and the projections on the columnar surface.
+      - how: How does a side view help identify these tissues? → A top view alone can hide cell height and multiple layers. A side view reveals whether cells are flattened, cube-like, tall or stacked. _(outside the book)_
+  - **khola (unpack):**
+    - Stratified yaani एक के ऊपर एक कई परतों वाला · image: कई तहों वाला पराठा
+    - kyon: Similar-looking surface mosaics can hide different cell heights and layer counts. _[standard]_ → The perspective drawings reveal shape and depth together. _[book]_
+    - example / jagah: Compare a tiled floor, a stack of sheets, cubes and upright pillars.
+    - aage: The table's words can be anchored to visible shapes.
+    - screen par: Rotate and compare the four tissue blocks.
+    - is level ke liye: Shape and layering are separate identification criteria.
+  - prerequisites: cell; layer; top view and side view
+- **p003-i9** · diagram_label · figure · image · exam high
+  - (a) Squamous — identifies the thin, flattened single-layer tissue drawing.
+    - what: What does the squamous panel show? → A thin sheet made of flattened cells.
+    - which: Which panel has the flattest single-layer profile? → Panel (a), labelled Squamous.
+      - why: Why is the tile analogy useful? → Tiles spread broadly but have little height, helping distinguish flattened cells from cubes or pillars. _(outside the book)_
+  - **khola (unpack):**
+    - Squamous yaani चपटे और पतले cells वाला · image: फ़र्श की टाइलें
+    - kyon: Shape recognition needs a familiar comparison; broad, low tiles model flattened cells. _[standard]_
+    - example / jagah: The table links simple squamous tissue to lung air sacs.
+    - aage: A thin profile supports the later diffusion explanation.
+    - screen par: Flatten a cell into a tile.
+    - is level ke liye: Squamous names shape, not automatically the number of layers.
+  - prerequisites: flat versus tall shape
+- **p003-i10** · diagram_label · figure · image · exam high
+  - (b) Stratified squamous — identifies the thick, multilayered drawing with flattened surface cells.
+    - what: What feature distinguishes this panel from the first? → It shows many cell layers rather than one thin layer.
+    - which: Which cells supply the squamous appearance? → The flattened cells at the surface supply that appearance.
+      - how: How should a learner identify a stratified tissue's shape category? → Use the shape of its surface cells rather than assuming every layer has the same shape. _(outside the book)_
+  - **khola (unpack):**
+    - Stratified squamous yaani कई परतें, जिनकी ऊपर वाली cells चपटी हैं · image: कई तहों के ऊपर चपटी चादर
+    - kyon: A worn surface benefits from deeper replacement layers; the image shows a multilayered arrangement. _[standard]_
+    - example / jagah: Mouth lining in the table.
+    - aage: Layer count links this tissue with protection.
+    - screen par: Stack layers and highlight the flat top.
+    - is level ke liye: Read the surface shape and layer count independently.
+  - prerequisites: single versus multiple layers; surface cells
+- **p003-i11** · diagram_label · figure · image · exam high
+  - (c) Cuboidal — identifies the drawing of a single layer of roughly cube-shaped cells.
+    - what: What shape is visible in this panel? → Cells have a roughly cube-like profile rather than being very flat or tall.
+    - which: Which panel illustrates cuboidal epithelium? → Panel (c), between stratified squamous and columnar.
+      - how: How can a cube help separate cuboidal from columnar? → A cube is roughly as high as it is wide, whereas a column is noticeably taller than it is wide. _(outside the book)_
+  - **khola (unpack):**
+    - Cuboidal yaani लगभग cube जैसी ऊँचाई और चौड़ाई वाले cells · image: लूडो का पासा
+    - kyon: A familiar solid helps distinguish cell proportions; a die models the cube-like profile. _[standard]_
+    - example / jagah: Kidney tubule lining in the table.
+    - aage: Cuboidal becomes a visual category rather than an unfamiliar word.
+    - screen par: Build the lining from cubes.
+    - is level ke liye: Do not confuse cuboidal with the taller columnar profile.
+  - prerequisites: cube shape; height and width
+- **p003-i12** · diagram_label · figure · image · exam high
+  - (d) Columnar (ciliated) — identifies tall cells with fine projections along their free upper surface.
+    - what: What two features are shown together? → Tall columnar cells and a fringe of cilia on their free surface.
+    - which: Which panel illustrates the ciliated form? → Panel (d), labelled Columnar (ciliated).
+      - how: How do cilia differ from the cell's pillar-like body? → Cilia are small surface projections; the columnar description refers to the height and shape of the cell itself. _(outside the book)_
+  - **khola (unpack):**
+    - Columnar yaani खंभे जैसे लंबे cells · image: बिल्डिंग के खंभे
+    - ciliated yaani ऊपरी सतह पर हिल सकने वाले बारीक रेशों वाला · image: एक दिशा में झाड़ती छोटी झाड़ुओं की कतार
+    - kyon: Material on a lining may need movement; cilia can move it along the surface. _[standard]_
+    - example / jagah: Relate the drawing to mucus movement along a respiratory lining.
+    - aage: Cell shape and surface specialisation explain different aspects of function.
+    - screen par: Wave the surface fringe in coordination.
+    - is level ke liye: Do not infer that every columnar epithelium has cilia.
+  - prerequisites: cell surface; tall cell shape
+- **p003-i13** · caption · none · image
+  - Fig. 6.9: Different types of epithelial tissues
+- **p003-i14** · table · classification · both
+  - Types of Epithelial Tissue | Location | Structure | Function. Rows on this page: Simple squamous; Simple Cuboidal Epithelium; Simple Columnar Epithelium; Stratified Squamous Epithelium; Stratified Cuboidal; Stratified Columnar.
+- **p003-i15** · table_row · structure · both · exam high
+  - Types of Epithelial Tissue: Simple squamous | Location: Blood vessel lining, capillaries, air sac lining of lungs, Bowman’s capsule of kidney | Structure: A single layer of flat cells having irregular boundaries | Function: Transport by diffusion and where minimal protection is required
+    - what: What arrangement defines simple squamous epithelium here? → One layer of flat cells with irregular boundaries creates a thin lining.
+    - where: Which locations must be associated with it? → Blood-vessel lining, capillaries, lung air-sac lining and Bowman’s capsule of the kidney.
+    - what: What function does the table associate with this thin layer? → Transport by diffusion and use where protection requirements are minimal.
+      - why: Why does a thin single layer favour diffusion? → Diffusing particles have a short distance to cross. At lung air sacs, a thin barrier helps gases move between air and blood. _(outside the book)_
+      - difference: How is this different from stratified squamous epithelium? → Simple squamous has one flat-cell layer and is associated with diffusion; stratified squamous has multiple layers and is associated with protection.
+  - **khola (unpack):**
+    - Simple yaani यहाँ cells की सिर्फ एक परत · image: एक चादर, चादरों का ढेर नहीं
+    - diffusion yaani कणों का अधिक मात्रा वाली जगह से कम मात्रा वाली जगह फैलना · image: कमरे में इत्र की खुशबू फैलना
+    - Bowman’s capsule yaani kidney में छानने वाली बारीक blood की नलियों के गुच्छे के आसपास की प्याले जैसी बनावट · image: छोटे गुच्छे को घेरे कटोरी
+    - kyon: Gas exchange needs a short crossing distance. _[standard]_ → A single flat-cell layer provides a thin surface suitable for diffusion. _[standard]_
+    - example / jagah: Zoom from breathing lungs into an air sac and its thin lining.
+    - aage: Thin exchange surfaces contrast with multilayered protective surfaces.
+    - screen par: Pass particles across one thin layer.
+    - is level ke liye: Do not confuse Bowman’s capsule with the cuboidal lining of kidney tubules.
+  - prerequisites: diffusion; capillaries; lung air sacs; kidney
+- **p003-i16** · table_row · structure · both · exam high
+  - Types of Epithelial Tissue: Simple Cuboidal Epithelium | Location: The tubular lining of kidneys, glandular ducts | Structure: A single layer of short cylindrical cells. It may have microvilli as in proximal convoluted tubules | Function: Absorption and secretion
+    - what: What structure does the table describe? → A single layer, described in the book as short cylindrical cells, sometimes with microvilli, as in proximal convoluted tubules.
+    - where: Where is simple cuboidal epithelium found according to this row? → In kidney tubular lining and glandular ducts.
+    - what: Which two functions are paired here? → Absorption and secretion: taking substances in and releasing substances.
+      - how: How should the shape wording be understood? → Conventionally, cuboidal cells are roughly as tall as wide, as the illustration suggests. 'Short cylindrical' is the book's wording, not a reason to identify them as tall columnar cells. _(outside the book)_
+      - why: Why can microvilli help absorption in kidney tubules? → Microvilli increase the surface available for exchange. Kidney tubules reclaim useful substances from the fluid passing through them. _(outside the book)_
+  - **khola (unpack):**
+    - microvilli yaani cell की सतह की बहुत छोटी उँगली जैसी बढ़तें, जो सतह बढ़ाती हैं · image: तौलिये के छोटे उभरे रेशे
+    - proximal convoluted tubules yaani kidney की छानने वाली इकाई में शुरुआती घुमावदार नली का हिस्सा · image: शुरुआत के पास मुड़ी हुई पतली नली
+    - glandular ducts yaani glands का बनाया substance ले जाने वाली नलियाँ · image: टंकी से पानी ले जाती पाइप
+    - kyon: Kidney tubules need to recover useful substances from tubular fluid. _[standard]_ → An absorptive lining with microvilli provides more surface for this exchange. _[standard]_
+    - example / jagah: Zoom into a kidney tubule rather than the kidney's filtering capsule.
+    - aage: Different parts of the same organ can have different epithelial types.
+    - screen par: Enlarge the surface with tiny projections and move substances across.
+    - is level ke liye: Microvilli mainly increase surface area; cilia mainly move material along a surface.
+  - prerequisites: kidney tubule; absorption; secretion; surface area
+- **p003-i17** · table_row · structure · both · exam high
+  - Types of Epithelial Tissue: Simple Columnar Epithelium | Location: Digestive tract and upper respiratory tract lining | Structure: A single layer of columnar cells (tall and slender) and often ciliated | Function: Protection, absorption, mucus secretion and movement in a specific direction
+    - what: What does columnar mean in this row? → The cells are tall and slender and are arranged in a single layer; the row also describes them as often ciliated.
+    - where: Which locations are listed? → The digestive tract and upper respiratory tract lining.
+    - what: What functions are listed? → Protection, absorption, mucus secretion and movement in a specific direction.
+      - how: How can cilia produce directional movement? → Their coordinated beating moves material over the epithelial surface, such as mucus carrying trapped particles. _(outside the book)_
+      - exception: Should all these locations and functions be assigned to every columnar lining? → No. Many digestive columnar linings are non-ciliated, and much of the upper respiratory lining is pseudostratified ciliated columnar. Shape, ciliation and number of layers must be checked separately. _(outside the book)_
+  - **khola (unpack):**
+    - slender yaani yaani लंबा और पतला · image: building का pillar: लंबा, पतला, सीधा खड़ा
+    - mucus yaani सतह को ढकने वाला चिपचिपा substance · image: नाक का चिपचिपा substance जो धूल पकड़ता है
+    - absorption yaani सतह के पार उपयोगी चीज़ों को अंदर लेना · image: आँत खाने से पोषक चीज़ें अंदर लेती है
+    - kyon: Some linings need to absorb substances or clear material lying on them. _[standard]_ → Absorptive specialisations and, where present, beating cilia meet these different needs. _[standard]_
+    - example / jagah: Link food absorption to the intestine and mucus clearance to air passages.
+    - aage: One shape category can carry different surface specialisations and jobs.
+    - screen par: Raise tall cells, release mucus and sweep it along.
+    - is level ke liye: Keep columnar shape distinct from ciliated surface and pseudostratified arrangement.
+  - prerequisites: single cell layer; digestive tract; respiratory tract; mucus
+- **p003-i18** · table_row · structure · both · exam high
+  - Types of Epithelial Tissue: Stratified Squamous Epithelium | Location: The lining of the mouth and vagina | Structure: Made up of several layers of cells, continuously sloughed off and regenerated. The older layer of cells is pushed upwards and becomes flat. The lower layer is columnar and metabolically active | Function: Protection
+    - what: How are the cell layers arranged and renewed? → Several layers are present. A lower columnar, metabolically active layer lies below older cells that move upwards and flatten; surface cells are shed and replaced.
+    - where: Which protective linings are listed? → The mouth and vagina.
+      - why: Why do several layers suit these locations? → These surfaces experience friction. Multiple layers allow superficial wear without immediately exposing the deeper tissue. _(outside the book)_
+      - how: How does regeneration maintain protection? → Cell division in the deeper layer supplies replacements as older surface cells are lost, maintaining the barrier despite wear. _(outside the book)_
+      - difference: Why is it squamous even though the lower layer is columnar? → Stratified epithelial types are named by the surface-cell shape; flat upper cells determine the squamous designation. _(outside the book)_
+  - **khola (unpack):**
+    - sloughed off yaani ऊपर की पुरानी cells का झड़ जाना · image: घिसी ऊपरी परत का उतरना
+    - regenerated yaani नई cells बनकर खोई परत की जगह भरना · image: घिसे हिस्से की लगातार मरम्मत
+    - metabolically active yaani जीवित कामों के लिए substances और energy का सक्रिय इस्तेमाल करने वाली · image: मरम्मत के लिए चालू कार्यशाला
+    - kyon: Friction can wear away cells on exposed linings. _[standard]_ → Several layers and replacement from below maintain protection as surface cells are lost. _[standard]_
+    - example / jagah: Feel food rubbing against the inner cheek to understand why mouth lining needs protection.
+    - aage: Protection depends on both layering and renewal, not simply on flat shape.
+    - screen par: Push new cells upward, flatten them and shed the top cells.
+    - is level ke liye: Compare simple squamous exchange with stratified squamous protection.
+  - prerequisites: cell layers; cell division; friction; surface versus basal layer
+- **p003-i19** · table_row · structure · both · exam high
+  - Types of Epithelial Tissue: Stratified Cuboidal | Location: Mammary glands, sweat gland and salivary glands | Structure: The upper layer is cuboid and other layers may be cuboidal or other types | Function: Protection of ducts of various glands
+    - what: What cell arrangement identifies stratified cuboidal epithelium? → There are multiple layers, with cuboid cells in the upper layer; deeper layers may be cuboidal or of other types.
+    - where: Which glands are associated with it? → Mammary glands, sweat gland and salivary glands are listed, with protection of gland ducts as the function.
+      - why: Why is the duct distinction important? → A gland contains secretory regions and channels carrying the secretion. Naming a tissue in its ducts does not mean that the entire gland has the same lining. _(outside the book)_
+      - how: How does stratification relate to its stated role? → Additional cell layers strengthen a duct's protective lining compared with a single-layer arrangement. _(outside the book)_
+  - **khola (unpack):**
+    - Mammary glands yaani स्तन में दूध बनाने वाली glands · image: बच्चे को दूध पिलाना
+    - ducts yaani gland का substance आगे ले जाने वाले रास्ते · image: घर में पानी पहुँचाती पाइप
+    - kyon: A gland's secretion needs a protected passage to travel through. _[standard]_ → Stratified cuboidal epithelium protects ducts of various glands. _[book]_
+    - example / jagah: Follow sweat from its gland through the duct towards the skin surface.
+    - aage: The same cuboidal shape can occur in single-layer absorptive tissue or multilayered protective ducts.
+    - screen par: Wrap a gland duct in layered cube-like cells.
+    - is level ke liye: Contrast simple cuboidal kidney tubules with stratified cuboidal gland ducts.
+  - prerequisites: gland and duct; cuboidal shape; multiple layers
+- **p003-i20** · table_row · structure · both · exam high
+  - Types of Epithelial Tissue: Stratified Columnar | Location: Male urethra and lobar ducts of salivary glands | Structure: There is a layer of columnar cells present on squamous, columnar or cuboidal epithelial cells | Function: Protection and secretion
+    - what: What makes this epithelium stratified columnar? → A columnar cell layer lies above other epithelial cells, which the page says may be squamous, columnar or cuboidal.
+    - where: Which locations are given? → The male urethra and lobar ducts of salivary glands.
+    - what: Which functions are paired? → Protection and secretion.
+      - how: How should it be distinguished from simple columnar tissue? → Simple columnar has one cell layer. Stratified columnar has surface columnar cells above additional cells, so layer count must be checked as well as shape. _(outside the book)_
+      - why: Why should 'male urethra' not become a claim about its entire length? → Epithelial linings can change along a passage. Stratified columnar occurs in parts of the male urethra, not as a uniform lining of every part. _(outside the book)_
+  - **khola (unpack):**
+    - Male urethra yaani पुरुष शरीर में पेशाब को बाहर ले जाने वाला रास्ता · image: मूत्राशय से बाहर की ओर जाती निकास नली
+    - lobar ducts yaani gland के बड़े हिस्सों से substance ले जाने वाली नलियाँ · image: छोटी शाखाओं से पानी जुटाती बड़ी पाइप
+    - kyon: Some passages require a protective lining with secretory functions. _[standard]_ → The table associates layered columnar tissue with protection and secretion. _[book]_
+    - example / jagah: Trace saliva through larger gland ducts towards the mouth.
+    - aage: Layer number and upper-cell shape jointly organise the epithelial classification.
+    - screen par: Place tall surface cells above deeper layers.
+    - is level ke liye: Use two questions for identification: how many layers, and what shape at the surface?
+  - prerequisites: urethra as the outlet passage for urine; salivary gland duct; columnar shape; multiple layers
+
+## Page 4 · passed after 2 round(s)
+
+Three epithelial types are compared by location, structure and function. Seven drawings illustrate epithelial arrangements. Connective tissues bind, support and pack organs, with loosely spaced cells embedded in matrices of varying consistency.
+
+- **p004-i1** · table · comparison · both
+  - Continued epithelial-tissue table: three rows for Pseudo-stratified Columnar, Keratinised, and Transitional epithelia or urothelium. Inferred columns: Type | Location | Structure | Function.
+- **p004-i2** · table_row · comparison · both · exam high
+  - Type: Pseudo-stratified Columnar | Location: Respiratory passage and ducts of many glands | Structure: Similar to columnar epithelium but all the cells are not of similar height | Function: Protection, secretion and movement of mucous [mucus].
+    - compare: How does this row compare pseudostratified with columnar epithelium? → It retains a columnar-like appearance, but the cells do not have similar heights.
+    - difference: What is the distinction between pseudostratified and genuinely stratified epithelium? → Pseudostratified epithelium is one layer whose differing cell heights and nuclear levels suggest several layers; genuinely stratified epithelium has multiple cell layers. In pseudostratified epithelium, the cells contact the basement membrane although some do not reach the free surface. _(outside the book)_
+    - where: Where does the book locate it and what jobs does it list? → In respiratory passages and ducts of many glands, with protection, secretion and mucus movement as listed functions.
+      - how: How does the respiratory example link secretion to protection? → Mucus traps inhaled particles, while cilia in ciliated respiratory epithelium move the mucus toward the throat. This is a respiratory example, not a claim that every pseudostratified lining has cilia. _(outside the book)_
+  - **khola (unpack):**
+    - Pseudo-stratified Columnar yaani लंबे cells की ऐसी lining जो कई परतों जैसी दिखती है · image: अलग ऊँचाई के लोग एक ही कतार में खड़े हों
+    - mucous [mucus] yaani चिपचिपा substance जो धूल पकड़ सकता है · image: नाक में जमा चिपचिपा substance
+    - kyon: Airways need protection from inhaled particles. _[standard]_ → Mucus traps particles and respiratory cilia help carry this material away. _[standard]_
+    - example / jagah: Respiratory passages, linked to mucus clearance from the airway.
+    - aage: Uneven cell heights must not be mistaken for multiple true layers.
+    - screen par: Trace the cell bases, then sweep trapped particles along the surface.
+    - is level ke liye: Use location–function matching and the pseudo-versus-true-stratified distinction.
+  - prerequisites: epithelium as a lining; cell height and nucleus; single versus multiple cell layers
+- **p004-i3** · table_row · structure · both · exam high
+  - Type: Keratinised | Location, as printed: The outer or apical layer of the cell | Structure: Mostly dead and devoid of nucleus and cytoplasm. The cytoplasm gets replaced by keratin, which makes the layer waterproof | Function: Protection against abrasion.
+    - what: What characterises the keratinised layer in this row? → The outer cells are described as mostly dead, lacking nucleus and cytoplasm, with keratin replacing the cytoplasm and making the layer waterproof.
+    - where: What location wording does the book provide? → It prints 'The outer or apical layer of the cell' rather than naming an organ.
+      - where: How should a learner understand the location biologically? → Keratinisation concerns the superficial cells of an epithelial tissue; the skin's epidermis is the familiar example. It is not a separate outer tissue layer inside an individual cell. _(outside the book)_
+      - why: Why is keratinisation useful at an exposed surface? → A tough keratin-rich outer covering resists rubbing and reduces water loss. The protection belongs to the surface layer, not to a claim that the entire epithelium is dead. _(outside the book)_
+  - **khola (unpack):**
+    - Keratinised yaani ऊपर keratin की मजबूत सुरक्षा परत बनी हो · image: त्वचा की बाहर वाली सूखी परत
+    - abrasion yaani रगड़ से सतह का घिसना · image: जूते की रगड़ एड़ी पर लगना
+    - apical yaani lining की खुली तरफ वाला सिरा · image: चादर की ऊपर दिखती तरफ
+    - kyon: An exposed body surface faces rubbing and water loss. _[standard]_ → A keratin-rich superficial covering provides a tough, water-resistant barrier. _[standard]_
+    - example / jagah: Outside explanation: epidermis of skin.
+    - aage: Structure explains abrasion protection and the book's waterproof description.
+    - screen par: Build a tough outer covering and rub across it.
+    - is level ke liye: Flag the printed location wording; use water-resistant when explaining the biology.
+  - prerequisites: cell nucleus and cytoplasm; outer surface of a tissue
+- **p004-i4** · table_row · structure · both · exam high
+  - Type: Transitional epithelia or urothelium | Location: Urinary bladder, urethra, ureter | Structure: Stratified epithelium, which can contract or expand as per the requirement. Cells are cuboidal when not stretched, but when the organ stretches, then tissue gets compressed and cells appear irregular and squamous-shaped | Function: Stretch readily to accommodate the different volume of liquids. Act as a barrier and have tight junctions to prevent reabsorption of toxic substances.
+    - what: What is transitional epithelium? → Also called urothelium, it is a stratified lining that can expand or contract and change its apparent cell shape with stretching.
+    - where: Which sites does this table list? → Urinary bladder, urethra and ureter.
+      - when: When does its appearance change? → Without stretching, cells are described as cuboidal; when the organ stretches, the tissue becomes compressed and cells appear irregular and squamous-shaped.
+      - how: How does its structure meet the functions listed? → It stretches to accommodate different liquid volumes, while its barrier and tight junctions prevent reabsorption of toxic substances.
+        - why: Why must a bladder lining combine flexibility with a barrier? → The bladder fills and empties, so its lining must tolerate changing size without allowing urine constituents to leak readily back into surrounding tissue. _(outside the book)_
+      - exception: Does the table's reference to urethra mean its entire length is urothelium? → No. Urothelium occurs in the proximal urethral region; other epithelial types line more distal regions. The table's site list is simplified. _(outside the book)_
+  - **khola (unpack):**
+    - urothelium yaani urinary tract के कुछ हिस्सों की फैल सकने वाली lining · image: पेशाब भरने पर bladder का फैलना
+    - tight junctions yaani पास के cells के बीच कसकर बंद जोड़ · image: डिब्बे के ढक्कन की बंद सील
+    - squamous-shaped yaani चपटे आकार के · image: फर्श की पतली टाइल
+    - kyon: The urinary bladder must hold changing volumes of urine. _[standard]_ → A stretchable lining accommodates volume changes while sealed cell contacts help maintain the barrier. _[standard]_
+    - example / jagah: Bladder filling between visits to the toilet; ureter carries urine toward it.
+    - aage: Shape can change without loss of the tissue's protective role.
+    - screen par: Expand the organ, flatten the surface cells and keep their joins sealed.
+    - is level ke liye: Separate ureter from urethra and avoid interpreting the site list as every part of the urethra.
+  - prerequisites: stratified epithelium; urine and urinary bladder; cuboidal and squamous cell shapes
+- **p004-i5** · diagram · figure · image · exam high
+  - Seven separate epithelial block drawings compare cell shape and layering: Simple squamous, Simple cuboidal, Simple columnar, Stratified squamous, Stratified cuboidal, Pseudostratified columnar and Transitional. The first three show single layers of flat, cube-like and tall cells; stratified drawings show multiple layers; pseudostratified shows nuclei at differing heights; transitional shows multiple layers with rounded superficial cells. No arrows or sequential flow are present.
+    - what: What does this figure make visible? → It places seven epithelial forms side by side so cell shape and number or apparent number of layers can be inspected.
+    - which: Which drawings show the simple epithelial types? → Simple squamous, simple cuboidal and simple columnar are shown as single-layer sheets differing in cell shape.
+      - how: How should an unfamiliar epithelial drawing be identified? → First inspect whether it has one true layer or several, then inspect the shape of surface cells. Uneven nuclear heights alone cannot prove true stratification. _(outside the book)_
+  - **khola (unpack):**
+    - Simple yaani cells की एक परत · image: एक तह में बिछी टाइलें
+    - Stratified yaani cells की कई परतें · image: एक के ऊपर एक रखी चादरें
+    - kyon: Similar-looking tissue names can be confused unless their shapes are seen. _[standard]_ → Count true layers and inspect surface-cell shape to distinguish the drawings. _[standard]_
+    - example / jagah: The seven adjacent drawings on this page.
+    - aage: Provides a visual reference for the table above.
+    - screen par: Outline layers, then highlight surface-cell shapes.
+    - is level ke liye: Do not infer cell-layer count merely from nuclear rows.
+  - prerequisites: cell outlines and nuclei; single versus multiple layers
+- **p004-i6** · diagram_label · figure · image · exam high
+  - Simple squamous: label beneath a single thin sheet of flattened cells.
+    - what: What does this labelled drawing show? → A thin, single sheet of flattened cells.
+    - which: Which visual feature identifies it among the simple types? → Its cells are flat rather than cube-like or tall.
+      - why: Why can a thin epithelial sheet aid exchange? → A thin barrier shortens the distance substances cross, helping diffusion in suitable exchange surfaces. _(outside the book)_
+  - **khola (unpack):**
+    - squamous yaani चपटा और पतला · image: फर्श की टाइल
+    - kyon: Exchange needs a short crossing distance; a thin cell sheet provides one. _[standard]_
+    - example / jagah: Outside example: lung alveolar lining.
+    - aage: Connect thinness with exchange, not with multiple protective layers.
+    - screen par: Flatten a single row of cells.
+    - is level ke liye: Recognise shape and layer count together.
+  - prerequisites: cell shape; one cell layer
+- **p004-i7** · diagram_label · figure · image · exam high
+  - Simple cuboidal: label beneath one layer of cube-like cells with visible nuclei.
+    - what: What arrangement is pictured? → A single layer of roughly cube-like cells.
+    - which: Which feature distinguishes it from simple columnar? → The cells are about as high as they are wide instead of being distinctly tall. _(outside the book)_
+      - how: How does this shape support cellular work? → Compared with very thin squamous cells, cube-like cells have more space for the machinery involved in secretion and absorption. _(outside the book)_
+  - **khola (unpack):**
+    - cuboidal yaani लगभग घन जैसे आकार का · image: पासा
+    - kyon: Secretion and absorption need working cell contents; cube-like cells provide space for them. _[standard]_
+    - example / jagah: Outside example: kidney tubules.
+    - aage: Cell shape supplies a second identification clue after layer count.
+    - screen par: Arrange cubes in one row.
+    - is level ke liye: Avoid calling a two-layer drawing simple cuboidal.
+  - prerequisites: cell nucleus; one cell layer
+- **p004-i8** · diagram_label · figure · image · exam high
+  - Simple columnar: label beneath one layer of tall, pillar-like cells.
+    - what: What does the label identify? → A single layer of tall cells with elongated vertical outlines.
+    - which: Which pictured simple type has pillar-like cells? → Simple columnar, rather than the flat squamous or cube-like cuboidal drawing.
+      - how: How can it be separated from pseudostratified columnar? → The simple columnar drawing shows a regular row of tall cells, while pseudostratified has a misleading layered appearance from unequal cell heights and nuclear levels. _(outside the book)_
+  - **khola (unpack):**
+    - columnar yaani खंभे जैसा लंबा · image: इमारत का खंभा
+    - kyon: A lining may need active absorption or secretion; tall cells provide room for that machinery. _[standard]_
+    - example / jagah: Outside example: intestinal lining.
+    - aage: Tall shape and a single layer are independent identifying features.
+    - screen par: Raise one row of pillars.
+    - is level ke liye: Compare with pseudostratified rather than counting nuclei alone.
+  - prerequisites: cell height; single cell layer
+- **p004-i9** · diagram_label · figure · image · exam high
+  - Stratified squamous: label beneath a thick, multilayered block whose superficial cells are flattened.
+    - what: What two features does the drawing combine? → Several cell layers and flattened cells at the free surface.
+    - which: Which cells determine the squamous name in stratified epithelium? → The superficial cells determine the shape name; deeper cells need not share their flattened appearance. _(outside the book)_
+      - why: Why are multiple layers useful where rubbing occurs? → They form a protective depth, so surface wear does not immediately expose the underlying tissue. _(outside the book)_
+  - **khola (unpack):**
+    - Stratified squamous yaani कई परतों वाली lining जिसके ऊपर के cells चपटे हों · image: कई तहों की गद्दी पर चपटी ऊपरी चादर
+    - kyon: Surfaces exposed to friction need protection; several layers provide protective depth. _[standard]_
+    - example / jagah: Outside example: lining of the mouth.
+    - aage: Protection can be inferred from layering without assuming every layer has flat cells.
+    - screen par: Stack layers and flatten the top.
+    - is level ke liye: The drawing alone does not establish keratinisation.
+  - prerequisites: surface versus deeper cells; multiple layers
+- **p004-i10** · diagram_label · figure · image · exam high
+  - Stratified cuboidal: label beneath two visible layers of cube-like cells.
+    - what: What arrangement does the drawing display? → Two visible cell layers with cube-like surface cells.
+    - which: Which clue separates it from simple cuboidal? → The additional layer: the simple cuboidal drawing has one layer.
+      - why: Why inspect surface shape as well as layer count? → Layer count distinguishes simple from stratified, while surface-cell shape distinguishes stratified cuboidal from other stratified epithelia. _(outside the book)_
+  - **khola (unpack):**
+    - Stratified cuboidal yaani कई परतों वाली lining जिसके ऊपर के cells घन जैसे हों · image: पासों की दो कतारें एक के ऊपर एक
+    - kyon: A duct lining may need protection; multiple layers add protective depth. _[standard]_
+    - example / jagah: Outside example: ducts of sweat glands.
+    - aage: Same cell shape does not mean the same epithelial type if layer count differs.
+    - screen par: Stack two rows of cubes.
+    - is level ke liye: The figure shows two layers; do not turn that into a universal layer-number rule.
+  - prerequisites: cube-like shape; single versus multiple layers
+- **p004-i11** · diagram_label · figure · image · exam high
+  - Pseudostratified columnar: label beneath tall cells with nuclei at different heights, producing an apparently layered pattern.
+    - what: What visual pattern does this drawing emphasise? → Tall cells contain nuclei at different levels rather than in one neat horizontal row.
+    - which: Which upper-table row corresponds to this drawing? → Pseudo-stratified Columnar, described there as having unequal cell heights.
+      - why: Why is the apparent layering misleading? → Cells can share contact with one basement membrane while their nuclei occupy different heights; apparent nuclear rows are not separate true layers. _(outside the book)_
+  - **khola (unpack):**
+    - Pseudostratified yaani कई परतों जैसा दिखे, पर असल में वैसा न हो · image: एक कतार में खड़े अलग कद के लोगों के सिर अलग ऊँचाई पर दिखना
+    - kyon: Uneven nuclear heights can mislead the viewer; tracing cell bases resolves the apparent layering. _[standard]_
+    - example / jagah: Respiratory passage, as listed in the table.
+    - aage: Links the table's unequal heights to a visible recognition clue.
+    - screen par: Highlight staggered nuclei and trace cells to their base.
+    - is level ke liye: Pseudo means apparent, not genuinely multilayered.
+  - prerequisites: nucleus; basement membrane; true versus apparent layers
+- **p004-i12** · diagram_label · figure · image · exam high
+  - Transitional: label above a multilayered block with large rounded superficial cells over smaller underlying cells.
+    - what: What is visible in the transitional drawing? → Several cell layers with broad, rounded cells at the upper surface.
+    - which: Which table entry explains this labelled drawing? → Transitional epithelia or urothelium, the stretchable urinary-tract lining.
+      - how: How would this appearance change during stretching? → The table explains that the tissue becomes compressed and cells appear irregular and squamous-shaped.
+  - **khola (unpack):**
+    - Transitional yaani खिंचाव के साथ आकार बदलने वाली lining · image: bladder भरने पर अंदर की परत का फैलना
+    - kyon: Changing urine volume requires a lining that can accommodate expansion. _[standard]_ → The table links stretching with a flatter cell appearance. _[book]_
+    - example / jagah: Urinary bladder.
+    - aage: One static drawing must be linked to the changing shape described above.
+    - screen par: Morph rounded surface cells into flatter cells.
+    - is level ke liye: Do not reclassify the stretched tissue as simple squamous.
+  - prerequisites: multiple layers; bladder stretching
+- **p004-i13** · heading · none · both
+  - Connective Tissues
+- **p004-i14** · list_point · structure · both · exam high
+  - Connects body parts
+    - what: What role is introduced here? → Connective tissue links body parts so they can form an organised body rather than remain separate structures. _(outside the book)_
+    - where: Where can this connecting role be seen? → Tendons connect muscles to bones, while ligaments connect bones to other bones. _(outside the book)_
+      - how: How does a connecting tissue transmit a pull? → Its strong extracellular fibres carry tension between the attached structures, as when a tendon transfers muscle pull to bone. _(outside the book)_
+  - **khola (unpack):**
+    - Connective Tissues yaani शरीर के हिस्सों को जोड़ने और सहारा देने वाले tissues · image: कपड़े के हिस्सों को जोड़ती सिलाई
+    - kyon: Body parts need attachments to function together. _[standard]_ → Connective tissue supplies such connections. _[book]_
+    - example / jagah: Outside example: tendon between muscle and bone.
+    - aage: Introduces a supporting and linking role distinct from a surface lining.
+    - screen par: Join two body parts with a connective band.
+    - is level ke liye: Keep tendon and ligament attachments distinct.
+  - prerequisites: body parts and organs; tissue as a group of cells
+- **p004-i15** · list_point · cause_effect · both · exam high
+  - Prevents organs from getting displaced by body movement.
+    - why: Why do organs need support during body movement? → Walking, bending and other movements exert forces on internal structures, so organs need attachments and supporting tissue to limit unwanted shifting. _(outside the book)_
+      - how: How does connective tissue help? → It provides a supportive framework and attachments that hold organs in their anatomical relationships while permitting normal movement. _(outside the book)_
+    - what: What outcome does the book state? → It prevents organs from being displaced by body movement.
+  - **khola (unpack):**
+    - displaced yaani अपनी जगह से खिसक जाना · image: चलते बैग में बिना सहारे रखी बोतल का खिसकना
+    - kyon: Body movement could shift unsupported organs. _[standard]_ → Connective-tissue support limits such displacement. _[book]_
+    - example / jagah: Internal organs remaining supported while a person walks.
+    - aage: Connective tissue stabilises without requiring organs to be motionless.
+    - screen par: Move the body while supporting bands keep organs positioned.
+    - is level ke liye: Avoid reading 'prevents' as forbidding normal organ movement.
+  - prerequisites: organs occupy particular body locations; body movement creates forces
+- **p004-i16** · list_point · structure · both · exam high
+  - Acts like binding, supporting and packing material.
+    - what: How do binding, supporting and packing differ? → Binding links structures, supporting helps maintain their position or shape, and packing fills spaces around or between structures. _(outside the book)_
+    - where: Where can this packing role be visualised? → Loose connective tissue occurs beneath the skin and around structures such as vessels and nerves. _(outside the book)_
+      - how: How can a tissue provide these roles without being a solid block of cells? → Its cells occupy an extracellular material containing fibres and ground substance; that material can link, support and fill spaces. _(outside the book)_
+  - **khola (unpack):**
+    - binding yaani हिस्सों को जोड़कर रखना · image: गठरी को बाँधती डोरी
+    - packing material yaani बीच की जगह भरकर सहारा देने वाला substance · image: डिब्बे में सामान के आसपास रखी गद्दी
+    - kyon: Body structures need connections, support and filled intervening spaces. _[standard]_ → Connective tissues serve as binding, supporting and packing material. _[book]_
+    - example / jagah: Outside example: loose connective tissue beneath skin.
+    - aage: Prepares the learner to understand why material between cells matters.
+    - screen par: Bind, brace and fill spaces around structures.
+    - is level ke liye: Link function to the matrix described in the next bullets.
+  - prerequisites: spaces between body structures; support and attachment
+- **p004-i17** · list_point · structure · both · exam high
+  - Cells are loosely spaced.
+    - what: What does loosely spaced mean here? → The cells are separated rather than forming a tightly packed continuous sheet. _(outside the book)_
+    - where: Where is the intervening material located? → Between the cells; the next bullet identifies it as intercellular matrix in which the cells are embedded.
+      - why: Why is loose spacing not the same as useless empty space? → The intervening matrix performs much of the tissue's supporting and mechanical work, so the non-cellular part is functional material. _(outside the book)_
+  - **khola (unpack):**
+    - loosely spaced yaani cells एक-दूसरे से कुछ दूरी पर हों · image: जेली में दूर-दूर रखे फल के टुकड़े
+    - kyon: A supporting tissue needs useful material between its cells. _[standard]_ → Connective cells are spaced within matrix rather than forming a packed surface sheet. _[standard]_
+    - example / jagah: A schematic connective tissue with cells separated by matrix.
+    - aage: Loose spacing leads directly to the importance of intercellular matrix.
+    - screen par: Separate cells and reveal material filling the gaps.
+    - is level ke liye: Loose spacing is an arrangement, not a claim that all connective tissue is soft.
+  - prerequisites: cell boundaries; epithelial sheets
+- **p004-i18** · list_point · structure · both · exam high
+  - Cells are embedded in an intercellular matrix.
+    - what: What is intercellular matrix? → It is material outside and between cells, rather than the cytoplasm inside a cell. _(outside the book)_
+    - where: Where are the cells relative to this matrix? → The cells are embedded within it, so the matrix surrounds and separates them.
+      - how: How does matrix contribute to connective-tissue function? → Its composition and fibres influence strength, flexibility and consistency, helping explain how different connective tissues support or connect structures. _(outside the book)_
+  - **khola (unpack):**
+    - intercellular matrix yaani cells के बाहर और उनके बीच भरा substance · image: फल के टुकड़ों को चारों तरफ से घेरे जेली
+    - kyon: Separated cells need a surrounding material that helps the tissue function. _[standard]_ → The cells are embedded in matrix, whose properties help determine the tissue's behaviour. _[standard]_
+    - example / jagah: Connective tissue: zoom from several spaced cells to the material around them.
+    - aage: The matrix can differ greatly in consistency, as the next bullet states.
+    - screen par: Highlight the material around cells while leaving their interiors uncoloured.
+    - is level ke liye: Intercellular means between cells, not inside them.
+  - prerequisites: inside versus outside a cell; cytoplasm; cell spacing
+- **p004-i19** · list_point · classification · both · exam high
+  - Matrix may be jelly, fluid, dense or rigid.
+    - which: Which matrix consistencies are listed? → Jelly-like, fluid, dense and rigid forms are listed as possible matrix states.
+    - difference: How do these descriptions differ? → A fluid can flow; a jelly-like material is soft and gel-like; a dense matrix is closely packed with material such as fibres; a rigid matrix strongly resists deformation. These are descriptive properties rather than necessarily mutually exclusive formal classes. _(outside the book)_
+      - why: Why can one tissue family have such different consistencies? → Its members perform different jobs: a flowing medium enables transport, while a rigid material provides firm support. Matrix composition varies accordingly. _(outside the book)_
+      - where: What familiar examples clarify fluid, dense and rigid matrix? → Blood has fluid plasma, tendons have dense fibrous matrix, and bone has rigid mineralised matrix. _(outside the book)_
+  - **khola (unpack):**
+    - dense yaani जिसमें substance या fibres पास-पास और खूब हों · image: कसकर बुनी रस्सी
+    - rigid yaani जो आसानी से मुड़े या दबे नहीं · image: हड्डी की सख्ती
+    - kyon: Transport and firm support require different physical properties. _[standard]_ → Differences in matrix composition allow connective tissues to meet these different needs. _[standard]_
+    - example / jagah: Outside examples: blood plasma, tendon and bone.
+    - aage: Shared connective-tissue organisation does not imply identical consistency.
+    - screen par: Flow, wobble, pull and resist bending in four contrasting panels.
+    - is level ke liye: Use examples as explanatory additions, not as examples explicitly printed on this page.
+  - prerequisites: intercellular matrix; solid versus liquid; support versus transport
+- **p004-i20** · list_point · definition · both · exam high
+  - Connective tissues, support and connect different tissues and organs of the body.
+    - what: What overall identity does this statement give connective tissues? → It identifies them by their support and connection of other tissues and organs.
+    - evidence: Which earlier statements on this page support that description? → The earlier bullets describe connecting body parts, limiting organ displacement, and acting as binding, supporting and packing material.
+      - how: How does the matrix connect this definition to tissue structure? → The material surrounding connective-tissue cells supplies much of the physical framework through which support and attachment are achieved. _(outside the book)_
+  - **khola (unpack):**
+    - support yaani हिस्सों को टिके रहने और आकार बनाए रखने में मदद देना · image: किसी सामान को थामता ढाँचा
+    - kyon: Different organs and tissues need stable relationships within the body. _[standard]_ → Connective tissues provide support and connections between them. _[book]_
+    - example / jagah: Recall the supported organs and connected body parts in the preceding bullets.
+    - aage: Combines the functional bullets into the identity of this tissue group.
+    - screen par: Link tissues and organs into one supported arrangement.
+    - is level ke liye: A shared function does not imply one identical matrix across the family.
+  - prerequisites: tissues combine into organs; intercellular matrix
+- **p004-i21** · heading · none · both
+  - Connective tissue is made up of :-
+
+## Page 5 · passed after 2 round(s)
+
+Connective tissue has relatively few cells in an extracellular framework. Collagen provides tensile strength, elastic fibres stretch and recoil, and reticulate fibres form a delicate connecting network. Muscle tissue contains elongated fibres with contractile proteins and is classified as skeletal, smooth and cardiac. Skeletal muscle has long, cylindrical, unbranched, multinucleated, striated fibres attached to bones; it supports movement and posture.
+
+- **p005-i1** · list_point · structure · both · exam high
+  - Few cells present in the intercellular framework
+    - what: What is the basic arrangement described here? → Cells are relatively sparse within a framework between them, rather than forming a tightly packed sheet.
+    - where: Where is the intercellular framework? → It occupies the spaces between connective-tissue cells. _(outside the book)_
+      - why: Why is the material between cells important? → Connective tissue must support and bind body parts; much of its mechanical behaviour comes from extracellular material rather than cell packing. _(outside the book)_
+  - **khola (unpack):**
+    - intercellular framework yaani cells के बीच का सहारा देने वाला ढाँचा · image: जाल में दूर-दूर फँसे छोटे दाने
+    - kyon: Body parts need support and binding. _[standard]_ → A substantial framework between cells helps supply that support. _[standard]_
+    - example / jagah: The upper-right connective-tissue diagram shows cells scattered among fibres.
+    - aage: To understand connective tissue, examine the matrix as well as its cells.
+    - screen par: Separate the cells and reveal the intervening framework.
+    - is level ke liye: Statement questions may confuse abundant matrix with abundant closely packed cells.
+  - prerequisites: cell; tissue; space between cells
+- **p005-i2** · list_point · structure · both · exam high
+  - The cells also secrete a thin gel of polysaccharides, which together with fibres make matrix or ground substance.
+    - what: What materials does the book place in the framework? → It describes a cell-secreted polysaccharide gel together with fibres as making the matrix or ground substance.
+    - where: Where are these secreted materials located? → They lie outside the cells, in the intervening extracellular space. _(outside the book)_
+      - how: How should matrix and ground substance be distinguished precisely? → Extracellular matrix includes fibres plus ground substance. Ground substance is the hydrated, non-fibrous material around cells and fibres; the two terms are not exact synonyms. _(outside the book)_
+      - why: Why is a gel useful here? → A hydrated gel fills spaces and permits dissolved substances to move between cells and their surroundings, while fibres provide mechanical support. _(outside the book)_
+  - **khola (unpack):**
+    - polysaccharides yaani बहुत-सी sugar इकाइयों से बनी लंबी लड़ियाँ · image: कई मोतियों को जोड़कर बनी माला
+    - ground substance yaani cells और fibres के बीच का पानी वाला gel-जैसा substance · image: जेली में फँसे धागे
+    - kyon: Spaces between cells need a supporting, hydrated medium. _[standard]_ → Secreted ground substance fills these spaces, while fibres reinforce the extracellular matrix. _[standard]_
+    - example / jagah: The pale background surrounding the fibres in the connective-tissue figure.
+    - aage: Connective tissue includes both a gel-like component and fibrous reinforcement.
+    - screen par: Fill spaces with gel, then overlay fibres.
+    - is level ke liye: Matrix = ground substance plus fibres is the useful standard distinction.
+  - prerequisites: cell secretion; extracellular space; carbohydrates
+- **p005-i3** · list_point · cause_effect · both · exam high
+  - Protein fibres secreted by the cells, known as collagen or elastin. The elasticity, flexibility and strength of the connective tissues are due to fibres.
+    - why: Why does the book connect tissue properties to fibres? → It attributes connective-tissue elasticity, flexibility and strength to the protein fibres secreted by cells.
+    - how: How can different fibres produce different mechanical properties? → Collagen-rich fibres resist pulling, whereas elastic fibres allow stretching followed by recoil. Their proportions and arrangement influence tissue behaviour. _(outside the book)_
+      - difference: How do elasticity and flexibility differ? → Flexibility means being able to bend without breaking; elasticity means returning towards the original shape after a deforming force is removed. _(outside the book)_
+  - **khola (unpack):**
+    - elasticity yaani खींचने के बाद वापस अपनी बनावट में आने की क्षमता · image: खींचा हुआ rubber band छोड़ना
+    - flexibility yaani बिना टूटे मुड़ सकना · image: रस्सी का आसानी से मुड़ना
+    - kyon: Body connections must withstand forces without becoming rigid everywhere. _[standard]_ → Different protein fibres supply strength, flexibility and recoil. _[book]_
+    - example / jagah: A flexible rope and a rubber band illustrate different properties, not identical ones.
+    - aage: The next three bullets distinguish fibre composition and function.
+    - screen par: Pull, bend and release contrasting fibres.
+    - is level ke liye: Compare properties rather than memorising a single list of fibre names.
+  - prerequisites: protein; cell secretion; pulling and stretching
+- **p005-i4** · list_point · structure · both · exam high
+  - Collagen fibres are the most widespread and made up of fibrous protein, collagen. Collagen fibres are flexible and have high tensile strength.
+    - what: What are collagen fibres made of and what properties are stated? → They contain the fibrous protein collagen, are described as the most widespread fibres, and combine flexibility with high tensile strength.
+    - where: Where is collagen illustrated on this page? → The connective-tissue figure labels collagen fibres within the extracellular framework.
+      - how: How can flexibility coexist with high tensile strength? → A fibre can bend yet strongly resist being pulled apart, just as a rope bends readily but withstands tension. _(outside the book)_
+      - where: Where is this property useful in the body? → Collagen-rich tendons transmit muscle pull to bones, while collagen in ligaments helps resist excessive pulling between bones. _(outside the book)_
+  - **khola (unpack):**
+    - tensile strength yaani खींचे जाने पर टूटने का विरोध करने की क्षमता · image: वजन सँभालती मजबूत रस्सी
+    - kyon: Connections in the body experience pulling forces. _[standard]_ → Collagen fibres provide flexible reinforcement with high tensile strength. _[book]_
+    - example / jagah: A tendon transmitting the pull of a muscle to a bone (outside example).
+    - aage: Strong does not necessarily mean rigid or highly elastic.
+    - screen par: Bend a fibre, then pull its ends without breaking it.
+    - is level ke liye: Recognise composition-property matching in statement combinations.
+  - prerequisites: protein; fibre; tension
+- **p005-i5** · list_point · structure · both · exam high
+  - Elastic fibres form a network and can be stretched like a rubber band. They are made up of protein elastin. They retain their original shape and size once the force is removed.
+    - what: What are elastic fibres and how are they arranged? → They are elastin-containing fibres arranged as a network that stretches and returns to its original shape and size when the force is removed.
+    - where: Where does the page show their arrangement? → The upper-right figure labels elastic fibres running among the other connective-tissue components.
+      - how: How does recoil differ from merely resisting a pull? → Recoil restores shape after stretching; tensile resistance prevents a material from being pulled apart. These are different mechanical responses. _(outside the book)_
+      - why: Why is recoil useful? → Structures such as large arteries and lungs repeatedly expand and return towards their resting dimensions, so elastic material helps them recover after deformation. _(outside the book)_
+  - **khola (unpack):**
+    - elastin yaani elastic fibres का protein, जो खिंचने और लौटने में मदद करता है · image: कलाई से उतारकर छोड़ा गया rubber band
+    - kyon: Some body structures must expand repeatedly without remaining stretched. _[standard]_ → Elastic fibres stretch and recover when the force is removed. _[book]_
+    - example / jagah: Large artery walls and lungs (outside examples).
+    - aage: Elastic recoil is not the same as collagen's high tensile strength.
+    - screen par: Stretch the network and release it back.
+    - is level ke liye: Reject statements that assign collagen as the principal protein of elastic fibres.
+  - prerequisites: protein; network; stretching force
+- **p005-i6** · list_point · structure · both · exam high
+  - Reticulate fibres consist of collagen and glycoproteins. They are thin and form a delicate network. They join connective tissues to neighbouring tissues.
+    - what: What composition and arrangement are given for reticulate fibres? → They contain collagen and glycoproteins and form a thin, delicate network.
+    - where: Where does their connecting role operate? → The book places their role at the connection between connective tissue and neighbouring tissues.
+      - how: How does a delicate network provide support? → Many fine interconnecting strands form a supporting mesh, distributing support around cells rather than acting as one thick cord. _(outside the book)_
+      - difference: How does this description differ from the other fibres? → Collagen fibres are emphasised for tensile strength, elastic fibres for stretch and recovery, and reticulate fibres for their delicate connecting network.
+  - **khola (unpack):**
+    - Reticulate fibres yaani पतली fibres जो मिलकर महीन जाल बनाती हैं · image: बारीक जाली के आपस में जुड़े धागे
+    - glycoproteins yaani ऐसे proteins जिनसे sugar के हिस्से जुड़े हों · image: धागे पर लगे छोटे मोती
+    - kyon: Cells and neighbouring tissues need distributed support and connections. _[standard]_ → A delicate network of thin fibres supplies a mesh-like framework. _[standard]_
+    - example / jagah: Reticular supporting networks in lymphoid organs are an outside example.
+    - aage: The three fibre descriptions can be distinguished by both composition and mechanical role.
+    - screen par: Weave fine strands into a mesh joining two regions.
+    - is level ke liye: Reticular is a commonly encountered alternative term; preserve the book's Reticulate.
+  - prerequisites: collagen; protein; network
+- **p005-i7** · diagram · figure · image · exam high
+  - Connective-tissue diagram showing scattered cells embedded among thick collagen fibres, finer elastic fibres and background ground substance. A blood vessel passes through the field. Labels identify a mesenchymal cell, collagen fibers, blood vessel, collagen, ground substance, extracellular matrix, elastic fibers, macrophage and adipocyte (fat cell). The extracellular-matrix annotation groups collagen and ground substance; leader lines identify structures, not a sequence or flow.
+    - what: What overall arrangement does the diagram illustrate? → It shows different cells scattered within a fibrous extracellular framework rather than a continuous sheet of cells.
+    - which: Which parts illustrate the extracellular framework? → The labelled collagen, elastic fibres and ground substance surround the illustrated cells.
+      - how: How should the leader lines and bracket be read? → The lines identify particular structures; the matrix annotation relates extracellular components. They do not indicate movement or stages.
+  - **khola (unpack):**
+    - extracellular matrix yaani cells के बाहर fibres और gel से बना सहारा · image: जेली में बिछे धागों के बीच पड़े दाने
+    - kyon: A list of components does not show their spatial relationship. _[standard]_ → The figure places cells, fibres and ground substance together in one field. _[book]_
+    - example / jagah: Upper-right connective-tissue field.
+    - aage: A fibre is not a cell, and ground substance is not empty space.
+    - screen par: Zoom into the framework and highlight each component.
+    - is level ke liye: The vessel shown here should not be generalised to every connective-tissue subtype.
+  - prerequisites: cell; extracellular matrix; diagram leader line
+- **p005-i8** · diagram_label · figure · image · exam medium
+  - Mesenchymal cell — points to the pale elongated cell near the upper-left edge of the tissue field.
+    - what: What does the mesenchymal-cell label identify? → It identifies a cell within the framework, not one of the long extracellular fibres.
+    - which: Which illustrated structure receives this label? → The pale cell near the top-left of the coloured field.
+      - why: Why distinguish this cell from its surroundings? → Mesenchymal cells are associated with the formation of connective tissues; recognising the cellular component prevents confusing the framework with the cells that occupy it. _(outside the book)_
+  - **khola (unpack):**
+    - Mesenchymal cell yaani connective tissues बनने से जुड़ा शुरुआती तरह का cell · image: निर्माण की जगह पर मौजूद काम करने वाला व्यक्ति, न कि बाहर का ढाँचा
+    - example / jagah: Top-left cell in the figure.
+    - aage: Keep cells and extracellular fibres as separate categories.
+    - screen par: Outline the cell apart from nearby fibres.
+  - prerequisites: cell; extracellular material
+- **p005-i9** · diagram_label · figure · image · exam high
+  - Collagen fibers — leader lines identify the thick, wavy blue-grey fibres crossing the tissue field.
+    - what: What does this label identify? → It identifies collagen fibres within the extracellular framework.
+    - which: Which strands are labelled collagen fibers? → The thicker wavy blue-grey strands indicated by the leader lines.
+      - how: How does the drawing connect to the text? → It gives a visible location to the fibres that the text associates with flexibility and tensile strength.
+  - **khola (unpack):**
+    - example / jagah: Thicker wavy strands in the connective-tissue figure.
+    - aage: These are supporting extracellular strands, not elongated muscle cells.
+    - screen par: Trace a thick strand through the framework.
+    - is level ke liye: Colour is an illustration convention, not a defining biological property.
+  - prerequisites: collagen fibre; diagram leader line
+- **p005-i10** · diagram_label · figure · image · exam medium
+  - Blood vessel — points to the red-orange vessel running along the left side of the tissue field.
+    - what: What is the labelled red-orange structure? → It is the blood vessel shown within this connective-tissue field.
+    - which: Which side of the field contains it? → It runs near the left side of the coloured tissue field.
+      - why: Why is a vessel useful to nearby cells? → Blood supplies oxygen and nutrients, with exchange occurring through vessel walls and the surrounding tissue fluid. _(outside the book)_
+  - **khola (unpack):**
+    - Blood vessel yaani जिस नली में blood बहता है · image: आसपास के घरों तक सामान पहुँचाने वाली सड़क
+    - example / jagah: Red-orange structure at the left of the figure.
+    - aage: The illustrated tissue contains a route for blood supply.
+    - screen par: Follow the vessel beside the fibres.
+    - is level ke liye: Cartilage is an important outside counterexample to universal vascularity.
+  - prerequisites: blood circulation; cell nutrient needs
+- **p005-i11** · diagram_label · figure · image · exam medium
+  - Collagen — identifies the fibrous component included in the extracellular-matrix annotation.
+    - what: What component does this annotation name? → It names collagen as part of the extracellular material represented in the figure.
+    - which: Which larger grouping contains this annotation? → It appears with ground substance in the extracellular-matrix annotation.
+      - how: How does collagen contribute differently from the surrounding gel? → Collagen supplies fibrous tensile reinforcement, whereas ground substance forms the hydrated non-fibrous medium. _(outside the book)_
+  - **khola (unpack):**
+    - example / jagah: Lower-left matrix annotation.
+    - aage: Matrix contains identifiable components rather than being one uniform material.
+    - screen par: Link the collagen annotation to a fibre.
+  - prerequisites: collagen; matrix
+- **p005-i12** · diagram_label · figure · image · exam high
+  - Ground substance — points to background material between the cells and fibres.
+    - what: What does the background represent? → The label identifies ground substance around the other illustrated structures.
+    - which: Which part should not be mistaken for a fibre or a cell? → The intervening background material identified as ground substance.
+      - why: Why should this apparently blank region be noticed? → It is hydrated extracellular material, not an empty gap; it helps form the medium through which dissolved substances move. _(outside the book)_
+  - **khola (unpack):**
+    - example / jagah: Background between strands and cells.
+    - aage: Spaces in tissue drawings may contain functional material.
+    - screen par: Tint the intervening gel without covering the fibres.
+  - prerequisites: ground substance; cell
+- **p005-i13** · diagram_label · figure · image · exam high
+  - Extracellular matrix — annotation groups the collagen and ground-substance components outside the cells.
+    - what: What does extracellular matrix name here? → It names the surrounding material represented through the collagen and ground-substance annotation.
+    - which: Which components are grouped by the annotation? → Collagen and ground substance are explicitly named together.
+      - how: How does 'extracellular' help locate the matrix? → It means outside cells, so the framework must be distinguished from the contents of the cells embedded in it. _(outside the book)_
+  - **khola (unpack):**
+    - Extracellular yaani cell के बाहर का · image: घर के बाहर का साझा रास्ता
+    - example / jagah: The grouped annotation at the lower-left of the figure.
+    - aage: Matrix and cellular contents are different compartments.
+    - screen par: Bracket the outside-cell components.
+  - prerequisites: inside and outside a cell; collagen; ground substance
+- **p005-i14** · diagram_label · figure · image · exam high
+  - Elastic fibers — points to the finer branching fibres in the connective-tissue field.
+    - what: What is named by this label? → It identifies elastic fibres among the components of the connective-tissue framework.
+    - which: Which visible network does the label indicate? → The finer strands indicated by the right-hand leader line.
+      - how: How should their appearance be linked to function? → The network represents fibres whose stated role is stretching and recovery, not simply resistance to pulling apart.
+  - **khola (unpack):**
+    - example / jagah: Fine network in the upper-right tissue diagram.
+    - aage: Different extracellular fibres coexist in the same field.
+    - screen par: Highlight and stretch the fine network.
+  - prerequisites: elastic fibre; recoil
+- **p005-i15** · diagram_label · figure · image · exam medium
+  - Macrophage — points to the irregular pink-brown cell in the lower-right part of the tissue field.
+    - what: What does the macrophage label identify? → It identifies an irregularly shaped cell among the extracellular fibres.
+    - which: Which object is labelled macrophage? → The pink-brown irregular cell towards the lower right of the field.
+      - why: Why is such a cell useful in connective tissue? → Macrophages engulf microbes and cellular debris, contributing to defence and tissue clean-up. _(outside the book)_
+  - **khola (unpack):**
+    - Macrophage yaani microbes और टूटे हिस्सों को निगलकर सफाई और बचाव करने वाला cell · image: कचरा समेटने वाला सफाईकर्मी
+    - example / jagah: Irregular cell near the lower-right centre of the diagram.
+    - aage: Connective tissue contains cells with defence roles as well as supporting material.
+    - screen par: Outline the cell and illustrate engulfment separately.
+    - is level ke liye: Engulfment explains the label; it is not a process drawn on this page.
+  - prerequisites: cell; microbes; cellular debris
+- **p005-i16** · diagram_label · figure · image · exam high
+  - Adipocyte (fat cell) — points to the rounded yellow fat-cell profiles in the lower-right region.
+    - what: What does adipocyte mean on the diagram? → The parenthetical wording identifies it as a fat cell.
+    - which: Which profiles receive this label? → The rounded yellow profiles near the bottom-right edge of the tissue field.
+      - how: How does a fat cell contribute to the body? → It stores fat, providing an energy reserve; collections of these cells can also cushion and insulate. _(outside the book)_
+  - **khola (unpack):**
+    - Adipocyte yaani fat जमा करने वाला cell · image: बाद में काम आने वाले ईंधन का भंडार
+    - example / jagah: Fat beneath the skin is a familiar outside example.
+    - aage: A general connective-tissue field may contain cells with several different jobs.
+    - screen par: Highlight a rounded fat-cell profile.
+  - prerequisites: cell; fat as stored energy
+- **p005-i17** · heading · none · both
+  - MUSCLE TISSUE/MUSCULAR TISSUE
+Characterstics [Characteristics]:
+- **p005-i18** · list_point · structure · both · exam high
+  - Composed of muscle cell/ muscle fibres.
+    - what: What units make up muscle tissue? → The book calls its constituent units muscle cells or muscle fibres.
+    - where: Where are these fibres located? → They are the cellular units within muscle tissue, not extracellular strands between connective-tissue cells. _(outside the book)_
+      - why: Why is the shared word 'fibre' potentially confusing? → A muscle fibre is a cell; a collagen fibre is extracellular protein material. Similar elongated appearance does not make them the same kind of structure. _(outside the book)_
+  - **khola (unpack):**
+    - muscle fibres yaani muscle बनाने वाले लंबे cells · image: लंबे धागे जैसे cells का साथ लगा समूह
+    - kyon: Body movement needs specialised force-producing cells. _[standard]_ → Muscle tissue is composed of such cells, called muscle fibres. _[book]_
+    - example / jagah: The lower diagram shows several skeletal muscle fibres.
+    - aage: The page now moves from extracellular reinforcement to specialised cellular contraction.
+    - screen par: Zoom from a muscle to one fibre-shaped cell.
+    - is level ke liye: Do not transfer connective-tissue meanings of fibre into muscle tissue.
+  - prerequisites: cell; tissue; extracellular collagen fibre
+- **p005-i19** · list_point · structure · both · exam medium
+  - Muscle fibres are elongated and large sized.
+    - what: What general shape does the book assign to muscle fibres? → It describes them as elongated and large-sized cellular units.
+    - where: Where can this elongated form be seen on the page? → The skeletal-muscle drawing shows long parallel cylindrical fibres.
+      - how: How is an elongated shape related to force production? → Contractile structures arranged along a cell's length allow shortening to generate a directed pull. _(outside the book)_
+  - **khola (unpack):**
+    - elongated yaani चौड़ाई के मुकाबले लंबाई ज्यादा होना · image: गोल दाने के बजाय लंबा धागा
+    - kyon: Movement needs a pull in a useful direction. _[standard]_ → Lengthwise contractile organisation helps produce that pull. _[standard]_
+    - example / jagah: Long fibres in the skeletal-muscle figure.
+    - aage: Shape prepares the learner for lengthwise contraction.
+    - screen par: Extend a cell lengthwise and mark its long axis.
+    - is level ke liye: Do not invent a single size for all muscle cells.
+  - prerequisites: cell shape; muscle fibre
+- **p005-i20** · list_point · structure · both · exam high
+  - Contractile proteins are present in fibres.
+    - what: What internal component makes muscle fibres specialised? → The book identifies contractile proteins within the fibres.
+    - where: Where are these proteins situated? → They are inside the muscle fibres, not secreted as the external connective-tissue network. _(outside the book)_
+      - how: How do contractile proteins produce a pull? → Actin and myosin interact using energy from ATP; their relative sliding produces force and can shorten the contractile apparatus. _(outside the book)_
+  - **khola (unpack):**
+    - Contractile proteins yaani ऐसे proteins जिनकी आपसी हरकत से खिंचाव और बल पैदा होता है · image: एक-दूसरे को खींचते हाथों की कतार
+    - kyon: A muscle cell must turn chemical energy into a pull. _[standard]_ → Interacting contractile proteins provide this force-producing machinery. _[standard]_
+    - example / jagah: Inside the fibres of an arm muscle.
+    - aage: The next point describes the resulting contraction and relaxation.
+    - screen par: Slide two sets of protein strands past one another.
+    - is level ke liye: The proteins slide relative to one another; they do not simply shrink.
+  - prerequisites: protein; muscle fibre; cell interior
+- **p005-i21** · list_point · process · both · exam high
+  - Contraction and relaxation.
+    - how: How should contraction and relaxation be understood? → Contraction is activation of the force-producing apparatus; relaxation is the reduction of active tension as that activation subsides. A contracting muscle can produce tension without visibly shortening. _(outside the book)_
+    - when: When does relaxation follow contraction? → As activating signals decline and internal activation is switched off, active tension falls; the muscle can then be lengthened by opposing forces. _(outside the book)_
+      - why: Why are both states necessary? → Repeated movement requires force to be generated and then reduced, rather than the muscle remaining continuously activated. _(outside the book)_
+  - **khola (unpack):**
+    - Contraction yaani muscle में सक्रिय खिंचाव का बल बनना · image: वजन उठाते समय बाँह का कसना
+    - relaxation yaani muscle का सक्रिय कसाव कम होना · image: पकड़ी चीज़ छोड़ने पर पकड़ ढीली पड़ना
+    - kyon: A body part must move and then be ready for another movement. _[standard]_ → Muscle activation and relaxation allow force to rise and fall. _[standard]_
+    - example / jagah: Bending and then lowering the forearm.
+    - aage: The same general capability underlies the different muscle types.
+    - screen par: Tighten, generate a pull, then release tension.
+    - is level ke liye: Relaxation is not a separate active pushing action by the same fibre.
+  - prerequisites: contractile protein; force; muscle fibre
+- **p005-i22** · list_point · classification · both · exam high
+  - Types:
+a. Skeletal
+b. Smooth
+c. Cardiac
+    - which: Which muscle types does the book list? → It divides muscle tissue into skeletal, smooth and cardiac types.
+    - difference: What basic distinctions help separate the three names? → Skeletal muscle is typically associated with bones and voluntary movement; smooth muscle occurs in many hollow-organ walls and lacks striations; cardiac muscle forms the heart's muscular wall. _(outside the book)_
+      - why: Why is this classification useful for exam statements? → It lets structure, location and control be checked independently: striated does not automatically mean skeletal, because cardiac muscle is also striated. _(outside the book)_
+  - **khola (unpack):**
+    - Skeletal yaani skeleton से जुड़ा muscle प्रकार · image: बाँह की हड्डियों को चलाने वाला muscle
+    - Smooth yaani जिसमें microscope पर धारियाँ नहीं दिखतीं · image: आँत की दीवार में खाना आगे बढ़ाने वाला muscle
+    - Cardiac yaani heart वाला muscle प्रकार · image: लगातार धड़कता heart
+    - kyon: Movement in the limbs, internal organs and heart has different demands. _[standard]_ → Muscle types differ in organisation and control to meet these demands. _[standard]_
+    - example / jagah: Arm, intestine and heart are familiar outside anchors.
+    - aage: The page next develops skeletal muscle as the first type.
+    - screen par: Branch muscle tissue into three named types.
+    - is level ke liye: Use a later comparison grid of location, shape, nuclei, striations and control.
+  - prerequisites: muscle tissue; bone; heart; organ wall
+- **p005-i23** · heading · none · both
+  - a. Skeletal Muscle Tissue:
+Characteristics
+- **p005-i24** · list_point · structure · both · exam high
+  - Muscle fibres are elongated and cylindrical
+    - what: What shape identifies a skeletal muscle fibre? → It is long and cylindrical rather than a flat sheet or a tapering spindle.
+    - where: Where is this shape illustrated? → The lower-right figure shows parallel orange cylindrical fibres.
+      - how: How does the long axis relate to its job? → Lengthwise organisation of the contractile apparatus permits the fibre to develop force along its length. _(outside the book)_
+  - **khola (unpack):**
+    - cylindrical yaani लंबे गोल डंडे जैसी बनावट · image: पतली लंबी बेलनाकार मोमबत्ती
+    - kyon: Skeletal muscle must generate a directed pull. _[standard]_ → Its long fibres house lengthwise force-producing structures. _[standard]_
+    - example / jagah: Parallel fibres drawn next to the arm.
+    - aage: Shape is one feature in a combined identification, not a complete diagnosis alone.
+    - screen par: Rotate one fibre to reveal its cylindrical form.
+    - is level ke liye: Combine shape with branching, nuclei and striations.
+  - prerequisites: muscle fibre; cylinder; long axis
+- **p005-i25** · list_point · structure · both · exam high
+  - Unbranched
+    - what: What does unbranched mean for a skeletal muscle fibre? → A fibre follows one continuous elongated course rather than dividing into branching arms. _(outside the book)_
+    - where: Where is this feature visible? → The skeletal-muscle drawing shows separate parallel cylinders without side branches.
+      - why: Why is this feature useful in comparison? → Cardiac muscle cells form branching connections, so branching helps distinguish cardiac from skeletal tissue even though both are striated. _(outside the book)_
+  - **khola (unpack):**
+    - Unbranched yaani जिससे बगल में दूसरी शाखा न निकले · image: सीधी रस्सी, पेड़ की दो फाँकों वाली टहनी नहीं
+    - example / jagah: Separate fibre cylinders in the skeletal-muscle figure.
+    - aage: Striations alone do not distinguish skeletal and cardiac muscle; branching adds evidence.
+    - screen par: Trace one uninterrupted fibre end to end.
+    - is level ke liye: Do not confuse a bundle dividing into groups with a single fibre branching.
+  - prerequisites: muscle fibre; branching
+- **p005-i26** · list_point · structure · both · exam high
+  - Attached to bones
+    - what: What attachment does the book identify? → It describes skeletal muscle as attached to bones.
+    - where: Where is this relationship shown? → The arm drawing places the muscle along the upper arm in relation to the bones and elbow.
+      - how: How does muscle pull reach a bone? → Typically, connective-tissue attachments called tendons transmit the muscle's force to bone; muscles crossing a joint can produce movement there. _(outside the book)_
+      - exception: Is bone attachment an exception-free definition? → No. Some skeletal muscles, such as muscles of facial expression, attach to skin. Bone attachment is the typical relationship being taught here. _(outside the book)_
+  - **khola (unpack):**
+    - Attached to bones yaani bone से ऐसा जुड़ाव कि muscle का खिंचाव उस तक पहुँचे · image: डंडे से बँधी रस्सी खींचने पर डंडा हिलना
+    - kyon: To move a limb, force must reach its bones. _[standard]_ → Muscle attachments transmit contraction force to the skeleton. _[standard]_
+    - example / jagah: Upper-arm muscle acting across the elbow.
+    - aage: This connects connective-tissue strength with skeletal movement.
+    - screen par: Trace force from muscle through tendon to bone.
+    - is level ke liye: Tendon: muscle to bone; ligament: bone to bone, as an outside comparison.
+  - prerequisites: bone; joint; muscle contraction; connective tissue
+- **p005-i27** · list_point · structure · both · exam high
+  - Each cell is multi-nucleated → many nuclei.
+    - what: What does multinucleated mean here? → A single skeletal muscle cell contains many nuclei; the statement is not merely saying that a tissue has many cells.
+    - where: Where can the nuclei be identified in the drawing? → The blue oval bodies are shown along the orange skeletal-muscle fibres.
+      - why: Why can one skeletal muscle cell contain many nuclei? → During development, precursor muscle cells fuse to form a long fibre, retaining multiple nuclei in the resulting cell. _(outside the book)_
+  - **khola (unpack):**
+    - multi-nucleated yaani एक ही cell के अंदर कई nuclei होना · image: एक लंबे कमरे में कई देखरेख करने वाले केंद्र
+    - kyon: A long skeletal fibre forms through joining precursor cells. _[standard]_ → The resulting single fibre retains several nuclei. _[standard]_
+    - example / jagah: Blue ovals within the illustrated orange fibres.
+    - aage: Count nuclei within one cell boundary when comparing muscle types.
+    - screen par: Outline one fibre and highlight several nuclei inside it.
+    - is level ke liye: The printed arrow means explanation—multi-nucleated means many nuclei—not a temporal process.
+  - prerequisites: cell boundary; nucleus; muscle fibre
+- **p005-i28** · list_point · structure · both · exam high
+  - Striations are present → alternate dark and light bands.
+    - what: What are striations? → They are the alternating dark and light bands described in the skeletal muscle fibres.
+    - where: Where do these bands appear? → They repeat across the illustrated skeletal-muscle cylinders.
+      - why: Why does skeletal muscle have a banded appearance? → Its contractile filaments are arranged in repeating units with regions of differing filament composition and overlap, producing the light-dark pattern under a microscope. _(outside the book)_
+      - exception: Do striations uniquely identify skeletal muscle? → No. Cardiac muscle is also striated; branching, nuclear features and location provide additional distinctions. _(outside the book)_
+  - **khola (unpack):**
+    - Striations yaani बार-बार आती गहरी और हल्की पट्टियाँ · image: धारियों वाली कमीज़ पर बारी-बारी रंग की पट्टियाँ
+    - kyon: Contractile proteins are organised repeatedly along a fibre. _[standard]_ → This regular arrangement gives alternating dark and light bands. _[standard]_
+    - example / jagah: Repeated stripes on the orange fibres in the diagram.
+    - aage: This feature explains the alternative name striated muscle.
+    - screen par: Zoom into repeating dark-light bands.
+    - is level ke liye: The arrow expands the meaning of striations; it is not a reaction symbol.
+  - prerequisites: contractile proteins; microscope; repeating pattern
+- **p005-i29** · list_point · facts_numbers · both · exam high
+  - Easily fatigue
+    - what: What tendency does the book state? → It describes skeletal muscle as fatiguing easily.
+    - evidence: What everyday observation helps explain fatigue? → After repeated hard exercise or prolonged effort, maintaining the same force becomes difficult. This illustrates fatigue rather than providing a fixed fatigue time. _(outside the book)_
+      - why: Why should this statement not be made absolute? → Fatigue depends on effort, duration, fibre type, blood supply and training. Skeletal muscles differ in resistance to fatigue, including muscles used to maintain posture. _(outside the book)_
+  - **khola (unpack):**
+    - fatigue yaani काम जारी रहने पर पहले जितना बल न बना पाना · image: भारी थैला देर तक पकड़ने पर हाथ का थकना
+    - kyon: Repeated muscle work places continuing demands on energy supply and activation. _[standard]_ → Force-producing capacity can fall during sustained or intense effort. _[standard]_
+    - example / jagah: Arm muscles after repeatedly lifting a heavy object.
+    - aage: Fatigue must be understood alongside the later statement that skeletal muscle maintains posture.
+    - screen par: Repeat a lift and show declining maintained force.
+    - is level ke liye: Do not reduce fatigue to a single universal cause such as lactic acid.
+  - prerequisites: muscle force; repeated contraction; energy use
+- **p005-i30** · list_point · cause_effect · both · exam high
+  - Helps in body movement.
+    - why: Why is skeletal muscle important for movement? → Its force can be transmitted through attachments to move bones relative to one another at joints. _(outside the book)_
+    - how: How does the arm example illustrate movement? → Contraction of an appropriately attached muscle can pull the forearm into flexion at the elbow. _(outside the book)_
+      - how: How is the opposite movement produced if a muscle pulls rather than pushes? → Opposing muscle groups can generate pulls in different directions; coordinated activation permits bending and straightening. _(outside the book)_
+  - **khola (unpack):**
+    - kyon: A limb needs force to change its position at a joint. _[standard]_ → Skeletal-muscle contraction supplies a pull transmitted to the bones. _[standard]_
+    - example / jagah: Bending the forearm at the elbow, as illustrated.
+    - aage: Attachment, contractile proteins and fibre organisation now combine into one functional explanation.
+    - screen par: Shorten the upper-arm muscle and rotate the forearm.
+    - is level ke liye: Muscles pull; opposing groups provide movement in opposite directions.
+  - prerequisites: muscle contraction; bone attachment; joint
+- **p005-i31** · list_point · cause_effect · both · exam high
+  - Maintains posture
+    - why: Why does posture require muscular activity? → Gravity tends to alter body position; skeletal-muscle tension helps stabilise joints and hold the body in a chosen position. _(outside the book)_
+    - how: How can muscle maintain posture without obvious movement? → Muscles can generate stabilising tension while their overall length changes little, balancing external forces rather than producing a large joint movement. _(outside the book)_
+      - consequence: What follows for the meaning of contraction? → Muscle activity need not produce visible shortening or limb movement; maintaining a position also requires force. _(outside the book)_
+  - **khola (unpack):**
+    - posture yaani बैठते या खड़े रहते समय शरीर की स्थिति · image: बिना गिरे सीधा खड़े रहना
+    - kyon: Gravity would disturb an unsupported body position. _[standard]_ → Skeletal-muscle tension helps hold the body stable. _[standard]_
+    - example / jagah: Back and leg muscles during standing.
+    - aage: Contraction should be understood as force production, not simply visible movement.
+    - screen par: Hold a standing figure steady against gravity arrows.
+    - is level ke liye: This also qualifies simplistic readings of 'easily fatigue' and 'voluntary'.
+  - prerequisites: gravity; muscle tension; joint stability
+- **p005-i32** · paragraph · classification · both · exam high
+  - Other names: Skeleton [Skeletal] muscle, Striated muscle and voluntary muscle.
+    - which: Which other names does the book give skeletal muscle? → It calls it skeletal muscle, striated muscle and voluntary muscle.
+    - difference: What different feature does each name emphasise? → Skeletal refers to the typical association with the skeleton, striated to visible banding, and voluntary to the usual ability to initiate its actions consciously. _(outside the book)_
+      - why: Why should these names not be treated as identical universal categories? → Cardiac muscle is also striated, and skeletal-muscle actions include reflex and postural activity that need not be consciously directed. The names highlight common features, not exception-free equivalences. _(outside the book)_
+  - **khola (unpack):**
+    - voluntary muscle yaani जिसकी कई हरकतें हम अपनी इच्छा से शुरू कर सकते हैं · image: चाहकर हाथ उठाना
+    - kyon: One muscle type can be recognised by location, appearance and control. _[standard]_ → These different viewpoints account for its three descriptive names. _[standard]_
+    - example / jagah: Raising the arm deliberately.
+    - aage: Names become meaningful labels rather than an unrelated synonym list.
+    - screen par: Attach three feature cards to the same muscle.
+    - is level ke liye: Check the property behind each name in assertion or matching questions.
+  - prerequisites: skeleton; striations; conscious control; reflex
+- **p005-i33** · diagram · figure · image · exam high
+  - Skeletal-muscle illustration: the left side shows parallel orange, elongated cylindrical fibres with repeated transverse bands and several blue oval nuclei. The right side shows a bent arm with skeletal muscle running along the upper arm and pale attachments near the elbow and bones. The two views place cellular appearance beside the organ-level role in arm movement; no connecting process arrow is printed.
+    - what: What two scales does this illustration connect? → It places the appearance of skeletal-muscle fibres beside a familiar whole-arm example.
+    - which: Which stated features can be recognised visually? → The fibres are elongated, cylindrical, unbranched and banded, and contain several blue oval bodies representing nuclei.
+      - how: How does the arm view make the fibre view meaningful? → Force developed by many organised fibres is transmitted through muscle attachments, allowing movement of bones at the elbow. _(outside the book)_
+  - **khola (unpack):**
+    - kyon: Microscopic features need to be related to a body function. _[standard]_ → The side-by-side views connect force-producing fibres to arm movement. _[standard]_
+    - example / jagah: The learner's own bent elbow and upper arm.
+    - aage: The skeletal-muscle checklist is grounded in one visual example.
+    - screen par: Zoom from the upper arm into several banded fibres.
+    - is level ke liye: Blue colour marks nuclei schematically; it is not their natural diagnostic colour.
+  - prerequisites: muscle fibre; nucleus; striations; elbow joint
+- **p005-i34** · diagram_label · figure · image · exam high
+  - Skeletal Muscle — names the illustrated bundle of banded cylindrical fibres.
+    - what: What does this label name? → It identifies the drawn fibres as skeletal muscle rather than smooth or cardiac muscle.
+    - which: Which visible features support the identification? → The drawing combines long unbranched cylinders, repeated bands and several nuclei.
+      - why: Why use several features rather than bands alone? → Cardiac muscle also has striations, so a combination of features provides a more reliable distinction. _(outside the book)_
+  - **khola (unpack):**
+    - example / jagah: Caption below the orange fibres.
+    - aage: The label consolidates the skeletal-muscle identification checklist.
+    - screen par: Match the label to the highlighted feature combination.
+  - prerequisites: muscle types; striations; nucleus
+
+## Page 6 · passed after 1 round(s)
+
+Smooth muscle has spindle-shaped, unbranched cells with one central nucleus and no striations; it works involuntarily in organs including the stomach, intestine, eye and blood vessels. Cardiac muscle has cylindrical, branched, striated fibres, is involuntary, and contracts and relaxes in the heart wall to pump blood.
+
+- **p006-i1** · heading · none · both
+  - b. Visceral Muscle/ Smooth muscle tissue
+Characteristics:
+- **p006-i2** · list_point · structure · both · exam high
+  - • Fibres are spindle shaped/fusiform i.e. pointed at ends/tapering ends.
+    - what: What shape identifies a smooth muscle fibre? → It is spindle shaped, also called fusiform: its ends taper to points.
+    - where: Where does the fibre become narrower? → At both ends rather than along a uniformly cylindrical outline.
+      - how: How can a learner recognise this shape in a tissue drawing? → Look for an elongated cell with a broader middle and two narrowing tips, like a small rolling pin drawn out into points. _(outside the book)_
+  - **khola (unpack):**
+    - spindle shaped/fusiform yaani बीच में चौड़ी और दोनों सिरों पर पतली होती हुई cell की बनावट · image: दोनों सिरों की ओर पतला होता बेलन
+    - kyon: To identify muscle tissue, first inspect the outline of its cells. _[standard]_ → Pointed, tapering ends are the smooth muscle shape described here. _[book]_
+    - example / jagah: Smooth muscle sketch at the upper right.
+    - aage: Shape separates smooth muscle from the cylindrical cardiac fibres below.
+    - screen par: Trace the broad middle and narrowing tips.
+    - is level ke liye: Fusiform and spindle shaped are equivalent identification terms.
+  - prerequisites: a muscle fibre is a muscle cell
+- **p006-i3** · list_point · structure · both · exam high
+  - • Single and centrally located nucleus in each cell.
+    - what: How many nuclei does each smooth muscle cell have? → The page specifies one nucleus per cell.
+    - where: Where is that nucleus located? → It lies centrally within the cell, rather than near its outer edge.
+      - how: How does the illustration make the nucleus count understandable? → Follow one spindle-shaped cell boundary and find the single blue oval inside it; do not count nuclei across the whole tissue as though it were one cell. _(outside the book)_
+  - **khola (unpack):**
+    - centrally located nucleus yaani cell के बीच वाले हिस्से में मौजूद nucleus · image: एक लंबे घेरे के बीच में रखा एक बटन
+    - kyon: To describe a muscle cell accurately, distinguish the cell from its internal parts. _[standard]_ → Each smooth muscle cell has one centrally located nucleus. _[book]_
+    - example / jagah: Blue ovals in the upper-right smooth muscle drawing.
+    - aage: Nucleus number and location become additional identification clues.
+    - screen par: Outline one cell and highlight its central oval.
+    - is level ke liye: One nucleus per cell does not mean one nucleus for the entire tissue.
+  - prerequisites: cell boundary; nucleus as a part of a cell
+- **p006-i4** · list_point · structure · both · exam high
+  - • Striations are absent.
+    - what: What is absent from the appearance of smooth muscle? → The fibres lack striations, the banded appearance used to identify striated muscle. _(outside the book)_
+    - where: Where does the page place the absence of striations? → It lists it as a characteristic of visceral or smooth muscle tissue.
+      - why: Why does smooth muscle lack the visible bands of striated muscle? → Its contractile components are not arranged in the regularly repeating units that create the light-and-dark band pattern of striated muscle. _(outside the book)_
+  - **khola (unpack):**
+    - Striations yaani muscle fibre पर दिखने वाली आड़ी हल्की और गहरी पट्टियाँ · image: धारीदार कपड़े की पट्टियाँ
+    - kyon: Muscle must contract, but visible stripes depend on its internal arrangement. _[standard]_ → Smooth muscle lacks the repeating arrangement that produces those stripes. _[standard]_
+    - example / jagah: Smooth muscle in the intestine.
+    - aage: This explains the name unstriated without suggesting that the tissue cannot contract.
+    - screen par: Compare an unbanded fibre with a banded fibre.
+    - is level ke liye: Keep appearance separate from voluntary or involuntary control.
+  - prerequisites: muscle cells contract; microscopic appearance of tissue
+- **p006-i5** · list_point · structure · both · exam high
+  - • Unbranched
+    - what: What does unbranched mean for smooth muscle? → An individual fibre does not divide into branch-like extensions. _(outside the book)_
+    - where: Where should branching be assessed? → On the outline of an individual muscle cell, not on the arrangement of the whole organ. _(outside the book)_
+      - how: How does this help distinguish the two tissues on this page? → Smooth muscle is listed as unbranched, whereas cardiac muscle fibres are listed as branched.
+  - **khola (unpack):**
+    - Unbranched yaani एक fibre से टहनी जैसी दूसरी शाखा नहीं निकलती · image: बिना दोराहे वाली एक पतली डंडी
+    - kyon: To avoid confusing adjoining cells with branches, trace one fibre. _[standard]_ → Smooth muscle retains an unbranched outline, unlike cardiac muscle. _[book]_
+    - example / jagah: Individual spindle-shaped cells in the upper illustration.
+    - aage: Branching supplies a second distinction beyond striations.
+    - screen par: Trace one uninterrupted cell outline.
+    - is level ke liye: Touching or overlapping cells are not necessarily branches.
+  - prerequisites: individual muscle fibre versus tissue
+- **p006-i6** · list_point · facts_numbers · both · exam high
+  - • Do not fatigue
+    - what: What endurance property does the book assign to smooth muscle? → It presents smooth muscle as able to keep working without fatigue.
+    - evidence: What evidence is actually supplied for this statement? → The page states it as a characteristic; it provides no measurement or experiment on fatigue.
+      - why: Why is fatigue resistance useful in smooth muscle? → Internal organs need sustained or repeated activity without conscious rest breaks. Smooth muscle can maintain tension with relatively low energy use, so 'do not fatigue' is best understood as resistance to fatigue in normal function, not freedom from energy needs or failure. _(outside the book)_
+  - **khola (unpack):**
+    - fatigue yaani काम करते रहने पर पहले जितनी ताकत से काम न कर पाना · image: भारी थैला पकड़े रहने पर हाथ की पकड़ ढीली पड़ना
+    - kyon: Internal organs need muscle activity over long periods. _[standard]_ → Energy-efficient maintenance of tension helps smooth muscle resist fatigue. _[standard]_
+    - example / jagah: Sustained activity in digestive organs and blood vessel walls.
+    - aage: Routine internal functions can continue without deliberate rest.
+    - screen par: Show sustained gentle contraction alongside a continuing time line.
+    - is level ke liye: The book's phrase describes normal endurance, not invulnerability to disease or oxygen shortage.
+  - prerequisites: muscle contraction uses energy; fatigue means reduced ability to sustain work
+- **p006-i7** · list_point · process · both · exam high
+  - • Performs functions like peristalsis.
+    - what: Which movement does the book associate with smooth muscle? → Peristalsis is given as an example of its functions.
+    - how: How does peristalsis move material? → Coordinated waves of contraction and relaxation in a hollow organ wall squeeze behind its contents and allow the region ahead to receive them, moving the contents along. _(outside the book)_
+    - when: When is this movement useful in daily life? → During digestive transport, when swallowed food and intestinal contents must move along the digestive tract without a separate conscious instruction for each movement. _(outside the book)_
+      - why: Why is a travelling wave useful rather than an isolated squeeze? → A coordinated travelling squeeze produces directed transport; simply compressing one place does not explain movement along the whole tube. _(outside the book)_
+  - **khola (unpack):**
+    - peristalsis yaani नली की दीवार में सिकुड़ने और ढीला होने की आगे बढ़ती लहर, जो अंदर की चीज़ आगे धकेले · image: टूथपेस्ट की ट्यूब को पीछे से दबाकर पेस्ट आगे बढ़ाना
+    - kyon: Food must move through the digestive tube without being consciously pushed at each point. _[standard]_ → Travelling waves of wall contraction move the contents forward. _[standard]_
+    - example / jagah: Intestinal transport after a meal.
+    - aage: Connects smooth muscle structure with an everyday involuntary function.
+    - screen par: Move a squeeze along a tube behind a food bolus.
+    - is level ke liye: Peristalsis is movement, not the chemical breakdown of food itself.
+  - prerequisites: hollow digestive organs; contraction and relaxation
+- **p006-i8** · paragraph · classification · both · exam high
+  - Other names: Unstriated/Involuntary muscles
+    - which: Which other names does the book use for smooth muscle? → It calls these muscles unstriated and involuntary.
+    - difference: How do the two names describe different criteria? → Unstriated describes absence of visible bands; involuntary describes activity not normally directed by conscious choice. _(outside the book)_
+      - why: Why should these terms not be treated as interchangeable for every muscle? → Cardiac muscle is described on the same page as both striated and involuntary, so involuntary control does not imply absence of striations.
+  - **khola (unpack):**
+    - Involuntary yaani जिसका काम हर बार हमारी सचेत मर्ज़ी से नहीं चलाया जाता · image: सोते समय भी पेट के अंदर काम चलते रहना
+    - Unstriated yaani जिसमें आड़ी हल्की-गहरी पट्टियाँ नहीं दिखतीं · image: धारीदार कपड़े के बजाय सादा कपड़ा
+    - kyon: Internal movement must continue without repeated conscious commands. _[standard]_ → Involuntary describes that control, while unstriated separately describes appearance. _[standard]_
+    - example / jagah: Smooth muscle in the intestine.
+    - aage: Two independent classification criteria prevent incorrect statement combinations.
+    - screen par: Separate appearance and control into two columns.
+    - is level ke liye: Contrast directly with striated, involuntary cardiac muscle.
+  - prerequisites: striations; conscious control of movement
+- **p006-i9** · example · structure · both · exam high
+  - Example: Stomach, Intestine, eye, blood vessel etc.
+    - what: What do the listed organs exemplify? → They are examples of places associated with smooth muscle: stomach, intestine, eye and blood vessel.
+    - where: Where within these examples should a learner locate the muscle? → In the muscular walls of the stomach, intestine and blood vessels, and in structures of the eye such as the iris and ciliary muscle—not throughout every part of each organ. _(outside the book)_
+      - how: How are these varied locations connected by function? → Digestive walls move contents, vessel walls adjust vessel diameter, and smooth muscles within the eye help adjust pupil size or lens focusing. _(outside the book)_
+  - **khola (unpack):**
+    - blood vessel yaani खून ले जाने वाली नली · image: शरीर के अंदर रास्तों की तरह फैली खून की नलियाँ
+    - kyon: Organs need to move contents or adjust openings without conscious effort. _[standard]_ → Smooth muscle in their walls or internal structures performs these adjustments. _[standard]_
+    - example / jagah: Zoom from the stomach and intestine to their walls, then from the eye to the iris.
+    - aage: One tissue type can serve several organs without making those organs identical.
+    - screen par: Zoom into each organ and highlight its smooth muscle region.
+    - is level ke liye: Do not infer that an entire organ consists of smooth muscle.
+  - prerequisites: organ versus tissue; hollow organ wall; pupil and lens
+- **p006-i10** · diagram · figure · image · exam high
+  - A group of elongated orange spindle-shaped cells with pointed ends and blue central nuclei is shown beside an illustration of the intestine, with the large intestine framing intestinal loops. The cells are unbranched and have no visible transverse stripes. The tissue sketch is labelled 'Smooth Muscle'. No arrows connect the tissue and organ.
+    - what: What relationship does the paired illustration show? → It places the smooth muscle cell sketch beside the intestine, linking the tissue's appearance with a digestive organ.
+    - which: Which visible clues identify the tissue? → The sketch shows pointed spindle-shaped cells, blue nuclei near their centres and no visible striations or branching.
+      - how: How should the organ picture be connected to the tissue sketch? → Mentally zoom into the intestinal wall: the cell drawing represents one of its tissues, not the shape or total composition of the intestine. _(outside the book)_
+  - **khola (unpack):**
+    - kyon: Recognising an organ alone does not reveal the cells doing its movement. _[standard]_ → Pairing intestine and cell sketch links organ-level transport to smooth muscle. _[standard]_
+    - example / jagah: Intestinal wall.
+    - aage: Combines morphology and location as identification evidence.
+    - screen par: Zoom from intestine to the spindle-cell group.
+    - is level ke liye: The illustration is schematic and is not a scaled histological section.
+  - prerequisites: tissue versus organ; smooth muscle shape
+- **p006-i11** · diagram_label · figure · image · exam medium
+  - Smooth Muscle — names the adjacent group of spindle-shaped cells; no leader line is present.
+    - what: What does 'Smooth Muscle' label? → It names the tissue represented by the orange spindle-shaped cell group.
+    - which: Which of the two pictures is directly named by the label? → The cell sketch above it, rather than the intestine drawn beside it.
+      - how: How can the label be checked without memorising its position? → Verify the spindle outline and lack of transverse bands, then connect those features to smooth muscle. _(outside the book)_
+  - **khola (unpack):**
+    - example / jagah: Label beneath the upper tissue sketch.
+    - aage: A tissue name becomes linked to recognisable cells rather than only an organ.
+    - screen par: Highlight the label and then outline a spindle cell.
+    - is level ke liye: Use appearance to verify image labels.
+  - prerequisites: smooth muscle morphology
+- **p006-i12** · heading · none · both
+  - c. Cardiac muscle tissue
+Characters:
+- **p006-i13** · list_point · structure · both · exam high
+  - • Fibres are cylindrical in shape.
+    - what: What shape does the book assign to cardiac fibres? → They are cylindrical rather than spindle shaped.
+    - where: Where do these fibres perform their work? → In the wall of the heart.
+      - how: How can cylindrical and branched both describe the same fibre? → Cylindrical describes the elongated body of the fibre; branched describes extensions from that body. A cylinder-like segment can form part of a branching network. _(outside the book)_
+  - **khola (unpack):**
+    - cylindrical yaani लंबी गोल डंडी जैसी बनावट · image: पेंसिल के गोल लंबे हिस्से जैसा आकार
+    - kyon: A tissue description must distinguish the body's shape from its branching. _[standard]_ → Cardiac fibres combine a cylindrical body with branches. _[book]_
+    - example / jagah: Muscular wall of the heart.
+    - aage: Prevents the false assumption that cylindrical fibres cannot branch.
+    - screen par: Outline a cylinder-like segment, then reveal its branches.
+    - is level ke liye: Use multiple traits together rather than shape alone.
+  - prerequisites: cylinder shape; muscle fibre
+- **p006-i14** · list_point · structure · both · exam high
+  - • Each fibre is uninucleate
+    - what: What does uninucleate mean? → It means having one nucleus within a cell or fibre. _(outside the book)_
+    - where: To which tissue does this nucleus description apply here? → The statement is listed under cardiac muscle tissue.
+      - how: How should this introductory description be understood accurately? → Cardiac muscle cells usually have one centrally placed nucleus, though some have two. The printed line gives the usual introductory pattern rather than the full variation. _(outside the book)_
+  - **khola (unpack):**
+    - uninucleate yaani एक cell में एक nucleus होना · image: एक घेरे के अंदर एक बटन
+    - kyon: Nucleus count helps compare muscle cells, but count must be per cell. _[standard]_ → The page describes each cardiac fibre as uninucleate. _[book]_
+    - example / jagah: Cardiac muscle cells in the heart wall.
+    - aage: One nucleus is not enough by itself to distinguish cardiac from smooth muscle.
+    - screen par: Isolate a cell and highlight its nucleus.
+    - is level ke liye: Keep the usual one-nucleus pattern separate from the outside qualification that some cells have two.
+  - prerequisites: cell and nucleus; one cell versus a connected tissue
+- **p006-i15** · list_point · structure · both · exam high
+  - • Fibres are branched
+    - what: What does branching add to the cardiac fibre description? → The fibres have branch-like extensions instead of remaining simple unbranched strands. _(outside the book)_
+    - where: Where is branching represented on the page? → In the cardiac tissue sketch, which shows orange fibres forming an interconnected pattern beside the heart.
+      - why: Why is an interconnected arrangement useful in the heart? → The heart wall must act as coordinated muscle rather than unrelated strands. Branching and specialised connections between cells support a connected arrangement; branching alone does not explain electrical coordination. _(outside the book)_
+  - **khola (unpack):**
+    - branched yaani fibre के लंबे हिस्से से टहनी जैसी शाखाएँ निकलना · image: पेड़ की डाली से निकलती छोटी डालियाँ
+    - kyon: The pumping wall needs many muscle cells to work together. _[standard]_ → Branched cells with specialised cell connections form an interconnected muscular arrangement. _[standard]_
+    - example / jagah: Cardiac tissue sketch beside the heart.
+    - aage: Separates cardiac from the unbranched smooth muscle above.
+    - screen par: Follow a fibre into its branch and neighbouring connections.
+    - is level ke liye: Do not describe the network as one enormous cell.
+  - prerequisites: branching shape; heart wall contracts
+- **p006-i16** · list_point · structure · both · exam high
+  - • Striations are present.
+    - what: What appearance characterises cardiac fibres? → They have striations, unlike the smooth muscle described above.
+    - where: Where are these striations represented? → Across the orange fibres in the cardiac muscle illustration.
+      - why: Why can an involuntary muscle still show striations? → Striations result from the regular arrangement of contractile components, whereas involuntary describes control. Internal organisation and conscious control are different properties. _(outside the book)_
+  - **khola (unpack):**
+    - Striations yaani fibre पर आड़ी हल्की और गहरी पट्टियों की बनावट · image: धारीदार कपड़े की बार-बार आती पट्टियाँ
+    - kyon: Muscle appearance depends on how its contracting components are arranged. _[standard]_ → A repeating arrangement produces bands even when movement is not consciously controlled. _[standard]_
+    - example / jagah: Cardiac muscle in the heart wall.
+    - aage: Presence of stripes cannot establish voluntary control.
+    - screen par: Highlight repeated transverse bands.
+    - is level ke liye: Reject the statement that all striated muscles are voluntary.
+  - prerequisites: striations; involuntary control
+- **p006-i17** · list_point · facts_numbers · both · exam high
+  - • Do not fatigue.
+    - what: What endurance feature is assigned to cardiac muscle? → The book describes cardiac muscle as not fatiguing.
+    - evidence: Does the page provide experimental evidence or a numerical endurance limit? → No; it gives the feature as a descriptive characteristic and also states the heart's contraction, relaxation and pumping functions.
+      - why: Why can cardiac muscle normally sustain repeated work? → It has a strong aerobic energy supply, abundant mitochondria and a rich blood supply. These support fatigue resistance during normal repeated beating, but do not prevent injury or failure when oxygen supply is inadequate. _(outside the book)_
+  - **khola (unpack):**
+    - fatigue yaani काम दोहराते रहने पर काम करने की ताकत घट जाना · image: बार-बार वजन उठाने पर हाथ की ताकत कम पड़ना
+    - kyon: Blood circulation requires the heart to keep repeating its work. _[standard]_ → A strong oxygen-dependent energy supply supports prolonged repeated contractions. _[standard]_
+    - example / jagah: Heartbeat continuing during sleep.
+    - aage: Normal pumping is sustained, but adequate oxygen and blood supply remain necessary.
+    - screen par: Repeat beats while showing continuing oxygen delivery.
+    - is level ke liye: Do not interpret 'Do not fatigue' as immunity to heart disease.
+  - prerequisites: muscle contraction needs energy; oxygen carried by blood; fatigue
+- **p006-i18** · list_point · process · both · exam high
+  - • Performs contraction and relaxation in wall of heart.
+    - what: What alternating actions are performed by cardiac muscle? → It contracts and relaxes in the heart wall.
+    - how: How do these actions contribute to pumping? → Contraction develops pressure that helps drive blood out of a chamber; relaxation allows the chamber to refill for a later contraction. _(outside the book)_
+    - when: When do contraction and relaxation occur? → They recur through each heartbeat, with chambers undergoing coordinated phases rather than the whole heart remaining continuously squeezed. _(outside the book)_
+      - why: Why is relaxation necessary rather than merely a pause? → A pump must receive blood as well as eject it. Without appropriate relaxation and filling, later contractions could not sustain effective output. _(outside the book)_
+  - **khola (unpack):**
+    - contraction and relaxation yaani muscle का सिकुड़कर जोर लगाना और फिर ढीला होना · image: हथेली से नरम गेंद दबाना और फिर पकड़ छोड़ना
+    - kyon: A working heart must both receive blood and push it onward. _[standard]_ → Alternating relaxation and contraction supports filling and ejection. _[standard]_
+    - example / jagah: Muscular wall surrounding the heart chambers.
+    - aage: Explains the mechanism behind the next line's pumping function.
+    - screen par: Alternate chamber filling and wall contraction.
+    - is level ke liye: Relaxation is a necessary functional phase, not failure of the muscle.
+  - prerequisites: heart chambers contain blood; contraction and relaxation; pressure moves fluid
+- **p006-i19** · list_point · cause_effect · both · exam high
+  - • Helps to pump and distribute blood to body.
+    - what: What body-level function is served by cardiac muscle? → Its activity helps pump and distribute blood to the body.
+    - how: How does muscle activity cause blood movement? → Contraction of the chamber wall raises pressure, helping drive blood into vessels; valves help maintain the intended direction of flow. _(outside the book)_
+      - why: Why does the body need this distribution? → Body cells need delivery of oxygen and nutrients and transport of wastes away. Circulating blood connects those cells with organs that supply or remove these materials. _(outside the book)_
+  - **khola (unpack):**
+    - pump and distribute yaani खून को धक्का देकर शरीर के अलग-अलग हिस्सों तक पहुँचाने में मदद करना · image: पानी का pump पाइपों में पानी आगे भेजता है
+    - kyon: Body cells need regular supplies and removal of wastes. _[standard]_ → Heart muscle generates pumping pressure that keeps blood moving through circulation. _[standard]_
+    - example / jagah: Blood delivery to working muscles while walking.
+    - aage: Cardiac tissue activity supports the functioning of other tissues.
+    - screen par: Send blood from a contracting chamber into branching vessels.
+    - is level ke liye: The muscle produces pumping force; blood travels through the vessel network.
+  - prerequisites: blood vessels; heart as a pump; cells need oxygen and nutrients
+- **p006-i20** · paragraph · classification · both · exam high
+  - Other names: Striated, Involuntary.
+    - which: Which descriptors does the book give cardiac muscle? → It identifies cardiac muscle as striated and involuntary.
+    - difference: How does this classification differ from smooth muscle? → Both are involuntary, but cardiac muscle is striated while smooth muscle is unstriated.
+      - why: Why is cardiac muscle not under the same conscious control as moving a hand? → Its rhythm normally originates in specialised pacemaker cells, while autonomic nerves and hormones modify its activity. A conscious command is not required for each heartbeat. _(outside the book)_
+  - **khola (unpack):**
+    - Striated, Involuntary yaani पट्टियाँ दिखती हैं, लेकिन हर धड़कन हमारी सचेत मर्ज़ी से नहीं चलती · image: नींद में भी चलता धारीदार heart muscle
+    - kyon: Heartbeat needs to continue without a conscious command for each beat. _[standard]_ → Its automatic rhythm makes it involuntary, independently of its banded appearance. _[standard]_
+    - example / jagah: Heart beating during sleep.
+    - aage: Appearance and control must remain separate classification axes.
+    - screen par: Tick striated and involuntary in separate columns.
+    - is level ke liye: These are descriptors, not exclusive synonyms: 'striated muscle' alone need not mean cardiac muscle.
+  - prerequisites: striations; voluntary versus involuntary action
+- **p006-i21** · diagram · figure · image · exam high
+  - An orange cardiac muscle sketch shows branching, interconnected cylindrical fibres with transverse stripes and blue oval nuclei. White spaces lie between the connected strands. Beside it is a red heart illustration with coloured vessels. The tissue sketch is labelled 'Cardiac Muscle'. There are no arrows or additional anatomical labels.
+    - what: What association does the illustration establish? → It pairs a branched, striated tissue sketch with the heart, identifying cardiac muscle with its organ location.
+    - which: Which visible features distinguish it from the smooth muscle sketch? → The cardiac sketch shows transverse stripes and branching connections; the smooth muscle sketch shows unbranched spindle-shaped cells without stripes.
+      - how: How should the tissue network be interpreted? → It represents connected muscle cells in the heart wall, not blood vessels or a single continuous cell. The white gaps are spaces in the schematic, not labelled heart chambers. _(outside the book)_
+  - **khola (unpack):**
+    - kyon: A heart picture identifies the organ but does not explain the muscle tissue within it. _[standard]_ → The adjacent network reveals the branching and banding used to recognise cardiac tissue. _[book]_
+    - example / jagah: Cardiac muscle in the heart wall.
+    - aage: Links microscopic appearance with organ-level pumping.
+    - screen par: Zoom from heart wall to branched, striped fibres.
+    - is level ke liye: Do not assign anatomical meanings to unlabelled schematic gaps or colours.
+  - prerequisites: heart wall; muscle fibre; striations and branching
+- **p006-i22** · diagram_label · figure · image · exam medium
+  - Cardiac Muscle — names the branching, striped tissue sketch above it; no leader line is present.
+    - what: What does the label 'Cardiac Muscle' name? → The orange branching tissue sketch rather than the whole heart illustration beside it.
+    - which: Which details support that identification? → The sketch combines branching fibres, transverse striations and blue oval nuclei.
+      - how: How does the word cardiac connect the label to a familiar organ? → Cardiac means relating to the heart, so the name connects the tissue sketch to the adjacent heart picture. _(outside the book)_
+  - **khola (unpack):**
+    - Cardiac yaani heart से जुड़ा हुआ · image: सीने में धड़कता heart
+    - example / jagah: Label below the branching tissue sketch.
+    - aage: The tissue name is anchored to the heart without confusing tissue and organ.
+    - screen par: Link label, fibre sketch and heart in sequence.
+    - is level ke liye: Cardiac muscle is a tissue in the heart, not a synonym for the entire organ.
+  - prerequisites: heart as an organ; cardiac muscle morphology
+
+## Page 7 · passed after 1 round(s)
+
+Skeletal muscle is striated, multinucleated and voluntary; cardiac muscle is striated and involuntary; visceral or smooth muscle lacks striations and is involuntary. Below, labelled drawings show blood, compact bone, hyaline cartilage, areolar tissue and adipose tissue, alongside two neurons connected through synapses.
+
+- **p007-i1** · heading · none · image
+  - Three Types of Muscular Tissue
+- **p007-i2** · table · comparison · image
+  - Three Types of Muscular Tissue. Columns: muscle type (unheaded), Location, Function, Appearance, Control. Rows: Skeletal; Cardiac; Visceral (smooth muscle).
+  - prerequisites: cell and its nucleus; muscle contraction
+- **p007-i3** · table_row · comparison · image · exam high
+  - Skeletal | Location: skeleton | Function: movement, heat, posture | Appearance: striated, multi-nucleated (eccentric), fibers parallel | Control: voluntary
+    - compare: How does skeletal muscle compare with the other two types? → It is associated with the skeleton, produces movement and heat, maintains posture, has parallel striated multinucleated fibers with eccentric nuclei, and is voluntary. Cardiac and smooth muscle are involuntary.
+    - difference: What distinguishes its appearance from cardiac and smooth muscle? → Skeletal muscle has multiple off-centre nuclei and parallel fibers; the other two rows specify one central nucleus. Smooth muscle also lacks striations.
+      - how: How do contraction, posture and heat fit together? → Contraction pulls on bones to move joints; sustained muscle activity helps hold the body upright. Energy used during muscle activity also releases heat, as noticeable during exercise or shivering. _(outside the book)_
+      - what: What do striated, eccentric and voluntary mean here? → Striated means visibly banded under a microscope; eccentric means away from the centre, near the fiber's edge; voluntary means movement can be consciously initiated. _(outside the book)_
+  - **khola (unpack):**
+    - striated yaani जिस पर बारी-बारी से हल्की और गहरी पट्टियाँ दिखें · image: धारीदार कमीज़ जैसी पट्टियाँ
+    - multi-nucleated (eccentric) yaani एक लंबे muscle fiber में कई nucleus, बीच की जगह किनारों के पास · image: लंबे कमरे की दीवारों के पास रखी कई कुर्सियाँ
+    - posture yaani शरीर को किसी ढंग से टिकाकर रखना · image: सीधे खड़े रहते समय पीठ और पैरों का सहारा
+    - voluntary yaani जिसकी हरकत अपनी इच्छा से शुरू कर सकें · image: कहने पर अपना हाथ उठाना
+    - kyon: हाथ-पैर चलाने और शरीर को संभालने के लिए bones पर खिंचाव चाहिए। _[standard]_ → Skeletal muscle contraction यह खिंचाव देता है और काम करते समय heat भी निकलती है। _[standard]_
+    - example / jagah: Arm muscles moving the forearm; back and leg muscles helping maintain standing posture.
+    - aage: The same tissue supports movement, posture and heat production.
+    - screen par: Pull a bone, hold the body upright, and zoom into parallel banded fibers.
+    - is level ke liye: Match all four columns; distinguish peripheral multiple nuclei from the central nucleus in the other rows.
+  - prerequisites: cell and nucleus; bones and joints; contraction as shortening or tension generation
+- **p007-i4** · table_row · comparison · image · exam high
+  - Cardiac | Location: heart | Function: pump blood continuously | Appearance: striated, one central nucleus | Control: involuntary
+    - compare: Which features does cardiac muscle share with the other types? → It shares striations with skeletal muscle, but involuntary control and a central nucleus with the smooth-muscle row.
+    - difference: What location and function distinguish cardiac muscle? → The row places it in the heart and gives its function as continuously pumping blood, rather than moving the skeleton or controlling visceral movements.
+      - why: Why is involuntary control appropriate for the heart? → Blood circulation must continue during sleep and without repeated conscious commands. Cardiac tissue has an intrinsic rhythm whose rate can be adjusted by nervous and hormonal influences. _(outside the book)_
+  - **khola (unpack):**
+    - Cardiac yaani heart से जुड़ा हुआ · image: सीने में लगातार धड़कता heart
+    - involuntary yaani जिसे हर बार अपनी इच्छा से चलाना नहीं पड़ता · image: सोते समय भी चलती धड़कन
+    - central nucleus yaani cell के बीच के हिस्से में nucleus · image: कमरे के बीच रखी मेज़
+    - kyon: शरीर को सोते-जागते blood की supply चाहिए। _[standard]_ → Heart की muscle बिना conscious आदेश के बार-बार contract करती है। _[standard]_
+    - example / jagah: Muscular wall of the heart; relate to feeling one's pulse.
+    - aage: Striations do not establish voluntary control.
+    - screen par: Beat the heart, move blood outward, then highlight striations and the central nucleus.
+    - is level ke liye: Reject statements claiming that every striated muscle is voluntary.
+  - prerequisites: heart as a pump; blood circulation; nucleus; voluntary versus involuntary control
+- **p007-i5** · table_row · comparison · image · exam high
+  - Visceral (smooth muscle) | Location: G.I. tract, uterus, eye, blood vessels | Function: Peristalsis, blood pressure, pupil size, erects hairs | Appearance: no striations, one central nucleus | Control: involuntary
+    - compare: How does smooth muscle compare with skeletal and cardiac muscle? → Smooth muscle lacks striations, unlike both other types. Its involuntary control and single central nucleus match the cardiac row rather than the skeletal row.
+    - difference: Which locations and functions distinguish this row? → The locations are the G.I. tract, uterus, eye and blood vessels. The listed functions are peristalsis, blood pressure, pupil size and erection of hairs.
+      - how: How do these functions relate to daily bodily actions? → Waves of contraction push contents through the digestive tract; contraction in vessel walls changes vessel diameter and affects blood pressure; iris muscles alter pupil size; tiny muscles attached to hairs produce goosebumps. Uterine smooth muscle produces contractions, including during childbirth. _(outside the book)_
+      - why: Why does smooth muscle suit these organs? → These organs need automatic movement or adjustment rather than a conscious command for each contraction. Smooth muscle changes tension in their walls or attached structures. _(outside the book)_
+  - **khola (unpack):**
+    - G.I. tract yaani खाना गुजरने और पचने वाला रास्ता · image: खाना पेट से आँतों में आगे जाता है
+    - Peristalsis yaani नली में लहर की तरह सिकुड़कर चीज़ों को आगे धकेलना · image: ट्यूब दबाकर paste आगे निकालना
+    - pupil size yaani आँख के बीच दिखने वाले काले opening का आकार · image: तेज़ रोशनी में छोटा होता pupil
+    - erects hairs yaani त्वचा के बालों को खड़ा करना · image: ठंड में रोंगटे खड़े होना
+    - no striations yaani microscope में धारीदार पट्टियाँ न दिखना · image: धारीदार कपड़े के बजाय सादा कपड़ा
+    - kyon: खाना आगे बढ़ना चाहिए और blood vessels की चौड़ाई जरूरत के अनुसार बदलनी चाहिए। _[standard]_ → Smooth muscle की automatic contraction इन अंदरूनी कामों को बिना बार-बार इच्छा लगाए करती है। _[standard]_
+    - example / jagah: Gut wall after a meal, iris in bright light, and skin during goosebumps.
+    - aage: A single muscle category performs several internal movements and diameter adjustments.
+    - screen par: Squeeze a tube in a wave, narrow a vessel, shrink a pupil, and raise a hair.
+    - is level ke liye: The printed location list and function list are not a one-to-one row pairing; hair erection also involves skin-associated smooth muscle.
+  - prerequisites: digestive tract as a tube; blood vessels; pupil; muscle contraction
+- **p007-i6** · diagram · figure · image · exam high
+  - Skeletal-muscle drawing: one long cylindrical, unbranched pink fiber with transverse striations and several purple nuclei.
+    - what: What shape does the skeletal-muscle drawing show? → A long cylindrical fiber with no visible branching, transverse bands and several nuclei.
+    - which: Which visual features link it to the skeletal row? → The bands and multiple nuclei correspond to the row's striated and multinucleated description.
+      - how: How should this drawing be used for identification? → Use the combination of long unbranched form, striations and multiple nuclei rather than colour, which is illustrative. _(outside the book)_
+  - **khola (unpack):**
+    - fiber yaani धागे जैसा लंबा muscle cell · image: एक लंबा धागा
+    - example / jagah: Skeletal muscle in the arm.
+    - aage: Connects microscopic appearance with the table.
+    - screen par: Trace the long fiber and highlight bands and nuclei.
+    - is level ke liye: Illustrative colours are not diagnostic.
+  - prerequisites: muscle fiber; nucleus
+- **p007-i7** · diagram · figure · image · exam high
+  - Cardiac-muscle drawing: striated pink fibers branch and join, with purple nuclei within the fibers.
+    - what: What arrangement is visible in the cardiac drawing? → The fibers are banded and form branching connections rather than a single straight unbranched cylinder.
+    - which: Which feature helps separate it from the skeletal illustration? → Its branching arrangement contrasts with the unbranched skeletal fiber.
+      - why: Why is a connected arrangement useful in heart muscle? → Connected cardiac cells help spread excitation and coordinate contractions needed for pumping. _(outside the book)_
+  - **khola (unpack):**
+    - Cardiac yaani heart की muscle का · image: जुड़ी शाखाओं जैसा जाल
+    - example / jagah: Heart wall.
+    - aage: Striated fibers need not be skeletal.
+    - screen par: Follow branching fibers and connect neighbouring cells.
+    - is level ke liye: Use shape together with control and location.
+  - prerequisites: muscle fiber; heart contraction
+- **p007-i8** · diagram · figure · image · exam high
+  - Visceral (smooth muscle) drawing: an elongated spindle-shaped pink cell with tapered ends and one central purple nucleus; transverse striations are absent.
+    - what: What shape identifies the smooth-muscle cell? → It is broadest near the middle and tapers at both ends, with a nucleus near the centre.
+    - which: Which visible feature contrasts with the other muscle drawings? → It has no visible transverse bands.
+      - how: How can a learner remember spindle shape? → Picture a long grain or a rolling pin that narrows towards both ends; do not interpret smooth as meaning unable to contract. _(outside the book)_
+  - **khola (unpack):**
+    - smooth muscle yaani ऐसी muscle जिसके cell पर पट्टियाँ नहीं दिखतीं · image: बीच में मोटा और दोनों सिरों पर पतला दाना
+    - example / jagah: Wall of the intestine.
+    - aage: The drawing distinguishes smooth muscle from both striated types.
+    - screen par: Outline tapered ends and highlight the central nucleus.
+    - is level ke liye: Smooth describes microscopic appearance, not absence of movement.
+  - prerequisites: cell and nucleus; striations
+- **p007-i9** · diagram · figure · image · exam high
+  - Five connective-tissue drawings: (a) types of blood cells, showing different white blood corpuscles and platelets; (b) compact bone, with concentric rings around Haversian canals, canaliculi and a red blood corpuscle; (c) hyaline cartilage, with chondrocytes in hyaline matrix; (d) areolar tissue, with reticular fiber, fibroblast, macrophage, collagen fiber, mast cell and plasma cell; (e) adipose tissue, with fat droplets and nuclei in adipocytes. Leader lines identify the parts; these are parallel examples, not stages of a sequence.
+    - what: What does the lower-left panel bring together? → It presents blood cells, compact bone, hyaline cartilage, areolar tissue and adipose tissue as examples of connective tissues.
+    - which: Which visual clues distinguish these examples? → Blood shows separate cells, bone concentric rings and canals, cartilage cells within matrix, areolar tissue a loose mixture of fibers and cells, and adipose tissue large fat-filled cells.
+      - why: Why can these different-looking tissues belong to one broad category? → Connective tissues contain cells associated with an extracellular matrix. The matrix can be fluid in blood, firm in cartilage or mineralised in bone, giving different supporting, transporting and storage roles. _(outside the book)_
+  - **khola (unpack):**
+    - connective tissues yaani शरीर में जोड़ने, सहारा देने, भरने या सामान पहुँचाने वाले tissue का समूह · image: एक घर में ढाँचा, भराव और सामान पहुँचाने के अलग साधन
+    - kyon: शरीर को सिर्फ ढकने वाली layer नहीं, सहारा, भराव और transport भी चाहिए। _[standard]_ → अलग matrix वाले connective tissues इन अलग जरूरतों को पूरा करते हैं। _[standard]_
+    - example / jagah: Blood in vessels, bone in the skeleton, cartilage at joints, loose tissue beneath skin, and body fat.
+    - aage: A connective tissue need not look like a tough solid connector.
+    - screen par: Zoom across the five tissues and contrast their matrices.
+    - is level ke liye: Use tissue–cell matching and the blood-as-connective-tissue conceptual trap.
+  - prerequisites: cell; extracellular matrix; tissue
+- **p007-i10** · caption · figure · image
+  - Fig. 6.10: Types of connective tissues: (a) types of blood cells, (b) compact bone, (c) hyaline cartilage, (d) areolar tissues, (e) adipose tissue
+- **p007-i11** · diagram_label · figure · image · exam high
+  - Different white blood corpuscles — identifies the grouped white blood cell examples.
+    - what: What does the grouping label identify? → Several differently shaped white blood cell examples in the blood-cell panel.
+    - which: Which named examples occur within the group? → Neutrophil, eosinophil, basophil, lymphocyte and monocyte.
+      - why: Why are different white blood cells useful? → Body defence requires different responses, such as engulfing material, producing immune responses and participating in inflammation. _(outside the book)_
+  - **khola (unpack):**
+    - white blood corpuscles yaani blood में रक्षा के काम करने वाले अलग-अलग cells · image: सुरक्षा दल के अलग काम करने वाले सदस्य
+    - example / jagah: Blood; white-cell counts in a blood report.
+    - aage: Blood contains several specialised cellular components.
+    - screen par: Bracket the five white-cell types.
+    - is level ke liye: Corpuscle here is an older term for a blood cell.
+  - prerequisites: blood as a tissue; cell nucleus
+- **p007-i12** · diagram_label · figure · image · exam medium
+  - Cytoplasm — points to the material around the nucleus inside a white blood corpuscle.
+    - what: What region is labelled cytoplasm? → The cell interior surrounding the nucleus in the illustrated blood cell.
+    - which: Which boundary separates this region from the surroundings? → The cell membrane encloses the cytoplasm. _(outside the book)_
+      - how: How does cytoplasm support cell activity? → It contains cell components and provides the medium for many chemical reactions. _(outside the book)_
+  - **khola (unpack):**
+    - Cytoplasm yaani cell के अंदर nucleus के आसपास का भाग · image: कटोरे में भरी jelly में रखी चीज़ें
+    - example / jagah: White blood cell shown in panel (a).
+    - aage: The cell is not just its nucleus.
+    - screen par: Shade the region between nucleus and membrane.
+    - is level ke liye: Separate cytoplasm from extracellular matrix.
+  - prerequisites: cell membrane; nucleus
+- **p007-i13** · diagram_label · figure · image · exam medium
+  - Nucleus — points to the dark internal nuclear structure of a white blood corpuscle.
+    - what: What is labelled nucleus in the blood-cell inset? → The dark-stained structure within the white blood cell.
+    - which: Which blood components in this illustration should not be confused with a nucleus? → Platelets are separate small blood components, not detached nuclei. _(outside the book)_
+      - how: How can the nucleus help identify white blood cells? → Its shape, including whether it is rounded or lobed, helps distinguish white-cell types under a microscope. _(outside the book)_
+  - **khola (unpack):**
+    - Nucleus yaani cell का वह भाग जिसमें genetic जानकारी रहती है · image: दफ्तर का record और instructions रखने वाला हिस्सा
+    - example / jagah: White blood cell.
+    - aage: Internal shape provides an identification clue.
+    - screen par: Outline the dark nuclear region.
+    - is level ke liye: Mature human RBCs lack nuclei; that contrast is outside explanation.
+  - prerequisites: cell; nucleus
+- **p007-i14** · diagram_label · figure · image · exam high
+  - Neutrophil (polymorphonuclear leucocyte) — names the illustrated white blood cell with a lobed nucleus.
+    - what: What cell does this label name? → A neutrophil, also labelled polymorphonuclear leucocyte, among the white blood corpuscles.
+    - which: Which visible feature supports the long descriptive name? → The nuclear structure appears divided into connected lobes.
+      - how: How should polymorphonuclear be understood? → It refers to a variably lobed nucleus, not several separate nuclei; neutrophils help defence by engulfing microbes and debris. _(outside the book)_
+  - **khola (unpack):**
+    - polymorphonuclear leucocyte yaani कई जुड़े lobes वाला nucleus रखने वाला white blood cell · image: एक डोरी से जुड़े मोतियों जैसी आकृति
+    - example / jagah: Blood; defence against infection.
+    - aage: Nuclear lobes and number of nuclei are different ideas.
+    - screen par: Trace the connected nuclear lobes.
+    - is level ke liye: Retain the book's spelling leucocyte.
+  - prerequisites: white blood cell; nucleus
+- **p007-i15** · diagram_label · figure · image · exam medium
+  - Eosinophil — names the middle white blood cell in the upper row.
+    - what: What does eosinophil name here? → One of the illustrated types of white blood corpuscles.
+    - which: Which blood-cell category contains eosinophils? → They are white blood cells rather than red blood cells or platelets.
+      - how: How can this unfamiliar name be linked to health? → Eosinophils participate in responses to parasites and in allergic conditions; their count may appear in a differential blood count. _(outside the book)_
+  - **khola (unpack):**
+    - Eosinophil yaani white blood cell का एक प्रकार · image: blood report में अलग गिनती वाला रक्षा cell
+    - example / jagah: Blood; allergy-related blood tests.
+    - aage: Different WBC names represent specialised cells.
+    - screen par: Highlight the labelled cell within the WBC group.
+    - is level ke liye: Avoid treating each blood-cell name as a separate tissue.
+  - prerequisites: white blood cell; blood count
+- **p007-i16** · diagram_label · figure · image · exam medium
+  - Basophil — names the rightmost white blood cell in the upper row.
+    - what: What does the basophil label identify? → A named white blood corpuscle in the blood-cell panel.
+    - which: Which other labelled cell should not be confused with it? → The mast cell is separately labelled in the areolar-tissue panel, not in this blood-cell position.
+      - how: How does a basophil contribute to defence? → It releases substances involved in inflammatory and allergic responses. _(outside the book)_
+  - **khola (unpack):**
+    - Basophil yaani inflammation और allergy में भाग लेने वाला white blood cell · image: खतरे पर संकेत छोड़ने वाला सुरक्षा सदस्य
+    - example / jagah: Blood.
+    - aage: Similar defence roles do not make differently labelled cells identical.
+    - screen par: Locate the upper-right blood cell.
+    - is level ke liye: No need to memorise staining chemistry from this page.
+  - prerequisites: white blood cell; inflammation
+- **p007-i17** · diagram_label · figure · image · exam high
+  - Lymphocyte — names the lower-left white blood cell.
+    - what: What is the labelled lymphocyte? → One of the white blood corpuscles shown in the panel.
+    - which: Which large internal feature is visible? → A prominent dark nucleus occupies much of the cell drawing.
+      - how: How do lymphocytes connect with immunity? → B and T lymphocytes contribute to specific immune responses; B cells can develop into antibody-producing plasma cells. _(outside the book)_
+  - **khola (unpack):**
+    - Lymphocyte yaani खास targets के खिलाफ immune response में भाग लेने वाला white blood cell · image: किसी खास घुसपैठिए को पहचानने वाला सुरक्षा सदस्य
+    - example / jagah: Blood and immune responses after vaccination.
+    - aage: Links blood-cell identification to immunity.
+    - screen par: Highlight the large nucleus, then link B cells to plasma cells.
+    - is level ke liye: The B-cell connection is explanatory outside knowledge.
+  - prerequisites: white blood cell; nucleus; immunity
+- **p007-i18** · diagram_label · figure · image · exam medium
+  - Monocyte — names the lower-middle white blood cell with an indented nuclear outline.
+    - what: What cell does monocyte name? → A white blood corpuscle in the blood-cell group.
+    - which: Which nuclear feature helps recognise this drawing? → The nucleus is indented rather than a simple round disc.
+      - how: How does a monocyte relate to macrophages? → Monocytes circulating in blood can enter tissues and differentiate into macrophages that engulf microbes and debris. _(outside the book)_
+  - **khola (unpack):**
+    - Monocyte yaani blood में घूमने वाला बड़ा defence cell · image: सड़क से जरूरत की जगह पहुँचने वाला सफाईकर्मी
+    - example / jagah: Blood, with related macrophages in connective tissue.
+    - aage: Blood and tissue defence cells are connected.
+    - screen par: Move a monocyte from a vessel into tissue.
+    - is level ke liye: Do not claim all tissue macrophages arise from current circulating monocytes.
+  - prerequisites: white blood cell; blood versus tissue
+- **p007-i19** · diagram_label · figure · image · exam high
+  - Platelets — points to the small clustered blood components beside the white blood cells.
+    - what: What does the platelets label point to? → The much smaller clustered components next to the larger white blood cells.
+    - which: Which blood component is chiefly associated with forming an initial plug at injury? → Platelets help form a plug and support clotting. _(outside the book)_
+      - how: How does that protect the body? → Platelets adhere and aggregate at a damaged vessel, helping limit blood loss while the clotting system stabilises the seal. _(outside the book)_
+  - **khola (unpack):**
+    - Platelets yaani blood के छोटे cell fragments जो चोट पर plug बनाने में मदद करें · image: रिसाव पर पहले इकट्ठा होने वाले छोटे patch
+    - kyon: Vessel टूटने पर blood बह सकता है। _[standard]_ → Platelets चोट पर जमा होकर शुरुआती plug बनाते हैं। _[standard]_
+    - example / jagah: A small cut that stops bleeding.
+    - aage: Blood components have distinct defence, transport and clotting jobs.
+    - screen par: Cluster small platelets at a vessel break.
+    - is level ke liye: Avoid confusing platelets with whole white blood cells.
+  - prerequisites: blood vessel; bleeding
+- **p007-i20** · diagram_label · figure · image · exam high
+  - Haversian canal (contains blood vessels and nerve fibres) — points to the central canal within the concentric compact-bone structure.
+    - what: What occupies the labelled canal? → Blood vessels and nerve fibres occur in the Haversian canal at the centre of the ringed bone unit.
+    - which: Which tissue contains this labelled structure? → Compact bone, subfigure (b).
+      - why: Why does hard bone need canals? → Bone contains living cells that need nutrients and oxygen. Vessels within canals bring supplies through tissue whose mineralised matrix cannot simply be traversed by large vessels everywhere. _(outside the book)_
+  - **khola (unpack):**
+    - Haversian canal yaani compact bone के अंदर blood vessels और nerves के गुजरने की नली · image: मजबूत इमारत के भीतर service duct
+    - kyon: सख्त bone में भी जिंदा cells को supply चाहिए। _[standard]_ → भीतर के canals blood vessels को रास्ता देते हैं। _[standard]_
+    - example / jagah: Compact bone in the skeleton.
+    - aage: Hardness does not mean bone is dead or without circulation.
+    - screen par: Zoom into concentric rings and run a vessel through the centre.
+    - is level ke liye: Distinguish central canal from smaller canaliculi.
+  - prerequisites: blood supply; living bone cells; matrix
+- **p007-i21** · diagram_label · figure · image · exam medium
+  - Canaliculus (contains slender process of bone cell or osteocyte) — points to a fine channel in the compact-bone matrix.
+    - what: What does a canaliculus contain according to the label? → A slender process of a bone cell, also called an osteocyte.
+    - which: Which contrast separates it from the Haversian canal? → The canaliculus contains a fine osteocyte process, whereas the Haversian canal contains blood vessels and nerve fibres.
+      - how: How do these fine channels help bone cells? → They accommodate cell processes and support communication and exchange between osteocytes and the nearby nutrient supply. _(outside the book)_
+  - **khola (unpack):**
+    - Canaliculus yaani bone matrix में बहुत बारीक channel · image: मुख्य सड़क से निकलती पतली गली
+    - slender process yaani cell से निकला लंबा पतला फैलाव · image: पतली उँगली जैसा बढ़ा हिस्सा
+    - example / jagah: Fine channels between bone cells in compact bone.
+    - aage: The central supply route and tiny cell-connecting routes have different contents.
+    - screen par: Branch fine channels away from the central canal.
+    - is level ke liye: Osteocyte means a mature bone cell.
+  - prerequisites: bone cell; cell process; Haversian canal
+- **p007-i22** · diagram_label · figure · image · exam high
+  - Red blood corpuscle — points to the small blood-cell illustration below the compact-bone units.
+    - what: What does this separate label name? → A red blood corpuscle shown near the compact-bone illustration.
+    - which: Which tissue does this cell belong to? → It is a blood component, not an osteocyte belonging to the bone matrix. _(outside the book)_
+      - how: How do red blood cells support living bone? → Their haemoglobin carries oxygen in blood flowing through bone vessels, supporting the needs of living bone cells. _(outside the book)_
+  - **khola (unpack):**
+    - Red blood corpuscle yaani blood का oxygen ले जाने वाला cell · image: oxygen पहुँचाने वाली छोटी delivery गाड़ी
+    - example / jagah: Blood vessels supplying bone.
+    - aage: A cell drawn next to bone is not necessarily a bone cell.
+    - screen par: Place the red cell within a bone blood vessel.
+    - is level ke liye: RBC is a blood component even when illustrated beside another tissue.
+  - prerequisites: blood; oxygen transport; bone blood supply
+- **p007-i23** · diagram_label · figure · image · exam high
+  - Chondrocyte — points to a cartilage cell within the hyaline cartilage drawing.
+    - what: What is the labelled chondrocyte? → The cell identified within the hyaline cartilage panel.
+    - which: Which tissue–cell pairing does this establish? → Hyaline cartilage contains chondrocytes.
+      - how: How does a chondrocyte relate to the surrounding matrix? → It is a living cartilage cell that maintains the surrounding extracellular matrix rather than being the matrix itself. _(outside the book)_
+  - **khola (unpack):**
+    - Chondrocyte yaani cartilage का cell · image: जेली जैसे भराव में बैठा छोटा cell
+    - example / jagah: Hyaline cartilage, such as cartilage covering joint surfaces.
+    - aage: Identifies the living cell separately from its surroundings.
+    - screen par: Circle the cartilage cell, then shade the surrounding matrix.
+    - is level ke liye: Practise tissue–cell matching rather than isolated spelling.
+  - prerequisites: cell versus extracellular matrix
+- **p007-i24** · diagram_label · figure · image · exam high
+  - Hyaline matrix — points to the material surrounding the chondrocytes.
+    - what: What region is called the hyaline matrix? → The surrounding material outside the chondrocytes in the cartilage drawing.
+    - which: Which part is the cell rather than the matrix? → The separately labelled chondrocyte is the cell.
+      - why: Why is the matrix important for cartilage? → Its firm, water-rich material provides support and resistance to compression while remaining more flexible than mineralised bone. _(outside the book)_
+  - **khola (unpack):**
+    - Hyaline matrix yaani cartilage cells के आसपास का चिकना, glass जैसा दिखने वाला भराव · image: फल के टुकड़ों के आसपास जमी jelly
+    - kyon: Joint जैसे स्थानों पर दबाव सहने वाला सहारा चाहिए। _[standard]_ → Cartilage का matrix कुछ लचीलापन रखते हुए दबाव सहने में मदद करता है। _[standard]_
+    - example / jagah: Cartilage at joint surfaces.
+    - aage: Matrix properties help determine tissue function.
+    - screen par: Press gently on the matrix and show recovery.
+    - is level ke liye: Hyaline is an appearance term, not a claim that cartilage is made of glass.
+  - prerequisites: extracellular matrix; cartilage
+- **p007-i25** · diagram_label · figure · image · exam medium
+  - Reticular fiber — points to fine branching fibers in the areolar-tissue illustration.
+    - what: What does reticular fiber identify? → A fine fiber component among the cells and fibers of the areolar panel.
+    - which: Which other fiber is separately named? → Collagen fiber is another labelled fiber component.
+      - how: How does a reticular arrangement help tissue? → A fine branching network provides a supporting mesh for cells; reticular means net-like. _(outside the book)_
+  - **khola (unpack):**
+    - Reticular fiber yaani बारीक जाल बनाने वाला fiber · image: पतली जाली का सहारा
+    - example / jagah: The connective-tissue mesh shown in panel (d).
+    - aage: The tissue contains supporting material as well as cells.
+    - screen par: Trace a fine branching mesh.
+    - is level ke liye: Contrast a fiber label with fibroblast, a cell label.
+  - prerequisites: connective-tissue fibers; network
+- **p007-i26** · diagram_label · figure · image · exam high
+  - Fibroblast — points to the elongated cell in the areolar-tissue drawing.
+    - what: What structure is labelled fibroblast? → An elongated cell among the fibers of areolar tissue.
+    - which: Which named components are not cells like the fibroblast? → Reticular fiber and collagen fiber are labelled fibers rather than cells.
+      - how: How do fibroblasts help connective tissue? → They produce extracellular matrix components, including collagen, and contribute to tissue repair. _(outside the book)_
+  - **khola (unpack):**
+    - Fibroblast yaani connective tissue का भराव और fibers बनाने वाला cell · image: जाल के धागे बनाने वाला कारीगर
+    - example / jagah: Loose connective tissue; healing of a cut.
+    - aage: Cells manufacture the surrounding supportive material.
+    - screen par: Show fibers appearing around the fibroblast.
+    - is level ke liye: Separate producer cell from its extracellular products.
+  - prerequisites: cell; extracellular fibers
+- **p007-i27** · diagram_label · figure · image · exam high
+  - Macrophage — points to an irregular cell in the areolar-tissue drawing.
+    - what: What does macrophage identify in this panel? → A cell within the mixture of areolar connective-tissue cells and fibers.
+    - which: Which tissue panel contains this label? → The areolar-tissue panel, subfigure (d).
+      - how: How does a macrophage protect tissue? → It engulfs and digests microbes and cellular debris, helping local defence and clean-up. _(outside the book)_
+  - **khola (unpack):**
+    - Macrophage yaani microbes और टूटे हिस्सों को निगलकर साफ करने वाला cell · image: कचरा समेटकर अंदर लेने वाला सफाईकर्मी
+    - kyon: Tissue में microbes या टूटे cells जमा हो सकते हैं। _[standard]_ → Macrophage उन्हें engulf करके सफाई और defence में मदद करता है। _[standard]_
+    - example / jagah: Loose connective tissue beneath the skin.
+    - aage: Connective tissue also provides local defence.
+    - screen par: Engulf a particle within the cell.
+    - is level ke liye: Link to the monocyte illustration without calling the two labels identical.
+  - prerequisites: cell; microbe; tissue debris
+- **p007-i28** · diagram_label · figure · image · exam high
+  - Collagen fiber — points to a prominent fiber in the areolar-tissue drawing.
+    - what: What does collagen fiber name? → One of the fiber components drawn among the areolar-tissue cells.
+    - which: Which nearby label names a cell rather than this fiber? → Fibroblast names a cell; collagen fiber names an extracellular structure.
+      - why: Why is collagen useful in connective tissue? → Collagen provides tensile strength, helping tissue resist pulling forces. _(outside the book)_
+  - **khola (unpack):**
+    - Collagen fiber yaani खींचने पर मजबूती देने वाला protein fiber · image: खींचाव सहने वाली मजबूत रस्सी
+    - example / jagah: Connective tissue beneath the skin.
+    - aage: Matrix fibers contribute mechanical strength.
+    - screen par: Pull the fiber taut.
+    - is level ke liye: Strength is not the same property as unrestricted stretchiness.
+  - prerequisites: fiber; pulling force
+- **p007-i29** · diagram_label · figure · image · exam high
+  - Mast cell — points to the rounded cell near the bottom of the areolar-tissue illustration.
+    - what: What is labelled mast cell? → A distinct cell type in the areolar-tissue illustration.
+    - which: Which panel contains it rather than the circulating blood-cell group? → It is labelled in areolar tissue, subfigure (d).
+      - how: How do mast cells link to everyday allergic reactions? → They release mediators such as histamine that can contribute to swelling, redness and itching. _(outside the book)_
+  - **khola (unpack):**
+    - Mast cell yaani tissue में ऐसे signals छोड़ने वाला cell जो allergy और inflammation में भाग लें · image: खतरे पर alarm छोड़ने वाला चौकीदार
+    - example / jagah: Connective tissue involved in skin allergy.
+    - aage: Local tissue cells can trigger visible inflammatory changes.
+    - screen par: Release small signal dots around the cell.
+    - is level ke liye: Do not confuse mast cells with plasma cells or basophils.
+  - prerequisites: connective tissue; allergy
+- **p007-i30** · diagram_label · figure · image · exam high
+  - Plasma cell — points to the cell on the right side of the areolar-tissue drawing.
+    - what: What does plasma cell name in this drawing? → A labelled cell among the components of areolar connective tissue.
+    - which: Which meaning of plasma must be kept separate? → A plasma cell is a cell; blood plasma is the fluid part of blood. _(outside the book)_
+      - how: How does a plasma cell contribute to defence? → It is a differentiated B lymphocyte specialised for secreting antibodies. _(outside the book)_
+  - **khola (unpack):**
+    - Plasma cell yaani antibodies बनाकर छोड़ने वाला defence cell · image: खास target के लिए सुरक्षा उपकरण बनाने की छोटी factory
+    - example / jagah: Connective tissue and immune responses.
+    - aage: Links connective-tissue cells with antibody-mediated immunity.
+    - screen par: Release antibody shapes from the cell.
+    - is level ke liye: Contrast plasma cell with blood plasma and connect it to B lymphocytes.
+  - prerequisites: cell; antibody; lymphocyte
+- **p007-i31** · diagram_label · figure · image · exam high
+  - Fat droplet — points to the large pale fat-containing region inside an adipocyte.
+    - what: What occupies the large pale region in the adipose drawing? → The labelled fat droplet within an adipocyte.
+    - which: Which tissue panel contains the fat droplet? → Adipose tissue, subfigure (e).
+      - why: Why store fat in these cells? → Stored fat provides an energy reserve and adipose tissue contributes cushioning and thermal insulation. _(outside the book)_
+  - **khola (unpack):**
+    - Fat droplet yaani cell के अंदर जमा fat का बड़ा हिस्सा · image: भंडार में रखा energy का reserve
+    - kyon: शरीर को बाद में इस्तेमाल के लिए energy बचानी पड़ती है। _[standard]_ → Adipocytes fat जमा करके यह reserve रखते हैं। _[standard]_
+    - example / jagah: Body fat beneath the skin.
+    - aage: Large stored droplets dominate the cell's appearance.
+    - screen par: Fill the cell with a growing fat droplet.
+    - is level ke liye: Adipose tissue also has useful normal functions; it is not merely unwanted weight.
+  - prerequisites: cell; fat as an energy store
+- **p007-i32** · diagram_label · figure · image · exam medium
+  - Nucleus — points to the small dark structure near the edge of an adipocyte.
+    - what: Where is the nucleus shown in the adipose cell? → Near the cell's edge beside the large fat-containing region.
+    - which: Which labelled feature takes up much more space than the nucleus? → The fat droplet occupies the large pale region.
+      - why: Why is the nucleus displaced towards the edge? → In a typical white adipocyte, a large lipid droplet occupies most of the cell and pushes the nucleus and cytoplasm towards the periphery. _(outside the book)_
+  - **khola (unpack):**
+    - Nucleus yaani fat cell में किनारे की ओर दिखता genetic जानकारी वाला हिस्सा · image: बड़े सामान के आने से किनारे खिसकी मेज़
+    - example / jagah: Typical white adipocyte.
+    - aage: Stored material can alter the position of cell components.
+    - screen par: Expand the droplet and shift the nucleus outward.
+    - is level ke liye: Avoid applying this one-droplet appearance to every adipose-cell subtype.
+  - prerequisites: nucleus; fat droplet
+- **p007-i33** · diagram_label · figure · image · exam high
+  - Adipocytes — names the fat-containing cells in the adipose-tissue panel.
+    - what: What are the cells labelled adipocytes? → The cells containing fat droplets and nuclei in the adipose-tissue drawing.
+    - which: Which tissue–cell pair follows from the panel? → Adipose tissue contains adipocytes.
+      - how: How can the tissue and cell names be remembered together? → Both share adipo-, referring to fat; adipocyte names the cell, while adipose tissue names the tissue made up largely of such cells. _(outside the book)_
+  - **khola (unpack):**
+    - Adipocytes yaani fat जमा करने वाले cells · image: छोटे-छोटे storage bags का समूह
+    - example / jagah: Subcutaneous fat and fat around some organs.
+    - aage: Connects the cell name to the tissue and storage role.
+    - screen par: Outline several adjacent fat cells.
+    - is level ke liye: Contrast adipocyte, chondrocyte and osteocyte in matching questions.
+  - prerequisites: cell versus tissue; fat storage
+- **p007-i34** · question · none · image · exam high
+  - How do neurons transmit impulses (send message to other cells)?
+    - what: What question does the neuron panel ask? → It asks how a neuron carries an impulse and communicates a message to another cell.
+    - how: How does the diagram begin to answer it? → It shows connected neurons, dendrites, cell bodies, axons, axon tips, synapses and an electrical-signal arrow along an axon.
+      - how: How is the message passed in a typical chemical synapse? → An impulse reaching the axon terminal triggers neurotransmitter release; the transmitter crosses the small gap and acts on the receiving cell. _(outside the book)_
+  - prerequisites: neuron; nerve impulse
+- **p007-i35** · diagram · figure · image · exam high
+  - Neuron communication diagram: an axon of a previous neuron approaches the left neuron's dendritic region at a circled synapse. The left neuron has dendrites, a neuron cell body and nucleus. Its long red axon curves to axon tips near the second neuron's dendrites, where another synapse is circled. A blue arrow labelled electrical signal runs along the first neuron's axon towards the second neuron. The second neuron also has a labelled neuron cell body and nucleus.
+    - what: What overall connection does the illustration show? → A previous neuron's axon reaches the first neuron, whose axon then approaches the dendrites of a second neuron through another synaptic junction.
+    - which: Which route is indicated for the electrical signal? → The arrow follows the first neuron's axon from the cell-body side towards its tips near the next neuron.
+      - how: How should the typical route through a neuron be understood? → Incoming signals are commonly received by dendrites and the cell body; if sufficient excitation is produced, an impulse is initiated near the start of the axon and travels towards the terminals. _(outside the book)_
+      - why: Why are synapses important in a chain of neurons? → They provide sites at which one cell influences another, allowing messages to be passed and modified rather than treating the nervous system as one uninterrupted cell. _(outside the book)_
+  - **khola (unpack):**
+    - impulses yaani neuron में आगे बढ़ने वाले तेज electrical संदेश · image: एक सिरे से दूसरे सिरे तक पहुँचता सूचना signal
+    - kyon: शरीर के दूर हिस्सों तक सूचना जल्दी पहुँचानी होती है। _[standard]_ → Neurons अपने axon से impulse पहुँचाते हैं और synapse पर अगली cell को message देते हैं। _[standard]_
+    - example / jagah: A chain of neurons carrying information during a response to touch.
+    - aage: Information can travel across successive cells without their cytoplasm becoming one continuous compartment.
+    - screen par: Receive, conduct along the axon, then transfer across the synapse.
+    - is level ke liye: The blue arrow is an electrical signal within the axon; typical chemical transmission across a synapse uses neurotransmitters.
+  - prerequisites: cell and nucleus; nerve impulse; communication between cells
+- **p007-i36** · diagram_label · figure · image · exam high
+  - axon of previous neuron — points to the incoming axon approaching the first neuron's dendritic region.
+    - what: What does the incoming structure belong to? → It belongs to a previous neuron rather than to the cell body shown beside it.
+    - which: Which connection does it approach? → The circled synapse at the first neuron's receiving region.
+      - how: How does it contribute to the next neuron's activity? → Its terminal can release a transmitter at a chemical synapse, changing the receiving neuron's electrical state. _(outside the book)_
+  - **khola (unpack):**
+    - previous neuron yaani message की कड़ी में इससे पहले वाला neuron · image: relay में पीछे से message देने वाला साथी
+    - example / jagah: Incoming link at the left edge of the diagram.
+    - aage: Makes the drawing a segment of a longer chain.
+    - screen par: Colour the incoming axon separately from the receiving neuron.
+    - is level ke liye: Distinguish proximity from belonging to the same cell.
+  - prerequisites: axon; separate neurons; synapse
+- **p007-i37** · diagram_label · figure · image · exam high
+  - synapse — two occurrences identify the contact regions between the previous axon and first neuron, and between the first neuron's axon tips and the next neuron.
+    - what: What do the two synapse labels identify? → Junction regions at which an incoming axon approaches a receiving neuron.
+    - which: Which structures meet near the upper circled synapse? → The first neuron's axon tips and the next neuron's receiving branches.
+      - how: How does a typical chemical synapse transmit a signal? → An arriving impulse causes neurotransmitter release from a terminal; transmitter diffuses across the synaptic cleft and binds receptors on the receiving cell. _(outside the book)_
+      - why: Why should the circled junction not be read as fused cells? → At a chemical synapse, the cells remain separated by a small gap; communication occurs through transmitter molecules. _(outside the book)_
+  - **khola (unpack):**
+    - synapse yaani जहाँ एक neuron अगली cell को message देता है · image: दो लोगों के बीच message देने की छोटी दूरी
+    - kyon: Message एक cell से दूसरी तक जाना चाहिए, लेकिन वे अलग cells हैं। _[standard]_ → Typical chemical synapse में transmitter बीच का छोटा gap पार करके signal देता है। _[standard]_
+    - example / jagah: The two circled junctions in the diagram.
+    - aage: Conduction within an axon differs from transmission across a chemical synapse.
+    - screen par: Zoom into the gap and release transmitter dots.
+    - is level ke liye: Electrical synapses also exist; avoid making the chemical account universal.
+  - prerequisites: separate cell membranes; axon terminal; receiving neuron
+- **p007-i38** · diagram_label · figure · image · exam high
+  - neuron cell body — two labels point to the enlarged central regions of the two illustrated neurons.
+    - what: What is identified as the neuron cell body? → The enlarged central part of each neuron from which the branches extend.
+    - which: Which labelled component lies within it? → The nucleus lies inside each illustrated cell body.
+      - how: How does the cell body support the neuron? → It contains the nucleus and much of the machinery for metabolism and protein production, supporting maintenance of the cell and its long processes. _(outside the book)_
+  - **khola (unpack):**
+    - neuron cell body yaani neuron का बड़ा बीच वाला हिस्सा जिसमें nucleus होता है · image: शाखाओं के बीच मुख्य कामकाजी centre
+    - example / jagah: Orange central regions in the two neurons.
+    - aage: A neuron is more than its long signal-carrying axon.
+    - screen par: Highlight the central region while dimming the processes.
+    - is level ke liye: Cell body is also called soma; the book uses neuron cell body.
+  - prerequisites: cell; nucleus; cell processes
+- **p007-i39** · diagram_label · figure · image · exam medium
+  - nucleus — two labels point to dark oval structures within the neuron cell bodies.
+    - what: What dark structure is labelled in each neuron? → The nucleus within the neuron cell body.
+    - which: Which region contains these nuclei rather than the long outgoing fiber? → The cell body contains the labelled nucleus.
+      - why: Why does a neuron need a nucleus? → Its genetic information supports regulation of cell activity and production of proteins needed to maintain the neuron. _(outside the book)_
+  - **khola (unpack):**
+    - nucleus yaani cell की genetic जानकारी रखने वाला अंदरूनी हिस्सा · image: मुख्य office का instructions record
+    - example / jagah: Dark oval inside each neuron body.
+    - aage: Neurons remain living cells with ordinary cellular maintenance needs.
+    - screen par: Zoom into each cell body and circle its nucleus.
+    - is level ke liye: The action potential is not shown starting from the nucleus.
+  - prerequisites: nucleus; cell body; genetic information
+- **p007-i40** · diagram_label · figure · image · exam high
+  - dendrites — leader lines point to the short branching projections around the first neuron's cell body.
+    - what: What does the dendrites label point to? → Short branched projections extending around the first neuron's cell body.
+    - which: Which long process is visually different from these branches? → The axon is the long outgoing process connecting towards the next neuron.
+      - how: How do dendrites help a neuron receive information? → Their branching provides surface for many synaptic inputs, which influence the cell body's electrical state. _(outside the book)_
+  - **khola (unpack):**
+    - dendrites yaani neuron की छोटी शाखाएँ जो incoming messages लेने में मदद करें · image: कई दिशाओं में फैली पेड़ की डालियाँ
+    - kyon: Neuron को कई दूसरे cells से input मिल सकता है। _[standard]_ → फैली dendrites संपर्क के लिए ज्यादा जगह देती हैं। _[standard]_
+    - example / jagah: Branches around the left neuron.
+    - aage: Many inputs can influence one neuron's response.
+    - screen par: Branch outward and receive several incoming signals.
+    - is level ke liye: Use typical functional direction without making it an exceptionless rule.
+  - prerequisites: cell projection; synapse
+- **p007-i41** · diagram_label · figure · image · exam high
+  - axon — points to the long red process extending from the first neuron towards the next neuron.
+    - what: What structure is labelled axon? → The long curved process extending from the first cell body towards the second neuron.
+    - which: Which direction does the nearby signal arrow indicate? → Along that axon towards its far end near the next neuron.
+      - how: How does an axon carry an impulse? → Successive changes in the axon membrane's electrical state propagate an action potential along the fiber. _(outside the book)_
+  - **khola (unpack):**
+    - axon yaani neuron का लंबा हिस्सा जो impulse आगे ले जाता है · image: दूर तक message पहुँचाने वाला लंबा रास्ता
+    - example / jagah: The red curved connection between the illustrated neurons.
+    - aage: A neuron can carry information beyond its cell body's immediate neighbourhood.
+    - screen par: Run a moving pulse along the long fiber.
+    - is level ke liye: The signal is a membrane event, not a bead physically travelling down a hollow tube.
+  - prerequisites: cell membrane; nerve impulse; cell body
+- **p007-i42** · diagram_label · figure · image · exam high
+  - axon tips — points to the terminal branches of the first neuron's axon near the next neuron.
+    - what: What do the axon tips represent? → The terminal branches at the far end of the first neuron's axon.
+    - which: Which neighbouring structures receive their message in the drawing? → The dendrites of the next neuron lie next to these tips.
+      - how: How do the tips transfer a message at a chemical synapse? → An arriving impulse triggers release of neurotransmitter from the terminal into the synaptic cleft. _(outside the book)_
+  - **khola (unpack):**
+    - axon tips yaani axon के आखिरी सिरे जहाँ से अगली cell को signal मिलता है · image: relay में message सौंपने वाला हाथ
+    - example / jagah: End of the curved axon beside the upper-right neuron.
+    - aage: Conduction along one neuron leads to transmission at its terminal.
+    - screen par: Branch the axon end and release transmitter.
+    - is level ke liye: Axon terminals is the standard equivalent term.
+  - prerequisites: axon; synapse; receiving cell
+- **p007-i43** · diagram_label · figure · image · exam high
+  - dendrites of next neuron — points to branching receiving projections of the second neuron.
+    - what: What does this receiving-side label identify? → The branches belonging to the next neuron, distinct from the first neuron's axon tips.
+    - which: Which neuron owns these branches? → The upper-right neuron with its own labelled cell body and nucleus.
+      - how: How can a message at these dendrites affect the next neuron? → Synaptic input changes the receiving membrane's electrical state; sufficiently combined excitation can lead to a new impulse in that neuron. _(outside the book)_
+  - **khola (unpack):**
+    - dendrites of next neuron yaani अगले neuron की message लेने वाली शाखाएँ · image: relay में आगे वाला साथी message लेने को तैयार
+    - example / jagah: Receiving branches around the upper-right cell body.
+    - aage: The input–output pattern can repeat through a chain of neurons.
+    - screen par: Light up the receiving branches, then the next cell body.
+    - is level ke liye: Keep the receiving cell distinct from the transmitting cell.
+  - prerequisites: dendrite; separate neurons; synaptic input
+- **p007-i44** · diagram_label · figure · image · exam high
+  - electrical signal — labels the blue directional arrow following the first neuron's axon towards the next neuron.
+    - what: What does the blue arrow represent? → An electrical signal travelling along the illustrated axon.
+    - which: Which direction is shown? → From the first neuron's cell-body side towards its axon tips near the next neuron.
+      - how: How does a biological electrical signal differ from a household wire current? → An action potential is a travelling change in membrane voltage produced by ion movements across the membrane, rather than electrons simply flowing through a metal conductor. _(outside the book)_
+  - **khola (unpack):**
+    - electrical signal yaani membrane के voltage में बदलाव के रूप में आगे बढ़ता message · image: एक के बाद एक जलती lights से आगे बढ़ती लहर
+    - example / jagah: The blue arrow beside the curved red axon.
+    - aage: The arrow expresses information flow, not the movement of the entire neuron.
+    - screen par: Propagate a brief highlight along successive membrane segments.
+    - is level ke liye: Detailed ion-channel phases are unnecessary for this page.
+  - prerequisites: cell membrane; electrical potential; axon
+- **p007-i45** · other · process · image · exam high
+  - Visible sequence: incoming axon of previous neuron → synapse near first neuron → first neuron's cell-body region → long axon carrying electrical signal → axon tips near the next neuron's dendrites and synapse → next neuron's cell-body region.
+    - how: How does the message route proceed through the illustrated chain? → The incoming connection reaches the first neuron; its long axon carries the indicated electrical signal towards axon tips beside the next neuron's dendrites, where the next synapse occurs.
+    - when: When does the axon terminal pass on a typical chemical signal? → When an action potential reaches the terminal, it can trigger transmitter release at the synapse. _(outside the book)_
+      - why: Why is receiving a message not identical to generating another impulse? → A neuron combines excitatory and inhibitory inputs. A new action potential is generated when conditions at the axon's initiation region reach threshold, so an individual input need not produce an output impulse. _(outside the book)_
+  - **khola (unpack):**
+    - transmit yaani message को आगे पहुँचाना · image: एक साथी से दूसरे तक relay में खबर देना
+    - kyon: एक neuron की पहुँच खत्म होने पर भी message को आगे जाना पड़ सकता है। _[standard]_ → Axon terminal अगली cell के साथ synapse बनाकर communication जारी रखता है। _[standard]_
+    - example / jagah: Follow the page's left-to-upper-right neuron connection.
+    - aage: Shows how separate neurons can form an information pathway.
+    - screen par: Animate the route step by step and pause at each synapse.
+    - is level ke liye: Teach the typical route without claiming every synaptic input triggers an action potential.
+  - prerequisites: dendrite; cell body; axon; synapse; nerve impulse
+
+## Page 8 · passed after 1 round(s)
+
+Connective tissues are compared by location and function: loose, dense, elastic, specialised tissues (cartilage, bone and blood), and adipose. The plant diagram divides tissues into meristematic and permanent, traces their subtypes, and locates apical, intercalary and lateral meristems.
+
+- **p008-i1** · table · comparison · image
+  - Types of Connective Tissues. Columns: Type of Tissue | Location | Function. Rows: Loose connective tissue; Dense connective tissue; Elastic connective tissue; Specialised connective tissue—(i) Cartilage, (ii) Bone, (iii) Vascular connective tissue (blood); Adipose tissue.
+- **p008-i2** · table_row · comparison · image
+  - Type of Tissue | Location | Function
+- **p008-i3** · table_row · comparison · image · exam high
+  - Type of Tissue: Loose connective tissue | Location: Deep layers of skin, blood vessels, nerves and body organs. | Function: Support and elasticity.
+    - compare: How does loose connective tissue compare with dense connective tissue in this table? → Loose tissue is associated with deep skin layers, blood vessels, nerves and organs, providing support and elasticity; dense tissue is associated with tendons and ligaments and provides great strength.
+    - difference: Does 'loose' mean that the tissue gives no support? → No. Its fibres are relatively loosely arranged, allowing packing and flexibility rather than the tightly bundled resistance typical of dense tissue. _(outside the book)_
+      - why: Why is flexible support useful around vessels, nerves and organs? → These structures need to remain supported while nearby parts move; a flexible connecting material accommodates movement without making the region rigid. _(outside the book)_
+  - **khola (unpack):**
+    - Loose connective tissue yaani ढीली तरह फैले रेशों वाला tissue, जो आसपास की चीज़ों को सहारा देता है · image: पैकिंग का नरम भराव सामान को थामता भी है और थोड़ा हिलने भी देता है
+    - elasticity yaani खींचने के बाद पुराने आकार में लौटने की क्षमता · image: रबर बैंड छोड़ने पर वापस सिकुड़ता है
+    - kyon: Organs, vessels and nerves need support without being fixed rigidly. _[standard]_ → Loose connective tissue provides support and elasticity in these regions. _[book]_
+    - example / jagah: Think beneath the skin and around the vessels and nerves passing through it.
+    - aage: Support need not mean hard or immovable tissue.
+    - screen par: Cushion a vessel with an open fibre mesh.
+    - is level ke liye: Use location and function together in matching questions.
+  - prerequisites: Tissue as a group of cells and surrounding material; Skin, blood vessels and nerves
+- **p008-i4** · table_row · comparison · image · exam high
+  - Type of Tissue: Dense connective tissue | Location: Tendons and ligaments | Function: Compactly pack structures to one another and provides great strength.
+    - compare: What contrast does the table make between dense and loose connective tissues? → Dense tissue forms strong connections in tendons and ligaments, whereas loose tissue supports structures such as vessels, nerves and organs with elasticity.
+    - difference: How do tendons and ligaments differ? → Tendons connect muscle to bone; ligaments connect bone to bone at joints. _(outside the book)_
+      - why: Why do these connections need dense tissue? → Pulling muscles and moving joints place tension on their connections. Closely packed collagen fibres help resist that pulling force. _(outside the book)_
+  - **khola (unpack):**
+    - Dense connective tissue yaani पास-पास भरे मज़बूत रेशों वाला जोड़ने का tissue · image: कई धागे मिलकर मज़बूत रस्सी बनाते हैं
+    - Tendons and ligaments yaani tendon muscle को bone से, ligament bone को bone से जोड़ता है · image: हड्डियों के पास खिंचाव सहने वाली मज़बूत पट्टियाँ
+    - kyon: Muscle pull and joint movement can strain connections. _[standard]_ → Dense connective tissue supplies strong, compact connections in tendons and ligaments. _[book]_
+    - example / jagah: The Achilles tendon behind the ankle is a familiar tendon example.
+    - aage: Dense means strong fibrous connection, not mineralised hardness like bone.
+    - screen par: Bundle fibres and pull on the bundle.
+    - is level ke liye: Avoid reversing muscle–bone and bone–bone connections.
+  - prerequisites: Muscles pull on bones; Joints connect bones; Fibres in connective tissue
+- **p008-i5** · table_row · comparison · image · exam high
+  - Type of Tissue: Elastic connective tissue | Location: Lungs, arteries, trachea and vocal cords. | Function: Provides elasticity.
+    - compare: How do the listed roles of elastic and dense connective tissues compare? → Elastic tissue provides elasticity in lungs, arteries, trachea and vocal cords; dense tissue provides great strength in tendons and ligaments.
+    - difference: How does elasticity differ from simply being strong? → Elasticity means recovering shape after deformation. Strength concerns resisting damage or breaking under force; the two properties are not identical. _(outside the book)_
+      - why: Why is recoil useful in lungs and arteries? → Lungs expand during breathing and arteries stretch as blood is pumped into them. Elastic fibres help these structures return toward their previous dimensions. _(outside the book)_
+  - **khola (unpack):**
+    - Elastic connective tissue yaani खिंचकर फिर पुराने आकार की ओर लौटने वाला tissue · image: खींचा हुआ रबर छोड़ते ही लौटता है
+    - vocal cords yaani गले में आवाज़ बनाने के लिए कंपन करने वाली तहें · image: बोलते समय गले के अंदर कंपन
+    - kyon: Breathing and blood pulses repeatedly stretch body structures. _[standard]_ → Elastic connective tissue supplies elasticity in the listed structures. _[book]_
+    - example / jagah: Follow an inhalation into the lungs and a heartbeat into an artery.
+    - aage: Stretch and recoil should be distinguished from rigid support.
+    - screen par: Stretch and recoil.
+    - is level ke liye: A location may contain several tissues; tracheal cartilage and elastic tissue are not contradictory.
+  - prerequisites: Breathing expands lungs; Arteries carry blood from the heart
+- **p008-i6** · table_row · comparison · image · exam high
+  - Type of Tissue: Specialised connective tissue—(i) Cartilage | Location: Ends of long bones, tip of nose, parts of larynx and trachea. | Function: Provides flexibility and support.
+    - compare: How are cartilage and bone compared on the page? → Cartilage provides flexibility and support at long-bone ends, the nose tip and parts of the larynx and trachea. Bone provides protection, support and muscle attachment.
+    - difference: Why is cartilage not simply another name for bone? → Cartilage has a firm but relatively flexible matrix, whereas bone has a mineralised matrix giving much greater rigidity. _(outside the book)_
+      - why: Why is cartilage useful at bone ends and in the airway? → At joint surfaces it helps provide smooth, cushioning contact. In parts of the airway it supports the passage while allowing some flexibility. _(outside the book)_
+  - **khola (unpack):**
+    - Cartilage yaani सहारा देने वाला, bone से ज़्यादा लचीला tissue · image: नाक का सिरा हल्के दबाव पर थोड़ा मुड़ जाता है
+    - larynx and trachea yaani आवाज़ बनने वाला हिस्सा और उससे नीचे हवा जाने की नली · image: गले से छाती तक जाती साँस की राह
+    - kyon: Some body parts need shape and support without becoming completely rigid. _[standard]_ → Cartilage supplies flexibility and support at the listed sites. _[book]_
+    - example / jagah: Nose tip; ends of long bones near a joint.
+    - aage: Specialised connective tissues include both flexible cartilage and rigid bone.
+    - screen par: Bend the nose tip and cushion bone ends.
+    - is level ke liye: The page says parts of the larynx and trachea, not that these organs consist entirely of cartilage.
+  - prerequisites: Long bones and joints; Trachea as the windpipe; Matrix as material around tissue cells
+- **p008-i7** · table_row · comparison · image · exam high
+  - Type of Tissue: Specialised connective tissue—(ii) Bone | Location: Bones | Function: Protection and support muscle attachment.
+    - compare: Which functions distinguish the bone row from the blood row? → Bone provides protection, support and muscle attachment; blood transports oxygen and carbon dioxide and contributes to immune response and clotting.
+    - difference: How does bone support differ from cartilage support? → Bone's mineralised matrix makes it rigid enough for load-bearing and protective frameworks; cartilage provides relatively flexible support. _(outside the book)_
+      - how: How does muscle attachment to bone help movement? → A contracting muscle transmits force through its tendon to a bone, moving that bone about a joint. _(outside the book)_
+  - **khola (unpack):**
+    - muscle attachment yaani वह जुड़ाव जिससे muscle का खिंचाव bone तक पहुँचता है · image: डोरी खींचने पर उससे जुड़ा डंडा घूमता है
+    - kyon: The body needs a framework that bears loads and receives muscle pull. _[standard]_ → Bone supplies support, protection and attachment for muscles. _[book]_
+    - example / jagah: The skull protects the brain; limb bones act as levers.
+    - aage: Bone is living connective tissue, not merely a passive hard object.
+    - screen par: Shield an organ and pull a bone lever.
+    - is level ke liye: Distinguish tissue name 'bone' from the whole organ, which also contains other tissues.
+  - prerequisites: Skeleton; Muscle contraction; Tendon and joint
+- **p008-i8** · table_row · comparison · image · exam high
+  - Type of Tissue: Specialised connective tissue—(iii) Vascular connective tissue (blood) | Location: Within blood vessels | Function: Transport of oxygen and carbon dioxide and immune response blood clotting.
+    - compare: How does blood's role differ from the supporting tissues in this table? → Blood works within blood vessels in gas transport, immune response and clotting, rather than chiefly providing the mechanical support listed for cartilage and bone.
+    - difference: Why can fluid blood belong to connective tissue? → Connective tissue need not be solid. Blood has cells suspended in a fluid extracellular matrix, plasma, and links body regions by transport. _(outside the book)_
+      - how: How can blood perform transport, defence and clotting? → Red blood cells carry most oxygen, white blood cells participate in defence, and platelets with clotting factors help form clots. Carbon dioxide is transported in several forms, much of it as bicarbonate. _(outside the book)_
+  - **khola (unpack):**
+    - Vascular connective tissue (blood) yaani blood vessels में बहने वाला, चीज़ें एक जगह से दूसरी जगह पहुँचाने वाला tissue · image: सड़कों पर सामान पहुँचाती गाड़ियाँ
+    - immune response yaani कीटाणों या दूसरी हानिकारक चीज़ों के खिलाफ शरीर की प्रतिक्रिया · image: घाव में आए कीटाणों से शरीर की लड़ाई
+    - blood clotting yaani चोट पर blood का थक्का बनकर बहाव रोकने में मदद करना · image: छोटी कटने की जगह पर जमा थक्का
+    - kyon: Distant cells need gas delivery and waste removal, while injuries need defence and sealing. _[standard]_ → Blood performs gas transport, immune response and clotting. _[book]_
+    - example / jagah: Blood flowing from the lungs to body tissues; a clot after a small cut.
+    - aage: Connective tissue classification includes fluid as well as solid tissues.
+    - screen par: Carry gases, intercept germs and seal a cut.
+    - is level ke liye: Keep the three listed functions separate in statement-combination questions.
+  - prerequisites: Blood vessels; Oxygen use and carbon dioxide production; Blood cells and plasma
+- **p008-i9** · table_row · comparison · image · exam high
+  - Type of Tissue: Adipose tissue | Location: Deep layers of skin, surrounding heart and kidneys and padding around joints. | Function: Support, protection, heat conservation and energy source.
+    - compare: How does the adipose row compare with loose connective tissue? → Both occur in deep skin layers and provide support. Adipose is additionally listed around the heart, kidneys and joints, with protection, heat conservation and an energy role.
+    - difference: How do energy storage and heat conservation differ? → Stored fat can be used as fuel; insulation slows heat loss. These are distinct functions of the same tissue. _(outside the book)_
+      - why: Why is adipose useful beneath skin and around organs? → Its fat-rich cells form soft padding that cushions structures, and a subcutaneous layer reduces heat loss while retaining a reserve of chemical energy. _(outside the book)_
+  - **khola (unpack):**
+    - Adipose tissue yaani fat जमा करने वाला tissue, जो नरम padding भी बनाता है · image: नरम कुशन के साथ रखा हुआ ईंधन
+    - heat conservation yaani शरीर की गर्मी जल्दी बाहर न जाने देना · image: कंबल गर्मी बनने के बजाय गर्मी का निकलना कम करता है
+    - kyon: Organs need cushioning and the body needs to limit heat loss and retain fuel. _[standard]_ → Adipose provides protection, support, heat conservation and an energy source. _[book]_
+    - example / jagah: Under the skin, around the heart and kidneys, and padding around joints.
+    - aage: A single connective tissue can serve mechanical, thermal and energy functions.
+    - screen par: Pad an organ, slow escaping heat and store fat.
+    - is level ke liye: Do not reduce adipose function to obesity or energy storage alone.
+  - prerequisites: Fat as stored energy; Body heat loss; Heart, kidneys and joints
+- **p008-i10** · diagram · classification · image
+  - Plant Tissues → Meristematic tissue and Permanent tissue. Meristematic tissue → Apical meristem, Intercalary meristem, Lateral meristem. Permanent tissue → Simple permanent tissue and Complex permanent tissue. Simple permanent tissue → Parenchyma, Collenchyma, Sclerenchyma. Parenchyma → Aerenchyma and Chlorenchyma. Sclerenchyma → Sclerenchyma fibers and Sclereids. Complex permanent tissue → Xylem and Phloem. Connecting lines indicate classification, not a time sequence.
+  - prerequisites: Tissue; Parent and child groups in a classification tree
+- **p008-i11** · diagram_label · classification · image · exam high
+  - Plant Tissues: root group branching to Meristematic tissue and Permanent tissue.
+    - which: Which two groups begin the plant classification? → The root divides into meristematic tissue and permanent tissue.
+    - difference: What is the main distinction behind this division? → Meristematic cells actively divide; permanent tissues are differentiated and generally no longer actively dividing. _(outside the book)_
+      - why: Why does a plant need both groups? → It needs cells that generate growth and differentiated tissues that perform tasks such as support, photosynthesis and transport. _(outside the book)_
+  - **khola (unpack):**
+    - Plant Tissues yaani पौधे में मिलकर काम करने वाले cells के समूह · image: एक पौधे में बढ़ने की जगहें और काम सँभालने वाले हिस्से
+    - kyon: Plants need both continuing growth and specialised work. _[standard]_ → The tree separates meristematic and permanent tissue. _[book]_
+    - example / jagah: A growing shoot contains both growth regions and mature tissue.
+    - aage: All later labels must be traced back to one of these two branches.
+    - screen par: Split the root into two branches.
+    - is level ke liye: Do not read classification arrows as transport arrows.
+  - prerequisites: Cell division; Cells can specialise
+- **p008-i12** · diagram_label · classification · image · exam high
+  - Meristematic tissue: child of Plant Tissues; parent of Apical meristem, Intercalary meristem and Lateral meristem.
+    - which: Which meristems belong to this branch? → Apical, intercalary and lateral meristems are its three displayed children.
+    - difference: What distinguishes these three kinds? → They are distinguished by position: tips, regions between mature tissues, and sides of stems or roots. _(outside the book)_
+      - how: How does meristematic tissue produce growth? → Repeated cell division generates new cells, which can enlarge and differentiate into tissues. _(outside the book)_
+  - **khola (unpack):**
+    - Meristematic tissue yaani जहाँ cells बार-बार बँटकर नए cells बनाते हैं · image: पौधे की नई बढ़त बनाने वाली छोटी कार्यशाला
+    - kyon: A growing plant needs a continuing supply of new cells. _[standard]_ → Meristematic tissue supplies them through division at growth regions. _[standard]_
+    - example / jagah: Shoot tips, root tips and other growth regions.
+    - aage: Different growth locations produce different kinds of increase in size.
+    - screen par: Divide cells at three positions.
+    - is level ke liye: Separate positional classification from the permanent-tissue branches.
+  - prerequisites: Cell division; Root and shoot
+- **p008-i13** · diagram_label · classification · image · exam high
+  - Apical meristem: child of Meristematic tissue.
+    - which: Which group contains apical meristem? → It belongs to the meristematic branch, alongside intercalary and lateral meristems.
+    - difference: How does apical differ from lateral meristem? → Apical meristems occur at root and shoot tips and contribute to length growth; lateral meristems contribute mainly to increased thickness. _(outside the book)_
+      - why: Why is growth at a tip useful? → New cells near the advancing tip allow roots and shoots to extend into new soil or above-ground space. _(outside the book)_
+  - **khola (unpack):**
+    - Apical meristem yaani जड़ या shoot के सिरे पर नए cells बनाने वाला हिस्सा · image: टहनी की बढ़ती नोक
+    - kyon: Roots and shoots need to extend into new space. _[standard]_ → Cell production near their tips contributes to length growth. _[standard]_
+    - example / jagah: A growing shoot tip; root tips are a related standard example.
+    - aage: Tip growth is distinct from thickening.
+    - screen par: Extend the tip.
+    - is level ke liye: Use apical–tip–length as a linked association.
+  - prerequisites: Root and shoot tips; Cell division
+- **p008-i14** · diagram_label · classification · image · exam high
+  - Intercalary meristem: child of Meristematic tissue.
+    - which: Which branch contains intercalary meristem? → It is one of the three types under meristematic tissue.
+    - difference: How is its position different from an apical meristem? → It occurs between differentiated regions, commonly near leaf or internode bases in grasses, rather than at the terminal tip. _(outside the book)_
+      - how: How can this position help grass regrow after cutting? → If a basal growth region remains intact, its dividing cells can continue producing growth even after upper portions are removed. _(outside the book)_
+  - **khola (unpack):**
+    - Intercalary meristem yaani बड़े हो चुके हिस्सों के बीच बचा नए cells बनाने वाला क्षेत्र · image: घास कटने के बाद नीचे बचे हिस्से से फिर बढ़ती है
+    - kyon: Growth can be needed away from the terminal tip. _[standard]_ → Intercalary regions allow local elongation between mature tissues. _[standard]_
+    - example / jagah: Bases of leaves or internodes in grasses.
+    - aage: Removing an upper part need not remove every growth region.
+    - screen par: Lengthen a segment from its base.
+    - is level ke liye: Avoid the absolute claim that all plants or all nodes have intercalary meristems.
+  - prerequisites: Stem nodes and internodes; Cell division
+- **p008-i15** · diagram_label · classification · image · exam high
+  - Lateral meristem: child of Meristematic tissue.
+    - which: Which larger tissue group includes lateral meristem? → Lateral meristem lies under meristematic tissue, not permanent tissue.
+    - difference: How does lateral growth differ from apical growth? → Lateral meristems add to girth, whereas apical meristems contribute primarily to length. _(outside the book)_
+      - how: How can a meristem along a stem's sides increase thickness? → Its divisions add cells in cylindrical layers, increasing the stem's diameter. _(outside the book)_
+  - **khola (unpack):**
+    - Lateral meristem yaani तने या जड़ की बगल की दिशा में cells जोड़कर मोटाई बढ़ाने वाला हिस्सा · image: पेड़ का तना सालों में मोटा होता जाता है
+    - kyon: A growing woody plant needs greater supporting and conducting capacity. _[standard]_ → Lateral meristems add tissue that increases girth. _[standard]_
+    - example / jagah: Cambium in a thickening woody stem.
+    - aage: Length increase and thickness increase should not be interchanged.
+    - screen par: Widen a stem cylinder.
+    - is level ke liye: Not every plant exhibits the same pattern of secondary thickening.
+  - prerequisites: Stem diameter; Cell division
+- **p008-i16** · diagram_label · classification · image · exam high
+  - Permanent tissue: child of Plant Tissues; parent of Simple permanent tissue and Complex permanent tissue.
+    - which: Which two branches divide permanent tissue? → Simple permanent tissue and complex permanent tissue.
+    - difference: How does permanent differ from meristematic tissue? → Permanent tissue consists of differentiated cells specialised for particular work; meristematic tissue retains active cell division. _(outside the book)_
+      - why: Why does growth need to be followed by differentiation? → Merely adding cells does not create efficient transport, photosynthesis or support; cells must acquire suitable structures and functions. _(outside the book)_
+  - **khola (unpack):**
+    - Permanent tissue yaani किसी खास काम के लिए रूप ले चुका tissue, जिसके cells आम तौर पर सक्रिय रूप से नहीं बँटते · image: सीखने के बाद अलग-अलग काम सँभालते कर्मचारी
+    - kyon: A plant needs specialised work as well as new cells. _[standard]_ → Differentiated tissues provide that work and are grouped here as permanent tissue. _[standard]_
+    - example / jagah: Leaf tissue and conducting tissue in a stem.
+    - aage: Both simple and complex tissues belong to the permanent branch.
+    - screen par: Differentiate cells and branch into two groups.
+    - is level ke liye: Avoid equating permanent with dead or biologically inactive.
+  - prerequisites: Cell division; Differentiation as specialisation
+- **p008-i17** · diagram_label · classification · image · exam high
+  - Simple permanent tissue: child of Permanent tissue; parent of Parenchyma, Collenchyma and Sclerenchyma.
+    - which: Which three groups are simple permanent tissues? → Parenchyma, collenchyma and sclerenchyma are the three displayed groups.
+    - difference: What distinguishes simple from complex permanent tissue? → Simple tissue is composed mainly of one similar cell type, while complex tissue combines different cell types working together. _(outside the book)_
+      - why: Why does 'simple' not mean unimportant? → The name describes cell-type composition, not importance; simple tissues perform major functions such as storage, photosynthesis and support. _(outside the book)_
+  - **khola (unpack):**
+    - Simple permanent tissue yaani मुख्य रूप से एक जैसे प्रकार के cells से बना काम करने वाला tissue · image: एक जैसे कामगारों की टोली
+    - kyon: Some tissue tasks can be handled by similar cells together. _[standard]_ → Such cell-type composition distinguishes simple from complex tissue. _[standard]_
+    - example / jagah: Soft parenchyma in potato is a familiar example.
+    - aage: The three child names should be learnt as one sibling set.
+    - screen par: Branch to three tissue names.
+    - is level ke liye: Simple/complex refers to composition, not easy/difficult work.
+  - prerequisites: Cell types; Permanent tissue
+- **p008-i18** · diagram_label · classification · image · exam high
+  - Complex permanent tissue: child of Permanent tissue; parent of Xylem and Phloem.
+    - which: Which tissues belong to the complex permanent branch? → The diagram places xylem and phloem here.
+    - difference: How is their composition different from simple tissues? → Each combines multiple cell types that cooperate in transport and related support functions. _(outside the book)_
+      - why: Why can transport tissue need several cell types? → Conduction, support and maintenance impose different requirements, which different specialised cells can meet together. _(outside the book)_
+  - **khola (unpack):**
+    - Complex permanent tissue yaani अलग-अलग प्रकार के cells मिलकर एक जुड़ा काम करते हैं · image: डिलीवरी में ड्राइवर, पैकिंग करने वाला और मददगार साथ काम करते हैं
+    - kyon: Long-distance transport requires coordinated tasks. _[standard]_ → Different cell types cooperate in complex tissues. _[standard]_
+    - example / jagah: Conducting bundles in a stem.
+    - aage: A tissue may contain multiple cell types without being an organ.
+    - screen par: Combine different cells into a conducting bundle.
+    - is level ke liye: Do not classify tissues by the apparent complexity of their names.
+  - prerequisites: Cell specialisation; Transport within plants
+- **p008-i19** · diagram_label · classification · image · exam high
+  - Parenchyma: child of Simple permanent tissue; parent of Aerenchyma and Chlorenchyma.
+    - which: Which specialised forms branch from parenchyma? → Aerenchyma and chlorenchyma are shown beneath parenchyma.
+    - difference: How does parenchyma differ from sclerenchyma? → Parenchyma usually has living, relatively thin-walled cells; mature sclerenchyma commonly has dead cells with thick, lignified walls. _(outside the book)_
+      - how: How can parenchyma support several different roles? → Living cells can store substances, develop chloroplasts for photosynthesis, or be arranged with large air spaces for aeration. _(outside the book)_
+  - **khola (unpack):**
+    - Parenchyma yaani आम तौर पर पतली दीवार वाले जीवित cells का tissue, जो भराव और अलग-अलग काम कर सकता है · image: आलू का नरम अंदरूनी हिस्सा
+    - kyon: Plants need living tissue for storage and other metabolic work. _[standard]_ → Parenchyma can specialise further for air spaces or photosynthesis. _[standard]_
+    - example / jagah: Potato storage tissue and green leaf tissue.
+    - aage: A broad tissue group may have functionally specialised forms.
+    - screen par: Split parenchyma into air-space and green forms.
+    - is level ke liye: Keep the hierarchy intact in odd-one-out questions.
+  - prerequisites: Cell wall; Chloroplast; Permanent tissue
+- **p008-i20** · diagram_label · classification · image · exam high
+  - Collenchyma: child of Simple permanent tissue.
+    - which: Which group contains collenchyma? → It is a simple permanent tissue, grouped with parenchyma and sclerenchyma.
+    - difference: How does collenchyma differ from sclerenchyma? → Collenchyma has living cells with uneven wall thickening and provides flexible support; sclerenchyma commonly has dead, heavily thickened cells providing firmer support. _(outside the book)_
+      - why: Why is flexible support useful in young plant parts? → Young stems and leaf stalks must resist bending forces while still allowing growth and movement. _(outside the book)_
+  - **khola (unpack):**
+    - Collenchyma yaani जीवित cells वाला tissue, जो बढ़ते हिस्सों को लचीला सहारा देता है · image: नरम टहनी मुड़ती है लेकिन तुरंत टूटती नहीं
+    - kyon: Young parts need support without rigidly blocking growth. _[standard]_ → Unevenly thickened living cells provide flexible support. _[standard]_
+    - example / jagah: Below the surface of many young dicot stems and in leaf stalks.
+    - aage: Support tissues need not all be dead or rigid.
+    - screen par: Bend a supported young stem.
+    - is level ke liye: Do not confuse collenchyma with chlorenchyma despite similar spelling.
+  - prerequisites: Cell wall; Young stem and leaf stalk
+- **p008-i21** · diagram_label · classification · image · exam high
+  - Sclerenchyma: child of Simple permanent tissue; parent of Sclerenchyma fibers and Sclereids.
+    - which: Which forms branch from sclerenchyma? → Sclerenchyma fibers and sclereids are its two displayed forms.
+    - difference: How does it differ from collenchyma? → Sclerenchyma commonly has dead cells at maturity with thick lignified walls, whereas collenchyma has living cells with uneven thickening and greater flexibility. _(outside the book)_
+      - why: Why do thick lignified walls suit support? → Lignin strengthens and stiffens the walls, allowing them to resist deformation even after the cell contents are lost. _(outside the book)_
+  - **khola (unpack):**
+    - Sclerenchyma yaani मोटी और कड़ी दीवारों वाला tissue, जो मज़बूती देता है · image: नारियल के बाहरी रेशे और कठोर हिस्से
+    - kyon: Some plant parts need firm mechanical strength. _[standard]_ → Thick lignified walls supply strong support. _[standard]_
+    - example / jagah: Coconut husk fibres are a familiar example.
+    - aage: A dead mature cell can still provide useful structural support.
+    - screen par: Thicken walls and resist bending.
+    - is level ke liye: Learn both descendants and distinguish their shapes.
+  - prerequisites: Cell wall; Living and dead mature cells
+- **p008-i22** · diagram_label · classification · image · exam high
+  - Aerenchyma: child of Parenchyma.
+    - which: Which parent contains aerenchyma? → It is shown as a form of parenchyma within simple permanent tissue.
+    - difference: How does aerenchyma differ from chlorenchyma? → Aerenchyma has conspicuous air spaces; chlorenchyma is distinguished by chloroplasts for photosynthesis. _(outside the book)_
+      - why: Why are air spaces useful to aquatic plants? → They provide internal paths for gases and can also aid buoyancy where plant parts are surrounded by water. _(outside the book)_
+  - **khola (unpack):**
+    - Aerenchyma yaani बड़े हवा वाले खाली स्थानों वाला parenchyma · image: स्पंज में जगह-जगह खाली जगहें
+    - kyon: Waterlogged or submerged parts need internal gas movement. _[standard]_ → Large connected air spaces improve aeration and may aid floating. _[standard]_
+    - example / jagah: Air-space tissue in many aquatic plants.
+    - aage: A structural modification of parenchyma suits a particular habitat.
+    - screen par: Open air spaces between cells.
+    - is level ke liye: The 'aer' association helps distinguish it from chlorenchyma.
+  - prerequisites: Parenchyma; Gas exchange; Buoyancy
+- **p008-i23** · diagram_label · classification · image · exam high
+  - Chlorenchyma: child of Parenchyma.
+    - which: Which tissue group contains chlorenchyma? → The tree places it beneath parenchyma, alongside aerenchyma.
+    - difference: How does chlorenchyma differ from collenchyma? → Chlorenchyma is chloroplast-containing parenchyma specialised for photosynthesis; collenchyma is mainly associated with flexible support. _(outside the book)_
+      - how: How do chloroplasts enable its role? → Their chlorophyll captures light energy used in photosynthesis to produce organic food. _(outside the book)_
+  - **khola (unpack):**
+    - Chlorenchyma yaani chloroplast वाला parenchyma, जो रोशनी की मदद से खाना बनाता है · image: धूप में फैला हरा पत्ता
+    - kyon: Green plant parts need to use sunlight to make food. _[standard]_ → Chloroplast-containing parenchyma performs photosynthesis. _[standard]_
+    - example / jagah: Green tissue within leaves.
+    - aage: Parenchyma can specialise for food production as well as storage.
+    - screen par: Illuminate chloroplast-containing cells.
+    - is level ke liye: Chloro–green is a useful memory link, not a separate classification criterion.
+  - prerequisites: Parenchyma; Chloroplast and photosynthesis
+- **p008-i24** · diagram_label · classification · image · exam high
+  - Sclerenchyma fibers: child of Sclerenchyma.
+    - which: Which tissue contains these fibers? → They are one of the two forms shown under sclerenchyma.
+    - difference: How do fibers differ from sclereids? → Fibers are typically elongated, narrow cells, while sclereids are often shorter and variable in shape. _(outside the book)_
+      - how: How does an elongated form help support? → Long, thick-walled cells can form bundles that resist pulling and strengthen plant parts. _(outside the book)_
+  - **khola (unpack):**
+    - Sclerenchyma fibers yaani लंबे, पतले और मज़बूत दीवारों वाले सहारा देने के cells · image: नारियल की भूसी के लंबे रेशे
+    - kyon: Plant parts need resistance to pulling forces. _[standard]_ → Elongated thick-walled fibers strengthen them in bundles. _[standard]_
+    - example / jagah: Fibres of coconut husk.
+    - aage: Shape helps distinguish two forms within the same tissue group.
+    - screen par: Bundle long tapered cells.
+    - is level ke liye: Retain the book spelling 'fibers'.
+  - prerequisites: Sclerenchyma; Thick cell walls
+- **p008-i25** · diagram_label · classification · image · exam high
+  - Sclereids: child of Sclerenchyma.
+    - which: Which larger group contains sclereids? → Sclereids belong to sclerenchyma, within simple permanent tissue.
+    - difference: How do sclereids compare with sclerenchyma fibers? → Sclereids have varied shapes and are often relatively short; fibers are typically long and narrow. Both have thick, lignified walls. _(outside the book)_
+      - why: Why can sclereids make a food feel gritty? → Clusters of hard, thick-walled cells resist crushing, producing the gritty texture familiar in pear flesh. _(outside the book)_
+  - **khola (unpack):**
+    - Sclereids yaani बहुत मोटी, कड़ी दीवार वाले अलग-अलग आकार के cells · image: नाशपाती खाते समय महसूस होने वाले कड़क दाने
+    - kyon: Some regions need local hardness and protection. _[standard]_ → Thick-walled sclereids provide that hardness. _[standard]_
+    - example / jagah: Gritty cells in pear flesh.
+    - aage: Hard support need not take the form of long fibres.
+    - screen par: Reveal hard cells within soft fruit.
+    - is level ke liye: Do not define every sclereid as round; shapes vary.
+  - prerequisites: Sclerenchyma; Cell wall
+- **p008-i26** · diagram_label · classification · image · exam high
+  - Xylem: child of Complex permanent tissue.
+    - which: Which branch contains xylem? → It belongs to complex permanent tissue, alongside phloem.
+    - difference: How does xylem's transport role differ from phloem's? → Xylem conducts water and dissolved minerals, mainly from roots toward shoots; phloem transports organic food from sources to sinks. _(outside the book)_
+      - how: How is long-distance water conduction possible? → Connected water-conducting elements form pathways, with transpiration pull helping move water through the plant. _(outside the book)_
+  - **khola (unpack):**
+    - Xylem yaani पानी और घुले minerals पहुँचाने वाला plant tissue · image: जड़ों से पत्तों तक जाती पानी की लाइन
+    - kyon: Leaves need water and minerals absorbed by roots. _[standard]_ → Xylem provides a conducting pathway across the plant. _[standard]_
+    - example / jagah: Conducting tissue extending through roots, stem and leaves.
+    - aage: The classification links specialised cell combinations to transport.
+    - screen par: Trace water upward through a stem.
+    - is level ke liye: Avoid the overgeneralisation that every xylem cell is dead.
+  - prerequisites: Roots absorb water; Leaf transpiration; Complex tissue
+- **p008-i27** · diagram_label · classification · image · exam high
+  - Phloem: child of Complex permanent tissue.
+    - which: Which group contains phloem? → The diagram places it with xylem under complex permanent tissue.
+    - difference: How does phloem differ from xylem in transported material? → Phloem mainly transports organic food such as sucrose; xylem conducts water and dissolved minerals. _(outside the book)_
+      - why: Why does food need to move away from a leaf? → Roots, developing fruits and growing tissues may consume or store food without making enough of it themselves, so transport links food sources with these sinks. _(outside the book)_
+  - **khola (unpack):**
+    - Phloem yaani बना हुआ खाना ज़रूरत या भंडारण वाले हिस्सों तक पहुँचाने वाला plant tissue · image: रसोई से अलग-अलग कमरों तक खाना पहुँचाना
+    - kyon: Food-producing and food-using regions are often different. _[standard]_ → Phloem distributes organic food between them. _[standard]_
+    - example / jagah: Transport from mature leaves to growing roots or fruits.
+    - aage: Plants require separate coordinated pathways for different transport needs.
+    - screen par: Send food from a leaf to growing organs.
+    - is level ke liye: Avoid the trap that phloem transport is always downward.
+  - prerequisites: Photosynthesis; Roots and growing organs need food; Complex tissue
+- **p008-i28** · diagram · figure · image
+  - A schematic upright shoot with leaves and green-highlighted growth regions. Apical meristem is labelled at the shoot tip; Intercalary meristem is labelled near a leaf or internode base below the tip; Lateral meristem is labelled along the side of the lower stem. Leader lines associate each label with a position, not a transport direction.
+  - prerequisites: Stem and leaves; Meristem
+- **p008-i29** · diagram_label · figure · image · exam high
+  - Apical meristem: label points to the highlighted shoot tip.
+    - what: What position does the apical label identify? → It identifies the growth region at the very top of the illustrated shoot.
+    - which: Which feature distinguishes it from the other marked regions? → It is the terminal tip rather than an intermediate band or a side region.
+      - how: How does this position relate to growth? → Cell production near the tip, followed by enlargement, contributes to shoot elongation. _(outside the book)_
+  - **khola (unpack):**
+    - Apical meristem yaani shoot की नोक पर नए cells बनाने वाला क्षेत्र · image: ऊपर की ओर बढ़ती टहनी की नोक
+    - kyon: A shoot needs to extend at its growing end. _[standard]_ → The inset marks apical meristem at that end. _[book]_
+    - example / jagah: The uppermost highlighted part of the pictured shoot.
+    - aage: The spatial picture anchors the apical branch of the tree.
+    - screen par: Zoom to the tip and extend it.
+    - is level ke liye: The inset shows a shoot; apical meristems also occur at root tips.
+  - prerequisites: Shoot tip; Cell division
+- **p008-i30** · diagram_label · figure · image · exam high
+  - Intercalary meristem: label points to a highlighted intermediate region near a leaf or internode base, below the shoot tip.
+    - what: What position is marked intercalary? → The label marks an intermediate growth region below the tip near a leaf or internode base.
+    - which: Which other marked meristem is not at an intermediate band? → The apical meristem is at the terminal shoot tip; the lateral label is placed along the side.
+      - how: How does growth from such a region differ from tip growth? → It adds cells in a region between mature parts, allowing local elongation without requiring the terminal tip itself to be the growth site. _(outside the book)_
+  - **khola (unpack):**
+    - Intercalary meristem yaani सिरे के बजाय बीच के हिस्से में मौजूद बढ़ने का क्षेत्र · image: घास के नीचे बचे हिस्से से नई बढ़त
+    - kyon: Some growth occurs between already differentiated parts. _[standard]_ → The highlighted intermediate region visualises that position. _[book]_
+    - example / jagah: The green band below the tip in this inset.
+    - aage: Meristem position is not restricted to the outermost tip.
+    - screen par: Highlight the band and lengthen above it.
+    - is level ke liye: Link the schematic to grass leaf or internode bases without treating every node as meristematic.
+  - prerequisites: Stem nodes and internodes; Leaf base
+- **p008-i31** · diagram_label · figure · image · exam high
+  - Lateral meristem: label points to the side region of the lower stem.
+    - what: What region does the lateral label identify? → It identifies a region along the side of the stem rather than the terminal tip.
+    - which: Which highlighted location corresponds to girth growth? → The side-positioned lateral meristem is associated with increased thickness. _(outside the book)_
+      - how: How does its spatial arrangement help explain girth growth? → Divisions in lateral layers add tissue around the stem, increasing diameter rather than chiefly extending its tip. _(outside the book)_
+  - **khola (unpack):**
+    - Lateral meristem yaani तने की बगल में मोटाई बढ़ाने वाला क्षेत्र · image: पतले पौधे का तना धीरे-धीरे मोटा होता है
+    - kyon: A stem may need to add thickness as the plant grows. _[standard]_ → Cells added by lateral meristems increase girth. _[standard]_
+    - example / jagah: The highlighted side strip in the lower stem of the inset.
+    - aage: The inset completes the position–growth distinction among three meristems.
+    - screen par: Expand the stem outward.
+    - is level ke liye: A lateral meristem is not simply any meristem on a lateral shoot.
+  - prerequisites: Stem side and diameter; Cell division
+
+## Page 9 · passed after 2 round(s)
+
+Meristematic tissues contain actively dividing cells in growing regions. Apical meristems lengthen roots and shoots, lateral meristems increase girth, and intercalary meristems support elongation near leaf bases or internodes. Differentiation gives permanent tissues specialised shapes, sizes and functions, including protection, support, storage and photosynthesis.
+
+- **p009-i1** · heading · none · both
+  - PLANT TISSUE
+- **p009-i2** · heading · none · both
+  - 1. MERISTEMATIC TISSUE:
+- **p009-i3** · list_point · structure · both · exam high
+  - • OCCURRENCE: Growing region of plant like root, shoot etc.
+    - what: What does occurrence describe here? → It identifies the growing regions of the plant in which meristematic tissue is present.
+    - where: Where does the page locate this tissue? → In growing regions such as the root and shoot.
+      - why: Why are growing regions associated with meristems? → Growth needs a supply of new cells. Meristematic cells divide to provide that supply, after which cells can enlarge and specialise. _(outside the book)_
+  - **khola (unpack):**
+    - Growing region yaani पौधे का वह हिस्सा जहाँ बढ़त हो रही है · image: गमले के पौधे की ऊपर निकलती नई नोक
+    - kyon: A plant needs new cells to extend its body. _[standard]_ → Meristematic tissue occurs in growing regions such as roots and shoots. _[book]_
+    - example / jagah: Trace a familiar potted plant from its shoot tip to its root tips.
+    - aage: The exact position of a meristem helps predict the kind of growth it produces.
+    - screen par: highlight growing tips
+    - is level ke liye: Use location–type–function matching rather than memorising 'root and shoot' without qualification.
+  - prerequisites: plant root and shoot; cell division produces new cells
+- **p009-i4** · list_point · structure · both · exam medium
+  - • Shape: Spherical, oval/rectangular.
+    - what: Which cell shapes does the page list? → It lists spherical, oval and rectangular outlines rather than one compulsory shape.
+    - where: To which cells do these shapes refer? → They refer to cells of meristematic tissue.
+      - how: How can these shape words be understood without microscopy jargon? → Spherical means ball-like, oval means egg-like, and rectangular means an outline with opposite sides parallel and four right angles. A cell's observed outline also depends on the viewing plane. _(outside the book)_
+  - **khola (unpack):**
+    - Spherical yaani गेंद जैसा गोल · image: छोटी कंचे की गोली
+    - oval yaani अंडे जैसा लंबा गोल · image: अंडे की बाहरी बनावट
+    - rectangular yaani आयत जैसा, जिसमें लंबाई और चौड़ाई दिखें · image: माचिस की डिब्बी का सामने वाला हिस्सा
+    - kyon: Recognising a tissue requires a picture of its individual cells. _[standard]_ → The page supplies several possible outlines rather than one fixed outline. _[book]_
+    - example / jagah: Zoom from a growing shoot tip into a cluster of cells.
+    - aage: Identify meristematic tissue using several features together, especially division and location.
+    - screen par: outline and compare cell shapes
+    - is level ke liye: Do not infer that any round cell must be meristematic.
+  - prerequisites: a cell has a boundary; three-dimensional objects and two-dimensional outlines
+- **p009-i5** · list_point · cause_effect · both · exam high
+  - • Intercellular spaces: Absent, hence compactly packed.
+    - why: Why does the page describe these cells as compactly packed? → It links compact packing directly to the absence of intercellular spaces.
+    - how: How does absence of intercellular spaces change the tissue's arrangement? → Neighbouring cells lie closely against one another rather than having conspicuous gaps between their walls. _(outside the book)_
+      - difference: How is an intercellular space different from a vacuole? → An intercellular space lies between cells; a vacuole is a compartment inside a cell. Absence of one does not logically prove absence of the other. _(outside the book)_
+  - **khola (unpack):**
+    - Intercellular spaces yaani पास-पास के cells के बीच की खाली जगह · image: साथ रखी ईंटों के बीच बची दरार
+    - compactly packed yaani बिना बड़ी खाली जगह के सटकर लगे हुए · image: डिब्बे में कसकर जमाई गई चीज़ें
+    - kyon: To understand packing, first ask whether gaps separate neighbouring cells. _[standard]_ → The page states that these gaps are absent, hence the tissue is compact. _[book]_
+    - example / jagah: A magnified meristematic region at a root tip.
+    - aage: Keep between-cell spaces separate from the next feature, the vacuole inside a cell.
+    - screen par: close gaps between cells
+    - is level ke liye: Test the causal link and the inside-versus-between distinction.
+  - prerequisites: cell boundaries; inside a cell versus between cells
+- **p009-i6** · list_point · structure · both · exam high
+  - • Vacuoles absent in it.
+    - what: What vacuole feature does the page assign to meristematic cells? → The page describes them as lacking vacuoles.
+    - where: Where would a vacuole be if present? → It would be a membrane-bound compartment within the cell, not a gap between neighbouring cells. _(outside the book)_
+      - why: Why is absence of a large vacuole associated with actively dividing cells? → Young dividing cells generally have dense cytoplasm and lack the large central vacuole typical of many mature plant cells. Small vacuoles may be present, so literal absence is a textbook simplification. _(outside the book)_
+  - **khola (unpack):**
+    - Vacuoles yaani cell के अंदर तरल रखने वाले छोटे या बड़े हिस्से · image: कमरे के अंदर रखी पानी की टंकी, कमरे के बाहर की खाली जगह नहीं
+    - kyon: A dividing cell must retain the working contents needed for repeated division. _[standard]_ → It generally lacks the large central storage compartment characteristic of many mature plant cells. _[standard]_
+    - example / jagah: Compare a young root-tip cell with a mature plant cell.
+    - aage: Vacuole size becomes a useful contrast between meristematic and permanent tissues.
+    - screen par: contrast a small compartment with a large central vacuole
+    - is level ke liye: Avoid converting the page's simplified wording into a universal claim about every meristematic cell.
+  - prerequisites: cell cytoplasm; vacuole as an internal compartment
+- **p009-i7** · list_point · cause_effect · both · exam high
+  - • Focus only on cell division.
+• Highly active cells.
+    - why: Why are these cells important for plant growth? → Their division supplies additional cells from which growing plant parts are built. _(outside the book)_
+    - how: How does the page characterise their main activity? → It emphasises cell division and describes the cells as highly active.
+      - exception: Does 'focus only' mean that they perform no other cell activities? → No. Dividing cells also require respiration, synthesis and other maintenance activities. The wording identifies their principal tissue role, not their sole biochemical activity. _(outside the book)_
+  - **khola (unpack):**
+    - cell division yaani एक cell से नए cells बनने का काम · image: एक काम करने वाली इकाई से दो नई इकाइयाँ तैयार होना
+    - Highly active yaani नए cells बनाने के लिए लगातार काम में लगे हुए · image: तेज़ी से सामान तैयार करती कार्यशाला
+    - kyon: A growing plant needs more building units. _[standard]_ → Active division in meristems provides new cells for growth. _[standard]_
+    - example / jagah: A seedling extending its root and shoot.
+    - aage: The next distinction is where this division occurs and which direction it supports.
+    - screen par: divide cells and add new units
+    - is level ke liye: Separate cell division from subsequent cell enlargement; both contribute to growth.
+  - prerequisites: cell division; living cells require energy
+- **p009-i8** · diagram · figure · image · exam high
+  - MERISTEMATIC TISSUE: A whole plant diagram marks apical meristems at the shoot and root tips, intercalary meristem near a leaf/node region, and lateral meristem along the stem. A blue upward arrow above the shoot and a blue downward arrow below the root show lengthwise growth; orange arrows point outward from the stem to show increased girth. Insets show a shoot tip, root tip, a leaf base labelled Node, and a stem cylinder.
+    - what: What connects the plant locations and growth arrows in this diagram? → The tip positions are associated with lengthwise growth, while the stem-side position is associated with outward thickening.
+    - which: Which three meristems are labelled? → Apical, intercalary and lateral meristems are labelled on the plant.
+      - how: How should the arrows be interpreted? → They indicate directions of growth, not transport of water or food: the axis extends at its ends and the stem broadens sideways. _(outside the book)_
+  - **khola (unpack):**
+    - Girth yaani तने या जड़ का चारों ओर का घेरा · image: पेड़ के तने के चारों ओर फीता लपेटना
+    - kyon: A plant must both extend its axis and increase its thickness. _[standard]_ → The drawing separates end growth from outward growth using different arrows and positions. _[book]_
+    - example / jagah: A sapling becoming taller while its stem becomes thicker.
+    - aage: Position and growth direction together distinguish the meristem types.
+    - screen par: extend tips and widen stem
+    - is level ke liye: Arrows represent growth direction, not the movement of the meristem itself.
+  - prerequisites: root and shoot; length versus girth; meristematic cell division
+- **p009-i9** · diagram_label · figure · image · exam medium
+  - Shoot — names the small shoot-tip inset.
+    - what: What does Shoot identify? → It identifies the shoot-tip example placed beside the whole plant.
+    - which: Which growth region is illustrated by this inset? → The inset represents the upper growing end associated with an apical meristem.
+      - how: How does a shoot differ from just a leaf? → The shoot system includes the stem and its associated leaves and buds; the growing shoot tip can give rise to new shoot tissues. _(outside the book)_
+  - **khola (unpack):**
+    - Shoot yaani पौधे का तने, पत्तियों और कलियों वाला हिस्सा · image: गमले की मिट्टी के ऊपर निकलती नई हरी बढ़त
+    - example / jagah: The young upper end of a seedling.
+    - aage: Provides the familiar organ for locating the shoot apical meristem.
+    - screen par: zoom into shoot tip
+    - is level ke liye: Shoot is a plant region, whereas apical meristem is a tissue region.
+  - prerequisites: plant stem and leaves
+- **p009-i10** · diagram_label · figure · image · exam high
+  - Apical Meristem — points to the growing shoot tip.
+    - what: What does the upper Apical Meristem label locate? → It locates the meristem at the shoot's terminal growing region.
+    - which: Which growth direction is shown beside this region? → The upward blue arrow represents extension of the shoot.
+      - how: How does a small growing region help lengthen a shoot? → It supplies new cells that subsequently enlarge and differentiate into shoot tissues. _(outside the book)_
+  - **khola (unpack):**
+    - Apical Meristem yaani नोक पर नए cells बनाने वाला हिस्सा · image: पौधे की सबसे नई ऊपरी नोक
+    - example / jagah: Shoot tip.
+    - aage: Connect this label to increased shoot length.
+    - screen par: pulse the tip and extend upward
+    - is level ke liye: Match apical with length rather than girth.
+  - prerequisites: shoot tip; cell division
+- **p009-i11** · diagram_label · figure · image · exam high
+  - Node — points to the leaf-base attachment region in the inset.
+    - what: What plant landmark is named Node? → The diagram names the region associated with the leaf's attachment.
+    - which: Which meristem label appears beside this inset? → The inset accompanies the intercalary meristem label.
+      - how: How can a node be distinguished from an internode? → A node is a stem region where leaves arise; an internode is the length of stem between successive nodes. _(outside the book)_
+  - **khola (unpack):**
+    - Node yaani तने की वह जगह जहाँ पत्ती निकलती है · image: डंडी पर पत्ती निकलने की गाँठ जैसी जगह
+    - example / jagah: Look along a leafy twig for successive leaf attachment points.
+    - aage: Understanding the node makes the term internode meaningful.
+    - screen par: mark attachment points
+    - is level ke liye: Distinguish the attachment point from the segment between attachment points.
+  - prerequisites: leaf attaches to stem
+- **p009-i12** · diagram_label · figure · image · exam high
+  - Intercalary Meristem — points to the leaf-base/node region on the plant.
+    - what: What location does this pointer highlight? → It highlights a growing region near a leaf base rather than the terminal shoot tip.
+    - which: Which meristem is associated with this position? → The label identifies it as intercalary meristem.
+      - how: How does this position differ from an apical position? → An intercalary meristem is located between more mature regions, whereas an apical meristem occupies a growing tip. _(outside the book)_
+  - **khola (unpack):**
+    - Intercalary Meristem yaani बीच के हिस्से में बचा हुआ नए cells बनाने वाला भाग · image: लंबी पट्टी के बीच एक बढ़ सकने वाला छोटा हिस्सा
+    - example / jagah: Leaf-base region shown in the inset.
+    - aage: Prepares the location–elongation link explained below.
+    - screen par: highlight an inserted growth zone
+    - is level ke liye: Recognise it by position, not by assuming every node is meristematic.
+  - prerequisites: leaf base; shoot tip
+- **p009-i13** · diagram_label · figure · image · exam high
+  - Lateral Meristem — points to the side region of the stem; the adjacent orange arrows point outward.
+    - what: What does this label locate? → It locates the meristem associated with the sides of the stem.
+    - which: Which arrows express its growth effect? → The orange outward arrows indicate increased thickness rather than extension at a tip.
+      - how: How does growth at the sides increase girth? → Production of additional tissues around the axis expands its radial dimensions, making the stem thicker. _(outside the book)_
+  - **khola (unpack):**
+    - Lateral yaani किनारे या बगल की ओर · image: लंबी डंडी की नोक नहीं, उसकी बगल
+    - example / jagah: Stem sides beside the orange arrows.
+    - aage: Connects lateral meristem to thickening.
+    - screen par: expand outward
+    - is level ke liye: Do not confuse lateral meristem with a lateral branch.
+  - prerequisites: stem axis; length versus thickness
+- **p009-i14** · diagram_label · figure · image · exam medium
+  - Stem — names the cylindrical stem inset with a highlighted peripheral region.
+    - what: What does the cylinder represent? → It represents the stem, with emphasis on a region around its outside.
+    - which: Which labelled meristem does this inset accompany? → It accompanies the lateral meristem label.
+      - how: How does a cylinder help visualise girth increase? → Widening the cylinder increases the distance around it without requiring its length to increase. _(outside the book)_
+  - **khola (unpack):**
+    - Stem yaani पौधे का वह सहारा जिस पर पत्तियाँ और शाखाएँ लगती हैं · image: पौधे की मुख्य डंडी
+    - example / jagah: A twig viewed as a cylinder.
+    - aage: The inset turns the flat outward arrows into a three-dimensional widening.
+    - screen par: rotate and widen cylinder
+    - is level ke liye: Girth is the distance around the stem, not its height.
+  - prerequisites: stem; cylinder; circumference
+- **p009-i15** · diagram_label · figure · image · exam medium
+  - Root — names the small root-tip inset.
+    - what: What does Root identify in the inset? → It identifies the below-ground growing organ shown beside the lower apical meristem pointer.
+    - which: Which end of the plant is associated with this label? → It is associated with the lower root end, not the upper shoot end.
+      - how: How is the root meristem positioned relative to the root cap? → The root apical meristem lies just behind the protective root cap; 'root tip' is a regional description, not a claim that the outer cap is the meristem. _(outside the book)_
+  - **khola (unpack):**
+    - Root yaani पौधे का पानी लेने और पकड़ बनाने वाला जड़ का हिस्सा · image: अंकुरित चने से नीचे निकलती सफेद जड़
+    - example / jagah: A germinating seed's first root.
+    - aage: The same apical category applies at both shoot and root ends.
+    - screen par: zoom into root end
+    - is level ke liye: Root cap and root apical meristem are distinct structures.
+  - prerequisites: root; plant growing tip
+- **p009-i16** · diagram_label · figure · image · exam high
+  - Apical Meristem — points to the root-tip region; a blue downward arrow marks lengthwise root growth.
+    - what: What does the lower Apical Meristem pointer identify? → It identifies an apical growing region at the root end.
+    - which: Which dimension increases in the associated arrow? → The arrow shows extension of root length.
+      - why: Why can a lower root region still be called apical? → Apical refers to an organ's tip, not to an upward direction or the top of the whole plant. _(outside the book)_
+  - **khola (unpack):**
+    - Apical Meristem yaani जड़ या shoot की नोक का बढ़त वाला हिस्सा · image: अंकुर की नीचे जाती जड़ की बढ़ती नोक
+    - example / jagah: Root tip in the lower part of the whole-plant drawing.
+    - aage: Both root and shoot length growth belong to the apical association.
+    - screen par: extend root downward
+    - is level ke liye: Position is relative to the organ, not the page.
+  - prerequisites: root tip; meaning of an organ tip
+- **p009-i17** · diagram · figure · image · exam high
+  - An enlarged leafy shoot shows three meristem positions. A purple leader links Apical Meristem to the terminal shoot region. Another leader links the clipped label 'Intercalay [Intercalary] Meriste… [Meristem]' to a band near a leaf attachment region below the tip. A third links Lateral Meristem to a longitudinal region along the lower stem. The bands and lines are schematic position markers, not a sequence or transport pathway.
+    - what: What does the enlarged shoot drawing compare? → It compares a terminal meristem position, an intervening leaf-associated position and a lateral stem position.
+    - which: Which labels belong to those positions? → They are apical, intercalary and lateral meristems respectively.
+      - how: How should this schematic be used without over-interpreting it? → Use it to recognise relative positions, not to infer exact cell shapes, scale or that every stem has identical repeated bands. _(outside the book)_
+  - **khola (unpack):**
+    - Meristem yaani पौधे का नए cells बनाने वाला बढ़त का हिस्सा · image: पौधे के अंदर छोटी निर्माण-कार्यशाला
+    - kyon: Three similar names are hard to distinguish without a spatial reference. _[standard]_ → The enlarged shoot places them at the end, an intervening region and the side. _[book]_
+    - example / jagah: A leafy shoot enlarged from a familiar plant.
+    - aage: Use position to retrieve the corresponding growth function.
+    - screen par: trace three leader lines
+    - is level ke liye: The drawing is schematic, not a microscopic section.
+  - prerequisites: stem and leaf attachment; tip versus side
+- **p009-i18** · diagram_label · figure · image · exam high
+  - Apical Meristem — purple leader points to the terminal shoot region.
+    - what: What region does the upper leader identify? → It identifies the terminal growing region of the shoot.
+    - which: Which meristem occupies this labelled position? → The position is labelled Apical Meristem.
+      - how: How does recognising the tip predict its growth association? → A tip meristem supplies cells for extension of the organ rather than principally for thickening around its sides. _(outside the book)_
+  - **khola (unpack):**
+    - Apical yaani नोक पर मौजूद · image: डंडी का सबसे आगे वाला सिरा
+    - example / jagah: Top of the enlarged shoot.
+    - aage: Reinforces the tip–length association.
+    - screen par: follow leader to tip
+    - is level ke liye: The same category also occurs at root tips.
+  - prerequisites: shoot tip; meristematic division
+- **p009-i19** · diagram_label · figure · image · exam high
+  - Intercalay [Intercalary] Meriste… [Meristem] — leader points to a band near a leaf attachment region below the shoot tip; the end of the printed label is clipped.
+    - what: What position is highlighted by the middle leader? → It highlights a region below the terminal tip near a leaf attachment.
+    - which: Which meristem is intended by the misspelled and clipped label? → The intended label is intercalary meristem, as confirmed by the corresponding heading and left diagram.
+      - how: How is its position different from the lateral meristem below? → The intercalary position is a local intervening growth zone; the lateral position runs along the side and is associated with increasing girth. _(outside the book)_
+  - **khola (unpack):**
+    - Intercalary yaani दो विकसित हिस्सों के बीच मौजूद बढ़त वाला · image: दो तैयार टुकड़ों के बीच बढ़ सकने वाला जोड़
+    - example / jagah: Middle labelled band on the enlarged shoot.
+    - aage: Distinguishes a non-terminal elongation region from side thickening.
+    - screen par: isolate the intervening band
+    - is level ke liye: The printed 'Intercalay' is not a separate type.
+  - prerequisites: leaf base; stem side; shoot tip
+- **p009-i20** · diagram_label · figure · image · exam high
+  - Lateral Meristem — leader points to a longitudinal region along the lower stem.
+    - what: What does the lower leader mark? → It marks a region extending along the side of the stem rather than at its terminal end.
+    - which: Which meristem is named there? → The drawing names it Lateral Meristem.
+      - how: How can a longitudinally arranged region produce outward thickening? → Its position runs along the axis, but its divisions add tissues that increase the axis's radial dimensions. Tissue orientation and growth direction need not be the same. _(outside the book)_
+  - **khola (unpack):**
+    - Lateral Meristem yaani तने या जड़ की बगल में मोटाई बढ़ाने वाला हिस्सा · image: तने के चारों ओर नई परत जुड़ना
+    - example / jagah: Lower side of the enlarged stem.
+    - aage: Links the spatial marker to girth rather than tip extension.
+    - screen par: add tissue around the stem
+    - is level ke liye: Separate where a tissue lies from the direction of growth it causes.
+  - prerequisites: stem axis; radial thickening
+- **p009-i21** · heading · none · both
+  - 1. APICAL MERISTEM
+- **p009-i22** · list_point · structure · both · exam high
+  - • Present at root and shoot tip.
+• Length of root and shoot increases.
+    - what: What growth function is assigned to apical meristem? → It is associated with increasing the length of roots and shoots.
+    - where: Where is apical meristem present? → At the growing tips of roots and shoots.
+      - how: How does tip activity produce length increase? → Cells produced in the apical region subsequently enlarge and differentiate. Addition and elongation of cells extend the organ's axis; this is associated with primary growth. _(outside the book)_
+      - difference: How is this different from the lateral meristem's effect? → The page associates apical meristem with length and lateral meristem with girth.
+  - **khola (unpack):**
+    - root and shoot tip yaani जड़ और shoot के आगे बढ़ने वाले सिरे · image: अंकुर की एक नोक ऊपर और दूसरी नीचे बढ़ती है
+    - kyon: Roots need to explore further and shoots need to extend. _[standard]_ → New cells supplied at the tips, followed by their enlargement, lengthen these organs. _[standard]_
+    - example / jagah: An emerging seedling with an extending root and shoot.
+    - aage: Apical activity explains extension without being the main explanation for woody stem thickening.
+    - screen par: add and elongate cells behind each tip
+    - is level ke liye: Primary growth is the standard textbook link; do not equate all growth solely with division.
+  - prerequisites: root and shoot tips; cell division; length versus girth
+- **p009-i23** · heading · none · both
+  - 2. LATERAL MERISTEM
+- **p009-i24** · list_point · structure · both · exam high
+  - • Present beneath bark.
+• Girth of root or stem increases.
+    - what: What does lateral meristem increase? → It increases the girth of a root or stem, rather than principally extending the tip.
+    - where: Where does the page place lateral meristem? → Beneath the bark.
+      - how: How does lateral meristem activity make a woody stem thicker? → Lateral meristems such as vascular cambium produce additional tissues around the axis. This contributes to secondary growth, increasing diameter and circumference. _(outside the book)_
+      - exception: Should the page's bark description be treated as an exact account of every lateral meristem? → No. Lateral meristems include vascular cambium and cork cambium, with positions related to tissue organisation. The page provides a simplified external location cue. _(outside the book)_
+  - **khola (unpack):**
+    - bark yaani पेड़ के तने की बाहर दिखने वाली covering · image: नीम के तने को बाहर से ढकने वाला खुरदरा हिस्सा
+    - Girth yaani जड़ या तने के चारों ओर का घेरा · image: तने को घेरता मापने वाला फीता
+    - kyon: A growing axis may need to become thicker as well as longer. _[standard]_ → Lateral growth adds tissues around the axis and increases its girth. _[standard]_
+    - example / jagah: A young woody stem becoming a thicker trunk.
+    - aage: Length and girth require different location–function associations.
+    - screen par: build concentric thickness
+    - is level ke liye: Connect with secondary growth and cambium; do not claim that all plants show identical secondary thickening.
+  - prerequisites: bark as outer covering; stem and root; circumference
+- **p009-i25** · heading · none · both
+  - 3. INTERCALARY MERISTEM
+- **p009-i26** · list_point · structure · both · exam high
+  - • Present at base of leaves or internodes.
+• Length of organs like leaves and nodes [internodes] increases.
+    - what: What kind of growth is attributed to intercalary meristem? → The page assigns it a length-increasing role in the organs it lists.
+    - where: Where does the page locate intercalary meristem? → At the base of leaves or internodes.
+      - how: How can a leaf or stem segment elongate without growth being confined to its terminal tip? → A retained meristematic region near its base supplies cells that enlarge, extending the leaf or internode from that region. _(outside the book)_
+      - difference: Why should the printed 'nodes' be distinguished from internodes? → Nodes are leaf-attachment regions; internodes are the intervening stem segments. Elongation of internodes is the standard association intended here. _(outside the book)_
+      - consequence: What familiar event helps explain this basal growth? → Grass can regrow after cutting when its basal meristematic regions remain intact. _(outside the book)_
+  - **khola (unpack):**
+    - internodes yaani तने पर दो पत्ती निकलने वाली जगहों के बीच का हिस्सा · image: डंडी की दो गाँठों के बीच की लंबाई
+    - base of leaves yaani पत्ती का नीचे वाला भाग जहाँ से वह जुड़ती या निकलती है · image: घास की पत्ती का मिट्टी के पास वाला निचला सिरा
+    - kyon: A leaf can lose its upper portion while its lower growing region remains. _[standard]_ → Continued division and enlargement near that base can restore length, as in grass regrowth. _[standard]_
+    - example / jagah: Grass leaves growing again after mowing.
+    - aage: Length increase can arise from an apical or an intercalary location; length alone does not identify the meristem.
+    - screen par: extend a leaf from its base
+    - is level ke liye: Separate node from internode and avoid the trap that all elongation must occur only at a tip.
+  - prerequisites: node and internode; leaf base; cell division and enlargement
+- **p009-i27** · heading · none · both
+  - 2. PERMANENT TISSUES
+- **p009-i28** · list_point · cause_effect · both · exam high
+  - • Cell looses [loses] ability to divide.
+• Take up specific role.
+• Thus are permanent.
+    - why: Why does the page call these tissues permanent? → It links the term to cells losing the ability to divide and taking up specific roles.
+    - how: How does the cell's principal role change from the meristematic condition? → The page shifts the emphasis from cell division to performance of a specific function.
+      - why: Why does a plant need cells that specialise instead of simply continuing to divide? → Different jobs require different arrangements and properties. A plant needs functioning tissues for tasks such as protection, support and storage as well as a supply of new cells. _(outside the book)_
+      - exception: Does permanent mean dead, indestructible or unable ever to divide again? → No. Permanent tissues may contain living or dead cells. Some living differentiated cells can regain division under suitable conditions, so permanent describes the usual differentiated state rather than an irreversible rule for every cell. _(outside the book)_
+  - **khola (unpack):**
+    - specific role yaani किसी खास काम की जिम्मेदारी · image: कार्यशाला में किसी का सामान बनाना और किसी का उसे सुरक्षित रखना
+    - permanent yaani यहाँ ऐसा विकसित रूप जिसमें cell अपना खास काम करता है · image: प्रशिक्षण के बाद किसी तय काम पर लगा व्यक्ति
+    - kyon: A plant needs completed working parts, not just an increasing number of cells. _[standard]_ → Cells take specialised roles, and the page associates their usual loss of division with permanent tissue. _[book]_
+    - example / jagah: A mature leaf containing cells specialised for photosynthesis.
+    - aage: This change leads directly to the next concept, differentiation.
+    - screen par: turn dividing cells into specialised workers
+    - is level ke liye: Qualify irreversible-loss wording; 'permanent' is not a synonym for 'dead'.
+  - prerequisites: meristematic cell division; specialised cell function
+- **p009-i29** · definition · process · both · exam high
+  - • Differentiation: Process of taking up permanent shape, size, and function.
+    - what: What three aspects change during differentiation? → The page identifies the acquisition of permanent shape, size and function.
+    - how: How does differentiation connect meristematic and permanent tissues? → Cells produced by meristems develop structural and functional specialisations, becoming parts of differentiated tissues. _(outside the book)_
+    - when: When does this transition occur in relation to meristematic cell production? → It occurs as daughter cells mature and become specialised after being produced in a growing region; the page does not give a fixed time interval. _(outside the book)_
+      - why: Why do shape and size change along with function? → A cell's structure must suit its job. For example, wall strengthening can aid support, while suitable internal machinery allows a cell to photosynthesise. _(outside the book)_
+  - **khola (unpack):**
+    - Differentiation yaani cell का किसी खास काम के लिए अपना रूप और काम तय करना · image: एक जैसी कच्ची सामग्री से अलग काम के औज़ार बनना
+    - kyon: New cells must become suitable for the plant's different jobs. _[standard]_ → Differentiation gives them characteristic shape, size and function. _[book]_
+    - example / jagah: Follow a newly produced shoot cell into a mature specialised tissue.
+    - aage: The same source of new cells can supply tissues with different structures and functions.
+    - screen par: reshape and specialise daughter cells
+    - is level ke liye: Distinguish division, enlargement and differentiation rather than treating them as synonyms.
+  - prerequisites: meristem produces new cells; cell shape and size; specialised function
+- **p009-i30** · list_point · structure · both · exam high
+  - • Large central vacuole.
+    - what: What vacuole feature is listed for permanent tissue? → A large central vacuole is listed as a feature of its cells.
+    - where: Where is this vacuole situated? → Within the cell, occupying a major central region in many mature living plant cells. _(outside the book)_
+      - how: How does a large vacuole contribute to a mature plant cell? → It stores cell sap and helps maintain turgor when filled with water, contributing to cell firmness. _(outside the book)_
+      - exception: Is a large central vacuole present in every permanent-tissue cell? → No. It is characteristic of many mature living plant cells, but mature dead cells such as vessel elements do not retain a living vacuolar compartment. _(outside the book)_
+  - **khola (unpack):**
+    - Large central vacuole yaani cell के बीच का बड़ा तरल-भरा हिस्सा · image: एक छोटे कमरे में जगह घेरती बड़ी पानी की टंकी
+    - kyon: A living mature plant cell needs storage and water-based firmness. _[standard]_ → A large vacuole can store cell sap and help maintain internal pressure. _[standard]_
+    - example / jagah: A typical mature living cell in a leaf or soft stem.
+    - aage: Vacuole development is one visible contrast with young dividing cells.
+    - screen par: expand a central fluid compartment
+    - is level ke liye: Link turgor to firmness and water loss to wilting without making all permanent cells identical.
+  - prerequisites: vacuole; water in plant cells; living versus dead cells
+- **p009-i31** · list_point · structure · both · exam high
+  - • Cell wall is thick.
+    - what: What wall feature does the page list? → It describes permanent-tissue cells as having a thick cell wall.
+    - where: Where is the cell wall relative to the cell membrane? → The wall lies outside the cell membrane and forms a supporting boundary around a plant cell. _(outside the book)_
+      - how: How can wall thickening help a specialised cell? → Additional wall material can improve mechanical strength and resistance to deformation, supporting tissues adapted for support or conduction. _(outside the book)_
+      - exception: Are thick walls universal in permanent tissue? → No. Parenchyma commonly has relatively thin primary walls, whereas collenchyma has uneven thickening and sclerenchyma has thick walls. Wall thickness varies with tissue type and function. _(outside the book)_
+  - **khola (unpack):**
+    - Cell wall yaani plant cell के बाहर का सहारा देने वाला मजबूत घेरा · image: कमरे को आकार और सहारा देती बाहरी दीवार
+    - kyon: Some mature tissues must resist bending or collapse. _[standard]_ → Wall thickening can provide strength, but different jobs require different wall structures. _[standard]_
+    - example / jagah: Contrast soft plant storage tissue with firm supporting tissue.
+    - aage: The next tissue types must be distinguished by their actual wall properties, not this broad generalisation alone.
+    - screen par: thicken selected cell walls
+    - is level ke liye: Carry forward the parenchyma exception when studying simple permanent tissues.
+  - prerequisites: plant cell wall; cell membrane; mechanical support
+- **p009-i32** · list_point · facts_numbers · both · exam high
+  - • Helps in protection, support, storage and Photosynthesis.
+    - what: Which functions does the page assign to permanent tissues? → It lists protection, support, storage and photosynthesis as roles served by permanent tissues.
+    - evidence: What on the page supports the idea that permanent tissues are specialised? → The statement that cells take specific roles is followed by a list of four different tissue functions.
+      - how: How can these four jobs be linked to familiar plant parts? → Outer coverings protect; supporting tissues help stems remain upright; storage tissues hold reserves such as those in a potato; chloroplast-containing cells in green leaves carry out photosynthesis. _(outside the book)_
+      - why: Why should the list not be read as four jobs performed by each individual cell? → Specialisation distributes work among different tissues and cells. A storage cell need not also be a major protective or photosynthetic cell. _(outside the book)_
+  - **khola (unpack):**
+    - protection yaani अंदर के हिस्सों को नुकसान से बचाना · image: चीज़ को बचाता उसका बाहरी कवर
+    - support yaani पौधे को आकार में और खड़ा रहने में सहारा देना · image: ढाँचे को संभालता खंभा
+    - storage yaani बाद में काम आने वाली चीज़ें जमा रखना · image: घर में रखा राशन
+    - Photosynthesis yaani रोशनी की मदद से पौधे का अपना खाना बनाना · image: धूप में हरी पत्तियों का खाना तैयार करना
+    - kyon: A plant must protect itself, remain supported and obtain or retain food. _[standard]_ → Different specialised permanent tissues divide these jobs among themselves. _[standard]_
+    - example / jagah: A whole plant: outer covering, supporting stem, potato reserves and green leaves.
+    - aage: These functions provide the reason for studying the different permanent tissue types next.
+    - screen par: assign four jobs to different plant regions
+    - is level ke liye: Use statement combinations and tissue–function matching; do not assume all permanent cells photosynthesise.
+  - prerequisites: specialised tissue; plant requires food and support; photosynthesis makes organic food using light
+
+## Page 10 · passed after 2 round(s)
+
+Simple permanent tissues contain similar cells. Parenchyma has thin walls and intercellular spaces, stores food, and includes chlorenchyma and aerenchyma. Collenchyma consists of living, elongated cells with corner thickening and little intercellular space, providing flexible support. The figure also introduces lignified sclerenchyma fibres and stone cells.
+
+- **p010-i1** · heading · none · both
+  - SIMPLE PERMANENT TISSUE
+- **p010-i2** · definition · definition · both · exam high
+  - • Cells are structurally and functionally similar
+• One type of cells.
+    - what: What makes this tissue simple? → Its constituent cells belong to one type and are similar in structure and function.
+    - evidence: Which two criteria does the page use to recognise similarity? → It specifies both structural similarity and functional similarity, rather than appearance alone.
+      - why: Why does 'simple' not mean one cell? → A tissue is a group of cells; simple describes the kind of cells making up that group, not their number. Permanent cells are differentiated and generally no longer actively divide. _(outside the book)_
+  - **khola (unpack):**
+    - structurally and functionally similar yaani बनावट और काम में एक जैसे cells · image: एक ही तरह की ईंटों से बनी दीवार
+    - permanent tissue yaani ऐसे cells का समूह जो अपना खास काम करने के लिए बन चुके हैं · image: सीखने के बाद अपनी तय जिम्मेदारी सँभालते लोग
+    - kyon: Plants need groups of cells suited to particular jobs. _[standard]_ → A simple tissue groups structurally and functionally similar cells of one type. _[book]_
+    - example / jagah: The parenchyma and collenchyma described below.
+    - aage: Cell type, not the number of cells, determines the meaning of simple.
+    - screen par: group matching cells
+    - is level ke liye: Contrast with complex tissues composed of more than one cell type; this contrast is standard background.
+  - prerequisites: cell as a living unit; tissue as a group of cells; cell differentiation
+- **p010-i3** · list_point · facts_numbers · both · exam high
+  - • Main function is to store food and perform photosynthesis.
+    - what: Which functions does the opening description emphasise? → It emphasises food storage and photosynthesis.
+    - evidence: Where are these functions developed further on this page? → Parenchyma is called food storage tissue, and its chlorophyll-containing form is named chlorenchyma.
+      - why: Why should this not become a claim that every simple permanent tissue photosynthesises? → Photosynthesis requires suitable chloroplast-bearing living cells. Simple tissues also include supporting forms, so the opening statement is a broad overview rather than a universal test. _(outside the book)_
+  - **khola (unpack):**
+    - store food yaani बाद में इस्तेमाल के लिए खाना जमा रखना · image: रसोई में रखा अनाज
+    - photosynthesis yaani रोशनी की मदद से plant का अपना खाना बनाना · image: धूप में खुला हरा पत्ता
+    - kyon: A plant needs both newly made food and reserves for later use. _[standard]_ → The page introduces storage and photosynthesis before discussing specialised forms. _[book]_
+    - example / jagah: Stored food in potato parenchyma and photosynthesis in green leaf cells are standard examples.
+    - aage: Separate making food from storing it.
+    - screen par: make and store
+    - is level ke liye: Read function statements with their qualifying conditions.
+  - prerequisites: food as an energy source; photosynthesis
+- **p010-i4** · heading · classification · both
+  - Types of Simple Permanent Tissues
+- **p010-i5** · heading · classification · both
+  - 1. Parenchyma tissue:
+- **p010-i6** · list_point · facts_numbers · both · exam high
+  - • Occurrence: Stem, roots, leaves, flowers and fruits.
+    - what: What range of organs contains parenchyma? → The page lists stems, roots, leaves, flowers and fruits, covering both vegetative and reproductive organs.
+    - evidence: What refutes the idea that parenchyma occurs only in leaves? → Roots, stems, flowers and fruits are explicitly listed alongside leaves.
+      - why: Why is its distribution so broad? → Living packing and storage cells are useful in many plant organs; green regions can additionally contain photosynthetic parenchyma. _(outside the book)_
+  - **khola (unpack):**
+    - Occurrence yaani plant में कहाँ मिलता है · image: पूरे पौधे के अलग-अलग हिस्सों पर निशान
+    - kyon: Different organs need living cells for packing and storage. _[standard]_ → Parenchyma occurs across the five organ groups listed here. _[book]_
+    - example / jagah: Zoom from a familiar fruit to its soft internal tissue; fruit pulp is a standard example.
+    - aage: Location alone cannot establish that parenchyma is photosynthetic.
+    - screen par: highlight organs
+    - is level ke liye: Keep all five named locations.
+  - prerequisites: root, stem, leaf, flower and fruit
+- **p010-i7** · list_point · structure · both · exam high
+  - • Cell structure: Thin cell wall, round polygonal or elongated in shape.
+• Intercellular spaces are present.
+    - what: What structural features identify parenchyma on this page? → Thin cell walls, round, polygonal or elongated cells, and spaces between cells are the identifying features.
+    - where: Where are the intercellular spaces? → They lie between neighbouring cells, not inside an individual cell. _(outside the book)_
+      - how: How do these features suit a general-purpose tissue? → Thin walls suit exchange and living storage cells, while spaces between cells can provide routes for gases. Different shapes allow cells to occupy different organ regions. _(outside the book)_
+  - **khola (unpack):**
+    - polygonal yaani कई किनारों वाला आकार · image: कई किनारों वाली फर्श की टाइल
+    - elongated yaani लंबाई में खिंचा हुआ · image: गोल आटे को लंबा बेल देना
+    - Intercellular spaces yaani दो cells के बीच की खाली जगह · image: पास रखी गेंदों के बीच बची जगह
+    - Thin cell wall yaani cell की बाहर वाली दीवार पतली होना · image: मोटी दीवार के बजाय पतली परत
+    - kyon: Living internal tissues need exchange as well as room for stored material. _[standard]_ → Thin walls and spaces support exchange rather than rigid, heavily thickened support. _[standard]_
+    - example / jagah: The left-hand parenchyma sketches show cells and intervening gaps.
+    - aage: Recognise the arrangement, not a single compulsory cell shape.
+    - screen par: outline cells and reveal gaps
+    - is level ke liye: Intercellular is not intracellular.
+  - prerequisites: plant cell wall; inside versus between cells
+- **p010-i8** · heading · none · both
+  - Functions:
+- **p010-i9** · list_point · facts_numbers · both · exam high
+  - • Food storage tissue
+    - what: What storage role is assigned to parenchyma? → It serves as food storage tissue.
+    - evidence: Which tissue is explicitly linked to food storage in the detailed list? → The food-storage bullet appears under parenchyma, rather than under the collenchyma functions.
+      - why: Why does a plant need food-storage cells? → Food made at one time may be needed later for growth or respiration, including when photosynthesis is not occurring. _(outside the book)_
+  - **khola (unpack):**
+    - Food storage tissue yaani बाद के लिए खाना सँभालकर रखने वाले cells का समूह · image: घर का राशन भंडार
+    - kyon: Food production and food use need not happen at the same time. _[standard]_ → Storage parenchyma retains reserves for later use. _[standard]_
+    - example / jagah: Potato tuber is a standard everyday example of starch storage.
+    - aage: Storage does not require that the storing cells themselves be green.
+    - screen par: accumulate reserves
+    - is level ke liye: Do not equate food storage with food manufacture.
+  - prerequisites: photosynthesis makes food; plants use food for growth
+- **p010-i10** · definition · definition · both · exam high
+  - • In some cases → it contains chlorophyll, thus called CHLORENCHYMA.
+    - what: What is chlorenchyma? → It is the chlorophyll-containing form of parenchyma described here.
+    - evidence: What wording shows that not all parenchyma is chlorenchyma? → The qualification 'In some cases' limits chlorophyll presence to some parenchyma.
+      - how: How does chlorophyll give this form an additional role? → Chlorophyll in chloroplasts absorbs light energy needed for photosynthesis, so these cells can manufacture food rather than merely store it. _(outside the book)_
+  - **khola (unpack):**
+    - CHLORENCHYMA yaani chlorophyll वाला parenchyma जो रोशनी से खाना बना सकता है · image: धूप की ओर फैला हरा पत्ता
+    - kyon: Making food using sunlight requires a light-absorbing pigment. _[standard]_ → Parenchyma containing chlorophyll is named chlorenchyma. _[book]_
+    - example / jagah: Green leaf tissue is a standard location.
+    - aage: A pigment-based specialisation links parenchyma to photosynthesis.
+    - screen par: green cells and absorb light
+    - is level ke liye: Preserve 'some'; it prevents an overgeneralised statement.
+  - prerequisites: parenchyma; photosynthesis; chlorophyll
+- **p010-i11** · definition · definition · both · exam high
+  - • When loosely packed → Intercellular spaces are present, called AERENCHYMA: provides buoyancy to parts and helps them to flow [float].
+    - what: What is aerenchyma as presented here? → It is loosely packed parenchyma with intercellular spaces, associated with buoyancy of plant parts.
+    - evidence: What links its structure with its stated function? → The page places loose packing and intercellular spaces immediately before the buoyancy statement.
+      - why: Why do these spaces assist floating? → Large air-filled cavities lower the average density of the tissue, helping water support it. Aerenchyma is especially associated with aquatic plants; ordinary small spaces alone do not define it. _(outside the book)_
+        - how: How should the printed word 'flow' be understood? → Buoyancy is support in a fluid, so the intended word in this context is 'float', not movement with a current. _(outside the book)_
+  - **khola (unpack):**
+    - AERENCHYMA yaani बड़ी हवा भरी जगहों वाला parenchyma · image: हवा भरी चीज़ का पानी पर हल्का रहना
+    - buoyancy yaani पानी की ऊपर की ओर मदद जिससे कोई चीज़ तैर सके · image: पानी पर तैरता खाली बंद डिब्बा
+    - loosely packed yaani cells का कम सटा होना, बीच में जगह बचना · image: दूर-दूर रखी कुर्सियाँ
+    - kyon: Aquatic plant parts need support in water. _[standard]_ → Air cavities reduce average density and assist buoyancy. _[standard]_
+    - example / jagah: Aquatic plants, such as water hyacinth, are standard examples.
+    - aage: Contrast air-space specialisation with chlorophyll specialisation.
+    - screen par: open air cavities and float
+    - is level ke liye: Teach float, retain the printed flow as an annotated error.
+  - prerequisites: parenchyma; intercellular spaces; floating in water
+- **p010-i12** · diagram · figure · image · exam high
+  - Three adjacent tissue groups, with no sequence arrows: left, Parenchyma Tissue, with loosely arranged cells in a and a cross-sectional cell group in b; middle, Collenchyma Tissue, with elongated cells in a and closely arranged cells with thickened corners in b; right, Sclerenchyma Tissue, with an elongated fibre in a and a stone cell in b. Leader lines identify spaces, cell walls, lignified walls and lumen. The printed key reads 'a lengthwise' and 'b cross section'; for sclerenchyma the panels instead show fibre and stone-cell forms.
+    - what: What does the whole figure show? → It places parenchyma, collenchyma and sclerenchyma side by side, using cell arrangement and wall appearance for recognition.
+    - which: Which features distinguish the three groups visually? → Parenchyma shows evident gaps and relatively thin walls; collenchyma shows elongated cells and thickened corners; sclerenchyma shows a fibre and stone cell with lignified walls and a lumen.
+      - how: How should a learner use the different views? → A lengthwise view reveals length and shape; a cross section reveals packing and wall thickness. The sclerenchyma pair should be read as two cell forms, not forced into the shared section key. _(outside the book)_
+  - **khola (unpack):**
+    - cross section yaani चौड़ाई की तरफ काटकर अंदर देखना · image: खीरे का गोल टुकड़ा
+    - kyon: Tissue names alone do not show their physical differences. _[standard]_ → Comparing packing, corners and wall thickness makes the differences visible. _[standard]_
+    - example / jagah: Central tissue plate.
+    - aage: Connect the written features to recognisable cell arrangements.
+    - screen par: compare and zoom
+    - is level ke liye: Do not treat the adjacent groups as stages of one process.
+  - prerequisites: cell walls; lengthwise and cross-sectional views; intercellular space
+- **p010-i13** · diagram_label · figure · image · exam high
+  - intracellular [intercellular] spaces — leader lines point to gaps between neighbouring parenchyma cells.
+    - what: What do the leader lines actually identify? → They identify spaces between cells in the parenchyma drawings.
+    - which: Which term correctly names these spaces? → Intercellular names spaces between cells; intracellular means within a cell. _(outside the book)_
+      - why: Why is the printed label annotated rather than taught literally? → Its lines end between cells, and the written parenchyma bullet also calls the spaces intercellular.
+  - **khola (unpack):**
+    - intercellular yaani cells के बीच · image: दो घरों के बीच की गली
+    - kyon: To locate a space correctly, first trace the two neighbouring cell boundaries. _[standard]_
+    - example / jagah: White gaps in the parenchyma panels.
+    - aage: Avoid confusing tissue spaces with the interior of a cell.
+    - screen par: trace boundaries and shade gaps
+    - is level ke liye: The label is a printed error, not a new anatomical feature.
+  - prerequisites: cell boundary; between versus inside
+- **p010-i14** · diagram_label · figure · image · exam high
+  - Parenchyma Tissue — names the left pair of drawings.
+    - what: What does this caption name? → The left pair represents parenchyma, the tissue discussed above the figure.
+    - which: Which visible feature matches the written description? → Spaces between cells correspond to the stated intercellular spaces.
+      - how: How can the drawing help recognition? → Look for relatively thin walls with open gaps rather than prominent corner thickening. _(outside the book)_
+  - **khola (unpack):**
+    - kyon: Use wall thickness and gaps to attach the tissue name to a visible pattern. _[standard]_
+    - example / jagah: Left-hand panels.
+    - aage: Links the parenchyma description to its image.
+    - screen par: match
+  - prerequisites: parenchyma structure
+- **p010-i15** · diagram_label · figure · image · exam medium
+  - a; b — the parenchyma panels are keyed as 'a lengthwise' and 'b cross section'.
+    - what: What does the printed a/b key mean? → a denotes a lengthwise view and b a cross section.
+    - which: Which panel best shows packing across the tissue? → Panel b is the cross-sectional view.
+      - how: How do the two views complement each other? → Looking along cells reveals their length, whereas cutting across reveals their outlines and spacing. _(outside the book)_
+  - **khola (unpack):**
+    - lengthwise yaani लंबाई की दिशा में दिखना या कटना · image: खीरे को लंबाई में चीरना
+    - kyon: One view cannot reveal both cell length and cross-sectional packing equally well. _[standard]_
+    - example / jagah: Parenchyma panels a and b.
+    - aage: Do not mistake two views for two tissue types.
+    - screen par: rotate and slice
+  - prerequisites: direction of a cut
+- **p010-i16** · diagram_label · figure · image · exam high
+  - cell walls — leader lines point to the walls of cells in the collenchyma cross section.
+    - what: What boundary is labelled in the middle cross section? → The label identifies the cell walls surrounding the collenchyma cells.
+    - which: Which wall feature should be inspected? → The written collenchyma description identifies irregular thickening at the corners.
+      - how: How does corner thickening differ from uniform thickening? → The wall is thicker where cell corners meet rather than equally thick all around the cell. _(outside the book)_
+  - **khola (unpack):**
+    - cell walls yaani plant cells की बाहर की सहारा देने वाली दीवारें · image: कमरों को घेरती दीवारें
+    - kyon: A support tissue needs reinforced boundaries; inspect where the reinforcement is concentrated. _[standard]_
+    - example / jagah: Collenchyma panel b.
+    - aage: Makes uneven thickening visible.
+    - screen par: highlight corners
+  - prerequisites: plant cell wall; cell corners
+- **p010-i17** · diagram_label · figure · image · exam high
+  - a; b; Collenchyma Tissue — the middle pair shows elongated cells in a and a cross-sectional arrangement in b.
+    - what: What does the middle pair represent? → It represents collenchyma in lengthwise and cross-sectional views.
+    - which: Which panel reveals elongated shape and which reveals packing? → a reveals the elongated cells; b reveals their close arrangement across the tissue.
+      - how: How should it be distinguished from the left group? → Check corner reinforcement and closer packing rather than assuming every elongated cell is collenchyma. _(outside the book)_
+  - **khola (unpack):**
+    - kyon: Because several tissues can have elongated cells, combine shape with wall and spacing evidence. _[standard]_
+    - example / jagah: Middle pair of panels.
+    - aage: Provides a visual bridge to the collenchyma text below.
+    - screen par: pair views
+  - prerequisites: lengthwise versus cross-sectional views; collenchyma
+- **p010-i18** · diagram_label · figure · image · exam high
+  - cell walls with lignin — leader lines identify the thick walls of the sclerenchyma fibre and stone cell.
+    - what: What wall material does the right-hand figure identify? → It explicitly labels lignin in the sclerenchyma cell walls.
+    - which: Which cell forms carry the lignified-wall label? → The fibre and the stone cell are the two illustrated forms.
+      - why: Why does lignin matter for support? → Lignin reinforces walls and makes them rigid, suiting hard mechanical support rather than the flexible support emphasised for collenchyma. _(outside the book)_
+  - **khola (unpack):**
+    - lignin yaani cell wall को सख्त और मजबूत बनाने वाला substance · image: मुलायम डंठल के मुकाबले कड़ी लकड़ी
+    - kyon: Some plant parts need rigid support. _[standard]_ → Lignin reinforces the cell walls providing that support. _[standard]_
+    - example / jagah: Right-hand fibre and stone-cell drawings.
+    - aage: Introduces a wall-based contrast with collenchyma.
+    - screen par: reinforce walls
+    - is level ke liye: Do not transfer the lignin label to the middle tissue.
+  - prerequisites: cell wall; rigid versus flexible support
+- **p010-i19** · diagram_label · figure · image · exam high
+  - fiber; a — label names the long, narrow sclerenchyma cell shown in panel a.
+    - what: What does 'fiber' identify? → It identifies the elongated sclerenchyma form on the left of the right-hand group.
+    - which: Which panel is the fibre? → The long narrow drawing marked a, rather than the compact stone cell marked b.
+      - how: How is a fibre suited to support? → Long reinforced cells can form supporting strands, like long threads contributing to a strong cord. _(outside the book)_
+  - **khola (unpack):**
+    - fiber yaani लंबा और पतला सहारा देने वाला cell · image: रस्सी में लंबा रेशा
+    - kyon: Long supporting strands benefit from elongated, reinforced cells. _[standard]_
+    - example / jagah: Sclerenchyma panel a.
+    - aage: One tissue category can include differently shaped forms.
+    - screen par: stretch into a strand
+    - is level ke liye: The page spells the label 'fiber'.
+  - prerequisites: elongated cell; lignified wall
+- **p010-i20** · diagram_label · figure · image · exam high
+  - stone cell; b — label points to the compact, irregular thick-walled sclerenchyma form in panel b.
+    - what: What is named beside the compact sclerenchyma drawing? → The drawing is named a stone cell.
+    - which: Which feature distinguishes it from the fibre? → It is compact and irregular rather than long and narrow.
+      - why: Why is 'stone cell' a useful descriptive name? → These thick, lignified cells are hard; clusters of them contribute to the gritty texture of pear pulp. They are also called sclereids. _(outside the book)_
+  - **khola (unpack):**
+    - stone cell yaani पत्थर जैसा सख्त, मोटी दीवार वाला cell · image: नाशपाती खाते समय महसूस होने वाला किरकिरापन
+    - kyon: Some tissues need local hardness rather than a long strand. _[standard]_ → Compact, thick lignified cells provide such hardness. _[standard]_
+    - example / jagah: Panel b; pear pulp is an outside explanatory example.
+    - aage: Sclerenchyma is not restricted to elongated fibres.
+    - screen par: compact and harden
+    - is level ke liye: Sclereid is the standard alternate name, not printed here.
+  - prerequisites: lignified wall; fibre shape
+- **p010-i21** · diagram_label · figure · image · exam high
+  - lumen — leader lines identify the internal cavity enclosed by the thick walls.
+    - what: What is the lumen? → It is the cavity inside the cell wall, rather than a gap between two cells. _(outside the book)_
+    - which: Which part of the drawings does this label identify? → It identifies the internal space of the sclerenchyma forms.
+      - how: How does wall thickening affect the lumen? → Wall material deposited towards the interior leaves a narrower internal cavity. _(outside the book)_
+  - **khola (unpack):**
+    - lumen yaani दीवार से घिरी अंदर की जगह · image: मोटी नली के बीच का खाली रास्ता
+    - kyon: To understand a thick wall, separate the wall material from the cavity it encloses. _[standard]_
+    - example / jagah: Sclerenchyma drawings.
+    - aage: The central cavity is not an intercellular gap.
+    - screen par: shade the cavity
+  - prerequisites: cell wall; inside versus between cells
+- **p010-i22** · diagram_label · figure · image · exam high
+  - Sclerenchyma Tissue — caption names the right-hand fibre and stone-cell group.
+    - what: What tissue category unites the fibre and stone cell? → The figure groups both under Sclerenchyma Tissue.
+    - which: Which labelled feature connects the two forms? → Both are associated with cell walls containing lignin.
+      - how: How does this caption extend the page's classification? → It supplies the third simple permanent tissue name visually, beyond the two detailed text sections on this page.
+  - **khola (unpack):**
+    - kyon: Group the two different shapes by their shared reinforced-wall tissue identity. _[standard]_
+    - example / jagah: Right-hand group.
+    - aage: Previews the next tissue section without inventing its text.
+    - screen par: bracket together
+    - is level ke liye: Parenchyma, collenchyma and sclerenchyma are the three names to distinguish.
+  - prerequisites: simple permanent tissues; fibre and stone cell
+- **p010-i23** · heading · classification · both
+  - 2. Collenchyma Tissue:
+- **p010-i24** · paragraph · facts_numbers · both · exam high
+  - Occurrence: In leaf stalks and stems of dicots.
+    - what: Which locations are specified for collenchyma? → Leaf stalks and stems of dicots are the stated locations.
+    - evidence: What qualification must be retained in the stem location? → The page says stems 'of dicots', not stems without qualification.
+      - why: Why is flexible support useful in these places? → A leaf stalk carries a leaf that moves in wind, and growing stems must withstand bending while continuing to extend. _(outside the book)_
+  - **khola (unpack):**
+    - leaf stalks yaani पत्ते को तने से जोड़ने वाला डंठल · image: पत्ता पकड़ने का छोटा डंठल
+    - dicots yaani ऐसे flowering plants जिनके seed में दो seed leaves होते हैं · image: भीगे चने के दो हिस्से
+    - kyon: Leaf stalks and young stems need support without becoming completely rigid. _[standard]_ → Collenchyma supplies flexible support in such locations. _[standard]_
+    - example / jagah: Trace from a familiar leaf blade along its stalk into the stem.
+    - aage: Connects location to the bending function below.
+    - screen par: zoom into stalk
+    - is level ke liye: Petiole is the standard name for a leaf stalk.
+  - prerequisites: leaf blade and stalk; stem; cotyledons
+- **p010-i25** · heading · none · both
+  - Structure of cells:
+- **p010-i26** · list_point · structure · both · exam high
+  - • Living
+• Elongated
+• Irregularly thickened at corners.
+• Very little intercellular space.
+    - what: What four features characterise collenchyma cells? → They are living and elongated, with irregular corner thickening and very little intercellular space.
+    - where: Where is the thickening concentrated? → At cell corners, rather than being described as uniformly distributed around the wall.
+      - how: How do these features support flexible growth? → Closely packed elongated living cells provide continuity, while unevenly thickened primary walls reinforce the tissue without the rigidity of strongly lignified walls. _(outside the book)_
+      - difference: How does this differ from the stated parenchyma structure? → Parenchyma is described as thin-walled with intercellular spaces; collenchyma has corner thickening and very little space. Elongation by itself does not distinguish them because parenchyma may also be elongated.
+  - **khola (unpack):**
+    - Living yaani काम करते समय cell का जिंदा रहना · image: सिर्फ खाली खोल नहीं, अंदर काम चलता रहना
+    - Irregularly thickened at corners yaani दीवार का कोनों पर ज्यादा मोटा होना, हर जगह बराबर नहीं · image: बैग के कोनों पर लगा अतिरिक्त मजबूत कपड़ा
+    - Very little intercellular space yaani cells का पास-पास होना, बीच में बहुत कम जगह · image: सटाकर रखे डिब्बे
+    - kyon: Growing plant parts need reinforcement without losing their ability to bend. _[standard]_ → Living elongated cells with uneven wall reinforcement provide flexible support. _[standard]_
+    - example / jagah: Leaf stalks and dicot stems; compare the middle diagram.
+    - aage: Wall distribution and packing explain the next function list.
+    - screen par: lengthen, pack and reinforce corners
+    - is level ke liye: Very little space is not the same wording as no space; thickened does not automatically mean dead.
+  - prerequisites: living cell; cell wall; intercellular space; elongated shape
+- **p010-i27** · heading · none · both
+  - Functions:
+- **p010-i28** · list_point · cause_effect · both · exam high
+  - ➢ Provides mechanical strength
+➢ Provides flexibility and photosynthesis
+➢ Allowed bending of parts.
+    - why: Why are strength and flexibility listed together? → Plant parts need support against forces but also need to bend rather than snap; collenchyma supplies this combination. _(outside the book)_
+    - how: How does its cell structure enable these outcomes? → Unevenly thickened, non-rigid primary walls reinforce living cells while permitting some extension and bending. _(outside the book)_
+    - what: Which functions does the page explicitly assign to collenchyma? → Mechanical strength, flexibility, photosynthesis and bending of parts are listed.
+      - exception: What condition is needed for its stated photosynthesis function? → Collenchyma cells can photosynthesise when they contain chloroplasts; mechanical support does not itself imply photosynthesis. _(outside the book)_
+  - **khola (unpack):**
+    - mechanical strength yaani खींचने या दबाव पड़ने पर सहारा बनाए रखने की ताकत · image: वजन सँभालता मजबूत डंडा
+    - flexibility yaani बिना टूटे मुड़ पाने की क्षमता · image: हवा में झुकती नरम टहनी
+    - kyon: Wind and movement bend stalks, so support must not make them brittle. _[standard]_ → Collenchyma combines mechanical strength with flexibility and allows bending. _[book]_
+    - example / jagah: A leaf stalk bending as its leaf moves in wind.
+    - aage: Explains why flexible plant parts are the examples that follow.
+    - screen par: bend without breaking
+    - is level ke liye: Contrast flexible collenchyma support with lignified sclerenchyma support; this mechanism is standard explanation.
+  - prerequisites: uneven wall thickening; bending versus breaking; chloroplasts and photosynthesis
+- **p010-i29** · example · cause_effect · both · exam high
+  - E.g. Tendrils and stems of climbers
+    - what: Which examples illustrate flexible support? → The page gives tendrils and stems of climbers.
+    - why: Why are climbing parts helpful examples? → They must bend around or follow supports while remaining strong enough to retain their form. _(outside the book)_
+      - how: How should the tendril example be connected to the function without overstating it? → Collenchyma helps a growing part withstand bending. Tendril coiling itself involves a growth response to contact; the tissue should not be described as independently causing that response. _(outside the book)_
+  - **khola (unpack):**
+    - Tendrils yaani पतले हिस्से जो सहारे के चारों ओर लिपट सकते हैं · image: जाली से लिपटा मटर का tendril
+    - climbers yaani सहारा पकड़कर ऊपर बढ़ने वाले पौधे · image: डंडे या जाली पर चढ़ती बेल
+    - kyon: A climbing plant needs parts that can bend around support without easily breaking. _[standard]_ → The page uses tendrils and climber stems to illustrate flexible support. _[book]_
+    - example / jagah: Tendrils and stems of climbers; a pea tendril is a standard everyday illustration.
+    - aage: Closes the link from cell-wall arrangement to a visible plant function.
+    - screen par: wrap around support
+    - is level ke liye: Do not infer that every part of a climber consists only of collenchyma.
+  - prerequisites: climbing plants; collenchyma flexible support
+
+## Page 11 · passed after 2 round(s)
+
+Sclerenchyma has thick lignified walls and provides strength and protection. Complex permanent tissues combine different cell types for transport. Xylem contains tracheids, vessels, parenchyma and fibres; the illustrations also identify phloem components and connecting structures.
+
+- **p011-i1** · heading · none · both
+  - 3. Sclerenchyma Tissue
+- **p011-i2** · list_point · structure · both · exam high
+  - Occurrence:
+• In stems around vascular bundles.
+• In veins of leaves.
+• Hard covering of seeds and nuts.
+    - what: What distribution of sclerenchyma does the page describe? → It occurs around stem vascular bundles, in leaf veins and in the hard coverings of seeds and nuts.
+    - where: Where should a learner look for the stem and leaf examples? → Look around the conducting bundles inside a stem and along the vein framework of a leaf. _(outside the book)_
+      - why: Why is strengthening tissue useful at these sites? → Stems and leaf veins need resistance to bending, while seed and nut coverings need resistance to physical damage. _(outside the book)_
+  - **khola (unpack):**
+    - vascular bundles yaani पौधे में पानी और भोजन ले जाने वाले tissues के गुच्छे · image: एक साथ बँधी पानी की पाइपें
+    - kyon: Stems, veins and coverings face bending or physical damage. _[standard]_ → Sclerenchyma provides mechanical strength and protection at such sites. _[book]_
+    - example / jagah: Trace a familiar leaf's veins, then zoom into supporting tissue.
+    - aage: Location can help identify the tissue's support role.
+    - screen par: zoom into and reinforce
+    - is level ke liye: Distinguish tissue around vascular bundles from the conducting bundle itself.
+  - prerequisites: stem and leaf; vascular bundle as a group of conducting tissues; seed covering
+- **p011-i3** · example · structure · both · exam high
+  - Eg. Husk of coconut.
+    - what: What familiar example identifies sclerenchyma? → The page gives coconut husk as its example.
+    - where: Where is the husk on a coconut? → It is the fibrous outer covering outside the hard shell. _(outside the book)_
+      - how: How does handling coconut husk help explain this tissue? → Its tough fibres resist pulling apart, giving an everyday experience of mechanical strength. _(outside the book)_
+  - **khola (unpack):**
+    - Husk yaani नारियल के बाहर का रेशेदार हिस्सा · image: नारियल से खींचकर अलग किए जाने वाले भूरे रेशे
+    - kyon: A coconut needs a protective outer covering. _[standard]_ → Tough sclerenchyma fibres provide a familiar example of protective strength. _[standard]_
+    - example / jagah: Coconut husk.
+    - aage: A daily-life object anchors sclerenchyma identification.
+    - screen par: pull fibres apart
+    - is level ke liye: Remember the printed example precisely.
+  - prerequisites: coconut husk; mechanical strength
+- **p011-i4** · list_point · structure · both · exam high
+  - Structure:
+➢ Long and narrow
+➢ Walls are thickened by LIGNINS
+    - what: What shape and wall property does the book assign to sclerenchyma? → The cells are described as long and narrow, with walls thickened by lignins.
+    - where: Where is the strengthening material deposited? → Lignin is deposited in the cell wall rather than being a filling between neighbouring cells. _(outside the book)_
+      - why: Why does lignification help support? → Lignin makes walls rigid and resistant to deformation, allowing them to bear mechanical stress. _(outside the book)_
+      - exception: Does the long-and-narrow description cover all sclerenchyma? → It particularly describes fibres. Sclereids are another sclerenchyma form and can have other shapes. _(outside the book)_
+  - **khola (unpack):**
+    - Long and narrow yaani लंबाई ज़्यादा, चौड़ाई कम · image: पतली लंबी डोरी
+    - LIGNINS yaani cell wall को कड़ा बनाने वाला substance · image: दीवार को मज़बूत करने वाला अतिरिक्त भराव
+    - kyon: A plant needs walls that resist bending and compression. _[standard]_ → Lignin reinforces those walls, producing rigid support. _[standard]_
+    - example / jagah: Coconut husk fibres.
+    - aage: Thick walls explain strength better than memorising the tissue name alone.
+    - screen par: lengthen and thicken
+    - is level ke liye: Know lignin as the wall-strengthening material; recognise the fibre-shape qualification.
+  - prerequisites: plant cell wall; cell shape
+- **p011-i5** · list_point · cause_effect · both · exam high
+  - ➢ Cell cavity is absent due to excessive thickness.
+    - why: Why does the page say the cell cavity is absent? → It attributes the absence to excessive wall thickness.
+      - how: How should this be understood accurately? → Wall deposition reduces the internal space, called the lumen. In sclerenchyma the lumen is commonly narrow, not necessarily completely absent. _(outside the book)_
+  - **khola (unpack):**
+    - Cell cavity yaani cell wall के भीतर की जगह · image: मोटी दीवार वाले पाइप का छोटा अंदरूनी रास्ता
+    - kyon: Support requires a strongly reinforced wall. _[standard]_ → Increasing wall thickness reduces the internal cavity; complete absence is not universal. _[standard]_
+    - example / jagah: A cross-section through a sclerenchyma fibre.
+    - aage: Keep the inside-cell lumen distinct from spaces between cells.
+    - screen par: thicken inward
+    - is level ke liye: The printed absolute is qualified rather than silently adopted.
+  - prerequisites: cell wall; space inside a cell
+- **p011-i6** · list_point · structure · both · exam high
+  - ➢ Intercellular spaces absent.
+➢ Cells are dead.
+    - what: What arrangement and living status are stated? → The page describes cells without intercellular spaces and identifies the cells as dead.
+    - where: Where would an intercellular space be, unlike a cell cavity? → It would lie between neighbouring cells; a cell cavity lies inside one cell's wall. _(outside the book)_
+      - how: How can dead cells still provide support? → At maturity, the protoplasm is lost but the thick walls remain, so physical reinforcement does not require a living cell interior. _(outside the book)_
+  - **khola (unpack):**
+    - Intercellular spaces yaani पास-पास के cells के बीच की खाली जगह · image: जुड़ी ईंटों के बीच बचा गैप
+    - kyon: A support framework must remain mechanically firm. _[standard]_ → Closely arranged thick walls can provide support after the living contents are lost. _[standard]_
+    - example / jagah: Mature sclerenchyma.
+    - aage: Dead does not mean functionless.
+    - screen par: remove contents, retain walls
+    - is level ke liye: Separate cell cavity, intercellular space and living status in statement questions.
+  - prerequisites: living cell contents; cell wall; neighbouring cells
+- **p011-i7** · list_point · cause_effect · both · exam high
+  - Function:
+• Provide strength to plant cell.
+• Provides protection and mechanical strength
+    - why: Why is sclerenchyma useful to a plant? → It provides strength, protection and mechanical strength.
+      - how: How do its structural features produce these benefits? → Rigid lignified walls form a reinforcing framework that resists deformation and helps protect enclosed parts. _(outside the book)_
+  - **khola (unpack):**
+    - mechanical strength yaani दबाव, खिंचाव या मुड़ने पर टूटने से बचने की ताकत · image: इमारत का मज़बूत ढाँचा
+    - kyon: Plant parts experience forces that could bend or damage them. _[standard]_ → Sclerenchyma supplies a rigid protective framework. _[standard]_
+    - example / jagah: Hard seed coverings and coconut husk.
+    - aage: Location, thick walls and protective function form one explanation.
+    - screen par: brace against bending
+    - is level ke liye: Use a location–structure–function chain for correct-statement questions.
+  - prerequisites: lignified walls; mechanical force
+- **p011-i8** · heading · none · both
+  - COMPLEX PERMANENT TISSUE
+- **p011-i9** · list_point · structure · both · exam high
+  - • Made up of more than one type of cells.
+• Cells co-ordinate to perform common function.
+    - what: What makes this tissue complex? → Different cell types form one tissue and coordinate for a common function.
+    - where: Where is this organisation illustrated on the page? → The xylem and phloem drawings show several labelled components within each tissue.
+      - why: Why can several cell types be useful in one tissue? → A transport system needs conducting routes as well as support and associated living cells, so different cells can divide the work. _(outside the book)_
+  - **khola (unpack):**
+    - co-ordinate yaani अलग-अलग काम करके एक साझा काम पूरा करना · image: रसोई में कोई काटता है, कोई पकाता है, खाना मिलकर बनता है
+    - kyon: Transport needs more than an unsupported passage. _[standard]_ → Different cell types work together as a complex tissue. _[book]_
+    - example / jagah: Xylem combines conducting cells, parenchyma and fibres.
+    - aage: This prepares the learner to recognise components rather than treat xylem as one cell.
+    - screen par: assemble a team
+    - is level ke liye: Contrast with simple permanent tissue using cell-type diversity as the criterion.
+  - prerequisites: cell; tissue; specialisation
+- **p011-i10** · list_point · cause_effect · both · exam high
+  - Functions:
+• Transport water, minerals and food materials.
+    - why: Why does a plant need transport tissue? → Water and minerals are obtained mainly through roots, whereas food is made mainly in leaves; other parts need supplies from these sources. _(outside the book)_
+    - how: How does the page describe the contribution of complex tissues? → They transport water, minerals and food materials.
+      - difference: How is this transport divided between the two named tissues? → Xylem mainly transports water and minerals; phloem transports food substances. _(outside the book)_
+  - **khola (unpack):**
+    - Transport yaani ज़रूरी चीज़ों को एक हिस्से से दूसरे तक पहुँचाना · image: घर में टंकी से अलग-अलग नलों तक पानी पहुँचना
+    - kyon: Places of supply and places of use are separated in a plant. _[standard]_ → Complex tissues move water, minerals and food between plant parts. _[book]_
+    - example / jagah: Roots, stem and leaves linked by conducting tissues.
+    - aage: Different transport roles lead to xylem–phloem comparison.
+    - screen par: connect and carry
+    - is level ke liye: Know the cargo associated with each tissue.
+  - prerequisites: root absorption; leaves make food
+- **p011-i11** · list_point · classification · both · exam high
+  - Two types:
+1. Xylem
+2. Phloem
+    - which: Which two complex permanent tissues are named? → Xylem and phloem are the two types listed.
+    - difference: What main functional difference separates them? → Xylem mainly conducts water and minerals, while phloem carries food substances. _(outside the book)_
+      - why: Why are both still in the same broad group? → Each contains different cell types coordinating in transport, which is the basis of complex-tissue organisation. _(outside the book)_
+  - **khola (unpack):**
+    - Xylem yaani मुख्यतः पानी और minerals पहुँचाने वाला tissue · image: पानी पहुँचाने वाली पाइप-व्यवस्था
+    - Phloem yaani पौधे में बना भोजन पहुँचाने वाला tissue · image: तैयार खाना अलग-अलग जगह पहुँचाने वाली व्यवस्था
+    - kyon: Plants need water supplies and distribution of food. _[standard]_ → Xylem and phloem specialise in these different transport roles. _[standard]_
+    - example / jagah: The paired diagrams on this page.
+    - aage: Both are complex tissues but are not interchangeable.
+    - screen par: branch into two
+    - is level ke liye: Use the hierarchy: permanent tissue → complex → xylem/phloem.
+  - prerequisites: complex tissue; water and food transport
+- **p011-i12** · diagram · figure · image · exam high
+  - Complex Permanent Tissue: paired labelled drawings of Xylem and Phloem. Xylem shows elongated conducting and supporting elements with surrounding parenchyma. Phloem shows stacked sieve-tube regions, adjacent companion cells, fibres and parenchyma. Leader arrows identify parts; they do not indicate transport direction.
+    - what: What does the paired figure demonstrate? → Each named complex tissue consists of several different components, not one uniform cell type.
+    - which: Which tissues are shown side by side? → Xylem is on the left and phloem on the right.
+      - how: How should the arrows be read? → Follow each leader from a component to its name; these are identification arrows rather than a diagram of flow.
+  - **khola (unpack):**
+    - kyon: A complex tissue must contain different cell types. _[book]_ → The labels reveal the different parts within each tissue. _[book]_
+    - example / jagah: Paired vascular-tissue illustration.
+    - aage: A component must be matched to the correct tissue.
+    - screen par: separate and label
+    - is level ke liye: Do not interpret leader arrows as movement arrows.
+  - prerequisites: xylem; phloem; diagram leader lines
+- **p011-i13** · diagram_label · figure · image · exam high
+  - Xylem Parenchyma — leader identifies parenchyma in the xylem drawing.
+    - what: What does this label identify? → The parenchyma component of xylem.
+    - which: Which functions does the page attach to it? → Food storage and sideways conduction of water.
+      - how: How does this expand the idea of a water-conducting tissue? → Xylem includes storage and lateral-transfer cells alongside the main conducting elements.
+  - **khola (unpack):**
+    - Xylem Parenchyma yaani xylem में भोजन जमा करने और पानी बगल में पहुँचाने वाले cells · image: मुख्य पाइप के पास छोटा भंडार और बगल का रास्ता
+    - example / jagah: Xylem drawing.
+    - aage: Xylem is more than hollow conduits.
+    - screen par: highlight surrounding cells
+    - is level ke liye: Connect label to storage and sideways conduction.
+  - prerequisites: xylem; parenchyma
+- **p011-i14** · diagram_label · figure · image · exam high
+  - Vessels — leader identifies the broad conducting element in xylem.
+    - what: What is labelled Vessels? → A conducting component of the xylem drawing.
+    - which: Which other component shares its conducting role? → Tracheids also transport water and minerals.
+      - how: How is the vessel suited to conduction? → Its tubular structure provides a route for vertical water and mineral transport.
+  - **khola (unpack):**
+    - Vessels yaani xylem के पानी ले जाने वाले नली जैसे हिस्से · image: जुड़े पाइपों का रास्ता
+    - example / jagah: Broad element in the xylem figure.
+    - aage: Links tube shape to transport.
+    - screen par: trace the tube
+    - is level ke liye: Match vessels with xylem.
+  - prerequisites: xylem; tube shape
+- **p011-i15** · diagram_label · figure · image · exam high
+  - Tracheids — leader identifies the elongated conducting elements of xylem.
+    - what: What does Tracheids name? → One of the four components listed for xylem.
+    - which: Which transport role is associated with them? → They conduct water and minerals vertically, together with vessels.
+      - how: How does their shape support the role? → Their elongated tubular form supplies a route along the plant.
+  - **khola (unpack):**
+    - Tracheids yaani पानी और minerals ले जाने वाले लंबे xylem cells · image: लंबी पतली नलियों की कतार
+    - example / jagah: Elongated xylem elements.
+    - aage: Two kinds of conducting elements must be recognised.
+    - screen par: follow lengthwise
+    - is level ke liye: Pair tracheids with vessels for conduction.
+  - prerequisites: xylem; vertical conduction
+- **p011-i16** · diagram_label · figure · image · exam high
+  - Xylem Fibres — leader identifies the supporting fibres in xylem.
+    - what: What does the label identify? → The fibre component within xylem.
+    - which: Which principal function belongs to these fibres? → Their function is mainly supportive.
+      - why: Why are fibres useful beside conduits? → They reinforce the tissue and help it resist mechanical forces. _(outside the book)_
+  - **khola (unpack):**
+    - Xylem Fibres yaani xylem को सहारा देने वाले लंबे मज़बूत cells · image: पाइप के साथ लगा सहारा
+    - example / jagah: Xylem illustration.
+    - aage: Support is part of complex-tissue teamwork.
+    - screen par: brace the bundle
+    - is level ke liye: Support versus conduction is the key distinction.
+  - prerequisites: fibre; mechanical support
+- **p011-i17** · diagram_label · figure · image · exam high
+  - Phloem Parenchyma — leader identifies parenchyma in the phloem drawing.
+    - what: What component is named? → Parenchyma belonging to phloem.
+    - which: Which complex tissue contains this labelled component? → The right-hand tissue, phloem.
+      - how: How does phloem parenchyma contribute? → These living cells help store food and participate in lateral movement of food substances. _(outside the book)_
+  - **khola (unpack):**
+    - Phloem Parenchyma yaani phloem में भोजन सँभालने वाले living cells · image: डिलीवरी रास्ते के पास छोटा भंडार
+    - example / jagah: Right-hand phloem diagram.
+    - aage: The word parenchyma alone does not identify xylem exclusively.
+    - screen par: highlight beside the tube
+    - is level ke liye: Use the xylem/phloem qualifier.
+  - prerequisites: phloem; parenchyma
+- **p011-i18** · diagram_label · figure · image · exam high
+  - Companion cell — leader identifies the slender cell beside a sieve tube.
+    - what: What is labelled beside the sieve tube? → A companion cell in phloem.
+    - which: Which tissue should be associated with companion cells? → Phloem, as shown in the right-hand illustration.
+      - why: Why is this neighbouring cell important? → It supports sieve-tube function through close metabolic cooperation and helps in loading and unloading sugars. _(outside the book)_
+  - **khola (unpack):**
+    - Companion cell yaani sieve tube के पास रहकर उसका काम सँभालने वाला cell · image: मुख्य काम करने वाले के पास उसका सहायक
+    - example / jagah: Beside the sieve tube in phloem.
+    - aage: Transport cells work with neighbouring cells.
+    - screen par: pair neighbours
+    - is level ke liye: Recognise the sieve tube–companion cell association.
+  - prerequisites: phloem; sieve tube
+- **p011-i19** · diagram_label · figure · image · exam high
+  - Phloem fibres — leader identifies the elongated supporting component in phloem.
+    - what: What part does this label name? → Fibres within the phloem tissue.
+    - which: Which other illustrated tissue also contains fibres? → Xylem also has labelled fibres.
+      - how: How do phloem fibres contribute? → Their thick walls provide mechanical support rather than acting as the main food-conducting route. _(outside the book)_
+  - **khola (unpack):**
+    - Phloem fibres yaani phloem को मज़बूती देने वाले रेशे जैसे cells · image: नली के साथ बँधी मज़बूत डोरी
+    - example / jagah: Phloem drawing.
+    - aage: Supporting cells coexist with food-conducting cells.
+    - screen par: reinforce
+    - is level ke liye: Distinguish fibres from sieve tubes.
+  - prerequisites: phloem; fibres
+- **p011-i20** · diagram_label · figure · image · exam high
+  - Sieve tube — leader identifies the main elongated tube in phloem.
+    - what: What main phloem structure is labelled? → The sieve tube.
+    - which: Which neighbouring cell is also labelled? → A companion cell lies beside it.
+      - how: How does a sieve tube serve transport? → Sieve-tube elements join end to end, with perforated end regions allowing movement of food-containing sap. _(outside the book)_
+  - **khola (unpack):**
+    - Sieve tube yaani भोजन वाला रस ले जाने वाली phloem की नली · image: बीच-बीच में छन्नी जैसे जोड़ वाला पाइप
+    - example / jagah: Large phloem tube in the right illustration.
+    - aage: The lower figure explains its component cells and end plates.
+    - screen par: stack and connect
+    - is level ke liye: Match sieve tube with food transport.
+  - prerequisites: phloem; tube
+- **p011-i21** · diagram · figure · image · exam high
+  - Xylem structure / Phloem structure. The xylem side shows an isolated vessel element with pitted walls (a), tracheids, and a grouped view (b) labelled xylem parenchyma cell, vessel element, pitted walls and tracheid. The phloem side shows an isolated sieve-tube element with sieve plate, companion cell, nucleus and phloem parenchyma cells, alongside a grouped view (b) labelled companion cell, sieve-tube element, sieve plate, phloem parenchyma cells and plasmo-desmata [plasmodesmata]. Leader lines identify structures rather than flow directions.
+    - what: What extra detail does the boxed figure add? → It shows individual elements and grouped arrangements, including pitted xylem walls and the sieve plates and associated cells of phloem.
+    - which: Which parts connect the figure to transport pathways? → Vessel elements and tracheids are shown on the xylem side; sieve-tube elements and sieve plates on the phloem side.
+      - how: How do these details improve understanding beyond a tissue name? → They distinguish the tube-forming cells from the neighbouring support and storage cells, and show specialised regions through which exchange or continuity occurs. _(outside the book)_
+  - **khola (unpack):**
+    - kyon: A transport route needs continuity along its length and connections with nearby cells. _[standard]_ → The detailed views reveal wall pits, sieve plates and cell connections. _[book]_
+    - example / jagah: Boxed lower illustration.
+    - aage: Transport tissue is an organised assembly, not a featureless pipe.
+    - screen par: explode the bundle into parts
+    - is level ke liye: Panel letters a and b mark views, not biological structures.
+  - prerequisites: xylem components; phloem components; cell wall
+- **p011-i22** · diagram_label · figure · image · exam high
+  - vessel elements — leader points to the isolated elongated pink vessel element.
+    - what: What is the isolated pink structure? → A vessel element, identified by the label vessel elements.
+    - which: Which tissue contains it? → Xylem.
+      - how: How does an element differ from the whole vessel? → An element is one constituent cell; vessel elements connect end to end to form a vessel. _(outside the book)_
+  - **khola (unpack):**
+    - vessel elements yaani मिलकर vessel बनाने वाले अलग-अलग cells · image: लंबी पाइप बनाने वाले छोटे पाइप के टुकड़े
+    - example / jagah: Far-left pink cell.
+    - aage: One cell need not equal the entire conduit.
+    - screen par: join end to end
+    - is level ke liye: Read element as a building unit.
+  - prerequisites: xylem; cell
+- **p011-i23** · diagram_label · figure · image · exam medium
+  - pitted walls — leader points to pits in the isolated vessel element's wall.
+    - what: What wall feature is labelled? → Pitted walls on the isolated vessel element.
+    - which: Which tissue's conducting element shows these pits? → Xylem.
+      - how: How do pits help conduction? → They are regions where secondary wall thickening is absent, facilitating water movement between adjacent cells through the remaining pit membranes. _(outside the book)_
+  - **khola (unpack):**
+    - pitted walls yaani मोटी wall में कम मोटाई वाले छोटे-छोटे हिस्से · image: मोटी दीवार में पतली खिड़की जैसी जगहें
+    - example / jagah: Isolated xylem vessel element.
+    - aage: A thick wall can still allow lateral exchange.
+    - screen par: zoom into wall spots
+    - is level ke liye: Do not imagine every pit as a completely empty hole.
+  - prerequisites: cell wall; vessel element
+- **p011-i24** · diagram_label · figure · image · exam high
+  - tracheids — leader points to the narrow, tapered pink cells.
+    - what: What cells are labelled tracheids? → The elongated tapered cells shown between the isolated vessel and grouped xylem view.
+    - which: Which listed tissue component do they represent? → The tracheid component of xylem.
+      - how: How does water move between adjoining tracheids? → It passes through pit regions in their overlapping walls. _(outside the book)_
+  - **khola (unpack):**
+    - tracheids yaani सिरों पर पतले होते लंबे पानी ले जाने वाले cells · image: पास-पास रखी नुकीले सिरों वाली पतली नलियाँ
+    - example / jagah: Narrow pink cells in the boxed xylem figure.
+    - aage: Their form differs from broad vessel elements.
+    - screen par: overlap tapered ends
+    - is level ke liye: Use shape alongside the label, not colour alone.
+  - prerequisites: xylem; wall pits
+- **p011-i25** · diagram_label · figure · image · exam high
+  - xylem parenchyma cell — leader points to the slender grey cell beside the pink vessel elements.
+    - what: What is identified beside the vessel? → A xylem parenchyma cell.
+    - which: Which page functions belong to this cell type? → Food storage and sideways water conduction.
+      - why: Why show it beside conducting elements? → That arrangement illustrates how lateral-transfer and storage cells belong to the same complex tissue as the main conduits. _(outside the book)_
+  - **khola (unpack):**
+    - example / jagah: Grey cell beside grouped pink xylem elements.
+    - aage: Connects the diagram with the storage and lateral-conduction statement.
+    - screen par: highlight the neighbour
+    - is level ke liye: Do not call every elongated xylem cell a vessel.
+  - prerequisites: parenchyma; xylem
+- **p011-i26** · diagram_label · figure · image · exam high
+  - vessel element — leader points to a broad pink element in the grouped xylem view.
+    - what: What does this second vessel label identify? → A vessel element within the grouped xylem view rather than the isolated view.
+    - which: Which function links this to tracheids? → Both conduct water and minerals vertically.
+      - how: How does the grouped view improve on the isolated view? → It places the conducting element alongside other cell types, making the organisation of complex tissue visible. _(outside the book)_
+  - **khola (unpack):**
+    - example / jagah: Broad pink element in grouped xylem.
+    - aage: An isolated cell and a tissue view can depict the same component.
+    - screen par: match isolated to grouped
+    - is level ke liye: Recognise the part across views.
+  - prerequisites: vessel element; complex tissue
+- **p011-i27** · diagram_label · figure · image · exam medium
+  - pitted walls — leader points to wall pits in the grouped xylem elements.
+    - what: What feature is repeated in the grouped view? → Pitted walls of the xylem elements.
+    - which: Which isolated element also has this label? → The isolated vessel element at the far left.
+      - how: How can pits reconcile strength with exchange? → Most of the secondary wall is reinforced, while pit regions permit water exchange through thinner wall regions. _(outside the book)_
+  - **khola (unpack):**
+    - example / jagah: Grouped xylem wall markings.
+    - aage: Wall reinforcement need not eliminate cell-to-cell transfer.
+    - screen par: magnify pits
+    - is level ke liye: Separate a wall feature from a tissue component.
+  - prerequisites: wall pits; secondary wall thickening
+- **p011-i28** · diagram_label · figure · image · exam medium
+  - tracheid — small label beneath the grouped xylem drawing; a clear leader line is not visible.
+    - what: What component is named below the grouped drawing? → A tracheid.
+    - which: Which tissue does it belong to? → Xylem.
+      - how: How should this label be used despite the unclear pointer? → Use it to identify the named xylem component, but do not infer a precise pointed cell from the unclear leader. _(outside the book)_
+  - **khola (unpack):**
+    - example / jagah: Base of grouped xylem illustration.
+    - aage: Preserves the label without inventing visual precision.
+    - screen par: associate with xylem
+    - is level ke liye: Use the clearer isolated tracheid view to learn its shape.
+  - prerequisites: tracheid; diagram labels
+- **p011-i29** · diagram_label · figure · image · exam high
+  - sieve plate — leader points to the end region of the isolated sieve-tube element.
+    - what: What end structure is labelled? → A sieve plate on the sieve-tube element.
+    - which: Which conducting tissue has this structure? → Phloem.
+      - how: How does a sieve plate permit continuity? → Its pores allow sap to move between adjoining sieve-tube elements. _(outside the book)_
+  - **khola (unpack):**
+    - sieve plate yaani छोटे छेदों वाला जोड़, जिससे sieve-tube elements के बीच रस जा सके · image: दो हिस्सों के बीच छन्नी जैसी प्लेट
+    - example / jagah: Top of isolated blue sieve-tube element.
+    - aage: Separate cells can form a continuous transport route.
+    - screen par: pass through pores
+    - is level ke liye: Plate is a structure, not a separate cell type.
+  - prerequisites: sieve-tube element; pores
+- **p011-i30** · diagram_label · figure · image · exam high
+  - sieve-tube element — leader points to the long blue conducting cell.
+    - what: What does the long blue cell represent? → A sieve-tube element.
+    - which: Which larger structure is formed from such elements? → A sieve tube in phloem. _(outside the book)_
+      - how: How are successive elements linked? → They meet end to end at sieve plates, permitting movement of sap. _(outside the book)_
+  - **khola (unpack):**
+    - sieve-tube element yaani sieve tube बनाने वाला एक लंबा cell · image: लंबी नली का एक खंड
+    - example / jagah: Isolated blue phloem cell.
+    - aage: Clarifies cell versus tissue-level transport route.
+    - screen par: stack elements
+    - is level ke liye: Element means one unit.
+  - prerequisites: phloem; sieve plate
+- **p011-i31** · diagram_label · figure · image · exam high
+  - companion cell — leader points to the smaller cell alongside the isolated sieve-tube element.
+    - what: What is the smaller neighbouring cell? → A companion cell.
+    - which: Which cell is it shown accompanying? → The sieve-tube element.
+      - why: Why does close association matter? → Companion cells help maintain the activity of sieve-tube elements and assist sugar transfer. _(outside the book)_
+  - **khola (unpack):**
+    - example / jagah: Beside the isolated blue sieve-tube element.
+    - aage: Shows cooperation at the cell level.
+    - screen par: pair the cells
+    - is level ke liye: Companion cell is not a sieve plate.
+  - prerequisites: sieve-tube element; companion cell
+- **p011-i32** · diagram_label · figure · image · exam high
+  - nucleus — leader points to the dark body in the companion cell next to the sieve-tube element.
+    - what: What small internal structure is labelled? → A nucleus in the companion-cell region of the illustration.
+    - which: Which cell retains a nucleus in the mature sieve-tube–companion-cell pair? → The companion cell retains a nucleus; the mature sieve-tube element lacks one. _(outside the book)_
+      - how: How does this help explain their cooperation? → The nucleated companion cell supports the metabolic needs of the associated sieve-tube element. _(outside the book)_
+  - **khola (unpack):**
+    - nucleus yaani cell के काम का नियंत्रण और आनुवंशिक जानकारी रखने वाला हिस्सा · image: काम सँभालने वाला नियंत्रण कक्ष
+    - example / jagah: Companion cell in the isolated phloem view.
+    - aage: Absence of nucleus does not by itself mean a mature sieve-tube element is dead.
+    - screen par: zoom into the dark body
+    - is level ke liye: Keep mature sieve tubes distinct from dead mature xylem conduits.
+  - prerequisites: cell nucleus; companion cell; sieve-tube element
+- **p011-i33** · diagram_label · figure · image · exam high
+  - phloem parenchyma cells — label identifies associated parenchyma in the isolated phloem view.
+    - what: What additional cells are identified here? → Phloem parenchyma cells.
+    - which: Which tissue includes them? → Phloem.
+      - how: How are they different from sieve-tube elements in role? → They are associated living storage and lateral-transfer cells rather than the main longitudinal food-conducting elements. _(outside the book)_
+  - **khola (unpack):**
+    - example / jagah: Associated cells in the isolated phloem view.
+    - aage: Not every phloem cell forms the conducting tube.
+    - screen par: separate associated cells
+    - is level ke liye: Parenchyma and companion cells are different labels.
+  - prerequisites: parenchyma; phloem
+- **p011-i34** · diagram_label · figure · image · exam high
+  - companion cell — leader points to the narrow cell beside the grouped sieve-tube elements.
+    - what: What is labelled at the top of the grouped phloem view? → A companion cell beside the sieve-tube elements.
+    - which: Which earlier view shows the same association? → The isolated phloem view immediately to its left.
+      - how: How does the grouped view show organisation? → It locates the companion cell alongside the tube rather than as part of the sieve plate.
+  - **khola (unpack):**
+    - example / jagah: Top of blue grouped phloem drawing.
+    - aage: Reinforces the neighbouring-cell relationship.
+    - screen par: match across views
+    - is level ke liye: Do not confuse a narrow neighbouring cell with a tube partition.
+  - prerequisites: companion cell; sieve tube
+- **p011-i35** · diagram_label · figure · image · exam high
+  - sieve-tube element — leader points to a broad blue cell in the grouped phloem drawing.
+    - what: What broad cell is labelled in the grouped view? → A sieve-tube element.
+    - which: Which structure separates successive elements? → The drawing labels a sieve plate at their junction.
+      - how: How do elements contribute to a long-distance route? → Their end-to-end arrangement forms a sieve tube through which food-containing sap moves. _(outside the book)_
+  - **khola (unpack):**
+    - example / jagah: Broad blue grouped phloem cells.
+    - aage: A longitudinal route is assembled from several cells.
+    - screen par: connect segments
+    - is level ke liye: Distinguish element, tube and plate.
+  - prerequisites: sieve-tube element; sieve plate
+- **p011-i36** · diagram_label · figure · image · exam high
+  - sieve plate — leader points to the transverse junction between sieve-tube elements.
+    - what: What does this transverse label identify? → A sieve plate between sieve-tube elements.
+    - which: Which view also shows a sieve plate? → The isolated sieve-tube element to the left.
+      - how: How can a partition permit transport? → Its pores allow sap to pass across the junction instead of creating a completely sealed barrier. _(outside the book)_
+  - **khola (unpack):**
+    - example / jagah: Cross-junction in grouped phloem.
+    - aage: A visible division does not imply an impermeable wall.
+    - screen par: flow through the junction
+    - is level ke liye: Compare with pits on xylem side walls.
+  - prerequisites: sieve plate; pore
+- **p011-i37** · diagram_label · figure · image · exam high
+  - phloem parenchyma cells — leader points to cells beside the grouped sieve-tube elements.
+    - what: What does the lower-left label name? → Phloem parenchyma cells in the grouped view.
+    - which: Which other phloem cell types appear alongside them? → The drawing labels companion cells and sieve-tube elements.
+      - why: Why retain a separate label for parenchyma? → Associated storage cells and companion cells have different roles, even though both occur next to conducting elements. _(outside the book)_
+  - **khola (unpack):**
+    - example / jagah: Lower-left side of grouped phloem.
+    - aage: Makes cell-type diversity visible.
+    - screen par: colour-code cell types
+    - is level ke liye: Use labels, not merely position, for identification.
+  - prerequisites: phloem parenchyma; companion cell
+- **p011-i38** · diagram_label · figure · image · exam medium
+  - plasmo-desmata [plasmodesmata] — leader points to fine connections between neighbouring phloem cells.
+    - what: What fine connections are labelled? → Plasmodesmata linking neighbouring cells in the phloem illustration.
+    - which: Which kind of connection does the term refer to? → Cytoplasmic channels across cell walls between neighbouring living plant cells. _(outside the book)_
+      - how: How do these connections help coordinated function? → They allow substances and signals to move directly between adjacent living cells. _(outside the book)_
+  - **khola (unpack):**
+    - plasmodesmata yaani पास के living plant cells को जोड़ने वाले बारीक रास्ते · image: दो कमरों के बीच छोटी जोड़ने वाली सुरंगें
+    - kyon: Neighbouring living cells need to exchange substances and information. _[standard]_ → Plasmodesmata provide direct connections through their walls. _[standard]_
+    - example / jagah: Fine connections in the grouped phloem view.
+    - aage: Cell walls do not make living plant cells completely isolated.
+    - screen par: bridge neighbouring cells
+    - is level ke liye: Keep the term recognisable without adding molecular detail.
+  - prerequisites: cytoplasm; cell wall; adjacent living cells
+- **p011-i39** · list_point · structure · both · exam high
+  - • Xylem consists of tracheids, vessels, xylem parenchyma and xylem fibres.
+    - what: What four components make up xylem? → Tracheids, vessels, xylem parenchyma and xylem fibres.
+    - where: Where can these components be identified on this page? → All four are named in the upper xylem diagram; the lower illustration enlarges conducting elements and parenchyma.
+      - how: How are their jobs divided according to the page? → Tracheids and vessels conduct water and minerals, parenchyma stores food and conducts water sideways, and fibres mainly support.
+  - **khola (unpack):**
+    - consists of yaani इन अलग-अलग हिस्सों से मिलकर बना है · image: एक टीम में अलग काम वाले सदस्य
+    - kyon: A functioning transport tissue needs conduits, storage and reinforcement. _[standard]_ → Xylem divides these roles among its four components. _[book]_
+    - example / jagah: Both xylem illustrations.
+    - aage: Xylem is a tissue, not the name of one cell type.
+    - screen par: assemble four components
+    - is level ke liye: Companion cells and sieve tubes are phloem distractors.
+  - prerequisites: complex tissue; conduction; storage; support
+- **p011-i40** · list_point · structure · both · exam high
+  - • Tracheids and vessels have thick walls, and many are dead cells when mature.
+    - what: What mature features of the conducting elements are stated? → They have thick walls, and the page says many are dead when mature.
+    - where: Where are these thick-walled elements located? → They are conducting components of xylem.
+      - why: Why are thick walls and loss of living contents useful? → Thick lignified walls resist collapse, while loss of the protoplast leaves a low-resistance pathway for water movement. _(outside the book)_
+      - exception: Does this mean the whole of xylem is dead? → No. Xylem parenchyma is living; the conventional description of mature tracheids and vessel elements is that they are dead. _(outside the book)_
+  - **khola (unpack):**
+    - mature yaani अपना पूरा आकार और खास काम करने की अवस्था में पहुँचा हुआ · image: बनकर इस्तेमाल के लिए तैयार पाइप
+    - kyon: Water pathways must remain open and resist collapse. _[standard]_ → Strong walls and an empty mature interior support this conducting role. _[standard]_
+    - example / jagah: Mature xylem tracheids and vessel elements.
+    - aage: Conducting dead cells can coexist with living parenchyma in one tissue.
+    - screen par: clear the interior, retain the wall
+    - is level ke liye: Differentiate component-level statements from whole-tissue statements.
+  - prerequisites: cell maturity; cell wall; protoplast
+- **p011-i41** · list_point · cause_effect · both · exam high
+  - • Tracheids and vessels are tubular structures. This allows them to transport water and minerals vertically.
+    - why: Why does the page connect tubular form with conduction? → The tube-like structure allows water and minerals to be transported vertically.
+      - how: How do these cells form a route through a plant? → Vessel elements join end to end, while overlapping tracheids transfer water through pits, producing connected longitudinal pathways. _(outside the book)_
+      - exception: Does tube shape alone explain why water rises? → No. Tube shape provides the route; transpiration pull and the cohesion of water are major contributors to upward movement. _(outside the book)_
+  - **khola (unpack):**
+    - vertically yaani पौधे की लंबाई की दिशा में, ऊपर की ओर जाने वाला रास्ता · image: ज़मीन से ऊपर की मंज़िल तक जाती पानी की पाइप
+    - kyon: Water absorbed below must reach leaves above. _[standard]_ → Tubular xylem elements provide longitudinal water-and-mineral pathways. _[book]_
+    - example / jagah: From root through stem toward leaves.
+    - aage: Vertical conduction contrasts with the sideways movement described next.
+    - screen par: trace water upward
+    - is level ke liye: This is structure–function reasoning, not a complete mechanism of ascent of sap.
+  - prerequisites: tube; roots and stem; water carrying dissolved minerals
+- **p011-i42** · list_point · cause_effect · both · exam high
+  - • The parenchyma stores food and help [helps] in sideways conduction of water.
+    - why: Why does xylem need more than vertical conducting elements? → Water must also be distributed laterally to neighbouring tissues, and stored food can support local needs. _(outside the book)_
+    - how: How does xylem parenchyma contribute according to the page? → It stores food and helps in sideways conduction of water.
+      - difference: How does this differ from tracheids and vessels? → Their stated role is vertical transport of water and minerals, whereas parenchyma adds storage and sideways water movement.
+  - **khola (unpack):**
+    - sideways conduction yaani पानी को बगल के हिस्सों तक पहुँचाना · image: मुख्य पाइप से बगल के कमरे में जाती शाखा
+    - kyon: A main upward route alone does not supply all neighbouring cells. _[standard]_ → Parenchyma helps sideways conduction and also stores food. _[book]_
+    - example / jagah: Xylem parenchyma alongside conducting elements.
+    - aage: Water distribution has both longitudinal and lateral components.
+    - screen par: branch sideways and store
+    - is level ke liye: Avoid the trap that any mention of food makes a cell part of phloem.
+  - prerequisites: parenchyma; vertical and lateral directions; food storage
+- **p011-i43** · list_point · cause_effect · both · exam high
+  - • Xylem fibres are mainly supportive in function.
+    - why: Why are supportive fibres useful in xylem? → The tissue must withstand mechanical stresses while maintaining its conducting framework. _(outside the book)_
+    - how: How does the page distinguish the fibre role? → It identifies fibres as mainly supportive, unlike the conducting role assigned to tracheids and vessels.
+      - how: How do fibres provide that support? → Their thick, lignified walls reinforce the tissue against deformation. _(outside the book)_
+  - **khola (unpack):**
+    - supportive yaani ढाँचे को टिकाए रखने और मज़बूत बनाने वाला · image: पानी की पाइप को थामे रखने वाला मज़बूत सहारा
+    - kyon: A transport framework must resist bending and damage. _[standard]_ → Xylem fibres provide mainly mechanical support. _[book]_
+    - example / jagah: Fibres within the xylem bundle.
+    - aage: Completes the division of labour among the four xylem components.
+    - screen par: brace the conduits
+    - is level ke liye: Retain 'mainly': the page states the principal role, not an absolute exclusion.
+  - prerequisites: xylem fibres; lignified cell wall; mechanical strength
+
+## Page 12 · passed after 2 round(s)
+
+Phloem components, sieve-tube structure and food transport; six xylem–phloem contrasts; a labelled vascular-tissue diagram; and questions on insulation by fat and meristem locations.
+
+- **p012-i1** · list_point · classification · both · exam high
+  - Phloem is made up of five types of cells: sieve cells, sieve tubes, companion cells, phloem fibres and the phloem parenchyma.
+    - which: Which five components does the book include in phloem? → Sieve cells, sieve tubes, companion cells, phloem fibres and phloem parenchyma form the book's five-part list.
+    - difference: How do these components differ in their main roles? → Sieve elements conduct food; companion cells assist sieve tubes; parenchyma stores materials; fibres provide support. Sieve cells and sieve tubes represent different kinds of conducting elements, not a compulsory pair in every plant. _(outside the book)_
+      - why: Why does a conducting tissue contain several cell types? → Moving food needs conducting passages, living support and storage, while the plant also needs reinforcement; different cells share these tasks. _(outside the book)_
+  - **khola (unpack):**
+    - Phloem yaani पौधे में बना खाना पहुँचाने वाला tissue · image: रसोई से अलग-अलग कमरों तक खाना पहुँचाने की व्यवस्था
+    - kyon: Leaves make food, but other parts also need it. _[standard]_ → Phloem combines conducting and supporting cell types to serve that need. _[standard]_
+    - example / jagah: Vascular tissues in a stem.
+    - aage: A complex tissue is not a collection of identical cells.
+    - screen par: separate and colour-code five components
+    - is level ke liye: Distinguish a general component list from universal co-occurrence.
+  - prerequisites: cell; tissue; food made in leaves
+- **p012-i2** · list_point · structure · both · exam high
+  - Sieve tubes are tubular cells with perforated walls.
+    - what: What do tubular and perforated mean here? → Tubular means elongated like a pipe; perforated means having openings rather than forming an uninterrupted barrier. _(outside the book)_
+    - where: Where are sieve tubes located? → They are included among the cell types of phloem.
+      - how: How do perforations help transport? → Openings in sieve plates between neighbouring sieve-tube elements allow food-containing sap to pass along the conducting pathway. _(outside the book)_
+  - **khola (unpack):**
+    - perforated walls yaani ऐसी दीवारें जिनमें छोटे रास्ते या छेद हों · image: छन्नी में छेद होते हैं जिनसे चीज़ें पार जा सकती हैं
+    - kyon: Food sap must pass between successive conducting cells. _[standard]_ → Perforated end walls provide connecting openings. _[standard]_
+    - example / jagah: Sieve tubes in stem phloem.
+    - aage: Shape and wall openings support conduction.
+    - screen par: pass sap through perforated end plates
+    - is level ke liye: Do not interpret this as holes throughout every wall.
+  - prerequisites: cell wall; phloem
+- **p012-i3** · list_point · facts_numbers · both · exam high
+  - Phloem transports food from leaves to other parts of the plant.
+    - what: What material does phloem distribute? → It carries food from leaves to other plant parts.
+    - evidence: What else on this page reinforces that function? → The comparison table says phloem carries food materials from leaves to growing parts.
+      - why: Why must food leave the leaves? → Roots, developing shoots and other consuming or storage regions need sugars even when they do not make enough themselves. _(outside the book)_
+  - **khola (unpack):**
+    - transports food yaani बना हुआ खाना दूसरी जगह पहुँचाता है · image: रसोई का खाना खाने वालों तक पहुँचाना
+    - kyon: Non-photosynthetic and growing regions require food. _[standard]_ → Phloem carries food from leaves to other parts. _[book]_
+    - example / jagah: Food supply to growing roots.
+    - aage: Food production and food use can occur in different places.
+    - screen par: send food arrows from a leaf to growing regions
+    - is level ke liye: Source-to-sink transport can occur in different directions in different tubes.
+  - prerequisites: photosynthesis; roots and leaves
+- **p012-i4** · table · comparison · image
+  - Comparison table with columns S.No., Xylem and Phloem; six rows compare transported material, living/dead cells, wall thickness, permeability, wall material and mechanical strength.
+- **p012-i5** · table_row · comparison · image · exam high
+  - S.No.: 1. | Xylem: It carries water and minerals from roots to leaves. | Phloem: It carries food materials from the leaves to the growing parts of the plant.
+    - compare: What transport contrast does the row make? → Xylem supplies water and minerals from roots towards leaves; phloem supplies food from leaves to growing regions.
+    - difference: How do the transported materials differ? → Water and mineral ions are not the manufactured sugars carried in food sap. _(outside the book)_
+      - why: Why are separate transport functions useful? → Roots obtain water and minerals while photosynthetic leaves manufacture sugars; the plant must connect these different supply points with regions of demand. _(outside the book)_
+  - **khola (unpack):**
+    - Xylem yaani जड़ों से पानी और minerals पहुँचाने वाला tissue · image: पानी ऊपर पहुँचाने वाली पाइप
+    - kyon: Leaves need root-supplied water and growing parts need leaf-made food. _[standard]_ → Xylem and phloem serve these distinct supply needs. _[book]_
+    - example / jagah: Root–stem–leaf transport.
+    - aage: Identify tissue by cargo, not merely arrow direction.
+    - screen par: contrast water arrows with food arrows
+    - is level ke liye: Phloem is not defined as downward-only.
+  - prerequisites: root absorption; photosynthesis
+- **p012-i6** · table_row · comparison · image · exam high
+  - S.No.: 2. | Xylem: It is composed of dead cells. | Phloem: It is composed of living cells.
+    - compare: What broad contrast does the book present? → The table associates xylem with dead cells and phloem with living cells.
+    - difference: What qualification prevents an incorrect absolute statement? → Xylem parenchyma is living; phloem fibres are generally dead. The contrast describes the dominant conducting-cell condition rather than every component. _(outside the book)_
+      - how: How can dead cells conduct water? → Mature vessel elements and tracheids retain wall-bounded spaces that allow water passage without living cell contents. _(outside the book)_
+  - **khola (unpack):**
+    - dead cells yaani जिनमें जीवित अंदरूनी हिस्सा नहीं बचा · image: खाली पाइप की दीवार बनी रहती है
+    - kyon: Water requires a continuous conducting route. _[standard]_ → Dead mature xylem conducting elements retain passages; living phloem participates in food transport. _[standard]_
+    - example / jagah: Mature xylem vessels.
+    - aage: Avoid converting a broad contrast into an all-cell rule.
+    - screen par: empty a xylem lumen and highlight living phloem
+    - is level ke liye: Apply the explicit phloem-fibre exception below the table.
+  - prerequisites: living cell contents; complex tissue
+- **p012-i7** · table_row · comparison · image · exam high
+  - S.No.: 3. | Xylem: It has a thick cell wall. | Phloem: It has a thin cell wall.
+    - compare: What wall-thickness contrast is printed? → Xylem is described as thick-walled and phloem as thin-walled.
+    - difference: How should this contrast be applied? → It principally contrasts conducting elements; phloem fibres have thick walls, so it is not universal across every component. _(outside the book)_
+      - why: Why are strong xylem walls useful? → They help conducting passages resist collapse under water tension and reinforce the plant. _(outside the book)_
+  - **khola (unpack):**
+    - thick cell wall yaani cell के चारों ओर मोटी मजबूत दीवार · image: पतली नली की जगह मजबूत पाइप
+    - kyon: Water-conducting passages must resist collapse. _[standard]_ → Thick reinforced walls help preserve their shape. _[standard]_
+    - example / jagah: Xylem vessels in a stem.
+    - aage: Wall thickness links transport with support.
+    - screen par: thicken the xylem wall
+    - is level ke liye: Distinguish conducting elements from fibres.
+  - prerequisites: cell wall; water transport
+- **p012-i8** · table_row · comparison · image · exam high
+  - S.No.: 4. | Xylem: Its cells are impermeable to the water. | Phloem: Its cells are permeable to food components.
+    - compare: Which permeability contrast does the table state? → It describes xylem cells as impermeable to water and phloem cells as permeable to food components.
+    - difference: Why must this wording not be read as a complete transport explanation? → Water travels through xylem lumens and passes between elements through pits or perforations. Lignified walls do not mean that xylem as a pathway blocks water; phloem transfer is also regulated rather than unrestricted leakage. _(outside the book)_
+      - how: How can a reinforced tube carry water despite resistant walls? → Its hollow interior provides a route along the tube; wall properties and passage along the lumen are different issues. _(outside the book)_
+  - **khola (unpack):**
+    - impermeable yaani जिसके आर-पार आसानी से न जा सके · image: पाइप की दीवार पानी रोकती है, भीतर का रास्ता पानी ले जाता है
+    - kyon: A transport passage must carry material without being confused with its side wall. _[standard]_ → Xylem water passage uses lumens and connecting openings. _[standard]_
+    - example / jagah: Water inside a vessel lumen.
+    - aage: Do not conclude that xylem prevents water transport.
+    - screen par: separate across-wall movement from along-tube movement
+    - is level ke liye: Flag this as a simplified textbook contrast.
+  - prerequisites: cell wall; lumen; permeability
+- **p012-i9** · table_row · comparison · image · exam high
+  - S.No.: 5. | Xylem: Its cells are made up of lignin. | Phloem: Its cells are made up of cellulose.
+    - compare: Which materials does the book contrast? → It associates xylem with lignin and phloem with cellulose.
+    - difference: What is the accurate distinction behind this shorthand? → Xylem conducting-element walls are reinforced with lignin as well as containing cellulose; cellulose is not exclusive to phloem. The cells themselves are not made solely of one of these substances. _(outside the book)_
+      - why: Why does lignin matter? → Lignin stiffens walls and makes them more resistant to collapse, supporting both conduction and mechanical strength. _(outside the book)_
+  - **khola (unpack):**
+    - lignin yaani दीवार को कड़ा और मजबूत बनाने वाला substance · image: लकड़ी की सख्ती
+    - cellulose yaani plant cell की दीवार का मुख्य ढाँचा बनाने वाला substance · image: कपास के रेशे
+    - kyon: Water-conducting walls need reinforcement. _[standard]_ → Lignin strengthens their cellulose-containing walls. _[standard]_
+    - example / jagah: Woody xylem.
+    - aage: Wall composition helps explain thickness and support.
+    - screen par: reinforce a cellulose wall with lignin
+    - is level ke liye: Reject 'xylem contains no cellulose'.
+  - prerequisites: plant cell wall; wall reinforcement
+- **p012-i10** · table_row · comparison · image · exam high
+  - S.No.: 6. | Xylem: It gives mechanical strength to the plants. | Phloem: Phloem does not give mechanical strength
+    - compare: What support contrast is printed? → The table assigns mechanical strength to xylem and denies it to phloem.
+    - difference: What exception qualifies the phloem statement? → Phloem fibres provide mechanical support, so the printed denial should not be applied to every phloem component. _(outside the book)_
+      - why: Why does xylem reinforce a plant? → Thick lignified walls resist deformation and act as structural reinforcement. _(outside the book)_
+  - **khola (unpack):**
+    - mechanical strength yaani भार और झुकाव सहकर आकार बनाए रखने की ताकत · image: इमारत का मजबूत ढाँचा
+    - kyon: A plant must remain upright while carrying leaves and branches. _[standard]_ → Reinforced xylem and supporting fibres help bear those loads. _[standard]_
+    - example / jagah: A woody stem.
+    - aage: Transport tissue can also have a supporting role.
+    - screen par: brace an upright stem
+    - is level ke liye: Avoid the absolute claim that no phloem component supports.
+  - prerequisites: lignin; fibres; mechanical support
+- **p012-i11** · diagram · figure · image · exam high
+  - A stem segment labels epidermis, cortex, pith, cambium, xylem and phloem. A red curved arrow enlarges a vascular region into a longitudinal view: xylem at left, cambium in the middle, phloem at right. Black arrows rise within xylem; the illustrated phloem arrows descend. Xylem shows elongated tubes with wall thickening and open connections; phloem shows stacked conducting elements with perforated end regions and adjacent narrow cells.
+    - what: What relationship does the enlargement show? → The red arrow connects the stem's vascular region to a magnified view of xylem, cambium and phloem.
+    - which: Which directions are drawn? → Xylem arrows point upward and the phloem arrows shown point downward.
+      - how: How should the phloem arrows be interpreted? → They depict one transport direction, not a universal restriction. Phloem carries material from a source to a sink, which may lie above or below it. _(outside the book)_
+  - **khola (unpack):**
+    - cambium yaani xylem और phloem के बीच नई cells बनाने वाली परत · image: दो हिस्सों के बीच नई ईंटें जोड़ने वाली पट्टी
+    - kyon: A small vascular region is difficult to distinguish in the whole stem. _[standard]_ → The enlarged view separates its conducting and growing regions. _[book]_
+    - example / jagah: The stem shown beside the table.
+    - aage: Spatial arrangement can be linked with transport function.
+    - screen par: zoom into the vascular region and animate arrows
+    - is level ke liye: The red arrow means enlargement, not sap movement.
+  - prerequisites: stem; xylem; phloem
+- **p012-i12** · diagram_label · figure · image · exam medium
+  - epidermis — points to the outer surface layer of the stem.
+    - what: What does epidermis identify? → The outer covering of the small stem drawing.
+    - which: Which labelled region lies farther inward? → The cortex lies beneath the epidermis. _(outside the book)_
+      - why: Why is an outer covering useful? → It protects internal tissues and helps limit unwanted water loss. _(outside the book)_
+  - **khola (unpack):**
+    - epidermis yaani सबसे बाहर की ढकने वाली परत · image: फल का बाहरी छिलका
+    - example / jagah: Stem surface.
+    - aage: Locates the boundary before moving inward.
+    - screen par: outline the outer layer
+  - prerequisites: outer and inner position
+- **p012-i13** · diagram_label · figure · image · exam medium
+  - cortex — points to tissue beneath the epidermis and outside the vascular region.
+    - what: What region is labelled cortex? → The peripheral tissue inside the stem's outer covering.
+    - which: Which position distinguishes it from pith? → Cortex is toward the outside of the vascular tissues; pith occupies the central region. _(outside the book)_
+      - how: How does this help read the diagram? → It provides an outer landmark for locating the deeper vascular tissues. _(outside the book)_
+  - **khola (unpack):**
+    - cortex yaani बाहरी परत के नीचे का हिस्सा · image: छिलके के अंदर की पट्टी
+    - example / jagah: Peripheral stem tissue.
+    - aage: Separates outer tissue from central pith.
+    - screen par: shade the peripheral band
+  - prerequisites: epidermis; stem cross-section
+- **p012-i14** · diagram_label · figure · image · exam medium
+  - pith — points to the central internal region of the stem.
+    - what: What does pith name in this drawing? → The stem's central internal region.
+    - which: Which tissue is nearer the pith: xylem or phloem? → In this arrangement, xylem lies on the inner side toward the pith. _(outside the book)_
+      - how: How does the pith label orient the learner? → It establishes the centre, allowing inner xylem to be distinguished from outer phloem. _(outside the book)_
+  - **khola (unpack):**
+    - pith yaani तने के बीच का अंदरूनी हिस्सा · image: गोल चीज़ का बीच वाला भाग
+    - example / jagah: Centre of the illustrated stem.
+    - aage: Helps orient the vascular arrangement.
+    - screen par: highlight the centre
+  - prerequisites: centre and periphery
+- **p012-i15** · diagram_label · figure · image · exam high
+  - cambium — points to the layer between xylem and phloem in the vascular region.
+    - what: What does this cambium label locate? → The intervening region between the two conducting tissues.
+    - which: Which meristem category includes vascular cambium? → It is a lateral meristem associated with secondary growth. _(outside the book)_
+      - how: How does it increase stem girth? → Its divisions produce secondary xylem inward and secondary phloem outward. _(outside the book)_
+  - **khola (unpack):**
+    - cambium yaani नई cells बनाकर मोटाई बढ़ाने वाली परत · image: दीवार में नई कतारें जोड़ना
+    - example / jagah: Between xylem and phloem.
+    - aage: Connects tissue location with growth in girth.
+    - screen par: add cells to both sides
+    - is level ke liye: Vascular cambium is a lateral meristem.
+  - prerequisites: cell division; xylem and phloem
+- **p012-i16** · diagram_label · figure · image · exam high
+  - xylem — points to the inner conducting region of the small stem.
+    - what: What does this xylem label identify? → The inner conducting region selected for enlargement.
+    - which: Which cargo belongs to this tissue? → The table assigns water and minerals to xylem.
+      - how: How can it be distinguished spatially from phloem? → In this stem arrangement, it lies inward of cambium while phloem is outward. _(outside the book)_
+  - **khola (unpack):**
+    - xylem yaani पानी और minerals ले जाने वाला tissue · image: भीतर की पानी वाली पाइप
+    - example / jagah: Inner side of the vascular region.
+    - aage: Connects the whole stem with the enlargement.
+    - screen par: trace xylem into the enlarged view
+  - prerequisites: vascular tissue; inner and outer position
+- **p012-i17** · diagram_label · figure · image · exam high
+  - phloem — points to the outer conducting region of the small stem.
+    - what: What region does this phloem label identify? → The outer conducting region shown beside the xylem.
+    - which: Which transported material identifies phloem? → Food from leaves is assigned to phloem.
+      - how: How does location help distinguish it? → In this arrangement, phloem lies outside cambium rather than toward the pith. _(outside the book)_
+  - **khola (unpack):**
+    - phloem yaani बना खाना पहुँचाने वाला tissue · image: खाना पहुँचाने का रास्ता
+    - example / jagah: Outer vascular region.
+    - aage: Identifies the food-conducting side.
+    - screen par: trace phloem into the enlargement
+  - prerequisites: food transport; cambium
+- **p012-i18** · diagram_label · figure · image · exam high
+  - xylem — brackets the left-hand thickened conducting tubes with upward arrows.
+    - what: What structures are grouped under xylem? → The enlarged left-hand elongated conducting structures.
+    - which: Which direction is shown within them? → Their black arrows point upward.
+      - how: How does the wall pattern relate to function? → Wall reinforcement helps maintain open water-conducting passages. _(outside the book)_
+  - **khola (unpack):**
+    - kyon: Water pathways must remain open. _[standard]_ → Reinforced walls resist collapse. _[standard]_
+    - example / jagah: Left side of the enlargement.
+    - aage: Links microscopic structure with table contrasts.
+    - screen par: raise water arrows through tubes
+  - prerequisites: xylem; wall thickening
+- **p012-i19** · diagram_label · figure · image · exam high
+  - cambium — brackets the narrow central cell region separating xylem and phloem.
+    - what: What does the enlarged cambium label group? → The narrow central region between the two conducting tissues.
+    - which: Which tissues border it? → Xylem borders its left side and phloem its right side in the enlargement.
+      - why: Why is this location significant? → A dividing layer here can add vascular tissue to both sides during secondary growth. _(outside the book)_
+  - **khola (unpack):**
+    - kyon: A thickening stem needs additional conducting tissue. _[standard]_ → Cambium adds xylem and phloem on opposite sides. _[standard]_
+    - example / jagah: Middle strip of the enlargement.
+    - aage: Explains the lateral-growth connection.
+    - screen par: expand the central strip into new rows
+  - prerequisites: meristem; cell division
+- **p012-i20** · diagram_label · figure · image · exam high
+  - phloem — brackets the right-hand conducting region with perforated end regions and downward arrows.
+    - what: What does the enlarged phloem label identify? → The right-hand food-conducting region adjacent to cambium.
+    - which: Which visible feature connects with the sieve-tube bullet? → The conducting elements show perforated end regions.
+      - how: How should its downward arrows be taught? → As the illustrated direction of food movement, not proof that phloem transport is exclusively downward. _(outside the book)_
+  - **khola (unpack):**
+    - kyon: Food must pass between adjoining conducting elements. _[standard]_ → Perforated sieve plates provide connecting routes. _[standard]_
+    - example / jagah: Right side of the enlargement.
+    - aage: Connects sieve-tube structure with food movement.
+    - screen par: pass food through sieve plates
+    - is level ke liye: Source and sink determine direction.
+  - prerequisites: sieve tubes; food transport
+- **p012-i21** · list_point · facts_numbers · both · exam high
+  - Except phloem fibres, other phloem cells are living cells.
+    - what: Which phloem component is the stated exception? → Phloem fibres are excluded from the statement that phloem cells are living.
+    - evidence: How does this line qualify the table? → It explicitly adds an exception to the table's broad description of phloem as composed of living cells.
+      - why: Why can fibres function after losing living contents? → Their supporting role depends mainly on strong walls rather than continuing metabolism. _(outside the book)_
+  - **khola (unpack):**
+    - phloem fibres yaani phloem के मजबूत सहारा देने वाले लंबे हिस्से · image: रस्सी के मजबूत रेशे
+    - kyon: A plant needs structural support as well as food movement. _[standard]_ → Fibre walls can provide support without living contents at maturity. _[standard]_
+    - example / jagah: Fibres associated with phloem.
+    - aage: The word 'all' makes a living-phloem statement unsafe.
+    - screen par: single out the fibre from living components
+    - is level ke liye: Living sieve-tube elements lack a nucleus at maturity; absence of a nucleus alone does not mean dead.
+  - prerequisites: phloem components; living and dead cells
+- **p012-i22** · question · none · both · exam high
+  - Q. Fat present below the skin surface in our body, acts as a barrier against: (HPAS 2020)
+    - which: Which option answers the question? → Option a, loss of heat from our body. _(outside the book)_
+      - why: Why does fat beneath skin reduce heat loss? → Adipose tissue conducts heat poorly and adds insulation between warmer internal tissues and the cooler surroundings. _(outside the book)_
+      - difference: Why is the microorganism option a trap? → The skin's surface barrier chiefly limits entry of microorganisms; the question specifically asks about fat beneath it. _(outside the book)_
+  - prerequisites: adipose tissue; heat flow; skin
+- **p012-i23** · answer_option · cause_effect · both · exam high
+  - a. Loss of heat from our body
+    - why: Why is this the correct choice? → Subcutaneous fat acts as thermal insulation, reducing transfer of body heat to the surroundings. _(outside the book)_
+      - how: How does insulation differ from producing heat? → It slows heat escape rather than directly creating the heat being conserved. _(outside the book)_
+  - **khola (unpack):**
+    - Loss of heat yaani शरीर की गरमी बाहर निकलना · image: कंबल गरमी बाहर जाने की रफ्तार घटाता है
+    - kyon: Body heat can escape into cooler surroundings. _[standard]_ → Fat slows heat transfer and helps conserve warmth. _[standard]_
+    - example / jagah: Fat beneath skin.
+    - aage: Supports temperature maintenance.
+    - screen par: slow outward heat arrows
+    - is level ke liye: Correct: a.
+  - prerequisites: heat transfer
+- **p012-i24** · answer_option · none · both · exam medium
+  - b. Loss of essential body nutrients
+    - what: What confusion does this distractor invite? → It confuses fat's role as an energy store with acting as a barrier against nutrient loss. _(outside the book)_
+      - why: Why is it not the best answer? → The insulating function of subcutaneous fat directly concerns heat transfer, not a general blockade against nutrients leaving the body. _(outside the book)_
+  - **khola (unpack):**
+    - example / jagah: Body fat stores energy.
+    - aage: Reject a related but mismatched function.
+    - screen par: separate storage from insulation
+  - prerequisites: energy storage; nutrients
+- **p012-i25** · answer_option · none · both · exam medium
+  - c. Loss of salts from the body
+    - what: What loss does this option propose? → It proposes salt loss rather than heat loss as the process blocked by fat.
+      - why: Why should it be rejected? → Salt balance involves processes such as kidney regulation and sweating; subcutaneous fat is not the relevant salt-retention barrier. _(outside the book)_
+  - **khola (unpack):**
+    - example / jagah: Salt can leave in sweat.
+    - aage: Separate heat transfer from loss of dissolved substances.
+    - screen par: contrast heat arrows and sweat droplets
+  - prerequisites: salts in body fluids; sweat
+- **p012-i26** · answer_option · none · both · exam high
+  - d. Entry of harmful micro-organisms from the environments
+    - what: Which protection is described by this option? → Protection against entry of harmful microorganisms from outside the body.
+      - why: Why is this not the answer for fat below skin? → The intact skin surface is the main physical barrier at this interface; underlying fat is being tested for insulation. _(outside the book)_
+  - **khola (unpack):**
+    - micro-organisms yaani बहुत छोटे जीव, जिन्हें देखने के लिए अक्सर microscope चाहिए · image: घाव में infection करने वाले germs
+    - example / jagah: Intact skin versus a skin wound.
+    - aage: Assign the correct function to the correct layer.
+    - screen par: stop germs at the skin surface
+  - prerequisites: skin surface; microorganisms
+- **p012-i27** · heading · none · both
+  - PRACTICE QUESTIONS
+- **p012-i28** · question · none · both · exam high
+  - Q. Consider the following statements: Choose the correct statement(s):
+    - which: Which printed statements are correct? → Statements 2 and 3 are correct in the standard textbook treatment; statement 1 is incorrect. _(outside the book)_
+      - why: Why does statement 1 fail? → Apical meristems occur at shoot tips as well as root tips, so 'root tips only' is too restrictive. _(outside the book)_
+      - how: How should this combination question be solved? → Check each tissue-location pairing independently and scrutinise restrictive words before selecting the combination. _(outside the book)_
+  - prerequisites: meristem; root tip; shoot tip; internode
+- **p012-i29** · table · comparison · both
+  - Tissue | Location. Three numbered statements pair Apical, Lateral and Intercalary tissues with locations.
+- **p012-i30** · table_row · comparison · both · exam high
+  - 1. Tissue: Apical | Location: Present at root tips only
+    - compare: How does the printed location compare with the correct one? → The printed statement restricts apical tissue to root tips; apical meristems also occur at shoot tips. _(outside the book)_
+    - difference: What word changes this from acceptable to incorrect? → 'Only' excludes shoot tips and makes the statement false. _(outside the book)_
+      - why: Why are growing tips associated with apical meristems? → Cell division there supplies new cells for primary growth, helping roots and shoots extend in length. _(outside the book)_
+  - **khola (unpack):**
+    - Apical yaani सिरे पर मौजूद · image: टहनी का बढ़ता हुआ सिरा
+    - kyon: Roots and shoots need to extend into new space. _[standard]_ → Apical meristems provide new cells at both kinds of tip. _[standard]_
+    - example / jagah: Root tips and shoot tips.
+    - aage: A true example becomes false when made exclusive.
+    - screen par: highlight both root and shoot tips
+    - is level ke liye: Statement-combination trap: 'only'.
+  - prerequisites: meristematic cell division; root and shoot tips
+- **p012-i31** · table_row · comparison · both · exam high
+  - 2. Tissue: Lateral | Location: Present beneath bark
+    - compare: How does lateral-meristem location compare with apical location? → Lateral meristems occur along the sides of stems and roots, rather than being confined to their growing tips. _(outside the book)_
+    - difference: How does their growth effect differ? → Lateral meristems increase girth; apical meristems chiefly contribute to primary length growth. _(outside the book)_
+      - how: How is the printed statement understood? → The beneath-bark location is accepted in this school-level pairing; vascular and cork cambia are examples of lateral meristems associated with thickening. _(outside the book)_
+  - **khola (unpack):**
+    - Lateral yaani किनारों या बगल की तरफ मौजूद · image: तने की मोटाई बढ़ती हुई देखना
+    - kyon: An enlarging plant needs a thicker stem and additional tissues. _[standard]_ → Lateral meristems add cells that increase girth. _[standard]_
+    - example / jagah: Cambium in a woody stem.
+    - aage: Links the practice statement with the vascular diagram.
+    - screen par: widen the stem outward
+    - is level ke liye: Contrast length growth with girth growth.
+  - prerequisites: bark; cambium; girth
+- **p012-i32** · table_row · comparison · both · exam high
+  - 3. Tissue: Intercalary | Location: Present at base of leaves or internodes
+    - compare: How does intercalary location differ from apical location? → Intercalary meristems lie between more mature regions, commonly at leaf bases or internode bases, rather than at the terminal tip. _(outside the book)_
+    - difference: How does this differ from lateral meristems? → Intercalary growth helps extend particular leaf or stem regions; lateral meristems chiefly increase girth. _(outside the book)_
+      - how: How does this location explain familiar regrowth? → In grasses, basal growing regions can remain after upper portions are cut or grazed, permitting continued growth. _(outside the book)_
+  - **khola (unpack):**
+    - Intercalary yaani बड़े हो चुके हिस्सों के बीच बचा बढ़ने वाला भाग · image: घास कटने के बाद नीचे से फिर बढ़ती है
+    - internodes yaani तने में दो nodes के बीच का हिस्सा · image: बाँस की दो गाँठों के बीच का भाग
+    - kyon: A leaf or stem segment may need to keep extending away from the terminal tip. _[standard]_ → Basal intercalary regions supply new cells for that extension. _[standard]_
+    - example / jagah: Leaf bases and internode bases in grasses.
+    - aage: Location explains continued growth after grazing or cutting.
+    - screen par: extend grass upward from its base
+    - is level ke liye: Do not confuse intercalary length growth with lateral thickening.
+  - prerequisites: leaf base; node; internode; cell division
+
+## Page 13 · stopped after 2 round(s)
+
+Comparison of three simple permanent plant tissues, followed by questions on their functions, xylem components, lignin, aerenchyma and cardiac muscle.
+
+- **p013-i1** · question · none · image · exam low
+  - Continued from the previous page: Choose the correct statement(s). The statements being evaluated are not visible on this page.
+    - what: What can be established from this continuation? → The visible choices select combinations of numbered statements, but the statements themselves are absent.
+      - how: How should this incomplete question be handled? → Retain the choices but do not select an answer without the preceding statements; a combination has no meaning independently of its stem. _(outside the book)_
+  - prerequisites: Evaluating numbered statements
+- **p013-i2** · answer_option · none · both
+  - a. 1 only
+- **p013-i3** · answer_option · none · both
+  - b. 1 and 2.
+- **p013-i4** · answer_option · none · both
+  - c. 2 and 3.
+- **p013-i5** · answer_option · none · both
+  - d. All are correct
+- **p013-i6** · question · none · both · exam high
+  - Q. Consider the following statement(s):
+Choose the correct option:
+    - which: Which option is the likely intended answer? → Option a, 1 only, is the intended textbook answer: parenchyma stores food and has a large vacuole; the climber association is conventionally collenchyma, and lignin is associated with sclerenchyma. _(outside the book)_
+      - why: Why does statement 2 require a qualification rather than a blanket rejection? → Sclerenchyma does provide mechanical strength and may occur in climbing plants. The usual school-level climber-support example is collenchyma, but the statement is not worded as a precise, exclusive diagnostic feature. _(outside the book)_
+    - evidence: What evidence does the page's comparison table supply? → It lists large vacuoles and food storage for parenchyma, uneven wall thickening and tensile support for collenchyma, and lignified secondary walls with mechanical strength for sclerenchyma.
+  - prerequisites: Cell wall; Vacuole; Simple permanent plant tissues
+- **p013-i7** · table · comparison · both
+  - Tissue | Function and constituents
+- **p013-i8** · table_row · comparison · both · exam high
+  - 1. Tissue: Parenchyma | Function and constituents: Large vacuole and store food
+    - compare: How does this match compare with the reference table? → It agrees: the reference table identifies large vacuoles and food storage as parenchyma features.
+    - difference: How does this differ from sclerenchyma? → The reference table gives sclerenchyma no vacuoles and assigns it mechanical strength rather than food storage.
+      - why: Why should food storage and a large vacuole not be treated as exactly the same fact? → A vacuole stores water and dissolved substances, while food such as starch may be stored in plastids. A large vacuole is a cell feature; food storage is a tissue function. _(outside the book)_
+  - **khola (unpack):**
+    - vacuole yaani cell के अंदर पानी और घुली चीज़ें रखने की थैली · image: पानी रखने की टंकी
+    - kyon: Plants need reserves for later use. _[standard]_ → Living parenchyma can store reserve materials, as in a potato. _[standard]_
+    - example / jagah: Potato storage tissue.
+    - aage: Accept statement 1 without confusing a structure with a function.
+    - screen par: Zoom into a storage cell and separate vacuole from starch stores.
+    - is level ke liye: A paired statement can contain two related but distinct features.
+  - prerequisites: Vacuole; Food storage in plant cells
+- **p013-i9** · table_row · comparison · both · exam high
+  - 2. Tissue: Sclerenchyma | Function and constituents: In climber plants and provide mechanical strength
+    - compare: How do the two support tissues compare in the reference table? → Collenchyma provides tensile strength and mechanical support; sclerenchyma provides mechanical strength and protection from stress and strain.
+    - difference: What distinction is the question probably trying to test? → Collenchyma provides flexible support in young growing parts and is conventionally associated with climbing stems; sclerenchyma provides more rigid support through lignified walls. _(outside the book)_
+      - why: Why is 'mechanical strength' alone insufficient to reject or identify this tissue? → Both tissues support plants. The distinction depends on wall construction, whether cells are living at maturity, and the need for flexibility rather than the word strength by itself. _(outside the book)_
+  - **khola (unpack):**
+    - mechanical strength yaani दबाव या खिंचाव पड़ने पर सहारा बनाए रखने की क्षमता · image: बैग का मजबूत पट्टा
+    - kyon: Growing stems need support while continuing to bend and extend. _[standard]_ → Flexible collenchyma support differs from the harder support supplied by lignified sclerenchyma. _[standard]_
+    - example / jagah: Young climbing stems; compare a flexible support with a hard seed coat.
+    - aage: Read the complete pairing rather than using one familiar keyword.
+    - screen par: Bend a supported young stem beside a rigid wall.
+    - is level ke liye: Flag a poorly discriminating statement rather than treating a coaching key as an absolute biological rule.
+  - prerequisites: Plant support; Primary and secondary cell walls
+- **p013-i10** · table_row · comparison · both · exam high
+  - 3. Tissue: Collenchyma | Function and constituents: contain lignin
+    - compare: Does this match agree with the reference table? → No. The table assigns lignified secondary walls to sclerenchyma, while collenchyma has unevenly thickened walls.
+    - difference: What is the useful wall distinction? → Typical collenchyma has flexible, non-lignified primary walls thickened with cellulose and pectic material; sclerenchyma has hard, lignified secondary walls. _(outside the book)_
+      - why: Why does lignification matter for support? → Lignin makes the wall harder and less readily deformable, fitting rigid support better than the extensible support needed in young growing parts. _(outside the book)_
+  - **khola (unpack):**
+    - lignin yaani cell wall को सख्त बनाने वाला पदार्थ · image: नरम सहारे के मुकाबले लकड़ी की कठोरता
+    - kyon: Some plant parts need a hard supporting wall. _[standard]_ → Lignin hardens the wall, making sclerenchyma the intended match. _[standard]_
+    - example / jagah: Hard seed coats and nutshells.
+    - aage: Reject statement 3 and connect it to the later lignin question.
+    - screen par: Highlight lignin in sclerenchyma, not collenchyma.
+    - is level ke liye: Do not confuse uneven thickening with lignified thickening.
+  - prerequisites: Cell wall; Lignin
+- **p013-i11** · answer_option · none · both
+  - a. 1 only.
+- **p013-i12** · answer_option · none · both
+  - b. 2 only.
+- **p013-i13** · answer_option · none · both
+  - c. 1 and 3 only.
+- **p013-i14** · answer_option · none · both
+  - d. All are incorrect.
+- **p013-i15** · table · comparison · image
+  - Features | Parenchyma | Collenchyma | Sclerenchyma. Cell illustrations above eight comparison rows: Cell shape; Cell wall; Cytoplasm; Nucleus; Vacuoles; Intercellular spaces; Occurrence; Functions.
+- **p013-i16** · diagram · figure · image · exam high
+  - Three side-by-side green cell-group drawings: Parenchyma shows relatively thin-walled cells with spaces; Collenchyma shows closely packed cells with irregular primary-wall thickening; Sclerenchyma shows thick-walled cells with narrow internal spaces. These are comparisons, not stages of a process; no connecting arrows.
+    - what: What is the visual comparison showing? → It makes wall thickness and cell packing visible across three simple plant tissues, allowing the written features below to be recognised spatially.
+    - which: Which drawing corresponds to the strongest secondary-wall thickening? → The rightmost sclerenchyma drawing shows pronounced walls around relatively narrow cell interiors.
+      - how: How should a student use these drawings in an identification question? → Compare spaces, the distribution of thickening and the size of the internal cavity rather than using the common green colouring as an identifying feature. _(outside the book)_
+  - **khola (unpack):**
+    - primary cell wall yaani बढ़ते cell की पहले बनने वाली बाहरी wall · image: कमरे की शुरुआती दीवार, जिस पर बाद में और परत लग सकती है
+    - kyon: Different plant jobs need different degrees of support. _[standard]_ → Wall thickness and its placement help distinguish storage, flexible support and rigid support. _[standard]_
+    - example / jagah: Compare soft fruit tissue with a hard seed covering.
+    - aage: Connect the drawing to the cell-wall row rather than memorising isolated pictures.
+    - screen par: Zoom and trace wall thickness.
+    - is level ke liye: A narrow cell interior is a useful clue to a thick secondary wall.
+  - prerequisites: Cell wall versus cell interior
+- **p013-i17** · diagram_label · figure · image · exam high
+  - Parenchyma; thin primary cell wall — label identifies the thin boundary of the parenchyma cells.
+    - what: What does the thin-wall label identify? → The outer cell boundary in the parenchyma group, not the spaces between neighbouring cells.
+    - which: Which tissue is associated with this labelled wall? → Parenchyma is the left-hand tissue shown with a thin primary wall.
+      - why: Why does the word primary matter? → It distinguishes the wall formed during cell growth from a later secondary wall deposited inside it in cells such as sclerenchyma. _(outside the book)_
+  - **khola (unpack):**
+    - example / jagah: Soft parts of plants.
+    - aage: Do not mistake an intercellular gap for a wall.
+    - screen par: Trace the thin boundary.
+  - prerequisites: Cell boundary; Cell growth
+- **p013-i18** · diagram_label · figure · image · exam high
+  - Collenchyma; Irregularly Thickened Primary Cell Wall; Collenchyma — the wall label identifies uneven primary-wall thickening around the packed cells; the tissue name appears above and below the drawing.
+    - what: What feature does this label ask the learner to notice? → The primary wall is not equally thick around the whole cell outline.
+    - which: Which drawing carries this feature? → The central collenchyma drawing contrasts with thin-walled parenchyma and thick secondary-walled sclerenchyma.
+      - how: How is the unevenness usually recognised? → Typical collenchyma has greater thickening at cell corners, providing support while retaining flexibility. _(outside the book)_
+  - **khola (unpack):**
+    - example / jagah: Young stems and leaf stalks.
+    - aage: Use the pattern of thickening to identify flexible support tissue.
+    - screen par: Highlight thickened corners.
+  - prerequisites: Primary wall; Cell corners
+- **p013-i19** · diagram_label · figure · image · exam high
+  - Sclerenchyma; thick secondary cell wall; primary cell wall — the labels distinguish the substantial secondary wall from the primary wall around sclerenchyma cells.
+    - what: What do the two wall labels distinguish? → They identify the primary wall and a thick secondary wall in the same sclerenchyma cell, rather than naming two separate tissues.
+    - which: Which wall feature is most conspicuous here? → The thick secondary wall leaves a relatively narrow inner cavity.
+      - how: How does secondary-wall deposition change the cell interior? → Material is deposited inside the primary wall, so the remaining internal cavity becomes narrower as the wall thickens. _(outside the book)_
+  - **khola (unpack):**
+    - secondary cell wall yaani primary wall के अंदर बाद में जुड़ने वाली मजबूत परत · image: कमरे की दीवार के अंदर मोटी lining लगाने से कम जगह बचना
+    - example / jagah: Sclerenchyma fibres.
+    - aage: Thickening explains the narrow internal space visible in the drawing.
+    - screen par: Build the inner wall layer.
+  - prerequisites: Primary wall; Secondary wall
+- **p013-i20** · table_row · comparison · image · exam high
+  - 1. Cell shape | Parenchyma: Isodiametric cells which are oval, spherical or polygonal in shape | Collenchyma: Circular, oval or polyhedral | Sclerenchyma: Variable in shape. Fibres and sclereids
+    - compare: How does the table compare cell shapes? → Parenchyma and collenchyma share several rounded or many-sided outlines; sclerenchyma is explicitly described as variable and includes fibres and sclereids.
+    - difference: What distinguishes fibres from sclereids? → Fibres are usually long and narrow, whereas sclereids are commonly shorter and may be irregular or branched. _(outside the book)_
+      - why: Why should shape not be used alone to identify these tissues? → Their outlines overlap, and a cross-section can hide cell length. Wall thickness, living contents and location provide stronger combined evidence. _(outside the book)_
+  - **khola (unpack):**
+    - Isodiametric yaani जिस cell की अलग दिशाओं की चौड़ाई लगभग बराबर हो · image: लंबी रस्सी के बजाय लगभग गोल मटर
+    - polygonal yaani कई सीधी भुजाओं वाला आकार · image: फर्श की कई कोनों वाली tile
+    - polyhedral yaani तीन दिशाओं में कई समतल चेहरे वाला आकार · image: कई सपाट पहलुओं वाला पासा
+    - Fibres yaani लंबे और पतले सहारा देने वाले cells · image: रस्सी के लंबे रेशे
+    - sclereids yaani अक्सर छोटे, सख्त और अलग-अलग आकार के cells · image: नाशपाती खाते समय महसूस होने वाले किरकिरे कण
+    - kyon: Support and packing require different cell geometries. _[standard]_ → Long fibres resist pulling, while hard sclereids strengthen compact parts. _[standard]_
+    - example / jagah: Pear grit illustrates sclereids; fibrous plant material illustrates fibres.
+    - aage: Combine shape with wall and cell-content clues.
+    - screen par: Rotate a cell and compare its cross-section.
+    - is level ke liye: A circular cross-section does not establish that a cell is spherical.
+  - prerequisites: Cell shape; Cross-section
+- **p013-i21** · table_row · comparison · image · exam high
+  - 2. Cell wall | Parenchyma: Thin cellulosic cell wall | Collenchyma: Uneven thickening on their cell wall | Sclerenchyma: Lignified secondary cell wall present
+    - compare: How do walls distinguish the three tissues? → The table progresses from a thin cellulosic wall to uneven thickening and then to a lignified secondary wall.
+    - difference: What is the difference between uneven thickening and a lignified secondary wall? → Uneven thickening describes where extra wall material occurs; lignification describes chemical reinforcement, usually producing harder, less extensible support. _(outside the book)_
+      - why: Why are these wall differences functionally important? → Soft storage tissue need not be heavily reinforced, growing organs require flexible support, and mature supporting parts benefit from harder walls. _(outside the book)_
+  - **khola (unpack):**
+    - cellulosic yaani cellulose से बनी या भरपूर wall · image: कागज़ और कपास में पाया जाने वाला ढाँचा बनाने का पदार्थ
+    - Lignified yaani जिस wall में lignin जमा होकर उसे सख्त करे · image: मुलायम डंठल और कठोर लकड़ी का फर्क
+    - kyon: Plant parts need different balances of softness, flexibility and strength. _[standard]_ → Changing wall construction supplies those different mechanical properties. _[standard]_
+    - example / jagah: Soft plant flesh, a bending leaf stalk and a hard nutshell.
+    - aage: Use wall construction before vague words such as support.
+    - screen par: Thicken, bend and harden three walls.
+    - is level ke liye: Cellulose is not exclusive to parenchyma; it is the thin-wall description that matters here.
+  - prerequisites: Cellulose; Primary and secondary walls
+- **p013-i22** · table_row · comparison · image · exam high
+  - 3. Cytoplasm | Parenchyma: Abundant | Collenchyma: Present | Sclerenchyma: Absent
+    - compare: How is cytoplasm distributed in this comparison? → Parenchyma and collenchyma retain cytoplasm; the table lists it as absent in sclerenchyma.
+    - difference: What difference does cytoplasm indicate here? → It helps distinguish living cells able to perform metabolism from mature supporting cells whose dead walls carry the mechanical role. _(outside the book)_
+      - why: Why can sclerenchyma provide support without cytoplasm? → Its reinforced wall remains after the living cell contents are lost, rather like a rigid shell retaining its shape after the inside is removed. _(outside the book)_
+  - **khola (unpack):**
+    - Cytoplasm yaani cell के अंदर का जीवित हिस्सा जहाँ कई काम चलते हैं · image: कारखाने के भीतर काम चलने की जगह
+    - kyon: Storage and photosynthesis need living cell machinery. _[standard]_ → Mechanical support can persist in reinforced walls after that machinery is lost. _[standard]_
+    - example / jagah: Living storage tissue versus mature supporting fibres.
+    - aage: Link this row to the nucleus and vacuole rows.
+    - screen par: Fade the cell contents while retaining the wall.
+    - is level ke liye: The table's 'abundant' is qualitative, not a numerical measure.
+  - prerequisites: Cytoplasm; Living versus dead cells
+- **p013-i23** · table_row · comparison · image · exam high
+  - 4. Nucleus | Parenchyma: Present, (Living tissue) | Collenchyma: Present, (Living tissue) | Sclerenchyma: Absent (Dead tissue)
+    - compare: Which tissues are living in this table? → Parenchyma and collenchyma are described as living and nucleated; sclerenchyma is described as dead and lacking a nucleus.
+    - difference: How should the living/dead distinction be understood? → Living cells maintain active contents; mature dead sclerenchyma cells retain strong walls but no functioning protoplast. _(outside the book)_
+      - why: Why specify maturity when teaching sclerenchyma? → A sclerenchyma cell must first be alive to make its wall; the familiar dead-cell description refers to its usual mature functional state. _(outside the book)_
+  - **khola (unpack):**
+    - Nucleus yaani cell के अंदर जानकारी और काम के नियंत्रण से जुड़ा हिस्सा · image: काम चलाने वाला control room
+    - kyon: Growing cells must construct their supporting walls. _[standard]_ → After maturation, a sclerenchyma wall can support the plant even when the living contents are gone. _[standard]_
+    - example / jagah: Mature sclerenchyma in hard supporting parts.
+    - aage: Do not interpret 'dead' as meaning that the tissue has no function.
+    - screen par: Keep the supporting wall after the nucleus disappears.
+    - is level ke liye: Avoid converting a plant-tissue comparison into a universal rule that nucleus absence proves cell death.
+  - prerequisites: Nucleus; Cell development
+- **p013-i24** · table_row · comparison · image · exam high
+  - 5. Vacuoles | Parenchyma: Large vacuole | Collenchyma: Vacuolated | Sclerenchyma: Absent
+    - compare: How do vacuoles compare across the tissues? → Parenchyma has a large vacuole, collenchyma is vacuolated, and sclerenchyma is listed without vacuoles.
+    - difference: Does 'vacuolated' mean something different from having vacuoles? → It means that vacuoles are present; the table specifies a large vacuole for parenchyma but does not quantify collenchyma's vacuoles. _(outside the book)_
+      - how: How does a large vacuole contribute to a living plant cell? → Water in the vacuole helps maintain pressure against the wall, supporting cell firmness as well as providing storage space for dissolved materials. _(outside the book)_
+  - **khola (unpack):**
+    - Vacuolated yaani जिस cell में vacuole मौजूद हो · image: अंदर पानी की थैली वाला कमरा
+    - kyon: Soft plant cells need internal water pressure to stay firm. _[standard]_ → A water-filled vacuole presses the cell contents against the wall. _[standard]_
+    - example / jagah: A leafy vegetable becomes limp as its cells lose water.
+    - aage: Separate vacuole presence from the mature dead-wall condition of sclerenchyma.
+    - screen par: Fill and deflate the vacuole.
+    - is level ke liye: The table does not give numerical vacuole sizes.
+  - prerequisites: Vacuole; Water in plant cells
+- **p013-i25** · table_row · comparison · image · exam high
+  - 6. Intercellular spaces | Parenchyma: Present | Collenchyma: Absent | Sclerenchyma: Absent
+    - compare: How does the table contrast cell packing? → Parenchyma is shown with spaces between cells, while collenchyma and sclerenchyma are listed without such spaces.
+    - difference: How is an intercellular space different from a vacuole? → An intercellular space lies between neighbouring cells; a vacuole lies within a living cell. _(outside the book)_
+      - why: Why are spaces important for the later aquatic-plant question? → Large gas-filled spaces in aerenchyma help internal gas movement and reduce the average density of the tissue, aiding buoyancy. _(outside the book)_
+      - exception: Should 'absent' in collenchyma be taught as an absolute? → No. Typical school comparisons describe closely packed collenchyma with little or no space, but lacunar forms can have intercellular spaces. _(outside the book)_
+  - **khola (unpack):**
+    - Intercellular spaces yaani पास-पास के cells के बीच बची जगह · image: थैले में रखे अंगूरों के बीच की खाली जगह
+    - kyon: Plant tissues need pathways for gases. _[standard]_ → Spaces between cells provide pathways; enlarged air spaces also help aquatic tissues float. _[standard]_
+    - example / jagah: Aerenchyma in aquatic plants.
+    - aage: Do not draw air spaces inside cells when explaining aerenchyma.
+    - screen par: Highlight gaps between cells.
+    - is level ke liye: Keep the printed comparison but avoid 'no spaces in any collenchyma' as a universal claim.
+  - prerequisites: Neighbouring cells; Cell interior versus space between cells
+- **p013-i26** · table_row · comparison · image · exam high
+  - 7. Occurrence | Parenchyma: Basically packing tissue, All soft part of plant. Pith, cortex, medullary rays | Collenchyma: Dicot stems, petiole and beneath the epidermis. Absent in monocot and roots | Sclerenchyma: Dicot hypodermis, bundle sheath, pericycle, Seed, pulp of fruits.
+    - compare: Which locations does the table assign to each tissue? → Parenchyma occupies soft packing regions including pith, cortex and medullary rays; collenchyma is placed in dicot stems, petioles and beneath the epidermis; sclerenchyma is listed in dicot hypodermis, bundle sheath, pericycle, seeds and fruit pulp.
+    - difference: How can the location terms be located on a familiar plant? → The petiole is the leaf stalk; epidermis is the outer covering; hypodermis is beneath it. Cortex lies inward of the outer covering, pith is central, medullary rays run radially, bundle sheath surrounds a vascular bundle, and pericycle lies just inside the endodermis. _(outside the book)_
+      - why: Why does location help explain function? → Soft internal regions can pack and store materials, while supporting cells near an organ's outside or around transport bundles reinforce places exposed to bending and strain. _(outside the book)_
+      - exception: Which occurrence statements need caution? → Collenchyma is generally uncommon in monocots and roots rather than governed by an exceptionless absence rule. Sclerenchymatous hypodermis is a familiar monocot-stem feature, while many dicot stems have collenchymatous hypodermis. Fruit-pulp sclerenchyma can mean scattered sclereids, as in pear, not uniformly hard pulp. _(outside the book)_
+  - **khola (unpack):**
+    - packing tissue yaani अंदर की जगह भरकर बाकी हिस्सों को साथ रखने वाला tissue · image: डिब्बे में चीज़ों के बीच भरा packing material
+    - petiole yaani पत्ती को stem से जोड़ने वाला डंठल · image: हाथ में पकड़ी पत्ती का डंठल
+    - hypodermis yaani बाहरी epidermis के ठीक नीचे का हिस्सा · image: बाहरी cover के नीचे की सहारे वाली परत
+    - medullary rays yaani stem के अंदर बीच से बाहर की दिशा में फैली पट्टियाँ · image: पहिए के बीच से बाहर जाती तीलियाँ
+    - kyon: A plant organ needs both internal filling and resistance to bending. _[standard]_ → Packing cells occupy soft regions, while reinforced cells occur at useful supporting positions. _[standard]_
+    - example / jagah: Zoom from a leaf to its stalk, then into a stem cross-section; pear pulp provides a sclereid example.
+    - aage: Location, wall type and function should be checked together.
+    - screen par: Zoom into and mark stem regions.
+    - is level ke liye: Do not use the table's dicot-hypodermis entry as an exclusive or universal association.
+  - prerequisites: Stem cross-section; Root and leaf; Vascular bundles; Monocots and dicots
+- **p013-i27** · table_row · comparison · image · exam high
+  - 8. Functions | Parenchyma: Food storage, Photosynthesis | Collenchyma: Provide tensile strength, Mechanical support, Photosynthesis | Sclerenchyma: Protection from stress and strain, Mechanical strength
+    - compare: How are the functions distributed? → Parenchyma is assigned storage and photosynthesis; collenchyma combines tensile support, mechanical support and photosynthesis; sclerenchyma is assigned protection against stress and strain and mechanical strength.
+    - difference: How does tensile strength differ from photosynthesis? → Tensile strength concerns resisting pulling forces, whereas photosynthesis uses light to make food. The former is a mechanical property and the latter is a living-cell activity. _(outside the book)_
+      - why: Why should photosynthesis be qualified in both living tissues? → It requires chloroplasts. Chloroplast-containing parenchyma is called chlorenchyma, and green collenchyma may photosynthesise; a tissue name alone does not establish that every cell performs it. _(outside the book)_
+      - how: How do stress and strain differ? → Stress describes the internal force per unit area under loading; strain describes the resulting relative deformation. Strong walls help tissues withstand loads and limit deformation. _(outside the book)_
+  - **khola (unpack):**
+    - tensile strength yaani खींचे जाने पर टूटने से बचने की क्षमता · image: दोनों सिरों से खींची जा रही रस्सी
+    - stress and strain yaani लगने वाले जोर और उससे होने वाले आकार के बदलाव का संबंध · image: रबर खींचने पर जोर लगना और उसका लंबा होना
+    - kyon: A plant must store or make food while also remaining supported. _[standard]_ → Living cell contents perform metabolic jobs; wall construction supplies different kinds of support. _[standard]_
+    - example / jagah: Green leaves make food, storage organs retain reserves, and hard coverings protect seeds.
+    - aage: Use combinations of features rather than treating shared functions as exclusive.
+    - screen par: Store, illuminate, pull and reinforce.
+    - is level ke liye: Distinguish a mechanical function from an active biochemical function.
+  - prerequisites: Photosynthesis; Chloroplast; Pulling and bending forces
+- **p013-i28** · question · structure · both · exam high
+  - Q. All are parts of xylem except:
+    - what: What is the answer and the complete component distinction? → A, Companion cells, is the exception. Xylem contains tracheids, vessels, xylem parenchyma and xylem fibres; companion cells belong to phloem. _(outside the book)_
+    - where: Where do these two transport tissues occur? → Xylem and phloem occur in vascular bundles of roots, stems and leaves; companion cells are associated with phloem sieve-tube elements in flowering plants. _(outside the book)_
+      - why: Why is parenchyma not the exception? → A complex tissue can include several cell types. Living xylem parenchyma is part of xylem even though parenchyma is also a simple-tissue category. _(outside the book)_
+      - how: How do companion cells differ functionally from xylem conducting elements? → Companion cells help sieve-tube elements move sugars in phloem; tracheids and vessels are specialised for conducting water and minerals in xylem. _(outside the book)_
+  - prerequisites: Xylem and phloem; Simple versus complex tissues
+- **p013-i29** · answer_option · none · both
+  - A. Companion cells
+- **p013-i30** · answer_option · none · both
+  - B. Tracheid
+- **p013-i31** · answer_option · none · both
+  - C. Parenchyma
+- **p013-i32** · answer_option · none · both
+  - D. Xylem vessel
+- **p013-i33** · question · structure · both · exam high
+  - Q. Lignin is present in cell wall of which tissue:
+    - what: What is the answer among these options? → b, Sclerenchyma: the comparison table explicitly describes its secondary cell wall as lignified.
+    - where: Where is the lignified layer identified in the diagram? → It corresponds to the thick secondary wall of the sclerenchyma cells, not the thin parenchyma primary wall.
+      - why: Why does this fit sclerenchyma's mechanical role? → Lignin reinforces the wall, allowing rigid supporting cells to resist deformation even after their living contents have been lost. _(outside the book)_
+      - exception: Does this answer mean lignin occurs nowhere else in plants? → No. Xylem conducting elements also commonly have lignified walls; sclerenchyma is the correct choice within the listed alternatives. _(outside the book)_
+  - prerequisites: Cell wall; Secondary wall; Lignin
+- **p013-i34** · answer_option · none · both
+  - a. Parenchyma
+- **p013-i35** · answer_option · none · both
+  - b. Sclerenchyma
+- **p013-i36** · answer_option · none · both
+  - c. Collenchyma
+- **p013-i37** · answer_option · none · both
+  - d. None
+- **p013-i38** · question · none · both · exam high
+  - Q. Specialised cell of parenchyma present in aquatic plants to provide them buoyancy
+    - which: Which option supplies the correct specialised parenchyma? → c, Aerenchyma. It is parenchymatous tissue with conspicuous air spaces that can help aquatic plant parts remain buoyant. _(outside the book)_
+      - how: How do air spaces help buoyancy? → Air-filled spaces lower the average density of a plant part relative to a similarly sized solid part, making it easier for water's upward force to support it. _(outside the book)_
+      - why: Why are the other options unsuitable? → Chlorenchyma is chloroplast-bearing parenchyma associated with photosynthesis; sieve tubes and companion cells are phloem elements rather than buoyancy-specialised parenchyma. _(outside the book)_
+    - what: How should the stem's word 'cell' be understood? → The expected answer names a specialised tissue arrangement with enlarged intercellular spaces, not simply one isolated cell containing a floating chamber. _(outside the book)_
+  - prerequisites: Parenchyma; Intercellular spaces; Floating and density; Phloem
+- **p013-i39** · answer_option · none · both
+  - a. Chlorenchyma
+- **p013-i40** · answer_option · none · both
+  - b. Sieve tube
+- **p013-i41** · answer_option · none · both
+  - c. Aerenchyma
+- **p013-i42** · answer_option · none · both
+  - d. Companion cells
+- **p013-i43** · question · none · both · exam high
+  - Q. Which statement is incorrect with reference to cardiac tissue:
+Option:
+    - which: Which numbered statement is incorrect? → Statement 2 is incorrect: cardiac muscle is involuntary, not voluntary. The answer choices themselves are not shown on this page. _(outside the book)_
+      - why: Why do visible striations not imply voluntary control? → Striations describe the arrangement of contractile proteins; voluntary describes conscious control. These are separate classification criteria, and cardiac muscle combines striations with involuntary activity. _(outside the book)_
+      - how: How can the student solve this without seeing the continued choices? → Evaluate the three statements independently, identify 2 as false, then select the matching combination when the options become available. _(outside the book)_
+  - prerequisites: Muscle contraction; Voluntary versus involuntary control; Striations
+- **p013-i44** · list_point · structure · both · exam high
+  - 1. They are striated
+    - what: What does striated mean for cardiac muscle? → The cells show alternating light and dark bands under a microscope; statement 1 is correct. _(outside the book)_
+    - where: Where is this tissue found? → Cardiac muscle forms the muscular wall of the heart that contracts to pump blood. _(outside the book)_
+      - why: Why do the bands appear? → Contractile proteins are arranged in repeating units, producing an ordered banding pattern rather than a uniform appearance. _(outside the book)_
+  - **khola (unpack):**
+    - striated yaani जिसमें microscope से हल्की और गहरी पट्टियाँ दिखें · image: धारियों वाली कमीज़
+    - kyon: The heart needs organised machinery for repeated contraction. _[standard]_ → Repeating arrangements of contractile proteins create visible bands. _[standard]_
+    - example / jagah: Muscular wall of the heart.
+    - aage: Appearance and conscious control must be tested separately.
+    - screen par: Zoom from heart wall to alternating bands.
+    - is level ke liye: Both skeletal and cardiac muscle are striated.
+  - prerequisites: Muscle cell; Microscope; Heart wall
+- **p013-i45** · list_point · classification · both · exam high
+  - 2. They are voluntary in nature
+    - which: Which control category correctly includes cardiac muscle? → Involuntary muscle. The printed statement is the false statement being tested, not an accepted description. _(outside the book)_
+    - difference: How does this differ from typical skeletal-muscle control? → Skeletal muscles commonly move the limbs under conscious direction, whereas the heart continues its rhythm without a conscious instruction for each beat. _(outside the book)_
+      - why: Why can the heart keep beating during sleep? → Its rhythm is initiated by specialised pacemaker cells and adjusted by autonomic signals, rather than depending on repeated conscious commands. _(outside the book)_
+  - **khola (unpack):**
+    - voluntary yaani जिस काम को करने का फैसला आप अपनी इच्छा से लें · image: मन से हाथ उठाना, लेकिन हर धड़कन का आदेश न देना
+    - kyon: Blood circulation must continue even when a person is asleep. _[standard]_ → The heart's rhythm therefore operates without a conscious command for each contraction. _[standard]_
+    - example / jagah: Heartbeat continues during sleep.
+    - aage: Mark statement 2 incorrect despite the tissue's striations.
+    - screen par: Keep the heart beating while the person sleeps.
+    - is level ke liye: Autonomic regulation changes rate; it is not a conscious beat-by-beat instruction.
+  - prerequisites: Conscious control; Heart rhythm
+- **p013-i46** · list_point · comparison · both · exam high
+  - 3. They have features of both skeletal and visceral tissue.
+    - compare: Which shared features make this statement acceptable? → Cardiac muscle resembles skeletal muscle in being striated and visceral smooth muscle in being involuntary. _(outside the book)_
+    - difference: Does this mean cardiac muscle is a mixture of the other two tissues? → No. It is a distinct muscle type with its own cellular organisation; the comparison concerns selected features, not a mixture or transformation. _(outside the book)_
+      - why: Why is this comparison useful for the exam? → It breaks the misleading association that striated must mean voluntary and non-striated must mean involuntary. Cardiac muscle separates these two criteria clearly. _(outside the book)_
+  - **khola (unpack):**
+    - visceral tissue yaani यहाँ अंदर के organs की smooth muscle की बात है · image: आँत का अपने-आप खाना आगे बढ़ाना
+    - kyon: Muscles must be compared on more than one property. _[standard]_ → Cardiac muscle shares banding with skeletal muscle but automatic control with visceral smooth muscle. _[standard]_
+    - example / jagah: Compare a moving arm, intestinal movement and the heartbeat.
+    - aage: Use a two-axis comparison: microscopic appearance and type of control.
+    - screen par: Match the heart to two separate comparison columns.
+    - is level ke liye: Shared features do not imply that cardiac muscle has every property of either comparison tissue.
+  - prerequisites: Skeletal muscle; Visceral smooth muscle; Striations; Voluntary control
+
+## Page 14 · stopped after 1 round(s)
+
+Practice MCQs test epidermis and its waxy covering, stomata as leaf gas-exchange sites, and tendons as muscle-to-bone connections. The page also carries unresolved options from the preceding question.
+
+- **p014-i1** · question · none · image
+  - Continued from the previous page: question and numbered statements unavailable; the visible options select combinations of statements 1, 2 and 3.
+- **p014-i2** · answer_option · none · both
+  - a. 1 only
+- **p014-i3** · answer_option · none · both
+  - b. 1 and 3.
+- **p014-i4** · answer_option · none · both
+  - c. 2 only.
+- **p014-i5** · answer_option · none · both
+  - d. All are correct
+- **p014-i6** · question · none · both · exam high
+  - Q. …………… layer is thickest and helps in protection against water loss and further secrete a waxy substance on outer surface:
+    - what: Which option is intended? → Option b, Epidermis, best matches the outer protective layer that produces a waxy covering. _(outside the book)_
+      - why: Why does a waxy outer covering help a plant? → Aerial plant parts face drying air. The waxy cuticle restricts evaporation from their surfaces, helping conserve water. _(outside the book)_
+      - exception: What is problematic about 'thickest'? → Epidermis is generally a single cell layer, not generically the thickest tissue layer. Its cuticle can be thicker in plants adapted to dry conditions. Select the intended answer from the protective and wax-secreting clues without learning 'epidermis is thickest' as a rule. _(outside the book)_
+  - prerequisites: plant cells form tissue layers; water evaporates from exposed surfaces
+- **p014-i7** · answer_option · structure · both · exam high
+  - a. Sclerenchyma
+    - what: What is sclerenchyma? → It is a supporting plant tissue whose mature cells generally have thick, lignified walls and are dead. _(outside the book)_
+    - where: Where can its mechanical role be recognised? → Coconut husk fibres and hard seed coverings illustrate the strength provided by sclerenchyma. _(outside the book)_
+      - why: Why is it a tempting but unsuitable answer here? → Its walls are thick, which may attract a reader focused on 'thickest'. But the wax-secreting surface covering points to epidermis, not a strengthening tissue. _(outside the book)_
+  - **khola (unpack):**
+    - Sclerenchyma yaani पौधे को मजबूती देने वाला tissue, जिसके cell की दीवारें मोटी और कड़ी होती हैं · image: नारियल के छिलके के मजबूत रेशे
+    - kyon: Plant parts need strength to resist bending and damage. _[standard]_ → Thick, lignified walls provide support rather than a secreted surface coating. _[standard]_
+    - example / jagah: Coconut husk fibres.
+    - aage: Eliminate this option using function, not just the word 'thick'.
+    - screen par: thicken walls and brace
+    - is level ke liye: Separate wall thickness from surface protection.
+  - prerequisites: plant cell wall; mechanical support
+- **p014-i8** · answer_option · structure · both · exam high
+  - b. Epidermis
+    - what: What is epidermis in a plant? → It is the outer cell covering that separates plant tissues from their surroundings and provides protection. _(outside the book)_
+    - where: Where does the relevant waxy covering occur? → On aerial parts such as leaves and young stems, epidermal cells produce the cuticle, a water-resistant outer covering containing cutin and waxes. _(outside the book)_
+      - how: How does this covering reduce water loss? → The water-resistant coating limits evaporation directly through the exposed surface. It does not eliminate the need for regulated gas exchange through stomata. _(outside the book)_
+  - **khola (unpack):**
+    - Epidermis yaani पौधे की सबसे बाहर की cell वाली परत, जो अंदर के हिस्से को बचाती है · image: किसी चीज़ पर चढ़ा बचाव वाला कवर
+    - kyon: An exposed leaf needs to conserve water while facing dry air. _[standard]_ → Its epidermis bears a water-resistant cuticle that reduces surface evaporation. _[standard]_
+    - example / jagah: Outer surface of a leaf or young stem.
+    - aage: Protection conserves water; stomata provide regulated openings in the covering.
+    - screen par: cover and slow evaporation
+    - is level ke liye: Do not equate outermost with thickest; distinguish epidermis from cuticle.
+  - prerequisites: outer surface of a leaf; evaporation
+- **p014-i9** · answer_option · structure · both · exam high
+  - c. Parenchyma
+    - what: What is parenchyma? → It is plant tissue made of living cells with relatively thin walls, commonly involved in storage and other metabolic functions. _(outside the book)_
+    - where: Where is a familiar example? → The soft storage tissue of a potato tuber contains parenchyma. _(outside the book)_
+      - why: Why is parenchyma not the intended answer? → Storage and internal packing do not identify the specialised outer covering that secretes the cuticle; that clue identifies epidermis. _(outside the book)_
+  - **khola (unpack):**
+    - Parenchyma yaani नरम, जीवित cell वाला plant tissue, जो अक्सर खाना जमा करता है · image: आलू का नरम अंदरूनी हिस्सा
+    - kyon: Plants need places to store food and perform routine cell activities. _[standard]_ → Living, relatively thin-walled parenchyma cells perform these jobs rather than forming the specialised waxy surface. _[standard]_
+    - example / jagah: Potato storage tissue.
+    - aage: Reject it for the wax-secreting outer layer.
+    - screen par: fill and store
+    - is level ke liye: Connect parenchyma with the specialised forms aerenchyma and chlorenchyma in the next MCQ.
+  - prerequisites: living plant cell; food storage in plants
+- **p014-i10** · answer_option · facts_numbers · both · exam high
+  - d. Suberin
+    - what: What is suberin? → Suberin is a water-resistant material deposited in certain plant cell walls; it is not itself the name of a tissue layer. _(outside the book)_
+    - evidence: Which familiar plant structure illustrates its role? → Cork cell walls contain suberin, helping make cork resistant to water passage. _(outside the book)_
+      - why: Why is this a plausible distractor? → Suberin contributes to waterproofing, but the question asks for a layer that produces a waxy surface covering. Epidermis names the relevant layer; suberin names a material. _(outside the book)_
+  - **khola (unpack):**
+    - Suberin yaani कुछ plant cell की दीवारों में जमा होने वाला पदार्थ, जो पानी का गुजरना कम करता है · image: बोतल के cork की पानी रोकने वाली बनावट
+    - kyon: A protective barrier needs to restrict water movement. _[standard]_ → Suberin in cork walls helps do this, but a barrier material is not the epidermal cell layer. _[standard]_
+    - example / jagah: Cork cell walls.
+    - aage: A shared protective role does not make suberin and epidermis interchangeable.
+    - screen par: deposit and block
+    - is level ke liye: A common MCQ trap mixes the name of a tissue with the name of a substance.
+  - prerequisites: plant cell wall; difference between tissue and deposited material
+- **p014-i11** · question · none · both · exam high
+  - Q. Site of gaseous exchange on leaf is:
+    - what: Which option answers the question? → Option b, Stomata. These pores connect the leaf's internal air spaces with the atmosphere. _(outside the book)_
+      - how: How is gas exchange different from control of the opening? → Gases diffuse through the stomatal pore; guard cells regulate its aperture. The passage and its controllers are related but not identical. _(outside the book)_
+  - prerequisites: leaf surface; gases move by diffusion
+- **p014-i12** · answer_option · structure · both · exam high
+  - a. Guard cells
+    - what: What are guard cells? → They are specialised epidermal cells that border a stomatal pore and regulate its opening. _(outside the book)_
+    - where: Where are they relative to a stoma? → A pair of guard cells surrounds the pore in the leaf epidermis. _(outside the book)_
+      - how: How do they control the pore? → Changes in their water content and turgor change their shape and the width of the pore, helping balance gas exchange against water loss. _(outside the book)_
+  - **khola (unpack):**
+    - Guard cells yaani stomata के छेद के पास की दो cell, जो उसका खुलना-बंद होना संभालती हैं · image: दरवाज़े का खुलना संभालने वाला पहरेदार
+    - kyon: A leaf needs gas exchange but risks losing water through open pores. _[standard]_ → Guard-cell shape changes adjust pore width to regulate this trade-off. _[standard]_
+    - example / jagah: Around stomatal pores in the leaf epidermis.
+    - aage: Do not confuse the controller with the opening.
+    - screen par: swell and adjust
+    - is level ke liye: Compare site of exchange with regulator of exchange.
+  - prerequisites: water can enter and leave cells; cell turgor
+- **p014-i13** · answer_option · structure · both · exam high
+  - b. Stomata
+    - what: What are stomata? → They are microscopic epidermal openings through which gases and water vapour can pass between a leaf and its surroundings. _(outside the book)_
+    - where: Where are they found? → They occur in leaf epidermis. Many terrestrial leaves have more on the lower surface, but distribution varies with the plant. _(outside the book)_
+      - how: How do gases pass through stomata? → Gases diffuse down concentration gradients through open pores and connected internal air spaces. Carbon dioxide supply supports photosynthesis, while oxygen exchange also accompanies respiration. _(outside the book)_
+  - **khola (unpack):**
+    - Stomata yaani leaf की बाहरी परत के छोटे छेद, जिनसे गैसें अंदर-बाहर जाती हैं · image: कमरे की छोटी खिड़की, जिससे हवा आती-जाती है
+    - kyon: A protective leaf covering must still allow gases to reach living cells. _[standard]_ → Stomatal pores provide a controlled route, although water vapour can escape through it too. _[standard]_
+    - example / jagah: Leaf epidermis.
+    - aage: Gas exchange and water conservation must be balanced.
+    - screen par: open and diffuse
+    - is level ke liye: Separate the pore, its guard cells and the internal photosynthetic tissue.
+  - prerequisites: diffusion; photosynthesis and respiration use gases
+- **p014-i14** · answer_option · structure · both · exam high
+  - c. Aerenchyma
+    - what: What is aerenchyma? → It is parenchyma with conspicuous air spaces that aid internal gas movement and can contribute to buoyancy. _(outside the book)_
+    - where: Where is it particularly useful? → It is prominent in many aquatic and wetland plants, where air-filled spaces help supply gases to submerged tissues. _(outside the book)_
+      - why: Why is it not the answer to the surface gas-exchange question? → Its internal air spaces help transport or hold gases, but they are not the stomatal openings connecting the leaf surface to the atmosphere. _(outside the book)_
+  - **khola (unpack):**
+    - Aerenchyma yaani ऐसा parenchyma जिसमें हवा के लिए बड़ी खाली जगहें होती हैं · image: स्पंज के भीतर हवा भरी खाली जगहें
+    - kyon: Submerged plant parts may struggle to obtain gases from their surroundings. _[standard]_ → Connected internal air spaces help gases move through the plant. _[standard]_
+    - example / jagah: Many aquatic and wetland plants.
+    - aage: Internal air spaces and external exchange pores perform different roles.
+    - screen par: space out and channel
+    - is level ke liye: The 'air' clue is insufficient; locate the structure before choosing.
+  - prerequisites: parenchyma; spaces between plant cells
+- **p014-i15** · answer_option · structure · both · exam high
+  - d. Chlorenchyma
+    - what: What is chlorenchyma? → It is parenchyma containing chloroplasts and specialised for photosynthesis. _(outside the book)_
+    - where: Where can it be found? → It occurs in green plant parts, especially the photosynthetic tissue inside leaves. _(outside the book)_
+      - why: Why is it not the surface gas-exchange site? → It uses carbon dioxide to make food, but the surface passage through which gases enter or leave is the stoma. _(outside the book)_
+  - **khola (unpack):**
+    - Chlorenchyma yaani chloroplast वाला parenchyma, जो रोशनी की मदद से खाना बनाता है · image: हरी leaf के अंदर खाना बनाने वाला छोटा कारखाना
+    - kyon: A green leaf needs cells that capture light to make food. _[standard]_ → Chloroplast-containing parenchyma performs this work; stomata provide a route for gas supply. _[standard]_
+    - example / jagah: Green photosynthetic tissue inside a leaf.
+    - aage: A tissue using a gas is not necessarily the opening admitting it.
+    - screen par: capture light and make food
+    - is level ke liye: Compare chlorenchyma for photosynthesis with aerenchyma for air spaces.
+  - prerequisites: parenchyma; chloroplasts perform photosynthesis
+- **p014-i16** · question · none · both · exam high
+  - Q. Muscle is connected to bone via:
+    - what: Which option is correct? → Option b, Tendon. A tendon provides the usual connection by which a skeletal muscle pulls on a bone. _(outside the book)_
+      - how: How does this connection enable movement? → When a muscle contracts, its pull is transmitted through the tendon to the attached bone, moving the bone about a joint. _(outside the book)_
+  - prerequisites: muscles contract; bones move at joints
+- **p014-i17** · answer_option · structure · both · exam high
+  - a. Ligament
+    - what: What is a ligament? → It is a strong band of connective tissue that commonly connects bone to bone and helps stabilise a joint. _(outside the book)_
+    - where: Where is a familiar example? → Ligaments at the knee and ankle help hold bones in their proper relationship during movement. _(outside the book)_
+      - why: Why does ligament not answer this question? → The question asks for muscle-to-bone attachment. Ligaments chiefly stabilise bone-to-bone relationships, whereas tendons transmit muscle pull. _(outside the book)_
+  - **khola (unpack):**
+    - Ligament yaani joint पर एक bone को दूसरी bone से जोड़कर संभालने वाला मजबूत बैंड · image: दो हिस्सों को सही जगह पकड़े रखने वाला पट्टा
+    - kyon: A moving joint needs bones to stay aligned. _[standard]_ → Ligaments restrain excessive displacement while permitting appropriate movement. _[standard]_
+    - example / jagah: Knee and ankle joints; a sprain can involve ligament injury.
+    - aage: Joint stability differs from transmitting muscle contraction.
+    - screen par: strap and stabilise
+    - is level ke liye: Use attachment endpoints, not the shared label connective tissue, to eliminate this option.
+  - prerequisites: joint connects bones; connective tissue
+- **p014-i18** · answer_option · structure · both · exam high
+  - b. Tendon
+    - what: What is a tendon? → It is a strong connective-tissue structure that usually attaches skeletal muscle to bone and transmits the muscle's pull. _(outside the book)_
+    - where: Where can this connection be recognised? → The Achilles tendon at the back of the ankle connects calf muscles to the heel bone. _(outside the book)_
+      - how: How does a tendon help movement without itself contracting like muscle? → Its strong collagen fibres carry tension generated by muscle contraction to bone, rather like a rope transmitting a pull. _(outside the book)_
+  - **khola (unpack):**
+    - Tendon yaani muscle की खींच bone तक पहुँचाने वाला मजबूत जोड़ · image: रस्सी खींचने पर उसके दूसरे सिरे की चीज़ हिलती है
+    - kyon: A contracting muscle needs a firm attachment to move a bone. _[standard]_ → The tendon transfers its pull to the bone, enabling joint movement. _[standard]_
+    - example / jagah: Achilles tendon between calf muscles and heel bone.
+    - aage: Muscle-generated force becomes bone movement.
+    - screen par: contract, pull and rotate
+    - is level ke liye: Tendon transmits force; ligament stabilises a joint.
+  - prerequisites: skeletal muscle contraction; tension is a pulling force
+- **p014-i19** · answer_option · structure · both · exam high
+  - c. Cartilage
+    - what: What is cartilage? → It is firm but flexible supporting connective tissue, with cells embedded in a substantial surrounding matrix. _(outside the book)_
+    - where: Where is cartilage familiar? → It supports parts of the outer ear and nose and covers bone ends at many freely movable joints. _(outside the book)_
+      - why: Why is cartilage not the muscle-to-bone attachment? → At joints, cartilage provides smooth supportive surfaces and helps distribute loads. Tendons are specialised for transmitting muscle pull to bone. _(outside the book)_
+  - **khola (unpack):**
+    - Cartilage yaani ऐसा सहारा देने वाला tissue जो bone से नरम और थोड़ा लचीला होता है · image: अपने कान के बाहरी हिस्से को हल्का मोड़ना
+    - kyon: Moving bone surfaces need smooth contact and support. _[standard]_ → Joint cartilage helps distribute pressure and permits low-friction movement rather than attaching muscle to bone. _[standard]_
+    - example / jagah: Outer ear, nose and joint surfaces.
+    - aage: Different connective tissues have different mechanical jobs.
+    - screen par: cushion and glide
+    - is level ke liye: Compare three roles: tendon transmits, ligament stabilises, cartilage supports smooth movement.
+  - prerequisites: joint surfaces; connective tissue
+- **p014-i20** · answer_option · none · both · exam medium
+  - d. None
+    - what: What would selecting 'None' mean here? → It would reject ligament, tendon and cartilage as the answer to the stated muscle-to-bone connection.
+      - why: Why should this option be rejected? → Tendon is already offered and correctly identifies the usual muscle-to-bone attachment, so 'None' is unsuitable. _(outside the book)_
+  - **khola (unpack):**
+    - kyon: The question needs an attachment that transmits muscle pull to bone. _[standard]_ → Tendon fulfils that role and is present among the choices, eliminating 'None'. _[standard]_
+    - example / jagah: The tendon option immediately above.
+    - aage: Select b rather than rejecting all named tissues.
+    - screen par: match and eliminate
+    - is level ke liye: Check function and attachment endpoints before choosing a residual option.
+  - prerequisites: tendon connects muscle to bone

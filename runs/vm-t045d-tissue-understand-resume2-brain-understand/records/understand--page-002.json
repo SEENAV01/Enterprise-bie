@@ -1,0 +1,3832 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "understand",
+ "unit": "page-002",
+ "status": "passed",
+ "instructions_version": "understand-page/3",
+ "rulebook_version": "content_types@2026-10-24.1+explanations@2026-10-24.1+level_profiles@2026-10-24.1+simple_hindi@2026-10-24.1+teacher_examples@2026-10-24.1+vision-2026-10-21@2026-10-21.12",
+ "rulebook_digest": "b6ce8b9089ed2428fec978e8b6667bd8182cc61f431233952ca9db5fabf741f7",
+ "rules_used": [
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-05",
+  "G-06",
+  "G-07",
+  "S1-01",
+  "S1-02",
+  "S1-03",
+  "S1-04",
+  "S1-05",
+  "S1-06",
+  "S1-07",
+  "S1-08",
+  "S1-09",
+  "S1-10",
+  "S1-11",
+  "S1-13",
+  "S1-14",
+  "S1-15"
+ ],
+ "maker_route": "codex",
+ "reviewer_route": "google",
+ "maker_model": "gpt-6.1-sol",
+ "reviewer_model": "google/gemini-4-argon",
+ "reviewer_independence": "other_company",
+ "inputs_digest": "cbaf26e5c99dd8e30217d794476ba9e18555e6ff2412689b842a9cb95fa6dad7",
+ "card": {
+  "card": "bie.task-card/1",
+  "card_id": "understand.read_page@10-tissues-and-its-types/page-002",
+  "section": "understand",
+  "task": "read_page",
+  "prefix": {
+   "prefix_id": "understand.read_page/3",
+   "rulebook_version": "content_types@2026-10-24.1+explanations@2026-10-24.1+level_profiles@2026-10-24.1+simple_hindi@2026-10-24.1+teacher_examples@2026-10-24.1+vision-2026-10-21@2026-10-21.12",
+   "content_types_version": "2026-10-24.1",
+   "schema_id": "bie.brain.understand-page/3",
+   "sha256": "2c65fe5395da11acbe84bdbd970f885abbcd58420bfb9075a1f2854f2b6b1574"
+  },
+  "unit": {
+   "unit_id": "page-002",
+   "title": "Page 2 of 14",
+   "pages": [
+    2
+   ]
+  },
+  "parts": [
+   {
+    "part_id": "img",
+    "item_ids": [
+     "p0002-image"
+    ],
+    "type": "figure",
+    "questions": [
+     "what",
+     "which"
+    ],
+    "focus": "This page has no native text to teach from: it is read from the image; BIE proposes figure for its drawings, tables and labels."
+   }
+  ],
+  "rules": [
+   "G-01",
+   "G-02",
+   "G-03",
+   "G-05",
+   "G-06",
+   "G-07",
+   "S1-01",
+   "S1-02",
+   "S1-03",
+   "S1-04",
+   "S1-05",
+   "S1-06",
+   "S1-07",
+   "S1-08",
+   "S1-09",
+   "S1-10",
+   "S1-11",
+   "S1-13",
+   "S1-14",
+   "S1-15"
+  ],
+  "output": {
+   "schema_id": "bie.brain.understand-page/3",
+   "mode": "full",
+   "max_output_tokens": 32000
+  },
+  "coverage": {
+   "must_cover": [],
+   "claim_field": "items[].block_ids or boilerplate_block_ids",
+   "may_skip": [
+    {
+     "item_id": "p0002-b0001",
+     "reason": "running header (the same first line as the next or previous page)"
+    },
+    {
+     "item_id": "p0002-b0002",
+     "reason": "page number"
+    }
+   ]
+  },
+  "context": {
+   "map_slice": [],
+   "before": "Cell Tissues Organ Organ system Organisms",
+   "after": "There are mainly four different types of tissues present in our body."
+  },
+  "source": {
+   "block_ids": [
+    "p0002-b0001",
+    "p0002-b0002"
+   ],
+   "page_images": [
+    {
+     "page": 2,
+     "sha256": "20bbdb3c8980e3506f6f12b24c9fe51b05b636449812938ba8ebd43998ad1762"
+    }
+   ]
+  }
+ },
+ "prefix_sha256": "2c65fe5395da11acbe84bdbd970f885abbcd58420bfb9075a1f2854f2b6b1574",
+ "review_prefix_sha256": "d58daaa7477a22de7e5f866328df3828cd70acff97b87ca8e322dff5cff717a2",
+ "inputs": {
+  "system": "BIE task prefix understand.read_page/3 · rulebook content_types@2026-10-24.1+explanations@2026-10-24.1+level_profiles@2026-10-24.1+simple_hindi@2026-10-24.1+teacher_examples@2026-10-24.1+vision-2026-10-21@2026-10-21.12 · content types 2026-10-24.1 · schema bie.brain.understand-page/3\n\nYou are BIE's book-understanding section: an expert teacher of Science and Technology for UPSC / State PCS aspirants preparing for UPSC / State PCS.\nYou read one page of a book chapter with two eyes, the page's native text blocks and the page image, and turn it into a complete,\nquestion-based teacher's understanding. Later BIE sections build the video lessons, the chapter game and the notes only from what you\ncapture, so anything you miss is missing from the whole course. Your output is internal to BIE: write it in clear English and keep the\nbook's own terms and spellings.\nCourse: \"10. Tissues and Its Types\" · subject: Science and Technology · learners: UPSC / State PCS aspirants · exam: UPSC / State PCS · learner language: Hinglish.\n\nNavin's rules for this task (follow every one):\n[G-01] Everything taught comes from the book. Knowledge from outside the book is allowed only to explain the book better; it is marked as outside, standard textbook-level and correct. Never invent facts, numbers, names or quotations.\n[G-02] Work like the best teacher of these learners and this exam, not like a summariser. Depth beats brevity: nothing teachable on the page is skipped or compressed away, and every explanation makes a student understand, not just remember. Depth means understanding, not length: lesson narration keeps S2-01's time by cutting repetition and side-tracks, never book content.\n[G-03] Before the output, fill 'notes' with brief notes for the reviewer and for Navin: what this unit is about, the key questions a teacher must answer about it, the main decisions you made with a one-line reason each, and anything uncertain. Keep the notes short; they explain the work, they are not the work.\n[G-05] Never drop or compress away what the book teaches to fit a length. If a unit of work is too large, it is split by BIE into smaller units; within a unit, the book's content is complete. Lesson narration has a time target (S2-01), met by cutting repetition and side-tracks, never book content.\n[G-06] BIE is the link between the learner and the book, like a teacher (Navin, 24 October 2026). The book is the base; BIE carries its text, easy or hard, into the learner's mind. Never just read the line out: every book line is opened (what its words mean, why it is so, where it is seen, what follows), at the depth of the level profile.\n[G-07] Two layers, like a film (Navin, 24 October 2026). The writer layer (understanding, plan, script) decides what is said and how deep, following the level profile and the book's own level. The presentation layer (director, video blocks, render) is the same skilled quality for every learner, from class 6 to postgraduate; only the detail shown follows the level, never the craft.\n[S1-01] Read the page with two eyes: the native text blocks (exact words and numbers) and the page image (tables, diagrams, labels, arrows, equations, layout). Items that exist only in the image are as important as text items. A page whose text layer is empty or nearly empty is read entirely from the image.\n[S1-02] Every native text block is either covered by an item (its id in that item's block_ids) or listed as boilerplate. Boilerplate is only running headers, page numbers, publisher adverts, contact lines and watermarks; nothing teachable is boilerplate.\n[S1-03] Every table becomes one 'table' item plus one 'table_row' item per row, in order, each row's content giving every cell with its column header, for example 'Smooth muscle | Location: G.I. tract, uterus, eye, blood vessels | Function: peristalsis, blood pressure, pupil size, erects hairs | Appearance: no striations, one central nucleus | Control: involuntary'. A table continued from the previous page continues the same table.\n[S1-04] Every diagram, chart, flow or tree becomes one 'diagram' item that says what it shows and how its parts connect (arrows, branches, flows, sequence), plus one 'diagram_label' item per label naming what the label points to. A classification tree lists every branch and leaf with its parent.\n[S1-05] Every equation, formula, chemical formula and symbol is read exactly and each symbol's meaning and unit are stated.\n[S1-06] Understand every teachable item by questioning it like a teacher. Ask the questions that fit: what is it, what is it about, where does it apply or occur, how does it work, when, who and whom, which, why, how does it compare, how does it differ, what is the evidence, what are the exceptions, what follows from it. Then keep asking 'why' and 'how' on your own answers (depth 2, 3 ...) until a teacher could explain it to a student meeting it for the first time. Answers explain; they never just repeat the item's words.\n[S1-07] Mark every answer's basis: 'book' only when the page itself states it, 'outside' when any part comes from general knowledge. Use outside knowledge to make the book understandable (mechanisms, reasons, real-life links), never to change what the book says. Keep outside explanations at standard textbook level for these learners and avoid absolute words (always, only, never, all, every) unless the book uses them.\n[S1-08] Give every item its true content type, one of BIE's nine: process, structure, classification, comparison, timeline, cause_effect, facts_numbers, figure, definition (bie/brain/rulebook/content_types.json). An example takes the type of what it illustrates; a question or an answer option is a role, not a type. BIE's code proposes a type before you read the page; when you choose another, say why. The content type decides the required questions and later how the lesson teaches it, how the video shows it, how the game makes it playable and how the notes draw it, so choose by what the content is, not by how it is printed.\n[S1-09] Name the prerequisites a student must already understand for each item, as concrete concepts ('cell and its nucleus', 'what a nerve impulse is'), never vague ('basic biology'). Prerequisites are taught later, not just listed.\n[S1-10] Judge exam importance for the course's exam (for UPSC / State PCS: classifications, comparisons, locations, functions, examples and odd-one-out facts are high). Every previous-year or practice question on the page is captured with its options and linked to the items it tests.\n[S1-11] Where the text layer and the image disagree (garbled symbols, missing words, wrong order), report the disagreement. Trust the image for symbols, layout and diagrams, and the text layer for spelling when it is clean.\n[S1-13] A printed typo stays as printed, with the right word after it in square brackets: 'Cartiage [Cartilage]' (Navin, 23 October 2026). The teacher answers use the right word. Never correct the book silently.\n[S1-14] One answer, one basis (Navin, 23 October 2026): an answer that would mix what the book says with an outside explanation becomes two answers, one with basis 'book' (only what the page states) and one with basis 'outside'.\n[S1-15] Open every teachable item for the learner (Navin, 24 October 2026): in unpack, the terms the learner must hold (each with its plain meaning in simple Hindi and one everyday image), a why chain of 1-4 steps that starts from a need or a problem (each step names its basis, book or standard), an example or the place where it is seen, the consequence, the visual verb the video should show, and what the level profile adds. Every teachable item has at least one unpack element; an unpack that only restates the item in other words is empty.\n\nBIE's content types (the type of an item decides its required questions and how it is taught, shown, played and drawn):\n- process · Process: Something that happens in steps or stages over time: a mechanism, a procedure, a cycle (photosynthesis, cell division, how a bill becomes law). Required questions: how (kaise), when (kab). Other questions: what (kya), where (kahan), why (kyun), consequence (nateeja).\n- structure · Structure: Something made of parts arranged in space, each part with a function (a cell, a leaf, the heart, a machine, the Parliament). Required questions: what (kya), where (kahan). Other questions: how (kaise), why (kyun), which (kaun).\n- classification · Classification: A group divided into kinds by a stated basis (types of tissues, kinds of rocks, kinds of writs). Required questions: which (kaun), difference (tulna). Other questions: what (kya), evidence (saboot), where (kahan).\n- comparison · Comparison: Two or more things set side by side on stated criteria (plant and animal cells, Lok Sabha and Rajya Sabha). Required questions: compare (tulna), difference (tulna). Other questions: what (kya), why (kyun), evidence (saboot).\n- timeline · Timeline: Events placed in time: history, the development of an idea, stages of a life (the Revolt of 1857, evolution of cell theory). Required questions: when (kab), why (kyun). Other questions: who (kaun), where (kahan), consequence (nateeja).\n- cause_effect · Reasoning (cause and effect): Why something happens: causes, effects, conditions and chains of reasoning (why tissues specialise, why prices rise, why a law was needed). Required questions: why (kyun), how (kaise). Other questions: consequence (nateeja), evidence (saboot), exception (tulna).\n- facts_numbers · Facts and numbers: Stated facts, quantities, measurements, statistics and formulas (heart rate 72 per minute, 3,000 against 50,000 soldiers at Plassey, F = ma). Required questions: what (kya), evidence (saboot). Other questions: compare (tulna), why (kyun).\n- figure · Figure: A diagram, photo, map, graph or table drawing on the page whose content is visual (tissue pages 2, 7 and 8 are figures only). Required questions: what (kya), which (kaun). Other questions: how (kaise), why (kyun).\n- definition · Definition: A term and its meaning as the book states it (tissue, meristem, sovereignty). Required questions: what (kya), evidence (saboot). Other questions: about (kya), why (kyun).\n\nOutput schema (JSON):\n{\"additionalProperties\":false,\"properties\":{\"boilerplate_block_ids\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"items\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"block_ids\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"content\":{\"type\":\"string\"},\"content_type\":{\"enum\":[\"process\",\"structure\",\"classification\",\"comparison\",\"timeline\",\"cause_effect\",\"facts_numbers\",\"figure\",\"definition\",\"none\"],\"type\":\"string\"},\"exam_importance\":{\"enum\":[\"high\",\"medium\",\"low\"],\"type\":\"string\"},\"exam_note\":{\"type\":\"string\"},\"item_id\":{\"type\":\"string\"},\"kind\":{\"enum\":[\"heading\",\"paragraph\",\"definition\",\"list_point\",\"example\",\"table\",\"table_row\",\"diagram\",\"diagram_label\",\"equation\",\"symbol\",\"box_note\",\"caption\",\"question\",\"answer_option\",\"other\"],\"type\":\"string\"},\"parent_item_id\":{\"type\":\"string\"},\"prerequisites\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"source\":{\"enum\":[\"text\",\"image\",\"both\"],\"type\":\"string\"},\"teachable\":{\"type\":\"boolean\"},\"teacher_understanding\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"answer\":{\"type\":\"string\"},\"ask\":{\"enum\":[\"what\",\"about\",\"where\",\"how\",\"when\",\"who\",\"whom\",\"which\",\"why\",\"compare\",\"difference\",\"evidence\",\"exception\",\"consequence\"],\"type\":\"string\"},\"basis\":{\"enum\":[\"book\",\"outside\"],\"type\":\"string\"},\"depth\":{\"description\":\"1 for a first question; 2, 3 ... for a deeper why/how on an earlier answer\",\"type\":\"integer\"},\"question\":{\"type\":\"string\"}},\"required\":[\"depth\",\"ask\",\"question\",\"answer\",\"basis\"],\"type\":\"object\"},\"type\":\"array\"},\"tests_item_ids\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"type_note\":{\"type\":\"string\"},\"unpack\":{\"additionalProperties\":false,\"properties\":{\"consequence\":{\"type\":\"string\"},\"example_or_place\":{\"type\":\"string\"},\"level_extra\":{\"type\":\"string\"},\"terms\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"everyday_image\":{\"type\":\"string\"},\"plain_meaning\":{\"type\":\"string\"},\"term\":{\"type\":\"string\"}},\"required\":[\"term\",\"plain_meaning\",\"everyday_image\"],\"type\":\"object\"},\"type\":\"array\"},\"visual_verb\":{\"type\":\"string\"},\"why_chain\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"basis\":{\"enum\":[\"book\",\"standard\"],\"type\":\"string\"},\"step\":{\"type\":\"string\"}},\"required\":[\"step\",\"basis\"],\"type\":\"object\"},\"type\":\"array\"}},\"required\":[\"terms\",\"why_chain\",\"example_or_place\",\"consequence\",\"visual_verb\",\"level_extra\"],\"type\":\"object\"},\"where_on_page\":{\"type\":\"string\"}},\"required\":[\"item_id\",\"kind\",\"parent_item_id\",\"source\",\"block_ids\",\"where_on_page\",\"content\",\"content_type\",\"type_note\",\"teachable\",\"teacher_understanding\",\"prerequisites\",\"exam_importance\",\"exam_note\",\"tests_item_ids\",\"unpack\"],\"type\":\"object\"},\"type\":\"array\"},\"notes\":{\"additionalProperties\":false,\"properties\":{\"about\":{\"description\":\"What this unit of work is about and how it fits the whole (one or two sentences).\",\"type\":\"string\"},\"decisions\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"decision\":{\"type\":\"string\"},\"reason\":{\"type\":\"string\"}},\"required\":[\"decision\",\"reason\"],\"type\":\"object\"},\"type\":\"array\"},\"key_questions\":{\"description\":\"The key questions a teacher must answer about this unit.\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"uncertain\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"}},\"required\":[\"about\",\"key_questions\",\"decisions\",\"uncertain\"],\"type\":\"object\"},\"page_summary\":{\"type\":\"string\"},\"text_image_disagreements\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"block_ids\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"image_shows\":{\"type\":\"string\"},\"text_says\":{\"type\":\"string\"}},\"required\":[\"block_ids\",\"text_says\",\"image_shows\"],\"type\":\"object\"},\"type\":\"array\"}},\"required\":[\"notes\",\"page_summary\",\"items\",\"boilerplate_block_ids\",\"text_image_disagreements\"],\"type\":\"object\"}\n\nHow BIE talks to you: every request is a task card (JSON) followed by its source. The card names the unit, its parts with their content type and required questions, the ids of the rules above that apply, the output, the ids you must cover and the context. The card is BIE's instruction; the source is the material.\nFor a read_page card:\n- card.parts: BIE's code has already proposed a content type for groups of this page's native text blocks (item_ids are block ids;\n  \"pNNNN-image\" is the page image), with the evidence in \"focus\". It is a proposal from keywords and patterns, not a verdict: give\n  every item its true type (S1-08). When you choose another type than BIE's proposal for an item's blocks, say why in one line in that\n  item's type_note; BIE's code compares every item and sends unexplained differences back to you.\n- card.coverage: every id in must_cover must be in some item's block_ids or in boilerplate_block_ids; may_skip lists blocks BIE thinks are\n  running headers or page numbers. Never list an id that is not on this page.\n- card.context.before and after: one line from the previous and the next page, for context only.\nHow to fill the JSON:\n- notes: brief notes for the reviewer: what the page is about and how it fits the chapter, the key questions a teacher must answer,\n  your main decisions (how you split items, how you read an unclear part, a type you chose against BIE's proposal) with a reason each,\n  and what is uncertain.\n- items: everything on the page, in reading order.\n  - item_id: short and unique on this page (\"i1\", \"i2\", ...).\n  - kind: heading, paragraph, definition, list_point, example, table (the whole table), table_row (one per row), diagram (the whole figure),\n    diagram_label (one per label), equation, symbol, box_note, caption, question (a PYQ or practice question), answer_option, other.\n  - parent_item_id: the table of a table_row, the diagram of a diagram_label, the question of an answer_option, else \"\". When the page\n    starts with the options of a question printed on the previous page, add one question item for that question (content: \"continued\n    from the previous page\" and what the options answer) and make it their parent.\n  - source: \"text\" if the item comes from native text blocks, \"image\" if it is visible only in the image, \"both\" if both show it.\n  - block_ids: the ids of the native text blocks this item covers ([] for image-only items). Use only ids from the card.\n  - where_on_page: where it is (\"top table, row 2\", \"right diagram, label at the axon end\").\n  - content: the exact words for text items; a complete, faithful reading for image items (every cell with its column header for a\n    table_row; what a label names and what it points to for a diagram_label; all branches for a tree). A printed typo stays as\n    printed with the right word after it in square brackets, \"Cartiage [Cartilage]\" (S1-13); never correct the book silently.\n  - content_type: one of BIE's nine type ids above, by what the content is. An example takes the type of what it illustrates; a table\n    row or a diagram label usually takes its table's or diagram's type. \"none\" only for a question, an answer option or an item that is\n    not teachable.\n  - type_note: \"\" when you agree with BIE's proposal for this item's blocks (or there is none); otherwise one line on why your type fits.\n  - teachable: false only for pure headings and containers whose children carry the content.\n  - teacher_understanding: the teacher's questions and answers for this item (S1-06); depth 1 for first questions, 2 and more for\n    \"why\"/\"how\" on an earlier answer; basis \"book\" only if the page states it, else \"outside\"; one answer, one basis: an answer that\n    would mix what the book says with an outside explanation becomes two answers, one \"book\" and one \"outside\" (S1-14). BIE's code\n    checks every teachable item:\n    at least two questions, at least one \"why\" or \"how\", at least the required questions of its content type, and no answer that only\n    repeats its question or the item's words.\n  - prerequisites: concrete concepts a student must understand first.\n  - exam_importance and exam_note: for this exam.\n  - tests_item_ids: for a question, the ids on this page that it tests ([] if they are on other pages).\n  - unpack: how a teacher opens this book line for the learner (S1-15; BIE is the link between the learner and the book, never a\n    reader of the line). For every teachable item, at the depth of the level profile below:\n    terms = the words of the line the learner must own: [{term (as the book spells it), plain_meaning (everyday spoken Hindi in Devanagari\n    with the book's English terms in Roman: \"tissue\", \"cell\", \"epithelium\", \"muscle\", never their textbook Hindi ऊतक, कोशिका, उपकला, मांसपेशी;\n    BIE's code sends an item back for a textbook translation. For example \"absorptive surface\" → \"जहाँ चीज़ें अंदर ली जाती हैं\"),\n    everyday_image (one image from the learner's\n    home or body: \"आँत खाने के पोषक तत्व सोखती है, जैसे कागज़ पानी\")}]; why_chain = the why in steps, starting from a need or a\n    problem (\"पेट में HCl बनता है, इसलिए अंदर एक lining चाहिए\"), each step with its basis: \"book\" when the page says it, \"standard\"\n    when it is standard textbook knowledge; example_or_place = one example, or the place by a zoom from the organ the learner knows;\n    consequence = what follows, and the link to the previous or the next idea of the page; visual_verb = what visibly happens on the\n    screen when this is taught (\"particles cross the thin layer\"); level_extra = what this level adds (the other names, the exam's\n    trap, the memory trick) or \"\". BIE's code checks that every teachable item has at least one unpack element and that every why\n    step names its basis; a locked explanation given with the source is reused as it is. A question item or a pure heading leaves\n    unpack empty.\n- boilerplate_block_ids: ids of running headers, page numbers, adverts, contact lines and watermarks only.\n- text_image_disagreements: where the text layer and the image differ.\nReply with the JSON object only.\n\nLevel profile: UPSC / State PCS (level_profiles.json; learners: UPSC and State PCS aspirants, often from arts backgrounds, who need understanding more than technical vocabulary).\n- Terms: fewer technical terms: only the ones the exam asks, each opened with its plain meaning and an everyday image; a term the exam never asks is explained in words, not named.\n- Why: 2 step(s); a two-step why from a need the learner can feel, then its link to daily life, health or governance.\n- Where found: the main places, each linked to something the learner already knows (a disease, a food, a news item).\n- Exam beats: the PYQ pattern: how this fact has been asked (statement combinations, 'which is correct', odd one out) and the wording that traps.\n- Links: daily life, health, the news and earlier chapters of the same paper.\n\nHow real teachers open a book line (teacher example bank 2026-10-24.1; use these ways, in your own words):\n- One everyday image per shape or function (every term that names a shape, a layer or a job): Chaadar bichhi ho to bistar bacha rehta hai = protective sheet. Cube wala game, har side barabar = cuboidal. Building ka pillar = columnar. Farsh ki tiles = squamous, isliye tessellated bhi kehte hain.\n- The word root where it helps (a term whose parts carry its meaning): Epi yaani upar; epithelium yaani upar ki parat. Slender yaani long aur narrow.\n- Why starts from a need (every why step): Pet mein HCl banta hai, isliye andar ek lining chahiye jo khud na jale. Cells bahar ki taraf hain, tootne ka chance zyada, isliye regeneration zyada.\n- Link to something already known (a new place or a new structure): Peritoneum, jaise lungs ke aas-paas pleura aur heart ke aas-paas pericardium: wahi kaam, pet ke andar.\n- Meaning with two or three real examples (an abstract word in the book): Sensory perception yaani pehchanna: thanda lagna, dard hona, pressure mehsoos karna.\n- Open the book's adjective (Navin's example) (a book line names a kind of surface, job or place without saying what it is): Book: 'epithelium absorptive aur secretive surfaces par milta hai'. Teacher: absorptive surface yaani jahan cheezein andar li jaati hain, jaise aant khane ke poshak tatva sokhti hai; secretive yaani jahan cells kuch bana kar bahar chhodte hain, jaise glands enzyme ya juice. Aur epithelium wahan kyon? Kyunki ek patli, lagi hui parat hi cheezon ko paar jaane de sakti hai aur bana kar chhod sakti hai.",
+  "user": [
+   {
+    "type": "text",
+    "text": "BIE task card (JSON):\n{\"card\":\"bie.task-card/1\",\"card_id\":\"understand.read_page@10-tissues-and-its-types/page-002\",\"section\":\"understand\",\"task\":\"read_page\",\"prefix\":{\"prefix_id\":\"understand.read_page/3\",\"rulebook_version\":\"content_types@2026-10-24.1+explanations@2026-10-24.1+level_profiles@2026-10-24.1+simple_hindi@2026-10-24.1+teacher_examples@2026-10-24.1+vision-2026-10-21@2026-10-21.12\",\"content_types_version\":\"2026-10-24.1\",\"schema_id\":\"bie.brain.understand-page/3\",\"sha256\":\"2c65fe5395da11acbe84bdbd970f885abbcd58420bfb9075a1f2854f2b6b1574\"},\"unit\":{\"unit_id\":\"page-002\",\"title\":\"Page 2 of 14\",\"pages\":[2]},\"parts\":[{\"part_id\":\"img\",\"item_ids\":[\"p0002-image\"],\"type\":\"figure\",\"questions\":[\"what\",\"which\"],\"focus\":\"This page has no native text to teach from: it is read from the image; BIE proposes figure for its drawings, tables and labels.\"}],\"rules\":[\"G-01\",\"G-02\",\"G-03\",\"G-05\",\"G-06\",\"G-07\",\"S1-01\",\"S1-02\",\"S1-03\",\"S1-04\",\"S1-05\",\"S1-06\",\"S1-07\",\"S1-08\",\"S1-09\",\"S1-10\",\"S1-11\",\"S1-13\",\"S1-14\",\"S1-15\"],\"output\":{\"schema_id\":\"bie.brain.understand-page/3\",\"mode\":\"full\",\"max_output_tokens\":32000},\"coverage\":{\"must_cover\":[],\"claim_field\":\"items[].block_ids or boilerplate_block_ids\",\"may_skip\":[{\"item_id\":\"p0002-b0001\",\"reason\":\"running header (the same first line as the next or previous page)\"},{\"item_id\":\"p0002-b0002\",\"reason\":\"page number\"}]},\"context\":{\"map_slice\":[],\"before\":\"Cell Tissues Organ Organ system Organisms\",\"after\":\"There are mainly four different types of tissues present in our body.\"},\"source\":{\"block_ids\":[\"p0002-b0001\",\"p0002-b0002\"],\"page_images\":[{\"page\":2,\"sha256\":\"20bbdb3c8980e3506f6f12b24c9fe51b05b636449812938ba8ebd43998ad1762\"}]}}\n\nNative text blocks of this page (id | text):\np0002-b0001 | Science and Technology\np0002-b0002 | 88"
+   },
+   {
+    "type": "text",
+    "text": "The page image:"
+   },
+   {
+    "type": "image",
+    "media_type": "image/png",
+    "sha256": "328277ba7913c39ae58131d8eb162563b3319ed382f8ed35027f0903c50f399e",
+    "base64_chars": 802088
+   },
+   {
+    "type": "text",
+    "text": "Read this page with both eyes and answer the card with the page understanding JSON."
+   }
+  ]
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "started_at": 1792846542.849462,
+   "mode": "full",
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "9c6e011cff274c6d71d282b6f6b01f4178863633bedfc77cd79a6ac7f52ed153",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 12346,
+    "output_tokens": 21310,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "This visual overview classifies animal tissues and connects their microscopic appearances with examples in the human body.",
+    "key_questions": [
+     "What are the four main animal tissue groups and their branches?",
+     "How do the pictured tissues differ in shape, arrangement and role?",
+     "Which body structures and locations illustrate each group?"
+    ],
+    "decisions": [
+     {
+      "decision": "Treat the upper tree and lower body illustration as separate figures, with individual label items.",
+      "reason": "The tree teaches hierarchy; the lower figure teaches recognition and body connections."
+     },
+     {
+      "decision": "Retain the proposed figure type for the visual labels.",
+      "reason": "Their meaning depends on branches, pointers and drawings rather than accompanying prose."
+     },
+     {
+      "decision": "Separate visible relationships from standard explanatory knowledge.",
+      "reason": "Functions and detailed locations are mostly not explicitly stated on this page."
+     }
+    ],
+    "uncertain": [
+     "The tree prints 'Non-straited' and 'Cartiage'; corrections are supplied in brackets.",
+     "Some fine pointer endpoints in the lower body illustration are schematic; detailed locations are not inferred from these alone."
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "This visual overview classifies animal tissues and connects their microscopic appearances with examples in the human body.",
+     "key_questions": [
+      "What are the four main animal tissue groups and their branches?",
+      "How do the pictured tissues differ in shape, arrangement and role?",
+      "Which body structures and locations illustrate each group?"
+     ],
+     "decisions": [
+      {
+       "decision": "Treat the upper tree and lower body illustration as separate figures, with individual label items.",
+       "reason": "The tree teaches hierarchy; the lower figure teaches recognition and body connections."
+      },
+      {
+       "decision": "Retain the proposed figure type for the visual labels.",
+       "reason": "Their meaning depends on branches, pointers and drawings rather than accompanying prose."
+      },
+      {
+       "decision": "Separate visible relationships from standard explanatory knowledge.",
+       "reason": "Functions and detailed locations are mostly not explicitly stated on this page."
+      }
+     ],
+     "uncertain": [
+      "The tree prints 'Non-straited' and 'Cartiage'; corrections are supplied in brackets.",
+      "Some fine pointer endpoints in the lower body illustration are schematic; detailed locations are not inferred from these alone."
+     ]
+    },
+    "page_summary": "Animal tissues are shown as epithelial, muscular, connective and nervous/neural. A branching tree lists their subdivisions, while a body-centred illustration shows muscle forms, epithelial arrangements, nervous structures, tendon, bone and fat.",
+    "items": [
+     {
+      "item_id": "i1",
+      "kind": "diagram",
+      "parent_item_id": "",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "upper half",
+      "content": "Animal Tissues classification tree. Animal Tissues branches into Epithelial Tissue, Muscular Tissue, Connective Tissue and Nervous / Neural Tissue. Epithelial Tissue branches into Simple squamous epithelium, Stratified squamous epithelium, Columnar epithelium, Ciliated columnar epithelium, Cuboidal epithelium and Glandular epithelium. Muscular Tissue branches into Striated muscle, Non-straited [Non-striated] muscle and Cardiac muscle. Connective Tissue branches into Connective tissue proper, Supportive connective tissue and Fluid connective tissue. Connective tissue proper branches into Areolar tissue, Adipose tissue and Fibrous tissue. Supportive connective tissue branches into Cartiage [Cartilage] and Bone. Fluid connective tissue branches into Blood and Lymph. Nervous / Neural Tissue has no further branch shown.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does this tree organise?",
+        "answer": "It places four major animal tissue groups under one heading and shows subdivisions of epithelial, muscular and connective tissues.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which branches contain blood and cardiac muscle?",
+        "answer": "Blood is under fluid connective tissue; cardiac muscle is under muscular tissue.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How should the branches be read?",
+        "answer": "Follow each arrow from its broader parent to a narrower category; a lower label is not a fifth major tissue group.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "cell",
+       "tissue as a group of cells"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Useful for classification, matching and odd-one-out questions; no practice question is printed.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Animal Tissues",
+         "plain_meaning": "जानवरों के शरीर में मिलकर काम करने वाले cell के समूह",
+         "everyday_image": "शरीर में अलग-अलग काम करने वाली टीमें"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "A body needs covering, movement, support and coordination.",
+         "basis": "standard"
+        },
+        {
+         "step": "The tree sorts tissues into groups so their different jobs can be studied systematically.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Human body in the lower illustration.",
+       "consequence": "Read a tissue's complete parent chain before choosing its category.",
+       "visual_verb": "Branch and trace",
+       "level_extra": "Blood and lymph remain connective tissues despite being fluid."
+      }
+     },
+     {
+      "item_id": "i2",
+      "kind": "diagram_label",
+      "parent_item_id": "i1",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "tree, top centre",
+      "content": "Animal Tissues — root label above all four primary branches.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is the scope of this root label?",
+        "answer": "It includes all the tissue groups connected below it, rather than naming one organ.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which groups immediately follow it?",
+        "answer": "Epithelial, muscular, connective and nervous/neural tissues.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why can one body contain different tissue groups?",
+        "answer": "Different tasks need cells with different arrangements and specialisations.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell",
+       "organ"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Distinguish tissue categories from organs.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "tissue",
+         "plain_meaning": "एक तरह के काम में साथ लगे cell का समूह",
+         "everyday_image": "एक काम करने वाली टीम"
+        }
+       ],
+       "why_chain": [],
+       "example_or_place": "Human body",
+       "consequence": "One organ can contain several tissue types.",
+       "visual_verb": "Split",
+       "level_extra": "An organ is not a fifth tissue class."
+      }
+     },
+     {
+      "item_id": "i3",
+      "kind": "diagram_label",
+      "parent_item_id": "i1",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "tree, main left branch",
+      "content": "Epithelial Tissue — primary branch connected to six epithelial categories.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does the epithelial branch contain?",
+        "answer": "Six named forms, including squamous, columnar, cuboidal, ciliated and glandular categories.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which squamous forms are distinguished?",
+        "answer": "Simple squamous and stratified squamous epithelium.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does epithelium suit covering and lining?",
+        "answer": "Closely packed cells form a continuous sheet across a surface.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell",
+       "body surface"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Shape, layering and surface specialisation are different naming criteria.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Epithelial Tissue",
+         "plain_meaning": "शरीर की सतह ढकने या अंदर lining बनाने वाले cell की परत",
+         "everyday_image": "बिस्तर पर बिछी चादर"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Body surfaces need a boundary.",
+         "basis": "standard"
+        },
+        {
+         "step": "A joined cell sheet provides covering and controlled exchange.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Skin and gut lining",
+       "consequence": "Different surfaces require different epithelial arrangements.",
+       "visual_verb": "Cover",
+       "level_extra": "Do not equate all epithelium with skin."
+      }
+     },
+     {
+      "item_id": "i4",
+      "kind": "diagram_label",
+      "parent_item_id": "i1",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "tree, main second branch",
+      "content": "Muscular Tissue — parent of Striated muscle, Non-straited [Non-striated] muscle and Cardiac muscle.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does this branch organise?",
+        "answer": "The three muscle types named in the tree.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which types are shown?",
+        "answer": "Striated, non-striated and cardiac muscle.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does muscle produce movement?",
+        "answer": "Muscle cells contract, developing force that moves a body part or contents of an organ.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell",
+       "movement"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Compare skeletal, smooth and cardiac muscle.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Muscular Tissue",
+         "plain_meaning": "सिकुड़कर खिंचाव और हरकत पैदा करने वाला tissue",
+         "everyday_image": "हाथ मोड़ते समय उभरती muscle"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "The body must move limbs and internal contents.",
+         "basis": "standard"
+        },
+        {
+         "step": "Contractile tissue supplies the force.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Arm, gut and heart",
+       "consequence": "Different movements use different muscle types.",
+       "visual_verb": "Contract",
+       "level_extra": "Cardiac muscle is also striated in appearance."
+      }
+     },
+     {
+      "item_id": "i5",
+      "kind": "diagram_label",
+      "parent_item_id": "i1",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "tree, main third branch",
+      "content": "Connective Tissue — parent of Connective tissue proper, Supportive connective tissue and Fluid connective tissue.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is included in this branch?",
+        "answer": "Three categories: connective tissue proper, supportive connective tissue and fluid connective tissue.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which examples demonstrate its range?",
+        "answer": "The tree includes fat-related adipose tissue, bone, blood and lymph within connective tissue.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why can such different-looking tissues share a group?",
+        "answer": "Their cells lie within an extracellular matrix whose properties vary, allowing binding, support or transport.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell",
+       "material between cells"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Connective tissue is not restricted to solid supporting material.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Connective Tissue",
+         "plain_meaning": "जोड़ने, सहारा देने या चीज़ें पहुँचाने वाला tissue",
+         "everyday_image": "घर का सहारा और कमरों को जोड़ते रास्ते"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Body parts need support and exchange between them.",
+         "basis": "standard"
+        },
+        {
+         "step": "Different matrices let connective tissues perform these varied jobs.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Bone, tendon, fat and blood",
+       "consequence": "Matrix need not be hard.",
+       "visual_verb": "Connect",
+       "level_extra": "Common odd-one-out group."
+      }
+     },
+     {
+      "item_id": "i6",
+      "kind": "diagram_label",
+      "parent_item_id": "i1",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "tree, far-right main branch",
+      "content": "Nervous / Neural Tissue — fourth primary branch; no subdivisions shown.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does the slash indicate here?",
+        "answer": "Nervous and neural are alternative names for the same main tissue group.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which lower illustration corresponds to this branch?",
+        "answer": "The Nerve tissue box and the labelled brain, spinal cord and nerve.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does nervous tissue coordinate the body?",
+        "answer": "Specialised cells receive and transmit signals between body regions.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell",
+       "signal"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Nervous and neural are not two separate major types.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Neural",
+         "plain_meaning": "शरीर के संदेश पहुँचाने वाले nerve system से जुड़ा",
+         "everyday_image": "फोन पर पहुँचता संदेश"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Body parts must respond together.",
+         "basis": "standard"
+        },
+        {
+         "step": "Signal-carrying cells enable coordination.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Brain and spinal cord",
+       "consequence": "Links sensation with response.",
+       "visual_verb": "Transmit",
+       "level_extra": "Neuron, nerve and nervous tissue describe different organisational levels."
+      }
+     },
+     {
+      "item_id": "i7",
+      "kind": "diagram_label",
+      "parent_item_id": "i1",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "tree, muscular left leaf",
+      "content": "Striated muscle — left child of Muscular Tissue.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What feature does striated describe?",
+        "answer": "Visible alternating bands across muscle fibres under the microscope.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which lower picture represents the skeletal form?",
+        "answer": "The cylindrical bundle labelled Skeletal muscle in the muscular tissue box.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why must striated not automatically mean voluntary?",
+        "answer": "Cardiac muscle has striations too, but its contractions are involuntary.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "muscle fibre"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Appearance and voluntary control are different criteria.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Striated",
+         "plain_meaning": "जिसमें आड़ी धारियाँ दिखती हैं",
+         "everyday_image": "धारीदार कपड़ा"
+        }
+       ],
+       "why_chain": [],
+       "example_or_place": "Skeletal muscles of limbs",
+       "consequence": "Recognise banding without assuming control type.",
+       "visual_verb": "Stripe",
+       "level_extra": "Cardiac muscle is the important exception to a loose striated-equals-voluntary rule."
+      }
+     },
+     {
+      "item_id": "i8",
+      "kind": "diagram_label",
+      "parent_item_id": "i1",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "tree, muscular middle leaf",
+      "content": "Non-straited [Non-striated] muscle — middle child of Muscular Tissue.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does non-striated mean?",
+        "answer": "Muscle without the visible cross-banding typical of striated fibres.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which lower label names this muscle form?",
+        "answer": "Smooth muscle is the standard name for non-striated muscle.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does this muscle help internal organs?",
+        "answer": "Its involuntary contractions move contents through organs such as the intestine.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "muscle contraction",
+       "striations"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Non-striated and smooth refer to the same muscle type here.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Non-striated",
+         "plain_meaning": "जिस muscle में आड़ी धारियाँ नहीं दिखतीं",
+         "everyday_image": "बिना धारियों वाला कपड़ा"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Food must move even without conscious instructions.",
+         "basis": "standard"
+        },
+        {
+         "step": "Smooth muscle contracts involuntarily in the gut wall.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Intestinal wall",
+       "consequence": "Distinguish smooth muscle from skeletal and cardiac muscle.",
+       "visual_verb": "Squeeze",
+       "level_extra": "Correct the spelling in teaching, not silently in the transcription."
+      }
+     },
+     {
+      "item_id": "i9",
+      "kind": "diagram_label",
+      "parent_item_id": "i1",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "tree, muscular right leaf",
+      "content": "Cardiac muscle — right child of Muscular Tissue.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does cardiac identify?",
+        "answer": "The specialised muscle of the heart.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which other muscle categories share its parent?",
+        "answer": "Striated and non-striated muscle are the other two branches shown.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why distinguish cardiac from skeletal muscle?",
+        "answer": "Both are striated, but cardiac fibres are branched and contract involuntarily to pump blood.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "heart",
+       "muscle contraction"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Striated but involuntary is a key combination.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Cardiac",
+         "plain_meaning": "दिल से जुड़ा",
+         "everyday_image": "लगातार धड़कता दिल"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Blood needs repeated pumping.",
+         "basis": "standard"
+        },
+        {
+         "step": "Cardiac muscle provides coordinated involuntary contractions.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Heart wall",
+       "consequence": "Muscle appearance alone does not determine control.",
+       "visual_verb": "Beat",
+       "level_extra": "Contrast cardiac, skeletal and smooth muscle."
+      }
+     },
+     {
+      "item_id": "i10",
+      "kind": "diagram_label",
+      "parent_item_id": "i1",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "tree, connective left subbranch",
+      "content": "Connective tissue proper — parent of Areolar tissue, Adipose tissue and Fibrous tissue.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does this intermediate branch collect?",
+        "answer": "Areolar, adipose and fibrous tissue under connective tissue proper.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which sibling categories must be distinguished?",
+        "answer": "Supportive connective tissue and fluid connective tissue.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do these examples serve different needs?",
+        "answer": "Areolar tissue packs and binds, adipose stores fat, and fibrous tissue resists pulling forces.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "connective tissue",
+       "matrix"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Use the book's displayed hierarchy.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Connective tissue proper",
+         "plain_meaning": "connective tissue की वह शाखा जिसमें भराव, fat और रेशेदार tissue रखे हैं",
+         "everyday_image": "कुशन का भराव और मजबूत बाँधने वाले धागे"
+        }
+       ],
+       "why_chain": [],
+       "example_or_place": "Under skin and between body structures",
+       "consequence": "Do not place blood or cartilage under this branch in this tree.",
+       "visual_verb": "Group",
+       "level_extra": "Classification terminology may vary across texts; retain this page's scheme."
+      }
+     },
+     {
+      "item_id": "i11",
+      "kind": "diagram_label",
+      "parent_item_id": "i1",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "tree, connective middle subbranch",
+      "content": "Supportive connective tissue — parent of Cartiage [Cartilage] and Bone.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does this branch show?",
+        "answer": "Cartilage and bone belong to the supportive category of connective tissue.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which two supporting tissues are paired?",
+        "answer": "Cartilage and bone.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why are they useful supports?",
+        "answer": "Their firm extracellular matrices resist deformation; bone is more rigid and cartilage more flexible.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "matrix",
+       "support"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Compare flexible cartilage with mineralised bone.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Supportive",
+         "plain_meaning": "शरीर को टिकाए रखने और आकार देने वाला",
+         "everyday_image": "इमारत का ढाँचा"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Soft body parts need a framework.",
+         "basis": "standard"
+        },
+        {
+         "step": "Firm matrices provide support with different degrees of flexibility.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Skeleton and joint cartilage",
+       "consequence": "Support is a connective-tissue role.",
+       "visual_verb": "Brace",
+       "level_extra": "Both are living tissues, not inert materials."
+      }
+     },
+     {
+      "item_id": "i12",
+      "kind": "diagram_label",
+      "parent_item_id": "i1",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "tree, connective right subbranch",
+      "content": "Fluid connective tissue — parent of Blood and Lymph.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is grouped under fluid connective tissue?",
+        "answer": "Blood and lymph.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which main tissue group contains this branch?",
+        "answer": "Connective Tissue, not Nervous / Neural Tissue.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is a fluid useful here?",
+        "answer": "A liquid medium can transport cells and dissolved substances between body regions.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "fluid",
+       "connective tissue matrix"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Fluid does not mean non-tissue.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Fluid connective tissue",
+         "plain_meaning": "बहने वाले माध्यम वाला connective tissue",
+         "everyday_image": "पानी के रास्ते सामान पहुँचाती नाव"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Distant cells need supplies and waste removal.",
+         "basis": "standard"
+        },
+        {
+         "step": "A flowing medium enables transport.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Blood vessels and lymphatic vessels",
+       "consequence": "Connective tissue includes transport as well as support.",
+       "visual_verb": "Flow",
+       "level_extra": "Blood and lymph are frequent classification traps."
+      }
+     },
+     {
+      "item_id": "i13",
+      "kind": "diagram_label",
+      "parent_item_id": "i1",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "tree, connective proper left leaf",
+      "content": "Areolar tissue — child of Connective tissue proper.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is areolar tissue?",
+        "answer": "A loose connective tissue that fills spaces and binds nearby structures.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which branch contains it?",
+        "answer": "Connective tissue proper.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does a loose arrangement help?",
+        "answer": "Its fibres and ground material support surrounding tissues while permitting movement and exchange.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "connective tissue",
+       "fibres"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Recognise loose packing tissue.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Areolar tissue",
+         "plain_meaning": "खाली जगह भरकर हिस्सों को सहारा देने वाला ढीला tissue",
+         "everyday_image": "डिब्बे में सामान के बीच नरम packing"
+        }
+       ],
+       "why_chain": [],
+       "example_or_place": "Between skin and underlying structures",
+       "consequence": "Packing does not require a rigid matrix.",
+       "visual_verb": "Fill",
+       "level_extra": "Distinguish areolar from fat-storing adipose tissue."
+      }
+     },
+     {
+      "item_id": "i14",
+      "kind": "diagram_label",
+      "parent_item_id": "i1",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "tree, connective proper middle leaf",
+      "content": "Adipose tissue — child of Connective tissue proper.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What characterises adipose tissue?",
+        "answer": "It contains cells specialised for storing fat.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which tree category includes it?",
+        "answer": "Connective tissue proper.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is fat storage useful?",
+        "answer": "Stored fat provides an energy reserve, insulation and cushioning.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "fat",
+       "energy storage"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Fat tissue is connective tissue.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Adipose tissue",
+         "plain_meaning": "fat जमा करने वाले cell का tissue",
+         "everyday_image": "शरीर की बचत और नरम गद्दी"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "The body needs reserve fuel and padding.",
+         "basis": "standard"
+        },
+        {
+         "step": "Fat-storing cells provide both.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Beneath skin",
+       "consequence": "Connects the tree to the lower fat-cell drawing.",
+       "visual_verb": "Store",
+       "level_extra": "Do not confuse adipose tissue with a gland."
+      }
+     },
+     {
+      "item_id": "i15",
+      "kind": "diagram_label",
+      "parent_item_id": "i1",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "tree, connective proper right leaf",
+      "content": "Fibrous tissue — child of Connective tissue proper.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does fibrous indicate?",
+        "answer": "A connective tissue rich in fibres that provide mechanical strength.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which category contains it?",
+        "answer": "Connective tissue proper.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do fibres help attachments?",
+        "answer": "Bundles resist tension, allowing force to be transmitted without easy separation.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "fibre",
+       "pulling force"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Link with the tendon illustration.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Fibrous",
+         "plain_meaning": "मजबूत रेशों से भरपूर",
+         "everyday_image": "कई धागों से बनी रस्सी"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Attachments experience pulling forces.",
+         "basis": "standard"
+        },
+        {
+         "step": "Strong fibre bundles resist that pull.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Tendon",
+       "consequence": "Strength depends on matrix arrangement.",
+       "visual_verb": "Pull",
+       "level_extra": "Tendon and ligament are not muscle."
+      }
+     },
+     {
+      "item_id": "i16",
+      "kind": "diagram_label",
+      "parent_item_id": "i1",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "tree, supportive left leaf",
+      "content": "Cartiage [Cartilage] — child of Supportive connective tissue.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is cartilage?",
+        "answer": "A firm but relatively flexible supporting connective tissue.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which leaf shares its parent?",
+        "answer": "Bone.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is cartilage useful at joints?",
+        "answer": "Its resilient matrix provides a smooth, cushioning surface where bones meet.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "joint",
+       "matrix"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Classify as supportive connective tissue.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Cartilage",
+         "plain_meaning": "मजबूत पर कुछ लचीला सहारा देने वाला tissue",
+         "everyday_image": "कान का मुड़कर वापस आ जाने वाला हिस्सा"
+        }
+       ],
+       "why_chain": [],
+       "example_or_place": "Outer ear and joint surfaces",
+       "consequence": "Support need not be as rigid as bone.",
+       "visual_verb": "Bend",
+       "level_extra": "Not every flexible body part is muscle."
+      }
+     },
+     {
+      "item_id": "i17",
+      "kind": "diagram_label",
+      "parent_item_id": "i1",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "tree, supportive right leaf",
+      "content": "Bone — child of Supportive connective tissue.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What kind of tissue is bone in this tree?",
+        "answer": "Supportive connective tissue.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which neighbouring leaf contrasts with bone?",
+        "answer": "Cartilage.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is bone comparatively hard?",
+        "answer": "Mineral salts deposited in its matrix provide rigidity.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "skeleton",
+       "mineral"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Bone is living connective tissue.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Bone",
+         "plain_meaning": "शरीर का सख्त जीवित सहारा देने वाला tissue",
+         "everyday_image": "हाथ-पैर का अंदरूनी ढाँचा"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "The body needs a load-bearing frame.",
+         "basis": "standard"
+        },
+        {
+         "step": "A mineralised matrix provides firm support.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Limb bones",
+       "consequence": "Hardness reflects matrix, not absence of cells.",
+       "visual_verb": "Support",
+       "level_extra": "Distinguish tissue from the whole bone organ."
+      }
+     },
+     {
+      "item_id": "i18",
+      "kind": "diagram_label",
+      "parent_item_id": "i1",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "tree, fluid left leaf",
+      "content": "Blood — child of Fluid connective tissue.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "How does this page classify blood?",
+        "answer": "As fluid connective tissue.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which other fluid tissue is shown?",
+        "answer": "Lymph.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can blood be a tissue while flowing?",
+        "answer": "Its cells are suspended in a liquid extracellular matrix called plasma.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "blood cells",
+       "liquid"
+      ],
+      "exam_importance": "high",
+      "exam_note": "A common connective-tissue identification fact.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Blood",
+         "plain_meaning": "शरीर में बहकर सामान पहुँचाने वाला cell और तरल का मिश्रण",
+         "everyday_image": "सामान ढोता सड़क का traffic"
+        }
+       ],
+       "why_chain": [],
+       "example_or_place": "Blood vessels",
+       "consequence": "Tissue classification is not decided by solidity.",
+       "visual_verb": "Circulate",
+       "level_extra": "Plasma is the liquid matrix."
+      }
+     },
+     {
+      "item_id": "i19",
+      "kind": "diagram_label",
+      "parent_item_id": "i1",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "tree, fluid right leaf",
+      "content": "Lymph — child of Fluid connective tissue.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "Where does the tree place lymph?",
+        "answer": "Beside blood under fluid connective tissue.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which major group therefore contains lymph?",
+        "answer": "Connective Tissue.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does lymph connect body spaces with circulation?",
+        "answer": "Lymphatic vessels collect excess tissue fluid and return it toward the bloodstream.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "tissue fluid",
+       "blood circulation"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Do not omit lymph when listing fluid connective tissues.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Lymph",
+         "plain_meaning": "tissue के बीच से इकट्ठा होकर अलग नलियों में बहने वाला तरल",
+         "everyday_image": "बचा पानी वापस ले जाने वाली नाली"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Some fluid leaves blood capillaries into tissues.",
+         "basis": "standard"
+        },
+        {
+         "step": "Lymphatic drainage returns excess fluid.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Lymphatic vessels",
+       "consequence": "Fluid balance links tissues with circulation.",
+       "visual_verb": "Drain",
+       "level_extra": "Lymph also participates in immune defence."
+      }
+     },
+     {
+      "item_id": "i20",
+      "kind": "diagram_label",
+      "parent_item_id": "i1",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "tree, epithelial first leaf",
+      "content": "Simple squamous epithelium — child of Epithelial Tissue.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What do simple and squamous describe?",
+        "answer": "A single layer of thin, flattened cells.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which lower drawing matches this leaf?",
+        "answer": "The thin sheet labelled Simple squamous.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is this arrangement useful for exchange?",
+        "answer": "A thin single layer gives substances a short distance to cross.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell layer",
+       "diffusion"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Simple describes layer number; squamous describes shape.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Simple squamous epithelium",
+         "plain_meaning": "चपटे cell की एक परत",
+         "everyday_image": "फर्श की पतली tiles की एक तह"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Rapid exchange needs a short path.",
+         "basis": "standard"
+        },
+        {
+         "step": "One thin layer reduces the crossing distance.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Lung alveoli",
+       "consequence": "Thinness favours exchange rather than heavy abrasion protection.",
+       "visual_verb": "Flatten",
+       "level_extra": "Contrast with stratified squamous."
+      }
+     },
+     {
+      "item_id": "i21",
+      "kind": "diagram_label",
+      "parent_item_id": "i1",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "tree, epithelial second leaf",
+      "content": "Stratified squamous epithelium — child of Epithelial Tissue.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does stratified squamous mean?",
+        "answer": "Several cell layers with flattened cells at the exposed surface.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which tree leaf provides its single-layer contrast?",
+        "answer": "Simple squamous epithelium.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why are multiple layers useful?",
+        "answer": "Surface cells can be worn away while deeper layers maintain protection.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell layer",
+       "abrasion"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Stratified refers to layers, not a cuboidal shape.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Stratified",
+         "plain_meaning": "कई परतों में लगा हुआ",
+         "everyday_image": "एक के ऊपर एक रखी चादरें"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Exposed surfaces experience rubbing.",
+         "basis": "standard"
+        },
+        {
+         "step": "Multiple layers preserve a protective barrier.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Skin epidermis",
+       "consequence": "Protection and rapid diffusion favour different arrangements.",
+       "visual_verb": "Stack",
+       "level_extra": "The surface cell shape gives the squamous name."
+      }
+     },
+     {
+      "item_id": "i22",
+      "kind": "diagram_label",
+      "parent_item_id": "i1",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "tree, epithelial third leaf",
+      "content": "Columnar epithelium — child of Epithelial Tissue.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does columnar describe?",
+        "answer": "Cells that are taller than they are wide, resembling pillars.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which lower label shows a single-layer form?",
+        "answer": "Simple columnar.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can this form serve the digestive tract?",
+        "answer": "Columnar cells can specialise in absorption and secretion along the lining.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell shape",
+       "lining"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Columnar is a shape, not automatically a ciliated surface.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Columnar",
+         "plain_meaning": "खंभे जैसे लंबे cell",
+         "everyday_image": "इमारत के साथ-साथ खड़े pillars"
+        }
+       ],
+       "why_chain": [],
+       "example_or_place": "Intestinal lining",
+       "consequence": "A columnar cell may have further surface specialisations.",
+       "visual_verb": "Elongate",
+       "level_extra": "Distinguish cilia from absorptive microvilli."
+      }
+     },
+     {
+      "item_id": "i23",
+      "kind": "diagram_label",
+      "parent_item_id": "i1",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "tree, epithelial fourth leaf",
+      "content": "Ciliated columnar epithelium — child of Epithelial Tissue.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What extra feature does ciliated add?",
+        "answer": "Hair-like motile projections on the exposed surface of columnar cells.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which lower drawing shows the feature?",
+        "answer": "The leftmost epithelial drawing labelled Ciliated columnar has projections on its upper surface.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do cilia help a lining?",
+        "answer": "Their coordinated beating moves material along the surface, such as mucus in airways.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "columnar cell",
+       "surface projection"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Cilia move surface contents; they do not make the whole tissue crawl.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Ciliated",
+         "plain_meaning": "ऊपर हिलने वाले महीन बाल-जैसे हिस्सों वाला",
+         "everyday_image": "एक दिशा में झाड़ू चलाती कतार"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Some linings must move material along, not merely cover it.",
+         "basis": "standard"
+        },
+        {
+         "step": "Coordinated ciliary beating sweeps the surface.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Respiratory passages",
+       "consequence": "Shape and surface equipment jointly determine function.",
+       "visual_verb": "Sweep",
+       "level_extra": "Cilia differ from microvilli."
+      }
+     },
+     {
+      "item_id": "i24",
+      "kind": "diagram_label",
+      "parent_item_id": "i1",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "tree, epithelial fifth leaf",
+      "content": "Cuboidal epithelium — child of Epithelial Tissue.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does cuboidal mean?",
+        "answer": "Cells are approximately as tall as they are wide.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which lower label corresponds to it?",
+        "answer": "Simple cuboidal.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does this tissue participate in kidney function?",
+        "answer": "Cuboidal cells in many kidney tubules absorb useful substances and secrete selected substances into the tubule.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell shape",
+       "kidney tubule"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Match cube-shaped cells with tubules and ducts.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Cuboidal",
+         "plain_meaning": "लगभग बराबर ऊँचाई और चौड़ाई वाले cell",
+         "everyday_image": "लूडो का पासा"
+        }
+       ],
+       "why_chain": [],
+       "example_or_place": "Kidney tubules",
+       "consequence": "Do not confuse cube-like shape with flattened squamous cells.",
+       "visual_verb": "Tile",
+       "level_extra": "Use shape-location matching."
+      }
+     },
+     {
+      "item_id": "i25",
+      "kind": "diagram_label",
+      "parent_item_id": "i1",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "tree, epithelial final leaf",
+      "content": "Glandular epithelium — child of Epithelial Tissue.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What makes epithelium glandular?",
+        "answer": "Its cells specialise in making and releasing substances.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which main branch contains this tissue?",
+        "answer": "Epithelial Tissue.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why does secretion need specialised cells?",
+        "answer": "Producing and releasing substances such as mucus or enzymes requires specialised cellular machinery.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell",
+       "secretion"
+      ],
+      "exam_importance": "high",
+      "exam_note": "This name emphasises function rather than one cell shape.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Glandular epithelium",
+         "plain_meaning": "कुछ बनाकर बाहर छोड़ने में माहिर epithelial cell",
+         "everyday_image": "मुँह में लार बनाती gland"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "The body needs substances such as digestive secretions.",
+         "basis": "standard"
+        },
+        {
+         "step": "Specialised epithelial cells make and release them.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Salivary glands",
+       "consequence": "Epithelial tissue does more than cover surfaces.",
+       "visual_verb": "Release",
+       "level_extra": "Do not infer that all glands release through ducts."
+      }
+     },
+     {
+      "item_id": "i26",
+      "kind": "diagram",
+      "parent_item_id": "",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "lower half, entire composite illustration",
+      "content": "Human body surrounded by four tissue panels. Upper left: Muscular tissue, with Cardiac muscle, Skeletal muscle, Smooth muscle and Muscle cells. Upper right: Nerve tissue with branching cells labelled Nerve cell; the body also has Brain, Spinal cord and Nerve pointers. Lower left: Epithelial tissue, with Lining of gastrointestinal tract and other hollow organs, Ciliated columnar, Simple columnar, Simple cuboidal, Simple squamous, and a multilayer skin block labelled Skin surface and Basement membrane. Lower right: Connective tissue, with Tendon, Bone, Fat cells, and Fat and other Soft padding tissue. Lines link the examples to body regions.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does this composite add to the tree?",
+        "answer": "It associates tissue groups with visible forms, body structures and examples rather than showing hierarchy alone.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which four tissue panels surround the body?",
+        "answer": "Muscular, nerve, epithelial and connective tissue.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How should the connecting lines be interpreted?",
+        "answer": "They associate representative body regions with magnified tissue drawings; they are not routes along which tissue flows.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "organ",
+       "tissue",
+       "magnified drawing"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Use for image identification and tissue-example matching.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "tissue",
+         "plain_meaning": "अंग के भीतर काम करने वाले cell का समूह",
+         "everyday_image": "एक मशीन के अलग काम करने वाले हिस्से"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Names alone do not show how tissues fit inside the body.",
+         "basis": "standard"
+        },
+        {
+         "step": "Magnified examples connect familiar organs with cell arrangements.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "The central human body",
+       "consequence": "One body contains all four tissue groups.",
+       "visual_verb": "Zoom",
+       "level_extra": "Do not mistake schematic drawings for exact proportions or exclusive distributions."
+      }
+     },
+     {
+      "item_id": "i27",
+      "kind": "diagram_label",
+      "parent_item_id": "i26",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "lower illustration, upper-left panel title",
+      "content": "Muscular tissue — heading of the panel showing three muscle forms.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does this panel illustrate?",
+        "answer": "Different forms of muscle cells grouped as muscular tissue.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which three forms are named?",
+        "answer": "Cardiac, skeletal and smooth muscle.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do these forms share a common role?",
+        "answer": "Their cells generate force through contraction, though their locations and control differ.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "muscle contraction"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Connect lower names with upper tree terminology.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Muscular tissue",
+         "plain_meaning": "सिकुड़कर बल बनाने वाला tissue",
+         "everyday_image": "वजन उठाते समय हाथ की muscle"
+        }
+       ],
+       "why_chain": [],
+       "example_or_place": "Heart, limbs and gut",
+       "consequence": "Different shapes serve a shared contractile role.",
+       "visual_verb": "Contract",
+       "level_extra": "Compare shape, control and location."
+      }
+     },
+     {
+      "item_id": "i28",
+      "kind": "diagram_label",
+      "parent_item_id": "i26",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "muscular panel, left",
+      "content": "Muscle cells — pointers group the illustrated cardiac, skeletal and smooth muscle cell forms.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does the label identify?",
+        "answer": "The red elongated cellular forms in the muscular tissue panel.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which forms are compared?",
+        "answer": "Branched cardiac, cylindrical skeletal and tapered smooth muscle forms.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can cells generate force?",
+        "answer": "Contractile proteins inside muscle cells interact to shorten or develop tension.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell",
+       "protein"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Recognise cell-level versus organ-level drawings.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Muscle cells",
+         "plain_meaning": "muscle बनाने वाले सिकुड़ सकने वाले cell",
+         "everyday_image": "रस्सी के साथ काम करते कई धागे"
+        }
+       ],
+       "why_chain": [],
+       "example_or_place": "Muscular panel",
+       "consequence": "A muscle is made of specialised cells, not a single solid strip.",
+       "visual_verb": "Magnify",
+       "level_extra": "Avoid treating every drawn bundle as one cell."
+      }
+     },
+     {
+      "item_id": "i29",
+      "kind": "diagram_label",
+      "parent_item_id": "i26",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "muscular panel, top example",
+      "content": "Cardiac muscle — label beneath the branched red muscle drawing, associated with the heart region.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What visual feature identifies this example?",
+        "answer": "The drawing shows branching interconnected muscle fibres.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which organ is associated with it?",
+        "answer": "The heart region of the central body.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is coordinated contraction important there?",
+        "answer": "The heart must develop organised pumping force to move blood.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "heart pumping",
+       "muscle fibre"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Branched, striated and involuntary.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Cardiac muscle",
+         "plain_meaning": "दिल की धड़कन पैदा करने वाली muscle",
+         "everyday_image": "बार-बार चलने वाला pump"
+        }
+       ],
+       "why_chain": [],
+       "example_or_place": "Heart wall",
+       "consequence": "Connects a cell pattern with an organ's pumping task.",
+       "visual_verb": "Pulse",
+       "level_extra": "Do not classify cardiac muscle as smooth."
+      }
+     },
+     {
+      "item_id": "i30",
+      "kind": "diagram_label",
+      "parent_item_id": "i26",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "muscular panel, middle example",
+      "content": "Skeletal muscle — label beneath a cylindrical bundle of red fibres.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What shape is pictured?",
+        "answer": "Long cylindrical fibres arranged together in a bundle.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which upper tree term corresponds to this example?",
+        "answer": "The tree's striated muscle branch represents skeletal muscle in this introductory scheme.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does skeletal muscle move a limb?",
+        "answer": "Contraction pulls through attachments on bones, producing movement at joints.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "bone",
+       "joint",
+       "contraction"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Typically voluntary, striated and unbranched.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Skeletal muscle",
+         "plain_meaning": "आम तौर पर हड्डियों को खींचकर हरकत कराने वाली muscle",
+         "everyday_image": "कोहनी मोड़ता हाथ"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Bones cannot pull themselves.",
+         "basis": "standard"
+        },
+        {
+         "step": "Contracting skeletal muscle supplies the pulling force.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Arm muscles",
+       "consequence": "Links muscle with the tendon example.",
+       "visual_verb": "Pull",
+       "level_extra": "Muscles pull rather than actively push bones."
+      }
+     },
+     {
+      "item_id": "i31",
+      "kind": "diagram_label",
+      "parent_item_id": "i26",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "muscular panel, bottom example",
+      "content": "Smooth muscle — label beneath elongated tapered red cells.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What cell shape is illustrated?",
+        "answer": "Elongated cells tapering toward their ends.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which muscle in the tree is also called smooth?",
+        "answer": "Non-striated muscle.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does smooth muscle move food?",
+        "answer": "Coordinated contractions of the gut wall propel contents along the digestive tract.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "gut wall",
+       "contraction"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Spindle-shaped, non-striated and involuntary.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Smooth muscle",
+         "plain_meaning": "बिना आड़ी धारियों वाली, अपने-आप काम करने वाली muscle",
+         "everyday_image": "खाना आगे बढ़ाती आँत"
+        }
+       ],
+       "why_chain": [],
+       "example_or_place": "Walls of many hollow organs",
+       "consequence": "Internal movement need not be under conscious control.",
+       "visual_verb": "Squeeze",
+       "level_extra": "Shape recognition: tapered ends, not cylindrical bundles."
+      }
+     },
+     {
+      "item_id": "i32",
+      "kind": "diagram_label",
+      "parent_item_id": "i26",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "body, head pointer",
+      "content": "Brain — pointer to the organ within the head.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What structure is identified?",
+        "answer": "The brain drawn within the head.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which tissue group is associated with it?",
+        "answer": "Nervous tissue.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does the brain contribute to coordination?",
+        "answer": "It processes incoming information and helps organise outgoing responses.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "head",
+       "nerve signal"
+      ],
+      "exam_importance": "high",
+      "exam_note": "An organ, not an individual neuron.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Brain",
+         "plain_meaning": "सिर में मौजूद संदेश समझने और काम सँभालने वाला अंग",
+         "everyday_image": "शरीर का control room"
+        }
+       ],
+       "why_chain": [],
+       "example_or_place": "Inside the skull",
+       "consequence": "Connects nervous tissue with an organ.",
+       "visual_verb": "Locate",
+       "level_extra": "Brain and spinal cord form the central nervous system."
+      }
+     },
+     {
+      "item_id": "i33",
+      "kind": "diagram_label",
+      "parent_item_id": "i26",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "body, pointer below Brain",
+      "content": "Spinal cord — pointer to the long central nervous structure descending from the brain.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does the pointer identify?",
+        "answer": "The central cord descending from the brain along the back.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which tissue system does it illustrate?",
+        "answer": "The nervous system.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does the spinal cord help communication?",
+        "answer": "It carries signals between brain and body and contains circuits for many reflexes.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "brain",
+       "signal",
+       "backbone"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Spinal cord is not the vertebral column.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Spinal cord",
+         "plain_meaning": "रीढ़ के अंदर चलने वाला nerve संदेशों का मुख्य रास्ता",
+         "everyday_image": "मुख्य cable से निकलती छोटी तारें"
+        }
+       ],
+       "why_chain": [],
+       "example_or_place": "Within the vertebral canal",
+       "consequence": "Links central processing with body nerves.",
+       "visual_verb": "Trace",
+       "level_extra": "Distinguish nervous cord from bony protection."
+      }
+     },
+     {
+      "item_id": "i34",
+      "kind": "diagram_label",
+      "parent_item_id": "i26",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "body, shoulder region pointer",
+      "content": "Nerve — pointer to a branching yellow structure extending into the body.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does this label identify?",
+        "answer": "A branching nerve pathway extending away from the central nervous structures.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which nearby label names a cell rather than a bundle?",
+        "answer": "Nerve cell in the Nerve tissue box.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does a nerve differ from one neuron?",
+        "answer": "A nerve contains bundles of nerve fibres, with supporting connective tissue, rather than being one cell.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "neuron",
+       "fibre bundle"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Nerve and neuron are not synonyms.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Nerve",
+         "plain_meaning": "संदेश ले जाने वाले कई nerve fibres का बंडल",
+         "everyday_image": "कई तारों वाली cable"
+        }
+       ],
+       "why_chain": [],
+       "example_or_place": "Nerves running into limbs",
+       "consequence": "Separate cell, tissue and organ-scale structures.",
+       "visual_verb": "Bundle",
+       "level_extra": "Nerve fibres are usually axons."
+      }
+     },
+     {
+      "item_id": "i35",
+      "kind": "diagram_label",
+      "parent_item_id": "i26",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "upper-right panel heading",
+      "content": "Nerve tissue — panel containing several branching purple nerve-cell drawings.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does the panel show?",
+        "answer": "Several cells with radiating processes, presented as nerve tissue.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which main branch corresponds to it?",
+        "answer": "Nervous / Neural Tissue in the upper tree.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why are cell processes useful here?",
+        "answer": "Processes allow neurons to receive inputs and communicate with other cells over distances.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell",
+       "communication"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Recognise branching cells, not muscle fibres.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Nerve tissue",
+         "plain_meaning": "शरीर के संदेश लेने और आगे भेजने वाला tissue",
+         "everyday_image": "जुड़ा हुआ communication network"
+        }
+       ],
+       "why_chain": [],
+       "example_or_place": "Brain, spinal cord and nerves",
+       "consequence": "Branching is related to connectivity.",
+       "visual_verb": "Connect",
+       "level_extra": "Nervous tissue also includes supporting cells not separately labelled here."
+      }
+     },
+     {
+      "item_id": "i36",
+      "kind": "diagram_label",
+      "parent_item_id": "i26",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "nerve panel, lower-right label",
+      "content": "Nerve cell — pointer to an individual branching cell in the Nerve tissue panel.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is a nerve cell called?",
+        "answer": "A neuron, specialised for receiving and transmitting signals.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which visible feature distinguishes the illustrated cells?",
+        "answer": "Processes extend outward from their central cell bodies.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do a neuron's processes divide communication work?",
+        "answer": "Dendrites generally receive inputs and an axon carries signals toward other cells.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell body",
+       "signal"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Neuron is the cell; nerve is a bundle.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Nerve cell",
+         "plain_meaning": "संदेश लेने और भेजने वाला खास cell",
+         "everyday_image": "कई connections वाला telephone point"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Information must pass between separated body regions.",
+         "basis": "standard"
+        },
+        {
+         "step": "Neuronal processes provide receiving and transmitting connections.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Neuron drawings in the right panel",
+       "consequence": "Structure supports signal transmission.",
+       "visual_verb": "Relay",
+       "level_extra": "Do not assume every neuron has the exact drawn shape."
+      }
+     },
+     {
+      "item_id": "i37",
+      "kind": "diagram_label",
+      "parent_item_id": "i26",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "lower-left panel heading",
+      "content": "Epithelial tissue — heading over four epithelial forms and a skin-layer block.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What arrangements does this panel illustrate?",
+        "answer": "Ciliated columnar, simple columnar, simple cuboidal, simple squamous and a multilayered skin example.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which body relationships are labelled?",
+        "answer": "Lining of gastrointestinal tract and other hollow organs, skin surface and basement membrane.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can one tissue class have these forms?",
+        "answer": "Cell shape, number of layers and surface specialisations vary with the task of the lining.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell layer",
+       "body surface"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Read shape and layering separately.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Epithelial tissue",
+         "plain_meaning": "सतह और अंदर की lining बनाने वाले cell की परत",
+         "everyday_image": "दीवार पर लगी tiles"
+        }
+       ],
+       "why_chain": [],
+       "example_or_place": "Skin and hollow-organ linings",
+       "consequence": "The same broad class can protect, absorb or move material.",
+       "visual_verb": "Line",
+       "level_extra": "The panel is a representative selection, not every leaf in the tree."
+      }
+     },
+     {
+      "item_id": "i38",
+      "kind": "diagram_label",
+      "parent_item_id": "i26",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "epithelial panel, below heading",
+      "content": "Lining of gastrointestinal tract and other hollow organs — text associated with the epithelial examples and the body's digestive region.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is meant by lining a hollow organ?",
+        "answer": "A layer covers the inward-facing surface around the organ's internal space.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which tissue is linked to this lining here?",
+        "answer": "Epithelial tissue.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why does the digestive tract need a specialised lining?",
+        "answer": "Its surface must separate body tissues from contents while supporting region-specific protection, secretion or absorption.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "digestive tract",
+       "hollow organ"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Do not assign one epithelial subtype to every digestive region.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Lining",
+         "plain_meaning": "अंदर की सतह पर बिछी परत",
+         "everyday_image": "नली की अंदरूनी दीवार"
+        },
+        {
+         "term": "gastrointestinal tract",
+         "plain_meaning": "खाना गुजरने और पचने का पेट-आँत वाला रास्ता",
+         "everyday_image": "खाने का शरीर के अंदर सफर"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Gut contents must be kept distinct from underlying tissues.",
+         "basis": "standard"
+        },
+        {
+         "step": "An epithelial boundary also permits controlled absorption and secretion.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Stomach and intestine",
+       "consequence": "A lining is a functional boundary, not merely packaging.",
+       "visual_verb": "Unroll",
+       "level_extra": "The label is general and does not place every pictured subtype throughout the gut."
+      }
+     },
+     {
+      "item_id": "i39",
+      "kind": "diagram_label",
+      "parent_item_id": "i26",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "epithelial panel, first small drawing",
+      "content": "Ciliated columnar — tall cells with a fringe of projections on the exposed surface.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What two features are visible?",
+        "answer": "Tall cells and an upper fringe of hair-like projections.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which upper tree label matches?",
+        "answer": "Ciliated columnar epithelium.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does this fringe work?",
+        "answer": "Cilia beat in coordinated patterns to move material along the surface.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "columnar cell",
+       "cilia"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Look for the fringe as well as tall cells.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Ciliated columnar",
+         "plain_meaning": "लंबे cell जिनके ऊपर हिलने वाले बाल-जैसे हिस्से हैं",
+         "everyday_image": "खंभों के ऊपर लगी चलती झाड़ू"
+        }
+       ],
+       "why_chain": [],
+       "example_or_place": "Airway lining",
+       "consequence": "Surface movement distinguishes it from plain columnar epithelium.",
+       "visual_verb": "Sweep",
+       "level_extra": "Not every tall-cell drawing is ciliated."
+      }
+     },
+     {
+      "item_id": "i40",
+      "kind": "diagram_label",
+      "parent_item_id": "i26",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "epithelial panel, second small drawing",
+      "content": "Simple columnar — drawing of a single layer of tall epithelial cells.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does the drawing emphasise?",
+        "answer": "A single row of tall cells forming a continuous layer.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which part of the name specifies layer number?",
+        "answer": "Simple means one cell layer.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How is it useful in the intestine?",
+        "answer": "Specialised columnar cells absorb nutrients and contribute secretions at the lining.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell layer",
+       "absorption"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Simple is not a statement about biological complexity.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Simple columnar",
+         "plain_meaning": "लंबे cell की एक परत",
+         "everyday_image": "एक कतार में खड़े pillars"
+        }
+       ],
+       "why_chain": [],
+       "example_or_place": "Intestinal lining",
+       "consequence": "Read both layer number and shape from the name.",
+       "visual_verb": "Align",
+       "level_extra": "Do not confuse surface microvilli with cilia."
+      }
+     },
+     {
+      "item_id": "i41",
+      "kind": "diagram_label",
+      "parent_item_id": "i26",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "epithelial panel, third small drawing",
+      "content": "Simple cuboidal — drawing of a single sheet of approximately cube-shaped cells.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What arrangement is pictured?",
+        "answer": "One layer of cells with roughly comparable height and width.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which epithelial shape contrasts with this?",
+        "answer": "Columnar cells are taller; squamous cells are flatter.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can cuboidal cells serve a tubule?",
+        "answer": "They form its lining and can exchange selected substances between the tubule contents and surrounding tissues.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell shape",
+       "tubule"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Recognise a single cuboidal layer.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Simple cuboidal",
+         "plain_meaning": "पासे जैसे cell की एक परत",
+         "everyday_image": "एक कतार में रखे छोटे cubes"
+        }
+       ],
+       "why_chain": [],
+       "example_or_place": "Many kidney tubules",
+       "consequence": "Links shape recognition to absorption and secretion.",
+       "visual_verb": "Arrange",
+       "level_extra": "The schematic is not an exact geometric cube."
+      }
+     },
+     {
+      "item_id": "i42",
+      "kind": "diagram_label",
+      "parent_item_id": "i26",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "epithelial panel, fourth small drawing",
+      "content": "Simple squamous — thin, flat single-layer epithelial drawing.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What distinguishes this pictured layer?",
+        "answer": "It is much flatter and thinner than the columnar and cuboidal examples.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which upper leaf is represented?",
+        "answer": "Simple squamous epithelium.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why does thinness favour diffusion?",
+        "answer": "Molecules have less distance to travel across the barrier.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "diffusion",
+       "cell layer"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Flattened cells and one layer are separate clues.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Simple squamous",
+         "plain_meaning": "पतले चपटे cell की एक तह",
+         "everyday_image": "फर्श पर बिछी tiles"
+        }
+       ],
+       "why_chain": [],
+       "example_or_place": "Alveolar gas-exchange surface",
+       "consequence": "Contrast with the thick skin example below.",
+       "visual_verb": "Cross",
+       "level_extra": "Not the multilayered epidermis."
+      }
+     },
+     {
+      "item_id": "i43",
+      "kind": "diagram_label",
+      "parent_item_id": "i26",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "epithelial panel, bottom block",
+      "content": "Skin surface — label beside the multilayered epithelial block associated with the body's outer surface.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What visual arrangement is associated with skin?",
+        "answer": "A thick block with several layers of cells.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which upper epithelial category matches the epidermal example?",
+        "answer": "Stratified squamous epithelium.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why does the skin surface need multiple layers?",
+        "answer": "Repeated friction and exposure require a durable barrier while outer cells are shed.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "skin",
+       "cell layers",
+       "friction"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Whole skin contains more than epithelial tissue.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Skin surface",
+         "plain_meaning": "शरीर की बाहर वाली ढकने की सतह",
+         "everyday_image": "हाथ की रोज़ रगड़ सहती त्वचा"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Outer surfaces suffer rubbing and exposure.",
+         "basis": "standard"
+        },
+        {
+         "step": "Many layers protect deeper tissues as surface cells wear away.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Epidermis",
+       "consequence": "Protection contrasts with the thin diffusion barrier.",
+       "visual_verb": "Layer",
+       "level_extra": "Do not call the whole skin one epithelial sheet."
+      }
+     },
+     {
+      "item_id": "i44",
+      "kind": "diagram_label",
+      "parent_item_id": "i26",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "epithelial panel, beneath skin block",
+      "content": "Basement membrane — pointer to the basal boundary under the multilayered epithelial block.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does the pointer identify?",
+        "answer": "The boundary beneath the epithelial cell layers rather than their exposed surface.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which side of the epithelial block is it on?",
+        "answer": "The basal, or underlying, side.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does the basement membrane help epithelium?",
+        "answer": "It is a specialised extracellular layer that anchors and supports the epithelium over underlying connective tissue.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "epithelium",
+       "underlying connective tissue"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Basement membrane is not a layer of epithelial cells or a cell membrane.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Basement membrane",
+         "plain_meaning": "epithelium के नीचे की पतली सहारा देने वाली तह",
+         "everyday_image": "tiles के नीचे का आधार"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "A cell sheet needs anchorage to underlying tissue.",
+         "basis": "standard"
+        },
+        {
+         "step": "The basement membrane provides an attachment interface.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Base of the pictured skin epithelial block",
+       "consequence": "The exposed and basal sides have different relationships.",
+       "visual_verb": "Anchor",
+       "level_extra": "It is extracellular, not the plasma membrane of one cell."
+      }
+     },
+     {
+      "item_id": "i45",
+      "kind": "diagram_label",
+      "parent_item_id": "i26",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "lower-right panel heading",
+      "content": "Connective tissue — panel containing Tendon, Bone, Fat cells and Fat and other Soft padding tissue.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What range does this panel illustrate?",
+        "answer": "A fibrous tendon, a hard bone and soft fat-related padding are presented together as connective tissue.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which tree branches help organise these examples?",
+        "answer": "Connective tissue proper contains fibrous and adipose tissues; supportive connective tissue contains bone.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why do these examples have different textures?",
+        "answer": "Their proportions of cells, fibres, stored fat and matrix materials differ according to function.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "connective tissue",
+       "matrix"
+      ],
+      "exam_importance": "high",
+      "exam_note": "The lower panel does not show every connective subtype.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Connective tissue",
+         "plain_meaning": "जोड़ने, सहारा देने और padding बनाने वाला tissue",
+         "everyday_image": "रस्सी, ढाँचा और गद्दी के अलग काम"
+        }
+       ],
+       "why_chain": [],
+       "example_or_place": "Tendon, bone and body fat",
+       "consequence": "Appearance alone cannot exclude an example from the connective group.",
+       "visual_verb": "Compare",
+       "level_extra": "Remember blood and lymph from the upper tree too."
+      }
+     },
+     {
+      "item_id": "i46",
+      "kind": "diagram_label",
+      "parent_item_id": "i26",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "connective panel, top example",
+      "content": "Tendon — label beside a yellow bundle of parallel fibres.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What visual feature is emphasised?",
+        "answer": "Closely aligned fibres arranged as a bundle.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which structures does a tendon typically connect?",
+        "answer": "Muscle to bone.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does a tendon help movement?",
+        "answer": "Its strong collagen fibres transmit the pull of a contracting muscle to bone.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "muscle contraction",
+       "bone",
+       "fibre"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Tendon: muscle to bone; ligament: bone to bone.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Tendon",
+         "plain_meaning": "muscle की खींच को हड्डी तक पहुँचाने वाली मजबूत पट्टी",
+         "everyday_image": "एड़ी के पीछे महसूस होने वाली मजबूत डोरी"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "A muscle's pull must reach the skeleton.",
+         "basis": "standard"
+        },
+        {
+         "step": "Parallel strong fibres transmit tension through the tendon.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Achilles tendon near the heel",
+       "consequence": "Connective tissue helps muscle produce joint movement.",
+       "visual_verb": "Transmit pull",
+       "level_extra": "Do not swap tendon and ligament."
+      }
+     },
+     {
+      "item_id": "i47",
+      "kind": "diagram_label",
+      "parent_item_id": "i26",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "connective panel, middle example",
+      "content": "Bone — label beside a pale long-bone drawing.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What example is pictured?",
+        "answer": "A long-bone-shaped structure within the connective tissue panel.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which upper subcategory contains bone?",
+        "answer": "Supportive connective tissue.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does bone contribute to movement as well as support?",
+        "answer": "Bones act as levers that muscles pull at joints.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "skeleton",
+       "joint",
+       "lever"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Hard bone is connective tissue, not muscular tissue.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Bone",
+         "plain_meaning": "शरीर को सख्त सहारा देने वाला जीवित हिस्सा",
+         "everyday_image": "बाँह का अंदर का ढाँचा"
+        }
+       ],
+       "why_chain": [],
+       "example_or_place": "Long bones of limbs",
+       "consequence": "Support and movement involve cooperation between tissues.",
+       "visual_verb": "Lever",
+       "level_extra": "Bone hardness comes from its mineralised matrix."
+      }
+     },
+     {
+      "item_id": "i48",
+      "kind": "diagram_label",
+      "parent_item_id": "i26",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "connective panel, bottom-left text",
+      "content": "Fat and other Soft padding tissue — label associated with the soft fat example and the body's thigh region.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What property does this label emphasise?",
+        "answer": "The soft, padding character of fat-associated connective tissue.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which tree term identifies fat-storing tissue?",
+        "answer": "Adipose tissue.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is soft padding useful?",
+        "answer": "It cushions structures against mechanical impacts; stored fat also serves as fuel and insulation.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "fat",
+       "cushioning"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Softness does not exclude connective-tissue classification.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Soft padding tissue",
+         "plain_meaning": "दबाव और चोट कम करने वाली नरम भरावट",
+         "everyday_image": "कुर्सी की गद्दी"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Body structures face pressure and knocks.",
+         "basis": "standard"
+        },
+        {
+         "step": "Soft tissue padding cushions them.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Subcutaneous fat",
+       "consequence": "Connective tissues can cushion as well as form a hard frame.",
+       "visual_verb": "Cushion",
+       "level_extra": "Do not interpret the drawing as the only location of body fat."
+      }
+     },
+     {
+      "item_id": "i49",
+      "kind": "diagram_label",
+      "parent_item_id": "i26",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "connective panel, bottom-right pointer",
+      "content": "Fat cells — pointer to a small cluster of rounded yellow-orange cells.",
+      "content_type": "figure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does the pointer identify?",
+        "answer": "Individual rounded cells forming the pictured fat cluster.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which tissue contains specialised fat-storing cells?",
+        "answer": "Adipose tissue.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does a fat cell store energy?",
+        "answer": "It accumulates lipid inside the cell, which can later be mobilised when the body needs fuel.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell",
+       "fat",
+       "energy reserve"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Connect fat cells with adipose connective tissue.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Fat cells",
+         "plain_meaning": "अपने अंदर fat जमा करने वाले cell",
+         "everyday_image": "बचत रखती छोटी गुल्लकें"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Energy intake and energy demand do not always coincide.",
+         "basis": "standard"
+        },
+        {
+         "step": "Stored lipid provides a reserve for later use.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Fat deposits beneath skin",
+       "consequence": "Cell-level storage contributes to tissue-level padding and insulation.",
+       "visual_verb": "Fill and release",
+       "level_extra": "Adipose is a living cellular tissue, not just an inert oil deposit."
+      }
+     }
+    ],
+    "boilerplate_block_ids": [
+     "p0002-b0001",
+     "p0002-b0002"
+    ],
+    "text_image_disagreements": []
+   },
+   "code_problems": [],
+   "observed": {
+    "type_check": [
+     {
+      "item_id": "i1",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i2",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i3",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i4",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i5",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i6",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i7",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i8",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i9",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i10",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i11",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i12",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i13",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i14",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i15",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i16",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i17",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i18",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i19",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i20",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i21",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i22",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i23",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i24",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i25",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i26",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i27",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i28",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i29",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i30",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i31",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i32",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i33",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i34",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i35",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i36",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i37",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i38",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i39",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i40",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i41",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i42",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i43",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i44",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i45",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i46",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i47",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i48",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i49",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     }
+    ],
+    "type_summary": {
+     "code_silent": 2,
+     "follows_parent": 47
+    }
+   },
+   "review": {
+    "route": "google",
+    "provider": "google",
+    "model": "google/gemini-4-argon",
+    "via": "aicredits",
+    "returned_model": "google/gemini-4-argon",
+    "request_hash": "ae973ed308a14471fcb2ad7e90528d3ead39a7f9077e4a9899c5d916b552f28f",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 22380,
+    "output_tokens": 1457,
+    "cost_usd": 0.065263,
+    "value": {
+     "notes": {
+      "about": "Review of page 2 of '10. Tissues and Its Types', which consists of two visual diagrams: a classification tree of Animal Tissues and an anatomical/histological composite diagram of the चार main tissue types in the human body.",
+      "key_questions": [
+       "Are all 24 nodes/branches of the classification tree and all 23 labels/drawings of the lower body figure captured?",
+       "Are printed typos ('Non-straited', 'Cartiage', and 'Simple cubodial') preserved as printed with bracketed corrections per S1-13?",
+       "Are book vs. outside bases cleanly separated and accurately marked across all 49 items?"
+      ],
+      "decisions": [
+       {
+        "decision": "Pass the page understanding with one minor finding on 'Simple cubodial'.",
+        "reason": "Every single diagram, branch, arrow, and label is thoroughly captured and unpacked at UPSC/State PCS level; the missed typo in the lower diagram ('cubodial' silently normalized to 'cuboidal' in i41) is minor and non-blocking."
+       }
+      ],
+      "uncertain": []
+     },
+     "verdict": "pass",
+     "missing": [],
+     "wrong": [
+      {
+       "item_id": "i41",
+       "problem": "The lower diagram prints 'Simple cubodial' (a typo for 'cuboidal'), whereas the upper tree prints 'Cuboidal epithelium' correctly. Item i41 silently normalizes the lower label to 'Simple cuboidal' instead of preserving the printed spelling with a bracketed fix per S1-13.",
+       "fix": "Change content to 'Simple cubodial [cuboidal] — drawing of a single sheet of approximately cube-shaped cells.'",
+       "severity": "minor"
+      }
+     ],
+     "shallow": [],
+     "checklist": [
+      {
+       "rule_id": "G-01",
+       "met": true,
+       "note": "Every statement is either directly visible in the diagram (marked 'book') or standard textbook histology (marked 'outside')."
+      },
+      {
+       "rule_id": "G-02",
+       "met": true,
+       "note": "Complete, deep, and well-structured for UPSC / State PCS learners."
+      },
+      {
+       "rule_id": "G-03",
+       "met": true,
+       "note": "Maker notes clearly state what the unit is about, main decisions with reasons, and uncertainties."
+      },
+      {
+       "rule_id": "G-05",
+       "met": true,
+       "note": "Nothing is cut short or left as 'etc.'; all 49 diagram elements are individually captured."
+      },
+      {
+       "rule_id": "G-06",
+       "met": true,
+       "note": "Every label and branch is opened with plain Hindi meaning, everyday image, why-chain/function, example, and consequence."
+      },
+      {
+       "rule_id": "G-07",
+       "met": true,
+       "note": "Depth matches the UPSC / State PCS level profile, focusing on conceptual clarity and common exam traps (e.g., blood as connective tissue, striated vs voluntary, tendon vs ligament)."
+      },
+      {
+       "rule_id": "S1-01",
+       "met": true,
+       "note": "Both diagrams and all their branches, pointers, and labels are captured."
+      },
+      {
+       "rule_id": "S1-02",
+       "met": true,
+       "note": "Only the running header and page number are marked as boilerplate."
+      },
+      {
+       "rule_id": "S1-03",
+       "met": true,
+       "note": "No tables on this page."
+      },
+      {
+       "rule_id": "S1-04",
+       "met": true,
+       "note": "All tree branches, arrows, and anatomical pointers are accurately described."
+      },
+      {
+       "rule_id": "S1-05",
+       "met": true,
+       "note": "No equations or mathematical symbols on this page."
+      },
+      {
+       "rule_id": "S1-06",
+       "met": true,
+       "note": "Questions and answers explain the 'why' and 'how' (mechanisms and structural suitability) rather than merely restating labels."
+      },
+      {
+       "rule_id": "S1-07",
+       "met": true,
+       "note": "Book vs. outside bases are accurately marked, and outside histology facts are standard and correct."
+      },
+      {
+       "rule_id": "S1-08",
+       "met": true,
+       "note": "All items appropriately use the 'figure' content type as proposed by the card."
+      },
+      {
+       "rule_id": "S1-09",
+       "met": true,
+       "note": "Prerequisites are concrete, foundational concepts."
+      },
+      {
+       "rule_id": "S1-10",
+       "met": true,
+       "note": "Exam importance and notes highlight realistic UPSC/PCS question patterns."
+      },
+      {
+       "rule_id": "S1-11",
+       "met": true,
+       "note": "No native body text exists to disagree with the image."
+      },
+      {
+       "rule_id": "S1-13",
+       "met": true,
+       "note": "'Non-straited [Non-striated]' and 'Cartiage [Cartilage]' are properly noted; 'Simple cubodial' in i41 was silently corrected (logged as a minor finding)."
+      },
+      {
+       "rule_id": "S1-14",
+       "met": true,
+       "note": "Each answer strictly maintains a single basis ('book' or 'outside')."
+      },
+      {
+       "rule_id": "S1-15",
+       "met": true,
+       "note": "Every teachable item is genuinely unpacked with clear simple Hindi meanings and relatable everyday images."
+      }
+     ]
+    }
+   },
+   "review_problems": [],
+   "review_minor": [
+    {
+     "item_id": "i41",
+     "problem": "The lower diagram prints 'Simple cubodial' (a typo for 'cuboidal'), whereas the upper tree prints 'Cuboidal epithelium' correctly. Item i41 silently normalizes the lower label to 'Simple cuboidal' instead of preserving the printed spelling with a bracketed fix per S1-13.",
+     "fix": "Change content to 'Simple cubodial [cuboidal] — drawing of a single sheet of approximately cube-shaped cells.'",
+     "kind": "wrong"
+    }
+   ],
+   "passed": true,
+   "finished_at": 1792846997.1445966
+  }
+ ],
+ "avoid_rounds": [],
+ "cost_usd": 0.065263,
+ "seconds": 454.3,
+ "navin_verdict": null
+}
