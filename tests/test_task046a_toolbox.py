@@ -75,7 +75,7 @@ class Registry(unittest.TestCase):
             (edited(tool="three", set={"capabilities": ["teleport"]}), "unknown capability 'teleport'"),
             (edited(tool="three", set={"status": "blocked_with_reason"}), "blocked_with_reason needs blocked_reason"),
             (edited(tool="three", set={"proof": {}}), "needs proof"),
-            (edited(tool="sympy", set={"proof": {"tests": ["tests/test_task046a_wrappers.py::Nothing"]}}), "proof test"),
+            (edited(tool="sympy", set={"proof": {"tests": ["tests/toolbox/test_wrappers.py::Nothing"]}}), "proof test"),
             (edited(tool="sympy", set={"proof": {"tests": ["tests/no_such_file.py::Maths"]}}), "does not exist"),
             (edited(tool="z-anatomy", set={"licence_flags": []}), "needs the flag share_alike"),
             (edited(tool="blender", set={"licence_flags": []}), "needs the flag gpl"),

@@ -1,5 +1,8 @@
 """Task 046a: one test per toolbox wrapper, with the real libraries (run in the toolbox lane, which installs every
-toolbox extra; the lane fails on any skip, so a missing library is never hidden). Offline: network sources use fakes."""
+toolbox extra; the lane fails on any skip, so a missing library is never hidden). Offline: network sources use fakes.
+
+This file lives in tests/toolbox/, outside the canonical gate's discovery (tests/test*.py and its listed families): the
+heavy libraries are optional extras that only the toolbox lane installs, so the canonical gates stay as light as before."""
 from __future__ import annotations
 
 import io
@@ -12,7 +15,7 @@ import zipfile
 from pathlib import Path
 from unittest import mock
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT))
 
 from bie.brain.assets import AssetLibrary  # noqa: E402

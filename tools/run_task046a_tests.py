@@ -17,7 +17,8 @@ sys.path.insert(0, str(ROOT / "tools"))
 
 from run_task038_tests import run_file  # noqa: E402
 
-LANES = {"core": ("tests/test_task046a_toolbox.py",), "wrappers": ("tests/test_task046a_wrappers.py",)}
+# The wrappers file sits in tests/toolbox/, which the canonical gate does not discover: its libraries are toolbox extras.
+LANES = {"core": ("tests/test_task046a_toolbox.py",), "wrappers": ("tests/toolbox/test_wrappers.py",)}
 LANES["all"] = LANES["core"] + LANES["wrappers"]
 
 

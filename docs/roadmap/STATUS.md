@@ -68,8 +68,10 @@ Built in batch 1 (IMPLEMENTED; tools demo proven; nothing INTEGRATED into a less
   (and took 583 s; 330 s without it and the screen-space effects), the 3D collision missed the tower. A stack of boxes is
   chaotic in cannon-es (a 1e-9 shift can leave it standing), so the collision numbers were swept with jittered starts until
   the tower fell in 8 of 8 runs.
-- **Tests and CI:** `tools/run_task046a_tests.py` (lane core: 29 tests, no heavy libraries; lane wrappers: 15 tests, one per
-  wrapper, with Blender and Manim really run); workflow `BIE Task046a Toolbox` (`.github/workflows/toolbox.yml`, path-filtered,
+- **Tests and CI:** `tools/run_task046a_tests.py` (lane core: 29 tests, no heavy libraries, also run by the canonical gates;
+  lane wrappers: 15 tests in `tests/toolbox/test_wrappers.py`, one per wrapper, with Blender and Manim really run; that
+  folder is outside the canonical gate's discovery because its libraries are toolbox extras, found when the first PR run
+  put the file in `tests/` and the canonical gate, which forbids skips, errored on the missing libraries); workflow `BIE Task046a Toolbox` (`.github/workflows/toolbox.yml`, path-filtered,
   so the canonical gates are not slower): core, wrappers, and demos (all clips + the bridge + the page, uploaded as an
   artifact for 30 days). The Task 039 lane (248) still passes with the changed preview renderer.
 
