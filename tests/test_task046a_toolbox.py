@@ -356,13 +356,18 @@ class DemosAndPage(unittest.TestCase):
                 self.assertIn(c, BOX.capabilities)
             self.assertTrue(3.0 <= d.seconds <= 5.0, d.id)
 
-    def test_every_batch_1_tool_has_a_demo_or_a_test(self):
-        covered = {t for d in demos.DEMOS if d.batch == 1 for t in d.tools}
-        for tool in BOX.batch(1):
-            proof = tool.proof
-            self.assertTrue(tool.id in covered or proof.get("tests"), f"{tool.id} has no demo and no test")
-            for demo_id in proof.get("demos", []):
-                self.assertIn(tool.id, demos.by_id(demo_id).tools, (tool.id, demo_id))
+    def test_every_tool_has_a_demo_or_a_test_in_its_own_batch(self):
+        # the demos lane checks each batch's claims against that batch's clips, so a proof demo must be in the tool's batch
+        for batch in (1, 2, 3):
+            covered = {t for d in demos.DEMOS if d.batch == batch for t in d.tools}
+            for tool in BOX.batch(batch):
+                if tool.status == "blocked_with_reason":
+                    continue
+                proof = tool.proof
+                self.assertTrue(tool.id in covered or proof.get("tests"), f"{tool.id} has no demo and no test")
+                for demo_id in proof.get("demos", []):
+                    self.assertIn(tool.id, demos.by_id(demo_id).tools, (tool.id, demo_id))
+                    self.assertEqual(demos.by_id(demo_id).batch, batch, (tool.id, demo_id))
 
     def test_a_status_claim_fails_when_its_demo_did_not_pass(self):
         import importlib.util

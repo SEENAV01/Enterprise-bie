@@ -24,7 +24,7 @@
    "proof": {"demos": ["bio-cell-sheet-flow", "bio-heart-nih3d", "bio-heart-zanatomy", "bio-heart-bodyparts3d", "physics-collision-3d"]},
    "notes": "ThreeCanvas: a React Three Fiber canvas driven by Remotion's frame clock; remotion-lite has a shim with the same name (bie/brain/video/preview/three-lite.tsx)."},
   {"id": "three", "name": "three.js", "kind": "js_lib", "subjects": ["all_subjects"], "content_types": ["structure", "figure", "process"],
-   "capabilities": ["cell_sheet_3d", "particle_flow", "anatomy_3d", "physics_sim_3d", "machine_part_3d"], "role": "draw", "path": "web", "version": "0.186.1",
+   "capabilities": ["cell_sheet_3d", "particle_flow", "anatomy_3d", "physics_sim_3d", "machine_part_3d", "aircraft_shape"], "role": "draw", "path": "web", "version": "0.186.1",
    "licence": "MIT", "licence_flags": [], "source": "https://github.com/mrdoob/three.js", "install_group": "web-core", "status": "demo_proven", "batch": 1, "rank": 10,
    "proof": {"demos": ["bio-cell-sheet-flow", "bio-heart-nih3d", "bio-heart-zanatomy", "bio-heart-bodyparts3d", "physics-collision-3d"]},
    "notes": "WebGL scenes; in headless Chromium it runs on SwiftShader (software WebGL)."},
@@ -269,6 +269,10 @@
   {"id": "jsbsim", "name": "JSBSim", "kind": "python_lib", "subjects": ["aerospace", "physics"], "content_types": ["process"],
    "capabilities": ["flight_motion"], "role": "compute", "path": "python", "version": "1.3.3", "licence": "LGPL-2.1-or-later", "licence_flags": [],
    "source": "https://github.com/JSBSim-Team/jsbsim", "install_group": "toolbox-aero", "status": "wrapped", "batch": 2, "adapter": "bie.toolbox.adapters.aero", "block": "flight_profile",
-   "notes": "Flight dynamics with real aircraft models (Cessna 172, 737 ...) and their autopilots; the wheel ships the aircraft data. LGPL: used as a library."}
+   "notes": "Flight dynamics with real aircraft models (Cessna 172, 737 ...) and their autopilots; the wheel ships the aircraft data. LGPL: used as a library."},
+  {"id": "bie-science-blocks", "name": "BIE science blocks (bie/brain/video/blocks/toolbox)", "kind": "js_lib", "subjects": ["electrical_electronics", "mechanical_civil", "earth_science", "astronomy_space", "aerospace", "physics", "geography_history_polity"], "content_types": ["process", "structure", "cause_effect", "facts_numbers", "figure", "timeline"],
+   "capabilities": ["circuit_diagram", "structure_load", "vector_field", "earthquake_waves", "terrain_or_layers", "plate_motion", "orbit_motion", "sky_map", "flight_motion", "map_region", "signal_plot", "function_graph"], "role": "draw", "path": "web", "version": "bie-2026-10-25", "licence": "BIE's own code", "licence_flags": [],
+   "source": "https://github.com/SEENAV01/Enterprise-bie", "install_group": "web-core", "status": "wrapped", "batch": 2, "rank": 10, "block": "xy_lines, circuit_build, beam_load, heat_plate, earth_section, world_points, plate_frames, orbits, sky_dome, flight_profile",
+   "notes": "The batch 2 blocks: they draw what the Python tools compute (D3 and d3-geo inside); every block refuses numbers its two tools disagree on where a check exists (circuit: ngspice against lcapy)."}
  ]
 }

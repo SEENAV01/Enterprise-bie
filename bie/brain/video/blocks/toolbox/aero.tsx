@@ -6,7 +6,7 @@ import { registerBlock, BlockProps } from "../registry";
 import { C, FONT, Title, Badge, ramp, ticks, useRel } from "./common";
 
 const Plane: React.FC<{ x: number; y: number; pitch: number }> = ({ x, y, pitch }) => (
-  <g transform={`translate(${x},${y}) rotate(${-pitch})`}>
+  <g transform={`translate(${x},${y}) rotate(${-pitch}) scale(1.7)`}>
     <path d="M -46,0 L 30,-6 L 50,0 L 30,6 Z" fill={C.ink} />
     <path d="M -6,-2 L 4,-2 L -10,-36 L -20,-36 Z" fill={C.accent} />
     <path d="M -40,-2 L -32,-2 L -44,-22 L -50,-22 Z" fill={C.accent} />
@@ -32,7 +32,7 @@ const FlightProfile: React.FC<BlockProps> = ({ data, at, width, height }) => {
           <text x={pad.l - 12} y={sy(v) + 8} fill={C.muted} fontSize={24} textAnchor="end">{`${v} ft`}</text></g>)}
         <line x1={pad.l} x2={width - pad.r} y1={sy(data.target_ft)} y2={sy(data.target_ft)} stroke={C.warm} strokeDasharray="10 8" strokeWidth={3}
           opacity={ramp(rel, 0, 12)} />
-        <text x={width - pad.r} y={sy(data.target_ft) - 12} fill={C.warm} fontSize={26} textAnchor="end" opacity={ramp(rel, 0, 12)}>
+        <text x={pad.l + 12} y={sy(data.target_ft) - 12} fill={C.warm} fontSize={26} opacity={ramp(rel, 0, 12)}>
           {`autopilot target ${data.target_ft} ft`}</text>
         <path d={path} fill="none" stroke={C.accent} strokeWidth={6} strokeLinecap="round" />
         <Plane x={sx(dist[i])} y={sy(alt[i])} pitch={data.pitch_deg[i] * 2} />

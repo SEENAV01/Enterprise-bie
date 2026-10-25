@@ -21,18 +21,22 @@ from bie.toolbox.resolver import MissingLog  # noqa: E402
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("--results", type=Path)
+    parser.add_argument("--results", type=Path, nargs="*", default=[], help="RESULTS.json files or demo folders (several batches)")
     parser.add_argument("--missing", type=Path)
     parser.add_argument("--note", default="")
     parser.add_argument("--out", type=Path, default=ROOT / "docs" / "toolbox" / "TOOLBOX.md")
     args = parser.parse_args(argv)
+    rows = []
+    for source in args.results:
+        if source.is_dir():
+            rows += [json.loads(p.read_text(encoding="utf-8")) for p in sorted(source.glob("*/receipt.json"))]
+        else:
+            rows += json.loads(source.read_text(encoding="utf-8")).get("results", [])
     results = None
-    if args.results and args.results.is_dir():
-        rows = [json.loads(p.read_text(encoding="utf-8")) for p in sorted(args.results.glob("*/receipt.json"))]
+    if rows:
+        rows.sort(key=lambda r: (r.get("batch") or 0, r["demo"]))
         results = {"schema": "bie.toolbox.demo-results/1", "batch": ", ".join(sorted({str(r.get("batch")) for r in rows})),
                    "demos": len(rows), "passed": all(r.get("passed") for r in rows), "results": rows}
-    elif args.results:
-        results = json.loads(args.results.read_text(encoding="utf-8"))
     missing = MissingLog(args.missing).summary() if args.missing else None
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text(page.render_markdown(registry.load(), results, missing_log=missing, clips_note=args.note), encoding="utf-8")
