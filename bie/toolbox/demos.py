@@ -410,7 +410,10 @@ def night_sky(w: Work) -> dict:
     data = astro.sky(28.61, 77.21, "2026-01-15T20:00:00")
     w.notes["skyfield"] = {"stars": data["count"], "planets": [p["name"] for p in data["planets"]]}
     return scene([block("sky_dome", dict(data, title="The sky over New Delhi", subtitle="15 January 2026, 8 pm · Hipparcos stars brighter than magnitude 3.5",
-                                         place_name="New Delhi", credit="Stars: Hipparcos Catalogue (ESA 1997) via CDS · positions by Skyfield"))], 4.0)
+                                         place_name="New Delhi", time_label="15 Jan 2026, 8:00 pm IST",
+                                         names={"32349": "Sirius", "27989": "Betelgeuse", "24436": "Rigel", "37279": "Procyon",
+                                                "21421": "Aldebaran", "24608": "Capella"},
+                                         credit="Stars: Hipparcos Catalogue (ESA 1997) via CDS · positions by Skyfield"))], 4.0)
 
 
 def earthrise(w: Work) -> dict:

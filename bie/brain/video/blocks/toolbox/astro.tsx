@@ -57,7 +57,7 @@ const SkyDome: React.FC<BlockProps> = ({ data, at, width, height }) => {
   const proj = (alt: number, az: number) => {
     const r = R * (90 - alt) / 90;
     const a = (az * Math.PI) / 180 + turn;
-    return [cx + r * Math.sin(a), cy - r * Math.cos(a)];
+    return [cx - r * Math.sin(a), cy - r * Math.cos(a)];               // a sky chart is read overhead: east on the left
   };
   const appear = ramp(rel, 0.2 * fps, 1.6 * fps, (t: number) => t);
   const order = st.magnitude.map((m: number, k: number) => [m, k]).sort((a: number[], b: number[]) => a[0] - b[0]);
@@ -75,6 +75,12 @@ const SkyDome: React.FC<BlockProps> = ({ data, at, width, height }) => {
           const [x, y] = proj(st.alt[k], st.az[k]);
           return <circle key={k} cx={x} cy={y} r={Math.max(1.6, 6.5 - 1.5 * m)} fill="#fffbe8" opacity={Math.min(1, 1.15 - m / 5)} />;
         })}
+        {Object.entries((data.names || {}) as Record<string, string>).map(([hip, name]) => {
+          const k = (st.hip as number[]).indexOf(Number(hip));
+          if (k < 0) return null;
+          const [x, y] = proj(st.alt[k], st.az[k]);
+          return <text key={hip} x={x + 12} y={y + 26} fill={C.accent} fontSize={24} fontWeight={700} opacity={ramp(rel, 2.2 * fps, 12)}>{name}</text>;
+        })}
         {(data.planets as { name: string; alt: number; az: number }[]).map((p) => {
           const [x, y] = proj(p.alt, p.az);
           return <g key={p.name} opacity={ramp(rel, 1.8 * fps, 12)}>
@@ -84,7 +90,7 @@ const SkyDome: React.FC<BlockProps> = ({ data, at, width, height }) => {
       </svg>
       <div style={{ position: "absolute", right: 60, top: 160, color: C.ink, fontSize: 28, display: "flex", flexDirection: "column", gap: 10 }}>
         <div style={{ fontSize: 34, fontWeight: 800 }}>{data.place_name || "the sky"}</div>
-        <div style={{ color: C.muted }}>{data.local_time}</div>
+        <div style={{ color: C.muted }}>{data.time_label || data.local_time}</div>
         <div>{`${count} bright stars above the horizon`}</div>
       </div>
       <Title text={data.title} sub={data.subtitle} />
