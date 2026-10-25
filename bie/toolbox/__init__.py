@@ -7,6 +7,8 @@
 - ``adapters/`` wrap the Python libraries (compute: they emit plain JSON for BIE's web blocks) and the offline
   renderers (Blender, Manim); ``sources.py`` fetches models, structures and pictures on demand into the asset library
   with their licence and credit; ``demos.py`` builds the proof clips; ``page.py`` writes the readable toolbox page.
+- ``licence_policy.json`` is BIE's only licence policy (Task 046a-L: lessons take only CC0, public domain and CC BY);
+  ``licence.py`` reads it for every licence decision and holds the lesson licence gate (``lesson_licence_check``).
 
 Principle: a Python library computes, a BIE block shows.
 """

@@ -346,7 +346,7 @@ def relief(w: Work) -> dict:
     region = (70.0, 100.0, 20.0, 40.0)
     out = w.folder / "relief.png"
     data = earth.relief(region, out, profile=((77.0, 22.0), (90.0, 36.0)))
-    asset = w.library.add_bytes(out.read_bytes(), mime="image/png", source="pygmt", title="Himalaya and Tibet, shaded relief",
+    asset = w.library.add_bytes(out.read_bytes(), mime="image/png", source="gmt_earth_relief", title="Himalaya and Tibet, shaded relief",
                                 page_url=earth.EARTH_RELIEF["source"], licence=earth.EARTH_RELIEF["licence"], licence_url="",
                                 author="BIE with PyGMT; data SRTM15+ (Tozer et al., 2019)", credit="Relief: SRTM15+ V2.7 via GMT · map by BIE (PyGMT)",
                                 tags=["relief", "map"])
@@ -803,6 +803,37 @@ DEMOS = (
     Demo("lang-kinetic-sanskrit", 3, "A Sanskrit line word by word in Devanagari and Roman", ("indic-nlp", "indic-transliteration", "noto-devanagari", "bie-social-blocks"),
          ("text_kinetic",), 4.2, kinetic_sanskrit),
 )
+
+
+def spec_blocks(spec: dict | None) -> list:
+    """The BIE blocks a demo's VideoSpec uses (kept in its receipt, so the page can judge the clip's lesson use)."""
+    return sorted({l["block"] for s in (spec or {}).get("scenes") or [] for l in s.get("layers") or []
+                   if l.get("type") == "block" and l.get("block")})
+
+
+def lesson_use(tools, assets=(), blocks=(), *, box=None) -> dict:
+    """A proof clip's lesson use (Task 046a-L). Proof clips are internal proofs of the tools, not lessons; a clip whose
+    content a lesson may not use (a refused or needs-Navin source or file, or a block that draws India's boundary) is
+    marked "internal proof, not for lessons" with the reasons. The verdicts come from the licence policy."""
+    from . import licence, registry as registry_module
+    box = box or registry_module.load()
+    reasons, judged = [], set()
+    for tid in tools:
+        try:
+            tool = box.tool(tid)
+        except KeyError:
+            continue
+        verdict = licence.tool_verdict(tool)
+        if verdict.verdict in ("refused", "needs_navin"):
+            reasons.append(f"{tid}: {verdict.text}: {verdict.reason}")
+            judged.add(tid)
+    assets = [a for a in assets if licence.source_id(licence._get(a, "source")) not in judged]
+    full = all("page_url" in a for a in assets)               # receipts before Task 046a-L did not keep the credit fields
+    reasons += licence.lesson_licence_check(assets, check_credit=full)
+    boundary = licence.policy()["india_boundary"]
+    if not boundary.get("approved_boundary"):
+        reasons += [f"block {b}: needs Navin: {boundary['why']}" for b in blocks if b in boundary["blocks"]]
+    return {"use": licence.INTERNAL_PROOF if reasons else "lessons", "reasons": reasons}
 
 
 def by_id(demo_id: str) -> Demo:

@@ -3,9 +3,12 @@ library (``bie.brain.assets.AssetLibrary``) with their licence, source page and 
 big downloads (zip archives, FBX files) stay in a cache folder outside the repository (``BIE_ASSET_CACHE``, default
 ``~/.cache/bie/sources``) and only the file a video needs (a .glb, a .pdb, a .png) enters the library.
 
-Licences are recorded as each source states them; share-alike files (Z-Anatomy) are kept and tagged "share-alike"
-for Navin's licence decision; non-commercial and no-derivatives files are refused, because a paid course cannot use
-them at all. Every fetch takes an ``opener`` so tests run offline.
+Licences are recorded as each source states them and read through the licence policy (``licence_policy.json``,
+``bie.toolbox.licence``). Non-commercial and no-derivatives files are never fetched. Named Commons and Openverse
+pictures (per-item sources) are fetched only when a lesson may use them. Files a lesson may not use (Z-Anatomy's
+CC BY-SA models, sources waiting for Navin) can still be fetched for the toolbox's internal proofs; share-alike ones are
+tagged "share-alike", and the lesson gate (``lesson_licence_check``) stops every one of them before a lesson is rendered.
+Every fetch takes an ``opener`` so tests run offline.
 """
 from __future__ import annotations
 
@@ -19,9 +22,10 @@ import urllib.request
 import zipfile
 from pathlib import Path
 
-from bie.brain.assets import (USER_AGENT, AssetLibrary, Candidate, commons_file, normalise_licence,
-                              openverse_image as openverse_candidate)
+from bie.brain.assets import USER_AGENT, AssetLibrary, Candidate, commons_file, openverse_image as openverse_candidate
 from bie.brain.assets import _open as open_url
+
+from . import licence as policy
 
 MAX_BYTES = 300 * 1024 * 1024
 RCSB = "https://files.rcsb.org/download/{id}.pdb"
@@ -66,7 +70,6 @@ INDIC_NLP_RESOURCES = {   # anoopkunchukuttan/indic_nlp_resources at 5b4ff17c (M
     "base": "https://raw.githubusercontent.com/anoopkunchukuttan/indic_nlp_resources/5b4ff17c080db4bc4cfc068deaa794aa87562eed/",
     "files": {"script/all_script_phonetic_data.csv": "4b0dd2d9c8cbc209b7466a979266a75a01572d5e5e8e6031bad18dacc2ef6c18",
               "script/tamil_script_phonetic_data.csv": "aacdc7c9ba87b1feeac6f104d4c14651f7239a8c48a90e71963a2156dc8e2f79"}}
-REFUSED = ("non-commercial", "no-derivatives")
 
 
 class SourceError(ValueError):
@@ -102,10 +105,10 @@ def cached(url: str, name: str, *, opener=None) -> Path:
 
 
 def _check_licence(licence: str, where: str) -> list:
-    kind = normalise_licence(licence)
-    if kind in REFUSED:
+    """Refuse what the policy never fetches (non-commercial, no-derivatives); mark share-alike files."""
+    if policy.never_fetched(licence):
         raise SourceError(f"{where}: licence {licence!r} cannot be used in a paid course")
-    return ["share-alike"] if kind == "cc-by-sa" else []
+    return ["share-alike"] if policy.normalise(licence) == "share-alike" else []
 
 
 def rcsb_pdb(pdb_id: str, library: AssetLibrary, *, opener=None, tags=()):
@@ -253,8 +256,9 @@ def gplates_model(model: str = "muller2019", *, opener=None) -> dict:
 
 
 def nasa_image(nasa_id: str, library: AssetLibrary, *, size: str = "large", opener=None, tags=()):
-    """A picture from NASA's Image and Video Library with its title and centre; NASA media are generally not
-    copyrighted (NASA Images and Media Usage Guidelines), so the licence is recorded per item from its metadata."""
+    """A picture from NASA's Image and Video Library with its title and centre. NASA media are US government works,
+    public domain (NASA Images and Media Usage Guidelines) unless the record names a third-party copyright holder; the
+    licence is recorded per item from its metadata, and the licence policy refuses a third-party file for lessons."""
     if not re.fullmatch(r"[A-Za-z0-9_.-]{3,80}", nasa_id):
         raise SourceError(f"{nasa_id!r} is not a NASA image id")
     found = json.loads(fetch(NASA_SEARCH.format(id=nasa_id), opener=opener, max_bytes=4 * 1024 * 1024))
@@ -269,7 +273,7 @@ def nasa_image(nasa_id: str, library: AssetLibrary, *, size: str = "large", open
         raise SourceError(f"NASA image {nasa_id}: no JPEG")
     data = fetch(pick.replace("http://", "https://", 1), opener=opener, max_bytes=40 * 1024 * 1024)
     holder = " ".join(str(meta.get(k) or "") for k in ("secondary_creator", "photographer")).strip()
-    licence = "NASA media, not copyrighted (NASA Images and Media Usage Guidelines)"
+    licence = "Public domain (NASA, US government work; NASA Images and Media Usage Guidelines)"
     if "©" in holder or "copyright" in holder.lower():
         licence = f"third-party copyright ({holder}): check before use"
     return library.add_bytes(data, mime="image/jpeg", source="nasa_images", title=meta.get("title") or nasa_id,
@@ -441,19 +445,22 @@ def _open_image(kind: str, key: str, find, library: AssetLibrary, *, opener=None
     else:
         candidate = find()
         _check_licence(candidate.licence, key)
+        verdict = policy.asset_verdict(candidate)          # a per-item source: this file must be fit for a lesson
+        if not verdict.allowed:
+            raise SourceError(f"{key}: {verdict.text} for lessons: {verdict.reason}")
         data = open_url(candidate.file_url, opener=opener)
         stem.parent.mkdir(parents=True, exist_ok=True)
         blob.write_bytes(data)
         record.write_text(json.dumps(candidate.__dict__, ensure_ascii=False), encoding="utf-8")
-    return library.add_candidate(candidate, tags=[kind, *tags], allow_share_alike=True, data=data)
+    return library.add_candidate(candidate, tags=[kind, *tags], data=data)
 
 
 def commons_image(title: str, library: AssetLibrary, *, opener=None, tags=(), width: int = 1280):
-    """A named Wikimedia Commons picture through the asset library (share-alike kept and marked)."""
+    """A named Wikimedia Commons picture through the asset library, only when a lesson may use it (licence policy)."""
     return _open_image("commons", f"{title}@{width}", lambda: commons_file(title, thumb_width=width, opener=opener), library,
                        opener=opener, tags=tags)
 
 
 def openverse_image(identifier: str, library: AssetLibrary, *, opener=None, tags=()):
-    """An Openverse picture by id through the asset library (share-alike kept and marked; NC and ND refused)."""
+    """An Openverse picture by id through the asset library, only when a lesson may use it (licence policy)."""
     return _open_image("openverse", identifier, lambda: openverse_candidate(identifier, opener=opener), library, opener=opener, tags=tags)

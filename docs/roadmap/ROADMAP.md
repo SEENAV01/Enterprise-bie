@@ -179,7 +179,30 @@ biology, chemistry, maths, physics, computer science; batch 2: electrical, mecha
 batch 3: geography/history/polity, economics, law, psychology/education/sociology, languages, and the UGC NET / GATE
 mapping (`bie/toolbox/exam_map.json`: the official lists of 25 October 2026 have 86 UGC NET subjects plus Paper I, not 84, and
 30 GATE papers). After each batch Navin sees the toolbox page (`docs/toolbox/TOOLBOX.md`), the clips, what is blocked and why, and the
-missing capabilities. Licence policy and repo visibility stay Navin's later decision.
+missing capabilities. Batches 1–3 merged (PR #69, #70, #71). Repo visibility stays Navin's decision.
+
+**046a-L · Licence gate** — Navin's decision, 25 October 2026, in his words: "Final videos mein sirf CC0 aur CC BY assets
+lein; CC BY-SA nahi; NC bilkul nahi." One PR, cost ₹0. One policy file, `bie/toolbox/licence_policy.json` (versioned and
+dated, his words in it), is the only source of truth; every licence decision (the asset library, the toolbox sources, the
+registry checks, the resolver, the toolbox page) reads it through `bie/toolbox/licence.py`, and no verdict is written per
+tool by hand. Lesson content (anything seen or heard in a lesson video, game or notes): allowed = CC0, public domain (the
+Public Domain Mark, US government works stated as public domain) and CC BY of any version with author, licence, licence URL
+and source page; refused = CC BY-SA and every share-alike licence, any NC, any ND, a missing or unreadable licence; needs
+Navin = own terms (India Code, Hipparcos/ESA, BodyParts3D, citation-only data such as SRTM15+, anything the registry marks
+custom), blocked until he approves the source by name in the file; per item = NASA, Commons, Openverse, NIH 3D, PubChem,
+Sketchfab-type sources, checked file by file (a NASA file with third-party rights is refused). India's political boundary
+(any map or asset that draws it, Natural Earth's India view included) needs Navin until he approves a boundary matched to
+the Survey of India map. Software is not content: a program's licence governs the program, not what BIE draws with it;
+GPL-family programs run only in the cloud, CI or VM and never ship inside `apps/` (a test fails otherwise); data a tool ships
+with is content. The gate (`lesson_licence_check`) runs before any lesson output is rendered or packaged — the visual section
+(before layout and before a VideoSpec is written), the game builder, the Scene IR asset resolution, the compiler's asset
+bundle, and `AssetLibrary.require_lesson`, the hook the 046 director calls — and stops that output with the reason; nothing
+is swapped silently; every passing output gets a credits list from the asset fields. The share-alike switch is gone. The
+resolver lists sources a lesson may not use as "not for lessons" and logs a capability left without an allowed source as
+missing, for seekh → BIE. Proof clips with refused or needs-Navin content stay as evidence, marked "internal proof, not for
+lessons" (9 of 51). IMPLEMENTED; not used on a real book yet. Still Navin's: India Code, Hipparcos/ESA, BodyParts3D,
+citation-only data, India's boundary, and the Remotion licence (free for individuals and companies of up to 3 people, paid
+above that). Task 046 starts only after Navin says so.
 
 **046 · Director, video blocks and the benchmark video** — the presentation layer, built to the benchmark
 (`bie/brain/rulebook/benchmarks/epithelium_animation.json`, rule S3-06): one spoken sentence is one shot of 2–4 s; about

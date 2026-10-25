@@ -19,7 +19,8 @@ class T(unittest.TestCase):
   self.assertTrue(p.passed)
 
   ar=AssetRegistry()
-  ar.register(AssetRecord("asset:img","asset://img","b"*64,"licensed","image/png",True,"src"))
+  ar.register(AssetRecord("asset:img","asset://img","b"*64,"licensed","image/png",True,"src",
+                          {"title":"cell drawing","source":"bie","licence":"BIE's own drawing"}))   # Task 046a-L: its licence record
   self.assertTrue(resolve_assets(d,ar).passed)
   self.assertTrue(inspect_document_integrity(d).passed)
   self.assertTrue(validate_scene_ir_document(d).passed)

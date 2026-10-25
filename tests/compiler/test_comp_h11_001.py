@@ -7,6 +7,7 @@ from bie.compiler.visual_assets import *
 from bie.compiler.asset_bundler import bundle_assets
 from bie.compiler.compiler_asset_common import CompilerAssetRecord
 from tests.compiler.h11_test_support import scene,asset,path,copy_assets,ASSET_ROOT
+OWN={"title":"test drawing","source":"bie","licence":"BIE's own drawing"}   # Task 046a-L: every bundled asset carries its licence record
 
 class VisualAssetContracts(unittest.TestCase):
     def bad(self,change,code):
@@ -67,13 +68,13 @@ class ActualVisualBytes(unittest.TestCase):
     def test_original_asset_bundler_adopted_with_real_bytes(self):
         p=scene();p['metadata'].pop(KEY);p['elements'][0]['props'].pop('resolved_asset_path');a=asset(scene())
         with tempfile.TemporaryDirectory() as td:
-            receipt=bundle_assets([CompilerAssetRecord('image',str(path(scene())),a['sha256'],'image/png',a['rights_ref'])],td)
+            receipt=bundle_assets([CompilerAssetRecord('image',str(path(scene())),a['sha256'],'image/png',a['rights_ref'],True,OWN)],td)
             bound,proof=bind_visual_bundle(p,receipt,Path(td)/'public');self.assertEqual(p['metadata'].get(KEY),None)
             data,_=verified_visual_bytes(bound,Path(td)/'public');self.assertEqual(next(iter(data.values())),path(scene()).read_bytes());self.assertFalse(proof['accepted'])
     def test_bundle_pass_flag_does_not_override_actual_bytes(self):
         p=scene();p['metadata'].pop(KEY);p['elements'][0]['props'].pop('resolved_asset_path');a=asset(scene())
         with tempfile.TemporaryDirectory() as td:
-            receipt=bundle_assets([CompilerAssetRecord('image',str(path(scene())),a['sha256'],'image/png',a['rights_ref'])],td)
+            receipt=bundle_assets([CompilerAssetRecord('image',str(path(scene())),a['sha256'],'image/png',a['rights_ref'],True,OWN)],td)
             f=Path(td)/'public'/receipt.bundled[0].public_path;f.write_bytes(b'forged');self.assertRaisesRegex(ValueError,'HASH_MISMATCH',bind_visual_bundle,p,receipt,Path(td)/'public')
 
 class AdditionalActualRasterFormats(unittest.TestCase):

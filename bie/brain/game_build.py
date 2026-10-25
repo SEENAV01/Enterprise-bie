@@ -8,6 +8,10 @@ A bot then plays each mission in a phone-sized browser (one wrong move, then the
 reviewer judges the screenshots. The passed missions become one self-contained HTML game.
 
 Outputs (``run_game_build``): ``GAME.html``, ``game.json``, screenshots under ``game_shots/``.
+
+A picture on a game board must come from BIE's asset library: before GAME.html is written, the lesson licence gate
+(``bie.toolbox.licence``) checks every board picture; one it cannot read, or one that is refused or waits for Navin,
+stops the game with the reason. The game's credits come from the same records.
 """
 from __future__ import annotations
 
@@ -212,7 +216,26 @@ def mission_step(course: Course, chapter: dict, design: dict, mission: dict, *, 
                 patch_hint=PATCH_HINT, max_rounds=max_rounds)
 
 
-def run_game_build(chapter: dict, design: dict, course: Course, runner, out_dir, *, workers: int = 4, max_rounds: int = 3):
+def game_pictures(game: dict, library=None) -> tuple:
+    """(asset ids of the board pictures, licence problems): a picture without a library record has no licence to read."""
+    ids, problems = [], []
+    for m in game.get("missions") or []:
+        for n, s in enumerate(m.get("stages") or []):
+            bg = s.get("background") or {}
+            if not bg.get("src"):
+                continue
+            if library is None or not bg.get("asset_id"):
+                problems.append(f"mission {m.get('mission_id')} stage {n + 1}: picture {str(bg['src'])[:80]} has no asset-library record, "
+                                "so its licence cannot be read")
+            elif bg["asset_id"] not in ids:
+                ids.append(bg["asset_id"])
+    if library is not None and ids:
+        problems += library.lesson_check(ids)
+    return ids, problems
+
+
+def run_game_build(chapter: dict, design: dict, course: Course, runner, out_dir, *, workers: int = 4, max_rounds: int = 3,
+                   library=None):
     out = Path(out_dir)
     out.mkdir(parents=True, exist_ok=True)
     game_plan = design.get("game") or {}
@@ -223,9 +246,14 @@ def run_game_build(chapter: dict, design: dict, course: Course, runner, out_dir,
     played = [dict(r.output, mission_id=m["mission_id"]) for m, r in zip(missions, results) if r.output]
     game = {"id": (chapter.get("source_sha256") or "chapter")[:12], "title": game_plan.get("game_title", ""),
             "world": game_plan.get("world", ""), "missions": [{k: v for k, v in m.items() if k != "notes"} for m in played]}
+    pictures, licence_problems = game_pictures(game, library)
+    if pictures and not licence_problems:
+        game["credits"] = library.credits(pictures)
     (out / "game.json").write_text(json.dumps(game, ensure_ascii=False, indent=1), encoding="utf-8")
-    (out / "GAME.html").write_text(render_game_html(game), encoding="utf-8")
+    if not licence_problems:                    # the lesson licence gate: a game with a refused picture is not written
+        (out / "GAME.html").write_text(render_game_html(game), encoding="utf-8")
     summary = {"missions": len(missions), "missions_passed": sum(1 for r in results if r.passed),
+               "status": "stopped_by_licence" if licence_problems else "written", "licence_problems": licence_problems,
                "stages": sum(len(m.get("stages") or []) for m in played),
                "engines": sorted({s["kind"] for m in played for s in m.get("stages") or []}),
                "cost_usd": round(sum(r.cost_usd for r in results), 6),

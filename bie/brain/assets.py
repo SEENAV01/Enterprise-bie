@@ -1,10 +1,11 @@
 """Open asset search and BIE's asset library, with licences kept for every file.
 
 The visual section asks for an asset by description; BIE searches open sources (first: Wikimedia
-Commons), keeps only licences that allow use in a paid course, downloads the chosen file into the
-asset library with its source, author and licence, and produces credits for every video. Files
-under share-alike licences (CC BY-SA) are kept out unless ``allow_share_alike`` is set, because a
-video that adapts them may have to carry the same licence; that is Navin's decision.
+Commons), keeps only files whose licence the licence policy allows in a lesson, downloads the chosen
+file into the asset library with its source, author and licence, and produces credits for every video.
+Every licence decision reads ``bie/toolbox/licence_policy.json`` through ``bie.toolbox.licence``
+(Navin, 25 October 2026: "Final videos mein sirf CC0 aur CC BY assets lein; CC BY-SA nahi; NC bilkul
+nahi."). There is no switch that lets share-alike files into a lesson.
 
 Network access runs in GitHub Actions; tests use a fake opener.
 """
@@ -19,6 +20,8 @@ import urllib.parse
 import urllib.request
 from dataclasses import asdict, dataclass, field
 from pathlib import Path
+
+from bie.toolbox import licence as policy
 
 COMMONS_API = "https://commons.wikimedia.org/w/api.php"
 OPENVERSE_API = "https://api.openverse.org/v1/images/"
@@ -73,27 +76,19 @@ class Asset:
 
 
 def normalise_licence(name: str) -> str:
-    text = re.sub(r"\s+", " ", (name or "").strip().lower())
-    if not text:
-        return "unknown"
-    if "cc0" in text or "public domain" in text or text in ("pd", "pdm"):
-        return "public-domain"
-    if text.startswith("cc by-sa") or text.startswith("cc-by-sa"):
-        return "cc-by-sa"
-    if text.startswith("cc by-nc") or "noncommercial" in text or "-nc" in text:
-        return "non-commercial"
-    if text.startswith("cc by-nd") or "-nd" in text:
-        return "no-derivatives"
-    if text.startswith("cc by") or text.startswith("cc-by"):
-        return "cc-by"
-    if "gfdl" in text:
-        return "gfdl"
-    return "other"
+    """The licence policy's class of a licence: public-domain, cc-by, share-alike, non-commercial, no-derivatives, ..."""
+    return policy.normalise(name)
 
 
-def licence_allowed(licence: str, *, allow_share_alike: bool = False) -> bool:
-    kind = normalise_licence(licence)
-    return kind in ("public-domain", "cc-by") or (allow_share_alike and kind == "cc-by-sa")
+def licence_allowed(licence: str) -> bool:
+    """True when the licence policy allows this licence in a lesson (CC0, public domain, CC BY)."""
+    return policy.allowed(licence)
+
+
+def lesson_ready(candidate) -> bool:
+    """A search result a lesson may use: its licence and source are allowed and a CC BY file names its author, licence,
+    licence URL and page (``bie.toolbox.licence.asset_verdict``)."""
+    return policy.asset_verdict(candidate).allowed
 
 
 def _strip_html(text) -> str:
@@ -136,8 +131,8 @@ def _commons_candidate(page: dict) -> Candidate | None:
         credit=_strip_html((meta.get("Credit") or {}).get("value"))[:300])
 
 
-def search_commons(query: str, *, limit: int = 12, thumb_width: int = 800, allow_share_alike: bool = False, opener=None):
-    """Image candidates from Wikimedia Commons whose licence allows use in a paid course."""
+def search_commons(query: str, *, limit: int = 12, thumb_width: int = 800, opener=None):
+    """Image candidates from Wikimedia Commons that a lesson may use (licence policy, credit fields complete)."""
     params = {"action": "query", "format": "json", "generator": "search", "gsrnamespace": "6", "gsrlimit": str(limit),
               "gsrsearch": f"{query} filetype:bitmap|drawing", "prop": "imageinfo",
               "iiprop": "url|size|mime|extmetadata", "iiurlwidth": str(thumb_width)}
@@ -146,7 +141,7 @@ def search_commons(query: str, *, limit: int = 12, thumb_width: int = 800, allow
     found = []
     for page in sorted(pages.values(), key=lambda p: p.get("index", 0)):
         candidate = _commons_candidate(page)
-        if candidate is None or candidate.mime not in IMAGE_TYPES or not licence_allowed(candidate.licence, allow_share_alike=allow_share_alike):
+        if candidate is None or candidate.mime not in IMAGE_TYPES or not lesson_ready(candidate):
             continue
         found.append(candidate)
     return found
@@ -203,16 +198,15 @@ def _openverse_candidate(row: dict) -> Candidate:
         credit=(row.get("attribution") or f"{row.get('title')} by {row.get('creator')}, {licence}")[:400])
 
 
-def search_openverse(query: str, *, limit: int = 12, allow_share_alike: bool = False, opener=None) -> list:
-    """Image candidates from Openverse (openly licensed works indexed from Flickr, Wikimedia, museums ...): only licences
-    that allow use in a paid course are asked for, and checked again here."""
-    licences = "by,cc0,pdm" + (",by-sa" if allow_share_alike else "")
-    params = {"q": query, "license": licences, "page_size": str(limit)}
+def search_openverse(query: str, *, limit: int = 12, opener=None) -> list:
+    """Image candidates from Openverse (openly licensed works indexed from Flickr, Wikimedia, museums ...): only CC BY,
+    CC0 and the Public Domain Mark are asked for, and every result is checked again against the licence policy."""
+    params = {"q": query, "license": "by,cc0,pdm", "page_size": str(limit)}
     raw = _open(OPENVERSE_API + "?" + urllib.parse.urlencode(params), opener=opener, max_bytes=8 * 1024 * 1024)
     found = []
     for row in json.loads(raw.decode("utf-8")).get("results") or []:
         candidate = _openverse_candidate(row)
-        if licence_allowed(candidate.licence, allow_share_alike=allow_share_alike):
+        if lesson_ready(candidate):
             found.append(candidate)
     return found
 
@@ -243,15 +237,16 @@ class AssetLibrary:
                                               indent=1), encoding="utf-8")
 
     def add_candidate(self, candidate: Candidate, *, tags=(), description: str = "", opener=None,
-                      allow_share_alike: bool = False, data: bytes | None = None) -> Asset:
-        """``data``: the file's bytes when the caller already has them (a cached download); otherwise they are fetched."""
-        if not licence_allowed(candidate.licence, allow_share_alike=allow_share_alike):
-            raise AssetError(f"licence {candidate.licence!r} is not allowed")
+                      data: bytes | None = None) -> Asset:
+        """A search result into the library, only when a lesson may use it (licence policy). ``data``: the file's bytes
+        when the caller already has them (a cached download); otherwise they are fetched."""
+        verdict = policy.asset_verdict(candidate)
+        if not verdict.allowed:
+            raise AssetError(f"{candidate.title}: licence {candidate.licence!r} is {verdict.text} for lessons: {verdict.reason}")
         data = data if data is not None else _open(candidate.file_url, opener=opener)
-        marks = ["share-alike"] if normalise_licence(candidate.licence) == "cc-by-sa" else []     # kept, but marked
         return self.add_bytes(data, mime=candidate.mime, source=candidate.source, title=candidate.title,
                               page_url=candidate.page_url, licence=candidate.licence, licence_url=candidate.licence_url,
-                              author=candidate.author, credit=candidate.credit, tags=[*tags, *marks], description=description)
+                              author=candidate.author, credit=candidate.credit, tags=list(tags), description=description)
 
     def add_bytes(self, data: bytes, *, mime: str, source: str, title: str, page_url: str, licence: str, licence_url: str,
                   author: str, credit: str, tags=(), description: str = "") -> Asset:
@@ -279,9 +274,19 @@ class AssetLibrary:
         return [a for score, a in sorted(scored, key=lambda x: (-x[0], x[1].asset_id)) if score]
 
     def credits(self, asset_ids) -> list:
-        lines = []
-        for asset_id in asset_ids:
-            a = self.assets.get(asset_id)
-            if a and a.source != "bie":
-                lines.append(f"{a.title} · {a.author or 'unknown author'} · {a.licence} · {a.page_url}")
-        return lines
+        """Credit lines (title · author · licence (licence URL) · source page) for the outside assets among ``asset_ids``."""
+        return policy.lesson_credits([self.assets[a] for a in asset_ids if a in self.assets])
+
+    def lesson_check(self, asset_ids) -> list:
+        """The lesson licence gate for these assets (``bie.toolbox.licence.lesson_licence_check``); an id the library does
+        not hold is a problem too."""
+        missing = [f"{a}: not in the asset library, so its licence cannot be read" for a in asset_ids if a not in self.assets]
+        return missing + policy.lesson_licence_check([self.assets[a] for a in asset_ids if a in self.assets])
+
+    def require_lesson(self, asset_ids, *, where: str = "lesson") -> list:
+        """The hook a lesson output calls before it is rendered or packaged (the Task 046 director, the visual section,
+        the game): raises ``bie.toolbox.licence.LicenceError`` with the problems, or returns the lesson's credits."""
+        problems = self.lesson_check(asset_ids)
+        if problems:
+            raise policy.LicenceError(problems, where)
+        return self.credits(asset_ids)

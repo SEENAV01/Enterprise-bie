@@ -3,7 +3,8 @@
 ``load()`` returns a ``Toolbox`` (tools, capabilities) after ``problems()`` finds nothing wrong; every rule of
 ``registry.schema.json`` is checked here in code, plus the links between the files: a tool may only name known
 capabilities, content types, subject families and level profiles, a ``demo_proven`` tool must name its proof, a
-``blocked_with_reason`` tool must say why, and a share-alike or GPL licence must carry its flag.
+``blocked_with_reason`` tool must say why, a share-alike or GPL licence must carry its flag, and the licence flags must
+agree with the licence policy (``licence_policy.json``: own terms, per item).
 """
 from __future__ import annotations
 
@@ -106,15 +107,13 @@ def _known_levels() -> set:
 
 
 def _licence_needs(licence: str) -> set:
-    """Flags the licence's own name demands; words in brackets are notes (history, conditions), not the licence."""
-    text = licence.lower().split("(", 1)[0]
-    needs = set()
-    if re.search(r"by-sa|share-?alike", text):
-        needs.add("share_alike")
-    if re.search(r"(?<!l)gpl", text):
-        needs.add("gpl")
-    if re.search(r"by-nc|non-?commercial", text):
-        needs.add("non_commercial")
+    """Flags the licence's own name demands, read through the licence policy (``licence_policy.json``); words in
+    brackets are notes (history, conditions), not the licence."""
+    from . import licence as policy
+    kind = policy.normalise(licence)
+    needs = {"share-alike": {"share_alike"}, "non-commercial": {"non_commercial"}}.get(kind, set())
+    if re.search(policy.policy()["software"]["gpl_pattern"], policy.licence_text(licence)):
+        needs = needs | {"gpl"}
     return needs
 
 
@@ -204,6 +203,8 @@ def problems(registry: dict, capabilities: dict, *, levels: set | None = None, r
             module = Path(repo_root, *raw["adapter"].split(".")).with_suffix(".py")
             if not module.exists():
                 out.append(f"{where}: adapter {raw['adapter']} does not exist")
+    from . import licence as policy
+    out += policy.registry_problems(registry.get("tools") or [])
     return out
 
 

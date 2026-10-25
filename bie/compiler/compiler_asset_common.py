@@ -44,8 +44,11 @@ class CompilerAssetRecord:
     media_type:str
     rights_basis:str
     current:bool=True
+    licence:tuple=()   # Task 046a-L: the asset's licence record (title, source, licence, licence_url, author, page_url, tags)
 
     def __post_init__(self):
+        from bie.toolbox.licence import record_items
+        object.__setattr__(self,"licence",record_items(self.licence))
         object.__setattr__(self,"asset_id",nonblank(self.asset_id,"asset_id"))
         object.__setattr__(self,"source_path",nonblank(self.source_path,"source_path"))
         object.__setattr__(self,"expected_sha256",valid_sha256(self.expected_sha256,"expected_sha256"))

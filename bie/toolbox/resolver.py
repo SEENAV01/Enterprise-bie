@@ -9,6 +9,11 @@ so. When nothing can draw the capability, the resolution is ``missing`` and a li
 log (JSON lines), which feeds seekh → BIE and the Task 046 merge path: an AI writes the new block once, BIE tests it,
 Navin approves it.
 
+Asset sources pass the lesson licence policy first (``licence_policy.json`` through ``bie.toolbox.licence``): a source a
+lesson may not use (refused, or waiting for Navin) is listed under ``not_for_lessons``, never under ``assets``. When it
+was the only source of a capability, the resolution takes the fallback (BIE's own model or drawing, or an allowed
+source) and the gap goes into the missing-capability log for seekh → BIE.
+
 ``match(text)`` reads a Task 045d unpack's ``visual_verb`` (or any scene words) and names the capabilities it points to.
 """
 from __future__ import annotations
@@ -20,6 +25,7 @@ import time
 from dataclasses import asdict, dataclass, field
 from pathlib import Path
 
+from . import licence as licence_policy
 from . import registry as registry_module
 from .registry import STATUS_RANK, Toolbox
 
@@ -38,9 +44,12 @@ class Resolution:
     compute: list = field(default_factory=list)
     assets: list = field(default_factory=list)
     makers: list = field(default_factory=list)
+    not_for_lessons: list = field(default_factory=list)    # asset sources the licence policy keeps out of lessons, with why
+    notes: list = field(default_factory=list)              # conditions on allowed sources (India's boundary)
     fallback: str = ""
     missing: bool = False
     reason: str = ""
+    licence_gap: str = ""
 
     @property
     def tool_ids(self) -> list:
@@ -118,18 +127,31 @@ def resolve(capability: str, *, subject: str = "", level: str = "", path: str = 
                     result.fallback = f"no {path} tool draws {capability}; using the {attempt} path"
                 break
         result.compute = [t.id for t in _order([t for t in candidates if t.role == "compute"], subject)]
-        result.assets = [t.id for t in _order([t for t in candidates if t.role == "asset"], subject)]
+        for t in _order([t for t in candidates if t.role == "asset"], subject):
+            verdict = licence_policy.tool_verdict(t)
+            if verdict.verdict in ("refused", "needs_navin"):
+                result.not_for_lessons.append({"tool": t.id, "verdict": verdict.verdict, "reason": verdict.reason})
+                continue
+            result.assets.append(t.id)
+            if verdict.note:
+                result.notes.append(f"{t.id}: {verdict.note}")
+        if result.not_for_lessons and not result.assets:
+            held = ", ".join(f"{h['tool']} ({licence_policy.VERDICT_TEXT[h['verdict']]})" for h in result.not_for_lessons)
+            result.licence_gap = f"no asset source a lesson may use: {held}"
+            result.fallback = (result.fallback + "; " if result.fallback else "") + \
+                f"{result.licence_gap}; BIE draws it itself (its own model or drawing) or finds an allowed source"
         if result.path == "web":       # offline tools that build inputs once for the web blocks (route C: Blender → glTF)
             result.makers = [t.id for t in _order([t for t in candidates if t.role == "offline_render"], subject)]
         if not result.draw:
             result.missing = True
             result.reason = "no tool draws it on any path" + (f" (blocked: {', '.join(blocked)})" if blocked else "")
-    if result.missing:
+    if result.missing or result.licence_gap:
         target = log if log is not None else default_log()
         if target is not None:
+            reason = "; ".join(r for r in (result.reason, result.licence_gap and f"missing lesson-allowed source: {result.licence_gap}") if r)
             target.add({"time": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()), "capability": capability, "subject": subject,
-                        "level": level, "path": path, "reason": result.reason, "context": context[:300],
-                        "registry_version": box.version})
+                        "level": level, "path": path, "reason": reason, "context": context[:300],
+                        "registry_version": box.version, "licence_policy": licence_policy.version()})
     return result
 
 

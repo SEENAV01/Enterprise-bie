@@ -140,7 +140,8 @@ class Resolver(unittest.TestCase):
                 r = resolver.resolve(cap, path="web", log=log)
                 self.assertEqual(r.missing, not r.draw, cap)
             rows = log.rows()
-            self.assertEqual({r["capability"] for r in rows}, {c for c in BOX.capabilities if resolver.resolve(c, log=None).missing})
+            gaps = {c for c in BOX.capabilities if resolver.resolve(c, log=None).missing or resolver.resolve(c, log=None).licence_gap}
+            self.assertEqual({r["capability"] for r in rows}, gaps)       # nothing to draw, or no source a lesson may use
             self.assertTrue(all(r["registry_version"] == BOX.version for r in rows))
 
     def test_batch_1_capabilities_draw_on_the_web_path(self):
@@ -333,11 +334,14 @@ class Sources(unittest.TestCase):
                          "https://images-assets.nasa.gov/image/as08-14-2383/as08-14-2383~medium.jpg": b"\xff\xd8\xffjpeg"})
         asset = sources.nasa_image("as08-14-2383", self.lib, size="medium", opener=opener)
         self.assertEqual((asset.title, asset.credit), ("Earthrise", "NASA/JSC (as08-14-2383)"))
-        self.assertIn("not copyrighted", asset.licence)
+        self.assertIn("Public domain", asset.licence)                         # a US government work, stated as public domain
+        from bie.toolbox import licence
+        self.assertTrue(licence.asset_verdict(asset).allowed)
         meta["collection"]["items"][0]["data"][0]["secondary_creator"] = "© Some Agency"
         opener.routes["https://images-assets.nasa.gov/image/as08-14-2383/as08-14-2383~medium.jpg"] = b"\xff\xd8\xffother"
         other = sources.nasa_image("as08-14-2383", self.lib, size="medium", opener=opener)
         self.assertIn("third-party copyright", other.licence)
+        self.assertEqual(licence.asset_verdict(other).verdict, "refused")     # Task 046a-L: a NASA file with third-party rights
         with self.assertRaises(sources.SourceError):
             sources.nasa_image("../x", self.lib, opener=opener)
 
@@ -428,7 +432,7 @@ class BatchThreeSources(unittest.TestCase):
         with self.assertRaises(sources.SourceError):
             sources.india_code_act("x OR 1=1", self.lib, opener=opener)
 
-    def test_commons_and_openverse_keep_share_alike_marked_and_refuse_non_commercial(self):
+    def test_commons_and_openverse_take_only_files_a_lesson_may_use(self):
         commons = {"query": {"pages": {"1": {"title": "File:Marche sel.jpg", "imageinfo": [{
             "url": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Marche_sel.jpg", "descriptionurl": "https://commons.wikimedia.org/wiki/File:Marche_sel.jpg",
             "thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Marche_sel.jpg/1280px-Marche_sel.jpg?utm_source=commons.wikimedia.org&utm_content=thumbnail",
@@ -440,12 +444,19 @@ class BatchThreeSources(unittest.TestCase):
         self.assertEqual((old.licence, old.mime, old.source, old.author), ("Public domain", "image/jpeg", "wikimedia_commons", "Unknown"))
         self.assertIn("iiurlwidth=1280", opener.urls[0])               # a standard Wikimedia thumbnail width, below the original's 2000
         row = {"id": "bafa11dc-b447-4e43-804c-c3f8f3eca309", "title": "Dandi salt march", "creator": "Nagarjun", "license": "by-sa",
-               "license_version": "2.0", "foreign_landing_url": "https://www.flickr.com/photos/x/1", "attribution": '"Dandi salt march" by Nagarjun'}
+               "license_version": "2.0", "foreign_landing_url": "https://www.flickr.com/photos/x/1", "attribution": '"Dandi salt march" by Nagarjun',
+               "license_url": "https://creativecommons.org/licenses/by-sa/2.0/"}
         opener = Opener({"https://api.openverse.org/v1/images/bafa11dc-b447-4e43-804c-c3f8f3eca309/thumb/": b"\xff\xd8\xffdiorama",
                          "https://api.openverse.org/v1/images/bafa11dc-b447-4e43-804c-c3f8f3eca309/": row})
+        with self.assertRaisesRegex(sources.SourceError, "share-alike"):           # Task 046a-L: CC BY-SA is refused, not kept
+            sources.openverse_image("bafa11dc-b447-4e43-804c-c3f8f3eca309", self.lib, opener=opener)
+        self.assertFalse(any("/thumb/" in u for u in opener.urls))                 # nothing was downloaded
+        row.update(license="by", creator="", license_url="https://creativecommons.org/licenses/by/2.0/")
+        with self.assertRaisesRegex(sources.SourceError, "missing: author"):        # CC BY must name its author
+            sources.openverse_image("bafa11dc-b447-4e43-804c-c3f8f3eca309", self.lib, opener=opener)
+        row["creator"] = "Nagarjun"
         new = sources.openverse_image("bafa11dc-b447-4e43-804c-c3f8f3eca309", self.lib, opener=opener)
-        self.assertEqual((new.licence, new.page_url), ("CC BY-SA 2.0", "https://www.flickr.com/photos/x/1"))
-        self.assertIn("share-alike", new.tags)
+        self.assertEqual((new.licence, new.page_url, new.author), ("CC BY 2.0", "https://www.flickr.com/photos/x/1", "Nagarjun"))
         n = len(opener.urls)
         sources.openverse_image("bafa11dc-b447-4e43-804c-c3f8f3eca309", self.lib, opener=opener)
         self.assertEqual(len(opener.urls), n)                                     # the record and the file are kept in the cache
@@ -601,8 +612,85 @@ class DemosAndPage(unittest.TestCase):
         text = page.render_markdown(registry.from_data(reg, CAPS), {"batch": 1, "demos": 1, "results": [
             {"demo": "maths-equation", "title": "t", "tools": ["sympy", "katex"], "seconds": 4.5, "passed": True}]})
         for words in ("## By subject family", "### Biology and medical", "**KaTeX**: needs fonts", "## Missing capabilities",
-                      "orbit_motion", "maths-equation", "Z-Anatomy: CC BY-SA 4.0"):
+                      "orbit_motion", "maths-equation", "- Z-Anatomy: share-alike licence"):      # Task 046a-L: refused for lessons
             self.assertIn(words, text)
+
+    def test_the_relief_download_is_asked_again_when_gmts_server_is_unreachable(self):
+        from bie.toolbox.adapters import earth
+        calls, waits = [], []
+
+        class Datasets:
+            def __init__(self, failures):
+                self.failures = list(failures)
+
+            def load_earth_relief(self, **kwargs):
+                calls.append(kwargs)
+                if self.failures:
+                    raise RuntimeError(self.failures.pop(0))
+                return "grid"
+
+        fake = type("PyGMT", (), {})()
+        fake.datasets = Datasets(["gmtread [ERROR]: Remote download is currently deactivated\nmore"])
+        self.assertEqual(earth.load_relief(fake, resolution="02m", region=(70, 100, 20, 40), sleep=waits.append), "grid")
+        self.assertEqual((len(calls), waits), (2, [20.0]))
+        self.assertEqual(calls[0]["region"], [70, 100, 20, 40])
+        fake.datasets = Datasets(["Unable to obtain remote file @earth_relief_02m_g"] * 3)
+        with self.assertRaisesRegex(RuntimeError, "could not be reached in 3 attempts"):
+            earth.load_relief(fake, resolution="02m", region=(70, 100, 20, 40), sleep=waits.append)
+        self.assertEqual(waits, [20.0, 20.0, 40.0])
+        fake.datasets = Datasets(["grid region out of range"])            # any other error is not asked again
+        with self.assertRaisesRegex(RuntimeError, "out of range"):
+            earth.load_relief(fake, resolution="02m", region=(70, 100, 20, 40), sleep=waits.append)
+        self.assertEqual(len(waits), 3)
+
+    def test_bie_fetches_the_relief_tiles_for_gmt_to_read_offline(self):
+        import time
+        import urllib.error
+        from bie.toolbox.adapters import earth
+        table = ("# Dir\tName\tInc\tReg\tScl\tOff\tSize\tTile\tDate\n"
+                 "/server/earth/earth_relief/\tearth_relief_02m_g/\t02m\tg\t0.5\t0\t 64M\t60\t2025-05-01\t-\t-\tgeo\tSRTM15\n"
+                 "/server/earth/earth_relief/\tearth_relief_01d_g.grd\t01d\tg\t0.5\t0\t 1M\t0\t2025-05-01\t-\t-\tgeo\tSRTM15\n")
+        folder, tiles = earth.relief_tiles(table, "02m", (70, 100, 20, 40))
+        self.assertEqual(folder, "/server/earth/earth_relief/earth_relief_02m_g/")
+        self.assertEqual(tiles, ["S30E060.earth_relief_02m_g.jp2", "N30E060.earth_relief_02m_g.jp2"])
+        self.assertEqual(earth.relief_tiles(table, "02m", (-10, 10, -5, 5))[1],
+                         ["S30W060.earth_relief_02m_g.jp2", "S30E000.earth_relief_02m_g.jp2"])
+        with self.assertRaises(ValueError):
+            earth.relief_tiles(table, "15s", (70, 100, 20, 40))
+        calls, waits = [], []
+        server = "https://oceania.generic-mapping-tools.org"
+
+        def opener(request, timeout=None):
+            calls.append(request.full_url)
+            if request.full_url.endswith("S30E060.earth_relief_02m_g.jp2") and calls.count(request.full_url) == 1:
+                raise urllib.error.URLError("timed out")              # a slow server: asked again after the wait
+            body = table.encode() if request.full_url.endswith(".txt") else b"jp2 " + request.full_url.encode()
+            return FakeResponse(body)
+
+        with tempfile.TemporaryDirectory() as userdir:
+            done = earth.prefetch_relief("02m", (70, 100, 20, 40), userdir=userdir, opener=opener, sleep=waits.append)
+            self.assertEqual(done["fetched"], tiles)
+            self.assertEqual(waits, [10.0])
+            self.assertEqual(set(done["tables"].values()), {"fetched"})
+            path = Path(userdir, "server/earth/earth_relief/earth_relief_02m_g/N30E060.earth_relief_02m_g.jp2")
+            self.assertEqual(path.read_bytes(), f"jp2 {server}{folder}N30E060.earth_relief_02m_g.jp2".encode())
+            n = len(calls)
+            self.assertEqual(earth.prefetch_relief("02m", (70, 100, 20, 40), userdir=userdir, opener=opener)["fetched"], [])
+            self.assertEqual(len(calls), n)                                 # fresh tables and tiles already here: no fetch
+            old = time.time() - 3 * 24 * 3600
+            for name in earth.GMT_TABLES:
+                os.utime(Path(userdir, name), (old, old))
+
+            def down(request, timeout=None):
+                raise urllib.error.URLError("unreachable")
+            kept = earth.prefetch_relief("02m", (70, 100, 20, 40), userdir=userdir, opener=down, sleep=lambda s: None)
+            self.assertEqual(set(kept["tables"].values()), {"kept"})        # stale local tables kept, dated today
+            self.assertLess(time.time() - Path(userdir, earth.GMT_TABLES[0]).stat().st_mtime, 60)
+        with tempfile.TemporaryDirectory() as empty:
+            def down(request, timeout=None):
+                raise urllib.error.URLError("unreachable")
+            with self.assertRaisesRegex(RuntimeError, "not reached in 3 attempts"):
+                earth.prefetch_relief("02m", (70, 100, 20, 40), userdir=empty, opener=down, sleep=lambda s: None)
 
     def test_adapters_import_without_their_libraries(self):
         with mock.patch.dict(sys.modules, {"rdkit": None}):

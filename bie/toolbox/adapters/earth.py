@@ -10,7 +10,11 @@
 """
 from __future__ import annotations
 
+import math
 import os
+import re
+import time
+import urllib.error
 from pathlib import Path
 
 from .base import clean, need, need_program
@@ -28,6 +32,108 @@ def _gmt_userdir(cache: Path | None = None) -> Path:
     return folder
 
 
+GMT_SERVER = "https://oceania.generic-mapping-tools.org"
+GMT_TABLES = ("gmt_data_server.txt", "gmt_hash_server.txt")
+TABLE_MAX_AGE = 20 * 3600          # GMT asks its server for fresh tables once a day (GMT_DATA_UPDATE_INTERVAL, 1d)
+
+
+def relief_tiles(table: str, resolution: str, region, registration: str = "g"):
+    """(server folder, tile file names) of an SRTM15+ resolution covering ``region`` (west, east, south, north), read from
+    GMT's server table: tiles are named by their south-west corner on a grid of the table's tile size in degrees."""
+    name = f"earth_relief_{resolution}_{registration}/"
+    for line in table.splitlines():
+        cols = re.split(r"\t+", line.strip())
+        if not line.startswith("#") and len(cols) > 7 and cols[1] == name:
+            folder, tile = cols[0] + name, int(cols[7])
+            break
+    else:
+        raise ValueError(f"GMT's server table has no {name}")
+    if not tile:
+        return folder, []
+    west, east, south, north = region
+    lons = range(math.floor((west + 180) / tile) * tile - 180, math.ceil(east), tile)
+    lats = range(math.floor((south + 90) / tile) * tile - 90, math.ceil(north), tile)
+    return folder, [f"{'N' if lat >= 0 else 'S'}{abs(lat):02d}{'E' if lon >= 0 else 'W'}{abs(lon):03d}.{name[:-1]}.jp2"
+                    for lat in lats for lon in lons]
+
+
+def _download(url: str, *, opener=None, tries: int = 3, wait: float = 10.0, sleep=time.sleep, max_bytes: int = 200 * 1024 * 1024):
+    from ..sources import fetch
+    errors = []
+    for attempt in range(tries):
+        try:
+            return fetch(url, opener=opener, timeout=120.0, max_bytes=max_bytes)
+        except urllib.error.HTTPError as exc:
+            if exc.code == 404:
+                raise
+            errors.append(f"HTTP {exc.code}")
+        except (urllib.error.URLError, OSError) as exc:
+            errors.append(f"{type(exc).__name__}: {exc}"[:160])
+        if attempt < tries - 1:
+            sleep(wait * (2 ** attempt))
+    raise RuntimeError(f"{url} not reached in {tries} attempts: " + " | ".join(errors))
+
+
+def prefetch_relief(resolution: str, region, *, userdir=None, opener=None, tries: int = 3, wait: float = 10.0, sleep=time.sleep,
+                    server: str = GMT_SERVER) -> dict:
+    """GMT's server tables and the SRTM15+ tiles a region needs, fetched into GMT's own folder by BIE (a 120-second limit,
+    asked again after ``wait`` and twice that) so GMT then reads them offline; GMT's own downloads give up after 10 seconds
+    and switch remote data off for the session (F-13). Tables older than a day are fetched again; when that fails, the
+    local tables are kept and dated today so GMT does not try. Tiles already here are not fetched again."""
+    folder = Path(userdir) if userdir else _gmt_userdir()
+    tables = {}
+    for name in GMT_TABLES:
+        path = folder / name
+        if path.exists() and time.time() - path.stat().st_mtime < TABLE_MAX_AGE:
+            continue
+        try:
+            data = _download(f"{server}/{name}", opener=opener, tries=tries, wait=wait, sleep=sleep, max_bytes=8 * 1024 * 1024)
+        except Exception:
+            if not path.exists():
+                raise
+            os.utime(path)                                # the local table stays valid; GMT must not try the server now
+            tables[name] = "kept"
+            continue
+        path.write_bytes(data)
+        tables[name] = "fetched"
+    remote, tiles = relief_tiles((folder / GMT_TABLES[0]).read_text(encoding="utf-8", errors="replace"), resolution, region)
+    fetched = []
+    for tile in tiles:
+        target = folder / remote.lstrip("/") / tile
+        if target.exists() or target.with_suffix(".nc").exists():
+            continue
+        data = _download(f"{server}{remote}{tile}", opener=opener, tries=tries, wait=wait, sleep=sleep)
+        target.parent.mkdir(parents=True, exist_ok=True)
+        part = target.with_suffix(".part")
+        part.write_bytes(data)
+        part.replace(target)
+        fetched.append(tile)
+    return {"server": server, "tables": tables, "tiles": tiles, "fetched": fetched}
+
+
+# GMT's messages when its remote data server could not be reached: after one failed fetch GMT turns remote downloads off
+# for the rest of that session, so the next attempt opens a new session.
+REMOTE_FAILURES = ("Remote download is currently deactivated", "Unable to obtain remote file", "Unable to get remote file",
+                   "Libcurl Error", "remote data will be unavailable")
+
+
+def load_relief(pygmt, *, resolution: str, region, tries: int = 3, wait: float = 20.0, sleep=time.sleep):
+    """SRTM15+ through GMT's remote data server, asked again (in a new GMT session, after ``wait`` seconds, then twice
+    that) when the server could not be reached; any other error, or the last failure, is raised with every attempt."""
+    seen = []
+    for attempt in range(tries):
+        try:
+            return pygmt.datasets.load_earth_relief(resolution=resolution, region=list(region), registration="gridline")
+        except Exception as exc:
+            text = str(exc)
+            if not any(m in text for m in REMOTE_FAILURES):
+                raise
+            seen.append(text.strip().splitlines()[0][:200] if text.strip() else type(exc).__name__)
+            if attempt < tries - 1:
+                sleep(wait * (2 ** attempt))
+    raise RuntimeError(f"GMT's remote data server could not be reached in {tries} attempts: " + " | ".join(seen))
+
+
 def relief(region=(70.0, 100.0, 20.0, 40.0), out_png: str | Path = "relief.png", *, resolution: str = "02m",
            profile=((77.0, 22.0), (90.0, 36.0)), step_km: float = 10.0, width_cm: float = 16.0, dpi: int = 150, grid=None) -> dict:
     """``grid`` (an xarray grid of heights in metres) replaces the SRTM15+ download, for tests or a model's own data."""
@@ -35,7 +141,16 @@ def relief(region=(70.0, 100.0, 20.0, 40.0), out_png: str | Path = "relief.png",
     _gmt_userdir()
     pygmt = need("pygmt")
     if grid is None:
-        grid = pygmt.datasets.load_earth_relief(resolution=resolution, region=list(region), registration="gridline")
+        try:
+            prefetch_relief(resolution, region)          # BIE fetches the tiles; GMT then reads them offline (F-13)
+        except Exception as exc:
+            prefetch_error = f"{type(exc).__name__}: {exc}"[:300]
+        else:
+            prefetch_error = ""
+        try:
+            grid = load_relief(pygmt, resolution=resolution, region=region)
+        except RuntimeError as exc:
+            raise RuntimeError(f"{exc}; BIE's own fetch: {prefetch_error or 'done'}") from None
     fig = pygmt.Figure()
     fig.grdimage(grid=grid, projection=f"M{width_cm}c", cmap="geo", shading=True, frame=False)
     fig.savefig(str(out_png), dpi=dpi)

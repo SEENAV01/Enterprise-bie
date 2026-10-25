@@ -1,0 +1,84 @@
+{
+ "schema": "bie.toolbox.licence-policy/1",
+ "version": "2026-10-25.1",
+ "decided": {
+  "date": "2026-10-25",
+  "by": "Navin",
+  "words": "Final videos mein sirf CC0 aur CC BY assets lein; CC BY-SA nahi; NC bilkul nahi."
+ },
+ "about": "The only source of truth for licences in BIE (Task 046a-L). Every licence decision in code reads this file through bie/toolbox/licence.py: the asset library's licence check, the toolbox sources, the registry checks, the resolver, the toolbox page and the lesson gate (lesson_licence_check). Change a verdict here, in a reviewed PR, never in code.",
+ "lesson_content": "Anything visible or audible in a lesson video, game or notes: pictures, models, maps, data drawn on screen, sounds, fonts' glyphs as shown, text quoted from a source.",
+ "classes": [
+   {"id": "non-commercial", "verdict": "refused", "match": ["\\bnc\\b", "by-nc", "nc-sa", "nc-nd", "non-?commercial", "nc-sampling"], "reason": "non-commercial licence: a paid course cannot use it (Navin: NC bilkul nahi)"},
+   {"id": "no-derivatives", "verdict": "refused", "match": ["by-nd", "\\bnd\\b", "no-?deriv"], "reason": "no-derivatives licence: BIE crops, labels and animates every asset"},
+   {"id": "share-alike", "verdict": "refused", "match": ["by-sa", "\\bsa\\b", "share-?alike", "gfdl", "free documentation licen", "odbl", "copyleft"], "reason": "share-alike licence: a lesson that adapts it may have to carry the same licence (Navin: CC BY-SA nahi)"},
+   {"id": "copyleft-program", "verdict": "refused", "match": ["\\bgpl\\b", "\\blgpl\\b", "\\bagpl\\b", "general public licen"], "reason": "a program's copyleft licence (GPL family) on content: like share-alike, refused for lessons"},
+   {"id": "third-party", "verdict": "refused", "match": ["third[- ]party", "all rights reserved", "©"], "reason": "the file carries third-party rights (a named copyright holder)"},
+   {"id": "public-domain", "verdict": "allowed", "credit_required": false, "match": ["\\bcc0\\b", "cc-zero", "public ?domain", "^pd$", "^pdm$", "^pd-", "not copyrighted", "not subject to copyright"], "reason": "CC0 or public domain (including the Public Domain Mark and US government works stated as public domain)"},
+   {"id": "own-work", "verdict": "allowed", "credit_required": false, "match": ["^bie\\b", "bie's own", "made by bie", "own[- ]generated"], "reason": "made by BIE's own code (drawings, models, charts): no outside licence"},
+   {"id": "cc-by", "verdict": "allowed", "credit_required": true, "match": ["^cc[- ]by(?![- ]?(sa|nc|nd))\\b", "^creative commons attribution(?! ?-? ?(share|non|no))", "^attribution(?! ?-? ?(share|non|no))"], "reason": "CC BY (any version): allowed with a credit (author, licence, licence URL, source page)"},
+   {"id": "font", "verdict": "allowed", "credit_required": false, "match": ["open font licen", "\\bofl\\b"], "reason": "a font under the SIL Open Font License: the font file is software; text BIE sets in it is BIE's own (a game or notes page that ships the font file ships the OFL text with it)"},
+   {"id": "own-terms", "verdict": "needs_navin", "match": ["citation", "scientific use", "terms of use", "permission", "contact", "reproduced", "copyright act", "government of india", "esa's rules", "free to use", "\\bmit\\b", "\\bbsd\\b", "apache", "\\bisc\\b"], "reason": "custom or own terms (not CC0, public domain or CC BY): blocked until Navin approves the source by name in this file"}
+ ],
+ "unreadable": {
+  "verdict": "refused",
+  "reason": "licence missing or unreadable"
+ },
+ "never_fetched": {
+  "classes": ["non-commercial", "no-derivatives"],
+  "why": "BIE does not even download these (not for lessons, not for internal proofs): a paid course can never use them"
+ },
+ "credit_fields": ["author", "licence", "licence_url", "page_url"],
+ "own_work": {
+  "asset_sources": ["bie", "bie_toolbox"],
+  "verdict": "allowed",
+  "reason": "made by BIE's own code (drawings, models, charts); no outside licence. A file BIE made from outside data carries that data's source instead."
+ },
+ "sources": {
+  "needs_navin": [
+    {"id": "india-code", "asset_sources": ["india_code"], "why": "Government of India content; Acts may be reproduced under the Copyright Act 1957, s. 52(1)(q), with the source acknowledged: own terms, not a CC licence"},
+    {"id": "hipparcos", "asset_sources": ["hipparcos"], "why": "free for scientific use with citation (CDS); commercial use under ESA's rules for the Hipparcos catalogue"},
+    {"id": "bodyparts3d", "asset_sources": ["bodyparts3d"], "why": "the licence page says CC BY 4.0, but the BodyParts3D page asks users to contact DBCLS; Navin decides after DBCLS answers"},
+    {"id": "gmt-earth-relief", "asset_sources": ["gmt_earth_relief"], "why": "SRTM15+ relief (Tozer et al., 2019, Scripps) is free to use with citation: own terms, not a CC licence"}
+  ],
+  "approved_by_navin": [],
+  "per_item": [
+    {"id": "nasa-images", "asset_sources": ["nasa_images"], "rule": "each file on its own: NASA media are US government works, public domain unless the record names a third-party copyright holder; such a file is refused"},
+    {"id": "wikimedia-commons", "asset_sources": ["wikimedia_commons", "commons"], "rule": "each file's own licence as Commons states it"},
+    {"id": "openverse", "asset_sources": ["openverse"], "rule": "each file's own licence as Openverse records it"},
+    {"id": "nih-3d", "asset_sources": ["nih_3d"], "rule": "each model's own licence from its NIH 3D record"},
+    {"id": "sketchfab", "asset_sources": ["sketchfab"], "rule": "each model's own licence (Sketchfab-type sources); not in the registry yet"},
+    {"id": "pubchem", "asset_sources": ["pubchem"], "rule": "public domain (NCBI) except depositor records with their own terms"}
+  ],
+  "aliases": {"google_fonts": "noto-devanagari", "pygmt": "gmt-earth-relief"},
+  "aliases_note": "asset source names that are not a registry id: the font's Google Fonts source, and the SRTM15+ relief picture the geo-relief demo recorded as pygmt before Task 046a-L"
+ },
+ "india_boundary": {
+  "verdict": "needs_navin",
+  "tag": "india-boundary",
+  "approved_boundary": null,
+  "sources": ["natural-earth", "natural-earth-vector"],
+  "files": ["ne_10m_admin_0_countries_ind", "ne_10m_admin_1_states_provinces"],
+  "blocks": ["india_map"],
+  "why": "any asset or map that draws India's political boundary (including Natural Earth's India-view file) waits until Navin approves a boundary matched to the Survey of India map",
+  "not_a_boundary": "a land or coastline outline (world-atlas land-110m) draws no political boundary"
+ },
+ "software": {
+  "kinds": ["python_lib", "js_lib", "app"],
+  "rule": "a program's licence (MIT, BSD, Apache, ISC, LGPL, GPL, EPL, NOSA, Remotion's own ...) governs the program, not the pictures BIE makes with it",
+  "gpl": "GPL and LGPL programs (gpl-flagged registry tools such as Blender, PsychoPy, pyGPlates) run only in the cloud, CI or VM render path and never ship inside apps/ (android, web, operator, api)",
+  "gpl_pattern": "(?<!l)gpl",
+  "copyleft_pattern": "gpl",
+  "apps_manifests": ["**/package.json", "**/*.gradle", "**/*.gradle.kts", "**/requirements*.txt", "**/pyproject.toml", "**/setup.py", "**/setup.cfg", "**/Pipfile", "**/environment.yml"],
+  "apps_code": ["**/*.py", "**/*.js", "**/*.mjs", "**/*.ts", "**/*.tsx", "**/*.kt", "**/*.java"],
+  "extra_names": {
+   "blender": ["bpy"],
+   "pygplates": ["pygplates"],
+   "psychopy": ["psychopy"]
+  },
+  "data_is_content": "data or models a tool ships with (Z-Anatomy files, the Hipparcos catalogue, Natural Earth maps ...) are content and go through the classes above",
+  "open_decisions": [
+    {"id": "remotion", "decision": "Remotion licence: free for individuals and companies of up to 3 people; a paid company licence above that"}
+  ]
+ }
+}

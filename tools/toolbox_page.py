@@ -15,8 +15,16 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-from bie.toolbox import page, registry  # noqa: E402
+from bie.toolbox import demos, page, registry  # noqa: E402
 from bie.toolbox.resolver import MissingLog  # noqa: E402
+
+
+def with_blocks(row: dict, folder: Path) -> dict:
+    """Receipts written before Task 046a-L have no block list: read it from the demo's spec.json beside the receipt."""
+    spec = folder / row["demo"] / "spec.json"
+    if "blocks" not in row and spec.exists():
+        row = dict(row, blocks=demos.spec_blocks(json.loads(spec.read_text(encoding="utf-8"))))
+    return row
 
 
 def main(argv=None):
@@ -29,9 +37,9 @@ def main(argv=None):
     rows = []
     for source in args.results:
         if source.is_dir():
-            rows += [json.loads(p.read_text(encoding="utf-8")) for p in sorted(source.glob("*/receipt.json"))]
+            rows += [with_blocks(json.loads(p.read_text(encoding="utf-8")), source) for p in sorted(source.glob("*/receipt.json"))]
         else:
-            rows += json.loads(source.read_text(encoding="utf-8")).get("results", [])
+            rows += [with_blocks(r, source.parent) for r in json.loads(source.read_text(encoding="utf-8")).get("results", [])]
     results = None
     if rows:
         rows.sort(key=lambda r: (r.get("batch") or 0, r["demo"]))
