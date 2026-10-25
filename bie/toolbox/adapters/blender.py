@@ -54,13 +54,19 @@ def cell_sheet(out: str | Path, *, kind: str = "columnar", rows: int = 5, cols: 
     return dict(info, bytes=out.stat().st_size)
 
 
-def fbx_part(fbx: str | Path, match: str, out: str | Path, *, exclude: str = "", max_objects: int = 400, timeout: int = 1800) -> dict:
-    """Keep the meshes of an FBX (for example a Z-Anatomy body system) whose names match, as a centred .glb."""
+def fbx_part(fbx: str | Path, match: str, out: str | Path, *, exclude: str = "", max_objects: int = 400, timeout: int = 1800,
+             group: str = "", min_vertices: int = 0) -> dict:
+    """Keep the meshes of an FBX (for example a Z-Anatomy body system) whose names match, as a centred .glb; with
+    ``group`` (a regular expression on parent names) one joined object per matching parent (a brain's lobes)."""
     out = Path(out)
     out.parent.mkdir(parents=True, exist_ok=True)
     args = ["--fbx", str(fbx), "--match", match, "--out", str(out), "--max-objects", str(max_objects)]
     if exclude:
         args += ["--exclude", exclude]
+    if group:
+        args += ["--group", group]
+    if min_vertices:
+        args += ["--min-vertices", str(min_vertices)]
     info = run("fbx_part.py", args, timeout=timeout)
     if not out.exists():
         raise RuntimeError("Blender did not write the part")

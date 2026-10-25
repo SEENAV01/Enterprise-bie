@@ -458,6 +458,252 @@ def climb(w: Work) -> dict:
     return scene([block("flight_profile", dict(data, title="A Cessna 172 climbs to 2,500 ft", subtitle="flight dynamics by JSBSim (c172x and its autopilot)",
                                                seconds=3.8, badge="120 simulated seconds in 4"))], 4.2)
 
+# ---------------------------------------------------------------- batch 3: geography, history, polity
+
+BNSS = "AC_CEN_5_23_00049_202346_1719552320687"        # India Code's id of the Bharatiya Nagarik Suraksha Sanhita, 2023
+NE_CREDIT = "Map: Natural Earth (public domain), India's own boundary view · BIE (Shapely, d3-geo)"
+
+
+def india_state(w: Work) -> dict:
+    from .adapters import maps
+    data = maps.india(["Uttar Pradesh"])
+    kinds = [s["kind"] for s in data["states"]]
+    w.notes["shapely"] = {"states": kinds.count("State"), "union_territories": kinds.count("Union Territory"),
+                          "uttar_pradesh_km2": next(s["area_km2"] for s in data["states"] if s["highlight"])}
+    return scene([block("india_map", dict(data, title="Uttar Pradesh on the map of India",
+                                          subtitle=f"{kinds.count('State')} states and {kinds.count('Union Territory')} union territories · area computed by BIE",
+                                          highlight_at=0.5, zoom_at=1.4, zoom_seconds=1.5, credit=NE_CREDIT))], 4.2)
+
+
+def gt_road(w: Work) -> dict:
+    from .adapters import maps
+    data = maps.india([], tolerance=0.03)
+    route = maps.route(["Kolkata", "Dhanbad", "Varanasi", "Prayagraj", "Kanpur", "Agra", "Delhi", "Panipat", "Ambala", "Ludhiana",
+                        "Amritsar", "Lahore", "Rawalpindi", "Peshawar", "Kabul"])
+    w.notes["route"] = {"stops": len(route["stops"]), "total_km": route["total_km"]}
+    return scene([block("india_map", dict(data, route=route, title="The Grand Trunk Road, Kolkata to Kabul",
+                                          subtitle="towns from Natural Earth · straight great-circle legs, not road distances",
+                                          route_at=0.5, route_seconds=3.2, credit=NE_CREDIT))], 4.2)
+
+
+def national_movement(w: Work) -> dict:
+    events = [{"date": "1857-05-10", "label": "Revolt of 1857 begins at Meerut"},
+              {"date": "1885-12-28", "label": "Indian National Congress founded"},
+              {"date": "1905-10-16", "label": "Partition of Bengal"},
+              {"date": "1919-04-13", "label": "Jallianwala Bagh massacre"},
+              {"date": "1920-08-01", "label": "Non-cooperation movement"},
+              {"date": "1930-03-12", "label": "Dandi March begins"},
+              {"date": "1942-08-08", "label": "Quit India resolution"},
+              {"date": "1947-08-15", "label": "Independence"},
+              {"date": "1950-01-26", "label": "Constitution in force"}]
+    return scene([block("timeline_build", {"events": events, "start": "1850-01-01", "end": "1955-01-01", "tick_years": 10, "seconds": 3.3,
+                                           "title": "Towards independence, 1857 to 1950", "subtitle": "a D3 time scale; each event on its own date",
+                                           "eras": [{"from": "1857-01-01", "to": "1885-12-28", "label": "after the Revolt"},
+                                                    {"from": "1885-12-28", "to": "1919-04-13", "label": "early nationalism"},
+                                                    {"from": "1919-04-13", "to": "1947-08-15", "label": "mass movements"}]})], 4.2)
+
+
+BILL_TO_ACT = """flowchart LR
+  A["Bill introduced<br/>in one House"] --> B["First reading"]
+  B --> C["Committee<br/>(if referred)"]
+  C --> D["Second reading:<br/>clause by clause"]
+  D --> E["Third reading:<br/>passed"]
+  E --> F["Other House:<br/>same stages"]
+  F --> G{"Both Houses<br/>agree?"}
+  G -- "yes" --> I["President's assent<br/>(Article 111)"]
+  G -- "no" --> H["Joint sitting<br/>(Article 108)"]
+  H --> I
+  I --> J(["Act of Parliament"])
+"""
+
+
+def bill_to_act(w: Work) -> dict:
+    order = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"]
+    edges = [("A", "B"), ("B", "C"), ("C", "D"), ("D", "E"), ("E", "F"), ("F", "G"), ("G", "I"), ("G", "H"), ("H", "I"), ("I", "J")]
+    return scene([block("mermaid_build", {"source": BILL_TO_ACT, "order": order, "edges": edges, "seconds": 3.3,
+                                          "title": "How a Bill becomes an Act (Parliament of India)",
+                                          "subtitle": "written in Mermaid · laid out by elkjs · Articles 107 to 111 of the Constitution",
+                                          "badge": "Mermaid + ELK layout"})], 4.2)
+
+
+def archive_images(w: Work) -> dict:
+    from . import sources
+    old = sources.commons_image("File:Marche sel.jpg", w.library, tags=["history", "salt march"], width=1280, opener=w.opener)
+    new = sources.openverse_image("bafa11dc-b447-4e43-804c-c3f8f3eca309", w.library, tags=["history", "salt march"], opener=w.opener)
+    w.notes["licences"] = {"commons": old.licence, "openverse": new.licence}
+    left, right = {"x": 0.03, "y": 0.16, "w": 0.45, "h": 0.66}, {"x": 0.52, "y": 0.16, "w": 0.45, "h": 0.66}
+    layers = [
+        {"id": "title", "type": "title", "at": 0, "box": {"x": 0.03, "y": 0.02, "w": 0.9, "h": 0.12}, "title": "The Salt March in two open archives",
+         "subtitle": "Wikimedia Commons and Openverse, each picture with its licence"},
+        {"id": "old", "type": "image", "at": 6, "box": left, "src": w.src(old), "credit": f"Wikimedia Commons · {old.licence}"},
+        {"id": "new", "type": "image", "at": 40, "box": right, "src": w.src(new), "credit": f"Openverse · {new.licence}"},
+        {"id": "c1", "type": "label", "at": 20, "box": {"x": 0.08, "y": 0.85, "w": 0.35, "h": 0.06}, "text": "1930: the march, photographed", "tone": "accent"},
+        {"id": "c2", "type": "label", "at": 54, "box": {"x": 0.57, "y": 0.85, "w": 0.35, "h": 0.06}, "text": "a museum diorama of the same story", "tone": "warm"},
+    ]
+    camera = [{"at": 0, "box": FULL}, {"at": 70, "box": {"x": 0.02, "y": 0.08, "w": 0.96, "h": 0.9}, "frames": 56}]
+    return scene(layers, 4.2, camera)
+
+
+# ---------------------------------------------------------------- batch 3: economics, commerce, management
+
+def gdp_growth(w: Work) -> dict:
+    from . import sources
+    asset, rows, meta = sources.world_bank("NY.GDP.MKTP.KD.ZG", ["IND"], 1991, 2024, w.library, opener=w.opener)
+    years, values = [r["year"] for r in rows], [r["value"] for r in rows]
+    low = min(range(len(values)), key=lambda i: values[i])
+    w.notes["world_bank"] = {"years": f"{years[0]}-{years[-1]}", "lowest": [years[low], round(values[low], 1)]}
+    return scene([block("chartjs_build", {"labels": [str(y) for y in years], "values": values, "highlight": low, "unit": " %",
+                                          "y_label": "GDP growth, % a year", "seconds": 3.2,
+                                          "note": f"{years[low]}: {values[low]:+.1f} %, the lowest since {years[0]}",
+                                          "title": "India's economy, growth year by year", "subtitle": f"World Bank: {meta['name']} · Chart.js",
+                                          "credit": asset.credit})], 4.2)
+
+
+def wealth_health(w: Work) -> dict:
+    from . import sources
+    from .adapters import economics
+    countries = ["IND", "CHN", "USA", "BRA", "NGA", "BGD", "IDN", "JPN"]
+    series, credits = {}, []
+    for key, code in (("x", "NY.GDP.PCAP.PP.KD"), ("y", "SP.DYN.LE00.IN"), ("size", "SP.POP.TOTL")):
+        asset, rows, _ = sources.world_bank(code, countries, 1995, 2022, w.library, opener=w.opener)
+        series[key] = rows
+        credits.append(code)
+    data = economics.joined_frames(series, list(range(1995, 2023)))
+    w.notes["world_bank"] = {"countries": len(data["countries"]), "frames": len(data["frames"])}
+    return scene([block("vega_build", dict(data, key="wealth-health", trail=["IND", "CHN"], seconds=3.4,
+                                           x_title="income per person (GDP per capita, PPP, constant 2021 $; log scale)",
+                                           y_title="life expectancy at birth (years)", x_domain=[800, 90000], y_domain=[45, 86],
+                                           size_domain=[0, 1450000000], title="Wealth and health, 1995 to 2022",
+                                           subtitle="World Bank data · compiled by Vega-Lite, drawn by Vega · India and China leave a trail",
+                                           credit="World Bank, World Development Indicators (" + ", ".join(credits) + "), CC BY 4.0"))], 4.2)
+
+
+def cobb_douglas(w: Work) -> dict:
+    from .adapters import economics
+    cd = economics.cobb_douglas(alpha=0.4, beta=0.6, r=2.0, w=1.0)
+    w.notes["numpy"] = {"k_over_l": cd["k_over_l"], "returns_to_scale": cd["returns_to_scale"]}
+    return scene([block("plotly_build", {"x": cd["K"], "y": cd["L"], "z": cd["Q"], "levels": cd["levels"], "x_title": "capital K",
+                                         "y_title": "labour L", "path": [[p[0], p[1]] for p in cd["expansion_path"]], "path_label": "cheapest mix",
+                                         "title": "A Cobb-Douglas production function", "subtitle": "isoquants by Plotly (contour) · the expansion path grows",
+                                         "panel": ["Q = K^0.4 × L^0.6", f"α + β = 1: {cd['returns_to_scale']} returns to scale",
+                                                   f"cheapest mix K/L = (α/β)(w/r) = {cd['k_over_l']:.2f}", "input prices r = 2, w = 1"],
+                                         "badge": "computed by NumPy, drawn by Plotly"})], 4.2)
+
+
+# ---------------------------------------------------------------- batch 3: law
+
+def criminal_procedure(w: Work) -> dict:
+    from . import sources
+    from .adapters import law
+    asset, act = sources.india_code_act(BNSS, w.library, opener=w.opener)
+    steps = [{"id": "fir", "title": "Information in cognizable cases.", "label": "FIR: information to the police"},
+             {"id": "inv", "title": "Procedure for investigation.", "label": "Investigation"},
+             {"id": "report", "title": "Report of police officer on completion of investigation.", "label": "Police report"},
+             {"id": "cog", "title": "Cognizance of offences by Magistrate.", "label": "Magistrate takes cognizance"},
+             {"id": "open", "title": "Opening case for prosecution.", "label": "Sessions trial opens"},
+             {"id": "q", "label": "Ground to proceed?", "kind": "decision"},
+             {"id": "dis", "title": "Discharge.", "between": [248, 260], "label": "Discharge", "kind": "end"},
+             {"id": "charge", "title": "Framing of charge.", "between": [248, 260], "label": "Charge framed"},
+             {"id": "judg", "title": "Judgment of acquittal or conviction.", "label": "Judgment: acquittal or conviction", "kind": "end"}]
+    edges = [["fir", "inv"], ["inv", "report"], ["report", "cog"], ["cog", "open"], ["open", "q"], ["q", "dis", "no"], ["q", "charge", "yes"],
+             ["charge", "judg"]]
+    flow = law.procedure(act, steps, edges)
+    w.notes["india_code"] = {"act": act["title"], "sections": len(act["sections"]),
+                             "steps": {n["id"]: n.get("section") for n in flow["nodes"] if n.get("section")}}
+    return scene([block("flow_build", dict(flow, rankdir="LR", wrap=14, seconds=3.3, section_prefix="Section ",
+                                           title="A criminal case, from FIR to judgment (sessions trial)",
+                                           subtitle=f"{act['title']} · section numbers read from India Code, laid out by dagre",
+                                           badge=f"{len(act['sections'])} sections read from India Code"))], 4.2)
+
+
+def case_card(w: Work) -> dict:
+    from . import sources
+    from .adapters import law
+    asset, record = sources.sc_judgment(1973, r"KESAVANANDA BHARATI", w.library, opener=w.opener)
+    card = law.case_card(record)
+    w.notes["sc_judgments"] = {"bench": card["bench"], "decided": card["decided"], "citations": card["citations"]}
+    return scene([block("case_card", {"card": card, "kind": "Supreme Court of India · judgment", "step_seconds": 0.4,
+                                      "title": "A case card from the judgments dataset", "subtitle": "every field read from the record, none typed in",
+                                      "credit": sources.SC_CREDIT})], 4.4)
+
+
+def courts_tree(w: Work) -> dict:
+    from . import sources
+    from .adapters import law
+    asset, act = sources.india_code_act(BNSS, w.library, opener=w.opener)
+    section = law.find_section(act, "Classes of Criminal Courts.")
+    classes = law.listed_items(section)
+    w.notes["india_code"] = {"section": section["number"], "classes": classes}
+    root = {"name": "Supreme Court of India", "children": [{"name": "High Court", "note": "one for each State or group",
+            "children": [{"name": c, "note": f"BNSS s. {section['number']}"} for c in classes]}]}
+    return scene([block("tree_build", {"root": root, "seconds": 2.6, "wrap": 20, "title": "Criminal courts in India",
+                                       "subtitle": f"the classes of criminal courts listed in section {section['number']} of the BNSS (India Code), grown by D3",
+                                       "badge": "D3 tree layout"})], 4.0)
+
+
+# ---------------------------------------------------------------- batch 3: psychology, education, sociology
+
+def stroop(w: Work) -> dict:
+    from .adapters import behaviour
+    data = behaviour.stroop(colours=("red", "green", "blue"), n_reps=1, seed=7)
+    w.notes["psychopy"] = {"trials": len(data["trials"]), "congruent": data["congruent"], "designed_by": data["designed_by"]}
+    return scene([block("experiment_flow", dict(data, seconds=3.4, title="The Stroop experiment, trial by trial",
+                                                subtitle=f"trial list made by {data['designed_by']} · seed {data['seed']}",
+                                                badge="name the ink colour, not the word"))], 4.2)
+
+
+def teaching_method(w: Work) -> dict:
+    from .adapters import behaviour
+    fit = behaviour.teaching_method()
+    w.notes["statsmodels"] = {k: fit[k] for k in ("odds_ratio_psi", "odds_ratio_ci", "p_value_psi", "n")}
+    return scene([block("xy_lines", {"series": [{"x": fit["gpa"], "y": fit["without_psi"], "label": "usual teaching", "start": 0.3, "seconds": 1.6},
+                                                {"x": fit["gpa"], "y": fit["with_psi"], "label": "new method (PSI)", "start": 1.4, "seconds": 1.6}],
+                                     "x_label": "grade point average", "y_label": "chance the grade improves", "y_domain": [0, 1],
+                                     "title": "Does a new teaching method help?", "legend_box": True,
+                                     "subtitle": f"logit model by {fit['fitted_by']} on {fit['n']} students (Spector and Mazzeo, 1980)",
+                                     "note": f"PSI multiplies the odds by {fit['odds_ratio_psi']:.1f} (95% CI {fit['odds_ratio_ci'][0]:.1f} to "
+                                             f"{fit['odds_ratio_ci'][1]:.0f}), p = {fit['p_value_psi']:.3f}"})], 4.2)
+
+
+def brain_lobes(w: Work) -> dict:
+    from . import sources
+    asset, info = sources.z_anatomy("NervousSystem100", ".", w.library, min_vertices=20, title="Brain by lobes",
+                                    group=r"^(Frontal|Parietal|Temporal|Occipital) lobe\.g$|^Cerebellum\.g$|^Brainstem\.g$", opener=w.opener)
+    w.notes["z_anatomy"] = {"objects": info["objects"], "parts": info["parts"], "names": info["names"]}
+    parts = [{"match": "^Frontal lobe", "colour": "#4f8dff", "label": "frontal: planning, movement", "at": 0.5},
+             {"match": "^Parietal lobe", "colour": "#3ddc84", "label": "parietal: touch, space", "at": 1.0},
+             {"match": "^Temporal lobe", "colour": "#ffd23f", "label": "temporal: hearing, memory", "at": 1.5},
+             {"match": "^Occipital lobe", "colour": "#ff7a50", "label": "occipital: vision", "at": 2.0},
+             {"match": "^Cerebellum", "colour": "#c79bff", "label": "cerebellum: balance", "at": 2.5},
+             {"match": "^Brainstem", "colour": "#ff5a8a", "label": "brainstem: breathing, heartbeat", "at": 3.0}]
+    return scene([block("model_3d", {"src": w.src(asset), "title": "The brain, lobe by lobe", "parts": parts, "spin": True,
+                                     "subtitle": f"Z-Anatomy model · Blender joined {info['parts']} parts into {info['objects']} · three.js",
+                                     "turn_degrees": 70, "start_degrees": 90, "seconds": 4.2, "distance": 3.4, "camera_height": 0.5,
+                                     "credit": "Z-Anatomy · CC BY-SA 4.0 (share-alike)"}, box={"x": 0.0, "y": 0.0, "w": 0.75, "h": 1.0})], 4.2)
+
+
+def learning_cycle(w: Work) -> dict:
+    nodes = [{"id": "ce", "label": "Concrete experience"}, {"id": "ro", "label": "Reflective observation"},
+             {"id": "ac", "label": "Abstract conceptualisation"}, {"id": "ae", "label": "Active experimentation"}]
+    return scene([block("flow_build", {"nodes": nodes, "edges": [], "layout": "cycle", "seconds": 2.4, "wrap": 14,
+                                       "centre": "Kolb (1984)", "title": "The experiential learning cycle",
+                                       "subtitle": "four stages that repeat: BIE's flow block in its cycle layout"})], 4.0)
+
+
+# ---------------------------------------------------------------- batch 3: languages and literature
+
+def kinetic_sanskrit(w: Work) -> dict:
+    from . import sources
+    from .adapters import language
+    font = sources.noto_devanagari(w.library, opener=w.opener)
+    data = language.sentence("सर्वे भवन्तु सुखिनः सर्वे सन्तु निरामयाः ।", lang="sa",
+                             glosses=["all", "may be", "happy", "all", "may be", "free from illness"])
+    w.notes["indic_nlp"] = {"words": len(data["words"]), "aksharas": sum(len(x["aksharas"]) for x in data["words"]), "made_by": data["made_by"]}
+    return scene([block("kinetic_text", dict(data, font_src=w.src(font), seconds=3.3, title="A Sanskrit line, word by word",
+                                             subtitle=data["made_by"], translation="May all be happy; may all be free from illness.",
+                                             credit=font.credit))], 4.2)
+
+
 # Every 3D block draws through @remotion/three, React Three Fiber and drei on three.js.
 THREE_STACK = ("three", "react-three-fiber", "drei", "remotion-three")
 
@@ -519,6 +765,36 @@ DEMOS = (
     Demo("aero-aircraft", 2, "A trainer aircraft and its lift curve from AeroSandbox", ("aerosandbox", "trimesh", *THREE_STACK, "d3", "bie-science-blocks"),
          ("aircraft_shape",), 4.2, aircraft),
     Demo("aero-climb", 2, "A Cessna 172 climb simulated by JSBSim", ("jsbsim", "d3", "bie-science-blocks"), ("flight_motion",), 4.2, climb),
+    # batch 3: social sciences, commerce, law, behaviour, language
+    Demo("geo-india-state", 3, "Uttar Pradesh on India's map (Natural Earth, Shapely, d3-geo)", ("natural-earth-vector", "shapely", "d3", "bie-social-blocks"),
+         ("map_region",), 4.2, india_state),
+    Demo("hist-gt-road", 3, "The Grand Trunk Road drawn town by town", ("natural-earth-vector", "shapely", "d3", "bie-social-blocks"),
+         ("map_route",), 4.2, gt_road),
+    Demo("hist-timeline", 3, "Towards independence, 1857 to 1950, on a D3 time scale", ("d3", "bie-social-blocks"), ("timeline",), 4.2, national_movement),
+    Demo("polity-bill-mermaid", 3, "How a Bill becomes an Act, in Mermaid with the ELK layout", ("mermaid", "mermaid-layout-elk", "elkjs", "bie-social-blocks"),
+         ("flowchart",), 4.2, bill_to_act),
+    Demo("hist-archive-images", 3, "The Salt March from Wikimedia Commons and Openverse", ("wikimedia-commons", "openverse", "bie-blocks"),
+         ("focus_glow",), 4.2, archive_images),
+    Demo("econ-growth-chartjs", 3, "India's GDP growth from the World Bank in Chart.js", ("world-bank", "chartjs", "bie-social-blocks"),
+         ("chart_bar_line_pie",), 4.2, gdp_growth),
+    Demo("econ-wealth-health-vega", 3, "Wealth and health of eight countries in Vega-Lite", ("world-bank", "vega-lite", "vega", "bie-social-blocks"),
+         ("chart_bar_line_pie",), 4.2, wealth_health),
+    Demo("econ-cobb-douglas-plotly", 3, "A Cobb-Douglas production function in Plotly", ("numpy", "plotly", "bie-social-blocks"),
+         ("function_graph",), 4.2, cobb_douglas),
+    Demo("law-procedure-flow", 3, "A criminal case from FIR to judgment, sections from India Code", ("india-code", "dagre", "bie-social-blocks"),
+         ("flowchart",), 4.2, criminal_procedure),
+    Demo("law-case-card", 3, "Kesavananda Bharati v. State of Kerala as a case card", ("sc-judgments", "pyarrow", "bie-social-blocks"),
+         ("case_card",), 4.4, case_card),
+    Demo("law-courts-tree", 3, "Classes of criminal courts (BNSS s. 6) as a tree", ("india-code", "d3", "bie-social-blocks"),
+         ("tree_hierarchy",), 4.0, courts_tree),
+    Demo("psy-stroop-flow", 3, "The Stroop experiment designed by PsychoPy", ("psychopy", "bie-social-blocks"), ("flowchart",), 4.2, stroop),
+    Demo("edu-teaching-logit", 3, "A teaching method's effect by statsmodels (logit)", ("statsmodels", "d3", "bie-science-blocks"),
+         ("function_graph", "chart_bar_line_pie"), 4.2, teaching_method),
+    Demo("psy-brain-lobes", 3, "The brain lobe by lobe (Z-Anatomy, Blender, three.js)", ("z-anatomy", "blender", *THREE_STACK),
+         ("anatomy_3d",), 4.2, brain_lobes),
+    Demo("edu-learning-cycle", 3, "Kolb's learning cycle as a process cycle", ("bie-social-blocks",), ("process_cycle",), 4.0, learning_cycle),
+    Demo("lang-kinetic-sanskrit", 3, "A Sanskrit line word by word in Devanagari and Roman", ("indic-nlp", "indic-transliteration", "noto-devanagari", "bie-social-blocks"),
+         ("text_kinetic",), 4.2, kinetic_sanskrit),
 )
 
 

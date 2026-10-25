@@ -353,3 +353,182 @@ class Aero(unittest.TestCase):
         c = aero.climb(seconds=100.0)
         self.assertGreater(c["best_climb_fpm"], 500)
         self.assertAlmostEqual(c["altitude_ft"][-1], 2500, delta=120)
+
+
+# ---------------------------------------------------------------- batch 3
+
+def _geojson(features):
+    return {"type": "FeatureCollection", "features": [{"type": "Feature", "properties": p, "geometry": g} for p, g in features]}
+
+
+def _box(x0, y0, x1, y1):
+    return {"type": "Polygon", "coordinates": [[[x0, y0], [x1, y0], [x1, y1], [x0, y1], [x0, y0]]]}
+
+
+class Maps(unittest.TestCase):
+    """India's outline, two states that do not cover all of it, a neighbour that overlaps the outline, and three towns."""
+
+    def setUp(self):
+        from bie.toolbox.adapters import maps
+        self.maps = maps
+        self.tmp = tempfile.TemporaryDirectory()
+        files = {
+            "ne_10m_admin_0_countries_ind": _geojson([({"ADM0_A3": "IND", "NAME": "India"}, _box(70, 10, 90, 30)),
+                                                      ({"ADM0_A3": "PAK", "NAME": "Pakistan"}, _box(62, 24, 72, 34))]),
+            "ne_10m_admin_1_states_provinces": _geojson([
+                ({"adm0_a3": "IND", "name": "North", "type_en": "State", "iso_3166_2": "IN-NO"}, _box(70, 20, 90, 28)),
+                ({"adm0_a3": "IND", "name": "South", "type_en": "Union Territory", "iso_3166_2": "IN-SO"}, _box(70, 10, 90, 20))]),
+            "ne_10m_populated_places_simple": _geojson([
+                ({"name": "Allahabad", "nameascii": "Allahabad", "adm0_a3": "IND", "adm0name": "India", "latitude": 25.46, "longitude": 81.84, "pop_max": 1201000},
+                 {"type": "Point", "coordinates": [81.84, 25.46]}),
+                ({"name": "Delhi", "nameascii": "Delhi", "adm0_a3": "IND", "adm0name": "India", "latitude": 28.67, "longitude": 77.23, "pop_max": 15926000},
+                 {"type": "Point", "coordinates": [77.23, 28.67]}),
+                ({"name": "Delhi", "nameascii": "Delhi", "adm0_a3": "USA", "adm0name": "United States", "latitude": 42.0, "longitude": -75.0, "pop_max": 3000},
+                 {"type": "Point", "coordinates": [-75.0, 42.0]})])}
+        for name, body in files.items():
+            (Path(self.tmp.name) / f"{name}.geojson").write_text(json.dumps(body), encoding="utf-8")
+        maps._features.cache_clear()
+        self.patch = mock.patch("bie.toolbox.sources.natural_earth", lambda name, opener=None: Path(self.tmp.name) / f"{name}.geojson")
+        self.patch.start()
+
+    def tearDown(self):
+        self.patch.stop()
+        self.maps._features.cache_clear()
+        self.tmp.cleanup()
+
+    def test_india_with_a_state_picked_out(self):
+        d = self.maps.india(["North"])
+        self.assertEqual([s["name"] for s in d["states"] if s["highlight"]], ["North"])
+        north = next(s for s in d["states"] if s["name"] == "North")
+        # on the sphere: R² · Δλ · (sin 28° − sin 20°) = 1.806 million km²
+        import math
+        self.assertAlmostEqual(north["area_km2"] / 1.0e6, 6371.0088 ** 2 * math.radians(20) * (math.sin(math.radians(28)) - math.sin(math.radians(20))) / 1.0e6,
+                               delta=0.01)
+        self.assertGreater(d["beyond_states_km2"], 0)                       # 28°–30° N is India's but no state's
+        pak = d["neighbours"][0]
+        self.assertEqual(pak["iso3"], "PAK")
+        from shapely.geometry import shape
+        self.assertLess(shape(pak["geometry"]).intersection(shape(d["outline"])).area, 1e-9)   # a neighbour never covers India
+        with self.assertRaises(ValueError):
+            self.maps.india(["Atlantis"])
+
+    def test_places_take_the_renamed_city_and_the_country_asked_for(self):
+        stops = self.maps.places(["Prayagraj", "Delhi"], countries=("IND",))
+        self.assertEqual([s["country"] for s in stops], ["India", "India"])
+        self.assertEqual(stops[0]["name"], "Prayagraj")                   # shown as asked, found under its older name
+        route = self.maps.route(["Prayagraj", "Delhi"], countries=("IND",))
+        self.assertAlmostEqual(route["total_km"], 580, delta=15)            # Allahabad to Delhi, great circle
+        with self.assertRaises(ValueError):
+            self.maps.places(["Nowhere"])
+
+
+class Economics(unittest.TestCase):
+    def test_cobb_douglas_constant_returns_and_the_cheapest_mix(self):
+        from bie.toolbox.adapters import economics
+        d = economics.cobb_douglas(alpha=0.4, beta=0.6, r=2.0, w=1.0, n=11)
+        self.assertEqual(d["returns_to_scale"], "constant")
+        self.assertAlmostEqual(d["k_over_l"], (0.4 / 0.6) * (1 / 2), places=3)
+        k, l, q = d["expansion_path"][5]
+        self.assertAlmostEqual(q, k ** 0.4 * l ** 0.6, places=2)
+        self.assertAlmostEqual(d["Q"][10][10], 100.0, places=2)             # Q(100, 100) with A = 1
+
+    def test_joined_frames_interpolate_inside_a_country_only(self):
+        from bie.toolbox.adapters import economics
+        rows = lambda vals: [{"iso3": "IND", "country": "India", "year": y, "value": v} for y, v in vals]
+        d = economics.joined_frames({"x": rows([(2000, 10.0), (2002, 30.0)]), "y": rows([(2000, 1.0), (2001, 2.0), (2002, 3.0)])}, [2000, 2001, 2003])
+        self.assertEqual(d["frames"][1]["points"][0]["x"], 20.0)
+        self.assertTrue(d["frames"][1]["points"][0]["interpolated"])
+        self.assertEqual(d["frames"][2]["points"], [])                      # 2003 is outside the data: never extrapolated
+
+
+ACT = {"title": "The Test Sanhita, 2023", "act_number": "1", "year": "2023", "in_force": "01-07-2024", "act_id": "AC_CEN_1_2023",
+       "sections": [{"number": "6", "title": "Classes of Courts.", "text": "There shall be the following classes, namely:— (i) Courts of Session; "
+                     "(ii) Judicial Magistrates of the first class; and (iii) Executive Magistrates."},
+                    {"number": "173", "title": "Information in cognizable cases.", "text": "(1) Every information ..."},
+                    {"number": "250", "title": "Discharge.", "text": "If ..."}, {"number": "262", "title": "Discharge.", "text": "If ..."}]}
+
+
+class Law(unittest.TestCase):
+    def test_sections_are_found_by_official_title_only(self):
+        from bie.toolbox.adapters import law
+        self.assertEqual(law.find_section(ACT, "information in cognizable cases")["number"], "173")
+        with self.assertRaises(law.LawDataError):
+            law.find_section(ACT, "Discharge.")                               # two sections share it: a range must decide
+        self.assertEqual(law.find_section(ACT, "Discharge.", between=(248, 260))["number"], "250")
+        with self.assertRaises(law.LawDataError):
+            law.find_section(ACT, "Arrest by a dragon.")
+
+    def test_procedure_carries_section_numbers_and_rejects_unknown_steps(self):
+        from bie.toolbox.adapters import law
+        flow = law.procedure(ACT, [{"id": "fir", "title": "Information in cognizable cases.", "label": "FIR"},
+                                   {"id": "q", "label": "Ground to proceed?", "kind": "decision"},
+                                   {"id": "dis", "title": "Discharge.", "between": [248, 260], "kind": "end"}],
+                             [["fir", "q"], ["q", "dis", "no"]])
+        self.assertEqual([(n["id"], n.get("section")) for n in flow["nodes"]], [("fir", "173"), ("q", None), ("dis", "250")])
+        self.assertEqual(flow["edges"][1], {"from": "q", "to": "dis", "label": "no"})
+        with self.assertRaises(law.LawDataError):
+            law.procedure(ACT, [{"id": "a", "label": "A"}], [["a", "b"]])
+
+    def test_listed_items(self):
+        from bie.toolbox.adapters import law
+        self.assertEqual(law.listed_items(ACT["sections"][0]),
+                         ["Courts of Session", "Judicial Magistrates of the first class", "Executive Magistrates"])
+
+    def test_a_judgment_record_from_the_years_parquet(self):
+        import pyarrow as pa
+        import pyarrow.parquet as pq
+        from bie.toolbox import sources
+        from bie.toolbox.adapters import law
+        raw = ("<div> | HIS HOLINESS KESAVANANDA BHARATI | versus | STATE OF KERALA | Coram : S.M. SIKRI | * | , J.M. SHELAT, K.S. HEGDE | | x "
+               "| Bench : | | 13 Judges | | </div>")
+        table = pa.table({k: [v] for k, v in {"title": "HIS HOLINESS KESAVANANDA BHARATI versus STATE OF KERALA", "petitioner": "HIS HOLINESS KESAVANANDA BHARATI",
+                          "respondent": "STATE OF KERALA", "judge": "S.M. SIKRI", "author_judge": "<NA>", "citation": "[1973] SUPP. 1 S.C.R. 1",
+                          "case_id": "1973 INSC 91", "cnr": "ESCR010003021973", "decision_date": "24-04-1973", "disposal_nature": "",
+                          "court": "Supreme Court of India", "available_languages": "ENG,HIN", "path": "S_1973_1_1_1002", "year": "1973",
+                          "raw_html": raw}.items()})
+        buf = io.BytesIO()
+        pq.write_table(table, buf)
+        with tempfile.TemporaryDirectory() as tmp, mock.patch.dict(os.environ, {"BIE_ASSET_CACHE": tmp}):
+            opener = mock.Mock(side_effect=lambda req, timeout=None: FakeResponse(buf.getvalue()))
+            lib = AssetLibrary(Path(tmp) / "lib")
+            asset, record = sources.sc_judgment(1973, "KESAVANANDA", lib, opener=opener)
+            card = law.case_card(record)
+            self.assertEqual((record["bench_judges"], record["coram"]), (13, ["S.M. SIKRI", "J.M. SHELAT", "K.S. HEGDE"]))
+            self.assertEqual((card["decided"], card["bench"]), ("24 April 1973", "13 judges"))
+            self.assertIsNone(record["author_judge"])
+            self.assertIn("S_1973_1_1_1002_EN.pdf", record["pdf"])
+            self.assertEqual(asset.licence, "CC BY 4.0")
+            with self.assertRaises(sources.SourceError):
+                sources.sc_judgment(1973, "NOBODY", lib, opener=opener)
+
+
+class Behaviour(unittest.TestCase):
+    def test_psychopy_makes_the_same_stroop_list_for_a_seed(self):
+        from bie.toolbox.adapters import behaviour
+        a, b = behaviour.stroop(seed=7), behaviour.stroop(seed=7)
+        self.assertEqual(a["trials"], b["trials"])
+        self.assertEqual((len(a["trials"]), a["congruent"], a["incongruent"]), (9, 3, 6))
+        self.assertEqual(sorted((t["word"], t["ink"]) for t in a["trials"]),
+                         sorted((w.upper(), c) for w in ("red", "green", "blue") for c in ("red", "green", "blue")))
+        self.assertIn("PsychoPy", a["designed_by"])
+
+    def test_teaching_method_logit_matches_the_published_fit(self):
+        from bie.toolbox.adapters import behaviour
+        d = behaviour.teaching_method()
+        self.assertEqual(d["n"], 32)
+        self.assertAlmostEqual(d["odds_ratio_psi"], 10.79, delta=0.05)       # exp(2.3787), Spector and Mazzeo's PSI coefficient
+        self.assertLess(d["p_value_psi"], 0.05)
+        self.assertTrue(all(b >= a for a, b in zip(d["without_psi"], d["with_psi"])))
+
+
+class Language(unittest.TestCase):
+    def test_words_aksharas_and_iast(self):
+        from bie.toolbox.adapters import language
+        fixtures = ROOT / "tests" / "toolbox" / "fixtures" / "indic_nlp_resources"
+        with mock.patch("bie.toolbox.sources.indic_nlp_resources", lambda opener=None: fixtures):
+            d = language.sentence("सर्वे भवन्तु सुखिनः ।", glosses=["all", "may be", "happy"])
+        self.assertEqual([w["roman"] for w in d["words"]], ["sarve", "bhavantu", "sukhinaḥ"])
+        self.assertEqual(d["words"][2]["aksharas"], ["सु", "खि", "नः"])       # the visarga stays with its akshara
+        self.assertEqual(d["words"][2]["punct"], "।")
+        with self.assertRaises(ValueError):
+            language.sentence("सर्वे भवन्तु", glosses=["only one"])

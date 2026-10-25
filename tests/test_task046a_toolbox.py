@@ -100,7 +100,7 @@ class Registry(unittest.TestCase):
 
     def test_share_alike_and_gpl_items_are_marked_not_blocked(self):
         marked = {t.id: t for t in BOX.tools if set(t.licence_flags) & {"share_alike", "gpl"}}
-        self.assertEqual(set(marked), {"z-anatomy", "blender", "pygplates"})
+        self.assertEqual(set(marked), {"z-anatomy", "blender", "pygplates", "psychopy"})
         self.assertTrue(all(t.usable for t in marked.values()))
 
     def test_pins_match_the_install_files(self):
@@ -117,7 +117,14 @@ class Registry(unittest.TestCase):
                     name, _, version = item.partition("==")
                     self.assertTrue(version, f"{group}: {item} must be pinned with ==")
                     pins[name.lower()] = (group, version)
+        workflow = (ROOT / ".github/workflows/toolbox.yml").read_text(encoding="utf-8")
+        for tid, version in base.NO_DEPS.items():                    # pinned in the lane's own --no-deps line
+            dist = base.PYTHON_TOOLS[tid][1]
+            self.assertEqual(BOX.tool(tid).version, version, tid)
+            self.assertIn(f"--no-deps --ignore-requires-python {dist}=={version}", workflow)
         for tid, (_, dist, group) in base.PYTHON_TOOLS.items():
+            if tid in base.NO_DEPS:
+                continue
             self.assertIn(dist.lower(), pins, f"{dist} needs a pin in pyproject extras")    # PyPI names ignore case
             self.assertEqual(pins[dist.lower()], (group, BOX.tool(tid).version), tid)
             self.assertEqual(BOX.tool(tid).install_group, group, tid)
@@ -267,7 +274,7 @@ class Sources(unittest.TestCase):
     def test_z_anatomy_parts_are_exported_by_blender_and_marked_share_alike(self):
         made = []
 
-        def fbx_part(fbx, match, out, exclude=""):
+        def fbx_part(fbx, match, out, exclude="", **kw):
             made.append((Path(fbx).read_bytes(), match, exclude))
             Path(out).write_bytes(b"glTF\x02\x00\x00\x00" + match.encode())
             return {"objects": 2, "names": ["Left ventricle", "Right ventricle"]}
@@ -343,6 +350,163 @@ class Sources(unittest.TestCase):
             self.assertFalse(str(path).startswith(str(ROOT)))
         with self.assertRaises(sources.SourceError):
             sources.fetch("http://insecure.example/x")
+
+
+class BatchThreeSources(unittest.TestCase):
+    """Task 046a batch 3: maps, World Bank, India Code, Commons, Openverse, the script font and the Indic NLP tables."""
+
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.lib = AssetLibrary(Path(self.tmp.name) / "lib")
+        self.env = mock.patch.dict(os.environ, {"BIE_ASSET_CACHE": str(Path(self.tmp.name) / "cache")})
+        self.env.start()
+
+    def tearDown(self):
+        self.env.stop()
+        self.tmp.cleanup()
+
+    def test_pinned_files_must_match_their_hash(self):
+        import hashlib
+        body = b'{"type": "FeatureCollection", "features": []}'
+        name = "ne_10m_populated_places_simple"
+        with mock.patch.dict(sources.NATURAL_EARTH_FILES, {name: hashlib.sha256(body).hexdigest()}):
+            opener = Opener({sources.NATURAL_EARTH.format(name=name): body})
+            path = sources.natural_earth(name, opener=opener)
+            self.assertEqual(path.read_bytes(), body)
+            sources.natural_earth(name, opener=opener)
+            self.assertEqual(len(opener.urls), 1)
+        name = "ne_10m_admin_1_states_provinces"
+        with self.assertRaises(sources.SourceError):
+            sources.natural_earth(name, opener=Opener({sources.NATURAL_EARTH.format(name=name): b"changed upstream"}))
+        self.assertFalse((sources.cache_dir() / f"natural-earth-5.1.2-{name}.geojson").exists())     # a wrong file is not kept
+        with self.assertRaises(sources.SourceError):
+            sources.natural_earth("../../secrets")
+
+    def test_world_bank_rows_and_credit(self):
+        body = [{"page": 1}, [{"indicator": {"id": "NY.GDP.MKTP.KD.ZG", "value": "GDP growth (annual %)"}, "country": {"id": "IN", "value": "India"},
+                                "countryiso3code": "IND", "date": "2021", "value": 9.69},
+                               {"indicator": {"id": "NY.GDP.MKTP.KD.ZG", "value": "GDP growth (annual %)"}, "country": {"id": "IN", "value": "India"},
+                                "countryiso3code": "IND", "date": "2020", "value": -5.78},
+                               {"indicator": {"id": "NY.GDP.MKTP.KD.ZG", "value": "GDP growth (annual %)"}, "country": {"id": "IN", "value": "India"},
+                                "countryiso3code": "IND", "date": "2025", "value": None}]]
+        opener = Opener({"https://api.worldbank.org/v2/country/IND/indicator/NY.GDP.MKTP.KD.ZG": body})
+        asset, rows, meta = sources.world_bank("NY.GDP.MKTP.KD.ZG", ["ind"], 2020, 2025, self.lib, opener=opener)
+        self.assertEqual([(r["year"], r["value"]) for r in rows], [(2020, -5.78), (2021, 9.69)])     # sorted, empty years left out
+        self.assertEqual((asset.licence, meta["name"]), ("CC BY 4.0", "GDP growth (annual %)"))
+        self.assertIn("date=2020:2025", opener.urls[0])
+        for bad in (("NY.GDP;rm", ["IND"]), ("NY.GDP.MKTP.KD.ZG", ["IND&x=1"])):
+            with self.assertRaises(sources.SourceError):
+                sources.world_bank(bad[0], bad[1], 2000, 2001, self.lib, opener=opener)
+
+    def test_india_code_act_reads_every_section_once_and_keeps_it(self):
+        def item(name, **md):
+            return {"_embedded": {"indexableObject": {"name": name, "handle": "123456789/496550",
+                                                       "metadata": {k: [{"value": v}] for k, v in md.items()}}}}
+
+        def page(objects, number, total):
+            return {"_embedded": {"searchResult": {"_embedded": {"objects": objects}, "page": {"number": number, "totalPages": total}}}}
+        act = page([item("The Test Sanhita, 2023", **{"dc.identifier.act_number": "46", "dc.date.act_year": "2023"})], 0, 1)
+        sec = lambda n, t: item(t, **{"dc.identifier.section_number": n, "dc.identifier.section_page_note": "<span>(1) Text of " + n + "</span>"})
+        calls = []
+
+        def opener(request, timeout=None):
+            url = request.full_url
+            calls.append(url)
+            if "collection%3AACT" in url:
+                return FakeResponse(json.dumps(act).encode())
+            body = page([sec("173", "Information in cognizable cases."), sec("2", "Definitions.")], 0, 2) if "page=0" in url else \
+                page([sec("10", "Courts.")], 1, 2)
+            return FakeResponse(json.dumps(body).encode())
+        asset, data = sources.india_code_act("AC_CEN_5_23_00049_202346_1719552320687", self.lib, opener=opener)
+        self.assertEqual([s["number"] for s in data["sections"]], ["2", "10", "173"])          # numeric order
+        self.assertEqual(data["sections"][2]["text"], "(1) Text of 173")
+        self.assertTrue(all("sort=dc.title%2CASC" in u for u in calls[1:]))                     # India Code pages stably only when sorted
+        n = len(calls)
+        sources.india_code_act("AC_CEN_5_23_00049_202346_1719552320687", self.lib, opener=opener)
+        self.assertEqual(len(calls), n)                                                         # kept in the cache
+        self.assertIn("52(1)(q)", asset.licence)
+        with self.assertRaises(sources.SourceError):
+            sources.india_code_act("x OR 1=1", self.lib, opener=opener)
+
+    def test_commons_and_openverse_keep_share_alike_marked_and_refuse_non_commercial(self):
+        commons = {"query": {"pages": {"1": {"title": "File:Marche sel.jpg", "imageinfo": [{
+            "url": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Marche_sel.jpg", "descriptionurl": "https://commons.wikimedia.org/wiki/File:Marche_sel.jpg",
+            "thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Marche_sel.jpg/1280px-Marche_sel.jpg", "width": 2000, "height": 1500,
+            "mime": "image/jpeg", "extmetadata": {"LicenseShortName": {"value": "Public domain"}, "Artist": {"value": "<a>Unknown</a>"}}}]}}}}
+        opener = Opener({"https://commons.wikimedia.org/w/api.php": commons,
+                         "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Marche_sel.jpg/1280px-Marche_sel.jpg": b"\xff\xd8\xffjpeg"})
+        old = sources.commons_image("File:Marche sel.jpg", self.lib, opener=opener, width=1280)
+        self.assertEqual((old.licence, old.mime, old.source, old.author), ("Public domain", "image/jpeg", "wikimedia_commons", "Unknown"))
+        self.assertIn("iiurlwidth=1280", opener.urls[0])
+        row = {"id": "bafa11dc-b447-4e43-804c-c3f8f3eca309", "title": "Dandi salt march", "creator": "Nagarjun", "license": "by-sa",
+               "license_version": "2.0", "foreign_landing_url": "https://www.flickr.com/photos/x/1", "attribution": '"Dandi salt march" by Nagarjun'}
+        opener = Opener({"https://api.openverse.org/v1/images/bafa11dc-b447-4e43-804c-c3f8f3eca309/thumb/": b"\xff\xd8\xffdiorama",
+                         "https://api.openverse.org/v1/images/bafa11dc-b447-4e43-804c-c3f8f3eca309/": row})
+        new = sources.openverse_image("bafa11dc-b447-4e43-804c-c3f8f3eca309", self.lib, opener=opener)
+        self.assertEqual((new.licence, new.page_url), ("CC BY-SA 2.0", "https://www.flickr.com/photos/x/1"))
+        self.assertIn("share-alike", new.tags)
+        row["license"] = "by-nc"
+        with self.assertRaises(sources.SourceError):
+            sources.openverse_image("bafa11dc-b447-4e43-804c-c3f8f3eca309", self.lib, opener=opener)
+        with self.assertRaises(Exception):
+            sources.openverse_image("../../x", self.lib, opener=opener)
+
+    def test_a_busy_server_is_asked_again_after_its_wait(self):
+        import urllib.error
+        from bie.brain import assets
+        answers = [urllib.error.HTTPError("https://commons.wikimedia.org/w/api.php", 429, "Too Many Requests", {"retry-after": "2"}, None),
+                   FakeResponse(b"ok")]
+
+        def opener(request, timeout=None):
+            answer = answers.pop(0)
+            if isinstance(answer, Exception):
+                raise answer
+            return answer
+        with mock.patch("time.sleep") as slept:
+            self.assertEqual(assets._open("https://commons.wikimedia.org/w/api.php?x=1", opener=opener), b"ok")
+        slept.assert_called_once_with(2.0)
+
+    def test_font_and_indic_tables_are_pinned(self):
+        import hashlib
+        body = b"\x00\x01\x00\x00font"
+        with mock.patch.dict(sources.NOTO_DEVANAGARI, {"sha256": hashlib.sha256(body).hexdigest()}):
+            font = sources.noto_devanagari(self.lib, opener=Opener({sources.NOTO_DEVANAGARI["url"]: body}))
+        self.assertEqual((font.mime, font.licence, font.path.endswith(".ttf")), ("font/ttf", "SIL Open Font License 1.1", True))
+        tables = {rel: f"table {rel}".encode() for rel in sources.INDIC_NLP_RESOURCES["files"]}
+        pins = {rel: hashlib.sha256(b).hexdigest() for rel, b in tables.items()}
+        with mock.patch.dict(sources.INDIC_NLP_RESOURCES, {"files": pins}):
+            root = sources.indic_nlp_resources(opener=Opener({sources.INDIC_NLP_RESOURCES["base"] + rel: b for rel, b in tables.items()}))
+        self.assertEqual((root / "script" / "all_script_phonetic_data.csv").read_bytes(), tables["script/all_script_phonetic_data.csv"])
+
+
+class ExamMap(unittest.TestCase):
+    def test_every_ugc_net_subject_and_gate_paper_is_mapped(self):
+        from bie.toolbox import exams
+        data = exams.load()
+        codes = [e["code"] for e in data["ugc_net"]]
+        self.assertEqual((len(codes) - 1, len(data["gate"])), (86, 30))                # the official lists of 25 October 2026, plus Paper I
+        self.assertEqual(codes[0], "00")
+        self.assertIn("XH", [e["code"] for e in data["gate"]])
+        cov = exams.coverage()
+        self.assertEqual(cov["totals"]["without_a_tool"], [])                        # every subject has at least one usable tool
+        law = next(r for r in cov["ugc_net"] if r["code"] == "58")
+        self.assertIn("case_card", law["capabilities"])
+
+    def test_bad_entries_are_named(self):
+        from bie.toolbox import exams
+        bad = json.loads(exams.EXAM_MAP.read_text(encoding="utf-8"))
+        bad["gate"].append(dict(bad["gate"][0]))
+        bad["ugc_net"][1]["families"] = ["astrology"]
+        bad["ugc_net"][2]["fit"] = "partial"
+        bad["ugc_net"][2]["gap"] = ""
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "exam_map.json"
+            path.write_text(json.dumps(bad), encoding="utf-8")
+            with mock.patch.object(exams, "EXAM_MAP", path), self.assertRaises(exams.ExamMapError) as err:
+                exams.load()
+        text = str(err.exception)
+        for want in ("listed 2 times", "unknown family 'astrology'", "needs the gap named"):
+            self.assertIn(want, text)
 
 
 class DemosAndPage(unittest.TestCase):

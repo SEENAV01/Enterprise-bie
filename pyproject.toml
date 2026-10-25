@@ -78,6 +78,22 @@ toolbox-aero = [
     "aerosandbox==4.2.10",
     "jsbsim==1.3.3",
 ]
+# batch 3. PsychoPy is installed by the toolbox lane with --no-deps (its own pins need Python < 3.13 and a desktop
+# stack); BIE uses only psychopy.data, which needs the two small packages in toolbox-behaviour.
+toolbox-maps = [
+    "shapely==2.2.0",
+]
+toolbox-law = [
+    "pyarrow==26.0.0",
+]
+toolbox-behaviour = [
+    "json-tricks==3.17.3",
+    "i18next==0.0.3",
+]
+toolbox-language = [
+    "indic-nlp-library==0.92",
+    "indic-transliteration==2.3.82",
+]
 
 [tool.setuptools.packages.find]
 where = ["."]

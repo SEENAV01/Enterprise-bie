@@ -64,8 +64,10 @@ jobs:
           sudo apt-get update -qq
           sudo apt-get install -y -qq libcairo2-dev libpango1.0-dev pkg-config ffmpeg libxi6 libxkbcommon0 libsm6 libxrender1 \
             libxxf86vm1 libgl1 libegl1 ngspice gmt libgmt-dev gmt-dcw gmt-gshhg-low ghostscript >/dev/null
-      - name: Every toolbox extra, pinned (pyproject.toml)
-        run: python -m pip install -e '.[toolbox-core,toolbox-stats,toolbox-bio,toolbox-chem,toolbox-mesh,toolbox-manim,toolbox-blender,toolbox-electrical,toolbox-mech,toolbox-earth,toolbox-astro,toolbox-aero]'
+      - name: Every toolbox extra, pinned (pyproject.toml), and PsychoPy's experiment-design part
+        run: |
+          python -m pip install --no-deps --ignore-requires-python psychopy==2026.2.4
+          python -m pip install -e '.[toolbox-core,toolbox-stats,toolbox-bio,toolbox-chem,toolbox-mesh,toolbox-manim,toolbox-blender,toolbox-electrical,toolbox-mech,toolbox-earth,toolbox-astro,toolbox-aero,toolbox-maps,toolbox-law,toolbox-behaviour,toolbox-language]'
       - name: Asset sources cache (the JPL ephemeris for the astronomy test; never in git)
         uses: actions/cache@5a3ec84eff668545956fd18022155c47e93e2684
         with:
@@ -86,7 +88,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        batch: [1, 2]
+        batch: [1, 2, 3]
     env:
       PYTHONDONTWRITEBYTECODE: '1'
       PYTHONUTF8: '1'
@@ -106,8 +108,10 @@ jobs:
           sudo apt-get update -qq
           sudo apt-get install -y -qq fonts-noto-core fonts-noto-ui-core libcairo2-dev libpango1.0-dev pkg-config ffmpeg libxi6 \
             libxkbcommon0 libsm6 libxrender1 libxxf86vm1 libgl1 libegl1 ngspice gmt libgmt-dev gmt-dcw gmt-gshhg-low ghostscript >/dev/null
-      - name: Python toolbox extras
-        run: python -m pip install -e '.[toolbox-core,toolbox-stats,toolbox-bio,toolbox-chem,toolbox-mesh,toolbox-manim,toolbox-blender,toolbox-electrical,toolbox-mech,toolbox-earth,toolbox-astro,toolbox-aero]'
+      - name: Python toolbox extras (PsychoPy without its desktop stack, BIE uses psychopy.data only)
+        run: |
+          python -m pip install --no-deps --ignore-requires-python psychopy==2026.2.4
+          python -m pip install -e '.[toolbox-core,toolbox-stats,toolbox-bio,toolbox-chem,toolbox-mesh,toolbox-manim,toolbox-blender,toolbox-electrical,toolbox-mech,toolbox-earth,toolbox-astro,toolbox-aero,toolbox-maps,toolbox-law,toolbox-behaviour,toolbox-language]'
       - name: Web packages, pinned, as of tools/npm_before.txt
         run: |
           python -B tools/toolbox_setup.py --web "$RUNNER_TEMP/web"
