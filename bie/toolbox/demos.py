@@ -309,7 +309,7 @@ def flange(w: Work) -> dict:
     asset = _own_glb(w, glb, "Pipe flange (CadQuery)", "CadQuery")
     return scene([block("model_3d", {"src": w.src(asset), "title": "A pipe flange from CadQuery", "colour": "#b8c4cc", "turn_degrees": 200, "seconds": 4,
                                      "subtitle": f"OpenCascade solid · {facts['volume_cm3']:.0f} cm³ · {facts['mass_kg']:.2f} kg of steel",
-                                     "start_degrees": 20})], 4.0)
+                                     "start_degrees": 20, "spin": True, "camera_height": 2.2, "distance": 3.8})], 4.0)
 
 
 def rankine_cycle(w: Work) -> dict:
@@ -435,7 +435,8 @@ def aircraft(w: Work) -> dict:
     curve = facts["lift_curve"]
     return scene([
         block("model_3d", {"src": w.src(asset), "title": "A trainer aircraft from AeroSandbox", "colour": "#d8e2e8", "turn_degrees": 160, "seconds": 4,
-                           "subtitle": f"NACA 2412 wing, span {facts['span_m']:.1f} m", "start_degrees": 210},
+                           "subtitle": f"NACA 2412 wing, span {facts['span_m']:.1f} m", "start_degrees": 210, "spin": True,
+                           "camera_height": 1.2, "distance": 3.6},
               box={"x": 0.0, "y": 0.0, "w": 0.6, "h": 1.0}),
         block("xy_lines", {"series": [{"x": [c["alpha_deg"] for c in curve], "y": [c["CL"] for c in curve], "label": "lift", "start": 0.8, "seconds": 2.4}],
                            "points": [{"x": c["alpha_deg"], "y": c["CL"], "at": 0.8 + 0.5 * k} for k, c in enumerate(curve)],
