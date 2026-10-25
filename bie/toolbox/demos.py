@@ -422,12 +422,13 @@ def earthrise(w: Work) -> dict:
     layers = [
         {"id": "photo", "type": "image", "at": 0, "box": {"x": 0.21875, "y": 0.0, "w": 0.5625, "h": 1.0}, "src": w.src(asset), "credit": asset.credit},
         {"id": "ring", "type": "highlight", "at": 70, "layer": "photo", "region": {"x": 0.47, "y": 0.44, "w": 0.19, "h": 0.15}, "tone": "accent"},
-        {"id": "lab", "type": "label", "at": 80, "box": {"x": 0.62, "y": 0.30, "w": 0.16, "h": 0.06}, "text": "Earth",
+        {"id": "lab", "type": "label", "at": 80, "box": {"x": 0.6, "y": 0.36, "w": 0.1, "h": 0.05}, "text": "Earth",
          "anchor": {"layer": "photo", "point": {"x": 0.6, "y": 0.47}}, "tone": "accent"},
         {"id": "title", "type": "title", "at": 0, "until": 40, "box": {"x": 0.02, "y": 0.04, "w": 0.3, "h": 0.2}, "title": "Earthrise",
          "subtitle": "Apollo 8, 1968 (NASA)"},
     ]
-    camera = [{"at": 0, "box": FULL}, {"at": 30, "layer": "photo", "region": {"x": 0.36, "y": 0.33, "w": 0.4, "h": 0.36}, "frames": 50}]
+    # a wide zoom that keeps the Moon's horizon in view: the point of Earthrise is the Earth seen from the Moon
+    camera = [{"at": 0, "box": FULL}, {"at": 30, "layer": "photo", "region": {"x": 0.2, "y": 0.3, "w": 0.66, "h": 0.6}, "frames": 50}]
     return scene(layers, 4.2, camera)
 
 
