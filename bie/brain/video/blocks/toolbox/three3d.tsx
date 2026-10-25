@@ -154,8 +154,10 @@ const Model3D: React.FC<BlockProps> = ({ data, at, width, height }) => {
     <>
       <ThreeCanvas width={width} height={height} gl={{ alpha: true, preserveDrawingBuffer: true, antialias: true }}>
         <Lights />
-        <Orbit angle={(data.start_degrees ?? 0) + turn} distance={4.2 * zoom} height={0.6 * zoom} target={data.target || [0, 0, 0]} />
-        <primitive object={scene} />
+        {/* spin: the model turns under a fixed camera and fixed lights, so a part never turns its dark side to the viewer */}
+        <Orbit angle={(data.start_degrees ?? 0) + (data.spin ? 0 : turn)} distance={(data.distance ?? 4.2) * zoom}
+          height={(data.camera_height ?? 0.6) * zoom} target={data.target || [0, 0, 0]} />
+        <primitive object={scene} rotation={[0, data.spin ? (turn * Math.PI) / 180 : 0, 0]} />
       </ThreeCanvas>
       <Title text={data.title} sub={data.subtitle} />
       {data.credit ? <div style={{ position: "absolute", right: 16, bottom: 8, color: C.muted, fontSize: 16, fontFamily: "sans-serif" }}>{data.credit}</div> : null}

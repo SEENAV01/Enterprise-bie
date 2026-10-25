@@ -195,3 +195,161 @@ class BodyParts3D(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+# ---------------------------------------------------------------- batch 2
+
+FIXTURES = Path(__file__).resolve().parent / "fixtures"
+
+
+class Electrical(unittest.TestCase):
+    def test_circuit_pieces_build_the_whole_drawing(self):
+        from bie.toolbox.adapters import electrical
+        parts = [("SourceV", "up", "5 V", {}), ("Resistor", "right", "1 kΩ", {}), ("Capacitor", "down", "100 µF", {}), ("Line", "tox:0", "", {})]
+        c = electrical.circuit_parts(parts)
+        self.assertEqual(len(c["pieces"]), 4)
+        self.assertTrue(all(p.startswith("<") for p in c["pieces"]))
+        self.assertIn("1 kΩ", "".join(c["pieces"]))
+        self.assertEqual(len(c["view_box"].split()), 4)
+
+    def test_ngspice_matches_lcapy_for_rc_charging(self):
+        from bie.toolbox.adapters import electrical
+        r = electrical.rc_charge(1000.0, 100e-6, 5.0, points=51)
+        self.assertTrue(r["agree"], r["max_difference"])
+        self.assertAlmostEqual(r["tau"], 0.1)
+        i = min(range(51), key=lambda k: abs(r["t"][k] - 0.1))                 # one time constant: 63.2% of 5 V
+        self.assertAlmostEqual(r["v_spice"][i] / 5.0, 0.632, delta=0.02)
+
+    def test_step_responses_overshoot_falls_with_damping(self):
+        from bie.toolbox.adapters import electrical
+        data = electrical.step_responses((0.2, 0.7, 1.0))
+        self.assertTrue(data["all_checked"])
+        over = [r["overshoot_percent"] for r in data["responses"]]
+        self.assertGreater(over[0], over[1])
+        self.assertAlmostEqual(over[2], 0.0, delta=0.5)
+        self.assertAlmostEqual(over[0], 52.7, delta=1.0)                        # exp(-πζ/√(1-ζ²)) for ζ = 0.2
+
+
+class Mechanics(unittest.TestCase):
+    def test_beam_matches_the_textbook(self):
+        from bie.toolbox.adapters import mechanics
+        b = mechanics.beam_point_load(6.0, 20e3, 3.0, E=200e9, I=8.36e-5)
+        expected_mm = -20e3 * 6.0 ** 3 / (48 * 200e9 * 8.36e-5) * 1000           # central point load: PL³/48EI
+        self.assertTrue(b["agree"])
+        self.assertAlmostEqual(b["max_deflection_mm"], expected_mm, delta=abs(expected_mm) * 0.01)
+        self.assertAlmostEqual(b["max_moment_kNm"], 20 * 6 / 4, delta=0.05)
+
+    def test_flange_is_a_glb_with_a_sensible_mass(self):
+        from bie.toolbox.adapters import mechanics
+        data, facts = mechanics.flange_glb()
+        self.assertEqual(data[:4], b"glTF")
+        self.assertGreater(facts["mass_kg"], 0.5)
+        self.assertLess(facts["mass_kg"], 5.0)
+
+    def test_rankine_efficiency_is_physical(self):
+        from bie.toolbox.adapters import mechanics
+        r = mechanics.rankine(80.0, 0.1, 480.0)
+        carnot = 1 - (r["states"][0]["T_C"] + 273.15) / (480 + 273.15)
+        self.assertGreater(r["efficiency"], 0.3)
+        self.assertLess(r["efficiency"], carnot)
+        self.assertEqual(r["states"][0]["s"], r["states"][1]["s"])              # the ideal pump and turbine keep entropy
+
+    def test_heat_plate_stays_between_its_edges(self):
+        from bie.toolbox.adapters import mechanics
+        h = mechanics.heated_plate(refine=3)
+        self.assertAlmostEqual(min(h["temperature"]), 20.0, delta=0.01)
+        self.assertAlmostEqual(max(h["temperature"]), 100.0, delta=0.01)
+        self.assertTrue(all(fx >= -1e-6 for fx in h["arrows"]["fx"]))          # heat flows from the hot strip to the cold edge
+
+
+class Earth(unittest.TestCase):
+    def test_relief_draws_a_grid_and_profiles_it(self):
+        import numpy as np
+        import xarray as xr
+        from bie.toolbox.adapters import earth
+        lon, lat = np.linspace(70, 80, 101), np.linspace(20, 30, 101)
+        z = np.outer(np.ones(101), np.linspace(0, 5000, 101))                   # rises from west to east
+        grid = xr.DataArray(z, coords={"lat": lat, "lon": lon}, dims=("lat", "lon"))
+        with tempfile.TemporaryDirectory() as tmp:          # GMT's session folder stays in the asset cache, which outlives the test
+            out = Path(tmp) / "relief.png"
+            r = earth.relief((70, 80, 20, 30), out, profile=((71, 25), (79, 25)), grid=grid)
+            self.assertEqual(out.read_bytes()[:4], b"\x89PNG")
+        heights = r["profile"]["elevation_m"]
+        self.assertLess(heights[0], heights[-1])
+        self.assertAlmostEqual(heights[-1], 4500, delta=150)
+
+    def test_p_arrives_before_s(self):
+        from bie.toolbox.adapters import earth
+        r = earth.ray_paths(60.0, 10.0, phases=("P", "S"))
+        times = {ray["phase"]: ray["time_s"] for ray in r["rays"]}
+        self.assertLess(times["P"], times["S"])
+        self.assertAlmostEqual(times["P"], 607, delta=10)                        # IASP91, 60°: about 10 minutes
+
+    def test_seismogram_has_three_normalised_traces(self):
+        from bie.toolbox.adapters import earth
+        s = earth.seismogram(points=200)
+        self.assertEqual(len(s["traces"]), 3)
+        self.assertTrue(all(max(abs(v) for v in t["values"]) <= 1.0 for t in s["traces"]))
+
+    def test_a_plate_rotates_back_in_time(self):
+        import pygplates
+        from bie.toolbox.adapters import earth
+        with tempfile.TemporaryDirectory() as tmp:
+            rot = Path(tmp) / "toy.rot"
+            rot.write_text("101 0.0 90.0 0.0 0.0 000 !toy\n101 100.0 0.0 0.0 30.0 000 !toy\n", encoding="utf-8")
+            polygon = pygplates.PolygonOnSphere([(0, 0), (0, 10), (10, 10), (10, 0)])
+            feature = pygplates.Feature.create_reconstructable_feature(pygplates.FeatureType.gpml_coastline, polygon, reconstruction_plate_id=101)
+            coast = Path(tmp) / "toy.gpml"
+            pygplates.FeatureCollection([feature]).write(str(coast))
+            data = earth.reconstruct(rot, coast, ages=(100, 0), min_step_deg=0.1, min_points=3)
+        now, then = data["frames"][1]["shapes"][0], data["frames"][0]["shapes"][0]
+        self.assertEqual(len(now), len(then))
+        self.assertNotEqual(now, then)
+        self.assertIn([0.0, 0.0], [[round(x, 1), round(y, 1)] for x, y in now])
+
+
+class Astro(unittest.TestCase):
+    """Needs the JPL DE421 ephemeris (17 MB): fetched once into the asset cache; the stars come from a three-line fixture."""
+
+    def setUp(self):
+        from bie.toolbox import sources
+        from bie.toolbox.adapters import astro
+        (sources.cache_dir() / "skyfield").mkdir(parents=True, exist_ok=True)
+        self.de421 = sources.cached(astro.EPHEMERIS["source"], "skyfield/de421.bsp")
+        self.tmp = tempfile.TemporaryDirectory()
+        folder = Path(self.tmp.name) / "skyfield"
+        folder.mkdir()
+        (folder / "de421.bsp").symlink_to(self.de421)
+        (folder / "hip_main.dat").write_bytes((FIXTURES / "hip_main_3stars.dat").read_bytes())
+
+    def tearDown(self):
+        self.tmp.cleanup()
+
+    def test_orbit_periods_follow_kepler(self):
+        from bie.toolbox.adapters import astro
+        o = astro.orbits("2026-01-01", 400, 5, cache=Path(self.tmp.name))
+        periods = {p["name"]: p["kepler_period_days"] for p in o["planets"]}
+        self.assertAlmostEqual(periods["earth"], 365.25, delta=2)
+        self.assertAlmostEqual(periods["mars"], 687, delta=8)
+
+    def test_sky_puts_orion_and_sirius_up_on_a_winter_evening(self):
+        from bie.toolbox.adapters import astro
+        s = astro.sky(28.61, 77.21, "2026-01-15T22:00:00", magnitude_limit=2.0, cache=Path(self.tmp.name))
+        self.assertEqual(s["count"], 3)
+        self.assertTrue(all(0 < a < 90 for a in s["stars"]["alt"]))
+
+
+class Aero(unittest.TestCase):
+    def test_aircraft_mesh_and_lift_curve(self):
+        from bie.toolbox.adapters import aero
+        data, facts = aero.trainer_aircraft(alphas=(0, 4, 8))
+        self.assertEqual(data[:4], b"glTF")
+        cl = [c["CL"] for c in facts["lift_curve"]]
+        self.assertTrue(cl[0] < cl[1] < cl[2])
+        self.assertAlmostEqual(facts["cl_per_degree"], 0.09, delta=0.03)       # a finite wing: below thin-airfoil 2π/rad
+
+    def test_cessna_climbs_and_levels_off(self):
+        from bie.toolbox.adapters import aero
+        c = aero.climb(seconds=100.0)
+        self.assertGreater(c["best_climb_fpm"], 500)
+        self.assertAlmostEqual(c["altitude_ft"][-1], 2500, delta=120)

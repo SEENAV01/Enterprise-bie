@@ -32,6 +32,15 @@ BP3D_ZIP = BP3D_BASE + "partof_BP3D_4.0_obj_99.zip"
 BP3D_ELEMENTS = BP3D_BASE + "partof_element_parts.txt"
 BP3D_CREDIT = "BodyParts3D, © The Database Center for Life Science licensed under CC Attribution 4.0 International"
 ZANATOMY_FBX = "https://raw.githubusercontent.com/LluisV/Z-Anatomy/PC-Version/Resources/Models/FBX/{name}.fbx"
+USGS_QUAKES = ("https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime={start}&endtime={end}"
+               "&minmagnitude={magnitude}&orderby=time-asc")
+GPLATES_MODELS = {"muller2019": {"base": "https://repo.gplates.org/webdav/pmm/muller2019/",
+                                 "rotations": ("Rotations.zip", "Rotations/Muller_etal_2019_CombinedRotations.rot"),
+                                 "coastlines": ("Coastlines.zip", "Coastlines/Muller_etal_2019_Global_Coastlines.gpmlz"),
+                                 "credit": "Müller et al. (2019), Tectonics, plate model v2.0 (doi:10.5281/zenodo.11601026), CC BY 4.0",
+                                 "licence": "CC BY 4.0"}}
+NASA_SEARCH = "https://images-api.nasa.gov/search?nasa_id={id}&media_type=image"
+NASA_ASSET = "https://images-api.nasa.gov/asset/{id}"
 REFUSED = ("non-commercial", "no-derivatives")
 
 
@@ -177,3 +186,66 @@ def z_anatomy(system: str, match: str, library: AssetLibrary, *, opener=None, ex
                               credit="Z-Anatomy, CC BY-SA 4.0", tags=["anatomy", "share-alike", *tags],
                               description=", ".join(info.get("names", [])[:20]))
     return asset, info
+
+
+def usgs_quakes(start: str, end: str, library: AssetLibrary, *, magnitude: float = 6.5, opener=None, tags=()):
+    """Earthquakes from the USGS catalogue (public domain) as a GeoJSON asset, and the rows a map block needs."""
+    for day in (start, end):
+        if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", day):
+            raise SourceError(f"{day!r} is not a date (YYYY-MM-DD)")
+    data = fetch(USGS_QUAKES.format(start=start, end=end, magnitude=magnitude), opener=opener, max_bytes=40 * 1024 * 1024)
+    collection = json.loads(data)
+    rows = [{"lon": f["geometry"]["coordinates"][0], "lat": f["geometry"]["coordinates"][1], "depth_km": f["geometry"]["coordinates"][2],
+             "magnitude": f["properties"]["mag"], "time_ms": f["properties"]["time"], "place": f["properties"].get("place") or ""}
+            for f in collection.get("features") or []]
+    asset = library.add_bytes(data, mime="application/json", source="usgs_earthquakes",
+                              title=f"USGS earthquakes M{magnitude}+ {start} to {end}", page_url="https://earthquake.usgs.gov/earthquakes/search/",
+                              licence="Public domain (USGS)", licence_url="https://www.usgs.gov/information-policies-and-instructions/copyrights-and-credits",
+                              author="U.S. Geological Survey", credit="Earthquake data: U.S. Geological Survey", tags=["earthquakes", *tags])
+    return asset, rows
+
+
+def gplates_model(model: str = "muller2019", *, opener=None) -> dict:
+    """A published plate model's rotation file and coastlines, unpacked once into the cache (outside git)."""
+    if model not in GPLATES_MODELS:
+        raise SourceError(f"unknown plate model {model!r}")
+    spec = GPLATES_MODELS[model]
+    out = {"credit": spec["credit"], "licence": spec["licence"]}
+    for key in ("rotations", "coastlines"):
+        archive_name, member = spec[key]
+        target = cache_dir() / f"gplates-{model}" / member
+        if not target.exists():
+            archive = zipfile.ZipFile(cached(spec["base"] + archive_name, f"gplates-{model}-{archive_name}", opener=opener))
+            if member not in archive.namelist():
+                raise SourceError(f"{archive_name} has no {member}")
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(archive.read(member))          # one named member only: nothing else from the archive is written
+        out[key] = target
+    return out
+
+
+def nasa_image(nasa_id: str, library: AssetLibrary, *, size: str = "large", opener=None, tags=()):
+    """A picture from NASA's Image and Video Library with its title and centre; NASA media are generally not
+    copyrighted (NASA Images and Media Usage Guidelines), so the licence is recorded per item from its metadata."""
+    if not re.fullmatch(r"[A-Za-z0-9_.-]{3,80}", nasa_id):
+        raise SourceError(f"{nasa_id!r} is not a NASA image id")
+    found = json.loads(fetch(NASA_SEARCH.format(id=nasa_id), opener=opener, max_bytes=4 * 1024 * 1024))
+    items = found.get("collection", {}).get("items") or []
+    if not items:
+        raise SourceError(f"NASA image {nasa_id} not found")
+    meta = items[0]["data"][0]
+    files = [i["href"] for i in json.loads(fetch(NASA_ASSET.format(id=nasa_id), opener=opener, max_bytes=4 * 1024 * 1024))
+             .get("collection", {}).get("items") or []]
+    pick = next((f for f in files if f.endswith(f"~{size}.jpg")), None) or next((f for f in files if f.endswith(".jpg")), None)
+    if pick is None:
+        raise SourceError(f"NASA image {nasa_id}: no JPEG")
+    data = fetch(pick.replace("http://", "https://", 1), opener=opener, max_bytes=40 * 1024 * 1024)
+    holder = " ".join(str(meta.get(k) or "") for k in ("secondary_creator", "photographer")).strip()
+    licence = "NASA media, not copyrighted (NASA Images and Media Usage Guidelines)"
+    if "©" in holder or "copyright" in holder.lower():
+        licence = f"third-party copyright ({holder}): check before use"
+    return library.add_bytes(data, mime="image/jpeg", source="nasa_images", title=meta.get("title") or nasa_id,
+                             page_url=f"https://images.nasa.gov/details/{nasa_id}", licence=licence,
+                             licence_url="https://www.nasa.gov/nasa-brand-center/images-and-media/",
+                             author=f"NASA {meta.get('center') or ''}".strip(), credit=f"NASA/{meta.get('center') or 'NASA'} ({nasa_id})",
+                             tags=["nasa", *tags], description=(meta.get("description") or "")[:400])

@@ -254,6 +254,210 @@ def graph_bfs(w: Work) -> dict:
                                               step_seconds=0.42))], 4.5)
 
 
+# ================================================================ batch 2: electrical, mechanical, earth, space, aerospace
+
+def _own_glb(w: Work, data: bytes, title: str, made_by: str):
+    """A model BIE's own code made (CadQuery, AeroSandbox), kept in the asset library like any other model."""
+    return w.library.add_bytes(data, mime="model/gltf-binary", source="bie_toolbox", title=title, page_url="",
+                               licence="BIE's own model (made by BIE code)", licence_url="", author="BIE", credit=f"made by BIE with {made_by}",
+                               tags=["bie-made", "3d"])
+
+
+def rc_circuit(w: Work) -> dict:
+    from .adapters import electrical
+    parts = electrical.circuit_parts([("SourceV", "up", "5 V", {}), ("Switch", "right", "switch", {}), ("Resistor", "right", "1 kΩ", {}),
+                                      ("Capacitor", "down", "100 µF", {}), ("Line", "tox:0", "", {})])
+    trace = electrical.rc_charge(1000.0, 100e-6, 5.0)
+    if not trace["agree"]:
+        raise RuntimeError("ngspice and lcapy disagree")
+    w.notes["ngspice_lcapy"] = {"tau_s": trace["tau"], "max_difference_V": trace["max_difference"]}
+    return scene([block("circuit_build", dict(parts, trace=trace, title="An RC circuit, part by part", piece_seconds=0.32, trace_seconds=1.6,
+                                              latex=r"V_C(t) = 5\left(1 - e^{-t/RC}\right),\; RC = 0.1\,\mathrm{s}",
+                                              subtitle="drawn by schemdraw · simulated by ngspice · exact formula from lcapy",
+                                              badge="ngspice matches lcapy"))], 4.6)
+
+
+def step_response(w: Work) -> dict:
+    from .adapters import electrical
+    data = electrical.step_responses((0.2, 0.5, 1.0), wn=2.0, t_end=8.0)
+    if not data["all_checked"]:
+        raise RuntimeError("python-control and scipy.signal disagree")
+    w.notes["python_control"] = [{"zeta": r["zeta"], "overshoot_percent": r["overshoot_percent"]} for r in data["responses"]]
+    series = [{"x": data["t"], "y": r["y"], "label": f"ζ = {r['zeta']}", "start": 0.3 + 0.5 * k, "seconds": 2.0}
+              for k, r in enumerate(data["responses"])]
+    return scene([block("xy_lines", {"series": series, "title": "Step response: damping decides the overshoot",
+                                     "subtitle": "python-control computes · scipy.signal checks", "x_label": "time (s)", "y_label": "output",
+                                     "legend_box": True,
+                                     "latex": r"G(s) = \frac{\omega_n^2}{s^2 + 2\zeta\omega_n s + \omega_n^2}",
+                                     "note": f"ζ = 0.2 overshoots {data['responses'][0]['overshoot_percent']:.0f}%"})], 4.2)
+
+
+def beam(w: Work) -> dict:
+    from .adapters import mechanics
+    data = mechanics.beam_point_load(6.0, 20e3, 2.0)
+    if not data["agree"]:
+        raise RuntimeError("PyNite and sympy.physics disagree")
+    w.notes["pynite"] = {"max_deflection_mm": data["max_deflection_mm"], "sympy_mm": data["sympy_max_deflection_mm"], "max_moment_kNm": data["max_moment_kNm"]}
+    return scene([block("beam_load", dict(data, title="A 6 m steel beam under a 20 kN load", subtitle="PyNite (finite elements) · checked by sympy.physics",
+                                          badge="PyNite = sympy.physics"))], 4.0)
+
+
+def flange(w: Work) -> dict:
+    from .adapters import mechanics
+    glb, facts = mechanics.flange_glb()
+    w.notes["cadquery"] = facts
+    asset = _own_glb(w, glb, "Pipe flange (CadQuery)", "CadQuery")
+    return scene([block("model_3d", {"src": w.src(asset), "title": "A pipe flange from CadQuery", "colour": "#b8c4cc", "turn_degrees": 200, "seconds": 4,
+                                     "subtitle": f"OpenCascade solid · {facts['volume_cm3']:.0f} cm³ · {facts['mass_kg']:.2f} kg of steel",
+                                     "start_degrees": 20, "spin": True, "camera_height": 2.2, "distance": 3.8})], 4.0)
+
+
+def rankine_cycle(w: Work) -> dict:
+    from .adapters import mechanics
+    r = mechanics.rankine(80.0, 0.1, 480.0)
+    w.notes["coolprop"] = {"efficiency": r["efficiency"]}
+    st = r["states"]
+    dome = r["dome"]                                    # one line over the top: liquid side up, vapour side down
+    series = [{"x": dome["s_liquid"] + dome["s_vapour"][::-1], "y": dome["T_C"] + dome["T_C"][::-1], "colour": "#6fb7ff", "start": 0.1,
+               "seconds": 0.9, "width": 4, "label": "saturation dome"},
+              {"x": [st[0]["s"], st[1]["s"]], "y": [st[0]["T_C"], st[1]["T_C"]], "colour": "#c79bff", "start": 1.0, "seconds": 0.3, "label": "pump"},
+              {"x": r["heating"]["s"], "y": r["heating"]["T_C"], "colour": "#ff6b6b", "start": 1.3, "seconds": 1.0, "label": "boiler"},
+              {"x": [st[2]["s"], st[3]["s"]], "y": [st[2]["T_C"], st[3]["T_C"]], "colour": "#38d3c3", "start": 2.3, "seconds": 0.5, "label": "turbine"},
+              {"x": [st[3]["s"], st[0]["s"]], "y": [st[3]["T_C"], st[0]["T_C"]], "colour": "#ffb35c", "start": 2.8, "seconds": 0.6, "label": "condenser"}]
+    points = [{"x": p["s"], "y": p["T_C"], "label": p["name"], "at": 1.0 + 0.6 * k} for k, p in enumerate(st)]
+    return scene([block("xy_lines", {"series": series, "points": points, "title": "A steam power plant on a T–s chart",
+                                     "subtitle": "Rankine cycle, 80 bar and 480 °C · water properties from CoolProp",
+                                     "x_label": "entropy s (kJ/kg·K)", "y_label": "temperature (°C)", "legend_box": True,
+                                     "note": f"efficiency {100 * r['efficiency']:.1f}%"})], 4.2)
+
+
+def heat_plate(w: Work) -> dict:
+    from .adapters import mechanics
+    data = mechanics.heated_plate()
+    w.notes["scikit_fem"] = {"elements": data["elements"]}
+    return scene([block("heat_plate", dict(data, title="Heat spreading through a plate", subtitle="finite elements by scikit-fem · arrows = heat flow",
+                                           badge=f"{data['elements']} triangles"))], 4.0)
+
+
+def relief(w: Work) -> dict:
+    import math
+    from PIL import Image
+    from .adapters import earth
+    region = (70.0, 100.0, 20.0, 40.0)
+    out = w.folder / "relief.png"
+    data = earth.relief(region, out, profile=((77.0, 22.0), (90.0, 36.0)))
+    asset = w.library.add_bytes(out.read_bytes(), mime="image/png", source="pygmt", title="Himalaya and Tibet, shaded relief",
+                                page_url=earth.EARTH_RELIEF["source"], licence=earth.EARTH_RELIEF["licence"], licence_url="",
+                                author="BIE with PyGMT; data SRTM15+ (Tozer et al., 2019)", credit="Relief: SRTM15+ V2.7 via GMT · map by BIE (PyGMT)",
+                                tags=["relief", "map"])
+    width_px, height_px = Image.open(out).size
+    box_w = 0.52
+    box = {"x": 0.02, "y": 0.15, "w": box_w, "h": box_w * 1920 / (width_px / height_px) / 1080}
+    merc = lambda lat: math.log(math.tan(math.pi / 4 + math.radians(lat) / 2))
+    pts = [{"x": (lon - region[0]) / (region[1] - region[0]), "y": (merc(region[3]) - merc(lat)) / (merc(region[3]) - merc(region[2]))}
+           for lon, lat in zip(data["profile"]["lon"][::8], data["profile"]["lat"][::8])]
+    w.notes["pygmt"] = {"min_m": data["min_m"], "max_m": data["max_m"], "profile_points": len(data["profile"]["km"])}
+    layers = [
+        {"id": "title", "type": "title", "at": 0, "box": {"x": 0.02, "y": 0.0, "w": 0.7, "h": 0.14}, "title": "Crossing the Himalaya",
+         "subtitle": "shaded relief by PyGMT (GMT 6, SRTM15+) · the height along the line"},
+        {"id": "relief", "type": "image", "at": 0, "box": box, "src": w.src(asset), "credit": "SRTM15+ V2.7 · PyGMT"},
+        {"id": "line", "type": "flow", "at": 12, "layer": "relief", "path": pts, "particles": 10, "seconds": 2, "tone": "warm"},
+        block("xy_lines", {"series": [{"x": data["profile"]["km"], "y": data["profile"]["elevation_m"], "colour": "#ffb35c", "fill": True,
+                                       "start": 0.6, "seconds": 2.6}], "x_label": "km along the line", "y_label": "height (m)",
+                           "note": f"highest {max(data['profile']['elevation_m']):.0f} m"},
+              box={"x": 0.55, "y": 0.15, "w": 0.44, "h": 0.8}),
+    ]
+    return scene(layers, 4.2)
+
+
+def seismic_rays(w: Work) -> dict:
+    from .adapters import earth
+    data = earth.ray_paths(70.0, 15.0)
+    w.notes["obspy"] = {r["phase"]: r["time_s"] for r in data["rays"]}
+    return scene([block("earth_section", dict(data, title="Seismic waves through the Earth", subtitle="ray paths and times from ObsPy TauP (IASP91 model)",
+                                              travel_seconds=3.2, badge="P is fast, S is slower and cannot cross the liquid core"))], 4.2)
+
+
+def quake_map(w: Work) -> dict:
+    from . import sources
+    asset, rows = sources.usgs_quakes("2025-01-01", "2025-12-31", w.library, magnitude=6.0, opener=w.opener)
+    w.notes["usgs"] = {"earthquakes": len(rows), "largest": max(r["magnitude"] for r in rows)}
+    return scene([block("world_points", {"points": rows, "title": "A year of strong earthquakes (2025)", "seconds": 3.4,
+                                         "subtitle": "magnitude 6 and above · USGS catalogue · Natural Earth map (d3-geo)",
+                                         "credit": "Earthquakes: U.S. Geological Survey (public domain) · Map: Natural Earth (public domain)"})], 4.2)
+
+
+def plates(w: Work) -> dict:
+    from . import sources
+    from .adapters import earth
+    model = sources.gplates_model("muller2019", opener=w.opener)
+    data = earth.reconstruct(model["rotations"], model["coastlines"], ages=tuple(range(200, -1, -10)), min_step_deg=1.5, min_points=8)
+    w.notes["pygplates"] = {"frames": len(data["frames"]), "points_per_frame": data["frames"][0]["points"]}
+    return scene([block("plate_frames", dict(data, title="The continents drifting apart", subtitle="coastlines moved by pyGPlates, 200 million years to today",
+                                             seconds=3.6, credit=model["credit"]))], 4.2)
+
+
+def planet_orbits(w: Work) -> dict:
+    from .adapters import astro
+    data = astro.orbits("2026-01-01", 687, 3)
+    w.notes["skyfield_astropy"] = {p["name"]: p["kepler_period_days"] for p in data["planets"]}
+    return scene([block("orbits", dict(data, title="The inner planets in 2026–27", subtitle="positions from NASA JPL DE421 by Skyfield · periods by Astropy (Kepler)",
+                                       seconds=3.8, badge="Mars needs 687 days for one orbit"))], 4.2)
+
+
+def night_sky(w: Work) -> dict:
+    from .adapters import astro
+    data = astro.sky(28.61, 77.21, "2026-01-15T20:00:00")
+    w.notes["skyfield"] = {"stars": data["count"], "planets": [p["name"] for p in data["planets"]]}
+    return scene([block("sky_dome", dict(data, title="The sky over New Delhi", subtitle="15 January 2026, 8 pm · Hipparcos stars brighter than magnitude 3.5",
+                                         place_name="New Delhi", time_label="15 Jan 2026, 8:00 pm IST",
+                                         names={"32349": "Sirius", "27989": "Betelgeuse", "24436": "Rigel", "37279": "Procyon",
+                                                "21421": "Aldebaran", "24608": "Capella"},
+                                         credit="Stars: Hipparcos Catalogue (ESA 1997) via CDS · positions by Skyfield"))], 4.0)
+
+
+def earthrise(w: Work) -> dict:
+    from . import sources
+    asset = sources.nasa_image("as08-14-2383", w.library, size="medium", opener=w.opener)
+    layers = [
+        {"id": "photo", "type": "image", "at": 0, "box": {"x": 0.21875, "y": 0.0, "w": 0.5625, "h": 1.0}, "src": w.src(asset), "credit": asset.credit},
+        {"id": "ring", "type": "highlight", "at": 70, "layer": "photo", "region": {"x": 0.47, "y": 0.44, "w": 0.19, "h": 0.15}, "tone": "accent"},
+        {"id": "lab", "type": "label", "at": 80, "box": {"x": 0.6, "y": 0.36, "w": 0.1, "h": 0.05}, "text": "Earth",
+         "anchor": {"layer": "photo", "point": {"x": 0.6, "y": 0.47}}, "tone": "accent"},
+        {"id": "title", "type": "title", "at": 0, "until": 40, "box": {"x": 0.02, "y": 0.04, "w": 0.3, "h": 0.2}, "title": "Earthrise",
+         "subtitle": "Apollo 8, 1968 (NASA)"},
+    ]
+    # a wide zoom that keeps the Moon's horizon in view: the point of Earthrise is the Earth seen from the Moon
+    camera = [{"at": 0, "box": FULL}, {"at": 30, "layer": "photo", "region": {"x": 0.2, "y": 0.3, "w": 0.66, "h": 0.6}, "frames": 50}]
+    return scene(layers, 4.2, camera)
+
+
+def aircraft(w: Work) -> dict:
+    from .adapters import aero
+    glb, facts = aero.trainer_aircraft()
+    w.notes["aerosandbox"] = {"cl_per_degree": facts["cl_per_degree"], "wing_area_m2": facts["wing_area_m2"]}
+    asset = _own_glb(w, glb, "Trainer aircraft (AeroSandbox)", "AeroSandbox")
+    curve = facts["lift_curve"]
+    return scene([
+        block("model_3d", {"src": w.src(asset), "title": "A trainer aircraft from AeroSandbox", "colour": "#d8e2e8", "turn_degrees": 160, "seconds": 4,
+                           "subtitle": f"NACA 2412 wing, span {facts['span_m']:.1f} m", "start_degrees": 210, "spin": True,
+                           "camera_height": 1.2, "distance": 3.6},
+              box={"x": 0.0, "y": 0.0, "w": 0.6, "h": 1.0}),
+        block("xy_lines", {"series": [{"x": [c["alpha_deg"] for c in curve], "y": [c["CL"] for c in curve], "label": "lift", "start": 0.8, "seconds": 2.4}],
+                           "points": [{"x": c["alpha_deg"], "y": c["CL"], "at": 0.8 + 0.5 * k} for k, c in enumerate(curve)],
+                           "x_label": "angle of attack (°)", "y_label": "lift coefficient CL",
+                           "note": f"+{facts['cl_per_degree']:.3f} CL per degree (vortex lattice)"},
+              box={"x": 0.58, "y": 0.12, "w": 0.41, "h": 0.82}),
+    ], 4.2)
+
+
+def climb(w: Work) -> dict:
+    from .adapters import aero
+    data = aero.climb()
+    w.notes["jsbsim"] = {"best_climb_fpm": data["best_climb_fpm"], "end_altitude_ft": data["altitude_ft"][-1]}
+    return scene([block("flight_profile", dict(data, title="A Cessna 172 climbs to 2,500 ft", subtitle="flight dynamics by JSBSim (c172x and its autopilot)",
+                                               seconds=3.8, badge="120 simulated seconds in 4"))], 4.2)
+
 # Every 3D block draws through @remotion/three, React Three Fiber and drei on three.js.
 THREE_STACK = ("three", "react-three-fiber", "drei", "remotion-three")
 
@@ -289,6 +493,32 @@ DEMOS = (
     Demo("physics-matter", 1, "Boxes and a ball under gravity", ("matter-js",), ("physics_sim_2d",), 4.0, matter),
     Demo("physics-collision-3d", 1, "A ball passes its momentum on and knocks a tower over (3D)", ("cannon-es", *THREE_STACK), ("physics_sim_3d",), 4.0, collision),
     Demo("cs-graph-bfs", 1, "Breadth-first search on a graph", ("networkx", "d3"), ("network_graph",), 4.5, graph_bfs),
+    # batch 2
+    Demo("elec-rc-circuit", 2, "An RC circuit drawn by schemdraw, simulated by ngspice, solved by lcapy",
+         ("schemdraw", "ngspice", "lcapy", "katex", "d3", "bie-science-blocks"), ("circuit_diagram", "signal_plot"), 4.6, rc_circuit),
+    Demo("elec-step-response", 2, "Step responses for three damping ratios (python-control, checked by scipy.signal)",
+         ("python-control", "scipy-signal", "katex", "d3", "bie-science-blocks"), ("signal_plot",), 4.2, step_response),
+    Demo("mech-beam", 2, "A loaded steel beam bends (PyNite, checked by sympy.physics)", ("pynite", "sympy-physics", "bie-science-blocks"),
+         ("structure_load",), 4.0, beam),
+    Demo("mech-flange", 2, "A pipe flange built by CadQuery, turning in three.js", ("cadquery", "trimesh", *THREE_STACK), ("machine_part_3d",), 4.0, flange),
+    Demo("mech-rankine", 2, "A Rankine steam cycle on a T-s chart from CoolProp", ("coolprop", "d3", "bie-science-blocks"), ("function_graph",), 4.2, rankine_cycle),
+    Demo("mech-heat-plate", 2, "Heat flow in a plate by scikit-fem", ("scikit-fem", "d3", "bie-science-blocks"), ("vector_field",), 4.0, heat_plate),
+    Demo("geo-relief", 2, "Himalaya relief and profile by PyGMT", ("pygmt", "gmt", "gmt-earth-relief", "bie-blocks", "d3", "bie-science-blocks"),
+         ("terrain_or_layers", "map_region"), 4.2, relief),
+    Demo("geo-seismic-rays", 2, "Seismic rays through the Earth's layers by ObsPy TauP", ("obspy", "bie-science-blocks"),
+         ("earthquake_waves", "terrain_or_layers"), 4.2, seismic_rays),
+    Demo("geo-quake-map", 2, "2025's strong earthquakes from the USGS on a Natural Earth map", ("usgs-earthquakes", "natural-earth", "topojson-client", "d3", "bie-science-blocks"),
+         ("map_region",), 4.2, quake_map),
+    Demo("geo-plates", 2, "Continents drifting over 200 million years by pyGPlates", ("pygplates", "gplates-muller2019", "d3", "bie-science-blocks"),
+         ("plate_motion",), 4.2, plates),
+    Demo("astro-orbits", 2, "The inner planets' orbits from JPL DE421 (Skyfield, Astropy)", ("skyfield", "astropy", "jpl-de421", "d3", "bie-science-blocks"),
+         ("orbit_motion",), 4.2, planet_orbits),
+    Demo("astro-sky", 2, "The night sky over New Delhi from the Hipparcos catalogue (Skyfield)", ("skyfield", "astropy", "hipparcos", "jpl-de421", "bie-science-blocks"),
+         ("sky_map",), 4.0, night_sky),
+    Demo("astro-earthrise", 2, "Earthrise from NASA's image library, zoom and focus", ("nasa-images", "bie-blocks"), ("focus_glow",), 4.2, earthrise),
+    Demo("aero-aircraft", 2, "A trainer aircraft and its lift curve from AeroSandbox", ("aerosandbox", "trimesh", *THREE_STACK, "d3", "bie-science-blocks"),
+         ("aircraft_shape",), 4.2, aircraft),
+    Demo("aero-climb", 2, "A Cessna 172 climb simulated by JSBSim", ("jsbsim", "d3", "bie-science-blocks"), ("flight_motion",), 4.2, climb),
 )
 
 
