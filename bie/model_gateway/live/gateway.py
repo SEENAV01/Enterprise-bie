@@ -26,6 +26,7 @@ from .ledger import UsageLedger
 from .pricing import SUBSCRIPTION_VIAS, estimate_cost
 
 DEFAULT_RETRY = RetryPolicy(max_attempts=4, base_delay=2.0, max_delay=60.0)
+RETRY_AFTER_MAX = 90.0
 REPAIR_INSTRUCTION = ("Your previous answer did not match the required JSON schema: {problem}. "
                       "Reply again with the complete corrected JSON object only, matching the schema exactly.")
 
@@ -96,7 +97,9 @@ class LiveGateway:
                         self.guard.trip(f"{exc.kind}: {provider} via {via}: {exc.message[:200]}")
                 transient += 1
                 if should_retry(exc.kind, transient, self.retry):
-                    self._sleep(delay(transient, self.retry))
+                    # A provider's own wait (Google's per-minute free-tier quota) wins over the policy's, within limits.
+                    asked = min(float(exc.retry_after or 0.0), RETRY_AFTER_MAX)
+                    self._sleep(max(delay(transient, self.retry), asked))
                     continue
                 raise
             latency = round((self._clock() - t0) * 1000)

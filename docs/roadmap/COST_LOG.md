@@ -9,6 +9,8 @@ Navin reads the real amount on the provider dashboard (AICredits wallet history;
 Claude; Claude writes it in the "Dashboard" column. A difference of more than 15% means the price table or the
 markup is wrong and is fixed before the next estimate is trusted.
 
+**Free Google key (25 October 2026):** from this date the VM's reviewer can run on Navin's free Google AI Studio key (`GEMINI_API_KEY`, direct route, `gemini-3.8-flash`). Google bills the free tier **₹0**. The cost guard still prices every call at the model's list price (`pricing.py`: $0.75 / $3.75 per million input / output tokens) as a safe estimate, so a run's ledger shows rupees that are never billed; rows below say so in the Dashboard column.
+
 Runs before 22 October were estimated in dollars; their rupee values below use the same ₹94.59 rate.
 
 | Date | Run | What | Routes | Ledger estimate | Dashboard | Difference |

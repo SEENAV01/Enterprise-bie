@@ -34,6 +34,12 @@ ChatGPT Pro plan itself is Navin's existing subscription.
 
 - `setup.sh` (no secrets): Python, git, Node, Codex CLI 0.162.1, a 2 GB swap file, the repository at
   `/var/lib/bie/repo`, a Python environment, the `bie` user and a systemd timer.
+- Checker keys (25 October 2026): besides the AICredits key, Navin added his free Google AI Studio key as
+  `GEMINI_API_KEY` to `/etc/bie/bie.env` (sample content only, never student data). With both keys the direct key
+  is the default Google route; jobs for it carry `"routes": "google=direct", "models": "google=gemini-3.8-flash"`
+  (the free tier answers only that model; `gemini-4-argon` gives 429, `gemini-3.1-pro` 404). Google bills the free
+  tier ₹0; the cost guard still prices each call at the model's list price as a safe estimate.
+  `tools/codex_vm.py status` shows which keys are present and the default route, never a key.
 - `bie-setup` (Navin, once): the Gemini key into `/etc/bie/bie.env` (only on this machine), a GitHub deploy key
   so the machine can publish results, and `codex login --device-auth` (a link and a code, no browser needed on
   the machine). The Codex auth file stays in `/var/lib/bie/codex` (mode 700).

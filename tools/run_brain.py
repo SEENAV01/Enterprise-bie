@@ -80,20 +80,35 @@ def read_text(source: str) -> str:
     return path.read_text(encoding="utf-8")
 
 
-def build_gateway(maker, reviewer, *, fake, ledger, max_output_tokens, reviewer_model="", guard=None):
+# Output cap of a review call (seekh, 25 October 2026, from job B2: v5's review ran away to the 32,000-token cap, billed about
+# Rs 44, and failed anyway). Measured on every review call on blindtest-results (141 calls, 99 answered, 21-24 October
+# 2026): the largest Task 045d script review answered 1,612 output tokens, the largest review of any kind 3,744 (its
+# reasoning included, a GPT chapter-map review); none came near 12,000. Gemini through Google counts its thinking inside
+# the same cap (smoke run 40114580580: 208 of 217 output tokens were thinking), so the cap leaves room for that: 12,000
+# is about 3 times the largest review and stops a runaway at three-eighths of the old output.
+REVIEW_OUTPUT_TOKENS = 12000
+
+
+def build_gateway(maker, reviewer, *, fake, ledger, max_output_tokens, reviewer_model="", guard=None,
+                  review_output_tokens=REVIEW_OUTPUT_TOKENS):
     """(gateway, reviewer route). A same-provider reviewer gets its own route ``<provider>-checker`` with
     ``reviewer_model``, which must differ from the maker's model; ``reviewer_model="same"`` is the one explicit
     exception (the key allows a single model: the maker's model checks in a fresh call, marked
     same_model_temporary, kamzor jaanch). The ``codex`` maker always runs the Codex CLI named by BIE_CODEX_BIN
-    (``--fake`` replaces only the API routes, so tests use a fake executable)."""
+    (``--fake`` replaces only the API routes, so tests use a fake executable). The reviewer's route is its own
+    client with the smaller ``review_output_tokens`` cap; the maker keeps ``max_output_tokens``."""
     same = maker == reviewer
     if same and not reviewer_model:
         raise SystemExit("MAKER_AND_REVIEWER_MUST_DIFFER: a same-company checker needs --reviewer-model")
-    providers = [maker] if same else [p for p in (maker, reviewer) if p and p != "codex"]
+    makers = [maker] if maker and maker != "codex" else []
+    checkers = [] if same or not reviewer else [reviewer]
     if fake:
-        routes = {p: ADAPTERS[p](BrainFakeClient(p), f"fake-{p}") for p in providers}
+        routes = {p: ADAPTERS[p](BrainFakeClient(p), f"fake-{p}") for p in makers + checkers}
     else:
-        routes, missing = build_routes(providers, max_output_tokens=max_output_tokens, stream=True)
+        routes, missing = build_routes(makers, max_output_tokens=max_output_tokens, stream=True)
+        checking, missing_checker = build_routes(checkers, max_output_tokens=review_output_tokens, stream=True)
+        routes.update(checking)
+        missing += missing_checker
         if missing:
             raise SystemExit("NOT_CONFIGURED:" + ",".join(missing))
     if maker == "codex":
@@ -109,7 +124,7 @@ def build_gateway(maker, reviewer, *, fake, ledger, max_output_tokens, reviewer_
             model = routes[maker].model if same_model else "fake-" + reviewer_model.replace("/", "-")
         else:
             via, key = route_for(reviewer)
-            client = make_client(reviewer, key, via=via, max_output_tokens=max_output_tokens, stream=True)
+            client = make_client(reviewer, key, via=via, max_output_tokens=review_output_tokens, stream=True)
             model = routes[maker].model if same_model else reviewer_model
         if same and model == routes[maker].model and not same_model:
             raise SystemExit("MAKER_AND_REVIEWER_MUST_DIFFER: the checker needs another model than the maker "
@@ -194,7 +209,9 @@ def main(argv=None):
     parser.add_argument("--routes", default="", help="for example anthropic=aicredits")
     parser.add_argument("--workers", type=int, default=4)
     parser.add_argument("--max-rounds", type=int, default=3)
-    parser.add_argument("--max-output-tokens", type=int, default=32000)
+    parser.add_argument("--max-output-tokens", type=int, default=32000, help="output cap of the maker's calls")
+    parser.add_argument("--review-output-tokens", type=int, default=REVIEW_OUTPUT_TOKENS,
+                        help=f"output cap of the reviewer's calls (default {REVIEW_OUTPUT_TOKENS}, measured from earlier reviews)")
     parser.add_argument("--course", default="", help="title=...;subject=...;learners=...;exam=...;language=... (overrides)")
     parser.add_argument("--fake", action="store_true")
     args = parser.parse_args(argv)
@@ -209,6 +226,8 @@ def main(argv=None):
         raise SystemExit("MAKER_AND_REVIEWER_MUST_DIFFER")
     if args.max_inr <= 0:
         raise SystemExit("MAX_INR_MUST_BE_POSITIVE")
+    if args.review_output_tokens < 1000 or args.max_output_tokens < 1000:
+        raise SystemExit("OUTPUT_TOKENS_TOO_SMALL: --max-output-tokens and --review-output-tokens need at least 1000")
     apply_overrides(args.models, MODEL_ENV, "MODEL")
     apply_overrides(args.routes, VIA_ENV, "ROUTE")
     out = Path(args.out)
@@ -222,7 +241,7 @@ def main(argv=None):
     try:
         gateway, reviewer = build_gateway(args.maker, args.reviewer, fake=args.fake, ledger=ledger,
                                           max_output_tokens=args.max_output_tokens, reviewer_model=args.reviewer_model,
-                                          guard=guard)
+                                          guard=guard, review_output_tokens=args.review_output_tokens)
         summary["models"] = {route: gateway.model_of(route) for route in gateway.routes}
         book = rulebook_module.load()
         runner = SectionRunner(gateway, maker=args.maker, reviewer=reviewer, rulebook=book, records_dir=out / "records")

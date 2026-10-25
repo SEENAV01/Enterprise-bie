@@ -154,6 +154,15 @@ rule S2-07) with the code checks "dohraav pakad" and the `dohraav` measure; the 
 G-06 and G-07 (BIE is the link; two layers). Run after merge: the tissue understanding and script again (maker Codex, Gemini
 checker cap ₹200), old v2 against new v2 and the dohraav number before and after; nothing ACCEPTED until Navin's verdict.
 
+Navin's verdict (25 October 2026): he read old v2 (epithelial, `vm-t045c-tissue-lesson-v9`) against the new epithelial script
+(new v3, `vm-t045d-tissue-lesson-resume2`; the new plan splits videos differently, so topics are compared by topic, not by video
+id) and chose to **go forward with the NEW scripts. Task 045 is complete for now.** 045e (completeness and full sentences) is not
+done now: if, after the one-button software (051), a real book's output shows a gap in any section (teaching, video, narration,
+notes), Navin opens a new improvement task then. The reviewer stays a permanent part of BIE; from 25 October 2026 it runs on
+Navin's free Google AI Studio key on the VM (`gemini-3.8-flash`, direct route; sample content only, never student data). His
+observations, for the record only: the new scripts use more examples and analogies; the old ones had fuller sentences and more
+completeness; some new sentences feel clipped. The next task (046a, the tool house) starts only after Navin says so.
+
 **046 · Director, video blocks and the benchmark video** — the presentation layer, built to the benchmark
 (`bie/brain/rulebook/benchmarks/epithelium_animation.json`, rule S3-06): one spoken sentence is one shot of 2–4 s; about
 40–50 s per family member; said = shown, a function sentence shows motion; a term opened with "yaani" on first use and every
