@@ -36,7 +36,19 @@ PYTHON_TOOLS = {
     "skyfield": ("skyfield", "skyfield", "toolbox-astro"),
     "aerosandbox": ("aerosandbox", "aerosandbox", "toolbox-aero"),
     "jsbsim": ("jsbsim", "jsbsim", "toolbox-aero"),
+    # batch 3: maps, law data, behaviour, languages
+    "shapely": ("shapely", "shapely", "toolbox-maps"),
+    "pyarrow": ("pyarrow", "pyarrow", "toolbox-law"),
+    "psychopy": ("psychopy.data", "psychopy", "toolbox-behaviour"),
+    "indic-nlp": ("indicnlp", "indic-nlp-library", "toolbox-language"),
+    "indic-transliteration": ("indic_transliteration.sanscript", "indic-transliteration", "toolbox-language"),
 }
+
+# Installed by the toolbox lane with pip --no-deps --ignore-requires-python (a pyproject extra cannot say that): PsychoPy's
+# own pins need Python < 3.13 and a desktop stack; BIE uses only psychopy.data, whose two small needs are in its extra.
+NO_DEPS = {"psychopy": "2026.2.4"}
+INSTALL_HINTS = {tid: f"pip install -e '.[{PYTHON_TOOLS[tid][2]}]' && pip install --no-deps --ignore-requires-python {PYTHON_TOOLS[tid][1]}=={v}"
+                 for tid, v in NO_DEPS.items()}
 
 # tool id → (program on PATH, the apt package that installs it): programs BIE runs, not Python libraries
 PROGRAMS = {"ngspice": ("ngspice", "ngspice"), "gmt": ("gmt", "gmt libgmt-dev gmt-dcw gmt-gshhg-low ghostscript")}
@@ -51,7 +63,8 @@ def need(tool_id: str):
     try:
         return importlib.import_module(module)
     except ImportError as exc:
-        raise Unavailable(f"{tool_id} is not installed: pip install -e '.[{group}]' ({exc})") from None
+        hint = INSTALL_HINTS.get(tool_id) or f"pip install -e '.[{group}]'"
+        raise Unavailable(f"{tool_id} is not installed: {hint} ({exc})") from None
 
 
 def need_program(tool_id: str) -> str:

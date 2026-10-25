@@ -1,305 +1,2937 @@
 {
  "schema": "bie.toolbox.registry/1",
- "version": "2026-10-25.1",
+ "version": "2026-10-25.3",
  "npm_before": "2026-10-17T12:00:00Z",
  "note": "Task 046a, BIE's toolbox (auzaar-ghar). One entry per library, tool, asset source or dataset that BIE uses to show what a scene plan asks for. A Python library computes, a BIE block shows. Versions are pinned (npm: the newest release before npm_before, the date in tools/npm_before.txt; PyPI: the newest release before the same date with a Python 3.13 Linux wheel). Licences were read from each project's own page or package metadata on 25 October 2026; licence_flags mark share-alike, GPL, custom and per-item licences for Navin's later licence decision, without blocking them. status: installed < wrapped < demo_proven < used_on_real_book; blocked_with_reason says what is missing.",
- "statuses": ["installed", "wrapped", "demo_proven", "used_on_real_book", "blocked_with_reason"],
+ "statuses": [
+  "installed",
+  "wrapped",
+  "demo_proven",
+  "used_on_real_book",
+  "blocked_with_reason"
+ ],
  "tools": [
-  {"id": "bie-blocks", "name": "BIE block library (bie/brain/video/blocks)", "kind": "js_lib", "subjects": ["all_subjects"],
-   "content_types": ["structure", "process", "comparison", "timeline", "facts_numbers", "definition", "figure"],
-   "capabilities": ["organ_zoom", "focus_glow", "particle_flow", "concept_arrow", "board_build", "table_build", "timeline", "kinetic_caption", "reaction_steps"],
-   "role": "draw", "path": "web", "version": "bie-2026-10-25", "licence": "BIE's own code", "licence_flags": [],
-   "source": "https://github.com/SEENAV01/Enterprise-bie", "install_group": "web-core", "status": "demo_proven", "batch": 1, "rank": 10,
+  {
+   "id": "bie-blocks",
+   "name": "BIE block library (bie/brain/video/blocks)",
+   "kind": "js_lib",
+   "subjects": [
+    "all_subjects"
+   ],
+   "content_types": [
+    "structure",
+    "process",
+    "comparison",
+    "timeline",
+    "facts_numbers",
+    "definition",
+    "figure"
+   ],
+   "capabilities": [
+    "organ_zoom",
+    "focus_glow",
+    "particle_flow",
+    "concept_arrow",
+    "board_build",
+    "table_build",
+    "timeline",
+    "kinetic_caption",
+    "reaction_steps"
+   ],
+   "role": "draw",
+   "path": "web",
+   "version": "bie-2026-10-25",
+   "licence": "BIE's own code",
+   "licence_flags": [],
+   "source": "https://github.com/SEENAV01/Enterprise-bie",
+   "install_group": "web-core",
+   "status": "demo_proven",
+   "batch": 1,
+   "rank": 10,
    "block": "image, label, highlight, flow, steps, timeline, scale, table, arrow, question + camera",
-   "proof": {"demos": ["bio-organ-zoom", "chem-reaction"]},
-   "notes": "Task 039's 2D blocks with the camera that zooms into any region of a picture; organ_zoom is an image layer plus camera keys."},
-  {"id": "remotion", "name": "Remotion", "kind": "js_lib", "subjects": ["all_subjects"], "content_types": [], "capabilities": [],
-   "role": "draw", "path": "web", "version": "4.0.536", "licence": "Remotion License: free for individuals and companies of up to 3 people; a paid company licence above that", "licence_flags": ["custom"],
-   "source": "https://www.remotion.dev/license", "install_group": "web-core", "status": "demo_proven", "batch": 1,
-   "proof": {"tests": ["tools/toolbox_demos.py --bridge bio-cell-sheet-flow"]},
-   "notes": "The video framework every BIE block is written for (useCurrentFrame, interpolate, spring, Sequence, delayRender). Previews and CI demos run the same blocks through remotion-lite (bie/brain/video/preview/remotion-lite.tsx, same API names) in Chromium + ffmpeg; the real Remotion render of the same blocks is the bridge proof. Navin's licence decision is needed before BIE is run by a company of more than 3 people."},
-  {"id": "remotion-three", "name": "@remotion/three", "kind": "js_lib", "subjects": ["all_subjects"], "content_types": ["structure", "figure"],
-   "capabilities": ["cell_sheet_3d", "anatomy_3d", "physics_sim_3d"], "role": "draw", "path": "web", "version": "4.0.536", "licence": "MIT", "licence_flags": [],
-   "source": "https://www.npmjs.com/package/@remotion/three", "install_group": "web-core", "status": "demo_proven", "batch": 1,
-   "proof": {"demos": ["bio-cell-sheet-flow", "bio-heart-nih3d", "bio-heart-zanatomy", "bio-heart-bodyparts3d", "physics-collision-3d"]},
-   "notes": "ThreeCanvas: a React Three Fiber canvas driven by Remotion's frame clock; remotion-lite has a shim with the same name (bie/brain/video/preview/three-lite.tsx)."},
-  {"id": "three", "name": "three.js", "kind": "js_lib", "subjects": ["all_subjects"], "content_types": ["structure", "figure", "process"],
-   "capabilities": ["cell_sheet_3d", "particle_flow", "anatomy_3d", "physics_sim_3d", "machine_part_3d", "aircraft_shape"], "role": "draw", "path": "web", "version": "0.186.1",
-   "licence": "MIT", "licence_flags": [], "source": "https://github.com/mrdoob/three.js", "install_group": "web-core", "status": "demo_proven", "batch": 1, "rank": 10,
-   "proof": {"demos": ["bio-cell-sheet-flow", "bio-heart-nih3d", "bio-heart-zanatomy", "bio-heart-bodyparts3d", "physics-collision-3d"]},
-   "notes": "WebGL scenes; in headless Chromium it runs on SwiftShader (software WebGL)."},
-  {"id": "react-three-fiber", "name": "React Three Fiber", "kind": "js_lib", "subjects": ["all_subjects"], "content_types": ["structure", "figure"],
-   "capabilities": ["cell_sheet_3d", "anatomy_3d", "physics_sim_3d"], "role": "draw", "path": "web", "version": "9.8.2", "licence": "MIT", "licence_flags": [],
-   "source": "https://github.com/pmndrs/react-three-fiber", "install_group": "web-core", "status": "demo_proven", "batch": 1, "proof": {"demos": ["bio-cell-sheet-flow", "bio-heart-nih3d", "bio-heart-zanatomy", "bio-heart-bodyparts3d", "physics-collision-3d"]},
-   "notes": "three.js as React components."},
-  {"id": "drei", "name": "@react-three/drei", "kind": "js_lib", "subjects": ["all_subjects"], "content_types": ["structure", "figure"],
-   "capabilities": ["cell_sheet_3d", "anatomy_3d", "physics_sim_3d"], "role": "draw", "path": "web", "version": "10.7.9", "licence": "MIT", "licence_flags": [],
-   "source": "https://github.com/pmndrs/drei", "install_group": "web-core", "status": "demo_proven", "batch": 1, "proof": {"demos": ["bio-cell-sheet-flow", "bio-heart-nih3d", "bio-heart-zanatomy", "bio-heart-bodyparts3d", "physics-collision-3d"]},
-   "notes": "Helpers: glTF loading (useGLTF), environment light, bounds."},
-  {"id": "katex", "name": "KaTeX", "kind": "js_lib", "subjects": ["all_subjects", "maths_statistics", "physics", "chemistry"], "content_types": ["process", "definition"],
-   "capabilities": ["equation_transform"], "role": "draw", "path": "web", "version": "0.19.0", "licence": "MIT", "licence_flags": [],
-   "source": "https://github.com/KaTeX/KaTeX", "install_group": "web-core", "status": "demo_proven", "batch": 1, "rank": 10, "proof": {"demos": ["maths-equation"]},
-   "notes": "Typeset maths in the video (fonts bundled into the preview)."},
-  {"id": "d3", "name": "D3", "kind": "js_lib", "subjects": ["all_subjects"], "content_types": ["facts_numbers", "process", "structure"],
-   "capabilities": ["function_graph", "signal_plot", "ecg_trace", "wave_motion", "network_graph", "physics_sim_2d", "chart_bar_line_pie"], "role": "draw", "path": "web",
-   "version": "7.9.0", "licence": "ISC", "licence_flags": [], "source": "https://github.com/d3/d3", "install_group": "web-core", "status": "demo_proven", "batch": 1, "rank": 10,
-   "proof": {"demos": ["bio-ecg", "chem-reaction", "maths-function-graph", "maths-regression", "physics-falling", "physics-wave", "cs-graph-bfs"]},
-   "notes": "Scales, axes, paths and layouts for every plotted block; d3-geo (maps) comes with Batch 3."},
-  {"id": "3dmol", "name": "3Dmol.js", "kind": "js_lib", "subjects": ["chemistry", "biology_medical"], "content_types": ["structure", "figure"],
-   "capabilities": ["molecule_3d", "protein_3d"], "role": "draw", "path": "web", "version": "2.5.5", "licence": "BSD-3-Clause", "licence_flags": [],
-   "source": "https://github.com/3dmol/3Dmol.js", "install_group": "web-science", "status": "demo_proven", "batch": 1, "rank": 10,
-   "proof": {"demos": ["bio-protein-3dmol", "chem-molecule-rdkit", "chem-molecule-pubchem"]},
-   "notes": "Molecules (ball and stick, sticks) and proteins (cartoon) from SDF or PDB text."},
-  {"id": "molstar", "name": "Mol*", "kind": "js_lib", "subjects": ["biology_medical", "chemistry"], "content_types": ["structure", "figure"],
-   "capabilities": ["protein_3d", "molecule_3d"], "role": "draw", "path": "web", "version": "5.13.1", "licence": "MIT", "licence_flags": [],
-   "source": "https://github.com/molstar/molstar", "install_group": "web-science", "status": "demo_proven", "batch": 1, "rank": 20,
-   "levels": ["neet_11_12", "upsc_pcs", "revision"],
-   "proof": {"demos": ["bio-protein-molstar"]},
-   "notes": "The PDB's own viewer; detailed protein surfaces and cartoons for advanced levels."},
-  {"id": "matter-js", "name": "Matter.js", "kind": "js_lib", "subjects": ["physics", "mechanical_civil"], "content_types": ["process", "cause_effect"],
-   "capabilities": ["physics_sim_2d"], "role": "draw", "path": "web", "version": "0.20.0", "licence": "MIT", "licence_flags": [],
-   "source": "https://github.com/liabru/matter-js", "install_group": "web-science", "status": "demo_proven", "batch": 1, "rank": 10,
-   "proof": {"demos": ["physics-matter"]},
-   "notes": "2D rigid bodies; stepped with a fixed time step from frame 0, so every frame is the same on every render."},
-  {"id": "cannon-es", "name": "cannon-es", "kind": "js_lib", "subjects": ["physics", "mechanical_civil"], "content_types": ["process", "cause_effect"],
-   "capabilities": ["physics_sim_3d"], "role": "compute", "path": "web", "version": "0.20.0", "licence": "MIT", "licence_flags": [],
-   "source": "https://github.com/pmndrs/cannon-es", "install_group": "web-science", "status": "demo_proven", "batch": 1,
-   "proof": {"demos": ["physics-collision-3d"]},
-   "notes": "3D rigid-body physics computed in the page with a fixed time step; three.js draws it."},
-  {"id": "blender", "name": "Blender (bpy, headless)", "kind": "app", "subjects": ["all_subjects", "biology_medical", "mechanical_civil"], "content_types": ["structure", "figure"],
-   "capabilities": ["cell_sheet_3d", "anatomy_3d", "machine_part_3d"], "role": "offline_render", "path": "offline", "version": "5.2.2",
-   "licence": "GPL-3.0-or-later (the program); models BIE makes with it are BIE's own", "licence_flags": ["gpl"],
-   "source": "https://pypi.org/project/bpy/", "install_group": "toolbox-blender", "status": "demo_proven", "batch": 1,
-   "adapter": "bie.toolbox.adapters.blender", "proof": {"demos": ["bio-cell-sheet-flow", "bio-heart-zanatomy"], "tests": ["tests/toolbox/test_wrappers.py::OfflineRenderers"]},
-   "notes": "Route C: Python scripts build 3D models once and export glTF for three.js; Blender also imports FBX/OBJ anatomy models and exports parts as glTF."},
-  {"id": "numpy", "name": "NumPy", "kind": "python_lib", "subjects": ["all_subjects", "physics", "maths_statistics"], "content_types": ["facts_numbers", "process"],
-   "capabilities": ["wave_motion", "vector_field", "signal_plot"], "role": "compute", "path": "python", "version": "2.5.4",
-   "licence": "BSD-3-Clause AND 0BSD AND MIT AND Zlib AND CC0-1.0", "licence_flags": [], "source": "https://numpy.org", "install_group": "toolbox-core",
-   "status": "demo_proven", "batch": 1, "adapter": "bie.toolbox.adapters.physics", "proof": {"demos": ["maths-function-graph", "physics-falling", "physics-wave"], "tests": ["tests/toolbox/test_wrappers.py::Physics"]},
-   "notes": "Arrays for every computed scene."},
-  {"id": "scipy", "name": "SciPy", "kind": "python_lib", "subjects": ["physics", "maths_statistics", "electrical_electronics"], "content_types": ["process", "facts_numbers"],
-   "capabilities": ["physics_sim_2d", "signal_plot", "function_graph"], "role": "compute", "path": "python", "version": "1.18.1", "licence": "BSD-3-Clause",
-   "licence_flags": [], "source": "https://scipy.org", "install_group": "toolbox-core", "status": "demo_proven", "batch": 1,
-   "adapter": "bie.toolbox.adapters.physics", "proof": {"demos": ["physics-falling"], "tests": ["tests/toolbox/test_wrappers.py::Physics"]},
-   "notes": "ODE solving (a falling body with air drag), signals."},
-  {"id": "sympy", "name": "SymPy", "kind": "python_lib", "subjects": ["maths_statistics", "physics", "chemistry"], "content_types": ["process", "definition", "facts_numbers"],
-   "capabilities": ["equation_transform", "function_graph"], "role": "compute", "path": "python", "version": "1.14.0", "licence": "BSD-3-Clause",
-   "licence_flags": [], "source": "https://www.sympy.org", "install_group": "toolbox-core", "status": "demo_proven", "batch": 1,
-   "adapter": "bie.toolbox.adapters.maths", "proof": {"demos": ["maths-equation", "maths-function-graph", "maths-manim"], "tests": ["tests/toolbox/test_wrappers.py::Maths"]},
-   "notes": "The checker: every step of an equation on screen is proved equal to the one before, and LaTeX comes from SymPy."},
-  {"id": "manim", "name": "Manim (Community Edition)", "kind": "python_lib", "subjects": ["maths_statistics", "physics"], "content_types": ["process", "facts_numbers"],
-   "capabilities": ["function_graph", "equation_transform", "wave_motion", "vector_field"], "role": "offline_render", "path": "offline", "version": "0.22.0",
-   "licence": "MIT", "licence_flags": [], "source": "https://www.manim.community", "install_group": "toolbox-manim", "status": "demo_proven", "batch": 1,
-   "adapter": "bie.toolbox.adapters.manim_clips", "proof": {"demos": ["maths-manim"], "tests": ["tests/toolbox/test_wrappers.py::OfflineRenderers"]},
-   "notes": "Renders maths and physics clips where its animation grammar beats the web path; needs Cairo and Pango on the machine. Text-only scenes need no LaTeX."},
-  {"id": "statsmodels", "name": "statsmodels", "kind": "python_lib", "subjects": ["maths_statistics", "economics_commerce_management", "psychology_education_sociology"],
-   "content_types": ["facts_numbers", "cause_effect"], "capabilities": ["function_graph", "chart_bar_line_pie"], "role": "compute", "path": "python", "version": "0.15.0",
-   "licence": "BSD-3-Clause", "licence_flags": [], "source": "https://www.statsmodels.org", "install_group": "toolbox-stats", "status": "demo_proven", "batch": 1,
-   "adapter": "bie.toolbox.adapters.maths", "proof": {"demos": ["maths-regression"], "tests": ["tests/toolbox/test_wrappers.py::Maths"]},
-   "notes": "Regression and statistics computed for the scene (the fitted line and R squared shown are statsmodels' own)."},
-  {"id": "networkx", "name": "NetworkX", "kind": "python_lib", "subjects": ["computer_science", "maths_statistics", "all_subjects"], "content_types": ["structure", "process"],
-   "capabilities": ["network_graph", "tree_hierarchy", "flowchart"], "role": "compute", "path": "python", "version": "3.7", "licence": "BSD-3-Clause",
-   "licence_flags": [], "source": "https://networkx.org", "install_group": "toolbox-core", "status": "demo_proven", "batch": 1,
-   "adapter": "bie.toolbox.adapters.graphs", "proof": {"demos": ["cs-graph-bfs"], "tests": ["tests/toolbox/test_wrappers.py::Graphs"]},
-   "notes": "Graph layouts and traversals (BFS order) for D3 to draw."},
-  {"id": "biopython", "name": "Biopython", "kind": "python_lib", "subjects": ["biology_medical"], "content_types": ["structure"],
-   "capabilities": ["protein_3d"], "role": "compute", "path": "python", "version": "1.88", "licence": "Biopython License Agreement (BSD-style)", "licence_flags": [],
-   "source": "https://biopython.org", "install_group": "toolbox-bio", "status": "demo_proven", "batch": 1, "adapter": "bie.toolbox.adapters.biology",
-   "proof": {"demos": ["bio-protein-3dmol"], "tests": ["tests/toolbox/test_wrappers.py::Biology"]},
-   "notes": "Reads PDB files: chains, residues, the alpha-carbon trace and secondary structure for labels."},
-  {"id": "neurokit2", "name": "NeuroKit2", "kind": "python_lib", "subjects": ["biology_medical", "psychology_education_sociology"], "content_types": ["process", "facts_numbers"],
-   "capabilities": ["ecg_trace", "signal_plot"], "role": "compute", "path": "python", "version": "0.2.13", "licence": "MIT", "licence_flags": [],
-   "source": "https://github.com/neuropsychology/NeuroKit", "install_group": "toolbox-bio", "status": "demo_proven", "batch": 1, "adapter": "bie.toolbox.adapters.biology",
-   "proof": {"demos": ["bio-ecg"], "tests": ["tests/toolbox/test_wrappers.py::Biology"]},
-   "notes": "Simulates a realistic ECG and finds its P, QRS and T points."},
-  {"id": "rdkit", "name": "RDKit", "kind": "python_lib", "subjects": ["chemistry", "biology_medical"], "content_types": ["structure", "process"],
-   "capabilities": ["molecule_3d", "reaction_steps"], "role": "compute", "path": "python", "version": "2026.9.1", "licence": "BSD-3-Clause", "licence_flags": [],
-   "source": "https://www.rdkit.org", "install_group": "toolbox-chem", "status": "demo_proven", "batch": 1, "adapter": "bie.toolbox.adapters.chemistry",
-   "proof": {"demos": ["chem-molecule-rdkit", "chem-reaction"], "tests": ["tests/toolbox/test_wrappers.py::Chemistry"]},
-   "notes": "Molecules from SMILES with 3D coordinates; reactions from reaction SMARTS; 2D drawings as SVG."},
-  {"id": "cantera", "name": "Cantera", "kind": "python_lib", "subjects": ["chemistry", "mechanical_civil"], "content_types": ["process", "facts_numbers"],
-   "capabilities": ["reaction_steps"], "role": "compute", "path": "python", "version": "3.2.0", "licence": "BSD-3-Clause", "licence_flags": [],
-   "source": "https://cantera.org", "install_group": "toolbox-chem", "status": "demo_proven", "batch": 1, "adapter": "bie.toolbox.adapters.chemistry",
-   "proof": {"demos": ["chem-reaction"], "tests": ["tests/toolbox/test_wrappers.py::Chemistry"]},
-   "notes": "Reaction kinetics and equilibrium: how the amounts of reactants and products change over time."},
-  {"id": "trimesh", "name": "trimesh", "kind": "python_lib", "subjects": ["biology_medical", "mechanical_civil"], "content_types": ["structure"],
-   "capabilities": ["anatomy_3d", "machine_part_3d"], "role": "compute", "path": "python", "version": "5.1.1", "licence": "MIT", "licence_flags": [],
-   "source": "https://github.com/mikedh/trimesh", "install_group": "toolbox-mesh", "status": "demo_proven", "batch": 1, "adapter": "bie.toolbox.adapters.meshes",
-   "proof": {"demos": ["bio-heart-bodyparts3d"], "tests": ["tests/toolbox/test_wrappers.py::Meshes"]},
-   "notes": "Added by Claude (not in Navin's list): converts OBJ and STL meshes (BodyParts3D, NIH 3D) to glTF without starting Blender, and measures them."},
-  {"id": "servier-medical-art", "name": "Servier Medical Art", "kind": "asset_source", "subjects": ["biology_medical"], "content_types": ["structure", "figure"],
-   "capabilities": ["organ_zoom", "anatomy_3d"], "role": "asset", "path": "web", "version": "SMART 2026-10 (site)", "licence": "CC BY 4.0", "licence_flags": [],
-   "source": "https://smart.servier.com", "install_group": "assets-on-demand", "status": "demo_proven", "batch": 1, "adapter": "bie.toolbox.sources",
-   "proof": {"demos": ["bio-organ-zoom"], "tests": ["tests/test_task046a_toolbox.py::Sources"]},
-   "notes": "Medical illustrations; checked 25 October 2026: single images download as PNG (transparent, about 600 px), vector shapes only inside PowerPoint sets, no SVG files. Credit: 'Servier Medical Art (smart.servier.com), CC BY 4.0'."},
-  {"id": "z-anatomy", "name": "Z-Anatomy", "kind": "asset_source", "subjects": ["biology_medical", "psychology_education_sociology"], "content_types": ["structure", "figure"],
-   "capabilities": ["anatomy_3d", "organ_zoom"], "role": "asset", "path": "offline", "version": "PC-Version branch (FBX systems)", "licence": "CC BY-SA 4.0", "licence_flags": ["share_alike"],
-   "source": "https://github.com/LluisV/Z-Anatomy", "install_group": "assets-on-demand", "status": "demo_proven", "batch": 1, "adapter": "bie.toolbox.sources",
-   "proof": {"demos": ["bio-heart-zanatomy"], "tests": ["tests/test_task046a_toolbox.py::Sources"]},
-   "notes": "A whole-body anatomy atlas; the FBX files per body system (for example CardioVascular41.fbx, 65 MB) are fetched on demand and Blender exports the needed part as glTF. Share-alike: a video that adapts it may have to carry the same licence (Navin's decision)."},
-  {"id": "bodyparts3d", "name": "BodyParts3D", "kind": "asset_source", "subjects": ["biology_medical"], "content_types": ["structure", "figure"],
-   "capabilities": ["anatomy_3d"], "role": "asset", "path": "offline", "version": "4.0 (PART-OF tree, 99% reduced OBJ)",
-   "licence": "CC BY 4.0 (licence page read 25 October 2026; releases up to 3.0 were CC BY-SA 2.1 Japan; the page also asks users to contact DBCLS)", "licence_flags": ["custom"],
-   "source": "https://dbarchive.biosciencedbc.jp/en/bodyparts3d/download.html", "install_group": "assets-on-demand", "status": "demo_proven", "batch": 1, "adapter": "bie.toolbox.sources",
-   "proof": {"demos": ["bio-heart-bodyparts3d"], "tests": ["tests/toolbox/test_wrappers.py::BodyParts3D"]},
-   "notes": "Organ meshes named by FMA id inside a 62 MB zip; one part is extracted and converted to glTF with trimesh. Credit: 'BodyParts3D, © The Database Center for Life Science licensed under CC Attribution 4.0 International'."},
-  {"id": "nih-3d", "name": "NIH 3D", "kind": "asset_source", "subjects": ["biology_medical", "chemistry"], "content_types": ["structure", "figure"],
-   "capabilities": ["anatomy_3d", "protein_3d"], "role": "asset", "path": "web", "version": "3d.nih.gov API (entries, download)", "licence": "per model (Public Domain / CC0, CC BY and others)",
-   "licence_flags": ["per_item"], "source": "https://3d.nih.gov", "install_group": "assets-on-demand", "status": "demo_proven", "batch": 1, "adapter": "bie.toolbox.sources",
-   "proof": {"demos": ["bio-heart-nih3d"], "tests": ["tests/test_task046a_toolbox.py::Sources"]},
-   "notes": "Entry metadata from /api/entries/<id>, the file from /api/download?submissionId=..&fileIds=..; each model's own licence is read from its metadata and kept with the file (example: 3DPX-022787 human heart, Public Domain, GLB)."},
-  {"id": "rcsb-pdb", "name": "RCSB Protein Data Bank", "kind": "dataset", "subjects": ["biology_medical", "chemistry"], "content_types": ["structure"],
-   "capabilities": ["protein_3d"], "role": "asset", "path": "web", "version": "files.rcsb.org (live archive)", "licence": "CC0 1.0 (PDB data)", "licence_flags": [],
-   "source": "https://www.rcsb.org", "install_group": "assets-on-demand", "status": "demo_proven", "batch": 1, "adapter": "bie.toolbox.sources",
-   "proof": {"demos": ["bio-protein-3dmol", "bio-protein-molstar"], "tests": ["tests/test_task046a_toolbox.py::Sources"]},
-   "notes": "Protein structures by PDB id (https://files.rcsb.org/download/<ID>.pdb)."},
-  {"id": "pubchem", "name": "PubChem", "kind": "dataset", "subjects": ["chemistry", "biology_medical"], "content_types": ["structure", "facts_numbers"],
-   "capabilities": ["molecule_3d"], "role": "asset", "path": "web", "version": "PUG REST (live)", "licence": "Public domain (NCBI); a few depositor records carry their own terms",
-   "licence_flags": ["per_item"], "source": "https://pubchem.ncbi.nlm.nih.gov", "install_group": "assets-on-demand", "status": "demo_proven", "batch": 1, "adapter": "bie.toolbox.sources",
-   "proof": {"demos": ["chem-molecule-pubchem"], "tests": ["tests/test_task046a_toolbox.py::Sources"]},
-   "notes": "3D structures (SDF) and properties by compound name or CID; RDKit makes one when PubChem has no 3D record."},
-  {"id": "schemdraw", "name": "Schemdraw", "kind": "python_lib", "subjects": ["electrical_electronics", "physics"], "content_types": ["structure", "process"],
-   "capabilities": ["circuit_diagram"], "role": "draw", "path": "python", "version": "0.23", "licence": "MIT", "licence_flags": [],
-   "source": "https://schemdraw.readthedocs.io", "install_group": "toolbox-electrical", "status": "demo_proven", "batch": 2, "adapter": "bie.toolbox.adapters.electrical", "block": "circuit_build",
-   "proof": {"demos": ["elec-rc-circuit"], "tests": ["tests/toolbox/test_wrappers.py::Electrical"]},
-   "notes": "Draws circuit schematics as SVG; BIE splits the drawing into one piece per element so the block builds the circuit part by part."},
-  {"id": "lcapy", "name": "Lcapy", "kind": "python_lib", "subjects": ["electrical_electronics", "physics"], "content_types": ["process", "facts_numbers"],
-   "capabilities": ["circuit_diagram", "signal_plot"], "role": "compute", "path": "python", "version": "1.26", "licence": "LGPL-2.1-or-later", "licence_flags": [],
-   "source": "https://github.com/mph-/lcapy", "install_group": "toolbox-electrical", "status": "demo_proven", "batch": 2, "adapter": "bie.toolbox.adapters.electrical",
-   "proof": {"demos": ["elec-rc-circuit"], "tests": ["tests/toolbox/test_wrappers.py::Electrical"]},
-   "notes": "Symbolic circuit analysis (SymPy): the exact formula of a circuit's response, used to check ngspice. LGPL: a library BIE calls, not changed."},
-  {"id": "ngspice", "name": "ngspice", "kind": "app", "subjects": ["electrical_electronics", "physics"], "content_types": ["process", "facts_numbers"],
-   "capabilities": ["circuit_diagram", "signal_plot"], "role": "compute", "path": "offline", "version": "42", "licence": "BSD-3-Clause (modified BSD; some parts under other free licences)", "licence_flags": [],
-   "source": "https://ngspice.sourceforge.io", "install_group": "apt:ngspice", "status": "demo_proven", "batch": 2, "adapter": "bie.toolbox.adapters.electrical",
-   "proof": {"demos": ["elec-rc-circuit"], "tests": ["tests/toolbox/test_wrappers.py::Electrical"]},
-   "notes": "The SPICE circuit simulator, run in batch mode (transient analysis); from Ubuntu's apt (ngspice 42+ds-3build1 on 24.04). PySpice (GPL, last release 2021) is not used: BIE writes the netlist itself."},
-  {"id": "python-control", "name": "Python Control Systems Library", "kind": "python_lib", "subjects": ["electrical_electronics", "mechanical_civil", "aerospace"], "content_types": ["process", "facts_numbers"],
-   "capabilities": ["signal_plot"], "role": "compute", "path": "python", "version": "0.10.2", "licence": "BSD-3-Clause", "licence_flags": [],
-   "source": "https://python-control.org", "install_group": "toolbox-electrical", "status": "demo_proven", "batch": 2, "adapter": "bie.toolbox.adapters.electrical",
-   "proof": {"demos": ["elec-step-response"], "tests": ["tests/toolbox/test_wrappers.py::Electrical"]},
-   "notes": "Transfer functions, step and frequency responses, step_info (overshoot, settling time)."},
-  {"id": "scipy-signal", "name": "SciPy signal (scipy.signal)", "kind": "python_lib", "subjects": ["electrical_electronics", "physics", "biology_medical"], "content_types": ["process", "facts_numbers"],
-   "capabilities": ["signal_plot"], "role": "compute", "path": "python", "version": "1.18.1", "licence": "BSD-3-Clause", "licence_flags": [],
-   "source": "https://docs.scipy.org/doc/scipy/reference/signal.html", "install_group": "toolbox-core", "status": "demo_proven", "batch": 2, "adapter": "bie.toolbox.adapters.electrical",
-   "proof": {"demos": ["elec-step-response"], "tests": ["tests/toolbox/test_wrappers.py::Electrical"]},
-   "notes": "Part of SciPy (same pin): filters, LTI systems; here it checks python-control's step responses."},
-  {"id": "pynite", "name": "PyNite (PyNiteFEA)", "kind": "python_lib", "subjects": ["mechanical_civil"], "content_types": ["cause_effect", "facts_numbers"],
-   "capabilities": ["structure_load"], "role": "compute", "path": "python", "version": "3.2.0", "licence": "MIT", "licence_flags": [],
-   "source": "https://github.com/JWock82/Pynite", "install_group": "toolbox-mech", "status": "demo_proven", "batch": 2, "adapter": "bie.toolbox.adapters.mechanics", "block": "beam_load",
-   "proof": {"demos": ["mech-beam"], "tests": ["tests/toolbox/test_wrappers.py::Mechanics"]},
-   "notes": "3D finite-element analysis of frames, beams and plates: deflection, moments, reactions."},
-  {"id": "sympy-physics", "name": "SymPy physics (sympy.physics)", "kind": "python_lib", "subjects": ["mechanical_civil", "physics"], "content_types": ["cause_effect", "facts_numbers"],
-   "capabilities": ["structure_load"], "role": "compute", "path": "python", "version": "1.14.0", "licence": "BSD-3-Clause", "licence_flags": [],
-   "source": "https://docs.sympy.org/latest/modules/physics/", "install_group": "toolbox-core", "status": "demo_proven", "batch": 2, "adapter": "bie.toolbox.adapters.mechanics",
-   "proof": {"demos": ["mech-beam"], "tests": ["tests/toolbox/test_wrappers.py::Mechanics"]},
-   "notes": "Part of SymPy (same pin): continuum mechanics (beams), mechanics, units; here its Beam solves the closed form that checks PyNite."},
-  {"id": "coolprop", "name": "CoolProp", "kind": "python_lib", "subjects": ["mechanical_civil", "physics", "chemistry"], "content_types": ["facts_numbers", "process"],
-   "capabilities": ["function_graph"], "role": "compute", "path": "python", "version": "8.0.0", "licence": "MIT", "licence_flags": [],
-   "source": "https://github.com/CoolProp/CoolProp", "install_group": "toolbox-mech", "status": "demo_proven", "batch": 2, "adapter": "bie.toolbox.adapters.mechanics",
-   "proof": {"demos": ["mech-rankine"], "tests": ["tests/toolbox/test_wrappers.py::Mechanics"]},
-   "notes": "Thermophysical properties of water, refrigerants and air: steam tables, cycles, T–s and p–h charts."},
-  {"id": "cadquery", "name": "CadQuery (with OCP, OpenCascade)", "kind": "python_lib", "subjects": ["mechanical_civil"], "content_types": ["structure", "figure"],
-   "capabilities": ["machine_part_3d"], "role": "offline_render", "path": "offline", "version": "2.8.0", "licence": "Apache-2.0 (CadQuery and the OCP bindings; OpenCascade itself LGPL-2.1 with an exception)", "licence_flags": [],
-   "source": "https://github.com/CadQuery/cadquery", "install_group": "toolbox-mech", "status": "demo_proven", "batch": 2, "adapter": "bie.toolbox.adapters.mechanics",
-   "proof": {"demos": ["mech-flange"], "tests": ["tests/toolbox/test_wrappers.py::Mechanics"]},
-   "notes": "Parametric CAD in Python on the OpenCascade kernel; parts are exported as STL and turned into .glb with trimesh for the 3D blocks. Pins cadquery-ocp 7.9.3.1.1."},
-  {"id": "scikit-fem", "name": "scikit-fem", "kind": "python_lib", "subjects": ["mechanical_civil", "physics", "electrical_electronics"], "content_types": ["cause_effect", "structure"],
-   "capabilities": ["vector_field"], "role": "compute", "path": "python", "version": "12.0.2", "licence": "BSD-3-Clause", "licence_flags": [],
-   "source": "https://github.com/kinnala/scikit-fem", "install_group": "toolbox-mech", "status": "demo_proven", "batch": 2, "adapter": "bie.toolbox.adapters.mechanics", "block": "heat_plate",
-   "proof": {"demos": ["mech-heat-plate"], "tests": ["tests/toolbox/test_wrappers.py::Mechanics"]},
-   "notes": "Added by Claude in place of FEniCS for the toolbox: pure-Python finite elements (heat, elasticity, potential fields) with a PyPI wheel."},
-  {"id": "fenics", "name": "FEniCSx (DOLFINx)", "kind": "python_lib", "subjects": ["mechanical_civil", "physics"], "content_types": ["cause_effect"],
-   "capabilities": ["vector_field"], "role": "compute", "path": "python", "version": "0.10 (not installed)", "licence": "LGPL-3.0-or-later", "licence_flags": [],
-   "source": "https://fenicsproject.org", "install_group": "not-installable-here", "status": "blocked_with_reason", "batch": 2, "blocked_reason": "DOLFINx has no PyPI wheel: it installs from conda-forge, Docker or Ubuntu's apt (python3-dolfinx, built for the system Python 3.12), while BIE's toolbox runs on Python 3.13 with pip. Needs a separate conda or Docker lane; scikit-fem covers the textbook finite-element cases meanwhile.",
-   "notes": "Kept in the registry so the gap is visible; the resolver picks scikit-fem for vector_field."},
-  {"id": "gmt", "name": "GMT (Generic Mapping Tools)", "kind": "app", "subjects": ["earth_science", "geography_history_polity"], "content_types": ["figure", "structure"],
-   "capabilities": ["terrain_or_layers", "map_region"], "role": "offline_render", "path": "offline", "version": "6.5.0", "licence": "LGPL-3.0-or-later", "licence_flags": [],
-   "source": "https://www.generic-mapping-tools.org", "install_group": "apt:gmt", "status": "demo_proven", "batch": 2, "adapter": "bie.toolbox.adapters.earth",
-   "proof": {"demos": ["geo-relief"], "tests": ["tests/toolbox/test_wrappers.py::Earth"]},
-   "notes": "The map-making engine PyGMT drives; from Ubuntu's apt (gmt, libgmt-dev, gmt-dcw, gmt-gshhg-low, with ghostscript for PNG output)."},
-  {"id": "pygmt", "name": "PyGMT", "kind": "python_lib", "subjects": ["earth_science", "geography_history_polity"], "content_types": ["figure", "structure"],
-   "capabilities": ["terrain_or_layers", "map_region"], "role": "offline_render", "path": "offline", "version": "0.19.0", "licence": "BSD-3-Clause", "licence_flags": [],
-   "source": "https://www.pygmt.org", "install_group": "toolbox-earth", "status": "demo_proven", "batch": 2, "adapter": "bie.toolbox.adapters.earth",
-   "proof": {"demos": ["geo-relief"], "tests": ["tests/toolbox/test_wrappers.py::Earth"]},
-   "notes": "Shaded relief maps and profiles (grdimage, project, grdtrack) rendered to PNG, then animated by BIE's image and camera layers."},
-  {"id": "gmt-earth-relief", "name": "GMT Earth relief (SRTM15+ V2.7)", "kind": "dataset", "subjects": ["earth_science", "geography_history_polity"], "content_types": ["figure", "facts_numbers"],
-   "capabilities": ["terrain_or_layers"], "role": "asset", "path": "offline", "version": "SRTM15+ V2.7 (GMT remote data, 2 arc-min tiles)", "licence": "Free to use with citation (Tozer et al., 2019, Scripps); GMT remote data", "licence_flags": ["custom"],
-   "source": "https://www.generic-mapping-tools.org/remote-datasets/earth-relief.html", "install_group": "assets-on-demand", "status": "demo_proven", "batch": 2, "adapter": "bie.toolbox.adapters.earth",
-   "proof": {"demos": ["geo-relief"]},
-   "notes": "Downloaded by GMT on first use into GMT_USERDIR inside the asset cache (outside git). No formal licence text; recorded for Navin's licence decision."},
-  {"id": "obspy", "name": "ObsPy", "kind": "python_lib", "subjects": ["earth_science", "physics"], "content_types": ["process", "cause_effect"],
-   "capabilities": ["earthquake_waves", "terrain_or_layers"], "role": "compute", "path": "python", "version": "1.5.1", "licence": "LGPL-3.0", "licence_flags": [],
-   "source": "https://www.obspy.org", "install_group": "toolbox-earth", "status": "demo_proven", "batch": 2, "adapter": "bie.toolbox.adapters.earth", "block": "earth_section",
-   "proof": {"demos": ["geo-seismic-rays"], "tests": ["tests/toolbox/test_wrappers.py::Earth"]},
-   "notes": "Seismology: TauP ray paths and travel times through the IASP91 Earth model; reading and filtering seismograms. LGPL: used as a library, not changed."},
-  {"id": "pygplates", "name": "pyGPlates", "kind": "python_lib", "subjects": ["earth_science", "geography_history_polity"], "content_types": ["process", "timeline"],
-   "capabilities": ["plate_motion"], "role": "compute", "path": "python", "version": "1.0.0", "licence": "GPL-2.0 (pyGPlates; GPlates is GPL-2.0-or-later)", "licence_flags": ["gpl"],
-   "source": "https://www.gplates.org", "install_group": "toolbox-earth", "status": "demo_proven", "batch": 2, "adapter": "bie.toolbox.adapters.earth", "block": "plate_frames",
-   "proof": {"demos": ["geo-plates"], "tests": ["tests/toolbox/test_wrappers.py::Earth"]},
-   "notes": "Plate reconstructions: coastlines rotated back in time with a published plate model."},
-  {"id": "gplates-muller2019", "name": "Müller et al. (2019) plate model", "kind": "dataset", "subjects": ["earth_science", "geography_history_polity"], "content_types": ["timeline", "process"],
-   "capabilities": ["plate_motion"], "role": "asset", "path": "offline", "version": "v2.0 (doi:10.5281/zenodo.11601026)", "licence": "CC BY 4.0", "licence_flags": [],
-   "source": "https://doi.org/10.5281/zenodo.11601026", "install_group": "assets-on-demand", "status": "demo_proven", "batch": 2, "adapter": "bie.toolbox.sources",
-   "proof": {"demos": ["geo-plates"], "tests": ["tests/test_task046a_toolbox.py::Sources"]},
-   "notes": "Rotation file and coastlines from the GPlates model repository (repo.gplates.org), unpacked once into the asset cache; 250 million years."},
-  {"id": "usgs-earthquakes", "name": "USGS earthquake catalogue", "kind": "dataset", "subjects": ["earth_science", "geography_history_polity"], "content_types": ["facts_numbers", "timeline"],
-   "capabilities": ["map_region", "earthquake_waves"], "role": "asset", "path": "web", "version": "FDSN event API (live)", "licence": "Public domain (USGS)", "licence_flags": [],
-   "source": "https://earthquake.usgs.gov/fdsnws/event/1/", "install_group": "assets-on-demand", "status": "demo_proven", "batch": 2, "adapter": "bie.toolbox.sources",
-   "proof": {"demos": ["geo-quake-map"], "tests": ["tests/test_task046a_toolbox.py::Sources"]},
-   "notes": "Earthquakes by date range and magnitude as GeoJSON, kept in the asset library with credit."},
-  {"id": "natural-earth", "name": "Natural Earth (world-atlas TopoJSON)", "kind": "dataset", "subjects": ["geography_history_polity", "earth_science", "economics_commerce_management"], "content_types": ["figure", "structure"],
-   "capabilities": ["map_region", "map_route"], "role": "asset", "path": "web", "version": "2.0.2", "licence": "Public domain (Natural Earth data); ISC (the world-atlas package)", "licence_flags": [],
-   "source": "https://github.com/topojson/world-atlas", "install_group": "web-maps", "status": "demo_proven", "batch": 2,
-   "proof": {"demos": ["geo-quake-map"]},
-   "notes": "Natural Earth 1:110m land and countries, bundled in the toolbox web bundle; drawn with d3-geo (part of D3)."},
-  {"id": "topojson-client", "name": "topojson-client", "kind": "js_lib", "subjects": ["geography_history_polity", "earth_science"], "content_types": ["figure"],
-   "capabilities": ["map_region", "map_route"], "role": "draw", "path": "web", "version": "3.1.0", "licence": "ISC", "licence_flags": [],
-   "source": "https://github.com/topojson/topojson-client", "install_group": "web-maps", "status": "demo_proven", "batch": 2,
-   "proof": {"demos": ["geo-quake-map"]},
-   "notes": "Turns world-atlas TopoJSON into GeoJSON features for d3-geo."},
-  {"id": "astropy", "name": "Astropy", "kind": "python_lib", "subjects": ["astronomy_space", "physics"], "content_types": ["facts_numbers"],
-   "capabilities": ["orbit_motion", "sky_map"], "role": "compute", "path": "python", "version": "8.0.2", "licence": "BSD-3-Clause", "licence_flags": [],
-   "source": "https://www.astropy.org", "install_group": "toolbox-astro", "status": "demo_proven", "batch": 2, "adapter": "bie.toolbox.adapters.astro",
-   "proof": {"demos": ["astro-orbits", "astro-sky"], "tests": ["tests/toolbox/test_wrappers.py::Astro"]},
-   "notes": "Units, constants, time scales and coordinates; here it checks orbital periods by Kepler's third law and converts local time."},
-  {"id": "skyfield", "name": "Skyfield", "kind": "python_lib", "subjects": ["astronomy_space", "geography_history_polity"], "content_types": ["process", "figure"],
-   "capabilities": ["orbit_motion", "sky_map"], "role": "compute", "path": "python", "version": "1.55", "licence": "MIT", "licence_flags": [],
-   "source": "https://rhodesmill.org/skyfield/", "install_group": "toolbox-astro", "status": "demo_proven", "batch": 2, "adapter": "bie.toolbox.adapters.astro", "block": "orbits",
-   "proof": {"demos": ["astro-orbits", "astro-sky"], "tests": ["tests/toolbox/test_wrappers.py::Astro"]},
-   "notes": "Positions of planets, the Moon and stars from JPL ephemerides; altitude and azimuth from any place."},
-  {"id": "jpl-de421", "name": "JPL ephemeris DE421", "kind": "dataset", "subjects": ["astronomy_space"], "content_types": ["facts_numbers"],
-   "capabilities": ["orbit_motion", "sky_map"], "role": "asset", "path": "offline", "version": "DE421 (1900–2050)", "licence": "Public domain (NASA JPL)", "licence_flags": [],
-   "source": "https://naif.jpl.nasa.gov/pub/naif/generic_kernels/spk/planets/a_old_versions/de421.bsp", "install_group": "assets-on-demand", "status": "demo_proven", "batch": 2, "adapter": "bie.toolbox.adapters.astro",
-   "proof": {"demos": ["astro-orbits", "astro-sky"], "tests": ["tests/toolbox/test_wrappers.py::Astro"]},
-   "notes": "17 MB, fetched once into BIE_ASSET_CACHE/skyfield."},
-  {"id": "hipparcos", "name": "Hipparcos star catalogue", "kind": "dataset", "subjects": ["astronomy_space"], "content_types": ["figure", "facts_numbers"],
-   "capabilities": ["sky_map"], "role": "asset", "path": "offline", "version": "ESA 1997 (CDS I/239)", "licence": "Free for scientific use with citation (CDS); commercial use under ESA's rules for the Hipparcos data", "licence_flags": ["custom"],
-   "source": "https://cdsarc.cds.unistra.fr/viz-bin/cat/I/239", "install_group": "assets-on-demand", "status": "demo_proven", "batch": 2, "adapter": "bie.toolbox.adapters.astro",
-   "proof": {"demos": ["astro-sky"], "tests": ["tests/toolbox/test_wrappers.py::Astro"]},
-   "notes": "118,218 stars (53 MB), fetched once into BIE_ASSET_CACHE/skyfield; recorded for Navin's licence decision."},
-  {"id": "nasa-images", "name": "NASA Image and Video Library", "kind": "asset_source", "subjects": ["astronomy_space", "aerospace", "earth_science"], "content_types": ["figure"],
-   "capabilities": ["focus_glow"], "role": "asset", "path": "web", "version": "images-api.nasa.gov (live)", "licence": "per item (NASA media are generally not copyrighted; some carry third-party rights)", "licence_flags": ["per_item"],
-   "source": "https://images.nasa.gov", "install_group": "assets-on-demand", "status": "demo_proven", "batch": 2, "adapter": "bie.toolbox.sources",
-   "proof": {"demos": ["astro-earthrise"], "tests": ["tests/test_task046a_toolbox.py::Sources"]},
-   "notes": "Pictures by NASA id with title, centre and description; an item that names a third-party copyright holder is marked for checking."},
-  {"id": "aerosandbox", "name": "AeroSandbox", "kind": "python_lib", "subjects": ["aerospace", "physics"], "content_types": ["structure", "facts_numbers"],
-   "capabilities": ["aircraft_shape"], "role": "compute", "path": "python", "version": "4.2.10", "licence": "MIT", "licence_flags": [],
-   "source": "https://github.com/peterdsharpe/AeroSandbox", "install_group": "toolbox-aero", "status": "demo_proven", "batch": 2, "adapter": "bie.toolbox.adapters.aero",
-   "proof": {"demos": ["aero-aircraft"], "tests": ["tests/toolbox/test_wrappers.py::Aero"]},
-   "notes": "Aircraft geometry (wings with real airfoils, fuselages), meshes, and aerodynamics (vortex lattice method, lift curves)."},
-  {"id": "openvsp", "name": "OpenVSP", "kind": "app", "subjects": ["aerospace"], "content_types": ["structure"],
-   "capabilities": ["aircraft_shape"], "role": "offline_render", "path": "offline", "version": "3.x (not installed)", "licence": "NOSA 1.3 (NASA Open Source Agreement)", "licence_flags": ["custom"],
-   "source": "https://openvsp.org", "install_group": "not-installable-here", "status": "blocked_with_reason", "batch": 2, "blocked_reason": "OpenVSP is not on PyPI: its Python API ships only inside OpenVSP's own release builds, compiled for one Python version, and there is no Ubuntu apt package. Needs a pinned OpenVSP build in its own lane; AeroSandbox builds aircraft shapes meanwhile.",
-   "notes": "NASA's parametric aircraft geometry tool; kept in the registry so the gap is visible."},
-  {"id": "jsbsim", "name": "JSBSim", "kind": "python_lib", "subjects": ["aerospace", "physics"], "content_types": ["process"],
-   "capabilities": ["flight_motion"], "role": "compute", "path": "python", "version": "1.3.3", "licence": "LGPL-2.1-or-later", "licence_flags": [],
-   "source": "https://github.com/JSBSim-Team/jsbsim", "install_group": "toolbox-aero", "status": "demo_proven", "batch": 2, "adapter": "bie.toolbox.adapters.aero", "block": "flight_profile",
-   "proof": {"demos": ["aero-climb"], "tests": ["tests/toolbox/test_wrappers.py::Aero"]},
-   "notes": "Flight dynamics with real aircraft models (Cessna 172, 737 ...) and their autopilots; the wheel ships the aircraft data. LGPL: used as a library."},
-  {"id": "bie-science-blocks", "name": "BIE science blocks (bie/brain/video/blocks/toolbox)", "kind": "js_lib", "subjects": ["electrical_electronics", "mechanical_civil", "earth_science", "astronomy_space", "aerospace", "physics", "geography_history_polity"], "content_types": ["process", "structure", "cause_effect", "facts_numbers", "figure", "timeline"],
-   "capabilities": ["circuit_diagram", "structure_load", "vector_field", "earthquake_waves", "terrain_or_layers", "plate_motion", "orbit_motion", "sky_map", "flight_motion", "map_region", "signal_plot", "function_graph"], "role": "draw", "path": "web", "version": "bie-2026-10-25", "licence": "BIE's own code", "licence_flags": [],
-   "source": "https://github.com/SEENAV01/Enterprise-bie", "install_group": "web-core", "status": "demo_proven", "batch": 2, "rank": 10, "block": "xy_lines, circuit_build, beam_load, heat_plate, earth_section, world_points, plate_frames, orbits, sky_dome, flight_profile",
-   "proof": {"demos": ["elec-rc-circuit", "elec-step-response", "mech-beam", "mech-rankine", "mech-heat-plate", "geo-relief", "geo-seismic-rays", "geo-quake-map", "geo-plates", "astro-orbits", "astro-sky", "aero-aircraft", "aero-climb"]},
-   "notes": "The batch 2 blocks: they draw what the Python tools compute (D3 and d3-geo inside); every block refuses numbers its two tools disagree on where a check exists (circuit: ngspice against lcapy)."}
+   "proof": {
+    "demos": [
+     "bio-organ-zoom",
+     "chem-reaction"
+    ]
+   },
+   "notes": "Task 039's 2D blocks with the camera that zooms into any region of a picture; organ_zoom is an image layer plus camera keys."
+  },
+  {
+   "id": "remotion",
+   "name": "Remotion",
+   "kind": "js_lib",
+   "subjects": [
+    "all_subjects"
+   ],
+   "content_types": [],
+   "capabilities": [],
+   "role": "draw",
+   "path": "web",
+   "version": "4.0.536",
+   "licence": "Remotion License: free for individuals and companies of up to 3 people; a paid company licence above that",
+   "licence_flags": [
+    "custom"
+   ],
+   "source": "https://www.remotion.dev/license",
+   "install_group": "web-core",
+   "status": "demo_proven",
+   "batch": 1,
+   "proof": {
+    "tests": [
+     "tools/toolbox_demos.py --bridge bio-cell-sheet-flow"
+    ]
+   },
+   "notes": "The video framework every BIE block is written for (useCurrentFrame, interpolate, spring, Sequence, delayRender). Previews and CI demos run the same blocks through remotion-lite (bie/brain/video/preview/remotion-lite.tsx, same API names) in Chromium + ffmpeg; the real Remotion render of the same blocks is the bridge proof. Navin's licence decision is needed before BIE is run by a company of more than 3 people."
+  },
+  {
+   "id": "remotion-three",
+   "name": "@remotion/three",
+   "kind": "js_lib",
+   "subjects": [
+    "all_subjects"
+   ],
+   "content_types": [
+    "structure",
+    "figure"
+   ],
+   "capabilities": [
+    "cell_sheet_3d",
+    "anatomy_3d",
+    "physics_sim_3d"
+   ],
+   "role": "draw",
+   "path": "web",
+   "version": "4.0.536",
+   "licence": "MIT",
+   "licence_flags": [],
+   "source": "https://www.npmjs.com/package/@remotion/three",
+   "install_group": "web-core",
+   "status": "demo_proven",
+   "batch": 1,
+   "proof": {
+    "demos": [
+     "bio-cell-sheet-flow",
+     "bio-heart-nih3d",
+     "bio-heart-zanatomy",
+     "bio-heart-bodyparts3d",
+     "physics-collision-3d"
+    ]
+   },
+   "notes": "ThreeCanvas: a React Three Fiber canvas driven by Remotion's frame clock; remotion-lite has a shim with the same name (bie/brain/video/preview/three-lite.tsx)."
+  },
+  {
+   "id": "three",
+   "name": "three.js",
+   "kind": "js_lib",
+   "subjects": [
+    "all_subjects"
+   ],
+   "content_types": [
+    "structure",
+    "figure",
+    "process"
+   ],
+   "capabilities": [
+    "cell_sheet_3d",
+    "particle_flow",
+    "anatomy_3d",
+    "physics_sim_3d",
+    "machine_part_3d",
+    "aircraft_shape"
+   ],
+   "role": "draw",
+   "path": "web",
+   "version": "0.186.1",
+   "licence": "MIT",
+   "licence_flags": [],
+   "source": "https://github.com/mrdoob/three.js",
+   "install_group": "web-core",
+   "status": "demo_proven",
+   "batch": 1,
+   "rank": 10,
+   "proof": {
+    "demos": [
+     "bio-cell-sheet-flow",
+     "bio-heart-nih3d",
+     "bio-heart-zanatomy",
+     "bio-heart-bodyparts3d",
+     "physics-collision-3d"
+    ]
+   },
+   "notes": "WebGL scenes; in headless Chromium it runs on SwiftShader (software WebGL)."
+  },
+  {
+   "id": "react-three-fiber",
+   "name": "React Three Fiber",
+   "kind": "js_lib",
+   "subjects": [
+    "all_subjects"
+   ],
+   "content_types": [
+    "structure",
+    "figure"
+   ],
+   "capabilities": [
+    "cell_sheet_3d",
+    "anatomy_3d",
+    "physics_sim_3d"
+   ],
+   "role": "draw",
+   "path": "web",
+   "version": "9.8.2",
+   "licence": "MIT",
+   "licence_flags": [],
+   "source": "https://github.com/pmndrs/react-three-fiber",
+   "install_group": "web-core",
+   "status": "demo_proven",
+   "batch": 1,
+   "proof": {
+    "demos": [
+     "bio-cell-sheet-flow",
+     "bio-heart-nih3d",
+     "bio-heart-zanatomy",
+     "bio-heart-bodyparts3d",
+     "physics-collision-3d"
+    ]
+   },
+   "notes": "three.js as React components."
+  },
+  {
+   "id": "drei",
+   "name": "@react-three/drei",
+   "kind": "js_lib",
+   "subjects": [
+    "all_subjects"
+   ],
+   "content_types": [
+    "structure",
+    "figure"
+   ],
+   "capabilities": [
+    "cell_sheet_3d",
+    "anatomy_3d",
+    "physics_sim_3d"
+   ],
+   "role": "draw",
+   "path": "web",
+   "version": "10.7.9",
+   "licence": "MIT",
+   "licence_flags": [],
+   "source": "https://github.com/pmndrs/drei",
+   "install_group": "web-core",
+   "status": "demo_proven",
+   "batch": 1,
+   "proof": {
+    "demos": [
+     "bio-cell-sheet-flow",
+     "bio-heart-nih3d",
+     "bio-heart-zanatomy",
+     "bio-heart-bodyparts3d",
+     "physics-collision-3d"
+    ]
+   },
+   "notes": "Helpers: glTF loading (useGLTF), environment light, bounds."
+  },
+  {
+   "id": "katex",
+   "name": "KaTeX",
+   "kind": "js_lib",
+   "subjects": [
+    "all_subjects",
+    "maths_statistics",
+    "physics",
+    "chemistry"
+   ],
+   "content_types": [
+    "process",
+    "definition"
+   ],
+   "capabilities": [
+    "equation_transform"
+   ],
+   "role": "draw",
+   "path": "web",
+   "version": "0.19.0",
+   "licence": "MIT",
+   "licence_flags": [],
+   "source": "https://github.com/KaTeX/KaTeX",
+   "install_group": "web-core",
+   "status": "demo_proven",
+   "batch": 1,
+   "rank": 10,
+   "proof": {
+    "demos": [
+     "maths-equation"
+    ]
+   },
+   "notes": "Typeset maths in the video (fonts bundled into the preview)."
+  },
+  {
+   "id": "d3",
+   "name": "D3",
+   "kind": "js_lib",
+   "subjects": [
+    "all_subjects"
+   ],
+   "content_types": [
+    "facts_numbers",
+    "process",
+    "structure"
+   ],
+   "capabilities": [
+    "chart_bar_line_pie",
+    "ecg_trace",
+    "function_graph",
+    "map_region",
+    "map_route",
+    "network_graph",
+    "physics_sim_2d",
+    "signal_plot",
+    "timeline",
+    "tree_hierarchy",
+    "wave_motion"
+   ],
+   "role": "draw",
+   "path": "web",
+   "version": "7.9.0",
+   "licence": "ISC",
+   "licence_flags": [],
+   "source": "https://github.com/d3/d3",
+   "install_group": "web-core",
+   "status": "demo_proven",
+   "batch": 1,
+   "rank": 10,
+   "proof": {
+    "demos": [
+     "bio-ecg",
+     "chem-reaction",
+     "maths-function-graph",
+     "maths-regression",
+     "physics-falling",
+     "physics-wave",
+     "cs-graph-bfs"
+    ]
+   },
+   "notes": "Scales, axes, paths and layouts for every plotted block, d3-geo for maps (batch 2 and 3), the time scale and the tree layout (batch 3)."
+  },
+  {
+   "id": "3dmol",
+   "name": "3Dmol.js",
+   "kind": "js_lib",
+   "subjects": [
+    "chemistry",
+    "biology_medical"
+   ],
+   "content_types": [
+    "structure",
+    "figure"
+   ],
+   "capabilities": [
+    "molecule_3d",
+    "protein_3d"
+   ],
+   "role": "draw",
+   "path": "web",
+   "version": "2.5.5",
+   "licence": "BSD-3-Clause",
+   "licence_flags": [],
+   "source": "https://github.com/3dmol/3Dmol.js",
+   "install_group": "web-science",
+   "status": "demo_proven",
+   "batch": 1,
+   "rank": 10,
+   "proof": {
+    "demos": [
+     "bio-protein-3dmol",
+     "chem-molecule-rdkit",
+     "chem-molecule-pubchem"
+    ]
+   },
+   "notes": "Molecules (ball and stick, sticks) and proteins (cartoon) from SDF or PDB text."
+  },
+  {
+   "id": "molstar",
+   "name": "Mol*",
+   "kind": "js_lib",
+   "subjects": [
+    "biology_medical",
+    "chemistry"
+   ],
+   "content_types": [
+    "structure",
+    "figure"
+   ],
+   "capabilities": [
+    "protein_3d",
+    "molecule_3d"
+   ],
+   "role": "draw",
+   "path": "web",
+   "version": "5.13.1",
+   "licence": "MIT",
+   "licence_flags": [],
+   "source": "https://github.com/molstar/molstar",
+   "install_group": "web-science",
+   "status": "demo_proven",
+   "batch": 1,
+   "rank": 20,
+   "levels": [
+    "neet_11_12",
+    "upsc_pcs",
+    "revision"
+   ],
+   "proof": {
+    "demos": [
+     "bio-protein-molstar"
+    ]
+   },
+   "notes": "The PDB's own viewer; detailed protein surfaces and cartoons for advanced levels."
+  },
+  {
+   "id": "matter-js",
+   "name": "Matter.js",
+   "kind": "js_lib",
+   "subjects": [
+    "physics",
+    "mechanical_civil"
+   ],
+   "content_types": [
+    "process",
+    "cause_effect"
+   ],
+   "capabilities": [
+    "physics_sim_2d"
+   ],
+   "role": "draw",
+   "path": "web",
+   "version": "0.20.0",
+   "licence": "MIT",
+   "licence_flags": [],
+   "source": "https://github.com/liabru/matter-js",
+   "install_group": "web-science",
+   "status": "demo_proven",
+   "batch": 1,
+   "rank": 10,
+   "proof": {
+    "demos": [
+     "physics-matter"
+    ]
+   },
+   "notes": "2D rigid bodies; stepped with a fixed time step from frame 0, so every frame is the same on every render."
+  },
+  {
+   "id": "cannon-es",
+   "name": "cannon-es",
+   "kind": "js_lib",
+   "subjects": [
+    "physics",
+    "mechanical_civil"
+   ],
+   "content_types": [
+    "process",
+    "cause_effect"
+   ],
+   "capabilities": [
+    "physics_sim_3d"
+   ],
+   "role": "compute",
+   "path": "web",
+   "version": "0.20.0",
+   "licence": "MIT",
+   "licence_flags": [],
+   "source": "https://github.com/pmndrs/cannon-es",
+   "install_group": "web-science",
+   "status": "demo_proven",
+   "batch": 1,
+   "proof": {
+    "demos": [
+     "physics-collision-3d"
+    ]
+   },
+   "notes": "3D rigid-body physics computed in the page with a fixed time step; three.js draws it."
+  },
+  {
+   "id": "blender",
+   "name": "Blender (bpy, headless)",
+   "kind": "app",
+   "subjects": [
+    "all_subjects",
+    "biology_medical",
+    "mechanical_civil"
+   ],
+   "content_types": [
+    "structure",
+    "figure"
+   ],
+   "capabilities": [
+    "cell_sheet_3d",
+    "anatomy_3d",
+    "machine_part_3d"
+   ],
+   "role": "offline_render",
+   "path": "offline",
+   "version": "5.2.2",
+   "licence": "GPL-3.0-or-later (the program); models BIE makes with it are BIE's own",
+   "licence_flags": [
+    "gpl"
+   ],
+   "source": "https://pypi.org/project/bpy/",
+   "install_group": "toolbox-blender",
+   "status": "demo_proven",
+   "batch": 1,
+   "adapter": "bie.toolbox.adapters.blender",
+   "proof": {
+    "demos": [
+     "bio-cell-sheet-flow",
+     "bio-heart-zanatomy"
+    ],
+    "tests": [
+     "tests/toolbox/test_wrappers.py::OfflineRenderers"
+    ]
+   },
+   "notes": "Route C: Python scripts build 3D models once and export glTF for three.js; Blender also imports FBX/OBJ anatomy models and exports parts as glTF."
+  },
+  {
+   "id": "numpy",
+   "name": "NumPy",
+   "kind": "python_lib",
+   "subjects": [
+    "all_subjects",
+    "physics",
+    "maths_statistics"
+   ],
+   "content_types": [
+    "facts_numbers",
+    "process"
+   ],
+   "capabilities": [
+    "wave_motion",
+    "vector_field",
+    "signal_plot"
+   ],
+   "role": "compute",
+   "path": "python",
+   "version": "2.5.4",
+   "licence": "BSD-3-Clause AND 0BSD AND MIT AND Zlib AND CC0-1.0",
+   "licence_flags": [],
+   "source": "https://numpy.org",
+   "install_group": "toolbox-core",
+   "status": "demo_proven",
+   "batch": 1,
+   "adapter": "bie.toolbox.adapters.physics",
+   "proof": {
+    "demos": [
+     "maths-function-graph",
+     "physics-falling",
+     "physics-wave"
+    ],
+    "tests": [
+     "tests/toolbox/test_wrappers.py::Physics"
+    ]
+   },
+   "notes": "Arrays for every computed scene."
+  },
+  {
+   "id": "scipy",
+   "name": "SciPy",
+   "kind": "python_lib",
+   "subjects": [
+    "physics",
+    "maths_statistics",
+    "electrical_electronics"
+   ],
+   "content_types": [
+    "process",
+    "facts_numbers"
+   ],
+   "capabilities": [
+    "physics_sim_2d",
+    "signal_plot",
+    "function_graph"
+   ],
+   "role": "compute",
+   "path": "python",
+   "version": "1.18.1",
+   "licence": "BSD-3-Clause",
+   "licence_flags": [],
+   "source": "https://scipy.org",
+   "install_group": "toolbox-core",
+   "status": "demo_proven",
+   "batch": 1,
+   "adapter": "bie.toolbox.adapters.physics",
+   "proof": {
+    "demos": [
+     "physics-falling"
+    ],
+    "tests": [
+     "tests/toolbox/test_wrappers.py::Physics"
+    ]
+   },
+   "notes": "ODE solving (a falling body with air drag), signals."
+  },
+  {
+   "id": "sympy",
+   "name": "SymPy",
+   "kind": "python_lib",
+   "subjects": [
+    "maths_statistics",
+    "physics",
+    "chemistry"
+   ],
+   "content_types": [
+    "process",
+    "definition",
+    "facts_numbers"
+   ],
+   "capabilities": [
+    "equation_transform",
+    "function_graph"
+   ],
+   "role": "compute",
+   "path": "python",
+   "version": "1.14.0",
+   "licence": "BSD-3-Clause",
+   "licence_flags": [],
+   "source": "https://www.sympy.org",
+   "install_group": "toolbox-core",
+   "status": "demo_proven",
+   "batch": 1,
+   "adapter": "bie.toolbox.adapters.maths",
+   "proof": {
+    "demos": [
+     "maths-equation",
+     "maths-function-graph",
+     "maths-manim"
+    ],
+    "tests": [
+     "tests/toolbox/test_wrappers.py::Maths"
+    ]
+   },
+   "notes": "The checker: every step of an equation on screen is proved equal to the one before, and LaTeX comes from SymPy."
+  },
+  {
+   "id": "manim",
+   "name": "Manim (Community Edition)",
+   "kind": "python_lib",
+   "subjects": [
+    "maths_statistics",
+    "physics"
+   ],
+   "content_types": [
+    "process",
+    "facts_numbers"
+   ],
+   "capabilities": [
+    "function_graph",
+    "equation_transform",
+    "wave_motion",
+    "vector_field"
+   ],
+   "role": "offline_render",
+   "path": "offline",
+   "version": "0.22.0",
+   "licence": "MIT",
+   "licence_flags": [],
+   "source": "https://www.manim.community",
+   "install_group": "toolbox-manim",
+   "status": "demo_proven",
+   "batch": 1,
+   "adapter": "bie.toolbox.adapters.manim_clips",
+   "proof": {
+    "demos": [
+     "maths-manim"
+    ],
+    "tests": [
+     "tests/toolbox/test_wrappers.py::OfflineRenderers"
+    ]
+   },
+   "notes": "Renders maths and physics clips where its animation grammar beats the web path; needs Cairo and Pango on the machine. Text-only scenes need no LaTeX."
+  },
+  {
+   "id": "statsmodels",
+   "name": "statsmodels",
+   "kind": "python_lib",
+   "subjects": [
+    "maths_statistics",
+    "economics_commerce_management",
+    "psychology_education_sociology"
+   ],
+   "content_types": [
+    "facts_numbers",
+    "cause_effect"
+   ],
+   "capabilities": [
+    "function_graph",
+    "chart_bar_line_pie"
+   ],
+   "role": "compute",
+   "path": "python",
+   "version": "0.15.0",
+   "licence": "BSD-3-Clause",
+   "licence_flags": [],
+   "source": "https://www.statsmodels.org",
+   "install_group": "toolbox-stats",
+   "status": "demo_proven",
+   "batch": 1,
+   "adapter": "bie.toolbox.adapters.maths",
+   "proof": {
+    "demos": [
+     "maths-regression"
+    ],
+    "tests": [
+     "tests/toolbox/test_wrappers.py::Maths"
+    ]
+   },
+   "notes": "Regression and statistics computed for the scene (the fitted line and R squared shown are statsmodels' own)."
+  },
+  {
+   "id": "networkx",
+   "name": "NetworkX",
+   "kind": "python_lib",
+   "subjects": [
+    "computer_science",
+    "maths_statistics",
+    "all_subjects"
+   ],
+   "content_types": [
+    "structure",
+    "process"
+   ],
+   "capabilities": [
+    "network_graph",
+    "tree_hierarchy",
+    "flowchart"
+   ],
+   "role": "compute",
+   "path": "python",
+   "version": "3.7",
+   "licence": "BSD-3-Clause",
+   "licence_flags": [],
+   "source": "https://networkx.org",
+   "install_group": "toolbox-core",
+   "status": "demo_proven",
+   "batch": 1,
+   "adapter": "bie.toolbox.adapters.graphs",
+   "proof": {
+    "demos": [
+     "cs-graph-bfs"
+    ],
+    "tests": [
+     "tests/toolbox/test_wrappers.py::Graphs"
+    ]
+   },
+   "notes": "Graph layouts and traversals (BFS order) for D3 to draw."
+  },
+  {
+   "id": "biopython",
+   "name": "Biopython",
+   "kind": "python_lib",
+   "subjects": [
+    "biology_medical"
+   ],
+   "content_types": [
+    "structure"
+   ],
+   "capabilities": [
+    "protein_3d"
+   ],
+   "role": "compute",
+   "path": "python",
+   "version": "1.88",
+   "licence": "Biopython License Agreement (BSD-style)",
+   "licence_flags": [],
+   "source": "https://biopython.org",
+   "install_group": "toolbox-bio",
+   "status": "demo_proven",
+   "batch": 1,
+   "adapter": "bie.toolbox.adapters.biology",
+   "proof": {
+    "demos": [
+     "bio-protein-3dmol"
+    ],
+    "tests": [
+     "tests/toolbox/test_wrappers.py::Biology"
+    ]
+   },
+   "notes": "Reads PDB files: chains, residues, the alpha-carbon trace and secondary structure for labels."
+  },
+  {
+   "id": "neurokit2",
+   "name": "NeuroKit2",
+   "kind": "python_lib",
+   "subjects": [
+    "biology_medical",
+    "psychology_education_sociology"
+   ],
+   "content_types": [
+    "process",
+    "facts_numbers"
+   ],
+   "capabilities": [
+    "ecg_trace",
+    "signal_plot"
+   ],
+   "role": "compute",
+   "path": "python",
+   "version": "0.2.13",
+   "licence": "MIT",
+   "licence_flags": [],
+   "source": "https://github.com/neuropsychology/NeuroKit",
+   "install_group": "toolbox-bio",
+   "status": "demo_proven",
+   "batch": 1,
+   "adapter": "bie.toolbox.adapters.biology",
+   "proof": {
+    "demos": [
+     "bio-ecg"
+    ],
+    "tests": [
+     "tests/toolbox/test_wrappers.py::Biology"
+    ]
+   },
+   "notes": "Simulates a realistic ECG and finds its P, QRS and T points."
+  },
+  {
+   "id": "rdkit",
+   "name": "RDKit",
+   "kind": "python_lib",
+   "subjects": [
+    "chemistry",
+    "biology_medical"
+   ],
+   "content_types": [
+    "structure",
+    "process"
+   ],
+   "capabilities": [
+    "molecule_3d",
+    "reaction_steps"
+   ],
+   "role": "compute",
+   "path": "python",
+   "version": "2026.9.1",
+   "licence": "BSD-3-Clause",
+   "licence_flags": [],
+   "source": "https://www.rdkit.org",
+   "install_group": "toolbox-chem",
+   "status": "demo_proven",
+   "batch": 1,
+   "adapter": "bie.toolbox.adapters.chemistry",
+   "proof": {
+    "demos": [
+     "chem-molecule-rdkit",
+     "chem-reaction"
+    ],
+    "tests": [
+     "tests/toolbox/test_wrappers.py::Chemistry"
+    ]
+   },
+   "notes": "Molecules from SMILES with 3D coordinates; reactions from reaction SMARTS; 2D drawings as SVG."
+  },
+  {
+   "id": "cantera",
+   "name": "Cantera",
+   "kind": "python_lib",
+   "subjects": [
+    "chemistry",
+    "mechanical_civil"
+   ],
+   "content_types": [
+    "process",
+    "facts_numbers"
+   ],
+   "capabilities": [
+    "reaction_steps"
+   ],
+   "role": "compute",
+   "path": "python",
+   "version": "3.2.0",
+   "licence": "BSD-3-Clause",
+   "licence_flags": [],
+   "source": "https://cantera.org",
+   "install_group": "toolbox-chem",
+   "status": "demo_proven",
+   "batch": 1,
+   "adapter": "bie.toolbox.adapters.chemistry",
+   "proof": {
+    "demos": [
+     "chem-reaction"
+    ],
+    "tests": [
+     "tests/toolbox/test_wrappers.py::Chemistry"
+    ]
+   },
+   "notes": "Reaction kinetics and equilibrium: how the amounts of reactants and products change over time."
+  },
+  {
+   "id": "trimesh",
+   "name": "trimesh",
+   "kind": "python_lib",
+   "subjects": [
+    "biology_medical",
+    "mechanical_civil"
+   ],
+   "content_types": [
+    "structure"
+   ],
+   "capabilities": [
+    "anatomy_3d",
+    "machine_part_3d"
+   ],
+   "role": "compute",
+   "path": "python",
+   "version": "5.1.1",
+   "licence": "MIT",
+   "licence_flags": [],
+   "source": "https://github.com/mikedh/trimesh",
+   "install_group": "toolbox-mesh",
+   "status": "demo_proven",
+   "batch": 1,
+   "adapter": "bie.toolbox.adapters.meshes",
+   "proof": {
+    "demos": [
+     "bio-heart-bodyparts3d"
+    ],
+    "tests": [
+     "tests/toolbox/test_wrappers.py::Meshes"
+    ]
+   },
+   "notes": "Added by Claude (not in Navin's list): converts OBJ and STL meshes (BodyParts3D, NIH 3D) to glTF without starting Blender, and measures them."
+  },
+  {
+   "id": "servier-medical-art",
+   "name": "Servier Medical Art",
+   "kind": "asset_source",
+   "subjects": [
+    "biology_medical"
+   ],
+   "content_types": [
+    "structure",
+    "figure"
+   ],
+   "capabilities": [
+    "organ_zoom",
+    "anatomy_3d"
+   ],
+   "role": "asset",
+   "path": "web",
+   "version": "SMART 2026-10 (site)",
+   "licence": "CC BY 4.0",
+   "licence_flags": [],
+   "source": "https://smart.servier.com",
+   "install_group": "assets-on-demand",
+   "status": "demo_proven",
+   "batch": 1,
+   "adapter": "bie.toolbox.sources",
+   "proof": {
+    "demos": [
+     "bio-organ-zoom"
+    ],
+    "tests": [
+     "tests/test_task046a_toolbox.py::Sources"
+    ]
+   },
+   "notes": "Medical illustrations; checked 25 October 2026: single images download as PNG (transparent, about 600 px), vector shapes only inside PowerPoint sets, no SVG files. Credit: 'Servier Medical Art (smart.servier.com), CC BY 4.0'."
+  },
+  {
+   "id": "z-anatomy",
+   "name": "Z-Anatomy",
+   "kind": "asset_source",
+   "subjects": [
+    "biology_medical",
+    "psychology_education_sociology"
+   ],
+   "content_types": [
+    "structure",
+    "figure"
+   ],
+   "capabilities": [
+    "anatomy_3d",
+    "organ_zoom"
+   ],
+   "role": "asset",
+   "path": "offline",
+   "version": "PC-Version branch (FBX systems)",
+   "licence": "CC BY-SA 4.0",
+   "licence_flags": [
+    "share_alike"
+   ],
+   "source": "https://github.com/LluisV/Z-Anatomy",
+   "install_group": "assets-on-demand",
+   "status": "demo_proven",
+   "batch": 1,
+   "adapter": "bie.toolbox.sources",
+   "proof": {
+    "demos": [
+     "bio-heart-zanatomy"
+    ],
+    "tests": [
+     "tests/test_task046a_toolbox.py::Sources"
+    ]
+   },
+   "notes": "A whole-body anatomy atlas; the FBX files per body system (for example CardioVascular41.fbx, 65 MB) are fetched on demand and Blender exports the needed part as glTF. Share-alike: a video that adapts it may have to carry the same licence (Navin's decision)."
+  },
+  {
+   "id": "bodyparts3d",
+   "name": "BodyParts3D",
+   "kind": "asset_source",
+   "subjects": [
+    "biology_medical"
+   ],
+   "content_types": [
+    "structure",
+    "figure"
+   ],
+   "capabilities": [
+    "anatomy_3d"
+   ],
+   "role": "asset",
+   "path": "offline",
+   "version": "4.0 (PART-OF tree, 99% reduced OBJ)",
+   "licence": "CC BY 4.0 (licence page read 25 October 2026; releases up to 3.0 were CC BY-SA 2.1 Japan; the page also asks users to contact DBCLS)",
+   "licence_flags": [
+    "custom"
+   ],
+   "source": "https://dbarchive.biosciencedbc.jp/en/bodyparts3d/download.html",
+   "install_group": "assets-on-demand",
+   "status": "demo_proven",
+   "batch": 1,
+   "adapter": "bie.toolbox.sources",
+   "proof": {
+    "demos": [
+     "bio-heart-bodyparts3d"
+    ],
+    "tests": [
+     "tests/toolbox/test_wrappers.py::BodyParts3D"
+    ]
+   },
+   "notes": "Organ meshes named by FMA id inside a 62 MB zip; one part is extracted and converted to glTF with trimesh. Credit: 'BodyParts3D, © The Database Center for Life Science licensed under CC Attribution 4.0 International'."
+  },
+  {
+   "id": "nih-3d",
+   "name": "NIH 3D",
+   "kind": "asset_source",
+   "subjects": [
+    "biology_medical",
+    "chemistry"
+   ],
+   "content_types": [
+    "structure",
+    "figure"
+   ],
+   "capabilities": [
+    "anatomy_3d",
+    "protein_3d"
+   ],
+   "role": "asset",
+   "path": "web",
+   "version": "3d.nih.gov API (entries, download)",
+   "licence": "per model (Public Domain / CC0, CC BY and others)",
+   "licence_flags": [
+    "per_item"
+   ],
+   "source": "https://3d.nih.gov",
+   "install_group": "assets-on-demand",
+   "status": "demo_proven",
+   "batch": 1,
+   "adapter": "bie.toolbox.sources",
+   "proof": {
+    "demos": [
+     "bio-heart-nih3d"
+    ],
+    "tests": [
+     "tests/test_task046a_toolbox.py::Sources"
+    ]
+   },
+   "notes": "Entry metadata from /api/entries/<id>, the file from /api/download?submissionId=..&fileIds=..; each model's own licence is read from its metadata and kept with the file (example: 3DPX-022787 human heart, Public Domain, GLB)."
+  },
+  {
+   "id": "rcsb-pdb",
+   "name": "RCSB Protein Data Bank",
+   "kind": "dataset",
+   "subjects": [
+    "biology_medical",
+    "chemistry"
+   ],
+   "content_types": [
+    "structure"
+   ],
+   "capabilities": [
+    "protein_3d"
+   ],
+   "role": "asset",
+   "path": "web",
+   "version": "files.rcsb.org (live archive)",
+   "licence": "CC0 1.0 (PDB data)",
+   "licence_flags": [],
+   "source": "https://www.rcsb.org",
+   "install_group": "assets-on-demand",
+   "status": "demo_proven",
+   "batch": 1,
+   "adapter": "bie.toolbox.sources",
+   "proof": {
+    "demos": [
+     "bio-protein-3dmol",
+     "bio-protein-molstar"
+    ],
+    "tests": [
+     "tests/test_task046a_toolbox.py::Sources"
+    ]
+   },
+   "notes": "Protein structures by PDB id (https://files.rcsb.org/download/<ID>.pdb)."
+  },
+  {
+   "id": "pubchem",
+   "name": "PubChem",
+   "kind": "dataset",
+   "subjects": [
+    "chemistry",
+    "biology_medical"
+   ],
+   "content_types": [
+    "structure",
+    "facts_numbers"
+   ],
+   "capabilities": [
+    "molecule_3d"
+   ],
+   "role": "asset",
+   "path": "web",
+   "version": "PUG REST (live)",
+   "licence": "Public domain (NCBI); a few depositor records carry their own terms",
+   "licence_flags": [
+    "per_item"
+   ],
+   "source": "https://pubchem.ncbi.nlm.nih.gov",
+   "install_group": "assets-on-demand",
+   "status": "demo_proven",
+   "batch": 1,
+   "adapter": "bie.toolbox.sources",
+   "proof": {
+    "demos": [
+     "chem-molecule-pubchem"
+    ],
+    "tests": [
+     "tests/test_task046a_toolbox.py::Sources"
+    ]
+   },
+   "notes": "3D structures (SDF) and properties by compound name or CID; RDKit makes one when PubChem has no 3D record."
+  },
+  {
+   "id": "schemdraw",
+   "name": "Schemdraw",
+   "kind": "python_lib",
+   "subjects": [
+    "electrical_electronics",
+    "physics"
+   ],
+   "content_types": [
+    "structure",
+    "process"
+   ],
+   "capabilities": [
+    "circuit_diagram"
+   ],
+   "role": "draw",
+   "path": "python",
+   "version": "0.23",
+   "licence": "MIT",
+   "licence_flags": [],
+   "source": "https://schemdraw.readthedocs.io",
+   "install_group": "toolbox-electrical",
+   "status": "demo_proven",
+   "batch": 2,
+   "adapter": "bie.toolbox.adapters.electrical",
+   "block": "circuit_build",
+   "proof": {
+    "demos": [
+     "elec-rc-circuit"
+    ],
+    "tests": [
+     "tests/toolbox/test_wrappers.py::Electrical"
+    ]
+   },
+   "notes": "Draws circuit schematics as SVG; BIE splits the drawing into one piece per element so the block builds the circuit part by part."
+  },
+  {
+   "id": "lcapy",
+   "name": "Lcapy",
+   "kind": "python_lib",
+   "subjects": [
+    "electrical_electronics",
+    "physics"
+   ],
+   "content_types": [
+    "process",
+    "facts_numbers"
+   ],
+   "capabilities": [
+    "circuit_diagram",
+    "signal_plot"
+   ],
+   "role": "compute",
+   "path": "python",
+   "version": "1.26",
+   "licence": "LGPL-2.1-or-later",
+   "licence_flags": [],
+   "source": "https://github.com/mph-/lcapy",
+   "install_group": "toolbox-electrical",
+   "status": "demo_proven",
+   "batch": 2,
+   "adapter": "bie.toolbox.adapters.electrical",
+   "proof": {
+    "demos": [
+     "elec-rc-circuit"
+    ],
+    "tests": [
+     "tests/toolbox/test_wrappers.py::Electrical"
+    ]
+   },
+   "notes": "Symbolic circuit analysis (SymPy): the exact formula of a circuit's response, used to check ngspice. LGPL: a library BIE calls, not changed."
+  },
+  {
+   "id": "ngspice",
+   "name": "ngspice",
+   "kind": "app",
+   "subjects": [
+    "electrical_electronics",
+    "physics"
+   ],
+   "content_types": [
+    "process",
+    "facts_numbers"
+   ],
+   "capabilities": [
+    "circuit_diagram",
+    "signal_plot"
+   ],
+   "role": "compute",
+   "path": "offline",
+   "version": "42",
+   "licence": "BSD-3-Clause (modified BSD; some parts under other free licences)",
+   "licence_flags": [],
+   "source": "https://ngspice.sourceforge.io",
+   "install_group": "apt:ngspice",
+   "status": "demo_proven",
+   "batch": 2,
+   "adapter": "bie.toolbox.adapters.electrical",
+   "proof": {
+    "demos": [
+     "elec-rc-circuit"
+    ],
+    "tests": [
+     "tests/toolbox/test_wrappers.py::Electrical"
+    ]
+   },
+   "notes": "The SPICE circuit simulator, run in batch mode (transient analysis); from Ubuntu's apt (ngspice 42+ds-3build1 on 24.04). PySpice (GPL, last release 2021) is not used: BIE writes the netlist itself."
+  },
+  {
+   "id": "python-control",
+   "name": "Python Control Systems Library",
+   "kind": "python_lib",
+   "subjects": [
+    "electrical_electronics",
+    "mechanical_civil",
+    "aerospace"
+   ],
+   "content_types": [
+    "process",
+    "facts_numbers"
+   ],
+   "capabilities": [
+    "signal_plot"
+   ],
+   "role": "compute",
+   "path": "python",
+   "version": "0.10.2",
+   "licence": "BSD-3-Clause",
+   "licence_flags": [],
+   "source": "https://python-control.org",
+   "install_group": "toolbox-electrical",
+   "status": "demo_proven",
+   "batch": 2,
+   "adapter": "bie.toolbox.adapters.electrical",
+   "proof": {
+    "demos": [
+     "elec-step-response"
+    ],
+    "tests": [
+     "tests/toolbox/test_wrappers.py::Electrical"
+    ]
+   },
+   "notes": "Transfer functions, step and frequency responses, step_info (overshoot, settling time)."
+  },
+  {
+   "id": "scipy-signal",
+   "name": "SciPy signal (scipy.signal)",
+   "kind": "python_lib",
+   "subjects": [
+    "electrical_electronics",
+    "physics",
+    "biology_medical"
+   ],
+   "content_types": [
+    "process",
+    "facts_numbers"
+   ],
+   "capabilities": [
+    "signal_plot"
+   ],
+   "role": "compute",
+   "path": "python",
+   "version": "1.18.1",
+   "licence": "BSD-3-Clause",
+   "licence_flags": [],
+   "source": "https://docs.scipy.org/doc/scipy/reference/signal.html",
+   "install_group": "toolbox-core",
+   "status": "demo_proven",
+   "batch": 2,
+   "adapter": "bie.toolbox.adapters.electrical",
+   "proof": {
+    "demos": [
+     "elec-step-response"
+    ],
+    "tests": [
+     "tests/toolbox/test_wrappers.py::Electrical"
+    ]
+   },
+   "notes": "Part of SciPy (same pin): filters, LTI systems; here it checks python-control's step responses."
+  },
+  {
+   "id": "pynite",
+   "name": "PyNite (PyNiteFEA)",
+   "kind": "python_lib",
+   "subjects": [
+    "mechanical_civil"
+   ],
+   "content_types": [
+    "cause_effect",
+    "facts_numbers"
+   ],
+   "capabilities": [
+    "structure_load"
+   ],
+   "role": "compute",
+   "path": "python",
+   "version": "3.2.0",
+   "licence": "MIT",
+   "licence_flags": [],
+   "source": "https://github.com/JWock82/Pynite",
+   "install_group": "toolbox-mech",
+   "status": "demo_proven",
+   "batch": 2,
+   "adapter": "bie.toolbox.adapters.mechanics",
+   "block": "beam_load",
+   "proof": {
+    "demos": [
+     "mech-beam"
+    ],
+    "tests": [
+     "tests/toolbox/test_wrappers.py::Mechanics"
+    ]
+   },
+   "notes": "3D finite-element analysis of frames, beams and plates: deflection, moments, reactions."
+  },
+  {
+   "id": "sympy-physics",
+   "name": "SymPy physics (sympy.physics)",
+   "kind": "python_lib",
+   "subjects": [
+    "mechanical_civil",
+    "physics"
+   ],
+   "content_types": [
+    "cause_effect",
+    "facts_numbers"
+   ],
+   "capabilities": [
+    "structure_load"
+   ],
+   "role": "compute",
+   "path": "python",
+   "version": "1.14.0",
+   "licence": "BSD-3-Clause",
+   "licence_flags": [],
+   "source": "https://docs.sympy.org/latest/modules/physics/",
+   "install_group": "toolbox-core",
+   "status": "demo_proven",
+   "batch": 2,
+   "adapter": "bie.toolbox.adapters.mechanics",
+   "proof": {
+    "demos": [
+     "mech-beam"
+    ],
+    "tests": [
+     "tests/toolbox/test_wrappers.py::Mechanics"
+    ]
+   },
+   "notes": "Part of SymPy (same pin): continuum mechanics (beams), mechanics, units; here its Beam solves the closed form that checks PyNite."
+  },
+  {
+   "id": "coolprop",
+   "name": "CoolProp",
+   "kind": "python_lib",
+   "subjects": [
+    "mechanical_civil",
+    "physics",
+    "chemistry"
+   ],
+   "content_types": [
+    "facts_numbers",
+    "process"
+   ],
+   "capabilities": [
+    "function_graph"
+   ],
+   "role": "compute",
+   "path": "python",
+   "version": "8.0.0",
+   "licence": "MIT",
+   "licence_flags": [],
+   "source": "https://github.com/CoolProp/CoolProp",
+   "install_group": "toolbox-mech",
+   "status": "demo_proven",
+   "batch": 2,
+   "adapter": "bie.toolbox.adapters.mechanics",
+   "proof": {
+    "demos": [
+     "mech-rankine"
+    ],
+    "tests": [
+     "tests/toolbox/test_wrappers.py::Mechanics"
+    ]
+   },
+   "notes": "Thermophysical properties of water, refrigerants and air: steam tables, cycles, T–s and p–h charts."
+  },
+  {
+   "id": "cadquery",
+   "name": "CadQuery (with OCP, OpenCascade)",
+   "kind": "python_lib",
+   "subjects": [
+    "mechanical_civil"
+   ],
+   "content_types": [
+    "structure",
+    "figure"
+   ],
+   "capabilities": [
+    "machine_part_3d"
+   ],
+   "role": "offline_render",
+   "path": "offline",
+   "version": "2.8.0",
+   "licence": "Apache-2.0 (CadQuery and the OCP bindings; OpenCascade itself LGPL-2.1 with an exception)",
+   "licence_flags": [],
+   "source": "https://github.com/CadQuery/cadquery",
+   "install_group": "toolbox-mech",
+   "status": "demo_proven",
+   "batch": 2,
+   "adapter": "bie.toolbox.adapters.mechanics",
+   "proof": {
+    "demos": [
+     "mech-flange"
+    ],
+    "tests": [
+     "tests/toolbox/test_wrappers.py::Mechanics"
+    ]
+   },
+   "notes": "Parametric CAD in Python on the OpenCascade kernel; parts are exported as STL and turned into .glb with trimesh for the 3D blocks. Pins cadquery-ocp 7.9.3.1.1."
+  },
+  {
+   "id": "scikit-fem",
+   "name": "scikit-fem",
+   "kind": "python_lib",
+   "subjects": [
+    "mechanical_civil",
+    "physics",
+    "electrical_electronics"
+   ],
+   "content_types": [
+    "cause_effect",
+    "structure"
+   ],
+   "capabilities": [
+    "vector_field"
+   ],
+   "role": "compute",
+   "path": "python",
+   "version": "12.0.2",
+   "licence": "BSD-3-Clause",
+   "licence_flags": [],
+   "source": "https://github.com/kinnala/scikit-fem",
+   "install_group": "toolbox-mech",
+   "status": "demo_proven",
+   "batch": 2,
+   "adapter": "bie.toolbox.adapters.mechanics",
+   "block": "heat_plate",
+   "proof": {
+    "demos": [
+     "mech-heat-plate"
+    ],
+    "tests": [
+     "tests/toolbox/test_wrappers.py::Mechanics"
+    ]
+   },
+   "notes": "Added by Claude in place of FEniCS for the toolbox: pure-Python finite elements (heat, elasticity, potential fields) with a PyPI wheel."
+  },
+  {
+   "id": "fenics",
+   "name": "FEniCSx (DOLFINx)",
+   "kind": "python_lib",
+   "subjects": [
+    "mechanical_civil",
+    "physics"
+   ],
+   "content_types": [
+    "cause_effect"
+   ],
+   "capabilities": [
+    "vector_field"
+   ],
+   "role": "compute",
+   "path": "python",
+   "version": "0.10 (not installed)",
+   "licence": "LGPL-3.0-or-later",
+   "licence_flags": [],
+   "source": "https://fenicsproject.org",
+   "install_group": "not-installable-here",
+   "status": "blocked_with_reason",
+   "batch": 2,
+   "blocked_reason": "DOLFINx has no PyPI wheel: it installs from conda-forge, Docker or Ubuntu's apt (python3-dolfinx, built for the system Python 3.12), while BIE's toolbox runs on Python 3.13 with pip. Needs a separate conda or Docker lane; scikit-fem covers the textbook finite-element cases meanwhile.",
+   "notes": "Kept in the registry so the gap is visible; the resolver picks scikit-fem for vector_field."
+  },
+  {
+   "id": "gmt",
+   "name": "GMT (Generic Mapping Tools)",
+   "kind": "app",
+   "subjects": [
+    "earth_science",
+    "geography_history_polity"
+   ],
+   "content_types": [
+    "figure",
+    "structure"
+   ],
+   "capabilities": [
+    "terrain_or_layers",
+    "map_region"
+   ],
+   "role": "offline_render",
+   "path": "offline",
+   "version": "6.5.0",
+   "licence": "LGPL-3.0-or-later",
+   "licence_flags": [],
+   "source": "https://www.generic-mapping-tools.org",
+   "install_group": "apt:gmt",
+   "status": "demo_proven",
+   "batch": 2,
+   "adapter": "bie.toolbox.adapters.earth",
+   "proof": {
+    "demos": [
+     "geo-relief"
+    ],
+    "tests": [
+     "tests/toolbox/test_wrappers.py::Earth"
+    ]
+   },
+   "notes": "The map-making engine PyGMT drives; from Ubuntu's apt (gmt, libgmt-dev, gmt-dcw, gmt-gshhg-low, with ghostscript for PNG output)."
+  },
+  {
+   "id": "pygmt",
+   "name": "PyGMT",
+   "kind": "python_lib",
+   "subjects": [
+    "earth_science",
+    "geography_history_polity"
+   ],
+   "content_types": [
+    "figure",
+    "structure"
+   ],
+   "capabilities": [
+    "terrain_or_layers",
+    "map_region"
+   ],
+   "role": "offline_render",
+   "path": "offline",
+   "version": "0.19.0",
+   "licence": "BSD-3-Clause",
+   "licence_flags": [],
+   "source": "https://www.pygmt.org",
+   "install_group": "toolbox-earth",
+   "status": "demo_proven",
+   "batch": 2,
+   "adapter": "bie.toolbox.adapters.earth",
+   "proof": {
+    "demos": [
+     "geo-relief"
+    ],
+    "tests": [
+     "tests/toolbox/test_wrappers.py::Earth"
+    ]
+   },
+   "notes": "Shaded relief maps and profiles (grdimage, project, grdtrack) rendered to PNG, then animated by BIE's image and camera layers."
+  },
+  {
+   "id": "gmt-earth-relief",
+   "name": "GMT Earth relief (SRTM15+ V2.7)",
+   "kind": "dataset",
+   "subjects": [
+    "earth_science",
+    "geography_history_polity"
+   ],
+   "content_types": [
+    "figure",
+    "facts_numbers"
+   ],
+   "capabilities": [
+    "terrain_or_layers"
+   ],
+   "role": "asset",
+   "path": "offline",
+   "version": "SRTM15+ V2.7 (GMT remote data, 2 arc-min tiles)",
+   "licence": "Free to use with citation (Tozer et al., 2019, Scripps); GMT remote data",
+   "licence_flags": [
+    "custom"
+   ],
+   "source": "https://www.generic-mapping-tools.org/remote-datasets/earth-relief.html",
+   "install_group": "assets-on-demand",
+   "status": "demo_proven",
+   "batch": 2,
+   "adapter": "bie.toolbox.adapters.earth",
+   "proof": {
+    "demos": [
+     "geo-relief"
+    ]
+   },
+   "notes": "Downloaded by GMT on first use into GMT_USERDIR inside the asset cache (outside git). No formal licence text; recorded for Navin's licence decision."
+  },
+  {
+   "id": "obspy",
+   "name": "ObsPy",
+   "kind": "python_lib",
+   "subjects": [
+    "earth_science",
+    "physics"
+   ],
+   "content_types": [
+    "process",
+    "cause_effect"
+   ],
+   "capabilities": [
+    "earthquake_waves",
+    "terrain_or_layers"
+   ],
+   "role": "compute",
+   "path": "python",
+   "version": "1.5.1",
+   "licence": "LGPL-3.0",
+   "licence_flags": [],
+   "source": "https://www.obspy.org",
+   "install_group": "toolbox-earth",
+   "status": "demo_proven",
+   "batch": 2,
+   "adapter": "bie.toolbox.adapters.earth",
+   "block": "earth_section",
+   "proof": {
+    "demos": [
+     "geo-seismic-rays"
+    ],
+    "tests": [
+     "tests/toolbox/test_wrappers.py::Earth"
+    ]
+   },
+   "notes": "Seismology: TauP ray paths and travel times through the IASP91 Earth model; reading and filtering seismograms. LGPL: used as a library, not changed."
+  },
+  {
+   "id": "pygplates",
+   "name": "pyGPlates",
+   "kind": "python_lib",
+   "subjects": [
+    "earth_science",
+    "geography_history_polity"
+   ],
+   "content_types": [
+    "process",
+    "timeline"
+   ],
+   "capabilities": [
+    "plate_motion"
+   ],
+   "role": "compute",
+   "path": "python",
+   "version": "1.0.0",
+   "licence": "GPL-2.0 (pyGPlates; GPlates is GPL-2.0-or-later)",
+   "licence_flags": [
+    "gpl"
+   ],
+   "source": "https://www.gplates.org",
+   "install_group": "toolbox-earth",
+   "status": "demo_proven",
+   "batch": 2,
+   "adapter": "bie.toolbox.adapters.earth",
+   "block": "plate_frames",
+   "proof": {
+    "demos": [
+     "geo-plates"
+    ],
+    "tests": [
+     "tests/toolbox/test_wrappers.py::Earth"
+    ]
+   },
+   "notes": "Plate reconstructions: coastlines rotated back in time with a published plate model."
+  },
+  {
+   "id": "gplates-muller2019",
+   "name": "Müller et al. (2019) plate model",
+   "kind": "dataset",
+   "subjects": [
+    "earth_science",
+    "geography_history_polity"
+   ],
+   "content_types": [
+    "timeline",
+    "process"
+   ],
+   "capabilities": [
+    "plate_motion"
+   ],
+   "role": "asset",
+   "path": "offline",
+   "version": "v2.0 (doi:10.5281/zenodo.11601026)",
+   "licence": "CC BY 4.0",
+   "licence_flags": [],
+   "source": "https://doi.org/10.5281/zenodo.11601026",
+   "install_group": "assets-on-demand",
+   "status": "demo_proven",
+   "batch": 2,
+   "adapter": "bie.toolbox.sources",
+   "proof": {
+    "demos": [
+     "geo-plates"
+    ],
+    "tests": [
+     "tests/test_task046a_toolbox.py::Sources"
+    ]
+   },
+   "notes": "Rotation file and coastlines from the GPlates model repository (repo.gplates.org), unpacked once into the asset cache; 250 million years."
+  },
+  {
+   "id": "usgs-earthquakes",
+   "name": "USGS earthquake catalogue",
+   "kind": "dataset",
+   "subjects": [
+    "earth_science",
+    "geography_history_polity"
+   ],
+   "content_types": [
+    "facts_numbers",
+    "timeline"
+   ],
+   "capabilities": [
+    "map_region",
+    "earthquake_waves"
+   ],
+   "role": "asset",
+   "path": "web",
+   "version": "FDSN event API (live)",
+   "licence": "Public domain (USGS)",
+   "licence_flags": [],
+   "source": "https://earthquake.usgs.gov/fdsnws/event/1/",
+   "install_group": "assets-on-demand",
+   "status": "demo_proven",
+   "batch": 2,
+   "adapter": "bie.toolbox.sources",
+   "proof": {
+    "demos": [
+     "geo-quake-map"
+    ],
+    "tests": [
+     "tests/test_task046a_toolbox.py::Sources"
+    ]
+   },
+   "notes": "Earthquakes by date range and magnitude as GeoJSON, kept in the asset library with credit."
+  },
+  {
+   "id": "natural-earth",
+   "name": "Natural Earth (world-atlas TopoJSON)",
+   "kind": "dataset",
+   "subjects": [
+    "geography_history_polity",
+    "earth_science",
+    "economics_commerce_management"
+   ],
+   "content_types": [
+    "figure",
+    "structure"
+   ],
+   "capabilities": [
+    "map_region",
+    "map_route"
+   ],
+   "role": "asset",
+   "path": "web",
+   "version": "2.0.2",
+   "licence": "Public domain (Natural Earth data); ISC (the world-atlas package)",
+   "licence_flags": [],
+   "source": "https://github.com/topojson/world-atlas",
+   "install_group": "web-maps",
+   "status": "demo_proven",
+   "batch": 2,
+   "proof": {
+    "demos": [
+     "geo-quake-map"
+    ]
+   },
+   "notes": "Natural Earth 1:110m land and countries, bundled in the toolbox web bundle; drawn with d3-geo (part of D3)."
+  },
+  {
+   "id": "topojson-client",
+   "name": "topojson-client",
+   "kind": "js_lib",
+   "subjects": [
+    "geography_history_polity",
+    "earth_science"
+   ],
+   "content_types": [
+    "figure"
+   ],
+   "capabilities": [
+    "map_region",
+    "map_route"
+   ],
+   "role": "draw",
+   "path": "web",
+   "version": "3.1.0",
+   "licence": "ISC",
+   "licence_flags": [],
+   "source": "https://github.com/topojson/topojson-client",
+   "install_group": "web-maps",
+   "status": "demo_proven",
+   "batch": 2,
+   "proof": {
+    "demos": [
+     "geo-quake-map"
+    ]
+   },
+   "notes": "Turns world-atlas TopoJSON into GeoJSON features for d3-geo."
+  },
+  {
+   "id": "astropy",
+   "name": "Astropy",
+   "kind": "python_lib",
+   "subjects": [
+    "astronomy_space",
+    "physics"
+   ],
+   "content_types": [
+    "facts_numbers"
+   ],
+   "capabilities": [
+    "orbit_motion",
+    "sky_map"
+   ],
+   "role": "compute",
+   "path": "python",
+   "version": "8.0.2",
+   "licence": "BSD-3-Clause",
+   "licence_flags": [],
+   "source": "https://www.astropy.org",
+   "install_group": "toolbox-astro",
+   "status": "demo_proven",
+   "batch": 2,
+   "adapter": "bie.toolbox.adapters.astro",
+   "proof": {
+    "demos": [
+     "astro-orbits",
+     "astro-sky"
+    ],
+    "tests": [
+     "tests/toolbox/test_wrappers.py::Astro"
+    ]
+   },
+   "notes": "Units, constants, time scales and coordinates; here it checks orbital periods by Kepler's third law and converts local time."
+  },
+  {
+   "id": "skyfield",
+   "name": "Skyfield",
+   "kind": "python_lib",
+   "subjects": [
+    "astronomy_space",
+    "geography_history_polity"
+   ],
+   "content_types": [
+    "process",
+    "figure"
+   ],
+   "capabilities": [
+    "orbit_motion",
+    "sky_map"
+   ],
+   "role": "compute",
+   "path": "python",
+   "version": "1.55",
+   "licence": "MIT",
+   "licence_flags": [],
+   "source": "https://rhodesmill.org/skyfield/",
+   "install_group": "toolbox-astro",
+   "status": "demo_proven",
+   "batch": 2,
+   "adapter": "bie.toolbox.adapters.astro",
+   "block": "orbits",
+   "proof": {
+    "demos": [
+     "astro-orbits",
+     "astro-sky"
+    ],
+    "tests": [
+     "tests/toolbox/test_wrappers.py::Astro"
+    ]
+   },
+   "notes": "Positions of planets, the Moon and stars from JPL ephemerides; altitude and azimuth from any place."
+  },
+  {
+   "id": "jpl-de421",
+   "name": "JPL ephemeris DE421",
+   "kind": "dataset",
+   "subjects": [
+    "astronomy_space"
+   ],
+   "content_types": [
+    "facts_numbers"
+   ],
+   "capabilities": [
+    "orbit_motion",
+    "sky_map"
+   ],
+   "role": "asset",
+   "path": "offline",
+   "version": "DE421 (1900–2050)",
+   "licence": "Public domain (NASA JPL)",
+   "licence_flags": [],
+   "source": "https://naif.jpl.nasa.gov/pub/naif/generic_kernels/spk/planets/a_old_versions/de421.bsp",
+   "install_group": "assets-on-demand",
+   "status": "demo_proven",
+   "batch": 2,
+   "adapter": "bie.toolbox.adapters.astro",
+   "proof": {
+    "demos": [
+     "astro-orbits",
+     "astro-sky"
+    ],
+    "tests": [
+     "tests/toolbox/test_wrappers.py::Astro"
+    ]
+   },
+   "notes": "17 MB, fetched once into BIE_ASSET_CACHE/skyfield."
+  },
+  {
+   "id": "hipparcos",
+   "name": "Hipparcos star catalogue",
+   "kind": "dataset",
+   "subjects": [
+    "astronomy_space"
+   ],
+   "content_types": [
+    "figure",
+    "facts_numbers"
+   ],
+   "capabilities": [
+    "sky_map"
+   ],
+   "role": "asset",
+   "path": "offline",
+   "version": "ESA 1997 (CDS I/239)",
+   "licence": "Free for scientific use with citation (CDS); commercial use under ESA's rules for the Hipparcos data",
+   "licence_flags": [
+    "custom"
+   ],
+   "source": "https://cdsarc.cds.unistra.fr/viz-bin/cat/I/239",
+   "install_group": "assets-on-demand",
+   "status": "demo_proven",
+   "batch": 2,
+   "adapter": "bie.toolbox.adapters.astro",
+   "proof": {
+    "demos": [
+     "astro-sky"
+    ],
+    "tests": [
+     "tests/toolbox/test_wrappers.py::Astro"
+    ]
+   },
+   "notes": "118,218 stars (53 MB), fetched once into BIE_ASSET_CACHE/skyfield; recorded for Navin's licence decision."
+  },
+  {
+   "id": "nasa-images",
+   "name": "NASA Image and Video Library",
+   "kind": "asset_source",
+   "subjects": [
+    "astronomy_space",
+    "aerospace",
+    "earth_science"
+   ],
+   "content_types": [
+    "figure"
+   ],
+   "capabilities": [
+    "focus_glow"
+   ],
+   "role": "asset",
+   "path": "web",
+   "version": "images-api.nasa.gov (live)",
+   "licence": "per item (NASA media are generally not copyrighted; some carry third-party rights)",
+   "licence_flags": [
+    "per_item"
+   ],
+   "source": "https://images.nasa.gov",
+   "install_group": "assets-on-demand",
+   "status": "demo_proven",
+   "batch": 2,
+   "adapter": "bie.toolbox.sources",
+   "proof": {
+    "demos": [
+     "astro-earthrise"
+    ],
+    "tests": [
+     "tests/test_task046a_toolbox.py::Sources"
+    ]
+   },
+   "notes": "Pictures by NASA id with title, centre and description; an item that names a third-party copyright holder is marked for checking."
+  },
+  {
+   "id": "aerosandbox",
+   "name": "AeroSandbox",
+   "kind": "python_lib",
+   "subjects": [
+    "aerospace",
+    "physics"
+   ],
+   "content_types": [
+    "structure",
+    "facts_numbers"
+   ],
+   "capabilities": [
+    "aircraft_shape"
+   ],
+   "role": "compute",
+   "path": "python",
+   "version": "4.2.10",
+   "licence": "MIT",
+   "licence_flags": [],
+   "source": "https://github.com/peterdsharpe/AeroSandbox",
+   "install_group": "toolbox-aero",
+   "status": "demo_proven",
+   "batch": 2,
+   "adapter": "bie.toolbox.adapters.aero",
+   "proof": {
+    "demos": [
+     "aero-aircraft"
+    ],
+    "tests": [
+     "tests/toolbox/test_wrappers.py::Aero"
+    ]
+   },
+   "notes": "Aircraft geometry (wings with real airfoils, fuselages), meshes, and aerodynamics (vortex lattice method, lift curves)."
+  },
+  {
+   "id": "openvsp",
+   "name": "OpenVSP",
+   "kind": "app",
+   "subjects": [
+    "aerospace"
+   ],
+   "content_types": [
+    "structure"
+   ],
+   "capabilities": [
+    "aircraft_shape"
+   ],
+   "role": "offline_render",
+   "path": "offline",
+   "version": "3.x (not installed)",
+   "licence": "NOSA 1.3 (NASA Open Source Agreement)",
+   "licence_flags": [
+    "custom"
+   ],
+   "source": "https://openvsp.org",
+   "install_group": "not-installable-here",
+   "status": "blocked_with_reason",
+   "batch": 2,
+   "blocked_reason": "OpenVSP is not on PyPI: its Python API ships only inside OpenVSP's own release builds, compiled for one Python version, and there is no Ubuntu apt package. Needs a pinned OpenVSP build in its own lane; AeroSandbox builds aircraft shapes meanwhile.",
+   "notes": "NASA's parametric aircraft geometry tool; kept in the registry so the gap is visible."
+  },
+  {
+   "id": "jsbsim",
+   "name": "JSBSim",
+   "kind": "python_lib",
+   "subjects": [
+    "aerospace",
+    "physics"
+   ],
+   "content_types": [
+    "process"
+   ],
+   "capabilities": [
+    "flight_motion"
+   ],
+   "role": "compute",
+   "path": "python",
+   "version": "1.3.3",
+   "licence": "LGPL-2.1-or-later",
+   "licence_flags": [],
+   "source": "https://github.com/JSBSim-Team/jsbsim",
+   "install_group": "toolbox-aero",
+   "status": "demo_proven",
+   "batch": 2,
+   "adapter": "bie.toolbox.adapters.aero",
+   "block": "flight_profile",
+   "proof": {
+    "demos": [
+     "aero-climb"
+    ],
+    "tests": [
+     "tests/toolbox/test_wrappers.py::Aero"
+    ]
+   },
+   "notes": "Flight dynamics with real aircraft models (Cessna 172, 737 ...) and their autopilots; the wheel ships the aircraft data. LGPL: used as a library."
+  },
+  {
+   "id": "bie-science-blocks",
+   "name": "BIE science blocks (bie/brain/video/blocks/toolbox)",
+   "kind": "js_lib",
+   "subjects": [
+    "electrical_electronics",
+    "mechanical_civil",
+    "earth_science",
+    "astronomy_space",
+    "aerospace",
+    "physics",
+    "geography_history_polity"
+   ],
+   "content_types": [
+    "process",
+    "structure",
+    "cause_effect",
+    "facts_numbers",
+    "figure",
+    "timeline"
+   ],
+   "capabilities": [
+    "circuit_diagram",
+    "structure_load",
+    "vector_field",
+    "earthquake_waves",
+    "terrain_or_layers",
+    "plate_motion",
+    "orbit_motion",
+    "sky_map",
+    "flight_motion",
+    "map_region",
+    "signal_plot",
+    "function_graph"
+   ],
+   "role": "draw",
+   "path": "web",
+   "version": "bie-2026-10-25",
+   "licence": "BIE's own code",
+   "licence_flags": [],
+   "source": "https://github.com/SEENAV01/Enterprise-bie",
+   "install_group": "web-core",
+   "status": "demo_proven",
+   "batch": 2,
+   "rank": 10,
+   "block": "xy_lines, circuit_build, beam_load, heat_plate, earth_section, world_points, plate_frames, orbits, sky_dome, flight_profile",
+   "proof": {
+    "demos": [
+     "elec-rc-circuit",
+     "elec-step-response",
+     "mech-beam",
+     "mech-rankine",
+     "mech-heat-plate",
+     "geo-relief",
+     "geo-seismic-rays",
+     "geo-quake-map",
+     "geo-plates",
+     "astro-orbits",
+     "astro-sky",
+     "aero-aircraft",
+     "aero-climb"
+    ]
+   },
+   "notes": "The batch 2 blocks: they draw what the Python tools compute (D3 and d3-geo inside); every block refuses numbers its two tools disagree on where a check exists (circuit: ngspice against lcapy)."
+  },
+  {
+   "id": "natural-earth-vector",
+   "name": "Natural Earth 1:10m vector data (GeoJSON)",
+   "kind": "dataset",
+   "subjects": [
+    "geography_history_polity",
+    "earth_science",
+    "economics_commerce_management"
+   ],
+   "content_types": [
+    "figure",
+    "structure",
+    "facts_numbers"
+   ],
+   "capabilities": [
+    "map_region",
+    "map_route"
+   ],
+   "role": "asset",
+   "path": "python",
+   "version": "5.1.2",
+   "licence": "Public domain (Natural Earth)",
+   "licence_flags": [],
+   "source": "https://github.com/nvkelso/natural-earth-vector",
+   "install_group": "assets-on-demand",
+   "status": "demo_proven",
+   "batch": 3,
+   "adapter": "bie.toolbox.sources",
+   "proof": {
+    "demos": [
+     "geo-india-state",
+     "hist-gt-road"
+    ],
+    "tests": [
+     "tests/test_task046a_toolbox.py::BatchThreeSources",
+     "tests/toolbox/test_wrappers.py::Maps"
+    ]
+   },
+   "notes": "Countries (with India's own point-of-view boundary file, ne_10m_admin_0_countries_ind), states and provinces, and populated places, fetched once from the v5.1.2 tag and pinned by content hash. A map of India drawn from it must still be checked against the Survey of India's boundary before it is published (Navin's decision)."
+  },
+  {
+   "id": "shapely",
+   "name": "Shapely",
+   "kind": "python_lib",
+   "subjects": [
+    "geography_history_polity",
+    "earth_science",
+    "economics_commerce_management"
+   ],
+   "content_types": [
+    "figure",
+    "facts_numbers"
+   ],
+   "capabilities": [
+    "map_region",
+    "map_route"
+   ],
+   "role": "compute",
+   "path": "python",
+   "version": "2.2.0",
+   "licence": "BSD-3-Clause",
+   "licence_flags": [],
+   "source": "https://github.com/shapely/shapely",
+   "install_group": "toolbox-maps",
+   "status": "demo_proven",
+   "batch": 3,
+   "adapter": "bie.toolbox.adapters.maps",
+   "block": "india_map",
+   "proof": {
+    "demos": [
+     "geo-india-state",
+     "hist-gt-road"
+    ],
+    "tests": [
+     "tests/toolbox/test_wrappers.py::Maps"
+    ]
+   },
+   "notes": "Geometry for maps: picks India's states, simplifies them for drawing, keeps neighbours off India's boundary and computes areas (equal-area projection)."
+  },
+  {
+   "id": "wikimedia-commons",
+   "name": "Wikimedia Commons",
+   "kind": "asset_source",
+   "subjects": [
+    "all_subjects"
+   ],
+   "content_types": [
+    "figure"
+   ],
+   "capabilities": [
+    "focus_glow",
+    "organ_zoom"
+   ],
+   "role": "asset",
+   "path": "web",
+   "version": "MediaWiki API (live)",
+   "licence": "per item (public domain, CC BY, CC BY-SA ...; non-commercial and no-derivatives refused)",
+   "licence_flags": [
+    "per_item"
+   ],
+   "source": "https://commons.wikimedia.org",
+   "install_group": "assets-on-demand",
+   "status": "demo_proven",
+   "batch": 3,
+   "adapter": "bie.brain.assets",
+   "proof": {
+    "demos": [
+     "hist-archive-images"
+    ],
+    "tests": [
+     "tests/test_task046a_toolbox.py::BatchThreeSources"
+    ]
+   },
+   "notes": "BIE's asset library already searched Commons (Task 039); batch 3 adds a named file with its own licence, and share-alike pictures are kept and tagged share-alike for Navin's decision. Requests are slowed down when Commons answers 429."
+  },
+  {
+   "id": "openverse",
+   "name": "Openverse",
+   "kind": "asset_source",
+   "subjects": [
+    "all_subjects"
+   ],
+   "content_types": [
+    "figure"
+   ],
+   "capabilities": [
+    "focus_glow",
+    "organ_zoom"
+   ],
+   "role": "asset",
+   "path": "web",
+   "version": "Openverse API v1 (live)",
+   "licence": "per item (CC BY, CC BY-SA, CC0, public domain mark; non-commercial and no-derivatives refused)",
+   "licence_flags": [
+    "per_item"
+   ],
+   "source": "https://openverse.org",
+   "install_group": "assets-on-demand",
+   "status": "demo_proven",
+   "batch": 3,
+   "adapter": "bie.brain.assets",
+   "proof": {
+    "demos": [
+     "hist-archive-images"
+    ],
+    "tests": [
+     "tests/test_task046a_toolbox.py::BatchThreeSources"
+    ]
+   },
+   "notes": "Openly licensed pictures from Flickr, Wikimedia, museums and more, through one API; the file comes through Openverse's own image proxy."
+  },
+  {
+   "id": "world-bank",
+   "name": "World Bank Indicators API (World Development Indicators)",
+   "kind": "dataset",
+   "subjects": [
+    "economics_commerce_management",
+    "geography_history_polity",
+    "psychology_education_sociology"
+   ],
+   "content_types": [
+    "facts_numbers",
+    "comparison",
+    "timeline"
+   ],
+   "capabilities": [
+    "chart_bar_line_pie",
+    "map_region"
+   ],
+   "role": "asset",
+   "path": "web",
+   "version": "API v2 (live)",
+   "licence": "CC BY 4.0",
+   "licence_flags": [],
+   "source": "https://datahelpdesk.worldbank.org/knowledgebase/articles/889392",
+   "install_group": "assets-on-demand",
+   "status": "demo_proven",
+   "batch": 3,
+   "adapter": "bie.toolbox.sources",
+   "proof": {
+    "demos": [
+     "econ-growth-chartjs",
+     "econ-wealth-health-vega"
+    ],
+    "tests": [
+     "tests/test_task046a_toolbox.py::BatchThreeSources",
+     "tests/toolbox/test_wrappers.py::Economics"
+    ]
+   },
+   "notes": "Any indicator for any countries and years, kept in the asset library with its credit (growth, income, life expectancy, population ...)."
+  },
+  {
+   "id": "chartjs",
+   "name": "Chart.js",
+   "kind": "js_lib",
+   "subjects": [
+    "economics_commerce_management",
+    "all_subjects"
+   ],
+   "content_types": [
+    "facts_numbers",
+    "comparison"
+   ],
+   "capabilities": [
+    "chart_bar_line_pie"
+   ],
+   "role": "draw",
+   "path": "web",
+   "version": "4.5.1",
+   "licence": "MIT",
+   "licence_flags": [],
+   "source": "https://github.com/chartjs/Chart.js",
+   "install_group": "web-charts",
+   "status": "demo_proven",
+   "batch": 3,
+   "block": "chartjs_build",
+   "proof": {
+    "demos": [
+     "econ-growth-chartjs"
+    ]
+   },
+   "notes": "Bars and lines on a canvas; BIE turns its own animation off and grows the chart frame by frame so every render is the same."
+  },
+  {
+   "id": "vega-lite",
+   "name": "Vega-Lite",
+   "kind": "js_lib",
+   "subjects": [
+    "economics_commerce_management",
+    "maths_statistics",
+    "all_subjects"
+   ],
+   "content_types": [
+    "facts_numbers",
+    "comparison"
+   ],
+   "capabilities": [
+    "chart_bar_line_pie"
+   ],
+   "role": "draw",
+   "path": "web",
+   "version": "6.4.3",
+   "licence": "BSD-3-Clause",
+   "licence_flags": [],
+   "source": "https://github.com/vega/vega-lite",
+   "install_group": "web-charts",
+   "status": "demo_proven",
+   "batch": 3,
+   "block": "vega_build",
+   "proof": {
+    "demos": [
+     "econ-wealth-health-vega"
+    ]
+   },
+   "notes": "A chart grammar: BIE writes the spec, Vega-Lite compiles it to Vega."
+  },
+  {
+   "id": "vega",
+   "name": "Vega",
+   "kind": "js_lib",
+   "subjects": [
+    "economics_commerce_management",
+    "maths_statistics",
+    "all_subjects"
+   ],
+   "content_types": [
+    "facts_numbers"
+   ],
+   "capabilities": [
+    "chart_bar_line_pie"
+   ],
+   "role": "draw",
+   "path": "web",
+   "version": "6.4.0",
+   "licence": "BSD-3-Clause",
+   "licence_flags": [],
+   "source": "https://github.com/vega/vega",
+   "install_group": "web-charts",
+   "status": "demo_proven",
+   "batch": 3,
+   "block": "vega_build",
+   "proof": {
+    "demos": [
+     "econ-wealth-health-vega"
+    ]
+   },
+   "notes": "Renders the compiled chart to SVG headless, once per frame."
+  },
+  {
+   "id": "plotly",
+   "name": "Plotly.js (plotly.js-dist-min)",
+   "kind": "js_lib",
+   "subjects": [
+    "economics_commerce_management",
+    "maths_statistics",
+    "physics",
+    "all_subjects"
+   ],
+   "content_types": [
+    "facts_numbers",
+    "process"
+   ],
+   "capabilities": [
+    "function_graph",
+    "chart_bar_line_pie",
+    "vector_field"
+   ],
+   "role": "draw",
+   "path": "web",
+   "version": "4.1.1",
+   "licence": "MIT",
+   "licence_flags": [],
+   "source": "https://github.com/plotly/plotly.js",
+   "install_group": "web-charts",
+   "status": "demo_proven",
+   "batch": 3,
+   "block": "plotly_build",
+   "proof": {
+    "demos": [
+     "econ-cobb-douglas-plotly"
+    ]
+   },
+   "notes": "Scientific charts (contours, surfaces, heatmaps); drawn as a static plot each frame."
+  },
+  {
+   "id": "mermaid",
+   "name": "Mermaid",
+   "kind": "js_lib",
+   "subjects": [
+    "all_subjects",
+    "law",
+    "computer_science",
+    "geography_history_polity"
+   ],
+   "content_types": [
+    "process",
+    "cause_effect",
+    "structure"
+   ],
+   "capabilities": [
+    "flowchart",
+    "tree_hierarchy",
+    "timeline"
+   ],
+   "role": "draw",
+   "path": "web",
+   "version": "12.1.0",
+   "licence": "MIT",
+   "licence_flags": [],
+   "source": "https://github.com/mermaid-js/mermaid",
+   "install_group": "web-charts",
+   "status": "demo_proven",
+   "batch": 3,
+   "block": "mermaid_build",
+   "proof": {
+    "demos": [
+     "polity-bill-mermaid"
+    ]
+   },
+   "notes": "Diagrams from text (flowcharts, sequence, mind maps, timelines); BIE renders once and reveals node by node."
+  },
+  {
+   "id": "mermaid-layout-elk",
+   "name": "@mermaid-js/layout-elk",
+   "kind": "js_lib",
+   "subjects": [
+    "all_subjects"
+   ],
+   "content_types": [
+    "process",
+    "structure"
+   ],
+   "capabilities": [
+    "flowchart"
+   ],
+   "role": "draw",
+   "path": "web",
+   "version": "1.0.1",
+   "licence": "MIT",
+   "licence_flags": [],
+   "source": "https://github.com/mermaid-js/mermaid/tree/develop/packages/mermaid-layout-elk",
+   "install_group": "web-charts",
+   "status": "demo_proven",
+   "batch": 3,
+   "block": "mermaid_build",
+   "proof": {
+    "demos": [
+     "polity-bill-mermaid"
+    ]
+   },
+   "notes": "Lets Mermaid lay its diagrams out with ELK (layout: elk)."
+  },
+  {
+   "id": "elkjs",
+   "name": "elkjs (Eclipse Layout Kernel)",
+   "kind": "js_lib",
+   "subjects": [
+    "all_subjects"
+   ],
+   "content_types": [
+    "process",
+    "structure"
+   ],
+   "capabilities": [
+    "flowchart",
+    "network_graph"
+   ],
+   "role": "draw",
+   "path": "web",
+   "version": "0.9.3",
+   "licence": "EPL-2.0 (one of elkjs's two licences; BIE takes EPL-2.0 and does not modify it)",
+   "licence_flags": [],
+   "source": "https://github.com/kieler/elkjs",
+   "install_group": "web-charts",
+   "status": "demo_proven",
+   "batch": 3,
+   "proof": {
+    "demos": [
+     "polity-bill-mermaid"
+    ]
+   },
+   "notes": "Graph layout. elkjs is offered under EPL-2.0 or a GPL licence; BIE uses it under EPL-2.0, a weak copyleft: changes to elkjs's own files would have to be shared, BIE's code is not affected. Pinned to the 0.9 line that Mermaid's ELK layout asks for."
+  },
+  {
+   "id": "dagre",
+   "name": "dagre (@dagrejs/dagre)",
+   "kind": "js_lib",
+   "subjects": [
+    "all_subjects",
+    "law",
+    "computer_science"
+   ],
+   "content_types": [
+    "process",
+    "cause_effect"
+   ],
+   "capabilities": [
+    "flowchart"
+   ],
+   "role": "draw",
+   "path": "web",
+   "version": "3.1.1",
+   "licence": "MIT",
+   "licence_flags": [],
+   "source": "https://github.com/dagrejs/dagre",
+   "install_group": "web-charts",
+   "status": "demo_proven",
+   "batch": 3,
+   "block": "flow_build",
+   "proof": {
+    "demos": [
+     "law-procedure-flow"
+    ]
+   },
+   "notes": "Layered graph layout for BIE's own flowchart block (steps, decisions, ends, labelled edges)."
+  },
+  {
+   "id": "india-code",
+   "name": "India Code (official repository of Indian law)",
+   "kind": "dataset",
+   "subjects": [
+    "law",
+    "geography_history_polity"
+   ],
+   "content_types": [
+    "process",
+    "definition",
+    "structure"
+   ],
+   "capabilities": [
+    "flowchart",
+    "tree_hierarchy",
+    "case_card"
+   ],
+   "role": "asset",
+   "path": "web",
+   "version": "DSpace 9 REST API (live)",
+   "licence": "Government of India content; Acts may be reproduced (Copyright Act 1957, s. 52(1)(q)) with the source acknowledged",
+   "licence_flags": [
+    "custom"
+   ],
+   "source": "https://indiacode.gov.in",
+   "install_group": "assets-on-demand",
+   "status": "demo_proven",
+   "batch": 3,
+   "adapter": "bie.toolbox.sources",
+   "proof": {
+    "demos": [
+     "law-procedure-flow",
+     "law-courts-tree"
+    ],
+    "tests": [
+     "tests/test_task046a_toolbox.py::BatchThreeSources",
+     "tests/toolbox/test_wrappers.py::Law"
+    ]
+   },
+   "notes": "Bare acts as data: an Act's record and every section (number, official title, text) through India Code's open REST API, kept in the cache. Flowcharts find their sections by official title, never by a number typed from memory."
+  },
+  {
+   "id": "sc-judgments",
+   "name": "Indian Supreme Court Judgments (open dataset)",
+   "kind": "dataset",
+   "subjects": [
+    "law"
+   ],
+   "content_types": [
+    "facts_numbers",
+    "definition",
+    "timeline"
+   ],
+   "capabilities": [
+    "case_card"
+   ],
+   "role": "asset",
+   "path": "web",
+   "version": "metadata parquet by year (AWS Open Data, updated every two months)",
+   "licence": "CC BY 4.0 (dataset by Dattam Labs); judgments from the Supreme Court of India",
+   "licence_flags": [],
+   "source": "https://registry.opendata.aws/indian-supreme-court-judgments/",
+   "install_group": "assets-on-demand",
+   "status": "demo_proven",
+   "batch": 3,
+   "adapter": "bie.toolbox.sources",
+   "proof": {
+    "demos": [
+     "law-case-card"
+    ],
+    "tests": [
+     "tests/test_task046a_toolbox.py::BatchThreeSources",
+     "tests/toolbox/test_wrappers.py::Law"
+    ]
+   },
+   "notes": "Every Supreme Court judgment since 1950: parties, bench, citations, date, and the PDF in English and Indian languages."
+  },
+  {
+   "id": "pyarrow",
+   "name": "Apache Arrow (pyarrow)",
+   "kind": "python_lib",
+   "subjects": [
+    "law",
+    "economics_commerce_management",
+    "all_subjects"
+   ],
+   "content_types": [
+    "facts_numbers"
+   ],
+   "capabilities": [
+    "case_card"
+   ],
+   "role": "compute",
+   "path": "python",
+   "version": "26.0.0",
+   "licence": "Apache-2.0",
+   "licence_flags": [],
+   "source": "https://arrow.apache.org",
+   "install_group": "toolbox-law",
+   "status": "demo_proven",
+   "batch": 3,
+   "proof": {
+    "demos": [
+     "law-case-card"
+    ],
+    "tests": [
+     "tests/toolbox/test_wrappers.py::Law"
+    ]
+   },
+   "notes": "Reads Parquet tables (the judgments dataset's metadata)."
+  },
+  {
+   "id": "psychopy",
+   "name": "PsychoPy (psychopy.data)",
+   "kind": "python_lib",
+   "subjects": [
+    "psychology_education_sociology"
+   ],
+   "content_types": [
+    "process"
+   ],
+   "capabilities": [
+    "flowchart"
+   ],
+   "role": "compute",
+   "path": "python",
+   "version": "2026.2.4",
+   "licence": "GPL-3.0-or-later",
+   "licence_flags": [
+    "gpl"
+   ],
+   "source": "https://www.psychopy.org",
+   "install_group": "toolbox-behaviour",
+   "status": "demo_proven",
+   "batch": 3,
+   "adapter": "bie.toolbox.adapters.behaviour",
+   "block": "experiment_flow",
+   "proof": {
+    "demos": [
+     "psy-stroop-flow"
+    ],
+    "tests": [
+     "tests/toolbox/test_wrappers.py::Behaviour"
+    ]
+   },
+   "notes": "Experiment design (trial lists, randomisation, staircases). Only psychopy.data is used: the lane installs PsychoPy with --no-deps (its own pins need Python below 3.13 and a desktop stack) plus json-tricks 3.17.3 (BSD-3-Clause) and i18next 0.0.3 (MIT). GPL: Navin's decision."
+  },
+  {
+   "id": "indic-nlp",
+   "name": "Indic NLP Library",
+   "kind": "python_lib",
+   "subjects": [
+    "languages_literature"
+   ],
+   "content_types": [
+    "definition"
+   ],
+   "capabilities": [
+    "text_kinetic",
+    "kinetic_caption"
+   ],
+   "role": "compute",
+   "path": "python",
+   "version": "0.92",
+   "licence": "MIT (library and indic_nlp_resources)",
+   "licence_flags": [],
+   "source": "https://github.com/anoopkunchukuttan/indic_nlp_library",
+   "install_group": "toolbox-language",
+   "status": "demo_proven",
+   "batch": 3,
+   "adapter": "bie.toolbox.adapters.language",
+   "block": "kinetic_text",
+   "proof": {
+    "demos": [
+     "lang-kinetic-sanskrit"
+    ],
+    "tests": [
+     "tests/toolbox/test_wrappers.py::Language"
+    ]
+   },
+   "notes": "Tokenising and akshara (orthographic syllable) splitting for Indian scripts; the two script tables it needs are pinned by hash."
+  },
+  {
+   "id": "indic-transliteration",
+   "name": "indic_transliteration (sanscript)",
+   "kind": "python_lib",
+   "subjects": [
+    "languages_literature"
+   ],
+   "content_types": [
+    "definition"
+   ],
+   "capabilities": [
+    "text_kinetic"
+   ],
+   "role": "compute",
+   "path": "python",
+   "version": "2.3.82",
+   "licence": "MIT",
+   "licence_flags": [],
+   "source": "https://github.com/indic-transliteration/indic_transliteration_py",
+   "install_group": "toolbox-language",
+   "status": "demo_proven",
+   "batch": 3,
+   "adapter": "bie.toolbox.adapters.language",
+   "proof": {
+    "demos": [
+     "lang-kinetic-sanskrit"
+    ],
+    "tests": [
+     "tests/toolbox/test_wrappers.py::Language"
+    ]
+   },
+   "notes": "Devanagari to Roman (IAST, ISO 15919) and between Indian scripts."
+  },
+  {
+   "id": "noto-devanagari",
+   "name": "Noto Sans Devanagari (font)",
+   "kind": "asset_source",
+   "subjects": [
+    "languages_literature",
+    "all_subjects"
+   ],
+   "content_types": [
+    "definition"
+   ],
+   "capabilities": [
+    "text_kinetic",
+    "kinetic_caption"
+   ],
+   "role": "asset",
+   "path": "web",
+   "version": "google/fonts e7db6ca6 (variable font)",
+   "licence": "SIL Open Font License 1.1",
+   "licence_flags": [],
+   "source": "https://github.com/notofonts/devanagari",
+   "install_group": "assets-on-demand",
+   "status": "demo_proven",
+   "batch": 3,
+   "adapter": "bie.toolbox.sources",
+   "proof": {
+    "demos": [
+     "lang-kinetic-sanskrit"
+    ],
+    "tests": [
+     "tests/test_task046a_toolbox.py::BatchThreeSources"
+    ]
+   },
+   "notes": "The script font every render loads from the asset library, so all machines draw the same letters."
+  },
+  {
+   "id": "bie-social-blocks",
+   "name": "BIE social-science blocks (bie/brain/video/blocks/toolbox)",
+   "kind": "js_lib",
+   "subjects": [
+    "geography_history_polity",
+    "economics_commerce_management",
+    "law",
+    "psychology_education_sociology",
+    "languages_literature",
+    "all_subjects"
+   ],
+   "content_types": [
+    "process",
+    "structure",
+    "timeline",
+    "comparison",
+    "facts_numbers",
+    "definition",
+    "figure",
+    "cause_effect",
+    "classification"
+   ],
+   "capabilities": [
+    "map_region",
+    "map_route",
+    "timeline",
+    "flowchart",
+    "process_cycle",
+    "tree_hierarchy",
+    "case_card",
+    "chart_bar_line_pie",
+    "text_kinetic",
+    "function_graph"
+   ],
+   "role": "draw",
+   "path": "web",
+   "version": "bie-2026-10-25",
+   "licence": "BIE's own code",
+   "licence_flags": [],
+   "source": "https://github.com/SEENAV01/Enterprise-bie",
+   "install_group": "web-core",
+   "status": "demo_proven",
+   "batch": 3,
+   "rank": 10,
+   "block": "india_map, timeline_build, mermaid_build, flow_build, tree_build, case_card, chartjs_build, vega_build, plotly_build, kinetic_text, experiment_flow",
+   "proof": {
+    "demos": [
+     "geo-india-state",
+     "hist-gt-road",
+     "hist-timeline",
+     "polity-bill-mermaid",
+     "econ-growth-chartjs",
+     "econ-wealth-health-vega",
+     "econ-cobb-douglas-plotly",
+     "law-procedure-flow",
+     "law-case-card",
+     "law-courts-tree",
+     "psy-stroop-flow",
+     "edu-learning-cycle",
+     "lang-kinetic-sanskrit"
+    ]
+   },
+   "notes": "The batch 3 blocks; a law block shows the section number its data source gives, a chart block grows from the data BIE fetched."
+  }
  ]
 }

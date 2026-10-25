@@ -11,7 +11,7 @@ import { ThreeCanvas } from "@remotion/three";
 import { PerspectiveCamera } from "@react-three/drei";
 import * as CANNON from "cannon-es";
 import { registerBlock, BlockProps } from "../registry";
-import { C, Title, Badge, assetUrl, clamp01, ramp, useAsset, useRel } from "./common";
+import { C, FONT, Title, Badge, assetUrl, clamp01, ramp, useAsset, useRel } from "./common";
 
 const loader = new GLTFLoader();
 function loadGlb(src: string): Promise<THREE.Group> {
@@ -122,10 +122,14 @@ const CellSheet: React.FC<BlockProps> = ({ data, at, width, height }) => {
 
 // ---------------------------------------------------------------- any model: turn, glow, zoom
 
+type Part = { match: string; colour: string; label: string; at: number };
+
 const Model3D: React.FC<BlockProps> = ({ data, at, width, height }) => {
   const { rel, fps } = useRel(at);
   const model = useAsset(`glb:${data.src}`, () => loadGlb(data.src));
   const pattern = data.glow ? new RegExp(data.glow, "i") : null;
+  // parts (batch 3): named parts take their own colour one after another (a brain's lobes), each glowing as it comes
+  const parts = (data.parts || []) as Part[];
   const scene = useMemo(() => {
     if (!model) return null;
     const copy = model.clone(true);
@@ -139,27 +143,43 @@ const Model3D: React.FC<BlockProps> = ({ data, at, width, height }) => {
         o.material = Array.isArray(o.material) ? o.material.map((m: any) => m.clone()) : o.material.clone();
         if (data.colour && !o.material.map) o.material.color = new THREE.Color(data.colour);
         if (pattern && pattern.test(o.name)) o.userData.glow = true;
+        const k = parts.findIndex((p) => new RegExp(p.match, "i").test(o.name));
+        if (k >= 0) o.userData.part = k;
       }
     });
     return copy;
-  }, [model, data.glow, data.colour]);
+  }, [model, data.glow, data.colour, JSON.stringify(parts)]);
   if (!scene) return null;
   const glow = ramp(rel, (data.glow_at ?? 1.5) * fps, 12) * (0.6 + 0.4 * Math.sin(rel / 4));
+  const base = new THREE.Color(data.base_colour || "#9a9fa6");
   scene.traverse((o: any) => {
     if (o.isMesh && o.userData.glow) { const m = o.material; m.emissive = new THREE.Color(C.warm); m.emissiveIntensity = glow; }
+    if (o.isMesh && o.userData.part !== undefined) {
+      const p = parts[o.userData.part], m = o.material;
+      const on = ramp(rel, p.at * fps, 10), pulse = on * Math.max(0, 1 - (rel - p.at * fps) / (0.9 * fps));
+      m.color = base.clone().lerp(new THREE.Color(p.colour), on);
+      m.emissive = new THREE.Color(p.colour); m.emissiveIntensity = 0.55 * pulse;
+    }
   });
   const turn = (data.turn_degrees ?? 120) * ramp(rel, 0, (data.seconds ?? 5) * fps);
   const zoom = data.zoom ? 1 - (1 - data.zoom) * ramp(rel, (data.zoom_at ?? 2) * fps, 1.5 * fps) : 1;
   return (
     <>
-      <ThreeCanvas width={width} height={height} gl={{ alpha: true, preserveDrawingBuffer: true, antialias: true }}>
-        <Lights />
-        {/* spin: the model turns under a fixed camera and fixed lights, so a part never turns its dark side to the viewer */}
-        <Orbit angle={(data.start_degrees ?? 0) + (data.spin ? 0 : turn)} distance={(data.distance ?? 4.2) * zoom}
-          height={(data.camera_height ?? 0.6) * zoom} target={data.target || [0, 0, 0]} />
-        <primitive object={scene} rotation={[0, data.spin ? (turn * Math.PI) / 180 : 0, 0]} />
-      </ThreeCanvas>
+      <div style={{ position: "absolute", inset: 0, transform: `translateX(${data.shift_x ?? 0}px)` }}>
+        <ThreeCanvas width={width} height={height} gl={{ alpha: true, preserveDrawingBuffer: true, antialias: true }}>
+          <Lights />
+          {/* spin: the model turns under a fixed camera and fixed lights, so a part never turns its dark side to the viewer */}
+          <Orbit angle={(data.start_degrees ?? 0) + (data.spin ? 0 : turn)} distance={(data.distance ?? 4.2) * zoom}
+            height={(data.camera_height ?? 0.6) * zoom} target={data.target || [0, 0, 0]} />
+          <primitive object={scene} rotation={[0, data.spin ? (turn * Math.PI) / 180 : 0, 0]} />
+        </ThreeCanvas>
+      </div>
       <Title text={data.title} sub={data.subtitle} />
+      {parts.length ? <div style={{ position: "absolute", right: 40, top: 150, display: "flex", flexDirection: "column", gap: 12, fontFamily: FONT }}>
+        {parts.map((p) => <div key={p.label} style={{ display: "flex", alignItems: "center", gap: 12, fontSize: 28, color: C.ink, fontWeight: 700,
+          opacity: ramp(rel, p.at * fps, 8), background: C.panel, padding: "6px 16px", borderRadius: 12 }}>
+          <span style={{ width: 22, height: 22, borderRadius: 11, background: p.colour, display: "inline-block" }} />{p.label}</div>)}
+      </div> : null}
       {data.credit ? <div style={{ position: "absolute", right: 16, bottom: 8, color: C.muted, fontSize: 16, fontFamily: "sans-serif" }}>{data.credit}</div> : null}
     </>
   );

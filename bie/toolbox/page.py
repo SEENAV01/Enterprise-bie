@@ -82,9 +82,30 @@ def render_markdown(box: Toolbox, results: dict | None = None, *, missing_log: l
     if missing_log:
         lines += ["", "Logged by runs (capability, subject, times asked):", ""]
         lines += [f"- {m['capability']} ({m['subject'] or 'any subject'}): {m['count']}" for m in missing_log]
+    lines += exam_lines(box)
     shared = [t for t in box.tools if set(t.licence_flags) & {"share_alike", "gpl", "custom"}]
     lines += ["", "## Licences to decide (Navin)", "",
               "Recorded, not blocked. Share-alike content may make an adapted video carry the same licence; a GPL program's "
               "outputs (the models BIE makes) are not GPL; Remotion needs a company licence above 3 people.", ""]
     lines += [f"- {t.name}: {t.licence}" for t in shared]
     return "\n".join(lines) + "\n"
+
+
+def exam_lines(box: Toolbox) -> list:
+    """The UGC NET and GATE map: how far the toolbox covers each subject today, and the gap where it does not."""
+    from .exams import coverage
+    cov = coverage(box)
+    tot = cov["totals"]
+    fit = lambda d: ", ".join(f"{k} {d.get(k, 0)}" for k in ("strong", "partial", "general"))
+    out = ["", "## UGC NET and GATE map", "",
+           f"{tot['ugc_net_subjects']} UGC NET subjects (plus Paper I) and {tot['gate_papers']} GATE papers, from the official lists "
+           "(bie/toolbox/exam_map.json names the pages and the date). Fit is Claude's reading of the syllabus headings, for Navin to check: "
+           "strong = the subject's own tools exist, partial = some, general = only the general blocks.", "",
+           f"- UGC NET: {fit(tot['ugc_net_fit'])}", f"- GATE: {fit(tot['gate_fit'])}",
+           f"- Subjects with no usable tool at all: {', '.join(tot['without_a_tool']) or 'none'}", ""]
+    for exam, title in (("ugc_net", "UGC NET"), ("gate", "GATE")):
+        out += [f"### {title}", "", "| Code | Subject | Families | Fit | Tools | Missing |", "| --- | --- | --- | --- | --- | --- |"]
+        out += [f"| {r['code']} | {r['name']} | {', '.join(FAMILY_TEXT.get(f, f) for f in r['families'])} | {r['fit']} | {r['tools']} | "
+                f"{r['gap'] or '—'} |" for r in cov[exam]]
+        out.append("")
+    return out
