@@ -163,6 +163,23 @@ Navin's free Google AI Studio key on the VM (`gemini-3.8-flash`, direct route; s
 observations, for the record only: the new scripts use more examples and analogies; the old ones had fuller sentences and more
 completeness; some new sentences feel clipped. The next task (046a, the tool house) starts only after Navin says so.
 
+**046a · Auzaar-ghar (toolbox)** — started 25 October 2026 on Navin's brief, cost ₹0 (no AI calls), three PRs. Every library,
+tool and asset source BIE may need to show what a scene plan asks for is joined into BIE, wired and proven: `bie/toolbox/`
+holds the registry (`registry.json` + schema + loader: kind, subjects, content types, capabilities, role, render path, pinned
+version, licence with share-alike/GPL/custom flags, source, install group, status from installed to used_on_real_book, proof),
+the fixed capability vocabulary (`capabilities.json`: Navin's 41 capabilities plus `split_compare` from the benchmark, tied to
+the content types and the 045d visual verbs) and a resolver (capability, subject, level, path → the tools that draw, compute and
+supply assets, with a fallback path; a capability nothing provides is logged as "missing" for seekh → BIE and the 046 merge
+path). Two render paths, one bridge: the web path (BIE blocks for Remotion, previewed by remotion-lite, with three.js through
+@remotion/three, React Three Fiber and drei; KaTeX, D3, 3Dmol.js, Mol*, matter.js, cannon-es) and the Python/offline path
+(compute libraries return JSON; Blender headless exports glTF for route C; Manim renders clips). Large files are fetched on
+demand into the asset cache with licence and credit, never into git. Every tool is proven by a 3–5 s silent demo clip made by
+BIE code (with a contact sheet) or by a test; the status words are claims the demos lane checks on every run. Batch 1: core +
+biology, chemistry, maths, physics, computer science; batch 2: electrical, mechanical/civil, earth, astronomy, aerospace;
+batch 3: geography/history/polity, economics, law, psychology/education/sociology, languages, and the UGC NET (84) / GATE
+mapping. After each batch Navin sees the toolbox page (`docs/toolbox/TOOLBOX.md`), the clips, what is blocked and why, and the
+missing capabilities. Licence policy and repo visibility stay Navin's later decision.
+
 **046 · Director, video blocks and the benchmark video** — the presentation layer, built to the benchmark
 (`bie/brain/rulebook/benchmarks/epithelium_animation.json`, rule S3-06): one spoken sentence is one shot of 2–4 s; about
 40–50 s per family member; said = shown, a function sentence shows motion; a term opened with "yaani" on first use and every

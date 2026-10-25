@@ -4,6 +4,7 @@
 // what appears, where and on which spoken word; the look stays consistent across thousands of lessons.
 import React from "react";
 import { AbsoluteFill, Easing, Img, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
+import { getBlock } from "./registry";
 
 export const W = 1920;
 export const H = 1080;
@@ -11,7 +12,7 @@ export const C = {
   bg0: "#06121c", bg1: "#0b2433", ink: "#f2f6f8", muted: "#9fb3bf", accent: "#38d3c3", warm: "#ffb35c",
   danger: "#ff6b6b", line: "rgba(255,255,255,0.18)", panel: "rgba(8,28,40,0.82)",
 };
-const FONT = '"Noto Sans", "Noto Sans Devanagari", Inter, "FreeSans", sans-serif';
+export const FONT = '"Noto Sans", "Noto Sans Devanagari", Inter, "FreeSans", sans-serif';
 
 export type Box = { x: number; y: number; w: number; h: number };      // 0..1 of the world (or of a parent layer)
 export type Pt = { x: number; y: number };
@@ -28,14 +29,17 @@ export type Layer =
   | { id: string; type: "scale"; at: number; until?: number; box: Box; title?: string; items: { label: string; value: number; unit?: string; at: number }[] }
   | { id: string; type: "table"; at: number; until?: number; box: Box; columns: string[]; rows: { label: string; cells: string[] }[]; focus?: { column: number; at: number }[] }
   | { id: string; type: "arrow"; at: number; until?: number; from: Anchor; to: Anchor; label?: string }
-  | { id: string; type: "question"; at: number; until?: number; text: string };
+  | { id: string; type: "question"; at: number; until?: number; text: string }
+  // A toolbox block (Task 046a): "block" names a component registered by the toolbox bundle (three.js, KaTeX, D3,
+  // 3Dmol.js, Mol*, matter.js, cannon-es ...); "data" is what a BIE compute adapter made for it.
+  | { id: string; type: "block"; at: number; until?: number; box: Box; block: string; data: any };
 
 // A camera key shows a world box, or a region of a layer (for example the nucleus inside an illustration).
 export type CameraKey = { at: number; box?: Box; layer?: string; region?: Box; frames?: number };
 export type SceneSpec = { id: string; duration: number; layers: Layer[]; camera: CameraKey[]; captions?: { at: number; until: number; text: string }[] };
 
 const px = (b: Box) => ({ left: b.x * W, top: b.y * H, width: b.w * W, height: b.h * H });
-const ease = Easing.inOut;
+const ease = Easing.inOut(Easing.cubic);
 
 function appear(frame: number, at: number, until?: number, fps = 30) {
   if (frame < at) return 0;
@@ -323,6 +327,19 @@ const QuestionLayer: React.FC<{ l: Extract<Layer, { type: "question" }> }> = ({ 
   );
 };
 
+const ToolLayer: React.FC<{ l: Extract<Layer, { type: "block" }> }> = ({ l }) => {
+  const frame = useCurrentFrame();
+  const o = appear(frame, l.at, l.until);
+  const Block = getBlock(l.block);
+  if (!Block) throw new Error(`BIE_BLOCK_MISSING:${l.block} (render with the toolbox bundle, bie/brain/video/preview/build.mjs --toolbox)`);
+  const box = px(l.box);
+  return (
+    <div style={{ position: "absolute", ...box, opacity: o }}>
+      <Block data={l.data} at={l.at} until={l.until} width={Math.round(box.width)} height={Math.round(box.height)} id={l.id} />
+    </div>
+  );
+};
+
 const Captions: React.FC<{ captions: { at: number; until: number; text: string }[] }> = ({ captions }) => {
   const frame = useCurrentFrame();
   const now = captions.find((c) => frame >= c.at && frame < c.until);
@@ -359,6 +376,7 @@ export const Scene: React.FC<{ spec: SceneSpec; showCaptions?: boolean }> = ({ s
             case "scale": return <ScaleLayer key={l.id} l={l} />;
             case "table": return <TableLayer key={l.id} l={l} />;
             case "arrow": return <ArrowLayer key={l.id} l={l} layers={spec.layers} />;
+            case "block": return <ToolLayer key={l.id} l={l} />;
             default: return null;
           }
         })}

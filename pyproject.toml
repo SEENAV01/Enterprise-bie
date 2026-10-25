@@ -23,6 +23,35 @@ api = [
 api-test = [
     "httpx==0.28.1",
 ]
+# Task 046a toolbox (bie/toolbox/registry.json): optional groups per subject family, installed only by the toolbox lane
+# and on machines that render; versions are the newest with a Python 3.13 Linux wheel before tools/npm_before.txt.
+toolbox-core = [
+    "numpy==2.5.4",
+    "scipy==1.18.1",
+    "sympy==1.14.0",
+    "networkx==3.7",
+    "pillow==13.0.0",
+]
+toolbox-stats = [
+    "statsmodels==0.15.0",
+]
+toolbox-bio = [
+    "biopython==1.88",
+    "neurokit2==0.2.13",
+]
+toolbox-chem = [
+    "rdkit==2026.9.1",
+    "cantera==3.2.0",
+]
+toolbox-mesh = [
+    "trimesh==5.1.1",
+]
+toolbox-manim = [
+    "manim==0.22.0",
+]
+toolbox-blender = [
+    "bpy==5.2.2",
+]
 
 [tool.setuptools.packages.find]
 where = ["."]
