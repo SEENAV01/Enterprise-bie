@@ -54,6 +54,7 @@ export const Chart: React.FC<{ series: Series[]; points?: Point[]; rel: number; 
       {series.map((s, i) => {
         const colour = s.colour || PALETTE[i % PALETTE.length];
         const reach = ramp(rel, (s.start ?? 0.2) * fps, (s.seconds ?? 2.5) * fps, (t: number) => t);
+        if (reach <= 0) return null;                            // a series not started yet draws nothing, not even a dot
         const pts = grown(s.x, s.y, reach);
         const tip = pts[pts.length - 1];
         return (

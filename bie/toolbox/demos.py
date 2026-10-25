@@ -317,8 +317,9 @@ def rankine_cycle(w: Work) -> dict:
     r = mechanics.rankine(80.0, 0.1, 480.0)
     w.notes["coolprop"] = {"efficiency": r["efficiency"]}
     st = r["states"]
-    series = [{"x": r["dome"]["s_liquid"], "y": r["dome"]["T_C"], "colour": "#6fb7ff", "start": 0.1, "seconds": 0.8, "width": 4},
-              {"x": r["dome"]["s_vapour"], "y": r["dome"]["T_C"], "colour": "#6fb7ff", "start": 0.1, "seconds": 0.8, "width": 4, "label": "saturation dome"},
+    dome = r["dome"]                                    # one line over the top: liquid side up, vapour side down
+    series = [{"x": dome["s_liquid"] + dome["s_vapour"][::-1], "y": dome["T_C"] + dome["T_C"][::-1], "colour": "#6fb7ff", "start": 0.1,
+               "seconds": 0.9, "width": 4, "label": "saturation dome"},
               {"x": [st[0]["s"], st[1]["s"]], "y": [st[0]["T_C"], st[1]["T_C"]], "colour": "#c79bff", "start": 1.0, "seconds": 0.3, "label": "pump"},
               {"x": r["heating"]["s"], "y": r["heating"]["T_C"], "colour": "#ff6b6b", "start": 1.3, "seconds": 1.0, "label": "boiler"},
               {"x": [st[2]["s"], st[3]["s"]], "y": [st[2]["T_C"], st[3]["T_C"]], "colour": "#38d3c3", "start": 2.3, "seconds": 0.5, "label": "turbine"},
@@ -326,7 +327,7 @@ def rankine_cycle(w: Work) -> dict:
     points = [{"x": p["s"], "y": p["T_C"], "label": p["name"], "at": 1.0 + 0.6 * k} for k, p in enumerate(st)]
     return scene([block("xy_lines", {"series": series, "points": points, "title": "A steam power plant on a T–s chart",
                                      "subtitle": "Rankine cycle, 80 bar and 480 °C · water properties from CoolProp",
-                                     "x_label": "entropy s (kJ/kg·K)", "y_label": "temperature (°C)",
+                                     "x_label": "entropy s (kJ/kg·K)", "y_label": "temperature (°C)", "legend_box": True,
                                      "note": f"efficiency {100 * r['efficiency']:.1f}%"})], 4.2)
 
 
@@ -496,7 +497,7 @@ DEMOS = (
     Demo("mech-beam", 2, "A loaded steel beam bends (PyNite, checked by sympy.physics)", ("pynite", "sympy-physics", "bie-blocks"),
          ("structure_load",), 4.0, beam),
     Demo("mech-flange", 2, "A pipe flange built by CadQuery, turning in three.js", ("cadquery", "trimesh", *THREE_STACK), ("machine_part_3d",), 4.0, flange),
-    Demo("mech-rankine", 2, "A Rankine steam cycle on a T–s chart from CoolProp", ("coolprop", "d3"), ("function_graph",), 4.2, rankine_cycle),
+    Demo("mech-rankine", 2, "A Rankine steam cycle on a T-s chart from CoolProp", ("coolprop", "d3"), ("function_graph",), 4.2, rankine_cycle),
     Demo("mech-heat-plate", 2, "Heat flow in a plate by scikit-fem", ("scikit-fem", "d3"), ("vector_field",), 4.0, heat_plate),
     Demo("geo-relief", 2, "Himalaya relief and profile by PyGMT", ("pygmt", "gmt", "gmt-earth-relief", "bie-blocks", "d3"),
          ("terrain_or_layers", "map_region"), 4.2, relief),
