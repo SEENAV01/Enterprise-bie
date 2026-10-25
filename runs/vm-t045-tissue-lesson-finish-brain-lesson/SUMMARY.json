@@ -1,0 +1,256 @@
+{
+  "cost": {
+    "cap": {
+      "by_section_inr": {
+        "lesson": 7.05,
+        "preflight": 0.09
+      },
+      "calls_allowed": 5,
+      "calls_refused": 0,
+      "cap_inr": 30.0,
+      "spent_inr": 7.13,
+      "spent_usd": 0.075396,
+      "stop_reason": null,
+      "stopped": false,
+      "usd_inr": 94.59
+    },
+    "inr_per_page": 0.51,
+    "note": "Ledger cost is an estimate: exact token counts times the dated price table in bie/model_gateway/live/pricing.py (plus the AICredits 10% markup), converted at usd_inr. It is not the bill. Write the provider dashboard amount for this run into real_bill_inr (and docs/roadmap/COST_LOG.md) to compare.",
+    "pages": 14,
+    "real_bill_inr": null,
+    "sections": {
+      "lesson": {
+        "calls": 3,
+        "inr": 7.05,
+        "inr_per_page": 0.5,
+        "name": "Section 2 · lesson",
+        "usd": 0.074487
+      },
+      "preflight": {
+        "calls": 2,
+        "inr": 0.09,
+        "inr_per_page": 0.01,
+        "name": "preflight",
+        "usd": 0.000909
+      }
+    },
+    "subscription": {
+      "calls": 1,
+      "failed_calls": 0,
+      "input_tokens": 3347,
+      "minutes": 0.1,
+      "note": "paid by the ChatGPT plan, no rupees; time is the sum of call times",
+      "output_tokens": 15,
+      "reasoning_tokens": 0
+    },
+    "total_inr": 7.13,
+    "total_usd": 0.075396,
+    "usd_inr": 94.59
+  },
+  "estimate": {
+    "maker_billing": "subscription",
+    "measured_share_inr": 39.17,
+    "pages": 14,
+    "price_scale": 0.06,
+    "sections": {
+      "lesson": {
+        "basis": "measured",
+        "inr": 39.17,
+        "inr_per_page": 2.8,
+        "source": "VM job t045b-tissue-lesson, 14 pages (458 minutes spoken, before the time rule)"
+      }
+    },
+    "total_inr": 39.17,
+    "usd_inr": 94.59
+  },
+  "fake": false,
+  "ledger_calls": 5,
+  "ledger_cost_usd": 0.075396,
+  "lesson_quality": {
+    "beats": 613,
+    "budget_minutes": {
+      "book_pages": 14,
+      "per_page": [
+        6.0,
+        8.0
+      ],
+      "prerequisite_video": [
+        5.0,
+        8.0
+      ],
+      "topic_videos": [
+        84.0,
+        112.0
+      ]
+    },
+    "cost_usd": 0.074487,
+    "dohraav": {
+      "judged_beats": 500,
+      "opened_share": 0.688,
+      "restating": 0,
+      "share": 0.0
+    },
+    "estimated_minutes_at_130_wpm": 116.5,
+    "plan_passed": true,
+    "spoken_words": 15140,
+    "videos": 11,
+    "videos_continued": 2,
+    "videos_passed": 11,
+    "videos_reused": 9
+  },
+  "level": {
+    "band": "senior_secondary",
+    "disagreement": null,
+    "evidence": {
+      "long_share": 0.1217,
+      "marker": "intermediate",
+      "reason": "the text says 'intermediate'",
+      "sentence_words": 10.1,
+      "setting": "course.level = upsc_pcs",
+      "very_long_share": 0.0138,
+      "words": 6096
+    },
+    "profile": "upsc_pcs",
+    "source": "course"
+  },
+  "maker": "codex",
+  "models": {
+    "codex": "gpt-6.1-sol",
+    "google": "gemini-3.8-flash"
+  },
+  "plan_usage_after": {
+    "codex": {
+      "rateLimitResetCredits.availableCount": 2,
+      "rateLimits.planType": "prolite",
+      "rateLimits.primary.resetsAt": 1793386783,
+      "rateLimits.primary.usedPercent": 8,
+      "rateLimits.primary.windowDurationMins": 10080,
+      "rateLimitsByLimitId.codex.planType": "prolite",
+      "rateLimitsByLimitId.codex.primary.resetsAt": 1793386783,
+      "rateLimitsByLimitId.codex.primary.usedPercent": 8,
+      "rateLimitsByLimitId.codex.primary.windowDurationMins": 10080
+    }
+  },
+  "preflight": {
+    "passed": true,
+    "routes": {
+      "codex": {
+        "input_tokens": 3347,
+        "login": {
+          "logged_in": true,
+          "mode": "Logged in using ChatGPT"
+        },
+        "model": "gpt-6.1-sol",
+        "output_tokens": 15,
+        "plan_usage_before": {
+          "rateLimitResetCredits.availableCount": 2,
+          "rateLimits.planType": "prolite",
+          "rateLimits.primary.resetsAt": 1793386784,
+          "rateLimits.primary.usedPercent": 8,
+          "rateLimits.primary.windowDurationMins": 10080,
+          "rateLimitsByLimitId.codex.planType": "prolite",
+          "rateLimitsByLimitId.codex.primary.resetsAt": 1793386784,
+          "rateLimitsByLimitId.codex.primary.usedPercent": 8,
+          "rateLimitsByLimitId.codex.primary.windowDurationMins": 10080
+        },
+        "returned_model": "gpt-6.1-sol",
+        "status": "ok",
+        "via": "codex"
+      },
+      "google": {
+        "input_tokens": 17,
+        "model": "gemini-3.8-flash",
+        "output_tokens": 239,
+        "returned_model": "gemini-3.8-flash",
+        "status": "ok",
+        "via": "direct"
+      }
+    }
+  },
+  "prerequisite_trim": {
+    "count": 9,
+    "status": "not needed"
+  },
+  "resume": {
+    "notes": [
+      "v5 failed earlier, so it continues from its last answer",
+      "v9 stopped earlier, so it continues from its last answer"
+    ],
+    "plan_reused": true,
+    "scripts_reused": 9
+  },
+  "reviewer": "google",
+  "reviewer_independence": "other_company",
+  "reviewer_route": "google",
+  "rulebook": "content_types@2026-10-24.1+explanations@2026-10-24.1+level_profiles@2026-10-24.1+simple_hindi@2026-10-25.1+teacher_examples@2026-10-24.1+vision-2026-10-21@2026-10-21.12",
+  "section": "lesson",
+  "status": "ok",
+  "videos": [
+    {
+      "cost_usd": 0.0,
+      "rounds": 3,
+      "status": "passed",
+      "video_id": "v0"
+    },
+    {
+      "cost_usd": 0.0,
+      "rounds": 3,
+      "status": "passed",
+      "video_id": "v1"
+    },
+    {
+      "cost_usd": 0.0,
+      "rounds": 4,
+      "status": "passed",
+      "video_id": "v2"
+    },
+    {
+      "cost_usd": 0.0,
+      "rounds": 3,
+      "status": "passed",
+      "video_id": "v3"
+    },
+    {
+      "cost_usd": 0.0,
+      "rounds": 3,
+      "status": "passed",
+      "video_id": "v4"
+    },
+    {
+      "cost_usd": 0.043266,
+      "rounds": 1,
+      "status": "passed",
+      "video_id": "v5"
+    },
+    {
+      "cost_usd": 0.0,
+      "rounds": 3,
+      "status": "passed",
+      "video_id": "v6"
+    },
+    {
+      "cost_usd": 0.0,
+      "rounds": 3,
+      "status": "passed",
+      "video_id": "v7"
+    },
+    {
+      "cost_usd": 0.0,
+      "rounds": 4,
+      "status": "passed",
+      "video_id": "v8"
+    },
+    {
+      "cost_usd": 0.031221,
+      "rounds": 1,
+      "status": "passed",
+      "video_id": "v9"
+    },
+    {
+      "cost_usd": 0.0,
+      "rounds": 2,
+      "status": "passed",
+      "video_id": "v10"
+    }
+  ]
+}
