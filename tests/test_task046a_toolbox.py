@@ -643,6 +643,55 @@ class DemosAndPage(unittest.TestCase):
             earth.load_relief(fake, resolution="02m", region=(70, 100, 20, 40), sleep=waits.append)
         self.assertEqual(len(waits), 3)
 
+    def test_bie_fetches_the_relief_tiles_for_gmt_to_read_offline(self):
+        import time
+        import urllib.error
+        from bie.toolbox.adapters import earth
+        table = ("# Dir\tName\tInc\tReg\tScl\tOff\tSize\tTile\tDate\n"
+                 "/server/earth/earth_relief/\tearth_relief_02m_g/\t02m\tg\t0.5\t0\t 64M\t60\t2025-05-01\t-\t-\tgeo\tSRTM15\n"
+                 "/server/earth/earth_relief/\tearth_relief_01d_g.grd\t01d\tg\t0.5\t0\t 1M\t0\t2025-05-01\t-\t-\tgeo\tSRTM15\n")
+        folder, tiles = earth.relief_tiles(table, "02m", (70, 100, 20, 40))
+        self.assertEqual(folder, "/server/earth/earth_relief/earth_relief_02m_g/")
+        self.assertEqual(tiles, ["S30E060.earth_relief_02m_g.jp2", "N30E060.earth_relief_02m_g.jp2"])
+        self.assertEqual(earth.relief_tiles(table, "02m", (-10, 10, -5, 5))[1],
+                         ["S30W060.earth_relief_02m_g.jp2", "S30E000.earth_relief_02m_g.jp2"])
+        with self.assertRaises(ValueError):
+            earth.relief_tiles(table, "15s", (70, 100, 20, 40))
+        calls, waits = [], []
+        server = "https://oceania.generic-mapping-tools.org"
+
+        def opener(request, timeout=None):
+            calls.append(request.full_url)
+            if request.full_url.endswith("S30E060.earth_relief_02m_g.jp2") and calls.count(request.full_url) == 1:
+                raise urllib.error.URLError("timed out")              # a slow server: asked again after the wait
+            body = table.encode() if request.full_url.endswith(".txt") else b"jp2 " + request.full_url.encode()
+            return FakeResponse(body)
+
+        with tempfile.TemporaryDirectory() as userdir:
+            done = earth.prefetch_relief("02m", (70, 100, 20, 40), userdir=userdir, opener=opener, sleep=waits.append)
+            self.assertEqual(done["fetched"], tiles)
+            self.assertEqual(waits, [10.0])
+            self.assertEqual(set(done["tables"].values()), {"fetched"})
+            path = Path(userdir, "server/earth/earth_relief/earth_relief_02m_g/N30E060.earth_relief_02m_g.jp2")
+            self.assertEqual(path.read_bytes(), f"jp2 {server}{folder}N30E060.earth_relief_02m_g.jp2".encode())
+            n = len(calls)
+            self.assertEqual(earth.prefetch_relief("02m", (70, 100, 20, 40), userdir=userdir, opener=opener)["fetched"], [])
+            self.assertEqual(len(calls), n)                                 # fresh tables and tiles already here: no fetch
+            old = time.time() - 3 * 24 * 3600
+            for name in earth.GMT_TABLES:
+                os.utime(Path(userdir, name), (old, old))
+
+            def down(request, timeout=None):
+                raise urllib.error.URLError("unreachable")
+            kept = earth.prefetch_relief("02m", (70, 100, 20, 40), userdir=userdir, opener=down, sleep=lambda s: None)
+            self.assertEqual(set(kept["tables"].values()), {"kept"})        # stale local tables kept, dated today
+            self.assertLess(time.time() - Path(userdir, earth.GMT_TABLES[0]).stat().st_mtime, 60)
+        with tempfile.TemporaryDirectory() as empty:
+            def down(request, timeout=None):
+                raise urllib.error.URLError("unreachable")
+            with self.assertRaisesRegex(RuntimeError, "not reached in 3 attempts"):
+                earth.prefetch_relief("02m", (70, 100, 20, 40), userdir=empty, opener=down, sleep=lambda s: None)
+
     def test_adapters_import_without_their_libraries(self):
         with mock.patch.dict(sys.modules, {"rdkit": None}):
             with self.assertRaises(base.Unavailable) as caught:
