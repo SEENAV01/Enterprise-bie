@@ -92,7 +92,8 @@ const XYLines: React.FC<BlockProps> = ({ data, at, width, height }) => {
           xLabel={data.x_label} yLabel={data.y_label} xDomain={data.x_domain} yDomain={data.y_domain} legend={!data.legend_box} />
       </svg>
       {data.legend_box ? <div style={{ position: "absolute", right: 60, bottom: 110, background: C.panel, borderRadius: 12, padding: "8px 18px",
-        display: "flex", flexDirection: "column", gap: 6 }}>
+        display: "flex", flexDirection: "column", gap: 6,
+        opacity: ramp(rel, Math.min(...(data.series as Series[]).map((s) => s.start ?? 0.2)) * fps, 10) }}>
         {(data.series as Series[]).filter((s) => s.label).map((s, i) => <div key={i} style={{ display: "flex", alignItems: "center", gap: 10,
           fontSize: 26, color: C.ink, opacity: ramp(rel, (s.start ?? 0.2) * fps, 10) }}>
           <span style={{ width: 30, height: 6, borderRadius: 3, background: s.colour || PALETTE[(data.series as Series[]).indexOf(s) % PALETTE.length] }} />

@@ -116,11 +116,15 @@ const PlateFrames: React.FC<BlockProps> = ({ data, at, width, height }) => {
   const frame = frames[f];
   // Each coastline is a closed ring on the sphere: d3-geo cuts it at the map's edge and fills it. A ring whose area comes
   // out larger than a hemisphere is wound the other way round, so it is reversed before drawing.
+  // A ring with points exactly on the pole or on ±180° (East Antarctica today) is filled inside out by the clipping, so the
+  // points are kept a hair inside the map; and no single coastline may cover a third of the map.
+  const sphereArea = path.area({ type: "Sphere" } as any);
   const d = frame.shapes.map((s) => {
-    const ring = s[0][0] === s[s.length - 1][0] && s[0][1] === s[s.length - 1][1] ? s : [...s, s[0]];
+    const closed = s[0][0] === s[s.length - 1][0] && s[0][1] === s[s.length - 1][1] ? s : [...s, s[0]];
+    const ring = closed.map(([x, y]) => [Math.max(-179.9, Math.min(179.9, x)), Math.max(-89.9, Math.min(89.9, y))]);
     let polygon: any = { type: "Polygon", coordinates: [ring] };
     if (geoArea(polygon) > 2 * Math.PI) polygon = { type: "Polygon", coordinates: [[...ring].reverse()] };
-    return path(polygon) || "";
+    return path.area(polygon) > sphereArea / 3 ? "" : path(polygon) || "";
   }).join("");
   return (
     <div style={{ position: "absolute", inset: 0, fontFamily: FONT }}>
