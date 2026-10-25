@@ -615,6 +615,34 @@ class DemosAndPage(unittest.TestCase):
                       "orbit_motion", "maths-equation", "- Z-Anatomy: share-alike licence"):      # Task 046a-L: refused for lessons
             self.assertIn(words, text)
 
+    def test_the_relief_download_is_asked_again_when_gmts_server_is_unreachable(self):
+        from bie.toolbox.adapters import earth
+        calls, waits = [], []
+
+        class Datasets:
+            def __init__(self, failures):
+                self.failures = list(failures)
+
+            def load_earth_relief(self, **kwargs):
+                calls.append(kwargs)
+                if self.failures:
+                    raise RuntimeError(self.failures.pop(0))
+                return "grid"
+
+        fake = type("PyGMT", (), {})()
+        fake.datasets = Datasets(["gmtread [ERROR]: Remote download is currently deactivated\nmore"])
+        self.assertEqual(earth.load_relief(fake, resolution="02m", region=(70, 100, 20, 40), sleep=waits.append), "grid")
+        self.assertEqual((len(calls), waits), (2, [20.0]))
+        self.assertEqual(calls[0]["region"], [70, 100, 20, 40])
+        fake.datasets = Datasets(["Unable to obtain remote file @earth_relief_02m_g"] * 3)
+        with self.assertRaisesRegex(RuntimeError, "could not be reached in 3 attempts"):
+            earth.load_relief(fake, resolution="02m", region=(70, 100, 20, 40), sleep=waits.append)
+        self.assertEqual(waits, [20.0, 20.0, 40.0])
+        fake.datasets = Datasets(["grid region out of range"])            # any other error is not asked again
+        with self.assertRaisesRegex(RuntimeError, "out of range"):
+            earth.load_relief(fake, resolution="02m", region=(70, 100, 20, 40), sleep=waits.append)
+        self.assertEqual(len(waits), 3)
+
     def test_adapters_import_without_their_libraries(self):
         with mock.patch.dict(sys.modules, {"rdkit": None}):
             with self.assertRaises(base.Unavailable) as caught:

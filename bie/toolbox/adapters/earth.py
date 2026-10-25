@@ -11,6 +11,7 @@
 from __future__ import annotations
 
 import os
+import time
 from pathlib import Path
 
 from .base import clean, need, need_program
@@ -28,6 +29,29 @@ def _gmt_userdir(cache: Path | None = None) -> Path:
     return folder
 
 
+# GMT's messages when its remote data server could not be reached: after one failed fetch GMT turns remote downloads off
+# for the rest of that session, so the next attempt opens a new session.
+REMOTE_FAILURES = ("Remote download is currently deactivated", "Unable to obtain remote file", "Unable to get remote file",
+                   "Libcurl Error", "remote data will be unavailable")
+
+
+def load_relief(pygmt, *, resolution: str, region, tries: int = 3, wait: float = 20.0, sleep=time.sleep):
+    """SRTM15+ through GMT's remote data server, asked again (in a new GMT session, after ``wait`` seconds, then twice
+    that) when the server could not be reached; any other error, or the last failure, is raised with every attempt."""
+    seen = []
+    for attempt in range(tries):
+        try:
+            return pygmt.datasets.load_earth_relief(resolution=resolution, region=list(region), registration="gridline")
+        except Exception as exc:
+            text = str(exc)
+            if not any(m in text for m in REMOTE_FAILURES):
+                raise
+            seen.append(text.strip().splitlines()[0][:200] if text.strip() else type(exc).__name__)
+            if attempt < tries - 1:
+                sleep(wait * (2 ** attempt))
+    raise RuntimeError(f"GMT's remote data server could not be reached in {tries} attempts: " + " | ".join(seen))
+
+
 def relief(region=(70.0, 100.0, 20.0, 40.0), out_png: str | Path = "relief.png", *, resolution: str = "02m",
            profile=((77.0, 22.0), (90.0, 36.0)), step_km: float = 10.0, width_cm: float = 16.0, dpi: int = 150, grid=None) -> dict:
     """``grid`` (an xarray grid of heights in metres) replaces the SRTM15+ download, for tests or a model's own data."""
@@ -35,7 +59,7 @@ def relief(region=(70.0, 100.0, 20.0, 40.0), out_png: str | Path = "relief.png",
     _gmt_userdir()
     pygmt = need("pygmt")
     if grid is None:
-        grid = pygmt.datasets.load_earth_relief(resolution=resolution, region=list(region), registration="gridline")
+        grid = load_relief(pygmt, resolution=resolution, region=region)
     fig = pygmt.Figure()
     fig.grdimage(grid=grid, projection=f"M{width_cm}c", cmap="geo", shading=True, frame=False)
     fig.savefig(str(out_png), dpi=dpi)
