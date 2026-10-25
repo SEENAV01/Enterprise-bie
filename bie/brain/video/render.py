@@ -31,12 +31,21 @@ def _node_env():
     return env
 
 
-def build_preview(dist: str | Path) -> Path:
+TOOLBOX_FILES = ("toolbox.html", "toolbox.js", "toolbox.css")
+
+
+def needs_toolbox(spec: dict) -> bool:
+    """True when a scene uses a toolbox block (Task 046a), which only the toolbox bundle can draw."""
+    return any(layer.get("type") == "block" for scene in spec.get("scenes", []) for layer in scene.get("layers", []))
+
+
+def build_preview(dist: str | Path, *, toolbox: bool = False) -> Path:
     dist = Path(dist)
-    if (dist / "bundle.js").exists():
+    if (dist / "bundle.js").exists() and (not toolbox or (dist / "toolbox.js").exists()):
         return dist
     try:
-        run = subprocess.run(["node", str(PREVIEW / "build.mjs"), str(dist)], capture_output=True, text=True, env=_node_env(), timeout=300)
+        run = subprocess.run(["node", str(PREVIEW / "build.mjs"), str(dist)] + (["--toolbox"] if toolbox else []),
+                             capture_output=True, text=True, env=_node_env(), timeout=900)
     except (OSError, subprocess.TimeoutExpired) as exc:
         raise RenderError(f"preview build could not run: {exc}") from None
     if run.returncode != 0:
@@ -46,23 +55,30 @@ def build_preview(dist: str | Path) -> Path:
 
 def _workdir(dist: Path, assets: str | Path | None) -> Path:
     work = Path(tempfile.mkdtemp(prefix="bie-preview-"))
-    for name in ("index.html", "bundle.js"):
-        shutil.copy2(dist / name, work / name)
+    for name in ("index.html", "bundle.js") + TOOLBOX_FILES:
+        if (dist / name).exists():
+            shutil.copy2(dist / name, work / name)
     if assets and Path(assets).exists():
         shutil.copytree(assets, work / "assets", dirs_exist_ok=True)
     return work
 
 
-def stills(spec: dict, frames, *, dist: str | Path, assets: str | Path | None = None, out_dir: str | Path | None = None):
+def _page(toolbox: bool) -> list:
+    return ["--page", "toolbox.html"] if toolbox else []
+
+
+def stills(spec: dict, frames, *, dist: str | Path, assets: str | Path | None = None, out_dir: str | Path | None = None,
+           toolbox: bool | None = None):
     """PNG bytes of the given frames of ``spec`` (a VideoSpec), in order."""
-    dist = build_preview(dist)
+    toolbox = needs_toolbox(spec) if toolbox is None else toolbox
+    dist = build_preview(dist, toolbox=toolbox)
     work = _workdir(dist, assets)
     try:
         (work / "spec.json").write_text(json.dumps(spec, ensure_ascii=False), encoding="utf-8")
         target = Path(out_dir) if out_dir else work / "stills"
         try:
             run = subprocess.run(["node", str(PREVIEW / "stills.mjs"), "--dist", str(work), "--spec", str(work / "spec.json"),
-                                  "--frames", ",".join(str(int(f)) for f in frames), "--out", str(target)],
+                                  "--frames", ",".join(str(int(f)) for f in frames), "--out", str(target)] + _page(toolbox),
                                  capture_output=True, text=True, env=_node_env(), timeout=600)
         except (OSError, subprocess.TimeoutExpired) as exc:
             raise RenderError(f"stills could not run: {exc}") from None
@@ -74,12 +90,14 @@ def stills(spec: dict, frames, *, dist: str | Path, assets: str | Path | None = 
 
 
 def mp4(spec: dict, out: str | Path, *, dist: str | Path, assets: str | Path | None = None, audio: str | Path | None = None,
-        timeout: int = 7200):
-    dist = build_preview(dist)
+        timeout: int = 7200, toolbox: bool | None = None):
+    toolbox = needs_toolbox(spec) if toolbox is None else toolbox
+    dist = build_preview(dist, toolbox=toolbox)
     work = _workdir(dist, assets)
     try:
         (work / "spec.json").write_text(json.dumps(spec, ensure_ascii=False), encoding="utf-8")
-        args = ["node", str(PREVIEW / "stills.mjs"), "--dist", str(work), "--spec", str(work / "spec.json"), "--mp4", str(Path(out).resolve())]
+        args = ["node", str(PREVIEW / "stills.mjs"), "--dist", str(work), "--spec", str(work / "spec.json"),
+                "--mp4", str(Path(out).resolve())] + _page(toolbox)
         if audio:
             args += ["--audio", str(Path(audio).resolve())]
         try:

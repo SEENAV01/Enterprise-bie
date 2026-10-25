@@ -22,6 +22,10 @@ COMMONS_API = "https://commons.wikimedia.org/w/api.php"
 USER_AGENT = "BIE-asset-search/1.0 (https://github.com/SEENAV01/Enterprise-bie)"
 MAX_ASSET_BYTES = 25 * 1024 * 1024
 IMAGE_TYPES = ("image/png", "image/jpeg", "image/svg+xml", "image/webp")
+# File suffix per media type; the 3D, structure and data types come with the toolbox sources (Task 046a).
+SUFFIXES = {"image/png": ".png", "image/jpeg": ".jpg", "image/svg+xml": ".svg", "image/webp": ".webp",
+            "model/gltf-binary": ".glb", "model/stl": ".stl", "model/obj": ".obj", "chemical/x-pdb": ".pdb",
+            "chemical/x-mdl-sdfile": ".sdf", "application/json": ".json", "text/csv": ".csv"}
 
 
 class AssetError(ValueError):
@@ -159,7 +163,7 @@ class AssetLibrary:
             asset.tags = sorted(set(asset.tags) | set(tags))
             self.save()
             return asset
-        suffix = {"image/png": ".png", "image/jpeg": ".jpg", "image/svg+xml": ".svg", "image/webp": ".webp"}.get(mime, ".bin")
+        suffix = SUFFIXES.get(mime, ".bin")
         path = self.folder / "files" / (asset_id + suffix)
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_bytes(data)

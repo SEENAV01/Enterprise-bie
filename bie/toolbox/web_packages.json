@@ -1,0 +1,15 @@
+{
+ "schema": "bie.toolbox.web-packages/1",
+ "note": "npm packages of the toolbox web path (Task 046a), exact versions, installed as of npm_before (tools/npm_before.txt) by tools/toolbox_setup.py. The preview renderer's own four (esbuild, react, react-dom, playwright) keep the versions the brain's live workflow already uses. remotion-render is the real Remotion renderer, used for the bridge proof (the same composition through Remotion and through the preview renderer). tool_packages ties registry ids to npm names, so the lane can check that what is installed is what the registry says.",
+ "npm_before_file": "tools/npm_before.txt",
+ "groups": {
+  "preview": {"esbuild": "0.28.2", "react": "19.2.0", "react-dom": "19.2.0", "playwright": "1.56.0"},
+  "web-core": {"remotion": "4.0.536", "@remotion/three": "4.0.536", "three": "0.186.1", "@react-three/fiber": "9.8.2",
+               "@react-three/drei": "10.7.9", "katex": "0.19.0", "d3": "7.9.0"},
+  "web-science": {"3dmol": "2.5.5", "molstar": "5.13.1", "matter-js": "0.20.0", "cannon-es": "0.20.0"},
+  "remotion-render": {"@remotion/bundler": "4.0.536", "@remotion/renderer": "4.0.536"}
+ },
+ "tool_packages": {"remotion": "remotion", "remotion-three": "@remotion/three", "three": "three", "react-three-fiber": "@react-three/fiber",
+                   "drei": "@react-three/drei", "katex": "katex", "d3": "d3", "3dmol": "3dmol", "molstar": "molstar",
+                   "matter-js": "matter-js", "cannon-es": "cannon-es"}
+}

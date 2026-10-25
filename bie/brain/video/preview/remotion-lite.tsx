@@ -35,12 +35,36 @@ export function interpolate(
   return c + (d - c) * easing(t);
 }
 
+// Easing with Remotion's API (Task 046a): in, out and inOut take an easing function and return one, exactly as in
+// Remotion (Easing.inOut(Easing.cubic)). The first version of this shim had inOut, in and out as ready functions,
+// which real Remotion does not; the bridge proof (the same clip rendered by Remotion itself) found it.
+type Ease = (t: number) => number;
+function bezier(x1: number, y1: number, x2: number, y2: number): Ease {
+  const cx = 3 * x1, bx = 3 * (x2 - x1) - cx, ax = 1 - cx - bx;
+  const cy = 3 * y1, by = 3 * (y2 - y1) - cy, ay = 1 - cy - by;
+  const x = (t: number) => ((ax * t + bx) * t + cx) * t;
+  const y = (t: number) => ((ay * t + by) * t + cy) * t;
+  const dx = (t: number) => (3 * ax * t + 2 * bx) * t + cx;
+  return (v: number) => {
+    let t = v;
+    for (let i = 0; i < 8; i++) { const d = dx(t); if (Math.abs(d) < 1e-6) break; t -= (x(t) - v) / d; }
+    return y(Math.max(0, Math.min(1, t)));
+  };
+}
 export const Easing = {
   linear: (t: number) => t,
-  inOut: (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2),
-  out: (t: number) => 1 - Math.pow(1 - t, 3),
-  in: (t: number) => t * t * t,
-  back: (t: number) => { const c1 = 1.70158, c3 = c1 + 1; return 1 + c3 * Math.pow(t - 1, 3) + c1 * Math.pow(t - 1, 2); },
+  ease: bezier(0.42, 0, 1, 1),
+  quad: (t: number) => t * t,
+  cubic: (t: number) => t * t * t,
+  poly: (n: number): Ease => (t) => Math.pow(t, n),
+  sin: (t: number) => 1 - Math.cos((t * Math.PI) / 2),
+  circle: (t: number) => 1 - Math.sqrt(1 - t * t),
+  exp: (t: number) => Math.pow(2, 10 * (t - 1)),
+  back: (s = 1.70158): Ease => (t) => t * t * ((s + 1) * t - s),
+  bezier,
+  in: (easing: Ease): Ease => easing,
+  out: (easing: Ease): Ease => (t) => 1 - easing(1 - t),
+  inOut: (easing: Ease): Ease => (t) => (t < 0.5 ? easing(t * 2) / 2 : 1 - easing((1 - t) * 2) / 2),
 };
 
 // Damped spring like Remotion's spring(): returns 0 -> 1 (may overshoot slightly).
@@ -74,3 +98,21 @@ export const Sequence: React.FC<{ from: number; durationInFrames?: number; child
 export const Img: React.FC<React.ImgHTMLAttributes<HTMLImageElement>> = (props) => <img {...props} />;
 export const staticFile = (name: string) => name;
 export const Audio: React.FC<{ src: string }> = () => null;
+
+// delayRender / continueRender with Remotion's names and meaning (Task 046a): a block that loads a model or draws on
+// its own WebGL canvas holds the frame until it is really drawn; the preview harness waits until no handle is open
+// before it takes the screenshot, exactly as Remotion's renderer does.
+const pending = new Map<number, string>();
+let nextHandle = 1;
+export function delayRender(label = "") {
+  const handle = nextHandle++;
+  pending.set(handle, label);
+  return handle;
+}
+export function continueRender(handle: number) {
+  pending.delete(handle);
+}
+export function cancelRender(error: unknown): never {
+  throw error instanceof Error ? error : new Error(String(error));
+}
+export const pendingRenders = () => Array.from(pending.values());
