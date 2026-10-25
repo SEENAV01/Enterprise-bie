@@ -20,7 +20,7 @@ const ChartJsBuild: React.FC<BlockProps> = ({ data, at, width, height }) => {
   const canvas = useRef<HTMLCanvasElement>(null);
   const chart = useRef<Chart | null>(null);
   const release = useFrameHold(frame);
-  const b = box(width, height);
+  const b = { ...box(width, height), w: width - 80 - 340 };       // the right column holds the year's value and the note
   const values: number[] = data.values;
   const grow = values.length * ramp(rel, (data.first_at ?? 0.3) * fps, (data.seconds ?? 3.0) * fps, (t: number) => t);
   const whole = Math.floor(grow), part = grow - whole;
@@ -53,11 +53,13 @@ const ChartJsBuild: React.FC<BlockProps> = ({ data, at, width, height }) => {
   return (
     <div style={{ position: "absolute", inset: 0, fontFamily: FONT }}>
       <canvas ref={canvas} width={b.w} height={b.h} style={{ position: "absolute", left: b.left, top: b.top, width: b.w, height: b.h }} />
-      <div style={{ position: "absolute", right: 60, top: 150, textAlign: "right", color: C.ink, background: C.panel, padding: "10px 20px", borderRadius: 14 }}>
-        <div style={{ fontSize: 26, color: C.muted }}>{data.labels[shown]}</div>
-        <div style={{ fontSize: 54, fontWeight: 800, color: values[shown] < 0 ? C.danger : C.accent }}>{`${values[shown] > 0 ? "+" : ""}${values[shown].toFixed(1)}${data.unit || ""}`}</div>
+      <div style={{ position: "absolute", right: 50, top: 170, width: 280, textAlign: "right", color: C.ink, background: C.panel, padding: "10px 20px",
+        borderRadius: 14, boxSizing: "border-box" }}>
+        <div style={{ fontSize: 28, color: C.muted }}>{data.labels[shown]}</div>
+        <div style={{ fontSize: 60, fontWeight: 800, color: values[shown] < 0 ? C.danger : C.accent }}>{`${values[shown] > 0 ? "+" : ""}${values[shown].toFixed(1)}${data.unit || ""}`}</div>
       </div>
-      {data.note && whole > data.highlight ? <Badge text={data.note} tone="warm" style={{ position: "absolute", right: 60, top: 300 }} /> : null}
+      {data.note && whole > data.highlight ? <div style={{ position: "absolute", right: 50, top: 340, width: 280, boxSizing: "border-box", fontSize: 26,
+        fontWeight: 700, color: C.warm, border: `2px solid ${C.warm}`, borderRadius: 14, padding: "10px 16px", background: C.panel }}>{data.note}</div> : null}
       <Title text={data.title} sub={data.subtitle} />
       {data.credit ? <div style={{ position: "absolute", left: 40, bottom: 8, color: C.muted, fontSize: 18 }}>{data.credit}</div> : null}
     </div>
@@ -85,21 +87,20 @@ const VegaBuild: React.FC<BlockProps> = ({ data, at, width, height }) => {
   const trail = frames.slice(0, i + 1).flatMap((fr) => fr.points.filter((p) => (data.trail || []).includes(p.iso3)))
     .concat(now.filter((p) => (data.trail || []).includes(p.iso3)));
   const b = box(width, height);
+  // one x and one y for all three layers (Vega-Lite would otherwise join the layers' own domains and add zero)
+  const x = { field: "x", type: "quantitative", title: data.x_title, scale: { type: "log", domain: data.x_domain, nice: false } };
+  const y = { field: "y", type: "quantitative", title: data.y_title, scale: { domain: data.y_domain, zero: false, nice: false } };
+  const colour = { field: "country", type: "nominal", legend: null, scale: { scheme: "tableau10" } };
   const spec: any = {
-    $schema: "https://vega.github.io/schema/vega-lite/v6.json", width: b.w - 260, height: b.h - 90, background: null,
+    $schema: "https://vega.github.io/schema/vega-lite/v6.json", width: b.w - 40, height: b.h - 90, background: null,
     config: { font: FONT, axis: { labelColor: C.muted, titleColor: C.ink, gridColor: "rgba(255,255,255,0.1)", domainColor: C.muted,
-      labelFontSize: 20, titleFontSize: 24 }, legend: { labelColor: C.ink, titleColor: C.muted, labelFontSize: 20, titleFontSize: 20 }, view: { stroke: null } },
+      labelFontSize: 22, titleFontSize: 24 }, view: { stroke: null } },
+    encoding: { x, y },
     layer: [
-      { data: { values: trail }, mark: { type: "line", strokeWidth: 3, opacity: 0.55 },
-        encoding: { x: { field: "x", type: "quantitative" }, y: { field: "y", type: "quantitative" }, detail: { field: "iso3" },
-                    color: { field: "country", type: "nominal", legend: null } } },
+      { data: { values: trail }, mark: { type: "line", strokeWidth: 4, opacity: 0.6 }, encoding: { detail: { field: "iso3" }, color: colour } },
       { data: { values: now }, mark: { type: "circle", opacity: 0.85, stroke: C.bg0, strokeWidth: 1.5 },
-        encoding: { x: { field: "x", type: "quantitative", title: data.x_title, scale: { type: "log", domain: data.x_domain } },
-                    y: { field: "y", type: "quantitative", title: data.y_title, scale: { domain: data.y_domain } },
-                    size: { field: "size", type: "quantitative", scale: { range: [80, 5200], domain: data.size_domain }, legend: null },
-                    color: { field: "country", type: "nominal", title: "", scale: { scheme: "tableau10" } } } },
-      { data: { values: now }, mark: { type: "text", dx: 0, dy: -30, fontSize: 22, fontWeight: 700, color: C.ink },
-        encoding: { x: { field: "x", type: "quantitative" }, y: { field: "y", type: "quantitative" }, text: { field: "country" } } },
+        encoding: { size: { field: "size", type: "quantitative", scale: { range: [80, 5200], domain: data.size_domain }, legend: null }, color: colour } },
+      { data: { values: now }, mark: { type: "text", dy: -34, fontSize: 24, fontWeight: 700, color: C.ink }, encoding: { text: { field: "country" } } },
     ],
   };
   const key = `vega:${data.key || "chart"}:${t.toFixed(3)}`;
@@ -143,7 +144,7 @@ const PlotlyBuild: React.FC<BlockProps> = ({ data, at, width, height }) => {
     ];
     const layout: any = {
       width: b.w - 420, height: b.h, margin: { l: 90, r: 20, t: 10, b: 70 }, paper_bgcolor: "rgba(0,0,0,0)", plot_bgcolor: "rgba(0,0,0,0)",
-      font: { family: FONT, color: C.ink, size: 20 }, showlegend: false,
+      font: { family: FONT, color: C.ink, size: 24 }, showlegend: false,
       xaxis: { title: { text: data.x_title }, gridcolor: "rgba(255,255,255,0.1)", range: [data.x[0], data.x[data.x.length - 1]] },
       yaxis: { title: { text: data.y_title }, gridcolor: "rgba(255,255,255,0.1)", range: [data.y[0], data.y[data.y.length - 1]] },
     };
@@ -157,7 +158,7 @@ const PlotlyBuild: React.FC<BlockProps> = ({ data, at, width, height }) => {
           opacity: ramp(rel, (0.5 + i * 0.5) * fps, 10) }}>{l}</div>)}
       </div>
       <Title text={data.title} sub={data.subtitle} />
-      {data.badge ? <Badge text={data.badge} style={{ position: "absolute", left: 40, bottom: 18 }} /> : null}
+      {data.badge ? <Badge text={data.badge} style={{ position: "absolute", right: 50, bottom: 40 }} /> : null}
     </div>
   );
 };

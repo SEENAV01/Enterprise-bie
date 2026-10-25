@@ -467,11 +467,10 @@ NE_CREDIT = "Map: Natural Earth (public domain), India's own boundary view · BI
 def india_state(w: Work) -> dict:
     from .adapters import maps
     data = maps.india(["Uttar Pradesh"])
-    kinds = [s["kind"] for s in data["states"]]
-    w.notes["shapely"] = {"states": kinds.count("State"), "union_territories": kinds.count("Union Territory"),
-                          "uttar_pradesh_km2": next(s["area_km2"] for s in data["states"] if s["highlight"])}
+    # Natural Earth's own state/UT labels are older than some changes (2019's Jammu and Kashmir), so only the count is shown
+    w.notes["shapely"] = {"states_and_uts": len(data["states"]), "uttar_pradesh_km2": next(s["area_km2"] for s in data["states"] if s["highlight"])}
     return scene([block("india_map", dict(data, title="Uttar Pradesh on the map of India",
-                                          subtitle=f"{kinds.count('State')} states and {kinds.count('Union Territory')} union territories · area computed by BIE",
+                                          subtitle=f"{len(data['states'])} states and union territories · the area is computed by BIE",
                                           highlight_at=0.5, zoom_at=1.4, zoom_seconds=1.5, credit=NE_CREDIT))], 4.2)
 
 
@@ -562,7 +561,7 @@ def gdp_growth(w: Work) -> dict:
 def wealth_health(w: Work) -> dict:
     from . import sources
     from .adapters import economics
-    countries = ["IND", "CHN", "USA", "BRA", "NGA", "BGD", "IDN", "JPN"]
+    countries = ["IND", "CHN", "USA", "BRA", "NGA", "ETH", "IDN", "JPN"]
     series, credits = {}, []
     for key, code in (("x", "NY.GDP.PCAP.PP.KD"), ("y", "SP.DYN.LE00.IN"), ("size", "SP.POP.TOTL")):
         asset, rows, _ = sources.world_bank(code, countries, 1995, 2022, w.library, opener=w.opener)
@@ -572,7 +571,7 @@ def wealth_health(w: Work) -> dict:
     w.notes["world_bank"] = {"countries": len(data["countries"]), "frames": len(data["frames"])}
     return scene([block("vega_build", dict(data, key="wealth-health", trail=["IND", "CHN"], seconds=3.4,
                                            x_title="income per person (GDP per capita, PPP, constant 2021 $; log scale)",
-                                           y_title="life expectancy at birth (years)", x_domain=[800, 90000], y_domain=[45, 86],
+                                           y_title="life expectancy at birth (years)", x_domain=[500, 90000], y_domain=[44, 86],
                                            size_domain=[0, 1450000000], title="Wealth and health, 1995 to 2022",
                                            subtitle="World Bank data · compiled by Vega-Lite, drawn by Vega · India and China leave a trail",
                                            credit="World Bank, World Development Indicators (" + ", ".join(credits) + "), CC BY 4.0"))], 4.2)
@@ -610,7 +609,9 @@ def criminal_procedure(w: Work) -> dict:
     flow = law.procedure(act, steps, edges)
     w.notes["india_code"] = {"act": act["title"], "sections": len(act["sections"]),
                              "steps": {n["id"]: n.get("section") for n in flow["nodes"] if n.get("section")}}
-    return scene([block("flow_build", dict(flow, rankdir="LR", wrap=14, seconds=3.3, section_prefix="Section ",
+    panel = [{"node": n["id"], "tag": f"s. {n['section']}", "text": n["official_title"]} for n in flow["nodes"] if n.get("section")]
+    return scene([block("flow_build", dict(flow, rankdir="TB", ranksep=30, wrap=26, seconds=3.3, section_prefix="Section ", panel=panel, panel_width=760,
+                                           panel_title="the section titles, as India Code publishes them",
                                            title="A criminal case, from FIR to judgment (sessions trial)",
                                            subtitle=f"{act['title']} · section numbers read from India Code, laid out by dagre",
                                            badge=f"{len(act['sections'])} sections read from India Code"))], 4.2)
@@ -633,8 +634,8 @@ def courts_tree(w: Work) -> dict:
     asset, act = sources.india_code_act(BNSS, w.library, opener=w.opener)
     section = law.find_section(act, "Classes of Criminal Courts.")
     classes = law.listed_items(section)
-    w.notes["india_code"] = {"section": section["number"], "classes": classes}
-    root = {"name": "Supreme Court of India", "children": [{"name": "High Court", "note": "one for each State or group",
+    w.notes["india_code_classes"] = {"section": section["number"], "classes": classes}
+    root = {"name": "Supreme Court of India", "children": [{"name": "High Court",
             "children": [{"name": c, "note": f"BNSS s. {section['number']}"} for c in classes]}]}
     return scene([block("tree_build", {"root": root, "seconds": 2.6, "wrap": 20, "title": "Criminal courts in India",
                                        "subtitle": f"the classes of criminal courts listed in section {section['number']} of the BNSS (India Code), grown by D3",
@@ -655,7 +656,7 @@ def stroop(w: Work) -> dict:
 def teaching_method(w: Work) -> dict:
     from .adapters import behaviour
     fit = behaviour.teaching_method()
-    w.notes["statsmodels"] = {k: fit[k] for k in ("odds_ratio_psi", "odds_ratio_ci", "p_value_psi", "n")}
+    w.notes["statsmodels_logit"] = {k: fit[k] for k in ("odds_ratio_psi", "odds_ratio_ci", "p_value_psi", "n")}
     return scene([block("xy_lines", {"series": [{"x": fit["gpa"], "y": fit["without_psi"], "label": "usual teaching", "start": 0.3, "seconds": 1.6},
                                                 {"x": fit["gpa"], "y": fit["with_psi"], "label": "new method (PSI)", "start": 1.4, "seconds": 1.6}],
                                      "x_label": "grade point average", "y_label": "chance the grade improves", "y_domain": [0, 1],
@@ -670,16 +671,16 @@ def brain_lobes(w: Work) -> dict:
     asset, info = sources.z_anatomy("NervousSystem100", ".", w.library, min_vertices=20, title="Brain by lobes",
                                     group=r"^(Frontal|Parietal|Temporal|Occipital) lobe\.g$|^Cerebellum\.g$|^Brainstem\.g$", opener=w.opener)
     w.notes["z_anatomy"] = {"objects": info["objects"], "parts": info["parts"], "names": info["names"]}
-    parts = [{"match": "^Frontal lobe", "colour": "#4f8dff", "label": "frontal: planning, movement", "at": 0.5},
-             {"match": "^Parietal lobe", "colour": "#3ddc84", "label": "parietal: touch, space", "at": 1.0},
-             {"match": "^Temporal lobe", "colour": "#ffd23f", "label": "temporal: hearing, memory", "at": 1.5},
-             {"match": "^Occipital lobe", "colour": "#ff7a50", "label": "occipital: vision", "at": 2.0},
+    parts = [{"match": "^Frontal[ _]lobe", "colour": "#4f8dff", "label": "frontal: planning, movement", "at": 0.5},
+             {"match": "^Parietal[ _]lobe", "colour": "#3ddc84", "label": "parietal: touch, space", "at": 1.0},
+             {"match": "^Temporal[ _]lobe", "colour": "#ffd23f", "label": "temporal: hearing, memory", "at": 1.5},
+             {"match": "^Occipital[ _]lobe", "colour": "#ff7a50", "label": "occipital: vision", "at": 2.0},
              {"match": "^Cerebellum", "colour": "#c79bff", "label": "cerebellum: balance", "at": 2.5},
              {"match": "^Brainstem", "colour": "#ff5a8a", "label": "brainstem: breathing, heartbeat", "at": 3.0}]
-    return scene([block("model_3d", {"src": w.src(asset), "title": "The brain, lobe by lobe", "parts": parts, "spin": True,
+    return scene([block("model_3d", {"src": w.src(asset), "title": "The brain, lobe by lobe", "parts": parts, "spin": True, "shift_x": -260,
                                      "subtitle": f"Z-Anatomy model · Blender joined {info['parts']} parts into {info['objects']} · three.js",
-                                     "turn_degrees": 70, "start_degrees": 90, "seconds": 4.2, "distance": 3.4, "camera_height": 0.5,
-                                     "credit": "Z-Anatomy · CC BY-SA 4.0 (share-alike)"}, box={"x": 0.0, "y": 0.0, "w": 0.75, "h": 1.0})], 4.2)
+                                     "turn_degrees": -60, "start_degrees": 90, "seconds": 4.2, "distance": 3.4, "camera_height": 0.5,
+                                     "credit": "Z-Anatomy · CC BY-SA 4.0 (share-alike)"}, box=FULL)], 4.2)
 
 
 def learning_cycle(w: Work) -> dict:

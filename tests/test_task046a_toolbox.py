@@ -445,11 +445,23 @@ class BatchThreeSources(unittest.TestCase):
         new = sources.openverse_image("bafa11dc-b447-4e43-804c-c3f8f3eca309", self.lib, opener=opener)
         self.assertEqual((new.licence, new.page_url), ("CC BY-SA 2.0", "https://www.flickr.com/photos/x/1"))
         self.assertIn("share-alike", new.tags)
+        n = len(opener.urls)
+        sources.openverse_image("bafa11dc-b447-4e43-804c-c3f8f3eca309", self.lib, opener=opener)
+        self.assertEqual(len(opener.urls), n)                                     # the record and the file are kept in the cache
+        import shutil
+        shutil.rmtree(sources.cache_dir() / "open-images")
         row["license"] = "by-nc"
         with self.assertRaises(sources.SourceError):
             sources.openverse_image("bafa11dc-b447-4e43-804c-c3f8f3eca309", self.lib, opener=opener)
         with self.assertRaises(Exception):
             sources.openverse_image("../../x", self.lib, opener=opener)
+
+    def test_a_refusing_api_is_named_not_read_as_a_missing_file(self):
+        from bie.brain import assets
+        opener = Opener({"https://commons.wikimedia.org/w/api.php": {"error": {"code": "ratelimited", "info": "slow down"}}})
+        with self.assertRaises(assets.AssetError) as err:
+            assets.commons_file("File:Marche sel.jpg", opener=opener)
+        self.assertIn("ratelimited", str(err.exception))
 
     def test_a_busy_server_is_asked_again_after_its_wait(self):
         import urllib.error

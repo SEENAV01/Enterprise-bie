@@ -13,19 +13,36 @@ type Feature = { type: "Feature"; geometry: any; properties?: any };
 const feature = (geometry: any): Feature => ({ type: "Feature", geometry, properties: {} });
 const fmt = (n: number) => n.toLocaleString("en-IN");
 
+/** Stop labels placed one by one where they cover no earlier label and no stop: right, left, below, above. */
+function labelled(stops: { name: string; at: [number, number] }[]) {
+  const boxes: [number, number, number, number][] = stops.map((s) => [s.at[0] - 10, s.at[1] - 10, s.at[0] + 10, s.at[1] + 10]);
+  const hits = (b: [number, number, number, number]) => boxes.some((o) => b[0] < o[2] && b[2] > o[0] && b[1] < o[3] && b[3] > o[1]);
+  return stops.map((s) => {
+    const w = s.name.length * 14.5, h = 26, [x, y] = s.at;
+    const tries: [number, number, "start" | "end" | "middle", [number, number, number, number]][] = [
+      [x + 14, y + 9, "start", [x + 12, y - 13, x + 14 + w, y + 13]], [x - 14, y + 9, "end", [x - 14 - w, y - 13, x - 12, y + 13]],
+      [x, y + 38, "middle", [x - w / 2, y + 14, x + w / 2, y + 14 + h]], [x, y - 18, "middle", [x - w / 2, y - 16 - h, x + w / 2, y - 14]]];
+    const pick = tries.find((t) => !hits(t[3])) || tries[0];
+    boxes.push(pick[3]);
+    return { ...s, label: [pick[0], pick[1]] as [number, number], anchor: pick[2] };
+  });
+}
+
 const IndiaMap: React.FC<BlockProps> = ({ data, at, width, height }) => {
   const { rel, fps } = useRel(at);
   const states = data.states as { name: string; highlight: boolean; label: [number, number]; area_km2: number; kind: string; geometry: any }[];
   const picked = states.filter((s) => s.highlight);
   const route = data.route as { stops: { name: string; lon: number; lat: number }[]; legs: { km: number; total_km: number }[]; total_km: number } | undefined;
   const top = 120, pad = 30;
-  const extent: [[number, number], [number, number]] = [[pad, top], [width - (data.panel ? 520 : pad), height - pad]];
-  // the frame to fit: all of India (and the route), then the picked states
-  const whole: any = { type: "FeatureCollection", features: [feature(data.outline),
-    ...(route ? [feature({ type: "LineString", coordinates: route.stops.map((s) => [s.lon, s.lat]) })] : [])] };
+  const extent: [[number, number], [number, number]] = [[pad, top], [width - (route ? 470 : pad), height - pad]];   // the distance panel sits right
+  // the frame to fit: all of India, or the route with a margin round it; then the picked states
+  const margin = 2.5;
+  const routeBox = route ? feature({ type: "MultiPoint", coordinates: route.stops.flatMap((s) =>
+    [[s.lon - margin, s.lat - margin], [s.lon + margin, s.lat + margin]]) }) : null;
+  const whole: any = { type: "FeatureCollection", features: routeBox && data.fit !== "india" ? [routeBox] : [feature(data.outline)] };
   const near: any = picked.length ? { type: "FeatureCollection", features: picked.map((s) => feature(s.geometry)) } : whole;
   const p0 = geoMercator().fitExtent(extent, whole);
-  const p1 = geoMercator().fitExtent([[extent[0][0] + 160, extent[0][1] + 60], [extent[1][0] - 160, extent[1][1] - 40]], near);
+  const p1 = geoMercator().fitExtent([[extent[0][0] + 380, extent[0][1] + 150], [extent[1][0] - 380, extent[1][1] - 120]], near);
   const z = picked.length ? ramp(rel, (data.zoom_at ?? 1.6) * fps, (data.zoom_seconds ?? 1.4) * fps) : 0;
   // the zoom: the scale grows geometrically while the map point at the middle of the frame moves straight to the states
   const mid: [number, number] = [(extent[0][0] + extent[1][0]) / 2, (extent[0][1] + extent[1][1]) / 2];
@@ -64,7 +81,7 @@ const IndiaMap: React.FC<BlockProps> = ({ data, at, width, height }) => {
         </defs>
         <rect x={0} y={0} width={width} height={height} fill="#0a2030" />
         {(data.neighbours as { name: string; geometry: any }[]).map((n) =>
-          <path key={n.name} d={path(feature(n.geometry)) || ""} fill="#173444" stroke="#2c4d5e" strokeWidth={1} />)}
+          <path key={n.name} d={path(feature(n.geometry)) || ""} fill="#34434b" stroke="#55666f" strokeWidth={1} />)}
         <path d={path(feature(data.outline)) || ""} fill="#2b5a4a" stroke="#9fd6c0" strokeWidth={2} />
         <path d={path(feature(data.beyond_states)) || ""} fill="#2b5a4a" />
         {states.map((s) => <path key={s.name} d={path(feature(s.geometry)) || ""} fill={s.highlight ? C.warm : "#2b5a4a"}
@@ -78,13 +95,11 @@ const IndiaMap: React.FC<BlockProps> = ({ data, at, width, height }) => {
           </g>;
         })}
         {route ? <path d={routeD} fill="none" stroke={C.warm} strokeWidth={6} strokeLinecap="round" strokeLinejoin="round" /> : null}
-        {route ? route.stops.map((s, i) => {
+        {route ? labelled(route.stops.map((s) => ({ name: s.name, at: projection([s.lon, s.lat]) as [number, number] }))).map((s, i) => {
           if (i > reached) return null;
-          const [x, y] = projection([s.lon, s.lat])!;
-          const left = i % 2 === 1;
           return <g key={s.name}>
-            <circle cx={x} cy={y} r={9} fill={C.ink} stroke={C.warm} strokeWidth={4} />
-            <text x={left ? x - 14 : x + 14} y={y - 10} fill={C.ink} fontSize={24} fontWeight={700} textAnchor={left ? "end" : "start"}
+            <circle cx={s.at[0]} cy={s.at[1]} r={9} fill={C.ink} stroke={C.warm} strokeWidth={4} />
+            <text x={s.label[0]} y={s.label[1]} fill={C.ink} fontSize={26} fontWeight={700} textAnchor={s.anchor}
               stroke="#0a2030" strokeWidth={5} paintOrder="stroke">{s.name}</text>
           </g>;
         }) : null}
@@ -98,7 +113,8 @@ const IndiaMap: React.FC<BlockProps> = ({ data, at, width, height }) => {
       </div> : null}
       <Title text={data.title} sub={data.subtitle} />
       {data.badge ? <Badge text={data.badge} style={{ position: "absolute", left: 40, bottom: 40 }} /> : null}
-      {data.credit ? <div style={{ position: "absolute", right: 30, bottom: 10, color: C.muted, fontSize: 18 }}>{data.credit}</div> : null}
+      {data.credit ? <div style={{ position: "absolute", right: 30, bottom: 10, color: C.muted, fontSize: 18, background: "rgba(6,18,28,0.8)",
+        padding: "2px 10px", borderRadius: 6 }}>{data.credit}</div> : null}
     </div>
   );
 };

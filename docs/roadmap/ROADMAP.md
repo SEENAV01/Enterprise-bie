@@ -176,8 +176,9 @@ path). Two render paths, one bridge: the web path (BIE blocks for Remotion, prev
 demand into the asset cache with licence and credit, never into git. Every tool is proven by a 3–5 s silent demo clip made by
 BIE code (with a contact sheet) or by a test; the status words are claims the demos lane checks on every run. Batch 1: core +
 biology, chemistry, maths, physics, computer science; batch 2: electrical, mechanical/civil, earth, astronomy, aerospace;
-batch 3: geography/history/polity, economics, law, psychology/education/sociology, languages, and the UGC NET (84) / GATE
-mapping. After each batch Navin sees the toolbox page (`docs/toolbox/TOOLBOX.md`), the clips, what is blocked and why, and the
+batch 3: geography/history/polity, economics, law, psychology/education/sociology, languages, and the UGC NET / GATE
+mapping (`bie/toolbox/exam_map.json`: the official lists of 25 October 2026 have 86 UGC NET subjects plus Paper I, not 84, and
+30 GATE papers). After each batch Navin sees the toolbox page (`docs/toolbox/TOOLBOX.md`), the clips, what is blocked and why, and the
 missing capabilities. Licence policy and repo visibility stay Navin's later decision.
 
 **046 · Director, video blocks and the benchmark video** — the presentation layer, built to the benchmark

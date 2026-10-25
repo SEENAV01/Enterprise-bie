@@ -15,7 +15,10 @@ const CaseCard: React.FC<BlockProps> = ({ data, at, width, height }) => {
   const show = (i: number) => ramp(rel, (data.first_at ?? 0.3) * fps + i * step, 10);
   const judges = (c.coram as string[]) || [];
   const chipsAt = (data.first_at ?? 0.3) * fps + 4 * step;
+  const LANG: Record<string, string> = { ENG: "English", HIN: "Hindi", MAR: "Marathi", PUN: "Punjabi", TAM: "Tamil", TEL: "Telugu", KAN: "Kannada",
+    MAL: "Malayalam", BEN: "Bengali", GUJ: "Gujarati", ORI: "Odia", ODI: "Odia", ASM: "Assamese", URD: "Urdu" };
   const rows: [string, string][] = [["Court", c.court], ["Decided", c.decided], ["Bench", c.bench]];
+  const after: [string, string][] = [["CNR", c.cnr || ""], ["Read in", ((c.languages as string[]) || []).map((l) => LANG[l] || l).join(", ")]];
   return (
     <div style={{ position: "absolute", inset: 0, fontFamily: FONT }}>
       <div style={{ position: "absolute", left: (width - 1320) / 2, top: 120, width: 1320, height: height - 170, background: "#0f2a38",
@@ -38,8 +41,11 @@ const CaseCard: React.FC<BlockProps> = ({ data, at, width, height }) => {
           <span style={{ color: C.muted }}>Citations </span>
           {(c.citations as string[]).map((t) => <span key={t} style={{ fontWeight: 800, color: C.warm, marginRight: 26 }}>{t}</span>)}
         </div>
-        {data.held ? <div style={{ marginTop: 18, fontSize: 30, fontWeight: 700, borderLeft: `6px solid ${C.warm}`, paddingLeft: 16,
-          opacity: show(6 + Math.ceil(judges.length * 2.5 / step)) }}>{data.held}</div> : null}
+        <div style={{ display: "grid", gridTemplateColumns: "180px 1fr", rowGap: 10, marginTop: 18, fontSize: 28 }}>
+          {after.filter(([, v]) => v).map(([k, v], i) => <React.Fragment key={k}>
+            <div style={{ color: C.muted, opacity: show(6 + i + Math.ceil(judges.length * 2.5 / step)) }}>{k}</div>
+            <div style={{ fontWeight: 700, opacity: show(6 + i + Math.ceil(judges.length * 2.5 / step)) }}>{v}</div></React.Fragment>)}
+        </div>
       </div>
       <Title text={data.title} sub={data.subtitle} />
       {data.credit ? <div style={{ position: "absolute", left: 40, bottom: 10, color: C.muted, fontSize: 18 }}>{data.credit}</div> : null}

@@ -165,13 +165,15 @@ const Model3D: React.FC<BlockProps> = ({ data, at, width, height }) => {
   const zoom = data.zoom ? 1 - (1 - data.zoom) * ramp(rel, (data.zoom_at ?? 2) * fps, 1.5 * fps) : 1;
   return (
     <>
-      <ThreeCanvas width={width} height={height} gl={{ alpha: true, preserveDrawingBuffer: true, antialias: true }}>
-        <Lights />
-        {/* spin: the model turns under a fixed camera and fixed lights, so a part never turns its dark side to the viewer */}
-        <Orbit angle={(data.start_degrees ?? 0) + (data.spin ? 0 : turn)} distance={(data.distance ?? 4.2) * zoom}
-          height={(data.camera_height ?? 0.6) * zoom} target={data.target || [0, 0, 0]} />
-        <primitive object={scene} rotation={[0, data.spin ? (turn * Math.PI) / 180 : 0, 0]} />
-      </ThreeCanvas>
+      <div style={{ position: "absolute", inset: 0, transform: `translateX(${data.shift_x ?? 0}px)` }}>
+        <ThreeCanvas width={width} height={height} gl={{ alpha: true, preserveDrawingBuffer: true, antialias: true }}>
+          <Lights />
+          {/* spin: the model turns under a fixed camera and fixed lights, so a part never turns its dark side to the viewer */}
+          <Orbit angle={(data.start_degrees ?? 0) + (data.spin ? 0 : turn)} distance={(data.distance ?? 4.2) * zoom}
+            height={(data.camera_height ?? 0.6) * zoom} target={data.target || [0, 0, 0]} />
+          <primitive object={scene} rotation={[0, data.spin ? (turn * Math.PI) / 180 : 0, 0]} />
+        </ThreeCanvas>
+      </div>
       <Title text={data.title} sub={data.subtitle} />
       {parts.length ? <div style={{ position: "absolute", right: 40, top: 150, display: "flex", flexDirection: "column", gap: 12, fontFamily: FONT }}>
         {parts.map((p) => <div key={p.label} style={{ display: "flex", alignItems: "center", gap: 12, fontSize: 28, color: C.ink, fontWeight: 700,

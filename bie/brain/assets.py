@@ -160,7 +160,10 @@ def commons_file(title: str, *, thumb_width: int = 1600, opener=None) -> Candida
     params = {"action": "query", "format": "json", "titles": title, "prop": "imageinfo",
               "iiprop": "url|size|mime|extmetadata", "iiurlwidth": str(thumb_width)}
     raw = _open(COMMONS_API + "?" + urllib.parse.urlencode(params), opener=opener, max_bytes=4 * 1024 * 1024)
-    pages = (json.loads(raw.decode("utf-8")).get("query") or {}).get("pages") or {}
+    body = json.loads(raw.decode("utf-8"))
+    if "error" in body:                                   # for example "ratelimited": said plainly, not as a missing file
+        raise AssetError(f"Commons API refused {title!r}: {body['error'].get('code')}: {str(body['error'].get('info'))[:200]}")
+    pages = (body.get("query") or {}).get("pages") or {}
     page = next(iter(pages.values()), {})
     candidate = _commons_candidate(page) if "missing" not in page else None
     url = (candidate.thumb_url or candidate.file_url) if candidate else ""
@@ -228,10 +231,11 @@ class AssetLibrary:
                                               indent=1), encoding="utf-8")
 
     def add_candidate(self, candidate: Candidate, *, tags=(), description: str = "", opener=None,
-                      allow_share_alike: bool = False) -> Asset:
+                      allow_share_alike: bool = False, data: bytes | None = None) -> Asset:
+        """``data``: the file's bytes when the caller already has them (a cached download); otherwise they are fetched."""
         if not licence_allowed(candidate.licence, allow_share_alike=allow_share_alike):
             raise AssetError(f"licence {candidate.licence!r} is not allowed")
-        data = _open(candidate.file_url, opener=opener)
+        data = data if data is not None else _open(candidate.file_url, opener=opener)
         marks = ["share-alike"] if normalise_licence(candidate.licence) == "cc-by-sa" else []     # kept, but marked
         return self.add_bytes(data, mime=candidate.mime, source=candidate.source, title=candidate.title,
                               page_url=candidate.page_url, licence=candidate.licence, licence_url=candidate.licence_url,

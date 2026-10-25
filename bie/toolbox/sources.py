@@ -19,7 +19,9 @@ import urllib.request
 import zipfile
 from pathlib import Path
 
-from bie.brain.assets import USER_AGENT, AssetLibrary, commons_file, normalise_licence, openverse_image as openverse_candidate
+from bie.brain.assets import (USER_AGENT, AssetLibrary, Candidate, commons_file, normalise_licence,
+                              openverse_image as openverse_candidate)
+from bie.brain.assets import _open as open_url
 
 MAX_BYTES = 300 * 1024 * 1024
 RCSB = "https://files.rcsb.org/download/{id}.pdb"
@@ -429,15 +431,29 @@ def indic_nlp_resources(*, opener=None) -> Path:
     return root
 
 
+def _open_image(kind: str, key: str, find, library: AssetLibrary, *, opener=None, tags=()):
+    """A picture from an open archive, its record and bytes kept in the cache after the first fetch (archives such as
+    Commons slow down busy clients; a run should not need them twice), then added to the library with its licence."""
+    stem = cache_dir() / "open-images" / f"{kind}-{hashlib.sha256(key.encode()).hexdigest()[:16]}"
+    record, blob = stem.with_suffix(".json"), stem.with_suffix(".bin")
+    if record.exists() and blob.exists():
+        candidate, data = Candidate(**json.loads(record.read_text(encoding="utf-8"))), blob.read_bytes()
+    else:
+        candidate = find()
+        _check_licence(candidate.licence, key)
+        data = open_url(candidate.file_url, opener=opener)
+        stem.parent.mkdir(parents=True, exist_ok=True)
+        blob.write_bytes(data)
+        record.write_text(json.dumps(candidate.__dict__, ensure_ascii=False), encoding="utf-8")
+    return library.add_candidate(candidate, tags=[kind, *tags], allow_share_alike=True, data=data)
+
+
 def commons_image(title: str, library: AssetLibrary, *, opener=None, tags=(), width: int = 1600):
     """A named Wikimedia Commons picture through the asset library (share-alike kept and marked)."""
-    candidate = commons_file(title, thumb_width=width, opener=opener)
-    _check_licence(candidate.licence, title)
-    return library.add_candidate(candidate, tags=["commons", *tags], opener=opener, allow_share_alike=True)
+    return _open_image("commons", f"{title}@{width}", lambda: commons_file(title, thumb_width=width, opener=opener), library,
+                       opener=opener, tags=tags)
 
 
 def openverse_image(identifier: str, library: AssetLibrary, *, opener=None, tags=()):
     """An Openverse picture by id through the asset library (share-alike kept and marked; NC and ND refused)."""
-    candidate = openverse_candidate(identifier, opener=opener)
-    _check_licence(candidate.licence, f"Openverse {identifier}")
-    return library.add_candidate(candidate, tags=["openverse", *tags], opener=opener, allow_share_alike=True)
+    return _open_image("openverse", identifier, lambda: openverse_candidate(identifier, opener=opener), library, opener=opener, tags=tags)

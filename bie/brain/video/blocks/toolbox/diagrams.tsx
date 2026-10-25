@@ -38,11 +38,15 @@ const MermaidBuild: React.FC<BlockProps> = ({ data, at, width, height }) => {
   const first = (data.first_at ?? 0.4) * fps, gap = ((data.seconds ?? 3.0) * fps) / Math.max(1, order.length);
   const shown = (id: string) => { const i = order.indexOf(id); return i < 0 ? 1 : ramp(rel, first + i * gap, 10); };
   const edges = (data.edges as [string, string][]) || [];
-  // CSS per frame: every node and edge hidden, then each one's opacity from its turn in the order
-  const css = [`.bie-mmd svg{width:100%;height:100%} .bie-mmd g.node, .bie-mmd .flowchart-link, .bie-mmd .edgeLabel{opacity:0}`,
-    ...order.map((id) => `.bie-mmd g.node[data-id="${id}"]{opacity:${shown(id).toFixed(3)}}` +
+  // CSS per frame: every node and edge hidden, then each one's opacity from its turn in the order. Mermaid names a node
+  // "<svg id>-flowchart-<node id>-<n>" and marks an edge with data-id "L_<from>_<to>_<n>"; its own max-width is lifted so the
+  // diagram fills the block.
+  const node = (id: string) => `.bie-mmd g.node[id*="-flowchart-${id}-"]`;
+  const css = [`.bie-mmd svg{width:100% !important;height:100% !important;max-width:none !important}`,
+    `.bie-mmd g.node, .bie-mmd .flowchart-link, .bie-mmd .edgeLabel{opacity:0}`,
+    ...order.map((id) => `${node(id)}{opacity:${shown(id).toFixed(3)}}` +
       (rel >= first + order.indexOf(id) * gap && rel < first + (order.indexOf(id) + 1) * gap
-        ? `.bie-mmd g.node[data-id="${id}"] rect, .bie-mmd g.node[data-id="${id}"] polygon{stroke:${C.warm} !important;stroke-width:4px !important}` : "")),
+        ? `${node(id)} rect, ${node(id)} polygon, ${node(id)} path{stroke:${C.warm} !important;stroke-width:4px !important}` : "")),
     ...edges.map(([a, b]) => {
       const o = Math.min(shown(a), shown(b)).toFixed(3);
       return `.bie-mmd [data-id^="L_${a}_${b}_"]{opacity:${o}} .bie-mmd .edgeLabel:has([data-id^="L_${a}_${b}_"]){opacity:${o}}`;
@@ -106,9 +110,9 @@ const FlowBuild: React.FC<BlockProps> = ({ data, at, width, height }) => {
   const box = { x: 40, y: 130, w: width - 80 - (data.panel_width ?? 0), h: height - 170 };
   const chars = data.wrap ?? 22;
   const sizes = new Map(nodes.map((n) => [n.id, nodeSize(n, chars)]));
-  let pos = new Map<string, { x: number; y: number }>();
+  const pos = new Map<string, { x: number; y: number }>();
   let routes: { e: FEdge; pts: [number, number][]; lx?: number; ly?: number }[] = [];
-  let scale = 1;
+  let transform = "";                                     // dagre's drawing is scaled as a whole, text and all
   if (data.layout === "cycle") {
     const R = Math.min(box.w, box.h) / 2 - 110, cx = box.x + box.w / 2, cy = box.y + box.h / 2;
     nodes.forEach((n, i) => { const a = -Math.PI / 2 + (2 * Math.PI * i) / nodes.length; pos.set(n.id, { x: cx + R * Math.cos(a), y: cy + R * Math.sin(a) }); });
@@ -120,20 +124,18 @@ const FlowBuild: React.FC<BlockProps> = ({ data, at, width, height }) => {
     });
   } else {
     const g = new dagre.graphlib.Graph();
-    g.setGraph({ rankdir: data.rankdir || "TB", nodesep: 46, ranksep: 58, edgesep: 20, marginx: 10, marginy: 10 });
+    g.setGraph({ rankdir: data.rankdir || "TB", nodesep: 46, ranksep: data.ranksep ?? 58, edgesep: 20, marginx: 10, marginy: 10 });
     g.setDefaultEdgeLabel(() => ({}));
     nodes.forEach((n) => { const s = sizes.get(n.id)!; g.setNode(n.id, { width: s.w, height: s.h }); });
     edges.forEach((e) => g.setEdge(e.from, e.to, e.label ? { label: e.label, width: e.label.length * 14 + 20, height: 30, labelpos: "c" } : {}));
     dagre.layout(g);
     const gw = g.graph().width || 1, gh = g.graph().height || 1;
-    scale = Math.min(1.25, box.w / gw, box.h / gh);
-    const ox = box.x + (box.w - gw * scale) / 2, oy = box.y + (box.h - gh * scale) / 2;
-    const P = (x: number, y: number): [number, number] => [ox + x * scale, oy + y * scale];
-    nodes.forEach((n) => { const v = g.node(n.id); const [x, y] = P(v.x, v.y); pos.set(n.id, { x, y }); });
+    const scale = Math.min(1.25, box.w / gw, box.h / gh);
+    transform = `translate(${box.x + (box.w - gw * scale) / 2},${box.y + (box.h - gh * scale) / 2}) scale(${scale})`;
+    nodes.forEach((n) => { const v = g.node(n.id); pos.set(n.id, { x: v.x, y: v.y }); });
     routes = edges.map((e) => {
       const ed = g.edge(e.from, e.to) as any;
-      return { e, pts: (ed.points as { x: number; y: number }[]).map((p) => P(p.x, p.y)), lx: ed.x !== undefined ? P(ed.x, ed.y)[0] : undefined,
-               ly: ed.y !== undefined ? P(ed.x, ed.y)[1] : undefined };
+      return { e, pts: (ed.points as { x: number; y: number }[]).map((p) => [p.x, p.y] as [number, number]), lx: ed.x, ly: ed.y };
     });
   }
   const curve = line().curve(curveBasis);
@@ -150,7 +152,7 @@ const FlowBuild: React.FC<BlockProps> = ({ data, at, width, height }) => {
       <svg width={width} height={height} style={{ position: "absolute", inset: 0 }}>
         <defs><marker id="flowhead" viewBox="0 0 10 10" refX={9} refY={5} markerWidth={7} markerHeight={7} orient="auto-start-reverse">
           <path d="M0,0 L10,5 L0,10 z" fill="#9fb3bf" /></marker></defs>
-        <g>
+        <g transform={transform}>
           {routes.map((r, i) => {
             const o = Math.min(shown(r.e.from), shown(r.e.to));
             if (o <= 0) return null;
@@ -163,8 +165,8 @@ const FlowBuild: React.FC<BlockProps> = ({ data, at, width, height }) => {
           })}
           {nodes.map((n) => {
             const p = pos.get(n.id)!, s = sizes.get(n.id)!;
-            return <Shape key={n.id} n={n} x={p.x} y={p.y} w={s.w * (data.layout === "cycle" ? 1 : scale)} h={s.h * (data.layout === "cycle" ? 1 : scale)}
-              lines={s.lines} o={shown(n.id)} now={isNow(n.id)} sectionPrefix={data.section_prefix ?? "§ "} />;
+            return <Shape key={n.id} n={n} x={p.x} y={p.y} w={s.w} h={s.h} lines={s.lines} o={shown(n.id)} now={isNow(n.id)}
+              sectionPrefix={data.section_prefix ?? "§ "} />;
           })}
           {token ? <circle cx={token[0]} cy={token[1]} r={14} fill={C.warm} /> : null}
           {data.layout === "cycle" && data.centre ? <text x={box.x + box.w / 2} y={box.y + box.h / 2 + 12} fill={C.muted} fontSize={34} fontWeight={800}
@@ -173,8 +175,11 @@ const FlowBuild: React.FC<BlockProps> = ({ data, at, width, height }) => {
       </svg>
       <Title text={data.title} sub={data.subtitle} />
       {data.panel ? <div style={{ position: "absolute", right: 40, top: 150, width: (data.panel_width ?? 0) - 30, color: C.ink, fontSize: 24,
-        background: C.panel, borderRadius: 14, padding: "14px 18px", lineHeight: 1.35 }}>{(data.panel as string[]).map((l, i) =>
-          <div key={i} style={{ marginBottom: 8, opacity: ramp(rel, (data.panel_at ?? 0.6) * fps + i * 8, 10) }}>{l}</div>)}</div> : null}
+        background: C.panel, borderRadius: 14, padding: "14px 18px", lineHeight: 1.3, boxSizing: "border-box" }}>
+        {data.panel_title ? <div style={{ color: C.muted, fontSize: 22, marginBottom: 10 }}>{data.panel_title}</div> : null}
+        {(data.panel as { node: string; text: string; tag?: string }[]).map((l) =>
+          <div key={l.node} style={{ marginBottom: 10, opacity: shown(l.node), color: isNow(l.node) ? C.warm : C.ink }}>
+            {l.tag ? <b style={{ color: C.warm, marginRight: 10 }}>{l.tag}</b> : null}{l.text}</div>)}</div> : null}
       {data.badge ? <Badge text={data.badge} style={{ position: "absolute", left: 40, bottom: 24 }} /> : null}
     </div>
   );
@@ -188,7 +193,7 @@ const TreeBuild: React.FC<BlockProps> = ({ data, at, width, height }) => {
   const { rel, fps } = useRel(at);
   const root = hierarchy<TNode>(data.root);
   const depth = root.height + 1;
-  const box = { x: 60, y: 170, w: width - 120, h: height - 260 };
+  const box = { x: 90, y: 180, w: width - 180, h: height - 300 };
   tree<TNode>().size([box.w, box.h]).separation((a, b) => (a.parent === b.parent ? 1 : 1.3))(root);
   const per = ((data.seconds ?? 3.0) * fps) / depth, first = (data.first_at ?? 0.3) * fps;
   const o = (d: number) => ramp(rel, first + d * per, 12);
@@ -205,7 +210,7 @@ const TreeBuild: React.FC<BlockProps> = ({ data, at, width, height }) => {
         {root.descendants().map((n, i) => {
           const [x, y] = P(n);
           const lines = wrap(n.data.name, data.wrap ?? 18);
-          const w = Math.max(...lines.map((l) => l.length)) * 14 + 40, h = lines.length * 30 + 22 + (n.data.note ? 26 : 0);
+          const w = Math.max(...lines.map((l) => l.length), (n.data.note || "").length * 0.85) * 14 + 40, h = lines.length * 30 + 22 + (n.data.note ? 26 : 0);
           return <g key={i} opacity={o(n.depth)}>
             <rect x={x - w / 2} y={y - h / 2} width={w} height={h} rx={12} fill={n.depth === 0 ? "#3a2a12" : "#123a4a"}
               stroke={n.depth === 0 ? C.warm : C.accent} strokeWidth={3} />

@@ -15,7 +15,7 @@ const ExperimentFlow: React.FC<BlockProps> = ({ data, at, width, height }) => {
   const t = Math.max(0, rel - first);
   const ti = Math.min(trials.length - 1, Math.floor(t / per));
   const within = (t - ti * per) / per;                         // 0..1 inside the trial
-  const shares = [0.25, 0.55, 0.2];                            // fixation, stimulus, feedback: shares of a trial on screen
+  const shares = [0.2, 0.6, 0.2];                              // fixation, stimulus, feedback: shares of a trial on screen
   const ri = rel < first ? -1 : within < shares[0] ? 0 : within < shares[0] + shares[1] ? 1 : 2;
   const trial = trials[ti];
   const screen = { x: 80, y: 330, w: 980, h: 560 };
