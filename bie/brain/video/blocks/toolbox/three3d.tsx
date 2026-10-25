@@ -171,7 +171,7 @@ const tracks = new Map<string, Track>();
 function simulate(data: any, frames: number, fps: number): Track {
   const world = new CANNON.World({ gravity: new CANNON.Vec3(0, -9.82, 0) });
   world.defaultContactMaterial.restitution = data.restitution ?? 0.45;
-  world.defaultContactMaterial.friction = 0.3;
+  world.defaultContactMaterial.friction = data.friction ?? 0.3;
   const ground = new CANNON.Body({ mass: 0, shape: new CANNON.Plane() });
   ground.quaternion.setFromEuler(-Math.PI / 2, 0, 0);
   world.addBody(ground);

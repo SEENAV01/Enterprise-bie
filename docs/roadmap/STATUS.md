@@ -41,8 +41,11 @@ Built in batch 1 (IMPLEMENTED; tools demo proven; nothing INTEGRATED into a less
   page; older files said CC BY-SA 2.1 JP), NIH 3D and PubChem (licence per item, recorded per asset).
 - **Capabilities and resolver** (`capabilities.json`, `resolver.py`): 42 capabilities tied to the content types and the 045d
   visual verbs; `resolve(capability, subject, level, path)` returns the drawing, computing and asset tools with a fallback
-  path; a capability nothing provides is logged (`BIE_TOOLBOX_MISSING_LOG`). After batch 1, 23 capabilities have a tool;
-  19 are missing (batch 2/3 tools, or blocks planned in Task 046: `mnemonic_card`, `split_compare`).
+  path; a capability nothing provides is logged (`BIE_TOOLBOX_MISSING_LOG`). After batch 1, 24 capabilities have a tool
+  and 17 of them are shown in a proof clip (the page has a clip column per capability, because a status word is per tool);
+  7 have a tool but no clip yet (`board_build`, `concept_arrow`, `kinetic_caption`, `table_build`, `timeline`: Task 039's
+  2D blocks; `machine_part_3d`, `vector_field`: batch 2); 18 are missing (batch 2/3 tools, or blocks planned in Task 046:
+  `mnemonic_card`, `split_compare`).
 - **Web path:** a block registry (`bie/brain/video/blocks/registry.ts`, layer type `block`) and seven toolbox block files
   (`blocks/toolbox/`: 3D cell sheet with particle flow, glTF model with glow and zoom, cannon-es collision, equation steps that
   refuse an unchecked step, function graph, ECG and waves, falling body, matter.js bodies, BFS on a graph, reaction with
@@ -61,7 +64,10 @@ Built in batch 1 (IMPLEMENTED; tools demo proven; nothing INTEGRATED into a less
   checks not blank / moves / 3–5 s and the installed versions against the registry, and checks every status claim);
   `tools/toolbox_page.py` writes `docs/toolbox/TOOLBOX.md`. Seen on the contact sheets and fixed before the PR: equation steps
   were typeset after SymPy had simplified them (three identical lines), a fitted line drawn by its two end points appeared at
-  once, Z-Anatomy parts lost their place when unparented, a Manim clip began on an empty frame, Mol* drew crystal water.
+  once, Z-Anatomy parts lost their place when unparented, a Manim clip began on an empty frame, Mol* drew crystal water
+  (and took 583 s; 330 s without it and the screen-space effects), the 3D collision missed the tower. A stack of boxes is
+  chaotic in cannon-es (a 1e-9 shift can leave it standing), so the collision numbers were swept with jittered starts until
+  the tower fell in 8 of 8 runs.
 - **Tests and CI:** `tools/run_task046a_tests.py` (lane core: 29 tests, no heavy libraries; lane wrappers: 15 tests, one per
   wrapper, with Blender and Manim really run); workflow `BIE Task046a Toolbox` (`.github/workflows/toolbox.yml`, path-filtered,
   so the canonical gates are not slower): core, wrappers, and demos (all clips + the bridge + the page, uploaded as an

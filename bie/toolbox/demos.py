@@ -233,10 +233,13 @@ def matter(w: Work) -> dict:
 
 def collision(w: Work) -> dict:
     # Momentum passes along: the moving ball stops, the ball it hits rolls on and knocks the tower over.
-    bodies = [{"shape": "sphere", "size": 1.0, "position": [-4.5, 0.5, 0], "velocity": [7, 0, 0], "mass": 1},
-              {"shape": "sphere", "size": 1.0, "position": [-0.5, 0.5, 0], "mass": 1}]
-    bodies += [{"shape": "box", "size": 0.8, "position": [3.2, 0.4 + 0.8 * i, 0], "mass": 0.3, "colour": "#9fb3bf"} for i in range(4)]
-    return scene([block("collision_3d", {"bodies": bodies, "seconds": 4, "restitution": 0.9, "title": "A collision passes momentum on",
+    # A stack of boxes is chaotic (a 1e-9 shift can leave it standing), so these numbers were swept in cannon-es with the
+    # start positions jittered from 1e-9 to 2e-3: the tower fell in 8 of 8 runs.
+    bodies = [{"shape": "sphere", "size": 1.6, "position": [-4.5, 0.8, 0], "velocity": [10, 0, 0], "mass": 3},
+              {"shape": "sphere", "size": 1.6, "position": [-1.0, 0.8, 0], "mass": 3}]
+    bodies += [{"shape": "box", "size": 0.6, "position": [2.2, 0.3 + 0.6 * i, 0], "mass": 0.1, "colour": "#9fb3bf"} for i in range(5)]
+    return scene([block("collision_3d", {"bodies": bodies, "seconds": 4, "restitution": 0.95, "friction": 0.05,
+                                         "title": "A collision passes momentum on",
                                          "subtitle": "cannon-es computes, three.js draws", "badge": "physics_sim_3d",
                                          "start_degrees": 8, "turn_degrees": 22, "distance": 11, "camera_height": 4.5})], 4.0)
 

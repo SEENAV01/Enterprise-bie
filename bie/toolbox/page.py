@@ -44,7 +44,9 @@ def render_markdown(box: Toolbox, results: dict | None = None, *, missing_log: l
                   "| Clip | What it shows | Tools it proves | Length | Checks |", "| --- | --- | --- | --- | --- |"]
         for r in rows.values():
             ok = "passed" if r.get("passed") else f"failed: {(r.get('error') or 'checks')[:80]}"
-            lines.append(f"| `{r['demo']}` | {r.get('title', '')} | {', '.join(r.get('tools', []))} | {r.get('seconds', '—')} s | {ok} |")
+            known = {d.id: d for d in DEMOS}
+            tools = known[r["demo"]].tools if r["demo"] in known else r.get("tools", [])      # the demo as the code defines it
+            lines.append(f"| `{r['demo']}` | {r.get('title', '')} | {', '.join(tools)} | {r.get('seconds', '—')} s | {ok} |")
         lines.append("")
     lines += ["## By subject family", ""]
     for family in box.families:
