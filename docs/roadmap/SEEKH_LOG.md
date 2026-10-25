@@ -565,3 +565,12 @@ answers only `gemini-3.8-flash` (smoke run 40114580580; `gemini-4-argon` 429 quo
 Quality, first-try pass rate and rounds are unchanged offline (no rule or check changed); the Task 045 lane passes (449 tests, 16 new
 in `tests/test_task045_free_reviewer.py`) and both saved regression sets still pass. The live effect comes from the ₹0 test job and
 the v5 and v9 resume.
+
+**Live effect (25 October 2026, after PR #67 at `26b5ff24`):** the ₹0 test job (`t045-free-reviewer-smoke`) and the lesson resume
+(`t045-tissue-lesson-finish`) ran on the VM with the free key. Every Google call went `direct` to `gemini-3.8-flash`; no AICredits
+call. v5 and v9 continued from their last answers with no maker call and both passed at round 0: **11 of 11 videos pass**. The three
+reviews answered 1,867, 2,072 and 2,711 output tokens (787, 1,367 and 1,753 of them thinking), all far under the 12,000 cap; v5's
+review, the one that ran away to 32,000 in job B2, now answered in 2,711. The free tier failed the first try of two calls
+(`provider_unavailable`, once in each job) and the gateway's retry passed both; no per-minute quota was met. Billed ₹0; ledger
+estimate ₹8.76 at the list price.
+
