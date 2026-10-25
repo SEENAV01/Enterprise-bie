@@ -1,0 +1,3932 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "understand",
+ "unit": "page-001",
+ "status": "failed",
+ "instructions_version": "understand-page/3",
+ "rulebook_version": "content_types@2026-10-24.1+explanations@2026-10-24.1+level_profiles@2026-10-24.1+simple_hindi@2026-10-25.1+teacher_examples@2026-10-24.1+vision-2026-10-21@2026-10-21.12",
+ "rulebook_digest": "2347548b4b9479838c1a8a29b05eab8476080160e553ad1e6856adb1290339db",
+ "rules_used": [
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-05",
+  "G-06",
+  "G-07",
+  "S1-01",
+  "S1-02",
+  "S1-03",
+  "S1-04",
+  "S1-05",
+  "S1-06",
+  "S1-07",
+  "S1-08",
+  "S1-09",
+  "S1-10",
+  "S1-11",
+  "S1-13",
+  "S1-14",
+  "S1-15"
+ ],
+ "maker_route": "codex",
+ "reviewer_route": "google",
+ "maker_model": "gpt-6.1-sol",
+ "reviewer_model": "gemini-3.8-flash",
+ "reviewer_independence": "other_company",
+ "inputs_digest": "a36f3a063853a841c75f8e5cbc17559bf5066c749796c53c00e51a70e0687d06",
+ "card": {
+  "card": "bie.task-card/1",
+  "card_id": "understand.read_page@10-tissues-and-its-types/page-001",
+  "section": "understand",
+  "task": "read_page",
+  "prefix": {
+   "prefix_id": "understand.read_page/3",
+   "rulebook_version": "content_types@2026-10-24.1+explanations@2026-10-24.1+level_profiles@2026-10-24.1+simple_hindi@2026-10-25.1+teacher_examples@2026-10-24.1+vision-2026-10-21@2026-10-21.12",
+   "content_types_version": "2026-10-24.1",
+   "schema_id": "bie.brain.understand-page/3",
+   "sha256": "b42fc4ed3eda8cbfccefc1e9a061946447f587fc1f80f14f824cdc679acc2b33"
+  },
+  "unit": {
+   "unit_id": "page-001",
+   "title": "Page 1 of 14",
+   "pages": [
+    1
+   ]
+  },
+  "parts": [
+   {
+    "part_id": "b1",
+    "item_ids": [
+     "p0001-b0003"
+    ],
+    "type": "definition",
+    "questions": [
+     "what",
+     "evidence"
+    ],
+    "focus": "BIE proposes definition (strong): pattern 'TISSUE:'"
+   },
+   {
+    "part_id": "b2",
+    "item_ids": [
+     "p0001-b0006"
+    ],
+    "type": "cause_effect",
+    "questions": [
+     "why",
+     "how"
+    ],
+    "focus": "BIE proposes cause_effect (weak): 'causes'"
+   },
+   {
+    "part_id": "b3",
+    "item_ids": [
+     "p0001-b0007"
+    ],
+    "type": "cause_effect",
+    "questions": [
+     "why",
+     "how"
+    ],
+    "focus": "BIE proposes cause_effect (strong): pattern 'hence'; pattern 'leads to'"
+   },
+   {
+    "part_id": "img",
+    "item_ids": [
+     "p0001-image"
+    ],
+    "type": "none",
+    "questions": [
+     "what"
+    ],
+    "focus": "The page image: capture every table, diagram, label and arrow it shows (S1-01); its items get the type of what they show."
+   }
+  ],
+  "rules": [
+   "G-01",
+   "G-02",
+   "G-03",
+   "G-05",
+   "G-06",
+   "G-07",
+   "S1-01",
+   "S1-02",
+   "S1-03",
+   "S1-04",
+   "S1-05",
+   "S1-06",
+   "S1-07",
+   "S1-08",
+   "S1-09",
+   "S1-10",
+   "S1-11",
+   "S1-13",
+   "S1-14",
+   "S1-15"
+  ],
+  "output": {
+   "schema_id": "bie.brain.understand-page/3",
+   "mode": "full",
+   "max_output_tokens": 32000
+  },
+  "coverage": {
+   "must_cover": [
+    "p0001-b0001",
+    "p0001-b0002",
+    "p0001-b0003",
+    "p0001-b0004",
+    "p0001-b0005",
+    "p0001-b0006",
+    "p0001-b0007",
+    "p0001-b0008"
+   ],
+   "claim_field": "items[].block_ids or boilerplate_block_ids",
+   "may_skip": [
+    {
+     "item_id": "p0001-b0009",
+     "reason": "page number"
+    }
+   ]
+  },
+  "context": {
+   "map_slice": [],
+   "before": "",
+   "after": ""
+  },
+  "source": {
+   "block_ids": [
+    "p0001-b0001",
+    "p0001-b0002",
+    "p0001-b0003",
+    "p0001-b0004",
+    "p0001-b0005",
+    "p0001-b0006",
+    "p0001-b0007",
+    "p0001-b0008",
+    "p0001-b0009"
+   ],
+   "page_images": [
+    {
+     "page": 1,
+     "sha256": "7f28bd95e9ae8c905288d246ff35d892f14227243e24828294a702c353c60234"
+    }
+   ]
+  }
+ },
+ "prefix_sha256": "b42fc4ed3eda8cbfccefc1e9a061946447f587fc1f80f14f824cdc679acc2b33",
+ "review_prefix_sha256": "74144346dc738274e31e56324103e0e37ca45a518a2ea36dc57ec21406ea28df",
+ "inputs": {
+  "system": "BIE task prefix understand.read_page/3 · rulebook content_types@2026-10-24.1+explanations@2026-10-24.1+level_profiles@2026-10-24.1+simple_hindi@2026-10-25.1+teacher_examples@2026-10-24.1+vision-2026-10-21@2026-10-21.12 · content types 2026-10-24.1 · schema bie.brain.understand-page/3\n\nYou are BIE's book-understanding section: an expert teacher of Science and Technology for UPSC / State PCS aspirants preparing for UPSC / State PCS.\nYou read one page of a book chapter with two eyes, the page's native text blocks and the page image, and turn it into a complete,\nquestion-based teacher's understanding. Later BIE sections build the video lessons, the chapter game and the notes only from what you\ncapture, so anything you miss is missing from the whole course. Your output is internal to BIE: write it in clear English and keep the\nbook's own terms and spellings.\nCourse: \"10. Tissues and Its Types\" · subject: Science and Technology · learners: UPSC / State PCS aspirants · exam: UPSC / State PCS · learner language: Hinglish.\n\nNavin's rules for this task (follow every one):\n[G-01] Everything taught comes from the book. Knowledge from outside the book is allowed only to explain the book better; it is marked as outside, standard textbook-level and correct. Never invent facts, numbers, names or quotations.\n[G-02] Work like the best teacher of these learners and this exam, not like a summariser. Depth beats brevity: nothing teachable on the page is skipped or compressed away, and every explanation makes a student understand, not just remember. Depth means understanding, not length: lesson narration keeps S2-01's time by cutting repetition and side-tracks, never book content.\n[G-03] Before the output, fill 'notes' with brief notes for the reviewer and for Navin: what this unit is about, the key questions a teacher must answer about it, the main decisions you made with a one-line reason each, and anything uncertain. Keep the notes short; they explain the work, they are not the work.\n[G-05] Never drop or compress away what the book teaches to fit a length. If a unit of work is too large, it is split by BIE into smaller units; within a unit, the book's content is complete. Lesson narration has a time target (S2-01), met by cutting repetition and side-tracks, never book content.\n[G-06] BIE is the link between the learner and the book, like a teacher (Navin, 24 October 2026). The book is the base; BIE carries its text, easy or hard, into the learner's mind. Never just read the line out: every book line is opened (what its words mean, why it is so, where it is seen, what follows), at the depth of the level profile.\n[G-07] Two layers, like a film (Navin, 24 October 2026). The writer layer (understanding, plan, script) decides what is said and how deep, following the level profile and the book's own level. The presentation layer (director, video blocks, render) is the same skilled quality for every learner, from class 6 to postgraduate; only the detail shown follows the level, never the craft.\n[S1-01] Read the page with two eyes: the native text blocks (exact words and numbers) and the page image (tables, diagrams, labels, arrows, equations, layout). Items that exist only in the image are as important as text items. A page whose text layer is empty or nearly empty is read entirely from the image.\n[S1-02] Every native text block is either covered by an item (its id in that item's block_ids) or listed as boilerplate. Boilerplate is only running headers, page numbers, publisher adverts, contact lines and watermarks; nothing teachable is boilerplate.\n[S1-03] Every table becomes one 'table' item plus one 'table_row' item per row, in order, each row's content giving every cell with its column header, for example 'Smooth muscle | Location: G.I. tract, uterus, eye, blood vessels | Function: peristalsis, blood pressure, pupil size, erects hairs | Appearance: no striations, one central nucleus | Control: involuntary'. A table continued from the previous page continues the same table.\n[S1-04] Every diagram, chart, flow or tree becomes one 'diagram' item that says what it shows and how its parts connect (arrows, branches, flows, sequence), plus one 'diagram_label' item per label naming what the label points to. A classification tree lists every branch and leaf with its parent.\n[S1-05] Every equation, formula, chemical formula and symbol is read exactly and each symbol's meaning and unit are stated.\n[S1-06] Understand every teachable item by questioning it like a teacher. Ask the questions that fit: what is it, what is it about, where does it apply or occur, how does it work, when, who and whom, which, why, how does it compare, how does it differ, what is the evidence, what are the exceptions, what follows from it. Then keep asking 'why' and 'how' on your own answers (depth 2, 3 ...) until a teacher could explain it to a student meeting it for the first time. Answers explain; they never just repeat the item's words.\n[S1-07] Mark every answer's basis: 'book' only when the page itself states it, 'outside' when any part comes from general knowledge. Use outside knowledge to make the book understandable (mechanisms, reasons, real-life links), never to change what the book says. Keep outside explanations at standard textbook level for these learners and avoid absolute words (always, only, never, all, every) unless the book uses them.\n[S1-08] Give every item its true content type, one of BIE's nine: process, structure, classification, comparison, timeline, cause_effect, facts_numbers, figure, definition (bie/brain/rulebook/content_types.json). An example takes the type of what it illustrates; a question or an answer option is a role, not a type. BIE's code proposes a type before you read the page; when you choose another, say why. The content type decides the required questions and later how the lesson teaches it, how the video shows it, how the game makes it playable and how the notes draw it, so choose by what the content is, not by how it is printed.\n[S1-09] Name the prerequisites a student must already understand for each item, as concrete concepts ('cell and its nucleus', 'what a nerve impulse is'), never vague ('basic biology'). Prerequisites are taught later, not just listed.\n[S1-10] Judge exam importance for the course's exam (for UPSC / State PCS: classifications, comparisons, locations, functions, examples and odd-one-out facts are high). Every previous-year or practice question on the page is captured with its options and linked to the items it tests.\n[S1-11] Where the text layer and the image disagree (garbled symbols, missing words, wrong order), report the disagreement. Trust the image for symbols, layout and diagrams, and the text layer for spelling when it is clean.\n[S1-13] A printed typo stays as printed, with the right word after it in square brackets: 'Cartiage [Cartilage]' (Navin, 23 October 2026). The teacher answers use the right word. Never correct the book silently.\n[S1-14] One answer, one basis (Navin, 23 October 2026): an answer that would mix what the book says with an outside explanation becomes two answers, one with basis 'book' (only what the page states) and one with basis 'outside'.\n[S1-15] Open every teachable item for the learner (Navin, 24 October 2026): in unpack, the terms the learner must hold (each with its plain meaning in simple Hindi and one everyday image), a why chain of 1-4 steps that starts from a need or a problem (each step names its basis, book or standard), an example or the place where it is seen, the consequence, the visual verb the video should show, and what the level profile adds. Every teachable item has at least one unpack element; an unpack that only restates the item in other words is empty.\n\nBIE's content types (the type of an item decides its required questions and how it is taught, shown, played and drawn):\n- process · Process: Something that happens in steps or stages over time: a mechanism, a procedure, a cycle (photosynthesis, cell division, how a bill becomes law). Required questions: how (kaise), when (kab). Other questions: what (kya), where (kahan), why (kyun), consequence (nateeja).\n- structure · Structure: Something made of parts arranged in space, each part with a function (a cell, a leaf, the heart, a machine, the Parliament). Required questions: what (kya), where (kahan). Other questions: how (kaise), why (kyun), which (kaun).\n- classification · Classification: A group divided into kinds by a stated basis (types of tissues, kinds of rocks, kinds of writs). Required questions: which (kaun), difference (tulna). Other questions: what (kya), evidence (saboot), where (kahan).\n- comparison · Comparison: Two or more things set side by side on stated criteria (plant and animal cells, Lok Sabha and Rajya Sabha). Required questions: compare (tulna), difference (tulna). Other questions: what (kya), why (kyun), evidence (saboot).\n- timeline · Timeline: Events placed in time: history, the development of an idea, stages of a life (the Revolt of 1857, evolution of cell theory). Required questions: when (kab), why (kyun). Other questions: who (kaun), where (kahan), consequence (nateeja).\n- cause_effect · Reasoning (cause and effect): Why something happens: causes, effects, conditions and chains of reasoning (why tissues specialise, why prices rise, why a law was needed). Required questions: why (kyun), how (kaise). Other questions: consequence (nateeja), evidence (saboot), exception (tulna).\n- facts_numbers · Facts and numbers: Stated facts, quantities, measurements, statistics and formulas (heart rate 72 per minute, 3,000 against 50,000 soldiers at Plassey, F = ma). Required questions: what (kya), evidence (saboot). Other questions: compare (tulna), why (kyun).\n- figure · Figure: A diagram, photo, map, graph or table drawing on the page whose content is visual (tissue pages 2, 7 and 8 are figures only). Required questions: what (kya), which (kaun). Other questions: how (kaise), why (kyun).\n- definition · Definition: A term and its meaning as the book states it (tissue, meristem, sovereignty). Required questions: what (kya), evidence (saboot). Other questions: about (kya), why (kyun).\n\nOutput schema (JSON):\n{\"additionalProperties\":false,\"properties\":{\"boilerplate_block_ids\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"items\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"block_ids\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"content\":{\"type\":\"string\"},\"content_type\":{\"enum\":[\"process\",\"structure\",\"classification\",\"comparison\",\"timeline\",\"cause_effect\",\"facts_numbers\",\"figure\",\"definition\",\"none\"],\"type\":\"string\"},\"exam_importance\":{\"enum\":[\"high\",\"medium\",\"low\"],\"type\":\"string\"},\"exam_note\":{\"type\":\"string\"},\"item_id\":{\"type\":\"string\"},\"kind\":{\"enum\":[\"heading\",\"paragraph\",\"definition\",\"list_point\",\"example\",\"table\",\"table_row\",\"diagram\",\"diagram_label\",\"equation\",\"symbol\",\"box_note\",\"caption\",\"question\",\"answer_option\",\"other\"],\"type\":\"string\"},\"parent_item_id\":{\"type\":\"string\"},\"prerequisites\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"source\":{\"enum\":[\"text\",\"image\",\"both\"],\"type\":\"string\"},\"teachable\":{\"type\":\"boolean\"},\"teacher_understanding\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"answer\":{\"type\":\"string\"},\"ask\":{\"enum\":[\"what\",\"about\",\"where\",\"how\",\"when\",\"who\",\"whom\",\"which\",\"why\",\"compare\",\"difference\",\"evidence\",\"exception\",\"consequence\"],\"type\":\"string\"},\"basis\":{\"enum\":[\"book\",\"outside\"],\"type\":\"string\"},\"depth\":{\"description\":\"1 for a first question; 2, 3 ... for a deeper why/how on an earlier answer\",\"type\":\"integer\"},\"question\":{\"type\":\"string\"}},\"required\":[\"depth\",\"ask\",\"question\",\"answer\",\"basis\"],\"type\":\"object\"},\"type\":\"array\"},\"tests_item_ids\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"type_note\":{\"type\":\"string\"},\"unpack\":{\"additionalProperties\":false,\"properties\":{\"consequence\":{\"type\":\"string\"},\"example_or_place\":{\"type\":\"string\"},\"level_extra\":{\"type\":\"string\"},\"terms\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"everyday_image\":{\"type\":\"string\"},\"plain_meaning\":{\"type\":\"string\"},\"term\":{\"type\":\"string\"}},\"required\":[\"term\",\"plain_meaning\",\"everyday_image\"],\"type\":\"object\"},\"type\":\"array\"},\"visual_verb\":{\"type\":\"string\"},\"why_chain\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"basis\":{\"enum\":[\"book\",\"standard\"],\"type\":\"string\"},\"step\":{\"type\":\"string\"}},\"required\":[\"step\",\"basis\"],\"type\":\"object\"},\"type\":\"array\"}},\"required\":[\"terms\",\"why_chain\",\"example_or_place\",\"consequence\",\"visual_verb\",\"level_extra\"],\"type\":\"object\"},\"where_on_page\":{\"type\":\"string\"}},\"required\":[\"item_id\",\"kind\",\"parent_item_id\",\"source\",\"block_ids\",\"where_on_page\",\"content\",\"content_type\",\"type_note\",\"teachable\",\"teacher_understanding\",\"prerequisites\",\"exam_importance\",\"exam_note\",\"tests_item_ids\",\"unpack\"],\"type\":\"object\"},\"type\":\"array\"},\"notes\":{\"additionalProperties\":false,\"properties\":{\"about\":{\"description\":\"What this unit of work is about and how it fits the whole (one or two sentences).\",\"type\":\"string\"},\"decisions\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"decision\":{\"type\":\"string\"},\"reason\":{\"type\":\"string\"}},\"required\":[\"decision\",\"reason\"],\"type\":\"object\"},\"type\":\"array\"},\"key_questions\":{\"description\":\"The key questions a teacher must answer about this unit.\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"uncertain\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"}},\"required\":[\"about\",\"key_questions\",\"decisions\",\"uncertain\"],\"type\":\"object\"},\"page_summary\":{\"type\":\"string\"},\"text_image_disagreements\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"block_ids\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"image_shows\":{\"type\":\"string\"},\"text_says\":{\"type\":\"string\"}},\"required\":[\"block_ids\",\"text_says\",\"image_shows\"],\"type\":\"object\"},\"type\":\"array\"}},\"required\":[\"notes\",\"page_summary\",\"items\",\"boilerplate_block_ids\",\"text_image_disagreements\"],\"type\":\"object\"}\n\nHow BIE talks to you: every request is a task card (JSON) followed by its source. The card names the unit, its parts with their content type and required questions, the ids of the rules above that apply, the output, the ids you must cover and the context. The card is BIE's instruction; the source is the material.\nFor a read_page card:\n- card.parts: BIE's code has already proposed a content type for groups of this page's native text blocks (item_ids are block ids;\n  \"pNNNN-image\" is the page image), with the evidence in \"focus\". It is a proposal from keywords and patterns, not a verdict: give\n  every item its true type (S1-08). When you choose another type than BIE's proposal for an item's blocks, say why in one line in that\n  item's type_note; BIE's code compares every item and sends unexplained differences back to you.\n- card.coverage: every id in must_cover must be in some item's block_ids or in boilerplate_block_ids; may_skip lists blocks BIE thinks are\n  running headers or page numbers. Never list an id that is not on this page.\n- card.context.before and after: one line from the previous and the next page, for context only.\nHow to fill the JSON:\n- notes: brief notes for the reviewer: what the page is about and how it fits the chapter, the key questions a teacher must answer,\n  your main decisions (how you split items, how you read an unclear part, a type you chose against BIE's proposal) with a reason each,\n  and what is uncertain.\n- items: everything on the page, in reading order.\n  - item_id: short and unique on this page (\"i1\", \"i2\", ...).\n  - kind: heading, paragraph, definition, list_point, example, table (the whole table), table_row (one per row), diagram (the whole figure),\n    diagram_label (one per label), equation, symbol, box_note, caption, question (a PYQ or practice question), answer_option, other.\n  - parent_item_id: the table of a table_row, the diagram of a diagram_label, the question of an answer_option, else \"\". When the page\n    starts with the options of a question printed on the previous page, add one question item for that question (content: \"continued\n    from the previous page\" and what the options answer) and make it their parent.\n  - source: \"text\" if the item comes from native text blocks, \"image\" if it is visible only in the image, \"both\" if both show it.\n  - block_ids: the ids of the native text blocks this item covers ([] for image-only items). Use only ids from the card.\n  - where_on_page: where it is (\"top table, row 2\", \"right diagram, label at the axon end\").\n  - content: the exact words for text items; a complete, faithful reading for image items (every cell with its column header for a\n    table_row; what a label names and what it points to for a diagram_label; all branches for a tree). A printed typo stays as\n    printed with the right word after it in square brackets, \"Cartiage [Cartilage]\" (S1-13); never correct the book silently.\n  - content_type: one of BIE's nine type ids above, by what the content is. An example takes the type of what it illustrates; a table\n    row or a diagram label usually takes its table's or diagram's type. \"none\" only for a question, an answer option or an item that is\n    not teachable.\n  - type_note: \"\" when you agree with BIE's proposal for this item's blocks (or there is none); otherwise one line on why your type fits.\n  - teachable: false only for pure headings and containers whose children carry the content.\n  - teacher_understanding: the teacher's questions and answers for this item (S1-06); depth 1 for first questions, 2 and more for\n    \"why\"/\"how\" on an earlier answer; basis \"book\" only if the page states it, else \"outside\"; one answer, one basis: an answer that\n    would mix what the book says with an outside explanation becomes two answers, one \"book\" and one \"outside\" (S1-14). BIE's code\n    checks every teachable item:\n    at least two questions, at least one \"why\" or \"how\", at least the required questions of its content type, and no answer that only\n    repeats its question or the item's words.\n  - prerequisites: concrete concepts a student must understand first.\n  - exam_importance and exam_note: for this exam.\n  - tests_item_ids: for a question, the ids on this page that it tests ([] if they are on other pages).\n  - unpack: how a teacher opens this book line for the learner (S1-15; BIE is the link between the learner and the book, never a\n    reader of the line). For every teachable item, at the depth of the level profile below:\n    terms = the words of the line the learner must own: [{term (as the book spells it), plain_meaning (everyday spoken Hindi in Devanagari\n    with the book's English terms in Roman: \"tissue\", \"cell\", \"epithelium\", \"muscle\", never their textbook Hindi ऊतक, कोशिका, उपकला, मांसपेशी;\n    BIE's code sends an item back for a textbook translation. For example \"absorptive surface\" → \"जहाँ चीज़ें अंदर ली जाती हैं\"),\n    everyday_image (one image from the learner's\n    home or body: \"आँत खाने के पोषक तत्व सोखती है, जैसे कागज़ पानी\")}]; why_chain = the why in steps, starting from a need or a\n    problem (\"पेट में HCl बनता है, इसलिए अंदर एक lining चाहिए\"), each step with its basis: \"book\" when the page says it, \"standard\"\n    when it is standard textbook knowledge; example_or_place = one example, or the place by a zoom from the organ the learner knows;\n    consequence = what follows, and the link to the previous or the next idea of the page; visual_verb = what visibly happens on the\n    screen when this is taught (\"particles cross the thin layer\"); level_extra = what this level adds (the other names, the exam's\n    trap, the memory trick) or \"\". BIE's code checks that every teachable item has at least one unpack element and that every why\n    step names its basis; a locked explanation given with the source is reused as it is. A question item or a pure heading leaves\n    unpack empty.\n- boilerplate_block_ids: ids of running headers, page numbers, adverts, contact lines and watermarks only.\n- text_image_disagreements: where the text layer and the image differ.\nReply with the JSON object only.\n\nLevel profile: UPSC / State PCS (level_profiles.json; learners: UPSC and State PCS aspirants, often from arts backgrounds, who need understanding more than technical vocabulary).\n- Terms: fewer technical terms: only the ones the exam asks, each opened with its plain meaning and an everyday image; a term the exam never asks is explained in words, not named.\n- Why: 2 step(s); a two-step why from a need the learner can feel, then its link to daily life, health or governance.\n- Where found: the main places, each linked to something the learner already knows (a disease, a food, a news item).\n- Exam beats: the PYQ pattern: how this fact has been asked (statement combinations, 'which is correct', odd one out) and the wording that traps.\n- Links: daily life, health, the news and earlier chapters of the same paper.\n\nHow real teachers open a book line (teacher example bank 2026-10-24.1; use these ways, in your own words):\n- One everyday image per shape or function (every term that names a shape, a layer or a job): Chaadar bichhi ho to bistar bacha rehta hai = protective sheet. Cube wala game, har side barabar = cuboidal. Building ka pillar = columnar. Farsh ki tiles = squamous, isliye tessellated bhi kehte hain.\n- The word root where it helps (a term whose parts carry its meaning): Epi yaani upar; epithelium yaani upar ki parat. Slender yaani long aur narrow.\n- Why starts from a need (every why step): Pet mein HCl banta hai, isliye andar ek lining chahiye jo khud na jale. Cells bahar ki taraf hain, tootne ka chance zyada, isliye regeneration zyada.\n- Link to something already known (a new place or a new structure): Peritoneum, jaise lungs ke aas-paas pleura aur heart ke aas-paas pericardium: wahi kaam, pet ke andar.\n- Meaning with two or three real examples (an abstract word in the book): Sensory perception yaani pehchanna: thanda lagna, dard hona, pressure mehsoos karna.\n- Open the book's adjective (Navin's example) (a book line names a kind of surface, job or place without saying what it is): Book: 'epithelium absorptive aur secretive surfaces par milta hai'. Teacher: absorptive surface yaani jahan cheezein andar li jaati hain, jaise aant khane ke poshak tatva sokhti hai; secretive yaani jahan cells kuch bana kar bahar chhodte hain, jaise glands enzyme ya juice. Aur epithelium wahan kyon? Kyunki ek patli, lagi hui parat hi cheezon ko paar jaane de sakti hai aur bana kar chhod sakti hai.",
+  "user": [
+   {
+    "type": "text",
+    "text": "BIE task card (JSON):\n{\"card\":\"bie.task-card/1\",\"card_id\":\"understand.read_page@10-tissues-and-its-types/page-001\",\"section\":\"understand\",\"task\":\"read_page\",\"prefix\":{\"prefix_id\":\"understand.read_page/3\",\"rulebook_version\":\"content_types@2026-10-24.1+explanations@2026-10-24.1+level_profiles@2026-10-24.1+simple_hindi@2026-10-25.1+teacher_examples@2026-10-24.1+vision-2026-10-21@2026-10-21.12\",\"content_types_version\":\"2026-10-24.1\",\"schema_id\":\"bie.brain.understand-page/3\",\"sha256\":\"b42fc4ed3eda8cbfccefc1e9a061946447f587fc1f80f14f824cdc679acc2b33\"},\"unit\":{\"unit_id\":\"page-001\",\"title\":\"Page 1 of 14\",\"pages\":[1]},\"parts\":[{\"part_id\":\"b1\",\"item_ids\":[\"p0001-b0003\"],\"type\":\"definition\",\"questions\":[\"what\",\"evidence\"],\"focus\":\"BIE proposes definition (strong): pattern 'TISSUE:'\"},{\"part_id\":\"b2\",\"item_ids\":[\"p0001-b0006\"],\"type\":\"cause_effect\",\"questions\":[\"why\",\"how\"],\"focus\":\"BIE proposes cause_effect (weak): 'causes'\"},{\"part_id\":\"b3\",\"item_ids\":[\"p0001-b0007\"],\"type\":\"cause_effect\",\"questions\":[\"why\",\"how\"],\"focus\":\"BIE proposes cause_effect (strong): pattern 'hence'; pattern 'leads to'\"},{\"part_id\":\"img\",\"item_ids\":[\"p0001-image\"],\"type\":\"none\",\"questions\":[\"what\"],\"focus\":\"The page image: capture every table, diagram, label and arrow it shows (S1-01); its items get the type of what they show.\"}],\"rules\":[\"G-01\",\"G-02\",\"G-03\",\"G-05\",\"G-06\",\"G-07\",\"S1-01\",\"S1-02\",\"S1-03\",\"S1-04\",\"S1-05\",\"S1-06\",\"S1-07\",\"S1-08\",\"S1-09\",\"S1-10\",\"S1-11\",\"S1-13\",\"S1-14\",\"S1-15\"],\"output\":{\"schema_id\":\"bie.brain.understand-page/3\",\"mode\":\"full\",\"max_output_tokens\":32000},\"coverage\":{\"must_cover\":[\"p0001-b0001\",\"p0001-b0002\",\"p0001-b0003\",\"p0001-b0004\",\"p0001-b0005\",\"p0001-b0006\",\"p0001-b0007\",\"p0001-b0008\"],\"claim_field\":\"items[].block_ids or boilerplate_block_ids\",\"may_skip\":[{\"item_id\":\"p0001-b0009\",\"reason\":\"page number\"}]},\"context\":{\"map_slice\":[],\"before\":\"\",\"after\":\"\"},\"source\":{\"block_ids\":[\"p0001-b0001\",\"p0001-b0002\",\"p0001-b0003\",\"p0001-b0004\",\"p0001-b0005\",\"p0001-b0006\",\"p0001-b0007\",\"p0001-b0008\",\"p0001-b0009\"],\"page_images\":[{\"page\":1,\"sha256\":\"7f28bd95e9ae8c905288d246ff35d892f14227243e24828294a702c353c60234\"}]}}\n\nNative text blocks of this page (id | text):\np0001-b0001 | Science and Technology\np0001-b0002 | 10. Tissues and Its Types\np0001-b0003 | TISSUE: Cells combine to perform same function.\np0001-b0004 | • When plant cells combine, they form plant tissues.\np0001-b0005 | • When animal cells combine, they form animal tissues.\np0001-b0006 | • Causes division of labour.\np0001-b0007 | • Decreases workload on individual cells, hence leads to organisation.\np0001-b0008 | Cell Tissues Organ Organ system Organisms\np0001-b0009 | 87"
+   },
+   {
+    "type": "text",
+    "text": "The page image:"
+   },
+   {
+    "type": "image",
+    "media_type": "image/jpeg",
+    "sha256": "d7c56e37b134948d98b2b2cffe092128a48d2040fc0ec5fb70f2cd275e21472b",
+    "base64_chars": 450464
+   },
+   {
+    "type": "text",
+    "text": "Read this page with both eyes and answer the card with the page understanding JSON."
+   }
+  ]
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "started_at": 1792905559.975968,
+   "mode": "full",
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "071cac0891e1ecd6ea121b05e640af9a9bab3279dc6d467b9967244b064d33f1",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 12654,
+    "output_tokens": 24386,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "This opening page defines tissues, introduces biological organisation, compares cell divisions, and maps the main kinds of plant tissue.",
+    "key_questions": [
+     "How does grouping cells create division of labour?",
+     "How do mitosis and meiosis differ, and which printed statements need scientific qualification?",
+     "How does plant cell division differ from animal cell division?",
+     "How do all branches of the plant-tissue classification connect?"
+    ],
+    "decisions": [
+     {
+      "decision": "Captured both image-only tables row by row and both organisational trees label by label.",
+      "reason": "Their comparisons and parent–child relationships are examinable content absent from the native text."
+     },
+     {
+      "decision": "Preserved the chromosome-number statements in row 9 but explicitly identified their scientific problems in outside explanations.",
+      "reason": "DNA replication must not be confused with chromosome-number doubling."
+     },
+     {
+      "decision": "Used classification for the plant-tissue tree and structure for the organisational hierarchy.",
+      "reason": "Their meanings, rather than their visual format, determine their content types."
+     }
+    ],
+    "uncertain": [
+     "The bottom of the plant-tissue chart is cropped. Only the visible xylem and phloem components are captured; additional components must not be inferred as printed.",
+     "The page gives no explanation or conditions for its claim that mitosis occurs more frequently than meiosis.",
+     "The plant-versus-animal table presents typical school-level distinctions, not exception-free biological rules."
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "This opening page defines tissues, introduces biological organisation, compares cell divisions, and maps the main kinds of plant tissue.",
+     "key_questions": [
+      "How does grouping cells create division of labour?",
+      "How do mitosis and meiosis differ, and which printed statements need scientific qualification?",
+      "How does plant cell division differ from animal cell division?",
+      "How do all branches of the plant-tissue classification connect?"
+     ],
+     "decisions": [
+      {
+       "decision": "Captured both image-only tables row by row and both organisational trees label by label.",
+       "reason": "Their comparisons and parent–child relationships are examinable content absent from the native text."
+      },
+      {
+       "decision": "Preserved the chromosome-number statements in row 9 but explicitly identified their scientific problems in outside explanations.",
+       "reason": "DNA replication must not be confused with chromosome-number doubling."
+      },
+      {
+       "decision": "Used classification for the plant-tissue tree and structure for the organisational hierarchy.",
+       "reason": "Their meanings, rather than their visual format, determine their content types."
+      }
+     ],
+     "uncertain": [
+      "The bottom of the plant-tissue chart is cropped. Only the visible xylem and phloem components are captured; additional components must not be inferred as printed.",
+      "The page gives no explanation or conditions for its claim that mitosis occurs more frequently than meiosis.",
+      "The plant-versus-animal table presents typical school-level distinctions, not exception-free biological rules."
+     ]
+    },
+    "page_summary": "Tissues bring cells together for shared functions and division of labour. The page places tissues within biological organisation, compares mitosis with meiosis and plant with animal mitosis, and classifies plant tissues into meristematic and permanent groups.",
+    "items": [
+     {
+      "item_id": "i1",
+      "kind": "heading",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0001-b0001"
+      ],
+      "where_on_page": "top",
+      "content": "Science and Technology",
+      "content_type": "none",
+      "type_note": "",
+      "teachable": false,
+      "teacher_understanding": [],
+      "prerequisites": [],
+      "exam_importance": "low",
+      "exam_note": "Subject heading.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [],
+       "why_chain": [],
+       "example_or_place": "",
+       "consequence": "",
+       "visual_verb": "",
+       "level_extra": ""
+      }
+     },
+     {
+      "item_id": "i2",
+      "kind": "heading",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0001-b0002"
+      ],
+      "where_on_page": "below subject heading",
+      "content": "10. Tissues and Its Types",
+      "content_type": "none",
+      "type_note": "",
+      "teachable": false,
+      "teacher_understanding": [],
+      "prerequisites": [],
+      "exam_importance": "low",
+      "exam_note": "Chapter title.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [],
+       "why_chain": [],
+       "example_or_place": "",
+       "consequence": "",
+       "visual_verb": "",
+       "level_extra": ""
+      }
+     },
+     {
+      "item_id": "i3",
+      "kind": "definition",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0001-b0003"
+      ],
+      "where_on_page": "upper text",
+      "content": "TISSUE: Cells combine to perform same function.",
+      "content_type": "definition",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What makes a group of cells a tissue?",
+        "answer": "The cells work together to perform a shared function; tissue refers to this functional grouping.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "evidence",
+        "question": "What defining criterion does the page supply?",
+        "answer": "It explicitly links cells combining with performance of the same function.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is cooperation between cells useful?",
+        "answer": "A multicellular body has many tasks. Specialised groups can carry out particular tasks efficiently rather than requiring each cell to do every job.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell as the basic living unit",
+       "multicellular organism"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Foundation for tissue identification; a random collection of cells is not the defining idea.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "TISSUE",
+         "plain_meaning": "एक काम मिलकर करने वाला cells का समूह",
+         "everyday_image": "जैसे रसोई में एक टीम मिलकर खाना बनाती है"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "A large body needs several jobs performed at the same time.",
+         "basis": "standard"
+        },
+        {
+         "step": "Cells combine for a shared function, allowing work to be distributed.",
+         "basis": "book"
+        }
+       ],
+       "example_or_place": "Outside example: muscle tissue helps move a limb.",
+       "consequence": "Introduces plant and animal tissues and the need for division of labour.",
+       "visual_verb": "group cells and highlight one shared task",
+       "level_extra": "Some tissues contain different cell types cooperating in one broad function; identical appearance is not required."
+      }
+     },
+     {
+      "item_id": "i4",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0001-b0004"
+      ],
+      "where_on_page": "first bullet",
+      "content": "When plant cells combine, they form plant tissues.",
+      "content_type": "classification",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which cells constitute plant tissues?",
+        "answer": "The page identifies plant tissues as groups formed by plant cells.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "How is this category distinguished from animal tissue here?",
+        "answer": "The distinction is the organismal source of its cells: plant rather than animal.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does this grouping help a plant?",
+        "answer": "Different cell groups can specialise in growth, support, storage or transport within the same plant.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "plant cell",
+       "tissue"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Leads directly to the plant-tissue classification.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "plant tissues",
+         "plain_meaning": "पौधे में मिलकर काम करने वाले cells के समूह",
+         "everyday_image": "डंठल में पानी पहुँचाने वाली जुड़ी हुई व्यवस्था"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Plants need growth, support and transport.",
+         "basis": "standard"
+        },
+        {
+         "step": "Specialised groups of plant cells perform these jobs.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "A familiar stem contains several plant tissues.",
+       "consequence": "The lower chart divides this category further.",
+       "visual_verb": "zoom from a plant stem into grouped cells",
+       "level_extra": "Distinguish plant tissue from an entire plant organ such as a leaf."
+      }
+     },
+     {
+      "item_id": "i5",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0001-b0005"
+      ],
+      "where_on_page": "second bullet",
+      "content": "When animal cells combine, they form animal tissues.",
+      "content_type": "classification",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which cells form animal tissues?",
+        "answer": "Animal cells form the tissue groups identified here.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "How does this differ from the previous category?",
+        "answer": "The cells belong to animals rather than plants, although both categories involve cells working together.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why do animals need distinct tissues?",
+        "answer": "Movement, protection and communication require different cellular specialisations, so one general-purpose group cannot perform all these jobs equally well.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "animal cell",
+       "tissue"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Basic plant–animal distinction.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "animal tissues",
+         "plain_meaning": "जानवर या हमारे शरीर में मिलकर काम करने वाले cells के समूह",
+         "everyday_image": "हाथ हिलाते समय साथ काम करते muscle cells"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "An animal needs movement, protection and coordination.",
+         "basis": "standard"
+        },
+        {
+         "step": "Different tissue groups specialise in these needs.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Outside example: muscle tissue in the arm.",
+       "consequence": "Both plants and animals show organisation through tissue formation.",
+       "visual_verb": "group animal cells by job",
+       "level_extra": "Humans are included within animals."
+      }
+     },
+     {
+      "item_id": "i6",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0001-b0006"
+      ],
+      "where_on_page": "third bullet",
+      "content": "Causes division of labour.",
+      "content_type": "cause_effect",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "why",
+        "question": "Why does tissue formation create division of labour?",
+        "answer": "Different groups specialise in particular functions, so the body's work is distributed among them.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How is this different from every cell doing the same general work?",
+        "answer": "A specialised group develops features suited to its task and depends on other groups for complementary tasks.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "consequence",
+        "question": "What consequence does the page attribute to tissue formation?",
+        "answer": "It identifies division of labour as an outcome.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "tissue",
+       "cell specialisation"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Conceptual reason for tissue organisation.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "division of labour",
+         "plain_meaning": "अलग-अलग काम अलग समूहों को बाँटना",
+         "everyday_image": "घर में कोई खाना बनाता है, कोई बर्तन साफ करता है"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Many body functions must be performed together.",
+         "basis": "standard"
+        },
+        {
+         "step": "Specialised tissue groups share these functions instead of each doing everything.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Outside example: muscle produces movement while nervous tissue carries signals.",
+       "consequence": "Specialisation creates cooperation and dependence between tissues.",
+       "visual_verb": "distribute task cards among cell groups",
+       "level_extra": "Division of labour means functional specialisation, not cell division."
+      }
+     },
+     {
+      "item_id": "i7",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0001-b0007"
+      ],
+      "where_on_page": "fourth bullet",
+      "content": "Decreases workload on individual cells, hence leads to organisation.",
+      "content_type": "cause_effect",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "why",
+        "question": "Why does sharing functions reduce an individual cell's workload?",
+        "answer": "A specialised cell need not undertake the full range of tasks required by the organism; other groups supply complementary functions.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does this lead to organisation?",
+        "answer": "Groups with different jobs must cooperate, creating tissues and coordinated higher levels rather than a loose collection of cells.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "consequence",
+        "question": "What causal connection is explicitly made on the page?",
+        "answer": "Reduced workload on individual cells is linked to organisation.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "division of labour",
+       "specialised cell"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Interpret workload as the range of tasks, not a claim that specialised cells use little energy.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "organisation",
+         "plain_meaning": "अलग हिस्सों का तय काम और आपसी तालमेल",
+         "everyday_image": "रसोई की टीम में काम बँटा है, फिर भी खाना साथ मिलकर तैयार होता है"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "One cell cannot efficiently perform every task of a large organism.",
+         "basis": "standard"
+        },
+        {
+         "step": "Sharing work permits specialised groups to coordinate into higher levels.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Outside example: heart tissues cooperate to pump blood.",
+       "consequence": "Explains the next hierarchy from cells to organism.",
+       "visual_verb": "remove extra tasks from one cell and connect cooperating groups",
+       "level_extra": "Reduced workload does not mean reduced metabolic activity in every specialised cell."
+      }
+     },
+     {
+      "item_id": "i8",
+      "kind": "diagram",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0001-b0008"
+      ],
+      "where_on_page": "bold line above tables",
+      "content": "Cell → Tissues → Organ → Organ system → Organisms. The arrows connect progressively larger levels of biological organisation; they do not represent stages of one cell turning directly into an organism.",
+      "content_type": "structure",
+      "type_note": "",
+      "teachable": false,
+      "teacher_understanding": [],
+      "prerequisites": [
+       "cell",
+       "tissue"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Know the correct order and distinguish adjacent levels.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [],
+       "why_chain": [],
+       "example_or_place": "",
+       "consequence": "",
+       "visual_verb": "",
+       "level_extra": ""
+      }
+     },
+     {
+      "item_id": "i9",
+      "kind": "diagram_label",
+      "parent_item_id": "i8",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "organisation flow, first label",
+      "content": "Cell: first level; arrow points to Tissues.",
+      "content_type": "structure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is the starting unit in this hierarchy?",
+        "answer": "The cell is the starting level shown before tissues.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Where does a cell fit in the organisation of a body?",
+        "answer": "It forms part of a tissue rather than being an organ by itself.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does the first arrow work?",
+        "answer": "Cells associate and cooperate to form a functional tissue group.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "living unit"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Smallest level displayed.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Cell",
+         "plain_meaning": "शरीर की सबसे छोटी जीवित काम करने वाली इकाई",
+         "everyday_image": "दीवार में एक ईंट, पर cell खुद जीवित है"
+        }
+       ],
+       "why_chain": [],
+       "example_or_place": "Outside example: one muscle cell within muscle tissue.",
+       "consequence": "Many cooperating cells form the next level.",
+       "visual_verb": "zoom from one cell to a group",
+       "level_extra": "The hierarchy is organisational, not a cell-division sequence."
+      }
+     },
+     {
+      "item_id": "i10",
+      "kind": "diagram_label",
+      "parent_item_id": "i8",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "organisation flow, second label",
+      "content": "Tissues: between Cell and Organ; arrow points to Organ.",
+      "content_type": "structure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What level links cells with organs?",
+        "answer": "Tissues are the intermediate level displayed.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Where are tissues found relative to organs?",
+        "answer": "Different tissues are constituent parts of an organ.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can tissues together perform an organ's job?",
+        "answer": "Each contributes a different function, such as contraction, support or signalling, to the organ's combined activity.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "tissue"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Do not equate tissue with organ.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [],
+       "why_chain": [],
+       "example_or_place": "Outside example: several tissues contribute to the heart.",
+       "consequence": "Tissue cooperation creates the organ level.",
+       "visual_verb": "assemble different tissue groups",
+       "level_extra": "An organ ordinarily contains more than one tissue type."
+      }
+     },
+     {
+      "item_id": "i11",
+      "kind": "diagram_label",
+      "parent_item_id": "i8",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "organisation flow, third label",
+      "content": "Organ: between Tissues and Organ system.",
+      "content_type": "structure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is an organ?",
+        "answer": "An organ is a body part in which different tissues cooperate in particular functions.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Where does Organ sit in this flow?",
+        "answer": "It follows Tissues and precedes Organ system.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does an organ differ from a tissue?",
+        "answer": "A tissue is a functional group of cells; an organ combines different tissues into a larger working part.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "tissue"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Common order-of-organisation question.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Organ",
+         "plain_meaning": "कई tissues से बना शरीर का काम करने वाला हिस्सा",
+         "everyday_image": "heart में अलग हिस्से मिलकर खून पंप करते हैं"
+        }
+       ],
+       "why_chain": [],
+       "example_or_place": "Outside examples: heart in animals; leaf in plants.",
+       "consequence": "Organs coordinate in organ systems.",
+       "visual_verb": "outline an organ around its tissues",
+       "level_extra": "Leaf is an organ, not a tissue."
+      }
+     },
+     {
+      "item_id": "i12",
+      "kind": "diagram_label",
+      "parent_item_id": "i8",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "organisation flow, fourth label",
+      "content": "Organ system: between Organ and Organisms.",
+      "content_type": "structure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is an organ system?",
+        "answer": "It is a set of organs cooperating in a major body function.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Where is it placed in the printed hierarchy?",
+        "answer": "Above an organ and below the complete organism.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why are several organs needed for a major function?",
+        "answer": "A task such as digestion involves several linked jobs, so different organs perform connected parts of the process.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "organ"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Distinguish organ from organ system.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Organ system",
+         "plain_meaning": "एक बड़ा काम मिलकर करने वाले organs की टीम",
+         "everyday_image": "खाना सँभालने में मुँह, पेट और आँत की जुड़ी हुई टीम"
+        }
+       ],
+       "why_chain": [],
+       "example_or_place": "Outside example: digestive system.",
+       "consequence": "Systems cooperate within the whole organism.",
+       "visual_verb": "connect organs into a working route",
+       "level_extra": "A system is not merely a larger single organ."
+      }
+     },
+     {
+      "item_id": "i13",
+      "kind": "diagram_label",
+      "parent_item_id": "i8",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "organisation flow, last label",
+      "content": "Organisms: final level, receiving the arrow from Organ system.",
+      "content_type": "structure",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does the final label represent?",
+        "answer": "The complete living individual, rather than one of its component systems.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Where does the organism appear in the sequence?",
+        "answer": "It is the final level after Organ system.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do the lower levels contribute to a whole organism?",
+        "answer": "Cells, tissues, organs and systems carry out interdependent functions that sustain the individual.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "organ system"
+      ],
+      "exam_importance": "high",
+      "exam_note": "The printed plural names a level, not an ecological population.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Organisms",
+         "plain_meaning": "पूरा जीवित व्यक्ति, पौधा या जानवर",
+         "everyday_image": "पूरा आम का पेड़, सिर्फ उसकी एक पत्ती नहीं"
+        }
+       ],
+       "why_chain": [],
+       "example_or_place": "Outside example: a human being.",
+       "consequence": "Completes the organisational hierarchy.",
+       "visual_verb": "zoom out to the complete individual",
+       "level_extra": "This multicellular hierarchy does not mean every organism has tissues and organs."
+      }
+     },
+     {
+      "item_id": "i14",
+      "kind": "table",
+      "parent_item_id": "",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "middle left",
+      "content": "Comparison table with columns Mitosis and Meiosis and 11 numbered rows.",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": false,
+      "teacher_understanding": [],
+      "prerequisites": [
+       "cell",
+       "nucleus",
+       "chromosome"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Several standard statement-combination contrasts; row 9 is scientifically unreliable as printed.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [],
+       "why_chain": [],
+       "example_or_place": "",
+       "consequence": "",
+       "visual_verb": "",
+       "level_extra": ""
+      }
+     },
+     {
+      "item_id": "i15",
+      "kind": "table_row",
+      "parent_item_id": "i14",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "left table, row 1",
+      "content": "1) Mitosis: It occurs in somatic cells. | Meiosis: It occurs in germ cells.",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "Which cell categories are contrasted?",
+        "answer": "Mitosis is associated with somatic cells, whereas meiosis is associated with germ cells.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "What is the difference between somatic and germ cells?",
+        "answer": "Somatic cells belong to the body-cell category; germ-line cells belong to the reproductive lineage that can produce gametes.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is meiosis linked with the reproductive lineage?",
+        "answer": "Sexual reproduction requires chromosome reduction before fusion of gametes; ordinary body growth requires preservation of the chromosome set.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "body cell",
+       "sexual reproduction",
+       "chromosome"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Germ cells and mature gametes are not interchangeable terms; germ-line cells can also undergo mitosis.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "somatic cells",
+         "plain_meaning": "शरीर के सामान्य हिस्से बनाने वाले cells",
+         "everyday_image": "त्वचा में घाव भरने वाले cells"
+        },
+        {
+         "term": "germ cells",
+         "plain_meaning": "gametes बनाने वाली वंश-रेखा के cells",
+         "everyday_image": "अगली पीढ़ी तक जानकारी पहुँचाने वाली तैयारी की लाइन"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Body maintenance and sexual reproduction have different chromosome requirements.",
+         "basis": "standard"
+        },
+        {
+         "step": "Mitosis maintains sets; meiosis reduces them in reproductive development.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Outside examples: skin cell renewal versus sperm formation.",
+       "consequence": "Explains the different functions listed in row 6.",
+       "visual_verb": "split a body-maintenance route from a reproductive route",
+       "level_extra": "Avoid turning the row into an absolute claim that germ-line cells never divide mitotically."
+      }
+     },
+     {
+      "item_id": "i16",
+      "kind": "table_row",
+      "parent_item_id": "i14",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "left table, row 2",
+      "content": "2) Mitosis: Nucleus divides only once. | Meiosis: Nucleus divides twice.",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How many nuclear divisions does each process involve?",
+        "answer": "Mitosis involves one, while meiosis involves two.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "What differs between the two meiotic divisions?",
+        "answer": "Meiosis I separates homologous chromosomes; meiosis II separates sister chromatids.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why are two divisions needed after one DNA replication?",
+        "answer": "The first reduces the chromosome sets and the second distributes the copied chromatids, producing haploid products.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "nucleus",
+       "chromosome",
+       "DNA replication"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Two meiotic divisions do not mean two rounds of DNA replication.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Nucleus",
+         "plain_meaning": "cell का वह हिस्सा जहाँ chromosomes रखे होते हैं",
+         "everyday_image": "जरूरी निर्देशों की फाइल रखने वाला कमरा"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Reproductive cells need reduced chromosome sets.",
+         "basis": "standard"
+        },
+        {
+         "step": "Meiosis separates chromosome pairs first and copied halves next.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Outside example: formation of reproductive cells.",
+       "consequence": "Leads to two versus four daughter cells.",
+       "visual_verb": "show one split beside two successive splits",
+       "level_extra": "Remember one replication followed by two meiotic divisions."
+      }
+     },
+     {
+      "item_id": "i17",
+      "kind": "table_row",
+      "parent_item_id": "i14",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "left table, row 3",
+      "content": "3) Mitosis: Two daughter cells are formed. | Meiosis: Four daughter cells are formed.",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "What daughter-cell counts are printed?",
+        "answer": "Two for mitosis and four for meiosis.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "How do these numbers reflect the division pattern?",
+        "answer": "One completed division produces two products; two successive divisions can produce four.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How should the four-product statement be interpreted in egg formation?",
+        "answer": "In animal oogenesis the divisions are unequal, producing an ovum and polar bodies rather than four equivalent functional eggs.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "daughter cell",
+       "one versus two nuclear divisions"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Do not equate four meiotic products with four functional gametes in every case.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "daughter cells",
+         "plain_meaning": "एक cell के बँटने से बने नए cells",
+         "everyday_image": "एक से दो और फिर दो से चार हिस्सों का पेड़"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Genetic material must be distributed into new cells.",
+         "basis": "standard"
+        },
+        {
+         "step": "One division yields two products; a second division gives the usual four-product pattern.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Outside example: four meiotic products in sperm development.",
+       "consequence": "Cell count and chromosome-set count must be tracked separately.",
+       "visual_verb": "branch one-to-two and one-to-two-to-four",
+       "level_extra": "Oogenesis is the standard qualification."
+      }
+     },
+     {
+      "item_id": "i18",
+      "kind": "table_row",
+      "parent_item_id": "i14",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "left table, row 4",
+      "content": "4) Mitosis: Daughter cells are diploid. | Meiosis: Daughter cells are haploid.",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "Which chromosome-set states are contrasted?",
+        "answer": "The table contrasts diploid mitotic daughters with haploid meiotic daughters.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "What do diploid and haploid mean?",
+        "answer": "Diploid means two chromosome sets, represented by 2n; haploid means one set, represented by n. Here n counts a set, not DNA mass.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why must the mitosis statement be qualified?",
+        "answer": "Mitosis generally preserves the parent's chromosome-set number: a haploid parent can also divide mitotically. Diploid daughters describe the usual diploid-parent example.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "chromosome set",
+       "parent and daughter cells"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Mitosis preserves ploidy; it does not inherently create diploidy.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "diploid",
+         "plain_meaning": "chromosomes के दो पूरे sets वाला",
+         "everyday_image": "निर्देशों की दो पूरी किताबें"
+        },
+        {
+         "term": "haploid",
+         "plain_meaning": "chromosomes का एक पूरा set वाला",
+         "everyday_image": "निर्देशों की एक पूरी किताब"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Gamete fusion combines chromosome sets.",
+         "basis": "standard"
+        },
+        {
+         "step": "Meiosis reduces sets beforehand, preventing doubling across generations.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Outside example: human body cells and gametes illustrate the usual diploid–haploid contrast.",
+       "consequence": "Connects to reduction division in row 11.",
+       "visual_verb": "reduce two colour-coded sets to one",
+       "level_extra": "Ploidy is not the same as DNA quantity."
+      }
+     },
+     {
+      "item_id": "i19",
+      "kind": "table_row",
+      "parent_item_id": "i14",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "left table, row 5",
+      "content": "5) Mitosis: It occurs more frequently. | Meiosis: It occurs less frequently.",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "What frequency contrast does the table give?",
+        "answer": "It describes mitosis as more frequent and meiosis as less frequent.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "What functional difference makes this a reasonable broad contrast?",
+        "answer": "Mitosis supports growth and renewal in many tissues, while meiosis is restricted to particular reproductive stages and lineages.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why should this not be treated as a measured universal rule?",
+        "answer": "Actual division frequency depends on the organism, tissue and life stage; the page supplies no counting interval or quantitative evidence.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "growth",
+       "cell renewal",
+       "reproduction"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "A qualitative generalisation, not a fixed numerical ratio.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [],
+       "why_chain": [
+        {
+         "step": "Growth and tissue renewal recur throughout many parts of a body.",
+         "basis": "standard"
+        },
+        {
+         "step": "Mitosis therefore has a broader routine role than reproductive meiosis.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Outside example: repeated skin renewal.",
+       "consequence": "Links frequency to function rather than speed of an individual division.",
+       "visual_verb": "highlight many renewal sites and a restricted reproductive site",
+       "level_extra": "More frequent does not necessarily mean each division takes less time."
+      }
+     },
+     {
+      "item_id": "i20",
+      "kind": "table_row",
+      "parent_item_id": "i14",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "left table, row 6",
+      "content": "6) Mitosis: Daughter cells form somatic organs. | Meiosis: Daughter cells form gametes.",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "What destinations are assigned to daughter cells?",
+        "answer": "The table links mitotic daughters with somatic organs and meiotic daughters with gametes.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "How does body building differ from gamete production?",
+        "answer": "Body building increases or replaces cells in the individual; gametes participate in sexual reproduction by fusion.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does the gamete statement need qualification in plants?",
+        "answer": "In flowering plants meiosis produces spores; gametes develop later through the gametophyte stage. The table's wording fits the usual animal summary more directly.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "somatic cell",
+       "gamete",
+       "sexual reproduction"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Plant meiosis produces spores, not directly gametes in the standard flowering-plant life cycle.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "gametes",
+         "plain_meaning": "मिलकर नया जीव शुरू करने वाले reproductive cells",
+         "everyday_image": "sperm और egg का मिलना"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Growth maintains an individual; sexual reproduction starts a new one.",
+         "basis": "standard"
+        },
+        {
+         "step": "These needs explain the table's body-cell versus gamete contrast.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Outside examples: wound repair and sperm production.",
+       "consequence": "Connects division type with biological purpose.",
+       "visual_verb": "route daughters toward repair or reproduction",
+       "level_extra": "Do not apply the animal shortcut uncritically to plant life cycles."
+      }
+     },
+     {
+      "item_id": "i21",
+      "kind": "table_row",
+      "parent_item_id": "i14",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "left table, row 7",
+      "content": "7) Mitosis: There is only one prophase, one metaphase one anaphase and one telophase. | Meiosis: There are two of each phase and five sub-phases in prophase - 1.",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How are the phase sequences compared?",
+        "answer": "Mitosis has one sequence of prophase, metaphase, anaphase and telophase; meiosis has two sequences, with five subdivisions of prophase I.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "What makes prophase I especially distinctive?",
+        "answer": "Homologous chromosomes pair and crossing over can occur, unlike the ordinary mitotic sequence.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why are there two versions of each phase in meiosis?",
+        "answer": "The phases belong to two successive nuclear divisions, meiosis I and meiosis II.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "nuclear division",
+       "chromosome",
+       "homologous chromosome"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Prophase I, not prophase II, has the five standard subdivisions.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "prophase - 1",
+         "plain_meaning": "meiosis की पहली division का शुरू वाला चरण",
+         "everyday_image": "बँटवारे से पहले जोड़ों को पास लाकर तैयारी करना"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Meiosis must organise homologous pairs before separating them.",
+         "basis": "standard"
+        },
+        {
+         "step": "Its first prophase includes pairing and exchange, making it more elaborate.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Outside addition: leptotene, zygotene, pachytene, diplotene and diakinesis are the five prophase-I subdivisions.",
+       "consequence": "Prepares the crossing-over comparison.",
+       "visual_verb": "repeat a four-stage strip and expand prophase I",
+       "level_extra": "Crossing over is conventionally associated with pachytene."
+      }
+     },
+     {
+      "item_id": "i22",
+      "kind": "table_row",
+      "parent_item_id": "i14",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "left table, row 8",
+      "content": "8) Mitosis: Number of chromosomes are not changed in the daughter cells. | Meiosis: Number of chromosomes are reduced to half.",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How does daughter chromosome number compare with the parent?",
+        "answer": "It is maintained in mitosis and reduced to half in meiosis.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "What separates in the reduction step?",
+        "answer": "Homologous chromosomes separate in meiosis I, reducing two sets to one.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is chromosome reduction useful?",
+        "answer": "It allows gamete fusion to restore the diploid condition without doubling chromosome sets in each generation.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "chromosome number",
+       "homologous pair",
+       "fertilisation"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Chromosome reduction occurs in meiosis I.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [],
+       "why_chain": [
+        {
+         "step": "Fusion combines the chromosome contributions of two gametes.",
+         "basis": "standard"
+        },
+        {
+         "step": "Halving beforehand maintains the usual set number across generations.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Outside example: reproductive cell formation before fertilisation.",
+       "consequence": "Explains equational versus reduction division.",
+       "visual_verb": "compare unchanged sets with halved sets",
+       "level_extra": "Count chromosome sets separately from copied DNA."
+      }
+     },
+     {
+      "item_id": "i23",
+      "kind": "table_row",
+      "parent_item_id": "i14",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "left table, row 9",
+      "content": "9) Mitosis: Chromosome number doubles at the beginning of each cell division. | Meiosis: Chromosome number is not doubled. It doubles after the end of first meiotic division. [Scientific correction: DNA replicates before mitosis and before meiosis I; there is no DNA replication between meiosis I and II. DNA replication does not itself double chromosome number.]",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "What contrast is actually printed?",
+        "answer": "The mitosis column claims chromosome number doubles at the beginning of each division; the meiosis column says it is not doubled and then claims doubling after the first meiotic division.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "What is the correct distinction between DNA replication and chromosome-number change?",
+        "answer": "Replication copies DNA and produces sister chromatids while chromosome number, counted by centromeres, remains unchanged at that stage.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is the printed meiotic timing incorrect?",
+        "answer": "DNA is replicated before meiosis I, not after it; there is no intervening replication before meiosis II. This permits reduction rather than restoration of DNA before the second division.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "DNA",
+       "chromosome",
+       "sister chromatid",
+       "centromere",
+       "meiosis I and II"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Do not memorise this row as a correct statement. Distinguish DNA content, chromosome number and timing of replication.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Chromosome number",
+         "plain_meaning": "chromosomes की गिनती, DNA की कुल मात्रा नहीं",
+         "everyday_image": "एक फाइल की दूसरी कॉपी जुड़ने से फाइलों की गिनती और पन्नों की मात्रा एक बात नहीं रहती"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Dividing cells need copied genetic instructions.",
+         "basis": "standard"
+        },
+        {
+         "step": "DNA is copied before mitosis or meiosis I, but not between the two meiotic divisions.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Outside example: the predivision S phase.",
+       "consequence": "Prevents the printed error from corrupting the chromosome comparisons.",
+       "visual_verb": "copy chromatids while keeping a separate chromosome counter",
+       "level_extra": "Treat the bracket as a scientific correction, not as words printed in the source."
+      }
+     },
+     {
+      "item_id": "i24",
+      "kind": "table_row",
+      "parent_item_id": "i14",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "left table, row 10",
+      "content": "10) Mitosis: No crossing over in chromosomes. | Meiosis: Crossing over occurs chromosomes [occurs in chromosomes].",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How does the table contrast crossing over?",
+        "answer": "It presents crossing over as absent in mitosis and present in meiosis.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "What is exchanged during meiotic crossing over?",
+        "answer": "Corresponding DNA segments are exchanged between non-sister chromatids of homologous chromosomes.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does this contribute to variation?",
+        "answer": "It creates new combinations of inherited variants on chromosomes, making gametes genetically different.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "homologous chromosomes",
+       "chromatid",
+       "inherited variation"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Standard association: crossing over in prophase I; avoid confusing homologous chromosomes with sister chromatids.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "crossing over",
+         "plain_meaning": "मिलते-जुलते chromosome जोड़े के बीच DNA के हिस्सों की अदला-बदली",
+         "everyday_image": "दो रंग की डोरियों में बराबर जगह के छोटे टुकड़े बदलना"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Sexual reproduction produces varied genetic combinations.",
+         "basis": "standard"
+        },
+        {
+         "step": "Exchange between homologous chromosomes reshuffles inherited combinations.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Outside example: prophase I in reproductive cell development.",
+       "consequence": "Meiosis introduces variation as well as chromosome reduction.",
+       "visual_verb": "exchange matching coloured chromosome segments",
+       "level_extra": "The table describes the standard mitosis–meiosis contrast; rare mitotic recombination is not its focus."
+      }
+     },
+     {
+      "item_id": "i25",
+      "kind": "table_row",
+      "parent_item_id": "i14",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "left table, row 11",
+      "content": "11) Mitosis: Equation division [Equational division]. | Meiosis: Reduction division.",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "What names summarise the chromosome outcomes?",
+        "answer": "The table calls mitosis equational division and meiosis reduction division.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "What is equal or reduced in these terms?",
+        "answer": "Equational refers to preserving chromosome-set number; reduction refers to halving it, not to reducing cell size.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why should the two meiotic divisions be distinguished?",
+        "answer": "Meiosis I is reductional because homologues separate; meiosis II is equational because sister chromatids separate without another reduction in set number.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "chromosome set",
+       "meiosis I and II"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Meiosis as a whole is reductional; meiosis II is equational.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Equational division",
+         "plain_meaning": "जिस division में chromosome sets की गिनती बनी रहती है",
+         "everyday_image": "दो नए पैकेट, दोनों में निर्देशों का वही पूरा set"
+        },
+        {
+         "term": "Reduction division",
+         "plain_meaning": "जिस division में chromosome sets आधे हो जाते हैं",
+         "everyday_image": "दो पूरे sets में से हर नए पैकेट को एक set मिलना"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Body renewal needs chromosome continuity, whereas sexual reproduction needs reduction.",
+         "basis": "standard"
+        },
+        {
+         "step": "The two names summarise these different chromosome outcomes.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Outside examples: skin renewal and meiosis I.",
+       "consequence": "Summarises rows 4 and 8.",
+       "visual_verb": "stamp unchanged versus halved on chromosome sets",
+       "level_extra": "Equational does not mean equal cell size."
+      }
+     },
+     {
+      "item_id": "i26",
+      "kind": "table",
+      "parent_item_id": "",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "middle right",
+      "content": "Table 7.3: Difference between mitosis in Plants and Animals. Columns: Plants | Animals. Four comparison rows.",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": false,
+      "teacher_understanding": [],
+      "prerequisites": [
+       "mitosis",
+       "plant and animal cells"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Typical plant–animal mitosis and cytokinesis distinctions.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [],
+       "why_chain": [],
+       "example_or_place": "",
+       "consequence": "",
+       "visual_verb": "",
+       "level_extra": ""
+      }
+     },
+     {
+      "item_id": "i27",
+      "kind": "table_row",
+      "parent_item_id": "i26",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "right table, row 1",
+      "content": "Plants: Centrioles are absent. | Animals: Centrioles are present.",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "What centriole contrast is printed?",
+        "answer": "The plant column states absence and the animal column presence.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "Does absence of centrioles mean plants lack a spindle?",
+        "answer": "No. Typical higher-plant cells organise spindle microtubules without the animal-style centriole-containing centrosome.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How should this distinction be applied?",
+        "answer": "Use it as a typical higher-plant versus animal-cell comparison, not an exception-free statement about every plant group or animal cell.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "spindle",
+       "chromosome separation"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Centriole absence is not spindle absence.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Centrioles",
+         "plain_meaning": "animal cell के division organising हिस्से में मिलने वाली छोटी बेलन जैसी बनावटें",
+         "everyday_image": "दो छोटी पाइप जैसी बनावटें साथ रखी हों"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Chromosomes need a spindle to separate.",
+         "basis": "standard"
+        },
+        {
+         "step": "Plants can organise this spindle without typical centrioles.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Outside example: dividing cells of an onion root tip.",
+       "consequence": "Connects to the aster comparison.",
+       "visual_verb": "contrast spindle poles with and without centrioles",
+       "level_extra": "Typical school-level comparison; retain biological qualifications."
+      }
+     },
+     {
+      "item_id": "i28",
+      "kind": "table_row",
+      "parent_item_id": "i26",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "right table, row 2",
+      "content": "Plants: Asters are not formed. | Animals: Asters are formed.",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How is aster formation contrasted?",
+        "answer": "The table shows no asters in plants and asters in animals.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "What is an aster rather than the whole spindle?",
+        "answer": "An aster is a star-like array of microtubules radiating around an animal spindle pole; it is not the complete spindle between the poles.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why does this follow the centriole comparison?",
+        "answer": "Typical animal centrosomes organise conspicuous radial arrays, while typical higher-plant mitotic cells lack that astral arrangement.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "microtubule",
+       "spindle pole",
+       "centriole"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Asters absent does not mean chromosome-moving fibres absent.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Asters",
+         "plain_meaning": "division के सिरे के आसपास तारे की किरणों जैसी फैली fibres",
+         "everyday_image": "बीच से चारों ओर निकली सूरज की किरणें"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Division fibres need organisation around spindle poles.",
+         "basis": "standard"
+        },
+        {
+         "step": "Typical animal poles show radial asters; typical plant poles do not.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Outside example: a typical dividing animal cell.",
+       "consequence": "Adds a visible feature to the centriole contrast.",
+       "visual_verb": "radiate short fibres around animal poles",
+       "level_extra": "Keep aster and spindle distinct."
+      }
+     },
+     {
+      "item_id": "i29",
+      "kind": "table_row",
+      "parent_item_id": "i26",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "right table, row 3",
+      "content": "Plants: Cell division involves formation of a cell plate. | Animals: Cell division involves furrowing and cleavage of cytoplasm.",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How do the two cells partition cytoplasm?",
+        "answer": "Plant cells form a cell plate; animal cells divide through furrowing and cleavage of cytoplasm.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "How do the directions of partitioning differ?",
+        "answer": "The plant cell plate develops centrally and extends outward; the animal cleavage furrow constricts inward from the surface.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why does a plant use a plate rather than the same pinching mechanism?",
+        "answer": "Its rigid cell wall prevents the animal-style constriction, so a new partition is built between the daughter regions.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cytoplasm",
+       "cell membrane",
+       "plant cell wall"
+      ],
+      "exam_importance": "high",
+      "exam_note": "This is cytokinesis, not the chromosome-separation event itself.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "cell plate",
+         "plain_meaning": "दो नए plant cells के बीच अंदर से बनने वाली नई partition",
+         "everyday_image": "कमरे के बीच नई दीवार खड़ी करना"
+        },
+        {
+         "term": "furrowing",
+         "plain_meaning": "बाहर से बीच की तरफ खाँच बनाकर सिकुड़ना",
+         "everyday_image": "नरम थैली को बीच में डोरी से कसना"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "After nuclear separation, daughter regions need separate cytoplasm.",
+         "basis": "standard"
+        },
+        {
+         "step": "A rigid plant wall favours building a partition, while animal cells can pinch inward.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Outside comparison: onion root-tip cells and animal tissue cells.",
+       "consequence": "Explains a structural reason for different division appearances.",
+       "visual_verb": "build outward versus pinch inward",
+       "level_extra": "Do not confuse cell plate with metaphase plate."
+      }
+     },
+     {
+      "item_id": "i30",
+      "kind": "table_row",
+      "parent_item_id": "i26",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "right table, row 4",
+      "content": "Plants: Occurs mainly at meristem. | Animals: Occurs in tissues throughout the body.",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How does the distribution of mitosis differ?",
+        "answer": "It is described as mainly meristematic in plants and distributed among tissues throughout animal bodies.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "What does localised plant growth contrast with in animals?",
+        "answer": "Plants concentrate much growth in dividing regions, whereas animal cell renewal occurs at many tissue sites.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why must 'throughout the body' not mean every animal cell divides?",
+        "answer": "Division capacity differs among tissues; some specialised cells, such as mature neurons, ordinarily do not divide.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "growth",
+       "mitosis",
+       "tissue renewal"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Mainly is important: plant mitosis is not an absolute meristem-only rule.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "meristem",
+         "plain_meaning": "पौधे का वह बढ़ने वाला हिस्सा जहाँ cells लगातार बँटते हैं",
+         "everyday_image": "जड़ या टहनी की बढ़ती नोक"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "A plant needs new cells at growing regions.",
+         "basis": "standard"
+        },
+        {
+         "step": "Meristems supply much of this new growth through division.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Outside examples: root tip versus renewal in skin and intestine.",
+       "consequence": "Provides the bridge to the plant-tissue chart.",
+       "visual_verb": "highlight plant tips and several animal renewal sites",
+       "level_extra": "Location statements are common correct-statement traps."
+      }
+     },
+     {
+      "item_id": "i31",
+      "kind": "diagram",
+      "parent_item_id": "",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "lower blue chart",
+      "content": "Classification of Plant Tissue. Plant Tissue branches into Meristematic Tissue and Permanent Tissue. Meristematic Tissue branches into Apical Meristem, Lateral Meristem and Intercalary Meristem. Permanent Tissue branches into Simple and Complex. Simple branches into Paranchyma [Parenchyma], Collenchyma and Sclerenchyma. Sclerenchyma branches into Fibres and Sclereids. Complex branches into Xylem and Phloem. Visible Xylem components: Tracheids, Vessels (Tracheae), Xylem parenchyma. Visible Phloem components: Sieve tubes, Companion cells, Phloem parenchyma. The component boxes are cropped at the bottom.",
+      "content_type": "classification",
+      "type_note": "",
+      "teachable": false,
+      "teacher_understanding": [],
+      "prerequisites": [
+       "plant tissue",
+       "cell division"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Learn complete visible parent–child relationships; do not treat all labels as equal-level categories.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [],
+       "why_chain": [],
+       "example_or_place": "",
+       "consequence": "",
+       "visual_verb": "",
+       "level_extra": ""
+      }
+     },
+     {
+      "item_id": "i32",
+      "kind": "diagram_label",
+      "parent_item_id": "i31",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "chart root",
+      "content": "Classification of Plant Tissue: root heading branching to Meristematic Tissue and Permanent Tissue.",
+      "content_type": "classification",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which two main tissue groups open the chart?",
+        "answer": "Meristematic Tissue and Permanent Tissue are the first two branches.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "What distinguishes these groups?",
+        "answer": "Meristematic cells retain active division capacity; permanent tissues are differentiated for particular functions and generally no longer divide actively.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why does the distinction matter to plant growth?",
+        "answer": "The plant needs a continuing source of new cells as well as specialised cells that carry out established functions.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell division",
+       "specialisation"
+      ],
+      "exam_importance": "high",
+      "exam_note": "The first classification is not simple versus complex.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [],
+       "why_chain": [
+        {
+         "step": "Plants need both new cells and specialised working tissues.",
+         "basis": "standard"
+        },
+        {
+         "step": "The primary division separates growth-producing from differentiated tissue groups.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Outside contrast: growing root tip and mature stem tissues.",
+       "consequence": "Sets the parent categories for every lower branch.",
+       "visual_verb": "split the root into two main branches",
+       "level_extra": "Use a parent–child map for odd-one-out questions."
+      }
+     },
+     {
+      "item_id": "i33",
+      "kind": "diagram_label",
+      "parent_item_id": "i31",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "chart, upper left branch",
+      "content": "Meristematic Tissue: child of Plant Tissue; parent of Apical Meristem, Lateral Meristem and Intercalary Meristem.",
+      "content_type": "classification",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which meristem types are shown?",
+        "answer": "Apical, lateral and intercalary meristems.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "On what basis do these three differ?",
+        "answer": "They differ primarily by position in the plant and the growth their positions support.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does meristematic tissue support growth?",
+        "answer": "Its dividing cells produce additional cells, some of which later differentiate into permanent tissues.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "mitosis",
+       "plant growth"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Memorise all three types with locations.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Meristematic Tissue",
+         "plain_meaning": "नए cells बनाकर पौधे को बढ़ाने वाला tissue",
+         "everyday_image": "इमारत में नई ईंटें जोड़ती काम करती टीम"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "A growing plant needs a continuing supply of cells.",
+         "basis": "standard"
+        },
+        {
+         "step": "Meristematic cells divide and provide that supply.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Outside example: the tip of a growing root.",
+       "consequence": "Position produces three named meristem categories.",
+       "visual_verb": "multiply cells at growth zones",
+       "level_extra": "Meristematic tissue is not a subtype of permanent tissue."
+      }
+     },
+     {
+      "item_id": "i34",
+      "kind": "diagram_label",
+      "parent_item_id": "i31",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "chart, leftmost meristem leaf",
+      "content": "Apical Meristem: child of Meristematic Tissue.",
+      "content_type": "classification",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which parent category contains apical meristem?",
+        "answer": "It belongs to Meristematic Tissue.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "How is it distinguished from lateral meristem?",
+        "answer": "Apical meristem is at root and shoot tips and mainly supports length growth, whereas lateral meristem supports thickening.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is a tip location useful?",
+        "answer": "New cells near the growing end enable a root or shoot to extend into new space.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "root and shoot",
+       "meristem"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Apical means tip; associate with primary length growth.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Apical Meristem",
+         "plain_meaning": "जड़ और shoot की नोक पर नए cells बनाने वाला हिस्सा",
+         "everyday_image": "नई टहनी की बढ़ती हुई नोक"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Roots and shoots need to extend.",
+         "basis": "standard"
+        },
+        {
+         "step": "Cell production at their tips supplies length growth.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Outside example: a germinating seed's root tip.",
+       "consequence": "Distinguishes length growth from lateral thickening.",
+       "visual_verb": "extend the root and shoot tips",
+       "level_extra": "Match position, name and growth outcome."
+      }
+     },
+     {
+      "item_id": "i35",
+      "kind": "diagram_label",
+      "parent_item_id": "i31",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "chart, middle meristem leaf",
+      "content": "Lateral Meristem: child of Meristematic Tissue.",
+      "content_type": "classification",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which tissue group includes lateral meristem?",
+        "answer": "Meristematic Tissue includes it.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "How does its growth role differ from an apical meristem?",
+        "answer": "Lateral meristems increase girth rather than primarily extending the tip.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does a lateral meristem thicken a stem?",
+        "answer": "Dividing layers along the sides produce additional tissues, increasing diameter.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "stem diameter",
+       "meristem"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Lateral meristem–girth is a common matching pair.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Lateral Meristem",
+         "plain_meaning": "पौधे की बगल की दिशा में मोटाई बढ़ाने वाले cells का हिस्सा",
+         "everyday_image": "पेड़ का तना सालों में मोटा होना"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "A larger plant needs greater thickness and supporting tissue.",
+         "basis": "standard"
+        },
+        {
+         "step": "Lateral dividing layers add tissue and increase girth.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Outside example: vascular cambium in a woody stem.",
+       "consequence": "Separates secondary thickening from tip extension.",
+       "visual_verb": "expand concentric stem layers",
+       "level_extra": "Cambium is a standard example; not all plants show substantial secondary growth."
+      }
+     },
+     {
+      "item_id": "i36",
+      "kind": "diagram_label",
+      "parent_item_id": "i31",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "chart, right meristem leaf",
+      "content": "Intercalary Meristem: child of Meristematic Tissue.",
+      "content_type": "classification",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which category contains intercalary meristem?",
+        "answer": "It is one of the three Meristematic Tissue branches.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "How does its position differ from an apical meristem?",
+        "answer": "It occurs between mature tissue regions, commonly at leaf bases or internode bases in grasses, rather than only at the terminal tip.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does this help a grazed grass plant?",
+        "answer": "Growth near the base can remain active after upper parts are removed, enabling regrowth.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "meristem",
+       "leaf base",
+       "stem internode"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Associate with grasses and regrowth.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Intercalary Meristem",
+         "plain_meaning": "बड़े हो चुके हिस्सों के बीच बचा हुआ बढ़ने वाला भाग",
+         "everyday_image": "ऊपर से कटी घास का नीचे से फिर बढ़ना"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Grass can lose its exposed upper parts.",
+         "basis": "standard"
+        },
+        {
+         "step": "Basal dividing regions can continue supplying new growth.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Outside example: a lawn after mowing.",
+       "consequence": "Completes the positional meristem classification.",
+       "visual_verb": "regrow a cut grass blade from its base",
+       "level_extra": "Intercalary does not mean a lateral thickening layer."
+      }
+     },
+     {
+      "item_id": "i37",
+      "kind": "diagram_label",
+      "parent_item_id": "i31",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "chart, upper right branch",
+      "content": "Permanent Tissue: child of Plant Tissue; parent of Simple and Complex.",
+      "content_type": "classification",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which two permanent-tissue branches are shown?",
+        "answer": "Simple and Complex.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "How does permanent tissue differ from meristematic tissue?",
+        "answer": "Permanent tissues have differentiated for particular jobs and generally lack the active division characteristic of meristems.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why are differentiated tissues necessary?",
+        "answer": "Newly produced cells must acquire features suited to storage, support or transport rather than remaining only a dividing population.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell differentiation",
+       "meristem"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Permanent does not mean all its cells are dead.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Permanent Tissue",
+         "plain_meaning": "खास काम के लिए तैयार हो चुका tissue",
+         "everyday_image": "सीखने के बाद तय काम सँभालती टीम"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Plants need working cells, not only growing cells.",
+         "basis": "standard"
+        },
+        {
+         "step": "Differentiation produces tissues specialised for established functions.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Outside example: storage tissue in a potato.",
+       "consequence": "Branches by whether the tissue has one main cell type or multiple cooperating types.",
+       "visual_verb": "transform new cells into specialised workers",
+       "level_extra": "Some living permanent cells can regain division capacity under appropriate conditions."
+      }
+     },
+     {
+      "item_id": "i38",
+      "kind": "diagram_label",
+      "parent_item_id": "i31",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "chart, permanent tissue left branch",
+      "content": "Simple: child of Permanent Tissue; parent of Paranchyma [Parenchyma], Collenchyma and Sclerenchyma.",
+      "content_type": "classification",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which three simple permanent tissues are listed?",
+        "answer": "Parenchyma, collenchyma and sclerenchyma.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "How does simple differ from complex permanent tissue?",
+        "answer": "Simple tissue consists mainly of one kind of cell; complex tissue combines different kinds working together.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is simple not a measure of usefulness?",
+        "answer": "The term describes cellular composition, not the importance or difficulty of the tissue's job.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "permanent tissue",
+       "cell type"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Xylem and phloem are not simple tissues.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Simple",
+         "plain_meaning": "मुख्यतः एक तरह के cells से बना tissue",
+         "everyday_image": "एक जैसे काम करने वाले लोगों की टीम"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Tissues can be grouped by their cell composition.",
+         "basis": "standard"
+        },
+        {
+         "step": "One main cell type defines the simple category.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Outside example: parenchyma in fleshy plant parts.",
+       "consequence": "Provides the parent for three commonly tested names.",
+       "visual_verb": "group three leaves beneath one branch",
+       "level_extra": "Simple refers to composition, not absence of specialisation."
+      }
+     },
+     {
+      "item_id": "i39",
+      "kind": "diagram_label",
+      "parent_item_id": "i31",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "chart, permanent tissue right branch",
+      "content": "Complex: child of Permanent Tissue; parent of Xylem and Phloem.",
+      "content_type": "classification",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which complex tissues are shown?",
+        "answer": "Xylem and Phloem.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "How are complex tissues unlike simple tissues?",
+        "answer": "Several cell types cooperate within a complex tissue rather than one main type forming the tissue.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is more than one cell type useful in transport tissue?",
+        "answer": "Conduction, maintenance, storage and support require complementary cellular features.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "permanent tissue",
+       "cell type",
+       "plant transport"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Both conducting tissues belong to complex permanent tissue.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Complex",
+         "plain_meaning": "कई तरह के cells मिलकर एक बड़ा काम करें",
+         "everyday_image": "पानी की व्यवस्था में पाइप, सहारा और देखरेख की अलग भूमिकाएँ"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Plant transport needs several coordinated jobs.",
+         "basis": "standard"
+        },
+        {
+         "step": "Different cell types cooperate as complex tissues.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Outside example: vascular bundles in a stem.",
+       "consequence": "Explains why the xylem and phloem boxes list components.",
+       "visual_verb": "combine different cell shapes into one transport bundle",
+       "level_extra": "Complex tissue is not an organ."
+      }
+     },
+     {
+      "item_id": "i40",
+      "kind": "diagram_label",
+      "parent_item_id": "i31",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "chart, first simple-tissue leaf",
+      "content": "Paranchyma [Parenchyma]: child of Simple permanent tissue.",
+      "content_type": "classification",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Where is parenchyma classified?",
+        "answer": "Under Simple permanent tissue.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "How is it broadly unlike sclerenchyma?",
+        "answer": "Parenchyma generally has living, relatively thin-walled cells; mature sclerenchyma commonly has thick lignified walls and dead cells.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do its features suit storage?",
+        "answer": "Living cells with space for stored materials can retain food or water in fleshy plant parts.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "simple tissue",
+       "cell wall",
+       "living cell"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Printed spelling is incorrect; standard term is Parenchyma.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Parenchyma",
+         "plain_meaning": "अक्सर पतली दीवार वाले जीवित cells का सामान्य plant tissue",
+         "everyday_image": "आलू का मुलायम अंदरूनी भाग"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Plants need places to store food and water.",
+         "basis": "standard"
+        },
+        {
+         "step": "Living parenchyma cells can perform these storage roles.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Outside example: potato storage tissue.",
+       "consequence": "Introduces one of the three simple tissues.",
+       "visual_verb": "fill thin-walled cells with stored material",
+       "level_extra": "Parenchyma can have other functions; storage is not its only role."
+      }
+     },
+     {
+      "item_id": "i41",
+      "kind": "diagram_label",
+      "parent_item_id": "i31",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "chart, middle simple-tissue leaf",
+      "content": "Collenchyma: child of Simple permanent tissue.",
+      "content_type": "classification",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which parent category contains collenchyma?",
+        "answer": "Simple permanent tissue.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "How does collenchyma differ from sclerenchyma?",
+        "answer": "Collenchyma provides flexible support through living cells with uneven wall thickening, unlike the usually rigid, lignified mature sclerenchyma.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is flexible support useful?",
+        "answer": "Young plant parts must resist bending while still growing and moving in the wind.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "simple tissue",
+       "cell wall",
+       "young stem"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Flexible support and uneven wall thickening distinguish it.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Collenchyma",
+         "plain_meaning": "बढ़ते plant हिस्सों को लचीला सहारा देने वाला tissue",
+         "everyday_image": "नरम डंठल मुड़ता है पर तुरंत टूटता नहीं"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Young stems need support without becoming rigid.",
+         "basis": "standard"
+        },
+        {
+         "step": "Unevenly thickened living cells provide flexible reinforcement.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Outside example: beneath the surface of many young dicot stems and in leaf stalks.",
+       "consequence": "Contrasts with the harder support of sclerenchyma.",
+       "visual_verb": "bend a supported young stalk",
+       "level_extra": "Do not assign lignified dead-cell features to collenchyma."
+      }
+     },
+     {
+      "item_id": "i42",
+      "kind": "diagram_label",
+      "parent_item_id": "i31",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "chart, right simple-tissue leaf",
+      "content": "Sclerenchyma: child of Simple permanent tissue; parent of Fibres and Sclereids.",
+      "content_type": "classification",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which two sclerenchyma forms are shown?",
+        "answer": "Fibres and Sclereids.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "How does sclerenchyma differ from collenchyma?",
+        "answer": "Mature sclerenchyma commonly provides rigid support through thick lignified walls and cells that are dead at maturity; collenchyma is living and flexible.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why can dead cells still support a plant?",
+        "answer": "Mechanical strength resides in their persistent thick walls, so continued living contents are not required for that support.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell wall",
+       "lignin",
+       "simple tissue"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Fibres and sclereids are subtypes, not peers of sclerenchyma.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Sclerenchyma",
+         "plain_meaning": "मोटी कड़ी दीवार वाले cells से बना मजबूत सहारा देने वाला tissue",
+         "everyday_image": "नारियल का कड़ा और रेशेदार हिस्सा"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Mature plant parts need strength and protection.",
+         "basis": "standard"
+        },
+        {
+         "step": "Thick lignified walls provide durable mechanical support.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Outside example: coconut husk fibres.",
+       "consequence": "Branches into long fibres and varied sclereids.",
+       "visual_verb": "thicken and harden cell walls",
+       "level_extra": "Cell death does not imply loss of structural function."
+      }
+     },
+     {
+      "item_id": "i43",
+      "kind": "diagram_label",
+      "parent_item_id": "i31",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "chart, left sclerenchyma subtype",
+      "content": "Fibres: child of Sclerenchyma.",
+      "content_type": "classification",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which tissue contains the Fibres branch?",
+        "answer": "Sclerenchyma.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "How do fibres differ from typical sclereids?",
+        "answer": "Fibres are long, narrow cells, whereas sclereids are generally shorter or irregularly shaped.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does an elongated form help support?",
+        "answer": "Long thick-walled cells can form reinforcing strands that resist pulling forces.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "sclerenchyma",
+       "thick cell wall"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Match long narrow form with fibres.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Fibres",
+         "plain_meaning": "लंबे पतले मजबूत सहारा देने वाले cells",
+         "everyday_image": "नारियल के छिलके से निकलते लंबे रेशे"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Plant parts need resistance to pulling and bending.",
+         "basis": "standard"
+        },
+        {
+         "step": "Bundles of elongated thick-walled fibres provide reinforcement.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Outside example: coconut husk.",
+       "consequence": "One of two sclerenchyma forms.",
+       "visual_verb": "bundle long reinforcing cells",
+       "level_extra": "The chart's generic fibres label is not itself a separate complex tissue."
+      }
+     },
+     {
+      "item_id": "i44",
+      "kind": "diagram_label",
+      "parent_item_id": "i31",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "chart, right sclerenchyma subtype",
+      "content": "Sclereids: child of Sclerenchyma.",
+      "content_type": "classification",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which parent contains sclereids?",
+        "answer": "Sclerenchyma.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "How are sclereids unlike typical fibres?",
+        "answer": "They are generally shorter and occur in varied shapes rather than being uniformly long and narrow.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why can they make a plant part feel gritty or hard?",
+        "answer": "Their thick lignified walls form hard inclusions or protective tissue.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "sclerenchyma",
+       "lignified wall"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Sclereids are often called stone cells.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Sclereids",
+         "plain_meaning": "मोटी कड़ी दीवार वाले छोटे या अलग-अलग आकार के cells",
+         "everyday_image": "नाशपाती खाते समय महसूस होने वाले कड़क दाने"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Some plant parts need local hardness or protection.",
+         "basis": "standard"
+        },
+        {
+         "step": "Thick-walled sclereids provide that hardness.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Outside example: gritty stone cells in pear flesh.",
+       "consequence": "Completes the visible sclerenchyma subdivision.",
+       "visual_verb": "scatter hard cells within soft fruit tissue",
+       "level_extra": "Use pear grit to distinguish sclereids from long fibres."
+      }
+     },
+     {
+      "item_id": "i45",
+      "kind": "diagram_label",
+      "parent_item_id": "i31",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "chart, lower left component box header",
+      "content": "Xylem: child of Complex permanent tissue; visible components are Tracheids, Vessels (Tracheae), and Xylem parenchyma.",
+      "content_type": "classification",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which visible components belong to xylem?",
+        "answer": "Tracheids, vessels or tracheae, and xylem parenchyma.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "How does xylem differ functionally from phloem?",
+        "answer": "Xylem mainly conducts water and mineral nutrients; phloem transports sugars and other organic solutes.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do different xylem cell types cooperate?",
+        "answer": "Conducting elements carry water while living parenchyma contributes storage and lateral movement.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "complex tissue",
+       "root water uptake",
+       "transport"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Xylem is not wholly dead tissue; its parenchyma is living. The printed box is cropped.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Xylem",
+         "plain_meaning": "पौधे में पानी और minerals पहुँचाने वाला complex tissue",
+         "everyday_image": "जड़ से पत्तियों तक पानी की पाइपलाइन"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Leaves need water absorbed by roots.",
+         "basis": "standard"
+        },
+        {
+         "step": "Xylem provides a conducting pathway with supporting cell types.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Outside example: vascular tissue in a stem.",
+       "consequence": "Connects the complex category to its component cells.",
+       "visual_verb": "move water through a stem bundle",
+       "level_extra": "Do not infer that the three visible entries exhaust the full xylem component list."
+      }
+     },
+     {
+      "item_id": "i46",
+      "kind": "diagram_label",
+      "parent_item_id": "i31",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "xylem box, first visible component",
+      "content": "Tracheids: component listed under Xylem.",
+      "content_type": "classification",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which tissue contains tracheids?",
+        "answer": "Xylem.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "How do tracheids differ from vessels?",
+        "answer": "Tracheids are elongated tapered conducting cells with water passing through pits; vessel elements join through perforated end walls into vessels.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can a mature dead tracheid conduct water?",
+        "answer": "Its hollow interior and wall pits provide a passage without requiring living contents.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "xylem",
+       "cell wall",
+       "water conduction"
+      ],
+      "exam_importance": "high",
+      "exam_note": "A xylem conducting element, not a phloem component.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Tracheids",
+         "plain_meaning": "पानी ले जाने वाले लंबे सिरों पर पतले xylem cells",
+         "everyday_image": "पास-पास रखी लंबी नलियाँ जिनकी दीवारों से पानी आगे जाता है"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Water needs a connected path through plant tissue.",
+         "basis": "standard"
+        },
+        {
+         "step": "Hollow tracheids pass water between neighbouring cells through pits.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Outside example: xylem of conifers.",
+       "consequence": "One route of xylem water conduction.",
+       "visual_verb": "pass water through pits between tapered cells",
+       "level_extra": "Tracheids are not animal tracheae."
+      }
+     },
+     {
+      "item_id": "i47",
+      "kind": "diagram_label",
+      "parent_item_id": "i31",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "xylem box, second visible component",
+      "content": "Vessels (Tracheae): component listed under Xylem.",
+      "content_type": "classification",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Where are Vessels (Tracheae) classified?",
+        "answer": "Under Xylem.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "How is a vessel unlike one tracheid?",
+        "answer": "A vessel is a conducting tube built from vessel elements joined end to end through perforated end walls.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does this arrangement aid transport?",
+        "answer": "End-to-end openings provide a relatively continuous route for water movement.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "xylem",
+       "cell joining",
+       "water transport"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Tracheae here is the plant vessel synonym, not the human windpipe.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Vessels (Tracheae)",
+         "plain_meaning": "कई cells सिरों से जुड़कर बनी xylem की पानी वाली नलियाँ",
+         "everyday_image": "छोटे पाइपों को जोड़कर लंबी पाइपलाइन बनाना"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Water must move along an extended plant axis.",
+         "basis": "standard"
+        },
+        {
+         "step": "Joined vessel elements create a continuous conducting route.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Outside example: vessel-bearing xylem in a flowering plant stem.",
+       "consequence": "Contrasts a tube of elements with individual tracheids.",
+       "visual_verb": "join open-ended elements into a tube",
+       "level_extra": "Keep the botanical use of tracheae separate from animal anatomy."
+      }
+     },
+     {
+      "item_id": "i48",
+      "kind": "diagram_label",
+      "parent_item_id": "i31",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "xylem box, third visible component",
+      "content": "Xylem parenchyma: component listed under Xylem.",
+      "content_type": "classification",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which complex tissue includes this parenchyma?",
+        "answer": "Xylem.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "How does it differ from mature tracheids and vessel elements?",
+        "answer": "Xylem parenchyma is living, unlike those mature conducting elements.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is living parenchyma useful within xylem?",
+        "answer": "It can store materials and assist lateral transport, complementing the main water-conducting pathway.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "parenchyma",
+       "xylem",
+       "living versus dead cells"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Common exception to the oversimplification that all xylem is dead.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Xylem parenchyma",
+         "plain_meaning": "xylem के भीतर मौजूद जीवित parenchyma cells",
+         "everyday_image": "पाइपलाइन के पास भंडार और देखरेख की जगह"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "A transport tissue needs storage and sideways exchange as well as long-distance flow.",
+         "basis": "standard"
+        },
+        {
+         "step": "Living parenchyma supplies these complementary functions.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Outside example: living cells within woody xylem.",
+       "consequence": "Shows why xylem is complex rather than a single cell type.",
+       "visual_verb": "highlight living storage cells beside water conduits",
+       "level_extra": "A complex tissue can include both living and dead cell types."
+      }
+     },
+     {
+      "item_id": "i49",
+      "kind": "diagram_label",
+      "parent_item_id": "i31",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "chart, lower right component box header",
+      "content": "Phloem: child of Complex permanent tissue; visible components are Sieve tubes, Companion cells and Phloem parenchyma.",
+      "content_type": "classification",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which phloem components are visible?",
+        "answer": "Sieve tubes, companion cells and phloem parenchyma.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "How does phloem transport differ from xylem transport?",
+        "answer": "Phloem carries sugars and other organic solutes between sources and sinks; xylem chiefly carries water and mineral nutrients.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why does a plant need a food-distribution tissue?",
+        "answer": "Roots, developing fruits and other non-photosynthesising or growing parts need products made elsewhere, commonly in leaves.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "photosynthesis",
+       "complex tissue",
+       "plant transport"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Phloem transport is not simply an exclusively downward flow. The box is cropped.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Phloem",
+         "plain_meaning": "पौधे में बनी sugars और दूसरे organic पदार्थ पहुँचाने वाला complex tissue",
+         "everyday_image": "रसोई से अलग कमरों तक खाना पहुँचाने की व्यवस्था"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Not every plant part makes enough food for itself.",
+         "basis": "standard"
+        },
+        {
+         "step": "Phloem distributes organic nutrients from sources to consuming or storing parts.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Outside example: sugar movement from leaves to a developing fruit.",
+       "consequence": "Explains the cooperating phloem components.",
+       "visual_verb": "move sugar from leaf to fruit and root",
+       "level_extra": "The visible list is not evidence that no other phloem components exist."
+      }
+     },
+     {
+      "item_id": "i50",
+      "kind": "diagram_label",
+      "parent_item_id": "i31",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "phloem box, first visible component",
+      "content": "Sieve tubes: component listed under Phloem.",
+      "content_type": "classification",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which tissue contains sieve tubes?",
+        "answer": "Phloem.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "How do sieve tubes differ from xylem vessels?",
+        "answer": "Sieve tubes are formed from living conducting elements with sieve plates and carry organic solutes, whereas mature vessel elements are dead water-conducting cells.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does the sieve arrangement allow transport?",
+        "answer": "Pores in the end-wall sieve plates connect neighbouring elements, permitting phloem sap movement.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "phloem",
+       "cell end wall",
+       "sugar transport"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Sieve-tube elements are living but lack a nucleus at maturity in flowering plants.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Sieve tubes",
+         "plain_meaning": "sugars ले जाने वाले जुड़े हुए phloem cells की नलियाँ",
+         "everyday_image": "जोड़ों पर छलनी जैसे छेद वाली पाइप"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Organic nutrients need a connected conducting path.",
+         "basis": "standard"
+        },
+        {
+         "step": "Sieve plates connect living tube elements for sap transport.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Outside example: phloem in a flowering plant stem.",
+       "consequence": "Their specialisation explains the need for companion cells.",
+       "visual_verb": "pass sap through perforated sieve plates",
+       "level_extra": "Lack of a nucleus does not make a mature sieve-tube element dead."
+      }
+     },
+     {
+      "item_id": "i51",
+      "kind": "diagram_label",
+      "parent_item_id": "i31",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "phloem box, second visible component",
+      "content": "Companion cells: component listed under Phloem.",
+      "content_type": "classification",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which tissue includes companion cells?",
+        "answer": "Phloem.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "How do companion cells differ from mature sieve-tube elements?",
+        "answer": "Companion cells retain a nucleus and metabolically support the associated sieve-tube elements.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is this support needed?",
+        "answer": "Sieve-tube elements are specialised for conduction and have reduced internal machinery, so associated companion cells help maintain their functioning.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "sieve-tube element",
+       "nucleus",
+       "cell metabolism"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Companion cells associate with sieve tubes, not xylem vessels.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Companion cells",
+         "plain_meaning": "sieve tubes के साथ रहकर उनका काम सँभालने में मदद करने वाले cells",
+         "everyday_image": "मुख्य रास्ते के पास उसकी देखभाल करती टीम"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Highly specialised sieve elements have reduced internal machinery.",
+         "basis": "standard"
+        },
+        {
+         "step": "Nucleated companion cells provide metabolic assistance.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Outside example: beside sieve-tube elements in flowering-plant phloem.",
+       "consequence": "Demonstrates cooperation within a complex tissue.",
+       "visual_verb": "pair a nucleated helper cell with a sieve element",
+       "level_extra": "The helper analogy explains cooperation, not a separate organism living in the plant."
+      }
+     },
+     {
+      "item_id": "i52",
+      "kind": "diagram_label",
+      "parent_item_id": "i31",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "phloem box, third visible component",
+      "content": "Phloem parenchyma: component listed under Phloem.",
+      "content_type": "classification",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which complex tissue contains phloem parenchyma?",
+        "answer": "Phloem.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "How is its role different from that of sieve tubes?",
+        "answer": "Phloem parenchyma mainly contributes living storage and local exchange functions, while sieve tubes form the main long-distance conducting route.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does it help explain the word complex?",
+        "answer": "It adds another specialised cell type cooperating with conducting and companion cells in the same tissue.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "parenchyma",
+       "phloem",
+       "storage versus conduction"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Parenchyma occurs as a component in both visible complex-tissue boxes.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Phloem parenchyma",
+         "plain_meaning": "phloem के जीवित parenchyma cells जो भंडारण जैसे काम करते हैं",
+         "everyday_image": "खाना पहुँचाने की व्यवस्था के साथ जुड़ा छोटा भंडार"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Food distribution needs storage and local exchange as well as a main conducting path.",
+         "basis": "standard"
+        },
+        {
+         "step": "Living parenchyma contributes these complementary tasks.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Outside example: phloem of many dicot stems.",
+       "consequence": "Completes the visible chart and reinforces complex-tissue composition.",
+       "visual_verb": "place storage cells beside the sugar pathway",
+       "level_extra": "Do not confuse the simple-tissue category parenchyma with its named location inside a complex tissue."
+      }
+     }
+    ],
+    "boilerplate_block_ids": [
+     "p0001-b0009"
+    ],
+    "text_image_disagreements": [
+     {
+      "block_ids": [
+       "p0001-b0008"
+      ],
+      "text_says": "Cell Tissues Organ Organ system Organisms",
+      "image_shows": "Cell → Tissues → Organ → Organ system → Organisms; the native arrow characters are garbled."
+     }
+    ]
+   },
+   "code_problems": [
+    "[code] item i49: the unpack uses textbook Hindi for the book's own terms (पदार्थ → substance); the learner hears the book's English term in Roman, never its Hindi translation (S1-15)"
+   ],
+   "observed": {
+    "type_check": [
+     {
+      "item_id": "i1",
+      "ai_type": "none",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i2",
+      "ai_type": "none",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i3",
+      "ai_type": "definition",
+      "code_type": "definition",
+      "strength": "strong",
+      "evidence": [
+       "pattern 'TISSUE:'"
+      ],
+      "status": "agree",
+      "type_note": ""
+     },
+     {
+      "item_id": "i4",
+      "ai_type": "classification",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i5",
+      "ai_type": "classification",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i6",
+      "ai_type": "cause_effect",
+      "code_type": "cause_effect",
+      "strength": "weak",
+      "evidence": [
+       "'causes'"
+      ],
+      "status": "agree",
+      "type_note": ""
+     },
+     {
+      "item_id": "i7",
+      "ai_type": "cause_effect",
+      "code_type": "cause_effect",
+      "strength": "strong",
+      "evidence": [
+       "pattern 'hence'",
+       "pattern 'leads to'",
+       "'hence'",
+       "'leads to'"
+      ],
+      "status": "agree",
+      "type_note": ""
+     },
+     {
+      "item_id": "i8",
+      "ai_type": "structure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i9",
+      "ai_type": "structure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i10",
+      "ai_type": "structure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i11",
+      "ai_type": "structure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i12",
+      "ai_type": "structure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i13",
+      "ai_type": "structure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i14",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i15",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i16",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i17",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i18",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i19",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i20",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i21",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i22",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i23",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i24",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i25",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i26",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i27",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i28",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i29",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i30",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i31",
+      "ai_type": "classification",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i32",
+      "ai_type": "classification",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i33",
+      "ai_type": "classification",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i34",
+      "ai_type": "classification",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i35",
+      "ai_type": "classification",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i36",
+      "ai_type": "classification",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i37",
+      "ai_type": "classification",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i38",
+      "ai_type": "classification",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i39",
+      "ai_type": "classification",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i40",
+      "ai_type": "classification",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i41",
+      "ai_type": "classification",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i42",
+      "ai_type": "classification",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i43",
+      "ai_type": "classification",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i44",
+      "ai_type": "classification",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i45",
+      "ai_type": "classification",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i46",
+      "ai_type": "classification",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i47",
+      "ai_type": "classification",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i48",
+      "ai_type": "classification",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i49",
+      "ai_type": "classification",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i50",
+      "ai_type": "classification",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i51",
+      "ai_type": "classification",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i52",
+      "ai_type": "classification",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     }
+    ],
+    "type_summary": {
+     "agree": 3,
+     "code_silent": 8,
+     "follows_parent": 41
+    }
+   },
+   "passed": false,
+   "finished_at": 1792905973.6536076
+  }
+ ],
+ "avoid_rounds": [
+  1
+ ],
+ "cost_usd": 0.0,
+ "seconds": 413.7,
+ "navin_verdict": null
+}

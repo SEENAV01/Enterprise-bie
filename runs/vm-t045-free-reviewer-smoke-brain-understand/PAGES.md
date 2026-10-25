@@ -1,0 +1,619 @@
+# Pages · 10. Tissues and Its Types
+
+## Page 1 · failed after 1 round(s)
+
+Tissues bring cells together for shared functions and division of labour. The page places tissues within biological organisation, compares mitosis with meiosis and plant with animal mitosis, and classifies plant tissues into meristematic and permanent groups.
+
+Open problems:
+
+- [code] item i49: the unpack uses textbook Hindi for the book's own terms (पदार्थ → substance); the learner hears the book's English term in Roman, never its Hindi translation (S1-15)
+
+- **p001-i1** · heading · none · both
+  - Science and Technology
+- **p001-i2** · heading · none · both
+  - 10. Tissues and Its Types
+- **p001-i3** · definition · definition · both · exam high
+  - TISSUE: Cells combine to perform same function.
+    - what: What makes a group of cells a tissue? → The cells work together to perform a shared function; tissue refers to this functional grouping.
+    - evidence: What defining criterion does the page supply? → It explicitly links cells combining with performance of the same function.
+      - why: Why is cooperation between cells useful? → A multicellular body has many tasks. Specialised groups can carry out particular tasks efficiently rather than requiring each cell to do every job. _(outside the book)_
+  - **khola (unpack):**
+    - TISSUE yaani एक काम मिलकर करने वाला cells का समूह · image: जैसे रसोई में एक टीम मिलकर खाना बनाती है
+    - kyon: A large body needs several jobs performed at the same time. _[standard]_ → Cells combine for a shared function, allowing work to be distributed. _[book]_
+    - example / jagah: Outside example: muscle tissue helps move a limb.
+    - aage: Introduces plant and animal tissues and the need for division of labour.
+    - screen par: group cells and highlight one shared task
+    - is level ke liye: Some tissues contain different cell types cooperating in one broad function; identical appearance is not required.
+  - prerequisites: cell as the basic living unit; multicellular organism
+- **p001-i4** · list_point · classification · both · exam high
+  - When plant cells combine, they form plant tissues.
+    - which: Which cells constitute plant tissues? → The page identifies plant tissues as groups formed by plant cells.
+    - difference: How is this category distinguished from animal tissue here? → The distinction is the organismal source of its cells: plant rather than animal.
+      - how: How does this grouping help a plant? → Different cell groups can specialise in growth, support, storage or transport within the same plant. _(outside the book)_
+  - **khola (unpack):**
+    - plant tissues yaani पौधे में मिलकर काम करने वाले cells के समूह · image: डंठल में पानी पहुँचाने वाली जुड़ी हुई व्यवस्था
+    - kyon: Plants need growth, support and transport. _[standard]_ → Specialised groups of plant cells perform these jobs. _[standard]_
+    - example / jagah: A familiar stem contains several plant tissues.
+    - aage: The lower chart divides this category further.
+    - screen par: zoom from a plant stem into grouped cells
+    - is level ke liye: Distinguish plant tissue from an entire plant organ such as a leaf.
+  - prerequisites: plant cell; tissue
+- **p001-i5** · list_point · classification · both · exam high
+  - When animal cells combine, they form animal tissues.
+    - which: Which cells form animal tissues? → Animal cells form the tissue groups identified here.
+    - difference: How does this differ from the previous category? → The cells belong to animals rather than plants, although both categories involve cells working together.
+      - why: Why do animals need distinct tissues? → Movement, protection and communication require different cellular specialisations, so one general-purpose group cannot perform all these jobs equally well. _(outside the book)_
+  - **khola (unpack):**
+    - animal tissues yaani जानवर या हमारे शरीर में मिलकर काम करने वाले cells के समूह · image: हाथ हिलाते समय साथ काम करते muscle cells
+    - kyon: An animal needs movement, protection and coordination. _[standard]_ → Different tissue groups specialise in these needs. _[standard]_
+    - example / jagah: Outside example: muscle tissue in the arm.
+    - aage: Both plants and animals show organisation through tissue formation.
+    - screen par: group animal cells by job
+    - is level ke liye: Humans are included within animals.
+  - prerequisites: animal cell; tissue
+- **p001-i6** · list_point · cause_effect · both · exam high
+  - Causes division of labour.
+    - why: Why does tissue formation create division of labour? → Different groups specialise in particular functions, so the body's work is distributed among them. _(outside the book)_
+      - how: How is this different from every cell doing the same general work? → A specialised group develops features suited to its task and depends on other groups for complementary tasks. _(outside the book)_
+    - consequence: What consequence does the page attribute to tissue formation? → It identifies division of labour as an outcome.
+  - **khola (unpack):**
+    - division of labour yaani अलग-अलग काम अलग समूहों को बाँटना · image: घर में कोई खाना बनाता है, कोई बर्तन साफ करता है
+    - kyon: Many body functions must be performed together. _[standard]_ → Specialised tissue groups share these functions instead of each doing everything. _[standard]_
+    - example / jagah: Outside example: muscle produces movement while nervous tissue carries signals.
+    - aage: Specialisation creates cooperation and dependence between tissues.
+    - screen par: distribute task cards among cell groups
+    - is level ke liye: Division of labour means functional specialisation, not cell division.
+  - prerequisites: tissue; cell specialisation
+- **p001-i7** · list_point · cause_effect · both · exam medium
+  - Decreases workload on individual cells, hence leads to organisation.
+    - why: Why does sharing functions reduce an individual cell's workload? → A specialised cell need not undertake the full range of tasks required by the organism; other groups supply complementary functions. _(outside the book)_
+      - how: How does this lead to organisation? → Groups with different jobs must cooperate, creating tissues and coordinated higher levels rather than a loose collection of cells. _(outside the book)_
+    - consequence: What causal connection is explicitly made on the page? → Reduced workload on individual cells is linked to organisation.
+  - **khola (unpack):**
+    - organisation yaani अलग हिस्सों का तय काम और आपसी तालमेल · image: रसोई की टीम में काम बँटा है, फिर भी खाना साथ मिलकर तैयार होता है
+    - kyon: One cell cannot efficiently perform every task of a large organism. _[standard]_ → Sharing work permits specialised groups to coordinate into higher levels. _[standard]_
+    - example / jagah: Outside example: heart tissues cooperate to pump blood.
+    - aage: Explains the next hierarchy from cells to organism.
+    - screen par: remove extra tasks from one cell and connect cooperating groups
+    - is level ke liye: Reduced workload does not mean reduced metabolic activity in every specialised cell.
+  - prerequisites: division of labour; specialised cell
+- **p001-i8** · diagram · structure · both
+  - Cell → Tissues → Organ → Organ system → Organisms. The arrows connect progressively larger levels of biological organisation; they do not represent stages of one cell turning directly into an organism.
+  - prerequisites: cell; tissue
+- **p001-i9** · diagram_label · structure · image · exam high
+  - Cell: first level; arrow points to Tissues.
+    - what: What is the starting unit in this hierarchy? → The cell is the starting level shown before tissues.
+    - where: Where does a cell fit in the organisation of a body? → It forms part of a tissue rather than being an organ by itself. _(outside the book)_
+      - how: How does the first arrow work? → Cells associate and cooperate to form a functional tissue group.
+  - **khola (unpack):**
+    - Cell yaani शरीर की सबसे छोटी जीवित काम करने वाली इकाई · image: दीवार में एक ईंट, पर cell खुद जीवित है
+    - example / jagah: Outside example: one muscle cell within muscle tissue.
+    - aage: Many cooperating cells form the next level.
+    - screen par: zoom from one cell to a group
+    - is level ke liye: The hierarchy is organisational, not a cell-division sequence.
+  - prerequisites: living unit
+- **p001-i10** · diagram_label · structure · image · exam high
+  - Tissues: between Cell and Organ; arrow points to Organ.
+    - what: What level links cells with organs? → Tissues are the intermediate level displayed.
+    - where: Where are tissues found relative to organs? → Different tissues are constituent parts of an organ. _(outside the book)_
+      - how: How can tissues together perform an organ's job? → Each contributes a different function, such as contraction, support or signalling, to the organ's combined activity. _(outside the book)_
+  - **khola (unpack):**
+    - example / jagah: Outside example: several tissues contribute to the heart.
+    - aage: Tissue cooperation creates the organ level.
+    - screen par: assemble different tissue groups
+    - is level ke liye: An organ ordinarily contains more than one tissue type.
+  - prerequisites: tissue
+- **p001-i11** · diagram_label · structure · image · exam high
+  - Organ: between Tissues and Organ system.
+    - what: What is an organ? → An organ is a body part in which different tissues cooperate in particular functions. _(outside the book)_
+    - where: Where does Organ sit in this flow? → It follows Tissues and precedes Organ system.
+      - how: How does an organ differ from a tissue? → A tissue is a functional group of cells; an organ combines different tissues into a larger working part. _(outside the book)_
+  - **khola (unpack):**
+    - Organ yaani कई tissues से बना शरीर का काम करने वाला हिस्सा · image: heart में अलग हिस्से मिलकर खून पंप करते हैं
+    - example / jagah: Outside examples: heart in animals; leaf in plants.
+    - aage: Organs coordinate in organ systems.
+    - screen par: outline an organ around its tissues
+    - is level ke liye: Leaf is an organ, not a tissue.
+  - prerequisites: tissue
+- **p001-i12** · diagram_label · structure · image · exam high
+  - Organ system: between Organ and Organisms.
+    - what: What is an organ system? → It is a set of organs cooperating in a major body function. _(outside the book)_
+    - where: Where is it placed in the printed hierarchy? → Above an organ and below the complete organism.
+      - why: Why are several organs needed for a major function? → A task such as digestion involves several linked jobs, so different organs perform connected parts of the process. _(outside the book)_
+  - **khola (unpack):**
+    - Organ system yaani एक बड़ा काम मिलकर करने वाले organs की टीम · image: खाना सँभालने में मुँह, पेट और आँत की जुड़ी हुई टीम
+    - example / jagah: Outside example: digestive system.
+    - aage: Systems cooperate within the whole organism.
+    - screen par: connect organs into a working route
+    - is level ke liye: A system is not merely a larger single organ.
+  - prerequisites: organ
+- **p001-i13** · diagram_label · structure · image · exam high
+  - Organisms: final level, receiving the arrow from Organ system.
+    - what: What does the final label represent? → The complete living individual, rather than one of its component systems. _(outside the book)_
+    - where: Where does the organism appear in the sequence? → It is the final level after Organ system.
+      - how: How do the lower levels contribute to a whole organism? → Cells, tissues, organs and systems carry out interdependent functions that sustain the individual. _(outside the book)_
+  - **khola (unpack):**
+    - Organisms yaani पूरा जीवित व्यक्ति, पौधा या जानवर · image: पूरा आम का पेड़, सिर्फ उसकी एक पत्ती नहीं
+    - example / jagah: Outside example: a human being.
+    - aage: Completes the organisational hierarchy.
+    - screen par: zoom out to the complete individual
+    - is level ke liye: This multicellular hierarchy does not mean every organism has tissues and organs.
+  - prerequisites: organ system
+- **p001-i14** · table · comparison · image
+  - Comparison table with columns Mitosis and Meiosis and 11 numbered rows.
+  - prerequisites: cell; nucleus; chromosome
+- **p001-i15** · table_row · comparison · image · exam high
+  - 1) Mitosis: It occurs in somatic cells. | Meiosis: It occurs in germ cells.
+    - compare: Which cell categories are contrasted? → Mitosis is associated with somatic cells, whereas meiosis is associated with germ cells.
+    - difference: What is the difference between somatic and germ cells? → Somatic cells belong to the body-cell category; germ-line cells belong to the reproductive lineage that can produce gametes. _(outside the book)_
+      - why: Why is meiosis linked with the reproductive lineage? → Sexual reproduction requires chromosome reduction before fusion of gametes; ordinary body growth requires preservation of the chromosome set. _(outside the book)_
+  - **khola (unpack):**
+    - somatic cells yaani शरीर के सामान्य हिस्से बनाने वाले cells · image: त्वचा में घाव भरने वाले cells
+    - germ cells yaani gametes बनाने वाली वंश-रेखा के cells · image: अगली पीढ़ी तक जानकारी पहुँचाने वाली तैयारी की लाइन
+    - kyon: Body maintenance and sexual reproduction have different chromosome requirements. _[standard]_ → Mitosis maintains sets; meiosis reduces them in reproductive development. _[standard]_
+    - example / jagah: Outside examples: skin cell renewal versus sperm formation.
+    - aage: Explains the different functions listed in row 6.
+    - screen par: split a body-maintenance route from a reproductive route
+    - is level ke liye: Avoid turning the row into an absolute claim that germ-line cells never divide mitotically.
+  - prerequisites: body cell; sexual reproduction; chromosome
+- **p001-i16** · table_row · comparison · image · exam high
+  - 2) Mitosis: Nucleus divides only once. | Meiosis: Nucleus divides twice.
+    - compare: How many nuclear divisions does each process involve? → Mitosis involves one, while meiosis involves two.
+    - difference: What differs between the two meiotic divisions? → Meiosis I separates homologous chromosomes; meiosis II separates sister chromatids. _(outside the book)_
+      - why: Why are two divisions needed after one DNA replication? → The first reduces the chromosome sets and the second distributes the copied chromatids, producing haploid products. _(outside the book)_
+  - **khola (unpack):**
+    - Nucleus yaani cell का वह हिस्सा जहाँ chromosomes रखे होते हैं · image: जरूरी निर्देशों की फाइल रखने वाला कमरा
+    - kyon: Reproductive cells need reduced chromosome sets. _[standard]_ → Meiosis separates chromosome pairs first and copied halves next. _[standard]_
+    - example / jagah: Outside example: formation of reproductive cells.
+    - aage: Leads to two versus four daughter cells.
+    - screen par: show one split beside two successive splits
+    - is level ke liye: Remember one replication followed by two meiotic divisions.
+  - prerequisites: nucleus; chromosome; DNA replication
+- **p001-i17** · table_row · comparison · image · exam high
+  - 3) Mitosis: Two daughter cells are formed. | Meiosis: Four daughter cells are formed.
+    - compare: What daughter-cell counts are printed? → Two for mitosis and four for meiosis.
+    - difference: How do these numbers reflect the division pattern? → One completed division produces two products; two successive divisions can produce four. _(outside the book)_
+      - how: How should the four-product statement be interpreted in egg formation? → In animal oogenesis the divisions are unequal, producing an ovum and polar bodies rather than four equivalent functional eggs. _(outside the book)_
+  - **khola (unpack):**
+    - daughter cells yaani एक cell के बँटने से बने नए cells · image: एक से दो और फिर दो से चार हिस्सों का पेड़
+    - kyon: Genetic material must be distributed into new cells. _[standard]_ → One division yields two products; a second division gives the usual four-product pattern. _[standard]_
+    - example / jagah: Outside example: four meiotic products in sperm development.
+    - aage: Cell count and chromosome-set count must be tracked separately.
+    - screen par: branch one-to-two and one-to-two-to-four
+    - is level ke liye: Oogenesis is the standard qualification.
+  - prerequisites: daughter cell; one versus two nuclear divisions
+- **p001-i18** · table_row · comparison · image · exam high
+  - 4) Mitosis: Daughter cells are diploid. | Meiosis: Daughter cells are haploid.
+    - compare: Which chromosome-set states are contrasted? → The table contrasts diploid mitotic daughters with haploid meiotic daughters.
+    - difference: What do diploid and haploid mean? → Diploid means two chromosome sets, represented by 2n; haploid means one set, represented by n. Here n counts a set, not DNA mass. _(outside the book)_
+      - why: Why must the mitosis statement be qualified? → Mitosis generally preserves the parent's chromosome-set number: a haploid parent can also divide mitotically. Diploid daughters describe the usual diploid-parent example. _(outside the book)_
+  - **khola (unpack):**
+    - diploid yaani chromosomes के दो पूरे sets वाला · image: निर्देशों की दो पूरी किताबें
+    - haploid yaani chromosomes का एक पूरा set वाला · image: निर्देशों की एक पूरी किताब
+    - kyon: Gamete fusion combines chromosome sets. _[standard]_ → Meiosis reduces sets beforehand, preventing doubling across generations. _[standard]_
+    - example / jagah: Outside example: human body cells and gametes illustrate the usual diploid–haploid contrast.
+    - aage: Connects to reduction division in row 11.
+    - screen par: reduce two colour-coded sets to one
+    - is level ke liye: Ploidy is not the same as DNA quantity.
+  - prerequisites: chromosome set; parent and daughter cells
+- **p001-i19** · table_row · comparison · image · exam medium
+  - 5) Mitosis: It occurs more frequently. | Meiosis: It occurs less frequently.
+    - compare: What frequency contrast does the table give? → It describes mitosis as more frequent and meiosis as less frequent.
+    - difference: What functional difference makes this a reasonable broad contrast? → Mitosis supports growth and renewal in many tissues, while meiosis is restricted to particular reproductive stages and lineages. _(outside the book)_
+      - why: Why should this not be treated as a measured universal rule? → Actual division frequency depends on the organism, tissue and life stage; the page supplies no counting interval or quantitative evidence. _(outside the book)_
+  - **khola (unpack):**
+    - kyon: Growth and tissue renewal recur throughout many parts of a body. _[standard]_ → Mitosis therefore has a broader routine role than reproductive meiosis. _[standard]_
+    - example / jagah: Outside example: repeated skin renewal.
+    - aage: Links frequency to function rather than speed of an individual division.
+    - screen par: highlight many renewal sites and a restricted reproductive site
+    - is level ke liye: More frequent does not necessarily mean each division takes less time.
+  - prerequisites: growth; cell renewal; reproduction
+- **p001-i20** · table_row · comparison · image · exam high
+  - 6) Mitosis: Daughter cells form somatic organs. | Meiosis: Daughter cells form gametes.
+    - compare: What destinations are assigned to daughter cells? → The table links mitotic daughters with somatic organs and meiotic daughters with gametes.
+    - difference: How does body building differ from gamete production? → Body building increases or replaces cells in the individual; gametes participate in sexual reproduction by fusion. _(outside the book)_
+      - how: How does the gamete statement need qualification in plants? → In flowering plants meiosis produces spores; gametes develop later through the gametophyte stage. The table's wording fits the usual animal summary more directly. _(outside the book)_
+  - **khola (unpack):**
+    - gametes yaani मिलकर नया जीव शुरू करने वाले reproductive cells · image: sperm और egg का मिलना
+    - kyon: Growth maintains an individual; sexual reproduction starts a new one. _[standard]_ → These needs explain the table's body-cell versus gamete contrast. _[standard]_
+    - example / jagah: Outside examples: wound repair and sperm production.
+    - aage: Connects division type with biological purpose.
+    - screen par: route daughters toward repair or reproduction
+    - is level ke liye: Do not apply the animal shortcut uncritically to plant life cycles.
+  - prerequisites: somatic cell; gamete; sexual reproduction
+- **p001-i21** · table_row · comparison · image · exam high
+  - 7) Mitosis: There is only one prophase, one metaphase one anaphase and one telophase. | Meiosis: There are two of each phase and five sub-phases in prophase - 1.
+    - compare: How are the phase sequences compared? → Mitosis has one sequence of prophase, metaphase, anaphase and telophase; meiosis has two sequences, with five subdivisions of prophase I.
+    - difference: What makes prophase I especially distinctive? → Homologous chromosomes pair and crossing over can occur, unlike the ordinary mitotic sequence. _(outside the book)_
+      - why: Why are there two versions of each phase in meiosis? → The phases belong to two successive nuclear divisions, meiosis I and meiosis II. _(outside the book)_
+  - **khola (unpack):**
+    - prophase - 1 yaani meiosis की पहली division का शुरू वाला चरण · image: बँटवारे से पहले जोड़ों को पास लाकर तैयारी करना
+    - kyon: Meiosis must organise homologous pairs before separating them. _[standard]_ → Its first prophase includes pairing and exchange, making it more elaborate. _[standard]_
+    - example / jagah: Outside addition: leptotene, zygotene, pachytene, diplotene and diakinesis are the five prophase-I subdivisions.
+    - aage: Prepares the crossing-over comparison.
+    - screen par: repeat a four-stage strip and expand prophase I
+    - is level ke liye: Crossing over is conventionally associated with pachytene.
+  - prerequisites: nuclear division; chromosome; homologous chromosome
+- **p001-i22** · table_row · comparison · image · exam high
+  - 8) Mitosis: Number of chromosomes are not changed in the daughter cells. | Meiosis: Number of chromosomes are reduced to half.
+    - compare: How does daughter chromosome number compare with the parent? → It is maintained in mitosis and reduced to half in meiosis.
+    - difference: What separates in the reduction step? → Homologous chromosomes separate in meiosis I, reducing two sets to one. _(outside the book)_
+      - why: Why is chromosome reduction useful? → It allows gamete fusion to restore the diploid condition without doubling chromosome sets in each generation. _(outside the book)_
+  - **khola (unpack):**
+    - kyon: Fusion combines the chromosome contributions of two gametes. _[standard]_ → Halving beforehand maintains the usual set number across generations. _[standard]_
+    - example / jagah: Outside example: reproductive cell formation before fertilisation.
+    - aage: Explains equational versus reduction division.
+    - screen par: compare unchanged sets with halved sets
+    - is level ke liye: Count chromosome sets separately from copied DNA.
+  - prerequisites: chromosome number; homologous pair; fertilisation
+- **p001-i23** · table_row · comparison · image · exam high
+  - 9) Mitosis: Chromosome number doubles at the beginning of each cell division. | Meiosis: Chromosome number is not doubled. It doubles after the end of first meiotic division. [Scientific correction: DNA replicates before mitosis and before meiosis I; there is no DNA replication between meiosis I and II. DNA replication does not itself double chromosome number.]
+    - compare: What contrast is actually printed? → The mitosis column claims chromosome number doubles at the beginning of each division; the meiosis column says it is not doubled and then claims doubling after the first meiotic division.
+    - difference: What is the correct distinction between DNA replication and chromosome-number change? → Replication copies DNA and produces sister chromatids while chromosome number, counted by centromeres, remains unchanged at that stage. _(outside the book)_
+      - why: Why is the printed meiotic timing incorrect? → DNA is replicated before meiosis I, not after it; there is no intervening replication before meiosis II. This permits reduction rather than restoration of DNA before the second division. _(outside the book)_
+  - **khola (unpack):**
+    - Chromosome number yaani chromosomes की गिनती, DNA की कुल मात्रा नहीं · image: एक फाइल की दूसरी कॉपी जुड़ने से फाइलों की गिनती और पन्नों की मात्रा एक बात नहीं रहती
+    - kyon: Dividing cells need copied genetic instructions. _[standard]_ → DNA is copied before mitosis or meiosis I, but not between the two meiotic divisions. _[standard]_
+    - example / jagah: Outside example: the predivision S phase.
+    - aage: Prevents the printed error from corrupting the chromosome comparisons.
+    - screen par: copy chromatids while keeping a separate chromosome counter
+    - is level ke liye: Treat the bracket as a scientific correction, not as words printed in the source.
+  - prerequisites: DNA; chromosome; sister chromatid; centromere; meiosis I and II
+- **p001-i24** · table_row · comparison · image · exam high
+  - 10) Mitosis: No crossing over in chromosomes. | Meiosis: Crossing over occurs chromosomes [occurs in chromosomes].
+    - compare: How does the table contrast crossing over? → It presents crossing over as absent in mitosis and present in meiosis.
+    - difference: What is exchanged during meiotic crossing over? → Corresponding DNA segments are exchanged between non-sister chromatids of homologous chromosomes. _(outside the book)_
+      - how: How does this contribute to variation? → It creates new combinations of inherited variants on chromosomes, making gametes genetically different. _(outside the book)_
+  - **khola (unpack):**
+    - crossing over yaani मिलते-जुलते chromosome जोड़े के बीच DNA के हिस्सों की अदला-बदली · image: दो रंग की डोरियों में बराबर जगह के छोटे टुकड़े बदलना
+    - kyon: Sexual reproduction produces varied genetic combinations. _[standard]_ → Exchange between homologous chromosomes reshuffles inherited combinations. _[standard]_
+    - example / jagah: Outside example: prophase I in reproductive cell development.
+    - aage: Meiosis introduces variation as well as chromosome reduction.
+    - screen par: exchange matching coloured chromosome segments
+    - is level ke liye: The table describes the standard mitosis–meiosis contrast; rare mitotic recombination is not its focus.
+  - prerequisites: homologous chromosomes; chromatid; inherited variation
+- **p001-i25** · table_row · comparison · image · exam high
+  - 11) Mitosis: Equation division [Equational division]. | Meiosis: Reduction division.
+    - compare: What names summarise the chromosome outcomes? → The table calls mitosis equational division and meiosis reduction division.
+    - difference: What is equal or reduced in these terms? → Equational refers to preserving chromosome-set number; reduction refers to halving it, not to reducing cell size. _(outside the book)_
+      - why: Why should the two meiotic divisions be distinguished? → Meiosis I is reductional because homologues separate; meiosis II is equational because sister chromatids separate without another reduction in set number. _(outside the book)_
+  - **khola (unpack):**
+    - Equational division yaani जिस division में chromosome sets की गिनती बनी रहती है · image: दो नए पैकेट, दोनों में निर्देशों का वही पूरा set
+    - Reduction division yaani जिस division में chromosome sets आधे हो जाते हैं · image: दो पूरे sets में से हर नए पैकेट को एक set मिलना
+    - kyon: Body renewal needs chromosome continuity, whereas sexual reproduction needs reduction. _[standard]_ → The two names summarise these different chromosome outcomes. _[standard]_
+    - example / jagah: Outside examples: skin renewal and meiosis I.
+    - aage: Summarises rows 4 and 8.
+    - screen par: stamp unchanged versus halved on chromosome sets
+    - is level ke liye: Equational does not mean equal cell size.
+  - prerequisites: chromosome set; meiosis I and II
+- **p001-i26** · table · comparison · image
+  - Table 7.3: Difference between mitosis in Plants and Animals. Columns: Plants | Animals. Four comparison rows.
+  - prerequisites: mitosis; plant and animal cells
+- **p001-i27** · table_row · comparison · image · exam high
+  - Plants: Centrioles are absent. | Animals: Centrioles are present.
+    - compare: What centriole contrast is printed? → The plant column states absence and the animal column presence.
+    - difference: Does absence of centrioles mean plants lack a spindle? → No. Typical higher-plant cells organise spindle microtubules without the animal-style centriole-containing centrosome. _(outside the book)_
+      - how: How should this distinction be applied? → Use it as a typical higher-plant versus animal-cell comparison, not an exception-free statement about every plant group or animal cell. _(outside the book)_
+  - **khola (unpack):**
+    - Centrioles yaani animal cell के division organising हिस्से में मिलने वाली छोटी बेलन जैसी बनावटें · image: दो छोटी पाइप जैसी बनावटें साथ रखी हों
+    - kyon: Chromosomes need a spindle to separate. _[standard]_ → Plants can organise this spindle without typical centrioles. _[standard]_
+    - example / jagah: Outside example: dividing cells of an onion root tip.
+    - aage: Connects to the aster comparison.
+    - screen par: contrast spindle poles with and without centrioles
+    - is level ke liye: Typical school-level comparison; retain biological qualifications.
+  - prerequisites: spindle; chromosome separation
+- **p001-i28** · table_row · comparison · image · exam high
+  - Plants: Asters are not formed. | Animals: Asters are formed.
+    - compare: How is aster formation contrasted? → The table shows no asters in plants and asters in animals.
+    - difference: What is an aster rather than the whole spindle? → An aster is a star-like array of microtubules radiating around an animal spindle pole; it is not the complete spindle between the poles. _(outside the book)_
+      - why: Why does this follow the centriole comparison? → Typical animal centrosomes organise conspicuous radial arrays, while typical higher-plant mitotic cells lack that astral arrangement. _(outside the book)_
+  - **khola (unpack):**
+    - Asters yaani division के सिरे के आसपास तारे की किरणों जैसी फैली fibres · image: बीच से चारों ओर निकली सूरज की किरणें
+    - kyon: Division fibres need organisation around spindle poles. _[standard]_ → Typical animal poles show radial asters; typical plant poles do not. _[standard]_
+    - example / jagah: Outside example: a typical dividing animal cell.
+    - aage: Adds a visible feature to the centriole contrast.
+    - screen par: radiate short fibres around animal poles
+    - is level ke liye: Keep aster and spindle distinct.
+  - prerequisites: microtubule; spindle pole; centriole
+- **p001-i29** · table_row · comparison · image · exam high
+  - Plants: Cell division involves formation of a cell plate. | Animals: Cell division involves furrowing and cleavage of cytoplasm.
+    - compare: How do the two cells partition cytoplasm? → Plant cells form a cell plate; animal cells divide through furrowing and cleavage of cytoplasm.
+    - difference: How do the directions of partitioning differ? → The plant cell plate develops centrally and extends outward; the animal cleavage furrow constricts inward from the surface. _(outside the book)_
+      - why: Why does a plant use a plate rather than the same pinching mechanism? → Its rigid cell wall prevents the animal-style constriction, so a new partition is built between the daughter regions. _(outside the book)_
+  - **khola (unpack):**
+    - cell plate yaani दो नए plant cells के बीच अंदर से बनने वाली नई partition · image: कमरे के बीच नई दीवार खड़ी करना
+    - furrowing yaani बाहर से बीच की तरफ खाँच बनाकर सिकुड़ना · image: नरम थैली को बीच में डोरी से कसना
+    - kyon: After nuclear separation, daughter regions need separate cytoplasm. _[standard]_ → A rigid plant wall favours building a partition, while animal cells can pinch inward. _[standard]_
+    - example / jagah: Outside comparison: onion root-tip cells and animal tissue cells.
+    - aage: Explains a structural reason for different division appearances.
+    - screen par: build outward versus pinch inward
+    - is level ke liye: Do not confuse cell plate with metaphase plate.
+  - prerequisites: cytoplasm; cell membrane; plant cell wall
+- **p001-i30** · table_row · comparison · image · exam high
+  - Plants: Occurs mainly at meristem. | Animals: Occurs in tissues throughout the body.
+    - compare: How does the distribution of mitosis differ? → It is described as mainly meristematic in plants and distributed among tissues throughout animal bodies.
+    - difference: What does localised plant growth contrast with in animals? → Plants concentrate much growth in dividing regions, whereas animal cell renewal occurs at many tissue sites. _(outside the book)_
+      - why: Why must 'throughout the body' not mean every animal cell divides? → Division capacity differs among tissues; some specialised cells, such as mature neurons, ordinarily do not divide. _(outside the book)_
+  - **khola (unpack):**
+    - meristem yaani पौधे का वह बढ़ने वाला हिस्सा जहाँ cells लगातार बँटते हैं · image: जड़ या टहनी की बढ़ती नोक
+    - kyon: A plant needs new cells at growing regions. _[standard]_ → Meristems supply much of this new growth through division. _[standard]_
+    - example / jagah: Outside examples: root tip versus renewal in skin and intestine.
+    - aage: Provides the bridge to the plant-tissue chart.
+    - screen par: highlight plant tips and several animal renewal sites
+    - is level ke liye: Location statements are common correct-statement traps.
+  - prerequisites: growth; mitosis; tissue renewal
+- **p001-i31** · diagram · classification · image
+  - Classification of Plant Tissue. Plant Tissue branches into Meristematic Tissue and Permanent Tissue. Meristematic Tissue branches into Apical Meristem, Lateral Meristem and Intercalary Meristem. Permanent Tissue branches into Simple and Complex. Simple branches into Paranchyma [Parenchyma], Collenchyma and Sclerenchyma. Sclerenchyma branches into Fibres and Sclereids. Complex branches into Xylem and Phloem. Visible Xylem components: Tracheids, Vessels (Tracheae), Xylem parenchyma. Visible Phloem components: Sieve tubes, Companion cells, Phloem parenchyma. The component boxes are cropped at the bottom.
+  - prerequisites: plant tissue; cell division
+- **p001-i32** · diagram_label · classification · image · exam high
+  - Classification of Plant Tissue: root heading branching to Meristematic Tissue and Permanent Tissue.
+    - which: Which two main tissue groups open the chart? → Meristematic Tissue and Permanent Tissue are the first two branches.
+    - difference: What distinguishes these groups? → Meristematic cells retain active division capacity; permanent tissues are differentiated for particular functions and generally no longer divide actively. _(outside the book)_
+      - why: Why does the distinction matter to plant growth? → The plant needs a continuing source of new cells as well as specialised cells that carry out established functions. _(outside the book)_
+  - **khola (unpack):**
+    - kyon: Plants need both new cells and specialised working tissues. _[standard]_ → The primary division separates growth-producing from differentiated tissue groups. _[standard]_
+    - example / jagah: Outside contrast: growing root tip and mature stem tissues.
+    - aage: Sets the parent categories for every lower branch.
+    - screen par: split the root into two main branches
+    - is level ke liye: Use a parent–child map for odd-one-out questions.
+  - prerequisites: cell division; specialisation
+- **p001-i33** · diagram_label · classification · image · exam high
+  - Meristematic Tissue: child of Plant Tissue; parent of Apical Meristem, Lateral Meristem and Intercalary Meristem.
+    - which: Which meristem types are shown? → Apical, lateral and intercalary meristems.
+    - difference: On what basis do these three differ? → They differ primarily by position in the plant and the growth their positions support. _(outside the book)_
+      - how: How does meristematic tissue support growth? → Its dividing cells produce additional cells, some of which later differentiate into permanent tissues. _(outside the book)_
+  - **khola (unpack):**
+    - Meristematic Tissue yaani नए cells बनाकर पौधे को बढ़ाने वाला tissue · image: इमारत में नई ईंटें जोड़ती काम करती टीम
+    - kyon: A growing plant needs a continuing supply of cells. _[standard]_ → Meristematic cells divide and provide that supply. _[standard]_
+    - example / jagah: Outside example: the tip of a growing root.
+    - aage: Position produces three named meristem categories.
+    - screen par: multiply cells at growth zones
+    - is level ke liye: Meristematic tissue is not a subtype of permanent tissue.
+  - prerequisites: mitosis; plant growth
+- **p001-i34** · diagram_label · classification · image · exam high
+  - Apical Meristem: child of Meristematic Tissue.
+    - which: Which parent category contains apical meristem? → It belongs to Meristematic Tissue.
+    - difference: How is it distinguished from lateral meristem? → Apical meristem is at root and shoot tips and mainly supports length growth, whereas lateral meristem supports thickening. _(outside the book)_
+      - why: Why is a tip location useful? → New cells near the growing end enable a root or shoot to extend into new space. _(outside the book)_
+  - **khola (unpack):**
+    - Apical Meristem yaani जड़ और shoot की नोक पर नए cells बनाने वाला हिस्सा · image: नई टहनी की बढ़ती हुई नोक
+    - kyon: Roots and shoots need to extend. _[standard]_ → Cell production at their tips supplies length growth. _[standard]_
+    - example / jagah: Outside example: a germinating seed's root tip.
+    - aage: Distinguishes length growth from lateral thickening.
+    - screen par: extend the root and shoot tips
+    - is level ke liye: Match position, name and growth outcome.
+  - prerequisites: root and shoot; meristem
+- **p001-i35** · diagram_label · classification · image · exam high
+  - Lateral Meristem: child of Meristematic Tissue.
+    - which: Which tissue group includes lateral meristem? → Meristematic Tissue includes it.
+    - difference: How does its growth role differ from an apical meristem? → Lateral meristems increase girth rather than primarily extending the tip. _(outside the book)_
+      - how: How does a lateral meristem thicken a stem? → Dividing layers along the sides produce additional tissues, increasing diameter. _(outside the book)_
+  - **khola (unpack):**
+    - Lateral Meristem yaani पौधे की बगल की दिशा में मोटाई बढ़ाने वाले cells का हिस्सा · image: पेड़ का तना सालों में मोटा होना
+    - kyon: A larger plant needs greater thickness and supporting tissue. _[standard]_ → Lateral dividing layers add tissue and increase girth. _[standard]_
+    - example / jagah: Outside example: vascular cambium in a woody stem.
+    - aage: Separates secondary thickening from tip extension.
+    - screen par: expand concentric stem layers
+    - is level ke liye: Cambium is a standard example; not all plants show substantial secondary growth.
+  - prerequisites: stem diameter; meristem
+- **p001-i36** · diagram_label · classification · image · exam high
+  - Intercalary Meristem: child of Meristematic Tissue.
+    - which: Which category contains intercalary meristem? → It is one of the three Meristematic Tissue branches.
+    - difference: How does its position differ from an apical meristem? → It occurs between mature tissue regions, commonly at leaf bases or internode bases in grasses, rather than only at the terminal tip. _(outside the book)_
+      - how: How does this help a grazed grass plant? → Growth near the base can remain active after upper parts are removed, enabling regrowth. _(outside the book)_
+  - **khola (unpack):**
+    - Intercalary Meristem yaani बड़े हो चुके हिस्सों के बीच बचा हुआ बढ़ने वाला भाग · image: ऊपर से कटी घास का नीचे से फिर बढ़ना
+    - kyon: Grass can lose its exposed upper parts. _[standard]_ → Basal dividing regions can continue supplying new growth. _[standard]_
+    - example / jagah: Outside example: a lawn after mowing.
+    - aage: Completes the positional meristem classification.
+    - screen par: regrow a cut grass blade from its base
+    - is level ke liye: Intercalary does not mean a lateral thickening layer.
+  - prerequisites: meristem; leaf base; stem internode
+- **p001-i37** · diagram_label · classification · image · exam high
+  - Permanent Tissue: child of Plant Tissue; parent of Simple and Complex.
+    - which: Which two permanent-tissue branches are shown? → Simple and Complex.
+    - difference: How does permanent tissue differ from meristematic tissue? → Permanent tissues have differentiated for particular jobs and generally lack the active division characteristic of meristems. _(outside the book)_
+      - why: Why are differentiated tissues necessary? → Newly produced cells must acquire features suited to storage, support or transport rather than remaining only a dividing population. _(outside the book)_
+  - **khola (unpack):**
+    - Permanent Tissue yaani खास काम के लिए तैयार हो चुका tissue · image: सीखने के बाद तय काम सँभालती टीम
+    - kyon: Plants need working cells, not only growing cells. _[standard]_ → Differentiation produces tissues specialised for established functions. _[standard]_
+    - example / jagah: Outside example: storage tissue in a potato.
+    - aage: Branches by whether the tissue has one main cell type or multiple cooperating types.
+    - screen par: transform new cells into specialised workers
+    - is level ke liye: Some living permanent cells can regain division capacity under appropriate conditions.
+  - prerequisites: cell differentiation; meristem
+- **p001-i38** · diagram_label · classification · image · exam high
+  - Simple: child of Permanent Tissue; parent of Paranchyma [Parenchyma], Collenchyma and Sclerenchyma.
+    - which: Which three simple permanent tissues are listed? → Parenchyma, collenchyma and sclerenchyma.
+    - difference: How does simple differ from complex permanent tissue? → Simple tissue consists mainly of one kind of cell; complex tissue combines different kinds working together. _(outside the book)_
+      - why: Why is simple not a measure of usefulness? → The term describes cellular composition, not the importance or difficulty of the tissue's job. _(outside the book)_
+  - **khola (unpack):**
+    - Simple yaani मुख्यतः एक तरह के cells से बना tissue · image: एक जैसे काम करने वाले लोगों की टीम
+    - kyon: Tissues can be grouped by their cell composition. _[standard]_ → One main cell type defines the simple category. _[standard]_
+    - example / jagah: Outside example: parenchyma in fleshy plant parts.
+    - aage: Provides the parent for three commonly tested names.
+    - screen par: group three leaves beneath one branch
+    - is level ke liye: Simple refers to composition, not absence of specialisation.
+  - prerequisites: permanent tissue; cell type
+- **p001-i39** · diagram_label · classification · image · exam high
+  - Complex: child of Permanent Tissue; parent of Xylem and Phloem.
+    - which: Which complex tissues are shown? → Xylem and Phloem.
+    - difference: How are complex tissues unlike simple tissues? → Several cell types cooperate within a complex tissue rather than one main type forming the tissue. _(outside the book)_
+      - why: Why is more than one cell type useful in transport tissue? → Conduction, maintenance, storage and support require complementary cellular features. _(outside the book)_
+  - **khola (unpack):**
+    - Complex yaani कई तरह के cells मिलकर एक बड़ा काम करें · image: पानी की व्यवस्था में पाइप, सहारा और देखरेख की अलग भूमिकाएँ
+    - kyon: Plant transport needs several coordinated jobs. _[standard]_ → Different cell types cooperate as complex tissues. _[standard]_
+    - example / jagah: Outside example: vascular bundles in a stem.
+    - aage: Explains why the xylem and phloem boxes list components.
+    - screen par: combine different cell shapes into one transport bundle
+    - is level ke liye: Complex tissue is not an organ.
+  - prerequisites: permanent tissue; cell type; plant transport
+- **p001-i40** · diagram_label · classification · image · exam high
+  - Paranchyma [Parenchyma]: child of Simple permanent tissue.
+    - which: Where is parenchyma classified? → Under Simple permanent tissue.
+    - difference: How is it broadly unlike sclerenchyma? → Parenchyma generally has living, relatively thin-walled cells; mature sclerenchyma commonly has thick lignified walls and dead cells. _(outside the book)_
+      - how: How do its features suit storage? → Living cells with space for stored materials can retain food or water in fleshy plant parts. _(outside the book)_
+  - **khola (unpack):**
+    - Parenchyma yaani अक्सर पतली दीवार वाले जीवित cells का सामान्य plant tissue · image: आलू का मुलायम अंदरूनी भाग
+    - kyon: Plants need places to store food and water. _[standard]_ → Living parenchyma cells can perform these storage roles. _[standard]_
+    - example / jagah: Outside example: potato storage tissue.
+    - aage: Introduces one of the three simple tissues.
+    - screen par: fill thin-walled cells with stored material
+    - is level ke liye: Parenchyma can have other functions; storage is not its only role.
+  - prerequisites: simple tissue; cell wall; living cell
+- **p001-i41** · diagram_label · classification · image · exam high
+  - Collenchyma: child of Simple permanent tissue.
+    - which: Which parent category contains collenchyma? → Simple permanent tissue.
+    - difference: How does collenchyma differ from sclerenchyma? → Collenchyma provides flexible support through living cells with uneven wall thickening, unlike the usually rigid, lignified mature sclerenchyma. _(outside the book)_
+      - why: Why is flexible support useful? → Young plant parts must resist bending while still growing and moving in the wind. _(outside the book)_
+  - **khola (unpack):**
+    - Collenchyma yaani बढ़ते plant हिस्सों को लचीला सहारा देने वाला tissue · image: नरम डंठल मुड़ता है पर तुरंत टूटता नहीं
+    - kyon: Young stems need support without becoming rigid. _[standard]_ → Unevenly thickened living cells provide flexible reinforcement. _[standard]_
+    - example / jagah: Outside example: beneath the surface of many young dicot stems and in leaf stalks.
+    - aage: Contrasts with the harder support of sclerenchyma.
+    - screen par: bend a supported young stalk
+    - is level ke liye: Do not assign lignified dead-cell features to collenchyma.
+  - prerequisites: simple tissue; cell wall; young stem
+- **p001-i42** · diagram_label · classification · image · exam high
+  - Sclerenchyma: child of Simple permanent tissue; parent of Fibres and Sclereids.
+    - which: Which two sclerenchyma forms are shown? → Fibres and Sclereids.
+    - difference: How does sclerenchyma differ from collenchyma? → Mature sclerenchyma commonly provides rigid support through thick lignified walls and cells that are dead at maturity; collenchyma is living and flexible. _(outside the book)_
+      - why: Why can dead cells still support a plant? → Mechanical strength resides in their persistent thick walls, so continued living contents are not required for that support. _(outside the book)_
+  - **khola (unpack):**
+    - Sclerenchyma yaani मोटी कड़ी दीवार वाले cells से बना मजबूत सहारा देने वाला tissue · image: नारियल का कड़ा और रेशेदार हिस्सा
+    - kyon: Mature plant parts need strength and protection. _[standard]_ → Thick lignified walls provide durable mechanical support. _[standard]_
+    - example / jagah: Outside example: coconut husk fibres.
+    - aage: Branches into long fibres and varied sclereids.
+    - screen par: thicken and harden cell walls
+    - is level ke liye: Cell death does not imply loss of structural function.
+  - prerequisites: cell wall; lignin; simple tissue
+- **p001-i43** · diagram_label · classification · image · exam high
+  - Fibres: child of Sclerenchyma.
+    - which: Which tissue contains the Fibres branch? → Sclerenchyma.
+    - difference: How do fibres differ from typical sclereids? → Fibres are long, narrow cells, whereas sclereids are generally shorter or irregularly shaped. _(outside the book)_
+      - how: How does an elongated form help support? → Long thick-walled cells can form reinforcing strands that resist pulling forces. _(outside the book)_
+  - **khola (unpack):**
+    - Fibres yaani लंबे पतले मजबूत सहारा देने वाले cells · image: नारियल के छिलके से निकलते लंबे रेशे
+    - kyon: Plant parts need resistance to pulling and bending. _[standard]_ → Bundles of elongated thick-walled fibres provide reinforcement. _[standard]_
+    - example / jagah: Outside example: coconut husk.
+    - aage: One of two sclerenchyma forms.
+    - screen par: bundle long reinforcing cells
+    - is level ke liye: The chart's generic fibres label is not itself a separate complex tissue.
+  - prerequisites: sclerenchyma; thick cell wall
+- **p001-i44** · diagram_label · classification · image · exam high
+  - Sclereids: child of Sclerenchyma.
+    - which: Which parent contains sclereids? → Sclerenchyma.
+    - difference: How are sclereids unlike typical fibres? → They are generally shorter and occur in varied shapes rather than being uniformly long and narrow. _(outside the book)_
+      - why: Why can they make a plant part feel gritty or hard? → Their thick lignified walls form hard inclusions or protective tissue. _(outside the book)_
+  - **khola (unpack):**
+    - Sclereids yaani मोटी कड़ी दीवार वाले छोटे या अलग-अलग आकार के cells · image: नाशपाती खाते समय महसूस होने वाले कड़क दाने
+    - kyon: Some plant parts need local hardness or protection. _[standard]_ → Thick-walled sclereids provide that hardness. _[standard]_
+    - example / jagah: Outside example: gritty stone cells in pear flesh.
+    - aage: Completes the visible sclerenchyma subdivision.
+    - screen par: scatter hard cells within soft fruit tissue
+    - is level ke liye: Use pear grit to distinguish sclereids from long fibres.
+  - prerequisites: sclerenchyma; lignified wall
+- **p001-i45** · diagram_label · classification · image · exam high
+  - Xylem: child of Complex permanent tissue; visible components are Tracheids, Vessels (Tracheae), and Xylem parenchyma.
+    - which: Which visible components belong to xylem? → Tracheids, vessels or tracheae, and xylem parenchyma.
+    - difference: How does xylem differ functionally from phloem? → Xylem mainly conducts water and mineral nutrients; phloem transports sugars and other organic solutes. _(outside the book)_
+      - how: How do different xylem cell types cooperate? → Conducting elements carry water while living parenchyma contributes storage and lateral movement. _(outside the book)_
+  - **khola (unpack):**
+    - Xylem yaani पौधे में पानी और minerals पहुँचाने वाला complex tissue · image: जड़ से पत्तियों तक पानी की पाइपलाइन
+    - kyon: Leaves need water absorbed by roots. _[standard]_ → Xylem provides a conducting pathway with supporting cell types. _[standard]_
+    - example / jagah: Outside example: vascular tissue in a stem.
+    - aage: Connects the complex category to its component cells.
+    - screen par: move water through a stem bundle
+    - is level ke liye: Do not infer that the three visible entries exhaust the full xylem component list.
+  - prerequisites: complex tissue; root water uptake; transport
+- **p001-i46** · diagram_label · classification · image · exam high
+  - Tracheids: component listed under Xylem.
+    - which: Which tissue contains tracheids? → Xylem.
+    - difference: How do tracheids differ from vessels? → Tracheids are elongated tapered conducting cells with water passing through pits; vessel elements join through perforated end walls into vessels. _(outside the book)_
+      - how: How can a mature dead tracheid conduct water? → Its hollow interior and wall pits provide a passage without requiring living contents. _(outside the book)_
+  - **khola (unpack):**
+    - Tracheids yaani पानी ले जाने वाले लंबे सिरों पर पतले xylem cells · image: पास-पास रखी लंबी नलियाँ जिनकी दीवारों से पानी आगे जाता है
+    - kyon: Water needs a connected path through plant tissue. _[standard]_ → Hollow tracheids pass water between neighbouring cells through pits. _[standard]_
+    - example / jagah: Outside example: xylem of conifers.
+    - aage: One route of xylem water conduction.
+    - screen par: pass water through pits between tapered cells
+    - is level ke liye: Tracheids are not animal tracheae.
+  - prerequisites: xylem; cell wall; water conduction
+- **p001-i47** · diagram_label · classification · image · exam high
+  - Vessels (Tracheae): component listed under Xylem.
+    - which: Where are Vessels (Tracheae) classified? → Under Xylem.
+    - difference: How is a vessel unlike one tracheid? → A vessel is a conducting tube built from vessel elements joined end to end through perforated end walls. _(outside the book)_
+      - how: How does this arrangement aid transport? → End-to-end openings provide a relatively continuous route for water movement. _(outside the book)_
+  - **khola (unpack):**
+    - Vessels (Tracheae) yaani कई cells सिरों से जुड़कर बनी xylem की पानी वाली नलियाँ · image: छोटे पाइपों को जोड़कर लंबी पाइपलाइन बनाना
+    - kyon: Water must move along an extended plant axis. _[standard]_ → Joined vessel elements create a continuous conducting route. _[standard]_
+    - example / jagah: Outside example: vessel-bearing xylem in a flowering plant stem.
+    - aage: Contrasts a tube of elements with individual tracheids.
+    - screen par: join open-ended elements into a tube
+    - is level ke liye: Keep the botanical use of tracheae separate from animal anatomy.
+  - prerequisites: xylem; cell joining; water transport
+- **p001-i48** · diagram_label · classification · image · exam high
+  - Xylem parenchyma: component listed under Xylem.
+    - which: Which complex tissue includes this parenchyma? → Xylem.
+    - difference: How does it differ from mature tracheids and vessel elements? → Xylem parenchyma is living, unlike those mature conducting elements. _(outside the book)_
+      - why: Why is living parenchyma useful within xylem? → It can store materials and assist lateral transport, complementing the main water-conducting pathway. _(outside the book)_
+  - **khola (unpack):**
+    - Xylem parenchyma yaani xylem के भीतर मौजूद जीवित parenchyma cells · image: पाइपलाइन के पास भंडार और देखरेख की जगह
+    - kyon: A transport tissue needs storage and sideways exchange as well as long-distance flow. _[standard]_ → Living parenchyma supplies these complementary functions. _[standard]_
+    - example / jagah: Outside example: living cells within woody xylem.
+    - aage: Shows why xylem is complex rather than a single cell type.
+    - screen par: highlight living storage cells beside water conduits
+    - is level ke liye: A complex tissue can include both living and dead cell types.
+  - prerequisites: parenchyma; xylem; living versus dead cells
+- **p001-i49** · diagram_label · classification · image · exam high
+  - Phloem: child of Complex permanent tissue; visible components are Sieve tubes, Companion cells and Phloem parenchyma.
+    - which: Which phloem components are visible? → Sieve tubes, companion cells and phloem parenchyma.
+    - difference: How does phloem transport differ from xylem transport? → Phloem carries sugars and other organic solutes between sources and sinks; xylem chiefly carries water and mineral nutrients. _(outside the book)_
+      - why: Why does a plant need a food-distribution tissue? → Roots, developing fruits and other non-photosynthesising or growing parts need products made elsewhere, commonly in leaves. _(outside the book)_
+  - **khola (unpack):**
+    - Phloem yaani पौधे में बनी sugars और दूसरे organic पदार्थ पहुँचाने वाला complex tissue · image: रसोई से अलग कमरों तक खाना पहुँचाने की व्यवस्था
+    - kyon: Not every plant part makes enough food for itself. _[standard]_ → Phloem distributes organic nutrients from sources to consuming or storing parts. _[standard]_
+    - example / jagah: Outside example: sugar movement from leaves to a developing fruit.
+    - aage: Explains the cooperating phloem components.
+    - screen par: move sugar from leaf to fruit and root
+    - is level ke liye: The visible list is not evidence that no other phloem components exist.
+  - prerequisites: photosynthesis; complex tissue; plant transport
+- **p001-i50** · diagram_label · classification · image · exam high
+  - Sieve tubes: component listed under Phloem.
+    - which: Which tissue contains sieve tubes? → Phloem.
+    - difference: How do sieve tubes differ from xylem vessels? → Sieve tubes are formed from living conducting elements with sieve plates and carry organic solutes, whereas mature vessel elements are dead water-conducting cells. _(outside the book)_
+      - how: How does the sieve arrangement allow transport? → Pores in the end-wall sieve plates connect neighbouring elements, permitting phloem sap movement. _(outside the book)_
+  - **khola (unpack):**
+    - Sieve tubes yaani sugars ले जाने वाले जुड़े हुए phloem cells की नलियाँ · image: जोड़ों पर छलनी जैसे छेद वाली पाइप
+    - kyon: Organic nutrients need a connected conducting path. _[standard]_ → Sieve plates connect living tube elements for sap transport. _[standard]_
+    - example / jagah: Outside example: phloem in a flowering plant stem.
+    - aage: Their specialisation explains the need for companion cells.
+    - screen par: pass sap through perforated sieve plates
+    - is level ke liye: Lack of a nucleus does not make a mature sieve-tube element dead.
+  - prerequisites: phloem; cell end wall; sugar transport
+- **p001-i51** · diagram_label · classification · image · exam high
+  - Companion cells: component listed under Phloem.
+    - which: Which tissue includes companion cells? → Phloem.
+    - difference: How do companion cells differ from mature sieve-tube elements? → Companion cells retain a nucleus and metabolically support the associated sieve-tube elements. _(outside the book)_
+      - why: Why is this support needed? → Sieve-tube elements are specialised for conduction and have reduced internal machinery, so associated companion cells help maintain their functioning. _(outside the book)_
+  - **khola (unpack):**
+    - Companion cells yaani sieve tubes के साथ रहकर उनका काम सँभालने में मदद करने वाले cells · image: मुख्य रास्ते के पास उसकी देखभाल करती टीम
+    - kyon: Highly specialised sieve elements have reduced internal machinery. _[standard]_ → Nucleated companion cells provide metabolic assistance. _[standard]_
+    - example / jagah: Outside example: beside sieve-tube elements in flowering-plant phloem.
+    - aage: Demonstrates cooperation within a complex tissue.
+    - screen par: pair a nucleated helper cell with a sieve element
+    - is level ke liye: The helper analogy explains cooperation, not a separate organism living in the plant.
+  - prerequisites: sieve-tube element; nucleus; cell metabolism
+- **p001-i52** · diagram_label · classification · image · exam high
+  - Phloem parenchyma: component listed under Phloem.
+    - which: Which complex tissue contains phloem parenchyma? → Phloem.
+    - difference: How is its role different from that of sieve tubes? → Phloem parenchyma mainly contributes living storage and local exchange functions, while sieve tubes form the main long-distance conducting route. _(outside the book)_
+      - how: How does it help explain the word complex? → It adds another specialised cell type cooperating with conducting and companion cells in the same tissue. _(outside the book)_
+  - **khola (unpack):**
+    - Phloem parenchyma yaani phloem के जीवित parenchyma cells जो भंडारण जैसे काम करते हैं · image: खाना पहुँचाने की व्यवस्था के साथ जुड़ा छोटा भंडार
+    - kyon: Food distribution needs storage and local exchange as well as a main conducting path. _[standard]_ → Living parenchyma contributes these complementary tasks. _[standard]_
+    - example / jagah: Outside example: phloem of many dicot stems.
+    - aage: Completes the visible chart and reinforces complex-tissue composition.
+    - screen par: place storage cells beside the sugar pathway
+    - is level ke liye: Do not confuse the simple-tissue category parenchyma with its named location inside a complex tissue.
+  - prerequisites: parenchyma; phloem; storage versus conduction
