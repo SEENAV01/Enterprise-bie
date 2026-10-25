@@ -5,7 +5,7 @@
 //   time order, sized by magnitude.
 // - plate_frames: coastlines moved back in time by pyGPlates, shown age by age on the same map projection.
 import React from "react";
-import { geoGraticule10, geoNaturalEarth1, geoPath, scaleSqrt } from "d3";
+import { geoArea, geoGraticule10, geoNaturalEarth1, geoPath, scaleSqrt } from "d3";
 import { feature } from "topojson-client";
 import land110 from "world-atlas/land-110m.json";
 import { registerBlock, BlockProps } from "../registry";
@@ -114,21 +114,20 @@ const PlateFrames: React.FC<BlockProps> = ({ data, at, width, height }) => {
   const seconds = (data.seconds ?? 3.4) * fps;
   const f = Math.min(frames.length - 1, Math.floor((Math.max(0, rel - 0.2 * fps) / seconds) * frames.length));
   const frame = frames[f];
+  // Each coastline is a closed ring on the sphere: d3-geo cuts it at the map's edge and fills it. A ring whose area comes
+  // out larger than a hemisphere is wound the other way round, so it is reversed before drawing.
   const d = frame.shapes.map((s) => {
-    const pts = s.map((p) => projection(p as [number, number]) as [number, number]);
-    let out = "", prev: [number, number] | null = null;
-    for (const p of pts) {                                    // do not draw a line across the map where a shape wraps
-      out += (!prev || Math.abs(p[0] - prev[0]) > width * 0.4 ? "M" : "L") + p[0].toFixed(1) + "," + p[1].toFixed(1);
-      prev = p;
-    }
-    return out;
+    const ring = s[0][0] === s[s.length - 1][0] && s[0][1] === s[s.length - 1][1] ? s : [...s, s[0]];
+    let polygon: any = { type: "Polygon", coordinates: [ring] };
+    if (geoArea(polygon) > 2 * Math.PI) polygon = { type: "Polygon", coordinates: [[...ring].reverse()] };
+    return path(polygon) || "";
   }).join("");
   return (
     <div style={{ position: "absolute", inset: 0, fontFamily: FONT }}>
       <svg width={width} height={height} style={{ position: "absolute", inset: 0 }}>
         <path d={path({ type: "Sphere" } as any) || ""} fill="#0b2433" stroke={C.line} />
         <path d={path(geoGraticule10()) || ""} fill="none" stroke={C.line} strokeOpacity={0.5} />
-        <path d={d} fill="none" stroke="#e9c46a" strokeWidth={2.2} strokeLinejoin="round" />
+        <path d={d} fill="#5d7f4f" fillOpacity={0.85} stroke="#e9c46a" strokeWidth={1.4} strokeLinejoin="round" />
       </svg>
       <Title text={data.title} sub={data.subtitle} />
       <div style={{ position: "absolute", right: 60, top: 30, textAlign: "right", color: C.ink }}>
