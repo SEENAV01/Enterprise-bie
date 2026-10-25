@@ -37,9 +37,8 @@ class FunctionDraw(Scene):
         points = [ax.c2p(x, y) for x, y in zip(xs, ys)]
         curve = ax.plot_line_graph(xs, ys, add_vertex_dots=False, line_color=ACCENT, stroke_width=6)["line_graph"]
         dot = Dot(points[0], color=WARM, radius=0.11)
-        self.add(ax)                                       # the axes are there from the first frame; the curve is what draws
-        self.play(FadeIn(title), run_time=0.8)
-        self.play(Create(curve), MoveAlongPath(dot, curve), run_time=p.get("draw_seconds", 2.6), rate_func=linear)
+        self.add(ax, title)                                # axes and title from the first frame; the curve is what draws
+        self.play(Create(curve), MoveAlongPath(dot, curve), run_time=p.get("draw_seconds", 3.4), rate_func=linear)
         note = Text(p.get("note", "Manim (offline render)"), font_size=26, color=WARM).next_to(ax, UP, buff=0.1).align_to(ax, LEFT)
         self.play(FadeIn(note), run_time=0.4)
         self.wait(0.3)
