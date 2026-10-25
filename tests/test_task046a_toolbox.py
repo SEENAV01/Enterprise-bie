@@ -140,7 +140,8 @@ class Resolver(unittest.TestCase):
                 r = resolver.resolve(cap, path="web", log=log)
                 self.assertEqual(r.missing, not r.draw, cap)
             rows = log.rows()
-            self.assertEqual({r["capability"] for r in rows}, {c for c in BOX.capabilities if resolver.resolve(c, log=None).missing})
+            gaps = {c for c in BOX.capabilities if resolver.resolve(c, log=None).missing or resolver.resolve(c, log=None).licence_gap}
+            self.assertEqual({r["capability"] for r in rows}, gaps)       # nothing to draw, or no source a lesson may use
             self.assertTrue(all(r["registry_version"] == BOX.version for r in rows))
 
     def test_batch_1_capabilities_draw_on_the_web_path(self):
@@ -333,11 +334,14 @@ class Sources(unittest.TestCase):
                          "https://images-assets.nasa.gov/image/as08-14-2383/as08-14-2383~medium.jpg": b"\xff\xd8\xffjpeg"})
         asset = sources.nasa_image("as08-14-2383", self.lib, size="medium", opener=opener)
         self.assertEqual((asset.title, asset.credit), ("Earthrise", "NASA/JSC (as08-14-2383)"))
-        self.assertIn("not copyrighted", asset.licence)
+        self.assertIn("Public domain", asset.licence)                         # a US government work, stated as public domain
+        from bie.toolbox import licence
+        self.assertTrue(licence.asset_verdict(asset).allowed)
         meta["collection"]["items"][0]["data"][0]["secondary_creator"] = "© Some Agency"
         opener.routes["https://images-assets.nasa.gov/image/as08-14-2383/as08-14-2383~medium.jpg"] = b"\xff\xd8\xffother"
         other = sources.nasa_image("as08-14-2383", self.lib, size="medium", opener=opener)
         self.assertIn("third-party copyright", other.licence)
+        self.assertEqual(licence.asset_verdict(other).verdict, "refused")     # Task 046a-L: a NASA file with third-party rights
         with self.assertRaises(sources.SourceError):
             sources.nasa_image("../x", self.lib, opener=opener)
 
@@ -428,7 +432,7 @@ class BatchThreeSources(unittest.TestCase):
         with self.assertRaises(sources.SourceError):
             sources.india_code_act("x OR 1=1", self.lib, opener=opener)
 
-    def test_commons_and_openverse_keep_share_alike_marked_and_refuse_non_commercial(self):
+    def test_commons_and_openverse_take_only_files_a_lesson_may_use(self):
         commons = {"query": {"pages": {"1": {"title": "File:Marche sel.jpg", "imageinfo": [{
             "url": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Marche_sel.jpg", "descriptionurl": "https://commons.wikimedia.org/wiki/File:Marche_sel.jpg",
             "thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Marche_sel.jpg/1280px-Marche_sel.jpg?utm_source=commons.wikimedia.org&utm_content=thumbnail",
@@ -440,12 +444,19 @@ class BatchThreeSources(unittest.TestCase):
         self.assertEqual((old.licence, old.mime, old.source, old.author), ("Public domain", "image/jpeg", "wikimedia_commons", "Unknown"))
         self.assertIn("iiurlwidth=1280", opener.urls[0])               # a standard Wikimedia thumbnail width, below the original's 2000
         row = {"id": "bafa11dc-b447-4e43-804c-c3f8f3eca309", "title": "Dandi salt march", "creator": "Nagarjun", "license": "by-sa",
-               "license_version": "2.0", "foreign_landing_url": "https://www.flickr.com/photos/x/1", "attribution": '"Dandi salt march" by Nagarjun'}
+               "license_version": "2.0", "foreign_landing_url": "https://www.flickr.com/photos/x/1", "attribution": '"Dandi salt march" by Nagarjun',
+               "license_url": "https://creativecommons.org/licenses/by-sa/2.0/"}
         opener = Opener({"https://api.openverse.org/v1/images/bafa11dc-b447-4e43-804c-c3f8f3eca309/thumb/": b"\xff\xd8\xffdiorama",
                          "https://api.openverse.org/v1/images/bafa11dc-b447-4e43-804c-c3f8f3eca309/": row})
+        with self.assertRaisesRegex(sources.SourceError, "share-alike"):           # Task 046a-L: CC BY-SA is refused, not kept
+            sources.openverse_image("bafa11dc-b447-4e43-804c-c3f8f3eca309", self.lib, opener=opener)
+        self.assertFalse(any("/thumb/" in u for u in opener.urls))                 # nothing was downloaded
+        row.update(license="by", creator="", license_url="https://creativecommons.org/licenses/by/2.0/")
+        with self.assertRaisesRegex(sources.SourceError, "missing: author"):        # CC BY must name its author
+            sources.openverse_image("bafa11dc-b447-4e43-804c-c3f8f3eca309", self.lib, opener=opener)
+        row["creator"] = "Nagarjun"
         new = sources.openverse_image("bafa11dc-b447-4e43-804c-c3f8f3eca309", self.lib, opener=opener)
-        self.assertEqual((new.licence, new.page_url), ("CC BY-SA 2.0", "https://www.flickr.com/photos/x/1"))
-        self.assertIn("share-alike", new.tags)
+        self.assertEqual((new.licence, new.page_url, new.author), ("CC BY 2.0", "https://www.flickr.com/photos/x/1", "Nagarjun"))
         n = len(opener.urls)
         sources.openverse_image("bafa11dc-b447-4e43-804c-c3f8f3eca309", self.lib, opener=opener)
         self.assertEqual(len(opener.urls), n)                                     # the record and the file are kept in the cache
@@ -601,7 +612,7 @@ class DemosAndPage(unittest.TestCase):
         text = page.render_markdown(registry.from_data(reg, CAPS), {"batch": 1, "demos": 1, "results": [
             {"demo": "maths-equation", "title": "t", "tools": ["sympy", "katex"], "seconds": 4.5, "passed": True}]})
         for words in ("## By subject family", "### Biology and medical", "**KaTeX**: needs fonts", "## Missing capabilities",
-                      "orbit_motion", "maths-equation", "Z-Anatomy: CC BY-SA 4.0"):
+                      "orbit_motion", "maths-equation", "- Z-Anatomy: share-alike licence"):      # Task 046a-L: refused for lessons
             self.assertIn(words, text)
 
     def test_adapters_import_without_their_libraries(self):

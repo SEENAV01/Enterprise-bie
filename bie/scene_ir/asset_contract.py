@@ -1,6 +1,7 @@
 from __future__ import annotations
 from dataclasses import dataclass
 import re
+from bie.toolbox import licence as licence_policy
 
 _SHA256=re.compile(r"^[0-9a-f]{64}$")
 ASSET_TYPES={"image","video","model3d"}
@@ -14,8 +15,10 @@ class AssetRecord:
     media_type:str
     current:bool=True
     source_ref:str|None=None
+    licence:tuple=()   # Task 046a-L: the asset's licence record (title, source, licence, licence_url, author, page_url, tags)
 
     def __post_init__(self):
+        object.__setattr__(self,"licence",licence_policy.record_items(self.licence))
         for name in ("asset_id","uri","rights_basis","media_type"):
             value=getattr(self,name)
             if not isinstance(value,str) or not value.strip():
@@ -33,6 +36,7 @@ class AssetResolutionReceipt:
     warnings:tuple[str,...]
     passed:bool
     accepted:bool=False
+    credits:tuple[str,...]=()
 
 class AssetRegistry:
     def __init__(self):
@@ -46,7 +50,7 @@ class AssetRegistry:
         return self._records.get(asset_id)
 
 def resolve_assets(document, registry):
-    blockers=[];warnings=[];resolved=[]
+    blockers=[];warnings=[];resolved=[];lesson_assets=[]
     for e in document.elements:
         if e.element_type not in ASSET_TYPES:
             continue
@@ -64,14 +68,18 @@ def resolve_assets(document, registry):
             blockers.append("asset_rights_missing:"+record.asset_id)
         if record.source_ref is not None and record.source_ref not in e.source_refs:
             warnings.append("asset_source_not_in_element_lineage:"+record.asset_id)
+        lesson_asset=licence_policy.from_record(record.asset_id,record.rights_basis,record.licence)
+        blockers+=["asset_licence:"+p for p in licence_policy.lesson_licence_check([lesson_asset])]   # the lesson licence gate
         resolved.append(record.asset_id)
+        lesson_assets.append(lesson_asset)
     return AssetResolutionReceipt(
         document.scene_id,
         tuple(sorted(set(resolved))),
         tuple(sorted(set(blockers))),
         tuple(sorted(set(warnings))),
         not blockers,
-        False
+        False,
+        tuple(licence_policy.lesson_credits(lesson_assets)) if not blockers else ()
     )
 
 def require_assets(receipt):

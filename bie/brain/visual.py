@@ -2,13 +2,18 @@
 
 For each video:
 1. Asset plan (AI): search queries and a must-show list for every element that needs a picture.
-2. Search (code): open sources (Wikimedia Commons) with licences allowed in a paid course.
+2. Search (code): open sources (Wikimedia Commons) with licences the licence policy allows in a lesson
+   (``bie/toolbox/licence_policy.json``: CC0, public domain, CC BY with its credit fields).
 3. Asset choice (AI that sees the candidate pictures): the most accurate, detailed one, with the regions and
    points of the parts to label and zoom into; the file goes into the asset library with its licence.
 4. Layout (AI that sees the chosen pictures): the scene as choreography data for BIE's block library, every
    layer and camera move cued to a spoken word. BIE's code checks references, boxes, overlaps and cues; the
    independent reviewer looks at rendered frames at the cue moments and judges them against the scene.
 5. The passed scenes become one VideoSpec per video (frames from the beat timing), ready to render.
+
+Before a video's layout is planned and again before its VideoSpec is written, the lesson licence gate
+(``bie.toolbox.licence``) checks every asset the video uses and the spec itself (a block that draws India's
+boundary); a refused or needs-Navin asset stops that video with the reason, and nothing is swapped silently.
 
 Outputs (``run_visual``): ``video_specs/<video>.json``, ``assets/`` (library with index and credits),
 ``VISUAL.md``, and stills of the reviewed frames under ``stills/``.
@@ -27,6 +32,7 @@ from .runner import NOTES_SCHEMA, Step
 from .understanding import Course
 from .video import timing
 from .video.render import RenderError, small_jpeg, stills
+from bie.toolbox import licence as licence_policy
 
 SECTION = "visual"
 PLAN_VERSION = "visual-assets/1"
@@ -504,7 +510,9 @@ def run_visual(chapter: dict, lesson: dict, director: dict, course: Course, runn
     library = AssetLibrary(out / "assets")
     render_dist = Path(render_dist or out / "_preview")
     beats_by_video = {v["video_id"]: v["beats"] for v in lesson.get("videos", [])}
-    summary = {"schema": "bie.brain.visual/1", "course": chapter["course"], "rulebook_version": runner.rulebook.version, "videos": []}
+    summary = {"schema": "bie.brain.visual/1", "course": chapter["course"], "rulebook_version": runner.rulebook.version,
+               "licence_policy": licence_policy.version(), "videos": []}
+    used = []
     for video in director.get("videos", []):
         if not video["scenes"]:
             continue
@@ -512,6 +520,11 @@ def run_visual(chapter: dict, lesson: dict, director: dict, course: Course, runn
         says = {b["beat_id"]: b["say"] for b in beats}
         timeline = timing.build(beats, video["scenes"], voice=voice)
         assets_by_key, report = resolve_assets(course, video, runner, library, opener=opener, workers=workers)
+        asset_ids = sorted({info["asset_id"] for info in assets_by_key.values()})
+        problems = library.lesson_check(asset_ids)            # the lesson licence gate, before any layout is paid for
+        if problems:
+            summary["videos"].append(_stopped(video, report, problems))
+            continue
         results = []
 
         def lay(scene):
@@ -527,9 +540,15 @@ def run_visual(chapter: dict, lesson: dict, director: dict, course: Course, runn
             results = list(pool.map(lay, video["scenes"]))
         scenes = [spec for _, _, spec in results if spec]
         video_spec = {"fps": timing.FPS, "width": 1920, "height": 1080, "scenes": scenes, "captions": True}
+        problems = licence_policy.lesson_spec_check(video_spec) + library.lesson_check(asset_ids)
+        if problems:                                        # the spec is not written: this video cannot be rendered
+            summary["videos"].append(_stopped(video, report, problems))
+            continue
         (out / "video_specs" / f"{video['video_id']}.json").write_text(json.dumps(video_spec, ensure_ascii=False), encoding="utf-8")
+        used += [a for a in asset_ids if a not in used]
         summary["videos"].append({
-            "video_id": video["video_id"], "title": video["title"], "assets": report,
+            "video_id": video["video_id"], "title": video["title"], "assets": report, "status": "spec_written",
+            "credits": library.credits(asset_ids),
             "scenes": [{"scene_id": sid, "status": r.status, "rounds": len(r.rounds), "cost_usd": r.cost_usd,
                         "last_problems": (r.rounds[-1].get("code_problems") or []) + (r.rounds[-1].get("review_problems") or [])
                         if r.rounds and not r.passed else []} for sid, r, _ in results],
@@ -537,8 +556,9 @@ def run_visual(chapter: dict, lesson: dict, director: dict, course: Course, runn
         })
     library.save()
     scenes = [s for v in summary["videos"] for s in v["scenes"]]
-    summary["credits"] = library.credits(sorted(library.assets))
+    summary["credits"] = library.credits(used)
     summary["quality"] = {"videos": len(summary["videos"]), "scenes": len(scenes),
+                          "videos_stopped_by_licence": sum(1 for v in summary["videos"] if v.get("status") == "stopped_by_licence"),
                           "scenes_passed": sum(1 for s in scenes if s["status"] == "passed"),
                           "pictures_chosen": sum(1 for v in summary["videos"] for a in v["assets"] if a["status"] == "chosen"),
                           "pictures_missing": sum(1 for v in summary["videos"] for a in v["assets"] if a["status"] != "chosen"),
@@ -549,6 +569,11 @@ def run_visual(chapter: dict, lesson: dict, director: dict, course: Course, runn
     return summary
 
 
+def _stopped(video: dict, report: list, problems: list) -> dict:
+    return {"video_id": video["video_id"], "title": video["title"], "assets": report, "status": "stopped_by_licence",
+            "licence_problems": problems, "scenes": [], "seconds": 0}
+
+
 def render_markdown(summary: dict) -> str:
     q = summary["quality"]
     lines = [f"# Visuals · {summary['course']['title']}", "",
@@ -556,6 +581,8 @@ def render_markdown(summary: dict) -> str:
              f"missing; {q['seconds']:.0f} s of video planned; layout cost ${q['cost_usd']:.4f}.", ""]
     for v in summary["videos"]:
         lines += [f"## {v['video_id']} · {v['title']} ({v['seconds']} s)", ""]
+        if v.get("status") == "stopped_by_licence":
+            lines += ["Stopped by the lesson licence gate (no video spec written):", ""] + [f"- {p}" for p in v["licence_problems"]]
         for a in v["assets"]:
             lines.append(f"- picture {a['element']}: {a['status']}" + (f" · {a.get('title')} ({a.get('licence')})" if a["status"] == "chosen" else
                                                                       f" · {a.get('reason') or a.get('queries') or ''}"))

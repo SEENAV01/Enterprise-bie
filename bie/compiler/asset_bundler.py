@@ -2,6 +2,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from pathlib import Path
 import shutil
+from bie.toolbox import licence as licence_policy
 from .compiler_asset_common import *
 
 @dataclass(frozen=True)
@@ -22,6 +23,7 @@ class AssetBundleReceipt:
     warnings:tuple[str,...]
     passed:bool
     accepted:bool=False
+    credits:tuple[str,...]=()
 
 _EXT_BY_TYPE={
     "image/png":".png",
@@ -45,7 +47,7 @@ def bundle_assets(records, output_root):
     output_root=Path(output_root).resolve()
     public_root=output_root/"public"/"assets"
     public_root.mkdir(parents=True,exist_ok=True)
-    blockers=[];warnings=[];bundled=[]
+    blockers=[];warnings=[];bundled=[];lesson_assets=[]
     seen_ids=set()
     seen_targets={}
 
@@ -57,6 +59,11 @@ def bundle_assets(records, output_root):
 
         if not record.current:
             blockers.append("asset_not_current:"+record.asset_id)
+            continue
+        lesson_asset=licence_policy.from_record(record.asset_id,record.rights_basis,record.licence)
+        refused=licence_policy.lesson_licence_check([lesson_asset])     # the lesson licence gate: nothing refused is packaged
+        if refused:
+            blockers+=["asset_licence:"+p for p in refused]
             continue
         src=Path(record.source_path).resolve()
         if not src.is_file():
@@ -93,6 +100,7 @@ def bundle_assets(records, output_root):
             continue
 
         seen_targets[target_name]=actual
+        lesson_assets.append(lesson_asset)
         bundled.append(BundledAsset(
             record.asset_id,
             "assets/"+target_name,
@@ -109,5 +117,6 @@ def bundle_assets(records, output_root):
         tuple(sorted(set(blockers))),
         tuple(sorted(set(warnings))),
         not blockers,
-        False
+        False,
+        tuple(licence_policy.lesson_credits(lesson_assets)) if not blockers else ()
     )

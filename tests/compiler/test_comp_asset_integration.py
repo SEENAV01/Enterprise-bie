@@ -6,13 +6,14 @@ from bie.compiler.asset_bundler import bundle_assets
 from bie.compiler.asset_path_resolver import CompilerAssetPathRegistry
 from bie.compiler.asset_hash_verifier import verify_bundle_hashes,require_all_hashes
 from bie.compiler.missing_asset_failure import detect_missing_assets
+OWN={"title":"test drawing","source":"bie","licence":"BIE's own drawing"}   # Task 046a-L: every bundled asset carries its licence record
 
 class T(unittest.TestCase):
  def test_bundle_resolve_hash_and_missing_asset_gate(self):
   with tempfile.TemporaryDirectory() as src,tempfile.TemporaryDirectory() as out:
    p=Path(src)/"cell.png";p.write_bytes(b"image-bytes")
    digest=hashlib.sha256(b"image-bytes").hexdigest()
-   rec=CompilerAssetRecord("cell",str(p),digest,"image/png","user_supplied",True)
+   rec=CompilerAssetRecord("cell",str(p),digest,"image/png","user_supplied",True,OWN)
 
    bundle=bundle_assets([rec],out)
    self.assertTrue(bundle.passed)

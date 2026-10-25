@@ -133,8 +133,10 @@ def run_demo(demo, out: Path, *, dist: Path, opener=None) -> dict:
     return {"demo": demo.id, "title": demo.title, "batch": demo.batch, "kind": demo.kind, "tools": list(demo.tools),
             "capabilities": list(demo.capabilities), "seconds": round(duration, 2), "mp4_bytes": mp4.stat().st_size,
             "mp4_sha256": sha(mp4), "checks": found, "notes": work.notes, "render_seconds": round(time.time() - started, 1),
-            "assets": [{"id": a.asset_id, "title": a.title, "licence": a.licence, "source": a.source, "credit": a.credit, "tags": a.tags}
-                       for a in work.library.assets.values()]}
+            "assets": [{"id": a.asset_id, "title": a.title, "licence": a.licence, "source": a.source, "credit": a.credit, "tags": a.tags,
+                        "author": a.author, "licence_url": a.licence_url, "page_url": a.page_url}
+                       for a in work.library.assets.values()],
+            "blocks": demo_module.spec_blocks(built if demo.kind != "manim" else None)}
 
 
 def chromium_path() -> str:
@@ -243,6 +245,7 @@ def main(argv=None):
             row["versions"] = tool_versions(demo.tools, box)
             mismatched = [t for t, v in row["versions"].items() if v["matches"] is False]
             row["passed"] = row["checks"]["not_blank"] and row["checks"]["moves"] and row["checks"]["length_ok"] and not mismatched
+            row["lesson_use"] = demo_module.lesson_use(demo.tools, row["assets"], row["blocks"], box=box)   # Task 046a-L
             if mismatched:
                 row["error"] = "installed version differs from the registry: " + ", ".join(mismatched)
         except Exception as exc:

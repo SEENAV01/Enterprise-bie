@@ -576,22 +576,22 @@ class Assets(unittest.TestCase):
 
     def test_licences(self):
         from bie.brain.assets import licence_allowed, normalise_licence
-        self.assertEqual(normalise_licence("CC BY-SA 4.0"), "cc-by-sa")
+        self.assertEqual(normalise_licence("CC BY-SA 4.0"), "share-alike")      # the licence policy's classes (Task 046a-L)
         self.assertEqual(normalise_licence("Public domain"), "public-domain")
         self.assertEqual(normalise_licence("CC BY-NC-SA 2.0"), "non-commercial")
         self.assertTrue(licence_allowed("CC BY 4.0"))
         self.assertFalse(licence_allowed("CC BY-SA 4.0"))
-        self.assertTrue(licence_allowed("CC BY-SA 4.0", allow_share_alike=True))
-        self.assertFalse(licence_allowed("CC BY-NC 2.0", allow_share_alike=True))
+        self.assertFalse(licence_allowed("CC BY-NC 2.0"))
+        with self.assertRaises(TypeError):                                        # no switch opens share-alike for lessons
+            licence_allowed("CC BY-SA 4.0", allow_share_alike=True)
 
     def test_commons_search_keeps_allowed_images_only(self):
         from bie.brain.assets import search_commons
         found = search_commons("neuron", opener=self.opener({"https://commons.wikimedia.org/": self.commons_reply()}))
         self.assertEqual([c.title for c in found], ["File:Neuron.png", "File:Old.png"])
         self.assertEqual(found[0].author, "Servier")
-        with_sa = search_commons("neuron", allow_share_alike=True,
-                                 opener=self.opener({"https://commons.wikimedia.org/": self.commons_reply()}))
-        self.assertIn("File:Cell.png", [c.title for c in with_sa])
+        with self.assertRaises(TypeError):                                        # Task 046a-L: the share-alike switch is gone
+            search_commons("neuron", allow_share_alike=True, opener=self.opener({"https://commons.wikimedia.org/": self.commons_reply()}))
 
     def test_library_stores_once_with_licence_and_credits(self):
         from bie.brain.assets import AssetLibrary, AssetError, search_commons
@@ -605,7 +605,9 @@ class Assets(unittest.TestCase):
             reloaded = AssetLibrary(folder)
             self.assertEqual(reloaded.assets[first.asset_id].tags, ["biology", "nerve", "neuron"])
             self.assertEqual(reloaded.find(["neuron"])[0].asset_id, first.asset_id)
-            self.assertIn("CC BY 4.0", reloaded.credits([first.asset_id])[0])
+            self.assertEqual(reloaded.credits([first.asset_id]), ["File:Neuron.png · Servier · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0) "
+                                                                  "· https://commons.wikimedia.org/wiki/File:Neuron.png"])
+            self.assertEqual(reloaded.lesson_check([first.asset_id]), [])
             from dataclasses import replace
             with self.assertRaises(AssetError):
                 library.add_candidate(replace(candidate, licence="CC BY-NC 2.0"), opener=self.opener(routes))
@@ -859,7 +861,8 @@ class Visual(unittest.TestCase):
         commons = json.dumps({"query": {"pages": {"1": {"index": 1, "title": "File:Neuron.png", "imageinfo": [{
             "url": "https://upload.wikimedia.org/a/Neuron.png", "thumburl": "https://upload.wikimedia.org/thumb/a/Neuron.png/800px-Neuron.png",
             "descriptionurl": "https://commons.wikimedia.org/wiki/File:Neuron.png", "width": 800, "height": 600, "mime": "image/png",
-            "extmetadata": {"LicenseShortName": {"value": "CC BY 4.0"}, "Artist": {"value": "Someone"}}}]}}}}).encode()
+            "extmetadata": {"LicenseShortName": {"value": "CC BY 4.0"}, "Artist": {"value": "Someone"},
+                            "LicenseUrl": {"value": "https://creativecommons.org/licenses/by/4.0"}}}]}}}}).encode()   # a CC BY credit needs all four fields
         picture = png_bytes()
 
         class Response:
@@ -893,3 +896,52 @@ class Visual(unittest.TestCase):
             self.assertTrue(spec["scenes"])
             self.assertTrue(any(l["type"] == "image" and l["src"].startswith("assets/files/") for s in spec["scenes"] for l in s["layers"]))
             self.assertIn("CC BY 4.0", "\n".join(visual["credits"]))
+            self.assertEqual(visual["credits"], ["File:Neuron.png · Someone · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0) · "
+                                                 "https://commons.wikimedia.org/wiki/File:Neuron.png"])
+            self.assertTrue(all(v["status"] == "spec_written" and v["credits"] for v in visual["videos"]))
+            self.assertEqual(visual["quality"]["videos_stopped_by_licence"], 0)
+
+    def test_the_licence_gate_stops_a_video_that_would_show_a_z_anatomy_model(self):
+        # Task 046a-L: an asset a lesson may not use stops that video before its layout is paid for; nothing is swapped
+        from unittest import mock
+        from structural_pdf_fixtures import positioned_text_pdf
+        from bie.brain.assets import Candidate
+        from bie.brain.director import run_director
+        from bie.brain.lesson import run_lesson
+        from bie.brain.visual import run_visual
+        picture = png_bytes()
+        heart = Candidate("z_anatomy", "CardioVascular41: heart", "https://github.com/LluisV/Z-Anatomy", "https://example.org/heart.png",
+                          "https://example.org/heart.png", 64, 48, "image/png", "CC BY-SA 4.0", "https://creativecommons.org/licenses/by-sa/4.0/",
+                          "Z-Anatomy project", "Z-Anatomy, CC BY-SA 4.0")
+
+        class Response:
+            def __init__(self, body):
+                self.body = body
+
+            def read(self, limit=-1):
+                return self.body
+
+            def __enter__(self):
+                return self
+
+            def __exit__(self, *exc):
+                return False
+
+        pdf = positioned_text_pdf([[(72, 720, "Neurons carry messages."), (72, 700, "Muscles move bones.")]])
+        with tempfile.TemporaryDirectory() as folder, mock.patch("bie.brain.visual._fetch_candidates", return_value=[heart]):
+            runner = SectionRunner(gateway(), maker="anthropic", reviewer="openai", rulebook=rulebook.load(), records_dir=Path(folder, "r"))
+            chapter = run_chapter(pdf, COURSE, runner, folder, workers=1)
+            lesson = run_lesson(chapter, COURSE, runner, folder, workers=1)
+            director = run_director(chapter, lesson, COURSE, runner, folder, workers=1)
+            for video in director["videos"]:
+                video["scenes"][0]["elements"][0]["kind"] = "cell_or_micro"
+            visual = run_visual(chapter, lesson, director, COURSE, runner, folder, workers=1, opener=lambda request, timeout: Response(picture))
+            stopped = [v for v in visual["videos"] if v["status"] == "stopped_by_licence"]
+            self.assertTrue(stopped)
+            self.assertEqual(visual["quality"]["videos_stopped_by_licence"], len(stopped))
+            self.assertTrue(all("share-alike" in p for v in stopped for p in v["licence_problems"]))
+            self.assertTrue(all(v["scenes"] == [] for v in stopped))                       # no layout was run for them
+            self.assertEqual(sorted(p.stem for p in Path(folder, "video_specs").glob("*.json")),
+                             sorted(v["video_id"] for v in visual["videos"] if v["status"] == "spec_written"))
+            self.assertEqual(visual["credits"], [])
+            self.assertIn("Stopped by the lesson licence gate", Path(folder, "VISUAL.md").read_text(encoding="utf-8"))

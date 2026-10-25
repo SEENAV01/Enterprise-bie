@@ -10,68 +10,70 @@ Status words: **installed** (the package is pinned and installs), **wrapped** (a
 
 50 of 51 clips passed the checks (not blank, something moves, 3–5 s). Rendered in the cloud workspace for all three batches. hist-archive-images could not run there: Wikimedia answers 429 (too many requests) to the workspace's shared address; the toolbox CI lane renders it.
 
-| Clip | What it shows | Tools it proves | Length | Checks |
-| --- | --- | --- | --- | --- |
-| `bio-cell-sheet-flow` | Blender-made columnar epithelium in three.js with particles flowing through | blender, three, react-three-fiber, drei, remotion-three | 4.5 s | passed |
-| `bio-ecg` | An ECG simulated by NeuroKit2 drawn on its paper | neurokit2, d3 | 4.2 s | passed |
-| `bio-heart-bodyparts3d` | BodyParts3D heart joined by trimesh, zooming in | bodyparts3d, trimesh, three, react-three-fiber, drei, remotion-three | 4.0 s | passed |
-| `bio-heart-nih3d` | NIH 3D heart model turning | nih-3d, three, react-three-fiber, drei, remotion-three | 4.0 s | passed |
-| `bio-heart-zanatomy` | Z-Anatomy heart chambers exported by Blender, left ventricle glowing | z-anatomy, blender, three, react-three-fiber, drei, remotion-three | 4.0 s | passed |
-| `bio-organ-zoom` | Lung to alveolus zoom on Servier pictures | servier-medical-art, bie-blocks | 5.0 s | passed |
-| `bio-protein-3dmol` | Crambin from the PDB, read by Biopython, drawn by 3Dmol.js | rcsb-pdb, biopython, 3dmol | 4.0 s | passed |
-| `bio-protein-molstar` | Green fluorescent protein in Mol* | molstar, rcsb-pdb | 4.0 s | passed |
-| `chem-molecule-pubchem` | Caffeine's 3D record from PubChem | pubchem, 3dmol | 3.5 s | passed |
-| `chem-molecule-rdkit` | Aspirin in 3D from RDKit, drawn by 3Dmol.js | rdkit, 3dmol | 4.0 s | passed |
-| `chem-reaction` | Esterification by RDKit and H2 + O2 kinetics by Cantera | rdkit, cantera, d3, bie-blocks | 5.0 s | passed |
-| `cs-graph-bfs` | Breadth-first search on a graph | networkx, d3 | 4.5 s | passed |
-| `maths-equation` | A linear equation solved step by step, every step checked by SymPy, typeset by KaTeX | sympy, katex | 4.5 s | passed |
-| `maths-function-graph` | A parabola drawn over time | sympy, numpy, d3 | 4.0 s | passed |
-| `maths-manim` | A function drawn by Manim (offline path) | manim, sympy | 4.1 s | passed |
-| `maths-regression` | A least-squares line fitted by statsmodels | statsmodels, d3 | 4.0 s | passed |
-| `physics-collision-3d` | A ball passes its momentum on and knocks a tower over (3D) | cannon-es, three, react-three-fiber, drei, remotion-three | 4.0 s | passed |
-| `physics-falling` | A falling body with and without air drag | scipy, numpy, d3 | 4.0 s | passed |
-| `physics-matter` | Boxes and a ball under gravity | matter-js | 4.0 s | passed |
-| `physics-wave` | Two travelling waves make a standing wave | numpy, d3 | 4.0 s | passed |
-| `aero-aircraft` | A trainer aircraft and its lift curve from AeroSandbox | aerosandbox, trimesh, three, react-three-fiber, drei, remotion-three, d3, bie-science-blocks | 4.2 s | passed |
-| `aero-climb` | A Cessna 172 climb simulated by JSBSim | jsbsim, d3, bie-science-blocks | 4.2 s | passed |
-| `astro-earthrise` | Earthrise from NASA's image library, zoom and focus | nasa-images, bie-blocks | 4.2 s | passed |
-| `astro-orbits` | The inner planets' orbits from JPL DE421 (Skyfield, Astropy) | skyfield, astropy, jpl-de421, d3, bie-science-blocks | 4.2 s | passed |
-| `astro-sky` | The night sky over New Delhi from the Hipparcos catalogue (Skyfield) | skyfield, astropy, hipparcos, jpl-de421, bie-science-blocks | 4.0 s | passed |
-| `elec-rc-circuit` | An RC circuit drawn by schemdraw, simulated by ngspice, solved by lcapy | schemdraw, ngspice, lcapy, katex, d3, bie-science-blocks | 4.6 s | passed |
-| `elec-step-response` | Step responses for three damping ratios (python-control, checked by scipy.signal) | python-control, scipy-signal, katex, d3, bie-science-blocks | 4.2 s | passed |
-| `geo-plates` | Continents drifting over 200 million years by pyGPlates | pygplates, gplates-muller2019, d3, bie-science-blocks | 4.2 s | passed |
-| `geo-quake-map` | 2025's strong earthquakes from the USGS on a Natural Earth map | usgs-earthquakes, natural-earth, topojson-client, d3, bie-science-blocks | 4.2 s | passed |
-| `geo-relief` | Himalaya relief and profile by PyGMT | pygmt, gmt, gmt-earth-relief, bie-blocks, d3, bie-science-blocks | 4.2 s | passed |
-| `geo-seismic-rays` | Seismic rays through the Earth's layers by ObsPy TauP | obspy, bie-science-blocks | 4.2 s | passed |
-| `mech-beam` | A loaded steel beam bends (PyNite, checked by sympy.physics) | pynite, sympy-physics, bie-science-blocks | 4.0 s | passed |
-| `mech-flange` | A pipe flange built by CadQuery, turning in three.js | cadquery, trimesh, three, react-three-fiber, drei, remotion-three | 4.0 s | passed |
-| `mech-heat-plate` | Heat flow in a plate by scikit-fem | scikit-fem, d3, bie-science-blocks | 4.0 s | passed |
-| `mech-rankine` | A Rankine steam cycle on a T-s chart from CoolProp | coolprop, d3, bie-science-blocks | 4.2 s | passed |
-| `econ-cobb-douglas-plotly` | A Cobb-Douglas production function in Plotly | numpy, plotly, bie-social-blocks | 4.2 s | passed |
-| `econ-growth-chartjs` | India's GDP growth from the World Bank in Chart.js | world-bank, chartjs, bie-social-blocks | 4.2 s | passed |
-| `econ-wealth-health-vega` | Wealth and health of eight countries in Vega-Lite | world-bank, vega-lite, vega, bie-social-blocks | 4.2 s | passed |
-| `edu-learning-cycle` | Kolb's learning cycle as a process cycle | bie-social-blocks | 4.0 s | passed |
-| `edu-teaching-logit` | A teaching method's effect by statsmodels (logit) | statsmodels, d3, bie-science-blocks | 4.2 s | passed |
-| `geo-india-state` | Uttar Pradesh on India's map (Natural Earth, Shapely, d3-geo) | natural-earth-vector, shapely, d3, bie-social-blocks | 4.2 s | passed |
-| `hist-archive-images` | The Salt March from Wikimedia Commons and Openverse | wikimedia-commons, openverse, bie-blocks | — s | failed: HTTPError: HTTP Error 429: Too many requests (f061ab2) |
-| `hist-gt-road` | The Grand Trunk Road drawn town by town | natural-earth-vector, shapely, d3, bie-social-blocks | 4.2 s | passed |
-| `hist-timeline` | Towards independence, 1857 to 1950, on a D3 time scale | d3, bie-social-blocks | 4.2 s | passed |
-| `lang-kinetic-sanskrit` | A Sanskrit line word by word in Devanagari and Roman | indic-nlp, indic-transliteration, noto-devanagari, bie-social-blocks | 4.2 s | passed |
-| `law-case-card` | Kesavananda Bharati v. State of Kerala as a case card | sc-judgments, pyarrow, bie-social-blocks | 4.4 s | passed |
-| `law-courts-tree` | Classes of criminal courts (BNSS s. 6) as a tree | india-code, d3, bie-social-blocks | 4.0 s | passed |
-| `law-procedure-flow` | A criminal case from FIR to judgment, sections from India Code | india-code, dagre, bie-social-blocks | 4.2 s | passed |
-| `polity-bill-mermaid` | How a Bill becomes an Act, in Mermaid with the ELK layout | mermaid, mermaid-layout-elk, elkjs, bie-social-blocks | 4.2 s | passed |
-| `psy-brain-lobes` | The brain lobe by lobe (Z-Anatomy, Blender, three.js) | z-anatomy, blender, three, react-three-fiber, drei, remotion-three | 4.2 s | passed |
-| `psy-stroop-flow` | The Stroop experiment designed by PsychoPy | psychopy, bie-social-blocks | 4.2 s | passed |
+Proof clips are internal proofs of the tools, not lessons. A clip whose content a lesson may not use (licence policy `2026-10-25.1`) is marked **internal proof, not for lessons**; it stays as evidence.
+
+| Clip | What it shows | Tools it proves | Length | Checks | Lesson use |
+| --- | --- | --- | --- | --- | --- |
+| `bio-cell-sheet-flow` | Blender-made columnar epithelium in three.js with particles flowing through | blender, three, react-three-fiber, drei, remotion-three | 4.5 s | passed | lessons may use its content |
+| `bio-ecg` | An ECG simulated by NeuroKit2 drawn on its paper | neurokit2, d3 | 4.2 s | passed | lessons may use its content |
+| `bio-heart-bodyparts3d` | BodyParts3D heart joined by trimesh, zooming in | bodyparts3d, trimesh, three, react-three-fiber, drei, remotion-three | 4.0 s | passed | **internal proof, not for lessons**: bodyparts3d: needs Navin |
+| `bio-heart-nih3d` | NIH 3D heart model turning | nih-3d, three, react-three-fiber, drei, remotion-three | 4.0 s | passed | lessons may use its content |
+| `bio-heart-zanatomy` | Z-Anatomy heart chambers exported by Blender, left ventricle glowing | z-anatomy, blender, three, react-three-fiber, drei, remotion-three | 4.0 s | passed | **internal proof, not for lessons**: z-anatomy: refused |
+| `bio-organ-zoom` | Lung to alveolus zoom on Servier pictures | servier-medical-art, bie-blocks | 5.0 s | passed | lessons may use its content |
+| `bio-protein-3dmol` | Crambin from the PDB, read by Biopython, drawn by 3Dmol.js | rcsb-pdb, biopython, 3dmol | 4.0 s | passed | lessons may use its content |
+| `bio-protein-molstar` | Green fluorescent protein in Mol* | molstar, rcsb-pdb | 4.0 s | passed | lessons may use its content |
+| `chem-molecule-pubchem` | Caffeine's 3D record from PubChem | pubchem, 3dmol | 3.5 s | passed | lessons may use its content |
+| `chem-molecule-rdkit` | Aspirin in 3D from RDKit, drawn by 3Dmol.js | rdkit, 3dmol | 4.0 s | passed | lessons may use its content |
+| `chem-reaction` | Esterification by RDKit and H2 + O2 kinetics by Cantera | rdkit, cantera, d3, bie-blocks | 5.0 s | passed | lessons may use its content |
+| `cs-graph-bfs` | Breadth-first search on a graph | networkx, d3 | 4.5 s | passed | lessons may use its content |
+| `maths-equation` | A linear equation solved step by step, every step checked by SymPy, typeset by KaTeX | sympy, katex | 4.5 s | passed | lessons may use its content |
+| `maths-function-graph` | A parabola drawn over time | sympy, numpy, d3 | 4.0 s | passed | lessons may use its content |
+| `maths-manim` | A function drawn by Manim (offline path) | manim, sympy | 4.1 s | passed | lessons may use its content |
+| `maths-regression` | A least-squares line fitted by statsmodels | statsmodels, d3 | 4.0 s | passed | lessons may use its content |
+| `physics-collision-3d` | A ball passes its momentum on and knocks a tower over (3D) | cannon-es, three, react-three-fiber, drei, remotion-three | 4.0 s | passed | lessons may use its content |
+| `physics-falling` | A falling body with and without air drag | scipy, numpy, d3 | 4.0 s | passed | lessons may use its content |
+| `physics-matter` | Boxes and a ball under gravity | matter-js | 4.0 s | passed | lessons may use its content |
+| `physics-wave` | Two travelling waves make a standing wave | numpy, d3 | 4.0 s | passed | lessons may use its content |
+| `aero-aircraft` | A trainer aircraft and its lift curve from AeroSandbox | aerosandbox, trimesh, three, react-three-fiber, drei, remotion-three, d3, bie-science-blocks | 4.2 s | passed | lessons may use its content |
+| `aero-climb` | A Cessna 172 climb simulated by JSBSim | jsbsim, d3, bie-science-blocks | 4.2 s | passed | lessons may use its content |
+| `astro-earthrise` | Earthrise from NASA's image library, zoom and focus | nasa-images, bie-blocks | 4.2 s | passed | lessons may use its content |
+| `astro-orbits` | The inner planets' orbits from JPL DE421 (Skyfield, Astropy) | skyfield, astropy, jpl-de421, d3, bie-science-blocks | 4.2 s | passed | lessons may use its content |
+| `astro-sky` | The night sky over New Delhi from the Hipparcos catalogue (Skyfield) | skyfield, astropy, hipparcos, jpl-de421, bie-science-blocks | 4.0 s | passed | **internal proof, not for lessons**: hipparcos: needs Navin |
+| `elec-rc-circuit` | An RC circuit drawn by schemdraw, simulated by ngspice, solved by lcapy | schemdraw, ngspice, lcapy, katex, d3, bie-science-blocks | 4.6 s | passed | lessons may use its content |
+| `elec-step-response` | Step responses for three damping ratios (python-control, checked by scipy.signal) | python-control, scipy-signal, katex, d3, bie-science-blocks | 4.2 s | passed | lessons may use its content |
+| `geo-plates` | Continents drifting over 200 million years by pyGPlates | pygplates, gplates-muller2019, d3, bie-science-blocks | 4.2 s | passed | lessons may use its content |
+| `geo-quake-map` | 2025's strong earthquakes from the USGS on a Natural Earth map | usgs-earthquakes, natural-earth, topojson-client, d3, bie-science-blocks | 4.2 s | passed | lessons may use its content |
+| `geo-relief` | Himalaya relief and profile by PyGMT | pygmt, gmt, gmt-earth-relief, bie-blocks, d3, bie-science-blocks | 4.2 s | passed | **internal proof, not for lessons**: gmt-earth-relief: needs Navin |
+| `geo-seismic-rays` | Seismic rays through the Earth's layers by ObsPy TauP | obspy, bie-science-blocks | 4.2 s | passed | lessons may use its content |
+| `mech-beam` | A loaded steel beam bends (PyNite, checked by sympy.physics) | pynite, sympy-physics, bie-science-blocks | 4.0 s | passed | lessons may use its content |
+| `mech-flange` | A pipe flange built by CadQuery, turning in three.js | cadquery, trimesh, three, react-three-fiber, drei, remotion-three | 4.0 s | passed | lessons may use its content |
+| `mech-heat-plate` | Heat flow in a plate by scikit-fem | scikit-fem, d3, bie-science-blocks | 4.0 s | passed | lessons may use its content |
+| `mech-rankine` | A Rankine steam cycle on a T-s chart from CoolProp | coolprop, d3, bie-science-blocks | 4.2 s | passed | lessons may use its content |
+| `econ-cobb-douglas-plotly` | A Cobb-Douglas production function in Plotly | numpy, plotly, bie-social-blocks | 4.2 s | passed | lessons may use its content |
+| `econ-growth-chartjs` | India's GDP growth from the World Bank in Chart.js | world-bank, chartjs, bie-social-blocks | 4.2 s | passed | lessons may use its content |
+| `econ-wealth-health-vega` | Wealth and health of eight countries in Vega-Lite | world-bank, vega-lite, vega, bie-social-blocks | 4.2 s | passed | lessons may use its content |
+| `edu-learning-cycle` | Kolb's learning cycle as a process cycle | bie-social-blocks | 4.0 s | passed | lessons may use its content |
+| `edu-teaching-logit` | A teaching method's effect by statsmodels (logit) | statsmodels, d3, bie-science-blocks | 4.2 s | passed | lessons may use its content |
+| `geo-india-state` | Uttar Pradesh on India's map (Natural Earth, Shapely, d3-geo) | natural-earth-vector, shapely, d3, bie-social-blocks | 4.2 s | passed | **internal proof, not for lessons**: block india_map: needs Navin |
+| `hist-archive-images` | The Salt March from Wikimedia Commons and Openverse | wikimedia-commons, openverse, bie-blocks | — s | failed: HTTPError: HTTP Error 429: Too many requests (f061ab2) | lessons may use its content |
+| `hist-gt-road` | The Grand Trunk Road drawn town by town | natural-earth-vector, shapely, d3, bie-social-blocks | 4.2 s | passed | **internal proof, not for lessons**: block india_map: needs Navin |
+| `hist-timeline` | Towards independence, 1857 to 1950, on a D3 time scale | d3, bie-social-blocks | 4.2 s | passed | lessons may use its content |
+| `lang-kinetic-sanskrit` | A Sanskrit line word by word in Devanagari and Roman | indic-nlp, indic-transliteration, noto-devanagari, bie-social-blocks | 4.2 s | passed | lessons may use its content |
+| `law-case-card` | Kesavananda Bharati v. State of Kerala as a case card | sc-judgments, pyarrow, bie-social-blocks | 4.4 s | passed | lessons may use its content |
+| `law-courts-tree` | Classes of criminal courts (BNSS s. 6) as a tree | india-code, d3, bie-social-blocks | 4.0 s | passed | **internal proof, not for lessons**: india-code: needs Navin |
+| `law-procedure-flow` | A criminal case from FIR to judgment, sections from India Code | india-code, dagre, bie-social-blocks | 4.2 s | passed | **internal proof, not for lessons**: india-code: needs Navin |
+| `polity-bill-mermaid` | How a Bill becomes an Act, in Mermaid with the ELK layout | mermaid, mermaid-layout-elk, elkjs, bie-social-blocks | 4.2 s | passed | lessons may use its content |
+| `psy-brain-lobes` | The brain lobe by lobe (Z-Anatomy, Blender, three.js) | z-anatomy, blender, three, react-three-fiber, drei, remotion-three | 4.2 s | passed | **internal proof, not for lessons**: z-anatomy: refused |
+| `psy-stroop-flow` | The Stroop experiment designed by PsychoPy | psychopy, bie-social-blocks | 4.2 s | passed | lessons may use its content |
 
 ## By subject family
 
 ### All subjects
 
-| Capability | Draws it (web) | Computes | Assets | Offline | Proof clip |
+| Capability | Draws it (web) | Computes | Assets (lessons) | Offline | Proof clip |
 | --- | --- | --- | --- | --- | --- |
 | particle_flow | BIE block library (bie/brain/video/blocks) (demo proven), three.js (demo proven) | — | — | — | `bio-cell-sheet-flow` |
-| organ_zoom | BIE block library (bie/brain/video/blocks) (demo proven) | — | Openverse (demo proven), Wikimedia Commons (demo proven), Servier Medical Art (demo proven) | — | `bio-organ-zoom`, `bio-heart-bodyparts3d` |
+| organ_zoom | BIE block library (bie/brain/video/blocks) (demo proven) | — | Openverse (demo proven), Wikimedia Commons (demo proven), Servier Medical Art (demo proven); not for lessons: z-anatomy | — | `bio-organ-zoom`, `bio-heart-bodyparts3d` |
 | focus_glow | BIE block library (bie/brain/video/blocks) (demo proven) | — | Openverse (demo proven), Wikimedia Commons (demo proven), NASA Image and Video Library (demo proven) | — | `bio-cell-sheet-flow`, `bio-organ-zoom`, `bio-heart-zanatomy`, `astro-earthrise`, `hist-archive-images` (not passed) |
 | kinetic_caption | BIE block library (bie/brain/video/blocks) (demo proven) | Indic NLP Library (demo proven) | Noto Sans Devanagari (font) (demo proven) | — | none yet |
 | concept_arrow | BIE block library (bie/brain/video/blocks) (demo proven) | — | — | — | none yet |
@@ -79,20 +81,20 @@ Status words: **installed** (the package is pinned and installs), **wrapped** (a
 | mnemonic_card | **missing** | — | — | — | none yet |
 | split_compare | **missing** | — | — | — | none yet |
 | timeline | BIE block library (bie/brain/video/blocks) (demo proven), BIE social-science blocks (bie/brain/video/blocks/toolbox) (demo proven), D3 (demo proven) | — | — | — | `hist-timeline` |
-| flowchart | BIE social-science blocks (bie/brain/video/blocks/toolbox) (demo proven), dagre (@dagrejs/dagre) (demo proven), elkjs (Eclipse Layout Kernel) (demo proven) | NetworkX (demo proven), PsychoPy (psychopy.data) (demo proven) | India Code (official repository of Indian law) (demo proven) | — | `polity-bill-mermaid`, `law-procedure-flow`, `psy-stroop-flow` |
+| flowchart | BIE social-science blocks (bie/brain/video/blocks/toolbox) (demo proven), dagre (@dagrejs/dagre) (demo proven), elkjs (Eclipse Layout Kernel) (demo proven) | NetworkX (demo proven), PsychoPy (psychopy.data) (demo proven) | **none**; not for lessons: india-code | — | `polity-bill-mermaid`, `law-procedure-flow`, `psy-stroop-flow` |
 | process_cycle | BIE social-science blocks (bie/brain/video/blocks/toolbox) (demo proven) | — | — | — | `edu-learning-cycle` |
-| tree_hierarchy | BIE social-science blocks (bie/brain/video/blocks/toolbox) (demo proven), D3 (demo proven), Mermaid (demo proven) | NetworkX (demo proven) | India Code (official repository of Indian law) (demo proven) | — | `law-courts-tree` |
+| tree_hierarchy | BIE social-science blocks (bie/brain/video/blocks/toolbox) (demo proven), D3 (demo proven), Mermaid (demo proven) | NetworkX (demo proven) | **none**; not for lessons: india-code | — | `law-courts-tree` |
 | chart_bar_line_pie | BIE social-science blocks (bie/brain/video/blocks/toolbox) (demo proven), D3 (demo proven), Chart.js (demo proven) | statsmodels (demo proven) | World Bank Indicators API (World Development Indicators) (demo proven) | — | `chem-reaction`, `maths-regression`, `econ-growth-chartjs`, `econ-wealth-health-vega`, `edu-teaching-logit` |
 | table_build | BIE block library (bie/brain/video/blocks) (demo proven) | — | — | — | none yet |
 | text_kinetic | BIE social-science blocks (bie/brain/video/blocks/toolbox) (demo proven) | Indic NLP Library (demo proven), indic_transliteration (sanscript) (demo proven) | Noto Sans Devanagari (font) (demo proven) | — | `lang-kinetic-sanskrit` |
 
 ### Biology and medical
 
-| Capability | Draws it (web) | Computes | Assets | Offline | Proof clip |
+| Capability | Draws it (web) | Computes | Assets (lessons) | Offline | Proof clip |
 | --- | --- | --- | --- | --- | --- |
 | cell_sheet_3d | three.js (demo proven), @react-three/drei (demo proven), React Three Fiber (demo proven) | — | — | Blender (bpy, headless) (demo proven) | `bio-cell-sheet-flow` |
-| organ_zoom | BIE block library (bie/brain/video/blocks) (demo proven) | — | Servier Medical Art (demo proven), Z-Anatomy (demo proven), Openverse (demo proven) | — | `bio-organ-zoom`, `bio-heart-bodyparts3d` |
-| anatomy_3d | three.js (demo proven), @react-three/drei (demo proven), React Three Fiber (demo proven) | trimesh (demo proven) | BodyParts3D (demo proven), NIH 3D (demo proven), Servier Medical Art (demo proven) | Blender (bpy, headless) (demo proven) | `bio-heart-nih3d`, `bio-heart-zanatomy`, `bio-heart-bodyparts3d`, `psy-brain-lobes` |
+| organ_zoom | BIE block library (bie/brain/video/blocks) (demo proven) | — | Servier Medical Art (demo proven), Openverse (demo proven), Wikimedia Commons (demo proven); not for lessons: z-anatomy | — | `bio-organ-zoom`, `bio-heart-bodyparts3d` |
+| anatomy_3d | three.js (demo proven), @react-three/drei (demo proven), React Three Fiber (demo proven) | trimesh (demo proven) | NIH 3D (demo proven), Servier Medical Art (demo proven); not for lessons: bodyparts3d, z-anatomy | Blender (bpy, headless) (demo proven) | `bio-heart-nih3d`, `bio-heart-zanatomy`, `bio-heart-bodyparts3d`, `psy-brain-lobes` |
 | molecule_3d | 3Dmol.js (demo proven), Mol* (demo proven) | RDKit (demo proven) | PubChem (demo proven) | — | `chem-molecule-rdkit`, `chem-molecule-pubchem` |
 | signal_plot | D3 (demo proven), BIE science blocks (bie/brain/video/blocks/toolbox) (demo proven) | NeuroKit2 (demo proven), SciPy signal (scipy.signal) (demo proven), NumPy (demo proven) | — | — | `bio-ecg`, `elec-rc-circuit`, `elec-step-response` |
 | process_cycle | BIE social-science blocks (bie/brain/video/blocks/toolbox) (demo proven) | — | — | — | `edu-learning-cycle` |
@@ -101,7 +103,7 @@ Status words: **installed** (the package is pinned and installs), **wrapped** (a
 
 ### Chemistry
 
-| Capability | Draws it (web) | Computes | Assets | Offline | Proof clip |
+| Capability | Draws it (web) | Computes | Assets (lessons) | Offline | Proof clip |
 | --- | --- | --- | --- | --- | --- |
 | molecule_3d | 3Dmol.js (demo proven), Mol* (demo proven) | RDKit (demo proven) | PubChem (demo proven) | — | `chem-molecule-rdkit`, `chem-molecule-pubchem` |
 | reaction_steps | BIE block library (bie/brain/video/blocks) (demo proven) | Cantera (demo proven), RDKit (demo proven) | — | — | `chem-reaction` |
@@ -110,7 +112,7 @@ Status words: **installed** (the package is pinned and installs), **wrapped** (a
 
 ### Maths and statistics
 
-| Capability | Draws it (web) | Computes | Assets | Offline | Proof clip |
+| Capability | Draws it (web) | Computes | Assets (lessons) | Offline | Proof clip |
 | --- | --- | --- | --- | --- | --- |
 | function_graph | Plotly.js (plotly.js-dist-min) (demo proven), BIE social-science blocks (bie/brain/video/blocks/toolbox) (demo proven), D3 (demo proven) | SciPy (demo proven), statsmodels (demo proven), SymPy (demo proven) | — | Manim (Community Edition) (demo proven) | `maths-function-graph`, `maths-regression`, `maths-manim`, `physics-falling`, `mech-rankine`, `econ-cobb-douglas-plotly`, `edu-teaching-logit` |
 | equation_transform | KaTeX (demo proven) | SymPy (demo proven) | — | Manim (Community Edition) (demo proven) | `maths-equation` |
@@ -120,7 +122,7 @@ Status words: **installed** (the package is pinned and installs), **wrapped** (a
 
 ### Physics
 
-| Capability | Draws it (web) | Computes | Assets | Offline | Proof clip |
+| Capability | Draws it (web) | Computes | Assets (lessons) | Offline | Proof clip |
 | --- | --- | --- | --- | --- | --- |
 | circuit_diagram | BIE science blocks (bie/brain/video/blocks/toolbox) (demo proven) | Lcapy (demo proven), ngspice (demo proven) | — | — | `elec-rc-circuit` |
 | signal_plot | BIE science blocks (bie/brain/video/blocks/toolbox) (demo proven), D3 (demo proven) | Lcapy (demo proven), ngspice (demo proven), NumPy (demo proven) | — | — | `bio-ecg`, `elec-rc-circuit`, `elec-step-response` |
@@ -136,14 +138,14 @@ Status words: **installed** (the package is pinned and installs), **wrapped** (a
 
 ### Computer science
 
-| Capability | Draws it (web) | Computes | Assets | Offline | Proof clip |
+| Capability | Draws it (web) | Computes | Assets (lessons) | Offline | Proof clip |
 | --- | --- | --- | --- | --- | --- |
-| flowchart | dagre (@dagrejs/dagre) (demo proven), Mermaid (demo proven), BIE social-science blocks (bie/brain/video/blocks/toolbox) (demo proven) | NetworkX (demo proven), PsychoPy (psychopy.data) (demo proven) | India Code (official repository of Indian law) (demo proven) | — | `polity-bill-mermaid`, `law-procedure-flow`, `psy-stroop-flow` |
+| flowchart | dagre (@dagrejs/dagre) (demo proven), Mermaid (demo proven), BIE social-science blocks (bie/brain/video/blocks/toolbox) (demo proven) | NetworkX (demo proven), PsychoPy (psychopy.data) (demo proven) | **none**; not for lessons: india-code | — | `polity-bill-mermaid`, `law-procedure-flow`, `psy-stroop-flow` |
 | network_graph | D3 (demo proven), elkjs (Eclipse Layout Kernel) (demo proven) | NetworkX (demo proven) | — | — | `cs-graph-bfs` |
 
 ### Electrical and electronics
 
-| Capability | Draws it (web) | Computes | Assets | Offline | Proof clip |
+| Capability | Draws it (web) | Computes | Assets (lessons) | Offline | Proof clip |
 | --- | --- | --- | --- | --- | --- |
 | circuit_diagram | BIE science blocks (bie/brain/video/blocks/toolbox) (demo proven) | Lcapy (demo proven), ngspice (demo proven) | — | — | `elec-rc-circuit` |
 | signal_plot | BIE science blocks (bie/brain/video/blocks/toolbox) (demo proven), D3 (demo proven) | Lcapy (demo proven), ngspice (demo proven), Python Control Systems Library (demo proven) | — | — | `bio-ecg`, `elec-rc-circuit`, `elec-step-response` |
@@ -152,7 +154,7 @@ Status words: **installed** (the package is pinned and installs), **wrapped** (a
 
 ### Mechanical and civil
 
-| Capability | Draws it (web) | Computes | Assets | Offline | Proof clip |
+| Capability | Draws it (web) | Computes | Assets (lessons) | Offline | Proof clip |
 | --- | --- | --- | --- | --- | --- |
 | physics_sim_2d | Matter.js (demo proven), D3 (demo proven) | SciPy (demo proven) | — | — | `physics-falling`, `physics-matter` |
 | physics_sim_3d | three.js (demo proven), @react-three/drei (demo proven), React Three Fiber (demo proven) | cannon-es (demo proven) | — | — | `physics-collision-3d` |
@@ -161,155 +163,157 @@ Status words: **installed** (the package is pinned and installs), **wrapped** (a
 
 ### Geology and earth science
 
-| Capability | Draws it (web) | Computes | Assets | Offline | Proof clip |
+| Capability | Draws it (web) | Computes | Assets (lessons) | Offline | Proof clip |
 | --- | --- | --- | --- | --- | --- |
 | wave_motion | D3 (demo proven) | NumPy (demo proven) | — | Manim (Community Edition) (demo proven) | `physics-wave` |
 | map_region | BIE science blocks (bie/brain/video/blocks/toolbox) (demo proven), topojson-client (demo proven), BIE social-science blocks (bie/brain/video/blocks/toolbox) (demo proven) | Shapely (demo proven) | Natural Earth (world-atlas TopoJSON) (demo proven), Natural Earth 1:10m vector data (GeoJSON) (demo proven), USGS earthquake catalogue (demo proven) | GMT (Generic Mapping Tools) (demo proven), PyGMT (demo proven) | `geo-relief`, `geo-quake-map`, `geo-india-state` |
 | map_route | topojson-client (demo proven), BIE social-science blocks (bie/brain/video/blocks/toolbox) (demo proven), D3 (demo proven) | Shapely (demo proven) | Natural Earth (world-atlas TopoJSON) (demo proven), Natural Earth 1:10m vector data (GeoJSON) (demo proven) | — | `hist-gt-road` |
-| terrain_or_layers | BIE science blocks (bie/brain/video/blocks/toolbox) (demo proven) | ObsPy (demo proven) | GMT Earth relief (SRTM15+ V2.7) (demo proven) | GMT (Generic Mapping Tools) (demo proven), PyGMT (demo proven) | `geo-relief`, `geo-seismic-rays` |
+| terrain_or_layers | BIE science blocks (bie/brain/video/blocks/toolbox) (demo proven) | ObsPy (demo proven) | **none**; not for lessons: gmt-earth-relief | GMT (Generic Mapping Tools) (demo proven), PyGMT (demo proven) | `geo-relief`, `geo-seismic-rays` |
 | earthquake_waves | BIE science blocks (bie/brain/video/blocks/toolbox) (demo proven) | ObsPy (demo proven) | USGS earthquake catalogue (demo proven) | — | `geo-seismic-rays` |
 | plate_motion | BIE science blocks (bie/brain/video/blocks/toolbox) (demo proven) | pyGPlates (demo proven) | Müller et al. (2019) plate model (demo proven) | — | `geo-plates` |
 | process_cycle | BIE social-science blocks (bie/brain/video/blocks/toolbox) (demo proven) | — | — | — | `edu-learning-cycle` |
 
 ### Astronomy and space
 
-| Capability | Draws it (web) | Computes | Assets | Offline | Proof clip |
+| Capability | Draws it (web) | Computes | Assets (lessons) | Offline | Proof clip |
 | --- | --- | --- | --- | --- | --- |
 | orbit_motion | BIE science blocks (bie/brain/video/blocks/toolbox) (demo proven) | Astropy (demo proven), Skyfield (demo proven) | JPL ephemeris DE421 (demo proven) | — | `astro-orbits` |
-| sky_map | BIE science blocks (bie/brain/video/blocks/toolbox) (demo proven) | Astropy (demo proven), Skyfield (demo proven) | Hipparcos star catalogue (demo proven), JPL ephemeris DE421 (demo proven) | — | `astro-sky` |
+| sky_map | BIE science blocks (bie/brain/video/blocks/toolbox) (demo proven) | Astropy (demo proven), Skyfield (demo proven) | JPL ephemeris DE421 (demo proven); not for lessons: hipparcos | — | `astro-sky` |
 
 ### Aerospace
 
-| Capability | Draws it (web) | Computes | Assets | Offline | Proof clip |
+| Capability | Draws it (web) | Computes | Assets (lessons) | Offline | Proof clip |
 | --- | --- | --- | --- | --- | --- |
 | aircraft_shape | three.js (demo proven) | AeroSandbox (demo proven) | — | — | `aero-aircraft` |
 | flight_motion | BIE science blocks (bie/brain/video/blocks/toolbox) (demo proven) | JSBSim (demo proven) | — | — | `aero-climb` |
 
 ### Geography, history and polity
 
-| Capability | Draws it (web) | Computes | Assets | Offline | Proof clip |
+| Capability | Draws it (web) | Computes | Assets (lessons) | Offline | Proof clip |
 | --- | --- | --- | --- | --- | --- |
-| sky_map | BIE science blocks (bie/brain/video/blocks/toolbox) (demo proven) | Skyfield (demo proven), Astropy (demo proven) | Hipparcos star catalogue (demo proven), JPL ephemeris DE421 (demo proven) | — | `astro-sky` |
+| sky_map | BIE science blocks (bie/brain/video/blocks/toolbox) (demo proven) | Skyfield (demo proven), Astropy (demo proven) | JPL ephemeris DE421 (demo proven); not for lessons: hipparcos | — | `astro-sky` |
 | map_region | BIE science blocks (bie/brain/video/blocks/toolbox) (demo proven), BIE social-science blocks (bie/brain/video/blocks/toolbox) (demo proven), topojson-client (demo proven) | Shapely (demo proven) | Natural Earth (world-atlas TopoJSON) (demo proven), Natural Earth 1:10m vector data (GeoJSON) (demo proven), USGS earthquake catalogue (demo proven) | GMT (Generic Mapping Tools) (demo proven), PyGMT (demo proven) | `geo-relief`, `geo-quake-map`, `geo-india-state` |
 | map_route | BIE social-science blocks (bie/brain/video/blocks/toolbox) (demo proven), topojson-client (demo proven), D3 (demo proven) | Shapely (demo proven) | Natural Earth (world-atlas TopoJSON) (demo proven), Natural Earth 1:10m vector data (GeoJSON) (demo proven) | — | `hist-gt-road` |
-| terrain_or_layers | BIE science blocks (bie/brain/video/blocks/toolbox) (demo proven) | ObsPy (demo proven) | GMT Earth relief (SRTM15+ V2.7) (demo proven) | GMT (Generic Mapping Tools) (demo proven), PyGMT (demo proven) | `geo-relief`, `geo-seismic-rays` |
+| terrain_or_layers | BIE science blocks (bie/brain/video/blocks/toolbox) (demo proven) | ObsPy (demo proven) | **none**; not for lessons: gmt-earth-relief | GMT (Generic Mapping Tools) (demo proven), PyGMT (demo proven) | `geo-relief`, `geo-seismic-rays` |
 | plate_motion | BIE science blocks (bie/brain/video/blocks/toolbox) (demo proven) | pyGPlates (demo proven) | Müller et al. (2019) plate model (demo proven) | — | `geo-plates` |
 | timeline | BIE social-science blocks (bie/brain/video/blocks/toolbox) (demo proven), Mermaid (demo proven), BIE block library (bie/brain/video/blocks) (demo proven) | — | — | — | `hist-timeline` |
 
 ### Economics, commerce and management
 
-| Capability | Draws it (web) | Computes | Assets | Offline | Proof clip |
+| Capability | Draws it (web) | Computes | Assets (lessons) | Offline | Proof clip |
 | --- | --- | --- | --- | --- | --- |
 | function_graph | BIE social-science blocks (bie/brain/video/blocks/toolbox) (demo proven), Plotly.js (plotly.js-dist-min) (demo proven), D3 (demo proven) | statsmodels (demo proven), CoolProp (demo proven), SciPy (demo proven) | — | Manim (Community Edition) (demo proven) | `maths-function-graph`, `maths-regression`, `maths-manim`, `physics-falling`, `mech-rankine`, `econ-cobb-douglas-plotly`, `edu-teaching-logit` |
 | map_region | BIE social-science blocks (bie/brain/video/blocks/toolbox) (demo proven), D3 (demo proven), BIE science blocks (bie/brain/video/blocks/toolbox) (demo proven) | Shapely (demo proven) | Natural Earth (world-atlas TopoJSON) (demo proven), Natural Earth 1:10m vector data (GeoJSON) (demo proven), World Bank Indicators API (World Development Indicators) (demo proven) | GMT (Generic Mapping Tools) (demo proven), PyGMT (demo proven) | `geo-relief`, `geo-quake-map`, `geo-india-state` |
 | network_graph | D3 (demo proven), elkjs (Eclipse Layout Kernel) (demo proven) | NetworkX (demo proven) | — | — | `cs-graph-bfs` |
 | chart_bar_line_pie | BIE social-science blocks (bie/brain/video/blocks/toolbox) (demo proven), Chart.js (demo proven), Plotly.js (plotly.js-dist-min) (demo proven) | statsmodels (demo proven) | World Bank Indicators API (World Development Indicators) (demo proven) | — | `chem-reaction`, `maths-regression`, `econ-growth-chartjs`, `econ-wealth-health-vega`, `edu-teaching-logit` |
-| case_card | BIE social-science blocks (bie/brain/video/blocks/toolbox) (demo proven) | Apache Arrow (pyarrow) (demo proven) | India Code (official repository of Indian law) (demo proven), Indian Supreme Court Judgments (open dataset) (demo proven) | — | `law-case-card` |
+| case_card | BIE social-science blocks (bie/brain/video/blocks/toolbox) (demo proven) | Apache Arrow (pyarrow) (demo proven) | Indian Supreme Court Judgments (open dataset) (demo proven); not for lessons: india-code | — | `law-case-card` |
 
 ### Law
 
-| Capability | Draws it (web) | Computes | Assets | Offline | Proof clip |
+| Capability | Draws it (web) | Computes | Assets (lessons) | Offline | Proof clip |
 | --- | --- | --- | --- | --- | --- |
-| flowchart | BIE social-science blocks (bie/brain/video/blocks/toolbox) (demo proven), dagre (@dagrejs/dagre) (demo proven), Mermaid (demo proven) | NetworkX (demo proven), PsychoPy (psychopy.data) (demo proven) | India Code (official repository of Indian law) (demo proven) | — | `polity-bill-mermaid`, `law-procedure-flow`, `psy-stroop-flow` |
-| case_card | BIE social-science blocks (bie/brain/video/blocks/toolbox) (demo proven) | Apache Arrow (pyarrow) (demo proven) | India Code (official repository of Indian law) (demo proven), Indian Supreme Court Judgments (open dataset) (demo proven) | — | `law-case-card` |
+| flowchart | BIE social-science blocks (bie/brain/video/blocks/toolbox) (demo proven), dagre (@dagrejs/dagre) (demo proven), Mermaid (demo proven) | NetworkX (demo proven), PsychoPy (psychopy.data) (demo proven) | **none**; not for lessons: india-code | — | `polity-bill-mermaid`, `law-procedure-flow`, `psy-stroop-flow` |
+| case_card | BIE social-science blocks (bie/brain/video/blocks/toolbox) (demo proven) | Apache Arrow (pyarrow) (demo proven) | Indian Supreme Court Judgments (open dataset) (demo proven); not for lessons: india-code | — | `law-case-card` |
 
 ### Psychology, education and sociology
 
-| Capability | Draws it (web) | Computes | Assets | Offline | Proof clip |
+| Capability | Draws it (web) | Computes | Assets (lessons) | Offline | Proof clip |
 | --- | --- | --- | --- | --- | --- |
-| anatomy_3d | three.js (demo proven), @react-three/drei (demo proven), React Three Fiber (demo proven) | trimesh (demo proven) | Z-Anatomy (demo proven), BodyParts3D (demo proven), NIH 3D (demo proven) | Blender (bpy, headless) (demo proven) | `bio-heart-nih3d`, `bio-heart-zanatomy`, `bio-heart-bodyparts3d`, `psy-brain-lobes` |
-| case_card | BIE social-science blocks (bie/brain/video/blocks/toolbox) (demo proven) | Apache Arrow (pyarrow) (demo proven) | India Code (official repository of Indian law) (demo proven), Indian Supreme Court Judgments (open dataset) (demo proven) | — | `law-case-card` |
+| anatomy_3d | three.js (demo proven), @react-three/drei (demo proven), React Three Fiber (demo proven) | trimesh (demo proven) | NIH 3D (demo proven), Servier Medical Art (demo proven); not for lessons: z-anatomy, bodyparts3d | Blender (bpy, headless) (demo proven) | `bio-heart-nih3d`, `bio-heart-zanatomy`, `bio-heart-bodyparts3d`, `psy-brain-lobes` |
+| case_card | BIE social-science blocks (bie/brain/video/blocks/toolbox) (demo proven) | Apache Arrow (pyarrow) (demo proven) | Indian Supreme Court Judgments (open dataset) (demo proven); not for lessons: india-code | — | `law-case-card` |
 
 ### Languages and literature
 
-| Capability | Draws it (web) | Computes | Assets | Offline | Proof clip |
+| Capability | Draws it (web) | Computes | Assets (lessons) | Offline | Proof clip |
 | --- | --- | --- | --- | --- | --- |
 | text_kinetic | BIE social-science blocks (bie/brain/video/blocks/toolbox) (demo proven) | Indic NLP Library (demo proven), indic_transliteration (sanscript) (demo proven) | Noto Sans Devanagari (font) (demo proven) | — | `lang-kinetic-sanskrit` |
 
 ## Every tool
 
-| Tool | Kind | Role / path | Version | Licence | Flags | Status | Batch |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| [Blender (bpy, headless)](https://pypi.org/project/bpy/) | app | offline_render / offline | 5.2.2 | GPL-3.0-or-later (the program); models BIE makes with it are BIE's own | GPL | demo proven | 1 |
-| [BodyParts3D](https://dbarchive.biosciencedbc.jp/en/bodyparts3d/download.html) | asset_source | asset / offline | 4.0 (PART-OF tree, 99% reduced OBJ) | CC BY 4.0 (licence page read 25 October 2026; releases up to 3.0 were CC BY-SA 2.1 Japan; the page also asks users to contact DBCLS) | own licence | demo proven | 1 |
-| [NIH 3D](https://3d.nih.gov) | asset_source | asset / web | 3d.nih.gov API (entries, download) | per model (Public Domain / CC0, CC BY and others) | licence per item | demo proven | 1 |
-| [Servier Medical Art](https://smart.servier.com) | asset_source | asset / web | SMART 2026-10 (site) | CC BY 4.0 | — | demo proven | 1 |
-| [Z-Anatomy](https://github.com/LluisV/Z-Anatomy) | asset_source | asset / offline | PC-Version branch (FBX systems) | CC BY-SA 4.0 | share-alike | demo proven | 1 |
-| [PubChem](https://pubchem.ncbi.nlm.nih.gov) | dataset | asset / web | PUG REST (live) | Public domain (NCBI); a few depositor records carry their own terms | licence per item | demo proven | 1 |
-| [RCSB Protein Data Bank](https://www.rcsb.org) | dataset | asset / web | files.rcsb.org (live archive) | CC0 1.0 (PDB data) | — | demo proven | 1 |
-| [3Dmol.js](https://github.com/3dmol/3Dmol.js) | js_lib | draw / web | 2.5.5 | BSD-3-Clause | — | demo proven | 1 |
-| [BIE block library (bie/brain/video/blocks)](https://github.com/SEENAV01/Enterprise-bie) | js_lib | draw / web | bie-2026-10-25 | BIE's own code | — | demo proven | 1 |
-| [cannon-es](https://github.com/pmndrs/cannon-es) | js_lib | compute / web | 0.20.0 | MIT | — | demo proven | 1 |
-| [D3](https://github.com/d3/d3) | js_lib | draw / web | 7.9.0 | ISC | — | demo proven | 1 |
-| [@react-three/drei](https://github.com/pmndrs/drei) | js_lib | draw / web | 10.7.9 | MIT | — | demo proven | 1 |
-| [KaTeX](https://github.com/KaTeX/KaTeX) | js_lib | draw / web | 0.19.0 | MIT | — | demo proven | 1 |
-| [Matter.js](https://github.com/liabru/matter-js) | js_lib | draw / web | 0.20.0 | MIT | — | demo proven | 1 |
-| [Mol*](https://github.com/molstar/molstar) | js_lib | draw / web | 5.13.1 | MIT | — | demo proven | 1 |
-| [React Three Fiber](https://github.com/pmndrs/react-three-fiber) | js_lib | draw / web | 9.8.2 | MIT | — | demo proven | 1 |
-| [Remotion](https://www.remotion.dev/license) | js_lib | draw / web | 4.0.536 | Remotion License: free for individuals and companies of up to 3 people; a paid company licence above that | own licence | demo proven | 1 |
-| [@remotion/three](https://www.npmjs.com/package/@remotion/three) | js_lib | draw / web | 4.0.536 | MIT | — | demo proven | 1 |
-| [three.js](https://github.com/mrdoob/three.js) | js_lib | draw / web | 0.186.1 | MIT | — | demo proven | 1 |
-| [Biopython](https://biopython.org) | python_lib | compute / python | 1.88 | Biopython License Agreement (BSD-style) | — | demo proven | 1 |
-| [Cantera](https://cantera.org) | python_lib | compute / python | 3.2.0 | BSD-3-Clause | — | demo proven | 1 |
-| [Manim (Community Edition)](https://www.manim.community) | python_lib | offline_render / offline | 0.22.0 | MIT | — | demo proven | 1 |
-| [NetworkX](https://networkx.org) | python_lib | compute / python | 3.7 | BSD-3-Clause | — | demo proven | 1 |
-| [NeuroKit2](https://github.com/neuropsychology/NeuroKit) | python_lib | compute / python | 0.2.13 | MIT | — | demo proven | 1 |
-| [NumPy](https://numpy.org) | python_lib | compute / python | 2.5.4 | BSD-3-Clause AND 0BSD AND MIT AND Zlib AND CC0-1.0 | — | demo proven | 1 |
-| [RDKit](https://www.rdkit.org) | python_lib | compute / python | 2026.9.1 | BSD-3-Clause | — | demo proven | 1 |
-| [SciPy](https://scipy.org) | python_lib | compute / python | 1.18.1 | BSD-3-Clause | — | demo proven | 1 |
-| [statsmodels](https://www.statsmodels.org) | python_lib | compute / python | 0.15.0 | BSD-3-Clause | — | demo proven | 1 |
-| [SymPy](https://www.sympy.org) | python_lib | compute / python | 1.14.0 | BSD-3-Clause | — | demo proven | 1 |
-| [trimesh](https://github.com/mikedh/trimesh) | python_lib | compute / python | 5.1.1 | MIT | — | demo proven | 1 |
-| [GMT (Generic Mapping Tools)](https://www.generic-mapping-tools.org) | app | offline_render / offline | 6.5.0 | LGPL-3.0-or-later | — | demo proven | 2 |
-| [ngspice](https://ngspice.sourceforge.io) | app | compute / offline | 42 | BSD-3-Clause (modified BSD; some parts under other free licences) | — | demo proven | 2 |
-| [OpenVSP](https://openvsp.org) | app | offline_render / offline | 3.x (not installed) | NOSA 1.3 (NASA Open Source Agreement) | own licence | blocked | 2 |
-| [NASA Image and Video Library](https://images.nasa.gov) | asset_source | asset / web | images-api.nasa.gov (live) | per item (NASA media are generally not copyrighted; some carry third-party rights) | licence per item | demo proven | 2 |
-| [GMT Earth relief (SRTM15+ V2.7)](https://www.generic-mapping-tools.org/remote-datasets/earth-relief.html) | dataset | asset / offline | SRTM15+ V2.7 (GMT remote data, 2 arc-min tiles) | Free to use with citation (Tozer et al., 2019, Scripps); GMT remote data | own licence | demo proven | 2 |
-| [Müller et al. (2019) plate model](https://doi.org/10.5281/zenodo.11601026) | dataset | asset / offline | v2.0 (doi:10.5281/zenodo.11601026) | CC BY 4.0 | — | demo proven | 2 |
-| [Hipparcos star catalogue](https://cdsarc.cds.unistra.fr/viz-bin/cat/I/239) | dataset | asset / offline | ESA 1997 (CDS I/239) | Free for scientific use with citation (CDS); commercial use under ESA's rules for the Hipparcos data | own licence | demo proven | 2 |
-| [JPL ephemeris DE421](https://naif.jpl.nasa.gov/pub/naif/generic_kernels/spk/planets/a_old_versions/de421.bsp) | dataset | asset / offline | DE421 (1900–2050) | Public domain (NASA JPL) | — | demo proven | 2 |
-| [Natural Earth (world-atlas TopoJSON)](https://github.com/topojson/world-atlas) | dataset | asset / web | 2.0.2 | Public domain (Natural Earth data); ISC (the world-atlas package) | — | demo proven | 2 |
-| [USGS earthquake catalogue](https://earthquake.usgs.gov/fdsnws/event/1/) | dataset | asset / web | FDSN event API (live) | Public domain (USGS) | — | demo proven | 2 |
-| [BIE science blocks (bie/brain/video/blocks/toolbox)](https://github.com/SEENAV01/Enterprise-bie) | js_lib | draw / web | bie-2026-10-25 | BIE's own code | — | demo proven | 2 |
-| [topojson-client](https://github.com/topojson/topojson-client) | js_lib | draw / web | 3.1.0 | ISC | — | demo proven | 2 |
-| [AeroSandbox](https://github.com/peterdsharpe/AeroSandbox) | python_lib | compute / python | 4.2.10 | MIT | — | demo proven | 2 |
-| [Astropy](https://www.astropy.org) | python_lib | compute / python | 8.0.2 | BSD-3-Clause | — | demo proven | 2 |
-| [CadQuery (with OCP, OpenCascade)](https://github.com/CadQuery/cadquery) | python_lib | offline_render / offline | 2.8.0 | Apache-2.0 (CadQuery and the OCP bindings; OpenCascade itself LGPL-2.1 with an exception) | — | demo proven | 2 |
-| [CoolProp](https://github.com/CoolProp/CoolProp) | python_lib | compute / python | 8.0.0 | MIT | — | demo proven | 2 |
-| [FEniCSx (DOLFINx)](https://fenicsproject.org) | python_lib | compute / python | 0.10 (not installed) | LGPL-3.0-or-later | — | blocked | 2 |
-| [JSBSim](https://github.com/JSBSim-Team/jsbsim) | python_lib | compute / python | 1.3.3 | LGPL-2.1-or-later | — | demo proven | 2 |
-| [Lcapy](https://github.com/mph-/lcapy) | python_lib | compute / python | 1.26 | LGPL-2.1-or-later | — | demo proven | 2 |
-| [ObsPy](https://www.obspy.org) | python_lib | compute / python | 1.5.1 | LGPL-3.0 | — | demo proven | 2 |
-| [PyGMT](https://www.pygmt.org) | python_lib | offline_render / offline | 0.19.0 | BSD-3-Clause | — | demo proven | 2 |
-| [pyGPlates](https://www.gplates.org) | python_lib | compute / python | 1.0.0 | GPL-2.0 (pyGPlates; GPlates is GPL-2.0-or-later) | GPL | demo proven | 2 |
-| [PyNite (PyNiteFEA)](https://github.com/JWock82/Pynite) | python_lib | compute / python | 3.2.0 | MIT | — | demo proven | 2 |
-| [Python Control Systems Library](https://python-control.org) | python_lib | compute / python | 0.10.2 | BSD-3-Clause | — | demo proven | 2 |
-| [Schemdraw](https://schemdraw.readthedocs.io) | python_lib | draw / python | 0.23 | MIT | — | demo proven | 2 |
-| [scikit-fem](https://github.com/kinnala/scikit-fem) | python_lib | compute / python | 12.0.2 | BSD-3-Clause | — | demo proven | 2 |
-| [SciPy signal (scipy.signal)](https://docs.scipy.org/doc/scipy/reference/signal.html) | python_lib | compute / python | 1.18.1 | BSD-3-Clause | — | demo proven | 2 |
-| [Skyfield](https://rhodesmill.org/skyfield/) | python_lib | compute / python | 1.55 | MIT | — | demo proven | 2 |
-| [SymPy physics (sympy.physics)](https://docs.sympy.org/latest/modules/physics/) | python_lib | compute / python | 1.14.0 | BSD-3-Clause | — | demo proven | 2 |
-| [Noto Sans Devanagari (font)](https://github.com/notofonts/devanagari) | asset_source | asset / web | google/fonts e7db6ca6 (variable font) | SIL Open Font License 1.1 | — | demo proven | 3 |
-| [Openverse](https://openverse.org) | asset_source | asset / web | Openverse API v1 (live) | per item (CC BY, CC BY-SA, CC0, public domain mark; non-commercial and no-derivatives refused) | licence per item | demo proven | 3 |
-| [Wikimedia Commons](https://commons.wikimedia.org) | asset_source | asset / web | MediaWiki API (live) | per item (public domain, CC BY, CC BY-SA ...; non-commercial and no-derivatives refused) | licence per item | demo proven | 3 |
-| [India Code (official repository of Indian law)](https://indiacode.gov.in) | dataset | asset / web | DSpace 9 REST API (live) | Government of India content; Acts may be reproduced (Copyright Act 1957, s. 52(1)(q)) with the source acknowledged | own licence | demo proven | 3 |
-| [Natural Earth 1:10m vector data (GeoJSON)](https://github.com/nvkelso/natural-earth-vector) | dataset | asset / python | 5.1.2 | Public domain (Natural Earth) | — | demo proven | 3 |
-| [Indian Supreme Court Judgments (open dataset)](https://registry.opendata.aws/indian-supreme-court-judgments/) | dataset | asset / web | metadata parquet by year (AWS Open Data, updated every two months) | CC BY 4.0 (dataset by Dattam Labs); judgments from the Supreme Court of India | — | demo proven | 3 |
-| [World Bank Indicators API (World Development Indicators)](https://datahelpdesk.worldbank.org/knowledgebase/articles/889392) | dataset | asset / web | API v2 (live) | CC BY 4.0 | — | demo proven | 3 |
-| [BIE social-science blocks (bie/brain/video/blocks/toolbox)](https://github.com/SEENAV01/Enterprise-bie) | js_lib | draw / web | bie-2026-10-25 | BIE's own code | — | demo proven | 3 |
-| [Chart.js](https://github.com/chartjs/Chart.js) | js_lib | draw / web | 4.5.1 | MIT | — | demo proven | 3 |
-| [dagre (@dagrejs/dagre)](https://github.com/dagrejs/dagre) | js_lib | draw / web | 3.1.1 | MIT | — | demo proven | 3 |
-| [elkjs (Eclipse Layout Kernel)](https://github.com/kieler/elkjs) | js_lib | draw / web | 0.9.3 | EPL-2.0 (one of elkjs's two licences; BIE takes EPL-2.0 and does not modify it) | — | demo proven | 3 |
-| [Mermaid](https://github.com/mermaid-js/mermaid) | js_lib | draw / web | 12.1.0 | MIT | — | demo proven | 3 |
-| [@mermaid-js/layout-elk](https://github.com/mermaid-js/mermaid/tree/develop/packages/mermaid-layout-elk) | js_lib | draw / web | 1.0.1 | MIT | — | demo proven | 3 |
-| [Plotly.js (plotly.js-dist-min)](https://github.com/plotly/plotly.js) | js_lib | draw / web | 4.1.1 | MIT | — | demo proven | 3 |
-| [Vega](https://github.com/vega/vega) | js_lib | draw / web | 6.4.0 | BSD-3-Clause | — | demo proven | 3 |
-| [Vega-Lite](https://github.com/vega/vega-lite) | js_lib | draw / web | 6.4.3 | BSD-3-Clause | — | demo proven | 3 |
-| [Indic NLP Library](https://github.com/anoopkunchukuttan/indic_nlp_library) | python_lib | compute / python | 0.92 | MIT (library and indic_nlp_resources) | — | demo proven | 3 |
-| [indic_transliteration (sanscript)](https://github.com/indic-transliteration/indic_transliteration_py) | python_lib | compute / python | 2.3.82 | MIT | — | demo proven | 3 |
-| [PsychoPy (psychopy.data)](https://www.psychopy.org) | python_lib | compute / python | 2026.2.4 | GPL-3.0-or-later | GPL | demo proven | 3 |
-| [Apache Arrow (pyarrow)](https://arrow.apache.org) | python_lib | compute / python | 26.0.0 | Apache-2.0 | — | demo proven | 3 |
-| [Shapely](https://github.com/shapely/shapely) | python_lib | compute / python | 2.2.0 | BSD-3-Clause | — | demo proven | 3 |
+Lesson use comes from the licence policy: content is allowed, refused, needs Navin or checked per item (per file); a program's licence governs the program, not what BIE draws with it.
+
+| Tool | Kind | Role / path | Version | Licence | Flags | Lesson use | Status | Batch |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| [Blender (bpy, headless)](https://pypi.org/project/bpy/) | app | offline_render / offline | 5.2.2 | GPL-3.0-or-later (the program); models BIE makes with it are BIE's own | GPL | software: allowed; cloud/CI/VM only, never in apps/ | demo proven | 1 |
+| [BodyParts3D](https://dbarchive.biosciencedbc.jp/en/bodyparts3d/download.html) | asset_source | asset / offline | 4.0 (PART-OF tree, 99% reduced OBJ) | CC BY 4.0 (licence page read 25 October 2026; releases up to 3.0 were CC BY-SA 2.1 Japan; the page also asks users to contact DBCLS) | own licence | **needs Navin** | demo proven | 1 |
+| [NIH 3D](https://3d.nih.gov) | asset_source | asset / web | 3d.nih.gov API (entries, download) | per model (Public Domain / CC0, CC BY and others) | licence per item | per item | demo proven | 1 |
+| [Servier Medical Art](https://smart.servier.com) | asset_source | asset / web | SMART 2026-10 (site) | CC BY 4.0 | — | allowed (credit) | demo proven | 1 |
+| [Z-Anatomy](https://github.com/LluisV/Z-Anatomy) | asset_source | asset / offline | PC-Version branch (FBX systems) | CC BY-SA 4.0 | share-alike | **refused** | demo proven | 1 |
+| [PubChem](https://pubchem.ncbi.nlm.nih.gov) | dataset | asset / web | PUG REST (live) | Public domain (NCBI); a few depositor records carry their own terms | licence per item | per item | demo proven | 1 |
+| [RCSB Protein Data Bank](https://www.rcsb.org) | dataset | asset / web | files.rcsb.org (live archive) | CC0 1.0 (PDB data) | — | allowed | demo proven | 1 |
+| [3Dmol.js](https://github.com/3dmol/3Dmol.js) | js_lib | draw / web | 2.5.5 | BSD-3-Clause | — | software: allowed | demo proven | 1 |
+| [BIE block library (bie/brain/video/blocks)](https://github.com/SEENAV01/Enterprise-bie) | js_lib | draw / web | bie-2026-10-25 | BIE's own code | — | software: allowed | demo proven | 1 |
+| [cannon-es](https://github.com/pmndrs/cannon-es) | js_lib | compute / web | 0.20.0 | MIT | — | software: allowed | demo proven | 1 |
+| [D3](https://github.com/d3/d3) | js_lib | draw / web | 7.9.0 | ISC | — | software: allowed | demo proven | 1 |
+| [@react-three/drei](https://github.com/pmndrs/drei) | js_lib | draw / web | 10.7.9 | MIT | — | software: allowed | demo proven | 1 |
+| [KaTeX](https://github.com/KaTeX/KaTeX) | js_lib | draw / web | 0.19.0 | MIT | — | software: allowed | demo proven | 1 |
+| [Matter.js](https://github.com/liabru/matter-js) | js_lib | draw / web | 0.20.0 | MIT | — | software: allowed | demo proven | 1 |
+| [Mol*](https://github.com/molstar/molstar) | js_lib | draw / web | 5.13.1 | MIT | — | software: allowed | demo proven | 1 |
+| [React Three Fiber](https://github.com/pmndrs/react-three-fiber) | js_lib | draw / web | 9.8.2 | MIT | — | software: allowed | demo proven | 1 |
+| [Remotion](https://www.remotion.dev/license) | js_lib | draw / web | 4.0.536 | Remotion License: free for individuals and companies of up to 3 people; a paid company licence above that | own licence | software: allowed; Remotion licence: Navin | demo proven | 1 |
+| [@remotion/three](https://www.npmjs.com/package/@remotion/three) | js_lib | draw / web | 4.0.536 | MIT | — | software: allowed | demo proven | 1 |
+| [three.js](https://github.com/mrdoob/three.js) | js_lib | draw / web | 0.186.1 | MIT | — | software: allowed | demo proven | 1 |
+| [Biopython](https://biopython.org) | python_lib | compute / python | 1.88 | Biopython License Agreement (BSD-style) | — | software: allowed | demo proven | 1 |
+| [Cantera](https://cantera.org) | python_lib | compute / python | 3.2.0 | BSD-3-Clause | — | software: allowed | demo proven | 1 |
+| [Manim (Community Edition)](https://www.manim.community) | python_lib | offline_render / offline | 0.22.0 | MIT | — | software: allowed | demo proven | 1 |
+| [NetworkX](https://networkx.org) | python_lib | compute / python | 3.7 | BSD-3-Clause | — | software: allowed | demo proven | 1 |
+| [NeuroKit2](https://github.com/neuropsychology/NeuroKit) | python_lib | compute / python | 0.2.13 | MIT | — | software: allowed | demo proven | 1 |
+| [NumPy](https://numpy.org) | python_lib | compute / python | 2.5.4 | BSD-3-Clause AND 0BSD AND MIT AND Zlib AND CC0-1.0 | — | software: allowed | demo proven | 1 |
+| [RDKit](https://www.rdkit.org) | python_lib | compute / python | 2026.9.1 | BSD-3-Clause | — | software: allowed | demo proven | 1 |
+| [SciPy](https://scipy.org) | python_lib | compute / python | 1.18.1 | BSD-3-Clause | — | software: allowed | demo proven | 1 |
+| [statsmodels](https://www.statsmodels.org) | python_lib | compute / python | 0.15.0 | BSD-3-Clause | — | software: allowed | demo proven | 1 |
+| [SymPy](https://www.sympy.org) | python_lib | compute / python | 1.14.0 | BSD-3-Clause | — | software: allowed | demo proven | 1 |
+| [trimesh](https://github.com/mikedh/trimesh) | python_lib | compute / python | 5.1.1 | MIT | — | software: allowed | demo proven | 1 |
+| [GMT (Generic Mapping Tools)](https://www.generic-mapping-tools.org) | app | offline_render / offline | 6.5.0 | LGPL-3.0-or-later | — | software: allowed; cloud/CI/VM only, never in apps/ | demo proven | 2 |
+| [ngspice](https://ngspice.sourceforge.io) | app | compute / offline | 42 | BSD-3-Clause (modified BSD; some parts under other free licences) | — | software: allowed | demo proven | 2 |
+| [OpenVSP](https://openvsp.org) | app | offline_render / offline | 3.x (not installed) | NOSA 1.3 (NASA Open Source Agreement) | own licence | software: allowed | blocked | 2 |
+| [NASA Image and Video Library](https://images.nasa.gov) | asset_source | asset / web | images-api.nasa.gov (live) | per item (NASA media are generally not copyrighted; some carry third-party rights) | licence per item | per item | demo proven | 2 |
+| [GMT Earth relief (SRTM15+ V2.7)](https://www.generic-mapping-tools.org/remote-datasets/earth-relief.html) | dataset | asset / offline | SRTM15+ V2.7 (GMT remote data, 2 arc-min tiles) | Free to use with citation (Tozer et al., 2019, Scripps); GMT remote data | own licence | **needs Navin** | demo proven | 2 |
+| [Müller et al. (2019) plate model](https://doi.org/10.5281/zenodo.11601026) | dataset | asset / offline | v2.0 (doi:10.5281/zenodo.11601026) | CC BY 4.0 | — | allowed (credit) | demo proven | 2 |
+| [Hipparcos star catalogue](https://cdsarc.cds.unistra.fr/viz-bin/cat/I/239) | dataset | asset / offline | ESA 1997 (CDS I/239) | Free for scientific use with citation (CDS); commercial use under ESA's rules for the Hipparcos data | own licence | **needs Navin** | demo proven | 2 |
+| [JPL ephemeris DE421](https://naif.jpl.nasa.gov/pub/naif/generic_kernels/spk/planets/a_old_versions/de421.bsp) | dataset | asset / offline | DE421 (1900–2050) | Public domain (NASA JPL) | — | allowed | demo proven | 2 |
+| [Natural Earth (world-atlas TopoJSON)](https://github.com/topojson/world-atlas) | dataset | asset / web | 2.0.2 | Public domain (Natural Earth data); ISC (the world-atlas package) | — | allowed; India boundary: needs Navin | demo proven | 2 |
+| [USGS earthquake catalogue](https://earthquake.usgs.gov/fdsnws/event/1/) | dataset | asset / web | FDSN event API (live) | Public domain (USGS) | — | allowed | demo proven | 2 |
+| [BIE science blocks (bie/brain/video/blocks/toolbox)](https://github.com/SEENAV01/Enterprise-bie) | js_lib | draw / web | bie-2026-10-25 | BIE's own code | — | software: allowed | demo proven | 2 |
+| [topojson-client](https://github.com/topojson/topojson-client) | js_lib | draw / web | 3.1.0 | ISC | — | software: allowed | demo proven | 2 |
+| [AeroSandbox](https://github.com/peterdsharpe/AeroSandbox) | python_lib | compute / python | 4.2.10 | MIT | — | software: allowed | demo proven | 2 |
+| [Astropy](https://www.astropy.org) | python_lib | compute / python | 8.0.2 | BSD-3-Clause | — | software: allowed | demo proven | 2 |
+| [CadQuery (with OCP, OpenCascade)](https://github.com/CadQuery/cadquery) | python_lib | offline_render / offline | 2.8.0 | Apache-2.0 (CadQuery and the OCP bindings; OpenCascade itself LGPL-2.1 with an exception) | — | software: allowed; cloud/CI/VM only, never in apps/ | demo proven | 2 |
+| [CoolProp](https://github.com/CoolProp/CoolProp) | python_lib | compute / python | 8.0.0 | MIT | — | software: allowed | demo proven | 2 |
+| [FEniCSx (DOLFINx)](https://fenicsproject.org) | python_lib | compute / python | 0.10 (not installed) | LGPL-3.0-or-later | — | software: allowed; cloud/CI/VM only, never in apps/ | blocked | 2 |
+| [JSBSim](https://github.com/JSBSim-Team/jsbsim) | python_lib | compute / python | 1.3.3 | LGPL-2.1-or-later | — | software: allowed; cloud/CI/VM only, never in apps/ | demo proven | 2 |
+| [Lcapy](https://github.com/mph-/lcapy) | python_lib | compute / python | 1.26 | LGPL-2.1-or-later | — | software: allowed; cloud/CI/VM only, never in apps/ | demo proven | 2 |
+| [ObsPy](https://www.obspy.org) | python_lib | compute / python | 1.5.1 | LGPL-3.0 | — | software: allowed; cloud/CI/VM only, never in apps/ | demo proven | 2 |
+| [PyGMT](https://www.pygmt.org) | python_lib | offline_render / offline | 0.19.0 | BSD-3-Clause | — | software: allowed | demo proven | 2 |
+| [pyGPlates](https://www.gplates.org) | python_lib | compute / python | 1.0.0 | GPL-2.0 (pyGPlates; GPlates is GPL-2.0-or-later) | GPL | software: allowed; cloud/CI/VM only, never in apps/ | demo proven | 2 |
+| [PyNite (PyNiteFEA)](https://github.com/JWock82/Pynite) | python_lib | compute / python | 3.2.0 | MIT | — | software: allowed | demo proven | 2 |
+| [Python Control Systems Library](https://python-control.org) | python_lib | compute / python | 0.10.2 | BSD-3-Clause | — | software: allowed | demo proven | 2 |
+| [Schemdraw](https://schemdraw.readthedocs.io) | python_lib | draw / python | 0.23 | MIT | — | software: allowed | demo proven | 2 |
+| [scikit-fem](https://github.com/kinnala/scikit-fem) | python_lib | compute / python | 12.0.2 | BSD-3-Clause | — | software: allowed | demo proven | 2 |
+| [SciPy signal (scipy.signal)](https://docs.scipy.org/doc/scipy/reference/signal.html) | python_lib | compute / python | 1.18.1 | BSD-3-Clause | — | software: allowed | demo proven | 2 |
+| [Skyfield](https://rhodesmill.org/skyfield/) | python_lib | compute / python | 1.55 | MIT | — | software: allowed | demo proven | 2 |
+| [SymPy physics (sympy.physics)](https://docs.sympy.org/latest/modules/physics/) | python_lib | compute / python | 1.14.0 | BSD-3-Clause | — | software: allowed | demo proven | 2 |
+| [Noto Sans Devanagari (font)](https://github.com/notofonts/devanagari) | asset_source | asset / web | google/fonts e7db6ca6 (variable font) | SIL Open Font License 1.1 | — | allowed | demo proven | 3 |
+| [Openverse](https://openverse.org) | asset_source | asset / web | Openverse API v1 (live) | per item (CC BY, CC BY-SA, CC0, public domain mark; non-commercial and no-derivatives refused) | licence per item | per item | demo proven | 3 |
+| [Wikimedia Commons](https://commons.wikimedia.org) | asset_source | asset / web | MediaWiki API (live) | per item (public domain, CC BY, CC BY-SA ...; non-commercial and no-derivatives refused) | licence per item | per item | demo proven | 3 |
+| [India Code (official repository of Indian law)](https://indiacode.gov.in) | dataset | asset / web | DSpace 9 REST API (live) | Government of India content; Acts may be reproduced (Copyright Act 1957, s. 52(1)(q)) with the source acknowledged | own licence | **needs Navin** | demo proven | 3 |
+| [Natural Earth 1:10m vector data (GeoJSON)](https://github.com/nvkelso/natural-earth-vector) | dataset | asset / python | 5.1.2 | Public domain (Natural Earth) | — | allowed; India boundary: needs Navin | demo proven | 3 |
+| [Indian Supreme Court Judgments (open dataset)](https://registry.opendata.aws/indian-supreme-court-judgments/) | dataset | asset / web | metadata parquet by year (AWS Open Data, updated every two months) | CC BY 4.0 (dataset by Dattam Labs); judgments from the Supreme Court of India | — | allowed (credit) | demo proven | 3 |
+| [World Bank Indicators API (World Development Indicators)](https://datahelpdesk.worldbank.org/knowledgebase/articles/889392) | dataset | asset / web | API v2 (live) | CC BY 4.0 | — | allowed (credit) | demo proven | 3 |
+| [BIE social-science blocks (bie/brain/video/blocks/toolbox)](https://github.com/SEENAV01/Enterprise-bie) | js_lib | draw / web | bie-2026-10-25 | BIE's own code | — | software: allowed | demo proven | 3 |
+| [Chart.js](https://github.com/chartjs/Chart.js) | js_lib | draw / web | 4.5.1 | MIT | — | software: allowed | demo proven | 3 |
+| [dagre (@dagrejs/dagre)](https://github.com/dagrejs/dagre) | js_lib | draw / web | 3.1.1 | MIT | — | software: allowed | demo proven | 3 |
+| [elkjs (Eclipse Layout Kernel)](https://github.com/kieler/elkjs) | js_lib | draw / web | 0.9.3 | EPL-2.0 (one of elkjs's two licences; BIE takes EPL-2.0 and does not modify it) | — | software: allowed | demo proven | 3 |
+| [Mermaid](https://github.com/mermaid-js/mermaid) | js_lib | draw / web | 12.1.0 | MIT | — | software: allowed | demo proven | 3 |
+| [@mermaid-js/layout-elk](https://github.com/mermaid-js/mermaid/tree/develop/packages/mermaid-layout-elk) | js_lib | draw / web | 1.0.1 | MIT | — | software: allowed | demo proven | 3 |
+| [Plotly.js (plotly.js-dist-min)](https://github.com/plotly/plotly.js) | js_lib | draw / web | 4.1.1 | MIT | — | software: allowed | demo proven | 3 |
+| [Vega](https://github.com/vega/vega) | js_lib | draw / web | 6.4.0 | BSD-3-Clause | — | software: allowed | demo proven | 3 |
+| [Vega-Lite](https://github.com/vega/vega-lite) | js_lib | draw / web | 6.4.3 | BSD-3-Clause | — | software: allowed | demo proven | 3 |
+| [Indic NLP Library](https://github.com/anoopkunchukuttan/indic_nlp_library) | python_lib | compute / python | 0.92 | MIT (library and indic_nlp_resources) | — | software: allowed | demo proven | 3 |
+| [indic_transliteration (sanscript)](https://github.com/indic-transliteration/indic_transliteration_py) | python_lib | compute / python | 2.3.82 | MIT | — | software: allowed | demo proven | 3 |
+| [PsychoPy (psychopy.data)](https://www.psychopy.org) | python_lib | compute / python | 2026.2.4 | GPL-3.0-or-later | GPL | software: allowed; cloud/CI/VM only, never in apps/ | demo proven | 3 |
+| [Apache Arrow (pyarrow)](https://arrow.apache.org) | python_lib | compute / python | 26.0.0 | Apache-2.0 | — | software: allowed | demo proven | 3 |
+| [Shapely](https://github.com/shapely/shapely) | python_lib | compute / python | 2.2.0 | BSD-3-Clause | — | software: allowed | demo proven | 3 |
 
 ## Blocked, and what each needs
 
@@ -459,17 +463,32 @@ Capabilities in the vocabulary that no tool in the registry can draw yet (later 
 | XL | Life Sciences | Biology and medical, Chemistry | strong | 18 | — |
 
 
-## Licences to decide (Navin)
+## Lesson licence gate
 
-Recorded, not blocked. Share-alike content may make an adapted video carry the same licence; a GPL program's outputs (the models BIE makes) are not GPL; Remotion needs a company licence above 3 people.
+Navin, 2026-10-25: "Final videos mein sirf CC0 aur CC BY assets lein; CC BY-SA nahi; NC bilkul nahi."
 
-- Remotion: Remotion License: free for individuals and companies of up to 3 people; a paid company licence above that
-- Blender (bpy, headless): GPL-3.0-or-later (the program); models BIE makes with it are BIE's own
-- Z-Anatomy: CC BY-SA 4.0
-- BodyParts3D: CC BY 4.0 (licence page read 25 October 2026; releases up to 3.0 were CC BY-SA 2.1 Japan; the page also asks users to contact DBCLS)
-- GMT Earth relief (SRTM15+ V2.7): Free to use with citation (Tozer et al., 2019, Scripps); GMT remote data
-- pyGPlates: GPL-2.0 (pyGPlates; GPlates is GPL-2.0-or-later)
-- Hipparcos star catalogue: Free for scientific use with citation (CDS); commercial use under ESA's rules for the Hipparcos data
-- OpenVSP: NOSA 1.3 (NASA Open Source Agreement)
-- India Code (official repository of Indian law): Government of India content; Acts may be reproduced (Copyright Act 1957, s. 52(1)(q)) with the source acknowledged
-- PsychoPy (psychopy.data): GPL-3.0-or-later
+Policy `2026-10-25.1` (`bie/toolbox/licence_policy.json`, the only source of truth). Lessons (anything seen or heard in a lesson video, game or notes) take only CC0, public domain and CC BY (with author, licence, licence URL and source page). The gate (`lesson_licence_check`) runs before any lesson output is rendered or packaged and stops it with the reason; nothing is swapped silently.
+
+Refused for lessons:
+
+- Z-Anatomy: share-alike licence: a lesson that adapts it may have to carry the same licence (Navin: CC BY-SA nahi)
+
+Needs Navin (blocked until he approves the source by name in the policy file):
+
+- BodyParts3D: the licence page says CC BY 4.0, but the BodyParts3D page asks users to contact DBCLS; Navin decides after DBCLS answers
+- GMT Earth relief (SRTM15+ V2.7): SRTM15+ relief (Tozer et al., 2019, Scripps) is free to use with citation: own terms, not a CC licence
+- Hipparcos star catalogue: free for scientific use with citation (CDS); commercial use under ESA's rules for the Hipparcos catalogue
+- India Code (official repository of Indian law): Government of India content; Acts may be reproduced under the Copyright Act 1957, s. 52(1)(q), with the source acknowledged: own terms, not a CC licence
+- India's political boundary: any asset or map that draws India's political boundary (including Natural Earth's India-view file) waits until Navin approves a boundary matched to the Survey of India map (sources: natural-earth, natural-earth-vector; blocks: india_map)
+
+Checked per item (each file on its own licence):
+
+- NIH 3D: each model's own licence from its NIH 3D record
+- PubChem: public domain (NCBI) except depositor records with their own terms
+- NASA Image and Video Library: each file on its own: NASA media are US government works, public domain unless the record names a third-party copyright holder; such a file is refused
+- Wikimedia Commons: each file's own licence as Commons states it
+- Openverse: each file's own licence as Openverse records it
+
+Software: a program's licence (MIT, BSD, Apache, ISC, LGPL, GPL, EPL, NOSA, Remotion's own ...) governs the program, not the pictures BIE makes with it. GPL and LGPL programs (gpl-flagged registry tools such as Blender, PsychoPy, pyGPlates) run only in the cloud, CI or VM render path and never ship inside apps/ (android, web, operator, api): Blender (bpy, headless), Lcapy, CadQuery (with OCP, OpenCascade), FEniCSx (DOLFINx), GMT (Generic Mapping Tools), ObsPy, pyGPlates, JSBSim, PsychoPy (psychopy.data).
+
+- Open decision (Navin): Remotion licence: free for individuals and companies of up to 3 people; a paid company licence above that
