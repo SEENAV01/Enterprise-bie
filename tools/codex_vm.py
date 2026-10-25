@@ -1,6 +1,6 @@
 """BIE job runner for Navin's private Codex machine (Task 044, deployment/codex-vm/).
 
-The machine is signed in to Codex with Navin's ChatGPT Pro plan and holds the AICredits Gemini key. It
+The machine is signed in to Codex with Navin's ChatGPT Pro plan and holds the checker's Gemini keys. It
 never runs this public repository's GitHub Actions (OpenAI: ChatGPT sign-in only on trusted private
 machines, never for public repositories). Work reaches it as job files instead:
 
@@ -15,7 +15,11 @@ and the auth file stays in CODEX_HOME. Only people with write access to the repo
 
 Environment (systemd sets it from /etc/bie/bie.env): BIE_HOME (default /var/lib/bie), BIE_REPO_URL (git
 remote, default the repository over SSH with the deploy key), BIE_GIT_SSH (ssh command with the key),
-CODEX_HOME, AICREDITS_GEMINI_API_KEY, optional BIE_CODEX_MODEL.
+CODEX_HOME, AICREDITS_GEMINI_API_KEY, GEMINI_API_KEY (Navin's free Google AI Studio key, added 25 October 2026;
+sample content only, never student data), optional BIE_CODEX_MODEL. With both Gemini keys set the direct Google
+key wins unless a job's ``routes`` says ``google=aicredits``; a job for the free key carries
+``"routes": "google=direct", "models": "google=gemini-3.8-flash"`` (the free tier does not serve gemini-4-argon
+or gemini-3.1-pro).
 """
 from __future__ import annotations
 
@@ -263,7 +267,16 @@ def status() -> dict:
     sys.path.insert(0, str(ROOT))
     from bie.model_gateway.live.codex_client import CodexExecClient
     client = CodexExecClient()
-    out = {"login": client.login_status(), "gemini_key_set": bool(os.environ.get("AICREDITS_GEMINI_API_KEY"))}
+    from bie.model_gateway.live.config import RESELLER_PROVIDER_KEY_ENV, key_for, route_for
+    keys = {"direct": bool(key_for("google")),
+            "aicredits": bool((os.environ.get(RESELLER_PROVIDER_KEY_ENV["aicredits"]["google"]) or "").strip())}
+    try:
+        via = route_for("google")[0] or "none"
+    except ValueError as exc:                            # a wrong BIE_GEMINI_VIA in bie.env
+        via = "invalid: " + str(exc)[:80]
+    # Presence only, never a key or a piece of one. The default route is what a job without "routes" gets.
+    out = {"login": client.login_status(), "gemini_key_set": keys["direct"] or keys["aicredits"], "gemini_keys": keys,
+           "gemini_default_route": via}
     out["plan_usage"] = client.plan_usage() if out["login"]["logged_in"] else {"unavailable": "not signed in"}
     done = home() / "done"
     out["last_jobs"] = {p.name: p.read_text() for p in sorted(done.iterdir())[-5:]} if done.exists() else {}

@@ -23,7 +23,7 @@ class ProviderError(RuntimeError):
     """A failed provider call. ``kind`` decides whether a retry is allowed."""
 
     def __init__(self, kind: str, message: str = "", *, status: int | None = None, provider: str | None = None,
-                 usage: dict | None = None):
+                 usage: dict | None = None, retry_after: float | None = None):
         if kind not in KINDS:
             raise ValueError("unknown provider error kind: " + str(kind))
         self.kind = kind
@@ -31,6 +31,8 @@ class ProviderError(RuntimeError):
         # unreadable): such a call is billed, so the gateway records its cost (Task 045d job B2: a review that ran to
         # 32,000 output tokens cost about Rs 44 and the ledger had counted Rs 0).
         self.usage = usage
+        # Seconds the provider asks BIE to wait before the next try (Google's RetryInfo on a per-minute quota).
+        self.retry_after = retry_after
         self.status = status
         self.provider = provider
         self.message = message[:600]
@@ -66,8 +68,33 @@ def kind_for_status(status: int) -> str:
     return "bad_request"
 
 
-def classify(status: int | None, text: object = "") -> str:
-    """The kind for an HTTP status and the provider's error text; balance messages win over the status."""
+# Google's free tier (Navin's reviewer key from 25 October 2026) answers every quota with 429 RESOURCE_EXHAUSTED and "You exceeded your current
+# quota", the same words as a used-up wallet. Its details name the quota: a per-minute one
+# ("GenerateRequestsPerMinutePerProjectPerModel-FreeTier") clears within a minute, so it is a rate limit to wait out
+# (RetryInfo "retryDelay": "37s"); a per-day one, or a model the tier does not serve ("limit: 0"), is used up.
+_QUOTA_ID = re.compile(r'"quotaId"\s*:\s*"([^"]+)"')
+_NO_QUOTA = re.compile(r"limit\s*:\s*0\b")
+_RETRY_DELAY = re.compile(r'"retryDelay"\s*:\s*"([0-9]+(?:\.[0-9]+)?)s"|retry in ([0-9]+(?:\.[0-9]+)?)\s*s', re.I)
+
+
+def per_minute_quota(status: int | None, detail: object = "") -> bool:
+    """True for a 429 whose quotas are all per-minute ones that still serve this model."""
+    detail = str(detail or "")
+    ids = _QUOTA_ID.findall(detail)
+    return status == 429 and bool(ids) and all("PerMinute" in i for i in ids) and not _NO_QUOTA.search(detail)
+
+
+def retry_after(detail: object = "") -> float | None:
+    """The wait a provider asks for (Google's RetryInfo or "Please retry in 37.2s"), in seconds."""
+    match = _RETRY_DELAY.search(str(detail or ""))
+    return float(match.group(1) or match.group(2)) if match else None
+
+
+def classify(status: int | None, text: object = "", detail: object = "") -> str:
+    """The kind for an HTTP status and the provider's error text; balance messages win over the status, except a
+    Google per-minute quota (``detail``: the raw error body), which is a rate limit."""
+    if per_minute_quota(status, detail):
+        return "rate_limit"
     if _BALANCE_TEXT.search(str(text or "")):
         return "balance"
     return kind_for_status(status) if status is not None else "server_error"

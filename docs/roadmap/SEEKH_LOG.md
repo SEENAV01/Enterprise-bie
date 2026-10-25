@@ -529,3 +529,39 @@ and are reused; the 5 failed ones would continue: v2, v4, v8 and v9 have no code
 v5 keeps one restating beat (b102, a patch round). Dohraav of that lesson with today's markers: 1 of 511 (0.2%), openings 65.8%. The
 old scripts (job 3, regression set): 78 → 76 restating of 273, 93 → 98 opened. Both saved regression sets still pass; the Task 045 lane
 passes. Nothing ACCEPTED until Navin's verdict.
+
+## Entry 11 · the reviewer on the free Google key, and a review output cap, 25 October 2026
+
+**From job B2 and Navin's decision of 25 October 2026:** v5's review through AICredits ran away to the 32,000-token output cap
+(entry 10), and the AICredits wallet is empty. Navin added his free Google AI Studio key (`GEMINI_API_KEY`) to the VM's
+`/etc/bie/bie.env` for the reviewer (sample content only, never student data); the AICredits key stays there unused. The free tier
+answers only `gemini-3.8-flash` (smoke run 40114580580; `gemini-4-argon` 429 quota, `gemini-3.1-pro` 404).
+
+**Changed in BIE (IMPLEMENTED, offline; branch `task045-free-reviewer`):**
+
+- **Review output cap** (`tools/run_brain.py`, `REVIEW_OUTPUT_TOKENS = 12000`, flag `--review-output-tokens`): the reviewer's route is
+  now its own client with this cap; the maker keeps 32,000. Measured on every review call on `blindtest-results` (141 calls, 99
+  answered, 21–24 October 2026): the largest Task 045d script review answered 1,612 output tokens, the largest review of any kind
+  3,744; none of the 99 would have been cut by 12,000. Gemini through Google counts its thinking inside the same cap (the smoke run's
+  answer: 208 of 217 output tokens were thinking), hence the room. The cost guard reserves a review on the smaller cap.
+- **Google's free-tier quota** (`bie/model_gateway/live/errors.py`, `transport.py`, `gateway.py`): Google answers every free-tier quota
+  with 429 and "You exceeded your current quota", the words BIE read as an empty wallet (a run stop). A 429 whose quotas are all
+  per-minute ones is now a rate limit: the gateway waits the time Google asks for (RetryInfo, at most 90 s) and tries again; a
+  per-day quota, or a model the tier does not serve (`limit: 0`), still stops the run as "balance".
+- **VM status** (`tools/codex_vm.py status`): which Gemini keys are present (direct, AICredits) and the default Google route, never a
+  key; the runner's notes and `deployment/codex-vm/README.md` name the job fields for the free key
+  (`"routes": "google=direct", "models": "google=gemini-3.8-flash"`).
+
+**Measured before → after (offline):**
+
+| Measure | Before | After |
+| --- | --- | --- |
+| Output cap of a review call | 32,000 | 12,000 |
+| Worst runaway review like v5's (about 55,000 input tokens), Gemini 4 Argon through AICredits | about ₹45 | about ₹24 |
+| Same runaway on `gemini-3.8-flash`, list price (Google bills the free tier ₹0) | about ₹15 | about ₹8 |
+| Answered past reviews that the new cap would have cut | — | 0 of 99 |
+| A per-minute free-tier 429 | run stopped as "balance" | waited out, run goes on |
+
+Quality, first-try pass rate and rounds are unchanged offline (no rule or check changed); the Task 045 lane passes (449 tests, 16 new
+in `tests/test_task045_free_reviewer.py`) and both saved regression sets still pass. The live effect comes from the ₹0 test job and
+the v5 and v9 resume.
