@@ -431,13 +431,14 @@ class BatchThreeSources(unittest.TestCase):
     def test_commons_and_openverse_keep_share_alike_marked_and_refuse_non_commercial(self):
         commons = {"query": {"pages": {"1": {"title": "File:Marche sel.jpg", "imageinfo": [{
             "url": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Marche_sel.jpg", "descriptionurl": "https://commons.wikimedia.org/wiki/File:Marche_sel.jpg",
-            "thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Marche_sel.jpg/1280px-Marche_sel.jpg", "width": 2000, "height": 1500,
+            "thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Marche_sel.jpg/1280px-Marche_sel.jpg?utm_source=commons.wikimedia.org&utm_content=thumbnail",
+            "width": 2000, "height": 1500,
             "mime": "image/jpeg", "extmetadata": {"LicenseShortName": {"value": "Public domain"}, "Artist": {"value": "<a>Unknown</a>"}}}]}}}}
         opener = Opener({"https://commons.wikimedia.org/w/api.php": commons,
                          "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Marche_sel.jpg/1280px-Marche_sel.jpg": b"\xff\xd8\xffjpeg"})
         old = sources.commons_image("File:Marche sel.jpg", self.lib, opener=opener, width=1280)
         self.assertEqual((old.licence, old.mime, old.source, old.author), ("Public domain", "image/jpeg", "wikimedia_commons", "Unknown"))
-        self.assertIn("iiurlwidth=1280", opener.urls[0])
+        self.assertIn("iiurlwidth=1280", opener.urls[0])               # a standard Wikimedia thumbnail width, below the original's 2000
         row = {"id": "bafa11dc-b447-4e43-804c-c3f8f3eca309", "title": "Dandi salt march", "creator": "Nagarjun", "license": "by-sa",
                "license_version": "2.0", "foreign_landing_url": "https://www.flickr.com/photos/x/1", "attribution": '"Dandi salt march" by Nagarjun'}
         opener = Opener({"https://api.openverse.org/v1/images/bafa11dc-b447-4e43-804c-c3f8f3eca309/thumb/": b"\xff\xd8\xffdiorama",
@@ -455,6 +456,22 @@ class BatchThreeSources(unittest.TestCase):
             sources.openverse_image("bafa11dc-b447-4e43-804c-c3f8f3eca309", self.lib, opener=opener)
         with self.assertRaises(Exception):
             sources.openverse_image("../../x", self.lib, opener=opener)
+
+    def test_commons_asks_for_a_standard_width_smaller_than_the_original(self):
+        from bie.brain import assets
+        def reply(width):
+            thumb = f"https://upload.wikimedia.org/x/{width}px-A.jpg" if width < 1200 else "https://upload.wikimedia.org/x/A.jpg?utm_content=thumbnail_unscaled"
+            return {"query": {"pages": {"1": {"title": "File:A.jpg", "imageinfo": [{"url": "https://upload.wikimedia.org/x/A.jpg", "thumburl": thumb,
+                    "width": 1200, "height": 800, "mime": "image/jpeg", "extmetadata": {"LicenseShortName": {"value": "CC BY 2.0"}}}]}}}}
+        urls = []
+
+        def opener(request, timeout=None):
+            urls.append(request.full_url)
+            width = int(re.search(r"iiurlwidth=(\d+)", request.full_url).group(1))
+            return FakeResponse(json.dumps(reply(width)).encode())
+        candidate = assets.commons_file("File:A.jpg", thumb_width=1500, opener=opener)
+        self.assertEqual([re.search(r"iiurlwidth=(\d+)", u).group(1) for u in urls], ["1280", "960"])   # 1280 >= the original 1200
+        self.assertEqual(candidate.file_url, "https://upload.wikimedia.org/x/960px-A.jpg")
 
     def test_a_refusing_api_is_named_not_read_as_a_missing_file(self):
         from bie.brain import assets

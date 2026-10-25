@@ -43,7 +43,7 @@ Built in batch 3 (IMPLEMENTED; tools demo proven; nothing INTEGRATED into a less
   mermaid_build, flow_build (dagre; a "cycle" layout for process_cycle), tree_build (D3 tree), case_card, chartjs_build,
   vega_build, plotly_build, kinetic_text (aksharas build up, Roman and meaning below; the font loads from the asset library),
   experiment_flow; model_3d can colour named parts one by one with a legend.
-- **Proof:** 16 more clips (51 in all). Seen on the contact sheets and fixed before the PR: Mermaid's nodes invisible and the
+- **Proof:** 16 more clips (51 in all); 15 rendered and passed in the cloud workspace. The 16th (`hist-archive-images`, Commons and Openverse) cannot run there: Wikimedia answers 429 to the workspace's shared address; the CI lane renders it. Wikimedia now serves scripts only its standard thumbnail widths (960, 1280 ...), so BIE asks for those. Seen on the contact sheets and fixed before the PR: Mermaid's nodes invisible and the
   diagram tiny (its own max-width and node ids), the dagre flowchart's text overflowing its boxes (now scaled as a whole),
   Vega-Lite adding zero to a shared scale, the brain's lobes not colouring (three.js writes glTF names with `_`), a route's
   town names on top of each other, neighbour countries looking like sea, a state count read from Natural Earth's outdated

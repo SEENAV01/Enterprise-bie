@@ -448,7 +448,7 @@ def _open_image(kind: str, key: str, find, library: AssetLibrary, *, opener=None
     return library.add_candidate(candidate, tags=[kind, *tags], allow_share_alike=True, data=data)
 
 
-def commons_image(title: str, library: AssetLibrary, *, opener=None, tags=(), width: int = 1600):
+def commons_image(title: str, library: AssetLibrary, *, opener=None, tags=(), width: int = 1280):
     """A named Wikimedia Commons picture through the asset library (share-alike kept and marked)."""
     return _open_image("commons", f"{title}@{width}", lambda: commons_file(title, thumb_width=width, opener=opener), library,
                        opener=opener, tags=tags)

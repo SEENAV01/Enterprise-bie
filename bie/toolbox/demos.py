@@ -525,19 +525,25 @@ def bill_to_act(w: Work) -> dict:
                                           "badge": "Mermaid + ELK layout"})], 4.2)
 
 
+def _picture_name(asset) -> str:
+    """The caption is the archive's own title and author: BIE does not describe a picture it has not looked at."""
+    title = asset.title.removeprefix("File:").rsplit(".", 1)[0].replace("_", " ")
+    return f"{title} · {asset.author}"[:70] if asset.author else title[:70]
+
+
 def archive_images(w: Work) -> dict:
     from . import sources
-    old = sources.commons_image("File:Marche sel.jpg", w.library, tags=["history", "salt march"], width=1280, opener=w.opener)
+    old = sources.commons_image("File:Gandhiji Leading Salt satyagrah.jpg", w.library, tags=["history", "salt march"], width=960, opener=w.opener)
     new = sources.openverse_image("bafa11dc-b447-4e43-804c-c3f8f3eca309", w.library, tags=["history", "salt march"], opener=w.opener)
     w.notes["licences"] = {"commons": old.licence, "openverse": new.licence}
     left, right = {"x": 0.03, "y": 0.16, "w": 0.45, "h": 0.66}, {"x": 0.52, "y": 0.16, "w": 0.45, "h": 0.66}
     layers = [
         {"id": "title", "type": "title", "at": 0, "box": {"x": 0.03, "y": 0.02, "w": 0.9, "h": 0.12}, "title": "The Salt March in two open archives",
-         "subtitle": "Wikimedia Commons and Openverse, each picture with its licence"},
+         "subtitle": "Wikimedia Commons (left) and Openverse (right), each picture with its licence"},
         {"id": "old", "type": "image", "at": 6, "box": left, "src": w.src(old), "credit": f"Wikimedia Commons · {old.licence}"},
         {"id": "new", "type": "image", "at": 40, "box": right, "src": w.src(new), "credit": f"Openverse · {new.licence}"},
-        {"id": "c1", "type": "label", "at": 20, "box": {"x": 0.08, "y": 0.85, "w": 0.35, "h": 0.06}, "text": "1930: the march, photographed", "tone": "accent"},
-        {"id": "c2", "type": "label", "at": 54, "box": {"x": 0.57, "y": 0.85, "w": 0.35, "h": 0.06}, "text": "a museum diorama of the same story", "tone": "warm"},
+        {"id": "c1", "type": "label", "at": 20, "box": {"x": 0.06, "y": 0.85, "w": 0.39, "h": 0.06}, "text": _picture_name(old), "tone": "accent"},
+        {"id": "c2", "type": "label", "at": 54, "box": {"x": 0.55, "y": 0.85, "w": 0.39, "h": 0.06}, "text": _picture_name(new), "tone": "warm"},
     ]
     camera = [{"at": 0, "box": FULL}, {"at": 70, "box": {"x": 0.02, "y": 0.08, "w": 0.96, "h": 0.9}, "frames": 56}]
     return scene(layers, 4.2, camera)

@@ -152,26 +152,38 @@ def search_commons(query: str, *, limit: int = 12, thumb_width: int = 800, allow
     return found
 
 
-def commons_file(title: str, *, thumb_width: int = 1600, opener=None) -> Candidate:
-    """One named Commons file ('File:...') with its licence as Commons states it (Task 046a, batch 3); the file to
-    download is the thumbnail at ``thumb_width`` (Commons renders it), the page and licence stay the original's."""
+COMMONS_THUMB_WIDTHS = (1920, 1280, 960, 500, 330, 250, 120)   # the sizes Wikimedia serves to scripts (https://w.wiki/GHai)
+
+
+def commons_file(title: str, *, thumb_width: int = 1280, opener=None) -> Candidate:
+    """One named Commons file ('File:...') with its licence as Commons states it (Task 046a, batch 3). The file to
+    download is a thumbnail in one of Wikimedia's standard widths, the largest not above ``thumb_width`` and smaller than
+    the original (Wikimedia answers scripted downloads of other sizes, and of originals, with 429); the page, author and
+    licence stay the original's."""
     if not title.startswith("File:") or len(title) > 240:
         raise AssetError(f"{title!r} is not a Commons file title")
-    params = {"action": "query", "format": "json", "titles": title, "prop": "imageinfo",
-              "iiprop": "url|size|mime|extmetadata", "iiurlwidth": str(thumb_width)}
-    raw = _open(COMMONS_API + "?" + urllib.parse.urlencode(params), opener=opener, max_bytes=4 * 1024 * 1024)
-    body = json.loads(raw.decode("utf-8"))
-    if "error" in body:                                   # for example "ratelimited": said plainly, not as a missing file
-        raise AssetError(f"Commons API refused {title!r}: {body['error'].get('code')}: {str(body['error'].get('info'))[:200]}")
-    pages = (body.get("query") or {}).get("pages") or {}
-    page = next(iter(pages.values()), {})
-    candidate = _commons_candidate(page) if "missing" not in page else None
-    url = (candidate.thumb_url or candidate.file_url) if candidate else ""
-    suffix = url.rsplit(".", 1)[-1].lower()
-    mime = {"jpg": "image/jpeg", "jpeg": "image/jpeg", "png": "image/png", "webp": "image/webp"}.get(suffix, "")
-    if not mime:
-        raise AssetError(f"Commons has no picture {title!r} that BIE can draw")
-    return Candidate(**{**candidate.__dict__, "file_url": url, "mime": mime})
+    widths = [w for w in COMMONS_THUMB_WIDTHS if w <= thumb_width] or [COMMONS_THUMB_WIDTHS[-1]]
+    for width in widths:
+        params = {"action": "query", "format": "json", "titles": title, "prop": "imageinfo",
+                  "iiprop": "url|size|mime|extmetadata", "iiurlwidth": str(width)}
+        raw = _open(COMMONS_API + "?" + urllib.parse.urlencode(params), opener=opener, max_bytes=4 * 1024 * 1024)
+        body = json.loads(raw.decode("utf-8"))
+        if "error" in body:                               # for example "ratelimited": said plainly, not as a missing file
+            raise AssetError(f"Commons API refused {title!r}: {body['error'].get('code')}: {str(body['error'].get('info'))[:200]}")
+        pages = (body.get("query") or {}).get("pages") or {}
+        page = next(iter(pages.values()), {})
+        candidate = _commons_candidate(page) if "missing" not in page else None
+        if candidate is None:
+            break
+        if candidate.width and width >= candidate.width:  # Commons would hand back the original: ask for a smaller size
+            continue
+        url = candidate.thumb_url or candidate.file_url
+        suffix = urllib.parse.urlparse(url).path.rsplit(".", 1)[-1].lower()   # Commons adds ?utm_source=... to its URLs
+        mime = {"jpg": "image/jpeg", "jpeg": "image/jpeg", "png": "image/png", "webp": "image/webp"}.get(suffix, "")
+        if mime:
+            return Candidate(**{**candidate.__dict__, "file_url": url, "mime": mime})
+        break
+    raise AssetError(f"Commons has no picture {title!r} that BIE can draw")
 
 
 def openverse_licence(code: str, version: str = "") -> str:
