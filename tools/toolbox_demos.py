@@ -28,7 +28,7 @@ from bie.brain.assets import AssetLibrary  # noqa: E402
 from bie.brain.video import render  # noqa: E402
 from bie.toolbox import demos as demo_module  # noqa: E402
 from bie.toolbox import registry as registry_module  # noqa: E402
-from bie.toolbox.adapters.base import PYTHON_TOOLS, installed_version  # noqa: E402
+from bie.toolbox.adapters.base import PROGRAMS, PYTHON_TOOLS, installed_version  # noqa: E402
 
 SHEET_AT = (0.06, 0.24, 0.42, 0.6, 0.78, 0.96)
 WEB = json.loads((ROOT / "bie" / "toolbox" / "web_packages.json").read_text(encoding="utf-8"))
@@ -47,7 +47,7 @@ def tool_versions(tool_ids, box) -> dict:
     out = {}
     for tid in tool_ids:
         tool = box.tool(tid)
-        if tid in PYTHON_TOOLS:
+        if tid in PYTHON_TOOLS or tid in PROGRAMS:
             found = installed_version(tid)
         elif tid in WEB["tool_packages"]:
             found = npm_version(WEB["tool_packages"][tid])

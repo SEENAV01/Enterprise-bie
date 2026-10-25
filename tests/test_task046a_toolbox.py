@@ -100,7 +100,7 @@ class Registry(unittest.TestCase):
 
     def test_share_alike_and_gpl_items_are_marked_not_blocked(self):
         marked = {t.id: t for t in BOX.tools if set(t.licence_flags) & {"share_alike", "gpl"}}
-        self.assertEqual(set(marked), {"z-anatomy", "blender"})
+        self.assertEqual(set(marked), {"z-anatomy", "blender", "pygplates"})
         self.assertTrue(all(t.usable for t in marked.values()))
 
     def test_pins_match_the_install_files(self):
@@ -118,8 +118,8 @@ class Registry(unittest.TestCase):
                     self.assertTrue(version, f"{group}: {item} must be pinned with ==")
                     pins[name.lower()] = (group, version)
         for tid, (_, dist, group) in base.PYTHON_TOOLS.items():
-            self.assertIn(dist, pins, f"{dist} needs a pin in pyproject extras")
-            self.assertEqual(pins[dist], (group, BOX.tool(tid).version), tid)
+            self.assertIn(dist.lower(), pins, f"{dist} needs a pin in pyproject extras")    # PyPI names ignore case
+            self.assertEqual(pins[dist.lower()], (group, BOX.tool(tid).version), tid)
             self.assertEqual(BOX.tool(tid).install_group, group, tid)
         self.assertEqual(web["npm_before_file"], "tools/npm_before.txt")
         self.assertTrue(BOX.npm_before.startswith((ROOT / "tools/npm_before.txt").read_text().strip()[:10]))
@@ -285,6 +285,54 @@ class Sources(unittest.TestCase):
             self.assertEqual(made[0], (b"Kaydara FBX Binary", "ventricle", ""))
             with self.assertRaises(sources.SourceError):
                 sources.z_anatomy("../../etc/passwd", "x", self.lib, opener=opener)
+
+    def test_usgs_quakes_rows_and_public_domain_credit(self):
+        quake = {"type": "Feature", "properties": {"mag": 7.1, "place": "Southern Tibetan Plateau", "time": 1736211916734},
+                 "geometry": {"type": "Point", "coordinates": [87.38, 28.60, 10.0]}}
+        opener = Opener({"https://earthquake.usgs.gov/fdsnws/event/1/query": {"type": "FeatureCollection", "features": [quake]}})
+        asset, rows = sources.usgs_quakes("2025-01-01", "2025-12-31", self.lib, magnitude=6.0, opener=opener)
+        self.assertEqual(rows, [{"lon": 87.38, "lat": 28.6, "depth_km": 10.0, "magnitude": 7.1, "time_ms": 1736211916734,
+                                 "place": "Southern Tibetan Plateau"}])
+        self.assertEqual((asset.licence, asset.mime), ("Public domain (USGS)", "application/json"))
+        self.assertIn("minmagnitude=6.0", opener.urls[0])
+        with self.assertRaises(sources.SourceError):
+            sources.usgs_quakes("2025-01-01&x=1", "2025-12-31", self.lib, opener=opener)
+
+    def test_gplates_model_unpacks_only_its_two_files(self):
+        def archive(member: str, body: bytes) -> bytes:
+            buf = io.BytesIO()
+            with zipfile.ZipFile(buf, "w") as z:
+                z.writestr(member, body)
+                z.writestr("../../outside.txt", b"never written")
+            return buf.getvalue()
+        spec = sources.GPLATES_MODELS["muller2019"]
+        opener = Opener({spec["base"] + "Rotations.zip": archive(spec["rotations"][1], b"101 0.0 90 0 0 000 !x\n"),
+                         spec["base"] + "Coastlines.zip": archive(spec["coastlines"][1], b"gpmlz")})
+        with mock.patch.dict(os.environ, {"BIE_ASSET_CACHE": str(Path(self.tmp.name) / "cache")}):
+            model = sources.gplates_model("muller2019", opener=opener)
+            again = sources.gplates_model("muller2019", opener=opener)
+            self.assertEqual(model["rotations"].read_bytes(), b"101 0.0 90 0 0 000 !x\n")
+            self.assertEqual((model["licence"], again["coastlines"]), ("CC BY 4.0", model["coastlines"]))
+            self.assertEqual(len(opener.urls), 2)                          # fetched once, then read from the cache
+            self.assertFalse((Path(self.tmp.name) / "outside.txt").exists())
+        with self.assertRaises(sources.SourceError):
+            sources.gplates_model("unknown")
+
+    def test_nasa_image_takes_the_size_asked_for_and_marks_third_party_rights(self):
+        meta = {"collection": {"items": [{"data": [{"title": "Earthrise", "center": "JSC", "description": "Apollo 8"}]}]}}
+        files = {"collection": {"items": [{"href": "http://images-assets.nasa.gov/image/as08-14-2383/as08-14-2383~orig.jpg"},
+                                          {"href": "http://images-assets.nasa.gov/image/as08-14-2383/as08-14-2383~medium.jpg"}]}}
+        opener = Opener({"https://images-api.nasa.gov/search": meta, "https://images-api.nasa.gov/asset/": files,
+                         "https://images-assets.nasa.gov/image/as08-14-2383/as08-14-2383~medium.jpg": b"\xff\xd8\xffjpeg"})
+        asset = sources.nasa_image("as08-14-2383", self.lib, size="medium", opener=opener)
+        self.assertEqual((asset.title, asset.credit), ("Earthrise", "NASA/JSC (as08-14-2383)"))
+        self.assertIn("not copyrighted", asset.licence)
+        meta["collection"]["items"][0]["data"][0]["secondary_creator"] = "© Some Agency"
+        opener.routes["https://images-assets.nasa.gov/image/as08-14-2383/as08-14-2383~medium.jpg"] = b"\xff\xd8\xffother"
+        other = sources.nasa_image("as08-14-2383", self.lib, size="medium", opener=opener)
+        self.assertIn("third-party copyright", other.licence)
+        with self.assertRaises(sources.SourceError):
+            sources.nasa_image("../x", self.lib, opener=opener)
 
     def test_big_downloads_stay_in_the_cache_outside_git(self):
         with mock.patch.dict(os.environ, {"BIE_ASSET_CACHE": str(Path(self.tmp.name) / "cache")}):
