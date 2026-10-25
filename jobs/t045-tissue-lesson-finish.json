@@ -1,0 +1,15 @@
+{
+ "job": "bie.vm-job/1",
+ "id": "t045-tissue-lesson-finish",
+ "section": "lesson",
+ "chapter_map": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t045d-tissue-understand-resume3-brain-understand/chapter_map.json",
+ "resume_from": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t045d-tissue-lesson-resume2-brain-lesson",
+ "maker": "codex",
+ "reviewer": "google",
+ "models": "google=gemini-3.8-flash",
+ "routes": "google=direct",
+ "max_inr": 30,
+ "workers": 2,
+ "max_rounds": 3,
+ "note": "Task 045 closing: the plan and the 9 passed scripts reused; v5 and v9 continue from their last answers (PR #64), both clean by code, so round 0 sends each straight to the reviewer (no maker call). Reviewer on Navin's free Google key (gemini-3.8-flash direct, billed Rs 0); Codex patches at Rs 0 if the review finds blocking problems. Cap Rs 30 on the list-price estimate (room for two review rounds each; Google bills Rs 0)."
+}
