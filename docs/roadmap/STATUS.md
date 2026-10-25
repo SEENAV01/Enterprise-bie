@@ -81,6 +81,12 @@ Built (IMPLEMENTED; checked offline and in CI; not used on a real book yet, noth
   `tests/scene_ir/test_h3_asset.py`, `test_h3_integration.py`, `tests/compiler/test_comp_asset_001.py`,
   `test_comp_asset_003.py`, `test_comp_asset_integration.py` and `test_comp_h11_001.py` give their synthetic images a
   licence record (BIE's own drawing), because "licensed", "rights" and "user_supplied" are not licences the policy can read.
+- **Before-images kept:** the compiler's lineage checks (`tests/compiler/test_comp_h1`–`h5_integration.py`) require that a
+  file recorded by an earlier batch (`lineage/batch_009`, `hardening_h1`–`h4`) keeps its original bytes in that batch's
+  lineage folder once it changes. This PR changes 8 such files (`bie/compiler/asset_bundler.py`,
+  `bie/compiler/compiler_asset_common.py`, `bie/scene_ir/asset_contract.py` and five test files), so their bytes from
+  `main` (`c3173571`; each matches the batch's recorded hash) are added under `lineage/<batch>/` (40 copies, nothing
+  existing changed). Found by the PR's first `native-extra` run.
 - **Earlier passed outputs:** both sets in `tests/fixtures/passed_outputs/` (tissue understanding and lesson) re-checked with
   `tools/passed_outputs.py check`: 0 problems. They are text only (pages, map, scripts); no earlier passed output used
   refused content, so none is listed as broken.
