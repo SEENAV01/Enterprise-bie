@@ -87,6 +87,14 @@ Built (IMPLEMENTED; checked offline and in CI; not used on a real book yet, noth
   `bie/compiler/compiler_asset_common.py`, `bie/scene_ir/asset_contract.py` and five test files), so their bytes from
   `main` (`c3173571`; each matches the batch's recorded hash) are added under `lineage/<batch>/` (40 copies, nothing
   existing changed). Found by the PR's first `native-extra` run.
+- **One pin converted (Task 037C rule, first edit of `bie/scene_ir/` since adoption):**
+  `tests/productization/visual/test_visual_producer.py::test_native_visual_director_animation_sceneir_and_android_trees_preserved`
+  pinned a hash of five whole trees (`apps/android`, `bie/visual_intelligence`, `bie/director`,
+  `bie/animation_intelligence`, `bie/scene_ir`). The adopted file lists are now in
+  `tests/productization/visual/preserved_trees.json` (taken from `main` `c3173571`; each list reproduces the pinned count
+  and identity exactly, and the test still checks that); an adopted file that disappears still fails, a working-source
+  file that changed is accepted as evolved (`scripts/source_evolution.py`). Test count unchanged (the Task 035 affected
+  inventory stays 4,972). Found by the PR's `task035-affected` run.
 - **Earlier passed outputs:** both sets in `tests/fixtures/passed_outputs/` (tissue understanding and lesson) re-checked with
   `tools/passed_outputs.py check`: 0 problems. They are text only (pages, map, scripts); no earlier passed output used
   refused content, so none is listed as broken.

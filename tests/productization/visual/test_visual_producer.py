@@ -291,13 +291,21 @@ class ProfileAndPreservationTests(unittest.TestCase):
             "bie/director": (71, "62abca7d4f1f613aa38907128f528bccddb2e3c1bfeb105cdf2ba79599d93824"),
             "bie/animation_intelligence": (67, "d34eedf95497788585dd42a54b45cbfbc7a6d3c5808aa85707ce172743598252"),
             "bie/scene_ir": (80, "21c2c479c1b1880e43f0f9ba0f0f4685bafd0ec374985932b9c67f480066e3c0")}
+        # Task 037C: these trees are working source and may evolve through reviewed PRs. The adopted file lists
+        # (preserved_trees.json) must still match the pinned counts and identities, and no adopted file may disappear;
+        # a file that differs from its adopted bytes is reported as evolved, not failed.
+        sys.path.insert(0, str(ROOT / "scripts"))
+        from source_evolution import accepts
+        adopted = json.loads((Path(__file__).with_name("preserved_trees.json")).read_text(encoding="utf-8"))["trees"]
         for folder, (count, identity) in expected.items():
-            paths = canonical_repository_paths(ROOT, folder)
-            items = [(p.relative_to(ROOT).as_posix(), sha256(p.read_bytes().replace(b"\r\n", b"\n")).hexdigest())
-                     for p in paths]
+            recorded = [tuple(row) for row in adopted[folder]]
+            current = {p.relative_to(ROOT).as_posix(): sha256(p.read_bytes().replace(b"\r\n", b"\n")).hexdigest()
+                       for p in canonical_repository_paths(ROOT, folder)}
             with self.subTest(folder=folder):
-                self.assertEqual(len(items), count)
-                self.assertEqual(sha256(json.dumps(items, sort_keys=True, separators=(",", ":")).encode()).hexdigest(), identity)
+                self.assertEqual(len(recorded), count)
+                self.assertEqual(sha256(json.dumps(recorded, sort_keys=True, separators=(",", ":")).encode()).hexdigest(), identity)
+                self.assertEqual([path for path, _ in recorded if path not in current], [])
+                self.assertTrue(all(accepts(path, digest, current[path]) for path, digest in recorded))
 
     def test_preservation_order_uses_raw_case_sensitive_posix_paths(self):
         with tempfile.TemporaryDirectory() as temporary:
