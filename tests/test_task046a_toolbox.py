@@ -681,16 +681,51 @@ class DemosAndPage(unittest.TestCase):
             for name in earth.GMT_TABLES:
                 os.utime(Path(userdir, name), (old, old))
 
+            tried = []
+
             def down(request, timeout=None):
+                tried.append(timeout)
                 raise urllib.error.URLError("unreachable")
             kept = earth.prefetch_relief("02m", (70, 100, 20, 40), userdir=userdir, opener=down, sleep=lambda s: None)
             self.assertEqual(set(kept["tables"].values()), {"kept"})        # stale local tables kept, dated today
             self.assertLess(time.time() - Path(userdir, earth.GMT_TABLES[0]).stat().st_mtime, 60)
+            self.assertEqual(tried, [30.0, 30.0])                           # one short try per stale table (F-13b)
         with tempfile.TemporaryDirectory() as empty:
             def down(request, timeout=None):
                 raise urllib.error.URLError("unreachable")
             with self.assertRaisesRegex(RuntimeError, "not reached in 3 attempts"):
                 earth.prefetch_relief("02m", (70, 100, 20, 40), userdir=empty, opener=down, sleep=lambda s: None)
+
+    def test_ci_keeps_the_relief_tiles_in_a_cache_every_pr_restores(self):
+        """F-13b: a PR's own Actions cache starts empty and GMT's one data server was unreachable from the runners for
+        minutes; the assets job fetches the tiles on main and every PR's demo jobs restore that shared cache."""
+        import importlib.util
+        from bie.toolbox.adapters import earth
+        spec = importlib.util.spec_from_file_location("toolbox_setup", ROOT / "tools" / "toolbox_setup.py")
+        setup = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(setup)
+        table = ("/server/earth/earth_relief/\tearth_relief_02m_g/\t02m\tg\t0.5\t0\t 64M\t60\t2025-05-01\t-\t-\tgeo\tSRTM15\n")
+        urls = []
+
+        def opener(request, timeout=None):
+            urls.append(request.full_url)
+            return FakeResponse(table.encode() if request.full_url.endswith(".txt") else b"jp2")
+
+        with tempfile.TemporaryDirectory() as cache:
+            done = setup.prefetch_assets(Path(cache), opener=opener, sleep=lambda s: None)["gmt_relief"]
+            self.assertEqual(done["tiles"], earth.relief_tiles(table, earth.DEFAULT_RESOLUTION, earth.DEFAULT_REGION)[1])
+            self.assertEqual(sorted(done["fetched"]), sorted(done["tiles"]))
+            for tile in done["tiles"]:
+                self.assertTrue(Path(cache, "gmt/server/earth/earth_relief/earth_relief_02m_g", tile).exists())
+            self.assertTrue(all(u.startswith(earth.GMT_SERVER) for u in urls))
+        self.assertIn("region = earth.DEFAULT_REGION", (ROOT / "bie" / "toolbox" / "demos.py").read_text(encoding="utf-8"))
+        flow = (ROOT / ".github" / "workflows" / "toolbox.yml").read_text(encoding="utf-8")
+        assets = flow.split("\n  assets:\n", 1)[1].split("\n  core:\n", 1)[0]
+        self.assertIn("if: github.event_name != 'pull_request'", assets)
+        self.assertIn("tools/toolbox_setup.py --assets", assets)
+        self.assertIn("key: bie-asset-cache-shared-${{ github.run_id }}", assets)
+        self.assertEqual(flow.count("            bie-asset-cache-shared-\n"), 2)     # wrappers and demos restore it
+        self.assertIn("  push:\n    branches: [main]", flow)
 
     def test_adapters_import_without_their_libraries(self):
         with mock.patch.dict(sys.modules, {"rdkit": None}):
