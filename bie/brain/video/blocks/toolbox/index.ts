@@ -19,3 +19,5 @@ import "./cards";
 import "./econ";
 import "./language";
 import "./behaviour";
+import "./benchmark";
+import "./grammar";

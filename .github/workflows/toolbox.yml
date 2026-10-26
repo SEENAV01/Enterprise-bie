@@ -24,6 +24,8 @@ on:
       - 'tools/shot_list.py'
       - 'tests/toolbox/**'
       - 'tools/toolbox_*.py'
+      - 'tools/render_video.py'
+      - 'tools/benchmark_page.py'
       - 'tools/run_task046a_tests.py'
       - 'tools/npm_before.txt'
       - 'pyproject.toml'
@@ -73,7 +75,7 @@ jobs:
         run: |
           sudo apt-get update -qq
           sudo apt-get install -y -qq libcairo2-dev libpango1.0-dev pkg-config ffmpeg libxi6 libxkbcommon0 libsm6 libxrender1 \
-            libxxf86vm1 libgl1 libegl1 ngspice gmt libgmt-dev gmt-dcw gmt-gshhg-low ghostscript >/dev/null
+            libxxf86vm1 libgl1 libegl1 ngspice gmt libgmt-dev gmt-dcw gmt-gshhg-low ghostscript espeak-ng >/dev/null
       - name: Every toolbox extra, pinned (pyproject.toml), and PsychoPy's experiment-design part
         run: |
           python -m pip install --no-deps --ignore-requires-python psychopy==2026.2.4
@@ -98,7 +100,11 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        batch: [1, 2, 3]
+        include:
+          - { batch: 1, group: main }
+          - { batch: 1, group: bench }     # Task 046 Part B: the 17 benchmark-block clips, their own job so batch 1 stays about 30 minutes
+          - { batch: 2, group: all }
+          - { batch: 3, group: all }
     env:
       PYTHONDONTWRITEBYTECODE: '1'
       PYTHONUTF8: '1'
@@ -117,7 +123,7 @@ jobs:
         run: |
           sudo apt-get update -qq
           sudo apt-get install -y -qq fonts-noto-core fonts-noto-ui-core libcairo2-dev libpango1.0-dev pkg-config ffmpeg libxi6 \
-            libxkbcommon0 libsm6 libxrender1 libxxf86vm1 libgl1 libegl1 ngspice gmt libgmt-dev gmt-dcw gmt-gshhg-low ghostscript >/dev/null
+            libxkbcommon0 libsm6 libxrender1 libxxf86vm1 libgl1 libegl1 ngspice gmt libgmt-dev gmt-dcw gmt-gshhg-low ghostscript espeak-ng >/dev/null
       - name: Python toolbox extras (PsychoPy without its desktop stack, BIE uses psychopy.data only)
         run: |
           python -m pip install --no-deps --ignore-requires-python psychopy==2026.2.4
@@ -133,9 +139,9 @@ jobs:
           path: ${{ github.workspace }}/../bie-asset-cache
           key: bie-asset-cache-batch${{ matrix.batch }}-${{ hashFiles('bie/toolbox/sources.py') }}
       - name: Proof clips (BIE code only), contact sheets and receipts
-        run: python -B tools/toolbox_demos.py --batch "${{ matrix.batch }}" --out "$RUNNER_TEMP/demos" --keep-going
+        run: python -B tools/toolbox_demos.py --batch "${{ matrix.batch }}" --group "${{ matrix.group }}" --out "$RUNNER_TEMP/demos" --keep-going
       - name: Bridge proof - the same clip rendered by real Remotion
-        if: matrix.batch == 1
+        if: matrix.batch == 1 && matrix.group == 'main'
         run: python -B tools/toolbox_demos.py --bridge bio-cell-sheet-flow --out "$RUNNER_TEMP/demos"
       - name: Toolbox page with the results
         if: always()
@@ -145,7 +151,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
-          name: bie-toolbox-demos-batch-${{ matrix.batch }}
+          name: bie-toolbox-demos-batch-${{ matrix.batch }}-${{ matrix.group }}
           path: |
             ${{ runner.temp }}/demos/*/demo.mp4
             ${{ runner.temp }}/demos/*/bridge.mp4

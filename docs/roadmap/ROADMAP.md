@@ -258,10 +258,12 @@ a soul.py check with the word list in the rulebook.
 
 **Three PRs.** Part A (the code director: ladder, grammar, W-01, capability levels and blocks, `bie/brain/shots.py`, the
 offline proof on v3, VM job 1 = the W-01 wording patch on v3 at ₹0) — done 26 October 2026, IMPLEMENTED (STATUS, "Task 046 ·
-Part A"). Part B (blocks as code with frame checks and demo clips — the L4 blocks `cutaway`, `exploded_view`, `flow_arrows`
-demoed on a procedural Earth wedge and bar magnet, Navin 26 October 2026 — route A three.js through Remotion and route C
-procedural or Blender models, espeak placeholder voice or silent captions, the epithelium family segment of v3 rendered in CI, cost table,
-24-rule table shot by shot, a ≤ 720p review copy on `blindtest-results` and an artifact page) — then stop for Navin's verdict.
+Part A"; VM job 1 done 26 October 2026: v3's five book-pointing beats rewritten and reviewed at ₹0). Part B (blocks as code with
+frame checks and demo clips — the L4 blocks `cutaway`, `exploded_view`, `flow_arrows` demoed on a procedural Earth wedge and bar
+magnet, Navin 26 October 2026 — route A three.js through Remotion and route C Blender models in the same block, the eSpeak
+placeholder voice driving the timing, the epithelium family segment of v3 rendered in CI, cost table, 24-rule table shot by shot
+with frame numbers, a ≤ 720p review copy on `blindtest-results` and the review page) — done 26 October 2026, IMPLEMENTED (STATUS,
+"Task 046 · Part B") — then stop for Navin's verdict.
 Part C after the verdict (fixes, all of v3, the head-to-head VM job 2, seekh → BIE). Status words: IMPLEMENTED until Navin
 says ACCEPTED.
 

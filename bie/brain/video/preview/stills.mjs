@@ -1,6 +1,6 @@
 // Stills (PNG) of chosen frames, or a quick MP4 preview through ffmpeg.
 //   node stills.mjs --dist <dir> --spec video_spec.json --frames 0,45,120 --out <dir> [--page toolbox.html]
-//   node stills.mjs --dist <dir> --spec video_spec.json --mp4 out.mp4 [--audio narration.wav] [--assets <dir>] [--page toolbox.html]
+//   node stills.mjs --dist <dir> --spec video_spec.json --mp4 out.mp4 [--audio narration.wav] [--assets <dir>] [--page toolbox.html] [--from f --to g]
 // The dist folder is served over http://127.0.0.1 (Task 046a: glTF models, PDB files and fonts load with fetch, which
 // file:// pages cannot do). WebGL runs on SwiftShader, so three.js, 3Dmol.js and Mol* draw without a GPU.
 import { createRequire } from "node:module";
@@ -43,10 +43,12 @@ try {
     }
   } else if (args.mp4) {
     const total = await page.evaluate(() => window.totalFrames());
+    const first = args.from ? Math.max(0, Number(args.from)) : 0;        // Task 046: a chunk of a long video
+    const last = args.to ? Math.min(total, Number(args.to)) : total;
     const ff = spawn("ffmpeg", ["-y", "-loglevel", "error", "-f", "image2pipe", "-framerate", String(spec.fps), "-c:v", "mjpeg", "-i", "-",
       ...(args.audio ? ["-i", resolve(args.audio)] : []), "-c:v", "libx264", "-preset", "medium", "-crf", "21", "-pix_fmt", "yuv420p",
       ...(args.audio ? ["-c:a", "aac", "-b:a", "160k", "-shortest"] : []), resolve(args.mp4)], { stdio: ["pipe", "inherit", "inherit"] });
-    for (let f = 0; f < total; f++) {
+    for (let f = first; f < last; f++) {
       await page.evaluate((n) => window.setFrame(n), f);
       const buf = await page.screenshot({ type: "jpeg", quality: 92 });
       if (!ff.stdin.write(buf)) await new Promise((r) => ff.stdin.once("drain", r));

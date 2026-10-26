@@ -1,5 +1,5 @@
 // Render a VideoSpec with real Remotion (Task 046a bridge proof).
-//   node render.mjs --spec spec.json --public <assets parent> --out out.mp4 [--frames 0,40,90 --stills <dir>] [--browser <chrome>]
+//   node render.mjs --spec spec.json --public <assets parent> --out out.mp4 [--from f --to g] [--frames 0,40,90 --stills <dir>] [--browser <chrome>]
 // Packages (@remotion/bundler, @remotion/renderer, remotion, @remotion/three, three, the React Three Fiber stack, KaTeX,
 // D3, 3Dmol.js, Mol*, Matter.js, cannon-es) come from NODE_PATH, pinned by bie/toolbox/web_packages.json.
 import { createRequire } from "node:module";
@@ -35,7 +35,9 @@ if (args.frames) {
   }
 }
 if (args.out) {
+  // Task 046: a frame range renders a sample of a long video ([from, to) as the preview renderer counts)
+  const frameRange = args.from || args.to ? [Number(args.from || 0), (args.to ? Number(args.to) : composition.durationInFrames) - 1] : null;
   await renderMedia({ composition, serveUrl, codec: "h264", outputLocation: resolve(args.out), inputProps, chromiumOptions,
-    browserExecutable, concurrency: 1, muted: true, onBrowserLog });
+    browserExecutable, concurrency: 1, muted: true, onBrowserLog, ...(frameRange ? { frameRange } : {}) });
 }
 console.log(JSON.stringify({ ok: true, durationInFrames: composition.durationInFrames }));

@@ -109,6 +109,26 @@ def actual(ledger_rows, *, pages: int, rate: float) -> dict:
             "subscription": subscription}
 
 
+def lesson_share(previous_lesson: dict | None, video_ids) -> dict:
+    """A lesson resume that works on some scripts only (``--videos``, seekh from VM job 1, 26 October 2026): the share of the
+    chapter those scripts are, by spoken minutes (``spoken_minutes`` of each video, else its words at 130 wpm), so the estimate
+    is for the work asked, not for the whole chapter. Share 1.0 when nothing is selected or the plan has no videos."""
+    plan = previous_lesson or {}
+    videos = plan.get("videos") or (plan.get("plan") or {}).get("videos") or []
+    wanted = {v for v in (video_ids or []) if v}
+    known = {v.get("video_id") for v in videos}
+    if not videos or not (wanted & known):
+        return {"share": 1.0, "videos": len(videos), "selected": 0}
+
+    def minutes(video):
+        return float(video.get("spoken_minutes") or 0) or sum(len((b.get("say") or "").split()) for b in video.get("beats") or []) / 130.0
+
+    total = sum(minutes(v) for v in videos)
+    picked = sum(minutes(v) for v in videos if v.get("video_id") in wanted)
+    share = picked / total if total else len(wanted & known) / len(videos)
+    return {"share": round(min(1.0, max(0.02, share)), 4), "videos": len(videos), "selected": len(wanted & known)}
+
+
 def estimate_line(est: dict, cap_inr: float) -> str:
     parts = ", ".join(f"{name} Rs {row['inr']:g}" + ("" if row["basis"] == "measured" else " (assumed)")
                       for name, row in est["sections"].items())

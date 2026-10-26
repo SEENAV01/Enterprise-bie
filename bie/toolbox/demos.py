@@ -8,6 +8,7 @@ proof names a demo here.
 """
 from __future__ import annotations
 
+import json
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Callable
@@ -39,11 +40,12 @@ class Demo:
     seconds: float
     build: Callable
     kind: str = "web"            # web = BIE blocks through the preview renderer; manim = an offline Manim clip
+    rules: tuple = ()            # benchmark rules the clip's stills are checked against (frame_checks.demo_rules; Task 046)
 
 
-def scene(layers: list, seconds: float, camera=None) -> dict:
+def scene(layers: list, seconds: float, camera=None, *, size: tuple = (1920, 1080)) -> dict:
     frames = int(round(seconds * FPS))
-    return {"fps": FPS, "width": 1920, "height": 1080, "captions": False,
+    return {"fps": FPS, "width": size[0], "height": size[1], "captions": False,
             "scenes": [{"id": "demo", "duration": frames, "layers": layers, "camera": camera or [{"at": 0, "box": FULL}]}]}
 
 
@@ -714,6 +716,159 @@ def kinetic_sanskrit(w: Work) -> dict:
 # Every 3D block draws through @remotion/three, React Three Fiber and drei on three.js.
 THREE_STACK = ("three", "react-three-fiber", "drei", "remotion-three")
 
+
+# ---------------------------------------------------------------- Task 046 Part B: the benchmark world and the grammar blocks
+# One clip per block of bie/brain/video/blocks/toolbox/benchmark.tsx and grammar.tsx (the eighteenth block, equation_steps in
+# maths.tsx, is proven by maths-equation). The L4 blocks cutaway, exploded_view and flow_arrows are shown on a procedural Earth
+# wedge and bar magnet (Navin, 26 October 2026). 1280×720 so the batch-1 lane stays short (the benchmark segment itself renders
+# at 1920×1080); each clip is checked against the rules it serves (Demo.rules → frame_checks.demo_rules on its stills).
+
+BENCH = (1280, 720)
+CAPTION_BOX = {"x": 0, "y": 0, "w": 1, "h": 0.2}
+ACCENTS = Path(__file__).resolve().parents[1] / "brain" / "video" / "blocks" / "toolbox" / "accents.json"
+EARTH_ACCENT = "#ffb35c"
+EARTH_LABELS = [{"text": "crust", "part": "crust"}, {"text": "mantle", "part": "mantle"}, {"text": "outer core", "part": "outer_core"},
+                {"text": "inner core", "part": "inner_core"}]
+FIELD_RIGHT = [{"x": 0.53, "y": 0.1}, {"x": 0.86, "y": 0.2}, {"x": 0.95, "y": 0.5}, {"x": 0.86, "y": 0.8}, {"x": 0.53, "y": 0.9}]
+FIELD_LEFT = [{"x": 0.47, "y": 0.1}, {"x": 0.14, "y": 0.2}, {"x": 0.05, "y": 0.5}, {"x": 0.14, "y": 0.8}, {"x": 0.47, "y": 0.9}]
+
+
+def accents() -> dict:
+    return json.loads(ACCENTS.read_text(encoding="utf-8"))
+
+
+def _world(w: Work, name: str, data: dict, seconds: float, *, member: str = "simple_columnar", world: str = "", layers=()) -> dict:
+    """One benchmark-world block by its registered name over the whole frame; the member's accent noted for the B-10 check."""
+    w.notes["accent"] = EARTH_ACCENT if world == "earth" else accents()[member]
+    data = dict(data, world=world) if world else dict(data, member=member)
+    return scene([block(name, data, FULL), *layers], seconds, size=BENCH)
+
+
+def _panel(w: Work, name: str, data: dict, box: dict, seconds: float, *, member: str = "simple_squamous", rest: bool = True, at: int = 0) -> dict:
+    """A 2D grammar block over the world, as in a lesson: the world settles, then orbits slowly; it rests (dims) while a panel teaches."""
+    w.notes["accent"] = accents()[member]
+    shots = [{"at": 0, "member": member, "focus": [] if rest else "cell", "dim": rest, "camera": {"move": "establish"}},
+             {"at": 2, "member": member, "focus": [] if rest else "cell", "dim": rest, "camera": {"move": "orbit", "seconds": seconds - 0.3}}]
+    return scene([block("cell_sheet", {"member": member, "shots": shots}, FULL), block(name, dict(data), box, at=at)], seconds, size=BENCH)
+
+
+def bench_cell_sheet(w: Work) -> dict:
+    return _world(w, "cell_sheet", {"shots": [
+        {"at": 0, "camera": {"move": "establish"}, "labels": [{"text": "simple columnar cells", "part": "cell"}]},
+        {"at": 40, "camera": {"move": "zoom_in", "target": "nucleus"}, "focus": "nucleus", "labels": [{"text": "nucleus, base के पास", "part": "nucleus"}]},
+        {"at": 85, "camera": {"move": "zoom_out"}, "focus": "basement_membrane", "labels": [{"text": "basement membrane", "part": "basement_membrane"}]}]}, 4.0)
+
+
+def bench_particle_flow(w: Work) -> dict:
+    return _world(w, "particle_flow", {"flow": {"kind": "absorb", "particles": 48, "seconds": 2.6}, "focus": "cell",
+                                        "labels": [{"text": "nutrients sheet के पार", "part": "top"}]}, 4.0, member="simple_cuboidal")
+
+
+def bench_focus_glow(w: Work) -> dict:
+    return _world(w, "focus_glow", {"focus": "nucleus", "camera": {"move": "zoom_in", "target": "nucleus", "seconds": 1.6},
+                                     "labels": [{"text": "nucleus", "part": "nucleus"}]}, 3.5, member="stratified_squamous")
+
+
+def bench_organ_zoom(w: Work) -> dict:
+    return _world(w, "organ_zoom", {"organ": "lung", "organ_label": "Lung → airway की lining", "focus": "cilia"}, 4.5, member="ciliated")
+
+
+def bench_leader_label(w: Work) -> dict:
+    return _world(w, "leader_label", {"labels": [{"text": "cilia", "part": "cilia"}, {"text": "nucleus", "part": "nucleus"},
+                                                  {"text": "basement membrane", "part": "basement_membrane"}],
+                                       "camera": {"move": "pan", "target": "cilia", "seconds": 2.4}}, 3.5, member="ciliated")
+
+
+def bench_camera_path(w: Work) -> dict:
+    return _world(w, "camera_path", {"shots": [
+        {"at": 0, "camera": {"move": "establish"}},
+        {"at": 18, "camera": {"move": "orbit", "seconds": 2.2}, "focus": "layers"},
+        {"at": 84, "camera": {"move": "zoom_in", "target": "nucleus", "seconds": 1.2}, "focus": "nucleus"}]}, 4.5, member="stratified_squamous")
+
+
+def bench_cutaway(w: Work) -> dict:
+    return _world(w, "cutaway", {"shots": [
+        {"at": 0, "camera": {"move": "establish"}, "labels": [{"text": "crust", "part": "crust"}]},
+        {"at": 18, "cutaway": True, "focus": ["mantle"], "labels": EARTH_LABELS},
+        {"at": 90, "cutaway": True, "focus": ["outer_core"], "camera": {"move": "zoom_in", "target": "outer_core", "seconds": 1.2}, "labels": EARTH_LABELS}]},
+        4.5, world="earth")
+
+
+def bench_exploded(w: Work) -> dict:
+    return _world(w, "exploded_view", {"shots": [
+        {"at": 0, "camera": {"move": "establish"}, "cutaway": True, "labels": EARTH_LABELS},
+        {"at": 30, "cutaway": True, "exploded": True, "focus": ["mantle"], "labels": EARTH_LABELS}]}, 4.5, world="earth")
+
+
+def bench_flow_arrows(w: Work) -> dict:
+    arrows = [block("flow_arrows", {"path": FIELD_RIGHT, "arrows": 7, "seconds": 2.8, "label": "field line N → S", "accent": EARTH_ACCENT}, FULL, at=10),
+              block("flow_arrows", {"path": FIELD_LEFT, "arrows": 7, "seconds": 2.8, "accent": EARTH_ACCENT}, FULL, at=10)]
+    return _world(w, "cell_sheet", {"shots": [{"at": 0, "camera": {"move": "establish"}, "focus": ["magnet"],
+                                                "labels": [{"text": "N", "part": "north"}, {"text": "S", "part": "south"}]}]},
+                  4.5, world="earth", layers=arrows)
+
+
+def bench_kinetic_caption(w: Work) -> dict:
+    acc = accents()["simple_squamous"]
+    return _panel(w, "kinetic_caption", {"text": "Squamous यानी चपटी, scale जैसी cells, floor की tiles की तरह बिछी हुई",
+                                          "terms": ["squamous", "scale", "cells", "floor", "tiles"], "accent": acc, "seconds": 3.2},
+                  CAPTION_BOX, 4.0, member="simple_squamous", rest=False)
+
+
+def bench_board_build(w: Work) -> dict:
+    acc = accents()
+    rows = [{"a": "Simple squamous", "b": "पतली: exchange", "at": 6, "accent": acc["simple_squamous"]},
+            {"a": "Simple cuboidal", "b": "secrete और absorb", "at": 34, "accent": acc["simple_cuboidal"]},
+            {"a": "Simple columnar", "b": "absorb, mucus", "at": 62, "accent": acc["simple_columnar"]},
+            {"a": "Stratified squamous", "b": "घिसाव से बचाव", "at": 90, "accent": acc["stratified_squamous"]}]
+    return _panel(w, "board_build", {"title": "shape → job", "rows": rows, "compact": True}, {"x": 0.56, "y": 0.1, "w": 0.42, "h": 0.8}, 4.5,
+                  member="simple_cuboidal", rest=False)
+
+
+def bench_mnemonic_card(w: Work) -> dict:
+    return _panel(w, "mnemonic_card", {"title": "S · C · C", "kicker": "याद रखो", "seconds": 3.4, "accent": "#ffd166",
+                                        "lines": ["Squamous = Scale, चपटी", "Cuboidal = Cube, dice जैसी", "Columnar = Column, खंभे जैसी"]},
+                  FULL, 4.2, member="generic")
+
+
+def bench_concept_arrow(w: Work) -> dict:
+    return _panel(w, "concept_arrow", {"from": "Pseudo-stratified", "to": "झूठी layers", "accent": accents()["pseudostratified"],
+                                        "reason": "हर cell base को छूती है, nuclei अलग-अलग ऊँचाई पर, इसलिए कई layers का भ्रम"},
+                  {"x": 0, "y": 0.1, "w": 1, "h": 0.9}, 3.6, member="pseudostratified", rest=False)
+
+
+def bench_split_compare(w: Work) -> dict:
+    w.notes["accent"] = accents()["simple_squamous"]
+    data = {"left": {"title": "Simple squamous", "member": "simple_squamous", "lines": ["1 layer", "exchange: alveoli, vessels"]},
+            "right": {"title": "Stratified squamous", "member": "stratified_squamous", "lines": ["कई layers", "protection: skin, mouth"]},
+            "slots": ["layers", "job"]}
+    return scene([block("split_compare", data, {"x": 0.02, "y": 0.06, "w": 0.96, "h": 0.88})], 4.5, size=BENCH)
+
+
+def bench_scale_compare(w: Work) -> dict:
+    items = [{"label": "Squamous cell की मोटाई", "value": 1, "unit": "µm"}, {"label": "Columnar cell की ऊँचाई", "value": 25, "unit": "µm"},
+             {"label": "बाल की मोटाई", "value": 70, "unit": "µm", "known": True}]
+    return _panel(w, "scale_compare", {"title": "कितनी छोटी?", "items": items, "accent": accents()["simple_squamous"]},
+                  {"x": 0.08, "y": 0.1, "w": 0.84, "h": 0.86}, 4.0, member="simple_squamous")
+
+
+def bench_graph_plot(w: Work) -> dict:
+    xs = [1 + i * 0.5 for i in range(19)]
+    ys = [round(6 / x, 3) for x in xs]
+    return _panel(w, "graph_plot", {"x": xs, "y": ys, "title": "छोटी cell, ज़्यादा surface per volume", "x_label": "cell का size (µm)",
+                                     "y_label": "surface ÷ volume", "draw_start": 0.3, "draw_seconds": 2.0, "tangent_seconds": 1.6,
+                                     "accent": accents()["simple_squamous"]}, {"x": 0.08, "y": 0.06, "w": 0.84, "h": 0.88}, 4.4, member="simple_squamous")
+
+
+def bench_timeline(w: Work) -> dict:
+    events = [{"when": "1665", "label": "Hooke ने 'cell' नाम दिया"}, {"when": "1838", "label": "Schleiden: पौधे cells से बने"},
+              {"when": "1839", "label": "Schwann: जानवर भी"}, {"when": "1855", "label": "Virchow: cell से ही cell"}]
+    return _panel(w, "timeline", {"title": "Cell की खोज", "events": events, "seconds": 3.2, "accent": "#ffd166"},
+                  {"x": 0.03, "y": 0.1, "w": 0.94, "h": 0.8}, 4.2, member="generic")
+
+
+BENCH_TOOLS = ("bie-benchmark-blocks", *THREE_STACK)
+
 DEMOS = (
     Demo("bio-cell-sheet-flow", 1, "Blender-made columnar epithelium in three.js with particles flowing through",
          ("blender", *THREE_STACK), ("cell_sheet_3d", "particle_flow", "focus_glow"), 4.5, cell_sheet),
@@ -746,6 +901,40 @@ DEMOS = (
     Demo("physics-matter", 1, "Boxes and a ball under gravity", ("matter-js",), ("physics_sim_2d",), 4.0, matter),
     Demo("physics-collision-3d", 1, "A ball passes its momentum on and knocks a tower over (3D)", ("cannon-es", *THREE_STACK), ("physics_sim_3d",), 4.0, collision),
     Demo("cs-graph-bfs", 1, "Breadth-first search on a graph", ("networkx", "d3"), ("network_graph",), 4.5, graph_bfs),
+    # Task 046 Part B: the benchmark world and the grammar blocks, one clip per block
+    Demo("bench-cell-sheet", 1, "The epithelium world: a columnar sheet settles, the camera zooms on a nucleus and pulls out", BENCH_TOOLS,
+         ("cell_sheet_3d",), 4.0, bench_cell_sheet, rules=("B-11", "B-03", "B-10", "VG-01")),
+    Demo("bench-particle-flow", 1, "Particles cross a cuboidal sheet (absorption)", BENCH_TOOLS, ("particle_flow",), 4.0, bench_particle_flow,
+         rules=("B-11", "B-10", "VG-01")),
+    Demo("bench-focus-glow", 1, "One nucleus lit, the rest dims, the camera comes close", BENCH_TOOLS, ("focus_glow",), 3.5, bench_focus_glow,
+         rules=("B-11", "B-10", "VG-01")),
+    Demo("bench-organ-zoom", 1, "From a procedural lung down to its ciliated lining, no cut", BENCH_TOOLS, ("organ_zoom",), 4.5, bench_organ_zoom,
+         rules=("B-11", "VG-01")),
+    Demo("bench-leader-label", 1, "Labels as code text on leader lines that follow the 3D parts", BENCH_TOOLS, ("cell_sheet_3d",), 3.5,
+         bench_leader_label, rules=("B-11", "B-03", "VG-01")),
+    Demo("bench-camera-path", 1, "Establish, orbit, zoom in on a stratified sheet: the camera moves, nothing cuts", BENCH_TOOLS, ("cell_sheet_3d",),
+         4.5, bench_camera_path, rules=("B-11", "VG-01")),
+    Demo("bench-cutaway-earth", 1, "A procedural Earth opens a wedge: crust, mantle, outer and inner core (L4)", BENCH_TOOLS,
+         ("terrain_or_layers",), 4.5, bench_cutaway, rules=("B-11", "B-03", "B-10", "VG-01")),
+    Demo("bench-exploded-earth", 1, "The Earth's shells lift apart around the bar magnet (L4)", BENCH_TOOLS, ("terrain_or_layers", "machine_part_3d"),
+         4.5, bench_exploded, rules=("B-11", "B-03", "VG-01")),
+    Demo("bench-flow-arrows-earth", 1, "Field lines travel from the magnet's N to its S around the Earth (L4)", BENCH_TOOLS, ("vector_field",), 4.5,
+         bench_flow_arrows, rules=("B-11", "VG-01")),
+    Demo("bench-kinetic-caption", 1, "The spoken words on top, word by word, the terms in the accent, 'yaani' marked", BENCH_TOOLS,
+         ("kinetic_caption",), 4.0, bench_kinetic_caption, rules=("B-08", "B-11", "VG-01")),
+    Demo("bench-board-build", 1, "The shape → job board fills one member at a time", BENCH_TOOLS, ("board_build", "table_build"), 4.5,
+         bench_board_build, rules=("B-11", "VG-01")),
+    Demo("bench-mnemonic-card", 1, "The memory card: S · C · C, line by line", BENCH_TOOLS, ("mnemonic_card",), 4.2, bench_mnemonic_card,
+         rules=("B-11", "VG-01")),
+    Demo("bench-concept-arrow", 1, "A name and its reason: pseudo-stratified → false layers", BENCH_TOOLS, ("concept_arrow",), 3.6,
+         bench_concept_arrow, rules=("B-11", "VG-01")),
+    Demo("bench-split-compare", 1, "Simple against stratified squamous: two worlds side by side in the same slots", BENCH_TOOLS,
+         ("split_compare",), 4.5, bench_split_compare, rules=("B-11", "VG-01")),
+    Demo("bench-scale-compare", 1, "A cell's size against a hair, as bars that grow", BENCH_TOOLS, ("cell_sheet_3d",), 4.0, bench_scale_compare,
+         rules=("B-11", "VG-01")),
+    Demo("bench-graph-plot", 1, "Surface-to-volume against cell size draws itself, the tangent slides", BENCH_TOOLS, ("function_graph",), 4.4,
+         bench_graph_plot, rules=("B-11", "VG-01")),
+    Demo("bench-timeline", 1, "The discovery of the cell on a lit timeline", BENCH_TOOLS, ("timeline",), 4.2, bench_timeline, rules=("B-11", "VG-01")),
     # batch 2
     Demo("elec-rc-circuit", 2, "An RC circuit drawn by schemdraw, simulated by ngspice, solved by lcapy",
          ("schemdraw", "ngspice", "lcapy", "katex", "d3", "bie-science-blocks"), ("circuit_diagram", "signal_plot"), 4.6, rc_circuit),

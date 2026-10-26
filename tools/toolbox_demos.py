@@ -92,7 +92,7 @@ def contact_sheet(pngs: list, labels: list, out: Path, title: str):
         small = ImageFont.load_default(size=20)
     except TypeError:
         font = small = ImageFont.load_default()
-    draw.text((16, 14), title[:110], fill=(242, 246, 248), font=font)
+    draw.text((16, 14), title.replace("→", "->")[:110], fill=(242, 246, 248), font=font)      # the default font has no arrow
     for i, (png, label) in enumerate(zip(pngs, labels)):
         im = Image.open(io.BytesIO(png)).convert("RGB").resize((tw, th))
         x, y = (i % cols) * tw, 56 + (i // cols) * th
@@ -130,6 +130,9 @@ def run_demo(demo, out: Path, *, dist: Path, opener=None) -> dict:
     contact_sheet(pngs, labels, folder / "contact_sheet.png", f"{demo.id} · {demo.title}")
     found = checks(pngs)
     found["length_ok"] = abs(duration - demo.seconds) <= 0.35 and 3.0 <= duration <= 5.5
+    if demo.rules:                                      # Task 046: the benchmark rules the clip serves, read off its stills
+        from bie.brain.video import frame_checks
+        found["rules"] = frame_checks.demo_rules(pngs, demo.rules, accent=work.notes.get("accent"))
     return {"demo": demo.id, "title": demo.title, "batch": demo.batch, "kind": demo.kind, "tools": list(demo.tools),
             "capabilities": list(demo.capabilities), "seconds": round(duration, 2), "mp4_bytes": mp4.stat().st_size,
             "mp4_sha256": sha(mp4), "checks": found, "notes": work.notes, "render_seconds": round(time.time() - started, 1),
@@ -190,15 +193,15 @@ def bridge(demo_id: str, out: Path) -> dict:
     return row
 
 
-def claims(box, batch: int, results: list) -> list:
-    """Tools the registry calls demo_proven (or better) whose proof demos did not pass in this run of the whole batch:
-    a status word is a claim, and the demos lane checks it every time."""
+def claims(box, batch: int, results: list, selected: set | None = None) -> list:
+    """Tools the registry calls demo_proven (or better) whose proof demos did not pass in this run of the whole batch (or of
+    the group of it that was selected): a status word is a claim, and the demos lane checks it every time."""
     passed = {r["demo"] for r in results if r.get("passed")}
     proven = registry_module.STATUS_RANK["demo_proven"]
     wrong = []
     for tool in box.batch(batch):
         if registry_module.STATUS_RANK.get(tool.status, 0) >= proven:
-            failed = [d for d in tool.proof.get("demos", []) if d not in passed]
+            failed = [d for d in tool.proof.get("demos", []) if d not in passed and (selected is None or d in selected)]
             if failed:
                 wrong.append(f"{tool.id} is {tool.status} but its demo did not pass: {', '.join(failed)}")
     return wrong
@@ -222,6 +225,8 @@ def main(argv=None):
     parser.add_argument("--dist", type=Path, help="toolbox preview build folder (default <out>/_dist)")
     parser.add_argument("--keep-going", action="store_true")
     parser.add_argument("--bridge", default="", help="render this already rendered demo again with real Remotion and compare")
+    parser.add_argument("--group", choices=("all", "main", "bench"), default="all",
+                        help="bench = the Task 046 benchmark-block clips (ids bench-*), main = the rest; the lane renders the two groups of batch 1 side by side")
     args = parser.parse_args(argv)
     if args.bridge:
         row = bridge(args.bridge, args.out)
@@ -232,7 +237,8 @@ def main(argv=None):
     if args.batch is None:
         parser.error("--batch is required unless --bridge is given")
     box = registry_module.load()
-    wanted = [d for d in demo_module.DEMOS if d.batch == args.batch and (not args.only or d.id in args.only.split(","))]
+    wanted = [d for d in demo_module.DEMOS if d.batch == args.batch and (not args.only or d.id in args.only.split(","))
+              and (args.group == "all" or (args.group == "bench") == d.id.startswith("bench-"))]
     if not wanted:
         print("no demo selected", file=sys.stderr)
         return 2
@@ -244,10 +250,13 @@ def main(argv=None):
             row = run_demo(demo, args.out, dist=dist)
             row["versions"] = tool_versions(demo.tools, box)
             mismatched = [t for t, v in row["versions"].items() if v["matches"] is False]
-            row["passed"] = row["checks"]["not_blank"] and row["checks"]["moves"] and row["checks"]["length_ok"] and not mismatched
+            rules_failed = (row["checks"].get("rules") or {}).get("failed") or {}
+            row["passed"] = row["checks"]["not_blank"] and row["checks"]["moves"] and row["checks"]["length_ok"] and not mismatched and not rules_failed
             row["lesson_use"] = demo_module.lesson_use(demo.tools, row["assets"], row["blocks"], box=box)   # Task 046a-L
             if mismatched:
                 row["error"] = "installed version differs from the registry: " + ", ".join(mismatched)
+            elif rules_failed:
+                row["error"] = "rule check failed: " + "; ".join(f"{k}: {v}" for k, v in rules_failed.items())
         except Exception as exc:
             row = {"demo": demo.id, "title": demo.title, "batch": demo.batch, "tools": list(demo.tools), "passed": False,
                    "error": f"{type(exc).__name__}: {exc}"[:1500], "trace": traceback.format_exc()[-3000:]}
@@ -257,7 +266,7 @@ def main(argv=None):
         print(json.dumps({k: row.get(k) for k in ("demo", "passed", "seconds", "render_seconds", "error")}), flush=True)
         if not row["passed"] and not args.keep_going:
             break
-    wrong = [] if args.only else claims(box, args.batch, results)
+    wrong = [] if args.only else claims(box, args.batch, results, selected={d.id for d in wanted})
     for line in wrong:
         print(("::error title=Toolbox status claim::" if os.environ.get("GITHUB_ACTIONS") == "true" else "CLAIM NOT PROVEN: ") + line, flush=True)
     summary = {"schema": "bie.toolbox.demo-results/1", "batch": args.batch, "registry_version": box.version,

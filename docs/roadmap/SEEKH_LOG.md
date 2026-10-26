@@ -574,3 +574,35 @@ review, the one that ran away to 32,000 in job B2, now answered in 2,711. The fr
 (`provider_unavailable`, once in each job) and the gateway's retry passed both; no per-minute quota was met. Billed ₹0; ledger
 estimate ₹8.76 at the list price.
 
+## Entry 12 · VM job 1, the W-01 wording patch on v3 (Task 046 Part A), 26 October 2026
+
+**The run (₹0 billed):** two VM jobs on `codex-jobs`. `t046-v3-wording-patch` (5.4 minutes, cap ₹5) continued v3 from its last
+answer: round 0, the code check, named the five beats that point at the book (b22, b24, b29, b30, b36; W-01, Navin's rule of
+26 October 2026); round 1, the Codex maker (ChatGPT plan, no rupees) rewrote those five beats only, every other script kept as it
+was (`--videos v3`); then the cost guard stopped the run before the review: "the next call (lesson:script-v3:r1:review, about
+Rs 5.00) would cross the cap of Rs 5". `t046-v3-wording-patch-resume` (7.7 minutes, cap ₹15) continued from the patched answer:
+round 0 clean by code, no maker call; the reviewer on Navin's free Google key (`gemini-3.8-flash`, direct; 24,487 input, 3,273
+output tokens) passed it. **v3 passed, 11 of 11 videos pass**; before/after sentences in `docs/evidence/task046-director/W01.md`.
+Ledger estimate ₹0.06 + ₹2.96 at the list price; billed ₹0.
+
+**What the run taught:** the preflight estimate priced the whole chapter for a resume of one script ("Andaaza Rs 39.17, seema
+Rs 5": 14 pages × the measured lesson rate), so the warning said nothing useful about the cap, and the cap of ₹5 was set blind;
+the guard then did its job (it refused a ₹5 review call under a ₹5 cap after a ₹0.06 preflight) and the job needed a second run.
+The actual spend of the whole patch (maker on the plan, one review) was about ₹3 at the list price, which a right-sized estimate
+would have shown.
+
+**Changed in BIE (this PR, Task 046 Part B):** `bie/brain/cost.py` `lesson_share` and `tools/run_brain.py`: a lesson resume with
+`--videos` estimates the share of the chapter those scripts are (spoken minutes of the selected scripts over all scripts, from the
+earlier run's `lesson_plan.json`), and the pahra line says "resume of 1 of 11 videos, 10% of the chapter". Test
+`tests/test_task046_blocks.py::TheSeekhFromVmJob1`.
+
+**Measured before → after (offline, on the same job):**
+
+| Measure | Before | After |
+| --- | --- | --- |
+| Preflight estimate for `--videos v3` (14 pages, lesson, free-tier reviewer, Codex maker) | ₹39.17 (the whole chapter) | ₹3.94 (10 % of the chapter, v3's 11.7 of 116.4 spoken minutes) |
+| Spent on the patch, both runs, list price | — | ₹3.02 (₹0.06 preflight + ₹2.96 review) |
+| Cap that would have covered the job in one run | ₹5 did not | ₹5 reads as tight but plausible next to ₹3.94; ₹8 is the safe choice |
+
+Quality, first-try pass rate and rounds are unchanged (no rule or check changed); both saved regression sets still pass.
+

@@ -1,6 +1,6 @@
 {
  "schema": "bie.toolbox.registry/1",
- "version": "2026-10-25.3",
+ "version": "2026-10-26.1",
  "npm_before": "2026-10-17T12:00:00Z",
  "note": "Task 046a, BIE's toolbox (auzaar-ghar). One entry per library, tool, asset source or dataset that BIE uses to show what a scene plan asks for. A Python library computes, a BIE block shows. Versions are pinned (npm: the newest release before npm_before, the date in tools/npm_before.txt; PyPI: the newest release before the same date with a Python 3.13 Linux wheel). Licences were read from each project's own page or package metadata on 25 October 2026; licence_flags mark share-alike, GPL, custom and per-item licences for Navin's later licence decision, without blocking them. status: installed < wrapped < demo_proven < used_on_real_book; blocked_with_reason says what is missing.",
  "statuses": [
@@ -56,6 +56,74 @@
     ]
    },
    "notes": "Task 039's 2D blocks with the camera that zooms into any region of a picture; organ_zoom is an image layer plus camera keys."
+  },
+  {
+   "id": "bie-benchmark-blocks",
+   "name": "BIE benchmark world and grammar blocks (bie/brain/video/blocks/toolbox/benchmark.tsx, grammar.tsx)",
+   "kind": "js_lib",
+   "subjects": [
+    "all_subjects"
+   ],
+   "content_types": [
+    "structure",
+    "process",
+    "comparison",
+    "definition",
+    "facts_numbers",
+    "timeline",
+    "cause_effect",
+    "classification"
+   ],
+   "capabilities": [
+    "cell_sheet_3d",
+    "particle_flow",
+    "focus_glow",
+    "organ_zoom",
+    "kinetic_caption",
+    "board_build",
+    "table_build",
+    "mnemonic_card",
+    "concept_arrow",
+    "split_compare",
+    "terrain_or_layers",
+    "machine_part_3d",
+    "vector_field",
+    "function_graph",
+    "timeline"
+   ],
+   "role": "draw",
+   "path": "web",
+   "version": "bie-2026-10-26",
+   "licence": "BIE's own code",
+   "licence_flags": [],
+   "source": "https://github.com/SEENAV01/Enterprise-bie",
+   "install_group": "web-core",
+   "status": "demo_proven",
+   "batch": 1,
+   "rank": 12,
+   "block": "cell_sheet, particle_flow, focus_glow, organ_zoom, leader_label, camera_path, cutaway, exploded_view (one three.js world, a timeline of shots per scene); kinetic_caption, board_build, mnemonic_card, concept_arrow, split_compare, scale_compare, flow_arrows, graph_plot, timeline (2D); equation_steps lives in maths.tsx",
+   "proof": {
+    "demos": [
+     "bench-cell-sheet",
+     "bench-particle-flow",
+     "bench-focus-glow",
+     "bench-organ-zoom",
+     "bench-leader-label",
+     "bench-camera-path",
+     "bench-cutaway-earth",
+     "bench-exploded-earth",
+     "bench-flow-arrows-earth",
+     "bench-kinetic-caption",
+     "bench-board-build",
+     "bench-mnemonic-card",
+     "bench-concept-arrow",
+     "bench-split-compare",
+     "bench-scale-compare",
+     "bench-graph-plot",
+     "bench-timeline"
+    ]
+   },
+   "notes": "Task 046 Part B: the blocks of the epithelium benchmark and of the visual grammar (VG-01…VG-10, B-03…B-11) as code; the world is procedural (route A) or a Blender-made glTF by src (route C); the L4 demos run on a procedural Earth wedge with a bar magnet; bie/brain/video/compose.py writes a lesson's shot list into these blocks."
   },
   {
    "id": "remotion",

@@ -268,6 +268,11 @@ def main(argv=None):
             chapter = json.loads(read_text(args.chapter_map))
             if args.section == "lesson" and args.resume_from:
                 previous_lesson = json.loads(read_text(args.resume_from.rstrip("/") + "/lesson_plan.json"))
+                if args.videos:
+                    # seekh from VM job 1 (26 October 2026): the estimate is for the scripts asked, not the whole chapter
+                    share = cost_module.lesson_share(previous_lesson, [v.strip() for v in args.videos.split(",")])
+                    summary["resume"] = dict(summary.get("resume") or {}, videos_selected=share["selected"], videos=share["videos"],
+                                             chapter_share=share["share"], pages_to_run=round(chapter_pages(chapter) * share["share"], 2))
             course = Course(**chapter["course"]) if not args.course else course
             pages = chapter_pages(chapter)
             text = book_text(chapter=chapter)
@@ -297,7 +302,10 @@ def main(argv=None):
                                         maker_model=gateway.model_of(args.maker), reviewer_model=gateway.model_of(reviewer),
                                         with_visual=args.with_visual, maker_subscription=maker_via in SUBSCRIPTION_VIAS)
         summary["estimate"] = estimate
-        notice("pahra andaaza", cost_module.estimate_line(estimate, args.max_inr),
+        share_note = summary.get("resume") or {}
+        notice("pahra andaaza", cost_module.estimate_line(estimate, args.max_inr)
+               + (f"; resume of {share_note['videos_selected']} of {share_note['videos']} videos, {share_note['chapter_share']:.0%} of the chapter"
+                  if share_note.get("videos_selected") else ""),
                "warning" if estimate["total_inr"] > args.max_inr else "notice")
         checked = (preflight(gateway, vision=args.section in ("understand", "chain", "visual")) if summary["status"] == "ok"
                    else {"passed": False, "routes": {}, "skipped": summary["status"]})   # a level stop spends nothing

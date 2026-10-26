@@ -17,6 +17,17 @@ const FrameSync: React.FC<{ frame: number; done: () => void }> = ({ frame, done 
   return null;
 };
 
+// The canvas takes the size it is told, as Remotion's ThreeCanvas does, never the measured one: inside a scaled stage
+// (a 720p output of the 1920 × 1080 composition, Task 046) the measured rectangle is the scaled one.
+const SizeSync: React.FC<{ width: number; height: number }> = ({ width, height }) => {
+  const setSize = useThree((s) => s.setSize);
+  const size = useThree((s) => s.size);
+  useLayoutEffect(() => {
+    if (size.width !== width || size.height !== height) setSize(width, height);
+  }, [width, height, setSize, size.width, size.height]);
+  return null;
+};
+
 export const ThreeCanvas: React.FC<Props> = ({ width, height, children, style, gl, ...rest }) => {
   const frame = useCurrentFrame();
   const handle = useRef<{ frame: number; id: number } | null>(null);
@@ -28,8 +39,9 @@ export const ThreeCanvas: React.FC<Props> = ({ width, height, children, style, g
     if (handle.current) continueRender(handle.current.id);
   }, []);
   return (
-    <Canvas frameloop="never" dpr={1} style={{ width, height, ...style }}
+    <Canvas frameloop="never" dpr={(rest as any).dpr ?? 1} style={{ width, height, ...style }} resize={{ offsetSize: true, scroll: false, debounce: 0 }}
       gl={{ preserveDrawingBuffer: true, antialias: true, ...(gl as object) }} {...rest}>
+      <SizeSync width={width} height={height} />
       {children}
       <FrameSync frame={frame} done={done} />
     </Canvas>
