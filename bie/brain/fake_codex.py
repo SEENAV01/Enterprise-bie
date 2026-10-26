@@ -68,6 +68,34 @@ def _answer(prompt, schema, images):
     return json.loads(raw["content"])
 
 
+# A 1x1 PNG; the fake writes it where Codex 0.162.1 keeps generated images. BIE_FAKE_CODEX_IMAGE: home (default, a file
+# under $CODEX_HOME/generated_images), base64 (only in the event stream), none (no image at all).
+PIXEL = bytes.fromhex("89504e470d0a1a0a0000000d4948445200000001000000010806000000"
+                      "1f15c4890000000d49444154789c6360f8cf00000301010018dd8db00000000049454e44ae426082")
+
+
+def _image(prompt, number, options, disabled):
+    import base64
+    where = os.environ.get("BIE_FAKE_CODEX_IMAGE", "home")
+    if "image_generation" in disabled:
+        where = "none"
+    item = {"id": "item_img", "type": "image_generation", "revised_prompt": prompt[19:80]}
+    if where == "home":
+        folder = Path(os.environ.get("CODEX_HOME") or Path.home() / ".codex") / "generated_images" / f"fake-thread-{number}"
+        folder.mkdir(parents=True, exist_ok=True)
+        (folder / f"ig_{number:03d}.png").write_bytes(PIXEL)
+    elif where == "base64":
+        item["result"] = base64.b64encode(PIXEL * 8).decode()
+    if where != "none":
+        print(json.dumps({"type": "item.completed", "item": item}))
+    if "-o" in options:
+        Path(options["-o"]).write_text("DONE", encoding="utf-8")
+    print(json.dumps({"type": "item.completed", "item": {"id": "item_1", "type": "agent_message", "text": "DONE"}}))
+    print(json.dumps({"type": "turn.completed", "usage": {"input_tokens": len(prompt) // 4, "cached_input_tokens": 0,
+                                                           "output_tokens": 4, "reasoning_output_tokens": 0}}))
+    return 0
+
+
 def _exec(args):
     options, images, settings, disabled, i = {}, [], [], [], 0
     while i < len(args):
@@ -109,6 +137,8 @@ def _exec(args):
         print(json.dumps({"type": "error", "message": failure}))
         print(json.dumps({"type": "turn.failed", "error": {"message": failure}}))
         return 1
+    if "<bie-image-prompt>" in prompt:                  # Codex's built-in image_gen tool: the picture lands in CODEX_HOME
+        return _image(prompt, number, options, disabled)
     schema = json.loads(Path(options["--output-schema"]).read_text(encoding="utf-8")) if "--output-schema" in options else None
     broken = mode == "schema_error" or (mode.startswith("schema_error_after=") and number > int(mode.split("=", 1)[1]))
     value = {} if broken else _answer(prompt, schema, images)

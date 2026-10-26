@@ -47,6 +47,15 @@ ChatGPT Pro plan itself is Navin's existing subscription.
   `codex-jobs` branch (Claude writes them through GitHub); each job is checked against a fixed list and runs
   `tools/run_brain.py` from `main` without a shell; the run folder goes to `blindtest-results`
   (`runs/vm-<id>-brain-<section>/`) and `jobs/<id>.result.json` reports the outcome.
+- Images and the look check (Task 046 one-shot test, Navin 26 October 2026): a job with `"section": "image"` and a
+  `prompts` URL (a `bie.image-prompts/1` file written by BIE, at most 4 prompts) runs `tools/vm_image.py`: one
+  `codex exec` per prompt with Codex's built-in `image_gen` tool (gpt-image-2 behind it) through the ChatGPT plan, no API
+  key; every other Codex tool stays off. It reads the plan's usage before and after (images use the plan's limits several
+  times faster than text) and the image files come back in the run folder on `blindtest-results`. A job with
+  `"section": "look"` and a `request` URL runs `tools/vm_look.py`, the LOOK-01 look check with the free Google reviewer.
+  Reference frames that are not ours to publish (a benchmark video's frames) stay on this machine only: a folder
+  `/var/lib/bie/private/refs/<name>/` with up to 3 PNG or JPEG files; the request names the set, the result records only
+  file names and SHA-256. Without that folder the reviewer compares against a written description and says so.
 - Security notes for Navin's approval: the deploy key can write to the whole repository (GitHub deploy keys
   cannot be limited to one branch); the runner itself pushes only to `blindtest-results` and `codex-jobs`.
   Branch protection for `main` comes with Phase 4. If the machine is ever lost: delete the deploy key on GitHub,
