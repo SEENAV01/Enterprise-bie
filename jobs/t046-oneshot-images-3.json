@@ -1,0 +1,9 @@
+{
+ "job": "bie.vm-job/1",
+ "id": "t046-oneshot-images-3",
+ "section": "image",
+ "prompts": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046-oneshot/route2/prompts.json",
+ "max_images": 4,
+ "max_inr": 1,
+ "note": "Task 046 one-shot test, Route 2 (Navin, 26 October 2026): four stills for shot b37.2 (simple squamous, thin exchange boundary) from BIE's own prompts (bie/brain/video/still_prompt.py; no text in the picture, Route 1's camera and layout), made with Codex's built-in image_gen through the ChatGPT plan on this machine (no API key). The plan's usage is read before and after. Billed in rupees: nothing. The images come back through the runner; BIE's code then rejects any with text or wrong science and animates one in 2.5D. Third id: after PR #80 (the image call names Codex's imagegen skill and keeps skills on; a run without an image now reports Codex's error and reply)."
+}
