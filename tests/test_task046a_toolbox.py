@@ -728,6 +728,10 @@ class DemosAndPage(unittest.TestCase):
         self.assertIn("group: bie-toolbox-${{ github.ref }}-${{ github.event_name }}", flow)                  # F-13c
         self.assertEqual(flow.count("            bie-asset-cache-shared-\n"), 3)     # the assets job, wrappers and demos restore it
         self.assertIn("  push:\n    branches: [main]", flow)
+        for job in ("wrappers", "demos"):                                   # F-11 in this lane (PR #79 run 40341502059)
+            body = flow.split(f"\n  {job}:\n", 1)[1].split("\n  demos:\n", 1)[0]
+            self.assertIn("source tools/ci_apt_prefetch.sh", body)
+            self.assertLess(body.index("apt_prefetch -qq $PKGS"), body.index("sudo apt-get install -y -qq $PKGS"))
 
     def test_adapters_import_without_their_libraries(self):
         with mock.patch.dict(sys.modules, {"rdkit": None}):
