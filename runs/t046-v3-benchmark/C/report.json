@@ -1,0 +1,382 @@
+{
+ "schema": "bie.brain.benchmark-report/1",
+ "video_id": "v3",
+ "title": "Epithelial tissue: covering की बनावट काम कैसे बदलती है?",
+ "route": "C",
+ "parts": [
+  "c07.1"
+ ],
+ "scenes": 1,
+ "shots": 77,
+ "frames": 10129,
+ "seconds": 337.63,
+ "spoken_seconds": 326.1,
+ "voice": "espeak-ng-placeholder/1",
+ "models": [
+  "ciliated",
+  "generic",
+  "glandular",
+  "keratinised",
+  "pseudostratified",
+  "simple_columnar",
+  "simple_cuboidal",
+  "simple_squamous",
+  "stratified_columnar",
+  "stratified_cuboidal",
+  "stratified_squamous",
+  "transitional"
+ ],
+ "members": [
+  "generic",
+  "pseudostratified",
+  "simple_squamous",
+  "simple_cuboidal",
+  "glandular",
+  "simple_columnar",
+  "ciliated",
+  "stratified_squamous",
+  "stratified_cuboidal",
+  "stratified_columnar",
+  "keratinised",
+  "transitional"
+ ],
+ "blocked": false,
+ "level_seconds": {
+  "L3": {
+   "shots": 4,
+   "seconds": 21.03,
+   "share": 0.0645
+  },
+  "L5a": {
+   "shots": 73,
+   "seconds": 305.11,
+   "share": 0.9355
+  }
+ },
+ "main_level": "L5a",
+ "pace": {
+  "changes": 71,
+  "seconds_per_change": 4.59,
+  "band": "micro",
+  "target_seconds": [
+   3.0,
+   5.0
+  ]
+ },
+ "shots_not_rendered": [],
+ "rule_table": [
+  {
+   "rule": "B-01",
+   "status": "partial",
+   "note": "77 shots for 77 clauses, 4.2 s each on average (3-5 s); 15 over 6 s",
+   "shots": [],
+   "frame": null,
+   "frame_status": "not read"
+  },
+  {
+   "rule": "B-02",
+   "status": "partial",
+   "note": "pseudostratified 14.13 s; simple squamous 33.0 s; simple cuboidal 18.66 s; glandular 24.46 s; simple columnar 20.44 s; ciliated 19.27 s; stratified squamous 54.84 s; stratified cuboidal 19.89 s; stratified columnar 18.2 s; keratinised 44.24 s; transitional 50.58 s",
+   "shots": [],
+   "frame": null,
+   "frame_status": "not read"
+  },
+  {
+   "rule": "B-03",
+   "status": "pass",
+   "note": "70 of 77 shots label a named object",
+   "shots": [],
+   "frame": null,
+   "frame_status": "pass"
+  },
+  {
+   "rule": "B-04",
+   "status": "pass",
+   "note": "18 motion shots",
+   "shots": [
+    "b24.5",
+    "b25.1",
+    "b25.4",
+    "b26.3",
+    "b31.1",
+    "b31.3",
+    "b32.3",
+    "b33.1",
+    "b33.3",
+    "b33.4",
+    "b34.1",
+    "b34.2"
+   ],
+   "frame": null,
+   "frame_status": "not read"
+  },
+  {
+   "rule": "B-05",
+   "status": "pass",
+   "note": "18 yaani shots; 0 first uses without yaani",
+   "shots": [
+    "b21.4",
+    "b22.5",
+    "b23.3",
+    "b24.3",
+    "b25.3",
+    "b26.1",
+    "b27.4",
+    "b28.4",
+    "b29.2",
+    "b29.5",
+    "b30.1",
+    "b30.2"
+   ],
+   "frame": null,
+   "frame_status": "not read"
+  },
+  {
+   "rule": "B-06",
+   "status": "pass",
+   "note": "18 reason arrows",
+   "shots": [
+    "b21.4",
+    "b22.5",
+    "b23.3",
+    "b24.3",
+    "b25.3",
+    "b26.1",
+    "b26.2",
+    "b27.4",
+    "b28.4",
+    "b29.2",
+    "b30.1",
+    "b31.3"
+   ],
+   "frame": null,
+   "frame_status": "not read"
+  },
+  {
+   "rule": "B-07",
+   "status": "pass",
+   "note": "2 board shots",
+   "shots": [
+    "b38.2",
+    "b38.3"
+   ],
+   "frame": null,
+   "frame_status": "not read"
+  },
+  {
+   "rule": "B-08",
+   "status": "pass",
+   "note": "every shot carries the kinetic caption with its English terms",
+   "shots": [],
+   "frame": null,
+   "frame_status": "pass"
+  },
+  {
+   "rule": "B-09",
+   "status": "pass",
+   "note": "7 organ zooms",
+   "shots": [
+    "b21.3",
+    "b22.5",
+    "b23.3",
+    "b24.4",
+    "b28.4",
+    "b32.1",
+    "b32.4"
+   ],
+   "frame": null,
+   "frame_status": "not read"
+  },
+  {
+   "rule": "B-10",
+   "status": "fail",
+   "note": "62 shots light one structure; frame 1004 (b21.4): the member's accent is not on screen (0.02%)",
+   "shots": [
+    "b20.1",
+    "b20.2",
+    "b20.3",
+    "b20.4",
+    "b21.1",
+    "b21.2",
+    "b21.3",
+    "b21.4",
+    "b22.1",
+    "b22.2",
+    "b22.3",
+    "b22.5"
+   ],
+   "frame": 1004,
+   "frame_status": "fail"
+  },
+  {
+   "rule": "B-11",
+   "status": "pass",
+   "note": "every still read is dark with one accent per member",
+   "shots": [],
+   "frame": null,
+   "frame_status": "pass"
+  },
+  {
+   "rule": "B-12",
+   "status": "pass",
+   "note": "level profile upsc_pcs; grammar the same for every level",
+   "shots": [],
+   "frame": null,
+   "frame_status": "not read"
+  },
+  {
+   "rule": "VG-01",
+   "status": "pass",
+   "note": "1 scenes, 0 cuts; one visual change every 4.59 s (micro pace 3-5 s); 32 camera moves added by the director, 8.36 s before",
+   "shots": [],
+   "frame": null,
+   "frame_status": "pass"
+  },
+  {
+   "rule": "VG-02",
+   "status": "pass",
+   "note": "labels are code text with a leader line (leader_label on every shot)",
+   "shots": [],
+   "frame": null,
+   "frame_status": "not read"
+  },
+  {
+   "rule": "VG-03",
+   "status": "n/a",
+   "note": "0 cutaway shots",
+   "shots": [],
+   "frame": null,
+   "frame_status": "not read"
+  },
+  {
+   "rule": "VG-04",
+   "status": "n/a",
+   "note": "0 scale comparisons",
+   "shots": [],
+   "frame": null,
+   "frame_status": "not read"
+  },
+  {
+   "rule": "VG-05",
+   "status": "n/a",
+   "note": "no equation in this video",
+   "shots": [],
+   "frame": null,
+   "frame_status": "not read"
+  },
+  {
+   "rule": "VG-06",
+   "status": "n/a",
+   "note": "no graph in this video",
+   "shots": [],
+   "frame": null,
+   "frame_status": "not read"
+  },
+  {
+   "rule": "VG-07",
+   "status": "pass",
+   "note": "5 split screens",
+   "shots": [
+    "b35.4",
+    "b37.1",
+    "b37.2",
+    "b37.3",
+    "b37.4"
+   ],
+   "frame": null,
+   "frame_status": "not read"
+  },
+  {
+   "rule": "VG-08",
+   "status": "pass",
+   "note": "18 shots move",
+   "shots": [
+    "b24.5",
+    "b25.1",
+    "b25.4",
+    "b26.3",
+    "b31.1",
+    "b31.3",
+    "b32.3",
+    "b33.1",
+    "b33.3",
+    "b33.4",
+    "b34.1",
+    "b34.2"
+   ],
+   "frame": null,
+   "frame_status": "not read"
+  },
+  {
+   "rule": "VG-09",
+   "status": "pass",
+   "note": "every still read is dark with one accent per member",
+   "shots": [],
+   "frame": null,
+   "frame_status": "pass"
+  },
+  {
+   "rule": "VG-10",
+   "status": "n/a",
+   "note": "no history or map shot",
+   "shots": [],
+   "frame": null,
+   "frame_status": "not read"
+  },
+  {
+   "rule": "VG-11",
+   "status": "n/a",
+   "note": "no character in this topic and level",
+   "shots": [],
+   "frame": null,
+   "frame_status": "not read"
+  },
+  {
+   "rule": "W-01",
+   "status": "pass",
+   "note": "no sentence points at the book",
+   "shots": [],
+   "frame": null,
+   "frame_status": "not read"
+  }
+ ],
+ "tally": {
+  "partial": 2,
+  "pass": 15,
+  "fail": 1,
+  "n/a": 6
+ },
+ "frames_checked": 77,
+ "frame_findings": {
+  "B-08": 0,
+  "B-11": 0,
+  "VG-09": 0,
+  "B-10": 21,
+  "B-03": 0,
+  "VG-01": 0
+ },
+ "cost": {
+  "route": "C",
+  "chunks": 8,
+  "video_seconds": 337.61,
+  "render_seconds": 10147.6,
+  "seconds_per_video_second": 30.06,
+  "wall_clock_minutes_parallel": 45.5,
+  "machine_minutes": 169.1,
+  "usd_at_list_price": 1.353,
+  "inr_at_list_price": 113.65,
+  "list_price_usd_per_minute": 0.008,
+  "usd_to_inr": 84.0,
+  "note": "GitHub-hosted ubuntu runner, 2 vCPU, software WebGL (SwiftShader), no GPU; the public repository bills Rs 0"
+ },
+ "review": "review-720p.mp4",
+ "review_bytes": 16436575,
+ "video_seconds": 333.63,
+ "contact_sheets": [
+  "contact-00.png",
+  "contact-01.png",
+  "contact-02.png",
+  "contact-03.png",
+  "contact-04.png"
+ ]
+}

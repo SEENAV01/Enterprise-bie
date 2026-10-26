@@ -1,0 +1,3685 @@
+{
+ "schema": "bie.brain.video-spec/1",
+ "fps": 30,
+ "width": 1920,
+ "height": 1080,
+ "captions": false,
+ "scenes": [
+  {
+   "id": "s1",
+   "duration": 10009,
+   "layers": [
+    {
+     "id": "world",
+     "type": "block",
+     "block": "cell_sheet",
+     "at": 0,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 1
+     },
+     "data": {
+      "member": "generic",
+      "shots": [
+       {
+        "at": 12,
+        "until": 85,
+        "member": "generic",
+        "focus": "cell",
+        "camera": {
+         "move": "establish"
+        },
+        "labels": [
+         {
+          "text": "covering",
+          "part": "cell"
+         },
+         {
+          "text": "layers",
+          "part": "layers"
+         }
+        ]
+       },
+       {
+        "at": 85,
+        "until": 163,
+        "member": "generic",
+        "focus": "layers",
+        "camera": {
+         "move": "zoom_in"
+        },
+        "labels": [
+         {
+          "text": "stratified",
+          "part": "layers"
+         }
+        ]
+       },
+       {
+        "at": 163,
+        "until": 265,
+        "member": "generic",
+        "focus": "cell",
+        "camera": {
+         "move": "orbit"
+        },
+        "labels": [
+         {
+          "text": "squamous",
+          "part": "cell"
+         }
+        ]
+       },
+       {
+        "at": 265,
+        "until": 490,
+        "member": "generic",
+        "focus": [],
+        "dim": true,
+        "camera": {
+         "move": "hold"
+        },
+        "labels": [
+         {
+          "text": "keratinised",
+          "part": "keratin"
+         },
+         {
+          "text": "transitional",
+          "part": "cell"
+         },
+         {
+          "text": "layers",
+          "part": "layers"
+         }
+        ]
+       },
+       {
+        "at": 500,
+        "until": 576,
+        "member": "pseudostratified",
+        "focus": "cell",
+        "camera": {
+         "move": "hold"
+        },
+        "labels": [
+         {
+          "text": "tiles",
+          "part": "cell"
+         },
+         {
+          "text": "layer",
+          "part": "layers"
+         }
+        ]
+       },
+       {
+        "at": 576,
+        "until": 716,
+        "member": "simple_squamous",
+        "focus": "cell",
+        "camera": {
+         "move": "zoom_in"
+        },
+        "labels": [
+         {
+          "text": "simple squamous",
+          "part": "cell"
+         }
+        ]
+       },
+       {
+        "at": 716,
+        "until": 928,
+        "member": "simple_squamous",
+        "focus": "cell",
+        "camera": {
+         "move": "zoom_in"
+        },
+        "organ": "lung",
+        "labels": [
+         {
+          "text": "lungs",
+          "part": "cell"
+         }
+        ]
+       },
+       {
+        "at": 928,
+        "until": 1081,
+        "member": "simple_squamous",
+        "focus": "cell",
+        "camera": {
+         "move": "hold"
+        },
+        "labels": [
+         {
+          "text": "capsule",
+          "part": "cell"
+         }
+        ]
+       },
+       {
+        "at": 1092,
+        "until": 1159,
+        "member": "simple_squamous",
+        "focus": "layers",
+        "camera": {
+         "move": "zoom_in"
+        },
+        "labels": [
+         {
+          "text": "layer",
+          "part": "layers"
+         },
+         {
+          "text": "पासे",
+          "part": "cell"
+         }
+        ]
+       },
+       {
+        "at": 1159,
+        "until": 1233,
+        "member": "simple_cuboidal",
+        "focus": "cell",
+        "camera": {
+         "move": "hold"
+        },
+        "labels": [
+         {
+          "text": "simple cuboidal",
+          "part": "cell"
+         }
+        ]
+       },
+       {
+        "at": 1233,
+        "until": 1302,
+        "member": "simple_cuboidal",
+        "focus": "cell",
+        "camera": {
+         "move": "zoom_in"
+        },
+        "labels": [
+         {
+          "text": "cells",
+          "part": "cell"
+         }
+        ]
+       },
+       {
+        "at": 1302,
+        "until": 1381,
+        "member": "simple_cuboidal",
+        "focus": "cell",
+        "camera": {
+         "move": "hold"
+        },
+        "labels": []
+       },
+       {
+        "at": 1381,
+        "until": 1618,
+        "member": "glandular",
+        "focus": "duct",
+        "camera": {
+         "move": "zoom_in"
+        },
+        "organ": "kidney",
+        "labels": [
+         {
+          "text": "kidney",
+          "part": "duct"
+         }
+        ]
+       },
+       {
+        "at": 1628,
+        "until": 1737,
+        "member": "glandular",
+        "focus": "microvilli",
+        "camera": {
+         "move": "hold"
+        },
+        "labels": [
+         {
+          "text": "projections",
+          "part": "microvilli"
+         }
+        ]
+       },
+       {
+        "at": 1737,
+        "until": 1824,
+        "member": "glandular",
+        "focus": "microvilli",
+        "camera": {
+         "move": "zoom_in"
+        },
+        "labels": [
+         {
+          "text": "microvilli",
+          "part": "microvilli"
+         }
+        ]
+       },
+       {
+        "at": 1824,
+        "until": 2056,
+        "member": "glandular",
+        "focus": "cell",
+        "camera": {
+         "move": "zoom_in"
+        },
+        "organ": "kidney",
+        "labels": [
+         {
+          "text": "kidney",
+          "part": "cell"
+         }
+        ]
+       },
+       {
+        "at": 2067,
+        "until": 2136,
+        "member": "glandular",
+        "focus": "cell",
+        "camera": {
+         "move": "hold"
+        },
+        "labels": [
+         {
+          "text": "pillar",
+          "part": "cell"
+         },
+         {
+          "text": "layer",
+          "part": "layers"
+         }
+        ]
+       },
+       {
+        "at": 2136,
+        "until": 2183,
+        "member": "simple_columnar",
+        "focus": "cell",
+        "camera": {
+         "move": "hold"
+        },
+        "labels": [
+         {
+          "text": "simple columnar",
+          "part": "cell"
+         }
+        ]
+       },
+       {
+        "at": 2183,
+        "until": 2247,
+        "member": "simple_columnar",
+        "focus": "cell",
+        "camera": {
+         "move": "zoom_in"
+        },
+        "labels": []
+       },
+       {
+        "at": 2247,
+        "until": 2423,
+        "member": "ciliated",
+        "focus": "cilia",
+        "camera": {
+         "move": "zoom_in"
+        },
+        "organ": "lung",
+        "labels": [
+         {
+          "text": "digestive",
+          "part": "cilia"
+         }
+        ]
+       },
+       {
+        "at": 2423,
+        "until": 2537,
+        "member": "ciliated",
+        "focus": "cilia",
+        "camera": {
+         "move": "hold"
+        },
+        "flow": {
+         "kind": "sweep",
+         "particles": 26,
+         "seconds": 2.4
+        },
+        "labels": [
+         {
+          "text": "cilia",
+          "part": "cilia"
+         },
+         {
+          "text": "projections",
+          "part": "microvilli"
+         }
+        ]
+       },
+       {
+        "at": 2547,
+        "until": 2603,
+        "member": "ciliated",
+        "focus": "cell",
+        "camera": {
+         "move": "orbit"
+        },
+        "flow": {
+         "kind": "cross",
+         "particles": 36,
+         "seconds": 2.4
+        },
+        "labels": []
+       },
+       {
+        "at": 2603,
+        "until": 2667,
+        "member": "ciliated",
+        "focus": "layers",
+        "camera": {
+         "move": "hold"
+        },
+        "labels": [
+         {
+          "text": "layers",
+          "part": "layers"
+         }
+        ]
+       },
+       {
+        "at": 2667,
+        "until": 2961,
+        "member": "stratified_squamous",
+        "focus": "layers",
+        "camera": {
+         "move": "zoom_in"
+        },
+        "labels": [
+         {
+          "text": "stratified",
+          "part": "layers"
+         }
+        ]
+       },
+       {
+        "at": 2961,
+        "until": 3081,
+        "member": "stratified_squamous",
+        "focus": "cell",
+        "camera": {
+         "move": "hold"
+        },
+        "flow": {
+         "kind": "shed",
+         "particles": 36,
+         "seconds": 2.4
+        },
+        "labels": [
+         {
+          "text": "cells",
+          "part": "cell"
+         }
+        ]
+       },
+       {
+        "at": 3081,
+        "until": 3164,
+        "member": "stratified_squamous",
+        "focus": "cell",
+        "camera": {
+         "move": "hold"
+        },
+        "labels": [
+         {
+          "text": "cells",
+          "part": "cell"
+         }
+        ]
+       },
+       {
+        "at": 3175,
+        "until": 3271,
+        "member": "stratified_squamous",
+        "focus": "cell",
+        "camera": {
+         "move": "zoom_in"
+        },
+        "labels": [
+         {
+          "text": "squamous",
+          "part": "cell"
+         }
+        ]
+       },
+       {
+        "at": 3271,
+        "until": 3372,
+        "member": "stratified_squamous",
+        "focus": "cell",
+        "camera": {
+         "move": "orbit"
+        },
+        "labels": []
+       },
+       {
+        "at": 3372,
+        "until": 3630,
+        "member": "stratified_squamous",
+        "focus": "tissue",
+        "camera": {
+         "move": "hold"
+        },
+        "flow": {
+         "kind": "cross",
+         "particles": 36,
+         "seconds": 2.4
+        },
+        "labels": [
+         {
+          "text": "mouth",
+          "part": "tissue"
+         }
+        ]
+       },
+       {
+        "at": 3640,
+        "until": 3738,
+        "member": "stratified_squamous",
+        "focus": "duct",
+        "camera": {
+         "move": "hold"
+        },
+        "labels": [
+         {
+          "text": "duct",
+          "part": "duct"
+         },
+         {
+          "text": "layers",
+          "part": "layers"
+         },
+         {
+          "text": "cubes",
+          "part": "cell"
+         }
+        ]
+       },
+       {
+        "at": 3738,
+        "until": 3796,
+        "member": "stratified_cuboidal",
+        "focus": "layers",
+        "camera": {
+         "move": "zoom_in"
+        },
+        "labels": [
+         {
+          "text": "stratified",
+          "part": "layers"
+         }
+        ]
+       },
+       {
+        "at": 3796,
+        "until": 3879,
+        "member": "stratified_cuboidal",
+        "focus": "cell",
+        "camera": {
+         "move": "hold"
+        },
+        "labels": []
+       },
+       {
+        "at": 3879,
+        "until": 4078,
+        "member": "stratified_cuboidal",
+        "focus": "duct",
+        "camera": {
+         "move": "zoom_in"
+        },
+        "labels": [
+         {
+          "text": "mammary",
+          "part": "duct"
+         }
+        ]
+       },
+       {
+        "at": 4078,
+        "until": 4163,
+        "member": "stratified_cuboidal",
+        "focus": "duct",
+        "camera": {
+         "move": "orbit"
+        },
+        "labels": [
+         {
+          "text": "gland",
+          "part": "duct"
+         },
+         {
+          "text": "lining",
+          "part": "cell"
+         }
+        ]
+       },
+       {
+        "at": 4174,
+        "until": 4252,
+        "member": "stratified_cuboidal",
+        "focus": "cell",
+        "camera": {
+         "move": "zoom_in"
+        },
+        "labels": [
+         {
+          "text": "pillars",
+          "part": "cell"
+         }
+        ]
+       },
+       {
+        "at": 4252,
+        "until": 4304,
+        "member": "stratified_columnar",
+        "focus": "layers",
+        "camera": {
+         "move": "hold"
+        },
+        "labels": [
+         {
+          "text": "stratified",
+          "part": "layers"
+         }
+        ]
+       },
+       {
+        "at": 4304,
+        "until": 4420,
+        "member": "stratified_columnar",
+        "focus": "cell",
+        "camera": {
+         "move": "zoom_in"
+        },
+        "labels": [
+         {
+          "text": "squamous",
+          "part": "cell"
+         }
+        ]
+       },
+       {
+        "at": 4420,
+        "until": 4703,
+        "member": "stratified_columnar",
+        "focus": "duct",
+        "camera": {
+         "move": "zoom_in"
+        },
+        "organ": "bladder",
+        "labels": [
+         {
+          "text": "male urethra",
+          "part": "duct"
+         }
+        ]
+       },
+       {
+        "at": 4713,
+        "until": 4808,
+        "member": "stratified_columnar",
+        "focus": "cell",
+        "camera": {
+         "move": "hold"
+        },
+        "labels": [
+         {
+          "text": "skin",
+          "part": "cell"
+         }
+        ]
+       },
+       {
+        "at": 4808,
+        "until": 4982,
+        "member": "keratinised",
+        "focus": "keratin",
+        "camera": {
+         "move": "zoom_in"
+        },
+        "labels": [
+         {
+          "text": "keratinised",
+          "part": "keratin"
+         },
+         {
+          "text": "चादर",
+          "part": "cell"
+         }
+        ]
+       },
+       {
+        "at": 4982,
+        "until": 5056,
+        "member": "keratinised",
+        "focus": "cell",
+        "camera": {
+         "move": "zoom_out"
+        },
+        "labels": [
+         {
+          "text": "outer cells",
+          "part": "cell"
+         }
+        ]
+       },
+       {
+        "at": 5056,
+        "until": 5248,
+        "member": "keratinised",
+        "focus": "nucleus",
+        "camera": {
+         "move": "zoom_in"
+        },
+        "labels": [
+         {
+          "text": "nucleus",
+          "part": "nucleus"
+         },
+         {
+          "text": "cytoplasm",
+          "part": "top"
+         },
+         {
+          "text": "keratin",
+          "part": "keratin"
+         }
+        ]
+       },
+       {
+        "at": 5248,
+        "until": 5340,
+        "member": "keratinised",
+        "focus": "cell",
+        "camera": {
+         "move": "orbit"
+        },
+        "labels": [
+         {
+          "text": "lining",
+          "part": "cell"
+         }
+        ]
+       },
+       {
+        "at": 5350,
+        "until": 5501,
+        "member": "keratinised",
+        "focus": "layers",
+        "camera": {
+         "move": "zoom_in"
+        },
+        "labels": [
+         {
+          "text": "apical layer",
+          "part": "layers"
+         },
+         {
+          "text": "lining",
+          "part": "cell"
+         }
+        ]
+       },
+       {
+        "at": 5501,
+        "until": 5708,
+        "member": "keratinised",
+        "focus": "tissue",
+        "camera": {
+         "move": "zoom_in"
+        },
+        "labels": [
+         {
+          "text": "tissue",
+          "part": "tissue"
+         },
+         {
+          "text": "outer cells",
+          "part": "cell"
+         }
+        ]
+       },
+       {
+        "at": 5708,
+        "until": 5779,
+        "member": "keratinised",
+        "focus": "cell",
+        "camera": {
+         "move": "orbit"
+        },
+        "labels": [
+         {
+          "text": "skin",
+          "part": "cell"
+         }
+        ]
+       },
+       {
+        "at": 5790,
+        "until": 5877,
+        "member": "keratinised",
+        "focus": "cell",
+        "camera": {
+         "move": "hold"
+        },
+        "flow": {
+         "kind": "cross",
+         "particles": 36,
+         "seconds": 2.4
+        },
+        "labels": [
+         {
+          "text": "bladder",
+          "part": "cell"
+         }
+        ]
+       },
+       {
+        "at": 5877,
+        "until": 6044,
+        "member": "transitional",
+        "focus": "layers",
+        "camera": {
+         "move": "hold"
+        },
+        "labels": [
+         {
+          "text": "transitional",
+          "part": "layers"
+         }
+        ]
+       },
+       {
+        "at": 6044,
+        "until": 6316,
+        "member": "transitional",
+        "focus": "cell",
+        "camera": {
+         "move": "hold"
+        },
+        "flow": {
+         "kind": "cross",
+         "particles": 36,
+         "seconds": 2.4
+        },
+        "stretch": true,
+        "labels": [
+         {
+          "text": "stretch cells",
+          "part": "cell"
+         },
+         {
+          "text": "tissue",
+          "part": "tissue"
+         }
+        ]
+       },
+       {
+        "at": 6326,
+        "until": 6439,
+        "member": "transitional",
+        "focus": "cell",
+        "camera": {
+         "move": "zoom_in"
+        },
+        "organ": "bladder",
+        "labels": [
+         {
+          "text": "urinary bladder",
+          "part": "cell"
+         }
+        ]
+       },
+       {
+        "at": 6439,
+        "until": 6561,
+        "member": "transitional",
+        "focus": "cell",
+        "camera": {
+         "move": "hold"
+        },
+        "labels": [
+         {
+          "text": "ureter",
+          "part": "cell"
+         }
+        ]
+       },
+       {
+        "at": 6561,
+        "until": 6635,
+        "member": "transitional",
+        "focus": "cell",
+        "camera": {
+         "move": "hold"
+        },
+        "flow": {
+         "kind": "cross",
+         "particles": 36,
+         "seconds": 2.4
+        },
+        "labels": [
+         {
+          "text": "urethra",
+          "part": "cell"
+         }
+        ]
+       },
+       {
+        "at": 6635,
+        "until": 6800,
+        "member": "transitional",
+        "focus": "cell",
+        "camera": {
+         "move": "zoom_in"
+        },
+        "organ": "bladder",
+        "labels": [
+         {
+          "text": "urothelium",
+          "part": "cell"
+         }
+        ]
+       },
+       {
+        "at": 6811,
+        "until": 7019,
+        "member": "simple_squamous",
+        "focus": "junction",
+        "camera": {
+         "move": "hold"
+        },
+        "flow": {
+         "kind": "cross",
+         "particles": 36,
+         "seconds": 2.4
+        },
+        "labels": [
+         {
+          "text": "simple squamous",
+          "part": "junction"
+         }
+        ]
+       },
+       {
+        "at": 7019,
+        "until": 7095,
+        "member": "simple_squamous",
+        "focus": "cell",
+        "camera": {
+         "move": "hold"
+        },
+        "labels": []
+       },
+       {
+        "at": 7095,
+        "until": 7237,
+        "member": "simple_cuboidal",
+        "focus": "cell",
+        "camera": {
+         "move": "hold"
+        },
+        "flow": {
+         "kind": "absorb",
+         "particles": 36,
+         "seconds": 2.4
+        },
+        "labels": [
+         {
+          "text": "cuboidal",
+          "part": "cell"
+         }
+        ]
+       },
+       {
+        "at": 7237,
+        "until": 7433,
+        "member": "simple_cuboidal",
+        "focus": "microvilli",
+        "camera": {
+         "move": "zoom_in"
+        },
+        "flow": {
+         "kind": "absorb",
+         "particles": 36,
+         "seconds": 2.4
+        },
+        "labels": [
+         {
+          "text": "microvilli",
+          "part": "microvilli"
+         }
+        ]
+       },
+       {
+        "at": 7444,
+        "until": 7633,
+        "member": "simple_columnar",
+        "focus": "cell",
+        "camera": {
+         "move": "zoom_in"
+        },
+        "flow": {
+         "kind": "absorb",
+         "particles": 36,
+         "seconds": 2.4
+        },
+        "labels": [
+         {
+          "text": "columnar",
+          "part": "cell"
+         }
+        ]
+       },
+       {
+        "at": 7633,
+        "until": 7698,
+        "member": "simple_columnar",
+        "focus": "cell",
+        "camera": {
+         "move": "orbit"
+        },
+        "flow": {
+         "kind": "sweep",
+         "particles": 26,
+         "seconds": 2.4
+        },
+        "labels": [
+         {
+          "text": "mucus",
+          "part": "cell"
+         }
+        ]
+       },
+       {
+        "at": 7698,
+        "until": 7775,
+        "member": "ciliated",
+        "focus": "cilia",
+        "camera": {
+         "move": "hold"
+        },
+        "flow": {
+         "kind": "sweep",
+         "particles": 26,
+         "seconds": 2.4
+        },
+        "labels": [
+         {
+          "text": "cilia",
+          "part": "cilia"
+         }
+        ]
+       },
+       {
+        "at": 7775,
+        "until": 7866,
+        "member": "ciliated",
+        "focus": "cell",
+        "camera": {
+         "move": "hold"
+        },
+        "labels": [
+         {
+          "text": "digestive",
+          "part": "cell"
+         },
+         {
+          "text": "ciliated",
+          "part": "cilia"
+         }
+        ]
+       },
+       {
+        "at": 7866,
+        "until": 7989,
+        "member": "pseudostratified",
+        "focus": "cell",
+        "camera": {
+         "move": "zoom_in"
+        },
+        "labels": [
+         {
+          "text": "upper respiratory",
+          "part": "cell"
+         },
+         {
+          "text": "pseudostratified",
+          "part": "layers"
+         }
+        ]
+       },
+       {
+        "at": 8000,
+        "until": 8139,
+        "member": "stratified_squamous",
+        "focus": "layers",
+        "camera": {
+         "move": "hold"
+        },
+        "flow": {
+         "kind": "shed",
+         "particles": 36,
+         "seconds": 2.4
+        },
+        "labels": [
+         {
+          "text": "stratified",
+          "part": "layers"
+         }
+        ]
+       },
+       {
+        "at": 8139,
+        "until": 8233,
+        "member": "stratified_cuboidal",
+        "focus": "layers",
+        "camera": {
+         "move": "hold"
+        },
+        "labels": [
+         {
+          "text": "stratified",
+          "part": "layers"
+         }
+        ]
+       },
+       {
+        "at": 8233,
+        "until": 8362,
+        "member": "simple_columnar",
+        "focus": "layers",
+        "camera": {
+         "move": "hold"
+        },
+        "flow": {
+         "kind": "secrete",
+         "particles": 36,
+         "seconds": 2.4
+        },
+        "labels": [
+         {
+          "text": "stratified",
+          "part": "layers"
+         }
+        ]
+       },
+       {
+        "at": 8362,
+        "until": 8481,
+        "member": "simple_columnar",
+        "focus": [],
+        "dim": true,
+        "camera": {
+         "move": "hold"
+        },
+        "labels": [
+         {
+          "text": "simple columnar",
+          "part": "cell"
+         },
+         {
+          "text": "layers",
+          "part": "layers"
+         }
+        ]
+       },
+       {
+        "at": 8491,
+        "until": 8640,
+        "member": "keratinised",
+        "focus": "keratin",
+        "camera": {
+         "move": "hold"
+        },
+        "flow": {
+         "kind": "cross",
+         "particles": 36,
+         "seconds": 2.4
+        },
+        "labels": [
+         {
+          "text": "keratin",
+          "part": "keratin"
+         }
+        ]
+       },
+       {
+        "at": 8640,
+        "until": 8770,
+        "member": "keratinised",
+        "focus": "cell",
+        "camera": {
+         "move": "hold"
+        },
+        "labels": [
+         {
+          "text": "waterproof covering",
+          "part": "cell"
+         }
+        ]
+       },
+       {
+        "at": 8770,
+        "until": 8907,
+        "member": "transitional",
+        "focus": "cell",
+        "camera": {
+         "move": "hold"
+        },
+        "flow": {
+         "kind": "cross",
+         "particles": 36,
+         "seconds": 2.4
+        },
+        "stretch": true,
+        "labels": [
+         {
+          "text": "urothelium",
+          "part": "cell"
+         }
+        ]
+       },
+       {
+        "at": 8907,
+        "until": 9130,
+        "member": "transitional",
+        "focus": "junction",
+        "camera": {
+         "move": "zoom_in"
+        },
+        "flow": {
+         "kind": "cross",
+         "particles": 36,
+         "seconds": 2.4
+        },
+        "labels": [
+         {
+          "text": "tight junctions",
+          "part": "junction"
+         }
+        ]
+       },
+       {
+        "at": 9140,
+        "until": 9212,
+        "member": "transitional",
+        "focus": [],
+        "dim": true,
+        "camera": {
+         "move": "hold"
+        },
+        "labels": []
+       },
+       {
+        "at": 9212,
+        "until": 9346,
+        "member": "simple_squamous",
+        "focus": [],
+        "dim": true,
+        "camera": {
+         "move": "zoom_in"
+        },
+        "labels": [
+         {
+          "text": "simple squamous",
+          "part": "cell"
+         }
+        ]
+       },
+       {
+        "at": 9346,
+        "until": 9457,
+        "member": "stratified_squamous",
+        "focus": [],
+        "dim": true,
+        "camera": {
+         "move": "zoom_out"
+        },
+        "labels": [
+         {
+          "text": "stratified",
+          "part": "layers"
+         },
+         {
+          "text": "squamous",
+          "part": "cell"
+         }
+        ]
+       },
+       {
+        "at": 9457,
+        "until": 9568,
+        "member": "stratified_squamous",
+        "focus": [],
+        "dim": true,
+        "camera": {
+         "move": "zoom_in"
+        },
+        "labels": [
+         {
+          "text": "layer",
+          "part": "layers"
+         }
+        ]
+       },
+       {
+        "at": 9579,
+        "until": 9715,
+        "member": "stratified_squamous",
+        "focus": [],
+        "dim": true,
+        "camera": {
+         "move": "hold"
+        },
+        "labels": [
+         {
+          "text": "layers",
+          "part": "layers"
+         }
+        ]
+       },
+       {
+        "at": 9715,
+        "until": 9813,
+        "member": "stratified_squamous",
+        "focus": [],
+        "dim": false,
+        "camera": {
+         "move": "hold"
+        },
+        "labels": [
+         {
+          "text": "kidney",
+          "part": "cell"
+         }
+        ]
+       },
+       {
+        "at": 9813,
+        "until": 9985,
+        "member": "transitional",
+        "focus": [],
+        "dim": false,
+        "camera": {
+         "move": "orbit"
+        },
+        "stretch": true,
+        "labels": [
+         {
+          "text": "pillar",
+          "part": "cell"
+         },
+         {
+          "text": "keratin",
+          "part": "keratin"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "id": "board",
+     "type": "block",
+     "block": "board_build",
+     "at": 9715,
+     "until": 10009,
+     "box": {
+      "x": 0.655,
+      "y": 0.5,
+      "w": 0.33,
+      "h": 0.46
+     },
+     "data": {
+      "title": "shape → job",
+      "compact": true,
+      "rows": [
+       {
+        "a": "kidney",
+        "b": "Kidney capsule squamous, tubule c…",
+        "at": 9715,
+        "accent": "#ff8a7a"
+       },
+       {
+        "a": "Transitional",
+        "b": "pillar columnar, keratin मजबूत co…",
+        "at": 9813,
+        "accent": "#f9a8ff"
+       }
+      ]
+     }
+    },
+    {
+     "id": "cap-b20.1",
+     "type": "block",
+     "block": "kinetic_caption",
+     "at": 12,
+     "until": 85,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 0.2
+     },
+     "data": {
+      "text": "Covering में कितनी layers हैं?",
+      "terms": [
+       "covering",
+       "layers"
+      ],
+      "accent": "#38d3c3"
+     }
+    },
+    {
+     "id": "cap-b20.2",
+     "type": "block",
+     "block": "kinetic_caption",
+     "at": 85,
+     "until": 163,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 0.2
+     },
+     "data": {
+      "text": "Simple में 1, stratified में कई।",
+      "terms": [
+       "simple",
+       "stratified"
+      ],
+      "accent": "#38d3c3"
+     }
+    },
+    {
+     "id": "cap-b20.3",
+     "type": "block",
+     "block": "kinetic_caption",
+     "at": 163,
+     "until": 265,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 0.2
+     },
+     "data": {
+      "text": "Shapes squamous, cuboidal और columnar हैं;",
+      "terms": [
+       "shapes",
+       "squamous",
+       "cuboidal",
+       "columnar"
+      ],
+      "accent": "#38d3c3"
+     }
+    },
+    {
+     "id": "cap-b20.4",
+     "type": "block",
+     "block": "kinetic_caption",
+     "at": 265,
+     "until": 490,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 0.2
+     },
+     "data": {
+      "text": "साथ में Keratinised, Transitional और कई layers जैसा दिखने वाला Pseudo-stratified रूप समझेंगे।",
+      "terms": [
+       "keratinised",
+       "transitional",
+       "layers",
+       "pseudo-stratified"
+      ],
+      "accent": "#38d3c3"
+     }
+    },
+    {
+     "id": "tree-b20.4",
+     "type": "block",
+     "block": "tree_build",
+     "at": 265,
+     "until": 490,
+     "box": {
+      "x": 0.02,
+      "y": 0.17,
+      "w": 0.96,
+      "h": 0.8
+     },
+     "data": {
+      "root": {
+       "name": "Epithelium",
+       "children": [
+        {
+         "name": "Simple · 1 layer",
+         "children": [
+          {
+           "name": "Squamous"
+          },
+          {
+           "name": "Cuboidal"
+          },
+          {
+           "name": "Columnar"
+          }
+         ]
+        },
+        {
+         "name": "Stratified · कई layers",
+         "children": [
+          {
+           "name": "Squamous"
+          },
+          {
+           "name": "Cuboidal"
+          },
+          {
+           "name": "Columnar"
+          }
+         ]
+        },
+        {
+         "name": "Special",
+         "children": [
+          {
+           "name": "Keratinised"
+          },
+          {
+           "name": "Transitional"
+          },
+          {
+           "name": "Pseudo stratified"
+          }
+         ]
+        }
+       ]
+      },
+      "wrap": 10,
+      "seconds": 6.0
+     }
+    },
+    {
+     "id": "cap-b21.1",
+     "type": "block",
+     "block": "kinetic_caption",
+     "at": 500,
+     "until": 576,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 0.2
+     },
+     "data": {
+      "text": "Tiles जैसी 1 पतली layer दिखे तो?",
+      "terms": [
+       "tiles",
+       "layer"
+      ],
+      "accent": "#c89bff"
+     }
+    },
+    {
+     "id": "cap-b21.2",
+     "type": "block",
+     "block": "kinetic_caption",
+     "at": 576,
+     "until": 716,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 0.2
+     },
+     "data": {
+      "text": "Simple squamous है: flat cells की boundaries irregular हैं।",
+      "terms": [
+       "simple",
+       "squamous",
+       "flat",
+       "cells",
+       "boundaries",
+       "irregular"
+      ],
+      "accent": "#5ad7ff"
+     }
+    },
+    {
+     "id": "cap-b21.3",
+     "type": "block",
+     "block": "kinetic_caption",
+     "at": 716,
+     "until": 928,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 0.2
+     },
+     "data": {
+      "text": "Lungs के air sacs, blood vessels, capillaries और kidney की Bowman’s capsule में मिलता है;",
+      "terms": [
+       "lungs",
+       "air",
+       "sacs",
+       "blood",
+       "vessels",
+       "capillaries",
+       "kidney",
+       "bowman’s",
+       "capsule"
+      ],
+      "accent": "#5ad7ff"
+     }
+    },
+    {
+     "id": "cap-b21.4",
+     "type": "block",
+     "block": "kinetic_caption",
+     "at": 928,
+     "until": 1081,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 0.2
+     },
+     "data": {
+      "text": "capsule यानी छोटी blood vessels के समूह के आसपास cup जैसी बनावट।",
+      "terms": [
+       "capsule",
+       "blood",
+       "vessels",
+       "cup"
+      ],
+      "accent": "#5ad7ff"
+     }
+    },
+    {
+     "id": "arrow-b21.4",
+     "type": "block",
+     "block": "concept_arrow",
+     "at": 928,
+     "until": 1081,
+     "box": {
+      "x": 0,
+      "y": 0.2,
+      "w": 1,
+      "h": 0.8
+     },
+     "data": {
+      "from": "capsule",
+      "to": "छोटी blood vessels के समूह के…",
+      "reason": "",
+      "accent": "#5ad7ff"
+     }
+    },
+    {
+     "id": "cap-b22.1",
+     "type": "block",
+     "block": "kinetic_caption",
+     "at": 1092,
+     "until": 1159,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 0.2
+     },
+     "data": {
+      "text": "पासे जैसी 1 layer किसकी है?",
+      "terms": [
+       "layer"
+      ],
+      "accent": "#5ad7ff"
+     }
+    },
+    {
+     "id": "cap-b22.2",
+     "type": "block",
+     "block": "kinetic_caption",
+     "at": 1159,
+     "until": 1233,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 0.2
+     },
+     "data": {
+      "text": "Simple Cuboidal Epithelium की।",
+      "terms": [
+       "simple",
+       "cuboidal",
+       "epithelium"
+      ],
+      "accent": "#ffb35c"
+     }
+    },
+    {
+     "id": "cap-b22.3",
+     "type": "block",
+     "block": "kinetic_caption",
+     "at": 1233,
+     "until": 1302,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 0.2
+     },
+     "data": {
+      "text": "Cells short cylindrical हैं;",
+      "terms": [
+       "cells",
+       "short",
+       "cylindrical"
+      ],
+      "accent": "#ffb35c"
+     }
+    },
+    {
+     "id": "cap-b22.4",
+     "type": "block",
+     "block": "kinetic_caption",
+     "at": 1302,
+     "until": 1381,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 0.2
+     },
+     "data": {
+      "text": "height और width लगभग बराबर समझो।",
+      "terms": [
+       "height",
+       "width"
+      ],
+      "accent": "#ffb35c"
+     }
+    },
+    {
+     "id": "cap-b22.5",
+     "type": "block",
+     "block": "kinetic_caption",
+     "at": 1381,
+     "until": 1618,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 0.2
+     },
+     "data": {
+      "text": "Kidney tubules और glandular ducts, यानी gland का substance ले जाने वाली नलियाँ, इसके स्थान हैं।",
+      "terms": [
+       "kidney",
+       "tubules",
+       "glandular",
+       "ducts",
+       "gland",
+       "substance"
+      ],
+      "accent": "#5ad7ff"
+     }
+    },
+    {
+     "id": "arrow-b22.5",
+     "type": "block",
+     "block": "concept_arrow",
+     "at": 1381,
+     "until": 1618,
+     "box": {
+      "x": 0,
+      "y": 0.2,
+      "w": 1,
+      "h": 0.8
+     },
+     "data": {
+      "from": "ducts",
+      "to": "gland का substance ले जाने वा…",
+      "reason": "",
+      "accent": "#5ad7ff"
+     }
+    },
+    {
+     "id": "cap-b23.1",
+     "type": "block",
+     "block": "kinetic_caption",
+     "at": 1628,
+     "until": 1737,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 0.2
+     },
+     "data": {
+      "text": "ऊपर छोटी उँगलियों जैसे projections दिखें तो?",
+      "terms": [
+       "projections"
+      ],
+      "accent": "#5ad7ff"
+     }
+    },
+    {
+     "id": "cap-b23.2",
+     "type": "block",
+     "block": "kinetic_caption",
+     "at": 1737,
+     "until": 1824,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 0.2
+     },
+     "data": {
+      "text": "Microvilli हैं, जो area बढ़ाती हैं।",
+      "terms": [
+       "microvilli",
+       "area"
+      ],
+      "accent": "#5ad7ff"
+     }
+    },
+    {
+     "id": "cap-b23.3",
+     "type": "block",
+     "block": "kinetic_caption",
+     "at": 1824,
+     "until": 2056,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 0.2
+     },
+     "data": {
+      "text": "Kidney के proximal convoluted tubules, यानी शुरुआती मुड़ी हुई नली वाले हिस्से में इन्हें देखो।",
+      "terms": [
+       "kidney",
+       "proximal",
+       "convoluted",
+       "tubules"
+      ],
+      "accent": "#5ad7ff"
+     }
+    },
+    {
+     "id": "arrow-b23.3",
+     "type": "block",
+     "block": "concept_arrow",
+     "at": 1824,
+     "until": 2056,
+     "box": {
+      "x": 0,
+      "y": 0.2,
+      "w": 1,
+      "h": 0.8
+     },
+     "data": {
+      "from": "tubules",
+      "to": "शुरुआती मुड़ी हुई नली वाले हि…",
+      "reason": "",
+      "accent": "#5ad7ff"
+     }
+    },
+    {
+     "id": "cap-b24.1",
+     "type": "block",
+     "block": "kinetic_caption",
+     "at": 2067,
+     "until": 2136,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 0.2
+     },
+     "data": {
+      "text": "Pillar जैसी 1 layer दिखे तो?",
+      "terms": [
+       "pillar",
+       "layer"
+      ],
+      "accent": "#5ad7ff"
+     }
+    },
+    {
+     "id": "cap-b24.2",
+     "type": "block",
+     "block": "kinetic_caption",
+     "at": 2136,
+     "until": 2183,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 0.2
+     },
+     "data": {
+      "text": "Simple Columnar है;",
+      "terms": [
+       "simple",
+       "columnar"
+      ],
+      "accent": "#7cf59a"
+     }
+    },
+    {
+     "id": "cap-b24.3",
+     "type": "block",
+     "block": "kinetic_caption",
+     "at": 2183,
+     "until": 2247,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 0.2
+     },
+     "data": {
+      "text": "slender यानी लंबा और पतला।",
+      "terms": [
+       "slender"
+      ],
+      "accent": "#7cf59a"
+     }
+    },
+    {
+     "id": "arrow-b24.3",
+     "type": "block",
+     "block": "concept_arrow",
+     "at": 2183,
+     "until": 2247,
+     "box": {
+      "x": 0,
+      "y": 0.2,
+      "w": 1,
+      "h": 0.8
+     },
+     "data": {
+      "from": "slender",
+      "to": "लंबा और पतला",
+      "reason": "",
+      "accent": "#7cf59a"
+     }
+    },
+    {
+     "id": "cap-b24.4",
+     "type": "block",
+     "block": "kinetic_caption",
+     "at": 2247,
+     "until": 2423,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 0.2
+     },
+     "data": {
+      "text": "इसके स्थान digestive और upper respiratory tract हैं, अक्सर ciliated भी;",
+      "terms": [
+       "digestive",
+       "upper",
+       "respiratory",
+       "tract",
+       "ciliated"
+      ],
+      "accent": "#7cf59a"
+     }
+    },
+    {
+     "id": "cap-b24.5",
+     "type": "block",
+     "block": "kinetic_caption",
+     "at": 2423,
+     "until": 2537,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 0.2
+     },
+     "data": {
+      "text": "cilia ऊपर के हिलने वाले बारीक projections हैं।",
+      "terms": [
+       "cilia",
+       "projections"
+      ],
+      "accent": "#7cf59a"
+     }
+    },
+    {
+     "id": "cap-b25.1",
+     "type": "block",
+     "block": "kinetic_caption",
+     "at": 2547,
+     "until": 2603,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 0.2
+     },
+     "data": {
+      "text": "मुँह में रगड़ लगती है;",
+      "terms": [],
+      "accent": "#7cf59a"
+     }
+    },
+    {
+     "id": "cap-b25.2",
+     "type": "block",
+     "block": "kinetic_caption",
+     "at": 2603,
+     "until": 2667,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 0.2
+     },
+     "data": {
+      "text": "कई layers कैसे बचाती हैं?",
+      "terms": [
+       "layers"
+      ],
+      "accent": "#7cf59a"
+     }
+    },
+    {
+     "id": "cap-b25.3",
+     "type": "block",
+     "block": "kinetic_caption",
+     "at": 2667,
+     "until": 2961,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 0.2
+     },
+     "data": {
+      "text": "Stratified Squamous में नीचे columnar, metabolically active cells हैं, यानी energy और substances से काम करती cells।",
+      "terms": [
+       "stratified",
+       "squamous",
+       "columnar",
+       "metabolically",
+       "active",
+       "cells",
+       "energy",
+       "substances"
+      ],
+      "accent": "#ff8a7a"
+     }
+    },
+    {
+     "id": "arrow-b25.3",
+     "type": "block",
+     "block": "concept_arrow",
+     "at": 2667,
+     "until": 2961,
+     "box": {
+      "x": 0,
+      "y": 0.2,
+      "w": 1,
+      "h": 0.8
+     },
+     "data": {
+      "from": "cells",
+      "to": "energy और substances से काम क…",
+      "reason": "",
+      "accent": "#ff8a7a"
+     }
+    },
+    {
+     "id": "cap-b25.4",
+     "type": "block",
+     "block": "kinetic_caption",
+     "at": 2961,
+     "until": 3081,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 0.2
+     },
+     "data": {
+      "text": "पुरानी cells ऊपर जाकर चपटी होती हैं, झड़ती हैं;",
+      "terms": [
+       "cells"
+      ],
+      "accent": "#ff8a7a"
+     }
+    },
+    {
+     "id": "cap-b25.5",
+     "type": "block",
+     "block": "kinetic_caption",
+     "at": 3081,
+     "until": 3164,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 0.2
+     },
+     "data": {
+      "text": "नीचे बनती नई cells जगह भरती हैं।",
+      "terms": [
+       "cells"
+      ],
+      "accent": "#ff8a7a"
+     }
+    },
+    {
+     "id": "cap-b26.1",
+     "type": "block",
+     "block": "kinetic_caption",
+     "at": 3175,
+     "until": 3271,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 0.2
+     },
+     "data": {
+      "text": "Squamous यानी ऊपर चपटी चादर जैसी cells;",
+      "terms": [
+       "squamous",
+       "cells"
+      ],
+      "accent": "#ff8a7a"
+     }
+    },
+    {
+     "id": "arrow-b26.1",
+     "type": "block",
+     "block": "concept_arrow",
+     "at": 3175,
+     "until": 3271,
+     "box": {
+      "x": 0,
+      "y": 0.2,
+      "w": 1,
+      "h": 0.8
+     },
+     "data": {
+      "from": "Squamous",
+      "to": "ऊपर चपटी चादर जैसी cells",
+      "reason": "",
+      "accent": "#ff8a7a"
+     }
+    },
+    {
+     "id": "cap-b26.2",
+     "type": "block",
+     "block": "kinetic_caption",
+     "at": 3271,
+     "until": 3372,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 0.2
+     },
+     "data": {
+      "text": "नाम इनसे मिलता है, नीचे की shape से नहीं।",
+      "terms": [
+       "shape"
+      ],
+      "accent": "#ff8a7a"
+     }
+    },
+    {
+     "id": "cap-b26.3",
+     "type": "block",
+     "block": "kinetic_caption",
+     "at": 3372,
+     "until": 3630,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 0.2
+     },
+     "data": {
+      "text": "Mouth और vagina में कई तहों की यह गद्दी protection देती है: ऊपर घिसे तो नीचे का tissue तुरंत नहीं खुलता।",
+      "terms": [
+       "mouth",
+       "vagina",
+       "protection",
+       "tissue"
+      ],
+      "accent": "#ff8a7a"
+     }
+    },
+    {
+     "id": "cap-b27.1",
+     "type": "block",
+     "block": "kinetic_caption",
+     "at": 3640,
+     "until": 3738,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 0.2
+     },
+     "data": {
+      "text": "Duct में कई layers और ऊपर cubes हों तो?",
+      "terms": [
+       "duct",
+       "layers",
+       "cubes"
+      ],
+      "accent": "#ff8a7a"
+     }
+    },
+    {
+     "id": "cap-b27.2",
+     "type": "block",
+     "block": "kinetic_caption",
+     "at": 3738,
+     "until": 3796,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 0.2
+     },
+     "data": {
+      "text": "Stratified Cuboidal है;",
+      "terms": [
+       "stratified",
+       "cuboidal"
+      ],
+      "accent": "#ffd166"
+     }
+    },
+    {
+     "id": "cap-b27.3",
+     "type": "block",
+     "block": "kinetic_caption",
+     "at": 3796,
+     "until": 3879,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 0.2
+     },
+     "data": {
+      "text": "नीचे दूसरी shapes भी हो सकती हैं।",
+      "terms": [
+       "shapes"
+      ],
+      "accent": "#ffd166"
+     }
+    },
+    {
+     "id": "cap-b27.4",
+     "type": "block",
+     "block": "kinetic_caption",
+     "at": 3879,
+     "until": 4078,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 0.2
+     },
+     "data": {
+      "text": "Mammary, यानी दूध बनाने वाली glands, sweat और salivary glands की ducts याद रखो;",
+      "terms": [
+       "mammary",
+       "glands",
+       "sweat",
+       "salivary",
+       "ducts"
+      ],
+      "accent": "#ffd166"
+     }
+    },
+    {
+     "id": "arrow-b27.4",
+     "type": "block",
+     "block": "concept_arrow",
+     "at": 3879,
+     "until": 4078,
+     "box": {
+      "x": 0,
+      "y": 0.2,
+      "w": 1,
+      "h": 0.8
+     },
+     "data": {
+      "from": "Mammary",
+      "to": "दूध बनाने वाली glands, sweat…",
+      "reason": "",
+      "accent": "#ffd166"
+     }
+    },
+    {
+     "id": "cap-b27.5",
+     "type": "block",
+     "block": "kinetic_caption",
+     "at": 4078,
+     "until": 4163,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 0.2
+     },
+     "data": {
+      "text": "पूरी gland एक जैसी lining नहीं है।",
+      "terms": [
+       "gland",
+       "lining"
+      ],
+      "accent": "#ffd166"
+     }
+    },
+    {
+     "id": "cap-b28.1",
+     "type": "block",
+     "block": "kinetic_caption",
+     "at": 4174,
+     "until": 4252,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 0.2
+     },
+     "data": {
+      "text": "ऊपर pillars, नीचे और cells हों तो?",
+      "terms": [
+       "pillars",
+       "cells"
+      ],
+      "accent": "#ffd166"
+     }
+    },
+    {
+     "id": "cap-b28.2",
+     "type": "block",
+     "block": "kinetic_caption",
+     "at": 4252,
+     "until": 4304,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 0.2
+     },
+     "data": {
+      "text": "Stratified Columnar है;",
+      "terms": [
+       "stratified",
+       "columnar"
+      ],
+      "accent": "#9be7a4"
+     }
+    },
+    {
+     "id": "cap-b28.3",
+     "type": "block",
+     "block": "kinetic_caption",
+     "at": 4304,
+     "until": 4420,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 0.2
+     },
+     "data": {
+      "text": "नीचे squamous, columnar या cuboidal cells होती हैं।",
+      "terms": [
+       "squamous",
+       "columnar",
+       "cuboidal",
+       "cells"
+      ],
+      "accent": "#9be7a4"
+     }
+    },
+    {
+     "id": "cap-b28.4",
+     "type": "block",
+     "block": "kinetic_caption",
+     "at": 4420,
+     "until": 4703,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 0.2
+     },
+     "data": {
+      "text": "Male urethra के कुछ हिस्सों और salivary glands के lobar ducts, यानी बड़े हिस्सों से substance लाने वाली नलियों में मिलता है।",
+      "terms": [
+       "male",
+       "urethra",
+       "salivary",
+       "glands",
+       "lobar",
+       "ducts",
+       "substance"
+      ],
+      "accent": "#9be7a4"
+     }
+    },
+    {
+     "id": "arrow-b28.4",
+     "type": "block",
+     "block": "concept_arrow",
+     "at": 4420,
+     "until": 4703,
+     "box": {
+      "x": 0,
+      "y": 0.2,
+      "w": 1,
+      "h": 0.8
+     },
+     "data": {
+      "from": "ducts",
+      "to": "बड़े हिस्सों से substance लान…",
+      "reason": "",
+      "accent": "#9be7a4"
+     }
+    },
+    {
+     "id": "cap-b29.1",
+     "type": "block",
+     "block": "kinetic_caption",
+     "at": 4713,
+     "until": 4808,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 0.2
+     },
+     "data": {
+      "text": "Skin की बाहर वाली मजबूत परत कैसी है?",
+      "terms": [
+       "skin"
+      ],
+      "accent": "#9be7a4"
+     }
+    },
+    {
+     "id": "cap-b29.2",
+     "type": "block",
+     "block": "kinetic_caption",
+     "at": 4808,
+     "until": 4982,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 0.2
+     },
+     "data": {
+      "text": "Keratinised यानी keratin का मजबूत cover, जैसे ऊपर सुरक्षा की चादर।",
+      "terms": [
+       "keratinised",
+       "keratin",
+       "cover"
+      ],
+      "accent": "#e0c097"
+     }
+    },
+    {
+     "id": "arrow-b29.2",
+     "type": "block",
+     "block": "concept_arrow",
+     "at": 4808,
+     "until": 4982,
+     "box": {
+      "x": 0,
+      "y": 0.2,
+      "w": 1,
+      "h": 0.8
+     },
+     "data": {
+      "from": "Keratinised",
+      "to": "keratin का मजबूत cover, जैसे…",
+      "reason": "",
+      "accent": "#e0c097"
+     }
+    },
+    {
+     "id": "cap-b29.3",
+     "type": "block",
+     "block": "kinetic_caption",
+     "at": 4982,
+     "until": 5056,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 0.2
+     },
+     "data": {
+      "text": "Outer cells mostly dead हैं;",
+      "terms": [
+       "outer",
+       "cells",
+       "mostly",
+       "dead"
+      ],
+      "accent": "#e0c097"
+     }
+    },
+    {
+     "id": "cap-b29.4",
+     "type": "block",
+     "block": "kinetic_caption",
+     "at": 5056,
+     "until": 5248,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 0.2
+     },
+     "data": {
+      "text": "इनमें nucleus और cytoplasm नहीं रहते, cytoplasm की जगह keratin आ जाता है;",
+      "terms": [
+       "nucleus",
+       "cytoplasm",
+       "keratin"
+      ],
+      "accent": "#e0c097"
+     }
+    },
+    {
+     "id": "cap-b29.5",
+     "type": "block",
+     "block": "kinetic_caption",
+     "at": 5248,
+     "until": 5340,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 0.2
+     },
+     "data": {
+      "text": "इसका मतलब पूरी lining dead नहीं है।",
+      "terms": [
+       "lining",
+       "dead"
+      ],
+      "accent": "#e0c097"
+     }
+    },
+    {
+     "id": "cap-b30.1",
+     "type": "block",
+     "block": "kinetic_caption",
+     "at": 5350,
+     "until": 5501,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 0.2
+     },
+     "data": {
+      "text": "इसकी जगह outer या apical layer है, यानी lining की खुली तरफ।",
+      "terms": [
+       "outer",
+       "apical",
+       "layer",
+       "lining"
+      ],
+      "accent": "#e0c097"
+     }
+    },
+    {
+     "id": "arrow-b30.1",
+     "type": "block",
+     "block": "concept_arrow",
+     "at": 5350,
+     "until": 5501,
+     "box": {
+      "x": 0,
+      "y": 0.2,
+      "w": 1,
+      "h": 0.8
+     },
+     "data": {
+      "from": "layer",
+      "to": "lining की खुली तरफ",
+      "reason": "",
+      "accent": "#e0c097"
+     }
+    },
+    {
+     "id": "cap-b30.2",
+     "type": "block",
+     "block": "kinetic_caption",
+     "at": 5501,
+     "until": 5708,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 0.2
+     },
+     "data": {
+      "text": "मतलब tissue की खुली तरफ की outer cells समझो, individual cell में अलग tissue नहीं;",
+      "terms": [
+       "tissue",
+       "outer",
+       "cells",
+       "individual",
+       "cell"
+      ],
+      "accent": "#e0c097"
+     }
+    },
+    {
+     "id": "cap-b30.3",
+     "type": "block",
+     "block": "kinetic_caption",
+     "at": 5708,
+     "until": 5779,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 0.2
+     },
+     "data": {
+      "text": "skin की epidermis उदाहरण है।",
+      "terms": [
+       "skin",
+       "epidermis"
+      ],
+      "accent": "#e0c097"
+     }
+    },
+    {
+     "id": "cap-b31.1",
+     "type": "block",
+     "block": "kinetic_caption",
+     "at": 5790,
+     "until": 5877,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 0.2
+     },
+     "data": {
+      "text": "Bladder भरने पर lining कैसे फैलती है?",
+      "terms": [
+       "bladder",
+       "lining"
+      ],
+      "accent": "#e0c097"
+     }
+    },
+    {
+     "id": "cap-b31.2",
+     "type": "block",
+     "block": "kinetic_caption",
+     "at": 5877,
+     "until": 6044,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 0.2
+     },
+     "data": {
+      "text": "Transitional epithelia या urothelium कई layers की बदलने वाली lining है।",
+      "terms": [
+       "transitional",
+       "epithelia",
+       "urothelium",
+       "layers",
+       "lining"
+      ],
+      "accent": "#f9a8ff"
+     }
+    },
+    {
+     "id": "cap-b31.3",
+     "type": "block",
+     "block": "kinetic_caption",
+     "at": 6044,
+     "until": 6316,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 0.2
+     },
+     "data": {
+      "text": "यानी मुड़ी चादर फैलने जैसी: बिना stretch cells cuboidal, stretch पर tissue दबता और cells irregular, चपटी दिखती हैं।",
+      "terms": [
+       "stretch",
+       "cells",
+       "cuboidal",
+       "tissue",
+       "irregular"
+      ],
+      "accent": "#f9a8ff"
+     }
+    },
+    {
+     "id": "arrow-b31.3",
+     "type": "block",
+     "block": "concept_arrow",
+     "at": 6044,
+     "until": 6316,
+     "box": {
+      "x": 0,
+      "y": 0.2,
+      "w": 1,
+      "h": 0.8
+     },
+     "data": {
+      "from": "",
+      "to": "मुड़ी चादर फैलने जैसी: बिना s…",
+      "reason": "",
+      "accent": "#f9a8ff"
+     }
+    },
+    {
+     "id": "cap-b32.1",
+     "type": "block",
+     "block": "kinetic_caption",
+     "at": 6326,
+     "until": 6439,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 0.2
+     },
+     "data": {
+      "text": "इसके स्थान urinary bladder, ureter और urethra हैं।",
+      "terms": [
+       "urinary",
+       "bladder",
+       "ureter",
+       "urethra"
+      ],
+      "accent": "#f9a8ff"
+     }
+    },
+    {
+     "id": "cap-b32.2",
+     "type": "block",
+     "block": "kinetic_caption",
+     "at": 6439,
+     "until": 6561,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 0.2
+     },
+     "data": {
+      "text": "Ureter यानी kidney से bladder तक urine लाने वाली pipe;",
+      "terms": [
+       "ureter",
+       "kidney",
+       "bladder",
+       "urine",
+       "pipe"
+      ],
+      "accent": "#f9a8ff"
+     }
+    },
+    {
+     "id": "arrow-b32.2",
+     "type": "block",
+     "block": "concept_arrow",
+     "at": 6439,
+     "until": 6561,
+     "box": {
+      "x": 0,
+      "y": 0.2,
+      "w": 1,
+      "h": 0.8
+     },
+     "data": {
+      "from": "Ureter",
+      "to": "kidney से bladder तक urine ला…",
+      "reason": "",
+      "accent": "#f9a8ff"
+     }
+    },
+    {
+     "id": "cap-b32.3",
+     "type": "block",
+     "block": "kinetic_caption",
+     "at": 6561,
+     "until": 6635,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 0.2
+     },
+     "data": {
+      "text": "urethra बाहर निकलने का रास्ता है।",
+      "terms": [
+       "urethra"
+      ],
+      "accent": "#f9a8ff"
+     }
+    },
+    {
+     "id": "cap-b32.4",
+     "type": "block",
+     "block": "kinetic_caption",
+     "at": 6635,
+     "until": 6800,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 0.2
+     },
+     "data": {
+      "text": "Urothelium पूरी urethra में नहीं, bladder के पास वाले हिस्से में होती है।",
+      "terms": [
+       "urothelium",
+       "urethra",
+       "bladder"
+      ],
+      "accent": "#f9a8ff"
+     }
+    },
+    {
+     "id": "cap-b33.1",
+     "type": "block",
+     "block": "kinetic_caption",
+     "at": 6811,
+     "until": 7019,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 0.2
+     },
+     "data": {
+      "text": "काम जोड़ो: Simple squamous की पतली दीवार में पार जाने की दूरी कम है, इसलिए diffusion;",
+      "terms": [
+       "simple",
+       "squamous",
+       "diffusion"
+      ],
+      "accent": "#5ad7ff"
+     }
+    },
+    {
+     "id": "arrow-b33.1",
+     "type": "block",
+     "block": "concept_arrow",
+     "at": 6811,
+     "until": 7019,
+     "box": {
+      "x": 0,
+      "y": 0.2,
+      "w": 1,
+      "h": 0.8
+     },
+     "data": {
+      "from": "simple squamous",
+      "to": "दीवार",
+      "reason": "",
+      "accent": "#5ad7ff"
+     }
+    },
+    {
+     "id": "cap-b33.2",
+     "type": "block",
+     "block": "kinetic_caption",
+     "at": 7019,
+     "until": 7095,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 0.2
+     },
+     "data": {
+      "text": "protection की जरूरत कम रहती है।",
+      "terms": [
+       "protection"
+      ],
+      "accent": "#5ad7ff"
+     }
+    },
+    {
+     "id": "cap-b33.3",
+     "type": "block",
+     "block": "kinetic_caption",
+     "at": 7095,
+     "until": 7237,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 0.2
+     },
+     "data": {
+      "text": "Cuboidal absorption, यानी अंदर लेना, और secretion करती है;",
+      "terms": [
+       "cuboidal",
+       "absorption",
+       "secretion"
+      ],
+      "accent": "#ffb35c"
+     }
+    },
+    {
+     "id": "arrow-b33.3",
+     "type": "block",
+     "block": "concept_arrow",
+     "at": 7095,
+     "until": 7237,
+     "box": {
+      "x": 0,
+      "y": 0.2,
+      "w": 1,
+      "h": 0.8
+     },
+     "data": {
+      "from": "absorption",
+      "to": "अंदर लेना, और secretion करती…",
+      "reason": "",
+      "accent": "#ffb35c"
+     }
+    },
+    {
+     "id": "cap-b33.4",
+     "type": "block",
+     "block": "kinetic_caption",
+     "at": 7237,
+     "until": 7433,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 0.2
+     },
+     "data": {
+      "text": "microvilli ज्यादा area देकर kidney में उपयोगी चीज़ें वापस लेने में मदद करती हैं।",
+      "terms": [
+       "microvilli",
+       "area",
+       "kidney"
+      ],
+      "accent": "#ffb35c"
+     }
+    },
+    {
+     "id": "cap-b34.1",
+     "type": "block",
+     "block": "kinetic_caption",
+     "at": 7444,
+     "until": 7633,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 0.2
+     },
+     "data": {
+      "text": "Columnar protection, absorption, mucus secretion और directional movement करती है।",
+      "terms": [
+       "columnar",
+       "protection",
+       "absorption",
+       "mucus",
+       "secretion",
+       "directional",
+       "movement"
+      ],
+      "accent": "#7cf59a"
+     }
+    },
+    {
+     "id": "cap-b34.2",
+     "type": "block",
+     "block": "kinetic_caption",
+     "at": 7633,
+     "until": 7698,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 0.2
+     },
+     "data": {
+      "text": "Mucus यानी चिपचिपी covering;",
+      "terms": [
+       "mucus",
+       "covering"
+      ],
+      "accent": "#7cf59a"
+     }
+    },
+    {
+     "id": "arrow-b34.2",
+     "type": "block",
+     "block": "concept_arrow",
+     "at": 7633,
+     "until": 7698,
+     "box": {
+      "x": 0,
+      "y": 0.2,
+      "w": 1,
+      "h": 0.8
+     },
+     "data": {
+      "from": "Mucus",
+      "to": "चिपचिपी covering",
+      "reason": "",
+      "accent": "#7cf59a"
+     }
+    },
+    {
+     "id": "cap-b34.3",
+     "type": "block",
+     "block": "kinetic_caption",
+     "at": 7698,
+     "until": 7775,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 0.2
+     },
+     "data": {
+      "text": "cilia साथ हिलकर उसे आगे करती हैं।",
+      "terms": [
+       "cilia"
+      ],
+      "accent": "#7cf59a"
+     }
+    },
+    {
+     "id": "cap-b34.4",
+     "type": "block",
+     "block": "kinetic_caption",
+     "at": 7775,
+     "until": 7866,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 0.2
+     },
+     "data": {
+      "text": "हर digestive lining ciliated नहीं होती;",
+      "terms": [
+       "digestive",
+       "lining",
+       "ciliated"
+      ],
+      "accent": "#7cf59a"
+     }
+    },
+    {
+     "id": "cap-b34.5",
+     "type": "block",
+     "block": "kinetic_caption",
+     "at": 7866,
+     "until": 7989,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 0.2
+     },
+     "data": {
+      "text": "बहुत-सी upper respiratory lining pseudostratified है।",
+      "terms": [
+       "upper",
+       "respiratory",
+       "lining",
+       "pseudostratified"
+      ],
+      "accent": "#c89bff"
+     }
+    },
+    {
+     "id": "cap-b35.1",
+     "type": "block",
+     "block": "kinetic_caption",
+     "at": 8000,
+     "until": 8139,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 0.2
+     },
+     "data": {
+      "text": "Stratified Squamous में layers और renewal बचाव करते हैं।",
+      "terms": [
+       "stratified",
+       "squamous",
+       "layers",
+       "renewal"
+      ],
+      "accent": "#ff8a7a"
+     }
+    },
+    {
+     "id": "cap-b35.2",
+     "type": "block",
+     "block": "kinetic_caption",
+     "at": 8139,
+     "until": 8233,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 0.2
+     },
+     "data": {
+      "text": "Stratified Cuboidal ducts को बचाती है;",
+      "terms": [
+       "stratified",
+       "cuboidal",
+       "ducts"
+      ],
+      "accent": "#ffd166"
+     }
+    },
+    {
+     "id": "cap-b35.3",
+     "type": "block",
+     "block": "kinetic_caption",
+     "at": 8233,
+     "until": 8362,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 0.2
+     },
+     "data": {
+      "text": "Stratified Columnar protection और secretion करती है।",
+      "terms": [
+       "stratified",
+       "columnar",
+       "protection",
+       "secretion"
+      ],
+      "accent": "#7cf59a"
+     }
+    },
+    {
+     "id": "cap-b35.4",
+     "type": "block",
+     "block": "kinetic_caption",
+     "at": 8362,
+     "until": 8481,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 0.2
+     },
+     "data": {
+      "text": "Simple Columnar से फर्क नीचे की और layers का है।",
+      "terms": [
+       "simple",
+       "columnar",
+       "layers"
+      ],
+      "accent": "#7cf59a"
+     }
+    },
+    {
+     "id": "split-b35.4",
+     "type": "block",
+     "block": "split_compare",
+     "at": 8362,
+     "until": 8481,
+     "box": {
+      "x": 0.02,
+      "y": 0.17,
+      "w": 0.96,
+      "h": 0.8
+     },
+     "data": {
+      "left": {
+       "title": "Simple columnar",
+       "member": "simple_columnar",
+       "lines": [
+        "Simple Columnar से फर्क नीचे की",
+        "layers का है"
+       ]
+      },
+      "right": {
+       "title": "दूसरा",
+       "lines": []
+      },
+      "slots": []
+     }
+    },
+    {
+     "id": "cap-b36.1",
+     "type": "block",
+     "block": "kinetic_caption",
+     "at": 8491,
+     "until": 8640,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 0.2
+     },
+     "data": {
+      "text": "Keratin abrasion, यानी रगड़ से घिसना, और water loss घटाता है;",
+      "terms": [
+       "keratin",
+       "abrasion",
+       "water",
+       "loss"
+      ],
+      "accent": "#e0c097"
+     }
+    },
+    {
+     "id": "arrow-b36.1",
+     "type": "block",
+     "block": "concept_arrow",
+     "at": 8491,
+     "until": 8640,
+     "box": {
+      "x": 0,
+      "y": 0.2,
+      "w": 1,
+      "h": 0.8
+     },
+     "data": {
+      "from": "abrasion",
+      "to": "रगड़ से घिसना, और water loss…",
+      "reason": "",
+      "accent": "#e0c097"
+     }
+    },
+    {
+     "id": "cap-b36.2",
+     "type": "block",
+     "block": "kinetic_caption",
+     "at": 8640,
+     "until": 8770,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 0.2
+     },
+     "data": {
+      "text": "यह waterproof covering जैसा है, water-resistant समझो।",
+      "terms": [
+       "waterproof",
+       "covering",
+       "water-resistant"
+      ],
+      "accent": "#e0c097"
+     }
+    },
+    {
+     "id": "cap-b36.3",
+     "type": "block",
+     "block": "kinetic_caption",
+     "at": 8770,
+     "until": 8907,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 0.2
+     },
+     "data": {
+      "text": "Urothelium बदलते liquid volume के साथ फैलती-सिकुड़ती है;",
+      "terms": [
+       "urothelium",
+       "liquid",
+       "volume"
+      ],
+      "accent": "#f9a8ff"
+     }
+    },
+    {
+     "id": "cap-b36.4",
+     "type": "block",
+     "block": "kinetic_caption",
+     "at": 8907,
+     "until": 9130,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 0.2
+     },
+     "data": {
+      "text": "tight junctions, यानी कसकर बंद जोड़, toxic urine substances को वापस अंदर जाने से रोकते हैं।",
+      "terms": [
+       "tight",
+       "junctions",
+       "toxic",
+       "urine",
+       "substances"
+      ],
+      "accent": "#f9a8ff"
+     }
+    },
+    {
+     "id": "arrow-b36.4",
+     "type": "block",
+     "block": "concept_arrow",
+     "at": 8907,
+     "until": 9130,
+     "box": {
+      "x": 0,
+      "y": 0.2,
+      "w": 1,
+      "h": 0.8
+     },
+     "data": {
+      "from": "junctions",
+      "to": "कसकर बंद जोड़, toxic urine su…",
+      "reason": "",
+      "accent": "#f9a8ff"
+     }
+    },
+    {
+     "id": "cap-b37.1",
+     "type": "block",
+     "block": "kinetic_caption",
+     "at": 9140,
+     "until": 9212,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 0.2
+     },
+     "data": {
+      "text": "Features मिलकर काम बनाते हैं।",
+      "terms": [
+       "features"
+      ],
+      "accent": "#f9a8ff"
+     }
+    },
+    {
+     "id": "split-b37.1",
+     "type": "block",
+     "block": "split_compare",
+     "at": 9140,
+     "until": 9212,
+     "box": {
+      "x": 0.02,
+      "y": 0.17,
+      "w": 0.96,
+      "h": 0.8
+     },
+     "data": {
+      "left": {
+       "title": "Transitional",
+       "member": "transitional",
+       "lines": [
+        "Features मिलकर काम बनाते हैं"
+       ]
+      },
+      "right": {
+       "title": "दूसरा",
+       "lines": []
+      },
+      "slots": []
+     }
+    },
+    {
+     "id": "cap-b37.2",
+     "type": "block",
+     "block": "kinetic_caption",
+     "at": 9212,
+     "until": 9346,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 0.2
+     },
+     "data": {
+      "text": "खास तुलना: Simple squamous में पतली exchange boundary;",
+      "terms": [
+       "simple",
+       "squamous",
+       "exchange",
+       "boundary"
+      ],
+      "accent": "#5ad7ff"
+     }
+    },
+    {
+     "id": "split-b37.2",
+     "type": "block",
+     "block": "split_compare",
+     "at": 9212,
+     "until": 9346,
+     "box": {
+      "x": 0.02,
+      "y": 0.17,
+      "w": 0.96,
+      "h": 0.8
+     },
+     "data": {
+      "left": {
+       "title": "Simple squamous",
+       "member": "simple_squamous",
+       "lines": [
+        "खास तुलना: Simple squamous में पतली exchange boundary"
+       ]
+      },
+      "right": {
+       "title": "दूसरा",
+       "lines": []
+      },
+      "slots": []
+     }
+    },
+    {
+     "id": "cap-b37.3",
+     "type": "block",
+     "block": "kinetic_caption",
+     "at": 9346,
+     "until": 9457,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 0.2
+     },
+     "data": {
+      "text": "Stratified Squamous में कई protective layers।",
+      "terms": [
+       "stratified",
+       "squamous",
+       "protective",
+       "layers"
+      ],
+      "accent": "#ff8a7a"
+     }
+    },
+    {
+     "id": "split-b37.3",
+     "type": "block",
+     "block": "split_compare",
+     "at": 9346,
+     "until": 9457,
+     "box": {
+      "x": 0.02,
+      "y": 0.17,
+      "w": 0.96,
+      "h": 0.8
+     },
+     "data": {
+      "left": {
+       "title": "Stratified squamous",
+       "member": "stratified_squamous",
+       "lines": [
+        "Stratified Squamous में कई protective layers"
+       ]
+      },
+      "right": {
+       "title": "दूसरा",
+       "lines": []
+      },
+      "slots": []
+     }
+    },
+    {
+     "id": "cap-b37.4",
+     "type": "block",
+     "block": "kinetic_caption",
+     "at": 9457,
+     "until": 9568,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 0.2
+     },
+     "data": {
+      "text": "Flat shape एक है, layer count और काम अलग हैं।",
+      "terms": [
+       "flat",
+       "shape",
+       "layer",
+       "count"
+      ],
+      "accent": "#ff8a7a"
+     }
+    },
+    {
+     "id": "split-b37.4",
+     "type": "block",
+     "block": "split_compare",
+     "at": 9457,
+     "until": 9568,
+     "box": {
+      "x": 0.02,
+      "y": 0.17,
+      "w": 0.96,
+      "h": 0.8
+     },
+     "data": {
+      "left": {
+       "title": "Stratified squamous",
+       "member": "stratified_squamous",
+       "lines": [
+        "Flat shape एक है",
+        "layer count"
+       ]
+      },
+      "right": {
+       "title": "दूसरा",
+       "lines": []
+      },
+      "slots": []
+     }
+    },
+    {
+     "id": "cap-b38.1",
+     "type": "block",
+     "block": "kinetic_caption",
+     "at": 9579,
+     "until": 9715,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 0.2
+     },
+     "data": {
+      "text": "तरीका याद रखो: layers, ऊपर की shape, फिर special feature।",
+      "terms": [
+       "layers",
+       "shape",
+       "special",
+       "feature"
+      ],
+      "accent": "#ff8a7a"
+     }
+    },
+    {
+     "id": "card-b38.1",
+     "type": "block",
+     "block": "mnemonic_card",
+     "at": 9579,
+     "until": 9715,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 1
+     },
+     "data": {
+      "title": "तरीका याद रखो",
+      "lines": [
+       "layers",
+       "ऊपर की shape",
+       "फिर special feature"
+      ],
+      "accent": "#ff8a7a"
+     }
+    },
+    {
+     "id": "cap-b38.2",
+     "type": "block",
+     "block": "kinetic_caption",
+     "at": 9715,
+     "until": 9813,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 0.2
+     },
+     "data": {
+      "text": "Kidney capsule squamous, tubule cuboidal;",
+      "terms": [
+       "kidney",
+       "capsule",
+       "squamous",
+       "tubule",
+       "cuboidal"
+      ],
+      "accent": "#ff8a7a"
+     }
+    },
+    {
+     "id": "cap-b38.3",
+     "type": "block",
+     "block": "kinetic_caption",
+     "at": 9813,
+     "until": 9985,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 0.2
+     },
+     "data": {
+      "text": "pillar columnar, keratin मजबूत cover, Transitional फैलने वाली lining है।",
+      "terms": [
+       "pillar",
+       "columnar",
+       "keratin",
+       "cover",
+       "transitional",
+       "lining"
+      ],
+      "accent": "#f9a8ff"
+     }
+    }
+   ],
+   "camera": [
+    {
+     "at": 0,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "credits",
+   "duration": 120,
+   "camera": [
+    {
+     "at": 0,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 1
+     }
+    }
+   ],
+   "layers": [
+    {
+     "id": "credits-steps",
+     "type": "steps",
+     "at": 0,
+     "box": {
+      "x": 0.08,
+      "y": 0.12,
+      "w": 0.84,
+      "h": 0.76
+     },
+     "title": "Credits",
+     "steps": [
+      {
+       "label": "Models, drawings and motion: BIE's own code (route A three.js; route C Blender glTF)",
+       "at": 6
+      },
+      {
+       "label": "Voice: espeak-ng-placeholder/1 (placeholder; Task 047 brings the real voice)",
+       "at": 16
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "video_id": "v3",
+ "title": "Epithelial tissue: covering की बनावट काम कैसे बदलती है?",
+ "levels_version": "2026-10-26.2",
+ "grammar_version": "2026-10-26.2",
+ "audio": "narration.wav"
+}
