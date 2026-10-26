@@ -14,7 +14,10 @@ This module holds what every section shares for that:
   prefix text for the makers;
 - the script checks: "dohraav pakad" (a beat whose words are the book's and that opens nothing goes back),
   clipped verbless sentences, a question before every new topic, no duplicate recaps;
-- ``dohraav_share``: the measure Navin asked for, the share of beats that only restate the book.
+- ``dohraav_share``: the measure Navin asked for, the share of beats that only restate the book;
+- the wording rule W-01 (Task 046, Navin, 26 October 2026): the narration never points at the book ("book के अनुसार",
+  "किताब कहती है", "book says", "page पर" ...); the word list lives in ``rulebook/visual_grammar.json`` and
+  ``book_pointing`` / ``wording_problems`` apply it.
 """
 from __future__ import annotations
 
@@ -26,6 +29,7 @@ from pathlib import Path
 from .common import S, arr as _arr, obj as _obj
 
 TEACHER_PATH = Path(__file__).resolve().parent / "rulebook" / "teacher_examples.json"
+GRAMMAR_PATH = Path(__file__).resolve().parent / "rulebook" / "visual_grammar.json"
 DEVANAGARI = re.compile(r"[ऀ-ॿ]")
 
 UNPACK_SCHEMA = _obj({
@@ -342,3 +346,59 @@ def skipped_step_problems(parts, card_parts, types) -> tuple:
                 continue
             skipped.setdefault(pid, {})[step] = why
     return problems, skipped
+
+
+# ---------------------------------------------------------------- the wording rule W-01 (Task 046)
+
+WORDING_GROUPS = ("hindi", "hinglish", "english", "mixed")
+
+
+@lru_cache(maxsize=2)
+def load_wording(path: str = str(GRAMMAR_PATH)) -> dict:
+    """The W-01 word list of the visual grammar rulebook: {"version", "groups": {group: [compiled regex, ...]}}."""
+    data = json.loads(Path(path).read_text(encoding="utf-8"))
+    words = data["wording"]["W-01"]
+    groups = {}
+    for group in WORDING_GROUPS:
+        groups[group] = [re.compile(_bounded(pattern), re.IGNORECASE) for pattern in words.get(group) or []]
+    return {"version": data["version"], "groups": groups, "decided": words.get("decided", "")}
+
+
+def _bounded(pattern: str) -> str:
+    """A word-list pattern bounded by letters of its own script: Devanagari letters around a Devanagari start or end,
+    Roman letters around a Roman one, so "kitaab" is not found inside "kitaabghar" and "पृष्ठ" not inside "पृष्ठभूमि"."""
+    first, last = pattern[0], pattern[-1]
+    letters = r"\u0900-\u0963\u0970-\u097f"            # Devanagari letters and signs, not the danda (।) or the digits
+    head = f"(?<![{letters}])" if DEVANAGARI.match(first) else (r"(?<![a-z])" if first.isalpha() else "")
+    tail = f"(?![{letters}])" if DEVANAGARI.match(last) else (r"(?![a-z])" if last.isalpha() else "")
+    return head + pattern + tail
+
+
+def book_pointing(say: str, wording: dict | None = None) -> list:
+    """[(sentence, matched words, group)] for every sentence of ``say`` that points at the book (W-01)."""
+    wording = wording or load_wording()
+    found = []
+    for sentence in SENTENCE_SPLIT.split((say or "").strip()):
+        for group, patterns in wording["groups"].items():
+            hit = next((m for p in patterns for m in [p.search(sentence)] if m), None)
+            if hit:
+                found.append((sentence.strip(), hit.group(0), group))
+                break
+    return found
+
+
+def wording_problems(beats, wording: dict | None = None) -> list:
+    """W-01: a beat whose sentence points at the book goes back; BIE says the fact itself, like a teacher."""
+    problems = []
+    for beat in beats or []:
+        for sentence, words, _ in book_pointing(beat.get("say", ""), wording)[:2]:
+            problems.append(f"beat {beat['beat_id']}: \"{sentence[:80]}\" points at the book ({words!r}); BIE teaches as a teacher: "
+                            "say the fact itself, never 'book ke anusar', 'kitaab kehti hai', 'page par' or the like (W-01)")
+    return problems
+
+
+def wording_hits(beats, wording: dict | None = None) -> list:
+    """Every W-01 hit of a script as rows for a report: {beat_id, sentence, words, group}."""
+    return [{"beat_id": beat["beat_id"], "sentence": sentence, "words": words, "group": group}
+            for beat in beats or [] for sentence, words, group in book_pointing(beat.get("say", ""), wording)]
+

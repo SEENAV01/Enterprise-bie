@@ -183,7 +183,7 @@ def main(argv=None):
     parser.add_argument("--from-run", help="folder or https URL of an earlier run with chapter_map.json and lesson_plan.json (director)")
     parser.add_argument("--resume-from", help="folder or https URL of an earlier run: understand/chain reuse its passed pages, "
                                               "lesson reuses its passed plan and scripts (when they pass today's checks)")
-    parser.add_argument("--videos", default="", help="visual: only these video ids, for example v1,v2")
+    parser.add_argument("--videos", default="", help="visual: only these video ids, for example v1,v2; lesson with --resume-from: only these scripts are worked on, the rest are kept as they were")
     parser.add_argument("--render", action="store_true", help="visual: also render a silent MP4 preview of every video")
     parser.add_argument("--with-visual", action="store_true", help="chain: also run Section 4")
     parser.add_argument("--pages")
@@ -340,7 +340,8 @@ def main(argv=None):
                 summary.update(status=stop_status(guard), stop_reason=guard.stop_reason)
         if args.section in ("lesson", "chain") and summary["status"] == "ok":
             lesson = run_lesson(chapter, course, runner, out, workers=args.workers, max_rounds=args.max_rounds,
-                                max_output_tokens=args.max_output_tokens, previous_lesson=previous_lesson)
+                                max_output_tokens=args.max_output_tokens, previous_lesson=previous_lesson,
+                                only=[v.strip() for v in args.videos.split(",") if v.strip()] or None)
             if lesson.get("resume_notes") or lesson.get("plan_reused"):
                 summary["resume"] = dict(summary.get("resume") or {}, plan_reused=lesson["plan_reused"],
                                          scripts_reused=lesson["quality"]["videos_reused"], notes=lesson["resume_notes"])

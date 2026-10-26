@@ -1,5 +1,5 @@
-"""Task 046a test lane: the toolbox registry, resolver, sources, page and the lesson licence gate of Task 046a-L (core,
-standard library) and one test per wrapper with the real libraries (wrappers; needs every toolbox extra, Blender and
+"""Task 046a test lane: the toolbox registry, resolver, sources, page, the lesson licence gate of Task 046a-L and the Task 046
+shot-list director (core, standard library) and one test per wrapper with the real libraries (wrappers; needs every toolbox extra, Blender and
 Manim). No network, no keys, no money.
 
     python -B tools/run_task046a_tests.py --lane core|wrappers|all --output <receipt.json>
@@ -19,7 +19,8 @@ sys.path.insert(0, str(ROOT / "tools"))
 from run_task038_tests import run_file  # noqa: E402
 
 # The wrappers file sits in tests/toolbox/, which the canonical gate does not discover: its libraries are toolbox extras.
-LANES = {"core": ("tests/test_task046a_toolbox.py", "tests/test_task046a_licence.py"), "wrappers": ("tests/toolbox/test_wrappers.py",)}
+LANES = {"core": ("tests/test_task046a_toolbox.py", "tests/test_task046a_licence.py", "tests/test_task046_shots.py"),
+         "wrappers": ("tests/toolbox/test_wrappers.py",)}
 LANES["all"] = LANES["core"] + LANES["wrappers"]
 
 

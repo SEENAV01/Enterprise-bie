@@ -49,6 +49,12 @@ RULE_CHANGES = (
      "upgraded_by": "the script is written again (bie/brain/lesson.py)",
      "match": re.compile(r"^script \S+: (?:part \S+ \(classification\): teaching-pattern steps not taught"
                          r"|beat \S+: step \d+ is not a step of the classification pattern)")},
+    {"rule": "W-01", "rulebook": "visual_grammar@2026-10-26.1",
+     "decision": "Navin, 26 October 2026 (Task 046): the narration never says 'book के अनुसार', 'किताब कहती है', 'book says' or any "
+                 "wording that points at the book; BIE teaches as a teacher",
+     "upgraded_by": "the lesson's wording patch round: the script continues from its last answer and only the beats W-01 flags are "
+                    "rewritten (bie/brain/lesson.py, reusable + script_step with start; VM job t046-v3-wording-patch)",
+     "match": re.compile(r"\(W-01\)$")},
 )
 
 

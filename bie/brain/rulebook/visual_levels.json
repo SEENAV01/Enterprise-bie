@@ -1,0 +1,50 @@
+{
+ "schema": "bie.brain.visual-levels/1",
+ "version": "2026-10-26.1",
+ "status": "locked",
+ "decided": {
+  "date": "2026-10-26",
+  "by": "Navin",
+  "words": [
+   "Task 46 will surpass even the tarazu point 'video kaisi ho' level on its full completion, implementing things required.",
+   "90 se 99 percent videos L3 ya isse upar ke level ki ho.",
+   "Content decides the scene plan; the scene plan decides which visual level the video code is made at. BIE itself must be capable up to L5a."
+  ]
+ },
+ "about": "The visual level ladder (Task 046, docs/vision/VISUAL_LEVELS.md). Every shot of a scene plan carries a level from shot_levels; the director chooses the level the content demands, starting from the capability's default_level in bie/toolbox/capabilities.json. The code check per video: the shot-seconds at minimum_share.at_or_above or higher are at least minimum_share.share of the video; a video below that is not rendered. This file carries no rules; it is data the director and the checks read.",
+ "chain": "content → scene plan (one shot per spoken sentence, each with a level) → video code made at that level",
+ "capable_up_to": "L5a",
+ "shot_levels": ["L2", "L3", "L4", "L5a"],
+ "minimum_share": {"at_or_above": "L3", "share": 0.9, "per": "video", "measure": "shot seconds", "below": "not rendered"},
+ "levels": [
+  {"id": "L1", "rank": 1, "name": "teacher at a board", "bie_target": false, "shot_allowed": false,
+   "means": "a person explaining at a board, as in a classroom recording",
+   "use": "never a BIE output; only for learning how teachers explain (the teacher example bank)"},
+  {"id": "L2", "rank": 2, "name": "clean 2D", "bie_target": true, "shot_allowed": true,
+   "means": "vector diagrams, draw-on line art, equation cards, slides",
+   "use": "where a flat drawing is the clearest picture: a vector problem, a circuit, a case card, a definition slide",
+   "examples": ["a vector problem drawn with arrows", "a circuit diagram", "a law case card"]},
+  {"id": "L3", "rank": 3, "name": "rich 2D / 2.5D", "bie_target": true, "shot_allowed": true,
+   "means": "motion graphics, illustrated stills, light 3D, timelines, lit boards, kinetic captions",
+   "use": "the floor for most teaching shots: equation steps on a lit board, a graph that draws itself, a timeline with nodes, a board that fills, a mnemonic card, a split comparison",
+   "examples": ["equation steps on a lit board", "a self-drawing graph", "a history timeline", "the A → B summary board"]},
+  {"id": "L4", "rank": 4, "name": "stylized 3D", "bie_target": true, "shot_allowed": true,
+   "means": "one 3D world per topic; the camera moves between its parts; cutaway and exploded views; a process shown with flow",
+   "use": "engineering, physics apparatus, the earth, machines, orbits",
+   "examples": ["a machine part exploded into its pieces", "the earth cut open to its layers", "an orbit with the planet moving"]},
+  {"id": "L5a", "rank": 5, "name": "photoreal micro or machine 3D", "bie_target": true, "shot_allowed": true,
+   "means": "lighting, depth of field, focus glow, particle motion; cells, molecules, chips, organs",
+   "use": "the epithelium benchmark level: a lit sheet of cells, particles crossing it, a zoom from the organ to the sheet",
+   "examples": ["a sheet of squamous cells with the top cell glowing", "oxygen particles crossing the thin sheet", "a protein's folded chain"]},
+  {"id": "L5b", "rank": 6, "name": "photoreal humans, landscapes, Pixar-grade character acting", "bie_target": false, "shot_allowed": false,
+   "means": "photoreal people and places, feature-film character animation",
+   "use": "not made by code; outside BIE's output. A scene plan that asks for L5b is a planning error and fails the check"}
+ ],
+ "default_by_kind": {
+  "note": "fallbacks the director uses when a capability has no default_level (it should not happen: every capability names one)",
+  "micro_or_organ_3d": "L5a",
+  "machine_or_earth_3d": "L4",
+  "board_graph_timeline_card": "L3",
+  "flat_diagram": "L2"
+ }
+}

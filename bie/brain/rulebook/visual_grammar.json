@@ -1,0 +1,216 @@
+{
+ "rulebook": "bie-visual-grammar",
+ "version": "2026-10-26.1",
+ "source": "Navin's brief for Task 046, 26 October 2026: eleven visual grammar rules added to the twelve of the epithelium benchmark (benchmarks/epithelium_animation.json, B-01 to B-12), and the wording rule W-01. The director reads the rules; the checks enforce what code can check (bie/brain/shots.py).",
+ "numbering": "Navin's brief numbers the grammar rules G-01 to G-11. In this rulebook they are VG-01 to VG-11, because G-01 to G-07 are already the general rules of vision-2026-10-21.json and a rule id is used once.",
+ "notes": "Each rule is an instruction for the director and the visual section (rule) and a yes/no question for the reviewer (check). Rules change only through a reviewed version bump; Navin approves every new or changed rule.",
+ "rules": [
+  {
+   "id": "VG-01",
+   "sections": [
+    "director",
+    "visual"
+   ],
+   "status": "locked",
+   "rule": "One topic, one 3D world: the camera moves to the next part; cuts are rare. Micro biology keeps the benchmark pace (a shot every 2-5 seconds); engineering and physics worlds hold longer shots.",
+   "check": "Does the video stay in one world, moving the camera between parts, with few cuts, at the pace its subject asks for?"
+  },
+  {
+   "id": "VG-02",
+   "sections": [
+    "director",
+    "visual"
+   ],
+   "status": "locked",
+   "rule": "Labels are code text tied to their object by a leader line and move with it; a label is never baked into an image, so one asset works in every language.",
+   "check": "Is every label code text with a leader line to its object, none drawn inside a picture?"
+  },
+  {
+   "id": "VG-03",
+   "sections": [
+    "director",
+    "visual"
+   ],
+   "status": "locked",
+   "rule": "Inside is shown by opening or cutting: an exploded view or a cutaway, never a separate flat picture of the inside.",
+   "check": "When the sentence is about the inside of a thing, does the shot open or cut it (exploded view, cutaway)?"
+  },
+  {
+   "id": "VG-04",
+   "sections": [
+    "director",
+    "visual"
+   ],
+   "status": "locked",
+   "rule": "Size is taught by scale comparison with a thing the learner knows (one book = 1 MB; access time as a distance), never by a number alone.",
+   "check": "Is every size or quantity shown against a known thing, not only spoken as a number?"
+  },
+  {
+   "id": "VG-05",
+   "sections": [
+    "director",
+    "visual"
+   ],
+   "status": "locked",
+   "rule": "Equations build step by step beside the picture they describe, each step appearing on its spoken words.",
+   "check": "Does every equation build one step at a time, next to its picture, on the words that say that step?"
+  },
+  {
+   "id": "VG-06",
+   "sections": [
+    "director",
+    "visual"
+   ],
+   "status": "locked",
+   "rule": "Graphs draw themselves as a lit line; a slope or tangent moves along the curve while it is spoken about.",
+   "check": "Does every graph draw itself, with a moving slope or tangent where one is spoken about?"
+  },
+  {
+   "id": "VG-07",
+   "sections": [
+    "director",
+    "visual"
+   ],
+   "status": "locked",
+   "rule": "Two things are compared on a split screen (the split_compare block), the same slots on both sides.",
+   "check": "Is every comparison a split screen with the same slots on both sides?"
+  },
+  {
+   "id": "VG-08",
+   "sections": [
+    "director",
+    "visual"
+   ],
+   "status": "locked",
+   "rule": "Processes show flow with moving arrows or particles (magma, water, concrete, ions, mucus), never a still diagram with static arrows.",
+   "check": "Does every process shot move: arrows or particles travelling along the path?"
+  },
+  {
+   "id": "VG-09",
+   "sections": [
+    "director",
+    "visual"
+   ],
+   "status": "locked",
+   "rule": "One dark background, one accent colour per concept, one camera language per video.",
+   "check": "Is the background dark throughout, each concept in its one accent colour, and the camera language the same for the whole video?"
+  },
+  {
+   "id": "VG-10",
+   "sections": [
+    "director",
+    "visual"
+   ],
+   "status": "locked",
+   "rule": "History and polity use a lit timeline with nodes; maps appear only through the licence gate's map rule (India's boundary waits for Navin's approval).",
+   "check": "Do history and polity shots use a lit timeline with nodes, and does every map pass the licence gate's map rule?"
+  },
+  {
+   "id": "VG-11",
+   "sections": [
+    "director",
+    "visual"
+   ],
+   "status": "locked",
+   "rule": "A story or guide character appears only where the topic and the level ask for it (young classes, story topics), as a 2D illustrated character; no Pixar-style acting.",
+   "check": "If a character appears, do the topic and the level ask for one, and is it a 2D illustrated character without Pixar-style acting?"
+  },
+  {
+   "id": "W-01",
+   "sections": [
+    "lesson",
+    "director"
+   ],
+   "status": "locked",
+   "rule": "The narration never points at the book: no 'book के अनुसार', 'किताब कहती है', 'book says', 'page पर', 'textbook', 'NCERT' or any wording of that family (the list in this file, 'wording'). BIE teaches as a teacher: it says the fact itself. Navin accepts the copyright position (26 October 2026).",
+   "check": "Does any sentence point at the book, its pages, its author or its figures instead of teaching the fact itself?"
+  }
+ ],
+ "wording": {
+  "W-01": {
+   "decided": "Navin, 26 October 2026: narration never says 'book के अनुसार', 'किताब कहती है', 'book says' or any wording that points at the book. BIE teaches as a teacher.",
+   "how": "Regular expressions, case-insensitive; Devanagari words are bounded by Devanagari letters, Roman words by Roman letters (bie/brain/soul.py, book_pointing). A sentence that matches any pattern goes back to the maker as a W-01 problem; the lesson's wording patch round rewrites only those beats.",
+   "hindi": [
+    "किताब (?:के अनुसार|के मुताबिक|कहती|बताती|में|की|वाली|वाला|से|का|के)",
+    "पुस्तक (?:के अनुसार|के मुताबिक|कहती|बताती|में|की|वाली|से|का|के)",
+    "पाठ्यपुस्तक",
+    "पाठ्य पुस्तक",
+    "पेज (?:पर|नंबर|में)",
+    "इस पेज",
+    "अगले पेज",
+    "पिछले पेज",
+    "पृष्ठ",
+    "लेखक",
+    "(?:अध्याय|पाठ) (?:के अनुसार|के मुताबिक|कहता|बताता|में लिखा|में दिया)",
+    "(?:छपा|छपी|छपे) (?:है|हैं|हुआ|हुई|हुए)"
+   ],
+   "hinglish": [
+    "kitaab",
+    "kitab",
+    "pustak",
+    "book (?:ke|ki|ka) (?:anusa+r|mutabi[kq]|hisaab|line|lines|figure|table|diagram|page|baat|bhasha|definition|words?)",
+    "book (?:ke(?:h|)h?ti|kahti|bolti|batati|kehta|kahta|bolta|batata) hai",
+    "book (?:mein?|me) (?:likha|diya|bataya|kaha|aata|aaya|milta|dikhaya|chhapa|hai ki|dekho|padho)",
+    "book (?:wali|waali) (?:line|baat|definition)",
+    "page (?:par|pe|number|no\\.?) ",
+    "is page",
+    "agle page",
+    "pichhle page",
+    "textbook",
+    "ncert",
+    "author (?:ke|ki|kehta|kahta|ne|bolta)",
+    "chapter (?:ke anusa+r|ke mutabi[kq]|mein? likha|mein? diya|kehta hai|kahta hai)",
+    "book[^।?!.;]{0,80}?(?:kehti|kahti|batati|bolti|kehta|kahta|batata|bolta) hai",
+    "book[^।?!.;]{0,80}?(?:says|states|mentions|writes|calls it)",
+    "printed (?:location|wording|text|line|word|words|table|figure|name|value|heading)"
+   ],
+   "english": [
+    "according to the (?:book|text|chapter|author)",
+    "the book says",
+    "book says",
+    "as the book",
+    "in the book",
+    "the textbook",
+    "as per the (?:book|text)",
+    "the text says",
+    "the author",
+    "as given in the (?:book|chapter|text)",
+    "on page",
+    "the chapter says",
+    "this chapter says",
+    "given in the book",
+    "written in the book"
+   ],
+   "mixed": [
+    "book (?:के अनुसार|के मुताबिक|कहती है|बताती है|कहता है|बताता है|की line|की figure|की table|वाली|का हिसाब)",
+    "book में[^।?!.]{0,40}?(?:लिखा|दिया|बताया|कहा|आता|आया|मिलता|दिखाया|छपा|है कि|देखो|पढ़ो)",
+    "page (?:पर|नंबर|में)",
+    "इस page",
+    "अगले page",
+    "पिछले page",
+    "chapter (?:के अनुसार|के मुताबिक|में लिखा|में दिया|कहता है)",
+    "textbook में",
+    "author (?:के|की|ने|कहता)",
+    "book[^।?!.;]{0,80}?(?:कहती|बताती|कहता|बताता|लिखती|लिखता|बात करती|बात करता) है",
+    "printed (?:location|wording|text|line|word|words|table|figure|name|value|heading) है"
+   ],
+   "allowed_examples": [
+    "एक book में लगभग 1 MB text होता है (a scale comparison: the book is an everyday thing, not the source).",
+    "इस table को देखो: shape → job (the board on screen, not the book's table).",
+    "Exam में यह line सीधे पूछी जाती है (the exam, not the book).",
+    "पहला figure 4 forms की side और top views देता है (the figure BIE draws on screen: a teacher pointing at the screen, not at the book; Navin may add it to the list).",
+    "Panel (a), Squamous, tiles जैसी पतली 1 sheet है (the panel letters are on BIE's own drawing)."
+   ],
+   "refused_examples": [
+    "किताब के अनुसार epithelium covering बनाता है।",
+    "Book में इसे simple squamous कहा गया है।",
+    "Page पर दिया diagram देखो।",
+    "As the book says, the cells are tightly packed.",
+    "NCERT kehta hai ki basement membrane non-cellular hai.",
+    "Book short cylindrical कहती है; height और width लगभग बराबर समझो।",
+    "book nucleus और cytoplasm के न रहने की बात करती है।",
+    "Printed location है ‘The outer or apical layer of the cell’।"
+   ]
+  }
+ }
+}

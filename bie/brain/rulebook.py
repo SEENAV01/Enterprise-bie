@@ -6,8 +6,9 @@ recorded with every output is the files' own version strings plus a hash of thei
 changed rule can never pass silently as the old one. Only ``locked`` rules (approved by Navin) are
 used; ``proposed`` rules wait for his approval. Companion data files in the same folder (for example
 ``content_types.json``, schema ``bie.brain.content-types/1``; the level profiles, the teacher example bank and the
-explanation library of Task 045d) carry no rules but count in the version and the hash, because the sections read
-them too.
+explanation library of Task 045d, the visual level ladder of Task 046) carry no rules but count in the version and the
+hash, because the sections read them too. ``visual_grammar.json`` (Task 046) is a rules file: the eleven visual grammar
+rules VG-01 to VG-11 for the director and the visual section, and the wording rule W-01 with its word list.
 """
 from __future__ import annotations
 
@@ -19,7 +20,7 @@ from pathlib import Path
 RULEBOOK_DIR = Path(__file__).resolve().parent / "rulebook"
 STATUSES = ("locked", "proposed", "retired")
 DATA_SCHEMAS = ("bie.brain.content-types/1", "bie.brain.simple-hindi/1", "bie.brain.level-profiles/1",
-                "bie.brain.teacher-examples/1", "bie.brain.explanations/1")
+                "bie.brain.teacher-examples/1", "bie.brain.explanations/1", "bie.brain.visual-levels/1")
 
 
 class RulebookError(ValueError):

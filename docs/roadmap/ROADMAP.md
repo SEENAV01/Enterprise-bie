@@ -224,6 +224,38 @@ level profile, the visual grammar follows the benchmark. The presentation is the
 - One scene format decision (Scene IR vs VideoSpec, Navin's video path). Output: silent videos of the tissue chapter rendered
   through both routes on the benchmark's shots, judged against the benchmark shot by shot. Navin judges.
 
+**Navin's decisions, 26 October 2026 (Task 046 brief), in his words:**
+- "Task 46 will surpass even the tarazu point 'video kaisi ho' level on its full completion, implementing things required."
+- Chain: content decides the scene plan; the scene plan decides which visual level the video code is made at. BIE itself must
+  be capable up to L5a. "90 se 99 percent videos L3 ya isse upar ke level ki ho."
+- Verdict of 25 October: present the book's knowledge with completeness, teacher style, examples and analogies, "like a truly
+  class animated video" (the epithelium benchmark). Video length stays open, driven by completeness.
+- Narration never says "book के अनुसार", "किताब कहती है", "book says" or any wording that points at the book. BIE teaches as a
+  teacher; Navin accepts the copyright position.
+- Lesson assets: only CC0, public domain and CC BY (the 046a-L gate). Reference videos are for calibration only; no frame,
+  footage, logo or text from them enters the repo (the repo is public).
+
+**The visual level ladder** (`docs/vision/VISUAL_LEVELS.md`, `bie/brain/rulebook/visual_levels.json`): L1 teacher at a board
+(never a BIE target), L2 clean 2D, L3 rich 2D/2.5D, L4 stylized 3D (one world per topic, cutaway, exploded view, flow), L5a
+photoreal micro or machine 3D (the benchmark level), L5b photoreal humans and Pixar-grade acting (outside BIE's output; a plan
+that asks for it fails). Every shot carries `level` ∈ {L2, L3, L4, L5a}; a capability's default level lives in
+`capabilities.json`; per video, shot seconds at L3 or above ≥ 90 %, else not rendered.
+
+**The visual grammar** (`bie/brain/rulebook/visual_grammar.json`, VG-01…VG-11 on top of the benchmark's B-01…B-12): one topic
+one 3D world with the camera moving between parts; labels as code text with leader lines; inside by cutaway or exploded view;
+size by scale comparison; equations step by step beside the picture; self-drawing graphs; split screen for comparison; flow for
+processes; one dark background, one accent per concept, one camera language; a lit timeline for history and polity, maps only
+through the licence gate's map rule; a 2D guide character only where topic and level ask. Plus **W-01**, the wording rule, as
+a soul.py check with the word list in the rulebook.
+
+**Three PRs.** Part A (the code director: ladder, grammar, W-01, capability levels and blocks, `bie/brain/shots.py`, the
+offline proof on v3, VM job 1 = the W-01 wording patch on v3 at ₹0) — done 26 October 2026, IMPLEMENTED (STATUS, "Task 046 ·
+Part A"). Part B (blocks as code with frame checks and demo clips, route A three.js through Remotion and route C procedural or
+Blender models, espeak placeholder voice or silent captions, the epithelium family segment of v3 rendered in CI, cost table,
+24-rule table shot by shot, a ≤ 720p review copy on `blindtest-results` and an artifact page) — then stop for Navin's verdict.
+Part C after the verdict (fixes, all of v3, the head-to-head VM job 2, seekh → BIE). Status words: IMPLEMENTED until Navin
+says ACCEPTED.
+
 **047 · Voice** — extend Section 14: tested natural voices including a cloned voice (Navin chooses by ear);
 word timestamps drive the animation; close the AUDIO reconciliation.
 

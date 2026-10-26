@@ -261,6 +261,9 @@ SCRIPT_TIME_HINT = (" BIE's code measured this script at {spoken} spoken minutes
                     "(S2-01). Stay within it: pay for every addition with a cut of repetition or side-tracks in the same patch.")
 SCRIPT_KEEP_HINT = (" Never remove beats {beats}: each is the only beat of a teaching-pattern step (recaps too); shorten them "
                     "instead.")
+SCRIPT_WORDING_HINT = (" For a W-01 problem rewrite only that beat's sentence so it teaches the fact itself, as a teacher would (no "
+                       "'book ke anusar', 'kitaab kehti hai', 'book says', 'page par', 'NCERT'); keep its meaning, its items and its "
+                       "length; change no other beat.")
 
 
 def sole_step_beats(beats) -> list:
@@ -730,6 +733,7 @@ def check_script(value, chapter, video, language, card=None, budget=None):
     problems += soul.restatement_problems(beats, chapter["items"])
     problems += soul.clipped_problems(beats)
     problems += soul.recap_problems(beats)
+    problems += soul.wording_problems(beats)
     if len(beats) < 3:
         problems.append("a video needs more than a couple of beats")
     if card is not None:
@@ -816,7 +820,8 @@ def script_step(course: Course, chapter, plan, video, *, rulebook, max_rounds=3,
         keep = sole_step_beats(beats)
         return (SCRIPT_PATCH_HINT
                 + (SCRIPT_TIME_HINT.format(spoken=spoken_minutes(beats), low=low, high=high) if budget else "")
-                + (SCRIPT_KEEP_HINT.format(beats=", ".join(keep[:60])) if keep else ""))
+                + (SCRIPT_KEEP_HINT.format(beats=", ".join(keep[:60])) if keep else "")
+                + (SCRIPT_WORDING_HINT if soul.wording_hits(beats) else ""))
 
     def observe(value):
         found = frame_problems(value, card)[1]
@@ -862,7 +867,7 @@ def close_enough(problems: list) -> bool:
     return len(problems) <= CONTINUE_LIMIT and not any("(S2-02)" in p or "speaks only about" in p for p in problems)
 
 
-def reusable(previous: dict | None, chapter: dict, naksha: dict, course: Course, rulebook) -> tuple:
+def reusable(previous: dict | None, chapter: dict, naksha: dict, course: Course, rulebook, only=None) -> tuple:
     """(plan or None, {video id: script value}, notes, {video id: script value to continue}): what an earlier lesson run
     may give this one.
 
@@ -872,8 +877,12 @@ def reusable(previous: dict | None, chapter: dict, naksha: dict, course: Course,
     enough (``close_enough``) is continued: its last answer is the start of the new run, which fixes only today's problems
     instead of writing it again (job B, 24 October 2026: three of the seven scripts written again from scratch failed on
     new words of their own). A script far from passing is written again.
+
+    ``only`` (Task 046, VM job 1: a wording patch on v3 alone): the video ids this run may work on; every other script
+    with beats is kept exactly as it was, checked or not, and its entry says so (``kept``).
     """
     notes, starts = [], {}
+    only = set(only or ())
     if not previous:
         return None, {}, notes, starts
     if previous.get("naksha_sha256") != naksha["sha256"]:
@@ -895,7 +904,10 @@ def reusable(previous: dict | None, chapter: dict, naksha: dict, course: Course,
         value = tidy_script(_script_value(entry))[0]
         problems = check_script(value, chapter, video, course.language, card, video_budget(chapter, plan["videos"], video))
         vid, status = video["video_id"], entry.get("status", "did not pass")
-        if status == "passed" and not problems:
+        if only and vid not in only:
+            scripts[vid] = value
+            notes.append(f"{vid} kept as it was (not selected for this run" + (f"; {len(problems)} problems today)" if problems else ")"))
+        elif status == "passed" and not problems:
             scripts[vid] = value
         elif close_enough(problems):
             starts[vid] = value
@@ -907,7 +919,8 @@ def reusable(previous: dict | None, chapter: dict, naksha: dict, course: Course,
 
 
 def run_lesson(chapter: dict, course: Course, runner, out_dir, *, workers: int = 4, max_rounds: int = 3,
-               max_output_tokens: int = DEFAULT_OUTPUT_TOKENS, previous_lesson: dict | None = None):
+               max_output_tokens: int = DEFAULT_OUTPUT_TOKENS, previous_lesson: dict | None = None, only=None):
+    """``only``: video ids to work on in a resumed run; the other scripts are kept as they were (Task 046, VM job 1)."""
     from .runner import StepResult
 
     out = Path(out_dir)
@@ -917,7 +930,8 @@ def run_lesson(chapter: dict, course: Course, runner, out_dir, *, workers: int =
     step = plan_step(course, chapter, rulebook=runner.rulebook, max_rounds=max_rounds, naksha=naksha,
                      max_output_tokens=max_output_tokens)
     book.add(step.card)
-    old_plan, old_scripts, resume_notes, starts = reusable(previous_lesson, chapter, naksha, course, runner.rulebook)
+    old_plan, old_scripts, resume_notes, starts = reusable(previous_lesson, chapter, naksha, course, runner.rulebook, only=only)
+    kept = {vid for vid in old_scripts if only and vid not in set(only)}
     if old_plan is not None:
         plan_result = StepResult(SECTION, "plan", "passed", dict(old_plan, notes=None), record_path=None)
     else:
@@ -953,9 +967,10 @@ def run_lesson(chapter: dict, course: Course, runner, out_dir, *, workers: int =
         "videos": [{
             "video_id": video["video_id"],
             "title": (result.output or {}).get("title") or video["title"],
-            "status": result.status,
+            "status": previous_videos[video["video_id"]].get("status", result.status) if video["video_id"] in kept else result.status,
             "rounds": len(result.rounds) if video["video_id"] not in old_scripts else previous_videos[video["video_id"]]["rounds"],
             "reused": video["video_id"] in old_scripts,
+            "kept": video["video_id"] in kept,
             "continued": video["video_id"] in starts and video["video_id"] not in old_scripts and old_plan is not None,
             "parts": (result.output or {}).get("parts", []),
             "card_parts": [{k: p[k] for k in ("part_id", "type", "item_ids")} for p in step.card["parts"]],
