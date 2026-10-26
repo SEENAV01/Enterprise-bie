@@ -1,0 +1,165 @@
+{
+ "schema": "bie.brain.visual-levels/1",
+ "version": "2026-10-26.2",
+ "status": "locked",
+ "decided": {
+  "date": "2026-10-26",
+  "by": "Navin",
+  "words": [
+   "Task 46 will surpass even the tarazu point 'video kaisi ho' level on its full completion, implementing things required.",
+   "90 se 99 percent videos L3 ya isse upar ke level ki ho. (kitaab se banne wali kul videos ki baat hai, aur ye koshish ka target hai, blocker nahi)",
+   "Scene plan ke hisaab se kisi video ka kuch hissa L2 ka ho sakta hai aur usi mein koi baat L5 se dikhani ho sakti hai; poori video ek level ki bane, ye zaroori nahi.",
+   "Content decides the scene plan; the scene plan decides which visual level the video code is made at. BIE itself must be capable up to L5a."
+  ]
+ },
+ "about": "The visual level ladder (Task 046, docs/vision/VISUAL_LEVELS.md). The level rule has two stars (Navin, 26 October 2026): A, the chapter or book target (targets.chapter): the share of videos whose main level is L3 or above, 90-99 %, a target to work towards, never a blocker; B, the shot level (targets.shot): every shot carries its own level from shot_levels, chosen from the content and the scene plan; the director picks L3 or above where the content allows and L2 only where a flat drawing shows the point better, with the reason on that shot; no video is blocked because of its level. This file carries no rules; the director (bie/brain/shots.py) and the reports read it.",
+ "chain": "content → scene plan (one shot per spoken sentence, each with a level) → video code made at that level",
+ "capable_up_to": "L5a",
+ "shot_levels": [
+  "L2",
+  "L3",
+  "L4",
+  "L5a"
+ ],
+ "targets": {
+  "chapter": {
+   "star": "A",
+   "decided": "Navin, 26 October 2026: '90 se 99 percent videos L3 ya isse upar ke level ki ho' — kitaab se banne wali kul videos ki baat hai, aur ye koshish ka target hai, blocker nahi.",
+   "measure": "the share of a chapter's or book's videos whose main level (the level with most shot-seconds) is L3 or above",
+   "at_or_above": "L3",
+   "target": [
+    0.9,
+    0.99
+   ],
+   "blocker": false,
+   "report": "every video's main level; videos per main level; the share with main level L3 or above; below the target, the video's name and the reason"
+  },
+  "shot": {
+   "star": "B",
+   "decided": "Navin, 26 October 2026: 'Scene plan ke hisaab se kisi video ka kuch hissa L2 ka ho sakta hai aur usi mein koi baat L5 se dikhani ho sakti hai; poori video ek level ki bane, ye zaroori nahi.'",
+   "rule": "the level is per shot, from the content and the scene plan; the director chooses L3 or above where the content allows; L2 only where L2 shows the point better, with the reason written on that shot",
+   "blocker": false,
+   "report": "every video's level mix: which shots at which level (shots, seconds, share per level)",
+   "planning_error": "a shot at L1 or L5b (outside shot_levels)"
+  }
+ },
+ "pace": {
+  "decided": "Navin, 26 October 2026: the visual-change rate (a block or camera change) is reported per video; target micro biology 3-5 s per change, engineering and physics 10-20 s (one 3D world, the camera moves); VG-01 checks this rate.",
+  "measure": "seconds per visual change: a shot counts as a change when its block differs from the shot before or its camera moves (not hold); a label or glow moving to another structure is not counted",
+  "bands": {
+   "micro": {
+    "seconds": [
+     3.0,
+     5.0
+    ],
+    "families": [
+     "biology_medical",
+     "chemistry"
+    ],
+    "why": "the benchmark pace: 19 changes in 90 s"
+   },
+   "world": {
+    "seconds": [
+     10.0,
+     20.0
+    ],
+    "families": [
+     "physics",
+     "electrical_electronics",
+     "mechanical_civil",
+     "computer_science",
+     "earth_science",
+     "astronomy_space",
+     "aerospace"
+    ],
+    "why": "one 3D world per topic, the camera moves between its parts"
+   }
+  },
+  "no_band": "other families: the rate is reported, no target yet",
+  "director": "where consecutive clauses would hold the same picture past the band's upper bound, the director adds a camera move (zoom in on the lit structure, orbit, zoom out) so the picture changes within it"
+ },
+ "levels": [
+  {
+   "id": "L1",
+   "rank": 1,
+   "name": "teacher at a board",
+   "bie_target": false,
+   "shot_allowed": false,
+   "means": "a person explaining at a board, as in a classroom recording",
+   "use": "never a BIE output; only for learning how teachers explain (the teacher example bank)"
+  },
+  {
+   "id": "L2",
+   "rank": 2,
+   "name": "clean 2D",
+   "bie_target": true,
+   "shot_allowed": true,
+   "means": "vector diagrams, draw-on line art, equation cards, slides",
+   "use": "where a flat drawing is the clearest picture: a vector problem, a circuit, a case card, a definition slide",
+   "examples": [
+    "a vector problem drawn with arrows",
+    "a circuit diagram",
+    "a law case card"
+   ]
+  },
+  {
+   "id": "L3",
+   "rank": 3,
+   "name": "rich 2D / 2.5D",
+   "bie_target": true,
+   "shot_allowed": true,
+   "means": "motion graphics, illustrated stills, light 3D, timelines, lit boards, kinetic captions",
+   "use": "the floor for most teaching shots: equation steps on a lit board, a graph that draws itself, a timeline with nodes, a board that fills, a mnemonic card, a split comparison",
+   "examples": [
+    "equation steps on a lit board",
+    "a self-drawing graph",
+    "a history timeline",
+    "the A → B summary board"
+   ]
+  },
+  {
+   "id": "L4",
+   "rank": 4,
+   "name": "stylized 3D",
+   "bie_target": true,
+   "shot_allowed": true,
+   "means": "one 3D world per topic; the camera moves between its parts; cutaway and exploded views; a process shown with flow",
+   "use": "engineering, physics apparatus, the earth, machines, orbits",
+   "examples": [
+    "a machine part exploded into its pieces",
+    "the earth cut open to its layers",
+    "an orbit with the planet moving"
+   ]
+  },
+  {
+   "id": "L5a",
+   "rank": 5,
+   "name": "photoreal micro or machine 3D",
+   "bie_target": true,
+   "shot_allowed": true,
+   "means": "lighting, depth of field, focus glow, particle motion; cells, molecules, chips, organs",
+   "use": "the epithelium benchmark level: a lit sheet of cells, particles crossing it, a zoom from the organ to the sheet",
+   "examples": [
+    "a sheet of squamous cells with the top cell glowing",
+    "oxygen particles crossing the thin sheet",
+    "a protein's folded chain"
+   ]
+  },
+  {
+   "id": "L5b",
+   "rank": 6,
+   "name": "photoreal humans, landscapes, Pixar-grade character acting",
+   "bie_target": false,
+   "shot_allowed": false,
+   "means": "photoreal people and places, feature-film character animation",
+   "use": "not made by code; outside BIE's output. A scene plan that asks for L5b is a planning error and fails the check"
+  }
+ ],
+ "default_by_kind": {
+  "note": "fallbacks the director uses when a capability has no default_level (it should not happen: every capability names one)",
+  "micro_or_organ_3d": "L5a",
+  "machine_or_earth_3d": "L4",
+  "board_graph_timeline_card": "L3",
+  "flat_diagram": "L2"
+ }
+}

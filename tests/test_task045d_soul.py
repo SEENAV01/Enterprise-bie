@@ -454,7 +454,7 @@ class TeacherBankAndRulebook(unittest.TestCase):
         self.assertNotIn("M2B", subset)
 
     def test_the_rulebook_carries_the_new_locked_rules_and_data_files(self):
-        for name in ("level_profiles@2026-10-24", "teacher_examples@2026-10-24", "explanations@2026-10-24", "vision-2026-10-21@2026-10-21.12"):
+        for name in ("level_profiles@2026-10-24", "teacher_examples@2026-10-24", "explanations@2026-10-24", "vision-2026-10-21@2026-10-21.13"):
             self.assertIn(name, BOOK.version)
         rules = {r.id: r for r in BOOK.rules}
         for rid in ("G-06", "G-07", "S1-15", "S2-07", "S3-06"):

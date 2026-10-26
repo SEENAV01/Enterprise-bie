@@ -77,7 +77,7 @@ compared side by side, the most confused pair named directly → a memory trick 
 
 `bie/brain/rulebook/benchmarks/epithelium_animation.json` is BIE's own shot description of a reference teaching
 animation on the epithelium family (0:00 the question over a zoom from the skin … 2:30 the end card), with twelve rules:
-one spoken sentence = one shot of 2–4 s; about 40–50 s per family member; said = shown; a function sentence shows
+one spoken sentence = one shot of 3–5 s (Navin, 26 October 2026; 2–4 s before); about 40–50 s per family member; said = shown; a function sentence shows
 motion; a term opened with "yaani" on its first use; every name gets its reason; one "A → B" summary line per member on
 a board that fills; the spoken words on top with the English terms coloured; "where found" by a zoom from the organ;
 the focus glows; one dark style; depth from the level profile, grammar from the benchmark. Blocks to build in

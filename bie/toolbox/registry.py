@@ -19,6 +19,7 @@ REGISTRY = HERE / "registry.json"
 CAPABILITIES = HERE / "capabilities.json"
 SCHEMA = HERE / "registry.schema.json"
 LEVELS = HERE.parent / "brain" / "rulebook" / "level_profiles.json"
+VISUAL_LEVELS = HERE.parent / "brain" / "rulebook" / "visual_levels.json"
 
 KINDS = ("python_lib", "js_lib", "asset_source", "dataset", "app")
 ROLES = ("compute", "draw", "offline_render", "asset")
@@ -74,6 +75,8 @@ class Capability:
     families: tuple
     verbs: tuple
     benchmark_block: str = ""
+    default_level: str = ""      # the visual level a shot of this capability is made at (Task 046, visual_levels.json)
+    blocks: tuple = ()           # the code blocks that draw it, best first
 
 
 @dataclass(frozen=True)
@@ -104,6 +107,23 @@ def _known_levels() -> set:
         return set(json.loads(LEVELS.read_text(encoding="utf-8"))["profiles"])
     except (OSError, KeyError, ValueError):
         return set()
+
+
+@lru_cache(maxsize=1)
+def grammar_blocks() -> dict:
+    """{block: why} for the blocks a grammar rule may add to any shot (capabilities.json, grammar_blocks; Task 046)."""
+    try:
+        return dict(json.loads(CAPABILITIES.read_text(encoding="utf-8")).get("grammar_blocks", {}).get("blocks") or {})
+    except (OSError, ValueError):
+        return {}
+
+
+def shot_levels() -> tuple:
+    """The visual levels a shot may carry (visual_levels.json: L2, L3, L4, L5a; Task 046)."""
+    try:
+        return tuple(json.loads(VISUAL_LEVELS.read_text(encoding="utf-8"))["shot_levels"])
+    except (OSError, KeyError, ValueError):
+        return ()
 
 
 def _licence_needs(licence: str) -> set:
@@ -146,6 +166,11 @@ def problems(registry: dict, capabilities: dict, *, levels: set | None = None, r
                 out.append(f"capability {cid}: unknown family {f!r}")
         if not c.get("verbs"):
             out.append(f"capability {cid}: needs the words that point to it (verbs)")
+        allowed_levels = shot_levels()
+        if allowed_levels and c.get("default_level") not in allowed_levels:
+            out.append(f"capability {cid}: default_level must be one of {', '.join(allowed_levels)} (visual_levels.json)")
+        if not c.get("blocks"):
+            out.append(f"capability {cid}: needs the code blocks that draw it (blocks)")
     seen = set()
     for raw in registry.get("tools") or []:
         tid = raw.get("id", "?")
@@ -223,7 +248,8 @@ def from_data(registry: dict, capabilities: dict, *, check: bool = True, repo_ro
         if found:
             raise RegistryError("; ".join(found[:12]))
     caps = {c["id"]: Capability(id=c["id"], label=c["label"], content_types=tuple(c["content_types"]),
-                                families=tuple(c["families"]), verbs=tuple(c["verbs"]), benchmark_block=c.get("benchmark_block", ""))
+                                families=tuple(c["families"]), verbs=tuple(c["verbs"]), benchmark_block=c.get("benchmark_block", ""),
+                                default_level=c.get("default_level", ""), blocks=tuple(c.get("blocks") or ()))
             for c in capabilities["capabilities"]}
     return Toolbox(version=registry["version"], capabilities_version=capabilities["version"], npm_before=registry["npm_before"],
                    tools=tuple(_tool(t) for t in registry["tools"]), capabilities=caps,

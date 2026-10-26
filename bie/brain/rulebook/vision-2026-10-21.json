@@ -1,9 +1,10 @@
 {
  "rulebook": "bie-vision",
- "version": "2026-10-21.12",
+ "version": "2026-10-21.13",
  "source": "Navin's vision, agreed point by point on 21 October 2026 (docs/vision/VISION_SPEC.md, section 'Agreed on 21 October 2026')",
  "notes": "Each rule is an instruction for the section that makes the work (rule) and a yes/no question for the reviewer (check). Rules change only through a reviewed version bump; Navin approves every new or changed rule.",
  "changes": [
+  "2026-10-21.13 (Task 046, 26 October 2026, Navin's approval): S3-06 says 3-5 seconds per shot, as benchmark B-01 now does (the benchmark measured one visual change every 4.7 s); the level rule has two stars and the pace is a visual-change rate (visual_levels.json, visual_grammar.json VG-01).",
   "2026-10-21.12 (24 October 2026, Navin, Task 045d 'teaching soul'): new locked rules G-06 (BIE is the link between the learner and the book, like a teacher; never read the line out), G-07 (two layers: the writer layer follows the book's level, the presentation layer is the same skilled quality for every learner), S1-15 (every teachable item opened: terms with their plain meaning and an everyday image, a why chain from a need with its basis, an example or place, a consequence), S2-07 (every book line opened in the script: a question first, yaani with an image, a why or an example after a book line, complete sentences, the family pattern for a classification, steps skipped only with a reason, one recap per part) and S3-06 (the video follows the benchmark's visual grammar: one sentence = one shot, said = shown, depth from the level profile).",
   "2026-10-21.11 (23 October 2026, Navin): S1-12's prerequisite count is a warning, not a cap: the rule is 'only what is directly needed, no chains'; more than 8 needs a stated reason (prerequisite_note) and a directly needed prerequisite is never dropped to reach a number.",
   "2026-10-21.10 (23 October 2026, Navin's decisions on the tissue run): S2-01 narration 6-8 minutes per book page (up to 25% over with a stated reason) and one 5-8 minute prerequisite video first; S2-02 every book item and book-answered question, outside answers only where they help; S2-03 only direct prerequisites, taught in that video, at most 2 reminder beats per topic video; S2-04 brackets only on genuinely difficult words, never after everyday words or inside idioms; G-02 and G-05 say how the time target and completeness fit together; S1-12 at most 8 direct prerequisites; new S1-13 printed typos kept with the right word shown; new S1-14 one answer, one basis.",
@@ -331,7 +332,7 @@
     "visual"
    ],
    "status": "locked",
-   "rule": "The video follows the benchmark's visual grammar (bie/brain/rulebook/benchmarks/, Task 046): one spoken sentence is one shot of 2-4 seconds; what is said is what is shown, a function sentence shows motion; a term is opened with 'yaani' on its first use and every name gets its reason; the spoken words run on top with the English terms coloured; 'where found' is a zoom from the organ; the focus glows; one dark style; the depth of what is shown follows the level profile, the visual grammar follows the benchmark.",
+   "rule": "The video follows the benchmark's visual grammar (bie/brain/rulebook/benchmarks/, Task 046): one spoken sentence is one shot of 3-5 seconds; what is said is what is shown, a function sentence shows motion; a term is opened with 'yaani' on its first use and every name gets its reason; the spoken words run on top with the English terms coloured; 'where found' is a zoom from the organ; the focus glows; one dark style; the depth of what is shown follows the level profile, the visual grammar follows the benchmark.",
    "check": "Does every shot show what its sentence says, with the benchmark's grammar (one sentence one shot, said = shown, zoom for where, focus glow, one style)?"
   },
   {

@@ -1,51 +1,1048 @@
 {
  "schema": "bie.toolbox.capabilities/1",
- "version": "2026-10-25.1",
- "note": "Task 046a: the fixed vocabulary of what BIE may need to show. A scene plan names a capability; the resolver (bie/toolbox/resolver.py) picks the tools that compute and draw it. content_types are the ids of bie/brain/rulebook/content_types.json; verbs are the words of a Task 045d unpack's visual_verb that point to the capability; benchmark_block names the block of bie/brain/rulebook/benchmarks/epithelium_animation.json it serves.",
- "content_types": ["process", "structure", "classification", "comparison", "timeline", "cause_effect", "facts_numbers", "figure", "definition"],
- "families": ["all_subjects", "biology_medical", "chemistry", "maths_statistics", "physics", "computer_science", "electrical_electronics", "mechanical_civil", "earth_science", "astronomy_space", "aerospace", "geography_history_polity", "economics_commerce_management", "law", "psychology_education_sociology", "languages_literature"],
+ "version": "2026-10-26.1",
+ "note": "Task 046a: the fixed vocabulary of what BIE may need to show. A scene plan names a capability; the resolver (bie/toolbox/resolver.py) picks the tools that compute and draw it. content_types are the ids of bie/brain/rulebook/content_types.json; verbs are the words of a Task 045d unpack's visual_verb that point to the capability; benchmark_block names the block of bie/brain/rulebook/benchmarks/epithelium_animation.json it serves. Task 046: default_level is the visual level (bie/brain/rulebook/visual_levels.json) a shot of this capability is made at unless the content asks for another; blocks are the code blocks (bie/brain/video/blocks/, Task 046 benchmark and new sets) that draw it, best first.",
+ "content_types": [
+  "process",
+  "structure",
+  "classification",
+  "comparison",
+  "timeline",
+  "cause_effect",
+  "facts_numbers",
+  "figure",
+  "definition"
+ ],
+ "families": [
+  "all_subjects",
+  "biology_medical",
+  "chemistry",
+  "maths_statistics",
+  "physics",
+  "computer_science",
+  "electrical_electronics",
+  "mechanical_civil",
+  "earth_science",
+  "astronomy_space",
+  "aerospace",
+  "geography_history_polity",
+  "economics_commerce_management",
+  "law",
+  "psychology_education_sociology",
+  "languages_literature"
+ ],
+ "grammar_blocks": {
+  "note": "blocks the shot-list director may add to any shot, whatever its capability, because a grammar rule asks for them",
+  "blocks": {
+   "leader_label": "VG-02 labels as code text with a leader line",
+   "kinetic_caption": "B-08 the spoken words on top",
+   "focus_glow": "B-10 the one structure the sentence is about is lit",
+   "camera_path": "VG-01 the camera moves to the next part",
+   "cutaway": "VG-03 inside shown by cutting",
+   "exploded_view": "VG-03 inside shown by opening",
+   "scale_compare": "VG-04 size against a known thing",
+   "split_compare": "VG-07 two things side by side",
+   "flow_arrows": "VG-08 a process moves",
+   "equation_steps": "VG-05 equations build step by step",
+   "graph_plot": "VG-06 graphs draw themselves",
+   "timeline": "VG-10 history on a lit timeline",
+   "board_build": "B-07 one summary line per member on a board that fills",
+   "mnemonic_card": "the memory beat",
+   "concept_arrow": "B-06 the reason behind a name, A → B"
+  }
+ },
  "capabilities": [
-  {"id": "cell_sheet_3d", "label": "a sheet or layer of cells in 3D", "content_types": ["structure", "classification", "figure"], "families": ["biology_medical"], "verbs": ["cell sheet", "cells", "layer", "tiles", "pillar cells", "parat", "chaadar"], "benchmark_block": "cell_sheet"},
-  {"id": "particle_flow", "label": "particles moving along a path or through a surface (molecules, ions, blood, signals, water)", "content_types": ["process", "cause_effect"], "families": ["all_subjects"], "verbs": ["flow", "cross", "move through", "diffuse", "absorb", "pulled into", "dots", "particles", "beh"], "benchmark_block": "particle_flow"},
-  {"id": "organ_zoom", "label": "a zoom from an organ or whole object into one of its parts", "content_types": ["structure", "figure"], "families": ["biology_medical", "all_subjects"], "verbs": ["zoom", "go inside", "from the organ", "andar"], "benchmark_block": "organ_zoom"},
-  {"id": "focus_glow", "label": "a glow that draws the eye to one part", "content_types": ["structure", "definition", "figure"], "families": ["all_subjects"], "verbs": ["glow", "highlight", "focus", "lit", "chamak"], "benchmark_block": "focus_glow"},
-  {"id": "kinetic_caption", "label": "the spoken words on screen with the English terms coloured", "content_types": ["definition"], "families": ["all_subjects"], "verbs": ["caption", "word", "yaani", "coloured"], "benchmark_block": "kinetic_caption"},
-  {"id": "concept_arrow", "label": "an arrow that links one idea to another (A → B)", "content_types": ["cause_effect", "comparison"], "families": ["all_subjects"], "verbs": ["arrow", "leads to", "therefore", "isliye", "→"], "benchmark_block": "concept_arrow"},
-  {"id": "board_build", "label": "a summary board that fills line by line", "content_types": ["classification", "comparison", "facts_numbers"], "families": ["all_subjects"], "verbs": ["board", "written", "summary", "recap"], "benchmark_block": "board_build"},
-  {"id": "mnemonic_card", "label": "a memory trick on a card", "content_types": ["classification", "facts_numbers"], "families": ["all_subjects"], "verbs": ["trick", "mnemonic", "yaad rakho", "remember"], "benchmark_block": "mnemonic_card"},
-  {"id": "split_compare", "label": "two or more things side by side (added from the Task 046 benchmark)", "content_types": ["comparison", "classification"], "families": ["all_subjects"], "verbs": ["side by side", "compare", "saath dekho", "versus"], "benchmark_block": "split_compare"},
-  {"id": "anatomy_3d", "label": "an organ or body part as a 3D model", "content_types": ["structure", "figure"], "families": ["biology_medical", "psychology_education_sociology"], "verbs": ["organ", "body", "anatomy", "brain", "heart", "rotate"]},
-  {"id": "molecule_3d", "label": "a molecule in 3D (atoms and bonds)", "content_types": ["structure", "figure"], "families": ["chemistry", "biology_medical"], "verbs": ["molecule", "atoms", "bonds", "rotate"]},
-  {"id": "reaction_steps", "label": "a chemical reaction shown step by step", "content_types": ["process", "cause_effect"], "families": ["chemistry"], "verbs": ["reaction", "reacts", "forms", "product", "equation"]},
-  {"id": "circuit_diagram", "label": "an electric circuit drawn part by part", "content_types": ["structure", "process"], "families": ["electrical_electronics", "physics"], "verbs": ["circuit", "wire", "resistor", "current"]},
-  {"id": "signal_plot", "label": "a signal drawn over time", "content_types": ["process", "facts_numbers"], "families": ["electrical_electronics", "physics", "biology_medical"], "verbs": ["signal", "waveform", "response", "trace"]},
-  {"id": "function_graph", "label": "a mathematical function drawn on axes", "content_types": ["facts_numbers", "process"], "families": ["maths_statistics", "physics", "economics_commerce_management"], "verbs": ["graph", "curve", "plot", "function"]},
-  {"id": "equation_transform", "label": "an equation changing step by step, each step checked", "content_types": ["process", "definition"], "families": ["maths_statistics", "physics", "chemistry"], "verbs": ["equation", "solve", "simplify", "step"]},
-  {"id": "vector_field", "label": "arrows of a field over a region", "content_types": ["structure", "cause_effect"], "families": ["physics", "maths_statistics", "electrical_electronics"], "verbs": ["field", "vectors", "force lines"]},
-  {"id": "physics_sim_2d", "label": "bodies moving under physical laws in 2D", "content_types": ["process", "cause_effect"], "families": ["physics", "mechanical_civil"], "verbs": ["falls", "drops", "slides", "bounces", "collides"]},
-  {"id": "physics_sim_3d", "label": "bodies moving under physical laws in 3D", "content_types": ["process", "cause_effect"], "families": ["physics", "mechanical_civil"], "verbs": ["collision", "3d motion", "rolls"]},
-  {"id": "wave_motion", "label": "a wave moving or standing", "content_types": ["process", "facts_numbers"], "families": ["physics", "earth_science", "electrical_electronics"], "verbs": ["wave", "oscillates", "vibrates", "ripple"]},
-  {"id": "orbit_motion", "label": "bodies in orbit", "content_types": ["process", "structure"], "families": ["astronomy_space", "physics"], "verbs": ["orbit", "revolves", "planet"]},
-  {"id": "sky_map", "label": "the sky as seen from a place and time", "content_types": ["figure", "structure"], "families": ["astronomy_space", "geography_history_polity"], "verbs": ["sky", "stars", "constellation"]},
-  {"id": "aircraft_shape", "label": "an aircraft or wing shape in 3D", "content_types": ["structure", "figure"], "families": ["aerospace"], "verbs": ["aircraft", "wing", "airfoil", "fuselage"]},
-  {"id": "flight_motion", "label": "a flight path or flight dynamics", "content_types": ["process"], "families": ["aerospace", "physics"], "verbs": ["flight", "climbs", "trajectory", "takes off"]},
-  {"id": "map_region", "label": "a map with a region highlighted", "content_types": ["figure", "facts_numbers"], "families": ["geography_history_polity", "earth_science", "economics_commerce_management"], "verbs": ["map", "state", "country", "region", "naksha"]},
-  {"id": "map_route", "label": "a route drawn on a map", "content_types": ["process", "timeline"], "families": ["geography_history_polity", "earth_science"], "verbs": ["route", "journey", "path", "trade route", "yatra"]},
-  {"id": "terrain_or_layers", "label": "terrain, relief or layers of the earth", "content_types": ["structure", "figure"], "families": ["earth_science", "geography_history_polity"], "verbs": ["terrain", "relief", "layers", "crust", "contour"]},
-  {"id": "earthquake_waves", "label": "seismic waves spreading and recorded", "content_types": ["process", "cause_effect"], "families": ["earth_science", "physics"], "verbs": ["earthquake", "seismic", "p wave", "s wave", "seismogram"]},
-  {"id": "plate_motion", "label": "tectonic plates moving over time", "content_types": ["process", "timeline"], "families": ["earth_science", "geography_history_polity"], "verbs": ["plates", "drift", "continental", "tectonic"]},
-  {"id": "timeline", "label": "events placed on a time axis", "content_types": ["timeline"], "families": ["geography_history_polity", "all_subjects"], "verbs": ["timeline", "year", "era", "then"]},
-  {"id": "flowchart", "label": "a flowchart that builds step by step", "content_types": ["process", "cause_effect"], "families": ["law", "computer_science", "all_subjects"], "verbs": ["flowchart", "procedure", "steps", "decision"]},
-  {"id": "process_cycle", "label": "a cycle of stages", "content_types": ["process"], "families": ["biology_medical", "earth_science", "all_subjects"], "verbs": ["cycle", "again", "repeats", "chakra"]},
-  {"id": "tree_hierarchy", "label": "a family tree or hierarchy that grows", "content_types": ["classification", "structure"], "families": ["all_subjects"], "verbs": ["tree", "branches", "types", "family", "hierarchy"], "benchmark_block": "tree"},
-  {"id": "network_graph", "label": "nodes and links, laid out and traversed", "content_types": ["structure", "process"], "families": ["computer_science", "maths_statistics", "economics_commerce_management"], "verbs": ["graph", "network", "nodes", "traverse", "links"]},
-  {"id": "chart_bar_line_pie", "label": "a bar, line or pie chart growing from data", "content_types": ["facts_numbers", "comparison"], "families": ["economics_commerce_management", "maths_statistics", "all_subjects"], "verbs": ["chart", "bar", "pie", "trend", "data"]},
-  {"id": "table_build", "label": "a table that builds and highlights", "content_types": ["comparison", "facts_numbers"], "families": ["all_subjects"], "verbs": ["table", "columns", "rows"]},
-  {"id": "case_card", "label": "a card for a case, judgment or example", "content_types": ["facts_numbers", "definition"], "families": ["law", "economics_commerce_management", "psychology_education_sociology"], "verbs": ["case", "judgment", "verdict", "example card"]},
-  {"id": "machine_part_3d", "label": "a machine part in 3D", "content_types": ["structure", "figure"], "families": ["mechanical_civil"], "verbs": ["part", "gear", "shaft", "bracket"]},
-  {"id": "structure_load", "label": "a structure under load (beam, truss) with its deflection", "content_types": ["cause_effect", "facts_numbers"], "families": ["mechanical_civil"], "verbs": ["beam", "load", "bends", "deflection", "stress"]},
-  {"id": "ecg_trace", "label": "an ECG trace drawn on its paper", "content_types": ["process", "facts_numbers"], "families": ["biology_medical"], "verbs": ["ecg", "heartbeat", "qrs", "p wave"]},
-  {"id": "protein_3d", "label": "a protein structure in 3D", "content_types": ["structure", "figure"], "families": ["biology_medical", "chemistry"], "verbs": ["protein", "enzyme", "helix", "sheet"]},
-  {"id": "text_kinetic", "label": "a sentence animated word by word (Devanagari and Roman)", "content_types": ["definition"], "families": ["languages_literature", "all_subjects"], "verbs": ["sentence", "word by word", "typography", "poem"]}
+  {
+   "id": "cell_sheet_3d",
+   "label": "a sheet or layer of cells in 3D",
+   "content_types": [
+    "structure",
+    "classification",
+    "figure"
+   ],
+   "families": [
+    "biology_medical"
+   ],
+   "verbs": [
+    "cell sheet",
+    "cells",
+    "layer",
+    "tiles",
+    "pillar cells",
+    "parat",
+    "chaadar"
+   ],
+   "benchmark_block": "cell_sheet",
+   "default_level": "L5a",
+   "blocks": [
+    "cell_sheet",
+    "cell_sheet_3d",
+    "cutaway",
+    "leader_label",
+    "focus_glow"
+   ]
+  },
+  {
+   "id": "particle_flow",
+   "label": "particles moving along a path or through a surface (molecules, ions, blood, signals, water)",
+   "content_types": [
+    "process",
+    "cause_effect"
+   ],
+   "families": [
+    "all_subjects"
+   ],
+   "verbs": [
+    "flow",
+    "cross",
+    "move through",
+    "diffuse",
+    "absorb",
+    "pulled into",
+    "dots",
+    "particles",
+    "beh"
+   ],
+   "benchmark_block": "particle_flow",
+   "default_level": "L5a",
+   "blocks": [
+    "particle_flow",
+    "flow_arrows"
+   ]
+  },
+  {
+   "id": "organ_zoom",
+   "label": "a zoom from an organ or whole object into one of its parts",
+   "content_types": [
+    "structure",
+    "figure"
+   ],
+   "families": [
+    "biology_medical",
+    "all_subjects"
+   ],
+   "verbs": [
+    "zoom",
+    "go inside",
+    "from the organ",
+    "andar"
+   ],
+   "benchmark_block": "organ_zoom",
+   "default_level": "L5a",
+   "blocks": [
+    "organ_zoom",
+    "camera_path",
+    "model_3d"
+   ]
+  },
+  {
+   "id": "focus_glow",
+   "label": "a glow that draws the eye to one part",
+   "content_types": [
+    "structure",
+    "definition",
+    "figure"
+   ],
+   "families": [
+    "all_subjects"
+   ],
+   "verbs": [
+    "glow",
+    "highlight",
+    "focus",
+    "lit",
+    "chamak"
+   ],
+   "benchmark_block": "focus_glow",
+   "default_level": "L5a",
+   "blocks": [
+    "focus_glow"
+   ]
+  },
+  {
+   "id": "kinetic_caption",
+   "label": "the spoken words on screen with the English terms coloured",
+   "content_types": [
+    "definition"
+   ],
+   "families": [
+    "all_subjects"
+   ],
+   "verbs": [
+    "caption",
+    "word",
+    "yaani",
+    "coloured"
+   ],
+   "benchmark_block": "kinetic_caption",
+   "default_level": "L3",
+   "blocks": [
+    "kinetic_caption",
+    "kinetic_text"
+   ]
+  },
+  {
+   "id": "concept_arrow",
+   "label": "an arrow that links one idea to another (A → B)",
+   "content_types": [
+    "cause_effect",
+    "comparison"
+   ],
+   "families": [
+    "all_subjects"
+   ],
+   "verbs": [
+    "arrow",
+    "leads to",
+    "therefore",
+    "isliye",
+    "→"
+   ],
+   "benchmark_block": "concept_arrow",
+   "default_level": "L3",
+   "blocks": [
+    "concept_arrow"
+   ]
+  },
+  {
+   "id": "board_build",
+   "label": "a summary board that fills line by line",
+   "content_types": [
+    "classification",
+    "comparison",
+    "facts_numbers"
+   ],
+   "families": [
+    "all_subjects"
+   ],
+   "verbs": [
+    "board",
+    "written",
+    "summary",
+    "recap"
+   ],
+   "benchmark_block": "board_build",
+   "default_level": "L3",
+   "blocks": [
+    "board_build"
+   ]
+  },
+  {
+   "id": "mnemonic_card",
+   "label": "a memory trick on a card",
+   "content_types": [
+    "classification",
+    "facts_numbers"
+   ],
+   "families": [
+    "all_subjects"
+   ],
+   "verbs": [
+    "trick",
+    "mnemonic",
+    "yaad rakho",
+    "remember"
+   ],
+   "benchmark_block": "mnemonic_card",
+   "default_level": "L3",
+   "blocks": [
+    "mnemonic_card"
+   ]
+  },
+  {
+   "id": "split_compare",
+   "label": "two or more things side by side (added from the Task 046 benchmark)",
+   "content_types": [
+    "comparison",
+    "classification"
+   ],
+   "families": [
+    "all_subjects"
+   ],
+   "verbs": [
+    "side by side",
+    "compare",
+    "saath dekho",
+    "versus"
+   ],
+   "benchmark_block": "split_compare",
+   "default_level": "L3",
+   "blocks": [
+    "split_compare"
+   ]
+  },
+  {
+   "id": "anatomy_3d",
+   "label": "an organ or body part as a 3D model",
+   "content_types": [
+    "structure",
+    "figure"
+   ],
+   "families": [
+    "biology_medical",
+    "psychology_education_sociology"
+   ],
+   "verbs": [
+    "organ",
+    "body",
+    "anatomy",
+    "brain",
+    "heart",
+    "rotate"
+   ],
+   "default_level": "L5a",
+   "blocks": [
+    "model_3d",
+    "cutaway",
+    "exploded_view",
+    "leader_label",
+    "camera_path"
+   ]
+  },
+  {
+   "id": "molecule_3d",
+   "label": "a molecule in 3D (atoms and bonds)",
+   "content_types": [
+    "structure",
+    "figure"
+   ],
+   "families": [
+    "chemistry",
+    "biology_medical"
+   ],
+   "verbs": [
+    "molecule",
+    "atoms",
+    "bonds",
+    "rotate"
+   ],
+   "default_level": "L5a",
+   "blocks": [
+    "molecule_3d",
+    "protein_3d",
+    "leader_label"
+   ]
+  },
+  {
+   "id": "reaction_steps",
+   "label": "a chemical reaction shown step by step",
+   "content_types": [
+    "process",
+    "cause_effect"
+   ],
+   "families": [
+    "chemistry"
+   ],
+   "verbs": [
+    "reaction",
+    "reacts",
+    "forms",
+    "product",
+    "equation"
+   ],
+   "default_level": "L3",
+   "blocks": [
+    "reaction",
+    "equation_steps"
+   ]
+  },
+  {
+   "id": "circuit_diagram",
+   "label": "an electric circuit drawn part by part",
+   "content_types": [
+    "structure",
+    "process"
+   ],
+   "families": [
+    "electrical_electronics",
+    "physics"
+   ],
+   "verbs": [
+    "circuit",
+    "wire",
+    "resistor",
+    "current"
+   ],
+   "default_level": "L2",
+   "blocks": [
+    "circuit_build",
+    "leader_label"
+   ]
+  },
+  {
+   "id": "signal_plot",
+   "label": "a signal drawn over time",
+   "content_types": [
+    "process",
+    "facts_numbers"
+   ],
+   "families": [
+    "electrical_electronics",
+    "physics",
+    "biology_medical"
+   ],
+   "verbs": [
+    "signal",
+    "waveform",
+    "response",
+    "trace"
+   ],
+   "default_level": "L3",
+   "blocks": [
+    "signal_trace",
+    "graph_plot"
+   ]
+  },
+  {
+   "id": "function_graph",
+   "label": "a mathematical function drawn on axes",
+   "content_types": [
+    "facts_numbers",
+    "process"
+   ],
+   "families": [
+    "maths_statistics",
+    "physics",
+    "economics_commerce_management"
+   ],
+   "verbs": [
+    "graph",
+    "curve",
+    "plot",
+    "function"
+   ],
+   "default_level": "L3",
+   "blocks": [
+    "function_graph",
+    "graph_plot"
+   ]
+  },
+  {
+   "id": "equation_transform",
+   "label": "an equation changing step by step, each step checked",
+   "content_types": [
+    "process",
+    "definition"
+   ],
+   "families": [
+    "maths_statistics",
+    "physics",
+    "chemistry"
+   ],
+   "verbs": [
+    "equation",
+    "solve",
+    "simplify",
+    "step"
+   ],
+   "default_level": "L3",
+   "blocks": [
+    "equation_steps"
+   ]
+  },
+  {
+   "id": "vector_field",
+   "label": "arrows of a field over a region",
+   "content_types": [
+    "structure",
+    "cause_effect"
+   ],
+   "families": [
+    "physics",
+    "maths_statistics",
+    "electrical_electronics"
+   ],
+   "verbs": [
+    "field",
+    "vectors",
+    "force lines"
+   ],
+   "default_level": "L2",
+   "blocks": [
+    "xy_lines",
+    "flow_arrows"
+   ]
+  },
+  {
+   "id": "physics_sim_2d",
+   "label": "bodies moving under physical laws in 2D",
+   "content_types": [
+    "process",
+    "cause_effect"
+   ],
+   "families": [
+    "physics",
+    "mechanical_civil"
+   ],
+   "verbs": [
+    "falls",
+    "drops",
+    "slides",
+    "bounces",
+    "collides"
+   ],
+   "default_level": "L3",
+   "blocks": [
+    "rigid_bodies_2d",
+    "falling_body"
+   ]
+  },
+  {
+   "id": "physics_sim_3d",
+   "label": "bodies moving under physical laws in 3D",
+   "content_types": [
+    "process",
+    "cause_effect"
+   ],
+   "families": [
+    "physics",
+    "mechanical_civil"
+   ],
+   "verbs": [
+    "collision",
+    "3d motion",
+    "rolls"
+   ],
+   "default_level": "L4",
+   "blocks": [
+    "collision_3d",
+    "model_3d",
+    "camera_path"
+   ]
+  },
+  {
+   "id": "wave_motion",
+   "label": "a wave moving or standing",
+   "content_types": [
+    "process",
+    "facts_numbers"
+   ],
+   "families": [
+    "physics",
+    "earth_science",
+    "electrical_electronics"
+   ],
+   "verbs": [
+    "wave",
+    "oscillates",
+    "vibrates",
+    "ripple"
+   ],
+   "default_level": "L3",
+   "blocks": [
+    "wave"
+   ]
+  },
+  {
+   "id": "orbit_motion",
+   "label": "bodies in orbit",
+   "content_types": [
+    "process",
+    "structure"
+   ],
+   "families": [
+    "astronomy_space",
+    "physics"
+   ],
+   "verbs": [
+    "orbit",
+    "revolves",
+    "planet"
+   ],
+   "default_level": "L4",
+   "blocks": [
+    "orbits",
+    "camera_path"
+   ]
+  },
+  {
+   "id": "sky_map",
+   "label": "the sky as seen from a place and time",
+   "content_types": [
+    "figure",
+    "structure"
+   ],
+   "families": [
+    "astronomy_space",
+    "geography_history_polity"
+   ],
+   "verbs": [
+    "sky",
+    "stars",
+    "constellation"
+   ],
+   "default_level": "L3",
+   "blocks": [
+    "sky_dome"
+   ]
+  },
+  {
+   "id": "aircraft_shape",
+   "label": "an aircraft or wing shape in 3D",
+   "content_types": [
+    "structure",
+    "figure"
+   ],
+   "families": [
+    "aerospace"
+   ],
+   "verbs": [
+    "aircraft",
+    "wing",
+    "airfoil",
+    "fuselage"
+   ],
+   "default_level": "L4",
+   "blocks": [
+    "model_3d",
+    "exploded_view",
+    "leader_label"
+   ]
+  },
+  {
+   "id": "flight_motion",
+   "label": "a flight path or flight dynamics",
+   "content_types": [
+    "process"
+   ],
+   "families": [
+    "aerospace",
+    "physics"
+   ],
+   "verbs": [
+    "flight",
+    "climbs",
+    "trajectory",
+    "takes off"
+   ],
+   "default_level": "L4",
+   "blocks": [
+    "flight_profile",
+    "camera_path"
+   ]
+  },
+  {
+   "id": "map_region",
+   "label": "a map with a region highlighted",
+   "content_types": [
+    "figure",
+    "facts_numbers"
+   ],
+   "families": [
+    "geography_history_polity",
+    "earth_science",
+    "economics_commerce_management"
+   ],
+   "verbs": [
+    "map",
+    "state",
+    "country",
+    "region",
+    "naksha"
+   ],
+   "default_level": "L3",
+   "blocks": [
+    "india_map",
+    "world_points"
+   ]
+  },
+  {
+   "id": "map_route",
+   "label": "a route drawn on a map",
+   "content_types": [
+    "process",
+    "timeline"
+   ],
+   "families": [
+    "geography_history_polity",
+    "earth_science"
+   ],
+   "verbs": [
+    "route",
+    "journey",
+    "path",
+    "trade route",
+    "yatra"
+   ],
+   "default_level": "L3",
+   "blocks": [
+    "india_map",
+    "world_points",
+    "flow_arrows"
+   ]
+  },
+  {
+   "id": "terrain_or_layers",
+   "label": "terrain, relief or layers of the earth",
+   "content_types": [
+    "structure",
+    "figure"
+   ],
+   "families": [
+    "earth_science",
+    "geography_history_polity"
+   ],
+   "verbs": [
+    "terrain",
+    "relief",
+    "layers",
+    "crust",
+    "contour"
+   ],
+   "default_level": "L4",
+   "blocks": [
+    "earth_section",
+    "cutaway"
+   ]
+  },
+  {
+   "id": "earthquake_waves",
+   "label": "seismic waves spreading and recorded",
+   "content_types": [
+    "process",
+    "cause_effect"
+   ],
+   "families": [
+    "earth_science",
+    "physics"
+   ],
+   "verbs": [
+    "earthquake",
+    "seismic",
+    "p wave",
+    "s wave",
+    "seismogram"
+   ],
+   "default_level": "L4",
+   "blocks": [
+    "wave",
+    "earth_section",
+    "world_points"
+   ]
+  },
+  {
+   "id": "plate_motion",
+   "label": "tectonic plates moving over time",
+   "content_types": [
+    "process",
+    "timeline"
+   ],
+   "families": [
+    "earth_science",
+    "geography_history_polity"
+   ],
+   "verbs": [
+    "plates",
+    "drift",
+    "continental",
+    "tectonic"
+   ],
+   "default_level": "L4",
+   "blocks": [
+    "plate_frames",
+    "earth_section",
+    "flow_arrows"
+   ]
+  },
+  {
+   "id": "timeline",
+   "label": "events placed on a time axis",
+   "content_types": [
+    "timeline"
+   ],
+   "families": [
+    "geography_history_polity",
+    "all_subjects"
+   ],
+   "verbs": [
+    "timeline",
+    "year",
+    "era",
+    "then"
+   ],
+   "default_level": "L3",
+   "blocks": [
+    "timeline",
+    "timeline_build"
+   ]
+  },
+  {
+   "id": "flowchart",
+   "label": "a flowchart that builds step by step",
+   "content_types": [
+    "process",
+    "cause_effect"
+   ],
+   "families": [
+    "law",
+    "computer_science",
+    "all_subjects"
+   ],
+   "verbs": [
+    "flowchart",
+    "procedure",
+    "steps",
+    "decision"
+   ],
+   "default_level": "L3",
+   "blocks": [
+    "flow_build",
+    "mermaid_build",
+    "flow_arrows"
+   ]
+  },
+  {
+   "id": "process_cycle",
+   "label": "a cycle of stages",
+   "content_types": [
+    "process"
+   ],
+   "families": [
+    "biology_medical",
+    "earth_science",
+    "all_subjects"
+   ],
+   "verbs": [
+    "cycle",
+    "again",
+    "repeats",
+    "chakra"
+   ],
+   "default_level": "L3",
+   "blocks": [
+    "flow_build",
+    "flow_arrows"
+   ]
+  },
+  {
+   "id": "tree_hierarchy",
+   "label": "a family tree or hierarchy that grows",
+   "content_types": [
+    "classification",
+    "structure"
+   ],
+   "families": [
+    "all_subjects"
+   ],
+   "verbs": [
+    "tree",
+    "branches",
+    "types",
+    "family",
+    "hierarchy"
+   ],
+   "benchmark_block": "tree",
+   "default_level": "L3",
+   "blocks": [
+    "tree_build"
+   ]
+  },
+  {
+   "id": "network_graph",
+   "label": "nodes and links, laid out and traversed",
+   "content_types": [
+    "structure",
+    "process"
+   ],
+   "families": [
+    "computer_science",
+    "maths_statistics",
+    "economics_commerce_management"
+   ],
+   "verbs": [
+    "graph",
+    "network",
+    "nodes",
+    "traverse",
+    "links"
+   ],
+   "default_level": "L3",
+   "blocks": [
+    "network_graph"
+   ]
+  },
+  {
+   "id": "chart_bar_line_pie",
+   "label": "a bar, line or pie chart growing from data",
+   "content_types": [
+    "facts_numbers",
+    "comparison"
+   ],
+   "families": [
+    "economics_commerce_management",
+    "maths_statistics",
+    "all_subjects"
+   ],
+   "verbs": [
+    "chart",
+    "bar",
+    "pie",
+    "trend",
+    "data"
+   ],
+   "default_level": "L3",
+   "blocks": [
+    "chartjs_build",
+    "vega_build",
+    "plotly_build",
+    "graph_plot"
+   ]
+  },
+  {
+   "id": "table_build",
+   "label": "a table that builds and highlights",
+   "content_types": [
+    "comparison",
+    "facts_numbers"
+   ],
+   "families": [
+    "all_subjects"
+   ],
+   "verbs": [
+    "table",
+    "columns",
+    "rows"
+   ],
+   "default_level": "L3",
+   "blocks": [
+    "board_build"
+   ]
+  },
+  {
+   "id": "case_card",
+   "label": "a card for a case, judgment or example",
+   "content_types": [
+    "facts_numbers",
+    "definition"
+   ],
+   "families": [
+    "law",
+    "economics_commerce_management",
+    "psychology_education_sociology"
+   ],
+   "verbs": [
+    "case",
+    "judgment",
+    "verdict",
+    "example card"
+   ],
+   "default_level": "L2",
+   "blocks": [
+    "case_card"
+   ]
+  },
+  {
+   "id": "machine_part_3d",
+   "label": "a machine part in 3D",
+   "content_types": [
+    "structure",
+    "figure"
+   ],
+   "families": [
+    "mechanical_civil"
+   ],
+   "verbs": [
+    "part",
+    "gear",
+    "shaft",
+    "bracket"
+   ],
+   "default_level": "L4",
+   "blocks": [
+    "model_3d",
+    "exploded_view",
+    "cutaway",
+    "leader_label"
+   ]
+  },
+  {
+   "id": "structure_load",
+   "label": "a structure under load (beam, truss) with its deflection",
+   "content_types": [
+    "cause_effect",
+    "facts_numbers"
+   ],
+   "families": [
+    "mechanical_civil"
+   ],
+   "verbs": [
+    "beam",
+    "load",
+    "bends",
+    "deflection",
+    "stress"
+   ],
+   "default_level": "L4",
+   "blocks": [
+    "beam_load",
+    "flow_arrows"
+   ]
+  },
+  {
+   "id": "ecg_trace",
+   "label": "an ECG trace drawn on its paper",
+   "content_types": [
+    "process",
+    "facts_numbers"
+   ],
+   "families": [
+    "biology_medical"
+   ],
+   "verbs": [
+    "ecg",
+    "heartbeat",
+    "qrs",
+    "p wave"
+   ],
+   "default_level": "L3",
+   "blocks": [
+    "signal_trace"
+   ]
+  },
+  {
+   "id": "protein_3d",
+   "label": "a protein structure in 3D",
+   "content_types": [
+    "structure",
+    "figure"
+   ],
+   "families": [
+    "biology_medical",
+    "chemistry"
+   ],
+   "verbs": [
+    "protein",
+    "enzyme",
+    "helix",
+    "sheet"
+   ],
+   "default_level": "L5a",
+   "blocks": [
+    "protein_3d",
+    "protein_molstar"
+   ]
+  },
+  {
+   "id": "text_kinetic",
+   "label": "a sentence animated word by word (Devanagari and Roman)",
+   "content_types": [
+    "definition"
+   ],
+   "families": [
+    "languages_literature",
+    "all_subjects"
+   ],
+   "verbs": [
+    "sentence",
+    "word by word",
+    "typography",
+    "poem"
+   ],
+   "default_level": "L3",
+   "blocks": [
+    "kinetic_text",
+    "kinetic_caption"
+   ]
+  }
  ]
 }
