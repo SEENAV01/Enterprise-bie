@@ -74,8 +74,8 @@ IMAGE_INSTRUCTIONS = ("You are BIE's image maker, run by BIE (Book Intelligence 
 # The third live run (26 October 2026, job t046-oneshot-images-3) named the cause: "Code Mode is unavailable because
 # code-mode host is disabled. Code mode will fail closed; enable `features.code_mode_host`". In Codex 0.162.1 every tool
 # call, image_gen included, goes through the code-mode host that ships beside the codex binary, so image calls keep it
-# on (it touches the isolation boundary, so it waits for Navin's yes). With shell, exec, apps and plugins off, the only tool it can reach is image_gen;
-# the run stays read-only in an empty folder.
+# on (it touches the isolation boundary, so it waits for Navin's yes). With shell, exec, apps and plugins off, the only
+# tool it can reach is image_gen; the run stays read-only in an empty folder.
 IMAGE_SKILL = "$imagegen"
 IMAGE_SETTINGS = tuple(s for s in LEAN_SETTINGS if not s.startswith("skills."))
 IMAGE_FEATURES_OFF = tuple(f for f in LEAN_FEATURES_OFF if f not in ("image_generation", "skill_search", "code_mode_host"))
