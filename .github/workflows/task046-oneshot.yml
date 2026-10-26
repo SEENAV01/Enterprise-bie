@@ -237,6 +237,8 @@ jobs:
 
   publish:
     needs: [finish]
+    # always(): a finish-only run skips render, and a skipped job up the chain would otherwise skip this one too
+    if: always() && needs.finish.result == 'success'
     runs-on: ubuntu-24.04
     timeout-minutes: 15
     permissions:
