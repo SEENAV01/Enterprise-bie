@@ -88,6 +88,9 @@ def _image(prompt, number, options, disabled):
         item["result"] = base64.b64encode(PIXEL * 8).decode()
     if where != "none":
         print(json.dumps({"type": "item.completed", "item": item}))
+    else:                                                # what a run without the image tool leaves (shape only)
+        print(json.dumps({"type": "item.completed", "item": {"id": "item_err", "type": "error",
+                                                             "message": "image_gen is not available in this session"}}))
     if "-o" in options:
         Path(options["-o"]).write_text("DONE", encoding="utf-8")
     print(json.dumps({"type": "item.completed", "item": {"id": "item_1", "type": "agent_message", "text": "DONE"}}))
@@ -125,7 +128,8 @@ def _exec(args):
           "images_exist": all(Path(p).exists() for p in images), "settings": settings, "disabled": disabled,
           "instructions": Path(instructions).read_text(encoding="utf-8") if instructions else None,
           "api_key_visible": any(any(w in k for w in ("KEY", "TOKEN", "SECRET")) for k in os.environ),
-          "codex_home": os.environ.get("CODEX_HOME"), "model": options.get("-m"), "prompt_chars": len(prompt)})
+          "codex_home": os.environ.get("CODEX_HOME"), "model": options.get("-m"), "prompt_chars": len(prompt),
+          "prompt_head": prompt[:10]})
     print(json.dumps({"type": "thread.started", "thread_id": f"fake-thread-{number}"}))
     print(json.dumps({"type": "turn.started"}))
     failure = None

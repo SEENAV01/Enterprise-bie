@@ -18,7 +18,8 @@ from run_task038_tests import AFFECTED, NEW as TASK038, run_file  # noqa: E402
 from run_task039_tests import NEW as TASK039  # noqa: E402
 from run_task043_tests import NEW as TASK043  # noqa: E402
 
-NEW = ("tests/test_task044_codex.py",)
+# the VM runner's image and look sections (Task 046 one-shot; PR #77 added the file but no lane ran it)
+NEW = ("tests/test_task044_codex.py", "tests/test_task046_vm_image.py")
 
 
 def main(argv=None):

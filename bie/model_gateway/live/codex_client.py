@@ -66,7 +66,14 @@ IMAGE_INSTRUCTIONS = ("You are BIE's image maker, run by BIE (Book Intelligence 
                       "watching. The message holds one image description written by BIE. Call the built-in image_gen tool "
                       "exactly once with that description, keeping every requirement in it, then reply with the single "
                       "word DONE. Do not run commands, read or write files, browse, ask questions or start other agents.")
-IMAGE_FEATURES_OFF = tuple(f for f in LEAN_FEATURES_OFF if f != "image_generation")
+# Codex reaches image_gen through its built-in ``imagegen`` skill, called headless as ``codex exec '$imagegen ...'``
+# (Codex CLI docs and guides, 2026). The first live run (26 October 2026) kept the lean call's skill settings
+# (skills.max_context_tokens=1, skill_search off) and sent no ``$imagegen``: all four runs replied without an image.
+# Image calls therefore keep skills on and name the skill; shell, exec, code mode, apps, browsing and agents stay off,
+# and no API key reaches Codex, so the skill's API-key fallback cannot run.
+IMAGE_SKILL = "$imagegen"
+IMAGE_SETTINGS = tuple(s for s in LEAN_SETTINGS if not s.startswith("skills."))
+IMAGE_FEATURES_OFF = tuple(f for f in LEAN_FEATURES_OFF if f not in ("image_generation", "skill_search"))
 IMAGE_SUFFIXES = (".png", ".jpg", ".jpeg", ".webp")
 IMAGE_MAGIC = {b"\x89PNG": ".png", b"\xff\xd8\xff": ".jpg", b"RIFF": ".webp"}
 PLAN_LIMIT_TEXT = re.compile(r"(?i)usage limit|usage_limit|hit your usage|reached your usage|try again at|rate_limit_reached|"
@@ -308,14 +315,15 @@ class CodexExecClient:
             cmd = self.command + ["exec", "--json", "--skip-git-repo-check", "--sandbox", "read-only", "--ignore-rules",
                                   "--color", "never", "-C", str(work), "-o", str(last), "-m", model or DEFAULT_MODEL,
                                   "--strict-config", "-c", f"model_instructions_file={json.dumps(str(instructions))}"]
-            for setting in LEAN_SETTINGS:
+            for setting in IMAGE_SETTINGS:
                 cmd += ["-c", setting]
             for feature in IMAGE_FEATURES_OFF:
                 cmd += ["--disable", feature]
             cmd += ["--", "-"]
             started = self._clock()
             try:
-                done = self._run(cmd, input="<bie-image-prompt>\n" + prompt + "\n</bie-image-prompt>", capture_output=True,
+                message = f"{IMAGE_SKILL} <bie-image-prompt>\n{prompt}\n</bie-image-prompt>"
+                done = self._run(cmd, input=message, capture_output=True,
                                  text=True, timeout=self.timeout, env=self.child_env())
             except FileNotFoundError:
                 raise ProviderError("config", "the codex CLI is not installed here (set BIE_CODEX_BIN)", provider="codex") from None
@@ -343,8 +351,13 @@ class CodexExecClient:
             data, found_by = work_bytes, "work_folder"
         suffix = _image_suffix(data)
         if not suffix:
+            # what Codex said, so a failed run names its cause (26 October 2026: the first live run left an error item
+            # and a reply that BIE did not keep); redacted like every other Codex failure text
+            said = redact("; ".join(e for e in events["errors"][-2:] if e)[-400:], self._secrets())
+            reply = redact((events["message"] or "")[:300], self._secrets())
             raise ProviderError("malformed", "codex exec finished but no generated image was found (event types: "
-                                + ", ".join(found["types"][:12]) + ")", provider="codex")
+                                + ", ".join(found["types"][:12]) + ")" + (f"; codex error: {said}" if said else "")
+                                + (f"; reply: {reply}" if reply else ""), provider="codex")
         out = Path(out).with_suffix(suffix)
         out.parent.mkdir(parents=True, exist_ok=True)
         out.write_bytes(data)
