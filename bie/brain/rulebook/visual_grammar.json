@@ -1,11 +1,12 @@
 {
  "rulebook": "bie-visual-grammar",
- "version": "2026-10-26.2",
+ "version": "2026-10-26.3",
  "source": "Navin's brief for Task 046, 26 October 2026: eleven visual grammar rules added to the twelve of the epithelium benchmark (benchmarks/epithelium_animation.json, B-01 to B-12), and the wording rule W-01. The director reads the rules; the checks enforce what code can check (bie/brain/shots.py).",
  "numbering": "Navin's brief numbers the grammar rules G-01 to G-11. In this rulebook they are VG-01 to VG-11, because G-01 to G-07 are already the general rules of vision-2026-10-21.json and a rule id is used once.",
  "notes": "Each rule is an instruction for the director and the visual section (rule) and a yes/no question for the reviewer (check). Rules change only through a reviewed version bump; Navin approves every new or changed rule.",
  "changes": [
-  "2026-10-26.2 (Navin, 26 October 2026): VG-01 names the pace as a visual-change rate with its two bands; the per-video '90 % of shot seconds at L3 or above' check is withdrawn (visual_levels.json, targets)."
+  "2026-10-26.2 (Navin, 26 October 2026): VG-01 names the pace as a visual-change rate with its two bands; the per-video '90 % of shot seconds at L3 or above' check is withdrawn (visual_levels.json, targets).",
+  "2026-10-26.3 (Navin, 26 October 2026, after Part B was rejected): LOOK-01, the look check against the benchmark frames, joins the rule table for every render; its scores are advice, Navin's eye decides."
  ],
  "rules": [
   {
@@ -127,6 +128,16 @@
    "status": "locked",
    "rule": "The narration never points at the book: no 'book के अनुसार', 'किताब कहती है', 'book says', 'page पर', 'textbook', 'NCERT' or any wording of that family (the list in this file, 'wording'). BIE teaches as a teacher: it says the fact itself. Navin accepts the copyright position (26 October 2026).",
    "check": "Does any sentence point at the book, its pages, its author or its figures instead of teaching the fact itself?"
+  },
+  {
+   "id": "LOOK-01",
+   "sections": [
+    "director",
+    "visual"
+   ],
+   "status": "locked",
+   "rule": "Before a render goes to Navin, the free reviewer with image input scores 3 frames of each route against 3 frames of the benchmark, 1 to 10, on organic shape, translucency, lighting and depth, detail, scientific correctness and 'same class' overall, with a reason for every score (bie/brain/look.py). Presence checks (a caption band, a label box, an accent colour) never stand in for look. The scores are advice only; Navin's eye decides.",
+   "check": "Did the look check score the render's frames against the benchmark frames on all six axes, with reasons, and is the render shown to Navin with those scores?"
   }
  ],
  "wording": {

@@ -97,7 +97,7 @@ class VisualLevels(unittest.TestCase):
 
     def test_the_rulebook_counts_the_ladder_as_data_and_the_grammar_as_rules(self):
         self.assertIn("visual_levels@2026-10-26.2", BOOK.version)
-        self.assertIn("visual_grammar@2026-10-26.2", BOOK.version)
+        self.assertIn("visual_grammar@2026-10-26.3", BOOK.version)
         self.assertIn("vision-2026-10-21@2026-10-21.13", BOOK.version)
         bench = json.loads(BENCHMARK.read_text(encoding="utf-8"))
         self.assertEqual(bench["version"], "2026-10-26.1")
@@ -311,7 +311,7 @@ class DirectorOnATinyScript(unittest.TestCase):
         self.assertTrue(self.plan["render_allowed"], self.plan["checks"]["blocking"])
         self.assertEqual(self.plan["checks"]["blocking"], [])
         self.assertEqual(self.plan["wording"]["hits"], [])
-        self.assertEqual(len(self.plan["rule_table"]), 24)
+        self.assertEqual(len(self.plan["rule_table"]), 25)
         self.assertEqual({r["status"] for r in self.plan["rule_table"]} <= {"pass", "partial", "fail", "n/a"}, True)
 
     def test_the_ai_directors_checks_accept_the_code_shot_list(self):
@@ -468,7 +468,7 @@ class TheOfflineProofOnV3(unittest.TestCase):
         self.assertEqual([p for p in self.plan["checks"]["blocking"] if "(W-01)" not in p], [])
         self.assertFalse(self.plan["render_allowed"])
         table = {r["rule"]: r["status"] for r in self.plan["rule_table"]}
-        self.assertEqual(len(table), 24)
+        self.assertEqual(len(table), 25)
         self.assertEqual(table["W-01"], "fail")
         self.assertEqual(table["B-01"], "partial")                               # 18 clauses over 6 s: a long sentence could be two
         self.assertEqual(table["VG-01"], "pass")
@@ -517,7 +517,7 @@ class RunAndTool(unittest.TestCase):
         self.assertIn("## v1 · Epithelium", page)
         self.assertIn("Main level **L5a**", page)
         self.assertIn("Pace (VG-01)", page)
-        self.assertIn("### The 24 rules", page)
+        self.assertIn("### The 25 rules", page)
         self.assertIn("render allowed", page)
 
     def test_the_tool_runs_on_a_run_folder(self):

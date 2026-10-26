@@ -5,8 +5,8 @@ Input: a passed script (a ``lesson_plan.json`` video: beats with ``say``, ``on_s
 course's level profile and the capability vocabulary (``bie/toolbox/capabilities.json``). Output: ``shots/<video>.json``
 and ``SHOTS.md``: one shot per spoken sentence (benchmark rule B-01) with its duration from ``video/timing.py``, its
 block, capability and visual level (``rulebook/visual_levels.json``), the assets it wants, the camera move, the labels
-and the caption; the per-level split; the checks (blocking and advisory) and the 24-rule table (12 benchmark rules,
-11 visual grammar rules, W-01).
+and the caption; the per-level split; the checks (blocking and advisory) and the 25-rule table (12 benchmark rules,
+11 visual grammar rules, W-01, LOOK-01).
 
 It extends ``bie/brain/director.py`` (the AI scene planner of Section 3) instead of replacing it: the scenes are one per
 script part (VG-01, one world, the camera moves to the next part), the beat timeline is the same ``timing.build`` the
@@ -729,7 +729,7 @@ RULE_NOTES = {
 
 
 def rule_table(plan: dict, grammar: dict | None = None) -> list:
-    """The 24-rule table (12 benchmark + 11 grammar + W-01) for a shot list: pass, partial, fail or n/a, with the shots
+    """The 25-rule table (12 benchmark + 11 grammar + W-01 + LOOK-01) for a shot list: pass, partial, fail or n/a, with the shots
     concerned. A plan-level reading; Part B reads the rendered frames against the same rules."""
     grammar = grammar or load_grammar()
     bench = load_benchmark()
@@ -791,6 +791,8 @@ def rule_table(plan: dict, grammar: dict | None = None) -> list:
     w = (plan.get("wording") or {}).get("hits") or []
     status("W-01", fail_when=bool(w), note=f"{len(w)} sentences point at the book" if w else "no sentence points at the book",
            shots_ids=[f"{h['beat_id']}" for h in w])
+    status("LOOK-01", partial_when=True, note="decided after the render: the look check scores 3 frames per route against 3 benchmark "
+                                             "frames on six axes (bie/brain/look.py); advice only, Navin's eye decides")
     ids = {r["id"] for r in bench["rules"]} | {r["id"] for r in grammar["rules"]}
     return [r for r in rows if r["rule"] in ids]
 
@@ -925,7 +927,7 @@ def render_markdown(plans: list, summary: dict | None = None) -> str:
             if len(plan["checks"]["advisory"]) > 40:
                 lines.append(f"- … and {len(plan['checks']['advisory']) - 40} more in shots/{plan['video_id']}.json")
             lines.append("")
-        lines += ["### The 24 rules", "", "| Rule | Status | Note | Shots |", "| --- | --- | --- | --- |"]
+        lines += [f"### The {len(plan.get('rule_table') or [])} rules", "", "| Rule | Status | Note | Shots |", "| --- | --- | --- | --- |"]
         for r in plan["rule_table"]:
             lines.append(f"| {r['rule']} | {r['status']} | {r['note']} | {', '.join(r['shots'][:6])} |")
         lines += ["", "### Shots", "", "| # | t | s | Level | Capability · blocks | Camera | Labels | Sentence |", "| --- | --- | --- | --- | --- | --- | --- | --- |"]
