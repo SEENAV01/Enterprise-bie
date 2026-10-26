@@ -6,7 +6,8 @@ name: BIE Task046 One-shot Render
 # for BIE's labels, the seconds per frame and the machine minutes go with it to the blindtest-results branch under
 # runs/t046-oneshot/route1-plate/ (our renders only). Labels and the caption are drawn by BIE's code on top afterwards
 # (VG-02). Runs by hand, or on a push to the pull request whose head commit message contains [render-oneshot]: not on
-# every push (a 15-runner render is not a per-commit check). No AI call, no key.
+# every push (a 15-runner render is not a per-commit check). [render-oneshot-finish:<run id>] renders nothing and only
+# joins and publishes the frames an earlier run made (its artifacts, kept 14 days). No AI call, no key.
 on:
   workflow_dispatch:
     inputs:
@@ -46,6 +47,7 @@ jobs:
     timeout-minutes: 5
     outputs:
       go: ${{ steps.gate.outputs.go }}
+      reuse: ${{ steps.gate.outputs.reuse }}
       matrix: ${{ steps.gate.outputs.matrix }}
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
@@ -56,7 +58,9 @@ jobs:
         run: |
           go=false
           if [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ] || git log -1 --format=%B | grep -qF '[render-oneshot]'; then go=true; fi
+          reuse="$(git log -1 --format=%B | sed -n 's/.*\[render-oneshot-finish:\([0-9]\{6,14\}\)\].*/\1/p' | head -1)"
           echo "go=$go" >> "$GITHUB_OUTPUT"
+          echo "reuse=$reuse" >> "$GITHUB_OUTPUT"
           python3 -c "import json, os; n = int(os.environ['CHUNKS']); print('matrix=' + json.dumps({'chunk': list(range(n))}))" >> "$GITHUB_OUTPUT"
           echo "render: $go (samples $SAMPLES, chunks $CHUNKS)"
 
@@ -144,18 +148,26 @@ jobs:
           retention-days: 14
 
   finish:
-    needs: [render, sweep]
-    if: always() && needs.render.result == 'success'
+    needs: [gate, render, sweep]
+    if: always() && (needs.render.result == 'success' || needs.gate.outputs.reuse != '')
     runs-on: ubuntu-24.04
-    timeout-minutes: 30
+    timeout-minutes: 40
+    permissions:
+      contents: read
+      actions: read   # only to read an earlier run's frames ([render-oneshot-finish:<run id>])
+    env:
+      FRAMES_RUN: ${{ needs.gate.outputs.reuse || github.run_id }}
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
           persist-credentials: false
           ref: ${{ github.event.pull_request.head.sha || github.sha }}
-      - name: ffmpeg and Pillow
+      - name: ffmpeg (bounded apt downloads with mirror fail-over, F-11) and Pillow
         run: |
-          sudo apt-get update -qq
+          # run 40329012680: this step's plain apt-get ran into the 30-minute limit on a slow regional mirror
+          source tools/ci_apt_prefetch.sh
+          sudo timeout 120 apt-get update -qq
+          apt_prefetch -qq ffmpeg
           sudo apt-get install -y -qq ffmpeg >/dev/null
           python -m pip install pillow==13.0.0
       - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
@@ -163,11 +175,15 @@ jobs:
           pattern: t046-oneshot-chunk-*
           path: ${{ runner.temp }}/plate
           merge-multiple: true
+          run-id: ${{ env.FRAMES_RUN }}
+          github-token: ${{ github.token }}
       - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
         with:
           pattern: t046-oneshot-sweep-*
           path: ${{ runner.temp }}/sweep
           merge-multiple: true
+          run-id: ${{ env.FRAMES_RUN }}
+          github-token: ${{ github.token }}
         continue-on-error: true
       - name: Join the frames into the plate, three stills, the numbers
         run: |
@@ -205,7 +221,8 @@ jobs:
                      "wall_minutes_longest_chunk": round(max(r["job_seconds"] for r in rows) / 60, 1),
                      "cost_inr": 0, "cost_note": "GitHub-hosted runners on a public repository: no charge",
                      "sweep_seconds_per_frame": {str(k): v for k, v in sweep.items()},
-                     "run_id": os.environ.get("GITHUB_RUN_ID"), "sha": os.environ.get("GITHUB_SHA"), "chunks_detail": rows}
+                     "run_id": os.environ.get("GITHUB_RUN_ID"), "frames_run_id": os.environ.get("FRAMES_RUN"),
+                     "sha": os.environ.get("GITHUB_SHA"), "chunks_detail": rows}
           json.dump(summary, open(f"{out}/render.json", "w"), indent=1)
           print(json.dumps({k: v for k, v in summary.items() if k != "chunks_detail"}, indent=1))
           EOF

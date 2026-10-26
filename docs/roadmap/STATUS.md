@@ -671,6 +671,13 @@ PR B (only after Navin's yes): live runs on the Gemini key, maker `google/gemini
 
 ## Known technical debts
 
+- F-11 again (26 October 2026, Task 046 one-shot render, run 40329012680 on draft PR #76): all 15 render chunks and the
+  three sample-sweep frames passed (frames kept as artifacts), but the `finish` job was cancelled at its 30-minute limit
+  in its plain `apt-get install ffmpeg` step (14:23 → 14:53 UTC): the same slow regional mirror as F-11(a). Not re-run.
+  Fix in the one-shot workflow: the step now uses `tools/ci_apt_prefetch.sh` (bounded downloads, one mirror fail-over),
+  and a commit tagged `[render-oneshot-finish:<run id>]` joins and publishes an earlier run's frames without rendering
+  them again. The toolbox lane's own apt steps still use plain apt-get (seen taking 1.5 hours on `main` the same day);
+  moving them to the prefetch tool is the next small F-11 PR.
 - F-13 (25 October 2026, PR #72 run 40236307455, job `demos (2)`, head `055ad618`): the toolbox `geo-relief` demo failed with
   GMT's `Remote download is currently deactivated` / `Unable to obtain remote file @earth_relief_02m_g`. Cause: a PR's
   asset cache starts empty (Actions caches made on one PR are not visible to another, and the toolbox lane does not run
