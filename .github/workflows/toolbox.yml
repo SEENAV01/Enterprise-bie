@@ -45,7 +45,8 @@ on:
 permissions:
   contents: read
 concurrency:
-  group: bie-toolbox-${{ github.ref }}
+  # per event: a push to main (the assets job) never waits behind a long run started by hand on main (F-13c)
+  group: bie-toolbox-${{ github.ref }}-${{ github.event_name }}
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
@@ -63,6 +64,13 @@ jobs:
       - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
         with:
           python-version: '3.13.5'
+      - name: The last shared cache first, so a server outage never loses what an earlier run fetched
+        uses: actions/cache/restore@5a3ec84eff668545956fd18022155c47e93e2684
+        with:
+          path: ${{ github.workspace }}/../bie-asset-cache
+          key: bie-asset-cache-shared-${{ github.run_id }}
+          restore-keys: |
+            bie-asset-cache-shared-
       - name: Downloads from flaky servers (standard library only)
         run: python -B tools/toolbox_setup.py --assets "${{ github.workspace }}/../bie-asset-cache"
       - name: Save them for every PR (caches made on main can be restored by any PR)

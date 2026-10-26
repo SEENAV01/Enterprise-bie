@@ -724,7 +724,9 @@ class DemosAndPage(unittest.TestCase):
         self.assertIn("if: github.event_name != 'pull_request'", assets)
         self.assertIn("tools/toolbox_setup.py --assets", assets)
         self.assertIn("key: bie-asset-cache-shared-${{ github.run_id }}", assets)
-        self.assertEqual(flow.count("            bie-asset-cache-shared-\n"), 2)     # wrappers and demos restore it
+        self.assertLess(assets.index("actions/cache/restore@"), assets.index("tools/toolbox_setup.py --assets"))   # F-13c
+        self.assertIn("group: bie-toolbox-${{ github.ref }}-${{ github.event_name }}", flow)                  # F-13c
+        self.assertEqual(flow.count("            bie-asset-cache-shared-\n"), 3)     # the assets job, wrappers and demos restore it
         self.assertIn("  push:\n    branches: [main]", flow)
 
     def test_adapters_import_without_their_libraries(self):
