@@ -93,18 +93,24 @@ def layout_anchors(depth_png: str | Path, labels: list, member: str, *, edge_u: 
     step = np.diff(col)[top:bottom]
     edge_v = float(top + int(np.argmax(step)) + 4) / h
     focus_v = edge_v + 0.45 * (1 - edge_v)
-    # snap to the nearest bump (a nucleus dome stands out of its cell): the depth minus its local mean, highest within reach
-    k = max(3, int(0.03 * h)) | 1
-    pad = np.pad(d, k, mode="edge")
-    c = pad.cumsum(0).cumsum(1)
-    mean = (c[2 * k:, 2 * k:] - c[:-2 * k, 2 * k:] - c[2 * k:, :-2 * k] + c[:-2 * k, :-2 * k]) / (2 * k) ** 2
-    bump = d - mean[:h, :w]
-    y0, y1 = int((focus_v - 0.07) * h), int((focus_v + 0.07) * h)
-    x0, x1 = int((focus_u - 0.05) * w), int((focus_u + 0.05) * w)
-    window = bump[max(0, y0):y1, max(0, x0):x1]
+    # snap to the nearest nucleus: a dome about a tenth of the frame's height across stands out of its cell, so a
+    # difference of Gaussians at that size peaks on it (grooves between cells answer negative, cell rims weakly)
+    small = d[::4, ::4]
+    def blur(a, sigma):
+        r = int(3 * sigma)
+        k = np.exp(-0.5 * (np.arange(-r, r + 1) / sigma) ** 2)
+        k /= k.sum()
+        a = np.pad(a, r, mode="edge")
+        a = np.apply_along_axis(lambda row: np.convolve(row, k, mode="valid"), 1, a)
+        return np.apply_along_axis(lambda col: np.convolve(col, k, mode="valid"), 0, a)
+    sh, sw = small.shape
+    blob = blur(small, 0.022 * sh) - blur(small, 0.06 * sh)
+    y0, y1 = max(0, int((focus_v - 0.09) * sh)), int((focus_v + 0.09) * sh)
+    x0, x1 = max(0, int((focus_u - 0.07) * sw)), int((focus_u + 0.07) * sw)
+    window = blob[y0:y1, x0:x1]
     if window.size:
         yy, xx = np.unravel_index(int(np.argmax(window)), window.shape)
-        focus_u, focus_v = (max(0, x0) + xx) / w, (max(0, y0) + yy) / h
+        focus_u, focus_v = (x0 + xx + 0.5) / sw, (y0 + yy + 0.5) / sh
     focus_u, focus_v = round(float(focus_u), 3), round(float(focus_v), 3)
     anchors = {}
     for label in labels:
