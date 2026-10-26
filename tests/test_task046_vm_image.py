@@ -68,7 +68,9 @@ class ImagesThroughThePlan(Base):
         self.assertNotIn("image_generation", call["disabled"])
         self.assertEqual(set(call["disabled"]), set(IMAGE_FEATURES_OFF))
         self.assertIn("shell_tool", call["disabled"])
-        self.assertIn("code_mode_host", call["disabled"])
+        self.assertNotIn("code_mode_host", call["disabled"])                # every Codex tool call goes through it (F-14b)
+        for off in ("unified_exec", "apps", "plugins", "browser_use", "computer_use", "multi_agent"):
+            self.assertIn(off, call["disabled"])
         self.assertNotIn("skill_search", call["disabled"])                  # image_gen comes through the imagegen skill
         self.assertFalse(any(s.startswith("skills.") for s in call["settings"]))
         self.assertEqual(call["prompt_head"], "$imagegen ")
