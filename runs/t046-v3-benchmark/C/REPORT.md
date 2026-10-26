@@ -5,5 +5,5 @@
 - levels: L3 21.03 s (6%), L5a 305.11 s (94%); main level L5a
 - pace: 71 visual changes, one every 4.59 s (band micro)
 - rules: {'partial': 2, 'pass': 15, 'fail': 1, 'n/a': 6} (RULES.md, frame numbers from 77 stills)
-- cost: 30.06 render seconds per second of video, 169.1 machine minutes, Rs 113.65 at the list price (USD 1.353); billed Rs 0 on the public repository
+- cost: 31.02 render seconds per second of video, 174.5 machine minutes, Rs 117.28 at the list price (USD 1.396); billed Rs 0 on the public repository
 - review copy: review-720p.mp4 (16.4 MB)
