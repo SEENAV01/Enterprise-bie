@@ -1,0 +1,63 @@
+{
+ "schema": "bie.vm-image-run/1",
+ "section": "image",
+ "maker": "codex image_gen (ChatGPT plan, no API key)",
+ "image_model": "gpt-image-2 behind Codex's built-in image_gen tool",
+ "status": "failed",
+ "stop_reason": null,
+ "error": "no image was made",
+ "images": [
+  {
+   "id": "b37-2-a",
+   "status": "failed",
+   "error": "malformed: codex:malformed: codex exec finished but no generated image was found (event types: thread.started, item.completed, error, turn.started, agent_message, turn.completed)"
+  },
+  {
+   "id": "b37-2-b",
+   "status": "failed",
+   "error": "malformed: codex:malformed: codex exec finished but no generated image was found (event types: thread.started, item.completed, error, turn.started, agent_message, turn.completed)"
+  },
+  {
+   "id": "b37-2-c",
+   "status": "failed",
+   "error": "malformed: codex:malformed: codex exec finished but no generated image was found (event types: thread.started, item.completed, error, turn.started, agent_message, turn.completed)"
+  },
+  {
+   "id": "b37-2-d",
+   "status": "failed",
+   "error": "malformed: codex:malformed: codex exec finished but no generated image was found (event types: thread.started, item.completed, error, turn.started, agent_message, turn.completed)"
+  }
+ ],
+ "cost": {
+  "total_inr": 0.0,
+  "billing": "subscription",
+  "note": "billed to the ChatGPT plan; no rupees"
+ },
+ "login": {
+  "logged_in": true,
+  "mode": "Logged in using ChatGPT"
+ },
+ "plan_usage_before": {
+  "rateLimits.primary.usedPercent": 0,
+  "rateLimits.primary.windowDurationMins": 10080,
+  "rateLimits.primary.resetsAt": 1793606985,
+  "rateLimits.planType": "prolite",
+  "rateLimitsByLimitId.codex.primary.usedPercent": 0,
+  "rateLimitsByLimitId.codex.primary.windowDurationMins": 10080,
+  "rateLimitsByLimitId.codex.primary.resetsAt": 1793606985,
+  "rateLimitsByLimitId.codex.planType": "prolite",
+  "rateLimitResetCredits.availableCount": 2
+ },
+ "plan_usage_after": {
+  "rateLimits.primary.usedPercent": 0,
+  "rateLimits.primary.windowDurationMins": 10080,
+  "rateLimits.primary.resetsAt": 1793606984,
+  "rateLimits.planType": "prolite",
+  "rateLimitsByLimitId.codex.primary.usedPercent": 0,
+  "rateLimitsByLimitId.codex.primary.windowDurationMins": 10080,
+  "rateLimitsByLimitId.codex.primary.resetsAt": 1793606984,
+  "rateLimitsByLimitId.codex.planType": "prolite",
+  "rateLimitResetCredits.availableCount": 2
+ },
+ "minutes": 1.32
+}
