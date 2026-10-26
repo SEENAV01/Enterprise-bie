@@ -645,3 +645,48 @@ unmerged; Part C stays stopped.
 
 Measured effect: in the one-shot report (look scores per route, render seconds per frame, ₹), then Navin's verdict.
 
+
+## Entry 14 · Task 046 one-shot test: one shot, two routes, 26 October 2026
+
+**What the run taught:**
+
+- **A studio look costs CPU time, and the cost is now measured.**
+  - The first Blender recipe spent 240 s per 1080p frame in Blender's subdivision of the cells' fan-shaped tops. Dense
+    smoothed rings gave the same organic outline at 55 s per frame in the workspace.
+  - Blender's noise is seeded per process, so the recipe now seeds it. Chunks rendered on different runners show the same
+    scene.
+  - On 4-CPU hosted runners at 32 samples the shot costs **203 s per frame**: 4.5 seconds of video took 457 machine-minutes
+    (₹0 on the public repository).
+  - A 5-minute segment at this quality would need about 500 machine-hours, so a long video at this quality needs fewer
+    samples, GPU rendering, or the 2.5D route.
+- **LOOK-01 (first use) names the gap that the presence checks could not.** Route 1 scored mean 5.2 of 10, verdict
+  “close” (Part B had no look score at all). Translucency is the weakest axis (4): the cells read as opaque and rubbery.
+  The next look work is wet, translucent cytoplasm: thinner subsurface radius, a transmission layer and a clear-coat sheen.
+  It was not done here, because the test stops for Navin's verdict.
+- **The VM runner had three gaps, each found by a live job:**
+  - A poll ran the old code after a merge (F-14: it now runs again with the new code).
+  - A failed Codex image run kept no reason (F-14: the error and reply are kept).
+  - Codex 0.162.1 calls every tool through its code-mode host, which BIE's lean settings turn off (F-14b, draft PR #81,
+    waits for Navin's yes).
+  - PR #77's runner tests were in no CI lane; they are now.
+- **CI time:** the toolbox lane's apt steps hit the slow mirror (F-11) and the assets job waited behind a manual run
+  (F-13c). With bounded downloads the `wrappers` job now takes 3.5 minutes; before, it was cancelled at its 40-minute limit.
+
+**Changed in BIE:**
+
+- Toolbox: `bie-epithelium-studio` (the Blender recipe and its presets), `onnxruntime` and Depth Anything V2 Small
+  (Apache-2.0, pinned, SHA-checked), registered and tested.
+- Blocks: `plate` and `parallax_plate`; `bie/brain/video/still_prompt.py`; `tools/oneshot.py`.
+- Rules: LOOK-01 in the rule table (`visual_grammar.json` 2026-10-26.3).
+- CI and runner (merged): PR #77, #79 and #80.
+
+**Measured effect:**
+
+| | before | after |
+| --- | --- | --- |
+| Look score | none (Part B) | Route 1: LOOK-01 mean 5.2, “close” |
+| Route 1 cost per 1080p frame (4 CPU, 32 spp) | — | 203 s |
+| Route 1 cost per shot | — | 7.6 machine-hours, ₹0 |
+| Route 2 | — | not measured: no AI image made yet |
+
+Navin's verdict decides what is next.
