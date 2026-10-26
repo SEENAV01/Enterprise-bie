@@ -606,3 +606,42 @@ earlier run's `lesson_plan.json`), and the pahra line says "resume of 1 of 11 vi
 
 Quality, first-try pass rate and rounds are unchanged (no rule or check changed); both saved regression sets still pass.
 
+## Entry 13 · Task 046 Part B rejected: the checks measured presence, not look, 26 October 2026
+
+**Navin's verdict (26 October 2026):** both routes of the Part B benchmark render (run 40298550697,
+`blindtest-results:runs/t046-v3-benchmark/`) were rejected: "dur dur tak benchmark se mel nahi khata". PR #75 stays open and
+unmerged; Part C stays stopped.
+
+**Diagnosis (what the run taught):**
+
+- **The frame checks measured presence, not look.** `bie/brain/video/frame_checks.py` read a bright caption band (B-08), a lit label
+  box (B-03), pixels near the member's accent (B-10), a dark mean or border (B-11/VG-09) and change between stills (VG-01). A frame
+  can pass all of them and still look nothing like the benchmark, and it did: route A passed 14 of 24 rules, route C 15, while
+  Navin saw no resemblance. No check ever compared our frames with the benchmark's frames, and no reviewer with eyes looked at a
+  frame before Navin did.
+- **The cells were simple geometry.** The world block drew every cell as a hexagonal prism (`CylinderGeometry` with 6 sides,
+  bevelled), the nucleus as a scaled sphere, on flat boxes for the membrane and the tissue; the Blender route built the same
+  recipe (`bie/toolbox/blender/cell_sheet.py`). The benchmark's cells are organic: irregular wavy outlines that interlock, softly
+  domed tops with a raised nucleus bulge, glossy wet surfaces with fine noise.
+- **No light transport.** Plain `MeshStandardMaterial` / Principled BSDF without subsurface scattering or translucency: light
+  never passes through a cell, so nothing reads as living tissue. The benchmark's cells glow from within, nuclei show as darker,
+  denser bodies through the cytoplasm.
+- **No lighting design, no depth.** One generic light rig and a vignette; no key and rim light, no haze, no glare on the lit part,
+  no depth of field, no out-of-focus context (vessels, air sacs) behind the sheet. The benchmark separates its planes with a shallow
+  focus and soft volumetric light.
+- **Scale of the error:** the level ladder called these shots L5a ("photoreal micro 3D") because of the block chosen, not because of
+  how they looked; the label described the intent, not the picture.
+
+**Changed in BIE (Task 046 one-shot test, branch `task046-oneshot`, draft PR; IMPLEMENTED, nothing ACCEPTED):**
+
+- One shot of 4–5 s instead of a segment, judged by Navin side by side with the benchmark before any longer render.
+- Route 1: a Blender recipe made the way a science-animation studio works (organic Voronoi outlines, domed tops, nucleus bulge,
+  subsurface scattering and translucency, key and rim light, haze, glare, depth of field, a slow push-in; Cycles on CPU), reusable
+  for every epithelium member.
+- Route 2: an AI still made through the ChatGPT plan (Codex image generation on the VM), animated by BIE code (2.5D parallax, push,
+  particles, glow), labels and caption by code.
+- **LOOK-01:** a look check against the benchmark's frames by a reviewer with image input (organic shape, translucency,
+  lighting and depth, detail, scientific correctness, overall class), saved with its reasons; advice only, Navin's eye decides.
+
+Measured effect: in the one-shot report (look scores per route, render seconds per frame, ₹), then Navin's verdict.
+
