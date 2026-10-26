@@ -79,6 +79,8 @@ class ImagesThroughThePlan(Base):
         with self.assertRaises(ProviderError) as err:
             self.client(image="none").generate_image(PROMPT, self.base / "out" / "r2-3")
         self.assertEqual(err.exception.kind, "malformed")
+        self.assertIn("codex error: image_gen is not available in this session", str(err.exception))   # the cause is kept
+        self.assertIn("reply: DONE", str(err.exception))
 
     def test_event_shapes_are_read_without_one_exact_name(self):
         line = json.dumps({"type": "item.completed", "item": {"type": "image_generation_call", "revised_prompt": "x",

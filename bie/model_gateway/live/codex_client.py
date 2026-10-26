@@ -343,8 +343,13 @@ class CodexExecClient:
             data, found_by = work_bytes, "work_folder"
         suffix = _image_suffix(data)
         if not suffix:
+            # what Codex said, so a failed run names its cause (26 October 2026: the first live run left an error item
+            # and a reply that BIE did not keep); redacted like every other Codex failure text
+            said = redact("; ".join(e for e in events["errors"][-2:] if e)[-400:], self._secrets())
+            reply = redact((events["message"] or "")[:300], self._secrets())
             raise ProviderError("malformed", "codex exec finished but no generated image was found (event types: "
-                                + ", ".join(found["types"][:12]) + ")", provider="codex")
+                                + ", ".join(found["types"][:12]) + ")" + (f"; codex error: {said}" if said else "")
+                                + (f"; reply: {reply}" if reply else ""), provider="codex")
         out = Path(out).with_suffix(suffix)
         out.parent.mkdir(parents=True, exist_ok=True)
         out.write_bytes(data)

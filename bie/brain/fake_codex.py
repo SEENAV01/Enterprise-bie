@@ -88,6 +88,9 @@ def _image(prompt, number, options, disabled):
         item["result"] = base64.b64encode(PIXEL * 8).decode()
     if where != "none":
         print(json.dumps({"type": "item.completed", "item": item}))
+    else:                                                # what a run without the image tool leaves (shape only)
+        print(json.dumps({"type": "item.completed", "item": {"id": "item_err", "type": "error",
+                                                             "message": "image_gen is not available in this session"}}))
     if "-o" in options:
         Path(options["-o"]).write_text("DONE", encoding="utf-8")
     print(json.dumps({"type": "item.completed", "item": {"id": "item_1", "type": "agent_message", "text": "DONE"}}))

@@ -76,7 +76,7 @@ def run(prompts: dict, out: Path, *, client: CodexExecClient | None = None, mode
             row.update(client.generate_image(p["prompt"], out / "images" / p["id"], model=model))
             row["status"] = "made"
         except ProviderError as exc:
-            row.update(status="failed", error=f"{exc.kind}: {str(exc)[-240:]}")
+            row.update(status="failed", error=f"{exc.kind}: {str(exc)[-900:]}")
             summary["images"].append(row)
             if exc.kind == "plan_limit":
                 summary.update(status="stopped: plan limit", stop_reason=row["error"])
