@@ -46,6 +46,7 @@ SECTIONS = ("understand", "lesson", "director", "notes", "game", "visual", "chai
 # ChatGPT plan (tools/vm_image.py, prompts written by BIE, at most 4 images) and returns the image files; "look" runs the
 # LOOK-01 look check with the free Google reviewer (tools/vm_look.py). Both are fixed commands, like run_brain.
 TOOL_SECTIONS = ("image", "look")
+FRESH_ENV = "BIE_VM_FRESH"         # set on the one re-run of a poll after the checkout moved to a newer main
 MAKERS = ("codex", "google", "openai")
 REVIEWERS = ("google", "openai")
 URL = re.compile(r"^https://[A-Za-z0-9._~:/?#\[\]@!$&'()*+,;=%-]{1,400}$")
@@ -201,6 +202,11 @@ def home() -> Path:
     return Path(os.environ.get("BIE_HOME") or "/var/lib/bie")
 
 
+def head() -> str:
+    run = subprocess.run(["git", "-C", str(ROOT), "rev-parse", "HEAD"], capture_output=True, text=True, check=False)
+    return run.stdout.strip()
+
+
 def repo() -> Repo:
     url = os.environ.get("BIE_REPO_URL") or "git@github.com:SEENAV01/Enterprise-bie.git"
     return Repo(url, home() / "state-repo")
@@ -265,8 +271,15 @@ def poll(*, python: str = sys.executable, update_main: bool = True) -> list:
         except BlockingIOError:
             return []                                           # the previous poll is still running a job
         if update_main:
+            before = head()
             subprocess.run(["git", "-C", str(ROOT), "fetch", "-q", "origin", "main"], check=False)
             subprocess.run(["git", "-C", str(ROOT), "checkout", "-q", "--detach", "origin/main"], check=False)
+            if head() != before and os.environ.get(FRESH_ENV) != "1":
+                # This process loaded the runner before the checkout moved, so it would check jobs with the old rules
+                # (26 October 2026: the first image job after PR #77 was refused as "unknown fields"). Poll again,
+                # once, with the code just checked out; the lock is released by closing it.
+                lock.close()
+                os.execve(python, [python, "-B", str(Path(__file__).resolve()), "poll"], dict(os.environ, **{FRESH_ENV: "1"}))
             installed = home() / "pyproject.sha256"
             current = hashlib.sha256((ROOT / "pyproject.toml").read_bytes()).hexdigest()
             if not installed.exists() or installed.read_text() != current:      # dependencies changed on main

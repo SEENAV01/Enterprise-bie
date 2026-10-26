@@ -27,6 +27,9 @@ on:
       - 'tools/seekh_measure.py'
       - 'tests/fixtures/passed_outputs/**'
       - 'tools/codex_vm.py'
+      - 'tools/vm_image.py'
+      - 'tools/vm_look.py'
+      - 'tests/test_task046_vm_*'
       - 'deployment/codex-vm/**'
       - '.github/workflows/task038-live-ai.yml'
   workflow_dispatch:

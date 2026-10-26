@@ -207,6 +207,46 @@ class VmJobSections(Base):
         self.assertEqual(cmd[:3], ["py", "-B", str(ROOT / "tools" / "vm_look.py")])
         self.assertEqual(cmd[cmd.index("--routes") + 1], "google=direct")
 
+    def test_a_poll_that_moved_main_runs_again_with_the_new_code_once(self):
+        """26 October 2026: the first image job after PR #77 was refused as "unknown fields" because the poll had loaded
+        the runner before it checked out the new main. Now a poll that moves the checkout starts itself again, once."""
+        heads = iter(["old", "new"])
+
+        def git(cmd, **kw):
+            out = next(heads) if cmd[-2:] == ["rev-parse", "HEAD"] else ""
+            return subprocess.CompletedProcess(cmd, 0, stdout=out, stderr="")
+
+        class Started(Exception):
+            pass
+
+        def execve(path, args, env):
+            raise Started(path, args, env)
+
+        env = {"BIE_HOME": str(self.base / "home")}
+        with mock.patch.dict(os.environ, env), mock.patch.object(codex_vm.subprocess, "run", git), \
+                mock.patch.object(codex_vm.os, "execve", execve), self.assertRaises(Started) as started:
+            os.environ.pop(codex_vm.FRESH_ENV, None)
+            codex_vm.poll(python="py")
+        path, args, new_env = started.exception.args
+        self.assertEqual((path, args), ("py", ["py", "-B", str(ROOT / "tools" / "codex_vm.py"), "poll"]))
+        self.assertEqual(new_env[codex_vm.FRESH_ENV], "1")
+        lock = self.base / "home" / "poll.lock"
+        with lock.open("w") as handle:                                   # the lock was released before the new start
+            import fcntl
+            fcntl.flock(handle, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        for heads_seen, fresh in ((["same", "same"], None), (["old", "new"], "1")):    # no move, or already the new code
+            heads = iter(heads_seen)
+            with self.subTest(heads=heads_seen, fresh=fresh), \
+                    mock.patch.dict(os.environ, dict(env, **({codex_vm.FRESH_ENV: fresh} if fresh else {}))), \
+                    mock.patch.object(codex_vm.subprocess, "run", git), mock.patch.object(codex_vm.os, "execve", execve), \
+                    mock.patch.object(codex_vm, "repo") as rep, mock.patch.object(codex_vm, "queued", return_value=[]):
+                if not fresh:
+                    os.environ.pop(codex_vm.FRESH_ENV, None)
+                (self.base / "home" / "pyproject.sha256").write_text(
+                    __import__("hashlib").sha256((ROOT / "pyproject.toml").read_bytes()).hexdigest())
+                self.assertEqual(codex_vm.poll(python="py"), [])
+                rep.return_value.fetch.assert_called_once_with(codex_vm.JOBS_BRANCH)
+
     def test_poll_publishes_the_image_files(self):
         remote = self.base / "remote.git"
         subprocess.run(["git", "init", "-q", "--bare", str(remote)], check=True)
