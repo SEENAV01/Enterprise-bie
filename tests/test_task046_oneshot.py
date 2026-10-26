@@ -82,6 +82,24 @@ class PlateSpecs(unittest.TestCase):
         self.assertIn('import "./plate";', (ROOT / "bie/brain/video/blocks/toolbox/index.ts").read_text(encoding="utf-8"))
 
 
+class OneShotTool(unittest.TestCase):
+    def test_prompts_command_writes_the_vm_prompt_file(self):
+        import importlib.util
+        import tempfile
+        spec = importlib.util.spec_from_file_location("oneshot", ROOT / "tools" / "oneshot.py")
+        tool = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(tool)
+        with tempfile.TemporaryDirectory() as folder:
+            shots = Path(folder) / "v3.json"
+            shots.write_text(json.dumps({"shots": [SHOT]}, ensure_ascii=False), encoding="utf-8")
+            self.assertEqual(tool.main(["prompts", "--shots", str(shots), "--shot", "b37.2", "--out", str(Path(folder) / "p.json"), "--count", "2"]), 0)
+            data = json.loads((Path(folder) / "p.json").read_text(encoding="utf-8"))
+            self.assertEqual((data["schema"], len(data["prompts"])), ("bie.image-prompts/1", 2))
+            with self.assertRaises(SystemExit):
+                tool.shot_from(shots, "b99.9")
+        self.assertEqual(tool.LOOK_FRAMES, (30, 75, 120))                                # after the fade-in, mid push, near the end
+
+
 class RenderWorkflow(unittest.TestCase):
     def test_route1_render_is_gated_chunked_and_publishes_only_our_renders(self):
         flow = (ROOT / ".github/workflows/task046-oneshot.yml").read_text(encoding="utf-8")
