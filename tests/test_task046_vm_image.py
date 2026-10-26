@@ -68,6 +68,10 @@ class ImagesThroughThePlan(Base):
         self.assertNotIn("image_generation", call["disabled"])
         self.assertEqual(set(call["disabled"]), set(IMAGE_FEATURES_OFF))
         self.assertIn("shell_tool", call["disabled"])
+        self.assertIn("code_mode_host", call["disabled"])
+        self.assertNotIn("skill_search", call["disabled"])                  # image_gen comes through the imagegen skill
+        self.assertFalse(any(s.startswith("skills.") for s in call["settings"]))
+        self.assertEqual(call["prompt_head"], "$imagegen ")
         self.assertEqual(call["instructions"], IMAGE_INSTRUCTIONS)
         self.assertFalse(call["api_key_visible"])
         self.assertIn("read-only", call["args"])

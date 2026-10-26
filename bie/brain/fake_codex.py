@@ -128,7 +128,8 @@ def _exec(args):
           "images_exist": all(Path(p).exists() for p in images), "settings": settings, "disabled": disabled,
           "instructions": Path(instructions).read_text(encoding="utf-8") if instructions else None,
           "api_key_visible": any(any(w in k for w in ("KEY", "TOKEN", "SECRET")) for k in os.environ),
-          "codex_home": os.environ.get("CODEX_HOME"), "model": options.get("-m"), "prompt_chars": len(prompt)})
+          "codex_home": os.environ.get("CODEX_HOME"), "model": options.get("-m"), "prompt_chars": len(prompt),
+          "prompt_head": prompt[:10]})
     print(json.dumps({"type": "thread.started", "thread_id": f"fake-thread-{number}"}))
     print(json.dumps({"type": "turn.started"}))
     failure = None
