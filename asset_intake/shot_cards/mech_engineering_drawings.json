@@ -1,0 +1,954 @@
+{
+ "id": "mech_engineering_drawings",
+ "title": "Understanding Engineering Drawings",
+ "channel": "The Efficient Engineer",
+ "subject": "Mechanical engineering",
+ "topic": "Engineering drawings: views, projection, sections, dimensions, threads",
+ "audience_level": "Engineering students",
+ "overall_level": "L4",
+ "analysed_range": "0:00-15:00",
+ "seen_visuals": true,
+ "method": "frames+code",
+ "style_summary": "A calm 3D desk world: the camera glides over real-looking drawing sheets where line drawings draw themselves and parts get coloured callouts; for concepts it moves into a teal-to-orange grunge void with a clean 3D part, translucent projection planes and neon outline views; one or two accent colours per idea; almost no cuts.",
+ "shots": [
+  {
+   "start": "0:00",
+   "end": "0:58",
+   "seconds": 58,
+   "teaches": "An engineering drawing communicates a part's design; overview of a full drawing sheet.",
+   "level": "L4",
+   "objects": [
+    {
+     "name": "desk with drawing sheets",
+     "kind": "other",
+     "dim": "3D",
+     "style": "photoreal",
+     "detail": "high",
+     "change": ""
+    },
+    {
+     "name": "exploded part drawing",
+     "kind": "diagram",
+     "dim": "2D",
+     "style": "line-art",
+     "detail": "high",
+     "change": ""
+    }
+   ],
+   "process": {
+    "what_moves": "",
+    "from": "",
+    "to": "",
+    "cause": "",
+    "effect": ""
+   },
+   "camera": {
+    "size": "wide",
+    "angle": "top",
+    "movement": "push-in",
+    "transition_in": "cut"
+   },
+   "look": {
+    "background": "dark slate desk seen from above with lamp, rolled drawings, pencils and calipers",
+    "palette": [
+     "white paper",
+     "charcoal",
+     "graphite"
+    ],
+    "lighting": "soft lamp pool, vignette",
+    "effects": [
+     "slow camera glide over paper",
+     "depth-of-field"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [],
+    "label_style": "none",
+    "formula": false
+   },
+   "recipe_needs": [
+    "desk_stage",
+    "paper_sheet_material",
+    "line_drawing_draw_on",
+    "camera_glide"
+   ],
+   "notes": ""
+  },
+  {
+   "start": "0:58",
+   "end": "1:42",
+   "seconds": 44,
+   "teaches": "Drawing types: layout, detail, assembly, interface-control drawings; standards books.",
+   "level": "L4",
+   "objects": [
+    {
+     "name": "several drawing sheets",
+     "kind": "diagram",
+     "dim": "2D",
+     "style": "line-art",
+     "detail": "high",
+     "change": "slide in"
+    },
+    {
+     "name": "standards binders",
+     "kind": "other",
+     "dim": "3D",
+     "style": "photoreal",
+     "detail": "medium",
+     "change": ""
+    }
+   ],
+   "process": {
+    "what_moves": "",
+    "from": "",
+    "to": "",
+    "cause": "",
+    "effect": ""
+   },
+   "camera": {
+    "size": "medium",
+    "angle": "top",
+    "movement": "pan",
+    "transition_in": "camera-move"
+   },
+   "look": {
+    "background": "dark slate desk seen from above with lamp, rolled drawings, pencils and calipers",
+    "palette": [
+     "white paper",
+     "charcoal",
+     "graphite"
+    ],
+    "lighting": "soft lamp pool, vignette",
+    "effects": [
+     "slow camera glide over paper",
+     "depth-of-field"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [
+     "Layout drawing",
+     "Interface control drawing"
+    ],
+    "label_style": "handwritten-arrow",
+    "formula": false
+   },
+   "recipe_needs": [
+    "desk_stage",
+    "paper_stack_animation",
+    "handwritten_note"
+   ],
+   "notes": ""
+  },
+  {
+   "start": "1:42",
+   "end": "2:54",
+   "seconds": 72,
+   "teaches": "Parts of a drawing: views, title block, notes; views get coloured callouts.",
+   "level": "L4",
+   "objects": [
+    {
+     "name": "drawing sheet with views and title block",
+     "kind": "diagram",
+     "dim": "2D",
+     "style": "line-art",
+     "detail": "high",
+     "change": "regions tinted"
+    },
+    {
+     "name": "colour-tinted view boxes",
+     "kind": "diagram",
+     "dim": "2D",
+     "style": "flat",
+     "detail": "medium",
+     "change": "appear"
+    }
+   ],
+   "process": {
+    "what_moves": "",
+    "from": "",
+    "to": "",
+    "cause": "",
+    "effect": ""
+   },
+   "camera": {
+    "size": "close",
+    "angle": "30deg-above",
+    "movement": "camera-move",
+    "transition_in": "camera-move"
+   },
+   "look": {
+    "background": "dark slate desk seen from above with lamp, rolled drawings, pencils and calipers",
+    "palette": [
+     "white paper",
+     "charcoal",
+     "graphite"
+    ],
+    "lighting": "soft lamp pool, vignette",
+    "effects": [
+     "slow camera glide over paper",
+     "depth-of-field"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [
+     "Section A-A",
+     "Detail view",
+     "Top view",
+     "Front view"
+    ],
+    "label_style": "box",
+    "formula": false
+   },
+   "recipe_needs": [
+    "region_highlight",
+    "paper_sheet_material",
+    "camera_glide"
+   ],
+   "notes": ""
+  },
+  {
+   "start": "2:54",
+   "end": "3:53",
+   "seconds": 59,
+   "teaches": "Orthographic projection: a 3D bracket is projected onto planes to get its views.",
+   "level": "L4",
+   "objects": [
+    {
+     "name": "L-bracket part",
+     "kind": "machine",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "high",
+     "change": ""
+    },
+    {
+     "name": "translucent projection plane",
+     "kind": "diagram",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "medium",
+     "change": "outline appears on it"
+    },
+    {
+     "name": "eye/camera icon",
+     "kind": "other",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "low",
+     "change": ""
+    }
+   ],
+   "process": {
+    "what_moves": "part outline",
+    "from": "3D part",
+    "to": "projection plane",
+    "cause": "look along one direction",
+    "effect": "one view"
+   },
+   "camera": {
+    "size": "medium",
+    "angle": "30deg-above",
+    "movement": "orbit",
+    "transition_in": "camera-move"
+   },
+   "look": {
+    "background": "grunge texture backdrop, teal top-left fading to rust-orange",
+    "palette": [
+     "teal",
+     "orange",
+     "white"
+    ],
+    "lighting": "dark with neon glow",
+    "effects": [
+     "glowing outline drawings",
+     "translucent projection planes"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [
+     "Orthographic projection",
+     "Front view"
+    ],
+    "label_style": "box",
+    "formula": false
+   },
+   "recipe_needs": [
+    "cad_part_model",
+    "projection_plane",
+    "neon_outline_view",
+    "orbit_camera"
+   ],
+   "notes": ""
+  },
+  {
+   "start": "3:53",
+   "end": "4:36",
+   "seconds": 43,
+   "teaches": "Six principal views laid out (top, front, left, right, rear, bottom).",
+   "level": "L4",
+   "objects": [
+    {
+     "name": "neon outline views",
+     "kind": "diagram",
+     "dim": "2D",
+     "style": "line-art",
+     "detail": "medium",
+     "change": "arrange in a cross"
+    }
+   ],
+   "process": {
+    "what_moves": "",
+    "from": "",
+    "to": "",
+    "cause": "",
+    "effect": ""
+   },
+   "camera": {
+    "size": "wide",
+    "angle": "eye",
+    "movement": "static",
+    "transition_in": "camera-move"
+   },
+   "look": {
+    "background": "grunge texture backdrop, teal top-left fading to rust-orange",
+    "palette": [
+     "teal",
+     "orange",
+     "white"
+    ],
+    "lighting": "dark with neon glow",
+    "effects": [
+     "glowing outline drawings",
+     "translucent projection planes"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [
+     "Top view",
+     "Front view",
+     "Left view",
+     "Right view",
+     "Rear view",
+     "Bottom view"
+    ],
+    "label_style": "caption-under",
+    "formula": false
+   },
+   "recipe_needs": [
+    "neon_outline_view",
+    "layout_unfold"
+   ],
+   "notes": ""
+  },
+  {
+   "start": "4:36",
+   "end": "5:49",
+   "seconds": 73,
+   "teaches": "First-angle vs third-angle projection: planes behind vs in front of the part; quadrants 1-4.",
+   "level": "L4",
+   "objects": [
+    {
+     "name": "bracket with projection box",
+     "kind": "diagram",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "high",
+     "change": "planes unfold"
+    },
+    {
+     "name": "quadrant planes",
+     "kind": "diagram",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "medium",
+     "change": ""
+    }
+   ],
+   "process": {
+    "what_moves": "",
+    "from": "",
+    "to": "",
+    "cause": "",
+    "effect": ""
+   },
+   "camera": {
+    "size": "medium",
+    "angle": "30deg-above",
+    "movement": "orbit",
+    "transition_in": "camera-move"
+   },
+   "look": {
+    "background": "grunge texture backdrop, teal top-left fading to rust-orange",
+    "palette": [
+     "teal",
+     "orange",
+     "white"
+    ],
+    "lighting": "dark with neon glow",
+    "effects": [
+     "glowing outline drawings",
+     "translucent projection planes"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [
+     "First angle projection",
+     "Third angle projection",
+     "1",
+     "2",
+     "3",
+     "4"
+    ],
+    "label_style": "tag",
+    "formula": false
+   },
+   "recipe_needs": [
+    "projection_plane",
+    "unfold_box_animation",
+    "split_compare",
+    "tag_label"
+   ],
+   "notes": ""
+  },
+  {
+   "start": "5:49",
+   "end": "6:18",
+   "seconds": 29,
+   "teaches": "The projection symbol: a cone and its two views.",
+   "level": "L4",
+   "objects": [
+    {
+     "name": "truncated cone",
+     "kind": "machine",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "medium",
+     "change": ""
+    },
+    {
+     "name": "symbol outline",
+     "kind": "diagram",
+     "dim": "2D",
+     "style": "line-art",
+     "detail": "medium",
+     "change": ""
+    }
+   ],
+   "process": {
+    "what_moves": "",
+    "from": "",
+    "to": "",
+    "cause": "",
+    "effect": ""
+   },
+   "camera": {
+    "size": "medium",
+    "angle": "eye",
+    "movement": "static",
+    "transition_in": "camera-move"
+   },
+   "look": {
+    "background": "grunge texture backdrop, teal top-left fading to rust-orange",
+    "palette": [
+     "teal",
+     "orange",
+     "white"
+    ],
+    "lighting": "dark with neon glow",
+    "effects": [
+     "glowing outline drawings",
+     "translucent projection planes"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [
+     "First angle projection"
+    ],
+    "label_style": "tag",
+    "formula": false
+   },
+   "recipe_needs": [
+    "neon_outline_view",
+    "cad_part_model"
+   ],
+   "notes": ""
+  },
+  {
+   "start": "6:18",
+   "end": "8:03",
+   "seconds": 105,
+   "teaches": "Views on a real sheet: front, side, isometric, section A-A, detail views; hatching for cut faces.",
+   "level": "L4",
+   "objects": [
+    {
+     "name": "drawing sheet views",
+     "kind": "diagram",
+     "dim": "2D",
+     "style": "line-art",
+     "detail": "high",
+     "change": "draw on"
+    },
+    {
+     "name": "isometric view with green highlight",
+     "kind": "diagram",
+     "dim": "2D",
+     "style": "line-art",
+     "detail": "medium",
+     "change": ""
+    },
+    {
+     "name": "section with hatching",
+     "kind": "diagram",
+     "dim": "2D",
+     "style": "line-art",
+     "detail": "medium",
+     "change": ""
+    }
+   ],
+   "process": {
+    "what_moves": "",
+    "from": "",
+    "to": "",
+    "cause": "",
+    "effect": ""
+   },
+   "camera": {
+    "size": "close",
+    "angle": "30deg-above",
+    "movement": "camera-move",
+    "transition_in": "camera-move"
+   },
+   "look": {
+    "background": "dark slate desk seen from above with lamp, rolled drawings, pencils and calipers",
+    "palette": [
+     "white paper",
+     "charcoal",
+     "graphite"
+    ],
+    "lighting": "soft lamp pool, vignette",
+    "effects": [
+     "slow camera glide over paper",
+     "depth-of-field"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [
+     "Section A-A",
+     "Detail A"
+    ],
+    "label_style": "box",
+    "formula": false
+   },
+   "recipe_needs": [
+    "line_drawing_draw_on",
+    "section_hatching",
+    "region_highlight",
+    "camera_glide"
+   ],
+   "notes": ""
+  },
+  {
+   "start": "8:03",
+   "end": "9:33",
+   "seconds": 90,
+   "teaches": "Assembly drawings, bill of materials and notes.",
+   "level": "L4",
+   "objects": [
+    {
+     "name": "assembly line drawing",
+     "kind": "diagram",
+     "dim": "2D",
+     "style": "line-art",
+     "detail": "high",
+     "change": ""
+    },
+    {
+     "name": "bill of materials table",
+     "kind": "text",
+     "dim": "2D",
+     "style": "flat",
+     "detail": "medium",
+     "change": ""
+    },
+    {
+     "name": "notes list",
+     "kind": "text",
+     "dim": "2D",
+     "style": "flat",
+     "detail": "low",
+     "change": ""
+    }
+   ],
+   "process": {
+    "what_moves": "",
+    "from": "",
+    "to": "",
+    "cause": "",
+    "effect": ""
+   },
+   "camera": {
+    "size": "close",
+    "angle": "30deg-above",
+    "movement": "camera-move",
+    "transition_in": "camera-move"
+   },
+   "look": {
+    "background": "dark slate desk seen from above with lamp, rolled drawings, pencils and calipers",
+    "palette": [
+     "white paper",
+     "charcoal",
+     "graphite"
+    ],
+    "lighting": "soft lamp pool, vignette",
+    "effects": [
+     "slow camera glide over paper",
+     "depth-of-field"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [],
+    "label_style": "none",
+    "formula": false
+   },
+   "recipe_needs": [
+    "line_drawing_draw_on",
+    "table_on_paper",
+    "camera_glide"
+   ],
+   "notes": ""
+  },
+  {
+   "start": "9:33",
+   "end": "10:33",
+   "seconds": 60,
+   "teaches": "Dimensions: radius, diameter, tolerance callouts, auxiliary dimensions.",
+   "level": "L4",
+   "objects": [
+    {
+     "name": "dimension lines and arrows",
+     "kind": "diagram",
+     "dim": "2D",
+     "style": "line-art",
+     "detail": "medium",
+     "change": "draw on"
+    },
+    {
+     "name": "callout tags",
+     "kind": "text",
+     "dim": "2D",
+     "style": "flat",
+     "detail": "low",
+     "change": ""
+    }
+   ],
+   "process": {
+    "what_moves": "",
+    "from": "",
+    "to": "",
+    "cause": "",
+    "effect": ""
+   },
+   "camera": {
+    "size": "close",
+    "angle": "30deg-above",
+    "movement": "camera-move",
+    "transition_in": "camera-move"
+   },
+   "look": {
+    "background": "dark slate desk seen from above with lamp, rolled drawings, pencils and calipers",
+    "palette": [
+     "white paper",
+     "charcoal",
+     "graphite"
+    ],
+    "lighting": "soft lamp pool, vignette",
+    "effects": [
+     "slow camera glide over paper",
+     "depth-of-field"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [
+     "R8 fillet radius",
+     "R15 TYP",
+     "6X R15",
+     "auxiliary dimension"
+    ],
+    "label_style": "box",
+    "formula": false
+   },
+   "recipe_needs": [
+    "dimension_lines",
+    "callout_tag",
+    "camera_glide"
+   ],
+   "notes": ""
+  },
+  {
+   "start": "10:33",
+   "end": "11:33",
+   "seconds": 60,
+   "teaches": "Dimensioning best practices (slides on the desk).",
+   "level": "L3",
+   "objects": [
+    {
+     "name": "best-practice text card",
+     "kind": "text",
+     "dim": "2D",
+     "style": "flat",
+     "detail": "low",
+     "change": ""
+    },
+    {
+     "name": "small line examples",
+     "kind": "diagram",
+     "dim": "2D",
+     "style": "line-art",
+     "detail": "low",
+     "change": ""
+    }
+   ],
+   "process": {
+    "what_moves": "",
+    "from": "",
+    "to": "",
+    "cause": "",
+    "effect": ""
+   },
+   "camera": {
+    "size": "wide",
+    "angle": "top",
+    "movement": "static",
+    "transition_in": "camera-move"
+   },
+   "look": {
+    "background": "dark slate desk seen from above with lamp, rolled drawings, pencils and calipers",
+    "palette": [
+     "white paper",
+     "charcoal",
+     "graphite"
+    ],
+    "lighting": "soft lamp pool, vignette",
+    "effects": [
+     "slow camera glide over paper",
+     "depth-of-field"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [
+     "Dimensioning best practices"
+    ],
+    "label_style": "title",
+    "formula": false
+   },
+   "recipe_needs": [
+    "bullet_card_on_desk"
+   ],
+   "notes": ""
+  },
+  {
+   "start": "11:33",
+   "end": "12:34",
+   "seconds": 61,
+   "teaches": "Holes: diameter, counterbore and countersink callouts; section through a hole.",
+   "level": "L4",
+   "objects": [
+    {
+     "name": "block with counterbore and countersink holes",
+     "kind": "machine",
+     "dim": "3D",
+     "style": "photoreal",
+     "detail": "high",
+     "change": ""
+    },
+    {
+     "name": "hole callout cards",
+     "kind": "text",
+     "dim": "2D",
+     "style": "flat",
+     "detail": "low",
+     "change": ""
+    },
+    {
+     "name": "section view",
+     "kind": "diagram",
+     "dim": "2D",
+     "style": "line-art",
+     "detail": "medium",
+     "change": ""
+    }
+   ],
+   "process": {
+    "what_moves": "",
+    "from": "",
+    "to": "",
+    "cause": "",
+    "effect": ""
+   },
+   "camera": {
+    "size": "medium",
+    "angle": "eye",
+    "movement": "static",
+    "transition_in": "camera-move"
+   },
+   "look": {
+    "background": "dark slate desk seen from above with lamp, rolled drawings, pencils and calipers",
+    "palette": [
+     "white paper",
+     "charcoal",
+     "graphite"
+    ],
+    "lighting": "soft lamp pool, vignette",
+    "effects": [
+     "slow camera glide over paper",
+     "depth-of-field"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [
+     "Diameter",
+     "Counterbore",
+     "Countersink",
+     "Depth",
+     "Angle"
+    ],
+    "label_style": "box",
+    "formula": false
+   },
+   "recipe_needs": [
+    "cad_part_model",
+    "cutaway_section",
+    "callout_tag"
+   ],
+   "notes": ""
+  },
+  {
+   "start": "12:34",
+   "end": "14:45",
+   "seconds": 131,
+   "teaches": "Threads: metric vs unified standards; pitch; reading M4 x 0.7 - 6H and 4-40 UNC-3B.",
+   "level": "L4",
+   "objects": [
+    {
+     "name": "bolt thread close-up",
+     "kind": "machine",
+     "dim": "3D",
+     "style": "photoreal",
+     "detail": "high",
+     "change": ""
+    },
+    {
+     "name": "brass bolts",
+     "kind": "machine",
+     "dim": "3D",
+     "style": "photoreal",
+     "detail": "medium",
+     "change": ""
+    },
+    {
+     "name": "thread code broken into parts",
+     "kind": "text",
+     "dim": "2D",
+     "style": "flat",
+     "detail": "medium",
+     "change": "labels under each part"
+    }
+   ],
+   "process": {
+    "what_moves": "",
+    "from": "",
+    "to": "",
+    "cause": "",
+    "effect": ""
+   },
+   "camera": {
+    "size": "close",
+    "angle": "30deg-above",
+    "movement": "push-in",
+    "transition_in": "camera-move"
+   },
+   "look": {
+    "background": "dark slate desk seen from above with lamp, rolled drawings, pencils and calipers",
+    "palette": [
+     "white paper",
+     "charcoal",
+     "graphite"
+    ],
+    "lighting": "soft lamp pool, vignette",
+    "effects": [
+     "slow camera glide over paper",
+     "depth-of-field"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [
+     "Thread pitch",
+     "M4 x 0.7 - 6H",
+     "Nominal diameter",
+     "Class of fit",
+     "4-40 UNC-3B"
+    ],
+    "label_style": "leader-line",
+    "formula": false
+   },
+   "recipe_needs": [
+    "thread_bolt_model",
+    "code_breakdown_labels",
+    "leader_label"
+   ],
+   "notes": ""
+  },
+  {
+   "start": "14:45",
+   "end": "15:00",
+   "seconds": 15,
+   "teaches": "Back to the full drawing sheet.",
+   "level": "L4",
+   "objects": [
+    {
+     "name": "full drawing sheet",
+     "kind": "diagram",
+     "dim": "2D",
+     "style": "line-art",
+     "detail": "high",
+     "change": ""
+    }
+   ],
+   "process": {
+    "what_moves": "",
+    "from": "",
+    "to": "",
+    "cause": "",
+    "effect": ""
+   },
+   "camera": {
+    "size": "wide",
+    "angle": "top",
+    "movement": "pull-out",
+    "transition_in": "camera-move"
+   },
+   "look": {
+    "background": "dark slate desk seen from above with lamp, rolled drawings, pencils and calipers",
+    "palette": [
+     "white paper",
+     "charcoal",
+     "graphite"
+    ],
+    "lighting": "soft lamp pool, vignette",
+    "effects": [
+     "slow camera glide over paper",
+     "depth-of-field"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [],
+    "label_style": "none",
+    "formula": false
+   },
+   "recipe_needs": [
+    "camera_glide"
+   ],
+   "notes": ""
+  }
+ ]
+}

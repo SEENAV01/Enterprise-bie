@@ -1,0 +1,705 @@
+{
+ "videos": 12,
+ "cards": 118,
+ "level_seconds": {
+  "L5a": 1042,
+  "L2": 334,
+  "L4": 3464,
+  "L3": 810,
+  "L1": 123
+ },
+ "camera_movement_seconds": {
+  "static": 1967,
+  "push-in": 1430,
+  "orbit": 1268,
+  "camera-move": 327,
+  "pull-out": 257,
+  "tracking": 158,
+  "pan": 118,
+  "zoom-from-organ": 84
+ },
+ "transitions": {
+  "cut": 73,
+  "camera-move": 36,
+  "none": 2
+ },
+ "label_styles": {
+  "box": 40,
+  "none": 33,
+  "leader-line": 16,
+  "caption": 13,
+  "tag": 3,
+  "3d-text": 2,
+  "brace": 1,
+  "handwritten-arrow": 1,
+  "caption-under": 1,
+  "title": 1
+ },
+ "families": [
+  {
+   "family": "look | focus glow / highlight outline",
+   "videos": 6,
+   "seconds": 452,
+   "video_ids": [
+    "bio_centromere_clip",
+    "bio_epithelium_benchmark",
+    "civil_weirs",
+    "cs_cache_memory_branch",
+    "eng_touchscreen_branch",
+    "mech_engineering_drawings"
+   ],
+   "needs": [
+    "focus_glow_outline",
+    "highlight_outline",
+    "region_highlight",
+    "voronoi_cell_outlines"
+   ]
+  },
+  {
+   "family": "text | leader-line labels",
+   "videos": 6,
+   "seconds": 427,
+   "video_ids": [
+    "bio_centromere_clip",
+    "civil_weirs",
+    "cs_cache_memory_branch",
+    "geo_earth_magnet_clip",
+    "geo_mantle_convection_clip",
+    "mech_engineering_drawings"
+   ],
+   "needs": [
+    "leader_label"
+   ]
+  },
+  {
+   "family": "text | tags, title blocks & callouts",
+   "videos": 5,
+   "seconds": 454,
+   "video_ids": [
+    "civil_underwater_foundation",
+    "civil_weirs",
+    "eng_touchscreen_branch",
+    "mech_engineering_drawings",
+    "phys_torque_extraclass"
+   ],
+   "needs": [
+    "callout_tag",
+    "floating_title_block",
+    "location_pin",
+    "tag_label",
+    "title_tag"
+   ]
+  },
+  {
+   "family": "camera | orbit & glide camera",
+   "videos": 4,
+   "seconds": 799,
+   "video_ids": [
+    "eng_touchscreen_branch",
+    "geo_earth_magnet_clip",
+    "mech_engineering_drawings",
+    "phys_maxwell_laws"
+   ],
+   "needs": [
+    "camera_glide",
+    "orbit_camera"
+   ]
+  },
+  {
+   "family": "motion | cutaway / cross-section",
+   "videos": 4,
+   "seconds": 586,
+   "video_ids": [
+    "civil_underwater_foundation",
+    "civil_weirs",
+    "cs_cache_memory_branch",
+    "mech_engineering_drawings"
+   ],
+   "needs": [
+    "cutaway_section",
+    "cylinder_cutaway",
+    "section_hatching",
+    "terrain_cross_section",
+    "water_volume_cutaway"
+   ]
+  },
+  {
+   "family": "motion | particle flow (across, along a path, burst)",
+   "videos": 4,
+   "seconds": 578,
+   "video_ids": [
+    "bio_epithelium_benchmark",
+    "civil_weirs",
+    "cs_cache_memory_branch",
+    "eng_touchscreen_branch"
+   ],
+   "needs": [
+    "charge_particles",
+    "ion_swap_particles",
+    "particle_burst_release",
+    "particle_count_change",
+    "particle_flow_across",
+    "particle_stream_path",
+    "rain_particles"
+   ]
+  },
+  {
+   "family": "2d | split compare & tables",
+   "videos": 4,
+   "seconds": 207,
+   "video_ids": [
+    "bio_centromere_clip",
+    "cs_cache_memory_branch",
+    "eng_touchscreen_branch",
+    "mech_engineering_drawings"
+   ],
+   "needs": [
+    "rating_table_3d",
+    "split_compare",
+    "tick_cross_table"
+   ]
+  },
+  {
+   "family": "2d | graph plotting",
+   "videos": 3,
+   "seconds": 1425,
+   "video_ids": [
+    "civil_underwater_foundation",
+    "civil_weirs",
+    "math_calculus_engineers"
+   ],
+   "needs": [
+    "area_under_curve",
+    "graph_plot",
+    "linked_graph_panels",
+    "point_markers",
+    "secant_to_tangent",
+    "tangent_slide"
+   ]
+  },
+  {
+   "family": "2d | equation steps & annotation",
+   "videos": 3,
+   "seconds": 1089,
+   "video_ids": [
+    "civil_weirs",
+    "math_calculus_engineers",
+    "phys_torque_extraclass"
+   ],
+   "needs": [
+    "equation_annotation",
+    "equation_part_boxes",
+    "equation_steps",
+    "formula_table_panel"
+   ]
+  },
+  {
+   "family": "motion | field lines & vector arrows",
+   "videos": 3,
+   "seconds": 1030,
+   "video_ids": [
+    "eng_touchscreen_branch",
+    "phys_maxwell_laws",
+    "phys_torque_extraclass"
+   ],
+   "needs": [
+    "dipole_field_lines",
+    "field_arcs",
+    "magnetic_field_loops",
+    "radial_field_lines",
+    "triad_arrows_3d",
+    "vector_arrow_field",
+    "vector_arrows_2d"
+   ]
+  },
+  {
+   "family": "camera | aerial / tracking path",
+   "videos": 3,
+   "seconds": 227,
+   "video_ids": [
+    "civil_underwater_foundation",
+    "civil_weirs",
+    "eng_touchscreen_branch"
+   ],
+   "needs": [
+    "aerial_camera_path",
+    "tracking_camera"
+   ]
+  },
+  {
+   "family": "motion | flow arrows",
+   "videos": 3,
+   "seconds": 187,
+   "video_ids": [
+    "civil_underwater_foundation",
+    "civil_weirs",
+    "geo_mantle_convection_clip"
+   ],
+   "needs": [
+    "flow_arrows"
+   ]
+  },
+  {
+   "family": "camera | zoom from organ / macro zoom",
+   "videos": 3,
+   "seconds": 132,
+   "video_ids": [
+    "bio_epithelium_benchmark",
+    "cs_cache_memory_branch",
+    "eng_touchscreen_branch"
+   ],
+   "needs": [
+    "macro_zoom_into_surface",
+    "organ_zoom"
+   ]
+  },
+  {
+   "family": "model | earth & globe family",
+   "videos": 3,
+   "seconds": 94,
+   "video_ids": [
+    "cs_cache_memory_branch",
+    "geo_earth_magnet_clip",
+    "geo_mantle_convection_clip"
+   ],
+   "needs": [
+    "earth_cutaway",
+    "earth_globe",
+    "earth_wedge_cutaway"
+   ]
+  },
+  {
+   "family": "look | glass & water materials",
+   "videos": 3,
+   "seconds": 58,
+   "video_ids": [
+    "civil_weirs",
+    "cs_cache_memory_branch",
+    "eng_touchscreen_branch"
+   ],
+   "needs": [
+    "glass_globe_material",
+    "glass_material",
+    "water_surface_material"
+   ]
+  },
+  {
+   "family": "model | construction machines & structures",
+   "videos": 2,
+   "seconds": 650,
+   "video_ids": [
+    "civil_underwater_foundation",
+    "civil_weirs"
+   ],
+   "needs": [
+    "barge_pontoon",
+    "cofferdam_ring",
+    "construction_machine_model",
+    "parametric_zigzag_wall",
+    "rebar_cage",
+    "weir_structure"
+   ]
+  },
+  {
+   "family": "motion | exploded view / layer stack",
+   "videos": 2,
+   "seconds": 574,
+   "video_ids": [
+    "cs_cache_memory_branch",
+    "eng_touchscreen_branch"
+   ],
+   "needs": [
+    "exploded_view",
+    "layer_stack_cutaway",
+    "reassemble_animation"
+   ]
+  },
+  {
+   "family": "model | physics primitives (charges, magnets, rings)",
+   "videos": 2,
+   "seconds": 400,
+   "video_ids": [
+    "geo_earth_magnet_clip",
+    "phys_maxwell_laws"
+   ],
+   "needs": [
+    "bar_magnet",
+    "charge_sphere",
+    "spinning_charge_ring"
+   ]
+  },
+  {
+   "family": "model | electronics hardware family",
+   "videos": 2,
+   "seconds": 293,
+   "video_ids": [
+    "cs_cache_memory_branch",
+    "eng_touchscreen_branch"
+   ],
+   "needs": [
+    "chip_die_model",
+    "diamond_grid",
+    "hdd_model",
+    "rgb_subpixel_grid"
+   ]
+  },
+  {
+   "family": "motion | fluid motion (level, pour, flow)",
+   "videos": 2,
+   "seconds": 289,
+   "video_ids": [
+    "civil_underwater_foundation",
+    "civil_weirs"
+   ],
+   "needs": [
+    "concrete_pour_fluid",
+    "water_level_change"
+   ]
+  },
+  {
+   "family": "stage | desk / workbench stage",
+   "videos": 2,
+   "seconds": 190,
+   "video_ids": [
+    "math_calculus_engineers",
+    "mech_engineering_drawings"
+   ],
+   "needs": [
+    "desk_stage",
+    "workbench_stage"
+   ]
+  },
+  {
+   "family": "stage | landscape & water world",
+   "videos": 2,
+   "seconds": 180,
+   "video_ids": [
+    "civil_underwater_foundation",
+    "civil_weirs"
+   ],
+   "needs": [
+    "landscape_river_valley",
+    "sea_surface"
+   ]
+  },
+  {
+   "family": "model | cell & tissue family",
+   "videos": 2,
+   "seconds": 160,
+   "video_ids": [
+    "bio_centromere_clip",
+    "bio_epithelium_benchmark"
+   ],
+   "needs": [
+    "acinus_radial",
+    "cell_sheet_on_curve",
+    "cell_sheet_organic",
+    "cell_spindle_model",
+    "centrosome_model",
+    "chromosome_model",
+    "duct_ring_cross_section",
+    "microvilli_brush",
+    "rbc_flow"
+   ]
+  },
+  {
+   "family": "stage | studio stage (grid floor, gradient wall)",
+   "videos": 2,
+   "seconds": 148,
+   "video_ids": [
+    "cs_cache_memory_branch",
+    "eng_touchscreen_branch"
+   ],
+   "needs": [
+    "hardware_layout_floor",
+    "studio_grid_floor"
+   ]
+  },
+  {
+   "family": "text | dimension lines",
+   "videos": 2,
+   "seconds": 117,
+   "video_ids": [
+    "cs_cache_memory_branch",
+    "mech_engineering_drawings"
+   ],
+   "needs": [
+    "dimension_label",
+    "dimension_lines"
+   ]
+  },
+  {
+   "family": "motion | ripple / pulse rings",
+   "videos": 2,
+   "seconds": 110,
+   "video_ids": [
+    "civil_underwater_foundation",
+    "eng_touchscreen_branch"
+   ],
+   "needs": [
+    "ripple_rings",
+    "sonar_pulse"
+   ]
+  },
+  {
+   "family": "look | depth of field + bokeh",
+   "videos": 2,
+   "seconds": 60,
+   "video_ids": [
+    "bio_centromere_clip",
+    "bio_epithelium_benchmark"
+   ],
+   "needs": [
+    "dof_bokeh"
+   ]
+  },
+  {
+   "family": "motion | scale comparison & instanced arrays",
+   "videos": 1,
+   "seconds": 574,
+   "video_ids": [
+    "cs_cache_memory_branch"
+   ],
+   "needs": [
+    "distance_metaphor_line",
+    "instanced_array",
+    "measure_line",
+    "scale_compare"
+   ]
+  },
+  {
+   "family": "motion | machine actions (drive, dig, lower, grow)",
+   "videos": 1,
+   "seconds": 542,
+   "video_ids": [
+    "civil_underwater_foundation"
+   ],
+   "needs": [
+    "crane_lowering",
+    "excavator_dig_motion",
+    "interlock_assembly",
+    "pile_drive_motion",
+    "pipe_lowering",
+    "structure_grow_up"
+   ]
+  },
+  {
+   "family": "model | machine part family (CAD)",
+   "videos": 1,
+   "seconds": 280,
+   "video_ids": [
+    "mech_engineering_drawings"
+   ],
+   "needs": [
+    "cad_part_model",
+    "thread_bolt_model"
+   ]
+  },
+  {
+   "family": "2d | line drawing draw-on",
+   "videos": 1,
+   "seconds": 253,
+   "video_ids": [
+    "mech_engineering_drawings"
+   ],
+   "needs": [
+    "line_drawing_draw_on"
+   ]
+  },
+  {
+   "family": "model | photoreal props (motor, drone, rods)",
+   "videos": 1,
+   "seconds": 249,
+   "video_ids": [
+    "math_calculus_engineers"
+   ],
+   "needs": [
+    "photoreal_prop_model"
+   ]
+  },
+  {
+   "family": "motion | projection planes & unfolding",
+   "videos": 1,
+   "seconds": 248,
+   "video_ids": [
+    "mech_engineering_drawings"
+   ],
+   "needs": [
+    "layout_unfold",
+    "projection_plane",
+    "unfold_box_animation"
+   ]
+  },
+  {
+   "family": "look | glass graph panel",
+   "videos": 1,
+   "seconds": 176,
+   "video_ids": [
+    "math_calculus_engineers"
+   ],
+   "needs": [
+    "glass_panel"
+   ]
+  },
+  {
+   "family": "look | product-shot materials",
+   "videos": 1,
+   "seconds": 137,
+   "video_ids": [
+    "cs_cache_memory_branch"
+   ],
+   "needs": [
+    "product_material"
+   ]
+  },
+  {
+   "family": "2d | free-body & vector diagrams (2D)",
+   "videos": 1,
+   "seconds": 132,
+   "video_ids": [
+    "phys_torque_extraclass"
+   ],
+   "needs": [
+    "free_body_diagram"
+   ]
+  },
+  {
+   "family": "look | neon outline drawing",
+   "videos": 1,
+   "seconds": 131,
+   "video_ids": [
+    "mech_engineering_drawings"
+   ],
+   "needs": [
+    "neon_outline_view"
+   ]
+  },
+  {
+   "family": "look | paper & line-drawing look",
+   "videos": 1,
+   "seconds": 130,
+   "video_ids": [
+    "mech_engineering_drawings"
+   ],
+   "needs": [
+    "paper_sheet_material"
+   ]
+  },
+  {
+   "family": "model | water tank / fluid section",
+   "videos": 1,
+   "seconds": 117,
+   "video_ids": [
+    "civil_weirs"
+   ],
+   "needs": [
+    "water_tank_section"
+   ]
+  },
+  {
+   "family": "look | emissive glow / bloom",
+   "videos": 1,
+   "seconds": 92,
+   "video_ids": [
+    "eng_touchscreen_branch"
+   ],
+   "needs": [
+    "bloom",
+    "emission_glow"
+   ]
+  },
+  {
+   "family": "look | translucent tissue material (SSS)",
+   "videos": 1,
+   "seconds": 65,
+   "video_ids": [
+    "bio_epithelium_benchmark"
+   ],
+   "needs": [
+    "glass_cell_material",
+    "sss_translucent_material"
+   ]
+  },
+  {
+   "family": "model | organ & tube family",
+   "videos": 1,
+   "seconds": 46,
+   "video_ids": [
+    "bio_epithelium_benchmark"
+   ],
+   "needs": [
+    "alveolus_capillary",
+    "capillary_context",
+    "tube_wall_cutaway"
+   ]
+  },
+  {
+   "family": "stage | gallery wall",
+   "videos": 1,
+   "seconds": 43,
+   "video_ids": [
+    "eng_touchscreen_branch"
+   ],
+   "needs": [
+    "museum_wall_gallery"
+   ]
+  },
+  {
+   "family": "text | kinetic caption + summary line",
+   "videos": 1,
+   "seconds": 10,
+   "video_ids": [
+    "bio_epithelium_benchmark"
+   ],
+   "needs": [
+    "kinetic_caption",
+    "summary_line"
+   ]
+  }
+ ],
+ "unmapped_needs": {
+  "analogy_scene": 3,
+  "neon_text": 2,
+  "paper_stack_animation": 2,
+  "attract_repel_motion": 2,
+  "text_3d": 2,
+  "fibre_attach_motion": 1,
+  "ship_model": 1,
+  "picture_in_picture_panel": 1,
+  "boat_simple": 1,
+  "glow_trace_lanes": 1,
+  "hardware_row": 1,
+  "pyramid_diagram_3d": 1,
+  "orbit_ring_light": 1,
+  "magnetic_domain_strip": 1,
+  "magnifier_inset": 1,
+  "lattice_diagram_2d": 1,
+  "panel_layout": 1,
+  "character_seated_simple": 1,
+  "car_cutaway_simple": 1,
+  "hand_pointer_simple": 1,
+  "scan_highlight_sweep": 1,
+  "paper_sheets_float": 1,
+  "topic_branch_tree": 1,
+  "guide_character_2d": 1,
+  "spring_mass_oscillation": 1,
+  "handwritten_note": 1,
+  "table_on_paper": 1,
+  "bullet_card_on_desk": 1,
+  "code_breakdown_labels": 1,
+  "caption_box": 1,
+  "gauss_surface": 1,
+  "shape_morph": 1,
+  "current_through_loop": 1,
+  "current_streams": 1,
+  "flat_character_scene": 1,
+  "title_card": 1,
+  "flat_object_motion": 1,
+  "arc_arrow": 1,
+  "definition_card": 1,
+  "plane_perspective_2d": 1,
+  "question_panel": 1,
+  "typewriter_text": 1,
+  "highlight_circle": 1
+ }
+}

@@ -1,0 +1,840 @@
+{
+ "id": "civil_underwater_foundation",
+ "title": "Underwater Foundation - How to Build (3D Animation)",
+ "channel": "(Hindi 3D construction channel)",
+ "subject": "Civil engineering",
+ "topic": "Building foundations under water: piles, sheet-pile cofferdam, tremie concrete",
+ "audience_level": "General / diploma students",
+ "overall_level": "L4",
+ "analysed_range": "0:00-11:32",
+ "seen_visuals": true,
+ "method": "frames+code",
+ "style_summary": "A step-by-step 3D construction story at sea: barges, cranes, pile drivers and excavators build a sheet-pile cofferdam, dig it out, lay a rebar cage and pour concrete through a tremie pipe; soil cross-sections show what happens below the seabed; a few live-action inserts and course promos cut in; Hindi text cards.",
+ "shots": [
+  {
+   "start": "0:00",
+   "end": "0:16",
+   "seconds": 16,
+   "teaches": "Overview: a finished cofferdam among floating barges.",
+   "level": "L4",
+   "objects": [
+    {
+     "name": "sheet-pile cofferdam ring",
+     "kind": "machine",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "high",
+     "change": ""
+    },
+    {
+     "name": "floating barges and pontoons",
+     "kind": "machine",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "medium",
+     "change": ""
+    }
+   ],
+   "process": {
+    "what_moves": "",
+    "from": "",
+    "to": "",
+    "cause": "",
+    "effect": ""
+   },
+   "camera": {
+    "size": "wide",
+    "angle": "30deg-above",
+    "movement": "orbit",
+    "transition_in": "cut"
+   },
+   "look": {
+    "background": "open sea, dark green water, overcast sky",
+    "palette": [
+     "dark green",
+     "steel grey",
+     "construction yellow",
+     "rust"
+    ],
+    "lighting": "daylight, soft shadows",
+    "effects": [
+     "water surface",
+     "aerial haze"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [],
+    "label_style": "none",
+    "formula": false
+   },
+   "recipe_needs": [
+    "sea_surface",
+    "cofferdam_ring",
+    "barge_pontoon",
+    "aerial_camera_path"
+   ],
+   "notes": ""
+  },
+  {
+   "start": "0:16",
+   "end": "0:42",
+   "seconds": 26,
+   "teaches": "Site survey and a pile driver lowered onto the seabed.",
+   "level": "L4",
+   "objects": [
+    {
+     "name": "survey marker on water",
+     "kind": "other",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "low",
+     "change": ""
+    },
+    {
+     "name": "pile driver frame",
+     "kind": "machine",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "high",
+     "change": "lowered by crane"
+    }
+   ],
+   "process": {
+    "what_moves": "",
+    "from": "",
+    "to": "",
+    "cause": "",
+    "effect": ""
+   },
+   "camera": {
+    "size": "wide",
+    "angle": "eye",
+    "movement": "static",
+    "transition_in": "cut"
+   },
+   "look": {
+    "background": "open sea, dark green water, overcast sky",
+    "palette": [
+     "dark green",
+     "steel grey",
+     "construction yellow",
+     "rust"
+    ],
+    "lighting": "daylight, soft shadows",
+    "effects": [
+     "water surface",
+     "aerial haze"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [],
+    "label_style": "none",
+    "formula": false
+   },
+   "recipe_needs": [
+    "sea_surface",
+    "crane_lowering",
+    "construction_machine_model"
+   ],
+   "notes": ""
+  },
+  {
+   "start": "0:42",
+   "end": "1:32",
+   "seconds": 50,
+   "teaches": "Driving a steel pile into layered soil; resistance graph; soil cross-section.",
+   "level": "L4",
+   "objects": [
+    {
+     "name": "steel pile",
+     "kind": "machine",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "medium",
+     "change": "driven down"
+    },
+    {
+     "name": "soil layers cross-section",
+     "kind": "landscape",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "high",
+     "change": ""
+    },
+    {
+     "name": "resistance graph",
+     "kind": "graph",
+     "dim": "2D",
+     "style": "flat",
+     "detail": "low",
+     "change": ""
+    }
+   ],
+   "process": {
+    "what_moves": "pile",
+    "from": "seabed",
+    "to": "deep layer",
+    "cause": "hammer blows",
+    "effect": "pile goes down until resistance"
+   },
+   "camera": {
+    "size": "medium",
+    "angle": "side",
+    "movement": "static",
+    "transition_in": "cut"
+   },
+   "look": {
+    "background": "underwater soil section",
+    "palette": [
+     "sand",
+     "rock",
+     "grey water"
+    ],
+    "lighting": "murky diffuse light",
+    "effects": [
+     "cracked rock texture",
+     "suspended particles"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [],
+    "label_style": "none",
+    "formula": false
+   },
+   "recipe_needs": [
+    "terrain_cross_section",
+    "pile_drive_motion",
+    "graph_plot"
+   ],
+   "notes": ""
+  },
+  {
+   "start": "1:32",
+   "end": "2:13",
+   "seconds": 41,
+   "teaches": "Sonar from a ship scans the seabed.",
+   "level": "L4",
+   "objects": [
+    {
+     "name": "survey ship",
+     "kind": "machine",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "medium",
+     "change": ""
+    },
+    {
+     "name": "sonar cone",
+     "kind": "diagram",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "low",
+     "change": "pulses"
+    }
+   ],
+   "process": {
+    "what_moves": "",
+    "from": "",
+    "to": "",
+    "cause": "",
+    "effect": ""
+   },
+   "camera": {
+    "size": "wide",
+    "angle": "side",
+    "movement": "static",
+    "transition_in": "cut"
+   },
+   "look": {
+    "background": "sea and sky section",
+    "palette": [
+     "blue",
+     "white",
+     "rust"
+    ],
+    "lighting": "daylight",
+    "effects": [
+     "pulsing sonar cone"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [],
+    "label_style": "none",
+    "formula": false
+   },
+   "recipe_needs": [
+    "ship_model",
+    "sonar_pulse"
+   ],
+   "notes": ""
+  },
+  {
+   "start": "2:13",
+   "end": "3:12",
+   "seconds": 59,
+   "teaches": "Vibro-hammer drives sheet piles; bent piles show what goes wrong.",
+   "level": "L4",
+   "objects": [
+    {
+     "name": "vibro hammer",
+     "kind": "machine",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "high",
+     "change": "vibrates"
+    },
+    {
+     "name": "sheet piles",
+     "kind": "machine",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "medium",
+     "change": "go down or bend"
+    }
+   ],
+   "process": {
+    "what_moves": "",
+    "from": "",
+    "to": "",
+    "cause": "",
+    "effect": ""
+   },
+   "camera": {
+    "size": "medium",
+    "angle": "eye",
+    "movement": "push-in",
+    "transition_in": "cut"
+   },
+   "look": {
+    "background": "underwater soil section",
+    "palette": [
+     "sand",
+     "rock",
+     "grey water"
+    ],
+    "lighting": "murky diffuse light",
+    "effects": [
+     "cracked rock texture",
+     "suspended particles"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [],
+    "label_style": "none",
+    "formula": false
+   },
+   "recipe_needs": [
+    "construction_machine_model",
+    "pile_drive_motion",
+    "cutaway_section"
+   ],
+   "notes": ""
+  },
+  {
+   "start": "3:12",
+   "end": "3:38",
+   "seconds": 26,
+   "teaches": "Channel promos and course advertisement.",
+   "level": "L3",
+   "objects": [
+    {
+     "name": "promo graphics",
+     "kind": "other",
+     "dim": "2D",
+     "style": "flat",
+     "detail": "low",
+     "change": ""
+    }
+   ],
+   "process": {
+    "what_moves": "",
+    "from": "",
+    "to": "",
+    "cause": "",
+    "effect": ""
+   },
+   "camera": {
+    "size": "wide",
+    "angle": "eye",
+    "movement": "static",
+    "transition_in": "cut"
+   },
+   "look": {
+    "background": "",
+    "palette": [],
+    "lighting": "",
+    "effects": []
+   },
+   "on_screen_text": {
+    "labels": [],
+    "label_style": "none",
+    "formula": false
+   },
+   "recipe_needs": [],
+   "notes": "promo, skip"
+  },
+  {
+   "start": "3:38",
+   "end": "5:12",
+   "seconds": 94,
+   "teaches": "Sheet piles interlock into a ring cofferdam; water inside is pumped out.",
+   "level": "L4",
+   "objects": [
+    {
+     "name": "interlocking sheet piles",
+     "kind": "machine",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "high",
+     "change": ""
+    },
+    {
+     "name": "cofferdam ring",
+     "kind": "machine",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "high",
+     "change": "closes"
+    },
+    {
+     "name": "pumps and hoses",
+     "kind": "machine",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "medium",
+     "change": ""
+    }
+   ],
+   "process": {
+    "what_moves": "water",
+    "from": "inside ring",
+    "to": "pumped out",
+    "cause": "sealed ring",
+    "effect": "dry work area"
+   },
+   "camera": {
+    "size": "wide",
+    "angle": "30deg-above",
+    "movement": "orbit",
+    "transition_in": "cut"
+   },
+   "look": {
+    "background": "open sea, dark green water, overcast sky",
+    "palette": [
+     "dark green",
+     "steel grey",
+     "construction yellow",
+     "rust"
+    ],
+    "lighting": "daylight, soft shadows",
+    "effects": [
+     "water surface",
+     "aerial haze"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [],
+    "label_style": "none",
+    "formula": false
+   },
+   "recipe_needs": [
+    "cofferdam_ring",
+    "interlock_assembly",
+    "water_level_change",
+    "barge_pontoon"
+   ],
+   "notes": ""
+  },
+  {
+   "start": "5:12",
+   "end": "6:41",
+   "seconds": 89,
+   "teaches": "Bracing rings, water pressure arrows; excavator digs out the inside; cross-section of the dig.",
+   "level": "L4",
+   "objects": [
+    {
+     "name": "bracing frames",
+     "kind": "machine",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "medium",
+     "change": ""
+    },
+    {
+     "name": "pressure arrows",
+     "kind": "diagram",
+     "dim": "3D",
+     "style": "flat",
+     "detail": "low",
+     "change": ""
+    },
+    {
+     "name": "excavator",
+     "kind": "machine",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "high",
+     "change": "digs"
+    },
+    {
+     "name": "cofferdam cutaway section",
+     "kind": "machine",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "high",
+     "change": ""
+    }
+   ],
+   "process": {
+    "what_moves": "soil",
+    "from": "inside cofferdam",
+    "to": "excavator bucket",
+    "cause": "bracing",
+    "effect": "walls resist water pressure"
+   },
+   "camera": {
+    "size": "wide",
+    "angle": "30deg-above",
+    "movement": "push-in",
+    "transition_in": "cut"
+   },
+   "look": {
+    "background": "open sea, dark green water, overcast sky",
+    "palette": [
+     "dark green",
+     "steel grey",
+     "construction yellow",
+     "rust"
+    ],
+    "lighting": "daylight, soft shadows",
+    "effects": [
+     "water surface",
+     "aerial haze"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [],
+    "label_style": "none",
+    "formula": false
+   },
+   "recipe_needs": [
+    "cutaway_section",
+    "flow_arrows",
+    "construction_machine_model",
+    "excavator_dig_motion"
+   ],
+   "notes": ""
+  },
+  {
+   "start": "6:41",
+   "end": "6:47",
+   "seconds": 6,
+   "teaches": "Real uses: sea bridges, wind turbines, lighthouses.",
+   "level": "L1",
+   "objects": [
+    {
+     "name": "stock footage",
+     "kind": "landscape",
+     "dim": "3D",
+     "style": "photoreal",
+     "detail": "medium",
+     "change": ""
+    }
+   ],
+   "process": {
+    "what_moves": "",
+    "from": "",
+    "to": "",
+    "cause": "",
+    "effect": ""
+   },
+   "camera": {
+    "size": "wide",
+    "angle": "eye",
+    "movement": "static",
+    "transition_in": "cut"
+   },
+   "look": {
+    "background": "",
+    "palette": [],
+    "lighting": "",
+    "effects": []
+   },
+   "on_screen_text": {
+    "labels": [],
+    "label_style": "none",
+    "formula": false
+   },
+   "recipe_needs": [],
+   "notes": "stock footage"
+  },
+  {
+   "start": "6:47",
+   "end": "8:47",
+   "seconds": 120,
+   "teaches": "Casing pipes lowered; tremie concrete poured; seal slab forms.",
+   "level": "L4",
+   "objects": [
+    {
+     "name": "steel casing",
+     "kind": "machine",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "medium",
+     "change": "lowered"
+    },
+    {
+     "name": "tremie pipe",
+     "kind": "machine",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "medium",
+     "change": ""
+    },
+    {
+     "name": "concrete flow",
+     "kind": "other",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "medium",
+     "change": "spreads"
+    }
+   ],
+   "process": {
+    "what_moves": "concrete",
+    "from": "tremie pipe",
+    "to": "bottom of cofferdam",
+    "cause": "pour under water from the bottom",
+    "effect": "no washout"
+   },
+   "camera": {
+    "size": "medium",
+    "angle": "eye",
+    "movement": "static",
+    "transition_in": "cut"
+   },
+   "look": {
+    "background": "underwater soil section",
+    "palette": [
+     "sand",
+     "rock",
+     "grey water"
+    ],
+    "lighting": "murky diffuse light",
+    "effects": [
+     "cracked rock texture",
+     "suspended particles"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [],
+    "label_style": "none",
+    "formula": false
+   },
+   "recipe_needs": [
+    "pipe_lowering",
+    "concrete_pour_fluid",
+    "cutaway_section"
+   ],
+   "notes": ""
+  },
+  {
+   "start": "8:47",
+   "end": "9:48",
+   "seconds": 61,
+   "teaches": "Why concrete does not wash out: honey in water demo; anti-wash agent (Hindi note).",
+   "level": "L4",
+   "objects": [
+    {
+     "name": "tremie pour close-up",
+     "kind": "other",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "medium",
+     "change": ""
+    },
+    {
+     "name": "honey poured into water jar",
+     "kind": "other",
+     "dim": "3D",
+     "style": "photoreal",
+     "detail": "medium",
+     "change": "sinks without mixing"
+    }
+   ],
+   "process": {
+    "what_moves": "",
+    "from": "",
+    "to": "",
+    "cause": "",
+    "effect": ""
+   },
+   "camera": {
+    "size": "close",
+    "angle": "eye",
+    "movement": "static",
+    "transition_in": "cut"
+   },
+   "look": {
+    "background": "white tabletop and underwater section",
+    "palette": [
+     "amber",
+     "clear",
+     "grey"
+    ],
+    "lighting": "soft light",
+    "effects": [
+     "liquid pour"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [
+     "Hindi note on anti-wash agent"
+    ],
+    "label_style": "box",
+    "formula": false
+   },
+   "recipe_needs": [
+    "concrete_pour_fluid",
+    "analogy_scene"
+   ],
+   "notes": ""
+  },
+  {
+   "start": "9:48",
+   "end": "10:47",
+   "seconds": 59,
+   "teaches": "Rebar cage and concrete pier rise inside the cofferdam; pile foundation title.",
+   "level": "L4",
+   "objects": [
+    {
+     "name": "rebar cage",
+     "kind": "machine",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "high",
+     "change": ""
+    },
+    {
+     "name": "concrete pier",
+     "kind": "building",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "high",
+     "change": "rises"
+    },
+    {
+     "name": "concrete truck and crane",
+     "kind": "machine",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "medium",
+     "change": ""
+    }
+   ],
+   "process": {
+    "what_moves": "",
+    "from": "",
+    "to": "",
+    "cause": "",
+    "effect": ""
+   },
+   "camera": {
+    "size": "wide",
+    "angle": "30deg-above",
+    "movement": "push-in",
+    "transition_in": "cut"
+   },
+   "look": {
+    "background": "open sea, dark green water, overcast sky",
+    "palette": [
+     "dark green",
+     "steel grey",
+     "construction yellow",
+     "rust"
+    ],
+    "lighting": "daylight, soft shadows",
+    "effects": [
+     "water surface",
+     "aerial haze"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [
+     "Pile Foundation"
+    ],
+    "label_style": "tag",
+    "formula": false
+   },
+   "recipe_needs": [
+    "rebar_cage",
+    "structure_grow_up",
+    "construction_machine_model",
+    "tag_label"
+   ],
+   "notes": ""
+  },
+  {
+   "start": "10:47",
+   "end": "11:32",
+   "seconds": 45,
+   "teaches": "Bridge pier and box foundation finished; end.",
+   "level": "L4",
+   "objects": [
+    {
+     "name": "pier on piles",
+     "kind": "building",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "high",
+     "change": ""
+    },
+    {
+     "name": "box caisson",
+     "kind": "building",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "medium",
+     "change": ""
+    }
+   ],
+   "process": {
+    "what_moves": "",
+    "from": "",
+    "to": "",
+    "cause": "",
+    "effect": ""
+   },
+   "camera": {
+    "size": "wide",
+    "angle": "30deg-above",
+    "movement": "orbit",
+    "transition_in": "cut"
+   },
+   "look": {
+    "background": "open sea, dark green water, overcast sky",
+    "palette": [
+     "dark green",
+     "steel grey",
+     "construction yellow",
+     "rust"
+    ],
+    "lighting": "daylight, soft shadows",
+    "effects": [
+     "water surface",
+     "aerial haze"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [],
+    "label_style": "none",
+    "formula": false
+   },
+   "recipe_needs": [
+    "structure_grow_up",
+    "aerial_camera_path"
+   ],
+   "notes": ""
+  }
+ ]
+}

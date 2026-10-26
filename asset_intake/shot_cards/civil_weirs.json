@@ -1,0 +1,831 @@
+{
+ "id": "civil_weirs",
+ "title": "Weirs - the cool engineering behind them",
+ "channel": "(engineering channel)",
+ "subject": "Civil engineering",
+ "topic": "Weirs: water level control and flow",
+ "audience_level": "General / engineering students",
+ "overall_level": "L4",
+ "analysed_range": "0:00-7:12",
+ "seen_visuals": true,
+ "method": "frames+code",
+ "style_summary": "Stylized 3D landscapes (river, village, sluice weir) alternating with a clean 3D glass water tank on a wooden table that shows the physics with leader-line labels and highlights; a real teacher's lab demo is cut in between.",
+ "shots": [
+  {
+   "start": "0:00",
+   "end": "0:20",
+   "seconds": 20,
+   "teaches": "A weir is a barrier across a river that controls water level.",
+   "level": "L4",
+   "objects": [
+    {
+     "name": "river with weir and footbridge",
+     "kind": "landscape",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "high",
+     "change": ""
+    },
+    {
+     "name": "village huts and trees",
+     "kind": "landscape",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "medium",
+     "change": ""
+    }
+   ],
+   "process": {
+    "what_moves": "",
+    "from": "",
+    "to": "",
+    "cause": "",
+    "effect": ""
+   },
+   "camera": {
+    "size": "wide",
+    "angle": "30deg-above",
+    "movement": "push-in",
+    "transition_in": "cut"
+   },
+   "look": {
+    "background": "stylized 3D river valley with huts and trees, warm sunset sky",
+    "palette": [
+     "teal water",
+     "green",
+     "sand",
+     "thatch"
+    ],
+    "lighting": "low warm sun, soft shadows",
+    "effects": [
+     "water ripples",
+     "aerial haze"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [
+     "location pin 'River Kennet, England'"
+    ],
+    "label_style": "box",
+    "formula": false
+   },
+   "recipe_needs": [
+    "landscape_river_valley",
+    "weir_structure",
+    "aerial_camera_path",
+    "location_pin"
+   ],
+   "notes": ""
+  },
+  {
+   "start": "0:20",
+   "end": "0:35",
+   "seconds": 15,
+   "teaches": "Upstream and downstream water stays at the same height without a weir.",
+   "level": "L4",
+   "objects": [
+    {
+     "name": "glass water tank on wooden table",
+     "kind": "machine",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "high",
+     "change": ""
+    },
+    {
+     "name": "yellow weir gate",
+     "kind": "machine",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "medium",
+     "change": ""
+    }
+   ],
+   "process": {
+    "what_moves": "",
+    "from": "",
+    "to": "",
+    "cause": "",
+    "effect": ""
+   },
+   "camera": {
+    "size": "medium",
+    "angle": "30deg-above",
+    "movement": "static",
+    "transition_in": "cut"
+   },
+   "look": {
+    "background": "flat grey studio",
+    "palette": [
+     "teal water",
+     "wood",
+     "yellow gate"
+    ],
+    "lighting": "soft studio light",
+    "effects": [
+     "transparent tank walls",
+     "water surface ripples",
+     "leader-line labels"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [
+     "WEIR",
+     "SAME HEIGHTS"
+    ],
+    "label_style": "leader-line",
+    "formula": false
+   },
+   "recipe_needs": [
+    "water_tank_section",
+    "water_surface_material",
+    "leader_label",
+    "title_tag"
+   ],
+   "notes": ""
+  },
+  {
+   "start": "0:35",
+   "end": "1:19",
+   "seconds": 44,
+   "teaches": "Lab demo: measuring water height behind a small weir.",
+   "level": "L1",
+   "objects": [
+    {
+     "name": "teacher with glass tank",
+     "kind": "person",
+     "dim": "3D",
+     "style": "photoreal",
+     "detail": "medium",
+     "change": ""
+    }
+   ],
+   "process": {
+    "what_moves": "",
+    "from": "",
+    "to": "",
+    "cause": "",
+    "effect": ""
+   },
+   "camera": {
+    "size": "medium",
+    "angle": "eye",
+    "movement": "static",
+    "transition_in": "cut"
+   },
+   "look": {
+    "background": "",
+    "palette": [],
+    "lighting": "",
+    "effects": []
+   },
+   "on_screen_text": {
+    "labels": [],
+    "label_style": "none",
+    "formula": false
+   },
+   "recipe_needs": [],
+   "notes": "live footage; not a BIE target"
+  },
+  {
+   "start": "1:19",
+   "end": "1:33",
+   "seconds": 14,
+   "teaches": "With a weir the water upstream rises to a different height.",
+   "level": "L4",
+   "objects": [
+    {
+     "name": "water tank",
+     "kind": "machine",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "high",
+     "change": "level difference shown"
+    }
+   ],
+   "process": {
+    "what_moves": "water",
+    "from": "upstream",
+    "to": "over weir",
+    "cause": "barrier",
+    "effect": "upstream level rises"
+   },
+   "camera": {
+    "size": "medium",
+    "angle": "30deg-above",
+    "movement": "static",
+    "transition_in": "cut"
+   },
+   "look": {
+    "background": "flat grey studio",
+    "palette": [
+     "teal water",
+     "wood",
+     "yellow gate"
+    ],
+    "lighting": "soft studio light",
+    "effects": [
+     "transparent tank walls",
+     "water surface ripples",
+     "leader-line labels"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [
+     "DIFFERENT HEIGHTS"
+    ],
+    "label_style": "leader-line",
+    "formula": false
+   },
+   "recipe_needs": [
+    "water_tank_section",
+    "water_level_change",
+    "leader_label"
+   ],
+   "notes": ""
+  },
+  {
+   "start": "1:33",
+   "end": "2:17",
+   "seconds": 44,
+   "teaches": "Weirs protect villages from floods and store water.",
+   "level": "L4",
+   "objects": [
+    {
+     "name": "village huts",
+     "kind": "building",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "medium",
+     "change": ""
+    },
+    {
+     "name": "rain",
+     "kind": "landscape",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "medium",
+     "change": "falls"
+    },
+    {
+     "name": "concrete weir on river",
+     "kind": "machine",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "high",
+     "change": ""
+    }
+   ],
+   "process": {
+    "what_moves": "river water",
+    "from": "upstream",
+    "to": "over weir",
+    "cause": "weir",
+    "effect": "controlled flow, less flooding"
+   },
+   "camera": {
+    "size": "wide",
+    "angle": "top",
+    "movement": "orbit",
+    "transition_in": "cut"
+   },
+   "look": {
+    "background": "stylized 3D river valley with huts and trees, warm sunset sky",
+    "palette": [
+     "teal water",
+     "green",
+     "sand",
+     "thatch"
+    ],
+    "lighting": "low warm sun, soft shadows",
+    "effects": [
+     "water ripples",
+     "aerial haze"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [],
+    "label_style": "none",
+    "formula": false
+   },
+   "recipe_needs": [
+    "landscape_river_valley",
+    "weir_structure",
+    "rain_particles",
+    "aerial_camera_path"
+   ],
+   "notes": ""
+  },
+  {
+   "start": "2:17",
+   "end": "3:01",
+   "seconds": 44,
+   "teaches": "Lab demo continues (height reading).",
+   "level": "L1",
+   "objects": [
+    {
+     "name": "teacher with tank",
+     "kind": "person",
+     "dim": "3D",
+     "style": "photoreal",
+     "detail": "medium",
+     "change": ""
+    }
+   ],
+   "process": {
+    "what_moves": "",
+    "from": "",
+    "to": "",
+    "cause": "",
+    "effect": ""
+   },
+   "camera": {
+    "size": "medium",
+    "angle": "eye",
+    "movement": "static",
+    "transition_in": "cut"
+   },
+   "look": {
+    "background": "",
+    "palette": [],
+    "lighting": "",
+    "effects": []
+   },
+   "on_screen_text": {
+    "labels": [],
+    "label_style": "none",
+    "formula": false
+   },
+   "recipe_needs": [],
+   "notes": "live footage"
+  },
+  {
+   "start": "3:01",
+   "end": "3:16",
+   "seconds": 15,
+   "teaches": "Flow grows with water height over the weir (graph).",
+   "level": "L3",
+   "objects": [
+    {
+     "name": "river landscape",
+     "kind": "landscape",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "medium",
+     "change": ""
+    },
+    {
+     "name": "flow vs height graph",
+     "kind": "graph",
+     "dim": "2D",
+     "style": "flat",
+     "detail": "medium",
+     "change": "curve drawn"
+    }
+   ],
+   "process": {
+    "what_moves": "",
+    "from": "",
+    "to": "",
+    "cause": "",
+    "effect": ""
+   },
+   "camera": {
+    "size": "wide",
+    "angle": "eye",
+    "movement": "static",
+    "transition_in": "cut"
+   },
+   "look": {
+    "background": "stylized 3D river valley with huts and trees, warm sunset sky",
+    "palette": [
+     "teal water",
+     "green",
+     "sand",
+     "thatch"
+    ],
+    "lighting": "low warm sun, soft shadows",
+    "effects": [
+     "water ripples",
+     "aerial haze"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [
+     "Flow",
+     "Height of water"
+    ],
+    "label_style": "box",
+    "formula": false
+   },
+   "recipe_needs": [
+    "graph_plot",
+    "picture_in_picture_panel"
+   ],
+   "notes": ""
+  },
+  {
+   "start": "3:16",
+   "end": "3:31",
+   "seconds": 15,
+   "teaches": "A zigzag weir has a longer crest so more water flows.",
+   "level": "L4",
+   "objects": [
+    {
+     "name": "zigzag (labyrinth) weir",
+     "kind": "machine",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "high",
+     "change": ""
+    }
+   ],
+   "process": {
+    "what_moves": "",
+    "from": "",
+    "to": "",
+    "cause": "",
+    "effect": ""
+   },
+   "camera": {
+    "size": "wide",
+    "angle": "30deg-above",
+    "movement": "orbit",
+    "transition_in": "cut"
+   },
+   "look": {
+    "background": "stylized 3D river valley with huts and trees, warm sunset sky",
+    "palette": [
+     "teal water",
+     "green",
+     "sand",
+     "thatch"
+    ],
+    "lighting": "low warm sun, soft shadows",
+    "effects": [
+     "water ripples",
+     "aerial haze"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [],
+    "label_style": "none",
+    "formula": false
+   },
+   "recipe_needs": [
+    "weir_structure",
+    "parametric_zigzag_wall",
+    "aerial_camera_path"
+   ],
+   "notes": ""
+  },
+  {
+   "start": "3:31",
+   "end": "3:46",
+   "seconds": 15,
+   "teaches": "Lab demo (1.3 cm reading).",
+   "level": "L1",
+   "objects": [
+    {
+     "name": "teacher hand and tank",
+     "kind": "person",
+     "dim": "3D",
+     "style": "photoreal",
+     "detail": "medium",
+     "change": ""
+    }
+   ],
+   "process": {
+    "what_moves": "",
+    "from": "",
+    "to": "",
+    "cause": "",
+    "effect": ""
+   },
+   "camera": {
+    "size": "close",
+    "angle": "eye",
+    "movement": "static",
+    "transition_in": "cut"
+   },
+   "look": {
+    "background": "",
+    "palette": [],
+    "lighting": "",
+    "effects": []
+   },
+   "on_screen_text": {
+    "labels": [],
+    "label_style": "none",
+    "formula": false
+   },
+   "recipe_needs": [],
+   "notes": "live footage"
+  },
+  {
+   "start": "3:46",
+   "end": "4:30",
+   "seconds": 44,
+   "teaches": "Sluice-gate weir across a river at sunset with fields.",
+   "level": "L4",
+   "objects": [
+    {
+     "name": "sluice gate weir",
+     "kind": "machine",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "high",
+     "change": ""
+    },
+    {
+     "name": "fields and trees",
+     "kind": "landscape",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "medium",
+     "change": ""
+    }
+   ],
+   "process": {
+    "what_moves": "",
+    "from": "",
+    "to": "",
+    "cause": "",
+    "effect": ""
+   },
+   "camera": {
+    "size": "wide",
+    "angle": "30deg-above",
+    "movement": "push-in",
+    "transition_in": "cut"
+   },
+   "look": {
+    "background": "stylized 3D river valley with huts and trees, warm sunset sky",
+    "palette": [
+     "teal water",
+     "green",
+     "sand",
+     "thatch"
+    ],
+    "lighting": "low warm sun, soft shadows",
+    "effects": [
+     "water ripples",
+     "aerial haze"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [],
+    "label_style": "none",
+    "formula": false
+   },
+   "recipe_needs": [
+    "landscape_river_valley",
+    "weir_structure",
+    "aerial_camera_path"
+   ],
+   "notes": ""
+  },
+  {
+   "start": "4:30",
+   "end": "5:58",
+   "seconds": 88,
+   "teaches": "Physics: energy stays constant; higher head gives faster water; Q = V × A.",
+   "level": "L4",
+   "objects": [
+    {
+     "name": "glass water tank",
+     "kind": "machine",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "high",
+     "change": "surface outline highlights"
+    },
+    {
+     "name": "flow arrow",
+     "kind": "diagram",
+     "dim": "3D",
+     "style": "flat",
+     "detail": "low",
+     "change": "shows speed"
+    }
+   ],
+   "process": {
+    "what_moves": "water",
+    "from": "upstream",
+    "to": "downstream",
+    "cause": "height turns into speed",
+    "effect": "constant energy"
+   },
+   "camera": {
+    "size": "medium",
+    "angle": "30deg-above",
+    "movement": "static",
+    "transition_in": "camera-move"
+   },
+   "look": {
+    "background": "flat grey studio",
+    "palette": [
+     "teal water",
+     "wood",
+     "yellow gate"
+    ],
+    "lighting": "soft studio light",
+    "effects": [
+     "transparent tank walls",
+     "water surface ripples",
+     "leader-line labels"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [
+     "THE PHYSICS",
+     "CONSTANT ENERGY",
+     "INCREASED HEIGHT",
+     "INCREASED WATER SPEED",
+     "Q = V × A"
+    ],
+    "label_style": "leader-line",
+    "formula": true
+   },
+   "recipe_needs": [
+    "water_tank_section",
+    "highlight_outline",
+    "leader_label",
+    "equation_steps",
+    "flow_arrows"
+   ],
+   "notes": ""
+  },
+  {
+   "start": "5:58",
+   "end": "6:12",
+   "seconds": 14,
+   "teaches": "Teacher explains with the tank.",
+   "level": "L1",
+   "objects": [
+    {
+     "name": "teacher",
+     "kind": "person",
+     "dim": "3D",
+     "style": "photoreal",
+     "detail": "medium",
+     "change": ""
+    }
+   ],
+   "process": {
+    "what_moves": "",
+    "from": "",
+    "to": "",
+    "cause": "",
+    "effect": ""
+   },
+   "camera": {
+    "size": "medium",
+    "angle": "eye",
+    "movement": "static",
+    "transition_in": "cut"
+   },
+   "look": {
+    "background": "",
+    "palette": [],
+    "lighting": "",
+    "effects": []
+   },
+   "on_screen_text": {
+    "labels": [],
+    "label_style": "none",
+    "formula": false
+   },
+   "recipe_needs": [],
+   "notes": "live footage"
+  },
+  {
+   "start": "6:12",
+   "end": "6:42",
+   "seconds": 30,
+   "teaches": "Underwater cutaway: a weir slows water and reduces soil erosion; fish ladder.",
+   "level": "L4",
+   "objects": [
+    {
+     "name": "river cross-section cutaway",
+     "kind": "landscape",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "high",
+     "change": ""
+    },
+    {
+     "name": "fish ladder",
+     "kind": "machine",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "medium",
+     "change": ""
+    }
+   ],
+   "process": {
+    "what_moves": "water",
+    "from": "fast",
+    "to": "slow behind weir",
+    "cause": "lower speed",
+    "effect": "less erosion"
+   },
+   "camera": {
+    "size": "wide",
+    "angle": "side",
+    "movement": "pan",
+    "transition_in": "cut"
+   },
+   "look": {
+    "background": "stylized 3D river valley with huts and trees, warm sunset sky",
+    "palette": [
+     "teal water",
+     "green",
+     "sand",
+     "thatch"
+    ],
+    "lighting": "low warm sun, soft shadows",
+    "effects": [
+     "water ripples",
+     "aerial haze"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [
+     "REDUCE SOIL EROSION",
+     "LOW SPEED"
+    ],
+    "label_style": "box",
+    "formula": false
+   },
+   "recipe_needs": [
+    "terrain_cross_section",
+    "water_volume_cutaway",
+    "title_tag"
+   ],
+   "notes": ""
+  },
+  {
+   "start": "6:42",
+   "end": "7:12",
+   "seconds": 30,
+   "teaches": "Weirs also give recreation and boating; end card.",
+   "level": "L4",
+   "objects": [
+    {
+     "name": "boat with people",
+     "kind": "machine",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "medium",
+     "change": ""
+    },
+    {
+     "name": "river",
+     "kind": "landscape",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "medium",
+     "change": ""
+    }
+   ],
+   "process": {
+    "what_moves": "",
+    "from": "",
+    "to": "",
+    "cause": "",
+    "effect": ""
+   },
+   "camera": {
+    "size": "wide",
+    "angle": "30deg-above",
+    "movement": "push-in",
+    "transition_in": "cut"
+   },
+   "look": {
+    "background": "stylized 3D river valley with huts and trees, warm sunset sky",
+    "palette": [
+     "teal water",
+     "green",
+     "sand",
+     "thatch"
+    ],
+    "lighting": "low warm sun, soft shadows",
+    "effects": [
+     "water ripples",
+     "aerial haze"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [],
+    "label_style": "none",
+    "formula": false
+   },
+   "recipe_needs": [
+    "landscape_river_valley",
+    "boat_simple"
+   ],
+   "notes": ""
+  }
+ ]
+}

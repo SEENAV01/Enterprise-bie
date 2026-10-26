@@ -1,0 +1,466 @@
+{
+ "id": "phys_torque_extraclass",
+ "title": "What is Torque?",
+ "channel": "Extraclass",
+ "subject": "Physics",
+ "topic": "Torque",
+ "audience_level": "Class 11 / JEE",
+ "overall_level": "L2",
+ "analysed_range": "0:00-5:21",
+ "seen_visuals": true,
+ "method": "frames+code",
+ "style_summary": "Clean flat 2D vector explainer: everyday scenes (door, wrench, mechanic), vector diagrams with arrows, a definition card, then a JEE problem solved step by step with a free-body diagram and coloured equation boxes; everything builds on one canvas.",
+ "shots": [
+  {
+   "start": "0:00",
+   "end": "0:19",
+   "seconds": 19,
+   "teaches": "Intro: desk, logo, mechanic tightening a wheel; title 'What is Torque'.",
+   "level": "L2",
+   "objects": [
+    {
+     "name": "mechanic with wheel",
+     "kind": "character",
+     "dim": "2D",
+     "style": "flat",
+     "detail": "medium",
+     "change": ""
+    },
+    {
+     "name": "title",
+     "kind": "text",
+     "dim": "2D",
+     "style": "flat",
+     "detail": "low",
+     "change": ""
+    }
+   ],
+   "process": {
+    "what_moves": "",
+    "from": "",
+    "to": "",
+    "cause": "",
+    "effect": ""
+   },
+   "camera": {
+    "size": "wide",
+    "angle": "eye",
+    "movement": "static",
+    "transition_in": "cut"
+   },
+   "look": {
+    "background": "white or light grey",
+    "palette": [
+     "navy",
+     "orange",
+     "yellow",
+     "green",
+     "pink"
+    ],
+    "lighting": "flat vector",
+    "effects": [
+     "draw-on",
+     "panels"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [],
+    "label_style": "none",
+    "formula": false
+   },
+   "recipe_needs": [
+    "flat_character_scene",
+    "title_card"
+   ],
+   "notes": ""
+  },
+  {
+   "start": "0:19",
+   "end": "0:44",
+   "seconds": 25,
+   "teaches": "A door rotates about a fixed axis; push and pull.",
+   "level": "L2",
+   "objects": [
+    {
+     "name": "door",
+     "kind": "other",
+     "dim": "2D",
+     "style": "flat",
+     "detail": "medium",
+     "change": "swings"
+    },
+    {
+     "name": "axis tag",
+     "kind": "text",
+     "dim": "2D",
+     "style": "flat",
+     "detail": "low",
+     "change": ""
+    }
+   ],
+   "process": {
+    "what_moves": "door",
+    "from": "closed",
+    "to": "open",
+    "cause": "force away from hinge",
+    "effect": "rotation"
+   },
+   "camera": {
+    "size": "wide",
+    "angle": "eye",
+    "movement": "static",
+    "transition_in": "cut"
+   },
+   "look": {
+    "background": "white or light grey",
+    "palette": [
+     "navy",
+     "orange",
+     "yellow",
+     "green",
+     "pink"
+    ],
+    "lighting": "flat vector",
+    "effects": [
+     "draw-on",
+     "panels"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [
+     "Axis",
+     "Rotating about fixed axis",
+     "Push",
+     "Pull"
+    ],
+    "label_style": "box",
+    "formula": false
+   },
+   "recipe_needs": [
+    "flat_object_motion",
+    "tag_label"
+   ],
+   "notes": ""
+  },
+  {
+   "start": "0:44",
+   "end": "1:15",
+   "seconds": 31,
+   "teaches": "Force farther from the axis turns the door more easily; a wrench gives a twisting force.",
+   "level": "L2",
+   "objects": [
+    {
+     "name": "top-view door with force arrows",
+     "kind": "diagram",
+     "dim": "2D",
+     "style": "flat",
+     "detail": "medium",
+     "change": "arc arrows"
+    },
+    {
+     "name": "wrench",
+     "kind": "other",
+     "dim": "2D",
+     "style": "flat",
+     "detail": "medium",
+     "change": "turns"
+    }
+   ],
+   "process": {
+    "what_moves": "",
+    "from": "",
+    "to": "",
+    "cause": "",
+    "effect": ""
+   },
+   "camera": {
+    "size": "wide",
+    "angle": "top",
+    "movement": "static",
+    "transition_in": "cut"
+   },
+   "look": {
+    "background": "white or light grey",
+    "palette": [
+     "navy",
+     "orange",
+     "yellow",
+     "green",
+     "pink"
+    ],
+    "lighting": "flat vector",
+    "effects": [
+     "draw-on",
+     "panels"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [
+     "F",
+     "r",
+     "Twisting force"
+    ],
+    "label_style": "box",
+    "formula": false
+   },
+   "recipe_needs": [
+    "vector_arrows_2d",
+    "arc_arrow"
+   ],
+   "notes": ""
+  },
+  {
+   "start": "1:15",
+   "end": "1:29",
+   "seconds": 14,
+   "teaches": "Definition: torque causes rotational motion.",
+   "level": "L2",
+   "objects": [
+    {
+     "name": "definition card",
+     "kind": "text",
+     "dim": "2D",
+     "style": "flat",
+     "detail": "low",
+     "change": ""
+    }
+   ],
+   "process": {
+    "what_moves": "",
+    "from": "",
+    "to": "",
+    "cause": "",
+    "effect": ""
+   },
+   "camera": {
+    "size": "wide",
+    "angle": "eye",
+    "movement": "static",
+    "transition_in": "cut"
+   },
+   "look": {
+    "background": "white or light grey",
+    "palette": [
+     "navy",
+     "orange",
+     "yellow",
+     "green",
+     "pink"
+    ],
+    "lighting": "flat vector",
+    "effects": [
+     "draw-on",
+     "panels"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [],
+    "label_style": "none",
+    "formula": false
+   },
+   "recipe_needs": [
+    "definition_card"
+   ],
+   "notes": ""
+  },
+  {
+   "start": "1:29",
+   "end": "2:12",
+   "seconds": 43,
+   "teaches": "Torque = r × F, perpendicular to the plane; right-hand thumb rule.",
+   "level": "L2",
+   "objects": [
+    {
+     "name": "plane with r and F vectors",
+     "kind": "diagram",
+     "dim": "2D",
+     "style": "flat",
+     "detail": "medium",
+     "change": ""
+    },
+    {
+     "name": "thumb hand",
+     "kind": "other",
+     "dim": "2D",
+     "style": "flat",
+     "detail": "low",
+     "change": ""
+    }
+   ],
+   "process": {
+    "what_moves": "",
+    "from": "",
+    "to": "",
+    "cause": "",
+    "effect": ""
+   },
+   "camera": {
+    "size": "wide",
+    "angle": "eye",
+    "movement": "static",
+    "transition_in": "cut"
+   },
+   "look": {
+    "background": "white or light grey",
+    "palette": [
+     "navy",
+     "orange",
+     "yellow",
+     "green",
+     "pink"
+    ],
+    "lighting": "flat vector",
+    "effects": [
+     "draw-on",
+     "panels"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [
+     "τ = r × F",
+     "Right hand thumb rule"
+    ],
+    "label_style": "box",
+    "formula": true
+   },
+   "recipe_needs": [
+    "vector_arrows_2d",
+    "equation_steps",
+    "plane_perspective_2d"
+   ],
+   "notes": ""
+  },
+  {
+   "start": "2:12",
+   "end": "3:09",
+   "seconds": 57,
+   "teaches": "JEE question: a stick leaning on a wall (text builds, diagram drawn).",
+   "level": "L2",
+   "objects": [
+    {
+     "name": "stick on brick wall",
+     "kind": "diagram",
+     "dim": "2D",
+     "style": "flat",
+     "detail": "medium",
+     "change": ""
+    },
+    {
+     "name": "question text",
+     "kind": "text",
+     "dim": "2D",
+     "style": "flat",
+     "detail": "low",
+     "change": "types on"
+    }
+   ],
+   "process": {
+    "what_moves": "",
+    "from": "",
+    "to": "",
+    "cause": "",
+    "effect": ""
+   },
+   "camera": {
+    "size": "wide",
+    "angle": "eye",
+    "movement": "static",
+    "transition_in": "cut"
+   },
+   "look": {
+    "background": "yellow panel on white",
+    "palette": [
+     "yellow",
+     "brick red",
+     "brown"
+    ],
+    "lighting": "flat",
+    "effects": [
+     "typewriter text"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [],
+    "label_style": "none",
+    "formula": false
+   },
+   "recipe_needs": [
+    "question_panel",
+    "typewriter_text"
+   ],
+   "notes": ""
+  },
+  {
+   "start": "3:09",
+   "end": "5:21",
+   "seconds": 132,
+   "teaches": "Solution: free-body diagram (N, mg, f), vertical and horizontal equilibrium, torque about A.",
+   "level": "L2",
+   "objects": [
+    {
+     "name": "free-body diagram",
+     "kind": "diagram",
+     "dim": "2D",
+     "style": "flat",
+     "detail": "medium",
+     "change": "forces appear one by one"
+    },
+    {
+     "name": "equation boxes",
+     "kind": "text",
+     "dim": "2D",
+     "style": "flat",
+     "detail": "low",
+     "change": "fill step by step"
+    }
+   ],
+   "process": {
+    "what_moves": "forces",
+    "from": "none",
+    "to": "N, mg, f drawn",
+    "cause": "equilibrium",
+    "effect": "solve N and f"
+   },
+   "camera": {
+    "size": "wide",
+    "angle": "eye",
+    "movement": "static",
+    "transition_in": "cut"
+   },
+   "look": {
+    "background": "white or light grey",
+    "palette": [
+     "navy",
+     "orange",
+     "yellow",
+     "green",
+     "pink"
+    ],
+    "lighting": "flat vector",
+    "effects": [
+     "draw-on",
+     "panels"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [
+     "N",
+     "mg",
+     "f",
+     "N sin30",
+     "N cos30",
+     "Vertical Equilibrium",
+     "Horizontal Equilibrium"
+    ],
+    "label_style": "box",
+    "formula": true
+   },
+   "recipe_needs": [
+    "free_body_diagram",
+    "equation_steps",
+    "highlight_circle"
+   ],
+   "notes": ""
+  }
+ ]
+}

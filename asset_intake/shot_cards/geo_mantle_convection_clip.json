@@ -1,0 +1,92 @@
+{
+ "id": "geo_mantle_convection_clip",
+ "title": "Mantle convection currents (short)",
+ "channel": "(short clip)",
+ "subject": "Geography",
+ "topic": "Mantle convection",
+ "audience_level": "UPSC",
+ "overall_level": "L4",
+ "analysed_range": "0:00-0:10",
+ "seen_visuals": true,
+ "method": "frames+code",
+ "style_summary": "3D wedge cut-out of the Earth with glowing magma and moving arrows, leader-line labels, a 2D cartoon guide character, cream background.",
+ "shots": [
+  {
+   "start": "0:00",
+   "end": "0:10",
+   "seconds": 10,
+   "teaches": "Hot material rises, cooler material sinks: convection moves plates.",
+   "level": "L4",
+   "objects": [
+    {
+     "name": "Earth wedge cutaway",
+     "kind": "landscape",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "high",
+     "change": ""
+    },
+    {
+     "name": "magma flow arrows",
+     "kind": "diagram",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "medium",
+     "change": "circulate"
+    },
+    {
+     "name": "cartoon girl guide",
+     "kind": "character",
+     "dim": "3D",
+     "style": "cartoon",
+     "detail": "medium",
+     "change": "points"
+    }
+   ],
+   "process": {
+    "what_moves": "hot mantle",
+    "from": "core side",
+    "to": "crust ; cool mantle",
+    "cause": "heat",
+    "effect": "convection loop"
+   },
+   "camera": {
+    "size": "medium",
+    "angle": "eye",
+    "movement": "push-in",
+    "transition_in": "none"
+   },
+   "look": {
+    "background": "cream",
+    "palette": [
+     "orange",
+     "red",
+     "brown",
+     "yellow"
+    ],
+    "lighting": "warm glow",
+    "effects": [
+     "glowing magma",
+     "arrows"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [
+     "Crust",
+     "Mantle",
+     "Hot material rises",
+     "Cooler material sinks"
+    ],
+    "label_style": "leader-line",
+    "formula": false
+   },
+   "recipe_needs": [
+    "earth_wedge_cutaway",
+    "flow_arrows",
+    "leader_label",
+    "guide_character_2d"
+   ],
+   "notes": ""
+  }
+ ]
+}

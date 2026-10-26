@@ -1,0 +1,93 @@
+{
+ "id": "geo_earth_magnet_clip",
+ "title": "Earth's magnetic field (short)",
+ "channel": "(short clip)",
+ "subject": "Geography / physics",
+ "topic": "Earth's layers and magnetism",
+ "audience_level": "School",
+ "overall_level": "L4",
+ "analysed_range": "0:00-0:10",
+ "seen_visuals": true,
+ "method": "frames+code",
+ "style_summary": "Cut-away Earth hemisphere with layers, a bar magnet through it, dashed geographic axis, labels drawn with leader lines, black void.",
+ "shots": [
+  {
+   "start": "0:00",
+   "end": "0:10",
+   "seconds": 10,
+   "teaches": "Earth's core acts like a bar magnet; layers labelled one by one.",
+   "level": "L4",
+   "objects": [
+    {
+     "name": "Earth cutaway hemisphere",
+     "kind": "landscape",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "high",
+     "change": "slowly rotates"
+    },
+    {
+     "name": "bar magnet",
+     "kind": "machine",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "medium",
+     "change": ""
+    },
+    {
+     "name": "dashed axis",
+     "kind": "diagram",
+     "dim": "3D",
+     "style": "flat",
+     "detail": "low",
+     "change": ""
+    }
+   ],
+   "process": {
+    "what_moves": "",
+    "from": "",
+    "to": "",
+    "cause": "",
+    "effect": ""
+   },
+   "camera": {
+    "size": "medium",
+    "angle": "eye",
+    "movement": "orbit",
+    "transition_in": "none"
+   },
+   "look": {
+    "background": "black void",
+    "palette": [
+     "orange",
+     "red",
+     "blue",
+     "white"
+    ],
+    "lighting": "soft key light",
+    "effects": [
+     "leader-line labels"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [
+     "Crust",
+     "Mantle",
+     "Outer core",
+     "Inner core",
+     "N",
+     "S"
+    ],
+    "label_style": "leader-line",
+    "formula": false
+   },
+   "recipe_needs": [
+    "earth_cutaway",
+    "bar_magnet",
+    "leader_label",
+    "orbit_camera"
+   ],
+   "notes": ""
+  }
+ ]
+}

@@ -1,0 +1,1107 @@
+{
+ "id": "cs_cache_memory_branch",
+ "title": "How does Computer Cache, Memory and Storage Work?",
+ "channel": "Branch Education",
+ "subject": "Computer science / electronics",
+ "topic": "Memory hierarchy: registers, cache, DRAM, SSD, HDD",
+ "audience_level": "General / undergraduate",
+ "overall_level": "L5a",
+ "analysed_range": "0:00-15:00",
+ "seen_visuals": true,
+ "method": "frames+code",
+ "style_summary": "Photoreal product-style 3D hardware on a dark grid floor; data shown as streams of glowing particles between parts; scale metaphors (books, bookshelves, bananas, football field, Earth) to make sizes and times feel real; neon star-rating tables; cutaways down to NAND cells and HDD platters; continuous camera moves rather than cuts.",
+ "shots": [
+  {
+   "start": "0:00",
+   "end": "0:48",
+   "seconds": 48,
+   "teaches": "A computer's memory parts laid out; data flows between them like a stream of light.",
+   "level": "L5a",
+   "objects": [
+    {
+     "name": "CPU, GPU, DRAM, SSD, HDD",
+     "kind": "machine",
+     "dim": "3D",
+     "style": "photoreal",
+     "detail": "high",
+     "change": ""
+    },
+    {
+     "name": "glowing data particle stream",
+     "kind": "other",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "medium",
+     "change": "flows between parts"
+    },
+    {
+     "name": "floating screen",
+     "kind": "other",
+     "dim": "3D",
+     "style": "photoreal",
+     "detail": "medium",
+     "change": ""
+    }
+   ],
+   "process": {
+    "what_moves": "data particles",
+    "from": "storage",
+    "to": "CPU",
+    "cause": "program loads",
+    "effect": "data moves up the hierarchy"
+   },
+   "camera": {
+    "size": "wide",
+    "angle": "30deg-above",
+    "movement": "push-in",
+    "transition_in": "cut"
+   },
+   "look": {
+    "background": "charcoal studio void with a faint perspective grid floor",
+    "palette": [
+     "charcoal",
+     "teal",
+     "green",
+     "gold",
+     "violet"
+    ],
+    "lighting": "soft area lights, product-shot reflections, rim light",
+    "effects": [
+     "depth-of-field",
+     "glowing data particles",
+     "neon labels"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [
+     "Registers",
+     "L1 Cache",
+     "L2 Cache",
+     "L3 Cache",
+     "VRAM",
+     "DRAM",
+     "NVMe SSD",
+     "SATA SSD",
+     "Hard Drive"
+    ],
+    "label_style": "leader-line",
+    "formula": false
+   },
+   "recipe_needs": [
+    "hardware_layout_floor",
+    "particle_stream_path",
+    "leader_label",
+    "product_material"
+   ],
+   "notes": ""
+  },
+  {
+   "start": "0:48",
+   "end": "1:17",
+   "seconds": 29,
+   "teaches": "Snow globes as worlds: storage holds whole scenes, memory holds the active one.",
+   "level": "L5a",
+   "objects": [
+    {
+     "name": "glass globes with scenes",
+     "kind": "other",
+     "dim": "3D",
+     "style": "photoreal",
+     "detail": "high",
+     "change": ""
+    },
+    {
+     "name": "hard drive inside globe",
+     "kind": "machine",
+     "dim": "3D",
+     "style": "photoreal",
+     "detail": "medium",
+     "change": ""
+    }
+   ],
+   "process": {
+    "what_moves": "",
+    "from": "",
+    "to": "",
+    "cause": "",
+    "effect": ""
+   },
+   "camera": {
+    "size": "medium",
+    "angle": "eye",
+    "movement": "orbit",
+    "transition_in": "cut"
+   },
+   "look": {
+    "background": "charcoal studio void with a faint perspective grid floor",
+    "palette": [
+     "charcoal",
+     "teal",
+     "green",
+     "gold",
+     "violet"
+    ],
+    "lighting": "soft area lights, product-shot reflections, rim light",
+    "effects": [
+     "depth-of-field",
+     "glowing data particles",
+     "neon labels"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [],
+    "label_style": "none",
+    "formula": false
+   },
+   "recipe_needs": [
+    "glass_globe_material",
+    "analogy_scene"
+   ],
+   "notes": ""
+  },
+  {
+   "start": "1:17",
+   "end": "2:02",
+   "seconds": 45,
+   "teaches": "Overview of memory types; GPU close-up with data lanes; sponsor segment.",
+   "level": "L5a",
+   "objects": [
+    {
+     "name": "desktop PC and parts",
+     "kind": "machine",
+     "dim": "3D",
+     "style": "photoreal",
+     "detail": "high",
+     "change": ""
+    },
+    {
+     "name": "GPU die with glowing lanes",
+     "kind": "machine",
+     "dim": "3D",
+     "style": "photoreal",
+     "detail": "high",
+     "change": ""
+    }
+   ],
+   "process": {
+    "what_moves": "",
+    "from": "",
+    "to": "",
+    "cause": "",
+    "effect": ""
+   },
+   "camera": {
+    "size": "medium",
+    "angle": "30deg-above",
+    "movement": "push-in",
+    "transition_in": "cut"
+   },
+   "look": {
+    "background": "charcoal studio void with a faint perspective grid floor",
+    "palette": [
+     "charcoal",
+     "teal",
+     "green",
+     "gold",
+     "violet"
+    ],
+    "lighting": "soft area lights, product-shot reflections, rim light",
+    "effects": [
+     "depth-of-field",
+     "glowing data particles",
+     "neon labels"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [],
+    "label_style": "none",
+    "formula": false
+   },
+   "recipe_needs": [
+    "hardware_layout_floor",
+    "glow_trace_lanes"
+   ],
+   "notes": "includes sponsor shots"
+  },
+  {
+   "start": "2:02",
+   "end": "3:09",
+   "seconds": 67,
+   "teaches": "Compare memory types by capacity, access time, bandwidth and cost (star tables).",
+   "level": "L4",
+   "objects": [
+    {
+     "name": "star-rating table",
+     "kind": "diagram",
+     "dim": "3D",
+     "style": "flat",
+     "detail": "medium",
+     "change": "stars fill"
+    },
+    {
+     "name": "hardware row under the table",
+     "kind": "machine",
+     "dim": "3D",
+     "style": "photoreal",
+     "detail": "high",
+     "change": ""
+    }
+   ],
+   "process": {
+    "what_moves": "",
+    "from": "",
+    "to": "",
+    "cause": "",
+    "effect": ""
+   },
+   "camera": {
+    "size": "wide",
+    "angle": "eye",
+    "movement": "static",
+    "transition_in": "cut"
+   },
+   "look": {
+    "background": "charcoal studio void with a faint perspective grid floor",
+    "palette": [
+     "charcoal",
+     "teal",
+     "green",
+     "gold",
+     "violet"
+    ],
+    "lighting": "soft area lights, product-shot reflections, rim light",
+    "effects": [
+     "depth-of-field",
+     "glowing data particles",
+     "neon labels"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [
+     "Capacity",
+     "Access Time",
+     "Bandwidth",
+     "Affordability"
+    ],
+    "label_style": "box",
+    "formula": false
+   },
+   "recipe_needs": [
+    "rating_table_3d",
+    "hardware_row",
+    "neon_text"
+   ],
+   "notes": ""
+  },
+  {
+   "start": "3:09",
+   "end": "3:36",
+   "seconds": 27,
+   "teaches": "Capacity made tangible: one page of a book is about 2 KB; a book is about 1 MB.",
+   "level": "L4",
+   "objects": [
+    {
+     "name": "paper pages",
+     "kind": "other",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "medium",
+     "change": "stack into a book"
+    },
+    {
+     "name": "book text close-up",
+     "kind": "text",
+     "dim": "3D",
+     "style": "photoreal",
+     "detail": "medium",
+     "change": "highlighted words"
+    }
+   ],
+   "process": {
+    "what_moves": "",
+    "from": "",
+    "to": "",
+    "cause": "",
+    "effect": ""
+   },
+   "camera": {
+    "size": "close",
+    "angle": "30deg-above",
+    "movement": "push-in",
+    "transition_in": "cut"
+   },
+   "look": {
+    "background": "charcoal studio void with a faint perspective grid floor",
+    "palette": [
+     "charcoal",
+     "teal",
+     "green",
+     "gold",
+     "violet"
+    ],
+    "lighting": "soft area lights, product-shot reflections, rim light",
+    "effects": [
+     "depth-of-field",
+     "glowing data particles",
+     "neon labels"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [
+     "Capacity"
+    ],
+    "label_style": "box",
+    "formula": false
+   },
+   "recipe_needs": [
+    "scale_compare",
+    "paper_stack_animation"
+   ],
+   "notes": ""
+  },
+  {
+   "start": "3:36",
+   "end": "3:51",
+   "seconds": 15,
+   "teaches": "20 cm of wire is about 1 nanosecond of electricity travel (banana for scale).",
+   "level": "L4",
+   "objects": [
+    {
+     "name": "CPU chip and banana",
+     "kind": "other",
+     "dim": "3D",
+     "style": "photoreal",
+     "detail": "medium",
+     "change": ""
+    },
+    {
+     "name": "measured line",
+     "kind": "diagram",
+     "dim": "3D",
+     "style": "flat",
+     "detail": "low",
+     "change": ""
+    }
+   ],
+   "process": {
+    "what_moves": "",
+    "from": "",
+    "to": "",
+    "cause": "",
+    "effect": ""
+   },
+   "camera": {
+    "size": "medium",
+    "angle": "side",
+    "movement": "static",
+    "transition_in": "cut"
+   },
+   "look": {
+    "background": "charcoal studio void with a faint perspective grid floor",
+    "palette": [
+     "charcoal",
+     "teal",
+     "green",
+     "gold",
+     "violet"
+    ],
+    "lighting": "soft area lights, product-shot reflections, rim light",
+    "effects": [
+     "depth-of-field",
+     "glowing data particles",
+     "neon labels"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [
+     "20 cm = 1 ns"
+    ],
+    "label_style": "box",
+    "formula": false
+   },
+   "recipe_needs": [
+    "scale_compare",
+    "measure_line"
+   ],
+   "notes": ""
+  },
+  {
+   "start": "3:51",
+   "end": "5:05",
+   "seconds": 74,
+   "teaches": "Inside the CPU die: L1/L2/L3 caches as coloured regions; books placed on them show capacity.",
+   "level": "L5a",
+   "objects": [
+    {
+     "name": "CPU die (iridescent)",
+     "kind": "machine",
+     "dim": "3D",
+     "style": "photoreal",
+     "detail": "high",
+     "change": ""
+    },
+    {
+     "name": "coloured cache regions",
+     "kind": "diagram",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "medium",
+     "change": "light up"
+    },
+    {
+     "name": "mini books",
+     "kind": "other",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "low",
+     "change": "pile on regions"
+    }
+   ],
+   "process": {
+    "what_moves": "",
+    "from": "",
+    "to": "",
+    "cause": "",
+    "effect": ""
+   },
+   "camera": {
+    "size": "medium",
+    "angle": "30deg-above",
+    "movement": "orbit",
+    "transition_in": "camera-move"
+   },
+   "look": {
+    "background": "charcoal studio void with a faint perspective grid floor",
+    "palette": [
+     "charcoal",
+     "teal",
+     "green",
+     "gold",
+     "violet"
+    ],
+    "lighting": "soft area lights, product-shot reflections, rim light",
+    "effects": [
+     "depth-of-field",
+     "glowing data particles",
+     "neon labels"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [
+     "L1$",
+     "L2$",
+     "L3$ = 36 MB",
+     "0.312 ns (1 clock cycle)"
+    ],
+    "label_style": "box",
+    "formula": false
+   },
+   "recipe_needs": [
+    "chip_die_model",
+    "region_highlight",
+    "scale_compare"
+   ],
+   "notes": ""
+  },
+  {
+   "start": "5:05",
+   "end": "6:33",
+   "seconds": 88,
+   "teaches": "DRAM and VRAM capacity as bookshelves (12 GB = 12,000 books); GPU card; data travel paths with times.",
+   "level": "L5a",
+   "objects": [
+    {
+     "name": "bookshelves grid",
+     "kind": "other",
+     "dim": "3D",
+     "style": "photoreal",
+     "detail": "high",
+     "change": "multiply"
+    },
+    {
+     "name": "graphics card",
+     "kind": "machine",
+     "dim": "3D",
+     "style": "photoreal",
+     "detail": "high",
+     "change": ""
+    },
+    {
+     "name": "GPU-VRAM path",
+     "kind": "diagram",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "medium",
+     "change": "glowing route"
+    }
+   ],
+   "process": {
+    "what_moves": "",
+    "from": "",
+    "to": "",
+    "cause": "",
+    "effect": ""
+   },
+   "camera": {
+    "size": "wide",
+    "angle": "30deg-above",
+    "movement": "pull-out",
+    "transition_in": "cut"
+   },
+   "look": {
+    "background": "charcoal studio void with a faint perspective grid floor",
+    "palette": [
+     "charcoal",
+     "teal",
+     "green",
+     "gold",
+     "violet"
+    ],
+    "lighting": "soft area lights, product-shot reflections, rim light",
+    "effects": [
+     "depth-of-field",
+     "glowing data particles",
+     "neon labels"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [
+     "12 GB",
+     "12 000 Books",
+     "250 ns (800 clock cycles)"
+    ],
+    "label_style": "box",
+    "formula": false
+   },
+   "recipe_needs": [
+    "instanced_array",
+    "scale_compare",
+    "particle_stream_path"
+   ],
+   "notes": ""
+  },
+  {
+   "start": "6:33",
+   "end": "8:02",
+   "seconds": 89,
+   "teaches": "Access time as distance: a football field, SSDs as huge shelves, 10 ms as 2,000 km.",
+   "level": "L4",
+   "objects": [
+    {
+     "name": "football field",
+     "kind": "landscape",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "medium",
+     "change": ""
+    },
+    {
+     "name": "NVMe and SATA SSDs",
+     "kind": "machine",
+     "dim": "3D",
+     "style": "photoreal",
+     "detail": "high",
+     "change": ""
+    },
+    {
+     "name": "long light trail",
+     "kind": "diagram",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "medium",
+     "change": ""
+    }
+   ],
+   "process": {
+    "what_moves": "",
+    "from": "",
+    "to": "",
+    "cause": "",
+    "effect": ""
+   },
+   "camera": {
+    "size": "wide",
+    "angle": "top",
+    "movement": "pull-out",
+    "transition_in": "cut"
+   },
+   "look": {
+    "background": "charcoal studio void with a faint perspective grid floor",
+    "palette": [
+     "charcoal",
+     "teal",
+     "green",
+     "gold",
+     "violet"
+    ],
+    "lighting": "soft area lights, product-shot reflections, rim light",
+    "effects": [
+     "depth-of-field",
+     "glowing data particles",
+     "neon labels"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [
+     "NVMe SSD",
+     "SATA SSD (4 TB) 4 000 000 Books",
+     "Access Time:",
+     "10 ms 2 000 km"
+    ],
+    "label_style": "box",
+    "formula": false
+   },
+   "recipe_needs": [
+    "scale_compare",
+    "distance_metaphor_line",
+    "product_material"
+   ],
+   "notes": ""
+  },
+  {
+   "start": "8:02",
+   "end": "9:16",
+   "seconds": 74,
+   "teaches": "Memory pyramid; zoom from internet to Earth; light around the Earth in 0.25 s.",
+   "level": "L5a",
+   "objects": [
+    {
+     "name": "memory pyramid",
+     "kind": "diagram",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "medium",
+     "change": ""
+    },
+    {
+     "name": "Earth globe",
+     "kind": "landscape",
+     "dim": "3D",
+     "style": "photoreal",
+     "detail": "high",
+     "change": "ring of light circles it"
+    }
+   ],
+   "process": {
+    "what_moves": "",
+    "from": "",
+    "to": "",
+    "cause": "",
+    "effect": ""
+   },
+   "camera": {
+    "size": "wide",
+    "angle": "eye",
+    "movement": "zoom-from-organ",
+    "transition_in": "cut"
+   },
+   "look": {
+    "background": "charcoal studio void with a faint perspective grid floor",
+    "palette": [
+     "charcoal",
+     "teal",
+     "green",
+     "gold",
+     "violet"
+    ],
+    "lighting": "soft area lights, product-shot reflections, rim light",
+    "effects": [
+     "depth-of-field",
+     "glowing data particles",
+     "neon labels"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [
+     "Register",
+     "Cache",
+     "Memory",
+     "Internet 0.25 s",
+     "Earth's Circumference 40 076 km"
+    ],
+    "label_style": "box",
+    "formula": false
+   },
+   "recipe_needs": [
+    "pyramid_diagram_3d",
+    "earth_globe",
+    "orbit_ring_light",
+    "macro_zoom_into_surface"
+   ],
+   "notes": ""
+  },
+  {
+   "start": "9:16",
+   "end": "10:13",
+   "seconds": 57,
+   "teaches": "Inside an SSD: stacked NAND layers, rows and strings; cost per GB.",
+   "level": "L5a",
+   "objects": [
+    {
+     "name": "SSD board",
+     "kind": "machine",
+     "dim": "3D",
+     "style": "photoreal",
+     "detail": "high",
+     "change": ""
+    },
+    {
+     "name": "stacked NAND layers",
+     "kind": "machine",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "high",
+     "change": "explode upward"
+    },
+    {
+     "name": "die slab with dimensions",
+     "kind": "diagram",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "medium",
+     "change": ""
+    }
+   ],
+   "process": {
+    "what_moves": "",
+    "from": "",
+    "to": "",
+    "cause": "",
+    "effect": ""
+   },
+   "camera": {
+    "size": "close",
+    "angle": "30deg-above",
+    "movement": "push-in",
+    "transition_in": "camera-move"
+   },
+   "look": {
+    "background": "charcoal studio void with a faint perspective grid floor",
+    "palette": [
+     "charcoal",
+     "teal",
+     "green",
+     "gold",
+     "violet"
+    ],
+    "lighting": "soft area lights, product-shot reflections, rim light",
+    "effects": [
+     "depth-of-field",
+     "glowing data particles",
+     "neon labels"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [
+     "60 000 Rows",
+     "40 000 Strings",
+     "$ 0.073/GB"
+    ],
+    "label_style": "leader-line",
+    "formula": false
+   },
+   "recipe_needs": [
+    "exploded_view",
+    "layer_stack_cutaway",
+    "dimension_label"
+   ],
+   "notes": ""
+  },
+  {
+   "start": "10:13",
+   "end": "10:55",
+   "seconds": 42,
+   "teaches": "A NAND cell cutaway: charge trapped at the gate stores a bit; read time 3 µs.",
+   "level": "L5a",
+   "objects": [
+    {
+     "name": "NAND cell cylinder cutaway",
+     "kind": "machine",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "high",
+     "change": ""
+    },
+    {
+     "name": "charges + / -",
+     "kind": "molecule",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "low",
+     "change": "move to gate"
+    }
+   ],
+   "process": {
+    "what_moves": "charges",
+    "from": "channel",
+    "to": "gate layer",
+    "cause": "voltage",
+    "effect": "charge trapped => bit stored"
+   },
+   "camera": {
+    "size": "close",
+    "angle": "eye",
+    "movement": "orbit",
+    "transition_in": "camera-move"
+   },
+   "look": {
+    "background": "charcoal studio void with a faint perspective grid floor",
+    "palette": [
+     "charcoal",
+     "teal",
+     "green",
+     "gold",
+     "violet"
+    ],
+    "lighting": "soft area lights, product-shot reflections, rim light",
+    "effects": [
+     "depth-of-field",
+     "glowing data particles",
+     "neon labels"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [
+     "Gate",
+     "Read Time: 3 µs"
+    ],
+    "label_style": "box",
+    "formula": false
+   },
+   "recipe_needs": [
+    "cylinder_cutaway",
+    "charge_particles",
+    "layer_stack_cutaway"
+   ],
+   "notes": ""
+  },
+  {
+   "start": "10:55",
+   "end": "11:51",
+   "seconds": 56,
+   "teaches": "Distance is not electricity travel time; SSD vs HDD speeds with particle streams.",
+   "level": "L5a",
+   "objects": [
+    {
+     "name": "CPU die and SSDs",
+     "kind": "machine",
+     "dim": "3D",
+     "style": "photoreal",
+     "detail": "high",
+     "change": ""
+    },
+    {
+     "name": "particle streams",
+     "kind": "other",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "medium",
+     "change": ""
+    }
+   ],
+   "process": {
+    "what_moves": "",
+    "from": "",
+    "to": "",
+    "cause": "",
+    "effect": ""
+   },
+   "camera": {
+    "size": "medium",
+    "angle": "30deg-above",
+    "movement": "static",
+    "transition_in": "cut"
+   },
+   "look": {
+    "background": "charcoal studio void with a faint perspective grid floor",
+    "palette": [
+     "charcoal",
+     "teal",
+     "green",
+     "gold",
+     "violet"
+    ],
+    "lighting": "soft area lights, product-shot reflections, rim light",
+    "effects": [
+     "depth-of-field",
+     "glowing data particles",
+     "neon labels"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [
+     "Distance ≠ Electricity Travel Time",
+     "5 000 MB/s",
+     "500 MB/s"
+    ],
+    "label_style": "box",
+    "formula": false
+   },
+   "recipe_needs": [
+    "particle_stream_path",
+    "neon_text"
+   ],
+   "notes": ""
+  },
+  {
+   "start": "11:51",
+   "end": "13:31",
+   "seconds": 100,
+   "teaches": "Inside a hard drive: platters, read/write head, voice-coil motor; bits as magnetic N/S domains.",
+   "level": "L5a",
+   "objects": [
+    {
+     "name": "hard drive internals",
+     "kind": "machine",
+     "dim": "3D",
+     "style": "photoreal",
+     "detail": "high",
+     "change": ""
+    },
+    {
+     "name": "magnetic domains N/S",
+     "kind": "diagram",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "medium",
+     "change": "flip to write bits"
+    },
+    {
+     "name": "read/write head",
+     "kind": "machine",
+     "dim": "3D",
+     "style": "photoreal",
+     "detail": "high",
+     "change": "moves over track"
+    }
+   ],
+   "process": {
+    "what_moves": "head",
+    "from": "over track",
+    "to": "reads N/S",
+    "cause": "magnetic direction",
+    "effect": "1 or 0"
+   },
+   "camera": {
+    "size": "close",
+    "angle": "30deg-above",
+    "movement": "tracking",
+    "transition_in": "camera-move"
+   },
+   "look": {
+    "background": "charcoal studio void with a faint perspective grid floor",
+    "palette": [
+     "charcoal",
+     "teal",
+     "green",
+     "gold",
+     "violet"
+    ],
+    "lighting": "soft area lights, product-shot reflections, rim light",
+    "effects": [
+     "depth-of-field",
+     "glowing data particles",
+     "neon labels"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [
+     "Platters",
+     "Read/Write Heads",
+     "Voice-Coil Motor",
+     "8 192 GB",
+     "7 200 RPM",
+     "10.00 ms"
+    ],
+    "label_style": "leader-line",
+    "formula": false
+   },
+   "recipe_needs": [
+    "hdd_model",
+    "magnetic_domain_strip",
+    "leader_label",
+    "exploded_view"
+   ],
+   "notes": ""
+  },
+  {
+   "start": "13:31",
+   "end": "15:00",
+   "seconds": 89,
+   "teaches": "DRAM: sticks on the motherboard, chips, cell arrays; data to the CPU in 45 ns.",
+   "level": "L5a",
+   "objects": [
+    {
+     "name": "DRAM sticks and chips",
+     "kind": "machine",
+     "dim": "3D",
+     "style": "photoreal",
+     "detail": "high",
+     "change": ""
+    },
+    {
+     "name": "cell array grid",
+     "kind": "diagram",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "medium",
+     "change": ""
+    },
+    {
+     "name": "magnifier circle on one cell",
+     "kind": "diagram",
+     "dim": "2D",
+     "style": "flat",
+     "detail": "low",
+     "change": ""
+    }
+   ],
+   "process": {
+    "what_moves": "",
+    "from": "",
+    "to": "",
+    "cause": "",
+    "effect": ""
+   },
+   "camera": {
+    "size": "medium",
+    "angle": "30deg-above",
+    "movement": "push-in",
+    "transition_in": "camera-move"
+   },
+   "look": {
+    "background": "charcoal studio void with a faint perspective grid floor",
+    "palette": [
+     "charcoal",
+     "teal",
+     "green",
+     "gold",
+     "violet"
+    ],
+    "lighting": "soft area lights, product-shot reflections, rim light",
+    "effects": [
+     "depth-of-field",
+     "glowing data particles",
+     "neon labels"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [
+     "CPU",
+     "Column Multiplexer",
+     "45 ns",
+     "Processes"
+    ],
+    "label_style": "box",
+    "formula": false
+   },
+   "recipe_needs": [
+    "exploded_view",
+    "magnifier_inset",
+    "particle_stream_path",
+    "instanced_array"
+   ],
+   "notes": ""
+  }
+ ]
+}

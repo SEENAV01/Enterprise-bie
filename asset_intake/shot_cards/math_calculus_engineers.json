@@ -1,0 +1,734 @@
+{
+ "id": "math_calculus_engineers",
+ "title": "Understanding Calculus (for engineers)",
+ "channel": "The Efficient Engineer",
+ "subject": "Mathematics / engineering",
+ "topic": "Derivatives, rules, stationary points, partial derivatives, integration",
+ "audience_level": "Engineering students",
+ "overall_level": "L4",
+ "analysed_range": "0:00-15:00",
+ "seen_visuals": true,
+ "method": "frames+code",
+ "style_summary": "Graphs and equations are the stars: glowing teal/orange curves on translucent glass panels over a grunge backdrop, tangent lines sliding along curves, LaTeX equations whose parts get coloured boxes and labels; engineering context shown by photoreal objects (drone, spring-mass damper, steel rods, electric motor) that the graphs float in front of; continuous camera, few cuts.",
+ "shots": [
+  {
+   "start": "0:00",
+   "end": "0:44",
+   "seconds": 44,
+   "teaches": "Calculus describes engineering systems: drone attitude, spring-mass-damper response.",
+   "level": "L5a",
+   "objects": [
+    {
+     "name": "drone",
+     "kind": "machine",
+     "dim": "3D",
+     "style": "photoreal",
+     "detail": "high",
+     "change": "hovers"
+    },
+    {
+     "name": "spring-mass-damper rig",
+     "kind": "machine",
+     "dim": "3D",
+     "style": "photoreal",
+     "detail": "high",
+     "change": "oscillates"
+    },
+    {
+     "name": "response wave",
+     "kind": "graph",
+     "dim": "2D",
+     "style": "stylized",
+     "detail": "medium",
+     "change": "draws"
+    },
+    {
+     "name": "equations in background",
+     "kind": "text",
+     "dim": "2D",
+     "style": "flat",
+     "detail": "low",
+     "change": ""
+    }
+   ],
+   "process": {
+    "what_moves": "mass",
+    "from": "displaced",
+    "to": "oscillates and settles",
+    "cause": "damping",
+    "effect": "decaying response"
+   },
+   "camera": {
+    "size": "medium",
+    "angle": "eye",
+    "movement": "push-in",
+    "transition_in": "cut"
+   },
+   "look": {
+    "background": "dark lab with chalk equations behind",
+    "palette": [
+     "blue",
+     "pink",
+     "white"
+    ],
+    "lighting": "studio light",
+    "effects": [
+     "glowing wave",
+     "depth-of-field"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [
+     "m x'' + c x' + k x = 0",
+     "System response"
+    ],
+    "label_style": "box",
+    "formula": true
+   },
+   "recipe_needs": [
+    "photoreal_prop_model",
+    "spring_mass_oscillation",
+    "graph_plot",
+    "equation_steps"
+   ],
+   "notes": ""
+  },
+  {
+   "start": "0:44",
+   "end": "1:43",
+   "seconds": 59,
+   "teaches": "A derivative is the slope of a curve; force-displacement, velocity-time, voltage-current graphs.",
+   "level": "L3",
+   "objects": [
+    {
+     "name": "glowing curve on glass panel",
+     "kind": "graph",
+     "dim": "2D",
+     "style": "stylized",
+     "detail": "medium",
+     "change": "draws on"
+    },
+    {
+     "name": "tangent marker",
+     "kind": "graph",
+     "dim": "2D",
+     "style": "stylized",
+     "detail": "low",
+     "change": "slides"
+    }
+   ],
+   "process": {
+    "what_moves": "",
+    "from": "",
+    "to": "",
+    "cause": "",
+    "effect": ""
+   },
+   "camera": {
+    "size": "medium",
+    "angle": "eye",
+    "movement": "push-in",
+    "transition_in": "camera-move"
+   },
+   "look": {
+    "background": "grunge texture backdrop, deep teal fading to rust-orange",
+    "palette": [
+     "teal",
+     "orange",
+     "cyan",
+     "magenta",
+     "white"
+    ],
+    "lighting": "dark with emissive lines",
+    "effects": [
+     "glowing graph lines",
+     "translucent glass panels",
+     "LaTeX in neon boxes"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [
+     "slope",
+     "stiffness",
+     "acceleration",
+     "resistance"
+    ],
+    "label_style": "leader-line",
+    "formula": false
+   },
+   "recipe_needs": [
+    "graph_plot",
+    "glass_panel",
+    "tangent_slide"
+   ],
+   "notes": ""
+  },
+  {
+   "start": "1:43",
+   "end": "2:57",
+   "seconds": 74,
+   "teaches": "Slope of y = x³ from a small step Δx; the limit gives slope = 3x².",
+   "level": "L3",
+   "objects": [
+    {
+     "name": "curve y = x³",
+     "kind": "graph",
+     "dim": "2D",
+     "style": "stylized",
+     "detail": "medium",
+     "change": ""
+    },
+    {
+     "name": "Δx Δy triangle",
+     "kind": "diagram",
+     "dim": "2D",
+     "style": "stylized",
+     "detail": "low",
+     "change": "shrinks"
+    },
+    {
+     "name": "slope formula",
+     "kind": "text",
+     "dim": "2D",
+     "style": "flat",
+     "detail": "low",
+     "change": "simplifies"
+    }
+   ],
+   "process": {
+    "what_moves": "secant",
+    "from": "two points",
+    "to": "tangent",
+    "cause": "Δx → 0",
+    "effect": "exact slope"
+   },
+   "camera": {
+    "size": "close",
+    "angle": "eye",
+    "movement": "push-in",
+    "transition_in": "camera-move"
+   },
+   "look": {
+    "background": "grunge texture backdrop, deep teal fading to rust-orange",
+    "palette": [
+     "teal",
+     "orange",
+     "cyan",
+     "magenta",
+     "white"
+    ],
+    "lighting": "dark with emissive lines",
+    "effects": [
+     "glowing graph lines",
+     "translucent glass panels",
+     "LaTeX in neon boxes"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [
+     "(x, x³)",
+     "Δx",
+     "Δy",
+     "slope = 3x²"
+    ],
+    "label_style": "leader-line",
+    "formula": true
+   },
+   "recipe_needs": [
+    "graph_plot",
+    "secant_to_tangent",
+    "equation_steps"
+   ],
+   "notes": ""
+  },
+  {
+   "start": "2:57",
+   "end": "4:41",
+   "seconds": 104,
+   "teaches": "Plot the slope as a new curve: the derivative; dy/dx notation; dot notation for time.",
+   "level": "L3",
+   "objects": [
+    {
+     "name": "two stacked graph panels",
+     "kind": "graph",
+     "dim": "2D",
+     "style": "stylized",
+     "detail": "medium",
+     "change": "linked by a vertical line"
+    },
+    {
+     "name": "notation labels",
+     "kind": "text",
+     "dim": "2D",
+     "style": "flat",
+     "detail": "low",
+     "change": ""
+    }
+   ],
+   "process": {
+    "what_moves": "",
+    "from": "",
+    "to": "",
+    "cause": "",
+    "effect": ""
+   },
+   "camera": {
+    "size": "medium",
+    "angle": "eye",
+    "movement": "static",
+    "transition_in": "camera-move"
+   },
+   "look": {
+    "background": "grunge texture backdrop, deep teal fading to rust-orange",
+    "palette": [
+     "teal",
+     "orange",
+     "cyan",
+     "magenta",
+     "white"
+    ],
+    "lighting": "dark with emissive lines",
+    "effects": [
+     "glowing graph lines",
+     "translucent glass panels",
+     "LaTeX in neon boxes"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [
+     "derivative of x³",
+     "dy/dx",
+     "dependent variable",
+     "independent variable"
+    ],
+    "label_style": "leader-line",
+    "formula": true
+   },
+   "recipe_needs": [
+    "graph_plot",
+    "linked_graph_panels",
+    "equation_annotation"
+   ],
+   "notes": ""
+  },
+  {
+   "start": "4:41",
+   "end": "6:25",
+   "seconds": 104,
+   "teaches": "Table of standard derivatives; sin/cos and exponential curves with their derivatives; real examples (capacitor charge, decay).",
+   "level": "L3",
+   "objects": [
+    {
+     "name": "derivative table panel",
+     "kind": "text",
+     "dim": "2D",
+     "style": "flat",
+     "detail": "medium",
+     "change": "rows highlight"
+    },
+    {
+     "name": "sin, cos, e^x curves",
+     "kind": "graph",
+     "dim": "2D",
+     "style": "stylized",
+     "detail": "medium",
+     "change": ""
+    }
+   ],
+   "process": {
+    "what_moves": "",
+    "from": "",
+    "to": "",
+    "cause": "",
+    "effect": ""
+   },
+   "camera": {
+    "size": "wide",
+    "angle": "eye",
+    "movement": "static",
+    "transition_in": "camera-move"
+   },
+   "look": {
+    "background": "grunge texture backdrop, deep teal fading to rust-orange",
+    "palette": [
+     "teal",
+     "orange",
+     "cyan",
+     "magenta",
+     "white"
+    ],
+    "lighting": "dark with emissive lines",
+    "effects": [
+     "glowing graph lines",
+     "translucent glass panels",
+     "LaTeX in neon boxes"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [
+     "f(x)",
+     "f'(x)",
+     "capacitor charge",
+     "radioactive decay"
+    ],
+    "label_style": "box",
+    "formula": true
+   },
+   "recipe_needs": [
+    "formula_table_panel",
+    "graph_plot",
+    "linked_graph_panels"
+   ],
+   "notes": ""
+  },
+  {
+   "start": "6:25",
+   "end": "8:38",
+   "seconds": 133,
+   "teaches": "Rules: linearity, product, quotient, chain rule; parts of an expression boxed in colours.",
+   "level": "L3",
+   "objects": [
+    {
+     "name": "expression with coloured boxes",
+     "kind": "text",
+     "dim": "2D",
+     "style": "flat",
+     "detail": "medium",
+     "change": "parts light up"
+    },
+    {
+     "name": "rule cards",
+     "kind": "text",
+     "dim": "2D",
+     "style": "flat",
+     "detail": "low",
+     "change": ""
+    }
+   ],
+   "process": {
+    "what_moves": "",
+    "from": "",
+    "to": "",
+    "cause": "",
+    "effect": ""
+   },
+   "camera": {
+    "size": "medium",
+    "angle": "eye",
+    "movement": "static",
+    "transition_in": "camera-move"
+   },
+   "look": {
+    "background": "grunge texture backdrop, deep teal fading to rust-orange",
+    "palette": [
+     "teal",
+     "orange",
+     "cyan",
+     "magenta",
+     "white"
+    ],
+    "lighting": "dark with emissive lines",
+    "effects": [
+     "glowing graph lines",
+     "translucent glass panels",
+     "LaTeX in neon boxes"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [
+     "linearity rule",
+     "product rule",
+     "quotient rule",
+     "chain rule"
+    ],
+    "label_style": "box",
+    "formula": true
+   },
+   "recipe_needs": [
+    "equation_steps",
+    "equation_part_boxes"
+   ],
+   "notes": ""
+  },
+  {
+   "start": "8:38",
+   "end": "10:22",
+   "seconds": 104,
+   "teaches": "Stationary points: maxima and minima where dy/dx = 0; second derivative tells which.",
+   "level": "L3",
+   "objects": [
+    {
+     "name": "function, derivative and second-derivative panels",
+     "kind": "graph",
+     "dim": "2D",
+     "style": "stylized",
+     "detail": "medium",
+     "change": "points marked"
+    },
+    {
+     "name": "tangent lines",
+     "kind": "graph",
+     "dim": "2D",
+     "style": "stylized",
+     "detail": "low",
+     "change": ""
+    }
+   ],
+   "process": {
+    "what_moves": "",
+    "from": "",
+    "to": "",
+    "cause": "",
+    "effect": ""
+   },
+   "camera": {
+    "size": "medium",
+    "angle": "eye",
+    "movement": "static",
+    "transition_in": "camera-move"
+   },
+   "look": {
+    "background": "grunge texture backdrop, deep teal fading to rust-orange",
+    "palette": [
+     "teal",
+     "orange",
+     "cyan",
+     "magenta",
+     "white"
+    ],
+    "lighting": "dark with emissive lines",
+    "effects": [
+     "glowing graph lines",
+     "translucent glass panels",
+     "LaTeX in neon boxes"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [
+     "local minimum",
+     "local maximum",
+     "stationary point",
+     "dy/dx = 0"
+    ],
+    "label_style": "leader-line",
+    "formula": true
+   },
+   "recipe_needs": [
+    "graph_plot",
+    "linked_graph_panels",
+    "point_markers"
+   ],
+   "notes": ""
+  },
+  {
+   "start": "10:22",
+   "end": "11:50",
+   "seconds": 88,
+   "teaches": "Partial derivatives: temperature along a heated rod changes in space and time; heat equation and Fick's law.",
+   "level": "L4",
+   "objects": [
+    {
+     "name": "steel rods on a workbench",
+     "kind": "machine",
+     "dim": "3D",
+     "style": "photoreal",
+     "detail": "high",
+     "change": ""
+    },
+    {
+     "name": "temperature graphs on glass",
+     "kind": "graph",
+     "dim": "2D",
+     "style": "stylized",
+     "detail": "medium",
+     "change": "evolve"
+    },
+    {
+     "name": "equation cards",
+     "kind": "text",
+     "dim": "2D",
+     "style": "flat",
+     "detail": "medium",
+     "change": ""
+    }
+   ],
+   "process": {
+    "what_moves": "heat",
+    "from": "hot spots",
+    "to": "spreads along rod",
+    "cause": "diffusion",
+    "effect": "curve flattens over time"
+   },
+   "camera": {
+    "size": "close",
+    "angle": "top",
+    "movement": "push-in",
+    "transition_in": "camera-move"
+   },
+   "look": {
+    "background": "dark rubber workbench seen from above with rods, steel bars and hazard tape",
+    "palette": [
+     "charcoal",
+     "teal",
+     "magenta",
+     "yellow"
+    ],
+    "lighting": "moody top light",
+    "effects": [
+     "glowing panels lying on the table",
+     "depth-of-field"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [
+     "Heat equation",
+     "thermal diffusivity",
+     "Fick's second law of diffusion"
+    ],
+    "label_style": "box",
+    "formula": true
+   },
+   "recipe_needs": [
+    "workbench_stage",
+    "graph_plot",
+    "equation_steps",
+    "photoreal_prop_model"
+   ],
+   "notes": ""
+  },
+  {
+   "start": "11:50",
+   "end": "13:03",
+   "seconds": 73,
+   "teaches": "Reading the heat equation; partial derivative of y(x,t) = 3x²t + 2t².",
+   "level": "L3",
+   "objects": [
+    {
+     "name": "equations with braces and notes",
+     "kind": "text",
+     "dim": "2D",
+     "style": "flat",
+     "detail": "medium",
+     "change": "annotations appear"
+    }
+   ],
+   "process": {
+    "what_moves": "",
+    "from": "",
+    "to": "",
+    "cause": "",
+    "effect": ""
+   },
+   "camera": {
+    "size": "close",
+    "angle": "top",
+    "movement": "static",
+    "transition_in": "camera-move"
+   },
+   "look": {
+    "background": "dark rubber workbench seen from above with rods, steel bars and hazard tape",
+    "palette": [
+     "charcoal",
+     "teal",
+     "magenta",
+     "yellow"
+    ],
+    "lighting": "moody top light",
+    "effects": [
+     "glowing panels lying on the table",
+     "depth-of-field"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [
+     "partial derivative",
+     "how temperature changes over time"
+    ],
+    "label_style": "brace",
+    "formula": true
+   },
+   "recipe_needs": [
+    "equation_annotation",
+    "equation_steps"
+   ],
+   "notes": ""
+  },
+  {
+   "start": "13:03",
+   "end": "15:00",
+   "seconds": 117,
+   "teaches": "Integration: power of a motor over time; area under the curve gives energy; differentiation and integration are opposites.",
+   "level": "L5a",
+   "objects": [
+    {
+     "name": "electric motor",
+     "kind": "machine",
+     "dim": "3D",
+     "style": "photoreal",
+     "detail": "high",
+     "change": ""
+    },
+    {
+     "name": "power and energy graphs on glass",
+     "kind": "graph",
+     "dim": "2D",
+     "style": "stylized",
+     "detail": "medium",
+     "change": ""
+    },
+    {
+     "name": "area strips",
+     "kind": "graph",
+     "dim": "2D",
+     "style": "stylized",
+     "detail": "medium",
+     "change": "fill under the curve"
+    }
+   ],
+   "process": {
+    "what_moves": "area strips",
+    "from": "under power curve",
+    "to": "summed to energy",
+    "cause": "integration",
+    "effect": "total energy"
+   },
+   "camera": {
+    "size": "medium",
+    "angle": "eye",
+    "movement": "push-in",
+    "transition_in": "camera-move"
+   },
+   "look": {
+    "background": "dim workshop with blurred windows at dusk",
+    "palette": [
+     "charcoal",
+     "teal",
+     "yellow-green"
+    ],
+    "lighting": "window backlight, haze",
+    "effects": [
+     "glass graph panels floating in front of a photoreal motor"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [
+     "P(t)",
+     "E(t)",
+     "dE(t)/dt",
+     "differentiation",
+     "integration",
+     "1300 J/s"
+    ],
+    "label_style": "leader-line",
+    "formula": true
+   },
+   "recipe_needs": [
+    "photoreal_prop_model",
+    "glass_panel",
+    "area_under_curve",
+    "graph_plot"
+   ],
+   "notes": ""
+  }
+ ]
+}

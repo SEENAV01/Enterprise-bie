@@ -1,0 +1,893 @@
+{
+ "id": "bio_epithelium_benchmark",
+ "title": "Epithelial Tissue, Class 11 NCERT (benchmark)",
+ "channel": "dr.animationbiology",
+ "subject": "Biology",
+ "topic": "Epithelial tissue family",
+ "audience_level": "NEET / Class 11",
+ "overall_level": "L5a",
+ "analysed_range": "0:00-2:42",
+ "seen_visuals": true,
+ "method": "frames+code",
+ "style_summary": "Photoreal micro 3D in a dark void: translucent organic cells with nuclei, organ context (vessel, alveolus, tubule, acinus), particles for exchange, glow outline on the cell being named, depth of field; Hindi-English kinetic caption on top and an 'A → B' summary line at the bottom; a new view every 4-5 s.",
+ "shots": [
+  {
+   "start": "0:00",
+   "end": "0:05",
+   "seconds": 5,
+   "teaches": "Squamous epithelium is a single thin layer of flat cells.",
+   "level": "L5a",
+   "objects": [
+    {
+     "name": "squamous cell sheet",
+     "kind": "cell",
+     "dim": "3D",
+     "style": "photoreal",
+     "detail": "high",
+     "change": "seen edge-on over deeper cells"
+    }
+   ],
+   "process": {
+    "what_moves": "",
+    "from": "",
+    "to": "",
+    "cause": "",
+    "effect": ""
+   },
+   "camera": {
+    "size": "close",
+    "angle": "side",
+    "movement": "push-in",
+    "transition_in": "cut"
+   },
+   "look": {
+    "background": "dark navy void with soft bokeh specks",
+    "palette": [
+     "navy",
+     "peach",
+     "cell-pink",
+     "glass-blue"
+    ],
+    "lighting": "soft key light through translucent cells, subsurface glow",
+    "effects": [
+     "depth-of-field",
+     "focus glow outline",
+     "floating particles"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [
+     "kinetic caption top (Hindi+English, yellow script)",
+     "summary line bottom 'A → B'"
+    ],
+    "label_style": "caption",
+    "formula": false
+   },
+   "recipe_needs": [
+    "cell_sheet_organic",
+    "sss_translucent_material",
+    "dof_bokeh",
+    "kinetic_caption",
+    "summary_line"
+   ],
+   "notes": ""
+  },
+  {
+   "start": "0:05",
+   "end": "0:10",
+   "seconds": 5,
+   "teaches": "Flat cells have irregular boundaries.",
+   "level": "L5a",
+   "objects": [
+    {
+     "name": "squamous sheet top view",
+     "kind": "cell",
+     "dim": "3D",
+     "style": "photoreal",
+     "detail": "high",
+     "change": "cell outlines glow"
+    }
+   ],
+   "process": {
+    "what_moves": "",
+    "from": "",
+    "to": "",
+    "cause": "",
+    "effect": ""
+   },
+   "camera": {
+    "size": "close",
+    "angle": "top",
+    "movement": "push-in",
+    "transition_in": "camera-move"
+   },
+   "look": {
+    "background": "dark navy void with soft bokeh specks",
+    "palette": [
+     "navy",
+     "peach",
+     "cell-pink",
+     "glass-blue"
+    ],
+    "lighting": "soft key light through translucent cells, subsurface glow",
+    "effects": [
+     "depth-of-field",
+     "focus glow outline",
+     "floating particles"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [
+     "kinetic caption top (Hindi+English, yellow script)",
+     "summary line bottom 'A → B'"
+    ],
+    "label_style": "caption",
+    "formula": false
+   },
+   "recipe_needs": [
+    "cell_sheet_organic",
+    "voronoi_cell_outlines",
+    "focus_glow_outline"
+   ],
+   "notes": ""
+  },
+  {
+   "start": "0:10",
+   "end": "0:20",
+   "seconds": 10,
+   "teaches": "A thin structure lets substances pass across.",
+   "level": "L5a",
+   "objects": [
+    {
+     "name": "translucent squamous sheet",
+     "kind": "cell",
+     "dim": "3D",
+     "style": "photoreal",
+     "detail": "high",
+     "change": ""
+    },
+    {
+     "name": "blue particles",
+     "kind": "molecule",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "medium",
+     "change": "cross the sheet"
+    }
+   ],
+   "process": {
+    "what_moves": "blue particles",
+    "from": "one side of sheet",
+    "to": "other side",
+    "cause": "thin layer",
+    "effect": "fast diffusion"
+   },
+   "camera": {
+    "size": "close",
+    "angle": "30deg-above",
+    "movement": "orbit",
+    "transition_in": "camera-move"
+   },
+   "look": {
+    "background": "dark navy void with soft bokeh specks",
+    "palette": [
+     "navy",
+     "peach",
+     "cell-pink",
+     "glass-blue"
+    ],
+    "lighting": "soft key light through translucent cells, subsurface glow",
+    "effects": [
+     "depth-of-field",
+     "focus glow outline",
+     "floating particles"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [
+     "kinetic caption top (Hindi+English, yellow script)",
+     "summary line bottom 'A → B'"
+    ],
+    "label_style": "caption",
+    "formula": false
+   },
+   "recipe_needs": [
+    "cell_sheet_organic",
+    "particle_flow_across",
+    "sss_translucent_material"
+   ],
+   "notes": ""
+  },
+  {
+   "start": "0:20",
+   "end": "0:25",
+   "seconds": 5,
+   "teaches": "Squamous epithelium lines blood vessel walls.",
+   "level": "L5a",
+   "objects": [
+    {
+     "name": "blood vessel cross-section",
+     "kind": "organ",
+     "dim": "3D",
+     "style": "photoreal",
+     "detail": "high",
+     "change": "wall cells outlined in yellow"
+    }
+   ],
+   "process": {
+    "what_moves": "",
+    "from": "",
+    "to": "",
+    "cause": "",
+    "effect": ""
+   },
+   "camera": {
+    "size": "close",
+    "angle": "30deg-above",
+    "movement": "push-in",
+    "transition_in": "cut"
+   },
+   "look": {
+    "background": "dark navy void with soft bokeh specks",
+    "palette": [
+     "navy",
+     "peach",
+     "cell-pink",
+     "glass-blue"
+    ],
+    "lighting": "soft key light through translucent cells, subsurface glow",
+    "effects": [
+     "depth-of-field",
+     "focus glow outline",
+     "floating particles"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [
+     "kinetic caption top (Hindi+English, yellow script)",
+     "summary line bottom 'A → B'"
+    ],
+    "label_style": "caption",
+    "formula": false
+   },
+   "recipe_needs": [
+    "tube_wall_cutaway",
+    "cell_sheet_on_curve",
+    "focus_glow_outline"
+   ],
+   "notes": ""
+  },
+  {
+   "start": "0:25",
+   "end": "0:40",
+   "seconds": 15,
+   "teaches": "It lines alveoli; gases exchange across the thin boundary.",
+   "level": "L5a",
+   "objects": [
+    {
+     "name": "alveolus wall",
+     "kind": "organ",
+     "dim": "3D",
+     "style": "photoreal",
+     "detail": "high",
+     "change": ""
+    },
+    {
+     "name": "red blood cells",
+     "kind": "cell",
+     "dim": "3D",
+     "style": "photoreal",
+     "detail": "high",
+     "change": "flow past"
+    },
+    {
+     "name": "gas particles",
+     "kind": "molecule",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "medium",
+     "change": "cross wall"
+    }
+   ],
+   "process": {
+    "what_moves": "gas particles",
+    "from": "air sac",
+    "to": "blood",
+    "cause": "thin boundary",
+    "effect": "efficient exchange"
+   },
+   "camera": {
+    "size": "close",
+    "angle": "eye",
+    "movement": "tracking",
+    "transition_in": "cut"
+   },
+   "look": {
+    "background": "dark navy void with soft bokeh specks",
+    "palette": [
+     "navy",
+     "peach",
+     "cell-pink",
+     "glass-blue"
+    ],
+    "lighting": "soft key light through translucent cells, subsurface glow",
+    "effects": [
+     "depth-of-field",
+     "focus glow outline",
+     "floating particles"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [
+     "kinetic caption top (Hindi+English, yellow script)",
+     "summary line bottom 'A → B'"
+    ],
+    "label_style": "caption",
+    "formula": false
+   },
+   "recipe_needs": [
+    "alveolus_capillary",
+    "rbc_flow",
+    "particle_flow_across",
+    "dof_bokeh"
+   ],
+   "notes": ""
+  },
+  {
+   "start": "0:40",
+   "end": "0:50",
+   "seconds": 10,
+   "teaches": "Cuboidal epithelium is a single layer of cube-like cells.",
+   "level": "L5a",
+   "objects": [
+    {
+     "name": "cuboidal cells glassy",
+     "kind": "cell",
+     "dim": "3D",
+     "style": "photoreal",
+     "detail": "high",
+     "change": "nuclei centred"
+    }
+   ],
+   "process": {
+    "what_moves": "",
+    "from": "",
+    "to": "",
+    "cause": "",
+    "effect": ""
+   },
+   "camera": {
+    "size": "close",
+    "angle": "30deg-above",
+    "movement": "push-in",
+    "transition_in": "cut"
+   },
+   "look": {
+    "background": "dark navy void",
+    "palette": [
+     "glass-blue",
+     "violet nuclei"
+    ],
+    "lighting": "backlit translucent glassy cells",
+    "effects": [
+     "depth-of-field",
+     "rim light",
+     "focus glow outline"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [
+     "kinetic caption top (Hindi+English, yellow script)",
+     "summary line bottom 'A → B'"
+    ],
+    "label_style": "caption",
+    "formula": false
+   },
+   "recipe_needs": [
+    "cell_sheet_organic",
+    "glass_cell_material",
+    "dof_bokeh"
+   ],
+   "notes": ""
+  },
+  {
+   "start": "0:50",
+   "end": "0:56",
+   "seconds": 6,
+   "teaches": "Cuboidal epithelium lines gland ducts and kidney tubules.",
+   "level": "L5a",
+   "objects": [
+    {
+     "name": "gland duct ring",
+     "kind": "organ",
+     "dim": "3D",
+     "style": "photoreal",
+     "detail": "high",
+     "change": "cells outlined"
+    },
+    {
+     "name": "kidney tubule",
+     "kind": "organ",
+     "dim": "3D",
+     "style": "photoreal",
+     "detail": "high",
+     "change": "curved tube of cuboidal cells"
+    }
+   ],
+   "process": {
+    "what_moves": "",
+    "from": "",
+    "to": "",
+    "cause": "",
+    "effect": ""
+   },
+   "camera": {
+    "size": "close",
+    "angle": "30deg-above",
+    "movement": "orbit",
+    "transition_in": "cut"
+   },
+   "look": {
+    "background": "dark navy void with soft bokeh specks",
+    "palette": [
+     "navy",
+     "peach",
+     "cell-pink",
+     "glass-blue"
+    ],
+    "lighting": "soft key light through translucent cells, subsurface glow",
+    "effects": [
+     "depth-of-field",
+     "focus glow outline",
+     "floating particles"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [
+     "kinetic caption top (Hindi+English, yellow script)",
+     "summary line bottom 'A → B'"
+    ],
+    "label_style": "caption",
+    "formula": false
+   },
+   "recipe_needs": [
+    "duct_ring_cross_section",
+    "tube_wall_cutaway",
+    "focus_glow_outline"
+   ],
+   "notes": ""
+  },
+  {
+   "start": "0:56",
+   "end": "1:10",
+   "seconds": 14,
+   "teaches": "Main functions are secretion and absorption.",
+   "level": "L5a",
+   "objects": [
+    {
+     "name": "gland acinus",
+     "kind": "organ",
+     "dim": "3D",
+     "style": "photoreal",
+     "detail": "high",
+     "change": ""
+    },
+    {
+     "name": "golden secretion particles",
+     "kind": "molecule",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "medium",
+     "change": "burst outward"
+    }
+   ],
+   "process": {
+    "what_moves": "secretion particles",
+    "from": "cells",
+    "to": "lumen",
+    "cause": "secretion",
+    "effect": "release; absorption => take up"
+   },
+   "camera": {
+    "size": "close",
+    "angle": "top",
+    "movement": "push-in",
+    "transition_in": "cut"
+   },
+   "look": {
+    "background": "dark navy void with soft bokeh specks",
+    "palette": [
+     "navy",
+     "peach",
+     "cell-pink",
+     "glass-blue"
+    ],
+    "lighting": "soft key light through translucent cells, subsurface glow",
+    "effects": [
+     "depth-of-field",
+     "focus glow outline",
+     "floating particles"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [
+     "kinetic caption top (Hindi+English, yellow script)",
+     "summary line bottom 'A → B'"
+    ],
+    "label_style": "caption",
+    "formula": false
+   },
+   "recipe_needs": [
+    "acinus_radial",
+    "particle_burst_release",
+    "particle_flow_across"
+   ],
+   "notes": ""
+  },
+  {
+   "start": "1:10",
+   "end": "1:20",
+   "seconds": 10,
+   "teaches": "Proximal convoluted tubule is lined by cuboidal epithelium.",
+   "level": "L5a",
+   "objects": [
+    {
+     "name": "nephron tubule (PCT)",
+     "kind": "organ",
+     "dim": "3D",
+     "style": "photoreal",
+     "detail": "high",
+     "change": "zoom from tube to wall"
+    }
+   ],
+   "process": {
+    "what_moves": "",
+    "from": "",
+    "to": "",
+    "cause": "",
+    "effect": ""
+   },
+   "camera": {
+    "size": "medium",
+    "angle": "30deg-above",
+    "movement": "zoom-from-organ",
+    "transition_in": "cut"
+   },
+   "look": {
+    "background": "dark navy void with soft bokeh specks",
+    "palette": [
+     "navy",
+     "peach",
+     "cell-pink",
+     "glass-blue"
+    ],
+    "lighting": "soft key light through translucent cells, subsurface glow",
+    "effects": [
+     "depth-of-field",
+     "focus glow outline",
+     "floating particles"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [
+     "kinetic caption top (Hindi+English, yellow script)",
+     "summary line bottom 'A → B'"
+    ],
+    "label_style": "caption",
+    "formula": false
+   },
+   "recipe_needs": [
+    "organ_zoom",
+    "tube_wall_cutaway"
+   ],
+   "notes": ""
+  },
+  {
+   "start": "1:20",
+   "end": "1:30",
+   "seconds": 10,
+   "teaches": "Microvilli on the free surface increase surface area for absorption.",
+   "level": "L5a",
+   "objects": [
+    {
+     "name": "microvilli brush border",
+     "kind": "cell",
+     "dim": "3D",
+     "style": "photoreal",
+     "detail": "high",
+     "change": ""
+    },
+    {
+     "name": "coloured nutrient molecules",
+     "kind": "molecule",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "medium",
+     "change": "absorbed"
+    }
+   ],
+   "process": {
+    "what_moves": "molecules",
+    "from": "lumen",
+    "to": "cells",
+    "cause": "more surface area",
+    "effect": "more absorption"
+   },
+   "camera": {
+    "size": "macro",
+    "angle": "side",
+    "movement": "push-in",
+    "transition_in": "cut"
+   },
+   "look": {
+    "background": "dark navy void with soft bokeh specks",
+    "palette": [
+     "navy",
+     "peach",
+     "cell-pink",
+     "glass-blue"
+    ],
+    "lighting": "soft key light through translucent cells, subsurface glow",
+    "effects": [
+     "depth-of-field",
+     "focus glow outline",
+     "floating particles"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [
+     "kinetic caption top (Hindi+English, yellow script)",
+     "summary line bottom 'A → B'"
+    ],
+    "label_style": "caption",
+    "formula": false
+   },
+   "recipe_needs": [
+    "microvilli_brush",
+    "particle_flow_across",
+    "capillary_context"
+   ],
+   "notes": ""
+  },
+  {
+   "start": "1:30",
+   "end": "1:50",
+   "seconds": 20,
+   "teaches": "Columnar epithelium: single layer of tall slender cells.",
+   "level": "L5a",
+   "objects": [
+    {
+     "name": "columnar cells glassy",
+     "kind": "cell",
+     "dim": "3D",
+     "style": "photoreal",
+     "detail": "high",
+     "change": "one cell outlined"
+    }
+   ],
+   "process": {
+    "what_moves": "",
+    "from": "",
+    "to": "",
+    "cause": "",
+    "effect": ""
+   },
+   "camera": {
+    "size": "close",
+    "angle": "eye",
+    "movement": "push-in",
+    "transition_in": "cut"
+   },
+   "look": {
+    "background": "dark navy void",
+    "palette": [
+     "glass-blue",
+     "violet nuclei"
+    ],
+    "lighting": "backlit translucent glassy cells",
+    "effects": [
+     "depth-of-field",
+     "rim light",
+     "focus glow outline"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [
+     "kinetic caption top (Hindi+English, yellow script)",
+     "summary line bottom 'A → B'"
+    ],
+    "label_style": "caption",
+    "formula": false
+   },
+   "recipe_needs": [
+    "cell_sheet_organic",
+    "glass_cell_material",
+    "focus_glow_outline"
+   ],
+   "notes": ""
+  },
+  {
+   "start": "1:50",
+   "end": "2:10",
+   "seconds": 20,
+   "teaches": "Nuclei of columnar cells sit at the base.",
+   "level": "L5a",
+   "objects": [
+    {
+     "name": "columnar cells",
+     "kind": "cell",
+     "dim": "3D",
+     "style": "photoreal",
+     "detail": "high",
+     "change": ""
+    },
+    {
+     "name": "basal nucleus",
+     "kind": "cell",
+     "dim": "3D",
+     "style": "photoreal",
+     "detail": "high",
+     "change": "glows"
+    }
+   ],
+   "process": {
+    "what_moves": "",
+    "from": "",
+    "to": "",
+    "cause": "",
+    "effect": ""
+   },
+   "camera": {
+    "size": "close",
+    "angle": "eye",
+    "movement": "push-in",
+    "transition_in": "cut"
+   },
+   "look": {
+    "background": "dark navy void",
+    "palette": [
+     "glass-blue",
+     "violet nuclei"
+    ],
+    "lighting": "backlit translucent glassy cells",
+    "effects": [
+     "depth-of-field",
+     "rim light",
+     "focus glow outline"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [
+     "kinetic caption top (Hindi+English, yellow script)",
+     "summary line bottom 'A → B'"
+    ],
+    "label_style": "caption",
+    "formula": false
+   },
+   "recipe_needs": [
+    "glass_cell_material",
+    "focus_glow_outline"
+   ],
+   "notes": ""
+  },
+  {
+   "start": "2:10",
+   "end": "2:29",
+   "seconds": 19,
+   "teaches": "Microvilli on columnar cells increase absorption.",
+   "level": "L5a",
+   "objects": [
+    {
+     "name": "microvilli forest",
+     "kind": "cell",
+     "dim": "3D",
+     "style": "photoreal",
+     "detail": "high",
+     "change": ""
+    },
+    {
+     "name": "pink particles",
+     "kind": "molecule",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "medium",
+     "change": "absorbed into cells"
+    }
+   ],
+   "process": {
+    "what_moves": "particles",
+    "from": "lumen",
+    "to": "cells",
+    "cause": "surface area",
+    "effect": "absorption"
+   },
+   "camera": {
+    "size": "macro",
+    "angle": "30deg-above",
+    "movement": "orbit",
+    "transition_in": "cut"
+   },
+   "look": {
+    "background": "dark navy void with soft bokeh specks",
+    "palette": [
+     "navy",
+     "peach",
+     "cell-pink",
+     "glass-blue"
+    ],
+    "lighting": "soft key light through translucent cells, subsurface glow",
+    "effects": [
+     "depth-of-field",
+     "focus glow outline",
+     "floating particles"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [
+     "kinetic caption top (Hindi+English, yellow script)",
+     "summary line bottom 'A → B'"
+    ],
+    "label_style": "caption",
+    "formula": false
+   },
+   "recipe_needs": [
+    "microvilli_brush",
+    "particle_flow_across",
+    "dof_bokeh"
+   ],
+   "notes": ""
+  },
+  {
+   "start": "2:29",
+   "end": "2:42",
+   "seconds": 13,
+   "teaches": "End card with all epithelium types.",
+   "level": "L2",
+   "objects": [
+    {
+     "name": "tissue type icons",
+     "kind": "diagram",
+     "dim": "2D",
+     "style": "flat",
+     "detail": "low",
+     "change": ""
+    }
+   ],
+   "process": {
+    "what_moves": "",
+    "from": "",
+    "to": "",
+    "cause": "",
+    "effect": ""
+   },
+   "camera": {
+    "size": "wide",
+    "angle": "eye",
+    "movement": "static",
+    "transition_in": "cut"
+   },
+   "look": {
+    "background": "black",
+    "palette": [
+     "orange",
+     "blue",
+     "pink"
+    ],
+    "lighting": "flat",
+    "effects": [
+     "none"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [
+     "title",
+     "subscribe bar"
+    ],
+    "label_style": "box",
+    "formula": false
+   },
+   "recipe_needs": [],
+   "notes": "end card; not a teaching shot"
+  }
+ ]
+}

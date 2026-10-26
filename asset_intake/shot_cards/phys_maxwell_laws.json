@@ -1,0 +1,639 @@
+{
+ "id": "phys_maxwell_laws",
+ "title": "Electromagnetism - Maxwell's Laws",
+ "channel": "(physics animation channel)",
+ "subject": "Physics",
+ "topic": "Electric and magnetic fields, Maxwell's laws",
+ "audience_level": "School to undergraduate",
+ "overall_level": "L4",
+ "analysed_range": "0:00-15:00",
+ "seen_visuals": true,
+ "method": "frames+code",
+ "style_summary": "Plain 3D primitives (spheres for charges, cones/arrows for fields, rings, cylinders for magnets) in fantasy or white studio sets, with decorative characters; all teaching is carried by field lines, arrows and particle motion; a text caption box on screen; long continuous shots.",
+ "shots": [
+  {
+   "start": "0:00",
+   "end": "0:42",
+   "seconds": 42,
+   "teaches": "Title; a single charged particle creates an electric field everywhere.",
+   "level": "L4",
+   "objects": [
+    {
+     "name": "charged particle",
+     "kind": "molecule",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "low",
+     "change": ""
+    },
+    {
+     "name": "decorative characters",
+     "kind": "character",
+     "dim": "3D",
+     "style": "photoreal",
+     "detail": "medium",
+     "change": ""
+    }
+   ],
+   "process": {
+    "what_moves": "",
+    "from": "",
+    "to": "",
+    "cause": "",
+    "effect": ""
+   },
+   "camera": {
+    "size": "medium",
+    "angle": "eye",
+    "movement": "static",
+    "transition_in": "cut"
+   },
+   "look": {
+    "background": "fantasy stone hall or white studio with checker floor",
+    "palette": [
+     "grey stone",
+     "white",
+     "purple",
+     "green",
+     "red",
+     "blue"
+    ],
+    "lighting": "plain 3D renders, hard shadows",
+    "effects": [
+     "caption box"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [
+     "caption box"
+    ],
+    "label_style": "box",
+    "formula": false
+   },
+   "recipe_needs": [
+    "charge_sphere",
+    "caption_box"
+   ],
+   "notes": "characters are decoration"
+  },
+  {
+   "start": "0:42",
+   "end": "2:50",
+   "seconds": 128,
+   "teaches": "Field lines leave an enclosed charge; their number depends only on the charge inside.",
+   "level": "L4",
+   "objects": [
+    {
+     "name": "sphere enclosing charge",
+     "kind": "machine",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "medium",
+     "change": ""
+    },
+    {
+     "name": "radial field lines",
+     "kind": "diagram",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "medium",
+     "change": "pass through surface"
+    }
+   ],
+   "process": {
+    "what_moves": "field lines",
+    "from": "charge",
+    "to": "outward to infinity",
+    "cause": "more charge",
+    "effect": "more lines"
+   },
+   "camera": {
+    "size": "close",
+    "angle": "eye",
+    "movement": "orbit",
+    "transition_in": "cut"
+   },
+   "look": {
+    "background": "fantasy stone hall or white studio with checker floor",
+    "palette": [
+     "grey stone",
+     "white",
+     "purple",
+     "green",
+     "red",
+     "blue"
+    ],
+    "lighting": "plain 3D renders, hard shadows",
+    "effects": [
+     "caption box"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [
+     "caption box"
+    ],
+    "label_style": "box",
+    "formula": false
+   },
+   "recipe_needs": [
+    "radial_field_lines",
+    "gauss_surface",
+    "orbit_camera"
+   ],
+   "notes": ""
+  },
+  {
+   "start": "2:50",
+   "end": "3:45",
+   "seconds": 55,
+   "teaches": "Shape or size of the enclosing object does not change the line count; direction shows field direction.",
+   "level": "L4",
+   "objects": [
+    {
+     "name": "changing enclosure shape",
+     "kind": "machine",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "medium",
+     "change": "morphs"
+    },
+    {
+     "name": "field arrows",
+     "kind": "diagram",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "medium",
+     "change": ""
+    }
+   ],
+   "process": {
+    "what_moves": "",
+    "from": "",
+    "to": "",
+    "cause": "",
+    "effect": ""
+   },
+   "camera": {
+    "size": "medium",
+    "angle": "eye",
+    "movement": "static",
+    "transition_in": "cut"
+   },
+   "look": {
+    "background": "fantasy stone hall or white studio with checker floor",
+    "palette": [
+     "grey stone",
+     "white",
+     "purple",
+     "green",
+     "red",
+     "blue"
+    ],
+    "lighting": "plain 3D renders, hard shadows",
+    "effects": [
+     "caption box"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [],
+    "label_style": "none",
+    "formula": false
+   },
+   "recipe_needs": [
+    "shape_morph",
+    "vector_arrow_field"
+   ],
+   "notes": ""
+  },
+  {
+   "start": "3:45",
+   "end": "5:17",
+   "seconds": 92,
+   "teaches": "Positive charges move with the field, negative against; like charges repel, unlike attract.",
+   "level": "L4",
+   "objects": [
+    {
+     "name": "red and blue charge spheres",
+     "kind": "molecule",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "low",
+     "change": "move"
+    },
+    {
+     "name": "big field arrows",
+     "kind": "diagram",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "medium",
+     "change": ""
+    },
+    {
+     "name": "white studio with checker floor",
+     "kind": "landscape",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "low",
+     "change": ""
+    }
+   ],
+   "process": {
+    "what_moves": "charges",
+    "from": "rest",
+    "to": "pushed along or against field",
+    "cause": "field direction",
+    "effect": "force direction"
+   },
+   "camera": {
+    "size": "medium",
+    "angle": "eye",
+    "movement": "static",
+    "transition_in": "cut"
+   },
+   "look": {
+    "background": "fantasy stone hall or white studio with checker floor",
+    "palette": [
+     "grey stone",
+     "white",
+     "purple",
+     "green",
+     "red",
+     "blue"
+    ],
+    "lighting": "plain 3D renders, hard shadows",
+    "effects": [
+     "caption box"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [],
+    "label_style": "none",
+    "formula": false
+   },
+   "recipe_needs": [
+    "charge_sphere",
+    "vector_arrow_field",
+    "attract_repel_motion"
+   ],
+   "notes": ""
+  },
+  {
+   "start": "5:17",
+   "end": "6:29",
+   "seconds": 72,
+   "teaches": "Lines go out of positive and into negative charges; net zero for neutral objects.",
+   "level": "L4",
+   "objects": [
+    {
+     "name": "dipole field lines",
+     "kind": "diagram",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "medium",
+     "change": ""
+    },
+    {
+     "name": "charges",
+     "kind": "molecule",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "low",
+     "change": ""
+    }
+   ],
+   "process": {
+    "what_moves": "",
+    "from": "",
+    "to": "",
+    "cause": "",
+    "effect": ""
+   },
+   "camera": {
+    "size": "close",
+    "angle": "eye",
+    "movement": "orbit",
+    "transition_in": "cut"
+   },
+   "look": {
+    "background": "fantasy stone hall or white studio with checker floor",
+    "palette": [
+     "grey stone",
+     "white",
+     "purple",
+     "green",
+     "red",
+     "blue"
+    ],
+    "lighting": "plain 3D renders, hard shadows",
+    "effects": [
+     "caption box"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [],
+    "label_style": "none",
+    "formula": false
+   },
+   "recipe_needs": [
+    "dipole_field_lines",
+    "orbit_camera"
+   ],
+   "notes": ""
+  },
+  {
+   "start": "6:29",
+   "end": "9:32",
+   "seconds": 183,
+   "teaches": "Magnetic fields come from moving charges; loops of lines; strength depends on charge flow through a loop.",
+   "level": "L4",
+   "objects": [
+    {
+     "name": "closed magnetic loops",
+     "kind": "diagram",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "medium",
+     "change": ""
+    },
+    {
+     "name": "ring (loop)",
+     "kind": "machine",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "medium",
+     "change": ""
+    },
+    {
+     "name": "charges flowing through ring",
+     "kind": "molecule",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "low",
+     "change": ""
+    },
+    {
+     "name": "circulating arrows",
+     "kind": "diagram",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "medium",
+     "change": ""
+    }
+   ],
+   "process": {
+    "what_moves": "charges",
+    "from": "one side",
+    "to": "through the loop",
+    "cause": "more charge flow",
+    "effect": "stronger magnetic field"
+   },
+   "camera": {
+    "size": "close",
+    "angle": "eye",
+    "movement": "orbit",
+    "transition_in": "cut"
+   },
+   "look": {
+    "background": "fantasy stone hall or white studio with checker floor",
+    "palette": [
+     "grey stone",
+     "white",
+     "purple",
+     "green",
+     "red",
+     "blue"
+    ],
+    "lighting": "plain 3D renders, hard shadows",
+    "effects": [
+     "caption box"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [],
+    "label_style": "none",
+    "formula": false
+   },
+   "recipe_needs": [
+    "magnetic_field_loops",
+    "current_through_loop",
+    "vector_arrow_field"
+   ],
+   "notes": ""
+  },
+  {
+   "start": "9:32",
+   "end": "11:00",
+   "seconds": 88,
+   "teaches": "Force on a moving charge is 90 degrees to both field and motion (3D arrows).",
+   "level": "L4",
+   "objects": [
+    {
+     "name": "3D axis arrows labelled Force, Magnetic Field, Motion",
+     "kind": "diagram",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "medium",
+     "change": ""
+    },
+    {
+     "name": "charge",
+     "kind": "molecule",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "low",
+     "change": ""
+    }
+   ],
+   "process": {
+    "what_moves": "",
+    "from": "",
+    "to": "",
+    "cause": "",
+    "effect": ""
+   },
+   "camera": {
+    "size": "medium",
+    "angle": "30deg-above",
+    "movement": "orbit",
+    "transition_in": "cut"
+   },
+   "look": {
+    "background": "fantasy stone hall or white studio with checker floor",
+    "palette": [
+     "grey stone",
+     "white",
+     "purple",
+     "green",
+     "red",
+     "blue"
+    ],
+    "lighting": "plain 3D renders, hard shadows",
+    "effects": [
+     "caption box"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [
+     "Electric Field",
+     "Magnetic Field",
+     "Force",
+     "Motion"
+    ],
+    "label_style": "3d-text",
+    "formula": false
+   },
+   "recipe_needs": [
+    "triad_arrows_3d",
+    "text_3d",
+    "orbit_camera"
+   ],
+   "notes": ""
+  },
+  {
+   "start": "11:00",
+   "end": "12:52",
+   "seconds": 112,
+   "teaches": "Right-hand rule; same charges moving the same way attract, opposite ways repel.",
+   "level": "L4",
+   "objects": [
+    {
+     "name": "two moving charge streams",
+     "kind": "molecule",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "low",
+     "change": ""
+    },
+    {
+     "name": "dashed circular field",
+     "kind": "diagram",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "medium",
+     "change": ""
+    },
+    {
+     "name": "force arrows",
+     "kind": "diagram",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "medium",
+     "change": ""
+    }
+   ],
+   "process": {
+    "what_moves": "",
+    "from": "",
+    "to": "",
+    "cause": "",
+    "effect": ""
+   },
+   "camera": {
+    "size": "medium",
+    "angle": "30deg-above",
+    "movement": "static",
+    "transition_in": "cut"
+   },
+   "look": {
+    "background": "fantasy stone hall or white studio with checker floor",
+    "palette": [
+     "grey stone",
+     "white",
+     "purple",
+     "green",
+     "red",
+     "blue"
+    ],
+    "lighting": "plain 3D renders, hard shadows",
+    "effects": [
+     "caption box"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [],
+    "label_style": "none",
+    "formula": false
+   },
+   "recipe_needs": [
+    "current_streams",
+    "vector_arrow_field",
+    "attract_repel_motion"
+   ],
+   "notes": ""
+  },
+  {
+   "start": "12:52",
+   "end": "15:00",
+   "seconds": 128,
+   "teaches": "A spinning charge is a tiny magnet; magnets as loops of moving charge; poles attract or repel.",
+   "level": "L4",
+   "objects": [
+    {
+     "name": "rotating charge ring",
+     "kind": "molecule",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "medium",
+     "change": "spins"
+    },
+    {
+     "name": "bar magnet North/South",
+     "kind": "machine",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "medium",
+     "change": ""
+    },
+    {
+     "name": "force arrows",
+     "kind": "diagram",
+     "dim": "3D",
+     "style": "stylized",
+     "detail": "medium",
+     "change": ""
+    }
+   ],
+   "process": {
+    "what_moves": "charges",
+    "from": "circulate",
+    "to": "around axis",
+    "cause": "spin",
+    "effect": "magnetic dipole"
+   },
+   "camera": {
+    "size": "medium",
+    "angle": "eye",
+    "movement": "orbit",
+    "transition_in": "cut"
+   },
+   "look": {
+    "background": "snowy fantasy landscape backdrop",
+    "palette": [
+     "blue",
+     "white",
+     "red"
+    ],
+    "lighting": "soft",
+    "effects": [
+     "3D text labels"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [
+     "North",
+     "South",
+     "Motion",
+     "Force"
+    ],
+    "label_style": "3d-text",
+    "formula": false
+   },
+   "recipe_needs": [
+    "spinning_charge_ring",
+    "bar_magnet",
+    "text_3d"
+   ],
+   "notes": ""
+  }
+ ]
+}

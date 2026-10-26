@@ -1,0 +1,207 @@
+{
+ "id": "bio_centromere_clip",
+ "title": "Centromere vs Centrosome (short)",
+ "channel": "Remedica",
+ "subject": "Biology",
+ "topic": "Centromere vs centrosome",
+ "audience_level": "NEET",
+ "overall_level": "L5a",
+ "analysed_range": "0:00-0:30",
+ "seen_visuals": true,
+ "method": "frames+code",
+ "style_summary": "Photoreal micro 3D in a dark teal void; glow on the centromere; leader-line labels; kinetochore and spindle fibres attach; split screen comparison. Some on-screen words are misspelt, a sign of AI-made visuals.",
+ "shots": [
+  {
+   "start": "0:00",
+   "end": "0:11",
+   "seconds": 11,
+   "teaches": "Centromere and centrosome side by side.",
+   "level": "L5a",
+   "objects": [
+    {
+     "name": "chromosome X",
+     "kind": "cell",
+     "dim": "3D",
+     "style": "photoreal",
+     "detail": "high",
+     "change": ""
+    },
+    {
+     "name": "centrosome with microtubules",
+     "kind": "cell",
+     "dim": "3D",
+     "style": "photoreal",
+     "detail": "high",
+     "change": ""
+    }
+   ],
+   "process": {
+    "what_moves": "",
+    "from": "",
+    "to": "",
+    "cause": "",
+    "effect": ""
+   },
+   "camera": {
+    "size": "medium",
+    "angle": "eye",
+    "movement": "push-in",
+    "transition_in": "cut"
+   },
+   "look": {
+    "background": "dark teal void with blurred cells",
+    "palette": [
+     "teal",
+     "orange",
+     "cyan"
+    ],
+    "lighting": "rim light",
+    "effects": [
+     "depth-of-field",
+     "glow"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [
+     "Centromere",
+     "Centrosome"
+    ],
+    "label_style": "leader-line",
+    "formula": false
+   },
+   "recipe_needs": [
+    "chromosome_model",
+    "centrosome_model",
+    "leader_label",
+    "dof_bokeh"
+   ],
+   "notes": ""
+  },
+  {
+   "start": "0:11",
+   "end": "0:20",
+   "seconds": 9,
+   "teaches": "The centromere joins chromatids; kinetochores form and spindle fibres attach.",
+   "level": "L5a",
+   "objects": [
+    {
+     "name": "chromosome close-up",
+     "kind": "cell",
+     "dim": "3D",
+     "style": "photoreal",
+     "detail": "high",
+     "change": "centromere glows"
+    },
+    {
+     "name": "spindle fibres",
+     "kind": "cell",
+     "dim": "3D",
+     "style": "photoreal",
+     "detail": "medium",
+     "change": "attach"
+    }
+   ],
+   "process": {
+    "what_moves": "spindle fibres",
+    "from": "outside",
+    "to": "kinetochore",
+    "cause": "",
+    "effect": ""
+   },
+   "camera": {
+    "size": "close",
+    "angle": "eye",
+    "movement": "push-in",
+    "transition_in": "cut"
+   },
+   "look": {
+    "background": "dark teal",
+    "palette": [
+     "teal",
+     "cyan"
+    ],
+    "lighting": "glow",
+    "effects": [
+     "focus glow"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [
+     "Centromere",
+     "Chromatid connection + kinetochore formation"
+    ],
+    "label_style": "leader-line",
+    "formula": false
+   },
+   "recipe_needs": [
+    "chromosome_model",
+    "focus_glow_outline",
+    "fibre_attach_motion"
+   ],
+   "notes": ""
+  },
+  {
+   "start": "0:20",
+   "end": "0:30",
+   "seconds": 10,
+   "teaches": "The centrosome organises microtubules into a spindle; split-screen summary.",
+   "level": "L5a",
+   "objects": [
+    {
+     "name": "cell with spindle",
+     "kind": "cell",
+     "dim": "3D",
+     "style": "photoreal",
+     "detail": "high",
+     "change": ""
+    },
+    {
+     "name": "split screen",
+     "kind": "diagram",
+     "dim": "2D",
+     "style": "flat",
+     "detail": "low",
+     "change": ""
+    }
+   ],
+   "process": {
+    "what_moves": "",
+    "from": "",
+    "to": "",
+    "cause": "",
+    "effect": ""
+   },
+   "camera": {
+    "size": "medium",
+    "angle": "eye",
+    "movement": "static",
+    "transition_in": "cut"
+   },
+   "look": {
+    "background": "dark teal",
+    "palette": [
+     "blue",
+     "cyan",
+     "yellow-green"
+    ],
+    "lighting": "glow",
+    "effects": [
+     "split screen"
+    ]
+   },
+   "on_screen_text": {
+    "labels": [
+     "Centromere → chromosome region",
+     "Centrosome → microtubule organizer"
+    ],
+    "label_style": "box",
+    "formula": false
+   },
+   "recipe_needs": [
+    "cell_spindle_model",
+    "split_compare"
+   ],
+   "notes": ""
+  }
+ ]
+}
