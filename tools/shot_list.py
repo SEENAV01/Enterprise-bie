@@ -39,10 +39,16 @@ def main(argv=None):
             print(f"{video['video_id']}: skipped ({video['why']})")
             continue
         split = ", ".join(f"{lvl} {v['share']:.1%}" for lvl, v in video["level_split"].items())
-        print(f"{video['video_id']}: {video['shots']} shots, {video['seconds']} s; {split}; at {video['at_or_above']['level']}+ "
-              f"{video['at_or_above']['share']:.1%} → {video['status']}; W-01 hits {video['wording_hits']}; advisory {video['advisory']}")
+        pace = video["pace"]
+        print(f"{video['video_id']}: {video['shots']} shots, {video['seconds']} s; main level {video['main_level']}; {split}; L3+ "
+              f"{video['l3_plus_share']:.1%}; a visual change every {pace['seconds_per_change']} s ({pace['camera_moves_added']} camera moves added) "
+              f"→ {video['status']}; W-01 hits {video['wording_hits']}; advisory {video['advisory']}")
         for p in video["blocking"]:
             print("  blocking:", p)
+    chapter = summary.get("chapter") or {}
+    if chapter:
+        print(f"chapter: {chapter['l3_plus_videos']} of {chapter['videos']} videos with main level L3 or above ({chapter['share']:.0%}; "
+              f"target {chapter['target'][0]:.0%}-{chapter['target'][1]:.0%}, " + ("met" if chapter["meets_target"] else "not met") + ")")
     print(f"written: {args.out / 'SHOTS.md'}")
     return 0 if all(v.get("status") != "blocked" for v in summary["videos"]) else 1
 

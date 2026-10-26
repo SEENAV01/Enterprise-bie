@@ -26,10 +26,20 @@
      "share": 0.8681
     }
    },
-   "at_or_above": {
-    "level": "L3",
-    "share": 1.0,
-    "required": 0.9
+   "main_level": "L5a",
+   "l3_plus_share": 1.0,
+   "pace": {
+    "band": "micro",
+    "target_seconds": [
+     3.0,
+     5.0
+    ],
+    "changes": 151,
+    "seconds_per_change": 4.14,
+    "per_minute": 14.5,
+    "camera_moves_added": 68,
+    "seconds_per_change_before": 7.52,
+    "within_target": true
    },
    "blocking": [
     "beat b22: \"Book short cylindrical कहती है; height और width लगभग बराबर समझो।\" points at the book ('Book short cylindrical कहती है') (W-01)",
@@ -42,6 +52,32 @@
    "wording_hits": 5
   }
  ],
- "levels_version": "2026-10-26.1",
- "grammar_version": "2026-10-26.1"
+ "levels_version": "2026-10-26.2",
+ "grammar_version": "2026-10-26.2",
+ "chapter": {
+  "star": "A",
+  "decided": "Navin, 26 October 2026: '90 se 99 percent videos L3 ya isse upar ke level ki ho' — kitaab se banne wali kul videos ki baat hai, aur ye koshish ka target hai, blocker nahi.",
+  "videos": 1,
+  "by_main_level": {
+   "L5a": 1
+  },
+  "l3_plus_videos": 1,
+  "share": 1.0,
+  "target": [
+   0.9,
+   0.99
+  ],
+  "meets_target": true,
+  "below_target": [],
+  "rows": [
+   {
+    "video_id": "v3",
+    "main_level": "L5a",
+    "l3_plus_share": 1.0,
+    "below": false,
+    "reason": "main level L5a: 87% of its seconds, mostly cell_sheet_3d shots"
+   }
+  ],
+  "blocker": false
+ }
 }

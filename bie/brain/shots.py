@@ -16,8 +16,12 @@ asset sources a lesson may use (the resolver lists them through ``licence_policy
 runs when the files are fetched in the visual section.
 
 Navin, 26 October 2026: content decides the scene plan; the scene plan decides the visual level the video code is made
-at; 90 to 99 percent of the videos at L3 or above. The code check here: shot-seconds at L3 or above ≥ 90 % per video,
-else the video is not rendered.
+at. The level rule has two stars (``visual_levels.json``, ``targets``): A, the chapter or book target, "90 se 99 percent
+videos L3 ya isse upar" counted by each video's main level (the level with most shot-seconds), a target to work towards and
+never a blocker; B, the shot level, "poori video ek level ki bane, ye zaroori nahi": every shot carries its own level from
+the content, L3 or above where the content allows, L2 only where a flat drawing shows the point better with the reason on
+the shot. The pace is the visual-change rate (a block or camera change, or the lit structure moving): micro biology 3-5 s
+per change, engineering and physics 10-20 s; where the picture would hold longer, the director adds a camera move.
 """
 from __future__ import annotations
 
@@ -41,7 +45,7 @@ WORLD_BLOCKS = {"cell_sheet", "model_3d", "cell_sheet_3d", "molecule_3d", "prote
                 "plate_frames", "collision_3d"}
 OVERLAY_LEVEL = "L3"              # a caption, a label, an arrow, a board: L3 work on top of the world
 SHORT_SENTENCE_WORDS = 2          # "Kaisi?" joins the sentence that answers it (one thought, one shot)
-MICRO_PACE_SECONDS = 6.0          # VG-01: micro biology keeps a shot every 2-5 s; a clause longer than this is reported
+MICRO_PACE_SECONDS = 6.0          # B-01: a shot is 3-5 s; a clause longer than this is reported (the pace itself is VG-01's change rate)
 CLAUSE_SPLIT = re.compile(r"(?<=[।?!.;])\s+")     # a semicolon clause is spoken as its own thought: its own shot
 MEMBER_SECONDS = (30.0, 60.0)     # B-02 "about 40-50 s per family member", with room for a book that says more or less
 
@@ -144,6 +148,64 @@ def level_rank(level: str, levels: dict | None = None) -> int:
 
 def higher(a: str, b: str, levels: dict | None = None) -> str:
     return a if level_rank(a, levels) >= level_rank(b, levels) else b
+
+
+def pace_band(family: str, levels: dict | None = None) -> tuple:
+    """(band name, (low, high) seconds per visual change) for a subject family, or ("", None) when Navin set no target yet."""
+    levels = levels or load_levels()
+    for name, band in (levels.get("pace") or {}).get("bands", {}).items():
+        if family in band.get("families", []):
+            return name, (float(band["seconds"][0]), float(band["seconds"][1]))
+    return "", None
+
+
+def is_visual_change(shot: dict, previous: dict | None) -> bool:
+    """Navin's measure (26 October 2026): a shot changes the picture when its block differs from the shot before or its camera
+    moves. A label or a glow moving to another structure is not counted: it is too small a change to carry the pace."""
+    return previous is None or shot["block"] != previous["block"] or shot["camera"] != "hold"
+
+
+def visual_changes(shots: list) -> list:
+    """The shot ids where the picture changes (VG-01's measure: a block or camera change)."""
+    out, previous = [], None
+    for shot in shots:
+        if is_visual_change(shot, previous):
+            out.append(shot["shot_id"])
+        previous = shot
+    return out
+
+
+PACE_MOVES = ("zoom_in", "orbit", "zoom_out")
+
+
+def pace_pass(shots: list, band: tuple | None) -> int:
+    """Navin, 26 October 2026: where consecutive clauses would hold the same picture past the band's upper bound, the camera
+    moves on that clause (a zoom on the lit structure, an orbit, a zoom out) so the picture changes within it. Returns how
+    many camera moves were added; the shots are changed in place."""
+    if not band:
+        return 0
+    high = band[1]
+    added, since, previous = 0, 0.0, None
+    for shot in shots:
+        change = is_visual_change(shot, previous)
+        if not change and since + shot["seconds"] > high:
+            shot["camera"] = "zoom_in" if shot.get("focus") and previous.get("camera") != "zoom_in" else PACE_MOVES[added % len(PACE_MOVES)]
+            shot["why"].append(f"pace: the camera moves so the picture changes within {high:g} s (VG-01)")
+            added += 1
+            change = True
+        since = shot["seconds"] if change else since + shot["seconds"]
+        previous = shot
+    return added
+
+
+def pace_report(shots: list, band_name: str, band: tuple | None, *, before: int, added: int) -> dict:
+    total = sum(s["seconds"] for s in shots)
+    changes = visual_changes(shots)
+    spc = round(total / len(changes), 2) if changes else 0.0
+    return {"band": band_name or "none", "target_seconds": list(band) if band else None, "changes": len(changes),
+            "seconds_per_change": spc, "per_minute": round(len(changes) / total * 60, 1) if total else 0.0,
+            "camera_moves_added": added, "seconds_per_change_before": round(total / before, 2) if before else 0.0,
+            "within_target": bool(band and band[0] <= spc <= band[1]) if band else None}
 
 
 def subject_family(subject: str) -> str:
@@ -357,6 +419,10 @@ def choose(sentence: str, beat: dict, ctx: dict, world: dict, toolbox, levels: d
     level = main_cap.default_level if main_cap else OVERLAY_LEVEL
     if world["block"] in blocks:
         level = higher(level, world["level"], levels)
+    level_reason = ""
+    if level == "L2":                                     # Navin, 26 October 2026: L2 only where it shows the point better, with the reason
+        level_reason = f"L2: a flat drawing shows this better ({main_cap.label if main_cap else cap_id})"
+        reasons.append(level_reason)
     # Camera (VG-01): establish once, move to the next part, zoom from the organ, otherwise hold; no cuts.
     if first_in_video:
         camera = "establish" if camera == "hold" else camera
@@ -365,7 +431,8 @@ def choose(sentence: str, beat: dict, ctx: dict, world: dict, toolbox, levels: d
     elif previous and previous.get("capability") == "organ_zoom" and camera == "hold":
         camera = "zoom_out" if cap_id == "organ_zoom" else "hold"
     return {"capability": cap_id, "blocks": blocks + [o for o in overlays if o not in blocks], "level": level, "camera": camera,
-            "reasons": reasons, "markers": marks, "question": question, "structures": structures, "organ": organ, "motion": motion}
+            "level_reason": level_reason, "reasons": reasons, "markers": marks, "question": question, "structures": structures,
+            "organ": organ, "motion": motion}
 
 
 THING_WORDS = frozenset(STRUCTURE_WORDS) | frozenset(ORGAN_WORDS)
@@ -511,7 +578,8 @@ def build_video(video: dict, chapter: dict, course, *, toolbox=None, voice: dict
                     "start": round(scene_start + at / tl["fps"], 2), "seconds": round(length / tl["fps"], 2),
                     "frames": [int(at), int(length)], "fps": tl["fps"],
                     "capability": choice["capability"], "block": choice["blocks"][0], "blocks": choice["blocks"],
-                    "level": choice["level"], "camera": choice["camera"], "labels": labels, "caption": caption_of(sentence),
+                    "level": choice["level"], "level_reason": choice["level_reason"], "camera": choice["camera"], "labels": labels,
+                    "focus": next((l for l in labels if "focus_glow" in choice["blocks"]), ""), "caption": caption_of(sentence),
                     "first_use": terms_new, "opened_in_beat": opened_in_beat, "markers": choice["markers"], "question": choice["question"],
                     "items": list(beat.get("covers_item_ids") or []), "basis": beat.get("basis", ""),
                     "assets": {"procedural": procedural, "wanted": labels[:3] if not procedural else [],
@@ -528,15 +596,19 @@ def build_video(video: dict, chapter: dict, course, *, toolbox=None, voice: dict
                            "shot_ids": scene_shots, "seconds": seconds, "start": round(scene_start, 2)})
         scene_start += seconds
     total = round(sum(s["seconds"] for s in shots), 2)
+    band_name, band = pace_band(family, levels)
+    changes_before = len(visual_changes(shots))
+    moves_added = pace_pass(shots, band)
     split = level_split(shots, levels)
-    floor = levels["minimum_share"]["at_or_above"]
-    at_or_above = round(sum(v["seconds"] for lvl, v in split.items() if level_rank(lvl, levels) >= level_rank(floor, levels)) / total, 4) if total else 0.0
+    main_level = max(split, key=lambda lvl: (split[lvl]["seconds"], level_rank(lvl, levels))) if split else ""
+    l3_plus = round(sum(v["seconds"] for lvl, v in split.items() if level_rank(lvl, levels) >= level_rank("L3", levels)) / total, 4) if total else 0.0
     out = {
         "schema": SCHEMA, "version": VERSION, "video_id": video.get("video_id"), "title": video.get("title", ""),
         "level_profile": profile, "subject_family": family, "levels_version": levels["version"], "grammar_version": grammar["version"],
         "benchmark_version": load_benchmark()["version"], "capabilities_version": toolbox.capabilities_version,
         "world": world, "scenes": scene_rows, "shots": shots, "seconds": total, "beats": len(beats),
-        "level_split": split, "at_or_above": {"level": floor, "share": at_or_above, "required": levels["minimum_share"]["share"]},
+        "level_split": split, "main_level": main_level, "l3_plus_share": l3_plus,
+        "pace": pace_report(shots, band_name, band, before=changes_before, added=moves_added),
         "cuts": sum(1 for s in shots if s["camera"] == "cut"), "first_use": first_use,
         "wording": {"version": soul.load_wording()["version"], "hits": soul.wording_hits(beats)},
         "assets": {"procedural_capabilities": sorted({s["capability"] for s in shots if s["assets"]["procedural"]}),
@@ -572,9 +644,10 @@ def level_split(shots: list, levels: dict | None = None) -> dict:
 # ---------------------------------------------------------------- the checks
 
 def check_video(plan: dict, beats: list, *, levels: dict | None = None, toolbox=None) -> tuple:
-    """(blocking, advisory) for one video's shot list. Blocking: a level outside the ladder, the 90 % rule, W-01, said ≠
-    shown (B-03), a sentence without its shot (B-01), an unknown block. Advisory: the benchmark's pace and slots (B-02,
-    B-04 to B-07, B-09), the grammar's cuts (VG-01) and anything code can only point at."""
+    """(blocking, advisory) for one video's shot list. Blocking: a level outside the ladder (L1, L5b: a planning error), W-01,
+    said ≠ shown (B-03), a sentence without its shot (B-01), an unknown block. Advisory: the pace (VG-01, the visual-change
+    rate against its band), an L2 shot without its reason, the benchmark's slots (B-02, B-04 to B-07, B-09), the cuts.
+    No video is blocked because of its level (Navin, 26 October 2026)."""
     from ..toolbox import registry as registry_module
     levels = levels or load_levels()
     toolbox = toolbox or registry_module.load()
@@ -608,8 +681,8 @@ def check_video(plan: dict, beats: list, *, levels: dict | None = None, toolbox=
             if names:
                 blocking.append(f"shot {sid}: the sentence names {names[0]!r} but the shot labels nothing (B-03)")
         if s["seconds"] > MICRO_PACE_SECONDS and s.get("capability") not in ("board_build", "mnemonic_card"):
-            advisory.append(f"shot {sid}: {s['seconds']} s for one sentence; the benchmark pace is a shot every 2-5 s (B-01, VG-01): a long "
-                            "sentence could be two")
+            advisory.append(f"shot {sid}: {s['seconds']} s for one sentence; the benchmark gives a shot 3-5 s (B-01): a long sentence "
+                            "could be two")
         if s.get("motion") if "motion" in s else _has(s["sentence"], MOTION_WORDS):
             if not any(b in ("particle_flow", "flow_arrows", "camera_path") for b in s["blocks"]) and s["capability"] not in ("board_build", "mnemonic_card", "split_compare"):
                 advisory.append(f"shot {sid}: a function or process sentence without motion (B-04, VG-08)")
@@ -623,12 +696,14 @@ def check_video(plan: dict, beats: list, *, levels: dict | None = None, toolbox=
             advisory.append(f"shot {sid}: a recap not on the board that fills (B-07)")
         if _has(s["sentence"], NAME_WORDS) and "concept_arrow" not in s["blocks"] and s["capability"] not in ("board_build", "mnemonic_card", "split_compare"):
             advisory.append(f"shot {sid}: a name without its reason shown as A → B (B-06)")
-    share = plan.get("at_or_above", {}).get("share", 0.0)
-    need = levels["minimum_share"]["share"]
-    floor = levels["minimum_share"]["at_or_above"]
-    if shots and share < need:
-        blocking.append(f"video: {share:.0%} of the shot seconds are at {floor} or above; the rule is {need:.0%} (Navin, 26 October 2026); "
-                        "not rendered")
+    for s in shots:
+        if s["level"] == "L2" and not s.get("level_reason"):
+            advisory.append(f"shot {s['shot_id']}: L2 without its reason; L2 only where a flat drawing shows the point better, with the reason "
+                            "on the shot (Navin, 26 October 2026)")
+    pace = plan.get("pace") or {}
+    if shots and pace.get("target_seconds") and pace.get("within_target") is False:
+        low, high = pace["target_seconds"]
+        advisory.append(f"video: one visual change every {pace['seconds_per_change']} s; the {pace['band']} pace is {low:g}-{high:g} s per change (VG-01)")
     for hit in (plan.get("wording") or {}).get("hits") or []:
         blocking.append(f"beat {hit['beat_id']}: \"{hit['sentence'][:80]}\" points at the book ({hit['words']!r}) (W-01)")
     cuts = sum(1 for s in shots if s["camera"] == "cut")
@@ -672,8 +747,9 @@ def rule_table(plan: dict, grammar: dict | None = None) -> list:
 
     n = len(shots)
     b01 = hits("B-01")
+    avg = round(sum(s["seconds"] for s in shots) / n, 1) if n else 0
     status("B-01", fail_when=any(p.startswith("B-01") for p in blocking), partial_when=bool(b01),
-           note=f"{n} shots for {n} sentences" + (f"; {len(b01)} long" if b01 else ""))
+           note=f"{n} shots for {n} clauses, {avg} s each on average (3-5 s)" + (f"; {len(b01)} over {MICRO_PACE_SECONDS:g} s" if b01 else ""))
     status("B-02", partial_when=bool(hits("B-02")), note="; ".join(f"{m} {s} s" for m, s in (plan.get("per_member_seconds") or {}).items()) or "no family member named",
            na=not plan.get("per_member_seconds"))
     status("B-03", fail_when=bool([p for p in blocking if "(B-03)" in p]), note=f"{sum(1 for s in shots if s['labels'])} of {n} shots label a named object")
@@ -693,8 +769,12 @@ def rule_table(plan: dict, grammar: dict | None = None) -> list:
     status("B-11", note="one dark style, one accent per member: decided by the render (Part B)", partial_when=True)
     status("B-12", note=f"level profile {plan.get('level_profile', {}).get('id')}; grammar the same for every level")
     cuts = plan.get("cuts", 0)
-    status("VG-01", partial_when=bool(hits("VG-01")) or any(s["seconds"] > MICRO_PACE_SECONDS for s in shots),
-           note=f"{len(plan.get('scenes') or [])} scenes, {cuts} cuts, {sum(1 for s in shots if s['seconds'] > MICRO_PACE_SECONDS)} shots over 5 s")
+    pace = plan.get("pace") or {}
+    band = pace.get("target_seconds")
+    status("VG-01", partial_when=bool(hits("VG-01")),
+           note=f"{len(plan.get('scenes') or [])} scenes, {cuts} cuts; one visual change every {pace.get('seconds_per_change', 0)} s"
+                + (f" ({pace.get('band')} pace {band[0]:g}-{band[1]:g} s)" if band else " (no pace target for this subject yet)")
+                + (f"; {pace.get('camera_moves_added', 0)} camera moves added by the director, {pace.get('seconds_per_change_before', 0)} s before" if pace.get("camera_moves_added") else ""))
     status("VG-02", note="labels are code text with a leader line (leader_label on every shot)", fail_when=any("leader_label" not in s["blocks"] for s in shots))
     cut_shots = [s["shot_id"] for s in shots if "cutaway" in s["blocks"] or "exploded_view" in s["blocks"]]
     status("VG-03", na=not cut_shots and not any(_has(s["sentence"], INSIDE_WORDS) for s in shots), note=f"{len(cut_shots)} cutaway shots", shots_ids=cut_shots)
@@ -765,27 +845,74 @@ def run_shots(chapter: dict, lesson: dict, course, out_dir, *, video_ids=None, t
         plans.append(plan)
         summary["videos"].append({"video_id": plan["video_id"], "status": "render_allowed" if plan["render_allowed"] else "blocked",
                                   "shots": len(plan["shots"]), "seconds": plan["seconds"], "level_split": plan["level_split"],
-                                  "at_or_above": plan["at_or_above"], "blocking": plan["checks"]["blocking"],
-                                  "advisory": len(plan["checks"]["advisory"]), "wording_hits": len(plan["wording"]["hits"])})
+                                  "main_level": plan["main_level"], "l3_plus_share": plan["l3_plus_share"], "pace": plan["pace"],
+                                  "blocking": plan["checks"]["blocking"], "advisory": len(plan["checks"]["advisory"]),
+                                  "wording_hits": len(plan["wording"]["hits"])})
+    summary["chapter"] = chapter_report(plans)
     (out / "SHOTS.md").write_text(render_markdown(plans, summary), encoding="utf-8")
     (out / "shots.json").write_text(json.dumps(summary, ensure_ascii=False, indent=1), encoding="utf-8")
     return summary
+
+
+def chapter_report(plans: list, levels: dict | None = None) -> dict:
+    """Star A (Navin, 26 October 2026): of the chapter's (or book's) videos, how many have their main level at L3 or above;
+    the target is 90-99 %, a target to work towards, never a blocker; below it, the video's name and the reason."""
+    levels = levels or load_levels()
+    target = levels["targets"]["chapter"]
+    floor = level_rank(target["at_or_above"], levels)
+    rows, by_level = [], {}
+    for plan in plans:
+        split = plan["level_split"]
+        top = max(split, key=lambda lvl: split[lvl]["seconds"]) if split else ""
+        by_level[plan["main_level"]] = by_level.get(plan["main_level"], 0) + 1
+        caps = {}
+        for s in plan["shots"]:
+            if s["level"] == plan["main_level"]:
+                caps[s["capability"]] = caps.get(s["capability"], 0) + s["seconds"]
+        lead = max(caps, key=caps.get) if caps else ""
+        rows.append({"video_id": plan["video_id"], "main_level": plan["main_level"], "l3_plus_share": plan["l3_plus_share"],
+                     "below": level_rank(plan["main_level"], levels) < floor,
+                     "reason": f"main level {plan['main_level']}: {split.get(top, {}).get('share', 0):.0%} of its seconds, mostly {lead} shots"
+                     + (f" ({plan['shots'][0]['level_reason']})" if plan["shots"] and plan["shots"][0].get("level_reason") else "")})
+    above = sum(1 for r in rows if not r["below"])
+    share = round(above / len(rows), 4) if rows else 0.0
+    return {"star": "A", "decided": target["decided"], "videos": len(rows), "by_main_level": by_level, "l3_plus_videos": above,
+            "share": share, "target": list(target["target"]), "meets_target": bool(rows) and share >= target["target"][0],
+            "below_target": [r for r in rows if r["below"]], "rows": rows, "blocker": False}
 
 
 def render_markdown(plans: list, summary: dict | None = None) -> str:
     lines = ["# Shot lists (Task 046 · the code director)", ""]
     if summary:
         lines.append(f"Visual levels {summary.get('levels_version')} · visual grammar {summary.get('grammar_version')} · "
-                     "one spoken sentence = one shot (B-01) · the level rule: shot seconds at L3 or above ≥ 90 % per video.")
+                     "one spoken sentence = one shot (B-01, 3-5 s) · the level rule has two stars (Navin, 26 October 2026): A, the "
+                     "chapter target, 90-99 % of videos with their main level at L3 or above (a target, never a blocker); B, the level "
+                     "is per shot, from the content; no video is blocked because of its level.")
         lines.append("")
+        chapter = summary.get("chapter")
+        if chapter:
+            lines += ["## Chapter report (star A)", "", "| Video | Main level | L3+ share of seconds | Visual change every | Camera moves added | W-01 | Render |",
+                      "| --- | --- | --- | --- | --- | --- | --- |"]
+            by_id = {p["video_id"]: p for p in plans}
+            for r in chapter["rows"]:
+                p = by_id[r["video_id"]]
+                lines.append(f"| {r['video_id']} | {r['main_level']} | {r['l3_plus_share']:.1%} | {p['pace']['seconds_per_change']} s | "
+                             f"{p['pace']['camera_moves_added']} | {len(p['wording']['hits'])} | {'allowed' if p['render_allowed'] else 'blocked'} |")
+            lines += ["", f"Videos with main level L3 or above: **{chapter['l3_plus_videos']} of {chapter['videos']} ({chapter['share']:.0%})**; "
+                      f"target {chapter['target'][0]:.0%}-{chapter['target'][1]:.0%} → " + ("met" if chapter["meets_target"] else "not met") + "."]
+            for r in chapter["below_target"]:
+                lines.append(f"- {r['video_id']}: {r['reason']}")
+            lines.append("")
     for plan in plans:
         lines += [f"## {plan['video_id']} · {plan['title']}", "",
                   f"- World: `{plan['world']['capability']}` ({plan['world']['block']}, {plan['world']['level']}); level profile "
                   f"{plan['level_profile'].get('id')}; {len(plan['scenes'])} scenes, {len(plan['shots'])} shots, {plan['seconds']} s "
                   f"({round(plan['seconds'] / 60, 1)} min); cuts {plan['cuts']}.",
-                  "- Level split: " + ", ".join(f"{lvl} {v['shots']} shots / {v['seconds']} s ({v['share']:.1%})" for lvl, v in plan["level_split"].items())
-                  + f"; at {plan['at_or_above']['level']} or above **{plan['at_or_above']['share']:.1%}** (rule {plan['at_or_above']['required']:.0%}) → "
-                  + ("**render allowed**" if plan["render_allowed"] else "**not rendered**") + ".",
+                  f"- Main level **{plan['main_level']}**; level mix: " + ", ".join(f"{lvl} {v['shots']} shots / {v['seconds']} s ({v['share']:.1%})" for lvl, v in plan["level_split"].items())
+                  + f"; L3 or above {plan['l3_plus_share']:.1%} of the seconds → " + ("**render allowed**" if plan["render_allowed"] else "**not rendered** (see blocking)") + ".",
+                  f"- Pace (VG-01): one visual change every **{plan['pace']['seconds_per_change']} s** ({plan['pace']['changes']} changes"
+                  + (f"; {plan['pace']['band']} target {plan['pace']['target_seconds'][0]:g}-{plan['pace']['target_seconds'][1]:g} s" if plan['pace']['target_seconds'] else "; no target for this subject yet")
+                  + (f"; {plan['pace']['seconds_per_change_before']} s before the director added {plan['pace']['camera_moves_added']} camera moves" if plan['pace']['camera_moves_added'] else "") + ").",
                   f"- W-01: {len(plan['wording']['hits'])} sentences point at the book" + (":" if plan["wording"]["hits"] else "."), ""]
         for h in plan["wording"]["hits"]:
             lines.append(f"  - beat {h['beat_id']}: \"{h['sentence']}\" ← `{h['words']}` ({h['group']})")

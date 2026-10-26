@@ -2,8 +2,10 @@
 director (one spoken sentence → one shot, by code), with the offline proof on v3 of the tissue chapter.
 
 Offline, standard library, no network, no keys, no money. Navin's decisions of 26 October 2026 are the rules under test:
-every shot carries a level from {L2, L3, L4, L5a}; shot seconds at L3 or above ≥ 90 % per video, else not rendered; a plan
-that asks for L5b is a planning error; the narration never points at the book (W-01).
+every shot carries a level from {L2, L3, L4, L5a}; the level rule has two stars (A: 90-99 % of a chapter's videos with their
+main level at L3 or above, a target and never a blocker; B: the level is per shot, L2 only with its reason, no video blocked
+for its level); the pace is the visual-change rate (micro 3-5 s, engineering 10-20 s); a plan that asks for L5b is a
+planning error; the narration never points at the book (W-01).
 """
 from __future__ import annotations
 
@@ -75,17 +77,34 @@ class VisualLevels(unittest.TestCase):
         self.assertEqual(data["schema"], "bie.brain.visual-levels/1")
         self.assertEqual([lvl["id"] for lvl in data["levels"]], ["L1", "L2", "L3", "L4", "L5a", "L5b"])
         self.assertEqual(data["shot_levels"], ["L2", "L3", "L4", "L5a"])
-        self.assertEqual(data["minimum_share"], {"at_or_above": "L3", "share": 0.9, "per": "video", "measure": "shot seconds", "below": "not rendered"})
+        self.assertNotIn("minimum_share", data)                                   # the per-video 90 % blocker is withdrawn
+        self.assertEqual(data["targets"]["chapter"]["target"], [0.9, 0.99])
+        self.assertFalse(data["targets"]["chapter"]["blocker"])
+        self.assertFalse(data["targets"]["shot"]["blocker"])
+        self.assertIn("koshish ka target hai, blocker nahi", data["targets"]["chapter"]["decided"])
+        self.assertIn("poori video ek level ki bane, ye zaroori nahi", data["targets"]["shot"]["decided"])
+        self.assertEqual(data["pace"]["bands"]["micro"]["seconds"], [3.0, 5.0])
+        self.assertEqual(data["pace"]["bands"]["world"]["seconds"], [10.0, 20.0])
         self.assertEqual(data["capable_up_to"], "L5a")
-        self.assertIn("90 se 99 percent videos L3 ya isse upar ke level ki ho.", data["decided"]["words"])
+        self.assertTrue(any(w.startswith("90 se 99 percent videos L3 ya isse upar ke level ki ho.") for w in data["decided"]["words"]))
+        page = (ROOT / "docs/vision/VISUAL_LEVELS.md").read_text(encoding="utf-8")
+        for words in ("two stars", "koshish ka target hai, blocker nahi", "poori video ek level ki bane", "3–5 s per change", "10–20 s"):
+            self.assertIn(words, page)
         for lvl in data["levels"]:
             self.assertEqual(lvl["shot_allowed"], lvl["id"] in data["shot_levels"], lvl["id"])
             self.assertEqual(lvl["bie_target"], lvl["id"] not in ("L1", "L5b"), lvl["id"])
         self.assertTrue((ROOT / "docs/vision/VISUAL_LEVELS.md").read_text(encoding="utf-8").count("L5b") >= 2)
 
     def test_the_rulebook_counts_the_ladder_as_data_and_the_grammar_as_rules(self):
-        self.assertIn("visual_levels@2026-10-26.1", BOOK.version)
-        self.assertIn("visual_grammar@2026-10-26.1", BOOK.version)
+        self.assertIn("visual_levels@2026-10-26.2", BOOK.version)
+        self.assertIn("visual_grammar@2026-10-26.2", BOOK.version)
+        self.assertIn("vision-2026-10-21@2026-10-21.13", BOOK.version)
+        bench = json.loads(BENCHMARK.read_text(encoding="utf-8"))
+        self.assertEqual(bench["version"], "2026-10-26.1")
+        self.assertIn("3-5 seconds", next(r["rule"] for r in bench["rules"] if r["id"] == "B-01"))
+        self.assertIn("3-5 seconds", next(r.rule for r in BOOK.rules if r.id == "S3-06"))
+        self.assertIn("3-5 seconds", next(r.rule for r in BOOK.rules if r.id == "VG-01"))
+        self.assertIn("10-20 seconds", next(r.rule for r in BOOK.rules if r.id == "VG-01"))
         ids = [r.id for r in BOOK.for_section("director")]
         self.assertEqual([i for i in ids if i.startswith("VG-")], [f"VG-{n:02d}" for n in range(1, 12)])
         self.assertIn("W-01", ids)
@@ -103,6 +122,11 @@ class VisualLevels(unittest.TestCase):
         self.assertLess(shots.level_rank("L4"), shots.level_rank("L5a"))
         self.assertEqual(shots.higher("L3", "L5a"), "L5a")
         self.assertEqual(shots.level_rank("L9"), 0)
+
+    def test_pace_bands_by_subject(self):
+        self.assertEqual(shots.pace_band("biology_medical"), ("micro", (3.0, 5.0)))
+        self.assertEqual(shots.pace_band("physics"), ("world", (10.0, 20.0)))
+        self.assertEqual(shots.pace_band("law"), ("", None))
 
 
 class WordingRule(unittest.TestCase):
@@ -275,10 +299,15 @@ class DirectorOnATinyScript(unittest.TestCase):
         self.assertTrue(by_id["b2.2"]["caption"]["yaani"])                       # B-05 the plain meaning on the caption
         self.assertEqual(by_id["b2.2"]["level"], "L5a")                          # overlays never lower the world's level
 
-    def test_the_level_split_and_the_rule(self):
-        self.assertEqual(self.plan["at_or_above"]["level"], "L3")
-        self.assertGreaterEqual(self.plan["at_or_above"]["share"], 0.9)
+    def test_the_level_mix_the_main_level_and_the_pace(self):
+        self.assertEqual(self.plan["main_level"], "L5a")
+        self.assertGreaterEqual(self.plan["l3_plus_share"], 0.9)
         self.assertEqual(set(self.plan["level_split"]) <= {"L3", "L5a"}, True)
+        self.assertNotIn("at_or_above", self.plan)
+        pace = self.plan["pace"]
+        self.assertEqual((pace["band"], pace["target_seconds"]), ("micro", [3.0, 5.0]))
+        self.assertEqual(pace["changes"], len(shots.visual_changes(self.plan["shots"])))
+        self.assertLessEqual(pace["seconds_per_change"], 5.0 + 0.5)
         self.assertTrue(self.plan["render_allowed"], self.plan["checks"]["blocking"])
         self.assertEqual(self.plan["checks"]["blocking"], [])
         self.assertEqual(self.plan["wording"]["hits"], [])
@@ -301,7 +330,7 @@ class TheChecksFailWhatNavinRuledOut(unittest.TestCase):
         split = shots.level_split(plan["shots"])
         total = sum(v["seconds"] for v in split.values())
         above = sum(v["seconds"] for lvl, v in split.items() if shots.level_rank(lvl) >= shots.level_rank("L3"))
-        plan["level_split"], plan["at_or_above"] = split, {"level": "L3", "share": round(above / total, 4), "required": 0.9}
+        plan["level_split"], plan["l3_plus_share"] = split, round(above / total, 4)
         return plan
 
     def test_a_shot_at_l5b_or_l1_is_a_planning_error(self):
@@ -311,12 +340,43 @@ class TheChecksFailWhatNavinRuledOut(unittest.TestCase):
         plan = self.plan_with(["L1"])
         self.assertTrue(any("level 'L1' is outside" in p for p in shots.check_video(plan, TINY_BEATS, toolbox=BOX)[0]))
 
-    def test_a_video_below_ninety_percent_at_l3_is_not_rendered(self):
+    def test_a_mostly_l2_video_is_reported_not_blocked(self):
+        """Star A and B (Navin, 26 October 2026): a video's level never blocks it; the chapter report names it with the reason."""
         plan = self.plan_with(["L2", "L2", "L2", "L5a"])
-        blocking, _ = shots.check_video(plan, TINY_BEATS, toolbox=BOX)
-        self.assertTrue(any("the rule is 90%" in p and "not rendered" in p for p in blocking), blocking)
-        plan = self.plan_with(["L3"])
-        self.assertFalse(any("the rule is 90%" in p for p in shots.check_video(plan, TINY_BEATS, toolbox=BOX)[0]))
+        for s in plan["shots"]:
+            if s["level"] == "L2":
+                s["level_reason"] = "L2: a flat drawing shows this better (test)"
+        blocking, advisory = shots.check_video(plan, TINY_BEATS, toolbox=BOX)
+        self.assertEqual([p for p in blocking if "90" in p or "not rendered" in p], [])
+        plan["main_level"] = "L2"
+        report = shots.chapter_report([plan, dict(plan, video_id="v9", main_level="L5a", level_split={"L5a": {"shots": 1, "seconds": 10, "share": 1.0}})])
+        self.assertEqual((report["videos"], report["l3_plus_videos"], report["share"]), (2, 1, 0.5))
+        self.assertFalse(report["meets_target"])
+        self.assertFalse(report["blocker"])
+        self.assertEqual([r["video_id"] for r in report["below_target"]], ["v1"])
+        self.assertIn("main level L2", report["below_target"][0]["reason"])
+        self.assertIn("koshish ka target hai, blocker nahi", report["decided"])
+
+    def test_an_l2_shot_without_its_reason_is_pointed_at(self):
+        plan = self.plan_with(["L2"])
+        for s in plan["shots"]:
+            s["level_reason"] = ""
+        _, advisory = shots.check_video(plan, TINY_BEATS, toolbox=BOX)
+        self.assertTrue(any("L2 without its reason" in p for p in advisory), advisory[:3])
+
+    def test_the_pace_pass_adds_camera_moves_only_where_the_picture_would_hold(self):
+        plan = shots.build_video(TINY_VIDEO, TINY_CHAPTER, TINY_COURSE, toolbox=BOX)
+        still = [dict(s, camera="hold", block="cell_sheet", seconds=2.0, why=[]) for s in plan["shots"]]
+        before = len(shots.visual_changes(still))
+        added = shots.pace_pass(still, (3.0, 5.0))
+        self.assertEqual(before, 1)
+        self.assertGreaterEqual(added, len(still) // 3)
+        self.assertLessEqual(sum(s["seconds"] for s in still) / len(shots.visual_changes(still)), 5.0)
+        self.assertTrue(all(s["camera"] in ("hold", "zoom_in", "orbit", "zoom_out") for s in still))
+        self.assertEqual(shots.pace_pass([dict(s) for s in still], None), 0)        # no band, no moves
+        slow = [dict(s, camera="hold", block="cell_sheet", seconds=2.0, why=[]) for s in plan["shots"]]
+        shots.pace_pass(slow, (10.0, 20.0))
+        self.assertLess(len(shots.visual_changes(slow)), len(shots.visual_changes(still)))
 
     def test_said_is_shown_and_one_sentence_one_shot(self):
         plan = shots.build_video(TINY_VIDEO, TINY_CHAPTER, TINY_COURSE, toolbox=BOX)
@@ -356,11 +416,19 @@ class TheOfflineProofOnV3(unittest.TestCase):
         self.assertAlmostEqual(self.plan["seconds"], sum(s["seconds"] for s in self.plan["shots"]), places=1)
         self.assertGreater(self.plan["seconds"], 9 * 60)
 
-    def test_the_world_the_levels_and_the_ninety_percent_rule(self):
+    def test_the_world_the_levels_and_the_pace(self):
         self.assertEqual(self.plan["world"], dict(self.plan["world"], capability="cell_sheet_3d", block="cell_sheet", level="L5a"))
         self.assertEqual(set(self.plan["level_split"]), {"L3", "L5a"})
         self.assertGreater(self.plan["level_split"]["L5a"]["share"], 0.8)
-        self.assertEqual(self.plan["at_or_above"]["share"], 1.0)
+        self.assertEqual((self.plan["main_level"], self.plan["l3_plus_share"]), ("L5a", 1.0))
+        pace = self.plan["pace"]
+        self.assertEqual(pace["band"], "micro")
+        self.assertGreater(pace["seconds_per_change_before"], 5.0)              # measured 7.6 s before the director's camera moves
+        self.assertTrue(3.0 <= pace["seconds_per_change"] <= 5.0, pace)         # within the benchmark pace after them
+        self.assertGreater(pace["camera_moves_added"], 20)
+        self.assertTrue(pace["within_target"])
+        self.assertEqual([p for p in self.plan["checks"]["advisory"] if "(VG-01)" in p], [])
+        self.assertEqual(next(r for r in self.plan["rule_table"] if r["rule"] == "VG-01")["status"], "pass")
         self.assertEqual(self.plan["level_profile"]["id"], "upsc_pcs")
         for s in self.plan["shots"]:
             self.assertIn(s["level"], ("L2", "L3", "L4", "L5a"))
@@ -386,6 +454,8 @@ class TheOfflineProofOnV3(unittest.TestCase):
         self.assertEqual(self.plan["cuts"], 0)                             # VG-01: the camera moves, no cuts
         self.assertIn("pan", {s["camera"] for s in self.plan["shots"]})
         self.assertIn("zoom_in", {s["camera"] for s in self.plan["shots"]})
+        self.assertIn("orbit", {s["camera"] for s in self.plan["shots"]})   # the pace pass
+        self.assertTrue(all(s["level_reason"] == "" for s in self.plan["shots"]))     # no L2 shot in v3
         for s in self.plan["shots"]:
             for label in s["labels"]:
                 self.assertIn(label.lower(), s["sentence"].lower(), s["shot_id"])
@@ -400,7 +470,8 @@ class TheOfflineProofOnV3(unittest.TestCase):
         table = {r["rule"]: r["status"] for r in self.plan["rule_table"]}
         self.assertEqual(len(table), 24)
         self.assertEqual(table["W-01"], "fail")
-        self.assertEqual(table["B-01"], "pass")
+        self.assertEqual(table["B-01"], "partial")                               # 18 clauses over 6 s: a long sentence could be two
+        self.assertEqual(table["VG-01"], "pass")
         self.assertEqual(table["B-03"], "pass")
         self.assertEqual(table["VG-11"], "n/a")
         without = dict(V3["video"], beats=[b for b in V3["video"]["beats"] if b["beat_id"] not in ("b22", "b24", "b29", "b30", "b36")])
@@ -412,6 +483,8 @@ class TheOfflineProofOnV3(unittest.TestCase):
         self.assertEqual(recorded["schema"], shots.SCHEMA)
         self.assertEqual(len(recorded["shots"]), len(self.plan["shots"]))
         self.assertEqual(recorded["level_split"], self.plan["level_split"])
+        self.assertEqual(recorded["pace"], self.plan["pace"])
+        self.assertEqual(recorded["main_level"], "L5a")
         self.assertEqual([h["beat_id"] for h in recorded["wording"]["hits"]], ["b22", "b24", "b29", "b30", "b36"])
         self.assertEqual([(s["shot_id"], s["capability"], s["level"]) for s in recorded["shots"]],
                          [(s["shot_id"], s["capability"], s["level"]) for s in self.plan["shots"]])
@@ -438,8 +511,12 @@ class RunAndTool(unittest.TestCase):
         summary = shots.run_shots(TINY_CHAPTER, lesson_doc, TINY_COURSE, self.tmp, toolbox=BOX)
         self.assertEqual([(v["video_id"], v["status"]) for v in summary["videos"]], [("v1", "render_allowed"), ("v2", "skipped")])
         self.assertTrue((self.tmp / "shots" / "v1.json").exists())
+        self.assertEqual((summary["chapter"]["videos"], summary["chapter"]["l3_plus_videos"], summary["chapter"]["meets_target"]), (1, 1, True))
         page = (self.tmp / "SHOTS.md").read_text(encoding="utf-8")
+        self.assertIn("## Chapter report (star A)", page)
         self.assertIn("## v1 · Epithelium", page)
+        self.assertIn("Main level **L5a**", page)
+        self.assertIn("Pace (VG-01)", page)
         self.assertIn("### The 24 rules", page)
         self.assertIn("render allowed", page)
 
@@ -452,7 +529,8 @@ class RunAndTool(unittest.TestCase):
             code = shot_list.main(["--from-run", str(self.tmp), "--videos", "v1", "--out", str(self.tmp / "out")])
         self.assertEqual(code, 0, out.getvalue())
         self.assertIn("v1:", out.getvalue())
-        self.assertIn("at L3+ 100.0%", out.getvalue())
+        self.assertIn("main level L5a", out.getvalue())
+        self.assertIn("chapter: 1 of 1 videos", out.getvalue())
         self.assertTrue((self.tmp / "out" / "shots" / "v1.json").exists())
 
 

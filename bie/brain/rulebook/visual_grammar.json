@@ -1,9 +1,12 @@
 {
  "rulebook": "bie-visual-grammar",
- "version": "2026-10-26.1",
+ "version": "2026-10-26.2",
  "source": "Navin's brief for Task 046, 26 October 2026: eleven visual grammar rules added to the twelve of the epithelium benchmark (benchmarks/epithelium_animation.json, B-01 to B-12), and the wording rule W-01. The director reads the rules; the checks enforce what code can check (bie/brain/shots.py).",
  "numbering": "Navin's brief numbers the grammar rules G-01 to G-11. In this rulebook they are VG-01 to VG-11, because G-01 to G-07 are already the general rules of vision-2026-10-21.json and a rule id is used once.",
  "notes": "Each rule is an instruction for the director and the visual section (rule) and a yes/no question for the reviewer (check). Rules change only through a reviewed version bump; Navin approves every new or changed rule.",
+ "changes": [
+  "2026-10-26.2 (Navin, 26 October 2026): VG-01 names the pace as a visual-change rate with its two bands; the per-video '90 % of shot seconds at L3 or above' check is withdrawn (visual_levels.json, targets)."
+ ],
  "rules": [
   {
    "id": "VG-01",
@@ -12,8 +15,8 @@
     "visual"
    ],
    "status": "locked",
-   "rule": "One topic, one 3D world: the camera moves to the next part; cuts are rare. Micro biology keeps the benchmark pace (a shot every 2-5 seconds); engineering and physics worlds hold longer shots.",
-   "check": "Does the video stay in one world, moving the camera between parts, with few cuts, at the pace its subject asks for?"
+   "rule": "One topic, one 3D world: the camera moves to the next part; cuts are rare. The pace is the visual-change rate (a block or camera change, or the lit structure moving): micro biology every 3-5 seconds, as the benchmark; engineering and physics worlds every 10-20 seconds (Navin, 26 October 2026).",
+   "check": "Does the video stay in one world, moving the camera between parts with few cuts, and does the picture change at its subject's pace (micro 3-5 s, engineering and physics 10-20 s)?"
   },
   {
    "id": "VG-02",
