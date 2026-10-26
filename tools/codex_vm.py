@@ -9,7 +9,8 @@ machines, never for public repositories). Work reaches it as job files instead:
 
 A job is ``jobs/<id>.json`` on the ``codex-jobs`` branch (written by Claude through GitHub, later by the
 one-button app). The runner checks every field against a fixed list, runs ``tools/run_brain.py`` from
-``main`` without a shell, publishes the run folder to ``blindtest-results`` (``runs/vm-<id>-<section>/``)
+``main`` without a shell (sections ``image`` and ``look``: ``tools/vm_image.py``, pictures through the plan, and
+``tools/vm_look.py``, the LOOK-01 look check; Task 046), publishes the run folder to ``blindtest-results`` (``runs/vm-<id>-<section>/``)
 and writes ``jobs/<id>.result.json`` next to the job. Keys never leave the machine: run_brain redacts them
 and the auth file stays in CODEX_HOME. Only people with write access to the repository can add a job.
 
@@ -40,7 +41,11 @@ ROOT = Path(__file__).resolve().parents[1]
 JOB_SCHEMA = "bie.vm-job/1"
 JOBS_BRANCH = "codex-jobs"
 RESULTS_BRANCH = "blindtest-results"
-SECTIONS = ("understand", "lesson", "director", "notes", "game", "visual", "chain")
+SECTIONS = ("understand", "lesson", "director", "notes", "game", "visual", "chain", "image", "look")
+# Task 046 one-shot test (Navin, 26 October 2026): "image" makes pictures with Codex's built-in image_gen tool through the
+# ChatGPT plan (tools/vm_image.py, prompts written by BIE, at most 4 images) and returns the image files; "look" runs the
+# LOOK-01 look check with the free Google reviewer (tools/vm_look.py). Both are fixed commands, like run_brain.
+TOOL_SECTIONS = ("image", "look")
 MAKERS = ("codex", "google", "openai")
 REVIEWERS = ("google", "openai")
 URL = re.compile(r"^https://[A-Za-z0-9._~:/?#\[\]@!$&'()*+,;=%-]{1,400}$")
@@ -68,7 +73,7 @@ def validate(job: dict) -> dict:
         raise JobError(f"job: must be a {JOB_SCHEMA} object")
     allowed = {"job", "id", "section", "source", "chapter_map", "from_run", "resume_from", "pages", "videos", "course",
                "maker", "reviewer", "reviewer_model", "models", "routes", "max_inr", "workers", "max_rounds", "language",
-               "with_visual", "render", "fake", "note"}
+               "with_visual", "render", "fake", "note", "prompts", "request", "max_images"}
     unknown = sorted(set(job) - allowed)
     if unknown:
         raise JobError("unknown fields: " + ", ".join(unknown))
@@ -77,9 +82,17 @@ def validate(job: dict) -> dict:
         raise JobError("section: one of " + ", ".join(SECTIONS))
     if out["maker"] not in MAKERS or out["reviewer"] not in REVIEWERS:
         raise JobError("maker or reviewer: not allowed")
-    for name in ("source", "chapter_map", "from_run", "resume_from"):
+    for name in ("source", "chapter_map", "from_run", "resume_from", "prompts", "request"):
         if out.get(name) and not URL.match(str(out[name])):
             raise JobError(f"{name}: an https URL")
+    if out["section"] == "image" and not out.get("prompts"):
+        raise JobError("prompts: needed for image")
+    if out["section"] == "look" and not out.get("request"):
+        raise JobError("request: needed for look")
+    if out["section"] not in TOOL_SECTIONS and (out.get("prompts") or out.get("request") or "max_images" in out):
+        raise JobError("prompts, request and max_images: only for image and look")
+    if "max_images" in out and (isinstance(out["max_images"], bool) or out["max_images"] not in (1, 2, 3, 4)):
+        raise JobError("max_images: between 1 and 4")
     for name, pattern in FIELDS.items():
         if out.get(name) not in (None, "") and not pattern.match(str(out[name])):
             raise JobError(f"{name}: not allowed")
@@ -102,7 +115,17 @@ def validate(job: dict) -> dict:
 
 
 def argv(job: dict, out: Path, python: str = sys.executable) -> list:
-    """The run_brain command for a validated job (no shell, every value its own argument)."""
+    """The command for a validated job (no shell, every value its own argument)."""
+    if job["section"] == "image":
+        return [python, "-B", str(ROOT / "tools" / "vm_image.py"), "--prompts", str(job["prompts"]), "--out", str(out),
+                "--max-images", str(job.get("max_images", 4))]
+    if job["section"] == "look":
+        cmd = [python, "-B", str(ROOT / "tools" / "vm_look.py"), "--request", str(job["request"]), "--out", str(out),
+               "--max-inr", str(job["max_inr"])]
+        for name in ("models", "routes"):
+            if job.get(name):
+                cmd += ["--" + name, str(job[name])]
+        return cmd
     cmd = [python, "-B", str(ROOT / "tools" / "run_brain.py"), "--section", job["section"], "--out", str(out),
            "--maker", job["maker"], "--reviewer", job["reviewer"], "--max-inr", str(job["max_inr"]),
            "--workers", str(job["workers"]), "--max-rounds", str(job["max_rounds"])]
@@ -211,7 +234,7 @@ def run_one(rep: Repo, name: str, *, python: str = sys.executable) -> dict:
         (out / "RUN_LOG.txt").write_text(done.stdout[-200000:], encoding="utf-8")     # annotations only; keys redacted
     except subprocess.TimeoutExpired:
         result["exit_code"] = None
-        result["error"] = f"run_brain did not finish within {RUN_TIMEOUT // 3600} hours"
+        result["error"] = f"the job did not finish within {RUN_TIMEOUT // 3600} hours"
     summary = json.loads((out / "SUMMARY.json").read_text(encoding="utf-8")) if (out / "SUMMARY.json").exists() else {}
     folder = f"runs/vm-{job['id']}-brain-{job['section']}"
     try:
@@ -225,6 +248,11 @@ def run_one(rep: Repo, name: str, *, python: str = sys.executable) -> dict:
                   plan_usage_after=summary.get("plan_usage_after"),
                   quality=summary.get("quality"), map_status=summary.get("map_status"),
                   stop_reason=summary.get("stop_reason"), error=summary.get("error") or result.get("error"))
+    if job["section"] == "image":
+        result.update(images_made=sum(1 for r in summary.get("images") or [] if r.get("status") == "made"),
+                      plan_usage_before=summary.get("plan_usage_before"))
+    if job["section"] == "look":
+        result.update(look=summary.get("table"), reference=summary.get("reference"))
     return result
 
 

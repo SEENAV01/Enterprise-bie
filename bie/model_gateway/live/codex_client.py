@@ -58,6 +58,17 @@ LEAN_SETTINGS = ('web_search="disabled"', "agents.enabled=false", "skills.max_co
 LEAN_FEATURES_OFF = ("shell_tool", "unified_exec", "code_mode_host", "sleep_tool", "view_image", "browser_use", "computer_use",
                      "apps", "plugins", "image_generation", "hooks", "multi_agent", "goals", "skill_search", "tool_suggest",
                      "workspace_dependencies", "worktrees")
+# Images through the plan (Task 046 one-shot, Navin 26 October 2026): Codex's built-in ``image_gen`` tool (the
+# ``image_generation`` feature, stable and on in 0.162.1; gpt-image-2 behind it) makes the picture and saves it under
+# ``$CODEX_HOME/generated_images/``. No API key: the call is billed to the ChatGPT plan, whose limits it uses several
+# times faster than text. Everything else stays off, as in a lean call.
+IMAGE_INSTRUCTIONS = ("You are BIE's image maker, run by BIE (Book Intelligence Engine) through Codex with no person "
+                      "watching. The message holds one image description written by BIE. Call the built-in image_gen tool "
+                      "exactly once with that description, keeping every requirement in it, then reply with the single "
+                      "word DONE. Do not run commands, read or write files, browse, ask questions or start other agents.")
+IMAGE_FEATURES_OFF = tuple(f for f in LEAN_FEATURES_OFF if f != "image_generation")
+IMAGE_SUFFIXES = (".png", ".jpg", ".jpeg", ".webp")
+IMAGE_MAGIC = {b"\x89PNG": ".png", b"\xff\xd8\xff": ".jpg", b"RIFF": ".webp"}
 PLAN_LIMIT_TEXT = re.compile(r"(?i)usage limit|usage_limit|hit your usage|reached your usage|try again at|rate_limit_reached|"
                              r"quota_exceeded|usage_not_included|credits? (are )?depleted|out of credits|credit limit")
 AUTH_TEXT = re.compile(r"(?i)\b401\b|unauthori[sz]ed|not logged in|authentication required|missing bearer|"
@@ -130,6 +141,49 @@ def parse_events(stdout: str) -> dict:
                 out["message"] = item["text"]
             elif item.get("type") == "error":
                 out["errors"].append(str(item.get("message") or ""))
+    return out
+
+
+def _image_suffix(data: bytes) -> str:
+    return next((suffix for magic, suffix in IMAGE_MAGIC.items() if data.startswith(magic)), "")
+
+
+def image_events(stdout: str) -> dict:
+    """What a ``codex exec --json`` stream says about generated images: the event and item types seen, any saved path,
+    any base64 result (decoded), the revised prompt. Codex's image items are read by shape, not by one exact name."""
+    out = {"types": [], "paths": [], "images": [], "revised_prompt": None}
+
+    def walk(value):
+        if isinstance(value, dict):
+            kind = value.get("type")
+            if isinstance(kind, str) and kind not in out["types"]:
+                out["types"].append(kind)
+            for key, item in value.items():
+                if key in ("path", "saved_path", "file_path", "output_path") and isinstance(item, str) \
+                        and item.lower().endswith(IMAGE_SUFFIXES):
+                    out["paths"].append(item)
+                elif key == "revised_prompt" and isinstance(item, str):
+                    out["revised_prompt"] = item
+                elif key in ("result", "b64_json", "image_base64") and isinstance(item, str) and len(item) > 200:
+                    try:
+                        data = base64.b64decode(item, validate=True)
+                    except (ValueError, TypeError):
+                        data = b""
+                    if _image_suffix(data):
+                        out["images"].append(data)
+                else:
+                    walk(item)
+        elif isinstance(value, list):
+            for item in value:
+                walk(item)
+
+    for line in stdout.splitlines():
+        line = line.strip()
+        if line.startswith("{"):
+            try:
+                walk(json.loads(line))
+            except ValueError:
+                continue
     return out
 
 
@@ -233,6 +287,73 @@ class CodexExecClient:
                 "usage": {"input_tokens": int(usage.get("input_tokens") or 0),
                           "output_tokens": int(usage.get("output_tokens") or 0),
                           "cached_input_tokens": int(usage.get("cached_input_tokens") or 0),
+                          "reasoning_tokens": int(usage.get("reasoning_output_tokens") or 0)}}
+
+    def home(self) -> Path:
+        return Path(self.codex_home or os.environ.get("CODEX_HOME") or Path.home() / ".codex")
+
+    def generate_image(self, prompt: str, out: Path, *, model: str | None = None) -> dict:
+        """One picture from Codex's built-in ``image_gen`` tool through the ChatGPT plan, saved to ``out`` (its suffix
+        follows the image's format). Returns where Codex put it, the seconds, the usage and the event types seen. The run
+        is read-only and starts in an empty folder; only the image tool is on."""
+        images_dir = self.home() / "generated_images"
+        before = {p: p.stat().st_mtime for p in images_dir.rglob("*") if p.is_file()} if images_dir.exists() else {}
+        with tempfile.TemporaryDirectory(prefix="bie-codex-image-") as folder:
+            folder = Path(folder)
+            work = folder / "work"
+            work.mkdir()
+            last = folder / "last-message.txt"
+            instructions = folder / "instructions.md"
+            instructions.write_text(IMAGE_INSTRUCTIONS, encoding="utf-8")
+            cmd = self.command + ["exec", "--json", "--skip-git-repo-check", "--sandbox", "read-only", "--ignore-rules",
+                                  "--color", "never", "-C", str(work), "-o", str(last), "-m", model or DEFAULT_MODEL,
+                                  "--strict-config", "-c", f"model_instructions_file={json.dumps(str(instructions))}"]
+            for setting in LEAN_SETTINGS:
+                cmd += ["-c", setting]
+            for feature in IMAGE_FEATURES_OFF:
+                cmd += ["--disable", feature]
+            cmd += ["--", "-"]
+            started = self._clock()
+            try:
+                done = self._run(cmd, input="<bie-image-prompt>\n" + prompt + "\n</bie-image-prompt>", capture_output=True,
+                                 text=True, timeout=self.timeout, env=self.child_env())
+            except FileNotFoundError:
+                raise ProviderError("config", "the codex CLI is not installed here (set BIE_CODEX_BIN)", provider="codex") from None
+            except subprocess.TimeoutExpired:
+                raise ProviderError("timeout", f"codex exec did not finish within {self.timeout:.0f} s", provider="codex") from None
+            seconds = round(self._clock() - started, 3)
+            events = parse_events(done.stdout or "")
+            found = image_events(done.stdout or "")
+            in_work = sorted(p for p in work.rglob("*") if p.suffix.lower() in IMAGE_SUFFIXES)
+            work_bytes = in_work[-1].read_bytes() if in_work else b""
+        if done.returncode != 0 or events["failed"] or not events["completed"]:
+            detail = events["failed"] or (events["errors"][-1] if events["errors"] else "") or (done.stderr or "")[-600:]
+            self._fail(detail or f"codex exec exited with {done.returncode}")
+        fresh = sorted((p for p in images_dir.rglob("*") if p.is_file() and p.suffix.lower() in IMAGE_SUFFIXES
+                        and before.get(p) != p.stat().st_mtime), key=lambda p: p.stat().st_mtime) if images_dir.exists() else []
+        data, found_by, source = b"", "", ""
+        if fresh:
+            data, found_by, source = fresh[-1].read_bytes(), "codex_home", fresh[-1].name
+        elif any(Path(p).is_file() for p in found["paths"]):
+            path = Path(next(p for p in reversed(found["paths"]) if Path(p).is_file()))
+            data, found_by, source = path.read_bytes(), "event_path", path.name
+        elif found["images"]:
+            data, found_by = found["images"][-1], "event_base64"
+        elif work_bytes:
+            data, found_by = work_bytes, "work_folder"
+        suffix = _image_suffix(data)
+        if not suffix:
+            raise ProviderError("malformed", "codex exec finished but no generated image was found (event types: "
+                                + ", ".join(found["types"][:12]) + ")", provider="codex")
+        out = Path(out).with_suffix(suffix)
+        out.parent.mkdir(parents=True, exist_ok=True)
+        out.write_bytes(data)
+        usage = events["usage"]
+        self.last_thread, self.last_seconds, self.last_model = events["thread_id"], seconds, model or DEFAULT_MODEL
+        return {"file": out.name, "bytes": len(data), "seconds": seconds, "found_by": found_by, "codex_file": source,
+                "thread": events["thread_id"], "revised_prompt": found["revised_prompt"], "event_types": found["types"],
+                "final_message": (events["message"] or "")[:200],
+                "usage": {"input_tokens": int(usage.get("input_tokens") or 0), "output_tokens": int(usage.get("output_tokens") or 0),
                           "reasoning_tokens": int(usage.get("reasoning_output_tokens") or 0)}}
 
     def login_status(self) -> dict:
