@@ -1,0 +1,55 @@
+{
+  "access": {
+    "google": {
+      "gemini-2.5-flash-image": {
+        "allowed": false,
+        "error": "429 | RESOURCE_EXHAUSTED | You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: ",
+        "error_kind": "balance"
+      },
+      "gemini-3-pro-image-preview": {
+        "allowed": false,
+        "error": "no price for model gemini-3-pro-image-preview; add it to pricing.py or BIE_MODEL_PRICES_JSON",
+        "error_kind": "budget"
+      },
+      "gemini-3.1-flash-image": {
+        "allowed": false,
+        "error": "no price for model gemini-3.1-flash-image; add it to pricing.py or BIE_MODEL_PRICES_JSON",
+        "error_kind": "budget"
+      },
+      "gemini-3.1-flash-image-preview": {
+        "allowed": false,
+        "error": "no price for model gemini-3.1-flash-image-preview; add it to pricing.py or BIE_MODEL_PRICES_JSON",
+        "error_kind": "budget"
+      },
+      "gemini-nano-banana-2.1": {
+        "allowed": false,
+        "error": "no price for model gemini-nano-banana-2.1; add it to pricing.py or BIE_MODEL_PRICES_JSON",
+        "error_kind": "budget"
+      },
+      "nano-banana-pro-preview": {
+        "allowed": false,
+        "error": "no price for model nano-banana-pro-preview; add it to pricing.py or BIE_MODEL_PRICES_JSON",
+        "error_kind": "budget"
+      }
+    }
+  },
+  "evidence_kind": "TECHNICAL_RUN",
+  "fake": false,
+  "mode": "access",
+  "passed": true,
+  "product_accepted": false,
+  "providers": [
+    "google"
+  ],
+  "usage": {
+    "google": {
+      "cache_hits": 0,
+      "calls": 6,
+      "cost_complete": true,
+      "cost_usd": 0.0,
+      "failed_calls": 6,
+      "input_tokens": 0,
+      "output_tokens": 0
+    }
+  }
+}
