@@ -659,15 +659,22 @@ Measured effect: in the one-shot report (look scores per route, render seconds p
     (₹0 on the public repository).
   - A 5-minute segment at this quality would need about 500 machine-hours, so a long video at this quality needs fewer
     samples, GPU rendering, or the 2.5D route.
-- **LOOK-01 (first use) names the gap that the presence checks could not.** Route 1 scored mean 5.2 of 10, verdict
-  “close” (Part B had no look score at all). Translucency is the weakest axis (4): the cells read as opaque and rubbery.
-  The next look work is wet, translucent cytoplasm: thinner subsurface radius, a transmission layer and a clear-coat sheen.
-  It was not done here, because the test stops for Navin's verdict.
+- **LOOK-01 (first use) names the gap that the presence checks could not.** Part B had no look score at all.
+  - Route 1 (Blender) scored mean 5.3 of 10, verdict “close” (5.2 in a first check). Translucency is its weakest axis
+    (4): the cells read as opaque and rubbery. The next look work for Route 1 is wet, translucent cytoplasm: a thinner
+    subsurface radius, a transmission layer and a clear-coat sheen.
+  - Route 2 (a Codex still moved in 2.5D by BIE code) scored 7 on every axis, mean 7.0, verdict “same class”. Its gap:
+    the code's particles float without contact shadows. The next look work for Route 2 is particle shadows and a
+    depth-aware fade where particles cross the layer.
+  - Neither was done here, because the test stops for Navin's verdict.
+- **Route 2 is fast and cheap; Route 1 is flexible.** Route 2 made the shot in about 3 minutes (4 images in 2 minutes on
+  the plan, a 17 s depth map, a 150 s animation). Route 1 needed 7.6 machine-hours. But a still allows only a small camera
+  move, while Route 1 is real 3D (any move, any member, the same look every time).
 - **The VM runner had three gaps, each found by a live job:**
   - A poll ran the old code after a merge (F-14: it now runs again with the new code).
   - A failed Codex image run kept no reason (F-14: the error and reply are kept).
-  - Codex 0.162.1 calls every tool through its code-mode host, which BIE's lean settings turn off (F-14b, draft PR #81,
-    waits for Navin's yes).
+  - Codex 0.162.1 calls every tool through its code-mode host, which BIE's lean settings turn off (F-14b, PR #81, merged
+    after Navin's yes). The fourth image job then made 4 of 4 images in 2 minutes on the ChatGPT plan, ₹0.
   - PR #77's runner tests were in no CI lane; they are now.
 - **CI time:** the toolbox lane's apt steps hit the slow mirror (F-11) and the assets job waited behind a manual run
   (F-13c). With bounded downloads the `wrappers` job now takes 3.5 minutes; before, it was cancelled at its 40-minute limit.
@@ -678,15 +685,16 @@ Measured effect: in the one-shot report (look scores per route, render seconds p
   (Apache-2.0, pinned, SHA-checked), registered and tested.
 - Blocks: `plate` and `parallax_plate`; `bie/brain/video/still_prompt.py`; `tools/oneshot.py`.
 - Rules: LOOK-01 in the rule table (`visual_grammar.json` 2026-10-26.3).
-- CI and runner (merged): PR #77, #79 and #80.
+- CI and runner (merged): PR #77, #79, #80 and #81.
 
 **Measured effect:**
 
 | | before | after |
 | --- | --- | --- |
-| Look score | none (Part B) | Route 1: LOOK-01 mean 5.2, “close” |
+| Look score (LOOK-01, against a written description) | none (Part B) | Route 1 5.3 “close”; Route 2 7.0 “same class” |
 | Route 1 cost per 1080p frame (4 CPU, 32 spp) | — | 203 s |
 | Route 1 cost per shot | — | 7.6 machine-hours, ₹0 |
-| Route 2 | — | not measured: no AI image made yet |
+| Route 2 cost per shot | — | 4 images in 2.05 minutes on the ChatGPT plan + 17 s depth + 150 s animation, ₹0 |
+| Codex image jobs that made images | — | 0 of 3 before F-14/F-14b, 4 of 4 after |
 
 Navin's verdict decides what is next.

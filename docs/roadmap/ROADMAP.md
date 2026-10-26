@@ -269,7 +269,8 @@ says ACCEPTED.
 Navin rejected Part B (26 October 2026). Before Part C, the **one-shot quality test** (draft PR #76): one shot (b37.2) made
 two ways — Route 1 a studio-grade Blender recipe, Route 2 an AI still from Codex through the ChatGPT plan moved in 2.5D by BIE
 code — judged side by side with the benchmark, with LOOK-01 (a reviewer with image input, advice only) in the rule table.
-Route 1 done; Route 2 waits for Navin's decision (STATUS, "Task 046 · One-shot quality test"); then stop for his verdict.
+Both routes done on 26 October 2026 (LOOK-01: Route 2 7.0 “same class”, Route 1 5.3 “close”; STATUS, "Task 046 ·
+One-shot quality test"); stop for Navin's verdict.
 
 **047 · Voice** — extend Section 14: tested natural voices including a cloned voice (Navin chooses by ear);
 word timestamps drive the animation; close the AUDIO reconciliation.
