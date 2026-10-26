@@ -1,0 +1,66 @@
+{
+ "schema": "bie.vm-look-run/1",
+ "section": "look",
+ "rule": "LOOK-01",
+ "rule_version": "2026-10-26.1",
+ "reviewer": {
+  "route": "google",
+  "model": "gemini-3.8-flash"
+ },
+ "reference": "description",
+ "reference_files": [],
+ "status": "ok",
+ "error": null,
+ "results": {
+  "route1": {
+   "scores": {
+    "organic_shape": 6,
+    "translucency": 4,
+    "lighting_depth": 6,
+    "detail": 5,
+    "science": 5,
+    "same_class": 5
+   },
+   "reasons": {
+    "organic_shape": "Cell boundaries interlock organically, though borders appear slightly too thick and doughy.",
+    "translucency": "Materials appear largely opaque and clay-like, missing glassy subsurface scattering.",
+    "lighting_depth": "Depth of field is functional, but backlighting and rim highlights remain muted.",
+    "detail": "Basic surface stippling is present on nuclei, but cytoplasm textures lack fine fidelity.",
+    "science": "Depicts an interlocking squamous sheet with particles, but missing the cross-sectional membrane view.",
+    "same_class": "The rendering feels more like a standard educational model than cinematic macro realism."
+   },
+   "biggest_gap": "The cellular material lacks wetness and translucent subsurface scattering, resulting in an opaque, rubbery appearance.",
+   "verdict": "close",
+   "frames": [
+    "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046-oneshot/route1/look-f0030.jpg",
+    "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046-oneshot/route1/look-f0075.jpg",
+    "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046-oneshot/route1/look-f0120.jpg"
+   ]
+  }
+ },
+ "table": {
+  "route1": {
+   "mean": 5.17,
+   "same_class": 5,
+   "verdict": "close"
+  }
+ },
+ "cost": {
+  "cap": {
+   "cap_inr": 5.0,
+   "usd_inr": 94.59,
+   "spent_inr": 0.51,
+   "spent_usd": 0.005408,
+   "calls_allowed": 1,
+   "calls_refused": 0,
+   "stopped": false,
+   "stop_reason": null,
+   "by_section_inr": {
+    "look": 0.51
+   }
+  },
+  "total_inr": 0.51,
+  "note": "Ledger cost is an estimate: exact token counts times the dated price table in bie/model_gateway/live/pricing.py (plus the AICredits 10% markup), converted at usd_inr. It is not the bill. Write the provider dashboard amount for this run into real_bill_inr (and docs/roadmap/COST_LOG.md) to compare.",
+  "billed_note": "the free Google AI Studio tier bills Rs 0; the guard prices calls at the list price"
+ }
+}
