@@ -1,0 +1,96 @@
+{
+ "schema": "bie.vm-look-run/1",
+ "section": "look",
+ "rule": "LOOK-01",
+ "rule_version": "2026-10-26.1",
+ "reviewer": {
+  "route": "google",
+  "model": "gemini-3.8-flash"
+ },
+ "reference": "description",
+ "reference_files": [],
+ "status": "ok",
+ "error": null,
+ "results": {
+  "route1": {
+   "scores": {
+    "organic_shape": 6,
+    "translucency": 4,
+    "lighting_depth": 6,
+    "detail": 5,
+    "science": 6,
+    "same_class": 5
+   },
+   "reasons": {
+    "organic_shape": "Cell boundaries show good interlocking wavy outlines, though slightly uniform and stiff.",
+    "translucency": "Surfaces appear somewhat opaque and clay-like, missing soft internal light scatter.",
+    "lighting_depth": "Depth of field is clear, but specular rim lighting and contrast are subtle.",
+    "detail": "Basic textures and nuclear bumps are visible, but macro-level membrane micro-detail is limited.",
+    "science": "Effectively demonstrates the flat pavement epithelium and particle exchange concept.",
+    "same_class": "Presents clean educational medical 3D, but falls short of photorealistic cinematic benchmarks."
+   },
+   "biggest_gap": "The materials lack wetness and deep subsurface translucency, appearing more like opaque stylized rubber than living organic tissue.",
+   "verdict": "close",
+   "frames": [
+    "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046-oneshot/route1/look-f0030.jpg",
+    "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046-oneshot/route1/look-f0075.jpg",
+    "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046-oneshot/route1/look-f0120.jpg"
+   ]
+  },
+  "route2": {
+   "scores": {
+    "organic_shape": 7,
+    "translucency": 7,
+    "lighting_depth": 7,
+    "detail": 7,
+    "science": 7,
+    "same_class": 7
+   },
+   "reasons": {
+    "organic_shape": "Cell boundaries exhibit natural interlocking contours with well-defined nuclear domes.",
+    "translucency": "Material shaders show convincing subsurface scattering and soft fleshy light penetration.",
+    "lighting_depth": "Key and rim lighting create strong separation with appropriate focal blur.",
+    "detail": "Fine mottled texturing and moist surface reflections feel organic rather than flat.",
+    "science": "Correctly depicts thin flattened morphology and exchange across an epithelial layer.",
+    "same_class": "Visual execution matches the target medical-grade macro benchmark standard."
+   },
+   "biggest_gap": "The floating blue spheres appear slightly detached due to minimal contact shadowing and reflection interaction with the cell surface.",
+   "verdict": "same class",
+   "frames": [
+    "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046-oneshot/route2/look-f0030.jpg",
+    "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046-oneshot/route2/look-f0075.jpg",
+    "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046-oneshot/route2/look-f0120.jpg"
+   ]
+  }
+ },
+ "table": {
+  "route1": {
+   "mean": 5.33,
+   "same_class": 5,
+   "verdict": "close"
+  },
+  "route2": {
+   "mean": 7.0,
+   "same_class": 7,
+   "verdict": "same class"
+  }
+ },
+ "cost": {
+  "cap": {
+   "cap_inr": 5.0,
+   "usd_inr": 94.59,
+   "spent_inr": 1.1,
+   "spent_usd": 0.011623,
+   "calls_allowed": 2,
+   "calls_refused": 0,
+   "stopped": false,
+   "stop_reason": null,
+   "by_section_inr": {
+    "look": 1.1
+   }
+  },
+  "total_inr": 1.1,
+  "note": "Ledger cost is an estimate: exact token counts times the dated price table in bie/model_gateway/live/pricing.py (plus the AICredits 10% markup), converted at usd_inr. It is not the bill. Write the provider dashboard amount for this run into real_bill_inr (and docs/roadmap/COST_LOG.md) to compare.",
+  "billed_note": "the free Google AI Studio tier bills Rs 0; the guard prices calls at the list price"
+ }
+}
