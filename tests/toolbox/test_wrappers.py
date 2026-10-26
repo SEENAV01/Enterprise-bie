@@ -158,12 +158,90 @@ class OfflineRenderers(unittest.TestCase):
             from bie.toolbox.adapters import meshes
             self.assertGreaterEqual(meshes.glb_info((Path(folder) / "s.glb").read_bytes())["meshes"], 13)
 
+    def test_epithelium_studio_renders_a_still_with_label_anchors(self):
+        from bie.toolbox.adapters import blender
+        with tempfile.TemporaryDirectory() as folder:
+            info = blender.epithelium_studio(folder, {"resolution": [192, 108], "samples": 2, "width": 4.0, "depth": 3.0, "particles": 4,
+                                                      "frames": 6, "camera": {"target": [0.0, 0.4, 0.1]}}, stills=[3])
+            self.assertEqual((info["member"], info["frames_rendered"], info["samples"]), ("simple_squamous", 1, 2))
+            self.assertGreater(info["cells"], 5)
+            self.assertTrue(info["blender"].startswith("5.2"))
+            self.assertTrue((Path(folder) / "frames" / "f0003.png").read_bytes().startswith(b"\x89PNG"))
+            anchors = json.loads((Path(folder) / "anchors.json").read_text(encoding="utf-8"))
+            self.assertEqual(sorted(anchors["points"]), ["boundary", "simple squamous"])
+            self.assertEqual(len(anchors["points"]["simple squamous"]), 6)          # one [x, y, depth] per frame
+            x, y, depth = anchors["points"]["simple squamous"][2]
+            self.assertTrue(0 < x < 1 and 0 < y < 1 and depth > 0)
+            again = Path(folder) / "again"                      # the same scene in every process (chunks on several runners)
+            blender.epithelium_studio(again, {"resolution": [96, 54], "samples": 1, "width": 4.0, "depth": 3.0, "particles": 4,
+                                              "frames": 6, "camera": {"target": [0.0, 0.4, 0.1]}}, stills=[1])
+            self.assertEqual(json.loads((again / "anchors.json").read_text(encoding="utf-8"))["points"], anchors["points"])
+
     def test_manim_renders_a_clip(self):
         from bie.toolbox.adapters import manim_clips
         with tempfile.TemporaryDirectory() as folder:
             info = manim_clips.render("FunctionDraw", {"x": [0, 1, 2, 3], "y": [0, 1, 0, 1], "title": "test", "draw_seconds": 0.5},
                                       Path(folder) / "c.mp4", width=320, height=180)
             self.assertGreater(info["bytes"], 1000)
+
+
+class Depth(unittest.TestCase):
+    """Task 046 one-shot test, Route 2: the depth adapter around Depth Anything V2 Small (the model itself is not run here:
+    a fake session stands in, so the lane needs no 99 MB download)."""
+
+    def test_estimate_writes_a_16_bit_map_near_is_white(self):
+        import numpy as np
+        from PIL import Image
+        from bie.toolbox.adapters import depth
+
+        class Session:
+            def get_inputs(self):
+                return [type("I", (), {"name": "pixel_values"})()]
+
+            def run(self, _outputs, feeds):
+                x = feeds["pixel_values"]
+                self.shape = x.shape
+                rows = np.linspace(0.0, 10.0, depth.SIDE, dtype=np.float32)[:, None]   # bottom rows nearer
+                return [np.repeat(rows, depth.SIDE, axis=1)[None]]
+
+        with tempfile.TemporaryDirectory() as folder:
+            Image.new("RGB", (320, 180), (200, 150, 150)).save(Path(folder) / "still.png")
+            session = Session()
+            info = depth.estimate(Path(folder) / "still.png", Path(folder) / "d.png", session=session)
+            self.assertEqual(session.shape, (1, 3, depth.SIDE, depth.SIDE))
+            out = Image.open(Path(folder) / "d.png")
+            self.assertEqual((out.size, info["licence"]), ((320, 180), "Apache-2.0"))
+            a = np.asarray(out)
+            self.assertGreater(int(a[-1].mean()), int(a[0].mean()))
+            self.assertGreater(int(a.max()), 255)                                         # 16-bit, not 8
+
+    def test_anchors_find_the_far_edge_and_a_bump(self):
+        import numpy as np
+        from PIL import Image
+        from bie.toolbox.adapters import depth
+        h, w = 270, 480
+        d = np.zeros((h, w), dtype=np.float32)
+        d[int(0.2 * h):] = np.linspace(0.4, 1.0, h - int(0.2 * h))[:, None]            # the layer starts at 20 % from the top
+        yy, xx = np.mgrid[0:h, 0:w]
+        d += 0.15 * np.exp(-(((xx - 0.5 * w) / 9.0) ** 2 + ((yy - 0.6 * h) / 9.0) ** 2))  # one nucleus dome
+        with tempfile.TemporaryDirectory() as folder:
+            Image.fromarray((np.clip(d, 0, 1) * 65535).astype(np.uint16)).save(Path(folder) / "d.png")
+            got = depth.layout_anchors(Path(folder) / "d.png", ["simple squamous", "boundary", "nucleus"], "simple squamous")
+        self.assertAlmostEqual(got["edge_v"], 0.2, delta=0.03)
+        self.assertAlmostEqual(got["anchors_uv"]["boundary"][1], 0.215, delta=0.03)
+        self.assertAlmostEqual(got["anchors_uv"]["simple squamous"][0], 0.5, delta=0.02)
+        self.assertAlmostEqual(got["anchors_uv"]["simple squamous"][1], 0.6, delta=0.03)
+        self.assertNotIn("nucleus", got["anchors_uv"])                                    # not placed, never guessed
+
+    def test_the_model_is_checked_by_sha256(self):
+        from bie.toolbox.adapters import depth
+
+        def opener(request, timeout=None):
+            return FakeResponse(b"not the model")
+        with tempfile.TemporaryDirectory() as folder:
+            with self.assertRaisesRegex(RuntimeError, "SHA-256"):
+                depth.model_path(Path(folder), opener=opener)
+            self.assertEqual(list((Path(folder) / "depth").iterdir()), [])
 
 
 class FakeResponse(io.BytesIO):

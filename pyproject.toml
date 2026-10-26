@@ -52,6 +52,10 @@ toolbox-manim = [
 toolbox-blender = [
     "bpy==5.2.2",
 ]
+# Task 046 one-shot test: Depth Anything V2 Small (Apache-2.0) through ONNX Runtime (MIT), for 2.5D stills
+toolbox-depth = [
+    "onnxruntime==1.29.0",
+]
 # batch 2; ngspice and GMT are programs from apt (see .github/workflows/toolbox.yml), not Python packages
 toolbox-electrical = [
     "schemdraw==0.23",

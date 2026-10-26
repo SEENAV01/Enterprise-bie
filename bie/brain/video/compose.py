@@ -315,6 +315,42 @@ def check_spec(plan: dict, spec: dict) -> list:
     return problems
 
 
+def plate_spec(shot: dict, *, pattern: str, count: int, anchors: dict, first: int = 1, label_offsets: dict | None = None,
+               still: bool = False) -> dict:
+    """One shot over a picture made outside the browser (Task 046 one-shot test): the ``plate`` block (Route 1's Blender
+    frames by ``pattern``, or one still) as the world, BIE's leader labels on the maker's anchor points (a label without an
+    anchor is left out, never guessed) and the shot's kinetic caption on top (VG-02: every letter is code)."""
+    member = member_of(shot, DEFAULT_MEMBER)
+    accent = accent_of(member)
+    offsets = label_offsets or {}
+    labels = [dict({"text": text, "anchor": text}, **offsets.get(text, {})) for text in (shot.get("labels") or []) if text in anchors]
+    data = {"count": int(count), "first": int(first), "anchors": anchors, "labels": labels, "accent": accent}
+    data.update({"src": pattern} if still else {"pattern": pattern})
+    plate = {"id": "plate", "type": "block", "block": "plate", "at": 0, "box": FULL, "data": data}
+    caption = caption_layer(dict(shot, frames=[0, int(count)]), accent)
+    scene = {"id": shot["shot_id"], "duration": int(count), "layers": [plate, caption], "camera": [{"at": 0, "box": FULL}]}
+    return {"schema": SCHEMA, "fps": timing.FPS, "width": W, "height": H, "captions": False, "scenes": [scene],
+            "video_id": shot.get("shot_id"), "title": shot.get("sentence", ""), "labels_missing": [t for t in shot.get("labels") or [] if t not in anchors]}
+
+
+def parallax_spec(shot: dict, *, still: str, depth: str, layout: dict, count: int, aspect: float = 16 / 9) -> dict:
+    """Route 2 of the one-shot test: one AI-made still moved in 2.5D by code (``parallax_plate``: the depth map's relief,
+    a slow push toward the lit cell, particles crossing into the layer, the focus glow), BIE's leader labels on the anchors
+    found in the depth map (``bie.toolbox.adapters.depth.layout_anchors``) and the shot's kinetic caption on top."""
+    member = member_of(shot, DEFAULT_MEMBER)
+    accent = accent_of(member)
+    anchors = layout.get("anchors_uv") or {}
+    labels = [{"text": text, "anchor": text} for text in (shot.get("labels") or []) if text in anchors]
+    flow = "cross" if _first(FLOW, shot.get("sentence", "")) == "cross" or "exchange" in shot.get("sentence", "").lower() else ""
+    data = {"src": still, "depth": depth, "count": int(count), "aspect": aspect, "anchors_uv": anchors, "labels": labels,
+            "focus_uv": layout.get("focus_uv"), "accent": accent, "particles": 30 if flow else 0}
+    plate = {"id": "parallax", "type": "block", "block": "parallax_plate", "at": 0, "box": FULL, "data": data}
+    caption = caption_layer(dict(shot, frames=[0, int(count)]), accent)
+    scene = {"id": shot["shot_id"], "duration": int(count), "layers": [plate, caption], "camera": [{"at": 0, "box": FULL}]}
+    return {"schema": SCHEMA, "fps": timing.FPS, "width": W, "height": H, "captions": False, "scenes": [scene],
+            "video_id": shot.get("shot_id"), "title": shot.get("sentence", ""), "labels_missing": [t for t in shot.get("labels") or [] if t not in anchors]}
+
+
 def write(spec: dict, out: str | Path) -> Path:
     out = Path(out)
     out.parent.mkdir(parents=True, exist_ok=True)

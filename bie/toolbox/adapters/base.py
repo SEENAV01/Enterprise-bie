@@ -42,6 +42,8 @@ PYTHON_TOOLS = {
     "psychopy": ("psychopy.data", "psychopy", "toolbox-behaviour"),
     "indic-nlp": ("indicnlp", "indic-nlp-library", "toolbox-language"),
     "indic-transliteration": ("indic_transliteration.sanscript", "indic-transliteration", "toolbox-language"),
+    # Task 046 one-shot test: depth maps for 2.5D stills
+    "onnxruntime": ("onnxruntime", "onnxruntime", "toolbox-depth"),
 }
 
 # Installed by the toolbox lane with pip --no-deps --ignore-requires-python (a pyproject extra cannot say that): PsychoPy's

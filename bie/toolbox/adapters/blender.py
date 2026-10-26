@@ -71,3 +71,23 @@ def fbx_part(fbx: str | Path, match: str, out: str | Path, *, exclude: str = "",
     if not out.exists():
         raise RuntimeError("Blender did not write the part")
     return dict(info, bytes=out.stat().st_size)
+
+
+def epithelium_studio(out: str | Path, params: dict | None = None, *, stills: list | None = None, timeout: int = 7200) -> dict:
+    """Render an epithelium shot the studio way (Task 046 one-shot test, Route 1): organic Voronoi cells with subsurface
+    scattering, nucleus domes, basement membrane and fibres, a capillary behind, key and rim light, mist haze, depth of
+    field, a push-in and particles crossing (``bie/toolbox/blender/epithelium_studio.py``; presets in
+    ``epithelium_studio.json``). Writes ``frames/f0001.png``…, ``anchors.json`` (per-frame label anchor points) and
+    ``record.json`` into ``out``; returns the record (cells, seconds per frame, samples). ``stills``: only these frames."""
+    out = Path(out)
+    out.mkdir(parents=True, exist_ok=True)
+    args = ["--out", str(out)]
+    if params:
+        (out / "params.json").write_text(json.dumps(params), encoding="utf-8")
+        args += ["--params", str(out / "params.json")]
+    if stills:
+        args += ["--stills", ",".join(str(int(f)) for f in stills)]
+    info = run("epithelium_studio.py", args, timeout=timeout)
+    if not (out / "anchors.json").exists():
+        raise RuntimeError("the epithelium recipe wrote no anchors.json")
+    return info

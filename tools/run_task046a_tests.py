@@ -20,7 +20,7 @@ from run_task038_tests import run_file  # noqa: E402
 
 # The wrappers file sits in tests/toolbox/, which the canonical gate does not discover: its libraries are toolbox extras.
 LANES = {"core": ("tests/test_task046a_toolbox.py", "tests/test_task046a_licence.py", "tests/test_task046_shots.py",
-                  "tests/test_task046_blocks.py"),
+                  "tests/test_task046_blocks.py", "tests/test_task046_oneshot.py"),
          "wrappers": ("tests/toolbox/test_wrappers.py", "tests/toolbox/test_task046_frames.py")}
 LANES["all"] = LANES["core"] + LANES["wrappers"]
 

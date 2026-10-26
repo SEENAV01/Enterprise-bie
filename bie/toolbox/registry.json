@@ -101,7 +101,7 @@
    "status": "demo_proven",
    "batch": 1,
    "rank": 12,
-   "block": "cell_sheet, particle_flow, focus_glow, organ_zoom, leader_label, camera_path, cutaway, exploded_view (one three.js world, a timeline of shots per scene); kinetic_caption, board_build, mnemonic_card, concept_arrow, split_compare, scale_compare, flow_arrows, graph_plot, timeline (2D); equation_steps lives in maths.tsx",
+   "block": "cell_sheet, particle_flow, focus_glow, organ_zoom, leader_label, camera_path, cutaway, exploded_view (one three.js world, a timeline of shots per scene); kinetic_caption, board_build, mnemonic_card, concept_arrow, split_compare, scale_compare, flow_arrows, graph_plot, timeline (2D); plate (a picture made outside the browser, Blender frames or an AI still, as the world, with leader labels at its anchors); equation_steps lives in maths.tsx",
    "proof": {
     "demos": [
      "bench-cell-sheet",
@@ -559,6 +559,100 @@
     ]
    },
    "notes": "Route C: Python scripts build 3D models once and export glTF for three.js; Blender also imports FBX/OBJ anatomy models and exports parts as glTF."
+  },
+  {
+   "id": "bie-epithelium-studio",
+   "name": "BIE epithelium studio recipe (bie/toolbox/blender/epithelium_studio.py, presets in epithelium_studio.json)",
+   "kind": "app",
+   "subjects": [
+    "biology_medical"
+   ],
+   "content_types": [
+    "structure",
+    "process"
+   ],
+   "capabilities": [
+    "cell_sheet_3d"
+   ],
+   "role": "offline_render",
+   "path": "offline",
+   "version": "bie-2026-10-26",
+   "licence": "BIE's own code (runs on Blender, whose program licence is recorded on the blender entry)",
+   "licence_flags": [],
+   "source": "https://github.com/SEENAV01/Enterprise-bie",
+   "install_group": "toolbox-blender",
+   "status": "wrapped",
+   "batch": 1,
+   "adapter": "bie.toolbox.adapters.blender",
+   "block": "plate (the frames as a shot's world, BIE's leader labels on the recipe's anchor points)",
+   "proof": {
+    "tests": [
+     "tests/toolbox/test_wrappers.py::OfflineRenderers"
+    ]
+   },
+   "notes": "Task 046 one-shot test, Route 1 (after Navin rejected Part B on 26 October 2026): Cycles on the CPU renders an epithelium shot the way a science-animation studio does: relaxed Voronoi cells whose shared edges a noise field bends so neighbours interlock, soft slabs with nucleus domes, Burley subsurface scattering, speckled cytoplasm, basement membrane and collagen fibres, a capillary behind, key and rim light, mist-pass haze, depth of field, a push-in, blue particles crossing and the compositor's glare. Members by preset (simple squamous, cuboidal, columnar, stratified squamous). Writes per-frame label anchors so BIE draws the labels (VG-02). Wrapped, not demo proven: its first real use is the one-shot test; nothing ACCEPTED."
+  },
+  {
+   "id": "onnxruntime",
+   "name": "ONNX Runtime (CPU)",
+   "kind": "python_lib",
+   "subjects": [
+    "all_subjects"
+   ],
+   "content_types": [
+    "structure",
+    "figure"
+   ],
+   "capabilities": [
+    "cell_sheet_3d"
+   ],
+   "role": "compute",
+   "path": "python",
+   "version": "1.29.0",
+   "licence": "MIT",
+   "licence_flags": [],
+   "source": "https://pypi.org/project/onnxruntime/",
+   "install_group": "toolbox-depth",
+   "status": "wrapped",
+   "batch": 1,
+   "adapter": "bie.toolbox.adapters.depth",
+   "proof": {
+    "tests": [
+     "tests/toolbox/test_wrappers.py::Depth"
+    ]
+   },
+   "notes": "Task 046 one-shot test, Route 2: runs the depth model on the CPU so BIE's code can move an AI-made still in 2.5D (parallax_plate). Wrapped: its first real use is the one-shot test."
+  },
+  {
+   "id": "depth-anything-v2-small",
+   "name": "Depth Anything V2 Small (onnx-community export, revision 4472b736)",
+   "kind": "python_lib",
+   "subjects": [
+    "all_subjects"
+   ],
+   "content_types": [
+    "structure",
+    "figure"
+   ],
+   "capabilities": [
+    "cell_sheet_3d"
+   ],
+   "role": "compute",
+   "path": "python",
+   "version": "v2-small-4472b736",
+   "licence": "Apache-2.0",
+   "licence_flags": [],
+   "source": "https://huggingface.co/depth-anything/Depth-Anything-V2-Small-hf",
+   "install_group": "toolbox-depth",
+   "status": "wrapped",
+   "batch": 1,
+   "adapter": "bie.toolbox.adapters.depth",
+   "proof": {
+    "tests": [
+     "tests/toolbox/test_wrappers.py::Depth"
+    ]
+   },
+   "notes": "Relative depth for one picture, run as software through ONNX Runtime (99 MB weights, fetched once into the asset cache, SHA-256 pinned, never in git). Its output (a depth map) is never shown in a lesson; it only moves the still's own pixels in 2.5D, so the content licence classes do not apply and the Apache-2.0 software licence allows commercial use. Only the Small model is Apache-2.0; the Base and Large models are CC BY-NC 4.0 and are never used. Credit: Depth Anything V2 (Yang et al., 2024)."
   },
   {
    "id": "numpy",

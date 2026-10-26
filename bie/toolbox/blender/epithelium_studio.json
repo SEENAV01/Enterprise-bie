@@ -1,0 +1,175 @@
+{
+ "schema": "bie.epithelium-studio/1",
+ "version": "2026-10-26.1",
+ "note": "Presets of the Blender recipe epithelium_studio.py (Task 046 one-shot). Read by the recipe and by the Route 2 prompt writer (bie/brain/video/still_prompt.py) so both routes share one layout.",
+ "members": {
+  "simple_squamous": [
+   {
+    "thickness": 0.11,
+    "dome": 0.04,
+    "bulge": 0.13,
+    "cell_size": 1.0,
+    "nucleus": 0.2
+   }
+  ],
+  "simple_cuboidal": [
+   {
+    "thickness": 0.85,
+    "dome": 0.08,
+    "bulge": 0.03,
+    "cell_size": 0.9,
+    "nucleus": 0.2
+   }
+  ],
+  "simple_columnar": [
+   {
+    "thickness": 2.2,
+    "dome": 0.1,
+    "bulge": 0.0,
+    "cell_size": 0.7,
+    "nucleus": 0.17
+   }
+  ],
+  "stratified_squamous": [
+   {
+    "thickness": 0.6,
+    "dome": 0.06,
+    "bulge": 0.02,
+    "cell_size": 0.7,
+    "nucleus": 0.16
+   },
+   {
+    "thickness": 0.35,
+    "dome": 0.05,
+    "bulge": 0.04,
+    "cell_size": 0.9,
+    "nucleus": 0.16
+   },
+   {
+    "thickness": 0.12,
+    "dome": 0.04,
+    "bulge": 0.07,
+    "cell_size": 1.1,
+    "nucleus": 0.17
+   }
+  ]
+ },
+ "defaults": {
+  "member": "simple_squamous",
+  "seed": 11,
+  "width": 12.0,
+  "depth": 8.0,
+  "wobble": 0.12,
+  "wobble_freq": 3.4,
+  "gap": 0.03,
+  "colours": {
+   "cytoplasm": [
+    0.74,
+    0.55,
+    0.54
+   ],
+   "cytoplasm_sss": [
+    0.92,
+    0.45,
+    0.38
+   ],
+   "nucleus": [
+    0.46,
+    0.3,
+    0.42
+   ],
+   "nucleus_top": [
+    0.5,
+    0.34,
+    0.46
+   ],
+   "speckle": [
+    0.45,
+    0.32,
+    0.38
+   ],
+   "membrane": [
+    0.3,
+    0.22,
+    0.25
+   ],
+   "fibre": [
+    0.93,
+    0.86,
+    0.74
+   ],
+   "vessel": [
+    0.62,
+    0.16,
+    0.13
+   ],
+   "blood": [
+    0.55,
+    0.05,
+    0.04
+   ],
+   "particle": [
+    0.04,
+    0.33,
+    0.95
+   ],
+   "world": [
+    0.002,
+    0.004,
+    0.009
+   ],
+   "haze": [
+    0.05,
+    0.07,
+    0.11
+   ],
+   "rim": [
+    0.55,
+    0.75,
+    1.0
+   ],
+   "key": [
+    1.0,
+    0.93,
+    0.86
+   ]
+  },
+  "context": "capillary",
+  "particles": 36,
+  "haze": 0.5,
+  "frames": 135,
+  "fps": 30,
+  "resolution": [
+   1920,
+   1080
+  ],
+  "samples": 128,
+  "denoise": true,
+  "fstop": 0.3,
+  "lens": 50,
+  "exposure": -0.2,
+  "noise_threshold": 0.03,
+  "camera": {
+   "from": [
+    0.4,
+    -5.2,
+    4.6
+   ],
+   "to": [
+    0.15,
+    -4.2,
+    3.9
+   ],
+   "target": [
+    0.0,
+    1.6,
+    0.1
+   ]
+  },
+  "focus_cell_glow": 0.35,
+  "glare": true,
+  "frame_step": 1,
+  "frame_from": 1,
+  "frame_to": 0
+ }
+}

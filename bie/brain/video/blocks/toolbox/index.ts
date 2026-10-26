@@ -21,3 +21,4 @@ import "./language";
 import "./behaviour";
 import "./benchmark";
 import "./grammar";
+import "./plate";
