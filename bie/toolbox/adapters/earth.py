@@ -33,6 +33,8 @@ def _gmt_userdir(cache: Path | None = None) -> Path:
 
 
 GMT_SERVER = "https://oceania.generic-mapping-tools.org"
+DEFAULT_REGION = (70.0, 100.0, 20.0, 40.0)        # the Himalaya and Tibet (the toolbox demo); west, east, south, north
+DEFAULT_RESOLUTION = "02m"
 GMT_TABLES = ("gmt_data_server.txt", "gmt_hash_server.txt")
 TABLE_MAX_AGE = 20 * 3600          # GMT asks its server for fresh tables once a day (GMT_DATA_UPDATE_INTERVAL, 1d)
 
@@ -57,12 +59,13 @@ def relief_tiles(table: str, resolution: str, region, registration: str = "g"):
                     for lat in lats for lon in lons]
 
 
-def _download(url: str, *, opener=None, tries: int = 3, wait: float = 10.0, sleep=time.sleep, max_bytes: int = 200 * 1024 * 1024):
+def _download(url: str, *, opener=None, tries: int = 3, wait: float = 10.0, sleep=time.sleep, max_bytes: int = 200 * 1024 * 1024,
+              timeout: float = 120.0):
     from ..sources import fetch
     errors = []
     for attempt in range(tries):
         try:
-            return fetch(url, opener=opener, timeout=120.0, max_bytes=max_bytes)
+            return fetch(url, opener=opener, timeout=timeout, max_bytes=max_bytes)
         except urllib.error.HTTPError as exc:
             if exc.code == 404:
                 raise
@@ -78,16 +81,19 @@ def prefetch_relief(resolution: str, region, *, userdir=None, opener=None, tries
                     server: str = GMT_SERVER) -> dict:
     """GMT's server tables and the SRTM15+ tiles a region needs, fetched into GMT's own folder by BIE (a 120-second limit,
     asked again after ``wait`` and twice that) so GMT then reads them offline; GMT's own downloads give up after 10 seconds
-    and switch remote data off for the session (F-13). Tables older than a day are fetched again; when that fails, the
-    local tables are kept and dated today so GMT does not try. Tiles already here are not fetched again."""
+    and switch remote data off for the session (F-13). Tables older than a day are fetched again, once with a 30-second
+    limit (a stale table still works, so an unreachable server costs half a minute, not six); when that fails, the local
+    tables are kept and dated today so GMT does not try. Tiles already here are not fetched again."""
     folder = Path(userdir) if userdir else _gmt_userdir()
     tables = {}
     for name in GMT_TABLES:
         path = folder / name
         if path.exists() and time.time() - path.stat().st_mtime < TABLE_MAX_AGE:
             continue
+        stale = path.exists()
         try:
-            data = _download(f"{server}/{name}", opener=opener, tries=tries, wait=wait, sleep=sleep, max_bytes=8 * 1024 * 1024)
+            data = _download(f"{server}/{name}", opener=opener, tries=1 if stale else tries, wait=wait, sleep=sleep,
+                             max_bytes=8 * 1024 * 1024, timeout=30.0 if stale else 120.0)
         except Exception:
             if not path.exists():
                 raise
@@ -134,7 +140,7 @@ def load_relief(pygmt, *, resolution: str, region, tries: int = 3, wait: float =
     raise RuntimeError(f"GMT's remote data server could not be reached in {tries} attempts: " + " | ".join(seen))
 
 
-def relief(region=(70.0, 100.0, 20.0, 40.0), out_png: str | Path = "relief.png", *, resolution: str = "02m",
+def relief(region=DEFAULT_REGION, out_png: str | Path = "relief.png", *, resolution: str = DEFAULT_RESOLUTION,
            profile=((77.0, 22.0), (90.0, 36.0)), step_km: float = 10.0, width_cm: float = 16.0, dpi: int = 150, grid=None) -> dict:
     """``grid`` (an xarray grid of heights in metres) replaces the SRTM15+ download, for tests or a model's own data."""
     need_program("gmt")

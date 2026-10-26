@@ -4,6 +4,9 @@ name: BIE Task046a Toolbox
 # core (registry, resolver, sources with fakes, page; standard library only), wrappers (one test per wrapper with
 # every toolbox extra, Blender and Manim installed) and demos (the proof clips rendered by BIE code, checked, and
 # uploaded with contact sheets and receipts; one demo is rendered again by real Remotion as the bridge proof).
+# A fourth job, assets, runs only on main (on a push that touches the downloads, weekly and by hand): it fetches the
+# downloads from flaky servers (GMT's SRTM15+ tiles) and saves them as a cache every PR can restore; a PR's own cache
+# starts empty, and GMT's server was unreachable from the runners for minutes at a time (F-13).
 on:
   pull_request:
     branches: [main]
@@ -28,6 +31,15 @@ on:
       - 'tools/npm_before.txt'
       - 'pyproject.toml'
       - '.github/workflows/toolbox.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'bie/toolbox/adapters/earth.py'
+      - 'bie/toolbox/sources.py'
+      - 'tools/toolbox_setup.py'
+      - '.github/workflows/toolbox.yml'
+  schedule:
+    - cron: '23 4 * * 1'
   workflow_dispatch:
 
 permissions:
@@ -37,7 +49,30 @@ concurrency:
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
+  assets:
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+      PYTHONUTF8: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.13.5'
+      - name: Downloads from flaky servers (standard library only)
+        run: python -B tools/toolbox_setup.py --assets "${{ github.workspace }}/../bie-asset-cache"
+      - name: Save them for every PR (caches made on main can be restored by any PR)
+        uses: actions/cache/save@5a3ec84eff668545956fd18022155c47e93e2684
+        with:
+          path: ${{ github.workspace }}/../bie-asset-cache
+          key: bie-asset-cache-shared-${{ github.run_id }}
+
   core:
+    if: github.event_name == 'pull_request' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-24.04
     timeout-minutes: 15
     env:
@@ -57,6 +92,7 @@ jobs:
         run: python3 -B tools/ci_failure_annotation.py "Toolbox core" "$RUNNER_TEMP/toolbox"
 
   wrappers:
+    if: github.event_name == 'pull_request' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-24.04
     timeout-minutes: 40
     env:
@@ -83,6 +119,9 @@ jobs:
         with:
           path: ${{ github.workspace }}/../bie-asset-cache
           key: bie-asset-cache-wrappers-${{ hashFiles('bie/toolbox/sources.py', 'bie/toolbox/adapters/astro.py') }}
+          restore-keys: |
+            bie-asset-cache-wrappers-
+            bie-asset-cache-shared-
       - name: One test per wrapper, no skips
         env:
           BIE_ASSET_CACHE: ${{ github.workspace }}/../bie-asset-cache
@@ -132,6 +171,9 @@ jobs:
         with:
           path: ${{ github.workspace }}/../bie-asset-cache
           key: bie-asset-cache-batch${{ matrix.batch }}-${{ hashFiles('bie/toolbox/sources.py') }}
+          restore-keys: |
+            bie-asset-cache-batch${{ matrix.batch }}-
+            bie-asset-cache-shared-
       - name: Proof clips (BIE code only), contact sheets and receipts
         run: python -B tools/toolbox_demos.py --batch "${{ matrix.batch }}" --out "$RUNNER_TEMP/demos" --keep-going
       - name: Bridge proof - the same clip rendered by real Remotion

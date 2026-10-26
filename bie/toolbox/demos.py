@@ -343,7 +343,7 @@ def relief(w: Work) -> dict:
     import math
     from PIL import Image
     from .adapters import earth
-    region = (70.0, 100.0, 20.0, 40.0)
+    region = earth.DEFAULT_REGION                    # tools/toolbox_setup.py --assets prefetches the same tiles (F-13)
     out = w.folder / "relief.png"
     data = earth.relief(region, out, profile=((77.0, 22.0), (90.0, 36.0)))
     asset = w.library.add_bytes(out.read_bytes(), mime="image/png", source="gmt_earth_relief", title="Himalaya and Tibet, shaded relief",
