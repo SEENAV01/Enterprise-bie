@@ -265,7 +265,7 @@ const GraphPlot: React.FC<BlockProps> = ({ data, at, width, height }) => {
       {sx.ticks(6).map((t) => <text key={"x" + t} x={sx(t)} y={height - pad.b + 36} fill={C.muted} fontSize={24} textAnchor="middle">{t}</text>)}
       {sy.ticks(5).map((t) => <text key={"y" + t} x={pad.l - 16} y={sy(t) + 8} fill={C.muted} fontSize={24} textAnchor="end">{t}</text>)}
       {data.x_label ? <text x={(pad.l + width - pad.r) / 2} y={height - 24} fill={C.ink} fontSize={28} textAnchor="middle" fontWeight={700}>{data.x_label}</text> : null}
-      {data.y_label ? <text x={30} y={pad.t - 30} fill={C.ink} fontSize={28} fontWeight={700}>{data.y_label}</text> : null}
+      {data.y_label ? <text x={30} y={pad.t - 8} fill={C.ink} fontSize={28} fontWeight={700}>{data.y_label}</text> : null}   /* under the title row */
       {data.title ? <text x={pad.l} y={48} fill={C.ink} fontSize={36} fontWeight={800}>{data.title}</text> : null}
       <path d={line} fill="none" stroke={accent} strokeWidth={7} strokeLinecap="round" filter={`url(#glow-${at})`} />
       {tangentOn > 0 && pts.length > 1 ? <g opacity={tangentOn}>

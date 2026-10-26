@@ -6,7 +6,8 @@ name: BIE Task046 Benchmark Render
 # measured (render seconds per second of video, machine minutes, the list price in rupees), read by the frame checks (the
 # 24-rule table with frame numbers), and a ≤ 720p review copy with the report is pushed to the blindtest-results branch under
 # runs/t046-v3-benchmark/. A 10-second sample of route A is rendered again by real Remotion (the bridge) and compared.
-# Runs by hand (workflow_dispatch) and once when this file changes in a pull request. No AI call, no key.
+# Runs by hand (workflow_dispatch) and once when a pull request that adds or changes this file opens (not on every push:
+# a 16-runner render is not a per-commit check). No AI call, no key.
 on:
   workflow_dispatch:
     inputs:
@@ -34,6 +35,7 @@ on:
         description: push the review copy and the report to blindtest-results
         default: 'true'
   pull_request:
+    types: [opened, reopened]
     branches: [main]
     paths:
       - '.github/workflows/task046-benchmark.yml'
