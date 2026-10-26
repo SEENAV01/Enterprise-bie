@@ -1,0 +1,68 @@
+{
+ "route": 2,
+ "shot": "b37.2",
+ "still": "runs/vm-t046-oneshot-images-4-brain-image/images/b37-2-c.png",
+ "still_size": [
+  1672,
+  941
+ ],
+ "depth": {
+  "model": "Depth Anything V2 Small (onnx-community export)",
+  "licence": "Apache-2.0",
+  "revision": "4472b7362082ad9968fee890ca0f1e5aca36b93d",
+  "size": [
+   1672,
+   941
+  ],
+  "near_share": 0.385,
+  "far_share": 0.136,
+  "out": "runs/t046-oneshot/route2/depth.png"
+ },
+ "depth_seconds": 17.4,
+ "layout": {
+  "anchors_uv": {
+   "simple squamous": [
+    0.482,
+    0.506
+   ],
+   "boundary": [
+    0.66,
+    0.166
+   ]
+  },
+  "focus_uv": [
+   0.482,
+   0.506
+  ],
+  "edge_v": 0.151
+ },
+ "frames": 135,
+ "fps": 30,
+ "size": [
+  1920,
+  1080
+ ],
+ "compose_render_seconds": 149.8,
+ "total_seconds": 175.3,
+ "labels_missing": [],
+ "look_frames": [
+  30,
+  75,
+  120
+ ],
+ "made_by": "tools/oneshot.py route2 (BIE code: Depth Anything V2 Small depth map, parallax_plate block, labels from the depth map, kinetic caption)",
+ "image_job": {
+  "job": "t046-oneshot-images-4",
+  "maker": "Codex image_gen through the ChatGPT plan (gpt-image-2), no API key",
+  "images_made": 4,
+  "seconds_per_image": [
+   29.1,
+   30.2,
+   25.6,
+   32.1
+  ],
+  "plan_usage_percent_before": 0,
+  "plan_usage_percent_after": 0,
+  "billed_inr": 0
+ }
+}

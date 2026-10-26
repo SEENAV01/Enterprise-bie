@@ -1,0 +1,96 @@
+{
+ "schema": "bie.brain.video-spec/1",
+ "fps": 30,
+ "width": 1920,
+ "height": 1080,
+ "captions": false,
+ "scenes": [
+  {
+   "id": "b37.2",
+   "duration": 135,
+   "layers": [
+    {
+     "id": "parallax",
+     "type": "block",
+     "block": "parallax_plate",
+     "at": 0,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 1
+     },
+     "data": {
+      "src": "assets/still.png",
+      "depth": "assets/depth.png",
+      "count": 135,
+      "aspect": 1.7777777777777777,
+      "anchors_uv": {
+       "simple squamous": [
+        0.482,
+        0.506
+       ],
+       "boundary": [
+        0.66,
+        0.166
+       ]
+      },
+      "labels": [
+       {
+        "text": "simple squamous",
+        "anchor": "simple squamous"
+       },
+       {
+        "text": "boundary",
+        "anchor": "boundary"
+       }
+      ],
+      "focus_uv": [
+       0.482,
+       0.506
+      ],
+      "accent": "#5ad7ff",
+      "particles": 30
+     }
+    },
+    {
+     "id": "cap-b37.2",
+     "type": "block",
+     "block": "kinetic_caption",
+     "at": 0,
+     "until": 135,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 0.2
+     },
+     "data": {
+      "text": "खास तुलना: Simple squamous में पतली exchange boundary;",
+      "terms": [
+       "simple",
+       "squamous",
+       "exchange",
+       "boundary"
+      ],
+      "accent": "#5ad7ff"
+     }
+    }
+   ],
+   "camera": [
+    {
+     "at": 0,
+     "box": {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 1
+     }
+    }
+   ]
+  }
+ ],
+ "video_id": "b37.2",
+ "title": "खास तुलना: Simple squamous में पतली exchange boundary;",
+ "labels_missing": []
+}

@@ -1,0 +1,31 @@
+{
+ "schema": "bie.image-check/1",
+ "shot": "b37.2",
+ "checked_by": "Claude, by eye, against the prompt's science sheet and the no-text rule",
+ "images": {
+  "b37-2-a": {
+   "text": "none (frame and corners checked)",
+   "science": "one thin layer of flat cells, wavy interlocking borders, one nucleus per cell, capillary with red cells behind the far edge",
+   "kept": true
+  },
+  "b37-2-b": {
+   "text": "none",
+   "science": "as a; warm glow on the centre cell",
+   "kept": true
+  },
+  "b37-2-c": {
+   "text": "none",
+   "science": "as a; nuclei show granular chromatin and the clearest bulge",
+   "kept": true
+  },
+  "b37-2-d": {
+   "text": "none",
+   "science": "as a; more haze toward the far edge",
+   "kept": true
+  }
+ },
+ "rejected": [],
+ "note": "All four cells read a little thicker than a real squamous cell; none shows stacked layers, cilia, microvilli or two nuclei.",
+ "chosen": "b37-2-c",
+ "why": "the clearest nucleus detail and a lit centre cell where the member label points; closest to the benchmark's middle frame"
+}
