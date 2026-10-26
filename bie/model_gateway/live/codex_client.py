@@ -69,11 +69,16 @@ IMAGE_INSTRUCTIONS = ("You are BIE's image maker, run by BIE (Book Intelligence 
 # Codex reaches image_gen through its built-in ``imagegen`` skill, called headless as ``codex exec '$imagegen ...'``
 # (Codex CLI docs and guides, 2026). The first live run (26 October 2026) kept the lean call's skill settings
 # (skills.max_context_tokens=1, skill_search off) and sent no ``$imagegen``: all four runs replied without an image.
-# Image calls therefore keep skills on and name the skill; shell, exec, code mode, apps, browsing and agents stay off,
-# and no API key reaches Codex, so the skill's API-key fallback cannot run.
+# Image calls therefore keep skills on and name the skill; shell, exec, apps, browsing and agents stay off, and no API
+# key reaches Codex, so the skill's API-key fallback cannot run.
+# The third live run (26 October 2026, job t046-oneshot-images-3) named the cause: "Code Mode is unavailable because
+# code-mode host is disabled. Code mode will fail closed; enable `features.code_mode_host`". In Codex 0.162.1 every tool
+# call, image_gen included, goes through the code-mode host that ships beside the codex binary, so image calls keep it
+# on (it touches the isolation boundary; Navin said yes on 26 October 2026). With shell, exec, apps and plugins off, the
+# only tool it can reach is image_gen; the run stays read-only in an empty folder.
 IMAGE_SKILL = "$imagegen"
 IMAGE_SETTINGS = tuple(s for s in LEAN_SETTINGS if not s.startswith("skills."))
-IMAGE_FEATURES_OFF = tuple(f for f in LEAN_FEATURES_OFF if f not in ("image_generation", "skill_search"))
+IMAGE_FEATURES_OFF = tuple(f for f in LEAN_FEATURES_OFF if f not in ("image_generation", "skill_search", "code_mode_host"))
 IMAGE_SUFFIXES = (".png", ".jpg", ".jpeg", ".webp")
 IMAGE_MAGIC = {b"\x89PNG": ".png", b"\xff\xd8\xff": ".jpg", b"RIFF": ".webp"}
 PLAN_LIMIT_TEXT = re.compile(r"(?i)usage limit|usage_limit|hit your usage|reached your usage|try again at|rate_limit_reached|"
