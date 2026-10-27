@@ -814,6 +814,27 @@ made from the tissue chapter): the check now counts only the book's own terms (`
 characters in the records, so Google's quota id (per minute or per day) was invisible: 1,500 now. Measured: 1 of 4 passed
 pages (25 %) had a needless round on the old check; 0 under the new one on the same output.
 
+**What the baseline map taught (same day, branch `task046c-map-review`):** the second Money run (`t046c-money-understand-b`,
+15:20–16:17 UTC, Codex maker, Codex as the checker, ₹0) passed all 20 pages, then **failed the chapter map after 3 rounds
+with 0 code problems in every round**. The checker's 12 blocking findings: 10 on the wording of `core_explanation`, `notes`
+or `exam_focus` (a two-line summary per concept that BIE's later sections read; no learner hears it, the lesson is written
+from the items and reviewed in Section 2), 2 on structure (a prerequisite bundle wider than the direct need; RuPay as a
+prerequisite of MDR). Every round the maker fixed the named wording and the checker found new wording on other concepts,
+so the map could never converge. Change: `understanding.connect_review_problems` counts only structural findings
+(`structural_finding`: items, relations, prerequisites, references, question links, teaching order; a finding naming both,
+or no field, blocks; a failed verdict naming no blocking finding still goes back once) and keeps the wording findings in
+the record (`wording_findings`); the checker's prefix says what the map is and what is minor. Tests:
+`tests/test_task046c_map_review.py` (8), in the toolbox core lane and the Task 045 lane.
+
+| Measure (the baseline map's own three reviews, replayed) | Before | After |
+| --- | --- | --- |
+| Blocking findings counted, rounds 0 / 1 / 2 | 6 / 3 / 3 | 1 / 0 / 1 |
+| Map status | failed after 3 rounds | passes at round 1 |
+| Maker calls + checker calls for the map | 3 + 3 | 2 + 2 |
+| Wording findings lost | — | 0 (kept in the record as minor) |
+
+The live effect is measured on the new-rule run (`t046c-money-understand-c`) and its resume.
+
 ## Entry 18 · Task 046 Part C, PR 4: render speed, 27 October 2026
 
 **What the measurement taught:** the brief named the blocks' filters and static layers; they were worth 7 % on a canvas
