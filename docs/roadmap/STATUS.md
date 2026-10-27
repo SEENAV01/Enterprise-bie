@@ -630,6 +630,12 @@ PR B (only after Navin's yes): live runs on the Gemini key, maker `google/gemini
   in a job's `env`; the `github` context is.) After the merge, the push-to-main `assets`
   job saves the tiles the first time the server answers a runner; from then on every PR restores them. Until that first
   save, a PR's `demos (2)` still depends on the server (PR #82 waits for it; no rerun, no empty commit).
+- F-15 (27 October 2026, PR #83 run 40496661612, job `demos (3)`, head `2ba63b6e`): `hist-archive-images` failed with
+  `HTTPError: HTTP Error 500: Internal Server Error` from Wikimedia Commons or Openverse (the receipt did not say which;
+  the other 15 batch-3 clips passed, the five economy clips among them). Not rerun (rule CI-2). Fix, in the same small CI
+  PR as F-13d: `assets._open` and `sources.fetch` ask again after a wait on a server's 500, 502, 503 and 504 as they
+  already did on 429 and 503 (three tries, Retry-After honoured, 30 s at most), never on a 4xx of our own making, and the
+  last error names the URL. Core tests with a fake server.
 - F-11 in the toolbox lane (26 October 2026, PR #79 run 40341502059, head `8583df52`): `wrappers` was cancelled at its
   40-minute limit inside "System libraries and programs" (14:39 → 15:18 UTC), before any test ran, and `demos (2)` sat
   in "System libraries and fonts" for over 55 minutes; `demos (1)` and `demos (3)` passed the same step in 35 seconds.

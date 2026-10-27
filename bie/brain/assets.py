@@ -95,9 +95,13 @@ def _strip_html(text) -> str:
     return re.sub(r"<[^>]+>", "", str(text or "")).strip()
 
 
+TRANSIENT_HTTP = (429, 500, 502, 503, 504)   # a busy or stumbling server: asked again after a wait, never on a 4xx of our own making
+
+
 def _open(url: str, *, opener=None, timeout: float = 60.0, max_bytes: int = MAX_ASSET_BYTES, tries: int = 3) -> bytes:
-    """GET an https URL. A busy server's 429 or 503 is retried after its Retry-After (at most 30 s, ``tries`` times):
-    Wikimedia asks every client to slow down rather than hammer it."""
+    """GET an https URL. A busy or stumbling server's 429, 500, 502, 503 or 504 is retried after its Retry-After (at most
+    30 s, ``tries`` times): Wikimedia asks every client to slow down rather than hammer it, and Commons and Openverse
+    answer a 500 now and then (F-15, 27 October 2026). The last error names the URL."""
     if not url.startswith("https://"):
         raise AssetError("only https URLs are allowed")
     request = urllib.request.Request(url, headers={"user-agent": USER_AGENT})
@@ -107,7 +111,8 @@ def _open(url: str, *, opener=None, timeout: float = 60.0, max_bytes: int = MAX_
                 data = response.read(max_bytes + 1)
             break
         except urllib.error.HTTPError as exc:
-            if exc.code not in (429, 503) or attempt == tries - 1:
+            if exc.code not in TRANSIENT_HTTP or attempt == tries - 1:
+                exc.msg = f"{exc.msg} ({url.split('?', 1)[0]}" + (f", {attempt + 1} tries)" if attempt else ")")   # the same error, named
                 raise
             wait = exc.headers.get("retry-after") if exc.headers else None
             time.sleep(min(30.0, float(wait) if wait and wait.isdigit() else 5.0 * (attempt + 1)))

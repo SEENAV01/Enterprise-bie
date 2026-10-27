@@ -505,6 +505,23 @@ class BatchThreeSources(unittest.TestCase):
         with mock.patch("time.sleep") as slept:
             self.assertEqual(assets._open("https://commons.wikimedia.org/w/api.php?x=1", opener=opener), b"ok")
         slept.assert_called_once_with(2.0)
+        # F-15 (PR #83 run 40496661612, demos (3)): Commons or Openverse answered a 500 once and the archive demo failed;
+        # a 5xx is asked again too, a 4xx of our own making is not, and the last error names the URL
+        answers.extend([urllib.error.HTTPError("https://api.openverse.org/v1/images/x/", 500, "Internal Server Error", {}, None),
+                        FakeResponse(b"ok")])
+        with mock.patch("time.sleep") as slept:
+            self.assertEqual(assets._open("https://api.openverse.org/v1/images/x/", opener=opener), b"ok")
+        slept.assert_called_once_with(5.0)
+        answers.extend([urllib.error.HTTPError("https://api.openverse.org/v1/images/x/", 404, "Not Found", {}, None)])
+        with mock.patch("time.sleep") as slept, self.assertRaises(urllib.error.HTTPError) as caught:
+            assets._open("https://api.openverse.org/v1/images/x/?q=1", opener=opener)
+        slept.assert_not_called()
+        self.assertIn("(https://api.openverse.org/v1/images/x/)", str(caught.exception))
+        answers.extend([urllib.error.HTTPError("https://api.worldbank.org/v2/x", 502, "Bad Gateway", {}, None)] * 3)
+        with mock.patch("time.sleep") as slept, self.assertRaises(urllib.error.HTTPError) as caught:
+            sources.fetch("https://api.worldbank.org/v2/x", opener=opener)
+        self.assertEqual(slept.call_count, 2)
+        self.assertIn("3 tries", str(caught.exception))
 
     def test_font_and_indic_tables_are_pinned(self):
         import hashlib
