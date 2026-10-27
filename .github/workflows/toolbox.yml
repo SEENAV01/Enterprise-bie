@@ -194,6 +194,9 @@ jobs:
           restore-keys: |
             bie-asset-cache-batch${{ matrix.batch }}-
             bie-asset-cache-shared-
+      - name: Skyfield files when the restored cache lacks them (CDS or a VizieR mirror, F-16)
+        if: matrix.batch == 2
+        run: python -B tools/toolbox_setup.py --skyfield "$BIE_ASSET_CACHE"
       - name: Proof clips (BIE code only), contact sheets and receipts
         run: python -B tools/toolbox_demos.py --batch "${{ matrix.batch }}" --out "$RUNNER_TEMP/demos" --keep-going
       - name: Bridge proof - the same clip rendered by real Remotion
