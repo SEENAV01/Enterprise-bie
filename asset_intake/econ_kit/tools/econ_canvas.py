@@ -235,6 +235,8 @@ def compile_plan(plan: dict, *, voice: dict | None = None, icon_paths: dict | No
                 box = {"x": x, "y": top, "w": tw, "h": el["size"] * 1.2 / 1080}
             elif kind == "table":
                 el.update({"columns": n["columns"], "rows": [{"cells": r["cells"], "at": frame_of(r["cue"])} for r in n["rows"]]})
+                if "cue" not in n and el["rows"]:
+                    el["at"] = min(r["at"] for r in el["rows"])      # the header arrives with the first row, not at frame 0
                 if any(len(r["cells"]) != len(n["columns"]) for r in n["rows"]):
                     raise PlanError(f"table {n['id']} has a row whose cell count differs from its columns")
                 rh = box["h"] * 1080 / (len(n["rows"]) + 1)
