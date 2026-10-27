@@ -890,3 +890,32 @@ first appear after code-clean rounds (at most CONVERGING_MAX) earn one more patc
 
 The live effect (first-try pages, rounds, minutes) is measured on the resume `t046c-money-understand-d` (16 pages reused, 4
 pages and the map run again).
+
+## Entry 20 · the Codex checker on the Money plan: a plan is not the lesson, 27 October 2026
+
+**What the first Money lesson run taught** (`t046c-money-lesson`, Codex maker and Codex checker, ₹0, 10.8 minutes): the plan
+passed every code check in every round (18 videos, every concept placed, the minutes within S2-01) and **failed after three
+rounds on the checker alone: all 20 blocking findings asked the plan for the teaching itself** ("do not actually teach the
+concepts", "no complete question … or answer", "the example-first economics rule is not consistently implemented", "most
+remaining text is production direction rather than complete spoken teaching"). The plan reviewer's prefix was the lesson's
+general one and its checklist carried every lesson rule, the script rules (S2-02, S2-04 … S2-08) included, so a careful checker
+applied them to a list of videos. No script was written. The tissue plan had passed the same step with the Gemini reviewer,
+whose one minor finding ("v5 packs 8 concepts into a 16-minute video") is a true plan finding.
+
+**What changed in BIE** (branch `task046c-plan-review`): `lesson.PLAN_REVIEW_HOW` says what the plan is (which videos, which
+concepts in each and in what order, the minutes, the prerequisite list, a hook idea and an analogy idea per video), what the
+scripts carry and what a plan finding is; `plan_checklist_text` gives the plan reviewer only the rules a plan can meet (G-04,
+S2-01, S2-03); `plan_review_problems` counts only structural findings as blocking (`plan_structural_finding`: a concept in no
+video or before its prerequisite, a split family, too many concepts for the minutes, a prerequisite the chapter does not need;
+a finding that asks for the teaching, or on the wording of goal / story_or_analogy / opening_hook, is minor; an unplaced finding
+blocks). The review prefix is `bie.brain.lesson-plan-review/3`. Tests: `tests/test_task046c_plan_review.py` (7), in the
+toolbox core lane and the Task 045 lane.
+
+| Measure (the run's own three reviews, replayed) | Before | After |
+| --- | --- | --- |
+| Blocking findings counted, rounds 0 / 1 / 2 | 5 / 8 / 7 | 0 / 0 / 0 |
+| Plan status | failed after 3 rounds, no script | passes at round 0 |
+| Maker calls + checker calls for the plan | 3 + 3 | 1 + 1 |
+| The tissue plan's "v5 packs 8 concepts" finding | minor (Gemini's call) | still a structural finding |
+
+The live effect is measured on the second lesson run (`t046c-money-lesson-b`) after this merges.
