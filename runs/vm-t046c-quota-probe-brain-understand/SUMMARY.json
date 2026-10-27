@@ -1,0 +1,142 @@
+{
+  "cost": {
+    "cap": {
+      "by_section_inr": {
+        "preflight": 0.0
+      },
+      "calls_allowed": 3,
+      "calls_refused": 0,
+      "cap_inr": 5.0,
+      "spent_inr": 0.0,
+      "spent_usd": 0.0,
+      "stop_reason": "preflight: google balance",
+      "stopped": true,
+      "usd_inr": 94.59
+    },
+    "inr_per_page": 0.0,
+    "note": "Ledger cost is an estimate: exact token counts times the dated price table in bie/model_gateway/live/pricing.py (plus the AICredits 10% markup), converted at usd_inr. It is not the bill. Write the provider dashboard amount for this run into real_bill_inr (and docs/roadmap/COST_LOG.md) to compare.",
+    "pages": 1,
+    "real_bill_inr": null,
+    "sections": {
+      "preflight": {
+        "calls": 3,
+        "inr": 0.0,
+        "inr_per_page": 0.0,
+        "name": "preflight",
+        "usd": 0.0
+      }
+    },
+    "subscription": {
+      "calls": 2,
+      "failed_calls": 0,
+      "input_tokens": 6845,
+      "minutes": 0.2,
+      "note": "paid by the ChatGPT plan, no rupees; time is the sum of call times",
+      "output_tokens": 30,
+      "reasoning_tokens": 0
+    },
+    "total_inr": 0.0,
+    "total_usd": 0.0,
+    "usd_inr": 94.59
+  },
+  "error": "a preflight call failed, so no section was run (see the pahra preflight annotations)",
+  "estimate": {
+    "maker_billing": "subscription",
+    "measured_share_inr": 1.37,
+    "pages": 1,
+    "price_scale": 0.06,
+    "sections": {
+      "connect": {
+        "basis": "measured",
+        "inr": 0.34,
+        "inr_per_page": 0.34,
+        "source": "run 39627682253 maker + run 39617164262 reviewer share"
+      },
+      "understand": {
+        "basis": "measured",
+        "inr": 1.03,
+        "inr_per_page": 1.03,
+        "source": "run 39620281561, 14 pages"
+      }
+    },
+    "total_inr": 1.37,
+    "usd_inr": 94.59
+  },
+  "fake": false,
+  "ledger_calls": 3,
+  "ledger_cost_usd": 0.0,
+  "level": {
+    "band": "school",
+    "disagreement": null,
+    "evidence": {
+      "long_share": 0.0736,
+      "reason": "7% long words, 1.2% very long",
+      "sentence_words": 7.1,
+      "setting": "the course setting says 'upsc'",
+      "very_long_share": 0.0123,
+      "words": 163
+    },
+    "profile": "upsc_pcs",
+    "source": "setting"
+  },
+  "maker": "codex",
+  "models": {
+    "codex": "gpt-6.1-sol",
+    "google": "gemini-3.8-flash"
+  },
+  "plan_usage_after": {
+    "codex": {
+      "rateLimitResetCredits.availableCount": 2,
+      "rateLimits.planType": "prolite",
+      "rateLimits.primary.resetsAt": 1793606984,
+      "rateLimits.primary.usedPercent": 1,
+      "rateLimits.primary.windowDurationMins": 10080,
+      "rateLimitsByLimitId.codex.planType": "prolite",
+      "rateLimitsByLimitId.codex.primary.resetsAt": 1793606984,
+      "rateLimitsByLimitId.codex.primary.usedPercent": 1,
+      "rateLimitsByLimitId.codex.primary.windowDurationMins": 10080
+    }
+  },
+  "preflight": {
+    "passed": false,
+    "routes": {
+      "codex": {
+        "input_tokens": 3347,
+        "login": {
+          "logged_in": true,
+          "mode": "Logged in using ChatGPT"
+        },
+        "model": "gpt-6.1-sol",
+        "output_tokens": 15,
+        "plan_usage_before": {
+          "rateLimitResetCredits.availableCount": 2,
+          "rateLimits.planType": "prolite",
+          "rateLimits.primary.resetsAt": 1793606984,
+          "rateLimits.primary.usedPercent": 1,
+          "rateLimits.primary.windowDurationMins": 10080,
+          "rateLimitsByLimitId.codex.planType": "prolite",
+          "rateLimitsByLimitId.codex.primary.resetsAt": 1793606984,
+          "rateLimitsByLimitId.codex.primary.usedPercent": 1,
+          "rateLimitsByLimitId.codex.primary.windowDurationMins": 10080
+        },
+        "returned_model": "gpt-6.1-sol",
+        "status": "ok",
+        "via": "codex",
+        "vision": "ok"
+      },
+      "google": {
+        "error": "429 | RESOURCE_EXHAUSTED | You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: ",
+        "error_kind": "balance",
+        "model": "gemini-3.8-flash",
+        "status": "failed",
+        "via": "direct"
+      }
+    }
+  },
+  "reviewer": "google",
+  "reviewer_independence": "other_company",
+  "reviewer_route": "google",
+  "rulebook": "content_types@2026-10-24.1+explanations@2026-10-24.1+level_profiles@2026-10-24.1+simple_hindi@2026-10-25.1+teacher_examples@2026-10-24.1+vision-2026-10-21@2026-10-21.13+visual_grammar@2026-10-26.2+visual_levels@2026-10-26.2",
+  "section": "understand",
+  "status": "stopped: preflight"
+}
