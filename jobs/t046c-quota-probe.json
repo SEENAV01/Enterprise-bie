@@ -1,0 +1,16 @@
+{
+ "job": "bie.vm-job/1",
+ "id": "t046c-quota-probe",
+ "section": "understand",
+ "source": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-inputs/chapters/indian-economy-3-money.pdf",
+ "pages": "1",
+ "course": "title=3. Money;subject=Indian Economy;learners=UPSC / State PCS aspirants;exam=UPSC / State PCS;language=Hinglish",
+ "maker": "codex",
+ "reviewer": "google",
+ "models": "google=gemini-3.8-flash",
+ "routes": "google=direct",
+ "max_inr": 5,
+ "workers": 1,
+ "max_rounds": 1,
+ "note": "Probe after t046c-money-understand stopped at 13:39 UTC with Google 429 RESOURCE_EXHAUSTED read as 'balance' (the record keeps only the first 300 characters of the error, so the quota id is unknown): one page on the free key, Rs 0. If it runs, the free tier's quota was per-minute and BIE's reading of it is wrong (fix); if it stops the same way, the free tier's daily quota is used up until it resets at 07:00 UTC and the rerun under the new rule waits or goes paid within Navin's Rs 50."
+}
