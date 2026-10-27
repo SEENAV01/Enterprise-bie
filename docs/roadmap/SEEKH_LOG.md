@@ -859,3 +859,34 @@ the `BIE Task046c Render` workflow runs that in CI (the full MP4 as an artifact,
 | A 6-minute video, wall-clock on 8 runners | not possible in one runner's 6-hour limit at the world's rate without chunks | about 12 minutes (target under 60) |
 
 Quality is unchanged by construction (same frames); the CI numbers come from the first chunked render.
+
+## Entry 19 · the Codex checker on the Money pages: the example asked where the rule does not, and a last-round slip, 27 October 2026
+
+**What the new-rule run taught** (`t046c-money-understand-c`, 20 pages, Codex maker and Codex checker, ₹0): BIE's S1-16 code
+check passed all 102 economics concept items on the first try, and the chapter map passed at round 1; yet only 2 pages
+passed first try (the baseline, without the slot, 7 of 16) because the checker sent 18 of 20 pages back at round 0 while the
+code was clean on 18 of 20. Of its 53 first-round blocking findings, 24 asked for a worked real-world example on items whose
+type does not carry the slot (timelines 10, classifications, comparisons, fact lists): the rule names definition, cause_effect
+and process items, the reviewer applied it to every economics item. Two pages (7 and 12) failed with a single new code
+problem in the last allowed round (a block id, a type note), a slip the maker made while fixing the checker's findings, with
+no round left to mend it; two (4 and 15) failed on the checker's own findings (real-life links to Indian rupee practice without
+a page source, "why" answers on timeline items).
+
+**What changed in BIE** (branch `task046c-page-review`): `understanding.page_review_problems(review, value, family, types)`:
+in an economics chapter a blocking finding that wants a worked example (`asks_for_example`) on an item whose type does not
+need the slot (`ContentTypes.needs_real_world`) is minor, and a page whose blocking findings were all such passes; every other
+family and every other finding is untouched. The runner (`_review_findings`) hands the maker's answer to a review that takes
+two arguments, so the review can read each finding's item. The checker's prefix (PAGE_REVIEW_HOW) now says which items S1-16
+covers and that an empty slot elsewhere is correct. And the runner's converging rule covers a first slip: code problems that
+first appear after code-clean rounds (at most CONVERGING_MAX) earn one more patch round. Tests:
+`tests/test_task046c_page_review.py` (10), in the toolbox core lane and the Task 045 lane.
+
+| Measure (the run's own reviews, replayed) | Before | After |
+| --- | --- | --- |
+| Checker findings counted as blocking, all rounds | 79 | 53 |
+| First-round blocking findings that asked for the example where the rule does not | 24 of 53 | 0 (minor, kept in the record) |
+| Pages passing first try | 2 of 20 | 3 of 20 (page 8) |
+| Pages failed on one new code slip in the last round | 2 (pages 7, 12) | one more patch round each |
+
+The live effect (first-try pages, rounds, minutes) is measured on the resume `t046c-money-understand-d` (16 pages reused, 4
+pages and the map run again).

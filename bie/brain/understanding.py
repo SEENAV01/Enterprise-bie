@@ -253,7 +253,9 @@ Report concretely, each finding with a severity ("blocking" or "minor", see R-01
   whose steps name the wrong basis, an everyday image that is another textbook sentence) is shallow and blocking (S1-15);
 - for an economics item, a real_world_example whose mechanism is not the concept's, whose numbers do not move the way the concept
   says, or that does not fit the learner's level (UPSC: the real Indian link only from the page or a dated source) is wrong and
-  blocking (S1-16); report it under wrong with the fix.
+  blocking (S1-16); report it under wrong with the fix. S1-16 asks for the example on definition, cause_effect and process items
+  only: an empty real_world_example on any other item (a timeline, a classification, a comparison, a fact list, a figure) is
+  correct, not a finding, and a worked example you would like there is minor (BIE's code counts such a finding as minor).
 Judge at the level of a standard textbook for these learners and their exam, and at the depth of the level profile; precision beyond
 that level is minor.
 verdict is "pass" when nothing is blocking. Fill your own brief notes first.
@@ -595,6 +597,44 @@ def page_card(course, page, *, page_count, previous=None, following=None, rulebo
     return cards.require_valid(card, prefix=prefix, rulebook=rulebook, known_ids=known, types=types)
 
 
+EXAMPLE_ASK = re.compile(r"real_world_example|worked[- ](economic |transaction |numerical |payment |market |shop )?example"
+                         r"|(concrete|completed|populated|numerical|illustrative|hypothetical) (worked |numerical |market |shop |transaction |economic )?example"
+                         r"|changing balances|before/after|before and after", re.I)
+
+
+def asks_for_example(finding: dict) -> bool:
+    """Whether a reviewer's finding wants a worked real-world example (a place, actors, numbers that change) on its item."""
+    text = " ".join(str(finding.get(k) or "") for k in ("what_is_missing", "problem", "fix", "what"))
+    return bool(EXAMPLE_ASK.search(text))
+
+
+def page_review_problems(review: dict, value: dict, *, family: str = "", types=None) -> list:
+    """The page reviewer's blocking findings as remake instructions, with S1-16 read as the rule reads (seekh from the Money
+    chapter's new-rule run, 27 October 2026: 24 of the checker's 53 first-round blocking findings asked for a worked example on
+    timelines, classifications, comparisons and fact lists, where the rule asks for none). In an economics chapter a blocking
+    finding that wants a worked example on an item whose type does not carry the slot is minor; when every blocking finding was
+    such, the page passes. Everything else, every other family included, is the reviewer's call as before."""
+    types = types or ct.load()
+    if not (types.real_world and family in types.real_world.families):
+        return review_problems(review)
+    by_id = {item.get("item_id"): item for item in (value or {}).get("items") or []}
+    filtered, downgraded = dict(review), 0
+    for key in ("wrong", "shallow", "problems"):
+        rows = []
+        for finding in review.get(key) or []:
+            item = by_id.get(finding.get("item_id"))
+            if (finding.get("severity", "blocking") == "blocking" and item is not None
+                    and not types.needs_real_world(family, item.get("content_type") or "") and asks_for_example(finding)):
+                finding = dict(finding, severity="minor")
+                downgraded += 1
+            rows.append(finding)
+        if key in review:
+            filtered[key] = rows
+    if downgraded and not any(blocking(filtered.get(key)) for key in ("missing", "wrong", "shallow", "problems")):
+        filtered["verdict"] = "pass"          # every blocking finding was the example asked where S1-16 does not ask for it
+    return review_problems(filtered)
+
+
 def page_step(course: Course, page, *, page_count: int, previous=None, following=None, rulebook, max_rounds=3,
               max_output_tokens=DEFAULT_OUTPUT_TOKENS, prefixes=None) -> Step:
     types = ct.load()
@@ -620,12 +660,13 @@ def page_step(course: Course, page, *, page_count: int, previous=None, following
         return {"type_check": rows, "type_summary": ct.summary(rows)}
 
     profile = course.profile()
+    family = shots.subject_family(course.subject)
     return Step(section=SECTION, unit=f"page-{page.number:03d}", instructions_version=PAGE_VERSION, system=prefix.text, user=user,
                 schema=PAGE_SCHEMA, check=lambda value: check_page(value, page, proposals=proposals, card=card, types=types,
-                                                                   profile=profile, language=course.language,
-                                                                   family=shots.subject_family(course.subject)),
+                                                                   profile=profile, language=course.language, family=family),
                 review_system=review_prefix.text, review_user=review_user, review_schema=PAGE_REVIEW_SCHEMA,
-                review_problems=review_problems, patch_schema=PAGE_PATCH_SCHEMA, apply_patch=apply_page_patch,
+                review_problems=lambda review, value: page_review_problems(review, value, family=family, types=types),
+                patch_schema=PAGE_PATCH_SCHEMA, apply_patch=apply_page_patch,
                 patch_hint=PAGE_PATCH_HINT, max_rounds=max_rounds, card=card, observe=observe)
 
 

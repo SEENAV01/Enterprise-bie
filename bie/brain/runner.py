@@ -32,6 +32,7 @@ Images are recorded by hash and size only, never by content. When the run's cost
 from __future__ import annotations
 
 import hashlib
+import inspect
 import json
 import time
 from dataclasses import dataclass, field
@@ -182,6 +183,19 @@ def independence(gateway, maker: str, reviewer: str | None) -> str:
     return "same_model_temporary" if same_model else "same_company_temporary"
 
 
+def _review_findings(step: Step, review: dict, value: dict) -> list:
+    """The reviewer's findings as remake instructions. A step's review_problems takes the review alone, or the review and the
+    maker's answer when it needs the answer to judge a finding (the page review reads each finding's item and its type)."""
+    try:
+        params = list(inspect.signature(step.review_problems).parameters.values())
+    except (TypeError, ValueError):
+        params = []
+    positional = [p for p in params if p.kind in (p.POSITIONAL_ONLY, p.POSITIONAL_OR_KEYWORD)]
+    if len(positional) >= 2 or any(p.kind == p.VAR_POSITIONAL for p in params):
+        return step.review_problems(review, value)
+    return step.review_problems(review)
+
+
 class SectionRunner:
     def __init__(self, gateway, *, maker: str, reviewer: str | None, rulebook, records_dir: str | Path | None = None,
                  clock=time.time):
@@ -236,7 +250,8 @@ class SectionRunner:
             problems = [f"[code] {p}" for p in step.check(value)]
             entry["code_problems"] = problems
             converging = (bool(problems) and len(problems) <= CONVERGING_MAX
-                          and last_code is not None and len(problems) < last_code)     # one round shows no trend
+                          and ((last_code is not None and len(problems) < last_code)     # one round shows no trend
+                               or (last_code is None and number > 1)))   # a slip: the first code problems after code-clean rounds
             if problems:
                 last_code = len(problems)
             if step.observe is not None:
@@ -304,7 +319,7 @@ class SectionRunner:
             entry.update(review_error={"kind": exc.kind, "message": str(exc)[:1500]}, passed=False)
             return None
         entry["review"] = dict(_call_info(review, self.reviewer), value=review.content)
-        problems = [f"[reviewer] {p}" for p in step.review_problems(review.content)]
+        problems = [f"[reviewer] {p}" for p in _review_findings(step, review.content, value)]
         entry["review_problems"] = problems
         entry["review_minor"] = minor_findings(review.content)
         return problems
