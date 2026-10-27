@@ -327,62 +327,96 @@ const Title: React.FC<{ el: any; frame: number; fps: number; W: number }> = ({ e
 };
 
 
+/** A parallax layer: a div the compositor caches (will-change), moved by a CSS transform each frame; its SVG draws in world
+ *  pixels and overflows the frame. Static layers (sun, skylines, road, foreground) are memoised, so React never redraws them
+ *  and Chromium re-uses their raster: the camera only moves cached pictures (Task 046 Part C, PR 4: render speed). Depth
+ *  is shown by colour and opacity instead of per-frame blur filters, which cost most of a frame on a software renderer. */
+const Layer: React.FC<{ W: number; H: number; transform: string; opacity?: number; children: React.ReactNode }> = ({ W, H, transform, opacity, children }) => (
+  <div style={{ position: "absolute", left: 0, top: 0, width: W, height: H, transformOrigin: "0 0", transform, willChange: "transform", opacity }}>
+    <svg width={W} height={H} style={{ position: "absolute", left: 0, top: 0, overflow: "visible" }}>{children}</svg>
+  </div>
+);
+
+const SunLayer = React.memo(({ WW }: { WW: number }) => (
+  <>
+    <defs>
+      <radialGradient id="ws-sun" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stopColor="#fff6c8" /><stop offset="0.4" stopColor="#ffe08a" stopOpacity="0.8" /><stop offset="1" stopColor="#ffe08a" stopOpacity="0" /></radialGradient>
+    </defs>
+    <circle cx={WW * 0.45} cy={200} r={260} fill="url(#ws-sun)" />
+  </>
+));
+
+const FarSkyline = React.memo(({ WW }: { WW: number }) => <Skyline width={WW} seed={11} far />);
+const NearSkyline = React.memo(({ WW }: { WW: number }) => <Skyline width={WW} seed={23} far={false} />);
+
+const Road = React.memo(({ WW }: { WW: number }) => (
+  <>
+    <defs>
+      <linearGradient id="ws-road" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#b8b2a7" /><stop offset="1" stopColor="#8c867c" /></linearGradient>
+    </defs>
+    <rect x={-2000} y={GROUND - 40} width={WW + 4000} height={60} fill="#d8cfbf" />
+    <rect x={-2000} y={GROUND + 20} width={WW + 4000} height={400} fill="url(#ws-road)" />
+    {Array.from({ length: Math.ceil((WW + 4000) / 260) }, (_, i) => <rect key={i} x={-2000 + i * 260} y={GROUND + 140} width={130} height={14} rx={7} fill="#f3f0e8" opacity={0.8} />)}
+  </>
+));
+
+const Foreground = React.memo(({ els }: { els: any[] }) => (
+  <>
+    <defs>
+      <radialGradient id="ws-bush" cx="0.5" cy="0.5" r="0.5"><stop offset="0.55" stopColor="#3f7d4e" /><stop offset="1" stopColor="#3f7d4e" stopOpacity="0" /></radialGradient>
+      <radialGradient id="ws-bush2" cx="0.5" cy="0.5" r="0.5"><stop offset="0.55" stopColor="#4f9a5f" /><stop offset="1" stopColor="#4f9a5f" stopOpacity="0" /></radialGradient>
+    </defs>
+    {els.map((e) => <g key={e.id}>
+      <ellipse cx={e.x} cy={GROUND + 190} rx={230} ry={120} fill="url(#ws-bush)" /><ellipse cx={e.x - 100} cy={GROUND + 160} rx={150} ry={95} fill="url(#ws-bush2)" />
+      <ellipse cx={e.x + 110} cy={GROUND + 170} rx={140} ry={90} fill="url(#ws-bush)" />
+    </g>)}
+  </>
+));
+
 const WorldScene: React.FC<BlockProps> = ({ data, width: W, height: H }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const cam = camAt(data.camera, frame);
   const WW = data.world_width ?? 5200;
-  // a layer at depth d (1 = street) follows the camera by d; far layers also zoom less and are softer
+  // a layer at depth d (1 = street) follows the camera by d; far layers also zoom less
   const layer = (d: number) => {
     const z = 1 + (cam.zoom - 1) * d;
-    return `translate(${W / 2},${H / 2}) scale(${z}) translate(${-cam.x * d - (1 - d) * WW * 0.35},${-(cam.y * d + (1 - d) * 540)})`;
+    return `translate(${W / 2}px, ${H / 2}px) scale(${z}) translate(${-cam.x * d - (1 - d) * WW * 0.35}px, ${-(cam.y * d + (1 - d) * 540)}px)`;
   };
   const els: any[] = data.elements ?? [];
   const byKind = (k: string) => els.filter((e) => e.kind === k);
   const clouds = rng(5);
+  const foreground = byKind("foreground");
   return (
     <div style={{ position: "absolute", inset: 0, overflow: "hidden", background: "linear-gradient(#8ec5ff 0%, #cfe6ff 45%, #ffe7c4 75%)" }}>
-      <svg width={W} height={H} style={{ position: "absolute", inset: 0 }}>
-        <defs>
-          <filter id="ws-blur-far"><feGaussianBlur stdDeviation="2.2" /></filter>
-          <filter id="ws-blur-fg"><feGaussianBlur stdDeviation="6" /></filter>
-          <radialGradient id="ws-sun" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stopColor="#fff6c8" /><stop offset="0.4" stopColor="#ffe08a" stopOpacity="0.8" /><stop offset="1" stopColor="#ffe08a" stopOpacity="0" /></radialGradient>
-          <linearGradient id="ws-road" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#b8b2a7" /><stop offset="1" stopColor="#8c867c" /></linearGradient>
-        </defs>
-        <g transform={layer(0.05)}>
-          <circle cx={WW * 0.45} cy={200} r={260} fill="url(#ws-sun)" />
-          {Array.from({ length: 9 }, (_, i) => {
-            const cx = (clouds() * WW * 1.2 + frame * (0.4 + clouds() * 0.5)) % (WW * 1.2) - WW * 0.1, cy = 90 + clouds() * 220, s = 0.6 + clouds();
-            return <g key={i} transform={`translate(${cx},${cy}) scale(${s})`} opacity={0.9}>
-              <ellipse cx={0} cy={0} rx={110} ry={38} fill="#fff" /><ellipse cx={-50} cy={-20} rx={60} ry={40} fill="#fff" /><ellipse cx={40} cy={-26} rx={70} ry={46} fill="#fff" />
-            </g>;
-          })}
-        </g>
-        <g transform={layer(0.3)} filter="url(#ws-blur-far)" opacity={0.85}><Skyline width={WW} seed={11} far /></g>
-        <g transform={layer(0.65)} filter="url(#ws-blur-far)"><Skyline width={WW} seed={23} far={false} /></g>
-        <g transform={layer(1)}>
-          <rect x={-2000} y={GROUND - 40} width={WW + 4000} height={60} fill="#d8cfbf" />
-          <rect x={-2000} y={GROUND + 20} width={WW + 4000} height={400} fill="url(#ws-road)" />
-          {Array.from({ length: Math.ceil((WW + 4000) / 260) }, (_, i) => <rect key={i} x={-2000 + i * 260} y={GROUND + 140} width={130} height={14} rx={7} fill="#f3f0e8" opacity={0.8} />)}
-          {byKind("shop").map((e) => <Shop key={e.id} el={e} frame={frame} fps={fps} />)}
+      <Layer W={W} H={H} transform={layer(0.05)}><SunLayer WW={WW} /></Layer>
+      <Layer W={W} H={H} transform={layer(0.05)}>
+        {Array.from({ length: 9 }, (_, i) => {
+          const cx = (clouds() * WW * 1.2 + frame * (0.4 + clouds() * 0.5)) % (WW * 1.2) - WW * 0.1, cy = 90 + clouds() * 220, s = 0.6 + clouds();
+          return <g key={i} transform={`translate(${cx},${cy}) scale(${s})`} opacity={0.9}>
+            <ellipse cx={0} cy={0} rx={110} ry={38} fill="#fff" /><ellipse cx={-50} cy={-20} rx={60} ry={40} fill="#fff" /><ellipse cx={40} cy={-26} rx={70} ry={46} fill="#fff" />
+          </g>;
+        })}
+      </Layer>
+      <Layer W={W} H={H} transform={layer(0.3)} opacity={0.7}><FarSkyline WW={WW} /></Layer>
+      <Layer W={W} H={H} transform={layer(0.65)} opacity={0.92}><NearSkyline WW={WW} /></Layer>
+      <Layer W={W} H={H} transform={layer(1)}><Road WW={WW} /></Layer>
+      <Layer W={W} H={H} transform={layer(1)}>
+        {byKind("shop").map((e) => <Shop key={e.id} el={e} frame={frame} fps={fps} />)}
           {byKind("lamp").map((e) => <g key={e.id}><rect x={e.x - 7} y={GROUND - 420} width={14} height={420} fill="#45535e" /><rect x={e.x - 40} y={GROUND - 440} width={80} height={24} rx={10} fill="#45535e" /><ellipse cx={e.x} cy={GROUND - 412} rx={30} ry={10} fill="#ffe9a8" /></g>)}
-          {byKind("shopkeeper").map((e) => <Person key={e.id} x={e.x} y={GROUND - 150} s={0.9} facing={-1} phase={frame / 3} walking={false} look={e.look ?? 3} />)}
-          {byKind("crowd").map((e) => <Crowd key={e.id} el={e} frame={frame} fps={fps} />)}
-          {byKind("price_tag").map((e) => <PriceTag key={e.id} el={e} frame={frame} fps={fps} />)}
-          {byKind("coin_rain").map((e) => <CoinRain key={e.id} el={e} frame={frame} />)}
-          {byKind("pull_arrow").map((e) => <PullArrow key={e.id} el={e} frame={frame} />)}
-          {byKind("balance").map((e) => <Balance key={e.id} el={e} frame={frame} fps={fps} />)}
-          {byKind("label").map((e) => <GlassLabel key={e.id} el={e} frame={frame} fps={fps} />)}
-        </g>
-        <g transform={layer(1.6)} filter="url(#ws-blur-fg)">
-          {byKind("foreground").map((e) => <g key={e.id}>
-            <ellipse cx={e.x} cy={GROUND + 190} rx={190} ry={95} fill="#3f7d4e" /><ellipse cx={e.x - 100} cy={GROUND + 160} rx={120} ry={75} fill="#4f9a5f" />
-            <ellipse cx={e.x + 110} cy={GROUND + 170} rx={110} ry={70} fill="#4a8f59" />
-          </g>)}
-        </g>
-      </svg>
-      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(255,220,170,0.10), rgba(255,200,140,0.0) 40%, rgba(60,40,20,0.12))", pointerEvents: "none" }} />
-      <div style={{ position: "absolute", inset: 0, boxShadow: "inset 0 0 260px rgba(40,25,10,0.35)", pointerEvents: "none" }} />
+        {byKind("shopkeeper").map((e) => <Person key={e.id} x={e.x} y={GROUND - 150} s={0.9} facing={-1} phase={frame / 3} walking={false} look={e.look ?? 3} />)}
+        {byKind("crowd").map((e) => <Crowd key={e.id} el={e} frame={frame} fps={fps} />)}
+        {byKind("price_tag").map((e) => <PriceTag key={e.id} el={e} frame={frame} fps={fps} />)}
+        {byKind("coin_rain").map((e) => <CoinRain key={e.id} el={e} frame={frame} />)}
+        {byKind("pull_arrow").map((e) => <PullArrow key={e.id} el={e} frame={frame} />)}
+        {byKind("balance").map((e) => <Balance key={e.id} el={e} frame={frame} fps={fps} />)}
+        {byKind("label").map((e) => <GlassLabel key={e.id} el={e} frame={frame} fps={fps} />)}
+      </Layer>
+      {foreground.length ? <Layer W={W} H={H} transform={layer(1.6)}><Foreground els={foreground} /></Layer> : null}
+      <div style={{ position: "absolute", inset: 0, pointerEvents: "none",
+        background: "linear-gradient(180deg, rgba(255,220,170,0.10), rgba(255,200,140,0.0) 40%, rgba(60,40,20,0.12))" }} />
+      <div style={{ position: "absolute", inset: 0, pointerEvents: "none",
+        background: "radial-gradient(ellipse at 50% 50%, rgba(40,25,10,0) 58%, rgba(40,25,10,0.35) 100%)" }} />
       {byKind("title").map((e) => <Title key={e.id} el={e} frame={frame} fps={fps} W={W} />)}
     </div>
   );
