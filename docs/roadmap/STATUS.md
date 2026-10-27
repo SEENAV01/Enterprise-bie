@@ -624,8 +624,10 @@ PR B (only after Navin's yes): live runs on the Gemini key, maker `google/gemini
   "Cache save failed", a warning, not a failure), so F-13b's cache never existed, every PR run fetched from the one GMT
   server (`oceania`, a single IPv4 host; no other `*.generic-mapping-tools.org` data host resolves), and the next outage
   from the runners (26 October 16:44 on `main`, today on the PR) had nothing to fall back on. Fix, in its own small PR:
-  the cache path is `${{ runner.temp }}/bie-asset-cache` in all seven places (the three cache steps, `BIE_ASSET_CACHE`
-  three times and `--assets`), and the core test refuses a cache path with `..`. After the merge, the push-to-main `assets`
+  the cache path is `${{ github.workspace }}/.bie-asset-cache` in all seven places (the three cache steps,
+  `BIE_ASSET_CACHE` three times and `--assets`), and the core test refuses a cache path with `..`. (A first try with
+  `${{ runner.temp }}` made the workflow unparseable, run 40496134303 with no jobs: the `runner` context is not allowed
+  in a job's `env`; the `github` context is.) After the merge, the push-to-main `assets`
   job saves the tiles the first time the server answers a runner; from then on every PR restores them. Until that first
   save, a PR's `demos (2)` still depends on the server (PR #82 waits for it; no rerun, no empty commit).
 - F-11 in the toolbox lane (26 October 2026, PR #79 run 40341502059, head `8583df52`): `wrappers` was cancelled at its

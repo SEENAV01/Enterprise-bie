@@ -728,9 +728,11 @@ class DemosAndPage(unittest.TestCase):
         self.assertIn("group: bie-toolbox-${{ github.ref }}-${{ github.event_name }}", flow)                  # F-13c
         self.assertEqual(flow.count("            bie-asset-cache-shared-\n"), 3)     # the assets job, wrappers and demos restore it
         # F-13d: actions/cache refuses a path with ".." ("Relative pathing '.' and '..' is not allowed", "Cache save failed"),
-        # so the cache lives under the runner's temp folder and the same path is what BIE_ASSET_CACHE and --assets name
+        # so the cache is a dot-folder inside the workspace (the github context is valid in a job's env; runner.temp is not)
+        # and the same path is what BIE_ASSET_CACHE and --assets name
         self.assertNotIn("/../", flow)
-        self.assertEqual(flow.count("${{ runner.temp }}/bie-asset-cache"), 7)
+        self.assertNotIn("runner.temp }}/bie-asset-cache", flow)
+        self.assertEqual(flow.count("${{ github.workspace }}/.bie-asset-cache"), 7)
         self.assertIn("  push:\n    branches: [main]", flow)
         for job in ("wrappers", "demos"):                                   # F-11 in this lane (PR #79 run 40341502059)
             body = flow.split(f"\n  {job}:\n", 1)[1].split("\n  demos:\n", 1)[0]
