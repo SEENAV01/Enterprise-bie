@@ -41,7 +41,7 @@ ROOT = Path(__file__).resolve().parents[1]
 JOB_SCHEMA = "bie.vm-job/1"
 JOBS_BRANCH = "codex-jobs"
 RESULTS_BRANCH = "blindtest-results"
-SECTIONS = ("understand", "lesson", "director", "notes", "game", "visual", "chain", "image", "look")
+SECTIONS = ("understand", "lesson", "director", "notes", "game", "visual", "canvas", "chain", "image", "look")
 # Task 046 one-shot test (Navin, 26 October 2026): "image" makes pictures with Codex's built-in image_gen tool through the
 # ChatGPT plan (tools/vm_image.py, prompts written by BIE, at most 4 images) and returns the image files; "look" runs the
 # LOOK-01 look check with the free Google reviewer (tools/vm_look.py). Both are fixed commands, like run_brain.
@@ -101,8 +101,8 @@ def validate(job: dict) -> dict:
         raise JobError("source: needed for understand and chain")
     if out["section"] in ("lesson", "notes", "game") and not out.get("chapter_map"):
         raise JobError("chapter_map: needed for lesson, notes and game")
-    if out["section"] in ("director", "visual") and not out.get("from_run"):
-        raise JobError("from_run: needed for director and visual")
+    if out["section"] in ("director", "visual", "canvas") and not out.get("from_run"):
+        raise JobError("from_run: needed for director, visual and canvas")
     for name, low, high in (("max_inr", 1, 1000), ("workers", 1, 4), ("max_rounds", 1, 3)):
         value = out[name]
         if isinstance(value, bool) or not isinstance(value, (int, float)) or not low <= value <= high:

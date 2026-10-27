@@ -750,3 +750,28 @@ parts.
 
 First-try pass rate, rounds, tokens and ₹ per page are unchanged (no AI step runs in PR 1); PR 2 starts counting first-try
 passes and rounds per part, and the real chapter run gives the first numbers.
+
+## Entry 16 · Task 046 Part C, PR 2: the director's canvas and world modes, 27 October 2026
+
+**What PR 1 taught:** the kit's plans are small and checkable by code (what, where, on which word), so the maker needs no
+reviewer for layout: every refusal is an exact code error the maker can act on, and the plan contract can be a strict JSON
+schema the gateway validates before any check runs.
+
+**What changed in BIE** (branch `task046c-director`): `bie/brain/canvas_director.py` (the modes by Navin's rule, the
+director card and the CV rules as the maker's instructions, an icon menu from the index, the strict plan schema and the
+exact-error check loop through the SectionRunner, `run_canvas` writing plans, specs, credits and the per-part counts),
+`--section canvas` in the run tool and the VM runner, the places a story can be set in (`world.PLACES`), the fake maker's
+canvas and world answers, `canvas_profile@2026-10-27.2`.
+
+**Measured (offline, ₹0; the live numbers come from the chapter run):**
+
+| Measure | Before | After |
+| --- | --- | --- |
+| A script part of a canvas subject → a plan BIE can render | none (no section) | one per part, B by default, C for a story in a place with a kit |
+| Reviewer calls per plan round | — | 0 (layout is code-checked; the exact error goes back) |
+| Where a plan's errors are recorded | — | the step record (`records/`), `canvas.json` `last_problems`, `CANVAS.md` |
+| First-try passes and rounds per part | not counted | counted (`first_try`, `rounds`, `first_try_rate`) |
+| Places a story part can be in / kits that exist | — | 5 / 1 (shop); the rest logged as missing kits |
+| Tests in the toolbox core lane | 137 | 150 |
+
+First-try pass rate, rounds, tokens and ₹ per page for real plans: not yet (no live call in PR 2).

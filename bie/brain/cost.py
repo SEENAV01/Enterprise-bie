@@ -31,6 +31,7 @@ PER_PAGE_USD = {
     "lesson": (0.493, "measured", "VM job t045b-tissue-lesson, 14 pages (458 minutes spoken, before the time rule)"),
     "director": (0.20, "assumed", "not measured yet; scenes with timed actions"),
     "visual": (0.25, "assumed", "not measured yet; asset choice by sight and layouts reviewed on frames"),
+    "canvas": (0.10, "assumed", "not measured yet; one plan per part, code checks only (Task 046 Part C)"),
 }
 SECTIONS_OF_MODE = {
     "understand": ("understand", "connect"),
@@ -39,12 +40,13 @@ SECTIONS_OF_MODE = {
     "notes": ("notes",),
     "game": ("game",),
     "visual": ("visual",),
+    "canvas": ("canvas",),
     "chain": ("understand", "connect", "notes", "game", "lesson", "director"),
 }
 BASIS_BLEND = 0.3 * 2.00 + 0.7 * 10.00
 MAKER_SHARE = 0.84
 SECTION_NAMES = {"understand": "Section 1 · page reading", "connect": "Section 1 · chapter map", "lesson": "Section 2 · lesson",
-                 "director": "Section 3 · director", "visual": "Section 4 · visual", "game": "Section 6 · game design",
+                 "director": "Section 3 · director", "visual": "Section 4 · visual", "canvas": "Section 3c · canvas plans", "game": "Section 6 · game design",
                  "notes": "Section 7 · notes", "preflight": "preflight"}
 
 

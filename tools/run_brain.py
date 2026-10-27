@@ -5,6 +5,8 @@
   --section director     Section 3: --from-run (folder or URL with chapter_map.json and lesson_plan.json) → director.json
   --section notes        Section 7: --chapter-map → notes.json, NOTES.html (interactive slides; print view = PDF)
   --section game         Section 6 (design): --chapter-map → game_design.json, GAME.md
+  --section canvas       Section 3c (Task 046 Part C): --from-run (with lesson_plan.json) → plans/, video_specs/, canvas.json, CANVAS.md;
+                         one canvas (B) or world (C) plan per script part, written by the maker and checked by code
   --section visual       Section 4: --from-run (with director.json) → assets/, video_specs/, VISUAL.md, stills/; --render adds MP4 previews
   --section chain        Sections 1, 2, 3, 6 (design) and 7 in one run; --with-visual adds Section 4
 
@@ -52,6 +54,7 @@ from bie.brain import rulebook as rulebook_module  # noqa: E402
 from bie.brain.fake import BrainFakeClient  # noqa: E402
 from bie.brain.pages import load_pages, parse_page_range  # noqa: E402
 from bie.brain.runner import SectionRunner  # noqa: E402
+from bie.brain.canvas_director import run_canvas  # noqa: E402
 from bie.brain.director import run_director  # noqa: E402
 from bie.brain.game import run_game_design  # noqa: E402
 from bie.brain.lesson import run_lesson  # noqa: E402
@@ -177,14 +180,14 @@ def plan_usage(gateway) -> dict:
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("--section", choices=("understand", "lesson", "director", "notes", "game", "visual", "chain"), default="understand")
+    parser.add_argument("--section", choices=("understand", "lesson", "director", "notes", "game", "visual", "canvas", "chain"), default="understand")
     parser.add_argument("--source", help="chapter PDF (understand, chain)")
     parser.add_argument("--chapter-map", help="chapter_map.json from an earlier run (lesson)")
     parser.add_argument("--from-run", help="folder or https URL of an earlier run with chapter_map.json and lesson_plan.json (director)")
     parser.add_argument("--resume-from", help="folder or https URL of an earlier run: understand/chain reuse its passed pages, "
                                               "lesson reuses its passed plan and scripts (when they pass today's checks)")
     parser.add_argument("--videos", default="", help="visual: only these video ids, for example v1,v2; lesson with --resume-from: only these scripts are worked on, the rest are kept as they were")
-    parser.add_argument("--render", action="store_true", help="visual: also render a silent MP4 preview of every video")
+    parser.add_argument("--render", action="store_true", help="visual, canvas: also render a silent MP4 preview of every video")
     parser.add_argument("--with-visual", action="store_true", help="chain: also run Section 4")
     parser.add_argument("--pages")
     parser.add_argument("--out", required=True)
@@ -356,6 +359,12 @@ def main(argv=None):
             summary.update(director_quality=director["quality"])
         if guard.stopped and summary["status"] == "ok":
             summary.update(status=stop_status(guard), stop_reason=guard.stop_reason)
+        if summary["status"] == "ok" and args.section == "canvas":
+            wanted = [v.strip() for v in args.videos.split(",") if v.strip()]
+            planned = run_canvas(chapter, lesson, course, runner, out, videos=wanted or None, workers=args.workers, max_rounds=args.max_rounds)
+            summary.update(canvas_quality=planned["quality"])
+            if guard.stopped:
+                summary.update(status=stop_status(guard), stop_reason=guard.stop_reason)
         if summary["status"] == "ok" and (args.section == "visual" or (args.section == "chain" and args.with_visual)):
             wanted = {v.strip() for v in args.videos.split(",") if v.strip()}
             if wanted:
@@ -364,6 +373,7 @@ def main(argv=None):
             summary.update(visual_quality=visual["quality"])
             if guard.stopped:
                 summary.update(status=stop_status(guard), stop_reason=guard.stop_reason)
+        if summary["status"] == "ok" and args.section in ("visual", "canvas", "chain") and (args.section != "chain" or args.with_visual):
             if args.render:
                 from bie.brain.video.render import RenderError, mp4
                 (out / "videos").mkdir(exist_ok=True)
@@ -396,7 +406,7 @@ def main(argv=None):
     notice("bie brain " + args.section, redact(json.dumps({k: summary.get(k) for k in
                                                          ("status", "stop_reason", "quality", "map_status", "prerequisite_trim", "notes_quality",
                                                           "game_quality", "lesson_quality", "director_quality",
-                                                          "visual_quality", "render_errors", "ledger_cost_usd", "error")},
+                                                          "visual_quality", "canvas_quality", "render_errors", "ledger_cost_usd", "error")},
                                                         ensure_ascii=False), secrets), level)
     return 0 if summary["status"] == "ok" or summary["status"] in GRACEFUL else 1
 

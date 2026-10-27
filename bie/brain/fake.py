@@ -200,6 +200,59 @@ def director_answer(user_text: str):
     return {"notes": NOTES, "scenes": scenes}
 
 
+def _first_word(say: str) -> str:
+    words = [w for w in say.replace("।", " ").replace(",", " ").split() if w.strip("।,.!?")]
+    return words[0].strip("।,.!?") if words else ""
+
+
+def canvas_answer(user_text: str):
+    """A plan the canvas compiler accepts: a title tag, then one short text box per beat on its first word, two columns of
+    six rows; a 13th beat onward reuses a cell after its earlier box leaves (until_cue). Offline only."""
+    data = _payload(user_text)
+    beats = data.get("beats", [])
+    part = (data.get("part") or {}).get("part_id") or (data.get("part") or {}).get("id") or "part"
+    empty = {"cue_fraction": 0.0, "until_cue": [], "until_fraction": 0.0, "text": "", "style": "", "size": 0, "tone": "", "fill": "",
+             "align": "", "icon": "", "label": "", "cols": 0, "steps": [], "from": "", "to": "", "from_side": "", "to_side": "", "elbow": "",
+             "dashed": False, "curve": False, "target": "", "mark": "", "pos": "", "root": "", "children": [], "columns": [], "rows": [],
+             "highlights": [], "marks": [], "flow": {"icon": "", "count": 0, "period": 0, "size": 0, "reverse": False, "cue": []}}
+    nodes = []
+    if beats:
+        nodes.append(dict(empty, id="tag", kind="text", cell=[0, 0, 5, 1], cue=[beats[0]["beat_id"], ""], style="tag",
+                          text=f"Part {part}"[:28]))
+    slots = 12
+    for n, beat in enumerate(beats):
+        slot = n % slots
+        cell = [(slot % 2) * 6, 1 + slot // 2, 6, 1]
+        words = beat["say"].replace("।", " ").split()
+        text = " ".join(words[:4])[:40] or "…"
+        if n >= slots:
+            nodes[1 + n - slots]["until_cue"] = [beat["beat_id"], ""]
+        nodes.append(dict(empty, id=f"t{n + 1}", kind="text", cell=cell, cue=[beat["beat_id"], _first_word(beat["say"])],
+                          style="box", size=28, text=text))
+    graph = {"plot": {"x": 0, "y": 0, "w": 0, "h": 0}, "x_label": "", "y_label": "", "x_domain": [], "y_domain": [], "axes_cue": [],
+             "curves": [], "dots": [], "shades": [], "guides": [], "notes": []}
+    return {"notes": NOTES, "nodes": nodes, "camera": [], "focus": [], "graph_used": False, "graph": graph}
+
+
+def world_answer(user_text: str):
+    """A world the world compiler accepts: a shop, a price tag, a crowd that grows, a title, and one camera key per beat."""
+    data = _payload(user_text)
+    beats = data.get("beats", [])
+    empty = {"x": 0, "y": 0, "sign": "", "text": "", "fill": "", "string": 0, "steps": [], "packets": [], "cue": [], "until_cue": [],
+             "tilt_cue": [], "tilt": 0, "x0": 0, "x1": 0, "y0": 0, "y1": 0, "spacing": 0, "enter_x": 0, "exit_x": 0, "face": 0, "seed": 0,
+             "count": 0, "lift_cue": [], "lift_dy": 0, "carry_cue": [], "carry_n": 0}
+    first = beats[0]["beat_id"] if beats else "b1"
+    els = [dict(empty, id="shop", kind="shop", x=2600, sign="दुकान", packets=[{"n": 3, "cue": [first, ""]}]),
+           dict(empty, id="lamp1", kind="lamp", x=2050), dict(empty, id="fg1", kind="foreground", x=1750),
+           dict(empty, id="tag", kind="price_tag", x=2870, y=560, string=60,
+                steps=[{"text": "₹50", "n": 0, "dir": "", "cue": [first, _first_word(beats[0]["say"]) if beats else ""]}]),
+           dict(empty, id="crowd", kind="crowd", x0=2330, spacing=120, enter_x=3950, exit_x=4300, face=-1, seed=4,
+                steps=[{"text": "", "n": 2 + n, "dir": "", "cue": [b["beat_id"], _first_word(b["say"])]} for n, b in enumerate(beats)]),
+           dict(empty, id="title", kind="title", text="Story", cue=[first, ""])]
+    camera = [{"cue": [b["beat_id"], ""], "x": 2600 + 40 * n, "y": 560, "zoom": 1.0 + 0.05 * (n % 3), "frames": 30} for n, b in enumerate(beats)]
+    return {"notes": NOTES, "elements": els, "camera": camera}
+
+
 def notes_answer(user_text: str):
     data = _payload(user_text)
     slides = []
@@ -320,6 +373,10 @@ class BrainFakeClient:
             value = notes_answer(user)
         elif "replace_scenes" in props:
             value = {"notes": NOTES, "replace_scenes": [], "remove_scene_ids": []}
+        elif "nodes" in props and "graph_used" in props:
+            value = canvas_answer(user)
+        elif "elements" in props and "camera" in props and "notes" in props and len(props) == 3:
+            value = world_answer(user)
         elif "scenes" in props:
             value = director_answer(user)
         elif "replace_beats" in props:

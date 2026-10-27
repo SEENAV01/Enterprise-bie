@@ -16,10 +16,19 @@ from ..canvas import PlanError
 from . import timing
 
 KINDS = {"shop", "price_tag", "crowd", "coin_rain", "balance", "label", "pull_arrow", "title", "lamp", "foreground", "shopkeeper"}
-# The places a world kit exists for: a story part set in one of these goes to world mode (C); the words are matched on the
-# part's beats by the director (bie/brain/shots.py decides the mode, this module only draws).
-KITS = {"shop": {"label": "a shop with buyers on a street", "words": ("दुकान", "दुकानदार", "shop", "shopkeeper", "बाज़ार", "बाजार",
-                                                                   "market", "खरीदार", "buyer", "buyers", "ग्राहक", "customer")}}
+# The places a story part can be set in (Navin, 27 October 2026: "a shop and its buyers, a bank and its borrowers, a factory
+# and its workers, a port, a farm"), with the words that name them in a Hinglish script. A place with a kit in ``KITS`` goes
+# to world mode (C); a place without one falls back to the canvas (B) and goes to the missing-capability log (Part C, PR 3
+# builds the kits the chosen video needs). The director (bie/brain/canvas_director.py) decides; this module only draws.
+PLACES = {
+    "shop": ("दुकान", "दुकानदार", "shop", "shopkeeper", "बाज़ार", "बाजार", "market", "खरीदार", "buyer", "buyers", "ग्राहक", "customer",
+             "customers", "किराना", "mandi", "मंडी"),
+    "bank": ("बैंक", "bank", "banks", "कर्ज़", "कर्ज", "loan", "loans", "borrower", "borrowers", "depositor", "depositors", "जमा", "उधार", "rbi"),
+    "factory": ("फैक्ट्री", "फ़ैक्ट्री", "factory", "factories", "कारखाना", "कारखाने", "मज़दूर", "मजदूर", "worker", "workers", "मशीन", "machine"),
+    "port": ("बंदरगाह", "port", "ports", "ship", "ships", "जहाज़", "जहाज", "export", "exports", "import", "imports", "निर्यात", "आयात", "container"),
+    "farm": ("खेत", "किसान", "farm", "farmer", "farmers", "फसल", "crop", "crops", "harvest", "कटाई", "tractor", "बीज"),
+}
+KITS = {"shop": {"label": "a shop with buyers on a street", "words": PLACES["shop"]}}
 CUE_KEYS = ("cue", "until_cue", "tilt_cue")
 
 
@@ -79,10 +88,15 @@ def compile_world(plan: dict, *, voice: dict | None = None, lead_in: float = tim
     return scene, report
 
 
-def kit_for(text: str) -> str:
-    """The world kit whose place words appear in a part's text, or "" when no kit fits."""
+def place_of(text: str) -> str:
+    """The place a part's words name (the place named most often wins), or "" for a part that is not a story in a place."""
     low = text.lower()
-    for kit, info in KITS.items():
-        if any(w.lower() in low for w in info["words"]):
-            return kit
-    return ""
+    counts = {place: sum(low.count(w.lower()) for w in words) for place, words in PLACES.items()}
+    best = max(counts, key=counts.get)
+    return best if counts[best] else ""
+
+
+def kit_for(text: str) -> str:
+    """The world kit for a part's place, or "" when the place has no kit yet (or the part has no place)."""
+    place = place_of(text)
+    return place if place in KITS else ""

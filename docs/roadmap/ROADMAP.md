@@ -285,8 +285,8 @@ Twemoji and Font Awesome Free as CC BY 4.0 icon sources through the licence poli
 2026, IMPLEMENTED (STATUS, "Task 046 · Part C (Economy), PR 1"); **(2)** the director's canvas (B) and world (C) modes: the
 subject profile picks the canvas default, a story part with a place that has a kit goes to world mode (else canvas and a
 missing-capability line), the AI step writes the plans from the director card through the SectionRunner and the cost guard, a
-refused plan goes back with the exact code error (no reviewer round for layout), first-try passes and rounds counted per part;
-**(3)** world kits for the chosen video's places only, the rest logged missing; **(4)** render speed: parallel chunks in CI
+refused plan goes back with the exact code error (no reviewer round for layout), first-try passes and rounds counted per part
+— done 27 October 2026, IMPLEMENTED offline with the fake maker (STATUS, "PR 2"); **(3)** world kits for the chosen video's places only, the rest logged missing; **(4)** render speed: parallel chunks in CI
 joined to one MP4, static layers pre-drawn, no per-frame SVG filters, a 5–8 minute video in under 60 minutes wall-clock,
 measured before and after; **(5)** ONE real video from Navin's sample economy chapter (the PDF on `blindtest-inputs`;
 understand → lesson → one video with both story and graph parts → plans by BIE, B default and C for the story parts →
