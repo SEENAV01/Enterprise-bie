@@ -36,7 +36,7 @@ from . import level as level_module
 from . import naksha as naksha_module
 from . import shots
 from . import soul
-from .common import SEVERITY, S, arr, checklist_text, fmt, obj, review_problems
+from .common import SEVERITY, S, arr, blocking, checklist_text, fmt, obj, review_problems
 from .runner import NOTES_SCHEMA, SectionRunner, Step, merge_notes
 
 SECTION = "understand"
@@ -294,6 +294,11 @@ CONNECT_REVIEW_HOW = """You also get the maker's notes. Report every problem wit
 see R-01): an item left out of all concepts, a wrong or missing relation, a prerequisite that is vague or missing, an unresolved
 reference, a question not linked, a teaching order that would confuse a student, a fact wrong at this learners' level. Precision beyond
 the level of a standard textbook for these learners is minor.
+The map is structure: concepts and their items, relations, prerequisites, references, question links, the teaching order. A concept's
+core_explanation is a two-line summary for BIE's later sections, never the lesson itself: the lesson is written from every item's own
+words and unpack and reviewed there. So a nuance, a date, a wording, a caveat or a missing explanation inside core_explanation, notes
+or exam_focus is minor, not blocking; BIE's code counts only structural findings as blocking (the Money chapter, 27 October 2026: three
+rounds of new core_explanation findings failed a map whose structure passed every code check).
 verdict is "pass" when nothing is blocking. Fill your own brief notes first. Reply with the JSON object only."""
 
 
@@ -632,6 +637,40 @@ def _item_line(item) -> str:
             + (f" | prerequisites: {prerequisites}" if prerequisites else ""))
 
 
+WORDING_FIELDS = ("core_explanation", "notes", "exam_focus", "chapter_summary", "chapter_title")
+STRUCTURAL_FIELDS = ("relation", "prerequisite", "reference", "question", "teaching_order", "item", "needed_for", "depends_on",
+                     "sequence_next", "coverage", "left out", "missing from")
+
+
+def structural_finding(where: str) -> bool:
+    """Whether a map reviewer's finding is about the map's structure (which items a concept holds, relations, prerequisites,
+    references, question links, the teaching order) rather than the wording of a summary field (core_explanation, notes,
+    exam_focus, the chapter summary or title). A finding that names both is structural; one that names no field at all is
+    structural too (fail closed)."""
+    text = (where or "").lower()
+    if any(field in text for field in STRUCTURAL_FIELDS):
+        return True
+    return not any(field in text for field in WORDING_FIELDS)
+
+
+def wording_findings(review: dict) -> list:
+    """The reviewer's blocking findings that sit in a summary field only: kept in the record, never a remake."""
+    return [p for p in blocking(review.get("problems")) if not structural_finding(p.get("where", ""))]
+
+
+def connect_review_problems(review: dict) -> list:
+    """The map reviewer's blocking findings as remake instructions, structure only (seekh from the Money chapter, 27 October
+    2026). A blocking finding placed in core_explanation, notes, exam_focus or the chapter summary is a wording finding on a
+    two-line summary that no learner hears (the lesson is written from the items and reviewed there), so it stays in the
+    record and does not fail the map. A failed verdict with wording findings only passes; a failed verdict that names no
+    blocking finding at all still sends the map back once, as every reviewer does."""
+    findings = blocking(review.get("problems"))
+    problems = [f"{p['where']}: {p['problem']} -> fix: {p['fix']}" for p in findings if structural_finding(p.get("where", ""))]
+    if review.get("verdict") != "pass" and not findings:
+        problems.append("the reviewer did not pass this work but named no blocking finding; check the work again completely")
+    return problems
+
+
 def connect_step(course: Course, items: dict, *, rulebook, max_rounds=3, max_output_tokens=DEFAULT_OUTPUT_TOKENS) -> Step:
     types = ct.load()
     prefix = cards.build_prefix(section=CONNECT, task="build_chapter_map", version=2, schema_id=CONNECT_SCHEMA_ID,
@@ -671,7 +710,7 @@ def connect_step(course: Course, items: dict, *, rulebook, max_rounds=3, max_out
 
     return Step(section=CONNECT, unit="chapter", instructions_version=CONNECT_VERSION, system=prefix.text, user=user,
                 schema=CONNECT_SCHEMA, check=check, review_system=review_prefix.text, review_user=review_user,
-                review_schema=CONNECT_REVIEW_SCHEMA, review_problems=review_problems, max_rounds=max_rounds, card=card,
+                review_schema=CONNECT_REVIEW_SCHEMA, review_problems=connect_review_problems, max_rounds=max_rounds, card=card,
                 observe=lambda value: engines.map_checks(value, items)[1])
 
 
