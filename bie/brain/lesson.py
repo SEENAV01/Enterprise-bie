@@ -49,7 +49,7 @@ from . import hinglish
 from . import naksha as naksha_module
 from . import shots
 from . import soul
-from .common import SEVERITY, S, arr as _arr, checklist_text as _checklist_text, fmt as _fmt, obj as _obj, review_problems
+from .common import SEVERITY, S, arr as _arr, blocking, checklist_text as _checklist_text, fmt as _fmt, obj as _obj, review_problems
 from .runner import NOTES_SCHEMA, Step, merge_notes
 from .understanding import DEFAULT_OUTPUT_TOKENS, Course, chapter_id, money
 
@@ -244,6 +244,19 @@ follow, an analogy that does not fit, a fact wrong at this level, language that 
 lists. Precision beyond the level of a standard textbook for these learners is minor.
 verdict is "pass" when nothing is blocking. Fill your own brief notes first. Reply with the JSON object only."""
 
+
+PLAN_REVIEW_HOW = """You also get the maker's notes. The plan is structure: which videos the chapter becomes, which concepts each one
+teaches and in what order, the minutes each gets, the prerequisite video's list, and per video the idea of its opening hook and of
+its story or analogy. The teaching itself (the beats, the explanations, the worked examples, the complete questions and answers, the
+example-first order of an economics concept, the spoken Hinglish) is written in the next step, one script per video, from every item's
+own words, and reviewed there with its own checklist; a plan that names its goals is a plan, not a shortfall, and BIE's code counts a
+finding that asks the plan for the teaching as minor.
+Report every problem with where it is (video id and field), what is wrong, the fix and a severity ("blocking" or "minor", see R-01):
+a concept in no video or in a video where the student cannot follow it yet (its prerequisite comes later), a grouping that splits a
+family or packs too many concepts into one video's minutes, a video too thin for its minutes, a prerequisite video that lists what the
+chapter does not need or misses what it needs, a hook or an analogy that does not fit its concept or is wrong at this level. Precision
+beyond the level of a standard textbook for these learners is minor.
+verdict is "pass" when nothing is blocking. Fill your own brief notes first. Reply with the JSON object only."""
 
 SCRIPT_REVIEW_HOW = """You also get the maker's notes. Report every problem with where it is (part or beat id), what is wrong, the fix and a
 severity ("blocking" or "minor", see R-01). What this script must contain (S2-01, S2-02; the same rules BIE's code checks):
@@ -461,11 +474,11 @@ def video_scope(chapter, video):
 
 # ---------------------------------------------------------------- cards
 
-def _prefix(course, rulebook, task, schema_id, schema, role, how, *, review=False, version=3):
+def _prefix(course, rulebook, task, schema_id, schema, role, how, *, review=False, version=3, checklist=None):
     if review:
         return cards.build_prefix(section=SECTION, task=task, version=version, schema_id=schema_id, schema=schema, role=role,
                                   how=how, rulebook=rulebook, course=course, patterns=True, review=True,
-                                  checklist=_checklist_text(rulebook, SECTION))
+                                  checklist=checklist if checklist is not None else _checklist_text(rulebook, SECTION))
     return cards.build_prefix(section=SECTION, task=task, version=version, schema_id=schema_id, schema=schema,
                               role=_fmt(role, course), how=how, rulebook=rulebook, course=course, patterns=True)
 
@@ -787,12 +800,61 @@ def length_problems(beats, video, budget) -> list:
 
 # ---------------------------------------------------------------- steps
 
+PLAN_RULES = ("G-04", "S2-01", "S2-03")     # the lesson rules a plan can meet; the script rules are checked on the scripts
+PLAN_WORDING_FIELDS = ("goal", "story_or_analogy", "opening_hook", "title", "why_this_unit", "length_note", "narration", "notes",
+                       "chapter_flow")
+PLAN_STRUCTURE = ("in no video", "not in any video", "no video for", "left out of", "missing from the plan", "wrong video", "concept_ids",
+                  "teaching order", "order of the videos", "out of order", "before its prerequisite", "estimated_minutes", "too dense",
+                  "too many concepts", "packs ", "split across", "splits the family", "prerequisites_to_teach", "not a prerequisite",
+                  "does not need", "video_id", "duplicate", "minutes for")
+PLAN_CONTENT_ASK = re.compile(
+    r"actually teach|teaching beats?|beat structure|complete (question|teaching|explanation|solution|classification)|narration|"
+    r"not (demonstrated|explained|opened|run through|taught|executed|developed|shown)|"
+    r"explanations? (is |are |remain |remains )?(absent|missing|left)|example-first|worked (numerical )?example|\bdeferred\b|"
+    r"left to (the )?source|promis|future-tense|intention|no (actual|complete|original|worked) |only named|merely named|sketch|"
+    r"introductory|examinable content|exceeds the explanation|explanation provided|teaching is absent|not (really )?(cover|teach)|"
+    r"explanation.example pair|definition fragments|named rather than|rather than (executed|done|taught)|(are|is) absent", re.I)
+
+
+def plan_checklist_text(rulebook) -> str:
+    """The plan reviewer's checklist: only the lesson rules a plan can meet (coverage and length, direct prerequisites, the learner
+    language); the script rules (beats, items and questions, the frame, opening the book line, example first) are the scripts' checklist."""
+    return "\n".join(f"[{rule_id}] {question}" for rule_id, question in rulebook.checklist(SECTION) if rule_id in PLAN_RULES)
+
+
+def plan_structural_finding(finding: dict) -> bool:
+    """Whether a plan reviewer's finding is about the plan's structure (a concept's video, the order, the minutes, the family grouping,
+    the prerequisite list) rather than a demand for the teaching itself (beats, explanations, worked examples, complete questions and
+    answers), which the scripts carry. A finding that names a structural place blocks; one that asks for the teaching is minor; one on
+    the wording of a plan field (goal, story_or_analogy, opening_hook …) is minor; anything else blocks (fail closed)."""
+    where = (finding.get("where") or "").lower()
+    problem = f"{finding.get('problem') or ''} {finding.get('fix') or ''}".lower()
+    if any(key in where for key in PLAN_STRUCTURE):
+        return True
+    if PLAN_CONTENT_ASK.search(f"{where} {problem}"):
+        return False
+    if any(key in problem for key in PLAN_STRUCTURE):
+        return True
+    return not any(field in where for field in PLAN_WORDING_FIELDS)
+
+
+def plan_review_problems(review: dict) -> list:
+    """The plan reviewer's blocking findings as remake instructions, structure only (seekh from the Money chapter, 27 October 2026:
+    the Codex checker failed a plan three times, 20 findings, every one asking the plan for the teaching that the scripts carry).
+    A failed verdict with no blocking finding at all still goes back once, as every section does."""
+    findings = blocking(review.get("problems"))
+    problems = [f"{p['where']}: {p['problem']} -> fix: {p['fix']}" for p in findings if plan_structural_finding(p)]
+    if review.get("verdict") != "pass" and not findings:
+        problems.append("the reviewer did not pass this work but named no blocking finding; check the work again completely")
+    return problems
+
+
 def plan_step(course: Course, chapter, *, rulebook, max_rounds=3, naksha=None, max_output_tokens=DEFAULT_OUTPUT_TOKENS) -> Step:
     naksha = naksha or chapter_naksha(chapter)
     prefix = _prefix(course, rulebook, "plan_videos", PLAN_SCHEMA_ID, PLAN_SCHEMA, PLAN_ROLE,
                      PLAN_HOW + "\n\n" + course.profile().prefix_text())
-    review_prefix = _prefix(course, rulebook, "plan_videos", "bie.brain.lesson-plan-review/2", REVIEW_SCHEMA, REVIEW_ROLE,
-                            REVIEW_HOW, review=True, version=2)
+    review_prefix = _prefix(course, rulebook, "plan_videos", "bie.brain.lesson-plan-review/3", REVIEW_SCHEMA, REVIEW_ROLE,
+                            PLAN_REVIEW_HOW, review=True, version=3, checklist=plan_checklist_text(rulebook))
     card = plan_card(course, chapter, naksha, rulebook=rulebook, prefix=prefix, max_output_tokens=max_output_tokens)
     source = _plan_source(chapter, naksha)
     user = cards.user_message(card, source, (), "Answer the card with the lesson plan JSON.")
@@ -805,7 +867,7 @@ def plan_step(course: Course, chapter, *, rulebook, max_rounds=3, naksha=None, m
         "prerequisites_to_teach", []))[1]
     return Step(section=SECTION, unit="plan", instructions_version=PLAN_VERSION, system=prefix.text, user=user, schema=PLAN_SCHEMA,
                 check=lambda value: check_plan(value, chapter), review_system=review_prefix.text, review_user=review_user,
-                review_schema=REVIEW_SCHEMA, review_problems=review_problems, max_rounds=max_rounds, card=card, observe=observe)
+                review_schema=REVIEW_SCHEMA, review_problems=plan_review_problems, max_rounds=max_rounds, card=card, observe=observe)
 
 
 def script_prefixes(course, rulebook):
