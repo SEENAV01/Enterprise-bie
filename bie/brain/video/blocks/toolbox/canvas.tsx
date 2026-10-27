@@ -96,7 +96,7 @@ const IconEl: React.FC<{ el: El; P: Record<string, string>; W: number; H: number
       {touches ? <div style={{ position: "absolute", left: "18%", width: "64%", top: el.label ? "70%" : "90%", height: "10%", borderRadius: "50%",
         background: "radial-gradient(closest-side, rgba(20,30,45,0.28), rgba(20,30,45,0))", transform: `scaleX(${1 - bob / 40})` }} /> : null}
       <img src={assetUrl(el.src)} style={{ width: "100%", height: el.label ? "78%" : "100%", objectFit: "contain", display: "block",
-        transform: `translateY(${bob - (touches ? 4 : 0)}px)`, filter: touches ? "drop-shadow(0 10px 10px rgba(20,30,45,0.22))" : undefined }} />
+        transform: `translateY(${bob - (touches ? 4 : 0)}px)`, willChange: touches ? "transform" : undefined }} />
       {el.label ? <div style={{ fontFamily: FONT, fontSize: el.label_size ?? 22, fontWeight: 700, color: toneOf(P, el.label_tone ?? "muted"),
         textAlign: "center", letterSpacing: 0.5, marginTop: 4, whiteSpace: "nowrap" }}>{el.label}</div> : null}
     </div>
@@ -212,7 +212,7 @@ const CrowdEl: React.FC<{ el: El; W: number; H: number; frame: number; fps: numb
               <div style={{ position: "absolute", left: "25%", width: "50%", top: "88%", height: "10%", borderRadius: "50%",
                 background: "radial-gradient(closest-side, rgba(20,30,45,0.3), rgba(20,30,45,0))" }} />
               <img src={assetUrl(el.src)} style={{ width: "100%", height: "100%", objectFit: "contain", transform: `translateY(${step}px) scaleX(${outK > 0 ? -1 : 1})`,
-                filter: "drop-shadow(0 6px 6px rgba(20,30,45,0.2))" }} />
+                willChange: "transform" }} />
             </div>
           );
         }
@@ -388,10 +388,13 @@ const CanvasBuild: React.FC<BlockProps> = ({ data, width, height }) => {
     <div style={{ position: "absolute", inset: 0, background: touches ? `radial-gradient(ellipse at 50% 35%, #fffdf8 0%, ${P.bg} 55%, #efe8da 100%)` : P.bg,
       overflow: "hidden" }}>
       {touches ? <div style={{ position: "absolute", inset: -40, backgroundImage: `radial-gradient(rgba(60,70,90,0.07) 1.6px, transparent 1.6px)`,
-        backgroundSize: "44px 44px", transform: `translate(${(tx * 0.15) % 44}px, ${(ty * 0.15) % 44}px)` }} /> : null}
+        backgroundSize: "44px 44px", transform: `translate(${(tx * 0.15) % 44}px, ${(ty * 0.15) % 44}px)`, willChange: "transform" }} /> : null}
       {data.grid ? <div style={{ position: "absolute", inset: 0, backgroundImage: `radial-gradient(${P.shadow} 1.5px, transparent 1.5px)`,
         backgroundSize: "36px 36px", opacity: 0.8 }} /> : null}
-      <div style={{ position: "absolute", left: 0, top: 0, width, height, transformOrigin: "0 0", transform: `translate(${tx}px, ${ty}px) scale(${sc})` }}>
+      {/* the camera layer is composited (will-change): a camera move or the idle drift re-uses the drawn canvas instead of
+          painting every element again (Task 046 Part C, PR 4: render speed) */}
+      <div style={{ position: "absolute", left: 0, top: 0, width, height, transformOrigin: "0 0", transform: `translate(${tx}px, ${ty}px) scale(${sc})`,
+        willChange: "transform" }}>
       <ArrowsAndMarks els={els.filter((e) => e.kind === "arrow" || e.kind === "highlight")} map={map} P={P} W={width} H={height}
         frame={frame} fps={fps} focus={data.focus} />
       {els.filter((e) => !svgKinds.has(e.kind)).map((el) => {
@@ -410,7 +413,8 @@ const CanvasBuild: React.FC<BlockProps> = ({ data, width, height }) => {
       })}
       <ArrowsAndMarks els={els.filter((e) => e.kind === "mark")} map={map} P={P} W={width} H={height} frame={frame} fps={fps} focus={data.focus} />
       </div>
-      {touches ? <div style={{ position: "absolute", inset: 0, boxShadow: "inset 0 0 220px rgba(80,60,30,0.16)", pointerEvents: "none" }} /> : null}
+      {touches ? <div style={{ position: "absolute", inset: 0, pointerEvents: "none",
+        background: "radial-gradient(ellipse at 50% 50%, rgba(80,60,30,0) 60%, rgba(80,60,30,0.16) 100%)" }} /> : null}
     </div>
   );
 };
