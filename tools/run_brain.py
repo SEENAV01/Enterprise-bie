@@ -30,7 +30,10 @@ Codex maker (Task 044): --maker codex runs the maker through OpenAI's Codex CLI 
 ChatGPT Pro plan (``codex exec``; BIE_CODEX_BIN names the CLI, BIE_CODEX_MODEL the model). It runs only on
 Navin's private machine (deployment/codex-vm/), never in this public repository's GitHub Actions. Its calls
 cost no rupees; they use the plan, whose usage is shown before and after the run. A used-up plan window
-ends the run as "stopped: plan limit"; --resume-from continues it later.
+ends the run as "stopped: plan limit"; --resume-from continues it later. --reviewer codex (Navin, 27 October
+2026: no waiting on the free Google key, no paid call) runs the checker on the plan too, in a fresh call;
+with --maker codex it needs --reviewer-model (another plan model, or "same": the weakest check, marked
+same_model_temporary in every record).
 """
 from __future__ import annotations
 
@@ -101,7 +104,8 @@ def build_gateway(maker, reviewer, *, fake, ledger, max_output_tokens, reviewer_
     if same and not reviewer_model:
         raise SystemExit("MAKER_AND_REVIEWER_MUST_DIFFER: a same-company checker needs --reviewer-model")
     makers = [maker] if maker and maker != "codex" else []
-    checkers = [] if same or not reviewer else [reviewer]
+    checkers = [reviewer] if reviewer and not same and reviewer != "codex" else []
+    codex_model = os.environ.get("BIE_CODEX_MODEL") or CODEX_MODEL
     if fake:
         routes = {p: ADAPTERS[p](BrainFakeClient(p), f"fake-{p}") for p in makers + checkers}
     else:
@@ -112,14 +116,21 @@ def build_gateway(maker, reviewer, *, fake, ledger, max_output_tokens, reviewer_
         if missing:
             raise SystemExit("NOT_CONFIGURED:" + ",".join(missing))
     if maker == "codex":
-        routes["codex"] = GPTAdapter(CodexExecClient(), os.environ.get("BIE_CODEX_MODEL") or CODEX_MODEL)
+        routes["codex"] = GPTAdapter(CodexExecClient(), codex_model)
     route = reviewer
+    if reviewer == "codex" and not same:
+        # Navin, 27 October 2026: the checker on the ChatGPT plan too (Rs 0) when the free key is used up and no paid
+        # call is wanted; its own CodexExecClient, so the review is a fresh call.
+        routes["codex"] = GPTAdapter(CodexExecClient(), reviewer_model if reviewer_model and reviewer_model != "same" else codex_model)
     if reviewer and reviewer_model:
         same_model = reviewer_model == "same"
         if same_model and not same:
             raise SystemExit("SAME_MODEL_CHECKER_NEEDS_THE_SAME_PROVIDER")
         route = f"{reviewer}-checker" if same else reviewer
-        if fake:
+        if reviewer == "codex":
+            client = CodexExecClient()
+            model = routes[maker].model if same_model else reviewer_model
+        elif fake:
             client = BrainFakeClient(reviewer)
             model = routes[maker].model if same_model else "fake-" + reviewer_model.replace("/", "-")
         else:
@@ -129,7 +140,7 @@ def build_gateway(maker, reviewer, *, fake, ledger, max_output_tokens, reviewer_
         if same and model == routes[maker].model and not same_model:
             raise SystemExit("MAKER_AND_REVIEWER_MUST_DIFFER: the checker needs another model than the maker "
                              "(or --reviewer-model same, the weakest check)")
-        routes[route] = ADAPTERS[reviewer](client, model)
+        routes[route] = (GPTAdapter if reviewer == "codex" else ADAPTERS[reviewer])(client, model)
     extra = {"sleep": lambda s: None} if fake else {}
     return LiveGateway(routes, ledger=ledger, guard=guard, **extra), route
 
@@ -199,7 +210,10 @@ def main(argv=None):
                         help="Navin's answer: teach at the setting's level even where the book reads as another band")
     parser.add_argument("--maker", choices=PROVIDERS + ("codex",), default="openai",
                         help="codex = GPT through the ChatGPT Pro plan with the Codex CLI (private machine only)")
-    parser.add_argument("--reviewer", choices=PROVIDERS, default="google")
+    parser.add_argument("--reviewer", choices=PROVIDERS + ("codex",), default="google",
+                        help="codex = the checker on the ChatGPT plan through the Codex CLI too (Navin, 27 October 2026; with "
+                             "--maker codex it needs --reviewer-model: another model, or 'same' for the maker's model in a fresh "
+                             "call, kamzor jaanch)")
     parser.add_argument("--reviewer-model", default="", help="checker model; required when maker and reviewer are the same "
                                                              "provider (temporary same-company checker); 'same' = the maker's "
                                                              "model in a fresh call when the key allows only one model "
@@ -293,9 +307,11 @@ def main(argv=None):
             summary.update(status="stopped: level", error=chosen.disagreement)
             notice("level disagreement", chosen.disagreement, "warning")
         maker_via = getattr(getattr(gateway.routes[args.maker], "client", None), "via", "direct")
+        reviewer_via = getattr(getattr(gateway.routes[reviewer], "client", None), "via", "direct") if reviewer in gateway.routes else "direct"
         estimate = cost_module.estimate(args.section, summary.get("resume", {}).get("pages_to_run", pages), rate=rate,
                                         maker_model=gateway.model_of(args.maker), reviewer_model=gateway.model_of(reviewer),
-                                        with_visual=args.with_visual, maker_subscription=maker_via in SUBSCRIPTION_VIAS)
+                                        with_visual=args.with_visual, maker_subscription=maker_via in SUBSCRIPTION_VIAS,
+                                        reviewer_subscription=reviewer_via in SUBSCRIPTION_VIAS)
         summary["estimate"] = estimate
         notice("pahra andaaza", cost_module.estimate_line(estimate, args.max_inr),
                "warning" if estimate["total_inr"] > args.max_inr else "notice")

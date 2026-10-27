@@ -253,6 +253,30 @@ class RunBrainWithCodex(FakeCodex):
         record = json.loads(Path(self.tmp.name, "ok", "records", "understand--page-001.json").read_text())
         self.assertEqual((record["maker_route"], record["maker_model"]), ("codex", "gpt-6.1-sol"))
 
+    def test_codex_checks_its_own_work_in_a_fresh_call_when_navin_says_so(self):
+        """Navin, 27 October 2026: no waiting on the free Google key and no paid call; the checker on the plan too."""
+        env = {"BIE_CODEX_BIN": FAKE, "BIE_FAKE_CODEX_MODE": "ok", "BIE_FAKE_CODEX_STATE": str(self.state)}
+        with mock.patch.dict(os.environ, env, clear=False), contextlib.redirect_stdout(io.StringIO()):
+            code = run_brain.main(["--fake", "--maker", "codex", "--reviewer", "codex", "--reviewer-model", "same", "--section",
+                                   "understand", "--source", str(self.source), "--out", str(Path(self.tmp.name, "own")),
+                                   "--workers", "1", "--max-inr", "30"])
+        summary = json.loads(Path(self.tmp.name, "own", "SUMMARY.json").read_text(encoding="utf-8"))
+        self.assertEqual((code, summary["status"]), (0, "ok"))
+        self.assertEqual(summary["models"], {"codex": "gpt-6.1-sol", "codex-checker": "gpt-6.1-sol"})
+        self.assertEqual((summary["reviewer_route"], summary["reviewer_independence"]), ("codex-checker", "same_model_temporary"))
+        self.assertEqual(summary["estimate"]["reviewer_billing"], "subscription")
+        self.assertEqual(summary["estimate"]["total_inr"], 0.0)
+        self.assertEqual(summary["cost"]["total_inr"], 0.0)
+        self.assertEqual(summary["cost"]["subscription"]["calls"], 4 + 3 + 3 + 1 + 1)   # preflight x2 per route, 3 pages + reviews, map + review
+        self.assertEqual(summary["preflight"]["routes"]["codex-checker"]["login"]["logged_in"], True)
+        record = json.loads(Path(self.tmp.name, "own", "records", "understand--page-001.json").read_text())
+        self.assertEqual((record["reviewer_route"], record["reviewer_model"], record["reviewer_independence"]),
+                         ("codex-checker", "gpt-6.1-sol", "same_model_temporary"))
+        self.assertTrue(record["rounds"][0]["review"]["value"]["verdict"] == "pass")
+        with self.assertRaises(SystemExit):           # the weakest check is never silent: it must be asked for
+            run_brain.main(["--fake", "--maker", "codex", "--reviewer", "codex", "--section", "understand",
+                            "--source", str(self.source), "--out", str(Path(self.tmp.name, "bad"))])
+
     def test_plan_limit_stops_resumably_and_a_resume_finishes(self):
         # preflight uses 2 calls, page 1 the 3rd; the 4th call (page 2) hits the plan limit
         code, summary, log = self.run_brain("first", "plan_limit_after=3")
@@ -297,6 +321,15 @@ class VmJobs(FakeCodex):
         for job in bad:
             with self.subTest(job=str(job)[:60]), self.assertRaises(codex_vm.JobError):
                 codex_vm.validate(job)
+
+    def test_a_codex_checker_is_a_valid_job(self):
+        job = codex_vm.validate(dict(self.JOB, reviewer="codex", reviewer_model="same", models="", routes=""))
+        self.assertEqual((job["maker"], job["reviewer"], job["reviewer_model"]), ("codex", "codex", "same"))
+        argv = codex_vm.argv(job, Path(self.tmp.name, "out"))
+        self.assertEqual(argv[argv.index("--reviewer") + 1], "codex")
+        self.assertEqual(argv[argv.index("--reviewer-model") + 1], "same")
+        with self.assertRaises(codex_vm.JobError):
+            codex_vm.validate(dict(self.JOB, reviewer="anthropic"))
 
     def test_argv_has_no_shell_and_every_value_as_one_argument(self):
         cmd = codex_vm.argv(codex_vm.validate(dict(self.JOB)), Path("/out"), python="py")
