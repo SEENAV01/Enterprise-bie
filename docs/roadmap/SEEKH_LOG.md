@@ -807,3 +807,10 @@ SCRIPT.md tables per concept item (the example BIE chose, the check, first try);
 Live first-try rate, rounds, tokens and ₹ per page under the new rule: measured by the Money chapter rerun on the VM (the
 12:42 UTC job under the old rules is the baseline); recorded here when the run finishes.
 
+**What the first Money run itself taught (same PR):** of the 4 pages that passed before the free Google quota ran out,
+page 2 lost a round to "पदार्थ → substance", a textbook-Hindi flag for a term the Money chapter never uses (the list was
+made from the tissue chapter): the check now counts only the book's own terms (`hinglish.english_terms`, `technical_words
+(book_terms=…)` in `check_page` and `check_script`), tested on both chapters' words. And a provider error was cut to 300
+characters in the records, so Google's quota id (per minute or per day) was invisible: 1,500 now. Measured: 1 of 4 passed
+pages (25 %) had a needless round on the old check; 0 under the new one on the same output.
+

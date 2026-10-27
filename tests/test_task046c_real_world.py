@@ -243,6 +243,39 @@ class Director(unittest.TestCase):
         self.assertEqual(world.place_label("petrol_pump"), "petrol pump")
 
 
+class SeekhFromTheFirstMoneyRun(unittest.TestCase):
+    """VM job t046c-money-understand (27 October 2026, old rules): page 2 lost a round to 'पदार्थ → substance' although the Money
+    chapter never says 'substance', and the stopped page's record kept only 300 characters of Google's 429, hiding the quota id."""
+
+    def test_textbook_hindi_counts_only_for_the_books_own_terms(self):
+        from bie.brain import hinglish
+        money = hinglish.english_terms("Commodity money is a form of money in which the item used as money has intrinsic value.")
+        tissue = hinglish.english_terms("Cells of a tissue are held in a substance called the matrix.")
+        self.assertEqual(hinglish.technical_words("इस पदार्थ का अपना मूल्य है", book_terms=money), [])
+        self.assertEqual(hinglish.technical_words("इस पदार्थ का अपना मूल्य है", book_terms=tissue), [("पदार्थ", "substance")])
+        self.assertEqual(hinglish.technical_words("इस पदार्थ का अपना मूल्य है"), [("पदार्थ", "substance")])        # no book: as before
+        self.assertEqual(hinglish.technical_words("कोशिका का पदार्थ", book_terms=tissue), [("कोशिका", "cell"), ("पदार्थ", "substance")])
+        self.assertEqual(hinglish.term_stem("tissues"), "tissue")
+        self.assertEqual(hinglish.term_stem("bodies"), "body")
+        item = econ_item()
+        item["unpack"]["terms"][0]["plain_meaning"] = "ऐसा पदार्थ जिसका अपना मूल्य हो"
+        self.assertEqual([p for p in soul.unpack_problems(item, book_terms=money) if "textbook" in p], [])
+        self.assertEqual(len([p for p in soul.unpack_problems(item, book_terms=tissue) if "textbook" in p]), 1)
+        page = Page(1, (Block("p0001-b0001", "Commodity money has intrinsic value.", (0, 0, 1, 1)),))
+        value = {"notes": {}, "page_summary": "", "boilerplate_block_ids": [], "text_image_disagreements": [], "items": [item]}
+        self.assertEqual([p for p in understanding.check_page(value, page, family=ECON) if "textbook" in p], [])
+        beat_ = beat("b1", "यह ऐसा पदार्थ है जिसका अपना मूल्य है, जैसे सोना।")
+        self.assertEqual([p for p in lesson.spoken_problems([beat_], "Hinglish", money) if "textbook" in p], [])
+        self.assertEqual(len([p for p in lesson.spoken_problems([beat_], "Hinglish", tissue) if "textbook" in p]), 1)
+
+    def test_the_record_keeps_the_providers_whole_error(self):
+        import inspect
+        from bie.brain import runner
+        source = inspect.getsource(runner)
+        self.assertNotIn("str(exc)[:300]", source)
+        self.assertEqual(source.count("str(exc)[:1500]"), 2)
+
+
 class FakeChain(unittest.TestCase):
     """The offline economics chapter: the fake maker fills the slot and speaks the example first, so Sections 1 and 2 pass
     on the first try, and the reports carry Navin's per-concept table."""

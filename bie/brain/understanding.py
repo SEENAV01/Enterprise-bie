@@ -31,6 +31,7 @@ from . import cards
 from . import content_types as ct
 from . import engines
 from . import explanations
+from . import hinglish
 from . import level as level_module
 from . import naksha as naksha_module
 from . import shots
@@ -397,6 +398,7 @@ def check_page(value: dict, page, *, proposals: dict | None = None, card: dict |
     problems = []
     items = value.get("items") or []
     known = set(page.block_ids)
+    book_terms = hinglish.english_terms(" ".join([b.text for b in page.blocks] + [i.get("content", "") for i in items]))
     ids = [i["item_id"] for i in items]
     by_id = {i["item_id"]: i for i in items}
     for dup in sorted({i for i in ids if ids.count(i) > 1}):
@@ -450,7 +452,7 @@ def check_page(value: dict, page, *, proposals: dict | None = None, card: dict |
                 if q["answer"].strip().lower() in ("", q["question"].strip().lower(), item["content"].strip().lower()):
                     problems.append(f"item {iid}: the answer to {q['question']!r} only repeats the question or the item")
             if item["kind"] not in ct.ROLE_KINDS:
-                problems += soul.unpack_problems(item, profile=profile, language=language)
+                problems += soul.unpack_problems(item, profile=profile, language=language, book_terms=book_terms)
                 problems += soul.real_world_problems(item, family=family, types=types)
     for table in (i for i in items if i["kind"] == "table"):
         if not any(i.get("parent_item_id") == table["item_id"] and i["kind"] == "table_row" for i in items):

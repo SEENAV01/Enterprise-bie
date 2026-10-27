@@ -160,6 +160,18 @@ INTEGRATED only when the Money chapter runs through it (the proof below); nothin
   VM (the first run, under the old rules, is the "before"), then the script step; MAP.md and SCRIPT.md show per concept
   the example BIE chose with the check results and the first-try counts, and Navin reads them before the video. The VM
   job `t046c-money-understand` of 12:42 UTC (old rules) is the baseline for the measured effect.
+- **The first Money run (VM job `t046c-money-understand`, old rules, 12:42–13:39 UTC, 43 minutes; `blindtest-results:
+  runs/vm-t046c-money-understand-brain-understand/`):** 4 of 20 pages passed (pages 1 and 3 first try, 4 and 5 in two
+  rounds), page 2 failed, pages 6–20 and the map stopped: `stopped: balance`, the free Google key answered **429
+  RESOURCE_EXHAUSTED** on every call from page 6 on (15 refused calls) and again on the one-page probe `t046c-quota-probe` at
+  13:52 UTC, so it is the free tier's daily quota, not a per-minute one (it resets at 07:00 UTC). Codex plan 1 % of the
+  week; Google list price ₹9.50, billed ₹0; 165 items, 137 teachable, 381 teacher questions. **Seekh from it, in this
+  PR:** (a) page 2 lost a round to "पदार्थ → substance" although the Money chapter never says "substance": the textbook-Hindi
+  check (S1-15 in the unpack, S2-04 in a beat) now counts only the translations of terms the book itself uses
+  (`hinglish.english_terms` of the page's text and items, of the chapter's items in a script; `technical_words(book_terms=…)`);
+  (b) the records kept only 300 characters of a provider error, hiding Google's quota id: the maker, reviewer and ledger
+  error texts keep 1,500. The rerun under the new rule (the proof) runs when the free quota is back, or on the AICredits
+  Gemini route inside Navin's ₹50 cap for paid calls.
 
 ## Task 046 · One-shot quality test (26 October 2026)
 

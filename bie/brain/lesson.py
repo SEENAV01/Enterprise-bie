@@ -617,8 +617,9 @@ def _script_source(chapter, video, budget=None) -> str:
 
 # ---------------------------------------------------------------- script checks
 
-def spoken_problems(beats, language) -> list:
-    """Navin's spoken Hinglish (S2-04), as far as code can see it."""
+def spoken_problems(beats, language, book_terms=None) -> list:
+    """Navin's spoken Hinglish (S2-04), as far as code can see it. ``book_terms`` (``hinglish.english_terms`` of the
+    chapter's items) limits the textbook-Hindi check to the book's own terms."""
     problems = []
     if language.strip().lower() in ("hinglish", "hindi"):
         hindi = sum(1 for b in beats if DEVANAGARI.search(b["say"]))
@@ -628,7 +629,7 @@ def spoken_problems(beats, language) -> list:
         if digits:
             problems.append(f"beats {', '.join(digits[:10])} write numbers in Devanagari digits; write numbers as digits 0-9 (S2-04)")
         for b in beats:
-            technical = hinglish.technical_words(b["say"])
+            technical = hinglish.technical_words(b["say"], book_terms=book_terms)
             if technical:
                 pairs = ", ".join(f"{word} → {english}" for word, english in technical[:5])
                 problems.append(f"beat {b['beat_id']}: textbook Hindi for the book's own terms ({pairs}); say the book's English term in "
@@ -743,7 +744,7 @@ def check_script(value, chapter, video, language, card=None, budget=None):
     if missing_q:
         problems.append(f"{len(missing_q)} teacher questions answered from the book are answered by no beat (S2-02): "
                         f"{', '.join(missing_q[:40])}")
-    problems += spoken_problems(beats, language)
+    problems += spoken_problems(beats, language, hinglish.english_terms(" ".join(i.get("content", "") for i in chapter["items"].values())))
     problems += length_problems(beats, video, budget)
     problems += soul.restatement_problems(beats, chapter["items"])
     problems += soul.clipped_problems(beats)

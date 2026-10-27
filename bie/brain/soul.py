@@ -123,8 +123,9 @@ def unpack_elements(unpack: dict | None) -> int:
             + bool((unpack.get("example_or_place") or "").strip()) + bool((unpack.get("consequence") or "").strip()))
 
 
-def unpack_problems(item: dict, *, profile=None, language: str = "Hinglish") -> list:
-    """S1-15: every teachable item is opened; every why step names its basis; the plain meaning is for the learner."""
+def unpack_problems(item: dict, *, profile=None, language: str = "Hinglish", book_terms=None) -> list:
+    """S1-15: every teachable item is opened; every why step names its basis; the plain meaning is for the learner.
+    ``book_terms`` (``hinglish.english_terms`` of the page) limits the textbook-Hindi check to the book's own terms."""
     problems = []
     iid = item.get("item_id", "?")
     unpack = item.get("unpack") or {}
@@ -138,7 +139,7 @@ def unpack_problems(item: dict, *, profile=None, language: str = "Hinglish") -> 
         texts += [unpack.get(k) or "" for k in ("example_or_place", "consequence", "level_extra")]
         found = {}
         for text in texts:
-            for word, english in hinglish.technical_words(text):
+            for word, english in hinglish.technical_words(text, book_terms=book_terms):
                 found.setdefault(english, word)
         if found:
             pairs = ", ".join(f"{word} → {english}" for english, word in list(found.items())[:5])

@@ -100,13 +100,34 @@ def load(path: str = str(PATH)) -> SimpleHindi:
                        tuple(normal(p) for p in data.get("fixed_phrases") or []), tuple(technical))
 
 
-def technical_words(say: str, simple: SimpleHindi | None = None) -> list:
+def term_stem(word: str) -> str:
+    """One stem for an English term and its plural ("cells" → "cell", "glands" → "gland", "tissues" → "tissue")."""
+    w = (word or "").lower()
+    if w.endswith("ies") and len(w) >= 5:
+        return w[:-3] + "y"
+    if w.endswith(("ses", "xes", "zes", "ches", "shes")) and len(w) >= 5:
+        return w[:-2]
+    if w.endswith("s") and not w.endswith("ss") and len(w) >= 4:
+        return w[:-1]
+    return w
+
+
+def english_terms(text: str) -> frozenset:
+    """The stems of the English words of a book text (the terms the learner must hear in Roman; S1-15, S2-04)."""
+    return frozenset(term_stem(w) for w in ROMAN_WORD.findall(text or "") if len(w) >= 3)
+
+
+def technical_words(say: str, simple: SimpleHindi | None = None, book_terms=None) -> list:
     """[(Hindi word as written, the book's English term)] for the textbook translations in ``say`` (ऊतक → tissue): the
-    learner hears the book's own English term in Roman, so these go back whether or not a bracket follows (Task 045d)."""
+    learner hears the book's own English term in Roman, so these go back whether or not a bracket follows (Task 045d).
+    With ``book_terms`` (``english_terms`` of the book's text) only the translations of terms the book itself uses count:
+    the Money chapter's पदार्थ (substance) is plain Hindi where the book never says "substance" (27 October 2026)."""
     simple = simple or load()
     found, seen = [], set()
     text = normal(say or "")
     for hindi, english in simple.technical:
+        if book_terms is not None and not any(term_stem(w) in book_terms for w in ROMAN_WORD.findall(english)):
+            continue
         if " " in hindi:
             if hindi in text and hindi not in seen:
                 found.append((hindi, english)); seen.add(hindi); seen.update(hindi.split())   # its words are not counted again

@@ -218,7 +218,7 @@ class SectionRunner:
             try:
                 response = self.gateway.complete(self.maker, request, prompt_version=step.instructions_version)
             except ProviderError as exc:
-                entry.update(maker_error={"kind": exc.kind, "message": str(exc)[:300]}, passed=False)
+                entry.update(maker_error={"kind": exc.kind, "message": str(exc)[:1500]}, passed=False)
                 rounds.append(entry)
                 status = "stopped" if exc.kind in STOP_KINDS else status
                 break
@@ -301,7 +301,7 @@ class SectionRunner:
         try:
             review = self.gateway.complete(self.reviewer, review_request, prompt_version=step.instructions_version + "/review")
         except ProviderError as exc:
-            entry.update(review_error={"kind": exc.kind, "message": str(exc)[:300]}, passed=False)
+            entry.update(review_error={"kind": exc.kind, "message": str(exc)[:1500]}, passed=False)
             return None
         entry["review"] = dict(_call_info(review, self.reviewer), value=review.content)
         problems = [f"[reviewer] {p}" for p in step.review_problems(review.content)]
