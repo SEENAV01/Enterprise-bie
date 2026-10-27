@@ -1,0 +1,35 @@
+{
+  "schema": "bie.rules.canvas-profile/1",
+  "profile": "build_up_canvas",
+  "subjects": ["economics", "polity", "history", "geography (concepts)", "commerce", "any subject taught with flat 2D diagrams"],
+  "measured_on": "20 Indian-economy reference videos for UPSC (about 2 h 5 min), 27 Oct 2026: visual change events by code (events.py, 5 fps frame differences), speech phrases by Silero VAD (vad_sync.py).",
+  "measurements": {
+    "speech_phrase_median_s": 4.3,
+    "pause_between_phrases_median_s": 0.26,
+    "long_pauses_over_1s_per_video": "0 in 19 of 20 videos",
+    "visual_change_gap_median_s": 5.0,
+    "visual_change_gap_p90_s": 15.8,
+    "longest_still_picture_median_s": 40.0,
+    "changes_while_speaking": 0.95,
+    "change_position_in_phrase_median": 0.42,
+    "change_seconds_into_phrase_median": 2.4,
+    "phrases_with_a_change": 0.51,
+    "event_mix": {"add": 774, "zoom_or_big_change": 148, "canvas_clear": 22},
+    "canvas_clears_per_video": "about 1 (most videos are 1 to 3 canvases, re-framed by zooms about 7 times per video)",
+    "visual_level": "L2 in every segment of all 20 videos (no L3)"
+  },
+  "rules": [
+    {"id": "CV-01", "rule": "One canvas per idea: build it piece by piece instead of cutting to a new shot every sentence. Clear the canvas only when the idea changes; otherwise re-frame with a zoom or pan to the part being explained.", "check": "code: canvas plan per part; camera keys instead of new scenes"},
+    {"id": "CV-02", "rule": "Something on the canvas changes about every 5 s (one change per one or two spoken phrases).", "check": "code: econ_canvas change_every_s <= 6 (target)"},
+    {"id": "CV-03", "rule": "The picture never stays the same for more than 15 s (the references sometimes hold 40-80 s; BIE must not).", "check": "code: longest_still_s <= 15 blocks; > 7 is reported"},
+    {"id": "CV-04", "rule": "A new element appears on its own word, while it is being said (about 40% into the phrase, never in the pause after).", "check": "code: every element has a cue word found in its beat (timing.cue_frame)"},
+    {"id": "CV-05", "rule": "Numbers that change are struck out and replaced on screen (50 -> 65), with an up/down arrow, on the word of the new number.", "check": "director vocabulary: value element"},
+    {"id": "CV-06", "rule": "Many people/things are shown as a crowd that grows or shrinks with the story (2 buyers -> 12 -> 3).", "check": "director vocabulary: crowd element"},
+    {"id": "CV-07", "rule": "A running numeric example carries the concept (price 50 -> 65, GDP 10K -> 11K -> 12.1K at 10%).", "check": "director: every concept part names its example numbers"},
+    {"id": "CV-08", "rule": "Return to the topic tree and tick the branch that is done before starting the next branch.", "check": "director: recap step after each branch"},
+    {"id": "CV-09", "rule": "One anchor diagram stays (a band, a tree, a rate card) while the part beside or below it changes.", "check": "director: anchor element with long life; layout keeps its cells"},
+    {"id": "CV-10", "rule": "No overlap, nothing outside the safe area, captions strip kept clear, readable text (>= 24 px at 1080p), at most 16 elements on screen.", "check": "code: econ_canvas PlanError / problems"},
+    {"id": "CV-11", "rule": "No photos or caricatures of real people, no logos, emblems or regulator marks: use a name card, a generic icon or BIE's own presenter character.", "check": "code: icons only from the CC BY index (no brands); director vocabulary has no photo kind"},
+    {"id": "CV-12", "rule": "Light paper theme for build-up canvases (dark theme stays for 3D/science worlds); subtitles on a dark strip.", "check": "canvas_build theme"}
+  ]
+}

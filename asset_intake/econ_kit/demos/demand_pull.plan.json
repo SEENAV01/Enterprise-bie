@@ -1,0 +1,310 @@
+{
+ "id": "demand_pull",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b1",
+   "say": "मान लीजिए एक दुकान पर चीनी के सिर्फ़ तीन पैकेट हैं, और दाम है पचास रुपये।"
+  },
+  {
+   "beat_id": "b2",
+   "say": "शुरू में दो ही खरीदार आते हैं, और दोनों पचास रुपये देने को तैयार हैं।"
+  },
+  {
+   "beat_id": "b3",
+   "say": "अब अचानक लोगों के पास पैसा बढ़ जाता है, और बारह खरीदार आ जाते हैं।"
+  },
+  {
+   "beat_id": "b4",
+   "say": "माल उतना ही है, लेकिन माँग बहुत ज़्यादा है।"
+  },
+  {
+   "beat_id": "b5",
+   "say": "तो दुकानदार दाम बढ़ाकर पैंसठ रुपये कर देता है।"
+  },
+  {
+   "beat_id": "b6",
+   "say": "अब वही खरीद पाते हैं जो पैंसठ दे सकते हैं, बाकी लौट जाते हैं।"
+  },
+  {
+   "beat_id": "b7",
+   "say": "माँग ने दाम को ऊपर खींच लिया, इसीलिए इसे डिमांड पुल इन्फ्लेशन कहते हैं।"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "tag",
+   "kind": "text",
+   "style": "tag",
+   "text": "Demand-pull inflation",
+   "cell": [
+    0,
+    0,
+    5,
+    1
+   ],
+   "cue": [
+    "b1",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "shop",
+   "kind": "icon",
+   "icon": "tw:1f3ea",
+   "label": "SUPPLY · दुकान",
+   "cell": [
+    0,
+    2,
+    3,
+    3
+   ],
+   "cue": [
+    "b1",
+    "दुकान"
+   ]
+  },
+  {
+   "id": "goods",
+   "kind": "crowd",
+   "icon": "tw:1f4e6",
+   "cell": [
+    0,
+    5,
+    3,
+    1
+   ],
+   "steps": [
+    {
+     "n": 3,
+     "cue": [
+      "b1",
+      "पैकेट"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "a1",
+   "kind": "arrow",
+   "from": "shop",
+   "to": "price",
+   "cue": [
+    "b1",
+    "दाम"
+   ]
+  },
+  {
+   "id": "price",
+   "kind": "value",
+   "cell": [
+    4,
+    3,
+    3,
+    1
+   ],
+   "size": 64,
+   "tone": "ink",
+   "steps": [
+    {
+     "text": "₹50",
+     "cue": [
+      "b1",
+      "पचास"
+     ]
+    },
+    {
+     "text": "₹65",
+     "dir": "up",
+     "cue": [
+      "b5",
+      "पैंसठ"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "plabel",
+   "kind": "text",
+   "text": "PRICE",
+   "style": "plain",
+   "tone": "muted",
+   "size": 26,
+   "cell": [
+    4,
+    2,
+    3,
+    1
+   ],
+   "align": "left",
+   "cue": [
+    "b1",
+    "दाम"
+   ]
+  },
+  {
+   "id": "a2",
+   "kind": "arrow",
+   "from": "price",
+   "to": "buyers",
+   "cue": [
+    "b2",
+    "खरीदार"
+   ]
+  },
+  {
+   "id": "buyers",
+   "kind": "crowd",
+   "icon": "tw:1f9cd",
+   "cell": [
+    8,
+    2,
+    4,
+    3
+   ],
+   "cols": 4,
+   "steps": [
+    {
+     "n": 2,
+     "cue": [
+      "b2",
+      "खरीदार"
+     ]
+    },
+    {
+     "n": 12,
+     "cue": [
+      "b3",
+      "बारह"
+     ]
+    },
+    {
+     "n": 3,
+     "cue": [
+      "b6",
+      "बाकी"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "dlabel",
+   "kind": "text",
+   "text": "DEMAND · खरीदार",
+   "style": "plain",
+   "tone": "muted",
+   "size": 26,
+   "cell": [
+    8,
+    5,
+    4,
+    1
+   ],
+   "align": "center",
+   "cue": [
+    "b2",
+    "खरीदार"
+   ]
+  },
+  {
+   "id": "money",
+   "kind": "icon",
+   "icon": "tw:1f4b0",
+   "cell": [
+    10,
+    0,
+    2,
+    2
+   ],
+   "cue": [
+    "b3",
+    "पैसा"
+   ],
+   "until_cue": [
+    "b5",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "dgts",
+   "kind": "text",
+   "style": "tag",
+   "text": "Demand > Supply",
+   "fill": "warm",
+   "cell": [
+    6,
+    0,
+    4,
+    1
+   ],
+   "cue": [
+    "b4",
+    "माँग"
+   ]
+  },
+  {
+   "id": "hg",
+   "kind": "highlight",
+   "target": "goods",
+   "style": "dashed",
+   "tone": "warm",
+   "cue": [
+    "b4",
+    "माल"
+   ]
+  },
+  {
+   "id": "hp",
+   "kind": "highlight",
+   "target": "price",
+   "tone": "danger",
+   "cue": [
+    "b5",
+    "दाम"
+   ]
+  },
+  {
+   "id": "x1",
+   "kind": "mark",
+   "mark": "cross",
+   "target": "dlabel",
+   "pos": "tr",
+   "cue": [
+    "b6",
+    "लौट"
+   ]
+  },
+  {
+   "id": "sum",
+   "kind": "callout",
+   "style": "note",
+   "cell": [
+    3,
+    6,
+    6,
+    2
+   ],
+   "size": 30,
+   "text": "माँग ज़्यादा, माल उतना ही → माँग दाम को ऊपर खींचती है",
+   "marks": [
+    {
+     "phrase": "दाम को ऊपर खींचती है",
+     "cue": [
+      "b7",
+      "खींच"
+     ]
+    }
+   ],
+   "cue": [
+    "b7",
+    "माँग"
+   ]
+  }
+ ]
+}
