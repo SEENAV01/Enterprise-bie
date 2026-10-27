@@ -1069,6 +1069,20 @@ PR B (only after Navin's yes): live runs on the Gemini key, maker `google/gemini
   PR as F-13d: `assets._open` and `sources.fetch` ask again after a wait on a server's 500, 502, 503 and 504 as they
   already did on 429 and 503 (three tries, Retry-After honoured, 30 s at most), never on a 4xx of our own making, and the
   last error names the URL. Core tests with a fake server.
+- F-16 (27 October 2026, PR #90 run 40582378287, job `demos (2)`, head `b2e2b9ec`): `astro-sky` failed with `OSError: cannot
+  download https://cdsarc.cds.unistra.fr/ftp/cats/I/239/hip_main.dat because <urlopen error [Errno 110] Connection timed out>`;
+  14 of 15 demos passed and the PR changes only rulebook JSON, tests and docs. Cause: the shared asset cache was restored
+  (`bie-asset-cache-shared-40544110585`, 5 MB) but never held the skyfield files; `adapters.astro._loader` points skyfield at
+  `BIE_ASSET_CACHE/skyfield`, and skyfield's own loader downloads a missing file on the spot, so every run fetched
+  `de421.bsp` (17 MB, NAIF) and `hip_main.dat` (51 MB, CDS) from the two servers; CDS timed out. CI-2: no rerun; the fix in
+  its own PR (`f16-skyfield-assets`): `tools/toolbox_setup.py --assets` also prefetches both files into `cache/skyfield`
+  (`prefetch_skyfield`, standard library, kept when present, an unreachable server recorded instead of raised), so the cache
+  saved on main carries them for every PR; test in `tests/test_task046a_toolbox.py`. CDS stayed down for hours (both hostnames,
+  from the workspace too: connection reset), so the fix PR's own `demos (2)` failed the same way: the catalogue is now also
+  fetched from VizieR's mirrors when CDS does not answer (CfA Harvard answered: the same 53,316,318-byte file of 24 June 1997;
+  `astro.HIPPARCOS["mirrors"]`), and the batch-2 demos job runs `tools/toolbox_setup.py --skyfield` after its cache restore, so
+  a PR gets the files from a mirror and skyfield reads them from the cache folder without touching CDS. After the merge the push
+  to `main` runs the `assets` job and saves the cache; then `main` is merged into PR #90 and its CI runs again.
 - F-11 in the toolbox lane (26 October 2026, PR #79 run 40341502059, head `8583df52`): `wrappers` was cancelled at its
   40-minute limit inside "System libraries and programs" (14:39 → 15:18 UTC), before any test ran, and `demos (2)` sat
   in "System libraries and fonts" for over 55 minutes; `demos (1)` and `demos (3)` passed the same step in 35 seconds.

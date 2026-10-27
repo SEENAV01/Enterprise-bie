@@ -16,7 +16,11 @@ PLANETS = ("mercury", "venus", "earth", "mars")
 EPHEMERIS = {"file": "de421.bsp", "name": "JPL Planetary Ephemeris DE421 (NASA JPL)", "licence": "Public domain (NASA JPL)",
              "source": "https://naif.jpl.nasa.gov/pub/naif/generic_kernels/spk/planets/a_old_versions/de421.bsp"}
 HIPPARCOS = {"name": "The Hipparcos Catalogue (ESA 1997), from CDS", "source": "https://cdsarc.cds.unistra.fr/ftp/cats/I/239/hip_main.dat",
-             "licence": "ESA Hipparcos Catalogue: free for scientific use with citation (CDS); commercial use by ESA's rules"}
+             "licence": "ESA Hipparcos Catalogue: free for scientific use with citation (CDS); commercial use by ESA's rules",
+             # VizieR mirrors of the same file (I/239/hip_main.dat, 53,316,318 bytes, 24 June 1997), tried in this order when CDS
+             # does not answer (F-16, 27 October 2026: CDS was down for hours; the CfA mirror answered)
+             "mirrors": ("https://vizier.cfa.harvard.edu/ftp/cats/I/239/hip_main.dat", "https://vizier.iucaa.in/ftp/cats/I/239/hip_main.dat",
+                         "https://vizier.nao.ac.jp/ftp/cats/I/239/hip_main.dat")}
 
 
 def _loader(cache: Path | None = None):
