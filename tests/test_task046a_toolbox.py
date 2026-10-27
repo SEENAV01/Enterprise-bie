@@ -713,6 +713,43 @@ class DemosAndPage(unittest.TestCase):
             with self.assertRaisesRegex(RuntimeError, "not reached in 3 attempts"):
                 earth.prefetch_relief("02m", (70, 100, 20, 40), userdir=empty, opener=down, sleep=lambda s: None)
 
+    def test_the_assets_job_also_keeps_the_skyfield_files_for_the_astro_demos(self):
+        """F-16 (27 October 2026, PR #90 run 40582378287, job demos (2)): astro-sky failed with a CDS connection timeout
+        downloading hip_main.dat. The shared cache was restored, but it never held the skyfield files: skyfield's own loader
+        downloaded de421.bsp and hip_main.dat on every run. The assets job on main now fetches both into cache/skyfield, the
+        folder adapters.astro._loader reads; a file already there is kept; an unreachable server is recorded, not raised."""
+        import importlib.util
+        import urllib.error
+        from bie.toolbox.adapters import astro
+        spec = importlib.util.spec_from_file_location("toolbox_setup", ROOT / "tools" / "toolbox_setup.py")
+        setup = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(setup)
+        urls = []
+
+        def opener(request, timeout=None):
+            urls.append(request.full_url)
+            return FakeResponse(b"DAF/SPK" if request.full_url.endswith(".bsp") else b"H|1|...")
+
+        with tempfile.TemporaryDirectory() as cache:
+            done = setup.prefetch_skyfield(Path(cache), opener=opener, sleep=lambda s: None)
+            self.assertEqual(done, {"de421.bsp": "fetched", "hip_main.dat": "fetched"})
+            self.assertEqual(urls, [astro.EPHEMERIS["source"], astro.HIPPARCOS["source"]])
+            self.assertEqual(Path(cache, "skyfield", "de421.bsp").read_bytes(), b"DAF/SPK")
+            self.assertEqual(Path(cache, "skyfield", "hip_main.dat").read_bytes(), b"H|1|...")
+            self.assertEqual(setup.prefetch_skyfield(Path(cache), opener=opener, sleep=lambda s: None),
+                             {"de421.bsp": "cached", "hip_main.dat": "cached"})
+            self.assertEqual(len(urls), 2)                                           # nothing fetched twice
+        with tempfile.TemporaryDirectory() as cache:
+            def down(request, timeout=None):
+                raise urllib.error.URLError("Connection timed out")
+            done = setup.prefetch_skyfield(Path(cache), opener=down, sleep=lambda s: None, tries=2)
+            self.assertTrue(done["de421.bsp"].startswith("unreachable: ") and "Connection timed out" in done["de421.bsp"])
+            self.assertTrue(done["hip_main.dat"].startswith("unreachable: "))
+            self.assertFalse(list(Path(cache, "skyfield").iterdir()))                  # no empty or partial file left behind
+        # the loader looks exactly where the assets job writes
+        self.assertIn('Path(cache or cache_dir()) / "skyfield"', (ROOT / "bie" / "toolbox" / "adapters" / "astro.py").read_text(encoding="utf-8"))
+        self.assertIn('"skyfield": prefetch_skyfield(cache', (ROOT / "tools" / "toolbox_setup.py").read_text(encoding="utf-8"))
+
     def test_ci_keeps_the_relief_tiles_in_a_cache_every_pr_restores(self):
         """F-13b: a PR's own Actions cache starts empty and GMT's one data server was unreachable from the runners for
         minutes; the assets job fetches the tiles on main and every PR's demo jobs restore that shared cache."""
@@ -729,12 +766,16 @@ class DemosAndPage(unittest.TestCase):
             return FakeResponse(table.encode() if request.full_url.endswith(".txt") else b"jp2")
 
         with tempfile.TemporaryDirectory() as cache:
-            done = setup.prefetch_assets(Path(cache), opener=opener, sleep=lambda s: None)["gmt_relief"]
+            result = setup.prefetch_assets(Path(cache), opener=opener, sleep=lambda s: None)
+            done = result["gmt_relief"]
+            self.assertEqual(result["skyfield"], {"de421.bsp": "fetched", "hip_main.dat": "fetched"})          # F-16
             self.assertEqual(done["tiles"], earth.relief_tiles(table, earth.DEFAULT_RESOLUTION, earth.DEFAULT_REGION)[1])
             self.assertEqual(sorted(done["fetched"]), sorted(done["tiles"]))
             for tile in done["tiles"]:
                 self.assertTrue(Path(cache, "gmt/server/earth/earth_relief/earth_relief_02m_g", tile).exists())
-            self.assertTrue(all(u.startswith(earth.GMT_SERVER) for u in urls))
+            from bie.toolbox.adapters import astro
+            allowed = (earth.GMT_SERVER, astro.EPHEMERIS["source"], astro.HIPPARCOS["source"])
+            self.assertTrue(all(u.startswith(allowed) for u in urls), urls)
         self.assertIn("region = earth.DEFAULT_REGION", (ROOT / "bie" / "toolbox" / "demos.py").read_text(encoding="utf-8"))
         flow = (ROOT / ".github" / "workflows" / "toolbox.yml").read_text(encoding="utf-8")
         assets = flow.split("\n  assets:\n", 1)[1].split("\n  core:\n", 1)[0]
