@@ -827,6 +827,26 @@ PR B (only after Navin's yes): live runs on the Gemini key, maker `google/gemini
   (rule CI-2). Fix, in its own small PR: the concurrency group now includes the event, so the push-to-main `assets` job
   never waits behind a run started by hand; the `assets` job restores the last shared cache before it fetches, so once
   one run has the tiles a later outage cannot lose them.
+- F-13d (27 October 2026, PR #82 run 40490842845, job `demos (2)`, head `37060f61`): `geo-relief` failed the same way
+  (BIE's fetch of `gmt_data_server.txt` timed out three times, 10:58 → 11:05 UTC, then GMT's three attempts; the server
+  answered the cloud workspace in 1.7 s). Not rerun (rule CI-2). **The real cause, read from the `assets` job's own log on
+  `main` (run 40334878992, 26 October 14:48): the shared cache was never saved.** `actions/cache` refuses the path
+  `${{ github.workspace }}/../bie-asset-cache` ("Invalid pattern … Relative pathing '.' and '..' is not allowed",
+  "Cache save failed", a warning, not a failure), so F-13b's cache never existed, every PR run fetched from the one GMT
+  server (`oceania`, a single IPv4 host; no other `*.generic-mapping-tools.org` data host resolves), and the next outage
+  from the runners (26 October 16:44 on `main`, today on the PR) had nothing to fall back on. Fix, in its own small PR:
+  the cache path is `${{ github.workspace }}/.bie-asset-cache` in all seven places (the three cache steps,
+  `BIE_ASSET_CACHE` three times and `--assets`), and the core test refuses a cache path with `..`. (A first try with
+  `${{ runner.temp }}` made the workflow unparseable, run 40496134303 with no jobs: the `runner` context is not allowed
+  in a job's `env`; the `github` context is.) After the merge, the push-to-main `assets`
+  job saves the tiles the first time the server answers a runner; from then on every PR restores them. Until that first
+  save, a PR's `demos (2)` still depends on the server (PR #82 waits for it; no rerun, no empty commit).
+- F-15 (27 October 2026, PR #83 run 40496661612, job `demos (3)`, head `2ba63b6e`): `hist-archive-images` failed with
+  `HTTPError: HTTP Error 500: Internal Server Error` from Wikimedia Commons or Openverse (the receipt did not say which;
+  the other 15 batch-3 clips passed, the five economy clips among them). Not rerun (rule CI-2). Fix, in the same small CI
+  PR as F-13d: `assets._open` and `sources.fetch` ask again after a wait on a server's 500, 502, 503 and 504 as they
+  already did on 429 and 503 (three tries, Retry-After honoured, 30 s at most), never on a 4xx of our own making, and the
+  last error names the URL. Core tests with a fake server.
 - F-11 in the toolbox lane (26 October 2026, PR #79 run 40341502059, head `8583df52`): `wrappers` was cancelled at its
   40-minute limit inside "System libraries and programs" (14:39 → 15:18 UTC), before any test ran, and `demos (2)` sat
   in "System libraries and fonts" for over 55 minutes; `demos (1)` and `demos (3)` passed the same step in 35 seconds.

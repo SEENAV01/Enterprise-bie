@@ -17,12 +17,13 @@ import io
 import json
 import os
 import re
+import time
 import urllib.parse
 import urllib.request
 import zipfile
 from pathlib import Path
 
-from bie.brain.assets import USER_AGENT, AssetLibrary, Candidate, commons_file, openverse_image as openverse_candidate
+from bie.brain.assets import TRANSIENT_HTTP, USER_AGENT, AssetLibrary, Candidate, commons_file, openverse_image as openverse_candidate
 from bie.brain.assets import _open as open_url
 
 from . import licence as policy
@@ -82,12 +83,22 @@ def cache_dir() -> Path:
     return path
 
 
-def fetch(url: str, *, opener=None, timeout: float = 300.0, max_bytes: int = MAX_BYTES) -> bytes:
+def fetch(url: str, *, opener=None, timeout: float = 300.0, max_bytes: int = MAX_BYTES, tries: int = 3) -> bytes:
+    """GET an https URL; a busy or stumbling server's 429 or 5xx is asked again after a wait (F-15), like ``assets._open``."""
     if not url.startswith("https://"):
         raise SourceError("only https URLs are allowed")
     request = urllib.request.Request(url, headers={"user-agent": USER_AGENT})
-    with (opener or urllib.request.urlopen)(request, timeout=timeout) as response:
-        data = response.read(max_bytes + 1)
+    for attempt in range(tries):
+        try:
+            with (opener or urllib.request.urlopen)(request, timeout=timeout) as response:
+                data = response.read(max_bytes + 1)
+            break
+        except urllib.error.HTTPError as exc:
+            if exc.code not in TRANSIENT_HTTP or attempt == tries - 1:
+                exc.msg = f"{exc.msg} ({url.split('?', 1)[0]}" + (f", {attempt + 1} tries)" if attempt else ")")
+                raise
+            wait = exc.headers.get("retry-after") if exc.headers else None
+            time.sleep(min(30.0, float(wait) if wait and wait.isdigit() else 5.0 * (attempt + 1)))
     if len(data) > max_bytes:
         raise SourceError(f"{url}: larger than {max_bytes // (1024 * 1024)} MB")
     return data

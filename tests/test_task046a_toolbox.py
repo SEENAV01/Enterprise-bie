@@ -505,6 +505,23 @@ class BatchThreeSources(unittest.TestCase):
         with mock.patch("time.sleep") as slept:
             self.assertEqual(assets._open("https://commons.wikimedia.org/w/api.php?x=1", opener=opener), b"ok")
         slept.assert_called_once_with(2.0)
+        # F-15 (PR #83 run 40496661612, demos (3)): Commons or Openverse answered a 500 once and the archive demo failed;
+        # a 5xx is asked again too, a 4xx of our own making is not, and the last error names the URL
+        answers.extend([urllib.error.HTTPError("https://api.openverse.org/v1/images/x/", 500, "Internal Server Error", {}, None),
+                        FakeResponse(b"ok")])
+        with mock.patch("time.sleep") as slept:
+            self.assertEqual(assets._open("https://api.openverse.org/v1/images/x/", opener=opener), b"ok")
+        slept.assert_called_once_with(5.0)
+        answers.extend([urllib.error.HTTPError("https://api.openverse.org/v1/images/x/", 404, "Not Found", {}, None)])
+        with mock.patch("time.sleep") as slept, self.assertRaises(urllib.error.HTTPError) as caught:
+            assets._open("https://api.openverse.org/v1/images/x/?q=1", opener=opener)
+        slept.assert_not_called()
+        self.assertIn("(https://api.openverse.org/v1/images/x/)", str(caught.exception))
+        answers.extend([urllib.error.HTTPError("https://api.worldbank.org/v2/x", 502, "Bad Gateway", {}, None)] * 3)
+        with mock.patch("time.sleep") as slept, self.assertRaises(urllib.error.HTTPError) as caught:
+            sources.fetch("https://api.worldbank.org/v2/x", opener=opener)
+        self.assertEqual(slept.call_count, 2)
+        self.assertIn("3 tries", str(caught.exception))
 
     def test_font_and_indic_tables_are_pinned(self):
         import hashlib
@@ -727,6 +744,12 @@ class DemosAndPage(unittest.TestCase):
         self.assertLess(assets.index("actions/cache/restore@"), assets.index("tools/toolbox_setup.py --assets"))   # F-13c
         self.assertIn("group: bie-toolbox-${{ github.ref }}-${{ github.event_name }}", flow)                  # F-13c
         self.assertEqual(flow.count("            bie-asset-cache-shared-\n"), 3)     # the assets job, wrappers and demos restore it
+        # F-13d: actions/cache refuses a path with ".." ("Relative pathing '.' and '..' is not allowed", "Cache save failed"),
+        # so the cache is a dot-folder inside the workspace (the github context is valid in a job's env; runner.temp is not)
+        # and the same path is what BIE_ASSET_CACHE and --assets name
+        self.assertNotIn("/../", flow)
+        self.assertNotIn("runner.temp }}/bie-asset-cache", flow)
+        self.assertEqual(flow.count("${{ github.workspace }}/.bie-asset-cache"), 7)
         self.assertIn("  push:\n    branches: [main]", flow)
         for job in ("wrappers", "demos"):                                   # F-11 in this lane (PR #79 run 40341502059)
             body = flow.split(f"\n  {job}:\n", 1)[1].split("\n  demos:\n", 1)[0]
