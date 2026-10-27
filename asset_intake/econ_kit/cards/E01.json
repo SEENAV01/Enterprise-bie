@@ -1,0 +1,157 @@
+{
+  "id": "E01",
+  "title_guess": "National income: the four GDP variants and why product, income and expenditure totals are equal",
+  "segments": [
+    {
+      "start": 0, "end": 15.6,
+      "teaches": "GDP comes in four variants (real or nominal, at factor cost or market price); India's headline figure is nominal GDP at market price, and the video asks why",
+      "canvas": "new",
+      "layout": "free",
+      "elements": [
+        {"kind": "title_text", "what": "heading with a big red numeral 4 and a blue underline: ways of calculating GDP", "count": 1},
+        {"kind": "text_box", "what": "the four variant labels typed one under another, bold first word", "count": 4},
+        {"kind": "map", "what": "maroon India silhouette beside the list", "count": 1},
+        {"kind": "highlight", "what": "pink band behind the nominal-at-market-price line (the one India reports)", "count": 1},
+        {"kind": "tag", "what": "orange Hindi 'why?' word next to the highlighted line", "count": 1}
+      ],
+      "motions": ["write_on", "pop_in", "highlight_text"],
+      "level": "L2",
+      "notes": "List lines appear about 0.8 s apart. The Hindi 'why?' tag opens the question the rest of the video answers."
+    },
+    {
+      "start": 15.6, "end": 56,
+      "teaches": "real GDP needs a base year; countries use different base years and India's is FY2012",
+      "canvas": "builds_on_previous",
+      "layout": "table",
+      "elements": [
+        {"kind": "icon", "what": "national flags as column heads: Pakistan, USA, India, China", "count": 4},
+        {"kind": "table", "what": "one-row cream strip under the flags with a BASE YEAR row label; dashes in other columns, India's cell filled with FY 2012", "count": 1},
+        {"kind": "tag", "what": "BASE YEAR chip at the left end of the strip", "count": 1},
+        {"kind": "highlight", "what": "blue box drawn around the 'real GDP' word", "count": 1},
+        {"kind": "arrow", "what": "short vertical connector from the boxed real GDP up to the base-year chip", "count": 1}
+      ],
+      "motions": ["pop_in", "draw_line", "write_on"],
+      "level": "L2",
+      "notes": "Flags are used as quick column headers; only one cell gets a value, so the eye goes straight to India."
+    },
+    {
+      "start": 56, "end": 70.8,
+      "teaches": "national income family: GDP, GNP, NDP, NNP; we start from GDP",
+      "canvas": "new",
+      "layout": "free",
+      "elements": [
+        {"kind": "tag", "what": "cream NATIONAL INCOME heading chip, top left", "count": 1},
+        {"kind": "text_box", "what": "four abbreviation rows each joined by a short red dash to its full form", "count": 4},
+        {"kind": "highlight", "what": "green band on the GDP row", "count": 1},
+        {"kind": "mark", "what": "green tick after GDP", "count": 1}
+      ],
+      "motions": ["clear_canvas", "write_on", "pop_in"],
+      "level": "L2",
+      "notes": "Abbreviation + dash + expansion is a recurring list style in this channel."
+    },
+    {
+      "start": 70.8, "end": 95,
+      "teaches": "national income is about the total of products; begin with one person's income as a building block",
+      "canvas": "builds_on_previous",
+      "layout": "flow_left_to_right",
+      "elements": [
+        {"kind": "highlight", "what": "the word 'Product' inside the GDP expansion boxed in dark green", "count": 1},
+        {"kind": "arrow", "what": "dotted curved arrow from the NATIONAL INCOME chip down to the boxed word, with a small '?'", "count": 1},
+        {"kind": "arrow", "what": "black arrow from the GDP row to a sigma sign", "count": 1},
+        {"kind": "formula", "what": "big sigma followed by 'Products'", "count": 1},
+        {"kind": "icon", "what": "single blue person icon", "count": 1},
+        {"kind": "text_box", "what": "cream panel MY INCOME with a red 2000 Rs value, joined to the person by a thin line", "count": 1}
+      ],
+      "motions": ["swap_element", "draw_line", "pop_in"],
+      "level": "L2",
+      "notes": "The other three aggregate rows vanish and GDP slides up. Start of a running numeric example (2000 Rs)."
+    },
+    {
+      "start": 95, "end": 113,
+      "teaches": "adding everyone's income in a family gives family income",
+      "canvas": "builds_on_previous",
+      "layout": "tree",
+      "elements": [
+        {"kind": "crowd", "what": "five blue person icons standing together inside a pink panel", "count": 5},
+        {"kind": "tree", "what": "lines fanning down from the family to each member's income: 1000, 100, 4000, 5000 Rs plus the earlier 2000", "count": 1},
+        {"kind": "text_box", "what": "MY FAMILY'S INCOME caption with the red total 12100 Rs", "count": 1}
+      ],
+      "motions": ["multiply", "draw_line", "pop_in"],
+      "level": "L2",
+      "notes": "Running example: one income 2000 grows to a family sum of 12100. Person icon multiplies into the family."
+    },
+    {
+      "start": 113, "end": 135.4,
+      "teaches": "national income is the sum of incomes of everyone living within India's geographical boundary",
+      "canvas": "builds_on_previous",
+      "layout": "free",
+      "elements": [
+        {"kind": "map", "what": "India silhouette at the left end of a wide cream band", "count": 1},
+        {"kind": "crowd", "what": "long row of identical teal person icons filling the band (about 30)", "count": 30},
+        {"kind": "text_box", "what": "definition line under a black rule, with a green tick chip in front", "count": 1},
+        {"kind": "mark", "what": "green tick on the definition", "count": 1}
+      ],
+      "motions": ["swap_element", "multiply", "write_on"],
+      "level": "L2",
+      "notes": "Scale-up trick across three segments: one person, then a family, then the whole country as a crowd row."
+    },
+    {
+      "start": 135.4, "end": 150,
+      "teaches": "sum of incomes equals sum of products equals national income; sum of expenditure is added as the third equal",
+      "canvas": "new",
+      "layout": "flow_left_to_right",
+      "elements": [
+        {"kind": "formula", "what": "sigma Income = sigma Products = NATIONAL INCOME (chip); then sigma Expenditure prepended", "count": 1},
+        {"kind": "tag", "what": "cream NATIONAL INCOME chip at the end of the equation", "count": 1}
+      ],
+      "motions": ["clear_canvas", "pop_in", "slide_in"],
+      "level": "L2",
+      "notes": "Equation grows from the left; this three-way identity stays at the top for the rest of the video."
+    },
+    {
+      "start": 150, "end": 224,
+      "teaches": "a product is made by four factors of production, and each factor earns an income: profit, rent, wages and salaries, interest",
+      "canvas": "builds_on_previous",
+      "layout": "flow_left_to_right",
+      "elements": [
+        {"kind": "text_box", "what": "grey panel 'Factors of Production' listing entrepreneur, land, labour, capital", "count": 1},
+        {"kind": "arrow", "what": "blue arrows from each factor into a framed product picture", "count": 4},
+        {"kind": "icon", "what": "laptop inside a light-blue frame as the product", "count": 1},
+        {"kind": "highlight", "what": "blue band on the left listing the factor incomes profit, rent, wages and salaries, interest, appearing one by one", "count": 1},
+        {"kind": "text_box", "what": "values 4K, 2K, 2K, 2K written to the left of each factor income", "count": 4}
+      ],
+      "motions": ["slide_in", "draw_line", "write_on", "pop_in"],
+      "level": "L2",
+      "notes": "The equation slides to the top to make room. Running numeric example continues: factor incomes total 10K."
+    },
+    {
+      "start": 224, "end": 288.6,
+      "teaches": "the same 10,000 appears three ways: incomes paid to factors, value of the product, and what the buyer spends, so all three totals match",
+      "canvas": "builds_on_previous",
+      "layout": "flow_left_to_right",
+      "elements": [
+        {"kind": "icon", "what": "blue customer figure on the right", "count": 1},
+        {"kind": "arrow", "what": "'Paid' arrow from customer to product and 'Sold' arrow from product to customer", "count": 2},
+        {"kind": "callout", "what": "small price bubble above the customer: 10,000 Rs", "count": 1},
+        {"kind": "text_box", "what": "sum line under the factor incomes: 10K = 10,000 rupees; 10,000 rupees under the product frame", "count": 2},
+        {"kind": "text_box", "what": "10,000 rupee labels popping above each sigma term of the top equation", "count": 3},
+        {"kind": "highlight", "what": "cream boxes lighting up behind sigma Expenditure, sigma Products and sigma Income in turn", "count": 3}
+      ],
+      "motions": ["pop_in", "draw_line", "pulse_or_glow", "highlight_text"],
+      "level": "L2",
+      "notes": "One laptop priced 10,000 proves the three methods agree. Equation terms get value labels one at a time with a glow."
+    },
+    {
+      "start": 288.6, "end": 300,
+      "teaches": "end card",
+      "canvas": "new",
+      "layout": "compare_two_sides",
+      "elements": [
+        {"kind": "end_screen", "what": "split card: next-video panel with a loading bar and a grey playlist panel", "count": 1}
+      ],
+      "motions": ["clear_canvas"],
+      "level": "L2",
+      "notes": "Channel promotion; ignore for teaching."
+    }
+  ]
+}

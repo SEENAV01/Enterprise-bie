@@ -1,0 +1,164 @@
+{
+  "id": "E07",
+  "title_guess": "NEER vs REER: measuring the rupee against a basket of currencies",
+  "segments": [
+    {
+      "start": 0, "end": 29,
+      "teaches": "prices of everyday goods and services keep moving up and down",
+      "canvas": "new",
+      "layout": "free",
+      "elements": [
+        {"kind": "icon", "what": "grid of flat green icons (house, food items, bus, medicine, bottle, graduate, fuel and others)", "count": 11},
+        {"kind": "up_down_arrow", "what": "stacked green chevrons or red down-arrows on each icon, changing continuously", "count": 11}
+      ],
+      "motions": ["pulse_or_glow", "pop_in"],
+      "level": "L2",
+      "notes": "Continuous ambient animation (no settled frame) shows prices fluctuating."
+    },
+    {
+      "start": 29, "end": 59.8,
+      "teaches": "to know whether general prices are rising we use two indexes, CPI and WPI, each a weighted average of price changes of a basket",
+      "canvas": "builds_on_previous",
+      "layout": "tree",
+      "elements": [
+        {"kind": "highlight", "what": "light-blue panel slides in behind the icon grid", "count": 1},
+        {"kind": "text_box", "what": "blue question box under an INFLATION heading", "count": 1},
+        {"kind": "tree", "what": "'2 INDEXES' splitting to CPI and WPI with full names", "count": 1},
+        {"kind": "icon", "what": "small basket pictures beside CPI (goods) and WPI (sacks and crates)", "count": 2},
+        {"kind": "text_box", "what": "note: indexes are weighted averages over a basket (key words bold)", "count": 1}
+      ],
+      "motions": ["slide_in", "draw_line", "pop_in", "write_on"],
+      "level": "L2",
+      "notes": "Inflation indexes used as the familiar analogy for currency indexes."
+    },
+    {
+      "start": 59.8, "end": 77.6,
+      "teaches": "in the same way, to know whether our currency is rising or falling against all other currencies we need indexes",
+      "canvas": "builds_on_previous",
+      "layout": "flow_top_down",
+      "elements": [
+        {"kind": "text_box", "what": "inflation question and its '2 INDEXES -> CPI / WPI' moved up into a compact row", "count": 1},
+        {"kind": "highlight", "what": "mint-green panel across the lower half", "count": 1},
+        {"kind": "text_box", "what": "white question box about the currency, with an arrow to a faded '2 indexes' placeholder", "count": 1}
+      ],
+      "motions": ["swap_element", "slide_in", "fade_in"],
+      "level": "L2",
+      "notes": "Parallel structure: the new question mirrors the old one, and the answer is left faded to be filled later."
+    },
+    {
+      "start": 77.6, "end": 95,
+      "teaches": "India trades with many countries, so the rupee has many exchange rates",
+      "canvas": "new",
+      "layout": "hub_and_spokes",
+      "elements": [
+        {"kind": "icon", "what": "globe on the left", "count": 1},
+        {"kind": "map", "what": "maroon India silhouette on the right", "count": 1},
+        {"kind": "arrow", "what": "fan of curved black arrows from the globe converging on India", "count": 10}
+      ],
+      "motions": ["clear_canvas", "draw_line"],
+      "level": "L2",
+      "notes": "Arrows draw on continuously for about 15 s."
+    },
+    {
+      "start": 95, "end": 126.2,
+      "teaches": "tracking every currency is impractical, so we need an index; two exist, NEER and REER, built on a weighted basket of the currencies we trade with most",
+      "canvas": "new",
+      "layout": "tree",
+      "elements": [
+        {"kind": "text_box", "what": "cream box under a black rule: cannot track all rates", "count": 1},
+        {"kind": "arrow", "what": "down-arrow to a second statement", "count": 1},
+        {"kind": "highlight", "what": "hand-drawn ellipse around the word 'index', later filled yellow", "count": 1},
+        {"kind": "tree", "what": "arrows from 'index' to two yellow tags NEER and REER", "count": 1},
+        {"kind": "icon", "what": "wicker basket of banknotes with a caption", "count": 1},
+        {"kind": "table", "what": "countries (USD, JPY, CNY, GBP, EUR, HKD) in a blue column with weights 30/20/20/10/10/10", "count": 1}
+      ],
+      "motions": ["clear_canvas", "write_on", "highlight_text", "draw_line", "pop_in"],
+      "level": "L2",
+      "notes": "Earlier statements fade to grey when the table arrives (dim-the-old, show-the-new)."
+    },
+    {
+      "start": 126.2, "end": 142.8,
+      "teaches": "NEER is the weighted sum of the rupee's nominal exchange rates: weight x rate for each currency, added up (0.26849 in the example)",
+      "canvas": "new",
+      "layout": "table",
+      "elements": [
+        {"kind": "icon", "what": "basket at the table corner and a rupee sign over the rate column", "count": 2},
+        {"kind": "table", "what": "countries x weight x exchange rate (1 Rs = ...) x working ('30% of 0.012') x results; results column highlighted blue", "count": 1},
+        {"kind": "arrow", "what": "row arrows into the results and a down-arrow to the total", "count": 7},
+        {"kind": "tag", "what": "yellow NEER tag under the total 0.26849", "count": 1}
+      ],
+      "motions": ["clear_canvas", "write_on", "draw_line", "highlight_text"],
+      "level": "L2",
+      "notes": "Same worked-table pattern as E05 with different numbers."
+    },
+    {
+      "start": 142.8, "end": 170.2,
+      "teaches": "reading NEER: 0.26849 units of the basket equal one rupee; NEER up means the rupee appreciated, NEER down means it depreciated",
+      "canvas": "new",
+      "layout": "compare_two_sides",
+      "elements": [
+        {"kind": "formula", "what": "0.26849 (NEER tag) x basket = rupee sign, in a light-blue band", "count": 1},
+        {"kind": "callout", "what": "rounded red box (NEER rises) and blue dotted box (NEER falls) under underlined headings", "count": 2}
+      ],
+      "motions": ["clear_canvas", "pop_in", "slide_in"],
+      "level": "L2",
+      "notes": "Condition-box pair identical in style to E05."
+    },
+    {
+      "start": 170.2, "end": 208.8,
+      "teaches": "REER uses real exchange rates instead: the nominal rate adjusted for inflation, then the same weighted sum",
+      "canvas": "new",
+      "layout": "table",
+      "elements": [
+        {"kind": "icon", "what": "NEER tag, basket, rupee sign and the total scatter, then fly back into table positions", "count": 1},
+        {"kind": "table", "what": "the NEER table rebuilt with an extra REAL exchange rate column header; exchange-rate column tinted green", "count": 1},
+        {"kind": "formula", "what": "cream box: real exchange rate = nominal exchange rate / ((1 + inflation)/100)", "count": 1},
+        {"kind": "highlight", "what": "yellow ellipse 'REAL exchange rate' over the column", "count": 1},
+        {"kind": "arrow", "what": "curved arrow from the ellipse to the working column, whose rate values get yellow highlights", "count": 1}
+      ],
+      "motions": ["swap_element", "slide_in", "pop_in", "draw_line", "highlight_text"],
+      "level": "L2",
+      "notes": "Morph transition: pieces of the previous formula fly into the rebuilt table. Shows REER as a one-column change to the NEER method."
+    },
+    {
+      "start": 208.8, "end": 228.2,
+      "teaches": "comparing NEER and REER: NEER is the weighted average of nominal rates (no inflation adjustment)",
+      "canvas": "new",
+      "layout": "compare_two_sides",
+      "elements": [
+        {"kind": "tag", "what": "yellow NEER and REER tags", "count": 2},
+        {"kind": "title_text", "what": "large italic VS between the tags", "count": 1},
+        {"kind": "text_box", "what": "pink definition box for NEER", "count": 1}
+      ],
+      "motions": ["clear_canvas", "pop_in", "write_on"],
+      "level": "L2",
+      "notes": "Minimal versus card."
+    },
+    {
+      "start": 228.2, "end": 238,
+      "teaches": "closing comparison between the two indexes",
+      "canvas": "builds_on_previous",
+      "layout": "compare_two_sides",
+      "elements": [
+        {"kind": "tag", "what": "NEER and REER tags kept", "count": 2},
+        {"kind": "title_text", "what": "VS replaced by a large comparison sign (<)", "count": 1},
+        {"kind": "logo_or_brand", "what": "app promo overlay at bottom left", "count": 1}
+      ],
+      "motions": ["swap_element", "slide_in"],
+      "level": "L2",
+      "notes": "Symbol swap carries the conclusion; the definition box is removed."
+    },
+    {
+      "start": 238, "end": 247.6,
+      "teaches": "end card",
+      "canvas": "new",
+      "layout": "compare_two_sides",
+      "elements": [
+        {"kind": "end_screen", "what": "next-video and playlist panels", "count": 1}
+      ],
+      "motions": ["clear_canvas"],
+      "level": "L2",
+      "notes": "Channel promotion; ignore for teaching."
+    }
+  ]
+}

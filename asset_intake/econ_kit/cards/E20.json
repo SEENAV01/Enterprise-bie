@@ -1,0 +1,244 @@
+{
+  "id": "E20",
+  "title_guess": "WPI: how wholesale price inflation is measured in India",
+  "segments": [
+    {
+      "start": 0, "end": 14.75,
+      "teaches": "inflation is a rise in prices of goods and services over time",
+      "canvas": "new",
+      "layout": "free",
+      "elements": [
+        {"kind": "icon", "what": "grocery bag (goods) & delivery scooter (services)", "count": 2},
+        {"kind": "graph", "what": "price vs year axes with rising dotted line and curved inflation arrow", "count": 1},
+        {"kind": "logo_or_brand", "what": "like-count progress bar with 'target' tooltip (engagement prompt)", "count": 1}
+      ],
+      "motions": ["pop_in", "draw_line"],
+      "level": "L2",
+      "notes": "same intro composition as E15 (asset reuse across videos)"
+    },
+    {
+      "start": 14.75, "end": 73.76,
+      "teaches": "inflation is measured by WPI and CPI; a grandparent's memory of 1000 vs today's 5000 shows why we compare prices over time",
+      "canvas": "new",
+      "layout": "tree",
+      "elements": [
+        {"kind": "title_text", "what": "INFLATION heading", "count": 1},
+        {"kind": "tree", "what": "INFLATION -> WPI and CPI with full names", "count": 1},
+        {"kind": "icon", "what": "store, shopper with basket, family on sofa with TV, elder in armchair", "count": 4},
+        {"kind": "question_mark", "what": "small ? above the family", "count": 1},
+        {"kind": "callout", "what": "speech bubbles: '5000 Rs' over the shopper and the elder remembering 1000", "count": 2},
+        {"kind": "table", "what": "first row: basket | price in our time 1000 | current price 5000", "count": 1}
+      ],
+      "motions": ["pop_in", "fade_in", "write_on"],
+      "level": "L2",
+      "notes": "story hook with black silhouette icons; running example 1000 -> 5000"
+    },
+    {
+      "start": 73.76, "end": 132.76,
+      "teaches": "a price index compares the current price of a fixed basket with a base-year price: 1000 to 5000 is a 400% rise; base year is 2011-12",
+      "canvas": "builds_on_previous",
+      "layout": "table",
+      "elements": [
+        {"kind": "table", "what": "blue one-row table: basket | price in our time | current price | % increase 400%", "count": 1},
+        {"kind": "text_box", "what": "basket definition hanging from the basket icon", "count": 1},
+        {"kind": "value_change", "what": "column header 'price in our time' struck, 'base year (2011-12)' written above", "count": 1}
+      ],
+      "motions": ["slide_in", "write_on", "strike_and_replace"],
+      "level": "L2",
+      "notes": "strike-and-replace used on a label (everyday word -> technical term), not on a number"
+    },
+    {
+      "start": 132.76, "end": 221.27,
+      "teaches": "the supply chain producer -> wholesaler -> retailer -> consumer has three price points, measured by PPI, WPI and CPI",
+      "canvas": "builds_on_previous",
+      "layout": "flow_left_to_right",
+      "elements": [
+        {"kind": "icon", "what": "WPI gets a cart of boxes, CPI a grocery bag; key words highlighted", "count": 2},
+        {"kind": "flow_chain", "what": "factory -> warehouse -> store -> person, with pink, blue and cream coloured bands on the arrows", "count": 1},
+        {"kind": "tag", "what": "producer price / wholesale price / consumer price labels", "count": 3},
+        {"kind": "highlight", "what": "light-blue strip 'measure average price level' holding PPI, WPI, CPI with down arrows", "count": 1},
+        {"kind": "text_box", "what": "prices 10, 15 rupees written in the bands", "count": 2}
+      ],
+      "motions": ["pop_in", "draw_line", "highlight_text"],
+      "level": "L2",
+      "notes": "basket icon slides away first; colour band on each arrow is reused as the column colour of its index"
+    },
+    {
+      "start": 221.27, "end": 309.77,
+      "teaches": "prices rise at each stage (10, 15, 20); PPI is common worldwide while India uses WPI and CPI; WPI looks only at the first bulk sale",
+      "canvas": "builds_on_previous",
+      "layout": "flow_left_to_right",
+      "elements": [
+        {"kind": "text_box", "what": "third price 20 rupees in the consumer band", "count": 1},
+        {"kind": "up_down_arrow", "what": "green up arrows over each of the three prices", "count": 3},
+        {"kind": "mark", "what": "blue tick badge on PPI", "count": 1},
+        {"kind": "map", "what": "small India silhouettes on WPI and CPI", "count": 2},
+        {"kind": "text_box", "what": "note under WPI about first point of bulk sale", "count": 1}
+      ],
+      "motions": ["pop_in", "write_on"],
+      "level": "L2",
+      "notes": "map silhouette used as a 'used in India' badge next to an index name"
+    },
+    {
+      "start": 309.77, "end": 324.52,
+      "teaches": "WPI is used for macro-level policy making",
+      "canvas": "builds_on_previous",
+      "layout": "tree",
+      "elements": [
+        {"kind": "tag", "what": "green 'macro-level policy making' chip under the WPI note", "count": 1}
+      ],
+      "motions": ["clear_canvas", "pop_in"],
+      "level": "L2",
+      "notes": "supply-chain part cleared, only the top tree and the WPI note stay"
+    },
+    {
+      "start": 324.52, "end": 457.28,
+      "teaches": "the WPI basket has 697 commodities in three groups (fuel and power, manufactured, primary) with weights 13.15%, 64.23%, 22.62%",
+      "canvas": "new",
+      "layout": "tree",
+      "elements": [
+        {"kind": "tag", "what": "blue 'WPI - wholesale price index' heading chip top-left (stays for the rest of the video)", "count": 1},
+        {"kind": "icon", "what": "cart of boxes labelled BASKET, 697 commodities", "count": 1},
+        {"kind": "tree", "what": "basket -> fuel & power / manufactured products / primary articles", "count": 1},
+        {"kind": "callout", "what": "boxed example lists beside each group", "count": 3},
+        {"kind": "highlight", "what": "coloured highlighter on sub-group words with matching-colour example lines", "count": 4},
+        {"kind": "text_box", "what": "weight percentages written on each branch", "count": 3}
+      ],
+      "motions": ["pop_in", "draw_line", "highlight_text", "write_on"],
+      "level": "L2",
+      "notes": "colour-matched highlighting: a highlighted word and its example bullet share the same colour"
+    },
+    {
+      "start": 457.28, "end": 501.54,
+      "teaches": "each group is split into items with their own weights",
+      "canvas": "new",
+      "layout": "table",
+      "elements": [
+        {"kind": "tag", "what": "coloured group headers with weights (yellow, pink, purple)", "count": 3},
+        {"kind": "table", "what": "small fuel table, long manufactured-products table (~22 rows), primary-articles table", "count": 3},
+        {"kind": "highlight", "what": "weight columns filled light blue", "count": 3}
+      ],
+      "motions": ["fade_in", "highlight_text"],
+      "level": "L2",
+      "notes": "dense real data tables; header colours match the earlier tree"
+    },
+    {
+      "start": 501.54, "end": 575.29,
+      "teaches": "for one item (a chair) many price quotations are collected, with base and current prices that exclude indirect taxes",
+      "canvas": "new",
+      "layout": "table",
+      "elements": [
+        {"kind": "photo", "what": "realistic render of an armchair as the sample item", "count": 1},
+        {"kind": "table", "what": "quotation no. 1-11 column, then base price and current price columns appear", "count": 1},
+        {"kind": "callout", "what": "note box: total number of quotations used", "count": 1},
+        {"kind": "callout", "what": "bracket under the price columns with a note about indirect taxes", "count": 1}
+      ],
+      "motions": ["fade_in", "write_on", "pop_in"],
+      "level": "L2",
+      "notes": "background switches to light grey; table grows column by column"
+    },
+    {
+      "start": 575.29, "end": 634.3,
+      "teaches": "each quote's price relative = current/base x 100; their geometric mean gives the item's elementary index (193.77) using the Jevons formula",
+      "canvas": "builds_on_previous",
+      "layout": "table",
+      "elements": [
+        {"kind": "table", "what": "price relative column added", "count": 1},
+        {"kind": "formula", "what": "(current price / base price) x 100 with curved arrow to the column header", "count": 1},
+        {"kind": "highlight", "what": "price relative column filled blue with a bracket bar", "count": 1},
+        {"kind": "arrow", "what": "arrow from column to '(geometric mean)'", "count": 1},
+        {"kind": "callout", "what": "elementary price index box with red 193.77", "count": 1},
+        {"kind": "tag", "what": "yellow strip naming the Jevons index formula", "count": 1}
+      ],
+      "motions": ["write_on", "draw_line", "highlight_text", "pop_in"],
+      "level": "L2",
+      "notes": "worked calculation with real-looking numbers inside a table"
+    },
+    {
+      "start": 634.3, "end": 678.55,
+      "teaches": "each item's index I is multiplied by its weight W; summing I x W over all items and dividing by total weight gives WPI",
+      "canvas": "builds_on_previous",
+      "layout": "table",
+      "elements": [
+        {"kind": "table", "what": "weight tables return; furniture row highlighted yellow and its weight cell boxed", "count": 3},
+        {"kind": "photo", "what": "armchair render at bottom-left with elementary index 193.77 callout", "count": 1},
+        {"kind": "arrow", "what": "line from chair index (I1) to the boxed weight (W1)", "count": 1},
+        {"kind": "formula", "what": "sum (I x W) / sum W, with basket cart icon", "count": 1}
+      ],
+      "motions": ["slide_in", "draw_line", "highlight_text", "write_on"],
+      "level": "L2",
+      "notes": "links the micro example (one chair) back to the macro table by a single connector line"
+    },
+    {
+      "start": 678.55, "end": 752.3,
+      "teaches": "WPI formula: Jevons for item indices, Laspeyres for the weighted total; WPI measures the change month by month against base year 2011-12 = 100",
+      "canvas": "new",
+      "layout": "free",
+      "elements": [
+        {"kind": "formula", "what": "WPI = sum (I x W) / sum W", "count": 1},
+        {"kind": "tag", "what": "orange Jevons and Laspeyres labels pointing at parts of the formula", "count": 2},
+        {"kind": "text_box", "what": "green note: WPI measures monthly change", "count": 1},
+        {"kind": "timeline", "what": "rainbow strip of months April to March", "count": 1},
+        {"kind": "table", "what": "base year row of 100 under each month", "count": 1}
+      ],
+      "motions": ["fade_in", "pop_in", "write_on"],
+      "level": "L2",
+      "notes": "white background again; formula annotated with labelled pointer arrows"
+    },
+    {
+      "start": 752.3, "end": 796.56,
+      "teaches": "WPI is point-to-point: each month this year is compared with the same month of the base year",
+      "canvas": "builds_on_previous",
+      "layout": "table",
+      "elements": [
+        {"kind": "table", "what": "second row 2022-23 values (114, 115, 113 ... 105, blanks for future months)", "count": 1},
+        {"kind": "arrow", "what": "down arrows from each base value to its month's value", "count": 12},
+        {"kind": "highlight", "what": "August column boxed in blue", "count": 1},
+        {"kind": "text_box", "what": "point-to-point explanation line", "count": 1}
+      ],
+      "motions": ["write_on", "draw_line", "highlight_text"],
+      "level": "L2",
+      "notes": "table with one highlighted column to show the comparison rule"
+    },
+    {
+      "start": 796.56, "end": 811.31,
+      "teaches": "a year of monthly WPI values plotted as a trend",
+      "canvas": "new",
+      "layout": "graph_with_notes",
+      "elements": [
+        {"kind": "bar_or_chart", "what": "line chart with dots and light-blue shaded area, monthly WPI rising then falling", "count": 1},
+        {"kind": "logo_or_brand", "what": "channel app phone mock-up and store badges over the chart", "count": 1}
+      ],
+      "motions": ["fade_in", "slide_in"],
+      "level": "L2",
+      "notes": "mid-video promo overlay covers part of the chart"
+    },
+    {
+      "start": 811.31, "end": 840.81,
+      "teaches": "WPI is published by DPIIT under the Ministry of Commerce and Industry (earlier called DIPP)",
+      "canvas": "new",
+      "layout": "flow_left_to_right",
+      "elements": [
+        {"kind": "logo_or_brand", "what": "national emblem on a ministry name card", "count": 1},
+        {"kind": "icon", "what": "megaphone announcing WPI", "count": 1},
+        {"kind": "arrow", "what": "plug-and-cable connector from the department card to the megaphone", "count": 1},
+        {"kind": "tag", "what": "dark chips with department names and an old-name chip with up arrow", "count": 2}
+      ],
+      "motions": ["pop_in", "draw_line"],
+      "level": "L2",
+      "notes": "plug/cable used as a connector meaning 'is the source of'"
+    },
+    {
+      "start": 840.81, "end": 855.56,
+      "teaches": "channel end card",
+      "canvas": "new",
+      "layout": "free",
+      "elements": [
+        {"kind": "end_screen", "what": "next video / playlist with loading bar and app phone mock-up", "count": 1}
+      ],
+      "motions": ["slide_in"],
+      "level": "L2",
+      "notes": "promotion only"
+    }
+  ]
+}

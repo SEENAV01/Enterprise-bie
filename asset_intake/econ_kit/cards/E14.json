@@ -1,0 +1,73 @@
+{
+  "id": "E14",
+  "title_guess": "Growth, contraction and recession read off a quarterly GDP curve",
+  "segments": [
+    {
+      "start": 0, "end": 34,
+      "teaches": "GDP is tracked quarter by quarter; the curve rises, peaks and falls over about two years",
+      "canvas": "new",
+      "layout": "graph_with_notes",
+      "elements": [
+        {"kind": "graph", "what": "dotted axes, GDP on y, nine quarters on x; black line through yellow-ringed points rising to a peak then falling; red dotted drop lines from each point to the axis", "count": 1},
+        {"kind": "highlight", "what": "quarter labels tinted by year: first year blue, second year yellow, third year green", "count": 3}
+      ],
+      "motions": ["draw_line", "pop_in", "highlight_text"],
+      "level": "L2",
+      "notes": "One graph is the whole video; every later segment only adds a moving frame or label on top of it."
+    },
+    {
+      "start": 34, "end": 72,
+      "teaches": "a rising stretch is growth; the slope tells whether it is faster or slower growth",
+      "canvas": "builds_on_previous",
+      "layout": "graph_with_notes",
+      "elements": [
+        {"kind": "highlight", "what": "grey rectangular frame tilted to the slope, placed over one rising line piece and then moved to the next piece", "count": 1},
+        {"kind": "tag", "what": "green 'growing' label written along the frame", "count": 1},
+        {"kind": "tag", "what": "small hand-written note above it: at a faster rate (green), later swapped to at a slower rate (red)", "count": 1}
+      ],
+      "motions": ["slide_in", "swap_element", "write_on"],
+      "level": "L2",
+      "notes": "Sliding-window trick: the same frame steps along the curve one quarter at a time and its label changes with the slope."
+    },
+    {
+      "start": 72, "end": 90,
+      "teaches": "a quarter where GDP falls is a contraction",
+      "canvas": "builds_on_previous",
+      "layout": "graph_with_notes",
+      "elements": [
+        {"kind": "highlight", "what": "frame moves onto the first falling piece after the peak", "count": 1},
+        {"kind": "tag", "what": "red 'decline' label along the frame", "count": 1},
+        {"kind": "callout", "what": "white pointer box above it naming the term contraction in red", "count": 1}
+      ],
+      "motions": ["slide_in", "swap_element", "pop_in"],
+      "level": "L2",
+      "notes": "Label colour flips from green to red as the slope turns negative."
+    },
+    {
+      "start": 90, "end": 110,
+      "teaches": "contraction for two quarters in a row is a recession",
+      "canvas": "builds_on_previous",
+      "layout": "graph_with_notes",
+      "elements": [
+        {"kind": "highlight", "what": "red translucent band covering two consecutive falling pieces", "count": 1},
+        {"kind": "tag", "what": "bold red 'recession' label along the band", "count": 1},
+        {"kind": "callout", "what": "pointer box with the two-quarter definition", "count": 1}
+      ],
+      "motions": ["shade_area", "pop_in", "write_on"],
+      "level": "L2",
+      "notes": "The grey frame widens and turns into a red shaded band. Depression, named in the title, does not appear in the sampled frames."
+    },
+    {
+      "start": 110, "end": 119,
+      "teaches": "channel promotion",
+      "canvas": "new",
+      "layout": "free",
+      "elements": [
+        {"kind": "end_screen", "what": "next-video and playlist panels", "count": 1}
+      ],
+      "motions": ["clear_canvas", "fade_in"],
+      "level": "L2",
+      "notes": "End screen; ignore for teaching."
+    }
+  ]
+}

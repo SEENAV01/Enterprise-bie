@@ -1,0 +1,128 @@
+{
+  "id": "E17",
+  "title_guess": "MSF (Marginal Standing Facility) and how banks borrow from RBI",
+  "segments": [
+    {
+      "start": 0, "end": 44.94,
+      "teaches": "a bank's NDTL is split: CRR kept with RBI as cash at zero interest, SLR kept by the bank in cash, gold or G-secs",
+      "canvas": "new",
+      "layout": "tree",
+      "elements": [
+        {"kind": "icon", "what": "bank building at top", "count": 1},
+        {"kind": "title_text", "what": "NDTL with expansion chip underneath", "count": 1},
+        {"kind": "tree", "what": "NDTL splits by red % arrows into CRR 4.5% and SLR 18%", "count": 1},
+        {"kind": "icon", "what": "RBI coin + gold vault box marked CRR, '0% interest' label", "count": 1},
+        {"kind": "icon", "what": "grey safe for SLR with 'cash, gold, SLR securities' note", "count": 1}
+      ],
+      "motions": ["pop_in", "draw_line", "write_on"],
+      "level": "L2",
+      "notes": "percent values written in large blue italics beside each arrow"
+    },
+    {
+      "start": 44.94, "end": 104.85,
+      "teaches": "the remaining 77.5% is available for lending; part is lent, part kept idle and parked in government securities",
+      "canvas": "builds_on_previous",
+      "layout": "tree",
+      "elements": [
+        {"kind": "tree", "what": "third branch 77.5% 'available for lending'", "count": 1},
+        {"kind": "crowd", "what": "dense crowd of borrower heads with down arrows raining onto them", "count": 1},
+        {"kind": "tree", "what": "77.5% splits into 'given in loan' and 'kept idle'", "count": 1},
+        {"kind": "highlight", "what": "blue highlight on 'kept idle' plus yellow box 'invest in government security'", "count": 2},
+        {"kind": "icon", "what": "certificate + national emblem for government security", "count": 1},
+        {"kind": "text_box", "what": "note that banks earn income on SLR investment", "count": 1}
+      ],
+      "motions": ["pop_in", "draw_line", "highlight_text"],
+      "level": "L2",
+      "notes": "national emblem used as a 'government' symbol (BIE should use a neutral icon)"
+    },
+    {
+      "start": 104.85, "end": 164.77,
+      "teaches": "when customers need loans, the bank pledges G-secs to RBI and takes a short-term loan at the repo rate; repo/term repo limits are % of NDTL",
+      "canvas": "new",
+      "layout": "flow_top_down",
+      "elements": [
+        {"kind": "icon", "what": "person with yellow 'Need LOAN' speech bubble", "count": 1},
+        {"kind": "icon", "what": "bank in the centre, G-sec certificate + emblem beside it", "count": 2},
+        {"kind": "arrow", "what": "dotted arrow from G-sec up to RBI (pledge)", "count": 1},
+        {"kind": "arrow", "what": "RBI -> short-term loan -> red % with 'repo rate' label -> bank", "count": 1},
+        {"kind": "arrow", "what": "bank -> loan -> person", "count": 1},
+        {"kind": "tag", "what": "green REPO and TERM REPO pills with 0.25% / 0.75% of NDTL", "count": 2}
+      ],
+      "motions": ["pop_in", "draw_line", "fade_in"],
+      "level": "L2",
+      "notes": "money loop drawn as a rectangle: borrower <- bank <- RBI <- collateral"
+    },
+    {
+      "start": 164.77, "end": 194.72,
+      "teaches": "worked numbers: NDTL 2000 crore gives repo 5 crore and term repo 15 crore, so 20 crore can be lent",
+      "canvas": "builds_on_previous",
+      "layout": "flow_top_down",
+      "elements": [
+        {"kind": "tag", "what": "yellow note 'NDTL 2000 Cr' pinned on the bank", "count": 1},
+        {"kind": "text_box", "what": "5 crore / 15 crore added after the repo pills", "count": 2},
+        {"kind": "text_box", "what": "'20 crore' labels on repo arrow, G-sec and loan", "count": 3},
+        {"kind": "crowd", "what": "single person replaced by a crowd of borrowers", "count": 1}
+      ],
+      "motions": ["write_on", "swap_element", "pop_in"],
+      "level": "L2",
+      "notes": "running numeric example starts here and is carried into the MSF part"
+    },
+    {
+      "start": 194.72, "end": 284.59,
+      "teaches": "MSF: if loan demand doubles to 40 crore, the bank can borrow overnight from RBI at the MSF rate by dipping into SLR up to 1% of NDTL",
+      "canvas": "builds_on_previous",
+      "layout": "free",
+      "elements": [
+        {"kind": "title_text", "what": "MARGINAL STANDING FACILITY - MSF at top-left", "count": 1},
+        {"kind": "value_change", "what": "loan 20 crore struck -> 40 crore loan", "count": 1},
+        {"kind": "arrow", "what": "orange dotted 'overnight loan' arrow from RBI to bank via red % 'MSF rate'", "count": 1},
+        {"kind": "arrow", "what": "orange dotted rectangle loop from bank to SLR safe and back to RBI", "count": 1},
+        {"kind": "icon", "what": "SLR safe on the right", "count": 1},
+        {"kind": "highlight", "what": "SLR safe grows inside a blue magnifier circle with 'up to 1% of NDTL'", "count": 1}
+      ],
+      "motions": ["strike_and_replace", "draw_line", "zoom_to_region", "pop_in"],
+      "level": "L2",
+      "notes": "second channel added in a different colour (orange) over the existing blue repo channel; zoom bubble enlarges one icon in place"
+    },
+    {
+      "start": 284.59, "end": 314.55,
+      "teaches": "MSF rate is higher than repo rate: MSF = repo rate + penalty",
+      "canvas": "builds_on_previous",
+      "layout": "free",
+      "elements": [
+        {"kind": "formula", "what": "repo rate < MSF rate, then repo rate + penalty = MSF rate", "count": 1},
+        {"kind": "arrow", "what": "only the orange MSF loop remains; repo path, G-sec and NDTL note removed", "count": 1}
+      ],
+      "motions": ["fade_in", "swap_element", "write_on"],
+      "level": "L2",
+      "notes": "declutter trick: remove the old channel so only the new mechanism and its rule remain"
+    },
+    {
+      "start": 314.55, "end": 374.47,
+      "teaches": "real history: RBI's repo, reverse repo and MSF lines since 2009, with the MSF-repo gap of 1% and a 3% spike",
+      "canvas": "new",
+      "layout": "graph_with_notes",
+      "elements": [
+        {"kind": "formula", "what": "repo + penalty = MSF kept at top-left", "count": 1},
+        {"kind": "bar_or_chart", "what": "step line chart of three policy rates over dates with legend", "count": 1},
+        {"kind": "callout", "what": "red labels 'RBI announced MSF' and 'repo rate' with small arrows", "count": 2},
+        {"kind": "highlight", "what": "grey bars marking the gap between MSF and repo lines, labelled 1%, 3%, 1%", "count": 3}
+      ],
+      "motions": ["fade_in", "pop_in", "highlight_text"],
+      "level": "L2",
+      "notes": "imported spreadsheet-style chart of real data, annotated on top; BIE would need its own data-driven chart"
+    },
+    {
+      "start": 374.47, "end": 389.45,
+      "teaches": "channel end card",
+      "canvas": "new",
+      "layout": "free",
+      "elements": [
+        {"kind": "end_screen", "what": "next video / playlist panels with bird illustration, phone mock-up and store badges", "count": 1}
+      ],
+      "motions": ["slide_in"],
+      "level": "L2",
+      "notes": "promotion only"
+    }
+  ]
+}

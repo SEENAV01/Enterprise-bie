@@ -1,0 +1,94 @@
+{
+  "id": "E12",
+  "title_guess": "Inflation, disinflation, deflation and reflation on the price-index curve",
+  "segments": [
+    {
+      "start": 0, "end": 26,
+      "teaches": "prices are tracked at two points of the supply chain: wholesale basket (WPI) and household consumption basket (CPI)",
+      "canvas": "new",
+      "layout": "flow_left_to_right",
+      "elements": [
+        {"kind": "flow_chain", "what": "producer factory -> wholesaler warehouse -> retailer shop -> consumer, blue captions", "count": 1},
+        {"kind": "icon", "what": "cart piled with boxes over the wholesaler-to-retailer arrow (wholesale basket)", "count": 1},
+        {"kind": "icon", "what": "shopping trolley over the retailer-to-consumer arrow (household basket)", "count": 1},
+        {"kind": "text_box", "what": "blue box under the first basket and yellow box under the second, each describing what the basket holds", "count": 2},
+        {"kind": "bullet_chain", "what": "under each box: 'price movement measured by' -> index name (WPI / CPI)", "count": 2}
+      ],
+      "motions": ["pop_in", "draw_line", "fade_in"],
+      "level": "L2",
+      "notes": "Recap of earlier inflation-measurement lessons; colour of each box (blue/yellow) stays tied to its index."
+    },
+    {
+      "start": 26, "end": 95,
+      "teaches": "on a price-index-over-time curve: rising stretch = inflation; rising but flattening = disinflation (slower inflation); falling = deflation",
+      "canvas": "new",
+      "layout": "graph_with_notes",
+      "elements": [
+        {"kind": "text_box", "what": "small stack: price index up-arrow over average price level over WPI / CPI, which then moves to the top-left as the graph title", "count": 1},
+        {"kind": "graph", "what": "year on x-axis, price index on a right-side y-axis; dotted line chart with rising parts highlighted yellow and labelled inflation along the slope, flat top highlighted green (disinflation), falling part highlighted pink (deflation)", "count": 1},
+        {"kind": "callout", "what": "tilted white card with the inflation definition", "count": 1},
+        {"kind": "callout", "what": "green-text box above the flat top: inflation rate declining", "count": 1},
+        {"kind": "callout", "what": "faded tilted pink card with the deflation definition below the dip", "count": 1}
+      ],
+      "motions": ["clear_canvas", "slide_in", "draw_line", "highlight_text", "write_on"],
+      "level": "L2",
+      "notes": "Labels are written along the curve's slope. Each phase is coloured by laying a translucent marker stroke over that part of the line."
+    },
+    {
+      "start": 95, "end": 170,
+      "teaches": "the same phases spotted on India's real consumer price index from 2018 to 2022",
+      "canvas": "new",
+      "layout": "graph_with_notes",
+      "elements": [
+        {"kind": "bar_or_chart", "what": "real CPI line chart (2018-2022) pasted in with its data-source caption", "count": 1},
+        {"kind": "highlight", "what": "orange marker strokes over the rising stretches, each labelled inflation along the slope", "count": 5},
+        {"kind": "highlight", "what": "green stroke over a flat stretch labelled disinflation, with a down-arrow", "count": 1},
+        {"kind": "highlight", "what": "pink strokes over the dips, joined by arrows to one deflation label", "count": 2},
+        {"kind": "mark", "what": "round stickers with ticks: yellow on inflation, green on disinflation, purple on deflation", "count": 7}
+      ],
+      "motions": ["swap_element", "highlight_text", "pop_in", "draw_line"],
+      "level": "L2",
+      "notes": "Moves from an idealised curve to real data. The chart is a third-party screenshot; BIE should plot its own data. Colour code (yellow/green/purple) carries over from the previous segment."
+    },
+    {
+      "start": 170, "end": 252,
+      "teaches": "why deflation is a problem: falling prices make people delay buying, demand falls, profits fall, bad loans and unemployment rise",
+      "canvas": "new",
+      "layout": "flow_left_to_right",
+      "elements": [
+        {"kind": "text_box", "what": "pink card: deflation title, purple tick sticker, line down to 'prices falling'", "count": 1},
+        {"kind": "question_mark", "what": "big black ? on the card's corner (so what is wrong with that?)", "count": 1},
+        {"kind": "flow_chain", "what": "prices falling -> demand decreases -> profits decrease, in plain capital words", "count": 1},
+        {"kind": "callout", "what": "white speech box over demand decreases: buyers wait for lower prices", "count": 1},
+        {"kind": "tree", "what": "profits decrease splits by elbow arrows into increased NPAs and increased unemployment", "count": 1}
+      ],
+      "motions": ["clear_canvas", "pop_in", "draw_line", "write_on"],
+      "level": "L2",
+      "notes": "When the chart clears, only the deflation label and its tick sticker stay on the blank canvas; the card is then built around them, so one object carries over between compositions."
+    },
+    {
+      "start": 252, "end": 283,
+      "teaches": "the government responds by raising the price level (reflation): more public spending, tax cuts and interest-rate cuts",
+      "canvas": "builds_on_previous",
+      "layout": "free",
+      "elements": [
+        {"kind": "text_box", "what": "dark full-width band sliding up from the bottom with one white sentence on the policy response", "count": 1}
+      ],
+      "motions": ["slide_in"],
+      "level": "L2",
+      "notes": "Lower-third caption band used as the conclusion; the diagram above stays visible. The word reflation is not written on screen in the sampled frames."
+    },
+    {
+      "start": 283, "end": 296,
+      "teaches": "channel promotion",
+      "canvas": "new",
+      "layout": "free",
+      "elements": [
+        {"kind": "end_screen", "what": "next-video and playlist panels with app promo", "count": 1}
+      ],
+      "motions": ["clear_canvas", "slide_in"],
+      "level": "L2",
+      "notes": "End screen; ignore for teaching."
+    }
+  ]
+}

@@ -1,0 +1,152 @@
+{
+  "id": "E10",
+  "title_guess": "Net domestic product and net national product: depreciation as the gap between gross and net",
+  "segments": [
+    {
+      "start": 0, "end": 12,
+      "teaches": "the four national income measures; GDP and GNP were covered, NDP and NNP come now",
+      "canvas": "new",
+      "layout": "flow_top_down",
+      "elements": [
+        {"kind": "tag", "what": "cream heading chip: national income", "count": 1},
+        {"kind": "text_box", "what": "list of four abbreviations with full names", "count": 4},
+        {"kind": "highlight", "what": "green frame around the first two rows", "count": 1},
+        {"kind": "mark", "what": "green ticks on the two rows already covered", "count": 2}
+      ],
+      "motions": ["fade_in", "pop_in"],
+      "level": "L2",
+      "notes": "Progress checklist used as an opener: ticks mark what earlier videos covered."
+    },
+    {
+      "start": 12, "end": 34,
+      "teaches": "gross measures give the total value; net measures give what remains after deductions",
+      "canvas": "builds_on_previous",
+      "layout": "compare_two_sides",
+      "elements": [
+        {"kind": "text_box", "what": "left cream panel with the two gross measures (green frame, ticks)", "count": 1},
+        {"kind": "text_box", "what": "right cream panel with the two net measures (blue frame)", "count": 1},
+        {"kind": "tag", "what": "labels under each panel on a dark rule: gross value / net value", "count": 2},
+        {"kind": "callout", "what": "small pointer boxes: 'total value' under gross, 'value left after deductions' under net", "count": 2}
+      ],
+      "motions": ["slide_in", "draw_line", "pop_in"],
+      "level": "L2",
+      "notes": "The checklist rows physically regroup into two side-by-side panels."
+    },
+    {
+      "start": 34, "end": 80,
+      "teaches": "farm example: seeds worth 10 grow wheat worth 100; gross produce 100, net produce 90",
+      "canvas": "builds_on_previous",
+      "layout": "flow_left_to_right",
+      "elements": [
+        {"kind": "icon", "what": "farmer sowing seeds", "count": 1},
+        {"kind": "icon", "what": "sack of wheat", "count": 1},
+        {"kind": "arrow", "what": "arrow from seeds (price in red) to wheat (price in green)", "count": 1},
+        {"kind": "tag", "what": "blue chips gross produce and net produce with values written beside them", "count": 2}
+      ],
+      "motions": ["pop_in", "draw_line", "write_on"],
+      "level": "L2",
+      "notes": "Running numeric example with small round numbers (10 in, 100 out, 90 net). Input cost in red, output in green."
+    },
+    {
+      "start": 80, "end": 131,
+      "teaches": "a machine is a depreciating asset: its value falls every year until it is worthless; the government sets depreciation rates",
+      "canvas": "new",
+      "layout": "graph_with_notes",
+      "elements": [
+        {"kind": "icon", "what": "factory production line feeding into a sauce bottle", "count": 1},
+        {"kind": "title_text", "what": "heading 'machine' with a red tag of the yearly depreciation percentage added later", "count": 1},
+        {"kind": "tag", "what": "red bracketed label: depreciating asset", "count": 1},
+        {"kind": "tag", "what": "blue chips gross produce / net produce on the right", "count": 2},
+        {"kind": "graph", "what": "value (starting at 1 crore) vs year; a dotted arrow curves down from the start year to zero at a year twenty years later", "count": 1},
+        {"kind": "text_box", "what": "info card with a government icon and a blue side bar: depreciation rates are notified by a ministry", "count": 1},
+        {"kind": "logo_or_brand", "what": "national emblem inside the government icon", "count": 1}
+      ],
+      "motions": ["clear_canvas", "pop_in", "draw_line", "write_on"],
+      "level": "L2",
+      "notes": "The decay curve draws itself in two stages (short arrow, then extended to zero). National emblem should not be reused."
+    },
+    {
+      "start": 131, "end": 221,
+      "teaches": "depreciation is booked as an expense; value falls from 1 crore to 70 lakh, a 30 lakh expense that can wipe out a 25 lakh profit, so no tax",
+      "canvas": "builds_on_previous",
+      "layout": "flow_top_down",
+      "elements": [
+        {"kind": "table", "what": "blue two-row year/value table: start year 1 crore, next year 70 lakh (new value in red)", "count": 1},
+        {"kind": "arrow", "what": "dotted curved arrow from the table to a pink depreciation (expense) card showing 30 lakh", "count": 1},
+        {"kind": "table", "what": "green year/profit card showing 25 lakh, placed beside the expense card", "count": 1},
+        {"kind": "highlight", "what": "thick grey frame grouping profit and expense", "count": 1},
+        {"kind": "arrow", "what": "arrow from the frame to a bold 'no tax' label", "count": 1}
+      ],
+      "motions": ["swap_element", "write_on", "draw_line", "pulse_or_glow"],
+      "level": "L2",
+      "notes": "Running numeric example continues (1 crore -> 70 lakh -> 30 lakh expense vs 25 lakh profit). The graph is swapped for the number table in the same slot."
+    },
+    {
+      "start": 221, "end": 265,
+      "teaches": "the machine makes 10 lakh bottles at 10 each: gross produce 1 crore, net produce 1 crore minus 30 lakh depreciation",
+      "canvas": "builds_on_previous",
+      "layout": "free",
+      "elements": [
+        {"kind": "text_box", "what": "pink depreciation card moved up under the machine", "count": 1},
+        {"kind": "arrow", "what": "teal elbow connector from the expense card to the government info card", "count": 1},
+        {"kind": "tag", "what": "unit price under the bottle and a 'times 10 lakh' multiplier beside it", "count": 2},
+        {"kind": "formula", "what": "beside the chips: gross produce = 1 crore; net produce = 1 crore minus 30 lakh (deduction in red)", "count": 2}
+      ],
+      "motions": ["slide_in", "draw_line", "write_on"],
+      "level": "L2",
+      "notes": "Ties the running numbers back to the gross/net chips that were waiting empty since the start of the machine scene."
+    },
+    {
+      "start": 265, "end": 278,
+      "teaches": "gross minus depreciation gives net",
+      "canvas": "new",
+      "layout": "compare_two_sides",
+      "elements": [
+        {"kind": "text_box", "what": "the gross and net panels from earlier, brought back", "count": 2},
+        {"kind": "arrow", "what": "big curved arc from gross value down and up to net value, labelled 'minus depreciation' in red", "count": 1}
+      ],
+      "motions": ["clear_canvas", "draw_line", "write_on"],
+      "level": "L2",
+      "notes": "Recall of the earlier composition, now with the missing link drawn as an arc."
+    },
+    {
+      "start": 278, "end": 318,
+      "teaches": "GDP minus depreciation = NDP; GNP minus depreciation = NNP; depreciation counts only assets used for production",
+      "canvas": "builds_on_previous",
+      "layout": "free",
+      "elements": [
+        {"kind": "formula", "what": "two stacked equations with the shared depreciation term in a cream column, red text", "count": 2},
+        {"kind": "callout", "what": "pointer box above the depreciation column: only assets businesses use to produce goods", "count": 1},
+        {"kind": "icon", "what": "mobile phone labelled used for business purpose, with a dotted arrow", "count": 1}
+      ],
+      "motions": ["swap_element", "pop_in", "draw_line"],
+      "level": "L2",
+      "notes": "Equations are aligned so the common term forms one highlighted column. Everyday-object example (phone) for the business-use rule."
+    },
+    {
+      "start": 318, "end": 336,
+      "teaches": "recap: three measures now covered, NNP next",
+      "canvas": "new",
+      "layout": "flow_top_down",
+      "elements": [
+        {"kind": "text_box", "what": "the four-row list again, three rows on green bands", "count": 4},
+        {"kind": "mark", "what": "green ticks on the three covered rows", "count": 3}
+      ],
+      "motions": ["clear_canvas", "pop_in"],
+      "level": "L2",
+      "notes": "Same checklist as the opener, one more tick: a progress bookend."
+    },
+    {
+      "start": 336, "end": 343,
+      "teaches": "channel promotion",
+      "canvas": "new",
+      "layout": "free",
+      "elements": [
+        {"kind": "end_screen", "what": "next-video and playlist panels", "count": 1}
+      ],
+      "motions": ["clear_canvas", "fade_in"],
+      "level": "L2",
+      "notes": "End screen; ignore for teaching."
+    }
+  ]
+}

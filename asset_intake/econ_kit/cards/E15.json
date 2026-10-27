@@ -1,0 +1,150 @@
+{
+  "id": "E15",
+  "title_guess": "Cost-push vs demand-pull inflation (Keynesian and Monetarist views)",
+  "segments": [
+    {
+      "start": 0, "end": 14.6,
+      "teaches": "inflation means the general price level of goods and services rises over time",
+      "canvas": "new",
+      "layout": "free",
+      "elements": [
+        {"kind": "icon", "what": "grocery bag (goods) and delivery scooter (services) joined by '&'", "count": 2},
+        {"kind": "graph", "what": "price vs year axes with a rising line and a curved red arrow labelled inflation", "count": 1},
+        {"kind": "callout", "what": "small definition box pointing at the rising arrow", "count": 1}
+      ],
+      "motions": ["pop_in", "draw_line", "fade_in"],
+      "level": "L2",
+      "notes": "white canvas intro; the same intro composition is reused in E20"
+    },
+    {
+      "start": 14.6, "end": 58.39,
+      "teaches": "price inflation has two causes, cost-push and demand-pull, tied to two schools of thought (pre and post 1970s)",
+      "canvas": "new",
+      "layout": "tree",
+      "elements": [
+        {"kind": "question_mark", "what": "big ? above the heading", "count": 1},
+        {"kind": "title_text", "what": "PRICE INFLATION heading on a pale panel", "count": 1},
+        {"kind": "tree", "what": "heading splits into cost-push and demand-pull branches", "count": 1},
+        {"kind": "tag", "what": "Keynesian school (pink) and Monetarist school (blue) pills with pre-1970s / post-1970s labels", "count": 2}
+      ],
+      "motions": ["fade_in", "draw_line", "pop_in"],
+      "level": "L2",
+      "notes": "canvas switches to cream background from here; school tags placed at left and right corners of the panel"
+    },
+    {
+      "start": 58.39, "end": 145.97,
+      "teaches": "demand-pull: many buyers chase the same goods, sellers raise price from 50 to 65 and only some can pay",
+      "canvas": "new",
+      "layout": "flow_left_to_right",
+      "elements": [
+        {"kind": "tag", "what": "Keynesian school + demand-pull inflation heading chips top-left", "count": 2},
+        {"kind": "icon", "what": "store with two product bottles below (supply side)", "count": 1},
+        {"kind": "title_text", "what": "PRICE in the middle of a supply ---- demand line", "count": 1},
+        {"kind": "icon", "what": "person icons below demand with 'ready to pay 50 Rs' labels", "count": 2},
+        {"kind": "crowd", "what": "row of blue person icons appears to show many buyers", "count": 15},
+        {"kind": "value_change", "what": "price 50 struck, 65 written above", "count": 1},
+        {"kind": "mark", "what": "red crosses under most buyers who cannot pay 65", "count": 10},
+        {"kind": "up_down_arrow", "what": "green up arrows on price and on demand", "count": 2},
+        {"kind": "icon", "what": "bottles move from store down to the few buyers who pay", "count": 2}
+      ],
+      "motions": ["pop_in", "multiply", "strike_and_replace", "cross_out", "slide_in"],
+      "level": "L2",
+      "notes": "running numeric example 50 -> 65; crowd grows from 2 to ~15; goods physically travel to the winning buyers"
+    },
+    {
+      "start": 145.97, "end": 204.35,
+      "teaches": "demand > supply also happens when supply suddenly drops while demand is unchanged; price rises 50 to 60",
+      "canvas": "builds_on_previous",
+      "layout": "flow_left_to_right",
+      "elements": [
+        {"kind": "tag", "what": "[DEMAND > SUPPLY] heading chip added after the demand-pull tag", "count": 1},
+        {"kind": "icon", "what": "store now shows only one bottle (supply fell)", "count": 1},
+        {"kind": "value_change", "what": "price 50 struck -> 60; buyer's 'ready to pay 50' struck -> 60", "count": 2},
+        {"kind": "tag", "what": "'suddenly dropped' red chip under supply, 'not changed' yellow chip on demand", "count": 2},
+        {"kind": "up_down_arrow", "what": "green up arrow beside new price", "count": 1}
+      ],
+      "motions": ["swap_element", "strike_and_replace", "pop_in"],
+      "level": "L2",
+      "notes": "same layout reset to 2 buyers; second running example 50 -> 60"
+    },
+    {
+      "start": 204.35, "end": 233.55,
+      "teaches": "supply-side shortfall inflation is called bottleneck (structural) inflation",
+      "canvas": "builds_on_previous",
+      "layout": "flow_left_to_right",
+      "elements": [
+        {"kind": "icon", "what": "funnel/bottleneck of coloured dots narrowing into the store", "count": 1},
+        {"kind": "highlight", "what": "pink band drawn over the store-price-demand area", "count": 1},
+        {"kind": "title_text", "what": "BOTTLENECK INFLATION label", "count": 1},
+        {"kind": "text_box", "what": "short explanation: supply hurdles, hazards or policy hurt supply", "count": 1},
+        {"kind": "tag", "what": "[STRUCTURAL INFLATION] chip under the text", "count": 1},
+        {"kind": "highlight", "what": "explanation text gets a blue highlighter", "count": 1}
+      ],
+      "motions": ["pop_in", "highlight_text", "write_on"],
+      "level": "L2",
+      "notes": "naming a mechanism after showing it; synonym chip added below"
+    },
+    {
+      "start": 233.55, "end": 248.14,
+      "teaches": "recap: demand-pull branch is done (demand > supply)",
+      "canvas": "new",
+      "layout": "tree",
+      "elements": [
+        {"kind": "tree", "what": "PRICE INFLATION tree returns", "count": 1},
+        {"kind": "mark", "what": "green/purple tick on the demand-pull branch", "count": 1},
+        {"kind": "tag", "what": "[DEMAND > SUPPLY] note under the ticked branch", "count": 1}
+      ],
+      "motions": ["fade_in", "pop_in"],
+      "level": "L2",
+      "notes": "progress-map recap: returns to the earlier tree and ticks the finished branch before the next one"
+    },
+    {
+      "start": 248.14, "end": 350.32,
+      "teaches": "cost-push: producer costs rise, price rises 50 to 55, buyers must pay more",
+      "canvas": "new",
+      "layout": "flow_left_to_right",
+      "elements": [
+        {"kind": "tag", "what": "Keynesian school + cost-push inflation heading chips", "count": 2},
+        {"kind": "icon", "what": "factory with smoke -> arrow -> store with bottles", "count": 2},
+        {"kind": "title_text", "what": "PRICE on the supply ---- demand line", "count": 1},
+        {"kind": "tag", "what": "yellow COST chip with 'increase' under it", "count": 1},
+        {"kind": "value_change", "what": "price 50 struck -> 55; both buyers' 50 struck -> 55", "count": 3},
+        {"kind": "up_down_arrow", "what": "green up arrows on cost and on price", "count": 2},
+        {"kind": "photo", "what": "thumbnail card of another channel video (inflation tax) showing a real politician's photo, bottom-left", "count": 1}
+      ],
+      "motions": ["pop_in", "strike_and_replace", "slide_in"],
+      "level": "L2",
+      "notes": "same store/price/demand template as demand-pull, with a factory prepended; running example 50 -> 55; cross-promo thumbnail pops in at the end (do not reuse)"
+    },
+    {
+      "start": 350.32, "end": 437.9,
+      "teaches": "Monetarists: both kinds need extra money with consumers; cost-push alone cannot last, so it is not an independent theory",
+      "canvas": "new",
+      "layout": "compare_two_sides",
+      "elements": [
+        {"kind": "tree", "what": "small PRICE INFLATION tree at top, both branches ticked, 'increase cost' and 'demand > supply' under them", "count": 1},
+        {"kind": "highlight", "what": "pink band across both branch notes", "count": 1},
+        {"kind": "text_box", "what": "large teal panel holding two explanation boxes (left: cost-push needs buyers; right: demand rises from extra purchasing power)", "count": 2},
+        {"kind": "tag", "what": "blue MONETARIST SCHOOL post-1970s bar along the bottom of the panel", "count": 1},
+        {"kind": "arrow", "what": "blue elbow arrows looping from the monetarist bar up to both branch headings", "count": 2},
+        {"kind": "arrow", "what": "dashed arrow from right box to left box (cost-push depends on demand)", "count": 1},
+        {"kind": "text_box", "what": "conclusion line under the left box", "count": 1}
+      ],
+      "motions": ["fade_in", "draw_line", "highlight_text", "write_on"],
+      "level": "L2",
+      "notes": "two-school synthesis: Keynesian tree on top, Monetarist frame underneath wrapping both; key phrase highlighted in blue"
+    },
+    {
+      "start": 437.9, "end": 452.3,
+      "teaches": "channel end card",
+      "canvas": "new",
+      "layout": "free",
+      "elements": [
+        {"kind": "end_screen", "what": "next video / playlist panels with app phone mock-up and store badges", "count": 1}
+      ],
+      "motions": ["slide_in"],
+      "level": "L2",
+      "notes": "promotion only; ignore for teaching"
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "id": "E16",
+  "title_guess": "Skewflation: when a few items in the price basket rise much faster",
+  "segments": [
+    {
+      "start": 0, "end": 27.55,
+      "teaches": "the general price level of an economy can fall (deflation) or rise (inflation)",
+      "canvas": "new",
+      "layout": "tree",
+      "elements": [
+        {"kind": "tree", "what": "economy -> general price level -> decrease / increase -> deflation / inflation", "count": 1},
+        {"kind": "tag", "what": "cream chips for deflation and inflation leaves", "count": 2}
+      ],
+      "motions": ["fade_in", "draw_line"],
+      "level": "L1",
+      "notes": "plain thin-text tree on white; node text fades from grey to black as it is spoken"
+    },
+    {
+      "start": 27.55, "end": 41.32,
+      "teaches": "the general price level is measured with a basket of sample commodities from all strata",
+      "canvas": "builds_on_previous",
+      "layout": "tree",
+      "elements": [
+        {"kind": "highlight", "what": "lavender box behind the general price level node", "count": 1},
+        {"kind": "icon", "what": "shopping basket labelled BASKET joined to the node", "count": 1},
+        {"kind": "text_box", "what": "short basket definition above the icon", "count": 1}
+      ],
+      "motions": ["pop_in", "highlight_text", "write_on"],
+      "level": "L2",
+      "notes": "side attachment: a concept node gets a concrete icon and a definition"
+    },
+    {
+      "start": 41.32, "end": 96.41,
+      "teaches": "the basket holds many commodities whose prices rise by different amounts; their average is the overall price",
+      "canvas": "new",
+      "layout": "tree",
+      "elements": [
+        {"kind": "icon", "what": "basket now at the centre with 'overall price' chip", "count": 1},
+        {"kind": "tree", "what": "overall price -> decrease / increase -> deflation / inflation below the basket", "count": 1},
+        {"kind": "crowd", "what": "yellow panel with a row of coloured blocks standing for many commodities", "count": 8},
+        {"kind": "up_down_arrow", "what": "black up arrows of different heights above each block", "count": 8},
+        {"kind": "highlight", "what": "blue underline bars appear under overall price, deflation and inflation", "count": 3}
+      ],
+      "motions": ["pop_in", "draw_line", "highlight_text"],
+      "level": "L2",
+      "notes": "arrow height = size of price rise per item, a light visual metaphor for a weighted average"
+    },
+    {
+      "start": 96.41, "end": 151.5,
+      "teaches": "skewflation: a few goods rise much faster than overall inflation",
+      "canvas": "builds_on_previous",
+      "layout": "tree",
+      "elements": [
+        {"kind": "highlight", "what": "magenta box around two commodity blocks whose arrows grow very tall", "count": 1},
+        {"kind": "arrow", "what": "curved arrow from the SKEWFLATION label to the boxed blocks", "count": 1},
+        {"kind": "title_text", "what": "SKEWFLATION label in purple", "count": 1},
+        {"kind": "text_box", "what": "one-line definition under the label", "count": 1},
+        {"kind": "logo_or_brand", "what": "channel app phone mock-up slides up over the bottom-left in the last 15 s", "count": 1}
+      ],
+      "motions": ["pulse_or_glow", "draw_line", "write_on", "slide_in"],
+      "level": "L2",
+      "notes": "the concept is shown by exaggerating 2 arrows inside the existing composition, no new canvas; very short video, only one idea"
+    },
+    {
+      "start": 151.5, "end": 165.12,
+      "teaches": "channel end card",
+      "canvas": "new",
+      "layout": "free",
+      "elements": [
+        {"kind": "end_screen", "what": "next video / playlist panels with app phone mock-up and store badges", "count": 1}
+      ],
+      "motions": ["slide_in"],
+      "level": "L2",
+      "notes": "promotion only"
+    }
+  ]
+}

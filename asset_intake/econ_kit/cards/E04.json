@@ -1,0 +1,128 @@
+{
+  "id": "E04",
+  "title_guess": "Monetary policy: price stability, liquid money and the RBI's Monetary Policy Committee",
+  "segments": [
+    {
+      "start": 0, "end": 53,
+      "teaches": "many inputs drive economic growth; price stability (low, predictable inflation) is a key precondition for steady long-term growth",
+      "canvas": "new",
+      "layout": "flow_left_to_right",
+      "elements": [
+        {"kind": "map", "what": "maroon India silhouette", "count": 1},
+        {"kind": "arrow", "what": "fan of black arrows converging on the map from the left", "count": 8},
+        {"kind": "arrow", "what": "arrow from the map to a rising bar-chart icon labelled economic growth", "count": 1},
+        {"kind": "icon", "what": "balance-scales with goods in a yellow glowing circle labelled Price Stability", "count": 1},
+        {"kind": "text_box", "what": "light-blue box under the circle: why price stability matters", "count": 1},
+        {"kind": "callout", "what": "definition text above the circle with a pointer line into it", "count": 1}
+      ],
+      "motions": ["draw_line", "pop_in", "write_on"],
+      "level": "L2",
+      "notes": "The arrow fan is a quick 'many factors' device; one factor then pops in with a glow."
+    },
+    {
+      "start": 53, "end": 106.8,
+      "teaches": "RBI controls inflation to keep prices stable; inflation comes from demand, demand from purchasing power, purchasing power from money",
+      "canvas": "new",
+      "layout": "flow_top_down",
+      "elements": [
+        {"kind": "flow_chain", "what": "compact top row: price stability -> India -> economic growth", "count": 1},
+        {"kind": "icon", "what": "black muscular arms gripping the RBI emblem, with the word CONTROL across them", "count": 1},
+        {"kind": "logo_or_brand", "what": "RBI emblem and letters", "count": 1},
+        {"kind": "flow_chain", "what": "chain built right to left: Inflation (up-arrow to price stability) <- Demand <- Purchasing Power <- Money", "count": 1}
+      ],
+      "motions": ["clear_canvas", "slide_in", "draw_line", "write_on"],
+      "level": "L2",
+      "notes": "Backward chaining: each new cause is added to the LEFT of the previous one, so the chain reads forward once complete."
+    },
+    {
+      "start": 106.8, "end": 162,
+      "teaches": "only part of money can be spent: blocked money (locked up, cannot be used quickly) does not create demand",
+      "canvas": "builds_on_previous",
+      "layout": "tree",
+      "elements": [
+        {"kind": "tree", "what": "Money splits into Blocked Money and Liquid Money with green elbows", "count": 1},
+        {"kind": "text_box", "what": "grey definition box under Blocked Money", "count": 1},
+        {"kind": "icon", "what": "house with trees labelled 5 crore and its owner", "count": 2},
+        {"kind": "icon", "what": "airplane labelled 25 lakh and a seller figure holding a 25 lakh tag", "count": 2},
+        {"kind": "mark", "what": "red crosses on the arrows between owner and airplane", "count": 2},
+        {"kind": "arrow", "what": "dotted curved arrow from the Blocked Money box to the house", "count": 1}
+      ],
+      "motions": ["pop_in", "draw_line", "cross_out"],
+      "level": "L2",
+      "notes": "Running numeric example: rich on paper (5 crore house) but cannot buy a 25 lakh item. Background dims to light grey during the example to focus attention."
+    },
+    {
+      "start": 162, "end": 231.8,
+      "teaches": "liquid money (cash, demand deposits) drives purchasing power, demand and inflation; fixed deposits, PF and PPF are blocked",
+      "canvas": "builds_on_previous",
+      "layout": "flow_left_to_right",
+      "elements": [
+        {"kind": "highlight", "what": "stair-shaped light-blue band joining Liquid Money -> Purchasing Power -> Demand -> Inflation up to the price-stability row", "count": 1},
+        {"kind": "text_box", "what": "yellow definition box under Liquid Money", "count": 1},
+        {"kind": "text_box", "what": "square-bullet example lists under each money type (FD, PF, PPF / cash, demand deposits)", "count": 2}
+      ],
+      "motions": ["highlight_text", "pop_in", "write_on"],
+      "level": "L2",
+      "notes": "One continuous highlight band traces the causal path through the whole diagram."
+    },
+    {
+      "start": 231.8, "end": 258,
+      "teaches": "monetary policy is RBI's control over the supply of liquid money",
+      "canvas": "new",
+      "layout": "free",
+      "elements": [
+        {"kind": "flow_chain", "what": "chain keeps only the liquid-money path; 'Supply of' added in handwriting font above Liquid Money", "count": 1},
+        {"kind": "icon", "what": "CONTROL arms with emblem move under Liquid Money", "count": 1},
+        {"kind": "title_text", "what": "arch-shaped badge (tombstone outline) with MONETARY POLICY curved on top and 'Supply of Liquid Money' inside, standing on the CONTROL arms", "count": 1}
+      ],
+      "motions": ["swap_element", "slide_in", "write_on"],
+      "level": "L2",
+      "notes": "Concept compression: the whole chain collapses into one reusable badge. Background turns grey."
+    },
+    {
+      "start": 258, "end": 299.2,
+      "teaches": "the Monetary Policy Committee has six members: three from RBI (Governor as chair, a Deputy Governor, one RBI official) and three nominated by the government",
+      "canvas": "builds_on_previous",
+      "layout": "hub_and_spokes",
+      "elements": [
+        {"kind": "arrow", "what": "dotted elbow arrows from the badge to the committee", "count": 2},
+        {"kind": "crowd", "what": "six numbered person icons behind a table, one or two coloured red", "count": 6},
+        {"kind": "text_box", "what": "dark plaque on the table: Monetary Policy Committee", "count": 1},
+        {"kind": "logo_or_brand", "what": "government emblem with Ministry of Finance label", "count": 1},
+        {"kind": "tag", "what": "red [Chairman] tag over the RBI Governor label", "count": 1},
+        {"kind": "arrow", "what": "thin arrows from role labels (Governor, Deputy Governor, RBI official) to individual members", "count": 3}
+      ],
+      "motions": ["draw_line", "pop_in", "write_on"],
+      "level": "L2",
+      "notes": "Committee as a seated row of identical figures; colour singles out members."
+    },
+    {
+      "start": 299.2, "end": 325,
+      "teaches": "RBI uses qualitative tools (affect liquid money indirectly) and quantitative tools (affect it directly)",
+      "canvas": "new",
+      "layout": "compare_two_sides",
+      "elements": [
+        {"kind": "title_text", "what": "monetary-policy badge in the centre", "count": 1},
+        {"kind": "arrow", "what": "curved arrows from the badge top to Qualitative (left) and Quantitative (right)", "count": 2},
+        {"kind": "text_box", "what": "grey explanation box on each side", "count": 2},
+        {"kind": "arrow", "what": "dotted elbow arrows back into the Liquid Money band, labelled 'affects indirectly' and 'affects directly'", "count": 2}
+      ],
+      "motions": ["clear_canvas", "draw_line", "pop_in"],
+      "level": "L2",
+      "notes": "Symmetric two-sided layout around a central badge."
+    },
+    {
+      "start": 325, "end": 332.6,
+      "teaches": "end card",
+      "canvas": "new",
+      "layout": "compare_two_sides",
+      "elements": [
+        {"kind": "end_screen", "what": "next-video and playlist panels", "count": 1},
+        {"kind": "logo_or_brand", "what": "app promo phone mock-up and app-store badges", "count": 1}
+      ],
+      "motions": ["slide_in", "clear_canvas"],
+      "level": "L2",
+      "notes": "Channel promotion; ignore for teaching."
+    }
+  ]
+}

@@ -1,0 +1,125 @@
+{
+  "id": "E08",
+  "title_guess": "Why the stock market and the real economy move together, and why they can disconnect",
+  "segments": [
+    {
+      "start": 0, "end": 27,
+      "teaches": "a growing economy pushes the stock market up; the market is seen as a barometer of economic health",
+      "canvas": "new",
+      "layout": "flow_left_to_right",
+      "elements": [
+        {"kind": "text_box", "what": "light-blue band holding the words Economy and Stock Market joined by a dashed two-way arrow", "count": 1},
+        {"kind": "tag", "what": "green 'grow' chip above Economy with three small up-arrows", "count": 1},
+        {"kind": "up_down_arrow", "what": "three black up-arrows over the grow chip", "count": 3},
+        {"kind": "arrow", "what": "row of teal chevrons streaming from Economy to Stock Market", "count": 1},
+        {"kind": "graph", "what": "round yellow lens over Stock Market containing a small rising zig-zag line chart", "count": 1},
+        {"kind": "text_box", "what": "definition hung from the lens by a stem: market as a barometer of the economy", "count": 1},
+        {"kind": "question_mark", "what": "big black ? beside the definition, opening the question 'is it really?'", "count": 1}
+      ],
+      "motions": ["pop_in", "draw_line", "slide_in", "write_on"],
+      "level": "L2",
+      "notes": "This top band (economy -> chevrons -> lens chart) stays fixed for the whole video and acts as the anchor; every later segment hangs new content under it."
+    },
+    {
+      "start": 27, "end": 62,
+      "teaches": "reason 1: economic growth raises customer spending, demand rises, company sales and profits rise",
+      "canvas": "builds_on_previous",
+      "layout": "flow_top_down",
+      "elements": [
+        {"kind": "tag", "what": "light-blue heading chip top-left naming reason 1 (increased customer spending)", "count": 1},
+        {"kind": "tag", "what": "grey numbered step tabs 1-4 at bottom-left; the current step's tab is raised", "count": 1},
+        {"kind": "arrow", "what": "short down-arrow from Economy to the first effect", "count": 1},
+        {"kind": "flow_chain", "what": "V-shaped chain: spending up -> demand up (bottom) -> sales and profits up (right), joined by slanted arrows", "count": 1}
+      ],
+      "motions": ["swap_element", "draw_line", "fade_in"],
+      "level": "L2",
+      "notes": "Step-tab progress indicator (1-4) is a recurring device in this video; it is drawn as raised grey tiles, closest kind is tag."
+    },
+    {
+      "start": 62, "end": 103,
+      "teaches": "reason 2: growth improves access to capital, investors fund more and companies expand",
+      "canvas": "builds_on_previous",
+      "layout": "tree",
+      "elements": [
+        {"kind": "tag", "what": "heading chip swapped to reason 2 (access to capital)", "count": 1},
+        {"kind": "tag", "what": "step tabs with tab 2 raised", "count": 1},
+        {"kind": "tree", "what": "Economy splits by two slanted arrows into: investors willing to finance / companies willing to expand", "count": 1}
+      ],
+      "motions": ["swap_element", "draw_line", "fade_in"],
+      "level": "L2",
+      "notes": "Old reason content is removed and new content is drawn in the same slot under the fixed top band."
+    },
+    {
+      "start": 103, "end": 130,
+      "teaches": "reason 3: foreign investors put money into growing markets",
+      "canvas": "builds_on_previous",
+      "layout": "flow_top_down",
+      "elements": [
+        {"kind": "tag", "what": "heading chip swapped to reason 3 (foreign investment)", "count": 1},
+        {"kind": "tag", "what": "step tabs with tab 3 raised", "count": 1},
+        {"kind": "arrow", "what": "down-arrow from Economy", "count": 1},
+        {"kind": "text_box", "what": "one-line explanation of foreign money chasing growth", "count": 1}
+      ],
+      "motions": ["swap_element", "draw_line", "fade_in"],
+      "level": "L2",
+      "notes": ""
+    },
+    {
+      "start": 130, "end": 177,
+      "teaches": "reason 4: growth lifts market sentiment; confident investors buy shares and push prices up",
+      "canvas": "builds_on_previous",
+      "layout": "flow_top_down",
+      "elements": [
+        {"kind": "tag", "what": "heading chip swapped to reason 4 (market sentiment)", "count": 1},
+        {"kind": "tag", "what": "step tabs with tab 4 raised", "count": 1},
+        {"kind": "text_box", "what": "short sentence top-left: growth improves sentiment and confidence", "count": 1},
+        {"kind": "text_box", "what": "explanation under Economy: positive investors buy more shares", "count": 1},
+        {"kind": "highlight", "what": "pale yellow box drawn behind the explanation", "count": 1},
+        {"kind": "arrow", "what": "elbow arrow from the highlighted explanation up to Stock Market", "count": 1}
+      ],
+      "motions": ["swap_element", "write_on", "highlight_text", "draw_line"],
+      "level": "L2",
+      "notes": "The elbow arrow closes the loop back to the anchor chart: effect visibly lands on the stock market."
+    },
+    {
+      "start": 177, "end": 205,
+      "teaches": "summary: linked in the long run, but short-term fluctuations and disconnects happen",
+      "canvas": "builds_on_previous",
+      "layout": "flow_top_down",
+      "elements": [
+        {"kind": "text_box", "what": "three-line summary paragraph under the band", "count": 1},
+        {"kind": "highlight", "what": "orange text-highlighter on the 'short-term disconnect' phrase", "count": 1},
+        {"kind": "highlight", "what": "blue text-highlighter on the 'long-term same direction' phrase", "count": 1}
+      ],
+      "motions": ["fade_in", "highlight_text"],
+      "level": "L2",
+      "notes": "Heading chip and step tabs are cleared; only the anchor band stays. Two highlight colours separate the two halves of the conclusion."
+    },
+    {
+      "start": 205, "end": 249,
+      "teaches": "causes of short-term disconnect: company news, optimism about the future, global factors, monetary policy",
+      "canvas": "builds_on_previous",
+      "layout": "flow_top_down",
+      "elements": [
+        {"kind": "arrow", "what": "elbow arrow from the orange-highlighted phrase down to a reasons label", "count": 1},
+        {"kind": "tag", "what": "yellow letter-spaced 'reasons' chip", "count": 1},
+        {"kind": "bullet_chain", "what": "square-bullet list of disconnect causes, last row split into two columns", "count": 4}
+      ],
+      "motions": ["draw_line", "pop_in", "write_on"],
+      "level": "L2",
+      "notes": "Bullets are added one at a time as the narrator names each cause (plain square bullets, no down-arrows)."
+    },
+    {
+      "start": 249, "end": 264,
+      "teaches": "channel promotion",
+      "canvas": "new",
+      "layout": "free",
+      "elements": [
+        {"kind": "end_screen", "what": "next-video and playlist panels with app-store promo", "count": 1}
+      ],
+      "motions": ["clear_canvas", "slide_in"],
+      "level": "L2",
+      "notes": "End screen; ignore for teaching."
+    }
+  ]
+}

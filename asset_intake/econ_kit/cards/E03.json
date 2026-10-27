@@ -1,0 +1,109 @@
+{
+  "id": "E03",
+  "title_guess": "Scheduled vs non-scheduled banks and the types of banks in India",
+  "segments": [
+    {
+      "start": 0, "end": 29.8,
+      "teaches": "the RBI Act of 1934 split banks into scheduled and non-scheduled; the RBI began work in 1935",
+      "canvas": "new",
+      "layout": "timeline",
+      "elements": [
+        {"kind": "timeline", "what": "thin blue horizontal line across the frame with tick marks for 1934 and 1935", "count": 1},
+        {"kind": "icon", "what": "green law-book icon labelled as the 1934 Act, with a drop arrow onto 1934", "count": 1},
+        {"kind": "logo_or_brand", "what": "RBI emblem (gold coin style) with the letters RBI under 1935", "count": 1},
+        {"kind": "icon", "what": "bank building under 1934", "count": 1},
+        {"kind": "tree", "what": "bank splits into Un-Scheduled (red elbow) and Scheduled (green elbow)", "count": 1}
+      ],
+      "motions": ["draw_line", "pop_in", "write_on"],
+      "level": "L2",
+      "notes": "Red vs green colour-coding for the two bank types runs through the video."
+    },
+    {
+      "start": 29.8, "end": 77.4,
+      "teaches": "scheduled banks are those listed in the Act's Second Schedule; they must meet criteria (paid-up capital and reserves, liquidity and solvency), and the RBI changes these criteria with economic conditions",
+      "canvas": "builds_on_previous",
+      "layout": "timeline",
+      "elements": [
+        {"kind": "icon", "what": "lined document stack labelled Schedule II beside the law-book", "count": 1},
+        {"kind": "text_box", "what": "CRITERIA box with two square-bullet lines in blue", "count": 1},
+        {"kind": "arrow", "what": "dotted elbow arrow from Schedule II down to Scheduled Banks", "count": 1},
+        {"kind": "highlight", "what": "light-blue fill over the criteria box", "count": 1},
+        {"kind": "text_box", "what": "note under a black rule: criteria keep changing with conditions", "count": 1},
+        {"kind": "arrow", "what": "dotted elbow arrow labelled 'Change' from the RBI emblem up to the criteria box", "count": 1}
+      ],
+      "motions": ["pop_in", "draw_line", "highlight_text", "write_on"],
+      "level": "L2",
+      "notes": "Dotted elbow connectors tie a document to its consequences across the timeline."
+    },
+    {
+      "start": 77.4, "end": 112.6,
+      "teaches": "scheduled banks can borrow cheap credit from the RBI for normal needs; non-scheduled banks can borrow only in emergencies",
+      "canvas": "new",
+      "layout": "compare_two_sides",
+      "elements": [
+        {"kind": "logo_or_brand", "what": "RBI emblem at the top with an elbow connector down", "count": 1},
+        {"kind": "icon", "what": "bank building with red and green branches", "count": 1},
+        {"kind": "icon", "what": "vertical green banknote labelled Loan on the arrow from RBI to Scheduled Banks", "count": 1},
+        {"kind": "text_box", "what": "blue paragraph under each bank type", "count": 2},
+        {"kind": "highlight", "what": "yellow highlight on the 'emergency or abnormal circumstances' phrase", "count": 1}
+      ],
+      "motions": ["clear_canvas", "draw_line", "pop_in", "highlight_text"],
+      "level": "L2",
+      "notes": "Banknote placed on the arrow itself shows money flowing down."
+    },
+    {
+      "start": 112.6, "end": 158.4,
+      "teaches": "non-scheduled banks pay a higher rate when they borrow; scheduled status also brings credibility and reputation",
+      "canvas": "builds_on_previous",
+      "layout": "compare_two_sides",
+      "elements": [
+        {"kind": "icon", "what": "second Loan banknote on a new arrow to the Un-Scheduled side", "count": 1},
+        {"kind": "tag", "what": "red % on the left, green % on the right, with a big > between them at the RBI fork", "count": 1},
+        {"kind": "highlight", "what": "yellow band on the Scheduled Banks label", "count": 1},
+        {"kind": "icon", "what": "row of five gold stars", "count": 5},
+        {"kind": "text_box", "what": "caption beside the stars: enhanced credibility and reputation", "count": 1}
+      ],
+      "motions": ["draw_line", "pop_in", "highlight_text"],
+      "level": "L2",
+      "notes": "Rate comparison drawn as two coloured % signs and a > symbol, no numbers."
+    },
+    {
+      "start": 158.4, "end": 188,
+      "teaches": "both groups contain commercial banks and co-operative banks",
+      "canvas": "new",
+      "layout": "tree",
+      "elements": [
+        {"kind": "icon", "what": "bank building moved to top centre", "count": 1},
+        {"kind": "tree", "what": "bank -> Un-Scheduled / Scheduled -> each splits into Commercial Banks and Co-operative Banks with thin green elbow arrows", "count": 1}
+      ],
+      "motions": ["clear_canvas", "slide_in", "draw_line", "pop_in"],
+      "level": "L2",
+      "notes": "Bank icon and its two branches carry over and move up; the tree grows downward."
+    },
+    {
+      "start": 188, "end": 238.8,
+      "teaches": "scheduled commercial banks include public, private, foreign, regional rural, small finance and payments banks; non-scheduled commercial include private, foreign, small finance, payments and local area banks",
+      "canvas": "builds_on_previous",
+      "layout": "tree",
+      "elements": [
+        {"kind": "tree", "what": "dotted vertical stems under each Commercial Banks node with leaf items added one at a time", "count": 2},
+        {"kind": "arrow", "what": "tiny curved green arrows pointing to each leaf item", "count": 11}
+      ],
+      "motions": ["draw_line", "write_on"],
+      "level": "L2",
+      "notes": "Leaves appear about 1.5 s apart, right side first (6 items), then left side (5 items). A yellow promo strip replaces the bottom banner near the end."
+    },
+    {
+      "start": 238.8, "end": 245.2,
+      "teaches": "end card",
+      "canvas": "new",
+      "layout": "compare_two_sides",
+      "elements": [
+        {"kind": "end_screen", "what": "next-video and playlist panels with app-store badges faded in", "count": 1}
+      ],
+      "motions": ["clear_canvas"],
+      "level": "L2",
+      "notes": "Channel promotion; ignore for teaching."
+    }
+  ]
+}

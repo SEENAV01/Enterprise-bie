@@ -1,0 +1,162 @@
+{
+  "id": "E09",
+  "title_guess": "Corporate bonds: how companies borrow in the securities market, coupon, rating, yield, primary and secondary market",
+  "segments": [
+    {
+      "start": 0, "end": 20,
+      "teaches": "a company needing long-term money for a new project can take a loan or raise funds in the capital market's securities market",
+      "canvas": "new",
+      "layout": "tree",
+      "elements": [
+        {"kind": "tag", "what": "orange 'need money' stamp tilted over the top band, with a hand-written 'long term' note", "count": 1},
+        {"kind": "flow_chain", "what": "cream band: person icon -> 'start' -> factory icon labelled new project", "count": 1},
+        {"kind": "tree", "what": "raise funds in capital market splits into institutional financing (loan) and securities market -> corporate security market", "count": 1},
+        {"kind": "mark", "what": "hand-drawn tick with a scribbled 'done' beside the loan branch (covered in an earlier video)", "count": 1}
+      ],
+      "motions": ["pop_in", "draw_line", "fade_in"],
+      "level": "L2",
+      "notes": "Opening recap of the previous lesson; the tick-and-scribble mark says 'already covered' and moves on to the other branch."
+    },
+    {
+      "start": 20, "end": 76,
+      "teaches": "a bond is a debt security: the company's promise to repay the loan with interest on a set date",
+      "canvas": "new",
+      "layout": "compare_two_sides",
+      "elements": [
+        {"kind": "tree", "what": "left sidebar mini-map: capital market -> securities market -> corporate security market (boxed, underlined) -> primary / secondary market", "count": 1},
+        {"kind": "flow_chain", "what": "right canvas: need-money band, raise funds -> bond certificate icon -> corporate bonds", "count": 1},
+        {"kind": "icon", "what": "bond certificate with ribbon seal", "count": 1},
+        {"kind": "icon", "what": "investor: businessman holding a money bag, with wings", "count": 1},
+        {"kind": "arrow", "what": "elbow connector from bonds to a 'debt security' label", "count": 1},
+        {"kind": "photo", "what": "small image of the word 'promise' on paper (not a person)", "count": 1},
+        {"kind": "text_box", "what": "definition of debt security with key phrases in bold-italic and a blue highlight on the date", "count": 1}
+      ],
+      "motions": ["slide_in", "draw_line", "pop_in", "write_on", "highlight_text"],
+      "level": "L2",
+      "notes": "From here the frame is split: a persistent left sidebar topic-tree (mini-map) shows where the lesson is, with the current node boxed; the right two-thirds is the working canvas. This layout lasts until the end screen."
+    },
+    {
+      "start": 76, "end": 125,
+      "teaches": "the investor pays the company; the company repays the fixed face value at maturity and pays a fixed coupon at regular intervals",
+      "canvas": "builds_on_previous",
+      "layout": "flow_top_down",
+      "elements": [
+        {"kind": "arrow", "what": "tall elbow arrow from investor up to the company, labelled raise funds, with a banknote icon on it", "count": 1},
+        {"kind": "tree", "what": "blue bar under the project splits into face value (repaid) and interest (coupon)", "count": 1},
+        {"kind": "icon", "what": "calendar beside face value", "count": 1},
+        {"kind": "tag", "what": "'fixed' labels over face value and over interest, with grey boxes behind them", "count": 2},
+        {"kind": "arrow", "what": "dotted green return arrows from face value and from coupon back to the investor, labelled coupon payments at regular intervals", "count": 2}
+      ],
+      "motions": ["draw_line", "pop_in", "highlight_text"],
+      "level": "L2",
+      "notes": "Money flows up, repayments flow back down by dotted arrows: a two-direction cash-flow loop."
+    },
+    {
+      "start": 125, "end": 176,
+      "teaches": "an investor cannot judge a company's safety alone; credit rating agencies rate bonds on creditworthiness",
+      "canvas": "new",
+      "layout": "flow_left_to_right",
+      "elements": [
+        {"kind": "flow_chain", "what": "factory -> corporate bond -> investor, with a long arrow", "count": 1},
+        {"kind": "question_mark", "what": "? over the investor (is this bond safe?)", "count": 1},
+        {"kind": "tag", "what": "yellow banner at the top naming credit rating agencies", "count": 1},
+        {"kind": "icon", "what": "ceiling lamp", "count": 1},
+        {"kind": "highlight", "what": "spotlight cone from the lamp down onto a grey box over the factory-bond flow", "count": 1},
+        {"kind": "icon", "what": "speedometer-style rating gauge with a pointer, linked to the bond by a connector", "count": 1},
+        {"kind": "text_box", "what": "one-line explanation of what rating agencies assess", "count": 1}
+      ],
+      "motions": ["clear_canvas", "draw_line", "pop_in", "fade_in", "shade_area"],
+      "level": "L2",
+      "notes": "Spotlight metaphor: the agency 'shines a light' on the issuer. The light cone first lights a small area then widens over the whole box."
+    },
+    {
+      "start": 176, "end": 211,
+      "teaches": "rating scales run from top grade (safest) to junk grades; ratings tell investors the risk of default",
+      "canvas": "builds_on_previous",
+      "layout": "compare_two_sides",
+      "elements": [
+        {"kind": "table", "what": "two vertical rating ladders (letter grades of two agencies) on either side, coloured green at the top through yellow to red at the bottom", "count": 2},
+        {"kind": "icon", "what": "rating gauge inside the grey box", "count": 1},
+        {"kind": "flow_chain", "what": "factory -> bond -> investor kept inside the grey box", "count": 1},
+        {"kind": "text_box", "what": "line on how ratings show risk and payment likelihood", "count": 1}
+      ],
+      "motions": ["slide_in", "fade_in", "write_on"],
+      "level": "L2",
+      "notes": "Real agency names appear as scale captions (text only, no logos). Colour-graded ladder is a reusable 'risk scale' component; closest kind was table."
+    },
+    {
+      "start": 211, "end": 276,
+      "teaches": "bonds are resold between investors; the coupon stays fixed and goes to whoever holds the bond, but the bond's price changes with demand and supply",
+      "canvas": "new",
+      "layout": "flow_left_to_right",
+      "elements": [
+        {"kind": "title_text", "what": "small heading: corporate bonds", "count": 1},
+        {"kind": "flow_chain", "what": "cream band: factory -> investor 1 -> bond -> investor 2 -> investor 3 (bond passed along)", "count": 1},
+        {"kind": "arrow", "what": "curved arrow under the band from the factory to the current holder, banknote icon on it, labelled coupon payments; its end moves to the newest holder", "count": 1},
+        {"kind": "tag", "what": "'fixed' over a grey interest (coupon) box", "count": 1},
+        {"kind": "callout", "what": "wavy brace with note: bond value changes with demand and supply", "count": 1}
+      ],
+      "motions": ["clear_canvas", "pop_in", "draw_line", "swap_element", "write_on"],
+      "level": "L2",
+      "notes": "Running chain of holders: the coupon arrow is redrawn to point at whoever holds the bond now, showing the coupon follows the bond."
+    },
+    {
+      "start": 276, "end": 337,
+      "teaches": "return for the first buyer equals the coupon rate; later buyers paid a different price, so their yield is above or below it; yield = interest paid / price paid",
+      "canvas": "builds_on_previous",
+      "layout": "flow_top_down",
+      "elements": [
+        {"kind": "bullet_chain", "what": "down-arrows under each holder to '% return on investment', then to coupon rate (first holder) or 'greater or less than coupon rate' (later holders)", "count": 3},
+        {"kind": "highlight", "what": "grey boxes over the two later holders' returns, relabelled bond yield", "count": 2},
+        {"kind": "formula", "what": "pink fraction box: bond yield = interest paid by company / price paid for the bond", "count": 1},
+        {"kind": "highlight", "what": "purple highlighter on the 'bond value is changing' note", "count": 1},
+        {"kind": "callout", "what": "curved arrow from that note to 'bond yield also changes'", "count": 1}
+      ],
+      "motions": ["draw_line", "fade_in", "highlight_text", "swap_element"],
+      "level": "L2",
+      "notes": "Column-per-actor reasoning: each holder gets its own vertical chain, then two columns are grouped by a highlight and renamed."
+    },
+    {
+      "start": 337, "end": 352,
+      "teaches": "primary market: the company sells new bonds directly to the first investor",
+      "canvas": "new",
+      "layout": "flow_left_to_right",
+      "elements": [
+        {"kind": "highlight", "what": "sidebar box moves from corporate security market to primary market", "count": 1},
+        {"kind": "title_text", "what": "heading: primary market", "count": 1},
+        {"kind": "flow_chain", "what": "factory -> bond -> investor highlighted in a cream panel, later investors outside it", "count": 1}
+      ],
+      "motions": ["clear_canvas", "swap_element", "pop_in"],
+      "level": "L2",
+      "notes": "The sidebar mini-map advances its box to the next node each time the subtopic changes."
+    },
+    {
+      "start": 352, "end": 400,
+      "teaches": "secondary market: bonds trade on stock exchanges like shares; to sell, move the bond into a trading account and place an order with a broker",
+      "canvas": "builds_on_previous",
+      "layout": "flow_top_down",
+      "elements": [
+        {"kind": "highlight", "what": "sidebar box moves to secondary market; light-blue panel now wraps the investor-to-investor part of the chain", "count": 2},
+        {"kind": "icon", "what": "illustrated stock-exchange tower building beside the heading", "count": 1},
+        {"kind": "title_text", "what": "heading: secondary market", "count": 1},
+        {"kind": "text_box", "what": "line: bonds traded on exchanges like stocks", "count": 1},
+        {"kind": "text_box", "what": "paragraph on the steps to sell a bond through a trading account", "count": 1}
+      ],
+      "motions": ["swap_element", "fade_in", "write_on"],
+      "level": "L2",
+      "notes": "Same chain is reused; only the coloured panel shifts right to show which part is the secondary market."
+    },
+    {
+      "start": 400, "end": 416,
+      "teaches": "channel promotion",
+      "canvas": "new",
+      "layout": "free",
+      "elements": [
+        {"kind": "end_screen", "what": "next-video and playlist panels with app promo", "count": 1}
+      ],
+      "motions": ["clear_canvas", "slide_in"],
+      "level": "L2",
+      "notes": "End screen; ignore for teaching."
+    }
+  ]
+}

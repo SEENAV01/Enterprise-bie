@@ -1,0 +1,181 @@
+{
+  "id": "E19",
+  "title_guess": "Bretton Woods system, currency pegging and India's exchange rate history",
+  "segments": [
+    {
+      "start": 0, "end": 58.99,
+      "teaches": "recap: depreciation/devaluation lowers the exchange rate, exports rise and imports fall, trade balance, BoP and forex reserves improve in the medium term",
+      "canvas": "new",
+      "layout": "flow_left_to_right",
+      "elements": [
+        {"kind": "tag", "what": "stacked orange 'depreciation' and pink 'devaluation' pills in a dashed box", "count": 2},
+        {"kind": "text_box", "what": "dashed box 'decreases exchange rate of the currency'", "count": 1},
+        {"kind": "text_box", "what": "green 'increase exports' and red 'decrease imports' lines behind a black bar", "count": 2},
+        {"kind": "flow_chain", "what": "trade balance improves -> BoP improves -> forex reserves replenish (top-down boxes)", "count": 1},
+        {"kind": "graph", "what": "small J-curve over time drawn above the chain", "count": 1},
+        {"kind": "callout", "what": "blue 'in medium / long term' note", "count": 1}
+      ],
+      "motions": ["pop_in", "draw_line", "write_on"],
+      "level": "L2",
+      "notes": "opens with a recap of the previous lesson before the new question"
+    },
+    {
+      "start": 58.99, "end": 73.74,
+      "teaches": "opening question: how is the exchange rate between currencies decided?",
+      "canvas": "builds_on_previous",
+      "layout": "free",
+      "elements": [
+        {"kind": "highlight", "what": "glowing dashed frame around the first box; the rest of the chain is removed", "count": 1},
+        {"kind": "text_box", "what": "question text fading in beside it after a blue bar", "count": 1}
+      ],
+      "motions": ["pulse_or_glow", "fade_in"],
+      "level": "L2",
+      "notes": "bridge: keep one recap box, clear the rest, pose the question"
+    },
+    {
+      "start": 73.74, "end": 103.24,
+      "teaches": "the story starts with the Bretton Woods system, 1944 to 1971",
+      "canvas": "new",
+      "layout": "timeline",
+      "elements": [
+        {"kind": "timeline", "what": "thin line with Bretton Woods system marked from 1944 to 1971", "count": 1},
+        {"kind": "character", "what": "cartoon caricature of a man in a shawl entering from the right with a red speech bubble ('long story')", "count": 1},
+        {"kind": "text_box", "what": "one-line definition under the timeline", "count": 1}
+      ],
+      "motions": ["slide_in", "pop_in", "draw_line"],
+      "level": "L2",
+      "notes": "humour beat: caricature with Hindi speech bubble and comic burst marks; appears to imitate a real actor (BIE should use its own character)"
+    },
+    {
+      "start": 103.24, "end": 147.48,
+      "teaches": "US dollar was fixed to a set weight of gold, and other currencies were pegged to the dollar",
+      "canvas": "new",
+      "layout": "hub_and_spokes",
+      "elements": [
+        {"kind": "title_text", "what": "BRETTON WOODS SYSTEM heading with a short definition", "count": 1},
+        {"kind": "tag", "what": "FIXED label over a green panel", "count": 1},
+        {"kind": "icon", "what": "gold bars '= X grams' equals a dollar note", "count": 2},
+        {"kind": "arrow", "what": "three brown root-like arrows labelled PEGGED from the dollar to other currency notes", "count": 3},
+        {"kind": "icon", "what": "three generic banknotes with different coloured centres on a green panel", "count": 3},
+        {"kind": "text_box", "what": "two short explanations under the panels", "count": 2}
+      ],
+      "motions": ["pop_in", "draw_line", "write_on"],
+      "level": "L2",
+      "notes": "gold = dollar equation then spokes to the pegged currencies"
+    },
+    {
+      "start": 147.48, "end": 221.22,
+      "teaches": "a pegged currency moves with its anchor currency; a crawling peg lets it glide within about 1%",
+      "canvas": "new",
+      "layout": "graph_with_notes",
+      "elements": [
+        {"kind": "tag", "what": "red PEGGED heading", "count": 1},
+        {"kind": "graph", "what": "value vs time axes; dollar note travels along a rising dotted line while a rupee note hangs below it on a rod with a $ pin", "count": 1},
+        {"kind": "tag", "what": "yellow '± 1%' chip at the pin", "count": 1},
+        {"kind": "text_box", "what": "red 'gliding or crawling peg' label with definition beside a wavy brace", "count": 1}
+      ],
+      "motions": ["move_point_on_curve", "draw_line", "pop_in"],
+      "level": "L2",
+      "notes": "tether trick: the pegged currency is physically hung from the anchor and moves with it along the curve"
+    },
+    {
+      "start": 221.22, "end": 250.72,
+      "teaches": "so every currency's value against another stayed constant: a fixed exchange rate regime; India's rate in 1948 was 1$ = Rs 3.30",
+      "canvas": "builds_on_previous",
+      "layout": "hub_and_spokes",
+      "elements": [
+        {"kind": "callout", "what": "'THIS MEANS' side note with a blue bar", "count": 1},
+        {"kind": "tag", "what": "green [FIXED EXCHANGE RATE REGIME] label", "count": 1},
+        {"kind": "text_box", "what": "grey/blue FIXED card '1$ = Rs 3.30' with a 1948 calendar icon", "count": 1}
+      ],
+      "motions": ["fade_in", "pop_in"],
+      "level": "L2",
+      "notes": "returns to the Bretton Woods panel and adds the conclusion; the rate card becomes a reusable unit"
+    },
+    {
+      "start": 250.72, "end": 280.22,
+      "teaches": "worked example: buying a 100000 dollar car at 3.30 costs Rs 3.30 lakh",
+      "canvas": "new",
+      "layout": "compare_two_sides",
+      "elements": [
+        {"kind": "text_box", "what": "left panel keeps the FIXED 1948 rate card (persistent state)", "count": 1},
+        {"kind": "icon", "what": "black limousine with leader line to a price of 100000 $", "count": 1},
+        {"kind": "character", "what": "caricature of a turbaned businessman with 'let's buy it' speech bubble", "count": 1},
+        {"kind": "formula", "what": "100000 x 3.30 = Rs 3.30 lakh, with a rupee note icon", "count": 1}
+      ],
+      "motions": ["slide_in", "write_on", "pop_in"],
+      "level": "L2",
+      "notes": "split screen: left side holds the current rate card, right side runs the story; character is a caricature of a real brand founder (avoid)"
+    },
+    {
+      "start": 280.22, "end": 324.46,
+      "teaches": "an importer pays rupees to a bank, RBI gives dollars from forex reserves; more imports drain reserves and cause a BoP crisis, solved by devaluation",
+      "canvas": "builds_on_previous",
+      "layout": "flow_left_to_right",
+      "elements": [
+        {"kind": "logo_or_brand", "what": "caricature head with a spice-brand name badge as the importer", "count": 1},
+        {"kind": "flow_chain", "what": "Rs 3.30 lakh note -> bank -> RBI, with return arrows", "count": 1},
+        {"kind": "icon", "what": "RBI coin, dollar note '$1 lakh' rising out of a forex reserve server/locker stack", "count": 3},
+        {"kind": "text_box", "what": "BoP crisis explanation with wavy brace and 'solution' line", "count": 1},
+        {"kind": "tag", "what": "pink DEVALUATION pill under 'solution'", "count": 1}
+      ],
+      "motions": ["draw_line", "pop_in", "write_on"],
+      "level": "L2",
+      "notes": "money-path flow with two-way arrows; reserve stack icon reused from other videos"
+    },
+    {
+      "start": 324.46, "end": 353.96,
+      "teaches": "India devalued in 1949 to 1$ = Rs 4.76, so the same import now costs Rs 4.76 lakh",
+      "canvas": "builds_on_previous",
+      "layout": "compare_two_sides",
+      "elements": [
+        {"kind": "highlight", "what": "pink highlight on the regime tag; RBI coin enlarges with a yellow glow", "count": 2},
+        {"kind": "text_box", "what": "new FIXED card '1$ = Rs 4.76' with a 1949 calendar under a 'devalued in 1949' line", "count": 1},
+        {"kind": "value_change", "what": "Rs 3.30 lakh struck, Rs 4.76 lakh written above", "count": 1}
+      ],
+      "motions": ["pulse_or_glow", "pop_in", "strike_and_replace"],
+      "level": "L2",
+      "notes": "new rate card appears under the old one, then becomes the framed active card; running number 3.30 -> 4.76"
+    },
+    {
+      "start": 353.96, "end": 368.71,
+      "teaches": "India devalued again: 3.30 (1948) -> 4.76 (1949) -> 7.50 (1966)",
+      "canvas": "new",
+      "layout": "flow_left_to_right",
+      "elements": [
+        {"kind": "flow_chain", "what": "three FIXED rate cards with year calendars joined by 'currency devaluation' arrows", "count": 1},
+        {"kind": "tag", "what": "pink DEVALUATION pill under the heading", "count": 1}
+      ],
+      "motions": ["slide_in", "draw_line"],
+      "level": "L2",
+      "notes": "rate cards lined up as a history strip (card = reusable component)"
+    },
+    {
+      "start": 368.71, "end": 427.7,
+      "teaches": "in 1971 the US suspended dollar-gold convertibility and Bretton Woods collapsed",
+      "canvas": "new",
+      "layout": "timeline",
+      "elements": [
+        {"kind": "timeline", "what": "1944 to 1971 line with the system span highlighted", "count": 1},
+        {"kind": "mark", "what": "red cross at 1971 on a drop line", "count": 1},
+        {"kind": "text_box", "what": "cream box at the top of the drop line naming the event and collapse", "count": 1},
+        {"kind": "tag", "what": "green fixed exchange rate regime label with definition under the line", "count": 1}
+      ],
+      "motions": ["draw_line", "pop_in", "fade_in"],
+      "level": "L2",
+      "notes": "same timeline as segment 3 closes the story loop"
+    },
+    {
+      "start": 427.7, "end": 438.39,
+      "teaches": "channel end card",
+      "canvas": "new",
+      "layout": "free",
+      "elements": [
+        {"kind": "end_screen", "what": "next video / playlist with app phone mock-up", "count": 1}
+      ],
+      "motions": ["slide_in"],
+      "level": "L2",
+      "notes": "promotion only"
+    }
+  ]
+}
