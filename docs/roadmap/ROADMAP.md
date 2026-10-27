@@ -288,7 +288,8 @@ missing-capability line), the AI step writes the plans from the director card th
 refused plan goes back with the exact code error (no reviewer round for layout), first-try passes and rounds counted per part
 — done 27 October 2026, IMPLEMENTED offline with the fake maker (STATUS, "PR 2"); **(3)** world kits for the chosen video's places only, the rest logged missing; **(4)** render speed: parallel chunks in CI
 joined to one MP4, static layers pre-drawn, no per-frame SVG filters, a 5–8 minute video in under 60 minutes wall-clock,
-measured before and after; **(5)** ONE real video from Navin's sample economy chapter (the PDF on `blindtest-inputs`;
+measured before and after — done 27 October 2026, IMPLEMENTED and measured (0.62 → 0.26, 0.86 → 0.30 and 1.61 → 0.37 s a frame; a
+6-minute video in about 12 minutes wall-clock on 8 runners; STATUS, "PR 4"); **(5)** ONE real video from Navin's sample economy chapter (the PDF on `blindtest-inputs`;
 understand → lesson → one video with both story and graph parts → plans by BIE, B default and C for the story parts →
 compile and check → 1920×1080 in CI, silent with captions; the full MP4 in CI artifacts, a ≤ 720p review copy on
 `blindtest-results`, the review page with each part's mode and level, first-try passes and rounds, AI ₹, render minutes,

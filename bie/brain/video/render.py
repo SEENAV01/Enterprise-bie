@@ -111,6 +111,27 @@ def mp4(spec: dict, out: str | Path, *, dist: str | Path, assets: str | Path | N
         shutil.rmtree(work, ignore_errors=True)
 
 
+def mp4_range(spec: dict, out: str | Path, first: int, last: int, *, dist: str | Path, assets: str | Path | None = None,
+              timeout: int = 7200, toolbox: bool | None = None):
+    """Frames [first, last) of ``spec`` as one MP4 part (Task 046: a long video rendered in chunks on several runners)."""
+    toolbox = needs_toolbox(spec) if toolbox is None else toolbox
+    dist = build_preview(dist, toolbox=toolbox)
+    work = _workdir(dist, assets)
+    try:
+        (work / "spec.json").write_text(json.dumps(spec, ensure_ascii=False), encoding="utf-8")
+        args = ["node", str(PREVIEW / "stills.mjs"), "--dist", str(work), "--spec", str(work / "spec.json"),
+                "--mp4", str(Path(out).resolve()), "--from", str(int(first)), "--to", str(int(last))] + _page(toolbox)
+        try:
+            run = subprocess.run(args, capture_output=True, text=True, env=_node_env(), timeout=timeout)
+        except (OSError, subprocess.TimeoutExpired) as exc:
+            raise RenderError(f"mp4 chunk could not run: {exc}") from None
+        if run.returncode != 0:
+            raise RenderError("mp4 chunk failed: " + (run.stderr or run.stdout)[-800:])
+        return Path(out)
+    finally:
+        shutil.rmtree(work, ignore_errors=True)
+
+
 def small_jpeg(png: bytes, width: int = 960, quality: int = 85) -> bytes:
     """A smaller JPEG of a still, so a reviewer can look at several frames in one request."""
     from PIL import Image

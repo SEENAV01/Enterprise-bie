@@ -814,3 +814,27 @@ made from the tissue chapter): the check now counts only the book's own terms (`
 characters in the records, so Google's quota id (per minute or per day) was invisible: 1,500 now. Measured: 1 of 4 passed
 pages (25 %) had a needless round on the old check; 0 under the new one on the same output.
 
+## Entry 18 · Task 046 Part C, PR 4: render speed, 27 October 2026
+
+**What the measurement taught:** the brief named the blocks' filters and static layers; they were worth 7 % on a canvas
+and 46 % on the world. The floor was elsewhere: Playwright's `page.screenshot` cost about 0.4 s a frame more than
+Chromium's own capture of the same pixels, and compositing the page through the emulated GPU cost another 0.25 s a frame
+on a plain 2D scene. Profile first, then cut.
+
+**What changed in BIE** (branch `task046c-render`): `preview/stills.mjs` captures from the compositor and composites in
+software (WebGL untouched), the canvas and world blocks lost their per-frame filters and gained cached static layers,
+`render.mp4_range` and `tools/render_spec.py` render a spec in chunks on several runners and join and measure them, and
+the `BIE Task046c Render` workflow runs that in CI (the full MP4 as an artifact, the review copy on `blindtest-results`).
+
+**Measured before → after (this machine, 4 CPUs, the same 60 frames; seconds per frame):**
+
+| Scene | Before | After |
+| --- | --- | --- |
+| Plain canvas + curve | 0.618 | 0.256 |
+| Canvas with L3 touches | 0.859 | 0.303 |
+| World (street, shop, people) | 1.606 | 0.373 |
+| Pixels | — | the same (max difference 1 of 255) |
+| A 6-minute video, machine minutes | 110–290 | about 54 |
+| A 6-minute video, wall-clock on 8 runners | not possible in one runner's 6-hour limit at the world's rate without chunks | about 12 minutes (target under 60) |
+
+Quality is unchanged by construction (same frames); the CI numbers come from the first chunked render.
