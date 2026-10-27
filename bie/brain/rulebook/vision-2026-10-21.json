@@ -1,9 +1,10 @@
 {
  "rulebook": "bie-vision",
- "version": "2026-10-21.13",
+ "version": "2026-10-21.14",
  "source": "Navin's vision, agreed point by point on 21 October 2026 (docs/vision/VISION_SPEC.md, section 'Agreed on 21 October 2026')",
  "notes": "Each rule is an instruction for the section that makes the work (rule) and a yes/no question for the reviewer (check). Rules change only through a reviewed version bump; Navin approves every new or changed rule.",
  "changes": [
+  "2026-10-21.14 (Task 046 Part C addition, 27 October 2026, Navin's teaching decision): new S1-16, an economics concept item (definition, cause_effect, process) carries a real-world example in its unpack (place, actors, goods, numbers that change, mechanism steps; economically correct, at the learner's level); new S2-08, the script runs that example with its numbers before it names the term, then the book's definition, then the real-life link.",
   "2026-10-21.13 (Task 046, 26 October 2026, Navin's approval): S3-06 says 3-5 seconds per shot, as benchmark B-01 now does (the benchmark measured one visual change every 4.7 s); the level rule has two stars and the pace is a visual-change rate (visual_levels.json, visual_grammar.json VG-01).",
   "2026-10-21.12 (24 October 2026, Navin, Task 045d 'teaching soul'): new locked rules G-06 (BIE is the link between the learner and the book, like a teacher; never read the line out), G-07 (two layers: the writer layer follows the book's level, the presentation layer is the same skilled quality for every learner), S1-15 (every teachable item opened: terms with their plain meaning and an everyday image, a why chain from a need with its basis, an example or place, a consequence), S2-07 (every book line opened in the script: a question first, yaani with an image, a why or an example after a book line, complete sentences, the family pattern for a classification, steps skipped only with a reason, one recap per part) and S3-06 (the video follows the benchmark's visual grammar: one sentence = one shot, said = shown, depth from the level profile).",
   "2026-10-21.11 (23 October 2026, Navin): S1-12's prerequisite count is a warning, not a cap: the rule is 'only what is directly needed, no chains'; more than 8 needs a stated reason (prerequisite_note) and a directly needed prerequisite is never dropped to reach a number.",
@@ -218,6 +219,15 @@
    "check": "Is every teachable item really opened (a term with its plain meaning and image, a why from a need with its basis, an example or place, a consequence), not restated?"
   },
   {
+   "id": "S1-16",
+   "sections": [
+    "understand"
+   ],
+   "status": "locked",
+   "rule": "Apply every economics concept in the real world first (Navin, 27 October 2026): in a chapter of the economics family, every definition, cause_effect and process item carries in its unpack a real_world_example: a place (bazaar, kirana shop, mandi, bank, factory, petrol pump, farm), actors (shopkeeper, buyers, farmer, worker, bank, RBI, government), real goods or money (sugar, onion, petrol, salary, loan, EMI), numbers that change (before → after) and at least two steps, each mapped to a link of the concept's mechanism; then the sentence that names the term after the story, and one line on where the learner meets it in real life. The example is economically correct (the mechanism it runs is the concept's) and fits the learner's level (UPSC: the real Indian link, for example repo rate → home-loan EMI, only from the book or a dated source). Navin's example: a kirana shop with 3 packets of sugar at ₹50, buyers 2 → 12, the price ₹65, only 3 can buy: demand-pull inflation.",
+   "check": "Does every economics definition, cause-effect and process item carry a real-world example with a place, actors, goods, numbers that change and mechanism steps, economically correct and at the learner's level?"
+  },
+  {
    "id": "S2-01",
    "sections": [
     "lesson"
@@ -279,6 +289,15 @@
    "status": "locked",
    "rule": "Open every book line in the script, never read it out (Navin, 24 October 2026). A new topic opens with a question about something the learner can see, then the name. After any book line the beat carries at least one of: the term's plain meaning with 'yaani' and an everyday image, a why step from a need, an example or the place. Speak complete sentences, not clipped notes. A classification is taught as a family: the overview tree, then every member in the same slots (layer and shape, why it is named so, its special feature, its function with its cause, where it is found by a zoom from the organ, its consequence), then the members compared and a memory trick. A pattern step may be skipped only with a stated reason; one recap per part and one closing recap.",
    "check": "Is every book line opened (question first, yaani with an image, a why or an example), in complete sentences, with every family member in the same slots and no duplicate recaps?"
+  },
+  {
+   "id": "S2-08",
+   "sections": [
+    "lesson"
+   ],
+   "status": "locked",
+   "rule": "Apply first, name after (Navin, 27 October 2026): in an economics script a concept's real-world example runs BEFORE the beat that names the term: the example beats carry the example's numbers (₹50 → ₹65, buyers 2 → 12 → 3) and walk the mechanism step by step; then the term ('isliye ise demand-pull inflation kehte hain'), then the book's definition, then one line on where the learner meets it in real life. The example is the one Section 1 chose for the item (its place, actors, goods, numbers), economically correct and at the learner's level.",
+   "check": "Does every economics concept's example run first with its numbers, before the term is named, then the definition and the real-life link, and is the example economically correct at this level?"
   },
   {
    "id": "S3-01",

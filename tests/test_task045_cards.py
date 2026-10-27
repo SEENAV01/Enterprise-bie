@@ -263,7 +263,7 @@ class TaskCards(unittest.TestCase):
         self.assertEqual(one.card["prefix"], two.card["prefix"])
         self.assertNotIn("Page 3", one.system)
         self.assertNotIn("p0003", one.system)
-        self.assertTrue(one.system.startswith("BIE task prefix understand.read_page/3 · rulebook " + BOOK.version))
+        self.assertTrue(one.system.startswith("BIE task prefix understand.read_page/4 · rulebook " + BOOK.version))
         for rule in BOOK.for_section("understand"):
             self.assertIn(f"[{rule.id}]", one.system)
         self.assertIn("Required questions: how (kaise), when (kab)", one.system)
@@ -321,7 +321,7 @@ class TaskCards(unittest.TestCase):
         card, _ = self.card()
         book = cards.CardBook()
         book.add(card)
-        self.assertEqual(book.prefixes, {"understand.read_page/3": self.prefix.sha256})
+        self.assertEqual(book.prefixes, {"understand.read_page/4": self.prefix.sha256})
         with self.assertRaises(cards.CardError):
             book.add(card)
 

@@ -16,7 +16,7 @@ import json
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
-from . import canvas, shots
+from . import canvas, shots, soul
 from .assets import AssetLibrary
 from .canvas import PlanError
 from .common import S, arr, fmt, obj
@@ -145,18 +145,66 @@ def profile_fits(course: Course) -> bool:
     return shots.subject_family(course.subject) in FAMILIES
 
 
-def mode_of(course: Course, beats: list) -> dict:
-    """{"mode": "B" | "C" | "", "place", "kit", "missing"}: "" when the subject is not a canvas subject (the shot-list
-    director of Part A applies); C for a story part whose place has a kit; B otherwise, with ``missing`` naming the
-    place that has no kit yet (the missing-capability line)."""
+def story_of(items) -> dict:
+    """The real-world example the part's items carry (Navin, 27 October 2026, S1-16): the first filled one, or {}."""
+    for item in items or []:
+        example = item.get("real_world_example") or soul.real_world_of(item.get("unpack"))
+        if soul.real_world_filled(example):
+            return example
+    return {}
+
+
+def mode_of(course: Course, beats: list, items=None, *, story: bool = False) -> dict:
+    """{"mode": "B" | "C" | "", "place", "kit", "missing", "story"}: "" when the subject is not a canvas subject (the
+    shot-list director of Part A applies); C for a story part whose place has a kit; B otherwise, with ``missing`` naming
+    the place that has no kit yet (the missing-capability line). A ``story`` piece is the real-world example of the
+    concept (Navin, 27 October 2026): its place is the example's place first, then the words of the beats; a place
+    outside the known list (a petrol pump before its kit) still goes to the missing-capability log by its own name."""
     if not profile_fits(course):
-        return {"mode": "", "place": "", "kit": "", "missing": ""}
+        return {"mode": "", "place": "", "kit": "", "missing": "", "story": False}
     text = " ".join(b.get("say", "") for b in beats)
-    place = world.place_of(text)
-    kit = world.kit_for(text)
+    example = story_of(items) if story else {}
+    hint = (example.get("place") or "").strip()
+    place = (world.place_of(hint) if hint else "") or world.place_of(text)
+    label = world.place_label(place) if place else hint
+    kit = place if place in world.KITS else ""
     if kit:
-        return {"mode": "C", "place": place, "kit": kit, "missing": ""}
-    return {"mode": "B", "place": place, "kit": "", "missing": f"world kit for a {place}" if place else ""}
+        return {"mode": "C", "place": place, "kit": kit, "missing": "", "story": story}
+    return {"mode": "B", "place": place or hint, "kit": "", "missing": f"world kit for a {label}" if label else "", "story": story}
+
+
+def story_split(stub: dict, full_beats: dict, items) -> list:
+    """A part whose items carry a real-world example (S1-16) is split so the example's beats (they cover such an item and
+    carry its numbers, S2-08) become their own STORY piece ``<id>s`` (world mode when its place has a kit), the beats
+    before and after stay canvases ``<id>a`` and ``<id>b``. A part without an example, or whose beats carry none of the
+    numbers, is returned unchanged."""
+    example_of = {}
+    for item in items or []:
+        example = item.get("real_world_example") or soul.real_world_of(item.get("unpack"))
+        if soul.real_world_filled(example):
+            example_of[item["item_id"]] = soul.real_world_numbers(example)
+    if not example_of:
+        return [dict(stub, story=False)]
+    hits = []
+    for n, beat in enumerate(stub["beats"]):
+        full = full_beats.get(beat["beat_id"], beat)
+        numbers = set().union(*[example_of[i] for i in (full.get("covers_item_ids") or []) if i in example_of] or [set()])
+        if numbers & soul.number_tokens(beat.get("say", "")):
+            hits.append(n)
+    if not hits:
+        return [dict(stub, story=False)]
+    first, last = hits[0], hits[-1]
+    if first == 0 and last == len(stub["beats"]) - 1:
+        return [dict(stub, story=True)]
+    pieces = []
+    for suffix, chunk, story in (("a", stub["beats"][:first], False), ("s", stub["beats"][first:last + 1], True),
+                                 ("b", stub["beats"][last + 1:], False)):
+        if chunk:
+            ids = sorted({i for b in chunk for i in (full_beats.get(b["beat_id"], {}).get("covers_item_ids") or [])})
+            hints = [full_beats.get(b["beat_id"], {}).get("on_screen") for b in chunk]
+            pieces.append(dict(stub, id=f"{stub['id']}{suffix}", beats=chunk, story=story, covers_item_ids=ids or stub.get("covers_item_ids", []),
+                               on_screen_hints=[h for h in hints if h] or stub.get("on_screen_hints") or []))
+    return pieces
 
 
 # ---------------------------------------------------------------- the card and the icon menu
@@ -379,16 +427,37 @@ def check_plan(stub: dict, value: dict, mode: str) -> list:
 def _items_of(chapter: dict, plan_video: dict, stub: dict) -> list:
     items, _ = video_scope(chapter, plan_video)
     wanted = set(stub.get("covers_item_ids") or [])
-    rows = [{"item_id": i["item_id"], "content_type": i.get("content_type", ""), "content": i.get("content", "")}
-            for i in items if i["item_id"] in wanted]
+    rows = []
+    for i in items:
+        if i["item_id"] not in wanted:
+            continue
+        row = {"item_id": i["item_id"], "content_type": i.get("content_type", ""), "content": i.get("content", "")}
+        example = soul.real_world_of(i.get("unpack"))
+        if soul.real_world_filled(example):
+            row["real_world_example"] = example
+        rows.append(row)
     return rows
+
+
+STORY_NOTE = ("This part is the STORY of the concept's real-world example (Navin, 27 October 2026): {place}; actors {actors}; "
+              "goods {goods}; numbers {numbers}. No world kit exists for this place yet, so build the story on the canvas with "
+              "crowd, value and icon elements: the actors as icons, the buyers or workers as a crowd whose n follows the numbers, "
+              "the price or amount as a value whose steps follow the numbers, the goods or money flowing on arrows; every change "
+              "cued on the word that says it.")
 
 
 def part_step(course: Course, stub: dict, items: list, mode: dict, *, rulebook, menu: list | None = None, max_rounds: int = 3) -> Step:
     """The maker writes this part's plan (B: canvas; C: world) and code checks it; no reviewer round for layout."""
     beats = [{"beat_id": b["beat_id"], "say": b["say"]} for b in stub["beats"]]
-    payload = {"part": {"id": stub["id"], "part_id": stub.get("part_id", ""), "mode": mode["mode"], "place": mode.get("place", "")},
+    payload = {"part": {"id": stub["id"], "part_id": stub.get("part_id", ""), "mode": mode["mode"], "place": mode.get("place", ""),
+                        "story": bool(mode.get("story"))},
                "beats": beats, "items": items, "on_screen_hints": stub.get("on_screen_hints") or []}
+    story = story_of(items) if mode.get("story") else {}
+    note = ""
+    if story and mode["mode"] == "B":
+        numbers = "; ".join(f"{n.get('what', '')} {n.get('before', '')} → {n.get('after', '')}".strip() for n in story.get("numbers") or [])
+        note = "\n" + STORY_NOTE.format(place=story.get("place", ""), actors=", ".join(story.get("actors") or []),
+                                         goods=", ".join(story.get("goods") or []), numbers=numbers)
     rules = rulebook.instructions(SECTION)
     if mode["mode"] == "C":
         system = fmt(WORLD_ROLE, course, rules=rules, card=card_text(WORLD_CARD_PATH), place=world.KITS[mode["kit"]]["label"])
@@ -398,7 +467,7 @@ def part_step(course: Course, stub: dict, items: list, mode: dict, *, rulebook, 
         system = fmt(ROLE, course, rules=rules, card=card_text(), icon_menu=_menu_text(menu), level=mode["mode"],
                      level_note=LEVEL_NOTE[mode["mode"]])
         schema = PLAN_SCHEMA
-    user = (f"Chapter: {course.title}. Part {stub.get('part_id') or stub['id']} ({len(beats)} beats).\n"
+    user = (f"Chapter: {course.title}. Part {stub.get('part_id') or stub['id']} ({len(beats)} beats).{note}\n"
             f"The part (JSON):\n{json.dumps(payload, ensure_ascii=False)}\n\nReply with the plan JSON.")
     return Step(section=SECTION, unit=stub["id"], instructions_version=VERSION, system=system, user=user, schema=schema,
                 check=lambda value: check_plan(stub, value, mode["mode"]), max_rounds=max_rounds)
@@ -445,14 +514,16 @@ def run_canvas(chapter: dict, lesson: dict, course: Course, runner, out_dir, *, 
         if not profile_fits(course):
             break
         beats = video["beats"]
-        stubs = [piece for stub in canvas.stubs(video) for piece in split_stub(stub)]
         full_beats = {b["beat_id"]: b for b in beats}
+        stubs = [piece for stub in canvas.stubs(video)
+                 for story in story_split(stub, full_beats, _items_of(chapter, plans[video["video_id"]], stub))
+                 for piece in split_stub(story)]
 
         def work(stub):
             stub["beats"] = [dict(b, **{k: full_beats[b["beat_id"]].get(k, "") for k in ("caption",)}) if "caption" in full_beats[b["beat_id"]] else b
                              for b in stub["beats"]]
-            mode = mode_of(course, stub["beats"])
             items = _items_of(chapter, plans[video["video_id"]], stub)
+            mode = mode_of(course, stub["beats"], items, story=bool(stub.get("story")))
             result = runner.run(part_step(course, stub, items, mode, rulebook=runner.rulebook, menu=menu, max_rounds=max_rounds))
             return stub, mode, result
 
@@ -461,7 +532,7 @@ def run_canvas(chapter: dict, lesson: dict, course: Course, runner, out_dir, *, 
         scenes, parts, icon_ids = [], [], []
         for stub, mode, result in rows:
             entry = {"id": stub["id"], "part_id": stub.get("part_id", ""), "beats": len(stub["beats"]), "mode": mode["mode"],
-                     "place": mode.get("place", ""), "status": result.status, "rounds": len(result.rounds),
+                     "place": mode.get("place", ""), "story": bool(mode.get("story")), "status": result.status, "rounds": len(result.rounds),
                      "first_try": result.passed and len(result.rounds) == 1, "cost_usd": result.cost_usd,
                      "last_problems": (result.rounds[-1].get("code_problems") or []) if result.rounds and not result.passed else []}
             if mode.get("missing") and mode["missing"] not in summary["missing_kits"]:
@@ -508,6 +579,8 @@ def run_canvas(chapter: dict, lesson: dict, course: Course, runner, out_dir, *, 
                           "first_try_passes": sum(1 for p in parts if p["first_try"]),
                           "first_try_rate": round(sum(1 for p in parts if p["first_try"]) / len(parts), 3) if parts else 0.0,
                           "rounds": sum(p["rounds"] for p in parts), "modes": {m: sum(1 for p in parts if p["mode"] == m) for m in ("B", "C")},
+                          "story_parts": sum(1 for p in parts if p.get("story")),
+                          "story_parts_in_a_world": sum(1 for p in parts if p.get("story") and p["mode"] == "C"),
                           "missing_kits": list(summary["missing_kits"]), "seconds": round(sum(v["seconds"] for v in summary["videos"]), 1),
                           "cost_usd": round(sum(p["cost_usd"] for p in parts), 6)}
     (out / "canvas.json").write_text(json.dumps(summary, ensure_ascii=False, indent=1), encoding="utf-8")
@@ -523,6 +596,9 @@ def render_markdown(summary: dict) -> str:
              f"{q['rounds']} rounds; modes B {q['modes']['B']}, C {q['modes']['C']}; {q['seconds']:.0f} s planned; cost ${q['cost_usd']:.4f}.", ""]
     if summary.get("note"):
         lines += [summary["note"], ""]
+    if q.get("story_parts"):
+        lines += [f"Story parts (a concept's real-world example, Navin 27 October 2026): {q['story_parts']}, "
+                  f"{q['story_parts_in_a_world']} inside a world (C), the rest on the canvas with crowd, value and icon elements (B).", ""]
     if q["missing_kits"]:
         lines += ["Missing world kits (these parts fell back to the canvas): " + "; ".join(q["missing_kits"]), ""]
     for v in summary["videos"]:
@@ -531,7 +607,7 @@ def render_markdown(summary: dict) -> str:
             level = p.get("level", "")
             lines.append(f"- {p['id']} ({p['part_id'] or 'no part'}, {p['beats']} beats): mode {p['mode']} {level}; {p['status']} after {p['rounds']} round(s)"
                          + (" · first try" if p["first_try"] else "") + (f" · {p['elements']} elements, longest still {p['longest_still_s']} s" if "elements" in p else "")
-                         + (f" · place {p['place']}" if p.get("place") else ""))
+                         + (f" · place {p['place']}" if p.get("place") else "") + (" · story (the real-world example)" if p.get("story") else ""))
             for problem in (p.get("last_problems") or [])[:4]:
                 lines.append(f"  - {problem}")
             for note in (p.get("advisories") or [])[:2]:

@@ -295,6 +295,29 @@ compile and check → 1920×1080 in CI, silent with captions; the full MP4 in CI
 missing world kits and the credit lines), then STOP for his verdict. The kit is INTEGRATED only when the real chapter's plans
 flow through it into a rendered video; nothing is ACCEPTED before the verdict.
 
+**Addition to Part C, Navin, 27 October 2026, in his words: "in videos se economics padhane ke tarike mein ek cheej daalni hai
+ki economic concepts ko explain karne ke liye real world mein apply karke samjhao, jaise demand pull inflation wale concept
+ko dukandar, bazar, log, sugar wale example se samjhaya tha."** Built into the director/script PR (PR 2), before the real
+run: **(1) the teaching method** — `teacher_examples.json` 2026-10-27.1 carries `real_world_application` (every economics
+concept is first APPLIED in an everyday Indian situation, then named: a place such as a bazaar, kirana shop, mandi, bank,
+factory, petrol pump or farm; actors such as the shopkeeper, buyers, farmer, worker, bank, RBI or government; real goods or
+money such as sugar, onion, petrol, a salary, a loan, an EMI; numbers that change, ₹50 → ₹65, buyers 2 → 12 → 3; the story
+runs the mechanism step by step; the term comes after the story, "isliye ise demand-pull inflation kehte hain"; then the
+book's definition; then one line on where the learner meets it in real life); `content_types.json` 2026-10-27.1 gives every
+definition, cause_effect and process item of an economics chapter the required unpack slot `real_world_example` (place,
+actors, goods, numbers before → after, steps each mapped to a link of the concept's mechanism, the naming sentence, the
+real-life link); **(2) code checks, no extra reviewer round** — S1-16: the slot is filled (a place, an actor, the goods, at
+least one number that changes, two or more steps with their mechanism links, the naming sentence, the real-life link);
+S2-08: in the script the item's example beats come BEFORE the beat that names the term and carry its numbers; the existing
+reviewer's checklist carries both rules and checks that the example is economically correct and fits the learner's level
+(UPSC: the real Indian link, for example repo rate → home-loan EMI, only from the book or a dated source); **(3) the
+director** — the example's beats of a concept are that part's STORY: world mode (C) when a kit exists for the place,
+otherwise B with crowd, value and icon elements; the missing-capability log lists the places without a kit (a petrol pump
+is now a known place); **(4) proof before the real run** — the understanding and script steps run again on the sample
+chapter and Navin sees, per concept, the example BIE chose (one line each) with the check results and the first-try
+counts, in MAP.md and SCRIPT.md; then the video as planned. Locking a good example into `explanations.json` stays Navin's
+decision (the lock tool).
+
 **047 · Voice** — extend Section 14: tested natural voices including a cloned voice (Navin chooses by ear);
 word timestamps drive the animation; close the AUDIO reconciliation.
 

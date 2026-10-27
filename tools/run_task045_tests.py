@@ -20,7 +20,7 @@ from run_task043_tests import NEW as TASK043  # noqa: E402
 from run_task044_tests import NEW as TASK044  # noqa: E402
 
 NEW = ("tests/test_task045_cards.py", "tests/test_task045_seekh.py", "tests/test_task045d_soul.py",
-       "tests/test_task045_free_reviewer.py")
+       "tests/test_task045_free_reviewer.py", "tests/test_task046c_real_world.py")
 
 
 def main(argv=None):

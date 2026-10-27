@@ -27,7 +27,10 @@ PLACES = {
     "factory": ("फैक्ट्री", "फ़ैक्ट्री", "factory", "factories", "कारखाना", "कारखाने", "मज़दूर", "मजदूर", "worker", "workers", "मशीन", "machine"),
     "port": ("बंदरगाह", "port", "ports", "ship", "ships", "जहाज़", "जहाज", "export", "exports", "import", "imports", "निर्यात", "आयात", "container"),
     "farm": ("खेत", "किसान", "farm", "farmer", "farmers", "फसल", "crop", "crops", "harvest", "कटाई", "tractor", "बीज"),
+    # Navin's places for the real-world application (27 October 2026) add the petrol pump; a mandi and a kirana shop are shops.
+    "petrol_pump": ("petrol pump", "पेट्रोल पंप", "पेट्रोल पम्प", "fuel station", "petrol", "diesel", "पेट्रोल", "डीज़ल", "डीजल"),
 }
+PLACE_LABELS = {"shop": "shop", "bank": "bank", "factory": "factory", "port": "port", "farm": "farm", "petrol_pump": "petrol pump"}
 KITS = {"shop": {"label": "a shop with buyers on a street", "words": PLACES["shop"]}}
 CUE_KEYS = ("cue", "until_cue", "tilt_cue")
 
@@ -100,3 +103,8 @@ def kit_for(text: str) -> str:
     """The world kit for a part's place, or "" when the place has no kit yet (or the part has no place)."""
     place = place_of(text)
     return place if place in KITS else ""
+
+
+def place_label(place: str) -> str:
+    """The words of a place for a report or the missing-capability log ("petrol_pump" → "petrol pump")."""
+    return PLACE_LABELS.get(place, place.replace("_", " "))

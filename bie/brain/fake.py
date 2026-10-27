@@ -13,6 +13,7 @@ from bie.model_gateway.live.messages import split_messages, text_of
 
 from . import cards
 from . import content_types as ct
+from . import shots
 
 BLOCK_LINE = re.compile(r"^(p\d{4}-b\d{4}) \| (.*)$", re.MULTILINE)
 ITEM_LINE = re.compile(r"^(p\d{3}-[^ |]+) \| (\d+) \| (\w+) \| (\w+) \| (teach|no) \|", re.MULTILINE)
@@ -28,29 +29,61 @@ def _qa(text, asks=("what",)):
              "answer": f"Offline answer ({ask}) for " + text[:40]} for n, ask in enumerate(asks)]
 
 
-def _unpack(text, *, with_terms=True):
+# The offline real-world example (S1-16, Navin's sugar shop; test input, never lesson content): the same numbers the fake
+# script speaks first (S2-08), so an offline economics chapter passes both checks on the first try.
+STORY_NUMBERS = ("50", "65", "2", "12")
+STORY_SAY = ("ज़रा सोचिए: दुकान में चीनी के 3 packet हैं, ₹50 का एक; कल 2 खरीदार आए और आज 12 आ गए, तो दाम का क्या होगा? "
+             "दुकानदार दाम ₹65 कर देता है और सिर्फ 3 लोग खरीद पाते हैं।")
+
+
+def _real_world(word: str) -> dict:
+    return {"place": "kirana shop", "actors": ["shopkeeper", "buyers"], "goods": ["sugar"],
+            "numbers": [{"what": "price", "before": "₹50", "after": "₹65"}, {"what": "buyers", "before": "2", "after": "12"}],
+            "steps": [{"step": "दुकान में चीनी के 3 packet हैं, ₹50 का एक; कल 2 खरीदार आए", "mechanism_link": "supply fixed, demand low"},
+                      {"step": "आज 12 खरीदार आ गए, दुकानदार दाम ₹65 कर देता है", "mechanism_link": "demand above supply, price up"}],
+            "term_after": f"इसलिए इसे {word} कहते हैं", "real_life_link": "Diwali से पहले सब्ज़ी मंडी में यही दिखता है"}
+
+
+def _unpack(text, *, with_terms=True, real_world=False):
     """An offline unpack (S1-15): one term opened in Devanagari, one why step with its basis, one example. One why step
-    fits every level profile; the revision profile adds no terms, so the fake drops them when the prefix says so."""
+    fits every level profile; the revision profile adds no terms, so the fake drops them when the prefix says so. An
+    economics concept item also carries the offline real-world example (S1-16)."""
     word = next((w for w in re.findall(r"[A-Za-z][A-Za-z\-]{3,}", text)), "topic")
     return {"terms": [{"term": word, "plain_meaning": f"{word} यानी offline सरल अर्थ", "everyday_image": "घर की एक आम चीज़"}]
             if with_terms else [],
             "why_chain": [{"step": "ज़रूरत है, इसलिए यह offline वजह है", "basis": "book"}],
             "example_or_place": "offline example", "consequence": "offline consequence", "visual_verb": "show",
-            "level_extra": ""}
+            "level_extra": "",
+            "real_world_example": _real_world(word) if real_world else json.loads(json.dumps(soul_empty()))}
 
 
-def _item(iid, text, *, source="text", block_ids=(), kind="paragraph", parent="", content_type="definition", with_terms=True):
-    asks = ct.load().required_asks(content_type)
+def soul_empty() -> dict:
+    from .soul import EMPTY_REAL_WORLD
+    return EMPTY_REAL_WORLD
+
+
+def subject_family(system_text: str) -> str:
+    """The subject family of the course line in a prefix ("· subject: Indian Economy ·")."""
+    found = re.search(r"· subject: (.*?) · learners:", system_text or "")
+    return shots.subject_family(found.group(1) if found else "")
+
+
+def _item(iid, text, *, source="text", block_ids=(), kind="paragraph", parent="", content_type="definition", with_terms=True,
+          family=""):
+    types = ct.load()
+    asks = types.required_asks(content_type)
     return {"item_id": iid, "kind": kind, "parent_item_id": parent, "source": source, "block_ids": list(block_ids),
             "where_on_page": "offline", "content": text, "content_type": content_type, "type_note": "", "teachable": True,
             "teacher_understanding": [dict(q, basis="book") for q in _qa(text, asks)], "prerequisites": [],
-            "exam_importance": "medium", "exam_note": "", "tests_item_ids": [], "unpack": _unpack(text, with_terms=with_terms)}
+            "exam_importance": "medium", "exam_note": "", "tests_item_ids": [],
+            "unpack": _unpack(text, with_terms=with_terms, real_world=types.needs_real_world(family, content_type))}
 
 
 def page_answer(user_text: str, system_text: str = ""):
     """Agrees with BIE's proposed type for every block (definition where the code has none)."""
     card = cards.read_card(user_text)
     with_terms = "- Revision: one line per item, no new terms" not in system_text
+    family = subject_family(system_text)
     types = ct.load()
     proposed = {i: p["type"] for p in card["parts"] for i in p["item_ids"]}
     skip = {s["item_id"] for s in card["coverage"]["may_skip"]}
@@ -59,7 +92,7 @@ def page_answer(user_text: str, system_text: str = ""):
     for bid, text in (b for b in blocks if b[0] not in skip):
         kind = proposed.get(bid, ct.NONE)
         items.append(_item(f"i{len(items) + 1}", text, block_ids=[bid], content_type=kind if kind in types.types else "definition",
-                           with_terms=with_terms))
+                           with_terms=with_terms, family=family))
     if not items:
         items = [_item("i1", "Figure read from the image", source="image", kind="diagram", content_type="figure", with_terms=with_terms),
                  _item("i2", "First label of the figure", source="image", kind="diagram_label", parent="i1", content_type="figure",
@@ -126,12 +159,14 @@ def plan_answer(user_text: str):
     return {"notes": NOTES, "videos": videos, "chapter_flow": "Offline flow."}
 
 
-def script_answer(user_text: str):
+def script_answer(user_text: str, system_text: str = ""):
     """One beat per item for the first pattern step (several items per beat when the narration time is short), then one beat
-    per further step; a frame for every part; filler transitions up to the narration time."""
+    per further step; a frame for every part; filler transitions up to the narration time. In an economics chapter a
+    concept part opens with the offline real-world example, numbers first (S2-08)."""
     time = SCRIPT_TIME.search(user_text)
+    family = subject_family(system_text)
     for per_beat in range(1, 40):
-        value = _script(user_text, per_beat)
+        value = _script(user_text, per_beat, family)
         if not time or sum(len(b["say"].split()) for b in value["beats"]) <= int(time.group(2)):
             break
     if time:                                    # speak as long as the card's narration time asks (S2-01)
@@ -143,7 +178,7 @@ def script_answer(user_text: str):
     return value
 
 
-def _script(user_text: str, per_beat: int):
+def _script(user_text: str, per_beat: int, family: str = ""):
     card = cards.read_card(user_text)
     types = ct.load()
     questions = {}
@@ -157,7 +192,11 @@ def _script(user_text: str, per_beat: int):
                                                                                            "atmosphere")}, "skipped_steps": []})
         first_step = 1 if types.pattern(part["type"]) else 0
         ids = part["item_ids"]
+        story = types.needs_real_world(family, part["type"])
         for group in (ids[n:n + per_beat] for n in range(0, len(ids), per_beat)):
+            if story:                               # the real-world example runs first, with its numbers (S2-08)
+                beats.append({"beat_id": f"b{len(beats)}", "part_id": part["part_id"], "step": first_step, "purpose": "story",
+                              "say": STORY_SAY, "covers_item_ids": group, "answers": [], "on_screen": "Offline shop.", "basis": "outside"})
             say = (f"ये सामने क्या दिख रहा है? ये offline explanation है: {group[0]}। इसे ध्यान से समझिए, ये exam में बहुत काम आएगा।"
                    if per_beat == 1 else f"ये सामने क्या दिख रहा है? ये offline explanation है: {', '.join(group)}।")
             beats.append({"beat_id": f"b{len(beats)}", "part_id": part["part_id"], "step": first_step, "purpose": "explain",
@@ -393,7 +432,7 @@ class BrainFakeClient:
         elif "dropped" in props:
             value = trim_answer(user)
         elif "beats" in props:
-            value = script_answer(user)
+            value = script_answer(user, system)
         else:
             raise ValueError("BrainFakeClient does not know this schema")
         self.calls.append({"model": model, "kind": next(iter(props), "")})

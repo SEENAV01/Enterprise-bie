@@ -32,6 +32,18 @@ TEACHER_PATH = Path(__file__).resolve().parent / "rulebook" / "teacher_examples.
 GRAMMAR_PATH = Path(__file__).resolve().parent / "rulebook" / "visual_grammar.json"
 DEVANAGARI = re.compile(r"[ऀ-ॿ]")
 
+# The real-world application of an economics concept (Navin, 27 October 2026, S1-16): the concept applied in an everyday
+# Indian situation before it is named: a place, actors, real goods or money, numbers that change, the mechanism step by step.
+REAL_WORLD_SCHEMA = _obj({
+    "place": S,
+    "actors": _arr(S),
+    "goods": _arr(S),
+    "numbers": _arr(_obj({"what": S, "before": S, "after": S})),
+    "steps": _arr(_obj({"step": S, "mechanism_link": S})),
+    "term_after": S,
+    "real_life_link": S,
+})
+EMPTY_REAL_WORLD = {"place": "", "actors": [], "goods": [], "numbers": [], "steps": [], "term_after": "", "real_life_link": ""}
 UNPACK_SCHEMA = _obj({
     "terms": _arr(_obj({"term": S, "plain_meaning": S, "everyday_image": S})),
     "why_chain": _arr(_obj({"step": S, "basis": {"type": "string", "enum": ["book", "standard"]}})),
@@ -39,8 +51,16 @@ UNPACK_SCHEMA = _obj({
     "consequence": S,
     "visual_verb": S,
     "level_extra": S,
+    "real_world_example": REAL_WORLD_SCHEMA,
 })
-EMPTY_UNPACK = {"terms": [], "why_chain": [], "example_or_place": "", "consequence": "", "visual_verb": "", "level_extra": ""}
+EMPTY_UNPACK = {"terms": [], "why_chain": [], "example_or_place": "", "consequence": "", "visual_verb": "", "level_extra": "",
+                "real_world_example": EMPTY_REAL_WORLD}
+NUMBER = re.compile(r"\d[\d,]*(?:\.\d+)?")
+
+
+def empty_unpack() -> dict:
+    """A fresh empty unpack (its own lists and its own real_world_example)."""
+    return json.loads(json.dumps(EMPTY_UNPACK))
 
 # What opens a book line in a spoken beat: a term opened ("yaani"), a why, an example, a contrast, a memory beat.
 YAANI = re.compile(r"यानी|यानि|मतलब|अर्थात|(?<![a-z])(?:yaani|yani|matlab)(?![a-z])", re.IGNORECASE)
@@ -159,7 +179,165 @@ def unpack_lines(unpack: dict | None, indent: str = "  ") -> list:
                        ("level_extra", "level extra")):
         if (unpack.get(key) or "").strip():
             lines.append(f"{indent}{label} | {unpack[key].strip()}")
+    lines += real_world_lines(unpack, indent)
     return lines
+
+
+# ---------------------------------------------------------------- the real-world application (S1-16, S2-08)
+
+def real_world_of(unpack: dict | None) -> dict:
+    return (unpack or {}).get("real_world_example") or {}
+
+
+def number_tokens(text: str) -> set:
+    """The numbers written with digits in a text, commas removed ("₹1,000" → "1000"; "50" → "50")."""
+    return {m.group(0).replace(",", "") for m in NUMBER.finditer(text or "")}
+
+
+def real_world_filled(example: dict | None) -> bool:
+    """Whether Section 1 chose a real-world example for an item (any of its parts is filled; the checks name what is missing)."""
+    example = example or {}
+    return bool((example.get("place") or "").strip() or example.get("actors") or example.get("goods") or example.get("numbers")
+                or example.get("steps"))
+
+
+def real_world_numbers(example: dict | None) -> set:
+    """The digits of the example's numbers, before and after."""
+    out = set()
+    for n in (example or {}).get("numbers") or []:
+        out |= number_tokens(n.get("before", "")) | number_tokens(n.get("after", ""))
+    return out
+
+
+def changing_numbers(example: dict | None) -> list:
+    """The example's numbers whose digits really change from before to after."""
+    out = []
+    for n in (example or {}).get("numbers") or []:
+        before, after = number_tokens(n.get("before", "")), number_tokens(n.get("after", ""))
+        if before and after and before != after:
+            out.append(n)
+    return out
+
+
+def real_world_problems(item: dict, *, family: str, types) -> list:
+    """S1-16 (Navin, 27 October 2026): in a chapter of the economics family every definition, cause_effect and process item
+    applies the concept in a real situation first: a place, actors, goods or money, a number that changes, at least two
+    steps each mapped to a link of the mechanism, the sentence that names the term after the story, the real-life link."""
+    if not types.needs_real_world(family, item.get("content_type", "")):
+        return []
+    iid = item.get("item_id", "?")
+    kind = item.get("content_type", "")
+    example = real_world_of(item.get("unpack"))
+    if not real_world_filled(example):
+        return [f"item {iid}: a {kind} item in an economics chapter carries unpack.real_world_example: the concept applied in an "
+                "everyday Indian situation before it is named (a place, actors, goods or money, numbers that change, the mechanism "
+                "step by step), as a teacher opens demand-pull inflation with a sugar shop (S1-16)"]
+    problems = []
+    if not (example.get("place") or "").strip():
+        problems.append(f"item {iid}: real_world_example.place is empty (bazaar, kirana shop, mandi, bank, factory, petrol pump, farm) (S1-16)")
+    if not [a for a in example.get("actors") or [] if (a or "").strip()]:
+        problems.append(f"item {iid}: real_world_example needs at least one actor (shopkeeper, buyers, farmer, worker, bank, RBI, "
+                        "government) (S1-16)")
+    if not [g for g in example.get("goods") or [] if (g or "").strip()]:
+        problems.append(f"item {iid}: real_world_example names the real goods or money it moves (sugar, onion, petrol, salary, loan, "
+                        "EMI) (S1-16)")
+    if not changing_numbers(example):
+        problems.append(f"item {iid}: real_world_example needs at least one number that changes, written with digits before and "
+                        "after (price ₹50 → ₹65; buyers 2 → 12) (S1-16)")
+    steps = [st for st in example.get("steps") or [] if (st.get("step") or "").strip()]
+    if len(steps) < 2:
+        problems.append(f"item {iid}: real_world_example runs the story in at least two steps (S1-16)")
+    if any(not (st.get("mechanism_link") or "").strip() for st in steps):
+        problems.append(f"item {iid}: every step of real_world_example names the link of the concept's mechanism it shows "
+                        "(mechanism_link) (S1-16)")
+    if not (example.get("term_after") or "").strip():
+        problems.append(f"item {iid}: real_world_example.term_after is the sentence that names the term after the story "
+                        "('isliye ise … kehte hain') (S1-16)")
+    if not (example.get("real_life_link") or "").strip():
+        problems.append(f"item {iid}: real_world_example.real_life_link is one line on where the learner meets it in real life (S1-16)")
+    return problems
+
+
+def real_world_short(example: dict | None, limit: int = 160) -> str:
+    """One line of an example for a report: place; actors; goods; the numbers before → after; the step count."""
+    example = example or {}
+    if not real_world_filled(example):
+        return ""
+    numbers = "; ".join(f"{n.get('what', '')} {n.get('before', '')} → {n.get('after', '')}".strip() for n in example.get("numbers") or [])
+    bits = [example.get("place", ""), ", ".join(example.get("actors") or []), ", ".join(example.get("goods") or []), numbers,
+            f"{len(example.get('steps') or [])} steps"]
+    text = " · ".join(b for b in bits if b)
+    return text if len(text) <= limit else text[:limit - 1] + "…"
+
+
+def real_world_lines(unpack: dict | None, indent: str = "  ") -> list:
+    """The example as prompt lines for the script maker (S2-08: run it first, then name the term)."""
+    example = real_world_of(unpack)
+    if not real_world_filled(example):
+        return []
+    numbers = "; ".join(f"{n.get('what', '')} {n.get('before', '')} → {n.get('after', '')}".strip() for n in example.get("numbers") or [])
+    lines = [f"{indent}real world (run it first, with these numbers, then name the term) | place: {example.get('place', '')} | actors: "
+             f"{', '.join(example.get('actors') or [])} | goods: {', '.join(example.get('goods') or [])} | numbers: {numbers}"]
+    for n, st in enumerate(example.get("steps") or [], 1):
+        lines.append(f"{indent}  step {n} | {st.get('step', '')} | shows: {st.get('mechanism_link', '')}")
+    if (example.get("term_after") or "").strip():
+        lines.append(f"{indent}  then the name | {example['term_after'].strip()}")
+    if (example.get("real_life_link") or "").strip():
+        lines.append(f"{indent}  real life | {example['real_life_link'].strip()}")
+    return lines
+
+
+def _has_term(say: str, term: str) -> bool:
+    term = (term or "").strip()
+    if not term:
+        return False
+    return re.search(r"(?<![A-Za-z])" + re.escape(term) + r"(?![A-Za-z])", say or "", re.IGNORECASE) is not None
+
+
+def example_order_report(beats, items_by_id: dict, card_parts, *, family: str, types) -> list:
+    """S2-08, per item that carries a real-world example: the beats that run it (they cover the item and carry its numbers),
+    the first beat that names its term, and whether the example comes first. Rows: {item_id, place, numbers, example_beats,
+    term_beat, term, ok, problem}."""
+    rows = []
+    beats = list(beats or [])
+    seen = set()
+    for part in card_parts or []:
+        if not types.needs_real_world(family, part.get("type", "")):
+            continue
+        for iid in part.get("item_ids") or []:
+            item = items_by_id.get(iid) or {}
+            if iid in seen or not item.get("teachable", True):
+                continue
+            seen.add(iid)
+            unpack = item.get("unpack") or {}
+            example = real_world_of(unpack)
+            if not real_world_filled(example):
+                continue
+            numbers = real_world_numbers(example)
+            covering = [(i, b) for i, b in enumerate(beats) if iid in (b.get("covers_item_ids") or [])]
+            if not covering:
+                continue                                  # S2-02 reports an item no beat covers
+            example_idx = [i for i, b in covering if numbers & number_tokens(b.get("say", ""))]
+            terms = [t["term"] for t in unpack.get("terms") or [] if (t.get("term") or "").strip()]
+            named = next(((i, t) for i, b in covering for t in terms if _has_term(b.get("say", ""), t)), None)
+            row = {"item_id": iid, "place": example.get("place", ""), "numbers": sorted(numbers),
+                   "example_beats": [beats[i]["beat_id"] for i in example_idx],
+                   "term_beat": beats[named[0]]["beat_id"] if named else "", "term": named[1] if named else "", "ok": True, "problem": ""}
+            if not example_idx:
+                row.update(ok=False, problem=f"item {iid}: its real-world example ({example.get('place', '')}; numbers "
+                                             f"{', '.join(sorted(numbers)) or 'none'}) is run by no beat that covers it; apply the concept "
+                                             "first, in beats that carry the example's numbers as digits, then name the term (S2-08)")
+            elif named and named[0] < example_idx[0]:
+                row.update(ok=False, problem=f"beat {beats[named[0]]['beat_id']}: names {named[1]!r} before its real-world example runs "
+                                             f"(beat {beats[example_idx[0]]['beat_id']}); the story with its numbers comes first, the name "
+                                             "after (S2-08)")
+            rows.append(row)
+    return rows
+
+
+def example_order_problems(beats, items_by_id: dict, card_parts, *, family: str, types) -> list:
+    """S2-08: every real-world example runs, with its numbers, before the beat that names the term."""
+    return [row["problem"] for row in example_order_report(beats, items_by_id, card_parts, family=family, types=types) if not row["ok"]]
 
 
 def unpack_short(unpack: dict | None, limit: int = 90) -> str:

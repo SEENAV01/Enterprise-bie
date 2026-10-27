@@ -55,6 +55,18 @@ RULE_CHANGES = (
      "upgraded_by": "the lesson's wording patch round: the script continues from its last answer and only the beats W-01 flags are "
                     "rewritten (bie/brain/lesson.py, reusable + script_step with start; VM job t046-v3-wording-patch)",
      "match": re.compile(r"\(W-01\)$")},
+    {"rule": "S1-16", "rulebook": f"{VISION}@2026-10-21.14",
+     "decision": "Navin, 27 October 2026 (Task 046 Part C addition): in an economics chapter every definition, cause-and-effect and "
+                 "process item applies the concept in a real Indian situation before naming it (a place, actors, goods, numbers that "
+                 "change, the mechanism step by step; economically correct, at the learner's level)",
+     "upgraded_by": "the page is read again (bie/brain/understanding.py, schema bie.brain.understand-page/4); an older page of an "
+                    "economics chapter is not reused",
+     "match": re.compile(r"\(S1-16\)$")},
+    {"rule": "S2-08", "rulebook": f"{VISION}@2026-10-21.14",
+     "decision": "Navin, 27 October 2026 (Task 046 Part C addition): the script runs a concept's real-world example, with its "
+                 "numbers, before it names the term; then the book's definition, then the real-life link",
+     "upgraded_by": "the script is written again or continued from its last answer (bie/brain/lesson.py, lesson-script/5)",
+     "match": re.compile(r"\(S2-08\)$")},
 )
 
 

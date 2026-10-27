@@ -1,8 +1,9 @@
 {
  "schema": "bie.brain.teacher-examples/1",
- "version": "2026-10-24.1",
+ "version": "2026-10-27.1",
  "status": "IMPLEMENTED (Task 045d). The teacher example bank: the ways a real teacher opens a book line, each with a paraphrased example from real teacher videos and from Navin. The script prefix carries them as good examples; the understanding prefix carries the ones that shape an unpack. Navin adds methods and examples here and bumps the version.",
  "changes": [
+  "2026-10-27.1 (Task 046 Part C addition, Navin, 27 October 2026): 'real_world_application': an economics concept is first applied in an everyday Indian situation (a place, actors, real goods or money, numbers that change, the mechanism step by step), then named, then the book's definition, then one line on where the learner meets it. Navin's sugar-shop example for demand-pull inflation. Read by the understanding prefix (the real_world_example slot, S1-16) and the script prefix (example first, name after, S2-08).",
   "2026-10-24.1 (Task 045d): nine methods from real teacher videos (paraphrased, Navin's selection of 24 October 2026), plus 'slender' and Navin's own absorptive/secretive example."
  ],
  "source": "Navin, 24 October 2026: BIE must be the link between the learner and the book, like a teacher; the book is the base and BIE carries its text, easy or hard, into the learner's mind, never just reading the line out.",
@@ -85,6 +86,13 @@
    "when": "a book line names a kind of surface, job or place without saying what it is",
    "example": "Book: 'epithelium absorptive aur secretive surfaces par milta hai'. Teacher: absorptive surface yaani jahan cheezein andar li jaati hain, jaise aant khane ke poshak tatva sokhti hai; secretive yaani jahan cells kuch bana kar bahar chhodte hain, jaise glands enzyme ya juice. Aur epithelium wahan kyon? Kyunki ek patli, lagi hui parat hi cheezon ko paar jaane de sakti hai aur bana kar chhod sakti hai.",
    "note": "Three moves on one book line: what the adjective means, an example the learner knows, and why this tissue is there."
+  },
+  {
+   "id": "real_world_application",
+   "name": "Apply it in the real world first, then name it (Navin's sugar shop)",
+   "when": "every economics concept (a definition, a cause-and-effect chain, a process): the example runs before the term is named",
+   "example": "Ek kirana shop mein chini ke 3 packet hain, ₹50 ka ek. Kal 2 khareedar aaye the, aaj 12 aa gaye; sab ko chini chahiye par packet 3 hi hain. Dukandar daam ₹65 kar deta hai; ab sirf 3 log kharid paate hain, baaki 9 khaali haath. Zyada log, utna hi maal, isliye daam upar. Isliye ise demand-pull inflation kehte hain. Phir book ki definition. Phir: yahi aap Diwali se pehle sabzi mandi mein dekhte hain.",
+   "note": "The example has a place (bazaar, kirana shop, mandi, bank, factory, petrol pump, farm), actors (shopkeeper, buyers, farmer, worker, bank, RBI, government), real goods or money (sugar, onion, petrol, salary, loan, EMI) and numbers that change (₹50 → ₹65; buyers 2 → 12 → 3). The story runs the concept's mechanism step by step; the term comes after the story ('isliye ise … kehte hain'); then the book's definition; then one line on where the learner meets it in real life. The example must be economically correct and fit the learner's level (UPSC: the real Indian link, for example repo rate → home-loan EMI, only from the book or a dated source)."
   }
  ]
 }

@@ -71,11 +71,11 @@ def econ_lesson():
 class Mode(unittest.TestCase):
     def test_a_canvas_subject_defaults_to_b_and_a_story_in_a_place_with_a_kit_goes_to_c(self):
         shop = beats_of("demand_pull_touches.plan.json", "p1")
-        self.assertEqual(cd.mode_of(ECON, shop), {"mode": "C", "place": "shop", "kit": "shop", "missing": ""})
+        self.assertEqual(cd.mode_of(ECON, shop), {"mode": "C", "place": "shop", "kit": "shop", "missing": "", "story": False})
         gdp = beats_of("real_gdp.plan.json", "p2")
-        self.assertEqual(cd.mode_of(ECON, gdp), {"mode": "B", "place": "", "kit": "", "missing": ""})
+        self.assertEqual(cd.mode_of(ECON, gdp), {"mode": "B", "place": "", "kit": "", "missing": "", "story": False})
         bank = [{"beat_id": "b1", "say": "बैंक से कर्ज़ लेने वाले borrowers को ब्याज देना पड़ता है।"}]
-        self.assertEqual(cd.mode_of(ECON, bank), {"mode": "B", "place": "bank", "kit": "", "missing": "world kit for a bank"})
+        self.assertEqual(cd.mode_of(ECON, bank), {"mode": "B", "place": "bank", "kit": "", "missing": "world kit for a bank", "story": False})
         self.assertEqual(cd.mode_of(BIO, shop)["mode"], "")
         for subject, fits in (("Indian Economy", True), ("Polity and Constitution", True), ("Commerce", True), ("Physics", False), ("History", True)):
             self.assertEqual(cd.profile_fits(Course(title="x", subject=subject, learners="", exam="", language="Hinglish")), fits, subject)

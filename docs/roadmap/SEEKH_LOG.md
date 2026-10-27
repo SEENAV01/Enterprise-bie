@@ -775,3 +775,35 @@ canvas and world answers, `canvas_profile@2026-10-27.2`.
 | Tests in the toolbox core lane | 137 | 150 |
 
 First-try pass rate, rounds, tokens and ₹ per page for real plans: not yet (no live call in PR 2).
+
+## Entry 17 · Navin's real-world application rule for economics (Task 046 Part C addition), 27 October 2026
+
+**What the Money chapter and Navin's videos taught:** Navin teaches an economics concept by applying it first ("demand pull
+inflation wale concept ko dukandar, bazar, log, sugar wale example se samjhaya tha"); BIE's unpack had an `example_or_place`
+line but no story with a place, actors, goods and numbers, and the script rule only said "an example or the place" after
+the book line, so the term could come first and the example could be number-free. His words are in ROADMAP 046 and STATUS.
+
+**What changed in BIE** (branch `task046c-director`, with PR 2 as he asked): the method `real_world_application` in
+`teacher_examples.json` 2026-10-27.1; the required slot `unpack.real_world_example` for economics definition, cause-effect
+and process items (`content_types.json` 2026-10-27.1, `soul.REAL_WORLD_SCHEMA`, page schema `understand-page/4`); rule
+S1-16 checked by code in `check_page` (place, actor, goods, a number that changes, two steps with mechanism links, the naming
+sentence, the real-life link) and rule S2-08 checked by code in `check_script` (the example's beats, carrying its numbers,
+before the beat that names the term); both on the reviewer's checklist with "economically correct at the learner's level";
+the director's story piece (`story_split`, `mode_of(story=True)`, `STORY_NOTE`, the petrol pump as a place); MAP.md and
+SCRIPT.md tables per concept item (the example BIE chose, the check, first try); 19 everyday bazaar words; the fake maker.
+
+**Measured (offline, ₹0; the live before/after comes from the Money chapter):**
+
+| Measure | Before | After |
+| --- | --- | --- |
+| Economics concept items that must carry an applied example | 0 (no slot) | every definition, cause_effect, process item (S1-16) |
+| What code checks in the example | nothing | place, actor, goods, a changing number, ≥ 2 steps with links, naming sentence, real-life link |
+| Script order for an economics concept | free (term could come first) | example beats with the numbers first, then the term (S2-08) |
+| Reviewer rounds added for this | — | 0 (code checks; the existing reviewer's checklist grew by two rules) |
+| Director: a concept's example beats | part of one canvas | their own story piece: a world when the place has a kit, else crowd/value/icon canvas |
+| Offline Money chapter (fake maker): pages and scripts first try | — | 2 of 2 pages, every script, every example run first |
+| Tests (toolbox core lane / Task 045 lane) | 150 / 464 | 165 / 479 |
+
+Live first-try rate, rounds, tokens and ₹ per page under the new rule: measured by the Money chapter rerun on the VM (the
+12:42 UTC job under the old rules is the baseline); recorded here when the run finishes.
+

@@ -50,11 +50,25 @@ class TypeSpec:
 
 
 @dataclass(frozen=True)
+class RealWorld:
+    """The ``real_world_example`` slot of content_types.json (Navin, 27 October 2026, S1-16): in a chapter of one of these
+    subject families, every item of one of these types applies the concept in a real situation before naming it."""
+    rule: str
+    families: tuple
+    types: tuple
+    slot: dict
+
+    def needed(self, family: str, type_id: str) -> bool:
+        return family in self.families and type_id in self.types
+
+
+@dataclass(frozen=True)
 class ContentTypes:
     version: str
     types: dict
     legacy: dict
     words: dict                 # Hinglish question word -> English asks
+    real_world: RealWorld | None = None
 
     @property
     def ids(self):
@@ -83,6 +97,10 @@ class ContentTypes:
         new = self.legacy.get(old, old)
         return new if new in self.types else NONE
 
+    def needs_real_world(self, family: str, type_id: str) -> bool:
+        """Whether an item of this type in a chapter of this subject family carries a real-world example (S1-16)."""
+        return bool(self.real_world) and self.real_world.needed(family, type_id)
+
 
 def _keyword_regex(word: str):
     flags = 0 if word.isupper() else re.IGNORECASE
@@ -105,7 +123,10 @@ def load(path: str = str(PATH)) -> ContentTypes:
             patterns=tuple((p, re.compile(p, re.IGNORECASE | re.MULTILINE)) for p in hints.get("patterns", [])))
     legacy = {k: v for k, v in (data.get("legacy_types") or {}).items() if not k.startswith("_")}
     words = {w: tuple(spec["asks"]) for w, spec in data["question_words"].items()}
-    return ContentTypes(version=str(data["version"]), types=types, legacy=legacy, words=words)
+    raw = data.get("real_world_example")
+    real_world = RealWorld(rule=raw.get("rule", "S1-16"), families=tuple(raw["families"]), types=tuple(raw["types"]),
+                           slot=dict(raw.get("slot") or {})) if raw else None
+    return ContentTypes(version=str(data["version"]), types=types, legacy=legacy, words=words, real_world=real_world)
 
 
 @dataclass(frozen=True)
