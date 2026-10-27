@@ -67,16 +67,16 @@ jobs:
       - name: The last shared cache first, so a server outage never loses what an earlier run fetched
         uses: actions/cache/restore@5a3ec84eff668545956fd18022155c47e93e2684
         with:
-          path: ${{ github.workspace }}/../bie-asset-cache
+          path: ${{ github.workspace }}/.bie-asset-cache
           key: bie-asset-cache-shared-${{ github.run_id }}
           restore-keys: |
             bie-asset-cache-shared-
       - name: Downloads from flaky servers (standard library only)
-        run: python -B tools/toolbox_setup.py --assets "${{ github.workspace }}/../bie-asset-cache"
+        run: python -B tools/toolbox_setup.py --assets "${{ github.workspace }}/.bie-asset-cache"
       - name: Save them for every PR (caches made on main can be restored by any PR)
         uses: actions/cache/save@5a3ec84eff668545956fd18022155c47e93e2684
         with:
-          path: ${{ github.workspace }}/../bie-asset-cache
+          path: ${{ github.workspace }}/.bie-asset-cache
           key: bie-asset-cache-shared-${{ github.run_id }}
 
   core:
@@ -128,14 +128,14 @@ jobs:
       - name: Asset sources cache (the JPL ephemeris for the astronomy test; never in git)
         uses: actions/cache@5a3ec84eff668545956fd18022155c47e93e2684
         with:
-          path: ${{ github.workspace }}/../bie-asset-cache
+          path: ${{ github.workspace }}/.bie-asset-cache
           key: bie-asset-cache-wrappers-${{ hashFiles('bie/toolbox/sources.py', 'bie/toolbox/adapters/astro.py') }}
           restore-keys: |
             bie-asset-cache-wrappers-
             bie-asset-cache-shared-
       - name: One test per wrapper, no skips
         env:
-          BIE_ASSET_CACHE: ${{ github.workspace }}/../bie-asset-cache
+          BIE_ASSET_CACHE: ${{ github.workspace }}/.bie-asset-cache
         run: python -B tools/run_task046a_tests.py --lane wrappers --output "$RUNNER_TEMP/toolbox/wrappers.json"
       - name: Surface failure summary as annotations
         if: failure()
@@ -152,7 +152,7 @@ jobs:
     env:
       PYTHONDONTWRITEBYTECODE: '1'
       PYTHONUTF8: '1'
-      BIE_ASSET_CACHE: ${{ github.workspace }}/../bie-asset-cache
+      BIE_ASSET_CACHE: ${{ github.workspace }}/.bie-asset-cache
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
@@ -183,7 +183,7 @@ jobs:
       - name: Asset sources cache (fetched on demand, never in git)
         uses: actions/cache@5a3ec84eff668545956fd18022155c47e93e2684
         with:
-          path: ${{ github.workspace }}/../bie-asset-cache
+          path: ${{ github.workspace }}/.bie-asset-cache
           key: bie-asset-cache-batch${{ matrix.batch }}-${{ hashFiles('bie/toolbox/sources.py') }}
           restore-keys: |
             bie-asset-cache-batch${{ matrix.batch }}-
