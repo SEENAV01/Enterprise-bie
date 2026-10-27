@@ -1,0 +1,2726 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "lesson",
+ "unit": "script-v0",
+ "status": "failed",
+ "instructions_version": "lesson-script/5",
+ "rulebook_version": "canvas_profile@2026-10-27.2+content_types@2026-10-27.1+explanations@2026-10-24.1+level_profiles@2026-10-24.1+simple_hindi@2026-10-27.1+teacher_examples@2026-10-27.1+vision-2026-10-21@2026-10-21.14+visual_grammar@2026-10-26.2+visual_levels@2026-10-26.2",
+ "rulebook_digest": "c7a8f214a74b3cd890a86c1da6438388680054c0280419aaf4a02f2b5d53ad01",
+ "rules_used": [
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-04",
+  "G-05",
+  "G-06",
+  "G-07",
+  "S2-01",
+  "S2-02",
+  "S2-03",
+  "S2-04",
+  "S2-05",
+  "S2-06",
+  "S2-07",
+  "S2-08",
+  "W-01"
+ ],
+ "maker_route": "codex",
+ "reviewer_route": "codex-checker",
+ "maker_model": "gpt-6.1-sol",
+ "reviewer_model": "gpt-6.1-sol",
+ "reviewer_independence": "same_model_temporary",
+ "inputs_digest": "36bd4fe78e3632ebee0960fc607cb79b9d35229f115bd52773c4b787dbbc12a6",
+ "card": {
+  "card": "bie.task-card/1",
+  "card_id": "lesson.write_script@3-money/v0",
+  "section": "lesson",
+  "task": "write_script",
+  "prefix": {
+   "prefix_id": "lesson.write_script/3",
+   "rulebook_version": "canvas_profile@2026-10-27.2+content_types@2026-10-27.1+explanations@2026-10-24.1+level_profiles@2026-10-24.1+simple_hindi@2026-10-27.1+teacher_examples@2026-10-27.1+vision-2026-10-21@2026-10-21.14+visual_grammar@2026-10-26.2+visual_levels@2026-10-26.2",
+   "content_types_version": "2026-10-27.1",
+   "schema_id": "bie.brain.lesson-script/3",
+   "sha256": "23c7d0a0496ac0b3c93e62a5092f314af721254f233faf0aee711e7d9f3edb45"
+  },
+  "unit": {
+   "unit_id": "v0",
+   "title": "पहले यह जान लो: पैसा, bank और payment की बुनियाद",
+   "pages": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+   ]
+  },
+  "parts": [
+   {
+    "part_id": "pre1",
+    "item_ids": [
+     "pre1"
+    ],
+    "type": "none",
+    "questions": [
+     "what"
+    ],
+    "focus": "prerequisite: Purchases, prices, debts and payments due later: explain it simply with an everyday example"
+   },
+   {
+    "part_id": "pre2",
+    "item_ids": [
+     "pre2"
+    ],
+    "type": "none",
+    "questions": [
+     "what"
+    ],
+    "focus": "prerequisite: Bank balances, deposits, loans and interest: explain it simply with an everyday example"
+   },
+   {
+    "part_id": "pre3",
+    "item_ids": [
+     "pre3"
+    ],
+    "type": "none",
+    "questions": [
+     "what"
+    ],
+    "focus": "prerequisite: Denominations, monetary arithmetic, percentages and minimum–maximum limits: explain it simply with an everyday example"
+   },
+   {
+    "part_id": "pre4",
+    "item_ids": [
+     "pre4"
+    ],
+    "type": "none",
+    "questions": [
+     "what"
+    ],
+    "focus": "prerequisite: Purchasing power, inflation, scarcity and liquidity: explain it simply with an everyday example"
+   },
+   {
+    "part_id": "pre5",
+    "item_ids": [
+     "pre5"
+    ],
+    "type": "none",
+    "questions": [
+     "what"
+    ],
+    "focus": "prerequisite: Central bank, commercial bank, government treasury and bank-to-bank settlement: explain it simply with an everyday example"
+   },
+   {
+    "part_id": "pre6",
+    "item_ids": [
+     "pre6"
+    ],
+    "type": "none",
+    "questions": [
+     "what"
+    ],
+    "focus": "prerequisite: Foreign currencies, exchange rates, reserves and demand–supply changes: explain it simply with an everyday example"
+   },
+   {
+    "part_id": "pre7",
+    "item_ids": [
+     "pre7"
+    ],
+    "type": "none",
+    "questions": [
+     "what"
+    ],
+    "focus": "prerequisite: Chronological reading: BCE/CE, centuries, dynasties and law versus…: explain it simply with an everyday example"
+   },
+   {
+    "part_id": "pre8",
+    "item_ids": [
+     "pre8"
+    ],
+    "type": "none",
+    "questions": [
+     "what"
+    ],
+    "focus": "prerequisite: Digital instructions, identity authentication, ledgers and payment interfaces: explain it simply with an everyday example"
+   }
+  ],
+  "rules": [
+   "G-01",
+   "G-02",
+   "G-03",
+   "G-04",
+   "G-05",
+   "G-06",
+   "G-07",
+   "S2-01",
+   "S2-02",
+   "S2-03",
+   "S2-04",
+   "S2-05",
+   "S2-06",
+   "S2-07",
+   "S2-08",
+   "W-01"
+  ],
+  "output": {
+   "schema_id": "bie.brain.lesson-script/3",
+   "mode": "full",
+   "max_output_tokens": 32000
+  },
+  "coverage": {
+   "must_cover": [
+    "pre1",
+    "pre2",
+    "pre3",
+    "pre4",
+    "pre5",
+    "pre6",
+    "pre7",
+    "pre8"
+   ],
+   "claim_field": "beats[].covers_item_ids",
+   "may_skip": []
+  },
+  "context": {
+   "map_slice": [
+    [
+     "c01",
+     "definition",
+     "1",
+     "Money: acceptance, scope and characteristics"
+    ],
+    [
+     "c02",
+     "classification",
+     "1",
+     "Four functions of money"
+    ],
+    [
+     "c03",
+     "cause_effect",
+     "2-3",
+     "Barter and the problems money solves"
+    ],
+    [
+     "c11",
+     "comparison",
+     "4-5",
+     "Legal tender, commemorative coins and acceptance limits"
+    ],
+    [
+     "c19",
+     "comparison",
+     "9-10",
+     "Promise clause, bearer status and legal promissory-note distinction"
+    ],
+    [
+     "c23",
+     "classification",
+     "11-12",
+     "Bank money and negotiable instruments"
+    ],
+    [
+     "c24",
+     "comparison",
+     "12",
+     "Demand drafts and overdraft facilities"
+    ],
+    [
+     "c16",
+     "classification",
+     "7",
+     "Digital Rupee and wholesale–retail pilots"
+    ],
+    [
+     "c26",
+     "structure",
+     "12-13",
+     "Payment ecosystem: RBI, NPCI and customer-facing providers"
+    ],
+    [
+     "c27",
+     "process",
+     "13",
+     "UPI transaction route, initiation and delegated payments"
+    ],
+    [
+     "c30",
+     "classification",
+     "15",
+     "RuPay cards, domestic role and overseas links"
+    ],
+    [
+     "c32",
+     "structure",
+     "16",
+     "Merchant Discount Rate and distribution of card-payment fees"
+    ],
+    [
+     "c36",
+     "classification",
+     "17-18",
+     "Money supply and the aggregate overview"
+    ],
+    [
+     "c37",
+     "cause_effect",
+     "18",
+     "M0: reserve money and the banking base"
+    ],
+    [
+     "c38",
+     "comparison",
+     "18",
+     "M1 and M2: transactions money and post-office savings"
+    ],
+    [
+     "c39",
+     "comparison",
+     "18-19",
+     "M3 and M4: broad money and coverage boundaries"
+    ],
+    [
+     "c08",
+     "timeline",
+     "3",
+     "Early Indian metallic-money sequence"
+    ],
+    [
+     "c14",
+     "timeline",
+     "6-7",
+     "Rupee origins, standardisation and colonial institutions"
+    ],
+    [
+     "c15",
+     "timeline",
+     "6-7",
+     "Independent rupee: decimalisation, exchange regime and symbol"
+    ],
+    [
+     "c18",
+     "structure",
+     "9",
+     "Indian banknotes: accessibility, identification and security"
+    ],
+    [
+     "c20",
+     "structure",
+     "10",
+     "MANI: denomination identification and accessibility"
+    ],
+    [
+     "c21",
+     "comparison",
+     "10",
+     "Demonetisation versus withdrawal from circulation"
+    ],
+    [
+     "c28",
+     "comparison",
+     "14",
+     "NEFT, RTGS, IMPS and UPI compared"
+    ],
+    [
+     "c31",
+     "definition",
+     "15-16",
+     "e-RUPI: a restricted prepaid voucher"
+    ],
+    [
+     "c05",
+     "comparison",
+     "2",
+     "Intrinsic versus extrinsic value"
+    ],
+    [
+     "c10",
+     "definition",
+     "4",
+     "Fiat money and international currency examples"
+    ],
+    [
+     "c35",
+     "comparison",
+     "17",
+     "Cryptocurrency and distributed ownership records"
+    ],
+    [
+     "c09",
+     "timeline",
+     "4",
+     "Gold-backed paper and selected paper-money milestones"
+    ],
+    [
+     "c12",
+     "cause_effect",
+     "5",
+     "Bretton Woods, Triffin's contradiction and the Nixon decision"
+    ],
+    [
+     "c13",
+     "cause_effect",
+     "6",
+     "Petrodollars and continuing dollar demand"
+    ],
+    [
+     "c17",
+     "cause_effect",
+     "8-9",
+     "Tughlaq's token currency: credibility and state control"
+    ],
+    [
+     "c33",
+     "cause_effect",
+     "16-17",
+     "Project Nexus: connecting national fast-payment systems"
+    ],
+    [
+     "c04",
+     "timeline",
+     "2",
+     "Schematic evolution of money"
+    ],
+    [
+     "c07",
+     "cause_effect",
+     "3",
+     "Metallic money and the move towards paper"
+    ],
+    [
+     "c34",
+     "comparison",
+     "17",
+     "Polymer notes: material, durability and rollout claims"
+    ],
+    [
+     "c25",
+     "comparison",
+     "12",
+     "MICR and IFSC banking codes"
+    ],
+    [
+     "c29",
+     "comparison",
+     "14-15",
+     "AePS, financial inclusion and BBPS"
+    ],
+    [
+     "c40",
+     "structure",
+     "19",
+     "Blockchain PYQ: ledger, applications and permission"
+    ],
+    [
+     "c42",
+     "comparison",
+     "19",
+     "BHIM PYQ: UPI reach and authentication"
+    ]
+   ],
+   "before": "",
+   "after": "Money क्या है, और हमारे कौन-से काम करता है?"
+  },
+  "source": {
+   "block_ids": [],
+   "page_images": []
+  }
+ },
+ "prefix_sha256": "23c7d0a0496ac0b3c93e62a5092f314af721254f233faf0aee711e7d9f3edb45",
+ "review_prefix_sha256": "ba0278f385dcd8587a93148353a22052fcd5a272bbbfca010232655943805f3c",
+ "inputs": {
+  "system": "BIE task prefix lesson.write_script/3 · rulebook canvas_profile@2026-10-27.2+content_types@2026-10-27.1+explanations@2026-10-24.1+level_profiles@2026-10-24.1+simple_hindi@2026-10-27.1+teacher_examples@2026-10-27.1+vision-2026-10-21@2026-10-21.14+visual_grammar@2026-10-26.2+visual_levels@2026-10-26.2 · content types 2026-10-27.1 · schema bie.brain.lesson-script/3\n\nYou are BIE's lesson section writing what the teacher says in one video lesson: you are the best teacher of Indian Economy\nfor UPSC / State PCS aspirants preparing for UPSC / State PCS, speaking to one student. BIE turns your beats into narration and animation, so write only\nwhat is spoken, beat by beat.\nCourse: \"3. Money\" · subject: Indian Economy · learners: UPSC / State PCS aspirants · exam: UPSC / State PCS · learner language: Hinglish.\n\nNavin's rules for this task (follow every one):\n[G-01] Everything taught comes from the book. Knowledge from outside the book is allowed only to explain the book better; it is marked as outside, standard textbook-level and correct. Never invent facts, numbers, names or quotations.\n[G-02] Work like the best teacher of these learners and this exam, not like a summariser. Depth beats brevity: nothing teachable on the page is skipped or compressed away, and every explanation makes a student understand, not just remember. Depth means understanding, not length: lesson narration keeps S2-01's time by cutting repetition and side-tracks, never book content.\n[G-03] Before the output, fill 'notes' with brief notes for the reviewer and for Navin: what this unit is about, the key questions a teacher must answer about it, the main decisions you made with a one-line reason each, and anything uncertain. Keep the notes short; they explain the work, they are not the work.\n[G-04] Learner-facing language follows the course setting. For the first course (UPSC / State PCS) it is Hinglish: natural Hindi sentence flow, English technical terms, the way Navin teaches.\n[G-05] Never drop or compress away what the book teaches to fit a length. If a unit of work is too large, it is split by BIE into smaller units; within a unit, the book's content is complete. Lesson narration has a time target (S2-01), met by cutting repetition and side-tracks, never book content.\n[G-06] BIE is the link between the learner and the book, like a teacher (Navin, 24 October 2026). The book is the base; BIE carries its text, easy or hard, into the learner's mind. Never just read the line out: every book line is opened (what its words mean, why it is so, where it is seen, what follows), at the depth of the level profile.\n[G-07] Two layers, like a film (Navin, 24 October 2026). The writer layer (understanding, plan, script) decides what is said and how deep, following the level profile and the book's own level. The presentation layer (director, video blocks, render) is the same skilled quality for every learner, from class 6 to postgraduate; only the detail shown follows the level, never the craft.\n[S2-01] Plan the chapter's videos from the chapter map: first one short 'pehle yeh jaan lo' video (5-8 minutes) that teaches the chapter's prerequisites, then the topic videos in teaching order. Narration is 6-8 minutes per book page (Navin, 23 October 2026; the 14-page tissue chapter about 85-110 minutes of topic videos, plus the prerequisite video): each topic video gets the share of the pages its items come from, and a very dense page may go up to 25% over when the plan says why. Understanding (Section 1) and the chapter map have no time limit.\n[S2-02] Write a spoken teacher script in beats with a natural teacher flow. Stories and analogies only where they genuinely help that topic. Every item the book teaches is taught and every teacher question answered from the book is answered; questions answered from outside the book are used only where they help and the time allows. Cut repetition and side-tracks, never book content.\n[S2-03] Prerequisites are only what this chapter directly needs, never a prerequisite of a prerequisite. They are taught, not named, in the chapter's 'pehle yeh jaan lo' video, each with a simple explanation and an example; a topic video may remind of them in at most 2 beats.\n[S2-04] Spoken Hinglish the way Navin teaches, in mixed script (Navin, 21 and 23 October 2026): Hindi words in Devanagari, English words, above all the book's technical terms, in Roman exactly as the book spells them, as in 'आज हम tissue के बारे में पढ़ेंगे'; a genuinely difficult Hindi word (formal, literary or technical; not in BIE's everyday word list rulebook/simple_hindi.json) gets its English word in brackets right after it, as in 'सतह (surface)'; the screen and subtitles show the bracket and the voice says 'सतह, यानी surface'. Never a bracket after an everyday word or inside an idiom or a fixed phrase ('आम तौर पर', not 'आम तौर (usually) पर'; 'नहीं के बराबर', not 'नहीं के बराबर (equal to)'). Never an English term in Devanagari or a Hindi word in Roman. Numbers as digits; short spoken sentences addressed to one student; questions to the student and natural pauses; no reading out of lists.\n[S2-05] Every beat states which chapter-map items it covers and which teacher questions it answers, and those claims must be true: the beat really explains that item and really answers that question.\n[S2-06] Teach every part of a video through the universal frame (what the process is, how it works, when and in what order, under which conditions, in what atmosphere) and through the teaching pattern of its content type, step by step in the pattern's order; every item on the task card is really taught, none only named.\n[S2-07] Open every book line in the script, never read it out (Navin, 24 October 2026). A new topic opens with a question about something the learner can see, then the name. After any book line the beat carries at least one of: the term's plain meaning with 'yaani' and an everyday image, a why step from a need, an example or the place. Speak complete sentences, not clipped notes. A classification is taught as a family: the overview tree, then every member in the same slots (layer and shape, why it is named so, its special feature, its function with its cause, where it is found by a zoom from the organ, its consequence), then the members compared and a memory trick. A pattern step may be skipped only with a stated reason; one recap per part and one closing recap.\n[S2-08] Apply first, name after (Navin, 27 October 2026): in an economics script a concept's real-world example runs BEFORE the beat that names the term: the example beats carry the example's numbers (₹50 → ₹65, buyers 2 → 12 → 3) and walk the mechanism step by step; then the term ('isliye ise demand-pull inflation kehte hain'), then the book's definition, then one line on where the learner meets it in real life. The example is the one Section 1 chose for the item (its place, actors, goods, numbers), economically correct and at the learner's level.\n[W-01] The narration never points at the book: no 'book के अनुसार', 'किताब कहती है', 'book says', 'page पर', 'textbook', 'NCERT' or any wording of that family (the list in this file, 'wording'). BIE teaches as a teacher: it says the fact itself. Navin accepts the copyright position (26 October 2026).\n\nBIE's content types (the type of an item decides its required questions and how it is taught, shown, played and drawn):\n- process · Process: Something that happens in steps or stages over time: a mechanism, a procedure, a cycle (photosynthesis, cell division, how a bill becomes law). Required questions: how (kaise), when (kab). Other questions: what (kya), where (kahan), why (kyun), consequence (nateeja).\n  Teaching pattern: 1) the result first (what it makes). 2) inputs and the place. 3) each step with its cause and its condition. 4) what breaks when a step fails. 5) the whole run once more at speed. 6) recap as a flow.\n- structure · Structure: Something made of parts arranged in space, each part with a function (a cell, a leaf, the heart, a machine, the Parliament). Required questions: what (kya), where (kahan). Other questions: how (kaise), why (kyun), which (kaun).\n  Teaching pattern: 1) the whole in context. 2) zoom into each part in a fixed path (outside to inside). 3) function of each part tied to its shape. 4) how the parts work together. 5) labelled recap.\n- classification · Classification: A group divided into kinds by a stated basis (types of tissues, kinds of rocks, kinds of writs). Required questions: which (kaun), difference (tulna). Other questions: what (kya), evidence (saboot), where (kahan).\n  Teaching pattern: 1) the overview tree first: the basis of division and every member named. 2) every member in the same slots: layer and shape, why it is named so, its special feature, its function with its cause, where it is found by a zoom from the organ, its consequence. 3) the members compared side by side, the most confused pair named directly. 4) a memory trick for the family.\n- comparison · Comparison: Two or more things set side by side on stated criteria (plant and animal cells, Lok Sabha and Rajya Sabha). Required questions: compare (tulna), difference (tulna). Other questions: what (kya), why (kyun), evidence (saboot).\n  Teaching pattern: 1) what is common. 2) criteria one at a time, both sides together. 3) the reason behind each difference. 4) the most confused pair named directly. 5) difference table as recap.\n- timeline · Timeline: Events placed in time: history, the development of an idea, stages of a life (the Revolt of 1857, evolution of cell theory). Required questions: when (kab), why (kyun). Other questions: who (kaun), where (kahan), consequence (nateeja).\n  Teaching pattern: 1) the period and its atmosphere. 2) events in order with their causes. 3) the people and their choices. 4) the turning point. 5) what changed after. 6) timeline recap.\n- cause_effect · Reasoning (cause and effect): Why something happens: causes, effects, conditions and chains of reasoning (why tissues specialise, why prices rise, why a law was needed). Required questions: why (kyun), how (kaise). Other questions: consequence (nateeja), evidence (saboot), exception (tulna).\n  Teaching pattern: 1) the effect students can see. 2) the cause. 3) each link of the chain with its mechanism. 4) the evidence. 5) the exception or limit. 6) the chain as recap.\n- facts_numbers · Facts and numbers: Stated facts, quantities, measurements, statistics and formulas (heart rate 72 per minute, 3,000 against 50,000 soldiers at Plassey, F = ma). Required questions: what (kya), evidence (saboot). Other questions: compare (tulna), why (kyun).\n  Teaching pattern: 1) the fact in one line. 2) the number shown to scale against something familiar. 3) where it comes from (book or outside, dated). 4) what it changes or proves. 5) a formula built term by term when there is one.\n- figure · Figure: A diagram, photo, map, graph or table drawing on the page whose content is visual (tissue pages 2, 7 and 8 are figures only). Required questions: what (kya), which (kaun). Other questions: how (kaise), why (kyun).\n  Teaching pattern: 1) what the figure is and why it is here. 2) a reading path across it (labels in order). 3) the one thing to remember from it. 4) link back to the text it explains.\n- definition · Definition: A term and its meaning as the book states it (tissue, meristem, sovereignty). Required questions: what (kya), evidence (saboot). Other questions: about (kya), why (kyun).\n  Teaching pattern: 1) a concrete example first. 2) the book's definition word by word. 3) a non-example that tests the boundary. 4) where the term is used next in the chapter.\n\nOutput schema (JSON):\n{\"additionalProperties\":false,\"properties\":{\"beats\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"answers\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"basis\":{\"enum\":[\"book\",\"outside\",\"mixed\"],\"type\":\"string\"},\"beat_id\":{\"type\":\"string\"},\"covers_item_ids\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"on_screen\":{\"type\":\"string\"},\"part_id\":{\"type\":\"string\"},\"purpose\":{\"enum\":[\"hook\",\"prerequisite\",\"explain\",\"example\",\"analogy\",\"story\",\"compare\",\"process_walkthrough\",\"misconception\",\"exam_tip\",\"question_to_student\",\"recap\",\"transition\"],\"type\":\"string\"},\"say\":{\"type\":\"string\"},\"step\":{\"type\":\"integer\"}},\"required\":[\"beat_id\",\"part_id\",\"step\",\"purpose\",\"say\",\"covers_item_ids\",\"answers\",\"on_screen\",\"basis\"],\"type\":\"object\"},\"type\":\"array\"},\"notes\":{\"additionalProperties\":false,\"properties\":{\"about\":{\"description\":\"What this unit of work is about and how it fits the whole (one or two sentences).\",\"type\":\"string\"},\"decisions\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"decision\":{\"type\":\"string\"},\"reason\":{\"type\":\"string\"}},\"required\":[\"decision\",\"reason\"],\"type\":\"object\"},\"type\":\"array\"},\"key_questions\":{\"description\":\"The key questions a teacher must answer about this unit.\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"uncertain\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"}},\"required\":[\"about\",\"key_questions\",\"decisions\",\"uncertain\"],\"type\":\"object\"},\"parts\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"frame\":{\"additionalProperties\":false,\"properties\":{\"atmosphere\":{\"type\":\"string\"},\"conditions\":{\"type\":\"string\"},\"how\":{\"type\":\"string\"},\"process\":{\"type\":\"string\"},\"when\":{\"type\":\"string\"}},\"required\":[\"process\",\"how\",\"when\",\"conditions\",\"atmosphere\"],\"type\":\"object\"},\"part_id\":{\"type\":\"string\"},\"skipped_steps\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"step\":{\"type\":\"integer\"},\"why\":{\"type\":\"string\"}},\"required\":[\"step\",\"why\"],\"type\":\"object\"},\"type\":\"array\"}},\"required\":[\"part_id\",\"frame\",\"skipped_steps\"],\"type\":\"object\"},\"type\":\"array\"},\"title\":{\"type\":\"string\"}},\"required\":[\"notes\",\"title\",\"parts\",\"beats\"],\"type\":\"object\"}\n\nHow BIE talks to you: every request is a task card (JSON) followed by its source. The card names the unit, its parts with their content type and required questions, the ids of the rules above that apply, the output, the ids you must cover and the context. The card is BIE's instruction; the source is the material.\nFor a write_script card:\n- card.parts are this video's parts: each has item ids, one content type and the questions it must answer. The source gives every item's\n  full content and its teacher questions with ids (\"p003-i4#q2\") and answers from BIE's chapter map; teach from them.\n- card.coverage.must_cover lists every item this video must teach: each must be in covers_item_ids of a beat that really explains it.\n  may_skip lists items you may leave out (not teachable). card.context.map_slice shows the related concepts for context only.\nHow to fill the JSON:\n- notes: brief notes for the reviewer: what this video is about, the key questions it must answer, your main decisions (order,\n  hook, analogy, where prerequisites are taught) with a reason each, what is uncertain.\n- title: the video title in the learner language.\n- parts: one entry per card part, with the universal frame of that part (S3-01), each in one or two lines of clear English for BIE:\n  process (what happens or what the thing does), how (how it works or happens), when (when, in what order, under which timing),\n  conditions (what must be true for it, or what changes it), atmosphere (the setting and situation a student should picture). Write\n  \"n/a: \" and the reason only where a question truly does not apply to that part. skipped_steps = the teaching-pattern steps of this\n  part you leave out because there is nothing real to say for them, each with the reason ([] when every step is done); at most half\n  of a pattern, never a step that has something real; BIE's code records the reason.\n- beats: the whole video in order. beat_id \"b1\", \"b2\" ...; part_id = the card part this beat teaches (\"\" for the opening hook, a\n  prerequisite taught first, a transition or the final recap); step = the number of the teaching-pattern step of that part's content type\n  that this beat performs (see the content types above; 0 when part_id is \"\" and for an exam-question part, whose type is \"none\");\n  the steps of a part's pattern appear in order, except the ones skipped with a reason; a classification part follows the family\n  pattern: the overview tree first, then every member in the same slots (layer and shape → why it is named so → its special feature\n  → its function with its cause → where it is found, by a zoom from the organ → its consequence), then the comparison, then a memory\n  trick; one recap per part and one closing recap for the video, never two recaps of the same thing;\n  purpose (hook, prerequisite, explain, example, analogy, story, compare, process_walkthrough, misconception, exam_tip,\n  question_to_student, recap, transition); say = the exact spoken words, one to four complete spoken sentences in Navin's Hinglish\n  (S2-04), the way a teacher speaks to one student, never clipped note-style lines (\"Irregular walls. Kaisi? Irregular.\" is a teacher's\n  beat; \"Location: kidney tubules, glandular ducts.\" is a note):\n  mixed script: Hindi words in Devanagari, English words (above all the book's technical terms, spelled as the book spells them) in\n  Roman, as in \"आज हम tissue के बारे में पढ़ेंगे\"; brackets only after a genuinely difficult Hindi word (see \"Brackets\" below; the\n  screen shows the bracket and the voice says \"सतह, यानी surface\"); never write an English term in Devanagari or a Hindi word in Roman;\n  numbers as digits; addressed to one student; covers_item_ids = the item ids this beat really explains; answers = the teacher question\n  ids this beat really answers; on_screen = what the student should see while hearing it (for the director); basis = book, outside or\n  mixed.\nOpening the book (S2-07; BIE is the link between the learner and the book, like a teacher, never a reader of the line): every new\ntopic (every concept and every prerequisite) opens with a question about something the learner can see, then the name. After any\nbook line, the beat carries at least one of: the term opened (\"yaani\" + its plain meaning + one everyday image), the why from a need or\na problem, or an example or place by a zoom from the organ. The source gives every item's unpack from Section 1 (its terms, why chain,\nexample, consequence, visual verb) and the locked explanations: speak them, in your own teacher's words, at the depth of the level\nprofile below. BIE's code sends back a beat whose English words are the book's and that opens nothing (\"dohraav pakad\"), a clipped\nsentence without a verb, a topic that opens without a question, and a second recap of the same thing.\nReal-world application (S2-08; Navin, 27 October 2026: \"economic concepts ko real world mein apply karke samjhao\"): for an economics\ndefinition, cause_effect or process item the source gives the real_world_example Section 1 chose (place, actors, goods, numbers before\n→ after, the steps with their mechanism links, the naming sentence, the real-life link). Run that example FIRST, in beats that cover\nthe item and carry its numbers as digits (\"dukaan mein chini ke 3 packet, ₹50 ka ek; kal 2 khareedar, aaj 12\"), walking the mechanism\nstep by step (purpose story or example); only then the beat that names the term (\"isliye ise demand-pull inflation kehte hain\"), then\nthe book's definition, then the real-life link. The opening question of such a topic asks about the situation, not the term. BIE's\ncode sends back a script whose naming beat comes before the example beats, or whose example beats carry none of the numbers.\nTime (S2-01): the source gives this video's narration time; BIE's code counts the spoken words (130 a minute) and the script must stay\nwithin it. Win the time by cutting repetition and side-tracks, never book content: every item in must_cover is taught and every\nteacher question whose basis is \"book\" is answered; questions answered from outside the book are used only where they help and the\ntime allows.\nPrerequisites (S2-03): in a topic video they were already taught in the prerequisite video; remind of one in at most 2 beats (purpose\n\"prerequisite\"). In the prerequisite video (card parts \"pre1\", \"pre2\" ...) teach each prerequisite simply, with an everyday example, in\nthe order given: part_id = the prerequisite id, step 0, covers_item_ids = the prerequisite ids the beat teaches, answers [].\nA beat introduces at most a few new items: BIE's code measures the load of every beat (0.4 per new item plus 1 per 50 spoken words, at\nmost 1.8), so a beat holds at most about 70 spoken words with one new item, 50 with two and 30 with three; split longer beats. Reply\nwith the JSON object only.\n\nLevel profile: UPSC / State PCS (level_profiles.json; learners: UPSC and State PCS aspirants, often from arts backgrounds, who need understanding more than technical vocabulary).\n- Terms: fewer technical terms: only the ones the exam asks, each opened with its plain meaning and an everyday image; a term the exam never asks is explained in words, not named.\n- Why: 2 step(s); a two-step why from a need the learner can feel, then its link to daily life, health or governance.\n- Where found: the main places, each linked to something the learner already knows (a disease, a food, a news item).\n- Exam beats: the PYQ pattern: how this fact has been asked (statement combinations, 'which is correct', odd one out) and the wording that traps.\n- Links: daily life, health, the news and earlier chapters of the same paper.\n\nHow real teachers open a book line (teacher example bank 2026-10-27.1; use these ways, in your own words):\n- Open with a question on something visible (every new topic and every new family member): Skin aur stomach, kidney ke upar ek outer layer hai ki nahi? Yeh kis se bani hai? — phir naam: epithelial tissue.\n- One everyday image per shape or function (every term that names a shape, a layer or a job): Chaadar bichhi ho to bistar bacha rehta hai = protective sheet. Cube wala game, har side barabar = cuboidal. Building ka pillar = columnar. Farsh ki tiles = squamous, isliye tessellated bhi kehte hain.\n- The word root where it helps (a term whose parts carry its meaning): Epi yaani upar; epithelium yaani upar ki parat. Slender yaani long aur narrow.\n- Why starts from a need (every why step): Pet mein HCl banta hai, isliye andar ek lining chahiye jo khud na jale. Cells bahar ki taraf hain, tootne ka chance zyada, isliye regeneration zyada.\n- Contrast with the neighbour (members of one family, and what the exam confuses): Simple epithelium ka kaam protection nahi, woh compound ka hai. Zyada layers = pathogen andar nahi aata.\n- Ask and repeat the key word (the one word the learner must keep): Irregular walls. Kaisi? Irregular.\n- Exam memory beats by level (after the understanding, by the level profile): Yaad rakhna: brush border PCT mein. Doosre naam: pavement, tessellated. M2B = muscle to bone = tendon, B2B = bone to bone = ligament.\n- Link to something already known (a new place or a new structure): Peritoneum, jaise lungs ke aas-paas pleura aur heart ke aas-paas pericardium: wahi kaam, pet ke andar.\n- Meaning with two or three real examples (an abstract word in the book): Sensory perception yaani pehchanna: thanda lagna, dard hona, pressure mehsoos karna.\n- Open the book's adjective (Navin's example) (a book line names a kind of surface, job or place without saying what it is): Book: 'epithelium absorptive aur secretive surfaces par milta hai'. Teacher: absorptive surface yaani jahan cheezein andar li jaati hain, jaise aant khane ke poshak tatva sokhti hai; secretive yaani jahan cells kuch bana kar bahar chhodte hain, jaise glands enzyme ya juice. Aur epithelium wahan kyon? Kyunki ek patli, lagi hui parat hi cheezon ko paar jaane de sakti hai aur bana kar chhod sakti hai.\n- Apply it in the real world first, then name it (Navin's sugar shop) (every economics concept (a definition, a cause-and-effect chain, a process): the example runs before the term is named): Ek kirana shop mein chini ke 3 packet hain, ₹50 ka ek. Kal 2 khareedar aaye the, aaj 12 aa gaye; sab ko chini chahiye par packet 3 hi hain. Dukandar daam ₹65 kar deta hai; ab sirf 3 log kharid paate hain, baaki 9 khaali haath. Zyada log, utna hi maal, isliye daam upar. Isliye ise demand-pull inflation kehte hain. Phir book ki definition. Phir: yahi aap Diwali se pehle sabzi mandi mein dekhte hain.\n\nBrackets (word list 2026-10-27.1): use everyday spoken Hindi freely, without brackets (मुख्य, वापस, बराबर, आसपास, इस्तेमाल, करके, जिससे ...). Only a genuinely difficult Hindi word (formal, literary or technical) gets its English word in brackets right after it, for example \"सतह (surface)\", \"घर्षण (friction)\", \"सघन (dense)\"; better still, use the book's English term or a simpler Hindi word. Never put a bracket inside an idiom or a fixed phrase: \"आम तौर पर\", not \"आम तौर (usually) पर\"; \"नहीं के बराबर\", not \"नहीं के बराबर (equal to)\". BIE's code removes a bracket after an everyday word and asks for one only after a Hindi word it does not know as everyday.",
+  "user": [
+   {
+    "type": "text",
+    "text": "BIE task card (JSON):\n{\"card\":\"bie.task-card/1\",\"card_id\":\"lesson.write_script@3-money/v0\",\"section\":\"lesson\",\"task\":\"write_script\",\"prefix\":{\"prefix_id\":\"lesson.write_script/3\",\"rulebook_version\":\"canvas_profile@2026-10-27.2+content_types@2026-10-27.1+explanations@2026-10-24.1+level_profiles@2026-10-24.1+simple_hindi@2026-10-27.1+teacher_examples@2026-10-27.1+vision-2026-10-21@2026-10-21.14+visual_grammar@2026-10-26.2+visual_levels@2026-10-26.2\",\"content_types_version\":\"2026-10-27.1\",\"schema_id\":\"bie.brain.lesson-script/3\",\"sha256\":\"23c7d0a0496ac0b3c93e62a5092f314af721254f233faf0aee711e7d9f3edb45\"},\"unit\":{\"unit_id\":\"v0\",\"title\":\"पहले यह जान लो: पैसा, bank और payment की बुनियाद\",\"pages\":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]},\"parts\":[{\"part_id\":\"pre1\",\"item_ids\":[\"pre1\"],\"type\":\"none\",\"questions\":[\"what\"],\"focus\":\"prerequisite: Purchases, prices, debts and payments due later: explain it simply with an everyday example\"},{\"part_id\":\"pre2\",\"item_ids\":[\"pre2\"],\"type\":\"none\",\"questions\":[\"what\"],\"focus\":\"prerequisite: Bank balances, deposits, loans and interest: explain it simply with an everyday example\"},{\"part_id\":\"pre3\",\"item_ids\":[\"pre3\"],\"type\":\"none\",\"questions\":[\"what\"],\"focus\":\"prerequisite: Denominations, monetary arithmetic, percentages and minimum–maximum limits: explain it simply with an everyday example\"},{\"part_id\":\"pre4\",\"item_ids\":[\"pre4\"],\"type\":\"none\",\"questions\":[\"what\"],\"focus\":\"prerequisite: Purchasing power, inflation, scarcity and liquidity: explain it simply with an everyday example\"},{\"part_id\":\"pre5\",\"item_ids\":[\"pre5\"],\"type\":\"none\",\"questions\":[\"what\"],\"focus\":\"prerequisite: Central bank, commercial bank, government treasury and bank-to-bank settlement: explain it simply with an everyday example\"},{\"part_id\":\"pre6\",\"item_ids\":[\"pre6\"],\"type\":\"none\",\"questions\":[\"what\"],\"focus\":\"prerequisite: Foreign currencies, exchange rates, reserves and demand–supply changes: explain it simply with an everyday example\"},{\"part_id\":\"pre7\",\"item_ids\":[\"pre7\"],\"type\":\"none\",\"questions\":[\"what\"],\"focus\":\"prerequisite: Chronological reading: BCE/CE, centuries, dynasties and law versus…: explain it simply with an everyday example\"},{\"part_id\":\"pre8\",\"item_ids\":[\"pre8\"],\"type\":\"none\",\"questions\":[\"what\"],\"focus\":\"prerequisite: Digital instructions, identity authentication, ledgers and payment interfaces: explain it simply with an everyday example\"}],\"rules\":[\"G-01\",\"G-02\",\"G-03\",\"G-04\",\"G-05\",\"G-06\",\"G-07\",\"S2-01\",\"S2-02\",\"S2-03\",\"S2-04\",\"S2-05\",\"S2-06\",\"S2-07\",\"S2-08\",\"W-01\"],\"output\":{\"schema_id\":\"bie.brain.lesson-script/3\",\"mode\":\"full\",\"max_output_tokens\":32000},\"coverage\":{\"must_cover\":[\"pre1\",\"pre2\",\"pre3\",\"pre4\",\"pre5\",\"pre6\",\"pre7\",\"pre8\"],\"claim_field\":\"beats[].covers_item_ids\",\"may_skip\":[]},\"context\":{\"map_slice\":[[\"c01\",\"definition\",\"1\",\"Money: acceptance, scope and characteristics\"],[\"c02\",\"classification\",\"1\",\"Four functions of money\"],[\"c03\",\"cause_effect\",\"2-3\",\"Barter and the problems money solves\"],[\"c11\",\"comparison\",\"4-5\",\"Legal tender, commemorative coins and acceptance limits\"],[\"c19\",\"comparison\",\"9-10\",\"Promise clause, bearer status and legal promissory-note distinction\"],[\"c23\",\"classification\",\"11-12\",\"Bank money and negotiable instruments\"],[\"c24\",\"comparison\",\"12\",\"Demand drafts and overdraft facilities\"],[\"c16\",\"classification\",\"7\",\"Digital Rupee and wholesale–retail pilots\"],[\"c26\",\"structure\",\"12-13\",\"Payment ecosystem: RBI, NPCI and customer-facing providers\"],[\"c27\",\"process\",\"13\",\"UPI transaction route, initiation and delegated payments\"],[\"c30\",\"classification\",\"15\",\"RuPay cards, domestic role and overseas links\"],[\"c32\",\"structure\",\"16\",\"Merchant Discount Rate and distribution of card-payment fees\"],[\"c36\",\"classification\",\"17-18\",\"Money supply and the aggregate overview\"],[\"c37\",\"cause_effect\",\"18\",\"M0: reserve money and the banking base\"],[\"c38\",\"comparison\",\"18\",\"M1 and M2: transactions money and post-office savings\"],[\"c39\",\"comparison\",\"18-19\",\"M3 and M4: broad money and coverage boundaries\"],[\"c08\",\"timeline\",\"3\",\"Early Indian metallic-money sequence\"],[\"c14\",\"timeline\",\"6-7\",\"Rupee origins, standardisation and colonial institutions\"],[\"c15\",\"timeline\",\"6-7\",\"Independent rupee: decimalisation, exchange regime and symbol\"],[\"c18\",\"structure\",\"9\",\"Indian banknotes: accessibility, identification and security\"],[\"c20\",\"structure\",\"10\",\"MANI: denomination identification and accessibility\"],[\"c21\",\"comparison\",\"10\",\"Demonetisation versus withdrawal from circulation\"],[\"c28\",\"comparison\",\"14\",\"NEFT, RTGS, IMPS and UPI compared\"],[\"c31\",\"definition\",\"15-16\",\"e-RUPI: a restricted prepaid voucher\"],[\"c05\",\"comparison\",\"2\",\"Intrinsic versus extrinsic value\"],[\"c10\",\"definition\",\"4\",\"Fiat money and international currency examples\"],[\"c35\",\"comparison\",\"17\",\"Cryptocurrency and distributed ownership records\"],[\"c09\",\"timeline\",\"4\",\"Gold-backed paper and selected paper-money milestones\"],[\"c12\",\"cause_effect\",\"5\",\"Bretton Woods, Triffin's contradiction and the Nixon decision\"],[\"c13\",\"cause_effect\",\"6\",\"Petrodollars and continuing dollar demand\"],[\"c17\",\"cause_effect\",\"8-9\",\"Tughlaq's token currency: credibility and state control\"],[\"c33\",\"cause_effect\",\"16-17\",\"Project Nexus: connecting national fast-payment systems\"],[\"c04\",\"timeline\",\"2\",\"Schematic evolution of money\"],[\"c07\",\"cause_effect\",\"3\",\"Metallic money and the move towards paper\"],[\"c34\",\"comparison\",\"17\",\"Polymer notes: material, durability and rollout claims\"],[\"c25\",\"comparison\",\"12\",\"MICR and IFSC banking codes\"],[\"c29\",\"comparison\",\"14-15\",\"AePS, financial inclusion and BBPS\"],[\"c40\",\"structure\",\"19\",\"Blockchain PYQ: ledger, applications and permission\"],[\"c42\",\"comparison\",\"19\",\"BHIM PYQ: UPI reach and authentication\"]],\"before\":\"\",\"after\":\"Money क्या है, और हमारे कौन-से काम करता है?\"},\"source\":{\"block_ids\":[],\"page_images\":[]}}\n\nVideo v0: पहले यह जान लो: पैसा, bank और payment की बुनियाद\nGoal: Learner खरीद और उधार, balance और loan, रकम और purchasing power, institutions और payment instructions के सीधे फर्क examples से समझेगा।\nOpening hook: दुकान से सामान अभी मिला, पैसे कल देने हैं—क्या खरीद और payment एक ही समय हुए?\nStory or analogy: Outside, standard textbook-level teaching examples: दुकान का उधार purchase और debt अलग करेगा; account में जमा रकम और borrowed रकम balance, loan और interest समझाएँगे। ₹100 का 2% और minimum–maximum की छोटी calculation होगी। एक ही रकम से कम सामान मिलना purchasing power, तुरंत खर्च हो सकना liquidity समझाएगा। 2 banks के customers का payment institutions और settlement अलग करेगा। Currency exchange का छोटा example exchange rate और reserves खोलेगा। छोटी timeline BCE/CE, century और law–implementation का फर्क बताएगी। App पर instruction, PIN से पहचान की जाँच और ledger में entry को अलग actions की तरह दिखाएँगे।\nPlanned minutes: 8\nNarration time (S2-01): 5.0-8.0 minutes, about 650-1040 spoken words (BIE counts 130 words a minute)\n\nPrerequisites to teach, in this order (id | name | basis | needed for | why):\npre1 | Purchases, prices, debts and payments due later | outside | Money: acceptance, scope and characteristics, Four functions of money, Barter and the problems money solves, Legal tender, commemorative coins and acceptance limits, Promise clause, bearer status and legal promissory-note distinction, Bank money and negotiable instruments, Demand drafts and overdraft facilities | Outside basis: Learners need to distinguish receiving goods now, expressing their price, owing an amount and settling that obligation later.\npre2 | Bank balances, deposits, loans and interest | outside | Money: acceptance, scope and characteristics, Digital Rupee and wholesale–retail pilots, Bank money and negotiable instruments, Demand drafts and overdraft facilities, Payment ecosystem: RBI, NPCI and customer-facing providers, UPI transaction route, initiation and delegated payments, RuPay cards, domestic role and overseas links, Merchant Discount Rate and distribution of card-payment fees, Money supply and the aggregate overview, M0: reserve money and the banking base, M1 and M2: transactions money and post-office savings, M3 and M4: broad money and coverage boundaries | Outside basis: Account money, borrowing beyond a balance, prepaid instruments and interest on used credit recur directly throughout the chapter.\npre3 | Denominations, monetary arithmetic, percentages and minimum–maximum limits | outside | Money: acceptance, scope and characteristics, Early Indian metallic-money sequence, Legal tender, commemorative coins and acceptance limits, Rupee origins, standardisation and colonial institutions, Independent rupee: decimalisation, exchange regime and symbol, Indian banknotes: accessibility, identification and security, MANI: denomination identification and accessibility, Demonetisation versus withdrawal from circulation, Demand drafts and overdraft facilities, NEFT, RTGS, IMPS and UPI compared, e-RUPI: a restricted prepaid voucher, Merchant Discount Rate and distribution of card-payment fees, M0: reserve money and the banking base, M1 and M2: transactions money and post-office savings, M3 and M4: broad money and coverage boundaries | Outside basis: Coin acceptance totals, decimalisation, OD availability, transaction thresholds and the 2% MDR example require direct calculation and correct interpretation of limits.\npre4 | Purchasing power, inflation, scarcity and liquidity | outside | Money: acceptance, scope and characteristics, Four functions of money, Intrinsic versus extrinsic value, Fiat money and international currency examples, Promise clause, bearer status and legal promissory-note distinction, Cryptocurrency and distributed ownership records, Money supply and the aggregate overview, M1 and M2: transactions money and post-office savings, M3 and M4: broad money and coverage boundaries | Outside basis: Distinguish nominal face value from what money buys, understand the book's scarcity argument, and compare readily spendable balances with longer-term savings.\npre5 | Central bank, commercial bank, government treasury and bank-to-bank settlement | outside | Gold-backed paper and selected paper-money milestones, Fiat money and international currency examples, Bretton Woods, Triffin's contradiction and the Nixon decision, Petrodollars and continuing dollar demand, Rupee origins, standardisation and colonial institutions, Digital Rupee and wholesale–retail pilots, Tughlaq's token currency: credibility and state control, Indian banknotes: accessibility, identification and security, Bank money and negotiable instruments, Payment ecosystem: RBI, NPCI and customer-facing providers, UPI transaction route, initiation and delegated payments, NEFT, RTGS, IMPS and UPI compared, Project Nexus: connecting national fast-payment systems, M0: reserve money and the banking base | Outside basis: The chapter repeatedly distinguishes issuers, deposit holders, regulators and settlement participants; treasury resources also explain historical monetary experiments.\npre6 | Foreign currencies, exchange rates, reserves and demand–supply changes | outside | Gold-backed paper and selected paper-money milestones, Fiat money and international currency examples, Bretton Woods, Triffin's contradiction and the Nixon decision, Petrodollars and continuing dollar demand, Rupee origins, standardisation and colonial institutions, Independent rupee: decimalisation, exchange regime and symbol, Project Nexus: connecting national fast-payment systems | Outside basis: Gold-linked currencies, dollar demand, silver-price effects, the managed float and cross-border payment links directly require these distinctions.\npre7 | Chronological reading: BCE/CE, centuries, dynasties and law versus implementation dates | outside | Schematic evolution of money, Metallic money and the move towards paper, Early Indian metallic-money sequence, Gold-backed paper and selected paper-money milestones, Bretton Woods, Triffin's contradiction and the Nixon decision, Petrodollars and continuing dollar demand, Rupee origins, standardisation and colonial institutions, Independent rupee: decimalisation, exchange regime and symbol, Digital Rupee and wholesale–retail pilots, Tughlaq's token currency: credibility and state control, MANI: denomination identification and accessibility, Demonetisation versus withdrawal from circulation, Polymer notes: material, durability and rollout claims | Outside basis: Learners must correctly order ancient coinage, medieval tokens, colonial currency laws and modern reforms without confusing periods, enactments and implementation.\npre8 | Digital instructions, identity authentication, ledgers and payment interfaces | outside | Digital Rupee and wholesale–retail pilots, MANI: denomination identification and accessibility, MICR and IFSC banking codes, Payment ecosystem: RBI, NPCI and customer-facing providers, UPI transaction route, initiation and delegated payments, NEFT, RTGS, IMPS and UPI compared, AePS, financial inclusion and BBPS, RuPay cards, domestic role and overseas links, e-RUPI: a restricted prepaid voucher, Project Nexus: connecting national fast-payment systems, Cryptocurrency and distributed ownership records, Blockchain PYQ: ledger, applications and permission, BHIM PYQ: UPI reach and authentication | Outside basis: Apps, PINs, biometrics, QR/SMS vouchers, electronic routing and distributed ownership records must be understood as distinct from the underlying money."
+   },
+   {
+    "type": "text",
+    "text": "Answer the card with the teacher script JSON."
+   }
+  ]
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "started_at": 1793131198.7898407,
+   "mode": "full",
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "541ff811a4dc699297a6c27192f695a3dfa595a932e6924ed8fbbd4ca80e2e1d",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 12985,
+    "output_tokens": 5004,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "Prerequisite video separating everyday money concepts before the chapter's topic lessons. All teaching examples are outside, standard textbook-level illustrations.",
+    "key_questions": [
+     "How do purchase, debt and payment differ?",
+     "How do balances, loans, percentages and purchasing power work?",
+     "How do institutions, currency exchange and digital payment records differ?",
+     "How should dates and implementation timelines be read?"
+    ],
+    "decisions": [
+     {
+      "decision": "Teach pre1–pre8 in the supplied order, using concrete situations before terms.",
+      "reason": "Each distinction supports the next without adding prerequisite chains."
+     },
+     {
+      "decision": "Use hypothetical amounts and dates, with no claims about current rates or payment limits.",
+      "reason": "The source supplies prerequisite topics rather than current numerical facts."
+     },
+     {
+      "decision": "Keep all prerequisite beats at step 0, with one short recap per part and a distinct closing application.",
+      "reason": "This follows the prerequisite-card format within the 5–8 minute allocation."
+     }
+    ],
+    "uncertain": []
+   },
+   "output": {
+    "notes": {
+     "about": "Prerequisite video separating everyday money concepts before the chapter's topic lessons. All teaching examples are outside, standard textbook-level illustrations.",
+     "key_questions": [
+      "How do purchase, debt and payment differ?",
+      "How do balances, loans, percentages and purchasing power work?",
+      "How do institutions, currency exchange and digital payment records differ?",
+      "How should dates and implementation timelines be read?"
+     ],
+     "decisions": [
+      {
+       "decision": "Teach pre1–pre8 in the supplied order, using concrete situations before terms.",
+       "reason": "Each distinction supports the next without adding prerequisite chains."
+      },
+      {
+       "decision": "Use hypothetical amounts and dates, with no claims about current rates or payment limits.",
+       "reason": "The source supplies prerequisite topics rather than current numerical facts."
+      },
+      {
+       "decision": "Keep all prerequisite beats at step 0, with one short recap per part and a distinct closing application.",
+       "reason": "This follows the prerequisite-card format within the 5–8 minute allocation."
+      }
+     ],
+     "uncertain": []
+    },
+    "title": "पहले यह जान लो: पैसा, bank और payment की बुनियाद",
+    "parts": [
+     {
+      "part_id": "pre1",
+      "frame": {
+       "process": "Distinguish buying goods, stating a price, owing money and paying.",
+       "how": "Follow a purchase on credit from delivery to repayment.",
+       "when": "Goods arrive today; payment is due tomorrow.",
+       "conditions": "The seller agrees to delayed payment.",
+       "atmosphere": "An everyday neighbourhood shop."
+      },
+      "skipped_steps": []
+     },
+     {
+      "part_id": "pre2",
+      "frame": {
+       "process": "Separate deposited funds, account balance, borrowing and interest.",
+       "how": "Track a deposit and a separate loan obligation.",
+       "when": "Deposit first, then borrowing and repayment over time.",
+       "conditions": "Interest depends on the agreed rate and period.",
+       "atmosphere": "A learner checking a bank account."
+      },
+      "skipped_steps": []
+     },
+     {
+      "part_id": "pre3",
+      "frame": {
+       "process": "Read denominations, amounts, percentages and transaction boundaries.",
+       "how": "Build equal totals and calculate a hypothetical percentage fee.",
+       "when": "Before comparing amounts or interpreting payment rules.",
+       "conditions": "Minimum and maximum are inclusive unless the wording specifies otherwise.",
+       "atmosphere": "Counting notes and reading a sample payment rule."
+      },
+      "skipped_steps": []
+     },
+     {
+      "part_id": "pre4",
+      "frame": {
+       "process": "Separate the amount held from buying capacity and spending readiness.",
+       "how": "Compare quantities bought, scarce goods and readily usable assets.",
+       "when": "Prices change or money is needed immediately.",
+       "conditions": "General price rises differ from an isolated price increase.",
+       "atmosphere": "A market visit and an urgent household payment."
+      },
+      "skipped_steps": []
+     },
+     {
+      "part_id": "pre5",
+      "frame": {
+       "process": "Distinguish customer banking, central banking, treasury and interbank settlement.",
+       "how": "Follow a payment between customers of two banks.",
+       "when": "Customer instructions lead to account changes and settlement between banks.",
+       "conditions": "Customer records and interbank obligations are separate layers.",
+       "atmosphere": "Two banks within India's monetary system."
+      },
+      "skipped_steps": []
+     },
+     {
+      "part_id": "pre6",
+      "frame": {
+       "process": "Understand currency conversion, exchange-rate movements and reserves.",
+       "how": "Compare the rupee cost of the same dollar amount at two hypothetical rates.",
+       "when": "Foreign payments create demand for another currency.",
+       "conditions": "Demand effects are explained with other influences held unchanged.",
+       "atmosphere": "An Indian buyer paying a foreign seller."
+      },
+      "skipped_steps": []
+     },
+     {
+      "part_id": "pre7",
+      "frame": {
+       "process": "Order historical periods and distinguish legal dates from implementation.",
+       "how": "Read BCE/CE markers, century boundaries and illustrative policy dates.",
+       "when": "Moving from ancient monetary history to modern reforms.",
+       "conditions": "Dates refer to different events; dynasties denote ruling families rather than single years.",
+       "atmosphere": "A simple historical timeline."
+      },
+      "skipped_steps": []
+     },
+     {
+      "part_id": "pre8",
+      "frame": {
+       "process": "Separate a payment interface, instruction, authentication and account record.",
+       "how": "Follow an illustrative digital payment from entry to recorded transfer.",
+       "when": "Details are entered, permission checked and records updated.",
+       "conditions": "An instruction or screenshot alone does not establish completed payment.",
+       "atmosphere": "A customer paying a shop through a phone."
+      },
+      "skipped_steps": []
+     }
+    ],
+    "beats": [
+     {
+      "beat_id": "b1",
+      "part_id": "pre1",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "दुकान से सामान आज मिल गया, पैसे कल देने हैं—क्या खरीद और payment साथ हुए? मान लो तुमने ₹100 का चावल लिया और दुकानदार कल पैसे लेने को तैयार है। सामान की खरीद आज हुई; उसका price ₹100 है, यानी उस सामान के बदले तय रकम।",
+      "covers_item_ids": [
+       "pre1"
+      ],
+      "answers": [],
+      "on_screen": "आज: चावल मिला; price ₹100। कल: payment due.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b2",
+      "part_id": "pre1",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "अभी ₹100 देना बाकी है, इसलिए यह तुम्हारा debt है, यानी उधार की देनदारी। कल पैसे देने की तय तारीख payment due बताती है। जब तुम ₹100 दे दोगे, payment हो जाएगा और इस खरीद का debt खत्म होगा।",
+      "covers_item_ids": [
+       "pre1"
+      ],
+      "answers": [],
+      "on_screen": "₹100 बाकी → debt; ₹100 चुकाया → debt खत्म",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b3",
+      "part_id": "pre1",
+      "step": 0,
+      "purpose": "recap",
+      "say": "तो price बताता है कितना देना है, purchase बताती है क्या खरीदा, debt बताता है कितना बाकी है और payment उसे चुकाता है। खरीद और payment एक साथ भी हो सकते हैं, अलग समय पर भी।",
+      "covers_item_ids": [
+       "pre1"
+      ],
+      "answers": [],
+      "on_screen": "Price ≠ purchase ≠ debt ≠ payment",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b4",
+      "part_id": "pre2",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "तुमने bank में ₹1,000 जमा किए और account में ₹1,000 दिखे—यह संख्या क्या बताती है? जमा की गई रकम deposit है; account में दर्ज रकम balance है। Deposit करने से balance बढ़ता है, और उस account से payment करने पर घटता है।",
+      "covers_item_ids": [
+       "pre2"
+      ],
+      "answers": [],
+      "on_screen": "Deposit ₹1,000 → account balance ₹1,000",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b5",
+      "part_id": "pre2",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "अब bank ने ₹500 उधार देकर उसी account में डाले, तो balance ₹1,500 दिख सकता है। लेकिन ₹500 तुम्हें लौटाने हैं; यह loan है, कमाई नहीं। उधार इस्तेमाल करने के बदले तय rate और समय के हिसाब से अतिरिक्त रकम देनी पड़ सकती है; उसे interest कहते हैं।",
+      "covers_item_ids": [
+       "pre2"
+      ],
+      "answers": [],
+      "on_screen": "Balance ₹1,500; अलग obligation: loan ₹500 + applicable interest",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b6",
+      "part_id": "pre2",
+      "step": 0,
+      "purpose": "recap",
+      "say": "याद रखो, balance देखकर अकेले यह नहीं पता चलता कि सारी रकम तुम्हारी कमाई है। Deposit जमा रकम है, loan लौटाने वाली रकम है और interest उसका अतिरिक्त खर्च हो सकता है; savings deposit पर bank तुम्हें interest दे भी सकता है।",
+      "covers_item_ids": [
+       "pre2"
+      ],
+      "answers": [],
+      "on_screen": "Deposit: जमा | Balance: दर्ज रकम | Loan: लौटाना | Interest: समय और rate से जुड़ा",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b7",
+      "part_id": "pre3",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "₹100 का 1 note और ₹50 के 2 notes—रकम बराबर है या अलग? दोनों में ₹100 हैं, लेकिन notes की denominations अलग हैं। Denomination यानी हर note या coin पर लिखी रकम; इसलिए गिनती और कुल value को अलग देखना है।",
+      "covers_item_ids": [
+       "pre3"
+      ],
+      "answers": [],
+      "on_screen": "1 × ₹100 = 2 × ₹50 = ₹100; ₹1 = 100 paise",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b8",
+      "part_id": "pre3",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "₹1 में 100 paise होते हैं, इसलिए 50 paise आधा रुपया है। अब मान लो ₹100 पर 2% fee है: 2% यानी हर 100 में 2, तो fee ₹2 हुई। उसी rate पर ₹500 की fee ₹10 होगी; rate वही है, रकम बढ़ने से fee बढ़ी।",
+      "covers_item_ids": [
+       "pre3"
+      ],
+      "answers": [],
+      "on_screen": "₹100 × 2/100 = ₹2; ₹500 × 2/100 = ₹10",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b9",
+      "part_id": "pre3",
+      "step": 0,
+      "purpose": "recap",
+      "say": "किसी काल्पनिक payment rule में minimum ₹100 और maximum ₹1,000 हो, तो ₹100 से ₹1,000 तक रकम चलेगी; ₹99 और ₹1,001 नहीं। यानी denomination हर note की रकम, percentage रकम का हिस्सा, minimum नीचे की सीमा और maximum ऊपर की सीमा है।",
+      "covers_item_ids": [
+       "pre3"
+      ],
+      "answers": [],
+      "on_screen": "Hypothetical permitted range: ₹100 ≤ payment ≤ ₹1,000",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b10",
+      "part_id": "pre4",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "₹100 से पहले 5 किलो अनाज मिलता था, अब 4 किलो मिलता है—क्या बदला? रकम ₹100 ही है, लेकिन उससे सामान कम मिला। यही purchasing power है, यानी रकम की खरीदने की ताकत; price ₹20 से ₹25 प्रति किलो हुआ तो यह ताकत घटी।",
+      "covers_item_ids": [
+       "pre4"
+      ],
+      "answers": [],
+      "on_screen": "₹100 ÷ ₹20 = 5 kg → ₹100 ÷ ₹25 = 4 kg",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b11",
+      "part_id": "pre4",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "अगर बहुत-सी चीजों के prices का सामान्य स्तर समय के साथ बढ़ता है, उसे inflation कहते हैं; सिर्फ 1 सब्जी महँगी होना काफी नहीं। दुकान में 2 packets बचे हों और 10 लोग चाहें, तो उपलब्ध माल चाहत के मुकाबले कम है। यह scarcity है; इससे price पर ऊपर जाने का दबाव पड़ सकता है।",
+      "covers_item_ids": [
+       "pre4"
+      ],
+      "answers": [],
+      "on_screen": "Inflation: general price level rises; scarcity: 2 packets, 10 buyers",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b12",
+      "part_id": "pre4",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "आज ₹500 चुकाने हों, तो जेब के ₹500 तुरंत दे सकते हो; जमीन का छोटा हिस्सा तुरंत बेचना आसान नहीं। बिना बड़ी कीमत घटाए किसी asset को payment में इस्तेमाल करने की आसानी liquidity है। यानी purchasing power पूछती है कितना खरीदोगे, scarcity पूछती है उपलब्ध कितना है, और liquidity पूछती है कितनी आसानी से खर्च करोगे।",
+      "covers_item_ids": [
+       "pre4"
+      ],
+      "answers": [],
+      "on_screen": "Purchasing power: कितना? Scarcity: कितना उपलब्ध? Liquidity: कितनी आसानी से?",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b13",
+      "part_id": "pre5",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "तुम bank A से दुकानदार के bank B में ₹100 भेजो, तो क्या दोनों customers का एक ही account है? नहीं, commercial banks ग्राहकों के deposits रखते और loans देते हैं। Central bank का काम अलग है; भारत में RBI currency और banking व्यवस्था से जुड़े मुख्य काम तथा banks के settlement की व्यवस्था संभालता है।",
+      "covers_item_ids": [
+       "pre5"
+      ],
+      "answers": [],
+      "on_screen": "Customer → commercial bank A; merchant → commercial bank B; RBI at system level",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b14",
+      "part_id": "pre5",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "तुम्हारे account से ₹100 घटने और दुकानदार के account में बढ़ने के साथ banks के बीच भी हिसाब निपटना होता है। इसी को bank-to-bank settlement कहते हैं; उसका तरीका payment system पर निर्भर करता है। Government treasury सरकारी पैसे और receipts तथा खर्च के हिसाब से जुड़ा है, आम ग्राहक का savings account नहीं।",
+      "covers_item_ids": [
+       "pre5"
+      ],
+      "answers": [],
+      "on_screen": "Customer accounts: −₹100 / +₹100; separate layer: interbank settlement; treasury: government funds",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b15",
+      "part_id": "pre5",
+      "step": 0,
+      "purpose": "recap",
+      "say": "इसलिए commercial bank, central bank और government treasury को एक चीज मत समझना। Customer का balance बदलना और banks का आपसी हिसाब निपटना भी अलग स्तर के काम हैं।",
+      "covers_item_ids": [
+       "pre5"
+      ],
+      "answers": [],
+      "on_screen": "Customer banking ≠ central banking ≠ treasury; account entry ≠ interbank settlement",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b16",
+      "part_id": "pre6",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "विदेशी seller को $10 देने हों, तो कितने रुपये चाहिए? मान लो $1 की कीमत ₹80 है; $10 के लिए ₹800 चाहिए। यह exchange rate है, यानी एक currency की दूसरी currency में कीमत; यहाँ dollar हमारे लिए foreign currency है।",
+      "covers_item_ids": [
+       "pre6"
+      ],
+      "answers": [],
+      "on_screen": "Hypothetical: $1 = ₹80 → $10 = ₹800",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b17",
+      "part_id": "pre6",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "अगर $1 अब ₹85 का हो, तो वही $10 खरीदने में ₹850 लगेंगे; dollar के मुकाबले rupee कमजोर हुआ। बाकी बातें समान रहें और dollar की demand बढ़े, supply न बढ़े, तो उसकी rupee कीमत बढ़ सकती है। Foreign exchange reserves देश के monetary authorities के पास रखे विदेशी assets का stock हैं, सिर्फ हाथ में रखे dollar notes नहीं।",
+      "covers_item_ids": [
+       "pre6"
+      ],
+      "answers": [],
+      "on_screen": "$1: ₹80 → ₹85; $10: ₹800 → ₹850; reserves: stock of foreign assets",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b18",
+      "part_id": "pre6",
+      "step": 0,
+      "purpose": "recap",
+      "say": "तो currency वह पैसा है, exchange rate उसकी दूसरी currency में कीमत है, और reserves रखे हुए assets का stock हैं। Demand–supply बदलने से rate बदल सकता है; rate और reserves एक ही संख्या नहीं हैं।",
+      "covers_item_ids": [
+       "pre6"
+      ],
+      "answers": [],
+      "on_screen": "Currency ≠ exchange rate ≠ reserves",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b19",
+      "part_id": "pre7",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Timeline पर 300 BCE और 200 BCE दिखें, तो पहले कौन आया? 300 BCE पहले आया; BCE में आगे बढ़ते हुए संख्या घटती है। CE में 200 के बाद 300 आता है; BCE और CE इतिहास की तारीखें लिखने के तरीके हैं, और इनके बीच year 0 नहीं होता।",
+      "covers_item_ids": [
+       "pre7"
+      ],
+      "answers": [],
+      "on_screen": "300 BCE → 200 BCE → 1 BCE → 1 CE → 200 CE → 300 CE",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b20",
+      "part_id": "pre7",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "1st century CE में years 1 से 100 आते हैं, इसलिए 20th century 1901 से 2000 है। Dynasty किसी ruling family का दौर बताती है, अकेला साल नहीं। और मान लो कोई law 2020 में बना, लागू 2021 में हुआ; दोनों dates सही हैं, लेकिन घटनाएँ अलग हैं।",
+      "covers_item_ids": [
+       "pre7"
+      ],
+      "answers": [],
+      "on_screen": "1st century: 1–100; 20th: 1901–2000; hypothetical law: 2020 enacted → 2021 implemented",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b21",
+      "part_id": "pre7",
+      "step": 0,
+      "purpose": "recap",
+      "say": "इतिहास पढ़ते समय पहले BCE या CE देखो, फिर century या dynasty का दौर पहचानो। किसी reform की date मिले तो पूछो—घोषणा हुई, law बना, या लागू हुआ? इससे अलग घटनाओं को एक तारीख मानने की गलती नहीं होगी।",
+      "covers_item_ids": [
+       "pre7"
+      ],
+      "answers": [],
+      "on_screen": "Check: era → period → event represented by date",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b22",
+      "part_id": "pre8",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Phone पर ₹100 भरकर button दबाया—क्या app ही पैसा है? App तुम्हारे सामने payment करने का interface है, यानी details भरने और काम चुनने की जगह। Pay दबाने पर digital instruction जाता है: किस account से, किसे, कितनी रकम भेजनी है।",
+      "covers_item_ids": [
+       "pre8"
+      ],
+      "answers": [],
+      "on_screen": "Interface → instruction: sender, receiver, ₹100",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b23",
+      "part_id": "pre8",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "PIN या biometric से system पहचान या payment की permission जाँचता है; इसे authentication कहते हैं। PIN रकम नहीं है, जाँच का साधन है। Payment पूरा होने पर accounts के हिसाब में entries होती हैं; इस रखे हुए record को ledger कहते हैं, जैसे जमा और खर्च का digital बही-खाता।",
+      "covers_item_ids": [
+       "pre8"
+      ],
+      "answers": [],
+      "on_screen": "Authentication: PIN / biometric; ledger: sender −₹100, receiver +₹100",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b24",
+      "part_id": "pre8",
+      "step": 0,
+      "purpose": "recap",
+      "say": "QR scan करना details पढ़ना हो सकता है, instruction भेजना transfer की माँग है, authentication permission की जाँच है और ledger हिसाब रखता है। इसलिए सिर्फ screenshot या button दब जाना completed payment का प्रमाण नहीं; सही transaction status और account record देखना जरूरी है।",
+      "covers_item_ids": [
+       "pre8"
+      ],
+      "answers": [],
+      "on_screen": "Interface ≠ instruction ≠ authentication ≠ ledger; verify completion",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b25",
+      "part_id": "",
+      "step": 0,
+      "purpose": "recap",
+      "say": "अब ₹100 का सामान लेकर कल app से चुकाने की पूरी तस्वीर सोचो। खरीद आज हुई, debt कल तक रहा, और payment ने उसे खत्म किया; app ने instruction दिया, banks ने हिसाब बदला। आगे money पढ़ते समय यही पूछना है—बात रकम की है, उसकी खरीदने की ताकत की, या उसे पहुँचाने की व्यवस्था की?",
+      "covers_item_ids": [
+       "pre1",
+       "pre8"
+      ],
+      "answers": [],
+      "on_screen": "खरीद → debt → digital payment → debt खत्म; next: Money क्या है?",
+      "basis": "outside"
+     }
+    ]
+   },
+   "code_problems": [
+    "[code] beat b1: the Hindi words ['रकम'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b2: the Hindi words ['देनदारी', 'तारीख'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b4: the Hindi words ['रकम', 'दर्ज'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b5: the Hindi words ['अतिरिक्त', 'रकम'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b6: the Hindi words ['रकम', 'अतिरिक्त'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b7: the Hindi words ['रकम'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b8: the Hindi words ['रुपया', 'रकम'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b9: the Hindi words ['काल्पनिक', 'रकम'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b10: the Hindi words ['किलो', 'रकम', 'प्रति'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b11: the Hindi words ['स्तर', 'चाहत'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b12: the Hindi words ['जेब'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b13: the Hindi words ['भारत'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b14: the Hindi words ['निपटना'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b15: the Hindi words ['निपटना', 'स्तर'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b16: the Hindi words ['रुपये'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b19: the Hindi words ['तारीखें'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b20: the Hindi words ['दौर'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b21: the Hindi words ['दौर', 'घोषणा', 'तारीख'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b22: the Hindi words ['रकम'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b23: the Hindi words ['रकम', 'साधन'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b25: the Hindi words ['रकम'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] the script speaks about 8.8 minutes; this video's narration time is 5.0-8.0 minutes (S2-01): cut repetition and side-tracks, never book content"
+   ],
+   "observed": {
+    "pattern_order": [],
+    "skipped_steps": {},
+    "objective_coverage": {
+     "coverage": 1.0,
+     "uncovered": []
+    },
+    "cognitive_load": {
+     "max": 1.52,
+     "abrupt_jumps": []
+    },
+    "duration": {
+     "spoken_minutes_at_130_wpm": 8.8,
+     "planned_minutes": 8,
+     "range": [
+      5.0,
+      8.0
+     ]
+    },
+    "dohraav": {
+     "beats": 25,
+     "judged": 17,
+     "restating": 0,
+     "share": 0.0,
+     "opened": 13,
+     "opened_share": 0.765,
+     "restating_beats": []
+    },
+    "real_world": []
+   },
+   "passed": false,
+   "finished_at": 1793131305.7866473
+  },
+  {
+   "round": 2,
+   "started_at": 1793131305.792428,
+   "mode": "patch",
+   "patch": {
+    "notes": {
+     "about": "Repair of the prerequisite video, preserving all eight topics and their examples.",
+     "key_questions": [
+      "Are all eight prerequisites still explained through examples?",
+      "Does the shorter narration preserve the essential distinctions?"
+     ],
+     "decisions": [
+      {
+       "decision": "Replace flagged vocabulary with plain Hindi or natural English technical words.",
+       "reason": "Meets the language checks without adding distracting brackets."
+      },
+      {
+       "decision": "Shorten explanations and remove two repetitive recap beats.",
+       "reason": "Brings narration comfortably below 8 minutes while preserving coverage."
+      }
+     ],
+     "uncertain": []
+    },
+    "replace_parts": [],
+    "replace_beats": [
+     {
+      "beat_id": "b1",
+      "part_id": "pre1",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "सामान आज मिला, पैसे कल देने हैं—क्या खरीद और payment साथ हुए? मान लो तुमने ₹100 का चावल लिया। खरीद आज हुई; price ₹100 है, यानी सामान के बदले तय पैसे।",
+      "covers_item_ids": [
+       "pre1"
+      ],
+      "answers": [],
+      "on_screen": "आज: चावल मिला; price ₹100। कल: payment due.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b2",
+      "part_id": "pre1",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "₹100 देना बाकी है, इसलिए यह तुम्हारा debt है, यानी उधार। कल तक चुकाना है, तो कल payment due है। ₹100 देने पर payment होगा और यह debt खत्म होगा।",
+      "covers_item_ids": [
+       "pre1"
+      ],
+      "answers": [],
+      "on_screen": "₹100 बाकी → debt; ₹100 चुकाया → debt खत्म",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b4",
+      "part_id": "pre2",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Bank में ₹1,000 जमा किए और account में ₹1,000 दिखे—यह संख्या क्या है? जमा पैसे deposit हैं; account में दिखने वाले पैसे balance हैं। Deposit से balance बढ़ता है, payment से घटता है।",
+      "covers_item_ids": [
+       "pre2"
+      ],
+      "answers": [],
+      "on_screen": "Deposit ₹1,000 → account balance ₹1,000",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b5",
+      "part_id": "pre2",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Bank ₹500 उधार देकर account में डाले, तो balance ₹1,500 हो सकता है। लेकिन ₹500 लौटाने हैं; यह loan है, कमाई नहीं। उधार के बदले तय rate और समय के हिसाब से extra पैसे लग सकते हैं; यह interest है।",
+      "covers_item_ids": [
+       "pre2"
+      ],
+      "answers": [],
+      "on_screen": "Balance ₹1,500; loan ₹500 लौटाना है; interest अलग",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b6",
+      "part_id": "pre2",
+      "step": 0,
+      "purpose": "recap",
+      "say": "इसलिए balance सारी कमाई नहीं बताता; उसमें loan के पैसे भी हो सकते हैं। Interest उधार का खर्च हो सकता है, जबकि savings deposit पर bank तुम्हें interest दे सकता है।",
+      "covers_item_ids": [
+       "pre2"
+      ],
+      "answers": [],
+      "on_screen": "Balance ≠ कमाई; loan पर interest देना, savings पर मिलना संभव",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b7",
+      "part_id": "pre3",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "₹100 का 1 note और ₹50 के 2 notes—कुल पैसे बराबर हैं? हाँ, दोनों ₹100 हैं, पर denominations अलग हैं। Denomination हर note या coin पर लिखी value है; notes की गिनती और total value अलग देखो।",
+      "covers_item_ids": [
+       "pre3"
+      ],
+      "answers": [],
+      "on_screen": "1 × ₹100 = 2 × ₹50; denominations: ₹100 और ₹50",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b8",
+      "part_id": "pre3",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "₹1 में 100 paise हैं; 50 paise आधा ₹1 है। ₹100 पर 2% fee हो, तो हर 100 में 2, यानी ₹2 लगेंगे। ₹500 पर उसी rate से ₹10 लगेंगे।",
+      "covers_item_ids": [
+       "pre3"
+      ],
+      "answers": [],
+      "on_screen": "₹1 = 100 paise; ₹100 × 2/100 = ₹2; ₹500 × 2/100 = ₹10",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b9",
+      "part_id": "pre3",
+      "step": 0,
+      "purpose": "recap",
+      "say": "मान लो payment का minimum ₹100 और maximum ₹1,000 है; ₹100 से ₹1,000 तक चलेगा, ₹99 या ₹1,001 नहीं। तो denomination note की value, percentage कुल का हिस्सा, minimum नीचे और maximum ऊपर की सीमा बताता है।",
+      "covers_item_ids": [
+       "pre3"
+      ],
+      "answers": [],
+      "on_screen": "Example: ₹100 ≤ payment ≤ ₹1,000",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b10",
+      "part_id": "pre4",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "₹100 से पहले 5 kg अनाज मिलता था, अब 4 kg—क्या बदला? Price ₹20 से ₹25 per kg हुआ; पैसे उतने ही, सामान कम। Purchasing power यानी पैसे से कितना खरीद सकते हो; यहाँ वह घटी।",
+      "covers_item_ids": [
+       "pre4"
+      ],
+      "answers": [],
+      "on_screen": "₹100 ÷ ₹20 = 5 kg → ₹100 ÷ ₹25 = 4 kg",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b11",
+      "part_id": "pre4",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "बहुत-सी चीजों के prices समय के साथ आम तौर पर बढ़ें, तो यह inflation है; सिर्फ 1 सब्जी महँगी होना काफी नहीं। 2 packets हों और 10 लोग खरीदना चाहें, तो जरूरत के मुकाबले माल कम है। यह scarcity है; इससे price बढ़ने का दबाव पड़ सकता है।",
+      "covers_item_ids": [
+       "pre4"
+      ],
+      "answers": [],
+      "on_screen": "Inflation: general price level rises; scarcity: 2 packets, 10 buyers",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b12",
+      "part_id": "pre4",
+      "step": 0,
+      "purpose": "recap",
+      "say": "आज ₹500 देने हों, तो cash तुरंत दे सकते हो; जमीन तुरंत बेचना आसान नहीं। बिना बड़ी कीमत घटाए किसी asset को payment के काम ला सकने की आसानी liquidity है। Purchasing power पूछती है कितना खरीदोगे, scarcity बताती है जरूरत के मुकाबले कमी, liquidity बताती है खर्च करने की आसानी।",
+      "covers_item_ids": [
+       "pre4"
+      ],
+      "answers": [],
+      "on_screen": "Purchasing power: कितना खरीदोगे? Scarcity: जरूरत के मुकाबले कमी; liquidity: खर्च करने की आसानी",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b13",
+      "part_id": "pre5",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "तुम bank A से दुकानदार के bank B में ₹100 भेजो—दोनों के accounts कहाँ हैं? Commercial banks में, जो deposits रखते और loans देते हैं। Central bank अलग है; India में RBI currency, banking और banks के settlement की व्यवस्था से जुड़े मुख्य काम संभालता है।",
+      "covers_item_ids": [
+       "pre5"
+      ],
+      "answers": [],
+      "on_screen": "Customer → commercial bank A; merchant → commercial bank B; RBI: central bank",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b14",
+      "part_id": "pre5",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "तुम्हारे account से ₹100 घटे, दुकानदार के account में बढ़े; banks को भी आपसी हिसाब चुकाना होता है। यह bank-to-bank settlement है; तरीका payment system पर निर्भर है। Government treasury सरकारी पैसे, receipts और खर्च से जुड़ा है, तुम्हारा savings account नहीं।",
+      "covers_item_ids": [
+       "pre5"
+      ],
+      "answers": [],
+      "on_screen": "Customer entries: −₹100 / +₹100; interbank settlement अलग; treasury: government funds",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b15",
+      "part_id": "pre5",
+      "step": 0,
+      "purpose": "recap",
+      "say": "Commercial bank ग्राहक का account रखता है; central bank पूरे banking system से जुड़े काम करता है; treasury सरकारी पैसे से जुड़ा है। Customer की entry और banks का आपसी settlement भी अलग काम हैं।",
+      "covers_item_ids": [
+       "pre5"
+      ],
+      "answers": [],
+      "on_screen": "Commercial bank ≠ central bank ≠ treasury; customer entry ≠ interbank settlement",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b16",
+      "part_id": "pre6",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "विदेशी seller को $10 देने हों, तो कितने rupees चाहिए? मान लो $1 = ₹80; तब ₹800 चाहिए। यह exchange rate है, यानी एक currency की दूसरी currency में कीमत; dollar यहाँ foreign currency है।",
+      "covers_item_ids": [
+       "pre6"
+      ],
+      "answers": [],
+      "on_screen": "Hypothetical: $1 = ₹80 → $10 = ₹800",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b17",
+      "part_id": "pre6",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "$1 अब ₹85 का हो, तो $10 के ₹850 लगेंगे; dollar के मुकाबले rupee कमजोर हुआ। बाकी बातें समान हों, dollar की demand बढ़े, supply न बढ़े, तो उसकी rupee कीमत बढ़ सकती है। Foreign exchange reserves monetary authorities के पास रखे विदेशी assets का stock हैं, सिर्फ dollar notes नहीं।",
+      "covers_item_ids": [
+       "pre6"
+      ],
+      "answers": [],
+      "on_screen": "$1: ₹80 → ₹85; $10: ₹800 → ₹850; reserves: foreign assets का stock",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b19",
+      "part_id": "pre7",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "300 BCE और 200 BCE में पहले कौन आया? 300 BCE; BCE में समय आगे बढ़े तो संख्या घटती है। CE में 200 के बाद 300 आता है; BCE और CE dates लिखने के तरीके हैं, इनके बीच year 0 नहीं है।",
+      "covers_item_ids": [
+       "pre7"
+      ],
+      "answers": [],
+      "on_screen": "300 BCE → 200 BCE → 1 BCE → 1 CE → 200 CE → 300 CE",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b20",
+      "part_id": "pre7",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "1st century CE में years 1–100 हैं; 20th century में 1901–2000। Dynasty किसी ruling family का समय बताती है, अकेला साल नहीं। मान लो law 2020 में बना, 2021 में लागू हुआ; दोनों dates सही हैं, घटनाएँ अलग हैं।",
+      "covers_item_ids": [
+       "pre7"
+      ],
+      "answers": [],
+      "on_screen": "1st century CE: 1–100; 20th: 1901–2000; example: law 2020 → implementation 2021",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b21",
+      "part_id": "pre7",
+      "step": 0,
+      "purpose": "recap",
+      "say": "पहले BCE या CE देखो, फिर century या dynasty का समय पहचानो। Reform की date पर पूछो—announcement हुआ, law बना या लागू हुआ? इससे अलग घटनाओं की dates नहीं मिलाओगे।",
+      "covers_item_ids": [
+       "pre7"
+      ],
+      "answers": [],
+      "on_screen": "Era → period → announcement / law / implementation",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b22",
+      "part_id": "pre8",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Phone पर ₹100 भरकर button दबाया—क्या app ही पैसा है? App payment interface है, यानी details भरने और काम चुनने की जगह। Pay दबाने पर digital instruction जाता है: किस account से, किसे, कितने पैसे भेजने हैं।",
+      "covers_item_ids": [
+       "pre8"
+      ],
+      "answers": [],
+      "on_screen": "Interface → instruction: sender, receiver, ₹100",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b23",
+      "part_id": "pre8",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "PIN या biometric से पहचान या payment की permission जाँची जाती है; यह authentication है। PIN पैसा नहीं, जाँच का तरीका है। Payment पूरा होने पर accounts में entries होती हैं; हिसाब रखने वाला यह record ledger है, जैसे जमा और खर्च की digital बही।",
+      "covers_item_ids": [
+       "pre8"
+      ],
+      "answers": [],
+      "on_screen": "Authentication: PIN / biometric; ledger: sender −₹100, receiver +₹100",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b25",
+      "part_id": "",
+      "step": 0,
+      "purpose": "recap",
+      "say": "अब ₹100 का सामान आज लेकर कल app से चुकाना सोचो। खरीद आज हुई, debt कल तक रहा, payment ने उसे खत्म किया; app ने instruction भेजा, banks ने हिसाब बदला। आगे पूछना है—बात पैसों की है, उनकी purchasing power की, या payment की व्यवस्था की?",
+      "covers_item_ids": [
+       "pre1",
+       "pre8"
+      ],
+      "answers": [],
+      "on_screen": "खरीद → debt → payment; आगे: Money क्या है?",
+      "basis": "outside"
+     }
+    ],
+    "insert_beats": [],
+    "remove_beat_ids": [
+     "b3",
+     "b18"
+    ]
+   },
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "9636e41067f89787c8c482fa4a27862fa05a461896b917f811c3734bbd64196b",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 18465,
+    "output_tokens": 2730,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "Prerequisite video separating everyday money concepts before the chapter's topic lessons. All teaching examples are outside, standard textbook-level illustrations.",
+    "key_questions": [
+     "How do purchase, debt and payment differ?",
+     "How do balances, loans, percentages and purchasing power work?",
+     "How do institutions, currency exchange and digital payment records differ?",
+     "How should dates and implementation timelines be read?"
+    ],
+    "decisions": [
+     {
+      "decision": "Teach pre1–pre8 in the supplied order, using concrete situations before terms.",
+      "reason": "Each distinction supports the next without adding prerequisite chains."
+     },
+     {
+      "decision": "Use hypothetical amounts and dates, with no claims about current rates or payment limits.",
+      "reason": "The source supplies prerequisite topics rather than current numerical facts."
+     },
+     {
+      "decision": "Keep all prerequisite beats at step 0, with one short recap per part and a distinct closing application.",
+      "reason": "This follows the prerequisite-card format within the 5–8 minute allocation."
+     },
+     {
+      "decision": "Replace flagged vocabulary with plain Hindi or natural English technical words.",
+      "reason": "Meets the language checks without adding distracting brackets."
+     },
+     {
+      "decision": "Shorten explanations and remove two repetitive recap beats.",
+      "reason": "Brings narration comfortably below 8 minutes while preserving coverage."
+     }
+    ],
+    "uncertain": []
+   },
+   "output": {
+    "notes": {
+     "about": "Prerequisite video separating everyday money concepts before the chapter's topic lessons. All teaching examples are outside, standard textbook-level illustrations.",
+     "key_questions": [
+      "How do purchase, debt and payment differ?",
+      "How do balances, loans, percentages and purchasing power work?",
+      "How do institutions, currency exchange and digital payment records differ?",
+      "How should dates and implementation timelines be read?"
+     ],
+     "decisions": [
+      {
+       "decision": "Teach pre1–pre8 in the supplied order, using concrete situations before terms.",
+       "reason": "Each distinction supports the next without adding prerequisite chains."
+      },
+      {
+       "decision": "Use hypothetical amounts and dates, with no claims about current rates or payment limits.",
+       "reason": "The source supplies prerequisite topics rather than current numerical facts."
+      },
+      {
+       "decision": "Keep all prerequisite beats at step 0, with one short recap per part and a distinct closing application.",
+       "reason": "This follows the prerequisite-card format within the 5–8 minute allocation."
+      },
+      {
+       "decision": "Replace flagged vocabulary with plain Hindi or natural English technical words.",
+       "reason": "Meets the language checks without adding distracting brackets."
+      },
+      {
+       "decision": "Shorten explanations and remove two repetitive recap beats.",
+       "reason": "Brings narration comfortably below 8 minutes while preserving coverage."
+      }
+     ],
+     "uncertain": []
+    },
+    "title": "पहले यह जान लो: पैसा, bank और payment की बुनियाद",
+    "parts": [
+     {
+      "part_id": "pre1",
+      "frame": {
+       "process": "Distinguish buying goods, stating a price, owing money and paying.",
+       "how": "Follow a purchase on credit from delivery to repayment.",
+       "when": "Goods arrive today; payment is due tomorrow.",
+       "conditions": "The seller agrees to delayed payment.",
+       "atmosphere": "An everyday neighbourhood shop."
+      },
+      "skipped_steps": []
+     },
+     {
+      "part_id": "pre2",
+      "frame": {
+       "process": "Separate deposited funds, account balance, borrowing and interest.",
+       "how": "Track a deposit and a separate loan obligation.",
+       "when": "Deposit first, then borrowing and repayment over time.",
+       "conditions": "Interest depends on the agreed rate and period.",
+       "atmosphere": "A learner checking a bank account."
+      },
+      "skipped_steps": []
+     },
+     {
+      "part_id": "pre3",
+      "frame": {
+       "process": "Read denominations, amounts, percentages and transaction boundaries.",
+       "how": "Build equal totals and calculate a hypothetical percentage fee.",
+       "when": "Before comparing amounts or interpreting payment rules.",
+       "conditions": "Minimum and maximum are inclusive unless the wording specifies otherwise.",
+       "atmosphere": "Counting notes and reading a sample payment rule."
+      },
+      "skipped_steps": []
+     },
+     {
+      "part_id": "pre4",
+      "frame": {
+       "process": "Separate the amount held from buying capacity and spending readiness.",
+       "how": "Compare quantities bought, scarce goods and readily usable assets.",
+       "when": "Prices change or money is needed immediately.",
+       "conditions": "General price rises differ from an isolated price increase.",
+       "atmosphere": "A market visit and an urgent household payment."
+      },
+      "skipped_steps": []
+     },
+     {
+      "part_id": "pre5",
+      "frame": {
+       "process": "Distinguish customer banking, central banking, treasury and interbank settlement.",
+       "how": "Follow a payment between customers of two banks.",
+       "when": "Customer instructions lead to account changes and settlement between banks.",
+       "conditions": "Customer records and interbank obligations are separate layers.",
+       "atmosphere": "Two banks within India's monetary system."
+      },
+      "skipped_steps": []
+     },
+     {
+      "part_id": "pre6",
+      "frame": {
+       "process": "Understand currency conversion, exchange-rate movements and reserves.",
+       "how": "Compare the rupee cost of the same dollar amount at two hypothetical rates.",
+       "when": "Foreign payments create demand for another currency.",
+       "conditions": "Demand effects are explained with other influences held unchanged.",
+       "atmosphere": "An Indian buyer paying a foreign seller."
+      },
+      "skipped_steps": []
+     },
+     {
+      "part_id": "pre7",
+      "frame": {
+       "process": "Order historical periods and distinguish legal dates from implementation.",
+       "how": "Read BCE/CE markers, century boundaries and illustrative policy dates.",
+       "when": "Moving from ancient monetary history to modern reforms.",
+       "conditions": "Dates refer to different events; dynasties denote ruling families rather than single years.",
+       "atmosphere": "A simple historical timeline."
+      },
+      "skipped_steps": []
+     },
+     {
+      "part_id": "pre8",
+      "frame": {
+       "process": "Separate a payment interface, instruction, authentication and account record.",
+       "how": "Follow an illustrative digital payment from entry to recorded transfer.",
+       "when": "Details are entered, permission checked and records updated.",
+       "conditions": "An instruction or screenshot alone does not establish completed payment.",
+       "atmosphere": "A customer paying a shop through a phone."
+      },
+      "skipped_steps": []
+     }
+    ],
+    "beats": [
+     {
+      "beat_id": "b1",
+      "part_id": "pre1",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "सामान आज मिला, पैसे कल देने हैं—क्या खरीद और payment साथ हुए? मान लो तुमने ₹100 का चावल लिया। खरीद आज हुई; price ₹100 है, यानी सामान के बदले तय पैसे।",
+      "covers_item_ids": [
+       "pre1"
+      ],
+      "answers": [],
+      "on_screen": "आज: चावल मिला; price ₹100। कल: payment due.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b2",
+      "part_id": "pre1",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "₹100 देना बाकी है, इसलिए यह तुम्हारा debt है, यानी उधार। कल तक चुकाना है, तो कल payment due है। ₹100 देने पर payment होगा और यह debt खत्म होगा।",
+      "covers_item_ids": [
+       "pre1"
+      ],
+      "answers": [],
+      "on_screen": "₹100 बाकी → debt; ₹100 चुकाया → debt खत्म",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b4",
+      "part_id": "pre2",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Bank में ₹1,000 जमा किए और account में ₹1,000 दिखे—यह संख्या क्या है? जमा पैसे deposit हैं; account में दिखने वाले पैसे balance हैं। Deposit से balance बढ़ता है, payment से घटता है।",
+      "covers_item_ids": [
+       "pre2"
+      ],
+      "answers": [],
+      "on_screen": "Deposit ₹1,000 → account balance ₹1,000",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b5",
+      "part_id": "pre2",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Bank ₹500 उधार देकर account में डाले, तो balance ₹1,500 हो सकता है। लेकिन ₹500 लौटाने हैं; यह loan है, कमाई नहीं। उधार के बदले तय rate और समय के हिसाब से extra पैसे लग सकते हैं; यह interest है।",
+      "covers_item_ids": [
+       "pre2"
+      ],
+      "answers": [],
+      "on_screen": "Balance ₹1,500; loan ₹500 लौटाना है; interest अलग",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b6",
+      "part_id": "pre2",
+      "step": 0,
+      "purpose": "recap",
+      "say": "इसलिए balance सारी कमाई नहीं बताता; उसमें loan के पैसे भी हो सकते हैं। Interest उधार का खर्च हो सकता है, जबकि savings deposit पर bank तुम्हें interest दे सकता है।",
+      "covers_item_ids": [
+       "pre2"
+      ],
+      "answers": [],
+      "on_screen": "Balance ≠ कमाई; loan पर interest देना, savings पर मिलना संभव",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b7",
+      "part_id": "pre3",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "₹100 का 1 note और ₹50 के 2 notes—कुल पैसे बराबर हैं? हाँ, दोनों ₹100 हैं, पर denominations अलग हैं। Denomination हर note या coin पर लिखी value है; notes की गिनती और total value अलग देखो।",
+      "covers_item_ids": [
+       "pre3"
+      ],
+      "answers": [],
+      "on_screen": "1 × ₹100 = 2 × ₹50; denominations: ₹100 और ₹50",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b8",
+      "part_id": "pre3",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "₹1 में 100 paise हैं; 50 paise आधा ₹1 है। ₹100 पर 2% fee हो, तो हर 100 में 2, यानी ₹2 लगेंगे। ₹500 पर उसी rate से ₹10 लगेंगे।",
+      "covers_item_ids": [
+       "pre3"
+      ],
+      "answers": [],
+      "on_screen": "₹1 = 100 paise; ₹100 × 2/100 = ₹2; ₹500 × 2/100 = ₹10",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b9",
+      "part_id": "pre3",
+      "step": 0,
+      "purpose": "recap",
+      "say": "मान लो payment का minimum ₹100 और maximum ₹1,000 है; ₹100 से ₹1,000 तक चलेगा, ₹99 या ₹1,001 नहीं। तो denomination note की value, percentage कुल का हिस्सा, minimum नीचे और maximum ऊपर की सीमा बताता है।",
+      "covers_item_ids": [
+       "pre3"
+      ],
+      "answers": [],
+      "on_screen": "Example: ₹100 ≤ payment ≤ ₹1,000",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b10",
+      "part_id": "pre4",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "₹100 से पहले 5 kg अनाज मिलता था, अब 4 kg—क्या बदला? Price ₹20 से ₹25 per kg हुआ; पैसे उतने ही, सामान कम। Purchasing power यानी पैसे से कितना खरीद सकते हो; यहाँ वह घटी।",
+      "covers_item_ids": [
+       "pre4"
+      ],
+      "answers": [],
+      "on_screen": "₹100 ÷ ₹20 = 5 kg → ₹100 ÷ ₹25 = 4 kg",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b11",
+      "part_id": "pre4",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "बहुत-सी चीजों के prices समय के साथ आम तौर पर बढ़ें, तो यह inflation है; सिर्फ 1 सब्जी महँगी होना काफी नहीं। 2 packets हों और 10 लोग खरीदना चाहें, तो जरूरत के मुकाबले माल कम है। यह scarcity है; इससे price बढ़ने का दबाव पड़ सकता है।",
+      "covers_item_ids": [
+       "pre4"
+      ],
+      "answers": [],
+      "on_screen": "Inflation: general price level rises; scarcity: 2 packets, 10 buyers",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b12",
+      "part_id": "pre4",
+      "step": 0,
+      "purpose": "recap",
+      "say": "आज ₹500 देने हों, तो cash तुरंत दे सकते हो; जमीन तुरंत बेचना आसान नहीं। बिना बड़ी कीमत घटाए किसी asset को payment के काम ला सकने की आसानी liquidity है। Purchasing power पूछती है कितना खरीदोगे, scarcity बताती है जरूरत के मुकाबले कमी, liquidity बताती है खर्च करने की आसानी।",
+      "covers_item_ids": [
+       "pre4"
+      ],
+      "answers": [],
+      "on_screen": "Purchasing power: कितना खरीदोगे? Scarcity: जरूरत के मुकाबले कमी; liquidity: खर्च करने की आसानी",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b13",
+      "part_id": "pre5",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "तुम bank A से दुकानदार के bank B में ₹100 भेजो—दोनों के accounts कहाँ हैं? Commercial banks में, जो deposits रखते और loans देते हैं। Central bank अलग है; India में RBI currency, banking और banks के settlement की व्यवस्था से जुड़े मुख्य काम संभालता है।",
+      "covers_item_ids": [
+       "pre5"
+      ],
+      "answers": [],
+      "on_screen": "Customer → commercial bank A; merchant → commercial bank B; RBI: central bank",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b14",
+      "part_id": "pre5",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "तुम्हारे account से ₹100 घटे, दुकानदार के account में बढ़े; banks को भी आपसी हिसाब चुकाना होता है। यह bank-to-bank settlement है; तरीका payment system पर निर्भर है। Government treasury सरकारी पैसे, receipts और खर्च से जुड़ा है, तुम्हारा savings account नहीं।",
+      "covers_item_ids": [
+       "pre5"
+      ],
+      "answers": [],
+      "on_screen": "Customer entries: −₹100 / +₹100; interbank settlement अलग; treasury: government funds",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b15",
+      "part_id": "pre5",
+      "step": 0,
+      "purpose": "recap",
+      "say": "Commercial bank ग्राहक का account रखता है; central bank पूरे banking system से जुड़े काम करता है; treasury सरकारी पैसे से जुड़ा है। Customer की entry और banks का आपसी settlement भी अलग काम हैं।",
+      "covers_item_ids": [
+       "pre5"
+      ],
+      "answers": [],
+      "on_screen": "Commercial bank ≠ central bank ≠ treasury; customer entry ≠ interbank settlement",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b16",
+      "part_id": "pre6",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "विदेशी seller को $10 देने हों, तो कितने rupees चाहिए? मान लो $1 = ₹80; तब ₹800 चाहिए। यह exchange rate है, यानी एक currency की दूसरी currency में कीमत; dollar यहाँ foreign currency है।",
+      "covers_item_ids": [
+       "pre6"
+      ],
+      "answers": [],
+      "on_screen": "Hypothetical: $1 = ₹80 → $10 = ₹800",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b17",
+      "part_id": "pre6",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "$1 अब ₹85 का हो, तो $10 के ₹850 लगेंगे; dollar के मुकाबले rupee कमजोर हुआ। बाकी बातें समान हों, dollar की demand बढ़े, supply न बढ़े, तो उसकी rupee कीमत बढ़ सकती है। Foreign exchange reserves monetary authorities के पास रखे विदेशी assets का stock हैं, सिर्फ dollar notes नहीं।",
+      "covers_item_ids": [
+       "pre6"
+      ],
+      "answers": [],
+      "on_screen": "$1: ₹80 → ₹85; $10: ₹800 → ₹850; reserves: foreign assets का stock",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b19",
+      "part_id": "pre7",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "300 BCE और 200 BCE में पहले कौन आया? 300 BCE; BCE में समय आगे बढ़े तो संख्या घटती है। CE में 200 के बाद 300 आता है; BCE और CE dates लिखने के तरीके हैं, इनके बीच year 0 नहीं है।",
+      "covers_item_ids": [
+       "pre7"
+      ],
+      "answers": [],
+      "on_screen": "300 BCE → 200 BCE → 1 BCE → 1 CE → 200 CE → 300 CE",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b20",
+      "part_id": "pre7",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "1st century CE में years 1–100 हैं; 20th century में 1901–2000। Dynasty किसी ruling family का समय बताती है, अकेला साल नहीं। मान लो law 2020 में बना, 2021 में लागू हुआ; दोनों dates सही हैं, घटनाएँ अलग हैं।",
+      "covers_item_ids": [
+       "pre7"
+      ],
+      "answers": [],
+      "on_screen": "1st century CE: 1–100; 20th: 1901–2000; example: law 2020 → implementation 2021",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b21",
+      "part_id": "pre7",
+      "step": 0,
+      "purpose": "recap",
+      "say": "पहले BCE या CE देखो, फिर century या dynasty का समय पहचानो। Reform की date पर पूछो—announcement हुआ, law बना या लागू हुआ? इससे अलग घटनाओं की dates नहीं मिलाओगे।",
+      "covers_item_ids": [
+       "pre7"
+      ],
+      "answers": [],
+      "on_screen": "Era → period → announcement / law / implementation",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b22",
+      "part_id": "pre8",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Phone पर ₹100 भरकर button दबाया—क्या app ही पैसा है? App payment interface है, यानी details भरने और काम चुनने की जगह। Pay दबाने पर digital instruction जाता है: किस account से, किसे, कितने पैसे भेजने हैं।",
+      "covers_item_ids": [
+       "pre8"
+      ],
+      "answers": [],
+      "on_screen": "Interface → instruction: sender, receiver, ₹100",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b23",
+      "part_id": "pre8",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "PIN या biometric से पहचान या payment की permission जाँची जाती है; यह authentication है। PIN पैसा नहीं, जाँच का तरीका है। Payment पूरा होने पर accounts में entries होती हैं; हिसाब रखने वाला यह record ledger है, जैसे जमा और खर्च की digital बही।",
+      "covers_item_ids": [
+       "pre8"
+      ],
+      "answers": [],
+      "on_screen": "Authentication: PIN / biometric; ledger: sender −₹100, receiver +₹100",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b24",
+      "part_id": "pre8",
+      "step": 0,
+      "purpose": "recap",
+      "say": "QR scan करना details पढ़ना हो सकता है, instruction भेजना transfer की माँग है, authentication permission की जाँच है और ledger हिसाब रखता है। इसलिए सिर्फ screenshot या button दब जाना completed payment का प्रमाण नहीं; सही transaction status और account record देखना जरूरी है।",
+      "covers_item_ids": [
+       "pre8"
+      ],
+      "answers": [],
+      "on_screen": "Interface ≠ instruction ≠ authentication ≠ ledger; verify completion",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b25",
+      "part_id": "",
+      "step": 0,
+      "purpose": "recap",
+      "say": "अब ₹100 का सामान आज लेकर कल app से चुकाना सोचो। खरीद आज हुई, debt कल तक रहा, payment ने उसे खत्म किया; app ने instruction भेजा, banks ने हिसाब बदला। आगे पूछना है—बात पैसों की है, उनकी purchasing power की, या payment की व्यवस्था की?",
+      "covers_item_ids": [
+       "pre1",
+       "pre8"
+      ],
+      "answers": [],
+      "on_screen": "खरीद → debt → payment; आगे: Money क्या है?",
+      "basis": "outside"
+     }
+    ]
+   },
+   "code_problems": [],
+   "observed": {
+    "pattern_order": [],
+    "skipped_steps": {},
+    "objective_coverage": {
+     "coverage": 1.0,
+     "uncovered": []
+    },
+    "cognitive_load": {
+     "max": 1.32,
+     "abrupt_jumps": []
+    },
+    "duration": {
+     "spoken_minutes_at_130_wpm": 6.9,
+     "planned_minutes": 8,
+     "range": [
+      5.0,
+      8.0
+     ]
+    },
+    "dohraav": {
+     "beats": 23,
+     "judged": 16,
+     "restating": 0,
+     "share": 0.0,
+     "opened": 11,
+     "opened_share": 0.688,
+     "restating_beats": []
+    },
+    "real_world": []
+   },
+   "review": {
+    "route": "codex-checker",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "d52fcbc856cfb10334e36974e20ace3b24bb497018804659f5dd74c53aae5ece",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 13451,
+    "output_tokens": 1696,
+    "cost_usd": 0.0,
+    "value": {
+     "notes": {
+      "about": "यह prerequisite video खरीद, bank balances, monetary calculations, institutions और digital payments के बीच जरूरी फर्क सिखाता है। क्रम और अधिकांश examples उपयोगी हैं, लेकिन कुछ prerequisites अभी केवल परिभाषा या कामों की सूची बनकर रह गए हैं।",
+      "key_questions": [
+       "खरीद, debt और payment कैसे अलग हैं?",
+       "Balance, loan और interest का आपसी संबंध क्या है?",
+       "Purchasing power, scarcity और liquidity में क्या फर्क है?",
+       "Central bank, treasury, reserves और settlement किस जरूरत को पूरा करते हैं?",
+       "Digital instruction, authentication और ledger अलग कैसे हैं?"
+      ],
+      "decisions": [
+       {
+        "decision": "Measured 6.9-minute duration स्वीकार की गई है।",
+        "reason": "यह prerequisite video की निर्धारित 5–8 minute सीमा में है।"
+       },
+       {
+        "decision": "पूरे chapter की topic coverage यहाँ अपेक्षित नहीं है।",
+        "reason": "इस card की mandatory coverage केवल pre1–pre8 है; source pages संलग्न नहीं हैं।"
+       },
+       {
+        "decision": "परिभाषा-मात्र वाले prerequisites और example-first की कमियों को blocking माना गया है।",
+        "reason": "ये आगे के monetary mechanisms की नींव हैं और S2-07 तथा S2-08 की स्पष्ट शर्तें हैं।"
+       }
+      ],
+      "uncertain": [
+       "आगे के topic videos में prerequisite reminders की संख्या इस script से जाँची नहीं जा सकती।"
+      ]
+     },
+     "verdict": "fail",
+     "problems": [
+      {
+       "where": "pre2 / b5–b6",
+       "problem": "Interest को extra payment बताकर नाम दिया गया है, लेकिन rate और period के साथ कोई numerical example नहीं चलता। Savings interest भी केवल बताया गया है। इससे borrowing cost और deposit return की तैयारी अधूरी रहती है तथा example-first नियम टूटता है।",
+       "fix": "नाम देने से पहले hypothetical example चलाएँ: ₹500 एक साल के लिए 10% पर लेने पर ₹50 extra और ₹550 repayment; फिर interest का अर्थ बताएँ। Savings पर भी छोटा hypothetical return दिखाएँ। जगह बनाने के लिए b6 और b25 की दोहराई गई recap घटाएँ।",
+       "severity": "blocking"
+      },
+      {
+       "where": "pre5 / b13–b15",
+       "problem": "Commercial banks और settlement का concrete संदर्भ है, लेकिन central bank के काम केवल 'currency, banking और settlement' की सूची हैं। Treasury भी 'सरकारी पैसे, receipts और खर्च' का पुनर्कथन है। इन दोनों institutions की जरूरत और वास्तविक भूमिका नहीं खुलती।",
+       "fix": "उसी ₹100 payment में समझाएँ कि customer accounts commercial banks में हैं, जबकि banks अपना आपसी दायित्व central-bank balances से निपटा सकते हैं। अलग छोटे hypothetical tax receipt और government expenditure से treasury खोलें। b15 की सूची-जैसी recap को इन explanations से बदलें।",
+       "severity": "blocking"
+      },
+      {
+       "where": "pre6 / b17",
+       "problem": "Foreign exchange reserves को केवल monetary authorities के foreign assets का stock कहा गया है। कोई concrete holding, उपयोग या जरूरत नहीं दिखाई गई; यह prerequisite वास्तव में खोला नहीं गया है।",
+       "fix": "Term से पहले hypothetical monetary authority की $100 holding और उसमें से $10 foreign currency उपलब्ध कराने का उदाहरण दिखाएँ; फिर reserve stock, उसका उपयोग और निजी व्यक्ति के dollars से उसका फर्क समझाएँ। b21 या b25 की repetitive recap घटाकर जगह बनाएँ।",
+       "severity": "blocking"
+      },
+      {
+       "where": "pre4 / b11",
+       "problem": "Inflation का नाम किसी numerical general-price example से पहले आता है। पिछला example केवल एक अनाज का price change है, जिसे script स्वयं inflation का पर्याप्त प्रमाण नहीं मानती।",
+       "fix": "पहले unchanged quantities वाली रोजमर्रा की basket की hypothetical cost ₹100 से ₹110 दिखाएँ, और बताएँ कि व्यापक prices बढ़ने पर यही pattern general price level में दिखता है; उसके बाद inflation नाम दें। b12 की repeated definitions संक्षिप्त करें।",
+       "severity": "blocking"
+      }
+     ],
+     "checklist": [
+      {
+       "rule_id": "G-01",
+       "met": true,
+       "note": "सभी beats outside-labelled हैं; rates और limits hypothetical हैं।"
+      },
+      {
+       "rule_id": "G-02",
+       "met": false,
+       "note": "Interest, central bank, treasury और reserves की prerequisite depth अपर्याप्त है।"
+      },
+      {
+       "rule_id": "G-03",
+       "met": true,
+       "note": "Maker notes में purpose, decisions, reasons और uncertainty field मौजूद हैं।"
+      },
+      {
+       "rule_id": "G-04",
+       "met": true,
+       "note": "भाषा सामान्यतः natural spoken Hinglish है।"
+      },
+      {
+       "rule_id": "G-05",
+       "met": true,
+       "note": "सभी mandatory prerequisite IDs शामिल हैं; कोई supplied book passage नहीं है।"
+      },
+      {
+       "rule_id": "G-06",
+       "met": false,
+       "note": "कुछ prerequisite statements केवल परिभाषा या सूची के स्तर पर हैं।"
+      },
+      {
+       "rule_id": "G-07",
+       "met": false,
+       "note": "अधिकांश explanations उपयुक्त हैं, लेकिन institutional foundations पर्याप्त नहीं खुलते।"
+      },
+      {
+       "rule_id": "S2-01",
+       "met": true,
+       "note": "पहला prerequisite video supplied order में है; measured duration 6.9 minutes है।"
+      },
+      {
+       "rule_id": "S2-02",
+       "met": false,
+       "note": "Flow अच्छा है, लेकिन कुछ mandatory prerequisites केवल नामित या संक्षेपित हैं।"
+      },
+      {
+       "rule_id": "S2-03",
+       "met": false,
+       "note": "Prerequisites सीधे relevant हैं, पर सभी वास्तव में पर्याप्त रूप से taught नहीं हैं।"
+      },
+      {
+       "rule_id": "S2-04",
+       "met": true,
+       "note": "Hindi Devanagari में, English terms Roman में और वाक्य सामान्यतः छोटे हैं।"
+      },
+      {
+       "rule_id": "S2-05",
+       "met": false,
+       "note": "pre5 और pre6 की coverage claims केवल आंशिक substantive teaching से समर्थित हैं।"
+      },
+      {
+       "rule_id": "S2-06",
+       "met": false,
+       "note": "Parts type none हैं; named content-type patterns लागू नहीं, लेकिन कुछ card items का अर्थ और mechanism अधूरा है।"
+      },
+      {
+       "rule_id": "S2-07",
+       "met": false,
+       "note": "Central bank, treasury और reserves मुख्यतः restatement हैं; recap में कुछ definitions दोहरती हैं।"
+      },
+      {
+       "rule_id": "S2-08",
+       "met": false,
+       "note": "Interest और inflation के numerical examples term से पहले नहीं चलते; reserves का example अनुपस्थित है।"
+      },
+      {
+       "rule_id": "W-01",
+       "met": true,
+       "note": "Learner-facing narration book, author या page की ओर इशारा नहीं करती।"
+      }
+     ]
+    }
+   },
+   "review_problems": [
+    "[reviewer] pre2 / b5–b6: Interest को extra payment बताकर नाम दिया गया है, लेकिन rate और period के साथ कोई numerical example नहीं चलता। Savings interest भी केवल बताया गया है। इससे borrowing cost और deposit return की तैयारी अधूरी रहती है तथा example-first नियम टूटता है। -> fix: नाम देने से पहले hypothetical example चलाएँ: ₹500 एक साल के लिए 10% पर लेने पर ₹50 extra और ₹550 repayment; फिर interest का अर्थ बताएँ। Savings पर भी छोटा hypothetical return दिखाएँ। जगह बनाने के लिए b6 और b25 की दोहराई गई recap घटाएँ।",
+    "[reviewer] pre5 / b13–b15: Commercial banks और settlement का concrete संदर्भ है, लेकिन central bank के काम केवल 'currency, banking और settlement' की सूची हैं। Treasury भी 'सरकारी पैसे, receipts और खर्च' का पुनर्कथन है। इन दोनों institutions की जरूरत और वास्तविक भूमिका नहीं खुलती। -> fix: उसी ₹100 payment में समझाएँ कि customer accounts commercial banks में हैं, जबकि banks अपना आपसी दायित्व central-bank balances से निपटा सकते हैं। अलग छोटे hypothetical tax receipt और government expenditure से treasury खोलें। b15 की सूची-जैसी recap को इन explanations से बदलें।",
+    "[reviewer] pre6 / b17: Foreign exchange reserves को केवल monetary authorities के foreign assets का stock कहा गया है। कोई concrete holding, उपयोग या जरूरत नहीं दिखाई गई; यह prerequisite वास्तव में खोला नहीं गया है। -> fix: Term से पहले hypothetical monetary authority की $100 holding और उसमें से $10 foreign currency उपलब्ध कराने का उदाहरण दिखाएँ; फिर reserve stock, उसका उपयोग और निजी व्यक्ति के dollars से उसका फर्क समझाएँ। b21 या b25 की repetitive recap घटाकर जगह बनाएँ।",
+    "[reviewer] pre4 / b11: Inflation का नाम किसी numerical general-price example से पहले आता है। पिछला example केवल एक अनाज का price change है, जिसे script स्वयं inflation का पर्याप्त प्रमाण नहीं मानती। -> fix: पहले unchanged quantities वाली रोजमर्रा की basket की hypothetical cost ₹100 से ₹110 दिखाएँ, और बताएँ कि व्यापक prices बढ़ने पर यही pattern general price level में दिखता है; उसके बाद inflation नाम दें। b12 की repeated definitions संक्षिप्त करें।"
+   ],
+   "review_minor": [],
+   "passed": false,
+   "finished_at": 1793131393.50112
+  },
+  {
+   "round": 3,
+   "started_at": 1793131393.5051239,
+   "mode": "patch",
+   "patch": {
+    "notes": {
+     "about": "Targeted prerequisite-script corrections make interest, inflation, public institutions and reserves concrete before naming them.",
+     "key_questions": [
+      "How do rate and time determine borrowing cost and deposit return?",
+      "How do central-bank balances and treasury records differ from customer accounts?",
+      "What makes reserves an official stock, and what does a general price increase mean?"
+     ],
+     "decisions": [
+      {
+       "decision": "Add hypothetical numerical examples before naming interest, inflation and reserves.",
+       "reason": "Makes each concept understandable through its mechanism rather than a label."
+      },
+      {
+       "decision": "Use the existing interbank payment and a small tax-and-spending example to explain institutional roles.",
+       "reason": "Shows why central-bank settlement and treasury accounting are needed."
+      },
+      {
+       "decision": "Remove repetitive recaps b6, b21 and b25 and shorten b12.",
+       "reason": "Pays for added explanations while retaining the closing recap in a shorter replacement b25."
+      }
+     ],
+     "uncertain": []
+    },
+    "replace_parts": [],
+    "replace_beats": [
+     {
+      "beat_id": "b5",
+      "part_id": "pre2",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Bank ₹500 उधार देकर account में डाले, तो balance ₹1,500 होगा, लेकिन ₹500 लौटाने हैं; यह loan है, कमाई नहीं। मान लो ₹500 एक साल के लिए 10% पर लिए। उस साल के ₹50 extra होंगे, इसलिए कुल ₹550 लौटाने होंगे।",
+      "covers_item_ids": [
+       "pre2"
+      ],
+      "answers": [],
+      "on_screen": "Hypothetical loan: ₹500 × 10/100 × 1 year = ₹50 extra; repayment ₹550",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b6",
+      "part_id": "pre2",
+      "step": 0,
+      "purpose": "recap",
+      "say": "उलटी तरफ, savings में ₹1,000 एक साल 5% पर रखो, तो ₹50 मिलेंगे और रकम ₹1,050 होगी। यही extra रकम interest है: loan पर तुम्हारा खर्च, deposit पर तुम्हारी कमाई। Rate और समय देखना जरूरी है; balance में उधार भी शामिल हो सकता है।",
+      "covers_item_ids": [
+       "pre2"
+      ],
+      "answers": [],
+      "on_screen": "Hypothetical savings: ₹1,000 × 5/100 × 1 year = ₹50; total ₹1,050; interest: cost or return",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b11",
+      "part_id": "pre4",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "मान लो रोजमर्रा की वही चीजें, उतनी ही मात्रा में, पहले ₹100 और अब ₹110 की पड़ती हैं। जब व्यापक तौर पर prices बढ़ने से ऐसा होता है, इसे inflation कहते हैं, यानी general price level का बढ़ना। सिर्फ 1 सब्जी महँगी होना काफी नहीं।",
+      "covers_item_ids": [
+       "pre4"
+      ],
+      "answers": [],
+      "on_screen": "Hypothetical unchanged basket: ₹100 → ₹110; broad price rise → inflation",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b12",
+      "part_id": "pre4",
+      "step": 0,
+      "purpose": "recap",
+      "say": "2 packets हों और 10 लोग चाहें—जरूरत के मुकाबले यह कमी scarcity है; price पर ऊपर जाने का दबाव पड़ सकता है। आज ₹500 देने हों, तो cash तैयार है, जमीन तुरंत बेचना कठिन। बिना बड़ी कीमत घटाए asset को खर्च लायक बनाने की आसानी liquidity है; यह कितना खरीद सकते हो, उससे अलग है।",
+      "covers_item_ids": [
+       "pre4"
+      ],
+      "answers": [],
+      "on_screen": "Scarcity: 2 packets / 10 buyers; liquidity: cash ready, land needs sale; purchasing power ≠ liquidity",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b13",
+      "part_id": "pre5",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "तुम bank A से दुकानदार के bank B में ₹100 भेजो—customer accounts कौन रखता है? ये commercial banks रखते हैं और loans भी देते हैं। तुम्हारे ₹100 घटे, दुकानदार के बढ़े; लेकिन अलग banks के बीच भी हिसाब चुकना चाहिए, सिर्फ customer की entry काफी नहीं।",
+      "covers_item_ids": [
+       "pre5"
+      ],
+      "answers": [],
+      "on_screen": "Customer accounts: bank A −₹100; bank B +₹100; banks also owe one another",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b14",
+      "part_id": "pre5",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "सरल उदाहरण में bank A के central-bank balance से ₹100 घटाकर bank B के balance में जोड़े जा सकते हैं। इससे banks का आपसी दायित्व चुकता है; यह bank-to-bank settlement है। India में central bank RBI है; वह banks को यह साझा settlement आधार देता है, तुम्हारा रोज का savings account नहीं रखता।",
+      "covers_item_ids": [
+       "pre5"
+      ],
+      "answers": [],
+      "on_screen": "Illustrative settlement at RBI: bank A balance −₹100 → bank B balance +₹100; actual route depends on system",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b15",
+      "part_id": "pre5",
+      "step": 0,
+      "purpose": "recap",
+      "say": "सरकार को ₹100 tax मिले और ₹60 खर्च हों—सरकारी हिसाब में ₹100 receipt, ₹60 expenditure और इस उदाहरण में ₹40 बाकी दर्ज होगा। सरकारी पैसों को पाने, रखने और खर्च का हिसाब सँभालने की व्यवस्था treasury है। यानी customer का account, banks का आपसी settlement और सरकार का हिसाब अलग स्तर हैं।",
+      "covers_item_ids": [
+       "pre5"
+      ],
+      "answers": [],
+      "on_screen": "Illustrative treasury account: tax +₹100; expenditure −₹60; remaining ₹40; three accounting levels",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b17",
+      "part_id": "pre6",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "$1 अब ₹85 का हो, तो $10 के ₹850 लगेंगे; dollar के मुकाबले rupee कमजोर हुआ। बाकी बातें समान हों, dollar की demand बढ़े और supply न बढ़े, तो उसकी rupee कीमत बढ़ सकती है।",
+      "covers_item_ids": [
+       "pre6"
+      ],
+      "answers": [],
+      "on_screen": "$1: ₹80 → ₹85; $10: ₹800 → ₹850; demand rises with unchanged supply → upward price pressure",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b25",
+      "part_id": "",
+      "step": 0,
+      "purpose": "recap",
+      "say": "अब खरीद और payment, balance और loan, रकम और purchasing power को अलग रखो। आगे इन्हीं फर्कों से समझेंगे कि Money क्या है और हमारे कौन-से काम करता है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Next: Money क्या है, और हमारे कौन-से काम करता है?",
+      "basis": "outside"
+     }
+    ],
+    "insert_beats": [
+     {
+      "after_beat_id": "b17",
+      "beat": {
+       "beat_id": "b17a",
+       "part_id": "pre6",
+       "step": 0,
+       "purpose": "prerequisite",
+       "say": "विदेशी currency की जरूरत पड़े तो official stock कहाँ काम आएगा? मान लो monetary authority के पास $100 हैं; जरूरत पर उसमें से $10 market में उपलब्ध कराए, तो $90 बचेंगे। इससे market को foreign currency मिलती है; यह हर व्यक्ति के bill चुकाने का वादा नहीं है।",
+       "covers_item_ids": [
+        "pre6"
+       ],
+       "answers": [],
+       "on_screen": "Hypothetical official holding: $100 − $10 supplied to market = $90",
+       "basis": "outside"
+      }
+     },
+     {
+      "after_beat_id": "b17a",
+      "beat": {
+       "beat_id": "b17b",
+       "part_id": "pre6",
+       "step": 0,
+       "purpose": "recap",
+       "say": "ऐसे official foreign assets का रखा हुआ stock foreign exchange reserves है; इसमें सिर्फ dollar notes नहीं होते। तुम्हारे निजी $100 इस official stock का हिस्सा नहीं हैं। Exchange rate कीमत बताता है, reserves जरूरत पर इस्तेमाल के लिए रखी official holding बताते हैं।",
+       "covers_item_ids": [
+        "pre6"
+       ],
+       "answers": [],
+       "on_screen": "Exchange rate = relative price; reserves = official foreign-asset stock; private dollars ≠ official reserves",
+       "basis": "outside"
+      }
+     }
+    ],
+    "remove_beat_ids": [
+     "b21"
+    ]
+   },
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "9434bd01de4f88ffae67e63fe3cfa1d98654d7e4abfed07a1db8c206bdbb903a",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 17400,
+    "output_tokens": 1662,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "Prerequisite video separating everyday money concepts before the chapter's topic lessons. All teaching examples are outside, standard textbook-level illustrations.",
+    "key_questions": [
+     "How do purchase, debt and payment differ?",
+     "How do balances, loans, percentages and purchasing power work?",
+     "How do institutions, currency exchange and digital payment records differ?",
+     "How should dates and implementation timelines be read?"
+    ],
+    "decisions": [
+     {
+      "decision": "Teach pre1–pre8 in the supplied order, using concrete situations before terms.",
+      "reason": "Each distinction supports the next without adding prerequisite chains."
+     },
+     {
+      "decision": "Use hypothetical amounts and dates, with no claims about current rates or payment limits.",
+      "reason": "The source supplies prerequisite topics rather than current numerical facts."
+     },
+     {
+      "decision": "Keep all prerequisite beats at step 0, with one short recap per part and a distinct closing application.",
+      "reason": "This follows the prerequisite-card format within the 5–8 minute allocation."
+     },
+     {
+      "decision": "Replace flagged vocabulary with plain Hindi or natural English technical words.",
+      "reason": "Meets the language checks without adding distracting brackets."
+     },
+     {
+      "decision": "Shorten explanations and remove two repetitive recap beats.",
+      "reason": "Brings narration comfortably below 8 minutes while preserving coverage."
+     },
+     {
+      "decision": "Add hypothetical numerical examples before naming interest, inflation and reserves.",
+      "reason": "Makes each concept understandable through its mechanism rather than a label."
+     },
+     {
+      "decision": "Use the existing interbank payment and a small tax-and-spending example to explain institutional roles.",
+      "reason": "Shows why central-bank settlement and treasury accounting are needed."
+     },
+     {
+      "decision": "Remove repetitive recaps b6, b21 and b25 and shorten b12.",
+      "reason": "Pays for added explanations while retaining the closing recap in a shorter replacement b25."
+     }
+    ],
+    "uncertain": []
+   },
+   "output": {
+    "notes": {
+     "about": "Prerequisite video separating everyday money concepts before the chapter's topic lessons. All teaching examples are outside, standard textbook-level illustrations.",
+     "key_questions": [
+      "How do purchase, debt and payment differ?",
+      "How do balances, loans, percentages and purchasing power work?",
+      "How do institutions, currency exchange and digital payment records differ?",
+      "How should dates and implementation timelines be read?"
+     ],
+     "decisions": [
+      {
+       "decision": "Teach pre1–pre8 in the supplied order, using concrete situations before terms.",
+       "reason": "Each distinction supports the next without adding prerequisite chains."
+      },
+      {
+       "decision": "Use hypothetical amounts and dates, with no claims about current rates or payment limits.",
+       "reason": "The source supplies prerequisite topics rather than current numerical facts."
+      },
+      {
+       "decision": "Keep all prerequisite beats at step 0, with one short recap per part and a distinct closing application.",
+       "reason": "This follows the prerequisite-card format within the 5–8 minute allocation."
+      },
+      {
+       "decision": "Replace flagged vocabulary with plain Hindi or natural English technical words.",
+       "reason": "Meets the language checks without adding distracting brackets."
+      },
+      {
+       "decision": "Shorten explanations and remove two repetitive recap beats.",
+       "reason": "Brings narration comfortably below 8 minutes while preserving coverage."
+      },
+      {
+       "decision": "Add hypothetical numerical examples before naming interest, inflation and reserves.",
+       "reason": "Makes each concept understandable through its mechanism rather than a label."
+      },
+      {
+       "decision": "Use the existing interbank payment and a small tax-and-spending example to explain institutional roles.",
+       "reason": "Shows why central-bank settlement and treasury accounting are needed."
+      },
+      {
+       "decision": "Remove repetitive recaps b6, b21 and b25 and shorten b12.",
+       "reason": "Pays for added explanations while retaining the closing recap in a shorter replacement b25."
+      }
+     ],
+     "uncertain": []
+    },
+    "title": "पहले यह जान लो: पैसा, bank और payment की बुनियाद",
+    "parts": [
+     {
+      "part_id": "pre1",
+      "frame": {
+       "process": "Distinguish buying goods, stating a price, owing money and paying.",
+       "how": "Follow a purchase on credit from delivery to repayment.",
+       "when": "Goods arrive today; payment is due tomorrow.",
+       "conditions": "The seller agrees to delayed payment.",
+       "atmosphere": "An everyday neighbourhood shop."
+      },
+      "skipped_steps": []
+     },
+     {
+      "part_id": "pre2",
+      "frame": {
+       "process": "Separate deposited funds, account balance, borrowing and interest.",
+       "how": "Track a deposit and a separate loan obligation.",
+       "when": "Deposit first, then borrowing and repayment over time.",
+       "conditions": "Interest depends on the agreed rate and period.",
+       "atmosphere": "A learner checking a bank account."
+      },
+      "skipped_steps": []
+     },
+     {
+      "part_id": "pre3",
+      "frame": {
+       "process": "Read denominations, amounts, percentages and transaction boundaries.",
+       "how": "Build equal totals and calculate a hypothetical percentage fee.",
+       "when": "Before comparing amounts or interpreting payment rules.",
+       "conditions": "Minimum and maximum are inclusive unless the wording specifies otherwise.",
+       "atmosphere": "Counting notes and reading a sample payment rule."
+      },
+      "skipped_steps": []
+     },
+     {
+      "part_id": "pre4",
+      "frame": {
+       "process": "Separate the amount held from buying capacity and spending readiness.",
+       "how": "Compare quantities bought, scarce goods and readily usable assets.",
+       "when": "Prices change or money is needed immediately.",
+       "conditions": "General price rises differ from an isolated price increase.",
+       "atmosphere": "A market visit and an urgent household payment."
+      },
+      "skipped_steps": []
+     },
+     {
+      "part_id": "pre5",
+      "frame": {
+       "process": "Distinguish customer banking, central banking, treasury and interbank settlement.",
+       "how": "Follow a payment between customers of two banks.",
+       "when": "Customer instructions lead to account changes and settlement between banks.",
+       "conditions": "Customer records and interbank obligations are separate layers.",
+       "atmosphere": "Two banks within India's monetary system."
+      },
+      "skipped_steps": []
+     },
+     {
+      "part_id": "pre6",
+      "frame": {
+       "process": "Understand currency conversion, exchange-rate movements and reserves.",
+       "how": "Compare the rupee cost of the same dollar amount at two hypothetical rates.",
+       "when": "Foreign payments create demand for another currency.",
+       "conditions": "Demand effects are explained with other influences held unchanged.",
+       "atmosphere": "An Indian buyer paying a foreign seller."
+      },
+      "skipped_steps": []
+     },
+     {
+      "part_id": "pre7",
+      "frame": {
+       "process": "Order historical periods and distinguish legal dates from implementation.",
+       "how": "Read BCE/CE markers, century boundaries and illustrative policy dates.",
+       "when": "Moving from ancient monetary history to modern reforms.",
+       "conditions": "Dates refer to different events; dynasties denote ruling families rather than single years.",
+       "atmosphere": "A simple historical timeline."
+      },
+      "skipped_steps": []
+     },
+     {
+      "part_id": "pre8",
+      "frame": {
+       "process": "Separate a payment interface, instruction, authentication and account record.",
+       "how": "Follow an illustrative digital payment from entry to recorded transfer.",
+       "when": "Details are entered, permission checked and records updated.",
+       "conditions": "An instruction or screenshot alone does not establish completed payment.",
+       "atmosphere": "A customer paying a shop through a phone."
+      },
+      "skipped_steps": []
+     }
+    ],
+    "beats": [
+     {
+      "beat_id": "b1",
+      "part_id": "pre1",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "सामान आज मिला, पैसे कल देने हैं—क्या खरीद और payment साथ हुए? मान लो तुमने ₹100 का चावल लिया। खरीद आज हुई; price ₹100 है, यानी सामान के बदले तय पैसे।",
+      "covers_item_ids": [
+       "pre1"
+      ],
+      "answers": [],
+      "on_screen": "आज: चावल मिला; price ₹100। कल: payment due.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b2",
+      "part_id": "pre1",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "₹100 देना बाकी है, इसलिए यह तुम्हारा debt है, यानी उधार। कल तक चुकाना है, तो कल payment due है। ₹100 देने पर payment होगा और यह debt खत्म होगा।",
+      "covers_item_ids": [
+       "pre1"
+      ],
+      "answers": [],
+      "on_screen": "₹100 बाकी → debt; ₹100 चुकाया → debt खत्म",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b4",
+      "part_id": "pre2",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Bank में ₹1,000 जमा किए और account में ₹1,000 दिखे—यह संख्या क्या है? जमा पैसे deposit हैं; account में दिखने वाले पैसे balance हैं। Deposit से balance बढ़ता है, payment से घटता है।",
+      "covers_item_ids": [
+       "pre2"
+      ],
+      "answers": [],
+      "on_screen": "Deposit ₹1,000 → account balance ₹1,000",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b5",
+      "part_id": "pre2",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Bank ₹500 उधार देकर account में डाले, तो balance ₹1,500 होगा, लेकिन ₹500 लौटाने हैं; यह loan है, कमाई नहीं। मान लो ₹500 एक साल के लिए 10% पर लिए। उस साल के ₹50 extra होंगे, इसलिए कुल ₹550 लौटाने होंगे।",
+      "covers_item_ids": [
+       "pre2"
+      ],
+      "answers": [],
+      "on_screen": "Hypothetical loan: ₹500 × 10/100 × 1 year = ₹50 extra; repayment ₹550",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b6",
+      "part_id": "pre2",
+      "step": 0,
+      "purpose": "recap",
+      "say": "उलटी तरफ, savings में ₹1,000 एक साल 5% पर रखो, तो ₹50 मिलेंगे और रकम ₹1,050 होगी। यही extra रकम interest है: loan पर तुम्हारा खर्च, deposit पर तुम्हारी कमाई। Rate और समय देखना जरूरी है; balance में उधार भी शामिल हो सकता है।",
+      "covers_item_ids": [
+       "pre2"
+      ],
+      "answers": [],
+      "on_screen": "Hypothetical savings: ₹1,000 × 5/100 × 1 year = ₹50; total ₹1,050; interest: cost or return",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b7",
+      "part_id": "pre3",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "₹100 का 1 note और ₹50 के 2 notes—कुल पैसे बराबर हैं? हाँ, दोनों ₹100 हैं, पर denominations अलग हैं। Denomination हर note या coin पर लिखी value है; notes की गिनती और total value अलग देखो।",
+      "covers_item_ids": [
+       "pre3"
+      ],
+      "answers": [],
+      "on_screen": "1 × ₹100 = 2 × ₹50; denominations: ₹100 और ₹50",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b8",
+      "part_id": "pre3",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "₹1 में 100 paise हैं; 50 paise आधा ₹1 है। ₹100 पर 2% fee हो, तो हर 100 में 2, यानी ₹2 लगेंगे। ₹500 पर उसी rate से ₹10 लगेंगे।",
+      "covers_item_ids": [
+       "pre3"
+      ],
+      "answers": [],
+      "on_screen": "₹1 = 100 paise; ₹100 × 2/100 = ₹2; ₹500 × 2/100 = ₹10",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b9",
+      "part_id": "pre3",
+      "step": 0,
+      "purpose": "recap",
+      "say": "मान लो payment का minimum ₹100 और maximum ₹1,000 है; ₹100 से ₹1,000 तक चलेगा, ₹99 या ₹1,001 नहीं। तो denomination note की value, percentage कुल का हिस्सा, minimum नीचे और maximum ऊपर की सीमा बताता है।",
+      "covers_item_ids": [
+       "pre3"
+      ],
+      "answers": [],
+      "on_screen": "Example: ₹100 ≤ payment ≤ ₹1,000",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b10",
+      "part_id": "pre4",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "₹100 से पहले 5 kg अनाज मिलता था, अब 4 kg—क्या बदला? Price ₹20 से ₹25 per kg हुआ; पैसे उतने ही, सामान कम। Purchasing power यानी पैसे से कितना खरीद सकते हो; यहाँ वह घटी।",
+      "covers_item_ids": [
+       "pre4"
+      ],
+      "answers": [],
+      "on_screen": "₹100 ÷ ₹20 = 5 kg → ₹100 ÷ ₹25 = 4 kg",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b11",
+      "part_id": "pre4",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "मान लो रोजमर्रा की वही चीजें, उतनी ही मात्रा में, पहले ₹100 और अब ₹110 की पड़ती हैं। जब व्यापक तौर पर prices बढ़ने से ऐसा होता है, इसे inflation कहते हैं, यानी general price level का बढ़ना। सिर्फ 1 सब्जी महँगी होना काफी नहीं।",
+      "covers_item_ids": [
+       "pre4"
+      ],
+      "answers": [],
+      "on_screen": "Hypothetical unchanged basket: ₹100 → ₹110; broad price rise → inflation",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b12",
+      "part_id": "pre4",
+      "step": 0,
+      "purpose": "recap",
+      "say": "2 packets हों और 10 लोग चाहें—जरूरत के मुकाबले यह कमी scarcity है; price पर ऊपर जाने का दबाव पड़ सकता है। आज ₹500 देने हों, तो cash तैयार है, जमीन तुरंत बेचना कठिन। बिना बड़ी कीमत घटाए asset को खर्च लायक बनाने की आसानी liquidity है; यह कितना खरीद सकते हो, उससे अलग है।",
+      "covers_item_ids": [
+       "pre4"
+      ],
+      "answers": [],
+      "on_screen": "Scarcity: 2 packets / 10 buyers; liquidity: cash ready, land needs sale; purchasing power ≠ liquidity",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b13",
+      "part_id": "pre5",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "तुम bank A से दुकानदार के bank B में ₹100 भेजो—customer accounts कौन रखता है? ये commercial banks रखते हैं और loans भी देते हैं। तुम्हारे ₹100 घटे, दुकानदार के बढ़े; लेकिन अलग banks के बीच भी हिसाब चुकना चाहिए, सिर्फ customer की entry काफी नहीं।",
+      "covers_item_ids": [
+       "pre5"
+      ],
+      "answers": [],
+      "on_screen": "Customer accounts: bank A −₹100; bank B +₹100; banks also owe one another",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b14",
+      "part_id": "pre5",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "सरल उदाहरण में bank A के central-bank balance से ₹100 घटाकर bank B के balance में जोड़े जा सकते हैं। इससे banks का आपसी दायित्व चुकता है; यह bank-to-bank settlement है। India में central bank RBI है; वह banks को यह साझा settlement आधार देता है, तुम्हारा रोज का savings account नहीं रखता।",
+      "covers_item_ids": [
+       "pre5"
+      ],
+      "answers": [],
+      "on_screen": "Illustrative settlement at RBI: bank A balance −₹100 → bank B balance +₹100; actual route depends on system",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b15",
+      "part_id": "pre5",
+      "step": 0,
+      "purpose": "recap",
+      "say": "सरकार को ₹100 tax मिले और ₹60 खर्च हों—सरकारी हिसाब में ₹100 receipt, ₹60 expenditure और इस उदाहरण में ₹40 बाकी दर्ज होगा। सरकारी पैसों को पाने, रखने और खर्च का हिसाब सँभालने की व्यवस्था treasury है। यानी customer का account, banks का आपसी settlement और सरकार का हिसाब अलग स्तर हैं।",
+      "covers_item_ids": [
+       "pre5"
+      ],
+      "answers": [],
+      "on_screen": "Illustrative treasury account: tax +₹100; expenditure −₹60; remaining ₹40; three accounting levels",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b16",
+      "part_id": "pre6",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "विदेशी seller को $10 देने हों, तो कितने rupees चाहिए? मान लो $1 = ₹80; तब ₹800 चाहिए। यह exchange rate है, यानी एक currency की दूसरी currency में कीमत; dollar यहाँ foreign currency है।",
+      "covers_item_ids": [
+       "pre6"
+      ],
+      "answers": [],
+      "on_screen": "Hypothetical: $1 = ₹80 → $10 = ₹800",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b17",
+      "part_id": "pre6",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "$1 अब ₹85 का हो, तो $10 के ₹850 लगेंगे; dollar के मुकाबले rupee कमजोर हुआ। बाकी बातें समान हों, dollar की demand बढ़े और supply न बढ़े, तो उसकी rupee कीमत बढ़ सकती है।",
+      "covers_item_ids": [
+       "pre6"
+      ],
+      "answers": [],
+      "on_screen": "$1: ₹80 → ₹85; $10: ₹800 → ₹850; demand rises with unchanged supply → upward price pressure",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b17a",
+      "part_id": "pre6",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "विदेशी currency की जरूरत पड़े तो official stock कहाँ काम आएगा? मान लो monetary authority के पास $100 हैं; जरूरत पर उसमें से $10 market में उपलब्ध कराए, तो $90 बचेंगे। इससे market को foreign currency मिलती है; यह हर व्यक्ति के bill चुकाने का वादा नहीं है।",
+      "covers_item_ids": [
+       "pre6"
+      ],
+      "answers": [],
+      "on_screen": "Hypothetical official holding: $100 − $10 supplied to market = $90",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b17b",
+      "part_id": "pre6",
+      "step": 0,
+      "purpose": "recap",
+      "say": "ऐसे official foreign assets का रखा हुआ stock foreign exchange reserves है; इसमें सिर्फ dollar notes नहीं होते। तुम्हारे निजी $100 इस official stock का हिस्सा नहीं हैं। Exchange rate कीमत बताता है, reserves जरूरत पर इस्तेमाल के लिए रखी official holding बताते हैं।",
+      "covers_item_ids": [
+       "pre6"
+      ],
+      "answers": [],
+      "on_screen": "Exchange rate = relative price; reserves = official foreign-asset stock; private dollars ≠ official reserves",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b19",
+      "part_id": "pre7",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "300 BCE और 200 BCE में पहले कौन आया? 300 BCE; BCE में समय आगे बढ़े तो संख्या घटती है। CE में 200 के बाद 300 आता है; BCE और CE dates लिखने के तरीके हैं, इनके बीच year 0 नहीं है।",
+      "covers_item_ids": [
+       "pre7"
+      ],
+      "answers": [],
+      "on_screen": "300 BCE → 200 BCE → 1 BCE → 1 CE → 200 CE → 300 CE",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b20",
+      "part_id": "pre7",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "1st century CE में years 1–100 हैं; 20th century में 1901–2000। Dynasty किसी ruling family का समय बताती है, अकेला साल नहीं। मान लो law 2020 में बना, 2021 में लागू हुआ; दोनों dates सही हैं, घटनाएँ अलग हैं।",
+      "covers_item_ids": [
+       "pre7"
+      ],
+      "answers": [],
+      "on_screen": "1st century CE: 1–100; 20th: 1901–2000; example: law 2020 → implementation 2021",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b22",
+      "part_id": "pre8",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Phone पर ₹100 भरकर button दबाया—क्या app ही पैसा है? App payment interface है, यानी details भरने और काम चुनने की जगह। Pay दबाने पर digital instruction जाता है: किस account से, किसे, कितने पैसे भेजने हैं।",
+      "covers_item_ids": [
+       "pre8"
+      ],
+      "answers": [],
+      "on_screen": "Interface → instruction: sender, receiver, ₹100",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b23",
+      "part_id": "pre8",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "PIN या biometric से पहचान या payment की permission जाँची जाती है; यह authentication है। PIN पैसा नहीं, जाँच का तरीका है। Payment पूरा होने पर accounts में entries होती हैं; हिसाब रखने वाला यह record ledger है, जैसे जमा और खर्च की digital बही।",
+      "covers_item_ids": [
+       "pre8"
+      ],
+      "answers": [],
+      "on_screen": "Authentication: PIN / biometric; ledger: sender −₹100, receiver +₹100",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b24",
+      "part_id": "pre8",
+      "step": 0,
+      "purpose": "recap",
+      "say": "QR scan करना details पढ़ना हो सकता है, instruction भेजना transfer की माँग है, authentication permission की जाँच है और ledger हिसाब रखता है। इसलिए सिर्फ screenshot या button दब जाना completed payment का प्रमाण नहीं; सही transaction status और account record देखना जरूरी है।",
+      "covers_item_ids": [
+       "pre8"
+      ],
+      "answers": [],
+      "on_screen": "Interface ≠ instruction ≠ authentication ≠ ledger; verify completion",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b25",
+      "part_id": "",
+      "step": 0,
+      "purpose": "recap",
+      "say": "अब खरीद और payment, balance और loan, रकम और purchasing power को अलग रखो। आगे इन्हीं फर्कों से समझेंगे कि Money क्या है और हमारे कौन-से काम करता है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Next: Money क्या है, और हमारे कौन-से काम करता है?",
+      "basis": "outside"
+     }
+    ]
+   },
+   "code_problems": [
+    "[code] beat b6: the Hindi words ['रकम'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b11: the Hindi words ['व्यापक'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b14: the Hindi words ['दायित्व'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b15: the Hindi words ['दर्ज', 'स्तर'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b17a: the Hindi words ['वादा'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b17b: the Hindi words ['निजी'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b25: the Hindi words ['रकम'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)"
+   ],
+   "observed": {
+    "pattern_order": [],
+    "skipped_steps": {},
+    "objective_coverage": {
+     "coverage": 1.0,
+     "uncovered": []
+    },
+    "cognitive_load": {
+     "max": 1.32,
+     "abrupt_jumps": []
+    },
+    "duration": {
+     "spoken_minutes_at_130_wpm": 7.5,
+     "planned_minutes": 8,
+     "range": [
+      5.0,
+      8.0
+     ]
+    },
+    "dohraav": {
+     "beats": 24,
+     "judged": 17,
+     "restating": 0,
+     "share": 0.0,
+     "opened": 13,
+     "opened_share": 0.765,
+     "restating_beats": []
+    },
+    "real_world": []
+   },
+   "passed": false,
+   "finished_at": 1793131429.4253218
+  }
+ ],
+ "avoid_rounds": [
+  1,
+  2,
+  3
+ ],
+ "cost_usd": 0.0,
+ "seconds": 230.6,
+ "navin_verdict": null
+}

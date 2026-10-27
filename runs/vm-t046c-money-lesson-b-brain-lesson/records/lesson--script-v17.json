@@ -1,0 +1,3321 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "lesson",
+ "unit": "script-v17",
+ "status": "passed",
+ "instructions_version": "lesson-script/5",
+ "rulebook_version": "canvas_profile@2026-10-27.2+content_types@2026-10-27.1+explanations@2026-10-24.1+level_profiles@2026-10-24.1+simple_hindi@2026-10-27.1+teacher_examples@2026-10-27.1+vision-2026-10-21@2026-10-21.14+visual_grammar@2026-10-26.2+visual_levels@2026-10-26.2",
+ "rulebook_digest": "c7a8f214a74b3cd890a86c1da6438388680054c0280419aaf4a02f2b5d53ad01",
+ "rules_used": [
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-04",
+  "G-05",
+  "G-06",
+  "G-07",
+  "S2-01",
+  "S2-02",
+  "S2-03",
+  "S2-04",
+  "S2-05",
+  "S2-06",
+  "S2-07",
+  "S2-08",
+  "W-01"
+ ],
+ "maker_route": "codex",
+ "reviewer_route": "codex-checker",
+ "maker_model": "gpt-6.1-sol",
+ "reviewer_model": "gpt-6.1-sol",
+ "reviewer_independence": "same_model_temporary",
+ "inputs_digest": "e70ab9ec6c038d5cbed8c635dc263b0860c064bd0dc6cdd707cb4322066f341a",
+ "card": {
+  "card": "bie.task-card/1",
+  "card_id": "lesson.write_script@3-money/v17",
+  "section": "lesson",
+  "task": "write_script",
+  "prefix": {
+   "prefix_id": "lesson.write_script/3",
+   "rulebook_version": "canvas_profile@2026-10-27.2+content_types@2026-10-27.1+explanations@2026-10-24.1+level_profiles@2026-10-24.1+simple_hindi@2026-10-27.1+teacher_examples@2026-10-27.1+vision-2026-10-21@2026-10-21.14+visual_grammar@2026-10-26.2+visual_levels@2026-10-26.2",
+   "content_types_version": "2026-10-27.1",
+   "schema_id": "bie.brain.lesson-script/3",
+   "sha256": "23c7d0a0496ac0b3c93e62a5092f314af721254f233faf0aee711e7d9f3edb45"
+  },
+  "unit": {
+   "unit_id": "v17",
+   "title": "PYQ अभ्यास: NPCI, inclusion, RuPay और MDR",
+   "pages": [
+    19,
+    20
+   ]
+  },
+  "parts": [
+   {
+    "part_id": "c43.1",
+    "item_ids": [
+     "p019-i27"
+    ],
+    "type": "cause_effect",
+    "questions": [
+     "why",
+     "how",
+     "who",
+     "consequence",
+     "evidence"
+    ],
+    "focus": "NPCI PYQ continued: inclusion and RuPay: teach these cause_effect items through the cause_effect pattern"
+   },
+   {
+    "part_id": "c43.2",
+    "item_ids": [
+     "p020-i2"
+    ],
+    "type": "facts_numbers",
+    "questions": [
+     "what",
+     "evidence",
+     "how"
+    ],
+    "focus": "NPCI PYQ continued: inclusion and RuPay: teach these facts_numbers items through the facts_numbers pattern"
+   },
+   {
+    "part_id": "c43.q",
+    "item_ids": [
+     "p019-i20",
+     "p020-i1",
+     "p020-i4",
+     "p020-i5",
+     "p020-i6",
+     "p020-i7"
+    ],
+    "type": "none",
+    "questions": [
+     "what",
+     "which",
+     "how",
+     "why"
+    ],
+    "focus": "NPCI PYQ continued: inclusion and RuPay: exam questions (PYQ); answer each as an exam tip once the concept is taught (step 0)"
+   },
+   {
+    "part_id": "c44.q",
+    "item_ids": [
+     "p020-i8",
+     "p020-i9",
+     "p020-i10",
+     "p020-i11",
+     "p020-i12"
+    ],
+    "type": "none",
+    "questions": [
+     "what",
+     "how",
+     "why",
+     "evidence",
+     "exception"
+    ],
+    "focus": "MDR PYQ: charge versus incentive or cashback: exam questions (PYQ); answer each as an exam tip once the concept is taught (step 0)"
+   }
+  ],
+  "rules": [
+   "G-01",
+   "G-02",
+   "G-03",
+   "G-04",
+   "G-05",
+   "G-06",
+   "G-07",
+   "S2-01",
+   "S2-02",
+   "S2-03",
+   "S2-04",
+   "S2-05",
+   "S2-06",
+   "S2-07",
+   "S2-08",
+   "W-01"
+  ],
+  "output": {
+   "schema_id": "bie.brain.lesson-script/3",
+   "mode": "full",
+   "max_output_tokens": 32000
+  },
+  "coverage": {
+   "must_cover": [
+    "p019-i27",
+    "p020-i2",
+    "p019-i20",
+    "p020-i1",
+    "p020-i4",
+    "p020-i5",
+    "p020-i6",
+    "p020-i7",
+    "p020-i8",
+    "p020-i9",
+    "p020-i10",
+    "p020-i11",
+    "p020-i12"
+   ],
+   "claim_field": "beats[].covers_item_ids",
+   "may_skip": []
+  },
+  "context": {
+   "map_slice": [
+    [
+     "p019-i27",
+     "cause_effect",
+     "19",
+     "1. NPCI helps in promoting the financial inclusion in the country."
+    ],
+    [
+     "p020-i2",
+     "facts_numbers",
+     "20",
+     "2. NPCI has launched RuPay, a card payment scheme."
+    ],
+    [
+     "p019-i20",
+     "none",
+     "19",
+     "Find the correct statement(s) [Prelims-2017] 1. NPCI helps in promoting the financial inclusion in…"
+    ],
+    [
+     "p020-i1",
+     "none",
+     "20",
+     "Continued from the previous page: NPCI statement-combination question; the visible statement…"
+    ],
+    [
+     "p020-i4",
+     "none",
+     "20",
+     "(a) 1 only"
+    ],
+    [
+     "p020-i5",
+     "none",
+     "20",
+     "(b) 2 only"
+    ],
+    [
+     "p020-i6",
+     "none",
+     "20",
+     "(c) Both 1 and 2"
+    ],
+    [
+     "p020-i7",
+     "none",
+     "20",
+     "(d) Neither 1 nor 2"
+    ],
+    [
+     "p020-i8",
+     "none",
+     "20",
+     "What is “Merchant Discount Rate” ? (IAS-Prelims 2018)"
+    ],
+    [
+     "p020-i9",
+     "none",
+     "20",
+     "A. The incentive given by a bank to a merchant for accepting payments through debit cards…"
+    ],
+    [
+     "p020-i10",
+     "none",
+     "20",
+     "B. The amount paid back by banks to their customers when they use debit cards for financial…"
+    ],
+    [
+     "p020-i11",
+     "definition",
+     "20",
+     "C. The charge to a merchant by a bank for accepting payments from his customers through the bank’s…"
+    ],
+    [
+     "p020-i12",
+     "none",
+     "20",
+     "D. The incentive given by the Government, to merchants for promoting digital payments by their…"
+    ],
+    [
+     "c43",
+     "classification",
+     "19-20",
+     "NPCI PYQ continued: inclusion and RuPay"
+    ],
+    [
+     "c44",
+     "definition",
+     "20",
+     "MDR PYQ: charge versus incentive or cashback"
+    ]
+   ],
+   "before": "PYQ अभ्यास: blockchain, RTGS–NEFT और BHIM",
+   "after": ""
+  },
+  "source": {
+   "block_ids": [
+    "p0019-b0038",
+    "p0019-b0039",
+    "p0019-b0039",
+    "p0020-b0002",
+    "p0020-b0004",
+    "p0020-b0005",
+    "p0020-b0006",
+    "p0020-b0007",
+    "p0020-b0008",
+    "p0020-b0009",
+    "p0020-b0010",
+    "p0020-b0011",
+    "p0020-b0012",
+    "p0020-b0013",
+    "p0020-b0014",
+    "p0020-b0015",
+    "p0020-b0016"
+   ],
+   "page_images": []
+  }
+ },
+ "prefix_sha256": "23c7d0a0496ac0b3c93e62a5092f314af721254f233faf0aee711e7d9f3edb45",
+ "review_prefix_sha256": "ba0278f385dcd8587a93148353a22052fcd5a272bbbfca010232655943805f3c",
+ "inputs": {
+  "system": "BIE task prefix lesson.write_script/3 · rulebook canvas_profile@2026-10-27.2+content_types@2026-10-27.1+explanations@2026-10-24.1+level_profiles@2026-10-24.1+simple_hindi@2026-10-27.1+teacher_examples@2026-10-27.1+vision-2026-10-21@2026-10-21.14+visual_grammar@2026-10-26.2+visual_levels@2026-10-26.2 · content types 2026-10-27.1 · schema bie.brain.lesson-script/3\n\nYou are BIE's lesson section writing what the teacher says in one video lesson: you are the best teacher of Indian Economy\nfor UPSC / State PCS aspirants preparing for UPSC / State PCS, speaking to one student. BIE turns your beats into narration and animation, so write only\nwhat is spoken, beat by beat.\nCourse: \"3. Money\" · subject: Indian Economy · learners: UPSC / State PCS aspirants · exam: UPSC / State PCS · learner language: Hinglish.\n\nNavin's rules for this task (follow every one):\n[G-01] Everything taught comes from the book. Knowledge from outside the book is allowed only to explain the book better; it is marked as outside, standard textbook-level and correct. Never invent facts, numbers, names or quotations.\n[G-02] Work like the best teacher of these learners and this exam, not like a summariser. Depth beats brevity: nothing teachable on the page is skipped or compressed away, and every explanation makes a student understand, not just remember. Depth means understanding, not length: lesson narration keeps S2-01's time by cutting repetition and side-tracks, never book content.\n[G-03] Before the output, fill 'notes' with brief notes for the reviewer and for Navin: what this unit is about, the key questions a teacher must answer about it, the main decisions you made with a one-line reason each, and anything uncertain. Keep the notes short; they explain the work, they are not the work.\n[G-04] Learner-facing language follows the course setting. For the first course (UPSC / State PCS) it is Hinglish: natural Hindi sentence flow, English technical terms, the way Navin teaches.\n[G-05] Never drop or compress away what the book teaches to fit a length. If a unit of work is too large, it is split by BIE into smaller units; within a unit, the book's content is complete. Lesson narration has a time target (S2-01), met by cutting repetition and side-tracks, never book content.\n[G-06] BIE is the link between the learner and the book, like a teacher (Navin, 24 October 2026). The book is the base; BIE carries its text, easy or hard, into the learner's mind. Never just read the line out: every book line is opened (what its words mean, why it is so, where it is seen, what follows), at the depth of the level profile.\n[G-07] Two layers, like a film (Navin, 24 October 2026). The writer layer (understanding, plan, script) decides what is said and how deep, following the level profile and the book's own level. The presentation layer (director, video blocks, render) is the same skilled quality for every learner, from class 6 to postgraduate; only the detail shown follows the level, never the craft.\n[S2-01] Plan the chapter's videos from the chapter map: first one short 'pehle yeh jaan lo' video (5-8 minutes) that teaches the chapter's prerequisites, then the topic videos in teaching order. Narration is 6-8 minutes per book page (Navin, 23 October 2026; the 14-page tissue chapter about 85-110 minutes of topic videos, plus the prerequisite video): each topic video gets the share of the pages its items come from, and a very dense page may go up to 25% over when the plan says why. Understanding (Section 1) and the chapter map have no time limit.\n[S2-02] Write a spoken teacher script in beats with a natural teacher flow. Stories and analogies only where they genuinely help that topic. Every item the book teaches is taught and every teacher question answered from the book is answered; questions answered from outside the book are used only where they help and the time allows. Cut repetition and side-tracks, never book content.\n[S2-03] Prerequisites are only what this chapter directly needs, never a prerequisite of a prerequisite. They are taught, not named, in the chapter's 'pehle yeh jaan lo' video, each with a simple explanation and an example; a topic video may remind of them in at most 2 beats.\n[S2-04] Spoken Hinglish the way Navin teaches, in mixed script (Navin, 21 and 23 October 2026): Hindi words in Devanagari, English words, above all the book's technical terms, in Roman exactly as the book spells them, as in 'आज हम tissue के बारे में पढ़ेंगे'; a genuinely difficult Hindi word (formal, literary or technical; not in BIE's everyday word list rulebook/simple_hindi.json) gets its English word in brackets right after it, as in 'सतह (surface)'; the screen and subtitles show the bracket and the voice says 'सतह, यानी surface'. Never a bracket after an everyday word or inside an idiom or a fixed phrase ('आम तौर पर', not 'आम तौर (usually) पर'; 'नहीं के बराबर', not 'नहीं के बराबर (equal to)'). Never an English term in Devanagari or a Hindi word in Roman. Numbers as digits; short spoken sentences addressed to one student; questions to the student and natural pauses; no reading out of lists.\n[S2-05] Every beat states which chapter-map items it covers and which teacher questions it answers, and those claims must be true: the beat really explains that item and really answers that question.\n[S2-06] Teach every part of a video through the universal frame (what the process is, how it works, when and in what order, under which conditions, in what atmosphere) and through the teaching pattern of its content type, step by step in the pattern's order; every item on the task card is really taught, none only named.\n[S2-07] Open every book line in the script, never read it out (Navin, 24 October 2026). A new topic opens with a question about something the learner can see, then the name. After any book line the beat carries at least one of: the term's plain meaning with 'yaani' and an everyday image, a why step from a need, an example or the place. Speak complete sentences, not clipped notes. A classification is taught as a family: the overview tree, then every member in the same slots (layer and shape, why it is named so, its special feature, its function with its cause, where it is found by a zoom from the organ, its consequence), then the members compared and a memory trick. A pattern step may be skipped only with a stated reason; one recap per part and one closing recap.\n[S2-08] Apply first, name after (Navin, 27 October 2026): in an economics script a concept's real-world example runs BEFORE the beat that names the term: the example beats carry the example's numbers (₹50 → ₹65, buyers 2 → 12 → 3) and walk the mechanism step by step; then the term ('isliye ise demand-pull inflation kehte hain'), then the book's definition, then one line on where the learner meets it in real life. The example is the one Section 1 chose for the item (its place, actors, goods, numbers), economically correct and at the learner's level.\n[W-01] The narration never points at the book: no 'book के अनुसार', 'किताब कहती है', 'book says', 'page पर', 'textbook', 'NCERT' or any wording of that family (the list in this file, 'wording'). BIE teaches as a teacher: it says the fact itself. Navin accepts the copyright position (26 October 2026).\n\nBIE's content types (the type of an item decides its required questions and how it is taught, shown, played and drawn):\n- process · Process: Something that happens in steps or stages over time: a mechanism, a procedure, a cycle (photosynthesis, cell division, how a bill becomes law). Required questions: how (kaise), when (kab). Other questions: what (kya), where (kahan), why (kyun), consequence (nateeja).\n  Teaching pattern: 1) the result first (what it makes). 2) inputs and the place. 3) each step with its cause and its condition. 4) what breaks when a step fails. 5) the whole run once more at speed. 6) recap as a flow.\n- structure · Structure: Something made of parts arranged in space, each part with a function (a cell, a leaf, the heart, a machine, the Parliament). Required questions: what (kya), where (kahan). Other questions: how (kaise), why (kyun), which (kaun).\n  Teaching pattern: 1) the whole in context. 2) zoom into each part in a fixed path (outside to inside). 3) function of each part tied to its shape. 4) how the parts work together. 5) labelled recap.\n- classification · Classification: A group divided into kinds by a stated basis (types of tissues, kinds of rocks, kinds of writs). Required questions: which (kaun), difference (tulna). Other questions: what (kya), evidence (saboot), where (kahan).\n  Teaching pattern: 1) the overview tree first: the basis of division and every member named. 2) every member in the same slots: layer and shape, why it is named so, its special feature, its function with its cause, where it is found by a zoom from the organ, its consequence. 3) the members compared side by side, the most confused pair named directly. 4) a memory trick for the family.\n- comparison · Comparison: Two or more things set side by side on stated criteria (plant and animal cells, Lok Sabha and Rajya Sabha). Required questions: compare (tulna), difference (tulna). Other questions: what (kya), why (kyun), evidence (saboot).\n  Teaching pattern: 1) what is common. 2) criteria one at a time, both sides together. 3) the reason behind each difference. 4) the most confused pair named directly. 5) difference table as recap.\n- timeline · Timeline: Events placed in time: history, the development of an idea, stages of a life (the Revolt of 1857, evolution of cell theory). Required questions: when (kab), why (kyun). Other questions: who (kaun), where (kahan), consequence (nateeja).\n  Teaching pattern: 1) the period and its atmosphere. 2) events in order with their causes. 3) the people and their choices. 4) the turning point. 5) what changed after. 6) timeline recap.\n- cause_effect · Reasoning (cause and effect): Why something happens: causes, effects, conditions and chains of reasoning (why tissues specialise, why prices rise, why a law was needed). Required questions: why (kyun), how (kaise). Other questions: consequence (nateeja), evidence (saboot), exception (tulna).\n  Teaching pattern: 1) the effect students can see. 2) the cause. 3) each link of the chain with its mechanism. 4) the evidence. 5) the exception or limit. 6) the chain as recap.\n- facts_numbers · Facts and numbers: Stated facts, quantities, measurements, statistics and formulas (heart rate 72 per minute, 3,000 against 50,000 soldiers at Plassey, F = ma). Required questions: what (kya), evidence (saboot). Other questions: compare (tulna), why (kyun).\n  Teaching pattern: 1) the fact in one line. 2) the number shown to scale against something familiar. 3) where it comes from (book or outside, dated). 4) what it changes or proves. 5) a formula built term by term when there is one.\n- figure · Figure: A diagram, photo, map, graph or table drawing on the page whose content is visual (tissue pages 2, 7 and 8 are figures only). Required questions: what (kya), which (kaun). Other questions: how (kaise), why (kyun).\n  Teaching pattern: 1) what the figure is and why it is here. 2) a reading path across it (labels in order). 3) the one thing to remember from it. 4) link back to the text it explains.\n- definition · Definition: A term and its meaning as the book states it (tissue, meristem, sovereignty). Required questions: what (kya), evidence (saboot). Other questions: about (kya), why (kyun).\n  Teaching pattern: 1) a concrete example first. 2) the book's definition word by word. 3) a non-example that tests the boundary. 4) where the term is used next in the chapter.\n\nOutput schema (JSON):\n{\"additionalProperties\":false,\"properties\":{\"beats\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"answers\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"basis\":{\"enum\":[\"book\",\"outside\",\"mixed\"],\"type\":\"string\"},\"beat_id\":{\"type\":\"string\"},\"covers_item_ids\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"on_screen\":{\"type\":\"string\"},\"part_id\":{\"type\":\"string\"},\"purpose\":{\"enum\":[\"hook\",\"prerequisite\",\"explain\",\"example\",\"analogy\",\"story\",\"compare\",\"process_walkthrough\",\"misconception\",\"exam_tip\",\"question_to_student\",\"recap\",\"transition\"],\"type\":\"string\"},\"say\":{\"type\":\"string\"},\"step\":{\"type\":\"integer\"}},\"required\":[\"beat_id\",\"part_id\",\"step\",\"purpose\",\"say\",\"covers_item_ids\",\"answers\",\"on_screen\",\"basis\"],\"type\":\"object\"},\"type\":\"array\"},\"notes\":{\"additionalProperties\":false,\"properties\":{\"about\":{\"description\":\"What this unit of work is about and how it fits the whole (one or two sentences).\",\"type\":\"string\"},\"decisions\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"decision\":{\"type\":\"string\"},\"reason\":{\"type\":\"string\"}},\"required\":[\"decision\",\"reason\"],\"type\":\"object\"},\"type\":\"array\"},\"key_questions\":{\"description\":\"The key questions a teacher must answer about this unit.\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"uncertain\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"}},\"required\":[\"about\",\"key_questions\",\"decisions\",\"uncertain\"],\"type\":\"object\"},\"parts\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"frame\":{\"additionalProperties\":false,\"properties\":{\"atmosphere\":{\"type\":\"string\"},\"conditions\":{\"type\":\"string\"},\"how\":{\"type\":\"string\"},\"process\":{\"type\":\"string\"},\"when\":{\"type\":\"string\"}},\"required\":[\"process\",\"how\",\"when\",\"conditions\",\"atmosphere\"],\"type\":\"object\"},\"part_id\":{\"type\":\"string\"},\"skipped_steps\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"step\":{\"type\":\"integer\"},\"why\":{\"type\":\"string\"}},\"required\":[\"step\",\"why\"],\"type\":\"object\"},\"type\":\"array\"}},\"required\":[\"part_id\",\"frame\",\"skipped_steps\"],\"type\":\"object\"},\"type\":\"array\"},\"title\":{\"type\":\"string\"}},\"required\":[\"notes\",\"title\",\"parts\",\"beats\"],\"type\":\"object\"}\n\nHow BIE talks to you: every request is a task card (JSON) followed by its source. The card names the unit, its parts with their content type and required questions, the ids of the rules above that apply, the output, the ids you must cover and the context. The card is BIE's instruction; the source is the material.\nFor a write_script card:\n- card.parts are this video's parts: each has item ids, one content type and the questions it must answer. The source gives every item's\n  full content and its teacher questions with ids (\"p003-i4#q2\") and answers from BIE's chapter map; teach from them.\n- card.coverage.must_cover lists every item this video must teach: each must be in covers_item_ids of a beat that really explains it.\n  may_skip lists items you may leave out (not teachable). card.context.map_slice shows the related concepts for context only.\nHow to fill the JSON:\n- notes: brief notes for the reviewer: what this video is about, the key questions it must answer, your main decisions (order,\n  hook, analogy, where prerequisites are taught) with a reason each, what is uncertain.\n- title: the video title in the learner language.\n- parts: one entry per card part, with the universal frame of that part (S3-01), each in one or two lines of clear English for BIE:\n  process (what happens or what the thing does), how (how it works or happens), when (when, in what order, under which timing),\n  conditions (what must be true for it, or what changes it), atmosphere (the setting and situation a student should picture). Write\n  \"n/a: \" and the reason only where a question truly does not apply to that part. skipped_steps = the teaching-pattern steps of this\n  part you leave out because there is nothing real to say for them, each with the reason ([] when every step is done); at most half\n  of a pattern, never a step that has something real; BIE's code records the reason.\n- beats: the whole video in order. beat_id \"b1\", \"b2\" ...; part_id = the card part this beat teaches (\"\" for the opening hook, a\n  prerequisite taught first, a transition or the final recap); step = the number of the teaching-pattern step of that part's content type\n  that this beat performs (see the content types above; 0 when part_id is \"\" and for an exam-question part, whose type is \"none\");\n  the steps of a part's pattern appear in order, except the ones skipped with a reason; a classification part follows the family\n  pattern: the overview tree first, then every member in the same slots (layer and shape → why it is named so → its special feature\n  → its function with its cause → where it is found, by a zoom from the organ → its consequence), then the comparison, then a memory\n  trick; one recap per part and one closing recap for the video, never two recaps of the same thing;\n  purpose (hook, prerequisite, explain, example, analogy, story, compare, process_walkthrough, misconception, exam_tip,\n  question_to_student, recap, transition); say = the exact spoken words, one to four complete spoken sentences in Navin's Hinglish\n  (S2-04), the way a teacher speaks to one student, never clipped note-style lines (\"Irregular walls. Kaisi? Irregular.\" is a teacher's\n  beat; \"Location: kidney tubules, glandular ducts.\" is a note):\n  mixed script: Hindi words in Devanagari, English words (above all the book's technical terms, spelled as the book spells them) in\n  Roman, as in \"आज हम tissue के बारे में पढ़ेंगे\"; brackets only after a genuinely difficult Hindi word (see \"Brackets\" below; the\n  screen shows the bracket and the voice says \"सतह, यानी surface\"); never write an English term in Devanagari or a Hindi word in Roman;\n  numbers as digits; addressed to one student; covers_item_ids = the item ids this beat really explains; answers = the teacher question\n  ids this beat really answers; on_screen = what the student should see while hearing it (for the director); basis = book, outside or\n  mixed.\nOpening the book (S2-07; BIE is the link between the learner and the book, like a teacher, never a reader of the line): every new\ntopic (every concept and every prerequisite) opens with a question about something the learner can see, then the name. After any\nbook line, the beat carries at least one of: the term opened (\"yaani\" + its plain meaning + one everyday image), the why from a need or\na problem, or an example or place by a zoom from the organ. The source gives every item's unpack from Section 1 (its terms, why chain,\nexample, consequence, visual verb) and the locked explanations: speak them, in your own teacher's words, at the depth of the level\nprofile below. BIE's code sends back a beat whose English words are the book's and that opens nothing (\"dohraav pakad\"), a clipped\nsentence without a verb, a topic that opens without a question, and a second recap of the same thing.\nReal-world application (S2-08; Navin, 27 October 2026: \"economic concepts ko real world mein apply karke samjhao\"): for an economics\ndefinition, cause_effect or process item the source gives the real_world_example Section 1 chose (place, actors, goods, numbers before\n→ after, the steps with their mechanism links, the naming sentence, the real-life link). Run that example FIRST, in beats that cover\nthe item and carry its numbers as digits (\"dukaan mein chini ke 3 packet, ₹50 ka ek; kal 2 khareedar, aaj 12\"), walking the mechanism\nstep by step (purpose story or example); only then the beat that names the term (\"isliye ise demand-pull inflation kehte hain\"), then\nthe book's definition, then the real-life link. The opening question of such a topic asks about the situation, not the term. BIE's\ncode sends back a script whose naming beat comes before the example beats, or whose example beats carry none of the numbers.\nTime (S2-01): the source gives this video's narration time; BIE's code counts the spoken words (130 a minute) and the script must stay\nwithin it. Win the time by cutting repetition and side-tracks, never book content: every item in must_cover is taught and every\nteacher question whose basis is \"book\" is answered; questions answered from outside the book are used only where they help and the\ntime allows.\nPrerequisites (S2-03): in a topic video they were already taught in the prerequisite video; remind of one in at most 2 beats (purpose\n\"prerequisite\"). In the prerequisite video (card parts \"pre1\", \"pre2\" ...) teach each prerequisite simply, with an everyday example, in\nthe order given: part_id = the prerequisite id, step 0, covers_item_ids = the prerequisite ids the beat teaches, answers [].\nA beat introduces at most a few new items: BIE's code measures the load of every beat (0.4 per new item plus 1 per 50 spoken words, at\nmost 1.8), so a beat holds at most about 70 spoken words with one new item, 50 with two and 30 with three; split longer beats. Reply\nwith the JSON object only.\n\nLevel profile: UPSC / State PCS (level_profiles.json; learners: UPSC and State PCS aspirants, often from arts backgrounds, who need understanding more than technical vocabulary).\n- Terms: fewer technical terms: only the ones the exam asks, each opened with its plain meaning and an everyday image; a term the exam never asks is explained in words, not named.\n- Why: 2 step(s); a two-step why from a need the learner can feel, then its link to daily life, health or governance.\n- Where found: the main places, each linked to something the learner already knows (a disease, a food, a news item).\n- Exam beats: the PYQ pattern: how this fact has been asked (statement combinations, 'which is correct', odd one out) and the wording that traps.\n- Links: daily life, health, the news and earlier chapters of the same paper.\n\nHow real teachers open a book line (teacher example bank 2026-10-27.1; use these ways, in your own words):\n- Open with a question on something visible (every new topic and every new family member): Skin aur stomach, kidney ke upar ek outer layer hai ki nahi? Yeh kis se bani hai? — phir naam: epithelial tissue.\n- One everyday image per shape or function (every term that names a shape, a layer or a job): Chaadar bichhi ho to bistar bacha rehta hai = protective sheet. Cube wala game, har side barabar = cuboidal. Building ka pillar = columnar. Farsh ki tiles = squamous, isliye tessellated bhi kehte hain.\n- The word root where it helps (a term whose parts carry its meaning): Epi yaani upar; epithelium yaani upar ki parat. Slender yaani long aur narrow.\n- Why starts from a need (every why step): Pet mein HCl banta hai, isliye andar ek lining chahiye jo khud na jale. Cells bahar ki taraf hain, tootne ka chance zyada, isliye regeneration zyada.\n- Contrast with the neighbour (members of one family, and what the exam confuses): Simple epithelium ka kaam protection nahi, woh compound ka hai. Zyada layers = pathogen andar nahi aata.\n- Ask and repeat the key word (the one word the learner must keep): Irregular walls. Kaisi? Irregular.\n- Exam memory beats by level (after the understanding, by the level profile): Yaad rakhna: brush border PCT mein. Doosre naam: pavement, tessellated. M2B = muscle to bone = tendon, B2B = bone to bone = ligament.\n- Link to something already known (a new place or a new structure): Peritoneum, jaise lungs ke aas-paas pleura aur heart ke aas-paas pericardium: wahi kaam, pet ke andar.\n- Meaning with two or three real examples (an abstract word in the book): Sensory perception yaani pehchanna: thanda lagna, dard hona, pressure mehsoos karna.\n- Open the book's adjective (Navin's example) (a book line names a kind of surface, job or place without saying what it is): Book: 'epithelium absorptive aur secretive surfaces par milta hai'. Teacher: absorptive surface yaani jahan cheezein andar li jaati hain, jaise aant khane ke poshak tatva sokhti hai; secretive yaani jahan cells kuch bana kar bahar chhodte hain, jaise glands enzyme ya juice. Aur epithelium wahan kyon? Kyunki ek patli, lagi hui parat hi cheezon ko paar jaane de sakti hai aur bana kar chhod sakti hai.\n- Apply it in the real world first, then name it (Navin's sugar shop) (every economics concept (a definition, a cause-and-effect chain, a process): the example runs before the term is named): Ek kirana shop mein chini ke 3 packet hain, ₹50 ka ek. Kal 2 khareedar aaye the, aaj 12 aa gaye; sab ko chini chahiye par packet 3 hi hain. Dukandar daam ₹65 kar deta hai; ab sirf 3 log kharid paate hain, baaki 9 khaali haath. Zyada log, utna hi maal, isliye daam upar. Isliye ise demand-pull inflation kehte hain. Phir book ki definition. Phir: yahi aap Diwali se pehle sabzi mandi mein dekhte hain.\n\nBrackets (word list 2026-10-27.1): use everyday spoken Hindi freely, without brackets (मुख्य, वापस, बराबर, आसपास, इस्तेमाल, करके, जिससे ...). Only a genuinely difficult Hindi word (formal, literary or technical) gets its English word in brackets right after it, for example \"सतह (surface)\", \"घर्षण (friction)\", \"सघन (dense)\"; better still, use the book's English term or a simpler Hindi word. Never put a bracket inside an idiom or a fixed phrase: \"आम तौर पर\", not \"आम तौर (usually) पर\"; \"नहीं के बराबर\", not \"नहीं के बराबर (equal to)\". BIE's code removes a bracket after an everyday word and asks for one only after a Hindi word it does not know as everyday.",
+  "user": [
+   {
+    "type": "text",
+    "text": "BIE task card (JSON):\n{\"card\":\"bie.task-card/1\",\"card_id\":\"lesson.write_script@3-money/v17\",\"section\":\"lesson\",\"task\":\"write_script\",\"prefix\":{\"prefix_id\":\"lesson.write_script/3\",\"rulebook_version\":\"canvas_profile@2026-10-27.2+content_types@2026-10-27.1+explanations@2026-10-24.1+level_profiles@2026-10-24.1+simple_hindi@2026-10-27.1+teacher_examples@2026-10-27.1+vision-2026-10-21@2026-10-21.14+visual_grammar@2026-10-26.2+visual_levels@2026-10-26.2\",\"content_types_version\":\"2026-10-27.1\",\"schema_id\":\"bie.brain.lesson-script/3\",\"sha256\":\"23c7d0a0496ac0b3c93e62a5092f314af721254f233faf0aee711e7d9f3edb45\"},\"unit\":{\"unit_id\":\"v17\",\"title\":\"PYQ अभ्यास: NPCI, inclusion, RuPay और MDR\",\"pages\":[19,20]},\"parts\":[{\"part_id\":\"c43.1\",\"item_ids\":[\"p019-i27\"],\"type\":\"cause_effect\",\"questions\":[\"why\",\"how\",\"who\",\"consequence\",\"evidence\"],\"focus\":\"NPCI PYQ continued: inclusion and RuPay: teach these cause_effect items through the cause_effect pattern\"},{\"part_id\":\"c43.2\",\"item_ids\":[\"p020-i2\"],\"type\":\"facts_numbers\",\"questions\":[\"what\",\"evidence\",\"how\"],\"focus\":\"NPCI PYQ continued: inclusion and RuPay: teach these facts_numbers items through the facts_numbers pattern\"},{\"part_id\":\"c43.q\",\"item_ids\":[\"p019-i20\",\"p020-i1\",\"p020-i4\",\"p020-i5\",\"p020-i6\",\"p020-i7\"],\"type\":\"none\",\"questions\":[\"what\",\"which\",\"how\",\"why\"],\"focus\":\"NPCI PYQ continued: inclusion and RuPay: exam questions (PYQ); answer each as an exam tip once the concept is taught (step 0)\"},{\"part_id\":\"c44.q\",\"item_ids\":[\"p020-i8\",\"p020-i9\",\"p020-i10\",\"p020-i11\",\"p020-i12\"],\"type\":\"none\",\"questions\":[\"what\",\"how\",\"why\",\"evidence\",\"exception\"],\"focus\":\"MDR PYQ: charge versus incentive or cashback: exam questions (PYQ); answer each as an exam tip once the concept is taught (step 0)\"}],\"rules\":[\"G-01\",\"G-02\",\"G-03\",\"G-04\",\"G-05\",\"G-06\",\"G-07\",\"S2-01\",\"S2-02\",\"S2-03\",\"S2-04\",\"S2-05\",\"S2-06\",\"S2-07\",\"S2-08\",\"W-01\"],\"output\":{\"schema_id\":\"bie.brain.lesson-script/3\",\"mode\":\"full\",\"max_output_tokens\":32000},\"coverage\":{\"must_cover\":[\"p019-i27\",\"p020-i2\",\"p019-i20\",\"p020-i1\",\"p020-i4\",\"p020-i5\",\"p020-i6\",\"p020-i7\",\"p020-i8\",\"p020-i9\",\"p020-i10\",\"p020-i11\",\"p020-i12\"],\"claim_field\":\"beats[].covers_item_ids\",\"may_skip\":[]},\"context\":{\"map_slice\":[[\"p019-i27\",\"cause_effect\",\"19\",\"1. NPCI helps in promoting the financial inclusion in the country.\"],[\"p020-i2\",\"facts_numbers\",\"20\",\"2. NPCI has launched RuPay, a card payment scheme.\"],[\"p019-i20\",\"none\",\"19\",\"Find the correct statement(s) [Prelims-2017] 1. NPCI helps in promoting the financial inclusion in…\"],[\"p020-i1\",\"none\",\"20\",\"Continued from the previous page: NPCI statement-combination question; the visible statement…\"],[\"p020-i4\",\"none\",\"20\",\"(a) 1 only\"],[\"p020-i5\",\"none\",\"20\",\"(b) 2 only\"],[\"p020-i6\",\"none\",\"20\",\"(c) Both 1 and 2\"],[\"p020-i7\",\"none\",\"20\",\"(d) Neither 1 nor 2\"],[\"p020-i8\",\"none\",\"20\",\"What is “Merchant Discount Rate” ? (IAS-Prelims 2018)\"],[\"p020-i9\",\"none\",\"20\",\"A. The incentive given by a bank to a merchant for accepting payments through debit cards…\"],[\"p020-i10\",\"none\",\"20\",\"B. The amount paid back by banks to their customers when they use debit cards for financial…\"],[\"p020-i11\",\"definition\",\"20\",\"C. The charge to a merchant by a bank for accepting payments from his customers through the bank’s…\"],[\"p020-i12\",\"none\",\"20\",\"D. The incentive given by the Government, to merchants for promoting digital payments by their…\"],[\"c43\",\"classification\",\"19-20\",\"NPCI PYQ continued: inclusion and RuPay\"],[\"c44\",\"definition\",\"20\",\"MDR PYQ: charge versus incentive or cashback\"]],\"before\":\"PYQ अभ्यास: blockchain, RTGS–NEFT और BHIM\",\"after\":\"\"},\"source\":{\"block_ids\":[\"p0019-b0038\",\"p0019-b0039\",\"p0019-b0039\",\"p0020-b0002\",\"p0020-b0004\",\"p0020-b0005\",\"p0020-b0006\",\"p0020-b0007\",\"p0020-b0008\",\"p0020-b0009\",\"p0020-b0010\",\"p0020-b0011\",\"p0020-b0012\",\"p0020-b0013\",\"p0020-b0014\",\"p0020-b0015\",\"p0020-b0016\"],\"page_images\":[]}}\n\nVideo v17: PYQ अभ्यास: NPCI, inclusion, RuPay और MDR\nGoal: Learner दोनों pages में फैले NPCI question को पूरा हल करेगा; inclusion और RuPay संबंधों का कारण समझेगा तथा MDR को merchant charge, incentive, cashback और government support से अलग कर सकेगा।\nOpening hook: Digital payment पर cashback मिले और merchant से fee कटे—क्या दोनों को MDR कह सकते हैं?\nStory or analogy: Continued NPCI question को एक पूरे question की तरह रखेंगे; हर claim और option की role–function जाँच होगी। MDR में पहले कौन किसे रकम देता है यह तय करेंगे, फिर definition और सभी distractors का कारण खोलेंगे। अंत में money, legal status, payment route और money supply के फर्क का एक closing recap होगा।\nPlanned minutes: 7\nNarration time (S2-01): 6.5-8.6 minutes, about 845-1118 spoken words (BIE counts 130 words a minute)\nPrerequisites already taught in the prerequisite video (remind of one in at most 2 beats): Purchases, prices, debts and payments due later; Bank balances, deposits, loans and interest; Denominations, monetary arithmetic, percentages and minimum–maximum limits; Purchasing power, inflation, scarcity and liquidity; Central bank, commercial bank, government treasury and bank-to-bank settlement; Foreign currencies, exchange rates, reserves and demand–supply changes; Chronological reading: BCE/CE, centuries, dynasties and law versus implementation dates; Digital instructions, identity authentication, ledgers and payment interfaces\nOpen every book line (S2-07): a question about something the learner can see, then the name; every term opened: its plain meaning with 'yaani' and one everyday image (the word root where it helps); the why, starting from a need or a problem, one link at a time; an example or the place, by a zoom from the organ or the thing the learner knows; the consequence: what follows, and the link to the previous or the next idea; the contrast: what it is not, and what the exam confuses it with; the memory beat by level: the exam's 'yaad rakhna', the other names, the trick.\n\nItems (item id | page | kind | type | content), each with its teacher questions (question id | ask | question → answer | basis) and its unpack from Section 1 (term | why | example | consequence | visual), plus any locked explanation (Navin's verdict: speak it):\np019-i20 | 19 | question | none | Find the correct statement(s) [Prelims-2017] 1. NPCI helps in promoting the financial inclusion in the country.\n  p019-i20#q1 | what | What is visible, and can a complete answer be selected? → Only statement 1 is visible here. Remaining statements and options are absent from this page. | book\n  p019-i20#q2 | which | How should the visible statement be evaluated? → Statement 1 is correct, but a full combination requires the continuation. | outside\n  p019-i20#q3 | how | How can NPCI help inclusion without guaranteeing it? → Its retail payment infrastructure can make accounts more usable for payments. Connectivity, access, affordability and user capability remain additional conditions. | outside\np019-i27 | 19 | paragraph | cause_effect | 1. NPCI helps in promoting the financial inclusion in the country.\n  p019-i27#q1 | who | What does NPCI stand for? → NPCI is the National Payments Corporation of India, associated with India's retail payment infrastructure. | outside\n  p019-i27#q2 | why | Why can payment infrastructure help financial inclusion? → An account is more useful when a household can receive and make payments conveniently. Interoperable infrastructure reduces the need for sender and recipient to use the same bank or app, supporting actual use rather than merely account ownership. | outside\n  p019-i27#q3 | how | How does the hypothetical household example show the mechanism? → A worker sends ₹1,000 from a participating account to a family member's linked account. The family member receives usable funds without requiring a same-bank arrangement; the sender's balance falls and the recipient's rises by the same amount. | outside\n  p019-i27#q4 | consequence | What does the example establish, and what does it not establish? → It illustrates a route from interoperable infrastructure to convenient account use. It neither measures inclusion gains nor proves that everyone has the devices, connectivity or ability needed to use that route. | outside\n  p019-i27#q5 | evidence | What is the scope of the claim actually printed? → The statement says NPCI 'helps in promoting' financial inclusion; it does not provide a numerical measure or claim that NPCI alone achieves it. | book\n  term | financial inclusion | yaani लोगों तक काम की financial सेवाएँ पहुँचना और उनका इस्तेमाल कर पाना | image: सिर्फ पासबुक होना नहीं, जरूरत पर खाते से पैसे भेज और पा सकना।\n  term | NPCI | yaani National Payments Corporation of India; साझा retail payment व्यवस्था से जुड़ी संस्था | image: अलग बैंकों के बीच भुगतान का साझा रास्ता बनाने वाली व्यवस्था।\n  why | A worker's household needs money that can be received and used without an unnecessary same-bank barrier. [standard] → Interoperable payment infrastructure makes eligible accounts more usable and can therefore support inclusion. [standard]\n  example or place | Hypothetical worker sending household money to a family member through interoperable payments.\n  consequence | Usable access improves in the illustration, but infrastructure alone does not establish universal or measured inclusion.\n  visual | bridge two banks and move funds into usable household access\n  level extra | Distinguish a causal illustration from evidence of a measured policy outcome.\n  real world (run it first, with these numbers, then name the term) | place: worker's town and family member's village; hypothetical | actors: worker, family member, participating banks, NPCI-linked payment infrastructure | goods: ₹1,000 household money, money for groceries | numbers: worker's account balance ₹3,000 → ₹2,000; family member's account balance ₹200 → ₹1,200\n    step 1 | Assume both people have the required access and linked accounts; the worker authorises ₹1,000 across participating banks. | shows: Interoperability removes a same-bank requirement for this payment.\n    step 2 | The successful transfer lowers the worker's balance to ₹2,000 and raises the family member's to ₹1,200. | shows: Account infrastructure becomes a usable channel for receiving household funds.\n    step 3 | The family member can use the received money for household needs through available payment or withdrawal facilities. | shows: Practical use, not merely possession of an account, is the inclusion-related outcome illustrated.\n    then the name | This illustrates how payment infrastructure can help promote financial inclusion.\n    real life | Families sending money home encounter the need for usable accounts; this hypothetical example is not a measured estimate of NPCI's inclusion impact.\np020-i1 | 20 | question | none | Continued from the previous page: NPCI statement-combination question; the visible statement concerns NPCI launching RuPay, and the answer codes select statement 1, statement 2, both, or neither.\n  p020-i1#q1 | what | What must the learner decide in this continued question? → The answer codes require deciding which of two statements are correct; only statement 2 is printed here. | book\n  p020-i1#q2 | how | How should a statement-combination question be approached when this page shows only one statement? → Assess the visible statement independently, then consult the preceding statement before choosing a combination. One true statement alone cannot distinguish '2 only' from 'Both 1 and 2'. | outside\np020-i2 | 20 | list_point | facts_numbers | 2. NPCI has launched RuPay, a card payment scheme.\n  p020-i2#q1 | what | Which institution-product relationship must be learned? → The page associates NPCI with the launch of RuPay and identifies RuPay as a card payment scheme. | book\n  p020-i2#q2 | evidence | What evidence on this page supports that association? → Statement 2 explicitly names NPCI as the launching institution and RuPay as its card payment scheme. | book\n  p020-i2#q3 | how | How is a card payment scheme different from the bank account used to pay? → A scheme supplies the network arrangements and rules through which participating institutions handle card payments. The customer's bank account holds the funds; the scheme is not itself that account. | outside\n  term | NPCI | yaani National Payments Corporation of India; payments की व्यवस्था चलाने वाली संस्था | image: दुकान पर card से दिए पैसे के पीछे जुड़ा payment network\n  term | RuPay | yaani card payment scheme का नाम; खुद bank account नहीं | image: debit card पर लिखा RuPay\n  term | card payment scheme | yaani card से payment कराने के लिए banks को जोड़ने वाली व्यवस्था | image: खरीदार और दुकानदार के banks को जोड़ता रास्ता\n  why | A customer and shopkeeper may use different banks, so card payments need a shared arrangement. [standard] → A card scheme provides that arrangement; the page links RuPay's launch to NPCI. [standard]\n  example or place | A RuPay-branded card used at a shop's payment terminal.\n  consequence | Recognise the institution behind the scheme without treating it as the customer's bank.\n  visual | Connect a RuPay card, shop terminal and participating banks.\n  level extra | Learn NPCI's expansion as supporting terminology; the printed examinable fact is NPCI launching RuPay.\np020-i4 | 20 | answer_option | none | (a) 1 only\n  p020-i4#q1 | what | What truth combination does a mean? → Statement 1 is accepted and statement 2 is rejected. | outside\n  p020-i4#q2 | why | Why would accepting the RuPay statement eliminate a? → This option requires statement 2 to be false, whereas accepting the NPCI–RuPay link makes it true. | outside\n  example or place | Two-statement prelims question.\n  consequence | Eliminate a if statement 2 is accepted.\n  visual | Tick 1 and cross 2.\np020-i5 | 20 | answer_option | none | (b) 2 only\n  p020-i5#q1 | what | What does b assert? → Statement 2 is true and statement 1 is false. | outside\n  p020-i5#q2 | why | Why is knowing the RuPay fact insufficient to select b? → The same true statement 2 also occurs in c; statement 1 must be evaluated to distinguish them. | outside\n  example or place | The continued NPCI question.\n  consequence | Evaluate statement 1 before selecting b.\n  visual | Cross 1 and tick 2.\np020-i6 | 20 | answer_option | none | (c) Both 1 and 2\n  p020-i6#q1 | what | What does c require? → Each statement must independently be true. | outside\n  p020-i6#q2 | how | How should c be verified? → Check the NPCI–RuPay statement and then the preceding financial-inclusion statement; agreement with just one does not establish both. | outside\n  example or place | The continued NPCI question.\n  consequence | Both statements need checking.\n  visual | Tick both statement boxes.\np020-i7 | 20 | answer_option | none | (d) Neither 1 nor 2\n  p020-i7#q1 | what | What does d require? → Both statements must be false. | outside\n  p020-i7#q2 | why | Why does accepting statement 2 rule out d? → A single true statement contradicts 'neither'; the NPCI–RuPay fact therefore suffices to eliminate d. | outside\n  example or place | The continued NPCI question.\n  consequence | Eliminate d on accepting statement 2.\n  visual | Cross both boxes, then strike out this code.\np020-i8 | 20 | question | none | What is “Merchant Discount Rate” ? (IAS-Prelims 2018)\n  p020-i8#q1 | what | What distinction does this question test? → It asks whether MDR is a merchant charge or one of the incentives or customer repayments described in the alternatives. | book\n  p020-i8#q2 | how | How can the correct option be identified? → Trace the payment direction: MDR is charged to the merchant for accepting card payments. That matches C, not the alternatives describing money paid to merchants or customers. | outside\n  p020-i8#q3 | why | Why is the word 'Discount' a trap? → It can suggest a shopping concession, but here it refers to the merchant-side payment-acceptance charge, not a customer discount. | outside\np020-i9 | 20 | answer_option | none | A. The incentive given by a bank to a merchant for accepting payments through debit cards pertaining to that bank.\n  p020-i9#q1 | what | What payment direction does A describe? → The bank gives an incentive to the merchant for accepting the specified debit cards. | book\n  p020-i9#q2 | why | Why is A not MDR? → It reverses the relevant direction: an incentive benefits the merchant, whereas MDR is a charge borne by the merchant for card acceptance. | outside\n  term | merchant | yaani सामान या service बेचने वाला | image: मोहल्ले का किराना दुकानदार\n  term | incentive | yaani कोई काम करने के लिए मिलने वाला फायदा या पैसा | image: payment लेने पर दुकानदार को मिलने वाला reward\n  term | debit cards | yaani bank account से पैसे देकर खरीदारी करने वाले cards | image: दुकान की machine में लगाया अपना debit card\n  why | A merchant may need encouragement to accept a payment method. [standard] → Money offered as encouragement would be an incentive, not the merchant's MDR charge. [standard]\n  example or place | Compare a reward received by a shopkeeper with a fee deducted from the shopkeeper's card receipts.\n  consequence | Eliminate A by checking who pays whom.\n  visual | Reverse the bank-to-merchant reward arrow to contrast it with a merchant fee.\n  level extra | A is an alternative, not a factual claim that such incentives are universally paid.\np020-i10 | 20 | answer_option | none | B. The amount paid back by banks to their customers when they use debit cards for financial transactions for purchasing goods or services.\n  p020-i10#q1 | what | Who receives money in B? → The bank's customer receives money back after using a debit card to purchase goods or services. | book\n  p020-i10#q2 | why | Why is B not MDR? → It describes a customer-side benefit, commonly understood as cashback, rather than a merchant-side acceptance charge. | outside\n  p020-i10#q3 | how | How can cashback and MDR be distinguished without memorising the wording? → Ask whose money changes: cashback returns money to the buyer; MDR charges the seller for accepting the payment. | outside\n  term | amount paid back | yaani खर्च करने के बाद वापस मिलने वाला पैसा | image: खरीदारी के बाद account में आया cashback\n  term | goods or services | yaani खरीदने का सामान या करवाया गया काम | image: चीनी खरीदना या बाल कटवाना\n  why | A buyer may be encouraged to pay by card through a repayment benefit. [standard] → That benefit goes to the buyer, unlike MDR, which is borne by the merchant. [standard]\n  example or place | A buyer receiving cashback after a purchase.\n  consequence | Eliminate B by identifying the recipient as the customer.\n  visual | Return a money arrow to the buyer rather than deducting from the seller.\n  level extra | Do not assume every debit-card purchase earns cashback; B is a proposed meaning.\np020-i11 | 20 | answer_option | definition | C. The charge to a merchant by a bank for accepting payments from his customers through the bank’s cards.\n  p020-i11#q1 | what | What meaning does C propose for MDR? → It places the charge on the merchant and links it to accepting customer payments through cards. | book\n  p020-i11#q2 | evidence | Which printed words identify the payer and charging institution? → 'Charge to a merchant by a bank' identifies the merchant as the party charged and the bank as the charging institution. | book\n  p020-i11#q3 | why | Why is a merchant charged for accepting card payments? → Card acceptance uses payment infrastructure and processing services. MDR is the merchant-facing charge associated with providing that acceptance service. | outside\n  p020-i11#q4 | how | How does a deduction illustrate MDR? → In a hypothetical transaction of ₹1,000 with a 1% fee, the charge is ₹10 and the merchant receives ₹990, ignoring other charges and taxes. The buyer's purchase amount remains ₹1,000; the deduction is from the merchant's proceeds. | outside\n  p020-i11#q5 | exception | What should not be inferred from the hypothetical calculation? → It does not establish a prevailing MDR rate or that every card or digital payment attracts the same charge. Rates and exemptions are outside this page's scope. | outside\n  term | Merchant Discount Rate | yaani card payment लेने की service के लिए दुकानदार पर लगने वाली fee की दर | image: बिक्री ₹1,000 की हुई, fee कटने पर दुकानदार को थोड़ा कम मिला\n  term | charge | yaani service के बदले लिया जाने वाला पैसा | image: दुकानदार की payment receipt में कटी fee\n  why | A shopkeeper needs a way to receive a customer's card payment rather than cash. [standard] → The acceptance service uses payment infrastructure; a merchant-side fee reduces the shopkeeper's net receipt. [standard]\n  example or place | Hypothetical kirana card sale: ₹1,000 sale, ₹10 fee, ₹990 net receipt; no current rate is asserted.\n  consequence | MDR is a merchant cost, not cashback or an incentive received by the merchant.\n  visual | Split the ₹1,000 payment into ₹990 merchant proceeds and ₹10 fee.\n  level extra | UPSC trap: distinguish the customer's purchase amount from the merchant's net settlement. Do not extend this definition into current rate or exemption claims.\n  real world (run it first, with these numbers, then name the term) | place: Hypothetical Indian kirana shop | actors: shopkeeper, customer, bank | goods: groceries worth ₹1,000, card payment | numbers: Merchant proceeds before and after the assumed fee ₹1,000 → ₹990; Fee deducted from the sale proceeds ₹0 → ₹10\n    step 1 | A customer buys ₹1,000 of groceries and pays by card. | shows: The merchant uses a card-payment acceptance service.\n    step 2 | Assume a 1% acceptance fee solely for illustration: ₹10 is deducted and ₹990 reaches the merchant, ignoring taxes and other charges. | shows: The merchant bears the acceptance charge through reduced net proceeds.\n    then the name | The merchant-side acceptance charge illustrated here is MDR; its rate is called Merchant Discount Rate.\n    real life | Connect this to the page's shopkeeper accepting card payments; the numbers illustrate the mechanism, not a current Indian fee schedule.\np020-i12 | 20 | answer_option | none | D. The incentive given by the Government, to merchants for promoting digital payments by their customers through Point of Sale (PoS) machines and debit cards.\n  p020-i12#q1 | what | What relationship does D describe? → The Government gives merchants an incentive intended to promote customers' digital payments using PoS machines and debit cards. | book\n  p020-i12#q2 | why | Why is D not MDR even though both concern digital payment acceptance? → A government incentive is support received by a merchant; MDR is a charge borne by the merchant. Sharing a digital-payment context does not make the two the same. | outside\n  p020-i12#q3 | how | How does a PoS machine relate to a shop purchase? → It is the merchant's payment terminal used to accept a customer's card payment, linking the purchase to the payment system. | outside\n  term | Point of Sale (PoS) machines | yaani दुकान पर card payment लेने की machine | image: काउंटर पर card tap या insert करने वाली machine\n  term | digital payments | yaani cash देने के बजाय electronic तरीके से पैसे देना | image: किराना दुकान पर debit card से bill चुकाना\n  why | A policy may seek to encourage merchants to accept digital payments. [standard] → An incentive would support adoption; it would not become the fee charged for acceptance. [standard]\n  example or place | A shop counter with a PoS terminal.\n  consequence | Distinguish policy encouragement from the merchant's transaction cost.\n  visual | Contrast a Government-to-merchant support arrow with a merchant-to-bank fee arrow.\n  level extra | D is an alternative, not evidence that a particular government incentive scheme exists or applies universally."
+   },
+   {
+    "type": "text",
+    "text": "Answer the card with the teacher script JSON."
+   }
+  ]
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "started_at": 1793133658.3831456,
+   "mode": "full",
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "bac8ba9e3bcc3bdb8f44f5c19814aa43c08bdc59dddc78826513035472ac74a2",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 15704,
+    "output_tokens": 5491,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "This video completes the NPCI statement-combination PYQ and solves the MDR PYQ by tracing who pays whom.",
+    "key_questions": [
+     "How does usable payment infrastructure support, but not guarantee, financial inclusion?",
+     "What is the NPCI–RuPay relationship, and which statement combination follows?",
+     "Why is MDR a merchant charge rather than an incentive or cashback?"
+    ],
+    "decisions": [
+     {
+      "decision": "Run the locked ₹1,000 household transfer before naming financial inclusion.",
+      "reason": "The balances make practical account use visible before the causal claim."
+     },
+     {
+      "decision": "Treat the continued NPCI material as one complete question.",
+      "reason": "A true second statement alone cannot distinguish options b and c."
+     },
+     {
+      "decision": "Introduce MDR through the hypothetical ₹1,000 → ₹990 settlement before evaluating all four options.",
+      "reason": "Payment direction resolves the distractors without relying on the word Discount."
+     },
+     {
+      "decision": "Keep the closing recap limited to this video's distinctions.",
+      "reason": "The supplied source does not support reteaching the chapter's legal-status and money-supply material."
+     }
+    ],
+    "uncertain": [
+     "No current MDR rate or exemption is supplied; 1% is explicitly hypothetical.",
+     "The inclusion example illustrates a mechanism, not measured evidence of NPCI's impact."
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "This video completes the NPCI statement-combination PYQ and solves the MDR PYQ by tracing who pays whom.",
+     "key_questions": [
+      "How does usable payment infrastructure support, but not guarantee, financial inclusion?",
+      "What is the NPCI–RuPay relationship, and which statement combination follows?",
+      "Why is MDR a merchant charge rather than an incentive or cashback?"
+     ],
+     "decisions": [
+      {
+       "decision": "Run the locked ₹1,000 household transfer before naming financial inclusion.",
+       "reason": "The balances make practical account use visible before the causal claim."
+      },
+      {
+       "decision": "Treat the continued NPCI material as one complete question.",
+       "reason": "A true second statement alone cannot distinguish options b and c."
+      },
+      {
+       "decision": "Introduce MDR through the hypothetical ₹1,000 → ₹990 settlement before evaluating all four options.",
+       "reason": "Payment direction resolves the distractors without relying on the word Discount."
+      },
+      {
+       "decision": "Keep the closing recap limited to this video's distinctions.",
+       "reason": "The supplied source does not support reteaching the chapter's legal-status and money-supply material."
+      }
+     ],
+     "uncertain": [
+      "No current MDR rate or exemption is supplied; 1% is explicitly hypothetical.",
+      "The inclusion example illustrates a mechanism, not measured evidence of NPCI's impact."
+     ]
+    },
+    "title": "NPCI, RuPay और MDR: PYQ में कौन किसे पैसे देता है?",
+    "parts": [
+     {
+      "part_id": "c43.1",
+      "frame": {
+       "process": "Payment infrastructure can turn account ownership into usable financial access.",
+       "how": "A hypothetical cross-bank household transfer makes funds available for household needs.",
+       "when": "Access and linked accounts come first, followed by authorisation, successful transfer and use.",
+       "conditions": "Participating accounts, connectivity, affordability and user capability matter; infrastructure alone cannot guarantee inclusion.",
+       "atmosphere": "A worker in a town sends household money to a family member in a village."
+      },
+      "skipped_steps": []
+     },
+     {
+      "part_id": "c43.2",
+      "frame": {
+       "process": "Identify NPCI as the institution that launched RuPay, a card payment scheme.",
+       "how": "Distinguish the shared card-payment arrangement from the bank account holding the customer's funds.",
+       "when": "The institutional relationship is checked before selecting the statement combination.",
+       "conditions": "A card scheme and a bank account have different roles.",
+       "atmosphere": "A customer uses a RuPay-branded card at a shop terminal."
+      },
+      "skipped_steps": [
+       {
+        "step": 2,
+        "why": "The item contains no numerical magnitude requiring a scale comparison."
+       },
+       {
+        "step": 5,
+        "why": "The institution–product fact has no formula to construct."
+       }
+      ]
+     },
+     {
+      "part_id": "c43.q",
+      "frame": {
+       "process": "Solve the Prelims-2017 two-statement NPCI question.",
+       "how": "Evaluate inclusion and RuPay independently, then decode all four combinations.",
+       "when": "Select the answer only after both statements have been checked.",
+       "conditions": "Both statements are correct; one correct statement alone does not establish the full combination.",
+       "atmosphere": "A timed prelims question presented as one complete question despite its continued layout."
+      },
+      "skipped_steps": []
+     },
+     {
+      "part_id": "c44.q",
+      "frame": {
+       "process": "Identify MDR and eliminate incentive and cashback alternatives in the IAS-Prelims 2018 question.",
+       "how": "Trace the merchant-side deduction, then compare each option's payer and recipient.",
+       "when": "Run the hypothetical transaction before naming MDR and selecting C.",
+       "conditions": "The assumed 1% ignores taxes and other charges and establishes no current rate or universal applicability.",
+       "atmosphere": "A kirana customer pays by card while the merchant receives the sale proceeds less an assumed fee."
+      },
+      "skipped_steps": []
+     }
+    ],
+    "beats": [
+     {
+      "beat_id": "b1",
+      "part_id": "",
+      "step": 0,
+      "purpose": "hook",
+      "say": "Card से खरीदारी करने पर आपको cashback मिले, और दुकानदार की रकम से fee कटे—क्या दोनों एक ही चीज़ हैं? आज 2 PYQ में ऐसे ही फर्क पकड़ेंगे। पहले खाते के इस्तेमाल और payment व्यवस्था का रिश्ता, फिर कौन किसे पैसे देता है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Buyer receives cashback | Merchant bears fee; two distinct arrows. NPCI PYQ → MDR PYQ.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b2",
+      "part_id": "c43.1",
+      "step": 1,
+      "purpose": "example",
+      "say": "शहर में काम करने वाला व्यक्ति गाँव में घर खर्च भेजना चाहता है; सिर्फ दोनों के पास passbook होने से काम पूरा होगा? मान लीजिए उसके खाते में ₹3,000 हैं, परिवार के खाते में ₹200। जरूरत यह है कि ₹1,000 पहुँचें और परिवार उनसे किराना खरीद सके।",
+      "covers_item_ids": [
+       "p019-i27"
+      ],
+      "answers": [],
+      "on_screen": "Hypothetical: town worker ₹3,000; village family ₹200; household transfer needed ₹1,000.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b3",
+      "part_id": "c43.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "रुकावट कहाँ आ सकती है? अगर पैसे भेजने और पाने के लिए एक ही bank होना जरूरी हो, तो अलग banks वाले परिवार को परेशानी होगी। दोनों तरफ जरूरी access और linked accounts हों, और banks साझा payment व्यवस्था में जुड़े हों, तो यह same-bank जरूरत हट सकती है।",
+      "covers_item_ids": [
+       "p019-i27"
+      ],
+      "answers": [
+       "p019-i27#q2"
+      ],
+      "on_screen": "Different participating banks connected by one payment route; access and linked accounts marked as assumptions.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b4",
+      "part_id": "c43.1",
+      "step": 3,
+      "purpose": "process_walkthrough",
+      "say": "अब व्यक्ति ₹1,000 भेजने की अनुमति देता है। सफल transfer के बाद उसका balance ₹3,000 से ₹2,000 और परिवार का ₹200 से ₹1,200 हो जाता है। परिवार उपलब्ध payment या withdrawal सुविधा से पैसा इस्तेमाल करता है; खाते में रकम पहुँचना अब घर की जरूरत पूरी करने का रास्ता बना।",
+      "covers_item_ids": [
+       "p019-i27"
+      ],
+      "answers": [
+       "p019-i27#q3"
+      ],
+      "on_screen": "₹1,000 transfer: ₹3,000 → ₹2,000; ₹200 → ₹1,200; received funds → household use.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b5",
+      "part_id": "c43.1",
+      "step": 3,
+      "purpose": "explain",
+      "say": "काम की financial सेवाएँ लोगों तक पहुँचना और उनका इस्तेमाल कर पाना, यही financial inclusion है। NPCI, यानी National Payments Corporation of India, देश की retail payment व्यवस्था से जुड़ी संस्था है। साझा payment रास्ते खातों को काम का बनाते हैं, इसलिए NPCI financial inclusion बढ़ाने में मदद करता है।",
+      "covers_item_ids": [
+       "p019-i27"
+      ],
+      "answers": [
+       "p019-i27#q1",
+       "p019-i27#q2"
+      ],
+      "on_screen": "Financial inclusion: usable access to financial services. NPCI = National Payments Corporation of India. Infrastructure → practical account use.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b6",
+      "part_id": "c43.1",
+      "step": 4,
+      "purpose": "explain",
+      "say": "यह उदाहरण किस बात को साफ करता है? अलग banks के बीच भुगतान का रास्ता मिलने से परिवार खाते का इस्तेमाल कर पाया। घर पैसे भेजने वाले परिवार यही जरूरत महसूस करते हैं; लेकिन इस उदाहरण से यह नहीं मापा गया कि पूरे देश में inclusion कितना बढ़ा।",
+      "covers_item_ids": [
+       "p019-i27"
+      ],
+      "answers": [
+       "p019-i27#q4"
+      ],
+      "on_screen": "Illustrated mechanism ≠ measured national impact.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b7",
+      "part_id": "c43.1",
+      "step": 5,
+      "purpose": "misconception",
+      "say": "ध्यान दीजिए, claim है ‘helps in promoting’, न कि ‘अकेले सबको शामिल कर देता है’। Connectivity न हो, सुविधा महँगी पड़े या व्यक्ति इस्तेमाल न कर पाए, तो रास्ता मौजूद होने पर भी काम रुक सकता है। यहाँ न कोई numerical measure है, न सबके शामिल हो जाने की guarantee।",
+      "covers_item_ids": [
+       "p019-i27"
+      ],
+      "answers": [
+       "p019-i27#q5",
+       "p019-i27#q4"
+      ],
+      "on_screen": "helps in promoting ≠ guarantees universal inclusion; connectivity, affordability, capability.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b8",
+      "part_id": "c43.1",
+      "step": 6,
+      "purpose": "recap",
+      "say": "यह कारण की कड़ी याद रखिए: साझा payment रास्ता, फिर खाते में पैसा भेजना-पाना आसान, फिर खाते का असली इस्तेमाल। इसी तरह infrastructure inclusion में मदद करता है। मदद और पूरी guarantee को एक मत मानिए।",
+      "covers_item_ids": [
+       "p019-i27"
+      ],
+      "answers": [],
+      "on_screen": "Shared route → convenient transfer → usable account → supports inclusion.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b9",
+      "part_id": "c43.2",
+      "step": 1,
+      "purpose": "explain",
+      "say": "दुकान पर card पर RuPay लिखा दिखे, तो यह आपके bank account का नाम है या payment व्यवस्था का? RuPay एक card payment scheme है, जिसे NPCI ने launch किया। यानी card से payment के लिए जुड़े banks की साझा व्यवस्था का नाम, आपका खाता नहीं।",
+      "covers_item_ids": [
+       "p020-i2"
+      ],
+      "answers": [
+       "p020-i2#q1",
+       "p020-i2#q3"
+      ],
+      "on_screen": "RuPay card → shop terminal → participating banks. NPCI launched RuPay.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b10",
+      "part_id": "c43.2",
+      "step": 3,
+      "purpose": "explain",
+      "say": "2017 के इस question का दूसरा statement सीधा institution और product जोड़ता है: NPCI ने RuPay launch किया, और RuPay card payment scheme है। Scheme banks को payment संभालने के arrangements और rules देती है। आपके पैसे आपके bank account में होते हैं; scheme खुद वह account नहीं बन जाती।",
+      "covers_item_ids": [
+       "p020-i2"
+      ],
+      "answers": [
+       "p020-i2#q2",
+       "p020-i2#q3"
+      ],
+      "on_screen": "Statement 2: NPCI → launched → RuPay → card payment scheme. Account holds funds; scheme supplies payment arrangements.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b11",
+      "part_id": "c43.2",
+      "step": 4,
+      "purpose": "recap",
+      "say": "तो याद रखने वाला जोड़ है NPCI–RuPay, और RuPay की पहचान card payment scheme। दुकान पर card इस्तेमाल हो रहा है, पर bank account और उस payment का रास्ता अलग भूमिकाएँ निभाते हैं। इसलिए दूसरा statement सही है।",
+      "covers_item_ids": [
+       "p020-i2"
+      ],
+      "answers": [],
+      "on_screen": "NPCI–RuPay association ✓; statement 2 true.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b12",
+      "part_id": "c43.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "अब Prelims-2017 का पूरा question जोड़िए। पहले हिस्से में केवल statement 1 था; continuation में statement 2 और answer codes हैं। केवल पहला हिस्सा देखकर combination नहीं चुन सकते; और केवल दूसरा सही जानकर भी ‘2 only’ तथा ‘Both’ में फैसला नहीं होगा।",
+      "covers_item_ids": [
+       "p019-i20",
+       "p020-i1"
+      ],
+      "answers": [
+       "p019-i20#q1",
+       "p020-i1#q1",
+       "p020-i1#q2"
+      ],
+      "on_screen": "Join the continued question: 1. NPCI helps promote financial inclusion. 2. NPCI launched RuPay. Show all answer codes together.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b13",
+      "part_id": "c43.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Option a, ‘1 only’, पहले को सही और दूसरे को गलत मानता है। RuPay वाला statement सही है, इसलिए a हटेगा। Option b, ‘2 only’, दूसरे को सही लेकिन पहले को गलत मानता है; inclusion में मदद वाला statement भी सही है, इसलिए b भी हटेगा।",
+      "covers_item_ids": [
+       "p020-i4",
+       "p020-i5"
+      ],
+      "answers": [
+       "p020-i4#q1",
+       "p020-i4#q2",
+       "p020-i5#q1",
+       "p020-i5#q2"
+      ],
+      "on_screen": "(a) T/F rejected; (b) F/T rejected.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b14",
+      "part_id": "c43.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Option c, ‘Both 1 and 2’, में दोनों अलग-अलग सही होने चाहिए, और हमने दोनों जाँचे हैं। Option d, ‘Neither 1 nor 2’, दोनों को गलत कहता है; एक भी सही statement उसे हटा देता है। इसलिए सही उत्तर c है, सिर्फ RuPay पहचान लेने से नहीं, दोनों claims जाँचने से।",
+      "covers_item_ids": [
+       "p020-i6",
+       "p020-i7"
+      ],
+      "answers": [
+       "p020-i6#q1",
+       "p020-i6#q2",
+       "p020-i7#q1",
+       "p020-i7#q2"
+      ],
+      "on_screen": "(c) T/T selected; (d) F/F rejected. Correct: c.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b15",
+      "part_id": "c43.q",
+      "step": 0,
+      "purpose": "recap",
+      "say": "इस question की सीख है: statement का दायरा पकड़िए और फिर code चुनिए। NPCI inclusion में मदद करता है, पूरी guarantee नहीं देता; NPCI ने RuPay launch किया है। दोनों सही, इसलिए Both।",
+      "covers_item_ids": [
+       "p019-i20",
+       "p020-i1"
+      ],
+      "answers": [
+       "p019-i20#q2",
+       "p019-i20#q3"
+      ],
+      "on_screen": "Check claim scope → evaluate each statement → select combination.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b16",
+      "part_id": "c44.q",
+      "step": 0,
+      "purpose": "example",
+      "say": "अब किराना दुकान पर ₹1,000 का सामान card से खरीदा; दुकानदार को पूरे ₹1,000 न मिलें तो फर्क कहाँ गया? मान लीजिए payment स्वीकार करने की service के लिए 1% fee है। यह केवल समझने के लिए मानी गई दर है, आज की लागू दर नहीं।",
+      "covers_item_ids": [
+       "p020-i11"
+      ],
+      "answers": [],
+      "on_screen": "Hypothetical card purchase ₹1,000; assumed fee 1%; not a current-rate claim.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b17",
+      "part_id": "c44.q",
+      "step": 0,
+      "purpose": "process_walkthrough",
+      "say": "₹1,000 का 1% हुआ ₹10। Taxes और दूसरी charges छोड़ दें, तो ₹10 कटकर दुकानदार को ₹990 मिलेंगे। ग्राहक की खरीद ₹1,000 की ही रही; fee दुकानदार की मिलने वाली रकम से गई, ग्राहक को cashback बनकर नहीं लौटी।",
+      "covers_item_ids": [
+       "p020-i11"
+      ],
+      "answers": [
+       "p020-i11#q4"
+      ],
+      "on_screen": "₹1,000 × 1/100 = ₹10; merchant proceeds ₹1,000 → ₹990; fee ₹0 → ₹10.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b18",
+      "part_id": "c44.q",
+      "step": 0,
+      "purpose": "explain",
+      "say": "इसी merchant-side payment acceptance charge को MDR से पहचानते हैं; पूरा नाम Merchant Discount Rate है। Merchant यानी सामान या service बेचने वाला, जैसे यह दुकानदार। अर्थ है customers की card payments स्वीकार करने के लिए bank द्वारा merchant पर लगाया गया charge; service में payment infrastructure और processing इस्तेमाल होती है।",
+      "covers_item_ids": [
+       "p020-i11"
+      ],
+      "answers": [
+       "p020-i11#q1",
+       "p020-i11#q2",
+       "p020-i11#q3"
+      ],
+      "on_screen": "Merchant Discount Rate (MDR). Highlight: charge TO a merchant BY a bank FOR accepting card payments.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b19",
+      "part_id": "c44.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "IAS-Prelims 2018 ने पूछा: Merchant Discount Rate क्या है? ‘Discount’ सुनकर ग्राहक की छूट मत सोचिए; यहाँ दुकानदार की card payment लेने की cost है। दुकान की net receipt से इसे जोड़िए, लेकिन हमारे 1% से हर card या हर digital payment की rate और exemption तय मत कीजिए।",
+      "covers_item_ids": [
+       "p020-i8",
+       "p020-i11"
+      ],
+      "answers": [
+       "p020-i8#q1",
+       "p020-i8#q2",
+       "p020-i8#q3",
+       "p020-i11#q5"
+      ],
+      "on_screen": "2018 PYQ: merchant charge or benefit? Discount ≠ customer shopping concession. Rates/exemptions not established.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b20",
+      "part_id": "c44.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Option A में bank अपने debit cards की payments लेने के लिए merchant को incentive देता है। Incentive यानी काम करने के लिए मिलने वाला फायदा या पैसा। यहाँ bank से दुकानदार की तरफ रकम आ रही है; MDR में दुकानदार पर charge है, इसलिए A की दिशा उलटी है।",
+      "covers_item_ids": [
+       "p020-i9"
+      ],
+      "answers": [
+       "p020-i9#q1",
+       "p020-i9#q2"
+      ],
+      "on_screen": "A: bank → merchant incentive ✗. Contrast: merchant bears acceptance charge.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b21",
+      "part_id": "c44.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Option B में debit card से सामान या service खरीदने वाले customer को bank पैसा वापस देता है। यह cashback जैसा customer-side फायदा है, seller की fee नहीं। पूछिए: पैसा वापस खरीदार को मिला, या seller की रकम से कटा? B में पहला मामला है, इसलिए B गलत।",
+      "covers_item_ids": [
+       "p020-i10"
+      ],
+      "answers": [
+       "p020-i10#q1",
+       "p020-i10#q2",
+       "p020-i10#q3"
+      ],
+      "on_screen": "B: bank → customer repayment/cashback ✗. Buyer benefit ≠ seller charge.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b22",
+      "part_id": "c44.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Option C के शब्द हैं ‘charge to a merchant by a bank’। किस पर charge है? Merchant पर; कौन लगाता है? Bank। Customers की card payments लेने की service से जुड़ा यही charge हमारे ₹1,000 से ₹990 वाले उदाहरण में दिखा था, इसलिए C सही है।",
+      "covers_item_ids": [
+       "p020-i11"
+      ],
+      "answers": [
+       "p020-i11#q1",
+       "p020-i11#q2"
+      ],
+      "on_screen": "C ✓: bank charges merchant for accepting customer card payments.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b23",
+      "part_id": "c44.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Counter पर card tap या insert करने की machine देखी है? वही Point of Sale, यानी PoS machine है। Option D में Government merchants को incentive देती है, ताकि customers PoS machines और debit cards से digital payments करें; यहाँ support मिल रहा है, acceptance fee नहीं कट रही, इसलिए D गलत।",
+      "covers_item_ids": [
+       "p020-i12"
+      ],
+      "answers": [
+       "p020-i12#q1",
+       "p020-i12#q2",
+       "p020-i12#q3"
+      ],
+      "on_screen": "PoS terminal at shop counter. D: Government → merchant incentive ✗.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b24",
+      "part_id": "c44.q",
+      "step": 0,
+      "purpose": "recap",
+      "say": "MDR question में C चुनिए: merchant पर charge। A में bank से merchant को incentive, B में customer को पैसा वापस, D में Government से merchant को support है। ये alternatives हैं, हर खरीद पर cashback या किसी incentive scheme के लागू होने का सबूत नहीं।",
+      "covers_item_ids": [
+       "p020-i8",
+       "p020-i9",
+       "p020-i10",
+       "p020-i11",
+       "p020-i12"
+      ],
+      "answers": [],
+      "on_screen": "A: merchant benefit | B: buyer benefit | C: merchant charge ✓ | D: government support.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b25",
+      "part_id": "",
+      "step": 0,
+      "purpose": "recap",
+      "say": "अंत में 2 जाँच साथ रखिए: संस्था क्या करती है, और रकम किस दिशा में जाती है? NPCI वाले question में दोनों statements सही हैं, उत्तर c। MDR वाले question में merchant पर charge सही है, उत्तर C; payment का रास्ता, खाते का balance और मिलने वाला benefit एक ही चीज़ नहीं हैं।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "2017: c, Both 1 and 2. 2018: C, merchant charge. Role → claim scope → money direction.",
+      "basis": "mixed"
+     }
+    ]
+   },
+   "code_problems": [
+    "[code] beat b1: the Hindi words ['रकम'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b4: the Hindi words ['अनुमति', 'सफल', 'सुविधा', 'रकम'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b5: the Hindi words ['संस्था', 'खातों'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b6: the Hindi words ['भुगतान'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b7: the Hindi words ['सुविधा'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b15: the Hindi words ['दायरा'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b16: the Hindi words ['स्वीकार', 'दर'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b17: the Hindi words ['रकम'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b18: the Hindi words ['स्वीकार'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b20: the Hindi words ['रकम'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b21: the Hindi words ['रकम'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b25: the Hindi words ['संस्था', 'रकम'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b14 is too heavy for one breath (load 1.82 over 1.8: 2 items, 51 words); split it into smaller beats (PED cognitive-load check)"
+   ],
+   "observed": {
+    "pattern_order": [],
+    "skipped_steps": {
+     "c43.2": {
+      "2": "The item contains no numerical magnitude requiring a scale comparison.",
+      "5": "The institution–product fact has no formula to construct."
+     }
+    },
+    "objective_coverage": {
+     "coverage": 1.0,
+     "uncovered": []
+    },
+    "cognitive_load": {
+     "max": 1.82,
+     "abrupt_jumps": [
+      "b11->b12",
+      "b14->b15"
+     ]
+    },
+    "duration": {
+     "spoken_minutes_at_130_wpm": 8.9,
+     "planned_minutes": 7,
+     "range": [
+      6.5,
+      8.6
+     ]
+    },
+    "dohraav": {
+     "beats": 25,
+     "judged": 19,
+     "restating": 0,
+     "share": 0.0,
+     "opened": 15,
+     "opened_share": 0.789,
+     "restating_beats": []
+    },
+    "real_world": [
+     {
+      "item_id": "p019-i27",
+      "place": "worker's town and family member's village; hypothetical",
+      "numbers": [
+       "1200",
+       "200",
+       "2000",
+       "3000"
+      ],
+      "example_beats": [
+       "b2",
+       "b4"
+      ],
+      "term_beat": "b5",
+      "term": "financial inclusion",
+      "ok": true,
+      "problem": ""
+     }
+    ]
+   },
+   "passed": false,
+   "finished_at": 1793133762.1949105
+  },
+  {
+   "round": 2,
+   "started_at": 1793133762.1987956,
+   "mode": "patch",
+   "patch": {
+    "notes": {
+     "about": "Patch preserves the NPCI and MDR teaching sequence while simplifying flagged language and reducing narration time.",
+     "key_questions": [
+      "Are all claims and answer options still explained within the time limit?"
+     ],
+     "decisions": [
+      {
+       "decision": "Replace flagged Hindi words with plain Hindi or established English terms.",
+       "reason": "Keeps narration natural and avoids unnecessary bracketed vocabulary."
+      },
+      {
+       "decision": "Shorten repeated explanations and the overloaded b14.",
+       "reason": "Brings narration below 8.6 minutes without removing content or teaching-pattern steps."
+      }
+     ],
+     "uncertain": []
+    },
+    "replace_parts": [],
+    "replace_beats": [
+     {
+      "beat_id": "b1",
+      "part_id": "",
+      "step": 0,
+      "purpose": "hook",
+      "say": "Card से खरीदारी पर आपको cashback मिले और दुकानदार के पैसे से fee कटे—क्या दोनों एक चीज़ हैं? आज 2 PYQ में payment व्यवस्था का काम और पैसे की दिशा जाँचेंगे।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Buyer receives cashback | Merchant bears fee; NPCI PYQ → MDR PYQ.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b4",
+      "part_id": "c43.1",
+      "step": 3,
+      "purpose": "process_walkthrough",
+      "say": "अब व्यक्ति ₹1,000 भेजने को मंजूरी (approval) देता है। Transfer होने पर उसका balance ₹3,000 से ₹2,000 और परिवार का ₹200 से ₹1,200 होता है। परिवार उपलब्ध payment या withdrawal service से पैसे इस्तेमाल करता है; खाता अब घर की जरूरत पूरी करने का रास्ता बना।",
+      "covers_item_ids": [
+       "p019-i27"
+      ],
+      "answers": [
+       "p019-i27#q3"
+      ],
+      "on_screen": "₹1,000 transfer: ₹3,000 → ₹2,000; ₹200 → ₹1,200; received funds → household use.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b5",
+      "part_id": "c43.1",
+      "step": 3,
+      "purpose": "explain",
+      "say": "काम की financial सेवाएँ लोगों तक पहुँचना और उनका इस्तेमाल कर पाना, यही financial inclusion है। NPCI, यानी National Payments Corporation of India, देश की retail payment व्यवस्था से जुड़ी organisation है। साझा payment रास्ते accounts को काम का बनाते हैं, इसलिए NPCI financial inclusion बढ़ाने में मदद करता है।",
+      "covers_item_ids": [
+       "p019-i27"
+      ],
+      "answers": [
+       "p019-i27#q1",
+       "p019-i27#q2"
+      ],
+      "on_screen": "Financial inclusion: usable access to financial services. NPCI = National Payments Corporation of India. Infrastructure → practical account use.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b6",
+      "part_id": "c43.1",
+      "step": 4,
+      "purpose": "explain",
+      "say": "इस उदाहरण से क्या पता चला? अलग banks के बीच payment का रास्ता मिला, तो परिवार खाता इस्तेमाल कर पाया। घर पैसे भेजते समय यही जरूरत होती है; इससे पूरे देश में inclusion कितना बढ़ा, यह नहीं मापा गया।",
+      "covers_item_ids": [
+       "p019-i27"
+      ],
+      "answers": [
+       "p019-i27#q4"
+      ],
+      "on_screen": "Illustrated mechanism ≠ measured national impact.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b7",
+      "part_id": "c43.1",
+      "step": 5,
+      "purpose": "misconception",
+      "say": "Claim है ‘helps in promoting’, न कि ‘अकेले सबको शामिल कर देता है’। Connectivity न हो, service महँगी हो या व्यक्ति इस्तेमाल न कर पाए, तो रास्ता होते हुए भी काम रुकेगा। यहाँ न numerical measure है, न सबके शामिल होने की guarantee।",
+      "covers_item_ids": [
+       "p019-i27"
+      ],
+      "answers": [
+       "p019-i27#q5",
+       "p019-i27#q4"
+      ],
+      "on_screen": "helps in promoting ≠ guarantees universal inclusion; connectivity, affordability, capability.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b14",
+      "part_id": "c43.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Option c, ‘Both 1 and 2’, दोनों को सही मानता है; हमने दोनों अलग-अलग जाँचे हैं। Option d, ‘Neither 1 nor 2’, दोनों को गलत कहता है; एक भी सही हो तो d हटेगा। इसलिए दोनों claims की जाँच से उत्तर c है।",
+      "covers_item_ids": [
+       "p020-i6",
+       "p020-i7"
+      ],
+      "answers": [
+       "p020-i6#q1",
+       "p020-i6#q2",
+       "p020-i7#q1",
+       "p020-i7#q2"
+      ],
+      "on_screen": "(c) T/T selected; (d) F/F rejected. Correct: c.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b15",
+      "part_id": "c43.q",
+      "step": 0,
+      "purpose": "recap",
+      "say": "सीख है: statement कितना दावा करता है, यह पकड़कर code चुनिए। NPCI inclusion में मदद करता है, guarantee नहीं देता; उसने RuPay भी launch किया है। दोनों सही, इसलिए Both।",
+      "covers_item_ids": [
+       "p019-i20",
+       "p020-i1"
+      ],
+      "answers": [
+       "p019-i20#q2",
+       "p019-i20#q3"
+      ],
+      "on_screen": "Check claim scope → evaluate each statement → select combination.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b16",
+      "part_id": "c44.q",
+      "step": 0,
+      "purpose": "example",
+      "say": "किराना दुकान पर ₹1,000 का सामान card से खरीदा; दुकानदार को पूरे पैसे न मिलें तो फर्क कहाँ गया? मान लीजिए card payment लेने की service पर 1% fee है। यह समझाने के लिए मानी गई rate है, आज की लागू rate नहीं।",
+      "covers_item_ids": [
+       "p020-i11"
+      ],
+      "answers": [],
+      "on_screen": "Hypothetical card purchase ₹1,000; assumed fee 1%; not a current-rate claim.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b17",
+      "part_id": "c44.q",
+      "step": 0,
+      "purpose": "process_walkthrough",
+      "say": "₹1,000 का 1% हुआ ₹10। Taxes और दूसरे charges छोड़ दें, तो ₹10 कटकर दुकानदार को ₹990 मिलेंगे। ग्राहक की खरीद ₹1,000 की रही; fee दुकानदार के पैसे से गई, ग्राहक को cashback नहीं मिला।",
+      "covers_item_ids": [
+       "p020-i11"
+      ],
+      "answers": [
+       "p020-i11#q4"
+      ],
+      "on_screen": "₹1,000 × 1/100 = ₹10; merchant proceeds ₹1,000 → ₹990; fee ₹0 → ₹10.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b18",
+      "part_id": "c44.q",
+      "step": 0,
+      "purpose": "explain",
+      "say": "यह merchant-side payment acceptance charge MDR है; पूरा नाम Merchant Discount Rate है। Merchant यानी सामान या service बेचने वाला, जैसे दुकानदार। Customers की card payments लेने के लिए bank merchant पर यह charge लगाता है; उस service में payment infrastructure और processing इस्तेमाल होती है।",
+      "covers_item_ids": [
+       "p020-i11"
+      ],
+      "answers": [
+       "p020-i11#q1",
+       "p020-i11#q2",
+       "p020-i11#q3"
+      ],
+      "on_screen": "Merchant Discount Rate (MDR). Highlight: charge TO a merchant BY a bank FOR accepting card payments.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b20",
+      "part_id": "c44.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Option A में bank अपने debit cards की payments लेने पर merchant को incentive देता है। Incentive यानी काम करने के लिए मिलने वाला फायदा या पैसा। यहाँ bank से दुकानदार को पैसे मिलते हैं; MDR में दुकानदार पर charge लगता है, इसलिए A उलटी दिशा बताता है।",
+      "covers_item_ids": [
+       "p020-i9"
+      ],
+      "answers": [
+       "p020-i9#q1",
+       "p020-i9#q2"
+      ],
+      "on_screen": "A: bank → merchant incentive ✗. Contrast: merchant bears acceptance charge.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b21",
+      "part_id": "c44.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Option B में debit card से सामान या service खरीदने वाले customer को bank पैसे वापस देता है। यह cashback जैसा फायदा है, seller की fee नहीं। पूछिए: खरीदार को पैसे वापस मिले या seller के पैसे कटे? B में पहला मामला है, इसलिए B गलत।",
+      "covers_item_ids": [
+       "p020-i10"
+      ],
+      "answers": [
+       "p020-i10#q1",
+       "p020-i10#q2",
+       "p020-i10#q3"
+      ],
+      "on_screen": "B: bank → customer repayment/cashback ✗. Buyer benefit ≠ seller charge.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b25",
+      "part_id": "",
+      "step": 0,
+      "purpose": "recap",
+      "say": "अंत में जाँचिए: organisation क्या करती है, और पैसे किसे मिलते हैं या किससे कटते हैं? NPCI question में दोनों statements सही, उत्तर c। MDR में merchant पर charge, उत्तर C; payment का रास्ता, account balance और मिलने वाला benefit अलग बातें हैं।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "2017: c, Both 1 and 2. 2018: C, merchant charge. Role → claim scope → money direction.",
+      "basis": "mixed"
+     }
+    ],
+    "insert_beats": [],
+    "remove_beat_ids": []
+   },
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "0eee6348391c8b9de593cc8c0752d2a809f4a80d3e176b70ead0d228209c10fb",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 21049,
+    "output_tokens": 2335,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "This video completes the NPCI statement-combination PYQ and solves the MDR PYQ by tracing who pays whom.",
+    "key_questions": [
+     "How does usable payment infrastructure support, but not guarantee, financial inclusion?",
+     "What is the NPCI–RuPay relationship, and which statement combination follows?",
+     "Why is MDR a merchant charge rather than an incentive or cashback?"
+    ],
+    "decisions": [
+     {
+      "decision": "Run the locked ₹1,000 household transfer before naming financial inclusion.",
+      "reason": "The balances make practical account use visible before the causal claim."
+     },
+     {
+      "decision": "Treat the continued NPCI material as one complete question.",
+      "reason": "A true second statement alone cannot distinguish options b and c."
+     },
+     {
+      "decision": "Introduce MDR through the hypothetical ₹1,000 → ₹990 settlement before evaluating all four options.",
+      "reason": "Payment direction resolves the distractors without relying on the word Discount."
+     },
+     {
+      "decision": "Keep the closing recap limited to this video's distinctions.",
+      "reason": "The supplied source does not support reteaching the chapter's legal-status and money-supply material."
+     },
+     {
+      "decision": "Replace flagged Hindi words with plain Hindi or established English terms.",
+      "reason": "Keeps narration natural and avoids unnecessary bracketed vocabulary."
+     },
+     {
+      "decision": "Shorten repeated explanations and the overloaded b14.",
+      "reason": "Brings narration below 8.6 minutes without removing content or teaching-pattern steps."
+     }
+    ],
+    "uncertain": []
+   },
+   "output": {
+    "notes": {
+     "about": "This video completes the NPCI statement-combination PYQ and solves the MDR PYQ by tracing who pays whom.",
+     "key_questions": [
+      "How does usable payment infrastructure support, but not guarantee, financial inclusion?",
+      "What is the NPCI–RuPay relationship, and which statement combination follows?",
+      "Why is MDR a merchant charge rather than an incentive or cashback?"
+     ],
+     "decisions": [
+      {
+       "decision": "Run the locked ₹1,000 household transfer before naming financial inclusion.",
+       "reason": "The balances make practical account use visible before the causal claim."
+      },
+      {
+       "decision": "Treat the continued NPCI material as one complete question.",
+       "reason": "A true second statement alone cannot distinguish options b and c."
+      },
+      {
+       "decision": "Introduce MDR through the hypothetical ₹1,000 → ₹990 settlement before evaluating all four options.",
+       "reason": "Payment direction resolves the distractors without relying on the word Discount."
+      },
+      {
+       "decision": "Keep the closing recap limited to this video's distinctions.",
+       "reason": "The supplied source does not support reteaching the chapter's legal-status and money-supply material."
+      },
+      {
+       "decision": "Replace flagged Hindi words with plain Hindi or established English terms.",
+       "reason": "Keeps narration natural and avoids unnecessary bracketed vocabulary."
+      },
+      {
+       "decision": "Shorten repeated explanations and the overloaded b14.",
+       "reason": "Brings narration below 8.6 minutes without removing content or teaching-pattern steps."
+      }
+     ],
+     "uncertain": []
+    },
+    "title": "NPCI, RuPay और MDR: PYQ में कौन किसे पैसे देता है?",
+    "parts": [
+     {
+      "part_id": "c43.1",
+      "frame": {
+       "process": "Payment infrastructure can turn account ownership into usable financial access.",
+       "how": "A hypothetical cross-bank household transfer makes funds available for household needs.",
+       "when": "Access and linked accounts come first, followed by authorisation, successful transfer and use.",
+       "conditions": "Participating accounts, connectivity, affordability and user capability matter; infrastructure alone cannot guarantee inclusion.",
+       "atmosphere": "A worker in a town sends household money to a family member in a village."
+      },
+      "skipped_steps": []
+     },
+     {
+      "part_id": "c43.2",
+      "frame": {
+       "process": "Identify NPCI as the institution that launched RuPay, a card payment scheme.",
+       "how": "Distinguish the shared card-payment arrangement from the bank account holding the customer's funds.",
+       "when": "The institutional relationship is checked before selecting the statement combination.",
+       "conditions": "A card scheme and a bank account have different roles.",
+       "atmosphere": "A customer uses a RuPay-branded card at a shop terminal."
+      },
+      "skipped_steps": [
+       {
+        "step": 2,
+        "why": "The item contains no numerical magnitude requiring a scale comparison."
+       },
+       {
+        "step": 5,
+        "why": "The institution–product fact has no formula to construct."
+       }
+      ]
+     },
+     {
+      "part_id": "c43.q",
+      "frame": {
+       "process": "Solve the Prelims-2017 two-statement NPCI question.",
+       "how": "Evaluate inclusion and RuPay independently, then decode all four combinations.",
+       "when": "Select the answer only after both statements have been checked.",
+       "conditions": "Both statements are correct; one correct statement alone does not establish the full combination.",
+       "atmosphere": "A timed prelims question presented as one complete question despite its continued layout."
+      },
+      "skipped_steps": []
+     },
+     {
+      "part_id": "c44.q",
+      "frame": {
+       "process": "Identify MDR and eliminate incentive and cashback alternatives in the IAS-Prelims 2018 question.",
+       "how": "Trace the merchant-side deduction, then compare each option's payer and recipient.",
+       "when": "Run the hypothetical transaction before naming MDR and selecting C.",
+       "conditions": "The assumed 1% ignores taxes and other charges and establishes no current rate or universal applicability.",
+       "atmosphere": "A kirana customer pays by card while the merchant receives the sale proceeds less an assumed fee."
+      },
+      "skipped_steps": []
+     }
+    ],
+    "beats": [
+     {
+      "beat_id": "b1",
+      "part_id": "",
+      "step": 0,
+      "purpose": "hook",
+      "say": "Card से खरीदारी पर आपको cashback मिले और दुकानदार के पैसे से fee कटे—क्या दोनों एक चीज़ हैं? आज 2 PYQ में payment व्यवस्था का काम और पैसे की दिशा जाँचेंगे।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Buyer receives cashback | Merchant bears fee; NPCI PYQ → MDR PYQ.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b2",
+      "part_id": "c43.1",
+      "step": 1,
+      "purpose": "example",
+      "say": "शहर में काम करने वाला व्यक्ति गाँव में घर खर्च भेजना चाहता है; सिर्फ दोनों के पास passbook होने से काम पूरा होगा? मान लीजिए उसके खाते में ₹3,000 हैं, परिवार के खाते में ₹200। जरूरत यह है कि ₹1,000 पहुँचें और परिवार उनसे किराना खरीद सके।",
+      "covers_item_ids": [
+       "p019-i27"
+      ],
+      "answers": [],
+      "on_screen": "Hypothetical: town worker ₹3,000; village family ₹200; household transfer needed ₹1,000.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b3",
+      "part_id": "c43.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "रुकावट कहाँ आ सकती है? अगर पैसे भेजने और पाने के लिए एक ही bank होना जरूरी हो, तो अलग banks वाले परिवार को परेशानी होगी। दोनों तरफ जरूरी access और linked accounts हों, और banks साझा payment व्यवस्था में जुड़े हों, तो यह same-bank जरूरत हट सकती है।",
+      "covers_item_ids": [
+       "p019-i27"
+      ],
+      "answers": [
+       "p019-i27#q2"
+      ],
+      "on_screen": "Different participating banks connected by one payment route; access and linked accounts marked as assumptions.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b4",
+      "part_id": "c43.1",
+      "step": 3,
+      "purpose": "process_walkthrough",
+      "say": "अब व्यक्ति ₹1,000 भेजने को मंजूरी (approval) देता है। Transfer होने पर उसका balance ₹3,000 से ₹2,000 और परिवार का ₹200 से ₹1,200 होता है। परिवार उपलब्ध payment या withdrawal service से पैसे इस्तेमाल करता है; खाता अब घर की जरूरत पूरी करने का रास्ता बना।",
+      "covers_item_ids": [
+       "p019-i27"
+      ],
+      "answers": [
+       "p019-i27#q3"
+      ],
+      "on_screen": "₹1,000 transfer: ₹3,000 → ₹2,000; ₹200 → ₹1,200; received funds → household use.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b5",
+      "part_id": "c43.1",
+      "step": 3,
+      "purpose": "explain",
+      "say": "काम की financial सेवाएँ लोगों तक पहुँचना और उनका इस्तेमाल कर पाना, यही financial inclusion है। NPCI, यानी National Payments Corporation of India, देश की retail payment व्यवस्था से जुड़ी organisation है। साझा payment रास्ते accounts को काम का बनाते हैं, इसलिए NPCI financial inclusion बढ़ाने में मदद करता है।",
+      "covers_item_ids": [
+       "p019-i27"
+      ],
+      "answers": [
+       "p019-i27#q1",
+       "p019-i27#q2"
+      ],
+      "on_screen": "Financial inclusion: usable access to financial services. NPCI = National Payments Corporation of India. Infrastructure → practical account use.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b6",
+      "part_id": "c43.1",
+      "step": 4,
+      "purpose": "explain",
+      "say": "इस उदाहरण से क्या पता चला? अलग banks के बीच payment का रास्ता मिला, तो परिवार खाता इस्तेमाल कर पाया। घर पैसे भेजते समय यही जरूरत होती है; इससे पूरे देश में inclusion कितना बढ़ा, यह नहीं मापा गया।",
+      "covers_item_ids": [
+       "p019-i27"
+      ],
+      "answers": [
+       "p019-i27#q4"
+      ],
+      "on_screen": "Illustrated mechanism ≠ measured national impact.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b7",
+      "part_id": "c43.1",
+      "step": 5,
+      "purpose": "misconception",
+      "say": "Claim है ‘helps in promoting’, न कि ‘अकेले सबको शामिल कर देता है’। Connectivity न हो, service महँगी हो या व्यक्ति इस्तेमाल न कर पाए, तो रास्ता होते हुए भी काम रुकेगा। यहाँ न numerical measure है, न सबके शामिल होने की guarantee।",
+      "covers_item_ids": [
+       "p019-i27"
+      ],
+      "answers": [
+       "p019-i27#q5",
+       "p019-i27#q4"
+      ],
+      "on_screen": "helps in promoting ≠ guarantees universal inclusion; connectivity, affordability, capability.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b8",
+      "part_id": "c43.1",
+      "step": 6,
+      "purpose": "recap",
+      "say": "यह कारण की कड़ी याद रखिए: साझा payment रास्ता, फिर खाते में पैसा भेजना-पाना आसान, फिर खाते का असली इस्तेमाल। इसी तरह infrastructure inclusion में मदद करता है। मदद और पूरी guarantee को एक मत मानिए।",
+      "covers_item_ids": [
+       "p019-i27"
+      ],
+      "answers": [],
+      "on_screen": "Shared route → convenient transfer → usable account → supports inclusion.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b9",
+      "part_id": "c43.2",
+      "step": 1,
+      "purpose": "explain",
+      "say": "दुकान पर card पर RuPay लिखा दिखे, तो यह आपके bank account का नाम है या payment व्यवस्था का? RuPay एक card payment scheme है, जिसे NPCI ने launch किया। यानी card से payment के लिए जुड़े banks की साझा व्यवस्था का नाम, आपका खाता नहीं।",
+      "covers_item_ids": [
+       "p020-i2"
+      ],
+      "answers": [
+       "p020-i2#q1",
+       "p020-i2#q3"
+      ],
+      "on_screen": "RuPay card → shop terminal → participating banks. NPCI launched RuPay.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b10",
+      "part_id": "c43.2",
+      "step": 3,
+      "purpose": "explain",
+      "say": "2017 के इस question का दूसरा statement सीधा institution और product जोड़ता है: NPCI ने RuPay launch किया, और RuPay card payment scheme है। Scheme banks को payment संभालने के arrangements और rules देती है। आपके पैसे आपके bank account में होते हैं; scheme खुद वह account नहीं बन जाती।",
+      "covers_item_ids": [
+       "p020-i2"
+      ],
+      "answers": [
+       "p020-i2#q2",
+       "p020-i2#q3"
+      ],
+      "on_screen": "Statement 2: NPCI → launched → RuPay → card payment scheme. Account holds funds; scheme supplies payment arrangements.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b11",
+      "part_id": "c43.2",
+      "step": 4,
+      "purpose": "recap",
+      "say": "तो याद रखने वाला जोड़ है NPCI–RuPay, और RuPay की पहचान card payment scheme। दुकान पर card इस्तेमाल हो रहा है, पर bank account और उस payment का रास्ता अलग भूमिकाएँ निभाते हैं। इसलिए दूसरा statement सही है।",
+      "covers_item_ids": [
+       "p020-i2"
+      ],
+      "answers": [],
+      "on_screen": "NPCI–RuPay association ✓; statement 2 true.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b12",
+      "part_id": "c43.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "अब Prelims-2017 का पूरा question जोड़िए। पहले हिस्से में केवल statement 1 था; continuation में statement 2 और answer codes हैं। केवल पहला हिस्सा देखकर combination नहीं चुन सकते; और केवल दूसरा सही जानकर भी ‘2 only’ तथा ‘Both’ में फैसला नहीं होगा।",
+      "covers_item_ids": [
+       "p019-i20",
+       "p020-i1"
+      ],
+      "answers": [
+       "p019-i20#q1",
+       "p020-i1#q1",
+       "p020-i1#q2"
+      ],
+      "on_screen": "Join the continued question: 1. NPCI helps promote financial inclusion. 2. NPCI launched RuPay. Show all answer codes together.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b13",
+      "part_id": "c43.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Option a, ‘1 only’, पहले को सही और दूसरे को गलत मानता है। RuPay वाला statement सही है, इसलिए a हटेगा। Option b, ‘2 only’, दूसरे को सही लेकिन पहले को गलत मानता है; inclusion में मदद वाला statement भी सही है, इसलिए b भी हटेगा।",
+      "covers_item_ids": [
+       "p020-i4",
+       "p020-i5"
+      ],
+      "answers": [
+       "p020-i4#q1",
+       "p020-i4#q2",
+       "p020-i5#q1",
+       "p020-i5#q2"
+      ],
+      "on_screen": "(a) T/F rejected; (b) F/T rejected.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b14",
+      "part_id": "c43.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Option c, ‘Both 1 and 2’, दोनों को सही मानता है; हमने दोनों अलग-अलग जाँचे हैं। Option d, ‘Neither 1 nor 2’, दोनों को गलत कहता है; एक भी सही हो तो d हटेगा। इसलिए दोनों claims की जाँच से उत्तर c है।",
+      "covers_item_ids": [
+       "p020-i6",
+       "p020-i7"
+      ],
+      "answers": [
+       "p020-i6#q1",
+       "p020-i6#q2",
+       "p020-i7#q1",
+       "p020-i7#q2"
+      ],
+      "on_screen": "(c) T/T selected; (d) F/F rejected. Correct: c.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b15",
+      "part_id": "c43.q",
+      "step": 0,
+      "purpose": "recap",
+      "say": "सीख है: statement कितना दावा करता है, यह पकड़कर code चुनिए। NPCI inclusion में मदद करता है, guarantee नहीं देता; उसने RuPay भी launch किया है। दोनों सही, इसलिए Both।",
+      "covers_item_ids": [
+       "p019-i20",
+       "p020-i1"
+      ],
+      "answers": [
+       "p019-i20#q2",
+       "p019-i20#q3"
+      ],
+      "on_screen": "Check claim scope → evaluate each statement → select combination.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b16",
+      "part_id": "c44.q",
+      "step": 0,
+      "purpose": "example",
+      "say": "किराना दुकान पर ₹1,000 का सामान card से खरीदा; दुकानदार को पूरे पैसे न मिलें तो फर्क कहाँ गया? मान लीजिए card payment लेने की service पर 1% fee है। यह समझाने के लिए मानी गई rate है, आज की लागू rate नहीं।",
+      "covers_item_ids": [
+       "p020-i11"
+      ],
+      "answers": [],
+      "on_screen": "Hypothetical card purchase ₹1,000; assumed fee 1%; not a current-rate claim.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b17",
+      "part_id": "c44.q",
+      "step": 0,
+      "purpose": "process_walkthrough",
+      "say": "₹1,000 का 1% हुआ ₹10। Taxes और दूसरे charges छोड़ दें, तो ₹10 कटकर दुकानदार को ₹990 मिलेंगे। ग्राहक की खरीद ₹1,000 की रही; fee दुकानदार के पैसे से गई, ग्राहक को cashback नहीं मिला।",
+      "covers_item_ids": [
+       "p020-i11"
+      ],
+      "answers": [
+       "p020-i11#q4"
+      ],
+      "on_screen": "₹1,000 × 1/100 = ₹10; merchant proceeds ₹1,000 → ₹990; fee ₹0 → ₹10.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b18",
+      "part_id": "c44.q",
+      "step": 0,
+      "purpose": "explain",
+      "say": "यह merchant-side payment acceptance charge MDR है; पूरा नाम Merchant Discount Rate है। Merchant यानी सामान या service बेचने वाला, जैसे दुकानदार। Customers की card payments लेने के लिए bank merchant पर यह charge लगाता है; उस service में payment infrastructure और processing इस्तेमाल होती है।",
+      "covers_item_ids": [
+       "p020-i11"
+      ],
+      "answers": [
+       "p020-i11#q1",
+       "p020-i11#q2",
+       "p020-i11#q3"
+      ],
+      "on_screen": "Merchant Discount Rate (MDR). Highlight: charge TO a merchant BY a bank FOR accepting card payments.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b19",
+      "part_id": "c44.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "IAS-Prelims 2018 ने पूछा: Merchant Discount Rate क्या है? ‘Discount’ सुनकर ग्राहक की छूट मत सोचिए; यहाँ दुकानदार की card payment लेने की cost है। दुकान की net receipt से इसे जोड़िए, लेकिन हमारे 1% से हर card या हर digital payment की rate और exemption तय मत कीजिए।",
+      "covers_item_ids": [
+       "p020-i8",
+       "p020-i11"
+      ],
+      "answers": [
+       "p020-i8#q1",
+       "p020-i8#q2",
+       "p020-i8#q3",
+       "p020-i11#q5"
+      ],
+      "on_screen": "2018 PYQ: merchant charge or benefit? Discount ≠ customer shopping concession. Rates/exemptions not established.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b20",
+      "part_id": "c44.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Option A में bank अपने debit cards की payments लेने पर merchant को incentive देता है। Incentive यानी काम करने के लिए मिलने वाला फायदा या पैसा। यहाँ bank से दुकानदार को पैसे मिलते हैं; MDR में दुकानदार पर charge लगता है, इसलिए A उलटी दिशा बताता है।",
+      "covers_item_ids": [
+       "p020-i9"
+      ],
+      "answers": [
+       "p020-i9#q1",
+       "p020-i9#q2"
+      ],
+      "on_screen": "A: bank → merchant incentive ✗. Contrast: merchant bears acceptance charge.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b21",
+      "part_id": "c44.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Option B में debit card से सामान या service खरीदने वाले customer को bank पैसे वापस देता है। यह cashback जैसा फायदा है, seller की fee नहीं। पूछिए: खरीदार को पैसे वापस मिले या seller के पैसे कटे? B में पहला मामला है, इसलिए B गलत।",
+      "covers_item_ids": [
+       "p020-i10"
+      ],
+      "answers": [
+       "p020-i10#q1",
+       "p020-i10#q2",
+       "p020-i10#q3"
+      ],
+      "on_screen": "B: bank → customer repayment/cashback ✗. Buyer benefit ≠ seller charge.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b22",
+      "part_id": "c44.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Option C के शब्द हैं ‘charge to a merchant by a bank’। किस पर charge है? Merchant पर; कौन लगाता है? Bank। Customers की card payments लेने की service से जुड़ा यही charge हमारे ₹1,000 से ₹990 वाले उदाहरण में दिखा था, इसलिए C सही है।",
+      "covers_item_ids": [
+       "p020-i11"
+      ],
+      "answers": [
+       "p020-i11#q1",
+       "p020-i11#q2"
+      ],
+      "on_screen": "C ✓: bank charges merchant for accepting customer card payments.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b23",
+      "part_id": "c44.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Counter पर card tap या insert करने की machine देखी है? वही Point of Sale, यानी PoS machine है। Option D में Government merchants को incentive देती है, ताकि customers PoS machines और debit cards से digital payments करें; यहाँ support मिल रहा है, acceptance fee नहीं कट रही, इसलिए D गलत।",
+      "covers_item_ids": [
+       "p020-i12"
+      ],
+      "answers": [
+       "p020-i12#q1",
+       "p020-i12#q2",
+       "p020-i12#q3"
+      ],
+      "on_screen": "PoS terminal at shop counter. D: Government → merchant incentive ✗.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b24",
+      "part_id": "c44.q",
+      "step": 0,
+      "purpose": "recap",
+      "say": "MDR question में C चुनिए: merchant पर charge। A में bank से merchant को incentive, B में customer को पैसा वापस, D में Government से merchant को support है। ये alternatives हैं, हर खरीद पर cashback या किसी incentive scheme के लागू होने का सबूत नहीं।",
+      "covers_item_ids": [
+       "p020-i8",
+       "p020-i9",
+       "p020-i10",
+       "p020-i11",
+       "p020-i12"
+      ],
+      "answers": [],
+      "on_screen": "A: merchant benefit | B: buyer benefit | C: merchant charge ✓ | D: government support.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b25",
+      "part_id": "",
+      "step": 0,
+      "purpose": "recap",
+      "say": "अंत में जाँचिए: organisation क्या करती है, और पैसे किसे मिलते हैं या किससे कटते हैं? NPCI question में दोनों statements सही, उत्तर c। MDR में merchant पर charge, उत्तर C; payment का रास्ता, account balance और मिलने वाला benefit अलग बातें हैं।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "2017: c, Both 1 and 2. 2018: C, merchant charge. Role → claim scope → money direction.",
+      "basis": "mixed"
+     }
+    ]
+   },
+   "code_problems": [],
+   "observed": {
+    "pattern_order": [],
+    "skipped_steps": {
+     "c43.2": {
+      "2": "The item contains no numerical magnitude requiring a scale comparison.",
+      "5": "The institution–product fact has no formula to construct."
+     }
+    },
+    "objective_coverage": {
+     "coverage": 1.0,
+     "uncovered": []
+    },
+    "cognitive_load": {
+     "max": 1.72,
+     "abrupt_jumps": [
+      "b1->b2",
+      "b11->b12",
+      "b14->b15"
+     ]
+    },
+    "duration": {
+     "spoken_minutes_at_130_wpm": 8.4,
+     "planned_minutes": 7,
+     "range": [
+      6.5,
+      8.6
+     ]
+    },
+    "dohraav": {
+     "beats": 25,
+     "judged": 19,
+     "restating": 0,
+     "share": 0.0,
+     "opened": 15,
+     "opened_share": 0.789,
+     "restating_beats": []
+    },
+    "real_world": [
+     {
+      "item_id": "p019-i27",
+      "place": "worker's town and family member's village; hypothetical",
+      "numbers": [
+       "1200",
+       "200",
+       "2000",
+       "3000"
+      ],
+      "example_beats": [
+       "b2",
+       "b4"
+      ],
+      "term_beat": "b5",
+      "term": "financial inclusion",
+      "ok": true,
+      "problem": ""
+     }
+    ]
+   },
+   "review": {
+    "route": "codex-checker",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "d684f2d9cc7910efba45615854a73d4f5e183bc16edacf2963f641094ea8e91d",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 16796,
+    "output_tokens": 1282,
+    "cost_usd": 0.0,
+    "value": {
+     "notes": {
+      "about": "The unit connects NPCI’s payment infrastructure with usable financial access, establishes the NPCI–RuPay relationship, and solves both PYQs through claim scope and payment direction.",
+      "key_questions": [
+       "How can NPCI support inclusion without guaranteeing it?",
+       "Why are both NPCI statements correct?",
+       "Why is MDR a merchant charge rather than cashback or an incentive?"
+      ],
+      "decisions": [
+       {
+        "decision": "Accept the transfer and merchant-fee examples.",
+        "reason": "Their numbers and mechanisms are correct, and their hypothetical status and limits are explicit."
+       },
+       {
+        "decision": "Require removal of source-layout narration and duplicate answer recaps.",
+        "reason": "The rules require direct teaching without pointing at source layout or repeating completed recaps."
+       }
+      ],
+      "uncertain": [
+       "The standalone prerequisite video and full chapter plan are not supplied; their actual delivery cannot be verified."
+      ]
+     },
+     "verdict": "fail",
+     "problems": [
+      {
+       "where": "b12",
+       "problem": "The narration explains where statements and answer codes appear in the original continuation rather than directly teaching the question. This points at source layout, contrary to W-01.",
+       "fix": "Display the complete question and say: “केवल statement 1 सही जानकर पूरा combination नहीं चुन सकते। केवल statement 2 सही जानने पर भी ‘2 only’ और ‘Both’ में फैसला नहीं होता।” This preserves the incomplete-question lesson while cutting layout commentary.",
+       "severity": "blocking"
+      },
+      {
+       "where": "b15 and b25, following b8, b11, b14 and b24",
+       "problem": "Completed explanations and answer selections receive duplicate recaps. b15 repeats the NPCI conclusion immediately after b14; b25 again repeats both answers after their dedicated recaps.",
+       "fix": "Delete b15 and replace b25’s repeated answers with one short transfer check asking learners to identify claim scope and payment direction in a fresh situation. Retain the causal flow in b8 and the option comparison in b24. These cuts also provide time for any refinement.",
+       "severity": "blocking"
+      }
+     ],
+     "checklist": [
+      {
+       "rule_id": "G-01",
+       "met": true,
+       "note": "Book claims and standard explanatory additions are distinguished through basis labels; hypothetical rates are not presented as current policy."
+      },
+      {
+       "rule_id": "G-02",
+       "met": true,
+       "note": "The causal mechanism, institutional relationship, option logic and MDR boundary receive adequate exam-level explanation."
+      },
+      {
+       "rule_id": "G-03",
+       "met": true,
+       "note": "Maker notes explain purpose, questions and decisions; no material factual uncertainty is concealed."
+      },
+      {
+       "rule_id": "G-04",
+       "met": true,
+       "note": "Narration is natural spoken Hinglish."
+      },
+      {
+       "rule_id": "G-05",
+       "met": true,
+       "note": "All supplied statements and answer alternatives are taught."
+      },
+      {
+       "rule_id": "G-06",
+       "met": true,
+       "note": "Examples and payment-direction contrasts open the substantive claims rather than merely paraphrasing them."
+      },
+      {
+       "rule_id": "G-07",
+       "met": true,
+       "note": "Depth and statement-combination traps suit UPSC/State PCS learners."
+      },
+      {
+       "rule_id": "S2-01",
+       "met": true,
+       "note": "The supplied code measurement confirms acceptable narration time. The standalone prerequisite video is outside this review."
+      },
+      {
+       "rule_id": "S2-02",
+       "met": false,
+       "note": "Coverage is complete, but repeated closing answers interrupt an otherwise coherent teaching flow."
+      },
+      {
+       "rule_id": "S2-03",
+       "met": true,
+       "note": "No extended prerequisite detour occurs; calculations and relevant account mechanics are locally understandable. Earlier prerequisite delivery cannot be independently checked."
+      },
+      {
+       "rule_id": "S2-04",
+       "met": true,
+       "note": "Hindi uses Devanagari and English terminology uses Roman script, with short spoken sentences."
+      },
+      {
+       "rule_id": "S2-05",
+       "met": true,
+       "note": "Claimed item coverage and teacher-question answers are substantively supported."
+      },
+      {
+       "rule_id": "S2-06",
+       "met": true,
+       "note": "The causal chain includes conditions, limits and recap; the institutional fact and MDR definition receive their relevant teaching steps. Numerical-scale and formula omissions for RuPay are reasonably justified."
+      },
+      {
+       "rule_id": "S2-07",
+       "met": false,
+       "note": "Concepts are opened through visible situations, but b15 and b25 duplicate completed recaps."
+      },
+      {
+       "rule_id": "S2-08",
+       "met": true,
+       "note": "The prescribed inclusion and MDR numerical examples run before their concepts are named, with economically correct balance movements."
+      },
+      {
+       "rule_id": "W-01",
+       "met": false,
+       "note": "b12 narrates original question placement and continuation instead of presenting the complete question directly."
+      }
+     ]
+    }
+   },
+   "review_problems": [
+    "[reviewer] b12: The narration explains where statements and answer codes appear in the original continuation rather than directly teaching the question. This points at source layout, contrary to W-01. -> fix: Display the complete question and say: “केवल statement 1 सही जानकर पूरा combination नहीं चुन सकते। केवल statement 2 सही जानने पर भी ‘2 only’ और ‘Both’ में फैसला नहीं होता।” This preserves the incomplete-question lesson while cutting layout commentary.",
+    "[reviewer] b15 and b25, following b8, b11, b14 and b24: Completed explanations and answer selections receive duplicate recaps. b15 repeats the NPCI conclusion immediately after b14; b25 again repeats both answers after their dedicated recaps. -> fix: Delete b15 and replace b25’s repeated answers with one short transfer check asking learners to identify claim scope and payment direction in a fresh situation. Retain the causal flow in b8 and the option comparison in b24. These cuts also provide time for any refinement."
+   ],
+   "review_minor": [],
+   "passed": false,
+   "finished_at": 1793133827.5335732
+  },
+  {
+   "round": 3,
+   "started_at": 1793133827.5384903,
+   "mode": "patch",
+   "patch": {
+    "notes": {
+     "about": "Targeted revision removes source-layout commentary and duplicate answer recaps while preserving the teaching sequence.",
+     "key_questions": [
+      "Can the learner evaluate each statement before selecting a combination?",
+      "Can the learner distinguish a limited inclusion claim from a guarantee and a merchant charge from a benefit?"
+     ],
+     "decisions": [
+      {
+       "decision": "Replace b12 with direct statement-combination guidance.",
+       "reason": "Preserves the incomplete-information lesson without referring to source layout."
+      },
+      {
+       "decision": "Delete b15.",
+       "reason": "It repeats the NPCI conclusion immediately after the option evaluation."
+      },
+      {
+       "decision": "Replace b25 with a short, answered transfer check.",
+       "reason": "Checks claim scope and payment direction without repeating either PYQ answer; cuts exceed additions."
+      }
+     ],
+     "uncertain": []
+    },
+    "replace_parts": [],
+    "replace_beats": [
+     {
+      "beat_id": "b12",
+      "part_id": "c43.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "अब Prelims-2017 के दोनों statements साथ जाँचिए। केवल statement 1 सही जानकर पूरा combination नहीं चुन सकते। केवल statement 2 सही जानने पर भी ‘2 only’ और ‘Both’ में फैसला नहीं होता। इसलिए पहले हर statement का सही या गलत होना तय कीजिए, फिर answer code चुनिए।",
+      "covers_item_ids": [
+       "p019-i20",
+       "p020-i1"
+      ],
+      "answers": [
+       "p019-i20#q1",
+       "p020-i1#q1",
+       "p020-i1#q2"
+      ],
+      "on_screen": "Complete question: 1. NPCI helps promote financial inclusion. 2. NPCI has launched RuPay, a card payment scheme. (a) 1 only; (b) 2 only; (c) Both 1 and 2; (d) Neither 1 nor 2.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b25",
+      "part_id": "",
+      "step": 0,
+      "purpose": "question_to_student",
+      "say": "अब खुद जाँचिए: किसी गाँव में payment सुविधा आ गई, तो क्या हर व्यक्ति उसका इस्तेमाल जरूर करेगा? नहीं, access और इस्तेमाल कर पाने की शर्तें भी चाहिए। दुकानदार को reward मिला, तो क्या वह acceptance charge है? नहीं; claim कितना बड़ा है और पैसा किस दिशा में गया, यही पकड़िए।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Transfer check: payment facility ≠ guaranteed use; reward received ≠ acceptance charge. Check claim scope and money direction.",
+      "basis": "outside"
+     }
+    ],
+    "insert_beats": [],
+    "remove_beat_ids": [
+     "b15"
+    ]
+   },
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "1bf622e8b201e2701e26fda8e49728d388c57f2b4d8127f62a8400ac3b2b439c",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 20521,
+    "output_tokens": 516,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "This video completes the NPCI statement-combination PYQ and solves the MDR PYQ by tracing who pays whom.",
+    "key_questions": [
+     "How does usable payment infrastructure support, but not guarantee, financial inclusion?",
+     "What is the NPCI–RuPay relationship, and which statement combination follows?",
+     "Why is MDR a merchant charge rather than an incentive or cashback?"
+    ],
+    "decisions": [
+     {
+      "decision": "Run the locked ₹1,000 household transfer before naming financial inclusion.",
+      "reason": "The balances make practical account use visible before the causal claim."
+     },
+     {
+      "decision": "Treat the continued NPCI material as one complete question.",
+      "reason": "A true second statement alone cannot distinguish options b and c."
+     },
+     {
+      "decision": "Introduce MDR through the hypothetical ₹1,000 → ₹990 settlement before evaluating all four options.",
+      "reason": "Payment direction resolves the distractors without relying on the word Discount."
+     },
+     {
+      "decision": "Keep the closing recap limited to this video's distinctions.",
+      "reason": "The supplied source does not support reteaching the chapter's legal-status and money-supply material."
+     },
+     {
+      "decision": "Replace flagged Hindi words with plain Hindi or established English terms.",
+      "reason": "Keeps narration natural and avoids unnecessary bracketed vocabulary."
+     },
+     {
+      "decision": "Shorten repeated explanations and the overloaded b14.",
+      "reason": "Brings narration below 8.6 minutes without removing content or teaching-pattern steps."
+     },
+     {
+      "decision": "Replace b12 with direct statement-combination guidance.",
+      "reason": "Preserves the incomplete-information lesson without referring to source layout."
+     },
+     {
+      "decision": "Delete b15.",
+      "reason": "It repeats the NPCI conclusion immediately after the option evaluation."
+     },
+     {
+      "decision": "Replace b25 with a short, answered transfer check.",
+      "reason": "Checks claim scope and payment direction without repeating either PYQ answer; cuts exceed additions."
+     }
+    ],
+    "uncertain": []
+   },
+   "output": {
+    "notes": {
+     "about": "This video completes the NPCI statement-combination PYQ and solves the MDR PYQ by tracing who pays whom.",
+     "key_questions": [
+      "How does usable payment infrastructure support, but not guarantee, financial inclusion?",
+      "What is the NPCI–RuPay relationship, and which statement combination follows?",
+      "Why is MDR a merchant charge rather than an incentive or cashback?"
+     ],
+     "decisions": [
+      {
+       "decision": "Run the locked ₹1,000 household transfer before naming financial inclusion.",
+       "reason": "The balances make practical account use visible before the causal claim."
+      },
+      {
+       "decision": "Treat the continued NPCI material as one complete question.",
+       "reason": "A true second statement alone cannot distinguish options b and c."
+      },
+      {
+       "decision": "Introduce MDR through the hypothetical ₹1,000 → ₹990 settlement before evaluating all four options.",
+       "reason": "Payment direction resolves the distractors without relying on the word Discount."
+      },
+      {
+       "decision": "Keep the closing recap limited to this video's distinctions.",
+       "reason": "The supplied source does not support reteaching the chapter's legal-status and money-supply material."
+      },
+      {
+       "decision": "Replace flagged Hindi words with plain Hindi or established English terms.",
+       "reason": "Keeps narration natural and avoids unnecessary bracketed vocabulary."
+      },
+      {
+       "decision": "Shorten repeated explanations and the overloaded b14.",
+       "reason": "Brings narration below 8.6 minutes without removing content or teaching-pattern steps."
+      },
+      {
+       "decision": "Replace b12 with direct statement-combination guidance.",
+       "reason": "Preserves the incomplete-information lesson without referring to source layout."
+      },
+      {
+       "decision": "Delete b15.",
+       "reason": "It repeats the NPCI conclusion immediately after the option evaluation."
+      },
+      {
+       "decision": "Replace b25 with a short, answered transfer check.",
+       "reason": "Checks claim scope and payment direction without repeating either PYQ answer; cuts exceed additions."
+      }
+     ],
+     "uncertain": []
+    },
+    "title": "NPCI, RuPay और MDR: PYQ में कौन किसे पैसे देता है?",
+    "parts": [
+     {
+      "part_id": "c43.1",
+      "frame": {
+       "process": "Payment infrastructure can turn account ownership into usable financial access.",
+       "how": "A hypothetical cross-bank household transfer makes funds available for household needs.",
+       "when": "Access and linked accounts come first, followed by authorisation, successful transfer and use.",
+       "conditions": "Participating accounts, connectivity, affordability and user capability matter; infrastructure alone cannot guarantee inclusion.",
+       "atmosphere": "A worker in a town sends household money to a family member in a village."
+      },
+      "skipped_steps": []
+     },
+     {
+      "part_id": "c43.2",
+      "frame": {
+       "process": "Identify NPCI as the institution that launched RuPay, a card payment scheme.",
+       "how": "Distinguish the shared card-payment arrangement from the bank account holding the customer's funds.",
+       "when": "The institutional relationship is checked before selecting the statement combination.",
+       "conditions": "A card scheme and a bank account have different roles.",
+       "atmosphere": "A customer uses a RuPay-branded card at a shop terminal."
+      },
+      "skipped_steps": [
+       {
+        "step": 2,
+        "why": "The item contains no numerical magnitude requiring a scale comparison."
+       },
+       {
+        "step": 5,
+        "why": "The institution–product fact has no formula to construct."
+       }
+      ]
+     },
+     {
+      "part_id": "c43.q",
+      "frame": {
+       "process": "Solve the Prelims-2017 two-statement NPCI question.",
+       "how": "Evaluate inclusion and RuPay independently, then decode all four combinations.",
+       "when": "Select the answer only after both statements have been checked.",
+       "conditions": "Both statements are correct; one correct statement alone does not establish the full combination.",
+       "atmosphere": "A timed prelims question presented as one complete question despite its continued layout."
+      },
+      "skipped_steps": []
+     },
+     {
+      "part_id": "c44.q",
+      "frame": {
+       "process": "Identify MDR and eliminate incentive and cashback alternatives in the IAS-Prelims 2018 question.",
+       "how": "Trace the merchant-side deduction, then compare each option's payer and recipient.",
+       "when": "Run the hypothetical transaction before naming MDR and selecting C.",
+       "conditions": "The assumed 1% ignores taxes and other charges and establishes no current rate or universal applicability.",
+       "atmosphere": "A kirana customer pays by card while the merchant receives the sale proceeds less an assumed fee."
+      },
+      "skipped_steps": []
+     }
+    ],
+    "beats": [
+     {
+      "beat_id": "b1",
+      "part_id": "",
+      "step": 0,
+      "purpose": "hook",
+      "say": "Card से खरीदारी पर आपको cashback मिले और दुकानदार के पैसे से fee कटे—क्या दोनों एक चीज़ हैं? आज 2 PYQ में payment व्यवस्था का काम और पैसे की दिशा जाँचेंगे।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Buyer receives cashback | Merchant bears fee; NPCI PYQ → MDR PYQ.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b2",
+      "part_id": "c43.1",
+      "step": 1,
+      "purpose": "example",
+      "say": "शहर में काम करने वाला व्यक्ति गाँव में घर खर्च भेजना चाहता है; सिर्फ दोनों के पास passbook होने से काम पूरा होगा? मान लीजिए उसके खाते में ₹3,000 हैं, परिवार के खाते में ₹200। जरूरत यह है कि ₹1,000 पहुँचें और परिवार उनसे किराना खरीद सके।",
+      "covers_item_ids": [
+       "p019-i27"
+      ],
+      "answers": [],
+      "on_screen": "Hypothetical: town worker ₹3,000; village family ₹200; household transfer needed ₹1,000.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b3",
+      "part_id": "c43.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "रुकावट कहाँ आ सकती है? अगर पैसे भेजने और पाने के लिए एक ही bank होना जरूरी हो, तो अलग banks वाले परिवार को परेशानी होगी। दोनों तरफ जरूरी access और linked accounts हों, और banks साझा payment व्यवस्था में जुड़े हों, तो यह same-bank जरूरत हट सकती है।",
+      "covers_item_ids": [
+       "p019-i27"
+      ],
+      "answers": [
+       "p019-i27#q2"
+      ],
+      "on_screen": "Different participating banks connected by one payment route; access and linked accounts marked as assumptions.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b4",
+      "part_id": "c43.1",
+      "step": 3,
+      "purpose": "process_walkthrough",
+      "say": "अब व्यक्ति ₹1,000 भेजने को मंजूरी (approval) देता है। Transfer होने पर उसका balance ₹3,000 से ₹2,000 और परिवार का ₹200 से ₹1,200 होता है। परिवार उपलब्ध payment या withdrawal service से पैसे इस्तेमाल करता है; खाता अब घर की जरूरत पूरी करने का रास्ता बना।",
+      "covers_item_ids": [
+       "p019-i27"
+      ],
+      "answers": [
+       "p019-i27#q3"
+      ],
+      "on_screen": "₹1,000 transfer: ₹3,000 → ₹2,000; ₹200 → ₹1,200; received funds → household use.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b5",
+      "part_id": "c43.1",
+      "step": 3,
+      "purpose": "explain",
+      "say": "काम की financial सेवाएँ लोगों तक पहुँचना और उनका इस्तेमाल कर पाना, यही financial inclusion है। NPCI, यानी National Payments Corporation of India, देश की retail payment व्यवस्था से जुड़ी organisation है। साझा payment रास्ते accounts को काम का बनाते हैं, इसलिए NPCI financial inclusion बढ़ाने में मदद करता है।",
+      "covers_item_ids": [
+       "p019-i27"
+      ],
+      "answers": [
+       "p019-i27#q1",
+       "p019-i27#q2"
+      ],
+      "on_screen": "Financial inclusion: usable access to financial services. NPCI = National Payments Corporation of India. Infrastructure → practical account use.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b6",
+      "part_id": "c43.1",
+      "step": 4,
+      "purpose": "explain",
+      "say": "इस उदाहरण से क्या पता चला? अलग banks के बीच payment का रास्ता मिला, तो परिवार खाता इस्तेमाल कर पाया। घर पैसे भेजते समय यही जरूरत होती है; इससे पूरे देश में inclusion कितना बढ़ा, यह नहीं मापा गया।",
+      "covers_item_ids": [
+       "p019-i27"
+      ],
+      "answers": [
+       "p019-i27#q4"
+      ],
+      "on_screen": "Illustrated mechanism ≠ measured national impact.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b7",
+      "part_id": "c43.1",
+      "step": 5,
+      "purpose": "misconception",
+      "say": "Claim है ‘helps in promoting’, न कि ‘अकेले सबको शामिल कर देता है’। Connectivity न हो, service महँगी हो या व्यक्ति इस्तेमाल न कर पाए, तो रास्ता होते हुए भी काम रुकेगा। यहाँ न numerical measure है, न सबके शामिल होने की guarantee।",
+      "covers_item_ids": [
+       "p019-i27"
+      ],
+      "answers": [
+       "p019-i27#q5",
+       "p019-i27#q4"
+      ],
+      "on_screen": "helps in promoting ≠ guarantees universal inclusion; connectivity, affordability, capability.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b8",
+      "part_id": "c43.1",
+      "step": 6,
+      "purpose": "recap",
+      "say": "यह कारण की कड़ी याद रखिए: साझा payment रास्ता, फिर खाते में पैसा भेजना-पाना आसान, फिर खाते का असली इस्तेमाल। इसी तरह infrastructure inclusion में मदद करता है। मदद और पूरी guarantee को एक मत मानिए।",
+      "covers_item_ids": [
+       "p019-i27"
+      ],
+      "answers": [],
+      "on_screen": "Shared route → convenient transfer → usable account → supports inclusion.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b9",
+      "part_id": "c43.2",
+      "step": 1,
+      "purpose": "explain",
+      "say": "दुकान पर card पर RuPay लिखा दिखे, तो यह आपके bank account का नाम है या payment व्यवस्था का? RuPay एक card payment scheme है, जिसे NPCI ने launch किया। यानी card से payment के लिए जुड़े banks की साझा व्यवस्था का नाम, आपका खाता नहीं।",
+      "covers_item_ids": [
+       "p020-i2"
+      ],
+      "answers": [
+       "p020-i2#q1",
+       "p020-i2#q3"
+      ],
+      "on_screen": "RuPay card → shop terminal → participating banks. NPCI launched RuPay.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b10",
+      "part_id": "c43.2",
+      "step": 3,
+      "purpose": "explain",
+      "say": "2017 के इस question का दूसरा statement सीधा institution और product जोड़ता है: NPCI ने RuPay launch किया, और RuPay card payment scheme है। Scheme banks को payment संभालने के arrangements और rules देती है। आपके पैसे आपके bank account में होते हैं; scheme खुद वह account नहीं बन जाती।",
+      "covers_item_ids": [
+       "p020-i2"
+      ],
+      "answers": [
+       "p020-i2#q2",
+       "p020-i2#q3"
+      ],
+      "on_screen": "Statement 2: NPCI → launched → RuPay → card payment scheme. Account holds funds; scheme supplies payment arrangements.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b11",
+      "part_id": "c43.2",
+      "step": 4,
+      "purpose": "recap",
+      "say": "तो याद रखने वाला जोड़ है NPCI–RuPay, और RuPay की पहचान card payment scheme। दुकान पर card इस्तेमाल हो रहा है, पर bank account और उस payment का रास्ता अलग भूमिकाएँ निभाते हैं। इसलिए दूसरा statement सही है।",
+      "covers_item_ids": [
+       "p020-i2"
+      ],
+      "answers": [],
+      "on_screen": "NPCI–RuPay association ✓; statement 2 true.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b12",
+      "part_id": "c43.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "अब Prelims-2017 के दोनों statements साथ जाँचिए। केवल statement 1 सही जानकर पूरा combination नहीं चुन सकते। केवल statement 2 सही जानने पर भी ‘2 only’ और ‘Both’ में फैसला नहीं होता। इसलिए पहले हर statement का सही या गलत होना तय कीजिए, फिर answer code चुनिए।",
+      "covers_item_ids": [
+       "p019-i20",
+       "p020-i1"
+      ],
+      "answers": [
+       "p019-i20#q1",
+       "p020-i1#q1",
+       "p020-i1#q2"
+      ],
+      "on_screen": "Complete question: 1. NPCI helps promote financial inclusion. 2. NPCI has launched RuPay, a card payment scheme. (a) 1 only; (b) 2 only; (c) Both 1 and 2; (d) Neither 1 nor 2.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b13",
+      "part_id": "c43.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Option a, ‘1 only’, पहले को सही और दूसरे को गलत मानता है। RuPay वाला statement सही है, इसलिए a हटेगा। Option b, ‘2 only’, दूसरे को सही लेकिन पहले को गलत मानता है; inclusion में मदद वाला statement भी सही है, इसलिए b भी हटेगा।",
+      "covers_item_ids": [
+       "p020-i4",
+       "p020-i5"
+      ],
+      "answers": [
+       "p020-i4#q1",
+       "p020-i4#q2",
+       "p020-i5#q1",
+       "p020-i5#q2"
+      ],
+      "on_screen": "(a) T/F rejected; (b) F/T rejected.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b14",
+      "part_id": "c43.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Option c, ‘Both 1 and 2’, दोनों को सही मानता है; हमने दोनों अलग-अलग जाँचे हैं। Option d, ‘Neither 1 nor 2’, दोनों को गलत कहता है; एक भी सही हो तो d हटेगा। इसलिए दोनों claims की जाँच से उत्तर c है।",
+      "covers_item_ids": [
+       "p020-i6",
+       "p020-i7"
+      ],
+      "answers": [
+       "p020-i6#q1",
+       "p020-i6#q2",
+       "p020-i7#q1",
+       "p020-i7#q2"
+      ],
+      "on_screen": "(c) T/T selected; (d) F/F rejected. Correct: c.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b16",
+      "part_id": "c44.q",
+      "step": 0,
+      "purpose": "example",
+      "say": "किराना दुकान पर ₹1,000 का सामान card से खरीदा; दुकानदार को पूरे पैसे न मिलें तो फर्क कहाँ गया? मान लीजिए card payment लेने की service पर 1% fee है। यह समझाने के लिए मानी गई rate है, आज की लागू rate नहीं।",
+      "covers_item_ids": [
+       "p020-i11"
+      ],
+      "answers": [],
+      "on_screen": "Hypothetical card purchase ₹1,000; assumed fee 1%; not a current-rate claim.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b17",
+      "part_id": "c44.q",
+      "step": 0,
+      "purpose": "process_walkthrough",
+      "say": "₹1,000 का 1% हुआ ₹10। Taxes और दूसरे charges छोड़ दें, तो ₹10 कटकर दुकानदार को ₹990 मिलेंगे। ग्राहक की खरीद ₹1,000 की रही; fee दुकानदार के पैसे से गई, ग्राहक को cashback नहीं मिला।",
+      "covers_item_ids": [
+       "p020-i11"
+      ],
+      "answers": [
+       "p020-i11#q4"
+      ],
+      "on_screen": "₹1,000 × 1/100 = ₹10; merchant proceeds ₹1,000 → ₹990; fee ₹0 → ₹10.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b18",
+      "part_id": "c44.q",
+      "step": 0,
+      "purpose": "explain",
+      "say": "यह merchant-side payment acceptance charge MDR है; पूरा नाम Merchant Discount Rate है। Merchant यानी सामान या service बेचने वाला, जैसे दुकानदार। Customers की card payments लेने के लिए bank merchant पर यह charge लगाता है; उस service में payment infrastructure और processing इस्तेमाल होती है।",
+      "covers_item_ids": [
+       "p020-i11"
+      ],
+      "answers": [
+       "p020-i11#q1",
+       "p020-i11#q2",
+       "p020-i11#q3"
+      ],
+      "on_screen": "Merchant Discount Rate (MDR). Highlight: charge TO a merchant BY a bank FOR accepting card payments.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b19",
+      "part_id": "c44.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "IAS-Prelims 2018 ने पूछा: Merchant Discount Rate क्या है? ‘Discount’ सुनकर ग्राहक की छूट मत सोचिए; यहाँ दुकानदार की card payment लेने की cost है। दुकान की net receipt से इसे जोड़िए, लेकिन हमारे 1% से हर card या हर digital payment की rate और exemption तय मत कीजिए।",
+      "covers_item_ids": [
+       "p020-i8",
+       "p020-i11"
+      ],
+      "answers": [
+       "p020-i8#q1",
+       "p020-i8#q2",
+       "p020-i8#q3",
+       "p020-i11#q5"
+      ],
+      "on_screen": "2018 PYQ: merchant charge or benefit? Discount ≠ customer shopping concession. Rates/exemptions not established.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b20",
+      "part_id": "c44.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Option A में bank अपने debit cards की payments लेने पर merchant को incentive देता है। Incentive यानी काम करने के लिए मिलने वाला फायदा या पैसा। यहाँ bank से दुकानदार को पैसे मिलते हैं; MDR में दुकानदार पर charge लगता है, इसलिए A उलटी दिशा बताता है।",
+      "covers_item_ids": [
+       "p020-i9"
+      ],
+      "answers": [
+       "p020-i9#q1",
+       "p020-i9#q2"
+      ],
+      "on_screen": "A: bank → merchant incentive ✗. Contrast: merchant bears acceptance charge.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b21",
+      "part_id": "c44.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Option B में debit card से सामान या service खरीदने वाले customer को bank पैसे वापस देता है। यह cashback जैसा फायदा है, seller की fee नहीं। पूछिए: खरीदार को पैसे वापस मिले या seller के पैसे कटे? B में पहला मामला है, इसलिए B गलत।",
+      "covers_item_ids": [
+       "p020-i10"
+      ],
+      "answers": [
+       "p020-i10#q1",
+       "p020-i10#q2",
+       "p020-i10#q3"
+      ],
+      "on_screen": "B: bank → customer repayment/cashback ✗. Buyer benefit ≠ seller charge.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b22",
+      "part_id": "c44.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Option C के शब्द हैं ‘charge to a merchant by a bank’। किस पर charge है? Merchant पर; कौन लगाता है? Bank। Customers की card payments लेने की service से जुड़ा यही charge हमारे ₹1,000 से ₹990 वाले उदाहरण में दिखा था, इसलिए C सही है।",
+      "covers_item_ids": [
+       "p020-i11"
+      ],
+      "answers": [
+       "p020-i11#q1",
+       "p020-i11#q2"
+      ],
+      "on_screen": "C ✓: bank charges merchant for accepting customer card payments.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b23",
+      "part_id": "c44.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Counter पर card tap या insert करने की machine देखी है? वही Point of Sale, यानी PoS machine है। Option D में Government merchants को incentive देती है, ताकि customers PoS machines और debit cards से digital payments करें; यहाँ support मिल रहा है, acceptance fee नहीं कट रही, इसलिए D गलत।",
+      "covers_item_ids": [
+       "p020-i12"
+      ],
+      "answers": [
+       "p020-i12#q1",
+       "p020-i12#q2",
+       "p020-i12#q3"
+      ],
+      "on_screen": "PoS terminal at shop counter. D: Government → merchant incentive ✗.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b24",
+      "part_id": "c44.q",
+      "step": 0,
+      "purpose": "recap",
+      "say": "MDR question में C चुनिए: merchant पर charge। A में bank से merchant को incentive, B में customer को पैसा वापस, D में Government से merchant को support है। ये alternatives हैं, हर खरीद पर cashback या किसी incentive scheme के लागू होने का सबूत नहीं।",
+      "covers_item_ids": [
+       "p020-i8",
+       "p020-i9",
+       "p020-i10",
+       "p020-i11",
+       "p020-i12"
+      ],
+      "answers": [],
+      "on_screen": "A: merchant benefit | B: buyer benefit | C: merchant charge ✓ | D: government support.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b25",
+      "part_id": "",
+      "step": 0,
+      "purpose": "question_to_student",
+      "say": "अब खुद जाँचिए: किसी गाँव में payment सुविधा आ गई, तो क्या हर व्यक्ति उसका इस्तेमाल जरूर करेगा? नहीं, access और इस्तेमाल कर पाने की शर्तें भी चाहिए। दुकानदार को reward मिला, तो क्या वह acceptance charge है? नहीं; claim कितना बड़ा है और पैसा किस दिशा में गया, यही पकड़िए।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Transfer check: payment facility ≠ guaranteed use; reward received ≠ acceptance charge. Check claim scope and money direction.",
+      "basis": "outside"
+     }
+    ]
+   },
+   "code_problems": [
+    "[code] beat b25: the Hindi words ['सुविधा'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)"
+   ],
+   "observed": {
+    "pattern_order": [],
+    "skipped_steps": {
+     "c43.2": {
+      "2": "The item contains no numerical magnitude requiring a scale comparison.",
+      "5": "The institution–product fact has no formula to construct."
+     }
+    },
+    "objective_coverage": {
+     "coverage": 1.0,
+     "uncovered": []
+    },
+    "cognitive_load": {
+     "max": 1.74,
+     "abrupt_jumps": [
+      "b1->b2",
+      "b11->b12"
+     ]
+    },
+    "duration": {
+     "spoken_minutes_at_130_wpm": 8.3,
+     "planned_minutes": 7,
+     "range": [
+      6.5,
+      8.6
+     ]
+    },
+    "dohraav": {
+     "beats": 24,
+     "judged": 19,
+     "restating": 0,
+     "share": 0.0,
+     "opened": 15,
+     "opened_share": 0.789,
+     "restating_beats": []
+    },
+    "real_world": [
+     {
+      "item_id": "p019-i27",
+      "place": "worker's town and family member's village; hypothetical",
+      "numbers": [
+       "1200",
+       "200",
+       "2000",
+       "3000"
+      ],
+      "example_beats": [
+       "b2",
+       "b4"
+      ],
+      "term_beat": "b5",
+      "term": "financial inclusion",
+      "ok": true,
+      "problem": ""
+     }
+    ]
+   },
+   "passed": false,
+   "finished_at": 1793133841.5267673
+  },
+  {
+   "round": 4,
+   "started_at": 1793133841.5321598,
+   "mode": "patch",
+   "extra_round": true,
+   "patch": {
+    "notes": {
+     "about": "Targeted language correction; the teaching sequence and coverage remain unchanged.",
+     "key_questions": [
+      "Does the corrected beat preserve the claim-scope and payment-direction check?"
+     ],
+     "decisions": [
+      {
+       "decision": "Replace सुविधा with व्यवस्था in b25.",
+       "reason": "Uses simpler Hindi without adding spoken length or changing meaning."
+      }
+     ],
+     "uncertain": []
+    },
+    "replace_parts": [],
+    "replace_beats": [
+     {
+      "beat_id": "b25",
+      "part_id": "",
+      "step": 0,
+      "purpose": "question_to_student",
+      "say": "अब खुद जाँचिए: किसी गाँव में payment व्यवस्था आ गई, तो क्या हर व्यक्ति उसका इस्तेमाल जरूर करेगा? नहीं, access और इस्तेमाल कर पाने की शर्तें भी चाहिए। दुकानदार को reward मिला, तो क्या वह acceptance charge है? नहीं; claim कितना बड़ा है और पैसा किस दिशा में गया, यही पकड़िए।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Transfer check: payment facility ≠ guaranteed use; reward received ≠ acceptance charge. Check claim scope and money direction.",
+      "basis": "outside"
+     }
+    ],
+    "insert_beats": [],
+    "remove_beat_ids": []
+   },
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "c439684ddc679e5b0514adf3c9a8894f8ecb71d4ae36586bee95e92a0ec5c28a",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 20364,
+    "output_tokens": 229,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "This video completes the NPCI statement-combination PYQ and solves the MDR PYQ by tracing who pays whom.",
+    "key_questions": [
+     "How does usable payment infrastructure support, but not guarantee, financial inclusion?",
+     "What is the NPCI–RuPay relationship, and which statement combination follows?",
+     "Why is MDR a merchant charge rather than an incentive or cashback?"
+    ],
+    "decisions": [
+     {
+      "decision": "Run the locked ₹1,000 household transfer before naming financial inclusion.",
+      "reason": "The balances make practical account use visible before the causal claim."
+     },
+     {
+      "decision": "Treat the continued NPCI material as one complete question.",
+      "reason": "A true second statement alone cannot distinguish options b and c."
+     },
+     {
+      "decision": "Introduce MDR through the hypothetical ₹1,000 → ₹990 settlement before evaluating all four options.",
+      "reason": "Payment direction resolves the distractors without relying on the word Discount."
+     },
+     {
+      "decision": "Keep the closing recap limited to this video's distinctions.",
+      "reason": "The supplied source does not support reteaching the chapter's legal-status and money-supply material."
+     },
+     {
+      "decision": "Replace flagged Hindi words with plain Hindi or established English terms.",
+      "reason": "Keeps narration natural and avoids unnecessary bracketed vocabulary."
+     },
+     {
+      "decision": "Shorten repeated explanations and the overloaded b14.",
+      "reason": "Brings narration below 8.6 minutes without removing content or teaching-pattern steps."
+     },
+     {
+      "decision": "Replace b12 with direct statement-combination guidance.",
+      "reason": "Preserves the incomplete-information lesson without referring to source layout."
+     },
+     {
+      "decision": "Delete b15.",
+      "reason": "It repeats the NPCI conclusion immediately after the option evaluation."
+     },
+     {
+      "decision": "Replace b25 with a short, answered transfer check.",
+      "reason": "Checks claim scope and payment direction without repeating either PYQ answer; cuts exceed additions."
+     },
+     {
+      "decision": "Replace सुविधा with व्यवस्था in b25.",
+      "reason": "Uses simpler Hindi without adding spoken length or changing meaning."
+     }
+    ],
+    "uncertain": []
+   },
+   "output": {
+    "notes": {
+     "about": "This video completes the NPCI statement-combination PYQ and solves the MDR PYQ by tracing who pays whom.",
+     "key_questions": [
+      "How does usable payment infrastructure support, but not guarantee, financial inclusion?",
+      "What is the NPCI–RuPay relationship, and which statement combination follows?",
+      "Why is MDR a merchant charge rather than an incentive or cashback?"
+     ],
+     "decisions": [
+      {
+       "decision": "Run the locked ₹1,000 household transfer before naming financial inclusion.",
+       "reason": "The balances make practical account use visible before the causal claim."
+      },
+      {
+       "decision": "Treat the continued NPCI material as one complete question.",
+       "reason": "A true second statement alone cannot distinguish options b and c."
+      },
+      {
+       "decision": "Introduce MDR through the hypothetical ₹1,000 → ₹990 settlement before evaluating all four options.",
+       "reason": "Payment direction resolves the distractors without relying on the word Discount."
+      },
+      {
+       "decision": "Keep the closing recap limited to this video's distinctions.",
+       "reason": "The supplied source does not support reteaching the chapter's legal-status and money-supply material."
+      },
+      {
+       "decision": "Replace flagged Hindi words with plain Hindi or established English terms.",
+       "reason": "Keeps narration natural and avoids unnecessary bracketed vocabulary."
+      },
+      {
+       "decision": "Shorten repeated explanations and the overloaded b14.",
+       "reason": "Brings narration below 8.6 minutes without removing content or teaching-pattern steps."
+      },
+      {
+       "decision": "Replace b12 with direct statement-combination guidance.",
+       "reason": "Preserves the incomplete-information lesson without referring to source layout."
+      },
+      {
+       "decision": "Delete b15.",
+       "reason": "It repeats the NPCI conclusion immediately after the option evaluation."
+      },
+      {
+       "decision": "Replace b25 with a short, answered transfer check.",
+       "reason": "Checks claim scope and payment direction without repeating either PYQ answer; cuts exceed additions."
+      },
+      {
+       "decision": "Replace सुविधा with व्यवस्था in b25.",
+       "reason": "Uses simpler Hindi without adding spoken length or changing meaning."
+      }
+     ],
+     "uncertain": []
+    },
+    "title": "NPCI, RuPay और MDR: PYQ में कौन किसे पैसे देता है?",
+    "parts": [
+     {
+      "part_id": "c43.1",
+      "frame": {
+       "process": "Payment infrastructure can turn account ownership into usable financial access.",
+       "how": "A hypothetical cross-bank household transfer makes funds available for household needs.",
+       "when": "Access and linked accounts come first, followed by authorisation, successful transfer and use.",
+       "conditions": "Participating accounts, connectivity, affordability and user capability matter; infrastructure alone cannot guarantee inclusion.",
+       "atmosphere": "A worker in a town sends household money to a family member in a village."
+      },
+      "skipped_steps": []
+     },
+     {
+      "part_id": "c43.2",
+      "frame": {
+       "process": "Identify NPCI as the institution that launched RuPay, a card payment scheme.",
+       "how": "Distinguish the shared card-payment arrangement from the bank account holding the customer's funds.",
+       "when": "The institutional relationship is checked before selecting the statement combination.",
+       "conditions": "A card scheme and a bank account have different roles.",
+       "atmosphere": "A customer uses a RuPay-branded card at a shop terminal."
+      },
+      "skipped_steps": [
+       {
+        "step": 2,
+        "why": "The item contains no numerical magnitude requiring a scale comparison."
+       },
+       {
+        "step": 5,
+        "why": "The institution–product fact has no formula to construct."
+       }
+      ]
+     },
+     {
+      "part_id": "c43.q",
+      "frame": {
+       "process": "Solve the Prelims-2017 two-statement NPCI question.",
+       "how": "Evaluate inclusion and RuPay independently, then decode all four combinations.",
+       "when": "Select the answer only after both statements have been checked.",
+       "conditions": "Both statements are correct; one correct statement alone does not establish the full combination.",
+       "atmosphere": "A timed prelims question presented as one complete question despite its continued layout."
+      },
+      "skipped_steps": []
+     },
+     {
+      "part_id": "c44.q",
+      "frame": {
+       "process": "Identify MDR and eliminate incentive and cashback alternatives in the IAS-Prelims 2018 question.",
+       "how": "Trace the merchant-side deduction, then compare each option's payer and recipient.",
+       "when": "Run the hypothetical transaction before naming MDR and selecting C.",
+       "conditions": "The assumed 1% ignores taxes and other charges and establishes no current rate or universal applicability.",
+       "atmosphere": "A kirana customer pays by card while the merchant receives the sale proceeds less an assumed fee."
+      },
+      "skipped_steps": []
+     }
+    ],
+    "beats": [
+     {
+      "beat_id": "b1",
+      "part_id": "",
+      "step": 0,
+      "purpose": "hook",
+      "say": "Card से खरीदारी पर आपको cashback मिले और दुकानदार के पैसे से fee कटे—क्या दोनों एक चीज़ हैं? आज 2 PYQ में payment व्यवस्था का काम और पैसे की दिशा जाँचेंगे।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Buyer receives cashback | Merchant bears fee; NPCI PYQ → MDR PYQ.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b2",
+      "part_id": "c43.1",
+      "step": 1,
+      "purpose": "example",
+      "say": "शहर में काम करने वाला व्यक्ति गाँव में घर खर्च भेजना चाहता है; सिर्फ दोनों के पास passbook होने से काम पूरा होगा? मान लीजिए उसके खाते में ₹3,000 हैं, परिवार के खाते में ₹200। जरूरत यह है कि ₹1,000 पहुँचें और परिवार उनसे किराना खरीद सके।",
+      "covers_item_ids": [
+       "p019-i27"
+      ],
+      "answers": [],
+      "on_screen": "Hypothetical: town worker ₹3,000; village family ₹200; household transfer needed ₹1,000.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b3",
+      "part_id": "c43.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "रुकावट कहाँ आ सकती है? अगर पैसे भेजने और पाने के लिए एक ही bank होना जरूरी हो, तो अलग banks वाले परिवार को परेशानी होगी। दोनों तरफ जरूरी access और linked accounts हों, और banks साझा payment व्यवस्था में जुड़े हों, तो यह same-bank जरूरत हट सकती है।",
+      "covers_item_ids": [
+       "p019-i27"
+      ],
+      "answers": [
+       "p019-i27#q2"
+      ],
+      "on_screen": "Different participating banks connected by one payment route; access and linked accounts marked as assumptions.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b4",
+      "part_id": "c43.1",
+      "step": 3,
+      "purpose": "process_walkthrough",
+      "say": "अब व्यक्ति ₹1,000 भेजने को मंजूरी (approval) देता है। Transfer होने पर उसका balance ₹3,000 से ₹2,000 और परिवार का ₹200 से ₹1,200 होता है। परिवार उपलब्ध payment या withdrawal service से पैसे इस्तेमाल करता है; खाता अब घर की जरूरत पूरी करने का रास्ता बना।",
+      "covers_item_ids": [
+       "p019-i27"
+      ],
+      "answers": [
+       "p019-i27#q3"
+      ],
+      "on_screen": "₹1,000 transfer: ₹3,000 → ₹2,000; ₹200 → ₹1,200; received funds → household use.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b5",
+      "part_id": "c43.1",
+      "step": 3,
+      "purpose": "explain",
+      "say": "काम की financial सेवाएँ लोगों तक पहुँचना और उनका इस्तेमाल कर पाना, यही financial inclusion है। NPCI, यानी National Payments Corporation of India, देश की retail payment व्यवस्था से जुड़ी organisation है। साझा payment रास्ते accounts को काम का बनाते हैं, इसलिए NPCI financial inclusion बढ़ाने में मदद करता है।",
+      "covers_item_ids": [
+       "p019-i27"
+      ],
+      "answers": [
+       "p019-i27#q1",
+       "p019-i27#q2"
+      ],
+      "on_screen": "Financial inclusion: usable access to financial services. NPCI = National Payments Corporation of India. Infrastructure → practical account use.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b6",
+      "part_id": "c43.1",
+      "step": 4,
+      "purpose": "explain",
+      "say": "इस उदाहरण से क्या पता चला? अलग banks के बीच payment का रास्ता मिला, तो परिवार खाता इस्तेमाल कर पाया। घर पैसे भेजते समय यही जरूरत होती है; इससे पूरे देश में inclusion कितना बढ़ा, यह नहीं मापा गया।",
+      "covers_item_ids": [
+       "p019-i27"
+      ],
+      "answers": [
+       "p019-i27#q4"
+      ],
+      "on_screen": "Illustrated mechanism ≠ measured national impact.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b7",
+      "part_id": "c43.1",
+      "step": 5,
+      "purpose": "misconception",
+      "say": "Claim है ‘helps in promoting’, न कि ‘अकेले सबको शामिल कर देता है’। Connectivity न हो, service महँगी हो या व्यक्ति इस्तेमाल न कर पाए, तो रास्ता होते हुए भी काम रुकेगा। यहाँ न numerical measure है, न सबके शामिल होने की guarantee।",
+      "covers_item_ids": [
+       "p019-i27"
+      ],
+      "answers": [
+       "p019-i27#q5",
+       "p019-i27#q4"
+      ],
+      "on_screen": "helps in promoting ≠ guarantees universal inclusion; connectivity, affordability, capability.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b8",
+      "part_id": "c43.1",
+      "step": 6,
+      "purpose": "recap",
+      "say": "यह कारण की कड़ी याद रखिए: साझा payment रास्ता, फिर खाते में पैसा भेजना-पाना आसान, फिर खाते का असली इस्तेमाल। इसी तरह infrastructure inclusion में मदद करता है। मदद और पूरी guarantee को एक मत मानिए।",
+      "covers_item_ids": [
+       "p019-i27"
+      ],
+      "answers": [],
+      "on_screen": "Shared route → convenient transfer → usable account → supports inclusion.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b9",
+      "part_id": "c43.2",
+      "step": 1,
+      "purpose": "explain",
+      "say": "दुकान पर card पर RuPay लिखा दिखे, तो यह आपके bank account का नाम है या payment व्यवस्था का? RuPay एक card payment scheme है, जिसे NPCI ने launch किया। यानी card से payment के लिए जुड़े banks की साझा व्यवस्था का नाम, आपका खाता नहीं।",
+      "covers_item_ids": [
+       "p020-i2"
+      ],
+      "answers": [
+       "p020-i2#q1",
+       "p020-i2#q3"
+      ],
+      "on_screen": "RuPay card → shop terminal → participating banks. NPCI launched RuPay.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b10",
+      "part_id": "c43.2",
+      "step": 3,
+      "purpose": "explain",
+      "say": "2017 के इस question का दूसरा statement सीधा institution और product जोड़ता है: NPCI ने RuPay launch किया, और RuPay card payment scheme है। Scheme banks को payment संभालने के arrangements और rules देती है। आपके पैसे आपके bank account में होते हैं; scheme खुद वह account नहीं बन जाती।",
+      "covers_item_ids": [
+       "p020-i2"
+      ],
+      "answers": [
+       "p020-i2#q2",
+       "p020-i2#q3"
+      ],
+      "on_screen": "Statement 2: NPCI → launched → RuPay → card payment scheme. Account holds funds; scheme supplies payment arrangements.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b11",
+      "part_id": "c43.2",
+      "step": 4,
+      "purpose": "recap",
+      "say": "तो याद रखने वाला जोड़ है NPCI–RuPay, और RuPay की पहचान card payment scheme। दुकान पर card इस्तेमाल हो रहा है, पर bank account और उस payment का रास्ता अलग भूमिकाएँ निभाते हैं। इसलिए दूसरा statement सही है।",
+      "covers_item_ids": [
+       "p020-i2"
+      ],
+      "answers": [],
+      "on_screen": "NPCI–RuPay association ✓; statement 2 true.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b12",
+      "part_id": "c43.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "अब Prelims-2017 के दोनों statements साथ जाँचिए। केवल statement 1 सही जानकर पूरा combination नहीं चुन सकते। केवल statement 2 सही जानने पर भी ‘2 only’ और ‘Both’ में फैसला नहीं होता। इसलिए पहले हर statement का सही या गलत होना तय कीजिए, फिर answer code चुनिए।",
+      "covers_item_ids": [
+       "p019-i20",
+       "p020-i1"
+      ],
+      "answers": [
+       "p019-i20#q1",
+       "p020-i1#q1",
+       "p020-i1#q2"
+      ],
+      "on_screen": "Complete question: 1. NPCI helps promote financial inclusion. 2. NPCI has launched RuPay, a card payment scheme. (a) 1 only; (b) 2 only; (c) Both 1 and 2; (d) Neither 1 nor 2.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b13",
+      "part_id": "c43.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Option a, ‘1 only’, पहले को सही और दूसरे को गलत मानता है। RuPay वाला statement सही है, इसलिए a हटेगा। Option b, ‘2 only’, दूसरे को सही लेकिन पहले को गलत मानता है; inclusion में मदद वाला statement भी सही है, इसलिए b भी हटेगा।",
+      "covers_item_ids": [
+       "p020-i4",
+       "p020-i5"
+      ],
+      "answers": [
+       "p020-i4#q1",
+       "p020-i4#q2",
+       "p020-i5#q1",
+       "p020-i5#q2"
+      ],
+      "on_screen": "(a) T/F rejected; (b) F/T rejected.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b14",
+      "part_id": "c43.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Option c, ‘Both 1 and 2’, दोनों को सही मानता है; हमने दोनों अलग-अलग जाँचे हैं। Option d, ‘Neither 1 nor 2’, दोनों को गलत कहता है; एक भी सही हो तो d हटेगा। इसलिए दोनों claims की जाँच से उत्तर c है।",
+      "covers_item_ids": [
+       "p020-i6",
+       "p020-i7"
+      ],
+      "answers": [
+       "p020-i6#q1",
+       "p020-i6#q2",
+       "p020-i7#q1",
+       "p020-i7#q2"
+      ],
+      "on_screen": "(c) T/T selected; (d) F/F rejected. Correct: c.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b16",
+      "part_id": "c44.q",
+      "step": 0,
+      "purpose": "example",
+      "say": "किराना दुकान पर ₹1,000 का सामान card से खरीदा; दुकानदार को पूरे पैसे न मिलें तो फर्क कहाँ गया? मान लीजिए card payment लेने की service पर 1% fee है। यह समझाने के लिए मानी गई rate है, आज की लागू rate नहीं।",
+      "covers_item_ids": [
+       "p020-i11"
+      ],
+      "answers": [],
+      "on_screen": "Hypothetical card purchase ₹1,000; assumed fee 1%; not a current-rate claim.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b17",
+      "part_id": "c44.q",
+      "step": 0,
+      "purpose": "process_walkthrough",
+      "say": "₹1,000 का 1% हुआ ₹10। Taxes और दूसरे charges छोड़ दें, तो ₹10 कटकर दुकानदार को ₹990 मिलेंगे। ग्राहक की खरीद ₹1,000 की रही; fee दुकानदार के पैसे से गई, ग्राहक को cashback नहीं मिला।",
+      "covers_item_ids": [
+       "p020-i11"
+      ],
+      "answers": [
+       "p020-i11#q4"
+      ],
+      "on_screen": "₹1,000 × 1/100 = ₹10; merchant proceeds ₹1,000 → ₹990; fee ₹0 → ₹10.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b18",
+      "part_id": "c44.q",
+      "step": 0,
+      "purpose": "explain",
+      "say": "यह merchant-side payment acceptance charge MDR है; पूरा नाम Merchant Discount Rate है। Merchant यानी सामान या service बेचने वाला, जैसे दुकानदार। Customers की card payments लेने के लिए bank merchant पर यह charge लगाता है; उस service में payment infrastructure और processing इस्तेमाल होती है।",
+      "covers_item_ids": [
+       "p020-i11"
+      ],
+      "answers": [
+       "p020-i11#q1",
+       "p020-i11#q2",
+       "p020-i11#q3"
+      ],
+      "on_screen": "Merchant Discount Rate (MDR). Highlight: charge TO a merchant BY a bank FOR accepting card payments.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b19",
+      "part_id": "c44.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "IAS-Prelims 2018 ने पूछा: Merchant Discount Rate क्या है? ‘Discount’ सुनकर ग्राहक की छूट मत सोचिए; यहाँ दुकानदार की card payment लेने की cost है। दुकान की net receipt से इसे जोड़िए, लेकिन हमारे 1% से हर card या हर digital payment की rate और exemption तय मत कीजिए।",
+      "covers_item_ids": [
+       "p020-i8",
+       "p020-i11"
+      ],
+      "answers": [
+       "p020-i8#q1",
+       "p020-i8#q2",
+       "p020-i8#q3",
+       "p020-i11#q5"
+      ],
+      "on_screen": "2018 PYQ: merchant charge or benefit? Discount ≠ customer shopping concession. Rates/exemptions not established.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b20",
+      "part_id": "c44.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Option A में bank अपने debit cards की payments लेने पर merchant को incentive देता है। Incentive यानी काम करने के लिए मिलने वाला फायदा या पैसा। यहाँ bank से दुकानदार को पैसे मिलते हैं; MDR में दुकानदार पर charge लगता है, इसलिए A उलटी दिशा बताता है।",
+      "covers_item_ids": [
+       "p020-i9"
+      ],
+      "answers": [
+       "p020-i9#q1",
+       "p020-i9#q2"
+      ],
+      "on_screen": "A: bank → merchant incentive ✗. Contrast: merchant bears acceptance charge.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b21",
+      "part_id": "c44.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Option B में debit card से सामान या service खरीदने वाले customer को bank पैसे वापस देता है। यह cashback जैसा फायदा है, seller की fee नहीं। पूछिए: खरीदार को पैसे वापस मिले या seller के पैसे कटे? B में पहला मामला है, इसलिए B गलत।",
+      "covers_item_ids": [
+       "p020-i10"
+      ],
+      "answers": [
+       "p020-i10#q1",
+       "p020-i10#q2",
+       "p020-i10#q3"
+      ],
+      "on_screen": "B: bank → customer repayment/cashback ✗. Buyer benefit ≠ seller charge.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b22",
+      "part_id": "c44.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Option C के शब्द हैं ‘charge to a merchant by a bank’। किस पर charge है? Merchant पर; कौन लगाता है? Bank। Customers की card payments लेने की service से जुड़ा यही charge हमारे ₹1,000 से ₹990 वाले उदाहरण में दिखा था, इसलिए C सही है।",
+      "covers_item_ids": [
+       "p020-i11"
+      ],
+      "answers": [
+       "p020-i11#q1",
+       "p020-i11#q2"
+      ],
+      "on_screen": "C ✓: bank charges merchant for accepting customer card payments.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b23",
+      "part_id": "c44.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Counter पर card tap या insert करने की machine देखी है? वही Point of Sale, यानी PoS machine है। Option D में Government merchants को incentive देती है, ताकि customers PoS machines और debit cards से digital payments करें; यहाँ support मिल रहा है, acceptance fee नहीं कट रही, इसलिए D गलत।",
+      "covers_item_ids": [
+       "p020-i12"
+      ],
+      "answers": [
+       "p020-i12#q1",
+       "p020-i12#q2",
+       "p020-i12#q3"
+      ],
+      "on_screen": "PoS terminal at shop counter. D: Government → merchant incentive ✗.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b24",
+      "part_id": "c44.q",
+      "step": 0,
+      "purpose": "recap",
+      "say": "MDR question में C चुनिए: merchant पर charge। A में bank से merchant को incentive, B में customer को पैसा वापस, D में Government से merchant को support है। ये alternatives हैं, हर खरीद पर cashback या किसी incentive scheme के लागू होने का सबूत नहीं।",
+      "covers_item_ids": [
+       "p020-i8",
+       "p020-i9",
+       "p020-i10",
+       "p020-i11",
+       "p020-i12"
+      ],
+      "answers": [],
+      "on_screen": "A: merchant benefit | B: buyer benefit | C: merchant charge ✓ | D: government support.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b25",
+      "part_id": "",
+      "step": 0,
+      "purpose": "question_to_student",
+      "say": "अब खुद जाँचिए: किसी गाँव में payment व्यवस्था आ गई, तो क्या हर व्यक्ति उसका इस्तेमाल जरूर करेगा? नहीं, access और इस्तेमाल कर पाने की शर्तें भी चाहिए। दुकानदार को reward मिला, तो क्या वह acceptance charge है? नहीं; claim कितना बड़ा है और पैसा किस दिशा में गया, यही पकड़िए।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Transfer check: payment facility ≠ guaranteed use; reward received ≠ acceptance charge. Check claim scope and money direction.",
+      "basis": "outside"
+     }
+    ]
+   },
+   "code_problems": [],
+   "observed": {
+    "pattern_order": [],
+    "skipped_steps": {
+     "c43.2": {
+      "2": "The item contains no numerical magnitude requiring a scale comparison.",
+      "5": "The institution–product fact has no formula to construct."
+     }
+    },
+    "objective_coverage": {
+     "coverage": 1.0,
+     "uncovered": []
+    },
+    "cognitive_load": {
+     "max": 1.74,
+     "abrupt_jumps": [
+      "b1->b2",
+      "b11->b12"
+     ]
+    },
+    "duration": {
+     "spoken_minutes_at_130_wpm": 8.3,
+     "planned_minutes": 7,
+     "range": [
+      6.5,
+      8.6
+     ]
+    },
+    "dohraav": {
+     "beats": 24,
+     "judged": 19,
+     "restating": 0,
+     "share": 0.0,
+     "opened": 15,
+     "opened_share": 0.789,
+     "restating_beats": []
+    },
+    "real_world": [
+     {
+      "item_id": "p019-i27",
+      "place": "worker's town and family member's village; hypothetical",
+      "numbers": [
+       "1200",
+       "200",
+       "2000",
+       "3000"
+      ],
+      "example_beats": [
+       "b2",
+       "b4"
+      ],
+      "term_beat": "b5",
+      "term": "financial inclusion",
+      "ok": true,
+      "problem": ""
+     }
+    ]
+   },
+   "review": {
+    "route": "codex-checker",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "3b98615e7883df27d1166976f1a58a28063bc4fd275d9243b2818ba94acdf9af",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 16819,
+    "output_tokens": 1287,
+    "cost_usd": 0.0,
+    "value": {
+     "notes": {
+      "about": "यह unit NPCI–inclusion और NPCI–RuPay संबंधों से statement-combination PYQ हल करता है, फिर merchant की net receipt से MDR समझाता है।",
+      "key_questions": [
+       "Payment infrastructure inclusion में मदद कैसे करता है, और उसकी सीमा क्या है?",
+       "RuPay और NPCI का संबंध क्या है?",
+       "MDR में charge कौन उठाता है, और incentives तथा cashback उससे अलग क्यों हैं?"
+      ],
+      "decisions": [
+       {
+        "decision": "कोई blocking finding नहीं है।",
+        "reason": "दोनों PYQs के concepts, सही उत्तर और सभी distractors के कारण वास्तव में सिखाए गए हैं।"
+       },
+       {
+        "decision": "Continued question को एक साथ प्रस्तुत करना स्वीकार किया।",
+        "reason": "दोनों statements जाँचने की जरूरत बनी रहती है, बिना source layout की ओर इशारा किए।"
+       },
+       {
+        "decision": "Hypothetical numerical examples स्वीकार किए।",
+        "reason": "Balances और merchant receipts सही बदलते हैं; national impact या current MDR rate का दावा नहीं किया गया।"
+       }
+      ],
+      "uncertain": [
+       "पहले prerequisite video और पूरे chapter plan की सामग्री उपलब्ध नहीं है; उनकी स्वतंत्र जाँच नहीं की जा सकती।",
+       "Source page images उपलब्ध नहीं हैं; समीक्षा दिए गए source extracts पर आधारित है।"
+      ]
+     },
+     "verdict": "pass",
+     "problems": [
+      {
+       "where": "b9–b11",
+       "problem": "NPCI–RuPay association और scheme बनाम account का अंतर लगातार तीन beats में कुछ दोहराया गया है।",
+       "fix": "वैकल्पिक रूप से b11 को केवल statement 2 के verdict तक छोटा करें; association और account वाला अंतर b9–b10 में पर्याप्त खुल चुका है।",
+       "severity": "minor"
+      }
+     ],
+     "checklist": [
+      {
+       "rule_id": "G-01",
+       "met": true,
+       "note": "Book facts सही हैं; अतिरिक्त mechanisms standard हैं और numerical illustrations hypothetical बताए गए हैं।"
+      },
+      {
+       "rule_id": "G-02",
+       "met": true,
+       "note": "Mechanisms, limitations और distractor reasoning इस PYQ unit के लिए पर्याप्त हैं।"
+      },
+      {
+       "rule_id": "G-03",
+       "met": true,
+       "note": "Maker notes में purpose, key questions और decisions के reasons हैं; uncertain field भी मौजूद है।"
+      },
+      {
+       "rule_id": "G-04",
+       "met": true,
+       "note": "Narration natural, short-sentence Hinglish है।"
+      },
+      {
+       "rule_id": "G-05",
+       "met": true,
+       "note": "दोनों statements और सभी आठ answer options का substantive treatment है।"
+      },
+      {
+       "rule_id": "G-06",
+       "met": true,
+       "note": "Inclusion को household transfer, RuPay को card network और MDR को settlement deduction से खोला गया है।"
+      },
+      {
+       "rule_id": "G-07",
+       "met": true,
+       "note": "UPSC स्तर के लिए causal links, claim limits और wording traps स्पष्ट हैं।"
+      },
+      {
+       "rule_id": "S2-01",
+       "met": true,
+       "note": "Code द्वारा मापा गया 8.3 minutes दिया गया accepted interval पूरा करता है। पूरे prerequisite plan की स्वतंत्र जाँच उपलब्ध नहीं है।"
+      },
+      {
+       "rule_id": "S2-02",
+       "met": true,
+       "note": "Concept से option evaluation तक flow स्पष्ट है; केवल RuPay recap थोड़ा compress किया जा सकता है।"
+      },
+      {
+       "rule_id": "S2-03",
+       "met": true,
+       "note": "इस topic में अलग prerequisite recap या untaught dependency नहीं दिखती; prerequisite video उपलब्ध नहीं है।"
+      },
+      {
+       "rule_id": "S2-04",
+       "met": true,
+       "note": "Hindi Devanagari और English Roman में हैं; spoken sentences छोटे हैं।"
+      },
+      {
+       "rule_id": "S2-05",
+       "met": true,
+       "note": "Substantive coverage claims सही हैं। Continued-question claims को layout के बजाय incomplete-information reasoning से संबोधित किया गया है।"
+      },
+      {
+       "rule_id": "S2-06",
+       "met": true,
+       "note": "Cause-effect chain, limit और recap मौजूद हैं; RuPay fact के लिए scale और formula छोड़ने के कारण उचित हैं। MDR का definition pattern भी पूरा है।"
+      },
+      {
+       "rule_id": "S2-07",
+       "met": true,
+       "note": "Concrete openings, plain meanings, mechanisms और consequences मौजूद हैं; कोई book item केवल सूची बनकर नहीं रह गया।"
+      },
+      {
+       "rule_id": "S2-08",
+       "met": true,
+       "note": "Inclusion और MDR के निर्धारित numerical examples terms से पहले चलते हैं; arithmetic और economic incidence सही हैं।"
+      },
+      {
+       "rule_id": "W-01",
+       "met": true,
+       "note": "Narration पुस्तक या page layout की ओर नहीं भेजता; PYQ statements और options के references शिक्षण का हिस्सा हैं।"
+      }
+     ]
+    }
+   },
+   "review_problems": [],
+   "review_minor": [
+    {
+     "where": "b9–b11",
+     "problem": "NPCI–RuPay association और scheme बनाम account का अंतर लगातार तीन beats में कुछ दोहराया गया है।",
+     "fix": "वैकल्पिक रूप से b11 को केवल statement 2 के verdict तक छोटा करें; association और account वाला अंतर b9–b10 में पर्याप्त खुल चुका है।",
+     "kind": "problems"
+    }
+   ],
+   "passed": true,
+   "finished_at": 1793133880.7258358
+  }
+ ],
+ "avoid_rounds": [
+  1,
+  2,
+  3
+ ],
+ "cost_usd": 0.0,
+ "seconds": 222.3,
+ "navin_verdict": null
+}

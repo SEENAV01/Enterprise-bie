@@ -1,0 +1,3482 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "lesson",
+ "unit": "script-v1",
+ "status": "failed",
+ "instructions_version": "lesson-script/5",
+ "rulebook_version": "canvas_profile@2026-10-27.2+content_types@2026-10-27.1+explanations@2026-10-24.1+level_profiles@2026-10-24.1+simple_hindi@2026-10-27.1+teacher_examples@2026-10-27.1+vision-2026-10-21@2026-10-21.14+visual_grammar@2026-10-26.2+visual_levels@2026-10-26.2",
+ "rulebook_digest": "c7a8f214a74b3cd890a86c1da6438388680054c0280419aaf4a02f2b5d53ad01",
+ "rules_used": [
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-04",
+  "G-05",
+  "G-06",
+  "G-07",
+  "S2-01",
+  "S2-02",
+  "S2-03",
+  "S2-04",
+  "S2-05",
+  "S2-06",
+  "S2-07",
+  "S2-08",
+  "W-01"
+ ],
+ "maker_route": "codex",
+ "reviewer_route": "codex-checker",
+ "maker_model": "gpt-6.1-sol",
+ "reviewer_model": "gpt-6.1-sol",
+ "reviewer_independence": "same_model_temporary",
+ "inputs_digest": "39fe25e36ee34e2e2fa5b3dcdb4331d14b1aeb98ff7a7d545ef3542d3304995a",
+ "card": {
+  "card": "bie.task-card/1",
+  "card_id": "lesson.write_script@3-money/v1",
+  "section": "lesson",
+  "task": "write_script",
+  "prefix": {
+   "prefix_id": "lesson.write_script/3",
+   "rulebook_version": "canvas_profile@2026-10-27.2+content_types@2026-10-27.1+explanations@2026-10-24.1+level_profiles@2026-10-24.1+simple_hindi@2026-10-27.1+teacher_examples@2026-10-27.1+vision-2026-10-21@2026-10-21.14+visual_grammar@2026-10-26.2+visual_levels@2026-10-26.2",
+   "content_types_version": "2026-10-27.1",
+   "schema_id": "bie.brain.lesson-script/3",
+   "sha256": "23c7d0a0496ac0b3c93e62a5092f314af721254f233faf0aee711e7d9f3edb45"
+  },
+  "unit": {
+   "unit_id": "v1",
+   "title": "Money क्या है, और हमारे कौन-से काम करता है?",
+   "pages": [
+    1
+   ]
+  },
+  "parts": [
+   {
+    "part_id": "c01.1",
+    "item_ids": [
+     "p001-i3",
+     "p001-i7",
+     "p001-i8",
+     "p001-i9",
+     "p001-i10",
+     "p001-i11"
+    ],
+    "type": "definition",
+    "questions": [
+     "what",
+     "evidence",
+     "why",
+     "how"
+    ],
+    "focus": "Money: acceptance, scope and characteristics: teach these definition items through the definition pattern"
+   },
+   {
+    "part_id": "c01.2",
+    "item_ids": [
+     "p001-i4",
+     "p001-i5"
+    ],
+    "type": "facts_numbers",
+    "questions": [
+     "what",
+     "evidence",
+     "why",
+     "how"
+    ],
+    "focus": "Money: acceptance, scope and characteristics: teach these facts_numbers items through the facts_numbers pattern"
+   },
+   {
+    "part_id": "c01.3",
+    "item_ids": [
+     "p001-i12"
+    ],
+    "type": "cause_effect",
+    "questions": [
+     "why",
+     "how",
+     "exception"
+    ],
+    "focus": "Money: acceptance, scope and characteristics: teach these cause_effect items through the cause_effect pattern"
+   },
+   {
+    "part_id": "c02.1",
+    "item_ids": [
+     "p001-i14",
+     "p001-i15",
+     "p001-i16",
+     "p001-i17"
+    ],
+    "type": "definition",
+    "questions": [
+     "what",
+     "evidence",
+     "how",
+     "why",
+     "difference",
+     "exception"
+    ],
+    "focus": "Four functions of money: teach these definition items through the definition pattern"
+   }
+  ],
+  "rules": [
+   "G-01",
+   "G-02",
+   "G-03",
+   "G-04",
+   "G-05",
+   "G-06",
+   "G-07",
+   "S2-01",
+   "S2-02",
+   "S2-03",
+   "S2-04",
+   "S2-05",
+   "S2-06",
+   "S2-07",
+   "S2-08",
+   "W-01"
+  ],
+  "output": {
+   "schema_id": "bie.brain.lesson-script/3",
+   "mode": "full",
+   "max_output_tokens": 32000
+  },
+  "coverage": {
+   "must_cover": [
+    "p001-i3",
+    "p001-i7",
+    "p001-i8",
+    "p001-i9",
+    "p001-i10",
+    "p001-i11",
+    "p001-i4",
+    "p001-i5",
+    "p001-i12",
+    "p001-i14",
+    "p001-i15",
+    "p001-i16",
+    "p001-i17"
+   ],
+   "claim_field": "beats[].covers_item_ids",
+   "may_skip": []
+  },
+  "context": {
+   "map_slice": [
+    [
+     "p001-i3",
+     "definition",
+     "1",
+     "Definition: Money is anything that is accepted as a medium of exchange for goods and services and…"
+    ],
+    [
+     "p001-i7",
+     "definition",
+     "1",
+     "Acceptability: Everyone is willing to accept it."
+    ],
+    [
+     "p001-i8",
+     "definition",
+     "1",
+     "Durability: Does not wear out quickly."
+    ],
+    [
+     "p001-i9",
+     "definition",
+     "1",
+     "Portability: Easy to carry."
+    ],
+    [
+     "p001-i10",
+     "definition",
+     "1",
+     "Divisibility: Can be broken into smaller units."
+    ],
+    [
+     "p001-i11",
+     "definition",
+     "1",
+     "Uniformity: Every unit has the same value."
+    ],
+    [
+     "p001-i4",
+     "facts_numbers",
+     "1",
+     "Money is not just currency notes and coins."
+    ],
+    [
+     "p001-i5",
+     "facts_numbers",
+     "1",
+     "It includes anything people widely accept for payments—cash, bank deposits, and digital balances."
+    ],
+    [
+     "p001-i12",
+     "cause_effect",
+     "1",
+     "Limited supply: Scarcity helps preserve value."
+    ],
+    [
+     "p001-i14",
+     "definition",
+     "1",
+     "1. Medium of exchange: Eliminates the need for barter. Example: You buy groceries using ₹500…"
+    ],
+    [
+     "p001-i15",
+     "definition",
+     "1",
+     "2. Unit of account: Provides a common measure of value. Example: A phone costs ₹20,000 and a…"
+    ],
+    [
+     "p001-i16",
+     "definition",
+     "1",
+     "3. Store of value: Allows purchasing power to be saved for future use. Example: Keeping money in a…"
+    ],
+    [
+     "p001-i17",
+     "definition",
+     "1",
+     "4. Standard of deferred payment: Makes future payments possible. Example: Home loans and EMI…"
+    ],
+    [
+     "c01",
+     "definition",
+     "1",
+     "Money: acceptance, scope and characteristics"
+    ],
+    [
+     "c02",
+     "classification",
+     "1",
+     "Four functions of money"
+    ],
+    [
+     "c05",
+     "comparison",
+     "2",
+     "Intrinsic versus extrinsic value"
+    ],
+    [
+     "c23",
+     "classification",
+     "11-12",
+     "Bank money and negotiable instruments"
+    ],
+    [
+     "c03",
+     "cause_effect",
+     "2-3",
+     "Barter and the problems money solves"
+    ]
+   ],
+   "before": "पहले यह जान लो: पैसा, bank और payment की बुनियाद",
+   "after": "Barter से commodity money: बदलाव की ज़रूरत क्यों पड़ी?"
+  },
+  "source": {
+   "block_ids": [
+    "p0001-b0004",
+    "p0001-b0005",
+    "p0001-b0006",
+    "p0001-b0007",
+    "p0001-b0008",
+    "p0001-b0010",
+    "p0001-b0011",
+    "p0001-b0012",
+    "p0001-b0013",
+    "p0001-b0014",
+    "p0001-b0015",
+    "p0001-b0017",
+    "p0001-b0018",
+    "p0001-b0019",
+    "p0001-b0020",
+    "p0001-b0021",
+    "p0001-b0022",
+    "p0001-b0023",
+    "p0001-b0024"
+   ],
+   "page_images": []
+  }
+ },
+ "prefix_sha256": "23c7d0a0496ac0b3c93e62a5092f314af721254f233faf0aee711e7d9f3edb45",
+ "review_prefix_sha256": "ba0278f385dcd8587a93148353a22052fcd5a272bbbfca010232655943805f3c",
+ "inputs": {
+  "system": "BIE task prefix lesson.write_script/3 · rulebook canvas_profile@2026-10-27.2+content_types@2026-10-27.1+explanations@2026-10-24.1+level_profiles@2026-10-24.1+simple_hindi@2026-10-27.1+teacher_examples@2026-10-27.1+vision-2026-10-21@2026-10-21.14+visual_grammar@2026-10-26.2+visual_levels@2026-10-26.2 · content types 2026-10-27.1 · schema bie.brain.lesson-script/3\n\nYou are BIE's lesson section writing what the teacher says in one video lesson: you are the best teacher of Indian Economy\nfor UPSC / State PCS aspirants preparing for UPSC / State PCS, speaking to one student. BIE turns your beats into narration and animation, so write only\nwhat is spoken, beat by beat.\nCourse: \"3. Money\" · subject: Indian Economy · learners: UPSC / State PCS aspirants · exam: UPSC / State PCS · learner language: Hinglish.\n\nNavin's rules for this task (follow every one):\n[G-01] Everything taught comes from the book. Knowledge from outside the book is allowed only to explain the book better; it is marked as outside, standard textbook-level and correct. Never invent facts, numbers, names or quotations.\n[G-02] Work like the best teacher of these learners and this exam, not like a summariser. Depth beats brevity: nothing teachable on the page is skipped or compressed away, and every explanation makes a student understand, not just remember. Depth means understanding, not length: lesson narration keeps S2-01's time by cutting repetition and side-tracks, never book content.\n[G-03] Before the output, fill 'notes' with brief notes for the reviewer and for Navin: what this unit is about, the key questions a teacher must answer about it, the main decisions you made with a one-line reason each, and anything uncertain. Keep the notes short; they explain the work, they are not the work.\n[G-04] Learner-facing language follows the course setting. For the first course (UPSC / State PCS) it is Hinglish: natural Hindi sentence flow, English technical terms, the way Navin teaches.\n[G-05] Never drop or compress away what the book teaches to fit a length. If a unit of work is too large, it is split by BIE into smaller units; within a unit, the book's content is complete. Lesson narration has a time target (S2-01), met by cutting repetition and side-tracks, never book content.\n[G-06] BIE is the link between the learner and the book, like a teacher (Navin, 24 October 2026). The book is the base; BIE carries its text, easy or hard, into the learner's mind. Never just read the line out: every book line is opened (what its words mean, why it is so, where it is seen, what follows), at the depth of the level profile.\n[G-07] Two layers, like a film (Navin, 24 October 2026). The writer layer (understanding, plan, script) decides what is said and how deep, following the level profile and the book's own level. The presentation layer (director, video blocks, render) is the same skilled quality for every learner, from class 6 to postgraduate; only the detail shown follows the level, never the craft.\n[S2-01] Plan the chapter's videos from the chapter map: first one short 'pehle yeh jaan lo' video (5-8 minutes) that teaches the chapter's prerequisites, then the topic videos in teaching order. Narration is 6-8 minutes per book page (Navin, 23 October 2026; the 14-page tissue chapter about 85-110 minutes of topic videos, plus the prerequisite video): each topic video gets the share of the pages its items come from, and a very dense page may go up to 25% over when the plan says why. Understanding (Section 1) and the chapter map have no time limit.\n[S2-02] Write a spoken teacher script in beats with a natural teacher flow. Stories and analogies only where they genuinely help that topic. Every item the book teaches is taught and every teacher question answered from the book is answered; questions answered from outside the book are used only where they help and the time allows. Cut repetition and side-tracks, never book content.\n[S2-03] Prerequisites are only what this chapter directly needs, never a prerequisite of a prerequisite. They are taught, not named, in the chapter's 'pehle yeh jaan lo' video, each with a simple explanation and an example; a topic video may remind of them in at most 2 beats.\n[S2-04] Spoken Hinglish the way Navin teaches, in mixed script (Navin, 21 and 23 October 2026): Hindi words in Devanagari, English words, above all the book's technical terms, in Roman exactly as the book spells them, as in 'आज हम tissue के बारे में पढ़ेंगे'; a genuinely difficult Hindi word (formal, literary or technical; not in BIE's everyday word list rulebook/simple_hindi.json) gets its English word in brackets right after it, as in 'सतह (surface)'; the screen and subtitles show the bracket and the voice says 'सतह, यानी surface'. Never a bracket after an everyday word or inside an idiom or a fixed phrase ('आम तौर पर', not 'आम तौर (usually) पर'; 'नहीं के बराबर', not 'नहीं के बराबर (equal to)'). Never an English term in Devanagari or a Hindi word in Roman. Numbers as digits; short spoken sentences addressed to one student; questions to the student and natural pauses; no reading out of lists.\n[S2-05] Every beat states which chapter-map items it covers and which teacher questions it answers, and those claims must be true: the beat really explains that item and really answers that question.\n[S2-06] Teach every part of a video through the universal frame (what the process is, how it works, when and in what order, under which conditions, in what atmosphere) and through the teaching pattern of its content type, step by step in the pattern's order; every item on the task card is really taught, none only named.\n[S2-07] Open every book line in the script, never read it out (Navin, 24 October 2026). A new topic opens with a question about something the learner can see, then the name. After any book line the beat carries at least one of: the term's plain meaning with 'yaani' and an everyday image, a why step from a need, an example or the place. Speak complete sentences, not clipped notes. A classification is taught as a family: the overview tree, then every member in the same slots (layer and shape, why it is named so, its special feature, its function with its cause, where it is found by a zoom from the organ, its consequence), then the members compared and a memory trick. A pattern step may be skipped only with a stated reason; one recap per part and one closing recap.\n[S2-08] Apply first, name after (Navin, 27 October 2026): in an economics script a concept's real-world example runs BEFORE the beat that names the term: the example beats carry the example's numbers (₹50 → ₹65, buyers 2 → 12 → 3) and walk the mechanism step by step; then the term ('isliye ise demand-pull inflation kehte hain'), then the book's definition, then one line on where the learner meets it in real life. The example is the one Section 1 chose for the item (its place, actors, goods, numbers), economically correct and at the learner's level.\n[W-01] The narration never points at the book: no 'book के अनुसार', 'किताब कहती है', 'book says', 'page पर', 'textbook', 'NCERT' or any wording of that family (the list in this file, 'wording'). BIE teaches as a teacher: it says the fact itself. Navin accepts the copyright position (26 October 2026).\n\nBIE's content types (the type of an item decides its required questions and how it is taught, shown, played and drawn):\n- process · Process: Something that happens in steps or stages over time: a mechanism, a procedure, a cycle (photosynthesis, cell division, how a bill becomes law). Required questions: how (kaise), when (kab). Other questions: what (kya), where (kahan), why (kyun), consequence (nateeja).\n  Teaching pattern: 1) the result first (what it makes). 2) inputs and the place. 3) each step with its cause and its condition. 4) what breaks when a step fails. 5) the whole run once more at speed. 6) recap as a flow.\n- structure · Structure: Something made of parts arranged in space, each part with a function (a cell, a leaf, the heart, a machine, the Parliament). Required questions: what (kya), where (kahan). Other questions: how (kaise), why (kyun), which (kaun).\n  Teaching pattern: 1) the whole in context. 2) zoom into each part in a fixed path (outside to inside). 3) function of each part tied to its shape. 4) how the parts work together. 5) labelled recap.\n- classification · Classification: A group divided into kinds by a stated basis (types of tissues, kinds of rocks, kinds of writs). Required questions: which (kaun), difference (tulna). Other questions: what (kya), evidence (saboot), where (kahan).\n  Teaching pattern: 1) the overview tree first: the basis of division and every member named. 2) every member in the same slots: layer and shape, why it is named so, its special feature, its function with its cause, where it is found by a zoom from the organ, its consequence. 3) the members compared side by side, the most confused pair named directly. 4) a memory trick for the family.\n- comparison · Comparison: Two or more things set side by side on stated criteria (plant and animal cells, Lok Sabha and Rajya Sabha). Required questions: compare (tulna), difference (tulna). Other questions: what (kya), why (kyun), evidence (saboot).\n  Teaching pattern: 1) what is common. 2) criteria one at a time, both sides together. 3) the reason behind each difference. 4) the most confused pair named directly. 5) difference table as recap.\n- timeline · Timeline: Events placed in time: history, the development of an idea, stages of a life (the Revolt of 1857, evolution of cell theory). Required questions: when (kab), why (kyun). Other questions: who (kaun), where (kahan), consequence (nateeja).\n  Teaching pattern: 1) the period and its atmosphere. 2) events in order with their causes. 3) the people and their choices. 4) the turning point. 5) what changed after. 6) timeline recap.\n- cause_effect · Reasoning (cause and effect): Why something happens: causes, effects, conditions and chains of reasoning (why tissues specialise, why prices rise, why a law was needed). Required questions: why (kyun), how (kaise). Other questions: consequence (nateeja), evidence (saboot), exception (tulna).\n  Teaching pattern: 1) the effect students can see. 2) the cause. 3) each link of the chain with its mechanism. 4) the evidence. 5) the exception or limit. 6) the chain as recap.\n- facts_numbers · Facts and numbers: Stated facts, quantities, measurements, statistics and formulas (heart rate 72 per minute, 3,000 against 50,000 soldiers at Plassey, F = ma). Required questions: what (kya), evidence (saboot). Other questions: compare (tulna), why (kyun).\n  Teaching pattern: 1) the fact in one line. 2) the number shown to scale against something familiar. 3) where it comes from (book or outside, dated). 4) what it changes or proves. 5) a formula built term by term when there is one.\n- figure · Figure: A diagram, photo, map, graph or table drawing on the page whose content is visual (tissue pages 2, 7 and 8 are figures only). Required questions: what (kya), which (kaun). Other questions: how (kaise), why (kyun).\n  Teaching pattern: 1) what the figure is and why it is here. 2) a reading path across it (labels in order). 3) the one thing to remember from it. 4) link back to the text it explains.\n- definition · Definition: A term and its meaning as the book states it (tissue, meristem, sovereignty). Required questions: what (kya), evidence (saboot). Other questions: about (kya), why (kyun).\n  Teaching pattern: 1) a concrete example first. 2) the book's definition word by word. 3) a non-example that tests the boundary. 4) where the term is used next in the chapter.\n\nOutput schema (JSON):\n{\"additionalProperties\":false,\"properties\":{\"beats\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"answers\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"basis\":{\"enum\":[\"book\",\"outside\",\"mixed\"],\"type\":\"string\"},\"beat_id\":{\"type\":\"string\"},\"covers_item_ids\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"on_screen\":{\"type\":\"string\"},\"part_id\":{\"type\":\"string\"},\"purpose\":{\"enum\":[\"hook\",\"prerequisite\",\"explain\",\"example\",\"analogy\",\"story\",\"compare\",\"process_walkthrough\",\"misconception\",\"exam_tip\",\"question_to_student\",\"recap\",\"transition\"],\"type\":\"string\"},\"say\":{\"type\":\"string\"},\"step\":{\"type\":\"integer\"}},\"required\":[\"beat_id\",\"part_id\",\"step\",\"purpose\",\"say\",\"covers_item_ids\",\"answers\",\"on_screen\",\"basis\"],\"type\":\"object\"},\"type\":\"array\"},\"notes\":{\"additionalProperties\":false,\"properties\":{\"about\":{\"description\":\"What this unit of work is about and how it fits the whole (one or two sentences).\",\"type\":\"string\"},\"decisions\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"decision\":{\"type\":\"string\"},\"reason\":{\"type\":\"string\"}},\"required\":[\"decision\",\"reason\"],\"type\":\"object\"},\"type\":\"array\"},\"key_questions\":{\"description\":\"The key questions a teacher must answer about this unit.\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"uncertain\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"}},\"required\":[\"about\",\"key_questions\",\"decisions\",\"uncertain\"],\"type\":\"object\"},\"parts\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"frame\":{\"additionalProperties\":false,\"properties\":{\"atmosphere\":{\"type\":\"string\"},\"conditions\":{\"type\":\"string\"},\"how\":{\"type\":\"string\"},\"process\":{\"type\":\"string\"},\"when\":{\"type\":\"string\"}},\"required\":[\"process\",\"how\",\"when\",\"conditions\",\"atmosphere\"],\"type\":\"object\"},\"part_id\":{\"type\":\"string\"},\"skipped_steps\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"step\":{\"type\":\"integer\"},\"why\":{\"type\":\"string\"}},\"required\":[\"step\",\"why\"],\"type\":\"object\"},\"type\":\"array\"}},\"required\":[\"part_id\",\"frame\",\"skipped_steps\"],\"type\":\"object\"},\"type\":\"array\"},\"title\":{\"type\":\"string\"}},\"required\":[\"notes\",\"title\",\"parts\",\"beats\"],\"type\":\"object\"}\n\nHow BIE talks to you: every request is a task card (JSON) followed by its source. The card names the unit, its parts with their content type and required questions, the ids of the rules above that apply, the output, the ids you must cover and the context. The card is BIE's instruction; the source is the material.\nFor a write_script card:\n- card.parts are this video's parts: each has item ids, one content type and the questions it must answer. The source gives every item's\n  full content and its teacher questions with ids (\"p003-i4#q2\") and answers from BIE's chapter map; teach from them.\n- card.coverage.must_cover lists every item this video must teach: each must be in covers_item_ids of a beat that really explains it.\n  may_skip lists items you may leave out (not teachable). card.context.map_slice shows the related concepts for context only.\nHow to fill the JSON:\n- notes: brief notes for the reviewer: what this video is about, the key questions it must answer, your main decisions (order,\n  hook, analogy, where prerequisites are taught) with a reason each, what is uncertain.\n- title: the video title in the learner language.\n- parts: one entry per card part, with the universal frame of that part (S3-01), each in one or two lines of clear English for BIE:\n  process (what happens or what the thing does), how (how it works or happens), when (when, in what order, under which timing),\n  conditions (what must be true for it, or what changes it), atmosphere (the setting and situation a student should picture). Write\n  \"n/a: \" and the reason only where a question truly does not apply to that part. skipped_steps = the teaching-pattern steps of this\n  part you leave out because there is nothing real to say for them, each with the reason ([] when every step is done); at most half\n  of a pattern, never a step that has something real; BIE's code records the reason.\n- beats: the whole video in order. beat_id \"b1\", \"b2\" ...; part_id = the card part this beat teaches (\"\" for the opening hook, a\n  prerequisite taught first, a transition or the final recap); step = the number of the teaching-pattern step of that part's content type\n  that this beat performs (see the content types above; 0 when part_id is \"\" and for an exam-question part, whose type is \"none\");\n  the steps of a part's pattern appear in order, except the ones skipped with a reason; a classification part follows the family\n  pattern: the overview tree first, then every member in the same slots (layer and shape → why it is named so → its special feature\n  → its function with its cause → where it is found, by a zoom from the organ → its consequence), then the comparison, then a memory\n  trick; one recap per part and one closing recap for the video, never two recaps of the same thing;\n  purpose (hook, prerequisite, explain, example, analogy, story, compare, process_walkthrough, misconception, exam_tip,\n  question_to_student, recap, transition); say = the exact spoken words, one to four complete spoken sentences in Navin's Hinglish\n  (S2-04), the way a teacher speaks to one student, never clipped note-style lines (\"Irregular walls. Kaisi? Irregular.\" is a teacher's\n  beat; \"Location: kidney tubules, glandular ducts.\" is a note):\n  mixed script: Hindi words in Devanagari, English words (above all the book's technical terms, spelled as the book spells them) in\n  Roman, as in \"आज हम tissue के बारे में पढ़ेंगे\"; brackets only after a genuinely difficult Hindi word (see \"Brackets\" below; the\n  screen shows the bracket and the voice says \"सतह, यानी surface\"); never write an English term in Devanagari or a Hindi word in Roman;\n  numbers as digits; addressed to one student; covers_item_ids = the item ids this beat really explains; answers = the teacher question\n  ids this beat really answers; on_screen = what the student should see while hearing it (for the director); basis = book, outside or\n  mixed.\nOpening the book (S2-07; BIE is the link between the learner and the book, like a teacher, never a reader of the line): every new\ntopic (every concept and every prerequisite) opens with a question about something the learner can see, then the name. After any\nbook line, the beat carries at least one of: the term opened (\"yaani\" + its plain meaning + one everyday image), the why from a need or\na problem, or an example or place by a zoom from the organ. The source gives every item's unpack from Section 1 (its terms, why chain,\nexample, consequence, visual verb) and the locked explanations: speak them, in your own teacher's words, at the depth of the level\nprofile below. BIE's code sends back a beat whose English words are the book's and that opens nothing (\"dohraav pakad\"), a clipped\nsentence without a verb, a topic that opens without a question, and a second recap of the same thing.\nReal-world application (S2-08; Navin, 27 October 2026: \"economic concepts ko real world mein apply karke samjhao\"): for an economics\ndefinition, cause_effect or process item the source gives the real_world_example Section 1 chose (place, actors, goods, numbers before\n→ after, the steps with their mechanism links, the naming sentence, the real-life link). Run that example FIRST, in beats that cover\nthe item and carry its numbers as digits (\"dukaan mein chini ke 3 packet, ₹50 ka ek; kal 2 khareedar, aaj 12\"), walking the mechanism\nstep by step (purpose story or example); only then the beat that names the term (\"isliye ise demand-pull inflation kehte hain\"), then\nthe book's definition, then the real-life link. The opening question of such a topic asks about the situation, not the term. BIE's\ncode sends back a script whose naming beat comes before the example beats, or whose example beats carry none of the numbers.\nTime (S2-01): the source gives this video's narration time; BIE's code counts the spoken words (130 a minute) and the script must stay\nwithin it. Win the time by cutting repetition and side-tracks, never book content: every item in must_cover is taught and every\nteacher question whose basis is \"book\" is answered; questions answered from outside the book are used only where they help and the\ntime allows.\nPrerequisites (S2-03): in a topic video they were already taught in the prerequisite video; remind of one in at most 2 beats (purpose\n\"prerequisite\"). In the prerequisite video (card parts \"pre1\", \"pre2\" ...) teach each prerequisite simply, with an everyday example, in\nthe order given: part_id = the prerequisite id, step 0, covers_item_ids = the prerequisite ids the beat teaches, answers [].\nA beat introduces at most a few new items: BIE's code measures the load of every beat (0.4 per new item plus 1 per 50 spoken words, at\nmost 1.8), so a beat holds at most about 70 spoken words with one new item, 50 with two and 30 with three; split longer beats. Reply\nwith the JSON object only.\n\nLevel profile: UPSC / State PCS (level_profiles.json; learners: UPSC and State PCS aspirants, often from arts backgrounds, who need understanding more than technical vocabulary).\n- Terms: fewer technical terms: only the ones the exam asks, each opened with its plain meaning and an everyday image; a term the exam never asks is explained in words, not named.\n- Why: 2 step(s); a two-step why from a need the learner can feel, then its link to daily life, health or governance.\n- Where found: the main places, each linked to something the learner already knows (a disease, a food, a news item).\n- Exam beats: the PYQ pattern: how this fact has been asked (statement combinations, 'which is correct', odd one out) and the wording that traps.\n- Links: daily life, health, the news and earlier chapters of the same paper.\n\nHow real teachers open a book line (teacher example bank 2026-10-27.1; use these ways, in your own words):\n- Open with a question on something visible (every new topic and every new family member): Skin aur stomach, kidney ke upar ek outer layer hai ki nahi? Yeh kis se bani hai? — phir naam: epithelial tissue.\n- One everyday image per shape or function (every term that names a shape, a layer or a job): Chaadar bichhi ho to bistar bacha rehta hai = protective sheet. Cube wala game, har side barabar = cuboidal. Building ka pillar = columnar. Farsh ki tiles = squamous, isliye tessellated bhi kehte hain.\n- The word root where it helps (a term whose parts carry its meaning): Epi yaani upar; epithelium yaani upar ki parat. Slender yaani long aur narrow.\n- Why starts from a need (every why step): Pet mein HCl banta hai, isliye andar ek lining chahiye jo khud na jale. Cells bahar ki taraf hain, tootne ka chance zyada, isliye regeneration zyada.\n- Contrast with the neighbour (members of one family, and what the exam confuses): Simple epithelium ka kaam protection nahi, woh compound ka hai. Zyada layers = pathogen andar nahi aata.\n- Ask and repeat the key word (the one word the learner must keep): Irregular walls. Kaisi? Irregular.\n- Exam memory beats by level (after the understanding, by the level profile): Yaad rakhna: brush border PCT mein. Doosre naam: pavement, tessellated. M2B = muscle to bone = tendon, B2B = bone to bone = ligament.\n- Link to something already known (a new place or a new structure): Peritoneum, jaise lungs ke aas-paas pleura aur heart ke aas-paas pericardium: wahi kaam, pet ke andar.\n- Meaning with two or three real examples (an abstract word in the book): Sensory perception yaani pehchanna: thanda lagna, dard hona, pressure mehsoos karna.\n- Open the book's adjective (Navin's example) (a book line names a kind of surface, job or place without saying what it is): Book: 'epithelium absorptive aur secretive surfaces par milta hai'. Teacher: absorptive surface yaani jahan cheezein andar li jaati hain, jaise aant khane ke poshak tatva sokhti hai; secretive yaani jahan cells kuch bana kar bahar chhodte hain, jaise glands enzyme ya juice. Aur epithelium wahan kyon? Kyunki ek patli, lagi hui parat hi cheezon ko paar jaane de sakti hai aur bana kar chhod sakti hai.\n- Apply it in the real world first, then name it (Navin's sugar shop) (every economics concept (a definition, a cause-and-effect chain, a process): the example runs before the term is named): Ek kirana shop mein chini ke 3 packet hain, ₹50 ka ek. Kal 2 khareedar aaye the, aaj 12 aa gaye; sab ko chini chahiye par packet 3 hi hain. Dukandar daam ₹65 kar deta hai; ab sirf 3 log kharid paate hain, baaki 9 khaali haath. Zyada log, utna hi maal, isliye daam upar. Isliye ise demand-pull inflation kehte hain. Phir book ki definition. Phir: yahi aap Diwali se pehle sabzi mandi mein dekhte hain.\n\nBrackets (word list 2026-10-27.1): use everyday spoken Hindi freely, without brackets (मुख्य, वापस, बराबर, आसपास, इस्तेमाल, करके, जिससे ...). Only a genuinely difficult Hindi word (formal, literary or technical) gets its English word in brackets right after it, for example \"सतह (surface)\", \"घर्षण (friction)\", \"सघन (dense)\"; better still, use the book's English term or a simpler Hindi word. Never put a bracket inside an idiom or a fixed phrase: \"आम तौर पर\", not \"आम तौर (usually) पर\"; \"नहीं के बराबर\", not \"नहीं के बराबर (equal to)\". BIE's code removes a bracket after an everyday word and asks for one only after a Hindi word it does not know as everyday.",
+  "user": [
+   {
+    "type": "text",
+    "text": "BIE task card (JSON):\n{\"card\":\"bie.task-card/1\",\"card_id\":\"lesson.write_script@3-money/v1\",\"section\":\"lesson\",\"task\":\"write_script\",\"prefix\":{\"prefix_id\":\"lesson.write_script/3\",\"rulebook_version\":\"canvas_profile@2026-10-27.2+content_types@2026-10-27.1+explanations@2026-10-24.1+level_profiles@2026-10-24.1+simple_hindi@2026-10-27.1+teacher_examples@2026-10-27.1+vision-2026-10-21@2026-10-21.14+visual_grammar@2026-10-26.2+visual_levels@2026-10-26.2\",\"content_types_version\":\"2026-10-27.1\",\"schema_id\":\"bie.brain.lesson-script/3\",\"sha256\":\"23c7d0a0496ac0b3c93e62a5092f314af721254f233faf0aee711e7d9f3edb45\"},\"unit\":{\"unit_id\":\"v1\",\"title\":\"Money क्या है, और हमारे कौन-से काम करता है?\",\"pages\":[1]},\"parts\":[{\"part_id\":\"c01.1\",\"item_ids\":[\"p001-i3\",\"p001-i7\",\"p001-i8\",\"p001-i9\",\"p001-i10\",\"p001-i11\"],\"type\":\"definition\",\"questions\":[\"what\",\"evidence\",\"why\",\"how\"],\"focus\":\"Money: acceptance, scope and characteristics: teach these definition items through the definition pattern\"},{\"part_id\":\"c01.2\",\"item_ids\":[\"p001-i4\",\"p001-i5\"],\"type\":\"facts_numbers\",\"questions\":[\"what\",\"evidence\",\"why\",\"how\"],\"focus\":\"Money: acceptance, scope and characteristics: teach these facts_numbers items through the facts_numbers pattern\"},{\"part_id\":\"c01.3\",\"item_ids\":[\"p001-i12\"],\"type\":\"cause_effect\",\"questions\":[\"why\",\"how\",\"exception\"],\"focus\":\"Money: acceptance, scope and characteristics: teach these cause_effect items through the cause_effect pattern\"},{\"part_id\":\"c02.1\",\"item_ids\":[\"p001-i14\",\"p001-i15\",\"p001-i16\",\"p001-i17\"],\"type\":\"definition\",\"questions\":[\"what\",\"evidence\",\"how\",\"why\",\"difference\",\"exception\"],\"focus\":\"Four functions of money: teach these definition items through the definition pattern\"}],\"rules\":[\"G-01\",\"G-02\",\"G-03\",\"G-04\",\"G-05\",\"G-06\",\"G-07\",\"S2-01\",\"S2-02\",\"S2-03\",\"S2-04\",\"S2-05\",\"S2-06\",\"S2-07\",\"S2-08\",\"W-01\"],\"output\":{\"schema_id\":\"bie.brain.lesson-script/3\",\"mode\":\"full\",\"max_output_tokens\":32000},\"coverage\":{\"must_cover\":[\"p001-i3\",\"p001-i7\",\"p001-i8\",\"p001-i9\",\"p001-i10\",\"p001-i11\",\"p001-i4\",\"p001-i5\",\"p001-i12\",\"p001-i14\",\"p001-i15\",\"p001-i16\",\"p001-i17\"],\"claim_field\":\"beats[].covers_item_ids\",\"may_skip\":[]},\"context\":{\"map_slice\":[[\"p001-i3\",\"definition\",\"1\",\"Definition: Money is anything that is accepted as a medium of exchange for goods and services and…\"],[\"p001-i7\",\"definition\",\"1\",\"Acceptability: Everyone is willing to accept it.\"],[\"p001-i8\",\"definition\",\"1\",\"Durability: Does not wear out quickly.\"],[\"p001-i9\",\"definition\",\"1\",\"Portability: Easy to carry.\"],[\"p001-i10\",\"definition\",\"1\",\"Divisibility: Can be broken into smaller units.\"],[\"p001-i11\",\"definition\",\"1\",\"Uniformity: Every unit has the same value.\"],[\"p001-i4\",\"facts_numbers\",\"1\",\"Money is not just currency notes and coins.\"],[\"p001-i5\",\"facts_numbers\",\"1\",\"It includes anything people widely accept for payments—cash, bank deposits, and digital balances.\"],[\"p001-i12\",\"cause_effect\",\"1\",\"Limited supply: Scarcity helps preserve value.\"],[\"p001-i14\",\"definition\",\"1\",\"1. Medium of exchange: Eliminates the need for barter. Example: You buy groceries using ₹500…\"],[\"p001-i15\",\"definition\",\"1\",\"2. Unit of account: Provides a common measure of value. Example: A phone costs ₹20,000 and a…\"],[\"p001-i16\",\"definition\",\"1\",\"3. Store of value: Allows purchasing power to be saved for future use. Example: Keeping money in a…\"],[\"p001-i17\",\"definition\",\"1\",\"4. Standard of deferred payment: Makes future payments possible. Example: Home loans and EMI…\"],[\"c01\",\"definition\",\"1\",\"Money: acceptance, scope and characteristics\"],[\"c02\",\"classification\",\"1\",\"Four functions of money\"],[\"c05\",\"comparison\",\"2\",\"Intrinsic versus extrinsic value\"],[\"c23\",\"classification\",\"11-12\",\"Bank money and negotiable instruments\"],[\"c03\",\"cause_effect\",\"2-3\",\"Barter and the problems money solves\"]],\"before\":\"पहले यह जान लो: पैसा, bank और payment की बुनियाद\",\"after\":\"Barter से commodity money: बदलाव की ज़रूरत क्यों पड़ी?\"},\"source\":{\"block_ids\":[\"p0001-b0004\",\"p0001-b0005\",\"p0001-b0006\",\"p0001-b0007\",\"p0001-b0008\",\"p0001-b0010\",\"p0001-b0011\",\"p0001-b0012\",\"p0001-b0013\",\"p0001-b0014\",\"p0001-b0015\",\"p0001-b0017\",\"p0001-b0018\",\"p0001-b0019\",\"p0001-b0020\",\"p0001-b0021\",\"p0001-b0022\",\"p0001-b0023\",\"p0001-b0024\"],\"page_images\":[]}}\n\nVideo v1: Money क्या है, और हमारे कौन-से काम करता है?\nGoal: Learner acceptance-based definition, scope और characteristics समझेगा; 4 functions को overview से लेकर examples, boundaries और comparison तक पहचान सकेगा।\nOpening hook: आपके पास कोई कीमती चीज़ है, लेकिन दुकानदार उसे payment में नहीं लेता—क्या वह आपके लिए money है?\nStory or analogy: एक खरीद में price बताना, payment करना, रकम बचाना और बाद की payment तय करना अलग situations होंगे। पहले situations समझेंगे, फिर 4 functions के नाम और definitions जोड़ेंगे; गैर-उदाहरण से boundaries जाँचेंगे।\nPlanned minutes: 7\nNarration time (S2-01): 6.0-8.0 minutes, about 780-1040 spoken words (BIE counts 130 words a minute)\nPrerequisites already taught in the prerequisite video (remind of one in at most 2 beats): Purchases, prices, debts and payments due later; Bank balances, deposits, loans and interest; Denominations, monetary arithmetic, percentages and minimum–maximum limits; Purchasing power, inflation, scarcity and liquidity; Central bank, commercial bank, government treasury and bank-to-bank settlement; Foreign currencies, exchange rates, reserves and demand–supply changes; Chronological reading: BCE/CE, centuries, dynasties and law versus implementation dates; Digital instructions, identity authentication, ledgers and payment interfaces\nOpen every book line (S2-07): a question about something the learner can see, then the name; every term opened: its plain meaning with 'yaani' and one everyday image (the word root where it helps); the why, starting from a need or a problem, one link at a time; an example or the place, by a zoom from the organ or the thing the learner knows; the consequence: what follows, and the link to the previous or the next idea; the contrast: what it is not, and what the exam confuses it with; the memory beat by level: the exam's 'yaad rakhna', the other names, the trick.\n\nItems (item id | page | kind | type | content), each with its teacher questions (question id | ask | question → answer | basis) and its unpack from Section 1 (term | why | example | consequence | visual), plus any locked explanation (Navin's verdict: speak it):\np001-i3 | 1 | definition | definition | Definition: Money is anything that is accepted as a medium of exchange for goods and services and for settling debts.\n  p001-i3#q1 | what | What is the defining test of money on this page? → It is accepted in exchange for goods and services and in settlement of debts; its role in payment, rather than a particular physical form, defines it. | book\n  p001-i3#q2 | evidence | Which wording shows that money need not be a particular object? → The definition says 'anything that is accepted', and the following lines include bank deposits and digital balances as well as cash. | book\n  p001-i3#q3 | why | Why does acceptance matter more than an object's usefulness to its holder? → A payment works only if the recipient will take it. A useful possession does not automatically allow its owner to buy other goods or discharge an obligation. | outside\n  p001-i3#q4 | how | How do buying a service and settling a debt differ? → Buying a service pays for work supplied, such as a haircut; settling a debt clears an amount already owed, such as an earlier loan. | outside\n  term | medium of exchange | yaani जिसे देकर सामान या सेवा ले सकें | image: दुकानदार को पैसे देकर चावल लेना\n  term | settling debts | yaani पहले का उधार चुका देना | image: किराना दुकान की उधार वाली रकम चुकाना\n  why | A buyer needs goods but the seller may not want the buyer's goods in return. [standard] → An accepted payment medium lets the buyer obtain goods and clear amounts owed. [book]\n  example or place | A kirana purchase and repayment of shop credit.\n  consequence | Look for acceptance in payments before asking whether the money is cash or a balance.\n  visual | Exchange goods for payment, then cross out an outstanding debt.\n  level extra | Distinguish an asset that is valuable from something accepted as money.\n  real world (run it first, with these numbers, then name the term) | place: Kirana shop; illustrative outside example | actors: buyer, shopkeeper | goods: rice, cash, shop credit | numbers: buyer's cash after purchase ₹500 → ₹400; old shop debt after repayment ₹50 → ₹0\n    step 1 | The shopkeeper accepts ₹100 for rice. | shows: Acceptance allows exchange for goods.\n    step 2 | The buyer pays another ₹50 to clear an earlier shop debt. | shows: The same accepted medium settles an obligation.\n    then the name | The accepted means used for these purchases and repayments is money.\n    real life | The page's definition applies to shopping and clearing everyday dues.\np001-i4 | 1 | list_point | facts_numbers | Money is not just currency notes and coins.\n  p001-i4#q1 | what | What misconception does this statement reject? → It rejects equating the whole of money with its physical currency forms. | book\n  p001-i4#q2 | evidence | What on the page establishes that money has non-cash forms? → The next bullet explicitly includes bank deposits and digital balances. | book\n  p001-i4#q3 | why | Why can money exist without a note or coin changing hands? → An accepted transfer of a monetary balance can complete payment without physical cash being passed across a counter. | outside\n  term | currency notes and coins | yaani हाथ में पकड़कर दिए जाने वाले नोट और सिक्के | image: बटुए में रखा नोट और जेब के सिक्के\n  why | A learner sees cash daily and may mistake its visible form for all money. [standard] → The book includes non-cash balances, so the category is wider than currency. [book]\n  example or place | Paying from a bank balance instead of taking cash from a wallet.\n  consequence | Money should be recognised by its payment role, not merely its appearance.\n  visual | Expand a cash-only circle to include balances.\n  level extra | Do not infer that every financial asset is money merely because money includes more than currency.\np001-i5 | 1 | list_point | facts_numbers | It includes anything people widely accept for payments—cash, bank deposits, and digital balances.\n  p001-i5#q1 | what | Which payment forms does this page include? → Cash, bank deposits and digital balances are the page's examples of widely accepted forms. | book\n  p001-i5#q2 | evidence | What criterion links the three examples? → The line introduces them as things people widely accept for payments. | book\n  p001-i5#q3 | how | How should students distinguish a balance from the device used to spend it? → The balance is the monetary amount available; a phone or payment application is a way to instruct a transfer. The device is not itself the money. | outside\n  term | bank deposits | yaani bank खाते में जमा रकम | image: पासबुक में दिखती जमा रकम\n  term | digital balances | yaani डिजिटल तरीके से दर्ज और भुगतान में इस्तेमाल होने वाली रकम | image: स्क्रीन पर दिखता उपलब्ध balance\n  why | People need to pay even when they do not hand over physical currency. [standard] → Widely accepted deposits and digital balances are therefore included on the page. [book]\n  example or place | A shop counter where payment can come from cash or an account balance.\n  consequence | Different forms can perform the same payment role.\n  visual | Route three payment forms toward one shop purchase.\n  level extra | The page is introductory: it does not classify monetary aggregates or different kinds of digital balances.\np001-i7 | 1 | list_point | definition | Acceptability: Everyone is willing to accept it.\n  p001-i7#q1 | what | What does acceptability mean? → People are willing to take the money offered to them in payment. | book\n  p001-i7#q2 | evidence | Which printed wording identifies willingness rather than physical quality? → The characteristic is explained as 'Everyone is willing to accept it.' | book\n  p001-i7#q3 | why | Why does the recipient's willingness matter? → If sellers refuse a proposed means of payment, possessing it does not help the buyer complete those purchases. Confidence that others will accept it supports its use. | outside\n  term | Acceptability | yaani लोग उसे भुगतान में लेने को तैयार हों | image: दुकानदार पैसे लेकर सामान दे देता है\n  why | A buyer needs the seller to take the offered payment. [standard] → Willingness to accept it makes the proposed money usable in exchange. [standard]\n  example or place | A shopkeeper accepting payment for groceries.\n  consequence | Without acceptance, the exchange function cannot work effectively.\n  visual | Accept payment and release the goods.\n  level extra | Read 'Everyone' as the book's ideal characteristic; this is not a claim that every payment form is accepted at every counter.\n  real world (run it first, with these numbers, then name the term) | place: Kirana shop; illustrative outside example | actors: buyer, shopkeeper | goods: groceries, cash | numbers: unpaid grocery bill ₹100 → ₹0\n    step 1 | A buyer owes ₹100 for groceries and offers cash. | shows: A payment medium must be offered to the recipient.\n    step 2 | The shopkeeper willingly takes it and marks the bill paid. | shows: Recipient willingness enables completion of payment.\n    then the name | This willingness to receive the payment is acceptability.\n    real life | The page's characteristic is visible whenever a seller agrees to take a payment.\np001-i8 | 1 | list_point | definition | Durability: Does not wear out quickly.\n  p001-i8#q1 | what | What quality does durability describe? → Money should remain usable rather than deteriorate quickly through handling or time. | outside\n  p001-i8#q2 | evidence | How does the book state durability? → It says good money 'Does not wear out quickly.' | book\n  p001-i8#q3 | why | Why does repeated use require durability? → Money passes between people. A fragile or perishable payment object would need frequent replacement and might cease to be acceptable after deterioration. | outside\n  term | Durability | yaani बार-बार इस्तेमाल करने पर जल्दी खराब न होना | image: कई हाथों से गुजरने पर भी इस्तेमाल लायक सिक्का\n  why | Money needs to survive repeated exchanges. [standard] → Resistance to wear keeps it usable instead of requiring frequent replacement. [standard]\n  example or place | A coin repeatedly used at shop counters.\n  consequence | Durability supports continued circulation but does not guarantee stable buying power.\n  visual | Pass the same coin through successive hands.\n  level extra | Distinguish physical survival from the store-of-value function.\n  real world (run it first, with these numbers, then name the term) | place: Market stalls; illustrative outside example | actors: buyer, vegetable seller, tea seller | goods: ₹10 coin, vegetables, tea | numbers: successive payments using the same coin 0 → 2\n    step 1 | A buyer passes a usable ₹10 coin to a vegetable seller. | shows: The money withstands handling during a transaction.\n    step 2 | The seller later passes that usable coin to a tea seller. | shows: Physical persistence allows repeated circulation.\n    then the name | The ability to remain usable through handling is durability.\n    real life | The page's characteristic can be seen in coins circulating through many transactions.\np001-i9 | 1 | list_point | definition | Portability: Easy to carry.\n  p001-i9#q1 | what | What is portability? → The payment medium can be carried conveniently from one place to another. | outside\n  p001-i9#q2 | evidence | What is the book's test for portability? → It describes portable money as 'Easy to carry.' | book\n  p001-i9#q3 | why | Why does carrying convenience improve money? → Buyers need to make payments in different places. A bulky or heavy payment commodity raises the effort and cost of transacting. | outside\n  term | Portability | yaani आसानी से साथ ले जा सकना | image: अनाज की बोरी के बजाय बटुए में पैसे लेकर बाजार जाना\n  why | Buyers must take purchasing means to where goods are sold. [standard] → An easy-to-carry medium reduces the burden of making those purchases. [standard]\n  example or place | A buyer moving from a grocery shop to a vegetable stall.\n  consequence | Payments become easier across locations.\n  visual | Move a small wallet between shops.\n  level extra | Separate portability from divisibility: carrying value and splitting value are different.\n  real world (run it first, with these numbers, then name the term) | place: Neighbourhood market; illustrative outside example | actors: buyer, grocer, vegetable seller | goods: cash, groceries, vegetables | numbers: cash carried after first purchase ₹500 → ₹300\n    step 1 | A buyer carries ₹500 in a wallet and spends ₹200 on groceries. | shows: A compact payment medium is convenient to take to a seller.\n    step 2 | The buyer carries the remaining ₹300 to a vegetable stall. | shows: Easy movement allows payment at another location.\n    then the name | This convenience in carrying money is portability.\n    real life | The page's characteristic appears when people carry money for purchases at several shops.\np001-i10 | 1 | list_point | definition | Divisibility: Can be broken into smaller units.\n  p001-i10#q1 | what | What does divisibility permit? → A monetary amount can be represented in smaller units, so payments need not be made only in large amounts. | outside\n  p001-i10#q2 | evidence | Which phrase defines divisibility on the page? → The page says money 'Can be broken into smaller units.' | book\n  p001-i10#q3 | how | How does divisibility help with a small purchase? → Smaller denominations or units allow the buyer to pay an exact amount or receive change while preserving the total monetary amount. | outside\n  p001-i10#q4 | why | Why does 'broken' not mean tearing a note? → The division is of monetary value into usable units; physically damaging a note is not the mechanism of making change. | outside\n  term | Divisibility | yaani रकम को छोटी-छोटी इकाइयों में बाँटकर दे सकना | image: ₹100 देकर ₹30 की चीज़ लेना और ₹70 वापस पाना\n  why | Goods have different prices, including amounts below a large denomination. [standard] → Smaller monetary units allow exact payments and change. [standard]\n  example or place | Receiving change at a grocery counter.\n  consequence | Money works for both small and large transactions.\n  visual | Split a total into payment and change.\n  level extra | The total value is preserved when a large denomination is exchanged for smaller denominations.\n  real world (run it first, with these numbers, then name the term) | place: Kirana shop; illustrative outside example | actors: buyer, shopkeeper | goods: soap, ₹100 note, change | numbers: buyer's cash after purchase ₹100 → ₹70\n    step 1 | The buyer offers ₹100 for soap priced at ₹30. | shows: The available denomination exceeds the required payment.\n    step 2 | The shopkeeper returns ₹70 in smaller units and keeps ₹30. | shows: Smaller units divide the amount without losing monetary value.\n    then the name | The ability to make these smaller payments is divisibility.\n    real life | The page's characteristic is used whenever a buyer receives change.\np001-i11 | 1 | list_point | definition | Uniformity: Every unit has the same value.\n  p001-i11#q1 | what | How should uniformity be understood without confusing denominations? → Equivalent units of the same denomination have the same monetary value. One genuine ₹10 unit substitutes for another genuine ₹10 unit; this does not equate ₹10 with ₹100. | outside\n  p001-i11#q2 | evidence | What does the book actually say? → It states 'Uniformity: Every unit has the same value.' | book\n  p001-i11#q3 | why | Why is interchangeability useful? → People need not bargain over each equivalent monetary unit as though it were a different-quality commodity; this simplifies pricing and payment. | outside\n  term | Uniformity | yaani एक ही denomination की इकाइयों का मूल्य बराबर होना | image: एक ₹10 के सिक्के की जगह दूसरा ₹10 का सिक्का देना\n  why | A seller needs equivalent payment units to be interchangeable. [standard] → Equal value for equivalent units avoids separate valuation of each one. [standard]\n  example or place | Two genuine ₹10 coins used for identical-priced purchases.\n  consequence | Equivalent monetary units can substitute for one another.\n  visual | Swap equal-denomination units under an unchanged price tag.\n  level extra | The denomination qualification is outside explanation of the book's abbreviated wording.\n  real world (run it first, with these numbers, then name the term) | place: Tea stall; illustrative outside example | actors: buyer, tea seller | goods: tea, two genuine ₹10 coins | numbers: buyer's number of ₹10 coins after buying tea 2 → 1\n    step 1 | Tea costs ₹10, and the buyer has two genuine ₹10 coins. | shows: The available units have the same denomination.\n    step 2 | The seller accepts either coin for the same cup; one coin remains. | shows: Equivalent units perform the same monetary payment.\n    then the name | This interchangeability of equivalent monetary units is uniformity.\n    real life | The page's characteristic is seen when one same-denomination coin substitutes for another.\np001-i12 | 1 | list_point | cause_effect | Limited supply: Scarcity helps preserve value.\n  p001-i12#q1 | why | Why does the page regard limited supply as desirable? → It identifies scarcity as something that helps preserve money's value. | book\n  p001-i12#q2 | how | How can excessive money relative to goods weaken purchasing power? → If spending rises because more money is available while available goods do not rise correspondingly, prices may rise. Each monetary unit then buys less. | outside\n  p001-i12#q3 | exception | Does limited supply alone guarantee stable value? → No. Purchasing power also depends on demand for money and the availability of goods and services. The book says scarcity 'helps', not that it guarantees value. | outside\n  term | Limited supply | yaani रकम की उपलब्धता बिना सीमा बढ़ती न जाए | image: सामान उतना ही हो लेकिन खरीदने के पैसे बहुत बढ़ जाएँ\n  term | Scarcity | yaani उपलब्ध मात्रा सीमित होना | image: माँगने वाले ज्यादा हों लेकिन उपलब्ध चीज़ सीमित हो\n  why | People need money to retain usefulness for buying goods. [standard] → Restraining excessive supply relative to goods helps protect purchasing power. [standard]\n  example or place | An illustrative market with unchanged goods but increased spending money.\n  consequence | Links the quality of good money to its store-of-value function.\n  visual | Increase money beside unchanged goods and reduce what one unit buys.\n  level extra | Do not infer a fixed proportional price effect from every increase in money; the example holds other conditions fixed.\n  real world (run it first, with these numbers, then name the term) | place: Simplified local market; illustrative outside example, not observed Indian data | actors: buyers, sellers | goods: 10 identical grocery baskets, money | numbers: money spent on the same baskets ₹1000 → ₹2000; price per basket under the stated spending assumption ₹100 → ₹200; baskets purchasable with ₹200 2 → 1\n    step 1 | Assume 10 unchanged baskets sell for the entire ₹1000 buyers spend. | shows: Establish a goods supply and an initial purchasing power.\n    step 2 | Assume buyers now spend ₹2000 on those same 10 baskets, which all sell at one price. | shows: More spending against unchanged goods raises the illustrative price; ₹200 buys fewer baskets.\n    then the name | The example explains why limited supply can help preserve money's value.\n    real life | This opens the page's claim about scarcity and value; it is not a forecast of actual prices.\np001-i14 | 1 | list_point | definition | 1. Medium of exchange: Eliminates the need for barter. Example: You buy groceries using ₹500 instead of exchanging wheat for rice.\n  p001-i14#q1 | what | What role does money perform as a medium of exchange? → It pays for goods instead of requiring a direct exchange of one good for another. | book\n  p001-i14#q2 | evidence | Which example identifies this function? → The page contrasts buying groceries using ₹500 with exchanging wheat for rice. | book\n  p001-i14#q3 | how | How does money remove a difficulty of barter? → In barter, a wheat holder seeking rice must find a rice holder willing to take wheat. With accepted money, selling wheat and buying rice can involve different people. | outside\n  p001-i14#q4 | why | Why does separating the two trades help? → The buyer no longer has to find one partner whose wants exactly match the goods the buyer can offer. Money connects otherwise separate exchanges. | outside\n  term | barter | yaani एक सामान के बदले दूसरा सामान देना | image: गेहूँ देकर चावल लेना\n  term | Medium of exchange | yaani सामान के लेन-देन में बीच का भुगतान साधन | image: पहले सामान बेचकर पैसे पाना, फिर पैसे से दूसरा सामान खरीदना\n  why | A person wants goods that another person sells, but their offered goods may not be wanted in return. [standard] → Accepted money replaces the need for a direct goods-for-goods exchange. [book]\n  example or place | The book's ₹500 grocery purchase instead of wheat-for-rice barter.\n  consequence | Links back to acceptability and forward to why barter is inconvenient.\n  visual | Replace the goods-for-goods arrow with payment and delivery.\n  level extra | The standard name for the barter difficulty is double coincidence of wants; this explanation is outside the page.\n  real world (run it first, with these numbers, then name the term) | place: Grocery shop; book amount with illustrative outside transaction details | actors: buyer, grocer | goods: groceries, ₹500 | numbers: buyer's cash ₹500 → ₹0; grocer's cash received for this purchase ₹0 → ₹500\n    step 1 | The buyer selects groceries priced at ₹500 without offering wheat to the grocer. | shows: The exchange does not require goods that the grocer personally wants.\n    step 2 | The grocer accepts ₹500 and gives the groceries. | shows: Accepted money mediates the exchange.\n    then the name | Here money performs the medium-of-exchange function.\n    real life | This is the page's own grocery-purchase example.\np001-i15 | 1 | list_point | definition | 2. Unit of account: Provides a common measure of value. Example: A phone costs ₹20,000 and a laptop costs ₹60,000.\n  p001-i15#q1 | what | What does money do as a unit of account? → It supplies one common measure in which the values of different goods can be expressed. | book\n  p001-i15#q2 | evidence | How does the page illustrate a common measure? → Both the phone's ₹20,000 price and the laptop's ₹60,000 price are stated in rupees. | book\n  p001-i15#q3 | how | How do these prices make comparison possible? → Using the same unit shows that the laptop costs three times the phone and ₹40,000 more. These are calculations from the printed prices. | outside\n  p001-i15#q4 | difference | How does this differ from medium of exchange? → A price tag measures value even before any sale occurs; handing over money to complete the sale is the exchange function. | outside\n  term | Unit of account | yaani अलग-अलग चीज़ों की कीमत एक ही इकाई में लिखना | image: फोन और laptop दोनों पर रुपये में price tag\n  why | A buyer needs to compare unlike goods without separate barter ratios for each pair. [standard] → Rupee prices put their values on a common scale. [standard]\n  example or place | The book's phone at ₹20,000 and laptop at ₹60,000.\n  consequence | A common unit makes comparison, budgeting and recording easier.\n  visual | Align two rupee price tags on one scale.\n  level extra | The laptop-to-phone price ratio is 3:1; measuring value is distinct from transferring money.\n  real world (run it first, with these numbers, then name the term) | place: Electronics shop; book prices with illustrative outside budgeting | actors: buyer, shopkeeper | goods: phone, laptop, rupee price tags | numbers: quoted cost when comparing phone with laptop ₹20000 → ₹60000\n    step 1 | The buyer reads the phone price of ₹20,000. | shows: One good's value is expressed in a monetary unit.\n    step 2 | The buyer reads the laptop price of ₹60,000 and compares the ₹40,000 difference without making a purchase. | shows: The same unit measures unlike goods and enables calculation.\n    then the name | Using rupees as this common measuring scale is the unit-of-account function.\n    real life | The page's price-tag example is encountered while comparing purchases.\np001-i16 | 1 | list_point | definition | 3. Store of value: Allows purchasing power to be saved for future use. Example: Keeping money in a bank account for later expenses.\n  p001-i16#q1 | what | What does store of value allow a holder to do? → Keep purchasing power available for future use rather than spend it immediately. | book\n  p001-i16#q2 | evidence | What is the page's example? → Keeping money in a bank account for expenses that will occur later. | book\n  p001-i16#q3 | how | How does saving connect income today with spending later? → A person retains an unspent balance and draws on it when a future need arises. Receiving income and buying goods need not happen at the same time. | outside\n  p001-i16#q4 | exception | Does this function guarantee unchanged purchasing power? → No. If prices rise, the same nominal balance buys fewer goods. Money can perform a store-of-value role without being a perfect store of real purchasing power. | outside\n  p001-i16#q5 | difference | How is this different from deferred payment? → Store of value concerns carrying one's resources into the future; deferred payment concerns an obligation whose payment falls due later. | outside\n  term | Store of value | yaani आज की खरीदने की क्षमता को बाद के लिए बचाकर रखना | image: आज की कमाई में से पैसे छोड़ना ताकि बाद में फीस भर सकें\n  term | purchasing power | yaani रकम से कितना सामान या सेवा मिल सकती है | image: ₹100 से किराने में कितनी चीज़ें आती हैं\n  why | Income and expenses need not arrive at the same time. [standard] → Keeping money in a bank account makes it available for later expenses. [book]\n  example or place | The book's bank account used for later expenses.\n  consequence | Saving separates the time of receiving money from the time of spending it.\n  visual | Carry a balance across a calendar to a future expense.\n  level extra | Separate nominal rupee balance from real purchasing power; inflation is an outside qualification.\n  real world (run it first, with these numbers, then name the term) | place: Bank account; illustrative outside amounts | actors: worker, bank | goods: salary savings, later groceries | numbers: amount set aside for later use ₹0 → ₹500; saved balance after later purchase ₹500 → ₹0\n    step 1 | A worker leaves ₹500 from current income in a bank account instead of spending it. | shows: Current resources are retained for the future.\n    step 2 | Later, the worker uses the saved ₹500 for groceries. | shows: The retained balance finances a later expense.\n    then the name | Holding the money between earning and spending illustrates store of value.\n    real life | This applies the page's example of keeping money in a bank account for later expenses.\np001-i17 | 1 | list_point | definition | 4. Standard of deferred payment: Makes future payments possible. Example: Home loans and EMI payments are denominated in money.\n  p001-i17#q1 | what | What is a standard of deferred payment? → Money supplies the standard in which payments due in the future are stated. | outside\n  p001-i17#q2 | evidence | What examples does the page give? → Home loans and EMI payments are denominated in money. | book\n  p001-i17#q3 | how | How does denomination in money help a loan contract? → Borrower and lender can specify amounts due on future dates in a shared monetary unit rather than leaving repayment as an unspecified quantity of goods. | outside\n  p001-i17#q4 | why | Why is this not simply storing money? → An obligation is being measured for future settlement; the borrower need not already possess the money that will later be paid. | outside\n  p001-i17#q5 | what | What do EMI and denominated mean here? → EMI means equated monthly instalment, a scheduled monthly loan payment. Denominated means the amount is stated in a particular monetary unit, such as rupees. | outside\n  term | deferred payment | yaani भुगतान अभी नहीं, तय समय पर बाद में करना | image: आज loan लेना और बाद में किस्त चुकाना\n  term | denominated | yaani किस इकाई में रकम लिखी गई है | image: किस्त के सामने रुपये में रकम लिखी होना\n  term | EMI | yaani loan चुकाने की तय मासिक किस्त | image: हर महीने खाते से जाने वाली loan की किस्त\n  why | Credit creates obligations that will be paid after the present transaction. [standard] → Stating future dues in money gives borrower and lender a common repayment standard. [standard]\n  example or place | The book's home-loan and EMI example.\n  consequence | Money supports agreements connecting present borrowing with future repayment.\n  visual | Place rupee amounts on future repayment dates.\n  level extra | The future denomination is the distinguishing clue; making the actual payment also uses money as a medium of exchange.\n  real world (run it first, with these numbers, then name the term) | place: Bank home-loan account; illustrative outside EMI amount | actors: borrower, bank | goods: home loan, rupee-denominated EMI | numbers: unpaid instalment due for the month ₹10000 → ₹0\n    step 1 | The loan schedule states that ₹10,000 is due on a future monthly payment date. | shows: A future obligation is measured in money.\n    step 2 | On that date, payment of ₹10,000 clears that month's instalment. | shows: The agreed monetary amount provides the standard for settlement.\n    then the name | Money's role in specifying this future due is the standard of deferred payment.\n    real life | This applies the page's home-loan EMI example without assuming a current rate or actual loan schedule."
+   },
+   {
+    "type": "text",
+    "text": "Answer the card with the teacher script JSON."
+   }
+  ]
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "started_at": 1793131198.7911687,
+   "mode": "full",
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "bd9e837048c5e391b2e0c47c61b1b6b61f243f5d0256f556c3d068f6f38d87ac",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 17977,
+    "output_tokens": 6176,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "This lesson establishes acceptance-based money, its scope and desirable characteristics, then distinguishes its four functions through everyday transactions.",
+    "key_questions": [
+     "What makes something money rather than merely valuable?",
+     "How do the characteristics support usable money?",
+     "Why can limited supply help preserve purchasing power without guaranteeing it?",
+     "How do the four functions differ, especially saving versus future dues?"
+    ],
+    "decisions": [
+     {
+      "decision": "Run the supplied numerical situations before naming their concepts; group examples before definitions within each definition part.",
+      "reason": "Preserves application-first teaching and the required pattern order."
+     },
+     {
+      "decision": "Use denomination and inflation qualifications explicitly.",
+      "reason": "Prevents misleading readings of uniformity, durability and store of value."
+     },
+     {
+      "decision": "Keep outside material to supplied illustrative mechanisms and boundaries.",
+      "reason": "Makes the source understandable within the 6–8 minute allocation."
+     }
+    ],
+    "uncertain": [
+     "No page image is supplied; the provided item text is the source.",
+     "The source does not specify a date or detailed categories for digital balances."
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "This lesson establishes acceptance-based money, its scope and desirable characteristics, then distinguishes its four functions through everyday transactions.",
+     "key_questions": [
+      "What makes something money rather than merely valuable?",
+      "How do the characteristics support usable money?",
+      "Why can limited supply help preserve purchasing power without guaranteeing it?",
+      "How do the four functions differ, especially saving versus future dues?"
+     ],
+     "decisions": [
+      {
+       "decision": "Run the supplied numerical situations before naming their concepts; group examples before definitions within each definition part.",
+       "reason": "Preserves application-first teaching and the required pattern order."
+      },
+      {
+       "decision": "Use denomination and inflation qualifications explicitly.",
+       "reason": "Prevents misleading readings of uniformity, durability and store of value."
+      },
+      {
+       "decision": "Keep outside material to supplied illustrative mechanisms and boundaries.",
+       "reason": "Makes the source understandable within the 6–8 minute allocation."
+      }
+     ],
+     "uncertain": [
+      "No page image is supplied; the provided item text is the source.",
+      "The source does not specify a date or detailed categories for digital balances."
+     ]
+    },
+    "title": "Money क्या है, और हमारे कौन-से काम करता है?",
+    "parts": [
+     {
+      "part_id": "c01.1",
+      "frame": {
+       "process": "Recognise money by accepted payment use and explain five practical characteristics.",
+       "how": "Run concrete transactions first, define their shared qualities, then test boundaries.",
+       "when": "At purchase, repayment, repeated circulation, movement between shops and making change.",
+       "conditions": "Recipients accept payment; equivalent units are compared within the same denomination.",
+       "atmosphere": "Familiar neighbourhood shops, market stalls and a tea counter."
+      },
+      "skipped_steps": []
+     },
+     {
+      "part_id": "c01.2",
+      "frame": {
+       "process": "Expand money beyond physical currency to accepted balances.",
+       "how": "Compare cash and balance-based payment for the same purchase.",
+       "when": "When a payment is completed without handing over notes or coins.",
+       "conditions": "The monetary balance is accepted for payment; the device is not itself money.",
+       "atmosphere": "A shop counter offering cash and non-cash payment."
+      },
+      "skipped_steps": [
+       {
+        "step": 5,
+        "why": "The source contains no formula to build."
+       }
+      ]
+     },
+     {
+      "part_id": "c01.3",
+      "frame": {
+       "process": "Explain how excessive spending against unchanged goods can reduce purchasing power.",
+       "how": "Compare total spending, basket prices and purchases possible with a fixed sum.",
+       "when": "After spending rises while the quantity of goods stays unchanged.",
+       "conditions": "Ten identical baskets sell at one price using all assumed spending; this is not a general proportional forecast.",
+       "atmosphere": "A simplified local grocery market with explicitly hypothetical numbers."
+      },
+      "skipped_steps": []
+     },
+     {
+      "part_id": "c02.1",
+      "frame": {
+       "process": "Distinguish exchange, common valuation, carrying resources forward and specifying future dues.",
+       "how": "Run four situations before naming and defining the functions, then test confusing pairs.",
+       "when": "At purchase, before purchase, between income and spending, and when future repayments are agreed.",
+       "conditions": "Separate physical endurance from purchasing power and saved resources from obligations.",
+       "atmosphere": "Grocery and electronics shops, a salary account and a home-loan schedule."
+      },
+      "skipped_steps": []
+     }
+    ],
+    "beats": [
+     {
+      "beat_id": "b1",
+      "part_id": "",
+      "step": 0,
+      "purpose": "hook",
+      "say": "आपके पास कीमती चीज़ है, लेकिन दुकानदार payment में नहीं लेता। क्या सिर्फ कीमती होने से वह money बन गई? खरीद पूरी करने के लिए सामने वाले का उसे लेना ज़रूरी है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "A valuable possession is offered; the shopkeeper declines payment.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b2",
+      "part_id": "c01.1",
+      "step": 1,
+      "purpose": "example",
+      "say": "किराना दुकान में क्या हुआ? दुकानदार ₹100 लेकर चावल देता है; आपके ₹500 से ₹400 बचे। फिर ₹50 का पुराना उधार चुकाया, तो बकाया ₹50 से ₹0 हुआ; उसी स्वीकार किए गए payment से दोनों काम हुए।",
+      "covers_item_ids": [
+       "p001-i3"
+      ],
+      "answers": [],
+      "on_screen": "Rice purchase: ₹500 → ₹400. Old debt: ₹50 → ₹0.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b3",
+      "part_id": "c01.1",
+      "step": 1,
+      "purpose": "example",
+      "say": "अब ₹100 के किराने का bill देखिए: दुकानदार cash लेने को तैयार हुआ, तभी bill ₹100 से ₹0 हुआ। और ₹10 का वही सिक्का सब्ज़ी वाले से चाय वाले तक इस्तेमाल लायक रहा; उससे payments 0 से 2 हो गए।",
+      "covers_item_ids": [
+       "p001-i7",
+       "p001-i8"
+      ],
+      "answers": [],
+      "on_screen": "Willing acceptance clears bill; same usable ₹10 coin passes through two payments.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b4",
+      "part_id": "c01.1",
+      "step": 1,
+      "purpose": "example",
+      "say": "बाज़ार में रकम साथ कैसे ले जाएँगे? बटुए में ₹500 ले गए, ₹200 का किराना लिया और बचे ₹300 लेकर सब्ज़ी की दुकान पहुँचे। सामान के बदले देने के लिए कोई भारी बोरी ढोनी नहीं पड़ी।",
+      "covers_item_ids": [
+       "p001-i9"
+      ],
+      "answers": [],
+      "on_screen": "Wallet moves between shops; carried cash ₹500 → ₹300.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b5",
+      "part_id": "c01.1",
+      "step": 1,
+      "purpose": "example",
+      "say": "₹30 के साबुन के लिए ₹100 दिया तो क्या पूरा ₹100 खर्च होगा? ₹70 वापस मिले, यानी रकम छोटे हिस्सों में बँट गई। चाय के ₹10 देने हों और 2 असली ₹10 के सिक्के हों, तो दुकानदार कोई भी लेगा; आपके पास 1 बचेगा।",
+      "covers_item_ids": [
+       "p001-i10",
+       "p001-i11"
+      ],
+      "answers": [],
+      "on_screen": "₹100 = ₹30 payment + ₹70 change. Either genuine ₹10 coin buys tea; coins 2 → 1.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b6",
+      "part_id": "c01.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "खरीद और उधार चुकाने में स्वीकार किया गया यह साधन money है। Money वह कुछ भी है जिसे goods और services के exchange और debts चुकाने में स्वीकार किया जाए। Medium of exchange यानी देकर सामान या service लेना; settling debts यानी पहले का उधार चुकाना।",
+      "covers_item_ids": [
+       "p001-i3"
+      ],
+      "answers": [
+       "p001-i3#q1",
+       "p001-i3#q2",
+       "p001-i3#q4"
+      ],
+      "on_screen": "Money: accepted for goods, services and settling debts. Highlight “anything accepted”.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b7",
+      "part_id": "c01.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "Bill चुकाते समय लेने की यही तैयारी Acceptability है, यानी लोग payment में इसे लेना चाहें। कई हाथों में घूमकर जल्दी खराब न होना Durability है। रोज़ इस्तेमाल में सिक्का बचा रहे, तो बार-बार बदलने की ज़रूरत नहीं पड़ती।",
+      "covers_item_ids": [
+       "p001-i7",
+       "p001-i8"
+      ],
+      "answers": [
+       "p001-i7#q1",
+       "p001-i7#q2",
+       "p001-i7#q3",
+       "p001-i8#q1",
+       "p001-i8#q2",
+       "p001-i8#q3"
+      ],
+      "on_screen": "Acceptability: willing to accept. Durability: does not wear out quickly.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b8",
+      "part_id": "c01.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "बटुए में आसानी से साथ ले जाना Portability है, यानी easy to carry। ₹100 में से ₹30 देना और ₹70 वापस पाना Divisibility है, यानी छोटी units में रकम बाँट पाना। इससे अलग-अलग दुकानों पर छोटी-बड़ी payment आसान होती है।",
+      "covers_item_ids": [
+       "p001-i9",
+       "p001-i10"
+      ],
+      "answers": [
+       "p001-i9#q1",
+       "p001-i9#q2",
+       "p001-i9#q3",
+       "p001-i10#q1",
+       "p001-i10#q2",
+       "p001-i10#q3"
+      ],
+      "on_screen": "Portability: carry value. Divisibility: split value into smaller units.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b9",
+      "part_id": "c01.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "चाय के लिए किसी भी असली ₹10 के सिक्के का बराबर चलना Uniformity है: हर equivalent unit की value समान है। यहाँ same denomination समझिए, जैसे ₹10 के बदले दूसरा ₹10। इससे हर सिक्के की अलग कीमत तय नहीं करनी पड़ती।",
+      "covers_item_ids": [
+       "p001-i11"
+      ],
+      "answers": [
+       "p001-i11#q1",
+       "p001-i11#q2",
+       "p001-i11#q3"
+      ],
+      "on_screen": "Uniformity: genuine ₹10 ↔ genuine ₹10; unchanged monetary value.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b10",
+      "part_id": "c01.1",
+      "step": 3,
+      "purpose": "misconception",
+      "say": "सीमाएँ साफ रखें: कीमती चीज़ अपने-आप money नहीं; payment लेने वाला तैयार चाहिए। Acceptability का आदर्श व्यापक स्वीकार है, हर counter पर हर form चलना नहीं। Divisibility में note फाड़ना नहीं है, और Uniformity का मतलब ₹10 बराबर ₹100 नहीं है।",
+      "covers_item_ids": [
+       "p001-i3",
+       "p001-i7",
+       "p001-i10",
+       "p001-i11"
+      ],
+      "answers": [
+       "p001-i3#q3",
+       "p001-i10#q4"
+      ],
+      "on_screen": "Cross out: valuable = money; torn note = change; ₹10 = ₹100.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b11",
+      "part_id": "c01.1",
+      "step": 4,
+      "purpose": "recap",
+      "say": "आगे functions समझते समय यही आधार रखिए: payment स्वीकार हो, जल्दी खराब न हो, साथ ले जाना और छोटी रकम देना आसान हो, बराबर units बदल सकें। साथ ले जाना और रकम बाँटना अलग खूबियाँ हैं।",
+      "covers_item_ids": [
+       "p001-i3",
+       "p001-i7",
+       "p001-i8",
+       "p001-i9",
+       "p001-i10",
+       "p001-i11"
+      ],
+      "answers": [],
+      "on_screen": "Accepted payment → durable, portable, divisible, uniform units → functions next.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b12",
+      "part_id": "c01.2",
+      "step": 1,
+      "purpose": "explain",
+      "say": "दुकान पर note दिए बिना account से payment हो गई, तो क्या money इस्तेमाल नहीं हुई? हुई, क्योंकि money सिर्फ currency notes और coins नहीं है। उसका दायरा हाथ में पकड़े cash से बड़ा है।",
+      "covers_item_ids": [
+       "p001-i4"
+      ],
+      "answers": [
+       "p001-i4#q1",
+       "p001-i4#q3"
+      ],
+      "on_screen": "Expand money beyond notes and coins to accepted account balances.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b13",
+      "part_id": "c01.2",
+      "step": 2,
+      "purpose": "example",
+      "say": "उसी खरीद को cash से चुकाएँ या account की रकम transfer करें, payment का काम समान हो सकता है। Bank deposits यानी खाते में जमा रकम; digital balances यानी digital तरीके से दर्ज, payment में इस्तेमाल होने वाली रकम।",
+      "covers_item_ids": [
+       "p001-i5"
+      ],
+      "answers": [
+       "p001-i5#q1"
+      ],
+      "on_screen": "One shop purchase; alternative routes: cash, bank deposits, digital balances.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b14",
+      "part_id": "c01.2",
+      "step": 3,
+      "purpose": "explain",
+      "say": "इन 3 examples को जोड़ने वाला आधार है लोगों का इन्हें payment में व्यापक रूप से स्वीकार करना। Cash के साथ bank deposits और digital balances का शामिल होना ही non-cash money का साफ उदाहरण है।",
+      "covers_item_ids": [
+       "p001-i4",
+       "p001-i5"
+      ],
+      "answers": [
+       "p001-i4#q2",
+       "p001-i5#q2"
+      ],
+      "on_screen": "Source examples: cash + bank deposits + digital balances. Shared criterion: widely accepted payment.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b15",
+      "part_id": "c01.2",
+      "step": 4,
+      "purpose": "recap",
+      "say": "इसलिए पहचान form से नहीं, payment के काम से कीजिए। Phone या app transfer का instruction देता है; money इस्तेमाल होने वाला balance है, device नहीं। लेकिन cash से बड़ा दायरा होने का मतलब हर financial asset money होना भी नहीं है।",
+      "covers_item_ids": [
+       "p001-i4",
+       "p001-i5"
+      ],
+      "answers": [
+       "p001-i5#q3"
+      ],
+      "on_screen": "Money ≠ only cash. Balance ≠ phone/app. Not every financial asset is money.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b16",
+      "part_id": "c01.3",
+      "step": 1,
+      "purpose": "example",
+      "say": "₹200 से पहले 2 baskets मिलती थीं, अब 1 मिले तो क्या बदला? खरीदने की क्षमता घटी। इसे एक आसान, काल्पनिक market से समझिए; ये असली बाज़ार के आँकड़े नहीं हैं।",
+      "covers_item_ids": [
+       "p001-i12"
+      ],
+      "answers": [],
+      "on_screen": "₹200 buys 2 baskets → 1 basket. Hypothetical illustration, not observed data.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b17",
+      "part_id": "c01.3",
+      "step": 2,
+      "purpose": "example",
+      "say": "मानिए 10 एक-जैसी baskets हैं और buyers पूरे ₹1000 इन्हीं पर खर्च करते हैं; सब एक price पर बिकती हैं, तो हर basket ₹100 की है। अब उन्हीं 10 baskets पर पूरा खर्च ₹2000 हो गया।",
+      "covers_item_ids": [
+       "p001-i12"
+      ],
+      "answers": [],
+      "on_screen": "Fixed goods: 10 baskets. Total spending ₹1000 → ₹2000; initially ₹100 each.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b18",
+      "part_id": "c01.3",
+      "step": 3,
+      "purpose": "explain",
+      "say": "इन assumptions में नई price ₹200 होगी; इसीलिए ₹200 से 2 की जगह 1 basket मिलेगी। यही Limited supply की ज़रूरत समझाता है: Scarcity, यानी उपलब्ध मात्रा सीमित होना, value बचाने में मदद करती है। सामान बढ़े बिना खर्च बढ़े तो prices बढ़ सकती हैं।",
+      "covers_item_ids": [
+       "p001-i12"
+      ],
+      "answers": [
+       "p001-i12#q1",
+       "p001-i12#q2"
+      ],
+      "on_screen": "₹1000 ÷ 10 = ₹100; ₹2000 ÷ 10 = ₹200. Limited supply helps preserve value.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b19",
+      "part_id": "c01.3",
+      "step": 4,
+      "purpose": "explain",
+      "say": "यहाँ दिखने वाला सबूत उसी example का हिसाब है: खर्च दोगुना, baskets वही, इसलिए हमारे तय assumptions में price दोगुनी। यह असली prices की forecast नहीं है।",
+      "covers_item_ids": [
+       "p001-i12"
+      ],
+      "answers": [],
+      "on_screen": "Evidence within illustration: unchanged quantity, assumed full spending, one common price.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b20",
+      "part_id": "c01.3",
+      "step": 5,
+      "purpose": "misconception",
+      "say": "क्या Limited supply अकेली stable value की guarantee है? नहीं; money की demand और goods-services की उपलब्धता भी मायने रखती है। इसलिए हर money increase पर prices ठीक उसी अनुपात में बढ़ेंगी, ऐसा नियम मत बनाइए।",
+      "covers_item_ids": [
+       "p001-i12"
+      ],
+      "answers": [
+       "p001-i12#q3"
+      ],
+      "on_screen": "Helps ≠ guarantees. Purchasing power also depends on money demand and available goods/services.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b21",
+      "part_id": "c01.3",
+      "step": 6,
+      "purpose": "recap",
+      "say": "कड़ी याद रखिए: सामान वही, खर्च बढ़ा, prices पर ऊपर जाने का दबाव, हर रुपये से कम खरीद। Supply को बिना सीमा बढ़ने से रोकना value बचाने में मदद कर सकता है।",
+      "covers_item_ids": [
+       "p001-i12"
+      ],
+      "answers": [],
+      "on_screen": "Unchanged goods → increased spending → possible higher prices → lower purchasing power.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b22",
+      "part_id": "c02.1",
+      "step": 1,
+      "purpose": "example",
+      "say": "अब ₹500 का किराना कैसे लिया? गेहूँ देने के बजाय ₹500 दिए; आपके cash ₹500 से ₹0 और दुकानदार को मिले cash ₹0 से ₹500 हुए। उसे आपके गेहूँ की ज़रूरत थी या नहीं, यह पूछना ही नहीं पड़ा।",
+      "covers_item_ids": [
+       "p001-i14"
+      ],
+      "answers": [
+       "p001-i14#q2"
+      ],
+      "on_screen": "Groceries exchanged for ₹500, not wheat. Buyer ₹500 → ₹0; receipt ₹0 → ₹500.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b23",
+      "part_id": "c02.1",
+      "step": 1,
+      "purpose": "example",
+      "say": "Electronics दुकान में बिना खरीदे तुलना कैसे करेंगे? Phone ₹20,000 का और laptop ₹60,000 का लिखा है। एक ही रुपये की scale पर laptop 3 गुना और ₹40,000 महँगा दिख गया; अभी payment नहीं हुई।",
+      "covers_item_ids": [
+       "p001-i15"
+      ],
+      "answers": [
+       "p001-i15#q2",
+       "p001-i15#q3"
+      ],
+      "on_screen": "Phone ₹20,000 → laptop ₹60,000; difference ₹40,000; ratio 3:1. No sale.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b24",
+      "part_id": "c02.1",
+      "step": 1,
+      "purpose": "example",
+      "say": "आज की कमाई बाद के किराने में कैसे काम आएगी? Worker ने account में ₹500 छोड़े; बचाई रकम ₹0 से ₹500 हुई। बाद में उसी से किराना लिया, तो बचा balance ₹500 से ₹0 हुआ; कमाना और खर्चना अलग समय पर हुआ।",
+      "covers_item_ids": [
+       "p001-i16"
+      ],
+      "answers": [
+       "p001-i16#q2",
+       "p001-i16#q3"
+      ],
+      "on_screen": "Savings ₹0 → ₹500; calendar advances; later groceries use ₹500 → ₹0.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b25",
+      "part_id": "c02.1",
+      "step": 1,
+      "purpose": "example",
+      "say": "Home loan के schedule में अगले महीने की payment कैसे लिखी होगी? मानिए ₹10,000 देय हैं; तय date पर ₹10,000 देने से उस महीने की बाकी किस्त ₹10,000 से ₹0 हुई। आगे चुकाने वाली रकम पहले ही रुपये में तय थी।",
+      "covers_item_ids": [
+       "p001-i17"
+      ],
+      "answers": [
+       "p001-i17#q2",
+       "p001-i17#q3"
+      ],
+      "on_screen": "Illustrative home-loan schedule: future due ₹10,000; on payment outstanding ₹10,000 → ₹0.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b26",
+      "part_id": "c02.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "इन 4 situations के functions हैं Medium of exchange, Unit of account, Store of value और Standard of deferred payment। पहले में money बीच का payment साधन है; barter, यानी सामान के बदले सामान, की ज़रूरत हटती है। गेहूँ किसी को बेचकर मिले पैसे से दूसरे व्यक्ति से चावल ले सकते हैं।",
+      "covers_item_ids": [
+       "p001-i14"
+      ],
+      "answers": [
+       "p001-i14#q1",
+       "p001-i14#q3",
+       "p001-i14#q4"
+      ],
+      "on_screen": "Four-function overview; focus on Medium of exchange: wheat → money → rice, potentially different partners.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b27",
+      "part_id": "c02.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "Phone-laptop की price तुलना Unit of account है: money value की common measure देती है। यानी अलग चीज़ों की कीमत एक scale में लिखना। Price tags पढ़ते समय भी यह काम होता है; सामान खरीदना ज़रूरी नहीं।",
+      "covers_item_ids": [
+       "p001-i15"
+      ],
+      "answers": [
+       "p001-i15#q1",
+       "p001-i15#q4"
+      ],
+      "on_screen": "Unit of account: common rupee measure. Measuring value ≠ completing payment.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b28",
+      "part_id": "c02.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "Account में रकम बाद के लिए रखना Store of value है। यानी purchasing power, रकम से खरीदने की क्षमता, future use के लिए बचाना। इसी तरह कमाई आते ही सारी खर्च किए बिना बाद की fees या किराने के लिए छोड़ते हैं।",
+      "covers_item_ids": [
+       "p001-i16"
+      ],
+      "answers": [
+       "p001-i16#q1"
+      ],
+      "on_screen": "Store of value: retain purchasing power from present income for later expenses.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b29",
+      "part_id": "c02.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "Future किस्त रुपये में तय करना Standard of deferred payment है: बाद की payment के लिए money standard देती है। Denominated यानी रकम किस unit में लिखी है, जैसे रुपये। EMI, equated monthly instalment, loan की तय monthly किस्त है; home loans में यही दिखता है।",
+      "covers_item_ids": [
+       "p001-i17"
+      ],
+      "answers": [
+       "p001-i17#q1",
+       "p001-i17#q5"
+      ],
+      "on_screen": "Standard of deferred payment: future dues stated in money. EMI = equated monthly instalment.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b30",
+      "part_id": "c02.1",
+      "step": 3,
+      "purpose": "misconception",
+      "say": "Store of value का मतलब खरीदने की क्षमता हमेशा बराबर रहना नहीं; prices बढ़ें तो वही balance कम सामान खरीदेगा। सिक्के का सलामत रहना Durability है, buying power बचना अलग बात। बचत आपके resources हैं; future loan instalment आपकी obligation है, जिसके पैसे अभी आपके पास होना ज़रूरी नहीं।",
+      "covers_item_ids": [
+       "p001-i16",
+       "p001-i17"
+      ],
+      "answers": [
+       "p001-i16#q4",
+       "p001-i16#q5",
+       "p001-i17#q4"
+      ],
+      "on_screen": "Physical survival ≠ stable purchasing power. Saved resources ≠ future obligation.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b31",
+      "part_id": "c02.1",
+      "step": 4,
+      "purpose": "recap",
+      "say": "Statement पहचानने की trick है: price बताना Unit of account, खरीद चुकाना Medium of exchange, रकम बचाना Store of value, future due तय करना Standard of deferred payment। एक EMI में future रकम तय करना और बाद में actual payment करना अलग functions दिखा सकते हैं।",
+      "covers_item_ids": [
+       "p001-i14",
+       "p001-i15",
+       "p001-i16",
+       "p001-i17"
+      ],
+      "answers": [],
+      "on_screen": "Four-row comparison: price—account; purchase—exchange; saving—store; future due—deferred.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b32",
+      "part_id": "",
+      "step": 0,
+      "purpose": "recap",
+      "say": "आज का मुख्य सवाल था: कीमती होना या payment में स्वीकार होना? Money की पहचान स्वीकार किए गए payment से है, सिर्फ cash की शक्ल से नहीं। उसकी खूबियाँ उसे इस्तेमाल लायक बनाती हैं; उसके 4 functions अलग काम बताते हैं। आगे देखेंगे, direct सामान बदलने में यही सुविधा क्यों नहीं मिलती।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Acceptance → usable money → four distinct jobs. Next: difficulties of direct barter.",
+      "basis": "book"
+     }
+    ]
+   },
+   "code_problems": [
+    "[code] beat b2: the Hindi words ['बकाया', 'स्वीकार'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b4: the Hindi words ['रकम', 'बटुए', 'बोरी'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b5: the Hindi words ['साबुन', 'रकम'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b6: the Hindi words ['स्वीकार', 'साधन'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b8: the Hindi words ['बटुए', 'रकम'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b10: the Hindi words ['आदर्श', 'व्यापक', 'स्वीकार', 'फाड़ना'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b11: the Hindi words ['स्वीकार', 'रकम'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b12: the Hindi words ['दायरा'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b13: the Hindi words ['रकम', 'दर्ज'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b14: the Hindi words ['व्यापक', 'स्वीकार'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b15: the Hindi words ['दायरा'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b16: the Hindi words ['काल्पनिक', 'आँकड़े'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b17: the Hindi words ['बिकती'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b20: the Hindi words ['मायने', 'अनुपात'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b21: the Hindi words ['रुपये'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b22: the Hindi words ['गेहूँ'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b23: the Hindi words ['रुपये'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b24: the Hindi words ['रकम'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b25: the Hindi words ['देय', 'रकम', 'रुपये'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b26: the Hindi words ['साधन', 'गेहूँ'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b28: the Hindi words ['रकम'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b29: the Hindi words ['रुपये', 'रकम'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b30: the Hindi words ['सलामत'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b31: the Hindi words ['रकम'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b32: the Hindi words ['स्वीकार', 'सुविधा'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] the script speaks about 9.8 minutes; this video's narration time is 6.0-8.0 minutes (S2-01): cut repetition and side-tracks, never book content"
+   ],
+   "observed": {
+    "pattern_order": [],
+    "skipped_steps": {
+     "c01.2": {
+      "5": "The source contains no formula to build."
+     }
+    },
+    "objective_coverage": {
+     "coverage": 1.0,
+     "uncovered": []
+    },
+    "cognitive_load": {
+     "max": 1.68,
+     "abrupt_jumps": [
+      "b5->b6"
+     ]
+    },
+    "duration": {
+     "spoken_minutes_at_130_wpm": 9.8,
+     "planned_minutes": 7,
+     "range": [
+      6.0,
+      8.0
+     ]
+    },
+    "dohraav": {
+     "beats": 32,
+     "judged": 26,
+     "restating": 0,
+     "share": 0.0,
+     "opened": 19,
+     "opened_share": 0.731,
+     "restating_beats": []
+    },
+    "real_world": [
+     {
+      "item_id": "p001-i3",
+      "place": "Kirana shop; illustrative outside example",
+      "numbers": [
+       "0",
+       "400",
+       "50",
+       "500"
+      ],
+      "example_beats": [
+       "b2"
+      ],
+      "term_beat": "b6",
+      "term": "medium of exchange",
+      "ok": true,
+      "problem": ""
+     },
+     {
+      "item_id": "p001-i7",
+      "place": "Kirana shop; illustrative outside example",
+      "numbers": [
+       "0",
+       "100"
+      ],
+      "example_beats": [
+       "b3",
+       "b10"
+      ],
+      "term_beat": "b7",
+      "term": "Acceptability",
+      "ok": true,
+      "problem": ""
+     },
+     {
+      "item_id": "p001-i8",
+      "place": "Market stalls; illustrative outside example",
+      "numbers": [
+       "0",
+       "2"
+      ],
+      "example_beats": [
+       "b3"
+      ],
+      "term_beat": "b7",
+      "term": "Durability",
+      "ok": true,
+      "problem": ""
+     },
+     {
+      "item_id": "p001-i9",
+      "place": "Neighbourhood market; illustrative outside example",
+      "numbers": [
+       "300",
+       "500"
+      ],
+      "example_beats": [
+       "b4"
+      ],
+      "term_beat": "b8",
+      "term": "Portability",
+      "ok": true,
+      "problem": ""
+     },
+     {
+      "item_id": "p001-i10",
+      "place": "Kirana shop; illustrative outside example",
+      "numbers": [
+       "100",
+       "70"
+      ],
+      "example_beats": [
+       "b5",
+       "b8",
+       "b10"
+      ],
+      "term_beat": "b8",
+      "term": "Divisibility",
+      "ok": true,
+      "problem": ""
+     },
+     {
+      "item_id": "p001-i11",
+      "place": "Tea stall; illustrative outside example",
+      "numbers": [
+       "1",
+       "2"
+      ],
+      "example_beats": [
+       "b5"
+      ],
+      "term_beat": "b9",
+      "term": "Uniformity",
+      "ok": true,
+      "problem": ""
+     },
+     {
+      "item_id": "p001-i12",
+      "place": "Simplified local market; illustrative outside example, not observed Indian data",
+      "numbers": [
+       "1",
+       "100",
+       "1000",
+       "2",
+       "200",
+       "2000"
+      ],
+      "example_beats": [
+       "b16",
+       "b17",
+       "b18"
+      ],
+      "term_beat": "b18",
+      "term": "Limited supply",
+      "ok": true,
+      "problem": ""
+     },
+     {
+      "item_id": "p001-i14",
+      "place": "Grocery shop; book amount with illustrative outside transaction details",
+      "numbers": [
+       "0",
+       "500"
+      ],
+      "example_beats": [
+       "b22"
+      ],
+      "term_beat": "b26",
+      "term": "barter",
+      "ok": true,
+      "problem": ""
+     },
+     {
+      "item_id": "p001-i15",
+      "place": "Electronics shop; book prices with illustrative outside budgeting",
+      "numbers": [
+       "20000",
+       "60000"
+      ],
+      "example_beats": [
+       "b23"
+      ],
+      "term_beat": "b27",
+      "term": "Unit of account",
+      "ok": true,
+      "problem": ""
+     },
+     {
+      "item_id": "p001-i16",
+      "place": "Bank account; illustrative outside amounts",
+      "numbers": [
+       "0",
+       "500"
+      ],
+      "example_beats": [
+       "b24"
+      ],
+      "term_beat": "b28",
+      "term": "Store of value",
+      "ok": true,
+      "problem": ""
+     },
+     {
+      "item_id": "p001-i17",
+      "place": "Bank home-loan account; illustrative outside EMI amount",
+      "numbers": [
+       "0",
+       "10000"
+      ],
+      "example_beats": [
+       "b25"
+      ],
+      "term_beat": "b29",
+      "term": "deferred payment",
+      "ok": true,
+      "problem": ""
+     }
+    ]
+   },
+   "passed": false,
+   "finished_at": 1793131323.946623
+  },
+  {
+   "round": 2,
+   "started_at": 1793131323.9508603,
+   "mode": "patch",
+   "patch": {
+    "notes": {
+     "about": "Acceptance-based money, its characteristics and scope, followed by its four functions.",
+     "key_questions": [
+      "What makes something money?",
+      "How do its characteristics support payments?",
+      "How do the four functions differ?"
+     ],
+     "decisions": [
+      {
+       "decision": "Shortened all narration while retaining numerical examples, definitions, boundaries and pattern steps.",
+       "reason": "Bring narration within 6–8 minutes without dropping source content."
+      },
+      {
+       "decision": "Replaced flagged Hindi expressions with plain wording or English terms.",
+       "reason": "Avoid unnecessary brackets and preserve natural Hinglish."
+      }
+     ],
+     "uncertain": [
+      "No page image was supplied; supplied item text remains the source."
+     ]
+    },
+    "replace_parts": [],
+    "replace_beats": [
+     {
+      "beat_id": "b1",
+      "part_id": "",
+      "step": 0,
+      "purpose": "hook",
+      "say": "कीमती चीज़ दुकानदार payment में नहीं लेता, तो क्या वह money है? सिर्फ कीमती होना काफी नहीं; सामने वाला उसे payment में ले, यह ज़रूरी है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Valuable possession refused as payment.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b2",
+      "part_id": "c01.1",
+      "step": 1,
+      "purpose": "example",
+      "say": "किराना दुकान में क्या हुआ? ₹100 देकर चावल लिए; cash ₹500 से ₹400 हुआ। फिर ₹50 का पुराना उधार चुकाया; बाकी debt ₹50 से ₹0 हुआ। दोनों payments दुकानदार ने लिए।",
+      "covers_item_ids": [
+       "p001-i3"
+      ],
+      "answers": [],
+      "on_screen": "Cash ₹500 → ₹400; old debt ₹50 → ₹0.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b3",
+      "part_id": "c01.1",
+      "step": 1,
+      "purpose": "example",
+      "say": "₹100 का bill कैसे चुकता हुआ? दुकानदार ने cash लेना चाहा, तो bill ₹100 से ₹0 हुआ। वही ₹10 का सिक्का सब्ज़ी वाले से चाय वाले तक कैसे चला? खराब नहीं हुआ; payments 0 से 2 हुए।",
+      "covers_item_ids": [
+       "p001-i7",
+       "p001-i8"
+      ],
+      "answers": [],
+      "on_screen": "Bill ₹100 → ₹0; usable ₹10 coin completes two payments.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b4",
+      "part_id": "c01.1",
+      "step": 1,
+      "purpose": "example",
+      "say": "पैसे साथ कैसे ले जाएँगे? Wallet में ₹500 ले गए; ₹200 का किराना लिया, फिर बचे ₹300 लेकर सब्ज़ी वाले तक गए। भारी सामान ढोना नहीं पड़ा।",
+      "covers_item_ids": [
+       "p001-i9"
+      ],
+      "answers": [],
+      "on_screen": "Wallet moves between shops; cash ₹500 → ₹300.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b5",
+      "part_id": "c01.1",
+      "step": 1,
+      "purpose": "example",
+      "say": "₹30 के soap के लिए ₹100 दिया, तो कितना बचेगा? ₹70 change मिला। चाय ₹10 की हो और 2 असली ₹10 coins हों, तो कौन-सा देंगे? कोई भी; payment के बाद 1 बचेगा।",
+      "covers_item_ids": [
+       "p001-i10",
+       "p001-i11"
+      ],
+      "answers": [],
+      "on_screen": "₹100 = ₹30 + ₹70; equivalent ₹10 coins, count 2 → 1.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b6",
+      "part_id": "c01.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "इन purchases और repayments में लिया गया payment money है। Money कुछ भी हो सकता है जिसे goods, services के exchange और debts चुकाने में लिया जाए। Medium of exchange यानी देकर सामान या service लेना; settling debts यानी पुराना उधार चुकाना।",
+      "covers_item_ids": [
+       "p001-i3"
+      ],
+      "answers": [
+       "p001-i3#q1",
+       "p001-i3#q2",
+       "p001-i3#q4"
+      ],
+      "on_screen": "Anything accepted for goods, services and settling debts.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b7",
+      "part_id": "c01.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "Payment लेने की तैयारी Acceptability है। सिक्के का जल्दी खराब न होना Durability है, यानी repeated use में टिकना। पैसे कई हाथों से गुजरते हैं; जल्दी खराब हों तो बार-बार बदलने पड़ेंगे।",
+      "covers_item_ids": [
+       "p001-i7",
+       "p001-i8"
+      ],
+      "answers": [
+       "p001-i7#q1",
+       "p001-i7#q2",
+       "p001-i7#q3",
+       "p001-i8#q1",
+       "p001-i8#q2",
+       "p001-i8#q3"
+      ],
+      "on_screen": "Acceptability: willingness. Durability: does not wear out quickly.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b8",
+      "part_id": "c01.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "आसानी से साथ ले जाना Portability है। ₹100 में से ₹30 देना, ₹70 वापस पाना Divisibility है: value छोटी units में बाँटना। पहली खूबी अलग जगह payment आसान करती है; दूसरी छोटी-बड़ी payment।",
+      "covers_item_ids": [
+       "p001-i9",
+       "p001-i10"
+      ],
+      "answers": [
+       "p001-i9#q1",
+       "p001-i9#q2",
+       "p001-i9#q3",
+       "p001-i10#q1",
+       "p001-i10#q2",
+       "p001-i10#q3"
+      ],
+      "on_screen": "Portability: carry value. Divisibility: smaller usable units.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b9",
+      "part_id": "c01.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "कोई भी असली ₹10 coin बराबर चले, यह Uniformity है: equivalent units की value समान। Same denomination समझिए, ₹10 के बदले ₹10। हर coin की अलग कीमत तय नहीं करनी पड़ती।",
+      "covers_item_ids": [
+       "p001-i11"
+      ],
+      "answers": [
+       "p001-i11#q1",
+       "p001-i11#q2",
+       "p001-i11#q3"
+      ],
+      "on_screen": "Uniformity: equivalent genuine ₹10 units substitute for each other.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b10",
+      "part_id": "c01.1",
+      "step": 3,
+      "purpose": "misconception",
+      "say": "कीमती चीज़ अपने-आप money नहीं। Acceptability लोगों की willingness है, हर counter पर हर form चलने की guarantee नहीं। Divisibility note के टुकड़े करना नहीं; Uniformity में ₹10 और ₹100 बराबर नहीं।",
+      "covers_item_ids": [
+       "p001-i3",
+       "p001-i7",
+       "p001-i10",
+       "p001-i11"
+      ],
+      "answers": [
+       "p001-i3#q3",
+       "p001-i10#q4"
+      ],
+      "on_screen": "Reject: valuable = money; torn notes = division; ₹10 = ₹100.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b11",
+      "part_id": "c01.1",
+      "step": 4,
+      "purpose": "recap",
+      "say": "आगे functions में यही आधार रखिए: payment लोग लें, जल्दी खराब न हो, साथ ले जाना और छोटी units में देना आसान हो; equivalent units बदल सकें।",
+      "covers_item_ids": [
+       "p001-i3",
+       "p001-i7",
+       "p001-i8",
+       "p001-i9",
+       "p001-i10",
+       "p001-i11"
+      ],
+      "answers": [],
+      "on_screen": "Accepted, durable, portable, divisible, uniform → functions next.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b12",
+      "part_id": "c01.2",
+      "step": 1,
+      "purpose": "explain",
+      "say": "Note दिए बिना account से payment हुई, तो money इस्तेमाल हुई? हाँ; money सिर्फ currency notes और coins नहीं। Account balance का transfer भी payment पूरा कर सकता है।",
+      "covers_item_ids": [
+       "p001-i4"
+      ],
+      "answers": [
+       "p001-i4#q1",
+       "p001-i4#q3"
+      ],
+      "on_screen": "Money extends beyond physical currency.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b13",
+      "part_id": "c01.2",
+      "step": 2,
+      "purpose": "example",
+      "say": "उसी खरीद को cash या account balance से चुकाएँ, काम समान हो सकता है। Bank deposits यानी खाते में जमा पैसे; digital balances यानी digitally recorded पैसे जो payment में इस्तेमाल हों।",
+      "covers_item_ids": [
+       "p001-i5"
+      ],
+      "answers": [
+       "p001-i5#q1"
+      ],
+      "on_screen": "Same purchase: cash, bank deposits or digital balances.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b14",
+      "part_id": "c01.2",
+      "step": 3,
+      "purpose": "explain",
+      "say": "Cash, bank deposits और digital balances को क्या जोड़ता है? लोग इन्हें payment में आम तौर पर लेते हैं। Deposits और digital balances non-cash forms के examples हैं।",
+      "covers_item_ids": [
+       "p001-i4",
+       "p001-i5"
+      ],
+      "answers": [
+       "p001-i4#q2",
+       "p001-i5#q2"
+      ],
+      "on_screen": "Source examples share widespread payment acceptance.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b15",
+      "part_id": "c01.2",
+      "step": 4,
+      "purpose": "recap",
+      "say": "इसलिए payment का काम पहचानिए, सिर्फ cash नहीं। Phone या app transfer का instruction देता है; money balance है, device नहीं। इसका मतलब हर financial asset money होना भी नहीं है।",
+      "covers_item_ids": [
+       "p001-i4",
+       "p001-i5"
+      ],
+      "answers": [
+       "p001-i5#q3"
+      ],
+      "on_screen": "Balance ≠ device; money ≠ every financial asset.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b16",
+      "part_id": "c01.3",
+      "step": 1,
+      "purpose": "example",
+      "say": "₹200 से पहले 2 baskets, अब 1 मिले तो क्या हुआ? खरीदने की क्षमता घटी। एक imagined market लेते हैं; ये actual market data नहीं हैं।",
+      "covers_item_ids": [
+       "p001-i12"
+      ],
+      "answers": [],
+      "on_screen": "₹200: 2 baskets → 1. Hypothetical example.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b17",
+      "part_id": "c01.3",
+      "step": 2,
+      "purpose": "example",
+      "say": "मानिए buyers पूरे ₹1000 से 10 एक-जैसी baskets खरीदते हैं, सब एक price पर: ₹100 each। अब वही 10 baskets हैं, लेकिन buyers पूरा ₹2000 खर्च करते हैं।",
+      "covers_item_ids": [
+       "p001-i12"
+      ],
+      "answers": [],
+      "on_screen": "10 fixed baskets; spending ₹1000 → ₹2000.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b18",
+      "part_id": "c01.3",
+      "step": 3,
+      "purpose": "explain",
+      "say": "इन assumptions में price ₹200 होगी; ₹200 से 2 की जगह 1 basket मिलेगी। इसलिए Limited supply मदद करती है: Scarcity यानी limited availability, value बचाने में सहायक (helpful) है; सामान बढ़े बिना spending बढ़े तो prices बढ़ सकती हैं।",
+      "covers_item_ids": [
+       "p001-i12"
+      ],
+      "answers": [
+       "p001-i12#q1",
+       "p001-i12#q2"
+      ],
+      "on_screen": "₹1000/10 = ₹100; ₹2000/10 = ₹200. Scarcity helps preserve value.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b19",
+      "part_id": "c01.3",
+      "step": 4,
+      "purpose": "explain",
+      "say": "Example का evidence यही calculation है: spending दोगुनी, goods वही, इसलिए तय assumptions में price दोगुनी। यह actual prices की forecast नहीं है।",
+      "covers_item_ids": [
+       "p001-i12"
+      ],
+      "answers": [],
+      "on_screen": "Illustrative arithmetic, not a general prediction.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b20",
+      "part_id": "c01.3",
+      "step": 5,
+      "purpose": "misconception",
+      "say": "Limited supply अकेली stable value की guarantee है? नहीं; money की demand और goods-services की availability भी असर डालती हैं। हर money increase से prices उसी ratio में बढ़ें, यह नियम नहीं।",
+      "covers_item_ids": [
+       "p001-i12"
+      ],
+      "answers": [
+       "p001-i12#q3"
+      ],
+      "on_screen": "Helps ≠ guarantees; demand and goods availability also matter.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b21",
+      "part_id": "c01.3",
+      "step": 6,
+      "purpose": "recap",
+      "say": "कड़ी समझिए: goods वही, spending बढ़ी, prices बढ़ने का pressure, हर unit से कम खरीद। Excessive supply रोकना purchasing power बचाने में मदद कर सकता है।",
+      "covers_item_ids": [
+       "p001-i12"
+      ],
+      "answers": [],
+      "on_screen": "Fixed goods → more spending → possible price rise → less purchasing power.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b22",
+      "part_id": "c02.1",
+      "step": 1,
+      "purpose": "example",
+      "say": "₹500 का किराना कैसे लिया? Wheat देने के बजाय ₹500 दिए; आपके cash ₹500 से ₹0, दुकानदार को मिले cash ₹0 से ₹500। उसे wheat चाहिए या नहीं, पूछना नहीं पड़ा।",
+      "covers_item_ids": [
+       "p001-i14"
+      ],
+      "answers": [
+       "p001-i14#q2"
+      ],
+      "on_screen": "Groceries for ₹500, not wheat; buyer ₹500 → ₹0; receipt ₹0 → ₹500.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b23",
+      "part_id": "c02.1",
+      "step": 1,
+      "purpose": "example",
+      "say": "बिना खरीद किए prices कैसे compare करेंगे? Phone ₹20,000, laptop ₹60,000 है। Common rupee scale बताती है: laptop 3 गुना, ₹40,000 महँगा है। अभी payment नहीं हुई।",
+      "covers_item_ids": [
+       "p001-i15"
+      ],
+      "answers": [
+       "p001-i15#q2",
+       "p001-i15#q3"
+      ],
+      "on_screen": "₹20,000 → ₹60,000; difference ₹40,000; ratio 3:1.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b24",
+      "part_id": "c02.1",
+      "step": 1,
+      "purpose": "example",
+      "say": "आज की कमाई बाद में कैसे काम आएगी? Worker ने account में ₹500 बचाए; savings ₹0 से ₹500 हुईं। बाद में किराना लिया; saved balance ₹500 से ₹0 हुआ।",
+      "covers_item_ids": [
+       "p001-i16"
+      ],
+      "answers": [
+       "p001-i16#q2",
+       "p001-i16#q3"
+      ],
+      "on_screen": "Set aside ₹0 → ₹500; later spend ₹500 → ₹0.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b25",
+      "part_id": "c02.1",
+      "step": 1,
+      "purpose": "example",
+      "say": "Home loan schedule में future payment कैसे लिखेंगे? मानिए अगले महीने ₹10,000 देने हैं। उस date पर payment से unpaid instalment ₹10,000 से ₹0 हुई; future amount पहले तय था।",
+      "covers_item_ids": [
+       "p001-i17"
+      ],
+      "answers": [
+       "p001-i17#q2",
+       "p001-i17#q3"
+      ],
+      "on_screen": "Future instalment ₹10,000; payment clears outstanding ₹10,000 → ₹0.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b26",
+      "part_id": "c02.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "ये functions हैं Medium of exchange, Unit of account, Store of value और Standard of deferred payment। पहला barter, यानी सामान के बदले सामान, हटाता है। Wheat किसी को बेचें, पैसे से दूसरे से rice लें; matching wants वाला एक partner नहीं ढूँढ़ना पड़ता।",
+      "covers_item_ids": [
+       "p001-i14"
+      ],
+      "answers": [
+       "p001-i14#q1",
+       "p001-i14#q3",
+       "p001-i14#q4"
+      ],
+      "on_screen": "Four functions; exchange chain: wheat → money → rice.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b27",
+      "part_id": "c02.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "Phone-laptop की तुलना Unit of account है: money value की common measure देती है। यानी अलग चीज़ों की कीमत एक scale में लिखना। Price tag पढ़ना measurement है; payment करना exchange है।",
+      "covers_item_ids": [
+       "p001-i15"
+      ],
+      "answers": [
+       "p001-i15#q1",
+       "p001-i15#q4"
+      ],
+      "on_screen": "Unit of account: common value scale; price ≠ payment.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b28",
+      "part_id": "c02.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "पैसे बाद के लिए रखना Store of value है: purchasing power future use के लिए बचाना। Purchasing power यानी कितना सामान खरीद सकें। Bank account में आज बचाकर बाद के खर्च पूरे करते हैं।",
+      "covers_item_ids": [
+       "p001-i16"
+      ],
+      "answers": [
+       "p001-i16#q1"
+      ],
+      "on_screen": "Store of value: retain purchasing power for later expenses.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b29",
+      "part_id": "c02.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "Future dues money में तय करना Standard of deferred payment है। Denominated यानी amount किस unit में लिखा है, जैसे rupees। EMI, equated monthly instalment, loan की तय monthly किस्त है; home loans इसका example हैं।",
+      "covers_item_ids": [
+       "p001-i17"
+      ],
+      "answers": [
+       "p001-i17#q1",
+       "p001-i17#q5"
+      ],
+      "on_screen": "Future dues measured in money; EMI = equated monthly instalment.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b30",
+      "part_id": "c02.1",
+      "step": 3,
+      "purpose": "misconception",
+      "say": "Store of value perfect guarantee नहीं: prices बढ़ें तो वही balance कम खरीदेगा। सिक्का खराब न होना Durability है, buying power बचना अलग। Savings आपके resources हैं; future instalment obligation है, जिसके पैसे अभी होना ज़रूरी नहीं।",
+      "covers_item_ids": [
+       "p001-i16",
+       "p001-i17"
+      ],
+      "answers": [
+       "p001-i16#q4",
+       "p001-i16#q5",
+       "p001-i17#q4"
+      ],
+      "on_screen": "Durability ≠ stable buying power; saved resources ≠ future dues.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b31",
+      "part_id": "c02.1",
+      "step": 4,
+      "purpose": "recap",
+      "say": "Statement पहचानिए: price बताना account, खरीद चुकाना exchange, पैसे बचाना store, future due तय करना deferred payment। EMI का amount तय करना और बाद में actual payment करना अलग functions दिखाते हैं।",
+      "covers_item_ids": [
+       "p001-i14",
+       "p001-i15",
+       "p001-i16",
+       "p001-i17"
+      ],
+      "answers": [],
+      "on_screen": "Price—account; purchase—exchange; savings—store; future due—deferred.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b32",
+      "part_id": "",
+      "step": 0,
+      "purpose": "recap",
+      "say": "Money की पहचान payment में लिए जाने से है, सिर्फ cash से नहीं। खूबियाँ उसे इस्तेमाल लायक बनाती हैं; functions उसके अलग काम हैं। आगे समझेंगे, सामान के सीधे exchange में परेशानी कहाँ आती है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Acceptance → characteristics → four functions → barter next.",
+      "basis": "book"
+     }
+    ],
+    "insert_beats": [],
+    "remove_beat_ids": []
+   },
+   "normalized": {
+    "brackets_removed": [
+     {
+      "beat_id": "b18",
+      "removed": [
+       "सहायक (helpful)"
+      ]
+     }
+    ]
+   },
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "72842d3621a03b2c36eb3977807395b9b8b9d39d7a76934f960db38f02eabfcc",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 24757,
+    "output_tokens": 4008,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "This lesson establishes acceptance-based money, its scope and desirable characteristics, then distinguishes its four functions through everyday transactions.",
+    "key_questions": [
+     "What makes something money rather than merely valuable?",
+     "How do the characteristics support usable money?",
+     "Why can limited supply help preserve purchasing power without guaranteeing it?",
+     "How do the four functions differ, especially saving versus future dues?"
+    ],
+    "decisions": [
+     {
+      "decision": "Run the supplied numerical situations before naming their concepts; group examples before definitions within each definition part.",
+      "reason": "Preserves application-first teaching and the required pattern order."
+     },
+     {
+      "decision": "Use denomination and inflation qualifications explicitly.",
+      "reason": "Prevents misleading readings of uniformity, durability and store of value."
+     },
+     {
+      "decision": "Keep outside material to supplied illustrative mechanisms and boundaries.",
+      "reason": "Makes the source understandable within the 6–8 minute allocation."
+     },
+     {
+      "decision": "Shortened all narration while retaining numerical examples, definitions, boundaries and pattern steps.",
+      "reason": "Bring narration within 6–8 minutes without dropping source content."
+     },
+     {
+      "decision": "Replaced flagged Hindi expressions with plain wording or English terms.",
+      "reason": "Avoid unnecessary brackets and preserve natural Hinglish."
+     }
+    ],
+    "uncertain": [
+     "No page image was supplied; supplied item text remains the source."
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "This lesson establishes acceptance-based money, its scope and desirable characteristics, then distinguishes its four functions through everyday transactions.",
+     "key_questions": [
+      "What makes something money rather than merely valuable?",
+      "How do the characteristics support usable money?",
+      "Why can limited supply help preserve purchasing power without guaranteeing it?",
+      "How do the four functions differ, especially saving versus future dues?"
+     ],
+     "decisions": [
+      {
+       "decision": "Run the supplied numerical situations before naming their concepts; group examples before definitions within each definition part.",
+       "reason": "Preserves application-first teaching and the required pattern order."
+      },
+      {
+       "decision": "Use denomination and inflation qualifications explicitly.",
+       "reason": "Prevents misleading readings of uniformity, durability and store of value."
+      },
+      {
+       "decision": "Keep outside material to supplied illustrative mechanisms and boundaries.",
+       "reason": "Makes the source understandable within the 6–8 minute allocation."
+      },
+      {
+       "decision": "Shortened all narration while retaining numerical examples, definitions, boundaries and pattern steps.",
+       "reason": "Bring narration within 6–8 minutes without dropping source content."
+      },
+      {
+       "decision": "Replaced flagged Hindi expressions with plain wording or English terms.",
+       "reason": "Avoid unnecessary brackets and preserve natural Hinglish."
+      }
+     ],
+     "uncertain": [
+      "No page image was supplied; supplied item text remains the source."
+     ]
+    },
+    "title": "Money क्या है, और हमारे कौन-से काम करता है?",
+    "parts": [
+     {
+      "part_id": "c01.1",
+      "frame": {
+       "process": "Recognise money by accepted payment use and explain five practical characteristics.",
+       "how": "Run concrete transactions first, define their shared qualities, then test boundaries.",
+       "when": "At purchase, repayment, repeated circulation, movement between shops and making change.",
+       "conditions": "Recipients accept payment; equivalent units are compared within the same denomination.",
+       "atmosphere": "Familiar neighbourhood shops, market stalls and a tea counter."
+      },
+      "skipped_steps": []
+     },
+     {
+      "part_id": "c01.2",
+      "frame": {
+       "process": "Expand money beyond physical currency to accepted balances.",
+       "how": "Compare cash and balance-based payment for the same purchase.",
+       "when": "When a payment is completed without handing over notes or coins.",
+       "conditions": "The monetary balance is accepted for payment; the device is not itself money.",
+       "atmosphere": "A shop counter offering cash and non-cash payment."
+      },
+      "skipped_steps": [
+       {
+        "step": 5,
+        "why": "The source contains no formula to build."
+       }
+      ]
+     },
+     {
+      "part_id": "c01.3",
+      "frame": {
+       "process": "Explain how excessive spending against unchanged goods can reduce purchasing power.",
+       "how": "Compare total spending, basket prices and purchases possible with a fixed sum.",
+       "when": "After spending rises while the quantity of goods stays unchanged.",
+       "conditions": "Ten identical baskets sell at one price using all assumed spending; this is not a general proportional forecast.",
+       "atmosphere": "A simplified local grocery market with explicitly hypothetical numbers."
+      },
+      "skipped_steps": []
+     },
+     {
+      "part_id": "c02.1",
+      "frame": {
+       "process": "Distinguish exchange, common valuation, carrying resources forward and specifying future dues.",
+       "how": "Run four situations before naming and defining the functions, then test confusing pairs.",
+       "when": "At purchase, before purchase, between income and spending, and when future repayments are agreed.",
+       "conditions": "Separate physical endurance from purchasing power and saved resources from obligations.",
+       "atmosphere": "Grocery and electronics shops, a salary account and a home-loan schedule."
+      },
+      "skipped_steps": []
+     }
+    ],
+    "beats": [
+     {
+      "beat_id": "b1",
+      "part_id": "",
+      "step": 0,
+      "purpose": "hook",
+      "say": "कीमती चीज़ दुकानदार payment में नहीं लेता, तो क्या वह money है? सिर्फ कीमती होना काफी नहीं; सामने वाला उसे payment में ले, यह ज़रूरी है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Valuable possession refused as payment.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b2",
+      "part_id": "c01.1",
+      "step": 1,
+      "purpose": "example",
+      "say": "किराना दुकान में क्या हुआ? ₹100 देकर चावल लिए; cash ₹500 से ₹400 हुआ। फिर ₹50 का पुराना उधार चुकाया; बाकी debt ₹50 से ₹0 हुआ। दोनों payments दुकानदार ने लिए।",
+      "covers_item_ids": [
+       "p001-i3"
+      ],
+      "answers": [],
+      "on_screen": "Cash ₹500 → ₹400; old debt ₹50 → ₹0.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b3",
+      "part_id": "c01.1",
+      "step": 1,
+      "purpose": "example",
+      "say": "₹100 का bill कैसे चुकता हुआ? दुकानदार ने cash लेना चाहा, तो bill ₹100 से ₹0 हुआ। वही ₹10 का सिक्का सब्ज़ी वाले से चाय वाले तक कैसे चला? खराब नहीं हुआ; payments 0 से 2 हुए।",
+      "covers_item_ids": [
+       "p001-i7",
+       "p001-i8"
+      ],
+      "answers": [],
+      "on_screen": "Bill ₹100 → ₹0; usable ₹10 coin completes two payments.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b4",
+      "part_id": "c01.1",
+      "step": 1,
+      "purpose": "example",
+      "say": "पैसे साथ कैसे ले जाएँगे? Wallet में ₹500 ले गए; ₹200 का किराना लिया, फिर बचे ₹300 लेकर सब्ज़ी वाले तक गए। भारी सामान ढोना नहीं पड़ा।",
+      "covers_item_ids": [
+       "p001-i9"
+      ],
+      "answers": [],
+      "on_screen": "Wallet moves between shops; cash ₹500 → ₹300.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b5",
+      "part_id": "c01.1",
+      "step": 1,
+      "purpose": "example",
+      "say": "₹30 के soap के लिए ₹100 दिया, तो कितना बचेगा? ₹70 change मिला। चाय ₹10 की हो और 2 असली ₹10 coins हों, तो कौन-सा देंगे? कोई भी; payment के बाद 1 बचेगा।",
+      "covers_item_ids": [
+       "p001-i10",
+       "p001-i11"
+      ],
+      "answers": [],
+      "on_screen": "₹100 = ₹30 + ₹70; equivalent ₹10 coins, count 2 → 1.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b6",
+      "part_id": "c01.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "इन purchases और repayments में लिया गया payment money है। Money कुछ भी हो सकता है जिसे goods, services के exchange और debts चुकाने में लिया जाए। Medium of exchange यानी देकर सामान या service लेना; settling debts यानी पुराना उधार चुकाना।",
+      "covers_item_ids": [
+       "p001-i3"
+      ],
+      "answers": [
+       "p001-i3#q1",
+       "p001-i3#q2",
+       "p001-i3#q4"
+      ],
+      "on_screen": "Anything accepted for goods, services and settling debts.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b7",
+      "part_id": "c01.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "Payment लेने की तैयारी Acceptability है। सिक्के का जल्दी खराब न होना Durability है, यानी repeated use में टिकना। पैसे कई हाथों से गुजरते हैं; जल्दी खराब हों तो बार-बार बदलने पड़ेंगे।",
+      "covers_item_ids": [
+       "p001-i7",
+       "p001-i8"
+      ],
+      "answers": [
+       "p001-i7#q1",
+       "p001-i7#q2",
+       "p001-i7#q3",
+       "p001-i8#q1",
+       "p001-i8#q2",
+       "p001-i8#q3"
+      ],
+      "on_screen": "Acceptability: willingness. Durability: does not wear out quickly.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b8",
+      "part_id": "c01.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "आसानी से साथ ले जाना Portability है। ₹100 में से ₹30 देना, ₹70 वापस पाना Divisibility है: value छोटी units में बाँटना। पहली खूबी अलग जगह payment आसान करती है; दूसरी छोटी-बड़ी payment।",
+      "covers_item_ids": [
+       "p001-i9",
+       "p001-i10"
+      ],
+      "answers": [
+       "p001-i9#q1",
+       "p001-i9#q2",
+       "p001-i9#q3",
+       "p001-i10#q1",
+       "p001-i10#q2",
+       "p001-i10#q3"
+      ],
+      "on_screen": "Portability: carry value. Divisibility: smaller usable units.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b9",
+      "part_id": "c01.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "कोई भी असली ₹10 coin बराबर चले, यह Uniformity है: equivalent units की value समान। Same denomination समझिए, ₹10 के बदले ₹10। हर coin की अलग कीमत तय नहीं करनी पड़ती।",
+      "covers_item_ids": [
+       "p001-i11"
+      ],
+      "answers": [
+       "p001-i11#q1",
+       "p001-i11#q2",
+       "p001-i11#q3"
+      ],
+      "on_screen": "Uniformity: equivalent genuine ₹10 units substitute for each other.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b10",
+      "part_id": "c01.1",
+      "step": 3,
+      "purpose": "misconception",
+      "say": "कीमती चीज़ अपने-आप money नहीं। Acceptability लोगों की willingness है, हर counter पर हर form चलने की guarantee नहीं। Divisibility note के टुकड़े करना नहीं; Uniformity में ₹10 और ₹100 बराबर नहीं।",
+      "covers_item_ids": [
+       "p001-i3",
+       "p001-i7",
+       "p001-i10",
+       "p001-i11"
+      ],
+      "answers": [
+       "p001-i3#q3",
+       "p001-i10#q4"
+      ],
+      "on_screen": "Reject: valuable = money; torn notes = division; ₹10 = ₹100.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b11",
+      "part_id": "c01.1",
+      "step": 4,
+      "purpose": "recap",
+      "say": "आगे functions में यही आधार रखिए: payment लोग लें, जल्दी खराब न हो, साथ ले जाना और छोटी units में देना आसान हो; equivalent units बदल सकें।",
+      "covers_item_ids": [
+       "p001-i3",
+       "p001-i7",
+       "p001-i8",
+       "p001-i9",
+       "p001-i10",
+       "p001-i11"
+      ],
+      "answers": [],
+      "on_screen": "Accepted, durable, portable, divisible, uniform → functions next.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b12",
+      "part_id": "c01.2",
+      "step": 1,
+      "purpose": "explain",
+      "say": "Note दिए बिना account से payment हुई, तो money इस्तेमाल हुई? हाँ; money सिर्फ currency notes और coins नहीं। Account balance का transfer भी payment पूरा कर सकता है।",
+      "covers_item_ids": [
+       "p001-i4"
+      ],
+      "answers": [
+       "p001-i4#q1",
+       "p001-i4#q3"
+      ],
+      "on_screen": "Money extends beyond physical currency.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b13",
+      "part_id": "c01.2",
+      "step": 2,
+      "purpose": "example",
+      "say": "उसी खरीद को cash या account balance से चुकाएँ, काम समान हो सकता है। Bank deposits यानी खाते में जमा पैसे; digital balances यानी digitally recorded पैसे जो payment में इस्तेमाल हों।",
+      "covers_item_ids": [
+       "p001-i5"
+      ],
+      "answers": [
+       "p001-i5#q1"
+      ],
+      "on_screen": "Same purchase: cash, bank deposits or digital balances.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b14",
+      "part_id": "c01.2",
+      "step": 3,
+      "purpose": "explain",
+      "say": "Cash, bank deposits और digital balances को क्या जोड़ता है? लोग इन्हें payment में आम तौर पर लेते हैं। Deposits और digital balances non-cash forms के examples हैं।",
+      "covers_item_ids": [
+       "p001-i4",
+       "p001-i5"
+      ],
+      "answers": [
+       "p001-i4#q2",
+       "p001-i5#q2"
+      ],
+      "on_screen": "Source examples share widespread payment acceptance.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b15",
+      "part_id": "c01.2",
+      "step": 4,
+      "purpose": "recap",
+      "say": "इसलिए payment का काम पहचानिए, सिर्फ cash नहीं। Phone या app transfer का instruction देता है; money balance है, device नहीं। इसका मतलब हर financial asset money होना भी नहीं है।",
+      "covers_item_ids": [
+       "p001-i4",
+       "p001-i5"
+      ],
+      "answers": [
+       "p001-i5#q3"
+      ],
+      "on_screen": "Balance ≠ device; money ≠ every financial asset.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b16",
+      "part_id": "c01.3",
+      "step": 1,
+      "purpose": "example",
+      "say": "₹200 से पहले 2 baskets, अब 1 मिले तो क्या हुआ? खरीदने की क्षमता घटी। एक imagined market लेते हैं; ये actual market data नहीं हैं।",
+      "covers_item_ids": [
+       "p001-i12"
+      ],
+      "answers": [],
+      "on_screen": "₹200: 2 baskets → 1. Hypothetical example.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b17",
+      "part_id": "c01.3",
+      "step": 2,
+      "purpose": "example",
+      "say": "मानिए buyers पूरे ₹1000 से 10 एक-जैसी baskets खरीदते हैं, सब एक price पर: ₹100 each। अब वही 10 baskets हैं, लेकिन buyers पूरा ₹2000 खर्च करते हैं।",
+      "covers_item_ids": [
+       "p001-i12"
+      ],
+      "answers": [],
+      "on_screen": "10 fixed baskets; spending ₹1000 → ₹2000.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b18",
+      "part_id": "c01.3",
+      "step": 3,
+      "purpose": "explain",
+      "say": "इन assumptions में price ₹200 होगी; ₹200 से 2 की जगह 1 basket मिलेगी। इसलिए Limited supply मदद करती है: Scarcity यानी limited availability, value बचाने में सहायक है; सामान बढ़े बिना spending बढ़े तो prices बढ़ सकती हैं।",
+      "covers_item_ids": [
+       "p001-i12"
+      ],
+      "answers": [
+       "p001-i12#q1",
+       "p001-i12#q2"
+      ],
+      "on_screen": "₹1000/10 = ₹100; ₹2000/10 = ₹200. Scarcity helps preserve value.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b19",
+      "part_id": "c01.3",
+      "step": 4,
+      "purpose": "explain",
+      "say": "Example का evidence यही calculation है: spending दोगुनी, goods वही, इसलिए तय assumptions में price दोगुनी। यह actual prices की forecast नहीं है।",
+      "covers_item_ids": [
+       "p001-i12"
+      ],
+      "answers": [],
+      "on_screen": "Illustrative arithmetic, not a general prediction.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b20",
+      "part_id": "c01.3",
+      "step": 5,
+      "purpose": "misconception",
+      "say": "Limited supply अकेली stable value की guarantee है? नहीं; money की demand और goods-services की availability भी असर डालती हैं। हर money increase से prices उसी ratio में बढ़ें, यह नियम नहीं।",
+      "covers_item_ids": [
+       "p001-i12"
+      ],
+      "answers": [
+       "p001-i12#q3"
+      ],
+      "on_screen": "Helps ≠ guarantees; demand and goods availability also matter.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b21",
+      "part_id": "c01.3",
+      "step": 6,
+      "purpose": "recap",
+      "say": "कड़ी समझिए: goods वही, spending बढ़ी, prices बढ़ने का pressure, हर unit से कम खरीद। Excessive supply रोकना purchasing power बचाने में मदद कर सकता है।",
+      "covers_item_ids": [
+       "p001-i12"
+      ],
+      "answers": [],
+      "on_screen": "Fixed goods → more spending → possible price rise → less purchasing power.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b22",
+      "part_id": "c02.1",
+      "step": 1,
+      "purpose": "example",
+      "say": "₹500 का किराना कैसे लिया? Wheat देने के बजाय ₹500 दिए; आपके cash ₹500 से ₹0, दुकानदार को मिले cash ₹0 से ₹500। उसे wheat चाहिए या नहीं, पूछना नहीं पड़ा।",
+      "covers_item_ids": [
+       "p001-i14"
+      ],
+      "answers": [
+       "p001-i14#q2"
+      ],
+      "on_screen": "Groceries for ₹500, not wheat; buyer ₹500 → ₹0; receipt ₹0 → ₹500.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b23",
+      "part_id": "c02.1",
+      "step": 1,
+      "purpose": "example",
+      "say": "बिना खरीद किए prices कैसे compare करेंगे? Phone ₹20,000, laptop ₹60,000 है। Common rupee scale बताती है: laptop 3 गुना, ₹40,000 महँगा है। अभी payment नहीं हुई।",
+      "covers_item_ids": [
+       "p001-i15"
+      ],
+      "answers": [
+       "p001-i15#q2",
+       "p001-i15#q3"
+      ],
+      "on_screen": "₹20,000 → ₹60,000; difference ₹40,000; ratio 3:1.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b24",
+      "part_id": "c02.1",
+      "step": 1,
+      "purpose": "example",
+      "say": "आज की कमाई बाद में कैसे काम आएगी? Worker ने account में ₹500 बचाए; savings ₹0 से ₹500 हुईं। बाद में किराना लिया; saved balance ₹500 से ₹0 हुआ।",
+      "covers_item_ids": [
+       "p001-i16"
+      ],
+      "answers": [
+       "p001-i16#q2",
+       "p001-i16#q3"
+      ],
+      "on_screen": "Set aside ₹0 → ₹500; later spend ₹500 → ₹0.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b25",
+      "part_id": "c02.1",
+      "step": 1,
+      "purpose": "example",
+      "say": "Home loan schedule में future payment कैसे लिखेंगे? मानिए अगले महीने ₹10,000 देने हैं। उस date पर payment से unpaid instalment ₹10,000 से ₹0 हुई; future amount पहले तय था।",
+      "covers_item_ids": [
+       "p001-i17"
+      ],
+      "answers": [
+       "p001-i17#q2",
+       "p001-i17#q3"
+      ],
+      "on_screen": "Future instalment ₹10,000; payment clears outstanding ₹10,000 → ₹0.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b26",
+      "part_id": "c02.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "ये functions हैं Medium of exchange, Unit of account, Store of value और Standard of deferred payment। पहला barter, यानी सामान के बदले सामान, हटाता है। Wheat किसी को बेचें, पैसे से दूसरे से rice लें; matching wants वाला एक partner नहीं ढूँढ़ना पड़ता।",
+      "covers_item_ids": [
+       "p001-i14"
+      ],
+      "answers": [
+       "p001-i14#q1",
+       "p001-i14#q3",
+       "p001-i14#q4"
+      ],
+      "on_screen": "Four functions; exchange chain: wheat → money → rice.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b27",
+      "part_id": "c02.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "Phone-laptop की तुलना Unit of account है: money value की common measure देती है। यानी अलग चीज़ों की कीमत एक scale में लिखना। Price tag पढ़ना measurement है; payment करना exchange है।",
+      "covers_item_ids": [
+       "p001-i15"
+      ],
+      "answers": [
+       "p001-i15#q1",
+       "p001-i15#q4"
+      ],
+      "on_screen": "Unit of account: common value scale; price ≠ payment.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b28",
+      "part_id": "c02.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "पैसे बाद के लिए रखना Store of value है: purchasing power future use के लिए बचाना। Purchasing power यानी कितना सामान खरीद सकें। Bank account में आज बचाकर बाद के खर्च पूरे करते हैं।",
+      "covers_item_ids": [
+       "p001-i16"
+      ],
+      "answers": [
+       "p001-i16#q1"
+      ],
+      "on_screen": "Store of value: retain purchasing power for later expenses.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b29",
+      "part_id": "c02.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "Future dues money में तय करना Standard of deferred payment है। Denominated यानी amount किस unit में लिखा है, जैसे rupees। EMI, equated monthly instalment, loan की तय monthly किस्त है; home loans इसका example हैं।",
+      "covers_item_ids": [
+       "p001-i17"
+      ],
+      "answers": [
+       "p001-i17#q1",
+       "p001-i17#q5"
+      ],
+      "on_screen": "Future dues measured in money; EMI = equated monthly instalment.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b30",
+      "part_id": "c02.1",
+      "step": 3,
+      "purpose": "misconception",
+      "say": "Store of value perfect guarantee नहीं: prices बढ़ें तो वही balance कम खरीदेगा। सिक्का खराब न होना Durability है, buying power बचना अलग। Savings आपके resources हैं; future instalment obligation है, जिसके पैसे अभी होना ज़रूरी नहीं।",
+      "covers_item_ids": [
+       "p001-i16",
+       "p001-i17"
+      ],
+      "answers": [
+       "p001-i16#q4",
+       "p001-i16#q5",
+       "p001-i17#q4"
+      ],
+      "on_screen": "Durability ≠ stable buying power; saved resources ≠ future dues.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b31",
+      "part_id": "c02.1",
+      "step": 4,
+      "purpose": "recap",
+      "say": "Statement पहचानिए: price बताना account, खरीद चुकाना exchange, पैसे बचाना store, future due तय करना deferred payment। EMI का amount तय करना और बाद में actual payment करना अलग functions दिखाते हैं।",
+      "covers_item_ids": [
+       "p001-i14",
+       "p001-i15",
+       "p001-i16",
+       "p001-i17"
+      ],
+      "answers": [],
+      "on_screen": "Price—account; purchase—exchange; savings—store; future due—deferred.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b32",
+      "part_id": "",
+      "step": 0,
+      "purpose": "recap",
+      "say": "Money की पहचान payment में लिए जाने से है, सिर्फ cash से नहीं। खूबियाँ उसे इस्तेमाल लायक बनाती हैं; functions उसके अलग काम हैं। आगे समझेंगे, सामान के सीधे exchange में परेशानी कहाँ आती है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Acceptance → characteristics → four functions → barter next.",
+      "basis": "book"
+     }
+    ]
+   },
+   "code_problems": [
+    "[code] beat b14: 62% of its 8 content words are the book's own and it opens nothing: after a book line, open a term (yaani + an everyday image), give the why from a need, or an example; never just read the line out (S2-07)"
+   ],
+   "observed": {
+    "pattern_order": [],
+    "skipped_steps": {
+     "c01.2": {
+      "5": "The source contains no formula to build."
+     }
+    },
+    "objective_coverage": {
+     "coverage": 1.0,
+     "uncovered": []
+    },
+    "cognitive_load": {
+     "max": 1.54,
+     "abrupt_jumps": []
+    },
+    "duration": {
+     "spoken_minutes_at_130_wpm": 7.8,
+     "planned_minutes": 7,
+     "range": [
+      6.0,
+      8.0
+     ]
+    },
+    "dohraav": {
+     "beats": 32,
+     "judged": 26,
+     "restating": 1,
+     "share": 0.038,
+     "opened": 11,
+     "opened_share": 0.423,
+     "restating_beats": [
+      "b14"
+     ]
+    },
+    "real_world": [
+     {
+      "item_id": "p001-i3",
+      "place": "Kirana shop; illustrative outside example",
+      "numbers": [
+       "0",
+       "400",
+       "50",
+       "500"
+      ],
+      "example_beats": [
+       "b2"
+      ],
+      "term_beat": "b6",
+      "term": "medium of exchange",
+      "ok": true,
+      "problem": ""
+     },
+     {
+      "item_id": "p001-i7",
+      "place": "Kirana shop; illustrative outside example",
+      "numbers": [
+       "0",
+       "100"
+      ],
+      "example_beats": [
+       "b3",
+       "b10"
+      ],
+      "term_beat": "b7",
+      "term": "Acceptability",
+      "ok": true,
+      "problem": ""
+     },
+     {
+      "item_id": "p001-i8",
+      "place": "Market stalls; illustrative outside example",
+      "numbers": [
+       "0",
+       "2"
+      ],
+      "example_beats": [
+       "b3"
+      ],
+      "term_beat": "b7",
+      "term": "Durability",
+      "ok": true,
+      "problem": ""
+     },
+     {
+      "item_id": "p001-i9",
+      "place": "Neighbourhood market; illustrative outside example",
+      "numbers": [
+       "300",
+       "500"
+      ],
+      "example_beats": [
+       "b4"
+      ],
+      "term_beat": "b8",
+      "term": "Portability",
+      "ok": true,
+      "problem": ""
+     },
+     {
+      "item_id": "p001-i10",
+      "place": "Kirana shop; illustrative outside example",
+      "numbers": [
+       "100",
+       "70"
+      ],
+      "example_beats": [
+       "b5",
+       "b8",
+       "b10"
+      ],
+      "term_beat": "b8",
+      "term": "Divisibility",
+      "ok": true,
+      "problem": ""
+     },
+     {
+      "item_id": "p001-i11",
+      "place": "Tea stall; illustrative outside example",
+      "numbers": [
+       "1",
+       "2"
+      ],
+      "example_beats": [
+       "b5"
+      ],
+      "term_beat": "b9",
+      "term": "Uniformity",
+      "ok": true,
+      "problem": ""
+     },
+     {
+      "item_id": "p001-i12",
+      "place": "Simplified local market; illustrative outside example, not observed Indian data",
+      "numbers": [
+       "1",
+       "100",
+       "1000",
+       "2",
+       "200",
+       "2000"
+      ],
+      "example_beats": [
+       "b16",
+       "b17",
+       "b18"
+      ],
+      "term_beat": "b18",
+      "term": "Limited supply",
+      "ok": true,
+      "problem": ""
+     },
+     {
+      "item_id": "p001-i14",
+      "place": "Grocery shop; book amount with illustrative outside transaction details",
+      "numbers": [
+       "0",
+       "500"
+      ],
+      "example_beats": [
+       "b22"
+      ],
+      "term_beat": "b26",
+      "term": "barter",
+      "ok": true,
+      "problem": ""
+     },
+     {
+      "item_id": "p001-i15",
+      "place": "Electronics shop; book prices with illustrative outside budgeting",
+      "numbers": [
+       "20000",
+       "60000"
+      ],
+      "example_beats": [
+       "b23"
+      ],
+      "term_beat": "b27",
+      "term": "Unit of account",
+      "ok": true,
+      "problem": ""
+     },
+     {
+      "item_id": "p001-i16",
+      "place": "Bank account; illustrative outside amounts",
+      "numbers": [
+       "0",
+       "500"
+      ],
+      "example_beats": [
+       "b24"
+      ],
+      "term_beat": "b28",
+      "term": "Store of value",
+      "ok": true,
+      "problem": ""
+     },
+     {
+      "item_id": "p001-i17",
+      "place": "Bank home-loan account; illustrative outside EMI amount",
+      "numbers": [
+       "0",
+       "10000"
+      ],
+      "example_beats": [
+       "b25"
+      ],
+      "term_beat": "b29",
+      "term": "deferred payment",
+      "ok": true,
+      "problem": ""
+     }
+    ]
+   },
+   "passed": false,
+   "finished_at": 1793131388.1984003
+  },
+  {
+   "round": 3,
+   "started_at": 1793131388.202024,
+   "mode": "patch",
+   "patch": {
+    "notes": {
+     "about": "Targeted correction to explain why cash and non-cash balances share the money category.",
+     "key_questions": [
+      "What links cash, bank deposits and digital balances?"
+     ],
+     "decisions": [
+      {
+       "decision": "Replace b14's repeated list with a shop-counter example and its payment mechanism, using fewer words.",
+       "reason": "Opens the source statement rather than repeating it and preserves the narration time."
+      }
+     ],
+     "uncertain": []
+    },
+    "replace_parts": [],
+    "replace_beats": [
+     {
+      "beat_id": "b14",
+      "part_id": "c01.2",
+      "step": 3,
+      "purpose": "explain",
+      "say": "इन forms को क्या जोड़ता है? दुकानदार cash ले या खाते से आई रकम, दोनों से bill चुकता होता है। इसलिए payment में आम तौर पर लिए जाने वाले balances भी money हैं, सिर्फ हाथ में पकड़े notes नहीं।",
+      "covers_item_ids": [
+       "p001-i4",
+       "p001-i5"
+      ],
+      "answers": [
+       "p001-i4#q2",
+       "p001-i5#q2"
+      ],
+      "on_screen": "Same shop bill marked paid through cash or an accepted account transfer; non-cash balances belong within money.",
+      "basis": "mixed"
+     }
+    ],
+    "insert_beats": [],
+    "remove_beat_ids": []
+   },
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "afae0fdcaddca71c2eb5fdc0c98b63e746807424285036fa8ceac27584cf3ec5",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 22942,
+    "output_tokens": 254,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "This lesson establishes acceptance-based money, its scope and desirable characteristics, then distinguishes its four functions through everyday transactions.",
+    "key_questions": [
+     "What makes something money rather than merely valuable?",
+     "How do the characteristics support usable money?",
+     "Why can limited supply help preserve purchasing power without guaranteeing it?",
+     "How do the four functions differ, especially saving versus future dues?"
+    ],
+    "decisions": [
+     {
+      "decision": "Run the supplied numerical situations before naming their concepts; group examples before definitions within each definition part.",
+      "reason": "Preserves application-first teaching and the required pattern order."
+     },
+     {
+      "decision": "Use denomination and inflation qualifications explicitly.",
+      "reason": "Prevents misleading readings of uniformity, durability and store of value."
+     },
+     {
+      "decision": "Keep outside material to supplied illustrative mechanisms and boundaries.",
+      "reason": "Makes the source understandable within the 6–8 minute allocation."
+     },
+     {
+      "decision": "Shortened all narration while retaining numerical examples, definitions, boundaries and pattern steps.",
+      "reason": "Bring narration within 6–8 minutes without dropping source content."
+     },
+     {
+      "decision": "Replaced flagged Hindi expressions with plain wording or English terms.",
+      "reason": "Avoid unnecessary brackets and preserve natural Hinglish."
+     },
+     {
+      "decision": "Replace b14's repeated list with a shop-counter example and its payment mechanism, using fewer words.",
+      "reason": "Opens the source statement rather than repeating it and preserves the narration time."
+     }
+    ],
+    "uncertain": []
+   },
+   "output": {
+    "notes": {
+     "about": "This lesson establishes acceptance-based money, its scope and desirable characteristics, then distinguishes its four functions through everyday transactions.",
+     "key_questions": [
+      "What makes something money rather than merely valuable?",
+      "How do the characteristics support usable money?",
+      "Why can limited supply help preserve purchasing power without guaranteeing it?",
+      "How do the four functions differ, especially saving versus future dues?"
+     ],
+     "decisions": [
+      {
+       "decision": "Run the supplied numerical situations before naming their concepts; group examples before definitions within each definition part.",
+       "reason": "Preserves application-first teaching and the required pattern order."
+      },
+      {
+       "decision": "Use denomination and inflation qualifications explicitly.",
+       "reason": "Prevents misleading readings of uniformity, durability and store of value."
+      },
+      {
+       "decision": "Keep outside material to supplied illustrative mechanisms and boundaries.",
+       "reason": "Makes the source understandable within the 6–8 minute allocation."
+      },
+      {
+       "decision": "Shortened all narration while retaining numerical examples, definitions, boundaries and pattern steps.",
+       "reason": "Bring narration within 6–8 minutes without dropping source content."
+      },
+      {
+       "decision": "Replaced flagged Hindi expressions with plain wording or English terms.",
+       "reason": "Avoid unnecessary brackets and preserve natural Hinglish."
+      },
+      {
+       "decision": "Replace b14's repeated list with a shop-counter example and its payment mechanism, using fewer words.",
+       "reason": "Opens the source statement rather than repeating it and preserves the narration time."
+      }
+     ],
+     "uncertain": []
+    },
+    "title": "Money क्या है, और हमारे कौन-से काम करता है?",
+    "parts": [
+     {
+      "part_id": "c01.1",
+      "frame": {
+       "process": "Recognise money by accepted payment use and explain five practical characteristics.",
+       "how": "Run concrete transactions first, define their shared qualities, then test boundaries.",
+       "when": "At purchase, repayment, repeated circulation, movement between shops and making change.",
+       "conditions": "Recipients accept payment; equivalent units are compared within the same denomination.",
+       "atmosphere": "Familiar neighbourhood shops, market stalls and a tea counter."
+      },
+      "skipped_steps": []
+     },
+     {
+      "part_id": "c01.2",
+      "frame": {
+       "process": "Expand money beyond physical currency to accepted balances.",
+       "how": "Compare cash and balance-based payment for the same purchase.",
+       "when": "When a payment is completed without handing over notes or coins.",
+       "conditions": "The monetary balance is accepted for payment; the device is not itself money.",
+       "atmosphere": "A shop counter offering cash and non-cash payment."
+      },
+      "skipped_steps": [
+       {
+        "step": 5,
+        "why": "The source contains no formula to build."
+       }
+      ]
+     },
+     {
+      "part_id": "c01.3",
+      "frame": {
+       "process": "Explain how excessive spending against unchanged goods can reduce purchasing power.",
+       "how": "Compare total spending, basket prices and purchases possible with a fixed sum.",
+       "when": "After spending rises while the quantity of goods stays unchanged.",
+       "conditions": "Ten identical baskets sell at one price using all assumed spending; this is not a general proportional forecast.",
+       "atmosphere": "A simplified local grocery market with explicitly hypothetical numbers."
+      },
+      "skipped_steps": []
+     },
+     {
+      "part_id": "c02.1",
+      "frame": {
+       "process": "Distinguish exchange, common valuation, carrying resources forward and specifying future dues.",
+       "how": "Run four situations before naming and defining the functions, then test confusing pairs.",
+       "when": "At purchase, before purchase, between income and spending, and when future repayments are agreed.",
+       "conditions": "Separate physical endurance from purchasing power and saved resources from obligations.",
+       "atmosphere": "Grocery and electronics shops, a salary account and a home-loan schedule."
+      },
+      "skipped_steps": []
+     }
+    ],
+    "beats": [
+     {
+      "beat_id": "b1",
+      "part_id": "",
+      "step": 0,
+      "purpose": "hook",
+      "say": "कीमती चीज़ दुकानदार payment में नहीं लेता, तो क्या वह money है? सिर्फ कीमती होना काफी नहीं; सामने वाला उसे payment में ले, यह ज़रूरी है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Valuable possession refused as payment.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b2",
+      "part_id": "c01.1",
+      "step": 1,
+      "purpose": "example",
+      "say": "किराना दुकान में क्या हुआ? ₹100 देकर चावल लिए; cash ₹500 से ₹400 हुआ। फिर ₹50 का पुराना उधार चुकाया; बाकी debt ₹50 से ₹0 हुआ। दोनों payments दुकानदार ने लिए।",
+      "covers_item_ids": [
+       "p001-i3"
+      ],
+      "answers": [],
+      "on_screen": "Cash ₹500 → ₹400; old debt ₹50 → ₹0.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b3",
+      "part_id": "c01.1",
+      "step": 1,
+      "purpose": "example",
+      "say": "₹100 का bill कैसे चुकता हुआ? दुकानदार ने cash लेना चाहा, तो bill ₹100 से ₹0 हुआ। वही ₹10 का सिक्का सब्ज़ी वाले से चाय वाले तक कैसे चला? खराब नहीं हुआ; payments 0 से 2 हुए।",
+      "covers_item_ids": [
+       "p001-i7",
+       "p001-i8"
+      ],
+      "answers": [],
+      "on_screen": "Bill ₹100 → ₹0; usable ₹10 coin completes two payments.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b4",
+      "part_id": "c01.1",
+      "step": 1,
+      "purpose": "example",
+      "say": "पैसे साथ कैसे ले जाएँगे? Wallet में ₹500 ले गए; ₹200 का किराना लिया, फिर बचे ₹300 लेकर सब्ज़ी वाले तक गए। भारी सामान ढोना नहीं पड़ा।",
+      "covers_item_ids": [
+       "p001-i9"
+      ],
+      "answers": [],
+      "on_screen": "Wallet moves between shops; cash ₹500 → ₹300.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b5",
+      "part_id": "c01.1",
+      "step": 1,
+      "purpose": "example",
+      "say": "₹30 के soap के लिए ₹100 दिया, तो कितना बचेगा? ₹70 change मिला। चाय ₹10 की हो और 2 असली ₹10 coins हों, तो कौन-सा देंगे? कोई भी; payment के बाद 1 बचेगा।",
+      "covers_item_ids": [
+       "p001-i10",
+       "p001-i11"
+      ],
+      "answers": [],
+      "on_screen": "₹100 = ₹30 + ₹70; equivalent ₹10 coins, count 2 → 1.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b6",
+      "part_id": "c01.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "इन purchases और repayments में लिया गया payment money है। Money कुछ भी हो सकता है जिसे goods, services के exchange और debts चुकाने में लिया जाए। Medium of exchange यानी देकर सामान या service लेना; settling debts यानी पुराना उधार चुकाना।",
+      "covers_item_ids": [
+       "p001-i3"
+      ],
+      "answers": [
+       "p001-i3#q1",
+       "p001-i3#q2",
+       "p001-i3#q4"
+      ],
+      "on_screen": "Anything accepted for goods, services and settling debts.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b7",
+      "part_id": "c01.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "Payment लेने की तैयारी Acceptability है। सिक्के का जल्दी खराब न होना Durability है, यानी repeated use में टिकना। पैसे कई हाथों से गुजरते हैं; जल्दी खराब हों तो बार-बार बदलने पड़ेंगे।",
+      "covers_item_ids": [
+       "p001-i7",
+       "p001-i8"
+      ],
+      "answers": [
+       "p001-i7#q1",
+       "p001-i7#q2",
+       "p001-i7#q3",
+       "p001-i8#q1",
+       "p001-i8#q2",
+       "p001-i8#q3"
+      ],
+      "on_screen": "Acceptability: willingness. Durability: does not wear out quickly.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b8",
+      "part_id": "c01.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "आसानी से साथ ले जाना Portability है। ₹100 में से ₹30 देना, ₹70 वापस पाना Divisibility है: value छोटी units में बाँटना। पहली खूबी अलग जगह payment आसान करती है; दूसरी छोटी-बड़ी payment।",
+      "covers_item_ids": [
+       "p001-i9",
+       "p001-i10"
+      ],
+      "answers": [
+       "p001-i9#q1",
+       "p001-i9#q2",
+       "p001-i9#q3",
+       "p001-i10#q1",
+       "p001-i10#q2",
+       "p001-i10#q3"
+      ],
+      "on_screen": "Portability: carry value. Divisibility: smaller usable units.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b9",
+      "part_id": "c01.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "कोई भी असली ₹10 coin बराबर चले, यह Uniformity है: equivalent units की value समान। Same denomination समझिए, ₹10 के बदले ₹10। हर coin की अलग कीमत तय नहीं करनी पड़ती।",
+      "covers_item_ids": [
+       "p001-i11"
+      ],
+      "answers": [
+       "p001-i11#q1",
+       "p001-i11#q2",
+       "p001-i11#q3"
+      ],
+      "on_screen": "Uniformity: equivalent genuine ₹10 units substitute for each other.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b10",
+      "part_id": "c01.1",
+      "step": 3,
+      "purpose": "misconception",
+      "say": "कीमती चीज़ अपने-आप money नहीं। Acceptability लोगों की willingness है, हर counter पर हर form चलने की guarantee नहीं। Divisibility note के टुकड़े करना नहीं; Uniformity में ₹10 और ₹100 बराबर नहीं।",
+      "covers_item_ids": [
+       "p001-i3",
+       "p001-i7",
+       "p001-i10",
+       "p001-i11"
+      ],
+      "answers": [
+       "p001-i3#q3",
+       "p001-i10#q4"
+      ],
+      "on_screen": "Reject: valuable = money; torn notes = division; ₹10 = ₹100.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b11",
+      "part_id": "c01.1",
+      "step": 4,
+      "purpose": "recap",
+      "say": "आगे functions में यही आधार रखिए: payment लोग लें, जल्दी खराब न हो, साथ ले जाना और छोटी units में देना आसान हो; equivalent units बदल सकें।",
+      "covers_item_ids": [
+       "p001-i3",
+       "p001-i7",
+       "p001-i8",
+       "p001-i9",
+       "p001-i10",
+       "p001-i11"
+      ],
+      "answers": [],
+      "on_screen": "Accepted, durable, portable, divisible, uniform → functions next.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b12",
+      "part_id": "c01.2",
+      "step": 1,
+      "purpose": "explain",
+      "say": "Note दिए बिना account से payment हुई, तो money इस्तेमाल हुई? हाँ; money सिर्फ currency notes और coins नहीं। Account balance का transfer भी payment पूरा कर सकता है।",
+      "covers_item_ids": [
+       "p001-i4"
+      ],
+      "answers": [
+       "p001-i4#q1",
+       "p001-i4#q3"
+      ],
+      "on_screen": "Money extends beyond physical currency.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b13",
+      "part_id": "c01.2",
+      "step": 2,
+      "purpose": "example",
+      "say": "उसी खरीद को cash या account balance से चुकाएँ, काम समान हो सकता है। Bank deposits यानी खाते में जमा पैसे; digital balances यानी digitally recorded पैसे जो payment में इस्तेमाल हों।",
+      "covers_item_ids": [
+       "p001-i5"
+      ],
+      "answers": [
+       "p001-i5#q1"
+      ],
+      "on_screen": "Same purchase: cash, bank deposits or digital balances.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b14",
+      "part_id": "c01.2",
+      "step": 3,
+      "purpose": "explain",
+      "say": "इन forms को क्या जोड़ता है? दुकानदार cash ले या खाते से आई रकम, दोनों से bill चुकता होता है। इसलिए payment में आम तौर पर लिए जाने वाले balances भी money हैं, सिर्फ हाथ में पकड़े notes नहीं।",
+      "covers_item_ids": [
+       "p001-i4",
+       "p001-i5"
+      ],
+      "answers": [
+       "p001-i4#q2",
+       "p001-i5#q2"
+      ],
+      "on_screen": "Same shop bill marked paid through cash or an accepted account transfer; non-cash balances belong within money.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b15",
+      "part_id": "c01.2",
+      "step": 4,
+      "purpose": "recap",
+      "say": "इसलिए payment का काम पहचानिए, सिर्फ cash नहीं। Phone या app transfer का instruction देता है; money balance है, device नहीं। इसका मतलब हर financial asset money होना भी नहीं है।",
+      "covers_item_ids": [
+       "p001-i4",
+       "p001-i5"
+      ],
+      "answers": [
+       "p001-i5#q3"
+      ],
+      "on_screen": "Balance ≠ device; money ≠ every financial asset.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b16",
+      "part_id": "c01.3",
+      "step": 1,
+      "purpose": "example",
+      "say": "₹200 से पहले 2 baskets, अब 1 मिले तो क्या हुआ? खरीदने की क्षमता घटी। एक imagined market लेते हैं; ये actual market data नहीं हैं।",
+      "covers_item_ids": [
+       "p001-i12"
+      ],
+      "answers": [],
+      "on_screen": "₹200: 2 baskets → 1. Hypothetical example.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b17",
+      "part_id": "c01.3",
+      "step": 2,
+      "purpose": "example",
+      "say": "मानिए buyers पूरे ₹1000 से 10 एक-जैसी baskets खरीदते हैं, सब एक price पर: ₹100 each। अब वही 10 baskets हैं, लेकिन buyers पूरा ₹2000 खर्च करते हैं।",
+      "covers_item_ids": [
+       "p001-i12"
+      ],
+      "answers": [],
+      "on_screen": "10 fixed baskets; spending ₹1000 → ₹2000.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b18",
+      "part_id": "c01.3",
+      "step": 3,
+      "purpose": "explain",
+      "say": "इन assumptions में price ₹200 होगी; ₹200 से 2 की जगह 1 basket मिलेगी। इसलिए Limited supply मदद करती है: Scarcity यानी limited availability, value बचाने में सहायक है; सामान बढ़े बिना spending बढ़े तो prices बढ़ सकती हैं।",
+      "covers_item_ids": [
+       "p001-i12"
+      ],
+      "answers": [
+       "p001-i12#q1",
+       "p001-i12#q2"
+      ],
+      "on_screen": "₹1000/10 = ₹100; ₹2000/10 = ₹200. Scarcity helps preserve value.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b19",
+      "part_id": "c01.3",
+      "step": 4,
+      "purpose": "explain",
+      "say": "Example का evidence यही calculation है: spending दोगुनी, goods वही, इसलिए तय assumptions में price दोगुनी। यह actual prices की forecast नहीं है।",
+      "covers_item_ids": [
+       "p001-i12"
+      ],
+      "answers": [],
+      "on_screen": "Illustrative arithmetic, not a general prediction.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b20",
+      "part_id": "c01.3",
+      "step": 5,
+      "purpose": "misconception",
+      "say": "Limited supply अकेली stable value की guarantee है? नहीं; money की demand और goods-services की availability भी असर डालती हैं। हर money increase से prices उसी ratio में बढ़ें, यह नियम नहीं।",
+      "covers_item_ids": [
+       "p001-i12"
+      ],
+      "answers": [
+       "p001-i12#q3"
+      ],
+      "on_screen": "Helps ≠ guarantees; demand and goods availability also matter.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b21",
+      "part_id": "c01.3",
+      "step": 6,
+      "purpose": "recap",
+      "say": "कड़ी समझिए: goods वही, spending बढ़ी, prices बढ़ने का pressure, हर unit से कम खरीद। Excessive supply रोकना purchasing power बचाने में मदद कर सकता है।",
+      "covers_item_ids": [
+       "p001-i12"
+      ],
+      "answers": [],
+      "on_screen": "Fixed goods → more spending → possible price rise → less purchasing power.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b22",
+      "part_id": "c02.1",
+      "step": 1,
+      "purpose": "example",
+      "say": "₹500 का किराना कैसे लिया? Wheat देने के बजाय ₹500 दिए; आपके cash ₹500 से ₹0, दुकानदार को मिले cash ₹0 से ₹500। उसे wheat चाहिए या नहीं, पूछना नहीं पड़ा।",
+      "covers_item_ids": [
+       "p001-i14"
+      ],
+      "answers": [
+       "p001-i14#q2"
+      ],
+      "on_screen": "Groceries for ₹500, not wheat; buyer ₹500 → ₹0; receipt ₹0 → ₹500.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b23",
+      "part_id": "c02.1",
+      "step": 1,
+      "purpose": "example",
+      "say": "बिना खरीद किए prices कैसे compare करेंगे? Phone ₹20,000, laptop ₹60,000 है। Common rupee scale बताती है: laptop 3 गुना, ₹40,000 महँगा है। अभी payment नहीं हुई।",
+      "covers_item_ids": [
+       "p001-i15"
+      ],
+      "answers": [
+       "p001-i15#q2",
+       "p001-i15#q3"
+      ],
+      "on_screen": "₹20,000 → ₹60,000; difference ₹40,000; ratio 3:1.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b24",
+      "part_id": "c02.1",
+      "step": 1,
+      "purpose": "example",
+      "say": "आज की कमाई बाद में कैसे काम आएगी? Worker ने account में ₹500 बचाए; savings ₹0 से ₹500 हुईं। बाद में किराना लिया; saved balance ₹500 से ₹0 हुआ।",
+      "covers_item_ids": [
+       "p001-i16"
+      ],
+      "answers": [
+       "p001-i16#q2",
+       "p001-i16#q3"
+      ],
+      "on_screen": "Set aside ₹0 → ₹500; later spend ₹500 → ₹0.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b25",
+      "part_id": "c02.1",
+      "step": 1,
+      "purpose": "example",
+      "say": "Home loan schedule में future payment कैसे लिखेंगे? मानिए अगले महीने ₹10,000 देने हैं। उस date पर payment से unpaid instalment ₹10,000 से ₹0 हुई; future amount पहले तय था।",
+      "covers_item_ids": [
+       "p001-i17"
+      ],
+      "answers": [
+       "p001-i17#q2",
+       "p001-i17#q3"
+      ],
+      "on_screen": "Future instalment ₹10,000; payment clears outstanding ₹10,000 → ₹0.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b26",
+      "part_id": "c02.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "ये functions हैं Medium of exchange, Unit of account, Store of value और Standard of deferred payment। पहला barter, यानी सामान के बदले सामान, हटाता है। Wheat किसी को बेचें, पैसे से दूसरे से rice लें; matching wants वाला एक partner नहीं ढूँढ़ना पड़ता।",
+      "covers_item_ids": [
+       "p001-i14"
+      ],
+      "answers": [
+       "p001-i14#q1",
+       "p001-i14#q3",
+       "p001-i14#q4"
+      ],
+      "on_screen": "Four functions; exchange chain: wheat → money → rice.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b27",
+      "part_id": "c02.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "Phone-laptop की तुलना Unit of account है: money value की common measure देती है। यानी अलग चीज़ों की कीमत एक scale में लिखना। Price tag पढ़ना measurement है; payment करना exchange है।",
+      "covers_item_ids": [
+       "p001-i15"
+      ],
+      "answers": [
+       "p001-i15#q1",
+       "p001-i15#q4"
+      ],
+      "on_screen": "Unit of account: common value scale; price ≠ payment.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b28",
+      "part_id": "c02.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "पैसे बाद के लिए रखना Store of value है: purchasing power future use के लिए बचाना। Purchasing power यानी कितना सामान खरीद सकें। Bank account में आज बचाकर बाद के खर्च पूरे करते हैं।",
+      "covers_item_ids": [
+       "p001-i16"
+      ],
+      "answers": [
+       "p001-i16#q1"
+      ],
+      "on_screen": "Store of value: retain purchasing power for later expenses.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b29",
+      "part_id": "c02.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "Future dues money में तय करना Standard of deferred payment है। Denominated यानी amount किस unit में लिखा है, जैसे rupees। EMI, equated monthly instalment, loan की तय monthly किस्त है; home loans इसका example हैं।",
+      "covers_item_ids": [
+       "p001-i17"
+      ],
+      "answers": [
+       "p001-i17#q1",
+       "p001-i17#q5"
+      ],
+      "on_screen": "Future dues measured in money; EMI = equated monthly instalment.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b30",
+      "part_id": "c02.1",
+      "step": 3,
+      "purpose": "misconception",
+      "say": "Store of value perfect guarantee नहीं: prices बढ़ें तो वही balance कम खरीदेगा। सिक्का खराब न होना Durability है, buying power बचना अलग। Savings आपके resources हैं; future instalment obligation है, जिसके पैसे अभी होना ज़रूरी नहीं।",
+      "covers_item_ids": [
+       "p001-i16",
+       "p001-i17"
+      ],
+      "answers": [
+       "p001-i16#q4",
+       "p001-i16#q5",
+       "p001-i17#q4"
+      ],
+      "on_screen": "Durability ≠ stable buying power; saved resources ≠ future dues.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b31",
+      "part_id": "c02.1",
+      "step": 4,
+      "purpose": "recap",
+      "say": "Statement पहचानिए: price बताना account, खरीद चुकाना exchange, पैसे बचाना store, future due तय करना deferred payment। EMI का amount तय करना और बाद में actual payment करना अलग functions दिखाते हैं।",
+      "covers_item_ids": [
+       "p001-i14",
+       "p001-i15",
+       "p001-i16",
+       "p001-i17"
+      ],
+      "answers": [],
+      "on_screen": "Price—account; purchase—exchange; savings—store; future due—deferred.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b32",
+      "part_id": "",
+      "step": 0,
+      "purpose": "recap",
+      "say": "Money की पहचान payment में लिए जाने से है, सिर्फ cash से नहीं। खूबियाँ उसे इस्तेमाल लायक बनाती हैं; functions उसके अलग काम हैं। आगे समझेंगे, सामान के सीधे exchange में परेशानी कहाँ आती है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Acceptance → characteristics → four functions → barter next.",
+      "basis": "book"
+     }
+    ]
+   },
+   "code_problems": [
+    "[code] beat b14: the Hindi words ['रकम'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)"
+   ],
+   "observed": {
+    "pattern_order": [],
+    "skipped_steps": {
+     "c01.2": {
+      "5": "The source contains no formula to build."
+     }
+    },
+    "objective_coverage": {
+     "coverage": 1.0,
+     "uncovered": []
+    },
+    "cognitive_load": {
+     "max": 1.54,
+     "abrupt_jumps": []
+    },
+    "duration": {
+     "spoken_minutes_at_130_wpm": 7.9,
+     "planned_minutes": 7,
+     "range": [
+      6.0,
+      8.0
+     ]
+    },
+    "dohraav": {
+     "beats": 32,
+     "judged": 26,
+     "restating": 0,
+     "share": 0.0,
+     "opened": 12,
+     "opened_share": 0.462,
+     "restating_beats": []
+    },
+    "real_world": [
+     {
+      "item_id": "p001-i3",
+      "place": "Kirana shop; illustrative outside example",
+      "numbers": [
+       "0",
+       "400",
+       "50",
+       "500"
+      ],
+      "example_beats": [
+       "b2"
+      ],
+      "term_beat": "b6",
+      "term": "medium of exchange",
+      "ok": true,
+      "problem": ""
+     },
+     {
+      "item_id": "p001-i7",
+      "place": "Kirana shop; illustrative outside example",
+      "numbers": [
+       "0",
+       "100"
+      ],
+      "example_beats": [
+       "b3",
+       "b10"
+      ],
+      "term_beat": "b7",
+      "term": "Acceptability",
+      "ok": true,
+      "problem": ""
+     },
+     {
+      "item_id": "p001-i8",
+      "place": "Market stalls; illustrative outside example",
+      "numbers": [
+       "0",
+       "2"
+      ],
+      "example_beats": [
+       "b3"
+      ],
+      "term_beat": "b7",
+      "term": "Durability",
+      "ok": true,
+      "problem": ""
+     },
+     {
+      "item_id": "p001-i9",
+      "place": "Neighbourhood market; illustrative outside example",
+      "numbers": [
+       "300",
+       "500"
+      ],
+      "example_beats": [
+       "b4"
+      ],
+      "term_beat": "b8",
+      "term": "Portability",
+      "ok": true,
+      "problem": ""
+     },
+     {
+      "item_id": "p001-i10",
+      "place": "Kirana shop; illustrative outside example",
+      "numbers": [
+       "100",
+       "70"
+      ],
+      "example_beats": [
+       "b5",
+       "b8",
+       "b10"
+      ],
+      "term_beat": "b8",
+      "term": "Divisibility",
+      "ok": true,
+      "problem": ""
+     },
+     {
+      "item_id": "p001-i11",
+      "place": "Tea stall; illustrative outside example",
+      "numbers": [
+       "1",
+       "2"
+      ],
+      "example_beats": [
+       "b5"
+      ],
+      "term_beat": "b9",
+      "term": "Uniformity",
+      "ok": true,
+      "problem": ""
+     },
+     {
+      "item_id": "p001-i12",
+      "place": "Simplified local market; illustrative outside example, not observed Indian data",
+      "numbers": [
+       "1",
+       "100",
+       "1000",
+       "2",
+       "200",
+       "2000"
+      ],
+      "example_beats": [
+       "b16",
+       "b17",
+       "b18"
+      ],
+      "term_beat": "b18",
+      "term": "Limited supply",
+      "ok": true,
+      "problem": ""
+     },
+     {
+      "item_id": "p001-i14",
+      "place": "Grocery shop; book amount with illustrative outside transaction details",
+      "numbers": [
+       "0",
+       "500"
+      ],
+      "example_beats": [
+       "b22"
+      ],
+      "term_beat": "b26",
+      "term": "barter",
+      "ok": true,
+      "problem": ""
+     },
+     {
+      "item_id": "p001-i15",
+      "place": "Electronics shop; book prices with illustrative outside budgeting",
+      "numbers": [
+       "20000",
+       "60000"
+      ],
+      "example_beats": [
+       "b23"
+      ],
+      "term_beat": "b27",
+      "term": "Unit of account",
+      "ok": true,
+      "problem": ""
+     },
+     {
+      "item_id": "p001-i16",
+      "place": "Bank account; illustrative outside amounts",
+      "numbers": [
+       "0",
+       "500"
+      ],
+      "example_beats": [
+       "b24"
+      ],
+      "term_beat": "b28",
+      "term": "Store of value",
+      "ok": true,
+      "problem": ""
+     },
+     {
+      "item_id": "p001-i17",
+      "place": "Bank home-loan account; illustrative outside EMI amount",
+      "numbers": [
+       "0",
+       "10000"
+      ],
+      "example_beats": [
+       "b25"
+      ],
+      "term_beat": "b29",
+      "term": "deferred payment",
+      "ok": true,
+      "problem": ""
+     }
+    ]
+   },
+   "passed": false,
+   "finished_at": 1793131398.2018912
+  }
+ ],
+ "avoid_rounds": [
+  1,
+  2,
+  3
+ ],
+ "cost_usd": 0.0,
+ "seconds": 199.4,
+ "navin_verdict": null
+}
