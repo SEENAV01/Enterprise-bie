@@ -22,7 +22,8 @@ from run_task038_tests import run_file  # noqa: E402
 LANES = {"core": ("tests/test_task046a_toolbox.py", "tests/test_task046a_licence.py", "tests/test_task046_shots.py",
                   "tests/test_task046_canvas.py", "tests/test_task046_canvas_director.py", "tests/test_task046c_real_world.py",
                   "tests/test_task046c_map_review.py", "tests/test_task046_render_speed.py",
-                  "tests/test_task046c_page_review.py", "tests/test_task046c_plan_review.py"),
+                  "tests/test_task046c_page_review.py", "tests/test_task046c_plan_review.py",
+                  "tests/test_task046c_money_words.py"),
          "wrappers": ("tests/toolbox/test_wrappers.py",)}
 LANES["all"] = LANES["core"] + LANES["wrappers"]
 

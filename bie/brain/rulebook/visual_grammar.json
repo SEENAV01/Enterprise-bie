@@ -1,11 +1,12 @@
 {
  "rulebook": "bie-visual-grammar",
- "version": "2026-10-26.2",
+ "version": "2026-10-27.1",
  "source": "Navin's brief for Task 046, 26 October 2026: eleven visual grammar rules added to the twelve of the epithelium benchmark (benchmarks/epithelium_animation.json, B-01 to B-12), and the wording rule W-01. The director reads the rules; the checks enforce what code can check (bie/brain/shots.py).",
  "numbering": "Navin's brief numbers the grammar rules G-01 to G-11. In this rulebook they are VG-01 to VG-11, because G-01 to G-07 are already the general rules of vision-2026-10-21.json and a rule id is used once.",
  "notes": "Each rule is an instruction for the director and the visual section (rule) and a yes/no question for the reviewer (check). Rules change only through a reviewed version bump; Navin approves every new or changed rule.",
  "changes": [
-  "2026-10-26.2 (Navin, 26 October 2026): VG-01 names the pace as a visual-change rate with its two bands; the per-video '90 % of shot seconds at L3 or above' check is withdrawn (visual_levels.json, targets)."
+  "2026-10-26.2 (Navin, 26 October 2026): VG-01 names the pace as a visual-change rate with its two bands; the per-video '90 % of shot seconds at L3 or above' check is withdrawn (visual_levels.json, targets).",
+  "2026-10-27.1 (Task 046 Part C, the Money chapter's first scripts seekh): W-01 also catches narration that points at BIE's own source packet instead of teaching (the Codex checker's finding on 5 of 18 Money scripts: 'supplied figure', 'source-listed', 'October 2022 entry', 'answer codes in the original continuation', 'aligned cells and numbered rows'): 13 English patterns."
  ],
  "rules": [
   {
@@ -182,7 +183,20 @@
     "the chapter says",
     "this chapter says",
     "given in the book",
-    "written in the book"
+    "written in the book",
+    "source-listed",
+    "source packet",
+    "source text",
+    "source note",
+    "source wording",
+    "source material",
+    "the source says",
+    "supplied (?:figure|figures|material|value|values|table|wording|data|number|numbers)",
+    "as supplied",
+    "answer codes?",
+    "numbered rows?",
+    "aligned cells?",
+    "original continuation"
    ],
    "mixed": [
     "book (?:के अनुसार|के मुताबिक|कहती है|बताती है|कहता है|बताता है|की line|की figure|की table|वाली|का हिसाब)",
@@ -212,7 +226,9 @@
     "NCERT kehta hai ki basement membrane non-cellular hai.",
     "Book short cylindrical कहती है; height और width लगभग बराबर समझो।",
     "book nucleus और cytoplasm के न रहने की बात करती है।",
-    "Printed location है ‘The outer or apical layer of the cell’।"
+    "Printed location है ‘The outer or apical layer of the cell’।",
+    "Supplied figure के हिसाब से RBI ने 1935 में notes छापे। (the figure is the source's, not the teacher's)",
+    "Source-listed numbers बाद में verify होंगे। (points at the source packet instead of teaching the number)"
    ]
   }
  }

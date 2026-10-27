@@ -891,6 +891,11 @@ first appear after code-clean rounds (at most CONVERGING_MAX) earn one more patc
 The live effect (first-try pages, rounds, minutes) is measured on the resume `t046c-money-understand-d` (16 pages reused, 4
 pages and the map run again).
 
+**Measured live (the resume `t046c-money-understand-d`, 18.4 minutes, ₹0):** the four pages passed (page 7 first try, pages 4
+and 15 in two rounds, page 12 in three), the map passed at round 0 with 0 checker findings; none of the four pages' findings
+was of the example-asking kind, so the filter changed nothing on them and the slip rule was not needed. Section 1 of the Money
+chapter is complete: 20 of 20 pages, the map, 95 of 95 economics concept items with a checked real-world example.
+
 ## Entry 20 · the Codex checker on the Money plan: a plan is not the lesson, 27 October 2026
 
 **What the first Money lesson run taught** (`t046c-money-lesson`, Codex maker and Codex checker, ₹0, 10.8 minutes): the plan
@@ -919,3 +924,34 @@ toolbox core lane and the Task 045 lane.
 | The tissue plan's "v5 packs 8 concepts" finding | minor (Gemini's call) | still a structural finding |
 
 The live effect is measured on the second lesson run (`t046c-money-lesson-b`) after this merges.
+
+**Measured live (`t046c-money-lesson-b`, 48.2 minutes, ₹0):** the plan passed at round 0 with 0 checker findings (before: failed
+after 3 rounds with 20); 18 scripts were written, 878 beats, 163 spoken minutes, 93 of 93 examples run first (S2-08).
+
+## Entry 21 · the Money scripts: the everyday words of money, and narration that points at the source packet, 27 October 2026
+
+**What the second lesson run taught** (`t046c-money-lesson-b`, 18 scripts, Codex maker and Codex checker, ₹0): 1 of 18 scripts
+passed. Round 0 carried 13–52 code problems per script (book-word beats 107, the time rule 20, heavy beats 11 over the run),
+shrinking every round; **11 scripts ended with only S2-04 flags left, on everyday words of money, shops, banks and payments that
+the everyday-Hindi list lacked** (746 flags over the rounds: रकम 104, वादा 30, स्वीकार 23, भुगतान 18, गेहूँ 13, बकाया 9, जेब 6 …; the
+list was built from a biology chapter). The other 6 reached code-clean and the checker found 1–4 blocking findings each; 5 of
+them narration that points at BIE's own source packet ("supplied figure", "source-listed", "October 2022 entry", "answer codes
+in the original continuation", "aligned cells and numbered rows"), the W-01 fault in a new coat.
+
+**What changed in BIE** (branch `task046c-money-words`): `simple_hindi.json` 2026-10-27.2 adds 192 everyday words (with their
+spoken forms: वादे, बकाये, जेबें, बटुए, सौदों, खातों, चायवाले, बिकती …); the formal words stay hard (काल्पनिक, कल्पित, निर्देश, मान्यता,
+मुख्यतः, महत्त्वपूर्ण, दायित्व, व्यापक, संस्था, परिभाषा …): the English word in brackets is the way. `visual_grammar.json` 2026-10-27.1
+extends W-01 with 13 English patterns for the source-pointing phrases, so `soul.wording_problems` sends such a beat back before
+the checker sees it; "energy का source" and "the answer is C" stay untouched. Tests: `tests/test_task046c_money_words.py` (7), in
+the toolbox core lane and the Task 045 lane; the version pins moved (`simple_hindi@2026-10-27.2`, `visual_grammar@2026-10-27.1`).
+
+| Measure (the run's own records, replayed) | Before | After |
+| --- | --- | --- |
+| Everyday words of money the list knows (of the 255 words flagged in the run) | 0 | 192 (the 63 formal ones stay hard) |
+| S2-04 flags on the failed scripts' last rounds | 24 of 32 code problems | 7, all formal words (व्यापक, दायित्व, मुख्यतः, दर्ज, स्तर, देय, मान्य) |
+| Failed scripts whose last answer is code-clean under the new list | 0 of 11 | 1 (v1); 7 keep 1–3 problems, 9 wait on the checker |
+| Source-pointing narration | the checker's call, 5 scripts, one round each | caught by code before the checker (W-01) |
+
+The words alone finish one script; the lever for the rest is the lesson resume (`t046c-money-lesson-c`): every failed script
+continues from its last answer with fresh rounds (round 0 without a maker call, then patches), as the tissue scripts did.
+
