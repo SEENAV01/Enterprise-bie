@@ -48,7 +48,7 @@ SECTIONS = ("understand", "lesson", "director", "notes", "game", "visual", "chai
 TOOL_SECTIONS = ("image", "look")
 FRESH_ENV = "BIE_VM_FRESH"         # set on the one re-run of a poll after the checkout moved to a newer main
 MAKERS = ("codex", "google", "openai")
-REVIEWERS = ("google", "openai")
+REVIEWERS = ("google", "openai", "codex")      # codex: the checker on the plan too (Navin, 27 October 2026)
 URL = re.compile(r"^https://[A-Za-z0-9._~:/?#\[\]@!$&'()*+,;=%-]{1,400}$")
 FIELDS = {
     "id": re.compile(r"^[a-z0-9][a-z0-9-]{2,60}$"),

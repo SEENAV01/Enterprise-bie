@@ -53,19 +53,21 @@ def _blend(model, env=None):
     return None if price is None else 0.3 * price[0] + 0.7 * price[1]
 
 
-def price_scale(maker_model, reviewer_model, env=None, *, maker_subscription=False) -> float | None:
-    """Price of these models against the measured basis; a subscription maker (Codex) adds no rupees."""
-    maker, reviewer = (0.0 if maker_subscription else _blend(maker_model, env)), _blend(reviewer_model, env)
+def price_scale(maker_model, reviewer_model, env=None, *, maker_subscription=False, reviewer_subscription=False) -> float | None:
+    """Price of these models against the measured basis; a subscription maker or checker (Codex) adds no rupees."""
+    maker = 0.0 if maker_subscription else _blend(maker_model, env)
+    reviewer = 0.0 if reviewer_subscription else _blend(reviewer_model, env)
     if maker is None or reviewer is None:
         return None
     return (MAKER_SHARE * maker + (1 - MAKER_SHARE) * reviewer) / BASIS_BLEND
 
 
 def estimate(mode: str, pages: int, *, rate: float, maker_model=None, reviewer_model=None, with_visual=False, env=None,
-             maker_subscription=False) -> dict:
+             maker_subscription=False, reviewer_subscription=False) -> dict:
     """Rupees per section for ``pages`` pages. ``scale`` is None when a model has no price (estimate on the basis)."""
     sections = SECTIONS_OF_MODE[mode] + (("visual",) if mode == "chain" and with_visual else ())
-    scale = (price_scale(maker_model, reviewer_model, env, maker_subscription=maker_subscription)
+    scale = (price_scale(maker_model, reviewer_model, env, maker_subscription=maker_subscription,
+                         reviewer_subscription=reviewer_subscription)
              if maker_model and reviewer_model else None)
     factor = 1.0 if scale is None else scale
     rows = {}
@@ -76,6 +78,7 @@ def estimate(mode: str, pages: int, *, rate: float, maker_model=None, reviewer_m
     total = round(sum(r["inr"] for r in rows.values()), 2)
     return {"pages": pages, "usd_inr": rate, "price_scale": None if scale is None else round(scale, 3),
             "maker_billing": "subscription" if maker_subscription else "api",
+            "reviewer_billing": "subscription" if reviewer_subscription else "api",
             "sections": rows, "total_inr": total,
             "measured_share_inr": round(sum(r["inr"] for r in rows.values() if r["basis"] == "measured"), 2)}
 
