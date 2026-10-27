@@ -841,6 +841,12 @@ PR B (only after Navin's yes): live runs on the Gemini key, maker `google/gemini
   in a job's `env`; the `github` context is.) After the merge, the push-to-main `assets`
   job saves the tiles the first time the server answers a runner; from then on every PR restores them. Until that first
   save, a PR's `demos (2)` still depends on the server (PR #82 waits for it; no rerun, no empty commit).
+  **Proof (27 October 2026, 12:10 UTC):** a dispatch of the toolbox workflow on the fix branch (run 40501674589) ran the
+  fixed `assets` job: both GMT tables and the two SRTM15+ 2-arc-minute tiles fetched in 5 s, then
+  `Cache saved with key: bie-asset-cache-shared-40501674589` (5.5 MB). A pull-request run can restore a cache made on
+  its own head branch (GitHub's cache scope: the merge ref, the base branch and the head branch), so the fix PR's own
+  `demos (2)` passed at 12:29 and PR #83 merged at `2146ab7d` with every check green; PR #82 brings the fix in with a
+  merge from `main`.
 - F-15 (27 October 2026, PR #83 run 40496661612, job `demos (3)`, head `2ba63b6e`): `hist-archive-images` failed with
   `HTTPError: HTTP Error 500: Internal Server Error` from Wikimedia Commons or Openverse (the receipt did not say which;
   the other 15 batch-3 clips passed, the five economy clips among them). Not rerun (rule CI-2). Fix, in the same small CI
