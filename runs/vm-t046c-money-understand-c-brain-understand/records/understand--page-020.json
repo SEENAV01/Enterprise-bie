@@ -1,0 +1,1393 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "understand",
+ "unit": "page-020",
+ "status": "passed",
+ "instructions_version": "understand-page/4",
+ "rulebook_version": "canvas_profile@2026-10-27.2+content_types@2026-10-27.1+explanations@2026-10-24.1+level_profiles@2026-10-24.1+simple_hindi@2026-10-27.1+teacher_examples@2026-10-27.1+vision-2026-10-21@2026-10-21.14+visual_grammar@2026-10-26.2+visual_levels@2026-10-26.2",
+ "rulebook_digest": "c7a8f214a74b3cd890a86c1da6438388680054c0280419aaf4a02f2b5d53ad01",
+ "rules_used": [
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-05",
+  "G-06",
+  "G-07",
+  "S1-01",
+  "S1-02",
+  "S1-03",
+  "S1-04",
+  "S1-05",
+  "S1-06",
+  "S1-07",
+  "S1-08",
+  "S1-09",
+  "S1-10",
+  "S1-11",
+  "S1-13",
+  "S1-14",
+  "S1-15",
+  "S1-16"
+ ],
+ "maker_route": "codex",
+ "reviewer_route": "codex-checker",
+ "maker_model": "gpt-6.1-sol",
+ "reviewer_model": "gpt-6.1-sol",
+ "reviewer_independence": "same_model_temporary",
+ "inputs_digest": "cd1b260a37c4cb40f50f8cbe9839f5ba91f435278585a64c72f6e51c0ee4f559",
+ "card": {
+  "card": "bie.task-card/1",
+  "card_id": "understand.read_page@3-money/page-020",
+  "section": "understand",
+  "task": "read_page",
+  "prefix": {
+   "prefix_id": "understand.read_page/4",
+   "rulebook_version": "canvas_profile@2026-10-27.2+content_types@2026-10-27.1+explanations@2026-10-24.1+level_profiles@2026-10-24.1+simple_hindi@2026-10-27.1+teacher_examples@2026-10-27.1+vision-2026-10-21@2026-10-21.14+visual_grammar@2026-10-26.2+visual_levels@2026-10-26.2",
+   "content_types_version": "2026-10-27.1",
+   "schema_id": "bie.brain.understand-page/4",
+   "sha256": "1ae5fefce1a6f5f277155326fdfcce64f7f2c8e545bef37c13a6d82a8ad76e9e"
+  },
+  "unit": {
+   "unit_id": "page-020",
+   "title": "Page 20 of 20",
+   "pages": [
+    20
+   ]
+  },
+  "parts": [
+   {
+    "part_id": "b1",
+    "item_ids": [
+     "p0020-b0008"
+    ],
+    "type": "timeline",
+    "questions": [
+     "when",
+     "why"
+    ],
+    "focus": "BIE proposes timeline (strong): pattern '2018'"
+   },
+   {
+    "part_id": "img",
+    "item_ids": [
+     "p0020-image"
+    ],
+    "type": "none",
+    "questions": [
+     "what"
+    ],
+    "focus": "The page image: capture every table, diagram, label and arrow it shows (S1-01); its items get the type of what they show."
+   }
+  ],
+  "rules": [
+   "G-01",
+   "G-02",
+   "G-03",
+   "G-05",
+   "G-06",
+   "G-07",
+   "S1-01",
+   "S1-02",
+   "S1-03",
+   "S1-04",
+   "S1-05",
+   "S1-06",
+   "S1-07",
+   "S1-08",
+   "S1-09",
+   "S1-10",
+   "S1-11",
+   "S1-13",
+   "S1-14",
+   "S1-15",
+   "S1-16"
+  ],
+  "output": {
+   "schema_id": "bie.brain.understand-page/4",
+   "mode": "full",
+   "max_output_tokens": 32000
+  },
+  "coverage": {
+   "must_cover": [
+    "p0020-b0002",
+    "p0020-b0003",
+    "p0020-b0004",
+    "p0020-b0005",
+    "p0020-b0006",
+    "p0020-b0007",
+    "p0020-b0008",
+    "p0020-b0009",
+    "p0020-b0010",
+    "p0020-b0011",
+    "p0020-b0012",
+    "p0020-b0013",
+    "p0020-b0014",
+    "p0020-b0015",
+    "p0020-b0016"
+   ],
+   "claim_field": "items[].block_ids or boilerplate_block_ids",
+   "may_skip": [
+    {
+     "item_id": "p0020-b0001",
+     "reason": "running header (the same first line as the next or previous page)"
+    },
+    {
+     "item_id": "p0020-b0017",
+     "reason": "page number"
+    }
+   ]
+  },
+  "context": {
+   "map_slice": [],
+   "before": "1. NPCI helps in promoting the financial inclusion in the country.",
+   "after": ""
+  },
+  "source": {
+   "block_ids": [
+    "p0020-b0001",
+    "p0020-b0002",
+    "p0020-b0003",
+    "p0020-b0004",
+    "p0020-b0005",
+    "p0020-b0006",
+    "p0020-b0007",
+    "p0020-b0008",
+    "p0020-b0009",
+    "p0020-b0010",
+    "p0020-b0011",
+    "p0020-b0012",
+    "p0020-b0013",
+    "p0020-b0014",
+    "p0020-b0015",
+    "p0020-b0016",
+    "p0020-b0017"
+   ],
+   "page_images": [
+    {
+     "page": 20,
+     "sha256": "90ff9e5b25d39b57fbbffc2518dd77248fb3c2cf5c783ed85a99acf8915910ea"
+    }
+   ]
+  }
+ },
+ "prefix_sha256": "1ae5fefce1a6f5f277155326fdfcce64f7f2c8e545bef37c13a6d82a8ad76e9e",
+ "review_prefix_sha256": "83500c081831288a3a1b8999bc40f17383cd5e1c349b7030f835fca5c1a8888c",
+ "inputs": {
+  "system": "BIE task prefix understand.read_page/4 · rulebook canvas_profile@2026-10-27.2+content_types@2026-10-27.1+explanations@2026-10-24.1+level_profiles@2026-10-24.1+simple_hindi@2026-10-27.1+teacher_examples@2026-10-27.1+vision-2026-10-21@2026-10-21.14+visual_grammar@2026-10-26.2+visual_levels@2026-10-26.2 · content types 2026-10-27.1 · schema bie.brain.understand-page/4\n\nYou are BIE's book-understanding section: an expert teacher of Indian Economy for UPSC / State PCS aspirants preparing for UPSC / State PCS.\nYou read one page of a book chapter with two eyes, the page's native text blocks and the page image, and turn it into a complete,\nquestion-based teacher's understanding. Later BIE sections build the video lessons, the chapter game and the notes only from what you\ncapture, so anything you miss is missing from the whole course. Your output is internal to BIE: write it in clear English and keep the\nbook's own terms and spellings.\nCourse: \"3. Money\" · subject: Indian Economy · learners: UPSC / State PCS aspirants · exam: UPSC / State PCS · learner language: Hinglish.\n\nNavin's rules for this task (follow every one):\n[G-01] Everything taught comes from the book. Knowledge from outside the book is allowed only to explain the book better; it is marked as outside, standard textbook-level and correct. Never invent facts, numbers, names or quotations.\n[G-02] Work like the best teacher of these learners and this exam, not like a summariser. Depth beats brevity: nothing teachable on the page is skipped or compressed away, and every explanation makes a student understand, not just remember. Depth means understanding, not length: lesson narration keeps S2-01's time by cutting repetition and side-tracks, never book content.\n[G-03] Before the output, fill 'notes' with brief notes for the reviewer and for Navin: what this unit is about, the key questions a teacher must answer about it, the main decisions you made with a one-line reason each, and anything uncertain. Keep the notes short; they explain the work, they are not the work.\n[G-05] Never drop or compress away what the book teaches to fit a length. If a unit of work is too large, it is split by BIE into smaller units; within a unit, the book's content is complete. Lesson narration has a time target (S2-01), met by cutting repetition and side-tracks, never book content.\n[G-06] BIE is the link between the learner and the book, like a teacher (Navin, 24 October 2026). The book is the base; BIE carries its text, easy or hard, into the learner's mind. Never just read the line out: every book line is opened (what its words mean, why it is so, where it is seen, what follows), at the depth of the level profile.\n[G-07] Two layers, like a film (Navin, 24 October 2026). The writer layer (understanding, plan, script) decides what is said and how deep, following the level profile and the book's own level. The presentation layer (director, video blocks, render) is the same skilled quality for every learner, from class 6 to postgraduate; only the detail shown follows the level, never the craft.\n[S1-01] Read the page with two eyes: the native text blocks (exact words and numbers) and the page image (tables, diagrams, labels, arrows, equations, layout). Items that exist only in the image are as important as text items. A page whose text layer is empty or nearly empty is read entirely from the image.\n[S1-02] Every native text block is either covered by an item (its id in that item's block_ids) or listed as boilerplate. Boilerplate is only running headers, page numbers, publisher adverts, contact lines and watermarks; nothing teachable is boilerplate.\n[S1-03] Every table becomes one 'table' item plus one 'table_row' item per row, in order, each row's content giving every cell with its column header, for example 'Smooth muscle | Location: G.I. tract, uterus, eye, blood vessels | Function: peristalsis, blood pressure, pupil size, erects hairs | Appearance: no striations, one central nucleus | Control: involuntary'. A table continued from the previous page continues the same table.\n[S1-04] Every diagram, chart, flow or tree becomes one 'diagram' item that says what it shows and how its parts connect (arrows, branches, flows, sequence), plus one 'diagram_label' item per label naming what the label points to. A classification tree lists every branch and leaf with its parent.\n[S1-05] Every equation, formula, chemical formula and symbol is read exactly and each symbol's meaning and unit are stated.\n[S1-06] Understand every teachable item by questioning it like a teacher. Ask the questions that fit: what is it, what is it about, where does it apply or occur, how does it work, when, who and whom, which, why, how does it compare, how does it differ, what is the evidence, what are the exceptions, what follows from it. Then keep asking 'why' and 'how' on your own answers (depth 2, 3 ...) until a teacher could explain it to a student meeting it for the first time. Answers explain; they never just repeat the item's words.\n[S1-07] Mark every answer's basis: 'book' only when the page itself states it, 'outside' when any part comes from general knowledge. Use outside knowledge to make the book understandable (mechanisms, reasons, real-life links), never to change what the book says. Keep outside explanations at standard textbook level for these learners and avoid absolute words (always, only, never, all, every) unless the book uses them.\n[S1-08] Give every item its true content type, one of BIE's nine: process, structure, classification, comparison, timeline, cause_effect, facts_numbers, figure, definition (bie/brain/rulebook/content_types.json). An example takes the type of what it illustrates; a question or an answer option is a role, not a type. BIE's code proposes a type before you read the page; when you choose another, say why. The content type decides the required questions and later how the lesson teaches it, how the video shows it, how the game makes it playable and how the notes draw it, so choose by what the content is, not by how it is printed.\n[S1-09] Name the prerequisites a student must already understand for each item, as concrete concepts ('cell and its nucleus', 'what a nerve impulse is'), never vague ('basic biology'). Prerequisites are taught later, not just listed.\n[S1-10] Judge exam importance for the course's exam (for UPSC / State PCS: classifications, comparisons, locations, functions, examples and odd-one-out facts are high). Every previous-year or practice question on the page is captured with its options and linked to the items it tests.\n[S1-11] Where the text layer and the image disagree (garbled symbols, missing words, wrong order), report the disagreement. Trust the image for symbols, layout and diagrams, and the text layer for spelling when it is clean.\n[S1-13] A printed typo stays as printed, with the right word after it in square brackets: 'Cartiage [Cartilage]' (Navin, 23 October 2026). The teacher answers use the right word. Never correct the book silently.\n[S1-14] One answer, one basis (Navin, 23 October 2026): an answer that would mix what the book says with an outside explanation becomes two answers, one with basis 'book' (only what the page states) and one with basis 'outside'.\n[S1-15] Open every teachable item for the learner (Navin, 24 October 2026): in unpack, the terms the learner must hold (each with its plain meaning in simple Hindi and one everyday image), a why chain of 1-4 steps that starts from a need or a problem (each step names its basis, book or standard), an example or the place where it is seen, the consequence, the visual verb the video should show, and what the level profile adds. Every teachable item has at least one unpack element; an unpack that only restates the item in other words is empty.\n[S1-16] Apply every economics concept in the real world first (Navin, 27 October 2026): in a chapter of the economics family, every definition, cause_effect and process item carries in its unpack a real_world_example: a place (bazaar, kirana shop, mandi, bank, factory, petrol pump, farm), actors (shopkeeper, buyers, farmer, worker, bank, RBI, government), real goods or money (sugar, onion, petrol, salary, loan, EMI), numbers that change (before → after) and at least two steps, each mapped to a link of the concept's mechanism; then the sentence that names the term after the story, and one line on where the learner meets it in real life. The example is economically correct (the mechanism it runs is the concept's) and fits the learner's level (UPSC: the real Indian link, for example repo rate → home-loan EMI, only from the book or a dated source). Navin's example: a kirana shop with 3 packets of sugar at ₹50, buyers 2 → 12, the price ₹65, only 3 can buy: demand-pull inflation.\n\nBIE's content types (the type of an item decides its required questions and how it is taught, shown, played and drawn):\n- process · Process: Something that happens in steps or stages over time: a mechanism, a procedure, a cycle (photosynthesis, cell division, how a bill becomes law). Required questions: how (kaise), when (kab). Other questions: what (kya), where (kahan), why (kyun), consequence (nateeja).\n- structure · Structure: Something made of parts arranged in space, each part with a function (a cell, a leaf, the heart, a machine, the Parliament). Required questions: what (kya), where (kahan). Other questions: how (kaise), why (kyun), which (kaun).\n- classification · Classification: A group divided into kinds by a stated basis (types of tissues, kinds of rocks, kinds of writs). Required questions: which (kaun), difference (tulna). Other questions: what (kya), evidence (saboot), where (kahan).\n- comparison · Comparison: Two or more things set side by side on stated criteria (plant and animal cells, Lok Sabha and Rajya Sabha). Required questions: compare (tulna), difference (tulna). Other questions: what (kya), why (kyun), evidence (saboot).\n- timeline · Timeline: Events placed in time: history, the development of an idea, stages of a life (the Revolt of 1857, evolution of cell theory). Required questions: when (kab), why (kyun). Other questions: who (kaun), where (kahan), consequence (nateeja).\n- cause_effect · Reasoning (cause and effect): Why something happens: causes, effects, conditions and chains of reasoning (why tissues specialise, why prices rise, why a law was needed). Required questions: why (kyun), how (kaise). Other questions: consequence (nateeja), evidence (saboot), exception (tulna).\n- facts_numbers · Facts and numbers: Stated facts, quantities, measurements, statistics and formulas (heart rate 72 per minute, 3,000 against 50,000 soldiers at Plassey, F = ma). Required questions: what (kya), evidence (saboot). Other questions: compare (tulna), why (kyun).\n- figure · Figure: A diagram, photo, map, graph or table drawing on the page whose content is visual (tissue pages 2, 7 and 8 are figures only). Required questions: what (kya), which (kaun). Other questions: how (kaise), why (kyun).\n- definition · Definition: A term and its meaning as the book states it (tissue, meristem, sovereignty). Required questions: what (kya), evidence (saboot). Other questions: about (kya), why (kyun).\n\nOutput schema (JSON):\n{\"additionalProperties\":false,\"properties\":{\"boilerplate_block_ids\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"items\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"block_ids\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"content\":{\"type\":\"string\"},\"content_type\":{\"enum\":[\"process\",\"structure\",\"classification\",\"comparison\",\"timeline\",\"cause_effect\",\"facts_numbers\",\"figure\",\"definition\",\"none\"],\"type\":\"string\"},\"exam_importance\":{\"enum\":[\"high\",\"medium\",\"low\"],\"type\":\"string\"},\"exam_note\":{\"type\":\"string\"},\"item_id\":{\"type\":\"string\"},\"kind\":{\"enum\":[\"heading\",\"paragraph\",\"definition\",\"list_point\",\"example\",\"table\",\"table_row\",\"diagram\",\"diagram_label\",\"equation\",\"symbol\",\"box_note\",\"caption\",\"question\",\"answer_option\",\"other\"],\"type\":\"string\"},\"parent_item_id\":{\"type\":\"string\"},\"prerequisites\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"source\":{\"enum\":[\"text\",\"image\",\"both\"],\"type\":\"string\"},\"teachable\":{\"type\":\"boolean\"},\"teacher_understanding\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"answer\":{\"type\":\"string\"},\"ask\":{\"enum\":[\"what\",\"about\",\"where\",\"how\",\"when\",\"who\",\"whom\",\"which\",\"why\",\"compare\",\"difference\",\"evidence\",\"exception\",\"consequence\"],\"type\":\"string\"},\"basis\":{\"enum\":[\"book\",\"outside\"],\"type\":\"string\"},\"depth\":{\"description\":\"1 for a first question; 2, 3 ... for a deeper why/how on an earlier answer\",\"type\":\"integer\"},\"question\":{\"type\":\"string\"}},\"required\":[\"depth\",\"ask\",\"question\",\"answer\",\"basis\"],\"type\":\"object\"},\"type\":\"array\"},\"tests_item_ids\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"type_note\":{\"type\":\"string\"},\"unpack\":{\"additionalProperties\":false,\"properties\":{\"consequence\":{\"type\":\"string\"},\"example_or_place\":{\"type\":\"string\"},\"level_extra\":{\"type\":\"string\"},\"real_world_example\":{\"additionalProperties\":false,\"properties\":{\"actors\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"goods\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"numbers\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"after\":{\"type\":\"string\"},\"before\":{\"type\":\"string\"},\"what\":{\"type\":\"string\"}},\"required\":[\"what\",\"before\",\"after\"],\"type\":\"object\"},\"type\":\"array\"},\"place\":{\"type\":\"string\"},\"real_life_link\":{\"type\":\"string\"},\"steps\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"mechanism_link\":{\"type\":\"string\"},\"step\":{\"type\":\"string\"}},\"required\":[\"step\",\"mechanism_link\"],\"type\":\"object\"},\"type\":\"array\"},\"term_after\":{\"type\":\"string\"}},\"required\":[\"place\",\"actors\",\"goods\",\"numbers\",\"steps\",\"term_after\",\"real_life_link\"],\"type\":\"object\"},\"terms\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"everyday_image\":{\"type\":\"string\"},\"plain_meaning\":{\"type\":\"string\"},\"term\":{\"type\":\"string\"}},\"required\":[\"term\",\"plain_meaning\",\"everyday_image\"],\"type\":\"object\"},\"type\":\"array\"},\"visual_verb\":{\"type\":\"string\"},\"why_chain\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"basis\":{\"enum\":[\"book\",\"standard\"],\"type\":\"string\"},\"step\":{\"type\":\"string\"}},\"required\":[\"step\",\"basis\"],\"type\":\"object\"},\"type\":\"array\"}},\"required\":[\"terms\",\"why_chain\",\"example_or_place\",\"consequence\",\"visual_verb\",\"level_extra\",\"real_world_example\"],\"type\":\"object\"},\"where_on_page\":{\"type\":\"string\"}},\"required\":[\"item_id\",\"kind\",\"parent_item_id\",\"source\",\"block_ids\",\"where_on_page\",\"content\",\"content_type\",\"type_note\",\"teachable\",\"teacher_understanding\",\"prerequisites\",\"exam_importance\",\"exam_note\",\"tests_item_ids\",\"unpack\"],\"type\":\"object\"},\"type\":\"array\"},\"notes\":{\"additionalProperties\":false,\"properties\":{\"about\":{\"description\":\"What this unit of work is about and how it fits the whole (one or two sentences).\",\"type\":\"string\"},\"decisions\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"decision\":{\"type\":\"string\"},\"reason\":{\"type\":\"string\"}},\"required\":[\"decision\",\"reason\"],\"type\":\"object\"},\"type\":\"array\"},\"key_questions\":{\"description\":\"The key questions a teacher must answer about this unit.\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"uncertain\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"}},\"required\":[\"about\",\"key_questions\",\"decisions\",\"uncertain\"],\"type\":\"object\"},\"page_summary\":{\"type\":\"string\"},\"text_image_disagreements\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"block_ids\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"image_shows\":{\"type\":\"string\"},\"text_says\":{\"type\":\"string\"}},\"required\":[\"block_ids\",\"text_says\",\"image_shows\"],\"type\":\"object\"},\"type\":\"array\"}},\"required\":[\"notes\",\"page_summary\",\"items\",\"boilerplate_block_ids\",\"text_image_disagreements\"],\"type\":\"object\"}\n\nHow BIE talks to you: every request is a task card (JSON) followed by its source. The card names the unit, its parts with their content type and required questions, the ids of the rules above that apply, the output, the ids you must cover and the context. The card is BIE's instruction; the source is the material.\nFor a read_page card:\n- card.parts: BIE's code has already proposed a content type for groups of this page's native text blocks (item_ids are block ids;\n  \"pNNNN-image\" is the page image), with the evidence in \"focus\". It is a proposal from keywords and patterns, not a verdict: give\n  every item its true type (S1-08). When you choose another type than BIE's proposal for an item's blocks, say why in one line in that\n  item's type_note; BIE's code compares every item and sends unexplained differences back to you.\n- card.coverage: every id in must_cover must be in some item's block_ids or in boilerplate_block_ids; may_skip lists blocks BIE thinks are\n  running headers or page numbers. Never list an id that is not on this page.\n- card.context.before and after: one line from the previous and the next page, for context only.\nHow to fill the JSON:\n- notes: brief notes for the reviewer: what the page is about and how it fits the chapter, the key questions a teacher must answer,\n  your main decisions (how you split items, how you read an unclear part, a type you chose against BIE's proposal) with a reason each,\n  and what is uncertain.\n- items: everything on the page, in reading order.\n  - item_id: short and unique on this page (\"i1\", \"i2\", ...).\n  - kind: heading, paragraph, definition, list_point, example, table (the whole table), table_row (one per row), diagram (the whole figure),\n    diagram_label (one per label), equation, symbol, box_note, caption, question (a PYQ or practice question), answer_option, other.\n  - parent_item_id: the table of a table_row, the diagram of a diagram_label, the question of an answer_option, else \"\". When the page\n    starts with the options of a question printed on the previous page, add one question item for that question (content: \"continued\n    from the previous page\" and what the options answer) and make it their parent.\n  - source: \"text\" if the item comes from native text blocks, \"image\" if it is visible only in the image, \"both\" if both show it.\n  - block_ids: the ids of the native text blocks this item covers ([] for image-only items). Use only ids from the card.\n  - where_on_page: where it is (\"top table, row 2\", \"right diagram, label at the axon end\").\n  - content: the exact words for text items; a complete, faithful reading for image items (every cell with its column header for a\n    table_row; what a label names and what it points to for a diagram_label; all branches for a tree). A printed typo stays as\n    printed with the right word after it in square brackets, \"Cartiage [Cartilage]\" (S1-13); never correct the book silently.\n  - content_type: one of BIE's nine type ids above, by what the content is. An example takes the type of what it illustrates; a table\n    row or a diagram label usually takes its table's or diagram's type. \"none\" only for a question, an answer option or an item that is\n    not teachable.\n  - type_note: \"\" when you agree with BIE's proposal for this item's blocks (or there is none); otherwise one line on why your type fits.\n  - teachable: false only for pure headings and containers whose children carry the content.\n  - teacher_understanding: the teacher's questions and answers for this item (S1-06); depth 1 for first questions, 2 and more for\n    \"why\"/\"how\" on an earlier answer; basis \"book\" only if the page states it, else \"outside\"; one answer, one basis: an answer that\n    would mix what the book says with an outside explanation becomes two answers, one \"book\" and one \"outside\" (S1-14). BIE's code\n    checks every teachable item:\n    at least two questions, at least one \"why\" or \"how\", at least the required questions of its content type, and no answer that only\n    repeats its question or the item's words.\n  - prerequisites: concrete concepts a student must understand first.\n  - exam_importance and exam_note: for this exam.\n  - tests_item_ids: for a question, the ids on this page that it tests ([] if they are on other pages).\n  - unpack: how a teacher opens this book line for the learner (S1-15; BIE is the link between the learner and the book, never a\n    reader of the line). For every teachable item, at the depth of the level profile below:\n    terms = the words of the line the learner must own: [{term (as the book spells it), plain_meaning (everyday spoken Hindi in Devanagari\n    with the book's English terms in Roman: \"tissue\", \"cell\", \"epithelium\", \"muscle\", never their textbook Hindi ऊतक, कोशिका, उपकला, मांसपेशी;\n    BIE's code sends an item back for a textbook translation. For example \"absorptive surface\" → \"जहाँ चीज़ें अंदर ली जाती हैं\"),\n    everyday_image (one image from the learner's\n    home or body: \"आँत खाने के पोषक तत्व सोखती है, जैसे कागज़ पानी\")}]; why_chain = the why in steps, starting from a need or a\n    problem (\"पेट में HCl बनता है, इसलिए अंदर एक lining चाहिए\"), each step with its basis: \"book\" when the page says it, \"standard\"\n    when it is standard textbook knowledge; example_or_place = one example, or the place by a zoom from the organ the learner knows;\n    consequence = what follows, and the link to the previous or the next idea of the page; visual_verb = what visibly happens on the\n    screen when this is taught (\"particles cross the thin layer\"); level_extra = what this level adds (the other names, the exam's\n    trap, the memory trick) or \"\". BIE's code checks that every teachable item has at least one unpack element and that every why\n    step names its basis; a locked explanation given with the source is reused as it is. A question item or a pure heading leaves\n    unpack empty.\n  - unpack.real_world_example (S1-16; Navin, 27 October 2026: \"economic concepts ko real world mein apply karke samjhao\"): in a chapter\n    of the economics family, for every definition, cause_effect and process item, the concept APPLIED in an everyday Indian situation\n    before it is named: place (bazaar, kirana shop, mandi, bank, factory, petrol pump, farm); actors (shopkeeper, buyers, farmer,\n    worker, bank, RBI, government); goods (the real goods or money: sugar, onion, petrol, salary, loan, EMI); numbers (each\n    {what, before, after}, written with digits: {\"what\": \"price\", \"before\": \"₹50\", \"after\": \"₹65\"}, {\"what\": \"buyers\", \"before\": \"2\",\n    \"after\": \"12\"}); steps (at least two, each {step, mechanism_link}: the story step by step, and the link of the concept's mechanism\n    that step shows); term_after (the sentence that names the term only after the story: \"isliye ise demand-pull inflation kehte\n    hain\"); real_life_link (one line on where the learner meets it; UPSC: the real Indian link, for example repo rate → home-loan EMI,\n    only from the page or a dated source). The example must be economically correct: the mechanism it runs is the concept's, and the\n    numbers move the way the concept says. Navin's example: a kirana shop with 3 packets of sugar at ₹50; buyers 2 → 12; the price\n    ₹65; only 3 can buy: demand-pull inflation. BIE's code checks the place, an actor, the goods, a number that changes, two steps with\n    their links, term_after and real_life_link. Every other item (another subject family, another type, a question, a heading) leaves\n    it empty (\"\" and []).\n- boilerplate_block_ids: ids of running headers, page numbers, adverts, contact lines and watermarks only.\n- text_image_disagreements: where the text layer and the image differ.\nReply with the JSON object only.\n\nLevel profile: UPSC / State PCS (level_profiles.json; learners: UPSC and State PCS aspirants, often from arts backgrounds, who need understanding more than technical vocabulary).\n- Terms: fewer technical terms: only the ones the exam asks, each opened with its plain meaning and an everyday image; a term the exam never asks is explained in words, not named.\n- Why: 2 step(s); a two-step why from a need the learner can feel, then its link to daily life, health or governance.\n- Where found: the main places, each linked to something the learner already knows (a disease, a food, a news item).\n- Exam beats: the PYQ pattern: how this fact has been asked (statement combinations, 'which is correct', odd one out) and the wording that traps.\n- Links: daily life, health, the news and earlier chapters of the same paper.\n\nHow real teachers open a book line (teacher example bank 2026-10-27.1; use these ways, in your own words):\n- One everyday image per shape or function (every term that names a shape, a layer or a job): Chaadar bichhi ho to bistar bacha rehta hai = protective sheet. Cube wala game, har side barabar = cuboidal. Building ka pillar = columnar. Farsh ki tiles = squamous, isliye tessellated bhi kehte hain.\n- The word root where it helps (a term whose parts carry its meaning): Epi yaani upar; epithelium yaani upar ki parat. Slender yaani long aur narrow.\n- Why starts from a need (every why step): Pet mein HCl banta hai, isliye andar ek lining chahiye jo khud na jale. Cells bahar ki taraf hain, tootne ka chance zyada, isliye regeneration zyada.\n- Link to something already known (a new place or a new structure): Peritoneum, jaise lungs ke aas-paas pleura aur heart ke aas-paas pericardium: wahi kaam, pet ke andar.\n- Meaning with two or three real examples (an abstract word in the book): Sensory perception yaani pehchanna: thanda lagna, dard hona, pressure mehsoos karna.\n- Open the book's adjective (Navin's example) (a book line names a kind of surface, job or place without saying what it is): Book: 'epithelium absorptive aur secretive surfaces par milta hai'. Teacher: absorptive surface yaani jahan cheezein andar li jaati hain, jaise aant khane ke poshak tatva sokhti hai; secretive yaani jahan cells kuch bana kar bahar chhodte hain, jaise glands enzyme ya juice. Aur epithelium wahan kyon? Kyunki ek patli, lagi hui parat hi cheezon ko paar jaane de sakti hai aur bana kar chhod sakti hai.\n- Apply it in the real world first, then name it (Navin's sugar shop) (every economics concept (a definition, a cause-and-effect chain, a process): the example runs before the term is named): Ek kirana shop mein chini ke 3 packet hain, ₹50 ka ek. Kal 2 khareedar aaye the, aaj 12 aa gaye; sab ko chini chahiye par packet 3 hi hain. Dukandar daam ₹65 kar deta hai; ab sirf 3 log kharid paate hain, baaki 9 khaali haath. Zyada log, utna hi maal, isliye daam upar. Isliye ise demand-pull inflation kehte hain. Phir book ki definition. Phir: yahi aap Diwali se pehle sabzi mandi mein dekhte hain.",
+  "user": [
+   {
+    "type": "text",
+    "text": "BIE task card (JSON):\n{\"card\":\"bie.task-card/1\",\"card_id\":\"understand.read_page@3-money/page-020\",\"section\":\"understand\",\"task\":\"read_page\",\"prefix\":{\"prefix_id\":\"understand.read_page/4\",\"rulebook_version\":\"canvas_profile@2026-10-27.2+content_types@2026-10-27.1+explanations@2026-10-24.1+level_profiles@2026-10-24.1+simple_hindi@2026-10-27.1+teacher_examples@2026-10-27.1+vision-2026-10-21@2026-10-21.14+visual_grammar@2026-10-26.2+visual_levels@2026-10-26.2\",\"content_types_version\":\"2026-10-27.1\",\"schema_id\":\"bie.brain.understand-page/4\",\"sha256\":\"1ae5fefce1a6f5f277155326fdfcce64f7f2c8e545bef37c13a6d82a8ad76e9e\"},\"unit\":{\"unit_id\":\"page-020\",\"title\":\"Page 20 of 20\",\"pages\":[20]},\"parts\":[{\"part_id\":\"b1\",\"item_ids\":[\"p0020-b0008\"],\"type\":\"timeline\",\"questions\":[\"when\",\"why\"],\"focus\":\"BIE proposes timeline (strong): pattern '2018'\"},{\"part_id\":\"img\",\"item_ids\":[\"p0020-image\"],\"type\":\"none\",\"questions\":[\"what\"],\"focus\":\"The page image: capture every table, diagram, label and arrow it shows (S1-01); its items get the type of what they show.\"}],\"rules\":[\"G-01\",\"G-02\",\"G-03\",\"G-05\",\"G-06\",\"G-07\",\"S1-01\",\"S1-02\",\"S1-03\",\"S1-04\",\"S1-05\",\"S1-06\",\"S1-07\",\"S1-08\",\"S1-09\",\"S1-10\",\"S1-11\",\"S1-13\",\"S1-14\",\"S1-15\",\"S1-16\"],\"output\":{\"schema_id\":\"bie.brain.understand-page/4\",\"mode\":\"full\",\"max_output_tokens\":32000},\"coverage\":{\"must_cover\":[\"p0020-b0002\",\"p0020-b0003\",\"p0020-b0004\",\"p0020-b0005\",\"p0020-b0006\",\"p0020-b0007\",\"p0020-b0008\",\"p0020-b0009\",\"p0020-b0010\",\"p0020-b0011\",\"p0020-b0012\",\"p0020-b0013\",\"p0020-b0014\",\"p0020-b0015\",\"p0020-b0016\"],\"claim_field\":\"items[].block_ids or boilerplate_block_ids\",\"may_skip\":[{\"item_id\":\"p0020-b0001\",\"reason\":\"running header (the same first line as the next or previous page)\"},{\"item_id\":\"p0020-b0017\",\"reason\":\"page number\"}]},\"context\":{\"map_slice\":[],\"before\":\"1. NPCI helps in promoting the financial inclusion in the country.\",\"after\":\"\"},\"source\":{\"block_ids\":[\"p0020-b0001\",\"p0020-b0002\",\"p0020-b0003\",\"p0020-b0004\",\"p0020-b0005\",\"p0020-b0006\",\"p0020-b0007\",\"p0020-b0008\",\"p0020-b0009\",\"p0020-b0010\",\"p0020-b0011\",\"p0020-b0012\",\"p0020-b0013\",\"p0020-b0014\",\"p0020-b0015\",\"p0020-b0016\",\"p0020-b0017\"],\"page_images\":[{\"page\":20,\"sha256\":\"90ff9e5b25d39b57fbbffc2518dd77248fb3c2cf5c783ed85a99acf8915910ea\"}]}}\n\nNative text blocks of this page (id | text):\np0020-b0001 | Indian Economy\np0020-b0002 | 2. NPCI has launched RuPay, a card payment scheme.\np0020-b0003 | Answer codes:\np0020-b0004 | (a) 1 only\np0020-b0005 | (b) 2 only\np0020-b0006 | (c) Both 1 and 2\np0020-b0007 | (d) Neither 1 nor 2\np0020-b0008 | What is “Merchant Discount Rate” ? (IAS-Prelims 2018)\np0020-b0009 | A. The incentive given by a bank to a merchant for accepting payments through debit cards\np0020-b0010 | pertaining to that bank.\np0020-b0011 | B. The amount paid back by banks to their customers when they use debit cards for financial\np0020-b0012 | transactions for purchasing goods or services.\np0020-b0013 | C. The charge to a merchant by a bank for accepting payments from his customers through the\np0020-b0014 | bank’s cards.\np0020-b0015 | D. The incentive given by the Government, to merchants for promoting digital payments by\np0020-b0016 | their customers through Point of Sale (PoS) machines and debit cards.\np0020-b0017 | 50"
+   },
+   {
+    "type": "text",
+    "text": "The page image:"
+   },
+   {
+    "type": "image",
+    "media_type": "image/png",
+    "sha256": "00ce7dbc6af888f01d090d229b98e5f4682f07476adfd89cb1a557f4eab03d77",
+    "base64_chars": 427564
+   },
+   {
+    "type": "text",
+    "text": "Read this page with both eyes and answer the card with the page understanding JSON."
+   }
+  ]
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "started_at": 1793122063.586384,
+   "mode": "full",
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "00c3c63fe28110d203f5aaacb084d6aa274411c4b67a9bedb0e745ef99b66b4d",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 14096,
+    "output_tokens": 6697,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "This final page continues an NPCI statement-combination question and presents a 2018 prelims question on Merchant Discount Rate (MDR). It tests payment-system institutions and the direction of payment-related charges.",
+    "key_questions": [
+     "What relationship does the page state between NPCI and RuPay?",
+     "Who pays MDR to whom, and for what service?",
+     "How does MDR differ from an incentive, cashback or government support?"
+    ],
+    "decisions": [
+     {
+      "decision": "Treat the 2018 label as an exam citation, not a timeline.",
+      "reason": "The question tests the meaning of MDR, not historical sequence."
+     },
+     {
+      "decision": "Keep the continued NPCI question separate from its visible statement and answer codes.",
+      "reason": "Its full stem and statement 1 are not printed on this page."
+     },
+     {
+      "decision": "Identify C as the MDR answer using outside textbook knowledge.",
+      "reason": "The page prints alternatives but does not supply an answer key."
+     },
+     {
+      "decision": "Use an explicitly hypothetical fee calculation.",
+      "reason": "It explains the deduction mechanism without claiming a current regulated MDR rate."
+     }
+    ],
+    "uncertain": [
+     "The full preceding NPCI question and its answer key are unavailable on this page; context supplies statement 1 only.",
+     "No MDR rate, exemptions or current policy rules are given."
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "This final page continues an NPCI statement-combination question and presents a 2018 prelims question on Merchant Discount Rate (MDR). It tests payment-system institutions and the direction of payment-related charges.",
+     "key_questions": [
+      "What relationship does the page state between NPCI and RuPay?",
+      "Who pays MDR to whom, and for what service?",
+      "How does MDR differ from an incentive, cashback or government support?"
+     ],
+     "decisions": [
+      {
+       "decision": "Treat the 2018 label as an exam citation, not a timeline.",
+       "reason": "The question tests the meaning of MDR, not historical sequence."
+      },
+      {
+       "decision": "Keep the continued NPCI question separate from its visible statement and answer codes.",
+       "reason": "Its full stem and statement 1 are not printed on this page."
+      },
+      {
+       "decision": "Identify C as the MDR answer using outside textbook knowledge.",
+       "reason": "The page prints alternatives but does not supply an answer key."
+      },
+      {
+       "decision": "Use an explicitly hypothetical fee calculation.",
+       "reason": "It explains the deduction mechanism without claiming a current regulated MDR rate."
+      }
+     ],
+     "uncertain": [
+      "The full preceding NPCI question and its answer key are unavailable on this page; context supplies statement 1 only.",
+      "No MDR rate, exemptions or current policy rules are given."
+     ]
+    },
+    "page_summary": "NPCI launched RuPay, a card payment scheme. The MDR PYQ contrasts a merchant's payment-acceptance charge with bank incentives, customer cashback and government incentives; C is correct by standard textbook knowledge.",
+    "items": [
+     {
+      "item_id": "i1",
+      "kind": "question",
+      "parent_item_id": "",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "top, continued question",
+      "content": "Continued from the previous page: NPCI statement-combination question; the visible statement concerns NPCI launching RuPay, and the answer codes select statement 1, statement 2, both, or neither.",
+      "content_type": "none",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What must the learner decide in this continued question?",
+        "answer": "The answer codes require deciding which of two statements are correct; only statement 2 is printed here.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How should a statement-combination question be approached when this page shows only one statement?",
+        "answer": "Assess the visible statement independently, then consult the preceding statement before choosing a combination. One true statement alone cannot distinguish '2 only' from 'Both 1 and 2'.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "How two-statement answer codes work"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Do not infer a complete answer key from the visible statement alone.",
+      "tests_item_ids": [
+       "i2"
+      ],
+      "unpack": {
+       "terms": [],
+       "why_chain": [],
+       "example_or_place": "",
+       "consequence": "",
+       "visual_verb": "",
+       "level_extra": "",
+       "real_world_example": {
+        "place": "",
+        "actors": [],
+        "goods": [],
+        "numbers": [],
+        "steps": [],
+        "term_after": "",
+        "real_life_link": ""
+       }
+      }
+     },
+     {
+      "item_id": "i2",
+      "kind": "list_point",
+      "parent_item_id": "i1",
+      "source": "both",
+      "block_ids": [
+       "p0020-b0002"
+      ],
+      "where_on_page": "top, first visible line",
+      "content": "2. NPCI has launched RuPay, a card payment scheme.",
+      "content_type": "facts_numbers",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "Which institution-product relationship must be learned?",
+        "answer": "The page associates NPCI with the launch of RuPay and identifies RuPay as a card payment scheme.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "evidence",
+        "question": "What evidence on this page supports that association?",
+        "answer": "Statement 2 explicitly names NPCI as the launching institution and RuPay as its card payment scheme.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How is a card payment scheme different from the bank account used to pay?",
+        "answer": "A scheme supplies the network arrangements and rules through which participating institutions handle card payments. The customer's bank account holds the funds; the scheme is not itself that account.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Bank account",
+       "Card payments"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Institution-product matching: NPCI—RuPay. Do not confuse a payment scheme with an account or bank.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "NPCI",
+         "plain_meaning": "National Payments Corporation of India; payments की व्यवस्था चलाने वाली संस्था",
+         "everyday_image": "दुकान पर card से दिए पैसे के पीछे जुड़ा payment network"
+        },
+        {
+         "term": "RuPay",
+         "plain_meaning": "card payment scheme का नाम; खुद bank account नहीं",
+         "everyday_image": "debit card पर लिखा RuPay"
+        },
+        {
+         "term": "card payment scheme",
+         "plain_meaning": "card से payment कराने के लिए banks को जोड़ने वाली व्यवस्था",
+         "everyday_image": "खरीदार और दुकानदार के banks को जोड़ता रास्ता"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "A customer and shopkeeper may use different banks, so card payments need a shared arrangement.",
+         "basis": "standard"
+        },
+        {
+         "step": "A card scheme provides that arrangement; the page links RuPay's launch to NPCI.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "A RuPay-branded card used at a shop's payment terminal.",
+       "consequence": "Recognise the institution behind the scheme without treating it as the customer's bank.",
+       "visual_verb": "Connect a RuPay card, shop terminal and participating banks.",
+       "level_extra": "Learn NPCI's expansion as supporting terminology; the printed examinable fact is NPCI launching RuPay.",
+       "real_world_example": {
+        "place": "",
+        "actors": [],
+        "goods": [],
+        "numbers": [],
+        "steps": [],
+        "term_after": "",
+        "real_life_link": ""
+       }
+      }
+     },
+     {
+      "item_id": "i3",
+      "kind": "heading",
+      "parent_item_id": "i1",
+      "source": "both",
+      "block_ids": [
+       "p0020-b0003"
+      ],
+      "where_on_page": "top, below statement 2",
+      "content": "Answer codes:",
+      "content_type": "none",
+      "type_note": "",
+      "teachable": false,
+      "teacher_understanding": [],
+      "prerequisites": [],
+      "exam_importance": "low",
+      "exam_note": "Introduces the continued question's alternatives.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [],
+       "why_chain": [],
+       "example_or_place": "",
+       "consequence": "",
+       "visual_verb": "",
+       "level_extra": "",
+       "real_world_example": {
+        "place": "",
+        "actors": [],
+        "goods": [],
+        "numbers": [],
+        "steps": [],
+        "term_after": "",
+        "real_life_link": ""
+       }
+      }
+     },
+     {
+      "item_id": "i4",
+      "kind": "answer_option",
+      "parent_item_id": "i1",
+      "source": "both",
+      "block_ids": [
+       "p0020-b0004"
+      ],
+      "where_on_page": "top, answer code a",
+      "content": "(a) 1 only",
+      "content_type": "none",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What truth combination does a mean?",
+        "answer": "Statement 1 is accepted and statement 2 is rejected.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why would accepting the RuPay statement eliminate a?",
+        "answer": "This option requires statement 2 to be false, whereas accepting the NPCI–RuPay link makes it true.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "True and false statements"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Read 'only' as excluding the other statement.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [],
+       "why_chain": [],
+       "example_or_place": "Two-statement prelims question.",
+       "consequence": "Eliminate a if statement 2 is accepted.",
+       "visual_verb": "Tick 1 and cross 2.",
+       "level_extra": "",
+       "real_world_example": {
+        "place": "",
+        "actors": [],
+        "goods": [],
+        "numbers": [],
+        "steps": [],
+        "term_after": "",
+        "real_life_link": ""
+       }
+      }
+     },
+     {
+      "item_id": "i5",
+      "kind": "answer_option",
+      "parent_item_id": "i1",
+      "source": "both",
+      "block_ids": [
+       "p0020-b0005"
+      ],
+      "where_on_page": "top, answer code b",
+      "content": "(b) 2 only",
+      "content_type": "none",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does b assert?",
+        "answer": "Statement 2 is true and statement 1 is false.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is knowing the RuPay fact insufficient to select b?",
+        "answer": "The same true statement 2 also occurs in c; statement 1 must be evaluated to distinguish them.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Two-statement combinations"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Do not select '2 only' merely because statement 2 is known.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [],
+       "why_chain": [],
+       "example_or_place": "The continued NPCI question.",
+       "consequence": "Evaluate statement 1 before selecting b.",
+       "visual_verb": "Cross 1 and tick 2.",
+       "level_extra": "",
+       "real_world_example": {
+        "place": "",
+        "actors": [],
+        "goods": [],
+        "numbers": [],
+        "steps": [],
+        "term_after": "",
+        "real_life_link": ""
+       }
+      }
+     },
+     {
+      "item_id": "i6",
+      "kind": "answer_option",
+      "parent_item_id": "i1",
+      "source": "both",
+      "block_ids": [
+       "p0020-b0006"
+      ],
+      "where_on_page": "top, answer code c",
+      "content": "(c) Both 1 and 2",
+      "content_type": "none",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does c require?",
+        "answer": "Each statement must independently be true.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How should c be verified?",
+        "answer": "Check the NPCI–RuPay statement and then the preceding financial-inclusion statement; agreement with just one does not establish both.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Independent evaluation of statements"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "No complete answer key is printed here.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [],
+       "why_chain": [],
+       "example_or_place": "The continued NPCI question.",
+       "consequence": "Both statements need checking.",
+       "visual_verb": "Tick both statement boxes.",
+       "level_extra": "",
+       "real_world_example": {
+        "place": "",
+        "actors": [],
+        "goods": [],
+        "numbers": [],
+        "steps": [],
+        "term_after": "",
+        "real_life_link": ""
+       }
+      }
+     },
+     {
+      "item_id": "i7",
+      "kind": "answer_option",
+      "parent_item_id": "i1",
+      "source": "both",
+      "block_ids": [
+       "p0020-b0007"
+      ],
+      "where_on_page": "top, answer code d",
+      "content": "(d) Neither 1 nor 2",
+      "content_type": "none",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does d require?",
+        "answer": "Both statements must be false.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why does accepting statement 2 rule out d?",
+        "answer": "A single true statement contradicts 'neither'; the NPCI–RuPay fact therefore suffices to eliminate d.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Meaning of neither"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "One verified true statement eliminates 'neither'.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [],
+       "why_chain": [],
+       "example_or_place": "The continued NPCI question.",
+       "consequence": "Eliminate d on accepting statement 2.",
+       "visual_verb": "Cross both boxes, then strike out this code.",
+       "level_extra": "",
+       "real_world_example": {
+        "place": "",
+        "actors": [],
+        "goods": [],
+        "numbers": [],
+        "steps": [],
+        "term_after": "",
+        "real_life_link": ""
+       }
+      }
+     },
+     {
+      "item_id": "i8",
+      "kind": "question",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0020-b0008"
+      ],
+      "where_on_page": "upper middle, bold question",
+      "content": "What is “Merchant Discount Rate” ? (IAS-Prelims 2018)",
+      "content_type": "none",
+      "type_note": "2018 identifies the PYQ year; this is a definition-identification question, not a timeline.",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What distinction does this question test?",
+        "answer": "It asks whether MDR is a merchant charge or one of the incentives or customer repayments described in the alternatives.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can the correct option be identified?",
+        "answer": "Trace the payment direction: MDR is charged to the merchant for accepting card payments. That matches C, not the alternatives describing money paid to merchants or customers.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is the word 'Discount' a trap?",
+        "answer": "It can suggest a shopping concession, but here it refers to the merchant-side payment-acceptance charge, not a customer discount.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Merchant",
+       "Debit card payment",
+       "Fee versus incentive"
+      ],
+      "exam_importance": "high",
+      "exam_note": "IAS-Prelims 2018 PYQ; C is correct by standard knowledge, not a printed answer key.",
+      "tests_item_ids": [
+       "i9",
+       "i10",
+       "i11",
+       "i12"
+      ],
+      "unpack": {
+       "terms": [],
+       "why_chain": [],
+       "example_or_place": "",
+       "consequence": "",
+       "visual_verb": "",
+       "level_extra": "",
+       "real_world_example": {
+        "place": "",
+        "actors": [],
+        "goods": [],
+        "numbers": [],
+        "steps": [],
+        "term_after": "",
+        "real_life_link": ""
+       }
+      }
+     },
+     {
+      "item_id": "i9",
+      "kind": "answer_option",
+      "parent_item_id": "i8",
+      "source": "both",
+      "block_ids": [
+       "p0020-b0009",
+       "p0020-b0010"
+      ],
+      "where_on_page": "middle, option A",
+      "content": "A. The incentive given by a bank to a merchant for accepting payments through debit cards pertaining to that bank.",
+      "content_type": "none",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What payment direction does A describe?",
+        "answer": "The bank gives an incentive to the merchant for accepting the specified debit cards.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is A not MDR?",
+        "answer": "It reverses the relevant direction: an incentive benefits the merchant, whereas MDR is a charge borne by the merchant for card acceptance.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Bank",
+       "Merchant",
+       "Incentive versus charge"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Distractor: correct merchant context but reversed payment direction.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "merchant",
+         "plain_meaning": "सामान या service बेचने वाला",
+         "everyday_image": "मोहल्ले का किराना दुकानदार"
+        },
+        {
+         "term": "incentive",
+         "plain_meaning": "कोई काम करने के लिए मिलने वाला फायदा या पैसा",
+         "everyday_image": "payment लेने पर दुकानदार को मिलने वाला reward"
+        },
+        {
+         "term": "debit cards",
+         "plain_meaning": "bank account से पैसे देकर खरीदारी करने वाले cards",
+         "everyday_image": "दुकान की machine में लगाया अपना debit card"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "A merchant may need encouragement to accept a payment method.",
+         "basis": "standard"
+        },
+        {
+         "step": "Money offered as encouragement would be an incentive, not the merchant's MDR charge.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Compare a reward received by a shopkeeper with a fee deducted from the shopkeeper's card receipts.",
+       "consequence": "Eliminate A by checking who pays whom.",
+       "visual_verb": "Reverse the bank-to-merchant reward arrow to contrast it with a merchant fee.",
+       "level_extra": "A is an alternative, not a factual claim that such incentives are universally paid.",
+       "real_world_example": {
+        "place": "",
+        "actors": [],
+        "goods": [],
+        "numbers": [],
+        "steps": [],
+        "term_after": "",
+        "real_life_link": ""
+       }
+      }
+     },
+     {
+      "item_id": "i10",
+      "kind": "answer_option",
+      "parent_item_id": "i8",
+      "source": "both",
+      "block_ids": [
+       "p0020-b0011",
+       "p0020-b0012"
+      ],
+      "where_on_page": "middle, option B",
+      "content": "B. The amount paid back by banks to their customers when they use debit cards for financial transactions for purchasing goods or services.",
+      "content_type": "none",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "Who receives money in B?",
+        "answer": "The bank's customer receives money back after using a debit card to purchase goods or services.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is B not MDR?",
+        "answer": "It describes a customer-side benefit, commonly understood as cashback, rather than a merchant-side acceptance charge.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can cashback and MDR be distinguished without memorising the wording?",
+        "answer": "Ask whose money changes: cashback returns money to the buyer; MDR charges the seller for accepting the payment.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Buyer versus seller",
+       "Card payment",
+       "Cashback"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Distractor: customer repayment is not a merchant acceptance fee.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "amount paid back",
+         "plain_meaning": "खर्च करने के बाद वापस मिलने वाला पैसा",
+         "everyday_image": "खरीदारी के बाद account में आया cashback"
+        },
+        {
+         "term": "goods or services",
+         "plain_meaning": "खरीदने का सामान या करवाया गया काम",
+         "everyday_image": "चीनी खरीदना या बाल कटवाना"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "A buyer may be encouraged to pay by card through a repayment benefit.",
+         "basis": "standard"
+        },
+        {
+         "step": "That benefit goes to the buyer, unlike MDR, which is borne by the merchant.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "A buyer receiving cashback after a purchase.",
+       "consequence": "Eliminate B by identifying the recipient as the customer.",
+       "visual_verb": "Return a money arrow to the buyer rather than deducting from the seller.",
+       "level_extra": "Do not assume every debit-card purchase earns cashback; B is a proposed meaning.",
+       "real_world_example": {
+        "place": "",
+        "actors": [],
+        "goods": [],
+        "numbers": [],
+        "steps": [],
+        "term_after": "",
+        "real_life_link": ""
+       }
+      }
+     },
+     {
+      "item_id": "i11",
+      "kind": "answer_option",
+      "parent_item_id": "i8",
+      "source": "both",
+      "block_ids": [
+       "p0020-b0013",
+       "p0020-b0014"
+      ],
+      "where_on_page": "middle, option C",
+      "content": "C. The charge to a merchant by a bank for accepting payments from his customers through the bank’s cards.",
+      "content_type": "definition",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What meaning does C propose for MDR?",
+        "answer": "It places the charge on the merchant and links it to accepting customer payments through cards.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "evidence",
+        "question": "Which printed words identify the payer and charging institution?",
+        "answer": "'Charge to a merchant by a bank' identifies the merchant as the party charged and the bank as the charging institution.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is a merchant charged for accepting card payments?",
+        "answer": "Card acceptance uses payment infrastructure and processing services. MDR is the merchant-facing charge associated with providing that acceptance service.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does a deduction illustrate MDR?",
+        "answer": "In a hypothetical transaction of ₹1,000 with a 1% fee, the charge is ₹10 and the merchant receives ₹990, ignoring other charges and taxes. The buyer's purchase amount remains ₹1,000; the deduction is from the merchant's proceeds.",
+        "basis": "outside"
+       },
+       {
+        "depth": 3,
+        "ask": "exception",
+        "question": "What should not be inferred from the hypothetical calculation?",
+        "answer": "It does not establish a prevailing MDR rate or that every card or digital payment attracts the same charge. Rates and exemptions are outside this page's scope.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Merchant and customer",
+       "Card acceptance",
+       "Percentage calculation",
+       "Gross receipt versus net receipt"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Correct option C by standard textbook knowledge. Remember payer, recipient and service, not the everyday meaning of 'discount'.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Merchant Discount Rate",
+         "plain_meaning": "card payment लेने की service के लिए दुकानदार पर लगने वाली fee की दर",
+         "everyday_image": "बिक्री ₹1,000 की हुई, fee कटने पर दुकानदार को थोड़ा कम मिला"
+        },
+        {
+         "term": "charge",
+         "plain_meaning": "service के बदले लिया जाने वाला पैसा",
+         "everyday_image": "दुकानदार की payment receipt में कटी fee"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "A shopkeeper needs a way to receive a customer's card payment rather than cash.",
+         "basis": "standard"
+        },
+        {
+         "step": "The acceptance service uses payment infrastructure; a merchant-side fee reduces the shopkeeper's net receipt.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Hypothetical kirana card sale: ₹1,000 sale, ₹10 fee, ₹990 net receipt; no current rate is asserted.",
+       "consequence": "MDR is a merchant cost, not cashback or an incentive received by the merchant.",
+       "visual_verb": "Split the ₹1,000 payment into ₹990 merchant proceeds and ₹10 fee.",
+       "level_extra": "UPSC trap: distinguish the customer's purchase amount from the merchant's net settlement. Do not extend this definition into current rate or exemption claims.",
+       "real_world_example": {
+        "place": "Hypothetical Indian kirana shop",
+        "actors": [
+         "shopkeeper",
+         "customer",
+         "bank"
+        ],
+        "goods": [
+         "groceries worth ₹1,000",
+         "card payment"
+        ],
+        "numbers": [
+         {
+          "what": "Merchant proceeds before and after the assumed fee",
+          "before": "₹1,000",
+          "after": "₹990"
+         },
+         {
+          "what": "Fee deducted from the sale proceeds",
+          "before": "₹0",
+          "after": "₹10"
+         }
+        ],
+        "steps": [
+         {
+          "step": "A customer buys ₹1,000 of groceries and pays by card.",
+          "mechanism_link": "The merchant uses a card-payment acceptance service."
+         },
+         {
+          "step": "Assume a 1% acceptance fee solely for illustration: ₹10 is deducted and ₹990 reaches the merchant, ignoring taxes and other charges.",
+          "mechanism_link": "The merchant bears the acceptance charge through reduced net proceeds."
+         }
+        ],
+        "term_after": "The merchant-side acceptance charge illustrated here is MDR; its rate is called Merchant Discount Rate.",
+        "real_life_link": "Connect this to the page's shopkeeper accepting card payments; the numbers illustrate the mechanism, not a current Indian fee schedule."
+       }
+      }
+     },
+     {
+      "item_id": "i12",
+      "kind": "answer_option",
+      "parent_item_id": "i8",
+      "source": "both",
+      "block_ids": [
+       "p0020-b0015",
+       "p0020-b0016"
+      ],
+      "where_on_page": "middle, option D",
+      "content": "D. The incentive given by the Government, to merchants for promoting digital payments by their customers through Point of Sale (PoS) machines and debit cards.",
+      "content_type": "none",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What relationship does D describe?",
+        "answer": "The Government gives merchants an incentive intended to promote customers' digital payments using PoS machines and debit cards.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is D not MDR even though both concern digital payment acceptance?",
+        "answer": "A government incentive is support received by a merchant; MDR is a charge borne by the merchant. Sharing a digital-payment context does not make the two the same.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does a PoS machine relate to a shop purchase?",
+        "answer": "It is the merchant's payment terminal used to accept a customer's card payment, linking the purchase to the payment system.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Government incentive",
+       "Merchant",
+       "Debit card payment"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Distractor: government support for digital payments is not the definition of MDR.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Point of Sale (PoS) machines",
+         "plain_meaning": "दुकान पर card payment लेने की machine",
+         "everyday_image": "काउंटर पर card tap या insert करने वाली machine"
+        },
+        {
+         "term": "digital payments",
+         "plain_meaning": "cash देने के बजाय electronic तरीके से पैसे देना",
+         "everyday_image": "किराना दुकान पर debit card से bill चुकाना"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "A policy may seek to encourage merchants to accept digital payments.",
+         "basis": "standard"
+        },
+        {
+         "step": "An incentive would support adoption; it would not become the fee charged for acceptance.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "A shop counter with a PoS terminal.",
+       "consequence": "Distinguish policy encouragement from the merchant's transaction cost.",
+       "visual_verb": "Contrast a Government-to-merchant support arrow with a merchant-to-bank fee arrow.",
+       "level_extra": "D is an alternative, not evidence that a particular government incentive scheme exists or applies universally.",
+       "real_world_example": {
+        "place": "",
+        "actors": [],
+        "goods": [],
+        "numbers": [],
+        "steps": [],
+        "term_after": "",
+        "real_life_link": ""
+       }
+      }
+     }
+    ],
+    "boilerplate_block_ids": [
+     "p0020-b0001",
+     "p0020-b0017"
+    ],
+    "text_image_disagreements": []
+   },
+   "code_problems": [],
+   "observed": {
+    "type_check": [
+     {
+      "item_id": "i1",
+      "ai_type": "none",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "role",
+      "type_note": ""
+     },
+     {
+      "item_id": "i2",
+      "ai_type": "facts_numbers",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i3",
+      "ai_type": "none",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i4",
+      "ai_type": "none",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "role",
+      "type_note": ""
+     },
+     {
+      "item_id": "i5",
+      "ai_type": "none",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "role",
+      "type_note": ""
+     },
+     {
+      "item_id": "i6",
+      "ai_type": "none",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "role",
+      "type_note": ""
+     },
+     {
+      "item_id": "i7",
+      "ai_type": "none",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "role",
+      "type_note": ""
+     },
+     {
+      "item_id": "i8",
+      "ai_type": "none",
+      "code_type": "timeline",
+      "strength": "strong",
+      "evidence": [
+       "pattern '2018'"
+      ],
+      "status": "role",
+      "type_note": "2018 identifies the PYQ year; this is a definition-identification question, not a timeline."
+     },
+     {
+      "item_id": "i9",
+      "ai_type": "none",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "role",
+      "type_note": ""
+     },
+     {
+      "item_id": "i10",
+      "ai_type": "none",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "role",
+      "type_note": ""
+     },
+     {
+      "item_id": "i11",
+      "ai_type": "definition",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "role",
+      "type_note": ""
+     },
+     {
+      "item_id": "i12",
+      "ai_type": "none",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "role",
+      "type_note": ""
+     }
+    ],
+    "type_summary": {
+     "code_silent": 2,
+     "role": 10
+    }
+   },
+   "review": {
+    "route": "codex-checker",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "c71920f6d9f9eee2610e37f6ddae8d0c5ac9d87d11becacb2fda24f64dc7468e",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 14842,
+    "output_tokens": 1179,
+    "cost_usd": 0.0,
+    "value": {
+     "notes": {
+      "about": "The page continues an NPCI–RuPay statement question and tests the meaning of Merchant Discount Rate through a 2018 prelims question. The understanding captures the printed material and explains the merchant-side charge and distractors.",
+      "key_questions": [
+       "Which institution launched RuPay?",
+       "Who bears MDR, and what service does it pay for?",
+       "Why are incentives and customer cashback not MDR?"
+      ],
+      "decisions": [
+       {
+        "decision": "Accept the treatment of 2018 as an exam citation rather than a timeline.",
+        "reason": "The question tests a definition, not a sequence of events."
+       },
+       {
+        "decision": "Accept the separate coverage of all answer alternatives.",
+        "reason": "Each alternative is preserved and its examination trap is explained."
+       },
+       {
+        "decision": "Accept the hypothetical MDR calculation.",
+        "reason": "It correctly illustrates the merchant's reduced proceeds without claiming a current Indian fee rate."
+       }
+      ],
+      "uncertain": [
+       "The preceding question's complete stem is not supplied; the context supplies statement 1.",
+       "The page provides neither an answer key nor current MDR rates or exemptions."
+      ]
+     },
+     "verdict": "pass",
+     "missing": [],
+     "wrong": [],
+     "shallow": [],
+     "checklist": [
+      {
+       "rule_id": "G-01",
+       "met": true,
+       "note": "Printed alternatives are distinguished from outside explanations and answer selection."
+      },
+      {
+       "rule_id": "G-02",
+       "met": true,
+       "note": "Coverage explains payment direction, service, deductions and distractor logic."
+      },
+      {
+       "rule_id": "G-03",
+       "met": true,
+       "note": "Notes provide scope, decisions, reasons and uncertainties."
+      },
+      {
+       "rule_id": "G-05",
+       "met": true,
+       "note": "No substantive printed content is truncated or omitted."
+      },
+      {
+       "rule_id": "G-06",
+       "met": true,
+       "note": "Explanations go beyond paraphrase through distinctions, examples and consequences."
+      },
+      {
+       "rule_id": "G-07",
+       "met": true,
+       "note": "Depth and accessible language suit UPSC and State PCS learners."
+      },
+      {
+       "rule_id": "S1-01",
+       "met": true,
+       "note": "All visible instructional material is captured; branding is noninstructional."
+      },
+      {
+       "rule_id": "S1-02",
+       "met": true,
+       "note": "Only the running header and page number are designated boilerplate."
+      },
+      {
+       "rule_id": "S1-03",
+       "met": true,
+       "note": "No table is present."
+      },
+      {
+       "rule_id": "S1-04",
+       "met": true,
+       "note": "No instructional diagram is present."
+      },
+      {
+       "rule_id": "S1-05",
+       "met": true,
+       "note": "Statement numbers and option codes are preserved; the illustrative arithmetic is correct."
+      },
+      {
+       "rule_id": "S1-06",
+       "met": true,
+       "note": "Questions explain why each alternative fits or fails and how MDR operates."
+      },
+      {
+       "rule_id": "S1-07",
+       "met": true,
+       "note": "Book-based readings and standard outside explanations are appropriately identified."
+      },
+      {
+       "rule_id": "S1-08",
+       "met": true,
+       "note": "The RuPay fact and MDR definition are appropriately typed; question scaffolding is not forced into a timeline."
+      },
+      {
+       "rule_id": "S1-09",
+       "met": true,
+       "note": "Prerequisites name concrete concepts such as bank accounts, card payments and percentages."
+      },
+      {
+       "rule_id": "S1-10",
+       "met": true,
+       "note": "Exam importance and links reflect institution matching and definition-based elimination."
+      },
+      {
+       "rule_id": "S1-11",
+       "met": true,
+       "note": "No substantive image–text disagreement is apparent."
+      },
+      {
+       "rule_id": "S1-13",
+       "met": true,
+       "note": "Printed wording is retained without silently rewriting the alternatives."
+      },
+      {
+       "rule_id": "S1-14",
+       "met": true,
+       "note": "Printed meanings and outside evaluations are separated into distinct answers."
+      },
+      {
+       "rule_id": "S1-15",
+       "met": true,
+       "note": "Terms, everyday images, need-based reasoning and consequences open the substantive concepts."
+      },
+      {
+       "rule_id": "S1-16",
+       "met": true,
+       "note": "The MDR definition includes actors, groceries, a shop setting, changing amounts and correct deduction steps; its hypothetical status is explicit."
+      }
+     ]
+    }
+   },
+   "review_problems": [],
+   "review_minor": [],
+   "passed": true,
+   "finished_at": 1793122210.098552
+  }
+ ],
+ "avoid_rounds": [],
+ "cost_usd": 0.0,
+ "seconds": 146.5,
+ "navin_verdict": null
+}
