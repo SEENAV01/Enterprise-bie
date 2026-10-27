@@ -2,3 +2,4 @@
 import "../../../bie/brain/video/preview/main";
 import "../blocks/canvas_build";
 import "../blocks/curve_story";
+import "../blocks/world_scene";

@@ -157,7 +157,60 @@ D4 = {
     ],
 }
 
+# D1 with "L3 touches": the same plan, plus depth, life, flowing goods and money, and a camera that follows the story.
+import copy as _copy
+D1B = _copy.deepcopy(D1)
+D1B["id"] = "demand_pull_touches"
+D1B["touches"] = True
+for _n in D1B["nodes"]:
+    if _n["id"] == "a1":
+        _n["flow"] = {"icon": "tw:1f4e6", "count": 3, "period": 45, "size": 34}
+    if _n["id"] == "a2":
+        _n["flow"] = {"icon": "tw:1fa99", "count": 4, "period": 36, "size": 30, "reverse": True, "cue": ["b2", "तैयार"]}
+
+# D1 as a full L3 world: the same beats, told inside a street with a shop, BIE's own walking people and a camera that
+# moves through parallax layers (block world_scene, compiled by tools/world_plan.py).
+D1C = {
+    "id": "demand_pull_world", "world_width": 5200, "beats": _copy.deepcopy(D1["beats"]),
+    "elements": [
+        {"id": "fg1", "kind": "foreground", "x": 1750}, {"id": "fg2", "kind": "foreground", "x": 3900},
+        {"id": "lamp1", "kind": "lamp", "x": 2050}, {"id": "lamp2", "kind": "lamp", "x": 3250},
+        {"id": "shop", "kind": "shop", "x": 2600, "sign": "किराना स्टोर", "packets": [{"n": 3, "cue": ["b1", "पैकेट"]}, {"n": 0, "cue": ["b6", "खरीद"]}]},
+        {"id": "tag", "kind": "price_tag", "x": 2870, "y": 560, "string": 60,
+         "steps": [{"text": "₹50", "cue": ["b1", "पचास"]}, {"text": "₹65", "dir": "up", "cue": ["b5", "पैंसठ"]}],
+         "lift": {"cue": ["b7", "खींच"], "dy": 130}},
+        {"id": "sup", "kind": "label", "x": 2030, "y": 470, "text": "SUPPLY · 3 पैकेट", "fill": "rgba(46,134,222,0.9)", "cue": ["b1", "पैकेट"],
+         "until_cue": ["b2", "", 0.0]},
+        {"id": "crowd", "kind": "crowd", "x0": 2330, "spacing": 120, "enter_x": 3950, "exit_x": 4300, "face": -1, "seed": 4,
+         "steps": [{"n": 2, "cue": ["b2", "खरीदार"]}, {"n": 12, "cue": ["b3", "बारह"]}, {"n": 3, "cue": ["b6", "बाकी"]}],
+         "carry": {"cue": ["b6", "खरीद"], "n": 3}},
+        {"id": "d2", "kind": "label", "x": 3250, "y": 560, "text": "DEMAND · 2", "fill": "rgba(230,126,34,0.92)", "cue": ["b2", "खरीदार"],
+         "until_cue": ["b3", "बारह"]},
+        {"id": "rain", "kind": "coin_rain", "x0": 2250, "x1": 3600, "count": 46, "cue": ["b3", "पैसा"], "until_cue": ["b3", "बारह"]},
+        {"id": "d12", "kind": "label", "x": 3330, "y": 700, "text": "DEMAND · 12", "fill": "rgba(230,126,34,0.92)", "cue": ["b3", "बारह"],
+         "until_cue": ["b6", "बाकी"]},
+        {"id": "bal", "kind": "balance", "x": 3600, "y": 230, "tilt": 16, "cue": ["b4", "माल"], "tilt_cue": ["b4", "ज़्यादा"],
+         "until_cue": ["b5", "", 0.0]},
+        {"id": "d3", "kind": "label", "x": 3560, "y": 620, "text": "₹65 देने वाले: 3", "fill": "rgba(39,174,96,0.92)", "cue": ["b6", "बाकी"]},
+        {"id": "pull", "kind": "pull_arrow", "x": 3090, "y0": 840, "y1": 480, "text": "DEMAND", "cue": ["b7", "खींच"]},
+        {"id": "title", "kind": "title", "text": "DEMAND-PULL INFLATION", "cue": ["b7", "डिमांड"]},
+    ],
+    "camera": [
+        {"cue": ["b1", "", 0.0], "x": 1500, "y": 560, "zoom": 0.9, "frames": 1},
+        {"cue": ["b1", "दुकान"], "x": 2600, "y": 560, "zoom": 1.15, "frames": 60},
+        {"cue": ["b1", "पचास"], "x": 2760, "y": 520, "zoom": 1.6, "frames": 40},
+        {"cue": ["b2", "शुरू"], "x": 2700, "y": 600, "zoom": 1.1, "frames": 40},
+        {"cue": ["b3", "पैसा"], "x": 2800, "y": 540, "zoom": 0.95, "frames": 40},
+        {"cue": ["b3", "बारह"], "x": 2950, "y": 600, "zoom": 0.85, "frames": 50},
+        {"cue": ["b4", "माल"], "x": 3050, "y": 470, "zoom": 0.85, "frames": 40},
+        {"cue": ["b5", "दाम"], "x": 2870, "y": 540, "zoom": 1.7, "frames": 40},
+        {"cue": ["b6", "वही"], "x": 2950, "y": 600, "zoom": 0.9, "frames": 45},
+        {"cue": ["b7", "माँग"], "x": 2850, "y": 520, "zoom": 1.0, "frames": 45},
+    ],
+}
+
 if __name__ == "__main__":
-    for d in (D1, D2, D3, D4):
+    json.dump(D1C, open(os.path.join(HERE, D1C["id"] + ".world.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    for d in (D1, D2, D3, D4, D1B):
         json.dump(d, open(os.path.join(HERE, d["id"] + ".plan.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
-    print("wrote", [d["id"] for d in (D1, D2, D3, D4)])
+    print("wrote", [d["id"] for d in (D1, D2, D3, D4, D1B)])

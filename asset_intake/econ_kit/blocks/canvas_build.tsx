@@ -78,13 +78,22 @@ function focusLevel(focus: { at: number; until?: number; ids: string[] }[] | und
   return level;
 }
 
-const IconEl: React.FC<{ el: El; P: Record<string, string>; W: number; H: number; o: number }> = ({ el, P, W, H, o }) => {
+/** "L3 touches" (data.touches): depth and life on the same canvas — soft shadows, gentle idle motion, walk-ins,
+ *  flowing coins on arrows, flipping price tags, a light sweep and a camera that follows what is being said. */
+const phaseOf = (id: string) => Array.from(id).reduce((a, c) => a + c.charCodeAt(0), 0) % 60;
+
+const IconEl: React.FC<{ el: El; P: Record<string, string>; W: number; H: number; o: number; frame?: number; touches?: boolean }> =
+  ({ el, P, W, H, o, frame = 0, touches }) => {
   const b = boxOf(el);
   const s = 0.6 + 0.4 * o;
+  const bob = touches ? Math.sin((frame + phaseOf(el.id)) / 16) * 4 : 0;
   return (
     <div style={{ position: "absolute", left: b.x * W, top: b.y * H, width: b.w * W, height: b.h * H, opacity: o,
       transform: `scale(${s})`, transformOrigin: "50% 80%" }}>
-      <img src={assetUrl(el.src)} style={{ width: "100%", height: el.label ? "78%" : "100%", objectFit: "contain", display: "block" }} />
+      {touches ? <div style={{ position: "absolute", left: "18%", width: "64%", top: el.label ? "70%" : "90%", height: "10%", borderRadius: "50%",
+        background: "radial-gradient(closest-side, rgba(20,30,45,0.28), rgba(20,30,45,0))", transform: `scaleX(${1 - bob / 40})` }} /> : null}
+      <img src={assetUrl(el.src)} style={{ width: "100%", height: el.label ? "78%" : "100%", objectFit: "contain", display: "block",
+        transform: `translateY(${bob - (touches ? 4 : 0)}px)`, filter: touches ? "drop-shadow(0 10px 10px rgba(20,30,45,0.22))" : undefined }} />
       {el.label ? <div style={{ fontFamily: FONT, fontSize: el.label_size ?? 22, fontWeight: 700, color: toneOf(P, el.label_tone ?? "muted"),
         textAlign: "center", letterSpacing: 0.5, marginTop: 4, whiteSpace: "nowrap" }}>{el.label}</div> : null}
     </div>
@@ -131,7 +140,8 @@ const TextEl: React.FC<{ el: El; P: Record<string, string>; W: number; H: number
   return <div style={base}><div><MarkedText text={text} marks={el.marks} frame={frame} P={P} /></div></div>;
 };
 
-const ValueEl: React.FC<{ el: El; P: Record<string, string>; W: number; H: number; frame: number; fps: number }> = ({ el, P, W, H, frame, fps }) => {
+const ValueEl: React.FC<{ el: El; P: Record<string, string>; W: number; H: number; frame: number; fps: number; touches?: boolean }> =
+  ({ el, P, W, H, frame, fps, touches }) => {
   const steps: { text: string; at: number; dir?: "up" | "down" }[] = el.steps;
   let idx = -1;
   steps.forEach((s, i) => { if (frame >= s.at) idx = i; });
@@ -151,15 +161,19 @@ const ValueEl: React.FC<{ el: El; P: Record<string, string>; W: number; H: numbe
             transform: "rotate(-8deg)" }} />
         </div>
       ) : null}
-      <span style={{ fontSize: size, fontWeight: 900, color: toneOf(P, el.tone), display: "inline-block", transform: `scale(${0.7 + 0.3 * k})`,
-        transformOrigin: "0 70%" }}>{cur.text}</span>
+      {touches && prev ? <span style={{ position: "absolute", left: -size * 0.3, top: -size * 0.25, width: size * 3.2, height: size * 1.6, borderRadius: size,
+        background: `radial-gradient(closest-side, ${P.warm}66, ${P.warm}00)`, opacity: Math.max(0, 1 - lin(frame, cur.at + 6, cur.at + 40)) }} /> : null}
+      <span style={{ fontSize: size, fontWeight: 900, color: toneOf(P, el.tone), display: "inline-block",
+        transform: touches && prev ? `perspective(600px) rotateX(${(1 - lin(frame, cur.at, cur.at + 12)) * 90}deg)` : `scale(${0.7 + 0.3 * k})`,
+        transformOrigin: touches && prev ? "50% 50%" : "0 70%", textShadow: touches ? "0 6px 14px rgba(20,30,45,0.22)" : undefined,
+        position: "relative" }}>{cur.text}</span>
       {cur.dir ? <span style={{ fontSize: size * 0.8, fontWeight: 900, color: dirCol, marginLeft: 8, display: "inline-block",
         transform: `translateY(${(1 - k) * (cur.dir === "up" ? 20 : -20)}px)`, opacity: k }}>{cur.dir === "up" ? "▲" : "▼"}</span> : null}
     </div>
   );
 };
 
-const CrowdEl: React.FC<{ el: El; W: number; H: number; frame: number; fps: number }> = ({ el, W, H, frame, fps }) => {
+const CrowdEl: React.FC<{ el: El; W: number; H: number; frame: number; fps: number; touches?: boolean }> = ({ el, W, H, frame, fps, touches }) => {
   const b = boxOf(el);
   const steps: { n: number; at: number }[] = el.steps;
   const max = Math.max(...steps.map((s) => s.n));
@@ -180,8 +194,25 @@ const CrowdEl: React.FC<{ el: El; W: number; H: number; frame: number; fps: numb
     <div style={{ position: "absolute", left: b.x * W, top: b.y * H, width: b.w * W, height: b.h * H }}>
       {Array.from({ length: max }, (_, i) => {
         const o = presence(frame, fps, appearAt[i], removeAt[i]);
-        if (o <= 0) return null;
+        if (o <= 0 && !(touches && frame >= appearAt[i] && (removeAt[i] === undefined || frame < removeAt[i] + 15))) return null;
         const r = Math.floor(i / cols), c = i % cols;
+        if (touches) {
+          // walk in from the right (a little bounce per step), walk out to the right when they leave
+          const inK = lin(frame, appearAt[i], appearAt[i] + 22);
+          const outK = removeAt[i] !== undefined ? lin(frame, removeAt[i] - 10, removeAt[i] + 14) : 0;
+          const walking = (inK > 0 && inK < 1) || (outK > 0 && outK < 1);
+          const dx = (1 - inK) * 140 + outK * 160;
+          const step = walking ? Math.abs(Math.sin((frame + i * 7) / 3)) * -7 : Math.sin((frame + i * 11) / 20) * 1.5;
+          return (
+            <div key={i} style={{ position: "absolute", left: offX + c * cw + (cw - s) / 2 + dx, top: offY + r * ch + (ch - s) / 2, width: s, height: s,
+              opacity: Math.min(1, inK * 1.6) * (1 - outK) }}>
+              <div style={{ position: "absolute", left: "25%", width: "50%", top: "88%", height: "10%", borderRadius: "50%",
+                background: "radial-gradient(closest-side, rgba(20,30,45,0.3), rgba(20,30,45,0))" }} />
+              <img src={assetUrl(el.src)} style={{ width: "100%", height: "100%", objectFit: "contain", transform: `translateY(${step}px) scaleX(${outK > 0 ? -1 : 1})`,
+                filter: "drop-shadow(0 6px 6px rgba(20,30,45,0.2))" }} />
+            </div>
+          );
+        }
         return <img key={i} src={assetUrl(el.src)} style={{ position: "absolute", left: offX + c * cw + (cw - s) / 2, top: offY + r * ch + (ch - s) / 2 + (1 - o) * 14,
           width: s, height: s, opacity: o, objectFit: "contain" }} />;
       })}
@@ -260,8 +291,28 @@ const ArrowsAndMarks: React.FC<{ els: El[]; map: Map<string, El>; P: Record<stri
         const len = elbow ? Math.abs(x2 - x1) + Math.abs(y2 - y1) : Math.hypot(x2 - x1, y2 - y1) * (bend ? 1.15 : 1);
         const draw = lin(frame, el.at, el.at + (el.draw_frames ?? 14));
         const tone = el.tone ?? "line";
+        const pointAt = (t: number) => {
+          if (elbow === "vhv") {
+            const L = [Math.abs(ym - y1), Math.abs(x2 - x1), Math.abs(y2 - ym)], T = L[0] + L[1] + L[2], d0 = t * T;
+            if (d0 < L[0]) return [x1, y1 + Math.sign(ym - y1) * d0];
+            if (d0 < L[0] + L[1]) return [x1 + Math.sign(x2 - x1) * (d0 - L[0]), ym];
+            return [x2, ym + Math.sign(y2 - ym) * (d0 - L[0] - L[1])];
+          }
+          if (bend) { const u = 1 - t; return [u * u * x1 + 2 * u * t * mx + t * t * x2, u * u * y1 + 2 * u * t * my + t * t * y2]; }
+          return [x1 + (x2 - x1) * t, y1 + (y2 - y1) * t];
+        };
+        const flow = el.flow && frame >= (el.flow.at ?? el.at + 14) && (el.flow.until === undefined || frame < el.flow.until) ? el.flow : null;
         return (
           <g key={el.id} opacity={o}>
+            {flow ? Array.from({ length: flow.count ?? 4 }, (_, i) => {
+              const period = flow.period ?? 40;
+              let t = (((frame - (flow.at ?? el.at + 14)) / period) + i / (flow.count ?? 4)) % 1;
+              if (flow.reverse) t = 1 - t;
+              const [px, py] = pointAt(t);
+              const sz = flow.size ?? 34;
+              const fade = Math.min(1, t * 6, (1 - t) * 6);
+              return <image key={i} href={assetUrl(flow.src)} x={px - sz / 2} y={py - sz / 2 - 14} width={sz} height={sz} opacity={fade} />;
+            }) : null}
             <path d={d} fill="none" stroke={toneOf(P, tone)} strokeWidth={el.width ?? 4} strokeLinecap="round"
               strokeDasharray={el.dashed ? "10 9" : `${len} ${len}`} strokeDashoffset={el.dashed ? 0 : len * (1 - draw)}
               markerEnd={draw > 0.95 && el.head !== false ? `url(#cb-head-${tone})` : undefined} />
@@ -316,6 +367,19 @@ const Subtitles: React.FC<{ subs?: { at: number; until: number; text: string }[]
   );
 };
 
+/** The block's own camera: keyframes [{at, box}] eased over 24 frames (``frames`` to change); full view by default. */
+function camBox(keys: { at: number; box: Box; frames?: number }[] | undefined, frame: number): Box {
+  const FULL = { x: 0, y: 0, w: 1, h: 1 };
+  if (!keys || !keys.length) return FULL;
+  let cur: Box = FULL;
+  for (const k of keys) {
+    if (frame < k.at) break;
+    const t = lin(frame, k.at, k.at + (k.frames ?? 24));
+    cur = { x: cur.x + (k.box.x - cur.x) * t, y: cur.y + (k.box.y - cur.y) * t, w: cur.w + (k.box.w - cur.w) * t, h: cur.h + (k.box.h - cur.h) * t };
+  }
+  return cur;
+}
+
 const CanvasBuild: React.FC<BlockProps> = ({ data, width, height }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
@@ -323,10 +387,19 @@ const CanvasBuild: React.FC<BlockProps> = ({ data, width, height }) => {
   const els: El[] = data.elements ?? [];
   const map = new Map<string, El>(els.map((e) => [e.id, e]));
   const svgKinds = new Set(["arrow", "mark", "highlight"]);
+  const touches = !!data.touches;
+  const cam = camBox(data.cam, frame);
+  const drift = touches ? 1 + 0.015 * Math.sin(frame / 140) : 1;
+  const sc = Math.min(1 / cam.w, 1 / cam.h) * drift;
+  const tx = -(cam.x + cam.w / 2) * width * sc + width / 2, ty = -(cam.y + cam.h / 2) * height * sc + height / 2;
   return (
-    <div style={{ position: "absolute", inset: 0, background: P.bg, overflow: "hidden" }}>
+    <div style={{ position: "absolute", inset: 0, background: touches ? `radial-gradient(ellipse at 50% 35%, #fffdf8 0%, ${P.bg} 55%, #efe8da 100%)` : P.bg,
+      overflow: "hidden" }}>
+      {touches ? <div style={{ position: "absolute", inset: -40, backgroundImage: `radial-gradient(rgba(60,70,90,0.07) 1.6px, transparent 1.6px)`,
+        backgroundSize: "44px 44px", transform: `translate(${(tx * 0.15) % 44}px, ${(ty * 0.15) % 44}px)` }} /> : null}
       {data.grid ? <div style={{ position: "absolute", inset: 0, backgroundImage: `radial-gradient(${P.shadow} 1.5px, transparent 1.5px)`,
         backgroundSize: "36px 36px", opacity: 0.8 }} /> : null}
+      <div style={{ position: "absolute", left: 0, top: 0, width, height, transformOrigin: "0 0", transform: `translate(${tx}px, ${ty}px) scale(${sc})` }}>
       <ArrowsAndMarks els={els.filter((e) => e.kind === "arrow" || e.kind === "highlight")} map={map} P={P} W={width} H={height}
         frame={frame} fps={fps} focus={data.focus} />
       {els.filter((e) => !svgKinds.has(e.kind)).map((el) => {
@@ -334,16 +407,18 @@ const CanvasBuild: React.FC<BlockProps> = ({ data, width, height }) => {
         const o = presence(frame, fps, el.at ?? (el.steps ? el.steps[0].at : 0), el.until) * f;
         if (o <= 0 && el.kind !== "value" && el.kind !== "crowd" && el.kind !== "table") return null;
         switch (el.kind) {
-          case "icon": return <IconEl key={el.id} el={el} P={P} W={width} H={height} o={o} />;
+          case "icon": return <IconEl key={el.id} el={el} P={P} W={width} H={height} o={o} frame={frame} touches={touches} />;
           case "text": case "callout": return <TextEl key={el.id} el={{ ...el, style: el.kind === "callout" ? el.style ?? "note" : el.style }} P={P}
             W={width} H={height} o={o} frame={frame} />;
-          case "value": return <div key={el.id} style={{ opacity: f }}><ValueEl el={el} P={P} W={width} H={height} frame={frame} fps={fps} /></div>;
-          case "crowd": return <div key={el.id} style={{ opacity: f }}><CrowdEl el={el} W={width} H={height} frame={frame} fps={fps} /></div>;
+          case "value": return <div key={el.id} style={{ opacity: f }}><ValueEl el={el} P={P} W={width} H={height} frame={frame} fps={fps} touches={touches} /></div>;
+          case "crowd": return <div key={el.id} style={{ opacity: f }}><CrowdEl el={el} W={width} H={height} frame={frame} fps={fps} touches={touches} /></div>;
           case "table": return <div key={el.id} style={{ opacity: f }}><TableEl el={el} P={P} W={width} H={height} frame={frame} fps={fps} /></div>;
           default: return null;
         }
       })}
       <ArrowsAndMarks els={els.filter((e) => e.kind === "mark")} map={map} P={P} W={width} H={height} frame={frame} fps={fps} focus={data.focus} />
+      </div>
+      {touches ? <div style={{ position: "absolute", inset: 0, boxShadow: "inset 0 0 220px rgba(80,60,30,0.16)", pointerEvents: "none" }} /> : null}
       <Subtitles subs={data.subtitles} frame={frame} W={width} H={height} />
     </div>
   );

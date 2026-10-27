@@ -147,6 +147,77 @@ def expand_trees(nodes, grid):
     return out
 
 
+def _elem_box(e, by_id):
+    if "x" in e:
+        return (e["x"], e["y"], e["x"] + e["w"], e["y"] + e["h"])
+    refs = [e.get("target"), (e.get("from") or {}).get("id"), (e.get("to") or {}).get("id")]
+    boxes = [_elem_box(by_id[r], by_id) for r in refs if r and r in by_id and "x" in by_id[r]]
+    if not boxes:
+        return None
+    return (min(b[0] for b in boxes), min(b[1] for b in boxes), max(b[2] for b in boxes), max(b[3] for b in boxes))
+
+
+def auto_camera(els, beat_frames, beat_order, duration, min_size=0.72, margin=0.06):
+    """L3 touch: a camera that frames, beat by beat, what appears in this beat and the one before (and what those point
+    at); it never crops an element in half (the frame grows to take it in whole) and the last beat pulls back to the
+    whole canvas. Boxes keep the 16:9 shape (equal fractions) and stay inside the canvas."""
+    by_id = {e["id"]: e for e in els}
+
+    def times(e):
+        return [e.get("at", 0)] + [s["at"] for s in e.get("steps", [])] + [m["at"] for m in e.get("marks", [])]
+
+    def square(x0, y0, x1, y1):
+        size = min(1.0, max(min_size, x1 - x0, y1 - y0))
+        cx, cy = (x0 + x1) / 2, (y0 + y1) / 2
+        return [min(max(cx - size / 2, 0.0), 1 - size), min(max(cy - size / 2, 0.0), 1 - size), size]
+
+    keys, prev = [], None
+    for i, bid in enumerate(beat_order):
+        start, length = beat_frames[bid]
+        end = start + length
+        lo = start
+        hits = [b for e in els if any(lo - 3 <= t < end for t in times(e)) for b in [_elem_box(e, by_id)] if b]
+        if i == len(beat_order) - 1 or not hits:
+            if i != len(beat_order) - 1:
+                continue
+            box = [0.0, 0.0, 1.0]
+        else:
+            box = square(min(h[0] for h in hits) - margin, min(h[1] for h in hits) - margin,
+                         max(h[2] for h in hits) + margin, max(h[3] for h in hits) + margin * 1.6)
+            visible = [b for e in els if e.get("at", 0) < end and e.get("until", 10 ** 9) > start for b in [_elem_box(e, by_id)] if b]
+            hx0, hy0 = min(h[0] for h in hits), min(h[1] for h in hits)
+            hx1, hy1 = max(h[2] for h in hits), max(h[3] for h in hits)
+
+            def cuts(bx):
+                x, y, sz = bx
+                return [b for b in visible if b[0] < x + sz and b[2] > x and b[1] < y + sz and b[3] > y
+                        and not (b[0] >= x - 1e-6 and b[2] <= x + sz + 1e-6 and b[1] >= y - 1e-6 and b[3] <= y + sz + 1e-6)]
+
+            for _ in range(6):
+                cut = cuts(box)
+                if not cut:
+                    break
+                x, y, sz = box
+                moved = None
+                for b in cut:                       # first try to slide the frame so the element is fully out (or in)
+                    for nx, ny in ((b[2] + 0.01, y), (b[0] - 0.01 - sz, y), (x, b[3] + 0.01), (x, b[1] - 0.01 - sz),
+                                   (b[0] - 0.01, y), (b[2] + 0.01 - sz, y), (x, b[1] - 0.01), (x, b[3] + 0.01 - sz)):
+                        nx, ny = min(max(nx, 0.0), 1 - sz), min(max(ny, 0.0), 1 - sz)
+                        if nx <= hx0 and nx + sz >= hx1 and ny <= hy0 and ny + sz >= hy1 and len(cuts([nx, ny, sz])) < len(cut):
+                            moved = [nx, ny, sz]
+                            break
+                    if moved:
+                        break
+                box = moved or square(min([x] + [b[0] - 0.02 for b in cut]), min([y] + [b[1] - 0.02 for b in cut]),
+                                      max([x + sz] + [b[2] + 0.02 for b in cut]), max([y + sz] + [b[3] + 0.02 for b in cut]))
+        b = {"x": round(box[0], 4), "y": round(box[1], 4), "w": round(box[2], 4), "h": round(box[2], 4)}
+        if prev and all(abs(b[k] - prev[k]) < 0.02 for k in b):
+            continue
+        keys.append({"at": max(0, start - 6), "box": b, "frames": 30})
+        prev = b
+    return keys
+
+
 def compile_plan(plan: dict, *, voice: dict | None = None, icon_paths: dict | None = None):
     """Return (scene_spec, report). Raises PlanError for a plan that would render wrong."""
     grid = plan.get("grid", [12, 8])
@@ -315,6 +386,18 @@ def compile_plan(plan: dict, *, voice: dict | None = None, icon_paths: dict | No
     if every > TARGET_CHANGE_EVERY_S:
         advisories.append(f"one change every {every:.1f} s (target {TARGET_CHANGE_EVERY_S} s)")
     data = {"theme": plan.get("theme", "paper"), "elements": els}
+    if plan.get("touches"):
+        data["touches"] = True
+        data["cam"] = auto_camera(els, tl[scene_id]["beats"], [b["beat_id"] for b in beats], duration)
+    for e, n in zip(els, expand_trees(plan.get("nodes", []), grid)):
+        if n.get("flow"):
+            f = dict(n["flow"])
+            f["src"] = (icon_paths or {}).get(f.get("icon", ""), f.get("icon", ""))
+            if "cue" in f:
+                f["at"] = frame_of(f.pop("cue"))
+            if "until_cue" in f:
+                f["until"] = frame_of(f.pop("until_cue"))
+            e["flow"] = f
     if plan.get("focus"):
         data["focus"] = [{"at": frame_of(f["cue"]), **({"until": frame_of(f["until_cue"])} if "until_cue" in f else {}),
                           "ids": f["ids"]} for f in plan["focus"]]

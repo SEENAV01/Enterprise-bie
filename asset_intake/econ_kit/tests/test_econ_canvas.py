@@ -109,3 +109,39 @@ class CompileTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class WorldPlanTests(unittest.TestCase):
+    def setUp(self):
+        sys.path.insert(0, os.path.join(HERE, "..", "tools"))
+        import world_plan  # noqa: E402
+        self.wp = world_plan
+
+    def test_world_demo_compiles(self):
+        scene, report = self.wp.compile_world(copy.deepcopy(make_demos.D1C))
+        self.assertEqual(report["problems"], [])
+        data = scene["layers"][0]["data"]
+        self.assertEqual(scene["layers"][0]["block"], "world_scene")
+        self.assertTrue(all("at" in k for k in data["camera"]))
+        crowd = next(e for e in data["elements"] if e["kind"] == "crowd")
+        self.assertEqual([s["n"] for s in crowd["steps"]], [2, 12, 3])
+
+    def test_unknown_kind_is_refused(self):
+        plan = copy.deepcopy(make_demos.D1C)
+        plan["elements"].append({"id": "x", "kind": "dragon", "cue": ["b1", "दुकान"]})
+        with self.assertRaises(ec.PlanError):
+            self.wp.compile_world(plan)
+
+    def test_camera_out_of_order_is_refused(self):
+        plan = copy.deepcopy(make_demos.D1C)
+        plan["camera"][1], plan["camera"][2] = plan["camera"][2], plan["camera"][1]
+        with self.assertRaises(ec.PlanError):
+            self.wp.compile_world(plan)
+
+    def test_touches_plan_gets_a_camera(self):
+        scene, report = ec.compile_plan(copy.deepcopy(make_demos.D1B))
+        data = scene["layers"][0]["data"]
+        self.assertTrue(data["touches"])
+        self.assertEqual(data["cam"][-1]["box"], {"x": 0.0, "y": 0.0, "w": 1.0, "h": 1.0})
+        flows = [e for e in data["elements"] if e.get("flow")]
+        self.assertEqual(len(flows), 2)

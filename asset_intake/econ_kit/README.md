@@ -14,15 +14,18 @@ test the templates; lesson content is made by BIE only.
 | Path | What it is |
 | --- | --- |
 | `blocks/canvas_build.tsx` | Toolbox block `canvas_build`: paper/dark theme; icons, text boxes, notes, tags, titles, arrows (side-attached, elbow, curved, drawn on), values struck out and replaced with ▲/▼, crowds that grow and shrink, tick/cross marks, highlights (box, dashed, band), callouts whose phrases light up when spoken, focus (dim the rest), subtitles on a dark strip. Registers itself with BIE's block registry. |
+| `blocks/world_scene.tsx` | **L3** block `world_scene`: a 2.5D designed world (sky, far city, mid buildings, street, blurred foreground as parallax layers), a shop with a shelf of goods and a hanging price tag that flips and can be pulled up, BIE's own procedural walking people (no third-party art), crowds that arrive and leave walking, coin rain, a supply/demand balance that tips, glass labels, a big "pull" arrow and a title with a light sweep; a camera that glides, pushes in and pulls back through the layers. |
+| `tools/world_plan.py` | World plan → scene spec (cue words → frames, unknown kinds, camera order and pace checked). |
 | `blocks/curve_story.tsx` | Toolbox block `curve_story`: named axes, curves drawn from points, a dot that walks along a curve to named x values with drop lines, guide lines (natural rate, target), shaded or hatched bands, faded old curves for shifts, notes. |
+| (canvas_build `touches`) | **L2 + L3 touches** on the same canvas: soft shadows and idle motion, people walking in and out, goods and coins flowing along arrows, a price tag that flips with a glow, a paper vignette, and a camera inside the block that frames each beat without cutting anything in half (`auto_camera`). |
 | `tools/econ_canvas.py` | Canvas plan → scene spec. The director says only what goes in which grid cell and on which spoken word; this code places, times (through `bie/brain/video/timing.py`) and refuses plans that would look wrong: overlap, outside the safe area, text that does not fit at ≥ 24 px, tags wider than their cell, missing cue words, missing references; reports density and pace (CV-02/CV-03). |
 | `tools/icon_index.py` | Builds and searches a 4,213-icon index from two CC BY 4.0 sets (Twemoji graphics, Font Awesome Free; no brand icons) and copies chosen icons plus `credits.json` into a render's assets. `icons/index.json` is the built index. |
 | `tools/econ_aggregate.py` | Turns the canvas cards into the needs list with what BIE main has and what this kit adds. |
 | `tools/build_econ.mjs`, `preview/main-econ.tsx` | Preview bundle: BIE's core preview harness + the two blocks (esbuild, like `bie/brain/video/preview/build.mjs`). |
 | `rules/econ_canvas_rules.json` | Measured timing of the references and the rules CV-01 … CV-12 for the build-up canvas profile. |
 | `cards/*.json`, `needs_list.json` | Canvas cards for the 20 videos (our own short descriptions) and the aggregated needs list. |
-| `demos/make_demos.py` | Three fixtures: demand-pull inflation (price struck 50 → 65, crowd 2 → 12 → 3), Phillips curve (dot walks the curve, NAIRU, long-run line), price chain (producer → wholesaler → retailer → consumer, PPI/WPI/CPI). |
-| `tests/test_econ_canvas.py` | 12 tests for the compiler and its checks. |
+| `demos/make_demos.py` | Fixtures (the same demand-pull beats at three levels: L2 canvas, L2 + touches, L3 world), and: demand-pull inflation (price struck 50 → 65, crowd 2 → 12 → 3), Phillips curve (dot walks the curve, NAIRU, long-run line), price chain (producer → wholesaler → retailer → consumer, PPI/WPI/CPI). |
+| `tests/test_econ_canvas.py` | 16 tests for the canvas compiler, the touches camera and the world plan. |
 
 ## Run
 
