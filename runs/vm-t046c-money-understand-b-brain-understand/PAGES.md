@@ -1,0 +1,5727 @@
+# Pages · 3. Money
+
+## Page 1 · passed after 0 round(s) · reused
+
+Money is anything accepted for exchanging goods and services and settling debts, including cash, bank deposits and digital balances. Good money has acceptability, durability, portability, divisibility, uniformity and limited supply. Its four core functions are medium of exchange, unit of account, store of value and standard of deferred payment.
+
+- **p001-i1** · heading · none · both
+  - 3. Money
+- **p001-i2** · heading · none · both
+  - Introduction
+- **p001-i3** · definition · definition · both · exam high
+  - Definition: Money is anything that is accepted as a medium of exchange for goods and services and for settling debts.
+    - what: What makes something money according to this definition? → Its acceptance in exchange for goods and services and in settlement of debts is the defining criterion.
+    - evidence: Which words show that money is defined by its use rather than its material? → The definition says 'anything that is accepted as a medium of exchange'; it does not restrict money to a particular physical substance.
+      - why: Why does acceptance matter more than an object's usefulness to its owner? → A payment works when the recipient accepts it. An object may be useful or valuable to its owner without being widely accepted in payment. _(outside the book)_
+      - how: How does settling a debt differ from buying something immediately? → Settling a debt discharges an obligation already owed, whereas an immediate purchase pays for a current exchange. _(outside the book)_
+  - **khola (unpack):**
+    - medium of exchange yaani खरीदने-बेचने में बीच का साधन, जिसे भुगतान में लिया जाए · image: दुकानदार को पैसे देकर राशन लेना
+    - settling debts yaani जो उधार देना बाकी है, उसे चुका देना · image: किराने की दुकान का पुराना उधार चुकाना
+    - kyon: People need to buy things and discharge amounts they owe. _[standard]_ → Something accepted for these payments serves as money. _[book]_
+    - example / jagah: Buying groceries and paying an outstanding shop bill.
+    - aage: Acceptance, rather than physical form alone, connects the definition to deposits and digital balances.
+    - screen par: exchange goods for an accepted payment and clear an outstanding bill
+    - is level ke liye: Distinguish money from an asset that is valuable but not generally accepted in payment.
+  - prerequisites: goods and services; payment; a debt as an amount owed
+- **p001-i4** · list_point · definition · both · exam high
+  - Money is not just currency notes and coins.
+    - what: What misconception does this statement correct? → It rejects equating the whole concept of money with physical notes and coins.
+    - evidence: What evidence on the page supports this broader meaning? → The following bullet includes bank deposits and digital balances alongside cash.
+      - why: Why can a non-physical balance perform a monetary role? → Payment can transfer an accepted balance rather than hand over a physical object; the relevant issue is whether it can be used in payment. _(outside the book)_
+  - **khola (unpack):**
+    - currency notes and coins yaani नकद के कागज़ वाले नोट और सिक्के · image: बटुए में रखा नोट और जेब में सिक्के
+    - kyon: People need a means to pay, not necessarily a physical token. _[standard]_ → The page therefore includes more than currency notes and coins within money. _[book]_
+    - example / jagah: Contrast cash in a wallet with a balance in a bank account.
+    - aage: Currency is narrower than the page's concept of money.
+    - screen par: expand from a wallet to an account balance
+    - is level ke liye: Do not treat money and physical currency as interchangeable terms.
+  - prerequisites: currency notes and coins; money as an accepted means of payment
+- **p001-i5** · list_point · definition · both · exam high
+  - It includes anything people widely accept for payments—cash, bank deposits, and digital balances.
+    - what: Which forms of money does the page explicitly include? → It lists cash, bank deposits and digital balances within the scope of widely accepted payment means.
+    - evidence: What criterion ties these examples together? → The bullet ties them to people's wide acceptance for payments.
+      - how: How should a learner distinguish a balance from the instrument used to access it? → A bank balance is the amount available in the account; a card or payment application can provide a way to use that balance. The access instrument is not itself an additional balance. _(outside the book)_
+  - **khola (unpack):**
+    - bank deposits yaani बैंक खाते में जमा रकम · image: पासबुक या बैंक ऐप में खाते की रकम
+    - digital balances yaani डिजिटल रूप में दर्ज रकम, जिसे भुगतान में इस्तेमाल किया जा सके · image: मोबाइल पर भुगतान के लिए उपलब्ध रकम
+    - kyon: Payments need not involve handing over notes and coins. _[standard]_ → The page includes accepted deposits and digital balances as well as cash. _[book]_
+    - example / jagah: Cash in a wallet and deposits displayed in a bank account.
+    - aage: Apply the acceptance test to the monetary balance rather than its physical appearance.
+    - screen par: group cash, deposits and digital balances under accepted payment
+    - is level ke liye: The page gives a broad introduction, not formal monetary-aggregate categories.
+  - prerequisites: cash; bank account; payment
+- **p001-i6** · heading · none · both
+  - Characteristics of good money
+- **p001-i7** · list_point · definition · both · exam high
+  - Acceptability: Everyone is willing to accept it.
+    - what: What does acceptability mean here? → The page describes willingness to receive money in payment as a characteristic of good money.
+    - evidence: Which printed wording identifies this characteristic? → The phrase 'Everyone is willing to accept it' identifies willingness to receive it, rather than ease of carrying or durability.
+      - why: Why does willingness to accept it make exchange easier? → A seller is more likely to accept a payment that can subsequently be used to pay others. Wider acceptance reduces the difficulty of finding a willing trading partner. _(outside the book)_
+  - **khola (unpack):**
+    - Acceptability yaani लोग उसे भुगतान में लेने को तैयार हों · image: दुकानदार सामान देकर भुगतान ले लेता है
+    - kyon: A buyer needs the seller to agree to receive payment. _[standard]_ → Widespread willingness to receive money makes it useful across transactions. _[standard]_
+    - example / jagah: A grocer accepting money because it can be spent again.
+    - aage: Connects the definition of money to the practical success of exchange.
+    - screen par: pass an accepted payment between several people
+    - is level ke liye: Read 'everyone' as the book's ideal characteristic; practical monetary use rests on general acceptance.
+  - prerequisites: money as a medium of exchange
+- **p001-i8** · list_point · definition · both · exam high
+  - Durability: Does not wear out quickly.
+    - what: What is durability as a monetary characteristic? → It is resistance to quickly wearing out, allowing money to remain usable.
+    - evidence: What wording distinguishes durability from portability? → Durability concerns not wearing out quickly; portability is separately defined as being easy to carry.
+      - why: Why does repeated use make durability desirable? → Money passes between people and may be held for a time. Rapid damage or decay would disrupt reuse and require frequent replacement. _(outside the book)_
+  - **khola (unpack):**
+    - Durability yaani बार-बार इस्तेमाल में जल्दी खराब न होना · image: कई हाथों से गुजरने पर भी इस्तेमाल लायक सिक्का
+    - kyon: A payment medium must survive repeated handling. _[standard]_ → Resistance to wear keeps it available for further payments. _[standard]_
+    - example / jagah: A coin repeatedly used in shops.
+    - aage: Physical survival supports circulation but does not guarantee unchanged purchasing power.
+    - screen par: circulate a coin without it wearing away
+    - is level ke liye: A durable token can still lose purchasing power if prices rise.
+  - prerequisites: repeated use of money; physical wear and tear
+- **p001-i9** · list_point · definition · both · exam high
+  - Portability: Easy to carry.
+    - what: What does portability refer to? → It concerns how easily money can be carried to where a payment is needed.
+    - evidence: Which phrase directly identifies portability? → The phrase 'Easy to carry' identifies convenience of movement rather than resistance to damage.
+      - why: Why is ease of carrying valuable for money? → People buy from different places. A cumbersome payment medium adds transport effort and makes transactions less convenient. _(outside the book)_
+  - **khola (unpack):**
+    - Portability yaani आसानी से साथ ले जा सकना · image: राशन की बोरी के बजाय बटुए में नोट लेकर बाजार जाना
+    - kyon: Buyers need to take payment means to different sellers. _[standard]_ → Easy carrying reduces the burden of making those payments. _[standard]_
+    - example / jagah: Carrying money in a wallet to a market.
+    - aage: Makes money convenient for everyday exchange.
+    - screen par: carry a small wallet instead of a bulky load
+    - is level ke liye: Keep portability distinct from breaking a sum into smaller units.
+  - prerequisites: payment at a shop; carrying objects
+- **p001-i10** · list_point · definition · both · exam high
+  - Divisibility: Can be broken into smaller units.
+    - what: What is divisibility? → It is the ability to express money in smaller units for payments of different sizes.
+    - evidence: What wording marks divisibility? → The reference to being 'broken into smaller units' identifies division into usable amounts.
+      - how: How does divisibility help pay the right amount? → Smaller denominations or account units allow small purchases and change. It means splitting an amount, not tearing a banknote into usable pieces. _(outside the book)_
+  - **khola (unpack):**
+    - Divisibility yaani रकम को छोटे हिस्सों में बाँटकर भुगतान कर सकना · image: बड़े नोट के बदले छोटे नोट और सिक्के लेना
+    - kyon: Purchases require different payment amounts. _[standard]_ → Smaller units allow suitable payments and the return of change. _[standard]_
+    - example / jagah: Using smaller denominations to pay for a low-priced item.
+    - aage: Supports both small and large transactions.
+    - screen par: split a monetary amount into equivalent smaller denominations
+    - is level ke liye: Dividing an amount should preserve its total value.
+  - prerequisites: larger and smaller amounts; change in a cash transaction
+- **p001-i11** · list_point · definition · both · exam high
+  - Uniformity: Every unit has the same value.
+    - what: How does the page define uniformity? → It describes the characteristic through sameness of value across units.
+    - evidence: Which phrase supports identifying this as uniformity? → 'Every unit has the same value' is the page's explicit description.
+      - how: How should 'same value' be interpreted without confusing denominations? → Equivalent monetary units have the same face value: one genuine ₹100 note represents the same amount as another genuine ₹100 note. This does not mean that ₹100 and ₹500 notes have equal values. _(outside the book)_
+      - why: Why is uniformity useful in exchange? → Equivalent units can substitute for one another without separately bargaining over each unit's quality or value. _(outside the book)_
+  - **khola (unpack):**
+    - Uniformity yaani एक जैसी रकम वाली इकाइयों की कीमत एक जैसी होना · image: दो असली ₹100 नोटों में कोई भी दो, रकम बराबर है
+    - kyon: A recipient needs to know what an offered monetary unit represents. _[standard]_ → Equivalent units carrying equal value remove the need to value each separately. _[standard]_
+    - example / jagah: Substituting one genuine ₹100 note for another.
+    - aage: Makes equivalent units interchangeable in payment.
+    - screen par: swap equal-denomination notes under an equals sign
+    - is level ke liye: Uniformity compares equivalent units, not unlike denominations.
+  - prerequisites: denominations; face value
+- **p001-i12** · list_point · cause_effect · both · exam high
+  - Limited supply: Scarcity helps preserve value.
+    - what: What relationship does the page state between supply and value? → It presents scarcity as helping preserve money's value.
+    - why: Why can excessive monetary supply weaken purchasing power? → If money available for spending grows faster than available goods and services, demand can put upward pressure on prices, reducing what a unit of money buys. _(outside the book)_
+      - how: How should 'limited supply' be understood here? → It means supply should not be unrestricted relative to economic needs. It does not imply that the money supply must be permanently fixed or that scarcity alone guarantees stable value. _(outside the book)_
+  - **khola (unpack):**
+    - Limited supply yaani रकम की उपलब्धता बिना रोक-टोक बढ़ती न रहे · image: बाजार में सामान उतना ही है, पर खर्च करने के लिए रकम बहुत बढ़ जाए
+    - Scarcity yaani ज़रूरत के मुकाबले किसी चीज़ का सीमित होना · image: चाहने वाले बहुत हों, उपलब्ध चीज़ कम हो
+    - kyon: Money needs to retain usefulness for buying goods and services. _[standard]_ → The page identifies scarcity as helping preserve that value. _[book]_
+    - example / jagah: A market where spending money rises much faster than the goods available.
+    - aage: Links monetary supply to purchasing power and the store-of-value function.
+    - screen par: contrast growing payment balances with a limited stock of goods
+    - is level ke liye: Scarcity supports value but is not sufficient by itself; general acceptance remains essential.
+  - prerequisites: supply; prices; purchasing power
+- **p001-i13** · heading · none · both
+  - Four Core Functions of Money
+- **p001-i14** · list_point · definition · both · exam high
+  - 1. Medium of exchange: Eliminates the need for barter. Example: You buy groceries using ₹500 instead of exchanging wheat for rice.
+    - what: What is money's medium-of-exchange function? → Money is used to obtain goods instead of directly exchanging one good for another.
+    - evidence: Which example illustrates this function? → The page contrasts buying groceries using ₹500 with exchanging wheat for rice. ₹ denotes rupees, so ₹500 is five hundred rupees.
+      - why: Why can barter make a purchase difficult? → In direct barter, a person seeking rice must find someone offering rice who also wants what that person offers. This matching requirement is called double coincidence of wants. _(outside the book)_
+        - how: How does money reduce this matching difficulty? → A person can sell to one party for money and buy from another, provided the money is accepted. Both parties need not want one another's goods. _(outside the book)_
+  - **khola (unpack):**
+    - barter yaani पैसे के बिना एक सामान देकर दूसरा सामान लेना · image: गेहूँ देकर चावल लेना
+    - Medium of exchange yaani सामान खरीदने-बेचने में इस्तेमाल होने वाला बीच का साधन · image: ₹500 देकर किराने का सामान लेना
+    - kyon: Under barter, finding someone who both offers what you need and wants your goods can be difficult. _[standard]_ → An accepted monetary payment removes the need for that direct goods-for-goods match. _[standard]_
+    - example / jagah: Book example: ₹500 pays for groceries instead of wheat being exchanged for rice.
+    - aage: Exchange can proceed without barter.
+    - screen par: replace a wheat-for-rice swap with a money payment
+    - is level ke liye: Double coincidence of wants explains the mechanism; ₹ is the rupee symbol, not a separate monetary function.
+  - prerequisites: barter as direct goods-for-goods exchange; money acceptance
+- **p001-i15** · list_point · definition · both · exam high
+  - 2. Unit of account: Provides a common measure of value. Example: A phone costs ₹20,000 and a laptop costs ₹60,000.
+    - what: What does money do as a unit of account? → It supplies a common monetary measure in which the values of different goods can be stated.
+    - evidence: Which printed prices demonstrate a common measure? → The phone is priced at ₹20,000 and the laptop at ₹60,000; both prices are expressed in rupees.
+      - how: How does stating both prices in rupees help comparison? → The common unit makes their values directly comparable: in the example the laptop costs three times as much as the phone. _(outside the book)_
+      - difference: How does unit of account differ from medium of exchange? → Stating a price measures value; handing over money to complete a purchase uses it as a medium of exchange. A price can be quoted without a purchase occurring. _(outside the book)_
+  - **khola (unpack):**
+    - Unit of account yaani अलग-अलग चीज़ों की कीमत एक ही पैसे की इकाई में बताना · image: फोन और laptop, दोनों के price tag रुपये में पढ़ना
+    - kyon: Buyers need to compare goods with different uses and qualities. _[standard]_ → A common monetary unit makes their prices comparable. _[standard]_
+    - example / jagah: Book prices: phone ₹20,000; laptop ₹60,000.
+    - aage: Provides a shared scale for valuation rather than requiring direct goods-to-goods price quotations.
+    - screen par: align two rupee price tags on one scale
+    - is level ke liye: These are illustrative prices, not current market-price facts; the derived three-to-one comparison explains the example.
+  - prerequisites: prices; a common measurement unit; comparison of amounts
+- **p001-i16** · list_point · definition · both · exam high
+  - 3. Store of value: Allows purchasing power to be saved for future use. Example: Keeping money in a bank account for later expenses.
+    - what: What is the store-of-value function? → Money allows purchasing power to be held now for use on future expenses.
+    - evidence: Which example on the page shows purchasing power being held? → Keeping money in a bank account for later expenses illustrates postponing spending.
+      - why: Why do people need to store purchasing power? → The time when people receive income need not match the time when they need to spend. Holding money helps bridge that gap. _(outside the book)_
+      - exception: Does storing money guarantee unchanged purchasing power? → No. If prices rise, the same monetary amount buys fewer goods and services. Money can perform a store-of-value role without being a perfect store of value. _(outside the book)_
+  - **khola (unpack):**
+    - Store of value yaani आज की खरीदने की ताकत को आगे इस्तेमाल के लिए बचाकर रखना · image: आज की कमाई बैंक में रखकर अगले महीने खर्च करना
+    - purchasing power yaani किसी रकम से कितना सामान या सेवा मिल सकती है · image: एक ही रकम से पहले और अब मिलने वाले राशन की तुलना
+    - kyon: Income can arrive before an expense falls due. _[standard]_ → Holding money carries spending ability forward to that later expense. _[standard]_
+    - example / jagah: Book example: money kept in a bank account for later expenses.
+    - aage: Links money across time; rising prices can weaken the purchasing power retained.
+    - screen par: carry a saved balance from today to a future expense
+    - is level ke liye: A bank balance may keep its nominal amount while its real purchasing power changes.
+  - prerequisites: saving; bank account; purchasing power as what money can buy
+- **p001-i17** · list_point · definition · both · exam high
+  - 4. Standard of deferred payment: Makes future payments possible. Example: Home loans and EMI payments are denominated in money.
+    - what: What is money's role as a standard of deferred payment? → It supplies the monetary denomination for payments to be made in the future, as with home loans and EMI payments.
+    - evidence: Which examples identify deferred payment on this page? → The page names home loans and EMI payments denominated in money.
+      - how: How does expressing a future obligation in money help repayment? → The borrower and lender can state what amount is owed and use a shared unit when repayment becomes due, rather than leaving the obligation as an unspecified future exchange. _(outside the book)_
+      - what: What does EMI mean? → EMI means Equated Monthly Instalment: a scheduled monthly loan payment, generally including principal and interest. _(outside the book)_
+      - difference: How is this different from store of value? → Store of value concerns retaining spending ability for later; deferred payment concerns stating and settling an obligation due later. Saving for a future purchase is not the same as owing a future instalment. _(outside the book)_
+  - **khola (unpack):**
+    - Standard of deferred payment yaani बाद में चुकाए जाने वाले भुगतान को पैसे की इकाई में तय करना · image: आज home loan लेना और आगे रुपये में किस्त चुकाना
+    - denominated in money yaani देने वाली रकम रुपये जैसी पैसे की इकाई में लिखी होना · image: loan के कागज़ पर रुपये में लिखी बाकी रकम
+    - EMI yaani loan चुकाने की तय मासिक किस्त · image: हर महीने खाते से जाने वाली home loan की किस्त
+    - kyon: Credit creates an obligation to pay at a later time. _[standard]_ → Expressing that obligation in money provides a common standard for future repayment. _[standard]_
+    - example / jagah: Book examples: home loans and EMI payments.
+    - aage: Connects the opening reference to settling debts with money's role across time.
+    - screen par: write a loan amount now and mark monetary instalments on future dates
+    - is level ke liye: Compare all four functions through the action: pay now, quote value, save for later, or specify repayment later.
+  - prerequisites: loan; borrower and lender; repayment due in the future
+
+## Page 2 · passed after 2 round(s)
+
+Intrinsic money has material value; extrinsic money depends on trust and institutional backing. The page traces barter → commodity → metallic → paper → bank → digital money, then defines barter, its features and the double coincidence of wants problem.
+
+- **p002-i1** · table · comparison · image
+  - COMPARISON: INTRINSIC vs EXTRINSIC VALUE OF MONEY. Columns: ASPECT | INTRINSIC VALUE OF MONEY (Commodity / Metallic Money) | EXTRINSIC VALUE OF MONEY (Fiat / Paper / Digital Money). Rows compare basis of value, source of value, inherent worth, value if not used as money, examples, acceptability, durability, divisibility, portability and example in context.
+- **p002-i2** · table_row · comparison · image · exam high
+  - ASPECT | INTRINSIC VALUE OF MONEY (Commodity / Metallic Money) | EXTRINSIC VALUE OF MONEY (Fiat / Paper / Digital Money)
+    - compare: Which forms does the table place under each source of value? → Commodity and metallic money appear under intrinsic value; fiat, paper and digital money appear under extrinsic value.
+    - difference: What underlying distinction should guide the comparison? → Material usefulness or worth is different from value obtained through monetary acceptance and institutional backing. _(outside the book)_
+      - why: Why should a learner not classify money solely by whether it is metal or paper? → A modern token coin can have a monetary value greater than its metal value. The basis of value matters, not merely physical appearance. _(outside the book)_
+  - **khola (unpack):**
+    - Intrinsic yaani चीज़ जिस सामग्री से बनी है, उसकी अपनी कीमत · image: सोने का सिक्का, जिसका सोना भी बिक सकता है
+    - Extrinsic yaani चीज़ किससे बनी है उससे नहीं, लोगों के मानने और भरोसे से मिली कीमत · image: नोट को उसके कागज़ के लिए नहीं लिया जाता
+    - kyon: To understand money's value, separate the material from the monetary claim. _[standard]_ → The table organises the forms of money around these two sources. _[book]_
+    - example / jagah: Gold versus a rupee note.
+    - aage: The remaining rows test the distinction on different criteria.
+    - screen par: Separate material worth from accepted monetary value.
+    - is level ke liye: Physical form and source of value are not identical classifications.
+  - prerequisites: money as a medium of exchange; material value
+- **p002-i3** · table_row · comparison · image · exam high
+  - ASPECT: BASIS OF VALUE | INTRINSIC VALUE OF MONEY (Commodity / Metallic Money): Intrinsic / Natural | EXTRINSIC VALUE OF MONEY (Fiat / Paper / Digital Money): Trust / Legally Enforced
+    - compare: What basis of value does each column identify? → Intrinsic money rests on intrinsic or natural value; extrinsic money rests on trust or legal enforcement.
+    - difference: How is trusting a note different from valuing gold? → A note is accepted for what it can obtain in exchange rather than for the usefulness of its paper; gold can also be valued as a material. _(outside the book)_
+      - why: Why does trust support monetary exchange? → A receiver accepts money more readily when expecting others to accept it in subsequent transactions. _(outside the book)_
+  - **khola (unpack):**
+    - Trust yaani भरोसा कि आगे दूसरा व्यक्ति भी इसे लेगा · image: दुकानदार नोट लेता है क्योंकि उससे आगे सामान खरीद सकेगा
+    - kyon: A seller needs confidence that what is received will be useful. _[standard]_ → That confidence can rest on the material itself or on accepted monetary status. _[standard]_
+    - example / jagah: Accepting a rupee note at a shop.
+    - aage: Low material value need not mean low monetary value.
+    - screen par: Pass a note between successive buyers and sellers.
+    - is level ke liye: Legal recognition and public confidence are related but distinct supports.
+  - prerequisites: acceptance in exchange; material value
+- **p002-i4** · table_row · comparison · image · exam high
+  - ASPECT: SOURCE OF VALUE | INTRINSIC VALUE OF MONEY (Commodity / Metallic Money): Own Material Value | EXTRINSIC VALUE OF MONEY (Fiat / Paper / Digital Money): Government / Authority Backing
+    - compare: Where does each category's value come from in the table? → Intrinsic money has its own material value; extrinsic money is associated with government or authority backing.
+    - difference: How does backing differ from material value? → Backing concerns the institutional arrangements supporting monetary acceptance; material value concerns what the substance itself is worth. _(outside the book)_
+      - how: How should 'authority backing' be understood without assuming gold convertibility? → Institutional support may establish and sustain a currency's use without promising redemption into gold. Bank deposits also involve claims on banks rather than being identical to government-issued notes. _(outside the book)_
+  - **khola (unpack):**
+    - Government / Authority Backing yaani पैसे की मान्यता को सरकार या संबंधित संस्था का सहारा · image: कागज़ का टुकड़ा नहीं, पहचाना हुआ रुपये का नोट
+    - kyon: Paper alone cannot explain a note's purchasing value. _[standard]_ → The table points instead to institutional backing. _[book]_
+    - example / jagah: Rupee notes and bank balances.
+    - aage: Do not infer that every monetary claim has identical backing.
+    - screen par: Contrast a gold material tag with an institutional support tag.
+    - is level ke liye: Separate fiat currency from commercial-bank liabilities.
+  - prerequisites: currency; government recognition; bank deposits
+- **p002-i5** · table_row · comparison · image · exam high
+  - ASPECT: INHERENT WORTH | INTRINSIC VALUE OF MONEY (Commodity / Metallic Money): Present | EXTRINSIC VALUE OF MONEY (Fiat / Paper / Digital Money): Not Present
+    - compare: How does inherent worth differ across the columns? → The table marks inherent worth as present for intrinsic money and not present for extrinsic money.
+    - difference: Does absence of inherent worth mean absence of purchasing power? → No. Purchasing power depends on what money obtains in exchange, not on whether its physical material has comparable independent worth. _(outside the book)_
+      - why: Why is this distinction necessary? → Otherwise a learner could incorrectly conclude that paper or digital money is valueless simply because its material does not account for its monetary value. _(outside the book)_
+  - **khola (unpack):**
+    - Inherent worth yaani पैसे की पहचान हटाने पर भी चीज़ की अपनी कीमत · image: गहना बनाने लायक सोना
+    - kyon: We need to distinguish what an object is worth from what it buys as money. _[standard]_ → The table reserves inherent worth for the material-value side. _[book]_
+    - example / jagah: A note's paper versus gold in a coin.
+    - aage: Monetary value and material value must be kept separate.
+    - screen par: Split one object into material and purchasing-value labels.
+    - is level ke liye: Read 'not present' as no material worth explaining monetary value, not literally no possible scrap value.
+  - prerequisites: purchasing power; material value
+- **p002-i6** · table_row · comparison · image · exam high
+  - ASPECT: VALUE IF NOT USED AS MONEY | INTRINSIC VALUE OF MONEY (Commodity / Metallic Money): Retains Value | EXTRINSIC VALUE OF MONEY (Fiat / Paper / Digital Money): Nil Value
+    - compare: What happens if monetary use is removed, according to the table? → Intrinsic money retains value, whereas extrinsic money is described as having nil value.
+    - difference: What does this counterfactual reveal? → It asks whether demand survives for the object as a commodity rather than as a means of payment. _(outside the book)_
+      - why: Why must 'Nil Value' be read carefully? → The intended contrast concerns non-monetary material value. Scrap or collectible value can exist, so it should not be treated as a literal claim covering every object and circumstance. _(outside the book)_
+  - **khola (unpack):**
+    - Retains Value yaani पैसे की तरह न चलने पर भी काम और कीमत बचना · image: नमक खरीदारी में न चले, फिर भी खाने में काम आता है
+    - kyon: Imagine that people stop accepting an object in payment. _[standard]_ → An independent commodity use can still sustain demand for it. _[standard]_
+    - example / jagah: Gold used in jewellery rather than payment.
+    - aage: This is a practical conceptual test, not a claim about constant prices.
+    - screen par: Remove the money badge and retain the commodity-use badge.
+    - is level ke liye: Retains value does not mean retains exactly the same market price.
+  - prerequisites: monetary use; non-monetary uses of commodities
+- **p002-i7** · table_row · comparison · image · exam high
+  - ASPECT: EXAMPLES | INTRINSIC VALUE OF MONEY (Commodity / Metallic Money): Gold, Silver, Salt, Cattle, Cowrie Shells | EXTRINSIC VALUE OF MONEY (Fiat / Paper / Digital Money): Currency Notes, Bank Deposits, Digital Money
+    - compare: Which examples belong to each column? → Gold, silver, salt, cattle and cowrie shells are listed as intrinsic examples; currency notes, bank deposits and digital money as extrinsic examples.
+    - difference: What connects the examples within each column? → The first column treats objects or commodities as money; the second groups monetary instruments whose value is not explained by the worth of their physical material. _(outside the book)_
+      - why: Why should cowrie shells not be treated as if they were identical to gold? → Historical commodity monies differed in usefulness, scarcity and customary acceptance. The table groups them for the broad contrast, not because their sources and stability of value were identical. _(outside the book)_
+  - **khola (unpack):**
+    - Cowrie Shells yaani कौड़ियाँ, जिन्हें कुछ जगह लेन-देन में लिया जाता था · image: छोटी चमकीली कौड़ियों की ढेरी
+    - kyon: A classification becomes usable when tied to recognisable examples. _[standard]_ → The page contrasts commodity objects with notes, deposits and digital forms. _[book]_
+    - example / jagah: Salt and cattle versus a bank deposit.
+    - aage: Examples reinforce the value-source distinction.
+    - screen par: Sort all eight named examples into two columns.
+    - is level ke liye: Memorise the page's examples without assuming identical properties within a group.
+  - prerequisites: commodity; currency note; bank deposit
+- **p002-i8** · table_row · comparison · image · exam high
+  - ASPECT: ACCEPTABILITY | INTRINSIC VALUE OF MONEY (Commodity / Metallic Money): Limited (by Utility & Availability) | EXTRINSIC VALUE OF MONEY (Fiat / Paper / Digital Money): Wide (by Legal Tender & Trust)
+    - compare: How does the table contrast acceptability? → Intrinsic money has limited acceptability linked to utility and availability; extrinsic money has wide acceptability linked to legal tender and trust.
+    - difference: How does accepting a useful commodity differ from accepting common currency? → Commodity acceptance can depend on local demand for that object, while currency can be accepted because recipients expect to spend it widely. _(outside the book)_
+      - why: Why is legal tender not a description of every item in the extrinsic column? → Legal-tender status is a specific legal property. Bank deposits and payment services should not automatically be assigned the same legal-tender status as currency notes. _(outside the book)_
+  - **khola (unpack):**
+    - Acceptability yaani कितने लोग इसे भुगतान में लेने को तैयार हैं · image: एक दुकान नमक लेने से मना करे, लेकिन रुपये ले ले
+    - kyon: A payment object must be acceptable to the seller. _[standard]_ → Trust in further spending can widen acceptance beyond direct personal usefulness. _[standard]_
+    - example / jagah: Rupee payments across different kinds of shops.
+    - aage: Common acceptance makes indirect exchange easier.
+    - screen par: Expand a network of accepting sellers.
+    - is level ke liye: The table gives a broad tendency, not a universal ranking of every commodity and currency.
+  - prerequisites: acceptance in exchange; legal recognition of currency
+- **p002-i9** · table_row · comparison · image · exam high
+  - ASPECT: DURABILITY | INTRINSIC VALUE OF MONEY (Commodity / Metallic Money): Generally Durable | EXTRINSIC VALUE OF MONEY (Fiat / Paper / Digital Money): Varies (Paper perishable, Digital depends on Technology)
+    - compare: What durability contrast is printed? → Intrinsic money is generally durable; extrinsic money varies, with paper perishable and digital money dependent on technology.
+    - difference: How do physical durability and digital dependence differ? → Physical durability concerns damage to an object; digital use concerns reliable records and the systems through which balances are accessed and transferred. _(outside the book)_
+      - why: Why is the word 'generally' important? → Gold and silver are durable, but commodities such as cattle and salt face different biological or storage risks. The listed commodities do not share identical durability. _(outside the book)_
+  - **khola (unpack):**
+    - Durability yaani समय और इस्तेमाल के साथ ठीक बने रहने की क्षमता · image: पुराना सिक्का बचा रहे, नोट फट जाए
+    - kyon: Money may need to be held and passed on repeatedly. _[standard]_ → Physical wear or technological dependence affects that convenience. _[standard]_
+    - example / jagah: A torn note and access to a digital bank balance.
+    - aage: Different monetary forms require different safeguards.
+    - screen par: Contrast wear on paper with technology supporting a digital record.
+    - is level ke liye: A temporary network failure is not itself disappearance of the bank balance.
+  - prerequisites: physical wear; electronic bank records
+- **p002-i10** · table_row · comparison · image · exam high
+  - ASPECT: DIVISIBILITY | INTRINSIC VALUE OF MONEY (Commodity / Metallic Money): Difficult | EXTRINSIC VALUE OF MONEY (Fiat / Paper / Digital Money): Easy
+    - compare: How is divisibility contrasted? → The table calls intrinsic money difficult to divide and extrinsic money easy to divide.
+    - difference: What does dividing money mean in transactions? → It means making smaller-value payments, not necessarily cutting a physical object into pieces. _(outside the book)_
+      - why: Why does cattle illustrate the problem better than every metallic form? → A live animal cannot conveniently be split for small purchases without losing its function, whereas metals can be divided and minted into denominations. The table's difficulty is not equally strong for every example. _(outside the book)_
+  - **khola (unpack):**
+    - Divisibility yaani छोटे मूल्य के भुगतान कर पाने की सुविधा · image: छोटी खरीद के बदले आधी गाय देना संभव नहीं
+    - kyon: Purchases have different prices, including small ones. _[standard]_ → Convenient smaller units reduce the difficulty of matching payment to price. _[standard]_
+    - example / jagah: Paying a small amount from a bank balance.
+    - aage: Divisibility improves day-to-day exchange.
+    - screen par: Break a payment amount into smaller units without cutting an animal.
+    - is level ke liye: Dividing value is different from physically tearing a note.
+  - prerequisites: small-value payments; denominations
+- **p002-i11** · table_row · comparison · image · exam high
+  - ASPECT: PORTABILITY | INTRINSIC VALUE OF MONEY (Commodity / Metallic Money): Difficult (Bulky / Heavy) | EXTRINSIC VALUE OF MONEY (Fiat / Paper / Digital Money): Easy
+    - compare: What portability difference does the table identify? → Intrinsic money can be bulky or heavy and difficult to carry; extrinsic money is described as easy to carry or use.
+    - difference: How does portability differ from divisibility? → Portability concerns moving or transferring value conveniently; divisibility concerns making smaller payments. _(outside the book)_
+      - why: Why does portability matter for trade? → Transporting payment goods adds effort and cost. Lightweight currency or electronic transfers can reduce the physical burden. _(outside the book)_
+  - **khola (unpack):**
+    - Portability yaani कीमत को एक जगह से दूसरी जगह ले जाने की आसानी · image: अनाज की बोरी ढोना बनाम जेब में नोट रखना
+    - kyon: People need to pay beyond their immediate location. _[standard]_ → Less physical bulk makes moving value easier. _[standard]_
+    - example / jagah: Carrying cattle compared with carrying notes.
+    - aage: More convenient payment supports wider exchange.
+    - screen par: Replace a heavy load with a note or transfer.
+    - is level ke liye: Electronic convenience still depends on usable infrastructure.
+  - prerequisites: payment; transport of goods
+- **p002-i12** · table_row · comparison · image · exam high
+  - ASPECT: EXAMPLE IN CONTEXT | INTRINSIC VALUE OF MONEY (Commodity / Metallic Money): Metal Coins, Gold Bullion | EXTRINSIC VALUE OF MONEY (Fiat / Paper / Digital Money): Rupee Notes, Bank Balance, UPI
+    - compare: Which contextual examples are printed? → Metal coins and gold bullion appear under intrinsic money; rupee notes, bank balance and UPI under extrinsic money.
+    - difference: How do bank balance and UPI differ? → A bank balance is a monetary claim recorded at a bank; UPI is a payment system used to transfer funds, not a separate stock of money. _(outside the book)_
+      - how: How should the metal-coin example be qualified? → It illustrates intrinsic value when the coin's metal is materially valuable; a modern token coin's denomination need not equal its metal value. _(outside the book)_
+  - **khola (unpack):**
+    - Gold Bullion yaani सोना जिसे मुख्यतः उसके वजन और शुद्धता की कीमत पर रखा जाता है · image: सोने की छड़ पर वजन और शुद्धता लिखी हो
+    - kyon: Daily-life examples can blur money and the tools used to move it. _[standard]_ → Separate gold material, bank balances and the UPI transfer channel. _[standard]_
+    - example / jagah: A UPI purchase paid from a bank account.
+    - aage: A payment channel does not become a separate currency merely because it is digital.
+    - screen par: Move funds between account boxes along a UPI arrow.
+    - is level ke liye: Preserve the book's placement but explain the instrument–channel distinction.
+  - prerequisites: bank balance; payment system; metal value
+- **p002-i13** · diagram · timeline · image · exam high
+  - EVOLUTION OF MONEY. Six illustrated stages connected by five right-pointing arrows: 1. BARTER (people exchanging wheat and cloth) → 2. COMMODITY MONEY (salt, cattle and shells) → 3. METALLIC MONEY (gold and silver coins) → 4. PAPER MONEY (currency notes) → 5. BANK MONEY (bank building, cheque and pen) → 6. DIGITAL MONEY (phone showing UPI and a payment card). Each stage has its name and an example caption below.
+    - when: In what order does the page place the forms of exchange? → Barter comes first, followed by commodity, metallic, paper, bank and digital money. No dates are supplied.
+    - why: Why is the sequence useful for understanding money? → It links direct exchange to forms that can make storing, carrying and transferring purchasing power more convenient. _(outside the book)_
+      - exception: Do the arrows prove that each later form completely replaced the previous one? → No. This is a schematic teaching sequence; monetary forms and barter can coexist, and historical paths differ. _(outside the book)_
+  - **khola (unpack):**
+    - Evolution of Money yaani लेन-देन के तरीकों और पैसे के रूपों का समय के साथ बदलना · image: अनाज के बदले कपड़ा देने से फोन द्वारा भुगतान तक की पट्टी
+    - kyon: Direct exchange and bulky payment objects create practical difficulties. _[standard]_ → The sequence introduces progressively different ways to represent and transfer value. _[standard]_
+    - example / jagah: Wheat-for-cloth exchange through to UPI.
+    - aage: The text below begins by examining the first stage in detail.
+    - screen par: Follow five rightward arrows through six stages.
+    - is level ke liye: Distinguish historical ordering from an inevitable universal ladder.
+  - prerequisites: exchange; money as a medium of exchange
+- **p002-i14** · diagram_label · timeline · image · exam high
+  - 1. BARTER — Wheat exchanged for cloth. The label points to two people exchanging wheat and cloth; the outgoing arrow leads to commodity money.
+    - when: Where does barter appear in the sequence? → It is the first stage, before commodity money.
+    - why: Why is wheat-for-cloth an example of barter? → The participants exchange the goods they want directly, rather than using a separate monetary intermediary. _(outside the book)_
+      - how: How does this example prepare for double coincidence of wants? → The wheat-holder must want cloth and the cloth-holder must want wheat for this direct swap to suit both. _(outside the book)_
+  - **khola (unpack):**
+    - Barter yaani बिना पैसे के एक चीज़ या सेवा के बदले दूसरी लेना · image: गेहूँ की पोटली देकर कपड़ा लेना
+    - kyon: Each party needs something held by the other. _[standard]_ → They can swap directly when their wants match. _[standard]_
+    - example / jagah: Wheat exchanged for cloth.
+    - aage: Direct exchange creates a matching problem.
+    - screen par: Swap wheat and cloth in opposite directions.
+    - is level ke liye: Identify the absence of an intermediary rather than merely the presence of goods.
+  - prerequisites: goods; direct exchange
+- **p002-i15** · diagram_label · timeline · image · exam high
+  - 2. COMMODITY MONEY — Salt, cattle, shells. The label points to a salt sack, cattle and shells; arrows connect barter to this stage and this stage to metallic money.
+    - when: Where is commodity money placed? → Second, between barter and metallic money, with salt, cattle and shells as examples.
+    - why: Why is a commodity used as money different from a direct barter good? → A commodity functions as money when it is accepted as an intermediary in exchange, rather than being received simply for the recipient's immediate use. _(outside the book)_
+      - how: How can a common commodity reduce the matching problem? → A seller may accept it expecting to exchange it later, even when the buyer does not offer the particular final good the seller wants. _(outside the book)_
+  - **khola (unpack):**
+    - Commodity Money yaani कोई चीज़ जिसे लोग आगे भुगतान में भी लेने लगें · image: नमक लेकर उसे आगे किसी और चीज़ के बदले देना
+    - kyon: A direct trading partner may not have the desired final good. _[standard]_ → A commonly accepted commodity can act as an intermediate payment. _[standard]_
+    - example / jagah: Salt, cattle and shells.
+    - aage: Exchange can move beyond a single direct swap.
+    - screen par: Insert a common commodity between two exchanges.
+    - is level ke liye: Distinguish use as money from mere exchange of a commodity.
+  - prerequisites: barter; medium of exchange
+- **p002-i16** · diagram_label · timeline · image · exam high
+  - 3. METALLIC MONEY — Gold and silver coins. The label points to two illustrated coins; arrows connect commodity money → metallic money → paper money.
+    - when: Where are gold and silver coins placed? → They illustrate the third stage, metallic money, after commodity money and before paper money.
+    - why: Why can metals serve as useful monetary materials? → Precious metals combine durability and material value, and can be formed into standard units for exchange. _(outside the book)_
+      - how: How does this stage connect to the intrinsic-value comparison? → The gold or silver in a full-bodied coin has value apart from the coin's use in payment. _(outside the book)_
+  - **khola (unpack):**
+    - Metallic Money yaani धातु के रूप में इस्तेमाल होने वाला पैसा · image: सोने और चाँदी के सिक्के
+    - kyon: Payment goods need to survive repeated handling. _[standard]_ → Metal can be durable and shaped into recognisable units. _[standard]_
+    - example / jagah: Gold and silver coins.
+    - aage: Links the evolution sequence to material-value money.
+    - screen par: Form metal into coins and move to the next arrow.
+    - is level ke liye: Metallic form alone does not establish full intrinsic monetary value.
+  - prerequisites: commodity money; material value; coin
+- **p002-i17** · diagram_label · timeline · image · exam high
+  - 4. PAPER MONEY — Currency notes. The label points to a fan of currency notes, with a ₹500 note visible at the front; arrows connect metallic money → paper money → bank money.
+    - when: Where are currency notes placed in the sequence? → They illustrate paper money, fourth, after metallic money and before bank money.
+    - why: Why are notes useful compared with carrying heavy payment materials? → A relatively light note can represent purchasing power without requiring the holder to carry an equivalent weight of a valuable commodity. _(outside the book)_
+      - how: How does the table explain the value of paper money? → It places paper money under extrinsic value, supported by trust and authority backing rather than the paper's own material worth.
+  - **khola (unpack):**
+    - Paper Money yaani नोट के रूप में चलने वाला पैसा · image: बटुए में रखा रुपये का नोट
+    - kyon: Carrying heavy payment objects is inconvenient. _[standard]_ → Recognised currency notes provide a lighter monetary form. _[standard]_
+    - example / jagah: The illustrated ₹500 note.
+    - aage: Monetary value becomes visibly separate from the substrate's value.
+    - screen par: Replace a heavy payment load with notes.
+    - is level ke liye: The illustration's denomination is an example, not a historical date or stage boundary.
+  - prerequisites: currency note; extrinsic value
+- **p002-i18** · diagram_label · timeline · image · exam high
+  - 5. BANK MONEY — Cheques and deposits. The label points to a bank building marked BANK, a cheque and a pen; arrows connect paper money → bank money → digital money.
+    - when: Where does bank money appear and what examples accompany it? → It is fifth, between paper and digital money, illustrated by cheques and deposits.
+    - why: Why must cheques and deposits be distinguished? → A deposit is a bank liability held as a balance; a cheque is an instruction used to make a payment from an account. The cheque is not itself the deposit balance. _(outside the book)_
+      - how: How can bank money support payment without handing over cash? → Payment can transfer bank-account claims between parties through banking arrangements rather than physical currency changing hands. _(outside the book)_
+  - **khola (unpack):**
+    - Cheques yaani बैंक को खाते से भुगतान करने का लिखित निर्देश · image: भरे हुए cheque पर हस्ताक्षर करना
+    - kyon: A person may wish to pay without withdrawing and carrying cash. _[standard]_ → A bank deposit can support payment through instructions such as a cheque. _[standard]_
+    - example / jagah: An account holder issuing a cheque.
+    - aage: Prepares the distinction between monetary balances and transfer methods.
+    - screen par: Use a cheque instruction to shift account balances.
+    - is level ke liye: The diagram groups related banking elements rather than declaring cheque and deposit identical.
+  - prerequisites: bank account; bank deposit; cash
+- **p002-i19** · diagram_label · timeline · image · exam high
+  - 6. DIGITAL MONEY — UPI, net banking, cards. The label points to a phone showing UPI and a QR code, with payment cards beside it; the incoming arrow is from bank money.
+    - when: Which stage ends the page's sequence? → Digital money is sixth, illustrated by UPI, net banking and cards.
+    - why: Why should these examples be taught as digital payment methods rather than automatically separate currencies? → UPI, net banking and cards provide ways to access or transfer funds. Their use does not by itself create a new currency or a distinct monetary balance. _(outside the book)_
+      - how: How does a digital payment relate to bank money? → Many such payments transfer existing bank deposits electronically, so the digital and bank-money stages overlap in practice. _(outside the book)_
+  - **khola (unpack):**
+    - Digital Money yaani यहाँ डिजिटल तरीके से इस्तेमाल या भेजे जाने वाले पैसे का व्यापक नाम · image: फोन से QR scan करके बैंक खाते से भुगतान
+    - kyon: People need to initiate payments without exchanging notes or a paper cheque. _[standard]_ → Electronic channels can communicate payment instructions and transfer balances. _[standard]_
+    - example / jagah: UPI, net banking and cards.
+    - aage: The channel changes even when the underlying money remains a bank deposit.
+    - screen par: Scan a QR code and transfer a balance between accounts.
+    - is level ke liye: Do not infer that digital payment and central-bank digital currency are synonyms.
+  - prerequisites: bank balance; electronic transfer; payment instruction
+- **p002-i20** · heading · none · both
+  - Barter System
+- **p002-i21** · definition · definition · both · exam high
+  - • The barter system is a method of exchange in which goods and services are directly exchanged for other goods and services without using a medium of exchange.
+    - what: What makes an exchange barter? → Goods or services are exchanged directly for other goods or services, without an intervening medium of exchange.
+    - evidence: Which example on the page demonstrates the definition? → The diagram shows wheat exchanged for cloth, with neither party paying money.
+      - how: How does barter differ from two monetary transactions? → In barter the desired goods or services directly change hands; with money, a person can sell to one party and later buy from another. _(outside the book)_
+      - why: Why does the definition mention services as well as goods? → The exchange need not involve two physical objects; work can be exchanged directly for another service or a good. _(outside the book)_
+  - **khola (unpack):**
+    - Medium of exchange yaani बीच में ली जाने वाली चीज़ जिससे आगे अपनी ज़रूरत की चीज़ खरीदी जाए · image: गेहूँ बेचकर रुपये लेना और उन्हीं रुपयों से कपड़ा खरीदना
+    - Directly exchanged yaani बीच में पैसा लिए बिना आपस में चीज़ या काम बदलना · image: पड़ोसी की मरम्मत के बदले उससे पढ़ाई में मदद लेना
+    - kyon: Two people hold different things or skills that the other needs. _[standard]_ → If they exchange these directly without an intermediary, the transaction is barter. _[book]_
+    - example / jagah: Wheat exchanged for cloth in the diagram.
+    - aage: The definition leads to no-money exchange and the need to match wants.
+    - screen par: Cross goods or service arrows directly between two people.
+    - is level ke liye: Test the presence of an intermediary, not whether an exchange has economic value.
+  - prerequisites: goods versus services; exchange; medium of exchange
+- **p002-i22** · heading · none · both
+  - Features
+- **p002-i23** · list_point · facts_numbers · both · exam high
+  - • No use of money
+    - what: What is absent from barter transactions? → Money is not used as the means of payment.
+    - evidence: How does the page establish this feature? → Its definition excludes a medium of exchange, and its diagram exchanges wheat directly for cloth.
+      - why: Why does no money not mean no value? → The parties still give up something to obtain something else; they can negotiate an exchange ratio even without a cash payment. _(outside the book)_
+  - **khola (unpack):**
+    - kyon: The parties still need a way to obtain one another's goods. _[standard]_ → Barter settles this by direct exchange instead of monetary payment. _[book]_
+    - example / jagah: Wheat paid in return for cloth.
+    - aage: An exchange can have a cost without involving money.
+    - screen par: Remove the money arrow but keep the reciprocal goods arrows.
+    - is level ke liye: Distinguish barter from a one-way gift.
+  - prerequisites: money as payment; exchange ratio
+- **p002-i24** · list_point · facts_numbers · both · exam high
+  - • Direct exchange of goods and services
+    - what: What changes hands in barter? → Goods and services are exchanged directly rather than through a monetary intermediary.
+    - evidence: Where is direct exchange illustrated? → The first stage of the evolution diagram pairs wheat with cloth.
+      - how: How could a service fit the same arrangement? → One person might repair an item in return for another person's tutoring, with the work itself constituting the exchange. _(outside the book)_
+  - **khola (unpack):**
+    - Services yaani किसी के लिए किया गया काम, न कि हाथ में दी जाने वाली चीज़ · image: पढ़ाना या साइकिल ठीक करना
+    - kyon: Needs may concern work as well as objects. _[standard]_ → Directly exchanging either can satisfy the definition of barter. _[standard]_
+    - example / jagah: Repair work exchanged for tutoring.
+    - aage: The matching problem also applies to services.
+    - screen par: Swap work icons as well as goods icons.
+    - is level ke liye: Identify barter from transaction structure, not from the physical nature of the item.
+  - prerequisites: goods; services; monetary intermediary
+- **p002-i25** · list_point · facts_numbers · both · exam high
+  - • Value is decided through mutual agreement
+    - what: How is value settled in the barter arrangement described? → The participants decide it through mutual agreement.
+    - evidence: What wording establishes the role of both parties? → The phrase 'mutual agreement' makes acceptance by both participants part of settling the exchange.
+      - how: How does this appear in a wheat-for-cloth trade? → The parties negotiate how much wheat is acceptable for a particular quantity of cloth; the example does not supply a fixed ratio. _(outside the book)_
+      - why: Why must agreement not be confused with equal benefit? → Agreeing to a trade does not establish equal bargaining power or an objectively equal gain for both parties. _(outside the book)_
+  - **khola (unpack):**
+    - Mutual agreement yaani दोनों पक्षों का शर्तों पर राज़ी होना · image: दो लोग तय करें कि कितने गेहूँ के बदले कितना कपड़ा देंगे
+    - kyon: Different goods need an agreed quantity relation before they can be exchanged. _[standard]_ → The page says the parties settle value by mutual agreement. _[book]_
+    - example / jagah: Negotiating quantities of wheat and cloth.
+    - aage: Barter involves valuation and bargaining even without money.
+    - screen par: Adjust quantities until both parties accept.
+    - is level ke liye: No invented numerical barter ratio is implied by the page.
+  - prerequisites: exchange ratio; negotiation
+- **p002-i26** · list_point · timeline · both · exam high
+  - • Common in early civilizations. Still seen in limited informal exchanges
+    - when: When does the page place barter? → It describes barter as common in early civilizations and still present in limited informal exchanges.
+    - why: Why can barter still occur in an economy that uses money? → Two people may already possess complementary needs and agree on a direct swap, making money unnecessary for that particular exchange. _(outside the book)_
+      - consequence: What follows for interpreting the evolution diagram? → The page's own mention of continuing barter shows that placing it first does not imply that it has vanished.
+  - **khola (unpack):**
+    - Informal exchanges yaani आपसी छोटे लेन-देन जो औपचारिक बाज़ार की तरह न हों · image: दो पड़ोसी अपनी अतिरिक्त चीज़ें आपस में बदल लें
+    - kyon: Money is not necessary when two people's immediate needs already match. _[standard]_ → This allows some direct swaps to continue alongside monetary exchange. _[standard]_
+    - example / jagah: A limited direct swap between neighbours.
+    - aage: Older and newer exchange methods can coexist.
+    - screen par: Carry a small barter branch from the early stage into the present.
+    - is level ke liye: The page gives a broad historical statement, not evidence for a universal barter-first history.
+  - prerequisites: barter; informal exchange; historical sequence
+- **p002-i27** · heading · none · both
+  - Limitations:
+- **p002-i28** · list_point · cause_effect · both · exam high
+  - • Double coincidence of wants: Both parties must want what other offers.
+    - what: What is double coincidence of wants? → Each of the two parties must want what the other offers for the direct exchange to meet their wants.
+    - why: Why does this limit barter? → Wanting the other person's product is insufficient if that person does not also want yours; finding a suitable partner therefore takes additional search. _(outside the book)_
+      - how: How does the wheat-and-cloth example expose the problem? → A wheat-holder seeking cloth cannot complete the intended direct swap with a cloth-holder who wants something other than wheat. _(outside the book)_
+        - how: How does a generally accepted medium of exchange reduce this requirement? → The wheat-holder can sell to someone who wants wheat and use the money to buy cloth from someone else. The same partner need not satisfy both sides of the original wants. _(outside the book)_
+      - consequence: What remains necessary even if the two wants coincide? → The parties still need to agree on quantities and terms; a match of wants does not settle the exchange ratio by itself. _(outside the book)_
+  - **khola (unpack):**
+    - Double coincidence of wants yaani मुझे तुम्हारी दी चीज़ चाहिए और तुम्हें मेरी दी चीज़ चाहिए—दोनों बातों का साथ मिलना · image: गेहूँ वाला कपड़ा चाहे और कपड़े वाला उसी गेहूँ को चाहे
+    - kyon: A person needs a good but can offer only a different good in direct exchange. _[standard]_ → The partner must want that offered good too; otherwise the intended barter cannot proceed. _[standard]_
+    - example / jagah: Wheat-holder wants cloth, but cloth-holder wants a different product.
+    - aage: Matching and search difficulties help explain the usefulness of a common medium of exchange.
+    - screen par: Show two reciprocal want arrows; break one to block the swap.
+    - is level ke liye: Separate double coincidence from agreement on the exchange ratio; both matter but are different conditions.
+  - prerequisites: direct barter; goods desired versus goods offered; mutual agreement; medium of exchange
+
+## Page 3 · passed after 0 round(s) · reused
+
+Barter lacks a common value measure and creates problems of division, wealth storage and future payment. Commodity money has intrinsic value and community acceptance but practical limitations. Metallic money improves durability, division and standardization, yet its own costs and supply constraints encourage paper money. Visuals supply commodity–place examples and five stages of Indian metallic money.
+
+- **p003-i1** · list_point · cause_effect · both · exam high
+  - • No common measure of value
+    - why: Why does barter lack a common measure of value? → Goods are valued against other goods rather than against one shared unit, so their exchange values are difficult to compare. _(outside the book)_
+      - how: How would a common unit simplify exchange? → Expressing grain, cloth and cattle in the same unit lets buyers compare their prices without negotiating a separate goods-for-goods ratio for each pair. _(outside the book)_
+  - **khola (unpack):**
+    - common measure of value yaani अलग-अलग चीज़ों की कीमत बताने का एक ही पैमाना · image: दुकान में चावल और कपड़े दोनों की कीमत रुपये में लिखी है
+    - kyon: Unlike goods must be compared before exchange. _[standard]_ → Without a shared unit, each goods pair needs its own valuation. _[standard]_
+    - example / jagah: Comparing the value of grain with cloth.
+    - aage: A common monetary unit reduces comparison difficulties.
+    - screen par: Replace many exchange ratios with one price column.
+    - is level ke liye: Distinguish measuring value from physically making payment.
+  - prerequisites: barter as direct exchange of goods
+- **p003-i2** · list_point · cause_effect · both · exam high
+  - • Indivisibility of goods
+    - why: Why does indivisibility obstruct barter? → A valuable good may not be separable into smaller usable pieces that match the value of a small purchase. _(outside the book)_
+      - how: How does a cow illustrate the difficulty? → Someone buying a little grain cannot divide a living cow into small payments without destroying its usefulness as a living animal. _(outside the book)_
+  - **khola (unpack):**
+    - Indivisibility yaani चीज़ को छोटे काम के हिस्सों में न बाँट पाना · image: थोड़े चावल के बदले आधी जीवित गाय नहीं दे सकते
+    - kyon: Small purchases require small payments. _[standard]_ → An indivisible good cannot supply those payments without losing usefulness. _[standard]_
+    - example / jagah: A living cow exchanged for a small quantity of grain.
+    - aage: Divisible payment media make small transactions easier.
+    - screen par: Try to split a cow, then substitute smaller payment units.
+    - is level ke liye: Divisibility concerns retaining usable value after division.
+  - prerequisites: barter; small and large exchange values
+- **p003-i3** · list_point · cause_effect · both · exam high
+  - • Difficulty in storing wealth
+    - why: Why can wealth be difficult to store in goods? → Goods may spoil, need upkeep or occupy substantial space, making it costly to preserve purchasing power. _(outside the book)_
+      - how: How does spoilage affect saved wealth? → If stored produce deteriorates, less remains available for later consumption or exchange. _(outside the book)_
+  - **khola (unpack):**
+    - storing wealth yaani आज की कमाई की कीमत आगे के लिए बचाकर रखना · image: बचाए आलू सड़ जाएँ तो बचत घट जाती है
+    - kyon: People need to save value for future needs. _[standard]_ → Spoilage and storage costs make saving in goods difficult. _[standard]_
+    - example / jagah: Keeping agricultural produce for a later purchase.
+    - aage: Durability becomes a desirable property of money.
+    - screen par: Show stored goods deteriorating over time.
+    - is level ke liye: Storage of physical goods and preservation of value are related but not identical.
+  - prerequisites: wealth as resources available for later use; barter
+- **p003-i4** · list_point · cause_effect · both · exam high
+  - • Deferred payments are difficult
+    - why: Why are deferred payments difficult under barter? → Borrower and lender must agree on the future goods, their quantity and their quality; changes in goods' relative values complicate that agreement. _(outside the book)_
+      - how: How does payment in a common unit help? → A debt can be specified in that unit rather than as a disputed bundle of goods, although monetary purchasing power may still change. _(outside the book)_
+  - **khola (unpack):**
+    - Deferred payments yaani अभी सौदा हो लेकिन भुगतान बाद में करना हो · image: आज उधार लिया, फसल आने पर चुकाना है
+    - kyon: Credit requires a payment promise for a later date. _[standard]_ → Specifying future goods and their quality makes that promise harder to settle. _[standard]_
+    - example / jagah: A loan repayable after harvest.
+    - aage: A shared payment unit simplifies debt contracts.
+    - screen par: Move a repayment promise along a calendar.
+    - is level ke liye: A monetary contract simplifies specification, not necessarily future purchasing-power stability.
+  - prerequisites: borrowing and repayment; barter
+- **p003-i5** · heading · none · both
+  - Commodity Money
+- **p003-i6** · definition · definition · both · exam high
+  - Commodity money is a form of money in which the item used as money has intrinsic value, meaning it has value even outside its use as money.
+    - what: What defines commodity money? → The object accepted as money also possesses value apart from serving as money.
+    - evidence: Which words identify the defining test? → The page explicitly says that it has value 'even outside its use as money'.
+      - how: How can salt make intrinsic value understandable? → Salt can be useful in food even when nobody accepts it in payment; its non-monetary usefulness is separate from its exchange role. _(outside the book)_
+  - **khola (unpack):**
+    - intrinsic value yaani पैसा न भी मानें, तब भी चीज़ की अपनी उपयोग की कीमत · image: नमक से सामान न खरीद पाएँ, फिर भी खाने में काम आएगा
+    - kyon: Exchange needs an acceptable payment object. _[standard]_ → Commodity money uses an object valuable beyond that payment role. _[book]_
+    - example / jagah: Salt, one of the table's examples.
+    - aage: The same object can serve monetary and non-monetary purposes.
+    - screen par: Split one salt packet into payment and household-use paths.
+    - is level ke liye: Do not confuse intrinsic value with a guarantee of stable market value.
+  - prerequisites: money as a medium of exchange; usefulness of goods
+- **p003-i7** · table · facts_numbers · image
+  - Columns: Commodity | Where it was used. Rows in order: Salt—Ancient Rome and Africa; Cattle—Early pastoral societies; Cowrie shells—India, China, and Africa; Tea bricks—Central Asia and Tibet; Tobacco—Colonial America.
+- **p003-i8** · table_row · facts_numbers · image · exam high
+  - Commodity: Salt | Where it was used: Ancient Rome and Africa
+    - what: Where does the table associate salt with monetary use? → Its salt row names Ancient Rome and Africa.
+    - evidence: What page evidence supports this pairing? → Salt appears in the Commodity column opposite Ancient Rome and Africa.
+      - why: Why is salt a useful illustration of commodity money? → It has household uses independent of payment, making the distinction between intrinsic usefulness and monetary use easy to see. _(outside the book)_
+  - **khola (unpack):**
+    - Salt yaani खाने में इस्तेमाल होने वाला नमक · image: रसोई की नमकदानी
+    - kyon: An exchange community needs an accepted good. _[standard]_ → The table records salt in Ancient Rome and Africa. _[book]_
+    - example / jagah: Ancient Rome and Africa.
+    - aage: Illustrates monetary use of an independently useful commodity.
+    - screen par: Link a salt packet to the two place labels.
+    - is level ke liye: The table does not claim exclusive use in these places.
+  - prerequisites: commodity money; intrinsic value
+- **p003-i9** · table_row · facts_numbers · image · exam high
+  - Commodity: Cattle | Where it was used: Early pastoral societies
+    - what: Which societies are paired with cattle? → The table identifies early pastoral societies.
+    - evidence: What is distinctive about this table entry? → It names a type of society rather than a specific country or region.
+      - why: Why is the pastoral association understandable? → Pastoral livelihoods depend substantially on livestock, so cattle are familiar, valued assets within such communities. _(outside the book)_
+  - **khola (unpack):**
+    - pastoral societies yaani ऐसे समुदाय जिनका गुज़ारा काफी हद तक पशु पालने से चलता है · image: पशुओं का झुंड चराने जाता परिवार
+    - kyon: Payment goods need to be valued by the community. _[standard]_ → Livestock-centred livelihoods make cattle a familiar store of resources. _[standard]_
+    - example / jagah: Early pastoral societies.
+    - aage: A valuable commodity can still be inconvenient for small payments.
+    - screen par: Connect a cattle herd to a pastoral settlement.
+    - is level ke liye: Community acceptance does not imply good divisibility.
+  - prerequisites: commodity money; livestock
+- **p003-i10** · table_row · facts_numbers · image · exam high
+  - Commodity: Cowrie shells | Where it was used: India, China, and Africa
+    - what: Where were cowrie shells used according to the table? → India, China, and Africa are the three listed places.
+    - evidence: Which table entry links India to commodity money? → The cowrie-shell row explicitly includes India.
+      - how: How can a shell function as money? → If people commonly accept shells in payment, they can pass them on in later exchanges rather than needing an immediate barter match. _(outside the book)_
+  - **khola (unpack):**
+    - Cowrie shells yaani कौड़ियाँ, छोटे समुद्री खोल जिन्हें भुगतान में लिया गया · image: छोटी चिकनी कौड़ियों की गिनती
+    - kyon: Exchange needs a recognizable accepted object. _[standard]_ → Accepted shells can circulate between successive buyers and sellers. _[standard]_
+    - example / jagah: India, China, and Africa.
+    - aage: Money need not initially take the form of a metal coin.
+    - screen par: Pass shells between traders and highlight three place labels.
+    - is level ke liye: Do not infer that every shell or every region accepted them.
+  - prerequisites: community acceptance; medium of exchange
+- **p003-i11** · table_row · facts_numbers · image · exam high
+  - Commodity: Tea bricks | Where it was used: Central Asia and Tibet
+    - what: Which places are paired with tea bricks? → The table lists Central Asia and Tibet.
+    - evidence: What exact commodity form does the table name? → It specifies tea bricks, not simply tea or cups of tea.
+      - how: How should a learner picture a tea brick? → It is tea compressed into a solid block, allowing a useful consumable to be handled as an exchange object. _(outside the book)_
+  - **khola (unpack):**
+    - Tea bricks yaani चाय को दबाकर बनाए गए ठोस block · image: ढीली चाय की जगह ईंट जैसा दबा हुआ चाय का टुकड़ा
+    - kyon: Useful goods may also serve exchange. _[standard]_ → The table records compressed tea as money in Central Asia and Tibet. _[book]_
+    - example / jagah: Central Asia and Tibet.
+    - aage: A consumable good can perform a monetary role.
+    - screen par: Compress tea into a block and connect it to the regions.
+    - is level ke liye: Retain the specified form, tea bricks, in matching questions.
+  - prerequisites: commodity money; tea as a useful good
+- **p003-i12** · table_row · facts_numbers · image · exam high
+  - Commodity: Tobacco | Where it was used: Colonial America
+    - what: Where is tobacco listed as commodity money? → The table pairs tobacco with Colonial America.
+    - evidence: What time-context accompanies the place? → The word Colonial qualifies America in this row.
+      - how: How can an agricultural product acquire a monetary role? → A community can accept a valued crop in payment because recipients expect to use it or exchange it onward. _(outside the book)_
+  - **khola (unpack):**
+    - Tobacco yaani तंबाकू की फसल, जिसे यहाँ भुगतान की चीज़ बताया गया है · image: सूखी फसल के बंडल
+    - kyon: Payment can use a locally valued product. _[standard]_ → The table identifies tobacco in Colonial America. _[book]_
+    - example / jagah: Colonial America.
+    - aage: Commodity money includes agricultural products as well as shells and livestock.
+    - screen par: Exchange a crop bundle and highlight Colonial America.
+    - is level ke liye: This historical monetary role is not a statement about health or desirability.
+  - prerequisites: commodity money; acceptance in payment
+- **p003-i13** · heading · none · both
+  - Characteristics:
+- **p003-i14** · list_point · cause_effect · both · exam high
+  - • Has intrinsic value. More acceptable than barter system
+    - why: Why can intrinsic value encourage acceptance? → A recipient receives something useful even apart from spending it onward, which can make acceptance easier. _(outside the book)_
+      - how: How does the page position commodity money relative to barter? → It describes commodity money as more acceptable than the barter system and as possessing intrinsic value.
+  - **khola (unpack):**
+    - acceptable yaani जिसे लोग भुगतान में लेने को तैयार हों · image: विक्रेता ऐसी चीज़ लेता है जो खुद भी काम आए
+    - kyon: A seller needs confidence in what is received. _[standard]_ → Independent usefulness can encourage acceptance. _[standard]_
+    - example / jagah: Accepting useful salt rather than an unwanted barter good.
+    - aage: Helps explain the shift from direct barter to an accepted commodity.
+    - screen par: Turn a rejected barter offer into an accepted commodity payment.
+    - is level ke liye: More acceptable does not mean universally accepted.
+  - prerequisites: intrinsic value; barter
+- **p003-i15** · list_point · cause_effect · both · exam high
+  - • Widely accepted within a community.
+    - why: Why does community acceptance matter? → A payment object works more conveniently when its recipient expects other community members to accept it later. _(outside the book)_
+      - how: How broad is the acceptance claimed by the page? → The statement specifies wide acceptance within a community, rather than acceptance everywhere.
+  - **khola (unpack):**
+    - community yaani आपस में लेन-देन करने वाले लोगों का समूह · image: एक हाट के खरीदार और दुकानदार
+    - kyon: A recipient needs to make later purchases. _[standard]_ → Shared acceptance enables the commodity to circulate. _[standard]_
+    - example / jagah: A local trading community.
+    - aage: Acceptability depends partly on the trading network.
+    - screen par: Pass one commodity around a circle of traders.
+    - is level ke liye: Local acceptance is not global legal-tender status.
+  - prerequisites: medium of exchange
+- **p003-i16** · list_point · cause_effect · both · exam high
+  - • Can be used for purposes other than exchange.
+    - why: Why does non-exchange use matter? → It shows that the commodity's usefulness does not depend entirely on being accepted as payment. _(outside the book)_
+      - how: How can the same good have two roles? → Salt can be passed to a seller as payment or used in food; these are monetary and non-monetary uses of the same object. _(outside the book)_
+  - **khola (unpack):**
+    - purposes other than exchange yaani खरीदारी के अलावा भी चीज़ का काम आना · image: चाय का block भुगतान में दें या उससे चाय बनाएँ
+    - kyon: A payment object may cease to circulate. _[standard]_ → Independent uses still give a commodity usefulness. _[standard]_
+    - example / jagah: Tea bricks used as a good as well as money.
+    - aage: Separates commodity value from the payment role.
+    - screen par: Branch one commodity into use and exchange.
+    - is level ke liye: Non-monetary usefulness need not mean food consumption.
+  - prerequisites: intrinsic value; exchange
+- **p003-i17** · list_point · cause_effect · both · exam high
+  - • Acts as a medium of exchange before metallic coins became common. Removes the need of double coincidence of wants.
+    - why: Why does commodity money remove the need for double coincidence of wants? → The seller can accept the commonly accepted commodity rather than needing the exact good that the buyer happens to offer. _(outside the book)_
+      - how: How does this separate a barter exchange into transactions? → A person first sells a good for the accepted commodity and then uses that commodity to buy the desired good from someone else. _(outside the book)_
+    - when: When does the page place this monetary role? → It places commodity money's role before metallic coins became common.
+  - **khola (unpack):**
+    - double coincidence of wants yaani दोनों को ठीक वही चाहिए जो दूसरा दे रहा है · image: अनाज वाले को जूते चाहिए और जूते वाले को उसी समय अनाज
+    - kyon: Direct barter needs matching wants on both sides. _[standard]_ → An accepted intermediate commodity allows selling and buying with different people. _[standard]_
+    - example / jagah: Sell grain for accepted salt, then spend salt on cloth.
+    - aage: Exchange becomes less dependent on a perfectly matched trading partner.
+    - screen par: Replace a blocked two-person swap with two linked sales.
+    - is level ke liye: A medium of exchange is an intermediary, not necessarily a final consumption good for the seller.
+  - prerequisites: barter; both parties wanting what the other offers
+- **p003-i18** · heading · none · both
+  - Limitations:
+- **p003-i19** · list_point · cause_effect · both · exam high
+  - • Lack of uniformity
+    - why: Why is lack of uniformity a monetary problem? → Units of a commodity may differ in quality, size or condition, so equal counts may not represent equal value. _(outside the book)_
+      - how: How does this complicate payment? → Traders may need to inspect and bargain over each unit rather than simply count it. _(outside the book)_
+  - **khola (unpack):**
+    - uniformity yaani अलग-अलग इकाइयों का एक जैसा होना · image: दो गायों का आकार और सेहत अलग हो सकती है
+    - kyon: Payment needs comparable units. _[standard]_ → Unequal quality makes counting alone unreliable. _[standard]_
+    - example / jagah: Two cattle of different health and size.
+    - aage: Inspection and negotiation add transaction costs.
+    - screen par: Compare unequal commodity units on a balance.
+    - is level ke liye: Uniformity concerns similarity of units.
+  - prerequisites: commodity money; quality differences
+- **p003-i20** · list_point · cause_effect · both · exam high
+  - • Poor divisibility
+    - why: Why can commodity money remain poorly divisible? → Some commodities cannot be split into small portions while preserving their usefulness or proportional value. _(outside the book)_
+      - how: How does this qualify commodity money's improvement over barter? → An accepted commodity may solve the matching-of-wants problem but still be unsuitable for small purchases. _(outside the book)_
+  - **khola (unpack):**
+    - Poor divisibility yaani छोटे भुगतान के लिए आसानी से हिस्से न बन पाना · image: गाय के बदले छोटी खरीद का छुट्टा नहीं मिल रहा
+    - kyon: Payments differ in size. _[standard]_ → An indivisible commodity cannot conveniently match small amounts. _[standard]_
+    - example / jagah: Cattle as a payment good.
+    - aage: Acceptance alone does not make ideal money.
+    - screen par: Contrast a whole cow with several small purchases.
+    - is level ke liye: Salt and cattle differ in divisibility; the list is not universal to every example.
+  - prerequisites: indivisibility of goods; commodity money
+- **p003-i21** · list_point · cause_effect · both · exam high
+  - • Perishable
+    - why: Why does perishability limit money? → If the payment commodity deteriorates, holding it for future exchange can reduce its value or acceptability. _(outside the book)_
+      - how: How should this limitation be applied to the table? → It is more relevant to deteriorating commodities than to durable shells; the examples do not share identical weaknesses. _(outside the book)_
+  - **khola (unpack):**
+    - Perishable yaani समय के साथ खराब हो सकने वाला · image: नमी से खराब होती रखी हुई फसल
+    - kyon: People may hold payment goods for later. _[standard]_ → Deterioration can erode what they have saved. _[standard]_
+    - example / jagah: Agricultural commodity storage.
+    - aage: Encourages preference for durable monetary materials.
+    - screen par: Fade a stored commodity as time passes.
+    - is level ke liye: Avoid the statement that all commodity money is perishable.
+  - prerequisites: store of value; spoilage
+- **p003-i22** · list_point · cause_effect · both · exam high
+  - • Difficult transport
+    - why: Why can commodity money be difficult to transport? → Some payment goods are bulky, heavy or require care while being moved. _(outside the book)_
+      - how: How does transport difficulty affect trade? → Moving payment over distance adds time, effort and expense, making distant transactions harder. _(outside the book)_
+  - **khola (unpack):**
+    - Difficult transport yaani भुगतान की चीज़ को साथ ले जाना मुश्किल होना · image: सिक्कों की छोटी थैली की जगह पशुओं का झुंड ले जाना
+    - kyon: Trade may require payment at a distant place. _[standard]_ → Bulky or care-intensive goods make that movement costly. _[standard]_
+    - example / jagah: Moving cattle to a distant market.
+    - aage: Portability helps money support wider trade.
+    - screen par: Move a cumbersome load along a market route.
+    - is level ke liye: Compare value carried with weight and bulk, not weight alone.
+  - prerequisites: commodity money; transport costs
+- **p003-i23** · list_point · cause_effect · both · exam high
+  - • Limited standardization
+    - why: Why does limited standardization impede exchange? → Without agreed specifications for quantity and quality, parties may disagree over what counts as one payment unit. _(outside the book)_
+      - how: How is standardization different from uniformity? → Uniformity concerns units being alike; standardization concerns establishing and applying agreed specifications such as weight and quality. _(outside the book)_
+  - **khola (unpack):**
+    - standardization yaani वजन और गुणवत्ता जैसे तय नियमों के हिसाब से इकाइयाँ बनाना · image: हर packet पर तय वजन और grade
+    - kyon: Trading parties need to know what a unit means. _[standard]_ → Agreed specifications reduce repeated checking and disputes. _[standard]_
+    - example / jagah: Agreeing on the weight and quality of a commodity payment.
+    - aage: Prepares the comparison with minted coins.
+    - screen par: Align varied units against one standard.
+    - is level ke liye: Uniformity and standardization overlap but are not identical.
+  - prerequisites: uniformity; weight and quality measurement
+- **p003-i24** · heading · none · both
+  - Metallic Money
+- **p003-i25** · definition · definition · both · exam high
+  - • Metallic money is made from metals such as gold, silver, copper, bronze, or electrum, whose value is derived from the metal itself and, later, from the authority that minted it.
+    - what: What materials does the page identify for metallic money? → It names gold, silver, copper, bronze and electrum as examples.
+    - evidence: What two sources of value does the page identify? → It identifies the metal itself and, later, the authority that minted the money.
+      - how: How can a minting authority help a coin circulate? → An authoritative stamp can signal an accepted weight or quality and support confidence in the coin, reducing repeated verification. _(outside the book)_
+      - what: What are bronze and electrum? → Bronze is principally a copper–tin alloy; electrum is a gold–silver alloy. The list therefore includes alloys as well as individual metals. _(outside the book)_
+  - **khola (unpack):**
+    - minted yaani धातु से तय पहचान वाला सिक्का बनाया गया · image: धातु के टुकड़े पर सिक्के की छाप पड़ती है
+    - electrum yaani gold और silver का मिला हुआ alloy · image: दो धातुएँ मिलाकर बना एक टुकड़ा
+    - kyon: Exchange needs valued, recognizable payment units. _[standard]_ → Metal provides material value and an issuing authority can support recognition and confidence. _[standard]_
+    - example / jagah: Gold, silver, copper, bronze and electrum.
+    - aage: Value and trust can involve both material content and monetary authority.
+    - screen par: Stamp a metal blank and reveal material and authority labels.
+    - is level ke liye: Do not equate every metallic object with a standardized coin or assume all listed materials are pure metals.
+  - prerequisites: intrinsic value; metal; authority issuing money
+- **p003-i26** · list_point · cause_effect · both · exam high
+  - • It is durable, portable, divisible, and easier to standardize.
+    - why: Why do these properties help metal function as money? → Durability helps it survive repeated use, portability helps movement, divisibility helps varying payment sizes, and standardization helps users recognize comparable units. _(outside the book)_
+      - how: How can portability be an advantage here but heavy transport a later limitation? → A compact metallic payment may be convenient relative to bulky goods, while a large total payment in metal can still be heavy. _(outside the book)_
+  - **khola (unpack):**
+    - durable yaani बार-बार इस्तेमाल और समय के बाद भी टिकने वाला · image: कई हाथों से गुज़रकर भी बचा धातु का सिक्का
+    - portable yaani साथ ले जाने में सुविधाजनक · image: जेब में रखी सिक्कों की छोटी थैली
+    - divisible yaani छोटी मात्रा या छोटे मूल्य की इकाइयों में बाँटा जा सके · image: बड़े भुगतान की जगह छोटे सिक्कों से भुगतान
+    - kyon: Payments must survive use, move between places and match different values. _[standard]_ → Durable, divisible and standardized metal units meet these needs more conveniently. _[standard]_
+    - example / jagah: Small standardized coins carried to a market.
+    - aage: Addresses several weaknesses of commodity money.
+    - screen par: Carry, divide and align metal payment units.
+    - is level ke liye: Divisibility of metal is not a recommendation to cut a circulating official coin.
+  - prerequisites: commodity-money limitations; weight and size of payments
+- **p003-i27** · list_point · timeline · both · exam high
+  - • The earliest metallic objects used for exchange existed in Mesopotamia and Egypt, but the first standardized coins are widely credited to the Kingdom of Lydia.
+    - when: What historical ordering does the page establish? → It distinguishes the earliest metallic exchange objects in Mesopotamia and Egypt from the first standardized coins credited to Lydia; it supplies no dates for these origins.
+    - why: Why must these two origins be distinguished? → A piece of metal used in exchange need not be a coin made to an agreed standard, so the earliest use of metal and the origin of standardized coinage are different claims. _(outside the book)_
+      - how: How should the phrase 'widely credited' be handled? → It presents an attribution to the Kingdom of Lydia rather than stating that every earlier monetary object originated there.
+  - **khola (unpack):**
+    - standardized coins yaani तय नियमों, जैसे वजन और पहचान, से बनाए गए सिक्के · image: अलग-अलग धातु टुकड़ों के सामने एक जैसी छाप वाले सिक्के
+    - kyon: Metal can be exchanged before formal coins exist. _[standard]_ → Standardized coinage adds agreed monetary units, so its origin is a separate historical question. _[standard]_
+    - example / jagah: Mesopotamia and Egypt; Kingdom of Lydia.
+    - aage: Separates the history of metallic exchange from the history of standardized minting.
+    - screen par: Contrast irregular metal objects with standardized coins.
+    - is level ke liye: Retain 'widely credited'; do not add an unsupported date.
+  - prerequisites: metallic money; standardized coin
+- **p003-i28** · diagram · timeline · image · exam high
+  - Evolution of Indian metallic money. A horizontal white line links five circular nodes, read left to right: 6th c. BCE—Punch-marked; Mauryan—Imperial silver; Indo-Greek—Die-struck; Gupta—Gold dinars; 1540 CE—Rupiya. Period labels are above the line and coinage labels below. No arrows or numerical dates for the middle three stages are shown.
+    - when: What sequence does the Indian metallic-money timeline show? → It moves from punch-marked money in the 6th c. BCE through Mauryan imperial silver, Indo-Greek die-struck money and Gupta gold dinars to Rupiya in 1540 CE.
+    - why: Why should the connecting line not be read as a uniform time scale? → Three nodes use dynastic labels without numerical dates, and equal-looking spacing does not establish equal historical intervals. _(outside the book)_
+      - how: How should the learner interpret the sequence? → It highlights selected stages; it should not be taken as proof that each later form instantly displaced every earlier form. _(outside the book)_
+  - **khola (unpack):**
+    - Evolution of Indian metallic money yaani भारत में धातु के पैसे के समय के साथ दिखाए गए बदलाव · image: पुराने से नए सिक्कों की क्रम में रखी प्रदर्शनी
+    - kyon: Coinage developments must be organized in historical order. _[standard]_ → The timeline links five selected stages from 6th c. BCE to 1540 CE. _[book]_
+    - example / jagah: Indian metallic money.
+    - aage: Gives a chronological framework for five coinage associations.
+    - screen par: Travel left to right and light up each paired node.
+    - is level ke liye: Do not infer omitted dates or exclusive use from a schematic timeline.
+  - prerequisites: BCE and CE dating; dynastic periods; metallic money
+- **p003-i29** · diagram_label · timeline · image
+  - Evolution of Indian metallic money — title naming the subject of the entire five-node timeline.
+- **p003-i30** · diagram_label · timeline · image · exam high
+  - 6th c. BCE — period label above the first node, paired with Punch-marked below it.
+    - when: When does the displayed sequence begin? → Its first node is labelled 6th c. BCE and paired with Punch-marked.
+    - why: Why is BCE important when reading this date? → BCE marks years before the Common Era; the 6th century BCE is much earlier than the terminal date 1540 CE. _(outside the book)_
+  - **khola (unpack):**
+    - 6th c. BCE yaani Common Era से पहले की छठी सदी · image: समय-रेखा पर CE से बहुत पहले रखा निशान
+    - kyon: Historical stages need a time anchor. _[standard]_ → The first displayed anchor is 6th c. BCE. _[book]_
+    - example / jagah: First node of the Indian coinage timeline.
+    - aage: Anchors punch-marked money in the displayed chronology.
+    - screen par: Highlight the first period label and its paired coinage.
+    - is level ke liye: c. here abbreviates century.
+  - prerequisites: century; BCE and CE
+- **p003-i31** · diagram_label · timeline · image · exam high
+  - Punch-marked — coinage label below the first node, paired with 6th c. BCE.
+    - when: Where does punch-marked coinage appear in the chronology? → It is the first displayed stage, paired with the 6th c. BCE.
+    - why: Why is it called punch-marked? → The name refers to marks impressed into a metal piece using punches, helping the learner connect a production feature to the label. _(outside the book)_
+  - **khola (unpack):**
+    - Punch-marked yaani धातु पर punch से निशान लगाए गए · image: धातु पर औज़ार दबाकर निशान बनाना
+    - kyon: Metal payment objects need recognizable marks. _[standard]_ → Punching impresses identifying marks on metal. _[standard]_
+    - example / jagah: 6th c. BCE node.
+    - aage: Connects a coinage name to a visible marking method.
+    - screen par: Press separate marks into a metal piece.
+    - is level ke liye: The timeline identifies a selected stage, not every feature of these coins.
+  - prerequisites: metal coin; marking metal
+- **p003-i32** · diagram_label · timeline · image · exam high
+  - Mauryan — period label above the second node, paired with Imperial silver.
+    - when: Where does the Mauryan stage fall in the displayed sequence? → It follows 6th c. BCE punch-marked money and precedes the Indo-Greek stage.
+    - why: Why pair the period with the lower label? → The shared node establishes the intended association: Mauryan with Imperial silver, rather than the neighbouring coinage labels.
+  - **khola (unpack):**
+    - Mauryan yaani Maurya शासन से जुड़ा दौर · image: इतिहास की समय-रेखा पर शासन के नाम की पट्टी
+    - kyon: Similar coinage facts need historical placement. _[standard]_ → The second node links Mauryan to Imperial silver. _[book]_
+    - example / jagah: Second timeline node.
+    - aage: Fixes the period–coinage pairing.
+    - screen par: Join the upper period label to the lower silver label.
+    - is level ke liye: No numerical Mauryan date is provided.
+  - prerequisites: dynastic period; reading a timeline
+- **p003-i33** · diagram_label · timeline · image · exam high
+  - Imperial silver — coinage label below the Mauryan node.
+    - when: Which stage is associated with Imperial silver? → The diagram puts Imperial silver under the Mauryan node.
+    - why: Why should 'silver' not be confused with a technique label? → Silver identifies the material, whereas terms such as punch-marked and die-struck describe how marks or designs are made. _(outside the book)_
+  - **khola (unpack):**
+    - Imperial silver yaani साम्राज्य से जुड़ी silver की मुद्रा · image: शासन की पहचान वाला चाँदी का सिक्का
+    - kyon: Money can be identified by material and issuing context. _[standard]_ → The timeline uses Imperial silver for its Mauryan stage. _[book]_
+    - example / jagah: Mauryan node.
+    - aage: Adds a material-based coinage association.
+    - screen par: Highlight silver beneath the Mauryan label.
+    - is level ke liye: Do not infer that no other monetary material existed in that period.
+  - prerequisites: silver as a metal; minting
+- **p003-i34** · diagram_label · timeline · image · exam high
+  - Indo-Greek — period label above the third node, paired with Die-struck.
+    - when: Where does the Indo-Greek stage appear? → It lies between the Mauryan and Gupta nodes and is paired with Die-struck.
+    - why: Why keep its period and coinage labels together? → Their shared node defines the diagram's association and prevents swapping Die-struck with the neighbouring silver or dinar labels.
+  - **khola (unpack):**
+    - Indo-Greek yaani भारतीय क्षेत्र से जुड़े Greek शासकों का ऐतिहासिक दौर · image: इतिहास की पट्टी पर एक शासन-समूह का नाम
+    - kyon: Coinage descriptions need an associated historical stage. _[standard]_ → The third node associates Indo-Greek with Die-struck. _[book]_
+    - example / jagah: Third timeline node.
+    - aage: Establishes a technique–period association.
+    - screen par: Light up the middle node and both labels.
+    - is level ke liye: The page supplies no numerical date for this node.
+  - prerequisites: historical period labels; timeline order
+- **p003-i35** · diagram_label · timeline · image · exam high
+  - Die-struck — coinage label below the Indo-Greek node.
+    - when: Which stage is labelled Die-struck? → The Indo-Greek stage is paired with this label.
+    - why: Why is the term die-struck used? → A die is an engraved tool; striking a metal blank with dies transfers designs onto it. _(outside the book)_
+  - **khola (unpack):**
+    - Die-struck yaani नक्श वाला die मारकर धातु पर design बनाया गया · image: मुहर जैसी छाप धातु के टुकड़े पर पड़ना
+    - kyon: Coins need recognizable designs. _[standard]_ → A die transfers a prepared design to the blank. _[standard]_
+    - example / jagah: Indo-Greek node.
+    - aage: Makes a technical coinage label visually intelligible.
+    - screen par: Strike a blank between engraved dies.
+    - is level ke liye: The pairing does not establish exclusive use of the technique.
+  - prerequisites: metal blank; impressing a design
+- **p003-i36** · diagram_label · timeline · image · exam high
+  - Gupta — period label above the fourth node, paired with Gold dinars.
+    - when: Where is the Gupta stage in the displayed order? → It follows Indo-Greek and precedes the 1540 CE Rupiya node.
+    - why: Why is Gupta linked specifically to Gold dinars in this reading? → Gold dinars is printed directly below the same fourth node, establishing the visual's intended pairing.
+  - **khola (unpack):**
+    - Gupta yaani Gupta शासन से जुड़ा ऐतिहासिक दौर · image: पुराने सिक्कों की प्रदर्शनी में शासन का नाम
+    - kyon: Coin names need historical anchors. _[standard]_ → The fourth node anchors Gold dinars to Gupta. _[book]_
+    - example / jagah: Fourth timeline node.
+    - aage: Builds the period–coinage association.
+    - screen par: Connect Gupta downward to Gold dinars.
+    - is level ke liye: No numerical Gupta date is shown.
+  - prerequisites: dynastic period; timeline
+- **p003-i37** · diagram_label · timeline · image · exam high
+  - Gold dinars — coinage label below the Gupta node.
+    - when: Which stage is paired with Gold dinars? → The diagram associates them with Gupta.
+    - why: Why retain both words in this label? → Gold specifies the material and dinars supplies the coin name; keeping both avoids confusing this label with a minting technique. _(outside the book)_
+  - **khola (unpack):**
+    - Gold dinars yaani सोने के सिक्के जिन्हें dinars कहा गया है · image: gold coin के नीचे उसके नाम की पर्ची
+    - kyon: A coinage example needs a name and identifying material. _[standard]_ → The diagram supplies Gold dinars for Gupta. _[book]_
+    - example / jagah: Gupta stage.
+    - aage: Distinguishes a named gold coinage from silver and technique labels.
+    - screen par: Reveal a gold-coloured coin with its dinar label.
+    - is level ke liye: This selected example does not imply that all Gupta coins were gold.
+  - prerequisites: gold as a monetary metal; coin names
+- **p003-i38** · diagram_label · timeline · image · exam high
+  - 1540 CE — date label above the final node, paired with Rupiya.
+    - when: What date is attached to Rupiya? → The final node gives 1540 CE.
+    - why: Why must the date be read with its paired lower label? → The date belongs to the Rupiya stage, not to the whole history of metallic money or the neighbouring Gupta node.
+  - **khola (unpack):**
+    - 1540 CE yaani Common Era का साल 1540 · image: calendar का एक खास साल
+    - kyon: A dated coinage stage needs a precise anchor. _[standard]_ → The last node supplies 1540 CE for Rupiya. _[book]_
+    - example / jagah: Final timeline node.
+    - aage: Provides the second numerical time anchor in the diagram.
+    - screen par: Highlight 1540 CE and connect it to Rupiya.
+    - is level ke liye: Do not supply a ruler's name from this page; none is printed.
+  - prerequisites: CE dating; timeline pairs
+- **p003-i39** · diagram_label · timeline · image · exam high
+  - Rupiya — coinage label below the final node, paired with 1540 CE.
+    - when: Where does Rupiya appear in this timeline? → It is the final displayed coinage stage, dated 1540 CE.
+    - why: Why should this label not be treated as describing every modern rupee? → The diagram presents a particular historical metallic-money stage; the familiar modern monetary name does not establish identical physical form or backing. _(outside the book)_
+  - **khola (unpack):**
+    - Rupiya yaani यहाँ 1540 CE के साथ दिया गया ऐतिहासिक पैसे का नाम · image: पुराने coin की नाम-पट्टी के सामने आज का रुपया
+    - kyon: Familiar names can obscure changes in monetary form. _[standard]_ → Read Rupiya here as the dated historical node shown in the diagram. _[book]_
+    - example / jagah: 1540 CE node.
+    - aage: Completes the displayed Indian metallic-money sequence.
+    - screen par: Land on the final node and reveal Rupiya.
+    - is level ke liye: The page does not state its metal, weight or issuing ruler.
+  - prerequisites: historical coinage; modern money can differ from earlier forms
+- **p003-i40** · list_point · cause_effect · both · exam high
+  - • Benefits: Metallic money offered intrinsic value, durability, portability, divisibility, standardization, and widespread acceptance, making trade more reliable and efficient.
+    - why: Why does the page connect metallic money with more reliable and efficient trade? → It attributes that improvement to intrinsic value, durability, portability, divisibility, standardization and widespread acceptance.
+      - how: How do these properties reduce the work involved in trading? → Durable units can be reused, portable units moved, smaller units matched to prices, and standardized accepted units checked with less repeated bargaining. _(outside the book)_
+      - compare: How does metallic money improve on the commodity limitations listed above? → It offers a more durable and more readily standardized payment form and can be more convenient to carry and divide than bulky or indivisible commodities. _(outside the book)_
+  - **khola (unpack):**
+    - efficient yaani कम समय, मेहनत और खर्च में काम होना · image: हर बार लंबा मोलभाव करने की जगह तय सिक्के गिनकर भुगतान
+    - kyon: Trade needs dependable payment without excessive checking and movement costs. _[standard]_ → The listed metallic-money properties make trade more reliable and efficient. _[book]_
+    - example / jagah: Repeated purchases in a market using recognized coins.
+    - aage: Explains the appeal of metallic money before introducing its remaining limitations.
+    - screen par: Match each commodity difficulty with a metallic-money advantage.
+    - is level ke liye: Metallic money is itself commodity-based when its metal has intrinsic value; these categories need not be mutually exclusive.
+  - prerequisites: intrinsic value; commodity-money limitations; standardization
+- **p003-i41** · list_point · cause_effect · both · exam high
+  - • Limitations: Its limited supply, heavy transport, theft risk, wear and tear, coin debasement, and inability to support large-scale economic expansion eventually led to the adoption of paper money.
+    - why: Why did metallic-money limitations encourage paper money according to the page? → The page lists limited supply, heavy transport, theft risk, wear and tear, coin debasement and difficulty supporting large-scale expansion as reasons for adopting paper money.
+      - how: How can limited metal supply constrain expanding trade? → When monetary supply depends closely on available monetary metal, growing payment needs may be difficult to meet quickly or cheaply. _(outside the book)_
+      - how: How do transport and theft create costs? → Large metallic payments require moving substantial physical value and protecting it in transit, adding handling, security and loss risks. _(outside the book)_
+      - difference: How do wear and tear differ from coin debasement? → Wear gradually removes material through use; debasement reduces a coin's precious-metal content relative to an earlier standard, for example through a lower fineness. _(outside the book)_
+        - consequence: Does paper money automatically remove every listed risk? → No. It can reduce dependence on transporting metal, but paper money can still be stolen, damaged or mismanaged. _(outside the book)_
+  - **khola (unpack):**
+    - coin debasement yaani पहले के तय स्तर से सिक्के में कीमती धातु का हिस्सा घटाना · image: उसी नाम के सिक्के में silver कम और दूसरी धातु ज्यादा
+    - wear and tear yaani इस्तेमाल से धीरे-धीरे घिसना · image: पुराने सिक्के के किनारे और निशान घिस जाते हैं
+    - economic expansion yaani उत्पादन और लेन-देन का दायरा बढ़ना · image: छोटे हाट से कई शहरों तक फैला कारोबार
+    - kyon: Expanding trade needs convenient payments at a larger scale. _[standard]_ → Metal supply, transport and quality problems encouraged adoption of paper money. _[book]_
+    - example / jagah: Moving a large payment between distant trading centres.
+    - aage: Provides the transition to the Gold Backed Paper Currency heading.
+    - screen par: Load heavy coins, reveal risk and supply barriers, then introduce paper claims.
+    - is level ke liye: Separate deliberate reduction in metal content from physical abrasion; paper money's backing is a further question.
+  - prerequisites: metallic money; money supply; economic expansion; coin metal content
+- **p003-i42** · heading · none · both
+  - Gold Backed Paper Currency
+
+## Page 4 · passed after 0 round(s) · reused
+
+Gold-backed paper money was redeemable for a fixed quantity of gold, whereas fiat money rests on government authority and public trust rather than commodity backing. The page explains fiat characteristics, illustrates major currencies and historical milestones, and discusses legal tender, Bitcoin and circulation commemorative coins.
+
+- **p004-i1** · definition · definition · both · exam high
+  - Gold-backed paper currency was paper money that could be exchanged for a fixed quantity of gold on demand.
+    - what: What makes paper money gold-backed? → Its holder can demand a fixed quantity of gold in exchange for the note; the paper represents a redeemable claim.
+    - evidence: Which words identify the defining promise? → 'Fixed quantity' and 'on demand' identify a specified gold entitlement rather than a changing market purchase of gold.
+      - why: Why could a paper claim be useful instead of carrying gold? → Paper can make payments easier to carry and transfer while the redemption promise connects it to gold. _(outside the book)_
+  - **khola (unpack):**
+    - on demand yaani जब धारक माँगे, तब तय शर्त पर बदलने का वादा · image: रसीद दिखाकर जमा सामान वापस लेना
+    - kyon: Payments need a convenient transferable claim instead of moving metal each time. _[standard]_ → The note promises a fixed amount of gold when presented for redemption. _[book]_
+    - example / jagah: The central-bank redemption arrangement described immediately below.
+    - aage: The issuing authority must be able to honour the gold promise.
+    - screen par: exchange a note for a fixed gold pile
+    - is level ke liye: Separate gold backing from the material value of the paper.
+  - prerequisites: money as a means of payment; gold as a valuable commodity
+- **p004-i2** · paragraph · cause_effect · both · exam high
+  - The paper itself had little intrinsic value; its value came from the promise that the issuing authority would redeem it in gold.
+    - why: Why did the note have value despite being inexpensive paper? → The issuing authority promised to give gold for it, so its monetary value came from redemption rather than the paper material.
+      - how: How does this distinguish intrinsic value from a monetary claim? → Intrinsic value concerns the material itself; a claim is valuable because of what its issuer undertakes to provide. _(outside the book)_
+  - **khola (unpack):**
+    - intrinsic value yaani चीज़ जिससे बनी है, उसकी अपनी कीमत—जैसे नोट के कागज़ की कीमत · image: कागज़ की रसीद सस्ती है, पर उससे मिलने वाला सामान महँगा हो सकता है
+    - redeem yaani नोट लेकर वादे के मुताबिक gold देना · image: कूपन लौटाकर तय चीज़ लेना
+    - kyon: A holder needs a reason to accept ordinary paper as payment. _[standard]_ → The issuer's gold-redemption promise supplies that reason in this system. _[book]_
+    - example / jagah: The authority issuing gold-backed notes.
+    - aage: Credibility of redemption matters more than the paper's resale value.
+    - screen par: connect paper to a redemption promise
+    - is level ke liye: Contrast material value, redeemability and purchasing power.
+  - prerequisites: gold-backed redemption
+- **p004-i3** · diagram · timeline · image
+  - A left-to-right line with four marked milestones: 1661—Sweden, First banknotes; 1816—Britain, Gold Standard; 1944—Bretton Woods, Dollar-gold link; 1971—Modern fiat, No gold redemption.
+- **p004-i4** · diagram_label · timeline · image · exam medium
+  - 1661 — Sweden — First banknotes
+    - when: Which date and place does the first marker pair with banknotes? → It pairs 1661 with Sweden and labels the event 'First banknotes'.
+      - why: Why should the label not be expanded into a claim about all early paper money? → Banknotes and earlier paper-payment instruments need not be the same historical category; the lower timeline itself presents earlier Chinese instruments. _(outside the book)_
+  - **khola (unpack):**
+    - kyon: A historical sequence needs an identified starting event. _[standard]_ → This timeline chooses Sweden's 1661 banknotes as that marker. _[book]_
+    - example / jagah: Sweden.
+    - aage: Do not merge this label with the earlier Chinese milestones below.
+    - screen par: place Sweden at 1661
+    - is level ke liye: Qualify historical 'first' claims by the instrument being discussed.
+  - prerequisites: paper money
+- **p004-i5** · diagram_label · timeline · image · exam medium
+  - 1816 — Britain — Gold Standard
+    - when: When does the timeline place Britain's Gold Standard milestone? → It places Britain and the Gold Standard at 1816.
+      - why: Why is this milestone relevant to the preceding definition? → A gold-standard arrangement links the monetary unit to a specified quantity of gold, explaining the idea of gold-backed monetary value. _(outside the book)_
+  - **khola (unpack):**
+    - Gold Standard yaani पैसे की तय इकाई को gold की तय मात्रा से जोड़ने का तरीका · image: तराजू के एक पलड़े में तय नोट और दूसरे में तय gold
+    - kyon: A monetary system needs a rule defining its gold link. _[standard]_ → The chart identifies Britain's 1816 milestone as Gold Standard. _[book]_
+    - example / jagah: Britain.
+    - aage: Provides historical context for fixed gold redemption.
+    - screen par: link Britain to gold
+    - is level ke liye: Keep the printed milestone distinct from a complete history of the standard.
+  - prerequisites: gold-backed currency
+- **p004-i6** · diagram_label · timeline · image · exam high
+  - 1944 — Bretton Woods — Dollar-gold link
+    - when: Which milestone is shown for 1944? → The chart names Bretton Woods and identifies a dollar-gold link.
+      - why: Why distinguish a dollar-gold link from unrestricted public gold redemption? → Under Bretton Woods, official dollar-gold convertibility was part of an international monetary arrangement; it should not be equated with any holder freely exchanging any currency for gold. _(outside the book)_
+  - **khola (unpack):**
+    - Dollar-gold link yaani dollar की कीमत और gold के बीच तय रिश्ता · image: कई डोरियों के बीच dollar से gold तक एक खास डोरी
+    - kyon: International payments require relationships among currencies. _[standard]_ → The page highlights the dollar-gold link at Bretton Woods in 1944. _[book]_
+    - example / jagah: Bretton Woods.
+    - aage: Sets up the significance of the 1971 break.
+    - screen par: join dollar to gold
+    - is level ke liye: Distinguish official international convertibility from household redemption.
+  - prerequisites: gold convertibility; currencies of different countries
+- **p004-i7** · diagram_label · timeline · image · exam high
+  - 1971 — Modern fiat — No gold redemption
+    - when: What change does the timeline associate with 1971? → It marks modern fiat and the absence of gold redemption.
+      - why: Why does ending gold redemption change the source of monetary support? → Once a gold claim is removed, acceptance must rest on the monetary and institutional system rather than a promise to hand over a fixed gold quantity. _(outside the book)_
+  - **khola (unpack):**
+    - kyon: Gold-backed notes depend on a redemption obligation. _[book]_ → The 1971 marker removes that link and points to modern fiat. _[book]_
+    - example / jagah: The final marker in both timelines.
+    - aage: Leads into government authority and trust as the fiat basis.
+    - screen par: detach gold from the note
+    - is level ke liye: Do not read 1971 as the first historical appearance of fiat-like instruments.
+  - prerequisites: gold redemption; fiat money
+- **p004-i8** · list_point · process · both · exam high
+  - How it worked? A central bank held gold reserves. It issued paper notes. Anyone could (in principle) exchange those notes for a fixed amount of gold.
+    - how: How does the page's gold-backed-note mechanism operate? → A central bank keeps gold, issues notes, and exchanges the notes for a fixed gold amount when redemption is requested.
+    - when: When is the gold transferred to a note holder? → When the holder seeks to exchange the notes under the on-demand redemption promise.
+      - why: Why must reserves precede or support the redemption promise? → A promise to deliver gold needs an available stock of gold if it is to be honoured. _(outside the book)_
+  - **khola (unpack):**
+    - gold reserves yaani वादे निभाने के लिए रखा gold का भंडार · image: दुकानदार के पास कूपन के बदले देने के लिए रखा सामान
+    - kyon: Note holders may ask for the gold promised to them. _[book]_ → Keeping reserves makes that promise operational rather than merely verbal. _[standard]_
+    - example / jagah: A central bank issuing gold-backed notes.
+    - aage: Issuance and redemption are tied to the reserve constraint.
+    - screen par: store gold, issue notes, return gold
+    - is level ke liye: Trace both directions: issuance and redemption.
+  - prerequisites: central bank; gold-backed note; redemption
+- **p004-i9** · list_point · cause_effect · both · exam high
+  - This limited excessive money printing because every note required gold backing.
+    - why: Why did gold backing limit excessive note printing? → The page requires gold backing for each note, so the issuer cannot treat printing as unrelated to its gold commitments.
+      - how: How would unsupported issuance strain such a system? → More redeemable claims against insufficient gold make it harder to meet requests for gold and can weaken confidence in the promise. _(outside the book)_
+  - **khola (unpack):**
+    - gold backing yaani नोट के gold वाले वादे के पीछे रखा सहारा · image: जितनी चीज़ दे सकते हैं, उससे जुड़े कूपन जारी करना
+    - kyon: Issuing notes creates claims that may be redeemed. _[standard]_ → Gold backing therefore constrains excessive issuance in the page's model. _[book]_
+    - example / jagah: The reserve-and-redemption process above.
+    - aage: Provides the contrast with fiat's absence of commodity backing.
+    - screen par: stop note issuance at a gold constraint
+    - is level ke liye: Explain constraint, not an unstated numerical reserve rule.
+  - prerequisites: gold reserves; redeemable claims
+- **p004-i10** · heading · none · both
+  - Fiat Currency
+- **p004-i11** · definition · definition · both · exam high
+  - It is money whose value comes from government authority and public trust rather than the intrinsic value of material from which it is made.
+    - what: What is fiat currency? → It is money supported by government authority and public trust, not by the value of the paper or other material used to represent it.
+    - evidence: Which contrast in the definition separates fiat from material-based value? → The page contrasts 'government authority and public trust' with 'intrinsic value of material'.
+      - why: Why does public trust matter to accepting a fiat payment? → People are more willing to accept it when they expect others to accept it in later payments. _(outside the book)_
+  - **khola (unpack):**
+    - Fiat Currency yaani ऐसा पैसा जिसका भरोसा government की authority और लोगों की स्वीकार करने की उम्मीद पर है · image: दुकानदार नोट लेता है क्योंकि आगे दूसरा दुकानदार भी उसे लेगा
+    - kyon: A payment instrument must be accepted beyond the first transaction. _[standard]_ → Government authority and public trust support that acceptance for fiat money. _[book]_
+    - example / jagah: USD, EUR, JPY, GBP and CNY in the adjacent panel.
+    - aage: Money's face value is separated from the value of its physical material.
+    - screen par: pass a note through trusted exchanges
+    - is level ke liye: Contrast gold-redemption promise with institutional support.
+  - prerequisites: intrinsic value; money as a means of payment
+- **p004-i12** · heading · none · both
+  - Characteristics of Fiat Money:
+- **p004-i13** · list_point · cause_effect · both · exam high
+  - No intrinsic value: Just paper or digital numbers.
+    - why: Why does the page describe fiat money as having no intrinsic value? → Its representation is paper or digital numbers, rather than a valuable commodity that supplies its monetary value.
+      - how: How can money lack commodity value yet buy goods? → Purchasing power depends on accepted monetary use, not on selling the raw paper or the digits as material. _(outside the book)_
+  - **khola (unpack):**
+    - kyon: Payments need an accepted unit, not necessarily valuable raw material. _[standard]_ → Fiat money can therefore be represented by paper or digital numbers. _[book]_
+    - example / jagah: A paper note or a displayed monetary balance.
+    - aage: Look to trust and institutions, not scrap value, to understand acceptance.
+    - screen par: separate face value from paper value
+    - is level ke liye: Interpret 'no intrinsic value' in its monetary sense; paper itself need not be literally costless.
+  - prerequisites: fiat definition; intrinsic value
+- **p004-i14** · list_point · comparison · both · exam high
+  - Not backed by commodities: Value not tied to gold or silver.
+    - compare: How do fiat and gold-backed money compare on commodity backing? → Gold-backed notes promise a fixed amount of gold, whereas fiat value is not tied to gold or silver.
+    - difference: What is the crucial difference between gold reserves and gold backing? → Reserves are assets held by an institution; backing here concerns a currency's gold-linked monetary promise. Holding gold alone does not establish a redemption right. _(outside the book)_
+      - why: Why does this distinction matter? → It prevents incorrectly classifying a fiat currency as gold-backed merely because its central bank owns gold. _(outside the book)_
+  - **khola (unpack):**
+    - commodities yaani gold या silver जैसी अपनी कीमत वाली चीज़ें · image: सुनार की दुकान पर तौला जाता सोना-चाँदी
+    - kyon: A learner must identify what supports a note's value. _[standard]_ → Fiat has no gold-or-silver value tie of the kind described for backed notes. _[book]_
+    - example / jagah: Gold-backed notes versus the modern fiat examples.
+    - aage: Commodity ownership and currency convertibility must be tested separately.
+    - screen par: remove the gold-and-silver tether
+    - is level ke liye: A classic statement-combination trap: central-bank gold reserves versus redeemability.
+  - prerequisites: gold-backed redemption; fiat definition
+- **p004-i15** · list_point · facts_numbers · both · exam high
+  - Govt-issued: Central banks control production.
+    - what: Who controls production in the page's description? → It identifies fiat as government-issued and central banks as controlling production.
+    - evidence: What institutional feature separates this from private printing? → The printed characteristic explicitly assigns production control to central banks.
+      - why: Why is authorised control important? → If anyone could issue indistinguishable official money, supply and confidence in the payment unit would be difficult to maintain. _(outside the book)_
+  - **khola (unpack):**
+    - Govt-issued yaani सरकारी व्यवस्था की मंजूरी से जारी पैसा · image: अधिकृत मुहर वाला कागज़, घर पर छपी नकल नहीं
+    - kyon: A shared payment unit needs an authorised issuer. _[standard]_ → The page assigns production control to central banks. _[book]_
+    - example / jagah: Central-bank currency issuance.
+    - aage: Links fiat money to monetary institutions.
+    - screen par: route issuance through an authorised gate
+    - is level ke liye: Do not confuse physical printing with the whole process of money creation.
+  - prerequisites: government authority; central bank
+- **p004-i16** · list_point · cause_effect · both · exam high
+  - Trust-based: Value relies on public’s faith in govt.
+    - why: Why does the page call fiat money trust-based? → It makes public faith in government a support for the money's value rather than a gold-redemption promise.
+      - how: How does trust affect an ordinary payment? → A seller accepts money more readily when expecting it to remain usable for future purchases. _(outside the book)_
+  - **khola (unpack):**
+    - Trust-based yaani यह भरोसा कि मिला पैसा आगे भी काम आएगा · image: आज मिला नोट कल राशन वाले को देना
+    - kyon: A seller gives up goods now and needs a usable payment in return. _[standard]_ → Public faith supports continued acceptance of fiat money. _[book]_
+    - example / jagah: An everyday shop payment.
+    - aage: Institutional credibility matters to monetary acceptance.
+    - screen par: pass the same note from buyer to seller
+    - is level ke liye: Keep trust and legal recognition distinct though related.
+  - prerequisites: fiat definition; future use of money
+- **p004-i17** · list_point · cause_effect · both · exam high
+  - Easily printed: Govts can print more in need.
+    - how: How is fiat issuance more flexible than gold-backed issuance? → The page says governments can print more when needed and that fiat is not tied to gold or silver.
+      - why: Why is flexibility not the same as cost-free unlimited issuance? → Increasing money without regard to goods, demand and confidence can create inflationary pressure; removing a gold constraint does not remove economic constraints. _(outside the book)_
+  - **khola (unpack):**
+    - kyon: Authorities may need to respond to monetary needs. _[standard]_ → Fiat permits additional issuance without matching gold redemption backing. _[standard]_
+    - example / jagah: Government and central-bank responses to monetary needs.
+    - aage: Makes regulation through monetary policy important.
+    - screen par: expand notes without adding gold
+    - is level ke liye: Link flexibility to the next bullet's policy discipline.
+  - prerequisites: absence of commodity backing; money supply
+- **p004-i18** · list_point · cause_effect · both · exam high
+  - Highly regulated: Controlled by monetary policy.
+    - how: How does the page say fiat money is regulated? → It places control under monetary policy rather than a gold-backing requirement.
+      - why: Why is policy control important when issuance is flexible? → Monetary authorities must manage money and credit conditions to support economic stability rather than treating printing capacity as a reason for unlimited expansion. _(outside the book)_
+  - **khola (unpack):**
+    - monetary policy yaani central bank के वे फैसले जो पैसे और उधार की हालत को सँभालते हैं · image: पानी का बहाव नल से कम-ज्यादा करना
+    - kyon: Flexible issuance still needs discipline. _[standard]_ → The page identifies monetary policy as the regulating framework. _[book]_
+    - example / jagah: Central-bank management of monetary conditions.
+    - aage: Institutional control replaces a simple gold-linked constraint.
+    - screen par: adjust the money-flow control
+    - is level ke liye: Distinguish monetary policy from government taxation and spending.
+  - prerequisites: central bank; money supply
+- **p004-i19** · diagram · figure · image
+  - Major Examples of Fiat Currency Today. Five side-by-side columns show currency symbols, names, codes and descriptions: United States Dollar, Euro, Japanese Yen, British Pound Sterling and Chinese Yuan Renminbi. The euro description is visibly incomplete.
+- **p004-i20** · diagram_label · facts_numbers · image · exam high
+  - $ — United States Dollar (USD). The most widely held and traded fiat currency globally.
+    - what: Which currency does the first column identify? → The United States Dollar uses the code USD and is represented here by $.
+    - evidence: What global role does the panel attribute to USD? → It describes USD as the most widely held and traded fiat currency globally.
+      - why: Why can a widely used fiat currency still lack gold redemption? → International use and gold convertibility are different properties; widespread acceptance does not create a fixed gold claim. _(outside the book)_
+  - **khola (unpack):**
+    - USD yaani United States Dollar की तीन अक्षरों वाली पहचान · image: exchange counter पर USD लिखा rate board
+    - kyon: International payments need identifiable currencies. _[standard]_ → The panel identifies USD and highlights its widespread holding and trading. _[book]_
+    - example / jagah: United States.
+    - aage: Global importance does not imply commodity backing.
+    - screen par: match $ to USD and United States
+    - is level ke liye: Keep symbol, code and country distinct.
+  - prerequisites: fiat money; currency code
+- **p004-i21** · diagram_label · facts_numbers · image · exam high
+  - € — Euro (EUR). Adopted by 20 of the 27 European Union member states, the euro is the second-most [visible text ends here].
+    - what: What identifying details and membership count are printed for the euro? → The panel pairs € with Euro and EUR and states adoption by 20 of the 27 European Union member states.
+    - evidence: Does the image provide a complete ranking statement for the euro? → No. The visible sentence stops after 'the euro is the second-most', leaving the ranked attribute unspecified.
+      - why: Why distinguish EU membership from euro adoption? → Membership in a political-economic union and participation in its common currency are separate categories; they need not include the same countries. _(outside the book)_
+  - **khola (unpack):**
+    - Euro yaani कई देशों में चलने वाली एक साझा currency · image: अलग दुकानों पर एक ही तरह का भुगतान चलना, पर यहाँ अलग देश हैं
+    - kyon: Different countries may use a shared currency. _[standard]_ → The page gives the euro as a fiat example used by a subset of EU members. _[book]_
+    - example / jagah: European Union member states, as described in the panel.
+    - aage: Do not equate all EU members with euro users.
+    - screen par: highlight a subset within the EU
+    - is level ke liye: Membership counts are date-sensitive; the ranking line is incomplete.
+  - prerequisites: European Union; shared currency
+- **p004-i22** · diagram_label · facts_numbers · image · exam high
+  - ¥ — Japanese Yen (JPY). Known for its stability, the yen is a major player in global currency markets.
+    - what: Which currency and code accompany the third symbol? → The column identifies the Japanese Yen, code JPY, with the symbol ¥.
+    - evidence: What role does the panel attribute to the yen? → It describes the yen as known for stability and as a major participant in global currency markets.
+      - why: Why is 'stability' not a promise of a fixed exchange rate? → A general description of stability does not mean the currency's price cannot change against another currency. _(outside the book)_
+  - **khola (unpack):**
+    - JPY yaani Japanese Yen की पहचान वाला code · image: Japan की यात्रा के लिए exchange counter की JPY पंक्ति
+    - kyon: Currency symbols can overlap and need precise identification. _[standard]_ → The panel pairs Japan's yen with JPY. _[book]_
+    - example / jagah: Japan and global currency markets.
+    - aage: Use the code to avoid confusing yen and yuan.
+    - screen par: match ¥ to Japan and JPY
+    - is level ke liye: Stability is a descriptive claim, not a fixed-price guarantee.
+  - prerequisites: currency code; exchange rate
+- **p004-i23** · diagram_label · facts_numbers · image · exam high
+  - £ — British Pound Sterling (GBP). The oldest fiat currency still in use, dating back to the 8th century.
+    - what: Which currency is identified by £ and GBP? → The panel identifies British Pound Sterling and attaches an eighth-century historical dating claim.
+    - evidence: What exactly is the panel's age claim? → It calls the pound 'the oldest fiat currency still in use' and says it dates back to the eighth century.
+      - why: Why must the age claim be qualified when teaching fiat status? → A currency's historical origin is not the same as the date when it became fiat; the pound has existed under different monetary arrangements. _(outside the book)_
+  - **khola (unpack):**
+    - GBP yaani British Pound Sterling का currency code · image: Britain की कीमत के आगे £ और exchange board पर GBP
+    - kyon: A currency name can survive changes in its monetary backing. _[standard]_ → Therefore historical age and present fiat status must be separated. _[standard]_
+    - example / jagah: Britain.
+    - aage: Reconcile the historical pound with the timeline's gold-standard milestone.
+    - screen par: retain the currency name while changing its backing
+    - is level ke liye: Flag the printed wording rather than silently endorsing its historical conflation.
+  - prerequisites: fiat money; gold-standard arrangements
+- **p004-i24** · diagram_label · facts_numbers · image · exam high
+  - ¥ — Chinese Yuan Renminbi (CNY). Increasingly influential in global trade and international reserves.
+    - what: Which currency is represented in the last column? → It is Chinese Yuan Renminbi, code CNY, shown with ¥.
+    - evidence: What role does the panel highlight? → It describes increasing influence in global trade and international reserves.
+      - how: How does a code help when two currencies share a symbol? → CNY specifies the Chinese currency, whereas JPY specifies the Japanese currency; ¥ alone is less precise. _(outside the book)_
+  - **khola (unpack):**
+    - international reserves yaani देश के monetary authorities के पास रखी बाहर के भुगतान में काम आने वाली संपत्तियाँ · image: विदेशी भुगतान के लिए अलग रखा पैसा, पर देश के स्तर पर
+    - kyon: Countries need assets usable in international payments. _[standard]_ → The panel highlights the yuan's growing role in trade and reserves. _[book]_
+    - example / jagah: China and international payments.
+    - aage: A fiat currency can be used beyond its issuing country.
+    - screen par: match CNY to China and overseas payments
+    - is level ke liye: Do not infer an unstated reserve share or ranking.
+  - prerequisites: currency code; international trade
+- **p004-i25** · diagram · timeline · image
+  - A left-to-right line with four milestones: 7th c.—Tang, Receipts; 1023—Song, State notes; 1275—Yuan, Compulsory; 1971—Modern, Fiat era.
+- **p004-i26** · diagram_label · timeline · image · exam medium
+  - 7th c. — Tang — Receipts
+    - when: What does the lower timeline place in the seventh century? → It places Tang receipts at its first marker.
+      - why: Why are receipts relevant to the development of paper instruments? → A receipt can document a claim to something deposited, helping explain how a paper claim can become useful in payments. _(outside the book)_
+  - **khola (unpack):**
+    - Receipts yaani जमा या लेन-देन का लिखित सबूत · image: सामान जमा करने पर मिली पर्ची
+    - kyon: Moving valuable goods or money can be inconvenient. _[standard]_ → A written claim helps explain the payment role of early paper instruments. _[standard]_
+    - example / jagah: Tang, as labelled in the chart.
+    - aage: Introduces the distinction between early claims and later state notes.
+    - screen par: replace carried value with a receipt
+    - is level ke liye: Keep the date and limited wording as printed; do not infer a complete origin story.
+  - prerequisites: receipt as a claim; paper money
+- **p004-i27** · diagram_label · timeline · image · exam medium
+  - 1023 — Song — State notes
+    - when: Which milestone is assigned to 1023? → The lower chart identifies Song state notes.
+      - why: Why is 'state' an important addition to the label? → It draws attention to public authority behind issuance rather than merely a private receipt documenting a claim. _(outside the book)_
+  - **khola (unpack):**
+    - State notes yaani सरकारी authority से जुड़े कागज़ी नोट · image: निजी पर्ची की जगह सरकारी पहचान वाला कागज़
+    - kyon: Paper instruments raise the question of who stands behind them. _[standard]_ → The chart marks state notes under Song at 1023. _[book]_
+    - example / jagah: Song.
+    - aage: Adds issuance authority to the paper-money story.
+    - screen par: stamp state authority onto a note
+    - is level ke liye: State issuance alone does not prove all modern fiat characteristics.
+  - prerequisites: issuer of money; paper receipt
+- **p004-i28** · diagram_label · timeline · image · exam medium
+  - 1275 — Yuan — Compulsory
+    - when: What is the third milestone in the lower timeline? → It pairs 1275 with Yuan and the label 'Compulsory'.
+      - why: Why does compulsory use matter in a money timeline? → It introduces the authority-based acceptance dimension, which differs from people choosing to accept a payment voluntarily. _(outside the book)_
+  - **khola (unpack):**
+    - Compulsory yaani सिर्फ अपनी मर्ज़ी नहीं, नियम के कारण मानना पड़े · image: वैकल्पिक काम और नियम से जरूरी काम का फर्क
+    - kyon: A payment system raises the question of whether acceptance is optional. _[standard]_ → The chart highlights compulsion at the Yuan 1275 marker. _[book]_
+    - example / jagah: Yuan in the historical chart.
+    - aage: Prepares the distinction between legal recognition and voluntary use below.
+    - screen par: mark acceptance as required
+    - is level ke liye: Yuan here is a historical label, not the modern CNY currency-code entry.
+  - prerequisites: voluntary acceptance; government authority
+- **p004-i29** · diagram_label · timeline · image · exam high
+  - 1971 — Modern — Fiat era
+    - when: Where does the lower timeline place the modern fiat era? → It uses 1971 as its modern fiat-era marker.
+      - why: Why do both timelines end at the same date? → The upper chart associates 1971 with no gold redemption, while the lower chart names that endpoint the modern fiat era.
+  - **khola (unpack):**
+    - kyon: The page needs to connect historical paper instruments to the present monetary form. _[standard]_ → Both chart sequences converge on 1971 and modern fiat. _[book]_
+    - example / jagah: Both timelines on this page.
+    - aage: Returns the historical sequence to the fiat characteristics.
+    - screen par: converge both timelines at 1971
+    - is level ke liye: The modern-era marker is not a claim that no earlier fiat arrangements existed.
+  - prerequisites: gold-redemption break; fiat definition
+- **p004-i30** · definition · definition · both · exam high
+  - Legal tender is a form of money that a government officially recognises as acceptable for settling debts and transactions within its territory.
+    - what: What does legal-tender status describe? → It describes government recognition of money as acceptable for settling debts and transactions within the government's territory.
+    - evidence: Which parts of the definition make legal tender a legal rather than material category? → 'Government officially recognises', 'settling debts' and 'within its territory' identify authority, purpose and jurisdiction.
+      - how: How does legal-tender status differ from voluntary acceptance? → Voluntary acceptance is a person's agreement to take a payment; legal-tender status is a legal rule whose precise effects depend on the relevant law. _(outside the book)_
+  - **khola (unpack):**
+    - Legal tender yaani कर्ज़ चुकाने या भुगतान के लिए कानून से मान्यता पाया पैसा · image: उधार चुकाते समय कानून से मान्य भुगतान देना
+    - territory yaani वह इलाका जहाँ उस government का कानून लागू है · image: देश की सीमा के भीतर लागू नियम
+    - kyon: Debtors and creditors need clarity about legally recognised settlement. _[standard]_ → Government recognition defines the page's legal-tender category within its territory. _[book]_
+    - example / jagah: Domestic debt settlement; El-Salvador is the page's special example below.
+    - aage: Legal recognition must be distinguished from fiat backing and voluntary acceptance.
+    - screen par: settle a debt under a legal-recognition stamp
+    - is level ke liye: Do not infer identical compulsory shop-acceptance rules in every jurisdiction.
+  - prerequisites: debt; government jurisdiction; means of payment
+- **p004-i31** · list_point · classification · both · exam high
+  - It must be Fiat Money.
+    - which: Which category does the page assign to legal tender here? → This line assigns it to Fiat Money, before the next bullet explicitly presents Bitcoin as an exception.
+    - difference: How do fiat status and legal-tender status differ conceptually? → Fiat describes the monetary basis without commodity backing; legal tender describes recognition by law. They answer different questions. _(outside the book)_
+      - why: Why should the printed 'must' not be taught as exceptionless? → The following Bitcoin bullet says a non-fiat asset was legal tender and explicitly calls it an exception.
+  - **khola (unpack):**
+    - kyon: A learner needs to distinguish the source of value from legal recognition. _[standard]_ → The page's usual fiat association is immediately qualified by its Bitcoin exception. _[book]_
+    - example / jagah: Bitcoin in El-Salvador, next bullet.
+    - aage: The two categories overlap but should not be treated as identical definitions.
+    - screen par: separate two category circles and mark the exception
+    - is level ke liye: Absolute wording such as 'must' is a statement-question trap here.
+  - prerequisites: fiat definition; legal-tender definition
+- **p004-i32** · example · timeline · both · exam high
+  - Bitcoin is not a Fiat money, yet it was legal tender in El-Salvador (till 2024). But it is an exception.
+    - when: What period marker does the page attach to Bitcoin's legal-tender example? → It says Bitcoin was legal tender in El-Salvador 'till 2024', and the next line discusses reforms in 2025.
+    - why: Why is Bitcoin an exception in the page's argument? → The page identifies it as non-fiat yet formerly legal tender, qualifying the preceding assertion that legal tender must be fiat.
+      - how: How can legal recognition leave an asset's non-fiat character unchanged? → A law can recognise an asset for payment without making it a government-issued fiat currency. _(outside the book)_
+  - **khola (unpack):**
+    - exception yaani आम बात से अलग ऐसा मामला जिसे अलग से याद रखना है · image: एक जैसे डिब्बों में अलग निशान वाला एक डिब्बा
+    - kyon: The page first associates legal tender with fiat money. _[book]_ → Its Bitcoin example shows why that association needs a qualification. _[book]_
+    - example / jagah: El-Salvador.
+    - aage: Legal status and monetary classification must be checked separately.
+    - screen par: place Bitcoin outside fiat but inside the historical legal-tender example
+    - is level ke liye: Preserve 'till 2024' as the page's account and connect it to its 2025 qualification.
+  - prerequisites: fiat versus legal tender; Bitcoin as a non-fiat asset
+- **p004-i33** · list_point · timeline · both · exam high
+  - Legal to own and use voluntarily, but no longer compulsory legal tender in the practical sense after reforms in 2025.
+    - when: When does the page place the change in practical compulsory acceptance? → It places it after reforms in 2025, while retaining legal ownership and voluntary use.
+    - why: Why does the page stress voluntary use? → It distinguishes permission to own and use Bitcoin from compulsory legal-tender treatment in practice.
+      - how: How can a payment remain usable without compulsory acceptance? → Two parties can agree to use it even when the law does not require the recipient to take it. _(outside the book)_
+  - **khola (unpack):**
+    - voluntarily yaani अपनी मर्ज़ी और आपसी सहमति से · image: दुकानदार और ग्राहक दोनों किसी तरीके से भुगतान पर राज़ी हों
+    - kyon: A change in acceptance rules can be mistaken for a ban. _[standard]_ → The page expressly preserves ownership and voluntary use after the 2025 reforms. _[book]_
+    - example / jagah: Bitcoin use in El-Salvador as described here.
+    - aage: Ownership, use and compulsory acceptance are three separate checks.
+    - screen par: remove a compulsory stamp while retaining two-party agreement
+    - is level ke liye: Do not substitute an unqualified claim about formal repeal for the page's practical-status wording.
+  - prerequisites: voluntary agreement; legal tender; Bitcoin example
+- **p004-i34** · list_point · classification · both · exam high
+  - Commemorative Coins = Fiat money yes but may or may not be legal tender (Most of them are).
+    - which: How does the page classify commemorative coins? → It calls them fiat money but says legal-tender status may vary, adding that most are legal tender.
+    - difference: What difference does this example establish between fiat and legal tender? → Being described as fiat does not by itself settle whether a particular commemorative coin has legal-tender status.
+      - why: Why should legal status be checked for a particular issue? → A commemorative purpose or appearance alone does not specify the applicable recognition and payment rules. _(outside the book)_
+  - **khola (unpack):**
+    - Commemorative Coins yaani किसी व्यक्ति, घटना या अवसर की याद में जारी coins · image: सामान्य coin पर किसी खास अवसर की अलग आकृति
+    - kyon: A special coin's design does not tell us its payment status. _[standard]_ → The page therefore separates fiat classification from variable legal-tender status. _[book]_
+    - example / jagah: Circulation commemorative coins in the next bullet.
+    - aage: Check the issue's status rather than treating all special coins alike.
+    - screen par: sort commemorative coins by legal-tender status
+    - is level ke liye: The page's 'most' is qualitative; it provides no count or proportion.
+  - prerequisites: fiat money; legal-tender status; coins
+- **p004-i35** · definition · definition · both · exam high
+  - Circulation commemorative coins: Released into circulation and usable like ordinary coins.
+    - what: What are circulation commemorative coins? → They are commemorative issues released into ordinary circulation and usable as ordinary coins.
+    - evidence: What wording establishes their payment role? → 'Released into circulation' and 'usable like ordinary coins' show that their role is not confined to display or collection.
+      - how: How can a commemorative design coexist with ordinary payment use? → The design marks an occasion, while the coin's circulation status determines its ordinary payment role; these are separate attributes. _(outside the book)_
+  - **khola (unpack):**
+    - circulation yaani भुगतान में लोगों के बीच पैसा आते-जाते रहना · image: दुकानदार से छुट्टा मिला coin आगे बस के किराए में देना
+    - kyon: A coin may mark an occasion yet still be needed for daily payments. _[standard]_ → Circulation commemorative coins are released for use like ordinary coins. _[book]_
+    - example / jagah: An ordinary transaction using a circulation commemorative coin.
+    - aage: Distinguish special design from restricted payment use.
+    - screen par: pass a commemorative coin through an ordinary purchase
+    - is level ke liye: The next-page collector category is not supplied here and is not reconstructed.
+  - prerequisites: commemorative coin; ordinary coin circulation
+
+## Page 5 · passed after 0 round(s) · reused
+
+Collector coins can have a market value above face value. Indian banknotes are presented as unlimited legal tender, while coins have denomination-specific limits. Bretton Woods linked other currencies to the dollar and the dollar to gold at US$35 per troy ounce; rising dollar supply and limited gold undermined confidence, culminating in Nixon ending gold convertibility on 15 August 1971.
+
+- **p005-i1** · definition · definition · both · exam medium
+  - Collector commemorative coins: Sold in proof or UNC sets by the Government Mint and rarely used in everyday transactions.
+    - what: What distinguishes collector commemorative coins? → They are Government Mint issues sold in proof or UNC sets and are rarely used for ordinary payments.
+    - evidence: What identifies their collector-oriented use on the page? → Their sale in special sets and their rare use in everyday transactions identify their collector role.
+      - why: Why might a collector preserve rather than spend these coins? → Their commemorative design, condition and collector demand can make preserving them more attractive than using them at face value. UNC means uncirculated; proof refers to specially produced collector-quality coins. _(outside the book)_
+  - **khola (unpack):**
+    - UNC yaani ऐसा coin जो आम लेन-देन में चला नहीं है · image: संभालकर रखा बिल्कुल नया coin
+    - kyon: Collectors want a preserved commemorative issue rather than ordinary spending money. _[standard]_ → Special sets serve that purpose and are rarely spent. _[book]_
+    - example / jagah: Government Mint proof or UNC sets.
+    - aage: Collector use and legal payment value must be considered separately.
+    - screen par: place a special coin in a display case
+    - is level ke liye: Distinguish proof production from uncirculated condition.
+  - prerequisites: coin face value; ordinary cash payments
+- **p005-i2** · example · comparison · both · exam high
+  - ₹100 silver commemorative coin can legally be used to pay ₹100, but collectors may pay several thousand rupees for it.
+    - compare: What two values does this example compare? → Its legal payment value is ₹100, whereas its collector market price may be several thousand rupees.
+    - difference: Does paying several thousand for it make it settle that much debt as currency? → No. A negotiated collector price is different from the amount represented by its face denomination. _(outside the book)_
+      - why: Why can its market price exceed ₹100? → Collectors may value its rarity, condition, design or metal content beyond its denomination. _(outside the book)_
+  - **khola (unpack):**
+    - commemorative coin yaani किसी खास व्यक्ति या मौके की याद में निकाला गया coin · image: यादगार चीज़ जिसे खर्च करने के बजाय सँभालते हैं
+    - kyon: A buyer may want the coin as a collectible. _[standard]_ → That demand can produce a price above its ₹100 payment value. _[book]_
+    - example / jagah: The page's ₹100 silver coin.
+    - aage: Separate denomination from resale value.
+    - screen par: split one coin into face-value and collector-price tags
+    - is level ke liye: Useful for statement-based distinctions about money.
+  - prerequisites: face value; market price
+- **p005-i3** · question · comparison · both · exam high
+  - We can use cheque / credit card to pay fees. So, why are they not fiat money/legal tender?
+    - compare: How do cheques and credit cards differ from fiat currency? → A cheque instructs a bank to transfer deposit money; a credit card authorises payment through a credit arrangement. They are instruments for accessing or transferring money, not currency issued as fiat money. _(outside the book)_
+    - difference: How does payment acceptance differ from legal-tender status? → A fee collector may agree to accept a cheque or card without being legally obliged to accept that instrument as legal tender. _(outside the book)_
+      - why: Why does successful payment not prove legal-tender status? → Payment can occur by agreement and banking arrangements; legal tender is a status conferred by law. Fiat money concerns the basis of currency's value, while legal tender concerns its legal discharge function. _(outside the book)_
+  - **khola (unpack):**
+    - legal tender yaani कानून के मुताबिक पैसे की देनदारी चुकाने में मान्य पैसा · image: बकाया रकम चुकाने के लिए दिया गया मान्य note
+    - kyon: Fees can be paid through an agreed banking channel. _[standard]_ → Agreement to accept a channel does not give the instrument statutory currency status. _[standard]_
+    - example / jagah: A fee counter accepting a card or cheque.
+    - aage: Distinguish means of payment from legal status.
+    - screen par: route a cheque and card through a bank
+    - is level ke liye: Fiat money and legal tender are related but different concepts.
+  - prerequisites: bank deposits; borrowing through a credit card; legal tender
+- **p005-i4** · heading · comparison · both
+  - Limited vs Unlimited Legal Tender
+- **p005-i5** · definition · definition · both · exam high
+  - Unlimited Legal Tender: Must be accepted for any amount (subject to the note being genuine and valid).
+    - what: What is unlimited legal tender? → It has no prescribed aggregate payment ceiling of the kind imposed on limited legal tender; the page requires the note to be genuine and valid.
+    - evidence: What qualification prevents 'unlimited' from meaning any piece of paper must be accepted? → The page explicitly conditions acceptance on genuineness and validity.
+      - how: How should 'must be accepted' be understood carefully? → Legal tender concerns valid tender toward monetary obligations. It should not be treated as a blanket requirement that a seller enter any proposed transaction, and 'unlimited' is not a statement about a person's wealth or separate payment regulations. _(outside the book)_
+  - **khola (unpack):**
+    - Unlimited Legal Tender yaani जिसके इस्तेमाल की कुल रकम पर legal tender वाला तय ceiling नहीं है · image: मान्य notes से छोटा या बड़ा बकाया चुकाना
+    - kyon: Debt settlement needs valid money recognised by law. _[standard]_ → For unlimited tender the denomination does not impose an aggregate tender ceiling, but the notes must remain genuine and valid. _[book]_
+    - example / jagah: Indian banknotes discussed next.
+    - aage: Contrasts with coin limits.
+    - screen par: increase a stack of valid notes without an amount-cap marker
+    - is level ke liye: Separate counterfeit status, withdrawal of validity and amount limits.
+  - prerequisites: monetary debt; genuine and valid currency
+- **p005-i6** · list_point · facts_numbers · both · exam high
+  - Banknotes are unlimited legal tender in India. ₹10, ₹20, ₹50, ₹100, ₹200, ₹500 notes. Reserve Bank of India Act, 1934
+    - what: Which examples and law does the page associate with unlimited legal tender? → It lists ₹10, ₹20, ₹50, ₹100, ₹200 and ₹500 banknotes and cites the Reserve Bank of India Act, 1934.
+    - evidence: What supports classifying these examples as unlimited rather than limited tender? → The page places the listed banknotes directly under the unlimited legal-tender category.
+      - why: Why distinguish a note's denomination from an aggregate ceiling? → Denomination tells the value of each note; an aggregate ceiling would restrict the combined amount tendered. These are different properties. _(outside the book)_
+  - **khola (unpack):**
+    - Banknotes yaani रुपये के मान्य paper notes · image: बटुए में रखा ₹500 note
+    - kyon: A payment may require more than one note. _[standard]_ → The listed notes are treated as unlimited tender rather than subject to the coin table's ceilings. _[book]_
+    - example / jagah: ₹10, ₹20, ₹50, ₹100, ₹200 and ₹500 notes in India.
+    - aage: An amount limit cannot be inferred from a note's face denomination.
+    - screen par: fan out the six listed banknotes
+    - is level ke liye: The page gives examples; do not infer a complete catalogue of currency law.
+  - prerequisites: banknote denomination; unlimited legal tender
+- **p005-i7** · definition · definition · both · exam high
+  - Limited Legal Tender: Must be accepted only up to a legally prescribed limit; beyond that, acceptance is voluntary.
+    - what: What makes legal tender limited? → The law sets a maximum amount for obligatory legal-tender acceptance; beyond it the recipient can choose whether to accept.
+    - evidence: Does crossing the limit make voluntary acceptance impossible? → No. The page expressly says acceptance beyond the limit is voluntary.
+      - why: Why can an amount cap be useful for coin payments? → Counting, transporting and checking very large quantities of coins can burden the recipient; a cap limits that compulsory handling burden. _(outside the book)_
+  - **khola (unpack):**
+    - Limited Legal Tender yaani एक तय रकम तक कानून के तहत मान्य भुगतान; उससे ऊपर लेना अपनी मर्ज़ी · image: बहुत बड़ी थैली भर coins देखकर लेने वाले की सहमति माँगना
+    - kyon: Large coin payments create handling work. _[standard]_ → A statutory ceiling limits compulsory acceptance while allowing agreement beyond it. _[book]_
+    - example / jagah: Indian coin limits in the adjacent table.
+    - aage: A legal coin can have a limited tender amount.
+    - screen par: stop compulsory acceptance at a ceiling and open a voluntary lane
+    - is level ke liye: Distinguish legal-tender status from the extent of compulsory acceptance.
+  - prerequisites: legal tender; mandatory versus voluntary acceptance
+- **p005-i8** · list_point · facts_numbers · both · exam high
+  - Coinage Act, 2011
+    - what: Which law is cited for limited legal tender? → The page cites the Coinage Act, 2011 in the limited-tender discussion.
+    - evidence: Where is this legal reference reinforced? → The coin-limit table also names the Coinage Act, 2011 in its title.
+      - why: Why identify the governing statute? → Legal-tender limits arise from law rather than from the convenience or personal preference of an individual payer. _(outside the book)_
+  - **khola (unpack):**
+    - kyon: A tender ceiling needs legal authority. _[standard]_ → The page links coin limits to the Coinage Act, 2011. _[book]_
+    - example / jagah: Adjacent table of coin limits.
+    - aage: Do not interchange the coin and banknote statutory references.
+    - screen par: attach a law label to the coin table
+    - is level ke liye: Contrast with Reserve Bank of India Act, 1934.
+  - prerequisites: an Act as a law; limited legal tender
+- **p005-i9** · table · comparison · image
+  - Current legal limits for coins (Coinage Act, 2011). Columns: Coin | Legal Tender Limit. Rows: ₹1, ₹2, ₹5, ₹10, ₹20 coins | Up to ₹1,000; 50 paise coin | Up to ₹10; Coins below 50 paise | No longer legal tender (demonetized).
+- **p005-i10** · table_row · comparison · image · exam high
+  - Coin: ₹1, ₹2, ₹5, ₹10, ₹20 coins | Legal Tender Limit: Up to ₹1,000
+    - compare: How does this group's limit compare with the 50 paise limit? → The listed rupee coins have a ₹1,000 limit, compared with ₹10 for 50 paise coins.
+    - difference: Is ₹1,000 the value of an individual coin? → No. ₹1, ₹2, ₹5, ₹10 and ₹20 are denominations; ₹1,000 is the tender amount ceiling shown for the group.
+      - how: How does the ceiling work in a simple example? → One hundred ₹10 coins total ₹1,000 and reach the stated ceiling; a higher total falls under voluntary acceptance as explained on the page. _(outside the book)_
+  - **khola (unpack):**
+    - kyon: The recipient needs a boundary for compulsory coin acceptance. _[standard]_ → The table sets ₹1,000 for these denominations. _[book]_
+    - example / jagah: 100 × ₹10 = ₹1,000 as an explanatory calculation.
+    - aage: Above the stated ceiling, acceptance is voluntary.
+    - screen par: fill a ₹1,000 meter using coins
+    - is level ke liye: Include ₹20 coins; do not confuse amount and coin count.
+  - prerequisites: coin denominations; adding monetary values; limited tender
+- **p005-i11** · table_row · comparison · image · exam high
+  - Coin: 50 paise coin | Legal Tender Limit: Up to ₹10
+    - compare: How is 50 paise treated compared with the listed rupee coins? → It remains in the legal-tender table but has a smaller limit: ₹10 rather than ₹1,000.
+    - difference: How is 50 paise different from coins below 50 paise? → The 50 paise coin has a tender limit; coins below it are stated to be no longer legal tender.
+      - how: How many 50 paise coins reach ₹10? → Twenty coins reach ₹10 because each coin is half a rupee. _(outside the book)_
+  - **khola (unpack):**
+    - kyon: Small coins can accumulate into a larger payment. _[standard]_ → The table caps the tender amount for 50 paise coins at ₹10. _[book]_
+    - example / jagah: Twenty 50 paise coins make ₹10.
+    - aage: A low denomination can remain legal tender with a low ceiling.
+    - screen par: count twenty half-rupee coins into a ₹10 tray
+    - is level ke liye: Watch the words 'below 50 paise', not '50 paise and below'.
+  - prerequisites: 100 paise equals ₹1; limited legal tender
+- **p005-i12** · table_row · comparison · image · exam high
+  - Coin: Coins below 50 paise | Legal Tender Limit: No longer legal tender (demonetized)
+    - compare: How do coins below 50 paise compare with 50 paise coins? → Below-50-paise coins have lost legal-tender status; 50 paise coins retain the stated ₹10 limit.
+    - difference: How does demonetization differ from limited tender? → Limited tender retains legal recognition up to a ceiling; demonetization removes legal-tender status. _(outside the book)_
+      - why: Why does keeping an old coin not preserve its legal-tender status? → Physical possession does not determine statutory validity. An old coin can remain a collectible even after losing its legal payment status. _(outside the book)_
+  - **khola (unpack):**
+    - demonetized yaani जिसकी legal tender वाली मान्यता हटा दी गई है · image: पुराना coin डिब्बे में है, पर मान्य cash नहीं रहा
+    - kyon: An old coin can physically survive after a legal change. _[standard]_ → The table states that coins below 50 paise are no longer legal tender. _[book]_
+    - example / jagah: Coins below 50 paise.
+    - aage: Collector possession and legal validity are separate.
+    - screen par: remove the legal-tender badge from old coins
+    - is level ke liye: Connect back to the collector-value distinction.
+  - prerequisites: coin denomination; legal-tender status
+- **p005-i13** · heading · timeline · both
+  - The Bretton Woods System (1944) and its End (1971)
+- **p005-i14** · list_point · facts_numbers · both · exam high
+  - US promised to convert US$35 into one troy ounce of gold. This promise applied mainly to foreign central banks
+    - what: What gold conversion promise did the US make? → US$35 could be converted into one troy ounce of gold, with the promise applying mainly to foreign central banks.
+    - evidence: What wording prevents treating this as a general retail gold-redemption facility? → The page specifies that the promise applied mainly to foreign central banks.
+      - how: How did a fixed gold conversion promise support trust in dollars? → Eligible official holders could see dollars as claims convertible into a specified quantity of gold, provided the US could honour redemption. A troy ounce is a precious-metal mass unit of about 31.1 grams, not an ordinary ounce. _(outside the book)_
+  - **khola (unpack):**
+    - gold convertibility yaani तय शर्तों पर Dollars देकर gold लेने का वादा · image: एक तय दावे के बदले रखी हुई चीज़ वापस लेना
+    - kyon: International holders need confidence in the currency they accept. _[standard]_ → A fixed official gold conversion promise provides an anchor for that confidence. _[standard]_
+    - example / jagah: US$35 ↔ one troy ounce of gold for mainly foreign central banks.
+    - aage: Creates the gold-dollar link shown in the diagram.
+    - screen par: exchange a US$35 bundle for one gold unit
+    - is level ke liye: US$ denotes US dollars; distinguish troy ounce from ordinary ounce.
+  - prerequisites: US dollar; central bank; gold reserves
+- **p005-i15** · list_point · cause_effect · both · exam high
+  - The Dollar became the world's reserve currency.
+    - why: Why would a gold-linked dollar become attractive as a reserve asset? → A credible gold link and the dollar's role in international settlement gave official holders reasons to keep dollar assets for external payments. _(outside the book)_
+    - how: How does a reserve currency function? → Central banks hold assets denominated in it to support international payments and manage external monetary needs; it need not replace their country's domestic currency. _(outside the book)_
+    - what: Which currency does the page identify as the world's reserve currency? → It identifies the Dollar in the Bretton Woods discussion.
+  - **khola (unpack):**
+    - reserve currency yaani दूसरे देशों के central banks द्वारा बाहरी भुगतान के लिए रखा जाने वाला भरोसेमंद currency · image: विदेश में काम आने वाले पैसों का अलग emergency बटुआ
+    - kyon: Countries need assets usable for external payments. _[standard]_ → Holding a widely accepted dollar supports those payments. _[standard]_
+    - example / jagah: Foreign central banks holding dollar assets.
+    - aage: World demand for dollar reserves creates the supply problem discussed next.
+    - screen par: gather dollar reserves in several central-bank vaults
+    - is level ke liye: Distinguish reserve holdings from domestic currency circulation.
+  - prerequisites: foreign exchange reserves; central banks; international payments
+- **p005-i16** · list_point · cause_effect · both · exam high
+  - By the 1960s: US spent heavily on Vietnam War and welfare programs. More Dollars circulated worldwide than the gold available in US reserves. France began demanding gold instead of Dollars.
+    - what: What pressures does the page describe by the 1960s? → Heavy US spending on the Vietnam War and welfare programs accompanied dollar circulation exceeding the gold available in US reserves, while France demanded gold instead of Dollars.
+    - why: Why did more dollar claims relative to gold threaten the system? → At the fixed conversion rate, a growing volume of potential claims against limited gold made holders doubt whether widespread redemption could be honoured. _(outside the book)_
+      - how: How did demanding gold intensify the strain? → Actual redemption drew down gold reserves, reducing the backing available for remaining dollar claims and potentially encouraging further requests. _(outside the book)_
+      - compare: How should dollars and gold be compared meaningfully? → Compare dollar claims with the dollar value of the gold stock at the promised conversion rate, rather than directly comparing a currency count with a mass of gold. _(outside the book)_
+  - **khola (unpack):**
+    - US reserves yaani US के पास रखा gold का भंडार, जिससे conversion का वादा पूरा होना था · image: दावों का भुगतान करने के लिए रखा सीमित सामान
+    - kyon: Dollar holders relied on the US gold-conversion promise. _[book]_ → Growing claims against limited gold made redemption doubts and demands more damaging. _[standard]_
+    - example / jagah: France demanding gold during the pressures described for the 1960s.
+    - aage: Sets up Triffin's contradiction and the 1971 end of convertibility.
+    - screen par: expand dollar claims while draining a gold vault
+    - is level ke liye: Heavy spending is the book's context; do not assume each budget dollar mechanically became an overseas claim.
+  - prerequisites: fixed gold conversion rate; gold reserves; government spending; redemption
+- **p005-i17** · list_point · cause_effect · both · exam high
+  - Economist Robert Triffin predicted a built-in contradiction. The world needed more Dollars for international trade. Supplying more Dollars weakened confidence in their gold convertibility.
+    - what: What contradiction did Robert Triffin identify? → The world needed an expanding dollar supply for international trade, but supplying more dollars weakened confidence that they could be converted into gold.
+    - why: Why was this a built-in problem rather than merely one country's preference? → The same reserve-currency role required more international liquidity while the fixed gold promise depended on confidence in finite backing. Meeting one need could undermine the other. _(outside the book)_
+      - how: How do the two sides form a dilemma? → Restricting supply could leave international transactions short of dollar liquidity; expanding supply could increase potential redemption claims faster than confidence in gold backing. _(outside the book)_
+  - **khola (unpack):**
+    - built-in contradiction yaani व्यवस्था में ही ऐसा टकराव कि एक ज़रूरत पूरी करने से दूसरी मुश्किल बढ़े · image: सीमित सामान के बदले ज़्यादा redeem करने वाले coupons बाँटना
+    - kyon: International trade needed more Dollars. _[book]_ → Supplying them weakened confidence in the promise to exchange them for gold. _[book]_
+    - example / jagah: The Bretton Woods gold-dollar arrangement.
+    - aage: Explains why the reserve-currency system faced persistent internal strain.
+    - screen par: pull a balance between trade liquidity and gold confidence
+    - is level ke liye: Standard name: Triffin dilemma; learn both sides rather than just the economist's name.
+  - prerequisites: reserve currency; international trade payments; finite gold reserves
+- **p005-i18** · diagram · figure · image · exam high
+  - Three vertically stacked boxes connected by downward arrows: Gold (US$35 per ounce) → US Dollar → Other currencies (Pound, Rupee, Yen, Franc, etc.). Gold anchors the dollar, which is the intermediate link to other currencies.
+    - what: What arrangement does the diagram show? → It places gold above the US Dollar and other currencies below the dollar, linked by downward arrows.
+    - which: Which currency is the middle link? → The US Dollar connects the gold box with the box listing Pound, Rupee, Yen, Franc and others.
+      - how: How should the arrows be understood? → They represent a monetary anchoring relationship: other currencies were linked to the dollar and the dollar to gold, rather than a physical movement of gold down the boxes. _(outside the book)_
+  - **khola (unpack):**
+    - kyon: A monetary system needs a common reference for currency values. _[standard]_ → The diagram shows the dollar as the bridge between gold and other currencies. _[book]_
+    - example / jagah: Gold → US Dollar → Pound, Rupee, Yen, Franc.
+    - aage: Ending the top gold-dollar link removes the diagram's gold anchor.
+    - screen par: connect three boxes and then cut the upper link
+    - is level ke liye: Read arrows as relationships, not conversion rights for every individual.
+  - prerequisites: exchange rate; gold-dollar conversion
+- **p005-i19** · diagram_label · figure · image · exam high
+  - Gold (US$35 per ounce): top box, with an arrow pointing down to US Dollar.
+    - what: What does the upper box label? → The gold anchor at the displayed price of US$35 per ounce.
+    - which: Which ounce does the accompanying prose specify? → The prose specifies one troy ounce of gold.
+      - why: Why is the fixed price central? → It defines the gold quantity promised for a given dollar amount, making redemption claims comparable with gold reserves. _(outside the book)_
+  - **khola (unpack):**
+    - example / jagah: The upper gold box anchors the US Dollar box.
+    - aage: A fixed promise can be tested by redemption requests.
+    - screen par: highlight US$35 against one gold unit
+    - is level ke liye: Keep currency units and mass units distinct.
+  - prerequisites: US dollar; troy ounce
+- **p005-i20** · diagram_label · figure · image · exam high
+  - US Dollar: middle box, receiving an arrow from Gold and sending an arrow to Other currencies.
+    - what: What does the middle box represent? → It represents the US Dollar as the link between the gold anchor and the other currencies.
+    - which: Which boxes connect to the dollar? → Gold is above it; Other currencies is below it.
+      - why: Why does the middle position matter? → Confidence in the dollar's gold link affected the wider currency arrangement because the dollar was its central reference. _(outside the book)_
+  - **khola (unpack):**
+    - example / jagah: US Dollar between Gold and Other currencies.
+    - aage: Dollar confidence has system-wide significance.
+    - screen par: illuminate the middle bridge
+    - is level ke liye: Connect this position to reserve-currency demand.
+  - prerequisites: reserve currency; exchange-rate anchor
+- **p005-i21** · diagram_label · figure · image · exam medium
+  - Other currencies (Pound, Rupee, Yen, Franc, etc.): bottom box receiving the arrow from US Dollar.
+    - what: What does the bottom box represent? → It groups the other currencies linked through the US Dollar in the schematic.
+    - which: Which examples are printed? → Pound, Rupee, Yen and Franc, followed by 'etc.'
+      - how: How does this box relate to gold? → Its relationship is shown through the dollar as an intermediate anchor, not by a separate direct arrow to gold.
+  - **khola (unpack):**
+    - example / jagah: Pound, Rupee, Yen and Franc in the bottom box.
+    - aage: Makes the two-link relationship visible.
+    - screen par: trace from other currencies upward through the dollar to gold
+    - is level ke liye: Avoid reading the schematic as a complete country-by-country history.
+  - prerequisites: different countries' currencies; reading directional arrows
+- **p005-i22** · list_point · timeline · both · exam high
+  - On 15 August 1971, President Richard Nixon ended the Dollar's convertibility into gold.
+    - when: When and by whom was dollar-gold convertibility ended? → President Richard Nixon ended it on 15 August 1971.
+    - why: Why does the earlier discussion help explain this decision? → Expanding dollar claims, finite gold and redemption pressure made the fixed official conversion promise increasingly difficult to sustain. _(outside the book)_
+      - consequence: What exactly ended? → The dollar's convertibility into gold ended; the page does not say that the dollar ceased to function as money.
+  - **khola (unpack):**
+    - kyon: A fixed gold promise faced growing claims and pressure. _[standard]_ → Nixon ended dollar-gold convertibility on 15 August 1971. _[book]_
+    - example / jagah: The 1971 endpoint of the section beginning with Bretton Woods (1944).
+    - aage: Introduces the question of dollar demand without gold backing.
+    - screen par: cut the gold-dollar arrow at 15 August 1971
+    - is level ke liye: Do not assume every element of the exchange-rate system changed simultaneously on this date.
+  - prerequisites: Bretton Woods gold promise; redemption pressure; Triffin contradiction
+- **p005-i23** · heading · none · both
+  - Petro Dollar System
+- **p005-i24** · paragraph · cause_effect · both · exam medium
+  - When President Richard Nixon ended gold convertibility, a major question arose:
+    - what: What transition does this unfinished line introduce? → It moves from Nixon ending gold convertibility to a major question under the heading Petro Dollar System; the question itself is not printed on this page.
+    - why: Why does removing the gold promise raise a confidence question? → If holders had relied on gold redemption, removing that feature calls for understanding what other reasons support willingness to hold dollars. _(outside the book)_
+      - how: How should this introduction be taught without inventing the continuation? → Use it as a transition from the lost gold anchor to the next section, rather than treating this page as already explaining the Petro Dollar System. _(outside the book)_
+  - **khola (unpack):**
+    - kyon: The gold conversion promise had supported confidence. _[standard]_ → Its removal makes the remaining basis of dollar demand a question to investigate. _[standard]_
+    - example / jagah: Transition immediately after the 15 August 1971 event.
+    - aage: Prepares the next page without supplying its answer.
+    - screen par: replace the cut gold link with a question mark
+    - is level ke liye: Maintain the distinction between a section title and evidence establishing its mechanism.
+  - prerequisites: end of gold convertibility; reasons for holding a currency
+
+## Page 6 · passed after 1 round(s)
+
+Oil invoicing and investment of Saudi revenues in US assets helped explain continued dollar demand after gold backing ended. The page then covers the origin of Rupiya, Sher Shah Suri's silver coin, Mughal standardization and eight milestones in the rupee's evolution.
+
+- **p006-i1** · question · cause_effect · both · exam high
+  - Why would the world continue holding dollars if they were no longer backed by gold?
+    - why: Why does ending gold backing raise a question about holding dollars? → Gold convertibility had provided a reason to trust and hold dollars. Removing it raises the question of what other uses would sustain demand. _(outside the book)_
+      - how: How does this page answer the problem? → It explains that tying oil to the dollar would keep countries needing dollars despite the end of gold backing.
+  - **khola (unpack):**
+    - backed by gold yaani नोट के बदले तय शर्तों पर gold मिलने का भरोसा · image: ऐसी रसीद जिसे दिखाकर जमा रखी चीज़ वापस मिल सके
+    - kyon: Gold convertibility ends, so holders need another reason to retain dollars. _[standard]_ → The page identifies oil-related demand as that reason. _[book]_
+    - example / jagah: An oil-importing country's need to make international payments.
+    - aage: Introduces the oil-dollar link explained in the next bullets.
+    - screen par: Replace a gold-conversion link with an oil-payment link.
+    - is level ke liye: Do not equate the end of gold backing with the disappearance of currency value.
+  - prerequisites: Currency holdings; Gold convertibility
+- **p006-i2** · list_point · timeline · both · exam high
+  - In 1973, the OPEC oil embargo caused oil prices to quadruple.
+    - when: When does the page locate the oil embargo and price shock? → In 1973; it identifies a fourfold increase in oil prices.
+    - why: Why can an oil embargo raise oil prices? → Restrictions on supply make oil harder to obtain while importers still need it, putting upward pressure on prices. _(outside the book)_
+      - how: How should quadruple be understood numerically? → A price index of 100 becomes 400: four times the starting level, equivalent to a 300 percent increase. _(outside the book)_
+  - **khola (unpack):**
+    - OPEC yaani तेल बेचने वाले देशों का संगठन · image: कई विक्रेता एक मंच पर अपने हितों की बात करते हैं
+    - oil embargo yaani कुछ देशों को तेल बेचने पर रोक · image: ज़रूरी सामान की सप्लाई अचानक रोक दी जाए
+    - quadruple yaani पहले से चार गुना हो जाना · image: ₹10 की चीज़ ₹40 की हो जाए
+    - kyon: Importers need oil even when supplies are restricted. _[standard]_ → The page associates the 1973 embargo with oil prices becoming fourfold. _[book]_
+    - example / jagah: Oil-importing economies facing higher import bills.
+    - aage: Makes oil a central part of the following explanation of dollar demand.
+    - screen par: Restrict the oil flow and raise a price bar from one unit to four.
+    - is level ke liye: OPEC is the Organization of the Petroleum Exporting Countries; the embargo was implemented by Arab oil exporters, so the page uses a broad shorthand.
+  - prerequisites: Oil imports; Supply and demand; Multiples and percentages
+- **p006-i3** · list_point · cause_effect · both · exam high
+  - The US recognized that if oil could be tied to the dollar, countries would continue needing dollars regardless of the end of gold backing.
+    - why: Why would linking oil to dollars sustain demand for dollars? → Countries needing oil would continue needing dollars even without gold backing.
+      - how: How does the payment mechanism create that demand? → If an oil bill is payable in dollars, a buyer without enough dollars must acquire them, for example by exchanging another currency. The currency is demanded because it settles the bill. _(outside the book)_
+        - difference: How does this differ from gold backing? → Gold backing concerns a conversion promise; oil-payment demand concerns a currency's usefulness in trade. One can exist without the other. _(outside the book)_
+  - **khola (unpack):**
+    - tied to the dollar yaani तेल की कीमत और भुगतान को dollar से जोड़ना · image: दुकान का बिल किसी तय पैसे में ही चुकाना हो
+    - kyon: An importer needs a means of paying an oil bill. _[standard]_ → Dollar pricing makes access to dollars useful even after gold backing ends. _[book]_
+    - example / jagah: An importer exchanging domestic currency for dollars to settle an oil invoice.
+    - aage: Connects to Saudi dollar pricing and investment of oil revenues.
+    - screen par: Route an oil buyer through a dollar exchange before payment.
+    - is level ke liye: Oil pricing in dollars is not a promise to redeem dollars for oil at a fixed rate.
+  - prerequisites: Currency exchange; Oil imports; Gold convertibility
+- **p006-i4** · heading · timeline · both
+  - 1974 US–Saudi Understanding:
+- **p006-i5** · list_point · timeline · both · exam high
+  - Saudi Arabia agreed to: Price its oil in US dollars and Invest a large portion of its oil revenues in US Treasury securities and American financial markets.
+    - when: When and what did Saudi Arabia agree to, according to the page? → Under the 1974 understanding, Saudi Arabia agreed to dollar pricing of its oil and investment of a large portion of oil revenues in US Treasury securities and American financial markets.
+    - why: Why do these two commitments matter together? → Dollar invoicing creates a need for dollars among oil buyers, while investment of the proceeds channels funds into US financial assets. These are related but distinct flows. _(outside the book)_
+      - what: What are US Treasury securities? → They are debt instruments issued by the US government. Buying them lends money to that government rather than buying ownership in it. _(outside the book)_
+  - **khola (unpack):**
+    - oil revenues yaani तेल बेचकर आने वाला पैसा · image: दुकानदार की बिक्री से आई रकम
+    - US Treasury securities yaani US सरकार को उधार देने के बदले मिलने वाले कागज़ या digital रिकॉर्ड · image: पैसा उधार देकर वापसी के वादे की रसीद लेना
+    - kyon: Oil sales generate receipts that the seller can invest. _[standard]_ → Saudi commitments link dollar oil pricing with investment of much of the revenue in US assets. _[book]_
+    - example / jagah: Saudi oil receipts invested in US government debt and financial markets.
+    - aage: Shows both the trade-payment and financial-investment sides of the arrangement.
+    - screen par: Send dollars from oil buyers to Saudi Arabia, then route part into US assets.
+    - is level ke liye: Petrodollar recycling is the standard explanatory label for reinvesting dollar oil receipts; it is not a separate printed term here.
+  - prerequisites: Oil export revenues; Government borrowing; Currency invoicing
+- **p006-i6** · list_point · timeline · both · exam high
+  - The United States agreed to: Provide military protection, supply weapons and offer security guarantees for the Saudi monarchy.
+    - when: In which arrangement does the page place these US commitments? → The 1974 US–Saudi understanding; the US side involved protection, weapons supply and security guarantees for the Saudi monarchy.
+    - why: Why is the security side needed to understand this monetary discussion? → It shows that the page presents a reciprocal economic-security arrangement, not a one-sided Saudi monetary decision. _(outside the book)_
+      - compare: How do the two sides' commitments differ? → Saudi commitments concerned dollar oil pricing and investment; US commitments concerned military protection, weapons and security guarantees.
+  - **khola (unpack):**
+    - security guarantees yaani खतरे के समय सुरक्षा में साथ देने का भरोसा · image: मुसीबत में साथ खड़े रहने का वादा
+    - kyon: A government may seek external support against security threats. _[standard]_ → The page pairs US security support with Saudi monetary and investment commitments. _[book]_
+    - example / jagah: US–Saudi relations in the page's 1974 account.
+    - aage: Completes the reciprocal explanation before the page changes to the rupee.
+    - screen par: Exchange an oil-and-investment arrow for a protection-and-weapons arrow.
+    - is level ke liye: Keep the book's three security commitments distinct; do not infer a fixed treaty duration.
+  - prerequisites: Military protection; Monarchy; International agreements
+- **p006-i7** · heading · none · both
+  - Evolution of the Indian Rupee
+- **p006-i8** · definition · definition · both · exam medium
+  - The word Rupiya comes from the Sanskrit Rupya, meaning wrought silver.
+    - what: What origin and meaning does the page give for Rupiya? → It derives Rupiya from Sanskrit Rupya and gives wrought silver as the meaning.
+    - evidence: What on this page reinforces the silver association? → The following bullets describe Sher Shah Suri's Rupiya as made of silver, and the table calls the Mughal rupee a standard silver coin.
+      - how: How should wrought silver be pictured? → As silver worked or shaped by people, rather than an unworked lump of metal; the word points toward a material that can be fashioned into coinage. _(outside the book)_
+  - **khola (unpack):**
+    - wrought silver yaani काम करके आकार दी गई चाँदी · image: सुनार चाँदी के टुकड़े को आकार देता है
+    - kyon: A coin requires metal to be shaped into a usable object. _[standard]_ → The page connects the rupee's name with worked silver. _[book]_
+    - example / jagah: The silver Rupiya in the next item.
+    - aage: Links the name of the rupee to its historical material.
+    - screen par: Shape a silver lump into a coin and connect Rupya to Rupiya.
+    - is level ke liye: The name's silver origin does not mean modern rupees must contain silver.
+  - prerequisites: Coinage; Silver as a metal
+- **p006-i9** · list_point · timeline · both · exam high
+  - Sher Shah Suri: (1540)
+Introduced the Rupiya made of silver.
+    - when: Who introduced the silver Rupiya and when, according to this page? → The page associates Sher Shah Suri with its introduction in 1540.
+    - why: Why does the introduction of a recognizable coin matter for exchange? → A recognized coin gives buyers and sellers a common unit for quoting and settling payments, reducing repeated negotiation over the medium of exchange. _(outside the book)_
+  - **khola (unpack):**
+    - Rupiya yaani यहाँ Sher Shah Suri का चाँदी से बना सिक्का · image: हाथ में पकड़कर भुगतान किया जाने वाला चाँदी का सिक्का
+    - kyon: Trade needs a recognizable means of payment. _[standard]_ → The page identifies Sher Shah Suri's silver Rupiya as the 1540 milestone. _[book]_
+    - example / jagah: Sher Shah Suri's coinage.
+    - aage: The following details explain how its weight, purity and uniformity supported a common standard.
+    - screen par: Place a silver coin at 1540 on a timeline.
+    - is level ke liye: Distinguish introduction under Sher Shah Suri from subsequent Mughal standardization.
+  - prerequisites: Medium of exchange; Metal coins
+- **p006-i10** · list_point · facts_numbers · both · exam high
+  - Weight: about 178 grains (11.5 grams). High purity.
+    - what: What physical specifications does the page give for the Rupiya? → Its weight was about 178 grains, expressed as about 11.5 grams, and it had high purity.
+    - evidence: Does the page give an exact silver-purity percentage? → No. It says high purity but provides no percentage, and the weight is explicitly approximate.
+      - why: Why do both weight and purity matter for a silver coin? → Weight tells how much material is present; purity tells how much of that material is silver. Equal-weight coins can contain different amounts of silver if their purity differs. _(outside the book)_
+  - **khola (unpack):**
+    - grains yaani वज़न नापने की एक पुरानी इकाई · image: तराज़ू पर ग्राम की जगह दूसरी माप लिखी हो
+    - High purity yaani सिक्के की धातु में चाँदी का हिस्सा अधिक होना · image: दो बराबर वज़न की चीज़ों में एक में मिलावट कम हो
+    - kyon: Coin users need confidence in the quantity of valuable metal received. _[standard]_ → Weight and purity together help determine the silver content. _[standard]_
+    - example / jagah: Sher Shah Suri's silver Rupiya.
+    - aage: Provides measurable substance to the next claim of uniformity.
+    - screen par: Weigh a coin and reveal its silver share.
+    - is level ke liye: Treat 178 grains and 11.5 grams as approximate equivalent expressions, not separate specifications.
+  - prerequisites: Mass measurement; Pure metal and alloy
+- **p006-i11** · list_point · cause_effect · both · exam high
+  - Uniform across the empire.
+    - why: Why is a uniform coin useful across an empire? → Traders crossing regions face less uncertainty about what the same named coin represents, reducing the need to check or renegotiate its value at each place. _(outside the book)_
+    - how: How should uniformity be understood in this context? → It refers to a common coin standard across the territory rather than a different local specification at each place. _(outside the book)_
+    - where: Across what area does the page claim uniformity? → Across Sher Shah Suri's empire, as this bullet belongs to his Rupiya description.
+  - **khola (unpack):**
+    - Uniform yaani अलग-अलग जगह एक जैसा मानक होना · image: हर दुकान में एक kilogram का बाट समान माप बताए
+    - kyon: Trade becomes harder if coins of the same name differ between regions. _[standard]_ → A shared coin standard reduces checking and conversion difficulties. _[standard]_
+    - example / jagah: A trader carrying Rupiya between markets in the empire.
+    - aage: Prepares the learner for Mughal expansion of standardized minting.
+    - screen par: Match coins from different markets to one standard.
+    - is level ke liye: Separate a uniform monetary unit from uniform commodity prices.
+  - prerequisites: Coin weight and purity; Trade across regions
+- **p006-i12** · list_point · timeline · both · exam high
+  - Mughal Standardization (1556–1707):
+Akbar expanded minting across the empire.
+Hundreds of mints produced coins with standardized weight.
+Coins carried the emperor's name.
+    - when: What period and ruler does the page associate with Mughal standardization? → It labels the phase 1556–1707 and says Akbar expanded minting across the empire.
+    - what: What features characterized the resulting coinage? → Hundreds of mints produced coins with standardized weight, and the coins carried the emperor's name.
+    - why: Why combine many mints with a common weight standard? → Multiple production centres can serve a large territory, while a common standard helps their coins function as the same monetary unit rather than separate local units. _(outside the book)_
+      - how: How could the emperor's name help a coin function? → It identified the issuing authority and could support recognition of an official coin. The inscription alone did not prove its actual weight or purity. _(outside the book)_
+      - exception: Does 1556–1707 describe Akbar's entire reign? → No. The heading labels a wider Mughal standardization phase; Akbar's reign was 1556–1605. _(outside the book)_
+  - **khola (unpack):**
+    - mints yaani जहाँ सिक्के बनाए जाते हैं · image: सिक्के बनाने की सरकारी कार्यशाला
+    - standardized weight yaani सिक्कों का वज़न एक तय मानक के अनुसार रखना · image: कई कारखाने एक ही माप की चीज़ बनाएँ
+    - kyon: A large empire needs coin supply across many regions. _[standard]_ → The page describes expanded minting, common weight and the emperor's name as features of Mughal coinage. _[book]_
+    - example / jagah: Akbar's expansion of minting across the Mughal empire.
+    - aage: The table condenses this phase into standard silver coin.
+    - screen par: Multiply mint locations while matching coins to one weight and authority.
+    - is level ke liye: More mints need not mean more coin standards; distinguish production decentralization from standardization.
+  - prerequisites: Coin standardization; Territorial administration; Issuing authority
+- **p006-i13** · table · timeline · both
+  - Two-column chronological table: Period | Nature of the Rupee. Eight data rows trace the rupee from the silver rupee introduced in 1540 to a market-determined exchange rate from 1993 onwards.
+- **p006-i14** · table_row · timeline · both
+  - Period | Nature of the Rupee
+- **p006-i15** · table_row · timeline · both · exam high
+  - Period: 1540 | Nature of the Rupee: Silver rupee introduced
+    - when: What starting milestone does the table give? → It begins in 1540 with introduction of the silver rupee; the preceding text attributes this to Sher Shah Suri.
+    - why: Why connect this row with the preceding coin specifications? → A date identifies the milestone, but weight, purity and uniformity explain what made the named silver coin a usable monetary standard. _(outside the book)_
+  - **khola (unpack):**
+    - kyon: A chronology needs an identifiable starting milestone. _[standard]_ → The table starts with the silver rupee introduced in 1540. _[book]_
+    - example / jagah: Sher Shah Suri's silver Rupiya.
+    - aage: Leads into Mughal continuation and standardization.
+    - screen par: Anchor the first silver coin at 1540.
+    - is level ke liye: Use the preceding bullets to attach ruler, metal and specifications to the date.
+  - prerequisites: Silver coinage; Sher Shah Suri's Rupiya
+- **p006-i16** · table_row · timeline · both · exam high
+  - Period: Mughal era | Nature of the Rupee: Standard silver coin
+    - when: Which phase does the table associate with the standard silver coin? → The Mughal era; the preceding section labels Mughal standardization 1556–1707.
+    - why: Why is standard silver coin more informative than simply silver coin? → Silver identifies the material, whereas standard indicates a common specification, helping coins from different mints serve as the same unit. _(outside the book)_
+  - **khola (unpack):**
+    - Standard silver coin yaani तय मानक के अनुसार बना चाँदी का सिक्का · image: अलग कार्यशालाओं की चीज़ें एक ही माप में फिट हों
+    - kyon: Coins made in different places must remain comparable for trade. _[standard]_ → The page describes standardized weight across hundreds of Mughal mints. _[book]_
+    - example / jagah: Mughal mints producing coins with the emperor's name.
+    - aage: Maintains the silver coin phase before the British uniform-rupee milestone.
+    - screen par: Align coins from multiple mints under one standard.
+    - is level ke liye: A common standard does not require a single mint.
+  - prerequisites: Mint; Common coin weight
+- **p006-i17** · table_row · timeline · both · exam high
+  - Period: 1835 | Nature of the Rupee: Uniform British Indian Rupee
+    - when: What milestone does the table assign to 1835? → The Uniform British Indian Rupee.
+    - why: Why would a uniform rupee matter under British administration? → A common currency standard makes payments, tax collection and trade across administered regions easier than dealing with numerous differing local coin standards. _(outside the book)_
+      - exception: Does this row say paper money or decimal currency began in 1835? → No. It identifies a uniform British Indian rupee and makes neither of those claims.
+  - **khola (unpack):**
+    - Uniform British Indian Rupee yaani British India के लिए एक समान मानक वाला rupee · image: अलग बाज़ारों में एक जैसी माप का पैसा चले
+    - kyon: Different local currency standards complicate payments and administration. _[standard]_ → A common rupee standard reduces such differences. _[standard]_
+    - example / jagah: Trade and government payments in British India.
+    - aage: Adds a territorial-uniformity milestone before the later exchange-standard entry.
+    - screen par: Bring differing regional coin standards into one common rupee.
+    - is level ke liye: Uniformity and decimalization describe different features of money.
+  - prerequisites: Coin standards; British administration in India
+- **p006-i18** · table_row · timeline · both · exam high
+  - Period: 1898 | Nature of the Rupee: Gold Exchange Standard
+    - when: Which date does the printed table give for Gold Exchange Standard? → It gives 1898.
+    - why: Why use a gold exchange standard rather than circulate gold coins throughout the economy? → A currency can maintain a gold-related external value through exchange arrangements and reserves in a gold-linked foreign currency, without making gold coins the ordinary domestic means of payment. _(outside the book)_
+      - difference: How does gold exchange standard differ from assuming the rupee coin became gold? → The term describes an exchange and reserve arrangement; it does not mean that ordinary rupee coins must be made of gold. _(outside the book)_
+    - evidence: What caution should accompany the table's date? → Historical accounts commonly place the establishment of India's gold exchange standard in the late-1890s transition, especially 1899. The page's 1898 should be retained as its printed claim rather than asserted without qualification. _(outside the book)_
+  - **khola (unpack):**
+    - Gold Exchange Standard yaani अपनी currency की बाहरी कीमत को gold से जुड़ी विदेशी currency के ज़रिए टिकाना · image: एक चीज़ का माप दूसरी तय माप वाली चीज़ के सहारे रखना
+    - kyon: An economy may seek a stable external currency value without widespread domestic gold circulation. _[standard]_ → A gold-linked foreign exchange arrangement can provide that indirect link. _[standard]_
+    - example / jagah: British India's monetary arrangements in the late 1890s.
+    - aage: Introduces an external monetary standard, a different dimension from the metal of an individual coin.
+    - screen par: Link rupee to foreign exchange and then to gold.
+    - is level ke liye: Keep direct gold coin circulation distinct from an indirect gold-exchange link; qualify the printed date.
+  - prerequisites: Exchange rate; Gold standard; Foreign currency reserves
+- **p006-i19** · table_row · timeline · both · exam medium
+  - Period: 1947 | Nature of the Rupee: Independent India's currency
+    - when: What change does the table associate with 1947? → It identifies the rupee as independent India's currency.
+    - why: Why is this a distinct milestone even though the rupee already existed? → Independence changes the political authority associated with the currency; it need not mean that the currency unit itself was newly invented. _(outside the book)_
+  - **khola (unpack):**
+    - kyon: A newly independent country needs money for continuing payments and administration. _[standard]_ → The table records the rupee as independent India's currency in 1947. _[book]_
+    - example / jagah: India at independence.
+    - aage: Political continuity of the currency unit is followed by a change to its subdivisions in 1957.
+    - screen par: Carry the rupee across the independence marker.
+    - is level ke liye: A change in sovereignty is not automatically a new currency denomination or unit.
+  - prerequisites: Indian independence; Currency and sovereign authority
+- **p006-i20** · table_row · timeline · both · exam high
+  - Period: 1957 | Nature of the Rupee: Decimal currency
+    - when: When does the page place the move to decimal currency? → In 1957.
+    - why: Why is decimal currency convenient? → Dividing one rupee into 100 paise makes conversions and calculations use the familiar base-ten system, simplifying prices, accounts and change. _(outside the book)_
+      - difference: What distinguishes decimalization from devaluation? → Decimalization changes how the currency unit is subdivided; devaluation changes an officially fixed external value. Changing subdivisions does not itself imply devaluation. _(outside the book)_
+  - **khola (unpack):**
+    - Decimal currency yaani एक rupee को 100 paise जैसे दस के आधार वाले हिस्सों में बाँटना · image: ₹1 को 100 छोटे हिस्सों में बाँटकर हिसाब करना
+    - kyon: People need easy calculations for prices and small payments. _[standard]_ → A base-ten subdivision makes conversions follow ordinary decimal arithmetic. _[standard]_
+    - example / jagah: ₹1.50 means one rupee and fifty paise.
+    - aage: Changes the internal counting system, not by itself the rupee's international value.
+    - screen par: Split one rupee into 100 equal paise.
+    - is level ke liye: Distinguish decimalization, digitization and devaluation.
+  - prerequisites: Rupee and paise; Base-ten numbers
+- **p006-i21** · table_row · timeline · both · exam high
+  - Period: 1971 | Nature of the Rupee: Fiat currency
+    - when: What year does the table associate with fiat currency? → The printed table gives 1971.
+    - what: What is fiat currency? → It is money not redeemable for a fixed quantity of a commodity such as gold, sustained by its monetary role, legal framework and public acceptance rather than the material value of its notes. _(outside the book)_
+    - why: Why can a note retain purchasing power without a gold-redemption promise? → People accept it because they expect to use it for payments, while institutions and monetary policy support confidence in the currency. Its value need not equal the value of the paper. _(outside the book)_
+      - exception: Why should the printed 1971 milestone be treated cautiously? → 1971 is chiefly the international milestone of the US ending dollar convertibility into gold. It should not be taken as a precise standalone date when the Indian rupee first became fiat money. _(outside the book)_
+  - **khola (unpack):**
+    - Fiat currency yaani ऐसा पैसा जिसके बदले तय मात्रा में gold देने का वादा नहीं होता · image: नोट से सामान मिलता है, लेकिन बैंक उसे तय सोने के टुकड़े में बदलने का वादा नहीं करता
+    - kyon: People need a generally accepted means of payment even without commodity redemption. _[standard]_ → Fiat money functions through acceptance and the monetary and legal framework. _[standard]_
+    - example / jagah: Modern rupee notes used for everyday purchases.
+    - aage: Links back to the opening question about money after gold backing, but is separate from exchange-rate determination.
+    - screen par: Remove the gold-redemption arrow while retaining payment arrows.
+    - is level ke liye: Fiat status does not imply a floating exchange rate; keep the 1971 date explicitly qualified.
+  - prerequisites: Commodity money; Gold convertibility; Currency acceptance
+- **p006-i22** · table_row · timeline · both · exam high
+  - Period: 1993 onwards | Nature of the Rupee: Market-determined exchange rate
+    - when: From when does the table identify a market-determined exchange rate? → From 1993 onwards.
+    - why: Why can the exchange rate change under market determination? → Demand and supply for foreign currency change with imports, exports and financial flows. The rupee price of foreign currency adjusts as these pressures change. _(outside the book)_
+      - how: How can a greater demand for dollars affect the rupee-dollar rate, other things equal? → If dollar demand rises without a matching rise in supply, more rupees may be needed per dollar, indicating rupee depreciation. _(outside the book)_
+      - exception: Does market-determined mean the RBI cannot intervene? → No. India operates a managed float: market forces determine the rate while the RBI may intervene to manage excessive volatility. _(outside the book)_
+  - **khola (unpack):**
+    - Market-determined exchange rate yaani दूसरी currency की rupee में कीमत बाज़ार की माँग और सप्लाई से बनना · image: dollar खरीदने वाले बढ़ें और बेचने वाले उतने ही रहें तो dollar महँगा हो सकता है
+    - kyon: Cross-border trade and investment create changing demand and supply for foreign currency. _[standard]_ → The exchange rate responds to those market pressures, with possible central-bank intervention. _[standard]_
+    - example / jagah: The rupee-dollar quotation reported in financial news.
+    - aage: Completes the move from historical coin standards to modern external currency pricing.
+    - screen par: Shift dollar demand and move the rupees-per-dollar price.
+    - is level ke liye: Distinguish depreciation from devaluation, and market determination from a completely intervention-free float.
+  - prerequisites: Exchange rate; Foreign currency demand and supply; Imports and exports
+
+## Page 7 · passed after 3 round(s)
+
+Evolution of India's rupee: Company and Presidency coins, uniform coinage in 1835, government banknote monopoly in 1861, silver crisis and gold exchange standard, RBI note issue, post-independence symbols, decimalization, fiat money, managed float, the ₹ symbol and digital-rupee pilots.
+
+- **p007-i1** · list_point · timeline · both · exam high
+  - East India Company Rupee (1757–1835)
+The Company initially continued Mughal-style coinage.
+The three Presidencies (Bombay, Calcutta, Madras) minted different coins.
+    - when: Which period and minting centres does the page associate with Company coinage? → For 1757–1835, it describes continued Mughal-style coinage and different coins minted by Bombay, Calcutta and Madras Presidencies.
+      - why: Why would a new political authority continue an older coinage style? → Familiar coins can retain public acceptance and help trade continue despite a change of ruler. Separate minting arrangements can also preserve regional differences. _(outside the book)_
+  - **khola (unpack):**
+    - minted yaani सिक्के बनाकर जारी किए · image: एक ही साँचे से कई सिक्कों पर निशान बनना
+    - Presidencies yaani Company के बड़े प्रशासनिक इलाके · image: एक संस्था के अलग-अलग बड़े क्षेत्रीय दफ्तर
+    - kyon: Trade needs money people recognise and accept. _[standard]_ → The Company initially retained Mughal-style coinage, while its three Presidencies minted different coins. _[book]_
+    - example / jagah: Bombay, Calcutta and Madras.
+    - aage: Regional coin diversity provides the contrast for the 1835 uniform rupee.
+    - screen par: Split coins into three Presidency groups, then bring them toward one standard.
+    - is level ke liye: Distinguish continuity of coinage style from continuity of political rule.
+  - prerequisites: Coins as a means of payment; East India Company rule; A mint makes coins
+- **p007-i2** · table · classification · both
+  - Coin | Metal
+Mohur | Gold
+Rupee | Silver
+Dam | Copper
+- **p007-i3** · table_row · classification · both · exam high
+  - Coin: Mohur | Metal: Gold
+    - which: Which coin is paired with gold? → The table assigns gold to the Mohur.
+    - difference: How does the Mohur differ from the other coins by the table's criterion? → Its metal is gold, whereas the Rupee is silver and the Dam is copper.
+      - why: Why distinguish a coin's name from its metal? → The name identifies the coin; the metal identifies the material used. These are separate attributes useful for matching questions. _(outside the book)_
+  - **khola (unpack):**
+    - Mohur yaani यहाँ gold से बना सिक्का · image: सुनार के gold की तरह धातु पहचानना
+    - kyon: Similar-looking coin names need a clear distinguishing feature. _[standard]_ → The table distinguishes Mohur by its gold metal. _[book]_
+    - example / jagah: Top-right coin–metal table.
+    - aage: Avoid confusing the gold Mohur with the silver Rupee.
+    - screen par: Pair Mohur with a gold swatch.
+    - is level ke liye: The table gives metal, not an exchange ratio.
+  - prerequisites: Gold, silver and copper are different metals
+- **p007-i4** · table_row · classification · both · exam high
+  - Coin: Rupee | Metal: Silver
+    - which: Which coin does the table associate with silver? → Silver is the metal assigned to the Rupee.
+    - difference: How does the Rupee differ from Mohur and Dam here? → The Rupee is silver, unlike the gold Mohur and copper Dam.
+      - why: Why does the Rupee's metal matter for the later silver crisis? → When a currency is tied to silver, a fall in silver's value can weaken its value relative to gold-linked currencies. _(outside the book)_
+  - **khola (unpack):**
+    - Silver yaani चाँदी, यहाँ Rupee की धातु · image: घर की चाँदी की पायल
+    - kyon: A metal-based currency is exposed to changes in that metal's value. _[standard]_ → The table identifies the Rupee with silver. _[book]_
+    - example / jagah: Rupee row in the coin table.
+    - aage: Makes the silver-price collapse economically relevant.
+    - screen par: Link the silver coin to the silver-crisis timeline.
+    - is level ke liye: Historical metal composition is not a claim about today's rupee coins.
+  - prerequisites: A metal coin can have a material value
+- **p007-i5** · table_row · classification · both · exam high
+  - Coin: Dam | Metal: Copper
+    - which: Which coin is copper in the table? → The Dam is paired with copper.
+    - difference: How does Dam differ from the other two coins? → Its metal is copper rather than the Mohur's gold or the Rupee's silver.
+      - how: How should a learner use this row in a matching question? → Match the coin's proper name to its material; do not infer a denomination conversion from this table. _(outside the book)_
+  - **khola (unpack):**
+    - Copper yaani ताँबा, यहाँ Dam की धातु · image: घर का ताँबे का लोटा
+    - kyon: Coin identification needs names and materials kept distinct. _[standard]_ → Dam is the copper entry in this table. _[book]_
+    - example / jagah: Last row of the coin table.
+    - aage: Completes the gold–silver–copper matching set.
+    - screen par: Pair Dam with copper.
+    - is level ke liye: Do not confuse the coin name Dam with a modern price quotation.
+  - prerequisites: A coin name differs from its material
+- **p007-i6** · list_point · timeline · both · exam high
+  - Currency Act of 1835:
+One uniform Indian Rupee with standard design and Queen/King's portrait
+Single legal tender across British India
+    - when: What change does the page date to 1835? → It associates the Currency Act of 1835 with a uniform Indian Rupee, a standard design bearing the monarch's portrait and a single legal tender across British India.
+      - why: Why is uniformity useful when different regions mint different coins? → A common recognised unit reduces the need to compare regional coins and makes payments and government accounting easier. _(outside the book)_
+      - what: What does legal tender mean? → It is money recognised by law for discharging monetary obligations, subject to applicable legal conditions. _(outside the book)_
+  - **khola (unpack):**
+    - legal tender yaani कानून के अनुसार भुगतान चुकाने के लिए मान्य पैसा · image: दुकान के बिल का मान्य पैसे में भुगतान
+    - kyon: Different regional coins complicate common payments. _[standard]_ → The 1835 reform introduced a uniform rupee across British India. _[book]_
+    - example / jagah: Payments across the three Presidency regions.
+    - aage: Moves from regional coinage toward a common monetary unit.
+    - screen par: Merge three coin designs into one standard.
+    - is level ke liye: The page's Queen/King wording is generic; the 1835 portrait was William IV.
+  - prerequisites: Regional coin differences; Money as a common unit of account
+- **p007-i7** · list_point · timeline · both · exam high
+  - Paper Currency Act, 1861: The British government obtained the exclusive right to issue banknotes.
+    - when: When and to whom did the page assign exclusive banknote issue? → Under the Paper Currency Act, 1861, the British government obtained that exclusive right.
+      - why: Why centralise the right to issue banknotes? → Centralisation can provide a common authority behind notes and reduce fragmentation among separate issuers. _(outside the book)_
+      - difference: How is banknote issue different from coin standardisation? → Coin standardisation concerns the design and unit of coins; banknote issue concerns who is legally authorised to create paper currency. _(outside the book)_
+  - **khola (unpack):**
+    - exclusive right yaani यह अधिकार उसी authority के पास होना · image: आधिकारिक टिकट जारी करने का अधिकार तय दफ्तर को मिलना
+    - kyon: Multiple note issuers can fragment currency arrangements. _[standard]_ → The 1861 Act vested exclusive banknote issue in the British government. _[book]_
+    - example / jagah: British India's paper currency.
+    - aage: Prepares the institutional contrast with RBI: it commenced operations in 1935 and issued its first banknotes in 1938.
+    - screen par: Gather note-issue stamps under one government authority.
+    - is level ke liye: Keep four milestones distinct: 1835 coin uniformity, 1861 government banknote monopoly, 1935 commencement of RBI operations and 1938 first RBI banknote issue.
+  - prerequisites: Banknotes are paper currency; Issuing currency differs from spending it
+- **p007-i8** · list_point · cause_effect · both · exam high
+  - Silver Crisis and Gold Exchange Standard (1873–1947):
+In the late nineteenth century: Large silver discoveries occurred and Silver prices collapsed.
+    - why: What does the page identify behind the late-nineteenth-century silver crisis? → It places large silver discoveries alongside a collapse in silver prices within its 1873–1947 discussion.
+      - how: How can discoveries bring down a metal's price? → Discoveries can expand supply; if demand does not rise proportionately, the market price tends to fall. _(outside the book)_
+        - consequence: Why would this trouble a silver-linked rupee? → Its value relative to gold-linked currencies could fall, complicating external payments and encouraging a search for a more stable exchange anchor. _(outside the book)_
+  - **khola (unpack):**
+    - Silver Crisis yaani चाँदी की कीमत गिरने से उससे जुड़े पैसे में आई परेशानी · image: जिस चीज़ में बचत रखी हो उसकी बाजार कीमत गिरना
+    - kyon: A silver-linked currency needs a reasonably stable external value. _[standard]_ → Large silver discoveries and falling silver prices created pressure for another monetary anchor. _[standard]_
+    - example / jagah: Late-nineteenth-century silver markets and India's rupee.
+    - aage: Leads into the Fowler Committee's recommendation to link the rupee to gold.
+    - screen par: Expand silver supply and lower its price line.
+    - is level ke liye: Do not read 1873–1947 as the period of the discoveries alone.
+  - prerequisites: Rupee associated with silver; Supply and demand affect prices; Exchange rate compares currencies
+- **p007-i9** · list_point · timeline · both · exam high
+  - The Fowler Committee (1898):
+The committee recommended: Linking the rupee to gold.
+India adopted a Gold Exchange Standard.
+    - when: Which committee and date are associated with the gold link? → The page identifies the Fowler Committee of 1898, its recommendation to link the rupee to gold and India's adoption of a Gold Exchange Standard.
+      - why: Why seek a gold link after silver instability? → A gold-related exchange anchor could stabilise the rupee relative to currencies used for international payments rather than leave it exposed solely to silver's price. _(outside the book)_
+      - how: How does a Gold Exchange Standard differ from circulating gold coins? → It maintains a gold-related currency value through exchange arrangements and reserves in a gold-linked foreign currency; domestic payments need not use gold coins. _(outside the book)_
+  - **khola (unpack):**
+    - Gold Exchange Standard yaani विदेशी currency से exchange के जरिए पैसे की कीमत को gold से जोड़ने की व्यवस्था · image: सीधे नहीं, बीच की कड़ी से किसी तय निशान से जुड़ना
+    - kyon: Unstable silver prices create a need for a different exchange anchor. _[standard]_ → The Fowler Committee recommended linking the rupee to gold. _[book]_
+    - example / jagah: India's monetary arrangements discussed after the silver crisis.
+    - aage: Changes the anchor of currency value without requiring gold coins in everyday wallets.
+    - screen par: Connect rupee to a gold anchor through an exchange bridge.
+    - is level ke liye: Separate gold standard, gold exchange standard and fiat money conceptually.
+  - prerequisites: Silver crisis; Foreign exchange; A monetary standard anchors currency value
+- **p007-i10** · list_point · timeline · both · exam high
+  - Reserve Bank of India (1935):
+The Reserve Bank began issuing currency. Initially, notes carried: King George V and later King George VI
+    - when: What chronology does the printed page claim? → The page places RBI currency issue under 1935 and says its initial notes carried George V and later George VI. This is the printed claim, not a reliable chronology; see the separate correction.
+    - when: What is the correct distinction between RBI operations and its first banknote issue? → RBI began operations in 1935, but issued its first banknotes in 1938. Those notes bore George VI. George V notes belonged to the preceding Government of India issue, not RBI's initial banknotes. _(outside the book)_
+      - why: Why must the institution's starting date be separated from its first banknote date? → An institution can begin operating before issuing its first notes. Treating those events as identical incorrectly dates the notes and can also assign a predecessor's notes to the new issuer. _(outside the book)_
+      - how: How should issuer and portrait be read together? → Identify both attributes: Government of India issues included George V notes, whereas RBI's first banknotes in 1938 bore George VI. A royal portrait by itself does not establish which institution issued the note. _(outside the book)_
+  - **khola (unpack):**
+    - issuing currency yaani पैसा आधिकारिक रूप से जारी करके इस्तेमाल में लाना · image: ATM से नोट निकालना जारी करना नहीं, पहले से जारी नोट पाना है
+    - kyon: To identify a historical note correctly, distinguish the issuer's operational start from its first note issue. _[standard]_ → RBI began operations in 1935; its first banknotes followed in 1938 with George VI, unlike the preceding Government of India George V notes. _[standard]_
+    - example / jagah: Compare a Government of India George V note with an RBI George VI note from its first 1938 issue.
+    - aage: The corrected chronology separates institutional commencement, banknote issue and portrait identity before the page turns to independent India's symbols.
+    - screen par: Mark 1935 as RBI operations and 1938 as first RBI banknotes; place George V notes under Government of India and George VI on the first RBI issue.
+    - is level ke liye: Flag the printed error explicitly. Also avoid inferring that RBI issues every denomination: the one-rupee note is a government issue.
+  - prerequisites: A central bank; Currency issue differs from an institution beginning operations; British rule in India
+- **p007-i11** · box_note · comparison · both
+  - Decimalization (1957)
+Old system
+1 Rupee = 16 Annas = 64 Paise = 192 Pies
+New system
+1 Rupee = 100 Paise
+- **p007-i12** · equation · facts_numbers · both · exam high
+  - 1 Rupee = 16 Annas = 64 Paise = 192 Pies
+    - what: What does the old-system equality mean? → One rupee is the same monetary amount as 16 annas, 64 old paise or 192 pies; '=' means equal value, not additional amounts. _(outside the book)_
+    - evidence: Which old subdivisions are printed in the box? → The box gives 16 Annas, 64 Paise and 192 Pies for one Rupee.
+      - how: How can the smaller-unit relationships be derived? → Divide the equal totals: 64/16 gives 4 old paise per anna; 192/64 gives 3 pies per old paisa; 192/16 gives 12 pies per anna. _(outside the book)_
+  - **khola (unpack):**
+    - Annas yaani पुराने हिसाब में Rupee के छोटे हिस्से; 16 Annas से 1 Rupee · image: एक पूरी चीज़ को 16 बराबर हिस्सों में बाँटना
+    - kyon: Small purchases need smaller units than a rupee. _[standard]_ → The old system used annas, paise and pies with the printed equalities. _[book]_
+    - example / jagah: The old-system line of the blue box.
+    - aage: Sets up why the decimal system simplifies calculations.
+    - screen par: Partition one rupee into nested groups.
+    - is level ke liye: All numbers count monetary units, not physical weights; derive ratios rather than adding the totals.
+  - prerequisites: Equal monetary amounts can use different units; Division
+- **p007-i13** · equation · facts_numbers · both · exam high
+  - 1 Rupee = 100 Paise
+    - what: What is the new rupee–paisa relationship? → The rupee is subdivided into 100 paise; a paisa is one-hundredth of a rupee. _(outside the book)_
+    - evidence: What printed equality identifies the decimal system? → Under 'New system', the box states '1 Rupee = 100 Paise'.
+      - why: Why is this easier for calculations? → A hundred-based subdivision aligns with decimal notation: 25 paise is ₹0.25, without converting through annas and pies. _(outside the book)_
+  - **khola (unpack):**
+    - Paise yaani नए हिसाब में Rupee के सौ बराबर हिस्सों की गिनती · image: 100 पैसे जोड़कर 1 Rupee बनना
+    - kyon: Prices and change need convenient small-unit arithmetic. _[standard]_ → The new system makes 100 Paise equal to 1 Rupee. _[book]_
+    - example / jagah: ₹1.50 means one rupee and fifty decimal paise.
+    - aage: Decimal notation becomes a direct way of writing rupee fractions.
+    - screen par: Divide a rupee into a hundred-square grid.
+    - is level ke liye: The equal sign expresses value equivalence; Paise names the smaller monetary unit.
+  - prerequisites: One hundred equal parts; Decimal notation
+- **p007-i14** · list_point · timeline · both · exam high
+  - Independent India's Rupee (1947–1957):
+King's portrait disappeared and Ashoka Lion Capital replaced imperial symbols.
+The rupee remained linked to the British monetary system for a while.
+    - when: What changed and what continued in the 1947–1957 section? → Royal imagery disappeared and the Ashoka Lion Capital replaced imperial symbols, but the rupee remained linked to the British monetary system for a while.
+      - why: Why need a change of currency symbols not mean an immediate change in monetary arrangements? → Symbols express national identity, whereas exchange and reserve arrangements govern currency operations. The latter can continue during a transition to avoid disruption. _(outside the book)_
+  - **khola (unpack):**
+    - imperial symbols yaani ब्रिटिश राज की सत्ता दिखाने वाले निशान · image: पुराने राज का चेहरा हटाकर अपना राष्ट्रीय निशान लगना
+    - kyon: Independent government needs symbols of its own public identity. _[standard]_ → The Ashoka Lion Capital replaced imperial symbols while some monetary linkage continued. _[book]_
+    - example / jagah: Independent India's currency designs.
+    - aage: Separates visible sovereignty from the pace of monetary-system change.
+    - screen par: Replace the royal portrait while retaining a temporary exchange link.
+    - is level ke liye: The page gives no exact end date for the temporary British monetary link.
+  - prerequisites: India's independence in 1947; Currency symbols differ from exchange arrangements
+- **p007-i15** · list_point · timeline · both · exam high
+  - Decimalization (1957): Anna System was aborted [abolished] via the Indian Coinage (Amendment) Act, 1955.
+    - when: Which two dates should be distinguished for decimalization? → The page dates decimalization to 1957 and identifies its legislative basis as the Indian Coinage (Amendment) Act, 1955.
+      - why: Why abolish the anna system? → A 100-paise rupee makes prices, accounting and change easier to calculate using ordinary decimal arithmetic. _(outside the book)_
+      - compare: What changed in the rupee's subdivisions? → The box contrasts 16 annas, 64 old paise or 192 pies per rupee with the new 100 paise per rupee.
+  - **khola (unpack):**
+    - Decimalization yaani पैसे का हिसाब दस और सौ वाले आसान ढाँचे में करना · image: ₹2.75 को 2 Rupees और 75 Paise पढ़ना
+    - kyon: Multiple conversion ratios make small payments harder to calculate. _[standard]_ → The anna system was abolished through the 1955 amendment and decimalization followed in 1957. _[book]_
+    - example / jagah: Everyday prices written in rupees and decimal paise.
+    - aage: Replaces the old subdivision system without redefining the rupee as a different named unit.
+    - screen par: Replace a 16-part anna wheel with a 100-part grid.
+    - is level ke liye: Keep legislation date and implementation date separate in statement questions.
+  - prerequisites: Old rupee subdivisions; Decimal system; An Act may precede implementation
+- **p007-i16** · list_point · timeline · both · exam high
+  - 1971: End of Gold Convertibility
+The global monetary system changed.
+India gradually moved toward a fiat currency.
+    - when: Which global turning point does the page place in 1971? → It labels 1971 the end of gold convertibility and associates the global change with India's gradual movement toward fiat currency.
+      - why: Why can fiat currency function without a promise of gold redemption? → Its monetary role rests on legal recognition, public acceptance and confidence in the issuing system rather than a fixed claim to a quantity of gold. _(outside the book)_
+      - what: What historical qualification is essential for the 1971 heading? → The turning point was the suspension of US dollar convertibility into gold for foreign official holders. It should not be read as an Indian public right to exchange rupees for gold lasting until 1971. _(outside the book)_
+  - **khola (unpack):**
+    - fiat currency yaani ऐसा पैसा जो तय मात्रा के gold में बदलने के वादे पर नहीं चलता · image: नोट से सामान खरीदना, उसे gold की रसीद न मानना
+    - kyon: Payments need widely accepted money even without gold redemption. _[standard]_ → The page describes a gradual movement toward fiat currency after a global monetary change. _[book]_
+    - example / jagah: Modern rupee payments.
+    - aage: Currency management is understood through institutions and policy rather than a fixed gold claim.
+    - screen par: Remove a gold-redemption arrow while keeping payment arrows active.
+    - is level ke liye: Gold reserves and gold convertibility are different concepts.
+  - prerequisites: Gold-linked currency; Convertibility means exchange under a stated promise
+- **p007-i17** · list_point · timeline · both · exam high
+  - 1993: India adopted a market-determined managed float.
+The RBI now intervenes mainly to smooth excessive volatility rather than fix the exchange rate.
+    - when: Which exchange-rate arrangement does the page date to 1993? → It describes a market-determined managed float, with RBI intervention mainly aimed at smoothing excessive volatility rather than fixing the rate.
+      - why: Why is it both market-determined and managed? → Demand and supply in foreign exchange influence the rate, while central-bank intervention can moderate disruptive movements without promising a permanently fixed price. _(outside the book)_
+        - how: How can RBI intervention moderate exchange-rate movements? → Buying or selling foreign exchange changes market demand or supply and can reduce disorderly short-term movements. _(outside the book)_
+  - **khola (unpack):**
+    - managed float yaani rate बाजार से बदलता है, पर बहुत तेज उथल-पुथल में RBI दखल दे सकता है · image: गाड़ी चलती रहती है, झटके कम करने को shock absorber काम करता है
+    - volatility yaani rate में तेज और बार-बार उतार-चढ़ाव · image: किसी चीज़ का दाम बहुत जल्दी ऊपर-नीचे होना
+    - kyon: External payments need exchange prices, but abrupt swings can disrupt decisions. _[standard]_ → The page assigns the market the main pricing role and RBI a volatility-smoothing role. _[book]_
+    - example / jagah: Rupee exchange rates relevant to imports and exports.
+    - aage: A changing rupee rate is compatible with RBI intervention.
+    - screen par: Smooth spikes on a moving exchange-rate line without flattening it.
+    - is level ke liye: Do not invent a fixed exchange-rate target from the word 'managed'.
+  - prerequisites: Exchange rate; Foreign exchange supply and demand; Central-bank intervention
+- **p007-i18** · symbol · timeline · both · exam high
+  - 2010: The ₹ symbol was officially adopted.
+Designed by D. Udaya Kumar using elements of both Devanagari and Roman scripts.
+    - when: When was ₹ adopted, and who designed it? → The page gives 2010 and designer D. Udaya Kumar, using elements of Devanagari and Roman scripts.
+      - why: Why is a currency symbol useful? → It provides a compact visual identity for a monetary unit in prices, accounts and public communication; adopting a symbol does not itself change the unit's value. _(outside the book)_
+    - what: What does ₹ represent? → It denotes the Indian rupee monetary unit, as in ₹100 for one hundred rupees. _(outside the book)_
+  - **khola (unpack):**
+    - ₹ yaani Indian Rupee लिखने का छोटा पहचान-निशान · image: दुकान के price tag पर ₹100
+    - kyon: Prices need a short, recognisable currency label. _[standard]_ → India officially adopted the ₹ symbol in 2010. _[book]_
+    - example / jagah: Price tags, bills and digital payment screens.
+    - aage: Gives the rupee a distinctive written identity.
+    - screen par: Combine script elements and place ₹ before a price.
+    - is level ke liye: Distinguish the rupee unit, its symbol and its exchange value.
+  - prerequisites: A symbol can stand for a monetary unit; Devanagari and Roman are scripts
+- **p007-i19** · definition · definition · both · exam high
+  - 2022: Digital Rupee: A legal tender digital currency denominated in Indian rupees.
+    - what: What is the digital rupee? → The page defines it as legal tender in digital form, with its amounts expressed in Indian rupees.
+    - evidence: Which words establish its legal status and unit? → 'Legal tender' states its recognised monetary status; 'denominated in Indian rupees' names the unit in which its value is expressed.
+      - how: How does it differ from simply using a payment app? → The digital rupee is central-bank digital currency. A payment app can instead transfer commercial-bank deposits; a digital payment method is not automatically a digital rupee. _(outside the book)_
+  - **khola (unpack):**
+    - denominated yaani जिस unit में रकम लिखी और गिनी जाती है · image: फोन पर balance 100 Indian Rupees लिखा होना
+    - kyon: Digital transactions raise the question of what money is being transferred. _[standard]_ → The digital rupee is itself legal-tender currency expressed in rupees. _[book]_
+    - example / jagah: The public-facing retail digital-rupee pilot mentioned next.
+    - aage: Changes currency's form, not its named unit of account.
+    - screen par: Move a rupee value from a paper-note icon to a digital-currency icon.
+    - is level ke liye: Digital form alone does not establish legal-tender or central-bank status.
+  - prerequisites: Legal tender; Digital payments; Central-bank money differs from a bank deposit
+- **p007-i20** · list_point · timeline · both · exam high
+  - October 2022: Wholesale pilot (e₹-W) for interbank settlements.
+    - when: What date and purpose does the printed page assign to the wholesale pilot? → It gives October 2022 and describes e₹-W as a wholesale pilot for interbank settlements.
+      - why: Why is this described as wholesale rather than retail? → Its participants and purpose concern settlement among financial institutions, rather than ordinary public purchases. _(outside the book)_
+      - what: What correction should the teacher flag for the printed date? → The wholesale digital-rupee pilot commenced on 1 November 2022; the page's October date should be checked rather than silently adopted. _(outside the book)_
+    - what: What does e₹-W identify? → It labels the wholesale version of the electronic rupee; W distinguishes its wholesale use, not a separate monetary denomination. _(outside the book)_
+  - **khola (unpack):**
+    - interbank settlements yaani banks का आपस में बकाया भुगतान चुकाना · image: दो दुकानदार दिन के आखिर में आपसी हिसाब निपटाएँ, यहाँ पक्ष banks हैं
+    - kyon: Banks need to discharge payment obligations to each other. _[standard]_ → The wholesale pilot targets interbank settlements. _[book]_
+    - example / jagah: Transfers settling obligations between participating banks.
+    - aage: Shows a digital-currency use distinct from everyday consumer spending.
+    - screen par: Transfer e₹-W between bank icons.
+    - is level ke liye: Preserve the printed October 2022 claim but teach the flagged actual commencement date, 1 November 2022.
+  - prerequisites: Banks settle obligations with other banks; A pilot is a limited trial
+- **p007-i21** · list_point · timeline · both · exam high
+  - December 2022: Retail pilot (e₹-R) for the public.
+    - when: When and for whom does the page describe the retail pilot? → It dates the e₹-R retail pilot to December 2022 and identifies the public as its intended users.
+      - why: Why distinguish a retail pilot from an interbank pilot? → Public payments involve users and merchants rather than settlement confined to banks, so usability and participation must be tested in a different setting. _(outside the book)_
+    - what: What does e₹-R mean? → It labels the retail electronic rupee; R marks the retail use category, not a different rupee value. _(outside the book)_
+  - **khola (unpack):**
+    - Retail pilot yaani आम लोगों के भुगतान के लिए सीमित शुरुआती trial · image: चुने हुए ग्राहक और दुकानदार नई व्यवस्था आजमाएँ
+    - kyon: Public digital currency needs testing in ordinary payment situations. _[standard]_ → The page records a retail pilot for the public in December 2022. _[book]_
+    - example / jagah: A participating user paying a participating merchant.
+    - aage: Brings digital currency from institutional settlement into public-facing payments.
+    - screen par: Transfer e₹-R from a user to a merchant.
+    - is level ke liye: A pilot for the public does not imply immediate universal rollout.
+  - prerequisites: Retail payments; Wholesale digital-rupee pilot
+- **p007-i22** · list_point · process · both · exam medium
+  - The RBI has gradually expanded participating banks, merchants, and users.
+    - how: How has participation expanded according to the page? → RBI has gradually added participating banks, merchants and users, rather than the page describing a single universal rollout.
+    - when: What timing does the page give for expansion? → It describes gradual expansion following the pilot discussion but supplies no further dates or participant counts.
+      - why: Why expand a pilot gradually? → A limited start allows testing, feedback and operational problems to be addressed before wider participation increases the scale of risk. _(outside the book)_
+  - **khola (unpack):**
+    - participating yaani इस trial में शामिल होकर इस्तेमाल करने वाले · image: पहले कुछ दुकानों पर सुविधा मिले, फिर और दुकानें जुड़ें
+    - kyon: A new payment arrangement needs operational testing before scaling. _[standard]_ → RBI has gradually expanded the banks, merchants and users involved. _[book]_
+    - example / jagah: The digital-rupee pilot network.
+    - aage: Participation is an evolving rollout, not a fixed list established on launch day.
+    - screen par: Add banks, shops and people to a growing payment network.
+    - is level ke liye: Keep the page's qualitative claim separate from time-sensitive rollout statistics.
+  - prerequisites: Pilot programmes; Banks, merchants and users play different payment roles
+
+## Page 8 · passed after 1 round(s)
+
+In 1329–1330 CE, Muhammad bin Tughlaq declared brass and copper token coins equal in value to the silver Tanka to address silver scarcity and fiscal and monetary needs. Counterfeiting, insecure minting and weak enforcement undermined acceptance. Withdrawal and exchange for silver caused treasury losses. The comparison with modern fiat currency highlights public trust, institutional credibility and effective regulation.
+
+- **p008-i1** · heading · none · both
+  - MUHAMMAD BIN TUGHLAQ'S TOKEN CURRENCY EXPERIMENT
+- **p008-i2** · paragraph · timeline · both · exam high
+  - (1329–1330 CE)
+An ambitious attempt by Sultan Muhammad bin Tughlaq, ruler of the Delhi Sultanate, to introduce brass and copper coins as token currency equal to silver coins.
+    - when: When does the page place the experiment, and who undertook it? → The page dates it to 1329–1330 CE and identifies Sultan Muhammad bin Tughlaq, ruler of the Delhi Sultanate, as its initiator.
+    - what: What change did the experiment attempt? → It attempted to make brass and copper coins circulate as token currency with a declared value equal to silver coins.
+    - why: Why was this experiment introduced? → The page connects it with silver scarcity, military expenditure and the need to expand money supply for administration and trade.
+      - how: How is a token coin different from treating a coin simply as a piece of valuable metal? → A token coin is accepted for its assigned monetary value rather than merely for the sale value of its metal. This separates what the coin can pay for from what its material is worth. _(outside the book)_
+  - **khola (unpack):**
+    - token currency yaani ऐसा पैसा जिसकी चलने वाली कीमत सिर्फ उसके अंदर की धातु की कीमत से तय नहीं होती · image: कैंटीन का token खाना दिलाता है; उसके टुकड़े की अपनी कीमत अलग बात है
+    - kyon: Silver was scarce while the state needed money for expenditure and trade. _[book]_ → The ruler therefore attempted to give brass and copper coins the monetary value of silver coins. _[book]_
+    - example / jagah: Delhi Sultanate under Muhammad bin Tughlaq, 1329–1330 CE.
+    - aage: Introduces the central question: can an official declaration sustain public acceptance?
+    - screen par: Place brass and copper coins on a dated line and attach a declared silver-value tag.
+    - is level ke liye: Keep the date given by this page; no precise start month or withdrawal date is supplied.
+  - prerequisites: Coins used to make payments; A ruler's authority to issue money; Metal having a value apart from its use as money
+- **p008-i3** · equation · comparison · both · exam high
+  - Brass / Copper Token Coin = Silver Tanka (Equal Value)
+    - compare: On what basis does the statement equate a brass/copper token coin and a silver Tanka? → They were declared equal in monetary value. The table distinguishes the silver Tanka's intrinsic silver value from the token coin's value based on royal order.
+    - difference: What important difference remains despite the equal-value declaration? → The silver Tanka is described as intrinsically valuable because it is made of silver; brass and copper token coins depend on the royal order for their face value.
+      - how: How should the slash and equals sign be read? → The slash names the alternative token materials, brass or copper. The equals sign represents declared payment value, not equal metal content, weight or production cost; no physical unit is specified. _(outside the book)_
+      - why: Why does distinguishing face value from material value matter? → If people accept a token for more than its material is worth, its usefulness as money rests on reliable acceptance and credible issuance rather than on selling its metal. _(outside the book)_
+  - **khola (unpack):**
+    - face value yaani सिक्के को भुगतान में जितने का मानने का आदेश है · image: Token पर लिखी कीमत और उस टुकड़े को बेचकर मिलने वाली कीमत अलग हो सकती हैं
+    - Intrinsically valuable yaani जिस चीज़ से बना है, उसकी अपनी भी कीमत होना · image: चाँदी का गहना अपने चाँदी होने की वजह से भी कीमत रखता है
+    - kyon: A shortage of silver created a need for an alternative monetary material. _[book]_ → Royal order assigned brass and copper coins the value of the silver Tanka rather than making their metals identical. _[book]_
+    - example / jagah: The page's silver Tanka versus brass/copper token coin.
+    - aage: Makes trust and control of issuance central to the experiment.
+    - screen par: Balance declared-value tags while keeping the metal-content labels different.
+    - is level ke liye: An equal monetary value statement does not establish an equal weight or an equal bullion value.
+  - prerequisites: A coin's material; Payment value; Equality on a stated criterion
+- **p008-i4** · table · cause_effect · both
+  - Four-column table: BACKGROUND | WHAT WAS THE EXPERIMENT? | WHY DID HE INTRODUCE IT? | WHY DID IT FAIL? One header row and one content row connect fiscal pressures, token design, objectives and causes of failure.
+- **p008-i5** · table_row · none · both
+  - Column 1: BACKGROUND | Column 2: WHAT WAS THE EXPERIMENT? | Column 3: WHY DID HE INTRODUCE IT? | Column 4: WHY DID IT FAIL?
+- **p008-i6** · table_row · cause_effect · both · exam high
+  - BACKGROUND: • Heavy military expenditure (wars in Deccan & Central Asia) • Shortage of silver in the treasury • Need to increase money supply for administration & trade.
+WHAT WAS THE EXPERIMENT?: Around 1329–1330 CE, he issued brass and copper coins and declared them equal in value to the existing silver Tanka. SILVER TANKA: Intrinsically valuable (made of silver) = BRASS & COPPER TOKEN COINS: Value based on the royal order (face value).
+WHY DID HE INTRODUCE IT?: • Reduce dependence on scarce silver • Increase money supply in the economy • Finance wars and administration • Facilitate trade with cheaper coins.
+WHY DID IT FAIL?: The experiment collapsed due to loss of public trust and lack of effective state control. • WIDESPREAD COUNTERFEITING: Copper coins were easy to imitate; fake coins flooded the market. • NO SECURE MINTING TECHNOLOGY: No proper system to distinguish genuine coins from counterfeit ones. • WEAK ADMINISTRATIVE ENFORCEMENT: State could not stop the minting and circulation of fake coins. • PUBLIC CONFIDENCE COLLAPSED: Traders and people refused to accept the new coins.
+    - why: Which background pressures made a monetary experiment attractive? → The state faced heavy military expenditure for wars in Deccan and Central Asia, a shortage of treasury silver, and a need to increase money supply for administration and trade.
+      - how: How could silver scarcity constrain a system relying on silver coins? → Minting more silver coins requires access to silver. If the metal is hard to obtain while payments still have to be made, the state has an incentive to look for money made from a less scarce material. _(outside the book)_
+    - when: When and how did the ruler implement the experiment? → Around 1329–1330 CE, he issued brass and copper coins and declared them equal in value to the existing silver Tanka.
+    - compare: How did the two kinds of coins differ in the source of their value? → The table attributes intrinsic value to the silver Tanka because of its silver content, while it attributes the brass and copper token coins' face value to royal order.
+    - what: What four objectives should a learner distinguish from the background pressures? → The intended objectives were to reduce dependence on scarce silver, increase money supply, finance wars and administration, and facilitate trade with cheaper coins.
+      - how: How could cheaper-metal coins help trade if people accepted them? → Accepted tokens can provide a means of payment without requiring each payment instrument to contain precious metal of the same value. More available payment instruments can make exchanges easier to carry out. _(outside the book)_
+      - difference: Does 'cheaper coins' mean the state assigned the tokens a lower face value than silver? → No. The page explicitly says the tokens were declared equal in value to the silver Tanka, while describing their intended trade role as providing cheaper coins.
+    - why: What broad causes explain the collapse? → The page identifies loss of public trust and lack of effective state control, expressed through widespread counterfeiting, insecure minting, weak administrative enforcement and refusal to accept the new coins.
+      - how: How did counterfeiting and insecure minting reinforce one another? → Copper coins were easy to imitate, fake coins flooded the market, and there was no proper system for distinguishing genuine coins from counterfeit ones.
+        - why: Why would easy imitation be especially damaging when a token's face value exceeds the value of its material? → A counterfeiter can seek to obtain goods worth the token's assigned value while spending less on its material and manufacture. Difficulty checking authenticity makes that abuse harder for recipients to avoid. _(outside the book)_
+      - difference: How is weak enforcement different from insecure minting? → The minting problem was the absence of a proper way to distinguish genuine coins from fakes. The enforcement problem was the state's inability to stop the production and circulation of fake coins.
+        - how: How can fear of receiving fake coins turn into a general acceptance problem? → A trader who cannot verify a coin may also doubt whether another trader will take it later. Refusal can therefore spread beyond a single suspect transaction and weaken the currency's usefulness as a means of payment. _(outside the book)_
+    - evidence: What concrete behaviour on the page shows that public confidence collapsed? → Traders and people refused to accept the new coins. This is the page's stated behavioural sign of lost confidence.
+      - consequence: What governance lesson follows from the failure mechanism? → Assigning a face value is not enough by itself: reliable control over issuance and credible protection against fakes help people believe that the money they accept can be used again. _(outside the book)_
+  - **khola (unpack):**
+    - treasury yaani सरकार के पास रखा पैसा और कीमती धातु, जिससे उसके खर्च चलते हैं · image: घर के खर्च के लिए रखी बचत का डिब्बा, लेकिन यहाँ सरकार का भंडार
+    - money supply yaani अर्थव्यवस्था में भुगतान के लिए उपलब्ध पैसा · image: बाज़ार में ग्राहकों और दुकानदारों के बीच घूमता पैसा
+    - counterfeiting yaani असली जैसा दिखने वाला नकली पैसा बनाना · image: असली coupon की नकल बनाकर दुकान पर सामान माँगना
+    - minting yaani सिक्के बनाना और उन पर पहचान के निशान डालना · image: धातु के टुकड़े पर ठप्पा लगकर सिक्के की पहचान बनना
+    - administrative enforcement yaani सरकार का नियमों को सच में लागू करवाना और नकली सिक्कों को रोकना · image: सिर्फ नकली ticket मना होने का बोर्ड नहीं, जाँच करने वाला कर्मचारी भी
+    - public confidence yaani लोगों का भरोसा कि यह पैसा असली है और आगे भी चलेगा · image: दुकानदार पैसा लेते समय सोचता है कि उससे वह अपना अगला सामान खरीद पाएगा
+    - kyon: Military and administrative spending and trade needed money, but silver in the treasury was scarce; brass and copper tokens were declared equal to silver. _[book]_ → Easy imitation, insecure minting and weak enforcement allowed fakes to circulate; public confidence collapsed and people refused the coins. _[book]_
+    - example / jagah: The page links Deccan and Central Asia wars to expenditure, and traders' refusal to the currency's failure.
+    - aage: The attempted monetary expansion failed, leading to withdrawal and redemption described in the lower panel.
+    - screen par: Branch pressures into policy aims, then spread fake coins through a market until acceptance stops.
+    - is level ke liye: Separate an intended increase in money supply from successful public acceptance. The page does not give an inflation rate, coin weights or a quantitative issue size.
+  - prerequisites: Government expenditure and treasury holdings; Money supply as money available for payments; Face value versus a coin's metal value; Genuine and fake coins; Money's role as a medium of exchange
+- **p008-i7** · table · comparison · both
+  - Three-column table: HOW DID TUGHLAQ RESPOND? | ECONOMIC SIGNIFICANCE | COMPARISON WITH MODERN FIAT CURRENCY. One header row and one content row cover withdrawal and exchange, the sources of money's value, and a comparison of Tughlaq's token currency with modern fiat currency.
+- **p008-i8** · table_row · none · both
+  - Column 1: HOW DID TUGHLAQ RESPOND? | Column 2: ECONOMIC SIGNIFICANCE | Column 3: COMPARISON WITH MODERN FIAT CURRENCY
+- **p008-i9** · table_row · comparison · both · exam high
+  - HOW DID TUGHLAQ RESPOND?: He withdrew the token currency and allowed people to exchange copper coins for silver coins. This led to enormous losses to the royal treasury.
+ECONOMIC SIGNIFICANCE: The experiment showed that money derives value not only from the metal it is made of but also from trust, credibility and effective state regulation.
+COMPARISON WITH MODERN FIAT CURRENCY: TUGHLAQ'S TOKEN CURRENCY • Copper & brass coins • State-declared value • Weak anti-counterfeit measures • Failed due to loss of trust. MODERN FIAT CURRENCY • Paper and digital money • State and Central Bank backing • Advanced security features • Works due to institutional credibility and public trust.
+    - how: How did Tughlaq respond after the experiment failed? → He withdrew the token currency and allowed people to exchange copper coins for silver coins. The page says this caused enormous losses to the royal treasury.
+      - why: Why could exchanging copper coins for silver impose a fiscal cost? → The treasury parts with valuable silver while taking in copper tokens. When the material received is worth less than the silver paid out, redemption can deplete treasury resources. _(outside the book)_
+      - evidence: What scale of loss can be asserted from this page? → The page calls the losses 'enormous' but supplies no numerical amount, redemption total or precise withdrawal date.
+    - what: What economic lesson does the page draw from the experiment? → Money's value depends not only on its metal but also on trust, credibility and effective state regulation.
+      - why: Why does confidence in future acceptance matter to someone receiving money today? → People generally accept money because they expect to spend it later. If they doubt later acceptance, receiving it becomes risky even when an official value has been announced. _(outside the book)_
+    - compare: How does the page compare the physical or operational forms of the two currencies? → It describes Tughlaq's token currency as copper and brass coins and modern fiat currency as paper and digital money.
+    - difference: How do the two accounts differ in backing and protection against counterfeiting? → Tughlaq's coins had state-declared value and weak anti-counterfeit measures. The modern fiat column emphasizes State and Central Bank backing and advanced security features.
+    - compare: What role does trust play in both sides of the comparison? → The historical token currency failed due to loss of trust, while modern fiat currency is described as working through institutional credibility and public trust.
+      - how: How do security features and institutional credibility support trust rather than replace it? → Security helps recipients check authenticity, and credible institutions help them expect consistent management of money. These arrangements give practical reasons for confidence instead of asking people to rely on an unsupported declaration. _(outside the book)_
+      - what: What does fiat currency mean in this comparison? → Fiat money is not valuable because its material can be sold for its stated monetary value. Its monetary role rests on the issuing framework and acceptance, so the paper or digital form is not by itself the source of its purchasing power. _(outside the book)_
+        - exception: Should State and Central Bank backing be read as a promise of silver redemption? → No. Institutional backing of fiat money should not be confused with a commodity-conversion promise. Authority and monetary credibility are different from a guarantee to exchange money for a fixed amount of silver. _(outside the book)_
+      - consequence: Does the historical failure establish that money without matching metal value must fail? → No. The page itself contrasts that failure with modern fiat currency working through institutional credibility and public trust.
+  - **khola (unpack):**
+    - withdrew yaani सरकार ने इस पैसे को चलाने की व्यवस्था वापस ले ली · image: पुराना token बंद करके उसे वापस जमा करने को कहना
+    - fiat currency yaani ऐसा पैसा जो अपनी धातु या कागज़ की कीमत से नहीं, जारी करने वाली व्यवस्था और लोगों के भरोसे से चलता है · image: नोट से सामान मिलता है, लेकिन उसका कागज़ बेचने से उतनी रकम नहीं मिलती
+    - institutional credibility yaani पैसा चलाने वाली संस्थाओं पर भरोसा कि वे अपनी जिम्मेदारी ठीक से निभाएँगी · image: किसी भरोसेमंद बैंक की रसीद को लोग अनजान पर्ची से अलग मानते हैं
+    - effective state regulation yaani सरकार की ऐसी निगरानी और नियम जो पैसे की व्यवस्था को सच में सुरक्षित रखें · image: नकली ticket रोकने के लिए पहचान के निशान, जाँच और कार्रवाई साथ होना
+    - anti-counterfeit measures yaani नकली पैसा बनाना या चलाना मुश्किल करने के तरीके · image: नोट को रोशनी में पकड़कर उसका सुरक्षा निशान देखना
+    - kyon: After confidence failed, Tughlaq withdrew the tokens and allowed copper coins to be exchanged for silver, causing treasury losses. _[book]_ → The comparison highlights that trust needs credible institutions and effective control; modern fiat currency is presented with stronger backing and security. _[book]_
+    - example / jagah: Compare the historical copper-for-silver exchange with a present-day paper note whose material is not worth its face value.
+    - aage: Connects the historical case to the role of monetary institutions: a declaration of value needs credible conditions for continued acceptance.
+    - screen par: Exchange copper for silver from a shrinking treasury, then align historical and modern currency on form, backing, security and trust.
+    - is level ke liye: Treat paper and digital money as the page's examples, not an exhaustive definition. The page does not claim fiat money is redeemable in precious metal or that security removes all risk.
+  - prerequisites: Face value versus intrinsic metal value; Exchange of withdrawn currency; Government treasury resources; Counterfeit money; Public acceptance of money; Central bank as a monetary institution
+
+## Page 9 · passed after 1 round(s)
+
+Trust and regulation underpin currency acceptance. Indian notes combine accessibility, language and anti-counterfeiting features; the ₹1 note has a distinct issuer and signatory. The promise guarantees nominal face value, not purchasing power or redemption into a fixed weight of precious metal.
+
+- **p009-i1** · heading · none · both
+  - THE JOURNE [THE JOURNEY]
+- **p009-i2** · diagram · cause_effect · both · exam high
+  - Silver Tanka (Established Currency) ➔ Brass & Copper Coins Introduced as Token Currency (1329–1330 CE) ➔ Counterfeiting & Loss of Trust ➔ Withdrawal & Huge Financial Loss
+    - what: What sequence does the flow show? → An established silver currency was followed by brass and copper token coins in 1329–1330 CE; counterfeiting and loss of trust were followed by withdrawal and huge financial loss.
+    - why: Why is counterfeiting a threat to token currency? → A token passes at an accepted monetary value rather than merely its metal value. If unauthorised copies can pass as genuine, people become unsure whether a coin will be accepted in payment. _(outside the book)_
+      - how: How does lost trust disrupt circulation? → A person may refuse a doubtful coin because the next seller may also refuse it. This weakens its usefulness as a means of payment. _(outside the book)_
+    - when: When does the page place the introduction of token coins? → It dates the introduction to 1329–1330 CE.
+  - **khola (unpack):**
+    - Token Currency yaani जिसका चलने वाला मूल्य उसके metal की कीमत से अलग हो सकता है · image: कम कीमत के metal का coin, जिससे उससे अधिक कीमत की चीज़ खरीदी जाए
+    - Counterfeiting yaani असली जैसा दिखने वाला नकली पैसा बनाना · image: दुकानदार के पास पहुँचा असली जैसा नकली coin
+    - kyon: People need money that the next person will accept; doubtful copies make acceptance uncertain. _[standard]_ → The page connects counterfeiting and loss of trust to withdrawal and huge financial loss. _[book]_
+    - example / jagah: The brass and copper token-currency experiment dated 1329–1330 CE.
+    - aage: Leads directly to the page's lesson about trust and regulation.
+    - screen par: Trace arrows from silver coins to token coins, counterfeit copies and withdrawal.
+    - is level ke liye: Distinguish a low-cost token material from the governance problem of uncontrolled imitation.
+  - prerequisites: money as a means of payment; difference between metal value and accepted monetary value
+- **p009-i3** · diagram_label · cause_effect · image · exam medium
+  - Silver Tanka (Established Currency): the starting currency before the first arrow.
+    - what: What is the starting point of the experiment? → The flow starts with the already established Silver Tanka, before the introduction of brass and copper tokens.
+    - why: Why does an established currency matter to this comparison? → People already accustomed to a currency have a reference for payments; a replacement needs comparable confidence in acceptance. _(outside the book)_
+      - how: How should the arrow leaving this label be read? → It takes the reader from the established silver currency to the introduction of token coins.
+  - **khola (unpack):**
+    - Established Currency yaani पहले से लेन-देन में चल रहा पैसा · image: बाज़ार में पहले से स्वीकार किया जा रहा coin
+    - example / jagah: First stage of the printed flow.
+    - aage: Provides the baseline for the token experiment.
+    - screen par: Highlight the starting silver coin.
+  - prerequisites: coin money
+- **p009-i4** · diagram_label · cause_effect · image · exam high
+  - Brass & Copper Coins Introduced as Token Currency (1329–1330 CE): the stage after Silver Tanka and before counterfeiting.
+    - what: Which materials and date identify the token experiment? → The tokens are brass and copper coins, introduced in 1329–1330 CE.
+    - why: Why does token currency depend on acceptance beyond the metal itself? → Its monetary usefulness rests on people accepting its assigned value, rather than valuing it just as a piece of metal. _(outside the book)_
+      - how: How does the flow connect these tokens to the outcome? → The next arrow leads to counterfeiting and loss of trust.
+  - **khola (unpack):**
+    - example / jagah: Brass and copper coins in the opening flow.
+    - aage: Introduces the trust problem illustrated by the next stage.
+    - screen par: Replace silver with brass and copper tokens.
+    - is level ke liye: Do not equate token value with metal weight.
+  - prerequisites: token currency
+- **p009-i5** · diagram_label · cause_effect · image · exam high
+  - Counterfeiting & Loss of Trust: the intermediate stage between token introduction and withdrawal.
+    - why: Why are counterfeiting and confidence connected? → If an imitation cannot readily be distinguished from an authorised coin, a receiver risks accepting money that others will reject. _(outside the book)_
+    - how: How does this label function in the flow? → It is the intervening problem linking token introduction with withdrawal and huge financial loss.
+  - **khola (unpack):**
+    - Loss of Trust yaani पैसा आगे चलेगा या नहीं, इस पर भरोसा कम होना · image: दुकानदार coin लेने से झिझकता है
+    - example / jagah: The middle failure stage in the flow.
+    - aage: Acceptance weakens before withdrawal.
+    - screen par: Multiply fake coins and show sellers refusing them.
+  - prerequisites: genuine and counterfeit currency
+- **p009-i6** · diagram_label · cause_effect · image · exam medium
+  - Withdrawal & Huge Financial Loss: the final outcome after counterfeiting and loss of trust.
+    - how: How does the experiment end on this page? → The flow ends in withdrawal of the token currency and huge financial loss.
+    - why: Why can withdrawal be financially costly? → Replacing a failed currency and settling claims can impose costs. The precise redemption arrangements behind the loss are not given here. _(outside the book)_
+  - **khola (unpack):**
+    - Withdrawal yaani किसी पैसे को चलन से वापस लेना · image: चलते coins को वापस इकट्ठा करना
+    - example / jagah: Final arrow in the historical flow.
+    - aage: Supports the trust-and-regulation takeaway.
+    - screen par: Collect tokens out of circulation.
+  - prerequisites: withdrawal of currency from circulation
+- **p009-i7** · heading · none · both
+  - KEY TAKEAWAY
+- **p009-i8** · paragraph · cause_effect · both · exam high
+  - Public trust and effective regulation are the foundation of any successful currency.
+    - why: Why does currency need public trust? → A receiver accepts money partly because they expect another person to accept it later; without that expectation, exchange becomes difficult. _(outside the book)_
+    - how: How can effective regulation support that trust? → Rules governing authorised issue, authentication and action against counterfeiting help people distinguish legitimate money from imitations. _(outside the book)_
+    - evidence: What on the page illustrates the takeaway? → The preceding flow links counterfeiting and loss of trust to withdrawal and huge financial loss.
+  - **khola (unpack):**
+    - effective regulation yaani ऐसे नियम और निगरानी जो सच में लागू हों · image: नकली note पकड़ने के साथ उस पर कार्रवाई भी होना
+    - kyon: People need confidence that money received today can be spent tomorrow. _[standard]_ → The page identifies public trust and effective regulation as the foundation of successful currency. _[book]_
+    - example / jagah: A shopkeeper deciding whether to accept a note.
+    - aage: Explains why modern notes carry recognition and security features.
+    - screen par: Link regulation and trust to accepted payments.
+    - is level ke liye: Treat trust and regulation as complementary, not competing explanations.
+  - prerequisites: money acceptance; counterfeiting
+- **p009-i9** · heading · none · both
+  - Features of the Indian Notes
+- **p009-i10** · list_point · structure · both · exam high
+  - Accessibility Features: Designed for visually impaired users.
+Raised printing, Identification marks, Larger numerals, Distinct note sizes.
+    - what: What accessibility aids does the page list? → It lists raised printing, identification marks, larger numerals and distinct note sizes for visually impaired users.
+    - where: Where are these aids encountered? → They are features of the physical currency notes that users handle and inspect.
+      - how: How do the aids help different users? → Raised elements can be felt, larger numerals can help people with some usable vision, and physical size differences offer another recognition cue. These aids do not depend on reading small ordinary print alone. _(outside the book)_
+  - **khola (unpack):**
+    - Accessibility Features yaani ऐसी बनावट जिससे कम दिखने या न दिखने पर भी note पहचानने में मदद मिले · image: आँखों से पढ़ने के बजाय उभरा निशान उँगली से पहचानना
+    - kyon: Users may be unable to read ordinary printed numerals clearly. _[standard]_ → Touch, larger numerals and size cues provide additional ways to recognise notes. _[standard]_
+    - example / jagah: Handling and distinguishing notes during a payment.
+    - aage: Currency design supports inclusion as well as security.
+    - screen par: Touch raised marks, enlarge numerals and compare note outlines.
+    - is level ke liye: Distinguish tactile aids from aids for residual vision.
+  - prerequisites: note denomination; difference between sight and touch
+- **p009-i11** · list_point · facts_numbers · both · exam high
+  - ₹1 Note:
+Issued by the Govt of India
+Contains the signature of Finance Secretary of India
+RBI manages the circulation of this note.
+    - what: Who issues, signs and circulates the ₹1 note? → The Government of India issues it, the Finance Secretary of India signs it, and RBI manages its circulation.
+    - evidence: Which detail prevents confusing circulation management with issue? → The page assigns issue to the Government of India and circulation management separately to RBI.
+      - why: Why must those roles be separated in an examination answer? → Managing the distribution and movement of money does not by itself make an institution its issuer or its signatory. _(outside the book)_
+  - **khola (unpack):**
+    - circulation yaani note का लोगों और banks के बीच चलना · image: bank से दुकान, फिर ग्राहक और वापस bank तक पहुँचना
+    - kyon: A note needs both an issuing authority and arrangements to reach users. _[standard]_ → For ₹1, the page separates Government issue from RBI circulation management. _[book]_
+    - example / jagah: The ₹1 note and its Finance Secretary signature.
+    - aage: Do not infer the issuer merely from RBI's involvement.
+    - screen par: Assign issuer, signature and circulation to three labelled roles.
+    - is level ke liye: ₹ denotes rupees; ₹1 means a face value of one rupee.
+  - prerequisites: currency issue; RBI and Government of India as different institutions
+- **p009-i12** · list_point · facts_numbers · both · exam low
+  - https://paisaboltahai.rbi.org.in/: You can access the features of our notes from this website of RBI.
+    - what: What resource does the page recommend? → It recommends RBI's https://paisaboltahai.rbi.org.in/ for information on note features.
+    - evidence: How does the page identify the source's authority? → It explicitly identifies the website as belonging to RBI.
+      - why: Why use official denomination-specific guidance? → Features can differ between note designs, so official guidance helps avoid treating a general feature list as universal. _(outside the book)_
+  - **khola (unpack):**
+    - example / jagah: The RBI website printed on the page; not accessed for this task.
+    - aage: Offers a route to checking particular note features.
+    - screen par: Point from the note to the official URL.
+    - is level ke liye: Do not add unverified website contents.
+  - prerequisites: RBI; banknote authentication
+- **p009-i13** · list_point · facts_numbers · both · exam high
+  - Languages:
+15 languages appear in the language panel on the reverse.
+Along with Hindi (front) and English (front), the note represents 17 languages in total.
+    - what: How many languages does the page count, and where? → It counts 15 in the reverse language panel, plus Hindi and English on the front, giving 17 in total.
+    - evidence: Why are 15 and 17 not contradictory? → Fifteen refers to the reverse panel alone; seventeen includes the two front languages as well.
+      - how: How does this language arrangement help users? → Displaying the denomination in multiple languages helps readers from different language backgrounds recognise the note's value. _(outside the book)_
+  - **khola (unpack):**
+    - language panel yaani note के एक हिस्से में कई भाषाओं में लिखा हुआ मूल्य · image: एक ही कीमत को अलग-अलग भाषाओं में लिखी छोटी सूची
+    - kyon: Users read different languages. _[standard]_ → The note displays its value through multiple languages, with the page counting 15 plus two. _[book]_
+    - example / jagah: Front: Hindi and English; reverse: 15-language panel.
+    - aage: Keep the panel count separate from the total count.
+    - screen par: Flip the note and add 15 + 2 = 17.
+    - is level ke liye: Do not confuse this count with the number of constitutionally scheduled languages.
+  - prerequisites: front and reverse of a note; denomination
+- **p009-i14** · heading · none · both
+  - Major security features:
+- **p009-i15** · list_point · structure · both · exam high
+  - Watermark of Mahatma Gandhi.
+    - what: What watermark does the page identify? → It identifies a watermark depicting Mahatma Gandhi as a major security feature.
+    - where: Where is a watermark located? → It is formed within the note paper, rather than being merely an ordinary surface-printed portrait. _(outside the book)_
+      - how: How can it be examined? → Holding the note against light reveals differences in light transmission that form the watermark image. _(outside the book)_
+  - **khola (unpack):**
+    - Watermark yaani paper के अंदर बना हल्का चित्र जो रोशनी के सामने दिखता है · image: note को बल्ब के सामने पकड़कर छिपा चेहरा देखना
+    - kyon: An ordinary printed copy can resemble a note's surface. _[standard]_ → An image formed within the paper adds a different authentication check. _[standard]_
+    - example / jagah: Mahatma Gandhi watermark on a note.
+    - aage: Use transmitted light, not just surface appearance.
+    - screen par: Lift the note toward light and reveal the portrait.
+    - is level ke liye: Features should be checked together, not as a single conclusive test.
+  - prerequisites: light passing through paper; counterfeit notes
+- **p009-i16** · list_point · structure · both · exam high
+  - Security Thread with "भारत", "RBI", and denomination.
+    - what: What inscriptions does the security thread carry according to the page? → The page lists “भारत”, “RBI”, and the denomination.
+    - where: Where is the security thread? → It is incorporated into the note paper as a narrow security element. _(outside the book)_
+      - how: How does checking the thread improve authentication? → The user examines a specialised element and its lettering, rather than accepting any dark line drawn on paper as a genuine thread. _(outside the book)_
+  - **khola (unpack):**
+    - Security Thread yaani note के paper में लगी सुरक्षा की पतली पट्टी · image: कागज़ के बीच से जाती पतली line को पास से देखना
+    - denomination yaani note पर लिखा रुपये का मूल्य · image: ₹100 पर लिखा 100
+    - kyon: A copied surface design may look convincing. _[standard]_ → A specialised thread and its inscriptions offer an additional check. _[standard]_
+    - example / jagah: Thread carrying “भारत”, “RBI” and denomination as listed.
+    - aage: Connect the physical thread with what is written on it.
+    - screen par: Zoom into the thread and its lettering.
+    - is level ke liye: A printed line alone is not equivalent to the security thread.
+  - prerequisites: note denomination; security feature
+- **p009-i17** · list_point · structure · both · exam high
+  - Latent Image visible when tilted.
+    - what: What is the recognition cue for the latent image? → The page says the image becomes visible when the note is tilted.
+    - where: Where does the user look for it? → The user examines the designated latent-image area on the note while changing the viewing angle. _(outside the book)_
+      - how: How is this different from a normal printed image? → Its visibility depends on viewing angle, whereas ordinary print is generally readable without seeking that angle. _(outside the book)_
+  - **khola (unpack):**
+    - Latent Image yaani ऐसा छिपा चित्र जो खास angle से दिखे · image: note झुकाते ही पहले छिपा निशान उभरना
+    - kyon: A flat copy may reproduce a visible design. _[standard]_ → Angle-dependent visibility supplies a different checking action. _[standard]_
+    - example / jagah: The latent-image feature on a note.
+    - aage: Teach tilt as a distinct action from holding against light.
+    - screen par: Tilt the note until the image appears.
+    - is level ke liye: Do not confuse image appearance with colour-changing ink.
+  - prerequisites: viewing angle
+- **p009-i18** · list_point · structure · both · exam high
+  - See-through Register that forms the denomination when viewed against light.
+    - what: What does the see-through register form? → It forms the denomination when viewed against light.
+    - where: Where are the complementary parts located? → Parts of the design are printed in matching positions on the front and back of the note. _(outside the book)_
+      - how: How does the complete number become visible? → Transmitted light lets the viewer see the front and back portions together, so correctly aligned parts complete the numeral. _(outside the book)_
+  - **khola (unpack):**
+    - See-through Register yaani आगे-पीछे छपे हिस्से जो रोशनी में मिलकर पूरा अंक बनाएँ · image: दो अधूरे हिस्से मिलकर पूरा number बनाना
+    - kyon: A convincing note needs accurate printing on both sides. _[standard]_ → The register tests whether the two parts align into the denomination. _[standard]_
+    - example / jagah: The denomination completed when a note is held against light.
+    - aage: Distinguishes alignment checking from watermark recognition.
+    - screen par: Overlay front and back fragments into one numeral.
+    - is level ke liye: Watermark and register use light but are different features.
+  - prerequisites: front and reverse of a note; light transmission
+- **p009-i19** · list_point · structure · both · exam high
+  - Micro-lettering reading "RBI" and the denomination.
+    - what: What does the micro-lettering read? → The page identifies the tiny lettering as “RBI” and the denomination.
+    - where: Where is micro-lettering examined? → It is examined in the small-print security areas of the note, rather than in the large value numerals. _(outside the book)_
+      - how: How does it help authentication? → Magnification can reveal whether the tiny lettering is formed clearly; ordinary copying may blur such fine detail. _(outside the book)_
+  - **khola (unpack):**
+    - Micro-lettering yaani बहुत छोटे आकार में लिखे अक्षर और अंक · image: magnifying glass से छोटे RBI अक्षर पढ़ना
+    - kyon: A counterfeit may reproduce large shapes but lose fine detail. _[standard]_ → Tiny lettering adds a detail that can be checked closely. _[standard]_
+    - example / jagah: “RBI” and denomination in the listed micro-lettering.
+    - aage: Adds a close-inspection check to light and tilt checks.
+    - screen par: Magnify tiny print into readable letters.
+    - is level ke liye: Do not confuse micro-lettering with larger accessibility numerals.
+  - prerequisites: magnification; denomination
+- **p009-i20** · list_point · structure · both · exam high
+  - Optically Variable Ink on higher denominations.
+    - what: What feature is listed for higher denominations? → The page lists Optically Variable Ink.
+    - where: Where does the page place this feature? → It associates the ink with higher-denomination notes without specifying particular values.
+      - how: How does optically variable ink behave? → Its apparent colour changes with viewing angle, supplying a visual check that ordinary single-colour printing does not provide. _(outside the book)_
+  - **khola (unpack):**
+    - Optically Variable Ink yaani angle बदलने पर अलग रंग दिखाने वाली ink · image: note झुकाते समय छपे हिस्से का रंग बदलता दिखना
+    - kyon: A static colour copy can imitate ordinary printing. _[standard]_ → Angle-dependent colour adds a changing visual cue. _[standard]_
+    - example / jagah: Higher denominations as stated on the page.
+    - aage: Tilt can test colour change as well as latent-image visibility.
+    - screen par: Tilt and change the ink's apparent colour.
+    - is level ke liye: Colour change and latent-image appearance are separate mechanisms.
+  - prerequisites: viewing angle; denomination
+- **p009-i21** · list_point · structure · both · exam high
+  - Intaglio Printing (raised printing) for tactile feel.
+    - what: What does intaglio printing provide here? → The page describes it as raised printing that gives a tactile feel.
+    - where: Where is the effect felt? → It is felt on the raised printed portions of the note surface. _(outside the book)_
+      - how: How does this link security with accessibility? → A user can feel relief rather than rely only on sight, providing a physical recognition cue that also assists users with impaired vision. _(outside the book)_
+  - **khola (unpack):**
+    - Intaglio Printing yaani ऐसी printing जिससे छपा हिस्सा उभरा महसूस हो · image: उँगली फेरने पर चिकने paper से अलग उभार महसूस करना
+    - kyon: Visual inspection alone is not equally useful to all users. _[standard]_ → Raised printing supplies a tactile recognition cue. _[book]_
+    - example / jagah: Raised printed portions of a note.
+    - aage: Connects the security list back to accessibility features.
+    - screen par: Run a fingertip across raised print.
+    - is level ke liye: Avoid treating a flat printed imitation of a raised mark as equivalent.
+  - prerequisites: touch as a way of recognition
+- **p009-i22** · list_point · structure · both · exam medium
+  - Number Panels with increasing numeral size.
+    - what: What pattern does the page identify in number panels? → The numerals increase in size within the number panels.
+    - where: Where should this pattern be checked? → It is checked in the note's numbering panels, not by comparing the large denomination numerals on different notes. _(outside the book)_
+      - how: How does this differ from a rise in monetary value? → The change is in printed character size; it does not change the face value of the note. _(outside the book)_
+  - **khola (unpack):**
+    - Number Panels yaani note पर उसका पहचान number छपा हुआ हिस्सा · image: एक line में छोटे से बड़े होते छपे अंक
+    - kyon: Users need recognisable printing details to compare with an expected design. _[standard]_ → The page supplies increasing numeral size as one such pattern. _[book]_
+    - example / jagah: Numbering panels on the note.
+    - aage: Completes the page's multi-feature security checklist.
+    - screen par: Enlarge consecutive numerals along the panel.
+    - is level ke liye: Keep serial numbering separate from denomination.
+  - prerequisites: printed note number; face value
+- **p009-i23** · heading · none · both
+  - Promise on the Note
+- **p009-i24** · definition · definition · both · exam high
+  - It is known as the Promise Clause, and it signifies that the Reserve Bank of India (RBI) guarantees the face value of the note.
+    - what: What does the promise clause signify? → It signifies RBI's guarantee of the amount written as the note's face value.
+    - evidence: Which kind of value is explicitly guaranteed on this page? → The page specifies face value, rather than an inflation-adjusted value or a weight of precious metal.
+      - why: Why is face value different from purchasing power? → A ₹100 note remains denominated at ₹100 even if rising prices mean that ₹100 buys fewer goods. _(outside the book)_
+  - **khola (unpack):**
+    - Promise Clause yaani note पर लिखी रकम की RBI की guarantee बताने वाली बात · image: note पर छपी ‘I PROMISE TO PAY’ वाली line
+    - face value yaani note पर लिखी रुपये की रकम · image: ₹100 लिखा है तो उसकी face value ₹100
+    - kyon: A user needs confidence in the amount the note represents. _[standard]_ → The page explains the promise as RBI's guarantee of face value. _[book]_
+    - example / jagah: The promise text shown in the note photograph.
+    - aage: Sets up the distinction between nominal money and metal or purchasing-power claims.
+    - screen par: Underline the promise and connect it to the printed amount.
+    - is level ke liye: Do not infer the legal status of a promissory note merely from the word promise.
+  - prerequisites: RBI; face value; purchasing power
+- **p009-i25** · definition · definition · both · exam high
+  - Bearer means that whoever physically possesses the note can use it.
+    - what: Who is the bearer in this explanation? → The bearer is the person physically holding the note and able to use it in payment.
+    - evidence: What criterion identifies the bearer on this page? → The criterion is physical possession, not a payee's name written on the note.
+      - how: How does bearer use differ from a named bank account? → A note can pass from hand to hand without changing a named account holder in bank records; an account balance is maintained against an identified account. _(outside the book)_
+  - **khola (unpack):**
+    - Bearer yaani वह व्यक्ति जिसके हाथ में note है · image: ग्राहक note दुकानदार को देता है और अब दुकानदार उसे आगे खर्च करता है
+    - kyon: Cash must pass between people without rewriting a payee's name. _[standard]_ → Bearer use lets the physical holder use the note. _[book]_
+    - example / jagah: A note handed over at a shop.
+    - aage: Helps explain the later description of cash as anonymous.
+    - screen par: Pass the note between hands.
+    - is level ke liye: Possession and legal title should not be conflated.
+  - prerequisites: cash payment; bank account
+- **p009-i26** · list_point · timeline · both · exam high
+  - Colonial era: Promised to convert into full bodied gold or silver bars / coins worth the equal value in weight.
+    - when: To which period does the page attach metal convertibility? → It attaches the promise of conversion into full-bodied gold or silver bars or coins to the colonial era.
+    - why: Why does metal convertibility change the meaning of the promise? → Under a convertible arrangement, the holder's claim is linked to specified metal redemption rather than simply the continued acceptance of a nominal currency amount. _(outside the book)_
+      - how: How should the broad historical statement be handled carefully? → Convertibility depended on the monetary system, period and eligible holder. This line should not be expanded into a claim that every colonial note was freely redeemable into either metal throughout colonial rule. _(outside the book)_
+  - **khola (unpack):**
+    - full bodied yaani जिसमें metal की अपनी कीमत बताए गए मूल्य के बराबर हो · image: ऐसा gold coin जिसकी कीमत उसके gold से आती हो
+    - kyon: People may seek a tangible asset behind a paper claim. _[standard]_ → The page describes a historical promise to convert notes into gold or silver. _[book]_
+    - example / jagah: The page's colonial-era description of bars and coins.
+    - aage: Prepares the contrast with modern currency unlinked to metal weight.
+    - screen par: Exchange a paper note for a metal bar or coin.
+    - is level ke liye: Separate the book's broad contrast from precise period-specific convertibility rules.
+  - prerequisites: face value; redemption; metal value
+- **p009-i27** · example · timeline · both · exam high
+  - Same was with the Dollar during the Bretton Woods System and the Pound Sterling during the British Rule.
+    - when: Which historical settings does the page use as parallels? → It names the Dollar during the Bretton Woods System and Pound Sterling during British Rule as parallels to metal-linked currency.
+    - why: Why does the book bring these currencies into the discussion? → They illustrate its contrast between earlier metal-linked promises and modern currency not tied to a metal weight.
+      - how: How should the Bretton Woods example be qualified? → Dollar–gold convertibility under Bretton Woods was available to foreign official monetary holders, not a general right of every retail dollar holder. It therefore does not imply unrestricted public redemption of notes. _(outside the book)_
+  - **khola (unpack):**
+    - Bretton Woods System yaani पुराना अंतरराष्ट्रीय money system जिसमें Dollar का gold से तय रिश्ता था · image: अलग देशों के money system को Dollar के जरिए जोड़ती chain
+    - kyon: The historical contrast needs recognisable examples. _[standard]_ → The page supplies the Dollar and Pound Sterling as parallels. _[book]_
+    - example / jagah: Dollar under Bretton Woods; Pound Sterling during British Rule.
+    - aage: Connects domestic currency promises with international monetary arrangements.
+    - screen par: Place the two currencies on historical tracks beside metal.
+    - is level ke liye: The page gives no precise dates or sterling redemption conditions.
+  - prerequisites: currency convertibility; Dollar and Pound Sterling
+- **p009-i28** · diagram · figure · image · exam medium
+  - Close-up of an Indian note showing a Hindi promise at left, the English words “I PROMISE TO PAY THE BEARER THE SUM OF … HUNDRED RUPEES” at right, and a signature with “GOVERNOR” below. The amount is partly obscured. Hindi text includes “मैं धारक को … रुपये अदा करने का वचन देता हूँ” and the guarantee wording “केन्द्रीय सरकार द्वारा प्रत्याभूत” below; part of the denomination is obscured.
+    - what: What does the photograph demonstrate? → It shows the promise wording and Governor's signature area on a physical note.
+    - which: Which visible wording connects it to the definitions above? → “I PROMISE TO PAY THE BEARER” connects the image to both the promise clause and bearer.
+      - how: How should the image be used without overreading it? → Use the legible promise and role label as evidence; do not infer a precise denomination from the obscured amount. _(outside the book)_
+  - **khola (unpack):**
+    - example / jagah: Printed banknote close-up beside the historical discussion.
+    - aage: Anchors the abstract definitions in visible note wording.
+    - screen par: Zoom into promise, bearer and signature.
+    - is level ke liye: Read only legible text; distinguish this photograph from the ₹1-note facts.
+  - prerequisites: promise clause; bearer
+- **p009-i29** · diagram_label · figure · image · exam medium
+  - Hindi promise and English “I PROMISE TO PAY THE BEARER THE SUM OF … HUNDRED RUPEES”: the printed payment promise, with the amount partly obscured.
+    - what: What do these lines label? → They are the promise printed on the illustrated note, in Hindi and English.
+    - which: Which English word identifies the person addressed? → The promise addresses the “BEARER”.
+      - how: How does that wording connect to possession? → It addresses the holder rather than naming a particular individual as payee. _(outside the book)_
+  - **khola (unpack):**
+    - example / jagah: Promise lines in the banknote photograph.
+    - aage: Visual evidence for the promise-clause definition.
+    - screen par: Underline “PROMISE” and “BEARER”.
+  - prerequisites: bearer
+- **p009-i30** · diagram_label · figure · image · exam medium
+  - “केन्द्रीय सरकार द्वारा प्रत्याभूत”: the Hindi guarantee wording below the promise area.
+    - what: What additional wording appears in the image? → The image includes Hindi wording stating a Central Government guarantee.
+    - which: Which area of the image contains it? → It appears below the Hindi promise, toward the lower left of the cropped note.
+      - how: How should this be distinguished from the promise clause? → The guarantee wording and the Governor's payment promise are related but separate printed elements; their presence should not be collapsed into one quotation. _(outside the book)_
+  - **khola (unpack):**
+    - प्रत्याभूत yaani जिसकी guarantee दी गई है · image: लिखी रकम के पीछे guarantee का भरोसा
+    - example / jagah: Lower-left wording in the photographed note.
+    - aage: Adds a visible institutional assurance beyond the promise text.
+    - screen par: Highlight the separate guarantee line.
+  - prerequisites: guarantee; Central Government
+- **p009-i31** · diagram_label · figure · image · exam high
+  - Signature above “GOVERNOR”: identifies the signatory's office on the illustrated note.
+    - what: What office is identified below the signature? → The visible label reads “GOVERNOR”.
+    - which: Which separately discussed note has a different signatory? → The page specifies the Finance Secretary of India as the signatory of the ₹1 note.
+      - how: How should a learner reconcile the image and the ₹1 bullet? → The photograph illustrates a Governor-signed note; it does not mean that the ₹1 note carries the same signature. _(outside the book)_
+  - **khola (unpack):**
+    - example / jagah: Signature and GOVERNOR label in the inset.
+    - aage: Reinforces the need to distinguish note categories.
+    - screen par: Circle GOVERNOR and contrast it with Finance Secretary.
+  - prerequisites: signatory; ₹1-note exception
+- **p009-i32** · heading · none · both
+  - Modern Currency:
+- **p009-i33** · list_point · comparison · both · exam high
+  - Not inflation adjusted value. Not linked with weight of gold or silver.
+    - compare: How does modern currency differ from the earlier metal-linked description? → The earlier description promises conversion into gold or silver; modern currency is described as not linked to a weight of either metal.
+    - difference: How is nominal face value different from inflation-adjusted value? → Nominal value is the printed rupee amount. Inflation-adjusted value accounts for how much goods and services that amount can buy as prices change. _(outside the book)_
+      - why: Why does a face-value guarantee not protect purchasing power? → It preserves the stated monetary amount, not the prices of goods. If prices rise, the same amount buys less. _(outside the book)_
+    - what: What two protections does the page say modern currency does not provide? → It is not inflation adjusted and is not linked to a weight of gold or silver.
+  - **khola (unpack):**
+    - inflation adjusted value yaani महँगाई बदलने पर खरीदने की ताकत के हिसाब से बदली रकम · image: पहले ₹100 में भरी थैली अब उसी ₹100 में आधी भरना
+    - kyon: Users care about both the rupee amount and what it buys. _[standard]_ → The page limits modern currency's promise: no inflation adjustment and no gold or silver weight link. _[book]_
+    - example / jagah: A ₹100 note whose printed value stays ₹100 while shopping prices change.
+    - aage: Trust in currency does not imply a fixed real value.
+    - screen par: Keep ₹100 fixed while the goods basket shrinks; disconnect a gold-weight link.
+    - is level ke liye: No metal-redemption link does not mean that an issuing institution holds no gold assets.
+  - prerequisites: inflation; face value; metal convertibility
+- **p009-i34** · list_point · definition · both · exam high
+  - Currency note is zero interest, anonymous bearer bond.
+    - what: Which three attributes does the book attach to the note? → It describes a currency note as zero interest, anonymous and bearer, using the expression “bearer bond”.
+    - evidence: Which earlier definition supports the bearer attribute? → The page has already defined bearer as the person who physically possesses the note and can use it.
+      - how: How should zero interest and anonymous be understood? → Holding a cash note does not itself earn interest, and the note is not registered in the holder's name. This does not mean that every cash transaction is untraceable. _(outside the book)_
+      - why: Why should the word bond be treated cautiously? → Here it is an economic shorthand for an issuer-backed bearer claim, not a reason to classify ordinary currency as a conventional investment bond with maturity and redemption terms. _(outside the book)_
+  - **khola (unpack):**
+    - zero interest yaani note अपने पास रखने भर से ब्याज नहीं मिलता · image: जेब का ₹100 note अगले महीने भी ₹100 ही रहता है
+    - anonymous yaani note पर उसे रखने वाले व्यक्ति का नाम दर्ज नहीं होता · image: एक ही note अलग हाथों में जाता है, उस पर नाम नहीं बदलता
+    - bearer bond yaani यहाँ ऐसा दावा समझाने का तरीका जिसे note रखने वाला इस्तेमाल करे · image: note हाथ बदलता है तो उसे खर्च करने वाला भी बदलता है
+    - kyon: Cash is designed for ready transfer rather than interest income. _[standard]_ → The book groups its non-interest-bearing, unnamed-holder and bearer features in one description. _[book]_
+    - example / jagah: A cash note held in a wallet and later handed to a seller.
+    - aage: Links the bearer definition to modern money while requiring care with financial and legal labels.
+    - screen par: Pass an unnamed note between hands while its amount stays unchanged.
+    - is level ke liye: Economic description and legal classification are not interchangeable.
+  - prerequisites: interest; bearer; named account ownership; bond as a financial claim
+
+## Page 10 · passed after 2 round(s)
+
+Currency notes are legally excluded from promissory notes. MANI identifies denominations accessibly. Demonetisation removes legal-tender status, unlike the 2023 ₹2,000 withdrawal. Historical events and Gresham’s Law complete the page.
+
+- **p010-i1** · paragraph · comparison · both · exam high
+  - An Indian currency note is not a promissory note in the legal sense, even though it contains a promise clause.
+    - compare: How does a currency note compare with a legal promissory note? → A promise clause appears on the currency note, but the page says this does not make it a promissory note in law.
+    - difference: What is the decisive legal distinction? → The quoted Section 4 definition expressly excludes bank-notes and currency-notes.
+      - why: Why is the presence of a promise insufficient? → Legal categories depend on the statutory definition, not simply on similar wording on two documents. _(outside the book)_
+  - **khola (unpack):**
+    - promise clause yaani नोट पर भुगतान का वादा लिखने वाला हिस्सा · image: किसी कागज़ पर पैसे लौटाने का वादा लिखा होना
+    - kyon: Similar wording can make two documents look legally identical. _[standard]_ → Section 4 excludes currency-notes, so wording alone cannot decide their category. _[book]_
+    - example / jagah: The promise printed on an Indian currency note.
+    - aage: Read the statutory exclusion before classifying the instrument.
+    - screen par: separate
+    - is level ke liye: Distinguish everyday meaning from legal meaning.
+  - prerequisites: currency note; a written promise to pay
+- **p010-i2** · definition · definition · both · exam high
+  - Section 4 of the Negotiable Instruments Act, 1881: A promissory note is: ”An instrument in writing (not being a bank-note or a currency-note) containing an unconditional undertaking.
+    - what: What elements of the definition are quoted? → It is a written instrument containing an unconditional undertaking, with bank-notes and currency-notes expressly excluded.
+    - evidence: Which provision supports the exclusion? → The page cites Section 4 of the Negotiable Instruments Act, 1881, especially the words 'not being a bank-note or a currency-note'.
+      - how: How should unconditional undertaking be understood? → It means a definite commitment not dependent on an uncertain condition, unlike 'I will pay if my business succeeds'. _(outside the book)_
+  - **khola (unpack):**
+    - unconditional undertaking yaani ऐसा पक्का वादा जिसके साथ कोई 'अगर' नहीं लगा है · image: 'पैसे दूँगा' और 'नौकरी मिली तो पैसे दूँगा' में फर्क
+    - kyon: A payment commitment needs a clear legal meaning. _[standard]_ → The quoted definition specifies writing and an unconditional undertaking while excluding currency-notes. _[book]_
+    - example / jagah: Compare an unconditional written payment promise with a currency note.
+    - aage: The statutory exception resolves the apparent contradiction in i1.
+    - screen par: highlight
+    - is level ke liye: Do not present this incomplete quotation as the whole statutory definition.
+  - prerequisites: written financial instrument; conditional versus unconditional promise
+- **p010-i3** · heading · none · both
+  - MANI App
+- **p010-i4** · list_point · timeline · both · exam high
+  - MANI (Mobile Aided Note Identifier): It is a free mobile app launched by the Reserve Bank of India on 1 January 2020.
+    - when: When and by whom was MANI launched? → The Reserve Bank of India launched the free Mobile Aided Note Identifier app on 1 January 2020.
+    - why: Why was the app introduced? → Its stated purpose is to help visually impaired persons independently identify Indian banknote denominations.
+      - how: How does a free mobile tool support this purpose? → It can reduce dependence on another person for reading a note’s value without charging an app purchase price. _(outside the book)_
+  - **khola (unpack):**
+    - MANI yaani फोन की मदद से नोट की कीमत पहचानने वाला app · image: फोन नोट देखकर उसकी रकम बताता है
+    - kyon: Reading a printed denomination can be difficult for someone with impaired vision. _[standard]_ → RBI launched a free identification app for independent use. _[book]_
+    - example / jagah: Identifying money received as change.
+    - aage: Links RBI’s currency role with accessibility.
+    - screen par: launch
+    - is level ke liye: Do not confuse the developer institution with a commercial bank.
+  - prerequisites: Reserve Bank of India; mobile app; banknote denomination
+- **p010-i5** · list_point · cause_effect · both · exam high
+  - To help visually impaired persons identify the denomination of Indian banknotes independently.
+    - why: Why is independent denomination identification important? → Reading printed values may be difficult for visually impaired users; independent identification reduces the need to ask another person. _(outside the book)_
+    - how: How does the page show MANI helping these users? → The graphic shows scanning either side of a banknote and providing denomination information through audio, with vibration for users with vision and hearing impairment.
+  - **khola (unpack):**
+    - denomination yaani नोट पर लिखी रकम, जैसे ₹100 या ₹500 · image: दुकान पर ₹100 और ₹500 का नोट अलग करना
+    - kyon: A user needs to know the value of money being received or paid. _[standard]_ → MANI helps visually impaired persons identify that value independently. _[book]_
+    - example / jagah: Checking a banknote before paying a shopkeeper.
+    - aage: Accessibility supports independent transactions.
+    - screen par: identify
+    - is level ke liye: Keep denomination recognition distinct from genuineness testing.
+  - prerequisites: denomination; visual impairment
+- **p010-i6** · list_point · facts_numbers · both · exam medium
+  - Android and iOS both.
+    - what: Which mobile platforms does MANI support? → The page lists both Android and iOS rather than restricting access to one platform.
+    - evidence: What wording supports cross-platform availability? → The explicit bullet says 'Android and iOS both.'
+      - why: Why does this matter for accessibility? → People using either major phone platform can use the tool without changing platforms for this purpose. _(outside the book)_
+  - **khola (unpack):**
+    - Android and iOS yaani फोन चलाने वाले दो अलग software platform · image: Android फोन और iPhone
+    - kyon: Users own different types of smartphones. _[standard]_ → Support for both platforms broadens access. _[standard]_
+    - example / jagah: Android phones and iPhones.
+    - aage: Platform choice is not restricted to one of these two systems.
+    - screen par: pair
+    - is level ke liye: A simple statement-combination fact.
+  - prerequisites: smartphone operating system
+- **p010-i7** · list_point · facts_numbers · both · exam high
+  - Works offline after installation
+    - what: What connectivity feature is stated? → Once installed, MANI can work offline.
+    - evidence: Where is this feature confirmed? → Both the bullet and the graphic explicitly say it works offline after installation.
+      - why: Why is offline operation useful? → Denomination identification need not depend on an active internet connection at the time of use. _(outside the book)_
+  - **khola (unpack):**
+    - offline yaani उस समय internet जुड़े बिना काम करना · image: फोन में पहले से रखी फोटो बिना data के खोलना
+    - kyon: A user may need to identify cash where connectivity is poor. _[standard]_ → Offline operation after installation removes that immediate connectivity dependence. _[standard]_
+    - example / jagah: A shop with weak mobile data coverage.
+    - aage: Do not interpret offline operation as requiring no initial installation.
+    - screen par: disconnect
+    - is level ke liye: The qualifying words 'after installation' matter.
+  - prerequisites: installation of an app; internet connectivity
+- **p010-i8** · list_point · facts_numbers · both · exam medium
+  - Supports 15 Languages, including Hindi and English
+    - what: What language support is stated? → The page reports 15 languages and names Hindi and English among them.
+    - evidence: Does the page list all 15 languages? → No; only Hindi and English are named, so the remaining languages cannot be enumerated from this page.
+      - why: Why does multilingual support matter? → An audio-based accessibility tool is more usable when the user understands the language of its output. _(outside the book)_
+  - **khola (unpack):**
+    - Supports 15 Languages yaani app में 15 भाषाओं का सहारा मिलता है · image: फोन में अपनी समझ की भाषा चुनना
+    - kyon: Users may not understand the same language. _[standard]_ → Multiple language options make the tool usable for more people. _[standard]_
+    - example / jagah: Hindi or English language use.
+    - aage: Accessibility includes language as well as sensory access.
+    - screen par: switch
+    - is level ke liye: Treat this as the book’s stated feature count.
+  - prerequisites: language of app output
+- **p010-i9** · diagram · figure · image
+  - Four feature panels in a two-by-two layout: camera icon—scans front or back of Indian banknotes; speaker icon—audio output for denomination; vibrating-phone icon—vibration for users with vision and hearing impairment; crossed wireless icon—offline operation after installation. No arrows or sequence are shown.
+- **p010-i10** · diagram_label · figure · image · exam medium
+  - Scans front or back of Indian banknotes.
+    - what: What does the camera panel show? → The note can be scanned from its front or its back.
+    - which: Which face must be used? → The label permits either face rather than specifying just one.
+      - how: How does scanning support identification? → A camera supplies an image from which the app can recognise the denomination. _(outside the book)_
+  - **khola (unpack):**
+    - Scans yaani camera से नोट की तस्वीर पढ़ता है · image: फोन का camera किसी कागज़ की ओर करना
+    - kyon: The app needs visual information about the banknote. _[standard]_ → Either side supplies an accepted scan according to the graphic. _[book]_
+    - example / jagah: Pointing the phone camera at a banknote.
+    - aage: Scanning is the input side of the identification function.
+    - screen par: scan
+    - is level ke liye: Do not infer authenticity certification from scanning.
+  - prerequisites: phone camera; two faces of a banknote
+- **p010-i11** · diagram_label · figure · image · exam high
+  - Provides audio output for denomination.
+    - what: What information is delivered through audio? → The output communicates the banknote’s denomination.
+    - which: Which icon represents this feature? → The speaker icon marks the audio-output panel.
+      - why: Why use sound rather than only on-screen text? → Sound allows a user who cannot easily read the screen to receive the note’s value. _(outside the book)_
+  - **khola (unpack):**
+    - audio output yaani जानकारी आवाज़ में सुनाई देना · image: फोन रकम बोलकर सुनाए
+    - kyon: A visual display may be difficult for the intended user to read. _[standard]_ → Audio makes denomination information available through hearing. _[standard]_
+    - example / jagah: Hearing a note’s value from a phone.
+    - aage: The user need not rely solely on sight.
+    - screen par: announce
+    - is level ke liye: Input is visual scanning; output can be audible.
+  - prerequisites: denomination; audio output
+- **p010-i12** · diagram_label · figure · image · exam high
+  - Uses vibration for users with vision and hearing impairment.
+    - what: What additional accessible output does the graphic identify? → It identifies vibration for users with both vision and hearing impairment.
+    - which: Which users are specifically associated with vibration? → The panel explicitly mentions users with vision and hearing impairment.
+      - why: Why add vibration when audio already exists? → Audio may not be accessible to a person with hearing impairment; vibration provides a touch-based signal. _(outside the book)_
+  - **khola (unpack):**
+    - vibration yaani फोन का कंपन, जिसे हाथ से महसूस कर सकें · image: silent mode में फोन का हाथ में हिलना
+    - kyon: Some users cannot readily use sight or hearing for feedback. _[standard]_ → Vibration offers a touch-based route for feedback. _[standard]_
+    - example / jagah: A vibrating phone held in the hand.
+    - aage: Accessibility is not limited to spoken output.
+    - screen par: vibrate
+    - is level ke liye: The page does not specify a vibration code; do not invent one.
+  - prerequisites: hearing impairment; phone vibration
+- **p010-i13** · diagram_label · figure · image · exam medium
+  - Works offline after installation.
+    - what: What does the crossed wireless panel communicate? → MANI works without an active internet connection after installation.
+    - which: Which qualification accompanies offline use? → The app must already have been installed.
+      - why: Why is this useful in daily transactions? → A user may need to identify cash even where mobile connectivity is unavailable. _(outside the book)_
+  - **khola (unpack):**
+    - kyon: Cash identification may be needed without internet access. _[standard]_ → The graphic confirms offline use after installation. _[book]_
+    - example / jagah: Checking cash in a low-connectivity location.
+    - aage: Connectivity loss need not prevent use.
+    - screen par: disconnect
+    - is level ke liye: Same feature as i7, captured separately to preserve the graphic.
+  - prerequisites: offline app use
+- **p010-i14** · heading · none · both
+  - Demonetization
+- **p010-i15** · definition · definition · both · exam high
+  - Demonetization means the REMOVAL of legal tender status of currency notes. It becomes invalid for transactions.
+    - what: What changes in demonetisation? → The note loses its legal-tender status; the page describes it as becoming invalid for transactions.
+    - evidence: Which words define the decisive test? → The page emphasises 'REMOVAL of legal tender status', not merely stopping printing or withdrawing notes.
+      - why: Why is legal-tender status more important than physical possession? → A person can still hold the paper note after its legal payment status changes; the policy changes its legal role, not its physical existence. _(outside the book)_
+  - **khola (unpack):**
+    - legal tender yaani पैसे के रूप में भुगतान के लिए कानून से मिली मान्यता · image: हाथ में रखा नोट और उसे भुगतान में मान्यता मिलना दो अलग बातें
+    - kyon: A currency policy can change a note’s legal payment status. _[standard]_ → Removal of that status is what the page calls demonetisation. _[book]_
+    - example / jagah: Existing ₹500 and ₹1,000 notes in the 2016 announcement.
+    - aage: Use legal status, not disappearance from circulation, as the test.
+    - screen par: remove
+    - is level ke liye: Avoid assuming that every withdrawn note is demonetised.
+  - prerequisites: legal tender; currency used for payment
+- **p010-i16** · list_point · timeline · both · exam high
+  - India has carried out three major demonetisations—in 1946, 1978, and 2016.
+    - when: Which three years does the book identify? → It lists 1946, 1978 and 2016 as India’s three major demonetisations.
+    - why: Why is 2023 not a fourth event in this list? → The page says the ₹2,000 notes withdrawn in 2023 remained legal tender.
+      - how: How can the chronology be retained without confusing events? → Attach each year to its government and affected denominations using the adjacent table, rather than memorising four years as equivalent events. _(outside the book)_
+  - **khola (unpack):**
+    - kyon: Different currency events can be confused when only years are memorised. _[standard]_ → Classify by legal-tender removal, keeping 2023 outside the three major demonetisations. _[book]_
+    - example / jagah: 1946 → 1978 → 2016.
+    - aage: The table adds the denomination and government associations.
+    - screen par: sequence
+    - is level ke liye: Keep pre-independence 1946 distinct from the later two events.
+  - prerequisites: demonetisation versus withdrawal
+- **p010-i17** · list_point · timeline · both · exam high
+  - 8 November 2016: PM Modi announced that existing: ₹500 notes and ₹1,000 notes would cease to be legal tender from midnight.
+    - when: When was the announcement made and when did the stated change take effect? → PM Modi announced it on 8 November 2016, with the existing ₹500 and ₹1,000 notes ceasing to be legal tender from midnight.
+    - why: Why does this event qualify as demonetisation? → The existing notes lost legal-tender status, which is the page’s defining criterion.
+      - which: Which wording prevents overgeneralisation to every ₹500 note? → The page specifies 'existing' notes in that announcement.
+  - **khola (unpack):**
+    - cease to be legal tender yaani भुगतान के पैसे के रूप में कानूनी मान्यता खत्म होना · image: रात के समय एक नोट की कानूनी स्थिति बदलने की समयरेखा
+    - kyon: A legal currency change needs an effective time and specified notes. _[standard]_ → The announcement names existing ₹500 and ₹1,000 notes and midnight. _[book]_
+    - example / jagah: 8 November 2016 announcement.
+    - aage: Introduces the need for replacement currency discussed below.
+    - screen par: switch
+    - is level ke liye: Do not add unstated policy objectives to this page’s account.
+  - prerequisites: legal-tender status; existing note series
+- **p010-i18** · list_point · cause_effect · both · exam high
+  - A withdrawal of ₹2,000 notes in 2023, which was not a demonetisation because the notes remained legal tender.
+    - why: Why was the 2023 ₹2,000 withdrawal not demonetisation? → The notes retained legal-tender status, so the defining removal of that status did not occur.
+    - how: How should withdrawal and demonetisation be distinguished? → Withdrawal concerns taking notes out of circulation; demonetisation concerns removing their legal-tender status. These need not coincide. _(outside the book)_
+      - compare: How does the page contrast 2016 and 2023? → The affected existing notes in 2016 ceased to be legal tender, whereas the withdrawn ₹2,000 notes in 2023 remained legal tender.
+  - **khola (unpack):**
+    - withdrawal yaani नोट को चलन से वापस लेने की कार्रवाई · image: नोट बैंक में लौट रहा है, लेकिन उसकी legal tender मान्यता अलग सवाल है
+    - kyon: A note can be taken out of circulation without cancelling its legal status. _[standard]_ → The page says ₹2,000 notes retained legal-tender status in the 2023 withdrawal. _[book]_
+    - example / jagah: 2023 withdrawal of ₹2,000 notes.
+    - aage: 2023 must not be counted with the three demonetisations.
+    - screen par: contrast
+    - is level ke liye: Test two separate propositions: circulation action and legal status.
+  - prerequisites: circulation of notes; legal-tender status
+- **p010-i19** · list_point · timeline · both · exam high
+  - 2016-Nov: RBI introduced ₹2000 note, to meet the currency requirement of the economy in an [a] faster manner after demonetisation of ₹500 and ₹1000
+    - when: When did RBI introduce the ₹2,000 note? → The page places its introduction in November 2016, following demonetisation of ₹500 and ₹1,000 notes.
+    - why: Why was the note introduced according to this page? → It was introduced to meet the economy’s currency requirement more quickly.
+      - how: How can a larger denomination help supply a given value of cash? → Fewer individual notes are needed: ₹2,000 of value requires one ₹2,000 note but four ₹500 notes. _(outside the book)_
+  - **khola (unpack):**
+    - currency requirement yaani लेन-देन के लिए अर्थव्यवस्था को जितनी नकदी चाहिए · image: दुकान, ग्राहक और मजदूरी देने के लिए नकदी चाहिए
+    - kyon: After demonetisation, the economy needed replacement currency. _[book]_ → A higher denomination supplies a given cash value through fewer pieces of paper. _[standard]_
+    - example / jagah: One ₹2,000 note compared with four ₹500 notes.
+    - aage: Introduces the first stage of the ₹2,000 note’s later printing and withdrawal timeline.
+    - screen par: replace
+    - is level ke liye: The arithmetic explains the stated rationale; it is not an additional quoted policy claim.
+  - prerequisites: denomination; cash replacement after demonetisation
+- **p010-i20** · list_point · timeline · both · exam high
+  - 2018–19: printing of ₹2000 banknotes was stopped.
+    - when: When does the page say printing stopped? → It gives 2018–19 for stopping the printing of ₹2,000 banknotes.
+    - why: Why should stopping printing not be read as demonetisation? → Stopping new production does not itself remove legal-tender status from notes already issued. _(outside the book)_
+      - how: How does this event fit the chronology? → It follows the November 2016 introduction and precedes the 2023 withdrawal described on the page.
+  - **khola (unpack):**
+    - printing yaani नए नोट बनाना · image: नई प्रतियाँ छापना बंद हो, फिर भी पुरानी प्रतियाँ मौजूद रहती हैं
+    - kyon: Students can confuse making new notes with the status of existing notes. _[standard]_ → A printing stop concerns fresh supply, not automatic cancellation of existing notes. _[standard]_
+    - example / jagah: ₹2,000 note printing in 2018–19.
+    - aage: Keep production, circulation and legal status as separate dimensions.
+    - screen par: stop
+    - is level ke liye: The page does not give a reason for stopping printing.
+  - prerequisites: printing versus circulation; legal tender
+- **p010-i21** · list_point · timeline · both · exam high
+  - 2023-May-23rd: RBI ordered people to get it exchanged with other notes.
+    - when: What date and instruction does the book print? → The page prints '2023-May-23rd' and says RBI ordered people to exchange the note with other notes.
+    - when: What is the correct distinction between the announcement and exchange dates? → RBI announced withdrawal of ₹2,000 notes on 19 May 2023. Exchange at bank branches began on 23 May 2023. The printed sentence misleadingly associates the latter date with an order to exchange. _(outside the book)_
+      - how: What options did holders have, and was everyone ordered to exchange notes? → Holders could deposit the notes into bank accounts or exchange them. This was not an order requiring everyone to exchange them for other notes, and the notes remained legal tender. _(outside the book)_
+    - why: Why does the page distinguish this withdrawal from demonetisation? → The accompanying text explicitly says the ₹2,000 notes remained legal tender; their legal-tender status was not removed.
+  - **khola (unpack):**
+    - exchanged yaani एक नोट देकर उतनी ही रकम के दूसरे नोट लेना · image: ₹2,000 के बदले चार ₹500 के नोट लेना
+    - deposit yaani नोट बैंक खाते में जमा करके उतनी रकम खाते में जुड़वाना · image: नकदी बैंक को देना और खाते का balance बढ़ना
+    - kyon: Withdrawal needs arrangements for holders to return notes without confusing return with cancellation of legal status. _[standard]_ → Holders could deposit or exchange ₹2,000 notes; branch exchange began on 23 May after the 19 May announcement, and the notes remained legal tender. _[standard]_
+    - example / jagah: A bank branch: deposit credits an account; exchange supplies equal-value notes.
+    - aage: Do not mistake the start of exchange for the withdrawal announcement, or treat exchange as the sole compulsory option.
+    - screen par: split dates and branch into deposit or exchange
+    - is level ke liye: Outside correction: 19 May = withdrawal announcement; 23 May = branch exchange commencement. Preserve the printed claim but do not teach its 'ordered people' wording as accurate.
+  - prerequisites: banknote deposit versus exchange; withdrawal versus demonetisation
+- **p010-i22** · table · timeline · image
+  - Columns: Year | Government | Currency affected. Four rows compare 1946, 1978, 2016 and 2023; the last is explicitly withdrawal, not demonetisation.
+- **p010-i23** · table_row · timeline · image · exam high
+  - Year: 1946 | Government: British India | Currency affected: ₹500, ₹1,000, ₹10,000
+    - when: Which event belongs to British India? → The table associates the 1946 event with British India and the ₹500, ₹1,000 and ₹10,000 denominations.
+    - why: Why is the government label important? → It locates this currency action before independence, preventing confusion with governments of independent India. _(outside the book)_
+      - compare: How does its denomination list differ from 1978? → Both lists include ₹1,000 and ₹10,000; 1946 lists ₹500, whereas 1978 lists ₹5,000.
+  - **khola (unpack):**
+    - kyon: Repeated denominations across events make year-matching difficult. _[standard]_ → Attach the 1946 set to British India as one memory unit. _[standard]_
+    - example / jagah: 1946: ₹500, ₹1,000, ₹10,000.
+    - aage: Creates a contrast with the 1978 set.
+    - screen par: align
+    - is level ke liye: ₹500 versus ₹5,000 is the key contrast with 1978.
+  - prerequisites: British India; banknote denominations
+- **p010-i24** · table_row · timeline · image · exam high
+  - Year: 1978 | Government: Morarji Desai | Currency affected: ₹1,000, ₹5,000, ₹10,000
+    - when: Which event does the table associate with Morarji Desai? → The 1978 event affected ₹1,000, ₹5,000 and ₹10,000 notes.
+    - why: Why should this row not be merged with 2016? → The table gives different governments and different sets: 1978 includes ₹5,000 and ₹10,000, while 2016 lists ₹500 and ₹1,000.
+      - how: How can the denomination set be remembered? → Associate 1978 with the three listed high denominations, 1,000–5,000–10,000, rather than borrowing the familiar 2016 pair. _(outside the book)_
+  - **khola (unpack):**
+    - kyon: The familiar 2016 pair can overshadow earlier denomination sets. _[standard]_ → Link Morarji Desai and 1978 directly to 1,000–5,000–10,000. _[standard]_
+    - example / jagah: 1978 row of the table.
+    - aage: Supports accurate matching questions.
+    - screen par: group
+    - is level ke liye: The page does not explain the policy motive for 1978.
+  - prerequisites: demonetisation chronology; denomination values
+- **p010-i25** · table_row · timeline · image · exam high
+  - Year: 2016 | Government: Narendra Modi | Currency affected: ₹500, ₹1,000
+    - when: Which denomination pair belongs to 2016? → The table associates Narendra Modi’s government in 2016 with ₹500 and ₹1,000 notes.
+    - why: Why is ₹2,000 not an affected denomination in this row? → The page describes ₹2,000 as introduced after the demonetisation of ₹500 and ₹1,000, rather than demonetised in that event.
+  - **khola (unpack):**
+    - kyon: Notes removed and notes introduced can be confused within the same year. _[standard]_ → The table lists ₹500 and ₹1,000 as affected; the text separately records ₹2,000 introduction. _[book]_
+    - example / jagah: 2016 currency change.
+    - aage: Aligns the table with the detailed 8 November bullet.
+    - screen par: match
+    - is level ke liye: Retain the text’s qualifier 'existing' when explaining the affected notes.
+  - prerequisites: 2016 demonetisation; replacement currency
+- **p010-i26** · table_row · timeline · image · exam high
+  - Year: 2023 | Government: Narendra Modi | Currency affected: ₹2,000 withdrawn (not demonetised)
+    - when: What currency event does the table place in 2023? → Under Narendra Modi, ₹2,000 notes were withdrawn, explicitly marked 'not demonetised'.
+    - why: Why is the parenthetical qualification essential? → The accompanying text says the notes remained legal tender, so this row is not a fourth demonetisation.
+  - **khola (unpack):**
+    - kyon: A historical table can visually suggest that all rows describe equivalent events. _[standard]_ → The parenthesis explicitly excludes 2023 from demonetisation. _[book]_
+    - example / jagah: The 2023 ₹2,000 withdrawal.
+    - aage: Preserves the three-event demonetisation count.
+    - screen par: distinguish
+    - is level ke liye: Read qualifications inside cells, not just column headings.
+  - prerequisites: withdrawal versus demonetisation
+- **p010-i27** · heading · none · both
+  - Gresham’s Law
+- **p010-i28** · definition · definition · both · exam high
+  - It states that "bad money drives out good money" when both are accepted as legal tender at the same face value.
+    - what: What does Gresham’s Law state here? → When both monies are legal tender at the same face value, bad money drives good money out of circulation.
+    - evidence: What condition qualifies the slogan on this page? → Both must be accepted as legal tender at the same face value; the following bullets add fixed exchange value and intrinsic undervaluation.
+      - why: Why would people spend bad money and keep good money? → If both settle the same payment but one contains more valuable material, people have an incentive to spend the less intrinsically valuable money and retain, melt or otherwise remove the more valuable money from ordinary circulation. _(outside the book)_
+        - how: How should bad and good be interpreted? → They refer to relative intrinsic value under the legal valuation, not necessarily counterfeit versus genuine or physically dirty versus clean notes. _(outside the book)_
+  - **khola (unpack):**
+    - face value yaani पैसे पर लिखी रकम · image: सिक्के पर ₹10 लिखा होना
+    - bad money yaani एक ही कानूनी कीमत पर चलने वाला, अंदर की सामग्री के हिसाब से कम मूल्य वाला पैसा · image: बराबर भुगतान कराने वाले दो सिक्कों में कम कीमत की धातु वाला सिक्का
+    - kyon: A payer can settle the same amount with two legally equal monies of different intrinsic worth. _[standard]_ → Spending the less valuable one and saving the more valuable one reduces good money in circulation. _[standard]_
+    - example / jagah: Hypothetical equal-face-value coins with different metal values.
+    - aage: Explains why the law requires specific valuation conditions.
+    - screen par: spend-and-retain
+    - is level ke liye: Bad money is not shorthand for counterfeit currency.
+  - prerequisites: legal tender; face value; intrinsic value; circulation
+- **p010-i29** · paragraph · none · both
+  - It requires:
+- **p010-i30** · list_point · cause_effect · both · exam high
+  - Both currencies are legal tender.
+    - why: Why does the law require both monies to be legal tender? → Its spending incentive depends on the less intrinsically valuable money still being legally usable to discharge the same payment. _(outside the book)_
+    - how: How does the page state this condition? → It explicitly requires both currencies to be legal tender and describes both as accepted at the same face value.
+  - **khola (unpack):**
+    - Both currencies yaani तुलना में लिए गए दोनों तरह के पैसे · image: एक भुगतान के लिए हाथ में दो तरह के सिक्के
+    - kyon: The payer needs a legally usable payment option. _[standard]_ → If both qualify, the cheaper intrinsic option can be spent instead. _[standard]_
+    - example / jagah: Two hypothetical legally accepted coin types.
+    - aage: Legal usability creates the basis for substitution in payments.
+    - screen par: accept
+    - is level ke liye: This condition is about legal status, not physical appearance.
+  - prerequisites: legal tender; Gresham’s Law
+- **p010-i31** · list_point · cause_effect · both · exam high
+  - The government fixes their exchange value.
+    - why: Why does fixed exchange value matter? → A fixed legal valuation can prevent the more intrinsically valuable money from receiving a correspondingly higher payment value, creating an incentive to retain it. _(outside the book)_
+    - how: How does the government enter the page’s statement? → The page makes government-fixed exchange value a required condition of the law.
+      - exception: What if exchange values can adjust to intrinsic worth? → The stated mechanism may not operate in the same way because the more valuable money can command a higher exchange value instead of being legally undervalued. _(outside the book)_
+  - **khola (unpack):**
+    - exchange value yaani एक पैसे के बदले दूसरे पैसे की तय रकम · image: दो तरह के सिक्कों के बीच सरकार की तय बराबरी
+    - kyon: Different material worth would otherwise allow different exchange prices. _[standard]_ → A fixed legal value can preserve a mismatch that rewards retaining the better money. _[standard]_
+    - example / jagah: Hypothetical legally equal coins containing different quantities of valuable metal.
+    - aage: Connects the legal rule to intrinsic undervaluation in the next condition.
+    - screen par: fix
+    - is level ke liye: Contrast fixed valuation with an adjustable market exchange value.
+  - prerequisites: exchange value; legal valuation versus material value
+- **p010-i32** · list_point · cause_effect · both · exam high
+  - One currency is undervalued relative to its intrinsic value.
+    - why: Why does intrinsic undervaluation drive good money out? → If money’s material worth exceeds what its legal valuation recognises relative to the other money, spending it sacrifices value that can be preserved by retaining it. _(outside the book)_
+    - how: How does this condition complete the mechanism? → Legal equivalence creates a choice, and the intrinsic-value mismatch makes spending the less valuable money more attractive. _(outside the book)_
+    - what: What mismatch does the page require? → One currency must be undervalued relative to its intrinsic value.
+      - consequence: What does drives out mean for the good money? → It tends to be withheld from ordinary circulation, not necessarily destroyed or made illegal. _(outside the book)_
+  - **khola (unpack):**
+    - intrinsic value yaani पैसे की अपनी सामग्री का मूल्य, जैसे सिक्के में धातु की कीमत · image: सिक्के पर लिखी रकम से अलग उसकी चाँदी की कीमत
+    - undervalued yaani असल सामग्री के मूल्य की तुलना में कम कीमत पर माना गया · image: महँगी धातु वाला सिक्का भी साधारण सिक्के जितना भुगतान कराए
+    - kyon: A holder does not want to give up more material value for the same payment. _[standard]_ → The undervalued better money is retained while the less valuable alternative is spent. _[standard]_
+    - example / jagah: Hypothetical equal-face-value coins with unequal metal worth.
+    - aage: Completes the explanation of why good money leaves circulation under the listed conditions.
+    - screen par: retain
+    - is level ke liye: Separate intrinsic value from printed denomination; neither means counterfeit status.
+  - prerequisites: intrinsic value; face value; fixed exchange value
+
+## Page 11 · passed after 2 round(s)
+
+With equal face values, people retain purer coins and spend debased coins. Bank money consists of transferable bank deposits; the page introduces the Negotiable Instruments Act, 1881, and distinguishes promissory notes, bills of exchange and cheques, with examples and parties.
+
+- **p011-i1** · list_point · cause_effect · both · exam high
+  - o People are free to choose which one to spend.
+    - why: Why does freedom to choose the coin matter? → The subsequent example depends on people retaining older, purer coins while spending the debased ones.
+      - how: How does this choice alter circulation? → When the better-metal coin and the poorer-metal coin discharge the same payment, keeping the better-metal coin preserves more metal value without sacrificing purchasing power in that payment. _(outside the book)_
+  - **khola (unpack):**
+    - spend yaani भुगतान में पैसा दूसरे को दे देना · image: दुकानदार को दो में से एक सिक्का देना
+    - kyon: A payment must be made and the holder can choose the coin. _[book]_ → Equal payment value makes retaining the more valuable metal attractive. _[standard]_
+    - example / jagah: The England example below.
+    - aage: Individual choices change which coins remain in everyday use.
+    - screen par: choose one coin and retain the other
+    - is level ke liye: Separate the conditions of the mechanism from its outcome.
+  - prerequisites: face value of a coin; metal value of a coin
+- **p011-i2** · diagram · comparison · both
+  - Comparison box: Good Money on the left; '➔ Everyday circulation ➔' in the centre; Bad Money on the right. Good money has high intrinsic value and people hoard or melt it. Bad money has lower intrinsic value and people spend it. The arrows visually associate everyday circulation with bad money; they do not depict good coins physically becoming bad coins.
+- **p011-i3** · diagram_label · comparison · both · exam high
+  - Good Money ➔ Everyday circulation ➔ Bad Money
+    - compare: What does the diagram compare? → It contrasts high-intrinsic-value money that people retain or melt with lower-intrinsic-value money that they spend.
+    - difference: What differs in their circulation outcomes? → Good money is withdrawn by hoarding or melting, whereas bad money is used for payments.
+      - why: Why should the arrows not be taught as conversion of one coin into another? → The explanations on either side describe different uses of two kinds of money, not a manufacturing sequence.
+  - **khola (unpack):**
+    - Everyday circulation yaani रोज़ के लेन-देन में पैसे का हाथ बदलना · image: ग्राहक से दुकानदार और दुकानदार से सप्लायर तक सिक्का जाना
+    - kyon: People need coins for payment. _[standard]_ → They spend lower-intrinsic-value coins and retain the higher-value ones. _[book]_
+    - example / jagah: Henry VIII's England.
+    - aage: Circulation becomes dominated by debased coins.
+    - screen par: separate stored coins from circulating coins
+    - is level ke liye: The diagram concerns circulation, not a change in face value.
+  - prerequisites: intrinsic value; circulation of money
+- **p011-i4** · diagram_label · comparison · both · exam high
+  - High intrinsic value People hoard or melt it
+    - compare: How does good money compare with bad money? → Its intrinsic value is higher; the bad-money side explicitly has lower intrinsic value.
+    - difference: How is its treatment different? → People hoard or melt good money instead of spending it as they do bad money.
+      - why: Why can melting or hoarding be attractive? → Intrinsic value is the value of the material in the coin. A holder may preserve that metal value by storing the coin or recovering its metal. _(outside the book)_
+  - **khola (unpack):**
+    - intrinsic value yaani सिक्के में लगी धातु की अपनी कीमत · image: चाँदी का सिक्का तौलकर उसकी चाँदी की कीमत सोचना
+    - hoard yaani खर्च करने के बजाय जमा करके रख लेना · image: पुराने चाँदी के सिक्के डिब्बे में बचाकर रखना
+    - kyon: The holder wants to preserve the more valuable metal. _[standard]_ → Good money is hoarded or melted and leaves payment use. _[book]_
+    - example / jagah: Older, purer coins in England.
+    - aage: High-value coins become scarce in circulation.
+    - screen par: move purer coins into storage or a melting pot
+    - is level ke liye: Distinguish intrinsic value from the denomination stamped on the coin.
+  - prerequisites: metal content of coins; face value
+- **p011-i5** · diagram_label · comparison · both · exam high
+  - Lower intrinsic value
+People spend it
+    - compare: How does bad money compare with good money? → It has lower intrinsic value but is the money people spend.
+    - difference: What difference appears in the holder's decision? → The lower-metal-value coin is passed on, while the higher-metal-value coin is kept or melted.
+      - why: Why spend the lower-metal-value coin? → If both coins settle the same face-value payment, spending the lower-metal-value one gives up less valuable metal. _(outside the book)_
+  - **khola (unpack):**
+    - Bad Money yaani यहाँ ऐसी money जिसकी धातु की कीमत कम है · image: एक ही लिखी कीमत वाले दो सिक्कों में कम चाँदी वाला सिक्का
+    - kyon: Payment can be made without giving up the better metal. _[standard]_ → People spend lower-intrinsic-value money. _[book]_
+    - example / jagah: Debased English silver coins.
+    - aage: Mostly debased coins remain in circulation.
+    - screen par: pass the lower-metal coin between buyers and sellers
+    - is level ke liye: Do not equate 'bad' with fake or unacceptable.
+  - prerequisites: face value; intrinsic value
+- **p011-i6** · example · timeline · both · exam medium
+  - • England in the 16th century provides the classic example. During the reign of Henry VIII, many silver coins were debased by reducing their silver content.
+    - when: When and where did this example occur? → In sixteenth-century England during Henry VIII's reign.
+    - what: What change was made to the coins? → Their silver content was reduced, making them debased silver coins.
+      - why: Why does reducing silver content matter for this example? → Reducing precious-metal content lowers the metal value of a coin and creates a difference between purer and debased coins. _(outside the book)_
+  - **khola (unpack):**
+    - debased yaani सिक्के में कीमती धातु का हिस्सा घटा दिया गया · image: सिक्के का आकार वही, लेकिन उसमें चाँदी कम
+    - kyon: Coins of different purity must be compared. _[standard]_ → Henry VIII's coins had reduced silver content, supplying the lower-metal-value kind. _[book]_
+    - example / jagah: England, sixteenth century, Henry VIII.
+    - aage: Sets up the choice between old purer coins and new debased coins.
+    - screen par: reduce the silver portion inside a coin
+    - is level ke liye: The page does not state why Henry VIII chose debasement.
+  - prerequisites: silver as a coin metal; intrinsic value
+- **p011-i7** · list_point · cause_effect · both · exam high
+  - • Since old and new coins had the same face value, people hoarded the older, purer coins, leaving mostly debased coins in circulation.
+    - why: Why were the purer coins hoarded? → Old and new coins had the same face value, so people retained the older, purer coins and left mostly debased coins circulating.
+      - how: How does equal face value create the incentive? → The same stated payment can be made with either coin. Spending the debased coin lets the holder keep more valuable metal in the purer coin. _(outside the book)_
+    - consequence: What was the circulation outcome? → Mostly debased coins remained in circulation, not necessarily the disappearance of every purer coin.
+  - **khola (unpack):**
+    - face value yaani सिक्के पर लिखी या तय की गई कीमत · image: धातु अलग होने पर भी दोनों सिक्कों पर एक ही रकम लिखी होना
+    - kyon: Old and new coins settle the same face-value payment. _[book]_ → People retain purer coins, leaving mostly debased coins circulating. _[book]_
+    - example / jagah: Old and new English silver coins.
+    - aage: Explains the good-money/bad-money diagram.
+    - screen par: hold face value fixed while separating coins by purity
+    - is level ke liye: This is the standard mechanism associated with Gresham's law; that name is outside the printed page.
+  - prerequisites: face value versus intrinsic value; hoarding; debasement
+- **p011-i8** · heading · none · both
+  - Bank Money / Deposit Money
+- **p011-i9** · definition · definition · both · exam high
+  - • It is the money that exists as deposits in bank accounts and is transferred through banking instruments rather than as physical cash.
+    - what: What is bank or deposit money? → It is money held as bank-account deposits, transferred through banking instruments instead of being handed over as cash.
+    - evidence: Which feature distinguishes it from physical cash on this page? → The money exists in an account, and payment uses banking instruments rather than physical cash.
+      - how: How can a payment occur without handing over notes? → A bank-mediated payment changes the relevant account balances; the transfer instruction is distinct from the deposit money being transferred. _(outside the book)_
+  - **khola (unpack):**
+    - Deposit Money yaani bank account में रकम के रूप में मौजूद पैसा · image: फोन पर bank balance दिखना, जेब में उतने नोट न होना
+    - kyon: People need to pay without moving physical cash. _[standard]_ → Bank deposits can be transferred through banking instruments. _[book]_
+    - example / jagah: An account-to-account payment.
+    - aage: Introduces the channels and instruments listed below.
+    - screen par: shift balances between two accounts
+    - is level ke liye: An app or card is a means of access or instruction, not the account deposit itself.
+  - prerequisites: bank account balance; cash payment
+- **p011-i10** · list_point · facts_numbers · both · exam high
+  - • It forms the largest part of the modern money supply.
+    - what: What role does bank money have in modern money supply? → The page identifies it as the largest component of modern money supply.
+    - evidence: Does the page provide a percentage or dated data? → No; it gives a qualitative largest-part claim, without a numerical share.
+      - why: Why should students not identify the whole money supply with cash? → Money held in transferable bank deposits can support payments even though no notes or coins change hands. _(outside the book)_
+  - **khola (unpack):**
+    - money supply yaani अर्थव्यवस्था में मौजूद पैसे की कुल मात्रा · image: नकदी के ढेर के साथ bank balances का बड़ा हिस्सा जोड़ना
+    - kyon: Counting money requires looking beyond notes and coins. _[standard]_ → The page identifies deposit money as the largest part. _[book]_
+    - example / jagah: Modern bank-based payments.
+    - aage: Bank deposits are central to understanding modern money.
+    - screen par: highlight the largest deposit-money segment
+    - is level ke liye: Avoid unsupported numerical shares or specific aggregate definitions.
+  - prerequisites: money supply; bank deposits
+- **p011-i11** · list_point · classification · both · exam high
+  - • Payments can be made through cheques, UPI, debit cards, NEFT, RTGS, and other banking channels.
+    - which: Which payment means does the page list? → Cheques, UPI, debit cards, NEFT and RTGS, together with other banking channels.
+    - difference: How does this list differ from the Act's three instruments? → The payment-channel list includes UPI, debit cards, NEFT and RTGS; the Act discussion lists promissory notes, bills of exchange and cheques.
+      - how: How do these channels relate to bank money? → They provide ways to initiate or carry out payment using bank deposits; the deposit is the money, while the channel enables its use. _(outside the book)_
+    - what: What is UPI, and where would a learner use it? → UPI stands for Unified Payments Interface. It enables instant payments between bank accounts through participating apps. Scanning a shopkeeper's QR code and authorising payment is a familiar use. _(outside the book)_
+      - how: How does a debit card enable payment? → A debit card accesses funds in its linked bank account. When used to pay at a shop or online, the payment draws on that account rather than providing a credit-card-style borrowing facility. It can also be used to withdraw cash at an ATM. _(outside the book)_
+    - what: What is NEFT, and how are its transfers processed? → NEFT stands for National Electronic Funds Transfer. It transfers funds between bank accounts through settlement in batches at half-hourly intervals. A familiar use is sending money to another person's bank account using account details and an IFSC. _(outside the book)_
+    - what: What is RTGS, and how is its settlement different? → RTGS stands for Real Time Gross Settlement. Transfers are settled individually, transaction by transaction, in real time rather than being accumulated into batches. It is used for large-value account transfers, such as a substantial business payment. _(outside the book)_
+      - difference: What does 'gross' add to 'real time' in RTGS? → 'Real time' concerns processing without waiting for a later batch; 'gross' means each transfer is settled individually rather than being combined with other transfers for net settlement. _(outside the book)_
+      - why: Why should instant UPI payment and RTGS not be treated as identical descriptions? → UPI describes an interface enabling instant payments; RTGS identifies a settlement system characterised by real-time, individual gross settlement. An instant customer payment does not by itself establish that the transaction uses RTGS. _(outside the book)_
+    - compare: How should an exam statement matching these four channels to their defining features be checked? → Match UPI with instant app-enabled payments, debit cards with access to linked account funds, NEFT with batch settlement, and RTGS with individual real-time gross settlement. A statement assigning batch processing to RTGS reverses the distinction. These channels should not be classified as negotiable instruments merely because they enable payment. _(outside the book)_
+  - **khola (unpack):**
+    - banking channels yaani bank के जरिए भुगतान करने के अलग-अलग रास्ते · image: दुकान पर UPI से या debit card से भुगतान करना
+    - UPI yaani Unified Payments Interface: app के जरिए bank accounts के बीच तुरंत भुगतान की सुविधा · image: चाय की दुकान पर QR scan करके भुगतान करना
+    - debit cards yaani linked bank account में मौजूद पैसे से भुगतान करने वाले cards · image: किराने की दुकान की machine पर card लगाकर account से रकम देना
+    - NEFT yaani National Electronic Funds Transfer: transfers को तय अंतराल पर समूहों में settle करने की व्यवस्था · image: अलग-अलग आए transfer निर्देशों को एक batch की ट्रे में रखना
+    - RTGS yaani Real Time Gross Settlement: हर transfer को अलग-अलग, real time में settle करने की व्यवस्था · image: हर payment की अलग पर्ची तुरंत निपटाना, batch का इंतज़ार नहीं
+    - settlement yaani banks के बीच रकम के transfer का हिसाब पूरा होना · image: दो banks के बीच भुगतान का हिसाब पूरा करके टिक लगाना
+    - kyon: A bank balance needs a channel through which its holder can make a payment. _[standard]_ → Different channels offer different ways to access funds or process transfers; instant access, batch settlement and individual real-time settlement must therefore be distinguished. _[standard]_
+    - example / jagah: Outside illustrations: UPI for a QR payment at a shop; debit card for a purchase using account funds; NEFT for an account transfer processed in a batch; RTGS for a large business transfer settled individually.
+    - aage: The book's list becomes a set of distinguishable payment methods, not a list of synonyms or of negotiable instruments.
+    - screen par: branch one account into channels; contrast a QR payment, card access, a batch tray and individually settled transfers
+    - is level ke liye: The channel names are from the book; acronym expansions, everyday uses and processing distinctions are outside textbook explanations. NEFT batch processing does not mean it operates only during branch opening hours. Do not infer RTGS settlement merely from an instant UPI confirmation.
+  - prerequisites: bank money; payment instruction; bank account balance; settlement as completion of a funds transfer
+- **p011-i12** · heading · none · both
+  - • Negotiable Instruments Act, 1881 (NIA):
+- **p011-i13** · definition · definition · both · exam high
+  - o A negotiable instrument is a written document that promises or orders payment of a specified sum and can be transferred from one person to another.
+    - what: What is a negotiable instrument? → A transferable written document containing a promise or an order to pay a specified sum.
+    - evidence: Which identifying features does the definition supply? → It is written, concerns a specified payment, uses a promise or order, and can pass from one person to another.
+      - why: Why is 'negotiable' not simply bargaining over price? → Here the word concerns transfer of the instrument and the associated payment right, not haggling over how much to pay. _(outside the book)_
+  - **khola (unpack):**
+    - negotiable yaani यहाँ ऐसा जिसे एक व्यक्ति से दूसरे को transfer किया जा सके · image: भुगतान का हक देने वाला कागज़ दूसरे व्यक्ति को सौंपना
+    - specified sum yaani स्पष्ट रूप से तय की गई रकम · image: कागज़ पर ₹50,000 लिखा होना
+    - kyon: A payment claim needs a clear written form. _[standard]_ → The instrument records a specified promise or order and can be transferred. _[book]_
+    - example / jagah: The promissory note and bill examples below.
+    - aage: Creates a shared definition for the three instruments.
+    - screen par: write an amount and pass the document
+    - is level ke liye: Negotiability does not mean the payment amount is open to bargaining.
+  - prerequisites: written payment obligation; transfer of a right
+- **p011-i14** · list_point · cause_effect · both · exam high
+  - o Provides legal framework for cheques, bills of exchange, promissory notes, making them transferable (negotiable) and legally enforceable.
+    - why: Why is a legal framework relevant to payment documents? → The page links the Act to transferability and legal enforceability of cheques, bills of exchange and promissory notes.
+    - how: How does enforceability differ from merely writing a promise? → Legal enforceability means a recognised obligation may be pursued through legal remedies; writing words alone does not explain the rights and remedies attached to them. _(outside the book)_
+      - exception: Does legal enforceability guarantee actual payment? → No. A legally recognised claim can still face non-payment; enforcement and guaranteed availability of funds are different matters. _(outside the book)_
+  - **khola (unpack):**
+    - legally enforceable yaani जिस हक या ज़िम्मेदारी के लिए कानून की मदद ली जा सके · image: भुगतान न मिलने पर लिखे दस्तावेज़ के आधार पर कानूनी दावा करना
+    - kyon: A person accepting a payment document needs recognised rights. _[standard]_ → The Act supplies the framework for negotiability and enforceability. _[book]_
+    - example / jagah: A cheque or promissory note used for payment.
+    - aage: Connects private payment documents to legal obligations.
+    - screen par: attach a legal-rights frame to the document
+    - is level ke liye: The year 1881 belongs to this statute, not to the invention of each instrument.
+  - prerequisites: legal obligation; negotiable instrument
+- **p011-i15** · list_point · classification · both · exam high
+  - o 3 instruments are covered under this Act:
+    - which: Which three instruments are listed? → Promissory note, bill of exchange and cheque.
+    - difference: What is their basic distinction in the panel? → A promissory note is a written promise, a bill of exchange a written order, and a cheque a bill of exchange drawn on a bank.
+      - how: How can the three be remembered without treating them as unrelated categories? → First distinguish a promise from an order, then place the cheque within the bill-of-exchange idea using its bank connection.
+  - **khola (unpack):**
+    - instruments yaani यहाँ भुगतान का वादा या आदेश दर्ज करने वाले दस्तावेज़ · image: तीन अलग नाम वाले भुगतान के कागज़
+    - kyon: Written payment arrangements must be distinguished. _[standard]_ → The page groups three instruments by promise, order and bank-drawn order. _[book]_
+    - example / jagah: The three-card panel directly below.
+    - aage: Provides the map for the detailed subsections.
+    - screen par: sort documents into promise and order
+    - is level ke liye: UPI, NEFT and RTGS do not appear in this three-instrument list.
+  - prerequisites: promise versus order; bank
+- **p011-i16** · diagram · comparison · image
+  - Three side-by-side rounded cards, without connecting arrows: Promissory Note — Written promise to pay.; Bill of Exchange — Written order to pay.; Cheque — Bill of exchange drawn on a bank. Each card has a small blue document-style icon.
+- **p011-i17** · diagram_label · definition · image · exam high
+  - Promissory Note
+Written promise to pay.
+    - what: What identifies the left-card instrument? → It records a promise to pay, rather than directing someone else to pay.
+    - evidence: What wording in the page's example demonstrates a promise? → 'I promise to pay Rahul' expresses the writer's own undertaking.
+      - how: How can a learner recognise the promise form? → Look for the payer undertaking payment personally, rather than an issuer instructing a drawee. _(outside the book)_
+  - **khola (unpack):**
+    - promise yaani खुद भुगतान करने का वादा · image: मैं तुम्हें रकम दूँगा, ऐसा लिखना
+    - kyon: A payer needs to record a personal payment undertaking. _[standard]_ → The promissory note supplies the written promise form. _[book]_
+    - example / jagah: Rahul's ₹50,000 example.
+    - aage: Contrasts with the order on the next card.
+    - screen par: highlight 'I promise'
+    - is level ke liye: Connect the promise-maker to the term Maker.
+  - prerequisites: written promise
+- **p011-i18** · diagram_label · definition · image · exam high
+  - Bill of Exchange
+Written order to pay.
+    - what: What identifies a bill of exchange in the panel? → It is a written payment order, unlike a promissory note's promise.
+    - evidence: What later example shows the order form? → The wholesaler orders the retailer to pay ₹1 lakh after 90 days.
+      - how: How does an order differ from a personal promise? → The issuer directs another party to make payment instead of saying that the issuer personally promises to pay. _(outside the book)_
+  - **khola (unpack):**
+    - order yaani किसी को भुगतान करने का लिखित निर्देश · image: दुकानदार को लिखा संदेश: इस व्यक्ति को रकम दो
+    - kyon: Payment may need to be directed to another party. _[standard]_ → A bill records the written order to pay. _[book]_
+    - example / jagah: Wholesaler directing a retailer.
+    - aage: Introduces drawer, drawee and payee roles.
+    - screen par: send a payment instruction
+    - is level ke liye: An order has an issuer and an addressee.
+  - prerequisites: payment instruction
+- **p011-i19** · diagram_label · definition · image · exam high
+  - Cheque
+Bill of exchange drawn on a bank.
+    - what: What is a cheque according to the visible card? → A cheque is a bill of exchange drawn on a bank.
+    - evidence: What feature distinguishes this card from the general bill card? → It specifically names a bank as the institution on which the bill is drawn.
+      - how: How should 'drawn on a bank' be understood? → The payment order is addressed to the bank, making the bank the drawee. _(outside the book)_
+  - **khola (unpack):**
+    - drawn on a bank yaani भुगतान का निर्देश bank को दिया गया है · image: account holder का cheque bank के पास भुगतान के लिए पहुँचना
+    - kyon: A customer needs the bank to make a payment. _[standard]_ → The cheque is a bill of exchange drawn on that bank. _[book]_
+    - example / jagah: A cheque used to pay from a bank account.
+    - aage: Links bank money to negotiable instruments.
+    - screen par: route the written order to a bank
+    - is level ke liye: The detailed cheque subsection begins below and continues beyond this page.
+  - prerequisites: bill of exchange; bank account; drawee
+- **p011-i20** · heading · none · both
+  - Negotiable Instruments
+- **p011-i21** · heading · none · both
+  - 1. Promissory Note
+- **p011-i22** · definition · definition · both · exam high
+  - • A promissory note is a written promise by one person to pay another person a certain amount.
+    - what: What relationship does a promissory note record? → One person makes a written undertaking to pay a certain amount to another person.
+    - evidence: What features distinguish the definition? → A written personal promise, another person as recipient, and a certain amount to be paid.
+      - why: Why is a mere statement that money is owed different from an express promise? → Acknowledging a debt describes a situation, while promising to pay expresses an undertaking to make payment. _(outside the book)_
+  - **khola (unpack):**
+    - Promissory Note yaani एक व्यक्ति का दूसरे को तय रकम देने का लिखित वादा · image: मैं राहुल को रकम दूँगा, ऐसा लिखा कागज़
+    - kyon: A future payment needs a recorded undertaking. _[standard]_ → The payer writes a promise to pay a certain amount. _[book]_
+    - example / jagah: The Rahul example immediately below.
+    - aage: The promisor and recipient become the Maker and Payee roles.
+    - screen par: write a promise from payer to recipient
+    - is level ke liye: Do not replace 'promise' with 'order' in statement questions.
+  - prerequisites: payer and recipient; written undertaking
+- **p011-i23** · example · definition · both · exam high
+  - • Example: "I promise to pay Rahul ₹50,000 on 1 January.”
+    - what: What does the writer undertake to do? → Pay Rahul ₹50,000 on 1 January.
+    - evidence: Which words make this an example of a promissory note? → 'I promise to pay' identifies the undertaking; Rahul, ₹50,000 and 1 January supply recipient, amount and payment date.
+      - how: How do the roles map onto the example? → The person making the promise is the Maker; Rahul, who is to receive payment, is the Payee. _(outside the book)_
+  - **khola (unpack):**
+    - ₹50,000 yaani पचास हज़ार रुपये की तय रकम · image: वादा लिखे कागज़ पर रकम घेरना
+    - kyon: The promise must make clear what payment is intended. _[standard]_ → This example names Rahul, the amount and the date. _[book]_
+    - example / jagah: "I promise to pay Rahul ₹50,000 on 1 January.”
+    - aage: Makes the abstract definition identifiable in a case.
+    - screen par: highlight promise, recipient, amount and date
+    - is level ke liye: ₹ denotes rupees; no year is specified.
+  - prerequisites: promissory note; rupee amount; payment date
+- **p011-i24** · list_point · classification · both · exam high
+  - • Parties involved: Maker and Payee
+    - which: Which parties does the page identify? → Maker and Payee.
+    - difference: How do their roles differ? → The Maker gives the payment promise; the Payee is the person to whom payment is to be made. _(outside the book)_
+      - how: How can the names be attached to the Rahul example? → The unnamed 'I' making the promise is Maker, and Rahul is Payee. _(outside the book)_
+  - **khola (unpack):**
+    - Maker yaani भुगतान का वादा करने वाला व्यक्ति · image: मैं पैसे दूँगा लिखने वाला
+    - Payee yaani जिसे भुगतान मिलना है · image: रकम पाने के लिए नाम लिखा राहुल
+    - kyon: A promise needs someone responsible and someone entitled to receive payment. _[standard]_ → Maker and Payee name those distinct roles. _[standard]_
+    - example / jagah: Maker: the speaker; Payee: Rahul.
+    - aage: Prevents confusing the promisor with the recipient.
+    - screen par: label the two ends of the promise
+    - is level ke liye: These are roles, not two required personal names.
+  - prerequisites: promissory note; payer and recipient
+- **p011-i25** · heading · none · both
+  - 2. Bill of Exchange:
+- **p011-i26** · definition · definition · both · exam high
+  - • A bill of exchange is a written order directing someone to pay another person.
+    - what: What does a bill of exchange do? → It directs someone, in writing, to make payment to another person.
+    - evidence: Which wording separates it from a promissory note? → The bill uses a 'written order directing someone'; the note uses a 'written promise' by the payer.
+      - how: How does this wording create different roles? → It separates the person issuing the order, the person addressed by it, and the person intended to receive payment. _(outside the book)_
+  - **khola (unpack):**
+    - Bill of Exchange yaani किसी को दूसरे व्यक्ति को भुगतान करने का लिखित आदेश · image: wholesaler का retailer को भुगतान का निर्देश देना
+    - kyon: One party wants another party to make a payment. _[standard]_ → The bill records that direction in writing. _[book]_
+    - example / jagah: The wholesaler-retailer example.
+    - aage: Leads to drawer, drawee and payee.
+    - screen par: draw an instruction arrow and a payment arrow
+    - is level ke liye: The issuer of an order and the person instructed are not the same role.
+  - prerequisites: payment order; promissory note
+- **p011-i27** · example · process · both · exam high
+  - • Example: A wholesaler orders a retailer to pay ₹1 lakh after 90 days.
+    - how: How does the example illustrate a bill of exchange? → The wholesaler issues an order to the retailer specifying a payment of ₹1 lakh after a stated interval.
+    - when: When is payment directed to occur? → After 90 days.
+      - why: Why is this not the same as the wholesaler personally promising to pay? → The retailer is directed to pay; the wholesaler issues the direction rather than undertaking the payment in the wording of this example.
+  - **khola (unpack):**
+    - wholesaler yaani दुकानदारों को बड़ी मात्रा में माल बेचने वाला · image: किराने की दुकान को सामान देने वाला सप्लायर
+    - retailer yaani ग्राहकों को सीधे सामान बेचने वाला दुकानदार · image: मोहल्ले की किराने की दुकान
+    - kyon: A payment is to be made at a later time. _[book]_ → The wholesaler directs the retailer to pay the specified amount after 90 days. _[book]_
+    - example / jagah: Wholesaler → retailer: pay ₹1 lakh after 90 days.
+    - aage: The next bullet assigns legal-role names to this arrangement.
+    - screen par: issue the order and advance a 90-day timeline
+    - is level ke liye: ₹1 lakh means ₹1,00,000; the page does not say payment has already occurred.
+  - prerequisites: bill of exchange; wholesaler and retailer; deferred payment
+- **p011-i28** · list_point · classification · both · exam high
+  - • Parties involved: Drawer (wholesaler), Drawee (retailer), Payee (Wholesaler or any other person named by him).
+    - which: Which roles are identified in this example? → Drawer: wholesaler; Drawee: retailer; Payee: wholesaler or another person named by him.
+    - difference: How do drawer, drawee and payee differ? → The drawer issues the order, the drawee is directed to pay, and the payee is to receive payment. _(outside the book)_
+      - how: How can the wholesaler be both drawer and payee? → The issuer may direct payment to himself, so two distinct roles can be held by one person; alternatively another payee can be named. _(outside the book)_
+      - why: Why should three roles not automatically be counted as three different people? → The page explicitly allows the wholesaler, already named as drawer, also to be payee.
+  - **khola (unpack):**
+    - Drawer yaani भुगतान का आदेश लिखकर जारी करने वाला · image: wholesaler का निर्देश वाला कागज़ बनाना
+    - Drawee yaani जिसे भुगतान करने का आदेश दिया गया है · image: retailer के पास भुगतान का निर्देश पहुँचना
+    - Payee yaani जिसे रकम मिलनी है · image: रकम लेने वाले नाम पर तीर रुकना
+    - kyon: A written order needs clear responsibility and destination. _[standard]_ → Separate issuer, addressee and recipient roles identify the payment arrangement. _[standard]_
+    - example / jagah: Wholesaler orders retailer to pay the wholesaler or a named third person.
+    - aage: Extends the two-role promise into a three-role order; prepares for the bank as cheque drawee.
+    - screen par: label issuer, instructed payer and recipient
+    - is level ke liye: Show two layouts: drawer also payee, and a separate named payee.
+  - prerequisites: bill of exchange; payment issuer; payment recipient
+- **p011-i29** · heading · none · both
+  - 3. Cheque:
+
+## Page 12 · passed after 2 round(s)
+
+Cheques are payable on demand and involve a drawer, drawee and payee. The page explains cheque dishonour, prepaid demand drafts, short-term overdrafts, MICR and IFSC, and the roles of RBI and NPCI in digital payments. An overdraft example combines ₹10,000 own balance with a ₹40,000 credit limit.
+
+- **p012-i1** · definition · definition · both · exam high
+  - A cheque is a special type of bill of exchange drawn on a bank and payable on demand.
+    - what: What distinguishes a cheque in this definition? → It is a bill of exchange directed to a bank, with payment due on demand rather than at a stated future maturity.
+    - evidence: Which words identify the paying institution and timing? → ‘Drawn on a bank’ identifies the institution; ‘payable on demand’ identifies when payment is due.
+      - how: How should a beginner understand ‘drawn on’? → The account holder gives a written payment instruction to the bank. It does not mean the cheque itself is currency or that payment is unconditional. _(outside the book)_
+  - **khola (unpack):**
+    - payable on demand yaani भुगतान के लिए पेश करने पर रकम देय होती है · image: दुकानदार cheque को अपने bank में जमा करता है
+    - bill of exchange yaani एक व्यक्ति का दूसरे को तय रकम चुकाने का लिखित आदेश · image: लिखी हुई पर्ची में किसी को पैसे देने का आदेश
+    - kyon: A person needs to pay through a bank account without handing over cash. _[standard]_ → A cheque directs the bank to pay and is payable on demand. _[book]_
+    - example / jagah: A customer gives a cheque to a supplier.
+    - aage: Payment depends on the bank honouring the instruction, linking to dishonour below.
+    - screen par: send a written instruction from account holder to bank
+    - is level ke liye: Do not interpret payable on demand as a guarantee of successful payment.
+  - prerequisites: bank account; payment instruction
+- **p012-i2** · list_point · structure · both · exam high
+  - Parties involved: Drawer (account holder), Drawee (bank), Payee
+    - what: What parties make up the cheque relationship? → The page names the drawer as account holder, the drawee as bank, and the payee as the third party.
+    - where: Where does each party stand in a payment instruction? → The drawer issues the instruction, the drawee bank is instructed to pay, and the payee is the person to whom payment is directed. _(outside the book)_
+      - how: How can these easily confused names be separated? → Ask three different questions: who writes the cheque, which bank must pay, and who receives the payment. _(outside the book)_
+  - **khola (unpack):**
+    - Drawer yaani cheque लिखकर भुगतान का आदेश देने वाला · image: खरीदार cheque पर हस्ताक्षर करता है
+    - Drawee yaani वह bank जिसे भुगतान का आदेश दिया गया है · image: cheque पर लिखा bank का नाम
+    - Payee yaani जिसे रकम मिलनी है · image: दुकानदार के नाम बना cheque
+    - kyon: A cheque separates the person ordering payment from the institution making payment. _[standard]_ → Separate role names prevent confusion about who gives, executes and receives the instruction. _[standard]_
+    - example / jagah: A buyer writes a cheque on their bank in favour of a seller.
+    - aage: The drawer's failure to provide funds becomes relevant to dishonour.
+    - screen par: connect drawer, bank and payee
+    - is level ke liye: Practise matching roles rather than memorising names in isolation.
+  - prerequisites: cheque; bank account
+- **p012-i3** · paragraph · cause_effect · both · exam high
+  - Section 138: Cheque dishonour: A cheque is dishonoured for reasons such as insufficient funds, and the drawer does not make payment after receiving the statutory demand notice. Makes cheque bouncing a criminal offence
+    - why: Why does the page connect cheque bouncing with a criminal offence? → Its Section 138 account combines dishonour, such as for insufficient funds, with the drawer's failure to pay after receiving the statutory demand notice.
+    - how: How does the demand notice fit into this explanation? → The notice precedes the non-payment identified by the page; the passage does not simply say that every returned cheque immediately creates a criminal offence.
+      - what: What does ‘statutory demand notice’ mean? → It is a formal demand for payment required by the applicable law, rather than merely an informal reminder. _(outside the book)_
+      - exception: Why must this short paragraph not be treated as the complete legal test? → Section 138 has additional legal requirements, including a legally enforceable debt or liability and prescribed procedural conditions. The page is an introductory summary. _(outside the book)_
+  - **khola (unpack):**
+    - dishonour yaani cheque पेश होने पर bank से भुगतान न होना · image: जमा किया cheque बिना भुगतान लौट आता है
+    - insufficient funds yaani भुगतान के लिए खाते में जरूरी रकम से कम पैसा · image: ₹5,000 का cheque, खाते में ₹1,000
+    - statutory demand notice yaani कानून के मुताबिक भेजी गई भुगतान की औपचारिक माँग · image: रकम चुकाने के लिए लिखित कानूनी notice
+    - kyon: A payee expecting payment may instead receive an unpaid cheque. _[standard]_ → The page links dishonour and failure to pay after statutory notice with a criminal consequence under Section 138. _[book]_
+    - example / jagah: A seller receives a cheque that is returned for insufficient funds.
+    - aage: A cheque is a payment instruction, not a bank-guaranteed prepaid instrument like the demand draft described next.
+    - screen par: return cheque, deliver notice, show continued non-payment
+    - is level ke liye: Section 138 belongs to the Negotiable Instruments Act, 1881 (standard outside context); no legal deadlines are supplied on this page.
+  - prerequisites: drawer and drawee; cheque payment; legal notice
+- **p012-i4** · heading · none · both
+  - Demand Draft and Overdraft Facilities
+- **p012-i5** · heading · none · both
+  - Demand Draft
+- **p012-i6** · definition · definition · both · exam high
+  - It is a prepaid payment instrument issued by a bank. To transfer money securely.
+    - what: What is a demand draft and what is its purpose? → It is a bank-issued payment instrument paid for in advance and used to transfer money securely.
+    - evidence: Which word distinguishes its funding from an ordinary cheque? → ‘Prepaid’ states that funding occurs before the draft is issued, rather than relying on the drawer's account when a cheque is presented. _(outside the book)_
+      - how: How does prepayment help the recipient? → The bank has already received the amount and guarantees the payment, as the next bullet explains.
+  - **khola (unpack):**
+    - prepaid yaani पहले रकम देकर लिया गया · image: पहले recharge, फिर सेवा का इस्तेमाल
+    - Demand Draft yaani पहले पैसा लेकर bank का जारी किया भुगतान का साधन · image: फीस जमा करने के लिए bank से draft बनवाना
+    - kyon: A recipient needs a secure way to receive money. _[standard]_ → A bank issues a prepaid instrument for that transfer. _[book]_
+    - example / jagah: A bank demand draft used for an institution's fee payment.
+    - aage: Prepayment explains the bank guarantee in the next item.
+    - screen par: pay bank first, then issue draft
+    - is level ke liye: Contrast funding before issuance with a cheque's dependence on payment being honoured.
+  - prerequisites: payment instrument; cheque
+- **p012-i7** · list_point · cause_effect · both · exam high
+  - The payment is guaranteed by the bank because the customer pays the amount to the bank before the draft is issued.
+    - why: Why does the bank guarantee a demand draft's payment? → The customer has already paid the amount to the bank before issuance, so the guarantee rests on money already received.
+    - how: How is the funding order important? → Customer payment comes first and draft issuance follows; the bank is not waiting for the customer to arrange the amount after the draft is presented. _(outside the book)_
+  - **khola (unpack):**
+    - guaranteed yaani भुगतान की जिम्मेदारी bank लेता है · image: रकम पहले अपने पास लेकर bank भुगतान का भरोसा देता है
+    - kyon: The recipient wants assurance that the amount will be available. _[standard]_ → The customer pays before issuance, allowing the bank to guarantee payment. _[book]_
+    - example / jagah: A purchaser pays the draft amount at the bank before receiving the draft.
+    - aage: Demand draft funding is the opposite of the credit facility introduced below.
+    - screen par: move money into bank before stamping the draft
+    - is level ke liye: Separate secure payment from credit creation for the customer.
+  - prerequisites: prepaid demand draft; bank guarantee of payment
+- **p012-i8** · heading · none · both
+  - Overdraft Facility:
+- **p012-i9** · definition · definition · both · exam high
+  - It is a short-term credit facility that allows a customer to withdraw more money than is available in their bank account.
+    - what: What does an overdraft allow? → It permits withdrawals beyond the customer's available bank balance through short-term credit.
+    - evidence: Which words show that the extra amount is not the customer's own deposit? → ‘Credit facility’ identifies borrowing, while ‘more money than is available’ separates that borrowing from the existing balance.
+      - how: How can a customer withdraw beyond their own money? → The bank authorises borrowing up to a limit; the amount used beyond the balance becomes an obligation to repay. _(outside the book)_
+  - **khola (unpack):**
+    - Overdraft yaani खाते में अपने पैसे से ज्यादा रकम निकालने की bank की मंजूरी · image: खाते की रकम खत्म होने पर मंजूर सीमा तक उधार इस्तेमाल करना
+    - short-term credit yaani कम अवधि की जरूरत के लिए लिया उधार · image: कमाई आने से पहले जरूरी खर्च पूरा करना
+    - kyon: A customer may face a temporary gap between a payment due and money available. _[standard]_ → An overdraft allows withdrawal beyond the available balance through short-term credit. _[book]_
+    - example / jagah: A small trader pays a bill before customer receipts arrive.
+    - aage: The extra withdrawal is borrowed money; the diagram shows its limit and interest treatment.
+    - screen par: extend withdrawal beyond the balance marker
+    - is level ke liye: Contrast prepaid demand draft with borrowed overdraft funds.
+  - prerequisites: bank balance; borrowing and repayment
+- **p012-i10** · list_point · facts_numbers · both · exam high
+  - Under the Pradhan Mantri Jan Dhan Yojana, eligible account holders may receive an overdraft facility
+    - what: Which scheme is linked to an overdraft facility? → The page links Pradhan Mantri Jan Dhan Yojana with the possibility of an overdraft for eligible account holders.
+    - evidence: Which words prevent treating it as an automatic benefit for every holder? → ‘Eligible’ and ‘may receive’ make the statement conditional rather than universal.
+      - why: Why connect an account-opening initiative with credit access? → Financial inclusion involves usable financial services, including access to small credit needs, not merely possessing an account. _(outside the book)_
+  - **khola (unpack):**
+    - eligible account holders yaani वे खाताधारक जो तय शर्तें पूरी करते हैं · image: फॉर्म में जरूरी शर्तों पर सही निशान लगना
+    - kyon: Having an account may not meet a household's temporary shortage of money. _[standard]_ → The page identifies a possible overdraft facility for eligible PMJDY account holders. _[book]_
+    - example / jagah: An eligible Jan Dhan account holder seeking short-term credit.
+    - aage: Access is conditional; the page supplies no scheme-specific limit.
+    - screen par: filter account holders through eligibility
+    - is level ke liye: Statement questions may replace ‘eligible’ with ‘all’.
+  - prerequisites: overdraft; eligibility conditions; bank account
+- **p012-i11** · diagram · figure · image · exam high
+  - A right-pointing arrow connects ‘Account Balance ₹10,000’ on the left to ‘OD Limit ₹40,000’ on the right. Beneath them: ‘You can withdraw up to ₹50,000 in total.’ and ‘Interest applies only to the overdraft amount used.’ The figure combines own balance and an authorised overdraft limit; the arrow does not show an actual ₹40,000 withdrawal.
+    - what: What does this overdraft illustration show? → With ₹10,000 in the account and a ₹40,000 overdraft limit, the illustrated total withdrawal capacity is ₹50,000.
+    - which: Which amount attracts interest according to the figure? → The overdraft actually used, not the entire available overdraft limit.
+      - how: How would a ₹25,000 withdrawal illustrate the distinction? → In this simplified example, ₹10,000 comes from the customer's balance and ₹15,000 is overdraft used. The interest-bearing overdraft amount would be ₹15,000, not ₹40,000 or ₹25,000. _(outside the book)_
+  - **khola (unpack):**
+    - OD Limit yaani overdraft से उधार लेने की मंजूर अधिकतम सीमा · image: उधार की छत, पूरी रकम लेना जरूरी नहीं
+    - kyon: A customer needs to know both spending capacity and borrowing cost. _[standard]_ → The figure adds own funds to the limit but attaches interest only to overdraft used. _[book]_
+    - example / jagah: ₹10,000 balance + ₹40,000 OD limit = ₹50,000 illustrated availability.
+    - aage: An unused credit limit is not the same as a loan already drawn.
+    - screen par: stack own funds and available credit, then highlight only credit used
+    - is level ke liye: Use a simple numerical scenario without inventing an interest rate.
+  - prerequisites: overdraft; bank balance; addition; interest on borrowing
+- **p012-i12** · diagram_label · figure · image · exam medium
+  - Account Balance ₹10,000 — left box showing the customer's existing account balance.
+    - what: What does ₹10,000 represent? → It is the account balance shown before the overdraft is added to the illustration.
+    - which: Which part is not overdraft credit? → The ₹10,000 account balance is separate from the ₹40,000 OD limit.
+      - how: How should this amount be mentally separated from borrowing? → Treat it as the customer's own available funds, with borrowing beginning beyond that amount in the example. _(outside the book)_
+  - **khola (unpack):**
+    - Account Balance yaani खाते में मौजूद अपनी रकम · image: passbook में दिखते ₹10,000
+    - example / jagah: Left box in the overdraft illustration.
+    - aage: This amount contributes to total availability without being the OD limit.
+    - screen par: fill own-money segment
+    - is level ke liye: Distinguish deposit balance from credit availability.
+  - prerequisites: bank balance
+- **p012-i13** · diagram_label · figure · image · exam medium
+  - OD Limit ₹40,000 — right box reached by the arrow from Account Balance.
+    - what: What does the ₹40,000 label specify? → It specifies the overdraft limit available in this illustration.
+    - which: Which is the credit component of the ₹50,000 capacity? → The ₹40,000 OD limit, rather than the ₹10,000 account balance.
+      - how: How does a limit differ from actual use? → A limit authorises borrowing up to a ceiling; it does not mean the customer has borrowed that entire amount. _(outside the book)_
+  - **khola (unpack):**
+    - example / jagah: Right box: ₹40,000 available credit.
+    - aage: Available credit can remain partly or wholly unused.
+    - screen par: draw a credit ceiling
+    - is level ke liye: Do not confuse sanction with utilisation.
+  - prerequisites: overdraft limit
+- **p012-i14** · diagram_label · figure · image · exam medium
+  - You can withdraw up to ₹50,000 in total.
+    - what: What total does the figure give? → The illustrated maximum withdrawal capacity is ₹50,000.
+    - which: Which two components produce this total? → The ₹10,000 account balance and the ₹40,000 OD limit.
+      - how: How is the total calculated? → Add own balance and authorised overdraft: ₹10,000 + ₹40,000 = ₹50,000.
+  - **khola (unpack):**
+    - example / jagah: The combined capacity in the black illustration.
+    - aage: At the illustrated maximum withdrawal, only ₹40,000 comes from overdraft.
+    - screen par: join two amount bars
+    - is level ke liye: A simple arithmetic trap is to call ₹50,000 the OD limit.
+  - prerequisites: addition; own balance versus overdraft
+- **p012-i15** · diagram_label · figure · image · exam high
+  - Interest applies only to the overdraft amount used.
+    - what: What is the stated interest rule? → Interest attaches to the amount of overdraft used.
+    - which: Which distinction controls this interest statement? → Actual utilisation is distinguished from the available ₹40,000 OD limit.
+      - why: Why distinguish usage from availability? → Permission to borrow is different from receiving borrowed money; the figure bases interest on the latter. _(outside the book)_
+  - **khola (unpack):**
+    - overdraft amount used yaani मंजूर उधार में से सच में इस्तेमाल की रकम · image: ₹40,000 की अनुमति में से केवल ₹5,000 लेना
+    - example / jagah: Only the drawn credit segment is highlighted for interest.
+    - aage: An unused portion is not included in the figure's interest base.
+    - screen par: highlight used credit only
+    - is level ke liye: No rate or time period is given, so no interest amount can be calculated.
+  - prerequisites: interest; credit limit; actual borrowing
+- **p012-i16** · heading · none · both
+  - Banking Codes
+- **p012-i17** · definition · definition · both · exam high
+  - MICR code: Magnetic Ink Character Recognition. 9 digits code written in Iron Oxide ink for automated clearance.
+    - what: What does MICR stand for, and what format does the page give? → MICR means Magnetic Ink Character Recognition; the page describes a nine-digit code printed in Iron Oxide ink for automated clearance.
+    - evidence: Which details distinguish MICR from IFSC on this page? → MICR has nine digits and special ink for automated cheque clearance, whereas IFSC has eleven alphanumeric characters for electronic branch identification.
+      - how: How does the special ink help a machine read the code? → Iron oxide gives the printed characters magnetic properties that suitable readers can detect, supporting machine recognition. _(outside the book)_
+  - **khola (unpack):**
+    - MICR yaani खास magnetic ink के characters को machine से पहचानने का तरीका · image: cheque के नीचे छपा code machine पढ़ती है
+    - automated clearance yaani हर cheque की जानकारी हाथ से भरने के बजाय machine की मदद से भुगतान निपटाना · image: cheques की गड्डी machine से गुजरती है
+    - kyon: Large numbers of paper cheques need dependable identification. _[standard]_ → A nine-digit code in Iron Oxide ink supports automated clearance. _[book]_
+    - example / jagah: The machine-readable code line on a cheque.
+    - aage: The next bullet explains faster and more accurate cheque processing.
+    - screen par: scan magnetic characters on a cheque
+    - is level ke liye: MICR is numeric; IFSC is alphanumeric. Keep the two purposes separate.
+  - prerequisites: cheque; machine reading of printed information; digits
+- **p012-i18** · list_point · cause_effect · both · exam high
+  - It allows cheque-sorting machines to read and process cheques quickly and accurately.
+    - why: Why is MICR useful in cheque handling? → It enables cheque-sorting machines to read and process cheques quickly and accurately.
+    - how: How can machine-readable codes improve processing? → Machines can capture standardised characters instead of relying on repeated manual reading and entry, reducing opportunities for transcription errors. _(outside the book)_
+      - consequence: What operational consequence does the page emphasise? → Both speed and accuracy improve; its stated benefit is not merely a distinctive appearance on the cheque.
+  - **khola (unpack):**
+    - cheque-sorting machines yaani cheques के code पढ़कर उन्हें छाँटने वाली machines · image: बहुत-से कागज पढ़कर सही ढेर में रखना
+    - kyon: Reading many cheque details by hand is slow and can introduce errors. _[standard]_ → MICR enables machines to read and process cheques quickly and accurately. _[book]_
+    - example / jagah: High-volume cheque processing in banking.
+    - aage: MICR solves a paper-cheque processing problem; IFSC addresses electronic destination identification.
+    - screen par: sort a stream of cheques into correct routes
+    - is level ke liye: Recognition, sorting and processing are linked functions, not a new payment app.
+  - prerequisites: MICR code; manual versus automated entry
+- **p012-i19** · definition · definition · both · exam high
+  - Indian Financial System Code (IFSC): It is an 11-character alphanumeric code that uniquely identifies every bank branch participating in electronic payment systems.
+    - what: What does IFSC identify? → It identifies a participating bank branch in electronic payment systems through an eleven-character alphanumeric code.
+    - evidence: Which wording rules out calling IFSC an eleven-digit account number? → The page says ‘11-character alphanumeric’ and specifies identification of a bank branch, not an individual account.
+      - why: Why must electronic transfers identify the branch accurately? → A bank can have many branches; the transfer system needs an unambiguous destination rather than just a bank name. _(outside the book)_
+  - **khola (unpack):**
+    - alphanumeric yaani अक्षर और अंक मिलाकर बना · image: घर के पते जैसा A-12
+    - IFSC yaani electronic payment में bank branch पहचानने वाला code · image: डाक के पते में सही जगह की पहचान
+    - kyon: Electronic money needs a precise branch destination. _[standard]_ → IFSC uniquely identifies participating branches with an eleven-character code. _[book]_
+    - example / jagah: A bank-transfer beneficiary form asking for IFSC.
+    - aage: Correct branch identification supports the transfers listed next.
+    - screen par: match code to one branch
+    - is level ke liye: Do not confuse branch identification with identifying the beneficiary's individual account.
+  - prerequisites: bank branch; electronic transfer; letters versus digits
+- **p012-i20** · list_point · cause_effect · both · exam high
+  - IFSC is required for: NEFT, RTGS, and IMPS payments. It ensures that money reaches the correct bank branch electronically.
+    - why: Why does the page associate IFSC with electronic transfers? → Its stated role is to ensure that money reaches the correct bank branch electronically.
+    - how: How does IFSC support the named payment systems? → It supplies the branch identifier used to route a transfer to the intended branch. _(outside the book)_
+    - which: Which payment systems are listed? → NEFT, RTGS and IMPS are listed as requiring IFSC.
+      - what: What is NEFT, and where would a customer use it? → NEFT means National Electronic Funds Transfer. It transfers funds electronically between bank accounts, for example when a tenant sends rent to a landlord. Transactions are settled in half-hourly batches, and the system operates round the clock. _(outside the book)_
+        - how: How does NEFT's batch settlement work? → Payment instructions are grouped for a settlement cycle rather than each instruction being settled separately as soon as it arrives. A customer's electronic submission can therefore be immediate even though interbank settlement follows the batch cycle. _(outside the book)_
+      - what: What is RTGS, and what familiar need does it serve? → RTGS means Real Time Gross Settlement. It settles transfers individually in real time rather than grouping them into batches or netting them against other transfers. It is used for large-value payments, such as a substantial property payment; its minimum transaction amount is ₹2 lakh, and the system operates round the clock. _(outside the book)_
+        - how: How do 'real time' and 'gross' describe different aspects of RTGS? → 'Real time' concerns timing: processing occurs as instructions are received rather than waiting for a batch. 'Gross' concerns the settlement unit: each transaction is settled individually for its full amount. _(outside the book)_
+      - what: What is IMPS, and when might a household use it? → IMPS means Immediate Payment Service. It provides immediate interbank electronic transfers round the clock, including holidays. A person could use mobile or internet banking to send urgent money to a family member. _(outside the book)_
+      - compare: What basic distinction separates NEFT, RTGS and IMPS? → NEFT uses batch settlement; RTGS settles each transaction individually in real time and is intended for large-value transfers; IMPS provides immediate customer transfers. Immediate customer credit under IMPS should not be equated with RTGS-style transaction-wise gross interbank settlement. All three offer round-the-clock service, so availability alone does not distinguish them. _(outside the book)_
+      - exception: Should the book's statement be read as requiring manual IFSC entry in every possible IMPS interface? → No. IMPS also supports mobile-number-and-MMID addressing. The page's statement fits the account-number-and-IFSC route and should not be generalised to every interface. _(outside the book)_
+  - **khola (unpack):**
+    - NEFT yaani bank accounts के बीच रकम भेजने की सेवा, जिसमें transfers का निपटारा batches में होता है · image: कई चिट्ठियाँ इकट्ठी होकर अगली खेप में निकलती हैं
+    - RTGS yaani हर transfer की पूरी रकम का अलग-अलग, उसी समय निपटारा · image: हर बड़े बिल का हिसाब अलग और तुरंत चुकाना
+    - IMPS yaani किसी भी दिन, किसी भी समय तुरंत रकम भेजने की सेवा · image: रात में परिवार को जरूरी पैसे भेजना
+    - correct bank branch yaani जिस खास bank branch में रकम भेजनी है · image: एक ही नाम की कई दुकानों में सही दुकान चुनना
+    - kyon: An electronic payment needs both a precise destination and an arrangement for completing the transfer. _[standard]_ → IFSC supplies branch identification; the named systems differ in how transfers are processed and settled. _[standard]_
+    - example / jagah: NEFT for rent, RTGS for a large property payment, and IMPS for urgent money sent to family are illustrative uses, not exclusive purposes.
+    - aage: Knowing the destination code does not explain the transfer mechanism; branch routing, settlement method and customer payment speed are distinct ideas.
+    - screen par: route to a branch, then contrast grouped batches, individual full-value settlement and immediate customer credit
+    - is level ke liye: NEFT and RTGS are RBI-operated systems; IMPS is operated by NPCI. Distinguish customer-facing immediacy from the method of interbank settlement.
+  - prerequisites: IFSC; electronic payment destination; bank account versus branch; interbank settlement; group processing versus individual processing
+- **p012-i21** · heading · none · both
+  - Digital Payments
+- **p012-i22** · paragraph · facts_numbers · both · exam high
+  - RBI is the apex authority for payment and settlement systems under the Payment and Settlement
+    - what: What authority does the page assign to RBI? → RBI is the apex authority for payment and settlement systems.
+    - evidence: What on this page reinforces RBI's top-level role? → The adjacent diagram places Reserve Bank of India at the top and labels it ‘Regulator • Oversees settlement systems’.
+      - why: Why do payment and settlement systems need oversight? → Payments involve trust that obligations will be completed safely across institutions; oversight supports system reliability and confidence. _(outside the book)_
+      - what: What does settlement mean in this context? → It means completing the transfer of funds or discharging payment obligations between the institutions involved. _(outside the book)_
+  - **khola (unpack):**
+    - apex authority yaani इस व्यवस्था की सबसे ऊपर की जिम्मेदार authority · image: नियमों की निगरानी करने वाला सबसे ऊपर का जिम्मेदार
+    - settlement yaani भुगतान से बनी रकम की देनदारी को पूरा करना · image: दिन भर के लेन-देन के बाद banks का हिसाब चुकता होना
+    - kyon: Users need confidence that a payment will be completed across banks. _[standard]_ → The page places RBI at the apex of payment and settlement oversight. _[book]_
+    - example / jagah: The institutional system behind an everyday digital payment.
+    - aage: RBI supervises the system; this does not make it the user's payment app.
+    - screen par: place RBI above the payment network
+    - is level ke liye: The visible sentence stops at ‘Payment and Settlement’; continuation belongs to the next page.
+  - prerequisites: RBI as central bank; payment; interbank obligations
+- **p012-i23** · diagram · figure · image · exam high
+  - Top box: ‘Reserve Bank of India — Regulator • Oversees settlement systems’. A vertical line connects it to the middle box: ‘NPCI — Runs UPI, IMPS, RuPay, AePS, NACH’. A vertical line continues from NPCI to the central lower box ‘Payment Apps — UPI apps & gateways’. Lower boxes alongside it are ‘Banks — Accounts & settlement’ on the left and ‘Users — Consumers & merchants’ on the right. No arrowheads or visible horizontal links join the three lower boxes.
+    - what: What institutional arrangement does this diagram represent? → It distinguishes RBI's regulatory oversight, NPCI's operation of named payment systems, and the account, interface and user roles of banks, apps and users.
+    - which: Which parts are visibly connected? → RBI connects vertically to NPCI, which connects vertically to Payment Apps; Banks and Users occupy neighbouring lower boxes without visible horizontal connectors.
+      - how: How should the layout be interpreted without overreading its lines? → Read it as a simplified role map. Its vertical arrangement is not evidence that a user's money literally travels through RBI, then NPCI, then an app. _(outside the book)_
+  - **khola (unpack):**
+    - kyon: A simple phone payment depends on several institutions with different jobs. _[standard]_ → The diagram separates oversight, system operation, accounts, interfaces and users. _[book]_
+    - example / jagah: A consumer paying a merchant through a UPI app.
+    - aage: Avoid treating RBI, NPCI, banks and apps as interchangeable.
+    - screen par: reveal the role boxes behind a phone payment
+    - is level ke liye: Institutional relationships are not a detailed technical transaction flow.
+  - prerequisites: digital payment; regulation versus operation; bank account; payment app
+- **p012-i24** · diagram_label · figure · image · exam high
+  - Reserve Bank of India — Regulator • Oversees settlement systems
+    - what: What function is assigned to RBI in the box? → RBI is the regulator overseeing settlement systems.
+    - which: Which position and connection indicate this role? → RBI occupies the top box and connects down to NPCI.
+      - how: How does regulation differ from running a user's app? → Regulation sets and supervises system-level requirements; an app provides a user-facing means of initiating payments. _(outside the book)_
+  - **khola (unpack):**
+    - Regulator yaani नियमों और व्यवस्था की निगरानी करने वाली authority · image: खेल चलाने वाले खिलाड़ियों से अलग नियम देखने वाला referee
+    - example / jagah: Top of the digital-payments role map.
+    - aage: Oversight is separated from operation.
+    - screen par: oversee the network from above
+    - is level ke liye: Do not assign NPCI's listed products directly to RBI's operating role.
+  - prerequisites: regulator; settlement
+- **p012-i25** · diagram_label · figure · image · exam high
+  - NPCI — Runs UPI, IMPS, RuPay, AePS, NACH
+    - what: What role does the NPCI box state? → NPCI runs the listed systems: UPI, IMPS, RuPay, AePS and NACH.
+    - which: Which systems must be retained from this image-only list? → All five names—UPI, IMPS, RuPay, AePS and NACH—belong to the NPCI box.
+      - how: How does NPCI differ from RBI in this diagram? → NPCI is assigned operation of named systems; RBI is assigned regulation and settlement-system oversight.
+      - what: What does NPCI stand for? → National Payments Corporation of India. _(outside the book)_
+      - what: What is UPI, and how does a consumer encounter it? → UPI means Unified Payments Interface. It enables instant bank-account payments through participating apps, for example by scanning a shop's QR code or using a UPI ID. The app is the interface; UPI is the shared payment arrangement connecting participating institutions. _(outside the book)_
+      - what: What is IMPS, and how is it used? → IMPS means Immediate Payment Service. It enables immediate interbank transfers round the clock, such as sending urgent money to a relative through mobile or internet banking. Account number with IFSC is one addressing route; mobile number with MMID is another. _(outside the book)_
+        - difference: Why should UPI and IMPS not be treated as identical names for one app? → Both support immediate transfers, but they are distinct NPCI services. UPI offers app-based payment initiation using features such as UPI IDs and QR codes; IMPS is a transfer service commonly accessed through bank channels. Neither name denotes just one commercial app. _(outside the book)_
+      - what: What is RuPay, and where is it seen? → RuPay is India's domestic card payment network. A bank can issue a RuPay debit, credit or prepaid card for transactions such as paying at a shop, making an online purchase or using an ATM. RuPay identifies the card network, not the bank account or a particular bank. _(outside the book)_
+      - what: What is AePS, and what problem does it help solve? → AePS means Aadhaar Enabled Payment System. It supports basic banking transactions using Aadhaar authentication for an Aadhaar-linked account. For example, a person can withdraw cash through a business correspondent's micro-ATM using supported biometric authentication, without visiting a regular bank branch. _(outside the book)_
+        - how: How does the familiar AePS cash-withdrawal example work? → The customer identifies the Aadhaar-linked banking relationship and authenticates at the correspondent's device. After authorisation, the account is debited and the correspondent hands over cash. Aadhaar helps identify and authenticate the transaction; it is not itself an account holding the money. _(outside the book)_
+      - what: What is NACH, and where is it used? → NACH means National Automated Clearing House. It supports bulk electronic credits and debits, including periodic payments. Examples include salary or pension credits to many accounts and authorised recurring debits for insurance premiums or loan instalments. _(outside the book)_
+        - why: Why use NACH rather than manually initiate every recurring payment? → An institution may need to pay many people or collect repeated payments from many customers. Bulk processing reduces repeated individual instructions; recurring debits operate under customer authorisation through a mandate, not unrestricted permission to take money. _(outside the book)_
+      - compare: How can the five systems be distinguished by familiar uses? → Think of UPI for app-based instant payments, IMPS for immediate bank transfers, RuPay for card transactions, AePS for Aadhaar-authenticated basic banking, and NACH for bulk or recurring credits and debits. These are distinguishing functions, not rigidly exclusive use categories. _(outside the book)_
+  - **khola (unpack):**
+    - NPCI yaani कई payment systems चलाने वाली संस्था · image: अलग-अलग payment तरीकों के पीछे साझा व्यवस्था
+    - UPI yaani apps से bank accounts के बीच तुरंत payment करने की व्यवस्था · image: दुकान का QR scan करके भुगतान
+    - IMPS yaani किसी भी समय तुरंत bank transfer करने की सेवा · image: छुट्टी के दिन परिवार को पैसे भेजना
+    - RuPay yaani card से payment और cash withdrawal में काम आने वाला भारतीय card network · image: दुकान की machine पर RuPay card लगाना
+    - AePS yaani Aadhaar से पहचान पक्की करके जुड़े bank account में basic banking करने की व्यवस्था · image: bank के प्रतिनिधि की machine पर अंगूठा लगाकर cash लेना
+    - NACH yaani बहुत-से accounts में रकम भेजने या अनुमति लेकर बार-बार रकम काटने की व्यवस्था · image: कई लोगों की pension जमा होना या हर महीने EMI कटना
+    - kyon: Households and institutions need different services: quick transfers, card payments, nearby banking access and repeated collections or payouts. _[standard]_ → NPCI's listed systems serve these different needs; their shared operator does not make their functions identical. _[standard]_
+    - example / jagah: A QR payment uses UPI; an urgent bank transfer may use IMPS; a shop card payment may use RuPay; a correspondent-assisted Aadhaar cash withdrawal uses AePS; an authorised recurring premium debit may use NACH.
+    - aage: The diagram becomes a map of distinct payment and banking functions rather than a list of unexplained abbreviations.
+    - screen par: fan out NPCI into phone, transfer, card, biometric device and recurring-payment calendar
+    - is level ke liye: Keep regulator, operator, bank and app distinct. NEFT and RTGS do not belong to this NPCI list. AePS does not store money in Aadhaar, and NACH is not limited to debits.
+  - prerequisites: payment network; regulation versus operation; bank account and payment app; debit and credit; Aadhaar authentication; customer authorisation for recurring debits
+- **p012-i26** · diagram_label · figure · image · exam high
+  - Banks — Accounts & settlement
+    - what: What functions does the bank box name? → It assigns accounts and settlement to banks.
+    - which: Which lower box represents the account-holding institutions? → The left lower box labelled Banks.
+      - how: How does the bank's role differ from a payment app's role? → The bank maintains the relevant account relationship and participates in completing payment obligations; the app is an interface through which a user can initiate a payment. _(outside the book)_
+  - **khola (unpack):**
+    - example / jagah: The bank account debited or credited during a payment.
+    - aage: Using a phone interface does not remove the account and settlement functions.
+    - screen par: debit and credit account ledgers
+    - is level ke liye: Distinguish the visible app from the account institution.
+  - prerequisites: bank account; settlement
+- **p012-i27** · diagram_label · figure · image · exam medium
+  - Payment Apps — UPI apps & gateways
+    - what: What does the Payment Apps box include? → It includes UPI apps and gateways.
+    - which: Which box is directly below and connected to NPCI? → The central lower Payment Apps box.
+      - how: How do these interfaces help a user make a payment? → An app lets a user submit a payment instruction; a gateway helps communicate and process payment information, especially at checkout. _(outside the book)_
+  - **khola (unpack):**
+    - gateways yaani payment की जानकारी आगे पहुँचाने में मदद करने वाली सेवा · image: online दुकान का payment checkout दरवाजा
+    - example / jagah: A UPI app screen or an online payment checkout.
+    - aage: The user-facing layer connects the customer's action to the wider payment arrangement.
+    - screen par: tap and transmit a payment instruction
+    - is level ke liye: The diagram groups interfaces; it does not give a detailed technical gateway architecture.
+  - prerequisites: digital payment instruction; phone app; online checkout
+- **p012-i28** · diagram_label · figure · image · exam medium
+  - Users — Consumers & merchants
+    - what: Who are the users named here? → Consumers and merchants are the two user groups named in the diagram.
+    - which: Which lower box represents those making or receiving everyday commercial payments? → The right lower Users box, labelled Consumers & merchants.
+      - how: How do the two groups appear in a familiar payment? → A customer paying a shopkeeper illustrates a consumer sending and a merchant receiving a payment. _(outside the book)_
+  - **khola (unpack):**
+    - merchants yaani सामान या सेवा बेचने वाले · image: मोहल्ले का दुकानदार QR code से रकम लेता है
+    - example / jagah: A customer scans a shop's QR code.
+    - aage: The institutional diagram ultimately supports ordinary people and businesses making and receiving payments.
+    - screen par: connect customer payment to merchant receipt
+    - is level ke liye: These are roles in a transaction, not separate regulatory institutions.
+  - prerequisites: buyer and seller; payment
+
+## Page 13 · passed after 2 round(s)
+
+NPCI operates payment infrastructure rather than holding customer deposits. Banks and payment service providers form the customer-facing layer. A UPI payment passes through the payer's app and bank, NPCI's switch and the merchant's bank, with RBI overseeing the settlement framework. Push payments are payer-initiated; the pull example uses prior recurring authorisation. Delegated payments allow a secondary user to spend from a primary user's account within a limit.
+
+- **p013-i1** · paragraph · facts_numbers · both · exam low
+  - Systems Act, 2007.
+    - what: What legal information is actually visible here? → The page preserves the ending 'Systems Act' and the year 2007; it does not independently provide the whole title or legal claim.
+    - evidence: What limits our interpretation of this line? → It begins as a continuation, and the supplied preceding context ends with 'and Settlement'.
+      - why: Why should the teacher avoid building a full legal claim from this fragment? → A law's year and part of its title do not tell us which provision or institutional power the missing sentence describes. _(outside the book)_
+  - **khola (unpack):**
+    - Act yaani कानून, जिसके तहत काम के नियम तय होते हैं · image: खेल की लिखी हुई rulebook
+    - kyon: Institutional powers require a legal context; a truncated reference cannot establish the full power. _[standard]_
+    - example / jagah: Opening continuation of the payment-system discussion.
+    - aage: Read with the preceding page rather than treating this as a complete definition.
+    - screen par: join the fragment to the preceding sentence
+    - is level ke liye: Do not confuse an Act's year with an organisation's establishment year.
+  - prerequisites: An Act is a law
+- **p013-i2** · list_point · facts_numbers · both · exam high
+  - NPCI is a not-for-profit organisation established in 2008 by the RBI and the Indian Banks' Association.
+    - what: What identity and founding facts does the page give for NPCI? → It identifies NPCI as not-for-profit, established in 2008 by RBI and the Indian Banks' Association.
+    - evidence: Which details should a statement-based question preserve? → The organisational character, 2008, and both named establishing bodies must remain distinct.
+      - why: Why does not-for-profit not mean that an organisation cannot receive revenue? → The distinction concerns its purpose and use of surplus, not an absence of fees, income or operating costs. _(outside the book)_
+  - **khola (unpack):**
+    - not-for-profit organisation yaani ऐसी संस्था जिसका मकसद मालिकों में मुनाफा बाँटना नहीं है · image: सेवा चलाने के खर्च के लिए फीस लेने वाली संस्था
+    - kyon: Payment services need a common operating organisation. _[standard]_ → The page identifies NPCI as the not-for-profit organisation established in 2008. _[book]_
+    - example / jagah: NPCI's role in the UPI flow below.
+    - aage: Institutional ownership, purpose and operational function are separate exam facts.
+    - screen par: connect RBI and Indian Banks' Association to NPCI
+    - is level ke liye: Not-for-profit does not by itself mean a government department or a deposit-taking bank.
+  - prerequisites: RBI as India's central bank; Difference between organisational purpose and revenue
+- **p013-i3** · list_point · structure · both · exam high
+  - Its job is to build and operate retail payment infrastructure.
+NPCI does not hold customer deposits—it provides the infrastructure connecting banks.
+    - what: What does NPCI provide, and what does it not hold? → It builds and operates retail payment infrastructure connecting banks; it does not hold customer deposits.
+    - where: Where does NPCI sit in relation to banks? → It provides the connecting infrastructure between them, rather than being the location of customers' deposits.
+      - how: How can an organisation enable payment without holding the customer's deposit? → It can transmit and route payment instructions while the banks maintain the accounts and perform the relevant account entries. _(outside the book)_
+      - why: Why is shared infrastructure useful? → Customers of different banks need a common way for their banks to exchange payment instructions. _(outside the book)_
+  - **khola (unpack):**
+    - retail payment infrastructure yaani लोगों और दुकानों के रोज़ के payments चलाने का साझा इंतज़ाम · image: अलग-अलग घरों को जोड़ती सड़कें
+    - customer deposits yaani ग्राहक के bank account में रखे पैसे · image: passbook में दिखता balance
+    - kyon: People need to pay someone whose account may be in a different bank. _[standard]_ → NPCI supplies connecting infrastructure rather than holding those deposits. _[book]_
+    - example / jagah: Rahul's bank connects to the merchant's bank through NPCI in the diagram.
+    - aage: Distinguish the network operator from the account-holding bank.
+    - screen par: bridge banks without moving deposits into NPCI
+    - is level ke liye: Separate infrastructure, customer account and settlement roles.
+  - prerequisites: A bank deposit is money recorded in a customer's bank account; Payment instructions can travel between institutions
+- **p013-i4** · heading · none · both
+  - Banks and Payment Service Providers:
+- **p013-i5** · list_point · structure · both · exam high
+  - The third layer consists of: commercial banks, payment banks, small finance banks, payment apps, payment gateways, and merchants.
+They provide the customer-facing services.
+    - what: Which participants make up the third layer? → The page includes commercial banks, payment banks, small finance banks, payment apps, payment gateways and merchants.
+    - where: Where does this layer operate relative to the customer? → It is the customer-facing layer, providing the services people encounter when making or receiving payments.
+      - how: How do the different participants work together without performing identical jobs? → Banks provide account-related services within their permitted powers, apps provide a payment interface, gateways help convey payment information, and merchants accept payments. One purchase can involve several of these participants. _(outside the book)_
+      - what: What is a commercial bank in familiar terms? → Think of a regular bank branch where a household keeps savings and applies for a home loan, or a shopkeeper seeks a business loan. Commercial banks accept deposits and lend, alongside providing payment services. This is a broad banking role, not merely an app for sending money. _(outside the book)_
+      - what: What is a payment bank, and what is its important restriction? → Think of an account used to keep permitted deposits and make transfers or bill payments. Payment banks can accept deposits subject to regulatory limits and provide payment services, but cannot lend. Having an account and payment facility there does not mean that the payment bank can give a loan from its own books. _(outside the book)_
+      - what: What is a small finance bank, and how does its purpose connect to daily life? → A small finance bank accepts deposits and lends, with a financial-inclusion focus on underserved customers such as small businesses, small farmers and low-income households. Imagine a small shopkeeper saving in an account and seeking a loan to buy stock: both services can fit this bank's role. _(outside the book)_
+        - difference: What distinction should students use in a statement-based examination? → Commercial banks accept deposits and lend across a broad range of customers. Payment banks accept permitted deposits but cannot lend. Small finance banks accept deposits and lend with an inclusion focus. The word 'small' does not make a small finance bank a payments-only institution, and belonging to the same payment layer does not give all three identical powers. _(outside the book)_
+        - why: Why does customer-facing layer membership not establish lending power? → The layer groups participants by where customers encounter their payment services. Lending permission depends on the institution's banking category and applicable rules, not on its position in this payment-service arrangement. _(outside the book)_
+  - **khola (unpack):**
+    - commercial banks yaani आम bank जो जमा लेते हैं, loans देते हैं और payments जैसी सेवाएँ देते हैं · image: एक ही bank branch में savings account और home loan के अलग counters
+    - payment banks yaani ऐसे bank जो नियमों की सीमा में जमा और payments की सेवा देते हैं, लेकिन खुद loan नहीं दे सकते · image: account से bill भरना संभव है, पर उसी payment bank से उधार नहीं मिलता
+    - small finance banks yaani ऐसे bank जो जमा भी लेते हैं और loan भी देते हैं, खास ध्यान उन लोगों और छोटे कारोबारों पर है जिन तक banking कम पहुँची है · image: छोटा दुकानदार account में बचत रखता है और सामान खरीदने के लिए loan लेता है
+    - customer-facing services yaani वह सेवा जिससे ग्राहक सीधे काम करता है · image: दुकान के counter पर दिखता QR और mobile की payment screen
+    - payment gateways yaani payment की जानकारी आगे पहुँचाने में मदद करने वाली सेवा · image: online खरीद में payment तक ले जाने वाला रास्ता
+    - kyon: Customers need accessible ways to save, pay and, where permitted, borrow; these are different needs rather than one identical service. _[standard]_ → The page groups customer-facing participants together, but banking categories determine which of them may accept deposits and lend. _[standard]_
+    - example / jagah: A household's regular bank account and home loan illustrate commercial banking; a bill-payment account without lending illustrates a payment bank; a small shopkeeper's savings and stock-purchase loan illustrate a small finance bank. These are outside explanatory examples.
+    - aage: The visible payment interface is not the whole system, and participation in payments does not imply permission to lend.
+    - screen par: fan out six participants toward a customer, then contrast deposit and loan permissions across the three bank types
+    - is level ke liye: For statement combinations, separate payment banks from small finance banks: both accept permitted deposits, but only the latter can lend. An inclusion focus does not mean small finance banks serve exclusively one customer group.
+  - prerequisites: Bank account; Deposits as money held in a bank account; Lending as giving money that must be repaid; Merchant as a seller; An app as a user interface
+- **p013-i6** · heading · none · both
+  - How a UPI payment actually works?
+- **p013-i7** · diagram · figure · image · exam high
+  - Four rounded boxes joined by three right-pointing arrows: Rahul / UPI App → Rahul's Bank → NPCI / UPI Switch → Merchant's / Bank. Below: 'NPCI routes the transaction between banks.' and 'The RBI oversees the settlement framework behind the scenes.'
+    - what: What relationship does the flow show? → A payment route links Rahul's UPI app to his bank, then NPCI's UPI switch and the merchant's bank.
+    - which: Which institutions route and oversee the transaction framework? → NPCI routes between banks; RBI oversees the settlement framework behind the scenes.
+      - how: How should the arrows be read without mistaking NPCI for a deposit holder? → Read them as a simplified transaction route, not as evidence that the payer's deposit is stored at every box along the way. _(outside the book)_
+  - **khola (unpack):**
+    - UPI Switch yaani UPI request को सही banks तक पहुँचाने वाला साझा तंत्र · image: सही रास्ते पर भेजता traffic junction
+    - kyon: Payer and merchant may use different banks. _[standard]_ → NPCI routes the transaction between banks, with RBI overseeing the settlement framework. _[book]_
+    - example / jagah: Rahul paying a merchant.
+    - aage: An app interaction depends on institutions operating behind the screen.
+    - screen par: trace three rightward arrows
+    - is level ke liye: The flow is simplified; do not invent missing technical stages.
+  - prerequisites: Payer and payee; Bank account; NPCI's infrastructure role
+- **p013-i8** · diagram_label · figure · image · exam medium
+  - Rahul / UPI App — payer using the app; arrow points to Rahul's Bank.
+    - what: What does the first box represent? → The user-side starting point: Rahul interacting with a UPI app.
+    - which: Which box follows it? → The arrow leads to Rahul's Bank.
+      - how: How does Rahul initiate the process described below? → He enters his UPI PIN, after which the app sends the request.
+  - **khola (unpack):**
+    - UPI App yaani mobile पर UPI payment करने का साधन · image: फोन पर Pay वाली screen
+    - kyon: The payer needs a way to initiate the payment. _[standard]_ → The app sends the request after PIN entry in the stated process. _[book]_
+    - example / jagah: Rahul's phone.
+    - aage: The request proceeds to institutional processing.
+    - screen par: tap and send
+    - is level ke liye: Separate user interface from infrastructure.
+  - prerequisites: Mobile payment app
+- **p013-i9** · diagram_label · figure · image · exam high
+  - Rahul's Bank — receives the arrow from Rahul / UPI App and sends an arrow to NPCI / UPI Switch.
+    - what: What does this box represent? → The payer-side bank, distinct from Rahul's app and NPCI.
+    - which: Which boxes border it? → Rahul's app is on its left; NPCI's switch is on its right.
+      - how: How does this bank participate in the listed steps? → It verifies funds for Rahul's payment.
+  - **khola (unpack):**
+    - Rahul's Bank yaani वह bank जहाँ Rahul का account है · image: Rahul की passbook वाला bank
+    - kyon: A payment needs money available in the payer's account. _[standard]_ → Rahul's bank verifies funds. _[book]_
+    - example / jagah: Payer side of the flow.
+    - aage: Account checking remains separate from routing.
+    - screen par: check the balance
+    - is level ke liye: Identify functions institution by institution.
+  - prerequisites: Available account balance
+- **p013-i10** · diagram_label · figure · image · exam high
+  - NPCI / UPI Switch — between Rahul's Bank and Merchant's Bank, with arrows entering from the former and leaving toward the latter.
+    - what: What role is named inside the NPCI box? → The UPI Switch, which the accompanying text associates with routing between banks.
+    - which: Which institutions does it connect in the drawing? → Rahul's Bank and the Merchant's Bank.
+      - how: How does the switch help the request reach its destination? → The process states that it identifies both banks.
+  - **khola (unpack):**
+    - Switch yaani request को सही दिशा में भेजने वाला तंत्र · image: चौराहे से सही सड़क पर मुड़ती गाड़ी
+    - kyon: A request must reach the appropriate bank. _[standard]_ → NPCI's switch identifies both banks. _[book]_
+    - example / jagah: Middle connection between the two banks.
+    - aage: Interbank routing has an identifiable operator.
+    - screen par: identify and route
+    - is level ke liye: Do not substitute RBI for NPCI in the switch role.
+  - prerequisites: Different banks participate in one payment
+- **p013-i11** · diagram_label · figure · image · exam medium
+  - Merchant's / Bank — destination box receiving the arrow from NPCI / UPI Switch.
+    - what: What does the last box represent? → The bank on the recipient merchant's side.
+    - which: Which box sends the arrow into it? → NPCI's UPI Switch.
+      - how: How is the merchant's bank described in the process? → It receives confirmation.
+  - **khola (unpack):**
+    - Merchant yaani सामान या सेवा बेचकर payment लेने वाला · image: चाय बेचने वाला दुकानदार
+    - kyon: The seller needs the recipient side of the payment to be informed. _[standard]_ → The merchant's bank receives confirmation. _[book]_
+    - example / jagah: Recipient end of Rahul's purchase.
+    - aage: Both payer-side and recipient-side banks participate.
+    - screen par: receive confirmation
+    - is level ke liye: Confirmation and final interbank settlement are different concepts.
+  - prerequisites: Merchant is the seller receiving payment
+- **p013-i12** · diagram_label · figure · image · exam high
+  - NPCI routes the transaction between banks.
+    - what: What does the first explanatory line clarify? → NPCI's position in the flow is a routing role between banks.
+    - which: Which banks are illustrated here? → Rahul's bank and the merchant's bank.
+      - why: Why distinguish routing from holding money? → Passing an instruction to its destination does not imply accepting the payer's deposit. _(outside the book)_
+  - **khola (unpack):**
+    - routes yaani सही bank तक आगे पहुँचाता है · image: सही पते तक चिट्ठी पहुँचाना
+    - kyon: Payment instructions need a destination. _[standard]_ → NPCI routes them between banks. _[book]_
+    - example / jagah: Caption explaining the arrows.
+    - aage: Routing is not deposit-taking.
+    - screen par: direct the request
+    - is level ke liye: Match NPCI with routing in statement combinations.
+  - prerequisites: Instruction routing; Deposit account
+- **p013-i13** · diagram_label · figure · image · exam high
+  - The RBI oversees the settlement framework behind the scenes.
+    - what: What role does the diagram assign RBI? → Oversight of the settlement framework operating behind the visible payment flow.
+    - which: Which role must not be swapped with RBI's here? → NPCI's routing of transactions between banks.
+      - why: Why is settlement needed beyond sending a payment message? → Banks need to discharge the financial obligations arising between them; delivery of a message alone is not that discharge. _(outside the book)_
+  - **khola (unpack):**
+    - settlement yaani banks के बीच payment से बनी देनदारी का हिसाब चुकता होना · image: दो दुकानदारों का दिन के लेन-देन का हिसाब चुकाना
+    - kyon: Interbank payments create obligations that must be discharged. _[standard]_ → RBI oversees the settlement framework. _[book]_
+    - example / jagah: Behind the customer-visible UPI flow.
+    - aage: Fast customer confirmation should not be used to invent a final settlement timetable.
+    - screen par: reconcile behind the flow
+    - is level ke liye: Oversight, routing and account maintenance are distinct roles.
+  - prerequisites: Banks can owe payment amounts to one another
+- **p013-i14** · paragraph · process · both · exam high
+  - The process happens in seconds:
+• Rahul enters his UPI PIN.
+• The UPI app sends the request.
+• NPCI's UPI switch identifies both banks.
+• Rahul's bank verifies funds.
+• Merchant's bank receives confirmation.
+• Settlement between banks occurs through the RBI's payment infrastructure.
+    - how: How does the page sequence a UPI payment? → PIN entry is followed by the app's request, identification of both banks by NPCI's switch, funds verification by Rahul's bank, confirmation to the merchant's bank, and interbank settlement through RBI's payment infrastructure.
+    - when: How quickly does the page describe the process? → It says the process happens in seconds, but supplies no separate settlement timetable.
+      - why: Why are PIN entry and funds verification different checks? → PIN entry relates to authorising the payment, whereas checking funds concerns whether the account has the required money. Permission and available balance answer different questions. _(outside the book)_
+      - how: How does settlement differ from confirmation? → Confirmation communicates transaction status; settlement discharges the resulting obligations between banks. _(outside the book)_
+        - why: Why should the flow and bullets not be treated as a complete technical message log? → They simplify institutional roles and actions; real processing can involve exchanges in more than one direction. _(outside the book)_
+  - **khola (unpack):**
+    - UPI PIN yaani UPI payment की मंज़ूरी देने के लिए डाला जाने वाला गुप्त code · image: payment confirm करते समय डाले जाने वाले अंक
+    - verifies funds yaani जाँचता है कि account में payment के लिए पैसे हैं या नहीं · image: खरीद से पहले बटुए में पैसे देखना
+    - kyon: A payment needs the payer's authorisation and usable funds. _[standard]_ → The page links the request, routing, bank checks, confirmation and settlement across separate institutions. _[book]_
+    - example / jagah: Rahul paying a merchant through his phone.
+    - aage: What appears as one tap is a coordinated process with different responsibilities.
+    - screen par: enter, send, identify, verify, confirm, settle
+    - is level ke liye: Distinguish authorisation, routing, confirmation and settlement without adding unsupported technical timings.
+  - prerequisites: UPI PIN as payment authorisation; Available balance; Payment request versus settlement
+- **p013-i15** · heading · none · both
+  - UPI Push and Pull Transactions
+- **p013-i16** · definition · definition · both · exam high
+  - Push Transactions:
+When you send money by your own discretion
+E.g. sending money to a relative/friend or making a payment to a tea seller.
+    - what: What makes the transaction a push payment? → The payer decides to send the money and initiates the payment.
+    - evidence: Which examples does the page give? → Sending money to a relative or friend and paying a tea seller.
+      - how: How can the same push concept cover both a transfer and a purchase? → The classification is based on who initiates sending the money, not whether the recipient is a friend or a seller. _(outside the book)_
+      - difference: How does it differ from the pull example below? → In push, the payer chooses to send money; in the pull example, the company collects under an earlier command without a fresh monthly click.
+  - **khola (unpack):**
+    - Push Transactions yaani जब पैसे देने वाला खुद payment शुरू करता है · image: चाय पीकर खुद mobile से पैसे भेजना
+    - discretion yaani अपनी मर्ज़ी से फैसला करना · image: दोस्त को अभी पैसे भेजने का खुद फैसला
+    - kyon: A person wants to transfer money or pay a seller now. _[standard]_ → The payer sends at their own discretion: the page calls this push. _[book]_
+    - example / jagah: A friend, relative or tea seller.
+    - aage: Different purposes can belong to the same initiation category.
+    - screen par: push money outward from the payer
+    - is level ke liye: Use 'who initiates?' as the classification test.
+  - prerequisites: Payer and recipient; Initiating a payment
+- **p013-i17** · example · process · both · exam high
+  - Pull transaction:
+When you have given command that every month electricity company should cut the money from my bank account
+The company will pull money without requiring you to push/click buttons every month.
+    - how: How does the page's electricity-payment example work? → The customer first gives a command for monthly deductions; the company then collects without requiring a fresh monthly push or click.
+    - when: When does the collection occur in this example? → Every month under the command already given by the customer.
+      - why: Why is the prior command essential to understanding this example? → It distinguishes authorised recurring collection from the misleading idea that a company may freely take money from an account. _(outside the book)_
+      - difference: What is the important contrast with push? → The push example involves the payer sending voluntarily at that moment; the pull example removes the need for a new monthly payer click after prior instruction.
+        - exception: Should every pull request be assumed to be an automatic recurring debit? → No. This is a recurring-authorisation example; a collection request and an authorised recurring mandate should not be treated as identical in every situation. _(outside the book)_
+  - **khola (unpack):**
+    - Pull transaction yaani यहाँ पहले दी मंज़ूरी के आधार पर company payment लेती है · image: बिजली का bill हर महीने अपने-आप कटना
+    - kyon: A recurring bill otherwise requires repeated payment action. _[standard]_ → With the stated prior command, the company collects without a new monthly click. _[book]_
+    - example / jagah: Monthly electricity bill.
+    - aage: Convenience comes from prior authorisation, not absence of customer consent.
+    - screen par: authorise once, collect monthly
+    - is level ke liye: Do not generalise this example into a claim that every pull transaction is automatic.
+  - prerequisites: Prior payment authorisation; Recurring monthly bill; Push payment
+- **p013-i18** · list_point · process · both · exam high
+  - UPI Delegated Payments to create Secondary Accounts (2024-Aug)
+Father (primary account-UPI) creates a secondary account-UPI daughter.
+Then she can use money from father’s bank account upto [up to] Rs.X limit using her mobile.
+    - how: How does delegated payment work in the book's family example? → The father is the primary user and creates secondary UPI access for his daughter; she then uses her mobile to spend from his bank account up to Rs.X.
+    - when: What date does the page associate with this feature? → It gives August 2024.
+      - why: Why is this delegation rather than an ordinary transfer to the daughter? → The example says she uses money from the father's account, rather than saying the father first transfers a balance into her own bank account.
+      - how: How does a limit help explain controlled delegation? → It separates permission to spend from unrestricted control over the funding account. _(outside the book)_
+      - what: What does Rs.X tell us, and what does it not tell us? → It represents a spending limit, but the page gives no numerical amount.
+        - exception: Does 'Secondary Accounts' prove a separate deposit account has been opened for the daughter? → No. Delegated payment access and opening a separate bank deposit account are different concepts; this wording should not be used to infer the latter. _(outside the book)_
+  - **khola (unpack):**
+    - Delegated Payments yaani अपने account से तय सीमा तक किसी दूसरे को payment करने की अनुमति देना · image: पिता बेटी को खर्च करने की सीमित इजाज़त देता है
+    - primary account yaani यहाँ पिता का account, जिससे पैसे इस्तेमाल होते हैं · image: खर्च का पैसा पिता के बटुए से आना
+    - Secondary Accounts yaani यहाँ दूसरे व्यक्ति को दिया गया UPI से खर्च करने का access · image: बेटी के phone पर मिली सीमित खर्च की अनुमति
+    - Rs.X limit yaani रुपयों की तय सीमा; X की जगह यहाँ असली रकम नहीं दी है · image: खर्च की ऊपर वाली हद
+    - kyon: A family member may need to make payments using another member's funds while control is retained. _[standard]_ → The page's secondary user spends from the primary user's account within a limit using her own mobile. _[book]_
+    - example / jagah: Father as primary user and daughter as secondary user.
+    - aage: The person operating the phone need not be the owner of the funding account.
+    - screen par: grant access, cap spending, pay from primary account
+    - is level ke liye: Distinguish account ownership from delegated payment permission; do not invent an actual limit.
+  - prerequisites: Bank account ownership; Permission to spend; A spending limit
+
+## Page 14 · passed after 3 round(s)
+
+NEFT uses half-hourly batches; RTGS settles high-value transfers in real time without batching; IMPS provides immediate transfers. An image-only table compares these with UPI across nine criteria. The page ends by expanding AEPS as Aadhaar Enabled Payment System.
+
+- **p014-i1** · heading · none · both
+  - Other Digital Payment Systems
+- **p014-i2** · definition · definition · both · exam high
+  - 1. NEFT (National Electronic Funds Transfer):
+    - what: What does NEFT stand for? → National Electronic Funds Transfer; it is the payment system introduced here for ordinary bank transfers.
+    - evidence: What on this page identifies NEFT as a transfer system? → Its expanded name refers to electronic funds transfer, and its bullets describe transfers in half-hourly batches.
+      - how: How should a beginner understand electronic funds transfer? → Money is moved through bank account records and electronic instructions rather than by physically carrying cash to the recipient. _(outside the book)_
+  - **khola (unpack):**
+    - Electronic Funds Transfer yaani नकद ले जाए बिना electronic तरीके से एक account से दूसरे में पैसे भेजना · image: फोन से पैसे भेजने पर दूसरे के account में रकम दिखना
+    - kyon: A sender needs to pay someone without carrying cash. _[standard]_ → NEFT offers electronic transfers and groups them in batches. _[book]_
+    - example / jagah: An ordinary transfer from one bank account to another.
+    - aage: The name identifies the system; its batch mechanism explains its speed.
+    - screen par: move an electronic payment instruction between accounts
+    - is level ke liye: Learn the expansion together with the distinguishing settlement mechanism.
+  - prerequisites: bank accounts; sender and recipient of a payment
+- **p014-i3** · list_point · facts_numbers · both · exam high
+  - • Available 24×7. Free of cost
+    - what: What availability and cost does the prose assign to NEFT? → It states that NEFT is available 24×7 and free of cost.
+    - evidence: Does the table support the availability statement? → Yes. The NEFT availability cell says '24×7, all days'; the table does not have a fee row.
+      - why: Why must availability not be confused with instant settlement? → A service may accept instructions throughout the day while settling them at scheduled intervals. Access time and processing time measure different things. _(outside the book)_
+      - exception: Is NEFT universally free across accounts and initiation channels? → No. Banks must not charge savings-account customers for online NEFT transactions. Other NEFT transactions can attract permitted charges, so the book's unqualified statement should not be generalised to every account and channel. _(outside the book)_
+        - compare: How do an online savings-account NEFT transfer and a branch-initiated NEFT transfer differ in charges? → A savings-account customer initiating NEFT through internet or mobile banking must not be charged for that transfer. A branch-initiated NEFT transfer can attract permitted charges; it does not automatically receive the online savings-account exemption. _(outside the book)_
+  - **khola (unpack):**
+    - 24×7 yaani दिन के 24 घंटे, हफ्ते के सातों दिन · image: रविवार रात को भी transfer की सुविधा
+    - Free of cost yaani transfer करने की fee नहीं लगना; NEFT में account और payment शुरू करने का तरीका भी देखना है · image: घर से savings account की app पर NEFT करना और branch के counter पर NEFT करवाना अलग स्थितियाँ हैं
+    - kyon: A sender needs to know both when a transfer can be initiated and whether a fee applies. _[standard]_ → Online NEFT by savings-account customers must be free, while other NEFT transactions can attract permitted charges. _[standard]_
+    - example / jagah: Compare NEFT from a savings account through a bank app with NEFT initiated at a branch counter: the former must be free; the latter can attract permitted charges.
+    - aage: Assess availability, settlement speed and charges separately; do not extend the online savings-account fee exemption to every NEFT transaction.
+    - screen par: contrast an online savings-account transfer marked no fee with a branch transfer marked permitted charges may apply
+    - is level ke liye: In statement-based questions, reject an unqualified claim that all NEFT transactions are free across accounts and channels.
+  - prerequisites: hours and days; payment charges; settlement of a payment; savings account; online versus branch-initiated banking
+- **p014-i4** · list_point · process · both · exam high
+  - • Transfers occur in half-hourly batches.
+    - how: How does NEFT process transfers on this page? → It groups transfers into batches rather than settling each separately as soon as it arrives.
+    - when: When are these batches processed? → The page specifies half-hourly batches, meaning batches at half-hour intervals.
+      - why: Why can a batch-based transfer involve waiting? → An instruction may arrive before the next batch is processed, so it waits for that processing round rather than being settled individually on arrival. _(outside the book)_
+  - **khola (unpack):**
+    - batches yaani कई transfer को एक समूह में लेकर process करना · image: लिफ्ट लोगों को इकट्ठा करके एक चक्कर में ले जाती है
+    - kyon: Many payment instructions need processing. _[standard]_ → NEFT processes them in half-hourly groups. _[book]_
+    - example / jagah: Several account-transfer instructions entering a common processing round.
+    - aage: Batch processing explains the table's slower-speed description.
+    - screen par: collect instructions and release successive batches
+    - is level ke liye: Contrast continuous availability with periodic settlement.
+  - prerequisites: payment instructions; half an hour; settlement
+- **p014-i5** · list_point · facts_numbers · both · exam high
+  - • Suitable for ordinary bank transfers.
+    - what: What use does the page associate with NEFT? → Ordinary bank transfers, rather than the high-value urgent transfers emphasised for RTGS.
+    - evidence: Where is this use repeated? → The table's Primary Use row describes NEFT as suitable for regular bank transfers.
+      - why: Why can batch processing suit an ordinary transfer? → When immediate receipt is not essential, a scheduled processing round can meet the payment need. _(outside the book)_
+  - **khola (unpack):**
+    - ordinary bank transfers yaani रोजमर्रा में account से पैसे भेजना, जहाँ तुरंत पहुँचना जरूरी न हो · image: समय रहते किराए की रकम भेजना
+    - kyon: Some payments do not require immediate receipt. _[standard]_ → The page associates regular transfers with NEFT. _[book]_
+    - example / jagah: A planned account-to-account payment.
+    - aage: Choose a system by urgency as well as amount.
+    - screen par: match a routine payment to NEFT
+    - is level ke liye: Suitability is not an exclusive legal restriction.
+  - prerequisites: urgency of payments; batch processing
+- **p014-i6** · list_point · facts_numbers · both · exam high
+  - • Mainly for small amounts upto 5 lakh (Limit varies from bank to bank)
+    - what: What amount guidance does the NEFT prose give? → It describes mainly small amounts upto 5 lakh and adds that the limit varies from bank to bank.
+    - evidence: Does the table establish ₹5 lakh as a fixed NEFT maximum? → No. The table says NEFT has 'No fixed limit', while the prose mentions 5 lakh with a bank-wise qualification. The page therefore does not support treating ₹5 lakh as an unqualified system-wide ceiling.
+      - why: Why distinguish a bank's limit from a system-wide limit? → A bank or access channel can impose an operational cap even when the payment system itself has a different limit framework. _(outside the book)_
+  - **khola (unpack):**
+    - Limit varies from bank to bank yaani एक bank में जितनी रकम भेज सकते हैं, दूसरे में उतनी ही हो यह जरूरी नहीं · image: दो banking apps में अलग transfer cap दिखना
+    - kyon: A sender must know whether the intended amount is permitted. _[standard]_ → The prose gives bank-wise variation while the table gives no fixed NEFT maximum. _[book]_
+    - example / jagah: Checking the bank's transfer limit before sending a payment.
+    - aage: Read amount statements with their qualifications and source location.
+    - screen par: place the prose limit beside the table's no-fixed-limit cell
+    - is level ke liye: Internal source tension is explicit, not silently corrected.
+  - prerequisites: one lakh equals 100,000; transaction limit; bank versus payment system
+- **p014-i7** · table · comparison · image
+  - Comparison Between NEFT, RTGS, IMPS, and UPI. Columns: criterion, NEFT, RTGS, IMPS, UPI. Rows: Full Form; Regulator; Settlement Type; Availability; Speed; Minimum Amount; Maximum Amount; Primary Use; Channels Supported.
+- **p014-i8** · table_row · comparison · image · exam high
+  - Full Form | NEFT: National Electronic Funds Transfer | RTGS: Real-Time Gross Settlement | IMPS: Immediate Payment Service | UPI: Unified Payments Interface
+    - compare: What do the four expanded names emphasise? → NEFT names electronic funds transfer; RTGS names real-time gross settlement; IMPS names immediate payment service; UPI names a unified payments interface.
+    - difference: Which expansion uses 'Interface' rather than 'Transfer', 'Settlement' or 'Service'? → UPI expands to Unified Payments Interface, unlike the other three names.
+      - how: How can the words help understanding rather than rote learning? → 'Real-time' directs attention to timing, 'gross' to individual settlement, and 'interface' to a way of accessing and initiating payments. The names highlight different aspects, not interchangeable systems. _(outside the book)_
+  - **khola (unpack):**
+    - Interface yaani वह तरीका या जोड़ जिससे payment की सुविधा इस्तेमाल करते हैं · image: फोन की app से payment शुरू करना
+    - kyon: Similar-looking acronyms can be confused. _[standard]_ → Their full forms distinguish transfer, settlement, service and interface. _[book]_
+    - example / jagah: Recognising NEFT, RTGS and IMPS in a banking menu and UPI in a payment app.
+    - aage: Names become anchors for the later mechanism comparisons.
+    - screen par: expand four acronyms into aligned names
+    - is level ke liye: Do not infer identical mechanisms merely because all enable digital payments.
+  - prerequisites: electronic payments; bank account transfers
+- **p014-i9** · table_row · comparison · image · exam high
+  - Regulator | NEFT: RBI | RTGS: RBI | IMPS: NPCI | UPI: NPCI
+    - compare: How does the table group the four systems institutionally? → Under its 'Regulator' heading, it places NEFT and RTGS with RBI, and IMPS and UPI with NPCI.
+    - difference: Which pair shares the NPCI label rather than the RBI label? → IMPS and UPI share NPCI; NEFT and RTGS share RBI.
+    - what: What does NPCI stand for, and what does it do? → NPCI stands for National Payments Corporation of India. It operates retail-payment infrastructure, including IMPS and UPI, that enables participating banks and payment applications to connect for payments. _(outside the book)_
+      - how: How does NPCI's role connect to a familiar UPI payment? → When a customer pays a shop through a UPI app, the app is the visible access point. NPCI operates the underlying UPI network connecting participants; it is not simply the app the customer sees. _(outside the book)_
+      - why: Why is the table's 'Regulator' heading misleading for NPCI? → Operating payment infrastructure and regulating payment systems are different jobs. RBI is the payment-system regulator, while NPCI operates infrastructure such as IMPS and UPI under regulatory oversight. NPCI does not replace RBI as statutory regulator. _(outside the book)_
+  - **khola (unpack):**
+    - NPCI yaani National Payments Corporation of India; UPI और IMPS जैसे retail-payment networks चलाने वाली संस्था · image: दुकान पर UPI app सामने दिखती है; पीछे अलग-अलग banks को जोड़ने वाला network NPCI चलाता है
+    - Regulator yaani नियम बनाने और उनके पालन पर नजर रखने वाली संस्था · image: खेल के नियम देखने वाला referee और खेल का इंतजाम करने वाला आयोजक अलग काम करते हैं
+    - kyon: Customers using different banks need a shared network through which retail payments can pass. _[standard]_ → NPCI operates networks such as UPI and IMPS, while RBI provides regulatory oversight; running the network and overseeing its rules are distinct roles. _[standard]_
+    - example / jagah: A customer using a UPI app to pay a shop whose account is with another bank.
+    - aage: Identify the app, network operator and regulator as separate layers instead of treating NPCI as the statutory regulator.
+    - screen par: connect two banks through an NPCI network and place RBI oversight above it
+    - is level ke liye: Statement-combination trap: NPCI operates UPI and IMPS; this does not make it their statutory regulator.
+  - prerequisites: RBI as India's central bank; bank accounts; payment apps versus underlying payment networks; regulation versus operation
+- **p014-i10** · table_row · comparison · image · exam high
+  - Settlement Type | NEFT: Batch-based (half-hourly) | RTGS: Real-time, gross settlement | IMPS: Real-time | UPI: Real-time
+    - compare: How does settlement type differ across the systems? → NEFT is batch-based at half-hour intervals. RTGS is real-time gross settlement; IMPS and UPI are labelled real-time.
+    - difference: What is distinctive about RTGS's wording? → RTGS explicitly includes 'gross settlement', whereas IMPS and UPI cells state only 'Real-time'.
+      - how: How does gross settlement differ from net settlement? → Gross settlement settles each payment individually for its full amount. Net settlement offsets obligations and settles the resulting balance. Instant customer experience alone does not prove a particular interbank settlement model. _(outside the book)_
+  - **khola (unpack):**
+    - gross settlement yaani हर payment को उसकी पूरी रकम के साथ अलग settle करना · image: दो उधारों का फर्क निकालने के बजाय हर भुगतान अलग पूरा करना
+    - kyon: Payments need a way to discharge obligations between participating banks. _[standard]_ → The table contrasts half-hourly NEFT batches with real-time descriptions. _[book]_
+    - example / jagah: Comparing a NEFT instruction with a high-value RTGS instruction.
+    - aage: Settlement design explains why equal availability does not imply equal processing.
+    - screen par: contrast grouped instructions with individual settlement
+    - is level ke liye: Separate customer-facing immediacy from the full interbank settlement architecture.
+  - prerequisites: settlement; payment instructions; batch processing
+- **p014-i11** · table_row · comparison · image · exam high
+  - Availability | NEFT: 24×7, all days | RTGS: 24×7, all days | IMPS: 24×7, all days | UPI: 24×7, all days
+    - compare: What availability do the four systems share? → Every column states 24×7 availability on all days.
+    - difference: Does this row distinguish NEFT from the other three? → No. Availability is the same in all four cells; their differences appear in settlement and speed rows.
+      - why: Why is shared availability not shared speed? → Availability answers when a facility can be used; speed answers how quickly a payment is processed after initiation. _(outside the book)_
+  - **khola (unpack):**
+    - Availability yaani किस समय सुविधा इस्तेमाल की जा सकती है · image: दुकान खुली है या बंद, यह पूछना; सामान मिलने में कितना समय लगेगा, यह अलग सवाल है
+    - kyon: Users need payments beyond normal branch hours. _[standard]_ → All four systems are shown as available around the clock. _[book]_
+    - example / jagah: A payment initiated on a public holiday.
+    - aage: Choose other criteria to distinguish the systems.
+    - screen par: align four identical round-the-clock symbols
+    - is level ke liye: The row is an availability statement, not a guarantee against technical downtime.
+  - prerequisites: 24×7; availability versus processing time
+- **p014-i12** · table_row · comparison · image · exam high
+  - Speed | NEFT: Slower (batch processing) | RTGS: Instant for high-value | IMPS: Instant | UPI: Instant
+    - compare: How does the table rank payment speed? → It calls NEFT slower because of batch processing, RTGS instant for high-value transfers, and IMPS and UPI instant.
+    - difference: Which system's speed is explicitly linked to batching? → NEFT's slower speed is linked to batch processing, unlike the instant descriptions in the other columns.
+      - why: Why can grouping transfers slow a particular instruction? → The instruction may have to wait for its processing group, whereas individual immediate processing need not wait for a scheduled batch. _(outside the book)_
+  - **khola (unpack):**
+    - Instant yaani payment शुरू करने के बाद तुरंत होने वाला · image: दुकानदार के फोन पर payment की सूचना तुरंत आना
+    - kyon: Some recipients need money immediately. _[standard]_ → The table distinguishes slower NEFT batches from instant alternatives. _[book]_
+    - example / jagah: An urgent transfer contrasted with a planned routine payment.
+    - aage: Urgency guides the choice alongside amount limits.
+    - screen par: show one instruction waiting and others moving immediately
+    - is level ke liye: No exact seconds or guaranteed delivery time is supplied.
+  - prerequisites: batch processing; urgency of a payment
+- **p014-i13** · table_row · comparison · image · exam high
+  - Minimum Amount | NEFT: No minimum | RTGS: 2 lakh | IMPS: No minimum | UPI: No minimum
+    - compare: How do minimum amounts compare? → RTGS is shown with a ₹2 lakh minimum. NEFT, IMPS and UPI are shown with no minimum.
+    - difference: Which entry is the exception to 'No minimum'? → RTGS is the exception, supporting the page's emphasis on high-value payments.
+      - how: How consistent is the table's IMPS minimum with the prose? → They differ: the table says 'No minimum', while the prose begins the IMPS range at ₹1. Both statements must be retained as printed.
+  - **khola (unpack):**
+    - Minimum Amount yaani transfer के लिए बताई गई सबसे छोटी रकम · image: किसी सुविधा के लिए कम-से-कम रकम की शर्त
+    - kyon: A proposed payment must meet any entry threshold. _[standard]_ → The table specifies a 2 lakh threshold for RTGS. _[book]_
+    - example / jagah: Testing whether a hypothetical ₹50,000 payment meets the table's RTGS threshold.
+    - aage: RTGS is not the table's choice for a below-threshold amount.
+    - screen par: place a ₹2 lakh threshold before the RTGS lane
+    - is level ke liye: Keep 'no minimum' distinct from zero-value payments.
+  - prerequisites: minimum transaction amount; one lakh equals 100,000
+- **p014-i14** · table_row · comparison · image · exam high
+  - Maximum Amount | NEFT: No fixed limit | RTGS: No upper limit | IMPS: 5 lakh (varies by bank) | UPI: 1 lakh (default), 10 lakh for Person-to-Merchant
+    - compare: What maximum amounts are printed in the table? → NEFT has no fixed limit; RTGS has no upper limit; IMPS has 5 lakh varying by bank; UPI has 1 lakh by default and 10 lakh for Person-to-Merchant.
+    - difference: Which columns contain explicit numerical ceilings or differentiated limits? → IMPS has a bank-qualified 5 lakh figure, and UPI distinguishes a default figure from a Person-to-Merchant figure. NEFT and RTGS have no numerical maximum in this row.
+      - why: Why must qualifications remain attached to transaction limits? → A default amount, a category-specific amount and a bank-dependent cap are not equivalent universal limits. Removing the qualification changes the claim. _(outside the book)_
+      - exception: Is the printed ₹10 lakh figure a universal ceiling available for every UPI merchant payment? → No. The table's blanket Person-to-Merchant wording is misleading. Enhanced UPI limits apply to specified eligible categories and conditions, not automatically to every merchant payment. ₹10 lakh must not be taught as a universal P2M ceiling. _(outside the book)_
+        - how: How should a learner assess whether an enhanced UPI limit applies to a particular payment? → Check whether the payment falls within an eligible category and meets the applicable conditions, including relevant bank or app restrictions. A merchant recipient alone does not establish eligibility for an enhanced limit. _(outside the book)_
+  - **khola (unpack):**
+    - Person-to-Merchant yaani किसी व्यक्ति का दुकानदार या कारोबार को payment करना · image: किराने की दुकान पर QR से पैसे देना
+    - default yaani आम तौर पर लागू बताई गई सीमा; खास category में अलग शर्तें हो सकती हैं · image: सामान्य entry ticket और खास शर्तों वाला अलग pass
+    - kyon: A sender needs to know whether the intended amount is permitted for that particular payment. _[standard]_ → Enhanced UPI limits depend on eligible categories and conditions, so being a merchant payment alone does not establish a ₹10 lakh limit. _[standard]_
+    - example / jagah: An ordinary shop QR payment does not qualify for an enhanced limit merely because the recipient is a merchant.
+    - aage: Read the printed UPI cell critically: retain its wording as the book's claim, but do not generalise ₹10 lakh to all P2M payments.
+    - screen par: place an eligibility gate before the enhanced-limit label
+    - is level ke liye: Statement trap: 'Every UPI merchant payment permits up to ₹10 lakh' is not a valid inference. Also contrast the NEFT cell with the prose's upto-5-lakh description.
+  - prerequisites: maximum transaction amount; merchant payments; bank-specific limits; category-specific eligibility
+- **p014-i15** · table_row · comparison · image · exam high
+  - Primary Use | NEFT: Regular bank transfers | RTGS: High-value, urgent transfers | IMPS: Urgent everyday transfers | UPI: Mobile-based, peer-to-peer & merchant payments
+    - compare: How does the table distinguish primary uses? → NEFT serves regular bank transfers, RTGS high-value urgent transfers, IMPS urgent everyday transfers, and UPI mobile-based peer-to-peer and merchant payments.
+    - difference: How do RTGS and IMPS differ despite both being associated with urgency? → RTGS is specifically associated with high-value urgency; IMPS is associated with everyday urgent transfers.
+      - why: Why are UPI's peer-to-peer and merchant uses different? → Peer-to-peer means paying another person, while a merchant payment pays a business for goods or services. The recipient's role differs even though the payment may use the same app. _(outside the book)_
+  - **khola (unpack):**
+    - peer-to-peer yaani एक व्यक्ति से दूसरे व्यक्ति को payment · image: दोस्त को साझा खाने के अपने हिस्से के पैसे भेजना
+    - kyon: Payments differ in urgency, amount and recipient. _[standard]_ → The table assigns a different primary-use description to each system. _[book]_
+    - example / jagah: A friend repayment, a shop payment and a high-value urgent bank transfer.
+    - aage: A realistic system choice combines purpose, speed and limits.
+    - screen par: sort payment scenarios into four lanes
+    - is level ke liye: Avoid treating examples of primary use as prohibitions on other uses.
+  - prerequisites: payment urgency; merchant; person-to-person payments
+- **p014-i16** · table_row · comparison · image · exam high
+  - Channels Supported | NEFT: Internet & mobile banking | RTGS: Internet & mobile banking | IMPS: Mobile banking, ATMs, & internet banking | UPI: Mobile apps (UPI apps like GPay, PhonePe)
+    - compare: What channels does the table list? → NEFT and RTGS list internet and mobile banking. IMPS lists mobile banking, ATMs and internet banking. UPI lists mobile apps such as GPay and PhonePe.
+    - difference: Which column explicitly includes ATMs, and which names app examples? → IMPS explicitly includes ATMs. UPI names GPay and PhonePe as app examples.
+      - how: How does a channel differ from a payment system? → A channel is the access route used to initiate a payment, such as a bank app or website. The payment system is the underlying arrangement through which the transfer is processed. _(outside the book)_
+  - **khola (unpack):**
+    - Channels Supported yaani किन रास्तों या सुविधाओं से payment शुरू कर सकते हैं · image: एक ही काम के लिए website, phone app या ATM का दरवाजा चुनना
+    - kyon: A user needs a practical route to submit the payment instruction. _[standard]_ → The table lists banking channels and UPI apps for this access. _[book]_
+    - example / jagah: Opening a bank app versus opening PhonePe.
+    - aage: Using a mobile phone does not by itself identify which underlying payment system is used.
+    - screen par: connect access devices to the named systems
+    - is level ke liye: Treat the listed channels as the table's entries, not necessarily exhaustive statements of all access possibilities.
+  - prerequisites: internet banking; mobile banking; ATM; payment system
+- **p014-i17** · definition · definition · both · exam high
+  - 2. RTGS (Real Time Gross Settlement):
+    - what: What does RTGS mean? → It stands for Real Time Gross Settlement, the system the page associates with instant high-value transfers.
+    - evidence: Which page statements unpack the expansion? → The bullets specify real-time settlement and no batching, while the table describes real-time gross settlement.
+      - how: How do 'real time' and 'gross' answer different questions? → 'Real time' describes when processing occurs; 'gross' describes settlement of individual payments for their full amounts rather than an offset net balance. _(outside the book)_
+  - **khola (unpack):**
+    - Real Time yaani instruction आने पर उसी समय process होने वाला · image: अगले समूह का इंतजार किए बिना एक व्यक्ति का काम लेना
+    - kyon: Some large payments require prompt completion. _[standard]_ → RTGS is presented as real-time settlement without batching. _[book]_
+    - example / jagah: A high-value urgent bank transfer.
+    - aage: The expansion links directly to the NEFT–RTGS mechanism contrast.
+    - screen par: split RTGS into timing and amount-settlement meanings
+    - is level ke liye: Gross does not mean simply 'large'; it describes the settlement method.
+  - prerequisites: bank payments; settlement; individual versus grouped processing
+- **p014-i18** · list_point · process · both · exam high
+  - • Real-time settlement. Instant Process. Available 24×7.
+• No batching.
+    - how: How is RTGS settlement presented? → It occurs in real time as an instant process without batching, unlike NEFT's half-hourly groups.
+    - when: When is RTGS available? → The prose says 24×7, and the table adds 'all days'.
+      - why: Why does 'no batching' help explain real-time processing? → A payment need not wait for a scheduled collection of other instructions before being processed individually. _(outside the book)_
+  - **khola (unpack):**
+    - No batching yaani कई payment का समूह बनने का इंतजार नहीं · image: पूरी बस भरने की जगह एक सवारी को तुरंत ले जाना
+    - kyon: An urgent payment should not depend on waiting for a group. _[standard]_ → RTGS is described as instant and without batching. _[book]_
+    - example / jagah: A time-sensitive large transfer submitted through banking.
+    - aage: This mechanism supports RTGS's high-value urgent-use description.
+    - screen par: settle instructions one by one as they arrive
+    - is level ke liye: No processing-time guarantee in seconds is stated.
+  - prerequisites: NEFT batches; settlement; 24×7
+- **p014-i19** · list_point · facts_numbers · both · exam high
+  - • Primarily used for high-value transactions.
+    - what: What transaction category is RTGS primarily used for? → High-value transactions; the table further describes them as urgent transfers.
+    - evidence: What numerical entry reinforces this use? → The table sets a 2 lakh minimum amount for RTGS.
+      - why: Why is immediate settlement useful for a high-value payment? → The recipient may be waiting to complete a major obligation, so prompt settlement reduces the period of uncertainty about receipt. _(outside the book)_
+  - **khola (unpack):**
+    - high-value transactions yaani बड़ी रकम के payment · image: किसी बड़ी खरीद की रकम account से भेजना
+    - kyon: A large payment may need prompt, definite completion. _[standard]_ → The page associates RTGS with high-value urgent transfers. _[book]_
+    - example / jagah: A hypothetical large purchase payment meeting the RTGS minimum.
+    - aage: RTGS differs from the table's urgent everyday IMPS use.
+    - screen par: pair a large payment with the RTGS lane
+    - is level ke liye: Primary use and minimum eligibility are related but different statements.
+  - prerequisites: transaction value; urgency; minimum transaction amount
+- **p014-i20** · list_point · facts_numbers · both · exam high
+  - • Operated directly by RBI.
+    - what: Who directly operates RTGS according to the prose? → RBI directly operates RTGS.
+    - evidence: How does the table support the institutional association? → The RTGS cell under the table's 'Regulator' row also names RBI.
+      - how: How can RBI operate the system while a customer uses a bank app? → The bank app is a customer access channel; the underlying settlement infrastructure can be operated by the central bank. These are different layers of the same payment. _(outside the book)_
+  - **khola (unpack):**
+    - Operated directly yaani system को खुद चलाना, सिर्फ उसका इस्तेमाल करने देना नहीं · image: रेल चलाने वाली संस्था और ticket बेचने वाली app अलग हो सकती हैं
+    - kyon: Payment instructions need common infrastructure behind individual banks. _[standard]_ → The page states that RBI directly operates RTGS. _[book]_
+    - example / jagah: A bank customer initiating RTGS through internet banking.
+    - aage: Identify both the customer channel and the institutional operator.
+    - screen par: trace a bank instruction to RBI-operated settlement
+    - is level ke liye: Operation and regulation are conceptually distinct even where one institution performs both.
+  - prerequisites: RBI; banking channels versus payment infrastructure
+- **p014-i21** · list_point · facts_numbers · both · exam medium
+  - • RBI allowed bankers to charge upto ₹50 fees from the sender.
+    - what: What fee permission does the page state? → It states that RBI allowed bankers to charge the sender fees upto ₹50.
+    - evidence: Does the wording require a ₹50 fee on each transfer? → No. 'Allowed' expresses permission, and 'upto ₹50' gives a ceiling in the printed statement rather than a compulsory flat charge.
+      - why: Why distinguish a fee ceiling from an actual fee? → A permitted maximum does not by itself establish what a particular bank or channel actually charges. _(outside the book)_
+  - **khola (unpack):**
+    - upto ₹50 fees yaani बताई गई अधिकतम fee ₹50 तक, जरूरी नहीं कि हर बार पूरे ₹50 हों · image: अधिकतम कीमत लिखी हो तो उससे कम भी लिया जा सकता है
+    - kyon: A sender needs to know the cost beyond the transferred amount. _[standard]_ → The page mentions permission for a sender fee upto ₹50. _[book]_
+    - example / jagah: Checking a bank's fee schedule before initiating RTGS.
+    - aage: Do not transform a permission ceiling into a compulsory charge.
+    - screen par: cap a sender-fee bar at ₹50
+    - is level ke liye: No date, channel distinction or full tariff schedule is supplied.
+  - prerequisites: sender; bank service charges; maximum versus fixed amount
+- **p014-i22** · definition · definition · both · exam high
+  - 3. IMPS (Immediate Payment Service):
+    - what: What does IMPS stand for? → Immediate Payment Service, presented here as a system for immediate transfers.
+    - evidence: Which page features explain 'Immediate'? → The prose says 'Immediate transfer', and the table calls its speed instant and its primary use urgent everyday transfers.
+      - how: How should IMPS be distinguished from mobile banking? → IMPS is the payment service; mobile banking is one access channel through which a customer can use it. _(outside the book)_
+  - **khola (unpack):**
+    - Immediate Payment Service yaani पैसे तुरंत भेजने की payment सुविधा · image: किसी को जरूरत पड़ने पर phone से तुरंत पैसे भेजना
+    - kyon: An everyday payment can be urgent even when it is not high-value. _[standard]_ → The table assigns urgent everyday transfers to IMPS. _[book]_
+    - example / jagah: An urgent transfer using a banking app.
+    - aage: IMPS supplies another instant option distinct from RTGS and UPI.
+    - screen par: expand IMPS and move an everyday payment immediately
+    - is level ke liye: Mobile access is not synonymous with UPI.
+  - prerequisites: payment services; bank account transfers
+- **p014-i23** · list_point · facts_numbers · both · exam high
+  - • ₹1 to maximum ₹5 lakhs
+    - what: What amount range does the IMPS prose give? → It gives ₹1 to a maximum of ₹5 lakhs.
+    - evidence: How does the table qualify or differ from that range? → Its maximum is 5 lakh with the qualification 'varies by bank', while its minimum says 'No minimum', unlike the prose's ₹1 starting point.
+      - why: Why should both ends of an amount range be checked? → A transfer must fit applicable lower and upper conditions; remembering just the maximum can obscure other eligibility or channel restrictions. _(outside the book)_
+  - **khola (unpack):**
+    - maximum yaani बताई गई सबसे बड़ी भेजी जा सकने वाली रकम · image: रकम बढ़ाने वाला slider एक सीमा पर रुकना
+    - kyon: A user needs to know whether an intended transfer fits the allowed range. _[standard]_ → The prose gives ₹1–₹5 lakhs; the table adds bank variation to the maximum. _[book]_
+    - example / jagah: Checking the transfer screen's permitted amount before confirming IMPS.
+    - aage: Read the prose range alongside the table qualification.
+    - screen par: mark ₹1 and ₹5 lakhs on a range bar
+    - is level ke liye: Do not silently replace the prose's ₹1 with the table's 'No minimum'.
+  - prerequisites: minimum and maximum; one lakh equals 100,000
+- **p014-i24** · list_point · facts_numbers · both · exam high
+  - • Immediate transfer.
+• Available round the clock.
+    - what: What speed and availability are claimed for IMPS? → It provides immediate transfers and is available round the clock.
+    - evidence: How does the table express these claims? → The Speed row says 'Instant', and Availability says '24×7, all days'.
+      - why: Why are both immediacy and round-the-clock access useful? → An urgent payment outside branch hours needs both the ability to initiate it then and a fast processing route; one feature alone does not imply the other. _(outside the book)_
+  - **khola (unpack):**
+    - round the clock yaani दिन हो या रात, पूरे समय सुविधा मिलना · image: रात को जरूरत पड़ने पर भी payment शुरू करना
+    - kyon: Urgent payment needs do not stop at branch closing time. _[standard]_ → IMPS is described as immediate and available round the clock. _[book]_
+    - example / jagah: An urgent account transfer in the evening.
+    - aage: Supports the urgent everyday-transfer use case.
+    - screen par: send a payment across a day-and-night clock
+    - is level ke liye: Do not infer NEFT-like batching from the shared 24×7 availability.
+  - prerequisites: payment speed; service availability
+- **p014-i25** · list_point · facts_numbers · both · exam high
+  - • Works through mobile and internet banking.
+    - what: Which access channels does the prose name for IMPS? → Mobile banking and internet banking.
+    - evidence: Does the table add an access channel? → Yes. It lists ATMs as well as mobile and internet banking.
+      - how: How can internet banking and mobile banking access the same payment service? → A bank website and a bank app are different customer interfaces that can submit instructions to the same underlying payment arrangement. _(outside the book)_
+  - **khola (unpack):**
+    - mobile and internet banking yaani bank की phone सुविधा या website से account का काम करना · image: bank की app और browser में bank की website
+    - kyon: A customer needs a way to submit a transfer instruction. _[standard]_ → The prose names mobile and internet banking; the table also lists ATMs. _[book]_
+    - example / jagah: Selecting IMPS within a bank's transfer menu.
+    - aage: The device or app alone does not determine the payment system.
+    - screen par: join several access channels to IMPS
+    - is level ke liye: Read prose and table together for complete channel coverage.
+  - prerequisites: bank app; bank website; payment channel
+- **p014-i26** · heading · none · both
+  - AEPS and BBPS
+- **p014-i27** · definition · definition · both · exam high
+  - 1. AEPS (Aadhaar Enabled Payment System)
+    - what: What does AEPS stand for? → Aadhaar Enabled Payment System; the expansion identifies Aadhaar as its distinguishing link.
+    - evidence: How much does this page establish about AEPS? → It supplies the name and expansion only. It does not yet explain transactions, authentication or limits.
+      - how: How should 'Aadhaar Enabled' first be understood? → It indicates a payment arrangement in which Aadhaar supports access or identification, rather than naming a new form of money. The detailed mechanism needs a separate explanation. _(outside the book)_
+  - **khola (unpack):**
+    - Aadhaar Enabled yaani जिस सुविधा में Aadhaar की मदद से पहचान या पहुँच जुड़ी हो · image: पहचान बताकर किसी सुविधा तक पहुँचना
+    - kyon: A payment facility needs a way to identify or connect its user. _[standard]_ → The expansion names Aadhaar as the enabling link. _[book]_
+    - example / jagah: The new AEPS section beginning at the bottom of this page.
+    - aage: Prepares the learner for the following explanation without inventing missing details.
+    - screen par: expand AEPS and highlight Aadhaar
+    - is level ke liye: BBPS remains a heading-only reference here.
+  - prerequisites: Aadhaar as an identity number; bank payment system
+
+## Page 15 · passed after 1 round(s)
+
+AEPS uses Aadhaar and biometrics through Bank Mitras; BBPS offers interoperable bill payments. NPCI manages both. RuPay is presented as India's domestic card payment system, launched in 2012, with debit, credit and prepaid cards and selected overseas acceptance. E-Rupi, introduced in 2021, is an SMS/QR-based prepaid voucher restricted to an intended person and service.
+
+- **p015-i1** · list_point · cause_effect · both · exam high
+  - Enables banking transactions using Aadhaar and biometrics, primarily for financial inclusion.
+    - how: How does AEPS identify a user for banking transactions? → The page identifies Aadhaar and biometrics as the means used for transactions.
+      - why: Why can this support financial inclusion? → Biometric identity verification at a nearby service point can reduce dependence on travelling to a branch or using a card and PIN, helping people access banking services. _(outside the book)_
+  - **khola (unpack):**
+    - biometrics yaani शरीर की पहचान वाली खासियत से पहचान जाँचना · image: fingerprint देकर पहचान की जाँच
+    - financial inclusion yaani जिन लोगों तक banking नहीं पहुँचती, उन्हें भी उससे जोड़ना · image: गाँव के व्यक्ति को पास में banking सुविधा मिलना
+    - kyon: Some people face distance and access barriers to banking. _[standard]_ → AEPS uses Aadhaar and biometrics primarily to support financial inclusion. _[book]_
+    - example / jagah: A village resident using an Aadhaar-enabled banking service point.
+    - aage: Connect identity verification with access to banking, then locate the Bank Mitra's role.
+    - screen par: verify identity and open access
+    - is level ke liye: Distinguish identity authentication from the source of money in an account.
+  - prerequisites: bank account; identity verification
+- **p015-i2** · list_point · process · both · exam high
+  - Authentication and payment is done via Bank Mitras.
+    - how: How are AEPS authentication and payment accessed according to the page? → They are carried out through Bank Mitras, who provide the local service interface.
+    - when: When does authentication matter in this service? → Identity is checked when the customer requests a transaction, before the transaction is authorised. _(outside the book)_
+      - why: Why use a Bank Mitra rather than require a branch visit? → A bank's local representative can bring assisted banking closer to people who have difficulty reaching or using a branch. _(outside the book)_
+  - **khola (unpack):**
+    - Bank Mitras yaani bank की ओर से लोगों को पास में banking सेवा देने वाले प्रतिनिधि · image: गाँव की दुकान पर banking सहायता का counter
+    - kyon: A distant branch can make routine banking difficult. _[standard]_ → Bank Mitras provide the authentication and payment interface described here. _[book]_
+    - example / jagah: An assisted transaction at a local Bank Mitra point.
+    - aage: Financial inclusion requires a usable local access point as well as an identity system.
+    - screen par: connect customer to bank through an agent
+    - is level ke liye: Keep the customer-facing agent distinct from the payment-system operator.
+  - prerequisites: authentication; bank branch
+- **p015-i3** · list_point · cause_effect · both · exam high
+  - Helps in Direct Benefits Transfer, helping government subsidies reach the grassroots levels.
+    - how: How is AEPS linked to subsidy delivery? → The page says it supports Direct Benefits Transfer and helps government subsidies reach grassroots beneficiaries.
+      - why: Why does access to banking matter after a benefit has been transferred? → A credit in an account is useful only if the recipient can access or use it; a nearby assisted banking point can help bridge this last-mile gap. _(outside the book)_
+  - **khola (unpack):**
+    - Direct Benefits Transfer yaani सरकार का लाभ सीधे लाभ पाने वाले तक पहुँचाना · image: सरकारी मदद की रकम beneficiary के account में पहुँचना
+    - kyon: A beneficiary needs practical access to a government benefit, not merely an account entry. _[standard]_ → AEPS helps government subsidies reach grassroots levels. _[book]_
+    - example / jagah: A beneficiary accessing a credited subsidy through a local banking point.
+    - aage: Links payment infrastructure to welfare implementation.
+    - screen par: trace benefit to beneficiary
+    - is level ke liye: Do not describe AEPS itself as a subsidy scheme.
+  - prerequisites: government subsidy; bank-account credit
+- **p015-i4** · heading · none · both
+  - 2. BBPS (Bharat Bill Payment System)
+- **p015-i5** · list_point · definition · both · exam high
+  - Provides a single interoperable platform for paying bills such as electricity, mobile, gas, insurance, etc.
+    - what: What does Bharat Bill Payment System provide? → It provides a common interoperable platform for paying different kinds of bills, including electricity, mobile, gas and insurance.
+    - evidence: Which examples show that BBPS is not limited to one utility? → The page lists electricity, mobile, gas and insurance bills.
+      - how: How does interoperability help the payer? → Participating billers and payment channels can work through common arrangements, reducing the need for an isolated payment route for each biller. _(outside the book)_
+  - **khola (unpack):**
+    - interoperable yaani अलग-अलग जुड़े systems का आपस में काम कर पाना · image: एक payment रास्ते से अलग-अलग bill भरना
+    - kyon: Households have bills from several different providers. _[standard]_ → BBPS brings multiple bill categories onto a single interoperable platform. _[book]_
+    - example / jagah: Paying electricity and mobile bills through a participating payment channel.
+    - aage: Separates bill-payment infrastructure from AEPS identity-based banking access.
+    - screen par: converge several bills onto one platform
+    - is level ke liye: A common platform does not mean that there is only one customer-facing app.
+  - prerequisites: utility bill; payment channel
+- **p015-i6** · paragraph · facts_numbers · both · exam high
+  - NPCI manages both AEPS and BBPS.
+    - what: Which common institution manages the two systems named here? → The page attributes management of both AEPS and BBPS to NPCI.
+    - evidence: What is the page's explicit institutional link between AEPS and BBPS? → A separate bold sentence states that NPCI manages both.
+      - why: Why should common management not make a student treat them as the same service? → Their functions on the page differ: AEPS supports Aadhaar-biometric banking, while BBPS supports interoperable bill payments.
+  - **khola (unpack):**
+    - NPCI yaani कई payment systems से जुड़ी संस्था · image: एक संस्था के नीचे अलग-अलग काम करने वाले payment रास्ते
+    - kyon: Different payment needs require different systems. _[standard]_ → The page gives AEPS and BBPS a common manager, NPCI. _[book]_
+    - example / jagah: An institution–system matching question.
+    - aage: Introduces the same institution before RuPay and e-RUPI.
+    - screen par: branch NPCI into two named systems
+    - is level ke liye: Common institutional parent does not imply identical purpose.
+  - prerequisites: AEPS function; BBPS function
+- **p015-i7** · heading · timeline · both · exam medium
+  - Rupay Card Payment Gateway (2012)
+    - when: Which year does the page associate with RuPay's introduction? → The heading gives 2012.
+    - why: Why is a domestic card payment system significant? → It provides a domestic card-network option rather than leaving card payments dependent solely on foreign networks. _(outside the book)_
+  - **khola (unpack):**
+    - kyon: Card payments need a network connecting participating institutions. _[standard]_ → The page places RuPay's introduction in 2012 and describes it as domestic. _[book]_
+    - example / jagah: A RuPay-branded bank card.
+    - aage: Anchors the later product features in time.
+    - screen par: place RuPay at 2012
+    - is level ke liye: Outside clarification: RuPay is a card payment network; 'network' and a merchant payment gateway are not technically identical.
+  - prerequisites: payment card; domestic versus foreign
+- **p015-i8** · list_point · facts_numbers · both · exam high
+  - Rupee + Payment = RuPay card. It was launched by NPCI.
+    - what: What does the name RuPay combine, and who launched it? → The page combines Rupee and Payment to explain the name and identifies NPCI as the launcher.
+    - evidence: What does the plus-and-equals expression establish? → It is the page's name mnemonic, not a numerical payment formula.
+      - how: How should the mnemonic be used in an exam? → Use it to remember the brand, while keeping the institution–product link, NPCI–RuPay, separate from the wordplay. _(outside the book)_
+  - **khola (unpack):**
+    - kyon: A brand name needs to be linked to its institution. _[standard]_ → The page supplies both the Rupee–Payment mnemonic and NPCI as launcher. _[book]_
+    - example / jagah: NPCI → RuPay on a revision chart.
+    - aage: Connects RuPay to the institutional theme of the page.
+    - screen par: join Rupee and Payment into RuPay
+    - is level ke liye: The symbols + and = indicate word combination here; they have no units.
+  - prerequisites: rupee; NPCI
+- **p015-i9** · list_point · comparison · both · exam medium
+  - It is world’s 7th payment gateway similar to Mastercard, Visacard [Visa card], China’s Union Pay.
+    - compare: Which systems does the page compare with RuPay? → It places RuPay alongside Mastercard, Visa and China's Union Pay as similar payment systems, while calling RuPay the world's seventh payment gateway.
+    - difference: What domestic identity distinguishes RuPay in the adjacent text? → The next bullet identifies RuPay specifically as India's domestic payment system.
+      - how: How should the seventh-place description be interpreted? → As an attributed book claim, not as proof of a current ranking by transaction volume, size or quality; this page supplies no such criterion. _(outside the book)_
+  - **khola (unpack):**
+    - kyon: Students need familiar comparators to identify RuPay's role. _[standard]_ → The page compares it with Mastercard, Visa and Union Pay. _[book]_
+    - example / jagah: Different network logos printed on bank cards.
+    - aage: Places RuPay in the card-payment family, not among currencies.
+    - screen par: align card-network logos
+    - is level ke liye: The book's gateway wording is broader than the technical card-network distinction.
+  - prerequisites: card payment network; domestic payment system
+- **p015-i10** · list_point · comparison · both · exam high
+  - Rupay charges less fees than other companies and is India’s domestic payment system.
+    - compare: What fee comparison does the book make? → It says RuPay charges lower fees than other companies, without specifying the fee category or amount.
+    - difference: What national identity does the page assign RuPay? → It describes RuPay as India's domestic payment system.
+      - why: Why can lower payment-processing costs matter? → They can reduce the cost burden of accepting and processing electronic payments and encourage participation. _(outside the book)_
+  - **khola (unpack):**
+    - domestic payment system yaani अपने देश का payment system · image: भारत के bank card पर RuPay का निशान
+    - kyon: Payment services involve processing costs. _[standard]_ → The book presents RuPay as a lower-fee domestic option. _[book]_
+    - example / jagah: Merchant card acceptance and bank card processing.
+    - aage: Explains the economic relevance of the domestic-system claim.
+    - screen par: compare fee bars
+    - is level ke liye: No numeric fee, fee payer or universal zero-fee rule is stated.
+  - prerequisites: transaction fee; domestic versus international
+- **p015-i11** · list_point · classification · both · exam high
+  - Types of Cards: RuPay debit, credit, and prepaid cards.
+    - which: Which three RuPay card types are listed? → Debit, credit and prepaid cards.
+    - difference: How do these types differ by source of spending funds? → Debit generally draws on account funds; credit uses an approved borrowing limit repaid later; prepaid uses value loaded in advance. _(outside the book)_
+      - how: How can all three still be RuPay cards? → The network brand and the funding arrangement are separate dimensions: the same network can support different card products. _(outside the book)_
+  - **khola (unpack):**
+    - debit yaani खर्च का पैसा अपने account से कटता है · image: खरीदारी के बाद bank balance कम होना
+    - credit yaani अभी उधार की limit से खर्च, बाद में चुकाना · image: महीने के अंत में card bill भरना
+    - prepaid yaani पहले से भरी रकम से खर्च करना · image: पहले recharge, फिर इस्तेमाल
+    - kyon: People may pay from savings, borrowing or preloaded value. _[standard]_ → RuPay includes debit, credit and prepaid cards. _[book]_
+    - example / jagah: Compare account balance, credit limit and loaded value.
+    - aage: Prepares learners to distinguish the PMJDY debit-card point from RuPay credit-card linkage.
+    - screen par: split RuPay into three funding types
+    - is level ke liye: Classify by source of funds, not by the shared network logo.
+  - prerequisites: bank balance; borrowing; advance payment
+- **p015-i12** · list_point · facts_numbers · both · exam high
+  - Rupay debit card given free with PMJDY (Jan Dhan) Bank account.
+    - what: Which card is associated with a Jan Dhan account here? → A RuPay debit card, described as given free with the PMJDY account.
+    - evidence: Does the page promise a free RuPay credit card with PMJDY? → No. The specific product named is a debit card.
+      - why: Why can a debit card help turn account ownership into usable access? → It gives the account holder a way to access account funds through supported card facilities rather than relying solely on branch counters. _(outside the book)_
+  - **khola (unpack):**
+    - PMJDY (Jan Dhan) yaani लोगों को banking से जोड़ने वाली Jan Dhan account योजना · image: नए account के साथ RuPay debit card मिलना
+    - kyon: Opening an account should be followed by ways to use its funds. _[standard]_ → The page links a free RuPay debit card to Jan Dhan accounts. _[book]_
+    - example / jagah: A Jan Dhan account holder's RuPay debit card.
+    - aage: Connects RuPay to the financial-inclusion theme introduced through AEPS.
+    - screen par: attach debit card to Jan Dhan account
+    - is level ke liye: PMJDY expands to Pradhan Mantri Jan Dhan Yojana (outside clarification).
+  - prerequisites: PMJDY bank account; debit card
+- **p015-i13** · list_point · facts_numbers · both · exam high
+  - One of India's major payment innovations is linking RuPay Credit Cards to UPI.
+    - what: Which card–platform linkage is highlighted? → The page highlights linking RuPay credit cards to UPI.
+    - evidence: Which card type is explicitly named in this innovation? → Credit cards, not merely the RuPay debit cards mentioned in the preceding bullet.
+      - how: How should the learner understand a card linked to UPI? → UPI becomes the payment interface while the linked credit card is the funding source for eligible payments; interface and funding source are different layers. _(outside the book)_
+  - **khola (unpack):**
+    - linking RuPay Credit Cards to UPI yaani UPI से payment करते समय जुड़ा RuPay credit card इस्तेमाल करना · image: QR payment के पीछे credit card का funding रास्ता
+    - kyon: A familiar payment interface can connect to different funding sources. _[standard]_ → The page identifies RuPay credit-card linkage to UPI as an innovation. _[book]_
+    - example / jagah: An eligible merchant payment through UPI using a linked RuPay credit card.
+    - aage: Sets up the distinction between UPI as infrastructure and e-RUPI as a voucher built using it.
+    - screen par: link credit card to UPI
+    - is level ke liye: UPI stands for Unified Payments Interface (outside clarification).
+  - prerequisites: credit card; UPI payment interface
+- **p015-i14** · diagram · figure · image · exam high
+  - Vertical RuPay country graphic: six flag-and-country entries, top to bottom Bhutan, Nepal, Mauritius, United Arab Emirates, Singapore and Maldives. Each flag is paired with a country name and a statement about RuPay issuance or acceptance. There are no arrows or route connections.
+    - what: What does the inset show? → It pairs six countries with specific RuPay card issuance or acceptance claims.
+    - which: Which countries appear? → Bhutan, Nepal, Mauritius, United Arab Emirates, Singapore and Maldives.
+      - why: Why should issuance and acceptance be read separately? → Issuance means making cards available through an issuer; acceptance means allowing their use at supported payment or cash-access points. One does not automatically establish the other. _(outside the book)_
+  - **khola (unpack):**
+    - issuance yaani ग्राहक को नया card जारी करना · image: bank से नया card मिलना
+    - accepted yaani उस जगह card से लेन-देन हो पाना · image: दुकान की machine पर card चल जाना
+    - kyon: A domestic card system may also have overseas use arrangements. _[standard]_ → The inset gives different country-specific issuance and acceptance facts. _[book]_
+    - example / jagah: An Indian traveller checking supported overseas card facilities.
+    - aage: Domestic origin does not mean use is confined to India.
+    - screen par: pair each flag with its distinct claim
+    - is level ke liye: Do not infer acceptance at every outlet or treat the list as exhaustive or current.
+  - prerequisites: card issuance; ATM; merchant card acceptance
+- **p015-i15** · diagram_label · facts_numbers · image · exam high
+  - BHUTAN — First country to issue RuPay cards (2020). Accepted at ATMs and merchants.
+    - what: What distinctive Bhutan claim does the inset make? → It names Bhutan as the first country to issue RuPay cards in 2020 and states acceptance at ATMs and merchants.
+    - evidence: Where are the date and acceptance channels given? → They are printed in the first flag entry, beside Bhutan.
+      - how: How should 'first country' be understood in this international inset? → As the overseas-issuance milestone in context, not a claim that RuPay originated in Bhutan rather than India. _(outside the book)_
+  - **khola (unpack):**
+    - kyon: International reach can involve issuing cards as well as accepting them. _[standard]_ → Bhutan's entry records both an issuance milestone and acceptance channels. _[book]_
+    - example / jagah: Bhutan: ATMs and merchants.
+    - aage: Differentiate this issuance milestone from Mauritius's 2024 entry.
+    - screen par: pin 2020 to Bhutan
+    - is level ke liye: Read the first-country claim in the foreign-country inset's context.
+  - prerequisites: RuPay's Indian origin; issuance versus acceptance
+- **p015-i16** · diagram_label · facts_numbers · image · exam high
+  - NEPAL — Accepted at ATMs and PoS terminals.
+    - what: What facilities are named for Nepal? → RuPay acceptance at ATMs and PoS terminals.
+    - evidence: Does this entry give a Nepal card-issuance date? → No; it gives acceptance channels, unlike the dated issuance entries.
+      - how: How does PoS use differ from ATM use? → A PoS terminal supports merchant payment, while an ATM provides banking functions such as cash withdrawal. _(outside the book)_
+  - **khola (unpack):**
+    - PoS terminals yaani दुकान पर card से payment लेने वाली machine · image: किराने की दुकान की card machine
+    - kyon: Travellers need to know where a card can be used. _[standard]_ → Nepal's entry identifies ATMs and PoS terminals. _[book]_
+    - example / jagah: Nepal, supported ATM or shop terminal.
+    - aage: Shows both cash-access and purchase-payment channels.
+    - screen par: connect Nepal to ATM and shop icons
+    - is level ke liye: PoS expands to Point of Sale (outside clarification).
+  - prerequisites: ATM; merchant payment
+- **p015-i17** · diagram_label · facts_numbers · image · exam high
+  - MAURITIUS — RuPay card issuance started in 2024.
+    - what: What Mauritius milestone is stated? → RuPay card issuance started in 2024.
+    - evidence: Is this entry about issuance or named acceptance locations? → It explicitly concerns card issuance and supplies a year, not a list of ATM or merchant channels.
+      - why: Why not automatically add ATM acceptance to this entry? → Issuance and acceptance are different claims, and evidence for one should not be treated as proof of every channel of the other. _(outside the book)_
+  - **khola (unpack):**
+    - kyon: Overseas development includes local issuance milestones. _[standard]_ → The Mauritius entry dates issuance to 2024. _[book]_
+    - example / jagah: Mauritius, 2024 issuance milestone.
+    - aage: Adds a later date to the RuPay chronology.
+    - screen par: pin 2024 to Mauritius
+    - is level ke liye: Do not convert an issuance fact into an unstated universal acceptance claim.
+  - prerequisites: card issuance
+- **p015-i18** · diagram_label · facts_numbers · image · exam high
+  - UNITED ARAB EMIRATES — Accepted at ATMs and merchant terminals.
+    - what: What acceptance channels are stated for the UAE? → ATMs and merchant terminals.
+    - evidence: Does the UAE entry include an issuance year? → No. Its printed claim is acceptance at those two types of facilities.
+      - how: How does a merchant terminal relate to card use? → It is the merchant-side device used to initiate and process a card payment. _(outside the book)_
+  - **khola (unpack):**
+    - kyon: An overseas card user needs supported access points. _[standard]_ → The UAE entry names ATMs and merchant terminals. _[book]_
+    - example / jagah: UAE, supported ATM or merchant terminal.
+    - aage: Extends the domestic system's stated overseas reach.
+    - screen par: pair UAE flag with two acceptance icons
+    - is level ke liye: Supported acceptance is not a promise that every terminal accepts the card.
+  - prerequisites: ATM; merchant card terminal
+- **p015-i19** · diagram_label · facts_numbers · image · exam high
+  - SINGAPORE — Accepted at ATMs and merchant terminals.
+    - what: What is the Singapore acceptance claim? → RuPay is accepted at ATMs and merchant terminals.
+    - evidence: Which other inset entry uses the same channel wording? → The United Arab Emirates entry also says ATMs and merchant terminals.
+      - why: Why is the channel wording important? → It identifies where the card may be used rather than claiming that local card issuance has started. _(outside the book)_
+  - **khola (unpack):**
+    - kyon: Foreign use depends on acceptance arrangements. _[standard]_ → Singapore's entry names ATM and merchant-terminal acceptance. _[book]_
+    - example / jagah: Singapore, supported ATM or merchant terminal.
+    - aage: Reinforces the acceptance-versus-issuance distinction.
+    - screen par: pair Singapore with ATM and merchant icons
+    - is level ke liye: Treat as the book's snapshot, not a live coverage guarantee.
+  - prerequisites: issuance versus acceptance
+- **p015-i20** · diagram_label · facts_numbers · image · exam high
+  - MALDIVES — Accepted at ATMs and PoS terminals.
+    - what: What channels are named for Maldives? → ATMs and PoS terminals.
+    - evidence: Which entry has the same channel wording? → Nepal also lists ATMs and PoS terminals.
+      - how: How should these two channels be distinguished? → An ATM is a banking access device; a PoS terminal is used at a merchant to take payments. _(outside the book)_
+  - **khola (unpack):**
+    - kyon: Card users need both cash-access and shopping-payment information. _[standard]_ → The Maldives entry lists ATMs and PoS terminals. _[book]_
+    - example / jagah: Maldives, supported ATM or shop terminal.
+    - aage: Completes all six entries in the graphic.
+    - screen par: connect Maldives flag to two facilities
+    - is level ke liye: An acceptance entry does not itself supply an issuance date.
+  - prerequisites: ATM; PoS terminal
+- **p015-i21** · heading · timeline · both · exam high
+  - E-Rupi by NPCI (2021)
+    - when: Which year and institution are attached to e-RUPI? → The heading associates it with NPCI and 2021.
+    - why: Why introduce a purpose-restricted electronic voucher? → Such a voucher can direct funded assistance toward a specified service rather than provide unrestricted spending money. _(outside the book)_
+  - **khola (unpack):**
+    - kyon: A sponsor may want to fund a particular service. _[standard]_ → The following text presents e-RUPI as a person- and purpose-specific voucher. _[book]_
+    - example / jagah: The page's vaccination voucher example.
+    - aage: Moves from general payment infrastructure to targeted service delivery.
+    - screen par: place e-RUPI at 2021
+    - is level ke liye: Contrast the RuPay 2012 and e-RUPI 2021 dates.
+  - prerequisites: voucher; NPCI
+- **p015-i22** · definition · definition · both · exam high
+  - E-Rupi is an SMS /QR Code based Prepaid Cashless Electronic Voucher created by National Payment Corporation of India [National Payments Corporation of India] (NPCI) using its UPI Platform. (Printed twice.)
+    - what: What is e-RUPI according to the page? → It is a prepaid cashless electronic voucher delivered through SMS or QR code, created by NPCI using its UPI platform.
+    - evidence: Which words establish the instrument and its delivery form? → The definition calls it a 'Prepaid Cashless Electronic Voucher' and specifies 'SMS /QR Code'.
+      - how: How do prepaid, cashless and electronic fit together? → Prepaid means value is funded in advance; cashless means redemption does not require handing over cash; electronic means the entitlement is represented digitally rather than as a paper coupon. _(outside the book)_
+  - **khola (unpack):**
+    - Prepaid Cashless Electronic Voucher yaani पहले से रकम तय किया हुआ digital coupon, जिससे cash दिए बिना तय सेवा ली जाए · image: फोन पर आया पहले से paid service coupon
+    - SMS /QR Code yaani फोन के message या scan होने वाले code से voucher मिलना · image: फोन पर message या चौकोर scan code
+    - kyon: A sponsor needs a way to deliver funded service entitlement. _[standard]_ → E-RUPI supplies a prepaid electronic voucher through SMS or QR code. _[book]_
+    - example / jagah: A ₹1,000 vaccination voucher sent to a phone.
+    - aage: Using UPI infrastructure does not make the voucher itself an ordinary UPI app.
+    - screen par: send funded voucher to phone
+    - is level ke liye: Correct NPCI's expansion to National Payments Corporation of India; SMS is Short Message Service and QR is Quick Response (outside clarification).
+  - prerequisites: advance funding; SMS; QR code; UPI
+- **p015-i23** · list_point · comparison · both · exam high
+  - It is not a payment app, bank transfer, or digital currency. (Printed twice.)
+    - compare: Which three things is e-RUPI explicitly distinguished from? → A payment app, a bank transfer and digital currency.
+    - difference: How does a restricted voucher differ from unrestricted account money or currency? → A voucher represents an entitlement subject to stated redemption conditions rather than general spending power in the recipient's account or a currency instrument. _(outside the book)_
+      - why: Why does an SMS or QR form not make it a payment app? → SMS and QR describe delivery or presentation; an app is software used as an interface. The form in which an entitlement arrives does not determine its economic category. _(outside the book)_
+  - **khola (unpack):**
+    - kyon: Similar digital names can hide different types of instruments. _[standard]_ → The page excludes apps, bank transfers and digital currency from e-RUPI's definition. _[book]_
+    - example / jagah: A service coupon compared with money credited freely into an account.
+    - aage: Focus classification on what can be redeemed, not on the digital appearance.
+    - screen par: separate voucher from app, transfer and currency
+    - is level ke liye: Do not equate e-RUPI with e₹ merely because both names refer to the rupee.
+  - prerequisites: payment app; bank transfer; currency; voucher
+- **p015-i24** · list_point · definition · both · exam high
+  - Instead, it is a person-specific and purpose-specific voucher that can only be used by the intended beneficiary for the intended service. (Printed twice.)
+    - what: What two restrictions define e-RUPI here? → It is tied to the intended beneficiary and to the intended service.
+    - evidence: Which wording rules out general spending? → The page says 'person-specific and purpose-specific' and restricts use to the intended beneficiary and service.
+      - why: Why are both restrictions needed for targeted assistance? → A person restriction addresses who receives the benefit; a purpose restriction addresses what the benefit buys. Either alone leaves the other targeting question unresolved. _(outside the book)_
+  - **khola (unpack):**
+    - person-specific yaani जिस व्यक्ति के लिए है, उसी के इस्तेमाल के लिए · image: किसी एक नाम का service coupon
+    - purpose-specific yaani जिस काम के लिए मिला है, उसी काम में इस्तेमाल · image: vaccination का coupon, grocery खरीदने का पैसा नहीं
+    - kyon: A sponsor may need to ensure both the right recipient and the right service. _[standard]_ → E-RUPI is restricted on both person and purpose. _[book]_
+    - example / jagah: The intended beneficiary redeeming a vaccination voucher.
+    - aage: Explains why cash withdrawal or spending elsewhere is excluded in the example.
+    - screen par: lock voucher to a person and a service
+    - is level ke liye: The two restrictions are separate conditions, not synonyms.
+  - prerequisites: beneficiary; restricted voucher
+- **p015-i25** · list_point · comparison · both · exam medium
+  - Think of it as a digital gift coupon with restrictions. (Printed twice.)
+    - compare: How does the gift-coupon analogy help explain e-RUPI? → It makes the voucher understandable as a prepaid entitlement that is presented to obtain an allowed service. _(outside the book)_
+    - difference: What limits the ordinary gift-coupon analogy? → The page specifies person and purpose restrictions; it is not describing an unrestricted gift of spending money.
+      - why: Why keep the word 'restrictions' in the analogy? → Without it, learners might incorrectly assume that the recipient can spend the value on any purchase or pass it around freely. _(outside the book)_
+  - **khola (unpack):**
+    - digital gift coupon with restrictions yaani फोन वाला coupon, पर इस्तेमाल की तय शर्तों के साथ · image: एक खास सेवा के लिए मिला coupon
+    - kyon: An unfamiliar digital instrument needs a familiar everyday comparison. _[standard]_ → The page uses a restricted digital gift coupon as that comparison. _[book]_
+    - example / jagah: A coupon that pays for a service but cannot be converted into shopping cash.
+    - aage: Prepares the learner for the numerical vaccination example.
+    - screen par: transform gift coupon into restricted digital voucher
+    - is level ke liye: An analogy explains the idea; it does not remove beneficiary or purpose conditions.
+  - prerequisites: gift coupon; person and purpose restrictions
+- **p015-i26** · example · process · both · exam high
+  - Suppose the government wants to pay for your COVID vaccination costing ₹1,000. Instead of transferring ₹1,000 into your bank account, it sends you an e-RUPI voucher worth ₹1,000 via SMS or QR code. You can redeem it only for vaccination at an authorized center—not withdraw cash or spend it elsewhere. The first two sentences are repeated at the bottom of this page; the repeated redemption sentence continues on the next page.
+    - how: How does the vaccination example work? → The government funds a ₹1,000 vaccination benefit, sends a voucher of that value through SMS or QR code instead of crediting the recipient's account, and the beneficiary redeems it for vaccination at an authorised centre.
+    - when: When and where may the beneficiary use the voucher in this example? → When obtaining the specified vaccination at an authorised centre; the example excludes cash withdrawal and unrelated spending.
+      - why: Why does sending a ₹1,000 voucher differ from transferring ₹1,000 to an account? → The voucher constrains the use of the funded benefit, whereas an ordinary unrestricted account credit does not itself impose that vaccination-only redemption condition. _(outside the book)_
+    - evidence: Is ₹1,000 a general e-RUPI limit or an announced universal vaccination benefit? → No such rule is stated. The text begins 'Suppose', making ₹1,000 the illustrative cost and voucher value in this example.
+  - **khola (unpack):**
+    - redeem yaani voucher दिखाकर उसके बदले तय सेवा लेना · image: vaccination centre पर coupon देकर सेवा लेना
+    - authorized center yaani वह centre जहाँ इस voucher के बदले सेवा लेने की अनुमति है · image: तय centre पर coupon मान्य होना
+    - kyon: The government in the hypothetical example wants to pay for vaccination, not unrelated purchases. _[book]_ → It sends a ₹1,000 voucher redeemable only for vaccination at an authorised centre. _[book]_
+    - example / jagah: Government → ₹1,000 SMS/QR voucher → intended beneficiary → authorised vaccination centre.
+    - aage: Shows person-and-purpose targeting in action and why a voucher is not unrestricted cash.
+    - screen par: send voucher, redeem service, block cash and unrelated purchases
+    - is level ke liye: Track sponsor, beneficiary, value, delivery medium, provider and permitted use separately.
+  - prerequisites: bank transfer; voucher redemption; authorised service provider
+
+## Page 16 · passed after 1 round(s)
+
+A vaccination voucher is restricted to its designated purpose. MDR is paid by the merchant and shared across payment-system participants; a ₹1,000 sale at 2% MDR leaves ₹980 for the merchant. Project Nexus, led by the BIS Innovation Hub, aims to link national fast payment systems through a standardized connection and simplify cross-border transfers.
+
+- **p016-i1** · list_point · facts_numbers · both · exam medium
+  - You can redeem it only for vaccination at an authorized center—not withdraw cash or spend it elsewhere.
+    - what: What can the voucher in the continued example be used for? → Its permitted use is vaccination at an authorized center. Cash withdrawal and spending elsewhere are excluded.
+    - evidence: Which words establish both purpose and place restrictions? → 'Only for vaccination' specifies the purpose, while 'at an authorized center' specifies the permitted place of redemption.
+      - why: Why does this differ from receiving unrestricted cash? → A purpose-restricted voucher directs purchasing power toward a specified service, whereas unrestricted cash can generally be spent across many purposes. _(outside the book)_
+  - **khola (unpack):**
+    - redeem yaani voucher दिखाकर उसके बदले तय सेवा लेना · image: कूपन देकर तय सामान लेना, नकद पैसे नहीं
+    - authorized center yaani वह जगह जिसे यह सेवा देने की मंजूरी मिली है · image: टीका लगवाने के लिए मंजूर किए गए केंद्र पर जाना
+    - kyon: The benefit in this example is intended for vaccination. _[book]_ → Restricting redemption prevents treating the voucher as freely spendable cash. _[standard]_
+    - example / jagah: Vaccination at an authorized center in the continued example.
+    - aage: A voucher's stated value does not imply a right to withdraw that value as cash.
+    - screen par: Allow redemption at the vaccination center; block cash withdrawal and unrelated shopping.
+    - is level ke liye: Watch statements that equate a purpose-specific voucher with unrestricted money.
+  - prerequisites: A voucher as a claim to a specified benefit; Cash withdrawal
+- **p016-i2** · heading · none · both
+  - Merchant Discount Rate
+- **p016-i3** · definition · definition · both · exam high
+  - MDR is the fees that a merchant must pay to his (acquirer) bank for every card transaction.
+    - what: What does MDR mean in a card payment? → It is the transaction fee payable by the merchant to the acquiring bank, rather than the amount paid for the goods themselves.
+    - evidence: What identifies the payer, recipient, and occasion for MDR? → The definition names the merchant as payer, the acquirer bank as recipient, and each card transaction as the occasion.
+      - why: Why can a merchant receive less than the customer's purchase amount? → Payment acceptance involves services supplied by payment participants; a transaction fee can be deducted from the sale proceeds before the merchant receives the net amount. _(outside the book)_
+  - **khola (unpack):**
+    - Merchant Discount Rate yaani card payment लेने पर दुकानदार से लगने वाली fee · image: दुकान की पूरी बिक्री में से payment की fee कटना
+    - acquirer yaani दुकानदार की तरफ card payment लेने वाला bank · image: दुकान के payment counter के पीछे काम करने वाला bank
+    - kyon: The merchant needs a way to accept a customer's card payment. _[standard]_ → The book identifies MDR as the merchant's fee for that transaction. _[book]_
+    - example / jagah: A shop accepting a card payment; the diagram below uses ₹1,000.
+    - aage: Gross purchase value and the merchant's net receipt can differ.
+    - screen par: Separate the sale amount from the payment-processing fee.
+    - is level ke liye: Do not interpret 'discount' as a customer concession or assume the illustrated 2% is universal.
+  - prerequisites: Merchant as the seller; Card payment; A bank account receiving sale proceeds
+- **p016-i4** · list_point · structure · both · exam high
+  - The merchant does not pay the entire MDR to one entity. It is shared among:
+Acquiring Bank (merchant's bank)
+Issuing Bank (customer's bank)
+Card Network (RuPay, Visa, Mastercard, etc.)
+Payment Service Provider/Gateway, where applicable
+    - what: Which participants share MDR? → The acquiring bank, issuing bank, card network, and, where applicable, payment service provider or gateway share it. The merchant's payment to the acquirer does not mean the acquirer keeps the whole fee.
+    - where: Where are the acquiring and issuing banks situated in the transaction? → The acquiring bank is on the merchant's side; the issuing bank is the customer's bank. RuPay, Visa, and Mastercard are listed separately as card networks.
+      - how: How do these roles differ in a typical card payment? → The acquirer supports merchant acceptance, the issuer supplies and authorizes the customer's card facility, the network carries transaction messages between participants, and a gateway can provide the connection through which payment information is submitted. _(outside the book)_
+      - why: Why should the phrase 'where applicable' be retained? → The list makes the provider or gateway's inclusion conditional rather than saying that this participant receives a share in every transaction.
+  - **khola (unpack):**
+    - Acquiring Bank yaani दुकानदार की तरफ payment स्वीकार करने वाला bank · image: दुकान की रकम पाने वाली तरफ का bank
+    - Issuing Bank yaani ग्राहक का card जारी करने वाला bank · image: आपके card पर लिखा bank का नाम
+    - Card Network yaani card payment में banks के बीच संदेश पहुँचाने वाला network · image: दो banks को जोड़ने वाला रास्ता
+    - Payment Service Provider/Gateway yaani payment की जानकारी आगे भेजने में मदद करने वाली सेवा या जोड़ · image: online खरीदारी में payment वाला दरवाजा
+    - kyon: A card payment needs coordination between the customer's and merchant's sides. _[standard]_ → MDR is shared across the participants named in the book rather than retained entirely by one entity. _[book]_
+    - example / jagah: RuPay, Visa, and Mastercard are the page's examples of card networks.
+    - aage: The initial fee recipient and the final fee beneficiaries are not necessarily identical.
+    - screen par: Split one fee into participant shares without inventing share sizes.
+    - is level ke liye: Useful for matching and correct-statement questions; 'shared' does not mean 'equally shared'.
+  - prerequisites: Merchant and customer; Bank-issued payment cards; MDR as a transaction fee
+- **p016-i5** · list_point · facts_numbers · both · exam high
+  - The merchant pays MDR, not the customer.
+    - what: Who bears the MDR charge as stated here? → The merchant is the identified payer of MDR; the customer is not identified as its payer.
+    - evidence: How does the diagram support this statement? → The customer pays ₹1,000, but the merchant receives ₹980 at 2% MDR, locating the deduction on the merchant's receipt.
+      - why: Why distinguish the purchase payment from MDR? → Paying for goods and paying a payment-acceptance fee are different obligations. The customer's purchase amount should not be confused with the merchant's processing charge. _(outside the book)_
+  - **khola (unpack):**
+    - merchant yaani सामान या सेवा बेचकर payment लेने वाला · image: card machine पर आपकी खरीदारी का payment लेने वाला दुकानदार
+    - kyon: A customer pays the purchase amount. _[book]_ → The MDR deduction reduces the merchant's receipt in the illustration. _[book]_
+    - example / jagah: ₹1,000 paid by the customer versus ₹980 received by the merchant.
+    - aage: Identify the fee payer separately from the buyer.
+    - screen par: Deduct the fee from the merchant's side.
+    - is level ke liye: Contractual fee payer is the issue here, not a full analysis of economic incidence.
+  - prerequisites: Purchase price; MDR; Gross and net receipts
+- **p016-i6** · diagram · figure · image · exam high
+  - A left-to-right flow connects Customer → Merchant → Banks &amp; [and] Payment Network. The first arrow says 'Pays ₹1,000'; the second says 'MDR shared'. Beneath the flow: 'Merchant receives ₹980 when MDR = 2%'. The fee is therefore ₹20 in this example.
+    - what: What does the payment flow illustrate? → It follows a ₹1,000 customer payment to the merchant and shows MDR being shared with banks and the payment network, leaving ₹980 for the merchant.
+    - which: Which amounts are gross payment and net merchant receipt? → ₹1,000 is the customer's gross purchase payment; ₹980 is the merchant's receipt at the illustrated 2% MDR.
+      - how: How is the ₹20 difference calculated? → Two percent means 2 per 100: ₹1,000 × 2/100 = ₹20. Subtracting ₹20 from ₹1,000 gives ₹980. _(outside the book)_
+      - why: Why should the arrows not be read as the complete banking settlement procedure? → This is a simplified allocation picture. It identifies who pays and who shares the fee rather than showing every authorization, clearing, and settlement step. _(outside the book)_
+  - **khola (unpack):**
+    - 2% yaani हर ₹100 पर ₹2 · image: ₹1,000 के दस सौ-रुपये हिस्सों से ₹2-₹2 अलग करना
+    - kyon: The customer pays ₹1,000 for the transaction. _[book]_ → At the illustrated rate, the deduction leaves the merchant ₹980. _[book]_
+    - example / jagah: The page's ₹1,000 card-payment illustration.
+    - aage: The ₹20 gap represents the fee, not an unpaid part of the customer's bill.
+    - screen par: Move ₹1,000, separate ₹20, and leave ₹980.
+    - is level ke liye: ₹ denotes Indian rupees; % means per hundred; MDR = 2% specifies the illustrative rate.
+  - prerequisites: Percentages; MDR; Gross and net amounts
+- **p016-i7** · diagram_label · figure · image · exam medium
+  - Customer — the left-hand box from which the payment arrow begins.
+    - what: What role does Customer identify? → It identifies the buyer making the purchase payment. _(outside the book)_
+    - which: Which arrow starts at this box? → The arrow marked 'Pays ₹1,000' starts at Customer and points to Merchant.
+      - how: How does the arrow locate the customer's role? → Its direction shows the purchase amount moving from the buyer's side toward the seller's side.
+  - **khola (unpack):**
+    - Customer yaani खरीदारी करने वाला व्यक्ति · image: दुकान पर सामान खरीदते आप
+    - example / jagah: Left box of the payment flow.
+    - aage: Locate the starting point of the purchase payment.
+    - screen par: Start the payment arrow at the buyer.
+  - prerequisites: Buyer and seller; Direction of arrows
+- **p016-i8** · diagram_label · figure · image · exam medium
+  - Pays ₹1,000 — labels the arrow from Customer to Merchant.
+    - what: What amount does this arrow represent? → It represents a purchase payment of one thousand Indian rupees.
+    - which: Which participants does it connect? → It runs from Customer to Merchant, not from Merchant to the banking participants.
+      - how: How is this amount used in the fee calculation? → It is the base on which the illustrated 2% rate is applied: ₹1,000 × 0.02 gives ₹20. _(outside the book)_
+  - **khola (unpack):**
+    - ₹1,000 yaani एक हजार रुपये की कुल खरीदारी का payment · image: ₹100 के दस नोटों जितनी रकम
+    - example / jagah: Arrow from Customer to Merchant.
+    - aage: Supplies the base for calculating the illustrative fee.
+    - screen par: Carry ₹1,000 along the first arrow.
+  - prerequisites: Rupees; Percentages
+- **p016-i9** · diagram_label · figure · image · exam medium
+  - Merchant — the middle box, receiving the customer-payment arrow and sending the MDR-sharing arrow toward banks and the payment network.
+    - what: What does the central box represent? → It represents the seller accepting the customer's payment and bearing the MDR deduction.
+    - which: Which flows meet at the merchant? → The ₹1,000 customer-payment arrow enters; the MDR-sharing arrow points out toward banks and the payment network.
+      - how: How does this arrangement distinguish sale value from receipt? → The full customer payment is shown on the incoming side, while the caption gives the merchant's lower net receipt after the fee.
+  - **khola (unpack):**
+    - Merchant yaani बेचने और payment लेने वाला दुकानदार · image: आपसे card payment लेने वाला दुकान का मालिक
+    - example / jagah: Center of the diagram.
+    - aage: Merchant's gross sale and net receipt must be distinguished.
+    - screen par: Receive the purchase value and separate the fee.
+  - prerequisites: Seller; MDR
+- **p016-i10** · diagram_label · figure · image · exam high
+  - MDR shared — labels the arrow from Merchant to Banks &amp; [and] Payment Network.
+    - what: What does the outgoing arrow represent? → It represents sharing of the MDR fee with payment participants, not transfer of the whole purchase value as a fee.
+    - which: Which destination receives this arrow? → The destination is the combined box for banks and the payment network.
+      - how: How much is available for sharing in the illustrated transaction? → The fee pool is ₹20, calculated as 2% of ₹1,000; the page does not specify individual shares. _(outside the book)_
+  - **khola (unpack):**
+    - MDR shared yaani एक fee का payment में शामिल पक्षों के बीच बँटना · image: एक रकम को अलग-अलग हिस्सों में बाँटना
+    - example / jagah: Second arrow in the payment flow.
+    - aage: No equal or fixed distribution can be inferred.
+    - screen par: Branch the fee toward the payment participants.
+  - prerequisites: MDR sharing; Percentages
+- **p016-i11** · diagram_label · figure · image · exam medium
+  - Banks &amp; [and] Payment Network — the right-hand box receiving the 'MDR shared' arrow.
+    - what: What does the right-hand box collect together? → It groups banks and the payment network as recipients of MDR shares.
+    - which: Which banks does the surrounding text distinguish? → It distinguishes the merchant's acquiring bank from the customer's issuing bank.
+      - why: Why should this box not be interpreted as one institution? → The surrounding list explicitly distributes MDR among different kinds of participants; the box compresses those recipients for a simple diagram.
+  - **khola (unpack):**
+    - Payment Network yaani payment के संदेश जोड़ने वाला network · image: ग्राहक और दुकानदार के banks के बीच रास्ता
+    - example / jagah: Right-hand box; the text names RuPay, Visa, and Mastercard.
+    - aage: A grouped diagram box is not evidence of a single fee-retaining entity.
+    - screen par: Expand the grouped box into separate participants.
+    - is level ke liye: The printed '&amp;' means 'and', not a technical payment term.
+  - prerequisites: Acquiring bank; Issuing bank; Card network
+- **p016-i12** · diagram_label · figure · image · exam high
+  - Merchant receives ₹980 when MDR = 2% — specifies the net merchant receipt at the illustrated MDR rate.
+    - what: What relationship does the caption state? → For the ₹1,000 payment shown, a 2% MDR leaves the merchant with ₹980.
+    - which: Which symbols and units need interpretation? → ₹ marks Indian rupees, '=' means equals, and '%' means per hundred; MDR is the fee rate in this caption. _(outside the book)_
+      - how: How can the net receipt be checked? → Calculate ₹1,000 × 2/100 = ₹20 and then ₹1,000 − ₹20 = ₹980. _(outside the book)_
+  - **khola (unpack):**
+    - receives ₹980 yaani fee कटने के बाद दुकानदार के पास ₹980 आना · image: ₹1,000 में से ₹20 अलग रखकर बची रकम
+    - kyon: The purchase payment is ₹1,000. _[book]_ → A 2% deduction is ₹20, leaving ₹980. _[standard]_
+    - example / jagah: Caption below the two payment arrows.
+    - aage: Net receipt equals transaction value minus the illustrated MDR charge.
+    - screen par: Subtract ₹20 and highlight ₹980.
+    - is level ke liye: Keep rate (%) distinct from fee amount (₹).
+  - prerequisites: Percentage calculation; Subtracting a fee
+- **p016-i13** · heading · none · both
+  - Project Nexus
+- **p016-i14** · definition · definition · both · exam high
+  - It is a multilateral cross-border payments initiative led by the Bank for International Settlements (BIS) Innovation Hub that aims to connect the fast payment systems (FPS) of different countries,
+[The same bullet is printed again in the lower section.]
+    - what: What is Project Nexus? → It is an initiative for connecting fast payment systems across countries through multilateral cooperation, led by the BIS Innovation Hub.
+    - evidence: What establishes its leadership and international scope? → The page explicitly names the Bank for International Settlements Innovation Hub and says it aims to connect FPS of different countries.
+      - how: How should 'multilateral cross-border' be understood? → 'Multilateral' means involving several countries rather than just a pair. 'Cross-border' refers to payments between countries rather than within one country. _(outside the book)_
+      - why: Why does the project connect systems rather than merely name payment apps? → Domestic payment systems already serve their own users; interoperability creates a way for payments to move between those national arrangements. _(outside the book)_
+  - **khola (unpack):**
+    - multilateral yaani कई देशों का साथ मिलकर काम करना · image: दो लोगों की अलग बात के बजाय कई लोगों की एक साझा बैठक
+    - cross-border payments yaani एक देश से दूसरे देश में पैसा भेजना · image: विदेश में रहने वाला व्यक्ति घर पैसे भेजे
+    - fast payment systems (FPS) yaani जल्दी payment पहुँचाने की व्यवस्था · image: UPI से पैसा भेजने पर जल्दी पहुँच जाना
+    - kyon: People need to make payments beyond their own country's payment system. _[standard]_ → Project Nexus aims to connect the FPS of different countries. _[book]_
+    - example / jagah: The adjoining table pairs India's UPI with other countries' fast payment systems.
+    - aage: Domestic fast-payment capabilities can become part of cross-border connectivity.
+    - screen par: Connect separate national payment-system circles.
+    - is level ke liye: BIS Innovation Hub is the named leader; do not replace it with a domestic payment authority.
+  - prerequisites: Domestic versus international payments; A payment system connecting payers and payees
+- **p016-i15** · list_point · comparison · both · exam high
+  - Objective: Allowing people to send money internationally as easily as making a domestic UPI payment.
+[Printed twice on this page.]
+    - compare: What familiar activity is used as the benchmark for international transfers? → The book uses the ease of making a domestic UPI payment as the desired benchmark for sending money internationally.
+    - difference: What remains different between the two kinds of payment? → A domestic payment stays within one country's setting; an international payment must work across national payment arrangements. _(outside the book)_
+      - how: How does this objective relate to the project's design? → The page's standardized connection between national instant payment systems is the proposed way to simplify international money transfers.
+      - why: Why is this an objective rather than proof of identical service conditions? → The wording describes the ease the project seeks to achieve; it does not supply measured transfer times, costs, or an assurance that all international transfers already match domestic UPI.
+  - **khola (unpack):**
+    - domestic UPI payment yaani देश के अंदर UPI से payment करना · image: दुकान का QR scan करके पैसे देना
+    - kyon: The book describes overseas transfers as involving fees and delays. _[book]_ → Nexus seeks an experience as easy as domestic UPI. _[book]_
+    - example / jagah: Compare a local UPI payment with sending money to someone in another country.
+    - aage: User convenience is the goal; system interconnection is the means.
+    - screen par: Place a domestic payment and an international transfer side by side, then simplify the latter.
+    - is level ke liye: An objective is not a guarantee of identical fees or instant completion in every case.
+  - prerequisites: Domestic UPI transfer; International money transfer
+- **p016-i16** · list_point · facts_numbers · both · exam high
+  - India's UPI is one of the founding payment systems participating in this project.
+[Printed twice on this page.]
+    - what: What role does the page assign to India's UPI? → It identifies UPI as one of the founding payment systems participating in Project Nexus.
+    - evidence: What supports identifying UPI with India? → The bullet says 'India's UPI', and the country table pairs India with UPI.
+      - why: Why does founding participation not mean that UPI leads Project Nexus? → The page separately identifies the BIS Innovation Hub as the initiative's leader. UPI's stated role is that of a participating payment system.
+  - **khola (unpack):**
+    - founding payment systems yaani शुरुआत से जुड़ी payment व्यवस्थाएँ · image: किसी साझा काम की शुरुआती टीम का हिस्सा होना
+    - kyon: Nexus needs national payment systems to participate. _[standard]_ → The book identifies India's UPI as one of its founding systems. _[book]_
+    - example / jagah: India — UPI in the adjoining table.
+    - aage: India has a participating system; that does not make UPI the project leader.
+    - screen par: Attach India's UPI node to the Nexus connection.
+    - is level ke liye: A likely trap substitutes a participating system for the leading institution.
+  - prerequisites: UPI as a payment system; Project Nexus
+- **p016-i17** · list_point · cause_effect · both · exam high
+  - Today, sending money abroad usually involves multiple correspondent banks, higher fees, and delays.
+[Printed twice on this page.]
+    - why: Why does the page present a need for simpler cross-border payments? → It describes the usual overseas-transfer arrangement as involving several correspondent banks, higher fees, and delays.
+    - how: How can correspondent banks make a transfer possible? → When the sending and receiving banks do not have a direct arrangement, other banks can provide intermediate account and payment relationships through which the transfer is routed. _(outside the book)_
+      - why: Why can extra intermediaries add time and cost? → Additional institutions can introduce processing steps, checks, and charges. This explains the problem without claiming every overseas transfer follows the same route. _(outside the book)_
+      - exception: Does 'usually' mean all international payments necessarily use many banks? → No. The page describes a common pattern rather than an exceptionless rule.
+  - **khola (unpack):**
+    - correspondent banks yaani दूसरे banks की तरफ से बीच में payment पहुँचाने में मदद करने वाले banks · image: सीधा रास्ता न हो तो कई पड़ावों से सामान भेजना
+    - kyon: Money must reach a recipient through banks in another country. _[standard]_ → Intermediate routing can add processing and charges, helping explain the fees and delays described. _[standard]_
+    - example / jagah: A person sending money to family abroad.
+    - aage: Creates the motivation for a simpler standardized interconnection.
+    - screen par: Route a transfer through several bank stops and show time and fee markers.
+    - is level ke liye: Do not read 'usually' as 'always'; no fee amount or delay duration is provided.
+  - prerequisites: Bank-to-bank transfers; International remittances; Intermediary institutions
+- **p016-i18** · list_point · cause_effect · both · exam high
+  - Project Nexus creates a single standardized connection between national instant payment systems, so countries do not need to build separate payment links with every other country.
+    - how: How does Nexus change the connection problem? → A standardized connection between national instant payment systems replaces the need for each country to construct separate links with every other country.
+    - why: Why is a shared connection approach useful? → Without common arrangements, each additional bilateral link may require separate technical coordination. A common connection model reduces repeated integration work. _(outside the book)_
+      - how: How should 'single standardized connection' be understood without overreading it? → It means a common way of connecting systems, like using an agreed interface, rather than proof that countries abolish their own domestic systems. _(outside the book)_
+      - consequence: What practical consequence does the page explicitly state? → Countries no longer need to build a separate payment link with every other country for this connectivity model.
+  - **khola (unpack):**
+    - single standardized connection yaani एक तय साझा तरीके से जुड़ना, हर देश के लिए अलग जोड़ न बनाना · image: हर device के लिए अलग plug के बजाय एक साझा socket का नियम
+    - kyon: Separate links with every other country create repeated connection work. _[standard]_ → Nexus supplies a standardized connection so those separate links are not needed. _[book]_
+    - example / jagah: National systems such as UPI and PayNow shown as separate nodes joined through a common connection model.
+    - aage: Interconnection is simplified while the named national systems remain distinct.
+    - screen par: Replace a web of pairwise lines with connections following one common standard.
+    - is level ke liye: Do not infer a single currency, replacement of domestic systems, or detailed technical architecture.
+  - prerequisites: National instant payment systems; Bilateral links; A common technical standard
+- **p016-i19** · table · figure · image
+  - Columns: Country | Fast Payment System. Rows, in order: India | UPI; Singapore | PayNow; Malaysia | DuitNow; Philippines | InstaPay; Thailand | PromptPay.
+- **p016-i20** · table_row · facts_numbers · image · exam high
+  - Country: India | Fast Payment System: UPI
+    - what: Which fast payment system is paired with India? → India is paired with UPI, also named in the text as a founding participating system.
+    - evidence: Where is this pairing established? → The first data row places India in the Country column and UPI in the Fast Payment System column.
+      - how: How does this row help explain Project Nexus? → It supplies India's national-system example for the broader aim of connecting different countries' fast payment systems.
+  - **khola (unpack):**
+    - UPI yaani भारत में जल्दी digital payment करने की व्यवस्था · image: दुकान का QR scan करके पैसे देना
+    - example / jagah: India.
+    - aage: Anchors the foreign-system names to a familiar Indian example.
+    - screen par: Pair India with UPI.
+    - is level ke liye: A table match establishes country association, not the detailed rules for every transfer.
+  - prerequisites: UPI; Country-system pairings; Project Nexus
+- **p016-i21** · table_row · facts_numbers · image · exam high
+  - Country: Singapore | Fast Payment System: PayNow
+    - what: Which system is paired with Singapore? → The table identifies PayNow as Singapore's fast payment system.
+    - evidence: What fixes this country-system association? → Singapore and PayNow occupy the same second data row under the two column headings.
+      - how: How does this example fit the need for interconnection? → A national system serves its own setting; linking systems across countries requires arrangements that let their payment information work together. _(outside the book)_
+  - **khola (unpack):**
+    - PayNow yaani इस table में Singapore की fast payment व्यवस्था का नाम · image: भारत के UPI वाले खाने के सामने Singapore के लिए PayNow का नाम-पट्ट
+    - example / jagah: Singapore.
+    - aage: Keep PayNow separate from Thailand's PromptPay and the other named systems.
+    - screen par: Join Singapore and PayNow with one matching line.
+    - is level ke liye: The table supplies the association, not specific fees or operational coverage.
+  - prerequisites: National fast payment systems; Cross-border payments
+- **p016-i22** · table_row · facts_numbers · image · exam high
+  - Country: Malaysia | Fast Payment System: DuitNow
+    - what: Which fast payment system belongs with Malaysia in this table? → Malaysia is paired with DuitNow.
+    - evidence: Which row provides the evidence? → The third data row puts Malaysia under Country and DuitNow under Fast Payment System.
+      - why: Why keep the system name distinct from the shared connection? → The national system and the interconnection arrangement perform different roles: a common link connects systems rather than turning their names into one domestic service. _(outside the book)_
+  - **khola (unpack):**
+    - DuitNow yaani इस table में Malaysia की fast payment व्यवस्था का नाम · image: अलग देशों के payment counters पर लगे अलग नामों में Malaysia का नाम-पट्ट
+    - example / jagah: Malaysia.
+    - aage: Avoid swapping DuitNow with Singapore's PayNow.
+    - screen par: Pair Malaysia with DuitNow.
+    - is level ke liye: Preserve the printed spelling DuitNow.
+  - prerequisites: National payment system; Project Nexus as an interconnection initiative
+- **p016-i23** · table_row · facts_numbers · image · exam high
+  - Country: Philippines | Fast Payment System: InstaPay
+    - what: Which country is paired with InstaPay? → The table pairs InstaPay with the Philippines.
+    - evidence: Where is this pairing shown? → The fourth data row places Philippines and InstaPay alongside one another under the country and system headings.
+      - how: How does the row reinforce the project's multilateral character? → It adds another national-system example to the set of different countries shown beside the explanation of connecting their fast payment systems.
+  - **khola (unpack):**
+    - InstaPay yaani इस table में Philippines की fast payment व्यवस्था का नाम · image: देश और उसकी payment सेवा को जोड़ने वाला नाम-पट्ट
+    - example / jagah: Philippines.
+    - aage: A name suggesting speed does not by itself establish a specific transfer time.
+    - screen par: Pair Philippines with InstaPay.
+    - is level ke liye: Retain the capitalization InstaPay; the page gives no numerical speed claim.
+  - prerequisites: Country-system matching; Multilateral cooperation
+- **p016-i24** · table_row · facts_numbers · image · exam high
+  - Country: Thailand | Fast Payment System: PromptPay
+    - what: Which system is paired with Thailand? → Thailand is paired with PromptPay.
+    - evidence: What confirms this association? → The final data row lists Thailand in the Country column and PromptPay in the Fast Payment System column.
+      - how: How should PromptPay be distinguished from PayNow? → Use their country associations: PromptPay is paired with Thailand, whereas PayNow is paired with Singapore.
+  - **khola (unpack):**
+    - PromptPay yaani इस table में Thailand की fast payment व्यवस्था का नाम · image: Thailand के payment counter पर PromptPay का नाम-पट्ट
+    - example / jagah: Thailand.
+    - aage: Completes the table's five distinct country-system associations.
+    - screen par: Pair Thailand with PromptPay and contrast it with Singapore—PayNow.
+    - is level ke liye: Similar payment-related names are not interchangeable country matches.
+  - prerequisites: National fast payment systems; Country-system pairings
+
+## Page 17 · passed after 2 round(s)
+
+Project Nexus standardises links among instant payment systems. Polymer banknotes are presented as durable, secure alternatives that would coexist with paper notes. Cryptocurrency is described as a private blockchain-based asset without Indian legal-tender status. Money supply is introduced with an M0–M4 pyramid whose shorthand requires careful interpretation.
+
+- **p017-i1** · list_point · cause_effect · both · exam high
+  - Project Nexus creates a single standardized connection between national instant payment systems, so countries do not need to build separate payment links with every other country.
+    - why: What problem does the standardised connection address? → It avoids the need for countries to build a separate payment link with each other country.
+      - how: How does a shared standard simplify connecting payment systems? → A system can connect through a common set of technical rules rather than designing a different interface for each foreign partner. This is interoperability between systems, not the creation of one common currency. _(outside the book)_
+  - **khola (unpack):**
+    - standardized connection yaani अलग payment systems को जोड़ने का एक जैसा तय तरीका · image: अलग phones के लिए एक ही तरह का charger port
+    - kyon: Separate links require separate connection arrangements with partners. _[standard]_ → Project Nexus provides a standard connection instead of separate country-by-country links. _[book]_
+    - example / jagah: A national instant payment system connecting with systems abroad.
+    - aage: Interoperability can expand without rebuilding a unique link for each partner.
+    - screen par: replace many pairwise links with standardised connections
+    - is level ke liye: Ask whether the arrangement connects payment systems or replaces national currencies.
+  - prerequisites: national instant payment systems; cross-border payments
+- **p017-i2** · heading · none · both
+  - Plastic Currency Notes by the RBI
+- **p017-i3** · definition · definition · both · exam high
+  - These are the currency notes made from security-grade Biaxially Oriented Polypropylene (BOPP) instead of the traditional cotton-based paper substrate.
+    - what: What defines these plastic currency notes? → Their underlying material is security-grade Biaxially Oriented Polypropylene, abbreviated BOPP, rather than cotton-based paper.
+    - evidence: Which material contrast establishes the distinction? → The page explicitly contrasts BOPP with the traditional cotton-based paper substrate.
+      - how: How should a learner understand 'substrate' and 'biaxially oriented'? → The substrate is the base sheet carrying the printing and security features. Biaxial orientation means the polymer film is stretched in two directions during manufacture to improve its properties. _(outside the book)_
+  - **khola (unpack):**
+    - BOPP yaani दो दिशाओं में खींचकर तैयार की गई खास polymer film · image: दो ओर से तानी गई पतली sheet
+    - substrate yaani वह आधार sheet जिस पर note बनता और छपता है · image: जिस कागज़ पर तस्वीर छपती है
+    - kyon: A banknote needs a suitable base to carry printing and withstand handling. _[standard]_ → The page identifies security-grade BOPP as the alternative to cotton-based paper. _[book]_
+    - example / jagah: The material forming the body of a physical banknote.
+    - aage: Plastic currency refers to a change of banknote material, not a digital payment instrument.
+    - screen par: swap cotton-based sheet for polymer film
+    - is level ke liye: Do not confuse polymer notes with plastic payment cards.
+  - prerequisites: physical banknotes; material used as a printing base
+- **p017-i4** · list_point · comparison · both · exam high
+  - They are specially engineered polymer banknotes with embedded security features, not ordinary plastic.
+    - compare: How do polymer banknotes compare with ordinary plastic? → The banknotes are specially engineered and incorporate security features; the page rejects treating them as ordinary plastic.
+    - difference: What makes being made of plastic insufficient for a currency note? → A banknote must also be recognisable and verifiable as genuine currency, not merely be a sheet of polymer. _(outside the book)_
+      - why: Why embed security features in a note? → Features that are difficult to reproduce help users and machines distinguish genuine notes from counterfeits. _(outside the book)_
+  - **khola (unpack):**
+    - embedded security features yaani असली note पहचानने की खास चीज़ें जो उसके भीतर या बनावट में हों · image: कपड़े में बुना हुआ पहचान का निशान
+    - kyon: Currency needs protection against copying. _[standard]_ → These polymer notes contain specially engineered security features. _[book]_
+    - example / jagah: Checking the authenticity of a banknote before accepting it.
+    - aage: The material change also serves the anti-counterfeiting objective.
+    - screen par: reveal security features within the note
+    - is level ke liye: The page does not list particular security features; do not invent a list as book content.
+  - prerequisites: polymer banknotes; counterfeiting
+- **p017-i5** · list_point · facts_numbers · both · exam high
+  - RBI will start with small denomination notes such as ₹10 and ₹20. Up to 4x longer time span.
+    - what: Which denominations and durability claim does the page give? → It states a proposed start with ₹10 and ₹20 notes and a lifespan of up to four times longer.
+    - evidence: Does this sentence prove that polymer notes have already been issued nationally? → No. It uses the prospective wording 'will start' and provides no implementation date or evidence of actual nationwide issuance.
+      - why: Why would low denominations be useful for assessing durability? → Frequently used low-value notes pass through many hands, making resistance to everyday wear especially relevant. _(outside the book)_
+  - **khola (unpack):**
+    - small denomination yaani कम face value वाले notes · image: छुट्टे में दिया गया ₹10 का note
+    - kyon: Repeated handling wears down notes. _[standard]_ → The page proposes low denominations and claims up to fourfold longevity. _[book]_
+    - example / jagah: Small-value cash changing hands at a shop.
+    - aage: Longer life could mean fewer replacements, not a higher face value.
+    - screen par: compare note lifetimes on parallel timelines
+    - is level ke liye: 'Up to' is an upper-bound claim, not a guaranteed lifespan for every note.
+  - prerequisites: denomination as face value; banknote wear
+- **p017-i6** · list_point · timeline · both · exam high
+  - 2013: Government approved a field trial of ₹10 polymer notes.
+    - when: When did the government approve the stated field trial? → The page dates approval of a ₹10 polymer-note field trial to 2013.
+    - why: Why conduct a field trial before wider adoption? → Testing in actual use can reveal durability, handling and acceptance problems that laboratory checks may not capture. _(outside the book)_
+      - difference: How does approval differ from completed implementation? → Approval authorises a trial; it does not by itself establish that the trial was completed or that nationwide circulation followed. _(outside the book)_
+  - **khola (unpack):**
+    - field trial yaani असल इस्तेमाल की जगह पर सीमित जाँच · image: नई bus को पहले एक route पर चलाकर देखना
+    - kyon: A new note material must work under everyday conditions. _[standard]_ → A field trial provides practical testing before a wider decision. _[standard]_
+    - example / jagah: 2013 approval concerning ₹10 polymer notes.
+    - aage: Separate the policy milestone from claims about actual circulation.
+    - screen par: mark approval on a timeline
+    - is level ke liye: Approval, trial completion and nationwide launch are distinct milestones.
+  - prerequisites: government approval; trial versus rollout
+- **p017-i7** · list_point · comparison · both · exam high
+  - Existing paper notes will continue to circulate alongside polymer notes; this is not a currency replacement exercise.
+    - compare: What relationship does the page envisage between paper and polymer notes? → Both would circulate alongside one another rather than polymer notes replacing the existing paper currency in this exercise.
+    - difference: How is introducing a new material different from withdrawing existing notes? → A new material can be added while old notes remain usable. Withdrawal instead changes the acceptability or circulation status of existing notes. _(outside the book)_
+      - why: Why must a learner keep these ideas separate? → A change in what a note is made of does not itself imply cancellation of the older note's monetary status. _(outside the book)_
+  - **khola (unpack):**
+    - circulate alongside yaani दोनों तरह के notes का साथ-साथ लेन-देन में चलना · image: wallet में पुराने और नए design के notes साथ रखना
+    - kyon: Changing a note material need not invalidate existing money. _[standard]_ → The page explicitly retains paper notes alongside polymer notes. _[book]_
+    - example / jagah: A cash payment using either form of note.
+    - aage: Coexistence, not compulsory replacement, is the stated approach.
+    - screen par: place paper and polymer notes side by side
+    - is level ke liye: A statement asserting immediate paper-note withdrawal contradicts this page.
+  - prerequisites: circulation of banknotes; withdrawal of currency
+- **p017-i8** · list_point · cause_effect · both · exam high
+  - The main objective is to make Indian currency last longer, become harder to counterfeit, and reduce replacement costs.
+    - why: What three problems is the change meant to address? → The objectives are longer note life, greater difficulty of counterfeiting and lower replacement costs.
+      - how: How can longer note life reduce replacement costs? → When notes remain fit for use for longer, fewer worn-out notes need to be printed, transported and replaced over a given period. _(outside the book)_
+      - exception: Does harder to counterfeit mean impossible to counterfeit? → No. Greater resistance raises the difficulty of copying; it is not a guarantee that copying cannot occur. _(outside the book)_
+  - **khola (unpack):**
+    - counterfeit yaani असली जैसा दिखने वाला नकली note बनाना · image: असली label की नकल करके नकली सामान बेचना
+    - kyon: Worn-out notes require replacement and fake notes undermine trust. _[standard]_ → Durability and security are intended to reduce replacement needs and copying. _[book]_
+    - example / jagah: The currency-management work of replacing unfit notes.
+    - aage: The rationale combines efficiency with trust in cash.
+    - screen par: slow wear, block copying and shrink replacement piles
+    - is level ke liye: Do not infer counterfeit-proof currency or reduced face value.
+  - prerequisites: banknote deterioration; counterfeit notes; replacement expenditure
+- **p017-i9** · list_point · timeline · both · exam high
+  - More than 50 countries use polymer banknotes. Australia was the 1st country to introduce them in 1988.
+    - when: Which first introduction and date does the page identify? → It identifies Australia as the first country to introduce polymer banknotes, in 1988.
+    - what: What scale of international adoption is stated? → The page states that more than 50 countries use polymer banknotes.
+      - why: Why is international adoption relevant to this discussion? → Experience in other countries can inform assessment of durability, security and practical use; it does not automatically prove that every country should adopt the same design. _(outside the book)_
+  - **khola (unpack):**
+    - kyon: A proposed material change raises questions about practical experience. _[standard]_ → The page cites Australia's introduction and use by more than 50 countries as international context. _[book]_
+    - example / jagah: Australia, 1988.
+    - aage: Polymer banknotes are presented as an internationally used technology.
+    - screen par: mark Australia and extend an adoption timeline
+    - is level ke liye: First introduction does not mean every Australian note was converted in that same year.
+  - prerequisites: polymer banknotes; introduction of a currency design
+- **p017-i10** · heading · none · both
+  - Crypto Currency
+- **p017-i11** · definition · definition · both · exam high
+  - It is a digital / virtual currency created & stored using blockchain technology.
+    - what: What does the page mean by cryptocurrency? → It describes a digital or virtual currency using blockchain technology rather than physical notes.
+    - evidence: Which technology is explicitly named in the definition? → Blockchain is the technology the page associates with its creation and storage.
+      - how: How does a blockchain help explain digital ownership? → It records transactions in linked blocks maintained under shared verification rules. The ledger records ownership or control; it is not a warehouse holding physical coins. _(outside the book)_
+  - **khola (unpack):**
+    - blockchain yaani लेन-देन के records को जुड़े हुए blocks में रखने का तरीका · image: हिसाब के जुड़े पन्ने, जिनका पिछला हिसाब अगले से जुड़ा हो
+    - virtual currency yaani ऐसी currency जो physical note की जगह digital रूप में हो · image: हाथ में सिक्का नहीं, screen पर दर्ज balance
+    - kyon: A digital asset needs a dependable record of transactions and control. _[standard]_ → Blockchain supplies linked records governed by verification rules. _[standard]_
+    - example / jagah: A cryptocurrency transfer recorded on its blockchain.
+    - aage: The next distinction is who creates the asset and whether it is legal tender.
+    - screen par: link transaction blocks
+    - is level ke liye: Do not equate a bank transfer or UPI payment with cryptocurrency.
+  - prerequisites: digital records; transactions and ownership
+- **p017-i12** · list_point · facts_numbers · both · exam high
+  - It is a privately created digital asset. It is not legal tender in India and is not issued by the RBI.
+    - what: What institutional and legal status does the page assign to cryptocurrency? → It is privately created, not issued by the RBI and not legal tender in India.
+    - evidence: Which statements rule out treating this asset as RBI-issued currency? → The page explicitly identifies private creation and says it is not issued by the RBI.
+      - why: Why is 'not legal tender' different from 'illegal'? → Legal tender is a legal status concerning settlement of monetary obligations. Lacking that status does not by itself settle whether holding or trading an asset is prohibited. _(outside the book)_
+      - difference: How is an RBI digital currency different on this criterion? → A central bank digital currency is issued by the central bank, unlike a privately created cryptocurrency. _(outside the book)_
+  - **khola (unpack):**
+    - legal tender yaani जिसे कानून पैसे की देनदारी चुकाने के लिए मान्यता देता है · image: उधार चुकाने में कानून से मान्यता पाया भुगतान
+    - kyon: Something may be owned or traded without having the status of official money. _[standard]_ → The page separates private crypto from RBI issuance and Indian legal-tender status. _[book]_
+    - example / jagah: Comparing a privately created crypto asset with central-bank money.
+    - aage: Digital form alone does not confer official currency status.
+    - screen par: separate issuer and legal-status columns
+    - is level ke liye: Do not infer a blanket ban or a tax rule from this sentence.
+  - prerequisites: RBI as central bank; legal tender; private digital assets
+- **p017-i13** · list_point · structure · both · exam high
+  - It relies on a distributed ledger to record ownership without a central authority like a bank or government.
+    - what: What performs the ownership-recording function? → A distributed ledger records ownership without a central authority such as a bank or government.
+    - where: Where are the records maintained in a distributed ledger? → Copies are maintained across participating network computers rather than in a single central institution's record system. _(outside the book)_
+      - how: How can participants agree without a central bookkeeper? → The network follows agreed validation and consensus rules to decide which transactions and ledger updates are accepted. _(outside the book)_
+        - exception: Does decentralised recording mean there are no rules? → No. Removing a central bookkeeper makes shared verification rules important; decentralisation is not the absence of governance or checks. _(outside the book)_
+  - **khola (unpack):**
+    - distributed ledger yaani हिसाब की ऐसी किताब जिसकी copies network में कई जगह रखी जाती हैं · image: एक ही साझा खर्च का हिसाब कई दोस्तों के पास
+    - kyon: Without a central bookkeeper, participants still need an agreed ownership record. _[standard]_ → Distributed records and validation rules provide a way to maintain that agreement. _[standard]_
+    - example / jagah: Network computers maintaining matching transaction histories.
+    - aage: Trust shifts from one institution toward network rules and verification.
+    - screen par: replicate and synchronise ledger copies
+    - is level ke liye: A distributed ledger is the record arrangement; consensus is how updates are agreed.
+  - prerequisites: ledger as a transaction record; computer networks; ownership
+- **p017-i14** · heading · none · both
+  - Why Cryptocurrency?
+- **p017-i15** · list_point · cause_effect · both · exam medium
+  - Some anarchist groups lost faith in FIAT MONEY because USA’s Subprime Crisis (2007) eroded the purchasing power of US Dollar.
+    - why: What motive for cryptocurrency interest does the page attribute to some anarchist groups? → The page attributes their loss of faith in fiat money to the USA's 2007 subprime crisis and its claimed erosion of dollar purchasing power.
+      - how: How can distrust of financial institutions make decentralised money attractive? → People who distrust official issuers or intermediaries may prefer a system whose ownership records do not depend on those institutions. _(outside the book)_
+      - what: What do fiat money, purchasing power and subprime crisis mean here? → Fiat money derives monetary standing from state authority rather than redemption into a commodity. Purchasing power is how much goods and services money buys. The subprime crisis involved risky mortgage lending and defaults that damaged the financial system. _(outside the book)_
+        - evidence: What caution is needed about the historical explanation? → A financial crisis can undermine institutional trust, but its effect on a currency's purchasing power is not a single automatic relationship. The page supplies no evidence establishing its specific dollar-purchasing-power claim, and the motivation should not be generalised to every crypto user. _(outside the book)_
+  - **khola (unpack):**
+    - FIAT MONEY yaani सरकारी मान्यता से चलने वाला पैसा, जिसे सोने में बदलने का वादा ज़रूरी नहीं · image: note की कीमत उसके कागज़ की कीमत से कहीं अधिक होना
+    - purchasing power yaani पैसे से कितनी चीज़ें खरीदी जा सकती हैं · image: ₹100 में पहले और अब मिलने वाला राशन
+    - anarchist groups yaani ऐसे समूह जो राज्य की central authority का विरोध करते हैं · image: एक central controller के बजाय खुद नियम तय करने की चाह
+    - Subprime Crisis yaani कमज़ोर repayment क्षमता वाले borrowers के housing loans से जुड़ा financial संकट · image: कई उधार एक साथ न लौटें तो उधार देने वाला भी मुश्किल में
+    - kyon: Some people distrust official money and financial intermediaries after financial disruption. _[standard]_ → A system without a central institutional bookkeeper may appeal to them. _[standard]_
+    - example / jagah: The page's reference to the USA's 2007 subprime crisis.
+    - aage: Connect the motivation to decentralised ownership recording, without treating it as the sole origin of crypto.
+    - screen par: trace distrust toward an alternative ledger
+    - is level ke liye: Separate financial-system trust, domestic purchasing power and exchange value; they are not identical.
+  - prerequisites: fiat money; purchasing power; bank lending and default
+- **p017-i16** · list_point · cause_effect · both · exam high
+  - They also dislike Banks & Card Companies because of transaction charges on e-banking, card payments, MDR, interoperability issues.
+    - why: What other dissatisfaction does the page identify? → It cites transaction charges on e-banking and card payments, MDR and interoperability problems as reasons for disliking banks and card companies.
+      - how: How do MDR and interoperability affect everyday payments? → MDR, Merchant Discount Rate, is the merchant-side charge associated with accepting card payments. Interoperability concerns whether different payment systems can work with one another; poor compatibility can limit where or how payments are made. _(outside the book)_
+        - exception: Does this criticism prove that cryptocurrency payments have no costs or compatibility issues? → No. Cryptocurrency networks may also have transaction fees, technical constraints and compatibility problems. The paragraph describes a motivation, not a guarantee of a cost-free alternative. _(outside the book)_
+  - **khola (unpack):**
+    - MDR yaani card payment लेने पर merchant से लिया जाने वाला charge · image: ग्राहक के payment में से दुकान को मिलने वाली रकम पर कटौती
+    - interoperability yaani अलग payment systems का आपस में काम कर पाना · image: एक system से दूसरे system के ग्राहक को payment पहुँचाना
+    - kyon: Charges and incompatible systems create payment friction. _[standard]_ → The page presents this friction as another motive for seeking alternatives. _[book]_
+    - example / jagah: A merchant accepting a customer's card payment.
+    - aage: Links cryptocurrency motivations back to the page's opening concern with connected payment systems.
+    - screen par: show a fee deduction and an incompatible connection
+    - is level ke liye: MDR is not simply the interest charged on a credit-card loan.
+  - prerequisites: bank and card payments; merchants; payment-system interoperability
+- **p017-i17** · heading · none · both
+  - Money Supply
+- **p017-i18** · definition · definition · both · exam high
+  - Money supply is the total amount of money available in an economy at a given point in time that people and businesses can use for spending, saving, or making payments.
+    - what: What does money supply measure? → It measures the money available in an economy at a particular time for people and businesses to spend, save or make payments.
+    - evidence: Which wording identifies money supply as a stock rather than a flow? → The phrase 'at a given point in time' identifies a snapshot rather than an amount passing through the economy over a period.
+      - why: Why must money supply be distinguished from income or total transactions? → The same money can be spent repeatedly over a period. Adding every payment would count its repeated use, whereas money supply measures the outstanding stock at a chosen date. _(outside the book)_
+  - **khola (unpack):**
+    - money supply yaani किसी एक समय पर economy में उपलब्ध पैसे की कुल मात्रा · image: एक समय की photo में पैसे का कुल stock, पूरे दिन का लेन-देन नहीं
+    - kyon: To assess monetary conditions, we need to know how much money is available. _[standard]_ → A point-in-time measure avoids confusing available money with its repeated use. _[standard]_
+    - example / jagah: Measuring an economy's money stock on a specified date.
+    - aage: Different definitions of what counts as money produce different monetary aggregates.
+    - screen par: freeze time and count the money stock
+    - is level ke liye: Money supply is neither total national wealth nor GDP.
+  - prerequisites: money used for payments; stock versus flow
+- **p017-i19** · list_point · facts_numbers · both · exam high
+  - The Reserve Bank of India (RBI) measures money supply using M0, M1, M2, and M3, with M3 (Broad Money), M4 being the most important indicator for monetary policy.
+    - what: Which institution and aggregate names appear in this sentence? → The sentence names the RBI, lists M0, M1, M2 and M3, identifies M3 as Broad Money, and then includes an ambiguously attached reference to M4 as the most important indicator.
+    - evidence: What makes the sentence internally unclear? → It first lists aggregates through M3 but then says 'with M3 (Broad Money), M4 being the most important indicator'. It does not clearly explain the relationship between these final two names.
+      - why: Why measure more than one monetary aggregate? → Different aggregates include different forms of money and deposits. Narrower measures focus on readily spendable balances, while broader ones include additional savings claims. _(outside the book)_
+      - which: What standard distinction should an exam learner use to interpret the unclear line? → M3 is the conventional broad-money measure commonly emphasised in Indian monetary analysis. M4 is a separate, broader aggregate including specified post-office deposits; it should not be silently substituted for M3. M0 is reserve money, a distinct monetary-base concept. _(outside the book)_
+  - **khola (unpack):**
+    - Broad Money yaani पैसे की ऐसी गिनती जिसमें तुरंत खर्च वाले पैसे के साथ कुछ और bank deposits भी शामिल हों · image: cash और current balance के साथ bank में रखी fixed deposit को भी देखना
+    - kyon: Cash alone does not capture every monetary balance relevant to economic activity. _[standard]_ → Several aggregates therefore count different sets of currency and deposits. _[standard]_
+    - example / jagah: RBI analysis of currency and deposit balances.
+    - aage: The pyramid must be read through the components of each aggregate, not just its width.
+    - screen par: sort balances into monetary aggregates
+    - is level ke liye: The printed sentence is retained, not endorsed as a reliable M4-priority statement.
+  - prerequisites: money supply; bank deposits; RBI and monetary policy
+- **p017-i20** · diagram · figure · image · exam high
+  - A white-outlined pyramid divided by four horizontal lines into five tiers. From apex to base: M0; M1 with 'Cash + Demand Deposits'; M2 with '+ PO Savings Deposits'; M3 with '+ Bank Time Deposits'; M4 with '+ All PO Deposits (except NSC)'. There are no arrows. Increasing width visually suggests broader coverage downward, but the drawing does not specify the base for each addition or define M0.
+    - what: What does this pyramid visually organise? → It arranges the labels M0, M1, M2, M3 and M4 from top to bottom, attaching currency and deposit descriptions to the last four tiers.
+    - which: Which additions and exception are explicitly displayed? → The displayed descriptions are cash plus demand deposits, PO savings deposits, bank time deposits, and all PO deposits except NSC.
+      - how: How should the learner avoid a misleading cumulative reading? → In the conventional Indian definitions, M2 adds post-office savings deposits to M1, but M3 adds bank time deposits to M1, not to M2. M4 adds eligible post-office deposits to M3. M0 is reserve money, not simply the smallest public-money subset of all the other tiers. _(outside the book)_
+  - **khola (unpack):**
+    - kyon: Different kinds of monetary balances need clear grouping. _[standard]_ → The pyramid offers a visual grouping but needs explicit bases for its plus signs. _[standard]_
+    - example / jagah: Indian monetary-aggregate classification.
+    - aage: Read each labelled definition separately before comparing breadth.
+    - screen par: highlight tiers and redraw the correct addition links
+    - is level ke liye: M1→M2 and M1→M3 are separate branches in standard definitions; M3→M4 is another addition.
+  - prerequisites: money supply; demand deposits; time deposits; post-office savings
+- **p017-i21** · diagram_label · figure · image · exam high
+  - M0 — label in the topmost tier; no component description is printed.
+    - what: What information does the apex provide? → It gives only the aggregate name M0, without a definition or listed components.
+    - which: Which standard monetary concept does M0 denote? → M0 denotes reserve money or the monetary base: currency in circulation, bankers' deposits with the RBI and other deposits with the RBI. _(outside the book)_
+      - why: Why should M0 not simply be equated with cash in people's wallets? → Reserve money also includes balances held at the central bank, including bank reserves. Its institutional coverage differs from money held by the public. _(outside the book)_
+  - **khola (unpack):**
+    - M0 yaani RBI की currency और उसके पास रखे खास balances वाला base money · image: लोगों के cash के साथ banks का RBI में रखा balance भी देखना
+    - kyon: Banks need central-bank balances to settle obligations. _[standard]_ → Reserve money captures currency and relevant RBI deposit liabilities. _[standard]_
+    - example / jagah: Banks' reserve balances with RBI.
+    - aage: M0 is a monetary-base concept, not merely a cash-only tier.
+    - screen par: separate currency from RBI deposit balances
+    - is level ke liye: Do not infer a complete M0 definition from its position at the pyramid's apex.
+  - prerequisites: currency in circulation; bank reserves at RBI
+- **p017-i22** · diagram_label · figure · image · exam high
+  - M1 — Cash + Demand Deposits; the text labels the tier immediately below M0.
+    - what: What does the M1 tier show? → It shows cash plus demand deposits as the components associated with M1.
+    - which: Which feature makes a deposit a demand deposit? → It is repayable on demand rather than locked until an agreed maturity, making it readily available for payment or withdrawal. _(outside the book)_
+      - how: How does the printed shorthand relate to the fuller Indian definition? → The standard definition is currency with the public plus demand deposits with the banking system plus other deposits with the RBI. 'Cash' in this shorthand should not be expanded to include banks' vault cash as public money. _(outside the book)_
+  - **khola (unpack):**
+    - Demand Deposits yaani bank में ऐसा पैसा जिसे माँगने पर निकाला जा सके · image: current account से payment करना
+    - kyon: People make payments using both cash and readily available account balances. _[standard]_ → A narrow-money measure groups these immediately usable forms. _[standard]_
+    - example / jagah: Currency with the public and a current-account balance.
+    - aage: Money supply is not restricted to printed notes and coins.
+    - screen par: combine public cash and withdrawable deposits
+    - is level ke liye: The '+' joins amounts, measured in the same currency unit; M1 itself is an aggregate label, not a unit.
+  - prerequisites: cash held by the public; withdrawable bank balances
+- **p017-i23** · diagram_label · figure · image · exam high
+  - M2 — + PO Savings Deposits; the label occupies the tier below M1.
+    - what: What additional component is printed beside M2? → The tier adds 'PO Savings Deposits'.
+    - which: Which institution does PO identify and what is the standard base? → PO means post office. In the conventional definition, M2 equals M1 plus savings deposits with post-office savings banks. _(outside the book)_
+      - why: Why distinguish these deposits from the next tier's bank deposits? → The deposit-taking institution and type of claim differ, so monetary classifications specify them separately rather than treating all savings balances as identical. _(outside the book)_
+  - **khola (unpack):**
+    - PO Savings Deposits yaani post office के savings accounts में जमा पैसा · image: post office savings passbook में लिखा balance
+    - kyon: Some savings balances are held in post offices rather than banks. _[standard]_ → M2 includes the specified post-office savings deposits alongside M1. _[standard]_
+    - example / jagah: A post-office savings-bank account.
+    - aage: M2 differs from M1 by a specifically identified deposit category.
+    - screen par: add a post-office savings balance to M1
+    - is level ke liye: The printed '+' is additive shorthand; do not read PO as a commercial bank.
+  - prerequisites: M1; post-office savings accounts
+- **p017-i24** · diagram_label · figure · image · exam high
+  - M3 — + Bank Time Deposits; the label occupies the tier below M2.
+    - what: Which deposit category is associated with M3 in the figure? → The M3 tier is labelled '+ Bank Time Deposits'.
+    - which: Which base is used in the standard M3 definition? → M3 is M1 plus time deposits with the banking system. It is not defined as M2 plus time deposits. _(outside the book)_
+      - why: Why are time deposits distinguished from demand deposits? → Time deposits are held for an agreed period and can have conditions or penalties for early withdrawal. They are less immediately available for payment than demand deposits. _(outside the book)_
+  - **khola (unpack):**
+    - Bank Time Deposits yaani bank में तय अवधि के लिए रखे deposits · image: एक साल की fixed deposit की receipt
+    - kyon: Households hold monetary savings beyond immediately spendable balances. _[standard]_ → M3 includes bank time deposits in addition to M1. _[standard]_
+    - example / jagah: A bank fixed deposit.
+    - aage: Broad money captures a wider set of bank monetary liabilities than narrow money.
+    - screen par: branch from M1 and add bank time deposits
+    - is level ke liye: The tier's position below M2 must not override the correct M1-based definition.
+  - prerequisites: M1; demand deposits; fixed deposits and maturity
+- **p017-i25** · diagram_label · figure · image · exam high
+  - M4 — + All PO Deposits (except NSC); the label occupies the widest bottom tier.
+    - what: What does the bottom tier add, and what does it exclude? → It adds all PO deposits except NSC, explicitly naming an exception to the word 'All'.
+    - which: Which full names and standard relationship clarify the shorthand? → PO means post office and NSC means National Savings Certificate. In the conventional definition, M4 equals M3 plus total deposits with post-office savings organisations, excluding National Savings Certificates. _(outside the book)_
+      - why: Why must the NSC exception be retained? → An aggregate has defined boundaries. The fact that a savings instrument is sold through the post office does not mean it is included in every post-office monetary-deposit category. _(outside the book)_
+  - **khola (unpack):**
+    - NSC yaani National Savings Certificate नाम का savings instrument · image: post office से लिया savings certificate
+    - kyon: Broader measurement needs clear rules on which post-office balances count. _[standard]_ → The printed M4 label includes PO deposits but expressly excludes NSC. _[book]_
+    - example / jagah: Post-office deposits contrasted with a National Savings Certificate.
+    - aage: The exception limits the coverage even of the widest tier.
+    - screen par: add eligible deposits and move NSC outside the boundary
+    - is level ke liye: In statement-combination questions, 'including NSC' reverses the printed definition.
+  - prerequisites: M3; post-office deposits; savings certificates
+
+## Page 18 · passed after 1 round(s)
+
+M0 is RBI-created reserve money. M1 comprises immediately usable money; M2 adds post-office savings deposits, excluding NSCs and similar instruments; M3 adds bank time deposits to M1 and is the principal money-supply measure discussed. RBI monitors M3 for inflationary pressure, liquidity, credit growth and monetary-policy effectiveness. M4 is introduced as the broadest measure.
+
+- **p018-i1** · paragraph · process · both · exam medium
+  - In an economy, money circulates continuously between households, businesses, banks, and the RBI.
+    - how: Between which participants does money circulate? → The page connects households, businesses, banks and the RBI rather than treating money as something held by one group.
+    - when: When does this circulation occur? → The page describes it as continuous, not confined to a single issue of currency by the RBI.
+      - how: How can a learner picture this circulation in daily life? → A household pays a shop, the shop deposits receipts in a bank, and the bank handles payments and lending. Banks also maintain balances and settle transactions through the RBI. These are different links, not a requirement that each payment pass through every participant. _(outside the book)_
+  - **khola (unpack):**
+    - circulates yaani पैसा भुगतान और जमा के साथ एक से दूसरे के पास जाता रहता है · image: घर से दुकान तक payment, फिर दुकान की कमाई bank में
+    - kyon: People need to buy goods, receive income and store balances, so money changes hands. _[standard]_ → The page places households, businesses, banks and the RBI within this continuing circulation. _[book]_
+    - example / jagah: A salary credited to a bank account and subsequently spent at a shop.
+    - aage: Understanding different holders prepares the learner to distinguish reserves from public money holdings.
+    - screen par: Move payment tokens between named participants.
+    - is level ke liye: Do not confuse circulation of existing money with creation of additional money.
+  - prerequisites: Money as a means of payment; Households and businesses; Banks as deposit-taking institutions
+- **p018-i2** · definition · definition · both · exam high
+  - M0: M0 is the money created directly by the RBI.
+It is called Reserve Money or High-Powered Money because it forms the base from which banks create additional money through lending.
+    - what: What is M0, and what other names does it have? → M0 identifies money directly created by the RBI; Reserve Money and High-Powered Money name the same base-money concept here.
+    - evidence: What feature on the page explains the name High-Powered Money? → The page says it forms the base from which banks create additional money through lending.
+      - why: Why distinguish this base from deposits created by commercial banks? → Commercial-bank deposit balances can expand when banks grant loans, but those balances are not themselves newly issued RBI reserve balances. Separating the two prevents counting all bank money as directly created by the RBI. _(outside the book)_
+  - **khola (unpack):**
+    - Reserve Money yaani RBI से बना वह आधार पैसा जिस पर banks का आगे का money creation टिका है · image: इमारत की नींव और उसके ऊपर बनी मंज़िलें
+    - High-Powered Money yaani उसी base money का नाम, जिससे आगे bank deposits बढ़ने का आधार मिलता है · image: एक आधार से कई ऊपर की परतों को सहारा
+    - kyon: Banks need a foundation of central-bank money for cash needs and settlement. _[standard]_ → The page calls this lending-supporting base Reserve Money or High-Powered Money. _[book]_
+    - example / jagah: A commercial bank's balance held at the RBI.
+    - aage: M0 must be separated from the public's spendable deposits in M1.
+    - screen par: Build deposit layers above a labelled M0 foundation.
+    - is level ke liye: The three labels M0, Reserve Money and High-Powered Money refer to the same aggregate in this discussion.
+  - prerequisites: RBI as India's central bank; Commercial-bank deposits; A bank loan
+- **p018-i3** · equation · facts_numbers · both · exam high
+  - M0 = C + OD + Bankers Deposits
+C = Currency in circulation
+OD = Other deposits with RBI
+Bankers' Deposits = Commercial banks' deposits with RBI (including CRR balances)
+    - what: What does each term in the M0 equation represent? → M0 is reserve money; C is currency in circulation; OD is other deposits with the RBI; Bankers' Deposits are commercial banks' deposits with the RBI, including CRR balances. The plus signs add these monetary amounts, and the equals sign identifies their total as M0.
+    - evidence: What explicitly establishes that CRR balances belong in M0? → The component definition includes CRR balances within commercial banks' deposits with the RBI.
+      - how: How should these quantities be measured and added? → They are stocks of money measured at a common date in a common monetary unit, such as rupees or crore rupees. The page specifies no particular unit or numerical values. M0 is an aggregate label, not money raised to the power zero. _(outside the book)_
+      - difference: How do currency in circulation and currency with the public differ? → Currency in circulation includes bank-held cash as well as currency held by the public. Currency with the public excludes banks' cash holdings. This matters when moving from the M0 formula to M1. _(outside the book)_
+      - what: What does CRR mean in this context? → CRR is the Cash Reserve Ratio: a required proportion of specified bank liabilities maintained as cash balances with the RBI. Those balances are bank assets at the central bank, not household savings accounts. _(outside the book)_
+  - **khola (unpack):**
+    - Currency in circulation yaani चलन में मौजूद cash, जिसमें public और banks के पास का cash शामिल है · image: जेब के नोट और bank के cash counter के नोट
+    - Bankers' Deposits yaani commercial banks का RBI में रखा balance · image: आपका account bank में; bank का balance RBI में
+    - CRR balances yaani नियम के मुताबिक banks को RBI में जो cash balance रखना पड़ता है · image: कमाई का तय हिस्सा अलग रखने वाला डिब्बा
+    - OD yaani इस formula में RBI के पास Other deposits · image: RBI की सूची में banks के balance से अलग एक deposit खांचा
+    - kyon: To measure RBI-created money, cash alone is insufficient because RBI deposit balances also matter. _[standard]_ → The formula therefore adds currency, other RBI deposits and bankers' RBI deposits. _[book]_
+    - example / jagah: Compare a bank's RBI account with a household's savings account at that bank.
+    - aage: The location and holder of a deposit determine its role in an aggregate.
+    - screen par: Combine three labelled amounts into M0 and highlight CRR inside bankers' deposits.
+    - is level ke liye: OD means Other deposits here, not overdraft; use the page's definition. No numerical multiplier is provided.
+  - prerequisites: Addition of monetary amounts; RBI versus commercial banks; Cash versus deposits
+- **p018-i4** · paragraph · process · both · exam high
+  - When banks receive reserves from the RBI, they can lend multiple times, expanding the money supply.
+    - how: How does the page link RBI reserves to the money supply? → It presents reserves received from the RBI as a base supporting bank lending and expansion of money supply.
+    - when: When does the reserve-supported expansion described here become possible? → The stated starting condition is banks receiving reserves from the RBI.
+      - how: How can lending create money beyond the initial reserve base? → A bank loan normally creates a matching borrower deposit. Spending moves that deposit through the banking system, and reserves help banks settle resulting payments. Further lending can expand deposits across the system. _(outside the book)_
+        - exception: Does 'lend multiple times' imply unlimited lending or a fixed automatic multiplier? → No. Reserve and cash needs, capital rules, borrower demand and credit risk constrain lending. Expansion depends on conditions; the sentence should not be read as one bank repeatedly lending the same cash without limits. _(outside the book)_
+  - **khola (unpack):**
+    - reserves yaani banks के पास payment और cash की जरूरत सँभालने वाला आधार balance · image: दुकान के रोज़ के लेन-देन के लिए रखा cash
+    - kyon: Borrowers need spending balances, and banks need to settle payments arising from loans. _[standard]_ → Reserve-supported lending can expand bank deposits and hence money supply, subject to constraints. _[standard]_
+    - example / jagah: A loan credited to an account is used to pay a seller who banks elsewhere.
+    - aage: Explains why reserve money and money-supply aggregates need not be equal.
+    - screen par: Credit a loan deposit, transfer it to a seller, and settle between banks.
+    - is level ke liye: Distinguish a system-wide expansion mechanism from unlimited lending by an individual bank.
+  - prerequisites: M0 as reserve money; A loan and a deposit; Transfers between banks
+- **p018-i5** · definition · definition · both · exam high
+  - M1 – Narrow Money
+M1 is the most liquid money available to the public for everyday transactions.
+    - what: What does M1 measure in this introduction? → It focuses on the public's most readily usable money for routine payments, under the name Narrow Money.
+    - evidence: What phrase establishes the liquidity focus of M1? → The page calls it the 'most liquid money' available for everyday transactions.
+      - why: Why does liquidity matter for an everyday payment? → A balance is more liquid when it can be used quickly with little difficulty or loss of value. Shopping requires a usable payment balance, not merely an asset that may take time to turn into spending money. _(outside the book)_
+  - **khola (unpack):**
+    - liquid yaani जिसे जल्दी और आसानी से payment में लगा सकें · image: दूध खरीदने के लिए जेब का cash, मकान बेचने की जरूरत नहीं
+    - Narrow Money yaani तुरंत खर्च होने वाले हिस्सों पर केंद्रित money का माप · image: पूरी संपत्ति की जगह रोज़ के खर्च वाला बटुआ
+    - kyon: Daily purchases require payment resources that are readily accessible. _[standard]_ → M1 focuses on the most liquid money available to the public. _[book]_
+    - example / jagah: Cash and a usable balance in an ordinary transaction account.
+    - aage: Liquidity provides the reason for grouping the following M1 components.
+    - screen par: Select readily spendable balances from a wider asset collection.
+    - is level ke liye: Liquidity describes ease of use, not a high rate of interest.
+  - prerequisites: Money used for transactions; Cash and bank accounts
+- **p018-i6** · equation · facts_numbers · both · exam high
+  - M1= Currency + Demand Deposits + Other Deposits with RBI
+It includes:
+Currency with the public
+Demand deposits (current and savings accounts that can be withdrawn on demand)
+Other deposits with RBI
+    - what: What enters M1, and what does 'Currency' mean here? → The accompanying list identifies currency as currency with the public. M1 adds it to demand deposits and other deposits with the RBI. The page describes current and savings accounts withdrawable on demand as demand deposits.
+    - evidence: What in the page resolves the short formula's wording? → The list immediately below the formula explicitly says 'Currency with the public' and explains demand deposits through current and savings accounts.
+      - how: How does the demand feature make a deposit suitable for M1? → The depositor need not wait for an agreed maturity before requesting withdrawal or making permitted payments. That access distinguishes a demand balance from a time deposit. _(outside the book)_
+      - difference: Why should banks' RBI balances not be substituted for public demand deposits? → Banks' RBI balances are held by banks at the central bank; public demand deposits are liabilities of commercial banks to their customers. They occupy different layers of the monetary system. _(outside the book)_
+      - what: What units and notation apply to the M1 equation? → M1 is the name of an aggregate, not a power. Its components are monetary stocks added in a common unit at a common date; the page gives no numerical unit or amounts. _(outside the book)_
+  - **khola (unpack):**
+    - Demand deposits yaani ऐसा account balance जिसे मांगने पर निकाल सकें, तय maturity का इंतज़ार नहीं · image: ज़रूरत पर savings account से पैसे निकालना
+    - Currency with the public yaani public के पास मौजूद cash; banks के पास का cash नहीं · image: घर की दराज़ और लोगों के बटुओं के नोट
+    - kyon: A transaction-money measure needs balances accessible for current payments. _[standard]_ → The page combines public currency, demand deposits and other RBI deposits in M1. _[book]_
+    - example / jagah: A household's cash and withdrawable savings-account balance illustrate two listed components.
+    - aage: M1 becomes the common starting aggregate for both M2 and M3 on this page.
+    - screen par: Add three labelled component boxes into M1.
+    - is level ke liye: Read the formula together with its list: Currency here is not the full currency-in-circulation term used for M0.
+  - prerequisites: M1 and liquidity; RBI versus commercial banks; Withdrawal from an account
+- **p018-i7** · definition · definition · both · exam high
+  - It is called Narrow Money because every component can be spent almost immediately.
+    - what: What does the adjective Narrow emphasise here? → The page limits attention to components available for spending almost immediately rather than the wider range of deposit balances.
+    - evidence: What is the page's stated reason for the name? → It explicitly links the name to the near-immediate spendability of every included component.
+      - why: Why does this help distinguish narrow from broad money? → Broader measures can add balances that are money-like but less immediately available. 'Narrow' describes coverage, not the physical size of notes or the amount of money held by a person. _(outside the book)_
+  - **khola (unpack):**
+    - almost immediately yaani खर्च के लिए आम तौर पर लंबा इंतज़ार नहीं करना पड़ता · image: आज की खरीद के लिए आज ही account का पैसा इस्तेमाल करना
+    - kyon: A learner needs to separate current spending capacity from balances tied up for later. _[standard]_ → The page explains Narrow Money through near-immediate spendability. _[book]_
+    - example / jagah: Compare a readily usable savings balance with money placed in a fixed deposit.
+    - aage: The next aggregates broaden coverage beyond this immediate-payment core.
+    - screen par: Highlight a readily spendable inner set.
+    - is level ke liye: Narrow versus broad refers to included components, not denominations.
+  - prerequisites: M1 components; Liquidity
+- **p018-i8** · paragraph · comparison · both · exam high
+  - M2 – Intermediate Money
+M2 is a broader measure than M1.
+    - compare: How does M2 compare with M1 in coverage? → The page names M2 Intermediate Money and gives it wider coverage than M1.
+    - difference: What addition accounts for that wider coverage? → The following formula adds savings deposits with Post Office Savings Banks to M1.
+      - why: Why does broader not mean more liquid? → Coverage expands when an additional category is included, even if that category is less convenient for payments. Size of the covered set and ease of spending are different criteria. _(outside the book)_
+  - **khola (unpack):**
+    - broader measure yaani पहले वाले माप से ज़्यादा तरह के balances को गिनने वाला माप · image: छोटे घेरे के बाहर एक और हिस्सा जोड़ना
+    - kyon: Measuring only immediate transaction balances leaves out some accessible savings. _[standard]_ → M2 broadens M1 by adding post-office savings deposits. _[book]_
+    - example / jagah: The savings account held at a post office rather than an ordinary bank.
+    - aage: The next equation identifies the precise added component.
+    - screen par: Extend the M1 set with a post-office savings section.
+    - is level ke liye: Recognise Intermediate Money as the page's label for M2.
+  - prerequisites: M1; Meaning of including an additional component
+- **p018-i9** · equation · facts_numbers · both · exam high
+  - M2 = M1 + Savings Deposits with Post Office Savings Banks.
+It adds post office Savings Bank deposits (excluding National Savings Certificates and similar instruments).
+    - what: What exactly is added to M1 to obtain M2? → Savings deposits with Post Office Savings Banks are added. The page explicitly excludes National Savings Certificates and similar instruments from that addition.
+    - evidence: What prevents interpreting M2 as including every post-office savings product? → The parenthetical exclusion names National Savings Certificates and similar instruments.
+      - why: Why distinguish an account deposit from a savings certificate? → Products sold at the same institution can have different withdrawal and maturity arrangements. The post-office location alone does not make every product a savings-account deposit. _(outside the book)_
+      - what: How should the notation and units be read? → M2 names the aggregate. Add the M1 stock and eligible post-office savings-deposit stock in the same monetary unit and at the same date. The page supplies no numerical values or specified unit. _(outside the book)_
+  - **khola (unpack):**
+    - Savings Deposits with Post Office Savings Banks yaani post office के savings accounts में जमा balance · image: post office की savings passbook में लिखा balance
+    - National Savings Certificates yaani एक savings certificate वाला product, जिसे यहाँ जोड़ने से साफ मना किया गया है · image: साधारण account passbook से अलग खरीदा हुआ savings certificate
+    - kyon: To calculate the aggregate correctly, one must identify the eligible product rather than just its selling institution. _[standard]_ → The page includes post-office savings deposits but excludes NSCs and similar instruments. _[book]_
+    - example / jagah: At a post-office counter, distinguish a savings-account deposit from a savings-certificate purchase.
+    - aage: The exclusion controls which balances may be added to M1.
+    - screen par: Add a savings-account box and cross out a certificate box.
+    - is level ke liye: A statement saying 'all post-office savings instruments enter M2' conflicts with this page.
+  - prerequisites: M1 components; Savings account versus savings instrument
+- **p018-i10** · paragraph · comparison · both · exam medium
+  - These deposits are fairly liquid but slightly less convenient than ordinary bank deposits.
+    - compare: How does the page compare post-office savings deposits with ordinary bank deposits? → It describes the post-office deposits as fairly liquid while giving ordinary bank deposits an advantage in convenience.
+    - difference: Does the page describe these deposits as illiquid? → No. It retains the description 'fairly liquid'; the qualification concerns their slightly lower convenience.
+      - how: How can liquidity and convenience differ? → A balance may be withdrawable but require an extra step before a particular payment. Payment access and withdrawal arrangements affect convenience without making the balance wholly inaccessible. The page specifies no particular operational restriction. _(outside the book)_
+  - **khola (unpack):**
+    - fairly liquid yaani काफी आसानी से पैसा मिल सकता है, पर payment में थोड़ी कम सहूलियत हो सकती है · image: पैसा मौजूद है, लेकिन खरीद से पहले एक और काम करना पड़ सकता है
+    - kyon: People need both access to savings and convenient ways to make payments. _[standard]_ → The page treats post-office savings as fairly liquid but slightly less convenient than ordinary bank deposits. _[book]_
+    - example / jagah: Comparing the steps needed to use two different savings accounts for a purchase.
+    - aage: Explains why broader coverage need not imply greater immediate transaction convenience.
+    - screen par: Compare two payment paths with different numbers of steps.
+    - is level ke liye: This is the book's qualitative comparison, not a detailed current-services comparison.
+  - prerequisites: Liquidity; Post-office savings deposits; Bank deposits
+- **p018-i11** · definition · definition · both · exam high
+  - M3 – Broad Money
+It is the most important money supply measure in India.
+When newspapers report money supply growth, they usually mean M3.
+    - what: What importance does the page assign to M3? → It names M3 Broad Money and presents it as India's most important money-supply measure.
+    - evidence: What practical reporting context does the page give for M3? → It says newspaper reports of money-supply growth usually refer to M3.
+      - why: Why can a wider deposit-based measure be useful in economic reporting? → It captures a wider range of monetary holdings than immediate transaction balances alone, helping discussions of liquidity and financing conditions go beyond cash in people's wallets. _(outside the book)_
+  - **khola (unpack):**
+    - Broad Money yaani तुरंत खर्च वाले पैसे के साथ कुछ और bank deposits को भी गिनने वाला माप · image: रोज़ के खर्च वाले खाते के साथ FD का balance भी देखना
+    - kyon: Economic reporting needs a picture wider than cash and immediately usable balances. _[standard]_ → The page identifies M3 as the most important measure and the usual newspaper reference. _[book]_
+    - example / jagah: A newspaper headline on money-supply growth.
+    - aage: The next formula shows which extra bank deposits make M3 broad.
+    - screen par: Link a money-supply headline to the M3 label.
+    - is level ke liye: Most important does not mean broadest; do not replace 'usually' with 'always'.
+  - prerequisites: Meaning of money supply; M1; Growth in an aggregate
+- **p018-i12** · equation · facts_numbers · both · exam high
+  - M3 = M1 + Time Deposits with Banks
+It includes:
+Everything in M1
+Fixed deposits
+Recurring deposits
+Other time deposits with commercial banks
+    - what: What is the composition of M3 on this page? → M3 includes the entire M1 aggregate plus bank time deposits. The listed time-deposit categories are fixed deposits, recurring deposits and other time deposits with commercial banks.
+    - evidence: What confirms that M3 does not replace the components of M1? → Both the equation's addition of M1 and the phrase 'Everything in M1' show that the existing M1 components are retained.
+      - how: How do time deposits differ from demand deposits? → Time deposits are arranged for an agreed period rather than being designed primarily as balances payable on demand. Early access can be subject to conditions or penalties, so their inclusion broadens money beyond the most immediate payment balances. _(outside the book)_
+      - what: How do fixed and recurring deposits illustrate time deposits? → A fixed deposit generally places a sum for an agreed term; a recurring deposit accumulates scheduled instalments under a term arrangement. Both differ from simply keeping an unrestricted transaction balance. _(outside the book)_
+      - difference: What is the crucial formula difference between M2 and M3? → M2 adds post-office savings deposits to M1; M3 adds time deposits with banks to M1. The printed M3 equation does not start from M2.
+      - what: What units and notation apply to M3? → M3 is an aggregate label. M1 and bank time deposits must be measured as stocks at the same date in a common monetary unit. The page gives no amounts or unit. _(outside the book)_
+  - **khola (unpack):**
+    - Time Deposits yaani तय समय की शर्त के साथ bank में जमा पैसा · image: एक तय तारीख तक रखी गई FD
+    - Fixed deposits yaani एक रकम को तय समय के लिए जमा रखना · image: एकमुश्त बचत की FD receipt
+    - Recurring deposits yaani तय अंतराल पर किस्तें जमा करके बचत बनाना · image: हर महीने RD में एक तय रकम डालना
+    - kyon: To measure broader monetary holdings, readily spendable balances alone are insufficient. _[standard]_ → M3 retains M1 and adds bank time deposits, including fixed and recurring deposits. _[book]_
+    - example / jagah: A household holding a savings-account balance alongside FD and RD balances.
+    - aage: M3 covers balances relevant to broader liquidity, setting up the RBI-monitoring discussion.
+    - screen par: Attach FD, RD and other time-deposit boxes to the full M1 box.
+    - is level ke liye: Draw M2 and M3 as different additions to M1; do not assume that numerical suffixes mean each formula adds to the previous aggregate.
+  - prerequisites: M1 components; Demand deposits; Agreed maturity of a deposit
+- **p018-i13** · paragraph · cause_effect · both · exam high
+  - The RBI watches M3 because it helps indicate:
+Inflationary pressures
+Liquidity in the economy
+Credit growth
+Effectiveness of monetary policy
+    - why: Why does the RBI monitor M3? → The page links M3 monitoring to four indications: inflationary pressures, liquidity in the economy, credit growth and effectiveness of monetary policy.
+    - how: How does the page characterise the information M3 provides? → It says M3 'helps indicate' these conditions; it presents M3 as informative rather than giving a numerical rule or claiming that it alone determines them.
+      - how: How can M3 relate to inflationary pressures? → If expanding money holdings support spending faster than production can respond, pressure on prices can increase. The relationship also depends on output, willingness to spend and other conditions, so M3 growth alone does not establish inflation. _(outside the book)_
+      - how: How can M3 indicate liquidity in the economy? → Its currency and deposit components help show the scale and evolution of monetary balances. Because time deposits are included, the whole total should not be interpreted as immediately spendable cash. _(outside the book)_
+      - how: How can M3 be linked to credit growth? → Bank lending commonly creates deposits, so changes in deposit-based money can accompany credit expansion. Deposits and credit are different measures, however, and need not grow one-for-one. _(outside the book)_
+      - how: How can M3 help assess monetary-policy effectiveness? → Policy changes can affect funding, lending and deposit growth. Observing M3 alongside other indicators helps assess whether financial conditions are responding in the intended direction; M3 alone cannot prove success. _(outside the book)_
+  - **khola (unpack):**
+    - Inflationary pressures yaani ऐसी हालत जो कीमतों को ऊपर धकेल सकती है · image: उतने ही सामान को खरीदने के लिए ज़्यादा खर्च करने की होड़
+    - Liquidity in the economy yaani economy में money balances कितने उपलब्ध हैं और उनका इस्तेमाल कितना आसान है · image: घरों और दुकानों के cash तथा account balances
+    - Credit growth yaani दिए गए loans के कुल बकाया में बढ़ोतरी · image: bank की loan book में बढ़ता कुल balance
+    - Effectiveness of monetary policy yaani RBI के कदमों से चाहा हुआ असर पड़ रहा है या नहीं · image: नल घुमाने के बाद देखना कि पानी का बहाव बदला या नहीं
+    - kyon: The RBI needs evidence about monetary and financing conditions when evaluating policy. _[standard]_ → The page identifies M3 as helping indicate inflationary pressure, liquidity, credit growth and policy effectiveness. _[book]_
+    - example / jagah: Reading an RBI policy discussion alongside news about deposit and lending growth.
+    - aage: Connects monetary-aggregate definitions to governance and economic interpretation.
+    - screen par: Feed M3 into four labelled indicator panels, not four guaranteed outcomes.
+    - is level ke liye: Use 'indicator', not 'sole cause' or 'conclusive proof'; preserve the distinction between money stock and credit stock.
+  - prerequisites: M3 components; Price rise and inflation; Bank credit; RBI monetary policy
+- **p018-i14** · definition · definition · both · exam high
+  - M4:
+It is the broadest measure of money supply in India.
+    - what: What does this page establish about M4? → It identifies M4 as the broadest money-supply measure in India, without giving its component formula here.
+    - evidence: What distinguishes M4's description from M3's? → M4 is called 'broadest', whereas M3 is called the 'most important' measure and the usual reference in newspaper reporting.
+      - why: Why can the broadest measure differ from the most important reporting measure? → Breadth concerns the range of included components; reporting importance concerns analytical and practical use. A measure need not have the widest coverage to be the principal reference. _(outside the book)_
+  - **khola (unpack):**
+    - broadest measure yaani इन measures में सबसे ज़्यादा तरह के money balances को गिनने वाला माप · image: गिनती में सबसे ज़्यादा खांचे शामिल करने वाली सूची
+    - kyon: A learner needs to distinguish maximum coverage from the measure most commonly discussed. _[standard]_ → The page gives maximum coverage to M4 but reporting importance to M3. _[book]_
+    - example / jagah: A statement-combination question contrasting 'most important' with 'broadest'.
+    - aage: The M4 introduction remains open for continuation on the next page.
+    - screen par: Place 'broadest' beside M4 and 'most important' beside M3.
+    - is level ke liye: No M4 component formula is printed on this page.
+  - prerequisites: Meaning of monetary-aggregate coverage; M3 as Broad Money
+
+## Page 19 · passed after 1 round(s)
+
+M4 includes M3 plus Post Office Savings Bank deposits, excluding National Savings Certificates. Practice questions test public blockchain characteristics, RTGS/NEFT differences, BHIM transfers and authentication, and NPCI's role in financial inclusion.
+
+- **p019-i1** · list_point · definition · both · exam high
+  - It includes almost all liquid money available in the economy, including Post Office deposits that are not included in M3.
+    - what: What is the scope of the measure described here? → It extends coverage to Post Office deposits outside M3 and is described as including almost all liquid money in the economy.
+    - evidence: What on the page identifies the measure as M4? → The immediately following equation adds Post Office Savings Bank deposits to M3 to obtain M4.
+      - why: Why look beyond M3 when measuring money? → People hold money-like balances outside commercial banks too. Including eligible Post Office balances gives a wider picture of monetary holdings. _(outside the book)_
+  - **khola (unpack):**
+    - liquid money yaani ऐसा पैसा जिसे खर्च के लिए आसानी से इस्तेमाल किया जा सके · image: खरीदारी के लिए आसानी से निकाला जा सकने वाला जमा पैसा
+    - kyon: Money holdings need to be measured across different places where people keep balances. _[standard]_ → The page therefore includes Post Office deposits beyond M3 in this wider measure. _[book]_
+    - example / jagah: A household's eligible Post Office deposit.
+    - aage: A wider measure includes more kinds of balances, not every investment.
+    - screen par: Expand the M3 boundary to include Post Office deposits.
+    - is level ke liye: Keep liquidity distinct from total wealth.
+  - prerequisites: Money supply as a stock; M3; Deposits
+- **p019-i2** · equation · facts_numbers · both · exam high
+  - M4 = M3 + All Deposits with Post Office Savings Banks (excluding National Savings Certificates)
+    - what: What do the symbols and terms in this equation mean? → M4 and M3 name monetary aggregates; = means equality and + means addition. The added component is all deposits with Post Office Savings Banks except National Savings Certificates.
+    - evidence: Which explicit exclusion must accompany this formula? → The parenthetical exclusion names National Savings Certificates, so 'all deposits' must not be read without that qualification.
+      - how: How should the aggregate amounts be interpreted? → M3 includes currency with the public, demand deposits and time deposits with banks, and other deposits with the RBI. Monetary aggregates are measured as currency amounts, such as rupees or crore rupees, at a point in time; the 3 and 4 are labels, not powers or units. _(outside the book)_
+  - **khola (unpack):**
+    - M4 yaani Money supply का वह बड़ा माप जिसमें M3 के साथ बताए गए Post Office deposits भी जुड़ते हैं · image: एक बड़े डिब्बे में M3 वाला डिब्बा और एक अतिरिक्त जमा वाला डिब्बा
+    - kyon: A broader total needs holdings not already covered by M3. _[standard]_ → Add Post Office Savings Bank deposits while excluding NSCs as specified. _[book]_
+    - example / jagah: Place M3 and eligible Post Office balances in two separate accounting boxes.
+    - aage: Do not add excluded certificates or double-count balances.
+    - screen par: Join two amount boxes and keep NSC outside.
+    - is level ke liye: No numerical values or units are printed in this formula.
+  - prerequisites: Currency with the public; Demand and time deposits; Addition of amounts
+- **p019-i3** · list_point · cause_effect · both · exam high
+  - The National Savings Certificate (NSC) is not counted in M4 because:
+It is a long-term savings instrument, not readily spendable money.
+    - why: Why does the page exclude NSC from M4? → It distinguishes long-term saving from money readily available for spending; NSC belongs to the former category.
+      - how: How can something be a valuable saving without being readily spendable money? → An asset can preserve wealth but require redemption under scheme conditions before its proceeds can be used for ordinary purchases. That differs from holding an accessible spending balance. _(outside the book)_
+  - **khola (unpack):**
+    - long-term savings instrument yaani भविष्य के लिए पैसा रखने का साधन, रोज़ के खर्च वाला पैसा नहीं · image: भविष्य की पढ़ाई के लिए अलग रखी रकम, जेब के पैसे से अलग
+    - kyon: A money measure must distinguish spending balances from longer-term savings. _[standard]_ → NSC is not readily spendable, so the page excludes it from M4. _[book]_
+    - example / jagah: An NSC holding contrasted with an accessible deposit balance.
+    - aage: Apply the named exclusion even though the product is associated with Post Office saving.
+    - screen par: Separate a savings certificate from a spending-money basket.
+    - is level ke liye: Explain the exclusion through liquidity, not through lack of value.
+  - prerequisites: Liquidity; Saving versus spending; M4 formula
+- **p019-i4** · heading · none · both
+  - Practice Questions
+- **p019-i5** · question · none · both · exam high
+  - Find correct statement(s) about “Blockchain Technology” [UPSC-Prelims-2020]
+Answer Codes:
+    - which: Which answer combination is correct? → Option d, 1 and 3 only. Statement 2 wrongly limits blockchain data to cryptocurrency. _(outside the book)_
+      - why: Why must the statements be evaluated separately? → Public access, control and permissionless application development are different issues from the kinds of data a blockchain can record. _(outside the book)_
+  - prerequisites: Shared digital records; Cryptocurrency
+- **p019-i6** · list_point · definition · both · exam high
+  - 1. It is a public ledger that everyone can inspect, but which no single user controls.
+    - what: What does a public ledger mean here? → In the permissionless public-blockchain context, it is a shared record open to inspection rather than a private register controlled by one user. _(outside the book)_
+    - evidence: Which words express openness and decentralised control? → 'Everyone can inspect' expresses openness; 'no single user controls' expresses the absence of sole-user control in the proposed statement.
+      - how: How can a record operate without one user controlling it? → Participants maintain copies and follow agreed validation rules to accept updates. This is not permission for any user to alter records at will. _(outside the book)_
+  - **khola (unpack):**
+    - public ledger yaani ऐसा साझा हिसाब जिसे लोग देख सकें · image: सबको दिखने वाली हिसाब की कॉपी, जिसकी नकल कई लोगों के पास हो
+    - kyon: People sharing records need a way to agree without one keeper controlling the register. _[standard]_ → Distributed copies and validation rules support a shared public record. _[standard]_
+    - example / jagah: A public cryptocurrency blockchain.
+    - aage: Inspection does not imply unrestricted editing.
+    - screen par: Replicate a ledger across participants.
+    - is level ke liye: Distinguish public permissionless networks from permissioned networks.
+  - prerequisites: Digital ledger; Network participants
+- **p019-i7** · list_point · facts_numbers · both · exam high
+  - 2. Structure and design of blockchain is such that all the data in it are about cryptocurrency only.
+    - what: What restriction does this statement assert? → It asserts that blockchain design confines every recorded datum to cryptocurrency.
+    - evidence: What demonstrates why this statement is incorrect? → Blockchain can support non-currency records, such as supply-chain provenance. Cryptocurrency is an application, not the full scope of the technology. _(outside the book)_
+      - why: Why does the word 'only' make this a trap? → A method of maintaining shared records need not be restricted to the subject matter of one prominent use of those records. _(outside the book)_
+  - **khola (unpack):**
+    - cryptocurrency yaani Digital currency की एक किस्म; blockchain का एक इस्तेमाल · image: जैसे मोबाइल पर एक app होने से मोबाइल के बाकी काम खत्म नहीं होते
+    - kyon: Organisations may need shared histories of goods or documents as well as payments. _[standard]_ → Blockchain can record such histories, so cryptocurrency-only is too narrow. _[standard]_
+    - example / jagah: Tracking the recorded origin and movement of a product.
+    - aage: Reject statement 2 without rejecting blockchain's use in cryptocurrency.
+    - screen par: Branch one technology into currency and non-currency uses.
+    - is level ke liye: Use a counterexample to eliminate an absolute claim.
+  - prerequisites: Technology versus application; Shared ledger
+- **p019-i8** · list_point · facts_numbers · both · exam high
+  - 3. Applications that use basic features of blockchain can be developed without anybody’s permission.
+    - what: What freedom is being tested? → The statement tests whether developers can build applications using blockchain's basic features without seeking approval from a central owner. _(outside the book)_
+    - evidence: What supports accepting this statement in the PYQ? → Open, permissionless blockchain platforms allow developers to build using their publicly available protocols and tools. _(outside the book)_
+      - why: Why is this not a claim that laws or network rules disappear? → Freedom to develop an application is different from exemptions from law or from technical conditions for participating in a network. _(outside the book)_
+  - **khola (unpack):**
+    - permission yaani किसी मालिक से पहले मंज़ूरी लेना · image: खुला रास्ता इस्तेमाल करने से पहले निजी गेट की चाबी न माँगनी पड़े
+    - kyon: Developers need access to a platform's basic tools to create applications. _[standard]_ → Permissionless platforms provide that access without a central owner's individual approval. _[standard]_
+    - example / jagah: An application built on a public blockchain platform.
+    - aage: Accept statement 3 alongside statement 1.
+    - screen par: Connect several developers to an open platform.
+    - is level ke liye: Permissionless is not synonymous with lawless.
+  - prerequisites: Software application; Permissionless networks
+- **p019-i9** · answer_option · none · both
+  - a) 1 only
+- **p019-i10** · answer_option · none · both
+  - b) 1 and 2 only
+- **p019-i11** · answer_option · none · both
+  - c) 2 only
+- **p019-i12** · answer_option · none · both
+  - d) 1 and 3 only
+- **p019-i13** · question · none · both · exam high
+  - Find correct statements about RTGS and NEFT: (Pre'25)
+Codes:
+    - which: Which answer is correct? → Option (a), I only. RTGS settles individually in real time, whereas NEFT uses batches; inward transactions are free in both, and both systems operate round the clock. _(outside the book)_
+      - how: How should the comparison be organised? → Test settlement method, inward charges and operating availability separately. Availability of a system is not the same as settlement of an individual transaction. _(outside the book)_
+  - prerequisites: Interbank transfers; Settlement
+- **p019-i14** · list_point · comparison · both · exam high
+  - 1. In RTGS, the settlement time is instantaneous while in case of NEFT, it takes some time.
+    - compare: How do RTGS and NEFT settle transfers? → RTGS, Real Time Gross Settlement, settles transactions individually in real time. NEFT, National Electronic Funds Transfer, settles in half-hourly batches. _(outside the book)_
+    - difference: What distinction makes statement 1 correct? → RTGS does not wait for a batch cycle; a NEFT transfer is processed through a batch, which can introduce a wait. _(outside the book)_
+      - how: How should 'instantaneous' be understood? → It describes real-time settlement rather than waiting for periodic batches, not a guarantee that every customer-facing step has literally zero delay. _(outside the book)_
+  - **khola (unpack):**
+    - settlement yaani Transfer का बैंकों के बीच हिसाब पूरा होना · image: दो दुकानदारों के बीच बकाया हिसाब चुक जाना
+    - RTGS yaani हर transfer का अलग-अलग, real time में हिसाब पूरा करने वाला system · image: एक-एक ग्राहक का काम आते ही निपटाना
+    - NEFT yaani Transfers को batches में निपटाने वाला system · image: इकट्ठी हुई चिट्ठियाँ तय दौर में भेजना
+    - kyon: Banks need a method to settle transfers sent by customers. _[standard]_ → Individual real-time processing and periodic batch processing create different settlement timings. _[standard]_
+    - example / jagah: A bank customer choosing between two electronic transfer modes.
+    - aage: Statement 1 is retained in the answer combination.
+    - screen par: Send one transfer immediately and group others into batches.
+    - is level ke liye: NEFT batches run even though the system is available round the clock.
+  - prerequisites: Settlement between banks; Individual versus batch processing
+- **p019-i15** · list_point · comparison · both · exam high
+  - 2. In RTGS, the customer is charged for inward transactions while that is not the case for NEFT.
+    - compare: How do inward charges compare? → Inward RTGS and inward NEFT transactions are free for the receiving customer; the asserted difference is false. _(outside the book)_
+    - difference: What is the difference between inward and outward transactions? → Inward means money received into the beneficiary's account; outward means money sent from the remitter's side. A charging rule for one direction must not be transferred to the other. _(outside the book)_
+      - why: Why is the word 'inward' decisive? → The statement is about the recipient, not possible charges faced by a sender. Real-time settlement does not itself establish a recipient fee. _(outside the book)_
+  - **khola (unpack):**
+    - inward transactions yaani जिस account में पैसा आ रहा है, उसकी तरफ़ से देखा गया transfer · image: आपके account में किसी का भेजा पैसा पहुँचना
+    - kyon: A fee claim must first identify whether the customer is sending or receiving. _[standard]_ → Recipients are not charged for inward transfers under either of these systems. _[standard]_
+    - example / jagah: Receiving an electronic payment in a bank account.
+    - aage: Eliminate statement 2 and combinations containing II.
+    - screen par: Point the transfer arrow into the beneficiary account and cross out the fee.
+    - is level ke liye: Do not infer outward-charge rules from an inward-charge question.
+  - prerequisites: Sender and beneficiary; Bank service charges
+- **p019-i16** · list_point · comparison · both · exam high
+  - 3. Operating hours for RTGS are restricted on certain days while this is not true for NEFT.
+    - compare: How does system availability compare? → Both RTGS and NEFT operate 24 hours a day on all days under the regime relevant to this question. _(outside the book)_
+    - difference: Does a bank holiday create the stated RTGS/NEFT difference? → No. The electronic systems' round-the-clock availability is distinct from the opening hours of a bank branch. _(outside the book)_
+      - why: Why can this statement mislead students? → They may recall older operating restrictions or assume that branch working days determine electronic-system availability. _(outside the book)_
+  - **khola (unpack):**
+    - Operating hours yaani System किस समय काम के लिए चालू रहता है · image: शाखा का शटर बंद हो, फिर भी electronic transfer का रास्ता खुला हो
+    - kyon: Customers need transfers beyond branch working hours. _[standard]_ → Both electronic systems provide round-the-clock availability, so the stated contrast fails. _[standard]_
+    - example / jagah: An electronic transfer on a holiday.
+    - aage: Eliminate statement 3; statement 1 remains.
+    - screen par: Keep both system clocks running through a holiday.
+    - is level ke liye: Separate availability, processing method and branch service access.
+  - prerequisites: Bank branch hours; Electronic payment infrastructure
+- **p019-i17** · answer_option · none · both
+  - (a) I only
+- **p019-i18** · answer_option · none · both
+  - (b) I and II
+- **p019-i19** · answer_option · none · both
+  - (c) I and III
+- **p019-i20** · answer_option · none · both
+  - (d) III only
+- **p019-i21** · question · none · both · exam high
+  - Find Correct Statement(s) [ Prelims-2018]
+Answer codes:
+    - which: Which answer is correct? → Option (a), 1 only. BHIM supports transfers to UPI-enabled accounts; the claim that chip-PIN debit cards have four authentication factors is incorrect. _(outside the book)_
+      - why: Why should transfer capability and authentication be assessed separately? → An app's reach tells us whom it can pay; authentication tells us how it checks authority to pay. One does not establish the other. _(outside the book)_
+  - prerequisites: UPI; Debit cards; Authentication
+- **p019-i22** · list_point · facts_numbers · both · exam high
+  - 1. BHIM app allows the user to transfer money to anyone with a UPI-enabled bank account.
+    - what: What are BHIM and UPI in this statement? → BHIM stands for Bharat Interface for Money and is a payment app using UPI, the Unified Payments Interface. UPI enables transfers between participating bank accounts. _(outside the book)_
+    - evidence: Why is the statement accepted? → BHIM uses UPI's interoperable transfer infrastructure; the recipient need not use the same app merely because the sender uses BHIM. _(outside the book)_
+      - how: How does interoperability help the user? → It connects participating accounts across banks and compatible apps, so the payment route is not confined to one app's users. _(outside the book)_
+  - **khola (unpack):**
+    - UPI-enabled bank account yaani ऐसा bank account जो UPI के ज़रिए पैसे लेने-भेजने से जुड़ा हो · image: अलग-अलग कंपनियों के फोन एक-दूसरे को call कर पाते हैं
+    - kyon: People need to pay others even when they use different banks or apps. _[standard]_ → UPI interoperability lets BHIM access that shared transfer network. _[standard]_
+    - example / jagah: A BHIM user paying a person who uses another UPI app.
+    - aage: Do not confuse BHIM, an app, with UPI, the underlying payment interface.
+    - screen par: Connect different apps through one UPI network.
+    - is level ke liye: Preserve the qualifying words 'UPI-enabled'.
+  - prerequisites: Bank account; Payment application; Interoperability
+- **p019-i23** · list_point · comparison · both · exam high
+  - 2. While a chip-pin debit card has four factors of authentication, BHIM app has only two factors of authentication.
+    - compare: How should chip-PIN and BHIM authentication be compared? → A chip-PIN card typically combines possession of the card and knowledge of its PIN. BHIM/UPI combines a registered device/SIM-linked possession check with the UPI PIN. The claimed four-versus-two contrast is false. _(outside the book)_
+    - difference: What is the difference between an authentication factor and a piece of card information? → A factor is an independent category of proof, such as something possessed or something known. Counting a card number, expiry date and other printed details separately does not make them independent factors. _(outside the book)_
+      - why: Why use different factors? → If one type of proof is compromised, a separate type can still help prevent an unauthorised payment; merely adding more details from the same source is not equivalent. _(outside the book)_
+  - **khola (unpack):**
+    - factors of authentication yaani यह जाँचने के अलग तरह के सबूत कि payment करने वाला सही व्यक्ति है · image: चाबी पास होना और गुप्त code जानना, दो अलग जाँच
+    - kyon: A payment system needs to stop someone else from using a customer's account. _[standard]_ → Combining possession and knowledge checks offers different kinds of proof; card details are not four independent factors. _[standard]_
+    - example / jagah: Holding a chip card and entering its PIN at a payment terminal.
+    - aage: Statement 2 is rejected, leaving statement 1 only.
+    - screen par: Pair a possession icon with a secret-PIN icon.
+    - is level ke liye: Count independent categories of proof, not screens, fields or digits.
+  - prerequisites: PIN; Possession versus knowledge; Payment authorisation
+- **p019-i24** · answer_option · none · both
+  - (a) 1 only
+- **p019-i25** · answer_option · none · both
+  - (b) 2 only
+- **p019-i26** · answer_option · none · both
+  - (c) Both 1 and 2
+- **p019-i27** · answer_option · none · both
+  - (d) Neither 1 nor 2
+- **p019-i28** · question · none · both · exam high
+  - Find the correct statement(s) [Prelims-2017]
+    - what: What can be evaluated from the visible portion? → Only statement 1 about NPCI and financial inclusion is printed here; it is a correct statement. _(outside the book)_
+      - why: Why can a complete option not be selected from this page? → The page ends after statement 1, before the rest of the question and its answer codes.
+  - prerequisites: Financial inclusion; Payment infrastructure
+- **p019-i29** · list_point · cause_effect · both · exam high
+  - 1. NPCI helps in promoting the financial inclusion in the country.
+    - why: Why does NPCI help financial inclusion? → NPCI, the National Payments Corporation of India, provides shared retail payment infrastructure. Easier, interoperable payment access helps more people use formal financial services. _(outside the book)_
+      - how: How does payment infrastructure turn access into use? → Being able to receive and send money conveniently makes a bank account more useful in daily life. Systems such as UPI connect participating institutions rather than isolating customers within one bank. _(outside the book)_
+      - consequence: Does this make NPCI a bank or the banking regulator? → No. Supporting payment infrastructure is distinct from holding customer deposits as a bank or regulating banks; its inclusion role should not be confused with those functions. _(outside the book)_
+  - **khola (unpack):**
+    - NPCI yaani भारत में कई retail payment systems को जोड़ने और चलाने वाली संस्था · image: अलग-अलग बैंकों के बीच पैसे आने-जाने के साझा रास्ते
+    - financial inclusion yaani ज़्यादा लोगों तक काम की और पहुँच में आने वाली formal financial services पहुँचना · image: दूर गाँव का व्यक्ति account में पैसा पाकर उसका इस्तेमाल कर सके
+    - kyon: An account alone is less useful if receiving and sending money is difficult. _[standard]_ → Shared payment systems reduce such access barriers and support participation in formal finance. _[standard]_
+    - example / jagah: Using UPI to receive or send money through a bank account.
+    - aage: Link NPCI's payment role with inclusion without treating it as the regulator or claiming payments solve every inclusion barrier.
+    - screen par: Connect underserved users to banks through shared payment routes.
+    - is level ke liye: Financial inclusion includes usable services, not merely opening accounts.
+  - prerequisites: Formal bank accounts; Retail payments; Access versus use of services
+
+## Page 20 · passed after 1 round(s)
+
+NPCI launched RuPay, a card payment scheme. The page also asks the meaning of MDR: option C describes the charge paid by a merchant for accepting card payments, unlike the incentives or cashback described by the distractors.
+
+- **p020-i1** · question · none · image · exam high
+  - Continued from the previous page: statement-combination question about NPCI. The supplied preceding-page context states: “1. NPCI helps in promoting the financial inclusion in the country.”
+    - what: What is the visible continuation asking the learner to judge? → The numbered statement about NPCI and RuPay must be judged alongside statement 1, and a combination selected using the answer codes.
+      - why: Why is 'Both 1 and 2' the appropriate combination, assuming the missing stem asks which statements are correct? → NPCI supports financial inclusion through payment infrastructure, and it launched RuPay. Both supplied statements are correct. _(outside the book)_
+  - prerequisites: How statement-combination answer codes work; Financial inclusion as access to usable financial services
+- **p020-i2** · list_point · facts_numbers · both · exam high
+  - 2. NPCI has launched RuPay, a card payment scheme.
+    - what: What relationship between NPCI and RuPay is stated? → NPCI is the organisation that launched the card payment scheme named RuPay.
+    - evidence: Which words establish that RuPay is not being identified as a bank? → The statement calls RuPay 'a card payment scheme' and identifies NPCI as its launcher.
+      - how: How should a learner distinguish NPCI, RuPay and the bank issuing a card? → NPCI means National Payments Corporation of India. RuPay is its card payment network; banks issue cards that use that network to route payments. The network and the issuing bank have different roles. _(outside the book)_
+  - **khola (unpack):**
+    - NPCI yaani भारत में कई payment systems चलाने वाली संस्था; पूरा नाम National Payments Corporation of India है · image: अलग-अलग बैंकों के बीच payment के रास्ते जोड़ने वाला साझा इंतज़ाम
+    - RuPay yaani NPCI का card payment network, जिसके ज़रिए card से भुगतान पहुँचता है · image: बैंक के debit card पर छपा RuPay का निशान
+    - kyon: A shopper and a shop may use different banks, so card payments need a shared arrangement for routing payment information. _[standard]_ → RuPay supplies a card payment network, while the bank supplies the customer's card and account relationship. _[standard]_
+    - example / jagah: A bank-issued RuPay debit card used at a shop.
+    - aage: Recognising the network separately from the bank prevents an institution–product mismatch in statement questions.
+    - screen par: Connect a bank-issued card through the RuPay network to a merchant.
+    - is level ke liye: Know the NPCI expansion and distinguish network operator from card issuer; no launch date is supplied.
+  - prerequisites: A bank account; Paying a shop using a payment card
+- **p020-i3** · heading · none · both
+  - Answer codes:
+- **p020-i4** · answer_option · none · both · exam high
+  - (a) 1 only
+    - what: What does this code select? → It accepts statement 1 and rejects statement 2.
+      - why: Why would this code be inappropriate for a correct-statements question? → Statement 2 is also correct: NPCI launched RuPay. _(outside the book)_
+  - **khola (unpack):**
+    - aage: Rejecting statement 2 would lose a correct fact.
+    - screen par: Tick statement 1 and cross statement 2.
+    - is level ke liye: Evaluate each statement independently.
+  - prerequisites: Numbered statement-combination questions
+- **p020-i5** · answer_option · none · both · exam high
+  - (b) 2 only
+    - what: What does this code select? → It accepts the RuPay statement but rejects the financial-inclusion statement supplied in the context.
+      - why: Why is rejecting the inclusion statement inappropriate? → Payment infrastructure can make formal financial services more accessible and usable; NPCI therefore helps promote financial inclusion. _(outside the book)_
+  - **khola (unpack):**
+    - example / jagah: Using formal payment services rather than relying entirely on cash.
+    - aage: The inclusion role and the RuPay launch can both be true.
+    - screen par: Tick statement 2 and cross statement 1.
+    - is level ke liye: Distinguish helping inclusion from being its sole cause.
+  - prerequisites: Financial inclusion; Numbered statement-combination questions
+- **p020-i6** · answer_option · none · both · exam high
+  - (c) Both 1 and 2
+    - what: What does this combination accept? → It accepts both NPCI's contribution to financial inclusion and its launch of RuPay.
+      - why: Why is this the appropriate selection if the stem asks for correct statements? → Both statements accurately describe NPCI, one by its broader contribution and the other by a specific payment scheme. _(outside the book)_
+  - **khola (unpack):**
+    - aage: Two independently correct statements lead to the combined code.
+    - screen par: Tick both numbered statements.
+    - is level ke liye: Check the missing stem before treating this as an unconditional keyed answer.
+  - prerequisites: NPCI–RuPay relationship; Financial inclusion
+- **p020-i7** · answer_option · none · both · exam high
+  - (d) Neither 1 nor 2
+    - what: What judgment does this code express? → It rejects both numbered statements.
+      - why: Why is this inappropriate for a correct-statements stem? → Neither supplied statement is false: NPCI supports inclusion and launched RuPay. _(outside the book)_
+  - **khola (unpack):**
+    - aage: Knowing the RuPay fact alone eliminates this code for a correct-statements question.
+    - screen par: Cross both statements, then reject that combination.
+    - is level ke liye: Use secure facts for elimination without guessing unknown statements.
+  - prerequisites: Meaning of neither in statement-combination questions
+- **p020-i8** · question · definition · both · exam high
+  - What is “Merchant Discount Rate” ? (IAS-Prelims 2018)
+    - what: What does MDR mean? → MDR is the fee charged to a merchant for processing accepted card payments, generally expressed as a percentage of the transaction amount. Option C is the correct alternative. _(outside the book)_
+    - evidence: What does the printed question establish about its exam relevance? → The page attributes the definition question to IAS-Prelims 2018 and offers four alternatives contrasting charges with incentives and customer repayments.
+      - how: How does MDR affect what the merchant receives? → When the fee is deducted in settlement, the merchant receives the payment amount less that fee. It is a payment-acceptance cost, not a reward paid to the merchant. _(outside the book)_
+      - why: Why is the word 'discount' a trap? → Here it concerns a fee reducing the merchant's settlement, not a shopping discount offered to a customer. _(outside the book)_
+  - prerequisites: Merchant as the seller; Card payment; Percentage of a transaction
+- **p020-i9** · answer_option · definition · both · exam high
+  - A. The incentive given by a bank to a merchant for accepting payments through debit cards pertaining to that bank.
+    - what: What arrangement does option A describe? → It proposes that a bank rewards a merchant for accepting its debit cards.
+    - evidence: Which words identify the direction of this proposed payment? → 'Incentive given by a bank to a merchant' makes the bank the payer and the merchant the recipient.
+      - why: Why is this not MDR? → MDR is a charge borne by the merchant for payment acceptance, rather than an incentive received from the bank. This option reverses the direction. _(outside the book)_
+  - **khola (unpack):**
+    - merchant yaani सामान या सेवा बेचने वाला दुकानदार या कारोबार · image: किराने की दुकान वाला जो card से पैसे लेता है
+    - incentive yaani कोई काम करने के लिए मिलने वाला फ़ायदा या इनाम · image: ज़्यादा बिक्री करने पर मिलने वाला bonus
+    - kyon: A reward encourages someone to offer a service or change behaviour. _[standard]_ → MDR instead charges for payment acceptance; confusing a reward with a cost reverses the money flow. _[standard]_
+    - example / jagah: A hypothetical bank reward to a shop, contrasted with the shop's card-processing fee.
+    - aage: Option A is eliminated by checking who pays whom.
+    - screen par: Reverse the bank-to-merchant incentive arrow to contrast it with a merchant-paid fee.
+    - is level ke liye: The option is a distractor, not evidence that such an incentive necessarily exists.
+  - prerequisites: Debit card payments; Difference between a fee and a reward
+- **p020-i10** · answer_option · definition · both · exam high
+  - B. The amount paid back by banks to their customers when they use debit cards for financial transactions for purchasing goods or services.
+    - what: What does option B describe? → It describes money returned by a bank to a customer after debit-card purchases of goods or services.
+    - evidence: Which phrase makes the beneficiary different from the merchant? → 'Paid back by banks to their customers' identifies the bank's customers as recipients.
+      - why: Why is this not MDR? → A customer cashback or rebate is a benefit to the buyer. MDR is the seller's payment-acceptance charge; buyer rewards and merchant charges are distinct. _(outside the book)_
+  - **khola (unpack):**
+    - amount paid back yaani खरीदारी के बाद ग्राहक को वापस मिलने वाला पैसा · image: खरीदारी के बाद account में cashback आना
+    - kyon: A bank may offer a buyer a reward to encourage card use. _[standard]_ → That buyer-side reward does not define the merchant-side fee for accepting the payment. _[standard]_
+    - example / jagah: A cashback offer appearing on a customer's account after shopping.
+    - aage: Track the recipient: a customer benefit does not answer a merchant-charge question.
+    - screen par: Send cashback toward the customer, separately from the merchant-fee arrow.
+    - is level ke liye: Do not treat a promotional cashback arrangement as an automatic feature of debit-card payments.
+  - prerequisites: Customer and merchant roles; Debit-card purchases
+- **p020-i11** · answer_option · definition · both · exam high
+  - C. The charge to a merchant by a bank for accepting payments from his customers through the bank’s cards.
+    - what: What relationship does option C describe? → It describes a bank charging the merchant for accepting customers' card payments.
+    - evidence: Which words distinguish this option from A, B and D? → It says 'charge to a merchant', whereas A and D describe incentives and B describes money paid back to customers.
+      - why: Why is C the correct MDR definition? → It identifies the relevant payer and service: the merchant bears a fee for card-payment acceptance. _(outside the book)_
+      - how: How can a beginner understand the charge without memorising a technical definition? → The customer pays the purchase price, while the merchant pays for the service that enables card acceptance. Where deducted during settlement, the fee reduces the amount credited to the merchant. _(outside the book)_
+        - exception: Should this wording be read as saying every card payment has an identical fee? → No. The question tests the meaning of MDR, not a universal rate or current charging rule. Rates and policy treatment can differ across payment arrangements. _(outside the book)_
+  - **khola (unpack):**
+    - Merchant Discount Rate yaani card से payment लेने की सुविधा के लिए दुकानदार से ली जाने वाली fee की दर · image: ग्राहक की पूरी payment में से fee कटकर बाकी रकम दुकान के account में पहुँचना
+    - charge yaani किसी सेवा के बदले लिया जाने वाला पैसा · image: सेवा के bill में अलग से जुड़ी fee
+    - kyon: A shop needs a service that lets it accept and receive customers' card payments. _[standard]_ → A fee for that acceptance service is borne by the merchant; this is the relationship tested by MDR. _[standard]_
+    - example / jagah: A grocery shop receiving settlement for card purchases after an applicable processing fee is deducted.
+    - aage: The merchant's net receipt can be below the transaction value; MDR is a cost, not an incentive.
+    - screen par: Split the customer payment into the merchant's net receipt and the applicable fee.
+    - is level ke liye: Use payer–service–direction to solve the PYQ. Do not infer that acceptance is limited to cards issued by the merchant's own bank.
+  - prerequisites: Merchant and customer roles; Bank processing a card payment; Fee deducted from a receipt
+- **p020-i12** · answer_option · definition · both · exam high
+  - D. The incentive given by the Government, to merchants for promoting digital payments by their customers through Point of Sale (PoS) machines and debit cards.
+    - what: What does option D propose? → It proposes a government incentive to merchants to promote customers' digital payments through PoS machines and debit cards.
+    - evidence: Which words distinguish it from a bank's merchant charge? → 'Incentive given by the Government' identifies a public incentive, not a charge imposed on the merchant by a bank.
+      - why: Why is this not MDR? → A government incentive supports or encourages behaviour; MDR is a merchant's payment-acceptance fee. The policy's objective of promoting digital payments does not make an incentive the same as a fee. _(outside the book)_
+      - how: How does a PoS machine fit into the example? → It is a payment terminal used at the sale counter to accept payments, such as a debit-card transaction. The machine is a channel of acceptance, not the meaning of MDR. _(outside the book)_
+  - **khola (unpack):**
+    - Point of Sale (PoS) machines yaani दुकान के counter पर payment लेने वाली मशीनें · image: दुकानदार की छोटी मशीन पर card tap करना और receipt निकलना
+    - digital payments yaani नकद देने के बजाय electronic तरीके से पैसे चुकाना · image: दुकान पर नोट देने की जगह debit card से payment करना
+    - kyon: Encouraging digital-payment adoption can be a public-policy objective. _[standard]_ → An incentive pursuing that objective is different from the merchant fee charged for processing payments. _[standard]_
+    - example / jagah: A debit-card payment at a shop's PoS terminal.
+    - aage: Separate the government's promotion role from the bank's payment-acceptance charge.
+    - screen par: Place a government-incentive arrow beside, but separate from, the merchant-fee arrow.
+    - is level ke liye: This option does not establish any particular government incentive scheme, amount or date.
+  - prerequisites: Government incentives; Card payment at a shop counter

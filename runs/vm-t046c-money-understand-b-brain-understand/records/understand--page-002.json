@@ -1,0 +1,4555 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "understand",
+ "unit": "page-002",
+ "status": "passed",
+ "instructions_version": "understand-page/3",
+ "rulebook_version": "canvas_profile@2026-10-27.1+content_types@2026-10-24.1+explanations@2026-10-24.1+level_profiles@2026-10-24.1+simple_hindi@2026-10-25.1+teacher_examples@2026-10-24.1+vision-2026-10-21@2026-10-21.13+visual_grammar@2026-10-26.2+visual_levels@2026-10-26.2",
+ "rulebook_digest": "cd838e4eeef805e118b4d1692c20a604165352bed8c6e7c7c0fce0c2dc932316",
+ "rules_used": [
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-05",
+  "G-06",
+  "G-07",
+  "S1-01",
+  "S1-02",
+  "S1-03",
+  "S1-04",
+  "S1-05",
+  "S1-06",
+  "S1-07",
+  "S1-08",
+  "S1-09",
+  "S1-10",
+  "S1-11",
+  "S1-13",
+  "S1-14",
+  "S1-15"
+ ],
+ "maker_route": "codex",
+ "reviewer_route": "codex-checker",
+ "maker_model": "gpt-6.1-sol",
+ "reviewer_model": "gpt-6.1-sol",
+ "reviewer_independence": "same_model_temporary",
+ "inputs_digest": "91d9a85f0c65158a3e42ea31b1d7fdf7a807e6133424c2bf39999992bde6d30d",
+ "card": {
+  "card": "bie.task-card/1",
+  "card_id": "understand.read_page@3-money/page-002",
+  "section": "understand",
+  "task": "read_page",
+  "prefix": {
+   "prefix_id": "understand.read_page/3",
+   "rulebook_version": "canvas_profile@2026-10-27.1+content_types@2026-10-24.1+explanations@2026-10-24.1+level_profiles@2026-10-24.1+simple_hindi@2026-10-25.1+teacher_examples@2026-10-24.1+vision-2026-10-21@2026-10-21.13+visual_grammar@2026-10-26.2+visual_levels@2026-10-26.2",
+   "content_types_version": "2026-10-24.1",
+   "schema_id": "bie.brain.understand-page/3",
+   "sha256": "347716fd7ccacdd6544ee537f6192913f28dab7e1ca85b0d0ae3f83219305564"
+  },
+  "unit": {
+   "unit_id": "page-002",
+   "title": "Page 2 of 20",
+   "pages": [
+    2
+   ]
+  },
+  "parts": [
+   {
+    "part_id": "img",
+    "item_ids": [
+     "p0002-image"
+    ],
+    "type": "none",
+    "questions": [
+     "what"
+    ],
+    "focus": "The page image: capture every table, diagram, label and arrow it shows (S1-01); its items get the type of what they show."
+   }
+  ],
+  "rules": [
+   "G-01",
+   "G-02",
+   "G-03",
+   "G-05",
+   "G-06",
+   "G-07",
+   "S1-01",
+   "S1-02",
+   "S1-03",
+   "S1-04",
+   "S1-05",
+   "S1-06",
+   "S1-07",
+   "S1-08",
+   "S1-09",
+   "S1-10",
+   "S1-11",
+   "S1-13",
+   "S1-14",
+   "S1-15"
+  ],
+  "output": {
+   "schema_id": "bie.brain.understand-page/3",
+   "mode": "full",
+   "max_output_tokens": 32000
+  },
+  "coverage": {
+   "must_cover": [
+    "p0002-b0002",
+    "p0002-b0003",
+    "p0002-b0004",
+    "p0002-b0005",
+    "p0002-b0006",
+    "p0002-b0007",
+    "p0002-b0008",
+    "p0002-b0009",
+    "p0002-b0010",
+    "p0002-b0011"
+   ],
+   "claim_field": "items[].block_ids or boilerplate_block_ids",
+   "may_skip": [
+    {
+     "item_id": "p0002-b0001",
+     "reason": "running header (the same first line as the next or previous page)"
+    },
+    {
+     "item_id": "p0002-b0012",
+     "reason": "page number"
+    }
+   ]
+  },
+  "context": {
+   "map_slice": [],
+   "before": "EMI payments are denominated in money.",
+   "after": "• No common measure of value"
+  },
+  "source": {
+   "block_ids": [
+    "p0002-b0001",
+    "p0002-b0002",
+    "p0002-b0003",
+    "p0002-b0004",
+    "p0002-b0005",
+    "p0002-b0006",
+    "p0002-b0007",
+    "p0002-b0008",
+    "p0002-b0009",
+    "p0002-b0010",
+    "p0002-b0011",
+    "p0002-b0012"
+   ],
+   "page_images": [
+    {
+     "page": 2,
+     "sha256": "138240965127f0f5f80ab7bdb63ed8eaf37f454c5985865e793ea404aeecdaf7"
+    }
+   ]
+  }
+ },
+ "prefix_sha256": "347716fd7ccacdd6544ee537f6192913f28dab7e1ca85b0d0ae3f83219305564",
+ "review_prefix_sha256": "b7ee74c9bc6bdc9fd5340bdf0f7cbe51f677b0d3045fc6062256a3b82bc0956c",
+ "inputs": {
+  "system": "BIE task prefix understand.read_page/3 · rulebook canvas_profile@2026-10-27.1+content_types@2026-10-24.1+explanations@2026-10-24.1+level_profiles@2026-10-24.1+simple_hindi@2026-10-25.1+teacher_examples@2026-10-24.1+vision-2026-10-21@2026-10-21.13+visual_grammar@2026-10-26.2+visual_levels@2026-10-26.2 · content types 2026-10-24.1 · schema bie.brain.understand-page/3\n\nYou are BIE's book-understanding section: an expert teacher of Indian Economy for UPSC / State PCS aspirants preparing for UPSC / State PCS.\nYou read one page of a book chapter with two eyes, the page's native text blocks and the page image, and turn it into a complete,\nquestion-based teacher's understanding. Later BIE sections build the video lessons, the chapter game and the notes only from what you\ncapture, so anything you miss is missing from the whole course. Your output is internal to BIE: write it in clear English and keep the\nbook's own terms and spellings.\nCourse: \"3. Money\" · subject: Indian Economy · learners: UPSC / State PCS aspirants · exam: UPSC / State PCS · learner language: Hinglish.\n\nNavin's rules for this task (follow every one):\n[G-01] Everything taught comes from the book. Knowledge from outside the book is allowed only to explain the book better; it is marked as outside, standard textbook-level and correct. Never invent facts, numbers, names or quotations.\n[G-02] Work like the best teacher of these learners and this exam, not like a summariser. Depth beats brevity: nothing teachable on the page is skipped or compressed away, and every explanation makes a student understand, not just remember. Depth means understanding, not length: lesson narration keeps S2-01's time by cutting repetition and side-tracks, never book content.\n[G-03] Before the output, fill 'notes' with brief notes for the reviewer and for Navin: what this unit is about, the key questions a teacher must answer about it, the main decisions you made with a one-line reason each, and anything uncertain. Keep the notes short; they explain the work, they are not the work.\n[G-05] Never drop or compress away what the book teaches to fit a length. If a unit of work is too large, it is split by BIE into smaller units; within a unit, the book's content is complete. Lesson narration has a time target (S2-01), met by cutting repetition and side-tracks, never book content.\n[G-06] BIE is the link between the learner and the book, like a teacher (Navin, 24 October 2026). The book is the base; BIE carries its text, easy or hard, into the learner's mind. Never just read the line out: every book line is opened (what its words mean, why it is so, where it is seen, what follows), at the depth of the level profile.\n[G-07] Two layers, like a film (Navin, 24 October 2026). The writer layer (understanding, plan, script) decides what is said and how deep, following the level profile and the book's own level. The presentation layer (director, video blocks, render) is the same skilled quality for every learner, from class 6 to postgraduate; only the detail shown follows the level, never the craft.\n[S1-01] Read the page with two eyes: the native text blocks (exact words and numbers) and the page image (tables, diagrams, labels, arrows, equations, layout). Items that exist only in the image are as important as text items. A page whose text layer is empty or nearly empty is read entirely from the image.\n[S1-02] Every native text block is either covered by an item (its id in that item's block_ids) or listed as boilerplate. Boilerplate is only running headers, page numbers, publisher adverts, contact lines and watermarks; nothing teachable is boilerplate.\n[S1-03] Every table becomes one 'table' item plus one 'table_row' item per row, in order, each row's content giving every cell with its column header, for example 'Smooth muscle | Location: G.I. tract, uterus, eye, blood vessels | Function: peristalsis, blood pressure, pupil size, erects hairs | Appearance: no striations, one central nucleus | Control: involuntary'. A table continued from the previous page continues the same table.\n[S1-04] Every diagram, chart, flow or tree becomes one 'diagram' item that says what it shows and how its parts connect (arrows, branches, flows, sequence), plus one 'diagram_label' item per label naming what the label points to. A classification tree lists every branch and leaf with its parent.\n[S1-05] Every equation, formula, chemical formula and symbol is read exactly and each symbol's meaning and unit are stated.\n[S1-06] Understand every teachable item by questioning it like a teacher. Ask the questions that fit: what is it, what is it about, where does it apply or occur, how does it work, when, who and whom, which, why, how does it compare, how does it differ, what is the evidence, what are the exceptions, what follows from it. Then keep asking 'why' and 'how' on your own answers (depth 2, 3 ...) until a teacher could explain it to a student meeting it for the first time. Answers explain; they never just repeat the item's words.\n[S1-07] Mark every answer's basis: 'book' only when the page itself states it, 'outside' when any part comes from general knowledge. Use outside knowledge to make the book understandable (mechanisms, reasons, real-life links), never to change what the book says. Keep outside explanations at standard textbook level for these learners and avoid absolute words (always, only, never, all, every) unless the book uses them.\n[S1-08] Give every item its true content type, one of BIE's nine: process, structure, classification, comparison, timeline, cause_effect, facts_numbers, figure, definition (bie/brain/rulebook/content_types.json). An example takes the type of what it illustrates; a question or an answer option is a role, not a type. BIE's code proposes a type before you read the page; when you choose another, say why. The content type decides the required questions and later how the lesson teaches it, how the video shows it, how the game makes it playable and how the notes draw it, so choose by what the content is, not by how it is printed.\n[S1-09] Name the prerequisites a student must already understand for each item, as concrete concepts ('cell and its nucleus', 'what a nerve impulse is'), never vague ('basic biology'). Prerequisites are taught later, not just listed.\n[S1-10] Judge exam importance for the course's exam (for UPSC / State PCS: classifications, comparisons, locations, functions, examples and odd-one-out facts are high). Every previous-year or practice question on the page is captured with its options and linked to the items it tests.\n[S1-11] Where the text layer and the image disagree (garbled symbols, missing words, wrong order), report the disagreement. Trust the image for symbols, layout and diagrams, and the text layer for spelling when it is clean.\n[S1-13] A printed typo stays as printed, with the right word after it in square brackets: 'Cartiage [Cartilage]' (Navin, 23 October 2026). The teacher answers use the right word. Never correct the book silently.\n[S1-14] One answer, one basis (Navin, 23 October 2026): an answer that would mix what the book says with an outside explanation becomes two answers, one with basis 'book' (only what the page states) and one with basis 'outside'.\n[S1-15] Open every teachable item for the learner (Navin, 24 October 2026): in unpack, the terms the learner must hold (each with its plain meaning in simple Hindi and one everyday image), a why chain of 1-4 steps that starts from a need or a problem (each step names its basis, book or standard), an example or the place where it is seen, the consequence, the visual verb the video should show, and what the level profile adds. Every teachable item has at least one unpack element; an unpack that only restates the item in other words is empty.\n\nBIE's content types (the type of an item decides its required questions and how it is taught, shown, played and drawn):\n- process · Process: Something that happens in steps or stages over time: a mechanism, a procedure, a cycle (photosynthesis, cell division, how a bill becomes law). Required questions: how (kaise), when (kab). Other questions: what (kya), where (kahan), why (kyun), consequence (nateeja).\n- structure · Structure: Something made of parts arranged in space, each part with a function (a cell, a leaf, the heart, a machine, the Parliament). Required questions: what (kya), where (kahan). Other questions: how (kaise), why (kyun), which (kaun).\n- classification · Classification: A group divided into kinds by a stated basis (types of tissues, kinds of rocks, kinds of writs). Required questions: which (kaun), difference (tulna). Other questions: what (kya), evidence (saboot), where (kahan).\n- comparison · Comparison: Two or more things set side by side on stated criteria (plant and animal cells, Lok Sabha and Rajya Sabha). Required questions: compare (tulna), difference (tulna). Other questions: what (kya), why (kyun), evidence (saboot).\n- timeline · Timeline: Events placed in time: history, the development of an idea, stages of a life (the Revolt of 1857, evolution of cell theory). Required questions: when (kab), why (kyun). Other questions: who (kaun), where (kahan), consequence (nateeja).\n- cause_effect · Reasoning (cause and effect): Why something happens: causes, effects, conditions and chains of reasoning (why tissues specialise, why prices rise, why a law was needed). Required questions: why (kyun), how (kaise). Other questions: consequence (nateeja), evidence (saboot), exception (tulna).\n- facts_numbers · Facts and numbers: Stated facts, quantities, measurements, statistics and formulas (heart rate 72 per minute, 3,000 against 50,000 soldiers at Plassey, F = ma). Required questions: what (kya), evidence (saboot). Other questions: compare (tulna), why (kyun).\n- figure · Figure: A diagram, photo, map, graph or table drawing on the page whose content is visual (tissue pages 2, 7 and 8 are figures only). Required questions: what (kya), which (kaun). Other questions: how (kaise), why (kyun).\n- definition · Definition: A term and its meaning as the book states it (tissue, meristem, sovereignty). Required questions: what (kya), evidence (saboot). Other questions: about (kya), why (kyun).\n\nOutput schema (JSON):\n{\"additionalProperties\":false,\"properties\":{\"boilerplate_block_ids\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"items\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"block_ids\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"content\":{\"type\":\"string\"},\"content_type\":{\"enum\":[\"process\",\"structure\",\"classification\",\"comparison\",\"timeline\",\"cause_effect\",\"facts_numbers\",\"figure\",\"definition\",\"none\"],\"type\":\"string\"},\"exam_importance\":{\"enum\":[\"high\",\"medium\",\"low\"],\"type\":\"string\"},\"exam_note\":{\"type\":\"string\"},\"item_id\":{\"type\":\"string\"},\"kind\":{\"enum\":[\"heading\",\"paragraph\",\"definition\",\"list_point\",\"example\",\"table\",\"table_row\",\"diagram\",\"diagram_label\",\"equation\",\"symbol\",\"box_note\",\"caption\",\"question\",\"answer_option\",\"other\"],\"type\":\"string\"},\"parent_item_id\":{\"type\":\"string\"},\"prerequisites\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"source\":{\"enum\":[\"text\",\"image\",\"both\"],\"type\":\"string\"},\"teachable\":{\"type\":\"boolean\"},\"teacher_understanding\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"answer\":{\"type\":\"string\"},\"ask\":{\"enum\":[\"what\",\"about\",\"where\",\"how\",\"when\",\"who\",\"whom\",\"which\",\"why\",\"compare\",\"difference\",\"evidence\",\"exception\",\"consequence\"],\"type\":\"string\"},\"basis\":{\"enum\":[\"book\",\"outside\"],\"type\":\"string\"},\"depth\":{\"description\":\"1 for a first question; 2, 3 ... for a deeper why/how on an earlier answer\",\"type\":\"integer\"},\"question\":{\"type\":\"string\"}},\"required\":[\"depth\",\"ask\",\"question\",\"answer\",\"basis\"],\"type\":\"object\"},\"type\":\"array\"},\"tests_item_ids\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"type_note\":{\"type\":\"string\"},\"unpack\":{\"additionalProperties\":false,\"properties\":{\"consequence\":{\"type\":\"string\"},\"example_or_place\":{\"type\":\"string\"},\"level_extra\":{\"type\":\"string\"},\"terms\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"everyday_image\":{\"type\":\"string\"},\"plain_meaning\":{\"type\":\"string\"},\"term\":{\"type\":\"string\"}},\"required\":[\"term\",\"plain_meaning\",\"everyday_image\"],\"type\":\"object\"},\"type\":\"array\"},\"visual_verb\":{\"type\":\"string\"},\"why_chain\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"basis\":{\"enum\":[\"book\",\"standard\"],\"type\":\"string\"},\"step\":{\"type\":\"string\"}},\"required\":[\"step\",\"basis\"],\"type\":\"object\"},\"type\":\"array\"}},\"required\":[\"terms\",\"why_chain\",\"example_or_place\",\"consequence\",\"visual_verb\",\"level_extra\"],\"type\":\"object\"},\"where_on_page\":{\"type\":\"string\"}},\"required\":[\"item_id\",\"kind\",\"parent_item_id\",\"source\",\"block_ids\",\"where_on_page\",\"content\",\"content_type\",\"type_note\",\"teachable\",\"teacher_understanding\",\"prerequisites\",\"exam_importance\",\"exam_note\",\"tests_item_ids\",\"unpack\"],\"type\":\"object\"},\"type\":\"array\"},\"notes\":{\"additionalProperties\":false,\"properties\":{\"about\":{\"description\":\"What this unit of work is about and how it fits the whole (one or two sentences).\",\"type\":\"string\"},\"decisions\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"decision\":{\"type\":\"string\"},\"reason\":{\"type\":\"string\"}},\"required\":[\"decision\",\"reason\"],\"type\":\"object\"},\"type\":\"array\"},\"key_questions\":{\"description\":\"The key questions a teacher must answer about this unit.\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"uncertain\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"}},\"required\":[\"about\",\"key_questions\",\"decisions\",\"uncertain\"],\"type\":\"object\"},\"page_summary\":{\"type\":\"string\"},\"text_image_disagreements\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"block_ids\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"image_shows\":{\"type\":\"string\"},\"text_says\":{\"type\":\"string\"}},\"required\":[\"block_ids\",\"text_says\",\"image_shows\"],\"type\":\"object\"},\"type\":\"array\"}},\"required\":[\"notes\",\"page_summary\",\"items\",\"boilerplate_block_ids\",\"text_image_disagreements\"],\"type\":\"object\"}\n\nHow BIE talks to you: every request is a task card (JSON) followed by its source. The card names the unit, its parts with their content type and required questions, the ids of the rules above that apply, the output, the ids you must cover and the context. The card is BIE's instruction; the source is the material.\nFor a read_page card:\n- card.parts: BIE's code has already proposed a content type for groups of this page's native text blocks (item_ids are block ids;\n  \"pNNNN-image\" is the page image), with the evidence in \"focus\". It is a proposal from keywords and patterns, not a verdict: give\n  every item its true type (S1-08). When you choose another type than BIE's proposal for an item's blocks, say why in one line in that\n  item's type_note; BIE's code compares every item and sends unexplained differences back to you.\n- card.coverage: every id in must_cover must be in some item's block_ids or in boilerplate_block_ids; may_skip lists blocks BIE thinks are\n  running headers or page numbers. Never list an id that is not on this page.\n- card.context.before and after: one line from the previous and the next page, for context only.\nHow to fill the JSON:\n- notes: brief notes for the reviewer: what the page is about and how it fits the chapter, the key questions a teacher must answer,\n  your main decisions (how you split items, how you read an unclear part, a type you chose against BIE's proposal) with a reason each,\n  and what is uncertain.\n- items: everything on the page, in reading order.\n  - item_id: short and unique on this page (\"i1\", \"i2\", ...).\n  - kind: heading, paragraph, definition, list_point, example, table (the whole table), table_row (one per row), diagram (the whole figure),\n    diagram_label (one per label), equation, symbol, box_note, caption, question (a PYQ or practice question), answer_option, other.\n  - parent_item_id: the table of a table_row, the diagram of a diagram_label, the question of an answer_option, else \"\". When the page\n    starts with the options of a question printed on the previous page, add one question item for that question (content: \"continued\n    from the previous page\" and what the options answer) and make it their parent.\n  - source: \"text\" if the item comes from native text blocks, \"image\" if it is visible only in the image, \"both\" if both show it.\n  - block_ids: the ids of the native text blocks this item covers ([] for image-only items). Use only ids from the card.\n  - where_on_page: where it is (\"top table, row 2\", \"right diagram, label at the axon end\").\n  - content: the exact words for text items; a complete, faithful reading for image items (every cell with its column header for a\n    table_row; what a label names and what it points to for a diagram_label; all branches for a tree). A printed typo stays as\n    printed with the right word after it in square brackets, \"Cartiage [Cartilage]\" (S1-13); never correct the book silently.\n  - content_type: one of BIE's nine type ids above, by what the content is. An example takes the type of what it illustrates; a table\n    row or a diagram label usually takes its table's or diagram's type. \"none\" only for a question, an answer option or an item that is\n    not teachable.\n  - type_note: \"\" when you agree with BIE's proposal for this item's blocks (or there is none); otherwise one line on why your type fits.\n  - teachable: false only for pure headings and containers whose children carry the content.\n  - teacher_understanding: the teacher's questions and answers for this item (S1-06); depth 1 for first questions, 2 and more for\n    \"why\"/\"how\" on an earlier answer; basis \"book\" only if the page states it, else \"outside\"; one answer, one basis: an answer that\n    would mix what the book says with an outside explanation becomes two answers, one \"book\" and one \"outside\" (S1-14). BIE's code\n    checks every teachable item:\n    at least two questions, at least one \"why\" or \"how\", at least the required questions of its content type, and no answer that only\n    repeats its question or the item's words.\n  - prerequisites: concrete concepts a student must understand first.\n  - exam_importance and exam_note: for this exam.\n  - tests_item_ids: for a question, the ids on this page that it tests ([] if they are on other pages).\n  - unpack: how a teacher opens this book line for the learner (S1-15; BIE is the link between the learner and the book, never a\n    reader of the line). For every teachable item, at the depth of the level profile below:\n    terms = the words of the line the learner must own: [{term (as the book spells it), plain_meaning (everyday spoken Hindi in Devanagari\n    with the book's English terms in Roman: \"tissue\", \"cell\", \"epithelium\", \"muscle\", never their textbook Hindi ऊतक, कोशिका, उपकला, मांसपेशी;\n    BIE's code sends an item back for a textbook translation. For example \"absorptive surface\" → \"जहाँ चीज़ें अंदर ली जाती हैं\"),\n    everyday_image (one image from the learner's\n    home or body: \"आँत खाने के पोषक तत्व सोखती है, जैसे कागज़ पानी\")}]; why_chain = the why in steps, starting from a need or a\n    problem (\"पेट में HCl बनता है, इसलिए अंदर एक lining चाहिए\"), each step with its basis: \"book\" when the page says it, \"standard\"\n    when it is standard textbook knowledge; example_or_place = one example, or the place by a zoom from the organ the learner knows;\n    consequence = what follows, and the link to the previous or the next idea of the page; visual_verb = what visibly happens on the\n    screen when this is taught (\"particles cross the thin layer\"); level_extra = what this level adds (the other names, the exam's\n    trap, the memory trick) or \"\". BIE's code checks that every teachable item has at least one unpack element and that every why\n    step names its basis; a locked explanation given with the source is reused as it is. A question item or a pure heading leaves\n    unpack empty.\n- boilerplate_block_ids: ids of running headers, page numbers, adverts, contact lines and watermarks only.\n- text_image_disagreements: where the text layer and the image differ.\nReply with the JSON object only.\n\nLevel profile: UPSC / State PCS (level_profiles.json; learners: UPSC and State PCS aspirants, often from arts backgrounds, who need understanding more than technical vocabulary).\n- Terms: fewer technical terms: only the ones the exam asks, each opened with its plain meaning and an everyday image; a term the exam never asks is explained in words, not named.\n- Why: 2 step(s); a two-step why from a need the learner can feel, then its link to daily life, health or governance.\n- Where found: the main places, each linked to something the learner already knows (a disease, a food, a news item).\n- Exam beats: the PYQ pattern: how this fact has been asked (statement combinations, 'which is correct', odd one out) and the wording that traps.\n- Links: daily life, health, the news and earlier chapters of the same paper.\n\nHow real teachers open a book line (teacher example bank 2026-10-24.1; use these ways, in your own words):\n- One everyday image per shape or function (every term that names a shape, a layer or a job): Chaadar bichhi ho to bistar bacha rehta hai = protective sheet. Cube wala game, har side barabar = cuboidal. Building ka pillar = columnar. Farsh ki tiles = squamous, isliye tessellated bhi kehte hain.\n- The word root where it helps (a term whose parts carry its meaning): Epi yaani upar; epithelium yaani upar ki parat. Slender yaani long aur narrow.\n- Why starts from a need (every why step): Pet mein HCl banta hai, isliye andar ek lining chahiye jo khud na jale. Cells bahar ki taraf hain, tootne ka chance zyada, isliye regeneration zyada.\n- Link to something already known (a new place or a new structure): Peritoneum, jaise lungs ke aas-paas pleura aur heart ke aas-paas pericardium: wahi kaam, pet ke andar.\n- Meaning with two or three real examples (an abstract word in the book): Sensory perception yaani pehchanna: thanda lagna, dard hona, pressure mehsoos karna.\n- Open the book's adjective (Navin's example) (a book line names a kind of surface, job or place without saying what it is): Book: 'epithelium absorptive aur secretive surfaces par milta hai'. Teacher: absorptive surface yaani jahan cheezein andar li jaati hain, jaise aant khane ke poshak tatva sokhti hai; secretive yaani jahan cells kuch bana kar bahar chhodte hain, jaise glands enzyme ya juice. Aur epithelium wahan kyon? Kyunki ek patli, lagi hui parat hi cheezon ko paar jaane de sakti hai aur bana kar chhod sakti hai.",
+  "user": [
+   {
+    "type": "text",
+    "text": "BIE task card (JSON):\n{\"card\":\"bie.task-card/1\",\"card_id\":\"understand.read_page@3-money/page-002\",\"section\":\"understand\",\"task\":\"read_page\",\"prefix\":{\"prefix_id\":\"understand.read_page/3\",\"rulebook_version\":\"canvas_profile@2026-10-27.1+content_types@2026-10-24.1+explanations@2026-10-24.1+level_profiles@2026-10-24.1+simple_hindi@2026-10-25.1+teacher_examples@2026-10-24.1+vision-2026-10-21@2026-10-21.13+visual_grammar@2026-10-26.2+visual_levels@2026-10-26.2\",\"content_types_version\":\"2026-10-24.1\",\"schema_id\":\"bie.brain.understand-page/3\",\"sha256\":\"347716fd7ccacdd6544ee537f6192913f28dab7e1ca85b0d0ae3f83219305564\"},\"unit\":{\"unit_id\":\"page-002\",\"title\":\"Page 2 of 20\",\"pages\":[2]},\"parts\":[{\"part_id\":\"img\",\"item_ids\":[\"p0002-image\"],\"type\":\"none\",\"questions\":[\"what\"],\"focus\":\"The page image: capture every table, diagram, label and arrow it shows (S1-01); its items get the type of what they show.\"}],\"rules\":[\"G-01\",\"G-02\",\"G-03\",\"G-05\",\"G-06\",\"G-07\",\"S1-01\",\"S1-02\",\"S1-03\",\"S1-04\",\"S1-05\",\"S1-06\",\"S1-07\",\"S1-08\",\"S1-09\",\"S1-10\",\"S1-11\",\"S1-13\",\"S1-14\",\"S1-15\"],\"output\":{\"schema_id\":\"bie.brain.understand-page/3\",\"mode\":\"full\",\"max_output_tokens\":32000},\"coverage\":{\"must_cover\":[\"p0002-b0002\",\"p0002-b0003\",\"p0002-b0004\",\"p0002-b0005\",\"p0002-b0006\",\"p0002-b0007\",\"p0002-b0008\",\"p0002-b0009\",\"p0002-b0010\",\"p0002-b0011\"],\"claim_field\":\"items[].block_ids or boilerplate_block_ids\",\"may_skip\":[{\"item_id\":\"p0002-b0001\",\"reason\":\"running header (the same first line as the next or previous page)\"},{\"item_id\":\"p0002-b0012\",\"reason\":\"page number\"}]},\"context\":{\"map_slice\":[],\"before\":\"EMI payments are denominated in money.\",\"after\":\"• No common measure of value\"},\"source\":{\"block_ids\":[\"p0002-b0001\",\"p0002-b0002\",\"p0002-b0003\",\"p0002-b0004\",\"p0002-b0005\",\"p0002-b0006\",\"p0002-b0007\",\"p0002-b0008\",\"p0002-b0009\",\"p0002-b0010\",\"p0002-b0011\",\"p0002-b0012\"],\"page_images\":[{\"page\":2,\"sha256\":\"138240965127f0f5f80ab7bdb63ed8eaf37f454c5985865e793ea404aeecdaf7\"}]}}\n\nNative text blocks of this page (id | text):\np0002-b0001 | Indian Economy\np0002-b0002 | Barter System\np0002-b0003 | • The barter system is a method of exchange in which goods and services are directly\np0002-b0004 | exchanged for other goods and services without using a medium of exchange.\np0002-b0005 | Features\np0002-b0006 | • No use of money\np0002-b0007 | • Direct exchange of goods and services\np0002-b0008 | • Value is decided through mutual agreement\np0002-b0009 | • Common in early civilizations. Still seen in limited informal exchanges\np0002-b0010 | Limitations:\np0002-b0011 | • Double coincidence of wants: Both parties must want what other offers.\np0002-b0012 | 32"
+   },
+   {
+    "type": "text",
+    "text": "The page image:"
+   },
+   {
+    "type": "image",
+    "media_type": "image/jpeg",
+    "sha256": "e43ec7bcedf2be4335c745f33799673c558629cee0de433e9d274071d023555c",
+    "base64_chars": 497272
+   },
+   {
+    "type": "text",
+    "text": "Read this page with both eyes and answer the card with the page understanding JSON."
+   }
+  ]
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "started_at": 1793114470.4096148,
+   "mode": "full",
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "e7a3b01b7c1c16d785d589fe2fb90dfdabbc3b31639ae3db16efa681bffd6b50",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 12681,
+    "output_tokens": 14638,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "This page contrasts intrinsic and extrinsic value, presents a six-stage evolution of money, and introduces barter and its first limitation.",
+    "key_questions": [
+     "Does money derive value from its material or from acceptance and institutional backing?",
+     "How do the two kinds compare in usability and value outside monetary exchange?",
+     "What sequence does the evolution diagram show?",
+     "How does barter work, and why does it require double coincidence of wants?"
+    ],
+    "decisions": [
+     {
+      "decision": "Read the table and evolution diagram entirely from the image.",
+      "reason": "Their substantive content is absent from the native text."
+     },
+     {
+      "decision": "Preserve the table's contrasts while qualifying broad claims in separate outside explanations.",
+      "reason": "Modern coins, bank deposits, legal tender and payment channels require distinctions to prevent misleading generalisations."
+     },
+     {
+      "decision": "Treat evolution as an undated schematic timeline, not universal historical replacement.",
+      "reason": "The arrows establish order but the page supplies neither dates nor a claim that earlier forms disappeared."
+     }
+    ],
+    "uncertain": [
+     "The table uses 'Digital Money' broadly and lists UPI as an example; UPI is more precisely a payment system.",
+     "The table's 'Nil Value', limited acceptability and difficult divisibility are simplified category-level contrasts, not exception-free statements."
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "This page contrasts intrinsic and extrinsic value, presents a six-stage evolution of money, and introduces barter and its first limitation.",
+     "key_questions": [
+      "Does money derive value from its material or from acceptance and institutional backing?",
+      "How do the two kinds compare in usability and value outside monetary exchange?",
+      "What sequence does the evolution diagram show?",
+      "How does barter work, and why does it require double coincidence of wants?"
+     ],
+     "decisions": [
+      {
+       "decision": "Read the table and evolution diagram entirely from the image.",
+       "reason": "Their substantive content is absent from the native text."
+      },
+      {
+       "decision": "Preserve the table's contrasts while qualifying broad claims in separate outside explanations.",
+       "reason": "Modern coins, bank deposits, legal tender and payment channels require distinctions to prevent misleading generalisations."
+      },
+      {
+       "decision": "Treat evolution as an undated schematic timeline, not universal historical replacement.",
+       "reason": "The arrows establish order but the page supplies neither dates nor a claim that earlier forms disappeared."
+      }
+     ],
+     "uncertain": [
+      "The table uses 'Digital Money' broadly and lists UPI as an example; UPI is more precisely a payment system.",
+      "The table's 'Nil Value', limited acceptability and difficult divisibility are simplified category-level contrasts, not exception-free statements."
+     ]
+    },
+    "page_summary": "Intrinsic money has material value; extrinsic money depends on trust and institutional backing. The page traces barter → commodity → metallic → paper → bank → digital money, then defines barter, its features and the double coincidence of wants problem.",
+    "items": [
+     {
+      "item_id": "i1",
+      "kind": "table",
+      "parent_item_id": "",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "upper half",
+      "content": "COMPARISON: INTRINSIC vs EXTRINSIC VALUE OF MONEY. Columns: ASPECT | INTRINSIC VALUE OF MONEY (Commodity / Metallic Money) | EXTRINSIC VALUE OF MONEY (Fiat / Paper / Digital Money). Rows compare basis of value, source of value, inherent worth, value if not used as money, examples, acceptability, durability, divisibility, portability and example in context.",
+      "content_type": "comparison",
+      "type_note": "The image-only table compares two sources of monetary value.",
+      "teachable": false,
+      "teacher_understanding": [],
+      "prerequisites": [],
+      "exam_importance": "high",
+      "exam_note": "Children preserve each comparison criterion.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [],
+       "why_chain": [],
+       "example_or_place": "",
+       "consequence": "",
+       "visual_verb": "",
+       "level_extra": ""
+      }
+     },
+     {
+      "item_id": "i2",
+      "kind": "table_row",
+      "parent_item_id": "i1",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "top table, header row",
+      "content": "ASPECT | INTRINSIC VALUE OF MONEY (Commodity / Metallic Money) | EXTRINSIC VALUE OF MONEY (Fiat / Paper / Digital Money)",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "Which forms does the table place under each source of value?",
+        "answer": "Commodity and metallic money appear under intrinsic value; fiat, paper and digital money appear under extrinsic value.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "What underlying distinction should guide the comparison?",
+        "answer": "Material usefulness or worth is different from value obtained through monetary acceptance and institutional backing.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why should a learner not classify money solely by whether it is metal or paper?",
+        "answer": "A modern token coin can have a monetary value greater than its metal value. The basis of value matters, not merely physical appearance.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "money as a medium of exchange",
+       "material value"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Avoid treating every metallic coin as full-bodied commodity money.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Intrinsic",
+         "plain_meaning": "चीज़ के अपने पदार्थ में मौजूद कीमत",
+         "everyday_image": "सोने का सिक्का, जिसका सोना भी बिक सकता है"
+        },
+        {
+         "term": "Extrinsic",
+         "plain_meaning": "पदार्थ से नहीं, बाहर की मान्यता और भरोसे से मिली कीमत",
+         "everyday_image": "नोट को उसके कागज़ के लिए नहीं लिया जाता"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "To understand money's value, separate the material from the monetary claim.",
+         "basis": "standard"
+        },
+        {
+         "step": "The table organises the forms of money around these two sources.",
+         "basis": "book"
+        }
+       ],
+       "example_or_place": "Gold versus a rupee note.",
+       "consequence": "The remaining rows test the distinction on different criteria.",
+       "visual_verb": "Separate material worth from accepted monetary value.",
+       "level_extra": "Physical form and source of value are not identical classifications."
+      }
+     },
+     {
+      "item_id": "i3",
+      "kind": "table_row",
+      "parent_item_id": "i1",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "top table, body row 1",
+      "content": "ASPECT: BASIS OF VALUE | INTRINSIC VALUE OF MONEY (Commodity / Metallic Money): Intrinsic / Natural | EXTRINSIC VALUE OF MONEY (Fiat / Paper / Digital Money): Trust / Legally Enforced",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "What basis of value does each column identify?",
+        "answer": "Intrinsic money rests on intrinsic or natural value; extrinsic money rests on trust or legal enforcement.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "How is trusting a note different from valuing gold?",
+        "answer": "A note is accepted for what it can obtain in exchange rather than for the usefulness of its paper; gold can also be valued as a material.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why does trust support monetary exchange?",
+        "answer": "A receiver accepts money more readily when expecting others to accept it in subsequent transactions.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "acceptance in exchange",
+       "material value"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Distinguish material worth from trust and legal recognition.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Trust",
+         "plain_meaning": "भरोसा कि आगे दूसरा व्यक्ति भी इसे लेगा",
+         "everyday_image": "दुकानदार नोट लेता है क्योंकि उससे आगे सामान खरीद सकेगा"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "A seller needs confidence that what is received will be useful.",
+         "basis": "standard"
+        },
+        {
+         "step": "That confidence can rest on the material itself or on accepted monetary status.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Accepting a rupee note at a shop.",
+       "consequence": "Low material value need not mean low monetary value.",
+       "visual_verb": "Pass a note between successive buyers and sellers.",
+       "level_extra": "Legal recognition and public confidence are related but distinct supports."
+      }
+     },
+     {
+      "item_id": "i4",
+      "kind": "table_row",
+      "parent_item_id": "i1",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "top table, body row 2",
+      "content": "ASPECT: SOURCE OF VALUE | INTRINSIC VALUE OF MONEY (Commodity / Metallic Money): Own Material Value | EXTRINSIC VALUE OF MONEY (Fiat / Paper / Digital Money): Government / Authority Backing",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "Where does each category's value come from in the table?",
+        "answer": "Intrinsic money has its own material value; extrinsic money is associated with government or authority backing.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "How does backing differ from material value?",
+        "answer": "Backing concerns the institutional arrangements supporting monetary acceptance; material value concerns what the substance itself is worth.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How should 'authority backing' be understood without assuming gold convertibility?",
+        "answer": "Institutional support may establish and sustain a currency's use without promising redemption into gold. Bank deposits also involve claims on banks rather than being identical to government-issued notes.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "currency",
+       "government recognition",
+       "bank deposits"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Fiat backing does not imply precious-metal backing.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Government / Authority Backing",
+         "plain_meaning": "पैसे की मान्यता को सरकार या संबंधित संस्था का सहारा",
+         "everyday_image": "कागज़ का टुकड़ा नहीं, पहचाना हुआ रुपये का नोट"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Paper alone cannot explain a note's purchasing value.",
+         "basis": "standard"
+        },
+        {
+         "step": "The table points instead to institutional backing.",
+         "basis": "book"
+        }
+       ],
+       "example_or_place": "Rupee notes and bank balances.",
+       "consequence": "Do not infer that every monetary claim has identical backing.",
+       "visual_verb": "Contrast a gold material tag with an institutional support tag.",
+       "level_extra": "Separate fiat currency from commercial-bank liabilities."
+      }
+     },
+     {
+      "item_id": "i5",
+      "kind": "table_row",
+      "parent_item_id": "i1",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "top table, body row 3",
+      "content": "ASPECT: INHERENT WORTH | INTRINSIC VALUE OF MONEY (Commodity / Metallic Money): Present | EXTRINSIC VALUE OF MONEY (Fiat / Paper / Digital Money): Not Present",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How does inherent worth differ across the columns?",
+        "answer": "The table marks inherent worth as present for intrinsic money and not present for extrinsic money.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "Does absence of inherent worth mean absence of purchasing power?",
+        "answer": "No. Purchasing power depends on what money obtains in exchange, not on whether its physical material has comparable independent worth.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is this distinction necessary?",
+        "answer": "Otherwise a learner could incorrectly conclude that paper or digital money is valueless simply because its material does not account for its monetary value.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "purchasing power",
+       "material value"
+      ],
+      "exam_importance": "high",
+      "exam_note": "No intrinsic worth does not mean no monetary value.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Inherent worth",
+         "plain_meaning": "पैसे की पहचान हटाने पर भी चीज़ की अपनी कीमत",
+         "everyday_image": "गहना बनाने लायक सोना"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "We need to distinguish what an object is worth from what it buys as money.",
+         "basis": "standard"
+        },
+        {
+         "step": "The table reserves inherent worth for the material-value side.",
+         "basis": "book"
+        }
+       ],
+       "example_or_place": "A note's paper versus gold in a coin.",
+       "consequence": "Monetary value and material value must be kept separate.",
+       "visual_verb": "Split one object into material and purchasing-value labels.",
+       "level_extra": "Read 'not present' as no material worth explaining monetary value, not literally no possible scrap value."
+      }
+     },
+     {
+      "item_id": "i6",
+      "kind": "table_row",
+      "parent_item_id": "i1",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "top table, body row 4",
+      "content": "ASPECT: VALUE IF NOT USED AS MONEY | INTRINSIC VALUE OF MONEY (Commodity / Metallic Money): Retains Value | EXTRINSIC VALUE OF MONEY (Fiat / Paper / Digital Money): Nil Value",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "What happens if monetary use is removed, according to the table?",
+        "answer": "Intrinsic money retains value, whereas extrinsic money is described as having nil value.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "What does this counterfactual reveal?",
+        "answer": "It asks whether demand survives for the object as a commodity rather than as a means of payment.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why must 'Nil Value' be read carefully?",
+        "answer": "The intended contrast concerns non-monetary material value. Scrap or collectible value can exist, so it should not be treated as a literal claim covering every object and circumstance.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "monetary use",
+       "non-monetary uses of commodities"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Use the removal-of-monetary-status test to distinguish the concepts.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Retains Value",
+         "plain_meaning": "पैसे की तरह न चलने पर भी काम और कीमत बचना",
+         "everyday_image": "नमक खरीदारी में न चले, फिर भी खाने में काम आता है"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Imagine that people stop accepting an object in payment.",
+         "basis": "standard"
+        },
+        {
+         "step": "An independent commodity use can still sustain demand for it.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Gold used in jewellery rather than payment.",
+       "consequence": "This is a practical conceptual test, not a claim about constant prices.",
+       "visual_verb": "Remove the money badge and retain the commodity-use badge.",
+       "level_extra": "Retains value does not mean retains exactly the same market price."
+      }
+     },
+     {
+      "item_id": "i7",
+      "kind": "table_row",
+      "parent_item_id": "i1",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "top table, body row 5",
+      "content": "ASPECT: EXAMPLES | INTRINSIC VALUE OF MONEY (Commodity / Metallic Money): Gold, Silver, Salt, Cattle, Cowrie Shells | EXTRINSIC VALUE OF MONEY (Fiat / Paper / Digital Money): Currency Notes, Bank Deposits, Digital Money",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "Which examples belong to each column?",
+        "answer": "Gold, silver, salt, cattle and cowrie shells are listed as intrinsic examples; currency notes, bank deposits and digital money as extrinsic examples.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "What connects the examples within each column?",
+        "answer": "The first column treats objects or commodities as money; the second groups monetary instruments whose value is not explained by the worth of their physical material.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why should cowrie shells not be treated as if they were identical to gold?",
+        "answer": "Historical commodity monies differed in usefulness, scarcity and customary acceptance. The table groups them for the broad contrast, not because their sources and stability of value were identical.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "commodity",
+       "currency note",
+       "bank deposit"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Suitable for matching and odd-one-out questions; preserve all examples.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Cowrie Shells",
+         "plain_meaning": "कौड़ियाँ, जिन्हें कुछ जगह लेन-देन में लिया जाता था",
+         "everyday_image": "छोटी चमकीली कौड़ियों की ढेरी"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "A classification becomes usable when tied to recognisable examples.",
+         "basis": "standard"
+        },
+        {
+         "step": "The page contrasts commodity objects with notes, deposits and digital forms.",
+         "basis": "book"
+        }
+       ],
+       "example_or_place": "Salt and cattle versus a bank deposit.",
+       "consequence": "Examples reinforce the value-source distinction.",
+       "visual_verb": "Sort all eight named examples into two columns.",
+       "level_extra": "Memorise the page's examples without assuming identical properties within a group."
+      }
+     },
+     {
+      "item_id": "i8",
+      "kind": "table_row",
+      "parent_item_id": "i1",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "top table, body row 6",
+      "content": "ASPECT: ACCEPTABILITY | INTRINSIC VALUE OF MONEY (Commodity / Metallic Money): Limited (by Utility & Availability) | EXTRINSIC VALUE OF MONEY (Fiat / Paper / Digital Money): Wide (by Legal Tender & Trust)",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How does the table contrast acceptability?",
+        "answer": "Intrinsic money has limited acceptability linked to utility and availability; extrinsic money has wide acceptability linked to legal tender and trust.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "How does accepting a useful commodity differ from accepting common currency?",
+        "answer": "Commodity acceptance can depend on local demand for that object, while currency can be accepted because recipients expect to spend it widely.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is legal tender not a description of every item in the extrinsic column?",
+        "answer": "Legal-tender status is a specific legal property. Bank deposits and payment services should not automatically be assigned the same legal-tender status as currency notes.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "acceptance in exchange",
+       "legal recognition of currency"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Wide acceptability is not identical to legal-tender status; gold can also be widely accepted.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Acceptability",
+         "plain_meaning": "कितने लोग इसे भुगतान में लेने को तैयार हैं",
+         "everyday_image": "एक दुकान नमक लेने से मना करे, लेकिन रुपये ले ले"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "A payment object must be acceptable to the seller.",
+         "basis": "standard"
+        },
+        {
+         "step": "Trust in further spending can widen acceptance beyond direct personal usefulness.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Rupee payments across different kinds of shops.",
+       "consequence": "Common acceptance makes indirect exchange easier.",
+       "visual_verb": "Expand a network of accepting sellers.",
+       "level_extra": "The table gives a broad tendency, not a universal ranking of every commodity and currency."
+      }
+     },
+     {
+      "item_id": "i9",
+      "kind": "table_row",
+      "parent_item_id": "i1",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "top table, body row 7",
+      "content": "ASPECT: DURABILITY | INTRINSIC VALUE OF MONEY (Commodity / Metallic Money): Generally Durable | EXTRINSIC VALUE OF MONEY (Fiat / Paper / Digital Money): Varies (Paper perishable, Digital depends on Technology)",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "What durability contrast is printed?",
+        "answer": "Intrinsic money is generally durable; extrinsic money varies, with paper perishable and digital money dependent on technology.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "How do physical durability and digital dependence differ?",
+        "answer": "Physical durability concerns damage to an object; digital use concerns reliable records and the systems through which balances are accessed and transferred.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is the word 'generally' important?",
+        "answer": "Gold and silver are durable, but commodities such as cattle and salt face different biological or storage risks. The listed commodities do not share identical durability.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "physical wear",
+       "electronic bank records"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Do not turn 'generally durable' into 'all commodities are durable'.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Durability",
+         "plain_meaning": "समय और इस्तेमाल के साथ ठीक बने रहने की क्षमता",
+         "everyday_image": "पुराना सिक्का बचा रहे, नोट फट जाए"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Money may need to be held and passed on repeatedly.",
+         "basis": "standard"
+        },
+        {
+         "step": "Physical wear or technological dependence affects that convenience.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "A torn note and access to a digital bank balance.",
+       "consequence": "Different monetary forms require different safeguards.",
+       "visual_verb": "Contrast wear on paper with technology supporting a digital record.",
+       "level_extra": "A temporary network failure is not itself disappearance of the bank balance."
+      }
+     },
+     {
+      "item_id": "i10",
+      "kind": "table_row",
+      "parent_item_id": "i1",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "top table, body row 8",
+      "content": "ASPECT: DIVISIBILITY | INTRINSIC VALUE OF MONEY (Commodity / Metallic Money): Difficult | EXTRINSIC VALUE OF MONEY (Fiat / Paper / Digital Money): Easy",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How is divisibility contrasted?",
+        "answer": "The table calls intrinsic money difficult to divide and extrinsic money easy to divide.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "What does dividing money mean in transactions?",
+        "answer": "It means making smaller-value payments, not necessarily cutting a physical object into pieces.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why does cattle illustrate the problem better than every metallic form?",
+        "answer": "A live animal cannot conveniently be split for small purchases without losing its function, whereas metals can be divided and minted into denominations. The table's difficulty is not equally strong for every example.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "small-value payments",
+       "denominations"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Divisibility means usable smaller monetary units; avoid absolute claims about metals.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Divisibility",
+         "plain_meaning": "छोटे मूल्य के भुगतान कर पाने की सुविधा",
+         "everyday_image": "छोटी खरीद के बदले आधी गाय देना संभव नहीं"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Purchases have different prices, including small ones.",
+         "basis": "standard"
+        },
+        {
+         "step": "Convenient smaller units reduce the difficulty of matching payment to price.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Paying a small amount from a bank balance.",
+       "consequence": "Divisibility improves day-to-day exchange.",
+       "visual_verb": "Break a payment amount into smaller units without cutting an animal.",
+       "level_extra": "Dividing value is different from physically tearing a note."
+      }
+     },
+     {
+      "item_id": "i11",
+      "kind": "table_row",
+      "parent_item_id": "i1",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "top table, body row 9",
+      "content": "ASPECT: PORTABILITY | INTRINSIC VALUE OF MONEY (Commodity / Metallic Money): Difficult (Bulky / Heavy) | EXTRINSIC VALUE OF MONEY (Fiat / Paper / Digital Money): Easy",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "What portability difference does the table identify?",
+        "answer": "Intrinsic money can be bulky or heavy and difficult to carry; extrinsic money is described as easy to carry or use.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "How does portability differ from divisibility?",
+        "answer": "Portability concerns moving or transferring value conveniently; divisibility concerns making smaller payments.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why does portability matter for trade?",
+        "answer": "Transporting payment goods adds effort and cost. Lightweight currency or electronic transfers can reduce the physical burden.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "payment",
+       "transport of goods"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Distinguish transport convenience from ability to pay in small units.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Portability",
+         "plain_meaning": "कीमत को एक जगह से दूसरी जगह ले जाने की आसानी",
+         "everyday_image": "अनाज की बोरी ढोना बनाम जेब में नोट रखना"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "People need to pay beyond their immediate location.",
+         "basis": "standard"
+        },
+        {
+         "step": "Less physical bulk makes moving value easier.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Carrying cattle compared with carrying notes.",
+       "consequence": "More convenient payment supports wider exchange.",
+       "visual_verb": "Replace a heavy load with a note or transfer.",
+       "level_extra": "Electronic convenience still depends on usable infrastructure."
+      }
+     },
+     {
+      "item_id": "i12",
+      "kind": "table_row",
+      "parent_item_id": "i1",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "top table, body row 10",
+      "content": "ASPECT: EXAMPLE IN CONTEXT | INTRINSIC VALUE OF MONEY (Commodity / Metallic Money): Metal Coins, Gold Bullion | EXTRINSIC VALUE OF MONEY (Fiat / Paper / Digital Money): Rupee Notes, Bank Balance, UPI",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "Which contextual examples are printed?",
+        "answer": "Metal coins and gold bullion appear under intrinsic money; rupee notes, bank balance and UPI under extrinsic money.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "How do bank balance and UPI differ?",
+        "answer": "A bank balance is a monetary claim recorded at a bank; UPI is a payment system used to transfer funds, not a separate stock of money.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How should the metal-coin example be qualified?",
+        "answer": "It illustrates intrinsic value when the coin's metal is materially valuable; a modern token coin's denomination need not equal its metal value.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "bank balance",
+       "payment system",
+       "metal value"
+      ],
+      "exam_importance": "high",
+      "exam_note": "UPI is a payment system; distinguish a transfer mechanism from the money transferred.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Gold Bullion",
+         "plain_meaning": "सोना जिसे मुख्यतः उसके वजन और शुद्धता की कीमत पर रखा जाता है",
+         "everyday_image": "सोने की छड़ पर वजन और शुद्धता लिखी हो"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Daily-life examples can blur money and the tools used to move it.",
+         "basis": "standard"
+        },
+        {
+         "step": "Separate gold material, bank balances and the UPI transfer channel.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "A UPI purchase paid from a bank account.",
+       "consequence": "A payment channel does not become a separate currency merely because it is digital.",
+       "visual_verb": "Move funds between account boxes along a UPI arrow.",
+       "level_extra": "Preserve the book's placement but explain the instrument–channel distinction."
+      }
+     },
+     {
+      "item_id": "i13",
+      "kind": "diagram",
+      "parent_item_id": "",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "middle panel",
+      "content": "EVOLUTION OF MONEY. Six illustrated stages connected by five right-pointing arrows: 1. BARTER (people exchanging wheat and cloth) → 2. COMMODITY MONEY (salt, cattle and shells) → 3. METALLIC MONEY (gold and silver coins) → 4. PAPER MONEY (currency notes) → 5. BANK MONEY (bank building, cheque and pen) → 6. DIGITAL MONEY (phone showing UPI and a payment card). Each stage has its name and an example caption below.",
+      "content_type": "timeline",
+      "type_note": "Arrows show a developmental sequence, without dates.",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "when",
+        "question": "In what order does the page place the forms of exchange?",
+        "answer": "Barter comes first, followed by commodity, metallic, paper, bank and digital money. No dates are supplied.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "why",
+        "question": "Why is the sequence useful for understanding money?",
+        "answer": "It links direct exchange to forms that can make storing, carrying and transferring purchasing power more convenient.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "exception",
+        "question": "Do the arrows prove that each later form completely replaced the previous one?",
+        "answer": "No. This is a schematic teaching sequence; monetary forms and barter can coexist, and historical paths differ.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "exchange",
+       "money as a medium of exchange"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Know the order and examples without inventing dates or universal replacement.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Evolution of Money",
+         "plain_meaning": "लेन-देन के तरीकों और पैसे के रूपों का समय के साथ बदलना",
+         "everyday_image": "अनाज के बदले कपड़ा देने से फोन द्वारा भुगतान तक की पट्टी"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Direct exchange and bulky payment objects create practical difficulties.",
+         "basis": "standard"
+        },
+        {
+         "step": "The sequence introduces progressively different ways to represent and transfer value.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Wheat-for-cloth exchange through to UPI.",
+       "consequence": "The text below begins by examining the first stage in detail.",
+       "visual_verb": "Follow five rightward arrows through six stages.",
+       "level_extra": "Distinguish historical ordering from an inevitable universal ladder."
+      }
+     },
+     {
+      "item_id": "i14",
+      "kind": "diagram_label",
+      "parent_item_id": "i13",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "evolution diagram, stage 1 at left",
+      "content": "1. BARTER — Wheat exchanged for cloth. The label points to two people exchanging wheat and cloth; the outgoing arrow leads to commodity money.",
+      "content_type": "timeline",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "when",
+        "question": "Where does barter appear in the sequence?",
+        "answer": "It is the first stage, before commodity money.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "why",
+        "question": "Why is wheat-for-cloth an example of barter?",
+        "answer": "The participants exchange the goods they want directly, rather than using a separate monetary intermediary.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does this example prepare for double coincidence of wants?",
+        "answer": "The wheat-holder must want cloth and the cloth-holder must want wheat for this direct swap to suit both.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "goods",
+       "direct exchange"
+      ],
+      "exam_importance": "high",
+      "exam_note": "A direct goods-for-goods swap is barter, not automatically commodity money.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Barter",
+         "plain_meaning": "बिना पैसे के एक चीज़ या सेवा के बदले दूसरी लेना",
+         "everyday_image": "गेहूँ की पोटली देकर कपड़ा लेना"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Each party needs something held by the other.",
+         "basis": "standard"
+        },
+        {
+         "step": "They can swap directly when their wants match.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Wheat exchanged for cloth.",
+       "consequence": "Direct exchange creates a matching problem.",
+       "visual_verb": "Swap wheat and cloth in opposite directions.",
+       "level_extra": "Identify the absence of an intermediary rather than merely the presence of goods."
+      }
+     },
+     {
+      "item_id": "i15",
+      "kind": "diagram_label",
+      "parent_item_id": "i13",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "evolution diagram, stage 2",
+      "content": "2. COMMODITY MONEY — Salt, cattle, shells. The label points to a salt sack, cattle and shells; arrows connect barter to this stage and this stage to metallic money.",
+      "content_type": "timeline",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "when",
+        "question": "Where is commodity money placed?",
+        "answer": "Second, between barter and metallic money, with salt, cattle and shells as examples.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "why",
+        "question": "Why is a commodity used as money different from a direct barter good?",
+        "answer": "A commodity functions as money when it is accepted as an intermediary in exchange, rather than being received simply for the recipient's immediate use.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can a common commodity reduce the matching problem?",
+        "answer": "A seller may accept it expecting to exchange it later, even when the buyer does not offer the particular final good the seller wants.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "barter",
+       "medium of exchange"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Metallic money can also be understood as a form of commodity money despite being a separate stage here.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Commodity Money",
+         "plain_meaning": "कोई चीज़ जिसे लोग आगे भुगतान में भी लेने लगें",
+         "everyday_image": "नमक लेकर उसे आगे किसी और चीज़ के बदले देना"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "A direct trading partner may not have the desired final good.",
+         "basis": "standard"
+        },
+        {
+         "step": "A commonly accepted commodity can act as an intermediate payment.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Salt, cattle and shells.",
+       "consequence": "Exchange can move beyond a single direct swap.",
+       "visual_verb": "Insert a common commodity between two exchanges.",
+       "level_extra": "Distinguish use as money from mere exchange of a commodity."
+      }
+     },
+     {
+      "item_id": "i16",
+      "kind": "diagram_label",
+      "parent_item_id": "i13",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "evolution diagram, stage 3",
+      "content": "3. METALLIC MONEY — Gold and silver coins. The label points to two illustrated coins; arrows connect commodity money → metallic money → paper money.",
+      "content_type": "timeline",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "when",
+        "question": "Where are gold and silver coins placed?",
+        "answer": "They illustrate the third stage, metallic money, after commodity money and before paper money.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "why",
+        "question": "Why can metals serve as useful monetary materials?",
+        "answer": "Precious metals combine durability and material value, and can be formed into standard units for exchange.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does this stage connect to the intrinsic-value comparison?",
+        "answer": "The gold or silver in a full-bodied coin has value apart from the coin's use in payment.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "commodity money",
+       "material value",
+       "coin"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Gold and silver coins are the printed examples; do not generalise to every modern coin.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Metallic Money",
+         "plain_meaning": "धातु के रूप में इस्तेमाल होने वाला पैसा",
+         "everyday_image": "सोने और चाँदी के सिक्के"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Payment goods need to survive repeated handling.",
+         "basis": "standard"
+        },
+        {
+         "step": "Metal can be durable and shaped into recognisable units.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Gold and silver coins.",
+       "consequence": "Links the evolution sequence to material-value money.",
+       "visual_verb": "Form metal into coins and move to the next arrow.",
+       "level_extra": "Metallic form alone does not establish full intrinsic monetary value."
+      }
+     },
+     {
+      "item_id": "i17",
+      "kind": "diagram_label",
+      "parent_item_id": "i13",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "evolution diagram, stage 4",
+      "content": "4. PAPER MONEY — Currency notes. The label points to a fan of currency notes, with a ₹500 note visible at the front; arrows connect metallic money → paper money → bank money.",
+      "content_type": "timeline",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "when",
+        "question": "Where are currency notes placed in the sequence?",
+        "answer": "They illustrate paper money, fourth, after metallic money and before bank money.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "why",
+        "question": "Why are notes useful compared with carrying heavy payment materials?",
+        "answer": "A relatively light note can represent purchasing power without requiring the holder to carry an equivalent weight of a valuable commodity.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does the table explain the value of paper money?",
+        "answer": "It places paper money under extrinsic value, supported by trust and authority backing rather than the paper's own material worth.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "currency note",
+       "extrinsic value"
+      ],
+      "exam_importance": "high",
+      "exam_note": "A printed denomination is not the material value of the paper.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Paper Money",
+         "plain_meaning": "नोट के रूप में चलने वाला पैसा",
+         "everyday_image": "बटुए में रखा रुपये का नोट"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Carrying heavy payment objects is inconvenient.",
+         "basis": "standard"
+        },
+        {
+         "step": "Recognised currency notes provide a lighter monetary form.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "The illustrated ₹500 note.",
+       "consequence": "Monetary value becomes visibly separate from the substrate's value.",
+       "visual_verb": "Replace a heavy payment load with notes.",
+       "level_extra": "The illustration's denomination is an example, not a historical date or stage boundary."
+      }
+     },
+     {
+      "item_id": "i18",
+      "kind": "diagram_label",
+      "parent_item_id": "i13",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "evolution diagram, stage 5",
+      "content": "5. BANK MONEY — Cheques and deposits. The label points to a bank building marked BANK, a cheque and a pen; arrows connect paper money → bank money → digital money.",
+      "content_type": "timeline",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "when",
+        "question": "Where does bank money appear and what examples accompany it?",
+        "answer": "It is fifth, between paper and digital money, illustrated by cheques and deposits.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "why",
+        "question": "Why must cheques and deposits be distinguished?",
+        "answer": "A deposit is a bank liability held as a balance; a cheque is an instruction used to make a payment from an account. The cheque is not itself the deposit balance.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can bank money support payment without handing over cash?",
+        "answer": "Payment can transfer bank-account claims between parties through banking arrangements rather than physical currency changing hands.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "bank account",
+       "bank deposit",
+       "cash"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Distinguish the balance from an instruction to transfer it.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Cheques",
+         "plain_meaning": "बैंक को खाते से भुगतान करने का लिखित निर्देश",
+         "everyday_image": "भरे हुए cheque पर हस्ताक्षर करना"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "A person may wish to pay without withdrawing and carrying cash.",
+         "basis": "standard"
+        },
+        {
+         "step": "A bank deposit can support payment through instructions such as a cheque.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "An account holder issuing a cheque.",
+       "consequence": "Prepares the distinction between monetary balances and transfer methods.",
+       "visual_verb": "Use a cheque instruction to shift account balances.",
+       "level_extra": "The diagram groups related banking elements rather than declaring cheque and deposit identical."
+      }
+     },
+     {
+      "item_id": "i19",
+      "kind": "diagram_label",
+      "parent_item_id": "i13",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "evolution diagram, stage 6 at right",
+      "content": "6. DIGITAL MONEY — UPI, net banking, cards. The label points to a phone showing UPI and a QR code, with payment cards beside it; the incoming arrow is from bank money.",
+      "content_type": "timeline",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "when",
+        "question": "Which stage ends the page's sequence?",
+        "answer": "Digital money is sixth, illustrated by UPI, net banking and cards.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "why",
+        "question": "Why should these examples be taught as digital payment methods rather than automatically separate currencies?",
+        "answer": "UPI, net banking and cards provide ways to access or transfer funds. Their use does not by itself create a new currency or a distinct monetary balance.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does a digital payment relate to bank money?",
+        "answer": "Many such payments transfer existing bank deposits electronically, so the digital and bank-money stages overlap in practice.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "bank balance",
+       "electronic transfer",
+       "payment instruction"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Do not equate UPI, cards and net banking with a distinct digital currency.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Digital Money",
+         "plain_meaning": "यहाँ डिजिटल तरीके से इस्तेमाल या भेजे जाने वाले पैसे का व्यापक नाम",
+         "everyday_image": "फोन से QR scan करके बैंक खाते से भुगतान"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "People need to initiate payments without exchanging notes or a paper cheque.",
+         "basis": "standard"
+        },
+        {
+         "step": "Electronic channels can communicate payment instructions and transfer balances.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "UPI, net banking and cards.",
+       "consequence": "The channel changes even when the underlying money remains a bank deposit.",
+       "visual_verb": "Scan a QR code and transfer a balance between accounts.",
+       "level_extra": "Do not infer that digital payment and central-bank digital currency are synonyms."
+      }
+     },
+     {
+      "item_id": "i20",
+      "kind": "heading",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0002-b0002"
+      ],
+      "where_on_page": "below evolution diagram",
+      "content": "Barter System",
+      "content_type": "none",
+      "type_note": "",
+      "teachable": false,
+      "teacher_understanding": [],
+      "prerequisites": [],
+      "exam_importance": "high",
+      "exam_note": "Section heading.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [],
+       "why_chain": [],
+       "example_or_place": "",
+       "consequence": "",
+       "visual_verb": "",
+       "level_extra": ""
+      }
+     },
+     {
+      "item_id": "i21",
+      "kind": "definition",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0002-b0003",
+       "p0002-b0004"
+      ],
+      "where_on_page": "first bullet beneath Barter System",
+      "content": "• The barter system is a method of exchange in which goods and services are directly exchanged for other goods and services without using a medium of exchange.",
+      "content_type": "definition",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What makes an exchange barter?",
+        "answer": "Goods or services are exchanged directly for other goods or services, without an intervening medium of exchange.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "evidence",
+        "question": "Which example on the page demonstrates the definition?",
+        "answer": "The diagram shows wheat exchanged for cloth, with neither party paying money.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does barter differ from two monetary transactions?",
+        "answer": "In barter the desired goods or services directly change hands; with money, a person can sell to one party and later buy from another.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why does the definition mention services as well as goods?",
+        "answer": "The exchange need not involve two physical objects; work can be exchanged directly for another service or a good.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "goods versus services",
+       "exchange",
+       "medium of exchange"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Barter includes services and is defined by direct exchange, not merely by old-fashioned trade.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Medium of exchange",
+         "plain_meaning": "बीच में ली जाने वाली चीज़ जिससे आगे अपनी ज़रूरत की चीज़ खरीदी जाए",
+         "everyday_image": "गेहूँ बेचकर रुपये लेना और उन्हीं रुपयों से कपड़ा खरीदना"
+        },
+        {
+         "term": "Directly exchanged",
+         "plain_meaning": "बीच में पैसा लिए बिना आपस में चीज़ या काम बदलना",
+         "everyday_image": "पड़ोसी की मरम्मत के बदले उससे पढ़ाई में मदद लेना"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Two people hold different things or skills that the other needs.",
+         "basis": "standard"
+        },
+        {
+         "step": "If they exchange these directly without an intermediary, the transaction is barter.",
+         "basis": "book"
+        }
+       ],
+       "example_or_place": "Wheat exchanged for cloth in the diagram.",
+       "consequence": "The definition leads to no-money exchange and the need to match wants.",
+       "visual_verb": "Cross goods or service arrows directly between two people.",
+       "level_extra": "Test the presence of an intermediary, not whether an exchange has economic value."
+      }
+     },
+     {
+      "item_id": "i22",
+      "kind": "heading",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0002-b0005"
+      ],
+      "where_on_page": "below barter definition",
+      "content": "Features",
+      "content_type": "none",
+      "type_note": "",
+      "teachable": false,
+      "teacher_understanding": [],
+      "prerequisites": [],
+      "exam_importance": "medium",
+      "exam_note": "Introduces four features.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [],
+       "why_chain": [],
+       "example_or_place": "",
+       "consequence": "",
+       "visual_verb": "",
+       "level_extra": ""
+      }
+     },
+     {
+      "item_id": "i23",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0002-b0006"
+      ],
+      "where_on_page": "Features, bullet 1",
+      "content": "• No use of money",
+      "content_type": "facts_numbers",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is absent from barter transactions?",
+        "answer": "Money is not used as the means of payment.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "evidence",
+        "question": "How does the page establish this feature?",
+        "answer": "Its definition excludes a medium of exchange, and its diagram exchanges wheat directly for cloth.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why does no money not mean no value?",
+        "answer": "The parties still give up something to obtain something else; they can negotiate an exchange ratio even without a cash payment.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "money as payment",
+       "exchange ratio"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Absence of money does not imply free distribution or absence of valuation.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [],
+       "why_chain": [
+        {
+         "step": "The parties still need a way to obtain one another's goods.",
+         "basis": "standard"
+        },
+        {
+         "step": "Barter settles this by direct exchange instead of monetary payment.",
+         "basis": "book"
+        }
+       ],
+       "example_or_place": "Wheat paid in return for cloth.",
+       "consequence": "An exchange can have a cost without involving money.",
+       "visual_verb": "Remove the money arrow but keep the reciprocal goods arrows.",
+       "level_extra": "Distinguish barter from a one-way gift."
+      }
+     },
+     {
+      "item_id": "i24",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0002-b0007"
+      ],
+      "where_on_page": "Features, bullet 2",
+      "content": "• Direct exchange of goods and services",
+      "content_type": "facts_numbers",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What changes hands in barter?",
+        "answer": "Goods and services are exchanged directly rather than through a monetary intermediary.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "evidence",
+        "question": "Where is direct exchange illustrated?",
+        "answer": "The first stage of the evolution diagram pairs wheat with cloth.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How could a service fit the same arrangement?",
+        "answer": "One person might repair an item in return for another person's tutoring, with the work itself constituting the exchange.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "goods",
+       "services",
+       "monetary intermediary"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Do not restrict barter to physical goods.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Services",
+         "plain_meaning": "किसी के लिए किया गया काम, न कि हाथ में दी जाने वाली चीज़",
+         "everyday_image": "पढ़ाना या साइकिल ठीक करना"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Needs may concern work as well as objects.",
+         "basis": "standard"
+        },
+        {
+         "step": "Directly exchanging either can satisfy the definition of barter.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Repair work exchanged for tutoring.",
+       "consequence": "The matching problem also applies to services.",
+       "visual_verb": "Swap work icons as well as goods icons.",
+       "level_extra": "Identify barter from transaction structure, not from the physical nature of the item."
+      }
+     },
+     {
+      "item_id": "i25",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0002-b0008"
+      ],
+      "where_on_page": "Features, bullet 3",
+      "content": "• Value is decided through mutual agreement",
+      "content_type": "facts_numbers",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "How is value settled in the barter arrangement described?",
+        "answer": "The participants decide it through mutual agreement.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "evidence",
+        "question": "What wording establishes the role of both parties?",
+        "answer": "The phrase 'mutual agreement' makes acceptance by both participants part of settling the exchange.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does this appear in a wheat-for-cloth trade?",
+        "answer": "The parties negotiate how much wheat is acceptable for a particular quantity of cloth; the example does not supply a fixed ratio.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why must agreement not be confused with equal benefit?",
+        "answer": "Agreeing to a trade does not establish equal bargaining power or an objectively equal gain for both parties.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "exchange ratio",
+       "negotiation"
+      ],
+      "exam_importance": "high",
+      "exam_note": "No common monetary price does not mean no agreed exchange ratio.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Mutual agreement",
+         "plain_meaning": "दोनों पक्षों का शर्तों पर राज़ी होना",
+         "everyday_image": "दो लोग तय करें कि कितने गेहूँ के बदले कितना कपड़ा देंगे"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Different goods need an agreed quantity relation before they can be exchanged.",
+         "basis": "standard"
+        },
+        {
+         "step": "The page says the parties settle value by mutual agreement.",
+         "basis": "book"
+        }
+       ],
+       "example_or_place": "Negotiating quantities of wheat and cloth.",
+       "consequence": "Barter involves valuation and bargaining even without money.",
+       "visual_verb": "Adjust quantities until both parties accept.",
+       "level_extra": "No invented numerical barter ratio is implied by the page."
+      }
+     },
+     {
+      "item_id": "i26",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0002-b0009"
+      ],
+      "where_on_page": "Features, bullet 4",
+      "content": "• Common in early civilizations. Still seen in limited informal exchanges",
+      "content_type": "timeline",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "when",
+        "question": "When does the page place barter?",
+        "answer": "It describes barter as common in early civilizations and still present in limited informal exchanges.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "why",
+        "question": "Why can barter still occur in an economy that uses money?",
+        "answer": "Two people may already possess complementary needs and agree on a direct swap, making money unnecessary for that particular exchange.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "consequence",
+        "question": "What follows for interpreting the evolution diagram?",
+        "answer": "The page's own mention of continuing barter shows that placing it first does not imply that it has vanished.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "barter",
+       "informal exchange",
+       "historical sequence"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Reject 'barter exists only in ancient societies'; no dates or named civilizations are supplied.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Informal exchanges",
+         "plain_meaning": "आपसी छोटे लेन-देन जो औपचारिक बाज़ार की तरह न हों",
+         "everyday_image": "दो पड़ोसी अपनी अतिरिक्त चीज़ें आपस में बदल लें"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Money is not necessary when two people's immediate needs already match.",
+         "basis": "standard"
+        },
+        {
+         "step": "This allows some direct swaps to continue alongside monetary exchange.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "A limited direct swap between neighbours.",
+       "consequence": "Older and newer exchange methods can coexist.",
+       "visual_verb": "Carry a small barter branch from the early stage into the present.",
+       "level_extra": "The page gives a broad historical statement, not evidence for a universal barter-first history."
+      }
+     },
+     {
+      "item_id": "i27",
+      "kind": "heading",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0002-b0010"
+      ],
+      "where_on_page": "near bottom, above final bullet",
+      "content": "Limitations:",
+      "content_type": "none",
+      "type_note": "",
+      "teachable": false,
+      "teacher_understanding": [],
+      "prerequisites": [],
+      "exam_importance": "high",
+      "exam_note": "Only the first limitation appears on this page.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [],
+       "why_chain": [],
+       "example_or_place": "",
+       "consequence": "",
+       "visual_verb": "",
+       "level_extra": ""
+      }
+     },
+     {
+      "item_id": "i28",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0002-b0011"
+      ],
+      "where_on_page": "last teaching bullet above footer",
+      "content": "• Double coincidence of wants: Both parties must want what other offers.",
+      "content_type": "cause_effect",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is double coincidence of wants?",
+        "answer": "Each of the two parties must want what the other offers for the direct exchange to meet their wants.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "why",
+        "question": "Why does this limit barter?",
+        "answer": "Wanting the other person's product is insufficient if that person does not also want yours; finding a suitable partner therefore takes additional search.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does the wheat-and-cloth example expose the problem?",
+        "answer": "A wheat-holder seeking cloth cannot complete the intended direct swap with a cloth-holder who wants something other than wheat.",
+        "basis": "outside"
+       },
+       {
+        "depth": 3,
+        "ask": "how",
+        "question": "How does a generally accepted medium of exchange reduce this requirement?",
+        "answer": "The wheat-holder can sell to someone who wants wheat and use the money to buy cloth from someone else. The same partner need not satisfy both sides of the original wants.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "consequence",
+        "question": "What remains necessary even if the two wants coincide?",
+        "answer": "The parties still need to agree on quantities and terms; a match of wants does not settle the exchange ratio by itself.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "direct barter",
+       "goods desired versus goods offered",
+       "mutual agreement",
+       "medium of exchange"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Core concept: both directions of desire must match, not simply two people wanting to trade.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Double coincidence of wants",
+         "plain_meaning": "मुझे तुम्हारी दी चीज़ चाहिए और तुम्हें मेरी दी चीज़ चाहिए—दोनों बातों का साथ मिलना",
+         "everyday_image": "गेहूँ वाला कपड़ा चाहे और कपड़े वाला उसी गेहूँ को चाहे"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "A person needs a good but can offer only a different good in direct exchange.",
+         "basis": "standard"
+        },
+        {
+         "step": "The partner must want that offered good too; otherwise the intended barter cannot proceed.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Wheat-holder wants cloth, but cloth-holder wants a different product.",
+       "consequence": "Matching and search difficulties help explain the usefulness of a common medium of exchange.",
+       "visual_verb": "Show two reciprocal want arrows; break one to block the swap.",
+       "level_extra": "Separate double coincidence from agreement on the exchange ratio; both matter but are different conditions."
+      }
+     }
+    ],
+    "boilerplate_block_ids": [
+     "p0002-b0001",
+     "p0002-b0012"
+    ],
+    "text_image_disagreements": []
+   },
+   "code_problems": [
+    "[code] item i2: the unpack uses textbook Hindi for the book's own terms (पदार्थ → substance); the learner hears the book's English term in Roman, never its Hindi translation (S1-15)"
+   ],
+   "observed": {
+    "type_check": [
+     {
+      "item_id": "i1",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": "The image-only table compares two sources of monetary value."
+     },
+     {
+      "item_id": "i2",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i3",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i4",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i5",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i6",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i7",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i8",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i9",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i10",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i11",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i12",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i13",
+      "ai_type": "timeline",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": "Arrows show a developmental sequence, without dates."
+     },
+     {
+      "item_id": "i14",
+      "ai_type": "timeline",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i15",
+      "ai_type": "timeline",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i16",
+      "ai_type": "timeline",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i17",
+      "ai_type": "timeline",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i18",
+      "ai_type": "timeline",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i19",
+      "ai_type": "timeline",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i20",
+      "ai_type": "none",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i21",
+      "ai_type": "definition",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i22",
+      "ai_type": "none",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i23",
+      "ai_type": "facts_numbers",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i24",
+      "ai_type": "facts_numbers",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i25",
+      "ai_type": "facts_numbers",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i26",
+      "ai_type": "timeline",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i27",
+      "ai_type": "none",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i28",
+      "ai_type": "cause_effect",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     }
+    ],
+    "type_summary": {
+     "code_silent": 11,
+     "follows_parent": 17
+    }
+   },
+   "passed": false,
+   "finished_at": 1793114762.684528
+  },
+  {
+   "round": 2,
+   "started_at": 1793114762.6851342,
+   "mode": "patch",
+   "patch": {
+    "notes": {
+     "about": "Corrected the learner-facing wording in item i2 without changing its teaching content.",
+     "key_questions": [
+      "How can intrinsic and extrinsic value be explained in everyday Hindi without textbook Hindi terminology?"
+     ],
+     "decisions": [
+      {
+       "decision": "Replaced पदार्थ in i2's unpack with everyday wording about what an object is made from.",
+       "reason": "Keeps the explanation accessible and preserves the book's English terms under S1-15."
+      }
+     ],
+     "uncertain": []
+    },
+    "replace_items": [
+     {
+      "item_id": "i2",
+      "kind": "table_row",
+      "parent_item_id": "i1",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "top table, header row",
+      "content": "ASPECT | INTRINSIC VALUE OF MONEY (Commodity / Metallic Money) | EXTRINSIC VALUE OF MONEY (Fiat / Paper / Digital Money)",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "Which forms does the table place under each source of value?",
+        "answer": "Commodity and metallic money appear under intrinsic value; fiat, paper and digital money appear under extrinsic value.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "What underlying distinction should guide the comparison?",
+        "answer": "Material usefulness or worth is different from value obtained through monetary acceptance and institutional backing.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why should a learner not classify money solely by whether it is metal or paper?",
+        "answer": "A modern token coin can have a monetary value greater than its metal value. The basis of value matters, not merely physical appearance.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "money as a medium of exchange",
+       "material value"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Avoid treating every metallic coin as full-bodied commodity money.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Intrinsic",
+         "plain_meaning": "चीज़ जिस सामग्री से बनी है, उसकी अपनी कीमत",
+         "everyday_image": "सोने का सिक्का, जिसका सोना भी बिक सकता है"
+        },
+        {
+         "term": "Extrinsic",
+         "plain_meaning": "चीज़ किससे बनी है उससे नहीं, लोगों के मानने और भरोसे से मिली कीमत",
+         "everyday_image": "नोट को उसके कागज़ के लिए नहीं लिया जाता"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "To understand money's value, separate the material from the monetary claim.",
+         "basis": "standard"
+        },
+        {
+         "step": "The table organises the forms of money around these two sources.",
+         "basis": "book"
+        }
+       ],
+       "example_or_place": "Gold versus a rupee note.",
+       "consequence": "The remaining rows test the distinction on different criteria.",
+       "visual_verb": "Separate material worth from accepted monetary value.",
+       "level_extra": "Physical form and source of value are not identical classifications."
+      }
+     }
+    ],
+    "remove_item_ids": [],
+    "boilerplate_block_ids": [
+     "p0002-b0001",
+     "p0002-b0012"
+    ],
+    "text_image_disagreements": []
+   },
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "bc5707ef2f39eb194ff1a7823c0b92b94dfc824909235dd0b16e61fec2d31e2f",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 24367,
+    "output_tokens": 611,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "This page contrasts intrinsic and extrinsic value, presents a six-stage evolution of money, and introduces barter and its first limitation.",
+    "key_questions": [
+     "Does money derive value from its material or from acceptance and institutional backing?",
+     "How do the two kinds compare in usability and value outside monetary exchange?",
+     "What sequence does the evolution diagram show?",
+     "How does barter work, and why does it require double coincidence of wants?"
+    ],
+    "decisions": [
+     {
+      "decision": "Read the table and evolution diagram entirely from the image.",
+      "reason": "Their substantive content is absent from the native text."
+     },
+     {
+      "decision": "Preserve the table's contrasts while qualifying broad claims in separate outside explanations.",
+      "reason": "Modern coins, bank deposits, legal tender and payment channels require distinctions to prevent misleading generalisations."
+     },
+     {
+      "decision": "Treat evolution as an undated schematic timeline, not universal historical replacement.",
+      "reason": "The arrows establish order but the page supplies neither dates nor a claim that earlier forms disappeared."
+     },
+     {
+      "decision": "Replaced पदार्थ in i2's unpack with everyday wording about what an object is made from.",
+      "reason": "Keeps the explanation accessible and preserves the book's English terms under S1-15."
+     }
+    ],
+    "uncertain": []
+   },
+   "output": {
+    "notes": {
+     "about": "This page contrasts intrinsic and extrinsic value, presents a six-stage evolution of money, and introduces barter and its first limitation.",
+     "key_questions": [
+      "Does money derive value from its material or from acceptance and institutional backing?",
+      "How do the two kinds compare in usability and value outside monetary exchange?",
+      "What sequence does the evolution diagram show?",
+      "How does barter work, and why does it require double coincidence of wants?"
+     ],
+     "decisions": [
+      {
+       "decision": "Read the table and evolution diagram entirely from the image.",
+       "reason": "Their substantive content is absent from the native text."
+      },
+      {
+       "decision": "Preserve the table's contrasts while qualifying broad claims in separate outside explanations.",
+       "reason": "Modern coins, bank deposits, legal tender and payment channels require distinctions to prevent misleading generalisations."
+      },
+      {
+       "decision": "Treat evolution as an undated schematic timeline, not universal historical replacement.",
+       "reason": "The arrows establish order but the page supplies neither dates nor a claim that earlier forms disappeared."
+      },
+      {
+       "decision": "Replaced पदार्थ in i2's unpack with everyday wording about what an object is made from.",
+       "reason": "Keeps the explanation accessible and preserves the book's English terms under S1-15."
+      }
+     ],
+     "uncertain": []
+    },
+    "page_summary": "Intrinsic money has material value; extrinsic money depends on trust and institutional backing. The page traces barter → commodity → metallic → paper → bank → digital money, then defines barter, its features and the double coincidence of wants problem.",
+    "items": [
+     {
+      "item_id": "i1",
+      "kind": "table",
+      "parent_item_id": "",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "upper half",
+      "content": "COMPARISON: INTRINSIC vs EXTRINSIC VALUE OF MONEY. Columns: ASPECT | INTRINSIC VALUE OF MONEY (Commodity / Metallic Money) | EXTRINSIC VALUE OF MONEY (Fiat / Paper / Digital Money). Rows compare basis of value, source of value, inherent worth, value if not used as money, examples, acceptability, durability, divisibility, portability and example in context.",
+      "content_type": "comparison",
+      "type_note": "The image-only table compares two sources of monetary value.",
+      "teachable": false,
+      "teacher_understanding": [],
+      "prerequisites": [],
+      "exam_importance": "high",
+      "exam_note": "Children preserve each comparison criterion.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [],
+       "why_chain": [],
+       "example_or_place": "",
+       "consequence": "",
+       "visual_verb": "",
+       "level_extra": ""
+      }
+     },
+     {
+      "item_id": "i2",
+      "kind": "table_row",
+      "parent_item_id": "i1",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "top table, header row",
+      "content": "ASPECT | INTRINSIC VALUE OF MONEY (Commodity / Metallic Money) | EXTRINSIC VALUE OF MONEY (Fiat / Paper / Digital Money)",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "Which forms does the table place under each source of value?",
+        "answer": "Commodity and metallic money appear under intrinsic value; fiat, paper and digital money appear under extrinsic value.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "What underlying distinction should guide the comparison?",
+        "answer": "Material usefulness or worth is different from value obtained through monetary acceptance and institutional backing.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why should a learner not classify money solely by whether it is metal or paper?",
+        "answer": "A modern token coin can have a monetary value greater than its metal value. The basis of value matters, not merely physical appearance.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "money as a medium of exchange",
+       "material value"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Avoid treating every metallic coin as full-bodied commodity money.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Intrinsic",
+         "plain_meaning": "चीज़ जिस सामग्री से बनी है, उसकी अपनी कीमत",
+         "everyday_image": "सोने का सिक्का, जिसका सोना भी बिक सकता है"
+        },
+        {
+         "term": "Extrinsic",
+         "plain_meaning": "चीज़ किससे बनी है उससे नहीं, लोगों के मानने और भरोसे से मिली कीमत",
+         "everyday_image": "नोट को उसके कागज़ के लिए नहीं लिया जाता"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "To understand money's value, separate the material from the monetary claim.",
+         "basis": "standard"
+        },
+        {
+         "step": "The table organises the forms of money around these two sources.",
+         "basis": "book"
+        }
+       ],
+       "example_or_place": "Gold versus a rupee note.",
+       "consequence": "The remaining rows test the distinction on different criteria.",
+       "visual_verb": "Separate material worth from accepted monetary value.",
+       "level_extra": "Physical form and source of value are not identical classifications."
+      }
+     },
+     {
+      "item_id": "i3",
+      "kind": "table_row",
+      "parent_item_id": "i1",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "top table, body row 1",
+      "content": "ASPECT: BASIS OF VALUE | INTRINSIC VALUE OF MONEY (Commodity / Metallic Money): Intrinsic / Natural | EXTRINSIC VALUE OF MONEY (Fiat / Paper / Digital Money): Trust / Legally Enforced",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "What basis of value does each column identify?",
+        "answer": "Intrinsic money rests on intrinsic or natural value; extrinsic money rests on trust or legal enforcement.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "How is trusting a note different from valuing gold?",
+        "answer": "A note is accepted for what it can obtain in exchange rather than for the usefulness of its paper; gold can also be valued as a material.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why does trust support monetary exchange?",
+        "answer": "A receiver accepts money more readily when expecting others to accept it in subsequent transactions.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "acceptance in exchange",
+       "material value"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Distinguish material worth from trust and legal recognition.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Trust",
+         "plain_meaning": "भरोसा कि आगे दूसरा व्यक्ति भी इसे लेगा",
+         "everyday_image": "दुकानदार नोट लेता है क्योंकि उससे आगे सामान खरीद सकेगा"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "A seller needs confidence that what is received will be useful.",
+         "basis": "standard"
+        },
+        {
+         "step": "That confidence can rest on the material itself or on accepted monetary status.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Accepting a rupee note at a shop.",
+       "consequence": "Low material value need not mean low monetary value.",
+       "visual_verb": "Pass a note between successive buyers and sellers.",
+       "level_extra": "Legal recognition and public confidence are related but distinct supports."
+      }
+     },
+     {
+      "item_id": "i4",
+      "kind": "table_row",
+      "parent_item_id": "i1",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "top table, body row 2",
+      "content": "ASPECT: SOURCE OF VALUE | INTRINSIC VALUE OF MONEY (Commodity / Metallic Money): Own Material Value | EXTRINSIC VALUE OF MONEY (Fiat / Paper / Digital Money): Government / Authority Backing",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "Where does each category's value come from in the table?",
+        "answer": "Intrinsic money has its own material value; extrinsic money is associated with government or authority backing.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "How does backing differ from material value?",
+        "answer": "Backing concerns the institutional arrangements supporting monetary acceptance; material value concerns what the substance itself is worth.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How should 'authority backing' be understood without assuming gold convertibility?",
+        "answer": "Institutional support may establish and sustain a currency's use without promising redemption into gold. Bank deposits also involve claims on banks rather than being identical to government-issued notes.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "currency",
+       "government recognition",
+       "bank deposits"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Fiat backing does not imply precious-metal backing.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Government / Authority Backing",
+         "plain_meaning": "पैसे की मान्यता को सरकार या संबंधित संस्था का सहारा",
+         "everyday_image": "कागज़ का टुकड़ा नहीं, पहचाना हुआ रुपये का नोट"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Paper alone cannot explain a note's purchasing value.",
+         "basis": "standard"
+        },
+        {
+         "step": "The table points instead to institutional backing.",
+         "basis": "book"
+        }
+       ],
+       "example_or_place": "Rupee notes and bank balances.",
+       "consequence": "Do not infer that every monetary claim has identical backing.",
+       "visual_verb": "Contrast a gold material tag with an institutional support tag.",
+       "level_extra": "Separate fiat currency from commercial-bank liabilities."
+      }
+     },
+     {
+      "item_id": "i5",
+      "kind": "table_row",
+      "parent_item_id": "i1",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "top table, body row 3",
+      "content": "ASPECT: INHERENT WORTH | INTRINSIC VALUE OF MONEY (Commodity / Metallic Money): Present | EXTRINSIC VALUE OF MONEY (Fiat / Paper / Digital Money): Not Present",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How does inherent worth differ across the columns?",
+        "answer": "The table marks inherent worth as present for intrinsic money and not present for extrinsic money.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "Does absence of inherent worth mean absence of purchasing power?",
+        "answer": "No. Purchasing power depends on what money obtains in exchange, not on whether its physical material has comparable independent worth.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is this distinction necessary?",
+        "answer": "Otherwise a learner could incorrectly conclude that paper or digital money is valueless simply because its material does not account for its monetary value.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "purchasing power",
+       "material value"
+      ],
+      "exam_importance": "high",
+      "exam_note": "No intrinsic worth does not mean no monetary value.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Inherent worth",
+         "plain_meaning": "पैसे की पहचान हटाने पर भी चीज़ की अपनी कीमत",
+         "everyday_image": "गहना बनाने लायक सोना"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "We need to distinguish what an object is worth from what it buys as money.",
+         "basis": "standard"
+        },
+        {
+         "step": "The table reserves inherent worth for the material-value side.",
+         "basis": "book"
+        }
+       ],
+       "example_or_place": "A note's paper versus gold in a coin.",
+       "consequence": "Monetary value and material value must be kept separate.",
+       "visual_verb": "Split one object into material and purchasing-value labels.",
+       "level_extra": "Read 'not present' as no material worth explaining monetary value, not literally no possible scrap value."
+      }
+     },
+     {
+      "item_id": "i6",
+      "kind": "table_row",
+      "parent_item_id": "i1",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "top table, body row 4",
+      "content": "ASPECT: VALUE IF NOT USED AS MONEY | INTRINSIC VALUE OF MONEY (Commodity / Metallic Money): Retains Value | EXTRINSIC VALUE OF MONEY (Fiat / Paper / Digital Money): Nil Value",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "What happens if monetary use is removed, according to the table?",
+        "answer": "Intrinsic money retains value, whereas extrinsic money is described as having nil value.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "What does this counterfactual reveal?",
+        "answer": "It asks whether demand survives for the object as a commodity rather than as a means of payment.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why must 'Nil Value' be read carefully?",
+        "answer": "The intended contrast concerns non-monetary material value. Scrap or collectible value can exist, so it should not be treated as a literal claim covering every object and circumstance.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "monetary use",
+       "non-monetary uses of commodities"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Use the removal-of-monetary-status test to distinguish the concepts.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Retains Value",
+         "plain_meaning": "पैसे की तरह न चलने पर भी काम और कीमत बचना",
+         "everyday_image": "नमक खरीदारी में न चले, फिर भी खाने में काम आता है"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Imagine that people stop accepting an object in payment.",
+         "basis": "standard"
+        },
+        {
+         "step": "An independent commodity use can still sustain demand for it.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Gold used in jewellery rather than payment.",
+       "consequence": "This is a practical conceptual test, not a claim about constant prices.",
+       "visual_verb": "Remove the money badge and retain the commodity-use badge.",
+       "level_extra": "Retains value does not mean retains exactly the same market price."
+      }
+     },
+     {
+      "item_id": "i7",
+      "kind": "table_row",
+      "parent_item_id": "i1",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "top table, body row 5",
+      "content": "ASPECT: EXAMPLES | INTRINSIC VALUE OF MONEY (Commodity / Metallic Money): Gold, Silver, Salt, Cattle, Cowrie Shells | EXTRINSIC VALUE OF MONEY (Fiat / Paper / Digital Money): Currency Notes, Bank Deposits, Digital Money",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "Which examples belong to each column?",
+        "answer": "Gold, silver, salt, cattle and cowrie shells are listed as intrinsic examples; currency notes, bank deposits and digital money as extrinsic examples.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "What connects the examples within each column?",
+        "answer": "The first column treats objects or commodities as money; the second groups monetary instruments whose value is not explained by the worth of their physical material.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why should cowrie shells not be treated as if they were identical to gold?",
+        "answer": "Historical commodity monies differed in usefulness, scarcity and customary acceptance. The table groups them for the broad contrast, not because their sources and stability of value were identical.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "commodity",
+       "currency note",
+       "bank deposit"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Suitable for matching and odd-one-out questions; preserve all examples.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Cowrie Shells",
+         "plain_meaning": "कौड़ियाँ, जिन्हें कुछ जगह लेन-देन में लिया जाता था",
+         "everyday_image": "छोटी चमकीली कौड़ियों की ढेरी"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "A classification becomes usable when tied to recognisable examples.",
+         "basis": "standard"
+        },
+        {
+         "step": "The page contrasts commodity objects with notes, deposits and digital forms.",
+         "basis": "book"
+        }
+       ],
+       "example_or_place": "Salt and cattle versus a bank deposit.",
+       "consequence": "Examples reinforce the value-source distinction.",
+       "visual_verb": "Sort all eight named examples into two columns.",
+       "level_extra": "Memorise the page's examples without assuming identical properties within a group."
+      }
+     },
+     {
+      "item_id": "i8",
+      "kind": "table_row",
+      "parent_item_id": "i1",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "top table, body row 6",
+      "content": "ASPECT: ACCEPTABILITY | INTRINSIC VALUE OF MONEY (Commodity / Metallic Money): Limited (by Utility & Availability) | EXTRINSIC VALUE OF MONEY (Fiat / Paper / Digital Money): Wide (by Legal Tender & Trust)",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How does the table contrast acceptability?",
+        "answer": "Intrinsic money has limited acceptability linked to utility and availability; extrinsic money has wide acceptability linked to legal tender and trust.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "How does accepting a useful commodity differ from accepting common currency?",
+        "answer": "Commodity acceptance can depend on local demand for that object, while currency can be accepted because recipients expect to spend it widely.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is legal tender not a description of every item in the extrinsic column?",
+        "answer": "Legal-tender status is a specific legal property. Bank deposits and payment services should not automatically be assigned the same legal-tender status as currency notes.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "acceptance in exchange",
+       "legal recognition of currency"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Wide acceptability is not identical to legal-tender status; gold can also be widely accepted.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Acceptability",
+         "plain_meaning": "कितने लोग इसे भुगतान में लेने को तैयार हैं",
+         "everyday_image": "एक दुकान नमक लेने से मना करे, लेकिन रुपये ले ले"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "A payment object must be acceptable to the seller.",
+         "basis": "standard"
+        },
+        {
+         "step": "Trust in further spending can widen acceptance beyond direct personal usefulness.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Rupee payments across different kinds of shops.",
+       "consequence": "Common acceptance makes indirect exchange easier.",
+       "visual_verb": "Expand a network of accepting sellers.",
+       "level_extra": "The table gives a broad tendency, not a universal ranking of every commodity and currency."
+      }
+     },
+     {
+      "item_id": "i9",
+      "kind": "table_row",
+      "parent_item_id": "i1",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "top table, body row 7",
+      "content": "ASPECT: DURABILITY | INTRINSIC VALUE OF MONEY (Commodity / Metallic Money): Generally Durable | EXTRINSIC VALUE OF MONEY (Fiat / Paper / Digital Money): Varies (Paper perishable, Digital depends on Technology)",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "What durability contrast is printed?",
+        "answer": "Intrinsic money is generally durable; extrinsic money varies, with paper perishable and digital money dependent on technology.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "How do physical durability and digital dependence differ?",
+        "answer": "Physical durability concerns damage to an object; digital use concerns reliable records and the systems through which balances are accessed and transferred.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is the word 'generally' important?",
+        "answer": "Gold and silver are durable, but commodities such as cattle and salt face different biological or storage risks. The listed commodities do not share identical durability.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "physical wear",
+       "electronic bank records"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Do not turn 'generally durable' into 'all commodities are durable'.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Durability",
+         "plain_meaning": "समय और इस्तेमाल के साथ ठीक बने रहने की क्षमता",
+         "everyday_image": "पुराना सिक्का बचा रहे, नोट फट जाए"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Money may need to be held and passed on repeatedly.",
+         "basis": "standard"
+        },
+        {
+         "step": "Physical wear or technological dependence affects that convenience.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "A torn note and access to a digital bank balance.",
+       "consequence": "Different monetary forms require different safeguards.",
+       "visual_verb": "Contrast wear on paper with technology supporting a digital record.",
+       "level_extra": "A temporary network failure is not itself disappearance of the bank balance."
+      }
+     },
+     {
+      "item_id": "i10",
+      "kind": "table_row",
+      "parent_item_id": "i1",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "top table, body row 8",
+      "content": "ASPECT: DIVISIBILITY | INTRINSIC VALUE OF MONEY (Commodity / Metallic Money): Difficult | EXTRINSIC VALUE OF MONEY (Fiat / Paper / Digital Money): Easy",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How is divisibility contrasted?",
+        "answer": "The table calls intrinsic money difficult to divide and extrinsic money easy to divide.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "What does dividing money mean in transactions?",
+        "answer": "It means making smaller-value payments, not necessarily cutting a physical object into pieces.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why does cattle illustrate the problem better than every metallic form?",
+        "answer": "A live animal cannot conveniently be split for small purchases without losing its function, whereas metals can be divided and minted into denominations. The table's difficulty is not equally strong for every example.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "small-value payments",
+       "denominations"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Divisibility means usable smaller monetary units; avoid absolute claims about metals.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Divisibility",
+         "plain_meaning": "छोटे मूल्य के भुगतान कर पाने की सुविधा",
+         "everyday_image": "छोटी खरीद के बदले आधी गाय देना संभव नहीं"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Purchases have different prices, including small ones.",
+         "basis": "standard"
+        },
+        {
+         "step": "Convenient smaller units reduce the difficulty of matching payment to price.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Paying a small amount from a bank balance.",
+       "consequence": "Divisibility improves day-to-day exchange.",
+       "visual_verb": "Break a payment amount into smaller units without cutting an animal.",
+       "level_extra": "Dividing value is different from physically tearing a note."
+      }
+     },
+     {
+      "item_id": "i11",
+      "kind": "table_row",
+      "parent_item_id": "i1",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "top table, body row 9",
+      "content": "ASPECT: PORTABILITY | INTRINSIC VALUE OF MONEY (Commodity / Metallic Money): Difficult (Bulky / Heavy) | EXTRINSIC VALUE OF MONEY (Fiat / Paper / Digital Money): Easy",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "What portability difference does the table identify?",
+        "answer": "Intrinsic money can be bulky or heavy and difficult to carry; extrinsic money is described as easy to carry or use.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "How does portability differ from divisibility?",
+        "answer": "Portability concerns moving or transferring value conveniently; divisibility concerns making smaller payments.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why does portability matter for trade?",
+        "answer": "Transporting payment goods adds effort and cost. Lightweight currency or electronic transfers can reduce the physical burden.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "payment",
+       "transport of goods"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Distinguish transport convenience from ability to pay in small units.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Portability",
+         "plain_meaning": "कीमत को एक जगह से दूसरी जगह ले जाने की आसानी",
+         "everyday_image": "अनाज की बोरी ढोना बनाम जेब में नोट रखना"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "People need to pay beyond their immediate location.",
+         "basis": "standard"
+        },
+        {
+         "step": "Less physical bulk makes moving value easier.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Carrying cattle compared with carrying notes.",
+       "consequence": "More convenient payment supports wider exchange.",
+       "visual_verb": "Replace a heavy load with a note or transfer.",
+       "level_extra": "Electronic convenience still depends on usable infrastructure."
+      }
+     },
+     {
+      "item_id": "i12",
+      "kind": "table_row",
+      "parent_item_id": "i1",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "top table, body row 10",
+      "content": "ASPECT: EXAMPLE IN CONTEXT | INTRINSIC VALUE OF MONEY (Commodity / Metallic Money): Metal Coins, Gold Bullion | EXTRINSIC VALUE OF MONEY (Fiat / Paper / Digital Money): Rupee Notes, Bank Balance, UPI",
+      "content_type": "comparison",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "Which contextual examples are printed?",
+        "answer": "Metal coins and gold bullion appear under intrinsic money; rupee notes, bank balance and UPI under extrinsic money.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "How do bank balance and UPI differ?",
+        "answer": "A bank balance is a monetary claim recorded at a bank; UPI is a payment system used to transfer funds, not a separate stock of money.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How should the metal-coin example be qualified?",
+        "answer": "It illustrates intrinsic value when the coin's metal is materially valuable; a modern token coin's denomination need not equal its metal value.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "bank balance",
+       "payment system",
+       "metal value"
+      ],
+      "exam_importance": "high",
+      "exam_note": "UPI is a payment system; distinguish a transfer mechanism from the money transferred.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Gold Bullion",
+         "plain_meaning": "सोना जिसे मुख्यतः उसके वजन और शुद्धता की कीमत पर रखा जाता है",
+         "everyday_image": "सोने की छड़ पर वजन और शुद्धता लिखी हो"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Daily-life examples can blur money and the tools used to move it.",
+         "basis": "standard"
+        },
+        {
+         "step": "Separate gold material, bank balances and the UPI transfer channel.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "A UPI purchase paid from a bank account.",
+       "consequence": "A payment channel does not become a separate currency merely because it is digital.",
+       "visual_verb": "Move funds between account boxes along a UPI arrow.",
+       "level_extra": "Preserve the book's placement but explain the instrument–channel distinction."
+      }
+     },
+     {
+      "item_id": "i13",
+      "kind": "diagram",
+      "parent_item_id": "",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "middle panel",
+      "content": "EVOLUTION OF MONEY. Six illustrated stages connected by five right-pointing arrows: 1. BARTER (people exchanging wheat and cloth) → 2. COMMODITY MONEY (salt, cattle and shells) → 3. METALLIC MONEY (gold and silver coins) → 4. PAPER MONEY (currency notes) → 5. BANK MONEY (bank building, cheque and pen) → 6. DIGITAL MONEY (phone showing UPI and a payment card). Each stage has its name and an example caption below.",
+      "content_type": "timeline",
+      "type_note": "Arrows show a developmental sequence, without dates.",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "when",
+        "question": "In what order does the page place the forms of exchange?",
+        "answer": "Barter comes first, followed by commodity, metallic, paper, bank and digital money. No dates are supplied.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "why",
+        "question": "Why is the sequence useful for understanding money?",
+        "answer": "It links direct exchange to forms that can make storing, carrying and transferring purchasing power more convenient.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "exception",
+        "question": "Do the arrows prove that each later form completely replaced the previous one?",
+        "answer": "No. This is a schematic teaching sequence; monetary forms and barter can coexist, and historical paths differ.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "exchange",
+       "money as a medium of exchange"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Know the order and examples without inventing dates or universal replacement.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Evolution of Money",
+         "plain_meaning": "लेन-देन के तरीकों और पैसे के रूपों का समय के साथ बदलना",
+         "everyday_image": "अनाज के बदले कपड़ा देने से फोन द्वारा भुगतान तक की पट्टी"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Direct exchange and bulky payment objects create practical difficulties.",
+         "basis": "standard"
+        },
+        {
+         "step": "The sequence introduces progressively different ways to represent and transfer value.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Wheat-for-cloth exchange through to UPI.",
+       "consequence": "The text below begins by examining the first stage in detail.",
+       "visual_verb": "Follow five rightward arrows through six stages.",
+       "level_extra": "Distinguish historical ordering from an inevitable universal ladder."
+      }
+     },
+     {
+      "item_id": "i14",
+      "kind": "diagram_label",
+      "parent_item_id": "i13",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "evolution diagram, stage 1 at left",
+      "content": "1. BARTER — Wheat exchanged for cloth. The label points to two people exchanging wheat and cloth; the outgoing arrow leads to commodity money.",
+      "content_type": "timeline",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "when",
+        "question": "Where does barter appear in the sequence?",
+        "answer": "It is the first stage, before commodity money.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "why",
+        "question": "Why is wheat-for-cloth an example of barter?",
+        "answer": "The participants exchange the goods they want directly, rather than using a separate monetary intermediary.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does this example prepare for double coincidence of wants?",
+        "answer": "The wheat-holder must want cloth and the cloth-holder must want wheat for this direct swap to suit both.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "goods",
+       "direct exchange"
+      ],
+      "exam_importance": "high",
+      "exam_note": "A direct goods-for-goods swap is barter, not automatically commodity money.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Barter",
+         "plain_meaning": "बिना पैसे के एक चीज़ या सेवा के बदले दूसरी लेना",
+         "everyday_image": "गेहूँ की पोटली देकर कपड़ा लेना"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Each party needs something held by the other.",
+         "basis": "standard"
+        },
+        {
+         "step": "They can swap directly when their wants match.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Wheat exchanged for cloth.",
+       "consequence": "Direct exchange creates a matching problem.",
+       "visual_verb": "Swap wheat and cloth in opposite directions.",
+       "level_extra": "Identify the absence of an intermediary rather than merely the presence of goods."
+      }
+     },
+     {
+      "item_id": "i15",
+      "kind": "diagram_label",
+      "parent_item_id": "i13",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "evolution diagram, stage 2",
+      "content": "2. COMMODITY MONEY — Salt, cattle, shells. The label points to a salt sack, cattle and shells; arrows connect barter to this stage and this stage to metallic money.",
+      "content_type": "timeline",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "when",
+        "question": "Where is commodity money placed?",
+        "answer": "Second, between barter and metallic money, with salt, cattle and shells as examples.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "why",
+        "question": "Why is a commodity used as money different from a direct barter good?",
+        "answer": "A commodity functions as money when it is accepted as an intermediary in exchange, rather than being received simply for the recipient's immediate use.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can a common commodity reduce the matching problem?",
+        "answer": "A seller may accept it expecting to exchange it later, even when the buyer does not offer the particular final good the seller wants.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "barter",
+       "medium of exchange"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Metallic money can also be understood as a form of commodity money despite being a separate stage here.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Commodity Money",
+         "plain_meaning": "कोई चीज़ जिसे लोग आगे भुगतान में भी लेने लगें",
+         "everyday_image": "नमक लेकर उसे आगे किसी और चीज़ के बदले देना"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "A direct trading partner may not have the desired final good.",
+         "basis": "standard"
+        },
+        {
+         "step": "A commonly accepted commodity can act as an intermediate payment.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Salt, cattle and shells.",
+       "consequence": "Exchange can move beyond a single direct swap.",
+       "visual_verb": "Insert a common commodity between two exchanges.",
+       "level_extra": "Distinguish use as money from mere exchange of a commodity."
+      }
+     },
+     {
+      "item_id": "i16",
+      "kind": "diagram_label",
+      "parent_item_id": "i13",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "evolution diagram, stage 3",
+      "content": "3. METALLIC MONEY — Gold and silver coins. The label points to two illustrated coins; arrows connect commodity money → metallic money → paper money.",
+      "content_type": "timeline",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "when",
+        "question": "Where are gold and silver coins placed?",
+        "answer": "They illustrate the third stage, metallic money, after commodity money and before paper money.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "why",
+        "question": "Why can metals serve as useful monetary materials?",
+        "answer": "Precious metals combine durability and material value, and can be formed into standard units for exchange.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does this stage connect to the intrinsic-value comparison?",
+        "answer": "The gold or silver in a full-bodied coin has value apart from the coin's use in payment.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "commodity money",
+       "material value",
+       "coin"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Gold and silver coins are the printed examples; do not generalise to every modern coin.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Metallic Money",
+         "plain_meaning": "धातु के रूप में इस्तेमाल होने वाला पैसा",
+         "everyday_image": "सोने और चाँदी के सिक्के"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Payment goods need to survive repeated handling.",
+         "basis": "standard"
+        },
+        {
+         "step": "Metal can be durable and shaped into recognisable units.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Gold and silver coins.",
+       "consequence": "Links the evolution sequence to material-value money.",
+       "visual_verb": "Form metal into coins and move to the next arrow.",
+       "level_extra": "Metallic form alone does not establish full intrinsic monetary value."
+      }
+     },
+     {
+      "item_id": "i17",
+      "kind": "diagram_label",
+      "parent_item_id": "i13",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "evolution diagram, stage 4",
+      "content": "4. PAPER MONEY — Currency notes. The label points to a fan of currency notes, with a ₹500 note visible at the front; arrows connect metallic money → paper money → bank money.",
+      "content_type": "timeline",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "when",
+        "question": "Where are currency notes placed in the sequence?",
+        "answer": "They illustrate paper money, fourth, after metallic money and before bank money.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "why",
+        "question": "Why are notes useful compared with carrying heavy payment materials?",
+        "answer": "A relatively light note can represent purchasing power without requiring the holder to carry an equivalent weight of a valuable commodity.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does the table explain the value of paper money?",
+        "answer": "It places paper money under extrinsic value, supported by trust and authority backing rather than the paper's own material worth.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "currency note",
+       "extrinsic value"
+      ],
+      "exam_importance": "high",
+      "exam_note": "A printed denomination is not the material value of the paper.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Paper Money",
+         "plain_meaning": "नोट के रूप में चलने वाला पैसा",
+         "everyday_image": "बटुए में रखा रुपये का नोट"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Carrying heavy payment objects is inconvenient.",
+         "basis": "standard"
+        },
+        {
+         "step": "Recognised currency notes provide a lighter monetary form.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "The illustrated ₹500 note.",
+       "consequence": "Monetary value becomes visibly separate from the substrate's value.",
+       "visual_verb": "Replace a heavy payment load with notes.",
+       "level_extra": "The illustration's denomination is an example, not a historical date or stage boundary."
+      }
+     },
+     {
+      "item_id": "i18",
+      "kind": "diagram_label",
+      "parent_item_id": "i13",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "evolution diagram, stage 5",
+      "content": "5. BANK MONEY — Cheques and deposits. The label points to a bank building marked BANK, a cheque and a pen; arrows connect paper money → bank money → digital money.",
+      "content_type": "timeline",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "when",
+        "question": "Where does bank money appear and what examples accompany it?",
+        "answer": "It is fifth, between paper and digital money, illustrated by cheques and deposits.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "why",
+        "question": "Why must cheques and deposits be distinguished?",
+        "answer": "A deposit is a bank liability held as a balance; a cheque is an instruction used to make a payment from an account. The cheque is not itself the deposit balance.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can bank money support payment without handing over cash?",
+        "answer": "Payment can transfer bank-account claims between parties through banking arrangements rather than physical currency changing hands.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "bank account",
+       "bank deposit",
+       "cash"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Distinguish the balance from an instruction to transfer it.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Cheques",
+         "plain_meaning": "बैंक को खाते से भुगतान करने का लिखित निर्देश",
+         "everyday_image": "भरे हुए cheque पर हस्ताक्षर करना"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "A person may wish to pay without withdrawing and carrying cash.",
+         "basis": "standard"
+        },
+        {
+         "step": "A bank deposit can support payment through instructions such as a cheque.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "An account holder issuing a cheque.",
+       "consequence": "Prepares the distinction between monetary balances and transfer methods.",
+       "visual_verb": "Use a cheque instruction to shift account balances.",
+       "level_extra": "The diagram groups related banking elements rather than declaring cheque and deposit identical."
+      }
+     },
+     {
+      "item_id": "i19",
+      "kind": "diagram_label",
+      "parent_item_id": "i13",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "evolution diagram, stage 6 at right",
+      "content": "6. DIGITAL MONEY — UPI, net banking, cards. The label points to a phone showing UPI and a QR code, with payment cards beside it; the incoming arrow is from bank money.",
+      "content_type": "timeline",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "when",
+        "question": "Which stage ends the page's sequence?",
+        "answer": "Digital money is sixth, illustrated by UPI, net banking and cards.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "why",
+        "question": "Why should these examples be taught as digital payment methods rather than automatically separate currencies?",
+        "answer": "UPI, net banking and cards provide ways to access or transfer funds. Their use does not by itself create a new currency or a distinct monetary balance.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does a digital payment relate to bank money?",
+        "answer": "Many such payments transfer existing bank deposits electronically, so the digital and bank-money stages overlap in practice.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "bank balance",
+       "electronic transfer",
+       "payment instruction"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Do not equate UPI, cards and net banking with a distinct digital currency.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Digital Money",
+         "plain_meaning": "यहाँ डिजिटल तरीके से इस्तेमाल या भेजे जाने वाले पैसे का व्यापक नाम",
+         "everyday_image": "फोन से QR scan करके बैंक खाते से भुगतान"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "People need to initiate payments without exchanging notes or a paper cheque.",
+         "basis": "standard"
+        },
+        {
+         "step": "Electronic channels can communicate payment instructions and transfer balances.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "UPI, net banking and cards.",
+       "consequence": "The channel changes even when the underlying money remains a bank deposit.",
+       "visual_verb": "Scan a QR code and transfer a balance between accounts.",
+       "level_extra": "Do not infer that digital payment and central-bank digital currency are synonyms."
+      }
+     },
+     {
+      "item_id": "i20",
+      "kind": "heading",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0002-b0002"
+      ],
+      "where_on_page": "below evolution diagram",
+      "content": "Barter System",
+      "content_type": "none",
+      "type_note": "",
+      "teachable": false,
+      "teacher_understanding": [],
+      "prerequisites": [],
+      "exam_importance": "high",
+      "exam_note": "Section heading.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [],
+       "why_chain": [],
+       "example_or_place": "",
+       "consequence": "",
+       "visual_verb": "",
+       "level_extra": ""
+      }
+     },
+     {
+      "item_id": "i21",
+      "kind": "definition",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0002-b0003",
+       "p0002-b0004"
+      ],
+      "where_on_page": "first bullet beneath Barter System",
+      "content": "• The barter system is a method of exchange in which goods and services are directly exchanged for other goods and services without using a medium of exchange.",
+      "content_type": "definition",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What makes an exchange barter?",
+        "answer": "Goods or services are exchanged directly for other goods or services, without an intervening medium of exchange.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "evidence",
+        "question": "Which example on the page demonstrates the definition?",
+        "answer": "The diagram shows wheat exchanged for cloth, with neither party paying money.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does barter differ from two monetary transactions?",
+        "answer": "In barter the desired goods or services directly change hands; with money, a person can sell to one party and later buy from another.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why does the definition mention services as well as goods?",
+        "answer": "The exchange need not involve two physical objects; work can be exchanged directly for another service or a good.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "goods versus services",
+       "exchange",
+       "medium of exchange"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Barter includes services and is defined by direct exchange, not merely by old-fashioned trade.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Medium of exchange",
+         "plain_meaning": "बीच में ली जाने वाली चीज़ जिससे आगे अपनी ज़रूरत की चीज़ खरीदी जाए",
+         "everyday_image": "गेहूँ बेचकर रुपये लेना और उन्हीं रुपयों से कपड़ा खरीदना"
+        },
+        {
+         "term": "Directly exchanged",
+         "plain_meaning": "बीच में पैसा लिए बिना आपस में चीज़ या काम बदलना",
+         "everyday_image": "पड़ोसी की मरम्मत के बदले उससे पढ़ाई में मदद लेना"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Two people hold different things or skills that the other needs.",
+         "basis": "standard"
+        },
+        {
+         "step": "If they exchange these directly without an intermediary, the transaction is barter.",
+         "basis": "book"
+        }
+       ],
+       "example_or_place": "Wheat exchanged for cloth in the diagram.",
+       "consequence": "The definition leads to no-money exchange and the need to match wants.",
+       "visual_verb": "Cross goods or service arrows directly between two people.",
+       "level_extra": "Test the presence of an intermediary, not whether an exchange has economic value."
+      }
+     },
+     {
+      "item_id": "i22",
+      "kind": "heading",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0002-b0005"
+      ],
+      "where_on_page": "below barter definition",
+      "content": "Features",
+      "content_type": "none",
+      "type_note": "",
+      "teachable": false,
+      "teacher_understanding": [],
+      "prerequisites": [],
+      "exam_importance": "medium",
+      "exam_note": "Introduces four features.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [],
+       "why_chain": [],
+       "example_or_place": "",
+       "consequence": "",
+       "visual_verb": "",
+       "level_extra": ""
+      }
+     },
+     {
+      "item_id": "i23",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0002-b0006"
+      ],
+      "where_on_page": "Features, bullet 1",
+      "content": "• No use of money",
+      "content_type": "facts_numbers",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is absent from barter transactions?",
+        "answer": "Money is not used as the means of payment.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "evidence",
+        "question": "How does the page establish this feature?",
+        "answer": "Its definition excludes a medium of exchange, and its diagram exchanges wheat directly for cloth.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why does no money not mean no value?",
+        "answer": "The parties still give up something to obtain something else; they can negotiate an exchange ratio even without a cash payment.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "money as payment",
+       "exchange ratio"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Absence of money does not imply free distribution or absence of valuation.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [],
+       "why_chain": [
+        {
+         "step": "The parties still need a way to obtain one another's goods.",
+         "basis": "standard"
+        },
+        {
+         "step": "Barter settles this by direct exchange instead of monetary payment.",
+         "basis": "book"
+        }
+       ],
+       "example_or_place": "Wheat paid in return for cloth.",
+       "consequence": "An exchange can have a cost without involving money.",
+       "visual_verb": "Remove the money arrow but keep the reciprocal goods arrows.",
+       "level_extra": "Distinguish barter from a one-way gift."
+      }
+     },
+     {
+      "item_id": "i24",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0002-b0007"
+      ],
+      "where_on_page": "Features, bullet 2",
+      "content": "• Direct exchange of goods and services",
+      "content_type": "facts_numbers",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What changes hands in barter?",
+        "answer": "Goods and services are exchanged directly rather than through a monetary intermediary.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "evidence",
+        "question": "Where is direct exchange illustrated?",
+        "answer": "The first stage of the evolution diagram pairs wheat with cloth.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How could a service fit the same arrangement?",
+        "answer": "One person might repair an item in return for another person's tutoring, with the work itself constituting the exchange.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "goods",
+       "services",
+       "monetary intermediary"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Do not restrict barter to physical goods.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Services",
+         "plain_meaning": "किसी के लिए किया गया काम, न कि हाथ में दी जाने वाली चीज़",
+         "everyday_image": "पढ़ाना या साइकिल ठीक करना"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Needs may concern work as well as objects.",
+         "basis": "standard"
+        },
+        {
+         "step": "Directly exchanging either can satisfy the definition of barter.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Repair work exchanged for tutoring.",
+       "consequence": "The matching problem also applies to services.",
+       "visual_verb": "Swap work icons as well as goods icons.",
+       "level_extra": "Identify barter from transaction structure, not from the physical nature of the item."
+      }
+     },
+     {
+      "item_id": "i25",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0002-b0008"
+      ],
+      "where_on_page": "Features, bullet 3",
+      "content": "• Value is decided through mutual agreement",
+      "content_type": "facts_numbers",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "How is value settled in the barter arrangement described?",
+        "answer": "The participants decide it through mutual agreement.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "evidence",
+        "question": "What wording establishes the role of both parties?",
+        "answer": "The phrase 'mutual agreement' makes acceptance by both participants part of settling the exchange.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does this appear in a wheat-for-cloth trade?",
+        "answer": "The parties negotiate how much wheat is acceptable for a particular quantity of cloth; the example does not supply a fixed ratio.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why must agreement not be confused with equal benefit?",
+        "answer": "Agreeing to a trade does not establish equal bargaining power or an objectively equal gain for both parties.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "exchange ratio",
+       "negotiation"
+      ],
+      "exam_importance": "high",
+      "exam_note": "No common monetary price does not mean no agreed exchange ratio.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Mutual agreement",
+         "plain_meaning": "दोनों पक्षों का शर्तों पर राज़ी होना",
+         "everyday_image": "दो लोग तय करें कि कितने गेहूँ के बदले कितना कपड़ा देंगे"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Different goods need an agreed quantity relation before they can be exchanged.",
+         "basis": "standard"
+        },
+        {
+         "step": "The page says the parties settle value by mutual agreement.",
+         "basis": "book"
+        }
+       ],
+       "example_or_place": "Negotiating quantities of wheat and cloth.",
+       "consequence": "Barter involves valuation and bargaining even without money.",
+       "visual_verb": "Adjust quantities until both parties accept.",
+       "level_extra": "No invented numerical barter ratio is implied by the page."
+      }
+     },
+     {
+      "item_id": "i26",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0002-b0009"
+      ],
+      "where_on_page": "Features, bullet 4",
+      "content": "• Common in early civilizations. Still seen in limited informal exchanges",
+      "content_type": "timeline",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "when",
+        "question": "When does the page place barter?",
+        "answer": "It describes barter as common in early civilizations and still present in limited informal exchanges.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "why",
+        "question": "Why can barter still occur in an economy that uses money?",
+        "answer": "Two people may already possess complementary needs and agree on a direct swap, making money unnecessary for that particular exchange.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "consequence",
+        "question": "What follows for interpreting the evolution diagram?",
+        "answer": "The page's own mention of continuing barter shows that placing it first does not imply that it has vanished.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "barter",
+       "informal exchange",
+       "historical sequence"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Reject 'barter exists only in ancient societies'; no dates or named civilizations are supplied.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Informal exchanges",
+         "plain_meaning": "आपसी छोटे लेन-देन जो औपचारिक बाज़ार की तरह न हों",
+         "everyday_image": "दो पड़ोसी अपनी अतिरिक्त चीज़ें आपस में बदल लें"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Money is not necessary when two people's immediate needs already match.",
+         "basis": "standard"
+        },
+        {
+         "step": "This allows some direct swaps to continue alongside monetary exchange.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "A limited direct swap between neighbours.",
+       "consequence": "Older and newer exchange methods can coexist.",
+       "visual_verb": "Carry a small barter branch from the early stage into the present.",
+       "level_extra": "The page gives a broad historical statement, not evidence for a universal barter-first history."
+      }
+     },
+     {
+      "item_id": "i27",
+      "kind": "heading",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0002-b0010"
+      ],
+      "where_on_page": "near bottom, above final bullet",
+      "content": "Limitations:",
+      "content_type": "none",
+      "type_note": "",
+      "teachable": false,
+      "teacher_understanding": [],
+      "prerequisites": [],
+      "exam_importance": "high",
+      "exam_note": "Only the first limitation appears on this page.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [],
+       "why_chain": [],
+       "example_or_place": "",
+       "consequence": "",
+       "visual_verb": "",
+       "level_extra": ""
+      }
+     },
+     {
+      "item_id": "i28",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0002-b0011"
+      ],
+      "where_on_page": "last teaching bullet above footer",
+      "content": "• Double coincidence of wants: Both parties must want what other offers.",
+      "content_type": "cause_effect",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is double coincidence of wants?",
+        "answer": "Each of the two parties must want what the other offers for the direct exchange to meet their wants.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "why",
+        "question": "Why does this limit barter?",
+        "answer": "Wanting the other person's product is insufficient if that person does not also want yours; finding a suitable partner therefore takes additional search.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does the wheat-and-cloth example expose the problem?",
+        "answer": "A wheat-holder seeking cloth cannot complete the intended direct swap with a cloth-holder who wants something other than wheat.",
+        "basis": "outside"
+       },
+       {
+        "depth": 3,
+        "ask": "how",
+        "question": "How does a generally accepted medium of exchange reduce this requirement?",
+        "answer": "The wheat-holder can sell to someone who wants wheat and use the money to buy cloth from someone else. The same partner need not satisfy both sides of the original wants.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "consequence",
+        "question": "What remains necessary even if the two wants coincide?",
+        "answer": "The parties still need to agree on quantities and terms; a match of wants does not settle the exchange ratio by itself.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "direct barter",
+       "goods desired versus goods offered",
+       "mutual agreement",
+       "medium of exchange"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Core concept: both directions of desire must match, not simply two people wanting to trade.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Double coincidence of wants",
+         "plain_meaning": "मुझे तुम्हारी दी चीज़ चाहिए और तुम्हें मेरी दी चीज़ चाहिए—दोनों बातों का साथ मिलना",
+         "everyday_image": "गेहूँ वाला कपड़ा चाहे और कपड़े वाला उसी गेहूँ को चाहे"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "A person needs a good but can offer only a different good in direct exchange.",
+         "basis": "standard"
+        },
+        {
+         "step": "The partner must want that offered good too; otherwise the intended barter cannot proceed.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Wheat-holder wants cloth, but cloth-holder wants a different product.",
+       "consequence": "Matching and search difficulties help explain the usefulness of a common medium of exchange.",
+       "visual_verb": "Show two reciprocal want arrows; break one to block the swap.",
+       "level_extra": "Separate double coincidence from agreement on the exchange ratio; both matter but are different conditions."
+      }
+     }
+    ],
+    "boilerplate_block_ids": [
+     "p0002-b0001",
+     "p0002-b0012"
+    ],
+    "text_image_disagreements": []
+   },
+   "code_problems": [],
+   "observed": {
+    "type_check": [
+     {
+      "item_id": "i1",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": "The image-only table compares two sources of monetary value."
+     },
+     {
+      "item_id": "i2",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i3",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i4",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i5",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i6",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i7",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i8",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i9",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i10",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i11",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i12",
+      "ai_type": "comparison",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i13",
+      "ai_type": "timeline",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": "Arrows show a developmental sequence, without dates."
+     },
+     {
+      "item_id": "i14",
+      "ai_type": "timeline",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i15",
+      "ai_type": "timeline",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i16",
+      "ai_type": "timeline",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i17",
+      "ai_type": "timeline",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i18",
+      "ai_type": "timeline",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i19",
+      "ai_type": "timeline",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "follows_parent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i20",
+      "ai_type": "none",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i21",
+      "ai_type": "definition",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i22",
+      "ai_type": "none",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i23",
+      "ai_type": "facts_numbers",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i24",
+      "ai_type": "facts_numbers",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i25",
+      "ai_type": "facts_numbers",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i26",
+      "ai_type": "timeline",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i27",
+      "ai_type": "none",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i28",
+      "ai_type": "cause_effect",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     }
+    ],
+    "type_summary": {
+     "code_silent": 11,
+     "follows_parent": 17
+    }
+   },
+   "review": {
+    "route": "codex-checker",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "f1fe1697d0d6b403a07f5cdea6276d8c7d9c991a98062cffbfeeb1b8dde093a0",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 20823,
+    "output_tokens": 1024,
+    "cost_usd": 0.0,
+    "value": {
+     "notes": {
+      "about": "The page compares intrinsic and extrinsic monetary value, illustrates the evolution of money, and introduces barter and double coincidence of wants. The reviewed items capture the table, diagram and text with appropriate conceptual qualifications.",
+      "key_questions": [
+       "What distinguishes material value from accepted monetary value?",
+       "What do the evolution diagram's stages and arrows establish?",
+       "How does barter work, and why does matching both parties' wants limit it?"
+      ],
+      "decisions": [
+       {
+        "decision": "Accept the coverage and teaching depth.",
+        "reason": "Every substantive table row, diagram stage, arrow and text point is represented and explained."
+       },
+       {
+        "decision": "Accept qualifications as outside knowledge rather than source corrections.",
+        "reason": "The items preserve the printed claims while separately explaining token coins, legal tender, payment channels and historical coexistence."
+       }
+      ],
+      "uncertain": []
+     },
+     "verdict": "pass",
+     "missing": [],
+     "wrong": [],
+     "shallow": [],
+     "checklist": [
+      {
+       "rule_id": "G-01",
+       "met": true,
+       "note": "Source statements and standard outside explanations are distinguished."
+      },
+      {
+       "rule_id": "G-02",
+       "met": true,
+       "note": "Coverage includes mechanisms, examples, consequences and important exam traps."
+      },
+      {
+       "rule_id": "G-03",
+       "met": true,
+       "note": "Maker notes state scope, decisions with reasons and uncertainty."
+      },
+      {
+       "rule_id": "G-05",
+       "met": true,
+       "note": "No substantive printed teaching is cut short or omitted."
+      },
+      {
+       "rule_id": "G-06",
+       "met": true,
+       "note": "Book statements receive explanation beyond paraphrase."
+      },
+      {
+       "rule_id": "G-07",
+       "met": true,
+       "note": "Depth and accessible examples suit UPSC / State PCS learners."
+      },
+      {
+       "rule_id": "S1-01",
+       "met": true,
+       "note": "Both image-only panels and the native-text teaching are captured."
+      },
+      {
+       "rule_id": "S1-02",
+       "met": true,
+       "note": "Only headings and noninstructional elements are treated as nonteachable."
+      },
+      {
+       "rule_id": "S1-03",
+       "met": true,
+       "note": "Each comparison row has its own item with both column headers and cells."
+      },
+      {
+       "rule_id": "S1-04",
+       "met": true,
+       "note": "All six stages, captions, illustrations and five directional connections are captured."
+      },
+      {
+       "rule_id": "S1-05",
+       "met": true,
+       "note": "No substantive equation requires interpretation; sequence arrows are explained."
+      },
+      {
+       "rule_id": "S1-06",
+       "met": true,
+       "note": "Questions explain why and how, including practical limitations and distinctions."
+      },
+      {
+       "rule_id": "S1-07",
+       "met": true,
+       "note": "Answer bases are appropriate and outside explanations are standard."
+      },
+      {
+       "rule_id": "S1-08",
+       "met": true,
+       "note": "Comparison, timeline, definition, factual features and causal limitation types are defensible."
+      },
+      {
+       "rule_id": "S1-09",
+       "met": true,
+       "note": "Prerequisites identify concrete concepts relevant to each item."
+      },
+      {
+       "rule_id": "S1-10",
+       "met": true,
+       "note": "Exam emphasis and statement traps are sensible; no unsupported PYQ claims are made."
+      },
+      {
+       "rule_id": "S1-11",
+       "met": true,
+       "note": "No substantive text–image disagreement is apparent."
+      },
+      {
+       "rule_id": "S1-13",
+       "met": true,
+       "note": "Printed wording is retained; no substantive typo is silently corrected."
+      },
+      {
+       "rule_id": "S1-14",
+       "met": true,
+       "note": "Book answers and outside qualifications remain separate."
+      },
+      {
+       "rule_id": "S1-15",
+       "met": true,
+       "note": "Plain meanings, familiar images, need-based reasoning and consequences open the teachable concepts."
+      }
+     ]
+    }
+   },
+   "review_problems": [],
+   "review_minor": [],
+   "passed": true,
+   "finished_at": 1793114800.080269
+  }
+ ],
+ "avoid_rounds": [
+  1
+ ],
+ "cost_usd": 0.0,
+ "seconds": 329.7,
+ "navin_verdict": null
+}
