@@ -36,6 +36,19 @@ Kaisi? Irregular.") · exam memory beats by level · link to something already k
 examples. Navin's example: the book's adjective opened in three moves (what it means, an example the learner knows,
 why this tissue is there). Navin adds methods and examples in the file and bumps its version.
 
+**Navin's rule of 27 October 2026 (Task 046 Part C addition), the eleventh method, `real_world_application`:** an
+economics concept is first applied in an everyday Indian situation, then named. The example has a place (bazaar, kirana
+shop, mandi, bank, factory, petrol pump, farm), actors (shopkeeper, buyers, farmer, worker, bank, RBI, government), real
+goods or money (sugar, onion, petrol, salary, loan, EMI) and numbers that change (₹50 → ₹65; buyers 2 → 12 → 3); the story
+runs the concept's mechanism step by step; the term comes after the story ("isliye ise demand-pull inflation kehte hain");
+then the book's definition; then one line on where the learner meets it in real life. His own example: a kirana shop with 3
+packets of sugar at ₹50; yesterday 2 buyers, today 12; the shopkeeper raises the price to ₹65 and only 3 can buy. In code:
+Section 1 fills `unpack.real_world_example` for every definition, cause-and-effect and process item of an economics chapter
+(rule S1-16; `content_types.json`, `real_world_example`), Section 2 runs that example with its numbers before the beat that
+names the term (rule S2-08), the reviewer checks that the example is economically correct at the learner's level, and the
+director makes the example's beats the part's story (a world when the place has a kit, else a canvas with crowd, value and
+icon elements). Locking a good example into the explanation library stays Navin's decision.
+
 ## 4. Where it is built
 
 | Layer | What changed (Task 045d) | Code check |

@@ -31,17 +31,19 @@ from . import cards
 from . import content_types as ct
 from . import engines
 from . import explanations
+from . import hinglish
 from . import level as level_module
 from . import naksha as naksha_module
+from . import shots
 from . import soul
 from .common import SEVERITY, S, arr, checklist_text, fmt, obj, review_problems
 from .runner import NOTES_SCHEMA, SectionRunner, Step, merge_notes
 
 SECTION = "understand"
 CONNECT = "connect"
-PAGE_VERSION = "understand-page/3"
+PAGE_VERSION = "understand-page/4"
 CONNECT_VERSION = "understand-connect/3"
-PAGE_SCHEMA_ID = "bie.brain.understand-page/3"
+PAGE_SCHEMA_ID = "bie.brain.understand-page/4"
 CONNECT_SCHEMA_ID = "bie.brain.chapter-connect/3"
 DEFAULT_OUTPUT_TOKENS = 32000
 
@@ -219,6 +221,19 @@ How to fill the JSON:
     trap, the memory trick) or "". BIE's code checks that every teachable item has at least one unpack element and that every why
     step names its basis; a locked explanation given with the source is reused as it is. A question item or a pure heading leaves
     unpack empty.
+  - unpack.real_world_example (S1-16; Navin, 27 October 2026: "economic concepts ko real world mein apply karke samjhao"): in a chapter
+    of the economics family, for every definition, cause_effect and process item, the concept APPLIED in an everyday Indian situation
+    before it is named: place (bazaar, kirana shop, mandi, bank, factory, petrol pump, farm); actors (shopkeeper, buyers, farmer,
+    worker, bank, RBI, government); goods (the real goods or money: sugar, onion, petrol, salary, loan, EMI); numbers (each
+    {what, before, after}, written with digits: {"what": "price", "before": "₹50", "after": "₹65"}, {"what": "buyers", "before": "2",
+    "after": "12"}); steps (at least two, each {step, mechanism_link}: the story step by step, and the link of the concept's mechanism
+    that step shows); term_after (the sentence that names the term only after the story: "isliye ise demand-pull inflation kehte
+    hain"); real_life_link (one line on where the learner meets it; UPSC: the real Indian link, for example repo rate → home-loan EMI,
+    only from the page or a dated source). The example must be economically correct: the mechanism it runs is the concept's, and the
+    numbers move the way the concept says. Navin's example: a kirana shop with 3 packets of sugar at ₹50; buyers 2 → 12; the price
+    ₹65; only 3 can buy: demand-pull inflation. BIE's code checks the place, an actor, the goods, a number that changes, two steps with
+    their links, term_after and real_life_link. Every other item (another subject family, another type, a question, a heading) leaves
+    it empty ("" and []).
 - boilerplate_block_ids: ids of running headers, page numbers, adverts, contact lines and watermarks only.
 - text_image_disagreements: where the text layer and the image differ.
 Reply with the JSON object only."""
@@ -235,7 +250,10 @@ Report concretely, each finding with a severity ("blocking" or "minor", see R-01
 - wrong: an item whose reading, kind, content type, basis or answer is wrong at this learners' level, with the fix;
 - shallow: a teachable item whose questions and answers do not reach the understanding these learners need, with what is missing;
   an unpack that only restates the line (a plain_meaning that repeats the term, a why chain that does not start from a need or
-  whose steps name the wrong basis, an everyday image that is another textbook sentence) is shallow and blocking (S1-15).
+  whose steps name the wrong basis, an everyday image that is another textbook sentence) is shallow and blocking (S1-15);
+- for an economics item, a real_world_example whose mechanism is not the concept's, whose numbers do not move the way the concept
+  says, or that does not fit the learner's level (UPSC: the real Indian link only from the page or a dated source) is wrong and
+  blocking (S1-16); report it under wrong with the fix.
 Judge at the level of a standard textbook for these learners and their exam, and at the depth of the level profile; precision beyond
 that level is minor.
 verdict is "pass" when nothing is blocking. Fill your own brief notes first.
@@ -369,16 +387,18 @@ def type_problems(rows) -> list:
 
 
 def check_page(value: dict, page, *, proposals: dict | None = None, card: dict | None = None, types=None, profile=None,
-               language: str = "Hinglish") -> list:
+               language: str = "Hinglish", family: str = "") -> list:
     """Problems BIE's code can see without understanding the content.
 
     With ``proposals`` (BIE's type per block) unexplained strong type differences go back to the maker; with ``card``
-    the block coverage is the card's must_cover, checked both ways; ``profile`` is the level profile (how many why steps).
+    the block coverage is the card's must_cover, checked both ways; ``profile`` is the level profile (how many why steps);
+    ``family`` is the subject family (an economics chapter's concept items carry a real-world example, S1-16).
     """
     types = types or ct.load()
     problems = []
     items = value.get("items") or []
     known = set(page.block_ids)
+    book_terms = hinglish.english_terms(" ".join([b.text for b in page.blocks] + [i.get("content", "") for i in items]))
     ids = [i["item_id"] for i in items]
     by_id = {i["item_id"]: i for i in items}
     for dup in sorted({i for i in ids if ids.count(i) > 1}):
@@ -432,7 +452,8 @@ def check_page(value: dict, page, *, proposals: dict | None = None, card: dict |
                 if q["answer"].strip().lower() in ("", q["question"].strip().lower(), item["content"].strip().lower()):
                     problems.append(f"item {iid}: the answer to {q['question']!r} only repeats the question or the item")
             if item["kind"] not in ct.ROLE_KINDS:
-                problems += soul.unpack_problems(item, profile=profile, language=language)
+                problems += soul.unpack_problems(item, profile=profile, language=language, book_terms=book_terms)
+                problems += soul.real_world_problems(item, family=family, types=types)
     for table in (i for i in items if i["kind"] == "table"):
         if not any(i.get("parent_item_id") == table["item_id"] and i["kind"] == "table_row" for i in items):
             problems.append(f"item {table['item_id']}: a table needs one table_row item per row (S1-03)")
@@ -532,7 +553,7 @@ def check_connect(value: dict, items: dict) -> list:
 
 # ---------------------------------------------------------------- steps
 
-PAGE_TEACHER_METHODS = ("everyday_image", "word_root", "why_from_need", "link_known", "meaning_with_examples",
+PAGE_TEACHER_METHODS = ("everyday_image", "word_root", "why_from_need", "link_known", "meaning_with_examples", "real_world_application",
                         "navin_absorptive_secretive")
 
 
@@ -541,9 +562,9 @@ def page_prefixes(course, rulebook, types=None):
     types = types or ct.load()
     profile = course.profile()
     how = PAGE_HOW + "\n\n" + profile.prefix_text() + "\n\n" + soul.teacher_text(ids=PAGE_TEACHER_METHODS)
-    maker = cards.build_prefix(section=SECTION, task="read_page", version=3, schema_id=PAGE_SCHEMA_ID, schema=PAGE_SCHEMA,
+    maker = cards.build_prefix(section=SECTION, task="read_page", version=4, schema_id=PAGE_SCHEMA_ID, schema=PAGE_SCHEMA,
                                role=fmt(PAGE_ROLE, course), how=how, rulebook=rulebook, course=course, types=types)
-    reviewer = cards.build_prefix(section=SECTION, task="read_page", version=3, schema_id="bie.brain.understand-page-review/3",
+    reviewer = cards.build_prefix(section=SECTION, task="read_page", version=4, schema_id="bie.brain.understand-page-review/4",
                                   schema=PAGE_REVIEW_SCHEMA, role=PAGE_REVIEW_ROLE, how=PAGE_REVIEW_HOW + "\n\n" + profile.prefix_text(),
                                   rulebook=rulebook, course=course, types=types, review=True,
                                   checklist=checklist_text(rulebook, SECTION))
@@ -596,7 +617,8 @@ def page_step(course: Course, page, *, page_count: int, previous=None, following
     profile = course.profile()
     return Step(section=SECTION, unit=f"page-{page.number:03d}", instructions_version=PAGE_VERSION, system=prefix.text, user=user,
                 schema=PAGE_SCHEMA, check=lambda value: check_page(value, page, proposals=proposals, card=card, types=types,
-                                                                   profile=profile, language=course.language),
+                                                                   profile=profile, language=course.language,
+                                                                   family=shots.subject_family(course.subject)),
                 review_system=review_prefix.text, review_user=review_user, review_schema=PAGE_REVIEW_SCHEMA,
                 review_problems=review_problems, patch_schema=PAGE_PATCH_SCHEMA, apply_patch=apply_page_patch,
                 patch_hint=PAGE_PATCH_HINT, max_rounds=max_rounds, card=card, observe=observe)
@@ -701,7 +723,8 @@ def passed_pages(previous_chapter: dict) -> dict:
                         tests_item_ids=[local(t) for t in item.get("tests_item_ids") or []],
                         content_type=naksha_module.item_type(item, concept_type.get(iid), types))
             item.setdefault("type_note", "")
-            item.setdefault("unpack", dict(soul.EMPTY_UNPACK))
+            item["unpack"] = dict(item.get("unpack") or soul.empty_unpack())
+            item["unpack"].setdefault("real_world_example", soul.empty_unpack()["real_world_example"])
             items.append(item)
         reused[page["page"]] = {"notes": None, "page_summary": page.get("summary", ""), "items": items,
                                 "boilerplate_block_ids": page.get("boilerplate_block_ids", []),
@@ -810,10 +833,38 @@ def run_chapter(pdf_bytes: bytes, course: Course, runner: SectionRunner, out_dir
     return chapter
 
 
+def chapter_family(chapter: dict) -> str:
+    return shots.subject_family((chapter.get("course") or {}).get("subject", ""))
+
+
+def real_world_rows(chapter: dict, types=None) -> list:
+    """Per economics concept item: the real-world example BIE chose (one line) and today's S1-16 check (Navin's proof table)."""
+    types = types or ct.load()
+    family = chapter_family(chapter)
+    concept_of = {}
+    for c in (chapter.get("map") or {}).get("concepts") or []:
+        for iid in c.get("item_ids") or []:
+            concept_of.setdefault(iid, c.get("name", c.get("concept_id", "")))
+    page_of = {iid: p for p in chapter.get("pages") or [] for iid in p.get("item_ids") or []}
+    rows = []
+    for iid, item in chapter["items"].items():
+        if not item.get("teachable") or not types.needs_real_world(family, item.get("content_type", "")):
+            continue
+        problems = soul.real_world_problems(item, family=family, types=types)
+        page = page_of.get(iid, {})
+        rows.append({"item_id": iid, "concept": concept_of.get(iid, ""), "content_type": item.get("content_type", ""),
+                     "content": naksha_module.short(item.get("content", ""), 70),
+                     "example": soul.real_world_short(soul.real_world_of(item.get("unpack"))), "ok": not problems,
+                     "problem": problems[0] if problems else "", "page": page.get("page"), "rounds": page.get("rounds"),
+                     "first_try": page.get("rounds") == 1 and page.get("status") == "passed"})
+    return rows
+
+
 def quality(chapter: dict) -> dict:
     items = chapter["items"].values()
     teachable = [i for i in items if i.get("teachable")]
     qa = [q for i in teachable for q in i.get("teacher_understanding") or []]
+    real_world = real_world_rows(chapter)
     return {
         "pages": len(chapter["pages"]),
         "pages_passed": sum(1 for p in chapter["pages"] if p["status"] == "passed"),
@@ -828,6 +879,9 @@ def quality(chapter: dict) -> dict:
         "items_unpacked": sum(1 for i in teachable if soul.unpack_elements(i.get("unpack"))),
         "terms_opened": sum(len((i.get("unpack") or {}).get("terms") or []) for i in teachable),
         "why_steps": sum(len((i.get("unpack") or {}).get("why_chain") or []) for i in teachable),
+        "real_world_needed": len(real_world),
+        "real_world_filled": sum(1 for r in real_world if r["example"]),
+        "real_world_ok": sum(1 for r in real_world if r["ok"]),
         "type_check": (chapter.get("type_check") or {}).get("summary", {}),
         "naksha_tokens_estimate": (chapter.get("naksha") or {}).get("tokens_estimate"),
         "cost_usd": chapter["cost_usd"],
@@ -851,8 +905,11 @@ def render_markdown(chapter: dict) -> str:
              f"- Teacher questions: {q['teacher_questions']} ({q['deeper_questions']} deeper why/how, {q['outside_answers']} from outside the book)",
              f"- Opened for the learner (S1-15): {q.get('items_unpacked', 0)} of {q['teachable_items']} teachable items, "
              f"{q.get('terms_opened', 0)} terms with a plain meaning, {q.get('why_steps', 0)} why steps"
-             + (f"; level {chapter['level']}" if chapter.get("level") else ""),
-             f"- Estimated cost: {money(q['cost_usd'], chapter)} ({money(q['cost_usd_per_page'], chapter)} per page)"]
+             + (f"; level {chapter['level']}" if chapter.get("level") else "")]
+    if q.get("real_world_needed"):
+        lines.append(f"- Real-world examples (S1-16): {q.get('real_world_ok', 0)} of {q['real_world_needed']} economics concept items "
+                     "apply the concept in a real situation before naming it and pass today's check")
+    lines.append(f"- Estimated cost: {money(q['cost_usd'], chapter)} ({money(q['cost_usd_per_page'], chapter)} per page)")
     if chapter.get("naksha"):
         n = chapter["naksha"]
         lines.append(f"- Naksha (the compact map later sections get slices of): {n['items']} items, {n['concepts']} concepts, "
@@ -898,6 +955,17 @@ def render_markdown(chapter: dict) -> str:
         if checks:
             lines += ["## Engine checks on the map (PR, RE, KI)", ""] + [f"- {k}: {json.dumps(v, ensure_ascii=False)}"
                                                                           for k, v in checks.items()] + [""]
+    rows = real_world_rows(chapter)
+    if rows:
+        lines += ["## Real-world examples (S1-16, Navin's rule of 27 October 2026)", "",
+                  "Every economics definition, cause-and-effect and process item, the example BIE chose (place · actors · goods · "
+                  "numbers before → after · steps) and today's code check. First try = the page passed in one round.", "",
+                  "| Concept | Item | Type | Example BIE chose | Check | Page (rounds) |", "| --- | --- | --- | --- | --- | --- |"]
+        for r in rows:
+            check = "ok" if r["ok"] else r["problem"].split(": ", 1)[-1][:110]
+            page = f"{r['page']} ({r['rounds']}{', first try' if r['first_try'] else ''})" if r.get("page") else ""
+            lines.append(f"| {r['concept']} | {r['item_id']} · {r['content']} | {r['content_type']} | {r['example'] or '(none)'} | {check} | {page} |")
+        lines.append("")
     lines += ["## Pages", "", "| Page | Result | Rounds | Items | Cost |", "| --- | --- | --- | --- | --- |"]
     for p in chapter["pages"]:
         result = p["status"] + (" (reused)" if p.get("reused") else "")
@@ -946,6 +1014,7 @@ def render_pages(chapter: dict) -> str:
                                    ("level_extra", "is level ke liye")):
                     if (unpack.get(key) or "").strip():
                         lines.append(f"    - {label}: {unpack[key]}")
+                lines += soul.real_world_lines(unpack, indent="    - ")
             if item.get("prerequisites"):
                 lines.append("  - prerequisites: " + "; ".join(item["prerequisites"]))
         lines.append("")

@@ -270,7 +270,7 @@ def preflight(gateway, routes=None, *, wallet=True, vision=False) -> dict:
                 if entry["vision"] != "ok":
                     entry.update(status="failed", error_kind="vision", error="the model did not read the test picture (47)")
         except ProviderError as exc:
-            entry.update(status="failed", error_kind=exc.kind, error=exc.message[:240])
+            entry.update(status="failed", error_kind=exc.kind, error=exc.message[:1500])
             if guard is not None:
                 guard.restore(before)
     passed = all(e["status"] == "ok" for e in out.values())

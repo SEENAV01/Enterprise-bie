@@ -750,3 +750,67 @@ parts.
 
 First-try pass rate, rounds, tokens and ₹ per page are unchanged (no AI step runs in PR 1); PR 2 starts counting first-try
 passes and rounds per part, and the real chapter run gives the first numbers.
+
+## Entry 16 · Task 046 Part C, PR 2: the director's canvas and world modes, 27 October 2026
+
+**What PR 1 taught:** the kit's plans are small and checkable by code (what, where, on which word), so the maker needs no
+reviewer for layout: every refusal is an exact code error the maker can act on, and the plan contract can be a strict JSON
+schema the gateway validates before any check runs.
+
+**What changed in BIE** (branch `task046c-director`): `bie/brain/canvas_director.py` (the modes by Navin's rule, the
+director card and the CV rules as the maker's instructions, an icon menu from the index, the strict plan schema and the
+exact-error check loop through the SectionRunner, `run_canvas` writing plans, specs, credits and the per-part counts),
+`--section canvas` in the run tool and the VM runner, the places a story can be set in (`world.PLACES`), the fake maker's
+canvas and world answers, `canvas_profile@2026-10-27.2`.
+
+**Measured (offline, ₹0; the live numbers come from the chapter run):**
+
+| Measure | Before | After |
+| --- | --- | --- |
+| A script part of a canvas subject → a plan BIE can render | none (no section) | one per part, B by default, C for a story in a place with a kit |
+| Reviewer calls per plan round | — | 0 (layout is code-checked; the exact error goes back) |
+| Where a plan's errors are recorded | — | the step record (`records/`), `canvas.json` `last_problems`, `CANVAS.md` |
+| First-try passes and rounds per part | not counted | counted (`first_try`, `rounds`, `first_try_rate`) |
+| Places a story part can be in / kits that exist | — | 5 / 1 (shop); the rest logged as missing kits |
+| Tests in the toolbox core lane | 137 | 150 |
+
+First-try pass rate, rounds, tokens and ₹ per page for real plans: not yet (no live call in PR 2).
+
+## Entry 17 · Navin's real-world application rule for economics (Task 046 Part C addition), 27 October 2026
+
+**What the Money chapter and Navin's videos taught:** Navin teaches an economics concept by applying it first ("demand pull
+inflation wale concept ko dukandar, bazar, log, sugar wale example se samjhaya tha"); BIE's unpack had an `example_or_place`
+line but no story with a place, actors, goods and numbers, and the script rule only said "an example or the place" after
+the book line, so the term could come first and the example could be number-free. His words are in ROADMAP 046 and STATUS.
+
+**What changed in BIE** (branch `task046c-director`, with PR 2 as he asked): the method `real_world_application` in
+`teacher_examples.json` 2026-10-27.1; the required slot `unpack.real_world_example` for economics definition, cause-effect
+and process items (`content_types.json` 2026-10-27.1, `soul.REAL_WORLD_SCHEMA`, page schema `understand-page/4`); rule
+S1-16 checked by code in `check_page` (place, actor, goods, a number that changes, two steps with mechanism links, the naming
+sentence, the real-life link) and rule S2-08 checked by code in `check_script` (the example's beats, carrying its numbers,
+before the beat that names the term); both on the reviewer's checklist with "economically correct at the learner's level";
+the director's story piece (`story_split`, `mode_of(story=True)`, `STORY_NOTE`, the petrol pump as a place); MAP.md and
+SCRIPT.md tables per concept item (the example BIE chose, the check, first try); 19 everyday bazaar words; the fake maker.
+
+**Measured (offline, ₹0; the live before/after comes from the Money chapter):**
+
+| Measure | Before | After |
+| --- | --- | --- |
+| Economics concept items that must carry an applied example | 0 (no slot) | every definition, cause_effect, process item (S1-16) |
+| What code checks in the example | nothing | place, actor, goods, a changing number, ≥ 2 steps with links, naming sentence, real-life link |
+| Script order for an economics concept | free (term could come first) | example beats with the numbers first, then the term (S2-08) |
+| Reviewer rounds added for this | — | 0 (code checks; the existing reviewer's checklist grew by two rules) |
+| Director: a concept's example beats | part of one canvas | their own story piece: a world when the place has a kit, else crowd/value/icon canvas |
+| Offline Money chapter (fake maker): pages and scripts first try | — | 2 of 2 pages, every script, every example run first |
+| Tests (toolbox core lane / Task 045 lane) | 150 / 464 | 165 / 479 |
+
+Live first-try rate, rounds, tokens and ₹ per page under the new rule: measured by the Money chapter rerun on the VM (the
+12:42 UTC job under the old rules is the baseline); recorded here when the run finishes.
+
+**What the first Money run itself taught (same PR):** of the 4 pages that passed before the free Google quota ran out,
+page 2 lost a round to "पदार्थ → substance", a textbook-Hindi flag for a term the Money chapter never uses (the list was
+made from the tissue chapter): the check now counts only the book's own terms (`hinglish.english_terms`, `technical_words
+(book_terms=…)` in `check_page` and `check_script`), tested on both chapters' words. And a provider error was cut to 300
+characters in the records, so Google's quota id (per minute or per day) was invisible: 1,500 now. Measured: 1 of 4 passed
+pages (25 %) had a needless round on the old check; 0 under the new one on the same output.
+

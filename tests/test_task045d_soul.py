@@ -102,7 +102,7 @@ class UnpackChecks(unittest.TestCase):
         self.assertEqual([p for p in soul.unpack_problems(self.item(textbook), language="English") if "textbook" in p], [])
         self.assertEqual([p for p in soul.unpack_problems(self.item(GOOD_UNPACK)) if "textbook" in p], [])
         self.assertEqual(len(hinglish.load().technical), 62)
-        self.assertIn("simple_hindi@2026-10-25.1", BOOK.version)
+        self.assertIn("simple_hindi@2026-10-27.1", BOOK.version)
         self.assertEqual(hinglish.difficult_words("बाँह की नोक पर रस और छन्नी, अंदरूनी जाल, रसोई की कटोरी"), [])   # job B's everyday words
         self.assertEqual(hinglish.difficult_words("सामान्यतः पर्याप्त"), ["सामान्यतः", "पर्याप्त"])              # formal words stay hard
 
@@ -443,8 +443,9 @@ class TeacherBankAndRulebook(unittest.TestCase):
         bank = soul.load_teacher()
         self.assertEqual(len(bank["opening_steps"]), 7)
         ids = [m["id"] for m in bank["methods"]]
-        self.assertEqual(len(ids), 10)
+        self.assertEqual(len(ids), 11)
         self.assertIn("navin_absorptive_secretive", ids)
+        self.assertIn("real_world_application", ids)       # Navin, 27 October 2026 (Task 046 Part C addition)
         text = soul.teacher_text()
         self.assertIn("Slender yaani long aur narrow", text)
         self.assertIn("absorptive surface yaani jahan cheezein andar li jaati hain", text)
@@ -454,7 +455,7 @@ class TeacherBankAndRulebook(unittest.TestCase):
         self.assertNotIn("M2B", subset)
 
     def test_the_rulebook_carries_the_new_locked_rules_and_data_files(self):
-        for name in ("level_profiles@2026-10-24", "teacher_examples@2026-10-24", "explanations@2026-10-24", "vision-2026-10-21@2026-10-21.13"):
+        for name in ("level_profiles@2026-10-24", "teacher_examples@2026-10-27", "explanations@2026-10-24", "vision-2026-10-21@2026-10-21.14"):
             self.assertIn(name, BOOK.version)
         rules = {r.id: r for r in BOOK.rules}
         for rid in ("G-06", "G-07", "S1-15", "S2-07", "S3-06"):

@@ -1,0 +1,29 @@
+# Director card: world plans (for the AI world director step, Navin's level C)
+
+You plan ONE world for ONE story part of a passed script: actors act in a place, so the part is shown inside a small
+designed 2.5D street with the place at its centre. You place props, people, effects and the camera, each on a spoken
+word. Code builds, times and checks the world (`bie/brain/video/world.py`); a refused plan comes back with the exact error.
+
+## The world
+
+World pixels: 5200 wide, ground line at y 860; the place (the shop) is usually near x 2600. The camera looks at a point
+(`x`, `y`) with a `zoom` (0.8 wide street … 1.7 close on a price tag) and takes `frames` to get there (30–60 at 30 fps).
+Camera keys are in time order, the first on the part's first beat.
+
+## Element vocabulary
+
+| kind | fields | use it for |
+| --- | --- | --- |
+| `shop` | `x`, `sign` (the shop's name, in the learner's script), `packets: [{n, cue}]` | the place; its stock of goods on the counter (n packets) |
+| `price_tag` | `x`, `y`, `string` (hanging length), `steps: [{text, dir, cue}]`, `lift_cue` + `lift_dy` | the price that is struck out and replaced; lift it when demand pulls it up |
+| `crowd` | `x0`, `spacing`, `enter_x`, `exit_x`, `face` (-1 looks left), `seed`, `steps: [{n, cue}]`, `carry_cue` + `carry_n` | buyers who walk in and out as the number changes; `carry` sends n of them away with goods |
+| `label` | `x`, `y`, `text`, `fill` (rgba colour), `cue`, `until_cue` | SUPPLY · 3, DEMAND · 12: short labels over the scene |
+| `coin_rain` | `x0`, `x1`, `count`, `cue`, `until_cue` | money arriving in people's hands |
+| `balance` | `x`, `y`, `tilt`, `cue`, `tilt_cue`, `until_cue` | supply against demand on a balance that tilts on its word |
+| `pull_arrow` | `x`, `y0`, `y1`, `text`, `cue` | the force that pulls the price (demand-pull) |
+| `title` | `text`, `cue` | the part's name, on its word |
+| `lamp`, `foreground` | `x` | street dressing for depth (two or three of each, outside the shop) |
+
+Every element has `cue: [beat_id, word]` with the word exactly as written in that beat (`[beat_id, ""]` for the beat's
+start). Something must change at least every 15 s (the code refuses a longer still); aim for a change every 5 s.
+Never a real person, logo, emblem or regulator mark: a generic shop sign and generic people only.

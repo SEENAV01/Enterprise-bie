@@ -47,6 +47,7 @@ from . import engines
 from . import explanations
 from . import hinglish
 from . import naksha as naksha_module
+from . import shots
 from . import soul
 from .common import SEVERITY, S, arr as _arr, checklist_text as _checklist_text, fmt as _fmt, obj as _obj, review_problems
 from .runner import NOTES_SCHEMA, Step, merge_notes
@@ -54,7 +55,7 @@ from .understanding import DEFAULT_OUTPUT_TOKENS, Course, chapter_id, money
 
 SECTION = "lesson"
 PLAN_VERSION = "lesson-plan/4"
-SCRIPT_VERSION = "lesson-script/4"
+SCRIPT_VERSION = "lesson-script/5"
 PLAN_SCHEMA_ID = "bie.brain.lesson-plan/3"
 SCRIPT_SCHEMA_ID = "bie.brain.lesson-script/3"
 PURPOSES = ["hook", "prerequisite", "explain", "example", "analogy", "story", "compare", "process_walkthrough",
@@ -215,6 +216,13 @@ a problem, or an example or place by a zoom from the organ. The source gives eve
 example, consequence, visual verb) and the locked explanations: speak them, in your own teacher's words, at the depth of the level
 profile below. BIE's code sends back a beat whose English words are the book's and that opens nothing ("dohraav pakad"), a clipped
 sentence without a verb, a topic that opens without a question, and a second recap of the same thing.
+Real-world application (S2-08; Navin, 27 October 2026: "economic concepts ko real world mein apply karke samjhao"): for an economics
+definition, cause_effect or process item the source gives the real_world_example Section 1 chose (place, actors, goods, numbers before
+→ after, the steps with their mechanism links, the naming sentence, the real-life link). Run that example FIRST, in beats that cover
+the item and carry its numbers as digits ("dukaan mein chini ke 3 packet, ₹50 ka ek; kal 2 khareedar, aaj 12"), walking the mechanism
+step by step (purpose story or example); only then the beat that names the term ("isliye ise demand-pull inflation kehte hain"), then
+the book's definition, then the real-life link. The opening question of such a topic asks about the situation, not the term. BIE's
+code sends back a script whose naming beat comes before the example beats, or whose example beats carry none of the numbers.
 Time (S2-01): the source gives this video's narration time; BIE's code counts the spoken words (130 a minute) and the script must stay
 within it. Win the time by cutting repetition and side-tracks, never book content: every item in must_cover is taught and every
 teacher question whose basis is "book" is answered; questions answered from outside the book are used only where they help and the
@@ -248,6 +256,9 @@ severity ("blocking" or "minor", see R-01). What this script must contain (S2-01
   place; a beat that only restates the book's sentence in Hinglish is blocking; a family (classification) part gives every member the
   same slots (layer and shape, why named, special feature, function with its cause, where found by a zoom, consequence); every new
   topic opens with a question about something visible; complete spoken sentences; the depth follows the level profile below.
+- for an economics concept (S2-08): the item's real-world example from Section 1 runs before the term is named, with its numbers, and
+  is economically correct (the mechanism it runs is the concept's, the numbers move the way the concept says) at the learner's level
+  (UPSC: the real Indian link only from the book or a dated source); a wrong mechanism or a wrong number movement is blocking.
 Length (S2-01): BIE's code counts the spoken words (130 a minute) and checks the video's narration time; the review message gives the
 measured minutes. Never count words or judge the length yourself. The script must stay within its time, so when you ask for something
 to be added, say what may be cut (repetition, side-tracks, outside material), never book content.
@@ -606,8 +617,9 @@ def _script_source(chapter, video, budget=None) -> str:
 
 # ---------------------------------------------------------------- script checks
 
-def spoken_problems(beats, language) -> list:
-    """Navin's spoken Hinglish (S2-04), as far as code can see it."""
+def spoken_problems(beats, language, book_terms=None) -> list:
+    """Navin's spoken Hinglish (S2-04), as far as code can see it. ``book_terms`` (``hinglish.english_terms`` of the
+    chapter's items) limits the textbook-Hindi check to the book's own terms."""
     problems = []
     if language.strip().lower() in ("hinglish", "hindi"):
         hindi = sum(1 for b in beats if DEVANAGARI.search(b["say"]))
@@ -617,7 +629,7 @@ def spoken_problems(beats, language) -> list:
         if digits:
             problems.append(f"beats {', '.join(digits[:10])} write numbers in Devanagari digits; write numbers as digits 0-9 (S2-04)")
         for b in beats:
-            technical = hinglish.technical_words(b["say"])
+            technical = hinglish.technical_words(b["say"], book_terms=book_terms)
             if technical:
                 pairs = ", ".join(f"{word} → {english}" for word, english in technical[:5])
                 problems.append(f"beat {b['beat_id']}: textbook Hindi for the book's own terms ({pairs}); say the book's English term in "
@@ -696,6 +708,10 @@ def frame_problems(value, card, types=None) -> tuple:
     return problems, observed
 
 
+def chapter_family(chapter: dict) -> str:
+    return shots.subject_family((chapter.get("course") or {}).get("subject", ""))
+
+
 def check_script(value, chapter, video, language, card=None, budget=None):
     problems = []
     items, questions = video_scope(chapter, video)
@@ -728,7 +744,7 @@ def check_script(value, chapter, video, language, card=None, budget=None):
     if missing_q:
         problems.append(f"{len(missing_q)} teacher questions answered from the book are answered by no beat (S2-02): "
                         f"{', '.join(missing_q[:40])}")
-    problems += spoken_problems(beats, language)
+    problems += spoken_problems(beats, language, hinglish.english_terms(" ".join(i.get("content", "") for i in chapter["items"].values())))
     problems += length_problems(beats, video, budget)
     problems += soul.restatement_problems(beats, chapter["items"])
     problems += soul.clipped_problems(beats)
@@ -738,6 +754,7 @@ def check_script(value, chapter, video, language, card=None, budget=None):
         problems.append("a video needs more than a couple of beats")
     if card is not None:
         problems += soul.opening_problems(beats, card["parts"])
+        problems += soul.example_order_problems(beats, chapter["items"], card["parts"], family=chapter_family(chapter), types=ct.load())
         problems += frame_problems(value, card)[0]
         problems += engines.script_checks(beats, card["coverage"]["must_cover"], planned_minutes=video.get("estimated_minutes"),
                                           minutes_range=budget)[0]
@@ -828,6 +845,8 @@ def script_step(course: Course, chapter, plan, video, *, rulebook, max_rounds=3,
         found.update(engines.script_checks(value.get("beats") or [], card["coverage"]["must_cover"],
                                            planned_minutes=video.get("estimated_minutes"), minutes_range=budget)[1])
         found["dohraav"] = soul.dohraav_share(value.get("beats") or [], chapter["items"])
+        found["real_world"] = soul.example_order_report(value.get("beats") or [], chapter["items"], card["parts"],
+                                                        family=chapter_family(chapter), types=ct.load())
         return found
 
     return Step(section=SECTION, unit=f"script-{video['video_id']}", instructions_version=SCRIPT_VERSION, system=prefix.text,
@@ -980,6 +999,8 @@ def run_lesson(chapter: dict, course: Course, runner, out_dir, *, workers: int =
             "budget_minutes": list(video_budget(chapter, videos, video)),
             "spoken_minutes": spoken_minutes((result.output or {}).get("beats", [])),
             "dohraav": soul.dohraav_share((result.output or {}).get("beats", []), chapter["items"]),
+            "real_world": soul.example_order_report((result.output or {}).get("beats", []), chapter["items"], step.card["parts"],
+                                                    family=chapter_family(chapter), types=ct.load()),
             "checks": (result.rounds[-1].get("observed") if result.rounds else None) or {},
             "last_problems": (result.rounds[-1].get("code_problems") or []) + (result.rounds[-1].get("review_problems") or [])
             if result.rounds and not result.passed else [],
@@ -995,6 +1016,8 @@ def run_lesson(chapter: dict, course: Course, runner, out_dir, *, workers: int =
                          "dohraav": {"judged_beats": judged, "restating": sum(v["dohraav"]["restating"] for v in lesson["videos"]),
                                      "share": round(sum(v["dohraav"]["restating"] for v in lesson["videos"]) / judged, 3) if judged else 0.0,
                                      "opened_share": round(sum(v["dohraav"]["opened"] for v in lesson["videos"]) / judged, 3) if judged else 0.0},
+                         "real_world": {"items": sum(len(v["real_world"]) for v in lesson["videos"]),
+                                        "run_first": sum(1 for v in lesson["videos"] for r in v["real_world"] if r["ok"])},
                          "videos_reused": sum(1 for v in lesson["videos"] if v["reused"]),
                          "videos_continued": sum(1 for v in lesson["videos"] if v.get("continued")),
                          "plan_passed": plan_result.passed, "beats": sum(len(v["beats"]) for v in lesson["videos"]),
@@ -1053,6 +1076,18 @@ def render_markdown(lesson: dict) -> str:
                      + (f"{video['spoken_minutes']}" if video.get("spoken_minutes") is not None else "") + " | "
                      + (f"{video['dohraav']['restating']}/{video['dohraav']['judged']}" if video.get("dohraav") else "") + " |")
     lines.append("")
+    rows = [(v, r) for v in lesson["videos"] for r in v.get("real_world") or []]
+    if rows:
+        items = {}
+        lines += ["## Real-world examples (S2-08, Navin's rule of 27 October 2026)", "",
+                  "Every economics concept item of these scripts: the beats that run its example (they cover the item and carry its "
+                  "numbers), the beat that names the term, and today's check (the example must run first).", "",
+                  "| Video | Item | Place | Example beats | Names the term | Check |", "| --- | --- | --- | --- | --- | --- |"]
+        for video, r in rows:
+            named = f"{r['term_beat']} ({r['term']})" if r.get("term_beat") else "(term not named by a beat)"
+            check = "ok" if r["ok"] else r["problem"].split(": ", 1)[-1][:110]
+            lines.append(f"| {video['video_id']} | {r['item_id']} | {r['place']} | {', '.join(r['example_beats']) or '(none)'} | {named} | {check} |")
+        lines.append("")
     for video in lesson["videos"]:
         lines += video_lines(lesson, video, level=2)
     return "\n".join(lines)
