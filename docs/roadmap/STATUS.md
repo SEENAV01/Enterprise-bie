@@ -1049,8 +1049,12 @@ PR B (only after Navin's yes): live runs on the Gemini key, maker `google/gemini
   `de421.bsp` (17 MB, NAIF) and `hip_main.dat` (51 MB, CDS) from the two servers; CDS timed out. CI-2: no rerun; the fix in
   its own PR (`f16-skyfield-assets`): `tools/toolbox_setup.py --assets` also prefetches both files into `cache/skyfield`
   (`prefetch_skyfield`, standard library, kept when present, an unreachable server recorded instead of raised), so the cache
-  saved on main carries them for every PR; test in `tests/test_task046a_toolbox.py`. After the merge the push to `main` runs the
-  `assets` job and saves the cache; then `main` is merged into PR #90 and its CI runs again.
+  saved on main carries them for every PR; test in `tests/test_task046a_toolbox.py`. CDS stayed down for hours (both hostnames,
+  from the workspace too: connection reset), so the fix PR's own `demos (2)` failed the same way: the catalogue is now also
+  fetched from VizieR's mirrors when CDS does not answer (CfA Harvard answered: the same 53,316,318-byte file of 24 June 1997;
+  `astro.HIPPARCOS["mirrors"]`), and the batch-2 demos job runs `tools/toolbox_setup.py --skyfield` after its cache restore, so
+  a PR gets the files from a mirror and skyfield reads them from the cache folder without touching CDS. After the merge the push
+  to `main` runs the `assets` job and saves the cache; then `main` is merged into PR #90 and its CI runs again.
 - F-11 in the toolbox lane (26 October 2026, PR #79 run 40341502059, head `8583df52`): `wrappers` was cancelled at its
   40-minute limit inside "System libraries and programs" (14:39 → 15:18 UTC), before any test ran, and `demos (2)` sat
   in "System libraries and fonts" for over 55 minutes; `demos (1)` and `demos (3)` passed the same step in 35 seconds.

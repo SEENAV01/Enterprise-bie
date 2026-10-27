@@ -4,6 +4,7 @@
     python tools/toolbox_setup.py --print-env <folder>  the NODE_PATH and ESBUILD lines for the preview renderer
     python tools/toolbox_setup.py --assets <folder>     fetch the downloads a demo needs from a flaky server into an
                                                         asset cache folder (CI saves it on main for every PR, F-13, F-16)
+    python tools/toolbox_setup.py --skyfield <folder>   only the skyfield files, from CDS or a VizieR mirror (F-16)
 
 Python libraries come from pyproject extras (pip install -e '.[toolbox-core,toolbox-bio,...]'); system libraries for
 Manim (Cairo, Pango) from apt; neither is installed by this script.
@@ -52,20 +53,27 @@ def prefetch_skyfield(cache: Path, *, opener=None, sleep=time.sleep, tries: int 
     folder = Path(cache) / "skyfield"
     folder.mkdir(parents=True, exist_ok=True)
     done = {}
-    for name, url in ((astro.EPHEMERIS["file"], astro.EPHEMERIS["source"]), ("hip_main.dat", astro.HIPPARCOS["source"])):
+    files = ((astro.EPHEMERIS["file"], (astro.EPHEMERIS["source"],)),
+             ("hip_main.dat", (astro.HIPPARCOS["source"], *astro.HIPPARCOS.get("mirrors", ()))))
+    for name, urls in files:
         path = folder / name
         if path.exists() and path.stat().st_size > 0:
             done[name] = "cached"
             continue
-        try:
-            data = earth._download(url, opener=opener, tries=tries, wait=wait, sleep=sleep, timeout=300.0)
-        except Exception as exc:                            # noqa: BLE001 - the cache job must save what it did fetch
-            done[name] = f"unreachable: {exc}"[:200]
-            continue
-        tmp = path.with_suffix(path.suffix + ".part")
-        tmp.write_bytes(data)
-        tmp.replace(path)
-        done[name] = "fetched"
+        errors = []
+        for url in urls:                                    # the canonical server first, then its mirrors (the same file)
+            try:
+                data = earth._download(url, opener=opener, tries=tries, wait=wait, sleep=sleep, timeout=300.0)
+            except Exception as exc:                        # noqa: BLE001 - the cache job must save what it did fetch
+                errors.append(f"{url.split('/')[2]}: {str(exc).split(': ', 1)[-1]}"[:160])     # the host and the error, not the URL twice
+                continue
+            tmp = path.with_suffix(path.suffix + ".part")
+            tmp.write_bytes(data)
+            tmp.replace(path)
+            done[name] = "fetched" if url == urls[0] else f"fetched from {url}"
+            break
+        else:
+            done[name] = "unreachable: " + " | ".join(errors)
     return done
 
 
@@ -88,6 +96,7 @@ def main(argv=None):
     parser.add_argument("--groups", default="", help="comma list of groups (default: all)")
     parser.add_argument("--print-env", type=Path)
     parser.add_argument("--assets", type=Path)
+    parser.add_argument("--skyfield", type=Path, help="only the skyfield files (the batch-2 demos job runs this after its cache restore, F-16)")
     args = parser.parse_args(argv)
     if args.web:
         install(args.web, [g for g in args.groups.split(",") if g] or None)
@@ -97,7 +106,9 @@ def main(argv=None):
         print(f"ESBUILD={modules / 'esbuild' / 'bin' / 'esbuild'}")
     if args.assets:
         print(json.dumps(prefetch_assets(args.assets), indent=1))
-    if not (args.web or args.print_env or args.assets):
+    if args.skyfield:
+        print(json.dumps({"skyfield": prefetch_skyfield(args.skyfield)}, indent=1))
+    if not (args.web or args.print_env or args.assets or args.skyfield):
         parser.print_help()
         return 2
     return 0

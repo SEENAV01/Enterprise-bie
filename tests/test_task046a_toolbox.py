@@ -746,9 +746,31 @@ class DemosAndPage(unittest.TestCase):
             self.assertTrue(done["de421.bsp"].startswith("unreachable: ") and "Connection timed out" in done["de421.bsp"])
             self.assertTrue(done["hip_main.dat"].startswith("unreachable: "))
             self.assertFalse(list(Path(cache, "skyfield").iterdir()))                  # no empty or partial file left behind
-        # the loader looks exactly where the assets job writes
+        # CDS down, the CfA mirror up (27 October 2026): the same file from the first mirror that answers, named in the result
+        with tempfile.TemporaryDirectory() as cache:
+            asked = []
+
+            def cds_down(request, timeout=None):
+                asked.append(request.full_url)
+                if "cdsarc" in request.full_url:
+                    raise urllib.error.URLError("Connection reset by peer")
+                return FakeResponse(b"DAF/SPK" if request.full_url.endswith(".bsp") else b"H|1|...")
+
+            done = setup.prefetch_skyfield(Path(cache), opener=cds_down, sleep=lambda s: None, tries=1)
+            self.assertEqual(done["de421.bsp"], "fetched")
+            self.assertEqual(done["hip_main.dat"], f"fetched from {astro.HIPPARCOS['mirrors'][0]}")
+            self.assertEqual(asked, [astro.EPHEMERIS["source"], astro.HIPPARCOS["source"], astro.HIPPARCOS["mirrors"][0]])
+            self.assertEqual(Path(cache, "skyfield", "hip_main.dat").read_bytes(), b"H|1|...")
+        self.assertTrue(all(u.endswith("/ftp/cats/I/239/hip_main.dat") for u in astro.HIPPARCOS["mirrors"]))
+        # the loader looks exactly where the assets job writes, and the batch-2 demos job fetches there itself
         self.assertIn('Path(cache or cache_dir()) / "skyfield"', (ROOT / "bie" / "toolbox" / "adapters" / "astro.py").read_text(encoding="utf-8"))
         self.assertIn('"skyfield": prefetch_skyfield(cache', (ROOT / "tools" / "toolbox_setup.py").read_text(encoding="utf-8"))
+        flow = (ROOT / ".github" / "workflows" / "toolbox.yml").read_text(encoding="utf-8")
+        demos = flow.split("\n  demos:\n", 1)[1]
+        step = demos.index('tools/toolbox_setup.py --skyfield "$BIE_ASSET_CACHE"')
+        self.assertLess(demos.index("bie-asset-cache-shared-"), step)                      # after the cache restore
+        self.assertLess(step, demos.index("tools/toolbox_demos.py --batch"))              # before the demos
+        self.assertIn("if: matrix.batch == 2", demos[:step])
 
     def test_ci_keeps_the_relief_tiles_in_a_cache_every_pr_restores(self):
         """F-13b: a PR's own Actions cache starts empty and GMT's one data server was unreachable from the runners for
