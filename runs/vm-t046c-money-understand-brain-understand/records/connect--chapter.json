@@ -1,0 +1,594 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "connect",
+ "unit": "chapter",
+ "status": "stopped",
+ "instructions_version": "understand-connect/3",
+ "rulebook_version": "content_types@2026-10-24.1+explanations@2026-10-24.1+level_profiles@2026-10-24.1+simple_hindi@2026-10-25.1+teacher_examples@2026-10-24.1+vision-2026-10-21@2026-10-21.13+visual_grammar@2026-10-26.2+visual_levels@2026-10-26.2",
+ "rulebook_digest": "034c1980754c8b206bec5f96428e449cdde61126476f85f8dbca9f253c155847",
+ "rules_used": [
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-05",
+  "G-06",
+  "G-07",
+  "S1-07",
+  "S1-09",
+  "S1-10",
+  "S1-12"
+ ],
+ "maker_route": "codex",
+ "reviewer_route": "google",
+ "maker_model": "gpt-6.1-sol",
+ "reviewer_model": "gemini-3.8-flash",
+ "reviewer_independence": "other_company",
+ "inputs_digest": "861478b58e4886868fab915d6446a01bcb072bf1595508fe0b742a8b9da9bf9d",
+ "card": {
+  "card": "bie.task-card/1",
+  "card_id": "connect.build_chapter_map@3-money/chapter",
+  "section": "connect",
+  "task": "build_chapter_map",
+  "prefix": {
+   "prefix_id": "connect.build_chapter_map/2",
+   "rulebook_version": "content_types@2026-10-24.1+explanations@2026-10-24.1+level_profiles@2026-10-24.1+simple_hindi@2026-10-25.1+teacher_examples@2026-10-24.1+vision-2026-10-21@2026-10-21.13+visual_grammar@2026-10-26.2+visual_levels@2026-10-26.2",
+   "content_types_version": "2026-10-24.1",
+   "schema_id": "bie.brain.chapter-connect/3",
+   "sha256": "4fe889bc5bec1023a115e76c2722f66e17c61e3b83f9950800b926de2a00e70f"
+  },
+  "unit": {
+   "unit_id": "chapter",
+   "title": "3. Money",
+   "pages": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
+  },
+  "parts": [
+   {
+    "part_id": "t1",
+    "item_ids": [
+     "p001-i12",
+     "p002-i24",
+     "p002-i27",
+     "p003-i1",
+     "p003-i2",
+     "p003-i3",
+     "p003-i4",
+     "p003-i14",
+     "p003-i15",
+     "p003-i16",
+     "p003-i17",
+     "p003-i19",
+     "p003-i20",
+     "p003-i21",
+     "p003-i22",
+     "p003-i23",
+     "p003-i26",
+     "p003-i40",
+     "p003-i41",
+     "p004-i2",
+     "p004-i9",
+     "p004-i13",
+     "p004-i16",
+     "p004-i17",
+     "p004-i18",
+     "p005-i15",
+     "p005-i16",
+     "p005-i17",
+     "p005-i24",
+     "p006-i1",
+     "p006-i3"
+    ],
+    "type": "cause_effect",
+    "questions": [
+     "why",
+     "how"
+    ],
+    "focus": "the cause_effect items: group them into concepts and link them"
+   },
+   {
+    "part_id": "t2",
+    "item_ids": [
+     "p004-i31",
+     "p004-i34"
+    ],
+    "type": "classification",
+    "questions": [
+     "which",
+     "difference"
+    ],
+    "focus": "the classification items: group them into concepts and link them"
+   },
+   {
+    "part_id": "t3",
+    "item_ids": [
+     "p002-i2",
+     "p002-i3",
+     "p002-i4",
+     "p002-i5",
+     "p002-i6",
+     "p002-i7",
+     "p002-i8",
+     "p002-i9",
+     "p002-i10",
+     "p002-i11",
+     "p004-i14",
+     "p005-i2",
+     "p005-i3",
+     "p005-i10",
+     "p005-i11",
+     "p005-i12"
+    ],
+    "type": "comparison",
+    "questions": [
+     "compare",
+     "difference"
+    ],
+    "focus": "the comparison items: group them into concepts and link them"
+   },
+   {
+    "part_id": "t4",
+    "item_ids": [
+     "p001-i3",
+     "p001-i4",
+     "p001-i5",
+     "p001-i7",
+     "p001-i8",
+     "p001-i9",
+     "p001-i10",
+     "p001-i11",
+     "p001-i14",
+     "p001-i15",
+     "p001-i16",
+     "p001-i17",
+     "p002-i20",
+     "p002-i22",
+     "p002-i23",
+     "p003-i6",
+     "p003-i25",
+     "p004-i1",
+     "p004-i11",
+     "p004-i30",
+     "p004-i35",
+     "p005-i1",
+     "p005-i5",
+     "p005-i7",
+     "p006-i8"
+    ],
+    "type": "definition",
+    "questions": [
+     "what",
+     "evidence"
+    ],
+    "focus": "the definition items: group them into concepts and link them"
+   },
+   {
+    "part_id": "t5",
+    "item_ids": [
+     "p003-i8",
+     "p003-i9",
+     "p003-i10",
+     "p003-i11",
+     "p003-i12",
+     "p004-i15",
+     "p004-i20",
+     "p004-i21",
+     "p004-i22",
+     "p004-i23",
+     "p004-i24",
+     "p005-i6",
+     "p005-i8",
+     "p005-i14"
+    ],
+    "type": "facts_numbers",
+    "questions": [
+     "what",
+     "evidence"
+    ],
+    "focus": "the facts_numbers items: group them into concepts and link them"
+   },
+   {
+    "part_id": "t6",
+    "item_ids": [
+     "p005-i18",
+     "p005-i19",
+     "p005-i20",
+     "p005-i21"
+    ],
+    "type": "figure",
+    "questions": [
+     "what",
+     "which"
+    ],
+    "focus": "the figure items: group them into concepts and link them"
+   },
+   {
+    "part_id": "t7",
+    "item_ids": [
+     "p004-i8"
+    ],
+    "type": "process",
+    "questions": [
+     "how",
+     "when"
+    ],
+    "focus": "the process items: group them into concepts and link them"
+   },
+   {
+    "part_id": "t8",
+    "item_ids": [
+     "p002-i12",
+     "p002-i13",
+     "p002-i14",
+     "p002-i15",
+     "p002-i16",
+     "p002-i17",
+     "p002-i18",
+     "p002-i25",
+     "p003-i27",
+     "p003-i28",
+     "p003-i30",
+     "p003-i31",
+     "p003-i32",
+     "p003-i33",
+     "p003-i34",
+     "p003-i35",
+     "p003-i36",
+     "p003-i37",
+     "p003-i38",
+     "p003-i39",
+     "p004-i4",
+     "p004-i5",
+     "p004-i6",
+     "p004-i7",
+     "p004-i26",
+     "p004-i27",
+     "p004-i28",
+     "p004-i29",
+     "p004-i32",
+     "p004-i33",
+     "p005-i22",
+     "p006-i2",
+     "p006-i5",
+     "p006-i6",
+     "p006-i9",
+     "p006-i10",
+     "p006-i13",
+     "p006-i14",
+     "p006-i15",
+     "p006-i16",
+     "p006-i17",
+     "p006-i18",
+     "p006-i19",
+     "p006-i20"
+    ],
+    "type": "timeline",
+    "questions": [
+     "when",
+     "why"
+    ],
+    "focus": "the timeline items: group them into concepts and link them"
+   }
+  ],
+  "rules": [
+   "G-01",
+   "G-02",
+   "G-03",
+   "G-05",
+   "G-06",
+   "G-07",
+   "S1-07",
+   "S1-09",
+   "S1-10",
+   "S1-12"
+  ],
+  "output": {
+   "schema_id": "bie.brain.chapter-connect/3",
+   "mode": "full",
+   "max_output_tokens": 32000
+  },
+  "coverage": {
+   "must_cover": [
+    "p001-i3",
+    "p001-i4",
+    "p001-i5",
+    "p001-i7",
+    "p001-i8",
+    "p001-i9",
+    "p001-i10",
+    "p001-i11",
+    "p001-i12",
+    "p001-i14",
+    "p001-i15",
+    "p001-i16",
+    "p001-i17",
+    "p002-i2",
+    "p002-i3",
+    "p002-i4",
+    "p002-i5",
+    "p002-i6",
+    "p002-i7",
+    "p002-i8",
+    "p002-i9",
+    "p002-i10",
+    "p002-i11",
+    "p002-i12",
+    "p002-i13",
+    "p002-i14",
+    "p002-i15",
+    "p002-i16",
+    "p002-i17",
+    "p002-i18",
+    "p002-i20",
+    "p002-i22",
+    "p002-i23",
+    "p002-i24",
+    "p002-i25",
+    "p002-i27",
+    "p003-i1",
+    "p003-i2",
+    "p003-i3",
+    "p003-i4",
+    "p003-i6",
+    "p003-i8",
+    "p003-i9",
+    "p003-i10",
+    "p003-i11",
+    "p003-i12",
+    "p003-i14",
+    "p003-i15",
+    "p003-i16",
+    "p003-i17",
+    "p003-i19",
+    "p003-i20",
+    "p003-i21",
+    "p003-i22",
+    "p003-i23",
+    "p003-i25",
+    "p003-i26",
+    "p003-i27",
+    "p003-i28",
+    "p003-i30",
+    "p003-i31",
+    "p003-i32",
+    "p003-i33",
+    "p003-i34",
+    "p003-i35",
+    "p003-i36",
+    "p003-i37",
+    "p003-i38",
+    "p003-i39",
+    "p003-i40",
+    "p003-i41",
+    "p004-i1",
+    "p004-i2",
+    "p004-i4",
+    "p004-i5",
+    "p004-i6",
+    "p004-i7",
+    "p004-i8",
+    "p004-i9",
+    "p004-i11",
+    "p004-i13",
+    "p004-i14",
+    "p004-i15",
+    "p004-i16",
+    "p004-i17",
+    "p004-i18",
+    "p004-i20",
+    "p004-i21",
+    "p004-i22",
+    "p004-i23",
+    "p004-i24",
+    "p004-i26",
+    "p004-i27",
+    "p004-i28",
+    "p004-i29",
+    "p004-i30",
+    "p004-i31",
+    "p004-i32",
+    "p004-i33",
+    "p004-i34",
+    "p004-i35",
+    "p005-i1",
+    "p005-i2",
+    "p005-i3",
+    "p005-i5",
+    "p005-i6",
+    "p005-i7",
+    "p005-i8",
+    "p005-i10",
+    "p005-i11",
+    "p005-i12",
+    "p005-i14",
+    "p005-i15",
+    "p005-i16",
+    "p005-i17",
+    "p005-i18",
+    "p005-i19",
+    "p005-i20",
+    "p005-i21",
+    "p005-i22",
+    "p005-i24",
+    "p006-i1",
+    "p006-i2",
+    "p006-i3",
+    "p006-i5",
+    "p006-i6",
+    "p006-i8",
+    "p006-i9",
+    "p006-i10",
+    "p006-i13",
+    "p006-i14",
+    "p006-i15",
+    "p006-i16",
+    "p006-i17",
+    "p006-i18",
+    "p006-i19",
+    "p006-i20"
+   ],
+   "claim_field": "concepts[].item_ids",
+   "may_skip": [
+    {
+     "item_id": "p001-i1",
+     "reason": "not teachable (heading or container)"
+    },
+    {
+     "item_id": "p001-i2",
+     "reason": "not teachable (heading or container)"
+    },
+    {
+     "item_id": "p001-i6",
+     "reason": "not teachable (heading or container)"
+    },
+    {
+     "item_id": "p001-i13",
+     "reason": "not teachable (heading or container)"
+    },
+    {
+     "item_id": "p002-i1",
+     "reason": "not teachable (heading or container)"
+    },
+    {
+     "item_id": "p002-i19",
+     "reason": "not teachable (heading or container)"
+    },
+    {
+     "item_id": "p002-i21",
+     "reason": "not teachable (heading or container)"
+    },
+    {
+     "item_id": "p002-i26",
+     "reason": "not teachable (heading or container)"
+    },
+    {
+     "item_id": "p003-i5",
+     "reason": "not teachable (heading or container)"
+    },
+    {
+     "item_id": "p003-i7",
+     "reason": "not teachable (heading or container)"
+    },
+    {
+     "item_id": "p003-i13",
+     "reason": "not teachable (heading or container)"
+    },
+    {
+     "item_id": "p003-i18",
+     "reason": "not teachable (heading or container)"
+    },
+    {
+     "item_id": "p003-i24",
+     "reason": "not teachable (heading or container)"
+    },
+    {
+     "item_id": "p003-i29",
+     "reason": "not teachable (heading or container)"
+    },
+    {
+     "item_id": "p003-i42",
+     "reason": "not teachable (heading or container)"
+    },
+    {
+     "item_id": "p004-i3",
+     "reason": "not teachable (heading or container)"
+    },
+    {
+     "item_id": "p004-i10",
+     "reason": "not teachable (heading or container)"
+    },
+    {
+     "item_id": "p004-i12",
+     "reason": "not teachable (heading or container)"
+    },
+    {
+     "item_id": "p004-i19",
+     "reason": "not teachable (heading or container)"
+    },
+    {
+     "item_id": "p004-i25",
+     "reason": "not teachable (heading or container)"
+    },
+    {
+     "item_id": "p005-i4",
+     "reason": "not teachable (heading or container)"
+    },
+    {
+     "item_id": "p005-i9",
+     "reason": "not teachable (heading or container)"
+    },
+    {
+     "item_id": "p005-i13",
+     "reason": "not teachable (heading or container)"
+    },
+    {
+     "item_id": "p005-i23",
+     "reason": "not teachable (heading or container)"
+    },
+    {
+     "item_id": "p006-i4",
+     "reason": "not teachable (heading or container)"
+    },
+    {
+     "item_id": "p006-i7",
+     "reason": "not teachable (heading or container)"
+    },
+    {
+     "item_id": "p006-i11",
+     "reason": "not teachable (heading or container)"
+    },
+    {
+     "item_id": "p006-i12",
+     "reason": "not teachable (heading or container)"
+    }
+   ]
+  },
+  "context": {
+   "map_slice": [],
+   "before": "",
+   "after": ""
+  },
+  "source": {
+   "block_ids": [],
+   "page_images": []
+  }
+ },
+ "prefix_sha256": "4fe889bc5bec1023a115e76c2722f66e17c61e3b83f9950800b926de2a00e70f",
+ "review_prefix_sha256": "548e2da1c77f3c0b9debb08d1f0bd8ecdbb07ae9219b1b8a92d18b48c8c80e01",
+ "inputs": {
+  "system": "BIE task prefix connect.build_chapter_map/2 · rulebook content_types@2026-10-24.1+explanations@2026-10-24.1+level_profiles@2026-10-24.1+simple_hindi@2026-10-25.1+teacher_examples@2026-10-24.1+vision-2026-10-21@2026-10-21.13+visual_grammar@2026-10-26.2+visual_levels@2026-10-26.2 · content types 2026-10-24.1 · schema bie.brain.chapter-connect/3\n\nYou are BIE's book-understanding section, connecting a whole chapter. You are an expert teacher of Indian Economy for UPSC / State PCS aspirants\npreparing for UPSC / State PCS. The pages have already been read into items (given after the card, one line per item with its id); now build the\nchapter map that the lesson, director, game and notes sections will use. Write the map in clear English with the book's terms.\nCourse: \"3. Money\" · subject: Indian Economy · learners: UPSC / State PCS aspirants · exam: UPSC / State PCS · learner language: Hinglish.\n\nNavin's rules for this task (follow every one):\n[G-01] Everything taught comes from the book. Knowledge from outside the book is allowed only to explain the book better; it is marked as outside, standard textbook-level and correct. Never invent facts, numbers, names or quotations.\n[G-02] Work like the best teacher of these learners and this exam, not like a summariser. Depth beats brevity: nothing teachable on the page is skipped or compressed away, and every explanation makes a student understand, not just remember. Depth means understanding, not length: lesson narration keeps S2-01's time by cutting repetition and side-tracks, never book content.\n[G-03] Before the output, fill 'notes' with brief notes for the reviewer and for Navin: what this unit is about, the key questions a teacher must answer about it, the main decisions you made with a one-line reason each, and anything uncertain. Keep the notes short; they explain the work, they are not the work.\n[G-05] Never drop or compress away what the book teaches to fit a length. If a unit of work is too large, it is split by BIE into smaller units; within a unit, the book's content is complete. Lesson narration has a time target (S2-01), met by cutting repetition and side-tracks, never book content.\n[G-06] BIE is the link between the learner and the book, like a teacher (Navin, 24 October 2026). The book is the base; BIE carries its text, easy or hard, into the learner's mind. Never just read the line out: every book line is opened (what its words mean, why it is so, where it is seen, what follows), at the depth of the level profile.\n[G-07] Two layers, like a film (Navin, 24 October 2026). The writer layer (understanding, plan, script) decides what is said and how deep, following the level profile and the book's own level. The presentation layer (director, video blocks, render) is the same skilled quality for every learner, from class 6 to postgraduate; only the detail shown follows the level, never the craft.\n[S1-07] Mark every answer's basis: 'book' only when the page itself states it, 'outside' when any part comes from general knowledge. Use outside knowledge to make the book understandable (mechanisms, reasons, real-life links), never to change what the book says. Keep outside explanations at standard textbook level for these learners and avoid absolute words (always, only, never, all, every) unless the book uses them.\n[S1-09] Name the prerequisites a student must already understand for each item, as concrete concepts ('cell and its nucleus', 'what a nerve impulse is'), never vague ('basic biology'). Prerequisites are taught later, not just listed.\n[S1-10] Judge exam importance for the course's exam (for UPSC / State PCS: classifications, comparisons, locations, functions, examples and odd-one-out facts are high). Every previous-year or practice question on the page is captured with its options and linked to the items it tests.\n[S1-12] Connect the whole chapter: group items into concepts; record how concepts relate (part of, type of, depends on, causes, contrasts with, example of, sequence); resolve every cross-reference such as 'Fig. 6.10' to its item; list only the prerequisites this chapter directly needs, never a prerequisite of a prerequisite (no chains), each with why it is needed and the chapter concepts that need it; the rule is not a number: usually that is 8 or fewer, more than 8 needs a stated reason why every one is directly needed, and a directly needed prerequisite is never dropped to reach a number; propose a teaching order that starts from what the student already knows.\n\nBIE's content types (the type of an item decides its required questions and how it is taught, shown, played and drawn):\n- process · Process: Something that happens in steps or stages over time: a mechanism, a procedure, a cycle (photosynthesis, cell division, how a bill becomes law). Required questions: how (kaise), when (kab). Other questions: what (kya), where (kahan), why (kyun), consequence (nateeja).\n- structure · Structure: Something made of parts arranged in space, each part with a function (a cell, a leaf, the heart, a machine, the Parliament). Required questions: what (kya), where (kahan). Other questions: how (kaise), why (kyun), which (kaun).\n- classification · Classification: A group divided into kinds by a stated basis (types of tissues, kinds of rocks, kinds of writs). Required questions: which (kaun), difference (tulna). Other questions: what (kya), evidence (saboot), where (kahan).\n- comparison · Comparison: Two or more things set side by side on stated criteria (plant and animal cells, Lok Sabha and Rajya Sabha). Required questions: compare (tulna), difference (tulna). Other questions: what (kya), why (kyun), evidence (saboot).\n- timeline · Timeline: Events placed in time: history, the development of an idea, stages of a life (the Revolt of 1857, evolution of cell theory). Required questions: when (kab), why (kyun). Other questions: who (kaun), where (kahan), consequence (nateeja).\n- cause_effect · Reasoning (cause and effect): Why something happens: causes, effects, conditions and chains of reasoning (why tissues specialise, why prices rise, why a law was needed). Required questions: why (kyun), how (kaise). Other questions: consequence (nateeja), evidence (saboot), exception (tulna).\n- facts_numbers · Facts and numbers: Stated facts, quantities, measurements, statistics and formulas (heart rate 72 per minute, 3,000 against 50,000 soldiers at Plassey, F = ma). Required questions: what (kya), evidence (saboot). Other questions: compare (tulna), why (kyun).\n- figure · Figure: A diagram, photo, map, graph or table drawing on the page whose content is visual (tissue pages 2, 7 and 8 are figures only). Required questions: what (kya), which (kaun). Other questions: how (kaise), why (kyun).\n- definition · Definition: A term and its meaning as the book states it (tissue, meristem, sovereignty). Required questions: what (kya), evidence (saboot). Other questions: about (kya), why (kyun).\n\nOutput schema (JSON):\n{\"additionalProperties\":false,\"properties\":{\"chapter_summary\":{\"type\":\"string\"},\"chapter_title\":{\"type\":\"string\"},\"concepts\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"concept_id\":{\"type\":\"string\"},\"content_type\":{\"enum\":[\"process\",\"structure\",\"classification\",\"comparison\",\"timeline\",\"cause_effect\",\"facts_numbers\",\"figure\",\"definition\",\"none\"],\"type\":\"string\"},\"core_explanation\":{\"type\":\"string\"},\"item_ids\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"name\":{\"type\":\"string\"}},\"required\":[\"concept_id\",\"name\",\"item_ids\",\"content_type\",\"core_explanation\"],\"type\":\"object\"},\"type\":\"array\"},\"cross_references\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"from_item_id\":{\"type\":\"string\"},\"reference_text\":{\"type\":\"string\"},\"resolved_item_id\":{\"type\":\"string\"}},\"required\":[\"from_item_id\",\"reference_text\",\"resolved_item_id\"],\"type\":\"object\"},\"type\":\"array\"},\"exam_focus\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"concept_id\":{\"type\":\"string\"},\"why\":{\"type\":\"string\"}},\"required\":[\"concept_id\",\"why\"],\"type\":\"object\"},\"type\":\"array\"},\"notes\":{\"additionalProperties\":false,\"properties\":{\"about\":{\"description\":\"What this unit of work is about and how it fits the whole (one or two sentences).\",\"type\":\"string\"},\"decisions\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"decision\":{\"type\":\"string\"},\"reason\":{\"type\":\"string\"}},\"required\":[\"decision\",\"reason\"],\"type\":\"object\"},\"type\":\"array\"},\"key_questions\":{\"description\":\"The key questions a teacher must answer about this unit.\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"uncertain\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"}},\"required\":[\"about\",\"key_questions\",\"decisions\",\"uncertain\"],\"type\":\"object\"},\"prerequisite_note\":{\"type\":\"string\"},\"prerequisites_to_teach\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"basis\":{\"enum\":[\"book\",\"outside\"],\"type\":\"string\"},\"name\":{\"type\":\"string\"},\"needed_for\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"why_needed\":{\"type\":\"string\"}},\"required\":[\"name\",\"why_needed\",\"needed_for\",\"basis\"],\"type\":\"object\"},\"type\":\"array\"},\"question_links\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"question_item_id\":{\"type\":\"string\"},\"tests_concepts\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"}},\"required\":[\"question_item_id\",\"tests_concepts\"],\"type\":\"object\"},\"type\":\"array\"},\"relations\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"from_concept\":{\"type\":\"string\"},\"note\":{\"type\":\"string\"},\"relation\":{\"enum\":[\"part_of\",\"type_of\",\"depends_on\",\"causes\",\"contrasts_with\",\"compares_with\",\"example_of\",\"sequence_next\",\"located_in\",\"function_of\",\"tested_by\"],\"type\":\"string\"},\"to_concept\":{\"type\":\"string\"}},\"required\":[\"from_concept\",\"relation\",\"to_concept\",\"note\"],\"type\":\"object\"},\"type\":\"array\"},\"teaching_order\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"}},\"required\":[\"notes\",\"chapter_title\",\"chapter_summary\",\"concepts\",\"relations\",\"prerequisites_to_teach\",\"prerequisite_note\",\"cross_references\",\"question_links\",\"teaching_order\",\"exam_focus\"],\"type\":\"object\"}\n\nHow BIE talks to you: every request is a task card (JSON) followed by its source. The card names the unit, its parts with their content type and required questions, the ids of the rules above that apply, the output, the ids you must cover and the context. The card is BIE's instruction; the source is the material.\nFor a build_chapter_map card:\n- card.parts group the chapter's items by content type; card.coverage.must_cover lists every teachable item: each must be in the item_ids\n  of at least one concept.\n- The source lines are \"item id | page | kind | type | teachable | exam | content | prerequisites\".\nHow to fill the JSON:\n- concepts: group the items into the chapter's concepts; every teachable item belongs to at least one concept (use the item ids exactly\n  as given); content_type is the concept's main type (one of BIE's nine ids, never \"none\": a concept of practice or PYQ questions takes\n  the type of what its questions test); core_explanation says the concept's heart in two or three sentences a teacher would say.\n- relations: how concepts relate, using concept ids. \"A depends_on B\" means B must be understood first; \"A causes B\"; \"A sequence_next B\"\n  means A comes before B in time or in a process. BIE's code checks with its prerequisite and reasoning engines: prerequisites never go\n  in a circle, the teaching order teaches a prerequisite before what needs it, cause and effect never go in a circle, and dated concepts\n  never go back in time.\n- prerequisites_to_teach: only what this chapter directly needs, never a prerequisite of a prerequisite (no chains), each with why it\n  is needed and needed_for = the chapter concept ids that need it. BIE teaches them in one short video before the chapter (S1-12, S2-03).\n  Usually that is 8 or fewer; never drop a prerequisite the chapter directly needs to stay under 8.\n- prerequisite_note: \"\" when there are 8 or fewer prerequisites; with more than 8, why every one of them is directly needed (BIE's code\n  asks for this note; it is a warning, not a limit).\n- cross_references: every reference such as \"Fig. 6.10\" or \"see table\" resolved to the item it means.\n- question_links: every question item (a question \"continued from the previous page\" too) linked to the concepts it tests; link the\n  question item, never its answer options.\n- teaching_order: every concept id exactly once, in the order a teacher should teach them, starting from what the student knows.\n- exam_focus: the concepts most important for this exam and why.\nReply with the JSON object only.",
+  "user": [
+   {
+    "type": "text",
+    "text": "BIE task card (JSON):\n{\"card\":\"bie.task-card/1\",\"card_id\":\"connect.build_chapter_map@3-money/chapter\",\"section\":\"connect\",\"task\":\"build_chapter_map\",\"prefix\":{\"prefix_id\":\"connect.build_chapter_map/2\",\"rulebook_version\":\"content_types@2026-10-24.1+explanations@2026-10-24.1+level_profiles@2026-10-24.1+simple_hindi@2026-10-25.1+teacher_examples@2026-10-24.1+vision-2026-10-21@2026-10-21.13+visual_grammar@2026-10-26.2+visual_levels@2026-10-26.2\",\"content_types_version\":\"2026-10-24.1\",\"schema_id\":\"bie.brain.chapter-connect/3\",\"sha256\":\"4fe889bc5bec1023a115e76c2722f66e17c61e3b83f9950800b926de2a00e70f\"},\"unit\":{\"unit_id\":\"chapter\",\"title\":\"3. Money\",\"pages\":[1,2,3,4,5,6]},\"parts\":[{\"part_id\":\"t1\",\"item_ids\":[\"p001-i12\",\"p002-i24\",\"p002-i27\",\"p003-i1\",\"p003-i2\",\"p003-i3\",\"p003-i4\",\"p003-i14\",\"p003-i15\",\"p003-i16\",\"p003-i17\",\"p003-i19\",\"p003-i20\",\"p003-i21\",\"p003-i22\",\"p003-i23\",\"p003-i26\",\"p003-i40\",\"p003-i41\",\"p004-i2\",\"p004-i9\",\"p004-i13\",\"p004-i16\",\"p004-i17\",\"p004-i18\",\"p005-i15\",\"p005-i16\",\"p005-i17\",\"p005-i24\",\"p006-i1\",\"p006-i3\"],\"type\":\"cause_effect\",\"questions\":[\"why\",\"how\"],\"focus\":\"the cause_effect items: group them into concepts and link them\"},{\"part_id\":\"t2\",\"item_ids\":[\"p004-i31\",\"p004-i34\"],\"type\":\"classification\",\"questions\":[\"which\",\"difference\"],\"focus\":\"the classification items: group them into concepts and link them\"},{\"part_id\":\"t3\",\"item_ids\":[\"p002-i2\",\"p002-i3\",\"p002-i4\",\"p002-i5\",\"p002-i6\",\"p002-i7\",\"p002-i8\",\"p002-i9\",\"p002-i10\",\"p002-i11\",\"p004-i14\",\"p005-i2\",\"p005-i3\",\"p005-i10\",\"p005-i11\",\"p005-i12\"],\"type\":\"comparison\",\"questions\":[\"compare\",\"difference\"],\"focus\":\"the comparison items: group them into concepts and link them\"},{\"part_id\":\"t4\",\"item_ids\":[\"p001-i3\",\"p001-i4\",\"p001-i5\",\"p001-i7\",\"p001-i8\",\"p001-i9\",\"p001-i10\",\"p001-i11\",\"p001-i14\",\"p001-i15\",\"p001-i16\",\"p001-i17\",\"p002-i20\",\"p002-i22\",\"p002-i23\",\"p003-i6\",\"p003-i25\",\"p004-i1\",\"p004-i11\",\"p004-i30\",\"p004-i35\",\"p005-i1\",\"p005-i5\",\"p005-i7\",\"p006-i8\"],\"type\":\"definition\",\"questions\":[\"what\",\"evidence\"],\"focus\":\"the definition items: group them into concepts and link them\"},{\"part_id\":\"t5\",\"item_ids\":[\"p003-i8\",\"p003-i9\",\"p003-i10\",\"p003-i11\",\"p003-i12\",\"p004-i15\",\"p004-i20\",\"p004-i21\",\"p004-i22\",\"p004-i23\",\"p004-i24\",\"p005-i6\",\"p005-i8\",\"p005-i14\"],\"type\":\"facts_numbers\",\"questions\":[\"what\",\"evidence\"],\"focus\":\"the facts_numbers items: group them into concepts and link them\"},{\"part_id\":\"t6\",\"item_ids\":[\"p005-i18\",\"p005-i19\",\"p005-i20\",\"p005-i21\"],\"type\":\"figure\",\"questions\":[\"what\",\"which\"],\"focus\":\"the figure items: group them into concepts and link them\"},{\"part_id\":\"t7\",\"item_ids\":[\"p004-i8\"],\"type\":\"process\",\"questions\":[\"how\",\"when\"],\"focus\":\"the process items: group them into concepts and link them\"},{\"part_id\":\"t8\",\"item_ids\":[\"p002-i12\",\"p002-i13\",\"p002-i14\",\"p002-i15\",\"p002-i16\",\"p002-i17\",\"p002-i18\",\"p002-i25\",\"p003-i27\",\"p003-i28\",\"p003-i30\",\"p003-i31\",\"p003-i32\",\"p003-i33\",\"p003-i34\",\"p003-i35\",\"p003-i36\",\"p003-i37\",\"p003-i38\",\"p003-i39\",\"p004-i4\",\"p004-i5\",\"p004-i6\",\"p004-i7\",\"p004-i26\",\"p004-i27\",\"p004-i28\",\"p004-i29\",\"p004-i32\",\"p004-i33\",\"p005-i22\",\"p006-i2\",\"p006-i5\",\"p006-i6\",\"p006-i9\",\"p006-i10\",\"p006-i13\",\"p006-i14\",\"p006-i15\",\"p006-i16\",\"p006-i17\",\"p006-i18\",\"p006-i19\",\"p006-i20\"],\"type\":\"timeline\",\"questions\":[\"when\",\"why\"],\"focus\":\"the timeline items: group them into concepts and link them\"}],\"rules\":[\"G-01\",\"G-02\",\"G-03\",\"G-05\",\"G-06\",\"G-07\",\"S1-07\",\"S1-09\",\"S1-10\",\"S1-12\"],\"output\":{\"schema_id\":\"bie.brain.chapter-connect/3\",\"mode\":\"full\",\"max_output_tokens\":32000},\"coverage\":{\"must_cover\":[\"p001-i3\",\"p001-i4\",\"p001-i5\",\"p001-i7\",\"p001-i8\",\"p001-i9\",\"p001-i10\",\"p001-i11\",\"p001-i12\",\"p001-i14\",\"p001-i15\",\"p001-i16\",\"p001-i17\",\"p002-i2\",\"p002-i3\",\"p002-i4\",\"p002-i5\",\"p002-i6\",\"p002-i7\",\"p002-i8\",\"p002-i9\",\"p002-i10\",\"p002-i11\",\"p002-i12\",\"p002-i13\",\"p002-i14\",\"p002-i15\",\"p002-i16\",\"p002-i17\",\"p002-i18\",\"p002-i20\",\"p002-i22\",\"p002-i23\",\"p002-i24\",\"p002-i25\",\"p002-i27\",\"p003-i1\",\"p003-i2\",\"p003-i3\",\"p003-i4\",\"p003-i6\",\"p003-i8\",\"p003-i9\",\"p003-i10\",\"p003-i11\",\"p003-i12\",\"p003-i14\",\"p003-i15\",\"p003-i16\",\"p003-i17\",\"p003-i19\",\"p003-i20\",\"p003-i21\",\"p003-i22\",\"p003-i23\",\"p003-i25\",\"p003-i26\",\"p003-i27\",\"p003-i28\",\"p003-i30\",\"p003-i31\",\"p003-i32\",\"p003-i33\",\"p003-i34\",\"p003-i35\",\"p003-i36\",\"p003-i37\",\"p003-i38\",\"p003-i39\",\"p003-i40\",\"p003-i41\",\"p004-i1\",\"p004-i2\",\"p004-i4\",\"p004-i5\",\"p004-i6\",\"p004-i7\",\"p004-i8\",\"p004-i9\",\"p004-i11\",\"p004-i13\",\"p004-i14\",\"p004-i15\",\"p004-i16\",\"p004-i17\",\"p004-i18\",\"p004-i20\",\"p004-i21\",\"p004-i22\",\"p004-i23\",\"p004-i24\",\"p004-i26\",\"p004-i27\",\"p004-i28\",\"p004-i29\",\"p004-i30\",\"p004-i31\",\"p004-i32\",\"p004-i33\",\"p004-i34\",\"p004-i35\",\"p005-i1\",\"p005-i2\",\"p005-i3\",\"p005-i5\",\"p005-i6\",\"p005-i7\",\"p005-i8\",\"p005-i10\",\"p005-i11\",\"p005-i12\",\"p005-i14\",\"p005-i15\",\"p005-i16\",\"p005-i17\",\"p005-i18\",\"p005-i19\",\"p005-i20\",\"p005-i21\",\"p005-i22\",\"p005-i24\",\"p006-i1\",\"p006-i2\",\"p006-i3\",\"p006-i5\",\"p006-i6\",\"p006-i8\",\"p006-i9\",\"p006-i10\",\"p006-i13\",\"p006-i14\",\"p006-i15\",\"p006-i16\",\"p006-i17\",\"p006-i18\",\"p006-i19\",\"p006-i20\"],\"claim_field\":\"concepts[].item_ids\",\"may_skip\":[{\"item_id\":\"p001-i1\",\"reason\":\"not teachable (heading or container)\"},{\"item_id\":\"p001-i2\",\"reason\":\"not teachable (heading or container)\"},{\"item_id\":\"p001-i6\",\"reason\":\"not teachable (heading or container)\"},{\"item_id\":\"p001-i13\",\"reason\":\"not teachable (heading or container)\"},{\"item_id\":\"p002-i1\",\"reason\":\"not teachable (heading or container)\"},{\"item_id\":\"p002-i19\",\"reason\":\"not teachable (heading or container)\"},{\"item_id\":\"p002-i21\",\"reason\":\"not teachable (heading or container)\"},{\"item_id\":\"p002-i26\",\"reason\":\"not teachable (heading or container)\"},{\"item_id\":\"p003-i5\",\"reason\":\"not teachable (heading or container)\"},{\"item_id\":\"p003-i7\",\"reason\":\"not teachable (heading or container)\"},{\"item_id\":\"p003-i13\",\"reason\":\"not teachable (heading or container)\"},{\"item_id\":\"p003-i18\",\"reason\":\"not teachable (heading or container)\"},{\"item_id\":\"p003-i24\",\"reason\":\"not teachable (heading or container)\"},{\"item_id\":\"p003-i29\",\"reason\":\"not teachable (heading or container)\"},{\"item_id\":\"p003-i42\",\"reason\":\"not teachable (heading or container)\"},{\"item_id\":\"p004-i3\",\"reason\":\"not teachable (heading or container)\"},{\"item_id\":\"p004-i10\",\"reason\":\"not teachable (heading or container)\"},{\"item_id\":\"p004-i12\",\"reason\":\"not teachable (heading or container)\"},{\"item_id\":\"p004-i19\",\"reason\":\"not teachable (heading or container)\"},{\"item_id\":\"p004-i25\",\"reason\":\"not teachable (heading or container)\"},{\"item_id\":\"p005-i4\",\"reason\":\"not teachable (heading or container)\"},{\"item_id\":\"p005-i9\",\"reason\":\"not teachable (heading or container)\"},{\"item_id\":\"p005-i13\",\"reason\":\"not teachable (heading or container)\"},{\"item_id\":\"p005-i23\",\"reason\":\"not teachable (heading or container)\"},{\"item_id\":\"p006-i4\",\"reason\":\"not teachable (heading or container)\"},{\"item_id\":\"p006-i7\",\"reason\":\"not teachable (heading or container)\"},{\"item_id\":\"p006-i11\",\"reason\":\"not teachable (heading or container)\"},{\"item_id\":\"p006-i12\",\"reason\":\"not teachable (heading or container)\"}]},\"context\":{\"map_slice\":[],\"before\":\"\",\"after\":\"\"},\"source\":{\"block_ids\":[],\"page_images\":[]}}\n\nItems of the chapter (item id | page | kind | type | teachable | exam | content | prerequisites):\np001-i1 | 1 | heading | none | no | low | 3. Money\np001-i2 | 1 | heading | none | no | low | Introduction\np001-i3 | 1 | definition | definition | teach | high | Definition: Money is anything that is accepted as a medium of exchange for goods and services and for settling debts. | prerequisites: goods and services; payment; a debt as an amount owed\np001-i4 | 1 | list_point | definition | teach | high | Money is not just currency notes and coins. | prerequisites: currency notes and coins; money as an accepted means of payment\np001-i5 | 1 | list_point | definition | teach | high | It includes anything people widely accept for payments—cash, bank deposits, and digital balances. | prerequisites: cash; bank account; payment\np001-i6 | 1 | heading | none | no | high | Characteristics of good money\np001-i7 | 1 | list_point | definition | teach | high | Acceptability: Everyone is willing to accept it. | prerequisites: money as a medium of exchange\np001-i8 | 1 | list_point | definition | teach | high | Durability: Does not wear out quickly. | prerequisites: repeated use of money; physical wear and tear\np001-i9 | 1 | list_point | definition | teach | high | Portability: Easy to carry. | prerequisites: payment at a shop; carrying objects\np001-i10 | 1 | list_point | definition | teach | high | Divisibility: Can be broken into smaller units. | prerequisites: larger and smaller amounts; change in a cash transaction\np001-i11 | 1 | list_point | definition | teach | high | Uniformity: Every unit has the same value. | prerequisites: denominations; face value\np001-i12 | 1 | list_point | cause_effect | teach | high | Limited supply: Scarcity helps preserve value. | prerequisites: supply; prices; purchasing power\np001-i13 | 1 | heading | none | no | high | Four Core Functions of Money\np001-i14 | 1 | list_point | definition | teach | high | 1. Medium of exchange: Eliminates the need for barter. Example: You buy groceries using ₹500 instead of exchanging wheat for rice. | prerequisites: barter as direct goods-for-goods exchange; money acceptance\np001-i15 | 1 | list_point | definition | teach | high | 2. Unit of account: Provides a common measure of value. Example: A phone costs ₹20,000 and a laptop costs ₹60,000. | prerequisites: prices; a common measurement unit; comparison of amounts\np001-i16 | 1 | list_point | definition | teach | high | 3. Store of value: Allows purchasing power to be saved for future use. Example: Keeping money in a bank account for later expenses. | prerequisites: saving; bank account; purchasing power as what money can buy\np001-i17 | 1 | list_point | definition | teach | high | 4. Standard of deferred payment: Makes future payments possible. Example: Home loans and EMI payments are denominated in money. | prerequisites: loan; borrower and lender; repayment due in the future\np002-i1 | 2 | table | comparison | no | high | COMPARISON: INTRINSIC vs EXTRINSIC VALUE OF MONEY. Columns: ASPECT | INTRINSIC VALUE OF MONEY (Commodity / Metallic Money) | EXTRINSIC VALUE OF MONEY (Fiat / Paper / Digital Money).\np002-i2 | 2 | table_row | comparison | teach | high | ASPECT: BASIS OF VALUE | INTRINSIC VALUE OF MONEY: Intrinsic / Natural | EXTRINSIC VALUE OF MONEY: Trust / Legally Enforced | prerequisites: money as a medium of exchange\np002-i3 | 2 | table_row | comparison | teach | high | ASPECT: SOURCE OF VALUE | INTRINSIC VALUE OF MONEY: Own Material Value | EXTRINSIC VALUE OF MONEY: Government / Authority Backing | prerequisites: material value; monetary acceptance\np002-i4 | 2 | table_row | comparison | teach | high | ASPECT: INHERENT WORTH | INTRINSIC VALUE OF MONEY: Present | EXTRINSIC VALUE OF MONEY: Not Present | prerequisites: purchasing power; material worth\np002-i5 | 2 | table_row | comparison | teach | high | ASPECT: VALUE IF NOT USED AS MONEY | INTRINSIC VALUE OF MONEY: Retains Value | EXTRINSIC VALUE OF MONEY: Nil Value | prerequisites: non-monetary use; face value\np002-i6 | 2 | table_row | comparison | teach | high | ASPECT: EXAMPLES | INTRINSIC VALUE OF MONEY: Gold, Silver, Salt, Cattle, Cowrie Shells | EXTRINSIC VALUE OF MONEY: Currency Notes, Bank Deposits, Digital Money | prerequisites: commodity; medium of exchange\np002-i7 | 2 | table_row | comparison | teach | high | ASPECT: ACCEPTABILITY | INTRINSIC VALUE OF MONEY: Limited (by Utility & Availability) | EXTRINSIC VALUE OF MONEY: Wide (by Legal Tender & Trust) | prerequisites: acceptance in payment; trust\np002-i8 | 2 | table_row | comparison | teach | high | ASPECT: DURABILITY | INTRINSIC VALUE OF MONEY: Generally Durable | EXTRINSIC VALUE OF MONEY: Varies (Paper perishable, Digital depends on Technology) | prerequisites: physical damage; digital records\np002-i9 | 2 | table_row | comparison | teach | high | ASPECT: DIVISIBILITY | INTRINSIC VALUE OF MONEY: Difficult | EXTRINSIC VALUE OF MONEY: Easy | prerequisites: small and large payments; denominations\np002-i10 | 2 | table_row | comparison | teach | high | ASPECT: PORTABILITY | INTRINSIC VALUE OF MONEY: Difficult (Bulky / Heavy) | EXTRINSIC VALUE OF MONEY: Easy | prerequisites: transporting goods; purchasing power\np002-i11 | 2 | table_row | comparison | teach | high | ASPECT: EXAMPLE IN CONTEXT | INTRINSIC VALUE OF MONEY: Metal Coins, Gold Bullion | EXTRINSIC VALUE OF MONEY: Rupee Notes, Bank Balance, UPI | prerequisites: bank balance; face value; material value\np002-i12 | 2 | diagram | timeline | teach | high | EVOLUTION OF MONEY. Five right-pointing arrows connect six illustrated stages from left to right: 1. BARTER, wheat exchanged for cloth → 2. COMMODITY MONEY, salt, cattle, shells → 3. METALLIC MONEY, gold and silver coins → 4. PAPER MONEY, currency notes → 5. BANK MONEY, cheques and deposits → 6. DIGITAL MONEY, UPI, net banking, cards. Illustrations show two traders, commodities, coins, notes, a bank with a cheque, and a phone with UPI/QR and cards. | prerequisites: exchange; medium of exchange\np002-i13 | 2 | diagram_label | timeline | teach | high | 1. BARTER — Wheat exchanged for cloth. Points to two people directly exchanging wheat and cloth; an arrow leads to commodity money. | prerequisites: goods; exchange\np002-i14 | 2 | diagram_label | timeline | teach | high | 2. COMMODITY MONEY — Salt, cattle, shells. Points to a sack of salt, cattle and shells; arrows connect barter → commodity money → metallic money. | prerequisites: barter; medium of exchange\np002-i15 | 2 | diagram_label | timeline | teach | high | 3. METALLIC MONEY — Gold and silver coins. Points to gold- and silver-coloured coins; arrows connect commodity money → metallic money → paper money. | prerequisites: commodity money; divisibility\np002-i16 | 2 | diagram_label | timeline | teach | high | 4. PAPER MONEY — Currency notes. Points to a fan of currency notes, including a visible ₹500 note; arrows connect metallic money → paper money → bank money. | prerequisites: extrinsic value; currency\np002-i17 | 2 | diagram_label | timeline | teach | high | 5. BANK MONEY — Cheques and deposits. Points to a bank building marked BANK and a cheque with a pen; arrows connect paper money → bank money → digital money. | prerequisites: bank account; payment\np002-i18 | 2 | diagram_label | timeline | teach | high | 6. DIGITAL MONEY — UPI, net banking, cards. Points to a phone displaying UPI and a QR code beside payment cards; the final arrow comes from bank money. | prerequisites: bank balance; electronic payment\np002-i19 | 2 | heading | none | no | high | Barter System\np002-i20 | 2 | definition | definition | teach | high | The barter system is a method of exchange in which goods and services are directly exchanged for other goods and services without using a medium of exchange. | prerequisites: goods; services; medium of exchange\np002-i21 | 2 | heading | none | no | low | Features\np002-i22 | 2 | list_point | definition | teach | high | No use of money | prerequisites: money as a medium of exchange; barter\np002-i23 | 2 | list_point | definition | teach | high | Direct exchange of goods and services | prerequisites: goods versus services; exchange\np002-i24 | 2 | list_point | cause_effect | teach | high | Value is decided through mutual agreement | prerequisites: voluntary exchange; quantity of goods\np002-i25 | 2 | list_point | timeline | teach | high | Common in early civilizations. Still seen in limited informal exchanges | prerequisites: barter; informal exchange\np002-i26 | 2 | heading | none | no | low | Limitations:\np002-i27 | 2 | list_point | cause_effect | teach | high | Double coincidence of wants: Both parties must want what other offers. | prerequisites: direct exchange; medium of exchange; mutual agreement\np003-i1 | 3 | list_point | cause_effect | teach | high | • No common measure of value | prerequisites: barter as direct exchange of goods\np003-i2 | 3 | list_point | cause_effect | teach | high | • Indivisibility of goods | prerequisites: barter; small and large exchange values\np003-i3 | 3 | list_point | cause_effect | teach | high | • Difficulty in storing wealth | prerequisites: wealth as resources available for later use; barter\np003-i4 | 3 | list_point | cause_effect | teach | high | • Deferred payments are difficult | prerequisites: borrowing and repayment; barter\np003-i5 | 3 | heading | none | no | high | Commodity Money\np003-i6 | 3 | definition | definition | teach | high | Commodity money is a form of money in which the item used as money has intrinsic value, meaning it has value even outside its use as money. | prerequisites: money as a medium of exchange; usefulness of goods\np003-i7 | 3 | table | facts_numbers | no | high | Columns: Commodity | Where it was used. Rows in order: Salt—Ancient Rome and Africa; Cattle—Early pastoral societies; Cowrie shells—India, China, and Africa; Tea bricks—Central Asia and Tibet; Tobacco—Colonial America.\np003-i8 | 3 | table_row | facts_numbers | teach | high | Commodity: Salt | Where it was used: Ancient Rome and Africa | prerequisites: commodity money; intrinsic value\np003-i9 | 3 | table_row | facts_numbers | teach | high | Commodity: Cattle | Where it was used: Early pastoral societies | prerequisites: commodity money; livestock\np003-i10 | 3 | table_row | facts_numbers | teach | high | Commodity: Cowrie shells | Where it was used: India, China, and Africa | prerequisites: community acceptance; medium of exchange\np003-i11 | 3 | table_row | facts_numbers | teach | high | Commodity: Tea bricks | Where it was used: Central Asia and Tibet | prerequisites: commodity money; tea as a useful good\np003-i12 | 3 | table_row | facts_numbers | teach | high | Commodity: Tobacco | Where it was used: Colonial America | prerequisites: commodity money; acceptance in payment\np003-i13 | 3 | heading | none | no | medium | Characteristics:\np003-i14 | 3 | list_point | cause_effect | teach | high | • Has intrinsic value. More acceptable than barter system | prerequisites: intrinsic value; barter\np003-i15 | 3 | list_point | cause_effect | teach | high | • Widely accepted within a community. | prerequisites: medium of exchange\np003-i16 | 3 | list_point | cause_effect | teach | high | • Can be used for purposes other than exchange. | prerequisites: intrinsic value; exchange\np003-i17 | 3 | list_point | cause_effect | teach | high | • Acts as a medium of exchange before metallic coins became common. Removes the need of double coincidence of wants. | prerequisites: barter; both parties wanting what the other offers\np003-i18 | 3 | heading | none | no | medium | Limitations:\np003-i19 | 3 | list_point | cause_effect | teach | high | • Lack of uniformity | prerequisites: commodity money; quality differences\np003-i20 | 3 | list_point | cause_effect | teach | high | • Poor divisibility | prerequisites: indivisibility of goods; commodity money\np003-i21 | 3 | list_point | cause_effect | teach | high | • Perishable | prerequisites: store of value; spoilage\np003-i22 | 3 | list_point | cause_effect | teach | high | • Difficult transport | prerequisites: commodity money; transport costs\np003-i23 | 3 | list_point | cause_effect | teach | high | • Limited standardization | prerequisites: uniformity; weight and quality measurement\np003-i24 | 3 | heading | none | no | high | Metallic Money\np003-i25 | 3 | definition | definition | teach | high | • Metallic money is made from metals such as gold, silver, copper, bronze, or electrum, whose value is derived from the metal itself and, later, from the authority that minted it. | prerequisites: intrinsic value; metal; authority issuing money\np003-i26 | 3 | list_point | cause_effect | teach | high | • It is durable, portable, divisible, and easier to standardize. | prerequisites: commodity-money limitations; weight and size of payments\np003-i27 | 3 | list_point | timeline | teach | high | • The earliest metallic objects used for exchange existed in Mesopotamia and Egypt, but the first standardized coins are widely credited to the Kingdom of Lydia. | prerequisites: metallic money; standardized coin\np003-i28 | 3 | diagram | timeline | teach | high | Evolution of Indian metallic money. A horizontal white line links five circular nodes, read left to right: 6th c. BCE—Punch-marked; Mauryan—Imperial silver; Indo-Greek—Die-struck; Gupta—Gold dinars; 1540 CE—Rupiya. Period labels are above the line and coinage labels below. No arrows or numerical dates for the middle three stages are shown. | prerequisites: BCE and CE dating; dynastic periods; metallic money\np003-i29 | 3 | diagram_label | timeline | no | medium | Evolution of Indian metallic money — title naming the subject of the entire five-node timeline.\np003-i30 | 3 | diagram_label | timeline | teach | high | 6th c. BCE — period label above the first node, paired with Punch-marked below it. | prerequisites: century; BCE and CE\np003-i31 | 3 | diagram_label | timeline | teach | high | Punch-marked — coinage label below the first node, paired with 6th c. BCE. | prerequisites: metal coin; marking metal\np003-i32 | 3 | diagram_label | timeline | teach | high | Mauryan — period label above the second node, paired with Imperial silver. | prerequisites: dynastic period; reading a timeline\np003-i33 | 3 | diagram_label | timeline | teach | high | Imperial silver — coinage label below the Mauryan node. | prerequisites: silver as a metal; minting\np003-i34 | 3 | diagram_label | timeline | teach | high | Indo-Greek — period label above the third node, paired with Die-struck. | prerequisites: historical period labels; timeline order\np003-i35 | 3 | diagram_label | timeline | teach | high | Die-struck — coinage label below the Indo-Greek node. | prerequisites: metal blank; impressing a design\np003-i36 | 3 | diagram_label | timeline | teach | high | Gupta — period label above the fourth node, paired with Gold dinars. | prerequisites: dynastic period; timeline\np003-i37 | 3 | diagram_label | timeline | teach | high | Gold dinars — coinage label below the Gupta node. | prerequisites: gold as a monetary metal; coin names\np003-i38 | 3 | diagram_label | timeline | teach | high | 1540 CE — date label above the final node, paired with Rupiya. | prerequisites: CE dating; timeline pairs\np003-i39 | 3 | diagram_label | timeline | teach | high | Rupiya — coinage label below the final node, paired with 1540 CE. | prerequisites: historical coinage; modern money can differ from earlier forms\np003-i40 | 3 | list_point | cause_effect | teach | high | • Benefits: Metallic money offered intrinsic value, durability, portability, divisibility, standardization, and widespread acceptance, making trade more reliable and efficient. | prerequisites: intrinsic value; commodity-money limitations; standardization\np003-i41 | 3 | list_point | cause_effect | teach | high | • Limitations: Its limited supply, heavy transport, theft risk, wear and tear, coin debasement, and inability to support large-scale economic expansion eventually led to the adoption of paper money. | prerequisites: metallic money; money supply; economic expansion; coin metal content\np003-i42 | 3 | heading | none | no | high | Gold Backed Paper Currency\np004-i1 | 4 | definition | definition | teach | high | Gold-backed paper currency was paper money that could be exchanged for a fixed quantity of gold on demand. | prerequisites: money as a means of payment; gold as a valuable commodity\np004-i2 | 4 | paragraph | cause_effect | teach | high | The paper itself had little intrinsic value; its value came from the promise that the issuing authority would redeem it in gold. | prerequisites: gold-backed redemption\np004-i3 | 4 | diagram | timeline | no | high | A left-to-right line with four marked milestones: 1661—Sweden, First banknotes; 1816—Britain, Gold Standard; 1944—Bretton Woods, Dollar-gold link; 1971—Modern fiat, No gold redemption.\np004-i4 | 4 | diagram_label | timeline | teach | medium | 1661 — Sweden — First banknotes | prerequisites: paper money\np004-i5 | 4 | diagram_label | timeline | teach | medium | 1816 — Britain — Gold Standard | prerequisites: gold-backed currency\np004-i6 | 4 | diagram_label | timeline | teach | high | 1944 — Bretton Woods — Dollar-gold link | prerequisites: gold convertibility; currencies of different countries\np004-i7 | 4 | diagram_label | timeline | teach | high | 1971 — Modern fiat — No gold redemption | prerequisites: gold redemption; fiat money\np004-i8 | 4 | list_point | process | teach | high | How it worked? A central bank held gold reserves. It issued paper notes. Anyone could (in principle) exchange those notes for a fixed amount of gold. | prerequisites: central bank; gold-backed note; redemption\np004-i9 | 4 | list_point | cause_effect | teach | high | This limited excessive money printing because every note required gold backing. | prerequisites: gold reserves; redeemable claims\np004-i10 | 4 | heading | none | no | high | Fiat Currency\np004-i11 | 4 | definition | definition | teach | high | It is money whose value comes from government authority and public trust rather than the intrinsic value of material from which it is made. | prerequisites: intrinsic value; money as a means of payment\np004-i12 | 4 | heading | none | no | high | Characteristics of Fiat Money:\np004-i13 | 4 | list_point | cause_effect | teach | high | No intrinsic value: Just paper or digital numbers. | prerequisites: fiat definition; intrinsic value\np004-i14 | 4 | list_point | comparison | teach | high | Not backed by commodities: Value not tied to gold or silver. | prerequisites: gold-backed redemption; fiat definition\np004-i15 | 4 | list_point | facts_numbers | teach | high | Govt-issued: Central banks control production. | prerequisites: government authority; central bank\np004-i16 | 4 | list_point | cause_effect | teach | high | Trust-based: Value relies on public’s faith in govt. | prerequisites: fiat definition; future use of money\np004-i17 | 4 | list_point | cause_effect | teach | high | Easily printed: Govts can print more in need. | prerequisites: absence of commodity backing; money supply\np004-i18 | 4 | list_point | cause_effect | teach | high | Highly regulated: Controlled by monetary policy. | prerequisites: central bank; money supply\np004-i19 | 4 | diagram | figure | no | high | Major Examples of Fiat Currency Today. Five side-by-side columns show currency symbols, names, codes and descriptions: United States Dollar, Euro, Japanese Yen, British Pound Sterling and Chinese Yuan Renminbi. The euro description is visibly incomplete.\np004-i20 | 4 | diagram_label | facts_numbers | teach | high | $ — United States Dollar (USD). The most widely held and traded fiat currency globally. | prerequisites: fiat money; currency code\np004-i21 | 4 | diagram_label | facts_numbers | teach | high | € — Euro (EUR). Adopted by 20 of the 27 European Union member states, the euro is the second-most [visible text ends here]. | prerequisites: European Union; shared currency\np004-i22 | 4 | diagram_label | facts_numbers | teach | high | ¥ — Japanese Yen (JPY). Known for its stability, the yen is a major player in global currency markets. | prerequisites: currency code; exchange rate\np004-i23 | 4 | diagram_label | facts_numbers | teach | high | £ — British Pound Sterling (GBP). The oldest fiat currency still in use, dating back to the 8th century. | prerequisites: fiat money; gold-standard arrangements\np004-i24 | 4 | diagram_label | facts_numbers | teach | high | ¥ — Chinese Yuan Renminbi (CNY). Increasingly influential in global trade and international reserves. | prerequisites: currency code; international trade\np004-i25 | 4 | diagram | timeline | no | medium | A left-to-right line with four milestones: 7th c.—Tang, Receipts; 1023—Song, State notes; 1275—Yuan, Compulsory; 1971—Modern, Fiat era.\np004-i26 | 4 | diagram_label | timeline | teach | medium | 7th c. — Tang — Receipts | prerequisites: receipt as a claim; paper money\np004-i27 | 4 | diagram_label | timeline | teach | medium | 1023 — Song — State notes | prerequisites: issuer of money; paper receipt\np004-i28 | 4 | diagram_label | timeline | teach | medium | 1275 — Yuan — Compulsory | prerequisites: voluntary acceptance; government authority\np004-i29 | 4 | diagram_label | timeline | teach | high | 1971 — Modern — Fiat era | prerequisites: gold-redemption break; fiat definition\np004-i30 | 4 | definition | definition | teach | high | Legal tender is a form of money that a government officially recognises as acceptable for settling debts and transactions within its territory. | prerequisites: debt; government jurisdiction; means of payment\np004-i31 | 4 | list_point | classification | teach | high | It must be Fiat Money. | prerequisites: fiat definition; legal-tender definition\np004-i32 | 4 | example | timeline | teach | high | Bitcoin is not a Fiat money, yet it was legal tender in El-Salvador (till 2024). But it is an exception. | prerequisites: fiat versus legal tender; Bitcoin as a non-fiat asset\np004-i33 | 4 | list_point | timeline | teach | high | Legal to own and use voluntarily, but no longer compulsory legal tender in the practical sense after reforms in 2025. | prerequisites: voluntary agreement; legal tender; Bitcoin example\np004-i34 | 4 | list_point | classification | teach | high | Commemorative Coins = Fiat money yes but may or may not be legal tender (Most of them are). | prerequisites: fiat money; legal-tender status; coins\np004-i35 | 4 | definition | definition | teach | high | Circulation commemorative coins: Released into circulation and usable like ordinary coins. | prerequisites: commemorative coin; ordinary coin circulation\np005-i1 | 5 | definition | definition | teach | medium | Collector commemorative coins: Sold in proof or UNC sets by the Government Mint and rarely used in everyday transactions. | prerequisites: coin face value; ordinary cash payments\np005-i2 | 5 | example | comparison | teach | high | ₹100 silver commemorative coin can legally be used to pay ₹100, but collectors may pay several thousand rupees for it. | prerequisites: face value; market price\np005-i3 | 5 | question | comparison | teach | high | We can use cheque / credit card to pay fees. So, why are they not fiat money/legal tender? | prerequisites: bank deposits; borrowing through a credit card; legal tender\np005-i4 | 5 | heading | comparison | no | high | Limited vs Unlimited Legal Tender\np005-i5 | 5 | definition | definition | teach | high | Unlimited Legal Tender: Must be accepted for any amount (subject to the note being genuine and valid). | prerequisites: monetary debt; genuine and valid currency\np005-i6 | 5 | list_point | facts_numbers | teach | high | Banknotes are unlimited legal tender in India. ₹10, ₹20, ₹50, ₹100, ₹200, ₹500 notes. Reserve Bank of India Act, 1934 | prerequisites: banknote denomination; unlimited legal tender\np005-i7 | 5 | definition | definition | teach | high | Limited Legal Tender: Must be accepted only up to a legally prescribed limit; beyond that, acceptance is voluntary. | prerequisites: legal tender; mandatory versus voluntary acceptance\np005-i8 | 5 | list_point | facts_numbers | teach | high | Coinage Act, 2011 | prerequisites: an Act as a law; limited legal tender\np005-i9 | 5 | table | comparison | no | high | Current legal limits for coins (Coinage Act, 2011). Columns: Coin | Legal Tender Limit. Rows: ₹1, ₹2, ₹5, ₹10, ₹20 coins | Up to ₹1,000; 50 paise coin | Up to ₹10; Coins below 50 paise | No longer legal tender (demonetized).\np005-i10 | 5 | table_row | comparison | teach | high | Coin: ₹1, ₹2, ₹5, ₹10, ₹20 coins | Legal Tender Limit: Up to ₹1,000 | prerequisites: coin denominations; adding monetary values; limited tender\np005-i11 | 5 | table_row | comparison | teach | high | Coin: 50 paise coin | Legal Tender Limit: Up to ₹10 | prerequisites: 100 paise equals ₹1; limited legal tender\np005-i12 | 5 | table_row | comparison | teach | high | Coin: Coins below 50 paise | Legal Tender Limit: No longer legal tender (demonetized) | prerequisites: coin denomination; legal-tender status\np005-i13 | 5 | heading | timeline | no | high | The Bretton Woods System (1944) and its End (1971)\np005-i14 | 5 | list_point | facts_numbers | teach | high | US promised to convert US$35 into one troy ounce of gold. This promise applied mainly to foreign central banks | prerequisites: US dollar; central bank; gold reserves\np005-i15 | 5 | list_point | cause_effect | teach | high | The Dollar became the world's reserve currency. | prerequisites: foreign exchange reserves; central banks; international payments\np005-i16 | 5 | list_point | cause_effect | teach | high | By the 1960s: US spent heavily on Vietnam War and welfare programs. More Dollars circulated worldwide than the gold available in US reserves. France began demanding gold instead of Dollars. | prerequisites: fixed gold conversion rate; gold reserves; government spending; redemption\np005-i17 | 5 | list_point | cause_effect | teach | high | Economist Robert Triffin predicted a built-in contradiction. The world needed more Dollars for international trade. Supplying more Dollars weakened confidence in their gold convertibility. | prerequisites: reserve currency; international trade payments; finite gold reserves\np005-i18 | 5 | diagram | figure | teach | high | Three vertically stacked boxes connected by downward arrows: Gold (US$35 per ounce) → US Dollar → Other currencies (Pound, Rupee, Yen, Franc, etc.). Gold anchors the dollar, which is the intermediate link to other currencies. | prerequisites: exchange rate; gold-dollar conversion\np005-i19 | 5 | diagram_label | figure | teach | high | Gold (US$35 per ounce): top box, with an arrow pointing down to US Dollar. | prerequisites: US dollar; troy ounce\np005-i20 | 5 | diagram_label | figure | teach | high | US Dollar: middle box, receiving an arrow from Gold and sending an arrow to Other currencies. | prerequisites: reserve currency; exchange-rate anchor\np005-i21 | 5 | diagram_label | figure | teach | medium | Other currencies (Pound, Rupee, Yen, Franc, etc.): bottom box receiving the arrow from US Dollar. | prerequisites: different countries' currencies; reading directional arrows\np005-i22 | 5 | list_point | timeline | teach | high | On 15 August 1971, President Richard Nixon ended the Dollar's convertibility into gold. | prerequisites: Bretton Woods gold promise; redemption pressure; Triffin contradiction\np005-i23 | 5 | heading | none | no | high | Petro Dollar System\np005-i24 | 5 | paragraph | cause_effect | teach | medium | When President Richard Nixon ended gold convertibility, a major question arose: | prerequisites: end of gold convertibility; reasons for holding a currency\np006-i1 | 6 | question | cause_effect | teach | high | Why would the world continue holding dollars if they were no longer backed by gold? | prerequisites: Currency holdings; Gold convertibility; International payments\np006-i2 | 6 | list_point | timeline | teach | high | In 1973, the OPEC oil embargo caused oil prices to quadruple. | prerequisites: Oil imports; Supply and demand; Percentage change\np006-i3 | 6 | list_point | cause_effect | teach | high | The US recognized that if oil could be tied to the dollar, countries would continue needing dollars regardless of the end of gold backing. | prerequisites: Gold convertibility; Currency used to settle imports\np006-i4 | 6 | heading | timeline | no | medium | 1974 US–Saudi Understanding:\np006-i5 | 6 | list_point | timeline | teach | high | Saudi Arabia agreed to: Price its oil in US dollars and Invest a large portion of its oil revenues in US Treasury securities and American financial markets. | prerequisites: Oil export receipts; Government borrowing; Financial investment\np006-i6 | 6 | list_point | timeline | teach | medium | The United States agreed to: Provide military protection, supply weapons and offer security guarantees for the Saudi monarchy. | prerequisites: Military assistance; Monarchy; Bilateral agreements\np006-i7 | 6 | heading | none | no | high | Evolution of the Indian Rupee\np006-i8 | 6 | definition | definition | teach | medium | The word Rupiya comes from the Sanskrit Rupya, meaning wrought silver. | prerequisites: Silver as a monetary metal; Word origins\np006-i9 | 6 | list_point | timeline | teach | high | Sher Shah Suri: (1540) Introduced the Rupiya made of silver. Weight: about 178 grains (11.5 grams). High purity. Uniform across the empire. | prerequisites: Metal coinage; Weight units; Purity of a metal\np006-i10 | 6 | list_point | timeline | teach | high | Mughal Standardization (1556–1707): Akbar expanded minting across the empire. Hundreds of mints produced coins with standardized weight. Coins carried the emperor's name. | prerequisites: A mint as a coin-production centre; Standard weight; Political authority\np006-i11 | 6 | table | timeline | no | high | Two-column chronological table: Period | Nature of the Rupee. Eight entries run from 1540 to 1993 onwards, linking each period to the rupee's form or monetary arrangement.\np006-i12 | 6 | table_row | timeline | no | low | Period | Nature of the Rupee\np006-i13 | 6 | table_row | timeline | teach | high | Period: 1540 | Nature of the Rupee: Silver rupee introduced | prerequisites: Coinage; Chronological order\np006-i14 | 6 | table_row | timeline | teach | high | Period: Mughal era | Nature of the Rupee: Standard silver coin | prerequisites: Silver coinage; Common weight standards\np006-i15 | 6 | table_row | timeline | teach | high | Period: 1835 | Nature of the Rupee: Uniform British Indian Rupee | prerequisites: British rule in India; Common coin standards\np006-i16 | 6 | table_row | timeline | teach | high | Period: 1898 | Nature of the Rupee: Gold Exchange Standard | prerequisites: Exchange rates; Gold convertibility; Foreign exchange reserves\np006-i17 | 6 | table_row | timeline | teach | medium | Period: 1947 | Nature of the Rupee: Independent India's currency | prerequisites: Indian independence; Currency unit; Political sovereignty\np006-i18 | 6 | table_row | timeline | teach | high | Period: 1957 | Nature of the Rupee: Decimal currency | prerequisites: Rupee and smaller denominations; Base-ten arithmetic\np006-i19 | 6 | table_row | timeline | teach | high | Period: 1971 | Nature of the Rupee: Fiat currency | prerequisites: Commodity convertibility; Legal tender; Currency acceptance\np006-i20 | 6 | table_row | timeline | teach | high | Period: 1993 onwards | Nature of the Rupee: Market-determined exchange rate | prerequisites: Exchange rate as one currency's price in another; Demand and supply; Foreign exchange market"
+   },
+   {
+    "type": "text",
+    "text": "Answer the card with the chapter map JSON."
+   }
+  ]
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "started_at": 1793107514.5492213,
+   "mode": "full",
+   "maker_error": {
+    "kind": "budget",
+    "message": "openai:budget: balance: google via direct: 429 | RESOURCE_EXHAUSTED | You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. "
+   },
+   "passed": false
+  }
+ ],
+ "avoid_rounds": [
+  1
+ ],
+ "cost_usd": 0.0,
+ "seconds": 0.0,
+ "navin_verdict": null
+}

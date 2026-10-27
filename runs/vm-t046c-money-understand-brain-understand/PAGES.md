@@ -1,0 +1,1908 @@
+# Pages · 3. Money
+
+## Page 1 · passed after 1 round(s)
+
+Money is anything accepted for exchanging goods and services and settling debts, including cash, bank deposits and digital balances. Good money has acceptability, durability, portability, divisibility, uniformity and limited supply. Its four core functions are medium of exchange, unit of account, store of value and standard of deferred payment.
+
+- **p001-i1** · heading · none · both
+  - 3. Money
+- **p001-i2** · heading · none · both
+  - Introduction
+- **p001-i3** · definition · definition · both · exam high
+  - Definition: Money is anything that is accepted as a medium of exchange for goods and services and for settling debts.
+    - what: What makes something money according to this definition? → Its acceptance in exchange for goods and services and in settlement of debts is the defining criterion.
+    - evidence: Which words show that money is defined by its use rather than its material? → The definition says 'anything that is accepted as a medium of exchange'; it does not restrict money to a particular physical substance.
+      - why: Why does acceptance matter more than an object's usefulness to its owner? → A payment works when the recipient accepts it. An object may be useful or valuable to its owner without being widely accepted in payment. _(outside the book)_
+      - how: How does settling a debt differ from buying something immediately? → Settling a debt discharges an obligation already owed, whereas an immediate purchase pays for a current exchange. _(outside the book)_
+  - **khola (unpack):**
+    - medium of exchange yaani खरीदने-बेचने में बीच का साधन, जिसे भुगतान में लिया जाए · image: दुकानदार को पैसे देकर राशन लेना
+    - settling debts yaani जो उधार देना बाकी है, उसे चुका देना · image: किराने की दुकान का पुराना उधार चुकाना
+    - kyon: People need to buy things and discharge amounts they owe. _[standard]_ → Something accepted for these payments serves as money. _[book]_
+    - example / jagah: Buying groceries and paying an outstanding shop bill.
+    - aage: Acceptance, rather than physical form alone, connects the definition to deposits and digital balances.
+    - screen par: exchange goods for an accepted payment and clear an outstanding bill
+    - is level ke liye: Distinguish money from an asset that is valuable but not generally accepted in payment.
+  - prerequisites: goods and services; payment; a debt as an amount owed
+- **p001-i4** · list_point · definition · both · exam high
+  - Money is not just currency notes and coins.
+    - what: What misconception does this statement correct? → It rejects equating the whole concept of money with physical notes and coins.
+    - evidence: What evidence on the page supports this broader meaning? → The following bullet includes bank deposits and digital balances alongside cash.
+      - why: Why can a non-physical balance perform a monetary role? → Payment can transfer an accepted balance rather than hand over a physical object; the relevant issue is whether it can be used in payment. _(outside the book)_
+  - **khola (unpack):**
+    - currency notes and coins yaani नकद के कागज़ वाले नोट और सिक्के · image: बटुए में रखा नोट और जेब में सिक्के
+    - kyon: People need a means to pay, not necessarily a physical token. _[standard]_ → The page therefore includes more than currency notes and coins within money. _[book]_
+    - example / jagah: Contrast cash in a wallet with a balance in a bank account.
+    - aage: Currency is narrower than the page's concept of money.
+    - screen par: expand from a wallet to an account balance
+    - is level ke liye: Do not treat money and physical currency as interchangeable terms.
+  - prerequisites: currency notes and coins; money as an accepted means of payment
+- **p001-i5** · list_point · definition · both · exam high
+  - It includes anything people widely accept for payments—cash, bank deposits, and digital balances.
+    - what: Which forms of money does the page explicitly include? → It lists cash, bank deposits and digital balances within the scope of widely accepted payment means.
+    - evidence: What criterion ties these examples together? → The bullet ties them to people's wide acceptance for payments.
+      - how: How should a learner distinguish a balance from the instrument used to access it? → A bank balance is the amount available in the account; a card or payment application can provide a way to use that balance. The access instrument is not itself an additional balance. _(outside the book)_
+  - **khola (unpack):**
+    - bank deposits yaani बैंक खाते में जमा रकम · image: पासबुक या बैंक ऐप में खाते की रकम
+    - digital balances yaani डिजिटल रूप में दर्ज रकम, जिसे भुगतान में इस्तेमाल किया जा सके · image: मोबाइल पर भुगतान के लिए उपलब्ध रकम
+    - kyon: Payments need not involve handing over notes and coins. _[standard]_ → The page includes accepted deposits and digital balances as well as cash. _[book]_
+    - example / jagah: Cash in a wallet and deposits displayed in a bank account.
+    - aage: Apply the acceptance test to the monetary balance rather than its physical appearance.
+    - screen par: group cash, deposits and digital balances under accepted payment
+    - is level ke liye: The page gives a broad introduction, not formal monetary-aggregate categories.
+  - prerequisites: cash; bank account; payment
+- **p001-i6** · heading · none · both
+  - Characteristics of good money
+- **p001-i7** · list_point · definition · both · exam high
+  - Acceptability: Everyone is willing to accept it.
+    - what: What does acceptability mean here? → The page describes willingness to receive money in payment as a characteristic of good money.
+    - evidence: Which printed wording identifies this characteristic? → The phrase 'Everyone is willing to accept it' identifies willingness to receive it, rather than ease of carrying or durability.
+      - why: Why does willingness to accept it make exchange easier? → A seller is more likely to accept a payment that can subsequently be used to pay others. Wider acceptance reduces the difficulty of finding a willing trading partner. _(outside the book)_
+  - **khola (unpack):**
+    - Acceptability yaani लोग उसे भुगतान में लेने को तैयार हों · image: दुकानदार सामान देकर भुगतान ले लेता है
+    - kyon: A buyer needs the seller to agree to receive payment. _[standard]_ → Widespread willingness to receive money makes it useful across transactions. _[standard]_
+    - example / jagah: A grocer accepting money because it can be spent again.
+    - aage: Connects the definition of money to the practical success of exchange.
+    - screen par: pass an accepted payment between several people
+    - is level ke liye: Read 'everyone' as the book's ideal characteristic; practical monetary use rests on general acceptance.
+  - prerequisites: money as a medium of exchange
+- **p001-i8** · list_point · definition · both · exam high
+  - Durability: Does not wear out quickly.
+    - what: What is durability as a monetary characteristic? → It is resistance to quickly wearing out, allowing money to remain usable.
+    - evidence: What wording distinguishes durability from portability? → Durability concerns not wearing out quickly; portability is separately defined as being easy to carry.
+      - why: Why does repeated use make durability desirable? → Money passes between people and may be held for a time. Rapid damage or decay would disrupt reuse and require frequent replacement. _(outside the book)_
+  - **khola (unpack):**
+    - Durability yaani बार-बार इस्तेमाल में जल्दी खराब न होना · image: कई हाथों से गुजरने पर भी इस्तेमाल लायक सिक्का
+    - kyon: A payment medium must survive repeated handling. _[standard]_ → Resistance to wear keeps it available for further payments. _[standard]_
+    - example / jagah: A coin repeatedly used in shops.
+    - aage: Physical survival supports circulation but does not guarantee unchanged purchasing power.
+    - screen par: circulate a coin without it wearing away
+    - is level ke liye: A durable token can still lose purchasing power if prices rise.
+  - prerequisites: repeated use of money; physical wear and tear
+- **p001-i9** · list_point · definition · both · exam high
+  - Portability: Easy to carry.
+    - what: What does portability refer to? → It concerns how easily money can be carried to where a payment is needed.
+    - evidence: Which phrase directly identifies portability? → The phrase 'Easy to carry' identifies convenience of movement rather than resistance to damage.
+      - why: Why is ease of carrying valuable for money? → People buy from different places. A cumbersome payment medium adds transport effort and makes transactions less convenient. _(outside the book)_
+  - **khola (unpack):**
+    - Portability yaani आसानी से साथ ले जा सकना · image: राशन की बोरी के बजाय बटुए में नोट लेकर बाजार जाना
+    - kyon: Buyers need to take payment means to different sellers. _[standard]_ → Easy carrying reduces the burden of making those payments. _[standard]_
+    - example / jagah: Carrying money in a wallet to a market.
+    - aage: Makes money convenient for everyday exchange.
+    - screen par: carry a small wallet instead of a bulky load
+    - is level ke liye: Keep portability distinct from breaking a sum into smaller units.
+  - prerequisites: payment at a shop; carrying objects
+- **p001-i10** · list_point · definition · both · exam high
+  - Divisibility: Can be broken into smaller units.
+    - what: What is divisibility? → It is the ability to express money in smaller units for payments of different sizes.
+    - evidence: What wording marks divisibility? → The reference to being 'broken into smaller units' identifies division into usable amounts.
+      - how: How does divisibility help pay the right amount? → Smaller denominations or account units allow small purchases and change. It means splitting an amount, not tearing a banknote into usable pieces. _(outside the book)_
+  - **khola (unpack):**
+    - Divisibility yaani रकम को छोटे हिस्सों में बाँटकर भुगतान कर सकना · image: बड़े नोट के बदले छोटे नोट और सिक्के लेना
+    - kyon: Purchases require different payment amounts. _[standard]_ → Smaller units allow suitable payments and the return of change. _[standard]_
+    - example / jagah: Using smaller denominations to pay for a low-priced item.
+    - aage: Supports both small and large transactions.
+    - screen par: split a monetary amount into equivalent smaller denominations
+    - is level ke liye: Dividing an amount should preserve its total value.
+  - prerequisites: larger and smaller amounts; change in a cash transaction
+- **p001-i11** · list_point · definition · both · exam high
+  - Uniformity: Every unit has the same value.
+    - what: How does the page define uniformity? → It describes the characteristic through sameness of value across units.
+    - evidence: Which phrase supports identifying this as uniformity? → 'Every unit has the same value' is the page's explicit description.
+      - how: How should 'same value' be interpreted without confusing denominations? → Equivalent monetary units have the same face value: one genuine ₹100 note represents the same amount as another genuine ₹100 note. This does not mean that ₹100 and ₹500 notes have equal values. _(outside the book)_
+      - why: Why is uniformity useful in exchange? → Equivalent units can substitute for one another without separately bargaining over each unit's quality or value. _(outside the book)_
+  - **khola (unpack):**
+    - Uniformity yaani एक जैसी रकम वाली इकाइयों की कीमत एक जैसी होना · image: दो असली ₹100 नोटों में कोई भी दो, रकम बराबर है
+    - kyon: A recipient needs to know what an offered monetary unit represents. _[standard]_ → Equivalent units carrying equal value remove the need to value each separately. _[standard]_
+    - example / jagah: Substituting one genuine ₹100 note for another.
+    - aage: Makes equivalent units interchangeable in payment.
+    - screen par: swap equal-denomination notes under an equals sign
+    - is level ke liye: Uniformity compares equivalent units, not unlike denominations.
+  - prerequisites: denominations; face value
+- **p001-i12** · list_point · cause_effect · both · exam high
+  - Limited supply: Scarcity helps preserve value.
+    - what: What relationship does the page state between supply and value? → It presents scarcity as helping preserve money's value.
+    - why: Why can excessive monetary supply weaken purchasing power? → If money available for spending grows faster than available goods and services, demand can put upward pressure on prices, reducing what a unit of money buys. _(outside the book)_
+      - how: How should 'limited supply' be understood here? → It means supply should not be unrestricted relative to economic needs. It does not imply that the money supply must be permanently fixed or that scarcity alone guarantees stable value. _(outside the book)_
+  - **khola (unpack):**
+    - Limited supply yaani रकम की उपलब्धता बिना रोक-टोक बढ़ती न रहे · image: बाजार में सामान उतना ही है, पर खर्च करने के लिए रकम बहुत बढ़ जाए
+    - Scarcity yaani ज़रूरत के मुकाबले किसी चीज़ का सीमित होना · image: चाहने वाले बहुत हों, उपलब्ध चीज़ कम हो
+    - kyon: Money needs to retain usefulness for buying goods and services. _[standard]_ → The page identifies scarcity as helping preserve that value. _[book]_
+    - example / jagah: A market where spending money rises much faster than the goods available.
+    - aage: Links monetary supply to purchasing power and the store-of-value function.
+    - screen par: contrast growing payment balances with a limited stock of goods
+    - is level ke liye: Scarcity supports value but is not sufficient by itself; general acceptance remains essential.
+  - prerequisites: supply; prices; purchasing power
+- **p001-i13** · heading · none · both
+  - Four Core Functions of Money
+- **p001-i14** · list_point · definition · both · exam high
+  - 1. Medium of exchange: Eliminates the need for barter. Example: You buy groceries using ₹500 instead of exchanging wheat for rice.
+    - what: What is money's medium-of-exchange function? → Money is used to obtain goods instead of directly exchanging one good for another.
+    - evidence: Which example illustrates this function? → The page contrasts buying groceries using ₹500 with exchanging wheat for rice. ₹ denotes rupees, so ₹500 is five hundred rupees.
+      - why: Why can barter make a purchase difficult? → In direct barter, a person seeking rice must find someone offering rice who also wants what that person offers. This matching requirement is called double coincidence of wants. _(outside the book)_
+        - how: How does money reduce this matching difficulty? → A person can sell to one party for money and buy from another, provided the money is accepted. Both parties need not want one another's goods. _(outside the book)_
+  - **khola (unpack):**
+    - barter yaani पैसे के बिना एक सामान देकर दूसरा सामान लेना · image: गेहूँ देकर चावल लेना
+    - Medium of exchange yaani सामान खरीदने-बेचने में इस्तेमाल होने वाला बीच का साधन · image: ₹500 देकर किराने का सामान लेना
+    - kyon: Under barter, finding someone who both offers what you need and wants your goods can be difficult. _[standard]_ → An accepted monetary payment removes the need for that direct goods-for-goods match. _[standard]_
+    - example / jagah: Book example: ₹500 pays for groceries instead of wheat being exchanged for rice.
+    - aage: Exchange can proceed without barter.
+    - screen par: replace a wheat-for-rice swap with a money payment
+    - is level ke liye: Double coincidence of wants explains the mechanism; ₹ is the rupee symbol, not a separate monetary function.
+  - prerequisites: barter as direct goods-for-goods exchange; money acceptance
+- **p001-i15** · list_point · definition · both · exam high
+  - 2. Unit of account: Provides a common measure of value. Example: A phone costs ₹20,000 and a laptop costs ₹60,000.
+    - what: What does money do as a unit of account? → It supplies a common monetary measure in which the values of different goods can be stated.
+    - evidence: Which printed prices demonstrate a common measure? → The phone is priced at ₹20,000 and the laptop at ₹60,000; both prices are expressed in rupees.
+      - how: How does stating both prices in rupees help comparison? → The common unit makes their values directly comparable: in the example the laptop costs three times as much as the phone. _(outside the book)_
+      - difference: How does unit of account differ from medium of exchange? → Stating a price measures value; handing over money to complete a purchase uses it as a medium of exchange. A price can be quoted without a purchase occurring. _(outside the book)_
+  - **khola (unpack):**
+    - Unit of account yaani अलग-अलग चीज़ों की कीमत एक ही पैसे की इकाई में बताना · image: फोन और laptop, दोनों के price tag रुपये में पढ़ना
+    - kyon: Buyers need to compare goods with different uses and qualities. _[standard]_ → A common monetary unit makes their prices comparable. _[standard]_
+    - example / jagah: Book prices: phone ₹20,000; laptop ₹60,000.
+    - aage: Provides a shared scale for valuation rather than requiring direct goods-to-goods price quotations.
+    - screen par: align two rupee price tags on one scale
+    - is level ke liye: These are illustrative prices, not current market-price facts; the derived three-to-one comparison explains the example.
+  - prerequisites: prices; a common measurement unit; comparison of amounts
+- **p001-i16** · list_point · definition · both · exam high
+  - 3. Store of value: Allows purchasing power to be saved for future use. Example: Keeping money in a bank account for later expenses.
+    - what: What is the store-of-value function? → Money allows purchasing power to be held now for use on future expenses.
+    - evidence: Which example on the page shows purchasing power being held? → Keeping money in a bank account for later expenses illustrates postponing spending.
+      - why: Why do people need to store purchasing power? → The time when people receive income need not match the time when they need to spend. Holding money helps bridge that gap. _(outside the book)_
+      - exception: Does storing money guarantee unchanged purchasing power? → No. If prices rise, the same monetary amount buys fewer goods and services. Money can perform a store-of-value role without being a perfect store of value. _(outside the book)_
+  - **khola (unpack):**
+    - Store of value yaani आज की खरीदने की ताकत को आगे इस्तेमाल के लिए बचाकर रखना · image: आज की कमाई बैंक में रखकर अगले महीने खर्च करना
+    - purchasing power yaani किसी रकम से कितना सामान या सेवा मिल सकती है · image: एक ही रकम से पहले और अब मिलने वाले राशन की तुलना
+    - kyon: Income can arrive before an expense falls due. _[standard]_ → Holding money carries spending ability forward to that later expense. _[standard]_
+    - example / jagah: Book example: money kept in a bank account for later expenses.
+    - aage: Links money across time; rising prices can weaken the purchasing power retained.
+    - screen par: carry a saved balance from today to a future expense
+    - is level ke liye: A bank balance may keep its nominal amount while its real purchasing power changes.
+  - prerequisites: saving; bank account; purchasing power as what money can buy
+- **p001-i17** · list_point · definition · both · exam high
+  - 4. Standard of deferred payment: Makes future payments possible. Example: Home loans and EMI payments are denominated in money.
+    - what: What is money's role as a standard of deferred payment? → It supplies the monetary denomination for payments to be made in the future, as with home loans and EMI payments.
+    - evidence: Which examples identify deferred payment on this page? → The page names home loans and EMI payments denominated in money.
+      - how: How does expressing a future obligation in money help repayment? → The borrower and lender can state what amount is owed and use a shared unit when repayment becomes due, rather than leaving the obligation as an unspecified future exchange. _(outside the book)_
+      - what: What does EMI mean? → EMI means Equated Monthly Instalment: a scheduled monthly loan payment, generally including principal and interest. _(outside the book)_
+      - difference: How is this different from store of value? → Store of value concerns retaining spending ability for later; deferred payment concerns stating and settling an obligation due later. Saving for a future purchase is not the same as owing a future instalment. _(outside the book)_
+  - **khola (unpack):**
+    - Standard of deferred payment yaani बाद में चुकाए जाने वाले भुगतान को पैसे की इकाई में तय करना · image: आज home loan लेना और आगे रुपये में किस्त चुकाना
+    - denominated in money yaani देने वाली रकम रुपये जैसी पैसे की इकाई में लिखी होना · image: loan के कागज़ पर रुपये में लिखी बाकी रकम
+    - EMI yaani loan चुकाने की तय मासिक किस्त · image: हर महीने खाते से जाने वाली home loan की किस्त
+    - kyon: Credit creates an obligation to pay at a later time. _[standard]_ → Expressing that obligation in money provides a common standard for future repayment. _[standard]_
+    - example / jagah: Book examples: home loans and EMI payments.
+    - aage: Connects the opening reference to settling debts with money's role across time.
+    - screen par: write a loan amount now and mark monetary instalments on future dates
+    - is level ke liye: Compare all four functions through the action: pay now, quote value, save for later, or specify repayment later.
+  - prerequisites: loan; borrower and lender; repayment due in the future
+
+## Page 2 · failed after 2 round(s)
+
+Intrinsic money derives value from its material, while extrinsic money relies on trust and authority. A six-stage graphic runs from barter to digital money. Barter involves direct exchange without money, negotiated value and the need for both parties to want each other's offerings.
+
+- **p002-i1** · table · comparison · image
+  - COMPARISON: INTRINSIC vs EXTRINSIC VALUE OF MONEY. Columns: ASPECT | INTRINSIC VALUE OF MONEY (Commodity / Metallic Money) | EXTRINSIC VALUE OF MONEY (Fiat / Paper / Digital Money).
+- **p002-i2** · table_row · comparison · image · exam high
+  - ASPECT: BASIS OF VALUE | INTRINSIC VALUE OF MONEY: Intrinsic / Natural | EXTRINSIC VALUE OF MONEY: Trust / Legally Enforced
+    - compare: What are the two bases of value? → The intrinsic side rests on natural worth; the extrinsic side rests on trust and legal enforcement.
+    - difference: What is the decisive difference? → One concerns the worth of the substance itself; the other concerns acceptance as money rather than the substance's usefulness. _(outside the book)_
+      - why: Why can a low-material-value note buy goods? → People accept it because they expect others to accept it and because monetary institutions support its use. _(outside the book)_
+  - **khola (unpack):**
+    - Intrinsic yaani चीज़ जिस material से बनी है, उसकी अपनी कीमत · image: सोने के टुकड़े का सोना
+    - Extrinsic yaani जिस चीज़ से बना है उससे नहीं, लोगों के भरोसे और व्यवस्था से मिली कीमत · image: नोट देकर किराना लेना
+    - kyon: Exchange needs something people will accept. _[standard]_ → Acceptance may rest on useful material or on trust and legal backing. _[book]_
+    - example / jagah: Gold versus a rupee note.
+    - aage: A money object's material and monetary values need not coincide.
+    - screen par: contrast
+    - is level ke liye: Do not interpret extrinsic as valueless money.
+  - prerequisites: money as a medium of exchange
+- **p002-i3** · table_row · comparison · image · exam high
+  - ASPECT: SOURCE OF VALUE | INTRINSIC VALUE OF MONEY: Own Material Value | EXTRINSIC VALUE OF MONEY: Government / Authority Backing
+    - compare: What sources does the table contrast? → It contrasts an object's own material value with government or authority backing.
+    - difference: How does the source differ from the physical carrier? → A paper note is a carrier; its monetary worth is not the market value of its paper. _(outside the book)_
+      - how: How should authority backing be understood? → It supports the monetary system and confidence in acceptance; it does not necessarily promise conversion into gold. _(outside the book)_
+  - **khola (unpack):**
+    - Own Material Value yaani जिस चीज़ से बना है, उसी की कीमत · image: चाँदी का सिक्का पिघलाने पर भी चाँदी
+    - kyon: A holder needs a reason to accept an object in payment. _[standard]_ → The table supplies material worth or institutional backing as contrasting reasons. _[book]_
+    - example / jagah: Silver versus paper currency.
+    - aage: Identify the source of value, not merely the object's appearance.
+    - screen par: trace
+    - is level ke liye: Fiat does not require a gold-conversion promise.
+  - prerequisites: material value; monetary acceptance
+- **p002-i4** · table_row · comparison · image · exam high
+  - ASPECT: INHERENT WORTH | INTRINSIC VALUE OF MONEY: Present | EXTRINSIC VALUE OF MONEY: Not Present
+    - compare: How does inherent worth compare? → The table marks inherent worth as present for intrinsic money and absent for extrinsic money.
+    - difference: Does absent inherent worth mean absent purchasing power? → No. Material worth and purchasing power are different: a valid note can buy goods despite negligible material worth. _(outside the book)_
+      - why: Why is this distinction necessary? → Otherwise a statement about paper's substance could be mistaken for a statement that currency cannot purchase anything. _(outside the book)_
+  - **khola (unpack):**
+    - Inherent worth yaani पैसा न मानें तब भी जिस चीज़ से बना है, उसकी अपनी कीमत · image: सोने से गहना बन सकता है
+    - kyon: Ask whether the material has value apart from payment. _[standard]_ → This separates inherent worth from monetary purchasing power. _[standard]_
+    - example / jagah: Gold jewellery and a currency note.
+    - aage: Two different meanings of value must be kept separate.
+    - screen par: separate
+    - is level ke liye: Read 'Not Present' as a simplified material-value claim.
+  - prerequisites: purchasing power; material worth
+- **p002-i5** · table_row · comparison · image · exam high
+  - ASPECT: VALUE IF NOT USED AS MONEY | INTRINSIC VALUE OF MONEY: Retains Value | EXTRINSIC VALUE OF MONEY: Nil Value
+    - compare: What happens outside monetary use according to the table? → Intrinsic money retains value, whereas the extrinsic column says 'Nil Value'.
+    - difference: What practical distinction does this illustrate? → A commodity can still be wanted for use as a commodity; a monetary token does not generally retain its face value through its material. _(outside the book)_
+      - why: Why must 'Nil Value' be read carefully? → It abstracts from small material or possible collectible values and should not be read as a universal claim about every discarded note. _(outside the book)_
+  - **khola (unpack):**
+    - Retains Value yaani पैसा न रहे फिर भी काम आने से कीमत बचती है · image: नमक खाने में इस्तेमाल होना
+    - kyon: Imagine the object is no longer accepted in payment. _[standard]_ → Commodity usefulness can preserve value independently of money use. _[standard]_
+    - example / jagah: Salt can still season food.
+    - aage: This is a test of intrinsic value, not a forecast of currency prices.
+    - screen par: remove monetary role
+    - is level ke liye: Qualify the table's categorical 'Nil Value'.
+  - prerequisites: non-monetary use; face value
+- **p002-i6** · table_row · comparison · image · exam high
+  - ASPECT: EXAMPLES | INTRINSIC VALUE OF MONEY: Gold, Silver, Salt, Cattle, Cowrie Shells | EXTRINSIC VALUE OF MONEY: Currency Notes, Bank Deposits, Digital Money
+    - compare: Which examples belong on each side? → Gold, silver, salt, cattle and cowrie shells are on the intrinsic side; currency notes, bank deposits and digital money are on the extrinsic side.
+    - difference: What distinguishes the groups beyond their physical form? → The relevant distinction is commodity value versus value as an accepted monetary instrument, not simply tangible versus intangible. _(outside the book)_
+      - how: How can an ordinary commodity become money? → It must be accepted in exchange beyond merely being wanted for direct consumption; being useful alone does not make every commodity money. _(outside the book)_
+  - **khola (unpack):**
+    - Commodity yaani काम आने वाली चीज़ जिसे खरीदा-बेचा जा सके · image: नमक की बोरी
+    - kyon: Exchange needs a commonly accepted object or claim. _[standard]_ → The examples show both commodity-based and institution-based forms. _[book]_
+    - example / jagah: Cattle versus bank deposits.
+    - aage: Money is not restricted to coins and notes.
+    - screen par: sort
+    - is level ke liye: A useful commodity becomes money only when used as a medium of exchange.
+  - prerequisites: commodity; medium of exchange
+- **p002-i7** · table_row · comparison · image · exam high
+  - ASPECT: ACCEPTABILITY | INTRINSIC VALUE OF MONEY: Limited (by Utility & Availability) | EXTRINSIC VALUE OF MONEY: Wide (by Legal Tender & Trust)
+    - compare: How does the table compare acceptability? → Commodity money's acceptability is described as limited by utility and availability; extrinsic money's is described as wide because of legal tender and trust.
+    - difference: How do the acceptance conditions differ? → A commodity's desirability may vary across people and places, whereas a shared monetary system can support acceptance across many transactions. _(outside the book)_
+      - why: Why should the legal-tender wording not be extended to every example? → Bank deposits and payment methods can be widely accepted without themselves having the same legal-tender status as currency. _(outside the book)_
+  - **khola (unpack):**
+    - Acceptability yaani भुगतान में लोग इसे लेने को कितने तैयार हैं · image: दुकानदार का नोट लेना
+    - kyon: An exchange fails if the recipient refuses the payment object. _[standard]_ → Shared trust can widen the circle of willing recipients. _[standard]_
+    - example / jagah: Payment at different shops.
+    - aage: Acceptance is a social and institutional property as well as a material one.
+    - screen par: expand acceptance
+    - is level ke liye: Do not label every digital payment method legal tender.
+  - prerequisites: acceptance in payment; trust
+- **p002-i8** · table_row · comparison · image · exam high
+  - ASPECT: DURABILITY | INTRINSIC VALUE OF MONEY: Generally Durable | EXTRINSIC VALUE OF MONEY: Varies (Paper perishable, Digital depends on Technology)
+    - compare: What durability contrast is printed? → Intrinsic money is called generally durable; extrinsic durability varies, with paper perishable and digital forms dependent on technology.
+    - difference: How do physical and digital vulnerabilities differ? → Paper can tear or be damaged, while access to digital balances depends on functioning records and systems. _(outside the book)_
+      - why: Why is 'generally' important? → The listed commodities differ: metals endure differently from cattle or salt. The claim is not an absolute property of every commodity. _(outside the book)_
+  - **khola (unpack):**
+    - Durability yaani कितने समय तक बिना खराब हुए चल सके · image: पुराना सिक्का और फटा नोट
+    - kyon: Money may need to be kept for a later payment. _[standard]_ → Its material or supporting technology affects reliable continued use. _[standard]_
+    - example / jagah: A torn note versus a metal coin.
+    - aage: Durability must be assessed for the actual form of money.
+    - screen par: weather
+    - is level ke liye: Technology dependence does not mean an outage automatically destroys a bank balance.
+  - prerequisites: physical damage; digital records
+- **p002-i9** · table_row · comparison · image · exam high
+  - ASPECT: DIVISIBILITY | INTRINSIC VALUE OF MONEY: Difficult | EXTRINSIC VALUE OF MONEY: Easy
+    - compare: How is divisibility compared? → The table calls intrinsic money difficult to divide and extrinsic money easy to divide.
+    - difference: What transaction problem does divisibility address? → It concerns making payments of different sizes without destroying the usefulness of the payment object. _(outside the book)_
+      - how: How do the examples clarify the comparison? → A living cow cannot conveniently be split for a small purchase; denominations or account transfers allow smaller monetary amounts. _(outside the book)_
+  - **khola (unpack):**
+    - Divisibility yaani छोटे भुगतान के लिए कीमत को छोटे हिस्सों में बाँट पाना · image: गाय के बदले छोटी खरीदारी की मुश्किल
+    - kyon: Purchases do not all cost the same amount. _[standard]_ → Smaller denominations and divisible balances make matching payment size easier. _[standard]_
+    - example / jagah: Paying a small shop bill.
+    - aage: Convenient small payments favour more divisible monetary forms.
+    - screen par: split payment
+    - is level ke liye: The difficulty is relative, not physical impossibility for every commodity.
+  - prerequisites: small and large payments; denominations
+- **p002-i10** · table_row · comparison · image · exam high
+  - ASPECT: PORTABILITY | INTRINSIC VALUE OF MONEY: Difficult (Bulky / Heavy) | EXTRINSIC VALUE OF MONEY: Easy
+    - compare: How does portability compare? → The table associates intrinsic money with bulk and weight, and extrinsic money with easy portability.
+    - difference: How is portability different from divisibility? → Portability concerns moving purchasing power between places; divisibility concerns breaking a payment into smaller amounts. _(outside the book)_
+      - why: Why does bulk matter for exchange? → Transporting cattle or sacks of goods imposes effort and cost; lighter instruments or transfers can reduce this burden. _(outside the book)_
+  - **khola (unpack):**
+    - Portability yaani एक जगह से दूसरी जगह आसानी से ले जा पाना · image: नमक की बोरी के बजाय जेब में नोट
+    - kyon: Buyers need to carry payment to sellers. _[standard]_ → Reducing bulk and weight makes transactions easier. _[standard]_
+    - example / jagah: Carrying a sack versus carrying notes.
+    - aage: Convenience helps explain shifts in monetary forms.
+    - screen par: carry
+    - is level ke liye: Relative convenience varies across particular commodities.
+  - prerequisites: transporting goods; purchasing power
+- **p002-i11** · table_row · comparison · image · exam high
+  - ASPECT: EXAMPLE IN CONTEXT | INTRINSIC VALUE OF MONEY: Metal Coins, Gold Bullion | EXTRINSIC VALUE OF MONEY: Rupee Notes, Bank Balance, UPI
+    - compare: What contextual examples does the book place side by side? → Metal coins and gold bullion are contrasted with rupee notes, bank balance and UPI.
+    - difference: What distinction is needed for UPI? → UPI is a payment system used to transfer funds, not a separate monetary substance or necessarily a new form of money. _(outside the book)_
+      - how: How should the metal-coin example be interpreted? → It illustrates commodity-valued metallic money; a modern coin's face value need not equal its metal value. _(outside the book)_
+  - **khola (unpack):**
+    - Gold Bullion yaani सोने की छड़ या बड़ी मात्रा, जिसकी कीमत सोने से आती है · image: सोने की ईंट
+    - kyon: Familiar examples help locate abstract categories. _[standard]_ → Separate the monetary value held from the method used to pay it. _[standard]_
+    - example / jagah: A UPI purchase funded by a bank account.
+    - aage: The next graphic must also be read as simplified categories.
+    - screen par: match and distinguish
+    - is level ke liye: Payment rail, deposit and currency are not interchangeable terms.
+  - prerequisites: bank balance; face value; material value
+- **p002-i12** · diagram · timeline · image · exam high
+  - EVOLUTION OF MONEY. Five right-pointing arrows connect six illustrated stages from left to right: 1. BARTER, wheat exchanged for cloth → 2. COMMODITY MONEY, salt, cattle, shells → 3. METALLIC MONEY, gold and silver coins → 4. PAPER MONEY, currency notes → 5. BANK MONEY, cheques and deposits → 6. DIGITAL MONEY, UPI, net banking, cards. Illustrations show two traders, commodities, coins, notes, a bank with a cheque, and a phone with UPI/QR and cards.
+    - when: What relative order is shown? → Barter precedes commodity, metallic, paper, bank and digital money in the graphic. No dates are supplied.
+    - why: Why can the sequence be understood as increasing exchange convenience? → Direct swapping requires matching wants, while more portable and divisible monetary instruments and payment systems can make exchange easier. _(outside the book)_
+      - exception: Does each arrow mean that the previous stage disappeared? → No. Forms can coexist; the sequence is a teaching outline rather than a universal replacement chronology. _(outside the book)_
+  - **khola (unpack):**
+    - Evolution of Money yaani लेन-देन के तरीकों का समय के साथ बदलना · image: अनाज की अदला-बदली से फोन पर भुगतान तक
+    - kyon: People need an easier way to complete exchanges. _[standard]_ → The sequence links direct exchange to commodities, monetary instruments and electronic payments. _[book]_
+    - example / jagah: Cash and UPI payments coexist today.
+    - aage: The barter section explains the starting point and its constraints.
+    - screen par: advance along arrows
+    - is level ke liye: Metallic money is also commodity money in the broader classification.
+  - prerequisites: exchange; medium of exchange
+- **p002-i13** · diagram_label · timeline · image · exam high
+  - 1. BARTER — Wheat exchanged for cloth. Points to two people directly exchanging wheat and cloth; an arrow leads to commodity money.
+    - when: Where is barter in the depicted order? → It is the first stage, before commodity money.
+    - why: Why is the wheat-for-cloth picture barter? → The parties exchange the desired goods themselves instead of making a monetary payment. _(outside the book)_
+  - **khola (unpack):**
+    - Barter yaani पैसा दिए बिना चीज़ के बदले चीज़ लेना · image: गेहूँ देकर कपड़ा लेना
+    - kyon: A person has wheat but needs cloth. _[standard]_ → A direct swap works if the cloth holder wants wheat. _[standard]_
+    - example / jagah: Wheat exchanged for cloth.
+    - aage: Leads to the need for matching wants.
+    - screen par: swap
+    - is level ke liye: Distinguish direct exchange from buying cloth with money earned by selling wheat.
+  - prerequisites: goods; exchange
+- **p002-i14** · diagram_label · timeline · image · exam high
+  - 2. COMMODITY MONEY — Salt, cattle, shells. Points to a sack of salt, cattle and shells; arrows connect barter → commodity money → metallic money.
+    - when: Where does commodity money occur in the sequence? → Second, after barter and before metallic money, illustrated by salt, cattle and shells.
+    - why: Why is a commodity used as money different from an ordinary barter good? → It is accepted as an intermediate means of obtaining other goods, rather than only for the recipient's immediate use. _(outside the book)_
+  - **khola (unpack):**
+    - Commodity Money yaani ऐसी चीज़ जिसे लोग भुगतान में लेने लगें · image: नमक लेकर आगे उससे दूसरी चीज़ खरीदना
+    - kyon: A direct trading partner may not want your own good. _[standard]_ → A commonly accepted commodity can bridge exchanges. _[standard]_
+    - example / jagah: Salt, cattle and shells.
+    - aage: Exchange need not remain a direct swap of final wants.
+    - screen par: bridge exchanges
+    - is level ke liye: Use as money, not usefulness alone, defines the role.
+  - prerequisites: barter; medium of exchange
+- **p002-i15** · diagram_label · timeline · image · exam high
+  - 3. METALLIC MONEY — Gold and silver coins. Points to gold- and silver-coloured coins; arrows connect commodity money → metallic money → paper money.
+    - when: Where are metallic coins placed? → They are third, between commodity money and paper money, with gold and silver coins as examples.
+    - why: Why can metals improve on cattle as money? → Metals can be durable and made into measured units without losing their material identity, unlike dividing a living animal. _(outside the book)_
+  - **khola (unpack):**
+    - Metallic Money yaani धातु से बना पैसा · image: सोने-चाँदी के सिक्के
+    - kyon: Exchange needs durable, manageable units. _[standard]_ → Metals can be shaped into measured coins. _[standard]_
+    - example / jagah: Gold and silver coins.
+    - aage: The graphic next moves to lighter paper forms.
+    - screen par: mint
+    - is level ke liye: Not every metal coin has face value equal to metal value.
+  - prerequisites: commodity money; divisibility
+- **p002-i16** · diagram_label · timeline · image · exam high
+  - 4. PAPER MONEY — Currency notes. Points to a fan of currency notes, including a visible ₹500 note; arrows connect metallic money → paper money → bank money.
+    - when: Where does paper money appear? → Fourth, after metallic money and before bank money.
+    - why: Why can notes carry more value than their paper? → Their purchasing power rests on monetary acceptance and backing rather than the paper's commodity price. _(outside the book)_
+  - **khola (unpack):**
+    - Paper Money yaani भुगतान में चलने वाले currency notes · image: बटुए में रखा नोट
+    - kyon: Carrying substantial metal can be burdensome. _[standard]_ → Accepted notes carry purchasing power with less physical burden. _[standard]_
+    - example / jagah: Currency notes.
+    - aage: Material value and monetary value become especially easy to distinguish.
+    - screen par: replace weight with notes
+    - is level ke liye: Paper form alone does not explain the entire historical origin of fiat money.
+  - prerequisites: extrinsic value; currency
+- **p002-i17** · diagram_label · timeline · image · exam high
+  - 5. BANK MONEY — Cheques and deposits. Points to a bank building marked BANK and a cheque with a pen; arrows connect paper money → bank money → digital money.
+    - when: Where is bank money placed? → Fifth, between paper and digital money; its labels are cheques and deposits.
+    - how: How are a deposit and a cheque related? → A deposit is a balance owed by the bank to its customer; a cheque instructs payment from an account rather than being the deposit itself. _(outside the book)_
+      - why: Why distinguish the two? → Otherwise an instrument used to transfer money may be confused with the underlying money balance. _(outside the book)_
+  - **khola (unpack):**
+    - Deposits yaani बैंक खाते में दर्ज रकम · image: पासबुक में balance
+    - kyon: A payer may want to pay without carrying cash. _[standard]_ → An instruction can transfer funds from a bank balance. _[standard]_
+    - example / jagah: A cheque drawn on a bank account.
+    - aage: Prepares the distinction between balances and digital payment channels.
+    - screen par: transfer balance
+    - is level ke liye: The cheque and the money it transfers are different.
+  - prerequisites: bank account; payment
+- **p002-i18** · diagram_label · timeline · image · exam high
+  - 6. DIGITAL MONEY — UPI, net banking, cards. Points to a phone displaying UPI and a QR code beside payment cards; the final arrow comes from bank money.
+    - when: What is the final depicted stage? → Digital money is sixth, after bank money, with UPI, net banking and cards shown.
+    - how: How should these examples be understood precisely? → They are electronic payment channels or instruments, often accessing bank balances; they do not necessarily create a separate new currency. _(outside the book)_
+      - why: Why retain this distinction? → The method of moving funds and the monetary claim being moved are different analytical categories. _(outside the book)_
+  - **khola (unpack):**
+    - Digital Money yaani यहाँ electronic तरीके से रकम के भुगतान के लिए इस्तेमाल हुआ नाम · image: दुकान का QR scan करके भुगतान
+    - kyon: People need quick payments without physical cash. _[standard]_ → Electronic channels communicate payment instructions and update balances. _[standard]_
+    - example / jagah: UPI, net banking and cards.
+    - aage: Technology supports access and transfer, not necessarily a distinct form of currency.
+    - screen par: scan and transfer
+    - is level ke liye: Separate payment technology from money classification.
+  - prerequisites: bank balance; electronic payment
+- **p002-i19** · heading · none · both
+  - Barter System
+- **p002-i20** · definition · definition · both · exam high
+  - The barter system is a method of exchange in which goods and services are directly exchanged for other goods and services without using a medium of exchange.
+    - what: What makes an exchange barter? → Goods or services are given directly for other goods or services, without an intervening medium of exchange.
+    - evidence: Which page example demonstrates this? → The graphic shows wheat exchanged for cloth, so the traded goods themselves complete the exchange.
+      - how: How is this different from selling wheat and then buying cloth? → Selling for money and then buying separates exchange into two transactions mediated by money; barter directly swaps the two offerings. _(outside the book)_
+  - **khola (unpack):**
+    - Medium of exchange yaani बीच में ली जाने वाली चीज़ जिससे आगे अपनी ज़रूरत खरीद सकें · image: गेहूँ बेचकर मिले पैसे से कपड़ा खरीदना
+    - Services yaani किसी के लिए किया गया काम · image: बाल काटना या मरम्मत करना
+    - kyon: Someone has one offering but needs another. _[standard]_ → In barter, the offerings themselves are exchanged instead of using a payment medium. _[book]_
+    - example / jagah: Wheat exchanged for cloth.
+    - aage: Directness creates the matching-wants problem discussed below.
+    - screen par: exchange directly
+    - is level ke liye: A goods-for-service or service-for-service swap can also be barter.
+  - prerequisites: goods; services; medium of exchange
+- **p002-i21** · heading · none · both
+  - Features
+- **p002-i22** · list_point · definition · both · exam high
+  - No use of money
+    - what: What role does money play in barter? → It is not used in the exchange; the parties exchange their offerings directly.
+    - evidence: What supports this feature on the page? → The definition excludes a medium of exchange, and the graphic depicts wheat exchanged for cloth.
+      - why: Why does no money not mean no value? → The parties can still compare the usefulness of what they give and receive and negotiate an exchange. _(outside the book)_
+  - **khola (unpack):**
+    - No use of money yaani इस लेन-देन में पैसे से भुगतान नहीं होता · image: कपड़े के बदले गेहूँ देना, नोट नहीं
+    - kyon: The parties need each other's goods or services. _[standard]_ → They can exchange them without monetary payment. _[book]_
+    - example / jagah: A direct wheat-for-cloth swap.
+    - aage: Value still has to be agreed.
+    - screen par: remove money
+    - is level ke liye: Barter is not the same as a free transfer.
+  - prerequisites: money as a medium of exchange; barter
+- **p002-i23** · list_point · definition · both · exam high
+  - Direct exchange of goods and services
+    - what: What is exchanged directly? → Goods and services are exchanged for other goods and services.
+    - evidence: Which wording rules out money-mediated exchange? → The definition says 'directly exchanged' and 'without using a medium of exchange'.
+      - how: How could a service enter barter? → For example, someone could repair a tool in return for grain rather than receiving cash. _(outside the book)_
+  - **khola (unpack):**
+    - Direct exchange yaani बीच में पैसा लाए बिना अपनी चीज़ या काम के बदले दूसरी चीज़ या काम लेना · image: मरम्मत के बदले अनाज
+    - kyon: Both parties have something useful to offer. _[standard]_ → Their offerings can be exchanged directly if the terms satisfy both. _[standard]_
+    - example / jagah: Illustrative outside example: repair work for grain.
+    - aage: The two sides' wants must align.
+    - screen par: connect offerings
+    - is level ke liye: Include goods–services and services–services cases.
+  - prerequisites: goods versus services; exchange
+- **p002-i24** · list_point · cause_effect · both · exam high
+  - Value is decided through mutual agreement
+    - why: Why must both parties agree on value? → A voluntary direct exchange needs terms that each party is willing to accept; one person's valuation alone cannot settle it. _(outside the book)_
+    - how: How does the page say value is decided? → It is decided through mutual agreement between the exchanging parties.
+      - how: What does agreement look like in practice? → The parties settle how much of one offering will be given for the other, such as a quantity of wheat for a length of cloth. _(outside the book)_
+  - **khola (unpack):**
+    - Mutual agreement yaani दोनों की रज़ामंदी से शर्त तय होना · image: कितना गेहूँ देकर कितना कपड़ा मिले, इस पर दोनों का हाँ कहना
+    - kyon: Each party must judge whether the exchange is worthwhile. _[standard]_ → They settle the exchange terms by mutual agreement. _[book]_
+    - example / jagah: Negotiating wheat for cloth.
+    - aage: Finding a willing partner does not by itself settle the quantities.
+    - screen par: negotiate
+    - is level ke liye: Distinguish agreeing on terms from having matching wants.
+  - prerequisites: voluntary exchange; quantity of goods
+- **p002-i25** · list_point · timeline · both · exam high
+  - Common in early civilizations. Still seen in limited informal exchanges
+    - when: When does the page locate barter? → It describes barter as common in early civilizations and still present in limited informal exchanges.
+    - why: Why can barter persist alongside money? → People with matching wants can choose a direct swap even where monetary exchange is available. _(outside the book)_
+      - exception: Does the page say barter has vanished? → No. Its explicit reference to continuing informal exchanges rules that out.
+  - **khola (unpack):**
+    - Informal exchanges yaani लोगों के बीच सीधे, कम औपचारिक लेन-देन · image: दो परिचितों का आपस में सामान बदलना
+    - kyon: Some people still find partners who want what they offer. _[standard]_ → Direct swapping can therefore coexist with monetary exchange. _[standard]_
+    - example / jagah: Illustrative outside example: two acquaintances swap useful possessions.
+    - aage: The evolution graphic should not be read as total replacement.
+    - screen par: continue alongside
+    - is level ke liye: No dates or universal historical origin are established on this page.
+  - prerequisites: barter; informal exchange
+- **p002-i26** · heading · none · both
+  - Limitations:
+- **p002-i27** · list_point · cause_effect · both · exam high
+  - Double coincidence of wants: Both parties must want what other offers.
+    - what: What is double coincidence of wants? → Each party must want the offering held by the other party for their direct exchange to work.
+    - why: Why is this a limitation rather than merely a feature? → Wanting cloth is insufficient for a wheat holder: the cloth holder must also want wheat. Failure of either side's want blocks that direct trade. _(outside the book)_
+      - how: How does money relax this requirement? → The wheat holder can sell to someone who wants wheat and use the proceeds to buy cloth from someone else; the cloth seller need not want wheat. _(outside the book)_
+        - difference: How is this different from agreeing on value? → Matching wants concerns whether each side desires the other's offering; agreement on value concerns the quantities or terms they will accept. _(outside the book)_
+  - **khola (unpack):**
+    - Double coincidence of wants yaani मुझे आपकी चीज़ चाहिए और आपको मेरी चीज़ भी चाहिए · image: मेरे पास गेहूँ, आपके पास कपड़ा; दोनों को एक-दूसरे का सामान चाहिए
+    - kyon: A person needs something but can offer only their own good or service. _[standard]_ → Without a medium of exchange, a partner must simultaneously want that offering and provide the desired one. _[standard]_
+    - example / jagah: A wheat holder wants cloth, but the cloth holder wants something other than wheat: the direct swap fails.
+    - aage: Explains a central advantage of money-mediated exchange.
+    - screen par: match two wants, then block a mismatch
+    - is level ke liye: Test both directions of desire; a single coincidence is insufficient.
+  - prerequisites: direct exchange; medium of exchange; mutual agreement
+
+## Page 3 · passed after 1 round(s)
+
+Barter lacks a common value measure and creates problems of division, wealth storage and future payment. Commodity money has intrinsic value and community acceptance but practical limitations. Metallic money improves durability, division and standardization, yet its own costs and supply constraints encourage paper money. Visuals supply commodity–place examples and five stages of Indian metallic money.
+
+- **p003-i1** · list_point · cause_effect · both · exam high
+  - • No common measure of value
+    - why: Why does barter lack a common measure of value? → Goods are valued against other goods rather than against one shared unit, so their exchange values are difficult to compare. _(outside the book)_
+      - how: How would a common unit simplify exchange? → Expressing grain, cloth and cattle in the same unit lets buyers compare their prices without negotiating a separate goods-for-goods ratio for each pair. _(outside the book)_
+  - **khola (unpack):**
+    - common measure of value yaani अलग-अलग चीज़ों की कीमत बताने का एक ही पैमाना · image: दुकान में चावल और कपड़े दोनों की कीमत रुपये में लिखी है
+    - kyon: Unlike goods must be compared before exchange. _[standard]_ → Without a shared unit, each goods pair needs its own valuation. _[standard]_
+    - example / jagah: Comparing the value of grain with cloth.
+    - aage: A common monetary unit reduces comparison difficulties.
+    - screen par: Replace many exchange ratios with one price column.
+    - is level ke liye: Distinguish measuring value from physically making payment.
+  - prerequisites: barter as direct exchange of goods
+- **p003-i2** · list_point · cause_effect · both · exam high
+  - • Indivisibility of goods
+    - why: Why does indivisibility obstruct barter? → A valuable good may not be separable into smaller usable pieces that match the value of a small purchase. _(outside the book)_
+      - how: How does a cow illustrate the difficulty? → Someone buying a little grain cannot divide a living cow into small payments without destroying its usefulness as a living animal. _(outside the book)_
+  - **khola (unpack):**
+    - Indivisibility yaani चीज़ को छोटे काम के हिस्सों में न बाँट पाना · image: थोड़े चावल के बदले आधी जीवित गाय नहीं दे सकते
+    - kyon: Small purchases require small payments. _[standard]_ → An indivisible good cannot supply those payments without losing usefulness. _[standard]_
+    - example / jagah: A living cow exchanged for a small quantity of grain.
+    - aage: Divisible payment media make small transactions easier.
+    - screen par: Try to split a cow, then substitute smaller payment units.
+    - is level ke liye: Divisibility concerns retaining usable value after division.
+  - prerequisites: barter; small and large exchange values
+- **p003-i3** · list_point · cause_effect · both · exam high
+  - • Difficulty in storing wealth
+    - why: Why can wealth be difficult to store in goods? → Goods may spoil, need upkeep or occupy substantial space, making it costly to preserve purchasing power. _(outside the book)_
+      - how: How does spoilage affect saved wealth? → If stored produce deteriorates, less remains available for later consumption or exchange. _(outside the book)_
+  - **khola (unpack):**
+    - storing wealth yaani आज की कमाई की कीमत आगे के लिए बचाकर रखना · image: बचाए आलू सड़ जाएँ तो बचत घट जाती है
+    - kyon: People need to save value for future needs. _[standard]_ → Spoilage and storage costs make saving in goods difficult. _[standard]_
+    - example / jagah: Keeping agricultural produce for a later purchase.
+    - aage: Durability becomes a desirable property of money.
+    - screen par: Show stored goods deteriorating over time.
+    - is level ke liye: Storage of physical goods and preservation of value are related but not identical.
+  - prerequisites: wealth as resources available for later use; barter
+- **p003-i4** · list_point · cause_effect · both · exam high
+  - • Deferred payments are difficult
+    - why: Why are deferred payments difficult under barter? → Borrower and lender must agree on the future goods, their quantity and their quality; changes in goods' relative values complicate that agreement. _(outside the book)_
+      - how: How does payment in a common unit help? → A debt can be specified in that unit rather than as a disputed bundle of goods, although monetary purchasing power may still change. _(outside the book)_
+  - **khola (unpack):**
+    - Deferred payments yaani अभी सौदा हो लेकिन भुगतान बाद में करना हो · image: आज उधार लिया, फसल आने पर चुकाना है
+    - kyon: Credit requires a payment promise for a later date. _[standard]_ → Specifying future goods and their quality makes that promise harder to settle. _[standard]_
+    - example / jagah: A loan repayable after harvest.
+    - aage: A shared payment unit simplifies debt contracts.
+    - screen par: Move a repayment promise along a calendar.
+    - is level ke liye: A monetary contract simplifies specification, not necessarily future purchasing-power stability.
+  - prerequisites: borrowing and repayment; barter
+- **p003-i5** · heading · none · both
+  - Commodity Money
+- **p003-i6** · definition · definition · both · exam high
+  - Commodity money is a form of money in which the item used as money has intrinsic value, meaning it has value even outside its use as money.
+    - what: What defines commodity money? → The object accepted as money also possesses value apart from serving as money.
+    - evidence: Which words identify the defining test? → The page explicitly says that it has value 'even outside its use as money'.
+      - how: How can salt make intrinsic value understandable? → Salt can be useful in food even when nobody accepts it in payment; its non-monetary usefulness is separate from its exchange role. _(outside the book)_
+  - **khola (unpack):**
+    - intrinsic value yaani पैसा न भी मानें, तब भी चीज़ की अपनी उपयोग की कीमत · image: नमक से सामान न खरीद पाएँ, फिर भी खाने में काम आएगा
+    - kyon: Exchange needs an acceptable payment object. _[standard]_ → Commodity money uses an object valuable beyond that payment role. _[book]_
+    - example / jagah: Salt, one of the table's examples.
+    - aage: The same object can serve monetary and non-monetary purposes.
+    - screen par: Split one salt packet into payment and household-use paths.
+    - is level ke liye: Do not confuse intrinsic value with a guarantee of stable market value.
+  - prerequisites: money as a medium of exchange; usefulness of goods
+- **p003-i7** · table · facts_numbers · image
+  - Columns: Commodity | Where it was used. Rows in order: Salt—Ancient Rome and Africa; Cattle—Early pastoral societies; Cowrie shells—India, China, and Africa; Tea bricks—Central Asia and Tibet; Tobacco—Colonial America.
+- **p003-i8** · table_row · facts_numbers · image · exam high
+  - Commodity: Salt | Where it was used: Ancient Rome and Africa
+    - what: Where does the table associate salt with monetary use? → Its salt row names Ancient Rome and Africa.
+    - evidence: What page evidence supports this pairing? → Salt appears in the Commodity column opposite Ancient Rome and Africa.
+      - why: Why is salt a useful illustration of commodity money? → It has household uses independent of payment, making the distinction between intrinsic usefulness and monetary use easy to see. _(outside the book)_
+  - **khola (unpack):**
+    - Salt yaani खाने में इस्तेमाल होने वाला नमक · image: रसोई की नमकदानी
+    - kyon: An exchange community needs an accepted good. _[standard]_ → The table records salt in Ancient Rome and Africa. _[book]_
+    - example / jagah: Ancient Rome and Africa.
+    - aage: Illustrates monetary use of an independently useful commodity.
+    - screen par: Link a salt packet to the two place labels.
+    - is level ke liye: The table does not claim exclusive use in these places.
+  - prerequisites: commodity money; intrinsic value
+- **p003-i9** · table_row · facts_numbers · image · exam high
+  - Commodity: Cattle | Where it was used: Early pastoral societies
+    - what: Which societies are paired with cattle? → The table identifies early pastoral societies.
+    - evidence: What is distinctive about this table entry? → It names a type of society rather than a specific country or region.
+      - why: Why is the pastoral association understandable? → Pastoral livelihoods depend substantially on livestock, so cattle are familiar, valued assets within such communities. _(outside the book)_
+  - **khola (unpack):**
+    - pastoral societies yaani ऐसे समुदाय जिनका गुज़ारा काफी हद तक पशु पालने से चलता है · image: पशुओं का झुंड चराने जाता परिवार
+    - kyon: Payment goods need to be valued by the community. _[standard]_ → Livestock-centred livelihoods make cattle a familiar store of resources. _[standard]_
+    - example / jagah: Early pastoral societies.
+    - aage: A valuable commodity can still be inconvenient for small payments.
+    - screen par: Connect a cattle herd to a pastoral settlement.
+    - is level ke liye: Community acceptance does not imply good divisibility.
+  - prerequisites: commodity money; livestock
+- **p003-i10** · table_row · facts_numbers · image · exam high
+  - Commodity: Cowrie shells | Where it was used: India, China, and Africa
+    - what: Where were cowrie shells used according to the table? → India, China, and Africa are the three listed places.
+    - evidence: Which table entry links India to commodity money? → The cowrie-shell row explicitly includes India.
+      - how: How can a shell function as money? → If people commonly accept shells in payment, they can pass them on in later exchanges rather than needing an immediate barter match. _(outside the book)_
+  - **khola (unpack):**
+    - Cowrie shells yaani कौड़ियाँ, छोटे समुद्री खोल जिन्हें भुगतान में लिया गया · image: छोटी चिकनी कौड़ियों की गिनती
+    - kyon: Exchange needs a recognizable accepted object. _[standard]_ → Accepted shells can circulate between successive buyers and sellers. _[standard]_
+    - example / jagah: India, China, and Africa.
+    - aage: Money need not initially take the form of a metal coin.
+    - screen par: Pass shells between traders and highlight three place labels.
+    - is level ke liye: Do not infer that every shell or every region accepted them.
+  - prerequisites: community acceptance; medium of exchange
+- **p003-i11** · table_row · facts_numbers · image · exam high
+  - Commodity: Tea bricks | Where it was used: Central Asia and Tibet
+    - what: Which places are paired with tea bricks? → The table lists Central Asia and Tibet.
+    - evidence: What exact commodity form does the table name? → It specifies tea bricks, not simply tea or cups of tea.
+      - how: How should a learner picture a tea brick? → It is tea compressed into a solid block, allowing a useful consumable to be handled as an exchange object. _(outside the book)_
+  - **khola (unpack):**
+    - Tea bricks yaani चाय को दबाकर बनाए गए ठोस block · image: ढीली चाय की जगह ईंट जैसा दबा हुआ चाय का टुकड़ा
+    - kyon: Useful goods may also serve exchange. _[standard]_ → The table records compressed tea as money in Central Asia and Tibet. _[book]_
+    - example / jagah: Central Asia and Tibet.
+    - aage: A consumable good can perform a monetary role.
+    - screen par: Compress tea into a block and connect it to the regions.
+    - is level ke liye: Retain the specified form, tea bricks, in matching questions.
+  - prerequisites: commodity money; tea as a useful good
+- **p003-i12** · table_row · facts_numbers · image · exam high
+  - Commodity: Tobacco | Where it was used: Colonial America
+    - what: Where is tobacco listed as commodity money? → The table pairs tobacco with Colonial America.
+    - evidence: What time-context accompanies the place? → The word Colonial qualifies America in this row.
+      - how: How can an agricultural product acquire a monetary role? → A community can accept a valued crop in payment because recipients expect to use it or exchange it onward. _(outside the book)_
+  - **khola (unpack):**
+    - Tobacco yaani तंबाकू की फसल, जिसे यहाँ भुगतान की चीज़ बताया गया है · image: सूखी फसल के बंडल
+    - kyon: Payment can use a locally valued product. _[standard]_ → The table identifies tobacco in Colonial America. _[book]_
+    - example / jagah: Colonial America.
+    - aage: Commodity money includes agricultural products as well as shells and livestock.
+    - screen par: Exchange a crop bundle and highlight Colonial America.
+    - is level ke liye: This historical monetary role is not a statement about health or desirability.
+  - prerequisites: commodity money; acceptance in payment
+- **p003-i13** · heading · none · both
+  - Characteristics:
+- **p003-i14** · list_point · cause_effect · both · exam high
+  - • Has intrinsic value. More acceptable than barter system
+    - why: Why can intrinsic value encourage acceptance? → A recipient receives something useful even apart from spending it onward, which can make acceptance easier. _(outside the book)_
+      - how: How does the page position commodity money relative to barter? → It describes commodity money as more acceptable than the barter system and as possessing intrinsic value.
+  - **khola (unpack):**
+    - acceptable yaani जिसे लोग भुगतान में लेने को तैयार हों · image: विक्रेता ऐसी चीज़ लेता है जो खुद भी काम आए
+    - kyon: A seller needs confidence in what is received. _[standard]_ → Independent usefulness can encourage acceptance. _[standard]_
+    - example / jagah: Accepting useful salt rather than an unwanted barter good.
+    - aage: Helps explain the shift from direct barter to an accepted commodity.
+    - screen par: Turn a rejected barter offer into an accepted commodity payment.
+    - is level ke liye: More acceptable does not mean universally accepted.
+  - prerequisites: intrinsic value; barter
+- **p003-i15** · list_point · cause_effect · both · exam high
+  - • Widely accepted within a community.
+    - why: Why does community acceptance matter? → A payment object works more conveniently when its recipient expects other community members to accept it later. _(outside the book)_
+      - how: How broad is the acceptance claimed by the page? → The statement specifies wide acceptance within a community, rather than acceptance everywhere.
+  - **khola (unpack):**
+    - community yaani आपस में लेन-देन करने वाले लोगों का समूह · image: एक हाट के खरीदार और दुकानदार
+    - kyon: A recipient needs to make later purchases. _[standard]_ → Shared acceptance enables the commodity to circulate. _[standard]_
+    - example / jagah: A local trading community.
+    - aage: Acceptability depends partly on the trading network.
+    - screen par: Pass one commodity around a circle of traders.
+    - is level ke liye: Local acceptance is not global legal-tender status.
+  - prerequisites: medium of exchange
+- **p003-i16** · list_point · cause_effect · both · exam high
+  - • Can be used for purposes other than exchange.
+    - why: Why does non-exchange use matter? → It shows that the commodity's usefulness does not depend entirely on being accepted as payment. _(outside the book)_
+      - how: How can the same good have two roles? → Salt can be passed to a seller as payment or used in food; these are monetary and non-monetary uses of the same object. _(outside the book)_
+  - **khola (unpack):**
+    - purposes other than exchange yaani खरीदारी के अलावा भी चीज़ का काम आना · image: चाय का block भुगतान में दें या उससे चाय बनाएँ
+    - kyon: A payment object may cease to circulate. _[standard]_ → Independent uses still give a commodity usefulness. _[standard]_
+    - example / jagah: Tea bricks used as a good as well as money.
+    - aage: Separates commodity value from the payment role.
+    - screen par: Branch one commodity into use and exchange.
+    - is level ke liye: Non-monetary usefulness need not mean food consumption.
+  - prerequisites: intrinsic value; exchange
+- **p003-i17** · list_point · cause_effect · both · exam high
+  - • Acts as a medium of exchange before metallic coins became common. Removes the need of double coincidence of wants.
+    - why: Why does commodity money remove the need for double coincidence of wants? → The seller can accept the commonly accepted commodity rather than needing the exact good that the buyer happens to offer. _(outside the book)_
+      - how: How does this separate a barter exchange into transactions? → A person first sells a good for the accepted commodity and then uses that commodity to buy the desired good from someone else. _(outside the book)_
+    - when: When does the page place this monetary role? → It places commodity money's role before metallic coins became common.
+  - **khola (unpack):**
+    - double coincidence of wants yaani दोनों को ठीक वही चाहिए जो दूसरा दे रहा है · image: अनाज वाले को जूते चाहिए और जूते वाले को उसी समय अनाज
+    - kyon: Direct barter needs matching wants on both sides. _[standard]_ → An accepted intermediate commodity allows selling and buying with different people. _[standard]_
+    - example / jagah: Sell grain for accepted salt, then spend salt on cloth.
+    - aage: Exchange becomes less dependent on a perfectly matched trading partner.
+    - screen par: Replace a blocked two-person swap with two linked sales.
+    - is level ke liye: A medium of exchange is an intermediary, not necessarily a final consumption good for the seller.
+  - prerequisites: barter; both parties wanting what the other offers
+- **p003-i18** · heading · none · both
+  - Limitations:
+- **p003-i19** · list_point · cause_effect · both · exam high
+  - • Lack of uniformity
+    - why: Why is lack of uniformity a monetary problem? → Units of a commodity may differ in quality, size or condition, so equal counts may not represent equal value. _(outside the book)_
+      - how: How does this complicate payment? → Traders may need to inspect and bargain over each unit rather than simply count it. _(outside the book)_
+  - **khola (unpack):**
+    - uniformity yaani अलग-अलग इकाइयों का एक जैसा होना · image: दो गायों का आकार और सेहत अलग हो सकती है
+    - kyon: Payment needs comparable units. _[standard]_ → Unequal quality makes counting alone unreliable. _[standard]_
+    - example / jagah: Two cattle of different health and size.
+    - aage: Inspection and negotiation add transaction costs.
+    - screen par: Compare unequal commodity units on a balance.
+    - is level ke liye: Uniformity concerns similarity of units.
+  - prerequisites: commodity money; quality differences
+- **p003-i20** · list_point · cause_effect · both · exam high
+  - • Poor divisibility
+    - why: Why can commodity money remain poorly divisible? → Some commodities cannot be split into small portions while preserving their usefulness or proportional value. _(outside the book)_
+      - how: How does this qualify commodity money's improvement over barter? → An accepted commodity may solve the matching-of-wants problem but still be unsuitable for small purchases. _(outside the book)_
+  - **khola (unpack):**
+    - Poor divisibility yaani छोटे भुगतान के लिए आसानी से हिस्से न बन पाना · image: गाय के बदले छोटी खरीद का छुट्टा नहीं मिल रहा
+    - kyon: Payments differ in size. _[standard]_ → An indivisible commodity cannot conveniently match small amounts. _[standard]_
+    - example / jagah: Cattle as a payment good.
+    - aage: Acceptance alone does not make ideal money.
+    - screen par: Contrast a whole cow with several small purchases.
+    - is level ke liye: Salt and cattle differ in divisibility; the list is not universal to every example.
+  - prerequisites: indivisibility of goods; commodity money
+- **p003-i21** · list_point · cause_effect · both · exam high
+  - • Perishable
+    - why: Why does perishability limit money? → If the payment commodity deteriorates, holding it for future exchange can reduce its value or acceptability. _(outside the book)_
+      - how: How should this limitation be applied to the table? → It is more relevant to deteriorating commodities than to durable shells; the examples do not share identical weaknesses. _(outside the book)_
+  - **khola (unpack):**
+    - Perishable yaani समय के साथ खराब हो सकने वाला · image: नमी से खराब होती रखी हुई फसल
+    - kyon: People may hold payment goods for later. _[standard]_ → Deterioration can erode what they have saved. _[standard]_
+    - example / jagah: Agricultural commodity storage.
+    - aage: Encourages preference for durable monetary materials.
+    - screen par: Fade a stored commodity as time passes.
+    - is level ke liye: Avoid the statement that all commodity money is perishable.
+  - prerequisites: store of value; spoilage
+- **p003-i22** · list_point · cause_effect · both · exam high
+  - • Difficult transport
+    - why: Why can commodity money be difficult to transport? → Some payment goods are bulky, heavy or require care while being moved. _(outside the book)_
+      - how: How does transport difficulty affect trade? → Moving payment over distance adds time, effort and expense, making distant transactions harder. _(outside the book)_
+  - **khola (unpack):**
+    - Difficult transport yaani भुगतान की चीज़ को साथ ले जाना मुश्किल होना · image: सिक्कों की छोटी थैली की जगह पशुओं का झुंड ले जाना
+    - kyon: Trade may require payment at a distant place. _[standard]_ → Bulky or care-intensive goods make that movement costly. _[standard]_
+    - example / jagah: Moving cattle to a distant market.
+    - aage: Portability helps money support wider trade.
+    - screen par: Move a cumbersome load along a market route.
+    - is level ke liye: Compare value carried with weight and bulk, not weight alone.
+  - prerequisites: commodity money; transport costs
+- **p003-i23** · list_point · cause_effect · both · exam high
+  - • Limited standardization
+    - why: Why does limited standardization impede exchange? → Without agreed specifications for quantity and quality, parties may disagree over what counts as one payment unit. _(outside the book)_
+      - how: How is standardization different from uniformity? → Uniformity concerns units being alike; standardization concerns establishing and applying agreed specifications such as weight and quality. _(outside the book)_
+  - **khola (unpack):**
+    - standardization yaani वजन और गुणवत्ता जैसे तय नियमों के हिसाब से इकाइयाँ बनाना · image: हर packet पर तय वजन और grade
+    - kyon: Trading parties need to know what a unit means. _[standard]_ → Agreed specifications reduce repeated checking and disputes. _[standard]_
+    - example / jagah: Agreeing on the weight and quality of a commodity payment.
+    - aage: Prepares the comparison with minted coins.
+    - screen par: Align varied units against one standard.
+    - is level ke liye: Uniformity and standardization overlap but are not identical.
+  - prerequisites: uniformity; weight and quality measurement
+- **p003-i24** · heading · none · both
+  - Metallic Money
+- **p003-i25** · definition · definition · both · exam high
+  - • Metallic money is made from metals such as gold, silver, copper, bronze, or electrum, whose value is derived from the metal itself and, later, from the authority that minted it.
+    - what: What materials does the page identify for metallic money? → It names gold, silver, copper, bronze and electrum as examples.
+    - evidence: What two sources of value does the page identify? → It identifies the metal itself and, later, the authority that minted the money.
+      - how: How can a minting authority help a coin circulate? → An authoritative stamp can signal an accepted weight or quality and support confidence in the coin, reducing repeated verification. _(outside the book)_
+      - what: What are bronze and electrum? → Bronze is principally a copper–tin alloy; electrum is a gold–silver alloy. The list therefore includes alloys as well as individual metals. _(outside the book)_
+  - **khola (unpack):**
+    - minted yaani धातु से तय पहचान वाला सिक्का बनाया गया · image: धातु के टुकड़े पर सिक्के की छाप पड़ती है
+    - electrum yaani gold और silver का मिला हुआ alloy · image: दो धातुएँ मिलाकर बना एक टुकड़ा
+    - kyon: Exchange needs valued, recognizable payment units. _[standard]_ → Metal provides material value and an issuing authority can support recognition and confidence. _[standard]_
+    - example / jagah: Gold, silver, copper, bronze and electrum.
+    - aage: Value and trust can involve both material content and monetary authority.
+    - screen par: Stamp a metal blank and reveal material and authority labels.
+    - is level ke liye: Do not equate every metallic object with a standardized coin or assume all listed materials are pure metals.
+  - prerequisites: intrinsic value; metal; authority issuing money
+- **p003-i26** · list_point · cause_effect · both · exam high
+  - • It is durable, portable, divisible, and easier to standardize.
+    - why: Why do these properties help metal function as money? → Durability helps it survive repeated use, portability helps movement, divisibility helps varying payment sizes, and standardization helps users recognize comparable units. _(outside the book)_
+      - how: How can portability be an advantage here but heavy transport a later limitation? → A compact metallic payment may be convenient relative to bulky goods, while a large total payment in metal can still be heavy. _(outside the book)_
+  - **khola (unpack):**
+    - durable yaani बार-बार इस्तेमाल और समय के बाद भी टिकने वाला · image: कई हाथों से गुज़रकर भी बचा धातु का सिक्का
+    - portable yaani साथ ले जाने में सुविधाजनक · image: जेब में रखी सिक्कों की छोटी थैली
+    - divisible yaani छोटी मात्रा या छोटे मूल्य की इकाइयों में बाँटा जा सके · image: बड़े भुगतान की जगह छोटे सिक्कों से भुगतान
+    - kyon: Payments must survive use, move between places and match different values. _[standard]_ → Durable, divisible and standardized metal units meet these needs more conveniently. _[standard]_
+    - example / jagah: Small standardized coins carried to a market.
+    - aage: Addresses several weaknesses of commodity money.
+    - screen par: Carry, divide and align metal payment units.
+    - is level ke liye: Divisibility of metal is not a recommendation to cut a circulating official coin.
+  - prerequisites: commodity-money limitations; weight and size of payments
+- **p003-i27** · list_point · timeline · both · exam high
+  - • The earliest metallic objects used for exchange existed in Mesopotamia and Egypt, but the first standardized coins are widely credited to the Kingdom of Lydia.
+    - when: What historical ordering does the page establish? → It distinguishes the earliest metallic exchange objects in Mesopotamia and Egypt from the first standardized coins credited to Lydia; it supplies no dates for these origins.
+    - why: Why must these two origins be distinguished? → A piece of metal used in exchange need not be a coin made to an agreed standard, so the earliest use of metal and the origin of standardized coinage are different claims. _(outside the book)_
+      - how: How should the phrase 'widely credited' be handled? → It presents an attribution to the Kingdom of Lydia rather than stating that every earlier monetary object originated there.
+  - **khola (unpack):**
+    - standardized coins yaani तय नियमों, जैसे वजन और पहचान, से बनाए गए सिक्के · image: अलग-अलग धातु टुकड़ों के सामने एक जैसी छाप वाले सिक्के
+    - kyon: Metal can be exchanged before formal coins exist. _[standard]_ → Standardized coinage adds agreed monetary units, so its origin is a separate historical question. _[standard]_
+    - example / jagah: Mesopotamia and Egypt; Kingdom of Lydia.
+    - aage: Separates the history of metallic exchange from the history of standardized minting.
+    - screen par: Contrast irregular metal objects with standardized coins.
+    - is level ke liye: Retain 'widely credited'; do not add an unsupported date.
+  - prerequisites: metallic money; standardized coin
+- **p003-i28** · diagram · timeline · image · exam high
+  - Evolution of Indian metallic money. A horizontal white line links five circular nodes, read left to right: 6th c. BCE—Punch-marked; Mauryan—Imperial silver; Indo-Greek—Die-struck; Gupta—Gold dinars; 1540 CE—Rupiya. Period labels are above the line and coinage labels below. No arrows or numerical dates for the middle three stages are shown.
+    - when: What sequence does the Indian metallic-money timeline show? → It moves from punch-marked money in the 6th c. BCE through Mauryan imperial silver, Indo-Greek die-struck money and Gupta gold dinars to Rupiya in 1540 CE.
+    - why: Why should the connecting line not be read as a uniform time scale? → Three nodes use dynastic labels without numerical dates, and equal-looking spacing does not establish equal historical intervals. _(outside the book)_
+      - how: How should the learner interpret the sequence? → It highlights selected stages; it should not be taken as proof that each later form instantly displaced every earlier form. _(outside the book)_
+  - **khola (unpack):**
+    - Evolution of Indian metallic money yaani भारत में धातु के पैसे के समय के साथ दिखाए गए बदलाव · image: पुराने से नए सिक्कों की क्रम में रखी प्रदर्शनी
+    - kyon: Coinage developments must be organized in historical order. _[standard]_ → The timeline links five selected stages from 6th c. BCE to 1540 CE. _[book]_
+    - example / jagah: Indian metallic money.
+    - aage: Gives a chronological framework for five coinage associations.
+    - screen par: Travel left to right and light up each paired node.
+    - is level ke liye: Do not infer omitted dates or exclusive use from a schematic timeline.
+  - prerequisites: BCE and CE dating; dynastic periods; metallic money
+- **p003-i29** · diagram_label · timeline · image
+  - Evolution of Indian metallic money — title naming the subject of the entire five-node timeline.
+- **p003-i30** · diagram_label · timeline · image · exam high
+  - 6th c. BCE — period label above the first node, paired with Punch-marked below it.
+    - when: When does the displayed sequence begin? → Its first node is labelled 6th c. BCE and paired with Punch-marked.
+    - why: Why is BCE important when reading this date? → BCE marks years before the Common Era; the 6th century BCE is much earlier than the terminal date 1540 CE. _(outside the book)_
+  - **khola (unpack):**
+    - 6th c. BCE yaani Common Era से पहले की छठी सदी · image: समय-रेखा पर CE से बहुत पहले रखा निशान
+    - kyon: Historical stages need a time anchor. _[standard]_ → The first displayed anchor is 6th c. BCE. _[book]_
+    - example / jagah: First node of the Indian coinage timeline.
+    - aage: Anchors punch-marked money in the displayed chronology.
+    - screen par: Highlight the first period label and its paired coinage.
+    - is level ke liye: c. here abbreviates century.
+  - prerequisites: century; BCE and CE
+- **p003-i31** · diagram_label · timeline · image · exam high
+  - Punch-marked — coinage label below the first node, paired with 6th c. BCE.
+    - when: Where does punch-marked coinage appear in the chronology? → It is the first displayed stage, paired with the 6th c. BCE.
+    - why: Why is it called punch-marked? → The name refers to marks impressed into a metal piece using punches, helping the learner connect a production feature to the label. _(outside the book)_
+  - **khola (unpack):**
+    - Punch-marked yaani धातु पर punch से निशान लगाए गए · image: धातु पर औज़ार दबाकर निशान बनाना
+    - kyon: Metal payment objects need recognizable marks. _[standard]_ → Punching impresses identifying marks on metal. _[standard]_
+    - example / jagah: 6th c. BCE node.
+    - aage: Connects a coinage name to a visible marking method.
+    - screen par: Press separate marks into a metal piece.
+    - is level ke liye: The timeline identifies a selected stage, not every feature of these coins.
+  - prerequisites: metal coin; marking metal
+- **p003-i32** · diagram_label · timeline · image · exam high
+  - Mauryan — period label above the second node, paired with Imperial silver.
+    - when: Where does the Mauryan stage fall in the displayed sequence? → It follows 6th c. BCE punch-marked money and precedes the Indo-Greek stage.
+    - why: Why pair the period with the lower label? → The shared node establishes the intended association: Mauryan with Imperial silver, rather than the neighbouring coinage labels.
+  - **khola (unpack):**
+    - Mauryan yaani Maurya शासन से जुड़ा दौर · image: इतिहास की समय-रेखा पर शासन के नाम की पट्टी
+    - kyon: Similar coinage facts need historical placement. _[standard]_ → The second node links Mauryan to Imperial silver. _[book]_
+    - example / jagah: Second timeline node.
+    - aage: Fixes the period–coinage pairing.
+    - screen par: Join the upper period label to the lower silver label.
+    - is level ke liye: No numerical Mauryan date is provided.
+  - prerequisites: dynastic period; reading a timeline
+- **p003-i33** · diagram_label · timeline · image · exam high
+  - Imperial silver — coinage label below the Mauryan node.
+    - when: Which stage is associated with Imperial silver? → The diagram puts Imperial silver under the Mauryan node.
+    - why: Why should 'silver' not be confused with a technique label? → Silver identifies the material, whereas terms such as punch-marked and die-struck describe how marks or designs are made. _(outside the book)_
+  - **khola (unpack):**
+    - Imperial silver yaani साम्राज्य से जुड़ी silver की मुद्रा · image: शासन की पहचान वाला चाँदी का सिक्का
+    - kyon: Money can be identified by material and issuing context. _[standard]_ → The timeline uses Imperial silver for its Mauryan stage. _[book]_
+    - example / jagah: Mauryan node.
+    - aage: Adds a material-based coinage association.
+    - screen par: Highlight silver beneath the Mauryan label.
+    - is level ke liye: Do not infer that no other monetary material existed in that period.
+  - prerequisites: silver as a metal; minting
+- **p003-i34** · diagram_label · timeline · image · exam high
+  - Indo-Greek — period label above the third node, paired with Die-struck.
+    - when: Where does the Indo-Greek stage appear? → It lies between the Mauryan and Gupta nodes and is paired with Die-struck.
+    - why: Why keep its period and coinage labels together? → Their shared node defines the diagram's association and prevents swapping Die-struck with the neighbouring silver or dinar labels.
+  - **khola (unpack):**
+    - Indo-Greek yaani भारतीय क्षेत्र से जुड़े Greek शासकों का ऐतिहासिक दौर · image: इतिहास की पट्टी पर एक शासन-समूह का नाम
+    - kyon: Coinage descriptions need an associated historical stage. _[standard]_ → The third node associates Indo-Greek with Die-struck. _[book]_
+    - example / jagah: Third timeline node.
+    - aage: Establishes a technique–period association.
+    - screen par: Light up the middle node and both labels.
+    - is level ke liye: The page supplies no numerical date for this node.
+  - prerequisites: historical period labels; timeline order
+- **p003-i35** · diagram_label · timeline · image · exam high
+  - Die-struck — coinage label below the Indo-Greek node.
+    - when: Which stage is labelled Die-struck? → The Indo-Greek stage is paired with this label.
+    - why: Why is the term die-struck used? → A die is an engraved tool; striking a metal blank with dies transfers designs onto it. _(outside the book)_
+  - **khola (unpack):**
+    - Die-struck yaani नक्श वाला die मारकर धातु पर design बनाया गया · image: मुहर जैसी छाप धातु के टुकड़े पर पड़ना
+    - kyon: Coins need recognizable designs. _[standard]_ → A die transfers a prepared design to the blank. _[standard]_
+    - example / jagah: Indo-Greek node.
+    - aage: Makes a technical coinage label visually intelligible.
+    - screen par: Strike a blank between engraved dies.
+    - is level ke liye: The pairing does not establish exclusive use of the technique.
+  - prerequisites: metal blank; impressing a design
+- **p003-i36** · diagram_label · timeline · image · exam high
+  - Gupta — period label above the fourth node, paired with Gold dinars.
+    - when: Where is the Gupta stage in the displayed order? → It follows Indo-Greek and precedes the 1540 CE Rupiya node.
+    - why: Why is Gupta linked specifically to Gold dinars in this reading? → Gold dinars is printed directly below the same fourth node, establishing the visual's intended pairing.
+  - **khola (unpack):**
+    - Gupta yaani Gupta शासन से जुड़ा ऐतिहासिक दौर · image: पुराने सिक्कों की प्रदर्शनी में शासन का नाम
+    - kyon: Coin names need historical anchors. _[standard]_ → The fourth node anchors Gold dinars to Gupta. _[book]_
+    - example / jagah: Fourth timeline node.
+    - aage: Builds the period–coinage association.
+    - screen par: Connect Gupta downward to Gold dinars.
+    - is level ke liye: No numerical Gupta date is shown.
+  - prerequisites: dynastic period; timeline
+- **p003-i37** · diagram_label · timeline · image · exam high
+  - Gold dinars — coinage label below the Gupta node.
+    - when: Which stage is paired with Gold dinars? → The diagram associates them with Gupta.
+    - why: Why retain both words in this label? → Gold specifies the material and dinars supplies the coin name; keeping both avoids confusing this label with a minting technique. _(outside the book)_
+  - **khola (unpack):**
+    - Gold dinars yaani सोने के सिक्के जिन्हें dinars कहा गया है · image: gold coin के नीचे उसके नाम की पर्ची
+    - kyon: A coinage example needs a name and identifying material. _[standard]_ → The diagram supplies Gold dinars for Gupta. _[book]_
+    - example / jagah: Gupta stage.
+    - aage: Distinguishes a named gold coinage from silver and technique labels.
+    - screen par: Reveal a gold-coloured coin with its dinar label.
+    - is level ke liye: This selected example does not imply that all Gupta coins were gold.
+  - prerequisites: gold as a monetary metal; coin names
+- **p003-i38** · diagram_label · timeline · image · exam high
+  - 1540 CE — date label above the final node, paired with Rupiya.
+    - when: What date is attached to Rupiya? → The final node gives 1540 CE.
+    - why: Why must the date be read with its paired lower label? → The date belongs to the Rupiya stage, not to the whole history of metallic money or the neighbouring Gupta node.
+  - **khola (unpack):**
+    - 1540 CE yaani Common Era का साल 1540 · image: calendar का एक खास साल
+    - kyon: A dated coinage stage needs a precise anchor. _[standard]_ → The last node supplies 1540 CE for Rupiya. _[book]_
+    - example / jagah: Final timeline node.
+    - aage: Provides the second numerical time anchor in the diagram.
+    - screen par: Highlight 1540 CE and connect it to Rupiya.
+    - is level ke liye: Do not supply a ruler's name from this page; none is printed.
+  - prerequisites: CE dating; timeline pairs
+- **p003-i39** · diagram_label · timeline · image · exam high
+  - Rupiya — coinage label below the final node, paired with 1540 CE.
+    - when: Where does Rupiya appear in this timeline? → It is the final displayed coinage stage, dated 1540 CE.
+    - why: Why should this label not be treated as describing every modern rupee? → The diagram presents a particular historical metallic-money stage; the familiar modern monetary name does not establish identical physical form or backing. _(outside the book)_
+  - **khola (unpack):**
+    - Rupiya yaani यहाँ 1540 CE के साथ दिया गया ऐतिहासिक पैसे का नाम · image: पुराने coin की नाम-पट्टी के सामने आज का रुपया
+    - kyon: Familiar names can obscure changes in monetary form. _[standard]_ → Read Rupiya here as the dated historical node shown in the diagram. _[book]_
+    - example / jagah: 1540 CE node.
+    - aage: Completes the displayed Indian metallic-money sequence.
+    - screen par: Land on the final node and reveal Rupiya.
+    - is level ke liye: The page does not state its metal, weight or issuing ruler.
+  - prerequisites: historical coinage; modern money can differ from earlier forms
+- **p003-i40** · list_point · cause_effect · both · exam high
+  - • Benefits: Metallic money offered intrinsic value, durability, portability, divisibility, standardization, and widespread acceptance, making trade more reliable and efficient.
+    - why: Why does the page connect metallic money with more reliable and efficient trade? → It attributes that improvement to intrinsic value, durability, portability, divisibility, standardization and widespread acceptance.
+      - how: How do these properties reduce the work involved in trading? → Durable units can be reused, portable units moved, smaller units matched to prices, and standardized accepted units checked with less repeated bargaining. _(outside the book)_
+      - compare: How does metallic money improve on the commodity limitations listed above? → It offers a more durable and more readily standardized payment form and can be more convenient to carry and divide than bulky or indivisible commodities. _(outside the book)_
+  - **khola (unpack):**
+    - efficient yaani कम समय, मेहनत और खर्च में काम होना · image: हर बार लंबा मोलभाव करने की जगह तय सिक्के गिनकर भुगतान
+    - kyon: Trade needs dependable payment without excessive checking and movement costs. _[standard]_ → The listed metallic-money properties make trade more reliable and efficient. _[book]_
+    - example / jagah: Repeated purchases in a market using recognized coins.
+    - aage: Explains the appeal of metallic money before introducing its remaining limitations.
+    - screen par: Match each commodity difficulty with a metallic-money advantage.
+    - is level ke liye: Metallic money is itself commodity-based when its metal has intrinsic value; these categories need not be mutually exclusive.
+  - prerequisites: intrinsic value; commodity-money limitations; standardization
+- **p003-i41** · list_point · cause_effect · both · exam high
+  - • Limitations: Its limited supply, heavy transport, theft risk, wear and tear, coin debasement, and inability to support large-scale economic expansion eventually led to the adoption of paper money.
+    - why: Why did metallic-money limitations encourage paper money according to the page? → The page lists limited supply, heavy transport, theft risk, wear and tear, coin debasement and difficulty supporting large-scale expansion as reasons for adopting paper money.
+      - how: How can limited metal supply constrain expanding trade? → When monetary supply depends closely on available monetary metal, growing payment needs may be difficult to meet quickly or cheaply. _(outside the book)_
+      - how: How do transport and theft create costs? → Large metallic payments require moving substantial physical value and protecting it in transit, adding handling, security and loss risks. _(outside the book)_
+      - difference: How do wear and tear differ from coin debasement? → Wear gradually removes material through use; debasement reduces a coin's precious-metal content relative to an earlier standard, for example through a lower fineness. _(outside the book)_
+        - consequence: Does paper money automatically remove every listed risk? → No. It can reduce dependence on transporting metal, but paper money can still be stolen, damaged or mismanaged. _(outside the book)_
+  - **khola (unpack):**
+    - coin debasement yaani पहले के तय स्तर से सिक्के में कीमती धातु का हिस्सा घटाना · image: उसी नाम के सिक्के में silver कम और दूसरी धातु ज्यादा
+    - wear and tear yaani इस्तेमाल से धीरे-धीरे घिसना · image: पुराने सिक्के के किनारे और निशान घिस जाते हैं
+    - economic expansion yaani उत्पादन और लेन-देन का दायरा बढ़ना · image: छोटे हाट से कई शहरों तक फैला कारोबार
+    - kyon: Expanding trade needs convenient payments at a larger scale. _[standard]_ → Metal supply, transport and quality problems encouraged adoption of paper money. _[book]_
+    - example / jagah: Moving a large payment between distant trading centres.
+    - aage: Provides the transition to the Gold Backed Paper Currency heading.
+    - screen par: Load heavy coins, reveal risk and supply barriers, then introduce paper claims.
+    - is level ke liye: Separate deliberate reduction in metal content from physical abrasion; paper money's backing is a further question.
+  - prerequisites: metallic money; money supply; economic expansion; coin metal content
+- **p003-i42** · heading · none · both
+  - Gold Backed Paper Currency
+
+## Page 4 · passed after 2 round(s)
+
+Gold-backed paper money was redeemable for a fixed quantity of gold, whereas fiat money rests on government authority and public trust rather than commodity backing. The page explains fiat characteristics, illustrates major currencies and historical milestones, and discusses legal tender, Bitcoin and circulation commemorative coins.
+
+- **p004-i1** · definition · definition · both · exam high
+  - Gold-backed paper currency was paper money that could be exchanged for a fixed quantity of gold on demand.
+    - what: What makes paper money gold-backed? → Its holder can demand a fixed quantity of gold in exchange for the note; the paper represents a redeemable claim.
+    - evidence: Which words identify the defining promise? → 'Fixed quantity' and 'on demand' identify a specified gold entitlement rather than a changing market purchase of gold.
+      - why: Why could a paper claim be useful instead of carrying gold? → Paper can make payments easier to carry and transfer while the redemption promise connects it to gold. _(outside the book)_
+  - **khola (unpack):**
+    - on demand yaani जब धारक माँगे, तब तय शर्त पर बदलने का वादा · image: रसीद दिखाकर जमा सामान वापस लेना
+    - kyon: Payments need a convenient transferable claim instead of moving metal each time. _[standard]_ → The note promises a fixed amount of gold when presented for redemption. _[book]_
+    - example / jagah: The central-bank redemption arrangement described immediately below.
+    - aage: The issuing authority must be able to honour the gold promise.
+    - screen par: exchange a note for a fixed gold pile
+    - is level ke liye: Separate gold backing from the material value of the paper.
+  - prerequisites: money as a means of payment; gold as a valuable commodity
+- **p004-i2** · paragraph · cause_effect · both · exam high
+  - The paper itself had little intrinsic value; its value came from the promise that the issuing authority would redeem it in gold.
+    - why: Why did the note have value despite being inexpensive paper? → The issuing authority promised to give gold for it, so its monetary value came from redemption rather than the paper material.
+      - how: How does this distinguish intrinsic value from a monetary claim? → Intrinsic value concerns the material itself; a claim is valuable because of what its issuer undertakes to provide. _(outside the book)_
+  - **khola (unpack):**
+    - intrinsic value yaani चीज़ जिससे बनी है, उसकी अपनी कीमत—जैसे नोट के कागज़ की कीमत · image: कागज़ की रसीद सस्ती है, पर उससे मिलने वाला सामान महँगा हो सकता है
+    - redeem yaani नोट लेकर वादे के मुताबिक gold देना · image: कूपन लौटाकर तय चीज़ लेना
+    - kyon: A holder needs a reason to accept ordinary paper as payment. _[standard]_ → The issuer's gold-redemption promise supplies that reason in this system. _[book]_
+    - example / jagah: The authority issuing gold-backed notes.
+    - aage: Credibility of redemption matters more than the paper's resale value.
+    - screen par: connect paper to a redemption promise
+    - is level ke liye: Contrast material value, redeemability and purchasing power.
+  - prerequisites: gold-backed redemption
+- **p004-i3** · diagram · timeline · image
+  - A left-to-right line with four marked milestones: 1661—Sweden, First banknotes; 1816—Britain, Gold Standard; 1944—Bretton Woods, Dollar-gold link; 1971—Modern fiat, No gold redemption.
+- **p004-i4** · diagram_label · timeline · image · exam medium
+  - 1661 — Sweden — First banknotes
+    - when: Which date and place does the first marker pair with banknotes? → It pairs 1661 with Sweden and labels the event 'First banknotes'.
+      - why: Why should the label not be expanded into a claim about all early paper money? → Banknotes and earlier paper-payment instruments need not be the same historical category; the lower timeline itself presents earlier Chinese instruments. _(outside the book)_
+  - **khola (unpack):**
+    - kyon: A historical sequence needs an identified starting event. _[standard]_ → This timeline chooses Sweden's 1661 banknotes as that marker. _[book]_
+    - example / jagah: Sweden.
+    - aage: Do not merge this label with the earlier Chinese milestones below.
+    - screen par: place Sweden at 1661
+    - is level ke liye: Qualify historical 'first' claims by the instrument being discussed.
+  - prerequisites: paper money
+- **p004-i5** · diagram_label · timeline · image · exam medium
+  - 1816 — Britain — Gold Standard
+    - when: When does the timeline place Britain's Gold Standard milestone? → It places Britain and the Gold Standard at 1816.
+      - why: Why is this milestone relevant to the preceding definition? → A gold-standard arrangement links the monetary unit to a specified quantity of gold, explaining the idea of gold-backed monetary value. _(outside the book)_
+  - **khola (unpack):**
+    - Gold Standard yaani पैसे की तय इकाई को gold की तय मात्रा से जोड़ने का तरीका · image: तराजू के एक पलड़े में तय नोट और दूसरे में तय gold
+    - kyon: A monetary system needs a rule defining its gold link. _[standard]_ → The chart identifies Britain's 1816 milestone as Gold Standard. _[book]_
+    - example / jagah: Britain.
+    - aage: Provides historical context for fixed gold redemption.
+    - screen par: link Britain to gold
+    - is level ke liye: Keep the printed milestone distinct from a complete history of the standard.
+  - prerequisites: gold-backed currency
+- **p004-i6** · diagram_label · timeline · image · exam high
+  - 1944 — Bretton Woods — Dollar-gold link
+    - when: Which milestone is shown for 1944? → The chart names Bretton Woods and identifies a dollar-gold link.
+      - why: Why distinguish a dollar-gold link from unrestricted public gold redemption? → Under Bretton Woods, official dollar-gold convertibility was part of an international monetary arrangement; it should not be equated with any holder freely exchanging any currency for gold. _(outside the book)_
+  - **khola (unpack):**
+    - Dollar-gold link yaani dollar की कीमत और gold के बीच तय रिश्ता · image: कई डोरियों के बीच dollar से gold तक एक खास डोरी
+    - kyon: International payments require relationships among currencies. _[standard]_ → The page highlights the dollar-gold link at Bretton Woods in 1944. _[book]_
+    - example / jagah: Bretton Woods.
+    - aage: Sets up the significance of the 1971 break.
+    - screen par: join dollar to gold
+    - is level ke liye: Distinguish official international convertibility from household redemption.
+  - prerequisites: gold convertibility; currencies of different countries
+- **p004-i7** · diagram_label · timeline · image · exam high
+  - 1971 — Modern fiat — No gold redemption
+    - when: What change does the timeline associate with 1971? → It marks modern fiat and the absence of gold redemption.
+      - why: Why does ending gold redemption change the source of monetary support? → Once a gold claim is removed, acceptance must rest on the monetary and institutional system rather than a promise to hand over a fixed gold quantity. _(outside the book)_
+  - **khola (unpack):**
+    - kyon: Gold-backed notes depend on a redemption obligation. _[book]_ → The 1971 marker removes that link and points to modern fiat. _[book]_
+    - example / jagah: The final marker in both timelines.
+    - aage: Leads into government authority and trust as the fiat basis.
+    - screen par: detach gold from the note
+    - is level ke liye: Do not read 1971 as the first historical appearance of fiat-like instruments.
+  - prerequisites: gold redemption; fiat money
+- **p004-i8** · list_point · process · both · exam high
+  - How it worked? A central bank held gold reserves. It issued paper notes. Anyone could (in principle) exchange those notes for a fixed amount of gold.
+    - how: How does the page's gold-backed-note mechanism operate? → A central bank keeps gold, issues notes, and exchanges the notes for a fixed gold amount when redemption is requested.
+    - when: When is the gold transferred to a note holder? → When the holder seeks to exchange the notes under the on-demand redemption promise.
+      - why: Why must reserves precede or support the redemption promise? → A promise to deliver gold needs an available stock of gold if it is to be honoured. _(outside the book)_
+  - **khola (unpack):**
+    - gold reserves yaani वादे निभाने के लिए रखा gold का भंडार · image: दुकानदार के पास कूपन के बदले देने के लिए रखा सामान
+    - kyon: Note holders may ask for the gold promised to them. _[book]_ → Keeping reserves makes that promise operational rather than merely verbal. _[standard]_
+    - example / jagah: A central bank issuing gold-backed notes.
+    - aage: Issuance and redemption are tied to the reserve constraint.
+    - screen par: store gold, issue notes, return gold
+    - is level ke liye: Trace both directions: issuance and redemption.
+  - prerequisites: central bank; gold-backed note; redemption
+- **p004-i9** · list_point · cause_effect · both · exam high
+  - This limited excessive money printing because every note required gold backing.
+    - why: Why did gold backing limit excessive note printing? → The page requires gold backing for each note, so the issuer cannot treat printing as unrelated to its gold commitments.
+      - how: How would unsupported issuance strain such a system? → More redeemable claims against insufficient gold make it harder to meet requests for gold and can weaken confidence in the promise. _(outside the book)_
+  - **khola (unpack):**
+    - gold backing yaani नोट के gold वाले वादे के पीछे रखा सहारा · image: जितनी चीज़ दे सकते हैं, उससे जुड़े कूपन जारी करना
+    - kyon: Issuing notes creates claims that may be redeemed. _[standard]_ → Gold backing therefore constrains excessive issuance in the page's model. _[book]_
+    - example / jagah: The reserve-and-redemption process above.
+    - aage: Provides the contrast with fiat's absence of commodity backing.
+    - screen par: stop note issuance at a gold constraint
+    - is level ke liye: Explain constraint, not an unstated numerical reserve rule.
+  - prerequisites: gold reserves; redeemable claims
+- **p004-i10** · heading · none · both
+  - Fiat Currency
+- **p004-i11** · definition · definition · both · exam high
+  - It is money whose value comes from government authority and public trust rather than the intrinsic value of material from which it is made.
+    - what: What is fiat currency? → It is money supported by government authority and public trust, not by the value of the paper or other material used to represent it.
+    - evidence: Which contrast in the definition separates fiat from material-based value? → The page contrasts 'government authority and public trust' with 'intrinsic value of material'.
+      - why: Why does public trust matter to accepting a fiat payment? → People are more willing to accept it when they expect others to accept it in later payments. _(outside the book)_
+  - **khola (unpack):**
+    - Fiat Currency yaani ऐसा पैसा जिसका भरोसा government की authority और लोगों की स्वीकार करने की उम्मीद पर है · image: दुकानदार नोट लेता है क्योंकि आगे दूसरा दुकानदार भी उसे लेगा
+    - kyon: A payment instrument must be accepted beyond the first transaction. _[standard]_ → Government authority and public trust support that acceptance for fiat money. _[book]_
+    - example / jagah: USD, EUR, JPY, GBP and CNY in the adjacent panel.
+    - aage: Money's face value is separated from the value of its physical material.
+    - screen par: pass a note through trusted exchanges
+    - is level ke liye: Contrast gold-redemption promise with institutional support.
+  - prerequisites: intrinsic value; money as a means of payment
+- **p004-i12** · heading · none · both
+  - Characteristics of Fiat Money:
+- **p004-i13** · list_point · cause_effect · both · exam high
+  - No intrinsic value: Just paper or digital numbers.
+    - why: Why does the page describe fiat money as having no intrinsic value? → Its representation is paper or digital numbers, rather than a valuable commodity that supplies its monetary value.
+      - how: How can money lack commodity value yet buy goods? → Purchasing power depends on accepted monetary use, not on selling the raw paper or the digits as material. _(outside the book)_
+  - **khola (unpack):**
+    - kyon: Payments need an accepted unit, not necessarily valuable raw material. _[standard]_ → Fiat money can therefore be represented by paper or digital numbers. _[book]_
+    - example / jagah: A paper note or a displayed monetary balance.
+    - aage: Look to trust and institutions, not scrap value, to understand acceptance.
+    - screen par: separate face value from paper value
+    - is level ke liye: Interpret 'no intrinsic value' in its monetary sense; paper itself need not be literally costless.
+  - prerequisites: fiat definition; intrinsic value
+- **p004-i14** · list_point · comparison · both · exam high
+  - Not backed by commodities: Value not tied to gold or silver.
+    - compare: How do fiat and gold-backed money compare on commodity backing? → Gold-backed notes promise a fixed amount of gold, whereas fiat value is not tied to gold or silver.
+    - difference: What is the crucial difference between gold reserves and gold backing? → Reserves are assets held by an institution; backing here concerns a currency's gold-linked monetary promise. Holding gold alone does not establish a redemption right. _(outside the book)_
+      - why: Why does this distinction matter? → It prevents incorrectly classifying a fiat currency as gold-backed merely because its central bank owns gold. _(outside the book)_
+  - **khola (unpack):**
+    - commodities yaani gold या silver जैसी अपनी कीमत वाली चीज़ें · image: सुनार की दुकान पर तौला जाता सोना-चाँदी
+    - kyon: A learner must identify what supports a note's value. _[standard]_ → Fiat has no gold-or-silver value tie of the kind described for backed notes. _[book]_
+    - example / jagah: Gold-backed notes versus the modern fiat examples.
+    - aage: Commodity ownership and currency convertibility must be tested separately.
+    - screen par: remove the gold-and-silver tether
+    - is level ke liye: A classic statement-combination trap: central-bank gold reserves versus redeemability.
+  - prerequisites: gold-backed redemption; fiat definition
+- **p004-i15** · list_point · facts_numbers · both · exam high
+  - Govt-issued: Central banks control production.
+    - what: Who controls production in the page's description? → It identifies fiat as government-issued and central banks as controlling production.
+    - evidence: What institutional feature separates this from private printing? → The printed characteristic explicitly assigns production control to central banks.
+      - why: Why is authorised control important? → If anyone could issue indistinguishable official money, supply and confidence in the payment unit would be difficult to maintain. _(outside the book)_
+  - **khola (unpack):**
+    - Govt-issued yaani सरकारी व्यवस्था की मंजूरी से जारी पैसा · image: अधिकृत मुहर वाला कागज़, घर पर छपी नकल नहीं
+    - kyon: A shared payment unit needs an authorised issuer. _[standard]_ → The page assigns production control to central banks. _[book]_
+    - example / jagah: Central-bank currency issuance.
+    - aage: Links fiat money to monetary institutions.
+    - screen par: route issuance through an authorised gate
+    - is level ke liye: Do not confuse physical printing with the whole process of money creation.
+  - prerequisites: government authority; central bank
+- **p004-i16** · list_point · cause_effect · both · exam high
+  - Trust-based: Value relies on public’s faith in govt.
+    - why: Why does the page call fiat money trust-based? → It makes public faith in government a support for the money's value rather than a gold-redemption promise.
+      - how: How does trust affect an ordinary payment? → A seller accepts money more readily when expecting it to remain usable for future purchases. _(outside the book)_
+  - **khola (unpack):**
+    - Trust-based yaani यह भरोसा कि मिला पैसा आगे भी काम आएगा · image: आज मिला नोट कल राशन वाले को देना
+    - kyon: A seller gives up goods now and needs a usable payment in return. _[standard]_ → Public faith supports continued acceptance of fiat money. _[book]_
+    - example / jagah: An everyday shop payment.
+    - aage: Institutional credibility matters to monetary acceptance.
+    - screen par: pass the same note from buyer to seller
+    - is level ke liye: Keep trust and legal recognition distinct though related.
+  - prerequisites: fiat definition; future use of money
+- **p004-i17** · list_point · cause_effect · both · exam high
+  - Easily printed: Govts can print more in need.
+    - how: How is fiat issuance more flexible than gold-backed issuance? → The page says governments can print more when needed and that fiat is not tied to gold or silver.
+      - why: Why is flexibility not the same as cost-free unlimited issuance? → Increasing money without regard to goods, demand and confidence can create inflationary pressure; removing a gold constraint does not remove economic constraints. _(outside the book)_
+  - **khola (unpack):**
+    - kyon: Authorities may need to respond to monetary needs. _[standard]_ → Fiat permits additional issuance without matching gold redemption backing. _[standard]_
+    - example / jagah: Government and central-bank responses to monetary needs.
+    - aage: Makes regulation through monetary policy important.
+    - screen par: expand notes without adding gold
+    - is level ke liye: Link flexibility to the next bullet's policy discipline.
+  - prerequisites: absence of commodity backing; money supply
+- **p004-i18** · list_point · cause_effect · both · exam high
+  - Highly regulated: Controlled by monetary policy.
+    - how: How does the page say fiat money is regulated? → It places control under monetary policy rather than a gold-backing requirement.
+      - why: Why is policy control important when issuance is flexible? → Monetary authorities must manage money and credit conditions to support economic stability rather than treating printing capacity as a reason for unlimited expansion. _(outside the book)_
+  - **khola (unpack):**
+    - monetary policy yaani central bank के वे फैसले जो पैसे और उधार की हालत को सँभालते हैं · image: पानी का बहाव नल से कम-ज्यादा करना
+    - kyon: Flexible issuance still needs discipline. _[standard]_ → The page identifies monetary policy as the regulating framework. _[book]_
+    - example / jagah: Central-bank management of monetary conditions.
+    - aage: Institutional control replaces a simple gold-linked constraint.
+    - screen par: adjust the money-flow control
+    - is level ke liye: Distinguish monetary policy from government taxation and spending.
+  - prerequisites: central bank; money supply
+- **p004-i19** · diagram · figure · image
+  - Major Examples of Fiat Currency Today. Five side-by-side columns show currency symbols, names, codes and descriptions: United States Dollar, Euro, Japanese Yen, British Pound Sterling and Chinese Yuan Renminbi. The euro description is visibly incomplete.
+- **p004-i20** · diagram_label · facts_numbers · image · exam high
+  - $ — United States Dollar (USD). The most widely held and traded fiat currency globally.
+    - what: Which currency does the first column identify? → The United States Dollar uses the code USD and is represented here by $.
+    - evidence: What global role does the panel attribute to USD? → It describes USD as the most widely held and traded fiat currency globally.
+      - why: Why can a widely used fiat currency still lack gold redemption? → International use and gold convertibility are different properties; widespread acceptance does not create a fixed gold claim. _(outside the book)_
+  - **khola (unpack):**
+    - USD yaani United States Dollar की तीन अक्षरों वाली पहचान · image: exchange counter पर USD लिखा rate board
+    - kyon: International payments need identifiable currencies. _[standard]_ → The panel identifies USD and highlights its widespread holding and trading. _[book]_
+    - example / jagah: United States.
+    - aage: Global importance does not imply commodity backing.
+    - screen par: match $ to USD and United States
+    - is level ke liye: Keep symbol, code and country distinct.
+  - prerequisites: fiat money; currency code
+- **p004-i21** · diagram_label · facts_numbers · image · exam high
+  - € — Euro (EUR). Adopted by 20 of the 27 European Union member states, the euro is the second-most [visible text ends here].
+    - what: What identifying details and membership count are printed for the euro? → The panel pairs € with Euro and EUR and states adoption by 20 of the 27 European Union member states.
+    - evidence: Does the image provide a complete ranking statement for the euro? → No. The visible sentence stops after 'the euro is the second-most', leaving the ranked attribute unspecified.
+      - why: Why distinguish EU membership from euro adoption? → Membership in a political-economic union and participation in its common currency are separate categories; they need not include the same countries. _(outside the book)_
+  - **khola (unpack):**
+    - Euro yaani कई देशों में चलने वाली एक साझा currency · image: अलग दुकानों पर एक ही तरह का भुगतान चलना, पर यहाँ अलग देश हैं
+    - kyon: Different countries may use a shared currency. _[standard]_ → The page gives the euro as a fiat example used by a subset of EU members. _[book]_
+    - example / jagah: European Union member states, as described in the panel.
+    - aage: Do not equate all EU members with euro users.
+    - screen par: highlight a subset within the EU
+    - is level ke liye: Membership counts are date-sensitive; the ranking line is incomplete.
+  - prerequisites: European Union; shared currency
+- **p004-i22** · diagram_label · facts_numbers · image · exam high
+  - ¥ — Japanese Yen (JPY). Known for its stability, the yen is a major player in global currency markets.
+    - what: Which currency and code accompany the third symbol? → The column identifies the Japanese Yen, code JPY, with the symbol ¥.
+    - evidence: What role does the panel attribute to the yen? → It describes the yen as known for stability and as a major participant in global currency markets.
+      - why: Why is 'stability' not a promise of a fixed exchange rate? → A general description of stability does not mean the currency's price cannot change against another currency. _(outside the book)_
+  - **khola (unpack):**
+    - JPY yaani Japanese Yen की पहचान वाला code · image: Japan की यात्रा के लिए exchange counter की JPY पंक्ति
+    - kyon: Currency symbols can overlap and need precise identification. _[standard]_ → The panel pairs Japan's yen with JPY. _[book]_
+    - example / jagah: Japan and global currency markets.
+    - aage: Use the code to avoid confusing yen and yuan.
+    - screen par: match ¥ to Japan and JPY
+    - is level ke liye: Stability is a descriptive claim, not a fixed-price guarantee.
+  - prerequisites: currency code; exchange rate
+- **p004-i23** · diagram_label · facts_numbers · image · exam high
+  - £ — British Pound Sterling (GBP). The oldest fiat currency still in use, dating back to the 8th century.
+    - what: Which currency is identified by £ and GBP? → The panel identifies British Pound Sterling and attaches an eighth-century historical dating claim.
+    - evidence: What exactly is the panel's age claim? → It calls the pound 'the oldest fiat currency still in use' and says it dates back to the eighth century.
+      - why: Why must the age claim be qualified when teaching fiat status? → A currency's historical origin is not the same as the date when it became fiat; the pound has existed under different monetary arrangements. _(outside the book)_
+  - **khola (unpack):**
+    - GBP yaani British Pound Sterling का currency code · image: Britain की कीमत के आगे £ और exchange board पर GBP
+    - kyon: A currency name can survive changes in its monetary backing. _[standard]_ → Therefore historical age and present fiat status must be separated. _[standard]_
+    - example / jagah: Britain.
+    - aage: Reconcile the historical pound with the timeline's gold-standard milestone.
+    - screen par: retain the currency name while changing its backing
+    - is level ke liye: Flag the printed wording rather than silently endorsing its historical conflation.
+  - prerequisites: fiat money; gold-standard arrangements
+- **p004-i24** · diagram_label · facts_numbers · image · exam high
+  - ¥ — Chinese Yuan Renminbi (CNY). Increasingly influential in global trade and international reserves.
+    - what: Which currency is represented in the last column? → It is Chinese Yuan Renminbi, code CNY, shown with ¥.
+    - evidence: What role does the panel highlight? → It describes increasing influence in global trade and international reserves.
+      - how: How does a code help when two currencies share a symbol? → CNY specifies the Chinese currency, whereas JPY specifies the Japanese currency; ¥ alone is less precise. _(outside the book)_
+  - **khola (unpack):**
+    - international reserves yaani देश के monetary authorities के पास रखी बाहर के भुगतान में काम आने वाली संपत्तियाँ · image: विदेशी भुगतान के लिए अलग रखा पैसा, पर देश के स्तर पर
+    - kyon: Countries need assets usable in international payments. _[standard]_ → The panel highlights the yuan's growing role in trade and reserves. _[book]_
+    - example / jagah: China and international payments.
+    - aage: A fiat currency can be used beyond its issuing country.
+    - screen par: match CNY to China and overseas payments
+    - is level ke liye: Do not infer an unstated reserve share or ranking.
+  - prerequisites: currency code; international trade
+- **p004-i25** · diagram · timeline · image
+  - A left-to-right line with four milestones: 7th c.—Tang, Receipts; 1023—Song, State notes; 1275—Yuan, Compulsory; 1971—Modern, Fiat era.
+- **p004-i26** · diagram_label · timeline · image · exam medium
+  - 7th c. — Tang — Receipts
+    - when: What does the lower timeline place in the seventh century? → It places Tang receipts at its first marker.
+      - why: Why are receipts relevant to the development of paper instruments? → A receipt can document a claim to something deposited, helping explain how a paper claim can become useful in payments. _(outside the book)_
+  - **khola (unpack):**
+    - Receipts yaani जमा या लेन-देन का लिखित सबूत · image: सामान जमा करने पर मिली पर्ची
+    - kyon: Moving valuable goods or money can be inconvenient. _[standard]_ → A written claim helps explain the payment role of early paper instruments. _[standard]_
+    - example / jagah: Tang, as labelled in the chart.
+    - aage: Introduces the distinction between early claims and later state notes.
+    - screen par: replace carried value with a receipt
+    - is level ke liye: Keep the date and limited wording as printed; do not infer a complete origin story.
+  - prerequisites: receipt as a claim; paper money
+- **p004-i27** · diagram_label · timeline · image · exam medium
+  - 1023 — Song — State notes
+    - when: Which milestone is assigned to 1023? → The lower chart identifies Song state notes.
+      - why: Why is 'state' an important addition to the label? → It draws attention to public authority behind issuance rather than merely a private receipt documenting a claim. _(outside the book)_
+  - **khola (unpack):**
+    - State notes yaani सरकारी authority से जुड़े कागज़ी नोट · image: निजी पर्ची की जगह सरकारी पहचान वाला कागज़
+    - kyon: Paper instruments raise the question of who stands behind them. _[standard]_ → The chart marks state notes under Song at 1023. _[book]_
+    - example / jagah: Song.
+    - aage: Adds issuance authority to the paper-money story.
+    - screen par: stamp state authority onto a note
+    - is level ke liye: State issuance alone does not prove all modern fiat characteristics.
+  - prerequisites: issuer of money; paper receipt
+- **p004-i28** · diagram_label · timeline · image · exam medium
+  - 1275 — Yuan — Compulsory
+    - when: What is the third milestone in the lower timeline? → It pairs 1275 with Yuan and the label 'Compulsory'.
+      - why: Why does compulsory use matter in a money timeline? → It introduces the authority-based acceptance dimension, which differs from people choosing to accept a payment voluntarily. _(outside the book)_
+  - **khola (unpack):**
+    - Compulsory yaani सिर्फ अपनी मर्ज़ी नहीं, नियम के कारण मानना पड़े · image: वैकल्पिक काम और नियम से जरूरी काम का फर्क
+    - kyon: A payment system raises the question of whether acceptance is optional. _[standard]_ → The chart highlights compulsion at the Yuan 1275 marker. _[book]_
+    - example / jagah: Yuan in the historical chart.
+    - aage: Prepares the distinction between legal recognition and voluntary use below.
+    - screen par: mark acceptance as required
+    - is level ke liye: Yuan here is a historical label, not the modern CNY currency-code entry.
+  - prerequisites: voluntary acceptance; government authority
+- **p004-i29** · diagram_label · timeline · image · exam high
+  - 1971 — Modern — Fiat era
+    - when: Where does the lower timeline place the modern fiat era? → It uses 1971 as its modern fiat-era marker.
+      - why: Why do both timelines end at the same date? → The upper chart associates 1971 with no gold redemption, while the lower chart names that endpoint the modern fiat era.
+  - **khola (unpack):**
+    - kyon: The page needs to connect historical paper instruments to the present monetary form. _[standard]_ → Both chart sequences converge on 1971 and modern fiat. _[book]_
+    - example / jagah: Both timelines on this page.
+    - aage: Returns the historical sequence to the fiat characteristics.
+    - screen par: converge both timelines at 1971
+    - is level ke liye: The modern-era marker is not a claim that no earlier fiat arrangements existed.
+  - prerequisites: gold-redemption break; fiat definition
+- **p004-i30** · definition · definition · both · exam high
+  - Legal tender is a form of money that a government officially recognises as acceptable for settling debts and transactions within its territory.
+    - what: What does legal-tender status describe? → It describes government recognition of money as acceptable for settling debts and transactions within the government's territory.
+    - evidence: Which parts of the definition make legal tender a legal rather than material category? → 'Government officially recognises', 'settling debts' and 'within its territory' identify authority, purpose and jurisdiction.
+      - how: How does legal-tender status differ from voluntary acceptance? → Voluntary acceptance is a person's agreement to take a payment; legal-tender status is a legal rule whose precise effects depend on the relevant law. _(outside the book)_
+  - **khola (unpack):**
+    - Legal tender yaani कर्ज़ चुकाने या भुगतान के लिए कानून से मान्यता पाया पैसा · image: उधार चुकाते समय कानून से मान्य भुगतान देना
+    - territory yaani वह इलाका जहाँ उस government का कानून लागू है · image: देश की सीमा के भीतर लागू नियम
+    - kyon: Debtors and creditors need clarity about legally recognised settlement. _[standard]_ → Government recognition defines the page's legal-tender category within its territory. _[book]_
+    - example / jagah: Domestic debt settlement; El-Salvador is the page's special example below.
+    - aage: Legal recognition must be distinguished from fiat backing and voluntary acceptance.
+    - screen par: settle a debt under a legal-recognition stamp
+    - is level ke liye: Do not infer identical compulsory shop-acceptance rules in every jurisdiction.
+  - prerequisites: debt; government jurisdiction; means of payment
+- **p004-i31** · list_point · classification · both · exam high
+  - It must be Fiat Money.
+    - which: Which category does the page assign to legal tender here? → This line assigns it to Fiat Money, before the next bullet explicitly presents Bitcoin as an exception.
+    - difference: How do fiat status and legal-tender status differ conceptually? → Fiat describes the monetary basis without commodity backing; legal tender describes recognition by law. They answer different questions. _(outside the book)_
+      - why: Why should the printed 'must' not be taught as exceptionless? → The following Bitcoin bullet says a non-fiat asset was legal tender and explicitly calls it an exception.
+  - **khola (unpack):**
+    - kyon: A learner needs to distinguish the source of value from legal recognition. _[standard]_ → The page's usual fiat association is immediately qualified by its Bitcoin exception. _[book]_
+    - example / jagah: Bitcoin in El-Salvador, next bullet.
+    - aage: The two categories overlap but should not be treated as identical definitions.
+    - screen par: separate two category circles and mark the exception
+    - is level ke liye: Absolute wording such as 'must' is a statement-question trap here.
+  - prerequisites: fiat definition; legal-tender definition
+- **p004-i32** · example · timeline · both · exam high
+  - Bitcoin is not a Fiat money, yet it was legal tender in El-Salvador (till 2024). But it is an exception.
+    - when: What period marker does the page attach to Bitcoin's legal-tender example? → It says Bitcoin was legal tender in El-Salvador 'till 2024', and the next line discusses reforms in 2025.
+    - why: Why is Bitcoin an exception in the page's argument? → The page identifies it as non-fiat yet formerly legal tender, qualifying the preceding assertion that legal tender must be fiat.
+      - how: How can legal recognition leave an asset's non-fiat character unchanged? → A law can recognise an asset for payment without making it a government-issued fiat currency. _(outside the book)_
+  - **khola (unpack):**
+    - exception yaani आम बात से अलग ऐसा मामला जिसे अलग से याद रखना है · image: एक जैसे डिब्बों में अलग निशान वाला एक डिब्बा
+    - kyon: The page first associates legal tender with fiat money. _[book]_ → Its Bitcoin example shows why that association needs a qualification. _[book]_
+    - example / jagah: El-Salvador.
+    - aage: Legal status and monetary classification must be checked separately.
+    - screen par: place Bitcoin outside fiat but inside the historical legal-tender example
+    - is level ke liye: Preserve 'till 2024' as the page's account and connect it to its 2025 qualification.
+  - prerequisites: fiat versus legal tender; Bitcoin as a non-fiat asset
+- **p004-i33** · list_point · timeline · both · exam high
+  - Legal to own and use voluntarily, but no longer compulsory legal tender in the practical sense after reforms in 2025.
+    - when: When does the page place the change in practical compulsory acceptance? → It places it after reforms in 2025, while retaining legal ownership and voluntary use.
+    - why: Why does the page stress voluntary use? → It distinguishes permission to own and use Bitcoin from compulsory legal-tender treatment in practice.
+      - how: How can a payment remain usable without compulsory acceptance? → Two parties can agree to use it even when the law does not require the recipient to take it. _(outside the book)_
+  - **khola (unpack):**
+    - voluntarily yaani अपनी मर्ज़ी और आपसी सहमति से · image: दुकानदार और ग्राहक दोनों किसी तरीके से भुगतान पर राज़ी हों
+    - kyon: A change in acceptance rules can be mistaken for a ban. _[standard]_ → The page expressly preserves ownership and voluntary use after the 2025 reforms. _[book]_
+    - example / jagah: Bitcoin use in El-Salvador as described here.
+    - aage: Ownership, use and compulsory acceptance are three separate checks.
+    - screen par: remove a compulsory stamp while retaining two-party agreement
+    - is level ke liye: Do not substitute an unqualified claim about formal repeal for the page's practical-status wording.
+  - prerequisites: voluntary agreement; legal tender; Bitcoin example
+- **p004-i34** · list_point · classification · both · exam high
+  - Commemorative Coins = Fiat money yes but may or may not be legal tender (Most of them are).
+    - which: How does the page classify commemorative coins? → It calls them fiat money but says legal-tender status may vary, adding that most are legal tender.
+    - difference: What difference does this example establish between fiat and legal tender? → Being described as fiat does not by itself settle whether a particular commemorative coin has legal-tender status.
+      - why: Why should legal status be checked for a particular issue? → A commemorative purpose or appearance alone does not specify the applicable recognition and payment rules. _(outside the book)_
+  - **khola (unpack):**
+    - Commemorative Coins yaani किसी व्यक्ति, घटना या अवसर की याद में जारी coins · image: सामान्य coin पर किसी खास अवसर की अलग आकृति
+    - kyon: A special coin's design does not tell us its payment status. _[standard]_ → The page therefore separates fiat classification from variable legal-tender status. _[book]_
+    - example / jagah: Circulation commemorative coins in the next bullet.
+    - aage: Check the issue's status rather than treating all special coins alike.
+    - screen par: sort commemorative coins by legal-tender status
+    - is level ke liye: The page's 'most' is qualitative; it provides no count or proportion.
+  - prerequisites: fiat money; legal-tender status; coins
+- **p004-i35** · definition · definition · both · exam high
+  - Circulation commemorative coins: Released into circulation and usable like ordinary coins.
+    - what: What are circulation commemorative coins? → They are commemorative issues released into ordinary circulation and usable as ordinary coins.
+    - evidence: What wording establishes their payment role? → 'Released into circulation' and 'usable like ordinary coins' show that their role is not confined to display or collection.
+      - how: How can a commemorative design coexist with ordinary payment use? → The design marks an occasion, while the coin's circulation status determines its ordinary payment role; these are separate attributes. _(outside the book)_
+  - **khola (unpack):**
+    - circulation yaani भुगतान में लोगों के बीच पैसा आते-जाते रहना · image: दुकानदार से छुट्टा मिला coin आगे बस के किराए में देना
+    - kyon: A coin may mark an occasion yet still be needed for daily payments. _[standard]_ → Circulation commemorative coins are released for use like ordinary coins. _[book]_
+    - example / jagah: An ordinary transaction using a circulation commemorative coin.
+    - aage: Distinguish special design from restricted payment use.
+    - screen par: pass a commemorative coin through an ordinary purchase
+    - is level ke liye: The next-page collector category is not supplied here and is not reconstructed.
+  - prerequisites: commemorative coin; ordinary coin circulation
+
+## Page 5 · passed after 2 round(s)
+
+Collector coins can have a market value above face value. Indian banknotes are presented as unlimited legal tender, while coins have denomination-specific limits. Bretton Woods linked other currencies to the dollar and the dollar to gold at US$35 per troy ounce; rising dollar supply and limited gold undermined confidence, culminating in Nixon ending gold convertibility on 15 August 1971.
+
+- **p005-i1** · definition · definition · both · exam medium
+  - Collector commemorative coins: Sold in proof or UNC sets by the Government Mint and rarely used in everyday transactions.
+    - what: What distinguishes collector commemorative coins? → They are Government Mint issues sold in proof or UNC sets and are rarely used for ordinary payments.
+    - evidence: What identifies their collector-oriented use on the page? → Their sale in special sets and their rare use in everyday transactions identify their collector role.
+      - why: Why might a collector preserve rather than spend these coins? → Their commemorative design, condition and collector demand can make preserving them more attractive than using them at face value. UNC means uncirculated; proof refers to specially produced collector-quality coins. _(outside the book)_
+  - **khola (unpack):**
+    - UNC yaani ऐसा coin जो आम लेन-देन में चला नहीं है · image: संभालकर रखा बिल्कुल नया coin
+    - kyon: Collectors want a preserved commemorative issue rather than ordinary spending money. _[standard]_ → Special sets serve that purpose and are rarely spent. _[book]_
+    - example / jagah: Government Mint proof or UNC sets.
+    - aage: Collector use and legal payment value must be considered separately.
+    - screen par: place a special coin in a display case
+    - is level ke liye: Distinguish proof production from uncirculated condition.
+  - prerequisites: coin face value; ordinary cash payments
+- **p005-i2** · example · comparison · both · exam high
+  - ₹100 silver commemorative coin can legally be used to pay ₹100, but collectors may pay several thousand rupees for it.
+    - compare: What two values does this example compare? → Its legal payment value is ₹100, whereas its collector market price may be several thousand rupees.
+    - difference: Does paying several thousand for it make it settle that much debt as currency? → No. A negotiated collector price is different from the amount represented by its face denomination. _(outside the book)_
+      - why: Why can its market price exceed ₹100? → Collectors may value its rarity, condition, design or metal content beyond its denomination. _(outside the book)_
+  - **khola (unpack):**
+    - commemorative coin yaani किसी खास व्यक्ति या मौके की याद में निकाला गया coin · image: यादगार चीज़ जिसे खर्च करने के बजाय सँभालते हैं
+    - kyon: A buyer may want the coin as a collectible. _[standard]_ → That demand can produce a price above its ₹100 payment value. _[book]_
+    - example / jagah: The page's ₹100 silver coin.
+    - aage: Separate denomination from resale value.
+    - screen par: split one coin into face-value and collector-price tags
+    - is level ke liye: Useful for statement-based distinctions about money.
+  - prerequisites: face value; market price
+- **p005-i3** · question · comparison · both · exam high
+  - We can use cheque / credit card to pay fees. So, why are they not fiat money/legal tender?
+    - compare: How do cheques and credit cards differ from fiat currency? → A cheque instructs a bank to transfer deposit money; a credit card authorises payment through a credit arrangement. They are instruments for accessing or transferring money, not currency issued as fiat money. _(outside the book)_
+    - difference: How does payment acceptance differ from legal-tender status? → A fee collector may agree to accept a cheque or card without being legally obliged to accept that instrument as legal tender. _(outside the book)_
+      - why: Why does successful payment not prove legal-tender status? → Payment can occur by agreement and banking arrangements; legal tender is a status conferred by law. Fiat money concerns the basis of currency's value, while legal tender concerns its legal discharge function. _(outside the book)_
+  - **khola (unpack):**
+    - legal tender yaani कानून के मुताबिक पैसे की देनदारी चुकाने में मान्य पैसा · image: बकाया रकम चुकाने के लिए दिया गया मान्य note
+    - kyon: Fees can be paid through an agreed banking channel. _[standard]_ → Agreement to accept a channel does not give the instrument statutory currency status. _[standard]_
+    - example / jagah: A fee counter accepting a card or cheque.
+    - aage: Distinguish means of payment from legal status.
+    - screen par: route a cheque and card through a bank
+    - is level ke liye: Fiat money and legal tender are related but different concepts.
+  - prerequisites: bank deposits; borrowing through a credit card; legal tender
+- **p005-i4** · heading · comparison · both
+  - Limited vs Unlimited Legal Tender
+- **p005-i5** · definition · definition · both · exam high
+  - Unlimited Legal Tender: Must be accepted for any amount (subject to the note being genuine and valid).
+    - what: What is unlimited legal tender? → It has no prescribed aggregate payment ceiling of the kind imposed on limited legal tender; the page requires the note to be genuine and valid.
+    - evidence: What qualification prevents 'unlimited' from meaning any piece of paper must be accepted? → The page explicitly conditions acceptance on genuineness and validity.
+      - how: How should 'must be accepted' be understood carefully? → Legal tender concerns valid tender toward monetary obligations. It should not be treated as a blanket requirement that a seller enter any proposed transaction, and 'unlimited' is not a statement about a person's wealth or separate payment regulations. _(outside the book)_
+  - **khola (unpack):**
+    - Unlimited Legal Tender yaani जिसके इस्तेमाल की कुल रकम पर legal tender वाला तय ceiling नहीं है · image: मान्य notes से छोटा या बड़ा बकाया चुकाना
+    - kyon: Debt settlement needs valid money recognised by law. _[standard]_ → For unlimited tender the denomination does not impose an aggregate tender ceiling, but the notes must remain genuine and valid. _[book]_
+    - example / jagah: Indian banknotes discussed next.
+    - aage: Contrasts with coin limits.
+    - screen par: increase a stack of valid notes without an amount-cap marker
+    - is level ke liye: Separate counterfeit status, withdrawal of validity and amount limits.
+  - prerequisites: monetary debt; genuine and valid currency
+- **p005-i6** · list_point · facts_numbers · both · exam high
+  - Banknotes are unlimited legal tender in India. ₹10, ₹20, ₹50, ₹100, ₹200, ₹500 notes. Reserve Bank of India Act, 1934
+    - what: Which examples and law does the page associate with unlimited legal tender? → It lists ₹10, ₹20, ₹50, ₹100, ₹200 and ₹500 banknotes and cites the Reserve Bank of India Act, 1934.
+    - evidence: What supports classifying these examples as unlimited rather than limited tender? → The page places the listed banknotes directly under the unlimited legal-tender category.
+      - why: Why distinguish a note's denomination from an aggregate ceiling? → Denomination tells the value of each note; an aggregate ceiling would restrict the combined amount tendered. These are different properties. _(outside the book)_
+  - **khola (unpack):**
+    - Banknotes yaani रुपये के मान्य paper notes · image: बटुए में रखा ₹500 note
+    - kyon: A payment may require more than one note. _[standard]_ → The listed notes are treated as unlimited tender rather than subject to the coin table's ceilings. _[book]_
+    - example / jagah: ₹10, ₹20, ₹50, ₹100, ₹200 and ₹500 notes in India.
+    - aage: An amount limit cannot be inferred from a note's face denomination.
+    - screen par: fan out the six listed banknotes
+    - is level ke liye: The page gives examples; do not infer a complete catalogue of currency law.
+  - prerequisites: banknote denomination; unlimited legal tender
+- **p005-i7** · definition · definition · both · exam high
+  - Limited Legal Tender: Must be accepted only up to a legally prescribed limit; beyond that, acceptance is voluntary.
+    - what: What makes legal tender limited? → The law sets a maximum amount for obligatory legal-tender acceptance; beyond it the recipient can choose whether to accept.
+    - evidence: Does crossing the limit make voluntary acceptance impossible? → No. The page expressly says acceptance beyond the limit is voluntary.
+      - why: Why can an amount cap be useful for coin payments? → Counting, transporting and checking very large quantities of coins can burden the recipient; a cap limits that compulsory handling burden. _(outside the book)_
+  - **khola (unpack):**
+    - Limited Legal Tender yaani एक तय रकम तक कानून के तहत मान्य भुगतान; उससे ऊपर लेना अपनी मर्ज़ी · image: बहुत बड़ी थैली भर coins देखकर लेने वाले की सहमति माँगना
+    - kyon: Large coin payments create handling work. _[standard]_ → A statutory ceiling limits compulsory acceptance while allowing agreement beyond it. _[book]_
+    - example / jagah: Indian coin limits in the adjacent table.
+    - aage: A legal coin can have a limited tender amount.
+    - screen par: stop compulsory acceptance at a ceiling and open a voluntary lane
+    - is level ke liye: Distinguish legal-tender status from the extent of compulsory acceptance.
+  - prerequisites: legal tender; mandatory versus voluntary acceptance
+- **p005-i8** · list_point · facts_numbers · both · exam high
+  - Coinage Act, 2011
+    - what: Which law is cited for limited legal tender? → The page cites the Coinage Act, 2011 in the limited-tender discussion.
+    - evidence: Where is this legal reference reinforced? → The coin-limit table also names the Coinage Act, 2011 in its title.
+      - why: Why identify the governing statute? → Legal-tender limits arise from law rather than from the convenience or personal preference of an individual payer. _(outside the book)_
+  - **khola (unpack):**
+    - kyon: A tender ceiling needs legal authority. _[standard]_ → The page links coin limits to the Coinage Act, 2011. _[book]_
+    - example / jagah: Adjacent table of coin limits.
+    - aage: Do not interchange the coin and banknote statutory references.
+    - screen par: attach a law label to the coin table
+    - is level ke liye: Contrast with Reserve Bank of India Act, 1934.
+  - prerequisites: an Act as a law; limited legal tender
+- **p005-i9** · table · comparison · image
+  - Current legal limits for coins (Coinage Act, 2011). Columns: Coin | Legal Tender Limit. Rows: ₹1, ₹2, ₹5, ₹10, ₹20 coins | Up to ₹1,000; 50 paise coin | Up to ₹10; Coins below 50 paise | No longer legal tender (demonetized).
+- **p005-i10** · table_row · comparison · image · exam high
+  - Coin: ₹1, ₹2, ₹5, ₹10, ₹20 coins | Legal Tender Limit: Up to ₹1,000
+    - compare: How does this group's limit compare with the 50 paise limit? → The listed rupee coins have a ₹1,000 limit, compared with ₹10 for 50 paise coins.
+    - difference: Is ₹1,000 the value of an individual coin? → No. ₹1, ₹2, ₹5, ₹10 and ₹20 are denominations; ₹1,000 is the tender amount ceiling shown for the group.
+      - how: How does the ceiling work in a simple example? → One hundred ₹10 coins total ₹1,000 and reach the stated ceiling; a higher total falls under voluntary acceptance as explained on the page. _(outside the book)_
+  - **khola (unpack):**
+    - kyon: The recipient needs a boundary for compulsory coin acceptance. _[standard]_ → The table sets ₹1,000 for these denominations. _[book]_
+    - example / jagah: 100 × ₹10 = ₹1,000 as an explanatory calculation.
+    - aage: Above the stated ceiling, acceptance is voluntary.
+    - screen par: fill a ₹1,000 meter using coins
+    - is level ke liye: Include ₹20 coins; do not confuse amount and coin count.
+  - prerequisites: coin denominations; adding monetary values; limited tender
+- **p005-i11** · table_row · comparison · image · exam high
+  - Coin: 50 paise coin | Legal Tender Limit: Up to ₹10
+    - compare: How is 50 paise treated compared with the listed rupee coins? → It remains in the legal-tender table but has a smaller limit: ₹10 rather than ₹1,000.
+    - difference: How is 50 paise different from coins below 50 paise? → The 50 paise coin has a tender limit; coins below it are stated to be no longer legal tender.
+      - how: How many 50 paise coins reach ₹10? → Twenty coins reach ₹10 because each coin is half a rupee. _(outside the book)_
+  - **khola (unpack):**
+    - kyon: Small coins can accumulate into a larger payment. _[standard]_ → The table caps the tender amount for 50 paise coins at ₹10. _[book]_
+    - example / jagah: Twenty 50 paise coins make ₹10.
+    - aage: A low denomination can remain legal tender with a low ceiling.
+    - screen par: count twenty half-rupee coins into a ₹10 tray
+    - is level ke liye: Watch the words 'below 50 paise', not '50 paise and below'.
+  - prerequisites: 100 paise equals ₹1; limited legal tender
+- **p005-i12** · table_row · comparison · image · exam high
+  - Coin: Coins below 50 paise | Legal Tender Limit: No longer legal tender (demonetized)
+    - compare: How do coins below 50 paise compare with 50 paise coins? → Below-50-paise coins have lost legal-tender status; 50 paise coins retain the stated ₹10 limit.
+    - difference: How does demonetization differ from limited tender? → Limited tender retains legal recognition up to a ceiling; demonetization removes legal-tender status. _(outside the book)_
+      - why: Why does keeping an old coin not preserve its legal-tender status? → Physical possession does not determine statutory validity. An old coin can remain a collectible even after losing its legal payment status. _(outside the book)_
+  - **khola (unpack):**
+    - demonetized yaani जिसकी legal tender वाली मान्यता हटा दी गई है · image: पुराना coin डिब्बे में है, पर मान्य cash नहीं रहा
+    - kyon: An old coin can physically survive after a legal change. _[standard]_ → The table states that coins below 50 paise are no longer legal tender. _[book]_
+    - example / jagah: Coins below 50 paise.
+    - aage: Collector possession and legal validity are separate.
+    - screen par: remove the legal-tender badge from old coins
+    - is level ke liye: Connect back to the collector-value distinction.
+  - prerequisites: coin denomination; legal-tender status
+- **p005-i13** · heading · timeline · both
+  - The Bretton Woods System (1944) and its End (1971)
+- **p005-i14** · list_point · facts_numbers · both · exam high
+  - US promised to convert US$35 into one troy ounce of gold. This promise applied mainly to foreign central banks
+    - what: What gold conversion promise did the US make? → US$35 could be converted into one troy ounce of gold, with the promise applying mainly to foreign central banks.
+    - evidence: What wording prevents treating this as a general retail gold-redemption facility? → The page specifies that the promise applied mainly to foreign central banks.
+      - how: How did a fixed gold conversion promise support trust in dollars? → Eligible official holders could see dollars as claims convertible into a specified quantity of gold, provided the US could honour redemption. A troy ounce is a precious-metal mass unit of about 31.1 grams, not an ordinary ounce. _(outside the book)_
+  - **khola (unpack):**
+    - gold convertibility yaani तय शर्तों पर Dollars देकर gold लेने का वादा · image: एक तय दावे के बदले रखी हुई चीज़ वापस लेना
+    - kyon: International holders need confidence in the currency they accept. _[standard]_ → A fixed official gold conversion promise provides an anchor for that confidence. _[standard]_
+    - example / jagah: US$35 ↔ one troy ounce of gold for mainly foreign central banks.
+    - aage: Creates the gold-dollar link shown in the diagram.
+    - screen par: exchange a US$35 bundle for one gold unit
+    - is level ke liye: US$ denotes US dollars; distinguish troy ounce from ordinary ounce.
+  - prerequisites: US dollar; central bank; gold reserves
+- **p005-i15** · list_point · cause_effect · both · exam high
+  - The Dollar became the world's reserve currency.
+    - why: Why would a gold-linked dollar become attractive as a reserve asset? → A credible gold link and the dollar's role in international settlement gave official holders reasons to keep dollar assets for external payments. _(outside the book)_
+    - how: How does a reserve currency function? → Central banks hold assets denominated in it to support international payments and manage external monetary needs; it need not replace their country's domestic currency. _(outside the book)_
+    - what: Which currency does the page identify as the world's reserve currency? → It identifies the Dollar in the Bretton Woods discussion.
+  - **khola (unpack):**
+    - reserve currency yaani दूसरे देशों के central banks द्वारा बाहरी भुगतान के लिए रखा जाने वाला भरोसेमंद currency · image: विदेश में काम आने वाले पैसों का अलग emergency बटुआ
+    - kyon: Countries need assets usable for external payments. _[standard]_ → Holding a widely accepted dollar supports those payments. _[standard]_
+    - example / jagah: Foreign central banks holding dollar assets.
+    - aage: World demand for dollar reserves creates the supply problem discussed next.
+    - screen par: gather dollar reserves in several central-bank vaults
+    - is level ke liye: Distinguish reserve holdings from domestic currency circulation.
+  - prerequisites: foreign exchange reserves; central banks; international payments
+- **p005-i16** · list_point · cause_effect · both · exam high
+  - By the 1960s: US spent heavily on Vietnam War and welfare programs. More Dollars circulated worldwide than the gold available in US reserves. France began demanding gold instead of Dollars.
+    - what: What pressures does the page describe by the 1960s? → Heavy US spending on the Vietnam War and welfare programs accompanied dollar circulation exceeding the gold available in US reserves, while France demanded gold instead of Dollars.
+    - why: Why did more dollar claims relative to gold threaten the system? → At the fixed conversion rate, a growing volume of potential claims against limited gold made holders doubt whether widespread redemption could be honoured. _(outside the book)_
+      - how: How did demanding gold intensify the strain? → Actual redemption drew down gold reserves, reducing the backing available for remaining dollar claims and potentially encouraging further requests. _(outside the book)_
+      - compare: How should dollars and gold be compared meaningfully? → Compare dollar claims with the dollar value of the gold stock at the promised conversion rate, rather than directly comparing a currency count with a mass of gold. _(outside the book)_
+  - **khola (unpack):**
+    - US reserves yaani US के पास रखा gold का भंडार, जिससे conversion का वादा पूरा होना था · image: दावों का भुगतान करने के लिए रखा सीमित सामान
+    - kyon: Dollar holders relied on the US gold-conversion promise. _[book]_ → Growing claims against limited gold made redemption doubts and demands more damaging. _[standard]_
+    - example / jagah: France demanding gold during the pressures described for the 1960s.
+    - aage: Sets up Triffin's contradiction and the 1971 end of convertibility.
+    - screen par: expand dollar claims while draining a gold vault
+    - is level ke liye: Heavy spending is the book's context; do not assume each budget dollar mechanically became an overseas claim.
+  - prerequisites: fixed gold conversion rate; gold reserves; government spending; redemption
+- **p005-i17** · list_point · cause_effect · both · exam high
+  - Economist Robert Triffin predicted a built-in contradiction. The world needed more Dollars for international trade. Supplying more Dollars weakened confidence in their gold convertibility.
+    - what: What contradiction did Robert Triffin identify? → The world needed an expanding dollar supply for international trade, but supplying more dollars weakened confidence that they could be converted into gold.
+    - why: Why was this a built-in problem rather than merely one country's preference? → The same reserve-currency role required more international liquidity while the fixed gold promise depended on confidence in finite backing. Meeting one need could undermine the other. _(outside the book)_
+      - how: How do the two sides form a dilemma? → Restricting supply could leave international transactions short of dollar liquidity; expanding supply could increase potential redemption claims faster than confidence in gold backing. _(outside the book)_
+  - **khola (unpack):**
+    - built-in contradiction yaani व्यवस्था में ही ऐसा टकराव कि एक ज़रूरत पूरी करने से दूसरी मुश्किल बढ़े · image: सीमित सामान के बदले ज़्यादा redeem करने वाले coupons बाँटना
+    - kyon: International trade needed more Dollars. _[book]_ → Supplying them weakened confidence in the promise to exchange them for gold. _[book]_
+    - example / jagah: The Bretton Woods gold-dollar arrangement.
+    - aage: Explains why the reserve-currency system faced persistent internal strain.
+    - screen par: pull a balance between trade liquidity and gold confidence
+    - is level ke liye: Standard name: Triffin dilemma; learn both sides rather than just the economist's name.
+  - prerequisites: reserve currency; international trade payments; finite gold reserves
+- **p005-i18** · diagram · figure · image · exam high
+  - Three vertically stacked boxes connected by downward arrows: Gold (US$35 per ounce) → US Dollar → Other currencies (Pound, Rupee, Yen, Franc, etc.). Gold anchors the dollar, which is the intermediate link to other currencies.
+    - what: What arrangement does the diagram show? → It places gold above the US Dollar and other currencies below the dollar, linked by downward arrows.
+    - which: Which currency is the middle link? → The US Dollar connects the gold box with the box listing Pound, Rupee, Yen, Franc and others.
+      - how: How should the arrows be understood? → They represent a monetary anchoring relationship: other currencies were linked to the dollar and the dollar to gold, rather than a physical movement of gold down the boxes. _(outside the book)_
+  - **khola (unpack):**
+    - kyon: A monetary system needs a common reference for currency values. _[standard]_ → The diagram shows the dollar as the bridge between gold and other currencies. _[book]_
+    - example / jagah: Gold → US Dollar → Pound, Rupee, Yen, Franc.
+    - aage: Ending the top gold-dollar link removes the diagram's gold anchor.
+    - screen par: connect three boxes and then cut the upper link
+    - is level ke liye: Read arrows as relationships, not conversion rights for every individual.
+  - prerequisites: exchange rate; gold-dollar conversion
+- **p005-i19** · diagram_label · figure · image · exam high
+  - Gold (US$35 per ounce): top box, with an arrow pointing down to US Dollar.
+    - what: What does the upper box label? → The gold anchor at the displayed price of US$35 per ounce.
+    - which: Which ounce does the accompanying prose specify? → The prose specifies one troy ounce of gold.
+      - why: Why is the fixed price central? → It defines the gold quantity promised for a given dollar amount, making redemption claims comparable with gold reserves. _(outside the book)_
+  - **khola (unpack):**
+    - example / jagah: The upper gold box anchors the US Dollar box.
+    - aage: A fixed promise can be tested by redemption requests.
+    - screen par: highlight US$35 against one gold unit
+    - is level ke liye: Keep currency units and mass units distinct.
+  - prerequisites: US dollar; troy ounce
+- **p005-i20** · diagram_label · figure · image · exam high
+  - US Dollar: middle box, receiving an arrow from Gold and sending an arrow to Other currencies.
+    - what: What does the middle box represent? → It represents the US Dollar as the link between the gold anchor and the other currencies.
+    - which: Which boxes connect to the dollar? → Gold is above it; Other currencies is below it.
+      - why: Why does the middle position matter? → Confidence in the dollar's gold link affected the wider currency arrangement because the dollar was its central reference. _(outside the book)_
+  - **khola (unpack):**
+    - example / jagah: US Dollar between Gold and Other currencies.
+    - aage: Dollar confidence has system-wide significance.
+    - screen par: illuminate the middle bridge
+    - is level ke liye: Connect this position to reserve-currency demand.
+  - prerequisites: reserve currency; exchange-rate anchor
+- **p005-i21** · diagram_label · figure · image · exam medium
+  - Other currencies (Pound, Rupee, Yen, Franc, etc.): bottom box receiving the arrow from US Dollar.
+    - what: What does the bottom box represent? → It groups the other currencies linked through the US Dollar in the schematic.
+    - which: Which examples are printed? → Pound, Rupee, Yen and Franc, followed by 'etc.'
+      - how: How does this box relate to gold? → Its relationship is shown through the dollar as an intermediate anchor, not by a separate direct arrow to gold.
+  - **khola (unpack):**
+    - example / jagah: Pound, Rupee, Yen and Franc in the bottom box.
+    - aage: Makes the two-link relationship visible.
+    - screen par: trace from other currencies upward through the dollar to gold
+    - is level ke liye: Avoid reading the schematic as a complete country-by-country history.
+  - prerequisites: different countries' currencies; reading directional arrows
+- **p005-i22** · list_point · timeline · both · exam high
+  - On 15 August 1971, President Richard Nixon ended the Dollar's convertibility into gold.
+    - when: When and by whom was dollar-gold convertibility ended? → President Richard Nixon ended it on 15 August 1971.
+    - why: Why does the earlier discussion help explain this decision? → Expanding dollar claims, finite gold and redemption pressure made the fixed official conversion promise increasingly difficult to sustain. _(outside the book)_
+      - consequence: What exactly ended? → The dollar's convertibility into gold ended; the page does not say that the dollar ceased to function as money.
+  - **khola (unpack):**
+    - kyon: A fixed gold promise faced growing claims and pressure. _[standard]_ → Nixon ended dollar-gold convertibility on 15 August 1971. _[book]_
+    - example / jagah: The 1971 endpoint of the section beginning with Bretton Woods (1944).
+    - aage: Introduces the question of dollar demand without gold backing.
+    - screen par: cut the gold-dollar arrow at 15 August 1971
+    - is level ke liye: Do not assume every element of the exchange-rate system changed simultaneously on this date.
+  - prerequisites: Bretton Woods gold promise; redemption pressure; Triffin contradiction
+- **p005-i23** · heading · none · both
+  - Petro Dollar System
+- **p005-i24** · paragraph · cause_effect · both · exam medium
+  - When President Richard Nixon ended gold convertibility, a major question arose:
+    - what: What transition does this unfinished line introduce? → It moves from Nixon ending gold convertibility to a major question under the heading Petro Dollar System; the question itself is not printed on this page.
+    - why: Why does removing the gold promise raise a confidence question? → If holders had relied on gold redemption, removing that feature calls for understanding what other reasons support willingness to hold dollars. _(outside the book)_
+      - how: How should this introduction be taught without inventing the continuation? → Use it as a transition from the lost gold anchor to the next section, rather than treating this page as already explaining the Petro Dollar System. _(outside the book)_
+  - **khola (unpack):**
+    - kyon: The gold conversion promise had supported confidence. _[standard]_ → Its removal makes the remaining basis of dollar demand a question to investigate. _[standard]_
+    - example / jagah: Transition immediately after the 15 August 1971 event.
+    - aage: Prepares the next page without supplying its answer.
+    - screen par: replace the cut gold link with a question mark
+    - is level ke liye: Maintain the distinction between a section title and evidence establishing its mechanism.
+  - prerequisites: end of gold convertibility; reasons for holding a currency
+
+## Page 6 · stopped after 1 round(s)
+
+Oil pricing and investment in US assets are presented as supports for dollar demand after gold backing. The rupee section explains its Sanskrit origin, Sher Shah Suri's silver Rupiya, Mughal standardization, and milestones from 1540 to 1993 onwards.
+
+- **p006-i1** · question · cause_effect · both · exam high
+  - Why would the world continue holding dollars if they were no longer backed by gold?
+    - why: Why does the end of gold backing raise a question about dollar holdings? → Without a promise to exchange dollars for gold, their international usefulness needs another explanation, such as their use in trade and payments. _(outside the book)_
+      - how: How does this page answer the question? → It argues that linking oil to the dollar would keep countries needing dollars even after gold backing ended.
+  - prerequisites: Currency holdings; Gold convertibility; International payments
+- **p006-i2** · list_point · timeline · both · exam high
+  - In 1973, the OPEC oil embargo caused oil prices to quadruple.
+    - when: When did the oil shock identified here occur, and what was its scale? → The page dates it to 1973 and says prices became four times their earlier level.
+    - why: Why can an oil embargo sharply raise prices? → Restricting supplies creates scarcity while buyers still need fuel; replacing that supply or reducing fuel use takes time. _(outside the book)_
+      - how: How should quadrupling be distinguished from a 400 percent increase? → A price rising from 100 to 400 becomes four times as large, but its increase is 300 percent. _(outside the book)_
+  - **khola (unpack):**
+    - oil embargo yaani तेल की सप्लाई या बिक्री पर रोक · image: बाज़ार में आने वाले तेल के टैंकर रोक दिए जाएँ
+    - quadruple yaani पहले से चार गुना हो जाना · image: ₹100 की चीज़ ₹400 की हो जाए
+    - OPEC yaani तेल बेचने वाले देशों का संगठन · image: कई सप्लायर एक मेज़ पर सप्लाई पर बात करें
+    - kyon: Countries need oil for transport and production, so demand cannot quickly disappear. _[standard]_ → The page links the 1973 embargo to a fourfold rise in oil prices. _[book]_
+    - example / jagah: Imported crude oil and the fuel bills connected to it.
+    - aage: Oil's importance provides the context for the following dollar-pricing argument.
+    - screen par: Restrict oil flow and raise a price marker from one unit to four.
+    - is level ke liye: OPEC means Organization of the Petroleum Exporting Countries; treat the embargo statement as the page's compressed account.
+  - prerequisites: Oil imports; Supply and demand; Percentage change
+- **p006-i3** · list_point · cause_effect · both · exam high
+  - The US recognized that if oil could be tied to the dollar, countries would continue needing dollars regardless of the end of gold backing.
+    - why: Why would linking oil to the dollar support dollar demand? → The page presents dollar-linked oil trade as a reason countries would keep needing dollars after gold backing ended.
+      - how: How does a currency used for oil payments become useful to importing countries? → Importers need to obtain that currency to settle oil bills, encouraging banks and countries to maintain access to it. _(outside the book)_
+      - difference: Does oil pricing make dollars redeemable in oil in the same way as gold convertibility? → No. Naming a price or settling a trade in dollars creates payment demand; it does not establish a fixed promise to redeem dollars for oil. _(outside the book)_
+  - **khola (unpack):**
+    - gold backing yaani नोट या dollar के बदले तय शर्तों पर सोना देने का भरोसा · image: पर्ची दिखाने पर रखी हुई चीज़ मिलने का वादा
+    - kyon: Oil-importing countries need a usable means of paying suppliers. _[standard]_ → The page argues that tying oil to dollars keeps those countries needing dollars. _[book]_
+    - example / jagah: A country's importer arranging dollars before paying a dollar-denominated oil bill.
+    - aage: Introduces the Saudi oil-pricing commitment.
+    - screen par: Route an oil buyer through a dollar-payment counter.
+    - is level ke liye: Separate payment currency, reserve holdings and commodity convertibility.
+  - prerequisites: Gold convertibility; Currency used to settle imports
+- **p006-i4** · heading · timeline · both
+  - 1974 US–Saudi Understanding:
+- **p006-i5** · list_point · timeline · both · exam high
+  - Saudi Arabia agreed to: Price its oil in US dollars and Invest a large portion of its oil revenues in US Treasury securities and American financial markets.
+    - when: When and to what did Saudi Arabia agree according to the page? → Under the 1974 understanding, it agreed both to price its oil in US dollars and to invest a large portion of oil revenues in US Treasury securities and American financial markets.
+    - why: Why are pricing oil and investing its proceeds two different commitments? → Pricing concerns the currency used to state oil's value; investment concerns what the seller does with the money received afterwards. _(outside the book)_
+      - how: How does investment in Treasury securities connect oil receipts with US finance? → Treasury securities are US government borrowing instruments. Buying them places funds in US government debt; other American financial investments direct funds into US financial assets. _(outside the book)_
+  - **khola (unpack):**
+    - oil revenues yaani तेल बेचकर मिलने वाला पैसा · image: दुकान में बिक्री के बाद आया पैसा
+    - US Treasury securities yaani US सरकार को उधार देने के बदले मिलने वाले financial papers · image: उधार की रसीद जिस पर भुगतान का वादा हो
+    - kyon: An oil seller receives export earnings that can be invested rather than immediately spent. _[standard]_ → The page says Saudi Arabia agreed to place a large portion in US Treasury securities and American markets. _[book]_
+    - example / jagah: Saudi oil export receipts moving into US financial assets.
+    - aage: Connects oil trade to both dollar use and US financing.
+    - screen par: Split oil receipts into Treasury securities and American-market investment streams.
+    - is level ke liye: The standard explanatory term is petrodollar recycling; it describes reinvestment of oil-export earnings, not oil backing of currency.
+  - prerequisites: Oil export receipts; Government borrowing; Financial investment
+- **p006-i6** · list_point · timeline · both · exam medium
+  - The United States agreed to: Provide military protection, supply weapons and offer security guarantees for the Saudi monarchy.
+    - when: What US commitments does the page place under the 1974 understanding? → It lists military protection, weapons supplies and security guarantees for the Saudi monarchy.
+    - why: Why should this bullet be read together with Saudi Arabia's commitments? → They describe the two sides of a strategic relationship: Saudi economic commitments alongside US defence and security commitments. _(outside the book)_
+      - how: How are the three security commitments different? → Protection concerns defence support, weapons supplies provide equipment, and security guarantees communicate assurances of support. The page does not specify their legal terms or exact scope. _(outside the book)_
+  - **khola (unpack):**
+    - Saudi monarchy yaani Saudi Arabia में राजा और राजपरिवार की सत्ता · image: देश की सत्ता का केंद्र राजा हो
+    - kyon: A government seeking security may seek external defence support. _[standard]_ → The page pairs US protection, arms and guarantees with Saudi economic commitments. _[book]_
+    - example / jagah: The US–Saudi relationship described in the 1974 section.
+    - aage: Completes the page's account of the bilateral understanding.
+    - screen par: Pair a security shield with the oil-and-investment commitments.
+    - is level ke liye: Do not infer a specific automatic military response from this brief statement.
+  - prerequisites: Military assistance; Monarchy; Bilateral agreements
+- **p006-i7** · heading · none · both
+  - Evolution of the Indian Rupee
+- **p006-i8** · definition · definition · both · exam medium
+  - The word Rupiya comes from the Sanskrit Rupya, meaning wrought silver.
+    - what: What origin and meaning does the page give for Rupiya? → It traces Rupiya to Sanskrit Rupya and gives its meaning as wrought silver.
+    - evidence: What wording on the page connects the name with a metal? → The stated meaning is wrought silver, followed by an account of a Rupiya made of silver.
+      - how: How should wrought silver be understood? → Wrought means worked or shaped: silver fashioned into an object rather than simply unworked metal. _(outside the book)_
+  - **khola (unpack):**
+    - wrought silver yaani चाँदी जिसे काम करके आकार दिया गया हो · image: सुनार चाँदी को आकार देकर सिक्का या गहना बनाए
+    - kyon: A coin needs metal worked into a usable form. _[standard]_ → The page connects the name Rupiya with Rupya, meaning wrought silver. _[book]_
+    - example / jagah: The silver Rupiya described immediately below.
+    - aage: Links the rupee's name with its early silver form.
+    - screen par: Shape a silver piece and connect Rupya to Rupiya.
+    - is level ke liye: A word's metallic origin does not mean modern rupees must contain silver.
+  - prerequisites: Silver as a monetary metal; Word origins
+- **p006-i9** · list_point · timeline · both · exam high
+  - Sher Shah Suri: (1540)
+Introduced the Rupiya made of silver.
+Weight: about 178 grains (11.5 grams). High purity.
+Uniform across the empire.
+    - when: Who introduced the silver Rupiya, and what date does the page give? → It associates Sher Shah Suri with its introduction in 1540.
+    - what: What physical and administrative features are specified? → The coin was silver, of high purity, weighed about 178 grains or 11.5 grams, and was uniform across the empire.
+    - evidence: What precision does the page provide about purity and weight? → It gives an approximate weight in grains and grams but describes purity only as high, without a numerical purity percentage.
+    - why: Why do uniform weight and purity matter for a silver coin? → People accepting metal coins need confidence about how much valuable metal they receive. Consistent standards reduce repeated weighing, testing and bargaining. _(outside the book)_
+      - how: How do grains and grams relate here? → They are different units of mass describing the same approximate coin weight; grain is not a count of cereal grains. _(outside the book)_
+  - **khola (unpack):**
+    - High purity yaani सिक्के में चाँदी का हिस्सा ज़्यादा और दूसरी धातुओं का हिस्सा कम · image: गहना खरीदते समय उसमें असली धातु कितनी है यह देखना
+    - Uniform yaani अलग जगहों पर भी एक जैसा तय मानक · image: अलग दुकानों के बाट का वजन एक जैसा होना
+    - grains yaani वजन मापने की एक पुरानी unit · image: तराज़ू पर छोटे मानक बाट रखकर वजन मापना
+    - kyon: A trader accepting silver coins needs confidence in their metal content. _[standard]_ → Uniform weight and purity make payment easier to assess across places. _[standard]_
+    - example / jagah: A trader receiving the Rupiya in different parts of the empire.
+    - aage: Provides the silver-coin foundation for Mughal standardization.
+    - screen par: Balance identical silver coins against a labelled 11.5-gram weight.
+    - is level ke liye: The mass is approximate; uniformity is an administrative standard, not a claim that every surviving coin is physically identical.
+  - prerequisites: Metal coinage; Weight units; Purity of a metal
+- **p006-i10** · list_point · timeline · both · exam high
+  - Mughal Standardization (1556–1707):
+Akbar expanded minting across the empire.
+Hundreds of mints produced coins with standardized weight.
+Coins carried the emperor's name.
+    - when: What period does the page identify for Mughal standardization? → It labels the period 1556–1707 and identifies Akbar as expanding minting across the empire.
+    - what: What features joined the network of mints together? → Hundreds of mints produced coins with standardized weight, and the coins carried the emperor's name.
+    - why: Why combine many production centres with a common weight standard? → Many mints can serve a large territory, while a shared standard helps coins from different centres circulate without separate valuation rules. _(outside the book)_
+      - how: How does the emperor's name relate to coin acceptance? → It identifies the issuing authority, helping users recognize whose monetary authority the coin represents; it does not by itself prove its actual weight. _(outside the book)_
+  - **khola (unpack):**
+    - mints yaani जहाँ सिक्के बनाए जाते हैं · image: एक कारखाना जहाँ धातु पर छाप लगाकर सिक्के बनें
+    - standardized weight yaani सिक्कों के लिए एक तय वजन का मानक · image: कई दुकानों में एक ही मानक का किलो वाला बाट
+    - kyon: A large empire needs coin supplies in many places. _[standard]_ → A common weight standard helps coins made at different mints function together. _[standard]_
+    - example / jagah: Coins produced at different Mughal mints across the empire.
+    - aage: Extends standardized silver coinage across a large minting network.
+    - screen par: Branch to many mints, then align their coins on one scale.
+    - is level ke liye: Distinguish the ruler highlighted for expansion from the longer period given for standardization.
+  - prerequisites: A mint as a coin-production centre; Standard weight; Political authority
+- **p006-i11** · table · timeline · both
+  - Two-column chronological table: Period | Nature of the Rupee. Eight entries run from 1540 to 1993 onwards, linking each period to the rupee's form or monetary arrangement.
+- **p006-i12** · table_row · timeline · both
+  - Period | Nature of the Rupee
+- **p006-i13** · table_row · timeline · both · exam high
+  - Period: 1540 | Nature of the Rupee: Silver rupee introduced
+    - when: Which milestone begins the table? → The introduction of the silver rupee in 1540 begins the chronology.
+    - why: Why is this a silver-coin milestone rather than the beginning of all Indian money? → It concerns a particular rupee coinage; forms of money and coins existed in India before this development. _(outside the book)_
+  - **khola (unpack):**
+    - kyon: Trade benefits from recognizable coin standards. _[standard]_ → The table starts with the silver rupee's introduction in 1540. _[book]_
+    - example / jagah: Sher Shah Suri's silver Rupiya described above.
+    - aage: Sets the starting milestone for this table.
+    - screen par: Place a silver coin at 1540.
+    - is level ke liye: Use ruler–date–metal matching.
+  - prerequisites: Coinage; Chronological order
+- **p006-i14** · table_row · timeline · both · exam high
+  - Period: Mughal era | Nature of the Rupee: Standard silver coin
+    - when: When does the table describe the rupee as a standard silver coin? → It assigns that description to the Mughal era.
+    - why: Why is the word standard important? → It emphasizes a common accepted specification rather than merely the use of silver, making coins from different production centres easier to use together. _(outside the book)_
+  - **khola (unpack):**
+    - kyon: Different mint locations create a need for common specifications. _[standard]_ → Standard coinage reduces uncertainty in accepting payments. _[standard]_
+    - example / jagah: The Mughal mint network described above.
+    - aage: Shows continuation and standardization of the silver rupee.
+    - screen par: Align coins from several mints under one standard.
+    - is level ke liye: Distinguish introducing a coin from extending its standardization.
+  - prerequisites: Silver coinage; Common weight standards
+- **p006-i15** · table_row · timeline · both · exam high
+  - Period: 1835 | Nature of the Rupee: Uniform British Indian Rupee
+    - when: Which rupee milestone is assigned to 1835? → The table places the Uniform British Indian Rupee in 1835.
+    - why: Why would a uniform rupee matter for administration and trade? → A common monetary standard reduces the need to compare different local coin standards when collecting revenue and making payments across territories. _(outside the book)_
+  - **khola (unpack):**
+    - Uniform British Indian Rupee yaani British Indian इलाकों के लिए एक जैसे मानक वाला Rupee · image: अलग शहरों में एक ही मानक का सिक्का चलना
+    - kyon: Payments across territories become cumbersome when coin standards differ. _[standard]_ → A uniform standard makes monetary administration and transactions easier. _[standard]_
+    - example / jagah: Revenue payments and trade across British Indian territories.
+    - aage: Marks the table's transition from Mughal to British-period standardization.
+    - screen par: Merge differing coin standards into one rupee standard at 1835.
+    - is level ke liye: Uniformity is not the same concept as decimalization.
+  - prerequisites: British rule in India; Common coin standards
+- **p006-i16** · table_row · timeline · both · exam high
+  - Period: 1898 | Nature of the Rupee: Gold Exchange Standard
+    - when: What date does this table attach to the Gold Exchange Standard? → It attaches the label Gold Exchange Standard to 1898.
+    - why: Why use a gold exchange arrangement rather than require gold coins for routine payments? → A country can link its currency's external value to a gold-convertible foreign currency and hold foreign exchange, without making domestic gold coin circulation the basis of everyday payments. _(outside the book)_
+      - difference: How does this differ from saying the rupee itself was a gold coin? → The arrangement concerns the external value and reserve mechanism, not the metal from which each rupee coin is made. _(outside the book)_
+  - **khola (unpack):**
+    - Gold Exchange Standard yaani currency की बाहरी कीमत को सोने से जुड़ी विदेशी currency के सहारे टिकाने की व्यवस्था · image: दो कड़ियाँ: Rupee से विदेशी currency, फिर उसके पीछे सोने का संबंध
+    - kyon: Authorities may seek a stable external currency value without using gold coins for daily payments. _[standard]_ → A gold exchange arrangement provides an indirect gold link through foreign exchange. _[standard]_
+    - example / jagah: British Indian rupee arrangements linked to sterling.
+    - aage: Shifts attention from coin metal to the currency's external monetary arrangement.
+    - screen par: Connect rupee to foreign exchange and foreign exchange to gold.
+    - is level ke liye: Historical caution: the Indian transition involved late-1890s reforms, including the Fowler Committee of 1898 and its 1899 report; this row compresses that development.
+  - prerequisites: Exchange rates; Gold convertibility; Foreign exchange reserves
+- **p006-i17** · table_row · timeline · both · exam medium
+  - Period: 1947 | Nature of the Rupee: Independent India's currency
+    - when: What change does the table associate with 1947? → It identifies the rupee as independent India's currency from the independence milestone of 1947.
+    - why: Why is independence a monetary milestone without being the rupee's first appearance? → Independence changes political sovereignty and the setting for monetary governance; an existing currency unit can continue across that political change. _(outside the book)_
+  - **khola (unpack):**
+    - kyon: A newly independent state needs a functioning currency for payments. _[standard]_ → The table identifies the rupee as independent India's currency in 1947. _[book]_
+    - example / jagah: Rupee payments continuing in independent India.
+    - aage: Separates a sovereignty milestone from later changes in currency subdivisions.
+    - screen par: Carry the rupee across the 1947 independence marker.
+    - is level ke liye: Do not infer that every coin or note design changed immediately in 1947.
+  - prerequisites: Indian independence; Currency unit; Political sovereignty
+- **p006-i18** · table_row · timeline · both · exam high
+  - Period: 1957 | Nature of the Rupee: Decimal currency
+    - when: When does the table place decimal currency? → It dates the decimal-currency milestone to 1957.
+    - why: Why does decimalization make calculation easier? → Dividing one rupee into 100 paise makes amounts easier to add, subtract and record using the same base-ten system used in ordinary arithmetic. _(outside the book)_
+      - difference: What subdivision did the decimal system replace? → The earlier rupee was divided into 16 annas; decimalization introduced 100 naye paise to the rupee. _(outside the book)_
+  - **khola (unpack):**
+    - Decimal currency yaani पैसे की ऐसी गिनती जिसमें एक Rupee के 100 छोटे हिस्से हों · image: ₹1 को 100 paise के खानों में बाँटना
+    - kyon: People need to calculate small payments and accounts easily. _[standard]_ → A hundred-based subdivision fits ordinary decimal arithmetic. _[standard]_
+    - example / jagah: ₹1.25 means one rupee and 25 paise.
+    - aage: Changes the subdivision of the rupee, not its name.
+    - screen par: Divide one rupee into a hundred paise.
+    - is level ke liye: Decimal describes units of counting; fiat describes the basis of currency value.
+  - prerequisites: Rupee and smaller denominations; Base-ten arithmetic
+- **p006-i19** · table_row · timeline · both · exam high
+  - Period: 1971 | Nature of the Rupee: Fiat currency
+    - when: What association does the printed table make for 1971? → It pairs 1971 with the label Fiat currency.
+    - why: Why can fiat currency function without redemption into a fixed amount of gold? → Its monetary use rests on state authority and people's acceptance for payments, rather than on the intrinsic metal value of the note or a fixed gold-redemption promise. _(outside the book)_
+      - difference: Does fiat mean the central bank has no assets or that the currency has no value? → No. Fiat status concerns the absence of fixed commodity redemption; it does not mean a central bank has no balance-sheet assets or that people cannot buy goods with the currency. _(outside the book)_
+  - **khola (unpack):**
+    - Fiat currency yaani जिसकी खरीदने की ताकत तय सोना मिलने के वादे पर नहीं, सरकार के नियम और लोगों की स्वीकार्यता पर चलती है · image: नोट का कागज़ सस्ता हो, फिर भी उससे सामान खरीदा जाए
+    - kyon: Payments need an accepted money unit, not necessarily valuable metal in each note. _[standard]_ → Fiat currency works without a fixed promise of commodity redemption. _[standard]_
+    - example / jagah: Modern rupee notes used for everyday payments.
+    - aage: Separates monetary acceptance from metal content or fixed gold redemption.
+    - screen par: Remove the gold-redemption link while retaining the payment network.
+    - is level ke liye: 1971 is chiefly associated with the end of US dollar gold convertibility; it is not by itself a precise date for the origin of Indian fiat currency.
+  - prerequisites: Commodity convertibility; Legal tender; Currency acceptance
+- **p006-i20** · table_row · timeline · both · exam high
+  - Period: 1993 onwards | Nature of the Rupee: Market-determined exchange rate
+    - when: From when does the table identify a market-determined rupee exchange rate? → It gives 1993 onwards.
+    - why: Why can the rupee's market exchange rate change? → Demand and supply for foreign currency vary with trade, investment and other payments, changing the price of foreign currency in rupees. _(outside the book)_
+      - how: How does increased dollar demand affect the rupee, other things unchanged? → More demand for dollars tends to raise their rupee price, meaning more rupees are needed for one dollar and the rupee depreciates against it. _(outside the book)_
+      - exception: Does market-determined mean no RBI intervention? → No. A market-based exchange rate can coexist with central-bank intervention to moderate excessive volatility. _(outside the book)_
+  - **khola (unpack):**
+    - Market-determined exchange rate yaani दूसरी currency की Rupee में कीमत जो बाज़ार की माँग और सप्लाई से बनती है · image: खरीदार बढ़ें और सप्लाई वही रहे तो चीज़ का भाव ऊपर जाए
+    - kyon: Importers and investors need foreign currency, while other flows bring it into the market. _[standard]_ → Their changing demand and supply influence the rupee exchange rate. _[standard]_
+    - example / jagah: An importer buying dollars through a bank to pay for overseas goods.
+    - aage: The table ends with how the rupee's external price is determined, not with a change in its subdivision or coin metal.
+    - screen par: Move demand and supply and adjust the rupee-per-dollar price.
+    - is level ke liye: Separate market determination, RBI intervention and capital-account convertibility in statement-based questions.
+  - prerequisites: Exchange rate as one currency's price in another; Demand and supply; Foreign exchange market
+
+## Page 7 · stopped after 1 round(s)
+
+
+
+
+## Page 8 · stopped after 1 round(s)
+
+
+
+
+## Page 9 · stopped after 1 round(s)
+
+
+
+
+## Page 10 · stopped after 1 round(s)
+
+
+
+
+## Page 11 · stopped after 1 round(s)
+
+
+
+
+## Page 12 · stopped after 1 round(s)
+
+
+
+
+## Page 13 · stopped after 1 round(s)
+
+
+
+
+## Page 14 · stopped after 1 round(s)
+
+
+
+
+## Page 15 · stopped after 1 round(s)
+
+
+
+
+## Page 16 · stopped after 1 round(s)
+
+
+
+
+## Page 17 · stopped after 1 round(s)
+
+
+
+
+## Page 18 · stopped after 1 round(s)
+
+
+
+
+## Page 19 · stopped after 1 round(s)
+
+
+
+
+## Page 20 · stopped after 1 round(s)
+
+
+
