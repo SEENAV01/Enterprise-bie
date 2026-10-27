@@ -712,6 +712,50 @@ def kinetic_sanskrit(w: Work) -> dict:
 
 
 # Every 3D block draws through @remotion/three, React Three Fiber and drei on three.js.
+# ---------------------------------------------------------------- economics: the build-up canvas and the world (Task 046 Part C)
+
+ECON_FIXTURES = Path(__file__).resolve().parents[2] / "tests" / "fixtures" / "task046c"
+
+
+def _econ(w: Work, name: str, *, beats: int, seconds: float, note: str) -> dict:
+    """A kit fixture (the economy kit's own hand-written test plan, not lesson content) cut to its first beats and fitted
+    into a proof clip; the icons it names join the demo's asset library with their CC BY credit. The plan goes through the
+    same compiler and checks a lesson's plans go through (bie/brain/canvas.py, bie/brain/video/world.py)."""
+    import json
+    from bie.brain import canvas
+    from bie.brain.video import world
+    from . import icons
+    plan = canvas.trim_plan(json.loads((ECON_FIXTURES / name).read_text(encoding="utf-8")), beats)
+    voice = canvas.squeeze(plan["beats"], seconds, lead_in=0.0)          # a proof clip starts at once (no lead-in silence)
+    if name.endswith(".world.json"):
+        scene, report = world.compile_world(plan, voice=voice, lead_in=0.0)
+    else:
+        paths = icons.add_to_library(canvas.icons_in(plan), w.library, opener=w.opener)
+        scene, report = canvas.compile_plan(plan, voice=voice, icon_paths=paths, lead_in=0.0)
+    w.notes[note] = report
+    return canvas.video_spec([scene])
+
+
+def econ_canvas(w: Work) -> dict:
+    return _econ(w, "demand_pull_touches.plan.json", beats=2, seconds=4.6, note="canvas")
+
+
+def econ_curve(w: Work) -> dict:
+    return _econ(w, "phillips.plan.json", beats=2, seconds=4.4, note="curve")
+
+
+def econ_chain(w: Work) -> dict:
+    return _econ(w, "price_chain.plan.json", beats=3, seconds=4.8, note="chain")
+
+
+def econ_table(w: Work) -> dict:
+    return _econ(w, "real_gdp.plan.json", beats=3, seconds=4.6, note="table")
+
+
+def econ_world(w: Work) -> dict:
+    return _econ(w, "demand_pull_world.world.json", beats=2, seconds=4.6, note="world")
+
+
 THREE_STACK = ("three", "react-three-fiber", "drei", "remotion-three")
 
 DEMOS = (
@@ -802,6 +846,17 @@ DEMOS = (
     Demo("edu-learning-cycle", 3, "Kolb's learning cycle as a process cycle", ("bie-social-blocks",), ("process_cycle",), 4.0, learning_cycle),
     Demo("lang-kinetic-sanskrit", 3, "A Sanskrit line word by word in Devanagari and Roman", ("indic-nlp", "indic-transliteration", "noto-devanagari", "bie-social-blocks"),
          ("text_kinetic",), 4.2, kinetic_sanskrit),
+    # Task 046 Part C: the economy kit as BIE blocks: the build-up canvas (Navin's B, L2 + L3 touches) and the world (C, L3)
+    Demo("econ-canvas-demand-pull", 3, "Demand-pull inflation building up on the paper canvas with L3 touches: shop, price, buyers, goods and coins flowing",
+         ("bie-econ-blocks", "twemoji"), ("board_build", "concept_arrow"), 4.6, econ_canvas),
+    Demo("econ-curve-phillips", 3, "The Phillips curve draws itself and a dot walks along it on the cue words", ("bie-econ-blocks",),
+         ("function_graph",), 4.4, econ_curve),
+    Demo("econ-price-chain", 3, "Producer → wholesaler → retailer → consumer with a price at each step (Twemoji and Font Awesome icons)",
+         ("bie-econ-blocks", "twemoji", "fontawesome-free"), ("board_build", "concept_arrow"), 4.8, econ_chain),
+    Demo("econ-table-real-gdp", 3, "Nominal and real GDP: a tree, a laptop and a table that fills row by row", ("bie-econ-blocks", "twemoji"),
+         ("tree_hierarchy", "table_build"), 4.6, econ_table),
+    Demo("econ-world-demand-pull", 3, "The same story inside a 2.5D street: shop, price tag, buyers walking in and the camera moving (an L3 world)",
+         ("bie-econ-blocks",), ("board_build",), 4.6, econ_world),
 )
 
 

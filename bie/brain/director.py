@@ -13,8 +13,6 @@ Outputs (``run_director``): ``director.json`` (what the visual section consumes)
 from __future__ import annotations
 
 import json
-import re
-import unicodedata
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
@@ -22,6 +20,7 @@ from .common import SEVERITY, S, arr, checklist_text, fmt, obj, review_problems
 from .lesson import question_ids, video_scope
 from .runner import NOTES_SCHEMA, Step
 from .understanding import Course
+from .video import timing
 
 SECTION = "director"
 VERSION = "director-video/1"
@@ -101,13 +100,10 @@ does not make the student think. Precision beyond the level of a standard textbo
 verdict is "pass" when nothing is blocking. Fill your own brief notes first. Reply with the JSON object only."""
 
 
-def _norm(text: str) -> str:
-    return re.sub(r"[^\wऀ-ॿ]+", " ", unicodedata.normalize("NFC", text).lower()).strip()
-
-
 def word_in(word: str, say: str) -> bool:
-    target = _norm(word)
-    return bool(target) and f" {target} " in f" {_norm(say)} "
+    """Is the cue word spoken in the beat? One rule for the director and the canvas plans (``video/timing.py``): the
+    danda is punctuation, so a cue on a sentence's last word is found (27 October 2026)."""
+    return timing.has_word(say, word)
 
 
 def apply_patch(previous: dict, patch: dict, beat_order: list) -> dict:
