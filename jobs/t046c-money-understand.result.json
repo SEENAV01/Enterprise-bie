@@ -1,0 +1,51 @@
+{
+ "cost_inr": 9.5,
+ "error": null,
+ "exit_code": 1,
+ "finished_at": 1793107540.2885082,
+ "job": "t046c-money-understand",
+ "map_status": "stopped",
+ "minutes": 43.2,
+ "plan_usage_after": {
+  "codex": {
+   "rateLimitResetCredits.availableCount": 2,
+   "rateLimits.planType": "prolite",
+   "rateLimits.primary.resetsAt": 1793606984,
+   "rateLimits.primary.usedPercent": 1,
+   "rateLimits.primary.windowDurationMins": 10080,
+   "rateLimitsByLimitId.codex.planType": "prolite",
+   "rateLimitsByLimitId.codex.primary.resetsAt": 1793606984,
+   "rateLimitsByLimitId.codex.primary.usedPercent": 1,
+   "rateLimitsByLimitId.codex.primary.windowDurationMins": 10080
+  }
+ },
+ "quality": {
+  "cost_usd": 0.098611,
+  "cost_usd_per_page": 0.004931,
+  "deeper_questions": 134,
+  "items": 165,
+  "items_from_image": 165,
+  "items_unpacked": 136,
+  "map_passed": false,
+  "naksha_tokens_estimate": null,
+  "outside_answers": 194,
+  "pages": 20,
+  "pages_passed": 4,
+  "pages_reused": 0,
+  "teachable_items": 137,
+  "teacher_questions": 381,
+  "terms_opened": 140,
+  "type_check": {
+   "agree": 14,
+   "code_silent": 81,
+   "explained": 8,
+   "follows_parent": 60,
+   "role": 2
+  },
+  "why_steps": 266
+ },
+ "results": "blindtest-results:runs/vm-t046c-money-understand-brain-understand",
+ "started_at": 1793104948.0370557,
+ "status": "stopped: balance",
+ "stop_reason": "balance: google via direct: 429 | RESOURCE_EXHAUSTED | You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. "
+}
