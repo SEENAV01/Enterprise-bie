@@ -1,0 +1,382 @@
+{
+  "cost": {
+    "cap": {
+      "by_section_inr": {
+        "connect": 0.0,
+        "preflight": 0.0,
+        "understand": 0.0
+      },
+      "calls_allowed": 21,
+      "calls_refused": 0,
+      "cap_inr": 5.0,
+      "spent_inr": 0.0,
+      "spent_usd": 0.0,
+      "stop_reason": null,
+      "stopped": false,
+      "usd_inr": 94.59
+    },
+    "inr_per_page": 0.0,
+    "note": "Ledger cost is an estimate: exact token counts times the dated price table in bie/model_gateway/live/pricing.py (plus the AICredits 10% markup), converted at usd_inr. It is not the bill. Write the provider dashboard amount for this run into real_bill_inr (and docs/roadmap/COST_LOG.md) to compare.",
+    "pages": 4,
+    "real_bill_inr": null,
+    "sections": {
+      "connect": {
+        "calls": 2,
+        "inr": 0.0,
+        "inr_per_page": 0.0,
+        "name": "Section 1 · chapter map",
+        "usd": 0.0
+      },
+      "preflight": {
+        "calls": 4,
+        "inr": 0.0,
+        "inr_per_page": 0.0,
+        "name": "preflight",
+        "usd": 0.0
+      },
+      "understand": {
+        "calls": 15,
+        "inr": 0.0,
+        "inr_per_page": 0.0,
+        "name": "Section 1 · page reading",
+        "usd": 0.0
+      }
+    },
+    "subscription": {
+      "calls": 21,
+      "failed_calls": 0,
+      "input_tokens": 431081,
+      "minutes": 28.7,
+      "note": "paid by the ChatGPT plan, no rupees; time is the sum of call times",
+      "output_tokens": 95271,
+      "reasoning_tokens": 1036
+    },
+    "total_inr": 0.0,
+    "total_usd": 0.0,
+    "usd_inr": 94.59
+  },
+  "estimate": {
+    "maker_billing": "subscription",
+    "measured_share_inr": 0.0,
+    "pages": 4,
+    "price_scale": 0.0,
+    "reviewer_billing": "subscription",
+    "sections": {
+      "connect": {
+        "basis": "measured",
+        "inr": 0.0,
+        "inr_per_page": 0.0,
+        "source": "run 39627682253 maker + run 39617164262 reviewer share"
+      },
+      "understand": {
+        "basis": "measured",
+        "inr": 0.0,
+        "inr_per_page": 0.0,
+        "source": "run 39620281561, 14 pages"
+      }
+    },
+    "total_inr": 0.0,
+    "usd_inr": 94.59
+  },
+  "fake": false,
+  "ledger_calls": 21,
+  "ledger_cost_usd": 0.0,
+  "level": {
+    "band": "senior_secondary",
+    "disagreement": null,
+    "evidence": {
+      "long_share": 0.0825,
+      "marker": "intermediate",
+      "reason": "the text says 'intermediate'",
+      "sentence_words": 13.5,
+      "setting": "the course setting says 'upsc'",
+      "very_long_share": 0.0177,
+      "words": 4349
+    },
+    "profile": "upsc_pcs",
+    "source": "setting"
+  },
+  "maker": "codex",
+  "map_status": "passed",
+  "models": {
+    "codex": "gpt-6.1-sol",
+    "codex-checker": "gpt-6.1-sol"
+  },
+  "pages": [
+    {
+      "cost_usd": 0.0,
+      "page": 1,
+      "reused": true,
+      "rounds": 0,
+      "seconds": 0.0,
+      "status": "passed"
+    },
+    {
+      "cost_usd": 0.0,
+      "page": 2,
+      "reused": true,
+      "rounds": 0,
+      "seconds": 0.0,
+      "status": "passed"
+    },
+    {
+      "cost_usd": 0.0,
+      "page": 3,
+      "reused": true,
+      "rounds": 0,
+      "seconds": 0.0,
+      "status": "passed"
+    },
+    {
+      "cost_usd": 0.0,
+      "page": 4,
+      "reused": false,
+      "rounds": 2,
+      "seconds": 445.8,
+      "status": "passed"
+    },
+    {
+      "cost_usd": 0.0,
+      "page": 5,
+      "reused": true,
+      "rounds": 0,
+      "seconds": 0.0,
+      "status": "passed"
+    },
+    {
+      "cost_usd": 0.0,
+      "page": 6,
+      "reused": true,
+      "rounds": 0,
+      "seconds": 0.0,
+      "status": "passed"
+    },
+    {
+      "cost_usd": 0.0,
+      "page": 7,
+      "reused": false,
+      "rounds": 1,
+      "seconds": 293.3,
+      "status": "passed"
+    },
+    {
+      "cost_usd": 0.0,
+      "page": 8,
+      "reused": true,
+      "rounds": 0,
+      "seconds": 0.0,
+      "status": "passed"
+    },
+    {
+      "cost_usd": 0.0,
+      "page": 9,
+      "reused": true,
+      "rounds": 0,
+      "seconds": 0.0,
+      "status": "passed"
+    },
+    {
+      "cost_usd": 0.0,
+      "page": 10,
+      "reused": true,
+      "rounds": 0,
+      "seconds": 0.0,
+      "status": "passed"
+    },
+    {
+      "cost_usd": 0.0,
+      "page": 11,
+      "reused": true,
+      "rounds": 0,
+      "seconds": 0.0,
+      "status": "passed"
+    },
+    {
+      "cost_usd": 0.0,
+      "page": 12,
+      "reused": false,
+      "rounds": 3,
+      "seconds": 384.1,
+      "status": "passed"
+    },
+    {
+      "cost_usd": 0.0,
+      "page": 13,
+      "reused": true,
+      "rounds": 0,
+      "seconds": 0.0,
+      "status": "passed"
+    },
+    {
+      "cost_usd": 0.0,
+      "page": 14,
+      "reused": true,
+      "rounds": 0,
+      "seconds": 0.0,
+      "status": "passed"
+    },
+    {
+      "cost_usd": 0.0,
+      "page": 15,
+      "reused": false,
+      "rounds": 2,
+      "seconds": 328.3,
+      "status": "passed"
+    },
+    {
+      "cost_usd": 0.0,
+      "page": 16,
+      "reused": true,
+      "rounds": 0,
+      "seconds": 0.0,
+      "status": "passed"
+    },
+    {
+      "cost_usd": 0.0,
+      "page": 17,
+      "reused": true,
+      "rounds": 0,
+      "seconds": 0.0,
+      "status": "passed"
+    },
+    {
+      "cost_usd": 0.0,
+      "page": 18,
+      "reused": true,
+      "rounds": 0,
+      "seconds": 0.0,
+      "status": "passed"
+    },
+    {
+      "cost_usd": 0.0,
+      "page": 19,
+      "reused": true,
+      "rounds": 0,
+      "seconds": 0.0,
+      "status": "passed"
+    },
+    {
+      "cost_usd": 0.0,
+      "page": 20,
+      "reused": true,
+      "rounds": 0,
+      "seconds": 0.0,
+      "status": "passed"
+    }
+  ],
+  "plan_usage_after": {
+    "codex": {
+      "rateLimitResetCredits.availableCount": 2,
+      "rateLimits.planType": "prolite",
+      "rateLimits.primary.resetsAt": 1793606984,
+      "rateLimits.primary.usedPercent": 8,
+      "rateLimits.primary.windowDurationMins": 10080,
+      "rateLimitsByLimitId.codex.planType": "prolite",
+      "rateLimitsByLimitId.codex.primary.resetsAt": 1793606984,
+      "rateLimitsByLimitId.codex.primary.usedPercent": 8,
+      "rateLimitsByLimitId.codex.primary.windowDurationMins": 10080
+    },
+    "codex-checker": {
+      "rateLimitResetCredits.availableCount": 2,
+      "rateLimits.planType": "prolite",
+      "rateLimits.primary.resetsAt": 1793606984,
+      "rateLimits.primary.usedPercent": 8,
+      "rateLimits.primary.windowDurationMins": 10080,
+      "rateLimitsByLimitId.codex.planType": "prolite",
+      "rateLimitsByLimitId.codex.primary.resetsAt": 1793606984,
+      "rateLimitsByLimitId.codex.primary.usedPercent": 8,
+      "rateLimitsByLimitId.codex.primary.windowDurationMins": 10080
+    }
+  },
+  "preflight": {
+    "passed": true,
+    "routes": {
+      "codex": {
+        "input_tokens": 3345,
+        "login": {
+          "logged_in": true,
+          "mode": "Logged in using ChatGPT"
+        },
+        "model": "gpt-6.1-sol",
+        "output_tokens": 15,
+        "plan_usage_before": {
+          "rateLimitResetCredits.availableCount": 2,
+          "rateLimits.planType": "prolite",
+          "rateLimits.primary.resetsAt": 1793606985,
+          "rateLimits.primary.usedPercent": 7,
+          "rateLimits.primary.windowDurationMins": 10080,
+          "rateLimitsByLimitId.codex.planType": "prolite",
+          "rateLimitsByLimitId.codex.primary.resetsAt": 1793606985,
+          "rateLimitsByLimitId.codex.primary.usedPercent": 7,
+          "rateLimitsByLimitId.codex.primary.windowDurationMins": 10080
+        },
+        "returned_model": "gpt-6.1-sol",
+        "status": "ok",
+        "via": "codex",
+        "vision": "ok"
+      },
+      "codex-checker": {
+        "input_tokens": 3347,
+        "login": {
+          "logged_in": true,
+          "mode": "Logged in using ChatGPT"
+        },
+        "model": "gpt-6.1-sol",
+        "output_tokens": 15,
+        "plan_usage_before": {
+          "rateLimitResetCredits.availableCount": 2,
+          "rateLimits.planType": "prolite",
+          "rateLimits.primary.resetsAt": 1793606984,
+          "rateLimits.primary.usedPercent": 7,
+          "rateLimits.primary.windowDurationMins": 10080,
+          "rateLimitsByLimitId.codex.planType": "prolite",
+          "rateLimitsByLimitId.codex.primary.resetsAt": 1793606984,
+          "rateLimitsByLimitId.codex.primary.usedPercent": 7,
+          "rateLimitsByLimitId.codex.primary.windowDurationMins": 10080
+        },
+        "returned_model": "gpt-6.1-sol",
+        "status": "ok",
+        "via": "codex",
+        "vision": "ok"
+      }
+    }
+  },
+  "quality": {
+    "cost_usd": 0.0,
+    "cost_usd_per_page": 0.0,
+    "deeper_questions": 555,
+    "items": 453,
+    "items_from_image": 453,
+    "items_unpacked": 365,
+    "map_passed": true,
+    "naksha_tokens_estimate": 23563,
+    "outside_answers": 626,
+    "pages": 20,
+    "pages_passed": 20,
+    "pages_reused": 16,
+    "real_world_filled": 95,
+    "real_world_needed": 95,
+    "real_world_ok": 95,
+    "teachable_items": 383,
+    "teacher_questions": 1275,
+    "terms_opened": 514,
+    "type_check": {
+      "agree": 59,
+      "code_silent": 203,
+      "explained": 32,
+      "follows_parent": 131,
+      "role": 28
+    },
+    "why_steps": 682
+  },
+  "resume": {
+    "pages_reused": 16,
+    "pages_to_run": 4
+  },
+  "reviewer": "codex",
+  "reviewer_independence": "same_model_temporary",
+  "reviewer_route": "codex-checker",
+  "rulebook": "canvas_profile@2026-10-27.2+content_types@2026-10-27.1+explanations@2026-10-24.1+level_profiles@2026-10-24.1+simple_hindi@2026-10-27.1+teacher_examples@2026-10-27.1+vision-2026-10-21@2026-10-21.14+visual_grammar@2026-10-26.2+visual_levels@2026-10-26.2",
+  "section": "understand",
+  "status": "ok"
+}
