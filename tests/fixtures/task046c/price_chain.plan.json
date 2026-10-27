@@ -1,0 +1,308 @@
+{
+ "id": "price_chain",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b1",
+   "say": "महँगाई नापने के लिए पहले देखते हैं कि एक चीज़ किन हाथों से गुज़रती है।"
+  },
+  {
+   "beat_id": "b2",
+   "say": "पहले फैक्ट्री उसे बनाती है, फिर थोक व्यापारी उसे खरीदता है।"
+  },
+  {
+   "beat_id": "b3",
+   "say": "थोक से वह दुकान तक जाती है, और दुकान से ग्राहक तक।"
+  },
+  {
+   "beat_id": "b4",
+   "say": "हर कदम पर दाम बढ़ता है, दस, फिर पंद्रह, फिर बीस रुपये।"
+  },
+  {
+   "beat_id": "b5",
+   "say": "फैक्ट्री वाले दाम से PPI बनता है, थोक दाम से WPI, और दुकान वाले दाम से CPI।"
+  },
+  {
+   "beat_id": "b6",
+   "say": "इस वीडियो में हमारा फोकस WPI है, यानी थोक दामों का index।"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "title",
+   "kind": "text",
+   "style": "title",
+   "text": "महँगाई कैसे नापते हैं?",
+   "cell": [
+    0,
+    0,
+    12,
+    1
+   ],
+   "size": 52,
+   "cue": [
+    "b1",
+    "महँगाई"
+   ]
+  },
+  {
+   "id": "f",
+   "kind": "icon",
+   "icon": "tw:1f3ed",
+   "label": "PRODUCER",
+   "cell": [
+    0,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b2",
+    "फैक्ट्री"
+   ]
+  },
+  {
+   "id": "w",
+   "kind": "icon",
+   "icon": "fa:solid/warehouse",
+   "label": "WHOLESALER",
+   "cell": [
+    3,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b2",
+    "थोक"
+   ]
+  },
+  {
+   "id": "r",
+   "kind": "icon",
+   "icon": "tw:1f3ea",
+   "label": "RETAILER",
+   "cell": [
+    6,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b3",
+    "दुकान"
+   ]
+  },
+  {
+   "id": "c",
+   "kind": "icon",
+   "icon": "tw:1f9cd",
+   "label": "CONSUMER",
+   "cell": [
+    9,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b3",
+    "ग्राहक"
+   ]
+  },
+  {
+   "id": "a1",
+   "kind": "arrow",
+   "from": "f",
+   "to": "w",
+   "from_side": "r",
+   "to_side": "l",
+   "cue": [
+    "b2",
+    "खरीदता"
+   ]
+  },
+  {
+   "id": "a2",
+   "kind": "arrow",
+   "from": "w",
+   "to": "r",
+   "from_side": "r",
+   "to_side": "l",
+   "cue": [
+    "b3",
+    "दुकान"
+   ]
+  },
+  {
+   "id": "a3",
+   "kind": "arrow",
+   "from": "r",
+   "to": "c",
+   "from_side": "r",
+   "to_side": "l",
+   "cue": [
+    "b3",
+    "ग्राहक"
+   ]
+  },
+  {
+   "id": "v1",
+   "kind": "value",
+   "align": "center",
+   "cell": [
+    0,
+    4,
+    2,
+    1
+   ],
+   "size": 48,
+   "steps": [
+    {
+     "text": "₹10",
+     "cue": [
+      "b4",
+      "दस"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "v2",
+   "kind": "value",
+   "align": "center",
+   "cell": [
+    3,
+    4,
+    2,
+    1
+   ],
+   "size": 48,
+   "steps": [
+    {
+     "text": "₹15",
+     "dir": "up",
+     "cue": [
+      "b4",
+      "पंद्रह"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "v3",
+   "kind": "value",
+   "align": "center",
+   "cell": [
+    6,
+    4,
+    2,
+    1
+   ],
+   "size": 48,
+   "steps": [
+    {
+     "text": "₹20",
+     "dir": "up",
+     "cue": [
+      "b4",
+      "बीस"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ppi",
+   "kind": "text",
+   "style": "box",
+   "text": "PPI · Producer Price Index",
+   "size": 26,
+   "cell": [
+    0,
+    6,
+    3,
+    1
+   ],
+   "cue": [
+    "b5",
+    "PPI"
+   ]
+  },
+  {
+   "id": "wpi",
+   "kind": "text",
+   "style": "box",
+   "text": "WPI · Wholesale Price Index",
+   "size": 26,
+   "cell": [
+    3,
+    6,
+    3,
+    1
+   ],
+   "cue": [
+    "b5",
+    "WPI"
+   ]
+  },
+  {
+   "id": "cpi",
+   "kind": "text",
+   "style": "box",
+   "text": "CPI · Consumer Price Index",
+   "size": 26,
+   "cell": [
+    6,
+    6,
+    3,
+    1
+   ],
+   "cue": [
+    "b5",
+    "CPI"
+   ]
+  },
+  {
+   "id": "hw",
+   "kind": "highlight",
+   "target": "wpi",
+   "tone": "warm",
+   "cue": [
+    "b6",
+    "फोकस"
+   ]
+  },
+  {
+   "id": "tk",
+   "kind": "mark",
+   "mark": "tick",
+   "target": "wpi",
+   "pos": "tr",
+   "cue": [
+    "b6",
+    "WPI"
+   ]
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b6",
+    "फोकस"
+   ],
+   "ids": [
+    "w",
+    "wpi",
+    "hw",
+    "tk",
+    "v2",
+    "title",
+    "a1",
+    "a2"
+   ]
+  }
+ ]
+}

@@ -16,8 +16,20 @@ GAP = 0.35
 TAIL = 0.8
 
 
+# Word characters: letters and digits, plus the Devanagari block without its two punctuation marks, the danda (। U+0964)
+# and the double danda (॥ U+0965). Before 27 October 2026 the whole block counted as word characters, so a sentence's last
+# word stayed glued to its danda ("CPI।") and a cue on that word was never found: it landed, silently, at the beat's start.
+_NOT_WORD = re.compile(r"[^\wऀ-ॣ०-ॿ]+")
+
+
 def _norm(text: str) -> str:
-    return re.sub(r"[^\wऀ-ॿ]+", " ", unicodedata.normalize("NFC", text).lower())
+    return _NOT_WORD.sub(" ", unicodedata.normalize("NFC", text).lower())
+
+
+def has_word(say: str, word: str) -> bool:
+    """Is ``word`` spoken in ``say`` (as a whole word, case and punctuation aside)?"""
+    target = _norm(word).strip()
+    return bool(target) and f" {target} " in f" {_norm(say)} "
 
 
 def word_fraction(say: str, word: str) -> float:
@@ -33,15 +45,16 @@ def beat_seconds(say: str) -> float:
     return max(1.5, len(say.strip()) / CHARS_PER_SECOND)
 
 
-def build(beats: list, scenes: list, *, fps: int = FPS, voice: dict | None = None) -> dict:
+def build(beats: list, scenes: list, *, fps: int = FPS, voice: dict | None = None, lead_in: float = LEAD_IN) -> dict:
     """Per scene: duration in frames, each beat's local start and length, and a cue(beat_id, word) → local frame map.
 
     ``voice`` (optional): beat_id → {"duration": seconds, "words": [{"w", "start", "end"}]} from the voice section.
+    ``lead_in``: the silence before the first beat (``LEAD_IN`` for a lesson; a proof clip starts at once).
     """
     says = {b["beat_id"]: b["say"] for b in beats}
     out = {}
     for scene in scenes:
-        t = LEAD_IN
+        t = lead_in
         beat_frames, cues = {}, {}
         for bid in scene["beat_ids"]:
             info = (voice or {}).get(bid)

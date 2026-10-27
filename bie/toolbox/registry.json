@@ -1,6 +1,6 @@
 {
  "schema": "bie.toolbox.registry/1",
- "version": "2026-10-25.3",
+ "version": "2026-10-27.1",
  "npm_before": "2026-10-17T12:00:00Z",
  "note": "Task 046a, BIE's toolbox (auzaar-ghar). One entry per library, tool, asset source or dataset that BIE uses to show what a scene plan asks for. A Python library computes, a BIE block shows. Versions are pinned (npm: the newest release before npm_before, the date in tools/npm_before.txt; PyPI: the newest release before the same date with a Python 3.13 Linux wheel). Licences were read from each project's own page or package metadata on 25 October 2026; licence_flags mark share-alike, GPL, custom and per-item licences for Navin's later licence decision, without blocking them. status: installed < wrapped < demo_proven < used_on_real_book; blocked_with_reason says what is missing.",
  "statuses": [
@@ -2932,6 +2932,132 @@
     ]
    },
    "notes": "The batch 3 blocks; a law block shows the section number its data source gives, a chart block grows from the data BIE fetched."
+  },
+  {
+   "id": "twemoji",
+   "name": "Twemoji graphics (jdecked/twemoji)",
+   "kind": "asset_source",
+   "subjects": [
+    "all_subjects"
+   ],
+   "content_types": [
+    "figure",
+    "process",
+    "cause_effect",
+    "comparison"
+   ],
+   "capabilities": [
+    "board_build",
+    "concept_arrow"
+   ],
+   "role": "asset",
+   "path": "web",
+   "version": "v16.0.1",
+   "licence": "CC BY 4.0",
+   "licence_flags": [],
+   "source": "https://github.com/jdecked/twemoji",
+   "install_group": "assets-on-demand",
+   "status": "demo_proven",
+   "batch": 3,
+   "adapter": "bie.toolbox.icons",
+   "proof": {
+    "demos": [
+     "econ-canvas-demand-pull",
+     "econ-price-chain",
+     "econ-table-real-gdp"
+    ],
+    "tests": [
+     "tests/test_task046_canvas.py::Icons"
+    ]
+   },
+   "notes": "About 1,900 flat colour icons (people, shops, goods, money, flags; skin-tone variants left out) for the build-up canvas (Task 046 Part C). The index bie/toolbox/icons/index.json.gz is searched by the director; each SVG is fetched one by one from the v16.0.1 tag on GitHub (assets/svg) into the asset cache, never into git. Credit line: 'Twemoji graphics by Twitter, Inc and other contributors, CC BY 4.0' (LICENSE-GRAPHICS; the code is MIT and is not used)."
+  },
+  {
+   "id": "fontawesome-free",
+   "name": "Font Awesome Free icons",
+   "kind": "asset_source",
+   "subjects": [
+    "all_subjects"
+   ],
+   "content_types": [
+    "figure",
+    "process",
+    "cause_effect",
+    "comparison"
+   ],
+   "capabilities": [
+    "board_build",
+    "concept_arrow"
+   ],
+   "role": "asset",
+   "path": "web",
+   "version": "7.3.1",
+   "licence": "CC BY 4.0",
+   "licence_flags": [],
+   "source": "https://fontawesome.com",
+   "install_group": "assets-on-demand",
+   "status": "demo_proven",
+   "batch": 3,
+   "adapter": "bie.toolbox.icons",
+   "proof": {
+    "demos": [
+     "econ-price-chain"
+    ],
+    "tests": [
+     "tests/test_task046_canvas.py::Icons"
+    ]
+   },
+   "notes": "About 2,300 one-colour line icons (solid and regular styles) with search terms, coloured by BIE at copy time; the brands style is never indexed (no logos in lessons, CV-11). Fetched per file from the 7.3.1 tag of FortAwesome/Font-Awesome (svgs/) into the asset cache. The Free licence: icons CC BY 4.0, fonts OFL, code MIT; only the icon SVGs are used. Credit line: 'Font Awesome Free by Fonticons, Inc., CC BY 4.0'."
+  },
+  {
+   "id": "bie-econ-blocks",
+   "name": "BIE build-up canvas and world blocks (bie/brain/video/blocks/toolbox/canvas.tsx, world.tsx)",
+   "kind": "js_lib",
+   "subjects": [
+    "economics_commerce_management",
+    "all_subjects"
+   ],
+   "content_types": [
+    "process",
+    "cause_effect",
+    "comparison",
+    "facts_numbers",
+    "definition",
+    "classification",
+    "structure"
+   ],
+   "capabilities": [
+    "board_build",
+    "concept_arrow",
+    "function_graph",
+    "table_build",
+    "tree_hierarchy"
+   ],
+   "role": "draw",
+   "path": "web",
+   "version": "bie-2026-10-27",
+   "licence": "BIE's own code",
+   "licence_flags": [],
+   "source": "https://github.com/SEENAV01/Enterprise-bie",
+   "install_group": "web-core",
+   "status": "demo_proven",
+   "batch": 3,
+   "rank": 12,
+   "block": "canvas_build, curve_story, world_scene",
+   "proof": {
+    "demos": [
+     "econ-canvas-demand-pull",
+     "econ-curve-phillips",
+     "econ-price-chain",
+     "econ-table-real-gdp",
+     "econ-world-demand-pull"
+    ],
+    "tests": [
+     "tests/test_task046_canvas.py::Canvas",
+     "tests/test_task046_canvas.py::World"
+    ]
+   },
+   "notes": "Task 046 Part C, from the economy kit of 27 October 2026. canvas_build: a paper canvas that builds up on the spoken words (text, callouts, icons, crowds that grow and shrink, values that change, arrows, trees, tables, marks, highlights, focus) with L3 touches (shadows, idle motion, walk-ins, goods and coins flowing along arrows, a camera that follows the story): Navin's B level, the default for every economy part. curve_story: a graph that draws itself with dots, shades, guides and notes on cue. world_scene: a 2.5D street with a shop, procedural people, price tags, coin rain, a balance and camera keys in world pixels: Navin's C level for story parts. The plans are compiled and checked by bie/brain/canvas.py and bie/brain/video/world.py; captions are drawn once by the core strip."
   }
  ]
 }

@@ -574,3 +574,179 @@ review, the one that ran away to 32,000 in job B2, now answered in 2,711. The fr
 (`provider_unavailable`, once in each job) and the gateway's retry passed both; no per-minute quota was met. Billed ₹0; ledger
 estimate ₹8.76 at the list price.
 
+## Entry 12 · VM job 1, the W-01 wording patch on v3 (Task 046 Part A), 26 October 2026
+
+**The run (₹0 billed):** two VM jobs on `codex-jobs`. `t046-v3-wording-patch` (5.4 minutes, cap ₹5) continued v3 from its last
+answer: round 0, the code check, named the five beats that point at the book (b22, b24, b29, b30, b36; W-01, Navin's rule of
+26 October 2026); round 1, the Codex maker (ChatGPT plan, no rupees) rewrote those five beats only, every other script kept as it
+was (`--videos v3`); then the cost guard stopped the run before the review: "the next call (lesson:script-v3:r1:review, about
+Rs 5.00) would cross the cap of Rs 5". `t046-v3-wording-patch-resume` (7.7 minutes, cap ₹15) continued from the patched answer:
+round 0 clean by code, no maker call; the reviewer on Navin's free Google key (`gemini-3.8-flash`, direct; 24,487 input, 3,273
+output tokens) passed it. **v3 passed, 11 of 11 videos pass**; before/after sentences in `docs/evidence/task046-director/W01.md`.
+Ledger estimate ₹0.06 + ₹2.96 at the list price; billed ₹0.
+
+**What the run taught:** the preflight estimate priced the whole chapter for a resume of one script ("Andaaza Rs 39.17, seema
+Rs 5": 14 pages × the measured lesson rate), so the warning said nothing useful about the cap, and the cap of ₹5 was set blind;
+the guard then did its job (it refused a ₹5 review call under a ₹5 cap after a ₹0.06 preflight) and the job needed a second run.
+The actual spend of the whole patch (maker on the plan, one review) was about ₹3 at the list price, which a right-sized estimate
+would have shown.
+
+**Changed in BIE (this PR, Task 046 Part B):** `bie/brain/cost.py` `lesson_share` and `tools/run_brain.py`: a lesson resume with
+`--videos` estimates the share of the chapter those scripts are (spoken minutes of the selected scripts over all scripts, from the
+earlier run's `lesson_plan.json`), and the pahra line says "resume of 1 of 11 videos, 10% of the chapter". Test
+`tests/test_task046_blocks.py::TheSeekhFromVmJob1`.
+
+**Measured before → after (offline, on the same job):**
+
+| Measure | Before | After |
+| --- | --- | --- |
+| Preflight estimate for `--videos v3` (14 pages, lesson, free-tier reviewer, Codex maker) | ₹39.17 (the whole chapter) | ₹3.94 (10 % of the chapter, v3's 11.7 of 116.4 spoken minutes) |
+| Spent on the patch, both runs, list price | — | ₹3.02 (₹0.06 preflight + ₹2.96 review) |
+| Cap that would have covered the job in one run | ₹5 did not | ₹5 reads as tight but plausible next to ₹3.94; ₹8 is the safe choice |
+
+Quality, first-try pass rate and rounds are unchanged (no rule or check changed); both saved regression sets still pass.
+
+## Entry 13 · Task 046 Part B rejected: the checks measured presence, not look, 26 October 2026
+
+**Navin's verdict (26 October 2026):** both routes of the Part B benchmark render (run 40298550697,
+`blindtest-results:runs/t046-v3-benchmark/`) were rejected: "dur dur tak benchmark se mel nahi khata". PR #75 stays open and
+unmerged; Part C stays stopped.
+
+**Diagnosis (what the run taught):**
+
+- **The frame checks measured presence, not look.** `bie/brain/video/frame_checks.py` read a bright caption band (B-08), a lit label
+  box (B-03), pixels near the member's accent (B-10), a dark mean or border (B-11/VG-09) and change between stills (VG-01). A frame
+  can pass all of them and still look nothing like the benchmark, and it did: route A passed 14 of 24 rules, route C 15, while
+  Navin saw no resemblance. No check ever compared our frames with the benchmark's frames, and no reviewer with eyes looked at a
+  frame before Navin did.
+- **The cells were simple geometry.** The world block drew every cell as a hexagonal prism (`CylinderGeometry` with 6 sides,
+  bevelled), the nucleus as a scaled sphere, on flat boxes for the membrane and the tissue; the Blender route built the same
+  recipe (`bie/toolbox/blender/cell_sheet.py`). The benchmark's cells are organic: irregular wavy outlines that interlock, softly
+  domed tops with a raised nucleus bulge, glossy wet surfaces with fine noise.
+- **No light transport.** Plain `MeshStandardMaterial` / Principled BSDF without subsurface scattering or translucency: light
+  never passes through a cell, so nothing reads as living tissue. The benchmark's cells glow from within, nuclei show as darker,
+  denser bodies through the cytoplasm.
+- **No lighting design, no depth.** One generic light rig and a vignette; no key and rim light, no haze, no glare on the lit part,
+  no depth of field, no out-of-focus context (vessels, air sacs) behind the sheet. The benchmark separates its planes with a shallow
+  focus and soft volumetric light.
+- **Scale of the error:** the level ladder called these shots L5a ("photoreal micro 3D") because of the block chosen, not because of
+  how they looked; the label described the intent, not the picture.
+
+**Changed in BIE (Task 046 one-shot test, branch `task046-oneshot`, draft PR; IMPLEMENTED, nothing ACCEPTED):**
+
+- One shot of 4–5 s instead of a segment, judged by Navin side by side with the benchmark before any longer render.
+- Route 1: a Blender recipe made the way a science-animation studio works (organic Voronoi outlines, domed tops, nucleus bulge,
+  subsurface scattering and translucency, key and rim light, haze, glare, depth of field, a slow push-in; Cycles on CPU), reusable
+  for every epithelium member.
+- Route 2: an AI still made through the ChatGPT plan (Codex image generation on the VM), animated by BIE code (2.5D parallax, push,
+  particles, glow), labels and caption by code.
+- **LOOK-01:** a look check against the benchmark's frames by a reviewer with image input (organic shape, translucency,
+  lighting and depth, detail, scientific correctness, overall class), saved with its reasons; advice only, Navin's eye decides.
+
+Measured effect: in the one-shot report (look scores per route, render seconds per frame, ₹), then Navin's verdict.
+
+
+## Entry 14 · Task 046 one-shot test: one shot, two routes, 26 October 2026
+
+**What the run taught:**
+
+- **A studio look costs CPU time, and the cost is now measured.**
+  - The first Blender recipe spent 240 s per 1080p frame in Blender's subdivision of the cells' fan-shaped tops. Dense
+    smoothed rings gave the same organic outline at 55 s per frame in the workspace.
+  - Blender's noise is seeded per process, so the recipe now seeds it. Chunks rendered on different runners show the same
+    scene.
+  - On 4-CPU hosted runners at 32 samples the shot costs **203 s per frame**: 4.5 seconds of video took 457 machine-minutes
+    (₹0 on the public repository).
+  - A 5-minute segment at this quality would need about 500 machine-hours, so a long video at this quality needs fewer
+    samples, GPU rendering, or the 2.5D route.
+- **LOOK-01 (first use) names the gap that the presence checks could not.** Part B had no look score at all.
+  - Route 1 (Blender) scored mean 5.3 of 10, verdict “close” (5.2 in a first check). Translucency is its weakest axis
+    (4): the cells read as opaque and rubbery. The next look work for Route 1 is wet, translucent cytoplasm: a thinner
+    subsurface radius, a transmission layer and a clear-coat sheen.
+  - Route 2 (a Codex still moved in 2.5D by BIE code) scored 7 on every axis, mean 7.0, verdict “same class”. Its gap:
+    the code's particles float without contact shadows. The next look work for Route 2 is particle shadows and a
+    depth-aware fade where particles cross the layer.
+  - Neither was done here, because the test stops for Navin's verdict.
+- **Route 2 is fast and cheap; Route 1 is flexible.** Route 2 made the shot in about 3 minutes (4 images in 2 minutes on
+  the plan, a 17 s depth map, a 150 s animation). Route 1 needed 7.6 machine-hours. But a still allows only a small camera
+  move, while Route 1 is real 3D (any move, any member, the same look every time).
+- **The VM runner had three gaps, each found by a live job:**
+  - A poll ran the old code after a merge (F-14: it now runs again with the new code).
+  - A failed Codex image run kept no reason (F-14: the error and reply are kept).
+  - Codex 0.162.1 calls every tool through its code-mode host, which BIE's lean settings turn off (F-14b, PR #81, merged
+    after Navin's yes). The fourth image job then made 4 of 4 images in 2 minutes on the ChatGPT plan, ₹0.
+  - PR #77's runner tests were in no CI lane; they are now.
+- **CI time:** the toolbox lane's apt steps hit the slow mirror (F-11) and the assets job waited behind a manual run
+  (F-13c). With bounded downloads the `wrappers` job now takes 3.5 minutes; before, it was cancelled at its 40-minute limit.
+
+**Changed in BIE:**
+
+- Toolbox: `bie-epithelium-studio` (the Blender recipe and its presets), `onnxruntime` and Depth Anything V2 Small
+  (Apache-2.0, pinned, SHA-checked), registered and tested.
+- Blocks: `plate` and `parallax_plate`; `bie/brain/video/still_prompt.py`; `tools/oneshot.py`.
+- Rules: LOOK-01 in the rule table (`visual_grammar.json` 2026-10-26.3).
+- CI and runner (merged): PR #77, #79, #80 and #81.
+
+**Measured effect:**
+
+| | before | after |
+| --- | --- | --- |
+| Look score (LOOK-01, against a written description) | none (Part B) | Route 1 5.3 “close”; Route 2 7.0 “same class” |
+| Route 1 cost per 1080p frame (4 CPU, 32 spp) | — | 203 s |
+| Route 1 cost per shot | — | 7.6 machine-hours, ₹0 |
+| Route 2 cost per shot | — | 4 images in 2.05 minutes on the ChatGPT plan + 17 s depth + 150 s animation, ₹0 |
+| Codex image jobs that made images | — | 0 of 3 before F-14/F-14b, 4 of 4 after |
+
+Navin's verdict decides what is next.
+
+## Entry 15 · Task 046 Part C, PR 1: the economy kit inside BIE, 27 October 2026
+
+**What the kit taught** (the asset intake's economy batch, 27 October 2026; 20 Indian-economy reference videos for UPSC, about
+2 h 5 min, measured by code: visual-change events from frame differences at 5 fps, speech phrases by Silero VAD): the reference
+teaching moments are **build-up canvases, not cuts** — a visual change every 5.0 s (median; p90 7.5 s), the canvas cleared only
+when the idea changes, text at 24 px or larger, at most about 16 things on screen, a number struck out and replaced rather than
+re-drawn, a crowd that grows and shrinks, and a story told inside a place when actors act (a shop and its buyers). Navin's
+decision: **"B default ke saath kahani wale hisson mein C"** — a canvas with L3 touches by default, an L3 world for the story
+parts.
+
+**What changed in BIE** (branch `task046c-kit`, PR 1 of Part C):
+
+- The kit's three blocks (`canvas_build`, `curve_story`, `world_scene`) now live in BIE's toolbox bundle
+  (`bie/brain/video/blocks/toolbox/canvas.tsx`, `world.tsx`), and its two compilers are BIE modules (`bie/brain/canvas.py`,
+  `bie/brain/video/world.py`) with the kit's checks as code: layout, cue timing, refusals and the still-picture limits. The
+  plan contract is the one the AI director will write to in PR 2 (what, where, on which spoken word; never a pixel).
+- **The danda bug** (seekh from the kit's first cue test): `timing._norm` kept the danda as a word character, so a cue on a
+  sentence's last word ("यही CPI।") was never found and the element appeared at the beat's start. The danda and double danda
+  are punctuation now; `timing.has_word` is the one word matcher and `director.word_in` reads through it (its duplicate regex
+  retired).
+- **One caption place:** the kit's blocks each drew their own subtitles; now the core strip in `blocks/index.tsx` draws every
+  video's captions once (a dark strip under white words, readable on paper and on the dark world); compilers return the scene
+  with `captions`.
+- **Icons as toolbox sources, through the licence policy:** Twemoji (CC BY 4.0) and Font Awesome Free (icons CC BY 4.0) are
+  registry asset sources with an index of 4,213 icons (`bie/toolbox/icons.py`); a plan that names an unknown icon is refused
+  before any render; the icons join the asset library with the credit fields, so the 046a-L gate passes them and the credit roll
+  lists them. Fetched per file from the pinned GitHub tags (the npm `@twemoji/svg` repackage lacks 30 files), cached outside git.
+- The canvas rules CV-01…CV-12 and their limits are a rulebook file (`canvas_profile@2026-10-27.1`), so the director reads
+  them like every other rule and the rulebook version records them.
+- Five proof clips (batch 3) and 28 tests in the toolbox core lane; the kit's fixtures live in `tests/fixtures/task046c/`.
+- Seekh from the clips' own frame checks: a paper canvas reads as "blank" during the lead-in silence and whenever the
+  caption strip drops out between two beats. Two product fixes, not a looser check: captions hold through a pause under
+  1 s (standard subtitle practice; no flicker in a lesson either), and proof clips start at once (`lead_in`).
+
+**Measured before → after (offline, ₹0):**
+
+| Measure | Before | After |
+| --- | --- | --- |
+| A cue on the last word before a danda or comma (`timing.has_word("… यही CPI।", "CPI")`) | not found (landed at the beat's start, silently) | found |
+| Places that draw subtitles | 3 blocks + the core strip | 1 (the core strip) |
+| Icon sources in the registry with a credit line | 0 | 2 (4,213 icons, CC BY 4.0) |
+| Kit fixtures compiled and rendered by BIE's own renderer | 0 | 5 plans, the world and the credits card: 28 stills, all drawn |
+| Proof clips in the toolbox | 51 | 56 |
+| Caption between two beats (a pause under 1 s) | strip disappears for the pause (flicker; the real-GDP clip's 24 % frame read as blank, 7.9 against 8) | held until the next line starts (26.3) |
+| First sampled frame of a paper canvas clip (6 % in) | empty paper during the 0.4 s lead-in (not blank: false) | the clip starts at once (`lead_in` 0 for proof clips; 20–36) |
+| Tests in the toolbox core lane | 109 | 137 |
+| Task 045 lane and passed-output sets | 464 pass | 464 pass (unchanged) |
+| Plans a lesson has sent through the kit | 0 | 0 (the real chapter is PR 5; nothing INTEGRATED yet) |
+
+First-try pass rate, rounds, tokens and ₹ per page are unchanged (no AI step runs in PR 1); PR 2 starts counting first-try
+passes and rounds per part, and the real chapter run gives the first numbers.

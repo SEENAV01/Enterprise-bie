@@ -258,12 +258,42 @@ a soul.py check with the word list in the rulebook.
 
 **Three PRs.** Part A (the code director: ladder, grammar, W-01, capability levels and blocks, `bie/brain/shots.py`, the
 offline proof on v3, VM job 1 = the W-01 wording patch on v3 at ₹0) — done 26 October 2026, IMPLEMENTED (STATUS, "Task 046 ·
-Part A"). Part B (blocks as code with frame checks and demo clips — the L4 blocks `cutaway`, `exploded_view`, `flow_arrows`
-demoed on a procedural Earth wedge and bar magnet, Navin 26 October 2026 — route A three.js through Remotion and route C
-procedural or Blender models, espeak placeholder voice or silent captions, the epithelium family segment of v3 rendered in CI, cost table,
-24-rule table shot by shot, a ≤ 720p review copy on `blindtest-results` and an artifact page) — then stop for Navin's verdict.
+Part A"; VM job 1 done 26 October 2026: v3's five book-pointing beats rewritten and reviewed at ₹0). Part B (blocks as code with
+frame checks and demo clips — the L4 blocks `cutaway`, `exploded_view`, `flow_arrows` demoed on a procedural Earth wedge and bar
+magnet, Navin 26 October 2026 — route A three.js through Remotion and route C Blender models in the same block, the eSpeak
+placeholder voice driving the timing, the epithelium family segment of v3 rendered in CI, cost table, 24-rule table shot by shot
+with frame numbers, a ≤ 720p review copy on `blindtest-results` and the review page) — done 26 October 2026, IMPLEMENTED (STATUS,
+"Task 046 · Part B") — then stop for Navin's verdict.
 Part C after the verdict (fixes, all of v3, the head-to-head VM job 2, seekh → BIE). Status words: IMPLEMENTED until Navin
 says ACCEPTED.
+Navin rejected Part B (26 October 2026). Before Part C, the **one-shot quality test** (draft PR #76): one shot (b37.2) made
+two ways — Route 1 a studio-grade Blender recipe, Route 2 an AI still from Codex through the ChatGPT plan moved in 2.5D by BIE
+code — judged side by side with the benchmark, with LOOK-01 (a reviewer with image input, advice only) in the rule table.
+Both routes done on 26 October 2026 (LOOK-01: Route 2 7.0 “same class”, Route 1 5.3 “close”; STATUS, "Task 046 ·
+One-shot quality test"); stop for Navin's verdict.
+
+**Part C (Economy), Navin's decision of 27 October 2026, in his words: "B DEFAULT KE SATH KAHANI WALE HISSON MEIN C."** Every
+economy part is a build-up canvas with L3 touches (B) by default; a story part with actors in a place (a shop and its buyers, a
+bank and its borrowers, a factory and its workers, a port, a farm) is an L3 world (C); a B shot reports as "L2 + touches", a C
+shot as L3; the 90–99 % L3+ target stays a target, never a blocker. CC0 and CC BY only for lesson assets, W-01 holds, lesson
+content is made only by BIE, keys and the cost guard as CLAUDE.md; maker Codex on the VM at ₹0, reviewer on the free Google
+key, any paid call capped at ₹50 and listed. The economy kit of the asset intake (27 October 2026: the build-up canvas, the
+story graph, the 2.5D world, the canvas rules CV-01…CV-12 measured on 20 reference videos, the director card) joins BIE, one
+PR per piece (`task046c-…`, merged only when every CI check is green): **(1) the kit inside BIE** — the blocks in the toolbox
+bundle, the compilers `bie/brain/canvas.py` and `bie/brain/video/world.py`, the danda fix in `timing.py`, one caption place,
+Twemoji and Font Awesome Free as CC BY 4.0 icon sources through the licence policy with the credit roll — done 27 October
+2026, IMPLEMENTED (STATUS, "Task 046 · Part C (Economy), PR 1"); **(2)** the director's canvas (B) and world (C) modes: the
+subject profile picks the canvas default, a story part with a place that has a kit goes to world mode (else canvas and a
+missing-capability line), the AI step writes the plans from the director card through the SectionRunner and the cost guard, a
+refused plan goes back with the exact code error (no reviewer round for layout), first-try passes and rounds counted per part;
+**(3)** world kits for the chosen video's places only, the rest logged missing; **(4)** render speed: parallel chunks in CI
+joined to one MP4, static layers pre-drawn, no per-frame SVG filters, a 5–8 minute video in under 60 minutes wall-clock,
+measured before and after; **(5)** ONE real video from Navin's sample economy chapter (the PDF on `blindtest-inputs`;
+understand → lesson → one video with both story and graph parts → plans by BIE, B default and C for the story parts →
+compile and check → 1920×1080 in CI, silent with captions; the full MP4 in CI artifacts, a ≤ 720p review copy on
+`blindtest-results`, the review page with each part's mode and level, first-try passes and rounds, AI ₹, render minutes,
+missing world kits and the credit lines), then STOP for his verdict. The kit is INTEGRATED only when the real chapter's plans
+flow through it into a rendered video; nothing is ACCEPTED before the verdict.
 
 **047 · Voice** — extend Section 14: tested natural voices including a cloned voice (Navin chooses by ear);
 word timestamps drive the animation; close the AUDIO reconciliation.

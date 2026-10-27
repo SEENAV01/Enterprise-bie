@@ -340,13 +340,17 @@ const ToolLayer: React.FC<{ l: Extract<Layer, { type: "block" }> }> = ({ l }) =>
   );
 };
 
+// The one place captions are drawn (Task 046 Part C): a dark strip under white words, so they read on a light paper
+// canvas as well as on the dark world; blocks never draw their own subtitles.
 const Captions: React.FC<{ captions: { at: number; until: number; text: string }[] }> = ({ captions }) => {
   const frame = useCurrentFrame();
   const now = captions.find((c) => frame >= c.at && frame < c.until);
   if (!now) return null;
   return (
-    <div style={{ position: "absolute", left: 160, right: 160, bottom: 46, textAlign: "center", fontFamily: FONT, fontSize: 34,
-      color: C.ink, textShadow: "0 2px 8px rgba(0,0,0,0.9)" }}>{now.text}</div>
+    <div style={{ position: "absolute", left: 0, right: 0, bottom: 34, display: "flex", justifyContent: "center", pointerEvents: "none" }}>
+      <div style={{ maxWidth: W * 0.8, background: "rgba(18,24,34,0.86)", color: "#ffffff", fontFamily: FONT, fontSize: 34, lineHeight: 1.35,
+        padding: "10px 26px", borderRadius: 14, textAlign: "center" }}>{now.text}</div>
+    </div>
   );
 };
 

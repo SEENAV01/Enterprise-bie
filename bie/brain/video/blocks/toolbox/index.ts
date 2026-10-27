@@ -16,6 +16,8 @@ import "./maps";
 import "./timeline";
 import "./diagrams";
 import "./cards";
+import "./canvas";
+import "./world";
 import "./econ";
 import "./language";
 import "./behaviour";
