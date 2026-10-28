@@ -23,7 +23,7 @@ NEW = ("tests/test_task045_cards.py", "tests/test_task045_seekh.py", "tests/test
        "tests/test_task045_free_reviewer.py", "tests/test_task046c_real_world.py",
        "tests/test_task046c_real_world_chain.py", "tests/test_task046c_map_review.py",
        "tests/test_task046c_page_review.py", "tests/test_task046c_plan_review.py",
-       "tests/test_task046c_money_words.py")
+       "tests/test_task046c_money_words.py", "tests/test_task046c_lesson_notes.py")
 
 
 def main(argv=None):
