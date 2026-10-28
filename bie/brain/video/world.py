@@ -5,7 +5,10 @@ each on a cue word ([beat_id, word] or [beat_id, "", fraction]); this code turns
 ``timing.py`` and checks the plan (unknown kinds, cue words not in their beat, camera keys out of order, a crowd step
 that is not a number, the picture staying still too long). This is Navin's "C" level: a part that tells a story with
 actors in a place is shown inside a small designed world; the kits a world can draw are listed in ``KITS`` (a part whose
-place has no kit falls back to the canvas, and the place goes to the missing-capability log).
+place has no kit falls back to the canvas, and the place goes to the missing-capability log). Kits so far: the shop street
+(PR 1) and the bank (PR 3, for the Money chapter's v1: a worker saves ₹500 in an account, a borrower pays an EMI): a bank
+building with a teller behind its counter, customers who walk in and out (the ``crowd``), and a ``board`` whose value
+changes on cue (a passbook balance, an EMI due) with the old value struck out.
 """
 from __future__ import annotations
 
@@ -15,15 +18,20 @@ from .. import canvas
 from ..canvas import PlanError
 from . import timing
 
-KINDS = {"shop", "price_tag", "crowd", "coin_rain", "balance", "label", "pull_arrow", "title", "lamp", "foreground", "shopkeeper"}
+KINDS = {"shop", "price_tag", "crowd", "coin_rain", "balance", "label", "pull_arrow", "title", "lamp", "foreground", "shopkeeper",
+         "bank", "teller", "board"}
 # The places a story part can be set in (Navin, 27 October 2026: "a shop and its buyers, a bank and its borrowers, a factory
 # and its workers, a port, a farm"), with the words that name them in a Hinglish script. A place with a kit in ``KITS`` goes
 # to world mode (C); a place without one falls back to the canvas (B) and goes to the missing-capability log (Part C, PR 3
 # builds the kits the chosen video needs). The director (bie/brain/canvas_director.py) decides; this module only draws.
 PLACES = {
-    "shop": ("दुकान", "दुकानदार", "shop", "shopkeeper", "बाज़ार", "बाजार", "market", "खरीदार", "buyer", "buyers", "ग्राहक", "customer",
-             "customers", "किराना", "mandi", "मंडी"),
-    "bank": ("बैंक", "bank", "banks", "कर्ज़", "कर्ज", "loan", "loans", "borrower", "borrowers", "depositor", "depositors", "जमा", "उधार", "rbi"),
+    # A tea stall, a market stall and the English "bazaar" are shops too (the Money chapter's v1, 28 October 2026).
+    "shop": ("दुकान", "दुकानदार", "shop", "shopkeeper", "बाज़ार", "बाजार", "bazaar", "bazar", "market", "खरीदार", "buyer", "buyers", "ग्राहक",
+             "customer", "customers", "किराना", "mandi", "मंडी", "tea stall", "stall", "stalls", "ठेला", "ठेले", "चायवाला", "चायवाले", "चाय"),
+    # The bank's own words: accounts, deposits, savings, passbooks, instalments, the teller (never the English "account" alone:
+    # money's "unit of account" is a shop story in v1).
+    "bank": ("बैंक", "bank", "banks", "कर्ज़", "कर्ज", "loan", "loans", "borrower", "borrowers", "depositor", "depositors", "जमा", "उधार", "rbi",
+             "खाता", "खाते", "passbook", "पासबुक", "savings", "बचत", "instalment", "installment", "किश्त", "क़िस्त", "teller", "cashier"),
     "factory": ("फैक्ट्री", "फ़ैक्ट्री", "factory", "factories", "कारखाना", "कारखाने", "मज़दूर", "मजदूर", "worker", "workers", "मशीन", "machine"),
     "port": ("बंदरगाह", "port", "ports", "ship", "ships", "जहाज़", "जहाज", "export", "exports", "import", "imports", "निर्यात", "आयात", "container"),
     "farm": ("खेत", "किसान", "farm", "farmer", "farmers", "फसल", "crop", "crops", "harvest", "कटाई", "tractor", "बीज"),
@@ -31,11 +39,17 @@ PLACES = {
     "petrol_pump": ("petrol pump", "पेट्रोल पंप", "पेट्रोल पम्प", "fuel station", "petrol", "diesel", "पेट्रोल", "डीज़ल", "डीजल"),
 }
 PLACE_LABELS = {"shop": "shop", "bank": "bank", "factory": "factory", "port": "port", "farm": "farm", "petrol_pump": "petrol pump"}
-KITS = {"shop": {"label": "a shop with buyers on a street", "words": PLACES["shop"]}}
+KITS = {"shop": {"label": "a shop with buyers on a street", "words": PLACES["shop"]},
+        "bank": {"label": "a bank with its customers at the counter", "words": PLACES["bank"]}}
+# The element kind that is a kit's place: a world plan for that kit must contain one (the other kinds dress the street).
+PLACE_KINDS = {"shop": "shop", "bank": "bank"}
 CUE_KEYS = ("cue", "until_cue", "tilt_cue")
 
 
-def compile_world(plan: dict, *, voice: dict | None = None, lead_in: float = timing.LEAD_IN):
+def compile_world(plan: dict, *, voice: dict | None = None, lead_in: float = timing.LEAD_IN, kit: str = ""):
+    """(scene, report) for a world plan; ``kit`` (or ``plan["kit"]``) names the kit the plan was written for, so a bank story
+    is refused until it has its bank (a shop drawn for a bank story is the wrong world)."""
+    kit = kit or plan.get("kit") or ""
     beats = plan["beats"]
     if not beats:
         raise PlanError("a world plan needs at least one beat")
@@ -67,8 +81,12 @@ def compile_world(plan: dict, *, voice: dict | None = None, lead_in: float = tim
             if key in n:
                 n[key]["at"] = frame_of(n[key].pop("cue")); changes.append(n[key]["at"])
         els.append(n)
-    if not any(e["kind"] == "shop" for e in els):
-        raise PlanError("a world needs its place: add a shop element (the only kit so far)")
+    kinds = {e["kind"] for e in els}
+    places = [k for k, kind in PLACE_KINDS.items() if kind in kinds]
+    if kit and PLACE_KINDS.get(kit) not in kinds:
+        raise PlanError(f"a world in {place_label(kit)} needs its place: add a {PLACE_KINDS.get(kit, kit)} element")
+    if not places:
+        raise PlanError("a world needs its place: add a " + " or a ".join(PLACE_KINDS.values()) + " element (the kits so far)")
     cam = []
     for k in plan.get("camera") or []:
         f = frame_of(k["cue"])
@@ -87,7 +105,7 @@ def compile_world(plan: dict, *, voice: dict | None = None, lead_in: float = tim
              "layers": [{"id": sid + "_world", "type": "block", "block": "world_scene", "at": 0, "box": {"x": 0, "y": 0, "w": 1, "h": 1}, "data": data}]}
     report = {"scene": sid, "seconds": round(duration / fps, 1), "elements": len(els), "camera_moves": len(cam),
               "longest_still_s": round(still, 1), "change_every_s": round(duration / fps / max(1, len(pts) - 1), 1), "problems": problems,
-              "mode": "C", "level": "L3"}
+              "mode": "C", "level": "L3", "kit": kit or places[0]}
     return scene, report
 
 

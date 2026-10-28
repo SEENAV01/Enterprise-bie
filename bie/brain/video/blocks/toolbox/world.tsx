@@ -2,9 +2,10 @@
 // Captions come from the core Captions strip, not from here.
 //
 // Instead of a canvas, the lesson happens inside a small 2.5D world that BIE builds from data: a street with parallax
-// layers (sky, far city, mid buildings, street, foreground), a shop with a shelf of goods and a hanging price tag, BIE's
-// own walking people (procedural characters, no third-party art), coin rain, a balance of supply against demand, a big
-// "pull" arrow, glass labels and a title — all timed to cue words, with a camera that glides, pushes in and pulls back
+// layers (sky, far city, mid buildings, street, foreground), a shop with a shelf of goods and a hanging price tag, or a bank
+// with a teller behind its counter and a board whose value changes (the bank kit, Task 046 Part C PR 3), BIE's own walking
+// people (procedural characters, no third-party art), coin rain, a balance of supply against demand, a big "pull" arrow,
+// glass labels and a title — all timed to cue words, with a camera that glides, pushes in and pulls back
 // through the layers (near things move faster than far things, far things are softer). Everything is drawn by code, so
 // every lesson can rebuild it for ₹0. Coordinates are world pixels: the world is ``data.world_width`` wide and 1080 tall;
 // the street's walking line is y = 860.
@@ -151,6 +152,80 @@ const Shop: React.FC<{ el: any; frame: number; fps: number }> = ({ el, frame, fp
       {/* counter */}
       <rect x={x - w / 2 + 10} y={GROUND - 170} width={w - 20} height={170} fill="#b07a4f" />
       <rect x={x - w / 2} y={GROUND - 185} width={w} height={22} rx={6} fill="#8e5c36" />
+    </g>
+  );
+};
+
+/** The bank kit's place: a stone front with a pediment and pillars, a sign band, a teller window and a counter on the street
+ *  (Task 046 Part C, PR 3: the Money chapter's v1 saves ₹500 in an account and pays an EMI). The teller stands behind the
+ *  counter, so the counter is drawn after the person. */
+const Bank: React.FC<{ el: any; teller?: any; frame: number }> = ({ el, teller, frame }) => {
+  const x = el.x, w = 900, top = GROUND - 540;          // the whole front fits a 1080-tall frame at zoom 1 (camera y 540)
+  return (
+    <g>
+      {/* facade */}
+      <rect x={x - w / 2 - 50} y={top - 150} width={w + 100} height={750} fill="#e9e2d3" />
+      <path d={`M${x - w / 2 - 80},${top - 176} L${x},${top - 280} L${x + w / 2 + 80},${top - 176} Z`} fill="#d8ccb2" stroke="#c4b79a" strokeWidth={6} />
+      <rect x={x - w / 2 - 80} y={top - 182} width={w + 160} height={40} fill="#cfc4ad" />
+      {/* sign band */}
+      <rect x={x - 320} y={top - 112} width={640} height={92} rx={14} fill="#1f3a5f" />
+      <text x={x} y={top - 46} textAnchor="middle" fontSize={56} fontWeight={900} fill="#fff7e0" fontFamily={FONT}>{el.sign ?? "बैंक"}</text>
+      {/* hall */}
+      <rect x={x - w / 2 + 70} y={top + 4} width={w - 140} height={556} fill="#2b3f55" />
+      <rect x={x - w / 2 + 90} y={top + 24} width={w - 180} height={300} fill="#3b556f" />
+      {/* teller window */}
+      <rect x={x - 230} y={top + 70} width={460} height={230} rx={18} fill="#9fd3ff" opacity={0.5} stroke="#fff" strokeWidth={6} />
+      <rect x={x - 230} y={top + 300} width={460} height={28} fill="#cfd8dc" />
+      {/* pillars */}
+      {[-1, 1].map((s) => (
+        <g key={s}>
+          <rect x={x + s * (w / 2 - 20) - 34} y={top - 16} width={68} height={576} fill="#f4efe4" stroke="#cfc4ad" strokeWidth={4} />
+          <rect x={x + s * (w / 2 - 20) - 46} y={top - 36} width={92} height={28} fill="#d8ccb2" />
+        </g>
+      ))}
+      {teller ? <Person x={teller.x ?? x} y={GROUND - 190} s={0.9} facing={-1} phase={frame / 3} walking={false} look={teller.look ?? 5} /> : null}
+      {/* counter */}
+      <rect x={x - w / 2 + 70} y={GROUND - 200} width={w - 140} height={200} fill="#6d4c41" />
+      <rect x={x - w / 2 + 50} y={GROUND - 216} width={w - 100} height={26} rx={6} fill="#4e342e" />
+      <rect x={x - 60} y={GROUND - 176} width={120} height={14} rx={4} fill="#ffe9a8" opacity={0.8} />
+      {/* step */}
+      <rect x={x - w / 2 - 90} y={GROUND - 26} width={w + 180} height={26} fill="#cfc4ad" />
+    </g>
+  );
+};
+
+/** A standing display whose value changes on its cue word: a passbook balance, an EMI due. The old value is struck out above
+ *  the new one (as the price tag does) and `dir` adds a green up or a red down arrow. */
+const Board: React.FC<{ el: any; frame: number; fps: number }> = ({ el, frame, fps }) => {
+  const steps: { text: string; at: number; dir?: string }[] = el.steps ?? [];
+  if (!steps.length || frame < steps[0].at || (el.until !== undefined && frame > el.until + 15)) return null;
+  let idx = 0;
+  steps.forEach((s, i) => { if (frame >= s.at) idx = i; });
+  const cur = steps[idx], prev = idx > 0 ? steps[idx - 1] : null;
+  const flip = prev ? lin(frame, cur.at, cur.at + 16) : 1;
+  const k = pop(frame, fps, steps[0].at) * (el.until !== undefined ? 1 - lin(frame, el.until, el.until + 15) : 1);
+  const glow = prev ? Math.max(0, 1 - lin(frame, cur.at + 8, cur.at + 60)) : 0;
+  const w = 440, h = 310, header = el.fill ?? "#1f3a5f";
+  const stand = Math.max(0, GROUND - el.y - h / 2);
+  return (
+    <g transform={`translate(${el.x},${el.y}) scale(${k})`}>
+      <rect x={-14} y={h / 2 - 4} width={28} height={stand + 4} fill="#45535e" />
+      <rect x={-90} y={h / 2 + stand - 16} width={180} height={16} rx={6} fill="#45535e" />
+      {glow ? <circle cx={0} cy={50} r={250} fill={cur.dir === "down" ? "#ff9f7a" : "#ffcf5a"} opacity={0.32 * glow} /> : null}
+      <rect x={-w / 2} y={-h / 2} width={w} height={h} rx={24} fill="#fffdf6" stroke="#2c3e50" strokeWidth={6} />
+      <path d={`M${-w / 2},${-h / 2 + 24} a24,24 0 0 1 24,-24 h${w - 48} a24,24 0 0 1 24,24 v52 h${-w} z`} fill={header} />
+      <text x={0} y={-h / 2 + 54} textAnchor="middle" fontSize={34} fontWeight={800} fill="#fff" fontFamily={FONT}>{el.text ?? ""}</text>
+      <g transform={`translate(0,70) scale(1,${Math.abs(Math.cos((1 - flip) * Math.PI / 2))})`}>
+        <text x={0} y={34} textAnchor="middle" fontSize={96} fontWeight={900} fill="#2b2b2b" fontFamily={FONT}>{flip < 0.5 && prev ? prev.text : cur.text}</text>
+      </g>
+      {prev && flip > 0.5 ? <g opacity={Math.min(1, (flip - 0.5) * 3)}>
+        <text x={0} y={-20} textAnchor="middle" fontSize={34} fontWeight={800} fill="#8a8a8a" fontFamily={FONT}>{prev.text}</text>
+        <line x1={-70} y1={-30} x2={70} y2={-34} stroke="#d63031" strokeWidth={6} />
+      </g> : null}
+      {cur.dir === "up" && flip > 0.9 ? <path d="M160,60 l30,-48 l30,48 l-18,0 l0,46 l-24,0 l0,-46 z" fill="#27ae60"
+        transform={`translate(0,${(1 - pop(frame, fps, cur.at + 10)) * 30})`} /> : null}
+      {cur.dir === "down" && flip > 0.9 ? <path d="M160,60 l30,48 l30,-48 l-18,0 l0,-46 l-24,0 l0,46 z" fill="#d63031"
+        transform={`translate(0,${(1 - pop(frame, fps, cur.at + 10)) * -30})`} /> : null}
     </g>
   );
 };
@@ -403,6 +478,7 @@ const WorldScene: React.FC<BlockProps> = ({ data, width: W, height: H }) => {
       <Layer W={W} H={H} transform={layer(1)}><Road WW={WW} /></Layer>
       <Layer W={W} H={H} transform={layer(1)}>
         {byKind("shop").map((e) => <Shop key={e.id} el={e} frame={frame} fps={fps} />)}
+        {byKind("bank").map((e) => <Bank key={e.id} el={e} frame={frame} teller={byKind("teller").find((t) => Math.abs((t.x ?? e.x) - e.x) < 600)} />)}
           {byKind("lamp").map((e) => <g key={e.id}><rect x={e.x - 7} y={GROUND - 420} width={14} height={420} fill="#45535e" /><rect x={e.x - 40} y={GROUND - 440} width={80} height={24} rx={10} fill="#45535e" /><ellipse cx={e.x} cy={GROUND - 412} rx={30} ry={10} fill="#ffe9a8" /></g>)}
         {byKind("shopkeeper").map((e) => <Person key={e.id} x={e.x} y={GROUND - 150} s={0.9} facing={-1} phase={frame / 3} walking={false} look={e.look ?? 3} />)}
         {byKind("crowd").map((e) => <Crowd key={e.id} el={e} frame={frame} fps={fps} />)}
@@ -410,6 +486,7 @@ const WorldScene: React.FC<BlockProps> = ({ data, width: W, height: H }) => {
         {byKind("coin_rain").map((e) => <CoinRain key={e.id} el={e} frame={frame} />)}
         {byKind("pull_arrow").map((e) => <PullArrow key={e.id} el={e} frame={frame} />)}
         {byKind("balance").map((e) => <Balance key={e.id} el={e} frame={frame} fps={fps} />)}
+        {byKind("board").map((e) => <Board key={e.id} el={e} frame={frame} fps={fps} />)}
         {byKind("label").map((e) => <GlassLabel key={e.id} el={e} frame={frame} fps={fps} />)}
       </Layer>
       {foreground.length ? <Layer W={W} H={H} transform={layer(1.6)}><Foreground els={foreground} /></Layer> : null}

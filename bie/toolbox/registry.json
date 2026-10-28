@@ -3050,14 +3050,15 @@
      "econ-curve-phillips",
      "econ-price-chain",
      "econ-table-real-gdp",
-     "econ-world-demand-pull"
+     "econ-world-demand-pull",
+     "econ-world-bank-saving"
     ],
     "tests": [
      "tests/test_task046_canvas.py::Canvas",
      "tests/test_task046_canvas.py::World"
     ]
    },
-   "notes": "Task 046 Part C, from the economy kit of 27 October 2026. canvas_build: a paper canvas that builds up on the spoken words (text, callouts, icons, crowds that grow and shrink, values that change, arrows, trees, tables, marks, highlights, focus) with L3 touches (shadows, idle motion, walk-ins, goods and coins flowing along arrows, a camera that follows the story): Navin's B level, the default for every economy part. curve_story: a graph that draws itself with dots, shades, guides and notes on cue. world_scene: a 2.5D street with a shop, procedural people, price tags, coin rain, a balance and camera keys in world pixels: Navin's C level for story parts. The plans are compiled and checked by bie/brain/canvas.py and bie/brain/video/world.py; captions are drawn once by the core strip."
+   "notes": "Task 046 Part C, from the economy kit of 27 October 2026. canvas_build: a paper canvas that builds up on the spoken words (text, callouts, icons, crowds that grow and shrink, values that change, arrows, trees, tables, marks, highlights, focus) with L3 touches (shadows, idle motion, walk-ins, goods and coins flowing along arrows, a camera that follows the story): Navin's B level, the default for every economy part. curve_story: a graph that draws itself with dots, shades, guides and notes on cue. world_scene: a 2.5D street with a shop or a bank (the bank kit of PR 3: a teller behind the counter, a board whose value changes), procedural people, price tags, coin rain, a balance and camera keys in world pixels: Navin's C level for story parts. The plans are compiled and checked by bie/brain/canvas.py and bie/brain/video/world.py; captions are drawn once by the core strip."
   }
  ]
 }

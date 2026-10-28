@@ -271,6 +271,49 @@ class World(unittest.TestCase):
         self.assertEqual(world.kit_for("मान लीजिए एक दुकान पर चीनी के तीन पैकेट हैं"), "shop")
         self.assertEqual(world.kit_for("The shopkeeper raises the price"), "shop")
         self.assertEqual(world.kit_for("GDP दो तरह से नापी जाती है"), "")
+        # PR 3 (the Money chapter's v1): a tea stall, a market stall and the English "bazaar" are shops; a bank story has its kit
+        self.assertEqual(world.kit_for("Tea stall; illustrative outside example"), "shop")
+        self.assertEqual(world.kit_for("चायवाले ने दो दस के सिक्के लिए"), "shop")
+        self.assertEqual(world.kit_for("Hypothetical village bazaar"), "shop")
+        self.assertEqual(world.kit_for("Bank account; illustrative outside amounts"), "bank")
+        self.assertEqual(world.kit_for("खाते में पाँच सौ रुपये जमा किए, पासबुक में balance बढ़ा"), "bank")
+        self.assertEqual(world.kit_for("A factory and its workers"), "")               # a place without a kit yet
+        self.assertEqual(world.place_of("A factory and its workers"), "factory")
+
+    def test_the_bank_fixture_compiles_as_a_level_c_world_with_the_bank_kit(self):
+        plan = fixture("store_of_value_world.world.json")
+        scene, report = world.compile_world(copy.deepcopy(plan))
+        self.assertEqual(report["problems"], [])
+        self.assertEqual((report["mode"], report["level"], report["kit"]), ("C", "L3", "bank"))
+        data = scene["layers"][0]["data"]
+        kinds = [e["kind"] for e in data["elements"]]
+        self.assertIn("bank", kinds)
+        self.assertIn("teller", kinds)
+        board = next(e for e in data["elements"] if e["kind"] == "board")
+        self.assertEqual([s["text"] for s in board["steps"]], ["₹0", "₹500", "₹0"])
+        self.assertTrue(all("at" in s for s in board["steps"]))
+        self.assertEqual(board["steps"][1]["dir"], "up")
+        self.assertLess(report["longest_still_s"], 15)
+        self.assertEqual(len(scene["captions"]), len(plan["beats"]))
+
+    def test_a_bank_story_is_refused_until_it_has_its_bank(self):
+        plan = fixture("store_of_value_world.world.json")
+        shop_only = copy.deepcopy(plan)
+        shop_only["elements"] = [dict(e, kind="shop") if e["kind"] == "bank" else e for e in shop_only["elements"] if e["kind"] != "teller"]
+        with self.assertRaises(canvas.PlanError) as ctx:
+            world.compile_world(shop_only)                                            # plan["kit"] == "bank"
+        self.assertIn("a world in bank needs its place: add a bank element", str(ctx.exception))
+        del shop_only["kit"]
+        self.assertEqual(world.compile_world(shop_only)[1]["kit"], "shop")              # without a kit named, the shop is a world
+        nothing = copy.deepcopy(plan)
+        nothing["elements"] = [e for e in nothing["elements"] if e["kind"] not in ("bank", "teller")]
+        del nothing["kit"]
+        with self.assertRaises(canvas.PlanError) as ctx:
+            world.compile_world(nothing)
+        self.assertIn("add a shop or a bank element", str(ctx.exception))
+        self.assertEqual(world.compile_world(copy.deepcopy(fixture("demand_pull_world.world.json")), kit="shop")[1]["kit"], "shop")
+        self.assertEqual(world.KITS["bank"]["label"], "a bank with its customers at the counter")
+        self.assertEqual(world.PLACE_KINDS, {"shop": "shop", "bank": "bank"})
 
 
 class Icons(unittest.TestCase):
@@ -411,7 +454,8 @@ class Demos(unittest.TestCase):
                 path.write_text(SVG.replace("<path ", f"<!-- {i} --><path "), encoding="utf-8")
         with mock.patch.dict(os.environ, {"BIE_TWEMOJI_SVG": str(tw), "BIE_FONTAWESOME_SVGS": str(fa)}):
             econ = [d for d in demos.DEMOS if d.id.startswith("econ-") and d.tools[0] == "bie-econ-blocks"]
-            self.assertEqual(len(econ), 5)
+            self.assertEqual(len(econ), 6)
+            self.assertIn("econ-world-bank-saving", [d.id for d in econ])
             for d in econ:
                 work = demos.Work(folder=tmp / d.id, library=AssetLibrary(tmp / d.id / "assets"))
                 spec = d.build(work)
