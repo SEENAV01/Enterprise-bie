@@ -983,10 +983,26 @@ that is not the supplied measurement"). **v17 passed in run b and failed here:**
 continued and lost to the notes finding. The rest: duplicate recaps (v9, v11), S2-07 book-word beats (v4, v8, v10), formal words
 (सफर, काल्पनिक, सुलभ, देय, मान्य …), one S2-01 overrun by code (v10, 12.4 against 10.7).
 
-**What changes in BIE (next PR, `task046c-lesson-notes`):** (1) `lesson_plan.json` stores each script's notes and a resume
-carries them (`_script_value`); `merge_notes` takes a patch's `about` and `key_questions` only when the earlier ones are empty;
-(2) a checker finding placed only on `notes.*` is minor (the notes are the maker's account for the checker, never what the
-learner hears), as the plan seekh did for the plan; (3) a finding that re-measures time is minor: the review runs only on a
-code-clean script, so the code's S2-01 verdict already stands; (4) W-01 `answer codes?` narrowed to the source-pointing forms
-("answer codes in the original continuation", "the supplied answer codes"); (5) सफर joins the everyday list. Measured on the
-run's own records before that PR merges; the live effect in the resume `-d`.
+**What changed in BIE (branch `task046c-lesson-notes`, `tests/test_task046c_lesson_notes.py`, 9 tests; toolbox core lane and
+Task 045 lane):** (1) `lesson_plan.json` keeps each script's notes and a resume starts from them (`_script_value`), so
+`merge_notes` has the unit's `about` and `key_questions` to keep against a patch's (it already keeps the earlier ones when
+they exist; the fault was that a resume had none); (2) `lesson.script_review_problems`, the script step's filter: a checker
+finding placed only on the notes (`notes`, `notes.about, …`, `maker notes`, `Video v2; maker notes`) is minor, the notes being
+the maker's account for the checker and never what the learner hears, as the plan seekh did for the plan; (3) a finding that
+re-measures the narration against its budget ("11.1 spoken minutes against an allowed maximum of 11.0", "8.9 minutes,
+exceeding the 8.8-minute ceiling") is minor: the review runs only on a script whose time BIE's code has passed, so the code's
+S2-01 verdict stands; when every blocking finding was such, the script passes; the review is annotated in place
+(`minor_by_code`) so the record shows it; the review prompt says both (`lesson-script-review/5`); (4) W-01 `answer codes?`
+narrowed to the source-pointing forms (`answer codes (in|of|from) the (original|source|supplied|given)`, `(original|supplied|…)
+answer codes`), the exam instruction kept as an allowed example (`visual_grammar` 2026-10-28.1); (5) सफर joins the everyday
+list (`simple_hindi` 2026-10-28.1); the formal words the resume flagged stay hard.
+
+| Measure (the resume's own records, replayed) | Before | After |
+| --- | --- | --- |
+| Failed scripts whose last review has 0 blocking findings | 0 of 11 | 2 of 11 (v5, v17: they failed on the notes alone) |
+| Blocking findings on the 11 last reviews | 32 | 23 (9 read as minor: 7 on the notes, 2 re-measuring time) |
+| W-01 hits on run b's v17 (the script that passed there) | 1 (the exam's "answer code चुनिए") | 0 |
+| W-01 hits over the 18 last answers of the resume | 0 | 0 (nothing real lost) |
+
+The live effect comes from the next lesson resume (`t046c-money-lesson-d`: v5 and v17 pass at round 0 without a maker call if
+their last answers still pass today's code checks; the other 9 take fresh rounds with the time and notes findings gone).

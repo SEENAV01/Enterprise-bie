@@ -193,7 +193,7 @@ def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--section", choices=("understand", "lesson", "director", "notes", "game", "visual", "canvas", "chain"), default="understand")
     parser.add_argument("--source", help="chapter PDF (understand, chain)")
-    parser.add_argument("--chapter-map", help="chapter_map.json from an earlier run (lesson)")
+    parser.add_argument("--chapter-map", help="chapter_map.json from an earlier run (lesson; director, visual and canvas when --from-run has none)")
     parser.add_argument("--from-run", help="folder or https URL of an earlier run with chapter_map.json and lesson_plan.json (director)")
     parser.add_argument("--resume-from", help="folder or https URL of an earlier run: understand/chain reuse its passed pages, "
                                               "lesson reuses its passed plan and scripts (when they pass today's checks)")
@@ -292,7 +292,8 @@ def main(argv=None):
             if not args.from_run:
                 raise SystemExit("FROM_RUN_REQUIRED")
             base = args.from_run.rstrip("/") + "/"
-            chapter = json.loads(read_text(base + "chapter_map.json"))
+            # a lesson run folder holds no chapter_map.json (the lesson read its map from a URL): --chapter-map names it then
+            chapter = json.loads(read_text(args.chapter_map if args.chapter_map else base + "chapter_map.json"))
             lesson = json.loads(read_text(base + "lesson_plan.json"))
             if args.section == "visual":
                 director = json.loads(read_text(base + "director.json"))

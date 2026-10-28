@@ -102,7 +102,7 @@ class UnpackChecks(unittest.TestCase):
         self.assertEqual([p for p in soul.unpack_problems(self.item(textbook), language="English") if "textbook" in p], [])
         self.assertEqual([p for p in soul.unpack_problems(self.item(GOOD_UNPACK)) if "textbook" in p], [])
         self.assertEqual(len(hinglish.load().technical), 62)
-        self.assertIn("simple_hindi@2026-10-27.2", BOOK.version)
+        self.assertIn("simple_hindi@2026-10-28.1", BOOK.version)
         self.assertEqual(hinglish.difficult_words("बाँह की नोक पर रस और छन्नी, अंदरूनी जाल, रसोई की कटोरी"), [])   # job B's everyday words
         self.assertEqual(hinglish.difficult_words("सामान्यतः पर्याप्त"), ["सामान्यतः", "पर्याप्त"])              # formal words stay hard
 

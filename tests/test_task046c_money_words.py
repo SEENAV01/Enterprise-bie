@@ -43,12 +43,12 @@ class TheMoneyWords(unittest.TestCase):
         self.assertEqual(hinglish.difficult_words("यह काल्पनिक उदाहरण मुख्यतः निर्देश के तहत है।"), ["काल्पनिक", "मुख्यतः", "निर्देश", "तहत"])
 
     def test_the_list_version_and_its_changes_line(self):
-        self.assertIn("simple_hindi@2026-10-27.2", BOOK.version)
+        self.assertIn("simple_hindi@2026-10-28.1", BOOK.version)
         import json
         data = json.loads((ROOT / "bie/brain/rulebook/simple_hindi.json").read_text(encoding="utf-8"))
-        self.assertEqual(data["version"], "2026-10-27.2")
-        self.assertTrue(data["changes"][0].startswith("2026-10-27.2"))
-        self.assertIn("रकम", data["changes"][0])
+        self.assertGreaterEqual(data["version"], "2026-10-27.2")              # later seekhs move it on
+        self.assertTrue(any(c.startswith("2026-10-27.2") for c in data["changes"]))
+        self.assertIn("रकम", next(c for c in data["changes"] if c.startswith("2026-10-27.2")))
 
 
 class SourcePointing(unittest.TestCase):
@@ -71,10 +71,10 @@ class SourcePointing(unittest.TestCase):
                                                           "RBI ने 1935 में पहले notes छापे; उन पर George V की तस्वीर थी।")), [])
 
     def test_the_grammar_version_moved_with_its_changes_line(self):
-        self.assertIn("visual_grammar@2026-10-27.1", BOOK.version)
+        self.assertIn("visual_grammar@2026-10-28.1", BOOK.version)
         import json
         data = json.loads((ROOT / "bie/brain/rulebook/visual_grammar.json").read_text(encoding="utf-8"))
-        self.assertEqual(data["version"], "2026-10-27.1")
+        self.assertGreaterEqual(data["version"], "2026-10-27.1")              # later seekhs move it on
         self.assertTrue(any(c.startswith("2026-10-27.1") and "source packet" in c for c in data["changes"]))
         self.assertIn("source-listed", data["wording"]["W-01"]["english"])
 
