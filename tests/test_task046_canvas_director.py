@@ -249,6 +249,16 @@ class Tool(unittest.TestCase):
             self.assertEqual(summary["canvas_quality"]["parts_passed"], 2)
             self.assertIn("canvas", summary["estimate"]["sections"])
             self.assertTrue((out / "video_specs" / "v1.json").exists())
+            # a lesson run folder has no chapter_map.json (the Money lesson read its map from a URL): --chapter-map names it
+            lesson_only = Path(folder, "lesson_run")
+            lesson_only.mkdir()
+            (lesson_only / "lesson_plan.json").write_text(json.dumps(lesson, ensure_ascii=False), encoding="utf-8")
+            out2 = Path(folder, "out2")
+            with contextlib.redirect_stdout(io.StringIO()), contextlib.redirect_stderr(io.StringIO()):
+                code = run_brain.main(["--fake", "--section", "canvas", "--from-run", str(lesson_only), "--chapter-map", str(run / "chapter_map.json"),
+                                       "--out", str(out2), "--workers", "1", "--max-inr", "100000", "--videos", "v1"])
+            self.assertEqual(code, 0)
+            self.assertTrue((out2 / "video_specs" / "v1.json").exists())
 
     def test_the_vm_accepts_a_canvas_job(self):
         import codex_vm
