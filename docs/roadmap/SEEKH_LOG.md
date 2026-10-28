@@ -1004,8 +1004,11 @@ list (`simple_hindi` 2026-10-28.1); the formal words the resume flagged stay har
 | W-01 hits on run b's v17 (the script that passed there) | 1 (the exam's "answer code चुनिए") | 0 |
 | W-01 hits over the 18 last answers of the resume | 0 | 0 (nothing real lost) |
 
-The live effect comes from the next lesson resume (`t046c-money-lesson-d`: v5 and v17 pass at round 0 without a maker call if
-their last answers still pass today's code checks; the other 9 take fresh rounds with the time and notes findings gone).
+**Live effect (the resume `t046c-money-lesson-d`, 28 October 2026, 15.6 minutes, 47 Codex calls, ₹0):** 13 of 18 scripts pass
+(7 before): of the 11 continued scripts v5, v13 and v17 passed at round 1 and v8, v9 and v14 after 3–4 rounds; no script failed on
+its notes or on a re-measured time. The 5 still failing (v2, v4, v10, v11, v12; 4–5 rounds each) fail on real content findings:
+narration that says what the source lacks (W-01), outside banking facts without a dated basis, and the route named before its
+example runs (Navin's example-first rule read on the whole part). Those are the next seekh candidates (entry 24 is the render's).
 
 ## Entry 23 · the first real world plans: a board is not a page, 28 October 2026
 
@@ -1032,5 +1035,27 @@ card's edge; the `PriceTag` font shrinks to its tag; the card says the limits.
 | Values drawn outside their box (the nine stills) | 5 of 9 stills | 0 (two multi-line boards rendered and read) |
 
 Next: the canvas job runs again on v1 after this merges (the maker fixes the one refused tag; the boards wrap by code), then the
-render and the review copy.
+render and the review copy. **Done (`t046c-money-canvas-v1c`, 28 October 2026):** 8 of 8 parts, 6 first try, 11 rounds, 13 Codex
+calls, ₹0; the price tags are "₹100" and "₹200"; 152 board values (87 over 16 characters), 0 over 3 lines of 26 after wrapping;
+the second render (`t046c-money-v1c`) is the after.
 
+## Entry 24 · the first real render: a camera box that showed the backdrop, 28 October 2026
+
+**What the first render taught** (workflow run 40619059768 on the plans of `t046c-money-canvas-v1b`, dest `t046c-money-v1`:
+7.03 minutes, 12,646 frames at 1920 × 1080, 8 chunks in parallel, 3.7 minutes wall-clock, 26.6 machine minutes, 0.126 s a
+frame, 3.78 render seconds per video second, ₹17.84 at the list price, billed ₹0; review copy 15.2 MB): one scene of nine
+(`v1_s3b`, a build-up canvas) opened on a dark band across the top of the frame. The core `Scene` camera scales a key's box by
+`min(1/w, 1/h)`, so a box that is not square in frame fractions (the canvas compiler's cell boxes are grid cells, wider than
+tall) shows the backdrop beside or above the content. The compiler let any box through.
+
+**What changed in BIE (branch `task046c-camera-fit`, PR #96, `tests/test_task046_canvas.py`):** `canvas.fit_box` grows every
+camera box to the square of its longer side in frame fractions, centred on the box and kept inside the frame; `compile_plan`
+writes every key through it, so a scene camera never shows the backdrop. (The board and price-tag limits of entry 23 are the
+other half of what the first render taught.)
+
+| Measure (v1's spec, first render) | Before | After |
+| --- | --- | --- |
+| Camera keys whose box is not square in frame fractions (backdrop shown) | 1 of 9 | 0 of 8 (the second plans ask for no box; every box that comes is squared by code, tested) |
+| Scenes opening on a dark band (each scene's opening frame of the review copy: a 25 px top strip darker than half the frame) | 1 of 9 (`v1_s3b`) | 0 of 9 |
+
+The second render (`t046c-money-v1c`, STATUS section "The real video") is the after.
