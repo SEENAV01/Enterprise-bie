@@ -1,0 +1,137 @@
+{
+  "cost": {
+    "cap": {
+      "by_section_inr": {
+        "preflight": 0.0
+      },
+      "calls_allowed": 2,
+      "calls_refused": 0,
+      "cap_inr": 5.0,
+      "spent_inr": 0.0,
+      "spent_usd": 0.0,
+      "stop_reason": "preflight: google not_found",
+      "stopped": true,
+      "usd_inr": 94.59
+    },
+    "inr_per_page": 0.0,
+    "note": "Ledger cost is an estimate: exact token counts times the dated price table in bie/model_gateway/live/pricing.py (plus the AICredits 10% markup), converted at usd_inr. It is not the bill. Write the provider dashboard amount for this run into real_bill_inr (and docs/roadmap/COST_LOG.md) to compare.",
+    "pages": 20,
+    "real_bill_inr": null,
+    "sections": {
+      "preflight": {
+        "calls": 2,
+        "inr": 0.0,
+        "inr_per_page": 0.0,
+        "name": "preflight",
+        "usd": 0.0
+      }
+    },
+    "subscription": {
+      "calls": 1,
+      "failed_calls": 0,
+      "input_tokens": 3347,
+      "minutes": 0.1,
+      "note": "paid by the ChatGPT plan, no rupees; time is the sum of call times",
+      "output_tokens": 15,
+      "reasoning_tokens": 0
+    },
+    "total_inr": 0.0,
+    "total_usd": 0.0,
+    "usd_inr": 94.59
+  },
+  "error": "a preflight call failed, so no section was run (see the pahra preflight annotations)",
+  "estimate": {
+    "maker_billing": "subscription",
+    "measured_share_inr": 0,
+    "pages": 20,
+    "price_scale": 0.189,
+    "reviewer_billing": "api",
+    "sections": {
+      "canvas": {
+        "basis": "assumed",
+        "inr": 35.84,
+        "inr_per_page": 1.79,
+        "source": "not measured yet; one plan per part, code checks only (Task 046 Part C)"
+      }
+    },
+    "total_inr": 35.84,
+    "usd_inr": 94.59
+  },
+  "fake": false,
+  "ledger_calls": 2,
+  "ledger_cost_usd": 0.0,
+  "level": {
+    "band": "senior_secondary",
+    "disagreement": null,
+    "evidence": {
+      "long_share": 0.078,
+      "marker": "intermediate",
+      "reason": "the text says 'intermediate'",
+      "sentence_words": 13.2,
+      "setting": "course.level = upsc_pcs",
+      "very_long_share": 0.0145,
+      "words": 6678
+    },
+    "profile": "upsc_pcs",
+    "source": "course"
+  },
+  "maker": "codex",
+  "models": {
+    "codex": "gpt-6.1-sol",
+    "google": "gemini-3.1-pro"
+  },
+  "plan_usage_after": {
+    "codex": {
+      "rateLimitResetCredits.availableCount": 2,
+      "rateLimits.planType": "prolite",
+      "rateLimits.primary.resetsAt": 1793606984,
+      "rateLimits.primary.usedPercent": 13,
+      "rateLimits.primary.windowDurationMins": 10080,
+      "rateLimitsByLimitId.codex.planType": "prolite",
+      "rateLimitsByLimitId.codex.primary.resetsAt": 1793606984,
+      "rateLimitsByLimitId.codex.primary.usedPercent": 13,
+      "rateLimitsByLimitId.codex.primary.windowDurationMins": 10080
+    }
+  },
+  "preflight": {
+    "passed": false,
+    "routes": {
+      "codex": {
+        "input_tokens": 3347,
+        "login": {
+          "logged_in": true,
+          "mode": "Logged in using ChatGPT"
+        },
+        "model": "gpt-6.1-sol",
+        "output_tokens": 15,
+        "plan_usage_before": {
+          "rateLimitResetCredits.availableCount": 2,
+          "rateLimits.planType": "prolite",
+          "rateLimits.primary.resetsAt": 1793606984,
+          "rateLimits.primary.usedPercent": 13,
+          "rateLimits.primary.windowDurationMins": 10080,
+          "rateLimitsByLimitId.codex.planType": "prolite",
+          "rateLimitsByLimitId.codex.primary.resetsAt": 1793606984,
+          "rateLimitsByLimitId.codex.primary.usedPercent": 13,
+          "rateLimitsByLimitId.codex.primary.windowDurationMins": 10080
+        },
+        "returned_model": "gpt-6.1-sol",
+        "status": "ok",
+        "via": "codex"
+      },
+      "google": {
+        "error": "404 | NOT_FOUND | models/gemini-3.1-pro is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.",
+        "error_kind": "not_found",
+        "model": "gemini-3.1-pro",
+        "status": "failed",
+        "via": "direct"
+      }
+    }
+  },
+  "reviewer": "google",
+  "reviewer_independence": "other_company",
+  "reviewer_route": "google",
+  "rulebook": "canvas_profile@2026-10-27.2+content_types@2026-10-27.1+explanations@2026-10-24.1+level_profiles@2026-10-24.1+simple_hindi@2026-10-27.2+teacher_examples@2026-10-27.1+vision-2026-10-21@2026-10-21.14+visual_grammar@2026-10-27.1+visual_levels@2026-10-26.2",
+  "section": "canvas",
+  "status": "stopped: preflight"
+}
