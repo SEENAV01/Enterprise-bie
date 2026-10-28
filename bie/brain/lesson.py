@@ -279,6 +279,9 @@ Blocking: a book item or book-answered question not really covered, a fact wrong
 without a reason, a book line only restated, a family member without its slots, a prerequisite named but not taught, a jump a student
 cannot follow, language that is not natural spoken Hinglish, beats that read out lists. Minor: precision beyond a standard textbook for
 these learners, an analogy that could fit better, an optional outside question, a memory trick that could be better.
+The maker's notes are the maker's account for you, never what the learner hears: a problem only in the notes is minor. The
+measured minutes are BIE's code's and already checked: never report the length as a problem (BIE's code counts such a finding as
+minor); ask for cuts only as the way to pay for an addition.
 verdict is "pass" when nothing is blocking. Fill your own brief notes first. Reply with the JSON object only."""
 
 SCRIPT_TIME_HINT = (" BIE's code measured this script at {spoken} spoken minutes; the video's narration time is {low}-{high} minutes "
@@ -288,6 +291,45 @@ SCRIPT_KEEP_HINT = (" Never remove beats {beats}: each is the only beat of a tea
 SCRIPT_WORDING_HINT = (" For a W-01 problem rewrite only that beat's sentence so it teaches the fact itself, as a teacher would (no "
                        "'book ke anusar', 'kitaab kehti hai', 'book says', 'page par', 'NCERT'); keep its meaning, its items and its "
                        "length; change no other beat.")
+
+
+# ---------------------------------------------------------------- the script checker's findings read as the rules read (seekh 22)
+
+NOTES_PLACE = re.compile(r"^(?:video\s+v\d+\s*[;:,]\s*)?(?:(?:the\s+)?maker'?s?\s+notes?|notes(?:\.[a-z_]+(?:\[[^\]]*\])?)?)"
+                         r"(?:\s*[;,/]\s*(?:(?:the\s+)?maker'?s?\s+notes?|notes(?:\.[a-z_]+(?:\[[^\]]*\])?)?))*\s*$", re.IGNORECASE)
+TIME_WORDS = r"(?:ceiling|limit|maximum|permitted|allowed|exceed\w*|measure\w*|budget|narration time|spoken time)"
+TIME_FINDING = re.compile(r"\b\d+(?:\.\d+)?[\s-]*(?:spoken[\s-]+)?minutes?\b[^.]*\b" + TIME_WORDS + r"\b|\b" + TIME_WORDS
+                          + r"\b[^.]*\b\d+(?:\.\d+)?[\s-]*(?:spoken[\s-]+)?minutes?\b", re.IGNORECASE)
+
+
+def script_finding_minor(finding: dict) -> str:
+    """Why a script checker's blocking finding is minor by BIE's rules, or "" when it stands (the Money resume
+    t046c-money-lesson-c, 28 October 2026): "notes" when it is placed only on the maker's notes (the notes are the maker's
+    account for the checker, never what the learner hears; v5 and v17 failed on nothing else); "time" when it re-measures the
+    narration against the budget (the review runs only on a script whose time BIE's code has passed, so the code's S2-01
+    verdict stands; v2 11.1 against 11.0, v11 10.5 against 10.4, v14 8.9 against 8.8)."""
+    where = str(finding.get("where") or "").strip()
+    if where and NOTES_PLACE.match(where):
+        return "notes"
+    if TIME_FINDING.search(str(finding.get("problem") or "")):
+        return "time"
+    return ""
+
+
+def script_review_problems(review: dict, value: dict | None = None) -> list:
+    """The script checker's blocking findings as remake instructions, with a notes-only finding and a time re-measure read as
+    minor (``script_finding_minor``); when every blocking finding was such, the script passes. Everything else is the
+    checker's call as before. The review is annotated in place (``severity`` and ``minor_by_code``) so the record shows it."""
+    downgraded = 0
+    for finding in review.get("problems") or []:
+        if finding.get("severity", "blocking") == "blocking":
+            why = script_finding_minor(finding)
+            if why:
+                finding["severity"], finding["minor_by_code"] = "minor", why
+                downgraded += 1
+    if downgraded and not any(blocking(review.get(key)) for key in ("missing", "wrong", "shallow", "problems")):
+        review["verdict"] = "pass"
+    return review_problems(review)
 
 
 def sole_step_beats(beats) -> list:
@@ -874,7 +916,7 @@ def script_prefixes(course, rulebook):
     profile = course.profile()
     how = "\n\n".join([SCRIPT_HOW, profile.prefix_text(), soul.teacher_text(), hinglish.prefix_text()])
     return (_prefix(course, rulebook, "write_script", SCRIPT_SCHEMA_ID, SCRIPT_SCHEMA, SCRIPT_ROLE, how),
-            _prefix(course, rulebook, "write_script", "bie.brain.lesson-script-review/4", REVIEW_SCHEMA, REVIEW_ROLE,
+            _prefix(course, rulebook, "write_script", "bie.brain.lesson-script-review/5", REVIEW_SCHEMA, REVIEW_ROLE,
                     SCRIPT_REVIEW_HOW + "\n\n" + profile.prefix_text(), review=True, version=4))
 
 
@@ -915,7 +957,7 @@ def script_step(course: Course, chapter, plan, video, *, rulebook, max_rounds=3,
                 user=user, schema=SCRIPT_SCHEMA,
                 check=lambda value: check_script(value, chapter, video, course.language, card, budget),
                 review_system=review_prefix.text, review_user=review_user, review_schema=REVIEW_SCHEMA,
-                review_problems=review_problems, patch_schema=SCRIPT_PATCH_SCHEMA, apply_patch=apply_script_patch,
+                review_problems=script_review_problems, patch_schema=SCRIPT_PATCH_SCHEMA, apply_patch=apply_script_patch,
                 patch_hint=patch_hint, max_rounds=max_rounds, card=card, observe=observe, normalize=tidy_script,
                 start=start)
 
@@ -934,9 +976,12 @@ def tidy_script(value: dict) -> tuple:
 
 
 def _script_value(video_entry: dict) -> dict:
-    """A script as the maker wrote it, from a lesson_plan.json video (without the code-made subtitle and voice)."""
+    """A script as the maker wrote it, from a lesson_plan.json video (without the code-made subtitle and voice), with its
+    notes: a resume that started with ``notes: None`` let the first patch round's notes ("targeted wording correction in
+    b12") become the script's notes for good, and the checker failed v5 and v17 of the Money resume on them (seekh 22)."""
     beats = [{k: v for k, v in b.items() if k not in ("subtitle", "voice")} for b in video_entry.get("beats") or []]
-    return {"notes": None, "title": video_entry.get("title", ""), "parts": video_entry.get("parts") or [], "beats": beats}
+    return {"notes": video_entry.get("notes"), "title": video_entry.get("title", ""), "parts": video_entry.get("parts") or [],
+            "beats": beats}
 
 
 CONTINUE_LIMIT = 10        # an earlier script with at most this many problems today is finished, not written again
@@ -1048,6 +1093,7 @@ def run_lesson(chapter: dict, course: Course, runner, out_dir, *, workers: int =
         "videos": [{
             "video_id": video["video_id"],
             "title": (result.output or {}).get("title") or video["title"],
+            "notes": (result.output or {}).get("notes"),            # kept for a resume (seekh 22: a patch's notes are not the unit's)
             "status": previous_videos[video["video_id"]].get("status", result.status) if video["video_id"] in kept else result.status,
             "rounds": len(result.rounds) if video["video_id"] not in old_scripts else previous_videos[video["video_id"]]["rounds"],
             "reused": video["video_id"] in old_scripts,

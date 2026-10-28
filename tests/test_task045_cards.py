@@ -782,6 +782,10 @@ class LessonResumeAndPages(unittest.TestCase):
             record = json.loads(Path(second, "records", again["videos"][1]["record"]).read_text(encoding="utf-8"))
             self.assertEqual([(r["round"], r["mode"]) for r in record["rounds"]], [(0, "resume")])
             self.assertIn("(continued)", Path(second, "SCRIPT.md").read_text(encoding="utf-8"))
+            # seekh 22: the earlier run's notes travel with the script (lesson_plan.json keeps them, the resume starts from them)
+            self.assertTrue(previous["videos"][1]["notes"]["about"])
+            self.assertEqual(record["rounds"][0]["notes"], previous["videos"][1]["notes"])
+            self.assertEqual(again["videos"][1]["notes"], previous["videos"][1]["notes"])
 
     def test_nothing_is_reused_when_the_chapter_map_changed(self):
         with tempfile.TemporaryDirectory() as first, tempfile.TemporaryDirectory() as second:

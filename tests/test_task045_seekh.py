@@ -642,7 +642,7 @@ class ScriptReviewerFollowsTheTimeRule(unittest.TestCase):
         _, _, step = self.chapter_and_step()
         self.assertIn('A teacher question whose basis is "outside" is optional', step.review_system)
         self.assertIn("Never count words or judge the length yourself", step.review_system)
-        self.assertIn("bie.brain.lesson-script-review/4", step.review_system)
+        self.assertIn("bie.brain.lesson-script-review/5", step.review_system)
         shown = step.review_user({"beats": [say_beat("b1", 260)], "parts": [], "title": "t", "notes": None})[0]["text"]
         self.assertIn("BIE's code measured: 2.0 spoken minutes; narration time 12.0-16.0 minutes", shown)
 
