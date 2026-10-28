@@ -129,9 +129,9 @@ Navin's rules for this section (follow every one):
 How to fill the JSON (every field is present; "" / 0 / [] mean "not used"):
 - notes: the story of this part in two lines, what each camera move shows, what is uncertain.
 - elements: in story order; id (unique), kind, the fields of that kind (card), cue [beat_id, word] (word exactly as written
-  in that beat; [beat_id, ""] for the beat's start) and until_cue when it leaves; steps (text/n + cue) for a price tag or
-  a crowd; packets (n + cue) for the shop's stock; lift_cue + lift_dy lifts a price tag; carry_cue + carry_n sends buyers
-  away with goods; tilt_cue tilts the balance.
+  in that beat; [beat_id, ""] for the beat's start) and until_cue when it leaves; steps (text/n + cue) for a price tag, a
+  board or a crowd; packets (n + cue) for the shop's stock; lift_cue + lift_dy lifts a price tag; carry_cue + carry_n sends
+  buyers away with goods; tilt_cue tilts the balance. The place element (shop or bank) is the kit named above, once.
 - camera: keys in time order, each with cue, x and y in world pixels, zoom and frames (how long the move takes).
 Reply with the JSON object only."""
 
@@ -352,8 +352,10 @@ def plan_from(stub: dict, value: dict) -> dict:
     return plan
 
 
-def world_from(stub: dict, value: dict) -> dict:
+def world_from(stub: dict, value: dict, kit: str = "") -> dict:
     plan = {"id": stub["id"], "part_id": stub.get("part_id", ""), "world_width": 5200, "beats": stub["beats"]}
+    if kit:
+        plan["kit"] = kit
     els = []
     for v in value.get("elements") or []:
         e = {"id": v.get("id", ""), "kind": v.get("kind", "")}
@@ -404,10 +406,12 @@ def _icon_problems(plan: dict) -> list:
     return out
 
 
-def check_plan(stub: dict, value: dict, mode: str) -> list:
+def check_plan(stub: dict, value: dict, mode) -> list:
+    """The code check of a maker's answer: ``mode`` is the mode dict ({"mode", "kit", ...}) or the letter alone."""
+    letter, kit = (mode["mode"], mode.get("kit", "")) if isinstance(mode, dict) else (mode, "")
     try:
-        if mode == "C":
-            plan = world_from(stub, value)
+        if letter == "C":
+            plan = world_from(stub, value, kit=kit)
             _, report = world.compile_world(plan)
             return report["problems"]
         plan = plan_from(stub, value)
@@ -460,7 +464,8 @@ def part_step(course: Course, stub: dict, items: list, mode: dict, *, rulebook, 
                                          goods=", ".join(story.get("goods") or []), numbers=numbers)
     rules = rulebook.instructions(SECTION)
     if mode["mode"] == "C":
-        system = fmt(WORLD_ROLE, course, rules=rules, card=card_text(WORLD_CARD_PATH), place=world.KITS[mode["kit"]]["label"])
+        place = f"{world.KITS[mode['kit']]['label']}; its place element is kind '{world.PLACE_KINDS[mode['kit']]}'"
+        system = fmt(WORLD_ROLE, course, rules=rules, card=card_text(WORLD_CARD_PATH), place=place)
         schema = WORLD_SCHEMA
     else:
         menu = icon_menu() if menu is None else menu
@@ -470,7 +475,7 @@ def part_step(course: Course, stub: dict, items: list, mode: dict, *, rulebook, 
     user = (f"Chapter: {course.title}. Part {stub.get('part_id') or stub['id']} ({len(beats)} beats).{note}\n"
             f"The part (JSON):\n{json.dumps(payload, ensure_ascii=False)}\n\nReply with the plan JSON.")
     return Step(section=SECTION, unit=stub["id"], instructions_version=VERSION, system=system, user=user, schema=schema,
-                check=lambda value: check_plan(stub, value, mode["mode"]), max_rounds=max_rounds)
+                check=lambda value: check_plan(stub, value, mode), max_rounds=max_rounds)
 
 
 def split_stub(stub: dict, max_beats: int = MAX_PART_BEATS) -> list:
@@ -539,7 +544,7 @@ def run_canvas(chapter: dict, lesson: dict, course: Course, runner, out_dir, *, 
                 summary["missing_kits"].append(mode["missing"])
             if result.passed:
                 if mode["mode"] == "C":
-                    plan = world_from(stub, result.output)
+                    plan = world_from(stub, result.output, kit=mode.get("kit", ""))
                     scene, report = world.compile_world(plan)
                 else:
                     plan = plan_from(stub, result.output)

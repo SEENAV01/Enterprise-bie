@@ -75,7 +75,9 @@ class Mode(unittest.TestCase):
         gdp = beats_of("real_gdp.plan.json", "p2")
         self.assertEqual(cd.mode_of(ECON, gdp), {"mode": "B", "place": "", "kit": "", "missing": "", "story": False})
         bank = [{"beat_id": "b1", "say": "बैंक से कर्ज़ लेने वाले borrowers को ब्याज देना पड़ता है।"}]
-        self.assertEqual(cd.mode_of(ECON, bank), {"mode": "B", "place": "bank", "kit": "", "missing": "world kit for a bank", "story": False})
+        self.assertEqual(cd.mode_of(ECON, bank), {"mode": "C", "place": "bank", "kit": "bank", "missing": "", "story": False})   # PR 3
+        factory = [{"beat_id": "b1", "say": "फैक्ट्री में मज़दूर दिन में सौ जूते बनाते हैं।"}]
+        self.assertEqual(cd.mode_of(ECON, factory), {"mode": "B", "place": "factory", "kit": "", "missing": "world kit for a factory", "story": False})
         self.assertEqual(cd.mode_of(BIO, shop)["mode"], "")
         for subject, fits in (("Indian Economy", True), ("Polity and Constitution", True), ("Commerce", True), ("Physics", False), ("History", True)):
             self.assertEqual(cd.profile_fits(Course(title="x", subject=subject, learners="", exam="", language="Hinglish")), fits, subject)
@@ -207,15 +209,35 @@ class Run(unittest.TestCase):
         self.assertIn("[code] cue word 'nowhere' is not in beat c1", text)
         self.assertNotIn("review_problems\": [\"", text)                       # no reviewer round for layout
 
-    def test_a_bank_story_falls_back_to_the_canvas_and_logs_the_missing_kit(self):
+    def test_a_bank_story_gets_the_bank_kit_and_a_factory_story_falls_back_to_the_canvas(self):
         chapter, lesson = econ_lesson()
         for b in lesson["videos"][0]["beats"]:
             if b["part_id"] == "p1":
                 b["say"] = b["say"].replace("दुकान", "बैंक").replace("खरीदार", "borrower").replace("दुकानदार", "banker")
         summary = cd.run_canvas(chapter, lesson, ECON, runner(self.tmp), self.tmp, workers=1)
+        self.assertEqual(summary["quality"]["modes"], {"B": 1, "C": 1})                   # PR 3: the bank has its kit
+        self.assertEqual(summary["quality"]["missing_kits"], [])
+        plans = [json.loads(f.read_text(encoding="utf-8")) for f in sorted(Path(self.tmp, "plans").glob("*.plan.json"))]
+        plan = next(p for p in plans if p.get("kit") == "bank")
+        self.assertEqual({e["kind"] for e in plan["elements"]} & {"bank", "teller", "board"}, {"bank", "teller", "board"})
+        self.assertNotIn("Missing world kits", Path(self.tmp, "CANVAS.md").read_text(encoding="utf-8"))
+
+    def test_a_factory_story_falls_back_to_the_canvas_and_logs_the_missing_kit(self):
+        chapter, lesson = econ_lesson()
+        for b in lesson["videos"][0]["beats"]:
+            if b["part_id"] == "p1":
+                b["say"] = b["say"].replace("दुकान", "फैक्ट्री").replace("खरीदार", "worker").replace("दुकानदार", "मज़दूर")
+        summary = cd.run_canvas(chapter, lesson, ECON, runner(self.tmp), self.tmp, workers=1)
         self.assertEqual(summary["quality"]["modes"], {"B": 2, "C": 0})
-        self.assertEqual(summary["quality"]["missing_kits"], ["world kit for a bank"])
+        self.assertEqual(summary["quality"]["missing_kits"], ["world kit for a factory"])
         self.assertIn("Missing world kits", Path(self.tmp, "CANVAS.md").read_text(encoding="utf-8"))
+
+    def test_a_bank_plan_drawn_as_a_shop_is_refused_with_the_kit_named(self):
+        stub = {"id": "p1s", "part_id": "p1", "beats": beats_of("demand_pull_touches.plan.json", "p1")}
+        value = fake.world_answer(json.dumps({"beats": stub["beats"]}))                   # the beats are set in a shop → shop world
+        self.assertEqual(cd.check_plan(stub, value, {"mode": "C", "kit": "shop"}), [])
+        self.assertEqual(cd.check_plan(stub, value, {"mode": "C", "kit": "bank"}), ["a world in bank needs its place: add a bank element"])
+        self.assertEqual(cd.check_plan(stub, value, "C"), [])                              # the letter alone: no kit required
 
     def test_a_long_part_becomes_two_canvases_and_a_non_canvas_subject_is_left_to_the_shot_list_director(self):
         chapter, lesson = econ_lesson()
