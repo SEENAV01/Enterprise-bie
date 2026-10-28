@@ -194,38 +194,54 @@ const Bank: React.FC<{ el: any; teller?: any; frame: number }> = ({ el, teller, 
   );
 };
 
-/** A standing display whose value changes on its cue word: a passbook balance, an EMI due. The old value is struck out above
- *  the new one (as the price tag does) and `dir` adds a green up or a red down arrow. */
+/** A standing display whose value changes on its cue word: a passbook balance, an EMI due, the few words that change. The
+ *  value is up to three lines (code wraps a long line at spaces, world.py); the font and the box fit the longest line, so
+ *  nothing runs out of the card. The old value is struck out above the new one when it was short (as the price tag does),
+ *  and `dir` adds a green up or a red down arrow. */
 const Board: React.FC<{ el: any; frame: number; fps: number }> = ({ el, frame, fps }) => {
-  const steps: { text: string; at: number; dir?: string }[] = el.steps ?? [];
+  const steps: { text: string; lines?: string[]; at: number; dir?: string }[] = el.steps ?? [];
   if (!steps.length || frame < steps[0].at || (el.until !== undefined && frame > el.until + 15)) return null;
   let idx = 0;
   steps.forEach((s, i) => { if (frame >= s.at) idx = i; });
   const cur = steps[idx], prev = idx > 0 ? steps[idx - 1] : null;
+  const linesOf = (s: { text: string; lines?: string[] }) => (s.lines && s.lines.length ? s.lines : String(s.text ?? "").split("\n"));
   const flip = prev ? lin(frame, cur.at, cur.at + 16) : 1;
+  const shown = flip < 0.5 && prev ? prev : cur;
+  const lines = linesOf(shown);
+  const longest = Math.max(1, ...lines.map((l) => l.length));
+  const fs = lines.length === 1 && longest <= 8 ? 96 : lines.length === 1 && longest <= 14 ? 72 : 46;
+  const w = Math.max(440, Math.min(960, Math.round(longest * fs * 0.6 + 90)));
+  const body = lines.length * fs * 1.22;
+  const h = Math.max(310, Math.round(140 + body + 40));
   const k = pop(frame, fps, steps[0].at) * (el.until !== undefined ? 1 - lin(frame, el.until, el.until + 15) : 1);
   const glow = prev ? Math.max(0, 1 - lin(frame, cur.at + 8, cur.at + 60)) : 0;
-  const w = 440, h = 310, header = el.fill ?? "#1f3a5f";
+  const header = el.fill ?? "#1f3a5f";
   const stand = Math.max(0, GROUND - el.y - h / 2);
+  const ghost = prev && flip > 0.5 && linesOf(prev).length === 1 && linesOf(prev)[0].length <= 14 ? linesOf(prev)[0] : null;
+  const top = -h / 2 + 70 + (ghost ? 44 : 0);
+  const free = h - 70 - (ghost ? 44 : 0) - 30;
+  const y0 = top + Math.max(0, (free - body) / 2) + fs * 0.95;
   return (
     <g transform={`translate(${el.x},${el.y}) scale(${k})`}>
       <rect x={-14} y={h / 2 - 4} width={28} height={stand + 4} fill="#45535e" />
       <rect x={-90} y={h / 2 + stand - 16} width={180} height={16} rx={6} fill="#45535e" />
       {glow ? <circle cx={0} cy={50} r={250} fill={cur.dir === "down" ? "#ff9f7a" : "#ffcf5a"} opacity={0.32 * glow} /> : null}
       <rect x={-w / 2} y={-h / 2} width={w} height={h} rx={24} fill="#fffdf6" stroke="#2c3e50" strokeWidth={6} />
-      <path d={`M${-w / 2},${-h / 2 + 24} a24,24 0 0 1 24,-24 h${w - 48} a24,24 0 0 1 24,24 v52 h${-w} z`} fill={header} />
-      <text x={0} y={-h / 2 + 54} textAnchor="middle" fontSize={34} fontWeight={800} fill="#fff" fontFamily={FONT}>{el.text ?? ""}</text>
-      <g transform={`translate(0,70) scale(1,${Math.abs(Math.cos((1 - flip) * Math.PI / 2))})`}>
-        <text x={0} y={34} textAnchor="middle" fontSize={96} fontWeight={900} fill="#2b2b2b" fontFamily={FONT}>{flip < 0.5 && prev ? prev.text : cur.text}</text>
-      </g>
-      {prev && flip > 0.5 ? <g opacity={Math.min(1, (flip - 0.5) * 3)}>
-        <text x={0} y={-20} textAnchor="middle" fontSize={34} fontWeight={800} fill="#8a8a8a" fontFamily={FONT}>{prev.text}</text>
-        <line x1={-70} y1={-30} x2={70} y2={-34} stroke="#d63031" strokeWidth={6} />
+      <path d={`M${-w / 2},${-h / 2 + 24} a24,24 0 0 1 24,-24 h${w - 48} a24,24 0 0 1 24,24 v46 h${-w} z`} fill={header} />
+      <text x={0} y={-h / 2 + 48} textAnchor="middle" fontSize={34} fontWeight={800} fill="#fff" fontFamily={FONT}>{el.text ?? ""}</text>
+      {ghost ? <g opacity={Math.min(1, (flip - 0.5) * 3)}>
+        <text x={0} y={-h / 2 + 104} textAnchor="middle" fontSize={34} fontWeight={800} fill="#8a8a8a" fontFamily={FONT}>{ghost}</text>
+        <line x1={-ghost.length * 11} y1={-h / 2 + 94} x2={ghost.length * 11} y2={-h / 2 + 90} stroke="#d63031" strokeWidth={6} />
       </g> : null}
-      {cur.dir === "up" && flip > 0.9 ? <path d="M160,60 l30,-48 l30,48 l-18,0 l0,46 l-24,0 l0,-46 z" fill="#27ae60"
-        transform={`translate(0,${(1 - pop(frame, fps, cur.at + 10)) * 30})`} /> : null}
-      {cur.dir === "down" && flip > 0.9 ? <path d="M160,60 l30,48 l30,-48 l-18,0 l0,-46 l-24,0 l0,46 z" fill="#d63031"
-        transform={`translate(0,${(1 - pop(frame, fps, cur.at + 10)) * -30})`} /> : null}
+      <g transform={`translate(0,0) scale(1,${Math.abs(Math.cos((1 - flip) * Math.PI / 2))})`}>
+        {lines.map((line, i) => (
+          <text key={i} x={0} y={y0 + i * fs * 1.22} textAnchor="middle" fontSize={fs} fontWeight={900} fill="#2b2b2b" fontFamily={FONT}>{line}</text>
+        ))}
+      </g>
+      {cur.dir === "up" && flip > 0.9 ? <path d="M0,0 l30,-48 l30,48 l-18,0 l0,46 l-24,0 l0,-46 z" fill="#27ae60"
+        transform={`translate(${w / 2 - 90},${h / 2 - 110 + (1 - pop(frame, fps, cur.at + 10)) * 30})`} /> : null}
+      {cur.dir === "down" && flip > 0.9 ? <path d="M0,0 l30,48 l30,-48 l-18,0 l0,-46 l-24,0 l0,46 z" fill="#d63031"
+        transform={`translate(${w / 2 - 90},${h / 2 - 110 + (1 - pop(frame, fps, cur.at + 10)) * -30})`} /> : null}
     </g>
   );
 };
@@ -248,7 +264,8 @@ const PriceTag: React.FC<{ el: any; frame: number; fps: number }> = ({ el, frame
       <g transform={`scale(1,${Math.abs(Math.cos((1 - flip) * Math.PI / 2))})`}>
         <path d="M-110,-40 L90,-40 L130,20 L90,80 L-110,80 Z" fill="#fff8e1" stroke="#e0a100" strokeWidth={6} />
         <circle cx={92} cy={20} r={10} fill="#e0a100" />
-        <text x={-10} y={46} textAnchor="middle" fontSize={78} fontWeight={900} fill="#2b2b2b" fontFamily={FONT}>{flip < 0.5 && prev ? prev.text : cur.text}</text>
+        <text x={-10} y={46} textAnchor="middle" fontSize={Math.min(78, Math.floor(200 / (Math.max(1, String(flip < 0.5 && prev ? prev.text : cur.text).length) * 0.6)))}
+          fontWeight={900} fill="#2b2b2b" fontFamily={FONT}>{flip < 0.5 && prev ? prev.text : cur.text}</text>
       </g>
       {cur.dir === "up" && flip > 0.9 ? <path d="M150,40 l30,-48 l30,48 l-18,0 l0,46 l-24,0 l0,-46 z" fill="#27ae60" transform={`translate(0,${(1 - pop(frame, fps, cur.at + 10)) * 30})`} /> : null}
       {prev && flip > 0.5 ? <g opacity={Math.min(1, (flip - 0.5) * 3)}>

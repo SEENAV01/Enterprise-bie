@@ -1006,3 +1006,31 @@ list (`simple_hindi` 2026-10-28.1); the formal words the resume flagged stay har
 
 The live effect comes from the next lesson resume (`t046c-money-lesson-d`: v5 and v17 pass at round 0 without a maker call if
 their last answers still pass today's code checks; the other 9 take fresh rounds with the time and notes findings gone).
+
+## Entry 23 · the first real world plans: a board is not a page, 28 October 2026
+
+**What the first real plans taught** (`t046c-money-canvas-v1b`, v1 of the Money chapter, 8 parts: 8 passed, 6 first try, modes
+B 2 / C 6, 3 story parts all in a world, 12 Codex calls, 5.1 minutes, ₹0): the director used the world's `board` as a card for
+sentences: 63 of its 98 board and price-tag values were longer than 16 characters, many with line breaks ("Digital balances =
+digitally recorded पैसे", "Savings = आपके resources\nFuture instalment = obligation"), a price tag read "₹100 / basket", a title
+"Money: value → Limited supply → Purchasing power". The block drew every value at one size, so the text ran out of its box and
+across the street (nine stills of the spec through the preview renderer, before the render). The kit lacked a card that
+holds a few words, and the code let anything through.
+
+**What changed in BIE (branch `task046c-board-fit`, tests in `tests/test_task046_canvas.py`):** `world.wrap_value` keeps the
+maker's line breaks and wraps a long line at its spaces; `compile_world` writes the lines into each board step and refuses a
+value of more than 3 lines of 26 characters, a price tag of more than 9 characters (a price, not words) and a title over 30,
+each with the limit and the way out named ("say the rest in the narration, or split it over two steps on two cue words";
+"use a board for words"); the `Board` block draws the lines at a size and a box width that fit (96 px for a short number, 72
+for up to 14 characters, 46 for lines), shows the struck-out old value only when it was short, and puts the arrow at the
+card's edge; the `PriceTag` font shrinks to its tag; the card says the limits.
+
+| Measure (v1's own plans, replayed) | Before | After |
+| --- | --- | --- |
+| Board and price-tag values over 16 characters | 63 of 98 | 63 of 63 fit after wrapping (≤ 3 lines of ≤ 26) |
+| World plans of v1 that compile under the limits | 6 of 6 (nothing checked) | 5 of 6 (the price tag "₹100 / basket" is refused with "use a board for words") |
+| Values drawn outside their box (the nine stills) | 5 of 9 stills | 0 (two multi-line boards rendered and read) |
+
+Next: the canvas job runs again on v1 after this merges (the maker fixes the one refused tag; the boards wrap by code), then the
+render and the review copy.
+

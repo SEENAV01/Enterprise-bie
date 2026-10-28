@@ -328,6 +328,16 @@ it into the rendered video; nothing ACCEPTED before Navin's verdict; ₹0.
   have a kit, so v1 renders every story part as an L3 world (C) and no missing-capability line. Next: the canvas plans by BIE on
   the VM (`--section canvas`), the render in CI, the review copy and page, STOP.
 
+- **Seekh from the first real plans (branch `task046c-board-fit`, SEEKH_LOG entry 23):** the v1 canvas job `t046c-money-canvas-v1b`
+  (8 of 8 parts, 6 first try, B 2 / C 6, 421.5 s, 12 Codex calls, 5.1 minutes, ₹0; the first job `t046c-money-canvas-v1` stopped
+  at preflight on the VM's default Google reviewer route, gemini-3.1-pro not found, though the canvas section has no reviewer
+  round) wrote sentences into the world's boards (63 of 98 values over 16 characters) and the text ran out of its box in 5 of 9
+  stills. Now code wraps a board's value at spaces (the maker's line breaks kept), refuses more than 3 lines of 26 characters,
+  a price tag over 9 characters and a title over 30, and the block fits the font and the box to the lines; all 63 long values
+  fit after wrapping, 5 of 6 world plans compile (one price tag "₹100 / basket" is refused: "use a board for words"). The
+  render of the first plans (workflow run 40619059768, dest `t046c-money-v1`) is the before; the canvas job runs again after
+  this merges, then the render again.
+
 ### PR 4 · render speed (27 October 2026)
 
 Built on branch `task046c-render` (IMPLEMENTED; measured on this machine, 4 CPUs, the same 60 frames before and after;
