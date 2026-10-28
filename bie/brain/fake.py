@@ -274,17 +274,26 @@ def canvas_answer(user_text: str):
 
 
 def world_answer(user_text: str):
-    """A world the world compiler accepts: a shop, a price tag, a crowd that grows, a title, and one camera key per beat."""
+    """A world the world compiler accepts: a shop with a price tag (or, for beats set in a bank, a bank with its teller and a
+    board), a crowd that grows, a title, and one camera key per beat."""
     data = _payload(user_text)
     beats = data.get("beats", [])
     empty = {"x": 0, "y": 0, "sign": "", "text": "", "fill": "", "string": 0, "steps": [], "packets": [], "cue": [], "until_cue": [],
              "tilt_cue": [], "tilt": 0, "x0": 0, "x1": 0, "y0": 0, "y1": 0, "spacing": 0, "enter_x": 0, "exit_x": 0, "face": 0, "seed": 0,
              "count": 0, "lift_cue": [], "lift_dy": 0, "carry_cue": [], "carry_n": 0}
+    from .video import world as _world
     first = beats[0]["beat_id"] if beats else "b1"
-    els = [dict(empty, id="shop", kind="shop", x=2600, sign="दुकान", packets=[{"n": 3, "cue": [first, ""]}]),
-           dict(empty, id="lamp1", kind="lamp", x=2050), dict(empty, id="fg1", kind="foreground", x=1750),
-           dict(empty, id="tag", kind="price_tag", x=2870, y=560, string=60,
-                steps=[{"text": "₹50", "n": 0, "dir": "", "cue": [first, _first_word(beats[0]["say"]) if beats else ""]}]),
+    first_cue = [first, _first_word(beats[0]["say"]) if beats else ""]
+    street = [dict(empty, id="lamp1", kind="lamp", x=2050), dict(empty, id="fg1", kind="foreground", x=1750)]
+    if _world.place_of(" ".join(b.get("say", "") for b in beats)) == "bank":      # a bank story gets the bank kit (PR 3)
+        place = [dict(empty, id="bank", kind="bank", x=2600, sign="बैंक")] + street + [
+                 dict(empty, id="teller", kind="teller", x=2600),
+                 dict(empty, id="board", kind="board", x=3350, y=420, text="खाता", fill="#1f3a5f",
+                      steps=[{"text": "₹0", "n": 0, "dir": "", "cue": first_cue}])]
+    else:
+        place = [dict(empty, id="shop", kind="shop", x=2600, sign="दुकान", packets=[{"n": 3, "cue": [first, ""]}])] + street + [
+                 dict(empty, id="tag", kind="price_tag", x=2870, y=560, string=60, steps=[{"text": "₹50", "n": 0, "dir": "", "cue": first_cue}])]
+    els = place + [
            dict(empty, id="crowd", kind="crowd", x0=2330, spacing=120, enter_x=3950, exit_x=4300, face=-1, seed=4,
                 steps=[{"text": "", "n": 2 + n, "dir": "", "cue": [b["beat_id"], _first_word(b["say"])]} for n, b in enumerate(beats)]),
            dict(empty, id="title", kind="title", text="Story", cue=[first, ""])]

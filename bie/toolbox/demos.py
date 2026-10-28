@@ -756,6 +756,10 @@ def econ_world(w: Work) -> dict:
     return _econ(w, "demand_pull_world.world.json", beats=2, seconds=4.6, note="world")
 
 
+def econ_bank(w: Work) -> dict:
+    return _econ(w, "store_of_value_world.world.json", beats=2, seconds=4.6, note="bank")
+
+
 THREE_STACK = ("three", "react-three-fiber", "drei", "remotion-three")
 
 DEMOS = (
@@ -857,6 +861,8 @@ DEMOS = (
          ("tree_hierarchy", "table_build"), 4.6, econ_table),
     Demo("econ-world-demand-pull", 3, "The same story inside a 2.5D street: shop, price tag, buyers walking in and the camera moving (an L3 world)",
          ("bie-econ-blocks",), ("board_build",), 4.6, econ_world),
+    Demo("econ-world-bank-saving", 3, "The bank kit (PR 3): a worker walks into a bank, deposits ₹500 at the teller's counter and the account board changes (an L3 world)",
+         ("bie-econ-blocks",), ("board_build",), 4.6, econ_bank),
 )
 
 

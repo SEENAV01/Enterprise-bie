@@ -1,0 +1,43 @@
+{
+ "id": "store_of_value_world",
+ "kit": "bank",
+ "world_width": 5200,
+ "beats": [
+  {"beat_id": "b1", "say": "एक कामगार को तनख़्वाह मिली; वह पाँच सौ रुपये अभी खर्च नहीं करता।"},
+  {"beat_id": "b2", "say": "वह बैंक जाता है और खाते में पाँच सौ रुपये जमा करता है।"},
+  {"beat_id": "b3", "say": "पासबुक में balance शून्य से पाँच सौ हो गया; पैसा सुरक्षित रखा है।"},
+  {"beat_id": "b4", "say": "महीने बाद किराना लेने के लिए वह पाँच सौ रुपये निकालता है।"},
+  {"beat_id": "b5", "say": "Balance फिर शून्य; पैसे ने कमाई और खर्च के बीच मूल्य सँभाला।"},
+  {"beat_id": "b6", "say": "कमाई और खर्च के बीच पैसा रखना ही store of value है।"}
+ ],
+ "elements": [
+  {"id": "fg1", "kind": "foreground", "x": 1750},
+  {"id": "fg2", "kind": "foreground", "x": 3950},
+  {"id": "lamp1", "kind": "lamp", "x": 1950},
+  {"id": "lamp2", "kind": "lamp", "x": 3250},
+  {"id": "bank", "kind": "bank", "x": 2600, "sign": "बैंक"},
+  {"id": "teller", "kind": "teller", "x": 2600},
+  {"id": "worker", "kind": "crowd", "x0": 2330, "spacing": 120, "enter_x": 3950, "exit_x": 4300, "face": -1, "seed": 7,
+   "steps": [{"n": 1, "cue": ["b1", "कामगार"]}, {"n": 0, "cue": ["b5", "सँभाला"]}],
+   "carry": {"cue": ["b4", "निकालता"], "n": 1}},
+  {"id": "pay", "kind": "label", "x": 2000, "y": 470, "text": "तनख़्वाह · ₹500 बचे", "fill": "rgba(46,134,222,0.9)",
+   "cue": ["b1", "पाँच"], "until_cue": ["b2", "जमा"]},
+  {"id": "khata", "kind": "board", "x": 3350, "y": 420, "text": "खाता", "fill": "#1f3a5f",
+   "steps": [{"text": "₹0", "cue": ["b2", "खाते"]}, {"text": "₹500", "dir": "up", "cue": ["b3", "पाँच"]}, {"text": "₹0", "dir": "down", "cue": ["b4", "निकालता"]}]},
+  {"id": "rain_in", "kind": "coin_rain", "x0": 2350, "x1": 2850, "count": 24, "cue": ["b2", "जमा"], "until_cue": ["b3", "पाँच"]},
+  {"id": "safe", "kind": "label", "x": 2050, "y": 560, "text": "बचत · ₹500 सुरक्षित", "fill": "rgba(39,174,96,0.92)",
+   "cue": ["b3", "सुरक्षित"], "until_cue": ["b4", "निकालता"]},
+  {"id": "rain_out", "kind": "coin_rain", "x0": 2350, "x1": 2850, "count": 24, "cue": ["b4", "निकालता"], "until_cue": ["b5", "शून्य"]},
+  {"id": "grocery", "kind": "label", "x": 3950, "y": 560, "text": "किराना · ₹500", "fill": "rgba(230,126,34,0.92)",
+   "cue": ["b4", "किराना"], "until_cue": ["b5", "सँभाला"]},
+  {"id": "title", "kind": "title", "text": "STORE OF VALUE", "cue": ["b6", "store"]}
+ ],
+ "camera": [
+  {"cue": ["b1", "", 0.0], "x": 1600, "y": 560, "zoom": 0.9, "frames": 1},
+  {"cue": ["b2", "बैंक"], "x": 2600, "y": 560, "zoom": 1.15, "frames": 60},
+  {"cue": ["b3", "पासबुक"], "x": 3100, "y": 500, "zoom": 1.45, "frames": 40},
+  {"cue": ["b4", "निकालता"], "x": 2800, "y": 560, "zoom": 1.1, "frames": 40},
+  {"cue": ["b5", "शून्य"], "x": 3200, "y": 520, "zoom": 1.35, "frames": 40},
+  {"cue": ["b6", "store"], "x": 2600, "y": 540, "zoom": 1.0, "frames": 50}
+ ]
+}
