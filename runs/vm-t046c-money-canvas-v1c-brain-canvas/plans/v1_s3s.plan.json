@@ -1,0 +1,347 @@
+{
+ "id": "v1_s3s",
+ "part_id": "c01.3",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b16",
+   "say": "₹200 से पहले 2 baskets, अब 1 मिले तो क्या हुआ? खरीदने की क्षमता घटी। एक imagined market लेते हैं; ये actual market data नहीं हैं।"
+  },
+  {
+   "beat_id": "b17",
+   "say": "मानिए buyers पूरे ₹1000 से 10 एक-जैसी baskets खरीदते हैं, सब एक price पर: ₹100 each। अब वही 10 baskets हैं, लेकिन buyers पूरा ₹2000 खर्च करते हैं।"
+  },
+  {
+   "beat_id": "b18",
+   "say": "इन assumptions में price ₹200 होगी; ₹200 से 2 की जगह 1 basket मिलेगी। इसलिए Limited supply मदद करती है: Scarcity यानी limited availability, value बचाने में सहायक है; सामान बढ़े बिना spending बढ़े तो prices बढ़ सकती हैं।"
+  }
+ ],
+ "kit": "shop",
+ "elements": [
+  {
+   "id": "shop",
+   "kind": "shop",
+   "x": 2600,
+   "sign": "Market",
+   "cue": [
+    "b16",
+    "",
+    0.0
+   ],
+   "packets": [
+    {
+     "n": 0,
+     "cue": [
+      "b16",
+      "",
+      0.0
+     ]
+    },
+    {
+     "n": 10,
+     "cue": [
+      "b17",
+      "10"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "purchasing_power",
+   "kind": "board",
+   "x": 2110,
+   "y": 420,
+   "text": "₹200 की क्षमता",
+   "fill": "#497367",
+   "cue": [
+    "b16",
+    "₹200"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b16",
+      "2"
+     ],
+     "text": "2 baskets"
+    },
+    {
+     "cue": [
+      "b16",
+      "1"
+     ],
+     "text": "1 basket",
+     "dir": "down"
+    },
+    {
+     "cue": [
+      "b17",
+      "₹100"
+     ],
+     "text": "2 baskets",
+     "dir": "up"
+    },
+    {
+     "cue": [
+      "b18",
+      "1"
+     ],
+     "text": "1 basket",
+     "dir": "down"
+    }
+   ]
+  },
+  {
+   "id": "hypothetical",
+   "kind": "label",
+   "x": 2600,
+   "y": 210,
+   "text": "Imagined market · actual data नहीं",
+   "fill": "#F5E8C8",
+   "cue": [
+    "b16",
+    "imagined"
+   ]
+  },
+  {
+   "id": "buyers",
+   "kind": "crowd",
+   "x0": 2250,
+   "spacing": 95,
+   "enter_x": 1750,
+   "exit_x": 1750,
+   "face": 1,
+   "seed": 12,
+   "cue": [
+    "b17",
+    "buyers"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b17",
+      "buyers"
+     ],
+     "n": 3
+    }
+   ]
+  },
+  {
+   "id": "spending",
+   "kind": "board",
+   "x": 3070,
+   "y": 430,
+   "text": "कुल खर्च",
+   "fill": "#497367",
+   "cue": [
+    "b17",
+    "₹1000"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b17",
+      "₹1000"
+     ],
+     "text": "₹1000"
+    },
+    {
+     "cue": [
+      "b17",
+      "₹2000"
+     ],
+     "text": "₹2000",
+     "dir": "up"
+    }
+   ]
+  },
+  {
+   "id": "stock_label",
+   "kind": "label",
+   "x": 2600,
+   "y": 340,
+   "text": "10 एक-जैसी baskets",
+   "fill": "#E8EFE4",
+   "cue": [
+    "b17",
+    "एक-जैसी"
+   ]
+  },
+  {
+   "id": "basket_price",
+   "kind": "price_tag",
+   "x": 2770,
+   "y": 465,
+   "string": 45,
+   "cue": [
+    "b17",
+    "₹100"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b17",
+      "₹100"
+     ],
+     "text": "₹100"
+    },
+    {
+     "cue": [
+      "b18",
+      "₹200"
+     ],
+     "text": "₹200",
+     "dir": "up"
+    }
+   ]
+  },
+  {
+   "id": "scarcity",
+   "kind": "label",
+   "x": 2600,
+   "y": 110,
+   "text": "Scarcity = limited availability",
+   "fill": "#F5E8C8",
+   "cue": [
+    "b18",
+    "Scarcity"
+   ]
+  },
+  {
+   "id": "value",
+   "kind": "label",
+   "x": 2600,
+   "y": 410,
+   "text": "Limited supply: value बचाने में सहायक",
+   "fill": "#E8EFE4",
+   "cue": [
+    "b18",
+    "value"
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b16",
+    "",
+    0.0
+   ],
+   "x": 2440,
+   "y": 460,
+   "zoom": 1,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b16",
+    "क्षमता"
+   ],
+   "x": 2310,
+   "y": 440,
+   "zoom": 1.1,
+   "frames": 36
+  },
+  {
+   "cue": [
+    "b16",
+    "actual"
+   ],
+   "x": 2600,
+   "y": 440,
+   "zoom": 0.9,
+   "frames": 36
+  },
+  {
+   "cue": [
+    "b17",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 460,
+   "zoom": 0.9,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b17",
+    "price"
+   ],
+   "x": 2750,
+   "y": 460,
+   "zoom": 1,
+   "frames": 36
+  },
+  {
+   "cue": [
+    "b17",
+    "वही"
+   ],
+   "x": 2600,
+   "y": 465,
+   "zoom": 1,
+   "frames": 36
+  },
+  {
+   "cue": [
+    "b17",
+    "₹2000"
+   ],
+   "x": 2770,
+   "y": 460,
+   "zoom": 1,
+   "frames": 36
+  },
+  {
+   "cue": [
+    "b18",
+    "₹200"
+   ],
+   "x": 2660,
+   "y": 460,
+   "zoom": 1,
+   "frames": 36
+  },
+  {
+   "cue": [
+    "b18",
+    "जगह"
+   ],
+   "x": 2430,
+   "y": 450,
+   "zoom": 1,
+   "frames": 36
+  },
+  {
+   "cue": [
+    "b18",
+    "Limited"
+   ],
+   "x": 2600,
+   "y": 435,
+   "zoom": 0.9,
+   "frames": 36
+  },
+  {
+   "cue": [
+    "b18",
+    "सामान"
+   ],
+   "x": 2670,
+   "y": 440,
+   "zoom": 0.95,
+   "frames": 36
+  },
+  {
+   "cue": [
+    "b18",
+    "prices"
+   ],
+   "x": 2600,
+   "y": 440,
+   "zoom": 0.9,
+   "frames": 36
+  }
+ ]
+}

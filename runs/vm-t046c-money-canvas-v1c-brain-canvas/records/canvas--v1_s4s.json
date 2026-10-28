@@ -1,0 +1,3426 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "canvas",
+ "unit": "v1_s4s",
+ "status": "passed",
+ "instructions_version": "canvas-plan/1",
+ "rulebook_version": "canvas_profile@2026-10-27.2+content_types@2026-10-27.1+explanations@2026-10-24.1+level_profiles@2026-10-24.1+simple_hindi@2026-10-28.1+teacher_examples@2026-10-27.1+vision-2026-10-21@2026-10-21.14+visual_grammar@2026-10-28.1+visual_levels@2026-10-26.2",
+ "rulebook_digest": "e39fb2703fca75dfedb0451f15fe24804c51214d3272dda5eaac431ec24a1ecd",
+ "rules_used": [
+  "CV-01",
+  "CV-02",
+  "CV-03",
+  "CV-04",
+  "CV-05",
+  "CV-06",
+  "CV-07",
+  "CV-08",
+  "CV-09",
+  "CV-10",
+  "CV-11",
+  "CV-12",
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-05",
+  "G-06",
+  "G-07"
+ ],
+ "maker_route": "codex",
+ "reviewer_route": "codex-checker",
+ "maker_model": "gpt-6.1-sol",
+ "reviewer_model": "gpt-6.1-sol",
+ "reviewer_independence": "same_model_temporary",
+ "inputs_digest": "c8f5b5078fd8a44b4d081bb5edb24928fc055498d10edd95395d9b97218b4828",
+ "card": null,
+ "prefix_sha256": "7f9c4a8e4f62e8c48bfc7ec77b02af65dfd087a0670cb1a6248035904be7ae64",
+ "review_prefix_sha256": null,
+ "inputs": {
+  "system": "You are BIE's world director for one STORY part of a video lesson of Indian Economy for UPSC / State PCS aspirants (UPSC / State PCS): actors\nact in a place (a shop with buyers on a street; its place element is kind 'shop'), so this part is shown inside a small designed world (Navin's level C, an L3 world). The script\nis already written and passed; you do not change a word of it. You place the props, the people, the effects and the\ncamera moves, each on a spoken word; code builds, times and checks the world and a refused plan comes back to you with\nthe exact error, and you answer with the whole corrected plan.\n\nCourse: \"3. Money\" · learner language: Hinglish.\n\nNavin's rules for this section (follow every one):\n[CV-01] One canvas per idea: build it piece by piece instead of cutting to a new shot every sentence. Clear the canvas only when the idea changes; otherwise re-frame with a zoom or pan to the part being explained.\n[CV-02] Something on the canvas changes about every 5 s (one change per one or two spoken phrases).\n[CV-03] The picture never stays the same for more than 15 s (the references sometimes hold 40-80 s; BIE must not).\n[CV-04] A new element appears on its own word, while it is being said (about 40% into the phrase, never in the pause after).\n[CV-05] Numbers that change are struck out and replaced on screen (50 -> 65), with an up/down arrow, on the word of the new number.\n[CV-06] Many people/things are shown as a crowd that grows or shrinks with the story (2 buyers -> 12 -> 3).\n[CV-07] A running numeric example carries the concept (price 50 -> 65, GDP 10K -> 11K -> 12.1K at 10%).\n[CV-08] Return to the topic tree and tick the branch that is done before starting the next branch.\n[CV-09] One anchor diagram stays (a band, a tree, a rate card) while the part beside or below it changes.\n[CV-10] No overlap, nothing outside the safe area, captions strip kept clear, readable text (>= 24 px at 1080p), at most 16 elements on screen.\n[CV-11] No photos or caricatures of real people, no logos, emblems or regulator marks: use a name card, a generic icon or BIE's own presenter character.\n[CV-12] Light paper theme for build-up canvases (dark theme stays for 3D/science worlds); subtitles on a dark strip.\n[G-01] Everything taught comes from the book. Knowledge from outside the book is allowed only to explain the book better; it is marked as outside, standard textbook-level and correct. Never invent facts, numbers, names or quotations.\n[G-02] Work like the best teacher of these learners and this exam, not like a summariser. Depth beats brevity: nothing teachable on the page is skipped or compressed away, and every explanation makes a student understand, not just remember. Depth means understanding, not length: lesson narration keeps S2-01's time by cutting repetition and side-tracks, never book content.\n[G-03] Before the output, fill 'notes' with brief notes for the reviewer and for Navin: what this unit is about, the key questions a teacher must answer about it, the main decisions you made with a one-line reason each, and anything uncertain. Keep the notes short; they explain the work, they are not the work.\n[G-05] Never drop or compress away what the book teaches to fit a length. If a unit of work is too large, it is split by BIE into smaller units; within a unit, the book's content is complete. Lesson narration has a time target (S2-01), met by cutting repetition and side-tracks, never book content.\n[G-06] BIE is the link between the learner and the book, like a teacher (Navin, 24 October 2026). The book is the base; BIE carries its text, easy or hard, into the learner's mind. Never just read the line out: every book line is opened (what its words mean, why it is so, where it is seen, what follows), at the depth of the level profile.\n[G-07] Two layers, like a film (Navin, 24 October 2026). The writer layer (understanding, plan, script) decides what is said and how deep, following the level profile and the book's own level. The presentation layer (director, video blocks, render) is the same skilled quality for every learner, from class 6 to postgraduate; only the detail shown follows the level, never the craft.\n\n# Director card: world plans (for the AI world director step, Navin's level C)\n\nYou plan ONE world for ONE story part of a passed script: actors act in a place, so the part is shown inside a small\ndesigned 2.5D street with the place at its centre. You place props, people, effects and the camera, each on a spoken\nword. Code builds, times and checks the world (`bie/brain/video/world.py`); a refused plan comes back with the exact error.\n\n## The world\n\nWorld pixels: 5200 wide, ground line at y 860; the place (the `shop` or the `bank`, the one element kind your role names\nas the kit) is usually near x 2600. The camera looks at a point\n(`x`, `y`) with a `zoom` (0.8 wide street … 1.7 close on a price tag) and takes `frames` to get there (30–60 at 30 fps).\nCamera keys are in time order, the first on the part's first beat.\n\n## Element vocabulary\n\n| kind | fields | use it for |\n| --- | --- | --- |\n| `shop` | `x`, `sign` (the shop's name, in the learner's script), `packets: [{n, cue}]` | the place of a shop story (a kirana shop, a tea stall, a market stall, a bazaar); its stock of goods on the counter (n packets) |\n| `price_tag` | `x`, `y`, `string` (hanging length), `steps: [{text, dir, cue}]`, `lift_cue` + `lift_dy` | the price that is struck out and replaced (a price only: '₹65', '₹10,000', at most 9 characters; words go on a board); lift it when demand pulls it up |\n| `crowd` | `x0`, `spacing`, `enter_x`, `exit_x`, `face` (-1 looks left), `seed`, `steps: [{n, cue}]`, `carry_cue` + `carry_n` | buyers or bank customers who walk in and out as the number changes; `carry` sends n of them away with goods |\n| `bank` | `x`, `sign` (the bank's name, generic, in the learner's script) | the place of a bank story: a stone front with pillars, a teller window and a counter; customers stand before it (`crowd` with `x0` near `x` - 270) |\n| `teller` | `x` (the bank's `x`) | the bank's clerk behind the counter (as `shopkeeper` is for the shop) |\n| `board` | `x`, `y`, `text` (the title: खाता, EMI, बचत), `fill` (header colour), `steps: [{text, dir, cue}]`, `until_cue` | a standing display whose value changes on its word: a passbook balance ₹0 → ₹500, an EMI due ₹10,000 → ₹0; the old value is struck out, `dir` \"up\" or \"down\" adds the arrow. A value is at most 3 lines of 26 characters (your own line breaks are kept, a long line is wrapped at spaces); the teaching stays in the narration, a board shows the number or the few words that change |\n| `label` | `x`, `y`, `text`, `fill` (rgba colour), `cue`, `until_cue` | SUPPLY · 3, DEMAND · 12: short labels over the scene |\n| `coin_rain` | `x0`, `x1`, `count`, `cue`, `until_cue` | money arriving in people's hands |\n| `balance` | `x`, `y`, `tilt`, `cue`, `tilt_cue`, `until_cue` | supply against demand on a balance that tilts on its word |\n| `pull_arrow` | `x`, `y0`, `y1`, `text`, `cue` | the force that pulls the price (demand-pull) |\n| `title` | `text`, `cue` | the part's name, on its word (at most 30 characters) |\n| `lamp`, `foreground` | `x` | street dressing for depth (two or three of each, outside the shop) |\n\nEvery element has `cue: [beat_id, word]` with the word exactly as written in that beat (`[beat_id, \"\"]` for the beat's\nstart). Something must change at least every 15 s (the code refuses a longer still); aim for a change every 5 s.\nNever a real person, logo, emblem or regulator mark: a generic shop sign and generic people only.\n\nHow to fill the JSON (every field is present; \"\" / 0 / [] mean \"not used\"):\n- notes: the story of this part in two lines, what each camera move shows, what is uncertain.\n- elements: in story order; id (unique), kind, the fields of that kind (card), cue [beat_id, word] (word exactly as written\n  in that beat; [beat_id, \"\"] for the beat's start) and until_cue when it leaves; steps (text/n + cue) for a price tag, a\n  board or a crowd; packets (n + cue) for the shop's stock; lift_cue + lift_dy lifts a price tag; carry_cue + carry_n sends\n  buyers away with goods; tilt_cue tilts the balance. The place element (shop or bank) is the kit named above, once.\n- camera: keys in time order, each with cue, x and y in world pixels, zoom and frames (how long the move takes).\nReply with the JSON object only.",
+  "user": "Chapter: 3. Money. Part c02.1 (4 beats).\nThe part (JSON):\n{\"part\": {\"id\": \"v1_s4s\", \"part_id\": \"c02.1\", \"mode\": \"C\", \"place\": \"shop\", \"story\": true}, \"beats\": [{\"beat_id\": \"b22\", \"say\": \"₹500 का किराना कैसे लिया? Wheat देने के बजाय ₹500 दिए; आपके cash ₹500 से ₹0, दुकानदार को मिले cash ₹0 से ₹500। उसे wheat चाहिए या नहीं, पूछना नहीं पड़ा।\"}, {\"beat_id\": \"b23\", \"say\": \"बिना खरीद किए prices कैसे compare करेंगे? Phone ₹20,000, laptop ₹60,000 है। Common rupee scale बताती है: laptop 3 गुना, ₹40,000 महँगा है। अभी payment नहीं हुई।\"}, {\"beat_id\": \"b24\", \"say\": \"आज की कमाई बाद में कैसे काम आएगी? Worker ने account में ₹500 बचाए; savings ₹0 से ₹500 हुईं। बाद में किराना लिया; saved balance ₹500 से ₹0 हुआ।\"}, {\"beat_id\": \"b25\", \"say\": \"Home loan schedule में future payment कैसे लिखेंगे? मानिए अगले महीने ₹10,000 देने हैं। उस date पर payment से unpaid instalment ₹10,000 से ₹0 हुई; future amount पहले तय था।\"}], \"items\": [{\"item_id\": \"p001-i14\", \"content_type\": \"definition\", \"content\": \"1. Medium of exchange: Eliminates the need for barter. Example: You buy groceries using ₹500 instead of exchanging wheat for rice.\", \"real_world_example\": {\"place\": \"Grocery shop; book amount with illustrative outside transaction details\", \"actors\": [\"buyer\", \"grocer\"], \"goods\": [\"groceries\", \"₹500\"], \"numbers\": [{\"what\": \"buyer's cash\", \"before\": \"₹500\", \"after\": \"₹0\"}, {\"what\": \"grocer's cash received for this purchase\", \"before\": \"₹0\", \"after\": \"₹500\"}], \"steps\": [{\"step\": \"The buyer selects groceries priced at ₹500 without offering wheat to the grocer.\", \"mechanism_link\": \"The exchange does not require goods that the grocer personally wants.\"}, {\"step\": \"The grocer accepts ₹500 and gives the groceries.\", \"mechanism_link\": \"Accepted money mediates the exchange.\"}], \"term_after\": \"Here money performs the medium-of-exchange function.\", \"real_life_link\": \"This is the page's own grocery-purchase example.\"}}, {\"item_id\": \"p001-i15\", \"content_type\": \"definition\", \"content\": \"2. Unit of account: Provides a common measure of value. Example: A phone costs ₹20,000 and a laptop costs ₹60,000.\", \"real_world_example\": {\"place\": \"Electronics shop; book prices with illustrative outside budgeting\", \"actors\": [\"buyer\", \"shopkeeper\"], \"goods\": [\"phone\", \"laptop\", \"rupee price tags\"], \"numbers\": [{\"what\": \"quoted cost when comparing phone with laptop\", \"before\": \"₹20000\", \"after\": \"₹60000\"}], \"steps\": [{\"step\": \"The buyer reads the phone price of ₹20,000.\", \"mechanism_link\": \"One good's value is expressed in a monetary unit.\"}, {\"step\": \"The buyer reads the laptop price of ₹60,000 and compares the ₹40,000 difference without making a purchase.\", \"mechanism_link\": \"The same unit measures unlike goods and enables calculation.\"}], \"term_after\": \"Using rupees as this common measuring scale is the unit-of-account function.\", \"real_life_link\": \"The page's price-tag example is encountered while comparing purchases.\"}}, {\"item_id\": \"p001-i16\", \"content_type\": \"definition\", \"content\": \"3. Store of value: Allows purchasing power to be saved for future use. Example: Keeping money in a bank account for later expenses.\", \"real_world_example\": {\"place\": \"Bank account; illustrative outside amounts\", \"actors\": [\"worker\", \"bank\"], \"goods\": [\"salary savings\", \"later groceries\"], \"numbers\": [{\"what\": \"amount set aside for later use\", \"before\": \"₹0\", \"after\": \"₹500\"}, {\"what\": \"saved balance after later purchase\", \"before\": \"₹500\", \"after\": \"₹0\"}], \"steps\": [{\"step\": \"A worker leaves ₹500 from current income in a bank account instead of spending it.\", \"mechanism_link\": \"Current resources are retained for the future.\"}, {\"step\": \"Later, the worker uses the saved ₹500 for groceries.\", \"mechanism_link\": \"The retained balance finances a later expense.\"}], \"term_after\": \"Holding the money between earning and spending illustrates store of value.\", \"real_life_link\": \"This applies the page's example of keeping money in a bank account for later expenses.\"}}, {\"item_id\": \"p001-i17\", \"content_type\": \"definition\", \"content\": \"4. Standard of deferred payment: Makes future payments possible. Example: Home loans and EMI payments are denominated in money.\", \"real_world_example\": {\"place\": \"Bank home-loan account; illustrative outside EMI amount\", \"actors\": [\"borrower\", \"bank\"], \"goods\": [\"home loan\", \"rupee-denominated EMI\"], \"numbers\": [{\"what\": \"unpaid instalment due for the month\", \"before\": \"₹10000\", \"after\": \"₹0\"}], \"steps\": [{\"step\": \"The loan schedule states that ₹10,000 is due on a future monthly payment date.\", \"mechanism_link\": \"A future obligation is measured in money.\"}, {\"step\": \"On that date, payment of ₹10,000 clears that month's instalment.\", \"mechanism_link\": \"The agreed monetary amount provides the standard for settlement.\"}], \"term_after\": \"Money's role in specifying this future due is the standard of deferred payment.\", \"real_life_link\": \"This applies the page's home-loan EMI example without assuming a current rate or actual loan schedule.\"}}], \"on_screen_hints\": [\"Groceries for ₹500, not wheat; buyer ₹500 → ₹0; receipt ₹0 → ₹500.\", \"₹20,000 → ₹60,000; difference ₹40,000; ratio 3:1.\", \"Set aside ₹0 → ₹500; later spend ₹500 → ₹0.\", \"Future instalment ₹10,000; payment clears outstanding ₹10,000 → ₹0.\"]}\n\nReply with the plan JSON."
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "started_at": 1793160412.474669,
+   "mode": "full",
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "2f7dfa39ee53bd9d2ef3e787b0d7bfcb5956364dc36ee32425acb04b2eda1d46",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 7540,
+    "output_tokens": 5730,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "One shop-centred world demonstrates money’s four functions through exchange, comparison, saving and a future instalment. The narration remains unchanged.",
+    "key_questions": [
+     "How does money remove the need to offer wheat?",
+     "How can rupee prices be compared without payment?",
+     "How does saved purchasing power fund later spending?",
+     "How does money specify and settle a future obligation?"
+    ],
+    "decisions": [
+     {
+      "decision": "Keep one shop and a persistent function tracker; replace only the teaching props.",
+      "reason": "Preserves spatial continuity while separating the four ideas."
+     },
+     {
+      "decision": "Show simultaneous phone and laptop prices, not a changing price tag.",
+      "reason": "These are different goods, not a price increase."
+     },
+     {
+      "decision": "Use account and instalment boards within the shop world.",
+      "reason": "Shows the financial records without introducing a second place."
+     },
+     {
+      "decision": "Use paired cash boards, a departing buyer and reduced stock for the purchase.",
+      "reason": "Makes the exchange visible rather than presenting numbers alone."
+     }
+    ],
+    "uncertain": [
+     "Word cues determine timing; exact still durations require the narration alignment.",
+     "Savings and instalment amounts are the supplied illustrative examples, not claims about actual accounts or loan terms."
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "One shop-centred world demonstrates money’s four functions through exchange, comparison, saving and a future instalment. The narration remains unchanged.",
+     "key_questions": [
+      "How does money remove the need to offer wheat?",
+      "How can rupee prices be compared without payment?",
+      "How does saved purchasing power fund later spending?",
+      "How does money specify and settle a future obligation?"
+     ],
+     "decisions": [
+      {
+       "decision": "Keep one shop and a persistent function tracker; replace only the teaching props.",
+       "reason": "Preserves spatial continuity while separating the four ideas."
+      },
+      {
+       "decision": "Show simultaneous phone and laptop prices, not a changing price tag.",
+       "reason": "These are different goods, not a price increase."
+      },
+      {
+       "decision": "Use account and instalment boards within the shop world.",
+       "reason": "Shows the financial records without introducing a second place."
+      },
+      {
+       "decision": "Use paired cash boards, a departing buyer and reduced stock for the purchase.",
+       "reason": "Makes the exchange visible rather than presenting numbers alone."
+      }
+     ],
+     "uncertain": [
+      "Word cues determine timing; exact still durations require the narration alignment.",
+      "Savings and instalment amounts are the supplied illustrative examples, not claims about actual accounts or loan terms."
+     ]
+    },
+    "elements": [
+     {
+      "id": "shop",
+      "kind": "shop",
+      "x": 2600,
+      "y": 860,
+      "sign": "किराना",
+      "text": "",
+      "fill": "",
+      "string": 0,
+      "steps": [],
+      "packets": [
+       {
+        "n": 3,
+        "cue": [
+         "b22",
+         ""
+        ]
+       },
+       {
+        "n": 2,
+        "cue": [
+         "b22",
+         "दिए;"
+        ]
+       },
+       {
+        "n": 3,
+        "cue": [
+         "b24",
+         "आज"
+        ]
+       },
+       {
+        "n": 2,
+        "cue": [
+         "b24",
+         "लिया;"
+        ]
+       }
+      ],
+      "cue": [
+       "b22",
+       ""
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "keeper",
+      "kind": "shopkeeper",
+      "x": 2600,
+      "y": 860,
+      "sign": "",
+      "text": "",
+      "fill": "",
+      "string": 0,
+      "steps": [],
+      "packets": [],
+      "cue": [
+       "b22",
+       ""
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "function_tracker",
+      "kind": "board",
+      "x": 1750,
+      "y": 290,
+      "sign": "",
+      "text": "Money functions",
+      "fill": "#547B70",
+      "string": 0,
+      "steps": [
+       {
+        "text": "1 Exchange →",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b22",
+         ""
+        ]
+       },
+       {
+        "text": "1 Exchange ✓",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b22",
+         "पड़ा।"
+        ]
+       },
+       {
+        "text": "1 Exchange ✓\n2 Measure →",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b23",
+         ""
+        ]
+       },
+       {
+        "text": "1 Exchange ✓\n2 Measure ✓",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b23",
+         "हुई।"
+        ]
+       },
+       {
+        "text": "1–2 ✓\n3 Save →",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b24",
+         ""
+        ]
+       },
+       {
+        "text": "1–2 ✓\n3 Save ✓",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b24",
+         "हुआ।"
+        ]
+       },
+       {
+        "text": "1–3 ✓\n4 Future payment →",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b25",
+         ""
+        ]
+       },
+       {
+        "text": "1–3 ✓\n4 Future payment ✓",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b25",
+         "था।"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b22",
+       ""
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "buyer",
+      "kind": "crowd",
+      "x": 0,
+      "y": 0,
+      "sign": "",
+      "text": "",
+      "fill": "",
+      "string": 0,
+      "steps": [
+       {
+        "text": "",
+        "n": 1,
+        "dir": "",
+        "cue": [
+         "b22",
+         "किराना"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b22",
+       "किराना"
+      ],
+      "until_cue": [
+       "b23",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 2300,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 100,
+      "enter_x": 1900,
+      "exit_x": 1900,
+      "face": 1,
+      "seed": 12,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [
+       "b22",
+       "दिए;"
+      ],
+      "carry_n": 1
+     },
+     {
+      "id": "buyer_cash",
+      "kind": "board",
+      "x": 2150,
+      "y": 370,
+      "sign": "",
+      "text": "आपके cash",
+      "fill": "#547B70",
+      "string": 0,
+      "steps": [
+       {
+        "text": "₹500",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b22",
+         "किराना"
+        ]
+       },
+       {
+        "text": "₹0",
+        "n": 0,
+        "dir": "down",
+        "cue": [
+         "b22",
+         "₹0,"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b22",
+       "किराना"
+      ],
+      "until_cue": [
+       "b23",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "grocer_cash",
+      "kind": "board",
+      "x": 3090,
+      "y": 370,
+      "sign": "",
+      "text": "दुकानदार cash",
+      "fill": "#547B70",
+      "string": 0,
+      "steps": [
+       {
+        "text": "₹0",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b22",
+         "किराना"
+        ]
+       },
+       {
+        "text": "₹500",
+        "n": 0,
+        "dir": "up",
+        "cue": [
+         "b22",
+         "₹500।"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b22",
+       "किराना"
+      ],
+      "until_cue": [
+       "b23",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "no_barter",
+      "kind": "label",
+      "x": 2600,
+      "y": 170,
+      "sign": "",
+      "text": "Wheat देना ज़रूरी नहीं",
+      "fill": "#E9F1E9",
+      "string": 0,
+      "steps": [],
+      "packets": [],
+      "cue": [
+       "b22",
+       "उसे"
+      ],
+      "until_cue": [
+       "b23",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "phone_quote",
+      "kind": "board",
+      "x": 2150,
+      "y": 370,
+      "sign": "",
+      "text": "Phone",
+      "fill": "#547B70",
+      "string": 0,
+      "steps": [
+       {
+        "text": "₹20,000",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b23",
+         "₹20,000,"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b23",
+       "Phone"
+      ],
+      "until_cue": [
+       "b24",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "laptop_quote",
+      "kind": "board",
+      "x": 3090,
+      "y": 370,
+      "sign": "",
+      "text": "Laptop",
+      "fill": "#547B70",
+      "string": 0,
+      "steps": [
+       {
+        "text": "₹60,000",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b23",
+         "₹60,000"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b23",
+       "laptop"
+      ],
+      "until_cue": [
+       "b24",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "comparison",
+      "kind": "board",
+      "x": 2600,
+      "y": 180,
+      "sign": "",
+      "text": "Common rupee scale",
+      "fill": "#547B70",
+      "string": 0,
+      "steps": [
+       {
+        "text": "3 गुना",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b23",
+         "3"
+        ]
+       },
+       {
+        "text": "3 गुना\n₹40,000 महँगा",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b23",
+         "₹40,000"
+        ]
+       },
+       {
+        "text": "3 गुना\n₹40,000 महँगा\nPayment नहीं हुई",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b23",
+         "अभी"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b23",
+       "Common"
+      ],
+      "until_cue": [
+       "b24",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "saved_account",
+      "kind": "board",
+      "x": 2150,
+      "y": 370,
+      "sign": "",
+      "text": "Worker · saved balance",
+      "fill": "#547B70",
+      "string": 0,
+      "steps": [
+       {
+        "text": "₹0",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b24",
+         "account"
+        ]
+       },
+       {
+        "text": "₹500",
+        "n": 0,
+        "dir": "up",
+        "cue": [
+         "b24",
+         "₹500"
+        ]
+       },
+       {
+        "text": "₹0",
+        "n": 0,
+        "dir": "down",
+        "cue": [
+         "b24",
+         "₹0"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b24",
+       "account"
+      ],
+      "until_cue": [
+       "b25",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "time_bridge",
+      "kind": "board",
+      "x": 3090,
+      "y": 370,
+      "sign": "",
+      "text": "Purchasing power",
+      "fill": "#547B70",
+      "string": 0,
+      "steps": [
+       {
+        "text": "आज की कमाई",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b24",
+         "आज"
+        ]
+       },
+       {
+        "text": "बचत → बाद में खर्च",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b24",
+         "savings"
+        ]
+       },
+       {
+        "text": "बाद में किराना",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b24",
+         "बाद"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b24",
+       "आज"
+      ],
+      "until_cue": [
+       "b25",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "worker",
+      "kind": "crowd",
+      "x": 0,
+      "y": 0,
+      "sign": "",
+      "text": "",
+      "fill": "",
+      "string": 0,
+      "steps": [
+       {
+        "text": "",
+        "n": 1,
+        "dir": "",
+        "cue": [
+         "b24",
+         "Worker"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b24",
+       "Worker"
+      ],
+      "until_cue": [
+       "b25",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 2300,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 100,
+      "enter_x": 1900,
+      "exit_x": 1900,
+      "face": 1,
+      "seed": 24,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [
+       "b24",
+       "लिया;"
+      ],
+      "carry_n": 1
+     },
+     {
+      "id": "loan_schedule",
+      "kind": "board",
+      "x": 2150,
+      "y": 370,
+      "sign": "",
+      "text": "Home loan schedule",
+      "fill": "#547B70",
+      "string": 0,
+      "steps": [
+       {
+        "text": "अगले महीने",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b25",
+         "अगले"
+        ]
+       },
+       {
+        "text": "अगले महीने\nदेय ₹10,000",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b25",
+         "₹10,000"
+        ]
+       },
+       {
+        "text": "राशि पहले तय थी\n₹10,000",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b25",
+         "पहले"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b25",
+       "schedule"
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "unpaid_instalment",
+      "kind": "board",
+      "x": 3090,
+      "y": 370,
+      "sign": "",
+      "text": "Unpaid instalment",
+      "fill": "#547B70",
+      "string": 0,
+      "steps": [
+       {
+        "text": "₹10,000",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b25",
+         "उस"
+        ]
+       },
+       {
+        "text": "₹0",
+        "n": 0,
+        "dir": "down",
+        "cue": [
+         "b25",
+         "₹0"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b25",
+       "उस"
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     }
+    ],
+    "camera": [
+     {
+      "cue": [
+       "b22",
+       ""
+      ],
+      "x": 2470,
+      "y": 460,
+      "zoom": 0.8,
+      "frames": 30
+     },
+     {
+      "cue": [
+       "b22",
+       "Wheat"
+      ],
+      "x": 2510,
+      "y": 470,
+      "zoom": 0.84,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b22",
+       "आपके"
+      ],
+      "x": 2480,
+      "y": 420,
+      "zoom": 0.86,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b22",
+       "दुकानदार"
+      ],
+      "x": 2540,
+      "y": 420,
+      "zoom": 0.84,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b22",
+       "उसे"
+      ],
+      "x": 2470,
+      "y": 430,
+      "zoom": 0.8,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b23",
+       ""
+      ],
+      "x": 2470,
+      "y": 450,
+      "zoom": 0.8,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b23",
+       "Phone"
+      ],
+      "x": 2500,
+      "y": 410,
+      "zoom": 0.84,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b23",
+       "Common"
+      ],
+      "x": 2530,
+      "y": 380,
+      "zoom": 0.84,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b23",
+       "अभी"
+      ],
+      "x": 2470,
+      "y": 420,
+      "zoom": 0.8,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b24",
+       ""
+      ],
+      "x": 2470,
+      "y": 450,
+      "zoom": 0.8,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b24",
+       "account"
+      ],
+      "x": 2440,
+      "y": 420,
+      "zoom": 0.84,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b24",
+       "savings"
+      ],
+      "x": 2500,
+      "y": 410,
+      "zoom": 0.82,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b24",
+       "बाद"
+      ],
+      "x": 2530,
+      "y": 450,
+      "zoom": 0.82,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b24",
+       "saved"
+      ],
+      "x": 2470,
+      "y": 420,
+      "zoom": 0.8,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b25",
+       ""
+      ],
+      "x": 2470,
+      "y": 450,
+      "zoom": 0.8,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b25",
+       "मानिए"
+      ],
+      "x": 2440,
+      "y": 420,
+      "zoom": 0.84,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b25",
+       "उस"
+      ],
+      "x": 2530,
+      "y": 420,
+      "zoom": 0.82,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b25",
+       "unpaid"
+      ],
+      "x": 2560,
+      "y": 410,
+      "zoom": 0.82,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b25",
+       "future"
+      ],
+      "x": 2470,
+      "y": 440,
+      "zoom": 0.8,
+      "frames": 40
+     }
+    ]
+   },
+   "code_problems": [
+    "[code] camera keys must be in time order"
+   ],
+   "passed": false,
+   "finished_at": 1793160497.0632126
+  },
+  {
+   "round": 2,
+   "started_at": 1793160497.0633276,
+   "mode": "full",
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "69bafaed66dd91f17c06245641dfb89de1ced7577f1b0b3de8bb5411e54ed3e2",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 11230,
+    "output_tokens": 3801,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "One shop-centred world demonstrates money’s four functions through exchange, comparison, saving and a future instalment. The narration remains unchanged.",
+    "key_questions": [
+     "How does money remove the need to offer wheat?",
+     "How can rupee prices be compared without payment?",
+     "How does saved purchasing power fund later spending?",
+     "How does money specify and settle a future obligation?"
+    ],
+    "decisions": [
+     {
+      "decision": "Keep one shop and a persistent function tracker; replace only the teaching props.",
+      "reason": "Preserves spatial continuity while separating the four ideas."
+     },
+     {
+      "decision": "Show simultaneous phone and laptop prices, not a changing price tag.",
+      "reason": "These are different goods, not a price increase."
+     },
+     {
+      "decision": "Use account and instalment boards within the shop world.",
+      "reason": "Shows the financial records without introducing a second place."
+     },
+     {
+      "decision": "Use paired cash boards, a departing buyer and reduced stock for the purchase.",
+      "reason": "Makes the exchange visible rather than presenting numbers alone."
+     },
+     {
+      "decision": "Retarget the later-purchase camera key and matching board update from b24's ambiguous 'बाद' to 'किराना'.",
+      "reason": "'बाद' first occurs in the opening question; 'किराना' uniquely locates the later purchase and restores camera time order."
+     }
+    ],
+    "uncertain": [
+     "Word cues determine timing; exact still durations require the narration alignment.",
+     "Savings and instalment amounts are supplied illustrative examples, not claims about actual accounts or loan terms."
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "One shop-centred world demonstrates money’s four functions through exchange, comparison, saving and a future instalment. The narration remains unchanged.",
+     "key_questions": [
+      "How does money remove the need to offer wheat?",
+      "How can rupee prices be compared without payment?",
+      "How does saved purchasing power fund later spending?",
+      "How does money specify and settle a future obligation?"
+     ],
+     "decisions": [
+      {
+       "decision": "Keep one shop and a persistent function tracker; replace only the teaching props.",
+       "reason": "Preserves spatial continuity while separating the four ideas."
+      },
+      {
+       "decision": "Show simultaneous phone and laptop prices, not a changing price tag.",
+       "reason": "These are different goods, not a price increase."
+      },
+      {
+       "decision": "Use account and instalment boards within the shop world.",
+       "reason": "Shows the financial records without introducing a second place."
+      },
+      {
+       "decision": "Use paired cash boards, a departing buyer and reduced stock for the purchase.",
+       "reason": "Makes the exchange visible rather than presenting numbers alone."
+      },
+      {
+       "decision": "Retarget the later-purchase camera key and matching board update from b24's ambiguous 'बाद' to 'किराना'.",
+       "reason": "'बाद' first occurs in the opening question; 'किराना' uniquely locates the later purchase and restores camera time order."
+      }
+     ],
+     "uncertain": [
+      "Word cues determine timing; exact still durations require the narration alignment.",
+      "Savings and instalment amounts are supplied illustrative examples, not claims about actual accounts or loan terms."
+     ]
+    },
+    "elements": [
+     {
+      "id": "shop",
+      "kind": "shop",
+      "x": 2600,
+      "y": 860,
+      "sign": "किराना",
+      "text": "",
+      "fill": "",
+      "string": 0,
+      "steps": [],
+      "packets": [
+       {
+        "n": 3,
+        "cue": [
+         "b22",
+         ""
+        ]
+       },
+       {
+        "n": 2,
+        "cue": [
+         "b22",
+         "दिए;"
+        ]
+       },
+       {
+        "n": 3,
+        "cue": [
+         "b24",
+         "आज"
+        ]
+       },
+       {
+        "n": 2,
+        "cue": [
+         "b24",
+         "लिया;"
+        ]
+       }
+      ],
+      "cue": [
+       "b22",
+       ""
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "keeper",
+      "kind": "shopkeeper",
+      "x": 2600,
+      "y": 860,
+      "sign": "",
+      "text": "",
+      "fill": "",
+      "string": 0,
+      "steps": [],
+      "packets": [],
+      "cue": [
+       "b22",
+       ""
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "function_tracker",
+      "kind": "board",
+      "x": 1750,
+      "y": 290,
+      "sign": "",
+      "text": "Money functions",
+      "fill": "#547B70",
+      "string": 0,
+      "steps": [
+       {
+        "text": "1 Exchange →",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b22",
+         ""
+        ]
+       },
+       {
+        "text": "1 Exchange ✓",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b22",
+         "पड़ा।"
+        ]
+       },
+       {
+        "text": "1 Exchange ✓\n2 Measure →",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b23",
+         ""
+        ]
+       },
+       {
+        "text": "1 Exchange ✓\n2 Measure ✓",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b23",
+         "हुई।"
+        ]
+       },
+       {
+        "text": "1–2 ✓\n3 Save →",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b24",
+         ""
+        ]
+       },
+       {
+        "text": "1–2 ✓\n3 Save ✓",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b24",
+         "हुआ।"
+        ]
+       },
+       {
+        "text": "1–3 ✓\n4 Future payment →",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b25",
+         ""
+        ]
+       },
+       {
+        "text": "1–3 ✓\n4 Future payment ✓",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b25",
+         "था।"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b22",
+       ""
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "buyer",
+      "kind": "crowd",
+      "x": 0,
+      "y": 0,
+      "sign": "",
+      "text": "",
+      "fill": "",
+      "string": 0,
+      "steps": [
+       {
+        "text": "",
+        "n": 1,
+        "dir": "",
+        "cue": [
+         "b22",
+         "किराना"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b22",
+       "किराना"
+      ],
+      "until_cue": [
+       "b23",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 2300,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 100,
+      "enter_x": 1900,
+      "exit_x": 1900,
+      "face": 1,
+      "seed": 12,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [
+       "b22",
+       "दिए;"
+      ],
+      "carry_n": 1
+     },
+     {
+      "id": "buyer_cash",
+      "kind": "board",
+      "x": 2150,
+      "y": 370,
+      "sign": "",
+      "text": "आपके cash",
+      "fill": "#547B70",
+      "string": 0,
+      "steps": [
+       {
+        "text": "₹500",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b22",
+         "किराना"
+        ]
+       },
+       {
+        "text": "₹0",
+        "n": 0,
+        "dir": "down",
+        "cue": [
+         "b22",
+         "₹0,"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b22",
+       "किराना"
+      ],
+      "until_cue": [
+       "b23",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "grocer_cash",
+      "kind": "board",
+      "x": 3090,
+      "y": 370,
+      "sign": "",
+      "text": "दुकानदार cash",
+      "fill": "#547B70",
+      "string": 0,
+      "steps": [
+       {
+        "text": "₹0",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b22",
+         "किराना"
+        ]
+       },
+       {
+        "text": "₹500",
+        "n": 0,
+        "dir": "up",
+        "cue": [
+         "b22",
+         "₹500।"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b22",
+       "किराना"
+      ],
+      "until_cue": [
+       "b23",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "no_barter",
+      "kind": "label",
+      "x": 2600,
+      "y": 170,
+      "sign": "",
+      "text": "Wheat देना ज़रूरी नहीं",
+      "fill": "#E9F1E9",
+      "string": 0,
+      "steps": [],
+      "packets": [],
+      "cue": [
+       "b22",
+       "उसे"
+      ],
+      "until_cue": [
+       "b23",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "phone_quote",
+      "kind": "board",
+      "x": 2150,
+      "y": 370,
+      "sign": "",
+      "text": "Phone",
+      "fill": "#547B70",
+      "string": 0,
+      "steps": [
+       {
+        "text": "₹20,000",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b23",
+         "₹20,000,"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b23",
+       "Phone"
+      ],
+      "until_cue": [
+       "b24",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "laptop_quote",
+      "kind": "board",
+      "x": 3090,
+      "y": 370,
+      "sign": "",
+      "text": "Laptop",
+      "fill": "#547B70",
+      "string": 0,
+      "steps": [
+       {
+        "text": "₹60,000",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b23",
+         "₹60,000"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b23",
+       "laptop"
+      ],
+      "until_cue": [
+       "b24",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "comparison",
+      "kind": "board",
+      "x": 2600,
+      "y": 180,
+      "sign": "",
+      "text": "Common rupee scale",
+      "fill": "#547B70",
+      "string": 0,
+      "steps": [
+       {
+        "text": "3 गुना",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b23",
+         "3"
+        ]
+       },
+       {
+        "text": "3 गुना\n₹40,000 महँगा",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b23",
+         "₹40,000"
+        ]
+       },
+       {
+        "text": "3 गुना\n₹40,000 महँगा\nPayment नहीं हुई",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b23",
+         "अभी"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b23",
+       "Common"
+      ],
+      "until_cue": [
+       "b24",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "saved_account",
+      "kind": "board",
+      "x": 2150,
+      "y": 370,
+      "sign": "",
+      "text": "Worker · saved balance",
+      "fill": "#547B70",
+      "string": 0,
+      "steps": [
+       {
+        "text": "₹0",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b24",
+         "account"
+        ]
+       },
+       {
+        "text": "₹500",
+        "n": 0,
+        "dir": "up",
+        "cue": [
+         "b24",
+         "₹500"
+        ]
+       },
+       {
+        "text": "₹0",
+        "n": 0,
+        "dir": "down",
+        "cue": [
+         "b24",
+         "₹0"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b24",
+       "account"
+      ],
+      "until_cue": [
+       "b25",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "time_bridge",
+      "kind": "board",
+      "x": 3090,
+      "y": 370,
+      "sign": "",
+      "text": "Purchasing power",
+      "fill": "#547B70",
+      "string": 0,
+      "steps": [
+       {
+        "text": "आज की कमाई",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b24",
+         "आज"
+        ]
+       },
+       {
+        "text": "बचत → बाद में खर्च",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b24",
+         "savings"
+        ]
+       },
+       {
+        "text": "बाद में किराना",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b24",
+         "किराना"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b24",
+       "आज"
+      ],
+      "until_cue": [
+       "b25",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "worker",
+      "kind": "crowd",
+      "x": 0,
+      "y": 0,
+      "sign": "",
+      "text": "",
+      "fill": "",
+      "string": 0,
+      "steps": [
+       {
+        "text": "",
+        "n": 1,
+        "dir": "",
+        "cue": [
+         "b24",
+         "Worker"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b24",
+       "Worker"
+      ],
+      "until_cue": [
+       "b25",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 2300,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 100,
+      "enter_x": 1900,
+      "exit_x": 1900,
+      "face": 1,
+      "seed": 24,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [
+       "b24",
+       "लिया;"
+      ],
+      "carry_n": 1
+     },
+     {
+      "id": "loan_schedule",
+      "kind": "board",
+      "x": 2150,
+      "y": 370,
+      "sign": "",
+      "text": "Home loan schedule",
+      "fill": "#547B70",
+      "string": 0,
+      "steps": [
+       {
+        "text": "अगले महीने",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b25",
+         "अगले"
+        ]
+       },
+       {
+        "text": "अगले महीने\nदेय ₹10,000",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b25",
+         "₹10,000"
+        ]
+       },
+       {
+        "text": "राशि पहले तय थी\n₹10,000",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b25",
+         "पहले"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b25",
+       "schedule"
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "unpaid_instalment",
+      "kind": "board",
+      "x": 3090,
+      "y": 370,
+      "sign": "",
+      "text": "Unpaid instalment",
+      "fill": "#547B70",
+      "string": 0,
+      "steps": [
+       {
+        "text": "₹10,000",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b25",
+         "उस"
+        ]
+       },
+       {
+        "text": "₹0",
+        "n": 0,
+        "dir": "down",
+        "cue": [
+         "b25",
+         "₹0"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b25",
+       "उस"
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     }
+    ],
+    "camera": [
+     {
+      "cue": [
+       "b22",
+       ""
+      ],
+      "x": 2470,
+      "y": 460,
+      "zoom": 0.8,
+      "frames": 30
+     },
+     {
+      "cue": [
+       "b22",
+       "Wheat"
+      ],
+      "x": 2510,
+      "y": 470,
+      "zoom": 0.84,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b22",
+       "आपके"
+      ],
+      "x": 2480,
+      "y": 420,
+      "zoom": 0.86,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b22",
+       "दुकानदार"
+      ],
+      "x": 2540,
+      "y": 420,
+      "zoom": 0.84,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b22",
+       "उसे"
+      ],
+      "x": 2470,
+      "y": 430,
+      "zoom": 0.8,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b23",
+       ""
+      ],
+      "x": 2470,
+      "y": 450,
+      "zoom": 0.8,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b23",
+       "Phone"
+      ],
+      "x": 2500,
+      "y": 410,
+      "zoom": 0.84,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b23",
+       "Common"
+      ],
+      "x": 2530,
+      "y": 380,
+      "zoom": 0.84,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b23",
+       "अभी"
+      ],
+      "x": 2470,
+      "y": 420,
+      "zoom": 0.8,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b24",
+       ""
+      ],
+      "x": 2470,
+      "y": 450,
+      "zoom": 0.8,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b24",
+       "account"
+      ],
+      "x": 2440,
+      "y": 420,
+      "zoom": 0.84,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b24",
+       "savings"
+      ],
+      "x": 2500,
+      "y": 410,
+      "zoom": 0.82,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b24",
+       "किराना"
+      ],
+      "x": 2530,
+      "y": 450,
+      "zoom": 0.82,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b24",
+       "saved"
+      ],
+      "x": 2470,
+      "y": 420,
+      "zoom": 0.8,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b25",
+       ""
+      ],
+      "x": 2470,
+      "y": 450,
+      "zoom": 0.8,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b25",
+       "मानिए"
+      ],
+      "x": 2440,
+      "y": 420,
+      "zoom": 0.84,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b25",
+       "उस"
+      ],
+      "x": 2530,
+      "y": 420,
+      "zoom": 0.82,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b25",
+       "unpaid"
+      ],
+      "x": 2560,
+      "y": 410,
+      "zoom": 0.82,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b25",
+       "future"
+      ],
+      "x": 2470,
+      "y": 440,
+      "zoom": 0.8,
+      "frames": 40
+     }
+    ]
+   },
+   "code_problems": [
+    "[code] camera keys must be in time order"
+   ],
+   "passed": false,
+   "finished_at": 1793160539.8236578
+  },
+  {
+   "round": 3,
+   "started_at": 1793160539.8238065,
+   "mode": "full",
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "af0145b353ae0ef9a7887396fa45d003fbea4a4a5425dd805d92050a5106a8ff",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 11291,
+    "output_tokens": 3721,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "One shop-centred world demonstrates exchange, price comparison, saving and future payments without changing the narration.",
+    "key_questions": [
+     "How does money replace barter?",
+     "How do rupee prices enable comparison without payment?",
+     "How does saving preserve purchasing power for later use?",
+     "How does money specify and settle future obligations?"
+    ],
+    "decisions": [
+     {
+      "decision": "Keep the shop and function tracker while replacing teaching boards.",
+      "reason": "Maintains continuity and marks each completed branch."
+     },
+     {
+      "decision": "Keep phone and laptop prices on separate boards.",
+      "reason": "They describe different goods, not a price increase."
+     },
+     {
+      "decision": "Keep account and instalment records inside the shop world.",
+      "reason": "Explains financial functions without adding a second place."
+     },
+     {
+      "decision": "Change the final b25 camera cue from 'future' to 'पहले'.",
+      "reason": "'future' first occurs in the opening question, placing that key before earlier listed keys; 'पहले' uniquely anchors the concluding move after 'unpaid'."
+     }
+    ],
+    "uncertain": [
+     "Exact still durations depend on narration alignment.",
+     "Savings and instalment amounts are illustrative supplied examples, not actual account or loan terms."
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "One shop-centred world demonstrates exchange, price comparison, saving and future payments without changing the narration.",
+     "key_questions": [
+      "How does money replace barter?",
+      "How do rupee prices enable comparison without payment?",
+      "How does saving preserve purchasing power for later use?",
+      "How does money specify and settle future obligations?"
+     ],
+     "decisions": [
+      {
+       "decision": "Keep the shop and function tracker while replacing teaching boards.",
+       "reason": "Maintains continuity and marks each completed branch."
+      },
+      {
+       "decision": "Keep phone and laptop prices on separate boards.",
+       "reason": "They describe different goods, not a price increase."
+      },
+      {
+       "decision": "Keep account and instalment records inside the shop world.",
+       "reason": "Explains financial functions without adding a second place."
+      },
+      {
+       "decision": "Change the final b25 camera cue from 'future' to 'पहले'.",
+       "reason": "'future' first occurs in the opening question, placing that key before earlier listed keys; 'पहले' uniquely anchors the concluding move after 'unpaid'."
+      }
+     ],
+     "uncertain": [
+      "Exact still durations depend on narration alignment.",
+      "Savings and instalment amounts are illustrative supplied examples, not actual account or loan terms."
+     ]
+    },
+    "elements": [
+     {
+      "id": "shop",
+      "kind": "shop",
+      "x": 2600,
+      "y": 860,
+      "sign": "किराना",
+      "text": "",
+      "fill": "",
+      "string": 0,
+      "steps": [],
+      "packets": [
+       {
+        "n": 3,
+        "cue": [
+         "b22",
+         ""
+        ]
+       },
+       {
+        "n": 2,
+        "cue": [
+         "b22",
+         "दिए;"
+        ]
+       },
+       {
+        "n": 3,
+        "cue": [
+         "b24",
+         "आज"
+        ]
+       },
+       {
+        "n": 2,
+        "cue": [
+         "b24",
+         "लिया;"
+        ]
+       }
+      ],
+      "cue": [
+       "b22",
+       ""
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "keeper",
+      "kind": "shopkeeper",
+      "x": 2600,
+      "y": 860,
+      "sign": "",
+      "text": "",
+      "fill": "",
+      "string": 0,
+      "steps": [],
+      "packets": [],
+      "cue": [
+       "b22",
+       ""
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "function_tracker",
+      "kind": "board",
+      "x": 1750,
+      "y": 290,
+      "sign": "",
+      "text": "Money functions",
+      "fill": "#547B70",
+      "string": 0,
+      "steps": [
+       {
+        "text": "1 Exchange →",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b22",
+         ""
+        ]
+       },
+       {
+        "text": "1 Exchange ✓",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b22",
+         "पड़ा।"
+        ]
+       },
+       {
+        "text": "1 Exchange ✓\n2 Measure →",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b23",
+         ""
+        ]
+       },
+       {
+        "text": "1 Exchange ✓\n2 Measure ✓",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b23",
+         "हुई।"
+        ]
+       },
+       {
+        "text": "1–2 ✓\n3 Save →",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b24",
+         ""
+        ]
+       },
+       {
+        "text": "1–2 ✓\n3 Save ✓",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b24",
+         "हुआ।"
+        ]
+       },
+       {
+        "text": "1–3 ✓\n4 Future payment →",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b25",
+         ""
+        ]
+       },
+       {
+        "text": "1–3 ✓\n4 Future payment ✓",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b25",
+         "था।"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b22",
+       ""
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "buyer",
+      "kind": "crowd",
+      "x": 0,
+      "y": 0,
+      "sign": "",
+      "text": "",
+      "fill": "",
+      "string": 0,
+      "steps": [
+       {
+        "text": "",
+        "n": 1,
+        "dir": "",
+        "cue": [
+         "b22",
+         "किराना"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b22",
+       "किराना"
+      ],
+      "until_cue": [
+       "b23",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 2300,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 100,
+      "enter_x": 1900,
+      "exit_x": 1900,
+      "face": 1,
+      "seed": 12,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [
+       "b22",
+       "दिए;"
+      ],
+      "carry_n": 1
+     },
+     {
+      "id": "buyer_cash",
+      "kind": "board",
+      "x": 2150,
+      "y": 370,
+      "sign": "",
+      "text": "आपके cash",
+      "fill": "#547B70",
+      "string": 0,
+      "steps": [
+       {
+        "text": "₹500",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b22",
+         "किराना"
+        ]
+       },
+       {
+        "text": "₹0",
+        "n": 0,
+        "dir": "down",
+        "cue": [
+         "b22",
+         "₹0,"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b22",
+       "किराना"
+      ],
+      "until_cue": [
+       "b23",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "grocer_cash",
+      "kind": "board",
+      "x": 3090,
+      "y": 370,
+      "sign": "",
+      "text": "दुकानदार cash",
+      "fill": "#547B70",
+      "string": 0,
+      "steps": [
+       {
+        "text": "₹0",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b22",
+         "किराना"
+        ]
+       },
+       {
+        "text": "₹500",
+        "n": 0,
+        "dir": "up",
+        "cue": [
+         "b22",
+         "₹500।"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b22",
+       "किराना"
+      ],
+      "until_cue": [
+       "b23",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "no_barter",
+      "kind": "label",
+      "x": 2600,
+      "y": 170,
+      "sign": "",
+      "text": "Wheat देना ज़रूरी नहीं",
+      "fill": "#E9F1E9",
+      "string": 0,
+      "steps": [],
+      "packets": [],
+      "cue": [
+       "b22",
+       "उसे"
+      ],
+      "until_cue": [
+       "b23",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "phone_quote",
+      "kind": "board",
+      "x": 2150,
+      "y": 370,
+      "sign": "",
+      "text": "Phone",
+      "fill": "#547B70",
+      "string": 0,
+      "steps": [
+       {
+        "text": "₹20,000",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b23",
+         "₹20,000,"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b23",
+       "Phone"
+      ],
+      "until_cue": [
+       "b24",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "laptop_quote",
+      "kind": "board",
+      "x": 3090,
+      "y": 370,
+      "sign": "",
+      "text": "Laptop",
+      "fill": "#547B70",
+      "string": 0,
+      "steps": [
+       {
+        "text": "₹60,000",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b23",
+         "₹60,000"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b23",
+       "laptop"
+      ],
+      "until_cue": [
+       "b24",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "comparison",
+      "kind": "board",
+      "x": 2600,
+      "y": 180,
+      "sign": "",
+      "text": "Common rupee scale",
+      "fill": "#547B70",
+      "string": 0,
+      "steps": [
+       {
+        "text": "3 गुना",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b23",
+         "3"
+        ]
+       },
+       {
+        "text": "3 गुना\n₹40,000 महँगा",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b23",
+         "₹40,000"
+        ]
+       },
+       {
+        "text": "3 गुना\n₹40,000 महँगा\nPayment नहीं हुई",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b23",
+         "अभी"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b23",
+       "Common"
+      ],
+      "until_cue": [
+       "b24",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "saved_account",
+      "kind": "board",
+      "x": 2150,
+      "y": 370,
+      "sign": "",
+      "text": "Worker · saved balance",
+      "fill": "#547B70",
+      "string": 0,
+      "steps": [
+       {
+        "text": "₹0",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b24",
+         "account"
+        ]
+       },
+       {
+        "text": "₹500",
+        "n": 0,
+        "dir": "up",
+        "cue": [
+         "b24",
+         "₹500"
+        ]
+       },
+       {
+        "text": "₹0",
+        "n": 0,
+        "dir": "down",
+        "cue": [
+         "b24",
+         "₹0"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b24",
+       "account"
+      ],
+      "until_cue": [
+       "b25",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "time_bridge",
+      "kind": "board",
+      "x": 3090,
+      "y": 370,
+      "sign": "",
+      "text": "Purchasing power",
+      "fill": "#547B70",
+      "string": 0,
+      "steps": [
+       {
+        "text": "आज की कमाई",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b24",
+         "आज"
+        ]
+       },
+       {
+        "text": "बचत → बाद में खर्च",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b24",
+         "savings"
+        ]
+       },
+       {
+        "text": "बाद में किराना",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b24",
+         "किराना"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b24",
+       "आज"
+      ],
+      "until_cue": [
+       "b25",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "worker",
+      "kind": "crowd",
+      "x": 0,
+      "y": 0,
+      "sign": "",
+      "text": "",
+      "fill": "",
+      "string": 0,
+      "steps": [
+       {
+        "text": "",
+        "n": 1,
+        "dir": "",
+        "cue": [
+         "b24",
+         "Worker"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b24",
+       "Worker"
+      ],
+      "until_cue": [
+       "b25",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 2300,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 100,
+      "enter_x": 1900,
+      "exit_x": 1900,
+      "face": 1,
+      "seed": 24,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [
+       "b24",
+       "लिया;"
+      ],
+      "carry_n": 1
+     },
+     {
+      "id": "loan_schedule",
+      "kind": "board",
+      "x": 2150,
+      "y": 370,
+      "sign": "",
+      "text": "Home loan schedule",
+      "fill": "#547B70",
+      "string": 0,
+      "steps": [
+       {
+        "text": "अगले महीने",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b25",
+         "अगले"
+        ]
+       },
+       {
+        "text": "अगले महीने\nदेय ₹10,000",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b25",
+         "₹10,000"
+        ]
+       },
+       {
+        "text": "राशि पहले तय थी\n₹10,000",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b25",
+         "पहले"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b25",
+       "schedule"
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "unpaid_instalment",
+      "kind": "board",
+      "x": 3090,
+      "y": 370,
+      "sign": "",
+      "text": "Unpaid instalment",
+      "fill": "#547B70",
+      "string": 0,
+      "steps": [
+       {
+        "text": "₹10,000",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b25",
+         "उस"
+        ]
+       },
+       {
+        "text": "₹0",
+        "n": 0,
+        "dir": "down",
+        "cue": [
+         "b25",
+         "₹0"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b25",
+       "उस"
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     }
+    ],
+    "camera": [
+     {
+      "cue": [
+       "b22",
+       ""
+      ],
+      "x": 2470,
+      "y": 460,
+      "zoom": 0.8,
+      "frames": 30
+     },
+     {
+      "cue": [
+       "b22",
+       "Wheat"
+      ],
+      "x": 2510,
+      "y": 470,
+      "zoom": 0.84,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b22",
+       "आपके"
+      ],
+      "x": 2480,
+      "y": 420,
+      "zoom": 0.86,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b22",
+       "दुकानदार"
+      ],
+      "x": 2540,
+      "y": 420,
+      "zoom": 0.84,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b22",
+       "उसे"
+      ],
+      "x": 2470,
+      "y": 430,
+      "zoom": 0.8,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b23",
+       ""
+      ],
+      "x": 2470,
+      "y": 450,
+      "zoom": 0.8,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b23",
+       "Phone"
+      ],
+      "x": 2500,
+      "y": 410,
+      "zoom": 0.84,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b23",
+       "Common"
+      ],
+      "x": 2530,
+      "y": 380,
+      "zoom": 0.84,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b23",
+       "अभी"
+      ],
+      "x": 2470,
+      "y": 420,
+      "zoom": 0.8,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b24",
+       ""
+      ],
+      "x": 2470,
+      "y": 450,
+      "zoom": 0.8,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b24",
+       "account"
+      ],
+      "x": 2440,
+      "y": 420,
+      "zoom": 0.84,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b24",
+       "savings"
+      ],
+      "x": 2500,
+      "y": 410,
+      "zoom": 0.82,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b24",
+       "किराना"
+      ],
+      "x": 2530,
+      "y": 450,
+      "zoom": 0.82,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b24",
+       "saved"
+      ],
+      "x": 2470,
+      "y": 420,
+      "zoom": 0.8,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b25",
+       ""
+      ],
+      "x": 2470,
+      "y": 450,
+      "zoom": 0.8,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b25",
+       "मानिए"
+      ],
+      "x": 2440,
+      "y": 420,
+      "zoom": 0.84,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b25",
+       "उस"
+      ],
+      "x": 2530,
+      "y": 420,
+      "zoom": 0.82,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b25",
+       "unpaid"
+      ],
+      "x": 2560,
+      "y": 410,
+      "zoom": 0.82,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b25",
+       "पहले"
+      ],
+      "x": 2470,
+      "y": 440,
+      "zoom": 0.8,
+      "frames": 40
+     }
+    ]
+   },
+   "code_problems": [],
+   "passed": true,
+   "finished_at": 1793160585.5700703
+  }
+ ],
+ "avoid_rounds": [
+  1,
+  2
+ ],
+ "cost_usd": 0.0,
+ "seconds": 173.1,
+ "navin_verdict": null
+}

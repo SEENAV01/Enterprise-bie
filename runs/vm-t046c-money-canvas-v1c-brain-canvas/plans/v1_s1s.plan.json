@@ -1,0 +1,1014 @@
+{
+ "id": "v1_s1s",
+ "part_id": "c01.1",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b2",
+   "say": "किराना दुकान में क्या हुआ? ₹100 देकर चावल लिए; cash ₹500 से ₹400 हुआ। फिर ₹50 का पुराना उधार चुकाया; बाकी debt ₹50 से ₹0 हुआ। दोनों payments दुकानदार ने लिए।"
+  },
+  {
+   "beat_id": "b3",
+   "say": "₹100 का bill कैसे चुकता हुआ? दुकानदार ने cash लेना चाहा, तो bill ₹100 से ₹0 हुआ। वही ₹10 का सिक्का सब्ज़ी वाले से चाय वाले तक कैसे चला? खराब नहीं हुआ; payments 0 से 2 हुए।"
+  },
+  {
+   "beat_id": "b4",
+   "say": "पैसे साथ कैसे ले जाएँगे? Wallet में ₹500 ले गए; ₹200 का किराना लिया, फिर बचे ₹300 लेकर सब्ज़ी वाले तक गए। भारी सामान ढोना नहीं पड़ा।"
+  },
+  {
+   "beat_id": "b5",
+   "say": "₹30 के soap के लिए ₹100 दिया, तो कितना बचेगा? ₹70 change मिला। चाय ₹10 की हो और 2 असली ₹10 coins हों, तो कौन-सा देंगे? कोई भी; payment के बाद 1 बचेगा।"
+  },
+  {
+   "beat_id": "b6",
+   "say": "इन purchases और repayments में लिया गया payment money है। Money कुछ भी हो सकता है जिसे goods, services के exchange और debts चुकाने में लिया जाए। Medium of exchange यानी देकर सामान या service लेना; settling debts यानी पुराना उधार चुकाना।"
+  },
+  {
+   "beat_id": "b7",
+   "say": "Payment लेने की तैयारी Acceptability है। सिक्के का जल्दी खराब न होना Durability है, यानी repeated use में टिकना। पैसे कई हाथों से गुजरते हैं; जल्दी खराब हों तो बार-बार बदलने पड़ेंगे।"
+  },
+  {
+   "beat_id": "b8",
+   "say": "आसानी से साथ ले जाना Portability है। ₹100 में से ₹30 देना, ₹70 वापस पाना Divisibility है: value छोटी units में बाँटना। पहली खूबी अलग जगह payment आसान करती है; दूसरी छोटी-बड़ी payment।"
+  },
+  {
+   "beat_id": "b9",
+   "say": "कोई भी असली ₹10 coin बराबर चले, यह Uniformity है: equivalent units की value समान। Same denomination समझिए, ₹10 के बदले ₹10। हर coin की अलग कीमत तय नहीं करनी पड़ती।"
+  },
+  {
+   "beat_id": "b10",
+   "say": "कीमती चीज़ अपने-आप money नहीं। Acceptability लोगों की willingness है, हर counter पर हर form चलने की guarantee नहीं। Divisibility note के टुकड़े करना नहीं; Uniformity में ₹10 और ₹100 बराबर नहीं।"
+  }
+ ],
+ "kit": "shop",
+ "elements": [
+  {
+   "id": "shop",
+   "kind": "shop",
+   "x": 2600,
+   "y": 860,
+   "sign": "किराना दुकान",
+   "cue": [
+    "b2",
+    "",
+    0.0
+   ],
+   "packets": [
+    {
+     "n": 4,
+     "cue": [
+      "b2",
+      "",
+      0.0
+     ]
+    },
+    {
+     "n": 3,
+     "cue": [
+      "b2",
+      "लिए;"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "seller",
+   "kind": "shopkeeper",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b2",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "buyer",
+   "kind": "crowd",
+   "x0": 2210,
+   "spacing": 100,
+   "enter_x": 1700,
+   "exit_x": 1800,
+   "face": 1,
+   "seed": 7,
+   "cue": [
+    "b2",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b2",
+      "",
+      0.0
+     ],
+     "n": 1
+    }
+   ]
+  },
+  {
+   "id": "cash",
+   "kind": "board",
+   "x": 2020,
+   "y": 440,
+   "text": "Cash",
+   "fill": "#397568",
+   "cue": [
+    "b2",
+    "cash"
+   ],
+   "until_cue": [
+    "b3",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b2",
+      "cash"
+     ],
+     "text": "₹500"
+    },
+    {
+     "cue": [
+      "b2",
+      "₹400"
+     ],
+     "text": "₹400",
+     "dir": "down"
+    }
+   ]
+  },
+  {
+   "id": "debt",
+   "kind": "board",
+   "x": 3180,
+   "y": 440,
+   "text": "पुराना उधार",
+   "fill": "#986344",
+   "cue": [
+    "b2",
+    "उधार"
+   ],
+   "until_cue": [
+    "b3",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b2",
+      "उधार"
+     ],
+     "text": "₹50"
+    },
+    {
+     "cue": [
+      "b2",
+      "₹0"
+     ],
+     "text": "₹0",
+     "dir": "down"
+    }
+   ]
+  },
+  {
+   "id": "bill",
+   "kind": "board",
+   "x": 2020,
+   "y": 440,
+   "text": "Bill",
+   "fill": "#397568",
+   "cue": [
+    "b3",
+    "bill"
+   ],
+   "until_cue": [
+    "b4",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b3",
+      "bill"
+     ],
+     "text": "₹100"
+    },
+    {
+     "cue": [
+      "b3",
+      "₹0"
+     ],
+     "text": "₹0",
+     "dir": "down"
+    }
+   ]
+  },
+  {
+   "id": "coin-use",
+   "kind": "board",
+   "x": 3180,
+   "y": 440,
+   "text": "वही ₹10 सिक्का",
+   "fill": "#986344",
+   "cue": [
+    "b3",
+    "सिक्का"
+   ],
+   "until_cue": [
+    "b4",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b3",
+      "सिक्का"
+     ],
+     "text": "सब्ज़ी → चाय\nPayments: 0"
+    },
+    {
+     "cue": [
+      "b3",
+      "2"
+     ],
+     "text": "Payments: 2\nसिक्का usable",
+     "dir": "up"
+    }
+   ]
+  },
+  {
+   "id": "wallet",
+   "kind": "board",
+   "x": 2020,
+   "y": 440,
+   "text": "Wallet",
+   "fill": "#397568",
+   "cue": [
+    "b4",
+    "Wallet"
+   ],
+   "until_cue": [
+    "b5",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b4",
+      "₹500"
+     ],
+     "text": "₹500"
+    },
+    {
+     "cue": [
+      "b4",
+      "₹300"
+     ],
+     "text": "₹300",
+     "dir": "down"
+    }
+   ]
+  },
+  {
+   "id": "route",
+   "kind": "board",
+   "x": 3180,
+   "y": 440,
+   "text": "साथ ले जाना",
+   "fill": "#986344",
+   "cue": [
+    "b4",
+    "₹200"
+   ],
+   "until_cue": [
+    "b5",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b4",
+      "₹200"
+     ],
+     "text": "किराना: ₹200"
+    },
+    {
+     "cue": [
+      "b4",
+      "सब्ज़ी"
+     ],
+     "text": "किराना → सब्ज़ी\nWallet साथ"
+    }
+   ]
+  },
+  {
+   "id": "change",
+   "kind": "board",
+   "x": 2020,
+   "y": 440,
+   "text": "Soap · ₹30",
+   "fill": "#397568",
+   "cue": [
+    "b5",
+    "soap"
+   ],
+   "until_cue": [
+    "b6",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b5",
+      "₹100"
+     ],
+     "text": "दिए: ₹100"
+    },
+    {
+     "cue": [
+      "b5",
+      "₹70"
+     ],
+     "text": "₹100 = ₹30 + ₹70\nChange: ₹70"
+    }
+   ]
+  },
+  {
+   "id": "equal-coins",
+   "kind": "board",
+   "x": 3180,
+   "y": 440,
+   "text": "चाय · ₹10",
+   "fill": "#986344",
+   "cue": [
+    "b5",
+    "चाय"
+   ],
+   "until_cue": [
+    "b6",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b5",
+      "2"
+     ],
+     "text": "असली ₹10 coins: 2\n₹10 = ₹10"
+    },
+    {
+     "cue": [
+      "b5",
+      "1"
+     ],
+     "text": "असली ₹10 coins: 1\nकोई भी coin",
+     "dir": "down"
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "kind": "board",
+   "x": 2020,
+   "y": 440,
+   "text": "Money",
+   "fill": "#397568",
+   "cue": [
+    "b6",
+    "money"
+   ],
+   "until_cue": [
+    "b7",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b6",
+      "money"
+     ],
+     "text": "Accepted payment"
+    },
+    {
+     "cue": [
+      "b6",
+      "Medium"
+     ],
+     "text": "Goods + services\nMedium of exchange"
+    },
+    {
+     "cue": [
+      "b6",
+      "settling"
+     ],
+     "text": "पुराना उधार\nSettling debts"
+    }
+   ]
+  },
+  {
+   "id": "branches-a",
+   "kind": "board",
+   "x": 2020,
+   "y": 440,
+   "text": "Money · खूबियाँ",
+   "fill": "#397568",
+   "cue": [
+    "b7",
+    "Acceptability"
+   ],
+   "until_cue": [
+    "b8",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b7",
+      "Acceptability"
+     ],
+     "text": "Acceptability\nलेने की willingness"
+    },
+    {
+     "cue": [
+      "b7",
+      "Durability"
+     ],
+     "text": "✓ Acceptability\nDurability\nRepeated use"
+    },
+    {
+     "cue": [
+      "b7",
+      "बदलने"
+     ],
+     "text": "✓ Acceptability\n✓ Durability"
+    }
+   ]
+  },
+  {
+   "id": "branches-b",
+   "kind": "board",
+   "x": 2020,
+   "y": 440,
+   "text": "Money · खूबियाँ",
+   "fill": "#397568",
+   "cue": [
+    "b8",
+    "Portability"
+   ],
+   "until_cue": [
+    "b9",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b8",
+      "Portability"
+     ],
+     "text": "Portability\nआसानी से साथ"
+    },
+    {
+     "cue": [
+      "b8",
+      "Divisibility"
+     ],
+     "text": "✓ Portability\nDivisibility\n₹100 = ₹30 + ₹70"
+    },
+    {
+     "cue": [
+      "b8",
+      "दूसरी"
+     ],
+     "text": "✓ Portability\n✓ Divisibility\nछोटी usable units"
+    }
+   ]
+  },
+  {
+   "id": "uniformity",
+   "kind": "board",
+   "x": 2020,
+   "y": 440,
+   "text": "Uniformity",
+   "fill": "#397568",
+   "cue": [
+    "b9",
+    "Uniformity"
+   ],
+   "until_cue": [
+    "b10",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b9",
+      "Uniformity"
+     ],
+     "text": "Equivalent genuine units\nसमान value"
+    },
+    {
+     "cue": [
+      "b9",
+      "Same"
+     ],
+     "text": "Same denomination\n₹10 = ₹10"
+    },
+    {
+     "cue": [
+      "b9",
+      "अलग"
+     ],
+     "text": "✓ Uniformity\nअलग कीमत तय नहीं"
+    }
+   ]
+  },
+  {
+   "id": "checks",
+   "kind": "board",
+   "x": 2020,
+   "y": 440,
+   "text": "Money · ✓",
+   "fill": "#397568",
+   "cue": [
+    "b10",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b10",
+      "",
+      0.0
+     ],
+     "text": "✓ Acceptability\n✓ Durability\n✓ Portability"
+    },
+    {
+     "cue": [
+      "b10",
+      "Divisibility"
+     ],
+     "text": "✓ Divisibility\n✓ Uniformity"
+    }
+   ]
+  },
+  {
+   "id": "corrections",
+   "kind": "board",
+   "x": 3180,
+   "y": 440,
+   "text": "गलत अर्थ नहीं",
+   "fill": "#986344",
+   "cue": [
+    "b10",
+    "कीमती"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b10",
+      "कीमती"
+     ],
+     "text": "कीमती ≠ अपने-आप money"
+    },
+    {
+     "cue": [
+      "b10",
+      "willingness"
+     ],
+     "text": "Willingness ≠ guarantee\nहर form, हर counter नहीं"
+    },
+    {
+     "cue": [
+      "b10",
+      "टुकड़े"
+     ],
+     "text": "छोटी units ≠ note फाड़ना"
+    },
+    {
+     "cue": [
+      "b10",
+      "₹100"
+     ],
+     "text": "₹10 ≠ ₹100\nSame denomination only"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b2",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 540,
+   "zoom": 0.85,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b2",
+    "cash"
+   ],
+   "x": 2240,
+   "y": 510,
+   "zoom": 1.1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b2",
+    "उधार"
+   ],
+   "x": 2890,
+   "y": 510,
+   "zoom": 1.1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b2",
+    "दोनों"
+   ],
+   "x": 2600,
+   "y": 540,
+   "zoom": 0.85,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b3",
+    "",
+    0.0
+   ],
+   "x": 2240,
+   "y": 510,
+   "zoom": 1.1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b3",
+    "चाहा,"
+   ],
+   "x": 2430,
+   "y": 530,
+   "zoom": 1,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b3",
+    "सिक्का"
+   ],
+   "x": 2900,
+   "y": 510,
+   "zoom": 1.1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b3",
+    "खराब"
+   ],
+   "x": 3010,
+   "y": 500,
+   "zoom": 1.2,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b4",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 540,
+   "zoom": 0.85,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b4",
+    "Wallet"
+   ],
+   "x": 2240,
+   "y": 510,
+   "zoom": 1.1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b4",
+    "सब्ज़ी"
+   ],
+   "x": 2890,
+   "y": 510,
+   "zoom": 1.1,
+   "frames": 50
+  },
+  {
+   "cue": [
+    "b4",
+    "भारी"
+   ],
+   "x": 2600,
+   "y": 540,
+   "zoom": 0.85,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b5",
+    "",
+    0.0
+   ],
+   "x": 2240,
+   "y": 510,
+   "zoom": 1.1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b5",
+    "चाय"
+   ],
+   "x": 2890,
+   "y": 510,
+   "zoom": 1.1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b5",
+    "कोई"
+   ],
+   "x": 3000,
+   "y": 500,
+   "zoom": 1.2,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b6",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 540,
+   "zoom": 0.85,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b6",
+    "Money"
+   ],
+   "x": 2240,
+   "y": 510,
+   "zoom": 1.1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b6",
+    "goods,"
+   ],
+   "x": 2390,
+   "y": 520,
+   "zoom": 1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b6",
+    "Medium"
+   ],
+   "x": 2220,
+   "y": 500,
+   "zoom": 1.15,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b6",
+    "settling"
+   ],
+   "x": 2300,
+   "y": 510,
+   "zoom": 1.05,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b7",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 540,
+   "zoom": 0.85,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b7",
+    "Acceptability"
+   ],
+   "x": 2240,
+   "y": 510,
+   "zoom": 1.1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b7",
+    "Durability"
+   ],
+   "x": 2200,
+   "y": 500,
+   "zoom": 1.2,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b7",
+    "हाथों"
+   ],
+   "x": 2420,
+   "y": 540,
+   "zoom": 1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b7",
+    "बदलने"
+   ],
+   "x": 2240,
+   "y": 510,
+   "zoom": 1.1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b8",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 540,
+   "zoom": 0.85,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b8",
+    "Portability"
+   ],
+   "x": 2240,
+   "y": 510,
+   "zoom": 1.1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b8",
+    "₹70"
+   ],
+   "x": 2200,
+   "y": 500,
+   "zoom": 1.2,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b8",
+    "पहली"
+   ],
+   "x": 2390,
+   "y": 530,
+   "zoom": 1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b8",
+    "दूसरी"
+   ],
+   "x": 2240,
+   "y": 510,
+   "zoom": 1.1,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b9",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 540,
+   "zoom": 0.85,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b9",
+    "Uniformity"
+   ],
+   "x": 2240,
+   "y": 510,
+   "zoom": 1.1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b9",
+    "Same"
+   ],
+   "x": 2200,
+   "y": 500,
+   "zoom": 1.2,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b9",
+    "अलग"
+   ],
+   "x": 2390,
+   "y": 530,
+   "zoom": 1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b10",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 540,
+   "zoom": 0.85,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b10",
+    "Acceptability"
+   ],
+   "x": 2890,
+   "y": 510,
+   "zoom": 1.1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b10",
+    "guarantee"
+   ],
+   "x": 2990,
+   "y": 500,
+   "zoom": 1.2,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b10",
+    "Divisibility"
+   ],
+   "x": 2600,
+   "y": 530,
+   "zoom": 0.9,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b10",
+    "Uniformity"
+   ],
+   "x": 2890,
+   "y": 510,
+   "zoom": 1.1,
+   "frames": 40
+  }
+ ]
+}

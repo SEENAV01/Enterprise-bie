@@ -1,0 +1,139 @@
+{
+ "id": "v1_s1b",
+ "part_id": "c01.1",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b11",
+   "say": "आगे functions में यही आधार रखिए: payment लोग लें, जल्दी खराब न हो, साथ ले जाना और छोटी units में देना आसान हो; equivalent units बदल सकें।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "anchor",
+   "kind": "text",
+   "cell": [
+    0,
+    0,
+    12,
+    1
+   ],
+   "cue": [
+    "b11",
+    "",
+    0.0
+   ],
+   "text": "Money की विशेषताएँ → Functions",
+   "style": "title",
+   "tone": "ink",
+   "fill": "band",
+   "align": "center",
+   "size": 36
+  },
+  {
+   "id": "acceptability",
+   "kind": "text",
+   "cell": [
+    0,
+    2,
+    4,
+    2
+   ],
+   "cue": [
+    "b11",
+    "payment"
+   ],
+   "text": "Acceptability\nलोग payment स्वीकार करें",
+   "style": "box",
+   "tone": "accent",
+   "fill": "band",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "durability",
+   "kind": "text",
+   "cell": [
+    4,
+    2,
+    4,
+    2
+   ],
+   "cue": [
+    "b11",
+    "जल्दी"
+   ],
+   "text": "Durability\nजल्दी खराब न हो",
+   "style": "box",
+   "tone": "accent",
+   "fill": "band",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "portability",
+   "kind": "text",
+   "cell": [
+    8,
+    2,
+    4,
+    2
+   ],
+   "cue": [
+    "b11",
+    "साथ"
+   ],
+   "text": "Portability\nसाथ ले जाना आसान",
+   "style": "box",
+   "tone": "accent",
+   "fill": "band",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "divisibility",
+   "kind": "text",
+   "cell": [
+    1,
+    5,
+    5,
+    2
+   ],
+   "cue": [
+    "b11",
+    "छोटी"
+   ],
+   "text": "Divisibility\nछोटी units में देना आसान",
+   "style": "box",
+   "tone": "accent",
+   "fill": "band",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "uniformity",
+   "kind": "text",
+   "cell": [
+    6,
+    5,
+    5,
+    2
+   ],
+   "cue": [
+    "b11",
+    "equivalent"
+   ],
+   "text": "Uniformity\nEquivalent units परस्पर बदल सकें",
+   "style": "box",
+   "tone": "accent",
+   "fill": "band",
+   "align": "center",
+   "size": 28
+  }
+ ]
+}

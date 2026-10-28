@@ -1,0 +1,486 @@
+{
+ "id": "v1_s3b",
+ "part_id": "c01.3",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b19",
+   "say": "Example का evidence यही calculation है: spending दोगुनी, goods वही, इसलिए तय assumptions में price दोगुनी। यह actual prices की forecast नहीं है।"
+  },
+  {
+   "beat_id": "b20",
+   "say": "Limited supply अकेली stable value की guarantee है? नहीं; money की demand और goods-services की availability भी असर डालती हैं। हर money increase से prices उसी ratio में बढ़ें, यह नियम नहीं।"
+  },
+  {
+   "beat_id": "b21",
+   "say": "कड़ी समझिए: goods वही, spending बढ़ी, prices बढ़ने का pressure, हर unit से कम खरीद। Excessive supply रोकना purchasing power बचाने में मदद कर सकता है।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "anchor",
+   "kind": "text",
+   "cell": [
+    0,
+    0,
+    12,
+    1
+   ],
+   "cue": [
+    "b19",
+    "",
+    0.0
+   ],
+   "text": "Money → Limited supply → Value",
+   "style": "title",
+   "tone": "ink",
+   "fill": "paper",
+   "align": "left",
+   "size": 32
+  },
+  {
+   "id": "example",
+   "kind": "text",
+   "cell": [
+    0,
+    1,
+    6,
+    1
+   ],
+   "cue": [
+    "b19",
+    "Example"
+   ],
+   "until_cue": [
+    "b20",
+    "Limited"
+   ],
+   "text": "Illustrative example • outside example",
+   "style": "tag",
+   "tone": "muted",
+   "align": "left",
+   "size": 24
+  },
+  {
+   "id": "spending",
+   "kind": "value",
+   "cell": [
+    0,
+    2,
+    6,
+    1
+   ],
+   "cue": [
+    "b19",
+    "calculation"
+   ],
+   "until_cue": [
+    "b20",
+    "Limited"
+   ],
+   "tone": "accent",
+   "align": "left",
+   "size": 30,
+   "steps": [
+    {
+     "cue": [
+      "b19",
+      "calculation"
+     ],
+     "text": "Spending ₹1000"
+    },
+    {
+     "cue": [
+      "b19",
+      "दोगुनी,"
+     ],
+     "text": "Spending ₹2000",
+     "dir": "up"
+    }
+   ]
+  },
+  {
+   "id": "goods",
+   "kind": "text",
+   "cell": [
+    0,
+    3,
+    6,
+    1
+   ],
+   "cue": [
+    "b19",
+    "goods"
+   ],
+   "until_cue": [
+    "b20",
+    "Limited"
+   ],
+   "text": "वही 10 baskets • सभी बिके",
+   "style": "box",
+   "tone": "ink",
+   "align": "left",
+   "size": 28
+  },
+  {
+   "id": "price",
+   "kind": "value",
+   "cell": [
+    0,
+    4,
+    6,
+    1
+   ],
+   "cue": [
+    "b19",
+    "assumptions"
+   ],
+   "until_cue": [
+    "b20",
+    "Limited"
+   ],
+   "tone": "warm",
+   "align": "left",
+   "size": 30,
+   "steps": [
+    {
+     "cue": [
+      "b19",
+      "assumptions"
+     ],
+     "text": "₹100 / basket"
+    },
+    {
+     "cue": [
+      "b19",
+      "दोगुनी।"
+     ],
+     "text": "₹200 / basket",
+     "dir": "up"
+    }
+   ]
+  },
+  {
+   "id": "forecast",
+   "kind": "callout",
+   "cell": [
+    6,
+    2,
+    6,
+    2
+   ],
+   "cue": [
+    "b19",
+    "actual"
+   ],
+   "until_cue": [
+    "b20",
+    "Limited"
+   ],
+   "text": "Illustrative arithmetic ≠ actual price forecast",
+   "style": "note",
+   "tone": "danger",
+   "align": "left",
+   "size": 30,
+   "marks": [
+    {
+     "phrase": "≠",
+     "cue": [
+      "b19",
+      "नहीं"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "guarantee",
+   "kind": "callout",
+   "cell": [
+    0,
+    1,
+    12,
+    1
+   ],
+   "cue": [
+    "b20",
+    "Limited"
+   ],
+   "text": "Limited supply: मदद ≠ guarantee",
+   "style": "note",
+   "tone": "warm",
+   "align": "left",
+   "size": 30,
+   "marks": [
+    {
+     "phrase": "≠ guarantee",
+     "cue": [
+      "b20",
+      "नहीं;"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "demand",
+   "kind": "text",
+   "cell": [
+    0,
+    2,
+    6,
+    1
+   ],
+   "cue": [
+    "b20",
+    "demand"
+   ],
+   "until_cue": [
+    "b21",
+    "कड़ी"
+   ],
+   "text": "Money की demand",
+   "style": "box",
+   "tone": "accent",
+   "align": "left",
+   "size": 28
+  },
+  {
+   "id": "availability",
+   "kind": "text",
+   "cell": [
+    6,
+    2,
+    6,
+    1
+   ],
+   "cue": [
+    "b20",
+    "availability"
+   ],
+   "until_cue": [
+    "b21",
+    "कड़ी"
+   ],
+   "text": "Goods-services की availability",
+   "style": "box",
+   "tone": "accent",
+   "align": "left",
+   "size": 26
+  },
+  {
+   "id": "ratio",
+   "kind": "text",
+   "cell": [
+    0,
+    4,
+    12,
+    1
+   ],
+   "cue": [
+    "b20",
+    "increase"
+   ],
+   "until_cue": [
+    "b21",
+    "कड़ी"
+   ],
+   "text": "Money increase ≠ निश्चित proportional price rise",
+   "style": "box",
+   "tone": "danger",
+   "align": "left",
+   "size": 28,
+   "marks": [
+    {
+     "phrase": "≠",
+     "cue": [
+      "b20",
+      "नहीं।"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chain",
+   "kind": "table",
+   "cell": [
+    0,
+    2,
+    8,
+    4
+   ],
+   "cue": [
+    "b21",
+    "goods"
+   ],
+   "tone": "ink",
+   "align": "left",
+   "size": 28,
+   "columns": [
+    "कड़ी"
+   ],
+   "rows": [
+    {
+     "cells": [
+      "Goods वही"
+     ],
+     "cue": [
+      "b21",
+      "goods"
+     ]
+    },
+    {
+     "cells": [
+      "↓ Spending बढ़ी"
+     ],
+     "cue": [
+      "b21",
+      "spending"
+     ]
+    },
+    {
+     "cells": [
+      "↓ Prices बढ़ने का pressure"
+     ],
+     "cue": [
+      "b21",
+      "pressure,"
+     ]
+    },
+    {
+     "cells": [
+      "↓ हर unit से कम खरीद"
+     ],
+     "cue": [
+      "b21",
+      "कम"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "power",
+   "kind": "value",
+   "cell": [
+    8,
+    3,
+    4,
+    2
+   ],
+   "cue": [
+    "b21",
+    "हर"
+   ],
+   "tone": "warm",
+   "align": "left",
+   "size": 28,
+   "steps": [
+    {
+     "cue": [
+      "b21",
+      "हर"
+     ],
+     "text": "Example: ₹200 buys 2 baskets"
+    },
+    {
+     "cue": [
+      "b21",
+      "खरीद।"
+     ],
+     "text": "₹200 buys 1 basket",
+     "dir": "down"
+    }
+   ]
+  },
+  {
+   "id": "conclusion",
+   "kind": "callout",
+   "cell": [
+    0,
+    6,
+    12,
+    1
+   ],
+   "cue": [
+    "b21",
+    "Excessive"
+   ],
+   "text": "Excessive supply रोकना → purchasing power बचाने में मदद",
+   "style": "note",
+   "tone": "ok",
+   "align": "left",
+   "size": 28,
+   "marks": [
+    {
+     "phrase": "मदद",
+     "cue": [
+      "b21",
+      "मदद"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "done",
+   "kind": "mark",
+   "cue": [
+    "b21",
+    "है।"
+   ],
+   "tone": "ok",
+   "target": "anchor",
+   "mark": "tick",
+   "pos": "tr"
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b19",
+    "actual"
+   ],
+   "ids": [
+    "anchor",
+    "forecast"
+   ],
+   "until_cue": [
+    "b20",
+    "Limited"
+   ]
+  },
+  {
+   "cue": [
+    "b20",
+    "ratio"
+   ],
+   "ids": [
+    "anchor",
+    "guarantee",
+    "ratio"
+   ],
+   "until_cue": [
+    "b21",
+    "कड़ी"
+   ]
+  },
+  {
+   "cue": [
+    "b21",
+    "purchasing"
+   ],
+   "ids": [
+    "anchor",
+    "guarantee",
+    "power",
+    "conclusion"
+   ],
+   "until_cue": [
+    "b21",
+    "है।"
+   ]
+  }
+ ]
+}

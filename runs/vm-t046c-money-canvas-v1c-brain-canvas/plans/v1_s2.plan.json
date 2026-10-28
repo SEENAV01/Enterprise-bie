@@ -1,0 +1,377 @@
+{
+ "id": "v1_s2",
+ "part_id": "c01.2",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b12",
+   "say": "Note दिए बिना account से payment हुई, तो money इस्तेमाल हुई? हाँ; money सिर्फ currency notes और coins नहीं। Account balance का transfer भी payment पूरा कर सकता है।"
+  },
+  {
+   "beat_id": "b13",
+   "say": "उसी खरीद को cash या account balance से चुकाएँ, काम समान हो सकता है। Bank deposits यानी खाते में जमा पैसे; digital balances यानी digitally recorded पैसे जो payment में इस्तेमाल हों।"
+  },
+  {
+   "beat_id": "b14",
+   "say": "इन forms को क्या जोड़ता है? दुकानदार cash ले या खाते से आई रकम, दोनों से bill चुकता होता है। इसलिए payment में आम तौर पर लिए जाने वाले balances भी money हैं, सिर्फ हाथ में पकड़े notes नहीं।"
+  },
+  {
+   "beat_id": "b15",
+   "say": "इसलिए payment का काम पहचानिए, सिर्फ cash नहीं। Phone या app transfer का instruction देता है; money balance है, device नहीं। इसका मतलब हर financial asset money होना भी नहीं है।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank",
+   "kind": "bank",
+   "x": 2600,
+   "y": 860,
+   "sign": "Bank",
+   "cue": [
+    "b12",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "teller",
+   "kind": "teller",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b12",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "customers",
+   "kind": "crowd",
+   "x0": 2330,
+   "spacing": 95,
+   "enter_x": 1850,
+   "exit_x": 1850,
+   "face": 1,
+   "seed": 12,
+   "cue": [
+    "b12",
+    "account"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b12",
+      "account"
+     ],
+     "n": 2
+    }
+   ]
+  },
+  {
+   "id": "payment",
+   "kind": "board",
+   "x": 3300,
+   "y": 420,
+   "text": "Payment",
+   "fill": "#E3EDE5",
+   "cue": [
+    "b12",
+    "payment"
+   ],
+   "until_cue": [
+    "b14",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b12",
+      "payment"
+     ],
+     "text": "Account → payment"
+    },
+    {
+     "cue": [
+      "b12",
+      "सिर्फ"
+     ],
+     "text": "Notes + coins\nके अलावा भी"
+    },
+    {
+     "cue": [
+      "b12",
+      "transfer"
+     ],
+     "text": "Balance transfer\nPayment पूरी"
+    },
+    {
+     "cue": [
+      "b13",
+      "cash"
+     ],
+     "text": "एक ही खरीद\nCash / account balance"
+    },
+    {
+     "cue": [
+      "b13",
+      "deposits"
+     ],
+     "text": "Bank deposits\nखाते में जमा पैसे"
+    },
+    {
+     "cue": [
+      "b13",
+      "recorded"
+     ],
+     "text": "Digital balances\nDigitally recorded पैसे"
+    },
+    {
+     "cue": [
+      "b13",
+      "इस्तेमाल"
+     ],
+     "text": "Payment में इस्तेमाल"
+    }
+   ]
+  },
+  {
+   "id": "acceptance",
+   "kind": "board",
+   "x": 3300,
+   "y": 420,
+   "text": "क्या जोड़ता है?",
+   "fill": "#E3EDE5",
+   "cue": [
+    "b14",
+    "",
+    0.0
+   ],
+   "until_cue": [
+    "b15",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b14",
+      "cash"
+     ],
+     "text": "Cash / खाते से रकम"
+    },
+    {
+     "cue": [
+      "b14",
+      "चुकता"
+     ],
+     "text": "दोनों से bill चुकता"
+    },
+    {
+     "cue": [
+      "b14",
+      "लिए"
+     ],
+     "text": "आम तौर पर स्वीकार\nPayment के लिए"
+    },
+    {
+     "cue": [
+      "b14",
+      "balances"
+     ],
+     "text": "Accepted balances\nभी money हैं"
+    }
+   ]
+  },
+  {
+   "id": "distinction",
+   "kind": "board",
+   "x": 3300,
+   "y": 420,
+   "text": "Money पहचानिए",
+   "fill": "#E3EDE5",
+   "cue": [
+    "b15",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b15",
+      "payment"
+     ],
+     "text": "Payment का काम\nसिर्फ cash नहीं"
+    },
+    {
+     "cue": [
+      "b15",
+      "instruction"
+     ],
+     "text": "Phone / app\nTransfer का instruction"
+    },
+    {
+     "cue": [
+      "b15",
+      "balance"
+     ],
+     "text": "Money = balance\nDevice ≠ money"
+    },
+    {
+     "cue": [
+      "b15",
+      "financial"
+     ],
+     "text": "हर financial asset\nMoney नहीं"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b12",
+    "",
+    0.0
+   ],
+   "x": 2780,
+   "y": 510,
+   "zoom": 0.9,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b12",
+    "हाँ;"
+   ],
+   "x": 2900,
+   "y": 500,
+   "zoom": 0.95,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b12",
+    "transfer"
+   ],
+   "x": 3020,
+   "y": 490,
+   "zoom": 1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b13",
+    "",
+    0.0
+   ],
+   "x": 2830,
+   "y": 510,
+   "zoom": 0.9,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b13",
+    "Bank"
+   ],
+   "x": 3010,
+   "y": 490,
+   "zoom": 1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b13",
+    "digital"
+   ],
+   "x": 3070,
+   "y": 480,
+   "zoom": 1.05,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b14",
+    "",
+    0.0
+   ],
+   "x": 2830,
+   "y": 510,
+   "zoom": 0.9,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b14",
+    "दोनों"
+   ],
+   "x": 2970,
+   "y": 490,
+   "zoom": 1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b14",
+    "इसलिए"
+   ],
+   "x": 3060,
+   "y": 480,
+   "zoom": 1.05,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b14",
+    "सिर्फ"
+   ],
+   "x": 2970,
+   "y": 490,
+   "zoom": 1,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b15",
+    "",
+    0.0
+   ],
+   "x": 2830,
+   "y": 510,
+   "zoom": 0.9,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b15",
+    "Phone"
+   ],
+   "x": 3020,
+   "y": 480,
+   "zoom": 1.05,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b15",
+    "device"
+   ],
+   "x": 3080,
+   "y": 480,
+   "zoom": 1.08,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b15",
+    "इसका"
+   ],
+   "x": 2920,
+   "y": 500,
+   "zoom": 0.95,
+   "frames": 40
+  }
+ ]
+}
