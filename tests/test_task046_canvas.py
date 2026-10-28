@@ -87,6 +87,29 @@ class Canvas(unittest.TestCase):
             self.assertEqual(report["mode"], "B" if plan.get("touches") else "A", name)
             self.assertEqual(report["level"], "L2 + touches" if plan.get("touches") else "L2", name)
 
+    def test_a_scene_camera_box_never_shows_the_backdrop(self):
+        """The Money chapter's v1 (28 October 2026): a plan camera on cells gave the scene a 0.90 x 0.68 box; the core camera
+        fits a box by its larger side, so a band of backdrop ran along the top of the canvas for 30 s. The box grows to a
+        square in frame fractions around its centre and stays inside the frame."""
+        box = canvas.fit_box({"x": 0.051, "y": 0.07, "w": 0.898, "h": 0.68})
+        self.assertEqual((box["w"], box["h"]), (0.898, 0.898))
+        self.assertEqual(box["y"], 0.0)                                           # clamped to the top edge
+        self.assertAlmostEqual(box["x"], 0.051, places=3)
+        self.assertEqual(canvas.fit_box({"x": 0, "y": 0, "w": 1, "h": 1}), {"x": 0.0, "y": 0.0, "w": 1.0, "h": 1.0})
+        small = canvas.fit_box({"x": 0.6, "y": 0.5, "w": 0.3, "h": 0.4})
+        self.assertEqual((small["w"], small["h"]), (0.4, 0.4))
+        self.assertAlmostEqual(small["x"] + small["w"] / 2, 0.75, places=3)       # the centre stays
+        self.assertLessEqual(small["x"] + small["w"], 1.0)
+        plan = fixture("demand_pull_touches.plan.json")
+        plan = dict(plan, camera=[{"cells": [0, 0, 12, 8], "cue": [plan["beats"][0]["beat_id"], ""]},
+                                  {"cells": [1, 1, 10, 6], "cue": [plan["beats"][1]["beat_id"], ""]}])
+        scene, _ = canvas.compile_plan(copy.deepcopy(plan))
+        for key in scene["camera"]:
+            b = key["box"]
+            self.assertAlmostEqual(b["w"], b["h"], places=4)
+            self.assertGreaterEqual(min(b["x"], b["y"]), 0.0)
+            self.assertLessEqual(max(b["x"] + b["w"], b["y"] + b["h"]), 1.0001)
+
     def test_touches_plan_gets_a_camera_and_flowing_goods(self):
         scene, report = canvas.compile_plan(fixture("demand_pull_touches.plan.json"))
         data = scene["layers"][0]["data"]

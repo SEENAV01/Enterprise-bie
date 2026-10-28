@@ -106,6 +106,19 @@ def captions_of(tl: dict, scene_id: str, beats: list) -> list:
 
 # ---------------------------------------------------------------- layout
 
+def fit_box(box: dict) -> dict:
+    """A scene camera box the core camera can show without the backdrop: the core fits a box by its larger side (in
+    fractions of the frame), so the visible region is always as wide as it is tall in those fractions; a box that is not
+    (the Money chapter's v1, 28 October 2026: a 12x8-cell box 0.90 x 0.68 fitted by its width) shows a band of backdrop
+    beyond the scene (4 % of the frame along the top for 30 s). The box grows around its centre to that square and is
+    kept inside the frame."""
+    side = min(1.0, max(float(box.get("w", 1)), float(box.get("h", 1))))
+    cx, cy = float(box.get("x", 0)) + float(box.get("w", 1)) / 2, float(box.get("y", 0)) + float(box.get("h", 1)) / 2
+    x = min(max(cx - side / 2, 0.0), 1.0 - side)
+    y = min(max(cy - side / 2, 0.0), 1.0 - side)
+    return {"x": round(x, 4), "y": round(y, 4), "w": round(side, 4), "h": round(side, 4)}
+
+
 def cell_box(cell, grid):
     cols, rows = grid
     c, r, cw, rh = cell
@@ -401,7 +414,7 @@ def compile_plan(plan: dict, *, voice: dict | None = None, icon_paths: dict | No
     for k in plan.get("camera", []):
         f = frame_of(k.get("cue"))
         changes.append(f)
-        key = {"at": f, "box": cell_box(k["cells"], grid) if "cells" in k else k.get("box", {"x": 0, "y": 0, "w": 1, "h": 1})}
+        key = {"at": f, "box": fit_box(cell_box(k["cells"], grid) if "cells" in k else k.get("box", {"x": 0, "y": 0, "w": 1, "h": 1}))}
         if "frames" in k:
             key["frames"] = k["frames"]
         camera_keys.append(key)
