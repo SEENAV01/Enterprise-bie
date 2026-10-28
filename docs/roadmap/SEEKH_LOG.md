@@ -955,3 +955,38 @@ the toolbox core lane and the Task 045 lane; the version pins moved (`simple_hin
 The words alone finish one script; the lever for the rest is the lesson resume (`t046c-money-lesson-c`): every failed script
 continues from its last answer with fresh rounds (round 0 without a maker call, then patches), as the tissue scripts did.
 
+**Live (the resume `t046c-money-lesson-c`, 28 October 2026, 22.8 minutes, 91 calls, ₹0):** 7 of 18 scripts pass (before 1 of
+18); S2-04 flags over the run 36 (before 746), all formal words; the checker's findings on narration pointing at the source
+packet 0 (before 5 scripts); W-01 caught 2 beats by code, one of them a false positive that cost v17 (entry 22).
+
+| Measure | Before (run b) | After (resume c) |
+| --- | --- | --- |
+| Scripts passed | 1 of 18 (v17) | 7 of 18 (v0, v1, v3, v6, v7, v15, v16; v17 lost to the false positive and the notes finding) |
+| S2-04 flags over the run | 746 | 36, all formal words (सफर, काल्पनिक, सुलभ, देय, मान्य, मुख्यतः, व्यापक, सहमति, देनदारी, दर्ज) |
+| Checker findings on narration pointing at the source packet | 5 scripts | 0 (W-01 by code: 2 hits, 1 right, 1 false positive) |
+| Rounds, calls, time | 3–5 a script, 80 calls, 48.2 minutes | 2–5 a script (round 0 without a maker call), 91 calls, 22.8 minutes |
+| S2-08 examples run first; dohraav | 93 of 93; 0.6 % | 93 of 93; 1.0 % |
+
+## Entry 22 · the Money resume: notes that describe the repair, a checker that re-measures time, and a W-01 pattern too wide, 28 October 2026
+
+**What the resume taught** (`t046c-money-lesson-c`, 18 scripts continued from their last answers, Codex maker and Codex checker,
+₹0): 7 of 18 pass. Of the 11 that fail, **3 fail on the maker's notes** (v2, v5, v17; v5 and v17 on nothing else): "the notes
+document only a b12 wording correction … omit the unit's purpose". The cause is in code: a resume starts a script with
+`notes: None` (`_script_value`; `lesson_plan.json` never stored the notes), so the first patch round's notes, which describe the
+patch, become the script's notes, and `merge_notes` keeps that `about` and those `key_questions` for ever (it was written to
+keep the unit's notes against a patch's, job 2 v11, and here does the reverse). The maker wrote in three rounds "replace the
+correction-only notes with unit-level notes" and the code kept the old `about` each time. **3 fail on time** (v2 11.1 against
+11.0, v11 10.5 against 10.4, v14 8.9 against 8.8): the code's S2-01 check passed each script (its tolerance), the review message
+prints the measured minutes and the budget, and the checker blocks on the 0.1 ("the notes claim a reduction below the limit, but
+that is not the supplied measurement"). **v17 passed in run b and failed here:** PR #90's W-01 pattern `answer codes?` caught
+"फिर answer code चुनिए" in a PYQ practice video, the exam's own term (UPSC answer codes), not the source packet; the script
+continued and lost to the notes finding. The rest: duplicate recaps (v9, v11), S2-07 book-word beats (v4, v8, v10), formal words
+(सफर, काल्पनिक, सुलभ, देय, मान्य …), one S2-01 overrun by code (v10, 12.4 against 10.7).
+
+**What changes in BIE (next PR, `task046c-lesson-notes`):** (1) `lesson_plan.json` stores each script's notes and a resume
+carries them (`_script_value`); `merge_notes` takes a patch's `about` and `key_questions` only when the earlier ones are empty;
+(2) a checker finding placed only on `notes.*` is minor (the notes are the maker's account for the checker, never what the
+learner hears), as the plan seekh did for the plan; (3) a finding that re-measures time is minor: the review runs only on a
+code-clean script, so the code's S2-01 verdict already stands; (4) W-01 `answer codes?` narrowed to the source-pointing forms
+("answer codes in the original continuation", "the supplied answer codes"); (5) सफर joins the everyday list. Measured on the
+run's own records before that PR merges; the live effect in the resume `-d`.
