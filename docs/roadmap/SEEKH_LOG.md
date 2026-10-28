@@ -1055,7 +1055,7 @@ other half of what the first render taught.)
 
 | Measure (v1's spec, first render) | Before | After |
 | --- | --- | --- |
-| Camera keys whose box is not square in frame fractions (backdrop shown) | 1 of 9 | 0 of 9 (every key square by code) |
+| Camera keys whose box is not square in frame fractions (backdrop shown) | 1 of 9 | 0 of 8 (the second plans ask for no box; every box that comes is squared by code, tested) |
 | Scenes opening on a dark band (each scene's opening frame of the review copy: a 25 px top strip darker than half the frame) | 1 of 9 (`v1_s3b`) | 0 of 9 |
 
-The second render (`t046c-money-v1c`, below) is the after.
+The second render (`t046c-money-v1c`, STATUS section "The real video") is the after.
