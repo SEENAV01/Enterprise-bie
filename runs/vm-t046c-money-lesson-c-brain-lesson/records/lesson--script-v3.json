@@ -1,0 +1,3792 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "lesson",
+ "unit": "script-v3",
+ "status": "passed",
+ "instructions_version": "lesson-script/5",
+ "rulebook_version": "canvas_profile@2026-10-27.2+content_types@2026-10-27.1+explanations@2026-10-24.1+level_profiles@2026-10-24.1+simple_hindi@2026-10-27.2+teacher_examples@2026-10-27.1+vision-2026-10-21@2026-10-21.14+visual_grammar@2026-10-27.1+visual_levels@2026-10-26.2",
+ "rulebook_digest": "e361fc3424c925fa52288feaa529c0f01500189d154e409d05d06753863f789d",
+ "rules_used": [
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-04",
+  "G-05",
+  "G-06",
+  "G-07",
+  "S2-01",
+  "S2-02",
+  "S2-03",
+  "S2-04",
+  "S2-05",
+  "S2-06",
+  "S2-07",
+  "S2-08",
+  "W-01"
+ ],
+ "maker_route": "codex",
+ "reviewer_route": "codex-checker",
+ "maker_model": "gpt-6.1-sol",
+ "reviewer_model": "gpt-6.1-sol",
+ "reviewer_independence": "same_model_temporary",
+ "inputs_digest": "9906232d3035d4f08040f630cb5a7595a82d28b1aca53669998be89be6b21ef7",
+ "card": {
+  "card": "bie.task-card/1",
+  "card_id": "lesson.write_script@3-money/v3",
+  "section": "lesson",
+  "task": "write_script",
+  "prefix": {
+   "prefix_id": "lesson.write_script/3",
+   "rulebook_version": "canvas_profile@2026-10-27.2+content_types@2026-10-27.1+explanations@2026-10-24.1+level_profiles@2026-10-24.1+simple_hindi@2026-10-27.2+teacher_examples@2026-10-27.1+vision-2026-10-21@2026-10-21.14+visual_grammar@2026-10-27.1+visual_levels@2026-10-26.2",
+   "content_types_version": "2026-10-27.1",
+   "schema_id": "bie.brain.lesson-script/3",
+   "sha256": "4e7388f80569198fffea0a05d2ffddbd6dd63f298740904f9b1c7349053a9896"
+  },
+  "unit": {
+   "unit_id": "v3",
+   "title": "Metallic money और भारत के शुरुआती coins",
+   "pages": [
+    3
+   ]
+  },
+  "parts": [
+   {
+    "part_id": "c07.1",
+    "item_ids": [
+     "p003-i13"
+    ],
+    "type": "definition",
+    "questions": [
+     "what",
+     "evidence",
+     "how"
+    ],
+    "focus": "Metallic money and the move towards paper: teach these definition items through the definition pattern"
+   },
+   {
+    "part_id": "c07.2",
+    "item_ids": [
+     "p003-i14",
+     "p003-i28"
+    ],
+    "type": "cause_effect",
+    "questions": [
+     "why",
+     "how",
+     "what",
+     "exception"
+    ],
+    "focus": "Metallic money and the move towards paper: teach these cause_effect items through the cause_effect pattern"
+   },
+   {
+    "part_id": "c07.3",
+    "item_ids": [
+     "p003-i15"
+    ],
+    "type": "timeline",
+    "questions": [
+     "when",
+     "why",
+     "where"
+    ],
+    "focus": "Metallic money and the move towards paper: teach these timeline items through the timeline pattern"
+   },
+   {
+    "part_id": "c08.1",
+    "item_ids": [
+     "p003-i16",
+     "p003-i18",
+     "p003-i19",
+     "p003-i20",
+     "p003-i21",
+     "p003-i22",
+     "p003-i23",
+     "p003-i24",
+     "p003-i25",
+     "p003-i26",
+     "p003-i27"
+    ],
+    "type": "timeline",
+    "questions": [
+     "when",
+     "why",
+     "how",
+     "who",
+     "what"
+    ],
+    "focus": "Early Indian metallic-money sequence: teach these timeline items through the timeline pattern"
+   }
+  ],
+  "rules": [
+   "G-01",
+   "G-02",
+   "G-03",
+   "G-04",
+   "G-05",
+   "G-06",
+   "G-07",
+   "S2-01",
+   "S2-02",
+   "S2-03",
+   "S2-04",
+   "S2-05",
+   "S2-06",
+   "S2-07",
+   "S2-08",
+   "W-01"
+  ],
+  "output": {
+   "schema_id": "bie.brain.lesson-script/3",
+   "mode": "full",
+   "max_output_tokens": 32000
+  },
+  "coverage": {
+   "must_cover": [
+    "p003-i13",
+    "p003-i14",
+    "p003-i28",
+    "p003-i15",
+    "p003-i16",
+    "p003-i18",
+    "p003-i19",
+    "p003-i20",
+    "p003-i21",
+    "p003-i22",
+    "p003-i23",
+    "p003-i24",
+    "p003-i25",
+    "p003-i26",
+    "p003-i27"
+   ],
+   "claim_field": "beats[].covers_item_ids",
+   "may_skip": []
+  },
+  "context": {
+   "map_slice": [
+    [
+     "p003-i13",
+     "definition",
+     "3",
+     "• Metallic money is made from metals such as gold, silver, copper, bronze, or electrum, whose…"
+    ],
+    [
+     "p003-i14",
+     "cause_effect",
+     "3",
+     "• It is durable, portable, divisible, and easier to standardize. • Benefits: Metallic money…"
+    ],
+    [
+     "p003-i28",
+     "cause_effect",
+     "3",
+     "• Limitations: Its limited supply, heavy transport, theft risk, wear and tear, coin debasement…"
+    ],
+    [
+     "p003-i15",
+     "timeline",
+     "3",
+     "• The earliest metallic objects used for exchange existed in Mesopotamia and Egypt, but the first…"
+    ],
+    [
+     "p003-i16",
+     "timeline",
+     "3",
+     "Evolution of Indian metallic money. A horizontal white line joins five circular markers, read left…"
+    ],
+    [
+     "p003-i18",
+     "timeline",
+     "3",
+     "6th c. BCE — dates the first marker, paired with Punch-marked below."
+    ],
+    [
+     "p003-i19",
+     "timeline",
+     "3",
+     "Punch-marked — coinage description paired with 6th c. BCE at the first marker."
+    ],
+    [
+     "p003-i20",
+     "timeline",
+     "3",
+     "Mauryan — period label at the second marker, paired with Imperial silver."
+    ],
+    [
+     "p003-i21",
+     "timeline",
+     "3",
+     "Imperial silver — coinage description paired with Mauryan."
+    ],
+    [
+     "p003-i22",
+     "timeline",
+     "3",
+     "Indo-Greek — period label at the third marker, paired with Die-struck."
+    ],
+    [
+     "p003-i23",
+     "timeline",
+     "3",
+     "Die-struck — manufacturing description paired with Indo-Greek."
+    ],
+    [
+     "p003-i24",
+     "timeline",
+     "3",
+     "Gupta — period label at the fourth marker, paired with Gold dinars."
+    ],
+    [
+     "p003-i25",
+     "timeline",
+     "3",
+     "Gold dinars — coinage label paired with Gupta."
+    ],
+    [
+     "p003-i26",
+     "timeline",
+     "3",
+     "1540 CE — date at the final marker, paired with Rupiya."
+    ],
+    [
+     "p003-i27",
+     "timeline",
+     "3",
+     "Rupiya — coinage name paired with 1540 CE at the final marker."
+    ],
+    [
+     "c07",
+     "cause_effect",
+     "3",
+     "Metallic money and the move towards paper"
+    ],
+    [
+     "c08",
+     "timeline",
+     "3",
+     "Early Indian metallic-money sequence"
+    ],
+    [
+     "c06",
+     "classification",
+     "3",
+     "Commodity money: uses, advantages and limitations"
+    ],
+    [
+     "c09",
+     "timeline",
+     "4",
+     "Gold-backed paper and selected paper-money milestones"
+    ],
+    [
+     "c14",
+     "timeline",
+     "6-7",
+     "Rupee origins, standardisation and colonial institutions"
+    ]
+   ],
+   "before": "Barter से commodity money: बदलाव की ज़रूरत क्यों पड़ी?",
+   "after": "Paper money, fiat money और legal tender का फर्क"
+  },
+  "source": {
+   "block_ids": [
+    "p0003-b0024",
+    "p0003-b0025",
+    "p0003-b0026",
+    "p0003-b0034",
+    "p0003-b0035",
+    "p0003-b0027",
+    "p0003-b0028",
+    "p0003-b0029",
+    "p0003-b0030",
+    "p0003-b0031",
+    "p0003-b0032",
+    "p0003-b0033",
+    "p0003-b0036",
+    "p0003-b0037",
+    "p0003-b0038"
+   ],
+   "page_images": []
+  }
+ },
+ "prefix_sha256": "4e7388f80569198fffea0a05d2ffddbd6dd63f298740904f9b1c7349053a9896",
+ "review_prefix_sha256": "f1a48b9cecf56c3efe3b020573a0f90f9dcbd82a7d370d11c91b0a8882a07976",
+ "inputs": {
+  "system": "BIE task prefix lesson.write_script/3 · rulebook canvas_profile@2026-10-27.2+content_types@2026-10-27.1+explanations@2026-10-24.1+level_profiles@2026-10-24.1+simple_hindi@2026-10-27.2+teacher_examples@2026-10-27.1+vision-2026-10-21@2026-10-21.14+visual_grammar@2026-10-27.1+visual_levels@2026-10-26.2 · content types 2026-10-27.1 · schema bie.brain.lesson-script/3\n\nYou are BIE's lesson section writing what the teacher says in one video lesson: you are the best teacher of Indian Economy\nfor UPSC / State PCS aspirants preparing for UPSC / State PCS, speaking to one student. BIE turns your beats into narration and animation, so write only\nwhat is spoken, beat by beat.\nCourse: \"3. Money\" · subject: Indian Economy · learners: UPSC / State PCS aspirants · exam: UPSC / State PCS · learner language: Hinglish.\n\nNavin's rules for this task (follow every one):\n[G-01] Everything taught comes from the book. Knowledge from outside the book is allowed only to explain the book better; it is marked as outside, standard textbook-level and correct. Never invent facts, numbers, names or quotations.\n[G-02] Work like the best teacher of these learners and this exam, not like a summariser. Depth beats brevity: nothing teachable on the page is skipped or compressed away, and every explanation makes a student understand, not just remember. Depth means understanding, not length: lesson narration keeps S2-01's time by cutting repetition and side-tracks, never book content.\n[G-03] Before the output, fill 'notes' with brief notes for the reviewer and for Navin: what this unit is about, the key questions a teacher must answer about it, the main decisions you made with a one-line reason each, and anything uncertain. Keep the notes short; they explain the work, they are not the work.\n[G-04] Learner-facing language follows the course setting. For the first course (UPSC / State PCS) it is Hinglish: natural Hindi sentence flow, English technical terms, the way Navin teaches.\n[G-05] Never drop or compress away what the book teaches to fit a length. If a unit of work is too large, it is split by BIE into smaller units; within a unit, the book's content is complete. Lesson narration has a time target (S2-01), met by cutting repetition and side-tracks, never book content.\n[G-06] BIE is the link between the learner and the book, like a teacher (Navin, 24 October 2026). The book is the base; BIE carries its text, easy or hard, into the learner's mind. Never just read the line out: every book line is opened (what its words mean, why it is so, where it is seen, what follows), at the depth of the level profile.\n[G-07] Two layers, like a film (Navin, 24 October 2026). The writer layer (understanding, plan, script) decides what is said and how deep, following the level profile and the book's own level. The presentation layer (director, video blocks, render) is the same skilled quality for every learner, from class 6 to postgraduate; only the detail shown follows the level, never the craft.\n[S2-01] Plan the chapter's videos from the chapter map: first one short 'pehle yeh jaan lo' video (5-8 minutes) that teaches the chapter's prerequisites, then the topic videos in teaching order. Narration is 6-8 minutes per book page (Navin, 23 October 2026; the 14-page tissue chapter about 85-110 minutes of topic videos, plus the prerequisite video): each topic video gets the share of the pages its items come from, and a very dense page may go up to 25% over when the plan says why. Understanding (Section 1) and the chapter map have no time limit.\n[S2-02] Write a spoken teacher script in beats with a natural teacher flow. Stories and analogies only where they genuinely help that topic. Every item the book teaches is taught and every teacher question answered from the book is answered; questions answered from outside the book are used only where they help and the time allows. Cut repetition and side-tracks, never book content.\n[S2-03] Prerequisites are only what this chapter directly needs, never a prerequisite of a prerequisite. They are taught, not named, in the chapter's 'pehle yeh jaan lo' video, each with a simple explanation and an example; a topic video may remind of them in at most 2 beats.\n[S2-04] Spoken Hinglish the way Navin teaches, in mixed script (Navin, 21 and 23 October 2026): Hindi words in Devanagari, English words, above all the book's technical terms, in Roman exactly as the book spells them, as in 'आज हम tissue के बारे में पढ़ेंगे'; a genuinely difficult Hindi word (formal, literary or technical; not in BIE's everyday word list rulebook/simple_hindi.json) gets its English word in brackets right after it, as in 'सतह (surface)'; the screen and subtitles show the bracket and the voice says 'सतह, यानी surface'. Never a bracket after an everyday word or inside an idiom or a fixed phrase ('आम तौर पर', not 'आम तौर (usually) पर'; 'नहीं के बराबर', not 'नहीं के बराबर (equal to)'). Never an English term in Devanagari or a Hindi word in Roman. Numbers as digits; short spoken sentences addressed to one student; questions to the student and natural pauses; no reading out of lists.\n[S2-05] Every beat states which chapter-map items it covers and which teacher questions it answers, and those claims must be true: the beat really explains that item and really answers that question.\n[S2-06] Teach every part of a video through the universal frame (what the process is, how it works, when and in what order, under which conditions, in what atmosphere) and through the teaching pattern of its content type, step by step in the pattern's order; every item on the task card is really taught, none only named.\n[S2-07] Open every book line in the script, never read it out (Navin, 24 October 2026). A new topic opens with a question about something the learner can see, then the name. After any book line the beat carries at least one of: the term's plain meaning with 'yaani' and an everyday image, a why step from a need, an example or the place. Speak complete sentences, not clipped notes. A classification is taught as a family: the overview tree, then every member in the same slots (layer and shape, why it is named so, its special feature, its function with its cause, where it is found by a zoom from the organ, its consequence), then the members compared and a memory trick. A pattern step may be skipped only with a stated reason; one recap per part and one closing recap.\n[S2-08] Apply first, name after (Navin, 27 October 2026): in an economics script a concept's real-world example runs BEFORE the beat that names the term: the example beats carry the example's numbers (₹50 → ₹65, buyers 2 → 12 → 3) and walk the mechanism step by step; then the term ('isliye ise demand-pull inflation kehte hain'), then the book's definition, then one line on where the learner meets it in real life. The example is the one Section 1 chose for the item (its place, actors, goods, numbers), economically correct and at the learner's level.\n[W-01] The narration never points at the book: no 'book के अनुसार', 'किताब कहती है', 'book says', 'page पर', 'textbook', 'NCERT' or any wording of that family (the list in this file, 'wording'). BIE teaches as a teacher: it says the fact itself. Navin accepts the copyright position (26 October 2026).\n\nBIE's content types (the type of an item decides its required questions and how it is taught, shown, played and drawn):\n- process · Process: Something that happens in steps or stages over time: a mechanism, a procedure, a cycle (photosynthesis, cell division, how a bill becomes law). Required questions: how (kaise), when (kab). Other questions: what (kya), where (kahan), why (kyun), consequence (nateeja).\n  Teaching pattern: 1) the result first (what it makes). 2) inputs and the place. 3) each step with its cause and its condition. 4) what breaks when a step fails. 5) the whole run once more at speed. 6) recap as a flow.\n- structure · Structure: Something made of parts arranged in space, each part with a function (a cell, a leaf, the heart, a machine, the Parliament). Required questions: what (kya), where (kahan). Other questions: how (kaise), why (kyun), which (kaun).\n  Teaching pattern: 1) the whole in context. 2) zoom into each part in a fixed path (outside to inside). 3) function of each part tied to its shape. 4) how the parts work together. 5) labelled recap.\n- classification · Classification: A group divided into kinds by a stated basis (types of tissues, kinds of rocks, kinds of writs). Required questions: which (kaun), difference (tulna). Other questions: what (kya), evidence (saboot), where (kahan).\n  Teaching pattern: 1) the overview tree first: the basis of division and every member named. 2) every member in the same slots: layer and shape, why it is named so, its special feature, its function with its cause, where it is found by a zoom from the organ, its consequence. 3) the members compared side by side, the most confused pair named directly. 4) a memory trick for the family.\n- comparison · Comparison: Two or more things set side by side on stated criteria (plant and animal cells, Lok Sabha and Rajya Sabha). Required questions: compare (tulna), difference (tulna). Other questions: what (kya), why (kyun), evidence (saboot).\n  Teaching pattern: 1) what is common. 2) criteria one at a time, both sides together. 3) the reason behind each difference. 4) the most confused pair named directly. 5) difference table as recap.\n- timeline · Timeline: Events placed in time: history, the development of an idea, stages of a life (the Revolt of 1857, evolution of cell theory). Required questions: when (kab), why (kyun). Other questions: who (kaun), where (kahan), consequence (nateeja).\n  Teaching pattern: 1) the period and its atmosphere. 2) events in order with their causes. 3) the people and their choices. 4) the turning point. 5) what changed after. 6) timeline recap.\n- cause_effect · Reasoning (cause and effect): Why something happens: causes, effects, conditions and chains of reasoning (why tissues specialise, why prices rise, why a law was needed). Required questions: why (kyun), how (kaise). Other questions: consequence (nateeja), evidence (saboot), exception (tulna).\n  Teaching pattern: 1) the effect students can see. 2) the cause. 3) each link of the chain with its mechanism. 4) the evidence. 5) the exception or limit. 6) the chain as recap.\n- facts_numbers · Facts and numbers: Stated facts, quantities, measurements, statistics and formulas (heart rate 72 per minute, 3,000 against 50,000 soldiers at Plassey, F = ma). Required questions: what (kya), evidence (saboot). Other questions: compare (tulna), why (kyun).\n  Teaching pattern: 1) the fact in one line. 2) the number shown to scale against something familiar. 3) where it comes from (book or outside, dated). 4) what it changes or proves. 5) a formula built term by term when there is one.\n- figure · Figure: A diagram, photo, map, graph or table drawing on the page whose content is visual (tissue pages 2, 7 and 8 are figures only). Required questions: what (kya), which (kaun). Other questions: how (kaise), why (kyun).\n  Teaching pattern: 1) what the figure is and why it is here. 2) a reading path across it (labels in order). 3) the one thing to remember from it. 4) link back to the text it explains.\n- definition · Definition: A term and its meaning as the book states it (tissue, meristem, sovereignty). Required questions: what (kya), evidence (saboot). Other questions: about (kya), why (kyun).\n  Teaching pattern: 1) a concrete example first. 2) the book's definition word by word. 3) a non-example that tests the boundary. 4) where the term is used next in the chapter.\n\nOutput schema (JSON):\n{\"additionalProperties\":false,\"properties\":{\"beats\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"answers\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"basis\":{\"enum\":[\"book\",\"outside\",\"mixed\"],\"type\":\"string\"},\"beat_id\":{\"type\":\"string\"},\"covers_item_ids\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"on_screen\":{\"type\":\"string\"},\"part_id\":{\"type\":\"string\"},\"purpose\":{\"enum\":[\"hook\",\"prerequisite\",\"explain\",\"example\",\"analogy\",\"story\",\"compare\",\"process_walkthrough\",\"misconception\",\"exam_tip\",\"question_to_student\",\"recap\",\"transition\"],\"type\":\"string\"},\"say\":{\"type\":\"string\"},\"step\":{\"type\":\"integer\"}},\"required\":[\"beat_id\",\"part_id\",\"step\",\"purpose\",\"say\",\"covers_item_ids\",\"answers\",\"on_screen\",\"basis\"],\"type\":\"object\"},\"type\":\"array\"},\"notes\":{\"additionalProperties\":false,\"properties\":{\"about\":{\"description\":\"What this unit of work is about and how it fits the whole (one or two sentences).\",\"type\":\"string\"},\"decisions\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"decision\":{\"type\":\"string\"},\"reason\":{\"type\":\"string\"}},\"required\":[\"decision\",\"reason\"],\"type\":\"object\"},\"type\":\"array\"},\"key_questions\":{\"description\":\"The key questions a teacher must answer about this unit.\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"uncertain\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"}},\"required\":[\"about\",\"key_questions\",\"decisions\",\"uncertain\"],\"type\":\"object\"},\"parts\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"frame\":{\"additionalProperties\":false,\"properties\":{\"atmosphere\":{\"type\":\"string\"},\"conditions\":{\"type\":\"string\"},\"how\":{\"type\":\"string\"},\"process\":{\"type\":\"string\"},\"when\":{\"type\":\"string\"}},\"required\":[\"process\",\"how\",\"when\",\"conditions\",\"atmosphere\"],\"type\":\"object\"},\"part_id\":{\"type\":\"string\"},\"skipped_steps\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"step\":{\"type\":\"integer\"},\"why\":{\"type\":\"string\"}},\"required\":[\"step\",\"why\"],\"type\":\"object\"},\"type\":\"array\"}},\"required\":[\"part_id\",\"frame\",\"skipped_steps\"],\"type\":\"object\"},\"type\":\"array\"},\"title\":{\"type\":\"string\"}},\"required\":[\"notes\",\"title\",\"parts\",\"beats\"],\"type\":\"object\"}\n\nHow BIE talks to you: every request is a task card (JSON) followed by its source. The card names the unit, its parts with their content type and required questions, the ids of the rules above that apply, the output, the ids you must cover and the context. The card is BIE's instruction; the source is the material.\nFor a write_script card:\n- card.parts are this video's parts: each has item ids, one content type and the questions it must answer. The source gives every item's\n  full content and its teacher questions with ids (\"p003-i4#q2\") and answers from BIE's chapter map; teach from them.\n- card.coverage.must_cover lists every item this video must teach: each must be in covers_item_ids of a beat that really explains it.\n  may_skip lists items you may leave out (not teachable). card.context.map_slice shows the related concepts for context only.\nHow to fill the JSON:\n- notes: brief notes for the reviewer: what this video is about, the key questions it must answer, your main decisions (order,\n  hook, analogy, where prerequisites are taught) with a reason each, what is uncertain.\n- title: the video title in the learner language.\n- parts: one entry per card part, with the universal frame of that part (S3-01), each in one or two lines of clear English for BIE:\n  process (what happens or what the thing does), how (how it works or happens), when (when, in what order, under which timing),\n  conditions (what must be true for it, or what changes it), atmosphere (the setting and situation a student should picture). Write\n  \"n/a: \" and the reason only where a question truly does not apply to that part. skipped_steps = the teaching-pattern steps of this\n  part you leave out because there is nothing real to say for them, each with the reason ([] when every step is done); at most half\n  of a pattern, never a step that has something real; BIE's code records the reason.\n- beats: the whole video in order. beat_id \"b1\", \"b2\" ...; part_id = the card part this beat teaches (\"\" for the opening hook, a\n  prerequisite taught first, a transition or the final recap); step = the number of the teaching-pattern step of that part's content type\n  that this beat performs (see the content types above; 0 when part_id is \"\" and for an exam-question part, whose type is \"none\");\n  the steps of a part's pattern appear in order, except the ones skipped with a reason; a classification part follows the family\n  pattern: the overview tree first, then every member in the same slots (layer and shape → why it is named so → its special feature\n  → its function with its cause → where it is found, by a zoom from the organ → its consequence), then the comparison, then a memory\n  trick; one recap per part and one closing recap for the video, never two recaps of the same thing;\n  purpose (hook, prerequisite, explain, example, analogy, story, compare, process_walkthrough, misconception, exam_tip,\n  question_to_student, recap, transition); say = the exact spoken words, one to four complete spoken sentences in Navin's Hinglish\n  (S2-04), the way a teacher speaks to one student, never clipped note-style lines (\"Irregular walls. Kaisi? Irregular.\" is a teacher's\n  beat; \"Location: kidney tubules, glandular ducts.\" is a note):\n  mixed script: Hindi words in Devanagari, English words (above all the book's technical terms, spelled as the book spells them) in\n  Roman, as in \"आज हम tissue के बारे में पढ़ेंगे\"; brackets only after a genuinely difficult Hindi word (see \"Brackets\" below; the\n  screen shows the bracket and the voice says \"सतह, यानी surface\"); never write an English term in Devanagari or a Hindi word in Roman;\n  numbers as digits; addressed to one student; covers_item_ids = the item ids this beat really explains; answers = the teacher question\n  ids this beat really answers; on_screen = what the student should see while hearing it (for the director); basis = book, outside or\n  mixed.\nOpening the book (S2-07; BIE is the link between the learner and the book, like a teacher, never a reader of the line): every new\ntopic (every concept and every prerequisite) opens with a question about something the learner can see, then the name. After any\nbook line, the beat carries at least one of: the term opened (\"yaani\" + its plain meaning + one everyday image), the why from a need or\na problem, or an example or place by a zoom from the organ. The source gives every item's unpack from Section 1 (its terms, why chain,\nexample, consequence, visual verb) and the locked explanations: speak them, in your own teacher's words, at the depth of the level\nprofile below. BIE's code sends back a beat whose English words are the book's and that opens nothing (\"dohraav pakad\"), a clipped\nsentence without a verb, a topic that opens without a question, and a second recap of the same thing.\nReal-world application (S2-08; Navin, 27 October 2026: \"economic concepts ko real world mein apply karke samjhao\"): for an economics\ndefinition, cause_effect or process item the source gives the real_world_example Section 1 chose (place, actors, goods, numbers before\n→ after, the steps with their mechanism links, the naming sentence, the real-life link). Run that example FIRST, in beats that cover\nthe item and carry its numbers as digits (\"dukaan mein chini ke 3 packet, ₹50 ka ek; kal 2 khareedar, aaj 12\"), walking the mechanism\nstep by step (purpose story or example); only then the beat that names the term (\"isliye ise demand-pull inflation kehte hain\"), then\nthe book's definition, then the real-life link. The opening question of such a topic asks about the situation, not the term. BIE's\ncode sends back a script whose naming beat comes before the example beats, or whose example beats carry none of the numbers.\nTime (S2-01): the source gives this video's narration time; BIE's code counts the spoken words (130 a minute) and the script must stay\nwithin it. Win the time by cutting repetition and side-tracks, never book content: every item in must_cover is taught and every\nteacher question whose basis is \"book\" is answered; questions answered from outside the book are used only where they help and the\ntime allows.\nPrerequisites (S2-03): in a topic video they were already taught in the prerequisite video; remind of one in at most 2 beats (purpose\n\"prerequisite\"). In the prerequisite video (card parts \"pre1\", \"pre2\" ...) teach each prerequisite simply, with an everyday example, in\nthe order given: part_id = the prerequisite id, step 0, covers_item_ids = the prerequisite ids the beat teaches, answers [].\nA beat introduces at most a few new items: BIE's code measures the load of every beat (0.4 per new item plus 1 per 50 spoken words, at\nmost 1.8), so a beat holds at most about 70 spoken words with one new item, 50 with two and 30 with three; split longer beats. Reply\nwith the JSON object only.\n\nLevel profile: UPSC / State PCS (level_profiles.json; learners: UPSC and State PCS aspirants, often from arts backgrounds, who need understanding more than technical vocabulary).\n- Terms: fewer technical terms: only the ones the exam asks, each opened with its plain meaning and an everyday image; a term the exam never asks is explained in words, not named.\n- Why: 2 step(s); a two-step why from a need the learner can feel, then its link to daily life, health or governance.\n- Where found: the main places, each linked to something the learner already knows (a disease, a food, a news item).\n- Exam beats: the PYQ pattern: how this fact has been asked (statement combinations, 'which is correct', odd one out) and the wording that traps.\n- Links: daily life, health, the news and earlier chapters of the same paper.\n\nHow real teachers open a book line (teacher example bank 2026-10-27.1; use these ways, in your own words):\n- Open with a question on something visible (every new topic and every new family member): Skin aur stomach, kidney ke upar ek outer layer hai ki nahi? Yeh kis se bani hai? — phir naam: epithelial tissue.\n- One everyday image per shape or function (every term that names a shape, a layer or a job): Chaadar bichhi ho to bistar bacha rehta hai = protective sheet. Cube wala game, har side barabar = cuboidal. Building ka pillar = columnar. Farsh ki tiles = squamous, isliye tessellated bhi kehte hain.\n- The word root where it helps (a term whose parts carry its meaning): Epi yaani upar; epithelium yaani upar ki parat. Slender yaani long aur narrow.\n- Why starts from a need (every why step): Pet mein HCl banta hai, isliye andar ek lining chahiye jo khud na jale. Cells bahar ki taraf hain, tootne ka chance zyada, isliye regeneration zyada.\n- Contrast with the neighbour (members of one family, and what the exam confuses): Simple epithelium ka kaam protection nahi, woh compound ka hai. Zyada layers = pathogen andar nahi aata.\n- Ask and repeat the key word (the one word the learner must keep): Irregular walls. Kaisi? Irregular.\n- Exam memory beats by level (after the understanding, by the level profile): Yaad rakhna: brush border PCT mein. Doosre naam: pavement, tessellated. M2B = muscle to bone = tendon, B2B = bone to bone = ligament.\n- Link to something already known (a new place or a new structure): Peritoneum, jaise lungs ke aas-paas pleura aur heart ke aas-paas pericardium: wahi kaam, pet ke andar.\n- Meaning with two or three real examples (an abstract word in the book): Sensory perception yaani pehchanna: thanda lagna, dard hona, pressure mehsoos karna.\n- Open the book's adjective (Navin's example) (a book line names a kind of surface, job or place without saying what it is): Book: 'epithelium absorptive aur secretive surfaces par milta hai'. Teacher: absorptive surface yaani jahan cheezein andar li jaati hain, jaise aant khane ke poshak tatva sokhti hai; secretive yaani jahan cells kuch bana kar bahar chhodte hain, jaise glands enzyme ya juice. Aur epithelium wahan kyon? Kyunki ek patli, lagi hui parat hi cheezon ko paar jaane de sakti hai aur bana kar chhod sakti hai.\n- Apply it in the real world first, then name it (Navin's sugar shop) (every economics concept (a definition, a cause-and-effect chain, a process): the example runs before the term is named): Ek kirana shop mein chini ke 3 packet hain, ₹50 ka ek. Kal 2 khareedar aaye the, aaj 12 aa gaye; sab ko chini chahiye par packet 3 hi hain. Dukandar daam ₹65 kar deta hai; ab sirf 3 log kharid paate hain, baaki 9 khaali haath. Zyada log, utna hi maal, isliye daam upar. Isliye ise demand-pull inflation kehte hain. Phir book ki definition. Phir: yahi aap Diwali se pehle sabzi mandi mein dekhte hain.\n\nBrackets (word list 2026-10-27.2): use everyday spoken Hindi freely, without brackets (मुख्य, वापस, बराबर, आसपास, इस्तेमाल, करके, जिससे ...). Only a genuinely difficult Hindi word (formal, literary or technical) gets its English word in brackets right after it, for example \"सतह (surface)\", \"घर्षण (friction)\", \"सघन (dense)\"; better still, use the book's English term or a simpler Hindi word. Never put a bracket inside an idiom or a fixed phrase: \"आम तौर पर\", not \"आम तौर (usually) पर\"; \"नहीं के बराबर\", not \"नहीं के बराबर (equal to)\". BIE's code removes a bracket after an everyday word and asks for one only after a Hindi word it does not know as everyday.",
+  "user": [
+   {
+    "type": "text",
+    "text": "BIE task card (JSON):\n{\"card\":\"bie.task-card/1\",\"card_id\":\"lesson.write_script@3-money/v3\",\"section\":\"lesson\",\"task\":\"write_script\",\"prefix\":{\"prefix_id\":\"lesson.write_script/3\",\"rulebook_version\":\"canvas_profile@2026-10-27.2+content_types@2026-10-27.1+explanations@2026-10-24.1+level_profiles@2026-10-24.1+simple_hindi@2026-10-27.2+teacher_examples@2026-10-27.1+vision-2026-10-21@2026-10-21.14+visual_grammar@2026-10-27.1+visual_levels@2026-10-26.2\",\"content_types_version\":\"2026-10-27.1\",\"schema_id\":\"bie.brain.lesson-script/3\",\"sha256\":\"4e7388f80569198fffea0a05d2ffddbd6dd63f298740904f9b1c7349053a9896\"},\"unit\":{\"unit_id\":\"v3\",\"title\":\"Metallic money और भारत के शुरुआती coins\",\"pages\":[3]},\"parts\":[{\"part_id\":\"c07.1\",\"item_ids\":[\"p003-i13\"],\"type\":\"definition\",\"questions\":[\"what\",\"evidence\",\"how\"],\"focus\":\"Metallic money and the move towards paper: teach these definition items through the definition pattern\"},{\"part_id\":\"c07.2\",\"item_ids\":[\"p003-i14\",\"p003-i28\"],\"type\":\"cause_effect\",\"questions\":[\"why\",\"how\",\"what\",\"exception\"],\"focus\":\"Metallic money and the move towards paper: teach these cause_effect items through the cause_effect pattern\"},{\"part_id\":\"c07.3\",\"item_ids\":[\"p003-i15\"],\"type\":\"timeline\",\"questions\":[\"when\",\"why\",\"where\"],\"focus\":\"Metallic money and the move towards paper: teach these timeline items through the timeline pattern\"},{\"part_id\":\"c08.1\",\"item_ids\":[\"p003-i16\",\"p003-i18\",\"p003-i19\",\"p003-i20\",\"p003-i21\",\"p003-i22\",\"p003-i23\",\"p003-i24\",\"p003-i25\",\"p003-i26\",\"p003-i27\"],\"type\":\"timeline\",\"questions\":[\"when\",\"why\",\"how\",\"who\",\"what\"],\"focus\":\"Early Indian metallic-money sequence: teach these timeline items through the timeline pattern\"}],\"rules\":[\"G-01\",\"G-02\",\"G-03\",\"G-04\",\"G-05\",\"G-06\",\"G-07\",\"S2-01\",\"S2-02\",\"S2-03\",\"S2-04\",\"S2-05\",\"S2-06\",\"S2-07\",\"S2-08\",\"W-01\"],\"output\":{\"schema_id\":\"bie.brain.lesson-script/3\",\"mode\":\"full\",\"max_output_tokens\":32000},\"coverage\":{\"must_cover\":[\"p003-i13\",\"p003-i14\",\"p003-i28\",\"p003-i15\",\"p003-i16\",\"p003-i18\",\"p003-i19\",\"p003-i20\",\"p003-i21\",\"p003-i22\",\"p003-i23\",\"p003-i24\",\"p003-i25\",\"p003-i26\",\"p003-i27\"],\"claim_field\":\"beats[].covers_item_ids\",\"may_skip\":[]},\"context\":{\"map_slice\":[[\"p003-i13\",\"definition\",\"3\",\"• Metallic money is made from metals such as gold, silver, copper, bronze, or electrum, whose…\"],[\"p003-i14\",\"cause_effect\",\"3\",\"• It is durable, portable, divisible, and easier to standardize. • Benefits: Metallic money…\"],[\"p003-i28\",\"cause_effect\",\"3\",\"• Limitations: Its limited supply, heavy transport, theft risk, wear and tear, coin debasement…\"],[\"p003-i15\",\"timeline\",\"3\",\"• The earliest metallic objects used for exchange existed in Mesopotamia and Egypt, but the first…\"],[\"p003-i16\",\"timeline\",\"3\",\"Evolution of Indian metallic money. A horizontal white line joins five circular markers, read left…\"],[\"p003-i18\",\"timeline\",\"3\",\"6th c. BCE — dates the first marker, paired with Punch-marked below.\"],[\"p003-i19\",\"timeline\",\"3\",\"Punch-marked — coinage description paired with 6th c. BCE at the first marker.\"],[\"p003-i20\",\"timeline\",\"3\",\"Mauryan — period label at the second marker, paired with Imperial silver.\"],[\"p003-i21\",\"timeline\",\"3\",\"Imperial silver — coinage description paired with Mauryan.\"],[\"p003-i22\",\"timeline\",\"3\",\"Indo-Greek — period label at the third marker, paired with Die-struck.\"],[\"p003-i23\",\"timeline\",\"3\",\"Die-struck — manufacturing description paired with Indo-Greek.\"],[\"p003-i24\",\"timeline\",\"3\",\"Gupta — period label at the fourth marker, paired with Gold dinars.\"],[\"p003-i25\",\"timeline\",\"3\",\"Gold dinars — coinage label paired with Gupta.\"],[\"p003-i26\",\"timeline\",\"3\",\"1540 CE — date at the final marker, paired with Rupiya.\"],[\"p003-i27\",\"timeline\",\"3\",\"Rupiya — coinage name paired with 1540 CE at the final marker.\"],[\"c07\",\"cause_effect\",\"3\",\"Metallic money and the move towards paper\"],[\"c08\",\"timeline\",\"3\",\"Early Indian metallic-money sequence\"],[\"c06\",\"classification\",\"3\",\"Commodity money: uses, advantages and limitations\"],[\"c09\",\"timeline\",\"4\",\"Gold-backed paper and selected paper-money milestones\"],[\"c14\",\"timeline\",\"6-7\",\"Rupee origins, standardisation and colonial institutions\"]],\"before\":\"Barter से commodity money: बदलाव की ज़रूरत क्यों पड़ी?\",\"after\":\"Paper money, fiat money और legal tender का फर्क\"},\"source\":{\"block_ids\":[\"p0003-b0024\",\"p0003-b0025\",\"p0003-b0026\",\"p0003-b0034\",\"p0003-b0035\",\"p0003-b0027\",\"p0003-b0028\",\"p0003-b0029\",\"p0003-b0030\",\"p0003-b0031\",\"p0003-b0032\",\"p0003-b0033\",\"p0003-b0036\",\"p0003-b0037\",\"p0003-b0038\"],\"page_images\":[]}}\n\nVideo v3: Metallic money और भारत के शुरुआती coins\nGoal: Learner commodity से metallic money और फिर paper की जरूरत तक causal links समझेगा; शुरुआती Indian coinage का पूरा supplied क्रम और dynasty–coinage pairings पढ़ सकेगा।\nOpening hook: छोटी खरीद में coin सुविधाजनक है, लेकिन बहुत बड़ी रकम साथ ले जानी हो तो क्या दिक्कत आएगी?\nStory or analogy: पहले छोटी और बड़ी payment में metallic money की उपयोगिता तथा सीमा समझेंगे। फिर Indian metallic-money examples को dated timeline पर रखेंगे; chronology और matching की अलग जाँच होगी।\nPlanned minutes: 4\nNarration time (S2-01): 3.8-5.0 minutes, about 494-650 spoken words (BIE counts 130 words a minute)\nPrerequisites already taught in the prerequisite video (remind of one in at most 2 beats): Purchases, prices, debts and payments due later; Bank balances, deposits, loans and interest; Denominations, monetary arithmetic, percentages and minimum–maximum limits; Purchasing power, inflation, scarcity and liquidity; Central bank, commercial bank, government treasury and bank-to-bank settlement; Foreign currencies, exchange rates, reserves and demand–supply changes; Chronological reading: BCE/CE, centuries, dynasties and law versus implementation dates; Digital instructions, identity authentication, ledgers and payment interfaces\nOpen every book line (S2-07): a question about something the learner can see, then the name; every term opened: its plain meaning with 'yaani' and one everyday image (the word root where it helps); the why, starting from a need or a problem, one link at a time; an example or the place, by a zoom from the organ or the thing the learner knows; the consequence: what follows, and the link to the previous or the next idea; the contrast: what it is not, and what the exam confuses it with; the memory beat by level: the exam's 'yaad rakhna', the other names, the trick.\n\nItems (item id | page | kind | type | content), each with its teacher questions (question id | ask | question → answer | basis) and its unpack from Section 1 (term | why | example | consequence | visual), plus any locked explanation (Navin's verdict: speak it):\np003-i13 | 3 | definition | definition | • Metallic money is made from metals such as gold, silver, copper, bronze, or electrum, whose value is derived from the metal itself and, later, from the authority that minted it.\n  p003-i13#q1 | what | What is metallic money, and which materials are named? → It is money made from metals such as gold, silver, copper, bronze or electrum. The page connects its value first to the metal and later also to the minting authority. | book\n  p003-i13#q2 | evidence | What are the two sources of value explicitly identified? → The metal itself and the authority that minted it. | book\n  p003-i13#q3 | how | How can minting authority help a metal object function as money? → A recognized issuer's mark can support confidence in stated weight, purity or denomination, reducing the need for each trader to assess an unmarked metal piece. | outside\n  p003-i13#q4 | what | What do bronze, electrum and minted mean here? → Bronze is chiefly a copper-tin alloy; electrum is a gold-silver alloy. Minting means making and issuing coins, usually with identifying marks. | outside\n  term | Metallic money | yaani धातु से बना पैसा | image: हथेली पर रखा धातु का सिक्का\n  term | minted | yaani सिक्का बनाकर उस पर जारी करने वाले की पहचान लगाई गई | image: धातु के टुकड़े पर सिक्के की छाप पड़ना\n  term | electrum | yaani सोने और चाँदी का मिला हुआ alloy | image: दो धातुओं से बना एक सिक्का\n  why | Traders need payment objects they can value and recognize. [standard] → Metal supplies material value, while an issuing authority can support recognition and confidence. [standard]\n  example or place | Gold, silver, copper, bronze and electrum as listed on the page.\n  consequence | Connects commodity value to the role of authority in coinage.\n  visual | Shape metal into a coin and stamp an issuer's mark.\n  level extra | The page presents evolution in the source of value, not a rule that every coin's purchasing power equals its metal content.\n  real world (run it first, with these numbers, then name the term) | place: Hypothetical village bazaar | actors: buyer, grain seller, recognized mint | goods: silver coin, grain | numbers: recognized silver coins held by grain seller 0 → 1\n    step 1 | A buyer offers 1 recognized silver coin for grain. | shows: The payment object is made of a valuable metal.\n    step 2 | The seller accepts it, recognizing the issuer's stamp as support for its stated specifications. | shows: Minting authority contributes confidence alongside the material.\n    then the name | Money made from such metal payment objects is metallic money.\n    real life | A coin's visible issuer marks provide a familiar comparison, without assuming that a modern Indian coin has metal value equal to its face value.\np003-i14 | 3 | list_point | cause_effect | • It is durable, portable, divisible, and easier to standardize. • Benefits: Metallic money offered intrinsic value, durability, portability, divisibility, standardization, and widespread acceptance, making trade more reliable and efficient.\n  p003-i14#q1 | what | Which benefits are listed for metallic money? → Intrinsic value, durability, portability, divisibility, standardization and widespread acceptance; together these make trade more reliable and efficient. | book\n  p003-i14#q2 | why | Why do durability and portability improve trade? → Durability reduces deterioration during storage and repeated use. Portability can reduce the burden of carrying value compared with bulky commodities, although large amounts of metal remain heavy. | outside\n  p003-i14#q3 | how | How do divisibility, standardization and acceptance reduce trading effort? → Different coin denominations can support payments of different sizes; agreed specifications reduce repeated checking; and acceptance reduces the search for someone willing to receive the payment object. | outside\n  term | durability | yaani बार-बार इस्तेमाल और कुछ समय रखने पर जल्दी खराब न होना | image: पुराना सिक्का चल रहा है, जबकि रखा खाना खराब हो गया\n  term | divisibility | yaani छोटे-बड़े भुगतान के हिसाब से रकम बाँट पाना | image: एक बड़ी रकम की जगह छोटे मूल्य के कई सिक्के देना\n  term | portability | yaani कीमत को एक जगह से दूसरी जगह ले जाना आसान होना | image: अनाज की बोरी के मुकाबले सिक्कों की छोटी थैली\n  why | Traders need to store, carry and pay different amounts of value. [standard] → More durable and standardized metallic units reduce practical transaction difficulties. [standard]\n  example or place | Hypothetical bazaar using agreed coin denominations.\n  consequence | Trade can become more reliable, but growing trade still reveals limits to metal.\n  visual | Replace a bulky sack with coins, divide a payment and match equal units.\n  level extra | Divisibility does not require cutting a stamped coin in each transaction; denominations are the familiar mechanism.\n  real world (run it first, with these numbers, then name the term) | place: Hypothetical bazaar | actors: buyer, seller | goods: grain, standardized metal coins | numbers: grain carried by buyer to make payment 20 kg → 0 kg\n    step 1 | A buyer would otherwise carry 20 kg of grain as payment. | shows: Bulky commodity payment creates a transport burden.\n    step 2 | Under a hypothetical accepted exchange rate, the seller takes standardized coins instead. | shows: Portable and accepted monetary units reduce the burden and checking involved in payment.\n    then the name | This illustrates the portability and standardization benefits of metallic money.\n    real life | Compare carrying cash with carrying saleable goods to settle a purchase; the quantities are illustrative, not historical exchange rates.\np003-i15 | 3 | list_point | timeline | • The earliest metallic objects used for exchange existed in Mesopotamia and Egypt, but the first standardized coins are widely credited to the Kingdom of Lydia.\n  p003-i15#q1 | when | What relative chronology does the paragraph establish? → Early metallic exchange objects existed in Mesopotamia and Egypt; the first standardized coins are widely credited to the Kingdom of Lydia. No numerical date is given in this paragraph. | book\n  p003-i15#q2 | where | Which places must be kept distinct? → Mesopotamia and Egypt are associated with early metallic exchange objects; Lydia is associated with the first standardized coins. | book\n  p003-i15#q3 | why | Why is a metallic exchange object not necessarily a standardized coin? → A metal piece can be exchanged by weight without being an officially marked coin of agreed specifications. Standardized coinage adds a more regular and recognizable unit. | outside\n  term | standardized coins | yaani तय वज़न, बनावट या पहचान के मुताबिक बनाए गए सिक्के | image: अलग-अलग टुकड़ों के बजाय एक जैसी पहचान वाले सिक्के\n  why | An unstandardized metal piece may require weighing and checking. [standard] → Recognizable standardized coins can make repeated exchange easier. [standard]\n  example or place | Mesopotamia and Egypt; Kingdom of Lydia.\n  consequence | Prevents conflating the beginning of metal exchange with the beginning of coinage.\n  visual | Place metal objects before standardized stamped coins.\n  level extra | Do not invent a date for Lydia from the Indian timeline's separate 6th c. BCE label.\np003-i28 | 3 | list_point | cause_effect | • Limitations: Its limited supply, heavy transport, theft risk, wear and tear, coin debasement, and inability to support large-scale economic expansion eventually led to the adoption of paper money.\n  p003-i28#q1 | why | Why does the page say paper money was adopted? → Metallic money faced limited supply, heavy transport, theft risk, wear and tear, coin debasement and difficulty supporting large-scale economic expansion. | book\n  p003-i28#q2 | how | How can limited metal supply obstruct expanding trade? → If payments depend on obtaining monetary metal, the stock of payment instruments cannot expand easily with growing exchange needs. Paper-based arrangements can reduce reliance on physically moving coins, although their issue and backing still matter. | outside\n  p003-i28#q3 | how | How do transport, theft and wear affect metallic money? → Large coin payments are heavy to move and may need secure transport. Theft threatens a portable store of value, and repeated handling can reduce coin weight or damage identifying marks. | outside\n  p003-i28#q4 | what | What is coin debasement, and how does it differ from wear? → Debasement is a deliberate reduction in a coin's precious-metal content or standard relative to its stated denomination. Wear is material loss through use; the two should not be treated as the same process. | outside\n  p003-i28#q5 | exception | Does moving to paper money automatically remove theft risk or all supply constraints? → No. Paper can also be stolen, and a gold-backed paper system remains constrained by its convertibility arrangements. The page explains a historical transition, not the disappearance of every monetary problem. | outside\n  term | coin debasement | yaani सिक्के की बताई कीमत के मुकाबले उसमें कीमती धातु का हिस्सा जानबूझकर घटाना | image: उसी नाम के सिक्के में पहले से कम चाँदी रखना\n  term | wear and tear | yaani बार-बार चलने से घिसना और खराब होना | image: पुराने सिक्के की छाप और किनारे घिस जाना\n  term | limited supply | yaani ज़रूरत बढ़ने पर धातु तुरंत उतनी नहीं बढ़ाई जा सकती | image: खरीदारी बढ़ गई, पर भुगतान वाली धातु का भंडार वही है\n  why | Expanding trade requires larger and more convenient payments. [standard] → Metal's supply and handling constraints helped encourage adoption of paper money. [book]\n  example or place | A hypothetical mandi merchant making increasingly large wholesale payments.\n  consequence | Directly prepares the next heading, Gold Backed Paper Currency.\n  visual | Increase the coin load, show security and wear problems, then introduce paper payment.\n  level extra | A transition towards paper is not the same as immediate adoption of unbacked fiat money.\n  real world (run it first, with these numbers, then name the term) | place: Hypothetical wholesale mandi | actors: grain merchant, supplier, porter | goods: grain, metal coins | numbers: coins needed at an unchanged coin value 100 → 1000\n    step 1 | A merchant expands grain purchases so payment rises from 100 to 1000 coins. | shows: Larger trade creates larger physical payment requirements.\n    step 2 | Moving and guarding the larger coin load becomes more burdensome, encouraging a less bulky accepted payment instrument. | shows: Transport and security costs motivate alternatives to physical metallic payment.\n    then the name | This illustrates metallic money's scale and transport limitations behind the move towards paper money.\n    real life | Wholesale purchases make the difference between carrying a small payment and moving a large physical cash load easy to picture; these figures are hypothetical.\np003-i16 | 3 | diagram | timeline | Evolution of Indian metallic money. A horizontal white line joins five circular markers, read left to right: 6th c. BCE / Punch-marked → Mauryan / Imperial silver → Indo-Greek / Die-struck → Gupta / Gold dinars → 1540 CE / Rupiya. The printed line has no arrowheads and is a schematic sequence.\n  p003-i16#q1 | when | What sequence does the diagram present? → Punch-marked at 6th c. BCE, Mauryan imperial silver, Indo-Greek die-struck, Gupta gold dinars and Rupiya at 1540 CE. | book\n  p003-i16#q2 | why | Why should the line be read as a sequence rather than a quantitative graph? → Its labels mix dates and historical periods, and no numerical scale is supplied. Equal-looking gaps therefore do not establish equal elapsed time. | outside\n  p003-i16#q3 | how | How are periods and coin descriptions connected visually? → Each marker has a date or period above it and its associated coin name or manufacturing description below it. | book\n  term | Evolution of Indian metallic money | yaani भारत में धातु के पैसे के रूप समय के साथ कैसे बदले | image: पुराने से नए सिक्कों की बाएँ से दाएँ लगी कतार\n  why | Several coinage forms need to be placed in historical order. [standard] → The line pairs each stage with a period or date and a coin description. [book]\n  example or place | Indian metallic money.\n  consequence | Provides a visual memory scaffold alongside the general metallic-money discussion.\n  visual | Reveal five coinage stages from left to right.\n  level extra | Treat dynasty labels as associations, not claims that only one metal or coin type existed then.\np003-i18 | 3 | diagram_label | timeline | 6th c. BCE — dates the first marker, paired with Punch-marked below.\n  p003-i18#q1 | when | What date labels the first stage? → The 6th century BCE. | book\n  p003-i18#q2 | why | Why must this be read as a century rather than a single year? → The abbreviation c. means century here; the label identifies a broad period, not a precise year. | outside\n  term | 6th c. BCE | yaani BCE की छठी सदी, कोई एक साल नहीं | image: कैलेंडर के एक साल की जगह सौ साल का खंड\n  why | A coinage stage needs a time anchor. [standard] → The first marker supplies a century-level anchor. [book]\n  example or place | First stage of the Indian timeline.\n  consequence | Anchors punch-marked coinage in the sequence.\n  visual | Highlight the first date and its paired label.\n  level extra | Do not transfer this date to Lydia's standardized coins.\np003-i19 | 3 | diagram_label | timeline | Punch-marked — coinage description paired with 6th c. BCE at the first marker.\n  p003-i19#q1 | when | When does the diagram place punch-marked coinage? → At the 6th c. BCE stage. | book\n  p003-i19#q2 | why | Why is the description called punch-marked? → Marks are impressed onto the metal using punches; the term draws attention to the way identifying symbols are applied. | outside\n  term | Punch-marked | yaani धातु पर punch से निशान लगाए गए | image: औज़ार दबाकर धातु पर छोटी छाप बनाना\n  why | Coinage needs visible identifying features. [standard] → Punching produces marks on the metal. [standard]\n  example or place | First marker, 6th c. BCE.\n  consequence | Supplies the opening coinage description.\n  visual | Press separate marks into metal.\n  level extra | This is a manufacturing description, not a dynasty name.\np003-i20 | 3 | diagram_label | timeline | Mauryan — period label at the second marker, paired with Imperial silver.\n  p003-i20#q1 | when | Where does the Mauryan stage occur in the diagram? → Second, after the 6th c. BCE punch-marked stage and before the Indo-Greek stage. | book\n  p003-i20#q2 | who | Which historical dynasty does Mauryan identify? → It identifies the Maurya dynasty, which ruled a major empire in ancient India. Ashoka was a Maurya ruler; the Ashoka known from ancient-history lessons provides a familiar anchor for this label. | outside\n  p003-i20#q3 | why | Why is Mauryan different from the first marker's label? → Mauryan identifies a dynasty and its historical period, whereas 6th c. BCE gives a century. The diagram therefore mixes dynasty labels with numerical dates. | outside\n  term | Mauryan | yaani प्राचीन भारत के Maurya राजघराने और उसके दौर से जुड़ा; Ashoka इसी राजघराने के शासक थे | image: इतिहास में पढ़े Ashoka के नाम से Maurya दौर का खांचा पहचानना\n  why | An unfamiliar period label needs a recognizable historical anchor: Ashoka belonged to the Maurya dynasty. [standard] → The diagram links that dynasty's stage with Imperial silver. [book]\n  example or place | Ancient India; Ashoka is an outside historical anchor for the Maurya dynasty.\n  consequence | The learner connects a known ruler to the dynasty, then remembers the page's coinage association.\n  visual | Connect Ashoka to the Maurya dynasty, then highlight Mauryan above Imperial silver.\n  level extra | No numerical Mauryan date or specific coin issuer is supplied here.\np003-i21 | 3 | diagram_label | timeline | Imperial silver — coinage description paired with Mauryan.\n  p003-i21#q1 | when | Which period is paired with Imperial silver? → The Mauryan stage. | book\n  p003-i21#q2 | why | Why should this label not be read as an exhaustive statement about Mauryan money? → A schematic label highlights an association; it does not establish that no other monetary materials or forms existed. | outside\n  term | Imperial silver | yaani साम्राज्य से जुड़ी चाँदी की coinage का यहाँ दिया नाम | image: साम्राज्य की पहचान वाला चाँदी का सिक्का\n  why | A period label needs a paired coinage description. [standard] → The diagram supplies Imperial silver below Mauryan. [book]\n  example or place | Mauryan stage.\n  consequence | Connects a metal description with a period.\n  visual | Highlight the silver coin under Mauryan.\n  level extra | Do not turn an association into an 'only silver' claim.\np003-i22 | 3 | diagram_label | timeline | Indo-Greek — period label at the third marker, paired with Die-struck.\n  p003-i22#q1 | when | Where is the Indo-Greek stage positioned? → After Mauryan and before Gupta in the diagram. | book\n  p003-i22#q2 | who | Who does Indo-Greek identify in ancient-history context? → It identifies Greek-origin rulers and their kingdoms in the northwestern Indian subcontinent. The name connects their Greek background with the region in which they ruled. | outside\n  p003-i22#q3 | what | Which coinage description does the page pair with Indo-Greek? → The label Die-struck appears below the same third marker. | book\n  p003-i22#q4 | how | How does die-struck help explain this historical association? → Die-struck describes making a coin by striking an engraved die against a metal blank to transfer a design. Thus the paired labels connect a historical ruling context with a manufacturing technique, not with a specified metal. | outside\n  p003-i22#q5 | why | Why should this association not be treated as an exclusive claim? → A schematic period-technique pairing does not establish that this technique was used only by Indo-Greek rulers or that their coins used only one metal. | outside\n  term | Indo-Greek | yaani भारतीय उपमहाद्वीप के उत्तर-पश्चिम में राज करने वाले Greek मूल के शासक और उनके राज्य | image: नक्शे पर उपमहाद्वीप के उत्तर-पश्चिम में राज्य, और पास में उनके दौर का सिक्का\n  term | Die-struck | yaani नक़्क़ाशी वाले die की चोट से धातु पर डिज़ाइन उतारा गया | image: धातु के गोल टुकड़े पर मुहर जैसा डिज़ाइन पड़ना\n  why | An unfamiliar historical name needs a geographical and human context: Greek-origin rulers governed kingdoms in the northwestern subcontinent. [standard] → The diagram links that historical stage to Die-struck, making the period-technique association visible. [book]\n  example or place | Northwestern Indian subcontinent is outside historical context; the page itself places Indo-Greek at the third marker above Die-struck.\n  consequence | The learner can distinguish who and where the historical label concerns from how the paired coinage was manufactured.\n  visual | Locate the northwest on a map, then zoom to an engraved die striking a coin blank beside the paired timeline labels.\n  level extra | Keep added historical context separate from the page's stated association; neither exclusivity nor a numerical date is established.\np003-i23 | 3 | diagram_label | timeline | Die-struck — manufacturing description paired with Indo-Greek.\n  p003-i23#q1 | when | Which stage is paired with die-struck coinage? → The Indo-Greek stage. | book\n  p003-i23#q2 | how | How does die-striking work at a basic level? → A prepared engraved die is struck against a metal blank to transfer its design. | outside\n  p003-i23#q3 | why | Why is this not a statement of the coin's metal? → Die-struck describes production technique, unlike silver or gold, which identify material. | outside\n  term | Die-struck | yaani नक़्क़ाशी वाले साँचे की चोट से धातु पर डिज़ाइन उतारा गया | image: धातु के गोल टुकड़े पर छाप पड़ना\n  why | A repeated coin design needs a transfer method. [standard] → Striking an engraved die transfers that design to a blank. [standard]\n  example or place | Indo-Greek marker.\n  consequence | Makes the timeline's technique label understandable.\n  visual | Strike a die onto a metal blank.\n  level extra | The timeline does not claim this technique existed exclusively in this period.\np003-i24 | 3 | diagram_label | timeline | Gupta — period label at the fourth marker, paired with Gold dinars.\n  p003-i24#q1 | when | Where is Gupta positioned in this timeline? → After Indo-Greek and before the 1540 CE Rupiya stage. | book\n  p003-i24#q2 | who | What historical dynasty does Gupta identify? → It identifies the Gupta dynasty of ancient India. Chandragupta II was a Gupta ruler and provides a concrete historical anchor for this period. | outside\n  p003-i24#q3 | why | Why should students distinguish the Gupta dynasty from the coin label below it? → Gupta identifies the ruling dynasty and historical context; Gold dinars identifies the associated coinage. One answers whose period is being discussed, while the other names the monetary form. | outside\n  term | Gupta | yaani प्राचीन भारत का Gupta राजघराना और उसका दौर; Chandragupta II इसी राजघराने के शासक थे | image: इतिहास के Chandragupta II का नाम Gupta दौर के खांचे से जोड़ना\n  why | A dynasty label becomes meaningful when connected to an actual ruler: Chandragupta II belonged to the Gupta dynasty. [standard] → The fourth marker associates the Gupta stage with Gold dinars. [book]\n  example or place | Ancient India; Chandragupta II supplies outside historical context.\n  consequence | Connects a concrete dynasty to the gold-dinar association rather than memorizing an unexplained name.\n  visual | Link Chandragupta II to Gupta, then join Gupta to Gold dinars.\n  level extra | The diagram supplies neither Gupta-period dates nor an exclusive claim that Gupta money consisted only of gold.\np003-i25 | 3 | diagram_label | timeline | Gold dinars — coinage label paired with Gupta.\n  p003-i25#q1 | when | Which historical stage is paired with gold dinars? → Gupta. | book\n  p003-i25#q2 | why | Why is Gold dinars more specific than metallic money? → Metallic money is the broad category; this label identifies a named coin form and its gold material. | outside\n  term | Gold dinars | yaani यहाँ dinar नाम से बताए गए सोने के सिक्के | image: सोने के सिक्के के नीचे dinar का नाम\n  why | Metallic money includes distinct named coin forms. [standard] → This diagram uses Gold dinars for the Gupta stage. [book]\n  example or place | Gupta marker.\n  consequence | Supplies a high-value historical matching fact.\n  visual | Reveal a gold coin beneath Gupta.\n  level extra | No weight, purity or denomination value is given.\np003-i26 | 3 | diagram_label | timeline | 1540 CE — date at the final marker, paired with Rupiya.\n  p003-i26#q1 | when | What numerical date ends the displayed timeline? → 1540 CE, paired with Rupiya. | book\n  p003-i26#q2 | why | Why is this a more precise time label than Gupta? → 1540 CE identifies a year, whereas Gupta names a historical period. | outside\n  term | 1540 CE | yaani CE गिनती का साल 1540 | image: कैलेंडर पर एक खास साल घेरा हुआ\n  why | A timeline may use both periods and specific dates. [standard] → Its final marker gives a specific date for the Rupiya association. [book]\n  example or place | Final timeline marker.\n  consequence | Anchors the last displayed coinage stage.\n  visual | Circle 1540 CE and connect it to Rupiya.\n  level extra | The page does not name a ruler at this marker.\np003-i27 | 3 | diagram_label | timeline | Rupiya — coinage name paired with 1540 CE at the final marker.\n  p003-i27#q1 | when | Which date is paired with Rupiya? → 1540 CE. | book\n  p003-i27#q2 | what | What historical coin does Rupiya identify here? → The historical rupiya associated with Sher Shah Suri was a standardized silver coin. This identifies both its monetary material and its familiar historical ruler. | outside\n  p003-i27#q3 | how | How does identifying it as a standardized silver coin make this label meaningful? → It shows that Rupiya names a particular historical metallic monetary unit, rather than merely meaning money in general. Silver identifies its material, while standardization indicates agreed coin specifications. | outside\n  p003-i27#q4 | why | Why should the learner not equate this directly with a present-day rupee coin? → A historical relationship between currency names does not establish identical metal, weight or purchasing power. A modern rupee coin should not be assumed to be the same silver coin. | outside\n  term | Rupiya | yaani यहाँ Sher Shah Suri से जुड़ा तय मानक वाला चाँदी का ऐतिहासिक सिक्का | image: पुराने चाँदी के सिक्के को आज के रुपये के सिक्के के बगल में रखकर फर्क देखना\n  why | A familiar-sounding currency name needs a concrete historical identity: the rupiya associated with Sher Shah Suri was a standardized silver coin. [standard] → The page places Rupiya at the final marker under 1540 CE. [book]\n  example or place | Sher Shah Suri's historical silver coinage supplies outside context; the page prints 1540 CE.\n  consequence | The final stage becomes a recognizable historical coin rather than an unexplained name.\n  visual | Reveal a silver coin beside Sher Shah Suri's name, then connect Rupiya to the printed 1540 CE marker.\n  level extra | Do not infer identical composition or purchasing power between this historical silver coin and today's rupee."
+   },
+   {
+    "type": "text",
+    "text": "Answer the card with the teacher script JSON."
+   }
+  ]
+ },
+ "rounds": [
+  {
+   "round": 0,
+   "started_at": 1793145298.7789655,
+   "mode": "resume",
+   "notes": null,
+   "output": {
+    "notes": null,
+    "title": "Metallic money: सिक्कों के फायदे, सीमाएँ और भारत का शुरुआती क्रम",
+    "parts": [
+     {
+      "part_id": "c07.1",
+      "frame": {
+       "process": "Define metallic money and distinguish material value from issuer-supported confidence.",
+       "how": "A recognized silver coin purchases grain; explain metals and the issuer's mark.",
+       "when": "Material value precedes the later contribution of minting authority in the supplied account.",
+       "conditions": "Acceptance depends on recognizable payment objects; face value need not equal metal value.",
+       "atmosphere": "A hypothetical village bazaar with a buyer and grain seller."
+      },
+      "skipped_steps": []
+     },
+     {
+      "part_id": "c07.2",
+      "frame": {
+       "process": "Explain why convenient metal payments eventually face scale constraints.",
+       "how": "Replace bulky grain payments with coins, then increase a wholesale payment from 100 to 1000 coins.",
+       "when": "Advantages appear in routine trade; limitations become prominent as payments expand.",
+       "conditions": "Acceptance and standardization help; metal availability, transport, security and coin quality constrain use.",
+       "atmosphere": "A bazaar followed by a growing wholesale mandi business."
+      },
+      "skipped_steps": []
+     },
+     {
+      "part_id": "c07.3",
+      "frame": {
+       "process": "Distinguish early metallic exchange objects from standardized coins.",
+       "how": "Contrast metal exchanged by weight with recognizable coins of agreed specifications.",
+       "when": "Early objects in Mesopotamia and Egypt precede the standardized-coin distinction associated with Lydia; no numerical date is supplied.",
+       "conditions": "Metal use alone does not establish standardized coinage.",
+       "atmosphere": "Early exchange settings needing recognizable payment units."
+      },
+      "skipped_steps": [
+       {
+        "step": 3,
+        "why": "No individual people or documented choices are supplied."
+       }
+      ]
+     },
+     {
+      "part_id": "c08.1",
+      "frame": {
+       "process": "Read five Indian metallic-money stages and their paired descriptions.",
+       "how": "Move left to right, connecting each date or dynasty above a marker with its coin description below.",
+       "when": "6th c. BCE, Mauryan, Indo-Greek, Gupta, then 1540 CE.",
+       "conditions": "The schematic is not time-scaled, and its associations are not exclusive claims.",
+       "atmosphere": "Historical Indian coinage illustrated with marks, silver, die-striking, gold dinars and Rupiya."
+      },
+      "skipped_steps": [
+       {
+        "step": 4,
+        "why": "The supplied sequence does not establish a single turning point."
+       },
+       {
+        "step": 5,
+        "why": "No specific historical aftermath of the final marker is supplied."
+       }
+      ]
+     }
+    ],
+    "beats": [
+     {
+      "beat_id": "b1",
+      "part_id": "",
+      "step": 0,
+      "purpose": "hook",
+      "say": "कुछ सिक्के ले जाना आसान है; हजारों साथ ले जाने हों, तो क्या होगा?",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Small coin pouch versus a large coin load.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b2",
+      "part_id": "c07.1",
+      "step": 1,
+      "purpose": "example",
+      "say": "मान लो, बाजार में अनाज वाला 1 silver coin क्यों लेता है? Metal की कीमत और पहचानी छाप पर भरोसे से; उसके सिक्के 0 से 1 हुए।",
+      "covers_item_ids": [
+       "p003-i13"
+      ],
+      "answers": [],
+      "on_screen": "Illustrative grain purchase; seller's recognized coins: 0 → 1.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b3",
+      "part_id": "c07.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "यह Metallic money है, यानी metal का पैसा: gold, silver, copper, bronze या electrum। जैसे चीज़ें मिलाकर बनाते हैं, bronze में मुख्यतः copper–tin, electrum में gold–silver मिलते हैं।",
+      "covers_item_ids": [
+       "p003-i13"
+      ],
+      "answers": [
+       "p003-i13#q1",
+       "p003-i13#q4"
+      ],
+      "on_screen": "Metal coin in a palm; bronze chiefly copper–tin; electrum gold–silver.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b4",
+      "part_id": "c07.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "Value पहले metal से, बाद में minting authority से भी जुड़ी। Minted यानी बनाकर जारी किया; छाप वजन और purity पर भरोसा देकर बार-बार जाँच घटाती है।",
+      "covers_item_ids": [
+       "p003-i13"
+      ],
+      "answers": [
+       "p003-i13#q2",
+       "p003-i13#q3"
+      ],
+      "on_screen": "Metal value plus issuer confidence; stamp supports stated specifications.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b5",
+      "part_id": "c07.1",
+      "step": 3,
+      "purpose": "misconception",
+      "say": "Metal का spoon पैसा नहीं है। आज के सिक्के की face value भी metal value के बराबर जरूरी नहीं।",
+      "covers_item_ids": [
+       "p003-i13"
+      ],
+      "answers": [],
+      "on_screen": "Metal object ≠ money; face value ≠ necessarily metal value.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b6",
+      "part_id": "c07.1",
+      "step": 4,
+      "purpose": "recap",
+      "say": "Metal और issuer की पहचान समझ ली; अब व्यापार के फायदे देखो।",
+      "covers_item_ids": [
+       "p003-i13"
+      ],
+      "answers": [],
+      "on_screen": "Metal + issuer → trading benefits.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b7",
+      "part_id": "c07.2",
+      "step": 1,
+      "purpose": "example",
+      "say": "Payment में 20 kg अनाज ले जाना आसान होगा? मान लो, seller उसकी जगह तय पहचान वाले सिक्के लेता है; साथ लाना पड़ा अनाज 20 kg से 0 kg हुआ।",
+      "covers_item_ids": [
+       "p003-i14"
+      ],
+      "answers": [],
+      "on_screen": "Illustrative substitution, not historical exchange rate: grain carried 20 kg → 0 kg.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b8",
+      "part_id": "c07.2",
+      "step": 2,
+      "purpose": "explain",
+      "say": "यह portability और standardization है: छोटी थैली में कीमत, तय पहचान वाले coins। Intrinsic value यानी metal की अपनी कीमत; durability यानी बार-बार चलकर जल्दी खराब नहीं होना।",
+      "covers_item_ids": [
+       "p003-i14"
+      ],
+      "answers": [
+       "p003-i14#q2"
+      ],
+      "on_screen": "Sack → pouch; matching coins; reusable metal versus deteriorating goods.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b9",
+      "part_id": "c07.2",
+      "step": 3,
+      "purpose": "explain",
+      "say": "Divisibility में छोटे-बड़े denominations काम आते हैं, सिक्का काटना नहीं पड़ता। Standardization जाँच घटाती है; widespread acceptance लेने वाला खोजना आसान बनाती है, जिससे व्यापार ज्यादा भरोसेमंद होता है।",
+      "covers_item_ids": [
+       "p003-i14"
+      ],
+      "answers": [
+       "p003-i14#q1",
+       "p003-i14#q3"
+      ],
+      "on_screen": "Denominations → flexible payment; standard units → less checking; acceptance → easier exchange.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b10",
+      "part_id": "c07.2",
+      "step": 3,
+      "purpose": "example",
+      "say": "Mandi में खरीद बढ़े तो? मान लो, coin value वही है, payment 100 से 1000 coins हुआ; अब उठाने और चोरी से बचाने की मेहनत बढ़ी।",
+      "covers_item_ids": [
+       "p003-i28"
+      ],
+      "answers": [
+       "p003-i28#q3"
+      ],
+      "on_screen": "Illustrative wholesale payment: 100 → 1000 coins; larger load and security needs.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b11",
+      "part_id": "c07.2",
+      "step": 3,
+      "purpose": "explain",
+      "say": "ये scale और transport limitations हैं। Limited supply यानी खरीद बढ़ते ही नया metal नहीं मिलता; coins कम पड़ें तो payment रुकेगी, बड़ा load चोरी का खतरा भी बढ़ाएगा।",
+      "covers_item_ids": [
+       "p003-i28"
+      ],
+      "answers": [
+       "p003-i28#q2"
+      ],
+      "on_screen": "More transactions face unchanged metal stock; heavy load needs secure transport.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b12",
+      "part_id": "c07.2",
+      "step": 3,
+      "purpose": "explain",
+      "say": "पुराने सिक्के की मिटती छाप देखी? यह wear and tear है; coin debasement में उसी नाम के सिक्के में जानबूझकर silver घटाते हैं। ऐसी quality और supply की मुश्किलों से बढ़ती economy को paper money की जरूरत पड़ी।",
+      "covers_item_ids": [
+       "p003-i28"
+      ],
+      "answers": [
+       "p003-i28#q1",
+       "p003-i28#q4"
+      ],
+      "on_screen": "Wear: handling damage; debasement: deliberate precious-metal reduction; constraints encourage paper.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b13",
+      "part_id": "c07.2",
+      "step": 4,
+      "purpose": "explain",
+      "say": "फर्क दिखा? 20 kg हटे तो आसानी हुई; 1000 coins हुए तो बोझ बढ़ा।",
+      "covers_item_ids": [
+       "p003-i14",
+       "p003-i28"
+      ],
+      "answers": [],
+      "on_screen": "Compare grain substitution with expanding coin load.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b14",
+      "part_id": "c07.2",
+      "step": 5,
+      "purpose": "misconception",
+      "say": "Paper में भी theft risk है; gold-backed paper पर backing की सीमा रहती है। Paper तुरंत unbacked fiat नहीं बनता।",
+      "covers_item_ids": [
+       "p003-i28"
+      ],
+      "answers": [
+       "p003-i28#q5"
+      ],
+      "on_screen": "Paper does not eliminate theft or backing constraints; paper ≠ automatically fiat.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b15",
+      "part_id": "c07.2",
+      "step": 6,
+      "purpose": "recap",
+      "say": "कड़ी पकड़ो: आसान payment, बढ़ता व्यापार, metal की सीमाएँ, फिर कम बोझ वाले पैसे की जरूरत।",
+      "covers_item_ids": [
+       "p003-i14",
+       "p003-i28"
+      ],
+      "answers": [],
+      "on_screen": "Convenience → larger trade → metal constraints → alternatives.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b16",
+      "part_id": "c07.3",
+      "step": 1,
+      "purpose": "question_to_student",
+      "say": "तौला गया metal और तय पहचान वाला coin एक हैं? शुरुआती exchange में हर टुकड़ा जाँचना पड़ सकता था।",
+      "covers_item_ids": [
+       "p003-i15"
+      ],
+      "answers": [
+       "p003-i15#q3"
+      ],
+      "on_screen": "Unmarked metal on scales versus recognizable coin.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b17",
+      "part_id": "c07.3",
+      "step": 2,
+      "purpose": "explain",
+      "say": "Mesopotamia और Egypt में शुरुआती metallic exchange objects थे, यानी metal देकर खरीदना। First standardized coins आम तौर पर Kingdom of Lydia से जोड़े जाते हैं; metal देना और coin चलना अलग शुरुआतें हैं।",
+      "covers_item_ids": [
+       "p003-i15"
+      ],
+      "answers": [
+       "p003-i15#q1",
+       "p003-i15#q2"
+      ],
+      "on_screen": "Mesopotamia/Egypt: early metal exchange; Lydia: widely credited first standardized coins.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b18",
+      "part_id": "c07.3",
+      "step": 4,
+      "purpose": "explain",
+      "say": "Standardized यानी तय वजन, बनावट या पहचान: अलग-अलग टुकड़े परखने के बजाय coin पहचानना आसान हुआ।",
+      "covers_item_ids": [
+       "p003-i15"
+      ],
+      "answers": [
+       "p003-i15#q3"
+      ],
+      "on_screen": "Irregular pieces → agreed recognizable specifications.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b19",
+      "part_id": "c07.3",
+      "step": 5,
+      "purpose": "explain",
+      "say": "इससे नियमित coinage अलग पहचान में आती है; Lydia की numerical date यहाँ नहीं जोड़ेंगे।",
+      "covers_item_ids": [
+       "p003-i15"
+      ],
+      "answers": [
+       "p003-i15#q1"
+      ],
+      "on_screen": "Metal exchange distinguished from coinage; no Lydia date supplied.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b20",
+      "part_id": "c07.3",
+      "step": 6,
+      "purpose": "recap",
+      "say": "जोड़ियाँ रखो: Mesopotamia–Egypt, metal exchange; Lydia, standardized coins।",
+      "covers_item_ids": [
+       "p003-i15"
+      ],
+      "answers": [
+       "p003-i15#q2"
+      ],
+      "on_screen": "Two separate historical associations.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b21",
+      "part_id": "c08.1",
+      "step": 1,
+      "purpose": "question_to_student",
+      "say": "Indian coins की कतार कैसे पढ़ोगे? बाएँ से दाएँ, ऊपर समय या dynasty, नीचे जुड़ी coinage देखो।",
+      "covers_item_ids": [
+       "p003-i16"
+      ],
+      "answers": [
+       "p003-i16#q3"
+      ],
+      "on_screen": "Five connected circular markers; period above, coin description below.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b22",
+      "part_id": "c08.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "छोटे दबे निशान कैसे बने? Punch-marked में punch से निशान लगते हैं; पहला पड़ाव 6th c. BCE है, यानी छठी century, एक साल नहीं।",
+      "covers_item_ids": [
+       "p003-i18",
+       "p003-i19"
+      ],
+      "answers": [
+       "p003-i18#q1",
+       "p003-i18#q2",
+       "p003-i19#q1",
+       "p003-i19#q2"
+      ],
+      "on_screen": "6th c. BCE / Punch-marked; animate punch impressions.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b23",
+      "part_id": "c08.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "अगला silver coin किससे जुड़ा है? Mauryan–Imperial silver, यानी empire से जुड़ी silver coinage; Mauryan को Ashoka की Maurya dynasty से पहचानो।",
+      "covers_item_ids": [
+       "p003-i20",
+       "p003-i21"
+      ],
+      "answers": [
+       "p003-i20#q1",
+       "p003-i20#q2",
+       "p003-i21#q1"
+      ],
+      "on_screen": "Second: Mauryan / Imperial silver; Ashoka → Maurya dynasty.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b24",
+      "part_id": "c08.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "Design कैसे पड़ा? तीसरा Indo-Greek–Die-struck: design वाले die की चोट metal पर छाप छोड़ती है; यह technique है, metal नहीं। Indo-Greek उत्तर-पश्चिम में Greek-origin rulers थे।",
+      "covers_item_ids": [
+       "p003-i22",
+       "p003-i23"
+      ],
+      "answers": [
+       "p003-i22#q1",
+       "p003-i22#q2",
+       "p003-i22#q3",
+       "p003-i22#q4",
+       "p003-i23#q1",
+       "p003-i23#q2",
+       "p003-i23#q3"
+      ],
+      "on_screen": "Indo-Greek / Die-struck; northwestern subcontinent inset; die strikes blank.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b25",
+      "part_id": "c08.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "सोने के coins का नाम क्या है? चौथा Gupta–Gold dinars: dinar नाम के gold coins; Gupta को Chandragupta II की dynasty से जोड़ो।",
+      "covers_item_ids": [
+       "p003-i24",
+       "p003-i25"
+      ],
+      "answers": [
+       "p003-i24#q1",
+       "p003-i24#q2",
+       "p003-i24#q3",
+       "p003-i25#q1",
+       "p003-i25#q2"
+      ],
+      "on_screen": "Gupta / Gold dinars; Chandragupta II → Gupta dynasty.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b26",
+      "part_id": "c08.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "आखिरी silver coin का नाम? 1540 CE–Rupiya, Sher Shah Suri से जुड़ा standardized silver coin; आज के rupee जैसा metal या purchasing power मत मानना।",
+      "covers_item_ids": [
+       "p003-i26",
+       "p003-i27"
+      ],
+      "answers": [
+       "p003-i26#q1",
+       "p003-i27#q1",
+       "p003-i27#q2",
+       "p003-i27#q3",
+       "p003-i27#q4"
+      ],
+      "on_screen": "1540 CE / Rupiya; historical silver unit distinct from modern rupee coin.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b27",
+      "part_id": "c08.1",
+      "step": 3,
+      "purpose": "exam_tip",
+      "say": "Matching में association है, ‘केवल यही’ नहीं। बराबर gaps बराबर समय नहीं: century, dynasty और 1540 CE जैसा खास साल अलग time labels हैं।",
+      "covers_item_ids": [
+       "p003-i16",
+       "p003-i20",
+       "p003-i26"
+      ],
+      "answers": [
+       "p003-i16#q2",
+       "p003-i20#q3",
+       "p003-i26#q2"
+      ],
+      "on_screen": "Not to scale; no exclusivity; century ≠ dynasty ≠ year.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b28",
+      "part_id": "c08.1",
+      "step": 6,
+      "purpose": "recap",
+      "say": "क्रम याद रखो: Punch-marked, Mauryan silver, Indo-Greek Die-struck, Gupta dinars, 1540 का Rupiya; याद का सहारा: निशान, silver, technique, gold, Rupiya।",
+      "covers_item_ids": [
+       "p003-i16"
+      ],
+      "answers": [
+       "p003-i16#q1"
+      ],
+      "on_screen": "All five complete period–coinage pairings, left to right.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b29",
+      "part_id": "",
+      "step": 0,
+      "purpose": "recap",
+      "say": "सिक्का भरोसेमंद क्यों बना, फिर भारी क्यों पड़ा? यही समझ आगे paper money को खोलेगी।",
+      "covers_item_ids": [
+       "p003-i13",
+       "p003-i28"
+      ],
+      "answers": [],
+      "on_screen": "Recognizable metal payment → growing trade → need for less bulky arrangements.",
+      "basis": "mixed"
+     }
+    ]
+   },
+   "code_problems": [
+    "[code] beat b3: the Hindi words ['मुख्यतः'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b12: 70% of its 10 content words are the book's own and it opens nothing: after a book line, open a term (yaani + an everyday image), give the why from a need, or an example; never just read the line out (S2-07)"
+   ],
+   "observed": {
+    "pattern_order": [],
+    "skipped_steps": {
+     "c07.3": {
+      "3": "No individual people or documented choices are supplied."
+     },
+     "c08.1": {
+      "4": "The supplied sequence does not establish a single turning point.",
+      "5": "No specific historical aftermath of the final marker is supplied."
+     }
+    },
+    "objective_coverage": {
+     "coverage": 1.0,
+     "uncovered": []
+    },
+    "cognitive_load": {
+     "max": 1.32,
+     "abrupt_jumps": [
+      "b6->b7",
+      "b26->b27"
+     ]
+    },
+    "duration": {
+     "spoken_minutes_at_130_wpm": 5.0,
+     "planned_minutes": 4,
+     "range": [
+      3.8,
+      5.0
+     ]
+    },
+    "dohraav": {
+     "beats": 29,
+     "judged": 21,
+     "restating": 1,
+     "share": 0.048,
+     "opened": 15,
+     "opened_share": 0.714,
+     "restating_beats": [
+      "b12"
+     ]
+    },
+    "real_world": [
+     {
+      "item_id": "p003-i13",
+      "place": "Hypothetical village bazaar",
+      "numbers": [
+       "0",
+       "1"
+      ],
+      "example_beats": [
+       "b2"
+      ],
+      "term_beat": "b3",
+      "term": "Metallic money",
+      "ok": true,
+      "problem": ""
+     },
+     {
+      "item_id": "p003-i14",
+      "place": "Hypothetical bazaar",
+      "numbers": [
+       "0",
+       "20"
+      ],
+      "example_beats": [
+       "b7",
+       "b13"
+      ],
+      "term_beat": "b8",
+      "term": "durability",
+      "ok": true,
+      "problem": ""
+     },
+     {
+      "item_id": "p003-i28",
+      "place": "Hypothetical wholesale mandi",
+      "numbers": [
+       "100",
+       "1000"
+      ],
+      "example_beats": [
+       "b10",
+       "b13"
+      ],
+      "term_beat": "b11",
+      "term": "limited supply",
+      "ok": true,
+      "problem": ""
+     }
+    ]
+   },
+   "passed": false,
+   "finished_at": 1793145298.7923098
+  },
+  {
+   "round": 1,
+   "started_at": 1793145298.7951632,
+   "mode": "patch",
+   "patch": {
+    "notes": {
+     "about": "Targeted language and explanation fixes, retaining the existing lesson structure.",
+     "key_questions": [
+      "Is the alloy explanation everyday Hinglish?",
+      "Does the wear–debasement contrast explain the mechanism concretely?"
+     ],
+     "decisions": [
+      {
+       "decision": "Replace मुख्यतः with ज़्यादातर in b3.",
+       "reason": "Uses everyday Hindi without adding narration time."
+      },
+      {
+       "decision": "Rewrite b12 with a rubbed coin and deliberate silver reduction as contrasting examples.",
+       "reason": "Opens both mechanisms while shortening the beat to stay within the narration limit."
+      }
+     ],
+     "uncertain": []
+    },
+    "replace_parts": [],
+    "replace_beats": [
+     {
+      "beat_id": "b3",
+      "part_id": "c07.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "यह Metallic money है, यानी metal का पैसा: gold, silver, copper, bronze या electrum। जैसे चीज़ें मिलाकर बनाते हैं, bronze में ज़्यादातर copper–tin, electrum में gold–silver मिलते हैं।",
+      "covers_item_ids": [
+       "p003-i13"
+      ],
+      "answers": [
+       "p003-i13#q1",
+       "p003-i13#q4"
+      ],
+      "on_screen": "Metal coin in a palm; bronze chiefly copper–tin; electrum gold–silver.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b12",
+      "part_id": "c07.2",
+      "step": 3,
+      "purpose": "explain",
+      "say": "घिसकर हल्का हुआ सिक्का देखा? यह wear and tear है; उसी कीमत वाले नए सिक्के में जानबूझकर silver घटाना coin debasement है। बढ़ती खरीद के लिए metal जुटाना और ढोना मुश्किल हुआ, इसलिए paper money अपनाया गया।",
+      "covers_item_ids": [
+       "p003-i28"
+      ],
+      "answers": [
+       "p003-i28#q1",
+       "p003-i28#q4"
+      ],
+      "on_screen": "Used coin loses material through rubbing; new coin deliberately contains less silver at the same stated denomination. Supply and handling constraints encourage paper money.",
+      "basis": "mixed"
+     }
+    ],
+    "insert_beats": [],
+    "remove_beat_ids": []
+   },
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "7dd503c7398109e399b3f4ddeee3867d61538fb6759f56c781f3c2dc1bc175ba",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 21851,
+    "output_tokens": 426,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "Targeted language and explanation fixes, retaining the existing lesson structure.",
+    "key_questions": [
+     "Is the alloy explanation everyday Hinglish?",
+     "Does the wear–debasement contrast explain the mechanism concretely?"
+    ],
+    "decisions": [
+     {
+      "decision": "Replace मुख्यतः with ज़्यादातर in b3.",
+      "reason": "Uses everyday Hindi without adding narration time."
+     },
+     {
+      "decision": "Rewrite b12 with a rubbed coin and deliberate silver reduction as contrasting examples.",
+      "reason": "Opens both mechanisms while shortening the beat to stay within the narration limit."
+     }
+    ],
+    "uncertain": []
+   },
+   "output": {
+    "notes": {
+     "about": "Targeted language and explanation fixes, retaining the existing lesson structure.",
+     "key_questions": [
+      "Is the alloy explanation everyday Hinglish?",
+      "Does the wear–debasement contrast explain the mechanism concretely?"
+     ],
+     "decisions": [
+      {
+       "decision": "Replace मुख्यतः with ज़्यादातर in b3.",
+       "reason": "Uses everyday Hindi without adding narration time."
+      },
+      {
+       "decision": "Rewrite b12 with a rubbed coin and deliberate silver reduction as contrasting examples.",
+       "reason": "Opens both mechanisms while shortening the beat to stay within the narration limit."
+      }
+     ],
+     "uncertain": []
+    },
+    "title": "Metallic money: सिक्कों के फायदे, सीमाएँ और भारत का शुरुआती क्रम",
+    "parts": [
+     {
+      "part_id": "c07.1",
+      "frame": {
+       "process": "Define metallic money and distinguish material value from issuer-supported confidence.",
+       "how": "A recognized silver coin purchases grain; explain metals and the issuer's mark.",
+       "when": "Material value precedes the later contribution of minting authority in the supplied account.",
+       "conditions": "Acceptance depends on recognizable payment objects; face value need not equal metal value.",
+       "atmosphere": "A hypothetical village bazaar with a buyer and grain seller."
+      },
+      "skipped_steps": []
+     },
+     {
+      "part_id": "c07.2",
+      "frame": {
+       "process": "Explain why convenient metal payments eventually face scale constraints.",
+       "how": "Replace bulky grain payments with coins, then increase a wholesale payment from 100 to 1000 coins.",
+       "when": "Advantages appear in routine trade; limitations become prominent as payments expand.",
+       "conditions": "Acceptance and standardization help; metal availability, transport, security and coin quality constrain use.",
+       "atmosphere": "A bazaar followed by a growing wholesale mandi business."
+      },
+      "skipped_steps": []
+     },
+     {
+      "part_id": "c07.3",
+      "frame": {
+       "process": "Distinguish early metallic exchange objects from standardized coins.",
+       "how": "Contrast metal exchanged by weight with recognizable coins of agreed specifications.",
+       "when": "Early objects in Mesopotamia and Egypt precede the standardized-coin distinction associated with Lydia; no numerical date is supplied.",
+       "conditions": "Metal use alone does not establish standardized coinage.",
+       "atmosphere": "Early exchange settings needing recognizable payment units."
+      },
+      "skipped_steps": [
+       {
+        "step": 3,
+        "why": "No individual people or documented choices are supplied."
+       }
+      ]
+     },
+     {
+      "part_id": "c08.1",
+      "frame": {
+       "process": "Read five Indian metallic-money stages and their paired descriptions.",
+       "how": "Move left to right, connecting each date or dynasty above a marker with its coin description below.",
+       "when": "6th c. BCE, Mauryan, Indo-Greek, Gupta, then 1540 CE.",
+       "conditions": "The schematic is not time-scaled, and its associations are not exclusive claims.",
+       "atmosphere": "Historical Indian coinage illustrated with marks, silver, die-striking, gold dinars and Rupiya."
+      },
+      "skipped_steps": [
+       {
+        "step": 4,
+        "why": "The supplied sequence does not establish a single turning point."
+       },
+       {
+        "step": 5,
+        "why": "No specific historical aftermath of the final marker is supplied."
+       }
+      ]
+     }
+    ],
+    "beats": [
+     {
+      "beat_id": "b1",
+      "part_id": "",
+      "step": 0,
+      "purpose": "hook",
+      "say": "कुछ सिक्के ले जाना आसान है; हजारों साथ ले जाने हों, तो क्या होगा?",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Small coin pouch versus a large coin load.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b2",
+      "part_id": "c07.1",
+      "step": 1,
+      "purpose": "example",
+      "say": "मान लो, बाजार में अनाज वाला 1 silver coin क्यों लेता है? Metal की कीमत और पहचानी छाप पर भरोसे से; उसके सिक्के 0 से 1 हुए।",
+      "covers_item_ids": [
+       "p003-i13"
+      ],
+      "answers": [],
+      "on_screen": "Illustrative grain purchase; seller's recognized coins: 0 → 1.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b3",
+      "part_id": "c07.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "यह Metallic money है, यानी metal का पैसा: gold, silver, copper, bronze या electrum। जैसे चीज़ें मिलाकर बनाते हैं, bronze में ज़्यादातर copper–tin, electrum में gold–silver मिलते हैं।",
+      "covers_item_ids": [
+       "p003-i13"
+      ],
+      "answers": [
+       "p003-i13#q1",
+       "p003-i13#q4"
+      ],
+      "on_screen": "Metal coin in a palm; bronze chiefly copper–tin; electrum gold–silver.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b4",
+      "part_id": "c07.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "Value पहले metal से, बाद में minting authority से भी जुड़ी। Minted यानी बनाकर जारी किया; छाप वजन और purity पर भरोसा देकर बार-बार जाँच घटाती है।",
+      "covers_item_ids": [
+       "p003-i13"
+      ],
+      "answers": [
+       "p003-i13#q2",
+       "p003-i13#q3"
+      ],
+      "on_screen": "Metal value plus issuer confidence; stamp supports stated specifications.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b5",
+      "part_id": "c07.1",
+      "step": 3,
+      "purpose": "misconception",
+      "say": "Metal का spoon पैसा नहीं है। आज के सिक्के की face value भी metal value के बराबर जरूरी नहीं।",
+      "covers_item_ids": [
+       "p003-i13"
+      ],
+      "answers": [],
+      "on_screen": "Metal object ≠ money; face value ≠ necessarily metal value.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b6",
+      "part_id": "c07.1",
+      "step": 4,
+      "purpose": "recap",
+      "say": "Metal और issuer की पहचान समझ ली; अब व्यापार के फायदे देखो।",
+      "covers_item_ids": [
+       "p003-i13"
+      ],
+      "answers": [],
+      "on_screen": "Metal + issuer → trading benefits.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b7",
+      "part_id": "c07.2",
+      "step": 1,
+      "purpose": "example",
+      "say": "Payment में 20 kg अनाज ले जाना आसान होगा? मान लो, seller उसकी जगह तय पहचान वाले सिक्के लेता है; साथ लाना पड़ा अनाज 20 kg से 0 kg हुआ।",
+      "covers_item_ids": [
+       "p003-i14"
+      ],
+      "answers": [],
+      "on_screen": "Illustrative substitution, not historical exchange rate: grain carried 20 kg → 0 kg.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b8",
+      "part_id": "c07.2",
+      "step": 2,
+      "purpose": "explain",
+      "say": "यह portability और standardization है: छोटी थैली में कीमत, तय पहचान वाले coins। Intrinsic value यानी metal की अपनी कीमत; durability यानी बार-बार चलकर जल्दी खराब नहीं होना।",
+      "covers_item_ids": [
+       "p003-i14"
+      ],
+      "answers": [
+       "p003-i14#q2"
+      ],
+      "on_screen": "Sack → pouch; matching coins; reusable metal versus deteriorating goods.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b9",
+      "part_id": "c07.2",
+      "step": 3,
+      "purpose": "explain",
+      "say": "Divisibility में छोटे-बड़े denominations काम आते हैं, सिक्का काटना नहीं पड़ता। Standardization जाँच घटाती है; widespread acceptance लेने वाला खोजना आसान बनाती है, जिससे व्यापार ज्यादा भरोसेमंद होता है।",
+      "covers_item_ids": [
+       "p003-i14"
+      ],
+      "answers": [
+       "p003-i14#q1",
+       "p003-i14#q3"
+      ],
+      "on_screen": "Denominations → flexible payment; standard units → less checking; acceptance → easier exchange.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b10",
+      "part_id": "c07.2",
+      "step": 3,
+      "purpose": "example",
+      "say": "Mandi में खरीद बढ़े तो? मान लो, coin value वही है, payment 100 से 1000 coins हुआ; अब उठाने और चोरी से बचाने की मेहनत बढ़ी।",
+      "covers_item_ids": [
+       "p003-i28"
+      ],
+      "answers": [
+       "p003-i28#q3"
+      ],
+      "on_screen": "Illustrative wholesale payment: 100 → 1000 coins; larger load and security needs.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b11",
+      "part_id": "c07.2",
+      "step": 3,
+      "purpose": "explain",
+      "say": "ये scale और transport limitations हैं। Limited supply यानी खरीद बढ़ते ही नया metal नहीं मिलता; coins कम पड़ें तो payment रुकेगी, बड़ा load चोरी का खतरा भी बढ़ाएगा।",
+      "covers_item_ids": [
+       "p003-i28"
+      ],
+      "answers": [
+       "p003-i28#q2"
+      ],
+      "on_screen": "More transactions face unchanged metal stock; heavy load needs secure transport.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b12",
+      "part_id": "c07.2",
+      "step": 3,
+      "purpose": "explain",
+      "say": "घिसकर हल्का हुआ सिक्का देखा? यह wear and tear है; उसी कीमत वाले नए सिक्के में जानबूझकर silver घटाना coin debasement है। बढ़ती खरीद के लिए metal जुटाना और ढोना मुश्किल हुआ, इसलिए paper money अपनाया गया।",
+      "covers_item_ids": [
+       "p003-i28"
+      ],
+      "answers": [
+       "p003-i28#q1",
+       "p003-i28#q4"
+      ],
+      "on_screen": "Used coin loses material through rubbing; new coin deliberately contains less silver at the same stated denomination. Supply and handling constraints encourage paper money.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b13",
+      "part_id": "c07.2",
+      "step": 4,
+      "purpose": "explain",
+      "say": "फर्क दिखा? 20 kg हटे तो आसानी हुई; 1000 coins हुए तो बोझ बढ़ा।",
+      "covers_item_ids": [
+       "p003-i14",
+       "p003-i28"
+      ],
+      "answers": [],
+      "on_screen": "Compare grain substitution with expanding coin load.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b14",
+      "part_id": "c07.2",
+      "step": 5,
+      "purpose": "misconception",
+      "say": "Paper में भी theft risk है; gold-backed paper पर backing की सीमा रहती है। Paper तुरंत unbacked fiat नहीं बनता।",
+      "covers_item_ids": [
+       "p003-i28"
+      ],
+      "answers": [
+       "p003-i28#q5"
+      ],
+      "on_screen": "Paper does not eliminate theft or backing constraints; paper ≠ automatically fiat.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b15",
+      "part_id": "c07.2",
+      "step": 6,
+      "purpose": "recap",
+      "say": "कड़ी पकड़ो: आसान payment, बढ़ता व्यापार, metal की सीमाएँ, फिर कम बोझ वाले पैसे की जरूरत।",
+      "covers_item_ids": [
+       "p003-i14",
+       "p003-i28"
+      ],
+      "answers": [],
+      "on_screen": "Convenience → larger trade → metal constraints → alternatives.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b16",
+      "part_id": "c07.3",
+      "step": 1,
+      "purpose": "question_to_student",
+      "say": "तौला गया metal और तय पहचान वाला coin एक हैं? शुरुआती exchange में हर टुकड़ा जाँचना पड़ सकता था।",
+      "covers_item_ids": [
+       "p003-i15"
+      ],
+      "answers": [
+       "p003-i15#q3"
+      ],
+      "on_screen": "Unmarked metal on scales versus recognizable coin.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b17",
+      "part_id": "c07.3",
+      "step": 2,
+      "purpose": "explain",
+      "say": "Mesopotamia और Egypt में शुरुआती metallic exchange objects थे, यानी metal देकर खरीदना। First standardized coins आम तौर पर Kingdom of Lydia से जोड़े जाते हैं; metal देना और coin चलना अलग शुरुआतें हैं।",
+      "covers_item_ids": [
+       "p003-i15"
+      ],
+      "answers": [
+       "p003-i15#q1",
+       "p003-i15#q2"
+      ],
+      "on_screen": "Mesopotamia/Egypt: early metal exchange; Lydia: widely credited first standardized coins.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b18",
+      "part_id": "c07.3",
+      "step": 4,
+      "purpose": "explain",
+      "say": "Standardized यानी तय वजन, बनावट या पहचान: अलग-अलग टुकड़े परखने के बजाय coin पहचानना आसान हुआ।",
+      "covers_item_ids": [
+       "p003-i15"
+      ],
+      "answers": [
+       "p003-i15#q3"
+      ],
+      "on_screen": "Irregular pieces → agreed recognizable specifications.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b19",
+      "part_id": "c07.3",
+      "step": 5,
+      "purpose": "explain",
+      "say": "इससे नियमित coinage अलग पहचान में आती है; Lydia की numerical date यहाँ नहीं जोड़ेंगे।",
+      "covers_item_ids": [
+       "p003-i15"
+      ],
+      "answers": [
+       "p003-i15#q1"
+      ],
+      "on_screen": "Metal exchange distinguished from coinage; no Lydia date supplied.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b20",
+      "part_id": "c07.3",
+      "step": 6,
+      "purpose": "recap",
+      "say": "जोड़ियाँ रखो: Mesopotamia–Egypt, metal exchange; Lydia, standardized coins।",
+      "covers_item_ids": [
+       "p003-i15"
+      ],
+      "answers": [
+       "p003-i15#q2"
+      ],
+      "on_screen": "Two separate historical associations.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b21",
+      "part_id": "c08.1",
+      "step": 1,
+      "purpose": "question_to_student",
+      "say": "Indian coins की कतार कैसे पढ़ोगे? बाएँ से दाएँ, ऊपर समय या dynasty, नीचे जुड़ी coinage देखो।",
+      "covers_item_ids": [
+       "p003-i16"
+      ],
+      "answers": [
+       "p003-i16#q3"
+      ],
+      "on_screen": "Five connected circular markers; period above, coin description below.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b22",
+      "part_id": "c08.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "छोटे दबे निशान कैसे बने? Punch-marked में punch से निशान लगते हैं; पहला पड़ाव 6th c. BCE है, यानी छठी century, एक साल नहीं।",
+      "covers_item_ids": [
+       "p003-i18",
+       "p003-i19"
+      ],
+      "answers": [
+       "p003-i18#q1",
+       "p003-i18#q2",
+       "p003-i19#q1",
+       "p003-i19#q2"
+      ],
+      "on_screen": "6th c. BCE / Punch-marked; animate punch impressions.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b23",
+      "part_id": "c08.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "अगला silver coin किससे जुड़ा है? Mauryan–Imperial silver, यानी empire से जुड़ी silver coinage; Mauryan को Ashoka की Maurya dynasty से पहचानो।",
+      "covers_item_ids": [
+       "p003-i20",
+       "p003-i21"
+      ],
+      "answers": [
+       "p003-i20#q1",
+       "p003-i20#q2",
+       "p003-i21#q1"
+      ],
+      "on_screen": "Second: Mauryan / Imperial silver; Ashoka → Maurya dynasty.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b24",
+      "part_id": "c08.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "Design कैसे पड़ा? तीसरा Indo-Greek–Die-struck: design वाले die की चोट metal पर छाप छोड़ती है; यह technique है, metal नहीं। Indo-Greek उत्तर-पश्चिम में Greek-origin rulers थे।",
+      "covers_item_ids": [
+       "p003-i22",
+       "p003-i23"
+      ],
+      "answers": [
+       "p003-i22#q1",
+       "p003-i22#q2",
+       "p003-i22#q3",
+       "p003-i22#q4",
+       "p003-i23#q1",
+       "p003-i23#q2",
+       "p003-i23#q3"
+      ],
+      "on_screen": "Indo-Greek / Die-struck; northwestern subcontinent inset; die strikes blank.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b25",
+      "part_id": "c08.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "सोने के coins का नाम क्या है? चौथा Gupta–Gold dinars: dinar नाम के gold coins; Gupta को Chandragupta II की dynasty से जोड़ो।",
+      "covers_item_ids": [
+       "p003-i24",
+       "p003-i25"
+      ],
+      "answers": [
+       "p003-i24#q1",
+       "p003-i24#q2",
+       "p003-i24#q3",
+       "p003-i25#q1",
+       "p003-i25#q2"
+      ],
+      "on_screen": "Gupta / Gold dinars; Chandragupta II → Gupta dynasty.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b26",
+      "part_id": "c08.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "आखिरी silver coin का नाम? 1540 CE–Rupiya, Sher Shah Suri से जुड़ा standardized silver coin; आज के rupee जैसा metal या purchasing power मत मानना।",
+      "covers_item_ids": [
+       "p003-i26",
+       "p003-i27"
+      ],
+      "answers": [
+       "p003-i26#q1",
+       "p003-i27#q1",
+       "p003-i27#q2",
+       "p003-i27#q3",
+       "p003-i27#q4"
+      ],
+      "on_screen": "1540 CE / Rupiya; historical silver unit distinct from modern rupee coin.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b27",
+      "part_id": "c08.1",
+      "step": 3,
+      "purpose": "exam_tip",
+      "say": "Matching में association है, ‘केवल यही’ नहीं। बराबर gaps बराबर समय नहीं: century, dynasty और 1540 CE जैसा खास साल अलग time labels हैं।",
+      "covers_item_ids": [
+       "p003-i16",
+       "p003-i20",
+       "p003-i26"
+      ],
+      "answers": [
+       "p003-i16#q2",
+       "p003-i20#q3",
+       "p003-i26#q2"
+      ],
+      "on_screen": "Not to scale; no exclusivity; century ≠ dynasty ≠ year.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b28",
+      "part_id": "c08.1",
+      "step": 6,
+      "purpose": "recap",
+      "say": "क्रम याद रखो: Punch-marked, Mauryan silver, Indo-Greek Die-struck, Gupta dinars, 1540 का Rupiya; याद का सहारा: निशान, silver, technique, gold, Rupiya।",
+      "covers_item_ids": [
+       "p003-i16"
+      ],
+      "answers": [
+       "p003-i16#q1"
+      ],
+      "on_screen": "All five complete period–coinage pairings, left to right.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b29",
+      "part_id": "",
+      "step": 0,
+      "purpose": "recap",
+      "say": "सिक्का भरोसेमंद क्यों बना, फिर भारी क्यों पड़ा? यही समझ आगे paper money को खोलेगी।",
+      "covers_item_ids": [
+       "p003-i13",
+       "p003-i28"
+      ],
+      "answers": [],
+      "on_screen": "Recognizable metal payment → growing trade → need for less bulky arrangements.",
+      "basis": "mixed"
+     }
+    ]
+   },
+   "code_problems": [],
+   "observed": {
+    "pattern_order": [],
+    "skipped_steps": {
+     "c07.3": {
+      "3": "No individual people or documented choices are supplied."
+     },
+     "c08.1": {
+      "4": "The supplied sequence does not establish a single turning point.",
+      "5": "No specific historical aftermath of the final marker is supplied."
+     }
+    },
+    "objective_coverage": {
+     "coverage": 1.0,
+     "uncovered": []
+    },
+    "cognitive_load": {
+     "max": 1.32,
+     "abrupt_jumps": [
+      "b6->b7",
+      "b26->b27"
+     ]
+    },
+    "duration": {
+     "spoken_minutes_at_130_wpm": 5.0,
+     "planned_minutes": 4,
+     "range": [
+      3.8,
+      5.0
+     ]
+    },
+    "dohraav": {
+     "beats": 29,
+     "judged": 21,
+     "restating": 0,
+     "share": 0.0,
+     "opened": 16,
+     "opened_share": 0.762,
+     "restating_beats": []
+    },
+    "real_world": [
+     {
+      "item_id": "p003-i13",
+      "place": "Hypothetical village bazaar",
+      "numbers": [
+       "0",
+       "1"
+      ],
+      "example_beats": [
+       "b2"
+      ],
+      "term_beat": "b3",
+      "term": "Metallic money",
+      "ok": true,
+      "problem": ""
+     },
+     {
+      "item_id": "p003-i14",
+      "place": "Hypothetical bazaar",
+      "numbers": [
+       "0",
+       "20"
+      ],
+      "example_beats": [
+       "b7",
+       "b13"
+      ],
+      "term_beat": "b8",
+      "term": "durability",
+      "ok": true,
+      "problem": ""
+     },
+     {
+      "item_id": "p003-i28",
+      "place": "Hypothetical wholesale mandi",
+      "numbers": [
+       "100",
+       "1000"
+      ],
+      "example_beats": [
+       "b10",
+       "b13"
+      ],
+      "term_beat": "b11",
+      "term": "limited supply",
+      "ok": true,
+      "problem": ""
+     }
+    ]
+   },
+   "review": {
+    "route": "codex-checker",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "da9a6a68d73caddba504f69aad040cf195ea2bf3f83d7ec2e21cf8a7089b604e",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 18322,
+    "output_tokens": 1472,
+    "cost_usd": 0.0,
+    "value": {
+     "notes": {
+      "about": "This unit connects metallic money’s usefulness and limitations to the need for paper money, then teaches the supplied Indian coinage sequence.",
+      "key_questions": [
+       "How do metal value and issuer confidence support metallic money?",
+       "Why do metallic money’s advantages become insufficient as trade expands?",
+       "How does early metal exchange differ from standardized coinage?",
+       "Which dates and periods pair with each Indian coinage label?"
+      ],
+      "decisions": [
+       {
+        "decision": "Request targeted revisions rather than a structural rewrite.",
+        "reason": "All required items are present, and most examples and historical pairings are meaningfully explained."
+       },
+       {
+        "decision": "Accept the supplied narration measurement.",
+        "reason": "BIE reports that the 5.0-minute narration passes its timing check."
+       }
+      ],
+      "uncertain": [
+       "The prerequisite video and complete chapter plan are not supplied, so their duration, order and actual teaching cannot be independently verified.",
+       "No page images are attached; source fidelity is assessed against the supplied item transcriptions."
+      ]
+     },
+     "verdict": "fail",
+     "problems": [
+      {
+       "where": "b12, c07.2",
+       "problem": "Wear and debasement are concretely distinguished, but their role in the move towards paper remains unexplained. The conclusion returns only to obtaining and transporting metal, leaving two listed limitations without their causal links.",
+       "fix": "Explain that wear can reduce weight or readability, while reduced precious-metal content can undermine confidence and require renewed checking. Connect these problems to the search for more dependable payment arrangements without implying paper automatically eliminates them. Replace b13’s repeated numerical comparison and shorten b29 to make room.",
+       "severity": "blocking"
+      },
+      {
+       "where": "b3–b4, b23–b26; basis fields",
+       "problem": "Book statements and added context are bundled under 'mixed' without identifying which claims are outside knowledge. For example, the supplied source gives dynasty–coinage pairings, whereas Ashoka, Chandragupta II and Sher Shah Suri are added historical anchors.",
+       "fix": "Identify the added explanations and historical anchors explicitly as standard outside context in the relevant production or on-screen annotations. Split bundled claims where necessary; no extra spoken narration is needed.",
+       "severity": "blocking"
+      },
+      {
+       "where": "b19",
+       "problem": "‘Lydia की numerical date यहाँ नहीं जोड़ेंगे’ discusses source coverage or lesson construction rather than teaching history.",
+       "fix": "Replace it with a substantive distinction, such as ‘Metal exchange और standardized coinage की शुरुआत को एक मत मानना,’ or remove the sentence because b20 already reinforces this distinction.",
+       "severity": "blocking"
+      },
+      {
+       "where": "notes",
+       "problem": "The maker’s notes describe two editing fixes rather than the unit’s teaching purpose, central questions and instructional decisions.",
+       "fix": "Rewrite the notes around the causal transition, the distinction between metal exchange and coinage, and the timeline’s non-exclusive associations. Record the unavailable prerequisite material as an uncertainty.",
+       "severity": "minor"
+      }
+     ],
+     "checklist": [
+      {
+       "rule_id": "G-01",
+       "met": false,
+       "note": "Added standard context is generally correct, but 'mixed' does not identify which statements are outside the source."
+      },
+      {
+       "rule_id": "G-02",
+       "met": false,
+       "note": "Mostly well taught; the causal significance of wear and debasement remains incomplete."
+      },
+      {
+       "rule_id": "G-03",
+       "met": false,
+       "note": "Maker notes focus on revision history instead of the unit’s instructional decisions."
+      },
+      {
+       "rule_id": "G-04",
+       "met": true,
+       "note": "The narration generally sounds like short, natural Hinglish teaching."
+      },
+      {
+       "rule_id": "G-05",
+       "met": true,
+       "note": "All required source items and timeline pairings appear; none is replaced by 'etc.'"
+      },
+      {
+       "rule_id": "G-06",
+       "met": false,
+       "note": "Wear and debasement are defined but not fully opened as reasons for seeking alternatives."
+      },
+      {
+       "rule_id": "G-07",
+       "met": true,
+       "note": "Examples, historical anchors and matching traps broadly suit UPSC / State PCS learners."
+      },
+      {
+       "rule_id": "S2-01",
+       "met": true,
+       "note": "Accept BIE’s supplied timing pass; the wider plan and prerequisite video are unavailable."
+      },
+      {
+       "rule_id": "S2-02",
+       "met": false,
+       "note": "The overall flow works, but the limitations-to-paper explanation leaves a causal gap."
+      },
+      {
+       "rule_id": "S2-03",
+       "met": true,
+       "note": "No excessive prerequisite recap appears; actual prerequisite teaching cannot be verified from this excerpt."
+      },
+      {
+       "rule_id": "S2-04",
+       "met": true,
+       "note": "Hindi uses Devanagari and English terms use Roman script; sentences are generally short."
+      },
+      {
+       "rule_id": "S2-05",
+       "met": false,
+       "note": "b12’s coverage of the limitations question exceeds its explanation of why coin-quality problems matter."
+      },
+      {
+       "rule_id": "S2-06",
+       "met": false,
+       "note": "The cause-effect part does not complete the mechanism for every listed limitation; other patterns are substantially followed."
+      },
+      {
+       "rule_id": "S2-07",
+       "met": false,
+       "note": "Most terms receive images or examples, but the consequences of wear and debasement need opening."
+      },
+      {
+       "rule_id": "S2-08",
+       "met": true,
+       "note": "The supplied numerical bazaar and mandi examples precede their concept labels and use sound illustrative mechanisms."
+      },
+      {
+       "rule_id": "W-01",
+       "met": false,
+       "note": "b19 comments on not supplying a date instead of teaching the historical distinction."
+      }
+     ]
+    }
+   },
+   "review_problems": [
+    "[reviewer] b12, c07.2: Wear and debasement are concretely distinguished, but their role in the move towards paper remains unexplained. The conclusion returns only to obtaining and transporting metal, leaving two listed limitations without their causal links. -> fix: Explain that wear can reduce weight or readability, while reduced precious-metal content can undermine confidence and require renewed checking. Connect these problems to the search for more dependable payment arrangements without implying paper automatically eliminates them. Replace b13’s repeated numerical comparison and shorten b29 to make room.",
+    "[reviewer] b3–b4, b23–b26; basis fields: Book statements and added context are bundled under 'mixed' without identifying which claims are outside knowledge. For example, the supplied source gives dynasty–coinage pairings, whereas Ashoka, Chandragupta II and Sher Shah Suri are added historical anchors. -> fix: Identify the added explanations and historical anchors explicitly as standard outside context in the relevant production or on-screen annotations. Split bundled claims where necessary; no extra spoken narration is needed.",
+    "[reviewer] b19: ‘Lydia की numerical date यहाँ नहीं जोड़ेंगे’ discusses source coverage or lesson construction rather than teaching history. -> fix: Replace it with a substantive distinction, such as ‘Metal exchange और standardized coinage की शुरुआत को एक मत मानना,’ or remove the sentence because b20 already reinforces this distinction."
+   ],
+   "review_minor": [
+    {
+     "where": "notes",
+     "problem": "The maker’s notes describe two editing fixes rather than the unit’s teaching purpose, central questions and instructional decisions.",
+     "fix": "Rewrite the notes around the causal transition, the distinction between metal exchange and coinage, and the timeline’s non-exclusive associations. Record the unavailable prerequisite material as an uncertainty.",
+     "kind": "problems"
+    }
+   ],
+   "passed": false,
+   "finished_at": 1793145341.6814673
+  },
+  {
+   "round": 2,
+   "started_at": 1793145341.6850638,
+   "mode": "patch",
+   "patch": {
+    "notes": {
+     "about": "Targeted corrections to causal explanations and attribution, retaining the lesson structure.",
+     "key_questions": [
+      "How do wear and debasement encourage the search for more dependable payment arrangements?",
+      "Which explanations and historical anchors are standard outside context?"
+     ],
+     "decisions": [
+      {
+       "decision": "Use b12–b13 to connect coin deterioration and debasement to checking and confidence problems.",
+       "reason": "Explains their causal role without suggesting paper automatically solves them."
+      },
+      {
+       "decision": "Identify outside explanations and historical anchors in on-screen production annotations.",
+       "reason": "Separates added context from supplied claims without adding spoken time."
+      },
+      {
+       "decision": "Shorten b19 and b29 and remove b13's repeated numerical comparison.",
+       "reason": "Pays for the added causal explanation within the existing narration limit."
+      }
+     ],
+     "uncertain": []
+    },
+    "replace_parts": [],
+    "replace_beats": [
+     {
+      "beat_id": "b3",
+      "part_id": "c07.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "यह Metallic money है, यानी metal का पैसा: gold, silver, copper, bronze या electrum। जैसे चीज़ें मिलाकर बनाते हैं, bronze में ज़्यादातर copper–tin, electrum में gold–silver मिलते हैं।",
+      "covers_item_ids": [
+       "p003-i13"
+      ],
+      "answers": [
+       "p003-i13#q1",
+       "p003-i13#q4"
+      ],
+      "on_screen": "Metal coin in a palm. Source claim: metallic money and the five listed metals. Production annotation — standard outside context: bronze is chiefly copper–tin; electrum is gold–silver.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b4",
+      "part_id": "c07.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "Value पहले metal से, बाद में minting authority से भी जुड़ी। Minted यानी बनाकर जारी किया; छाप वजन और purity पर भरोसा देकर बार-बार जाँच घटाती है।",
+      "covers_item_ids": [
+       "p003-i13"
+      ],
+      "answers": [
+       "p003-i13#q2",
+       "p003-i13#q3"
+      ],
+      "on_screen": "Metal value + issuing authority. Production annotation — source claim: both sources of value. Standard outside context: meaning of minted and how issuer marks support confidence in weight and purity and reduce checking.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b12",
+      "part_id": "c07.2",
+      "step": 3,
+      "purpose": "explain",
+      "say": "घिसा सिक्का देखा? Wear and tear से वजन घटता या छाप मिटती है। उसी कीमत वाले coin में कीमती metal जानबूझकर घटाना coin debasement है; इससे भरोसा घटे तो दोबारा जाँच चाहिए।",
+      "covers_item_ids": [
+       "p003-i28"
+      ],
+      "answers": [
+       "p003-i28#q4"
+      ],
+      "on_screen": "Wear: rubbing reduces weight or mark readability. Debasement: deliberate reduction of precious-metal content relative to stated denomination → confidence concerns → renewed checking. Production annotation — source lists both limitations; these mechanisms are standard outside explanation.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b13",
+      "part_id": "c07.2",
+      "step": 4,
+      "purpose": "explain",
+      "say": "ऐसी जाँच, कम metal, ढुलाई और चोरी की मुश्किलों ने बढ़ते व्यापार में ज्यादा भरोसेमंद payment की तलाश बढ़ाई; paper money अपनाने की जरूरत बनी।",
+      "covers_item_ids": [
+       "p003-i28"
+      ],
+      "answers": [
+       "p003-i28#q1"
+      ],
+      "on_screen": "Supply constraints + transport/security burdens + coin-quality checking → search for dependable, convenient payment arrangements → adoption of paper money. Production annotation — transition and listed limitations are source claims; checking/confidence mechanism is standard outside explanation. Do not imply paper eliminates these risks.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b19",
+      "part_id": "c07.3",
+      "step": 5,
+      "purpose": "explain",
+      "say": "इससे बार-बार payment में टुकड़ा परखने के बजाय coin पहचानना आसान हुआ।",
+      "covers_item_ids": [
+       "p003-i15"
+      ],
+      "answers": [
+       "p003-i15#q3"
+      ],
+      "on_screen": "Recognizable standardized units reduce repeated assessment of individual metal pieces. Production annotation — standard outside explanation of the practical consequence.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b23",
+      "part_id": "c08.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "अगला silver coin किससे जुड़ा है? Mauryan–Imperial silver, यानी empire से जुड़ी silver coinage; Mauryan को Ashoka की Maurya dynasty से पहचानो।",
+      "covers_item_ids": [
+       "p003-i20",
+       "p003-i21"
+      ],
+      "answers": [
+       "p003-i20#q1",
+       "p003-i20#q2",
+       "p003-i21#q1"
+      ],
+      "on_screen": "Second marker: Mauryan / Imperial silver. Production annotation — source claim: sequence position and pairing. Standard outside context: Ashoka belonged to the Maurya dynasty; explanation of Imperial as empire-related.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b24",
+      "part_id": "c08.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "Design कैसे पड़ा? तीसरा Indo-Greek–Die-struck: design वाले die की चोट metal पर छाप छोड़ती है; यह technique है, metal नहीं। Indo-Greek उत्तर-पश्चिम में Greek-origin rulers थे।",
+      "covers_item_ids": [
+       "p003-i22",
+       "p003-i23"
+      ],
+      "answers": [
+       "p003-i22#q1",
+       "p003-i22#q2",
+       "p003-i22#q3",
+       "p003-i22#q4",
+       "p003-i23#q1",
+       "p003-i23#q2",
+       "p003-i23#q3"
+      ],
+      "on_screen": "Third marker: Indo-Greek / Die-struck; die strikes a metal blank. Production annotation — source claim: position and pairing. Standard outside context: Greek-origin rulers in the northwestern subcontinent; die-striking mechanism and distinction between technique and material.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b25",
+      "part_id": "c08.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "सोने के coins का नाम क्या है? चौथा Gupta–Gold dinars: dinar नाम के gold coins; Gupta को Chandragupta II की dynasty से जोड़ो।",
+      "covers_item_ids": [
+       "p003-i24",
+       "p003-i25"
+      ],
+      "answers": [
+       "p003-i24#q1",
+       "p003-i24#q2",
+       "p003-i24#q3",
+       "p003-i25#q1",
+       "p003-i25#q2"
+      ],
+      "on_screen": "Fourth marker: Gupta / Gold dinars. Production annotation — source claim: position and pairing. Standard outside historical anchor: Chandragupta II belonged to the Gupta dynasty.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b26",
+      "part_id": "c08.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "आखिरी silver coin का नाम? 1540 CE–Rupiya, Sher Shah Suri से जुड़ा standardized silver coin; आज के rupee जैसा metal या purchasing power मत मानना।",
+      "covers_item_ids": [
+       "p003-i26",
+       "p003-i27"
+      ],
+      "answers": [
+       "p003-i26#q1",
+       "p003-i27#q1",
+       "p003-i27#q2",
+       "p003-i27#q3",
+       "p003-i27#q4"
+      ],
+      "on_screen": "Final marker: 1540 CE / Rupiya. Production annotation — source claim: date and name pairing. Standard outside context: Sher Shah Suri association, standardized silver composition, and warning against equating historical and modern coin composition or purchasing power.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b29",
+      "part_id": "",
+      "step": 0,
+      "purpose": "recap",
+      "say": "Metal ने payment आसान बनाया; उसकी सीमाओं ने paper की जरूरत बढ़ाई।",
+      "covers_item_ids": [
+       "p003-i14",
+       "p003-i28"
+      ],
+      "answers": [],
+      "on_screen": "Convenient metallic payments → limits at scale → need for paper arrangements.",
+      "basis": "book"
+     }
+    ],
+    "insert_beats": [],
+    "remove_beat_ids": []
+   },
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "802cdc5337ee866bf53bc41ec185d319f477f08d5a847bec468a81837ef73736",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 22148,
+    "output_tokens": 2079,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "Targeted language and explanation fixes, retaining the existing lesson structure.",
+    "key_questions": [
+     "Is the alloy explanation everyday Hinglish?",
+     "Does the wear–debasement contrast explain the mechanism concretely?"
+    ],
+    "decisions": [
+     {
+      "decision": "Replace मुख्यतः with ज़्यादातर in b3.",
+      "reason": "Uses everyday Hindi without adding narration time."
+     },
+     {
+      "decision": "Rewrite b12 with a rubbed coin and deliberate silver reduction as contrasting examples.",
+      "reason": "Opens both mechanisms while shortening the beat to stay within the narration limit."
+     },
+     {
+      "decision": "Use b12–b13 to connect coin deterioration and debasement to checking and confidence problems.",
+      "reason": "Explains their causal role without suggesting paper automatically solves them."
+     },
+     {
+      "decision": "Identify outside explanations and historical anchors in on-screen production annotations.",
+      "reason": "Separates added context from supplied claims without adding spoken time."
+     },
+     {
+      "decision": "Shorten b19 and b29 and remove b13's repeated numerical comparison.",
+      "reason": "Pays for the added causal explanation within the existing narration limit."
+     }
+    ],
+    "uncertain": []
+   },
+   "output": {
+    "notes": {
+     "about": "Targeted language and explanation fixes, retaining the existing lesson structure.",
+     "key_questions": [
+      "Is the alloy explanation everyday Hinglish?",
+      "Does the wear–debasement contrast explain the mechanism concretely?"
+     ],
+     "decisions": [
+      {
+       "decision": "Replace मुख्यतः with ज़्यादातर in b3.",
+       "reason": "Uses everyday Hindi without adding narration time."
+      },
+      {
+       "decision": "Rewrite b12 with a rubbed coin and deliberate silver reduction as contrasting examples.",
+       "reason": "Opens both mechanisms while shortening the beat to stay within the narration limit."
+      },
+      {
+       "decision": "Use b12–b13 to connect coin deterioration and debasement to checking and confidence problems.",
+       "reason": "Explains their causal role without suggesting paper automatically solves them."
+      },
+      {
+       "decision": "Identify outside explanations and historical anchors in on-screen production annotations.",
+       "reason": "Separates added context from supplied claims without adding spoken time."
+      },
+      {
+       "decision": "Shorten b19 and b29 and remove b13's repeated numerical comparison.",
+       "reason": "Pays for the added causal explanation within the existing narration limit."
+      }
+     ],
+     "uncertain": []
+    },
+    "title": "Metallic money: सिक्कों के फायदे, सीमाएँ और भारत का शुरुआती क्रम",
+    "parts": [
+     {
+      "part_id": "c07.1",
+      "frame": {
+       "process": "Define metallic money and distinguish material value from issuer-supported confidence.",
+       "how": "A recognized silver coin purchases grain; explain metals and the issuer's mark.",
+       "when": "Material value precedes the later contribution of minting authority in the supplied account.",
+       "conditions": "Acceptance depends on recognizable payment objects; face value need not equal metal value.",
+       "atmosphere": "A hypothetical village bazaar with a buyer and grain seller."
+      },
+      "skipped_steps": []
+     },
+     {
+      "part_id": "c07.2",
+      "frame": {
+       "process": "Explain why convenient metal payments eventually face scale constraints.",
+       "how": "Replace bulky grain payments with coins, then increase a wholesale payment from 100 to 1000 coins.",
+       "when": "Advantages appear in routine trade; limitations become prominent as payments expand.",
+       "conditions": "Acceptance and standardization help; metal availability, transport, security and coin quality constrain use.",
+       "atmosphere": "A bazaar followed by a growing wholesale mandi business."
+      },
+      "skipped_steps": []
+     },
+     {
+      "part_id": "c07.3",
+      "frame": {
+       "process": "Distinguish early metallic exchange objects from standardized coins.",
+       "how": "Contrast metal exchanged by weight with recognizable coins of agreed specifications.",
+       "when": "Early objects in Mesopotamia and Egypt precede the standardized-coin distinction associated with Lydia; no numerical date is supplied.",
+       "conditions": "Metal use alone does not establish standardized coinage.",
+       "atmosphere": "Early exchange settings needing recognizable payment units."
+      },
+      "skipped_steps": [
+       {
+        "step": 3,
+        "why": "No individual people or documented choices are supplied."
+       }
+      ]
+     },
+     {
+      "part_id": "c08.1",
+      "frame": {
+       "process": "Read five Indian metallic-money stages and their paired descriptions.",
+       "how": "Move left to right, connecting each date or dynasty above a marker with its coin description below.",
+       "when": "6th c. BCE, Mauryan, Indo-Greek, Gupta, then 1540 CE.",
+       "conditions": "The schematic is not time-scaled, and its associations are not exclusive claims.",
+       "atmosphere": "Historical Indian coinage illustrated with marks, silver, die-striking, gold dinars and Rupiya."
+      },
+      "skipped_steps": [
+       {
+        "step": 4,
+        "why": "The supplied sequence does not establish a single turning point."
+       },
+       {
+        "step": 5,
+        "why": "No specific historical aftermath of the final marker is supplied."
+       }
+      ]
+     }
+    ],
+    "beats": [
+     {
+      "beat_id": "b1",
+      "part_id": "",
+      "step": 0,
+      "purpose": "hook",
+      "say": "कुछ सिक्के ले जाना आसान है; हजारों साथ ले जाने हों, तो क्या होगा?",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Small coin pouch versus a large coin load.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b2",
+      "part_id": "c07.1",
+      "step": 1,
+      "purpose": "example",
+      "say": "मान लो, बाजार में अनाज वाला 1 silver coin क्यों लेता है? Metal की कीमत और पहचानी छाप पर भरोसे से; उसके सिक्के 0 से 1 हुए।",
+      "covers_item_ids": [
+       "p003-i13"
+      ],
+      "answers": [],
+      "on_screen": "Illustrative grain purchase; seller's recognized coins: 0 → 1.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b3",
+      "part_id": "c07.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "यह Metallic money है, यानी metal का पैसा: gold, silver, copper, bronze या electrum। जैसे चीज़ें मिलाकर बनाते हैं, bronze में ज़्यादातर copper–tin, electrum में gold–silver मिलते हैं।",
+      "covers_item_ids": [
+       "p003-i13"
+      ],
+      "answers": [
+       "p003-i13#q1",
+       "p003-i13#q4"
+      ],
+      "on_screen": "Metal coin in a palm. Source claim: metallic money and the five listed metals. Production annotation — standard outside context: bronze is chiefly copper–tin; electrum is gold–silver.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b4",
+      "part_id": "c07.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "Value पहले metal से, बाद में minting authority से भी जुड़ी। Minted यानी बनाकर जारी किया; छाप वजन और purity पर भरोसा देकर बार-बार जाँच घटाती है।",
+      "covers_item_ids": [
+       "p003-i13"
+      ],
+      "answers": [
+       "p003-i13#q2",
+       "p003-i13#q3"
+      ],
+      "on_screen": "Metal value + issuing authority. Production annotation — source claim: both sources of value. Standard outside context: meaning of minted and how issuer marks support confidence in weight and purity and reduce checking.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b5",
+      "part_id": "c07.1",
+      "step": 3,
+      "purpose": "misconception",
+      "say": "Metal का spoon पैसा नहीं है। आज के सिक्के की face value भी metal value के बराबर जरूरी नहीं।",
+      "covers_item_ids": [
+       "p003-i13"
+      ],
+      "answers": [],
+      "on_screen": "Metal object ≠ money; face value ≠ necessarily metal value.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b6",
+      "part_id": "c07.1",
+      "step": 4,
+      "purpose": "recap",
+      "say": "Metal और issuer की पहचान समझ ली; अब व्यापार के फायदे देखो।",
+      "covers_item_ids": [
+       "p003-i13"
+      ],
+      "answers": [],
+      "on_screen": "Metal + issuer → trading benefits.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b7",
+      "part_id": "c07.2",
+      "step": 1,
+      "purpose": "example",
+      "say": "Payment में 20 kg अनाज ले जाना आसान होगा? मान लो, seller उसकी जगह तय पहचान वाले सिक्के लेता है; साथ लाना पड़ा अनाज 20 kg से 0 kg हुआ।",
+      "covers_item_ids": [
+       "p003-i14"
+      ],
+      "answers": [],
+      "on_screen": "Illustrative substitution, not historical exchange rate: grain carried 20 kg → 0 kg.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b8",
+      "part_id": "c07.2",
+      "step": 2,
+      "purpose": "explain",
+      "say": "यह portability और standardization है: छोटी थैली में कीमत, तय पहचान वाले coins। Intrinsic value यानी metal की अपनी कीमत; durability यानी बार-बार चलकर जल्दी खराब नहीं होना।",
+      "covers_item_ids": [
+       "p003-i14"
+      ],
+      "answers": [
+       "p003-i14#q2"
+      ],
+      "on_screen": "Sack → pouch; matching coins; reusable metal versus deteriorating goods.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b9",
+      "part_id": "c07.2",
+      "step": 3,
+      "purpose": "explain",
+      "say": "Divisibility में छोटे-बड़े denominations काम आते हैं, सिक्का काटना नहीं पड़ता। Standardization जाँच घटाती है; widespread acceptance लेने वाला खोजना आसान बनाती है, जिससे व्यापार ज्यादा भरोसेमंद होता है।",
+      "covers_item_ids": [
+       "p003-i14"
+      ],
+      "answers": [
+       "p003-i14#q1",
+       "p003-i14#q3"
+      ],
+      "on_screen": "Denominations → flexible payment; standard units → less checking; acceptance → easier exchange.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b10",
+      "part_id": "c07.2",
+      "step": 3,
+      "purpose": "example",
+      "say": "Mandi में खरीद बढ़े तो? मान लो, coin value वही है, payment 100 से 1000 coins हुआ; अब उठाने और चोरी से बचाने की मेहनत बढ़ी।",
+      "covers_item_ids": [
+       "p003-i28"
+      ],
+      "answers": [
+       "p003-i28#q3"
+      ],
+      "on_screen": "Illustrative wholesale payment: 100 → 1000 coins; larger load and security needs.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b11",
+      "part_id": "c07.2",
+      "step": 3,
+      "purpose": "explain",
+      "say": "ये scale और transport limitations हैं। Limited supply यानी खरीद बढ़ते ही नया metal नहीं मिलता; coins कम पड़ें तो payment रुकेगी, बड़ा load चोरी का खतरा भी बढ़ाएगा।",
+      "covers_item_ids": [
+       "p003-i28"
+      ],
+      "answers": [
+       "p003-i28#q2"
+      ],
+      "on_screen": "More transactions face unchanged metal stock; heavy load needs secure transport.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b12",
+      "part_id": "c07.2",
+      "step": 3,
+      "purpose": "explain",
+      "say": "घिसा सिक्का देखा? Wear and tear से वजन घटता या छाप मिटती है। उसी कीमत वाले coin में कीमती metal जानबूझकर घटाना coin debasement है; इससे भरोसा घटे तो दोबारा जाँच चाहिए।",
+      "covers_item_ids": [
+       "p003-i28"
+      ],
+      "answers": [
+       "p003-i28#q4"
+      ],
+      "on_screen": "Wear: rubbing reduces weight or mark readability. Debasement: deliberate reduction of precious-metal content relative to stated denomination → confidence concerns → renewed checking. Production annotation — source lists both limitations; these mechanisms are standard outside explanation.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b13",
+      "part_id": "c07.2",
+      "step": 4,
+      "purpose": "explain",
+      "say": "ऐसी जाँच, कम metal, ढुलाई और चोरी की मुश्किलों ने बढ़ते व्यापार में ज्यादा भरोसेमंद payment की तलाश बढ़ाई; paper money अपनाने की जरूरत बनी।",
+      "covers_item_ids": [
+       "p003-i28"
+      ],
+      "answers": [
+       "p003-i28#q1"
+      ],
+      "on_screen": "Supply constraints + transport/security burdens + coin-quality checking → search for dependable, convenient payment arrangements → adoption of paper money. Production annotation — transition and listed limitations are source claims; checking/confidence mechanism is standard outside explanation. Do not imply paper eliminates these risks.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b14",
+      "part_id": "c07.2",
+      "step": 5,
+      "purpose": "misconception",
+      "say": "Paper में भी theft risk है; gold-backed paper पर backing की सीमा रहती है। Paper तुरंत unbacked fiat नहीं बनता।",
+      "covers_item_ids": [
+       "p003-i28"
+      ],
+      "answers": [
+       "p003-i28#q5"
+      ],
+      "on_screen": "Paper does not eliminate theft or backing constraints; paper ≠ automatically fiat.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b15",
+      "part_id": "c07.2",
+      "step": 6,
+      "purpose": "recap",
+      "say": "कड़ी पकड़ो: आसान payment, बढ़ता व्यापार, metal की सीमाएँ, फिर कम बोझ वाले पैसे की जरूरत।",
+      "covers_item_ids": [
+       "p003-i14",
+       "p003-i28"
+      ],
+      "answers": [],
+      "on_screen": "Convenience → larger trade → metal constraints → alternatives.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b16",
+      "part_id": "c07.3",
+      "step": 1,
+      "purpose": "question_to_student",
+      "say": "तौला गया metal और तय पहचान वाला coin एक हैं? शुरुआती exchange में हर टुकड़ा जाँचना पड़ सकता था।",
+      "covers_item_ids": [
+       "p003-i15"
+      ],
+      "answers": [
+       "p003-i15#q3"
+      ],
+      "on_screen": "Unmarked metal on scales versus recognizable coin.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b17",
+      "part_id": "c07.3",
+      "step": 2,
+      "purpose": "explain",
+      "say": "Mesopotamia और Egypt में शुरुआती metallic exchange objects थे, यानी metal देकर खरीदना। First standardized coins आम तौर पर Kingdom of Lydia से जोड़े जाते हैं; metal देना और coin चलना अलग शुरुआतें हैं।",
+      "covers_item_ids": [
+       "p003-i15"
+      ],
+      "answers": [
+       "p003-i15#q1",
+       "p003-i15#q2"
+      ],
+      "on_screen": "Mesopotamia/Egypt: early metal exchange; Lydia: widely credited first standardized coins.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b18",
+      "part_id": "c07.3",
+      "step": 4,
+      "purpose": "explain",
+      "say": "Standardized यानी तय वजन, बनावट या पहचान: अलग-अलग टुकड़े परखने के बजाय coin पहचानना आसान हुआ।",
+      "covers_item_ids": [
+       "p003-i15"
+      ],
+      "answers": [
+       "p003-i15#q3"
+      ],
+      "on_screen": "Irregular pieces → agreed recognizable specifications.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b19",
+      "part_id": "c07.3",
+      "step": 5,
+      "purpose": "explain",
+      "say": "इससे बार-बार payment में टुकड़ा परखने के बजाय coin पहचानना आसान हुआ।",
+      "covers_item_ids": [
+       "p003-i15"
+      ],
+      "answers": [
+       "p003-i15#q3"
+      ],
+      "on_screen": "Recognizable standardized units reduce repeated assessment of individual metal pieces. Production annotation — standard outside explanation of the practical consequence.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b20",
+      "part_id": "c07.3",
+      "step": 6,
+      "purpose": "recap",
+      "say": "जोड़ियाँ रखो: Mesopotamia–Egypt, metal exchange; Lydia, standardized coins।",
+      "covers_item_ids": [
+       "p003-i15"
+      ],
+      "answers": [
+       "p003-i15#q2"
+      ],
+      "on_screen": "Two separate historical associations.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b21",
+      "part_id": "c08.1",
+      "step": 1,
+      "purpose": "question_to_student",
+      "say": "Indian coins की कतार कैसे पढ़ोगे? बाएँ से दाएँ, ऊपर समय या dynasty, नीचे जुड़ी coinage देखो।",
+      "covers_item_ids": [
+       "p003-i16"
+      ],
+      "answers": [
+       "p003-i16#q3"
+      ],
+      "on_screen": "Five connected circular markers; period above, coin description below.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b22",
+      "part_id": "c08.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "छोटे दबे निशान कैसे बने? Punch-marked में punch से निशान लगते हैं; पहला पड़ाव 6th c. BCE है, यानी छठी century, एक साल नहीं।",
+      "covers_item_ids": [
+       "p003-i18",
+       "p003-i19"
+      ],
+      "answers": [
+       "p003-i18#q1",
+       "p003-i18#q2",
+       "p003-i19#q1",
+       "p003-i19#q2"
+      ],
+      "on_screen": "6th c. BCE / Punch-marked; animate punch impressions.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b23",
+      "part_id": "c08.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "अगला silver coin किससे जुड़ा है? Mauryan–Imperial silver, यानी empire से जुड़ी silver coinage; Mauryan को Ashoka की Maurya dynasty से पहचानो।",
+      "covers_item_ids": [
+       "p003-i20",
+       "p003-i21"
+      ],
+      "answers": [
+       "p003-i20#q1",
+       "p003-i20#q2",
+       "p003-i21#q1"
+      ],
+      "on_screen": "Second marker: Mauryan / Imperial silver. Production annotation — source claim: sequence position and pairing. Standard outside context: Ashoka belonged to the Maurya dynasty; explanation of Imperial as empire-related.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b24",
+      "part_id": "c08.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "Design कैसे पड़ा? तीसरा Indo-Greek–Die-struck: design वाले die की चोट metal पर छाप छोड़ती है; यह technique है, metal नहीं। Indo-Greek उत्तर-पश्चिम में Greek-origin rulers थे।",
+      "covers_item_ids": [
+       "p003-i22",
+       "p003-i23"
+      ],
+      "answers": [
+       "p003-i22#q1",
+       "p003-i22#q2",
+       "p003-i22#q3",
+       "p003-i22#q4",
+       "p003-i23#q1",
+       "p003-i23#q2",
+       "p003-i23#q3"
+      ],
+      "on_screen": "Third marker: Indo-Greek / Die-struck; die strikes a metal blank. Production annotation — source claim: position and pairing. Standard outside context: Greek-origin rulers in the northwestern subcontinent; die-striking mechanism and distinction between technique and material.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b25",
+      "part_id": "c08.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "सोने के coins का नाम क्या है? चौथा Gupta–Gold dinars: dinar नाम के gold coins; Gupta को Chandragupta II की dynasty से जोड़ो।",
+      "covers_item_ids": [
+       "p003-i24",
+       "p003-i25"
+      ],
+      "answers": [
+       "p003-i24#q1",
+       "p003-i24#q2",
+       "p003-i24#q3",
+       "p003-i25#q1",
+       "p003-i25#q2"
+      ],
+      "on_screen": "Fourth marker: Gupta / Gold dinars. Production annotation — source claim: position and pairing. Standard outside historical anchor: Chandragupta II belonged to the Gupta dynasty.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b26",
+      "part_id": "c08.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "आखिरी silver coin का नाम? 1540 CE–Rupiya, Sher Shah Suri से जुड़ा standardized silver coin; आज के rupee जैसा metal या purchasing power मत मानना।",
+      "covers_item_ids": [
+       "p003-i26",
+       "p003-i27"
+      ],
+      "answers": [
+       "p003-i26#q1",
+       "p003-i27#q1",
+       "p003-i27#q2",
+       "p003-i27#q3",
+       "p003-i27#q4"
+      ],
+      "on_screen": "Final marker: 1540 CE / Rupiya. Production annotation — source claim: date and name pairing. Standard outside context: Sher Shah Suri association, standardized silver composition, and warning against equating historical and modern coin composition or purchasing power.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b27",
+      "part_id": "c08.1",
+      "step": 3,
+      "purpose": "exam_tip",
+      "say": "Matching में association है, ‘केवल यही’ नहीं। बराबर gaps बराबर समय नहीं: century, dynasty और 1540 CE जैसा खास साल अलग time labels हैं।",
+      "covers_item_ids": [
+       "p003-i16",
+       "p003-i20",
+       "p003-i26"
+      ],
+      "answers": [
+       "p003-i16#q2",
+       "p003-i20#q3",
+       "p003-i26#q2"
+      ],
+      "on_screen": "Not to scale; no exclusivity; century ≠ dynasty ≠ year.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b28",
+      "part_id": "c08.1",
+      "step": 6,
+      "purpose": "recap",
+      "say": "क्रम याद रखो: Punch-marked, Mauryan silver, Indo-Greek Die-struck, Gupta dinars, 1540 का Rupiya; याद का सहारा: निशान, silver, technique, gold, Rupiya।",
+      "covers_item_ids": [
+       "p003-i16"
+      ],
+      "answers": [
+       "p003-i16#q1"
+      ],
+      "on_screen": "All five complete period–coinage pairings, left to right.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b29",
+      "part_id": "",
+      "step": 0,
+      "purpose": "recap",
+      "say": "Metal ने payment आसान बनाया; उसकी सीमाओं ने paper की जरूरत बढ़ाई।",
+      "covers_item_ids": [
+       "p003-i14",
+       "p003-i28"
+      ],
+      "answers": [],
+      "on_screen": "Convenient metallic payments → limits at scale → need for paper arrangements.",
+      "basis": "book"
+     }
+    ]
+   },
+   "code_problems": [],
+   "observed": {
+    "pattern_order": [],
+    "skipped_steps": {
+     "c07.3": {
+      "3": "No individual people or documented choices are supplied."
+     },
+     "c08.1": {
+      "4": "The supplied sequence does not establish a single turning point.",
+      "5": "No specific historical aftermath of the final marker is supplied."
+     }
+    },
+    "objective_coverage": {
+     "coverage": 1.0,
+     "uncovered": []
+    },
+    "cognitive_load": {
+     "max": 1.32,
+     "abrupt_jumps": [
+      "b6->b7",
+      "b26->b27"
+     ]
+    },
+    "duration": {
+     "spoken_minutes_at_130_wpm": 5.0,
+     "planned_minutes": 4,
+     "range": [
+      3.8,
+      5.0
+     ]
+    },
+    "dohraav": {
+     "beats": 29,
+     "judged": 21,
+     "restating": 0,
+     "share": 0.0,
+     "opened": 15,
+     "opened_share": 0.714,
+     "restating_beats": []
+    },
+    "real_world": [
+     {
+      "item_id": "p003-i13",
+      "place": "Hypothetical village bazaar",
+      "numbers": [
+       "0",
+       "1"
+      ],
+      "example_beats": [
+       "b2"
+      ],
+      "term_beat": "b3",
+      "term": "Metallic money",
+      "ok": true,
+      "problem": ""
+     },
+     {
+      "item_id": "p003-i14",
+      "place": "Hypothetical bazaar",
+      "numbers": [
+       "0",
+       "20"
+      ],
+      "example_beats": [
+       "b7"
+      ],
+      "term_beat": "b8",
+      "term": "durability",
+      "ok": true,
+      "problem": ""
+     },
+     {
+      "item_id": "p003-i28",
+      "place": "Hypothetical wholesale mandi",
+      "numbers": [
+       "100",
+       "1000"
+      ],
+      "example_beats": [
+       "b10"
+      ],
+      "term_beat": "b11",
+      "term": "limited supply",
+      "ok": true,
+      "problem": ""
+     }
+    ]
+   },
+   "review": {
+    "route": "codex-checker",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "2ab501170ff54d99f67832419be6d806f3b64e6d765c72bcc3450147c1dd5530",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 18643,
+    "output_tokens": 1467,
+    "cost_usd": 0.0,
+    "value": {
+     "notes": {
+      "about": "This unit explains metallic money’s usefulness and limitations, distinguishes early metal exchange from standardized coinage, and teaches five Indian coinage associations before the transition to paper money.",
+      "key_questions": [
+       "What gives metallic money value?",
+       "Why did metal improve payments, and why did expanding trade expose its limits?",
+       "How do early metal exchange and standardized coinage differ?",
+       "What are the five Indian period–coinage pairings?"
+      ],
+      "decisions": [
+       {
+        "decision": "Accept the supplied chronology and coinage associations.",
+        "reason": "All required items and book-based questions receive identifiable treatment without invented dates or exclusive claims."
+       },
+       {
+        "decision": "Require a self-contained explanation of the paper-money qualification.",
+        "reason": "The qualification currently depends on technical concepts introduced in the following unit."
+       }
+      ],
+      "uncertain": [
+       "The prerequisite video and complete chapter plan are not supplied, so their teaching and duration cannot be independently verified.",
+       "No source images are supplied; source checking relies on the transcribed task material."
+      ]
+     },
+     "verdict": "fail",
+     "problems": [
+      {
+       "where": "b14",
+       "problem": "“Gold-backed,” “backing” and “unbacked fiat” are used without explaining their meanings. These are next-unit concepts, not established prerequisites, so the exception introduces an avoidable comprehension jump.",
+       "fix": "Replace the jargon with a short explanation that paper can still be stolen and, where it promises conversion into gold, issuance remains constrained by that promise. Remove the fiat sentence; use the space recovered from b19 and b29 if needed.",
+       "severity": "blocking"
+      },
+      {
+       "where": "notes.about and notes.key_questions",
+       "problem": "The maker’s notes describe revision work and wording checks rather than what this unit teaches, how it fits the chapter, and its main teaching questions.",
+       "fix": "Replace these fields with the unit’s purpose, its bridge from commodity money to paper money, and substantive questions about value, benefits, limitations and historical pairings. This requires no narration time.",
+       "severity": "blocking"
+      },
+      {
+       "where": "b18–b19; b29",
+       "problem": "b19 repeats b18’s explanation almost verbatim, while b29 repeats the earlier causal recap.",
+       "fix": "Delete b19 and the redundant closing recap, retaining b20’s historical associations and b15’s causal chain.",
+       "severity": "minor"
+      }
+     ],
+     "checklist": [
+      {
+       "rule_id": "G-01",
+       "met": true,
+       "note": "Supplied claims are preserved; added historical and explanatory context is identified in annotations."
+      },
+      {
+       "rule_id": "G-02",
+       "met": false,
+       "note": "Coverage is substantial, but the paper-money qualification assumes unexplained concepts."
+      },
+      {
+       "rule_id": "G-03",
+       "met": false,
+       "note": "Maker notes focus on edits rather than the unit’s purpose and substantive teaching questions."
+      },
+      {
+       "rule_id": "G-04",
+       "met": true,
+       "note": "Generally natural, short spoken Hinglish."
+      },
+      {
+       "rule_id": "G-05",
+       "met": true,
+       "note": "Every required source item is represented; no listed limitation or timeline pairing is omitted."
+      },
+      {
+       "rule_id": "G-06",
+       "met": true,
+       "note": "Source claims generally receive concrete images, mechanisms or contrasts."
+      },
+      {
+       "rule_id": "G-07",
+       "met": false,
+       "note": "The unexplained paper-money vocabulary conflicts with the accessible-term requirement."
+      },
+      {
+       "rule_id": "S2-01",
+       "met": true,
+       "note": "Accept the supplied code-checked duration; prerequisite-video and whole-plan compliance are not independently assessable here."
+      },
+      {
+       "rule_id": "S2-02",
+       "met": false,
+       "note": "Book questions are answered, but b14 creates a comprehension jump; some narration also repeats."
+      },
+      {
+       "rule_id": "S2-03",
+       "met": true,
+       "note": "No excessive prerequisite reminders; actual prerequisite-video teaching cannot be verified."
+      },
+      {
+       "rule_id": "S2-04",
+       "met": true,
+       "note": "Hindi uses Devanagari and English terms use Roman script; sentences are predominantly short."
+      },
+      {
+       "rule_id": "S2-05",
+       "met": true,
+       "note": "Coverage and answer claims are substantively supported by the beats."
+      },
+      {
+       "rule_id": "S2-06",
+       "met": true,
+       "note": "Required teaching patterns are substantially present; historical steps unsupported by the source have reasonable skips."
+      },
+      {
+       "rule_id": "S2-07",
+       "met": false,
+       "note": "Most terms are opened concretely, but b14 leaves new technical vocabulary unopened."
+      },
+      {
+       "rule_id": "S2-08",
+       "met": true,
+       "note": "The supplied numerical examples precede the central economic labels and illustrate correct mechanisms."
+      },
+      {
+       "rule_id": "W-01",
+       "met": true,
+       "note": "Spoken narration teaches directly rather than pointing at the book or its author."
+      }
+     ]
+    }
+   },
+   "review_problems": [
+    "[reviewer] b14: “Gold-backed,” “backing” and “unbacked fiat” are used without explaining their meanings. These are next-unit concepts, not established prerequisites, so the exception introduces an avoidable comprehension jump. -> fix: Replace the jargon with a short explanation that paper can still be stolen and, where it promises conversion into gold, issuance remains constrained by that promise. Remove the fiat sentence; use the space recovered from b19 and b29 if needed.",
+    "[reviewer] notes.about and notes.key_questions: The maker’s notes describe revision work and wording checks rather than what this unit teaches, how it fits the chapter, and its main teaching questions. -> fix: Replace these fields with the unit’s purpose, its bridge from commodity money to paper money, and substantive questions about value, benefits, limitations and historical pairings. This requires no narration time."
+   ],
+   "review_minor": [
+    {
+     "where": "b18–b19; b29",
+     "problem": "b19 repeats b18’s explanation almost verbatim, while b29 repeats the earlier causal recap.",
+     "fix": "Delete b19 and the redundant closing recap, retaining b20’s historical associations and b15’s causal chain.",
+     "kind": "problems"
+    }
+   ],
+   "passed": false,
+   "finished_at": 1793145411.463091
+  },
+  {
+   "round": 3,
+   "started_at": 1793145411.4661229,
+   "mode": "patch",
+   "patch": {
+    "notes": {
+     "about": "This unit explains metallic money’s value, advantages and limits, bridging commodity payments to the need for paper money. It also teaches the early Indian coinage sequence and its historical pairings.",
+     "key_questions": [
+      "How do metal value and minting authority support metallic money?",
+      "Why do metallic payments simplify trade, and what limits emerge as trade expands?",
+      "Why does paper not automatically remove theft and issuance constraints?",
+      "How do early metal exchange and standardized coins differ, and what are the five Indian timeline pairings?"
+     ],
+     "decisions": [
+      {
+       "decision": "Replace b14’s unexplained next-unit terminology with theft and a plain explanation of a promise to exchange paper for gold.",
+       "reason": "Explains the exception without requiring knowledge of backing or fiat money."
+      },
+      {
+       "decision": "Shorten b19’s repeated consequence and b29’s closing recap.",
+       "reason": "Pays for b14’s explanation without removing content or required teaching-pattern steps."
+      }
+     ],
+     "uncertain": []
+    },
+    "replace_parts": [],
+    "replace_beats": [
+     {
+      "beat_id": "b14",
+      "part_id": "c07.2",
+      "step": 5,
+      "purpose": "misconception",
+      "say": "Paper भी चोरी हो सकता है। अगर उसे देकर gold पाने का वादा है, तो जितना चाहें paper जारी नहीं कर सकते; gold देने का वादा निभाना होगा।",
+      "covers_item_ids": [
+       "p003-i28"
+      ],
+      "answers": [
+       "p003-i28#q5"
+      ],
+      "on_screen": "Paper can be stolen. If paper promises exchange for gold, issuance must respect the ability to fulfil that promise. Standard outside explanation; do not imply that every paper currency makes this promise.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b19",
+      "part_id": "c07.3",
+      "step": 5,
+      "purpose": "explain",
+      "say": "इससे बार-बार payment में जाँच की मेहनत घटी।",
+      "covers_item_ids": [
+       "p003-i15"
+      ],
+      "answers": [
+       "p003-i15#q3"
+      ],
+      "on_screen": "Recognizable standardized units reduce repeated assessment of individual metal pieces. Standard outside explanation of the practical consequence.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b29",
+      "part_id": "",
+      "step": 0,
+      "purpose": "recap",
+      "say": "Metal से आसानी मिली, उसकी सीमाओं से paper की जरूरत बनी।",
+      "covers_item_ids": [
+       "p003-i14",
+       "p003-i28"
+      ],
+      "answers": [],
+      "on_screen": "Convenient metallic payments → limits at scale → need for paper arrangements.",
+      "basis": "book"
+     }
+    ],
+    "insert_beats": [],
+    "remove_beat_ids": []
+   },
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "d4e586fd6aab2a09460192217899a3c4f17ffa2d50d599dc271dd94a769a8b21",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 22365,
+    "output_tokens": 516,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "Targeted language and explanation fixes, retaining the existing lesson structure.",
+    "key_questions": [
+     "Is the alloy explanation everyday Hinglish?",
+     "Does the wear–debasement contrast explain the mechanism concretely?"
+    ],
+    "decisions": [
+     {
+      "decision": "Replace मुख्यतः with ज़्यादातर in b3.",
+      "reason": "Uses everyday Hindi without adding narration time."
+     },
+     {
+      "decision": "Rewrite b12 with a rubbed coin and deliberate silver reduction as contrasting examples.",
+      "reason": "Opens both mechanisms while shortening the beat to stay within the narration limit."
+     },
+     {
+      "decision": "Use b12–b13 to connect coin deterioration and debasement to checking and confidence problems.",
+      "reason": "Explains their causal role without suggesting paper automatically solves them."
+     },
+     {
+      "decision": "Identify outside explanations and historical anchors in on-screen production annotations.",
+      "reason": "Separates added context from supplied claims without adding spoken time."
+     },
+     {
+      "decision": "Shorten b19 and b29 and remove b13's repeated numerical comparison.",
+      "reason": "Pays for the added causal explanation within the existing narration limit."
+     },
+     {
+      "decision": "Replace b14’s unexplained next-unit terminology with theft and a plain explanation of a promise to exchange paper for gold.",
+      "reason": "Explains the exception without requiring knowledge of backing or fiat money."
+     },
+     {
+      "decision": "Shorten b19’s repeated consequence and b29’s closing recap.",
+      "reason": "Pays for b14’s explanation without removing content or required teaching-pattern steps."
+     }
+    ],
+    "uncertain": []
+   },
+   "output": {
+    "notes": {
+     "about": "Targeted language and explanation fixes, retaining the existing lesson structure.",
+     "key_questions": [
+      "Is the alloy explanation everyday Hinglish?",
+      "Does the wear–debasement contrast explain the mechanism concretely?"
+     ],
+     "decisions": [
+      {
+       "decision": "Replace मुख्यतः with ज़्यादातर in b3.",
+       "reason": "Uses everyday Hindi without adding narration time."
+      },
+      {
+       "decision": "Rewrite b12 with a rubbed coin and deliberate silver reduction as contrasting examples.",
+       "reason": "Opens both mechanisms while shortening the beat to stay within the narration limit."
+      },
+      {
+       "decision": "Use b12–b13 to connect coin deterioration and debasement to checking and confidence problems.",
+       "reason": "Explains their causal role without suggesting paper automatically solves them."
+      },
+      {
+       "decision": "Identify outside explanations and historical anchors in on-screen production annotations.",
+       "reason": "Separates added context from supplied claims without adding spoken time."
+      },
+      {
+       "decision": "Shorten b19 and b29 and remove b13's repeated numerical comparison.",
+       "reason": "Pays for the added causal explanation within the existing narration limit."
+      },
+      {
+       "decision": "Replace b14’s unexplained next-unit terminology with theft and a plain explanation of a promise to exchange paper for gold.",
+       "reason": "Explains the exception without requiring knowledge of backing or fiat money."
+      },
+      {
+       "decision": "Shorten b19’s repeated consequence and b29’s closing recap.",
+       "reason": "Pays for b14’s explanation without removing content or required teaching-pattern steps."
+      }
+     ],
+     "uncertain": []
+    },
+    "title": "Metallic money: सिक्कों के फायदे, सीमाएँ और भारत का शुरुआती क्रम",
+    "parts": [
+     {
+      "part_id": "c07.1",
+      "frame": {
+       "process": "Define metallic money and distinguish material value from issuer-supported confidence.",
+       "how": "A recognized silver coin purchases grain; explain metals and the issuer's mark.",
+       "when": "Material value precedes the later contribution of minting authority in the supplied account.",
+       "conditions": "Acceptance depends on recognizable payment objects; face value need not equal metal value.",
+       "atmosphere": "A hypothetical village bazaar with a buyer and grain seller."
+      },
+      "skipped_steps": []
+     },
+     {
+      "part_id": "c07.2",
+      "frame": {
+       "process": "Explain why convenient metal payments eventually face scale constraints.",
+       "how": "Replace bulky grain payments with coins, then increase a wholesale payment from 100 to 1000 coins.",
+       "when": "Advantages appear in routine trade; limitations become prominent as payments expand.",
+       "conditions": "Acceptance and standardization help; metal availability, transport, security and coin quality constrain use.",
+       "atmosphere": "A bazaar followed by a growing wholesale mandi business."
+      },
+      "skipped_steps": []
+     },
+     {
+      "part_id": "c07.3",
+      "frame": {
+       "process": "Distinguish early metallic exchange objects from standardized coins.",
+       "how": "Contrast metal exchanged by weight with recognizable coins of agreed specifications.",
+       "when": "Early objects in Mesopotamia and Egypt precede the standardized-coin distinction associated with Lydia; no numerical date is supplied.",
+       "conditions": "Metal use alone does not establish standardized coinage.",
+       "atmosphere": "Early exchange settings needing recognizable payment units."
+      },
+      "skipped_steps": [
+       {
+        "step": 3,
+        "why": "No individual people or documented choices are supplied."
+       }
+      ]
+     },
+     {
+      "part_id": "c08.1",
+      "frame": {
+       "process": "Read five Indian metallic-money stages and their paired descriptions.",
+       "how": "Move left to right, connecting each date or dynasty above a marker with its coin description below.",
+       "when": "6th c. BCE, Mauryan, Indo-Greek, Gupta, then 1540 CE.",
+       "conditions": "The schematic is not time-scaled, and its associations are not exclusive claims.",
+       "atmosphere": "Historical Indian coinage illustrated with marks, silver, die-striking, gold dinars and Rupiya."
+      },
+      "skipped_steps": [
+       {
+        "step": 4,
+        "why": "The supplied sequence does not establish a single turning point."
+       },
+       {
+        "step": 5,
+        "why": "No specific historical aftermath of the final marker is supplied."
+       }
+      ]
+     }
+    ],
+    "beats": [
+     {
+      "beat_id": "b1",
+      "part_id": "",
+      "step": 0,
+      "purpose": "hook",
+      "say": "कुछ सिक्के ले जाना आसान है; हजारों साथ ले जाने हों, तो क्या होगा?",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Small coin pouch versus a large coin load.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b2",
+      "part_id": "c07.1",
+      "step": 1,
+      "purpose": "example",
+      "say": "मान लो, बाजार में अनाज वाला 1 silver coin क्यों लेता है? Metal की कीमत और पहचानी छाप पर भरोसे से; उसके सिक्के 0 से 1 हुए।",
+      "covers_item_ids": [
+       "p003-i13"
+      ],
+      "answers": [],
+      "on_screen": "Illustrative grain purchase; seller's recognized coins: 0 → 1.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b3",
+      "part_id": "c07.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "यह Metallic money है, यानी metal का पैसा: gold, silver, copper, bronze या electrum। जैसे चीज़ें मिलाकर बनाते हैं, bronze में ज़्यादातर copper–tin, electrum में gold–silver मिलते हैं।",
+      "covers_item_ids": [
+       "p003-i13"
+      ],
+      "answers": [
+       "p003-i13#q1",
+       "p003-i13#q4"
+      ],
+      "on_screen": "Metal coin in a palm. Source claim: metallic money and the five listed metals. Production annotation — standard outside context: bronze is chiefly copper–tin; electrum is gold–silver.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b4",
+      "part_id": "c07.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "Value पहले metal से, बाद में minting authority से भी जुड़ी। Minted यानी बनाकर जारी किया; छाप वजन और purity पर भरोसा देकर बार-बार जाँच घटाती है।",
+      "covers_item_ids": [
+       "p003-i13"
+      ],
+      "answers": [
+       "p003-i13#q2",
+       "p003-i13#q3"
+      ],
+      "on_screen": "Metal value + issuing authority. Production annotation — source claim: both sources of value. Standard outside context: meaning of minted and how issuer marks support confidence in weight and purity and reduce checking.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b5",
+      "part_id": "c07.1",
+      "step": 3,
+      "purpose": "misconception",
+      "say": "Metal का spoon पैसा नहीं है। आज के सिक्के की face value भी metal value के बराबर जरूरी नहीं।",
+      "covers_item_ids": [
+       "p003-i13"
+      ],
+      "answers": [],
+      "on_screen": "Metal object ≠ money; face value ≠ necessarily metal value.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b6",
+      "part_id": "c07.1",
+      "step": 4,
+      "purpose": "recap",
+      "say": "Metal और issuer की पहचान समझ ली; अब व्यापार के फायदे देखो।",
+      "covers_item_ids": [
+       "p003-i13"
+      ],
+      "answers": [],
+      "on_screen": "Metal + issuer → trading benefits.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b7",
+      "part_id": "c07.2",
+      "step": 1,
+      "purpose": "example",
+      "say": "Payment में 20 kg अनाज ले जाना आसान होगा? मान लो, seller उसकी जगह तय पहचान वाले सिक्के लेता है; साथ लाना पड़ा अनाज 20 kg से 0 kg हुआ।",
+      "covers_item_ids": [
+       "p003-i14"
+      ],
+      "answers": [],
+      "on_screen": "Illustrative substitution, not historical exchange rate: grain carried 20 kg → 0 kg.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b8",
+      "part_id": "c07.2",
+      "step": 2,
+      "purpose": "explain",
+      "say": "यह portability और standardization है: छोटी थैली में कीमत, तय पहचान वाले coins। Intrinsic value यानी metal की अपनी कीमत; durability यानी बार-बार चलकर जल्दी खराब नहीं होना।",
+      "covers_item_ids": [
+       "p003-i14"
+      ],
+      "answers": [
+       "p003-i14#q2"
+      ],
+      "on_screen": "Sack → pouch; matching coins; reusable metal versus deteriorating goods.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b9",
+      "part_id": "c07.2",
+      "step": 3,
+      "purpose": "explain",
+      "say": "Divisibility में छोटे-बड़े denominations काम आते हैं, सिक्का काटना नहीं पड़ता। Standardization जाँच घटाती है; widespread acceptance लेने वाला खोजना आसान बनाती है, जिससे व्यापार ज्यादा भरोसेमंद होता है।",
+      "covers_item_ids": [
+       "p003-i14"
+      ],
+      "answers": [
+       "p003-i14#q1",
+       "p003-i14#q3"
+      ],
+      "on_screen": "Denominations → flexible payment; standard units → less checking; acceptance → easier exchange.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b10",
+      "part_id": "c07.2",
+      "step": 3,
+      "purpose": "example",
+      "say": "Mandi में खरीद बढ़े तो? मान लो, coin value वही है, payment 100 से 1000 coins हुआ; अब उठाने और चोरी से बचाने की मेहनत बढ़ी।",
+      "covers_item_ids": [
+       "p003-i28"
+      ],
+      "answers": [
+       "p003-i28#q3"
+      ],
+      "on_screen": "Illustrative wholesale payment: 100 → 1000 coins; larger load and security needs.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b11",
+      "part_id": "c07.2",
+      "step": 3,
+      "purpose": "explain",
+      "say": "ये scale और transport limitations हैं। Limited supply यानी खरीद बढ़ते ही नया metal नहीं मिलता; coins कम पड़ें तो payment रुकेगी, बड़ा load चोरी का खतरा भी बढ़ाएगा।",
+      "covers_item_ids": [
+       "p003-i28"
+      ],
+      "answers": [
+       "p003-i28#q2"
+      ],
+      "on_screen": "More transactions face unchanged metal stock; heavy load needs secure transport.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b12",
+      "part_id": "c07.2",
+      "step": 3,
+      "purpose": "explain",
+      "say": "घिसा सिक्का देखा? Wear and tear से वजन घटता या छाप मिटती है। उसी कीमत वाले coin में कीमती metal जानबूझकर घटाना coin debasement है; इससे भरोसा घटे तो दोबारा जाँच चाहिए।",
+      "covers_item_ids": [
+       "p003-i28"
+      ],
+      "answers": [
+       "p003-i28#q4"
+      ],
+      "on_screen": "Wear: rubbing reduces weight or mark readability. Debasement: deliberate reduction of precious-metal content relative to stated denomination → confidence concerns → renewed checking. Production annotation — source lists both limitations; these mechanisms are standard outside explanation.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b13",
+      "part_id": "c07.2",
+      "step": 4,
+      "purpose": "explain",
+      "say": "ऐसी जाँच, कम metal, ढुलाई और चोरी की मुश्किलों ने बढ़ते व्यापार में ज्यादा भरोसेमंद payment की तलाश बढ़ाई; paper money अपनाने की जरूरत बनी।",
+      "covers_item_ids": [
+       "p003-i28"
+      ],
+      "answers": [
+       "p003-i28#q1"
+      ],
+      "on_screen": "Supply constraints + transport/security burdens + coin-quality checking → search for dependable, convenient payment arrangements → adoption of paper money. Production annotation — transition and listed limitations are source claims; checking/confidence mechanism is standard outside explanation. Do not imply paper eliminates these risks.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b14",
+      "part_id": "c07.2",
+      "step": 5,
+      "purpose": "misconception",
+      "say": "Paper भी चोरी हो सकता है। अगर उसे देकर gold पाने का वादा है, तो जितना चाहें paper जारी नहीं कर सकते; gold देने का वादा निभाना होगा।",
+      "covers_item_ids": [
+       "p003-i28"
+      ],
+      "answers": [
+       "p003-i28#q5"
+      ],
+      "on_screen": "Paper can be stolen. If paper promises exchange for gold, issuance must respect the ability to fulfil that promise. Standard outside explanation; do not imply that every paper currency makes this promise.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b15",
+      "part_id": "c07.2",
+      "step": 6,
+      "purpose": "recap",
+      "say": "कड़ी पकड़ो: आसान payment, बढ़ता व्यापार, metal की सीमाएँ, फिर कम बोझ वाले पैसे की जरूरत।",
+      "covers_item_ids": [
+       "p003-i14",
+       "p003-i28"
+      ],
+      "answers": [],
+      "on_screen": "Convenience → larger trade → metal constraints → alternatives.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b16",
+      "part_id": "c07.3",
+      "step": 1,
+      "purpose": "question_to_student",
+      "say": "तौला गया metal और तय पहचान वाला coin एक हैं? शुरुआती exchange में हर टुकड़ा जाँचना पड़ सकता था।",
+      "covers_item_ids": [
+       "p003-i15"
+      ],
+      "answers": [
+       "p003-i15#q3"
+      ],
+      "on_screen": "Unmarked metal on scales versus recognizable coin.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b17",
+      "part_id": "c07.3",
+      "step": 2,
+      "purpose": "explain",
+      "say": "Mesopotamia और Egypt में शुरुआती metallic exchange objects थे, यानी metal देकर खरीदना। First standardized coins आम तौर पर Kingdom of Lydia से जोड़े जाते हैं; metal देना और coin चलना अलग शुरुआतें हैं।",
+      "covers_item_ids": [
+       "p003-i15"
+      ],
+      "answers": [
+       "p003-i15#q1",
+       "p003-i15#q2"
+      ],
+      "on_screen": "Mesopotamia/Egypt: early metal exchange; Lydia: widely credited first standardized coins.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b18",
+      "part_id": "c07.3",
+      "step": 4,
+      "purpose": "explain",
+      "say": "Standardized यानी तय वजन, बनावट या पहचान: अलग-अलग टुकड़े परखने के बजाय coin पहचानना आसान हुआ।",
+      "covers_item_ids": [
+       "p003-i15"
+      ],
+      "answers": [
+       "p003-i15#q3"
+      ],
+      "on_screen": "Irregular pieces → agreed recognizable specifications.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b19",
+      "part_id": "c07.3",
+      "step": 5,
+      "purpose": "explain",
+      "say": "इससे बार-बार payment में जाँच की मेहनत घटी।",
+      "covers_item_ids": [
+       "p003-i15"
+      ],
+      "answers": [
+       "p003-i15#q3"
+      ],
+      "on_screen": "Recognizable standardized units reduce repeated assessment of individual metal pieces. Standard outside explanation of the practical consequence.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b20",
+      "part_id": "c07.3",
+      "step": 6,
+      "purpose": "recap",
+      "say": "जोड़ियाँ रखो: Mesopotamia–Egypt, metal exchange; Lydia, standardized coins।",
+      "covers_item_ids": [
+       "p003-i15"
+      ],
+      "answers": [
+       "p003-i15#q2"
+      ],
+      "on_screen": "Two separate historical associations.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b21",
+      "part_id": "c08.1",
+      "step": 1,
+      "purpose": "question_to_student",
+      "say": "Indian coins की कतार कैसे पढ़ोगे? बाएँ से दाएँ, ऊपर समय या dynasty, नीचे जुड़ी coinage देखो।",
+      "covers_item_ids": [
+       "p003-i16"
+      ],
+      "answers": [
+       "p003-i16#q3"
+      ],
+      "on_screen": "Five connected circular markers; period above, coin description below.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b22",
+      "part_id": "c08.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "छोटे दबे निशान कैसे बने? Punch-marked में punch से निशान लगते हैं; पहला पड़ाव 6th c. BCE है, यानी छठी century, एक साल नहीं।",
+      "covers_item_ids": [
+       "p003-i18",
+       "p003-i19"
+      ],
+      "answers": [
+       "p003-i18#q1",
+       "p003-i18#q2",
+       "p003-i19#q1",
+       "p003-i19#q2"
+      ],
+      "on_screen": "6th c. BCE / Punch-marked; animate punch impressions.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b23",
+      "part_id": "c08.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "अगला silver coin किससे जुड़ा है? Mauryan–Imperial silver, यानी empire से जुड़ी silver coinage; Mauryan को Ashoka की Maurya dynasty से पहचानो।",
+      "covers_item_ids": [
+       "p003-i20",
+       "p003-i21"
+      ],
+      "answers": [
+       "p003-i20#q1",
+       "p003-i20#q2",
+       "p003-i21#q1"
+      ],
+      "on_screen": "Second marker: Mauryan / Imperial silver. Production annotation — source claim: sequence position and pairing. Standard outside context: Ashoka belonged to the Maurya dynasty; explanation of Imperial as empire-related.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b24",
+      "part_id": "c08.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "Design कैसे पड़ा? तीसरा Indo-Greek–Die-struck: design वाले die की चोट metal पर छाप छोड़ती है; यह technique है, metal नहीं। Indo-Greek उत्तर-पश्चिम में Greek-origin rulers थे।",
+      "covers_item_ids": [
+       "p003-i22",
+       "p003-i23"
+      ],
+      "answers": [
+       "p003-i22#q1",
+       "p003-i22#q2",
+       "p003-i22#q3",
+       "p003-i22#q4",
+       "p003-i23#q1",
+       "p003-i23#q2",
+       "p003-i23#q3"
+      ],
+      "on_screen": "Third marker: Indo-Greek / Die-struck; die strikes a metal blank. Production annotation — source claim: position and pairing. Standard outside context: Greek-origin rulers in the northwestern subcontinent; die-striking mechanism and distinction between technique and material.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b25",
+      "part_id": "c08.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "सोने के coins का नाम क्या है? चौथा Gupta–Gold dinars: dinar नाम के gold coins; Gupta को Chandragupta II की dynasty से जोड़ो।",
+      "covers_item_ids": [
+       "p003-i24",
+       "p003-i25"
+      ],
+      "answers": [
+       "p003-i24#q1",
+       "p003-i24#q2",
+       "p003-i24#q3",
+       "p003-i25#q1",
+       "p003-i25#q2"
+      ],
+      "on_screen": "Fourth marker: Gupta / Gold dinars. Production annotation — source claim: position and pairing. Standard outside historical anchor: Chandragupta II belonged to the Gupta dynasty.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b26",
+      "part_id": "c08.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "आखिरी silver coin का नाम? 1540 CE–Rupiya, Sher Shah Suri से जुड़ा standardized silver coin; आज के rupee जैसा metal या purchasing power मत मानना।",
+      "covers_item_ids": [
+       "p003-i26",
+       "p003-i27"
+      ],
+      "answers": [
+       "p003-i26#q1",
+       "p003-i27#q1",
+       "p003-i27#q2",
+       "p003-i27#q3",
+       "p003-i27#q4"
+      ],
+      "on_screen": "Final marker: 1540 CE / Rupiya. Production annotation — source claim: date and name pairing. Standard outside context: Sher Shah Suri association, standardized silver composition, and warning against equating historical and modern coin composition or purchasing power.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b27",
+      "part_id": "c08.1",
+      "step": 3,
+      "purpose": "exam_tip",
+      "say": "Matching में association है, ‘केवल यही’ नहीं। बराबर gaps बराबर समय नहीं: century, dynasty और 1540 CE जैसा खास साल अलग time labels हैं।",
+      "covers_item_ids": [
+       "p003-i16",
+       "p003-i20",
+       "p003-i26"
+      ],
+      "answers": [
+       "p003-i16#q2",
+       "p003-i20#q3",
+       "p003-i26#q2"
+      ],
+      "on_screen": "Not to scale; no exclusivity; century ≠ dynasty ≠ year.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b28",
+      "part_id": "c08.1",
+      "step": 6,
+      "purpose": "recap",
+      "say": "क्रम याद रखो: Punch-marked, Mauryan silver, Indo-Greek Die-struck, Gupta dinars, 1540 का Rupiya; याद का सहारा: निशान, silver, technique, gold, Rupiya।",
+      "covers_item_ids": [
+       "p003-i16"
+      ],
+      "answers": [
+       "p003-i16#q1"
+      ],
+      "on_screen": "All five complete period–coinage pairings, left to right.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b29",
+      "part_id": "",
+      "step": 0,
+      "purpose": "recap",
+      "say": "Metal से आसानी मिली, उसकी सीमाओं से paper की जरूरत बनी।",
+      "covers_item_ids": [
+       "p003-i14",
+       "p003-i28"
+      ],
+      "answers": [],
+      "on_screen": "Convenient metallic payments → limits at scale → need for paper arrangements.",
+      "basis": "book"
+     }
+    ]
+   },
+   "code_problems": [],
+   "observed": {
+    "pattern_order": [],
+    "skipped_steps": {
+     "c07.3": {
+      "3": "No individual people or documented choices are supplied."
+     },
+     "c08.1": {
+      "4": "The supplied sequence does not establish a single turning point.",
+      "5": "No specific historical aftermath of the final marker is supplied."
+     }
+    },
+    "objective_coverage": {
+     "coverage": 1.0,
+     "uncovered": []
+    },
+    "cognitive_load": {
+     "max": 1.32,
+     "abrupt_jumps": [
+      "b6->b7",
+      "b26->b27"
+     ]
+    },
+    "duration": {
+     "spoken_minutes_at_130_wpm": 5.0,
+     "planned_minutes": 4,
+     "range": [
+      3.8,
+      5.0
+     ]
+    },
+    "dohraav": {
+     "beats": 29,
+     "judged": 21,
+     "restating": 0,
+     "share": 0.0,
+     "opened": 15,
+     "opened_share": 0.714,
+     "restating_beats": []
+    },
+    "real_world": [
+     {
+      "item_id": "p003-i13",
+      "place": "Hypothetical village bazaar",
+      "numbers": [
+       "0",
+       "1"
+      ],
+      "example_beats": [
+       "b2"
+      ],
+      "term_beat": "b3",
+      "term": "Metallic money",
+      "ok": true,
+      "problem": ""
+     },
+     {
+      "item_id": "p003-i14",
+      "place": "Hypothetical bazaar",
+      "numbers": [
+       "0",
+       "20"
+      ],
+      "example_beats": [
+       "b7"
+      ],
+      "term_beat": "b8",
+      "term": "durability",
+      "ok": true,
+      "problem": ""
+     },
+     {
+      "item_id": "p003-i28",
+      "place": "Hypothetical wholesale mandi",
+      "numbers": [
+       "100",
+       "1000"
+      ],
+      "example_beats": [
+       "b10"
+      ],
+      "term_beat": "b11",
+      "term": "limited supply",
+      "ok": true,
+      "problem": ""
+     }
+    ]
+   },
+   "review": {
+    "route": "codex-checker",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "4e0712a0f7aabb5aa76a11f79209e4b040f222ee72230e177517f0e5d6c2b352",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 18740,
+    "output_tokens": 1138,
+    "cost_usd": 0.0,
+    "value": {
+     "notes": {
+      "about": "This unit explains metallic money’s value, benefits and limitations, then distinguishes early metal exchange from standardized coinage and teaches five Indian coinage associations.",
+      "key_questions": [
+       "How do metal value and minting authority support acceptance?",
+       "Why do metallic money’s advantages become insufficient as trade expands?",
+       "How do early metallic exchange objects differ from standardized coins?",
+       "Which dates or periods pair with the five Indian coinage stages?"
+      ],
+      "decisions": [
+       {
+        "decision": "Accept the substantive teaching and coverage.",
+        "reason": "The script opens all supplied book items through examples, mechanisms, contrasts and historical anchors."
+       },
+       {
+        "decision": "Accept the stated timing.",
+        "reason": "BIE reports that the measured narration meets the assigned time window."
+       },
+       {
+        "decision": "Treat the maker’s narrow notes as a documentation suggestion.",
+        "reason": "They describe recent repairs rather than the whole unit, but the script itself supplies the missing instructional context."
+       }
+      ],
+      "uncertain": [
+       "The standalone prerequisite video and full chapter plan are not supplied, so their teaching and sequencing cannot be independently verified."
+      ]
+     },
+     "verdict": "pass",
+     "problems": [
+      {
+       "where": "notes.about and notes.key_questions",
+       "problem": "The maker’s notes describe targeted revisions rather than what this unit teaches and the main questions its teacher must answer.",
+       "fix": "Replace the revision-focused overview and questions with the unit’s instructional purpose and its central conceptual and chronology questions; retain revision details under decisions.",
+       "severity": "minor"
+      }
+     ],
+     "checklist": [
+      {
+       "rule_id": "G-01",
+       "met": true,
+       "note": "Claims match the supplied source; added mechanisms and historical anchors are standard and identified as outside context."
+      },
+      {
+       "rule_id": "G-02",
+       "met": true,
+       "note": "Coverage includes causal explanations, distinctions and exam-relevant qualifications, not merely labels."
+      },
+      {
+       "rule_id": "G-03",
+       "met": false,
+       "note": "Decisions have reasons, but the overview and key questions concern revisions rather than the whole unit."
+      },
+      {
+       "rule_id": "G-04",
+       "met": true,
+       "note": "Short mixed-script Hinglish generally sounds natural for these learners."
+      },
+      {
+       "rule_id": "G-05",
+       "met": true,
+       "note": "All listed materials, benefits, limitations and timeline pairings reach the learner."
+      },
+      {
+       "rule_id": "G-06",
+       "met": true,
+       "note": "Every substantive source statement receives meaning, an example, a mechanism or a consequential contrast."
+      },
+      {
+       "rule_id": "G-07",
+       "met": true,
+       "note": "Depth suits UPSC/PCS, with matching traps, non-exclusivity and chronology distinctions."
+      },
+      {
+       "rule_id": "S2-01",
+       "met": true,
+       "note": "Reported timing passes BIE’s check. The broader prerequisite-first plan is not available for verification."
+      },
+      {
+       "rule_id": "S2-02",
+       "met": true,
+       "note": "The lesson follows a coherent example-to-mechanism-to-history progression and answers the book-based questions."
+      },
+      {
+       "rule_id": "S2-03",
+       "met": true,
+       "note": "No excessive prerequisite recap or unsupported prerequisite dependence appears here; the prerequisite video itself is unavailable."
+      },
+      {
+       "rule_id": "S2-04",
+       "met": true,
+       "note": "Hindi uses Devanagari and English terms use Roman script; technical meanings are explained plainly."
+      },
+      {
+       "rule_id": "S2-05",
+       "met": true,
+       "note": "Coverage and answer claims are supported by narration and accompanying visual directions."
+      },
+      {
+       "rule_id": "S2-06",
+       "met": true,
+       "note": "Definition, causal reasoning and timeline patterns are performed; omitted historical steps have legitimate source-based reasons."
+      },
+      {
+       "rule_id": "S2-07",
+       "met": true,
+       "note": "Visible questions introduce topics, and labels are opened through concrete images and explanations."
+      },
+      {
+       "rule_id": "S2-08",
+       "met": true,
+       "note": "The specified numerical examples precede conceptual naming and illustrate economically correct mechanisms."
+      },
+      {
+       "rule_id": "W-01",
+       "met": true,
+       "note": "Learner-facing narration teaches directly without pointing to the book, author or pages."
+      }
+     ]
+    }
+   },
+   "review_problems": [],
+   "review_minor": [
+    {
+     "where": "notes.about and notes.key_questions",
+     "problem": "The maker’s notes describe targeted revisions rather than what this unit teaches and the main questions its teacher must answer.",
+     "fix": "Replace the revision-focused overview and questions with the unit’s instructional purpose and its central conceptual and chronology questions; retain revision details under decisions.",
+     "kind": "problems"
+    }
+   ],
+   "passed": true,
+   "finished_at": 1793145449.6360257
+  }
+ ],
+ "avoid_rounds": [
+  0,
+  1,
+  2
+ ],
+ "cost_usd": 0.0,
+ "seconds": 150.9,
+ "navin_verdict": null
+}

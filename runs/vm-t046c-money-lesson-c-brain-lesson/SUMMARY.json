@@ -1,0 +1,345 @@
+{
+  "cost": {
+    "cap": {
+      "by_section_inr": {
+        "lesson": 0.0,
+        "preflight": 0.0
+      },
+      "calls_allowed": 91,
+      "calls_refused": 0,
+      "cap_inr": 5.0,
+      "spent_inr": 0.0,
+      "spent_usd": 0.0,
+      "stop_reason": null,
+      "stopped": false,
+      "usd_inr": 94.59
+    },
+    "inr_per_page": 0.0,
+    "note": "Ledger cost is an estimate: exact token counts times the dated price table in bie/model_gateway/live/pricing.py (plus the AICredits 10% markup), converted at usd_inr. It is not the bill. Write the provider dashboard amount for this run into real_bill_inr (and docs/roadmap/COST_LOG.md) to compare.",
+    "pages": 20,
+    "real_bill_inr": null,
+    "sections": {
+      "lesson": {
+        "calls": 89,
+        "inr": 0.0,
+        "inr_per_page": 0.0,
+        "name": "Section 2 · lesson",
+        "usd": 0.0
+      },
+      "preflight": {
+        "calls": 2,
+        "inr": 0.0,
+        "inr_per_page": 0.0,
+        "name": "preflight",
+        "usd": 0.0
+      }
+    },
+    "subscription": {
+      "calls": 91,
+      "failed_calls": 0,
+      "input_tokens": 2401785,
+      "minutes": 42.6,
+      "note": "paid by the ChatGPT plan, no rupees; time is the sum of call times",
+      "output_tokens": 124006,
+      "reasoning_tokens": 7454
+    },
+    "total_inr": 0.0,
+    "total_usd": 0.0,
+    "usd_inr": 94.59
+  },
+  "estimate": {
+    "maker_billing": "subscription",
+    "measured_share_inr": 0.0,
+    "pages": 20,
+    "price_scale": 0.0,
+    "reviewer_billing": "subscription",
+    "sections": {
+      "lesson": {
+        "basis": "measured",
+        "inr": 0.0,
+        "inr_per_page": 0.0,
+        "source": "VM job t045b-tissue-lesson, 14 pages (458 minutes spoken, before the time rule)"
+      }
+    },
+    "total_inr": 0.0,
+    "usd_inr": 94.59
+  },
+  "fake": false,
+  "ledger_calls": 91,
+  "ledger_cost_usd": 0.0,
+  "lesson_quality": {
+    "beats": 886,
+    "budget_minutes": {
+      "book_pages": 20,
+      "per_page": [
+        6.0,
+        8.0
+      ],
+      "prerequisite_video": [
+        5.0,
+        8.0
+      ],
+      "topic_videos": [
+        120.0,
+        160.0
+      ]
+    },
+    "cost_usd": 0.0,
+    "dohraav": {
+      "judged_beats": 695,
+      "opened_share": 0.486,
+      "restating": 7,
+      "share": 0.01
+    },
+    "estimated_minutes_at_130_wpm": 167.6,
+    "plan_passed": true,
+    "real_world": {
+      "items": 93,
+      "run_first": 93
+    },
+    "spoken_words": 21790,
+    "videos": 18,
+    "videos_continued": 18,
+    "videos_passed": 7,
+    "videos_reused": 0
+  },
+  "level": {
+    "band": "senior_secondary",
+    "disagreement": null,
+    "evidence": {
+      "long_share": 0.078,
+      "marker": "intermediate",
+      "reason": "the text says 'intermediate'",
+      "sentence_words": 13.2,
+      "setting": "course.level = upsc_pcs",
+      "very_long_share": 0.0145,
+      "words": 6678
+    },
+    "profile": "upsc_pcs",
+    "source": "course"
+  },
+  "maker": "codex",
+  "models": {
+    "codex": "gpt-6.1-sol",
+    "codex-checker": "gpt-6.1-sol"
+  },
+  "plan_usage_after": {
+    "codex": {
+      "rateLimitResetCredits.availableCount": 2,
+      "rateLimits.planType": "prolite",
+      "rateLimits.primary.resetsAt": 1793606984,
+      "rateLimits.primary.usedPercent": 13,
+      "rateLimits.primary.windowDurationMins": 10080,
+      "rateLimitsByLimitId.codex.planType": "prolite",
+      "rateLimitsByLimitId.codex.primary.resetsAt": 1793606984,
+      "rateLimitsByLimitId.codex.primary.usedPercent": 13,
+      "rateLimitsByLimitId.codex.primary.windowDurationMins": 10080
+    },
+    "codex-checker": {
+      "rateLimitResetCredits.availableCount": 2,
+      "rateLimits.planType": "prolite",
+      "rateLimits.primary.resetsAt": 1793606984,
+      "rateLimits.primary.usedPercent": 13,
+      "rateLimits.primary.windowDurationMins": 10080,
+      "rateLimitsByLimitId.codex.planType": "prolite",
+      "rateLimitsByLimitId.codex.primary.resetsAt": 1793606984,
+      "rateLimitsByLimitId.codex.primary.usedPercent": 13,
+      "rateLimitsByLimitId.codex.primary.windowDurationMins": 10080
+    }
+  },
+  "preflight": {
+    "passed": true,
+    "routes": {
+      "codex": {
+        "input_tokens": 3345,
+        "login": {
+          "logged_in": true,
+          "mode": "Logged in using ChatGPT"
+        },
+        "model": "gpt-6.1-sol",
+        "output_tokens": 15,
+        "plan_usage_before": {
+          "rateLimitResetCredits.availableCount": 2,
+          "rateLimits.planType": "prolite",
+          "rateLimits.primary.resetsAt": 1793606984,
+          "rateLimits.primary.usedPercent": 10,
+          "rateLimits.primary.windowDurationMins": 10080,
+          "rateLimitsByLimitId.codex.planType": "prolite",
+          "rateLimitsByLimitId.codex.primary.resetsAt": 1793606984,
+          "rateLimitsByLimitId.codex.primary.usedPercent": 10,
+          "rateLimitsByLimitId.codex.primary.windowDurationMins": 10080
+        },
+        "returned_model": "gpt-6.1-sol",
+        "status": "ok",
+        "via": "codex"
+      },
+      "codex-checker": {
+        "input_tokens": 3345,
+        "login": {
+          "logged_in": true,
+          "mode": "Logged in using ChatGPT"
+        },
+        "model": "gpt-6.1-sol",
+        "output_tokens": 15,
+        "plan_usage_before": {
+          "rateLimitResetCredits.availableCount": 2,
+          "rateLimits.planType": "prolite",
+          "rateLimits.primary.resetsAt": 1793606984,
+          "rateLimits.primary.usedPercent": 10,
+          "rateLimits.primary.windowDurationMins": 10080,
+          "rateLimitsByLimitId.codex.planType": "prolite",
+          "rateLimitsByLimitId.codex.primary.resetsAt": 1793606984,
+          "rateLimitsByLimitId.codex.primary.usedPercent": 10,
+          "rateLimitsByLimitId.codex.primary.windowDurationMins": 10080
+        },
+        "returned_model": "gpt-6.1-sol",
+        "status": "ok",
+        "via": "codex"
+      }
+    }
+  },
+  "prerequisite_trim": {
+    "count": 8,
+    "status": "not needed"
+  },
+  "resume": {
+    "notes": [
+      "v0 fails today's checks (beat b11: the Hindi words ['व्यापक'] are not simple everyday words; put the English word in brackets right after each, a), so it continues from its last answer",
+      "v1 failed earlier, so it continues from its last answer",
+      "v2 fails today's checks (beat b45: the Hindi words ['देय', 'मान्य'] are not simple everyday words; put the English word in brackets right after e), so it continues from its last answer",
+      "v3 fails today's checks (beat b3: the Hindi words ['मुख्यतः'] are not simple everyday words; put the English word in brackets right after each, a), so it continues from its last answer",
+      "v4 fails today's checks (beat b29: \"Euro का supplied figure 27 में 20 है, बाकी 7; सभी EU members नहीं।\" points at the book ('supplied figure'); B), so it continues from its last answer",
+      "v5 fails today's checks (beat b13: 100% of its 6 content words are the book's own and it opens nothing: after a book line, open a term (yaani + a), so it continues from its last answer",
+      "v6 failed earlier, so it continues from its last answer",
+      "v7 failed earlier, so it continues from its last answer",
+      "v8 fails today's checks (beat b11: 67% of its 6 content words are the book's own and it opens nothing: after a book line, open a term (yaani + an), so it continues from its last answer",
+      "v9 failed earlier, so it continues from its last answer",
+      "v10 fails today's checks (beat b28: 67% of its 6 content words are the book's own and it opens nothing: after a book line, open a term (yaani + an), so it continues from its last answer",
+      "v11 failed earlier, so it continues from its last answer",
+      "v12 failed earlier, so it continues from its last answer",
+      "v13 failed earlier, so it continues from its last answer",
+      "v14 failed earlier, so it continues from its last answer",
+      "v15 failed earlier, so it continues from its last answer",
+      "v16 failed earlier, so it continues from its last answer",
+      "v17 fails today's checks (beat b12: \"इसलिए पहले हर statement का सही या गलत होना तय कीजिए, फिर answer code चुनिए।\" points at the book ('answer code), so it continues from its last answer"
+    ],
+    "plan_reused": true,
+    "scripts_reused": 0
+  },
+  "reviewer": "codex",
+  "reviewer_independence": "same_model_temporary",
+  "reviewer_route": "codex-checker",
+  "rulebook": "canvas_profile@2026-10-27.2+content_types@2026-10-27.1+explanations@2026-10-24.1+level_profiles@2026-10-24.1+simple_hindi@2026-10-27.2+teacher_examples@2026-10-27.1+vision-2026-10-21@2026-10-21.14+visual_grammar@2026-10-27.1+visual_levels@2026-10-26.2",
+  "section": "lesson",
+  "status": "ok",
+  "videos": [
+    {
+      "cost_usd": 0.0,
+      "rounds": 2,
+      "status": "passed",
+      "video_id": "v0"
+    },
+    {
+      "cost_usd": 0.0,
+      "rounds": 2,
+      "status": "passed",
+      "video_id": "v1"
+    },
+    {
+      "cost_usd": 0.0,
+      "rounds": 4,
+      "status": "failed",
+      "video_id": "v2"
+    },
+    {
+      "cost_usd": 0.0,
+      "rounds": 4,
+      "status": "passed",
+      "video_id": "v3"
+    },
+    {
+      "cost_usd": 0.0,
+      "rounds": 4,
+      "status": "failed",
+      "video_id": "v4"
+    },
+    {
+      "cost_usd": 0.0,
+      "rounds": 4,
+      "status": "failed",
+      "video_id": "v5"
+    },
+    {
+      "cost_usd": 0.0,
+      "rounds": 2,
+      "status": "passed",
+      "video_id": "v6"
+    },
+    {
+      "cost_usd": 0.0,
+      "rounds": 3,
+      "status": "passed",
+      "video_id": "v7"
+    },
+    {
+      "cost_usd": 0.0,
+      "rounds": 4,
+      "status": "failed",
+      "video_id": "v8"
+    },
+    {
+      "cost_usd": 0.0,
+      "rounds": 5,
+      "status": "failed",
+      "video_id": "v9"
+    },
+    {
+      "cost_usd": 0.0,
+      "rounds": 4,
+      "status": "failed",
+      "video_id": "v10"
+    },
+    {
+      "cost_usd": 0.0,
+      "rounds": 4,
+      "status": "failed",
+      "video_id": "v11"
+    },
+    {
+      "cost_usd": 0.0,
+      "rounds": 4,
+      "status": "failed",
+      "video_id": "v12"
+    },
+    {
+      "cost_usd": 0.0,
+      "rounds": 4,
+      "status": "failed",
+      "video_id": "v13"
+    },
+    {
+      "cost_usd": 0.0,
+      "rounds": 5,
+      "status": "failed",
+      "video_id": "v14"
+    },
+    {
+      "cost_usd": 0.0,
+      "rounds": 4,
+      "status": "passed",
+      "video_id": "v15"
+    },
+    {
+      "cost_usd": 0.0,
+      "rounds": 4,
+      "status": "passed",
+      "video_id": "v16"
+    },
+    {
+      "cost_usd": 0.0,
+      "rounds": 4,
+      "status": "failed",
+      "video_id": "v17"
+    }
+  ]
+}
