@@ -1,0 +1,500 @@
+{
+ "id": "v1_s3b",
+ "part_id": "c01.3",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b19",
+   "say": "Example का evidence यही calculation है: spending दोगुनी, goods वही, इसलिए तय assumptions में price दोगुनी। यह actual prices की forecast नहीं है।"
+  },
+  {
+   "beat_id": "b20",
+   "say": "Limited supply अकेली stable value की guarantee है? नहीं; money की demand और goods-services की availability भी असर डालती हैं। हर money increase से prices उसी ratio में बढ़ें, यह नियम नहीं।"
+  },
+  {
+   "beat_id": "b21",
+   "say": "कड़ी समझिए: goods वही, spending बढ़ी, prices बढ़ने का pressure, हर unit से कम खरीद। Excessive supply रोकना purchasing power बचाने में मदद कर सकता है।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "anchor",
+   "kind": "text",
+   "cell": [
+    0,
+    0,
+    12,
+    2
+   ],
+   "cue": [
+    "b19",
+    "",
+    0.0
+   ],
+   "text": "Money: value → Limited supply → Purchasing power",
+   "style": "title",
+   "tone": "ink",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "assumptions",
+   "kind": "text",
+   "cell": [
+    0,
+    2,
+    12,
+    1
+   ],
+   "cue": [
+    "b19",
+    "calculation"
+   ],
+   "until_cue": [
+    "b20",
+    "Limited"
+   ],
+   "text": "Illustration: all 10 baskets sell; one common price",
+   "style": "note",
+   "tone": "muted",
+   "align": "center",
+   "size": 26
+  },
+  {
+   "id": "spending",
+   "kind": "value",
+   "cell": [
+    0,
+    3,
+    4,
+    2
+   ],
+   "cue": [
+    "b19",
+    "calculation"
+   ],
+   "until_cue": [
+    "b20",
+    "Limited"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "label": "Total spending",
+   "size": 30,
+   "steps": [
+    {
+     "cue": [
+      "b19",
+      "calculation"
+     ],
+     "text": "Spending ₹1000"
+    },
+    {
+     "cue": [
+      "b19",
+      "दोगुनी,"
+     ],
+     "text": "Spending ₹2000",
+     "dir": "up"
+    }
+   ]
+  },
+  {
+   "id": "goods",
+   "kind": "crowd",
+   "cell": [
+    4,
+    3,
+    4,
+    2
+   ],
+   "cue": [
+    "b19",
+    "goods"
+   ],
+   "until_cue": [
+    "b20",
+    "Limited"
+   ],
+   "tone": "ink",
+   "icon": "tw:1f9fa",
+   "label": "Same 10 baskets",
+   "size": 26,
+   "cols": 5,
+   "steps": [
+    {
+     "cue": [
+      "b19",
+      "goods"
+     ],
+     "n": 10
+    }
+   ]
+  },
+  {
+   "id": "price",
+   "kind": "value",
+   "cell": [
+    8,
+    3,
+    4,
+    2
+   ],
+   "cue": [
+    "b19",
+    "assumptions"
+   ],
+   "until_cue": [
+    "b20",
+    "Limited"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "label": "Price per basket",
+   "size": 30,
+   "steps": [
+    {
+     "cue": [
+      "b19",
+      "assumptions"
+     ],
+     "text": "Per basket ₹100"
+    },
+    {
+     "cue": [
+      "b19",
+      "दोगुनी।"
+     ],
+     "text": "Per basket ₹200",
+     "dir": "up"
+    }
+   ]
+  },
+  {
+   "id": "forecast",
+   "kind": "callout",
+   "cell": [
+    1,
+    5,
+    10,
+    1
+   ],
+   "cue": [
+    "b19",
+    "forecast"
+   ],
+   "until_cue": [
+    "b20",
+    "Limited"
+   ],
+   "text": "Illustrative arithmetic ≠ actual price forecast",
+   "style": "note",
+   "tone": "danger",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "guarantee",
+   "kind": "callout",
+   "cell": [
+    1,
+    2,
+    10,
+    1
+   ],
+   "cue": [
+    "b20",
+    "guarantee"
+   ],
+   "until_cue": [
+    "b21",
+    "कड़ी"
+   ],
+   "text": "Limited supply: helps ≠ guarantees stable value",
+   "style": "note",
+   "tone": "warm",
+   "align": "center",
+   "size": 28,
+   "marks": [
+    {
+     "phrase": "helps ≠ guarantees",
+     "cue": [
+      "b20",
+      "नहीं;"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "demand",
+   "kind": "text",
+   "cell": [
+    0,
+    3,
+    6,
+    2
+   ],
+   "cue": [
+    "b20",
+    "demand"
+   ],
+   "until_cue": [
+    "b21",
+    "कड़ी"
+   ],
+   "text": "Money की demand भी",
+   "style": "box",
+   "tone": "accent",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "availability",
+   "kind": "text",
+   "cell": [
+    6,
+    3,
+    6,
+    2
+   ],
+   "cue": [
+    "b20",
+    "availability"
+   ],
+   "until_cue": [
+    "b21",
+    "कड़ी"
+   ],
+   "text": "Goods-services की availability भी",
+   "style": "box",
+   "tone": "accent",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "ratio",
+   "kind": "text",
+   "cell": [
+    1,
+    5,
+    10,
+    1
+   ],
+   "cue": [
+    "b20",
+    "ratio"
+   ],
+   "until_cue": [
+    "b21",
+    "कड़ी"
+   ],
+   "text": "Money ↑ ≠ automatic same-ratio price ↑",
+   "style": "box",
+   "tone": "danger",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "chain",
+   "kind": "table",
+   "cell": [
+    0,
+    2,
+    7,
+    4
+   ],
+   "cue": [
+    "b21",
+    "goods"
+   ],
+   "tone": "ink",
+   "size": 28,
+   "columns": [
+    "कड़ी",
+    "Mechanism"
+   ],
+   "rows": [
+    {
+     "cells": [
+      "1",
+      "Goods वही"
+     ],
+     "cue": [
+      "b21",
+      "goods"
+     ]
+    },
+    {
+     "cells": [
+      "2 →",
+      "Spending बढ़ी"
+     ],
+     "cue": [
+      "b21",
+      "spending"
+     ]
+    },
+    {
+     "cells": [
+      "3 →",
+      "Prices पर upward pressure"
+     ],
+     "cue": [
+      "b21",
+      "pressure,"
+     ]
+    },
+    {
+     "cells": [
+      "4 →",
+      "हर unit से कम खरीद"
+     ],
+     "cue": [
+      "b21",
+      "खरीद।"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "power",
+   "kind": "value",
+   "cell": [
+    7,
+    2,
+    5,
+    2
+   ],
+   "cue": [
+    "b21",
+    "हर"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "label": "Illustration: ₹200 buys",
+   "size": 28,
+   "steps": [
+    {
+     "cue": [
+      "b21",
+      "हर"
+     ],
+     "text": "₹200: 2 baskets"
+    },
+    {
+     "cue": [
+      "b21",
+      "कम"
+     ],
+     "text": "₹200: 1 basket",
+     "dir": "down"
+    }
+   ]
+  },
+  {
+   "id": "takeaway",
+   "kind": "callout",
+   "cell": [
+    7,
+    4,
+    5,
+    2
+   ],
+   "cue": [
+    "b21",
+    "Excessive"
+   ],
+   "text": "Excessive supply रोकना purchasing power बचाने में मदद कर सकता है",
+   "style": "note",
+   "tone": "ok",
+   "align": "center",
+   "size": 26,
+   "marks": [
+    {
+     "phrase": "मदद कर सकता है",
+     "cue": [
+      "b21",
+      "मदद"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "done",
+   "kind": "mark",
+   "cue": [
+    "b21",
+    "है।"
+   ],
+   "tone": "ok",
+   "target": "anchor",
+   "mark": "tick",
+   "pos": "tr"
+  }
+ ],
+ "camera": [
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b19",
+    "Example"
+   ]
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b19",
+    "forecast"
+   ],
+   "ids": [
+    "anchor",
+    "forecast"
+   ],
+   "until_cue": [
+    "b20",
+    "Limited"
+   ]
+  },
+  {
+   "cue": [
+    "b20",
+    "ratio"
+   ],
+   "ids": [
+    "anchor",
+    "guarantee",
+    "ratio"
+   ],
+   "until_cue": [
+    "b21",
+    "कड़ी"
+   ]
+  },
+  {
+   "cue": [
+    "b21",
+    "Excessive"
+   ],
+   "ids": [
+    "anchor",
+    "power",
+    "takeaway"
+   ],
+   "until_cue": [
+    "b21",
+    "है।"
+   ]
+  }
+ ]
+}

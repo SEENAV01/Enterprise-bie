@@ -1,0 +1,692 @@
+{
+ "id": "v1_s4s",
+ "part_id": "c02.1",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b22",
+   "say": "₹500 का किराना कैसे लिया? Wheat देने के बजाय ₹500 दिए; आपके cash ₹500 से ₹0, दुकानदार को मिले cash ₹0 से ₹500। उसे wheat चाहिए या नहीं, पूछना नहीं पड़ा।"
+  },
+  {
+   "beat_id": "b23",
+   "say": "बिना खरीद किए prices कैसे compare करेंगे? Phone ₹20,000, laptop ₹60,000 है। Common rupee scale बताती है: laptop 3 गुना, ₹40,000 महँगा है। अभी payment नहीं हुई।"
+  },
+  {
+   "beat_id": "b24",
+   "say": "आज की कमाई बाद में कैसे काम आएगी? Worker ने account में ₹500 बचाए; savings ₹0 से ₹500 हुईं। बाद में किराना लिया; saved balance ₹500 से ₹0 हुआ।"
+  },
+  {
+   "beat_id": "b25",
+   "say": "Home loan schedule में future payment कैसे लिखेंगे? मानिए अगले महीने ₹10,000 देने हैं। उस date पर payment से unpaid instalment ₹10,000 से ₹0 हुई; future amount पहले तय था।"
+  }
+ ],
+ "kit": "shop",
+ "elements": [
+  {
+   "id": "shop",
+   "kind": "shop",
+   "x": 2600,
+   "y": 860,
+   "sign": "किराना",
+   "cue": [
+    "b22",
+    "",
+    0.0
+   ],
+   "packets": [
+    {
+     "n": 3,
+     "cue": [
+      "b22",
+      "",
+      0.0
+     ]
+    },
+    {
+     "n": 2,
+     "cue": [
+      "b22",
+      "दिए;"
+     ]
+    },
+    {
+     "n": 3,
+     "cue": [
+      "b24",
+      "आज"
+     ]
+    },
+    {
+     "n": 2,
+     "cue": [
+      "b24",
+      "लिया;"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "grocer",
+   "kind": "shopkeeper",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b22",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "progress_exchange",
+   "kind": "label",
+   "x": 2600,
+   "y": 150,
+   "text": "● Exchange   ○ Account   ○ Store   ○ Deferred",
+   "fill": "#F4EBDD",
+   "cue": [
+    "b22",
+    "",
+    0.0
+   ],
+   "until_cue": [
+    "b23",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "buyer",
+   "kind": "crowd",
+   "x0": 2220,
+   "spacing": 80,
+   "enter_x": 1850,
+   "exit_x": 1800,
+   "face": 1,
+   "seed": 22,
+   "cue": [
+    "b22",
+    "किराना"
+   ],
+   "until_cue": [
+    "b23",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b22",
+      "किराना"
+     ],
+     "n": 1
+    }
+   ],
+   "carry": {
+    "cue": [
+     "b22",
+     "दिए;"
+    ],
+    "n": 1
+   }
+  },
+  {
+   "id": "buyer_cash",
+   "kind": "board",
+   "x": 2110,
+   "y": 430,
+   "text": "आपके cash",
+   "fill": "#397B83",
+   "cue": [
+    "b22",
+    "₹500"
+   ],
+   "until_cue": [
+    "b23",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b22",
+      "₹500"
+     ],
+     "text": "₹500"
+    },
+    {
+     "cue": [
+      "b22",
+      "₹0,"
+     ],
+     "text": "₹0",
+     "dir": "down"
+    }
+   ]
+  },
+  {
+   "id": "grocer_cash",
+   "kind": "board",
+   "x": 3090,
+   "y": 430,
+   "text": "दुकानदार • इस खरीद के cash",
+   "fill": "#397B83",
+   "cue": [
+    "b22",
+    "दुकानदार"
+   ],
+   "until_cue": [
+    "b23",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b22",
+      "दुकानदार"
+     ],
+     "text": "₹0"
+    },
+    {
+     "cue": [
+      "b22",
+      "₹500।"
+     ],
+     "text": "₹500",
+     "dir": "up"
+    }
+   ]
+  },
+  {
+   "id": "no_barter",
+   "kind": "label",
+   "x": 2600,
+   "y": 280,
+   "text": "Wheat की चाह मिलाना जरूरी नहीं",
+   "fill": "#F4EBDD",
+   "cue": [
+    "b22",
+    "चाहिए"
+   ],
+   "until_cue": [
+    "b23",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "progress_account",
+   "kind": "label",
+   "x": 2600,
+   "y": 150,
+   "text": "✓ Exchange   ● Account   ○ Store   ○ Deferred",
+   "fill": "#F4EBDD",
+   "cue": [
+    "b23",
+    "",
+    0.0
+   ],
+   "until_cue": [
+    "b24",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "phone",
+   "kind": "board",
+   "x": 2110,
+   "y": 430,
+   "text": "Phone",
+   "fill": "#397B83",
+   "cue": [
+    "b23",
+    "Phone"
+   ],
+   "until_cue": [
+    "b24",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b23",
+      "₹20,000,"
+     ],
+     "text": "₹20,000"
+    }
+   ]
+  },
+  {
+   "id": "laptop",
+   "kind": "board",
+   "x": 3090,
+   "y": 430,
+   "text": "Laptop",
+   "fill": "#397B83",
+   "cue": [
+    "b23",
+    "laptop"
+   ],
+   "until_cue": [
+    "b24",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b23",
+      "₹60,000"
+     ],
+     "text": "₹60,000"
+    }
+   ]
+  },
+  {
+   "id": "comparison",
+   "kind": "label",
+   "x": 2600,
+   "y": 280,
+   "text": "एक rupee scale • Laptop = 3 × Phone",
+   "fill": "#F4EBDD",
+   "cue": [
+    "b23",
+    "3"
+   ],
+   "until_cue": [
+    "b24",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "difference",
+   "kind": "label",
+   "x": 2600,
+   "y": 710,
+   "text": "अंतर ₹40,000 • केवल तुलना",
+   "fill": "#F4EBDD",
+   "cue": [
+    "b23",
+    "₹40,000"
+   ],
+   "until_cue": [
+    "b24",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "progress_store",
+   "kind": "label",
+   "x": 2600,
+   "y": 150,
+   "text": "✓ Exchange   ✓ Account   ● Store   ○ Deferred",
+   "fill": "#F4EBDD",
+   "cue": [
+    "b24",
+    "",
+    0.0
+   ],
+   "until_cue": [
+    "b25",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "savings",
+   "kind": "board",
+   "x": 2110,
+   "y": 430,
+   "text": "Worker • saved balance",
+   "fill": "#397B83",
+   "cue": [
+    "b24",
+    "account"
+   ],
+   "until_cue": [
+    "b25",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b24",
+      "account"
+     ],
+     "text": "₹0"
+    },
+    {
+     "cue": [
+      "b24",
+      "₹500"
+     ],
+     "text": "₹500",
+     "dir": "up"
+    },
+    {
+     "cue": [
+      "b24",
+      "₹0"
+     ],
+     "text": "₹0",
+     "dir": "down"
+    }
+   ]
+  },
+  {
+   "id": "later_buyer",
+   "kind": "crowd",
+   "x0": 2300,
+   "spacing": 80,
+   "enter_x": 1850,
+   "exit_x": 1800,
+   "face": 1,
+   "seed": 24,
+   "cue": [
+    "b24",
+    "बाद"
+   ],
+   "until_cue": [
+    "b25",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b24",
+      "बाद"
+     ],
+     "n": 1
+    }
+   ],
+   "carry": {
+    "cue": [
+     "b24",
+     "लिया;"
+    ],
+    "n": 1
+   }
+  },
+  {
+   "id": "progress_deferred",
+   "kind": "label",
+   "x": 2600,
+   "y": 150,
+   "text": "✓ Exchange   ✓ Account   ✓ Store   ● Deferred",
+   "fill": "#F4EBDD",
+   "cue": [
+    "b25",
+    "",
+    0.0
+   ],
+   "until_cue": [
+    "b25",
+    "था।"
+   ]
+  },
+  {
+   "id": "schedule",
+   "kind": "board",
+   "x": 2110,
+   "y": 430,
+   "text": "Home loan • अगले महीने",
+   "fill": "#397B83",
+   "cue": [
+    "b25",
+    "schedule"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b25",
+      "₹10,000"
+     ],
+     "text": "तय payment ₹10,000"
+    }
+   ]
+  },
+  {
+   "id": "instalment",
+   "kind": "board",
+   "x": 3090,
+   "y": 430,
+   "text": "इस महीने की unpaid instalment",
+   "fill": "#397B83",
+   "cue": [
+    "b25",
+    "date"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b25",
+      "date"
+     ],
+     "text": "₹10,000"
+    },
+    {
+     "cue": [
+      "b25",
+      "₹0"
+     ],
+     "text": "₹0",
+     "dir": "down"
+    }
+   ]
+  },
+  {
+   "id": "progress_complete",
+   "kind": "label",
+   "x": 2600,
+   "y": 150,
+   "text": "✓ Exchange   ✓ Account   ✓ Store   ✓ Deferred",
+   "fill": "#F4EBDD",
+   "cue": [
+    "b25",
+    "था।"
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b22",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 470,
+   "zoom": 0.9,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b22",
+    "Wheat"
+   ],
+   "x": 2480,
+   "y": 490,
+   "zoom": 0.95,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b22",
+    "आपके"
+   ],
+   "x": 2450,
+   "y": 460,
+   "zoom": 1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b22",
+    "दुकानदार"
+   ],
+   "x": 2700,
+   "y": 460,
+   "zoom": 0.95,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b22",
+    "चाहिए"
+   ],
+   "x": 2600,
+   "y": 430,
+   "zoom": 0.9,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b23",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 450,
+   "zoom": 0.9,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b23",
+    "Phone"
+   ],
+   "x": 2500,
+   "y": 460,
+   "zoom": 0.95,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b23",
+    "Common"
+   ],
+   "x": 2600,
+   "y": 430,
+   "zoom": 0.9,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b23",
+    "अभी"
+   ],
+   "x": 2600,
+   "y": 480,
+   "zoom": 0.95,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b24",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 450,
+   "zoom": 0.9,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b24",
+    "Worker"
+   ],
+   "x": 2460,
+   "y": 470,
+   "zoom": 0.95,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b24",
+    "savings"
+   ],
+   "x": 2400,
+   "y": 450,
+   "zoom": 1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b24",
+    "किराना"
+   ],
+   "x": 2530,
+   "y": 500,
+   "zoom": 0.95,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b24",
+    "saved"
+   ],
+   "x": 2420,
+   "y": 450,
+   "zoom": 1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b25",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 450,
+   "zoom": 0.9,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b25",
+    "मानिए"
+   ],
+   "x": 2460,
+   "y": 450,
+   "zoom": 0.95,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b25",
+    "date"
+   ],
+   "x": 2600,
+   "y": 450,
+   "zoom": 0.9,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b25",
+    "unpaid"
+   ],
+   "x": 2740,
+   "y": 450,
+   "zoom": 0.95,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b25",
+    "तय"
+   ],
+   "x": 2600,
+   "y": 430,
+   "zoom": 0.9,
+   "frames": 40
+  }
+ ]
+}

@@ -1,0 +1,381 @@
+{
+ "id": "v1_s3s",
+ "part_id": "c01.3",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b16",
+   "say": "₹200 से पहले 2 baskets, अब 1 मिले तो क्या हुआ? खरीदने की क्षमता घटी। एक imagined market लेते हैं; ये actual market data नहीं हैं।"
+  },
+  {
+   "beat_id": "b17",
+   "say": "मानिए buyers पूरे ₹1000 से 10 एक-जैसी baskets खरीदते हैं, सब एक price पर: ₹100 each। अब वही 10 baskets हैं, लेकिन buyers पूरा ₹2000 खर्च करते हैं।"
+  },
+  {
+   "beat_id": "b18",
+   "say": "इन assumptions में price ₹200 होगी; ₹200 से 2 की जगह 1 basket मिलेगी। इसलिए Limited supply मदद करती है: Scarcity यानी limited availability, value बचाने में सहायक है; सामान बढ़े बिना spending बढ़े तो prices बढ़ सकती हैं।"
+  }
+ ],
+ "kit": "shop",
+ "elements": [
+  {
+   "id": "market",
+   "kind": "shop",
+   "x": 2600,
+   "y": 860,
+   "sign": "Imagined market",
+   "cue": [
+    "b16",
+    "",
+    0.0
+   ],
+   "packets": [
+    {
+     "n": 0,
+     "cue": [
+      "b16",
+      "",
+      0.0
+     ]
+    },
+    {
+     "n": 10,
+     "cue": [
+      "b17",
+      "10"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "purchasing_power",
+   "kind": "board",
+   "x": 2080,
+   "y": 490,
+   "text": "₹200 में baskets",
+   "fill": "#E8DCC5",
+   "cue": [
+    "b16",
+    "₹200"
+   ],
+   "until_cue": [
+    "b17",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b16",
+      "2"
+     ],
+     "text": "2"
+    },
+    {
+     "cue": [
+      "b16",
+      "1"
+     ],
+     "text": "1",
+     "dir": "down"
+    }
+   ]
+  },
+  {
+   "id": "hypothetical",
+   "kind": "label",
+   "x": 2600,
+   "y": 190,
+   "text": "Imagined example · actual market data नहीं",
+   "fill": "#F2E9D8",
+   "cue": [
+    "b16",
+    "imagined"
+   ]
+  },
+  {
+   "id": "buyers",
+   "kind": "crowd",
+   "x0": 2020,
+   "spacing": 105,
+   "enter_x": 1600,
+   "exit_x": 1550,
+   "face": 1,
+   "seed": 13,
+   "cue": [
+    "b17",
+    "buyers"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b17",
+      "buyers"
+     ],
+     "n": 3
+    }
+   ]
+  },
+  {
+   "id": "spending",
+   "kind": "board",
+   "x": 3090,
+   "y": 460,
+   "text": "कुल spending",
+   "fill": "#E4EBD9",
+   "cue": [
+    "b17",
+    "₹1000"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b17",
+      "₹1000"
+     ],
+     "text": "₹1000"
+    },
+    {
+     "cue": [
+      "b17",
+      "₹2000"
+     ],
+     "text": "₹2000",
+     "dir": "up"
+    }
+   ]
+  },
+  {
+   "id": "assumptions",
+   "kind": "label",
+   "x": 2600,
+   "y": 285,
+   "text": "10 एक-जैसी baskets · सब एक price पर",
+   "fill": "#F2E9D8",
+   "cue": [
+    "b17",
+    "एक-जैसी"
+   ],
+   "until_cue": [
+    "b18",
+    "इसलिए"
+   ]
+  },
+  {
+   "id": "basket_price",
+   "kind": "price_tag",
+   "x": 2710,
+   "y": 445,
+   "string": 65,
+   "cue": [
+    "b17",
+    "₹100"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b17",
+      "₹100"
+     ],
+     "text": "₹100 / basket"
+    },
+    {
+     "cue": [
+      "b18",
+      "₹200"
+     ],
+     "text": "₹200 / basket",
+     "dir": "up"
+    }
+   ]
+  },
+  {
+   "id": "calculation",
+   "kind": "board",
+   "x": 2050,
+   "y": 435,
+   "text": "Spending ÷ baskets",
+   "fill": "#E8DCC5",
+   "cue": [
+    "b17",
+    "₹100"
+   ],
+   "until_cue": [
+    "b18",
+    "इसलिए"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b17",
+      "₹100"
+     ],
+     "text": "₹1000 ÷ 10 = ₹100"
+    },
+    {
+     "cue": [
+      "b18",
+      "₹200"
+     ],
+     "text": "₹2000 ÷ 10 = ₹200",
+     "dir": "up"
+    }
+   ]
+  },
+  {
+   "id": "power_return",
+   "kind": "board",
+   "x": 2050,
+   "y": 435,
+   "text": "₹200 में baskets",
+   "fill": "#E8DCC5",
+   "cue": [
+    "b18",
+    "इसलिए"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b18",
+      "इसलिए"
+     ],
+     "text": "2 → 1 ↓",
+     "dir": "down"
+    }
+   ]
+  },
+  {
+   "id": "scarcity",
+   "kind": "label",
+   "x": 2600,
+   "y": 285,
+   "text": "Scarcity = limited availability",
+   "fill": "#E4EBD9",
+   "cue": [
+    "b18",
+    "Scarcity"
+   ],
+   "until_cue": [
+    "b18",
+    "सामान"
+   ]
+  },
+  {
+   "id": "closing_branch",
+   "kind": "label",
+   "x": 2600,
+   "y": 285,
+   "text": "✓ Scarcity · goods वही + spending ↑ → prices बढ़ सकती हैं",
+   "fill": "#E4EBD9",
+   "cue": [
+    "b18",
+    "सामान"
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b16",
+    "",
+    0.0
+   ],
+   "x": 2450,
+   "y": 475,
+   "zoom": 0.85,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b16",
+    "क्षमता"
+   ],
+   "x": 2330,
+   "y": 470,
+   "zoom": 0.95,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b16",
+    "actual"
+   ],
+   "x": 2500,
+   "y": 435,
+   "zoom": 0.85,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b17",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 475,
+   "zoom": 0.8,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b17",
+    "₹100"
+   ],
+   "x": 2500,
+   "y": 470,
+   "zoom": 0.85,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b17",
+    "लेकिन"
+   ],
+   "x": 2670,
+   "y": 475,
+   "zoom": 0.85,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b18",
+    "",
+    0.0
+   ],
+   "x": 2550,
+   "y": 470,
+   "zoom": 0.85,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b18",
+    "इसलिए"
+   ],
+   "x": 2500,
+   "y": 450,
+   "zoom": 0.85,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b18",
+    "value"
+   ],
+   "x": 2600,
+   "y": 445,
+   "zoom": 0.8,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b18",
+    "spending"
+   ],
+   "x": 2650,
+   "y": 470,
+   "zoom": 0.8,
+   "frames": 40
+  }
+ ]
+}
