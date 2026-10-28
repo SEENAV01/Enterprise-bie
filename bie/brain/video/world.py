@@ -44,6 +44,49 @@ KITS = {"shop": {"label": "a shop with buyers on a street", "words": PLACES["sho
 # The element kind that is a kit's place: a world plan for that kit must contain one (the other kinds dress the street).
 PLACE_KINDS = {"shop": "shop", "bank": "bank"}
 CUE_KEYS = ("cue", "until_cue", "tilt_cue")
+# What a board, a price tag and the title can hold (the Money chapter's v1, 28 October 2026: the director wrote sentences into
+# boards, 63 of 98 values over 16 characters, and they ran out of the box). A board holds up to BOARD_LINES lines of
+# BOARD_CHARS characters (its own line breaks first, then long lines wrapped at spaces by code); a price tag shows a price;
+# the title stays short. Longer text is refused with the limit named, so the maker says it in the narration or a label.
+BOARD_LINES, BOARD_CHARS, TAG_CHARS, TITLE_CHARS = 3, 26, 9, 30
+
+
+def wrap_value(text: str, width: int = BOARD_CHARS) -> list:
+    """A board's value as lines: the maker's own line breaks are kept, a longer line is wrapped at its spaces."""
+    out = []
+    for line in str(text or "").split("\n"):
+        cur = ""
+        for word in line.split(" "):
+            if not cur:
+                cur = word
+            elif len(cur) + 1 + len(word) <= width:
+                cur += " " + word
+            else:
+                out.append(cur)
+                cur = word
+        out.append(cur)
+    return out
+
+
+def _check_text(n: dict) -> None:
+    """The text limits of a board, a price tag and the title (PlanError names the limit and what to do instead)."""
+    kind, nid = n.get("kind"), n.get("id", "?")
+    if kind == "board":
+        for st in n.get("steps") or []:
+            lines = wrap_value(st.get("text", ""))
+            if len(lines) > BOARD_LINES or any(len(line) > BOARD_CHARS for line in lines):
+                raise PlanError(f"{nid}: a board holds at most {BOARD_LINES} lines of {BOARD_CHARS} characters, and "
+                                f"'{str(st.get('text', ''))[:40]}' needs {len(lines)} lines: say the rest in the narration, or split it "
+                                "over two steps on two cue words")
+            st["lines"] = lines
+    elif kind == "price_tag":
+        for st in n.get("steps") or []:
+            if len(str(st.get("text", ""))) > TAG_CHARS:
+                raise PlanError(f"{nid}: a price tag shows a price ('₹65', '₹10,000'; at most {TAG_CHARS} characters), not "
+                                f"'{str(st.get('text', ''))[:30]}': use a board for words")
+    elif kind == "title" and len(str(n.get("text", ""))) > TITLE_CHARS:
+        raise PlanError(f"{nid}: the title is at most {TITLE_CHARS} characters ('{str(n.get('text', ''))[:40]}' has "
+                        f"{len(str(n.get('text', '')))})")
 
 
 def compile_world(plan: dict, *, voice: dict | None = None, lead_in: float = timing.LEAD_IN, kit: str = ""):
@@ -66,6 +109,7 @@ def compile_world(plan: dict, *, voice: dict | None = None, lead_in: float = tim
     for n in copy.deepcopy(plan.get("elements") or []):
         if n.get("kind") not in KINDS:
             raise PlanError(f"{n.get('id', '?')}: unknown world element kind {n.get('kind')!r} (kinds: {', '.join(sorted(KINDS))})")
+        _check_text(n)
         if "cue" in n:
             n["at"] = frame_of(n.pop("cue")); changes.append(n["at"])
         if "until_cue" in n:
