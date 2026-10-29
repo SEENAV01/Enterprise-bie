@@ -9,6 +9,13 @@ seconds, the maker route and its cost), the render cost (render seconds per seco
 price), one table row per part with its place, story flag, elements and longest still, one still per scene taken from the review
 copy at the scene's middle (ffmpeg) or read from --stills, each part's spoken lines from the plans, the icon credits and the
 questions for Navin. Short Hinglish for Navin; status words as they are.
+
+With ``--lesson`` and ``--chapter-map`` (Navin, 29 October 2026: "har video ke saath dikhao ki kitaab ki kaun-si lines usne
+padhaayi") the page also carries, by code (``bie/brain/coverage.py``), the table of the book lines the video teaches: each
+assigned line (page, item id, its text), the beats that cover it with their times in the rendered video (from the spec's
+captions), how they teach it (example, explained, misconception, recap ...) and the teacher questions answered; below it the
+assigned lines no beat covers (must be none, else red) and the beats whose basis is outside the book. The same record is
+written next to the page as ``<page>.coverage.json`` (``--coverage-json`` names another file).
 """
 from __future__ import annotations
 
@@ -19,8 +26,13 @@ import io
 import json
 import shutil
 import subprocess
+import sys
 import tempfile
 from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 
 MODE_WORDS = {"B": "B · build-up canvas + L3 touches", "C": "C · L3 world"}
 
@@ -33,6 +45,51 @@ def _jpeg_uri(data: bytes, width: int = 640, quality: int = 78) -> str:
     out = io.BytesIO()
     im.save(out, format="JPEG", quality=quality, optimize=True)
     return "data:image/jpeg;base64," + base64.b64encode(out.getvalue()).decode("ascii")
+
+
+CSS = """<style>
+:root { --bg:#f6f4ee; --fg:#1d2328; --muted:#5f6b72; --card:#ffffff; --line:#d9d4c7; --accent:#8a5a14; --accent-ink:#fff8ea; --green:#1d7a4f; --warm:#b85c00; --red:#b3261e; --red-bg:#fbe9e7; color-scheme:light }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg:#141a1f; --fg:#f1efe8; --muted:#a3adb3; --card:#1d262d; --line:#324049; --accent:#e4b263; --accent-ink:#141a1f; --green:#5ad395; --warm:#ffb35c; --red:#ff8a80; --red-bg:#3a1f1c; color-scheme:dark } }
+:root[data-theme="dark"] { --bg:#141a1f; --fg:#f1efe8; --muted:#a3adb3; --card:#1d262d; --line:#324049; --accent:#e4b263; --accent-ink:#141a1f; --green:#5ad395; --warm:#ffb35c; --red:#ff8a80; --red-bg:#3a1f1c; color-scheme:dark }
+body { background:var(--bg); color:var(--fg); font-family: Inter, "Noto Sans", "Noto Sans Devanagari", system-ui, sans-serif; line-height:1.5; margin:0;
+  padding-block:24px 48px; padding-left:max(16px, env(safe-area-inset-left, 0px)); padding-right:max(16px, env(safe-area-inset-right, 0px)) }
+main { max-width: 1100px; margin: 0 auto }
+h1 { font-size: clamp(24px, 4vw, 36px); margin: 0 0 6px; text-wrap: balance }
+h2 { font-size: clamp(20px, 3vw, 26px); margin: 36px 0 10px; color: var(--accent); text-wrap: balance }
+h3 { font-size: 17px; margin: 18px 0 8px }
+h4 { font-size: 15px; margin: 16px 0 6px }
+p.lead { font-size: 17px }
+.muted { color: var(--muted) }
+.tag { display:inline-block; padding:2px 10px; border:1px solid var(--line); border-radius:999px; font-size:12px; letter-spacing:.04em; text-transform:uppercase; color:var(--muted) }
+.grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px }
+.card { background: var(--card); border:1px solid var(--line); border-radius: 14px; padding: 14px 16px; min-width: 0 }
+.card h3 { margin-top: 0 }
+table { border-collapse: collapse; width: 100%; font-size: 14px }
+td, th { text-align: left; padding: 5px 8px; border-bottom: 1px solid var(--line); vertical-align: top }
+th { color: var(--muted); font-weight: 600; font-size: 12px; letter-spacing: .04em; text-transform: uppercase }
+.scroll { overflow-x: auto; border:1px solid var(--line); border-radius: 12px; background: var(--card) }
+a.button { display:inline-block; background: var(--accent); color: var(--accent-ink); font-weight: 700; padding: 10px 18px; border-radius: 10px; text-decoration: none }
+.stills { display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px }
+figure { margin: 0; min-width: 0 }
+figure img { display:block; width: 100%; max-width: 100%; height: auto; border-radius: 10px; border: 1px solid var(--line) }
+figcaption { font-size: 13px; color: var(--muted); margin-top: 4px }
+details summary { cursor: pointer; font-weight: 600; margin: 12px 0 }
+ol.beats { padding-left: 20px; font-size: 15px }
+ol.beats li { margin: 4px 0 }
+ul { padding-left: 20px }
+.decide { border-left: 4px solid var(--warm); padding: 6px 14px; background: var(--card); border-radius: 0 12px 12px 0 }
+.ok { color: var(--green); font-weight: 600 }
+.bad { color: var(--red); font-weight: 600 }
+tr.bad td { background: var(--red-bg) }
+.bad-box { border-left: 4px solid var(--red); padding: 6px 14px; background: var(--red-bg); border-radius: 0 12px 12px 0; margin: 10px 0 }
+.mono { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 13px }
+</style>"""
+
+
+def page_head(title: str, extra_css: str = "") -> str:
+    """The head every Task 046 Part C page shares (title, phone-safe meta, the CSS); the chapter page adds a few rules."""
+    return (f"<title>{html.escape(title)}</title>\n<meta name=\"claude:viewport-fit-sides\" content=\"cover\">\n" + CSS
+            + (f"\n<style>{extra_css}</style>" if extra_css else ""))
 
 
 def _rows(cells: list, head: bool = False) -> str:
@@ -140,6 +197,71 @@ def lesson_beats(lesson_dir: Path | None, video_id: str) -> dict:
     return {b["beat_id"]: b.get("say", "") for b in (video or {}).get("beats") or []}
 
 
+def load_run_json(path: Path | None, name: str) -> dict:
+    """A JSON file given directly, or ``<name>`` inside a run folder; {} when neither exists."""
+    if not path:
+        return {}
+    file = path if path.is_file() else path / name
+    return json.loads(file.read_text(encoding="utf-8")) if file.exists() else {}
+
+
+def coverage_records(canvas_dir: Path, lesson_dir: Path | None, chapter_map: Path | None) -> dict:
+    """{video id: coverage record} for every video of a canvas run, from the lesson's script and the chapter map; {} without
+    both inputs."""
+    from bie.brain import coverage
+    chapter, lesson = load_run_json(chapter_map, "chapter_map.json"), load_run_json(lesson_dir, "lesson_plan.json")
+    if not chapter or not lesson:
+        return {}
+    canvas = json.loads((canvas_dir / "canvas.json").read_text(encoding="utf-8"))
+    plans = load_plans(canvas_dir)
+    out = {}
+    for video in canvas.get("videos") or []:
+        spec_path = canvas_dir / "video_specs" / f"{video['video_id']}.json"
+        spec = json.loads(spec_path.read_text(encoding="utf-8")) if spec_path.exists() else None
+        out[video["video_id"]] = coverage.video_coverage(chapter, lesson, video["video_id"], spec=spec, plans=plans)
+    return out
+
+
+def _clip(text: str, n: int = 160) -> str:
+    text = " ".join(str(text or "").split())
+    return text if len(text) <= n else text[: n - 1].rstrip() + "…"
+
+
+def coverage_block(cov: dict) -> str:
+    """Table B of one video: the book lines it taught, where and how; the uncovered lines in red; the outside-basis beats."""
+    e = html.escape
+    parts = []
+    ok = not cov["uncovered"]
+    parts.append(f'<p class="lead">{cov["covered"]} of {cov["assigned"]} assigned lines padhaayi gayi, {cov["beats"]} beats mein'
+                 + (f' ({cov["beats_timed"]} beats ka video time captions se)' if cov.get("beats_timed") else "")
+                 + f'; teacher questions {cov["questions_answered"]} of {cov["questions"]} answered; basis: '
+                 + ", ".join(f"{k or '—'} {v}" for k, v in sorted(cov["basis"].items())) + ". "
+                 + (f'<span class="ok">Cover na hui line: 0 ✅</span>' if ok else f'<span class="bad">Cover na hui lines: {len(cov["uncovered"])} ❌</span>') + "</p>")
+    rows = []
+    for r in cov["rows"]:
+        beats = "<br>".join(f"<b>{e(b['beat_id'])}</b>" + (f" <span class='muted'>{e(b['time'])}</span>" if b["time"] else "") + f" · {e(b['how'])}"
+                            for b in r["beats"]) or '<span class="bad">koi beat nahi ❌</span>'
+        rows.append(f'<tr class="{"" if r["covered"] else "bad"}"><td>{r["page"]}</td><td class="mono">{e(r["item_id"])}<br><span class="muted">{e(r["kind"])}</span></td>'
+                    f'<td title="{e(r["content"])}">{e(_clip(r["content"]))}</td><td>{beats}</td><td>{e(r["how"]) or "—"}</td>'
+                    f'<td>{r["questions_answered"]} / {r["questions"]}</td></tr>')
+    parts.append('<div class="scroll"><table>' + _rows(["page", "line", "kitaab ki line", "beats · video time · kaise", "kaise padhaayi", "sawaal"], head=True)
+                 + "".join(rows) + "</table></div>")
+    if not ok:
+        parts.append('<div class="bad-box"><b>Assigned lines jo kisi beat ne nahi padhaayi (yeh 0 honi chahiye):</b><ul>'
+                     + "".join(f"<li>page {u['page']} · {e(u['item_id'])} · {e(_clip(u['content']))}</li>" for u in cov["uncovered"]) + "</ul></div>")
+    else:
+        parts.append('<p class="ok">Har assigned line kam se kam ek beat mein padhaayi gayi.</p>')
+    if cov["beats_beyond_scope"]:
+        parts.append(f'<details><summary>Beats jo is video ke scope se bahar ki lines cover karte hain: {len(cov["beats_beyond_scope"])}</summary><ul>'
+                     + "".join(f"<li><b>{e(b['beat_id'])}</b> {e(b['time'])} · {e(', '.join(b['covers']))} · {e(_clip(b['say'], 120))}</li>" for b in cov["beats_beyond_scope"]) + "</ul></details>")
+    outside = cov["outside_beats"]
+    parts.append(f'<details><summary>Beats jinka basis kitaab ke bahar hai (outside): {len(outside)} of {cov["beats"]}</summary>'
+                 + ('<div class="scroll"><table>' + _rows(["beat", "video time", "kaise", "kya kaha"], head=True)
+                    + "".join(_rows([f"<b>{e(b['beat_id'])}</b>", e(b["time"]), e(b["how"]), e(b["say"])]) for b in outside) + "</table></div>" if outside else "<p>koi nahi</p>")
+                 + "</details>")
+    return "".join(parts)
+
+
 def before_after(video_id: str, canvas_dir: Path, before_canvas: Path | None, lesson_dir: Path | None, before_lesson: Path | None) -> str:
     """The before/after of Navin's verdict, by code: every on-screen text that changed between two canvas runs (by plan and
     element id) and every beat whose narration changed between two lesson runs."""
@@ -170,9 +292,10 @@ def before_after(video_id: str, canvas_dir: Path, before_canvas: Path | None, le
 
 def build(canvas_dir: Path, render_dir: Path, *, video_path: Path | None = None, stills_dir: Path | None = None, base_url: str = "",
           status: str = "", note: str = "", before_canvas: Path | None = None, lesson_dir: Path | None = None,
-          before_lesson: Path | None = None) -> str:
+          before_lesson: Path | None = None, chapter_map: Path | None = None, records: dict | None = None) -> str:
     e = html.escape
     canvas = json.loads((canvas_dir / "canvas.json").read_text(encoding="utf-8"))
+    records = records if records is not None else coverage_records(canvas_dir, lesson_dir, chapter_map)
     quality = canvas.get("quality") or {}
     render = json.loads((render_dir / "summary.json").read_text(encoding="utf-8")) if (render_dir / "summary.json").exists() else {}
     cost = render.get("cost") or (json.loads((render_dir / "cost.json").read_text(encoding="utf-8")) if (render_dir / "cost.json").exists() else {})
@@ -186,40 +309,7 @@ def build(canvas_dir: Path, render_dir: Path, *, video_path: Path | None = None,
     review_name = Path(join.get("review") or "review-720p.mp4").name
     video_url = f"{base_url}/{review_name}" if base_url else ""
     status = status or "IMPLEMENTED aur INTEGRATED (plans BIE ne likhe, render BIE ke code ne CI mein kiya); ACCEPTED nahi, Navin ke verdict tak"
-    head = f"""<title>{e(course.get('title') or 'BIE video')} · review</title>
-<meta name="claude:viewport-fit-sides" content="cover">
-<style>
-:root {{ --bg:#f6f4ee; --fg:#1d2328; --muted:#5f6b72; --card:#ffffff; --line:#d9d4c7; --accent:#8a5a14; --accent-ink:#fff8ea; --green:#1d7a4f; --warm:#b85c00; color-scheme:light }}
-@media (prefers-color-scheme: dark) {{ :root:not([data-theme="light"]) {{ --bg:#141a1f; --fg:#f1efe8; --muted:#a3adb3; --card:#1d262d; --line:#324049; --accent:#e4b263; --accent-ink:#141a1f; --green:#5ad395; --warm:#ffb35c; color-scheme:dark }} }}
-:root[data-theme="dark"] {{ --bg:#141a1f; --fg:#f1efe8; --muted:#a3adb3; --card:#1d262d; --line:#324049; --accent:#e4b263; --accent-ink:#141a1f; --green:#5ad395; --warm:#ffb35c; color-scheme:dark }}
-body {{ background:var(--bg); color:var(--fg); font-family: Inter, "Noto Sans", "Noto Sans Devanagari", system-ui, sans-serif; line-height:1.5; margin:0;
-  padding-block:24px 48px; padding-left:max(16px, env(safe-area-inset-left, 0px)); padding-right:max(16px, env(safe-area-inset-right, 0px)) }}
-main {{ max-width: 1100px; margin: 0 auto }}
-h1 {{ font-size: clamp(24px, 4vw, 36px); margin: 0 0 6px; text-wrap: balance }}
-h2 {{ font-size: clamp(20px, 3vw, 26px); margin: 36px 0 10px; color: var(--accent); text-wrap: balance }}
-h3 {{ font-size: 17px; margin: 18px 0 8px }}
-h4 {{ font-size: 15px; margin: 16px 0 6px }}
-p.lead {{ font-size: 17px }}
-.muted {{ color: var(--muted) }}
-.tag {{ display:inline-block; padding:2px 10px; border:1px solid var(--line); border-radius:999px; font-size:12px; letter-spacing:.04em; text-transform:uppercase; color:var(--muted) }}
-.grid {{ display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px }}
-.card {{ background: var(--card); border:1px solid var(--line); border-radius: 14px; padding: 14px 16px; min-width: 0 }}
-.card h3 {{ margin-top: 0 }}
-table {{ border-collapse: collapse; width: 100%; font-size: 14px }}
-td, th {{ text-align: left; padding: 5px 8px; border-bottom: 1px solid var(--line); vertical-align: top }}
-th {{ color: var(--muted); font-weight: 600; font-size: 12px; letter-spacing: .04em; text-transform: uppercase }}
-.scroll {{ overflow-x: auto; border:1px solid var(--line); border-radius: 12px; background: var(--card) }}
-a.button {{ display:inline-block; background: var(--accent); color: var(--accent-ink); font-weight: 700; padding: 10px 18px; border-radius: 10px; text-decoration: none }}
-.stills {{ display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px }}
-figure {{ margin: 0; min-width: 0 }}
-figure img {{ display:block; width: 100%; max-width: 100%; height: auto; border-radius: 10px; border: 1px solid var(--line) }}
-figcaption {{ font-size: 13px; color: var(--muted); margin-top: 4px }}
-details summary {{ cursor: pointer; font-weight: 600; margin: 12px 0 }}
-ol.beats {{ padding-left: 20px; font-size: 15px }}
-ol.beats li {{ margin: 4px 0 }}
-ul {{ padding-left: 20px }}
-.decide {{ border-left: 4px solid var(--warm); padding: 6px 14px; background: var(--card); border-radius: 0 12px 12px 0 }}
-</style>"""
+    head = page_head(f"{course.get('title') or 'BIE video'} · review")
     parts = [head, "<main>", f'<span class="tag">Task 046 · Part C · {e(status)}</span>']
     for video in videos:
         spec_path = canvas_dir / "video_specs" / f"{video['video_id']}.json"
@@ -285,6 +375,9 @@ ul {{ padding-left: 20px }}
             parts.append(f"<details><summary>Script, part by part (jo captions mein dikhta hai)</summary>{script}</details>")
         if video.get("credits"):
             parts.append("<details><summary>Icon credits</summary><ul>" + "".join(f"<li>{e(c)}</li>" for c in video["credits"]) + "</ul></details>")
+        if records.get(video["video_id"]):
+            parts.append("<h2>Kitaab ki kaun-si lines is video ne padhaayi (table B, by code)</h2>")
+            parts.append(coverage_block(records[video["video_id"]]))
         if before_canvas or before_lesson:
             parts.append("<h2>Pehle aur ab (Navin ka verdict, 29 October 2026)</h2>")
             parts.append(before_after(video["video_id"], canvas_dir, before_canvas, lesson_dir, before_lesson))
@@ -310,12 +403,23 @@ def main(argv=None):
     parser.add_argument("--before-canvas", type=Path, help="an earlier canvas run: every on-screen text that changed is listed")
     parser.add_argument("--lesson", type=Path, help="the lesson run whose script this video follows (for the narration before/after)")
     parser.add_argument("--before-lesson", type=Path, help="an earlier lesson run: every beat whose narration changed is listed")
+    parser.add_argument("--chapter-map", type=Path, help="the chapter map (file, or the understanding run folder): with --lesson, the page "
+                                                         "carries the table of the book lines each video taught")
+    parser.add_argument("--coverage-json", type=Path, help="where the coverage record goes (default: <page>.coverage.json)")
     args = parser.parse_args(argv)
+    records = coverage_records(args.canvas, args.lesson, args.chapter_map)
     page = build(args.canvas, args.render, video_path=args.video, stills_dir=args.stills, base_url=args.base_url.rstrip("/"),
-                 status=args.status, note=args.note, before_canvas=args.before_canvas, lesson_dir=args.lesson, before_lesson=args.before_lesson)
+                 status=args.status, note=args.note, before_canvas=args.before_canvas, lesson_dir=args.lesson, before_lesson=args.before_lesson,
+                 records=records)
     args.html.parent.mkdir(parents=True, exist_ok=True)
     args.html.write_text(page, encoding="utf-8")
     print(f"{args.html}: {len(page.encode('utf-8')) / 1e6:.2f} MB")
+    if records:
+        out = args.coverage_json or args.html.with_suffix(".coverage.json")
+        out.write_text(json.dumps(records, ensure_ascii=False, indent=1), encoding="utf-8")
+        for vid, cov in records.items():
+            print(f"{out}: {vid} {cov['covered']} of {cov['assigned']} lines covered, {len(cov['uncovered'])} not covered, "
+                  f"{len(cov['outside_beats'])} outside-basis beats")
     return 0
 
 
