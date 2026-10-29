@@ -281,6 +281,9 @@ class Tool(unittest.TestCase):
                                        "--out", str(out2), "--workers", "1", "--max-inr", "100000", "--videos", "v1"])
             self.assertEqual(code, 0)
             self.assertTrue((out2 / "video_specs" / "v1.json").exists())
+            # the canvas section has no reviewer round: its preflight checks the maker's route only (a job without a reviewer
+            # route stopped on the VM's default Google reviewer on 28 October 2026)
+            self.assertEqual(list(summary["preflight"]["routes"]), [summary["maker"]])
 
     def test_the_vm_accepts_a_canvas_job(self):
         import codex_vm
