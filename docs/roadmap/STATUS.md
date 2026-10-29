@@ -1224,6 +1224,14 @@ PR B (only after Navin's yes): live runs on the Gemini key, maker `google/gemini
   PR as F-13d: `assets._open` and `sources.fetch` ask again after a wait on a server's 500, 502, 503 and 504 as they
   already did on 429 and 503 (three tries, Retry-After honoured, 30 s at most), never on a 4xx of our own making, and the
   last error names the URL. Core tests with a fake server.
+- F-17 (29 October 2026, PR #101 run 40874556586, job `demos (3)`, head `b7e98cfd`): `hist-archive-images` failed with
+  `TimeoutError: The read operation timed out` from Wikimedia Commons or Openverse (21 of 22 demos passed; the PR changes
+  screen-text rules, the lesson and canvas checks, tests and docs, nothing the demo runs). Not rerun (rule CI-2). Fix, in
+  its own small PR (`f15b-fetch-timeout`): `assets._open` and `sources.fetch` share one `transient()` judgement, and a
+  socket read that timed out, a connection reset or refused, or a `URLError` carrying one of those is asked again after
+  a wait like a 429 or 5xx (three tries, Retry-After honoured, 30 s at most); a 4xx of our own making or a local error
+  (permission denied) is still raised at once, and the last error names the URL and the tries. Core tests with a fake
+  server. PR #101 takes the fix in with a merge from `main`.
 - F-16 (27 October 2026, PR #90 run 40582378287, job `demos (2)`, head `b2e2b9ec`): `astro-sky` failed with `OSError: cannot
   download https://cdsarc.cds.unistra.fr/ftp/cats/I/239/hip_main.dat because <urlopen error [Errno 110] Connection timed out>`;
   14 of 15 demos passed and the PR changes only rulebook JSON, tests and docs. Cause: the shared asset cache was restored

@@ -11,9 +11,11 @@ Network access runs in GitHub Actions; tests use a fake opener.
 """
 from __future__ import annotations
 
+import errno
 import hashlib
 import json
 import re
+import socket
 import time
 import urllib.error
 import urllib.parse
@@ -96,12 +98,45 @@ def _strip_html(text) -> str:
 
 
 TRANSIENT_HTTP = (429, 500, 502, 503, 504)   # a busy or stumbling server: asked again after a wait, never on a 4xx of our own making
+TRANSIENT_ERRNO = (errno.ECONNRESET, errno.ETIMEDOUT, errno.ECONNREFUSED, errno.EPIPE)   # the line dropped mid-way: asked again too
+
+
+def transient(exc: BaseException) -> bool:
+    """Whether an error is the server's or the line's passing trouble (asked again after a wait) rather than ours: a 429 or
+    5xx, a socket read that timed out, a connection reset or refused (F-15, 27 October 2026; F-17, 29 October 2026: Commons
+    or Openverse let a read time out once and the archive demo failed). A 4xx of our own making is never transient."""
+    if isinstance(exc, urllib.error.HTTPError):
+        return exc.code in TRANSIENT_HTTP
+    if isinstance(exc, (TimeoutError, socket.timeout)):
+        return True
+    if isinstance(exc, urllib.error.URLError):
+        return transient(exc.reason) if isinstance(exc.reason, BaseException) else "timed out" in str(exc.reason).lower()
+    if isinstance(exc, OSError):
+        return exc.errno in TRANSIENT_ERRNO or "timed out" in str(exc).lower()
+    return False
+
+
+def transient_wait(exc: BaseException, attempt: int) -> float:
+    """How long to wait before asking again: the server's Retry-After when it gave one (30 s at most), else 5 s, 10 s ..."""
+    headers = getattr(exc, "headers", None)
+    wait = headers.get("retry-after") if headers else None
+    return min(30.0, float(wait) if wait and wait.isdigit() else 5.0 * (attempt + 1))
+
+
+def _name(exc: BaseException, url: str, attempt: int) -> BaseException:
+    """The same error, naming the URL (without its query) and the tries it took."""
+    where = f"({url.split('?', 1)[0]}" + (f", {attempt + 1} tries)" if attempt else ")")
+    if isinstance(exc, urllib.error.HTTPError):
+        exc.msg = f"{exc.msg} {where}"
+        return exc
+    return AssetError(f"{type(exc).__name__}: {exc} {where}")
 
 
 def _open(url: str, *, opener=None, timeout: float = 60.0, max_bytes: int = MAX_ASSET_BYTES, tries: int = 3) -> bytes:
-    """GET an https URL. A busy or stumbling server's 429, 500, 502, 503 or 504 is retried after its Retry-After (at most
-    30 s, ``tries`` times): Wikimedia asks every client to slow down rather than hammer it, and Commons and Openverse
-    answer a 500 now and then (F-15, 27 October 2026). The last error names the URL."""
+    """GET an https URL. A busy or stumbling server's 429, 500, 502, 503 or 504, a read that timed out or a connection the
+    line dropped is retried after its Retry-After (at most 30 s, ``tries`` times): Wikimedia asks every client to slow down
+    rather than hammer it, and Commons and Openverse answer a 500 or hold a read now and then (F-15, F-17). The last error
+    names the URL."""
     if not url.startswith("https://"):
         raise AssetError("only https URLs are allowed")
     request = urllib.request.Request(url, headers={"user-agent": USER_AGENT})
@@ -110,12 +145,10 @@ def _open(url: str, *, opener=None, timeout: float = 60.0, max_bytes: int = MAX_
             with (opener or urllib.request.urlopen)(request, timeout=timeout) as response:
                 data = response.read(max_bytes + 1)
             break
-        except urllib.error.HTTPError as exc:
-            if exc.code not in TRANSIENT_HTTP or attempt == tries - 1:
-                exc.msg = f"{exc.msg} ({url.split('?', 1)[0]}" + (f", {attempt + 1} tries)" if attempt else ")")   # the same error, named
-                raise
-            wait = exc.headers.get("retry-after") if exc.headers else None
-            time.sleep(min(30.0, float(wait) if wait and wait.isdigit() else 5.0 * (attempt + 1)))
+        except (urllib.error.URLError, OSError) as exc:          # HTTPError is a URLError; TimeoutError an OSError
+            if not transient(exc) or attempt == tries - 1:
+                raise _name(exc, url, attempt) from (None if isinstance(exc, urllib.error.HTTPError) else exc)
+            time.sleep(transient_wait(exc, attempt))
     if len(data) > max_bytes:
         raise AssetError("asset is larger than the limit")
     return data
