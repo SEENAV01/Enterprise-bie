@@ -451,8 +451,12 @@ Deferred", "Money = balance / Device ≠ money", "EMI amount agreed ≠"), the n
   reports the pattern missed ("wheat 10 से 8 kg", "receipt ₹0 से ₹100 होती है"): the widened pattern of SEEKH_LOG entry 27
   finds 67 on -d and 11 on -e (v2 3, v5 1, v6 2, v11 4, v17 1), 0 on the passed outputs. The on-screen after waits for the
   canvas job on the resume that passes.
+- **Narration locked (branch `task046c-narration-lock`, 29 October 2026):** `tools/lock_explanations.py --what narration`
+  on the lesson resume `-e` locked the spoken wording of v1's 11 locked examples (42 beats of v1; `explanations.json`
+  2026-10-24.3, `narration_version` recorded on each; by Navin's verdict of 29 October 2026). The script maker now gets
+  these lines as "locked narration" to keep word for word; v1 itself is kept as it is by the resume `-f`.
 - **Next:** the lesson resume `-f` under entry 27, the canvas job for every passed video, the renders, v1's page with the
-  before/after, then the narration lock of v1's 11 examples (the decision of PR #99).
+  before/after.
 
 ### Work B · which book lines did this video teach (branch `task046c-coverage`, on top of work A)
 
