@@ -819,8 +819,14 @@ class DemosAndPage(unittest.TestCase):
             for tile in done["tiles"]:
                 self.assertTrue(Path(cache, "gmt/server/earth/earth_relief/earth_relief_02m_g", tile).exists())
             from bie.toolbox.adapters import astro
-            allowed = (earth.GMT_SERVER, astro.EPHEMERIS["source"], astro.BSC["source"], astro.HIPPARCOS["source"])
+            allowed = (earth.GMT_SERVER, astro.EPHEMERIS["source"], astro.BSC["source"], astro.HIPPARCOS["source"],
+                       "https://commons.wikimedia.org/", "https://api.openverse.org/")
             self.assertTrue(all(u.startswith(allowed) for u in urls), urls)
+            # F-17b: the archive demo's two pictures are asked for too (this fake server answers no JSON, so both are
+            # reported as failed, never raised: the demo job fetches them itself then); a real run caches them
+            self.assertEqual(set(result["archive_images"]), {"commons", "openverse"})
+            self.assertTrue(all(v.startswith("failed: ") for v in result["archive_images"].values()), result["archive_images"])
+            self.assertTrue(any("commons.wikimedia.org" in u for u in urls) and any("api.openverse.org" in u for u in urls))
         self.assertIn("region = earth.DEFAULT_REGION", (ROOT / "bie" / "toolbox" / "demos.py").read_text(encoding="utf-8"))
         flow = (ROOT / ".github" / "workflows" / "toolbox.yml").read_text(encoding="utf-8")
         assets = flow.split("\n  assets:\n", 1)[1].split("\n  core:\n", 1)[0]

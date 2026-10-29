@@ -5,6 +5,7 @@
     python tools/toolbox_setup.py --assets <folder>     fetch the downloads a demo needs from a flaky server into an
                                                         asset cache folder (CI saves it on main for every PR, F-13, F-16)
     python tools/toolbox_setup.py --skyfield <folder>   only the skyfield files, from CDS or a VizieR mirror (F-16)
+    python tools/toolbox_setup.py --archive-images <folder>   only the archive demo's two pictures (Commons, Openverse; F-17b)
 
 Python libraries come from pyproject extras (pip install -e '.[toolbox-core,toolbox-bio,...]'); system libraries for
 Manim (Cairo, Pango) from apt; neither is installed by this script.
@@ -78,17 +79,42 @@ def prefetch_skyfield(cache: Path, *, opener=None, sleep=time.sleep, tries: int 
     return done
 
 
+def prefetch_archive_images(cache: Path, *, opener=None) -> dict:
+    """The archive demo's two pictures (Wikimedia Commons, Openverse) into ``cache``/open-images, where ``sources._open_image``
+    reads them before asking the archive (F-17b: Openverse answered 500 three times in a row, Commons let a read time out;
+    a demo run should not depend on either being up). A picture that cannot be fetched is reported, not raised: the demo
+    job fetches it itself then, as before."""
+    import os
+    import tempfile
+    from bie.brain.assets import AssetLibrary
+    from bie.toolbox import demos, sources
+    os.environ["BIE_ASSET_CACHE"] = str(cache)
+    done = {}
+    with tempfile.TemporaryDirectory() as scratch:
+        library = AssetLibrary(Path(scratch) / "library")
+        for name, fetch in (("commons", lambda: sources.commons_image(demos.SALT_MARCH_COMMONS, library, width=demos.SALT_MARCH_WIDTH, opener=opener)),
+                            ("openverse", lambda: sources.openverse_image(demos.SALT_MARCH_OPENVERSE, library, opener=opener))):
+            try:
+                fetch()
+                done[name] = "fetched"
+            except Exception as exc:                           # noqa: BLE001  (reported in the job's output, never fatal here)
+                done[name] = f"failed: {type(exc).__name__}: {str(exc)[:160]}"
+    return done
+
+
 def prefetch_assets(cache: Path, *, opener=None, sleep=time.sleep) -> dict:
     """The downloads the demos need from flaky servers, into ``cache``: the SRTM15+ tables and tiles of the geo-relief demo
-    from GMT's one data server (``cache``/gmt; unreachable from GitHub's runners for minutes at a time, F-13) and the
-    skyfield files of the astro demos (``cache``/skyfield; CDS timed out, F-16). A PR's own cache starts empty; the cache
-    saved on main is what every PR restores."""
+    from GMT's one data server (``cache``/gmt; unreachable from GitHub's runners for minutes at a time, F-13), the
+    skyfield files of the astro demos (``cache``/skyfield; CDS timed out, F-16) and the archive demo's two pictures
+    (``cache``/open-images; Openverse answered 500, F-17b). A PR's own cache starts empty; the cache saved on main is what
+    every PR restores."""
     from bie.toolbox.adapters import earth
     folder = Path(cache) / "gmt"
     folder.mkdir(parents=True, exist_ok=True)
     return {"gmt_relief": earth.prefetch_relief(earth.DEFAULT_RESOLUTION, earth.DEFAULT_REGION, userdir=folder, opener=opener,
                                                 sleep=sleep),
-            "skyfield": prefetch_skyfield(cache, opener=opener, sleep=sleep)}
+            "skyfield": prefetch_skyfield(cache, opener=opener, sleep=sleep),
+            "archive_images": prefetch_archive_images(cache, opener=opener)}
 
 
 def main(argv=None):
@@ -98,6 +124,8 @@ def main(argv=None):
     parser.add_argument("--print-env", type=Path)
     parser.add_argument("--assets", type=Path)
     parser.add_argument("--skyfield", type=Path, help="only the skyfield files (the batch-2 demos job runs this after its cache restore, F-16)")
+    parser.add_argument("--archive-images", type=Path, help="only the archive demo's pictures (the batch-3 demos job runs this after its cache "
+                                                             "restore, F-17b); a picture the archive cannot give is reported, not fatal")
     args = parser.parse_args(argv)
     if args.web:
         install(args.web, [g for g in args.groups.split(",") if g] or None)
@@ -109,7 +137,9 @@ def main(argv=None):
         print(json.dumps(prefetch_assets(args.assets), indent=1))
     if args.skyfield:
         print(json.dumps({"skyfield": prefetch_skyfield(args.skyfield)}, indent=1))
-    if not (args.web or args.print_env or args.assets or args.skyfield):
+    if args.archive_images:
+        print(json.dumps({"archive_images": prefetch_archive_images(args.archive_images)}, indent=1))
+    if not (args.web or args.print_env or args.assets or args.skyfield or args.archive_images):
         parser.print_help()
         return 2
     return 0

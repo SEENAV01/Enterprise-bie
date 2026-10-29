@@ -1231,7 +1231,15 @@ PR B (only after Navin's yes): live runs on the Gemini key, maker `google/gemini
   socket read that timed out, a connection reset or refused, or a `URLError` carrying one of those is asked again after
   a wait like a 429 or 5xx (three tries, Retry-After honoured, 30 s at most); a 4xx of our own making or a local error
   (permission denied) is still raised at once, and the last error names the URL and the tries. Core tests with a fake
-  server. PR #101 takes the fix in with a merge from `main`.
+  server. PR #101 takes the fix in with a merge from `main`. **F-17b, the same day:** the fix PR's own `demos (3)` then
+  failed on `HTTPError: HTTP Error 500 (https://api.openverse.org/v1/images/bafa11dc-…/, 3 tries)`: Openverse answered 500 to
+  every request for about an hour (checked from the workspace: 500 after 30 s, twice; PR #103's run failed the same way).
+  Not this PR's, no rerun (CI-2). So the archive demo no longer depends on the archive being up at demo time: the `assets`
+  job on `main` prefetches its two pictures into the shared cache (`tools/toolbox_setup.py --assets`, now
+  `prefetch_archive_images`, next to the GMT tiles and the skyfield files; `sources._open_image` reads the cache before the
+  archive), and the batch-3 demos job asks for them once more after its cache restore (`--archive-images`, reported, never
+  fatal) the way batch 2 asks for the skyfield files. Until Openverse answers once on `main`, `demos (3)` stays red on every
+  PR; nothing is merged around it.
 - F-16 (27 October 2026, PR #90 run 40582378287, job `demos (2)`, head `b2e2b9ec`): `astro-sky` failed with `OSError: cannot
   download https://cdsarc.cds.unistra.fr/ftp/cats/I/239/hip_main.dat because <urlopen error [Errno 110] Connection timed out>`;
   14 of 15 demos passed and the PR changes only rulebook JSON, tests and docs. Cause: the shared asset cache was restored

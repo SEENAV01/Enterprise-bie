@@ -197,6 +197,9 @@ jobs:
       - name: Skyfield files when the restored cache lacks them (CDS or a VizieR mirror, F-16)
         if: matrix.batch == 2
         run: python -B tools/toolbox_setup.py --skyfield "$BIE_ASSET_CACHE"
+      - name: The archive demo's pictures when the restored cache lacks them (Commons, Openverse; asked again on a 500 or a timeout, F-17b)
+        if: matrix.batch == 3
+        run: python -B tools/toolbox_setup.py --archive-images "$BIE_ASSET_CACHE"
       - name: Proof clips (BIE code only), contact sheets and receipts
         run: python -B tools/toolbox_demos.py --batch "${{ matrix.batch }}" --out "$RUNNER_TEMP/demos" --keep-going
       - name: Bridge proof - the same clip rendered by real Remotion
