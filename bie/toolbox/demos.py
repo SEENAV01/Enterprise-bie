@@ -531,10 +531,17 @@ def _picture_name(asset) -> str:
     return f"{title} · {asset.author}"[:70] if asset.author else title[:70]
 
 
+# The archive demo's two pictures; the assets job fetches them into the shared cache on main (F-17b), so a demo run reads
+# them from the cache and an archive that answers 500 or holds a read does not fail the demo.
+SALT_MARCH_COMMONS = "File:Gandhiji Leading Salt satyagrah.jpg"
+SALT_MARCH_WIDTH = 960
+SALT_MARCH_OPENVERSE = "bafa11dc-b447-4e43-804c-c3f8f3eca309"
+
+
 def archive_images(w: Work) -> dict:
     from . import sources
-    old = sources.commons_image("File:Gandhiji Leading Salt satyagrah.jpg", w.library, tags=["history", "salt march"], width=960, opener=w.opener)
-    new = sources.openverse_image("bafa11dc-b447-4e43-804c-c3f8f3eca309", w.library, tags=["history", "salt march"], opener=w.opener)
+    old = sources.commons_image(SALT_MARCH_COMMONS, w.library, tags=["history", "salt march"], width=SALT_MARCH_WIDTH, opener=w.opener)
+    new = sources.openverse_image(SALT_MARCH_OPENVERSE, w.library, tags=["history", "salt march"], opener=w.opener)
     w.notes["licences"] = {"commons": old.licence, "openverse": new.licence}
     left, right = {"x": 0.03, "y": 0.16, "w": 0.45, "h": 0.66}, {"x": 0.52, "y": 0.16, "w": 0.45, "h": 0.66}
     layers = [
