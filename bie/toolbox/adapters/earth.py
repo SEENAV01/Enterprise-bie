@@ -61,11 +61,13 @@ def relief_tiles(table: str, resolution: str, region, registration: str = "g"):
 
 def _download(url: str, *, opener=None, tries: int = 3, wait: float = 10.0, sleep=time.sleep, max_bytes: int = 200 * 1024 * 1024,
               timeout: float = 120.0):
-    from ..sources import fetch
+    from ..sources import SourceError, fetch
     errors = []
     for attempt in range(tries):
         try:
-            return fetch(url, opener=opener, timeout=timeout, max_bytes=max_bytes)
+            return fetch(url, opener=opener, timeout=timeout, max_bytes=max_bytes, tries=1)   # this loop does the asking again
+        except SourceError as exc:
+            errors.append(str(exc)[:160])
         except urllib.error.HTTPError as exc:
             if exc.code == 404:
                 raise
