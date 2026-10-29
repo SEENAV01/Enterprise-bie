@@ -518,7 +518,7 @@ class ExplanationLibrary(unittest.TestCase):
                 self.assertEqual(lock_explanations.main(["--run", str(run), "--items", "p009-i9", "--by", "x", "--path", str(path)]), 2)
             self.assertIn("ITEMS_NOT_IN_MAP:p009-i9", err.getvalue())
         explanations.load.cache_clear()
-        self.assertEqual(explanations.load().version, "2026-10-24.2")            # the real file is untouched
+        self.assertEqual(explanations.load().version, "2026-10-24.3")            # the real file is untouched
 
 
 class Benchmark(unittest.TestCase):
