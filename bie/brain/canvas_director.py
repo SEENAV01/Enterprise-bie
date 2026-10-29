@@ -17,6 +17,7 @@ from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 from . import canvas, shots, soul
+from . import formats
 from .assets import AssetLibrary
 from .canvas import PlanError
 from .video import screen_text
@@ -499,6 +500,8 @@ def split_stub(stub: dict, max_beats: int = MAX_PART_BEATS) -> list:
 
 def run_canvas(chapter: dict, lesson: dict, course: Course, runner, out_dir, *, videos=None, workers: int = 4, max_rounds: int = 3,
                opener=None) -> dict:
+    chapter = formats.accept("chapter_map", chapter, where="chapter_map.json")              # the section boundary
+    lesson = formats.accept("lesson_plan", lesson, where="lesson_plan.json")
     out = Path(out_dir)
     (out / "video_specs").mkdir(parents=True, exist_ok=True)
     (out / "plans").mkdir(exist_ok=True)
@@ -508,7 +511,7 @@ def run_canvas(chapter: dict, lesson: dict, course: Course, runner, out_dir, *, 
     chosen = [v for v in lesson.get("videos", []) if v.get("beats") and v["video_id"] in plans and v.get("status", "passed") == "passed"
               and (not wanted or v["video_id"] in wanted)]
     menu = icon_menu()
-    summary = {"schema": "bie.brain.canvas/1", "course": chapter["course"], "rulebook_version": runner.rulebook.version,
+    summary = {"schema": formats.tag("canvas_summary"), "course": chapter["course"], "rulebook_version": runner.rulebook.version,
                "licence_policy": licence_policy.version(), "profile": canvas.PROFILE["profile"], "profile_version": canvas.PROFILE["version"],
                "family": shots.subject_family(course.subject), "canvas_subject": profile_fits(course), "maker_route": runner.maker,
                "videos": [], "missing_kits": []}
@@ -553,6 +556,8 @@ def run_canvas(chapter: dict, lesson: dict, course: Course, runner, out_dir, *, 
                     paths = icons.add_to_library(ids, library, opener=opener) if ids else {}
                     icon_ids += [i for i in ids if i not in icon_ids]
                     scene, report = canvas.compile_plan(plan, icon_paths=paths)
+                formats.check("world_c_plan" if "elements" in plan else "canvas_b_plan", formats.stamp("world_c_plan" if "elements" in plan else "canvas_b_plan", plan),
+                              where=f"plans/{stub['id']}.plan.json")
                 (out / "plans" / f"{stub['id']}.plan.json").write_text(json.dumps(plan, ensure_ascii=False, indent=1), encoding="utf-8")
                 scenes.append(scene)
                 entry.update(level=report["level"], seconds=report["seconds"], elements=report["elements"],
@@ -573,6 +578,7 @@ def run_canvas(chapter: dict, lesson: dict, course: Course, runner, out_dir, *, 
             if problems:
                 row.update(status="stopped_by_licence", licence_problems=problems)
             else:
+                formats.check("video_spec", spec, where=f"video_specs/{video['video_id']}.json")
                 canvas.write_spec(spec, out / "video_specs" / f"{video['video_id']}.json")
                 row["status"] = "spec_written"
         else:
@@ -589,6 +595,7 @@ def run_canvas(chapter: dict, lesson: dict, course: Course, runner, out_dir, *, 
                           "story_parts_in_a_world": sum(1 for p in parts if p.get("story") and p["mode"] == "C"),
                           "missing_kits": list(summary["missing_kits"]), "seconds": round(sum(v["seconds"] for v in summary["videos"]), 1),
                           "cost_usd": round(sum(p["cost_usd"] for p in parts), 6)}
+    formats.check("canvas_summary", summary, where=str(out / "canvas.json"))
     (out / "canvas.json").write_text(json.dumps(summary, ensure_ascii=False, indent=1), encoding="utf-8")
     (out / "CANVAS.md").write_text(render_markdown(summary), encoding="utf-8")
     return summary

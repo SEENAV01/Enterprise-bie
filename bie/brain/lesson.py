@@ -45,6 +45,7 @@ from . import cards
 from . import content_types as ct
 from . import engines
 from . import explanations
+from . import formats
 from . import hinglish
 from . import naksha as naksha_module
 from . import shots
@@ -1065,6 +1066,9 @@ def run_lesson(chapter: dict, course: Course, runner, out_dir, *, workers: int =
     """``only``: video ids to work on in a resumed run; the other scripts are kept as they were (Task 046, VM job 1)."""
     from .runner import StepResult
 
+    chapter = formats.accept("chapter_map", chapter, where="chapter_map.json")              # the section boundary: the wrong shape stops here
+    if previous_lesson:
+        previous_lesson = formats.accept("lesson_plan", previous_lesson, where="lesson_plan.json (resume_from)")
     out = Path(out_dir)
     out.mkdir(parents=True, exist_ok=True)
     naksha = chapter_naksha(chapter)
@@ -1094,7 +1098,7 @@ def run_lesson(chapter: dict, course: Course, runner, out_dir, *, workers: int =
                StepResult(SECTION, f"script-{v['video_id']}", "passed", old_scripts[v["video_id"]], record_path=None)
                for v in videos]
     lesson = {
-        "schema": "bie.brain.lesson/2",
+        "schema": formats.tag("lesson_plan"),
         "course": chapter["course"],
         "source_sha256": chapter.get("source_sha256"),
         "naksha_sha256": naksha["sha256"],
@@ -1150,6 +1154,7 @@ def run_lesson(chapter: dict, course: Course, runner, out_dir, *, workers: int =
                                             "prerequisite_video": list(PREREQUISITE_MINUTES), "per_page": list(MINUTES_PER_PAGE),
                                             "book_pages": book_pages(chapter)},
                          "cost_usd": lesson["cost_usd"]}
+    formats.check("lesson_plan", lesson, where=str(out / "lesson_plan.json"))        # the hand-over to the director, the game, the notes
     (out / "lesson_plan.json").write_text(json.dumps(lesson, ensure_ascii=False, indent=1), encoding="utf-8")
     write_pages(lesson, out)
     return lesson

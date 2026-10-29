@@ -20,10 +20,11 @@ from __future__ import annotations
 
 from collections import Counter
 
+from . import formats
 from . import lesson as lesson_module
 
-SCHEMA = "bie.brain.coverage/1"
-CHAPTER_SCHEMA = "bie.brain.coverage.chapter/1"
+SCHEMA = formats.tag("review_record")
+CHAPTER_SCHEMA = formats.tag("chapter_review_record")
 
 # How a beat teaches a line, said the way the page says it to Navin (the beat's purpose, S2 schema).
 HOW_WORDS = {"example": "example se", "explain": "samjhaya", "misconception": "galatfahmi door ki", "recap": "dohraav",

@@ -495,6 +495,30 @@ Deferred", "Money = balance / Device ≠ money", "EMI amount agreed ≠"), the n
 - **Next:** the lesson resume `-e` on the VM (Codex, ₹0; every script continued from its last answer), then canvas plans for
   every passed video, renders in CI, review copies and pages with table B.
 
+### Work D · the video path's formats locked (branch `task046c-formats`, on top of works A, B and C)
+
+- **One definition per hand-over** (`bie/brain/formats.py`, `FORMATS`): chapter map `bie.brain.chapter-map/2`, lesson plan
+  `bie.brain.lesson/3` (every beat carries `source`; `audio` reserved), canvas B plan `bie.brain.canvas-b-plan/1`, world C
+  plan `bie.brain.world-c-plan/1`, video spec `bie.video-spec/1` (was `bie.brain.canvas-plan/1`), canvas summary
+  `bie.brain.canvas/1`, render cost `bie.render.cost/1`, join `bie.render.join/1`, summary `bie.render-spec.summary/1`,
+  review record `bie.brain.coverage/1`, chapter review record `bie.brain.coverage.chapter/1`; each with its file, writer,
+  readers, what it holds and since when (`formats.describe()` is the table in `docs/bie/CONTRACTS.md` section 6).
+- **Validators at every boundary:** Section 1 checks the map it writes; Section 2 accepts the map and the earlier lesson
+  it resumes from and checks the lesson plan it writes; the canvas section accepts both, checks every plan, spec and its
+  summary; `tools/run_brain.py` accepts every input; `tools/render_spec.py` accepts the spec and checks join, cost and
+  summary; the page tools check the review records. The wrong shape stops the run with a `FormatError` naming the file,
+  the format and the field. Semantic checks a JSON shape cannot say: a passed map names its concepts, a beat's part is a
+  card part of its video, a passed script has beats, scene ids are unique, a caption lies inside its scene.
+- **Older files migrate, never a hand edit:** `formats.accept` migrates then checks (`lesson/2` → `/3` adds `source ""`; the
+  spec's old names); every real Money and tissue run folder on `blindtest-results` validates (3 chapter maps whose map step
+  failed carry an empty map and pass as such). **Reserved voice fields:** beat `audio` {file, duration, words[{w, start,
+  end}]}; `formats.voice_of` feeds `timing.build` through both compilers. **Game and notes fields** named in
+  `formats.READERS` and CONTRACTS. **Change rule:** bump, migrate, recheck `tests/fixtures/passed_outputs/` (the test does
+  it), update CONTRACTS (the test checks it).
+- Tests: `tests/test_task046c_formats.py` (8); the cards and canvas-director fixtures made valid hand-over files.
+  Status: IMPLEMENTED by tests and by the real run folders; INTEGRATED when the next VM run (lesson resume `-e`) and the
+  next CI render go through the validators. ₹0.
+
 ## Navin's decisions of 29 October 2026 (recorded in his words in ROADMAP 046; built on branch `task046c-navin-decisions`)
 
 Status words: IMPLEMENTED by tests (`tests/test_task046c_navin_decisions.py`, 11 tests; the licence, toolbox, soul,

@@ -56,15 +56,21 @@ def econ_lesson():
     curve = beats_of("phillips.plan.json", "p2", covers=("i2",))
     for n, b in enumerate(curve):
         b["beat_id"] = f"c{n + 1}"
-    chapter = {"course": {"title": "Inflation", "subject": "Economics", "learners": "UPSC aspirants", "exam": "UPSC", "language": "Hinglish",
+    chapter = {"schema": "bie.brain.chapter-map/2", "source_sha256": "b" * 64, "pages": [{"page": 1}], "map_status": "passed",
+               "course": {"title": "Inflation", "subject": "Economics", "learners": "UPSC aspirants", "exam": "UPSC", "language": "Hinglish",
                           "level": "upsc_pcs"}, "level": "upsc_pcs",
                "items": {"i1": {"item_id": "i1", "kind": "paragraph", "content": "Demand-pull inflation: demand exceeds supply.",
                                 "content_type": "cause_effect", "teachable": True, "teacher_understanding": []},
                          "i2": {"item_id": "i2", "kind": "paragraph", "content": "Phillips curve: inflation against unemployment.",
                                 "content_type": "cause_effect", "teachable": True, "teacher_understanding": []}},
-               "map": {"concepts": [{"concept_id": "c1", "item_ids": ["i1", "i2"]}]}}
-    lesson = {"plan": {"videos": [{"video_id": "v1", "concept_ids": ["c1"], "kind": "topic", "goal": "inflation"}]},
-              "videos": [{"video_id": "v1", "title": "Demand-pull and the Phillips curve", "status": "passed", "kind": "topic", "beats": shop + curve}]}
+               "map": {"concepts": [{"concept_id": "c1", "name": "Inflation", "item_ids": ["i1", "i2"]}]}}
+    parts = sorted({b["part_id"] for b in shop + curve if b.get("part_id")})
+    lesson = {"schema": "bie.brain.lesson/3", "course": chapter["course"], "rulebook_version": "test", "plan_status": "passed",
+              "plan": {"videos": [{"video_id": "v1", "title": "Demand-pull and the Phillips curve", "concept_ids": ["c1"], "kind": "topic", "goal": "inflation"}]},
+              "videos": [{"video_id": "v1", "title": "Demand-pull and the Phillips curve", "status": "passed", "kind": "topic",
+                          "card_parts": [{"part_id": p, "type": "cause_effect", "item_ids": ["i1", "i2"]} for p in parts],
+                          "beats": [dict(b, source=b.get("source", "")) for b in shop + curve]}],
+              "quality": {}}
     return chapter, lesson
 
 

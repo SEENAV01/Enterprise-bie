@@ -415,6 +415,9 @@ def main(argv=None):
     args.html.write_text(page, encoding="utf-8")
     print(f"{args.html}: {len(page.encode('utf-8')) / 1e6:.2f} MB")
     if records:
+        from bie.brain import formats
+        for vid, cov in records.items():
+            formats.check("review_record", cov, where=f"{vid} coverage record")
         out = args.coverage_json or args.html.with_suffix(".coverage.json")
         out.write_text(json.dumps(records, ensure_ascii=False, indent=1), encoding="utf-8")
         for vid, cov in records.items():
