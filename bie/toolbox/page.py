@@ -142,6 +142,7 @@ def gate_lines(box: Toolbox) -> list:
     gpl = [t.name for t in licence.copyleft_programs(box.tools)]
     out += ["", f"Software: {pol['software']['rule']}. {pol['software']['gpl']}: {', '.join(gpl)}.", ""]
     out += [f"- Open decision (Navin): {d['decision']}" for d in pol["software"].get("open_decisions") or []]
+    out += [f"- Decided by Navin on {d['decided_on']}: {d['decision']}" for d in pol["software"].get("decided") or []]
     return out
 
 

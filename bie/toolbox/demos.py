@@ -409,11 +409,11 @@ def night_sky(w: Work) -> dict:
     from .adapters import astro
     data = astro.sky(28.61, 77.21, "2026-01-15T20:00:00")
     w.notes["skyfield"] = {"stars": data["count"], "planets": [p["name"] for p in data["planets"]]}
-    return scene([block("sky_dome", dict(data, title="The sky over New Delhi", subtitle="15 January 2026, 8 pm · Hipparcos stars brighter than magnitude 3.5",
+    return scene([block("sky_dome", dict(data, title="The sky over New Delhi", subtitle="15 January 2026, 8 pm · Yale Bright Star Catalogue, stars brighter than magnitude 3.5",
                                          place_name="New Delhi", time_label="15 Jan 2026, 8:00 pm IST",
-                                         names={"32349": "Sirius", "27989": "Betelgeuse", "24436": "Rigel", "37279": "Procyon",
-                                                "21421": "Aldebaran", "24608": "Capella"},
-                                         credit="Stars: Hipparcos Catalogue (ESA 1997) via CDS · positions by Skyfield"))], 4.0)
+                                         names={"2491": "Sirius", "2061": "Betelgeuse", "1713": "Rigel", "2943": "Procyon",       # HR numbers
+                                                "1457": "Aldebaran", "1708": "Capella"},
+                                         credit="Stars: Yale Bright Star Catalogue (Hoffleit & Warren 1991) via the CfA · positions by Skyfield"))], 4.0)
 
 
 def earthrise(w: Work) -> dict:
@@ -814,7 +814,7 @@ DEMOS = (
          ("plate_motion",), 4.2, plates),
     Demo("astro-orbits", 2, "The inner planets' orbits from JPL DE421 (Skyfield, Astropy)", ("skyfield", "astropy", "jpl-de421", "d3", "bie-science-blocks"),
          ("orbit_motion",), 4.2, planet_orbits),
-    Demo("astro-sky", 2, "The night sky over New Delhi from the Hipparcos catalogue (Skyfield)", ("skyfield", "astropy", "hipparcos", "jpl-de421", "bie-science-blocks"),
+    Demo("astro-sky", 2, "The night sky over New Delhi from the Yale Bright Star Catalogue (Skyfield)", ("skyfield", "astropy", "yale-bsc", "jpl-de421", "bie-science-blocks"),
          ("sky_map",), 4.0, night_sky),
     Demo("astro-earthrise", 2, "Earthrise from NASA's image library, zoom and focus", ("nasa-images", "bie-blocks"), ("focus_glow",), 4.2, earthrise),
     Demo("aero-aircraft", 2, "A trainer aircraft and its lift curve from AeroSandbox", ("aerosandbox", "trimesh", *THREE_STACK, "d3", "bie-science-blocks"),

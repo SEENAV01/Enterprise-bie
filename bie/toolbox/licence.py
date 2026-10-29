@@ -112,6 +112,12 @@ def policy_problems(data: dict) -> list:
     for approved in sources.get("approved_by_navin") or []:
         if not (isinstance(approved, dict) and approved.get("id") and approved.get("approved_on") and approved.get("words")):
             out.append("policy: an approved source needs id, approved_on and Navin's words")
+    generated = data.get("generated_images")
+    if generated is not None:
+        if not generated.get("asset_sources") or not generated.get("provenance_fields") or not (generated.get("decided") or {}).get("words"):
+            out.append("policy: generated_images needs asset_sources, provenance_fields and Navin's words (decided)")
+        if generated.get("verdict") != "allowed":
+            out.append("policy: generated_images verdict must be allowed (with the provenance) or the block removed")
     boundary = data.get("india_boundary") or {}
     if boundary.get("verdict") != "needs_navin" and not boundary.get("approved_boundary"):
         out.append("policy: India's boundary stays needs_navin until Navin approves a boundary")
@@ -204,6 +210,9 @@ def source_rule(source: str):
     name = str(source or "").strip()
     if name in policy()["own_work"]["asset_sources"]:
         return "own", policy()["own_work"]
+    generated = policy().get("generated_images") or {}
+    if name in (generated.get("asset_sources") or []):
+        return "generated", generated
     entries = _source_entries()
     return entries.get(name) or entries.get(source_id(name), ("", {}))
 
@@ -238,6 +247,11 @@ def asset_verdict(asset, *, check_credit: bool = True) -> Verdict:
     kind, entry = source_rule(_get(asset, "source"))
     if kind == "own":
         return Verdict("allowed", entry["reason"], "own-work", False, "own")
+    if kind == "generated":                      # Route 2 (Navin, 29 October 2026): BIE's own image, with its provenance on the asset
+        missing = [f for f in entry["provenance_fields"] if not str(_get(asset, f) or "").strip()]
+        if missing:
+            return Verdict("refused", f"a generated image needs its provenance on the asset; missing: {', '.join(missing)}", "generated", False, "own")
+        return Verdict("allowed", entry["reason"] + f" (Navin, {entry['decided']['date']})", "generated", False, "own")
     if kind == "needs_navin":
         return Verdict("needs_navin", f"{entry['id']}: {entry['why']}", "own-terms")
     if kind == "approved":                       # Navin approved this source by name: its own terms, with a full credit
@@ -349,6 +363,7 @@ def tool_verdict(tool) -> Verdict:
     flags = set(_get(tool, "licence_flags", None) or ())
     if not is_content(tool):
         decisions = {d["id"]: d["decision"] for d in pol["software"].get("open_decisions") or []}
+        decisions.update({d["id"]: f"decided by Navin on {d['decided_on']}: {d['decision']}" for d in pol["software"].get("decided") or []})
         copyleft = "gpl" in flags or re.search(pol["software"]["copyleft_pattern"], str(licence).lower())
         note = "; ".join(n for n in (pol["software"]["gpl"] if copyleft else "", decisions.get(tid, "")) if n)
         return Verdict("allowed", pol["software"]["rule"], "software", False, "software", note)

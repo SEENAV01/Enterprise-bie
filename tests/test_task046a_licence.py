@@ -113,7 +113,8 @@ class Policy(unittest.TestCase):
         self.assertEqual(POLICY["decided"]["date"], "2026-10-25")
         names = {s["id"] for s in POLICY["sources"]["needs_navin"]}
         self.assertTrue({"india-code", "hipparcos", "bodyparts3d", "gmt-earth-relief"} <= names)
-        self.assertEqual(POLICY["sources"]["approved_by_navin"], [])
+        # Navin's yes of 29 October 2026: three sources approved by name, Hipparcos still waiting (ESA's terms)
+        self.assertEqual({a["id"] for a in POLICY["sources"]["approved_by_navin"]}, {"india-code", "gmt-earth-relief", "bodyparts3d"})
         self.assertIsNone(POLICY["india_boundary"]["approved_boundary"])
 
     def test_a_policy_that_lets_share_alike_in_is_named(self):
@@ -137,19 +138,19 @@ class Policy(unittest.TestCase):
 
 
     def test_a_source_navin_approves_by_name_opens_with_a_credit(self):
-        approved = json.loads(json.dumps(POLICY))
-        approved["sources"]["approved_by_navin"] = [{"id": "india-code", "approved_on": "2026-11-01", "words": "India Code le sakte ho"}]
-        self.assertEqual(licence.policy_problems(approved), [])
+        waiting = json.loads(json.dumps(POLICY))
+        waiting["sources"]["approved_by_navin"] = []                                    # the policy before 29 October 2026
+        self.assertEqual(licence.policy_problems(waiting), [])
         act = {"asset_id": "a3", "title": "BNSS (India Code)", "source": "india_code", "licence": sources.INDIA_CODE_TERMS,
                "licence_url": "https://indiacode.gov.in", "author": "Legislative Department", "page_url": "https://indiacode.gov.in/handle/1"}
-        self.assertEqual(licence.asset_verdict(act).verdict, "needs_navin")             # today: waits for Navin
-        with mock.patch.object(licence, "policy", return_value=approved):
-            self.assertTrue(licence.asset_verdict(act).allowed)
-            self.assertIn("approved by Navin on 2026-11-01", licence.asset_verdict(act).reason)
-            self.assertIn("missing: author", licence.asset_verdict(dict(act, author="")).reason)
-            self.assertEqual(licence.tool_verdict(BOX.tool("india-code")).verdict, "allowed")
-            self.assertEqual(licence.tool_verdict(BOX.tool("hipparcos")).verdict, "needs_navin")
-            self.assertEqual(licence.registry_problems(BOX.tools), [])
+        with mock.patch.object(licence, "policy", return_value=waiting):
+            self.assertEqual(licence.asset_verdict(act).verdict, "needs_navin")         # without his yes: waits for Navin
+        self.assertTrue(licence.asset_verdict(act).allowed)                             # today: approved by name on 29 October 2026
+        self.assertIn("approved by Navin on 2026-10-29", licence.asset_verdict(act).reason)
+        self.assertIn("missing: author", licence.asset_verdict(dict(act, author="")).reason)
+        self.assertEqual(licence.tool_verdict(BOX.tool("india-code")).verdict, "allowed")
+        self.assertEqual(licence.tool_verdict(BOX.tool("hipparcos")).verdict, "needs_navin")
+        self.assertEqual(licence.registry_problems(BOX.tools), [])
 
 
 class RegistryAndPage(unittest.TestCase):
@@ -167,8 +168,9 @@ class RegistryAndPage(unittest.TestCase):
     def test_lesson_use_verdicts_of_tools_and_sources(self):
         v = {t.id: licence.tool_verdict(t) for t in BOX.tools}
         self.assertEqual(v["z-anatomy"].verdict, "refused")
-        for tid in ("bodyparts3d", "hipparcos", "india-code", "gmt-earth-relief"):
-            self.assertEqual(v[tid].verdict, "needs_navin", tid)
+        self.assertEqual(v["hipparcos"].verdict, "needs_navin")
+        for tid in ("bodyparts3d", "india-code", "gmt-earth-relief"):                     # approved by Navin on 29 October 2026
+            self.assertEqual((v[tid].verdict, v[tid].credit_required), ("allowed", True), tid)
         for tid in ("nasa-images", "wikimedia-commons", "openverse", "nih-3d", "pubchem"):
             self.assertEqual(v[tid].verdict, "per_item", tid)
         for tid in ("servier-medical-art", "rcsb-pdb", "world-bank", "sc-judgments", "usgs-earthquakes", "jpl-de421", "noto-devanagari"):
@@ -329,38 +331,51 @@ class Gate(unittest.TestCase):
         self.assertEqual(demos.lesson_use(demos.by_id("geo-india-state").tools, blocks=["india_map"])["use"], licence.INTERNAL_PROOF)
         self.assertEqual(demos.lesson_use(demos.by_id("geo-quake-map").tools, blocks=["world_points"])["use"], "lessons")
 
-    def test_needs_navin_sources_stop_a_lesson(self):
+    def test_needs_navin_sources_stop_a_lesson_and_approved_ones_need_their_credit(self):
+        stars = self.lib.add_bytes(b"hip", mime="text/plain", source="hipparcos", title="Hipparcos stars",
+                                   page_url="https://cdsarc.cds.unistra.fr/viz-bin/cat/I/239", licence="scientific use with citation",
+                                   licence_url="", author="ESA", credit="")
         law = self.lib.add_bytes(b'{"title": "BNSS"}', mime="application/json", source="india_code", title="BNSS (India Code)",
                                  page_url="https://indiacode.gov.in/handle/1", licence=sources.INDIA_CODE_TERMS, licence_url="https://indiacode.gov.in",
                                  author="Legislative Department", credit="India Code: BNSS")
         relief = self.lib.add_bytes(b"\x89PNG relief", mime="image/png", source="pygmt", title="Himalaya relief",       # an earlier receipt's name
                                     page_url="https://www.generic-mapping-tools.org/remote-datasets/", licence="free to use with citation",
                                     licence_url="", author="BIE with PyGMT", credit="")
-        problems = self.lib.lesson_check([law.asset_id, relief.asset_id])
+        problems = self.lib.lesson_check([stars.asset_id, law.asset_id, relief.asset_id])
         self.assertEqual(len(problems), 2)
-        self.assertTrue(all("needs Navin" in p for p in problems))
-        self.assertIn("india-code", problems[0])
-        self.assertIn("gmt-earth-relief", problems[1])
+        self.assertIn("needs Navin", problems[0])                       # Hipparcos: ESA's terms unchecked
+        self.assertIn("hipparcos", problems[0])
+        self.assertIn("gmt-earth-relief", problems[1])                  # approved on 29 October 2026, but the citation (licence_url) is missing
+        self.assertIn("missing: licence_url", problems[1])
 
     def test_an_asset_the_library_does_not_hold_cannot_pass(self):
         self.assertIn("not in the asset library", self.lib.lesson_check(["a-0000000000000000"])[0])
 
     def test_the_resolver_logs_a_gap_when_only_refused_sources_provide(self):
+        waiting = json.loads(json.dumps(POLICY))
+        waiting["sources"]["approved_by_navin"] = []                      # the policy before Navin's yes of 29 October 2026
         with tempfile.TemporaryDirectory() as folder:
             log = resolver.MissingLog(Path(folder) / "missing.jsonl")
+            with mock.patch.object(licence, "policy", return_value=waiting):
+                relief = resolver.resolve("terrain_or_layers", subject="earth_science", log=log)
+                self.assertEqual(relief.assets, [])
+                self.assertEqual([h["tool"] for h in relief.not_for_lessons], ["gmt-earth-relief"])
+                self.assertIn("BIE draws it itself", relief.fallback)
+                anatomy = resolver.resolve("anatomy_3d", subject="biology_medical", log=log)
+                self.assertNotIn("z-anatomy", anatomy.assets)
+                self.assertNotIn("bodyparts3d", anatomy.assets)
+                self.assertIn("nih-3d", anatomy.assets)
+                self.assertEqual(anatomy.licence_gap, "")
+                rows = log.rows()
+                self.assertEqual([r["capability"] for r in rows], ["terrain_or_layers"])
+                self.assertIn("missing lesson-allowed source", rows[0]["reason"])
+            # after his yes: the relief and BodyParts3D are lesson sources with their credit; Z-Anatomy stays out
             relief = resolver.resolve("terrain_or_layers", subject="earth_science", log=log)
-            self.assertEqual(relief.assets, [])
-            self.assertEqual([h["tool"] for h in relief.not_for_lessons], ["gmt-earth-relief"])
-            self.assertIn("BIE draws it itself", relief.fallback)
+            self.assertEqual(relief.assets, ["gmt-earth-relief"])
             anatomy = resolver.resolve("anatomy_3d", subject="biology_medical", log=log)
+            self.assertIn("bodyparts3d", anatomy.assets)
             self.assertNotIn("z-anatomy", anatomy.assets)
-            self.assertNotIn("bodyparts3d", anatomy.assets)
-            self.assertIn("nih-3d", anatomy.assets)
-            self.assertEqual(anatomy.licence_gap, "")
-            rows = log.rows()
-            self.assertEqual([r["capability"] for r in rows], ["terrain_or_layers"])
-            self.assertIn("missing lesson-allowed source", rows[0]["reason"])
-            self.assertEqual(rows[0]["licence_policy"], licence.version())
+            self.assertEqual(len(log.rows()), 1)
 
     def test_a_game_picture_without_a_library_record_stops_the_game(self):
         from bie.brain.game_build import game_pictures
@@ -374,8 +389,8 @@ class Gate(unittest.TestCase):
 
     def test_proof_clips_with_refused_or_needs_navin_content_are_internal_proofs(self):
         marked = {d.id for d in demos.DEMOS if demos.lesson_use(d.tools)["use"] == licence.INTERNAL_PROOF}
-        self.assertEqual(marked, {"bio-heart-zanatomy", "psy-brain-lobes", "bio-heart-bodyparts3d", "astro-sky", "geo-relief",
-                                  "law-procedure-flow", "law-courts-tree"})       # the two India maps are caught by their block
+        # 29 October 2026: BodyParts3D, the SRTM15+ relief and India Code are approved by Navin, the sky demo reads the Yale catalogue
+        self.assertEqual(marked, {"bio-heart-zanatomy", "psy-brain-lobes"})   # the two India maps are caught by their block
         use = demos.lesson_use(demos.by_id("bio-organ-zoom").tools, [{"source": "servier_medical_art", "licence": "CC BY 4.0",
                                                                        "title": "lung", "id": "a"}])
         self.assertEqual(use, {"use": "lessons", "reasons": []})

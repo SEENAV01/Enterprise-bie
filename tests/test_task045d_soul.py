@@ -506,19 +506,19 @@ class ExplanationLibrary(unittest.TestCase):
                                                "--path", str(path)])
             self.assertEqual(code, 0, out.getvalue())
             library = explanations.load(str(path))
-            self.assertEqual(library.version, "2026-10-24.2")
+            self.assertEqual(library.version, explanations._bump(explanations.load().version))     # one lock bumps today's file once
             entry = library.lookup("a cuboidal cell")[0]
             self.assertEqual((entry.plain_meaning, entry.from_run, entry.concepts), ("हर तरफ़ से बराबर, घन जैसा", "vm-t045d-run:p003-i2",
                                                                                      ("simple cuboidal epithelium",)))
             self.assertEqual(len(entry.why_chain), 2)
             data = json.loads(path.read_text(encoding="utf-8"))
-            self.assertTrue(data["changes"][0].startswith("2026-10-24.2: 1 entries locked by Navin, 25 October 2026"))
+            self.assertTrue(data["changes"][0].startswith(f"{library.version}: 1 entries locked by Navin, 25 October 2026"))
             err = io.StringIO()
             with contextlib.redirect_stderr(err):
                 self.assertEqual(lock_explanations.main(["--run", str(run), "--items", "p009-i9", "--by", "x", "--path", str(path)]), 2)
             self.assertIn("ITEMS_NOT_IN_MAP:p009-i9", err.getvalue())
         explanations.load.cache_clear()
-        self.assertEqual(explanations.load().version, "2026-10-24.1")            # the real file is untouched
+        self.assertEqual(explanations.load().version, "2026-10-24.2")            # the real file is untouched
 
 
 class Benchmark(unittest.TestCase):

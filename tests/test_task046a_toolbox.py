@@ -732,13 +732,13 @@ class DemosAndPage(unittest.TestCase):
 
         with tempfile.TemporaryDirectory() as cache:
             done = setup.prefetch_skyfield(Path(cache), opener=opener, sleep=lambda s: None)
-            self.assertEqual(done, {"de421.bsp": "fetched", "hip_main.dat": "fetched"})
-            self.assertEqual(urls, [astro.EPHEMERIS["source"], astro.HIPPARCOS["source"]])
+            self.assertEqual(done, {"de421.bsp": "fetched", "bsc5.dat.gz": "fetched", "hip_main.dat": "fetched"})   # + the Yale catalogue (29 Oct 2026)
+            self.assertEqual(urls, [astro.EPHEMERIS["source"], astro.BSC["source"], astro.HIPPARCOS["source"]])
             self.assertEqual(Path(cache, "skyfield", "de421.bsp").read_bytes(), b"DAF/SPK")
             self.assertEqual(Path(cache, "skyfield", "hip_main.dat").read_bytes(), b"H|1|...")
             self.assertEqual(setup.prefetch_skyfield(Path(cache), opener=opener, sleep=lambda s: None),
-                             {"de421.bsp": "cached", "hip_main.dat": "cached"})
-            self.assertEqual(len(urls), 2)                                           # nothing fetched twice
+                             {"de421.bsp": "cached", "bsc5.dat.gz": "cached", "hip_main.dat": "cached"})
+            self.assertEqual(len(urls), 3)                                           # nothing fetched twice
         with tempfile.TemporaryDirectory() as cache:
             def down(request, timeout=None):
                 raise urllib.error.URLError("Connection timed out")
@@ -759,7 +759,7 @@ class DemosAndPage(unittest.TestCase):
             done = setup.prefetch_skyfield(Path(cache), opener=cds_down, sleep=lambda s: None, tries=1)
             self.assertEqual(done["de421.bsp"], "fetched")
             self.assertEqual(done["hip_main.dat"], f"fetched from {astro.HIPPARCOS['mirrors'][0]}")
-            self.assertEqual(asked, [astro.EPHEMERIS["source"], astro.HIPPARCOS["source"], astro.HIPPARCOS["mirrors"][0]])
+            self.assertEqual(asked, [astro.EPHEMERIS["source"], astro.BSC["source"], astro.HIPPARCOS["source"], astro.HIPPARCOS["mirrors"][0]])
             self.assertEqual(Path(cache, "skyfield", "hip_main.dat").read_bytes(), b"H|1|...")
         self.assertTrue(all(u.endswith("/ftp/cats/I/239/hip_main.dat") for u in astro.HIPPARCOS["mirrors"]))
         # the loader looks exactly where the assets job writes, and the batch-2 demos job fetches there itself
@@ -790,13 +790,13 @@ class DemosAndPage(unittest.TestCase):
         with tempfile.TemporaryDirectory() as cache:
             result = setup.prefetch_assets(Path(cache), opener=opener, sleep=lambda s: None)
             done = result["gmt_relief"]
-            self.assertEqual(result["skyfield"], {"de421.bsp": "fetched", "hip_main.dat": "fetched"})          # F-16
+            self.assertEqual(result["skyfield"], {"de421.bsp": "fetched", "bsc5.dat.gz": "fetched", "hip_main.dat": "fetched"})   # F-16
             self.assertEqual(done["tiles"], earth.relief_tiles(table, earth.DEFAULT_RESOLUTION, earth.DEFAULT_REGION)[1])
             self.assertEqual(sorted(done["fetched"]), sorted(done["tiles"]))
             for tile in done["tiles"]:
                 self.assertTrue(Path(cache, "gmt/server/earth/earth_relief/earth_relief_02m_g", tile).exists())
             from bie.toolbox.adapters import astro
-            allowed = (earth.GMT_SERVER, astro.EPHEMERIS["source"], astro.HIPPARCOS["source"])
+            allowed = (earth.GMT_SERVER, astro.EPHEMERIS["source"], astro.BSC["source"], astro.HIPPARCOS["source"])
             self.assertTrue(all(u.startswith(allowed) for u in urls), urls)
         self.assertIn("region = earth.DEFAULT_REGION", (ROOT / "bie" / "toolbox" / "demos.py").read_text(encoding="utf-8"))
         flow = (ROOT / ".github" / "workflows" / "toolbox.yml").read_text(encoding="utf-8")

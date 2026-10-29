@@ -1953,6 +1953,38 @@
    "batch": 2,
    "adapter": "bie.toolbox.adapters.astro",
    "proof": {
+    "demos": [],
+    "tests": [
+     "tests/toolbox/test_wrappers.py::Astro"
+    ]
+   },
+   "notes": "118,218 stars (53 MB), fetched once into BIE_ASSET_CACHE/skyfield. Navin said yes on 29 October 2026, but ESA's commercial terms still apply: kept out of lessons until ESA's terms are checked; the default star source is yale-bsc. Internal proofs only (catalogue=\"hipparcos\")."
+  },
+  {
+   "id": "yale-bsc",
+   "name": "Yale Bright Star Catalogue (5th revised edition)",
+   "kind": "dataset",
+   "subjects": [
+    "astronomy_space"
+   ],
+   "content_types": [
+    "figure",
+    "facts_numbers"
+   ],
+   "capabilities": [
+    "sky_map"
+   ],
+   "role": "asset",
+   "path": "offline",
+   "version": "BSC5, Hoffleit & Warren 1991 (CDS V/50)",
+   "licence": "Public domain",
+   "licence_flags": [],
+   "source": "https://cdsarc.cds.unistra.fr/viz-bin/cat/V/50",
+   "install_group": "assets-on-demand",
+   "status": "demo_proven",
+   "batch": 2,
+   "adapter": "bie.toolbox.adapters.astro",
+   "proof": {
     "demos": [
      "astro-sky"
     ],
@@ -1960,7 +1992,7 @@
      "tests/toolbox/test_wrappers.py::Astro"
     ]
    },
-   "notes": "118,218 stars (53 MB), fetched once into BIE_ASSET_CACHE/skyfield; recorded for Navin's licence decision."
+   "notes": "9,110 naked-eye stars (about 0.6 MB gzip; 9,096 with a V magnitude, 287 brighter than 3.5), fetched once into BIE_ASSET_CACHE/skyfield from the VizieR CfA mirror (CDS and the CfA's own copy as fallbacks); the default star source of the sky adapter since 29 October 2026 (Navin: Hipparcos waits for ESA's terms). Positions J2000 with proper motion; no parallax."
   },
   {
    "id": "nasa-images",
