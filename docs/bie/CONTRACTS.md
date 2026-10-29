@@ -66,3 +66,21 @@ count `real_world_from_library` against `real_world_from_ai`. The S1-16 checks r
 - `bie/toolbox/licence_policy.json`: every licence verdict (sources approved by name with the date and his words, the
   India boundary's condition, software decisions, generated images and their provenance fields).
 - `bie/brain/rulebook/*.json`: the rules and the library, versioned, each change listed in the file.
+
+## 5. The coverage record (work B of Navin's verdict, 29 October 2026)
+
+Every review page says, by code, which lines of the book its video taught; the same facts are written next to the page.
+
+- `<page>.coverage.json` (`bie.brain.coverage/1`, one record per video, `bie/brain/coverage.py: video_coverage`): `video_id`,
+  `title`, `kind`, `status`, `assigned`, `covered`, `beats`, `beats_timed`, `rows` (one per assigned line: `item_id`, `page`,
+  `kind`, `content`, `exam_importance`, `beats` with `beat_id`, `purpose`, `how`, `basis`, `scene`, `start_s`, `end_s`, `time`,
+  `say`; `how`, `questions`, `questions_answered`, `covered`), `uncovered` (must be empty), `outside_beats`,
+  `beats_beyond_scope`, `questions`, `questions_answered`, `basis` (counts of book / mixed / outside).
+- The chapter page's `<page>.coverage.json` (`bie.brain.coverage.chapter/1`, `chapter_coverage`): `chapter`, `teachable`,
+  `assigned`, `taught_by_a_passed_video`, `rows` (one per teachable line with its `videos`: `video_id`, `status`, `covered`),
+  `unassigned` (must be empty), `videos` (per video: `status`, `assigned`, `covered`, `uncovered`, `beats`).
+- Where the facts come from: the lines from the chapter map's concepts through `lesson.video_scope` (the scope the script
+  was checked against); the beats and their `covers_item_ids`, `purpose`, `basis`, `answers` from the lesson plan; the times
+  from the video spec's captions, one per beat, each carrying its `beat_id` (since 29 October 2026; an older spec is matched
+  to the plans' beats in order, else by the caption's text). No AI call; Claude writes none of it by hand.
+- These records are the "review record" the video path's formats lock (work D); a change bumps the schema version.

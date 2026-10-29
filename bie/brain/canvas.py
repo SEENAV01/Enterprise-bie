@@ -92,11 +92,13 @@ HOLD_CAPTION_S = 1.0     # a caption stays up through a pause shorter than this,
 
 def captions_of(tl: dict, scene_id: str, beats: list) -> list:
     """One caption per beat for the core strip: it appears with the beat and holds through a short pause until the next
-    line starts; only a pause longer than ``HOLD_CAPTION_S`` (and the tail after the last beat) shows no caption."""
+    line starts; only a pause longer than ``HOLD_CAPTION_S`` (and the tail after the last beat) shows no caption. Each caption
+    carries its ``beat_id`` so the review page can say where in the rendered video a beat (and the book line it covers) plays
+    (``coverage.beat_times``)."""
     out = []
     for b in beats:
         start, length = tl[scene_id]["beats"][b["beat_id"]]
-        out.append({"at": start, "until": start + length, "text": b.get("caption", b["say"])})
+        out.append({"at": start, "until": start + length, "text": b.get("caption", b["say"]), "beat_id": b["beat_id"]})
     hold = HOLD_CAPTION_S * tl[scene_id]["fps"]
     for cap, following in zip(out, out[1:]):
         if 0 <= following["at"] - cap["until"] <= hold:
