@@ -1,10 +1,10 @@
 {
   "rulebook": "bie-canvas-profile",
-  "version": "2026-10-27.2",
+  "version": "2026-10-29.1",
   "schema": "bie.rules.canvas-profile/1",
   "profile": "build_up_canvas",
   "source": "Navin's brief for Task 046 Part C, 27 October 2026 ('B default ke saath kahani wale hisson mein C'): every economy part is a build-up canvas with L3 touches (B) by default; a story part with actors in a place is an L3 world (C). The twelve canvas rules CV-01 to CV-12 and the limits come from the economy kit of the asset intake (27 October 2026), measured on 20 Indian-economy reference videos; the director reads the rules, bie/brain/canvas.py enforces what code can check.",
-  "notes": "Each rule is an instruction for the director (rule) and a yes/no question or a code check (check). The limits are the numbers the compiler refuses or reports against; the measurements are the reference numbers the limits were set from. Rules and limits change only through a reviewed version bump; Navin approves every new or changed rule. families: the subject families (bie/brain/shots.py, subject_family) whose parts default to the canvas; rules with the section 'canvas' are the instructions the canvas director step sends the maker.",
+  "notes": "Each rule is an instruction for the director (rule) and a yes/no question or a code check (check). The limits are the numbers the compiler refuses or reports against; the measurements are the reference numbers the limits were set from. Rules and limits change only through a reviewed version bump; Navin approves every new or changed rule. families: the subject families (bie/brain/shots.py, subject_family) whose parts default to the canvas; rules with the section 'canvas' are the instructions the canvas director step sends the maker. 2026-10-29.1 (Navin's verdict on Money v1, 29 October 2026): CV-13 to CV-16, on-screen text complete, in the learner's language, spoken and with its numbers; checked by bie/brain/video/screen_text.py in the director's plan check.",
   "limits": {
     "min_font_px": 24,
     "max_visible": 16,
@@ -176,6 +176,46 @@
       "status": "locked",
       "rule": "Light paper theme for build-up canvases (dark theme stays for 3D/science worlds); subtitles on a dark strip.",
       "check": "canvas_build theme"
+    },
+    {
+      "id": "CV-13",
+      "sections": [
+        "director",
+        "canvas"
+      ],
+      "status": "locked",
+      "rule": "On-screen text is a short COMPLETE phrase or sentence in the learner's language (Devanagari Hinglish with the English terms the script uses), one idea per board or box; never a code: no ✓ ✗ ≠, no list of bare words ('Exchange · Account / Store · Deferred'), no line that ends on → = : / (Navin, 29 October 2026: 'teacher ki naration uske sentence aise poore ho ki banawati na lage').",
+      "check": "screen_text.text_problems: symbol codes, an unfinished line, a code list"
+    },
+    {
+      "id": "CV-14",
+      "sections": [
+        "director",
+        "canvas"
+      ],
+      "status": "locked",
+      "rule": "Every on-screen text is explained: its key words are said in the narration of the beat it appears on (the cue beat), and every board step the director adds is spoken; a text the narration never says does not go on screen.",
+      "check": "screen_text.text_problems: at least 60% of a text's key words occur in its cue beat's narration"
+    },
+    {
+      "id": "CV-15",
+      "sections": [
+        "director",
+        "canvas"
+      ],
+      "status": "locked",
+      "rule": "A caveat ('imagined market', 'illustrative numbers') is shown once per part on its own small note, not on every board.",
+      "check": "screen_text.problems: at most one caveat text per plan"
+    },
+    {
+      "id": "CV-16",
+      "sections": [
+        "director",
+        "canvas"
+      ],
+      "status": "locked",
+      "rule": "Numbers on screen are written the way the narration says them: every number on a board, tag or box is said in its cue beat (₹500 on screen, '500 rupaye' in the narration), no counters the narration never mentions ('Payments: 0 → 2').",
+      "check": "screen_text.text_problems: every digit group on screen occurs in the cue beat's narration"
     }
   ]
 }

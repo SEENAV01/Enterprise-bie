@@ -120,8 +120,57 @@ def script_block(video: dict, plans: dict) -> str:
     return "".join(parts)
 
 
+def plan_texts(canvas_dir: Path) -> dict:
+    """{(plan id, text row id): text} over the plans of a canvas run, through the screen-text rows of each plan."""
+    from bie.brain.video import screen_text
+    out = {}
+    for pid, plan in load_plans(canvas_dir).items():
+        rows = screen_text.world_texts(plan) if "world_width" in plan or plan.get("kit") else screen_text.canvas_texts(plan)
+        for r in rows:
+            out[(pid, r["id"])] = r["text"]
+    return out
+
+
+def lesson_beats(lesson_dir: Path | None, video_id: str) -> dict:
+    """{beat id: say} of one video of a lesson run, or {}."""
+    if not lesson_dir or not (lesson_dir / "lesson_plan.json").exists():
+        return {}
+    plan = json.loads((lesson_dir / "lesson_plan.json").read_text(encoding="utf-8"))
+    video = next((v for v in plan.get("videos") or [] if v.get("video_id") == video_id), None)
+    return {b["beat_id"]: b.get("say", "") for b in (video or {}).get("beats") or []}
+
+
+def before_after(video_id: str, canvas_dir: Path, before_canvas: Path | None, lesson_dir: Path | None, before_lesson: Path | None) -> str:
+    """The before/after of Navin's verdict, by code: every on-screen text that changed between two canvas runs (by plan and
+    element id) and every beat whose narration changed between two lesson runs."""
+    e = html.escape
+    parts = []
+    if before_canvas and before_canvas.exists():
+        old, new = plan_texts(before_canvas), plan_texts(canvas_dir)
+        changed = [(k, old[k], new[k]) for k in sorted(old) if k in new and old[k] != new[k]]
+        gone = [k for k in old if k not in new]
+        added = [k for k in new if k not in old]
+        parts.append(f"<h3>Screen par text: {len(changed)} badle, {len(gone)} hate, {len(added)} naye (plans by id)</h3>")
+        if changed:
+            parts.append('<div class="scroll"><table>' + _rows(["part · element", "pehle", "ab"], head=True)
+                         + "".join(_rows([e(f"{k[0]} · {k[1]}"), e(o).replace("\n", "<br>"), e(n).replace("\n", "<br>")]) for k, o, n in changed) + "</table></div>")
+        if gone or added:
+            parts.append('<details><summary>Hate aur naye texts</summary><div class="scroll"><table>' + _rows(["kya", "part · element", "text"], head=True)
+                         + "".join(_rows(["hata", e(f"{k[0]} · {k[1]}"), e(old[k]).replace("\n", "<br>")]) for k in gone)
+                         + "".join(_rows(["naya", e(f"{k[0]} · {k[1]}"), e(new[k]).replace("\n", "<br>")]) for k in added) + "</table></div></details>")
+    if before_lesson and lesson_dir:
+        old, new = lesson_beats(before_lesson, video_id), lesson_beats(lesson_dir, video_id)
+        changed = [(b, old[b], new[b]) for b in old if b in new and old[b] != new[b]]
+        parts.append(f"<h3>Narration: {len(changed)} of {len(old)} beats badle</h3>")
+        if changed:
+            parts.append('<div class="scroll"><table>' + _rows(["beat", "pehle", "ab"], head=True)
+                         + "".join(_rows([e(b), e(o), e(n)]) for b, o, n in changed) + "</table></div>")
+    return "".join(parts)
+
+
 def build(canvas_dir: Path, render_dir: Path, *, video_path: Path | None = None, stills_dir: Path | None = None, base_url: str = "",
-          status: str = "", note: str = "") -> str:
+          status: str = "", note: str = "", before_canvas: Path | None = None, lesson_dir: Path | None = None,
+          before_lesson: Path | None = None) -> str:
     e = html.escape
     canvas = json.loads((canvas_dir / "canvas.json").read_text(encoding="utf-8"))
     quality = canvas.get("quality") or {}
@@ -236,6 +285,9 @@ ul {{ padding-left: 20px }}
             parts.append(f"<details><summary>Script, part by part (jo captions mein dikhta hai)</summary>{script}</details>")
         if video.get("credits"):
             parts.append("<details><summary>Icon credits</summary><ul>" + "".join(f"<li>{e(c)}</li>" for c in video["credits"]) + "</ul></details>")
+        if before_canvas or before_lesson:
+            parts.append("<h2>Pehle aur ab (Navin ka verdict, 29 October 2026)</h2>")
+            parts.append(before_after(video["video_id"], canvas_dir, before_canvas, lesson_dir, before_lesson))
     parts.append('<section id="decide"><h2>Navin ke faisle</h2><div class="decide"><ul>'
                  '<li><b>Verdict:</b> video dekh kar: kya ye economy chapter ke liye sahi disha hai? Kya sabse pehle sudhre?</li>'
                  '<li><b>B default, C story ke liye:</b> parts table mein har part ka mode hai; koi part galat mode mein lage to bolo.</li>'
@@ -255,9 +307,12 @@ def main(argv=None):
     parser.add_argument("--base-url", default="")
     parser.add_argument("--status", default="")
     parser.add_argument("--note", default="")
+    parser.add_argument("--before-canvas", type=Path, help="an earlier canvas run: every on-screen text that changed is listed")
+    parser.add_argument("--lesson", type=Path, help="the lesson run whose script this video follows (for the narration before/after)")
+    parser.add_argument("--before-lesson", type=Path, help="an earlier lesson run: every beat whose narration changed is listed")
     args = parser.parse_args(argv)
     page = build(args.canvas, args.render, video_path=args.video, stills_dir=args.stills, base_url=args.base_url.rstrip("/"),
-                 status=args.status, note=args.note)
+                 status=args.status, note=args.note, before_canvas=args.before_canvas, lesson_dir=args.lesson, before_lesson=args.before_lesson)
     args.html.parent.mkdir(parents=True, exist_ok=True)
     args.html.write_text(page, encoding="utf-8")
     print(f"{args.html}: {len(page.encode('utf-8')) / 1e6:.2f} MB")

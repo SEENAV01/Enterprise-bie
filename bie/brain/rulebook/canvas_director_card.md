@@ -53,7 +53,12 @@ Tones: `ink`, `muted`, `accent` (blue), `warm` (orange), `danger` (red), `ok` (g
    with `value` steps, crowds with `crowd` steps.
 5. A tree/branch overview first, then tick the branch that is done before the next.
 6. Keep one anchor (a tree, a band, a rate card) while the rest changes.
-7. Short on-screen text: a box holds one idea in at most ~12 words; the narration says the rest.
+7. On-screen text (CV-13 to CV-16, Navin's verdict on Money v1, 29 October 2026): a box holds ONE idea as a short COMPLETE
+   phrase or sentence in the learner's language (Devanagari Hinglish with the English terms the script uses), at most ~12
+   words; never a code: no ✓ ✗ ≠, no list of bare words ("Exchange · Account / Store · Deferred"), no line ending on → = : /;
+   every text is explained: its key words and every number are said in the narration of its cue beat (the code refuses a
+   text the beat does not say, and a number the beat does not say); a caveat ("imagined market") once per part on its own
+   small note. The narration says the rest.
 8. Never a photo or caricature of a real person, never a logo, emblem or regulator mark: a name tag or a generic icon.
 9. Tags must fit on one line in their cell; text must fit at ≥ 24 px (the code refuses otherwise: make the cell bigger
    or the text shorter).

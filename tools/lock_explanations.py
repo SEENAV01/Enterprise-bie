@@ -12,7 +12,9 @@ never on its own. The change is a reviewed PR like any rulebook change.
 
 ``--what examples`` (Navin, 29 October 2026: "V1 ke sabhi examples lock ho") locks the items' real-world examples
 (S1-16: place, actors, goods, numbers, steps, the term after the story) instead of their unpack terms; ``--what both``
-locks both. The narration wording of an example is never locked by this tool.
+locks both. ``--what narration --lesson <lesson run>`` locks the spoken wording of already locked examples: the beats of
+the passed script that cover each item (after the narration work of 29 October 2026 made it natural); the script maker
+then keeps those lines word for word.
 """
 from __future__ import annotations
 
@@ -35,8 +37,10 @@ def main(argv=None) -> int:
     parser.add_argument("--items", default="", help="item ids to lock, comma separated (their unpack must have passed)")
     parser.add_argument("--by", default="", help="who locked and when, for example 'Navin, 25 October 2026'")
     parser.add_argument("--path", default=str(explanations.PATH))
-    parser.add_argument("--what", choices=("terms", "examples", "both"), default="terms",
-                        help="lock the unpack terms (default), the real-world examples, or both")
+    parser.add_argument("--what", choices=("terms", "examples", "both", "narration"), default="terms",
+                        help="lock the unpack terms (default), the real-world examples, both, or the narration wording of already "
+                             "locked examples (needs --lesson)")
+    parser.add_argument("--lesson", default="", help="lesson run folder or https URL with lesson_plan.json (for --what narration)")
     parser.add_argument("--show", default="", help="print the locked entries whose term appears in this text, then exit")
     args = parser.parse_args(argv)
     if args.show:
@@ -48,8 +52,22 @@ def main(argv=None) -> int:
         return 0
     if not (args.run and args.items and args.by):
         parser.error("--run, --items and --by are required to lock")
-    chapter = json.loads(read_text(args.run.rstrip("/") + "/chapter_map.json"))
     ids = [i.strip() for i in args.items.split(",") if i.strip()]
+    if args.what == "narration":
+        if not args.lesson:
+            parser.error("--what narration needs --lesson (the lesson run with the passed scripts)")
+        lesson = json.loads(read_text(args.lesson.rstrip("/") + "/lesson_plan.json"))
+        lesson_run = args.lesson.rstrip("/").rsplit("/", 1)[-1]
+        try:
+            written = explanations.lock_narration_from_lesson(lesson, ids, by=args.by, run=lesson_run, path=args.path)
+        except ValueError as exc:
+            print(f"NARRATION_NOT_LOCKED: {exc}", file=sys.stderr)
+            return 2
+        for row in written:
+            print(f"locked narration: {row['term']} ({row['key']}) from {row['narration']['from_run']}: {len(row['narration']['beats'])} beats")
+        print(f"{len(written)} examples' narration locked in {args.path} (version {explanations.load(args.path).version})")
+        return 0
+    chapter = json.loads(read_text(args.run.rstrip("/") + "/chapter_map.json"))
     missing = [i for i in ids if i not in chapter["items"]]
     if missing:
         print("ITEMS_NOT_IN_MAP:" + ",".join(missing), file=sys.stderr)

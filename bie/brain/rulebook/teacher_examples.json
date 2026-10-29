@@ -1,8 +1,9 @@
 {
  "schema": "bie.brain.teacher-examples/1",
- "version": "2026-10-27.1",
+ "version": "2026-10-29.1",
  "status": "IMPLEMENTED (Task 045d). The teacher example bank: the ways a real teacher opens a book line, each with a paraphrased example from real teacher videos and from Navin. The script prefix carries them as good examples; the understanding prefix carries the ones that shape an unpack. Navin adds methods and examples here and bumps the version.",
  "changes": [
+  "2026-10-29.1 (Task 046 Part C, Navin's verdict on Money v1, 29 October 2026): 'real_world_application' carries Navin's good narration ('pehle aapke paas 500 rupaye the, kiraane ke 100 diye, ab 400 bache') and the state report it replaces (S2-09).",
   "2026-10-27.1 (Task 046 Part C addition, Navin, 27 October 2026): 'real_world_application': an economics concept is first applied in an everyday Indian situation (a place, actors, real goods or money, numbers that change, the mechanism step by step), then named, then the book's definition, then one line on where the learner meets it. Navin's sugar-shop example for demand-pull inflation. Read by the understanding prefix (the real_world_example slot, S1-16) and the script prefix (example first, name after, S2-08).",
   "2026-10-24.1 (Task 045d): nine methods from real teacher videos (paraphrased, Navin's selection of 24 October 2026), plus 'slender' and Navin's own absorptive/secretive example."
  ],
@@ -92,7 +93,9 @@
    "name": "Apply it in the real world first, then name it (Navin's sugar shop)",
    "when": "every economics concept (a definition, a cause-and-effect chain, a process): the example runs before the term is named",
    "example": "Ek kirana shop mein chini ke 3 packet hain, ₹50 ka ek. Kal 2 khareedar aaye the, aaj 12 aa gaye; sab ko chini chahiye par packet 3 hi hain. Dukandar daam ₹65 kar deta hai; ab sirf 3 log kharid paate hain, baaki 9 khaali haath. Zyada log, utna hi maal, isliye daam upar. Isliye ise demand-pull inflation kehte hain. Phir book ki definition. Phir: yahi aap Diwali se pehle sabzi mandi mein dekhte hain.",
-   "note": "The example has a place (bazaar, kirana shop, mandi, bank, factory, petrol pump, farm), actors (shopkeeper, buyers, farmer, worker, bank, RBI, government), real goods or money (sugar, onion, petrol, salary, loan, EMI) and numbers that change (₹50 → ₹65; buyers 2 → 12 → 3). The story runs the concept's mechanism step by step; the term comes after the story ('isliye ise … kehte hain'); then the book's definition; then one line on where the learner meets it in real life. The example must be economically correct and fit the learner's level (UPSC: the real Indian link, for example repo rate → home-loan EMI, only from the book or a dated source)."
+   "note": "The example has a place (bazaar, kirana shop, mandi, bank, factory, petrol pump, farm), actors (shopkeeper, buyers, farmer, worker, bank, RBI, government), real goods or money (sugar, onion, petrol, salary, loan, EMI) and numbers that change (₹50 → ₹65; buyers 2 → 12 → 3). The story runs the concept's mechanism step by step; the term comes after the story ('isliye ise … kehte hain'); then the book's definition; then one line on where the learner meets it in real life. The example must be economically correct and fit the learner's level (UPSC: the real Indian link, for example repo rate → home-loan EMI, only from the book or a dated source). The numbers are told as what happened, in a complete teacher sentence (Navin, 29 October 2026, on Money v1: 'pehle aapke paas 500 rupaye the, kiraane ke 100 diye, ab 400 bache'), never as a state report 'cash ₹500 से ₹400 हुआ' (S2-09).",
+   "good_narration": "pehle aapke paas 500 rupaye the, kiraane ke 100 diye, ab 400 bache",
+   "bad_narration": "cash ₹500 से ₹400 हुआ (a ledger's state report: never)"
   }
  ]
 }

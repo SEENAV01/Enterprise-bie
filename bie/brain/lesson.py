@@ -220,7 +220,9 @@ Real-world application (S2-08; Navin, 27 October 2026: "economic concepts ko rea
 definition, cause_effect or process item the source gives the real_world_example Section 1 chose (place, actors, goods, numbers before
 → after, the steps with their mechanism links, the naming sentence, the real-life link). Run that example FIRST, in beats that cover
 the item and carry its numbers as digits ("dukaan mein chini ke 3 packet, ₹50 ka ek; kal 2 khareedar, aaj 12"), walking the mechanism
-step by step (purpose story or example); only then the beat that names the term ("isliye ise demand-pull inflation kehte hain"), then
+step by step (purpose story or example); the numbers are said the way a teacher tells what happened ("pehle aapke paas 500 rupaye the,
+kiraane ke 100 diye, ab 400 bache"), never as a ledger's state report ("cash ₹500 से ₹400 हुआ"; BIE's code sends such a beat back,
+S2-09); only then the beat that names the term ("isliye ise demand-pull inflation kehte hain"), then
 the book's definition, then the real-life link. The opening question of such a topic asks about the situation, not the term. BIE's
 code sends back a script whose naming beat comes before the example beats, or whose example beats carry none of the numbers.
 Time (S2-01): the source gives this video's narration time; BIE's code counts the spoken words (130 a minute) and the script must stay
@@ -655,7 +657,8 @@ def _script_source(chapter, video, budget=None) -> str:
     lines.append("Open every book line (S2-07): " + "; ".join(soul.load_teacher()["opening_steps"]) + ".")
     lines.append("\nItems (item id | page | kind | type | content), each with its teacher questions "
                  "(question id | ask | question → answer | basis) and its unpack from Section 1 (term | why | example | consequence "
-                 "| visual), plus any locked explanation (Navin's verdict: speak it):")
+                 "| visual), plus any locked explanation (Navin's verdict: speak it) and any locked narration (Navin locked these "
+                 "spoken lines: keep them word for word in the beats that cover the item):")
     library = explanations.load()
     subject = (chapter.get("course") or {}).get("subject", "")
     for item in items:
@@ -667,6 +670,9 @@ def _script_source(chapter, video, budget=None) -> str:
         locked = library.source_lines(content, subject=subject)
         if locked:
             lines.append(locked)
+        spoken = library.narration_lines(content, subject=subject)
+        if spoken:
+            lines.append(spoken)
     return "\n".join(lines)
 
 
@@ -805,6 +811,7 @@ def check_script(value, chapter, video, language, card=None, budget=None):
     problems += soul.clipped_problems(beats)
     problems += soul.recap_problems(beats)
     problems += soul.wording_problems(beats)
+    problems += soul.state_report_problems(beats)
     if len(beats) < 3:
         problems.append("a video needs more than a couple of beats")
     if card is not None:

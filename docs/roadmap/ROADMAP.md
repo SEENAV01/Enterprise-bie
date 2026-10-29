@@ -341,6 +341,21 @@ decision (the lock tool).
    check against the Survey of India political map, shown to Navin with the review; Remotion: Navin runs a one-person
    company (26 October 2026), the free licence applies, the open decision is closed.
 
+**Navin's verdict on Money v1, 29 October 2026, in his words:** "achha laga ki us concept ko real world example se samjhaya
+gaya ... thoda kaam hume explain krne ke jo text lines screen par dikh rahi hai us par karna padega yaani teacher ki naration
+uske sentence aise poore ho ki banawati na lage aur cheejen samjhane ki process us par depend hai to unka complete tarike se
+istemal hona jaruri hai ... baaki kaam ki disha theek hai, is type ke outputs se economy samjh aa jaayegi bacho ko." He also
+asked to see, for every video, which lines of the book it taught, so he can judge completeness. The direction (B default, C for
+story parts, the real-world rule) is confirmed; nothing is ACCEPTED yet. **The work after it (works A to E, one PR per piece,
+STATUS section "Navin's verdict on Money v1 and the work after it"):** A, on-screen text as complete phrases the narration
+explains and narration that speaks like a teacher (CV-13 to CV-16, S2-09; v1 run again through BIE with the before/after on
+its page; then v1's locked examples get their narration wording locked); B, "which book lines did this video teach" on every
+review page, by code, with the lines not covered in red and a chapter page; C, the whole Money chapter through BIE (the five
+failing scripts fixed in BIE first, then plans, renders, review copies and pages for every passed video; library hits against
+AI calls; ₹50 cap on paid routes); D, the video path's formats locked (schemas with ids and versions, validators at every
+section boundary, the voice fields reserved for Task 047, the fields the game and the notes will read, the change rule); E,
+the canvas section's preflight without a reviewer route. Then STOP for his verdict.
+
 **047 · Voice** — extend Section 14: tested natural voices including a cloned voice (Navin chooses by ear);
 word timestamps drive the animation; close the AUDIO reconciliation.
 

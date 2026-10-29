@@ -19,6 +19,7 @@ from pathlib import Path
 from . import canvas, shots, soul
 from .assets import AssetLibrary
 from .canvas import PlanError
+from .video import screen_text
 from .common import S, arr, fmt, obj
 from .lesson import video_scope
 from .runner import NOTES_SCHEMA, Step
@@ -413,13 +414,13 @@ def check_plan(stub: dict, value: dict, mode) -> list:
         if letter == "C":
             plan = world_from(stub, value, kit=kit)
             _, report = world.compile_world(plan)
-            return report["problems"]
+            return report["problems"] + screen_text.problems(screen_text.world_texts(plan), plan["beats"])    # CV-13 … CV-16
         plan = plan_from(stub, value)
         problems = _icon_problems(plan)
         if problems:
             return problems
         _, report = canvas.compile_plan(plan)
-        return report["problems"]
+        return report["problems"] + screen_text.problems(screen_text.canvas_texts(plan), plan["beats"])      # CV-13 … CV-16
     except PlanError as exc:
         return [str(exc)]
     except (KeyError, TypeError, ValueError, IndexError) as exc:

@@ -66,7 +66,7 @@ def econ_item(iid="i1", kind="definition", ex=None):
 class Rulebook(unittest.TestCase):
     def test_the_method_the_slot_and_the_rules_are_in_the_rulebook(self):
         bank = soul.load_teacher()
-        self.assertEqual(bank["version"], "2026-10-27.1")
+        self.assertEqual(bank["version"], "2026-10-29.1")        # Navin's good narration added on 29 October 2026
         method = next(m for m in bank["methods"] if m["id"] == "real_world_application")
         self.assertIn("Isliye ise demand-pull inflation kehte hain", method["example"])
         self.assertIn("real_world_application", bank["changes"][0])
@@ -79,7 +79,7 @@ class Rulebook(unittest.TestCase):
         self.assertEqual((rules["S1-16"].status, rules["S1-16"].sections), ("locked", ("understand",)))
         self.assertEqual((rules["S2-08"].status, rules["S2-08"].sections), ("locked", ("lesson",)))
         self.assertIn("sugar", rules["S1-16"].rule)
-        for name in ("vision-2026-10-21@2026-10-21.14", "content_types@2026-10-27.1", "teacher_examples@2026-10-27.1", "simple_hindi@2026-10-28.1"):
+        for name in ("vision-2026-10-21@2026-10-21.15", "content_types@2026-10-27.1", "teacher_examples@2026-10-29.1", "simple_hindi@2026-10-28.1"):
             self.assertIn(name, BOOK.version)
         self.assertIn("S1-16", checklist_text(BOOK, "understand"))          # the reviewer answers it on every page
         self.assertIn("S2-08", checklist_text(BOOK, "lesson"))

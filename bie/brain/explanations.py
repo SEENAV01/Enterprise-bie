@@ -78,6 +78,7 @@ class Example:
     narration: dict | None = None
     narration_locked: bool = False
     locked_version: str = ""
+    narration_version: str = ""
 
     def pattern(self) -> str:
         return term_pattern(self.term, self.aliases)
@@ -106,6 +107,16 @@ class Library:
         """Prompt lines for the locked examples found in ``text``, or ""."""
         return "\n".join("  locked real-world example | " + e.line() for e in self.lookup_examples(text, subject=subject))
 
+    def narration_lines(self, text: str, *, subject: str = "") -> str:
+        """Prompt lines with the locked narration of the examples found in ``text`` (Navin's verdict locked their wording):
+        the script maker speaks these beats as they are, or ""."""
+        out = []
+        for e in self.lookup_examples(text, subject=subject):
+            if e.narration_locked and e.narration:
+                for b in e.narration.get("beats") or []:
+                    out.append(f"  locked narration | {e.term} | {b.get('beat_id', '')} | {b.get('say', '')}")
+        return "\n".join(out)
+
     def lookup(self, text: str, *, subject: str = "") -> list:
         """The locked entries whose term appears in ``text`` (word boundary, case-insensitive)."""
         low = (text or "").lower()
@@ -126,7 +137,7 @@ def _example(raw: dict) -> Example:
                    content_type=raw.get("content_type", ""), example=dict(raw.get("example") or {}), status=raw.get("status", "locked"),
                    source=raw.get("source", ""), from_run=raw.get("from_run", ""), concepts=tuple(raw.get("concepts") or []),
                    aliases=tuple(raw.get("aliases") or []), narration=raw.get("narration"), narration_locked=bool(raw.get("narration_locked")),
-                   locked_version=str(raw.get("locked_version", "")))
+                   locked_version=str(raw.get("locked_version", "")), narration_version=str(raw.get("narration_version", "")))
 
 
 def _entry(raw: dict) -> Entry:
@@ -218,6 +229,42 @@ def lock_examples_from_items(chapter: dict, item_ids, *, by: str, run: str, path
     data["examples"] = list(by_key.values())
     data["version"] = version
     data.setdefault("changes", []).insert(0, f"{version}: {len(written)} real-world examples locked by {by} from {run} (narration wording not locked)")
+    Path(path).write_text(json.dumps(data, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    load.cache_clear()
+    return written
+
+
+def lock_narration_from_lesson(lesson: dict, item_ids, *, by: str, run: str, path: str = str(PATH)) -> list:
+    """Lock the narration wording of locked examples (Navin's verdict, after the narration work of 29 October 2026): for each
+    locked example whose item is in ``item_ids``, the beats of the lesson plan's passed video that cover the item become its
+    ``narration`` (beat ids and spoken lines, the video id, the lesson run); ``narration_locked`` True; the library version
+    is bumped and recorded as ``narration_version``. Returns the examples written."""
+    data = json.loads(Path(path).read_text(encoding="utf-8"))
+    examples = data.get("examples") or []
+    wanted = set(item_ids)
+    version = _bump(str(data["version"]))
+    written = []
+    for ex in examples:
+        iid = ex.get("from_run", "").rsplit(":", 1)[-1]
+        if iid not in wanted:
+            continue
+        found = None
+        for video in lesson.get("videos") or []:
+            if video.get("status") != "passed":
+                continue
+            beats = [{"beat_id": b["beat_id"], "say": b["say"]} for b in video.get("beats") or [] if iid in (b.get("covers_item_ids") or [])]
+            if beats:
+                found = {"video_id": video["video_id"], "beats": beats, "from_run": f"{run}:{video['video_id']}"}
+                break
+        if not found:
+            raise ValueError(f"{ex['key']} ({iid}): no passed video of the lesson covers this item, nothing to lock")
+        ex.update(narration=found, narration_locked=True, narration_version=version, narration_source=by)
+        written.append(ex)
+    if not written:
+        raise ValueError("no locked example matches the items given")
+    data["examples"] = examples
+    data["version"] = version
+    data.setdefault("changes", []).insert(0, f"{version}: the narration wording of {len(written)} locked examples locked by {by} from {run}")
     Path(path).write_text(json.dumps(data, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     load.cache_clear()
     return written
