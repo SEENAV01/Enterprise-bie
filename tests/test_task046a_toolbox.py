@@ -522,6 +522,29 @@ class BatchThreeSources(unittest.TestCase):
             sources.fetch("https://api.worldbank.org/v2/x", opener=opener)
         self.assertEqual(slept.call_count, 2)
         self.assertIn("3 tries", str(caught.exception))
+        # F-17 (PR #101 run 40874556586, demos (3)): "TimeoutError: The read operation timed out" from Commons or Openverse
+        # once, and the archive demo failed; a read that times out or a line that drops is asked again like a 5xx, three
+        # times at most, and the last error names the URL; a 4xx and a licence refusal are still not asked again
+        answers.extend([TimeoutError("The read operation timed out"), FakeResponse(b"ok")])
+        with mock.patch("time.sleep") as slept:
+            self.assertEqual(assets._open("https://upload.wikimedia.org/x.jpg", opener=opener), b"ok")
+        slept.assert_called_once_with(5.0)
+        answers.extend([urllib.error.URLError(TimeoutError("timed out")), ConnectionResetError(104, "Connection reset by peer"), FakeResponse(b"ok")])
+        with mock.patch("time.sleep") as slept:
+            self.assertEqual(sources.fetch("https://api.openverse.org/v1/images/y/thumb/", opener=opener), b"ok")
+        self.assertEqual([c.args[0] for c in slept.call_args_list], [5.0, 10.0])
+        answers.extend([TimeoutError("The read operation timed out")] * 3)
+        with mock.patch("time.sleep") as slept, self.assertRaises(assets.AssetError) as caught:
+            assets._open("https://upload.wikimedia.org/x.jpg?w=1", opener=opener)
+        self.assertEqual(slept.call_count, 2)
+        self.assertIn("TimeoutError: The read operation timed out (https://upload.wikimedia.org/x.jpg, 3 tries)", str(caught.exception))
+        answers.extend([OSError(13, "Permission denied")])
+        with mock.patch("time.sleep") as slept, self.assertRaises(sources.SourceError) as caught:
+            sources.fetch("https://api.worldbank.org/v2/y", opener=opener)
+        slept.assert_not_called()
+        self.assertIn("(https://api.worldbank.org/v2/y)", str(caught.exception))
+        self.assertFalse(assets.transient(urllib.error.HTTPError("https://x", 403, "Forbidden", {}, None)))
+        self.assertTrue(assets.transient(urllib.error.URLError("[Errno 110] Connection timed out")))
 
     def test_font_and_indic_tables_are_pinned(self):
         import hashlib
@@ -796,8 +819,14 @@ class DemosAndPage(unittest.TestCase):
             for tile in done["tiles"]:
                 self.assertTrue(Path(cache, "gmt/server/earth/earth_relief/earth_relief_02m_g", tile).exists())
             from bie.toolbox.adapters import astro
-            allowed = (earth.GMT_SERVER, astro.EPHEMERIS["source"], astro.BSC["source"], astro.HIPPARCOS["source"])
+            allowed = (earth.GMT_SERVER, astro.EPHEMERIS["source"], astro.BSC["source"], astro.HIPPARCOS["source"],
+                       "https://commons.wikimedia.org/", "https://api.openverse.org/")
             self.assertTrue(all(u.startswith(allowed) for u in urls), urls)
+            # F-17b: the archive demo's two pictures are asked for too (this fake server answers no JSON, so both are
+            # reported as failed, never raised: the demo job fetches them itself then); a real run caches them
+            self.assertEqual(set(result["archive_images"]), {"commons", "openverse"})
+            self.assertTrue(all(v.startswith("failed: ") for v in result["archive_images"].values()), result["archive_images"])
+            self.assertTrue(any("commons.wikimedia.org" in u for u in urls) and any("api.openverse.org" in u for u in urls))
         self.assertIn("region = earth.DEFAULT_REGION", (ROOT / "bie" / "toolbox" / "demos.py").read_text(encoding="utf-8"))
         flow = (ROOT / ".github" / "workflows" / "toolbox.yml").read_text(encoding="utf-8")
         assets = flow.split("\n  assets:\n", 1)[1].split("\n  core:\n", 1)[0]
