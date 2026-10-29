@@ -323,7 +323,10 @@ def main(argv=None):
         summary["estimate"] = estimate
         notice("pahra andaaza", cost_module.estimate_line(estimate, args.max_inr),
                "warning" if estimate["total_inr"] > args.max_inr else "notice")
-        checked = (preflight(gateway, vision=args.section in ("understand", "chain", "visual")) if summary["status"] == "ok"
+        # the canvas section has no reviewer round (layout is checked by code), so only the maker's route is checked: a job
+        # without a reviewer route must not stop on the VM's default reviewer (28 October 2026: gemini-3.1-pro not found)
+        routes = [args.maker] if args.section == "canvas" else None
+        checked = (preflight(gateway, routes=routes, vision=args.section in ("understand", "chain", "visual")) if summary["status"] == "ok"
                    else {"passed": False, "routes": {}, "skipped": summary["status"]})   # a level stop spends nothing
         summary["preflight"] = checked
         for route, entry in checked["routes"].items():
