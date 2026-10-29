@@ -201,16 +201,16 @@ class Licences(unittest.TestCase):
 
 class YaleCatalogue(unittest.TestCase):
     def test_the_fixed_width_parser_reads_sirius_right(self):
-        from bie.toolbox.adapters import astro
-        frame = astro.load_bsc(ROOT / "tests" / "toolbox" / "fixtures" / "bsc5_3stars.dat")
-        self.assertEqual(sorted(frame.index), [1713, 2061, 2491])
-        sirius = frame.loc[2491]
+        from bie.toolbox.adapters import astro                     # the parser is pure Python: the canonical gate has no pandas
+        rows = {r["hr"]: r for r in astro.load_bsc(ROOT / "tests" / "toolbox" / "fixtures" / "bsc5_3stars.dat")}
+        self.assertEqual(sorted(rows), [1713, 2061, 2491])
+        sirius = rows[2491]
         self.assertAlmostEqual(sirius["ra_hours"], 6 + 45 / 60 + 8.9 / 3600, places=5)
         self.assertAlmostEqual(sirius["dec_degrees"], -(16 + 42 / 60 + 58 / 3600), places=5)
         self.assertEqual((sirius["magnitude"], sirius["epoch_year"], sirius["parallax_mas"]), (-1.46, 2000.0, 0.0))
         self.assertAlmostEqual(sirius["ra_mas_per_year"], -553.0)
         self.assertAlmostEqual(sirius["dec_mas_per_year"], -1205.0)
-        self.assertEqual(frame.loc[2061]["name"], "58Alp Ori")
+        self.assertEqual(rows[2061]["name"], "58Alp Ori")
         self.assertEqual(list(astro.BSC_COLUMNS), ["hr", "name", "ra_h", "ra_m", "ra_s", "de_sign", "de_d", "de_m", "de_s", "vmag", "pm_ra", "pm_de"])
 
 

@@ -60,10 +60,9 @@ def _fetch_bsc(folder: Path) -> Path:
     raise RuntimeError("the Yale Bright Star Catalogue could not be fetched: " + "; ".join(errors))
 
 
-def load_bsc(path: Path):
-    """The Yale Bright Star Catalogue as a Skyfield star dataframe (index HR; ra_hours, dec_degrees, proper motion in
-    mas/yr, parallax 0, epoch J2000, magnitude, name)."""
-    import pandas as pd            # Skyfield's own dependency for star dataframes
+def load_bsc(path: Path) -> list:
+    """The Yale Bright Star Catalogue as plain rows (pure Python, no pandas): hr, name, ra_hours, dec_degrees, proper motion
+    in mas/yr, parallax 0, epoch J2000, magnitude. ``bsc_frame`` turns them into the Skyfield star dataframe."""
     raw = path.read_bytes()
     text = (gzip.decompress(raw) if path.suffix == ".gz" else raw).decode("latin-1")
     rows = []
@@ -87,8 +86,13 @@ def load_bsc(path: Path):
         rows.append({"hr": int(field(line, "hr")), "name": field(line, "name"), "ra_hours": ra_hours, "dec_degrees": dec,
                      "ra_mas_per_year": number(line, "pm_ra") * 1000.0, "dec_mas_per_year": number(line, "pm_de") * 1000.0,
                      "parallax_mas": 0.0, "epoch_year": BSC["epoch"], "magnitude": number(line, "vmag")})
-    frame = pd.DataFrame(rows).set_index("hr")
-    return frame
+    return rows
+
+
+def bsc_frame(rows: list):
+    """The rows of ``load_bsc`` as a Skyfield star dataframe indexed by HR number (pandas, Skyfield's own dependency)."""
+    import pandas as pd
+    return pd.DataFrame(rows).set_index("hr")
 
 
 def _loader(cache: Path | None = None):
@@ -144,7 +148,7 @@ def sky(lat: float = 28.61, lon: float = 77.21, when: str = "2026-01-15T20:00:00
             stars = hipparcos.load_dataframe(handle)
         source = HIPPARCOS
     elif catalogue == "bsc":
-        stars = load_bsc(_fetch_bsc(Path(load.directory)))
+        stars = bsc_frame(load_bsc(_fetch_bsc(Path(load.directory))))
         source = BSC
     else:
         raise ValueError(f"catalogue must be bsc or hipparcos, not {catalogue!r}")
