@@ -15,6 +15,7 @@ from __future__ import annotations
 import copy
 
 from .. import canvas
+from .. import formats
 from ..canvas import PlanError
 from . import timing
 
@@ -98,6 +99,7 @@ def compile_world(plan: dict, *, voice: dict | None = None, lead_in: float = tim
         raise PlanError("a world plan needs at least one beat")
     says = {b["beat_id"]: b["say"] for b in beats}
     sid = plan.get("id", "world")
+    voice = voice if voice is not None else formats.voice_of(beats)      # Task 047: the spoken words, once the voice section writes them
     tl = timing.build(beats, [{"scene_id": sid, "beat_ids": [b["beat_id"] for b in beats]}], voice=voice, lead_in=lead_in)
     fps = tl[sid]["fps"]
 

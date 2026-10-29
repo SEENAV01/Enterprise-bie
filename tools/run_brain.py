@@ -52,6 +52,7 @@ sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "tools"))
 
 from bie.brain import cost as cost_module  # noqa: E402
+from bie.brain import formats  # noqa: E402
 from bie.brain import level as level_module  # noqa: E402
 from bie.brain import rulebook as rulebook_module  # noqa: E402
 from bie.brain.fake import BrainFakeClient  # noqa: E402
@@ -274,7 +275,8 @@ def main(argv=None):
             pdf = read_source(args.source)
             pages = page_total(pdf, args.pages)
             text = book_text(pdf=pdf, pages=args.pages)
-            previous = json.loads(read_text(args.resume_from.rstrip("/") + "/chapter_map.json")) if args.resume_from else None
+            previous = formats.accept("chapter_map", json.loads(read_text(args.resume_from.rstrip("/") + "/chapter_map.json")),
+                                      where="chapter_map.json (resume_from)") if args.resume_from else None
             if previous and previous.get("source_sha256") == hashlib.sha256(pdf).hexdigest():
                 selected = set(parse_page_range(args.pages, previous.get("page_count") or pages))
                 reused = sum(1 for p in previous.get("pages") or [] if p.get("status") == "passed" and p["page"] in selected)
@@ -282,9 +284,10 @@ def main(argv=None):
         elif args.section in ("lesson", "notes", "game"):
             if not args.chapter_map:
                 raise SystemExit("CHAPTER_MAP_REQUIRED")
-            chapter = json.loads(read_text(args.chapter_map))
+            chapter = formats.accept("chapter_map", json.loads(read_text(args.chapter_map)), where=args.chapter_map)
             if args.section == "lesson" and args.resume_from:
-                previous_lesson = json.loads(read_text(args.resume_from.rstrip("/") + "/lesson_plan.json"))
+                previous_lesson = formats.accept("lesson_plan", json.loads(read_text(args.resume_from.rstrip("/") + "/lesson_plan.json")),
+                                                 where="lesson_plan.json (resume_from)")
             course = Course(**chapter["course"]) if not args.course else course
             pages = chapter_pages(chapter)
             text = book_text(chapter=chapter)
@@ -293,8 +296,9 @@ def main(argv=None):
                 raise SystemExit("FROM_RUN_REQUIRED")
             base = args.from_run.rstrip("/") + "/"
             # a lesson run folder holds no chapter_map.json (the lesson read its map from a URL): --chapter-map names it then
-            chapter = json.loads(read_text(args.chapter_map if args.chapter_map else base + "chapter_map.json"))
-            lesson = json.loads(read_text(base + "lesson_plan.json"))
+            chapter = formats.accept("chapter_map", json.loads(read_text(args.chapter_map if args.chapter_map else base + "chapter_map.json")),
+                                     where="chapter_map.json")
+            lesson = formats.accept("lesson_plan", json.loads(read_text(base + "lesson_plan.json")), where=base + "lesson_plan.json")
             if args.section == "visual":
                 director = json.loads(read_text(base + "director.json"))
             course = Course(**chapter["course"]) if not args.course else course
@@ -399,7 +403,8 @@ def main(argv=None):
                 (out / "videos").mkdir(exist_ok=True)
                 for spec_path in sorted((out / "video_specs").glob("*.json")):
                     try:
-                        mp4(json.loads(spec_path.read_text(encoding="utf-8")), out / "videos" / (spec_path.stem + ".mp4"),
+                        mp4(formats.accept("video_spec", json.loads(spec_path.read_text(encoding="utf-8")), where=str(spec_path)),
+                            out / "videos" / (spec_path.stem + ".mp4"),
                             dist=out / "_preview", assets=out / "assets")
                     except RenderError as exc:
                         summary.setdefault("render_errors", []).append(f"{spec_path.stem}: {str(exc)[:300]}")

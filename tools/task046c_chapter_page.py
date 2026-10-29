@@ -112,6 +112,8 @@ def main(argv=None):
     page, record = build(chapter, lesson, pages=pages, note=args.note)
     args.html.parent.mkdir(parents=True, exist_ok=True)
     args.html.write_text(page, encoding="utf-8")
+    from bie.brain import formats
+    formats.check("chapter_review_record", record, where="chapter coverage record")
     out = args.json or args.html.with_suffix(".coverage.json")
     out.write_text(json.dumps(record, ensure_ascii=False, indent=1), encoding="utf-8")
     print(f"{args.html}: {len(page.encode('utf-8')) / 1e6:.2f} MB; {record['teachable']} teachable lines, "

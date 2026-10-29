@@ -31,6 +31,7 @@ from . import cards
 from . import content_types as ct
 from . import engines
 from . import explanations
+from . import formats
 from . import hinglish
 from . import level as level_module
 from . import naksha as naksha_module
@@ -877,7 +878,7 @@ def run_chapter(pdf_bytes: bytes, course: Course, runner: SectionRunner, out_dir
         rows = ct.compare((result.output or {}).get("items") or [], ct.propose_blocks(page.blocks, types))
         type_rows += [dict(r, item_id=f"p{number:03d}-{r['item_id']}", page=number) for r in rows]
     chapter = {
-        "schema": "bie.brain.chapter-map/2",
+        "schema": formats.tag("chapter_map"),
         "course": asdict(course),
         "level": course.profile().id,
         "source_sha256": source_sha,
@@ -918,6 +919,7 @@ def run_chapter(pdf_bytes: bytes, course: Course, runner: SectionRunner, out_dir
         (out / "naksha.json").write_text(json.dumps(built, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
         chapter["naksha"] = dict(naksha_module.size(built), sha256=built["sha256"], status=connect.status)
     chapter["quality"] = quality(chapter)
+    formats.check("chapter_map", chapter, where=str(out / "chapter_map.json"))      # the hand-over to every later section
     (out / "chapter_map.json").write_text(json.dumps(chapter, ensure_ascii=False, indent=1), encoding="utf-8")
     (out / "MAP.md").write_text(render_markdown(chapter), encoding="utf-8")
     (out / "PAGES.md").write_text(render_pages(chapter), encoding="utf-8")

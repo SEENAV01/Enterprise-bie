@@ -45,10 +45,11 @@ import json
 import math
 from pathlib import Path
 
+from . import formats
 from . import shots as shots_module
 from .video import timing
 
-SCHEMA = "bie.brain.canvas-plan/1"
+SCHEMA = formats.tag("video_spec")
 PROFILE_PATH = Path(__file__).resolve().parent / "rulebook" / "canvas_profile.json"
 PROFILE = json.loads(PROFILE_PATH.read_text(encoding="utf-8"))
 LIMITS = PROFILE["limits"]
@@ -281,6 +282,7 @@ def compile_plan(plan: dict, *, voice: dict | None = None, icon_paths: dict | No
         raise PlanError("a plan needs at least one beat")
     says = {b["beat_id"]: b["say"] for b in beats}
     scene_id = plan.get("id", "canvas")
+    voice = voice if voice is not None else formats.voice_of(beats)      # Task 047: the spoken words, once the voice section writes them
     tl = timing.build(beats, [{"scene_id": scene_id, "beat_ids": [b["beat_id"] for b in beats]}], voice=voice, lead_in=lead_in)
     fps = tl[scene_id]["fps"]
     problems = []

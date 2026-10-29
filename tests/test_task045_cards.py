@@ -191,7 +191,7 @@ def small_chapter(types="new"):
     return {"schema": "bie.brain.chapter-map/2", "course": {"title": "T", "subject": "Biology", "learners": "UPSC", "exam": "UPSC",
                                                            "language": "Hinglish"},
             "source_sha256": "a" * 64, "page_count": 2, "rulebook_version": BOOK.version, "pages": [{"page": 1}, {"page": 2}],
-            "items": items,
+            "map_status": "passed", "items": items,
             "map": {"chapter_summary": "Tissues.", "concepts": concepts,
                     "relations": [{"from_concept": "c2", "relation": "depends_on", "to_concept": "c1", "note": ""},
                                   {"from_concept": "c3", "relation": "causes", "to_concept": "c2", "note": ""},
@@ -672,7 +672,7 @@ class Chain(unittest.TestCase):
         self.assertEqual(records["lesson--script-v1.json"]["card"]["task"], "write_script")
         self.assertIn("observed", records["lesson--script-v1.json"]["rounds"][0])
         lesson = self.read("ok", "lesson_plan.json")
-        self.assertEqual(lesson["schema"], "bie.brain.lesson/2")
+        self.assertEqual(lesson["schema"], "bie.brain.lesson/3")
         self.assertEqual(lesson["naksha_sha256"], naksha["sha256"])
         first = lesson["videos"][0]
         self.assertTrue(first["parts"] and first["card_parts"])

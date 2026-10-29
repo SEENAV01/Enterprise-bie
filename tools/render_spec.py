@@ -31,6 +31,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
+from bie.brain import formats  # noqa: E402
 from bie.brain.video import render  # noqa: E402
 
 LIST_PRICE_USD_PER_MINUTE = 0.008        # GitHub-hosted Linux runner, 2 vCPU, list price (the public repository is billed nothing)
@@ -65,7 +66,7 @@ def timing_row(spec: dict, first: int, last: int, seconds: float, **extra) -> di
 def cmd_chunk(args) -> int:
     out = Path(args.out)
     out.mkdir(parents=True, exist_ok=True)
-    spec = read_json(args.spec)
+    spec = formats.accept("video_spec", read_json(args.spec), where=args.spec)
     first, last = chunk_range(total_frames(spec), args.chunk, args.chunks)
     dist = render.build_preview(Path(args.dist) if args.dist else out / "_dist", toolbox=True)
     assets = Path(args.assets) if args.assets else (out / "assets" if (out / "assets").exists() else None)
@@ -104,6 +105,7 @@ def cmd_join(args) -> int:
                     "-crf", "26", "-pix_fmt", "yuv420p", "-an", "-movflags", "+faststart", str(review)], check=True)
     info = {"video": str(final), "review": str(review), "review_bytes": review.stat().st_size, "video_bytes": final.stat().st_size,
             "seconds": ffprobe_seconds(final), "chunks": args.chunks}
+    formats.check("render_join", formats.stamp("render_join", info), where=str(out / "join.json"))
     (out / "join.json").write_text(json.dumps(info, indent=1), encoding="utf-8")
     print(json.dumps(info))
     return 0
@@ -132,6 +134,7 @@ def cmd_measure(args) -> int:
     if not rows:
         raise SystemExit("no chunk timings")
     cost = measure(rows)
+    formats.check("render_cost", formats.stamp("render_cost", cost), where=str(out / "cost.json"))
     (out / "cost.json").write_text(json.dumps(cost, indent=1), encoding="utf-8")
     print(json.dumps({k: v for k, v in cost.items() if k != "rows"}))
     return 0
@@ -192,7 +195,7 @@ def cmd_fixture(args) -> int:
 def cmd_bench(args) -> int:
     out = Path(args.out)
     out.mkdir(parents=True, exist_ok=True)
-    spec = read_json(args.spec)
+    spec = formats.accept("video_spec", read_json(args.spec), where=args.spec)
     dist = render.build_preview(Path(args.dist) if args.dist else out / "_dist", toolbox=True)
     assets = Path(args.assets) if args.assets else None
     row = bench(spec, args.frames, dist=dist, assets=assets, out=out, label=args.label)
@@ -210,6 +213,7 @@ def cmd_summary(args) -> int:
     join = json.loads((out / "join.json").read_text(encoding="utf-8")) if (out / "join.json").exists() else {}
     summary = {"schema": "bie.render-spec.summary/1", "run_id": args.run_id, "sha": args.sha, "run_url": args.run_url,
                "cost": {k: v for k, v in cost.items() if k != "rows"}, "join": join}
+    formats.check("render_summary", summary, where=str(out / "summary.json"))
     (out / "summary.json").write_text(json.dumps(summary, indent=1), encoding="utf-8")
     lines = ["# Render", ""]
     if cost:

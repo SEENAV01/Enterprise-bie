@@ -207,7 +207,7 @@ class Director(unittest.TestCase):
     def lesson(self, ex):
         chapter, lesson_ = tcd.econ_lesson()
         chapter["items"]["i1"]["unpack"] = econ_item(ex=ex)["unpack"]
-        beats = [dict(b, part_id="p1") for b in GOOD_ORDER]
+        beats = [dict(b, part_id="p1", source="") for b in GOOD_ORDER]
         lesson_["videos"][0]["beats"] = beats
         return chapter, lesson_
 
