@@ -103,7 +103,9 @@ def validate(job: dict) -> dict:
         raise JobError("chapter_map: needed for lesson, notes and game")
     if out["section"] in ("director", "visual", "canvas") and not out.get("from_run"):
         raise JobError("from_run: needed for director, visual and canvas")
-    for name, low, high in (("max_inr", 1, 1000), ("workers", 1, 4), ("max_rounds", 1, 3)):
+    # max_rounds up to 6 since the Money lesson resume -e (29 October 2026): the checker named new findings each round, and a
+    # Codex round costs plan time, not rupees (the rupee cap is max_inr); the default stays 3.
+    for name, low, high in (("max_inr", 1, 1000), ("workers", 1, 4), ("max_rounds", 1, 6)):
         value = out[name]
         if isinstance(value, bool) or not isinstance(value, (int, float)) or not low <= value <= high:
             raise JobError(f"{name}: between {low} and {high}")

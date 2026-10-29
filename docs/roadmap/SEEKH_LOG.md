@@ -1080,9 +1080,9 @@ page by code.
 
 | Measure | Before (v1's own outputs) | After |
 | --- | --- | --- |
-| On-screen texts the director's check refuses (v1's 8 plans, 186 texts) | 93 (not spoken 38, codes or unfinished 37, numbers not said 17, caveat twice 1) | the v1 re-run's plans, after this merges |
+| On-screen texts the director's check refuses (v1's 8 plans, 186 texts) | 93 (not spoken 38, codes or unfinished 37, numbers not said 17, caveat twice 1) | the canvas job on the resume that passes (after entry 27) |
 | Texts with symbol codes ✓ ≠ → = · | 52 of 160 | — |
-| Beats that report a state "X से Y हुआ" (all 18 Money scripts) | 29 of 886 (v1 4 of 32) | the lesson resume `-e`, after this merges |
+| Beats that report a state "X से Y हुआ" (all 18 Money scripts) | 29 of 886 (v1 4 of 32) | 0 of 869 after the lesson resume `-e` (29 October 2026; v1 21 of 32 beats changed, passed); the checker then found forms the pattern missed, see entry 27 |
 
 Next: v1 again through BIE (script resume under S2-09, plans under CV-13 to CV-16, render), its page with the before/after,
 then the narration lock of its 11 examples.
@@ -1120,5 +1120,57 @@ changed rules and the resume rewrites only those beats.
 | S2-08 hits across the chapter | 0 | 5 (v11 2, v12 2, v7 1) |
 | Tissue passed outputs (`tests/fixtures/passed_outputs/`) | 0 problems | 0 problems (the new findings are changed rules) |
 
-After: the lesson resume `-e` on the VM (every script continued from its last answer under S2-09, S2-10, W-01 and S2-08;
-the five failed ones with the reviewer's notes), measured in STATUS when it lands.
+After, the lesson resume `-e` (29 October 2026, 22:02–22:30Z, Codex maker and checker, ₹0, ChatGPT plan 0 → 1 % of the week):
+W-01 12 → 0, S2-10 51 → 0, S2-08 5 → 0 by code on the 869 beats; 414 beats changed; the five scripts (v2, v4, v10, v11, v12) no
+longer fail on these rules, yet all five still failed, now in the checker's round (entry 27). 6 of 18 passed in all.
+
+## Entry 27 · the Money lesson resume -e: a checker that asks beyond the rules, and the state report without a verb, 29 October 2026
+
+**What the run taught** (`runs/vm-t046c-money-lesson-e-brain-lesson/`, Codex maker and Codex checker, 80 calls, 52.9 minutes of
+call time, ₹0, ChatGPT plan 0 → 1 % of the week): the code rules of entries 25 and 26 did what they were built for. On the 869
+beats of the resume, S2-09, W-01 and S2-10 report 0, 0 and 0 (40, 12 and 51 on the 886 beats of resume -d); 414 beats changed;
+v1 passed again with 21 of its 32 beats rewritten in 3 patch rounds. Yet only 6 of 18 scripts passed (v0, v1, v5, v8, v16, v17),
+down from 13: 12 scripts failed in the checker's round, after every code check had passed, on 33 blocking findings:
+
+| The checker's finding | Findings | Scripts | By BIE's rules |
+| --- | --- | --- | --- |
+| "Examinable outside facts lack dated sources" (cards need not store money, biaxial film orientation, William IV's 1835 issue) | 8 | 10 of 12 | S2-10 is the code's: only a teaching beat that names an institution or system none of its book lines names needs `source`, and the code had passed every beat |
+| "The term is named before its example" (standardisation in b8, the cheque in the hook, intrinsic value, monetary policy) | 6 | 7 | S2-08's order is the code's and binds the terms the naming sentence names; a hook may ask |
+| "Add a short clarification that this is an undated schematic sequence" | 1 | 1 | W-01 forbids saying what the source lacks |
+| State reports the code's pattern missed: "Wheat 10 से 8 kg", "जेब में 5 से 3", "receipt ₹0 से ₹100 होती है", "seller को ₹0 से ₹20 मिलते हैं" | 4 | 4 | the rule's; the code's pattern knew only the हुआ form |
+| Content findings that stand: terms compressed into labels (4), the same transaction run again (3), routes only named (3), the layout of the source taught (1), a question half answered (1), an example without numbers (1) | 13 | 9 | the checker's call |
+
+Three scripts that had passed in -d (v3, v7, v9) and four more (v6, v13, v14, v15) failed only because the resume re-checks every
+script: once a script is continued, the checker reads the whole of it again and names findings it had not named before; each round
+it named new ones once the earlier were fixed (v15: 6 rounds). Patches for the checker's findings cost code rounds of their own
+(S2-04 words, S2-07 read-out lines).
+
+**What changed in BIE** (branch `task046c-checker-reads`):
+
+- `lesson.script_finding_minor` (entry 22's filter) now also reads as minor by code a finding that asks for a dated source,
+  attribution or a visible outside label ("source"), a finding that says a term was named before its example unless it also
+  faults the example itself (no numbers, not run, a wrong mechanism; "example-first"), and a finding whose fix asks the script to
+  say what the source lacks ("w01"). The reason is the same as for the time findings: the review runs only on a script BIE's
+  code has passed, so the code's verdict on S2-10, S2-08 and W-01 stands; the finding stays in the record as `minor_by_code`,
+  so a repeated one becomes code (an institution the S2-10 list lacks, a term the S2-08 sentence should bind).
+- The checker's card (`SCRIPT_REVIEW_HOW`) says so, so the rounds are not spent on them.
+- `soul.STATE_REPORT` refuses every form of the state report: with a verb (हुआ, होती है, मिलते हैं, रह गया, बचे, बढ़ा …) and without
+  one ("wheat 10 से 8 kg", "जेब में 5 से 3"); a range ("6 से 8 मिनट लगते हैं", "₹100 से ₹500 के बीच", "10 से 20 तक") goes on with another
+  word and is left alone; the comma of "₹1,000" is not a clause end; `\b` is not used after a Devanagari matra (it fails there).
+- Vision rulebook 2026-10-21.17: S2-09 names the forms; S2-10 and S2-08 say that BIE's code decides where a source is due and in
+  what order the term comes, and that a checker's wider demand is minor by code. A regression rule change for S2-09, so an
+  earlier passed script reports the new hits as a changed rule.
+- Tests: `tests/test_task046c_checker_reads.py` (10), the pins of five suites.
+
+| Measure | Before | After |
+| --- | --- | --- |
+| The 33 blocking findings of the 12 failed scripts' last round | 33 block | 15 minor by code (source 8, example-first 6, w01 1), 18 stand; v3 and v7 have nothing blocking left |
+| State reports found by code on resume -d's 886 beats | 40 | 67 |
+| State reports found by code on resume -e's 869 beats | 0 | 11 (v2 3, v5 1, v6 2, v11 4, v17 1) |
+| Passed outputs (`tests/fixtures/passed_outputs/`) | 0 S2-09 problems | 0 |
+| Scripts passed | 6 of 18 | the lesson resume `-f` (max_rounds 5), measured in STATUS when it lands |
+
+Not changed, for Navin to decide: whether a competitive-exam lesson should carry a dated source for every outside fact (the
+checker's reading) or only for institutions and systems (BIE's rule today), and whether every concept term must wait for an
+example (the checker's reading) or only the term the example names (BIE's rule today). The findings stay visible as minor in
+every record and on the review pages.
