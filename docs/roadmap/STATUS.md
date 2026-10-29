@@ -475,8 +475,8 @@ Deferred", "Money = balance / Device ≠ money", "EMI amount agreed ≠"), the n
 - **Tests:** `tests/test_task046c_coverage.py` (11: scope from the map's concepts, beats with times and how, questions,
   uncovered and beyond-scope lists, the prerequisite video, the card_parts fallback, caption beat ids, the older-spec
   match, the chapter record and its unassigned list, both page tools with the red case). Status: IMPLEMENTED by tests and
-  by the run on v1's real outputs; INTEGRATED when the next render's page is built with it (the render workflow's page
-  step takes the two inputs); ACCEPTED is Navin's. ₹0.
+  by the run on v1's real outputs; INTEGRATED when the next rendered video's page (v1d, then every Money
+  video) is built with the two inputs; ACCEPTED is Navin's. ₹0.
 
 ## Navin's decisions of 29 October 2026 (recorded in his words in ROADMAP 046; built on branch `task046c-navin-decisions`)
 
