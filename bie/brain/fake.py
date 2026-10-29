@@ -281,18 +281,22 @@ def world_answer(user_text: str):
     empty = {"x": 0, "y": 0, "sign": "", "text": "", "fill": "", "string": 0, "steps": [], "packets": [], "cue": [], "until_cue": [],
              "tilt_cue": [], "tilt": 0, "x0": 0, "x1": 0, "y0": 0, "y1": 0, "spacing": 0, "enter_x": 0, "exit_x": 0, "face": 0, "seed": 0,
              "count": 0, "lift_cue": [], "lift_dy": 0, "carry_cue": [], "carry_n": 0}
+    import re as _re
     from .video import world as _world
     first = beats[0]["beat_id"] if beats else "b1"
     first_cue = [first, _first_word(beats[0]["say"]) if beats else ""]
+    said = _re.search(r"\d[\d,]*", beats[0]["say"]) if beats else None          # a number on screen is one the narration says (CV-16)
+    price = f"₹{said.group(0)}" if said else ""
     street = [dict(empty, id="lamp1", kind="lamp", x=2050), dict(empty, id="fg1", kind="foreground", x=1750)]
     if _world.place_of(" ".join(b.get("say", "") for b in beats)) == "bank":      # a bank story gets the bank kit (PR 3)
         place = [dict(empty, id="bank", kind="bank", x=2600, sign="बैंक")] + street + [
                  dict(empty, id="teller", kind="teller", x=2600),
                  dict(empty, id="board", kind="board", x=3350, y=420, text="खाता", fill="#1f3a5f",
-                      steps=[{"text": "₹0", "n": 0, "dir": "", "cue": first_cue}])]
+                      steps=[{"text": price or (_first_word(beats[0]["say"]) if beats else "खाता"), "n": 0, "dir": "", "cue": first_cue}])]
     else:
-        place = [dict(empty, id="shop", kind="shop", x=2600, sign="दुकान", packets=[{"n": 3, "cue": [first, ""]}])] + street + [
-                 dict(empty, id="tag", kind="price_tag", x=2870, y=560, string=60, steps=[{"text": "₹50", "n": 0, "dir": "", "cue": first_cue}])]
+        place = [dict(empty, id="shop", kind="shop", x=2600, sign="दुकान", packets=[{"n": 3, "cue": [first, ""]}])] + street
+        if price:
+            place.append(dict(empty, id="tag", kind="price_tag", x=2870, y=560, string=60, steps=[{"text": price, "n": 0, "dir": "", "cue": first_cue}]))
     els = place + [
            dict(empty, id="crowd", kind="crowd", x0=2330, spacing=120, enter_x=3950, exit_x=4300, face=-1, seed=4,
                 steps=[{"text": "", "n": 2 + n, "dir": "", "cue": [b["beat_id"], _first_word(b["say"])]} for n, b in enumerate(beats)]),

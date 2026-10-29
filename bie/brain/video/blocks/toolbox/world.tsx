@@ -209,8 +209,8 @@ const Board: React.FC<{ el: any; frame: number; fps: number }> = ({ el, frame, f
   const shown = flip < 0.5 && prev ? prev : cur;
   const lines = linesOf(shown);
   const longest = Math.max(1, ...lines.map((l) => l.length));
-  const fs = lines.length === 1 && longest <= 8 ? 96 : lines.length === 1 && longest <= 14 ? 72 : 46;
-  const w = Math.max(440, Math.min(960, Math.round(longest * fs * 0.6 + 90)));
+  const fs = lines.length === 1 && longest <= 8 ? 96 : lines.length === 1 && longest <= 14 ? 72 : longest <= 26 ? 46 : 36;
+  const w = Math.max(440, Math.min(longest > 26 ? 1100 : 960, Math.round(longest * fs * 0.6 + 90)));
   const body = lines.length * fs * 1.22;
   const h = Math.max(310, Math.round(140 + body + 40));
   const k = pop(frame, fps, steps[0].at) * (el.until !== undefined ? 1 - lin(frame, el.until, el.until + 15) : 1);

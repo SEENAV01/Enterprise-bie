@@ -62,6 +62,11 @@ RULE_CHANGES = (
      "upgraded_by": "the page is read again (bie/brain/understanding.py, schema bie.brain.understand-page/4); an older page of an "
                     "economics chapter is not reused",
      "match": re.compile(r"\(S1-16\)$")},
+    {"rule": "S2-09", "rulebook": f"{VISION}@2026-10-21.15",
+     "decision": "Navin, 29 October 2026 (verdict on Money v1): the narration's sentences are complete and natural, never a ledger's "
+                 "state report ('cash ₹500 से ₹400 हुआ'); a story's numbers are said the way a teacher tells what happened",
+     "upgraded_by": "the script is continued from its last answer; only the beats S2-09 flags are rewritten (bie/brain/lesson.py)",
+     "match": re.compile(r"\(S2-09\)$")},
     {"rule": "S2-08", "rulebook": f"{VISION}@2026-10-21.14",
      "decision": "Navin, 27 October 2026 (Task 046 Part C addition): the script runs a concept's real-world example, with its "
                  "numbers, before it names the term; then the book's definition, then the real-life link",

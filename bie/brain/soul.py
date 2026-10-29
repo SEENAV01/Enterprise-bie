@@ -566,6 +566,23 @@ def book_pointing(say: str, wording: dict | None = None) -> list:
     return found
 
 
+STATE_REPORT = re.compile(r"(?:₹\s?)?\d[\d,]*(?:\.\d+)?\s*से\s*(?:₹\s?)?\d[\d,]*(?:\.\d+)?\s*(?:हुआ|हुई|हुईं|हुए|हो\s*गया|हो\s*गई|हो\s*गईं|हो\s*गए|हो\s*जाता|हो\s*जाती|पहुँचा|पहुँची|पहुँचे|हुईं)")
+TEACHER_NUMBERS = "pehle aapke paas 500 rupaye the, kiraane ke 100 diye, ab 400 bache"     # Navin, 29 October 2026
+
+
+def state_report_problems(beats: list) -> list:
+    """S2-09 (Navin's verdict on v1, 29 October 2026: "teacher ki naration uske sentence aise poore ho ki banawati na lage"):
+    a story's numbers are said the way a teacher speaks, never as a state report "cash ₹500 से ₹400 हुआ" / "savings ₹0 से
+    ₹500 हुईं". The numbers stay (S2-08 needs them); the sentence changes."""
+    problems = []
+    for b in beats:
+        hits = [m.group(0) for m in STATE_REPORT.finditer(b.get("say", ""))]
+        if hits:
+            problems.append(f"beat {b['beat_id']}: '{hits[0][:40]}' reports a state like a ledger; say the same numbers as a teacher "
+                            f"would (\"{TEACHER_NUMBERS}\"), in a complete sentence that tells what happened (S2-09)")
+    return problems
+
+
 def wording_problems(beats, wording: dict | None = None) -> list:
     """W-01: a beat whose sentence points at the book goes back; BIE says the fact itself, like a teacher."""
     problems = []

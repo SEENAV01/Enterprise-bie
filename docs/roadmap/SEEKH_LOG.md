@@ -1059,3 +1059,30 @@ other half of what the first render taught.)
 | Scenes opening on a dark band (each scene's opening frame of the review copy: a 25 px top strip darker than half the frame) | 1 of 9 (`v1_s3b`) | 0 of 9 |
 
 The second render (`t046c-money-v1c`, STATUS section "The real video") is the after.
+
+## Entry 25 · Navin's verdict on Money v1: text on the screen that reads like codes, narration that reports states, 29 October 2026
+
+**What the first real video taught** (Navin, 29 October 2026: "thoda kaam hume explain krne ke jo text lines screen par dikh
+rahi hai us par karna padega yaani teacher ki naration uske sentence aise poore ho ki banawati na lage"): the director wrote
+codes on the boards ("Exchange ✓ · Account ✓ / Store · Deferred", "1–3 ✓, 4 Future payment →", "Money = balance / Device ≠
+money", "EMI amount agreed ≠", "Payments: 0 → Payments: 2") and the script reported states like a ledger ("cash ₹500 से ₹400
+हुआ", "bill ₹100 से ₹0 हुआ", "savings ₹0 से ₹500 हुईं"). Likely causes: S2-08's "numbers that change" pushed an "X से Y हुआ"
+pattern; entry 23's board limits (3 lines of 26, a price tag a price) pushed the director into codes; nothing checked that an
+on-screen text was complete, in the learner's language or explained by the narration.
+
+**What changed in BIE (branch `task046c-screen-text`):** rules CV-13 to CV-16 (`canvas_profile.json` 2026-10-29.1) and S2-09
+(vision rulebook 2026-10-21.15; S2-08 reworded; Navin's good narration in `teacher_examples.json` 2026-10-29.1); code
+`bie/brain/video/screen_text.py` in the director's plan check (symbol codes, unfinished lines and code lists refused; a text's
+key words and every number must be said in the narration of its cue beat; a caveat once per part) and
+`soul.state_report_problems` in the script check (a regression rule change for earlier passed scripts); a board holds 3 lines
+of 40 so a complete sentence fits; the narration lock in the lock tool and the script prompt; the before/after on the review
+page by code.
+
+| Measure | Before (v1's own outputs) | After |
+| --- | --- | --- |
+| On-screen texts the director's check refuses (v1's 8 plans, 186 texts) | 93 (not spoken 38, codes or unfinished 37, numbers not said 17, caveat twice 1) | the v1 re-run's plans, after this merges |
+| Texts with symbol codes ✓ ≠ → = · | 52 of 160 | — |
+| Beats that report a state "X से Y हुआ" (all 18 Money scripts) | 29 of 886 (v1 4 of 32) | the lesson resume `-e`, after this merges |
+
+Next: v1 again through BIE (script resume under S2-09, plans under CV-13 to CV-16, render), its page with the before/after,
+then the narration lock of its 11 examples.
