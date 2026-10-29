@@ -288,6 +288,51 @@ def real_world_lines(unpack: dict | None, indent: str = "  ") -> list:
     return lines
 
 
+# ---------------------------------------------------------------- outside facts carry their dated source (S2-10, UPSC)
+
+INSTITUTIONS = re.compile(r"(?<![A-Za-z])(?:UPI|NEFT|RTGS|IMPS|NPCI|RBI|SEBI|IRDAI|PFRDA|NABARD|SIDBI|EXIM|NHB|UIDAI|Aadhaar|AePS|AEPS|BBPS|BHIM|"
+                          r"NACH|ECS|IFSC|MICR|RuPay|FASTag|NETC|CBDC|e-RUPI|e₹|PMJDY|Jan Dhan|EPFO|NPS|GST|SBI|CTS|PPI|Digital Rupee|"
+                          r"Bharat Bill|Ministry of Finance|Finance Ministry|Government of India|Parliament|Supreme Court|Budget|"
+                          r"Economic Survey|NSO|NSSO|CSO|MOSPI|NITI Aayog|Planning Commission|World Bank|IMF|WTO|BIS|UN|OECD)(?![A-Za-z])")
+SOURCED_PURPOSES = ("explain", "compare", "process_walkthrough", "exam_tip", "recap", "misconception")
+DATED = re.compile(r"(?<!\d)(?:19|20)\d\d(?!\d)")
+SOURCED_LEVELS = ("upsc_pcs",)
+
+
+def outside_facts(beat: dict, items_by_id: dict) -> list:
+    """The institutions or systems a beat names that none of the book lines it covers names: facts from outside the book."""
+    covered = " ".join(str((items_by_id.get(i) or {}).get("content", "")) for i in beat.get("covers_item_ids") or [])
+    inside = {m.group(0).lower() for m in INSTITUTIONS.finditer(covered)}
+    return sorted({m.group(0) for m in INSTITUTIONS.finditer(beat.get("say", "")) if m.group(0).lower() not in inside})
+
+
+def dated_source_problems(beats, items_by_id: dict, *, level: str) -> list:
+    """S2-10 (the Money lesson resume -d, v10: "operational descriptions of UPI, NEFT, RTGS and IMPS add real Indian banking
+    knowledge beyond the supplied book content without a dated source"): for a competitive-exam learner, a teaching beat (not
+    a story, example, hook, analogy or question) whose basis is outside the book, or mixed and naming an institution or
+    system that none of its book lines names, carries its dated source in ``source`` ("RBI, NEFT FAQ, 2023"); a beat whose
+    facts are the book's says basis "book"."""
+    if level not in SOURCED_LEVELS:
+        return []
+    problems = []
+    for b in beats or []:
+        if b.get("purpose") not in SOURCED_PURPOSES or b.get("basis") == "book":
+            continue
+        named = sorted({m.group(0) for m in INSTITUTIONS.finditer(b.get("say", ""))})
+        facts = outside_facts(b, items_by_id) if b.get("basis") == "mixed" else named
+        if not facts:
+            continue
+        source = (b.get("source") or "").strip()
+        if source and DATED.search(source):
+            continue
+        what = (f"names {', '.join(facts[:4])} that its book lines do not" if b.get("basis") == "mixed"
+                else f"teaches about {', '.join(facts[:4])} from outside the book")
+        problems.append(f"beat {b['beat_id']}: {what} and carries no dated source; a competitive-exam fact from outside the book "
+                        f"names its source with its year in `source` (\"RBI, NEFT FAQ, 2023\"), or the beat's basis is \"book\" "
+                        f"when the book line says it (S2-10)")
+    return problems
+
+
 def _has_term(say: str, term: str) -> bool:
     term = (term or "").strip()
     if not term:
@@ -295,10 +340,28 @@ def _has_term(say: str, term: str) -> bool:
     return re.search(r"(?<![A-Za-z])" + re.escape(term) + r"(?![A-Za-z])", say or "", re.IGNORECASE) is not None
 
 
+NAMING_PURPOSES = ("explain", "compare", "process_walkthrough", "recap", "exam_tip", "misconception")
+ACRONYM = re.compile(r"(?<![A-Za-z])(?=[A-Za-z]*[A-Z][A-Za-z]*[A-Z])[A-Z][A-Za-z]{2,}(?![A-Za-z])")   # BBPS, AePS, UPI; not "This"
+
+
+def naming_terms(unpack: dict | None, example: dict | None) -> list:
+    """The terms S2-08 keeps for after the example: the item's unpack terms that its naming sentence (term_after) names, plus
+    the acronyms that sentence carries ("..., or BBPS"); without a naming sentence, every unpack term (as before)."""
+    terms = [t["term"] for t in (unpack or {}).get("terms") or [] if (t.get("term") or "").strip()]
+    after = ((example or {}).get("term_after") or "").strip()
+    if not after:
+        return terms
+    kept = [t for t in terms if _has_term(after, t)]
+    kept += [a for a in ACRONYM.findall(after) if a not in kept]
+    return kept
+
+
 def example_order_report(beats, items_by_id: dict, card_parts, *, family: str, types) -> list:
     """S2-08, per item that carries a real-world example: the beats that run it (they cover the item and carry its numbers),
-    the first beat that names its term, and whether the example comes first. Rows: {item_id, place, numbers, example_beats,
-    term_beat, term, ok, problem}."""
+    the first beat that names its term (a beat covering the item, or any teaching beat of the same concept: the Money lesson
+    resume -d, v11 and v12, named and explained the term in a sister part before the example ran; a hook or a question may
+    ask about it), and whether the example comes first. Rows: {item_id, place, numbers, example_beats, term_beat, term, ok,
+    problem}."""
     rows = []
     beats = list(beats or [])
     seen = set()
@@ -319,8 +382,12 @@ def example_order_report(beats, items_by_id: dict, card_parts, *, family: str, t
             if not covering:
                 continue                                  # S2-02 reports an item no beat covers
             example_idx = [i for i, b in covering if numbers & number_tokens(b.get("say", ""))]
-            terms = [t["term"] for t in unpack.get("terms") or [] if (t.get("term") or "").strip()]
-            named = next(((i, t) for i, b in covering for t in terms if _has_term(b.get("say", ""), t)), None)
+            terms = naming_terms(unpack, example)
+            concept = (part.get("part_id") or "").split(".")[0]
+            same_concept = [(i, b) for i, b in enumerate(beats)
+                            if (b.get("part_id") or "").split(".")[0] == concept and b.get("purpose") in NAMING_PURPOSES
+                            and iid not in (b.get("covers_item_ids") or [])]
+            named = next(((i, t) for i, b in sorted(covering + same_concept) for t in terms if _has_term(b.get("say", ""), t)), None)
             row = {"item_id": iid, "place": example.get("place", ""), "numbers": sorted(numbers),
                    "example_beats": [beats[i]["beat_id"] for i in example_idx],
                    "term_beat": beats[named[0]]["beat_id"] if named else "", "term": named[1] if named else "", "ok": True, "problem": ""}
@@ -584,12 +651,16 @@ def state_report_problems(beats: list) -> list:
 
 
 def wording_problems(beats, wording: dict | None = None) -> list:
-    """W-01: a beat whose sentence points at the book goes back; BIE says the fact itself, like a teacher."""
+    """W-01: a beat whose sentence points at the book, or says what the source lacks, goes back; BIE says the fact itself,
+    like a teacher. The on-screen text is read too (Money v4: an on_screen text audited the source's captions)."""
     problems = []
     for beat in beats or []:
         for sentence, words, _ in book_pointing(beat.get("say", ""), wording)[:2]:
             problems.append(f"beat {beat['beat_id']}: \"{sentence[:80]}\" points at the book ({words!r}); BIE teaches as a teacher: "
-                            "say the fact itself, never 'book ke anusar', 'kitaab kehti hai', 'page par' or the like (W-01)")
+                            "say the fact itself, never 'book ke anusar', 'kitaab kehti hai', 'page par', 'dates nahi hain' or the like (W-01)")
+        for sentence, words, _ in book_pointing(beat.get("on_screen", ""), wording)[:1]:
+            problems.append(f"beat {beat['beat_id']}: on_screen \"{sentence[:80]}\" points at the source ({words!r}); the screen shows "
+                            "the learner the fact, never what the source gives or lacks (W-01)")
     return problems
 
 

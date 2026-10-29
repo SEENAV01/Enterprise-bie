@@ -105,7 +105,7 @@ class TeacherNarration(unittest.TestCase):
 
     def test_the_rulebook_carries_s2_09_and_the_teacher_example(self):
         book = rulebook.load()
-        self.assertIn("vision-2026-10-21@2026-10-21.15", book.version)
+        self.assertIn("vision-2026-10-21@2026-10-21.16", book.version)
         self.assertIn("canvas_profile@2026-10-29.1", book.version)
         self.assertIn("teacher_examples@2026-10-29.1", book.version)
         rules = {r.id: r for r in book.rules}

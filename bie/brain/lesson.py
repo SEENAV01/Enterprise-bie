@@ -55,7 +55,7 @@ from .understanding import DEFAULT_OUTPUT_TOKENS, Course, chapter_id, money
 
 SECTION = "lesson"
 PLAN_VERSION = "lesson-plan/4"
-SCRIPT_VERSION = "lesson-script/5"
+SCRIPT_VERSION = "lesson-script/6"
 PLAN_SCHEMA_ID = "bie.brain.lesson-plan/3"
 SCRIPT_SCHEMA_ID = "bie.brain.lesson-script/3"
 PURPOSES = ["hook", "prerequisite", "explain", "example", "analogy", "story", "compare", "process_walkthrough",
@@ -109,6 +109,7 @@ BEAT_SCHEMA = _obj({
     "answers": _arr(S),
     "on_screen": S,
     "basis": {"type": "string", "enum": ["book", "outside", "mixed"]},
+    "source": S,
 })
 SCRIPT_SCHEMA = _obj({
     "notes": NOTES_SCHEMA,
@@ -208,7 +209,12 @@ How to fill the JSON:
   screen shows the bracket and the voice says "सतह, यानी surface"); never write an English term in Devanagari or a Hindi word in Roman;
   numbers as digits; addressed to one student; covers_item_ids = the item ids this beat really explains; answers = the teacher question
   ids this beat really answers; on_screen = what the student should see while hearing it (for the director); basis = book, outside or
-  mixed.
+  mixed; source = for a competitive-exam learner, the dated source of a teaching beat's facts from outside the book ("RBI, NEFT FAQ,
+  2023"; S2-10: BIE's code sends back an outside or mixed explain, compare, process, recap, exam-tip or misconception beat that names
+  an institution or system its book lines do not and carries no dated source; a story, example, hook or question needs none; "" when
+  the facts are the book's and basis is "book").
+W-01 (Navin, 26 October 2026): neither the narration nor on_screen points at the book or says what the source lacks ("dates नहीं हैं",
+"data not given", "caption supplies no source"): teach what is known, leave out what is not; BIE's code sends such a beat back.
 Opening the book (S2-07; BIE is the link between the learner and the book, like a teacher, never a reader of the line): every new
 topic (every concept and every prerequisite) opens with a question about something the learner can see, then the name. After any
 book line, the beat carries at least one of: the term opened ("yaani" + its plain meaning + one everyday image), the why from a need or
@@ -224,7 +230,9 @@ step by step (purpose story or example); the numbers are said the way a teacher 
 kiraane ke 100 diye, ab 400 bache"), never as a ledger's state report ("cash ₹500 से ₹400 हुआ"; BIE's code sends such a beat back,
 S2-09); only then the beat that names the term ("isliye ise demand-pull inflation kehte hain"), then
 the book's definition, then the real-life link. The opening question of such a topic asks about the situation, not the term. BIE's
-code sends back a script whose naming beat comes before the example beats, or whose example beats carry none of the numbers.
+code sends back a script whose naming beat comes before the example beats, or whose example beats carry none of the numbers; a
+teaching beat of the same concept (a sister part) may not name or explain the term before the example runs either (a hook or a
+question to the student may ask about it).
 Time (S2-01): the source gives this video's narration time; BIE's code counts the spoken words (130 a minute) and the script must stay
 within it. Win the time by cutting repetition and side-tracks, never book content: every item in must_cover is taught and every
 teacher question whose basis is "book" is answered; questions answered from outside the book are used only where they help and the
@@ -812,6 +820,7 @@ def check_script(value, chapter, video, language, card=None, budget=None):
     problems += soul.recap_problems(beats)
     problems += soul.wording_problems(beats)
     problems += soul.state_report_problems(beats)
+    problems += soul.dated_source_problems(beats, chapter["items"], level=str(chapter.get("level") or ""))
     if len(beats) < 3:
         problems.append("a video needs more than a couple of beats")
     if card is not None:

@@ -67,6 +67,22 @@ RULE_CHANGES = (
                  "state report ('cash ₹500 से ₹400 हुआ'); a story's numbers are said the way a teacher tells what happened",
      "upgraded_by": "the script is continued from its last answer; only the beats S2-09 flags are rewritten (bie/brain/lesson.py)",
      "match": re.compile(r"\(S2-09\)$")},
+    {"rule": "W-01", "rulebook": "visual_grammar@2026-10-29.1",
+     "decision": "Navin's verdict work C, 29 October 2026 (the Money lesson resume -d, v2 and v4): the narration and the screen never "
+                 "say what the source lacks ('dates नहीं हैं', 'caption supplies no source'); the on-screen text is checked too",
+     "upgraded_by": "the lesson's wording patch round: only the beats W-01 flags are rewritten (bie/brain/lesson.py)",
+     "match": re.compile(r"\(W-01\)$")},
+    {"rule": "S2-10", "rulebook": f"{VISION}@2026-10-21.16",
+     "decision": "Navin's verdict work C, 29 October 2026 (the Money lesson resume -d, v10): a competitive-exam fact from outside the "
+                 "book carries its dated source in the beat's `source` field",
+     "upgraded_by": "the script is continued from its last answer; only the beats S2-10 flags are rewritten (bie/brain/lesson.py, "
+                    "lesson-script/6)",
+     "match": re.compile(r"\(S2-10\)$")},
+    {"rule": "S2-08", "rulebook": f"{VISION}@2026-10-21.16",
+     "decision": "Navin's verdict work C, 29 October 2026 (the Money lesson resume -d, v11 and v12): a teaching beat of the same concept "
+                 "may not name the term before its example runs",
+     "upgraded_by": "the script is continued from its last answer (bie/brain/lesson.py, lesson-script/6)",
+     "match": re.compile(r"\(S2-08\)$")},
     {"rule": "S2-08", "rulebook": f"{VISION}@2026-10-21.14",
      "decision": "Navin, 27 October 2026 (Task 046 Part C addition): the script runs a concept's real-world example, with its "
                  "numbers, before it names the term; then the book's definition, then the real-life link",
