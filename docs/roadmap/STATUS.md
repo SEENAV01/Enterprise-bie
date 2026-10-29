@@ -449,6 +449,35 @@ Deferred", "Money = balance / Device ≠ money", "EMI amount agreed ≠"), the n
   (`t046c-money-canvas-v1d`), the render (`t046c-money-v1d`), the page with the before/after, then the narration lock of
   v1's 11 examples (the decision of PR #99); works B to E follow, each its own PR.
 
+### Work B · which book lines did this video teach (branch `task046c-coverage`, on top of work A)
+
+- **By code, no AI call, nothing by hand.** `bie/brain/coverage.py`: `video_coverage(chapter, lesson, video_id, spec, plans)`
+  takes the lines the chapter map assigns to the video (`lesson.video_scope` on the plan's video, the same scope the script
+  was checked against; the prerequisite video is measured against the map's prerequisites by name), the beats that cover
+  each line (`covers_item_ids`), where each beat plays in the rendered video (the video spec's captions, one per beat,
+  now carrying their `beat_id`; an older spec is matched to the plans' beats in order, else by text), how the beat teaches
+  (its `purpose`: example se, samjhaya, galatfahmi door ki, dohraav, tulna, exam tip, process, sawaal, kahani, analogy,
+  pehle yeh jaan lo, hook) and the teacher questions answered. Below the table: the assigned lines no beat covers (must be
+  none), the beats whose basis is outside the book, and beats covering lines outside the video's scope.
+  `chapter_coverage(chapter, lesson)`: every teachable line and the video that teaches it, with that video's status.
+- **Pages.** `tools/task046c_page.py --lesson <run> --chapter-map <run or file>` adds the section "Kitaab ki kaun-si lines
+  is video ne padhaayi (table B)" to every review page (page, line id and kind, the book line, beats with their mm:ss,
+  how, questions answered; uncovered lines in red with a red box; outside-basis beats in a fold) and writes the record
+  as `<page>.coverage.json` (schema `bie.brain.coverage/1`, the review record work D locks).
+  `tools/task046c_chapter_page.py --chapter-map --lesson --html [--page v1=URL]`: the chapter page (teachable lines, lines a
+  passed video teaches, lines in failed videos, lines no video is assigned to in red; one row per video; one row per line
+  with its video, status and whether a beat covers it; `<page>.coverage.json`, schema `bie.brain.coverage.chapter/1`).
+- **Measured on the Money chapter's real runs** (`understand-d`, `lesson-d`, `canvas-v1c`): v1 teaches 13 of its 13
+  assigned lines in 32 beats, all 32 timed from the captions, 47 of 47 teacher questions answered, 0 lines not covered,
+  10 beats with an outside basis (the hook, the shop examples, the misconception), 0 beats beyond its scope. The chapter:
+  383 teachable lines, 383 assigned to a video, 0 unassigned; 246 taught by a passed video, 137 in the five failed
+  videos (v2 32, v4 31, v10 27, v11 22, v12 25); every scripted video, passed or failed, covers every line it was given.
+- **Tests:** `tests/test_task046c_coverage.py` (11: scope from the map's concepts, beats with times and how, questions,
+  uncovered and beyond-scope lists, the prerequisite video, the card_parts fallback, caption beat ids, the older-spec
+  match, the chapter record and its unassigned list, both page tools with the red case). Status: IMPLEMENTED by tests and
+  by the run on v1's real outputs; INTEGRATED when the next rendered video's page (v1d, then every Money
+  video) is built with the two inputs; ACCEPTED is Navin's. ₹0.
+
 ### Work C · first piece: BIE fixed for the five scripts (branch `task046c-five-scripts`, on top of work A; SEEKH_LOG entry 26)
 
 - **v2 and v4 (W-01):** `visual_grammar.json` 2026-10-29.1 knows "what the source lacks" ("dates नहीं हैं", "data not given",
