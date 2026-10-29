@@ -321,6 +321,7 @@ class Astro(unittest.TestCase):
         folder.mkdir()
         (folder / "de421.bsp").symlink_to(self.de421)
         (folder / "hip_main.dat").write_bytes((FIXTURES / "hip_main_3stars.dat").read_bytes())
+        (folder / "bsc5.dat").write_bytes((FIXTURES / "bsc5_3stars.dat").read_bytes())
 
     def tearDown(self):
         self.tmp.cleanup()
@@ -334,9 +335,15 @@ class Astro(unittest.TestCase):
 
     def test_sky_puts_orion_and_sirius_up_on_a_winter_evening(self):
         from bie.toolbox.adapters import astro
-        s = astro.sky(28.61, 77.21, "2026-01-15T22:00:00", magnitude_limit=2.0, cache=Path(self.tmp.name))
+        s = astro.sky(28.61, 77.21, "2026-01-15T22:00:00", magnitude_limit=2.0, cache=Path(self.tmp.name))     # the Yale catalogue
         self.assertEqual(s["count"], 3)
+        self.assertEqual((s["stars"]["id_kind"], sorted(s["stars"]["ids"])), ("hr", [1713, 2061, 2491]))
         self.assertTrue(all(0 < a < 90 for a in s["stars"]["alt"]))
+        self.assertIn("Yale Bright Star Catalogue", s["catalogue"]["name"])
+        h = astro.sky(28.61, 77.21, "2026-01-15T22:00:00", magnitude_limit=2.0, cache=Path(self.tmp.name), catalogue="hipparcos")
+        self.assertEqual((h["count"], h["stars"]["id_kind"], sorted(h["stars"]["ids"])), (3, "hip", [24436, 27989, 32349]))
+        for star, other in zip(sorted(zip(s["stars"]["ids"], s["stars"]["alt"])), sorted(zip(h["stars"]["ids"], h["stars"]["alt"]))):
+            self.assertAlmostEqual(star[1], other[1], delta=0.2)         # the same sky from either catalogue
 
 
 class Aero(unittest.TestCase):

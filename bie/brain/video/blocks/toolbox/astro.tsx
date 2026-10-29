@@ -1,7 +1,7 @@
 // Astronomy blocks (Task 046a, batch 2):
 // - orbits: the inner planets around the Sun from NASA JPL's DE421 ephemeris (Skyfield), each moving along its own
 //   orbit at its real pace, with the date counting up and each period checked by Kepler's third law (Astropy).
-// - sky_dome: the bright stars above a place at a time (Hipparcos, Skyfield) on a round sky chart: zenith in the
+// - sky_dome: the bright stars above a place at a time (Yale Bright Star Catalogue or Hipparcos, Skyfield) on a round sky chart: zenith in the
 //   middle, the horizon at the edge, north up; star size by brightness; the planets that are up are labelled.
 import React from "react";
 import { line, scaleLinear } from "d3";
@@ -75,11 +75,12 @@ const SkyDome: React.FC<BlockProps> = ({ data, at, width, height }) => {
           const [x, y] = proj(st.alt[k], st.az[k]);
           return <circle key={k} cx={x} cy={y} r={Math.max(1.6, 6.5 - 1.5 * m)} fill="#fffbe8" opacity={Math.min(1, 1.15 - m / 5)} />;
         })}
-        {Object.entries((data.names || {}) as Record<string, string>).map(([hip, name]) => {
-          const k = (st.hip as number[]).indexOf(Number(hip));
+        {Object.entries((data.names || {}) as Record<string, string>).map(([id, name]) => {
+          const ids = ((st.ids ?? st.hip) || []) as number[];           // the catalogue's own ids: HR numbers (Yale) or HIP numbers
+          const k = ids.indexOf(Number(id));
           if (k < 0) return null;
           const [x, y] = proj(st.alt[k], st.az[k]);
-          return <text key={hip} x={x + 12} y={y + 26} fill={C.accent} fontSize={24} fontWeight={700} opacity={ramp(rel, 2.2 * fps, 12)}>{name}</text>;
+          return <text key={id} x={x + 12} y={y + 26} fill={C.accent} fontSize={24} fontWeight={700} opacity={ramp(rel, 2.2 * fps, 12)}>{name}</text>;
         })}
         {(data.planets as { name: string; alt: number; az: number }[]).map((p) => {
           const [x, y] = proj(p.alt, p.az);

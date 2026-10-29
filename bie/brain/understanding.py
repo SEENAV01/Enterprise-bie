@@ -644,9 +644,19 @@ def page_step(course: Course, page, *, page_count: int, previous=None, following
     card = page_card(course, page, page_count=page_count, previous=previous, following=following, rulebook=rulebook,
                      prefix=prefix, proposals=proposals, skip=skip, max_output_tokens=max_output_tokens, types=types)
     source = f"Native text blocks of this page (id | text):\n{_blocks_text(page)}"
-    locked = explanations.load().source_lines(" ".join(b.text for b in page.blocks), subject=course.subject)
+    library = explanations.load()
+    page_text = " ".join(b.text for b in page.blocks)
+    locked = library.source_lines(page_text, subject=course.subject)
     if locked:
         source += "\n\nLocked explanations (Navin's verdict; reuse them as the unpack of the items that use these terms):\n" + locked
+    profile = course.profile()
+    family = shots.subject_family(course.subject)
+    needs_example = lambda item: types.needs_real_world(family, item.get("content_type", ""))
+    locked_examples = library.lookup_examples(page_text, subject=course.subject) if types.needs_real_world(family, "definition") else []
+    if locked_examples:
+        source += ("\n\nLocked real-world examples (Navin's verdict; BIE's library is read first): for the item that teaches each term "
+                   "below, BIE fills unpack.real_world_example from its library by code, so leave that item's real_world_example as "
+                   "given here or empty, never a different example:\n" + "\n".join("  locked real-world example | " + e.line() for e in locked_examples))
     image = [("The page image:", page.image_part())]
     user = cards.user_message(card, source, image, "Read this page with both eyes and answer the card with the page understanding JSON.")
 
@@ -659,11 +669,12 @@ def page_step(course: Course, page, *, page_count: int, previous=None, following
         rows = ct.compare(value.get("items") or [], proposals)
         return {"type_check": rows, "type_summary": ct.summary(rows)}
 
-    profile = course.profile()
-    family = shots.subject_family(course.subject)
+    def checked(value):
+        explanations.apply_examples(value.get("items") or [], locked_examples, needs_example=needs_example)    # library first
+        return check_page(value, page, proposals=proposals, card=card, types=types, profile=profile, language=course.language, family=family)
+
     return Step(section=SECTION, unit=f"page-{page.number:03d}", instructions_version=PAGE_VERSION, system=prefix.text, user=user,
-                schema=PAGE_SCHEMA, check=lambda value: check_page(value, page, proposals=proposals, card=card, types=types,
-                                                                   profile=profile, language=course.language, family=family),
+                schema=PAGE_SCHEMA, check=checked,
                 review_system=review_prefix.text, review_user=review_user, review_schema=PAGE_REVIEW_SCHEMA,
                 review_problems=lambda review, value: page_review_problems(review, value, family=family, types=types),
                 patch_schema=PAGE_PATCH_SCHEMA, apply_patch=apply_page_patch,
@@ -932,9 +943,11 @@ def real_world_rows(chapter: dict, types=None) -> list:
             continue
         problems = soul.real_world_problems(item, family=family, types=types)
         page = page_of.get(iid, {})
+        example = soul.real_world_short(soul.real_world_of(item.get("unpack")))
+        source = item.get("example_source") or ("ai" if example else "")
         rows.append({"item_id": iid, "concept": concept_of.get(iid, ""), "content_type": item.get("content_type", ""),
                      "content": naksha_module.short(item.get("content", ""), 70),
-                     "example": soul.real_world_short(soul.real_world_of(item.get("unpack"))), "ok": not problems,
+                     "example": example, "source": source, "ok": not problems,
                      "problem": problems[0] if problems else "", "page": page.get("page"), "rounds": page.get("rounds"),
                      "first_try": page.get("rounds") == 1 and page.get("status") == "passed"})
     return rows
@@ -962,6 +975,8 @@ def quality(chapter: dict) -> dict:
         "real_world_needed": len(real_world),
         "real_world_filled": sum(1 for r in real_world if r["example"]),
         "real_world_ok": sum(1 for r in real_world if r["ok"]),
+        "real_world_from_library": sum(1 for r in real_world if r["source"].startswith("library")),
+        "real_world_from_ai": sum(1 for r in real_world if r["source"] == "ai"),
         "type_check": (chapter.get("type_check") or {}).get("summary", {}),
         "naksha_tokens_estimate": (chapter.get("naksha") or {}).get("tokens_estimate"),
         "cost_usd": chapter["cost_usd"],
@@ -988,7 +1003,8 @@ def render_markdown(chapter: dict) -> str:
              + (f"; level {chapter['level']}" if chapter.get("level") else "")]
     if q.get("real_world_needed"):
         lines.append(f"- Real-world examples (S1-16): {q.get('real_world_ok', 0)} of {q['real_world_needed']} economics concept items "
-                     "apply the concept in a real situation before naming it and pass today's check")
+                     "apply the concept in a real situation before naming it and pass today's check; "
+                     f"{q.get('real_world_from_library', 0)} from BIE's locked library (no AI asked), {q.get('real_world_from_ai', 0)} from the AI")
     lines.append(f"- Estimated cost: {money(q['cost_usd'], chapter)} ({money(q['cost_usd_per_page'], chapter)} per page)")
     if chapter.get("naksha"):
         n = chapter["naksha"]
@@ -1040,11 +1056,12 @@ def render_markdown(chapter: dict) -> str:
         lines += ["## Real-world examples (S1-16, Navin's rule of 27 October 2026)", "",
                   "Every economics definition, cause-and-effect and process item, the example BIE chose (place · actors · goods · "
                   "numbers before → after · steps) and today's code check. First try = the page passed in one round.", "",
-                  "| Concept | Item | Type | Example BIE chose | Check | Page (rounds) |", "| --- | --- | --- | --- | --- | --- |"]
+                  "| Concept | Item | Type | Example BIE chose | Source | Check | Page (rounds) |", "| --- | --- | --- | --- | --- | --- | --- |"]
         for r in rows:
             check = "ok" if r["ok"] else r["problem"].split(": ", 1)[-1][:110]
             page = f"{r['page']} ({r['rounds']}{', first try' if r['first_try'] else ''})" if r.get("page") else ""
-            lines.append(f"| {r['concept']} | {r['item_id']} · {r['content']} | {r['content_type']} | {r['example'] or '(none)'} | {check} | {page} |")
+            source = "library" if r["source"].startswith("library") else ("AI" if r["source"] == "ai" else "")
+            lines.append(f"| {r['concept']} | {r['item_id']} · {r['content']} | {r['content_type']} | {r['example'] or '(none)'} | {source} | {check} | {page} |")
         lines.append("")
     lines += ["## Pages", "", "| Page | Result | Rounds | Items | Cost |", "| --- | --- | --- | --- | --- |"]
     for p in chapter["pages"]:

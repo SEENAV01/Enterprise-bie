@@ -1,11 +1,12 @@
 {
  "schema": "bie.toolbox.licence-policy/1",
- "version": "2026-10-25.1",
+ "version": "2026-10-29.1",
  "decided": {
   "date": "2026-10-25",
   "by": "Navin",
   "words": "Final videos mein sirf CC0 aur CC BY assets lein; CC BY-SA nahi; NC bilkul nahi."
  },
+ "decisions_2026_10_29": "Navin's yes of 29 October 2026, recorded where each applies: sources.approved_by_navin (india-code, gmt-earth-relief, bodyparts3d), sources.needs_navin hipparcos (yes given, ESA's commercial terms still unchecked, kept out of lessons; the Yale Bright Star Catalogue is the default star source), india_boundary.navin_condition, software.decided (Remotion), generated_images (Route 2 images through the ChatGPT plan with their provenance).",
  "about": "The only source of truth for licences in BIE (Task 046a-L). Every licence decision in code reads this file through bie/toolbox/licence.py: the asset library's licence check, the toolbox sources, the registry checks, the resolver, the toolbox page and the lesson gate (lesson_licence_check). Change a verdict here, in a reviewed PR, never in code.",
  "lesson_content": "Anything visible or audible in a lesson video, game or notes: pictures, models, maps, data drawn on screen, sounds, fonts' glyphs as shown, text quoted from a source.",
  "classes": [
@@ -36,12 +37,16 @@
  },
  "sources": {
   "needs_navin": [
-    {"id": "india-code", "asset_sources": ["india_code"], "why": "Government of India content; Acts may be reproduced under the Copyright Act 1957, s. 52(1)(q), with the source acknowledged: own terms, not a CC licence"},
-    {"id": "hipparcos", "asset_sources": ["hipparcos"], "why": "free for scientific use with citation (CDS); commercial use under ESA's rules for the Hipparcos catalogue"},
-    {"id": "bodyparts3d", "asset_sources": ["bodyparts3d"], "why": "the licence page says CC BY 4.0, but the BodyParts3D page asks users to contact DBCLS; Navin decides after DBCLS answers"},
-    {"id": "gmt-earth-relief", "asset_sources": ["gmt_earth_relief"], "why": "SRTM15+ relief (Tozer et al., 2019, Scripps) is free to use with citation: own terms, not a CC licence"}
+    {"id": "india-code", "asset_sources": ["india_code"], "why": "Government of India content; Acts may be reproduced under the Copyright Act 1957, s. 52(1)(q), with the source acknowledged: own terms, not a CC licence (approved by Navin on 29 October 2026, see approved_by_navin)"},
+    {"id": "hipparcos", "asset_sources": ["hipparcos"], "why": "free for scientific use with citation (CDS); commercial use under ESA's rules for the Hipparcos catalogue. Navin said yes on 29 October 2026, but ESA's commercial terms still apply: kept out of lessons until ESA's terms are checked; the default star source is yale-bsc (public domain)"},
+    {"id": "bodyparts3d", "asset_sources": ["bodyparts3d"], "why": "the licence page says CC BY 4.0, but the BodyParts3D page asks users to contact DBCLS (approved by Navin on 29 October 2026 as CC BY 4.0 with the credit, see approved_by_navin)"},
+    {"id": "gmt-earth-relief", "asset_sources": ["gmt_earth_relief"], "why": "SRTM15+ relief (Tozer et al., 2019, Scripps) is free to use with citation: own terms, not a CC licence (approved by Navin on 29 October 2026 with the citation, see approved_by_navin)"}
   ],
-  "approved_by_navin": [],
+  "approved_by_navin": [
+    {"id": "india-code", "approved_on": "2026-10-29", "words": "india-code: allowed with the source acknowledged (s. 52(1)(q))", "condition": "the source acknowledged in the credit: India Code, Legislative Department, Government of India, Copyright Act 1957 s. 52(1)(q)"},
+    {"id": "gmt-earth-relief", "approved_on": "2026-10-29", "words": "gmt-earth-relief (SRTM15+): allowed with the citation", "condition": "the citation in the credit: Tozer et al., 2019 (SRTM15+), Scripps Institution of Oceanography, via GMT"},
+    {"id": "bodyparts3d", "approved_on": "2026-10-29", "words": "bodyparts3d: allowed as CC BY 4.0 with the credit, as its licence page states", "condition": "the CC BY 4.0 credit: Database Center for Life Science (DBCLS), BodyParts3D, licence URL and page URL"}
+  ],
   "per_item": [
     {"id": "nasa-images", "asset_sources": ["nasa_images"], "rule": "each file on its own: NASA media are US government works, public domain unless the record names a third-party copyright holder; such a file is refused"},
     {"id": "wikimedia-commons", "asset_sources": ["wikimedia_commons", "commons"], "rule": "each file's own licence as Commons states it"},
@@ -57,6 +62,7 @@
   "verdict": "needs_navin",
   "tag": "india-boundary",
   "approved_boundary": null,
+  "navin_condition": {"said_on": "2026-10-29", "words": "India's political boundary: yes on the condition the law sets", "procedure": "approve Natural Earth's India-view file only after a side-by-side check against the Survey of India political map, shown to Navin with the review; until then the verdict stays needs_navin"},
   "sources": ["natural-earth", "natural-earth-vector"],
   "files": ["ne_10m_admin_0_countries_ind", "ne_10m_admin_1_states_provinces"],
   "blocks": ["india_map"],
@@ -77,8 +83,17 @@
    "psychopy": ["psychopy"]
   },
   "data_is_content": "data or models a tool ships with (Z-Anatomy files, the Hipparcos catalogue, Natural Earth maps ...) are content and go through the classes above",
-  "open_decisions": [
-    {"id": "remotion", "decision": "Remotion licence: free for individuals and companies of up to 3 people; a paid company licence above that"}
+  "open_decisions": [],
+  "decided": [
+    {"id": "remotion", "decided_on": "2026-10-29", "words": "Remotion: Navin runs a one-person company (said 26 October 2026), so the free licence applies; close the open decision", "decision": "Remotion's free licence (individuals and companies of up to 3 people) applies to BIE; re-check if the company grows past 3 people"}
   ]
+ },
+ "generated_images": {
+  "asset_sources": ["bie_chatgpt_plan", "openai-image-gen"],
+  "verdict": "allowed",
+  "provenance_fields": ["generated_by", "prompt", "generated_on"],
+  "generated_by": "generated by BIE through the ChatGPT plan",
+  "decided": {"date": "2026-10-29", "by": "Navin", "words": "One-shot test: Route 2 (an AI still made through the ChatGPT plan, moved in 2.5D by BIE code) is chosen for science hero shots. Images generated through the ChatGPT plan may be used in lessons (record the provenance on the asset: generated by BIE through the ChatGPT plan, the prompt, the date)."},
+  "reason": "an image BIE generated through the ChatGPT plan (Route 2): allowed in lessons with its provenance on the asset (who generated it, the prompt, the date); OpenAI's terms give the user the output"
  }
 }

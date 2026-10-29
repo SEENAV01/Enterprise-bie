@@ -1,8 +1,9 @@
 {
  "schema": "bie.brain.explanations/1",
- "version": "2026-10-24.1",
+ "version": "2026-10-24.2",
  "status": "IMPLEMENTED (Task 045d). The explanation library: every term meaning, everyday image, analogy and why chain that Navin's verdict locks is stored here and reused for the same concept in later books, so the writer layer needs less AI over time. Entries are added only by tools/lock_explanations.py after Navin's verdict, or by Navin himself; nothing here is written by a model on its own.",
  "changes": [
+  "2026-10-24.2: 11 real-world examples locked by Navin, 29 October 2026 from vm-t046c-money-understand-d-brain-understand (narration wording not locked)",
   "2026-10-24.1 (Task 045d): the library starts with Navin's own examples of 24 October 2026 (absorptive and secretive surface, slender)."
  ],
  "how_it_is_used": [
@@ -82,6 +83,568 @@
     "simple columnar epithelium"
    ],
    "aliases": []
+  }
+ ],
+ "examples": [
+  {
+   "key": "medium of exchange",
+   "term": "medium of exchange",
+   "aliases": [
+    "settling debts"
+   ],
+   "subject": "Indian Economy",
+   "family": "economics_commerce_management",
+   "content_type": "definition",
+   "example": {
+    "place": "Kirana shop; illustrative outside example",
+    "actors": [
+     "buyer",
+     "shopkeeper"
+    ],
+    "goods": [
+     "rice",
+     "cash",
+     "shop credit"
+    ],
+    "numbers": [
+     {
+      "what": "buyer's cash after purchase",
+      "before": "₹500",
+      "after": "₹400"
+     },
+     {
+      "what": "old shop debt after repayment",
+      "before": "₹50",
+      "after": "₹0"
+     }
+    ],
+    "steps": [
+     {
+      "step": "The shopkeeper accepts ₹100 for rice.",
+      "mechanism_link": "Acceptance allows exchange for goods."
+     },
+     {
+      "step": "The buyer pays another ₹50 to clear an earlier shop debt.",
+      "mechanism_link": "The same accepted medium settles an obligation."
+     }
+    ],
+    "term_after": "The accepted means used for these purchases and repayments is money.",
+    "real_life_link": "The page's definition applies to shopping and clearing everyday dues."
+   },
+   "status": "locked",
+   "source": "Navin, 29 October 2026",
+   "from_run": "vm-t046c-money-understand-d-brain-understand:p001-i3",
+   "concepts": [
+    "Money: acceptance, scope and characteristics"
+   ],
+   "narration": null,
+   "narration_locked": false,
+   "locked_version": "2026-10-24.2"
+  },
+  {
+   "key": "acceptability",
+   "term": "Acceptability",
+   "aliases": [],
+   "subject": "Indian Economy",
+   "family": "economics_commerce_management",
+   "content_type": "definition",
+   "example": {
+    "place": "Kirana shop; illustrative outside example",
+    "actors": [
+     "buyer",
+     "shopkeeper"
+    ],
+    "goods": [
+     "groceries",
+     "cash"
+    ],
+    "numbers": [
+     {
+      "what": "unpaid grocery bill",
+      "before": "₹100",
+      "after": "₹0"
+     }
+    ],
+    "steps": [
+     {
+      "step": "A buyer owes ₹100 for groceries and offers cash.",
+      "mechanism_link": "A payment medium must be offered to the recipient."
+     },
+     {
+      "step": "The shopkeeper willingly takes it and marks the bill paid.",
+      "mechanism_link": "Recipient willingness enables completion of payment."
+     }
+    ],
+    "term_after": "This willingness to receive the payment is acceptability.",
+    "real_life_link": "The page's characteristic is visible whenever a seller agrees to take a payment."
+   },
+   "status": "locked",
+   "source": "Navin, 29 October 2026",
+   "from_run": "vm-t046c-money-understand-d-brain-understand:p001-i7",
+   "concepts": [
+    "Money: acceptance, scope and characteristics"
+   ],
+   "narration": null,
+   "narration_locked": false,
+   "locked_version": "2026-10-24.2"
+  },
+  {
+   "key": "durability",
+   "term": "Durability",
+   "aliases": [],
+   "subject": "Indian Economy",
+   "family": "economics_commerce_management",
+   "content_type": "definition",
+   "example": {
+    "place": "Market stalls; illustrative outside example",
+    "actors": [
+     "buyer",
+     "vegetable seller",
+     "tea seller"
+    ],
+    "goods": [
+     "₹10 coin",
+     "vegetables",
+     "tea"
+    ],
+    "numbers": [
+     {
+      "what": "successive payments using the same coin",
+      "before": "0",
+      "after": "2"
+     }
+    ],
+    "steps": [
+     {
+      "step": "A buyer passes a usable ₹10 coin to a vegetable seller.",
+      "mechanism_link": "The money withstands handling during a transaction."
+     },
+     {
+      "step": "The seller later passes that usable coin to a tea seller.",
+      "mechanism_link": "Physical persistence allows repeated circulation."
+     }
+    ],
+    "term_after": "The ability to remain usable through handling is durability.",
+    "real_life_link": "The page's characteristic can be seen in coins circulating through many transactions."
+   },
+   "status": "locked",
+   "source": "Navin, 29 October 2026",
+   "from_run": "vm-t046c-money-understand-d-brain-understand:p001-i8",
+   "concepts": [
+    "Money: acceptance, scope and characteristics"
+   ],
+   "narration": null,
+   "narration_locked": false,
+   "locked_version": "2026-10-24.2"
+  },
+  {
+   "key": "portability",
+   "term": "Portability",
+   "aliases": [],
+   "subject": "Indian Economy",
+   "family": "economics_commerce_management",
+   "content_type": "definition",
+   "example": {
+    "place": "Neighbourhood market; illustrative outside example",
+    "actors": [
+     "buyer",
+     "grocer",
+     "vegetable seller"
+    ],
+    "goods": [
+     "cash",
+     "groceries",
+     "vegetables"
+    ],
+    "numbers": [
+     {
+      "what": "cash carried after first purchase",
+      "before": "₹500",
+      "after": "₹300"
+     }
+    ],
+    "steps": [
+     {
+      "step": "A buyer carries ₹500 in a wallet and spends ₹200 on groceries.",
+      "mechanism_link": "A compact payment medium is convenient to take to a seller."
+     },
+     {
+      "step": "The buyer carries the remaining ₹300 to a vegetable stall.",
+      "mechanism_link": "Easy movement allows payment at another location."
+     }
+    ],
+    "term_after": "This convenience in carrying money is portability.",
+    "real_life_link": "The page's characteristic appears when people carry money for purchases at several shops."
+   },
+   "status": "locked",
+   "source": "Navin, 29 October 2026",
+   "from_run": "vm-t046c-money-understand-d-brain-understand:p001-i9",
+   "concepts": [
+    "Money: acceptance, scope and characteristics"
+   ],
+   "narration": null,
+   "narration_locked": false,
+   "locked_version": "2026-10-24.2"
+  },
+  {
+   "key": "divisibility",
+   "term": "Divisibility",
+   "aliases": [],
+   "subject": "Indian Economy",
+   "family": "economics_commerce_management",
+   "content_type": "definition",
+   "example": {
+    "place": "Kirana shop; illustrative outside example",
+    "actors": [
+     "buyer",
+     "shopkeeper"
+    ],
+    "goods": [
+     "soap",
+     "₹100 note",
+     "change"
+    ],
+    "numbers": [
+     {
+      "what": "buyer's cash after purchase",
+      "before": "₹100",
+      "after": "₹70"
+     }
+    ],
+    "steps": [
+     {
+      "step": "The buyer offers ₹100 for soap priced at ₹30.",
+      "mechanism_link": "The available denomination exceeds the required payment."
+     },
+     {
+      "step": "The shopkeeper returns ₹70 in smaller units and keeps ₹30.",
+      "mechanism_link": "Smaller units divide the amount without losing monetary value."
+     }
+    ],
+    "term_after": "The ability to make these smaller payments is divisibility.",
+    "real_life_link": "The page's characteristic is used whenever a buyer receives change."
+   },
+   "status": "locked",
+   "source": "Navin, 29 October 2026",
+   "from_run": "vm-t046c-money-understand-d-brain-understand:p001-i10",
+   "concepts": [
+    "Money: acceptance, scope and characteristics"
+   ],
+   "narration": null,
+   "narration_locked": false,
+   "locked_version": "2026-10-24.2"
+  },
+  {
+   "key": "uniformity",
+   "term": "Uniformity",
+   "aliases": [],
+   "subject": "Indian Economy",
+   "family": "economics_commerce_management",
+   "content_type": "definition",
+   "example": {
+    "place": "Tea stall; illustrative outside example",
+    "actors": [
+     "buyer",
+     "tea seller"
+    ],
+    "goods": [
+     "tea",
+     "two genuine ₹10 coins"
+    ],
+    "numbers": [
+     {
+      "what": "buyer's number of ₹10 coins after buying tea",
+      "before": "2",
+      "after": "1"
+     }
+    ],
+    "steps": [
+     {
+      "step": "Tea costs ₹10, and the buyer has two genuine ₹10 coins.",
+      "mechanism_link": "The available units have the same denomination."
+     },
+     {
+      "step": "The seller accepts either coin for the same cup; one coin remains.",
+      "mechanism_link": "Equivalent units perform the same monetary payment."
+     }
+    ],
+    "term_after": "This interchangeability of equivalent monetary units is uniformity.",
+    "real_life_link": "The page's characteristic is seen when one same-denomination coin substitutes for another."
+   },
+   "status": "locked",
+   "source": "Navin, 29 October 2026",
+   "from_run": "vm-t046c-money-understand-d-brain-understand:p001-i11",
+   "concepts": [
+    "Money: acceptance, scope and characteristics"
+   ],
+   "narration": null,
+   "narration_locked": false,
+   "locked_version": "2026-10-24.2"
+  },
+  {
+   "key": "limited supply",
+   "term": "Limited supply",
+   "aliases": [
+    "Scarcity"
+   ],
+   "subject": "Indian Economy",
+   "family": "economics_commerce_management",
+   "content_type": "cause_effect",
+   "example": {
+    "place": "Simplified local market; illustrative outside example, not observed Indian data",
+    "actors": [
+     "buyers",
+     "sellers"
+    ],
+    "goods": [
+     "10 identical grocery baskets",
+     "money"
+    ],
+    "numbers": [
+     {
+      "what": "money spent on the same baskets",
+      "before": "₹1000",
+      "after": "₹2000"
+     },
+     {
+      "what": "price per basket under the stated spending assumption",
+      "before": "₹100",
+      "after": "₹200"
+     },
+     {
+      "what": "baskets purchasable with ₹200",
+      "before": "2",
+      "after": "1"
+     }
+    ],
+    "steps": [
+     {
+      "step": "Assume 10 unchanged baskets sell for the entire ₹1000 buyers spend.",
+      "mechanism_link": "Establish a goods supply and an initial purchasing power."
+     },
+     {
+      "step": "Assume buyers now spend ₹2000 on those same 10 baskets, which all sell at one price.",
+      "mechanism_link": "More spending against unchanged goods raises the illustrative price; ₹200 buys fewer baskets."
+     }
+    ],
+    "term_after": "The example explains why limited supply can help preserve money's value.",
+    "real_life_link": "This opens the page's claim about scarcity and value; it is not a forecast of actual prices."
+   },
+   "status": "locked",
+   "source": "Navin, 29 October 2026",
+   "from_run": "vm-t046c-money-understand-d-brain-understand:p001-i12",
+   "concepts": [
+    "Money: acceptance, scope and characteristics"
+   ],
+   "narration": null,
+   "narration_locked": false,
+   "locked_version": "2026-10-24.2"
+  },
+  {
+   "key": "barter",
+   "term": "barter",
+   "aliases": [
+    "Medium of exchange"
+   ],
+   "subject": "Indian Economy",
+   "family": "economics_commerce_management",
+   "content_type": "definition",
+   "example": {
+    "place": "Grocery shop; book amount with illustrative outside transaction details",
+    "actors": [
+     "buyer",
+     "grocer"
+    ],
+    "goods": [
+     "groceries",
+     "₹500"
+    ],
+    "numbers": [
+     {
+      "what": "buyer's cash",
+      "before": "₹500",
+      "after": "₹0"
+     },
+     {
+      "what": "grocer's cash received for this purchase",
+      "before": "₹0",
+      "after": "₹500"
+     }
+    ],
+    "steps": [
+     {
+      "step": "The buyer selects groceries priced at ₹500 without offering wheat to the grocer.",
+      "mechanism_link": "The exchange does not require goods that the grocer personally wants."
+     },
+     {
+      "step": "The grocer accepts ₹500 and gives the groceries.",
+      "mechanism_link": "Accepted money mediates the exchange."
+     }
+    ],
+    "term_after": "Here money performs the medium-of-exchange function.",
+    "real_life_link": "This is the page's own grocery-purchase example."
+   },
+   "status": "locked",
+   "source": "Navin, 29 October 2026",
+   "from_run": "vm-t046c-money-understand-d-brain-understand:p001-i14",
+   "concepts": [
+    "Four functions of money"
+   ],
+   "narration": null,
+   "narration_locked": false,
+   "locked_version": "2026-10-24.2"
+  },
+  {
+   "key": "unit of account",
+   "term": "Unit of account",
+   "aliases": [],
+   "subject": "Indian Economy",
+   "family": "economics_commerce_management",
+   "content_type": "definition",
+   "example": {
+    "place": "Electronics shop; book prices with illustrative outside budgeting",
+    "actors": [
+     "buyer",
+     "shopkeeper"
+    ],
+    "goods": [
+     "phone",
+     "laptop",
+     "rupee price tags"
+    ],
+    "numbers": [
+     {
+      "what": "quoted cost when comparing phone with laptop",
+      "before": "₹20000",
+      "after": "₹60000"
+     }
+    ],
+    "steps": [
+     {
+      "step": "The buyer reads the phone price of ₹20,000.",
+      "mechanism_link": "One good's value is expressed in a monetary unit."
+     },
+     {
+      "step": "The buyer reads the laptop price of ₹60,000 and compares the ₹40,000 difference without making a purchase.",
+      "mechanism_link": "The same unit measures unlike goods and enables calculation."
+     }
+    ],
+    "term_after": "Using rupees as this common measuring scale is the unit-of-account function.",
+    "real_life_link": "The page's price-tag example is encountered while comparing purchases."
+   },
+   "status": "locked",
+   "source": "Navin, 29 October 2026",
+   "from_run": "vm-t046c-money-understand-d-brain-understand:p001-i15",
+   "concepts": [
+    "Four functions of money"
+   ],
+   "narration": null,
+   "narration_locked": false,
+   "locked_version": "2026-10-24.2"
+  },
+  {
+   "key": "store of value",
+   "term": "Store of value",
+   "aliases": [
+    "purchasing power"
+   ],
+   "subject": "Indian Economy",
+   "family": "economics_commerce_management",
+   "content_type": "definition",
+   "example": {
+    "place": "Bank account; illustrative outside amounts",
+    "actors": [
+     "worker",
+     "bank"
+    ],
+    "goods": [
+     "salary savings",
+     "later groceries"
+    ],
+    "numbers": [
+     {
+      "what": "amount set aside for later use",
+      "before": "₹0",
+      "after": "₹500"
+     },
+     {
+      "what": "saved balance after later purchase",
+      "before": "₹500",
+      "after": "₹0"
+     }
+    ],
+    "steps": [
+     {
+      "step": "A worker leaves ₹500 from current income in a bank account instead of spending it.",
+      "mechanism_link": "Current resources are retained for the future."
+     },
+     {
+      "step": "Later, the worker uses the saved ₹500 for groceries.",
+      "mechanism_link": "The retained balance finances a later expense."
+     }
+    ],
+    "term_after": "Holding the money between earning and spending illustrates store of value.",
+    "real_life_link": "This applies the page's example of keeping money in a bank account for later expenses."
+   },
+   "status": "locked",
+   "source": "Navin, 29 October 2026",
+   "from_run": "vm-t046c-money-understand-d-brain-understand:p001-i16",
+   "concepts": [
+    "Four functions of money"
+   ],
+   "narration": null,
+   "narration_locked": false,
+   "locked_version": "2026-10-24.2"
+  },
+  {
+   "key": "deferred payment",
+   "term": "deferred payment",
+   "aliases": [
+    "denominated",
+    "EMI"
+   ],
+   "subject": "Indian Economy",
+   "family": "economics_commerce_management",
+   "content_type": "definition",
+   "example": {
+    "place": "Bank home-loan account; illustrative outside EMI amount",
+    "actors": [
+     "borrower",
+     "bank"
+    ],
+    "goods": [
+     "home loan",
+     "rupee-denominated EMI"
+    ],
+    "numbers": [
+     {
+      "what": "unpaid instalment due for the month",
+      "before": "₹10000",
+      "after": "₹0"
+     }
+    ],
+    "steps": [
+     {
+      "step": "The loan schedule states that ₹10,000 is due on a future monthly payment date.",
+      "mechanism_link": "A future obligation is measured in money."
+     },
+     {
+      "step": "On that date, payment of ₹10,000 clears that month's instalment.",
+      "mechanism_link": "The agreed monetary amount provides the standard for settlement."
+     }
+    ],
+    "term_after": "Money's role in specifying this future due is the standard of deferred payment.",
+    "real_life_link": "This applies the page's home-loan EMI example without assuming a current rate or actual loan schedule."
+   },
+   "status": "locked",
+   "source": "Navin, 29 October 2026",
+   "from_run": "vm-t046c-money-understand-d-brain-understand:p001-i17",
+   "concepts": [
+    "Four functions of money"
+   ],
+   "narration": null,
+   "narration_locked": false,
+   "locked_version": "2026-10-24.2"
   }
  ]
 }

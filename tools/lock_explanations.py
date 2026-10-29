@@ -1,6 +1,7 @@
 """Lock explanations after Navin's verdict (Task 045d; Navin, 24 October 2026).
 
   python tools/lock_explanations.py --run <run folder or https URL> --items p003-i2,p003-i5 --by "Navin, 25 October 2026"
+  python tools/lock_explanations.py --run <run folder> --items p001-i3,... --what examples --by "Navin, 29 October 2026"
   python tools/lock_explanations.py --show "absorptive surface"
 
 Copies the unpack (terms with their plain meaning and everyday image, the why chain) of the named items of a passed run's
@@ -8,6 +9,10 @@ Copies the unpack (terms with their plain meaning and everyday image, the why ch
 the file's version is bumped and the change is listed. Later runs reuse a locked explanation for the same term in any
 book (``bie/brain/explanations.py``). Only Navin's verdict locks: Claude runs this tool after his yes on named items,
 never on its own. The change is a reviewed PR like any rulebook change.
+
+``--what examples`` (Navin, 29 October 2026: "V1 ke sabhi examples lock ho") locks the items' real-world examples
+(S1-16: place, actors, goods, numbers, steps, the term after the story) instead of their unpack terms; ``--what both``
+locks both. The narration wording of an example is never locked by this tool.
 """
 from __future__ import annotations
 
@@ -30,11 +35,16 @@ def main(argv=None) -> int:
     parser.add_argument("--items", default="", help="item ids to lock, comma separated (their unpack must have passed)")
     parser.add_argument("--by", default="", help="who locked and when, for example 'Navin, 25 October 2026'")
     parser.add_argument("--path", default=str(explanations.PATH))
+    parser.add_argument("--what", choices=("terms", "examples", "both"), default="terms",
+                        help="lock the unpack terms (default), the real-world examples, or both")
     parser.add_argument("--show", default="", help="print the locked entries whose term appears in this text, then exit")
     args = parser.parse_args(argv)
     if args.show:
-        for entry in explanations.load(args.path).lookup(args.show):
+        library = explanations.load(args.path)
+        for entry in library.lookup(args.show):
             print(entry.line())
+        for example in library.lookup_examples(args.show):
+            print(example.line())
         return 0
     if not (args.run and args.items and args.by):
         parser.error("--run, --items and --by are required to lock")
@@ -49,10 +59,21 @@ def main(argv=None) -> int:
         print("ITEMS_WITHOUT_TERMS:" + ",".join(empty) + " (only an unpack with terms can be locked)", file=sys.stderr)
         return 2
     run_id = args.run.rstrip("/").rsplit("/", 1)[-1]
-    written = explanations.lock_from_items(chapter, ids, by=args.by, run=run_id, path=args.path)
-    for entry in written:
-        print(f"locked: {entry['term']} ({entry['key']}) from {entry['from_run']}")
-    print(f"{len(written)} entries written to {args.path} (version {explanations.load(args.path).version})")
+    written = 0
+    if args.what in ("terms", "both"):
+        for entry in explanations.lock_from_items(chapter, ids, by=args.by, run=run_id, path=args.path):
+            print(f"locked: {entry['term']} ({entry['key']}) from {entry['from_run']}")
+            written += 1
+    if args.what in ("examples", "both"):
+        from bie.brain import soul
+        unfilled = [i for i in ids if not soul.real_world_filled(soul.real_world_of(chapter["items"][i].get("unpack")))]
+        if unfilled:
+            print("ITEMS_WITHOUT_EXAMPLE:" + ",".join(unfilled) + " (only a filled real_world_example can be locked)", file=sys.stderr)
+            return 2
+        for row in explanations.lock_examples_from_items(chapter, ids, by=args.by, run=run_id, path=args.path):
+            print(f"locked example: {row['term']} ({row['key']}) from {row['from_run']}; narration wording not locked")
+            written += 1
+    print(f"{written} entries written to {args.path} (version {explanations.load(args.path).version})")
     return 0
 
 

@@ -54,6 +54,7 @@ def prefetch_skyfield(cache: Path, *, opener=None, sleep=time.sleep, tries: int 
     folder.mkdir(parents=True, exist_ok=True)
     done = {}
     files = ((astro.EPHEMERIS["file"], (astro.EPHEMERIS["source"],)),
+             (astro.BSC["file"], (astro.BSC["source"], *astro.BSC.get("mirrors", ()))),
              ("hip_main.dat", (astro.HIPPARCOS["source"], *astro.HIPPARCOS.get("mirrors", ()))))
     for name, urls in files:
         path = folder / name
