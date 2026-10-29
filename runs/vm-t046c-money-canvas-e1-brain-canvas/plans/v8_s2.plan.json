@@ -1,0 +1,415 @@
+{
+ "id": "v8_s2",
+ "part_id": "c18.2",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b10",
+   "say": "₹1 note कौन issue करता है? Government of India; signature Finance Secretary का है और circulation RBI संभालता है, यानी लोगों-बैंकों के बीच चलना।"
+  },
+  {
+   "beat_id": "b11",
+   "say": "पीछे language panel में क्या दिखता है? यानी एक ही रकम 15 languages में लिखी है। Note के features मिलाने के लिए RBI की पैसा बोलता है website देख सकते हो।"
+  },
+  {
+   "beat_id": "b12",
+   "say": "सामने Hindi और English जोड़ो तो total 17 हैं; जैसे कमरे और पूरे घर की गिनती अलग होती है।"
+  },
+  {
+   "beat_id": "b13",
+   "say": "RBI reference से denomination-specific features मिलाओ। ₹1 का circulation RBI संभालता है; इससे वह issuer नहीं बनता।"
+  },
+  {
+   "beat_id": "b14",
+   "say": "Statement trap पकड़ो: panel में 17 गलत है; circulation संभालना और issuer होना अलग काम हैं।"
+  },
+  {
+   "beat_id": "b15",
+   "say": "15 plus 2; तीन institutional roles; features के लिए RBI reference याद रखो।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank",
+   "kind": "bank",
+   "x": 2600,
+   "y": 860,
+   "fill": "#F5F0E6",
+   "cue": [
+    "b10",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "teller",
+   "kind": "teller",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b10",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "issuer",
+   "kind": "board",
+   "x": 2080,
+   "y": 420,
+   "fill": "#55756A",
+   "cue": [
+    "b10",
+    "Government"
+   ],
+   "until_cue": [
+    "b11",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b10",
+      "Government"
+     ],
+     "text": "₹1 note Government of India\nissue करती है।"
+    }
+   ]
+  },
+  {
+   "id": "signature",
+   "kind": "board",
+   "x": 2600,
+   "y": 420,
+   "fill": "#55756A",
+   "cue": [
+    "b10",
+    "Finance"
+   ],
+   "until_cue": [
+    "b11",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b10",
+      "Finance"
+     ],
+     "text": "Signature Finance Secretary का है।"
+    }
+   ]
+  },
+  {
+   "id": "circulation",
+   "kind": "board",
+   "x": 3120,
+   "y": 420,
+   "fill": "#55756A",
+   "cue": [
+    "b10",
+    "RBI"
+   ],
+   "until_cue": [
+    "b11",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b10",
+      "RBI"
+     ],
+     "text": "Circulation RBI संभालता है।"
+    }
+   ]
+  },
+  {
+   "id": "panel",
+   "kind": "board",
+   "x": 2080,
+   "y": 420,
+   "fill": "#55756A",
+   "cue": [
+    "b11",
+    "15"
+   ],
+   "until_cue": [
+    "b15",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b11",
+      "15"
+     ],
+     "text": "पीछे language panel में एक ही रकम\n15 languages में लिखी है।"
+    }
+   ]
+  },
+  {
+   "id": "reference",
+   "kind": "board",
+   "x": 3120,
+   "y": 420,
+   "fill": "#55756A",
+   "cue": [
+    "b11",
+    "website"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b11",
+      "website"
+     ],
+     "text": "Note के features के लिए RBI की\nपैसा बोलता है website देख सकते हो।"
+    }
+   ]
+  },
+  {
+   "id": "whole_note",
+   "kind": "board",
+   "x": 2600,
+   "y": 420,
+   "fill": "#55756A",
+   "cue": [
+    "b12",
+    "17"
+   ],
+   "until_cue": [
+    "b13",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b12",
+      "17"
+     ],
+     "text": "सामने Hindi और English जोड़ो\nतो total 17 हैं।"
+    }
+   ]
+  },
+  {
+   "id": "issuer_trap",
+   "kind": "board",
+   "x": 2600,
+   "y": 420,
+   "fill": "#55756A",
+   "cue": [
+    "b13",
+    "issuer"
+   ],
+   "until_cue": [
+    "b15",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b13",
+      "issuer"
+     ],
+     "text": "₹1 का circulation RBI संभालता है;\nइससे वह issuer नहीं बनता।"
+    }
+   ]
+  },
+  {
+   "id": "recall",
+   "kind": "board",
+   "x": 2600,
+   "y": 420,
+   "fill": "#55756A",
+   "cue": [
+    "b15",
+    "institutional"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b15",
+      "institutional"
+     ],
+     "text": "तीन institutional roles याद रखो।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b10",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 530,
+   "zoom": 0.85,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b10",
+    "Government"
+   ],
+   "x": 2250,
+   "y": 480,
+   "zoom": 1.05,
+   "frames": 36
+  },
+  {
+   "cue": [
+    "b10",
+    "Finance"
+   ],
+   "x": 2520,
+   "y": 480,
+   "zoom": 1.05,
+   "frames": 36
+  },
+  {
+   "cue": [
+    "b10",
+    "RBI"
+   ],
+   "x": 2860,
+   "y": 480,
+   "zoom": 1.05,
+   "frames": 36
+  },
+  {
+   "cue": [
+    "b11",
+    "",
+    0.0
+   ],
+   "x": 2350,
+   "y": 500,
+   "zoom": 0.95,
+   "frames": 36
+  },
+  {
+   "cue": [
+    "b11",
+    "15"
+   ],
+   "x": 2190,
+   "y": 470,
+   "zoom": 1.15,
+   "frames": 36
+  },
+  {
+   "cue": [
+    "b11",
+    "features"
+   ],
+   "x": 2780,
+   "y": 480,
+   "zoom": 0.95,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b11",
+    "website"
+   ],
+   "x": 3010,
+   "y": 470,
+   "zoom": 1.15,
+   "frames": 36
+  },
+  {
+   "cue": [
+    "b12",
+    "",
+    0.0
+   ],
+   "x": 2420,
+   "y": 480,
+   "zoom": 1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b12",
+    "कमरे"
+   ],
+   "x": 2360,
+   "y": 460,
+   "zoom": 1.1,
+   "frames": 36
+  },
+  {
+   "cue": [
+    "b13",
+    "",
+    0.0
+   ],
+   "x": 2980,
+   "y": 470,
+   "zoom": 1.1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b13",
+    "₹1"
+   ],
+   "x": 2650,
+   "y": 480,
+   "zoom": 1,
+   "frames": 36
+  },
+  {
+   "cue": [
+    "b14",
+    "panel"
+   ],
+   "x": 2210,
+   "y": 470,
+   "zoom": 1.1,
+   "frames": 36
+  },
+  {
+   "cue": [
+    "b14",
+    "circulation"
+   ],
+   "x": 2620,
+   "y": 470,
+   "zoom": 1.1,
+   "frames": 36
+  },
+  {
+   "cue": [
+    "b15",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 520,
+   "zoom": 0.85,
+   "frames": 36
+  },
+  {
+   "cue": [
+    "b15",
+    "features"
+   ],
+   "x": 2850,
+   "y": 480,
+   "zoom": 1,
+   "frames": 36
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

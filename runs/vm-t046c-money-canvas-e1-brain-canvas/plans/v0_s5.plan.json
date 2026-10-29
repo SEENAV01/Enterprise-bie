@@ -1,0 +1,355 @@
+{
+ "id": "v0_s5",
+ "part_id": "pre5",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b13",
+   "say": "तुम bank A से दुकानदार के bank B में ₹100 भेजो—customer accounts कौन रखता है? ये commercial banks रखते हैं और loans भी देते हैं। तुम्हारे ₹100 घटे, दुकानदार के बढ़े; लेकिन अलग banks के बीच भी हिसाब चुकना चाहिए, सिर्फ customer की entry काफी नहीं।"
+  },
+  {
+   "beat_id": "b14",
+   "say": "सरल उदाहरण में bank A के central-bank balance से ₹100 घटाकर bank B के balance में जोड़े जा सकते हैं। इससे banks का आपसी बकाया चुकता है; यह bank-to-bank settlement है। India में central bank RBI है; वह banks को यह साझा settlement आधार देता है, तुम्हारा रोज का savings account नहीं रखता।"
+  },
+  {
+   "beat_id": "b15",
+   "say": "सरकार को ₹100 tax मिले और ₹60 खर्च हों—सरकारी हिसाब में ₹100 receipt, ₹60 expenditure और इस उदाहरण में ₹40 बाकी लिखा होगा। सरकारी पैसों को पाने, रखने और खर्च का हिसाब सँभालने की व्यवस्था treasury है। यानी customer का account, banks का आपसी settlement और सरकार का हिसाब अलग हैं।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank",
+   "kind": "bank",
+   "x": 2600,
+   "y": 860,
+   "sign": "bank",
+   "cue": [
+    "b13",
+    "bank"
+   ]
+  },
+  {
+   "id": "teller",
+   "kind": "teller",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b13",
+    "accounts"
+   ]
+  },
+  {
+   "id": "customers",
+   "kind": "crowd",
+   "x0": 2330,
+   "spacing": 115,
+   "enter_x": 1700,
+   "exit_x": 1700,
+   "face": 1,
+   "seed": 5,
+   "cue": [
+    "b13",
+    "तुम"
+   ],
+   "until_cue": [
+    "b14",
+    "सरल"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b13",
+      "तुम"
+     ],
+     "n": 2
+    }
+   ]
+  },
+  {
+   "id": "customer_board",
+   "kind": "board",
+   "x": 3150,
+   "y": 430,
+   "fill": "#E6EFEA",
+   "cue": [
+    "b13",
+    "commercial"
+   ],
+   "until_cue": [
+    "b14",
+    "सरल"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b13",
+      "commercial"
+     ],
+     "text": "Commercial banks customer\naccounts रखते हैं और loans देते हैं।"
+    },
+    {
+     "cue": [
+      "b13",
+      "तुम्हारे"
+     ],
+     "text": "तुम्हारे ₹100 घटे,\nदुकानदार के बढ़े।"
+    },
+    {
+     "cue": [
+      "b13",
+      "अलग"
+     ],
+     "text": "अलग banks के बीच भी\nहिसाब चुकना चाहिए।"
+    },
+    {
+     "cue": [
+      "b13",
+      "सिर्फ"
+     ],
+     "text": "सिर्फ customer की entry काफी नहीं।"
+    }
+   ]
+  },
+  {
+   "id": "example_note",
+   "kind": "label",
+   "x": 2600,
+   "y": 180,
+   "text": "सरल उदाहरण",
+   "fill": "#F4ECD8",
+   "cue": [
+    "b14",
+    "उदाहरण"
+   ],
+   "until_cue": [
+    "b15",
+    "सरकार"
+   ]
+  },
+  {
+   "id": "settlement_board",
+   "kind": "board",
+   "x": 3150,
+   "y": 430,
+   "fill": "#E7EDF4",
+   "cue": [
+    "b14",
+    "₹100"
+   ],
+   "until_cue": [
+    "b15",
+    "सरकार"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b14",
+      "₹100"
+     ],
+     "text": "Bank A के central-bank balance से\n₹100 घटाकर bank B के balance में\nजोड़े जा सकते हैं।"
+    },
+    {
+     "cue": [
+      "b14",
+      "इससे"
+     ],
+     "text": "Banks का आपसी बकाया चुकता है।\nयह bank-to-bank settlement है।"
+    },
+    {
+     "cue": [
+      "b14",
+      "India"
+     ],
+     "text": "India में central bank RBI है।"
+    },
+    {
+     "cue": [
+      "b14",
+      "साझा"
+     ],
+     "text": "वह banks को साझा\nsettlement आधार देता है।"
+    },
+    {
+     "cue": [
+      "b14",
+      "तुम्हारा"
+     ],
+     "text": "तुम्हारा रोज का savings\naccount नहीं रखता।"
+    }
+   ]
+  },
+  {
+   "id": "treasury_board",
+   "kind": "board",
+   "x": 3150,
+   "y": 430,
+   "fill": "#F3EAD8",
+   "cue": [
+    "b15",
+    "tax"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b15",
+      "tax"
+     ],
+     "text": "सरकार को ₹100 tax मिले।"
+    },
+    {
+     "cue": [
+      "b15",
+      "₹60"
+     ],
+     "text": "₹60 खर्च"
+    },
+    {
+     "cue": [
+      "b15",
+      "₹40"
+     ],
+     "text": "सरकारी हिसाब में ₹100 receipt,\n₹60 expenditure और ₹40 बाकी।"
+    },
+    {
+     "cue": [
+      "b15",
+      "पैसों"
+     ],
+     "text": "सरकारी पैसों को पाने, रखने और\nखर्च का हिसाब सँभालने की\nव्यवस्था treasury है।"
+    },
+    {
+     "cue": [
+      "b15",
+      "यानी"
+     ],
+     "text": "Customer का account, banks का\nआपसी settlement और सरकार का\nहिसाब अलग हैं।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b13",
+    "",
+    0.0
+   ],
+   "x": 2700,
+   "y": 510,
+   "zoom": 0.85,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b13",
+    "accounts"
+   ],
+   "x": 2780,
+   "y": 510,
+   "zoom": 0.95,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b13",
+    "तुम्हारे"
+   ],
+   "x": 2820,
+   "y": 480,
+   "zoom": 1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b13",
+    "लेकिन"
+   ],
+   "x": 2850,
+   "y": 460,
+   "zoom": 1.05,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b14",
+    "सरल"
+   ],
+   "x": 2750,
+   "y": 460,
+   "zoom": 0.9,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b14",
+    "जोड़े"
+   ],
+   "x": 2850,
+   "y": 460,
+   "zoom": 1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b14",
+    "India"
+   ],
+   "x": 2780,
+   "y": 470,
+   "zoom": 0.95,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b14",
+    "तुम्हारा"
+   ],
+   "x": 2850,
+   "y": 470,
+   "zoom": 1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b15",
+    "सरकार"
+   ],
+   "x": 2780,
+   "y": 490,
+   "zoom": 0.9,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b15",
+    "सरकारी"
+   ],
+   "x": 2850,
+   "y": 460,
+   "zoom": 1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b15",
+    "पैसों"
+   ],
+   "x": 2800,
+   "y": 470,
+   "zoom": 0.95,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b15",
+    "यानी"
+   ],
+   "x": 2750,
+   "y": 510,
+   "zoom": 0.85,
+   "frames": 60
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

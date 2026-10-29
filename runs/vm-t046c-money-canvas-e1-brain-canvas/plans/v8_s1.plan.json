@@ -1,0 +1,601 @@
+{
+ "id": "v8_s1",
+ "part_id": "c18.1",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b1",
+   "say": "₹100 का promise क्या हमेशा उतना सामान दिलाता है? Note दिखे नहीं, तो उसकी value कैसे पहचानोगे?"
+  },
+  {
+   "beat_id": "b2",
+   "say": "छोटे अंक न दिखें तो? Accessibility Features यानी पहचान आसान बनाने वाली बनावट: raised printing और identification marks छूकर पहचानो; larger numerals और distinct note sizes भी मदद करते हैं।"
+  },
+  {
+   "beat_id": "b3",
+   "say": "रोशनी में कौन दिखता है? Watermark में Mahatma Gandhi कागज़ के भीतर दिखते हैं, ऊपर छपा portrait नहीं। Security Thread कागज़ में डाली पतली strip है; उसके भारत, RBI और denomination देखो, सिर्फ dark line नहीं।"
+  },
+  {
+   "beat_id": "b4",
+   "say": "Tilt पर चित्र उभरे? Latent Image देखने का angle बदलकर जाँचते हैं। See-through Register में आगे-पीछे के अधूरे निशान रोशनी में पूरी denomination बनाते हैं; यहाँ दोनों faces का alignment जाँचते हो, भीतर बना portrait नहीं।"
+  },
+  {
+   "beat_id": "b5",
+   "say": "Lens में छोटी line अक्षर बन जाए तो? Micro-lettering यानी बहुत छोटे अक्षरों में RBI और denomination; crude copy में ये धुँधले मिल सकते हैं। Higher denominations की Optically Variable Ink यानी tilt पर रंग बदलने वाली ink, जैसे चमकीला card घुमाओ; छिपा चित्र उभरना अलग check है।"
+  },
+  {
+   "beat_id": "b6",
+   "say": "उँगली से उभार मिले? Intaglio Printing में छपे हिस्से raised होते हैं, पूरा कागज़ नहीं। Number Panels में छोटे से बड़े होते digits trace करो; यह printing-pattern check है, रकम बढ़ना नहीं।"
+  },
+  {
+   "beat_id": "b7",
+   "say": "भीतर की बनावट और बारीक छपाई अलग checks देते हैं; Intaglio touch-based पहचान भी देता है।"
+  },
+  {
+   "beat_id": "b8",
+   "say": "Checks साथ लगाओ; features denomination और design के साथ बदल सकते हैं।"
+  },
+  {
+   "beat_id": "b9",
+   "say": "रास्ता याद रखो: light, tilt, magnify और touch।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank",
+   "kind": "bank",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b1",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "teller",
+   "kind": "teller",
+   "x": 2600,
+   "cue": [
+    "b1",
+    "promise"
+   ]
+  },
+  {
+   "id": "opening",
+   "kind": "board",
+   "x": 2180,
+   "y": 490,
+   "fill": "#F0E6CF",
+   "cue": [
+    "b1",
+    "हमेशा"
+   ],
+   "until_cue": [
+    "b2",
+    "Accessibility"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b1",
+      "हमेशा"
+     ],
+     "text": "₹100 का promise हमेशा\nउतना सामान दिलाता है?"
+    },
+    {
+     "cue": [
+      "b1",
+      "value"
+     ],
+     "text": "Note दिखे नहीं, तो उसकी\nvalue कैसे पहचानोगे?"
+    }
+   ]
+  },
+  {
+   "id": "accessibility",
+   "kind": "board",
+   "x": 2180,
+   "y": 490,
+   "fill": "#E6EEDC",
+   "cue": [
+    "b2",
+    "Accessibility"
+   ],
+   "until_cue": [
+    "b3",
+    "Watermark"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b2",
+      "Accessibility"
+     ],
+     "text": "Accessibility Features पहचान\nआसान बनाने वाली बनावट हैं।"
+    },
+    {
+     "cue": [
+      "b2",
+      "छूकर"
+     ],
+     "text": "Raised printing और identification\nmarks छूकर पहचानो।"
+    },
+    {
+     "cue": [
+      "b2",
+      "larger"
+     ],
+     "text": "Larger numerals और distinct note\nsizes भी मदद करते हैं।"
+    }
+   ]
+  },
+  {
+   "id": "watermark",
+   "kind": "board",
+   "x": 2180,
+   "y": 490,
+   "fill": "#E0EBEF",
+   "cue": [
+    "b3",
+    "Watermark"
+   ],
+   "until_cue": [
+    "b4",
+    "Latent"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b3",
+      "Watermark"
+     ],
+     "text": "Watermark में Mahatma Gandhi\nकागज़ के भीतर दिखते हैं।"
+    },
+    {
+     "cue": [
+      "b3",
+      "portrait"
+     ],
+     "text": "यह ऊपर छपा portrait नहीं।"
+    }
+   ]
+  },
+  {
+   "id": "thread",
+   "kind": "board",
+   "x": 3020,
+   "y": 490,
+   "fill": "#E0EBEF",
+   "cue": [
+    "b3",
+    "Thread"
+   ],
+   "until_cue": [
+    "b4",
+    "Latent"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b3",
+      "Thread"
+     ],
+     "text": "Security Thread कागज़ में\nडाली पतली strip है।"
+    },
+    {
+     "cue": [
+      "b3",
+      "भारत,"
+     ],
+     "text": "भारत, RBI और denomination देखो,\nसिर्फ dark line नहीं।"
+    }
+   ]
+  },
+  {
+   "id": "latent",
+   "kind": "board",
+   "x": 2180,
+   "y": 490,
+   "fill": "#EEE4F0",
+   "cue": [
+    "b4",
+    "Latent"
+   ],
+   "until_cue": [
+    "b5",
+    "Micro-lettering"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b4",
+      "Latent"
+     ],
+     "text": "Latent Image देखने का\nangle बदलकर जाँचते हैं।"
+    }
+   ]
+  },
+  {
+   "id": "register",
+   "kind": "board",
+   "x": 3020,
+   "y": 490,
+   "fill": "#E0EBEF",
+   "cue": [
+    "b4",
+    "Register"
+   ],
+   "until_cue": [
+    "b5",
+    "Micro-lettering"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b4",
+      "Register"
+     ],
+     "text": "See-through Register के निशान\nरोशनी में पूरी denomination बनाते हैं।"
+    },
+    {
+     "cue": [
+      "b4",
+      "alignment"
+     ],
+     "text": "दोनों faces का alignment जाँचते हो,\nभीतर बना portrait नहीं।"
+    }
+   ]
+  },
+  {
+   "id": "micro",
+   "kind": "board",
+   "x": 2180,
+   "y": 490,
+   "fill": "#F0E6CF",
+   "cue": [
+    "b5",
+    "Micro-lettering"
+   ],
+   "until_cue": [
+    "b6",
+    "Intaglio"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b5",
+      "Micro-lettering"
+     ],
+     "text": "Micro-lettering में बहुत छोटे अक्षरों\nमें RBI और denomination हैं।"
+    },
+    {
+     "cue": [
+      "b5",
+      "धुँधले"
+     ],
+     "text": "Crude copy में ये\nधुँधले मिल सकते हैं।"
+    }
+   ]
+  },
+  {
+   "id": "ink",
+   "kind": "board",
+   "x": 3020,
+   "y": 490,
+   "fill": "#EEE4F0",
+   "cue": [
+    "b5",
+    "Optically"
+   ],
+   "until_cue": [
+    "b6",
+    "Intaglio"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b5",
+      "Optically"
+     ],
+     "text": "Higher denominations की Optically\nVariable Ink tilt पर रंग बदलती है।"
+    },
+    {
+     "cue": [
+      "b5",
+      "छिपा"
+     ],
+     "text": "छिपा चित्र उभरना अलग check है।"
+    }
+   ]
+  },
+  {
+   "id": "intaglio",
+   "kind": "board",
+   "x": 2180,
+   "y": 490,
+   "fill": "#E6EEDC",
+   "cue": [
+    "b6",
+    "Intaglio"
+   ],
+   "until_cue": [
+    "b7",
+    "भीतर"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b6",
+      "Intaglio"
+     ],
+     "text": "Intaglio Printing में छपे हिस्से\nraised होते हैं, पूरा कागज़ नहीं।"
+    }
+   ]
+  },
+  {
+   "id": "panels",
+   "kind": "board",
+   "x": 3020,
+   "y": 490,
+   "fill": "#F0E6CF",
+   "cue": [
+    "b6",
+    "Panels"
+   ],
+   "until_cue": [
+    "b7",
+    "भीतर"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b6",
+      "Panels"
+     ],
+     "text": "Number Panels में छोटे से बड़े\nहोते digits trace करो।"
+    },
+    {
+     "cue": [
+      "b6",
+      "printing-pattern"
+     ],
+     "text": "यह printing-pattern check है,\nरकम बढ़ना नहीं।"
+    }
+   ]
+  },
+  {
+   "id": "synthesis",
+   "kind": "board",
+   "x": 2180,
+   "y": 490,
+   "fill": "#E6EEDC",
+   "cue": [
+    "b7",
+    "भीतर"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b7",
+      "भीतर"
+     ],
+     "text": "भीतर की बनावट और बारीक छपाई\nअलग checks देते हैं।"
+    },
+    {
+     "cue": [
+      "b7",
+      "Intaglio"
+     ],
+     "text": "Intaglio touch-based पहचान\nभी देता है।"
+    },
+    {
+     "cue": [
+      "b8",
+      "साथ"
+     ],
+     "text": "Checks साथ लगाओ।"
+    },
+    {
+     "cue": [
+      "b8",
+      "denomination"
+     ],
+     "text": "Features denomination और design\nके साथ बदल सकते हैं।"
+    },
+    {
+     "cue": [
+      "b9",
+      "light,"
+     ],
+     "text": "Light, tilt, magnify और touch\nका रास्ता याद रखो।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b1",
+    "",
+    0.0
+   ],
+   "x": 2520,
+   "y": 550,
+   "zoom": 0.9,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b1",
+    "value"
+   ],
+   "x": 2310,
+   "y": 510,
+   "zoom": 1.15,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b2",
+    "Accessibility"
+   ],
+   "x": 2270,
+   "y": 510,
+   "zoom": 1.2,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b2",
+    "larger"
+   ],
+   "x": 2350,
+   "y": 530,
+   "zoom": 1.1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b3",
+    "Watermark"
+   ],
+   "x": 2260,
+   "y": 510,
+   "zoom": 1.2,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b3",
+    "Thread"
+   ],
+   "x": 2880,
+   "y": 510,
+   "zoom": 1.15,
+   "frames": 50
+  },
+  {
+   "cue": [
+    "b4",
+    "Latent"
+   ],
+   "x": 2270,
+   "y": 510,
+   "zoom": 1.2,
+   "frames": 50
+  },
+  {
+   "cue": [
+    "b4",
+    "Register"
+   ],
+   "x": 2880,
+   "y": 510,
+   "zoom": 1.15,
+   "frames": 50
+  },
+  {
+   "cue": [
+    "b4",
+    "alignment"
+   ],
+   "x": 2600,
+   "y": 530,
+   "zoom": 0.95,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b5",
+    "Lens"
+   ],
+   "x": 2290,
+   "y": 510,
+   "zoom": 1.15,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b5",
+    "धुँधले"
+   ],
+   "x": 2240,
+   "y": 500,
+   "zoom": 1.25,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b5",
+    "Optically"
+   ],
+   "x": 2880,
+   "y": 510,
+   "zoom": 1.15,
+   "frames": 50
+  },
+  {
+   "cue": [
+    "b5",
+    "छिपा"
+   ],
+   "x": 2600,
+   "y": 530,
+   "zoom": 0.95,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b6",
+    "Intaglio"
+   ],
+   "x": 2270,
+   "y": 510,
+   "zoom": 1.2,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b6",
+    "Panels"
+   ],
+   "x": 2880,
+   "y": 510,
+   "zoom": 1.15,
+   "frames": 50
+  },
+  {
+   "cue": [
+    "b7",
+    "भीतर"
+   ],
+   "x": 2300,
+   "y": 510,
+   "zoom": 1.15,
+   "frames": 50
+  },
+  {
+   "cue": [
+    "b8",
+    "Checks"
+   ],
+   "x": 2400,
+   "y": 540,
+   "zoom": 1.05,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b9",
+    "light,"
+   ],
+   "x": 2300,
+   "y": 510,
+   "zoom": 1.15,
+   "frames": 40
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

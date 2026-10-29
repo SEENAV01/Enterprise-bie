@@ -1,0 +1,719 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "canvas",
+ "unit": "v8_s2",
+ "status": "passed",
+ "instructions_version": "canvas-plan/1",
+ "rulebook_version": "canvas_profile@2026-10-29.1+content_types@2026-10-27.1+explanations@2026-10-24.2+level_profiles@2026-10-24.1+simple_hindi@2026-10-28.1+teacher_examples@2026-10-29.1+vision-2026-10-21@2026-10-21.16+visual_grammar@2026-10-29.1+visual_levels@2026-10-26.2",
+ "rulebook_digest": "d4c7c14986b1afe4b3ce1186dd6742343ae5c2e2a2ee37fe5e6ab8981b883678",
+ "rules_used": [
+  "CV-01",
+  "CV-02",
+  "CV-03",
+  "CV-04",
+  "CV-05",
+  "CV-06",
+  "CV-07",
+  "CV-08",
+  "CV-09",
+  "CV-10",
+  "CV-11",
+  "CV-12",
+  "CV-13",
+  "CV-14",
+  "CV-15",
+  "CV-16",
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-05",
+  "G-06",
+  "G-07"
+ ],
+ "maker_route": "codex",
+ "reviewer_route": "codex-checker",
+ "maker_model": "gpt-6.1-sol",
+ "reviewer_model": "gpt-6.1-sol",
+ "reviewer_independence": "same_model_temporary",
+ "inputs_digest": "3d28a1b693f71033da585c781e45182e8ab337a5ac75a8c7ec2e14f0dde07d8e",
+ "card": null,
+ "prefix_sha256": "66e53d32370b435fd20128e4e94b1f2d19e507925c537c20ac927b6bcc780e72",
+ "review_prefix_sha256": null,
+ "inputs": {
+  "system": "You are BIE's world director for one STORY part of a video lesson of Indian Economy for UPSC / State PCS aspirants (UPSC / State PCS): actors\nact in a place (a bank with its customers at the counter; its place element is kind 'bank'), so this part is shown inside a small designed world (Navin's level C, an L3 world). The script\nis already written and passed; you do not change a word of it. You place the props, the people, the effects and the\ncamera moves, each on a spoken word; code builds, times and checks the world and a refused plan comes back to you with\nthe exact error, and you answer with the whole corrected plan.\n\nCourse: \"3. Money\" · learner language: Hinglish.\n\nNavin's rules for this section (follow every one):\n[CV-01] One canvas per idea: build it piece by piece instead of cutting to a new shot every sentence. Clear the canvas only when the idea changes; otherwise re-frame with a zoom or pan to the part being explained.\n[CV-02] Something on the canvas changes about every 5 s (one change per one or two spoken phrases).\n[CV-03] The picture never stays the same for more than 15 s (the references sometimes hold 40-80 s; BIE must not).\n[CV-04] A new element appears on its own word, while it is being said (about 40% into the phrase, never in the pause after).\n[CV-05] Numbers that change are struck out and replaced on screen (50 -> 65), with an up/down arrow, on the word of the new number.\n[CV-06] Many people/things are shown as a crowd that grows or shrinks with the story (2 buyers -> 12 -> 3).\n[CV-07] A running numeric example carries the concept (price 50 -> 65, GDP 10K -> 11K -> 12.1K at 10%).\n[CV-08] Return to the topic tree and tick the branch that is done before starting the next branch.\n[CV-09] One anchor diagram stays (a band, a tree, a rate card) while the part beside or below it changes.\n[CV-10] No overlap, nothing outside the safe area, captions strip kept clear, readable text (>= 24 px at 1080p), at most 16 elements on screen.\n[CV-11] No photos or caricatures of real people, no logos, emblems or regulator marks: use a name card, a generic icon or BIE's own presenter character.\n[CV-12] Light paper theme for build-up canvases (dark theme stays for 3D/science worlds); subtitles on a dark strip.\n[CV-13] On-screen text is a short COMPLETE phrase or sentence in the learner's language (Devanagari Hinglish with the English terms the script uses), one idea per board or box; never a code: no ✓ ✗ ≠, no list of bare words ('Exchange · Account / Store · Deferred'), no line that ends on → = : / (Navin, 29 October 2026: 'teacher ki naration uske sentence aise poore ho ki banawati na lage').\n[CV-14] Every on-screen text is explained: its key words are said in the narration of the beat it appears on (the cue beat), and every board step the director adds is spoken; a text the narration never says does not go on screen.\n[CV-15] A caveat ('imagined market', 'illustrative numbers') is shown once per part on its own small note, not on every board.\n[CV-16] Numbers on screen are written the way the narration says them: every number on a board, tag or box is said in its cue beat (₹500 on screen, '500 rupaye' in the narration), no counters the narration never mentions ('Payments: 0 → 2').\n[G-01] Everything taught comes from the book. Knowledge from outside the book is allowed only to explain the book better; it is marked as outside, standard textbook-level and correct. Never invent facts, numbers, names or quotations.\n[G-02] Work like the best teacher of these learners and this exam, not like a summariser. Depth beats brevity: nothing teachable on the page is skipped or compressed away, and every explanation makes a student understand, not just remember. Depth means understanding, not length: lesson narration keeps S2-01's time by cutting repetition and side-tracks, never book content.\n[G-03] Before the output, fill 'notes' with brief notes for the reviewer and for Navin: what this unit is about, the key questions a teacher must answer about it, the main decisions you made with a one-line reason each, and anything uncertain. Keep the notes short; they explain the work, they are not the work.\n[G-05] Never drop or compress away what the book teaches to fit a length. If a unit of work is too large, it is split by BIE into smaller units; within a unit, the book's content is complete. Lesson narration has a time target (S2-01), met by cutting repetition and side-tracks, never book content.\n[G-06] BIE is the link between the learner and the book, like a teacher (Navin, 24 October 2026). The book is the base; BIE carries its text, easy or hard, into the learner's mind. Never just read the line out: every book line is opened (what its words mean, why it is so, where it is seen, what follows), at the depth of the level profile.\n[G-07] Two layers, like a film (Navin, 24 October 2026). The writer layer (understanding, plan, script) decides what is said and how deep, following the level profile and the book's own level. The presentation layer (director, video blocks, render) is the same skilled quality for every learner, from class 6 to postgraduate; only the detail shown follows the level, never the craft.\n\n# Director card: world plans (for the AI world director step, Navin's level C)\n\nYou plan ONE world for ONE story part of a passed script: actors act in a place, so the part is shown inside a small\ndesigned 2.5D street with the place at its centre. You place props, people, effects and the camera, each on a spoken\nword. Code builds, times and checks the world (`bie/brain/video/world.py`); a refused plan comes back with the exact error.\n\n## The world\n\nWorld pixels: 5200 wide, ground line at y 860; the place (the `shop` or the `bank`, the one element kind your role names\nas the kit) is usually near x 2600. The camera looks at a point\n(`x`, `y`) with a `zoom` (0.8 wide street … 1.7 close on a price tag) and takes `frames` to get there (30–60 at 30 fps).\nCamera keys are in time order, the first on the part's first beat.\n\n## Element vocabulary\n\n| kind | fields | use it for |\n| --- | --- | --- |\n| `shop` | `x`, `sign` (the shop's name, in the learner's script), `packets: [{n, cue}]` | the place of a shop story (a kirana shop, a tea stall, a market stall, a bazaar); its stock of goods on the counter (n packets) |\n| `price_tag` | `x`, `y`, `string` (hanging length), `steps: [{text, dir, cue}]`, `lift_cue` + `lift_dy` | the price that is struck out and replaced (a price only: '₹65', '₹10,000', at most 9 characters; words go on a board); lift it when demand pulls it up |\n| `crowd` | `x0`, `spacing`, `enter_x`, `exit_x`, `face` (-1 looks left), `seed`, `steps: [{n, cue}]`, `carry_cue` + `carry_n` | buyers or bank customers who walk in and out as the number changes; `carry` sends n of them away with goods |\n| `bank` | `x`, `sign` (the bank's name, generic, in the learner's script) | the place of a bank story: a stone front with pillars, a teller window and a counter; customers stand before it (`crowd` with `x0` near `x` - 270) |\n| `teller` | `x` (the bank's `x`) | the bank's clerk behind the counter (as `shopkeeper` is for the shop) |\n| `board` | `x`, `y`, `text` (the title: खाता, EMI, बचत), `fill` (header colour), `steps: [{text, dir, cue}]`, `until_cue` | a standing display whose value changes on its word: a passbook balance ₹0 → ₹500, an EMI due ₹10,000 → ₹0; the old value is struck out, `dir` \"up\" or \"down\" adds the arrow. A value is at most 3 lines of 40 characters (your own line breaks are kept, a long line is wrapped at spaces), so a complete short sentence fits; the teaching stays in the narration, a board shows the number or the one idea that changes, as a phrase the learner can read (CV-13), with the words and numbers the narration of its cue beat says (CV-14, CV-16); never codes (✓ ≠ →, \"1–3 ✓, 4 Future payment →\") |\n| `label` | `x`, `y`, `text`, `fill` (rgba colour), `cue`, `until_cue` | SUPPLY · 3, DEMAND · 12: short labels over the scene |\n| `coin_rain` | `x0`, `x1`, `count`, `cue`, `until_cue` | money arriving in people's hands |\n| `balance` | `x`, `y`, `tilt`, `cue`, `tilt_cue`, `until_cue` | supply against demand on a balance that tilts on its word |\n| `pull_arrow` | `x`, `y0`, `y1`, `text`, `cue` | the force that pulls the price (demand-pull) |\n| `title` | `text`, `cue` | the part's name, on its word (at most 30 characters) |\n| `lamp`, `foreground` | `x` | street dressing for depth (two or three of each, outside the shop) |\n\nEvery element has `cue: [beat_id, word]` with the word exactly as written in that beat (`[beat_id, \"\"]` for the beat's\nstart). Something must change at least every 15 s (the code refuses a longer still); aim for a change every 5 s.\nNever a real person, logo, emblem or regulator mark: a generic shop sign and generic people only.\n\n## On-screen text (CV-13 to CV-16; Navin's verdict on Money v1, 29 October 2026)\n\n- A board, label or tag holds ONE idea as a short COMPLETE phrase or sentence in the learner's language (Devanagari Hinglish\n  with the English terms the script uses): \"Payment में notes और coins के अलावा खाते का पैसा भी चलता है\", not\n  \"Money = balance / Device ≠ money\".\n- Never a code: no ✓ ✗ ≠; no list of bare words (\"Exchange ✓ · Account ✓ / Store · Deferred\"); no line that ends on → = : /.\n- Every text is explained: its key words and every number are said in the narration of its cue beat (the code refuses a text\n  or a number the beat does not say; move the cue to the beat that says it, or leave it to the narration).\n- A caveat (\"imagined market\", \"illustrative numbers\") once per part, on its own small label, not on every board.\n\nHow to fill the JSON (every field is present; \"\" / 0 / [] mean \"not used\"):\n- notes: the story of this part in two lines, what each camera move shows, what is uncertain.\n- elements: in story order; id (unique), kind, the fields of that kind (card), cue [beat_id, word] (word exactly as written\n  in that beat; [beat_id, \"\"] for the beat's start) and until_cue when it leaves; steps (text/n + cue) for a price tag, a\n  board or a crowd; packets (n + cue) for the shop's stock; lift_cue + lift_dy lifts a price tag; carry_cue + carry_n sends\n  buyers away with goods; tilt_cue tilts the balance. The place element (shop or bank) is the kit named above, once.\n- camera: keys in time order, each with cue, x and y in world pixels, zoom and frames (how long the move takes).\nReply with the JSON object only.",
+  "user": "Chapter: 3. Money. Part c18.2 (6 beats).\nThe part (JSON):\n{\"part\": {\"id\": \"v8_s2\", \"part_id\": \"c18.2\", \"mode\": \"C\", \"place\": \"bank\", \"story\": false}, \"beats\": [{\"beat_id\": \"b10\", \"say\": \"₹1 note कौन issue करता है? Government of India; signature Finance Secretary का है और circulation RBI संभालता है, यानी लोगों-बैंकों के बीच चलना।\"}, {\"beat_id\": \"b11\", \"say\": \"पीछे language panel में क्या दिखता है? यानी एक ही रकम 15 languages में लिखी है। Note के features मिलाने के लिए RBI की पैसा बोलता है website देख सकते हो।\"}, {\"beat_id\": \"b12\", \"say\": \"सामने Hindi और English जोड़ो तो total 17 हैं; जैसे कमरे और पूरे घर की गिनती अलग होती है।\"}, {\"beat_id\": \"b13\", \"say\": \"RBI reference से denomination-specific features मिलाओ। ₹1 का circulation RBI संभालता है; इससे वह issuer नहीं बनता।\"}, {\"beat_id\": \"b14\", \"say\": \"Statement trap पकड़ो: panel में 17 गलत है; circulation संभालना और issuer होना अलग काम हैं।\"}, {\"beat_id\": \"b15\", \"say\": \"15 plus 2; तीन institutional roles; features के लिए RBI reference याद रखो।\"}], \"items\": [{\"item_id\": \"p009-i11\", \"content_type\": \"facts_numbers\", \"content\": \"₹1 Note: Issued by the Govt of India. Contains the signature of Finance Secretary of India. RBI manages the circulation of this note.\"}, {\"item_id\": \"p009-i12\", \"content_type\": \"facts_numbers\", \"content\": \"https://paisaboltahai.rbi.org.in/: You can access the features of our notes from this website of RBI.\"}, {\"item_id\": \"p009-i13\", \"content_type\": \"facts_numbers\", \"content\": \"Languages: 15 languages appear in the language panel on the reverse. Along with Hindi (front) and English (front), the note represents 17 languages in total.\"}], \"on_screen_hints\": [\"₹1: Government issues; Finance Secretary signs; RBI manages circulation.\", \"Reverse language panel: highlight the same monetary amount expressed in 15 languages. Official RBI feature reference: https://paisaboltahai.rbi.org.in/\", \"Reverse 15 + front 2 = total 17.\", \"Official feature reference; circulation ≠ issue.\", \"Panel 17: false. RBI issuer of ₹1: false.\", \"15 + 2 = 17; issuer/signatory/circulation; official feature reference.\"]}\n\nReply with the plan JSON."
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "started_at": 1793315182.4499753,
+   "mode": "full",
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "21f0e13549b65551ed58da7a022f3b049d64a559742ea18c681e522c6f9764a9",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 7270,
+    "output_tokens": 3722,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "बैंक के एक ही canvas पर ₹1 note की institutional roles, language panel और RBI feature reference स्पष्ट होते हैं।",
+    "key_questions": [
+     "₹1 note का issuer, signatory और circulation manager कौन है?",
+     "Panel की 15 और पूरे note की 17 languages में क्या अंतर है?",
+     "Note features का reference कहाँ मिलता है?"
+    ],
+    "decisions": [
+     {
+      "decision": "तीन institutional roles अलग boards पर क्रम से खुलते हैं।",
+      "reason": "Circulation संभालने को issue करना समझने की गलती रोकनी है।"
+     },
+     {
+      "decision": "Panel और पूरे note की गिनती अलग boards पर रहेगी।",
+      "reason": "15 से 17 कोई बदलती संख्या नहीं, गिनती के अलग दायरे हैं।"
+     },
+     {
+      "decision": "Camera उसी bank canvas पर roles, languages और reference की ओर घूमेगा।",
+      "reason": "नई जगह काटे बिना हर spoken phrase के साथ दृश्य बदलता है।"
+     }
+    ],
+    "uncertain": [
+     "कोई note image संलग्न नहीं है; इसलिए security features या वास्तविक note layout नहीं बनाए गए हैं।",
+     "Script में caveat और topic-tree transition नहीं बोले गए हैं; अतिरिक्त on-screen text नहीं जोड़ा गया है।"
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "बैंक के एक ही canvas पर ₹1 note की institutional roles, language panel और RBI feature reference स्पष्ट होते हैं।",
+     "key_questions": [
+      "₹1 note का issuer, signatory और circulation manager कौन है?",
+      "Panel की 15 और पूरे note की 17 languages में क्या अंतर है?",
+      "Note features का reference कहाँ मिलता है?"
+     ],
+     "decisions": [
+      {
+       "decision": "तीन institutional roles अलग boards पर क्रम से खुलते हैं।",
+       "reason": "Circulation संभालने को issue करना समझने की गलती रोकनी है।"
+      },
+      {
+       "decision": "Panel और पूरे note की गिनती अलग boards पर रहेगी।",
+       "reason": "15 से 17 कोई बदलती संख्या नहीं, गिनती के अलग दायरे हैं।"
+      },
+      {
+       "decision": "Camera उसी bank canvas पर roles, languages और reference की ओर घूमेगा।",
+       "reason": "नई जगह काटे बिना हर spoken phrase के साथ दृश्य बदलता है।"
+      }
+     ],
+     "uncertain": [
+      "कोई note image संलग्न नहीं है; इसलिए security features या वास्तविक note layout नहीं बनाए गए हैं।",
+      "Script में caveat और topic-tree transition नहीं बोले गए हैं; अतिरिक्त on-screen text नहीं जोड़ा गया है।"
+     ]
+    },
+    "elements": [
+     {
+      "id": "bank",
+      "kind": "bank",
+      "x": 2600,
+      "y": 860,
+      "sign": "",
+      "text": "",
+      "fill": "#F5F0E6",
+      "string": 0,
+      "steps": [],
+      "packets": [],
+      "cue": [
+       "b10",
+       ""
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "teller",
+      "kind": "teller",
+      "x": 2600,
+      "y": 860,
+      "sign": "",
+      "text": "",
+      "fill": "",
+      "string": 0,
+      "steps": [],
+      "packets": [],
+      "cue": [
+       "b10",
+       ""
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "issuer",
+      "kind": "board",
+      "x": 2080,
+      "y": 420,
+      "sign": "",
+      "text": "",
+      "fill": "#55756A",
+      "string": 0,
+      "steps": [
+       {
+        "text": "₹1 note Government of India\nissue करती है।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b10",
+         "Government"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b10",
+       "Government"
+      ],
+      "until_cue": [
+       "b11",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "signature",
+      "kind": "board",
+      "x": 2600,
+      "y": 420,
+      "sign": "",
+      "text": "",
+      "fill": "#55756A",
+      "string": 0,
+      "steps": [
+       {
+        "text": "Signature Finance Secretary का है।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b10",
+         "Finance"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b10",
+       "Finance"
+      ],
+      "until_cue": [
+       "b11",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "circulation",
+      "kind": "board",
+      "x": 3120,
+      "y": 420,
+      "sign": "",
+      "text": "",
+      "fill": "#55756A",
+      "string": 0,
+      "steps": [
+       {
+        "text": "Circulation RBI संभालता है।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b10",
+         "RBI"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b10",
+       "RBI"
+      ],
+      "until_cue": [
+       "b11",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "panel",
+      "kind": "board",
+      "x": 2080,
+      "y": 420,
+      "sign": "",
+      "text": "",
+      "fill": "#55756A",
+      "string": 0,
+      "steps": [
+       {
+        "text": "पीछे language panel में एक ही रकम\n15 languages में लिखी है।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b11",
+         "15"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b11",
+       "15"
+      ],
+      "until_cue": [
+       "b15",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "reference",
+      "kind": "board",
+      "x": 3120,
+      "y": 420,
+      "sign": "",
+      "text": "",
+      "fill": "#55756A",
+      "string": 0,
+      "steps": [
+       {
+        "text": "Note के features के लिए RBI की\nपैसा बोलता है website देख सकते हो।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b11",
+         "website"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b11",
+       "website"
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "whole_note",
+      "kind": "board",
+      "x": 2600,
+      "y": 420,
+      "sign": "",
+      "text": "",
+      "fill": "#55756A",
+      "string": 0,
+      "steps": [
+       {
+        "text": "सामने Hindi और English जोड़ो\nतो total 17 हैं।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b12",
+         "17"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b12",
+       "17"
+      ],
+      "until_cue": [
+       "b13",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "issuer_trap",
+      "kind": "board",
+      "x": 2600,
+      "y": 420,
+      "sign": "",
+      "text": "",
+      "fill": "#55756A",
+      "string": 0,
+      "steps": [
+       {
+        "text": "₹1 का circulation RBI संभालता है;\nइससे वह issuer नहीं बनता।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b13",
+         "issuer"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b13",
+       "issuer"
+      ],
+      "until_cue": [
+       "b15",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "recall",
+      "kind": "board",
+      "x": 2600,
+      "y": 420,
+      "sign": "",
+      "text": "",
+      "fill": "#55756A",
+      "string": 0,
+      "steps": [
+       {
+        "text": "तीन institutional roles याद रखो।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b15",
+         "institutional"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b15",
+       "institutional"
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     }
+    ],
+    "camera": [
+     {
+      "cue": [
+       "b10",
+       ""
+      ],
+      "x": 2600,
+      "y": 530,
+      "zoom": 0.85,
+      "frames": 30
+     },
+     {
+      "cue": [
+       "b10",
+       "Government"
+      ],
+      "x": 2250,
+      "y": 480,
+      "zoom": 1.05,
+      "frames": 36
+     },
+     {
+      "cue": [
+       "b10",
+       "Finance"
+      ],
+      "x": 2520,
+      "y": 480,
+      "zoom": 1.05,
+      "frames": 36
+     },
+     {
+      "cue": [
+       "b10",
+       "RBI"
+      ],
+      "x": 2860,
+      "y": 480,
+      "zoom": 1.05,
+      "frames": 36
+     },
+     {
+      "cue": [
+       "b11",
+       ""
+      ],
+      "x": 2350,
+      "y": 500,
+      "zoom": 0.95,
+      "frames": 36
+     },
+     {
+      "cue": [
+       "b11",
+       "15"
+      ],
+      "x": 2190,
+      "y": 470,
+      "zoom": 1.15,
+      "frames": 36
+     },
+     {
+      "cue": [
+       "b11",
+       "features"
+      ],
+      "x": 2780,
+      "y": 480,
+      "zoom": 0.95,
+      "frames": 45
+     },
+     {
+      "cue": [
+       "b11",
+       "website"
+      ],
+      "x": 3010,
+      "y": 470,
+      "zoom": 1.15,
+      "frames": 36
+     },
+     {
+      "cue": [
+       "b12",
+       ""
+      ],
+      "x": 2420,
+      "y": 480,
+      "zoom": 1,
+      "frames": 45
+     },
+     {
+      "cue": [
+       "b12",
+       "कमरे"
+      ],
+      "x": 2360,
+      "y": 460,
+      "zoom": 1.1,
+      "frames": 36
+     },
+     {
+      "cue": [
+       "b13",
+       ""
+      ],
+      "x": 2980,
+      "y": 470,
+      "zoom": 1.1,
+      "frames": 45
+     },
+     {
+      "cue": [
+       "b13",
+       "₹1"
+      ],
+      "x": 2650,
+      "y": 480,
+      "zoom": 1,
+      "frames": 36
+     },
+     {
+      "cue": [
+       "b14",
+       "panel"
+      ],
+      "x": 2210,
+      "y": 470,
+      "zoom": 1.1,
+      "frames": 36
+     },
+     {
+      "cue": [
+       "b14",
+       "circulation"
+      ],
+      "x": 2620,
+      "y": 470,
+      "zoom": 1.1,
+      "frames": 36
+     },
+     {
+      "cue": [
+       "b15",
+       ""
+      ],
+      "x": 2600,
+      "y": 520,
+      "zoom": 0.85,
+      "frames": 36
+     },
+     {
+      "cue": [
+       "b15",
+       "features"
+      ],
+      "x": 2850,
+      "y": 480,
+      "zoom": 1,
+      "frames": 36
+     }
+    ]
+   },
+   "code_problems": [],
+   "passed": true,
+   "finished_at": 1793315230.3957171
+  }
+ ],
+ "avoid_rounds": [],
+ "cost_usd": 0.0,
+ "seconds": 47.9,
+ "navin_verdict": null
+}

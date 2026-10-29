@@ -1,0 +1,186 @@
+{
+ "id": "v16_s1b",
+ "part_id": "c40.2",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b6",
+   "say": "Report से checks, फिर agreement से entry बनी। Permissionless features पर development को central owner की मंजूरी नहीं चाहिए; कानून और private-network access rules फिर भी लागू हैं।"
+  },
+  {
+   "beat_id": "b7",
+   "say": "Checks से जुड़ा delivery record cryptocurrency का record नहीं है।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "report_checks",
+   "kind": "text",
+   "cell": [
+    0,
+    0,
+    5,
+    2
+   ],
+   "cue": [
+    "b6",
+    "checks,"
+   ],
+   "text": "Report से checks हुए।",
+   "style": "box",
+   "tone": "ink",
+   "fill": "paper",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "accepted_entry",
+   "kind": "text",
+   "cell": [
+    7,
+    0,
+    5,
+    2
+   ],
+   "cue": [
+    "b6",
+    "entry"
+   ],
+   "text": "Agreement से entry बनी।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "paper",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "checks_to_entry",
+   "kind": "arrow",
+   "cue": [
+    "b6",
+    "बनी।"
+   ],
+   "tone": "accent",
+   "from": "report_checks",
+   "to": "accepted_entry",
+   "from_side": "r",
+   "to_side": "l"
+  },
+  {
+   "id": "development_permission",
+   "kind": "text",
+   "cell": [
+    0,
+    3,
+    6,
+    2
+   ],
+   "cue": [
+    "b6",
+    "मंजूरी"
+   ],
+   "text": "Development को central owner की मंजूरी नहीं चाहिए।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "paper",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "rules_apply",
+   "kind": "text",
+   "cell": [
+    7,
+    3,
+    5,
+    2
+   ],
+   "cue": [
+    "b6",
+    "कानून"
+   ],
+   "text": "कानून और private-network access rules फिर भी लागू हैं।",
+   "style": "box",
+   "tone": "warm",
+   "fill": "paper",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "delivery_not_crypto",
+   "kind": "callout",
+   "cell": [
+    1,
+    6,
+    10,
+    2
+   ],
+   "cue": [
+    "b7",
+    "delivery"
+   ],
+   "text": "Delivery record cryptocurrency का record नहीं है।",
+   "style": "note",
+   "tone": "accent",
+   "fill": "paper",
+   "align": "center",
+   "size": 32,
+   "marks": [
+    {
+     "phrase": "cryptocurrency का record नहीं है।",
+     "cue": [
+      "b7",
+      "cryptocurrency"
+     ]
+    }
+   ]
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b6",
+    "मंजूरी"
+   ],
+   "ids": [
+    "development_permission"
+   ],
+   "until_cue": [
+    "b6",
+    "कानून"
+   ]
+  },
+  {
+   "cue": [
+    "b6",
+    "कानून"
+   ],
+   "ids": [
+    "development_permission",
+    "rules_apply"
+   ],
+   "until_cue": [
+    "b7",
+    "Checks"
+   ]
+  },
+  {
+   "cue": [
+    "b7",
+    "delivery"
+   ],
+   "ids": [
+    "report_checks",
+    "accepted_entry",
+    "checks_to_entry",
+    "delivery_not_crypto"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

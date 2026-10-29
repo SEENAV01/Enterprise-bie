@@ -1,0 +1,380 @@
+{
+ "id": "v1_s3b",
+ "part_id": "c01.3",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b19",
+   "say": "Calculation इन assumptions का नतीजा दिखाती है: उन्हीं 10 baskets पर पूरी spending दोगुनी हुई। इसे actual prices की forecast मत समझिए।"
+  },
+  {
+   "beat_id": "b20",
+   "say": "Limited supply stable value की guarantee है? नहीं; money की demand और goods-services की availability भी असर डालती हैं। हर money increase से prices उसी ratio में बढ़ना ज़रूरी नहीं।"
+  },
+  {
+   "beat_id": "b21",
+   "say": "कड़ी याद रखिए: goods वही, spending बढ़ी, prices पर pressure, हर unit से कम खरीद। Excessive supply रोकना purchasing power बचाने में मदद कर सकता है।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "calculation",
+   "kind": "text",
+   "cell": [
+    0,
+    0,
+    12,
+    1
+   ],
+   "cue": [
+    "b19",
+    "Calculation"
+   ],
+   "until_cue": [
+    "b20",
+    "Limited"
+   ],
+   "text": "Calculation इन assumptions का नतीजा दिखाती है।",
+   "style": "title",
+   "tone": "ink",
+   "align": "left",
+   "size": 32
+  },
+  {
+   "id": "baskets",
+   "kind": "crowd",
+   "cell": [
+    0,
+    2,
+    5,
+    2
+   ],
+   "cue": [
+    "b19",
+    "10"
+   ],
+   "until_cue": [
+    "b20",
+    "Limited"
+   ],
+   "icon": "tw:1f9fa",
+   "cols": 5,
+   "steps": [
+    {
+     "cue": [
+      "b19",
+      "10"
+     ],
+     "n": 10
+    }
+   ]
+  },
+  {
+   "id": "spending",
+   "kind": "text",
+   "cell": [
+    6,
+    2,
+    6,
+    2
+   ],
+   "cue": [
+    "b19",
+    "दोगुनी"
+   ],
+   "until_cue": [
+    "b20",
+    "Limited"
+   ],
+   "text": "उन्हीं 10 baskets पर पूरी spending दोगुनी हुई।",
+   "style": "box",
+   "tone": "warm",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "forecast",
+   "kind": "text",
+   "cell": [
+    0,
+    6,
+    12,
+    1
+   ],
+   "cue": [
+    "b19",
+    "forecast"
+   ],
+   "text": "इसे actual prices की forecast मत समझिए।",
+   "style": "note",
+   "tone": "muted",
+   "align": "left",
+   "size": 24
+  },
+  {
+   "id": "guarantee",
+   "kind": "text",
+   "cell": [
+    0,
+    0,
+    12,
+    1
+   ],
+   "cue": [
+    "b20",
+    "Limited"
+   ],
+   "until_cue": [
+    "b21",
+    "कड़ी"
+   ],
+   "text": "Limited supply stable value की guarantee है?",
+   "style": "title",
+   "tone": "ink",
+   "align": "left",
+   "size": 30
+  },
+  {
+   "id": "no",
+   "kind": "text",
+   "cell": [
+    0,
+    2,
+    2,
+    1
+   ],
+   "cue": [
+    "b20",
+    "नहीं;"
+   ],
+   "until_cue": [
+    "b21",
+    "कड़ी"
+   ],
+   "text": "नहीं।",
+   "style": "box",
+   "tone": "danger",
+   "align": "center",
+   "size": 32
+  },
+  {
+   "id": "demand",
+   "kind": "text",
+   "cell": [
+    3,
+    2,
+    4,
+    2
+   ],
+   "cue": [
+    "b20",
+    "demand"
+   ],
+   "until_cue": [
+    "b21",
+    "कड़ी"
+   ],
+   "text": "Money की demand भी असर डालती है।",
+   "style": "box",
+   "tone": "accent",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "availability",
+   "kind": "text",
+   "cell": [
+    8,
+    2,
+    4,
+    2
+   ],
+   "cue": [
+    "b20",
+    "availability"
+   ],
+   "until_cue": [
+    "b21",
+    "कड़ी"
+   ],
+   "text": "Goods-services की availability भी असर डालती है।",
+   "style": "box",
+   "tone": "accent",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "ratio",
+   "kind": "callout",
+   "cell": [
+    0,
+    4,
+    12,
+    1
+   ],
+   "cue": [
+    "b20",
+    "ratio"
+   ],
+   "until_cue": [
+    "b21",
+    "कड़ी"
+   ],
+   "text": "हर money increase से prices उसी ratio में बढ़ना ज़रूरी नहीं।",
+   "style": "note",
+   "tone": "warm",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "goods",
+   "kind": "text",
+   "cell": [
+    0,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b21",
+    "goods"
+   ],
+   "text": "goods वही,",
+   "style": "box",
+   "tone": "ink",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "more",
+   "kind": "text",
+   "cell": [
+    3,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b21",
+    "spending"
+   ],
+   "text": "Spending बढ़ी।",
+   "style": "box",
+   "tone": "warm",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "pressure",
+   "kind": "text",
+   "cell": [
+    6,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b21",
+    "pressure,"
+   ],
+   "text": "Prices पर pressure।",
+   "style": "box",
+   "tone": "warm",
+   "align": "center",
+   "size": 26
+  },
+  {
+   "id": "less",
+   "kind": "text",
+   "cell": [
+    9,
+    2,
+    3,
+    2
+   ],
+   "cue": [
+    "b21",
+    "कम"
+   ],
+   "text": "हर unit से कम खरीद।",
+   "style": "box",
+   "tone": "danger",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "preserve",
+   "kind": "callout",
+   "cell": [
+    0,
+    4,
+    12,
+    2
+   ],
+   "cue": [
+    "b21",
+    "Excessive"
+   ],
+   "text": "Excessive supply रोकना purchasing power बचाने में मदद कर सकता है।",
+   "style": "note",
+   "tone": "ok",
+   "align": "center",
+   "size": 30,
+   "marks": [
+    {
+     "phrase": "मदद कर सकता है",
+     "cue": [
+      "b21",
+      "मदद"
+     ]
+    }
+   ]
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b19",
+    "दोगुनी"
+   ],
+   "ids": [
+    "baskets",
+    "spending"
+   ],
+   "until_cue": [
+    "b19",
+    "forecast"
+   ]
+  },
+  {
+   "cue": [
+    "b20",
+    "ratio"
+   ],
+   "ids": [
+    "ratio",
+    "demand",
+    "availability"
+   ],
+   "until_cue": [
+    "b21",
+    "कड़ी"
+   ]
+  },
+  {
+   "cue": [
+    "b21",
+    "मदद"
+   ],
+   "ids": [
+    "preserve"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

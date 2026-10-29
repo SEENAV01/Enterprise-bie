@@ -1,0 +1,240 @@
+{
+ "id": "v16_s3",
+ "part_id": "c40.q",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b13",
+   "say": "2020 में public permissionless context में 1 और 3 सही; 2 का ‘cryptocurrency only’ गलत। तुम्हारा combination क्या होगा?"
+  },
+  {
+   "beat_id": "b13a",
+   "say": "a गलत है क्योंकि सही statement 3 छूटता है। b भी गलत है क्योंकि गलत 2 जुड़ता है और सही 3 छूटता है।"
+  },
+  {
+   "beat_id": "b13b",
+   "say": "c सिर्फ गलत 2 चुनता है। d सही: 1 और 3, यानी shared control और open development।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "context",
+   "kind": "text",
+   "cell": [
+    0,
+    0,
+    12,
+    1
+   ],
+   "cue": [
+    "b13",
+    "permissionless"
+   ],
+   "text": "2020 में public permissionless context है।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "band",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "correct-statements",
+   "kind": "text",
+   "cell": [
+    0,
+    1,
+    6,
+    2
+   ],
+   "cue": [
+    "b13",
+    "सही;"
+   ],
+   "text": "1 और 3 सही;",
+   "style": "box",
+   "tone": "ok",
+   "align": "center",
+   "size": 32
+  },
+  {
+   "id": "wrong-statement",
+   "kind": "text",
+   "cell": [
+    6,
+    1,
+    6,
+    2
+   ],
+   "cue": [
+    "b13",
+    "गलत।"
+   ],
+   "text": "2 का ‘cryptocurrency only’ गलत है।",
+   "style": "box",
+   "tone": "danger",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "option-a",
+   "kind": "text",
+   "cell": [
+    0,
+    3,
+    6,
+    2
+   ],
+   "cue": [
+    "b13a",
+    "छूटता"
+   ],
+   "text": "a गलत है क्योंकि सही statement 3 छूटता है।",
+   "style": "box",
+   "tone": "danger",
+   "align": "left",
+   "size": 27
+  },
+  {
+   "id": "option-b",
+   "kind": "text",
+   "cell": [
+    6,
+    3,
+    6,
+    2
+   ],
+   "cue": [
+    "b13a",
+    "जुड़ता"
+   ],
+   "text": "b गलत है; गलत 2 जुड़ता और सही 3 छूटता है।",
+   "style": "box",
+   "tone": "danger",
+   "align": "left",
+   "size": 27
+  },
+  {
+   "id": "option-c",
+   "kind": "text",
+   "cell": [
+    0,
+    5,
+    6,
+    2
+   ],
+   "cue": [
+    "b13b",
+    "चुनता"
+   ],
+   "text": "c सिर्फ गलत 2 चुनता है।",
+   "style": "box",
+   "tone": "danger",
+   "align": "left",
+   "size": 28
+  },
+  {
+   "id": "option-d",
+   "kind": "callout",
+   "cell": [
+    6,
+    5,
+    6,
+    2
+   ],
+   "cue": [
+    "b13b",
+    "3,"
+   ],
+   "text": "d सही है: 1 और 3।",
+   "style": "note",
+   "tone": "ok",
+   "align": "center",
+   "size": 32
+  },
+  {
+   "id": "meaning",
+   "kind": "text",
+   "cell": [
+    0,
+    7,
+    12,
+    1
+   ],
+   "cue": [
+    "b13b",
+    "development।"
+   ],
+   "text": "यानी shared control और open development।",
+   "style": "box",
+   "tone": "accent",
+   "align": "center",
+   "size": 30
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b13a",
+    "a"
+   ],
+   "ids": [
+    "context",
+    "correct-statements",
+    "option-a"
+   ],
+   "until_cue": [
+    "b13a",
+    "b"
+   ]
+  },
+  {
+   "cue": [
+    "b13a",
+    "b"
+   ],
+   "ids": [
+    "context",
+    "correct-statements",
+    "wrong-statement",
+    "option-b"
+   ],
+   "until_cue": [
+    "b13b",
+    "c"
+   ]
+  },
+  {
+   "cue": [
+    "b13b",
+    "c"
+   ],
+   "ids": [
+    "context",
+    "wrong-statement",
+    "option-c"
+   ],
+   "until_cue": [
+    "b13b",
+    "d"
+   ]
+  },
+  {
+   "cue": [
+    "b13b",
+    "d"
+   ],
+   "ids": [
+    "context",
+    "correct-statements",
+    "option-d",
+    "meaning"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

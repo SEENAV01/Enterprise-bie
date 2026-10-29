@@ -1,0 +1,246 @@
+{
+ "id": "v1_s2",
+ "part_id": "c01.2",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b12",
+   "say": "Note दिए बिना account से payment हुई, तो money इस्तेमाल हुई? हाँ; money सिर्फ currency notes और coins नहीं। Account balance का transfer भी payment पूरा कर सकता है।"
+  },
+  {
+   "beat_id": "b13",
+   "say": "उसी खरीद को cash या account balance से चुकाएँ, काम समान हो सकता है। Bank deposits यानी खाते में जमा पैसे; digital balances यानी digitally recorded पैसे जो payment में इस्तेमाल हों।"
+  },
+  {
+   "beat_id": "b14",
+   "say": "इन forms को क्या जोड़ता है? दुकानदार cash ले या खाते से आई रकम, दोनों से bill चुकता होता है। इसलिए payment में आम तौर पर लिए जाने वाले balances भी money हैं, सिर्फ हाथ में पकड़े notes नहीं।"
+  },
+  {
+   "beat_id": "b15",
+   "say": "पहचान payment के काम से है, सिर्फ cash से नहीं। Phone या app transfer का instruction देता है; रकम balance में है, device में नहीं। हर financial asset भी money नहीं है।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank",
+   "kind": "bank",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b12",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "teller",
+   "kind": "teller",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b12",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "customers",
+   "kind": "crowd",
+   "x0": 2330,
+   "spacing": 95,
+   "enter_x": 1900,
+   "exit_x": 1900,
+   "face": 1,
+   "seed": 7,
+   "cue": [
+    "b12",
+    "payment"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b12",
+      "payment"
+     ],
+     "n": 2
+    }
+   ]
+  },
+  {
+   "id": "payment_board",
+   "kind": "board",
+   "x": 3260,
+   "y": 460,
+   "fill": "#E8DFCD",
+   "cue": [
+    "b12",
+    "हाँ;"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b12",
+      "हाँ;"
+     ],
+     "text": "Money सिर्फ currency notes\nऔर coins नहीं।"
+    },
+    {
+     "cue": [
+      "b12",
+      "Account"
+     ],
+     "text": "Account balance का transfer भी\npayment पूरा कर सकता है।"
+    },
+    {
+     "cue": [
+      "b13",
+      "cash"
+     ],
+     "text": "Cash या account balance से\nचुकाएँ, काम समान हो सकता है।"
+    },
+    {
+     "cue": [
+      "b13",
+      "Bank"
+     ],
+     "text": "Bank deposits यानी\nखाते में जमा पैसे।"
+    },
+    {
+     "cue": [
+      "b13",
+      "digital"
+     ],
+     "text": "Digital balances यानी digitally\nrecorded पैसे जो payment में\nइस्तेमाल हों।"
+    },
+    {
+     "cue": [
+      "b14",
+      "दुकानदार"
+     ],
+     "text": "Cash या खाते से आई रकम,\nदोनों से bill चुकता होता है।"
+    },
+    {
+     "cue": [
+      "b14",
+      "इसलिए"
+     ],
+     "text": "Payment में आम तौर पर लिए जाने\nवाले balances भी money हैं।"
+    },
+    {
+     "cue": [
+      "b15",
+      "पहचान"
+     ],
+     "text": "पहचान payment के काम से है,\nसिर्फ cash से नहीं।"
+    },
+    {
+     "cue": [
+      "b15",
+      "Phone"
+     ],
+     "text": "Phone या app transfer का\ninstruction देता है।"
+    },
+    {
+     "cue": [
+      "b15",
+      "रकम"
+     ],
+     "text": "रकम balance में है,\ndevice में नहीं।"
+    },
+    {
+     "cue": [
+      "b15",
+      "हर"
+     ],
+     "text": "हर financial asset भी\nmoney नहीं है।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b12",
+    "",
+    0.0
+   ],
+   "x": 2780,
+   "y": 500,
+   "zoom": 0.85,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b12",
+    "हाँ;"
+   ],
+   "x": 2950,
+   "y": 490,
+   "zoom": 1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b13",
+    "cash"
+   ],
+   "x": 2860,
+   "y": 500,
+   "zoom": 0.95,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b13",
+    "digital"
+   ],
+   "x": 3050,
+   "y": 480,
+   "zoom": 1.08,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b14",
+    "",
+    0.0
+   ],
+   "x": 2860,
+   "y": 500,
+   "zoom": 0.95,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b14",
+    "इसलिए"
+   ],
+   "x": 3040,
+   "y": 480,
+   "zoom": 1.08,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b15",
+    "पहचान"
+   ],
+   "x": 2900,
+   "y": 500,
+   "zoom": 0.98,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b15",
+    "रकम"
+   ],
+   "x": 3070,
+   "y": 480,
+   "zoom": 1.1,
+   "frames": 40
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

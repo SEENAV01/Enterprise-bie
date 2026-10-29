@@ -1,0 +1,372 @@
+{
+ "id": "v16_s5",
+ "part_id": "c41.1",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b20",
+   "say": "Supplier को दोनों तरीकों से पैसा मिलता है; फर्क कहाँ है? Settlement यानी भुगतान के पीछे बैंकों का आपसी हिसाब पूरा होना।"
+  },
+  {
+   "beat_id": "b21",
+   "say": "RTGS हर payment real time में अलग settle करता है; NEFT half-hourly batches में। Inward यानी खाते में पैसा आना: दोनों में receiving customer के लिए free है; दोनों 24×7 हैं।"
+  },
+  {
+   "beat_id": "b22",
+   "say": "NEFT में batch का इंतजार है; RTGS में नहीं। RBI ने NEFT को 16 December 2019 और RTGS को 14 December 2020 से round-the-clock किया, दोनों 2025 से पहले।"
+  },
+  {
+   "beat_id": "b23",
+   "say": "भेजने का charge, पाने का charge नहीं है। 24×7 खुलना भी real-time settlement नहीं है।"
+  },
+  {
+   "beat_id": "b24",
+   "say": "Settlement अलग है; दोनों inward-free और 24×7 हैं।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank",
+   "kind": "bank",
+   "x": 2600,
+   "cue": [
+    "b20",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "clerk",
+   "kind": "teller",
+   "x": 2600,
+   "cue": [
+    "b20",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "customers",
+   "kind": "crowd",
+   "x0": 2330,
+   "spacing": 95,
+   "enter_x": 2000,
+   "exit_x": 2000,
+   "face": 1,
+   "seed": 41,
+   "cue": [
+    "b20",
+    "Supplier"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b20",
+      "Supplier"
+     ],
+     "n": 2
+    }
+   ]
+  },
+  {
+   "id": "anchor",
+   "kind": "label",
+   "x": 2600,
+   "y": 180,
+   "text": "Settlement में बैंकों का\nआपसी हिसाब पूरा होता है।",
+   "fill": "#F5EBD8",
+   "cue": [
+    "b20",
+    "Settlement"
+   ]
+  },
+  {
+   "id": "rtgs",
+   "kind": "board",
+   "x": 1940,
+   "y": 430,
+   "fill": "#46766E",
+   "cue": [
+    "b21",
+    "RTGS"
+   ],
+   "until_cue": [
+    "b23",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b21",
+      "RTGS"
+     ],
+     "text": "RTGS हर payment real time में\nअलग settle करता है।"
+    },
+    {
+     "cue": [
+      "b22",
+      "RTGS"
+     ],
+     "text": "RTGS में batch का इंतजार नहीं है।"
+    },
+    {
+     "cue": [
+      "b22",
+      "14"
+     ],
+     "text": "RTGS को 14 December 2020 से\nround-the-clock किया।"
+    }
+   ]
+  },
+  {
+   "id": "neft",
+   "kind": "board",
+   "x": 3260,
+   "y": 430,
+   "fill": "#8C7046",
+   "cue": [
+    "b21",
+    "NEFT"
+   ],
+   "until_cue": [
+    "b23",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b21",
+      "NEFT"
+     ],
+     "text": "NEFT half-hourly batches में\nsettle करता है।"
+    },
+    {
+     "cue": [
+      "b22",
+      "NEFT"
+     ],
+     "text": "NEFT में batch का इंतजार है।"
+    },
+    {
+     "cue": [
+      "b22",
+      "16"
+     ],
+     "text": "NEFT को 16 December 2019 से\nround-the-clock किया।"
+    }
+   ]
+  },
+  {
+   "id": "shared",
+   "kind": "label",
+   "x": 2600,
+   "y": 670,
+   "text": "Inward में receiving customer के लिए\nदोनों free हैं।",
+   "fill": "#F5EBD8",
+   "cue": [
+    "b21",
+    "Inward"
+   ],
+   "until_cue": [
+    "b23",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "hours",
+   "kind": "label",
+   "x": 2600,
+   "y": 330,
+   "text": "दोनों 24×7 हैं।",
+   "fill": "#F5EBD8",
+   "cue": [
+    "b21",
+    "24×7"
+   ],
+   "until_cue": [
+    "b23",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "distinction",
+   "kind": "board",
+   "x": 2600,
+   "y": 420,
+   "fill": "#46766E",
+   "cue": [
+    "b23",
+    "भेजने"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b23",
+      "भेजने"
+     ],
+     "text": "भेजने का charge,\nपाने का charge नहीं है।"
+    },
+    {
+     "cue": [
+      "b23",
+      "24×7"
+     ],
+     "text": "24×7 खुलना real-time\nsettlement नहीं है।"
+    },
+    {
+     "cue": [
+      "b24",
+      "Settlement"
+     ],
+     "text": "Settlement अलग है।"
+    },
+    {
+     "cue": [
+      "b24",
+      "inward-free"
+     ],
+     "text": "दोनों inward-free और 24×7 हैं।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b20",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 470,
+   "zoom": 0.9,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b20",
+    "Settlement"
+   ],
+   "x": 2600,
+   "y": 390,
+   "zoom": 1.05,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b21",
+    "RTGS"
+   ],
+   "x": 2450,
+   "y": 450,
+   "zoom": 0.8,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b21",
+    "NEFT"
+   ],
+   "x": 2700,
+   "y": 450,
+   "zoom": 0.8,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b21",
+    "Inward"
+   ],
+   "x": 2600,
+   "y": 500,
+   "zoom": 0.8,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b21",
+    "24×7"
+   ],
+   "x": 2600,
+   "y": 430,
+   "zoom": 0.8,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b22",
+    "NEFT"
+   ],
+   "x": 2700,
+   "y": 440,
+   "zoom": 0.8,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b22",
+    "RBI"
+   ],
+   "x": 2600,
+   "y": 430,
+   "zoom": 0.8,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b22",
+    "14"
+   ],
+   "x": 2490,
+   "y": 430,
+   "zoom": 0.8,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b22",
+    "2025"
+   ],
+   "x": 2600,
+   "y": 450,
+   "zoom": 0.8,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b23",
+    "भेजने"
+   ],
+   "x": 2600,
+   "y": 420,
+   "zoom": 1.15,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b23",
+    "24×7"
+   ],
+   "x": 2600,
+   "y": 400,
+   "zoom": 1.2,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b24",
+    "Settlement"
+   ],
+   "x": 2600,
+   "y": 420,
+   "zoom": 1.05,
+   "frames": 45
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

@@ -1,0 +1,814 @@
+{
+ "id": "v8_s5",
+ "part_id": "c19.3",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b29",
+   "say": "पुराने Dollar और Pound में क्या साझा था? Bretton Woods का Dollar और British Rule का Pound Sterling metal से जुड़े थे; यानी कागज़ के पीछे metal लेने का रास्ता था।"
+  },
+  {
+   "beat_id": "b30",
+   "say": "मान लो चावल ₹20 से ₹25 per kilogram हुए। ₹100 से 5 की जगह 4 kilograms मिलेंगे; पुराने 5 लेने को ₹125 चाहिए। क्या note बदला?"
+  },
+  {
+   "beat_id": "b31",
+   "say": "नहीं; face value वही, purchasing power कम है: note inflation adjusted नहीं। Metal redemption अलग अधिकार है; modern note gold या silver weight से linked नहीं।"
+  },
+  {
+   "beat_id": "b32",
+   "say": "Currency पर promise है, तो legal promissory note है? नहीं; Section 4 का express exclusion मिलता-जुलता wording होने पर भी category अलग करता है।"
+  },
+  {
+   "beat_id": "b33",
+   "say": "Prices बढ़ें तो cash अपने आप नहीं बढ़ता; एक good का example broader inflation नहीं। Bretton Woods में Dollar का gold redemption foreign official holders के लिए था, हर retail bearer के लिए नहीं।"
+  },
+  {
+   "beat_id": "b34",
+   "say": "सबसे confusing pair है promise की भाषा और statutory category; exam में bracket वाला exclusion देखो।"
+  },
+  {
+   "beat_id": "b35",
+   "say": "चार tests अलग हैं: face value, purchasing power, metal redemption और legal category।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "history",
+   "kind": "text",
+   "cell": [
+    0,
+    0,
+    12,
+    1
+   ],
+   "cue": [
+    "b29",
+    "पुराने"
+   ],
+   "until_cue": [
+    "b35",
+    "चार"
+   ],
+   "text": "पुराने Dollar और Pound में क्या साझा था?",
+   "style": "title",
+   "tone": "ink",
+   "fill": "paper",
+   "align": "left",
+   "size": 32
+  },
+  {
+   "id": "dollar",
+   "kind": "text",
+   "cell": [
+    0,
+    1,
+    6,
+    2
+   ],
+   "cue": [
+    "b29",
+    "Bretton"
+   ],
+   "until_cue": [
+    "b35",
+    "चार"
+   ],
+   "text": "Bretton Woods का Dollar metal से जुड़ा था।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "paper",
+   "align": "left",
+   "size": 28
+  },
+  {
+   "id": "pound",
+   "kind": "text",
+   "cell": [
+    6,
+    1,
+    6,
+    2
+   ],
+   "cue": [
+    "b29",
+    "British"
+   ],
+   "until_cue": [
+    "b35",
+    "चार"
+   ],
+   "text": "British Rule का Pound Sterling metal से जुड़ा था।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "paper",
+   "align": "left",
+   "size": 28
+  },
+  {
+   "id": "redemption",
+   "kind": "text",
+   "cell": [
+    0,
+    3,
+    12,
+    1
+   ],
+   "cue": [
+    "b29",
+    "कागज़"
+   ],
+   "until_cue": [
+    "b30",
+    "मान"
+   ],
+   "text": "कागज़ के पीछे metal लेने का रास्ता था।",
+   "style": "box",
+   "tone": "warm",
+   "fill": "paper",
+   "align": "left",
+   "size": 28
+  },
+  {
+   "id": "example-note",
+   "kind": "text",
+   "cell": [
+    0,
+    3,
+    12,
+    1
+   ],
+   "cue": [
+    "b30",
+    "मान"
+   ],
+   "until_cue": [
+    "b31",
+    "नहीं;"
+   ],
+   "text": "मान लो चावल महँगे हुए।",
+   "style": "note",
+   "tone": "muted",
+   "fill": "paper",
+   "align": "left",
+   "size": 26
+  },
+  {
+   "id": "rice-price",
+   "kind": "value",
+   "cell": [
+    0,
+    4,
+    6,
+    1
+   ],
+   "cue": [
+    "b30",
+    "₹20"
+   ],
+   "until_cue": [
+    "b31",
+    "Metal"
+   ],
+   "tone": "warm",
+   "fill": "paper",
+   "align": "left",
+   "size": 30,
+   "steps": [
+    {
+     "cue": [
+      "b30",
+      "₹20"
+     ],
+     "text": "चावल ₹20 per kilogram हैं।"
+    },
+    {
+     "cue": [
+      "b30",
+      "₹25"
+     ],
+     "text": "चावल ₹25 per kilogram हुए।",
+     "dir": "up"
+    }
+   ]
+  },
+  {
+   "id": "rice-quantity",
+   "kind": "value",
+   "cell": [
+    6,
+    4,
+    6,
+    1
+   ],
+   "cue": [
+    "b30",
+    "5"
+   ],
+   "until_cue": [
+    "b31",
+    "Metal"
+   ],
+   "tone": "accent",
+   "fill": "paper",
+   "align": "left",
+   "size": 28,
+   "steps": [
+    {
+     "cue": [
+      "b30",
+      "5"
+     ],
+     "text": "₹100 से 5 kilograms मिलेंगे।"
+    },
+    {
+     "cue": [
+      "b30",
+      "4"
+     ],
+     "text": "₹100 से 4 kilograms मिलेंगे।",
+     "dir": "down"
+    }
+   ]
+  },
+  {
+   "id": "required-cash",
+   "kind": "text",
+   "cell": [
+    0,
+    5,
+    12,
+    1
+   ],
+   "cue": [
+    "b30",
+    "₹125"
+   ],
+   "until_cue": [
+    "b31",
+    "Metal"
+   ],
+   "text": "पुराने 5 kilograms लेने को ₹125 चाहिए।",
+   "style": "box",
+   "tone": "warm",
+   "fill": "paper",
+   "align": "left",
+   "size": 28
+  },
+  {
+   "id": "unchanged",
+   "kind": "text",
+   "cell": [
+    0,
+    3,
+    12,
+    1
+   ],
+   "cue": [
+    "b31",
+    "face"
+   ],
+   "until_cue": [
+    "b32",
+    "Currency"
+   ],
+   "text": "Face value वही, purchasing power कम है।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "paper",
+   "align": "left",
+   "size": 30,
+   "marks": [
+    {
+     "phrase": "purchasing power कम",
+     "cue": [
+      "b31",
+      "purchasing"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "not-adjusted",
+   "kind": "text",
+   "cell": [
+    0,
+    6,
+    12,
+    1
+   ],
+   "cue": [
+    "b31",
+    "inflation"
+   ],
+   "until_cue": [
+    "b32",
+    "Currency"
+   ],
+   "text": "Note inflation adjusted नहीं है।",
+   "style": "note",
+   "tone": "warm",
+   "fill": "paper",
+   "align": "left",
+   "size": 28
+  },
+  {
+   "id": "separate-right",
+   "kind": "text",
+   "cell": [
+    0,
+    4,
+    12,
+    1
+   ],
+   "cue": [
+    "b31",
+    "Metal"
+   ],
+   "until_cue": [
+    "b32",
+    "Currency"
+   ],
+   "text": "Metal redemption अलग अधिकार है।",
+   "style": "box",
+   "tone": "ink",
+   "fill": "paper",
+   "align": "left",
+   "size": 28
+  },
+  {
+   "id": "modern-metal",
+   "kind": "text",
+   "cell": [
+    0,
+    5,
+    12,
+    1
+   ],
+   "cue": [
+    "b31",
+    "gold"
+   ],
+   "until_cue": [
+    "b32",
+    "Currency"
+   ],
+   "text": "Modern note gold या silver weight से linked नहीं।",
+   "style": "box",
+   "tone": "warm",
+   "fill": "paper",
+   "align": "left",
+   "size": 28
+  },
+  {
+   "id": "promise",
+   "kind": "text",
+   "cell": [
+    0,
+    3,
+    6,
+    2
+   ],
+   "cue": [
+    "b32",
+    "promise"
+   ],
+   "until_cue": [
+    "b35",
+    "चार"
+   ],
+   "text": "Currency पर promise है।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "paper",
+   "align": "left",
+   "size": 30
+  },
+  {
+   "id": "exclusion",
+   "kind": "text",
+   "cell": [
+    6,
+    3,
+    6,
+    2
+   ],
+   "cue": [
+    "b32",
+    "Section"
+   ],
+   "until_cue": [
+    "b35",
+    "चार"
+   ],
+   "text": "Section 4 का express exclusion category अलग करता है।",
+   "style": "box",
+   "tone": "warm",
+   "fill": "paper",
+   "align": "left",
+   "size": 28,
+   "marks": [
+    {
+     "phrase": "category अलग",
+     "cue": [
+      "b32",
+      "category"
+     ]
+    },
+    {
+     "phrase": "express exclusion",
+     "cue": [
+      "b34",
+      "exclusion"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cash",
+   "kind": "text",
+   "cell": [
+    0,
+    5,
+    12,
+    1
+   ],
+   "cue": [
+    "b33",
+    "cash"
+   ],
+   "until_cue": [
+    "b33",
+    "Bretton"
+   ],
+   "text": "Prices बढ़ें तो cash अपने आप नहीं बढ़ता।",
+   "style": "box",
+   "tone": "warm",
+   "fill": "paper",
+   "align": "left",
+   "size": 28
+  },
+  {
+   "id": "one-good",
+   "kind": "text",
+   "cell": [
+    0,
+    6,
+    12,
+    1
+   ],
+   "cue": [
+    "b33",
+    "good"
+   ],
+   "until_cue": [
+    "b33",
+    "Bretton"
+   ],
+   "text": "एक good का example broader inflation नहीं।",
+   "style": "note",
+   "tone": "muted",
+   "fill": "paper",
+   "align": "left",
+   "size": 28
+  },
+  {
+   "id": "official",
+   "kind": "text",
+   "cell": [
+    0,
+    5,
+    12,
+    1
+   ],
+   "cue": [
+    "b33",
+    "foreign"
+   ],
+   "until_cue": [
+    "b34",
+    "सबसे"
+   ],
+   "text": "Dollar का gold redemption foreign official holders के लिए था।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "paper",
+   "align": "left",
+   "size": 28
+  },
+  {
+   "id": "retail",
+   "kind": "text",
+   "cell": [
+    0,
+    6,
+    12,
+    1
+   ],
+   "cue": [
+    "b33",
+    "retail"
+   ],
+   "until_cue": [
+    "b34",
+    "सबसे"
+   ],
+   "text": "हर retail bearer के लिए नहीं।",
+   "style": "note",
+   "tone": "warm",
+   "fill": "paper",
+   "align": "left",
+   "size": 28
+  },
+  {
+   "id": "confusion",
+   "kind": "callout",
+   "cell": [
+    0,
+    5,
+    12,
+    2
+   ],
+   "cue": [
+    "b34",
+    "confusing"
+   ],
+   "until_cue": [
+    "b35",
+    "चार"
+   ],
+   "text": "Confusing pair है promise की भाषा और statutory category।",
+   "style": "note",
+   "tone": "warm",
+   "fill": "paper",
+   "align": "left",
+   "size": 30,
+   "marks": [
+    {
+     "phrase": "statutory category",
+     "cue": [
+      "b34",
+      "statutory"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "four",
+   "kind": "text",
+   "cell": [
+    0,
+    0,
+    12,
+    1
+   ],
+   "cue": [
+    "b35",
+    "चार"
+   ],
+   "text": "चार tests अलग हैं।",
+   "style": "title",
+   "tone": "ink",
+   "fill": "paper",
+   "align": "left",
+   "size": 32
+  },
+  {
+   "id": "final-face",
+   "kind": "text",
+   "cell": [
+    1,
+    2,
+    10,
+    1
+   ],
+   "cue": [
+    "b35",
+    "face"
+   ],
+   "text": "Face value अलग test है।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "paper",
+   "align": "left",
+   "size": 30
+  },
+  {
+   "id": "final-power",
+   "kind": "text",
+   "cell": [
+    1,
+    3,
+    10,
+    1
+   ],
+   "cue": [
+    "b35",
+    "purchasing"
+   ],
+   "text": "Purchasing power अलग test है।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "paper",
+   "align": "left",
+   "size": 30
+  },
+  {
+   "id": "final-metal",
+   "kind": "text",
+   "cell": [
+    1,
+    4,
+    10,
+    1
+   ],
+   "cue": [
+    "b35",
+    "metal"
+   ],
+   "text": "Metal redemption अलग test है।",
+   "style": "box",
+   "tone": "warm",
+   "fill": "paper",
+   "align": "left",
+   "size": 30
+  },
+  {
+   "id": "final-legal",
+   "kind": "text",
+   "cell": [
+    1,
+    5,
+    10,
+    1
+   ],
+   "cue": [
+    "b35",
+    "legal"
+   ],
+   "text": "Legal category अलग test है।",
+   "style": "box",
+   "tone": "warm",
+   "fill": "paper",
+   "align": "left",
+   "size": 30
+  }
+ ],
+ "camera": [
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b29",
+    "पुराने"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    3,
+    12,
+    4
+   ],
+   "cue": [
+    "b30",
+    "मान"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b31",
+    "Metal"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    3,
+    12,
+    4
+   ],
+   "cue": [
+    "b32",
+    "Currency"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b33",
+    "Bretton"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    3,
+    12,
+    4
+   ],
+   "cue": [
+    "b34",
+    "सबसे"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b35",
+    "चार"
+   ]
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b29",
+    "कागज़"
+   ],
+   "ids": [
+    "dollar",
+    "pound",
+    "redemption"
+   ],
+   "until_cue": [
+    "b30",
+    "मान"
+   ]
+  },
+  {
+   "cue": [
+    "b31",
+    "purchasing"
+   ],
+   "ids": [
+    "unchanged",
+    "rice-price",
+    "rice-quantity",
+    "required-cash",
+    "not-adjusted"
+   ],
+   "until_cue": [
+    "b31",
+    "Metal"
+   ]
+  },
+  {
+   "cue": [
+    "b33",
+    "Bretton"
+   ],
+   "ids": [
+    "history",
+    "dollar",
+    "official",
+    "retail"
+   ],
+   "until_cue": [
+    "b34",
+    "सबसे"
+   ]
+  },
+  {
+   "cue": [
+    "b34",
+    "bracket"
+   ],
+   "ids": [
+    "promise",
+    "exclusion",
+    "confusion"
+   ],
+   "until_cue": [
+    "b35",
+    "चार"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

@@ -1,0 +1,460 @@
+{
+ "id": "v8_s3s",
+ "part_id": "c19.1",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b16",
+   "say": "किराना bill ₹100 है; genuine ₹100 note दो तो? दुकानदार ने लिया, अब ₹0 बाकी हैं; payment में कागज़ नहीं, उस पर लिखे ₹100 काम आए।"
+  },
+  {
+   "beat_id": "b17",
+   "say": "Customer ने tea seller को ₹20 का note दिया; उसने वही milk seller को दिया। पहले दोनों के पास इस note के ₹0 थे; अब बारी-बारी ₹20 मिले, बिना नाम बदले।"
+  },
+  {
+   "beat_id": "b18",
+   "say": "Wallet का ₹100 interest कमाएगा? नहीं। ग्राहक ने groceries के लिए वह note दिया; उसके पास ₹0 बचे। Shopkeeper के पास पहले इस note के ₹0 थे, अब ₹100 मिले।"
+  },
+  {
+   "beat_id": "b19",
+   "say": "खरीदार ₹500 debt चुकाने का unconditional written commitment देता है। बाद में उसने currency में ₹500 चुका दिए; अब ₹0 बाकी हैं। Written commitment और payment की currency अलग हैं।"
+  }
+ ],
+ "kit": "shop",
+ "elements": [
+  {
+   "id": "kirana",
+   "kind": "shop",
+   "x": 2600,
+   "y": 860,
+   "sign": "किराना",
+   "cue": [
+    "b16",
+    "किराना"
+   ]
+  },
+  {
+   "id": "seller",
+   "kind": "shopkeeper",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b16",
+    "दुकानदार"
+   ]
+  },
+  {
+   "id": "buyers",
+   "kind": "crowd",
+   "x0": 2160,
+   "spacing": 110,
+   "enter_x": 1750,
+   "exit_x": 1750,
+   "face": 1,
+   "seed": 19,
+   "cue": [
+    "b16",
+    "दो"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b16",
+      "दो"
+     ],
+     "n": 1
+    }
+   ]
+  },
+  {
+   "id": "bill",
+   "kind": "board",
+   "x": 3020,
+   "y": 470,
+   "fill": "#EEE3CF",
+   "cue": [
+    "b16",
+    "₹100"
+   ],
+   "until_cue": [
+    "b17",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b16",
+      "₹100"
+     ],
+     "text": "bill ₹100 है;"
+    },
+    {
+     "cue": [
+      "b16",
+      "₹0"
+     ],
+     "text": "₹0 बाकी हैं;",
+     "dir": "down"
+    }
+   ]
+  },
+  {
+   "id": "face_value",
+   "kind": "label",
+   "x": 2580,
+   "y": 260,
+   "text": "लिखे ₹100 काम आए।",
+   "fill": "rgba(250,244,228,1)",
+   "cue": [
+    "b16",
+    "लिखे"
+   ],
+   "until_cue": [
+    "b17",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "successive_holders",
+   "kind": "board",
+   "x": 3020,
+   "y": 460,
+   "fill": "#E8EEDF",
+   "cue": [
+    "b17",
+    "tea"
+   ],
+   "until_cue": [
+    "b18",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b17",
+      "tea"
+     ],
+     "text": "Customer ने tea seller को\n₹20 का note दिया।"
+    },
+    {
+     "cue": [
+      "b17",
+      "milk"
+     ],
+     "text": "वही milk seller को दिया।"
+    },
+    {
+     "cue": [
+      "b17",
+      "पहले"
+     ],
+     "text": "पहले दोनों के पास\nइस note के ₹0 थे।"
+    },
+    {
+     "cue": [
+      "b17",
+      "अब"
+     ],
+     "text": "अब बारी-बारी ₹20 मिले,\nबिना नाम बदले।",
+     "dir": "up"
+    }
+   ]
+  },
+  {
+   "id": "wallet",
+   "kind": "board",
+   "x": 2050,
+   "y": 450,
+   "fill": "#EEE3CF",
+   "cue": [
+    "b18",
+    "interest"
+   ],
+   "until_cue": [
+    "b19",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b18",
+      "interest"
+     ],
+     "text": "Wallet का ₹100\ninterest कमाएगा? नहीं।"
+    },
+    {
+     "cue": [
+      "b18",
+      "₹0"
+     ],
+     "text": "ग्राहक के पास ₹0 बचे।",
+     "dir": "down"
+    }
+   ]
+  },
+  {
+   "id": "shopkeeper_holding",
+   "kind": "board",
+   "x": 3050,
+   "y": 450,
+   "fill": "#E8EEDF",
+   "cue": [
+    "b18",
+    "Shopkeeper"
+   ],
+   "until_cue": [
+    "b19",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b18",
+      "Shopkeeper"
+     ],
+     "text": "Shopkeeper के पास पहले\nइस note के ₹0 थे।"
+    },
+    {
+     "cue": [
+      "b18",
+      "अब"
+     ],
+     "text": "अब ₹100 मिले।",
+     "dir": "up"
+    }
+   ]
+  },
+  {
+   "id": "commitment",
+   "kind": "board",
+   "x": 2050,
+   "y": 430,
+   "fill": "#EEE3CF",
+   "cue": [
+    "b19",
+    "unconditional"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b19",
+      "unconditional"
+     ],
+     "text": "₹500 debt चुकाने का\nunconditional written commitment।"
+    }
+   ]
+  },
+  {
+   "id": "repayment",
+   "kind": "board",
+   "x": 3050,
+   "y": 430,
+   "fill": "#E8EEDF",
+   "cue": [
+    "b19",
+    "currency"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b19",
+      "currency"
+     ],
+     "text": "currency में ₹500 चुका दिए।"
+    },
+    {
+     "cue": [
+      "b19",
+      "₹0"
+     ],
+     "text": "अब ₹0 बाकी हैं।",
+     "dir": "down"
+    }
+   ]
+  },
+  {
+   "id": "distinction",
+   "kind": "label",
+   "x": 2550,
+   "y": 230,
+   "text": "Written commitment और\npayment की currency अलग हैं।",
+   "fill": "rgba(250,244,228,1)",
+   "cue": [
+    "b19",
+    "Written"
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b16",
+    "",
+    0.0
+   ],
+   "x": 2580,
+   "y": 530,
+   "zoom": 0.95,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b16",
+    "genuine"
+   ],
+   "x": 2700,
+   "y": 510,
+   "zoom": 1.05,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b16",
+    "बाकी"
+   ],
+   "x": 2820,
+   "y": 490,
+   "zoom": 1.15,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b16",
+    "कागज़"
+   ],
+   "x": 2680,
+   "y": 460,
+   "zoom": 1.05,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b17",
+    "",
+    0.0
+   ],
+   "x": 2610,
+   "y": 520,
+   "zoom": 0.95,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b17",
+    "milk"
+   ],
+   "x": 2820,
+   "y": 500,
+   "zoom": 1.1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b17",
+    "पहले"
+   ],
+   "x": 2880,
+   "y": 470,
+   "zoom": 1.15,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b17",
+    "बारी-बारी"
+   ],
+   "x": 2780,
+   "y": 490,
+   "zoom": 1.05,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b18",
+    "",
+    0.0
+   ],
+   "x": 2420,
+   "y": 500,
+   "zoom": 0.9,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b18",
+    "groceries"
+   ],
+   "x": 2330,
+   "y": 510,
+   "zoom": 1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b18",
+    "Shopkeeper"
+   ],
+   "x": 2680,
+   "y": 500,
+   "zoom": 0.9,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b18",
+    "मिले।"
+   ],
+   "x": 2820,
+   "y": 490,
+   "zoom": 1.05,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b19",
+    "",
+    0.0
+   ],
+   "x": 2450,
+   "y": 500,
+   "zoom": 0.9,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b19",
+    "बाद"
+   ],
+   "x": 2650,
+   "y": 490,
+   "zoom": 0.9,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b19",
+    "बाकी"
+   ],
+   "x": 2820,
+   "y": 480,
+   "zoom": 1.05,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b19",
+    "अलग"
+   ],
+   "x": 2550,
+   "y": 460,
+   "zoom": 0.9,
+   "frames": 45
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

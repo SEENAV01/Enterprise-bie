@@ -1,0 +1,59 @@
+{
+ "id": "v16_s1a",
+ "part_id": "c40.2",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b1",
+   "say": "आधा statement सही हो, तो पूरा चुनोगे?"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "condition",
+   "kind": "text",
+   "cell": [
+    2,
+    2,
+    8,
+    2
+   ],
+   "cue": [
+    "b1",
+    "statement"
+   ],
+   "text": "आधा statement सही हो,",
+   "style": "box",
+   "tone": "ink",
+   "fill": "band",
+   "align": "center",
+   "size": 40
+  },
+  {
+   "id": "choice_question",
+   "kind": "callout",
+   "cell": [
+    2,
+    4,
+    8,
+    2
+   ],
+   "cue": [
+    "b1",
+    "पूरा"
+   ],
+   "text": "तो पूरा चुनोगे?",
+   "style": "note",
+   "tone": "warm",
+   "fill": "note",
+   "align": "center",
+   "size": 44
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

@@ -1,0 +1,303 @@
+{
+ "id": "v16_s6",
+ "part_id": "c41.q",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b25",
+   "say": "2025 में I सही; instantaneous real-time model है, zero-delay guarantee नहीं। II का inward charge और III के restricted days गलत हैं।"
+  },
+  {
+   "beat_id": "b25a",
+   "say": "a सही है: I real-time और batch का फर्क बताता है। b गलत है क्योंकि II पाने वाले पर charge लगाता है।"
+  },
+  {
+   "beat_id": "b25b",
+   "say": "c और d में गलत III है: दोनों 24×7 हैं। d सही I भी छोड़ता है।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "anchor",
+   "kind": "text",
+   "cell": [
+    0,
+    0,
+    12,
+    1
+   ],
+   "cue": [
+    "b25",
+    "2025"
+   ],
+   "text": "2025 में I सही है।",
+   "style": "title",
+   "tone": "ink",
+   "fill": "paper",
+   "align": "left",
+   "size": 36
+  },
+  {
+   "id": "model",
+   "kind": "text",
+   "cell": [
+    0,
+    1,
+    12,
+    1
+   ],
+   "cue": [
+    "b25",
+    "instantaneous"
+   ],
+   "text": "यह instantaneous real-time model है।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "paper",
+   "align": "left",
+   "size": 30
+  },
+  {
+   "id": "caveat",
+   "kind": "text",
+   "cell": [
+    0,
+    2,
+    12,
+    1
+   ],
+   "cue": [
+    "b25",
+    "zero-delay"
+   ],
+   "text": "zero-delay guarantee नहीं है।",
+   "style": "note",
+   "tone": "warm",
+   "fill": "paper",
+   "align": "left",
+   "size": 26
+  },
+  {
+   "id": "ii",
+   "kind": "text",
+   "cell": [
+    0,
+    3,
+    6,
+    2
+   ],
+   "cue": [
+    "b25",
+    "inward"
+   ],
+   "until_cue": [
+    "b25a",
+    "a"
+   ],
+   "text": "II का inward charge गलत है।",
+   "style": "box",
+   "tone": "danger",
+   "fill": "paper",
+   "align": "left",
+   "size": 28
+  },
+  {
+   "id": "iii",
+   "kind": "text",
+   "cell": [
+    6,
+    3,
+    6,
+    2
+   ],
+   "cue": [
+    "b25",
+    "restricted"
+   ],
+   "until_cue": [
+    "b25a",
+    "a"
+   ],
+   "text": "III के restricted days गलत हैं।",
+   "style": "box",
+   "tone": "danger",
+   "fill": "paper",
+   "align": "left",
+   "size": 28
+  },
+  {
+   "id": "option-a",
+   "kind": "text",
+   "cell": [
+    0,
+    3,
+    6,
+    2
+   ],
+   "cue": [
+    "b25a",
+    "a"
+   ],
+   "text": "a सही है।",
+   "style": "box",
+   "tone": "ok",
+   "fill": "paper",
+   "align": "left",
+   "size": 32
+  },
+  {
+   "id": "difference",
+   "kind": "text",
+   "cell": [
+    6,
+    3,
+    6,
+    2
+   ],
+   "cue": [
+    "b25a",
+    "real-time"
+   ],
+   "text": "I real-time और batch का फर्क बताता है।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "paper",
+   "align": "left",
+   "size": 28
+  },
+  {
+   "id": "option-b",
+   "kind": "text",
+   "cell": [
+    0,
+    5,
+    12,
+    1
+   ],
+   "cue": [
+    "b25a",
+    "b"
+   ],
+   "until_cue": [
+    "b25b",
+    "c"
+   ],
+   "text": "b गलत है: II पाने वाले पर charge लगाता है।",
+   "style": "box",
+   "tone": "danger",
+   "fill": "paper",
+   "align": "left",
+   "size": 28
+  },
+  {
+   "id": "options-cd",
+   "kind": "text",
+   "cell": [
+    0,
+    5,
+    6,
+    1
+   ],
+   "cue": [
+    "b25b",
+    "c"
+   ],
+   "text": "c और d में गलत III है।",
+   "style": "box",
+   "tone": "danger",
+   "fill": "paper",
+   "align": "left",
+   "size": 28
+  },
+  {
+   "id": "hours",
+   "kind": "text",
+   "cell": [
+    6,
+    5,
+    6,
+    1
+   ],
+   "cue": [
+    "b25b",
+    "24×7"
+   ],
+   "text": "दोनों 24×7 हैं।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "paper",
+   "align": "left",
+   "size": 30
+  },
+  {
+   "id": "d-omission",
+   "kind": "text",
+   "cell": [
+    0,
+    6,
+    12,
+    1
+   ],
+   "cue": [
+    "b25b",
+    "छोड़ता"
+   ],
+   "text": "d सही I भी छोड़ता है।",
+   "style": "note",
+   "tone": "warm",
+   "fill": "paper",
+   "align": "left",
+   "size": 28
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b25a",
+    "a"
+   ],
+   "ids": [
+    "anchor",
+    "option-a",
+    "difference"
+   ],
+   "until_cue": [
+    "b25a",
+    "b"
+   ]
+  },
+  {
+   "cue": [
+    "b25a",
+    "b"
+   ],
+   "ids": [
+    "anchor",
+    "option-b"
+   ],
+   "until_cue": [
+    "b25b",
+    "c"
+   ]
+  },
+  {
+   "cue": [
+    "b25b",
+    "c"
+   ],
+   "ids": [
+    "anchor",
+    "option-a",
+    "options-cd",
+    "hours",
+    "d-omission"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

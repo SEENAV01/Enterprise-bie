@@ -1,0 +1,643 @@
+{
+ "id": "v0_s4",
+ "part_id": "pre4",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b10",
+   "say": "₹100 से पहले 5 kg अनाज मिलता था, अब 4 kg—क्या बदला? Price ₹20 से ₹25 per kg हुआ; पैसे उतने ही, सामान कम। Purchasing power यानी पैसे से कितना खरीद सकते हो; यहाँ वह घटी।"
+  },
+  {
+   "beat_id": "b11",
+   "say": "मान लो रोजमर्रा की वही चीजें, उतनी ही मात्रा में, पहले ₹100 और अब ₹110 की पड़ती हैं। जब आम तौर पर prices बढ़ने से ऐसा होता है, इसे inflation कहते हैं, यानी general price level का बढ़ना। सिर्फ 1 सब्जी महँगी होना काफी नहीं।"
+  },
+  {
+   "beat_id": "b12",
+   "say": "2 packets हों और 10 लोग चाहें—जरूरत के मुकाबले यह कमी scarcity है; price पर ऊपर जाने का दबाव पड़ सकता है। आज ₹500 देने हों, तो cash तैयार है, जमीन तुरंत बेचना कठिन। बिना बड़ी कीमत घटाए asset को खर्च लायक बनाने की आसानी liquidity है; यह कितना खरीद सकते हो, उससे अलग है।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "money",
+   "kind": "text",
+   "cell": [
+    0,
+    0,
+    4,
+    1
+   ],
+   "cue": [
+    "b10",
+    "₹100"
+   ],
+   "until_cue": [
+    "b11",
+    "मान"
+   ],
+   "text": "₹100 से कितना सामान?",
+   "style": "box",
+   "tone": "accent",
+   "fill": "band",
+   "align": "center",
+   "size": 32
+  },
+  {
+   "id": "grain",
+   "kind": "icon",
+   "cell": [
+    1,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b10",
+    "अनाज"
+   ],
+   "until_cue": [
+    "b11",
+    "मान"
+   ],
+   "tone": "warm",
+   "icon": "fa:solid/jar-wheat"
+  },
+  {
+   "id": "quantity",
+   "kind": "value",
+   "cell": [
+    4,
+    2,
+    7,
+    1
+   ],
+   "cue": [
+    "b10",
+    "5"
+   ],
+   "until_cue": [
+    "b11",
+    "मान"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "size": 36,
+   "steps": [
+    {
+     "cue": [
+      "b10",
+      "5"
+     ],
+     "text": "5 kg अनाज मिलता था।"
+    },
+    {
+     "cue": [
+      "b10",
+      "4"
+     ],
+     "text": "अब 4 kg मिलता है।",
+     "dir": "down"
+    }
+   ]
+  },
+  {
+   "id": "price",
+   "kind": "value",
+   "cell": [
+    4,
+    4,
+    7,
+    1
+   ],
+   "cue": [
+    "b10",
+    "₹20"
+   ],
+   "until_cue": [
+    "b11",
+    "मान"
+   ],
+   "tone": "danger",
+   "align": "center",
+   "size": 32,
+   "steps": [
+    {
+     "cue": [
+      "b10",
+      "₹20"
+     ],
+     "text": "Price ₹20 per kg था,"
+    },
+    {
+     "cue": [
+      "b10",
+      "₹25"
+     ],
+     "text": "Price ₹25 per kg हुआ;",
+     "dir": "up"
+    }
+   ]
+  },
+  {
+   "id": "power",
+   "kind": "callout",
+   "cell": [
+    0,
+    6,
+    12,
+    1
+   ],
+   "cue": [
+    "b10",
+    "Purchasing"
+   ],
+   "until_cue": [
+    "b11",
+    "मान"
+   ],
+   "text": "Purchasing power यानी पैसे से कितना खरीद सकते हो।",
+   "style": "note",
+   "tone": "accent",
+   "align": "center",
+   "size": 30,
+   "marks": [
+    {
+     "phrase": "कितना खरीद सकते हो",
+     "cue": [
+      "b10",
+      "कितना"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "power_fell",
+   "kind": "highlight",
+   "cue": [
+    "b10",
+    "घटी।"
+   ],
+   "until_cue": [
+    "b11",
+    "मान"
+   ],
+   "style": "box",
+   "tone": "danger",
+   "target": "quantity"
+  },
+  {
+   "id": "caveat",
+   "kind": "text",
+   "cell": [
+    9,
+    0,
+    3,
+    1
+   ],
+   "cue": [
+    "b11",
+    "मान"
+   ],
+   "until_cue": [
+    "b12",
+    "2"
+   ],
+   "text": "मान लो",
+   "style": "note",
+   "tone": "muted",
+   "align": "center",
+   "size": 24
+  },
+  {
+   "id": "basket_anchor",
+   "kind": "text",
+   "cell": [
+    0,
+    0,
+    8,
+    1
+   ],
+   "cue": [
+    "b11",
+    "मात्रा"
+   ],
+   "until_cue": [
+    "b12",
+    "2"
+   ],
+   "text": "वही चीजें, उतनी ही मात्रा में।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "band",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "basket_cost",
+   "kind": "value",
+   "cell": [
+    2,
+    2,
+    8,
+    1
+   ],
+   "cue": [
+    "b11",
+    "₹100"
+   ],
+   "until_cue": [
+    "b12",
+    "2"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "size": 36,
+   "steps": [
+    {
+     "cue": [
+      "b11",
+      "₹100"
+     ],
+     "text": "पहले ₹100 की पड़ती थीं।"
+    },
+    {
+     "cue": [
+      "b11",
+      "₹110"
+     ],
+     "text": "अब ₹110 की पड़ती हैं।",
+     "dir": "up"
+    }
+   ]
+  },
+  {
+   "id": "inflation",
+   "kind": "callout",
+   "cell": [
+    0,
+    4,
+    12,
+    1
+   ],
+   "cue": [
+    "b11",
+    "inflation"
+   ],
+   "until_cue": [
+    "b12",
+    "2"
+   ],
+   "text": "Inflation यानी general price level का बढ़ना।",
+   "style": "note",
+   "tone": "accent",
+   "align": "center",
+   "size": 32,
+   "marks": [
+    {
+     "phrase": "general price level",
+     "cue": [
+      "b11",
+      "general"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "not_one",
+   "kind": "text",
+   "cell": [
+    1,
+    6,
+    10,
+    1
+   ],
+   "cue": [
+    "b11",
+    "सब्जी"
+   ],
+   "until_cue": [
+    "b12",
+    "2"
+   ],
+   "text": "सिर्फ 1 सब्जी महँगी होना काफी नहीं।",
+   "style": "box",
+   "tone": "warm",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "packets",
+   "kind": "crowd",
+   "cell": [
+    0,
+    2,
+    4,
+    2
+   ],
+   "cue": [
+    "b12",
+    "packets"
+   ],
+   "until_cue": [
+    "b12",
+    "आज"
+   ],
+   "tone": "warm",
+   "icon": "tw:1f4e6",
+   "cols": 2,
+   "steps": [
+    {
+     "cue": [
+      "b12",
+      "packets"
+     ],
+     "n": 2
+    }
+   ]
+  },
+  {
+   "id": "buyers",
+   "kind": "crowd",
+   "cell": [
+    6,
+    2,
+    6,
+    2
+   ],
+   "cue": [
+    "b12",
+    "10"
+   ],
+   "until_cue": [
+    "b12",
+    "आज"
+   ],
+   "tone": "accent",
+   "icon": "tw:1f471",
+   "cols": 5,
+   "steps": [
+    {
+     "cue": [
+      "b12",
+      "10"
+     ],
+     "n": 10
+    }
+   ]
+  },
+  {
+   "id": "scarcity",
+   "kind": "text",
+   "cell": [
+    0,
+    0,
+    12,
+    1
+   ],
+   "cue": [
+    "b12",
+    "scarcity"
+   ],
+   "until_cue": [
+    "b12",
+    "आज"
+   ],
+   "text": "जरूरत के मुकाबले कमी scarcity है।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "band",
+   "align": "center",
+   "size": 32
+  },
+  {
+   "id": "pressure",
+   "kind": "text",
+   "cell": [
+    1,
+    5,
+    10,
+    1
+   ],
+   "cue": [
+    "b12",
+    "दबाव"
+   ],
+   "until_cue": [
+    "b12",
+    "आज"
+   ],
+   "text": "Price पर ऊपर जाने का दबाव पड़ सकता है।",
+   "style": "note",
+   "tone": "warm",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "payment",
+   "kind": "text",
+   "cell": [
+    0,
+    0,
+    12,
+    1
+   ],
+   "cue": [
+    "b12",
+    "₹500"
+   ],
+   "text": "आज ₹500 देने हों।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "band",
+   "align": "center",
+   "size": 32
+  },
+  {
+   "id": "cash",
+   "kind": "text",
+   "cell": [
+    0,
+    2,
+    5,
+    1
+   ],
+   "cue": [
+    "b12",
+    "cash"
+   ],
+   "text": "Cash तैयार है।",
+   "style": "box",
+   "tone": "ok",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "land",
+   "kind": "text",
+   "cell": [
+    6,
+    2,
+    6,
+    1
+   ],
+   "cue": [
+    "b12",
+    "जमीन"
+   ],
+   "text": "जमीन तुरंत बेचना कठिन।",
+   "style": "box",
+   "tone": "warm",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "liquidity",
+   "kind": "callout",
+   "cell": [
+    0,
+    4,
+    12,
+    2
+   ],
+   "cue": [
+    "b12",
+    "बिना"
+   ],
+   "text": "बिना बड़ी कीमत घटाए asset खर्च लायक बनाने की आसानी liquidity है।",
+   "style": "note",
+   "tone": "accent",
+   "align": "center",
+   "size": 30,
+   "marks": [
+    {
+     "phrase": "liquidity",
+     "cue": [
+      "b12",
+      "liquidity"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "distinction",
+   "kind": "text",
+   "cell": [
+    0,
+    6,
+    12,
+    1
+   ],
+   "cue": [
+    "b12",
+    "अलग"
+   ],
+   "text": "यह कितना खरीद सकते हो, उससे अलग है।",
+   "style": "box",
+   "tone": "warm",
+   "align": "center",
+   "size": 30
+  }
+ ],
+ "camera": [
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b10",
+    "₹100"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b11",
+    "मान"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    6
+   ],
+   "cue": [
+    "b12",
+    "packets"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b12",
+    "₹500"
+   ]
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b10",
+    "सामान"
+   ],
+   "ids": [
+    "money",
+    "grain",
+    "quantity"
+   ],
+   "until_cue": [
+    "b10",
+    "Purchasing"
+   ]
+  },
+  {
+   "cue": [
+    "b11",
+    "general"
+   ],
+   "ids": [
+    "basket_anchor",
+    "basket_cost",
+    "inflation"
+   ],
+   "until_cue": [
+    "b11",
+    "सिर्फ"
+   ]
+  },
+  {
+   "cue": [
+    "b12",
+    "liquidity"
+   ],
+   "ids": [
+    "cash",
+    "land",
+    "liquidity"
+   ],
+   "until_cue": [
+    "b12",
+    "अलग"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

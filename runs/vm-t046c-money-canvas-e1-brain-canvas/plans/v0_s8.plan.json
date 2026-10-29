@@ -1,0 +1,465 @@
+{
+ "id": "v0_s8",
+ "part_id": "pre8",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b22",
+   "say": "Phone पर ₹100 भरकर button दबाया—क्या app ही पैसा है? App payment interface है, यानी details भरने और काम चुनने की जगह। Pay दबाने पर digital instruction जाता है: किस account से, किसे, कितने पैसे भेजने हैं।"
+  },
+  {
+   "beat_id": "b23",
+   "say": "PIN या biometric से पहचान या payment की permission जाँची जाती है; यह authentication है। PIN पैसा नहीं, जाँच का तरीका है। Payment पूरा होने पर accounts में entries होती हैं; हिसाब रखने वाला यह record ledger है, जैसे जमा और खर्च की digital बही।"
+  },
+  {
+   "beat_id": "b24",
+   "say": "QR scan करना details पढ़ना हो सकता है, instruction भेजना transfer की माँग है, authentication permission की जाँच है और ledger हिसाब रखता है। इसलिए सिर्फ screenshot या button दब जाना completed payment का प्रमाण नहीं; सही transaction status और account record देखना जरूरी है।"
+  },
+  {
+   "beat_id": "b25",
+   "say": "अब खरीद और payment, balance और loan, रकम और purchasing power को अलग रखो। आगे इन्हीं फर्कों से समझेंगे कि Money क्या है और हमारे कौन-से काम करता है।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank",
+   "kind": "bank",
+   "x": 2600,
+   "y": 860,
+   "sign": "payment",
+   "cue": [
+    "b22",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "teller",
+   "kind": "teller",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b22",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "customers",
+   "kind": "crowd",
+   "x0": 2330,
+   "spacing": 95,
+   "enter_x": 1800,
+   "exit_x": 1800,
+   "face": 1,
+   "seed": 8,
+   "cue": [
+    "b22",
+    "Phone"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b22",
+      "Phone"
+     ],
+     "n": 2
+    }
+   ]
+  },
+  {
+   "id": "phone_amount",
+   "kind": "label",
+   "x": 2180,
+   "y": 350,
+   "text": "Phone पर ₹100 भरकर button दबाया",
+   "fill": "#FFF4DB",
+   "cue": [
+    "b22",
+    "₹100"
+   ],
+   "until_cue": [
+    "b22",
+    "interface"
+   ]
+  },
+  {
+   "id": "left_board",
+   "kind": "board",
+   "x": 2110,
+   "y": 550,
+   "fill": "#DDEDE8",
+   "cue": [
+    "b22",
+    "interface"
+   ],
+   "until_cue": [
+    "b25",
+    "आगे"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b22",
+      "interface"
+     ],
+     "text": "App payment interface है"
+    },
+    {
+     "cue": [
+      "b23",
+      "नहीं,"
+     ],
+     "text": "PIN पैसा नहीं,\nजाँच का तरीका है"
+    },
+    {
+     "cue": [
+      "b24",
+      "details"
+     ],
+     "text": "QR scan करना\n details पढ़ना हो सकता है"
+    },
+    {
+     "cue": [
+      "b24",
+      "screenshot"
+     ],
+     "text": "सिर्फ screenshot प्रमाण नहीं"
+    },
+    {
+     "cue": [
+      "b25",
+      "payment,"
+     ],
+     "text": "खरीद और payment को अलग रखो"
+    },
+    {
+     "cue": [
+      "b25",
+      "power"
+     ],
+     "text": "रकम और purchasing power\nको अलग रखो"
+    }
+   ]
+  },
+  {
+   "id": "right_board",
+   "kind": "board",
+   "x": 3090,
+   "y": 550,
+   "fill": "#E7E5F3",
+   "cue": [
+    "b22",
+    "instruction"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b22",
+      "instruction"
+     ],
+     "text": "Pay दबाने पर\ndigital instruction जाता है"
+    },
+    {
+     "cue": [
+      "b23",
+      "authentication"
+     ],
+     "text": "Authentication में\npermission जाँची जाती है"
+    },
+    {
+     "cue": [
+      "b23",
+      "entries"
+     ],
+     "text": "Accounts में entries होती हैं"
+    },
+    {
+     "cue": [
+      "b23",
+      "ledger"
+     ],
+     "text": "हिसाब रखने वाला record ledger है"
+    },
+    {
+     "cue": [
+      "b24",
+      "transfer"
+     ],
+     "text": "Instruction भेजना\ntransfer की माँग है"
+    },
+    {
+     "cue": [
+      "b24",
+      "authentication"
+     ],
+     "text": "Authentication\npermission की जाँच है"
+    },
+    {
+     "cue": [
+      "b24",
+      "ledger"
+     ],
+     "text": "Ledger हिसाब रखता है"
+    },
+    {
+     "cue": [
+      "b24",
+      "status"
+     ],
+     "text": "सही transaction status और\naccount record देखना जरूरी है"
+    },
+    {
+     "cue": [
+      "b25",
+      "loan,"
+     ],
+     "text": "Balance और loan को अलग रखो"
+    },
+    {
+     "cue": [
+      "b25",
+      "Money"
+     ],
+     "text": "Money क्या है और\nहमारे कौन-से काम करता है?"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b22",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 510,
+   "zoom": 0.85,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b22",
+    "button"
+   ],
+   "x": 2360,
+   "y": 490,
+   "zoom": 1,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b22",
+    "interface"
+   ],
+   "x": 2290,
+   "y": 510,
+   "zoom": 1.05,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b22",
+    "जगह।"
+   ],
+   "x": 2470,
+   "y": 510,
+   "zoom": 0.9,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b22",
+    "instruction"
+   ],
+   "x": 2860,
+   "y": 510,
+   "zoom": 1.05,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b22",
+    "किसे,"
+   ],
+   "x": 2680,
+   "y": 510,
+   "zoom": 0.9,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b23",
+    "PIN"
+   ],
+   "x": 2600,
+   "y": 510,
+   "zoom": 0.85,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b23",
+    "permission"
+   ],
+   "x": 2790,
+   "y": 510,
+   "zoom": 0.95,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b23",
+    "authentication"
+   ],
+   "x": 2870,
+   "y": 510,
+   "zoom": 1.05,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b23",
+    "नहीं,"
+   ],
+   "x": 2290,
+   "y": 510,
+   "zoom": 1.05,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b23",
+    "entries"
+   ],
+   "x": 2850,
+   "y": 510,
+   "zoom": 1.05,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b23",
+    "ledger"
+   ],
+   "x": 2910,
+   "y": 500,
+   "zoom": 1.1,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b23",
+    "जमा"
+   ],
+   "x": 2740,
+   "y": 520,
+   "zoom": 0.95,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b24",
+    "QR"
+   ],
+   "x": 2300,
+   "y": 510,
+   "zoom": 1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b24",
+    "transfer"
+   ],
+   "x": 2860,
+   "y": 510,
+   "zoom": 1.05,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b24",
+    "authentication"
+   ],
+   "x": 2770,
+   "y": 510,
+   "zoom": 0.95,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b24",
+    "ledger"
+   ],
+   "x": 2880,
+   "y": 510,
+   "zoom": 1.05,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b24",
+    "screenshot"
+   ],
+   "x": 2300,
+   "y": 510,
+   "zoom": 1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b24",
+    "completed"
+   ],
+   "x": 2600,
+   "y": 510,
+   "zoom": 0.85,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b24",
+    "status"
+   ],
+   "x": 2860,
+   "y": 510,
+   "zoom": 1.05,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b25",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 510,
+   "zoom": 0.85,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b25",
+    "power"
+   ],
+   "x": 2380,
+   "y": 510,
+   "zoom": 0.95,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b25",
+    "Money"
+   ],
+   "x": 2850,
+   "y": 510,
+   "zoom": 1.05,
+   "frames": 45
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

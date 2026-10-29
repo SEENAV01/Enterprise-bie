@@ -1,0 +1,235 @@
+{
+ "id": "v8_s7",
+ "part_id": "c20.1",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b41",
+   "say": "दुकान पर note पढ़ न सको तो? दूसरों से पूछे बिना value पहचानना accessibility की जरूरत है।"
+  },
+  {
+   "beat_id": "b42",
+   "say": "RBI ने 1 January 2020 को free MANI—Mobile Aided Note Identifier—launch किया; यानी phone से note पहचानने की मदद।"
+  },
+  {
+   "beat_id": "b43",
+   "say": "पहचान में मदद अब phone से भी मिल सकती थी।"
+  },
+  {
+   "beat_id": "b44",
+   "say": "Launch याद रखो: RBI, 1 January 2020।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank",
+   "kind": "bank",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b41",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "clerk",
+   "kind": "teller",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b41",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "customers",
+   "kind": "crowd",
+   "x0": 2330,
+   "spacing": 100,
+   "enter_x": 1900,
+   "exit_x": 1900,
+   "face": 1,
+   "seed": 41,
+   "cue": [
+    "b41",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b41",
+      "",
+      0.0
+     ],
+     "n": 2
+    }
+   ]
+  },
+  {
+   "id": "accessibility",
+   "kind": "board",
+   "x": 3080,
+   "y": 520,
+   "fill": "#F4E9CF",
+   "cue": [
+    "b41",
+    "value"
+   ],
+   "until_cue": [
+    "b42",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b41",
+      "value"
+     ],
+     "text": "दूसरों से पूछे बिना\nvalue पहचानना जरूरी है।"
+    }
+   ]
+  },
+  {
+   "id": "launch",
+   "kind": "board",
+   "x": 2980,
+   "y": 440,
+   "fill": "#E5EEDC",
+   "cue": [
+    "b42",
+    "किया;"
+   ],
+   "until_cue": [
+    "b43",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b42",
+      "किया;"
+     ],
+     "text": "RBI ने 1 January 2020 को\nfree MANI launch किया।"
+    }
+   ]
+  },
+  {
+   "id": "phone_help",
+   "kind": "board",
+   "x": 2980,
+   "y": 440,
+   "fill": "#E4EDF2",
+   "cue": [
+    "b43",
+    "phone"
+   ],
+   "until_cue": [
+    "b44",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b43",
+      "phone"
+     ],
+     "text": "पहचान में मदद अब\nphone से भी मिल सकती थी।"
+    }
+   ]
+  },
+  {
+   "id": "recap",
+   "kind": "board",
+   "x": 2980,
+   "y": 440,
+   "fill": "#E5EEDC",
+   "cue": [
+    "b44",
+    "याद"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b44",
+      "याद"
+     ],
+     "text": "Launch याद रखो।\nRBI, 1 January 2020।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b41",
+    "",
+    0.0
+   ],
+   "x": 2670,
+   "y": 540,
+   "zoom": 0.9,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b41",
+    "value"
+   ],
+   "x": 2800,
+   "y": 510,
+   "zoom": 1.05,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b42",
+    "",
+    0.0
+   ],
+   "x": 2700,
+   "y": 520,
+   "zoom": 0.95,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b42",
+    "किया;"
+   ],
+   "x": 2900,
+   "y": 490,
+   "zoom": 1.2,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b43",
+    "",
+    0.0
+   ],
+   "x": 2780,
+   "y": 520,
+   "zoom": 1.05,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b44",
+    "",
+    0.0
+   ],
+   "x": 2910,
+   "y": 480,
+   "zoom": 1.25,
+   "frames": 30
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

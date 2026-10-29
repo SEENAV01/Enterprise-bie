@@ -1,0 +1,246 @@
+{
+ "id": "v8_s8",
+ "part_id": "c20.2",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b45",
+   "say": "हाथ में ₹100 है या ₹500? Denomination यानी note की value पहचानना MANI का उद्देश्य है, ताकि visually impaired व्यक्ति खुद पहचान सके।"
+  },
+  {
+   "beat_id": "b46",
+   "say": "Data बंद हो तो? MANI Android और iOS पर installation के बाद offline, यानी बिना internet चलता है; Hindi-English समेत 15 languages हैं।"
+  },
+  {
+   "beat_id": "b47",
+   "say": "App की 15 languages को note के 15 plus 2 से मत मिलाना; platform और language choices access बढ़ाते हैं।"
+  },
+  {
+   "beat_id": "b48",
+   "say": "Audio और vibration icons दिखाते हैं कि जवाब बिना देखे मिलता है; network icon offline working दिखाता है।"
+  },
+  {
+   "beat_id": "b49",
+   "say": "MANI denomination पहचानता है, note genuine है या नहीं यह नहीं जाँचता; यही इसकी सीमा है।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank",
+   "kind": "bank",
+   "x": 2600,
+   "cue": [
+    "b45",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "teller",
+   "kind": "teller",
+   "x": 2600,
+   "cue": [
+    "b45",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "customers",
+   "kind": "crowd",
+   "x0": 2250,
+   "spacing": 115,
+   "enter_x": 1700,
+   "exit_x": 1700,
+   "face": 1,
+   "seed": 20,
+   "cue": [
+    "b45",
+    "हाथ"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b45",
+      "हाथ"
+     ],
+     "n": 2
+    }
+   ]
+  },
+  {
+   "id": "mani_anchor",
+   "kind": "title",
+   "text": "MANI",
+   "cue": [
+    "b45",
+    "MANI"
+   ]
+  },
+  {
+   "id": "access_display",
+   "kind": "board",
+   "x": 3060,
+   "y": 420,
+   "fill": "#F4E9D5",
+   "cue": [
+    "b45",
+    "₹500?"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b45",
+      "₹500?"
+     ],
+     "text": "हाथ में ₹100 है या ₹500?"
+    },
+    {
+     "cue": [
+      "b45",
+      "visually"
+     ],
+     "text": "MANI से visually impaired व्यक्ति\nखुद note की value पहचान सके।"
+    },
+    {
+     "cue": [
+      "b46",
+      "Android"
+     ],
+     "text": "MANI Android और iOS पर चलता है।"
+    },
+    {
+     "cue": [
+      "b46",
+      "offline,"
+     ],
+     "text": "Installation के बाद offline,\nयानी बिना internet चलता है।"
+    },
+    {
+     "cue": [
+      "b46",
+      "15"
+     ],
+     "text": "Hindi-English समेत\n15 languages हैं।"
+    },
+    {
+     "cue": [
+      "b47",
+      "plus"
+     ],
+     "text": "App की 15 languages को note के\n15 plus 2 से मत मिलाना।"
+    },
+    {
+     "cue": [
+      "b47",
+      "choices"
+     ],
+     "text": "Platform और language choices\naccess बढ़ाते हैं।"
+    },
+    {
+     "cue": [
+      "b48",
+      "vibration"
+     ],
+     "text": "Audio और vibration से\nजवाब बिना देखे मिलता है।"
+    },
+    {
+     "cue": [
+      "b48",
+      "offline"
+     ],
+     "text": "Network icon offline\nworking दिखाता है।"
+    },
+    {
+     "cue": [
+      "b49",
+      "denomination"
+     ],
+     "text": "MANI denomination पहचानता है।"
+    },
+    {
+     "cue": [
+      "b49",
+      "genuine"
+     ],
+     "text": "Note genuine है या नहीं,\nयह नहीं जाँचता।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b45",
+    "",
+    0.0
+   ],
+   "x": 2660,
+   "y": 500,
+   "zoom": 0.9,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b45",
+    "Denomination"
+   ],
+   "x": 2810,
+   "y": 470,
+   "zoom": 1.05,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b46",
+    "Data"
+   ],
+   "x": 2770,
+   "y": 490,
+   "zoom": 1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b46",
+    "installation"
+   ],
+   "x": 2900,
+   "y": 460,
+   "zoom": 1.12,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b47",
+    "App"
+   ],
+   "x": 2880,
+   "y": 460,
+   "zoom": 1.08,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b48",
+    "Audio"
+   ],
+   "x": 2770,
+   "y": 490,
+   "zoom": 1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b49",
+    "MANI"
+   ],
+   "x": 2900,
+   "y": 460,
+   "zoom": 1.12,
+   "frames": 45
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

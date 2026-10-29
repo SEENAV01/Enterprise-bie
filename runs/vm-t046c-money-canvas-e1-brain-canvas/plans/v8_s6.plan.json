@@ -1,0 +1,546 @@
+{
+ "id": "v8_s6",
+ "part_id": "c19.4",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b36",
+   "say": "₹100 specimen में ऊपर-नीचे क्या है? दोनों languages का promise ऊपर है और Governor का signature नीचे; अब इन्हें पहचानो।"
+  },
+  {
+   "beat_id": "b37",
+   "say": "बाएँ Hindi, दाएँ English में वही ₹100 हैं, ₹200 नहीं। ‘I PROMISE TO PAY’ रकम देने का वादा है; ‘THE BEARER’ यानी note रखने वाले से यह वादा है।"
+  },
+  {
+   "beat_id": "b38",
+   "say": "नीचे Raghuram G. Rajan का नाम, signature और Governor title दिखते हैं। यह specimen का signatory है, current-office दावा नहीं; ₹1 पर Finance Secretary sign करते हैं।"
+  },
+  {
+   "beat_id": "b39",
+   "say": "Amount, bearer और इस instrument का signatory पहचानो।"
+  },
+  {
+   "beat_id": "b40",
+   "say": "इस crop का रास्ता है: दोनों भाषाओं में एक रकम, फिर नीचे signatory।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "anchor",
+   "kind": "text",
+   "cell": [
+    0,
+    0,
+    12,
+    1
+   ],
+   "cue": [
+    "b36",
+    "₹100"
+   ],
+   "text": "₹100 specimen में ऊपर-नीचे क्या है?",
+   "style": "title",
+   "tone": "ink",
+   "fill": "paper",
+   "align": "center",
+   "size": 32
+  },
+  {
+   "id": "upper",
+   "kind": "text",
+   "cell": [
+    0,
+    1,
+    12,
+    1
+   ],
+   "cue": [
+    "b36",
+    "promise"
+   ],
+   "text": "दोनों languages का promise ऊपर है।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "paper",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "signature_location",
+   "kind": "text",
+   "cell": [
+    0,
+    5,
+    12,
+    1
+   ],
+   "cue": [
+    "b36",
+    "signature"
+   ],
+   "until_cue": [
+    "b38",
+    "Raghuram"
+   ],
+   "text": "Governor का signature नीचे है।",
+   "style": "box",
+   "tone": "muted",
+   "fill": "paper",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "hindi_promise",
+   "kind": "text",
+   "cell": [
+    0,
+    2,
+    6,
+    2
+   ],
+   "cue": [
+    "b37",
+    "Hindi,"
+   ],
+   "text": "बाएँ Hindi में वही ₹100 हैं।",
+   "style": "box",
+   "tone": "ink",
+   "fill": "paper",
+   "align": "center",
+   "size": 28,
+   "marks": [
+    {
+     "phrase": "₹100",
+     "cue": [
+      "b37",
+      "₹100"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "english_promise",
+   "kind": "text",
+   "cell": [
+    6,
+    2,
+    6,
+    2
+   ],
+   "cue": [
+    "b37",
+    "English"
+   ],
+   "text": "I PROMISE TO PAY रकम देने का वादा है।",
+   "style": "box",
+   "tone": "ink",
+   "fill": "paper",
+   "align": "center",
+   "size": 26,
+   "marks": [
+    {
+     "phrase": "I PROMISE TO PAY",
+     "cue": [
+      "b37",
+      "PROMISE"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "same_amount",
+   "kind": "text",
+   "cell": [
+    0,
+    4,
+    12,
+    1
+   ],
+   "cue": [
+    "b37",
+    "₹100"
+   ],
+   "until_cue": [
+    "b37",
+    "BEARER’"
+   ],
+   "text": "Hindi और English में वही ₹100 हैं।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "paper",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "bearer",
+   "kind": "callout",
+   "cell": [
+    0,
+    4,
+    12,
+    1
+   ],
+   "cue": [
+    "b37",
+    "BEARER’"
+   ],
+   "until_cue": [
+    "b40",
+    "दोनों"
+   ],
+   "text": "‘THE BEARER’ यानी note रखने वाला।",
+   "style": "note",
+   "tone": "accent",
+   "fill": "paper",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "signatory",
+   "kind": "text",
+   "cell": [
+    0,
+    5,
+    12,
+    1
+   ],
+   "cue": [
+    "b38",
+    "Raghuram"
+   ],
+   "text": "रघुराम जी. राजन का नाम, signature और Governor title नीचे हैं।",
+   "style": "box",
+   "tone": "ink",
+   "fill": "paper",
+   "align": "center",
+   "size": 28,
+   "marks": [
+    {
+     "phrase": "signature",
+     "cue": [
+      "b38",
+      "signature"
+     ]
+    },
+    {
+     "phrase": "Governor",
+     "cue": [
+      "b38",
+      "Governor"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "specimen_caveat",
+   "kind": "text",
+   "cell": [
+    0,
+    6,
+    12,
+    1
+   ],
+   "cue": [
+    "b38",
+    "specimen"
+   ],
+   "text": "यह specimen का signatory है, current-office दावा नहीं।",
+   "style": "note",
+   "tone": "muted",
+   "fill": "paper",
+   "align": "center",
+   "size": 24
+  },
+  {
+   "id": "one_rupee",
+   "kind": "text",
+   "cell": [
+    0,
+    7,
+    12,
+    1
+   ],
+   "cue": [
+    "b38",
+    "₹1"
+   ],
+   "until_cue": [
+    "b39",
+    "Amount,"
+   ],
+   "text": "₹1 पर Finance Secretary sign करते हैं।",
+   "style": "note",
+   "tone": "warm",
+   "fill": "paper",
+   "align": "center",
+   "size": 26
+  },
+  {
+   "id": "reading_path",
+   "kind": "text",
+   "cell": [
+    0,
+    4,
+    12,
+    1
+   ],
+   "cue": [
+    "b40",
+    "दोनों"
+   ],
+   "text": "दोनों भाषाओं में एक रकम, फिर नीचे signatory।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "paper",
+   "align": "center",
+   "size": 28
+  }
+ ],
+ "camera": [
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    8
+   ],
+   "cue": [
+    "b36",
+    "₹100"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    1,
+    12,
+    5
+   ],
+   "cue": [
+    "b37",
+    "Hindi,"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    8
+   ],
+   "cue": [
+    "b38",
+    "नीचे"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b40",
+    "इस"
+   ]
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b36",
+    "promise"
+   ],
+   "ids": [
+    "anchor",
+    "upper"
+   ],
+   "until_cue": [
+    "b36",
+    "signature"
+   ]
+  },
+  {
+   "cue": [
+    "b36",
+    "signature"
+   ],
+   "ids": [
+    "anchor",
+    "signature_location"
+   ],
+   "until_cue": [
+    "b37",
+    "Hindi,"
+   ]
+  },
+  {
+   "cue": [
+    "b37",
+    "Hindi,"
+   ],
+   "ids": [
+    "anchor",
+    "hindi_promise"
+   ],
+   "until_cue": [
+    "b37",
+    "English"
+   ]
+  },
+  {
+   "cue": [
+    "b37",
+    "English"
+   ],
+   "ids": [
+    "anchor",
+    "english_promise"
+   ],
+   "until_cue": [
+    "b37",
+    "₹100"
+   ]
+  },
+  {
+   "cue": [
+    "b37",
+    "₹100"
+   ],
+   "ids": [
+    "anchor",
+    "hindi_promise",
+    "english_promise",
+    "same_amount"
+   ],
+   "until_cue": [
+    "b37",
+    "BEARER’"
+   ]
+  },
+  {
+   "cue": [
+    "b37",
+    "BEARER’"
+   ],
+   "ids": [
+    "anchor",
+    "english_promise",
+    "bearer"
+   ],
+   "until_cue": [
+    "b38",
+    "Raghuram"
+   ]
+  },
+  {
+   "cue": [
+    "b38",
+    "Raghuram"
+   ],
+   "ids": [
+    "anchor",
+    "signatory",
+    "specimen_caveat"
+   ],
+   "until_cue": [
+    "b38",
+    "₹1"
+   ]
+  },
+  {
+   "cue": [
+    "b38",
+    "₹1"
+   ],
+   "ids": [
+    "anchor",
+    "one_rupee"
+   ],
+   "until_cue": [
+    "b39",
+    "Amount,"
+   ]
+  },
+  {
+   "cue": [
+    "b39",
+    "Amount,"
+   ],
+   "ids": [
+    "anchor",
+    "hindi_promise",
+    "english_promise"
+   ],
+   "until_cue": [
+    "b39",
+    "bearer"
+   ]
+  },
+  {
+   "cue": [
+    "b39",
+    "bearer"
+   ],
+   "ids": [
+    "anchor",
+    "bearer",
+    "english_promise"
+   ],
+   "until_cue": [
+    "b39",
+    "signatory"
+   ]
+  },
+  {
+   "cue": [
+    "b39",
+    "signatory"
+   ],
+   "ids": [
+    "anchor",
+    "signatory",
+    "specimen_caveat"
+   ],
+   "until_cue": [
+    "b40",
+    "दोनों"
+   ]
+  },
+  {
+   "cue": [
+    "b40",
+    "दोनों"
+   ],
+   "ids": [
+    "anchor",
+    "hindi_promise",
+    "english_promise",
+    "reading_path"
+   ],
+   "until_cue": [
+    "b40",
+    "नीचे"
+   ]
+  },
+  {
+   "cue": [
+    "b40",
+    "नीचे"
+   ],
+   "ids": [
+    "anchor",
+    "reading_path",
+    "signatory",
+    "specimen_caveat"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

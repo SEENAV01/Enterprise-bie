@@ -1,0 +1,139 @@
+{
+ "id": "v1_s1b",
+ "part_id": "c01.1",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b11",
+   "say": "आगे functions में यही आधार रखिए: payment लोग लें, जल्दी खराब न हो, साथ ले जाना और छोटी units में देना आसान हो; equivalent units बदल सकें।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "anchor",
+   "kind": "text",
+   "cell": [
+    1,
+    0,
+    10,
+    1
+   ],
+   "cue": [
+    "b11",
+    "functions"
+   ],
+   "text": "Functions में यही आधार रखिए",
+   "style": "title",
+   "tone": "ink",
+   "fill": "paper",
+   "align": "center",
+   "size": 36
+  },
+  {
+   "id": "accept",
+   "kind": "text",
+   "cell": [
+    1,
+    2,
+    5,
+    1
+   ],
+   "cue": [
+    "b11",
+    "payment"
+   ],
+   "text": "Payment लोग लें",
+   "style": "box",
+   "tone": "accent",
+   "fill": "paper",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "durable",
+   "kind": "text",
+   "cell": [
+    6,
+    2,
+    5,
+    1
+   ],
+   "cue": [
+    "b11",
+    "खराब"
+   ],
+   "text": "जल्दी खराब न हो",
+   "style": "box",
+   "tone": "accent",
+   "fill": "paper",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "portable",
+   "kind": "text",
+   "cell": [
+    1,
+    4,
+    5,
+    1
+   ],
+   "cue": [
+    "b11",
+    "जाना"
+   ],
+   "text": "साथ ले जाना आसान हो",
+   "style": "box",
+   "tone": "accent",
+   "fill": "paper",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "divisible",
+   "kind": "text",
+   "cell": [
+    6,
+    4,
+    5,
+    1
+   ],
+   "cue": [
+    "b11",
+    "units"
+   ],
+   "text": "छोटी units में देना आसान हो",
+   "style": "box",
+   "tone": "accent",
+   "fill": "paper",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "uniform",
+   "kind": "text",
+   "cell": [
+    2,
+    6,
+    8,
+    1
+   ],
+   "cue": [
+    "b11",
+    "equivalent"
+   ],
+   "text": "Equivalent units बदल सकें",
+   "style": "box",
+   "tone": "accent",
+   "fill": "paper",
+   "align": "center",
+   "size": 30
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

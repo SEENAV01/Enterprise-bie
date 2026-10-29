@@ -1,0 +1,225 @@
+{
+ "id": "v16_s8",
+ "part_id": "c42.2",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b32",
+   "say": "Card लगाना और PIN डालना क्या अलग सबूत हैं? Authentication factors यानी पहचान के अलग तरह के सबूत; card और BHIM दोनों में possession और knowledge हैं।"
+  },
+  {
+   "beat_id": "b33",
+   "say": "Card में possession का सबूत card है; BHIM में registered mobile/device linkage। Knowledge दोनों में secret PIN की है।"
+  },
+  {
+   "beat_id": "b34",
+   "say": "Bank को proof चाहिए, clicks नहीं। चाबी और secret code अलग proof हैं; बार-बार चाबी घुमाना नए factors नहीं बनाता।"
+  },
+  {
+   "beat_id": "b35",
+   "say": "Payee, amount और confirmation screens actions हैं, independent factors नहीं। Chip-pin card को four-factor कहना गलत है।"
+  },
+  {
+   "beat_id": "b36",
+   "say": "Possession का सबूत अलग है; PIN knowledge दोनों में है।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank",
+   "kind": "bank",
+   "x": 2250,
+   "cue": [
+    "b32",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "clerk",
+   "kind": "teller",
+   "x": 2250,
+   "cue": [
+    "b32",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "evidence",
+   "kind": "board",
+   "x": 3190,
+   "y": 430,
+   "fill": "#E9DFC9",
+   "cue": [
+    "b32",
+    "PIN"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b32",
+      "PIN"
+     ],
+     "text": "Card लगाना और PIN डालना\nक्या अलग सबूत हैं?"
+    },
+    {
+     "cue": [
+      "b32",
+      "Authentication"
+     ],
+     "text": "Authentication factors पहचान के\nअलग तरह के सबूत हैं।"
+    },
+    {
+     "cue": [
+      "b32",
+      "possession"
+     ],
+     "text": "Card और BHIM दोनों में\npossession और knowledge हैं।"
+    },
+    {
+     "cue": [
+      "b33",
+      "card"
+     ],
+     "text": "Card में possession का सबूत card है।"
+    },
+    {
+     "cue": [
+      "b33",
+      "registered"
+     ],
+     "text": "BHIM में possession का सबूत\nregistered mobile/device linkage है।"
+    },
+    {
+     "cue": [
+      "b33",
+      "Knowledge"
+     ],
+     "text": "Knowledge दोनों में secret PIN की है।"
+    },
+    {
+     "cue": [
+      "b34",
+      "proof"
+     ],
+     "text": "Bank को proof चाहिए, clicks नहीं।"
+    },
+    {
+     "cue": [
+      "b34",
+      "code"
+     ],
+     "text": "चाबी और secret code अलग proof हैं।"
+    },
+    {
+     "cue": [
+      "b34",
+      "घुमाना"
+     ],
+     "text": "बार-बार चाबी घुमाना\nनए factors नहीं बनाता।"
+    },
+    {
+     "cue": [
+      "b35",
+      "confirmation"
+     ],
+     "text": "Payee, amount और confirmation screens\nactions हैं, independent factors नहीं।"
+    },
+    {
+     "cue": [
+      "b35",
+      "four-factor"
+     ],
+     "text": "Chip-pin card को\nfour-factor कहना गलत है।"
+    },
+    {
+     "cue": [
+      "b36",
+      "PIN"
+     ],
+     "text": "Possession का सबूत अलग है;\nPIN knowledge दोनों में है।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b32",
+    "",
+    0.0
+   ],
+   "x": 2720,
+   "y": 470,
+   "zoom": 0.9,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b32",
+    "Authentication"
+   ],
+   "x": 2840,
+   "y": 450,
+   "zoom": 1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b33",
+    "",
+    0.0
+   ],
+   "x": 2870,
+   "y": 450,
+   "zoom": 1.04,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b34",
+    "",
+    0.0
+   ],
+   "x": 2720,
+   "y": 470,
+   "zoom": 0.9,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b34",
+    "बार-बार"
+   ],
+   "x": 2860,
+   "y": 450,
+   "zoom": 1.02,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b35",
+    "",
+    0.0
+   ],
+   "x": 2890,
+   "y": 450,
+   "zoom": 1.06,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b36",
+    "",
+    0.0
+   ],
+   "x": 2740,
+   "y": 470,
+   "zoom": 0.92,
+   "frames": 45
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

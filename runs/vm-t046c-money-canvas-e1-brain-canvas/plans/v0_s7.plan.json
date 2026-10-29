@@ -1,0 +1,369 @@
+{
+ "id": "v0_s7",
+ "part_id": "pre7",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b19",
+   "say": "300 BCE और 200 BCE में पहले कौन आया? 300 BCE; BCE में समय आगे बढ़े तो संख्या घटती है। CE में 200 के बाद 300 आता है; BCE और CE dates लिखने के तरीके हैं, इनके बीच year 0 नहीं है।"
+  },
+  {
+   "beat_id": "b20",
+   "say": "1st century CE में years 1–100 हैं; 20th century में 1901–2000। Dynasty किसी ruling family का समय बताती है, अकेला साल नहीं। मान लो law 2020 में बना, 2021 में लागू हुआ; दोनों dates सही हैं, घटनाएँ अलग हैं।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "chronology_question",
+   "kind": "text",
+   "cell": [
+    0,
+    0,
+    12,
+    1
+   ],
+   "cue": [
+    "b19",
+    "कौन"
+   ],
+   "until_cue": [
+    "b19",
+    "dates"
+   ],
+   "text": "300 BCE और 200 BCE में पहले कौन आया?",
+   "style": "title",
+   "tone": "ink",
+   "fill": "paper",
+   "align": "center",
+   "size": 32
+  },
+  {
+   "id": "bce_answer",
+   "kind": "text",
+   "cell": [
+    0,
+    2,
+    5,
+    1
+   ],
+   "cue": [
+    "b19",
+    "BCE;"
+   ],
+   "until_cue": [
+    "b20",
+    "1st"
+   ],
+   "text": "300 BCE पहले आया।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "paper",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "bce_rule",
+   "kind": "text",
+   "cell": [
+    6,
+    2,
+    6,
+    2
+   ],
+   "cue": [
+    "b19",
+    "घटती"
+   ],
+   "until_cue": [
+    "b20",
+    "1st"
+   ],
+   "text": "BCE में समय आगे बढ़े तो संख्या घटती है।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "paper",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "ce_order",
+   "kind": "text",
+   "cell": [
+    0,
+    4,
+    6,
+    2
+   ],
+   "cue": [
+    "b19",
+    "आता"
+   ],
+   "until_cue": [
+    "b20",
+    "1st"
+   ],
+   "text": "CE में 200 के बाद 300 आता है।",
+   "style": "box",
+   "tone": "warm",
+   "fill": "paper",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "date_anchor",
+   "kind": "text",
+   "cell": [
+    0,
+    0,
+    12,
+    1
+   ],
+   "cue": [
+    "b19",
+    "dates"
+   ],
+   "text": "BCE और CE dates लिखने के तरीके हैं।",
+   "style": "title",
+   "tone": "ink",
+   "fill": "paper",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "no_zero",
+   "kind": "callout",
+   "cell": [
+    7,
+    4,
+    5,
+    2
+   ],
+   "cue": [
+    "b19",
+    "0"
+   ],
+   "until_cue": [
+    "b20",
+    "1st"
+   ],
+   "text": "इनके बीच year 0 नहीं है।",
+   "style": "note",
+   "tone": "warm",
+   "fill": "paper",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "first_century",
+   "kind": "text",
+   "cell": [
+    0,
+    2,
+    6,
+    2
+   ],
+   "cue": [
+    "b20",
+    "1–100"
+   ],
+   "until_cue": [
+    "b20",
+    "मान"
+   ],
+   "text": "1st century CE में years 1–100 हैं।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "paper",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "twentieth_century",
+   "kind": "text",
+   "cell": [
+    6,
+    2,
+    6,
+    2
+   ],
+   "cue": [
+    "b20",
+    "1901–2000।"
+   ],
+   "until_cue": [
+    "b20",
+    "मान"
+   ],
+   "text": "20th century में 1901–2000 हैं।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "paper",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "dynasty",
+   "kind": "text",
+   "cell": [
+    1,
+    4,
+    10,
+    2
+   ],
+   "cue": [
+    "b20",
+    "समय"
+   ],
+   "until_cue": [
+    "b20",
+    "मान"
+   ],
+   "text": "Dynasty ruling family का समय है, अकेला साल नहीं।",
+   "style": "box",
+   "tone": "ink",
+   "fill": "paper",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "example_note",
+   "kind": "text",
+   "cell": [
+    0,
+    1,
+    4,
+    1
+   ],
+   "cue": [
+    "b20",
+    "मान"
+   ],
+   "text": "मान लो",
+   "style": "note",
+   "tone": "muted",
+   "fill": "paper",
+   "align": "left",
+   "size": 24
+  },
+  {
+   "id": "law_made",
+   "kind": "text",
+   "cell": [
+    0,
+    2,
+    5,
+    2
+   ],
+   "cue": [
+    "b20",
+    "2020"
+   ],
+   "text": "law 2020 में बना,",
+   "style": "box",
+   "tone": "accent",
+   "fill": "paper",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "law_effective",
+   "kind": "text",
+   "cell": [
+    7,
+    2,
+    5,
+    2
+   ],
+   "cue": [
+    "b20",
+    "2021"
+   ],
+   "text": "2021 में लागू हुआ;",
+   "style": "box",
+   "tone": "warm",
+   "fill": "paper",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "different_events",
+   "kind": "callout",
+   "cell": [
+    1,
+    5,
+    10,
+    1
+   ],
+   "cue": [
+    "b20",
+    "दोनों"
+   ],
+   "text": "दोनों dates सही हैं, घटनाएँ अलग हैं।",
+   "style": "note",
+   "tone": "ink",
+   "fill": "paper",
+   "align": "center",
+   "size": 30,
+   "marks": [
+    {
+     "phrase": "घटनाएँ अलग हैं",
+     "cue": [
+      "b20",
+      "घटनाएँ"
+     ]
+    }
+   ]
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b19",
+    "घटती"
+   ],
+   "ids": [
+    "chronology_question",
+    "bce_answer",
+    "bce_rule"
+   ],
+   "until_cue": [
+    "b19",
+    "आता"
+   ]
+  },
+  {
+   "cue": [
+    "b19",
+    "0"
+   ],
+   "ids": [
+    "date_anchor",
+    "no_zero"
+   ],
+   "until_cue": [
+    "b20",
+    "1st"
+   ]
+  },
+  {
+   "cue": [
+    "b20",
+    "समय"
+   ],
+   "ids": [
+    "date_anchor",
+    "dynasty"
+   ],
+   "until_cue": [
+    "b20",
+    "मान"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

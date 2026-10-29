@@ -1,0 +1,189 @@
+{
+ "id": "v16_s4b",
+ "part_id": "c41.2",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b17",
+   "say": "Checks या funds अधूरे हों, तो settlement अटक सकता है। App notification का मतलब बैंकों का हिसाब पूरा होना नहीं है।"
+  },
+  {
+   "beat_id": "b18",
+   "say": "Supplier payment में authorisation, checks, bank settlement और beneficiary credit आते हैं; notification अलग पहचानो।"
+  },
+  {
+   "beat_id": "b19",
+   "say": "Gross में पूरा payment अलग; net में आपसी बाकी रकम settle होती है।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank",
+   "kind": "bank",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b17",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "teller",
+   "kind": "teller",
+   "x": 2600,
+   "cue": [
+    "b17",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "customers",
+   "kind": "crowd",
+   "x0": 2330,
+   "spacing": 95,
+   "enter_x": 1900,
+   "exit_x": 1900,
+   "face": 1,
+   "seed": 17,
+   "cue": [
+    "b17",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b17",
+      "",
+      0.0
+     ],
+     "n": 2
+    }
+   ]
+  },
+  {
+   "id": "explanation",
+   "kind": "board",
+   "x": 3100,
+   "y": 490,
+   "fill": "#DCE9E5",
+   "cue": [
+    "b17",
+    "अधूरे"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b17",
+      "अधूरे"
+     ],
+     "text": "Checks या funds अधूरे हों,\nतो settlement अटक सकता है।"
+    },
+    {
+     "cue": [
+      "b17",
+      "notification"
+     ],
+     "text": "App notification का मतलब\nबैंकों का हिसाब पूरा होना नहीं है।"
+    },
+    {
+     "cue": [
+      "b18",
+      "authorisation,"
+     ],
+     "text": "Supplier payment में authorisation,\nchecks, bank settlement और\nbeneficiary credit आते हैं।"
+    },
+    {
+     "cue": [
+      "b18",
+      "notification"
+     ],
+     "text": "Notification अलग पहचानो।"
+    },
+    {
+     "cue": [
+      "b19",
+      "पूरा"
+     ],
+     "text": "Gross में पूरा payment अलग है।"
+    },
+    {
+     "cue": [
+      "b19",
+      "आपसी"
+     ],
+     "text": "Net में आपसी बाकी रकम\nsettle होती है।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b17",
+    "",
+    0.0
+   ],
+   "x": 2700,
+   "y": 510,
+   "zoom": 1,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b17",
+    "notification"
+   ],
+   "x": 2840,
+   "y": 500,
+   "zoom": 1.12,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b18",
+    "",
+    0.0
+   ],
+   "x": 2780,
+   "y": 510,
+   "zoom": 1.05,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b18",
+    "beneficiary"
+   ],
+   "x": 2900,
+   "y": 500,
+   "zoom": 1.15,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b19",
+    "",
+    0.0
+   ],
+   "x": 2850,
+   "y": 500,
+   "zoom": 1.1,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b19",
+    "net"
+   ],
+   "x": 2940,
+   "y": 490,
+   "zoom": 1.2,
+   "frames": 35
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

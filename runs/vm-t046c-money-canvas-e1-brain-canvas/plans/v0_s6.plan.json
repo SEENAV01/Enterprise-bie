@@ -1,0 +1,487 @@
+{
+ "id": "v0_s6",
+ "part_id": "pre6",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b16",
+   "say": "विदेशी seller को $10 देने हों, तो कितने rupees चाहिए? मान लो $1 = ₹80; तब ₹800 चाहिए। यह exchange rate है, यानी एक currency की दूसरी currency में कीमत; dollar यहाँ foreign currency है।"
+  },
+  {
+   "beat_id": "b17",
+   "say": "$1 अब ₹85 का हो, तो $10 के ₹850 लगेंगे; dollar के मुकाबले rupee कमजोर हुआ। बाकी बातें समान हों, dollar की demand बढ़े और supply न बढ़े, तो उसकी rupee कीमत बढ़ सकती है।"
+  },
+  {
+   "beat_id": "b17a",
+   "say": "विदेशी currency की जरूरत पड़े तो official stock कहाँ काम आएगा? मान लो monetary authority के पास $100 हैं; जरूरत पर उसमें से $10 market में उपलब्ध कराए, तो $90 बचेंगे। इससे market को foreign currency मिलती है; यह हर व्यक्ति के bill चुकाने का वादा नहीं है।"
+  },
+  {
+   "beat_id": "b17b",
+   "say": "ऐसे official foreign assets का रखा हुआ stock foreign exchange reserves है; इसमें सिर्फ dollar notes नहीं होते। तुम्हारे निजी $100 इस official stock का हिस्सा नहीं हैं। Exchange rate कीमत बताता है, reserves जरूरत पर इस्तेमाल के लिए रखी official holding बताते हैं।"
+  }
+ ],
+ "kit": "shop",
+ "elements": [
+  {
+   "id": "seller_shop",
+   "kind": "shop",
+   "x": 2600,
+   "y": 860,
+   "sign": "विदेशी seller",
+   "cue": [
+    "b16",
+    "seller"
+   ]
+  },
+  {
+   "id": "seller",
+   "kind": "shopkeeper",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b16",
+    "seller"
+   ]
+  },
+  {
+   "id": "example_note",
+   "kind": "label",
+   "x": 2600,
+   "y": 170,
+   "text": "मान लो",
+   "fill": "#F3E7CF",
+   "cue": [
+    "b16",
+    "मान"
+   ],
+   "until_cue": [
+    "b17b",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "rate",
+   "kind": "board",
+   "x": 2080,
+   "y": 430,
+   "fill": "#D7E9E5",
+   "cue": [
+    "b16",
+    "₹80;"
+   ],
+   "until_cue": [
+    "b17a",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b16",
+      "₹80;"
+     ],
+     "text": "$1 की कीमत ₹80 है।"
+    },
+    {
+     "cue": [
+      "b17",
+      "₹85"
+     ],
+     "text": "$1 की कीमत ₹85 है।",
+     "dir": "up"
+    }
+   ]
+  },
+  {
+   "id": "bill",
+   "kind": "board",
+   "x": 3120,
+   "y": 430,
+   "fill": "#F4DFC5",
+   "cue": [
+    "b16",
+    "₹800"
+   ],
+   "until_cue": [
+    "b17a",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b16",
+      "₹800"
+     ],
+     "text": "$10 देने के लिए ₹800 चाहिए।"
+    },
+    {
+     "cue": [
+      "b17",
+      "₹850"
+     ],
+     "text": "$10 के ₹850 लगेंगे।",
+     "dir": "up"
+    },
+    {
+     "cue": [
+      "b17",
+      "कमजोर"
+     ],
+     "text": "Dollar के मुकाबले\nrupee कमजोर हुआ।"
+    },
+    {
+     "cue": [
+      "b17",
+      "कीमत"
+     ],
+     "text": "Demand बढ़े और supply न बढ़े,\nतो rupee कीमत बढ़ सकती है।"
+    }
+   ]
+  },
+  {
+   "id": "anchor",
+   "kind": "board",
+   "x": 2600,
+   "y": 270,
+   "fill": "#E5EADF",
+   "cue": [
+    "b16",
+    "exchange"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b16",
+      "exchange"
+     ],
+     "text": "Exchange rate एक currency की\nदूसरी currency में कीमत है।"
+    },
+    {
+     "cue": [
+      "b17b",
+      "reserves"
+     ],
+     "text": "Official foreign assets का stock\nforeign exchange reserves है।"
+    },
+    {
+     "cue": [
+      "b17b",
+      "कीमत"
+     ],
+     "text": "Exchange rate कीमत बताता है।"
+    },
+    {
+     "cue": [
+      "b17b",
+      "holding"
+     ],
+     "text": "Reserves जरूरत पर इस्तेमाल के लिए\nरखी official holding बताते हैं।"
+    }
+   ]
+  },
+  {
+   "id": "official_stock",
+   "kind": "board",
+   "x": 2080,
+   "y": 530,
+   "fill": "#D7E9E5",
+   "cue": [
+    "b17a",
+    "$100"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b17a",
+      "$100"
+     ],
+     "text": "Monetary authority के पास\n$100 हैं।"
+    },
+    {
+     "cue": [
+      "b17a",
+      "$90"
+     ],
+     "text": "Official stock में $90 बचेंगे।",
+     "dir": "down"
+    },
+    {
+     "cue": [
+      "b17b",
+      "notes"
+     ],
+     "text": "इसमें सिर्फ dollar notes\nनहीं होते।"
+    }
+   ]
+  },
+  {
+   "id": "market",
+   "kind": "board",
+   "x": 3120,
+   "y": 530,
+   "fill": "#F4DFC5",
+   "cue": [
+    "b17a",
+    "$10"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b17a",
+      "$10"
+     ],
+     "text": "$10 market में उपलब्ध कराए।"
+    },
+    {
+     "cue": [
+      "b17a",
+      "मिलती"
+     ],
+     "text": "Market को foreign currency\nमिलती है।"
+    },
+    {
+     "cue": [
+      "b17a",
+      "वादा"
+     ],
+     "text": "यह हर व्यक्ति के bill चुकाने\nका वादा नहीं है।"
+    },
+    {
+     "cue": [
+      "b17b",
+      "$100"
+     ],
+     "text": "तुम्हारे निजी $100 इस official\nstock का हिस्सा नहीं हैं।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b16",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 470,
+   "zoom": 0.8,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b16",
+    "rupees"
+   ],
+   "x": 2510,
+   "y": 460,
+   "zoom": 0.9,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b16",
+    "₹80;"
+   ],
+   "x": 2440,
+   "y": 430,
+   "zoom": 0.95,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b16",
+    "₹800"
+   ],
+   "x": 2700,
+   "y": 430,
+   "zoom": 0.9,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b16",
+    "exchange"
+   ],
+   "x": 2600,
+   "y": 390,
+   "zoom": 0.85,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b16",
+    "foreign"
+   ],
+   "x": 2600,
+   "y": 460,
+   "zoom": 0.8,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b17",
+    "₹85"
+   ],
+   "x": 2440,
+   "y": 430,
+   "zoom": 0.95,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b17",
+    "₹850"
+   ],
+   "x": 2700,
+   "y": 430,
+   "zoom": 0.9,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b17",
+    "बाकी"
+   ],
+   "x": 2600,
+   "y": 440,
+   "zoom": 0.8,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b17",
+    "demand"
+   ],
+   "x": 2730,
+   "y": 440,
+   "zoom": 0.85,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b17",
+    "कीमत"
+   ],
+   "x": 2700,
+   "y": 420,
+   "zoom": 0.9,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b17a",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 470,
+   "zoom": 0.8,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b17a",
+    "monetary"
+   ],
+   "x": 2450,
+   "y": 470,
+   "zoom": 0.85,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b17a",
+    "$10"
+   ],
+   "x": 2710,
+   "y": 480,
+   "zoom": 0.85,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b17a",
+    "$90"
+   ],
+   "x": 2470,
+   "y": 480,
+   "zoom": 0.85,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b17a",
+    "मिलती"
+   ],
+   "x": 2690,
+   "y": 480,
+   "zoom": 0.85,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b17a",
+    "व्यक्ति"
+   ],
+   "x": 2600,
+   "y": 470,
+   "zoom": 0.8,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b17b",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 440,
+   "zoom": 0.8,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b17b",
+    "notes"
+   ],
+   "x": 2470,
+   "y": 470,
+   "zoom": 0.85,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b17b",
+    "$100"
+   ],
+   "x": 2700,
+   "y": 470,
+   "zoom": 0.85,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b17b",
+    "बताता"
+   ],
+   "x": 2600,
+   "y": 410,
+   "zoom": 0.8,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b17b",
+    "इस्तेमाल"
+   ],
+   "x": 2600,
+   "y": 390,
+   "zoom": 0.85,
+   "frames": 40
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

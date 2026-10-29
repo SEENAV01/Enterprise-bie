@@ -1,0 +1,487 @@
+{
+ "id": "v8_s4",
+ "part_id": "c19.2",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b25",
+   "say": "Note देकर silver मिले तो? एक hypothetical counter पर holder ने ₹100 का note दिया और बदले में 10 grams silver लिया। यह historical rate नहीं है।"
+  },
+  {
+   "beat_id": "b26",
+   "say": "Authority ने अपने 100 grams stock से 10 grams दिए; अब 90 grams बचे। लौटाया note cancel करके ₹100 की liability हटाई। Colonial era में gold या silver bars अथवा coins में conversion का promise था; full bodied coin की metal value बताई कीमत के करीब थी।"
+  },
+  {
+   "beat_id": "b27",
+   "say": "Metal quantity तय नियम से मिलती थी, कागज़ के वजन से नहीं; modern note ऐसा redemption नहीं देता।"
+  },
+  {
+   "beat_id": "b28",
+   "say": "पुराना run था: note लौटाओ, metal लो, note cancel हो।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "anchor",
+   "kind": "text",
+   "cell": [
+    0,
+    0,
+    12,
+    1
+   ],
+   "cue": [
+    "b25",
+    "Note"
+   ],
+   "text": "Note देकर silver मिले तो?",
+   "style": "title",
+   "tone": "ink",
+   "fill": "paper",
+   "align": "center",
+   "size": 36
+  },
+  {
+   "id": "caveat",
+   "kind": "text",
+   "cell": [
+    0,
+    1,
+    12,
+    1
+   ],
+   "cue": [
+    "b25",
+    "hypothetical"
+   ],
+   "text": "यह hypothetical counter है; historical rate नहीं है।",
+   "style": "note",
+   "tone": "muted",
+   "fill": "paper",
+   "align": "center",
+   "size": 24
+  },
+  {
+   "id": "holder",
+   "kind": "icon",
+   "cell": [
+    0,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b25",
+    "holder"
+   ],
+   "until_cue": [
+    "b26",
+    "Colonial"
+   ],
+   "tone": "ink",
+   "icon": "tw:1f471",
+   "size": 64
+  },
+  {
+   "id": "note_given",
+   "kind": "text",
+   "cell": [
+    2,
+    2,
+    5,
+    2
+   ],
+   "cue": [
+    "b25",
+    "₹100"
+   ],
+   "until_cue": [
+    "b26",
+    "Colonial"
+   ],
+   "text": "Holder ने ₹100 का note दिया।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "paper",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "silver_received",
+   "kind": "text",
+   "cell": [
+    0,
+    4,
+    7,
+    1
+   ],
+   "cue": [
+    "b25",
+    "10"
+   ],
+   "until_cue": [
+    "b26",
+    "Colonial"
+   ],
+   "text": "बदले में 10 grams silver लिया।",
+   "style": "box",
+   "tone": "warm",
+   "fill": "paper",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "authority",
+   "kind": "icon",
+   "cell": [
+    9,
+    2,
+    3,
+    2
+   ],
+   "cue": [
+    "b26",
+    "Authority"
+   ],
+   "until_cue": [
+    "b26",
+    "Colonial"
+   ],
+   "tone": "ink",
+   "icon": "fa:solid/building-columns",
+   "size": 64
+  },
+  {
+   "id": "stock",
+   "kind": "value",
+   "cell": [
+    7,
+    4,
+    5,
+    2
+   ],
+   "cue": [
+    "b26",
+    "100"
+   ],
+   "until_cue": [
+    "b26",
+    "Colonial"
+   ],
+   "tone": "warm",
+   "fill": "paper",
+   "align": "center",
+   "size": 28,
+   "steps": [
+    {
+     "cue": [
+      "b26",
+      "100"
+     ],
+     "text": "Stock में 100 grams हैं।"
+    },
+    {
+     "cue": [
+      "b26",
+      "90"
+     ],
+     "text": "अब 90 grams बचे।",
+     "dir": "down"
+    }
+   ]
+  },
+  {
+   "id": "cancel",
+   "kind": "text",
+   "cell": [
+    0,
+    6,
+    12,
+    1
+   ],
+   "cue": [
+    "b26",
+    "cancel"
+   ],
+   "until_cue": [
+    "b26",
+    "Colonial"
+   ],
+   "text": "Note cancel करके ₹100 की liability हटाई।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "paper",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "historical",
+   "kind": "text",
+   "cell": [
+    0,
+    2,
+    12,
+    2
+   ],
+   "cue": [
+    "b26",
+    "Colonial"
+   ],
+   "until_cue": [
+    "b28",
+    "पुराना"
+   ],
+   "text": "Colonial era में gold या silver conversion का promise था।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "paper",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "full_bodied",
+   "kind": "callout",
+   "cell": [
+    0,
+    4,
+    12,
+    2
+   ],
+   "cue": [
+    "b26",
+    "full"
+   ],
+   "until_cue": [
+    "b27",
+    "Metal"
+   ],
+   "text": "Full bodied coin की metal value बताई कीमत के करीब थी।",
+   "style": "note",
+   "tone": "warm",
+   "fill": "paper",
+   "align": "center",
+   "size": 30,
+   "marks": [
+    {
+     "phrase": "बताई कीमत के करीब",
+     "cue": [
+      "b26",
+      "करीब"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "quantity",
+   "kind": "text",
+   "cell": [
+    0,
+    4,
+    12,
+    1
+   ],
+   "cue": [
+    "b27",
+    "Metal"
+   ],
+   "until_cue": [
+    "b28",
+    "पुराना"
+   ],
+   "text": "Metal quantity तय नियम से मिलती थी।",
+   "style": "box",
+   "tone": "warm",
+   "fill": "paper",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "paper_weight",
+   "kind": "text",
+   "cell": [
+    0,
+    5,
+    12,
+    1
+   ],
+   "cue": [
+    "b27",
+    "कागज़"
+   ],
+   "until_cue": [
+    "b28",
+    "पुराना"
+   ],
+   "text": "कागज़ के वजन से नहीं।",
+   "style": "note",
+   "tone": "muted",
+   "fill": "paper",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "modern",
+   "kind": "text",
+   "cell": [
+    0,
+    6,
+    12,
+    1
+   ],
+   "cue": [
+    "b27",
+    "modern"
+   ],
+   "until_cue": [
+    "b28",
+    "पुराना"
+   ],
+   "text": "Modern note ऐसा redemption नहीं देता।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "paper",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "surrender",
+   "kind": "text",
+   "cell": [
+    0,
+    3,
+    4,
+    2
+   ],
+   "cue": [
+    "b28",
+    "लौटाओ,"
+   ],
+   "text": "Note लौटाओ।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "paper",
+   "align": "center",
+   "size": 32
+  },
+  {
+   "id": "metal",
+   "kind": "text",
+   "cell": [
+    4,
+    3,
+    4,
+    2
+   ],
+   "cue": [
+    "b28",
+    "metal"
+   ],
+   "text": "Metal लो,",
+   "style": "box",
+   "tone": "warm",
+   "fill": "paper",
+   "align": "center",
+   "size": 32
+  },
+  {
+   "id": "cancel_summary",
+   "kind": "text",
+   "cell": [
+    8,
+    3,
+    4,
+    2
+   ],
+   "cue": [
+    "b28",
+    "cancel"
+   ],
+   "text": "Note cancel हो।",
+   "style": "box",
+   "tone": "ink",
+   "fill": "paper",
+   "align": "center",
+   "size": 32
+  }
+ ],
+ "camera": [
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b25",
+    "Note"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b26",
+    "Colonial"
+   ]
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b26",
+    "100"
+   ],
+   "ids": [
+    "anchor",
+    "caveat",
+    "authority",
+    "stock"
+   ],
+   "until_cue": [
+    "b26",
+    "लौटाया"
+   ]
+  },
+  {
+   "cue": [
+    "b26",
+    "cancel"
+   ],
+   "ids": [
+    "anchor",
+    "caveat",
+    "cancel"
+   ],
+   "until_cue": [
+    "b26",
+    "Colonial"
+   ]
+  },
+  {
+   "cue": [
+    "b27",
+    "modern"
+   ],
+   "ids": [
+    "anchor",
+    "caveat",
+    "modern"
+   ],
+   "until_cue": [
+    "b28",
+    "पुराना"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

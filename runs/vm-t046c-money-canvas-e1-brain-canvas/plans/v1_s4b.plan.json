@@ -1,0 +1,420 @@
+{
+ "id": "v1_s4b",
+ "part_id": "c02.1",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b26",
+   "say": "ये functions हैं Medium of exchange, Unit of account, Store of value और Standard of deferred payment। पहला barter, यानी सामान के बदले सामान, हटाता है। Wheat किसी को बेचें, पैसे से दूसरे से rice लें; matching wants वाला एक partner नहीं ढूँढ़ना पड़ता।"
+  },
+  {
+   "beat_id": "b27",
+   "say": "Phone-laptop की तुलना Unit of account है: money value की common measure देती है। यानी अलग चीज़ों की कीमत एक scale में लिखना। Price tag पढ़ना measurement है; payment करना exchange है।"
+  },
+  {
+   "beat_id": "b28",
+   "say": "पैसे बाद के लिए रखना Store of value है: purchasing power future use के लिए बचाना। Purchasing power यानी कितना सामान खरीद सकें। Bank account में आज बचाकर बाद के खर्च पूरे करते हैं।"
+  },
+  {
+   "beat_id": "b29",
+   "say": "Future dues money में तय करना Standard of deferred payment है। Denominated यानी रकम किस unit में लिखी है, जैसे rupees। EMI, equated monthly instalment, loan चुकाने की बराबर monthly किस्त है; home loans में इसे देखते हैं।"
+  },
+  {
+   "beat_id": "b30",
+   "say": "Store of value perfect guarantee नहीं: prices बढ़ें तो वही balance कम खरीदेगा। सिक्का टिकना Durability है, buying power बचना अलग। Savings आपके resources हैं; future instalment obligation है, जिसके पैसे अभी होना ज़रूरी नहीं।"
+  },
+  {
+   "beat_id": "b31",
+   "say": "Statement पहचानिए: price बताना account, खरीद चुकाना exchange, पैसे बचाना store, future due तय करना deferred payment। EMI का amount तय करना और बाद में actual payment करना अलग functions दिखाते हैं।"
+  },
+  {
+   "beat_id": "b32",
+   "say": "Money की पहचान payment में लिए जाने से है, सिर्फ cash से नहीं। खूबियाँ उसे इस्तेमाल लायक बनाती हैं; functions उसके अलग काम हैं। आगे समझेंगे, सामान के सीधे exchange में परेशानी कहाँ आती है।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank",
+   "kind": "bank",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b26",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "teller",
+   "kind": "teller",
+   "x": 2600,
+   "cue": [
+    "b26",
+    "functions"
+   ]
+  },
+  {
+   "id": "customers",
+   "kind": "crowd",
+   "x0": 2330,
+   "spacing": 95,
+   "enter_x": 1920,
+   "exit_x": 1920,
+   "face": 1,
+   "seed": 17,
+   "cue": [
+    "b26",
+    "Wheat"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b26",
+      "Wheat"
+     ],
+     "n": 2
+    }
+   ]
+  },
+  {
+   "id": "function_display",
+   "kind": "board",
+   "x": 2110,
+   "y": 370,
+   "fill": "#E9E1CE",
+   "cue": [
+    "b26",
+    "barter,"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b26",
+      "barter,"
+     ],
+     "text": "Medium of exchange\nbarter हटाता है।"
+    },
+    {
+     "cue": [
+      "b27",
+      "common"
+     ],
+     "text": "Money value की\ncommon measure देती है।"
+    },
+    {
+     "cue": [
+      "b28",
+      "Store"
+     ],
+     "text": "पैसे बाद के लिए रखना\nStore of value है।"
+    },
+    {
+     "cue": [
+      "b29",
+      "Standard"
+     ],
+     "text": "Future dues money में तय करना\nStandard of deferred payment है।"
+    },
+    {
+     "cue": [
+      "b30",
+      "prices"
+     ],
+     "text": "Prices बढ़ें तो वही balance\nकम खरीदेगा।"
+    },
+    {
+     "cue": [
+      "b31",
+      "account,"
+     ],
+     "text": "Price बताना account है।"
+    },
+    {
+     "cue": [
+      "b31",
+      "store,"
+     ],
+     "text": "पैसे बचाना store है।"
+    },
+    {
+     "cue": [
+      "b32",
+      "payment"
+     ],
+     "text": "Money की पहचान payment में\nलिए जाने से है।"
+    },
+    {
+     "cue": [
+      "b32",
+      "functions"
+     ],
+     "text": "Functions उसके अलग काम हैं।"
+    }
+   ]
+  },
+  {
+   "id": "distinction_display",
+   "kind": "board",
+   "x": 3070,
+   "y": 370,
+   "fill": "#E1E9E5",
+   "cue": [
+    "b26",
+    "matching"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b26",
+      "matching"
+     ],
+     "text": "Matching wants वाला एक partner\nनहीं ढूँढ़ना पड़ता।"
+    },
+    {
+     "cue": [
+      "b27",
+      "scale"
+     ],
+     "text": "अलग चीज़ों की कीमत\nएक scale में लिखना।"
+    },
+    {
+     "cue": [
+      "b27",
+      "measurement"
+     ],
+     "text": "Price tag पढ़ना measurement है;\npayment करना exchange है।"
+    },
+    {
+     "cue": [
+      "b28",
+      "Purchasing"
+     ],
+     "text": "Purchasing power यानी\nकितना सामान खरीद सकें।"
+    },
+    {
+     "cue": [
+      "b28",
+      "Bank"
+     ],
+     "text": "Bank account में आज बचाकर\nबाद के खर्च पूरे करते हैं।"
+    },
+    {
+     "cue": [
+      "b29",
+      "Denominated"
+     ],
+     "text": "Denominated यानी रकम\nकिस unit में लिखी है।"
+    },
+    {
+     "cue": [
+      "b29",
+      "बराबर"
+     ],
+     "text": "EMI loan चुकाने की\nबराबर monthly किस्त है।"
+    },
+    {
+     "cue": [
+      "b30",
+      "Durability"
+     ],
+     "text": "सिक्का टिकना Durability है;\nbuying power बचना अलग।"
+    },
+    {
+     "cue": [
+      "b30",
+      "Savings"
+     ],
+     "text": "Savings आपके resources हैं;\nfuture instalment obligation है।"
+    },
+    {
+     "cue": [
+      "b31",
+      "exchange,"
+     ],
+     "text": "खरीद चुकाना exchange है।"
+    },
+    {
+     "cue": [
+      "b31",
+      "deferred"
+     ],
+     "text": "Future due तय करना\ndeferred payment है।"
+    },
+    {
+     "cue": [
+      "b31",
+      "actual"
+     ],
+     "text": "EMI का amount तय करना और\nactual payment करना\nअलग functions दिखाते हैं।"
+    },
+    {
+     "cue": [
+      "b32",
+      "सीधे"
+     ],
+     "text": "सामान के सीधे exchange में\nपरेशानी कहाँ आती है?"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b26",
+    "",
+    0.0
+   ],
+   "x": 2590,
+   "y": 480,
+   "zoom": 0.8,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b26",
+    "Standard"
+   ],
+   "x": 2590,
+   "y": 500,
+   "zoom": 0.86,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b26",
+    "Wheat"
+   ],
+   "x": 2520,
+   "y": 500,
+   "zoom": 0.88,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b27",
+    "Phone-laptop"
+   ],
+   "x": 2520,
+   "y": 450,
+   "zoom": 0.9,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b27",
+    "Price"
+   ],
+   "x": 2670,
+   "y": 450,
+   "zoom": 0.9,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b28",
+    "",
+    0.0
+   ],
+   "x": 2500,
+   "y": 460,
+   "zoom": 0.9,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b28",
+    "Bank"
+   ],
+   "x": 2630,
+   "y": 490,
+   "zoom": 0.86,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b29",
+    "",
+    0.0
+   ],
+   "x": 2520,
+   "y": 450,
+   "zoom": 0.9,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b29",
+    "EMI,"
+   ],
+   "x": 2670,
+   "y": 450,
+   "zoom": 0.9,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b30",
+    "",
+    0.0
+   ],
+   "x": 2510,
+   "y": 450,
+   "zoom": 0.9,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b30",
+    "जिसके"
+   ],
+   "x": 2670,
+   "y": 470,
+   "zoom": 0.88,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b31",
+    "",
+    0.0
+   ],
+   "x": 2590,
+   "y": 450,
+   "zoom": 0.86,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b31",
+    "EMI"
+   ],
+   "x": 2670,
+   "y": 450,
+   "zoom": 0.9,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b32",
+    "",
+    0.0
+   ],
+   "x": 2520,
+   "y": 460,
+   "zoom": 0.88,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b32",
+    "आगे"
+   ],
+   "x": 2590,
+   "y": 480,
+   "zoom": 0.8,
+   "frames": 60
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

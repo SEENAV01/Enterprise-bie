@@ -1,0 +1,497 @@
+{
+ "id": "v0_s3",
+ "part_id": "pre3",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b7",
+   "say": "₹100 का 1 note और ₹50 के 2 notes—कुल पैसे बराबर हैं? हाँ, दोनों ₹100 हैं, पर denominations अलग हैं। Denomination हर note या coin पर लिखी value है; notes की गिनती और total value अलग देखो।"
+  },
+  {
+   "beat_id": "b8",
+   "say": "₹1 में 100 paise हैं; 50 paise आधा ₹1 है। ₹100 पर 2% fee हो, तो हर 100 में 2, यानी ₹2 लगेंगे। ₹500 पर उसी rate से ₹10 लगेंगे।"
+  },
+  {
+   "beat_id": "b9",
+   "say": "मान लो payment का minimum ₹100 और maximum ₹1,000 है; ₹100 से ₹1,000 तक चलेगा, ₹99 या ₹1,001 नहीं। तो denomination note की value, percentage कुल का हिस्सा, minimum नीचे और maximum ऊपर की सीमा बताता है।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "note100",
+   "kind": "text",
+   "cell": [
+    0,
+    0,
+    6,
+    2
+   ],
+   "cue": [
+    "b7",
+    "note"
+   ],
+   "until_cue": [
+    "b8",
+    "₹1"
+   ],
+   "text": "₹100 का 1 note",
+   "style": "box",
+   "tone": "accent",
+   "fill": "band",
+   "align": "center",
+   "size": 32
+  },
+  {
+   "id": "notes50",
+   "kind": "text",
+   "cell": [
+    6,
+    0,
+    6,
+    2
+   ],
+   "cue": [
+    "b7",
+    "notes—कुल"
+   ],
+   "until_cue": [
+    "b8",
+    "₹1"
+   ],
+   "text": "₹50 के 2 notes हैं।",
+   "style": "box",
+   "tone": "warm",
+   "fill": "note",
+   "align": "center",
+   "size": 32
+  },
+  {
+   "id": "same_total",
+   "kind": "callout",
+   "cell": [
+    1,
+    2,
+    10,
+    1
+   ],
+   "cue": [
+    "b7",
+    "दोनों"
+   ],
+   "until_cue": [
+    "b8",
+    "₹1"
+   ],
+   "text": "दोनों ₹100 हैं, पर denominations अलग हैं।",
+   "style": "note",
+   "tone": "ink",
+   "fill": "note",
+   "align": "center",
+   "size": 30,
+   "marks": [
+    {
+     "phrase": "denominations अलग हैं",
+     "cue": [
+      "b7",
+      "denominations"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "denomination",
+   "kind": "text",
+   "cell": [
+    1,
+    4,
+    10,
+    2
+   ],
+   "cue": [
+    "b7",
+    "Denomination"
+   ],
+   "text": "Denomination हर note या coin पर लिखी value है।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "band",
+   "align": "center",
+   "size": 30,
+   "marks": [
+    {
+     "phrase": "लिखी value",
+     "cue": [
+      "b7",
+      "value"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "count_distinction",
+   "kind": "text",
+   "cell": [
+    1,
+    6,
+    10,
+    1
+   ],
+   "cue": [
+    "b7",
+    "गिनती"
+   ],
+   "until_cue": [
+    "b8",
+    "₹1"
+   ],
+   "text": "Notes की गिनती और total value अलग देखो।",
+   "style": "note",
+   "tone": "ink",
+   "fill": "note",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "paise",
+   "kind": "text",
+   "cell": [
+    0,
+    0,
+    6,
+    2
+   ],
+   "cue": [
+    "b8",
+    "100"
+   ],
+   "until_cue": [
+    "b9",
+    "मान"
+   ],
+   "text": "₹1 में 100 paise हैं;",
+   "style": "box",
+   "tone": "ink",
+   "fill": "note",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "half",
+   "kind": "text",
+   "cell": [
+    6,
+    0,
+    6,
+    2
+   ],
+   "cue": [
+    "b8",
+    "आधा"
+   ],
+   "until_cue": [
+    "b9",
+    "मान"
+   ],
+   "text": "50 paise आधा ₹1 है।",
+   "style": "box",
+   "tone": "warm",
+   "fill": "note",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "fee100",
+   "kind": "text",
+   "cell": [
+    0,
+    2,
+    6,
+    2
+   ],
+   "cue": [
+    "b8",
+    "2%"
+   ],
+   "until_cue": [
+    "b9",
+    "मान"
+   ],
+   "text": "₹100 पर 2% fee हो,",
+   "style": "box",
+   "tone": "accent",
+   "fill": "band",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "fee2",
+   "kind": "text",
+   "cell": [
+    6,
+    2,
+    6,
+    2
+   ],
+   "cue": [
+    "b8",
+    "₹2"
+   ],
+   "until_cue": [
+    "b9",
+    "मान"
+   ],
+   "text": "हर 100 में 2, यानी ₹2 लगेंगे।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "band",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "fee500",
+   "kind": "text",
+   "cell": [
+    1,
+    6,
+    10,
+    1
+   ],
+   "cue": [
+    "b8",
+    "₹10"
+   ],
+   "until_cue": [
+    "b9",
+    "मान"
+   ],
+   "text": "₹500 पर उसी rate से ₹10 लगेंगे।",
+   "style": "box",
+   "tone": "warm",
+   "fill": "note",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "assumption",
+   "kind": "text",
+   "cell": [
+    9,
+    0,
+    3,
+    1
+   ],
+   "cue": [
+    "b9",
+    "मान"
+   ],
+   "text": "मान लो",
+   "style": "note",
+   "tone": "muted",
+   "fill": "note",
+   "align": "center",
+   "size": 26
+  },
+  {
+   "id": "minimum",
+   "kind": "text",
+   "cell": [
+    0,
+    2,
+    6,
+    2
+   ],
+   "cue": [
+    "b9",
+    "minimum"
+   ],
+   "text": "Payment का minimum ₹100 है।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "band",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "maximum",
+   "kind": "text",
+   "cell": [
+    0,
+    0,
+    6,
+    2
+   ],
+   "cue": [
+    "b9",
+    "maximum"
+   ],
+   "text": "Payment का maximum ₹1,000 है।",
+   "style": "box",
+   "tone": "warm",
+   "fill": "note",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "accepted",
+   "kind": "text",
+   "cell": [
+    6,
+    1,
+    6,
+    1
+   ],
+   "cue": [
+    "b9",
+    "चलेगा,"
+   ],
+   "text": "₹100 से ₹1,000 तक चलेगा।",
+   "style": "box",
+   "tone": "ok",
+   "fill": "note",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "rejected",
+   "kind": "text",
+   "cell": [
+    6,
+    2,
+    6,
+    2
+   ],
+   "cue": [
+    "b9",
+    "नहीं।"
+   ],
+   "text": "₹99 या ₹1,001 नहीं चलेगा।",
+   "style": "box",
+   "tone": "danger",
+   "fill": "note",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "percentage",
+   "kind": "text",
+   "cell": [
+    1,
+    6,
+    10,
+    1
+   ],
+   "cue": [
+    "b9",
+    "percentage"
+   ],
+   "text": "Percentage कुल का हिस्सा है।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "band",
+   "align": "center",
+   "size": 30
+  }
+ ],
+ "camera": [
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    8
+   ],
+   "cue": [
+    "b7",
+    "₹100"
+   ]
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b7",
+    "गिनती"
+   ],
+   "ids": [
+    "note100",
+    "notes50",
+    "same_total",
+    "count_distinction"
+   ],
+   "until_cue": [
+    "b8",
+    "₹1"
+   ]
+  },
+  {
+   "cue": [
+    "b8",
+    "2%"
+   ],
+   "ids": [
+    "fee100",
+    "fee2",
+    "fee500"
+   ],
+   "until_cue": [
+    "b9",
+    "मान"
+   ]
+  },
+  {
+   "cue": [
+    "b9",
+    "denomination"
+   ],
+   "ids": [
+    "denomination"
+   ],
+   "until_cue": [
+    "b9",
+    "percentage"
+   ]
+  },
+  {
+   "cue": [
+    "b9",
+    "percentage"
+   ],
+   "ids": [
+    "percentage"
+   ],
+   "until_cue": [
+    "b9",
+    "minimum"
+   ]
+  },
+  {
+   "cue": [
+    "b9",
+    "नीचे"
+   ],
+   "ids": [
+    "minimum"
+   ],
+   "until_cue": [
+    "b9",
+    "ऊपर"
+   ]
+  },
+  {
+   "cue": [
+    "b9",
+    "ऊपर"
+   ],
+   "ids": [
+    "minimum",
+    "maximum"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

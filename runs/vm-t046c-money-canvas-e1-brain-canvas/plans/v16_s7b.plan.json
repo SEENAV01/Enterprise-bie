@@ -1,0 +1,239 @@
+{
+ "id": "v16_s7b",
+ "part_id": "c42.1",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b27",
+   "say": "तुमने merchant का linked account चुना, नाम और ₹500 जाँचे। Registered device पर UPI PIN डालकर payment authorise किया।"
+  },
+  {
+   "beat_id": "b28",
+   "say": "Network और banks ने processing पूरी की, तभी रकम पहुँची। यह BHIM से UPI transfer है; Unified Payments Interface eligible bank accounts जोड़ता है, same app जरूरी नहीं।"
+  },
+  {
+   "beat_id": "b29",
+   "say": "Amount भरना काफी नहीं; authorisation या processing अधूरी हो, तो payment completed मत मानो।"
+  },
+  {
+   "beat_id": "b30",
+   "say": "खरीद में payee जाँचो, authorise करो, फिर successful status और receipt confirm करो।"
+  },
+  {
+   "beat_id": "b31",
+   "say": "BHIM दरवाजा है, UPI रास्ता; पैसा जुड़े accounts में जाता है।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank_anchor",
+   "kind": "bank",
+   "x": 2600,
+   "cue": [
+    "b27",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "bank_teller",
+   "kind": "teller",
+   "x": 2600,
+   "cue": [
+    "b27",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "bank_customers",
+   "kind": "crowd",
+   "x0": 2330,
+   "spacing": 110,
+   "enter_x": 1980,
+   "exit_x": 1980,
+   "face": 1,
+   "seed": 42,
+   "cue": [
+    "b27",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b27",
+      "",
+      0.0
+     ],
+     "n": 2
+    }
+   ]
+  },
+  {
+   "id": "payment_process",
+   "kind": "board",
+   "x": 3250,
+   "y": 430,
+   "fill": "#E7EFE9",
+   "cue": [
+    "b27",
+    "₹500"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b27",
+      "₹500"
+     ],
+     "text": "नाम और ₹500 जाँचे।"
+    },
+    {
+     "cue": [
+      "b27",
+      "PIN"
+     ],
+     "text": "UPI PIN डालकर\npayment authorise किया।"
+    },
+    {
+     "cue": [
+      "b28",
+      "processing"
+     ],
+     "text": "Processing पूरी की,\nतभी रकम पहुँची।"
+    },
+    {
+     "cue": [
+      "b28",
+      "transfer"
+     ],
+     "text": "यह BHIM से UPI transfer है।"
+    },
+    {
+     "cue": [
+      "b28",
+      "accounts"
+     ],
+     "text": "Eligible bank accounts जोड़ता है,\nsame app जरूरी नहीं।"
+    },
+    {
+     "cue": [
+      "b29",
+      "काफी"
+     ],
+     "text": "Amount भरना काफी नहीं।"
+    },
+    {
+     "cue": [
+      "b29",
+      "अधूरी"
+     ],
+     "text": "Authorisation या processing अधूरी हो,\nतो payment completed मत मानो।"
+    },
+    {
+     "cue": [
+      "b30",
+      "authorise"
+     ],
+     "text": "Payee जाँचो, authorise करो।"
+    },
+    {
+     "cue": [
+      "b30",
+      "receipt"
+     ],
+     "text": "Successful status और\nreceipt confirm करो।"
+    },
+    {
+     "cue": [
+      "b31",
+      "दरवाजा"
+     ],
+     "text": "BHIM दरवाजा है, UPI रास्ता।"
+    },
+    {
+     "cue": [
+      "b31",
+      "accounts"
+     ],
+     "text": "पैसा जुड़े accounts में जाता है।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b27",
+    "",
+    0.0
+   ],
+   "x": 2780,
+   "y": 510,
+   "zoom": 0.8,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b27",
+    "Registered"
+   ],
+   "x": 2940,
+   "y": 490,
+   "zoom": 0.95,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b28",
+    "Network"
+   ],
+   "x": 2820,
+   "y": 500,
+   "zoom": 0.9,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b28",
+    "Unified"
+   ],
+   "x": 3040,
+   "y": 470,
+   "zoom": 1.05,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b29",
+    "Amount"
+   ],
+   "x": 3080,
+   "y": 470,
+   "zoom": 1.1,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b30",
+    "खरीद"
+   ],
+   "x": 2920,
+   "y": 500,
+   "zoom": 0.95,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b31",
+    "BHIM"
+   ],
+   "x": 2820,
+   "y": 510,
+   "zoom": 0.8,
+   "frames": 45
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

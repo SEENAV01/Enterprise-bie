@@ -1,0 +1,428 @@
+{
+ "id": "v16_s4s",
+ "part_id": "c41.2",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b14",
+   "say": "₹3,00,000 का stock खरीदा, तो क्या हुआ? Buyer के ₹5,00,000 में ₹2,00,000 बचे। Supplier के पास ₹1,00,000 थे; payment मिलने पर ₹4,00,000 हुए।"
+  },
+  {
+   "beat_id": "b15",
+   "say": "Buyer ने bank A से payment authorise किया; bank ने जाँचा। Supplier bank B में था; उसी दौर में दूसरे customer ने B से A को ₹2,00,000 भेजे।"
+  },
+  {
+   "beat_id": "b16",
+   "say": "पहले तरीके में पूरी रकम अलग-अलग settle हुई। दूसरे में batch का net ₹1,00,000 A से B गया; customers को पूरी रकम मिली। पहला RTGS, Real Time Gross Settlement; दूसरा NEFT, National Electronic Funds Transfer है। RTGS का minimum ₹2,00,000 है।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank",
+   "kind": "bank",
+   "x": 2600,
+   "y": 860,
+   "sign": "bank",
+   "cue": [
+    "b14",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "teller",
+   "kind": "teller",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b14",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "customers",
+   "kind": "crowd",
+   "x0": 2330,
+   "spacing": 85,
+   "enter_x": 2050,
+   "exit_x": 3100,
+   "face": 1,
+   "seed": 41,
+   "cue": [
+    "b14",
+    "Buyer"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b14",
+      "Buyer"
+     ],
+     "n": 1
+    },
+    {
+     "cue": [
+      "b14",
+      "Supplier"
+     ],
+     "n": 2
+    },
+    {
+     "cue": [
+      "b15",
+      "दूसरे"
+     ],
+     "n": 3
+    }
+   ]
+  },
+  {
+   "id": "purchase",
+   "kind": "label",
+   "x": 2600,
+   "y": 230,
+   "text": "₹3,00,000 का stock खरीदा।",
+   "fill": "rgba(250,244,225,1)",
+   "cue": [
+    "b14",
+    "stock"
+   ],
+   "until_cue": [
+    "b15",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "buyer_balance",
+   "kind": "board",
+   "x": 1850,
+   "y": 490,
+   "fill": "#DCE9E4",
+   "cue": [
+    "b14",
+    "₹5,00,000"
+   ],
+   "until_cue": [
+    "b15",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b14",
+      "₹5,00,000"
+     ],
+     "text": "Buyer के पास ₹5,00,000 थे।"
+    },
+    {
+     "cue": [
+      "b14",
+      "₹2,00,000"
+     ],
+     "text": "Buyer के ₹2,00,000 बचे।",
+     "dir": "down"
+    }
+   ]
+  },
+  {
+   "id": "supplier_balance",
+   "kind": "board",
+   "x": 3350,
+   "y": 490,
+   "fill": "#F0E1C8",
+   "cue": [
+    "b14",
+    "₹1,00,000"
+   ],
+   "until_cue": [
+    "b15",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b14",
+      "₹1,00,000"
+     ],
+     "text": "Supplier के पास ₹1,00,000 थे।"
+    },
+    {
+     "cue": [
+      "b14",
+      "₹4,00,000"
+     ],
+     "text": "Supplier के ₹4,00,000 हुए।",
+     "dir": "up"
+    }
+   ]
+  },
+  {
+   "id": "authorisation",
+   "kind": "board",
+   "x": 1850,
+   "y": 490,
+   "fill": "#DCE9E4",
+   "cue": [
+    "b15",
+    "authorise"
+   ],
+   "until_cue": [
+    "b16",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b15",
+      "authorise"
+     ],
+     "text": "Buyer ने bank A से\npayment authorise किया।"
+    },
+    {
+     "cue": [
+      "b15",
+      "जाँचा।"
+     ],
+     "text": "Bank ने जाँचा।"
+    }
+   ]
+  },
+  {
+   "id": "reverse_payment",
+   "kind": "board",
+   "x": 3350,
+   "y": 490,
+   "fill": "#F0E1C8",
+   "cue": [
+    "b15",
+    "था;"
+   ],
+   "until_cue": [
+    "b16",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b15",
+      "था;"
+     ],
+     "text": "Supplier bank B में था।"
+    },
+    {
+     "cue": [
+      "b15",
+      "₹2,00,000"
+     ],
+     "text": "दूसरे customer ने B से A को\n₹2,00,000 भेजे।"
+    }
+   ]
+  },
+  {
+   "id": "gross",
+   "kind": "board",
+   "x": 1850,
+   "y": 490,
+   "fill": "#DCE9E4",
+   "cue": [
+    "b16",
+    "अलग-अलग"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b16",
+      "अलग-अलग"
+     ],
+     "text": "पूरी रकम अलग-अलग settle हुई।"
+    },
+    {
+     "cue": [
+      "b16",
+      "RTGS,"
+     ],
+     "text": "पहला RTGS है।\nReal Time Gross Settlement"
+    },
+    {
+     "cue": [
+      "b16",
+      "₹2,00,000"
+     ],
+     "text": "RTGS का minimum ₹2,00,000 है।"
+    }
+   ]
+  },
+  {
+   "id": "net",
+   "kind": "board",
+   "x": 3350,
+   "y": 490,
+   "fill": "#F0E1C8",
+   "cue": [
+    "b16",
+    "₹1,00,000"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b16",
+      "₹1,00,000"
+     ],
+     "text": "Batch का net ₹1,00,000\nA से B गया।"
+    },
+    {
+     "cue": [
+      "b16",
+      "NEFT,"
+     ],
+     "text": "दूसरा NEFT है।\nNational Electronic Funds Transfer"
+    }
+   ]
+  },
+  {
+   "id": "full_credit",
+   "kind": "label",
+   "x": 2600,
+   "y": 230,
+   "text": "Customers को पूरी रकम मिली।",
+   "fill": "rgba(250,244,225,1)",
+   "cue": [
+    "b16",
+    "मिली।"
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b14",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 490,
+   "zoom": 0.8,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b14",
+    "Buyer"
+   ],
+   "x": 2350,
+   "y": 490,
+   "zoom": 0.9,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b14",
+    "Supplier"
+   ],
+   "x": 2800,
+   "y": 490,
+   "zoom": 0.9,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b15",
+    "",
+    0.0
+   ],
+   "x": 2400,
+   "y": 490,
+   "zoom": 0.85,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b15",
+    "Supplier"
+   ],
+   "x": 2800,
+   "y": 490,
+   "zoom": 0.9,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b15",
+    "₹2,00,000"
+   ],
+   "x": 2600,
+   "y": 490,
+   "zoom": 0.8,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b16",
+    "",
+    0.0
+   ],
+   "x": 2350,
+   "y": 490,
+   "zoom": 0.9,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b16",
+    "batch"
+   ],
+   "x": 2800,
+   "y": 490,
+   "zoom": 0.9,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b16",
+    "customers"
+   ],
+   "x": 2600,
+   "y": 470,
+   "zoom": 0.8,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b16",
+    "RTGS,"
+   ],
+   "x": 2350,
+   "y": 490,
+   "zoom": 0.9,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b16",
+    "NEFT,"
+   ],
+   "x": 2800,
+   "y": 490,
+   "zoom": 0.9,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b16",
+    "minimum"
+   ],
+   "x": 2350,
+   "y": 490,
+   "zoom": 0.9,
+   "frames": 45
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

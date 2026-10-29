@@ -1,0 +1,373 @@
+{
+ "id": "v8_s3b",
+ "part_id": "c19.1",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b20",
+   "say": "लिखी amount face value है; Promise Clause उस face value की RBI guarantee बताता है। Bearer वह है जिसके पास note है, किसी तय व्यक्ति का नाम जरूरी नहीं; इसीलिए मिला हुआ cash अगले payment में चलता है।"
+  },
+  {
+   "beat_id": "b21",
+   "say": "इसीलिए zero interest, anonymous bearer bond कहते हैं: interest नहीं, holder का नाम नहीं, इस्तेमाल bearer करता है; promise nominal amount का है।"
+  },
+  {
+   "beat_id": "b22",
+   "say": "Negotiable Instruments Act, 1881 के Section 4 extract में promissory note written instrument है, जिसमें unconditional undertaking यानी बिना शर्त वादा हो; ‘not being a bank-note or a currency-note’ इन्हें बाहर रखता है।"
+  },
+  {
+   "beat_id": "b23",
+   "say": "‘फसल अच्छी हुई तो दूँगा’ unconditional नहीं है। Bearer bond यहाँ shorthand है, ordinary investment bond नहीं; anonymous से हर transaction untraceable नहीं बनता।"
+  },
+  {
+   "beat_id": "b24",
+   "say": "Face value, bearer और legal category अलग रखो; यह पूरी statutory definition नहीं।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank",
+   "kind": "bank",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b20",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "clerk",
+   "kind": "teller",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b20",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "holders",
+   "kind": "crowd",
+   "x0": 2330,
+   "spacing": 95,
+   "enter_x": 1850,
+   "exit_x": 1800,
+   "face": 1,
+   "seed": 19,
+   "cue": [
+    "b20",
+    "Bearer"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b20",
+      "Bearer"
+     ],
+     "n": 1
+    }
+   ]
+  },
+  {
+   "id": "meaning",
+   "kind": "board",
+   "x": 3170,
+   "y": 500,
+   "fill": "#E8DFC8",
+   "cue": [
+    "b20",
+    "amount"
+   ],
+   "until_cue": [
+    "b21",
+    "zero"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b20",
+      "amount"
+     ],
+     "text": "लिखी amount face value है।"
+    },
+    {
+     "cue": [
+      "b20",
+      "Promise"
+     ],
+     "text": "Promise Clause face value की\nRBI guarantee बताता है।"
+    },
+    {
+     "cue": [
+      "b20",
+      "Bearer"
+     ],
+     "text": "Bearer वह है जिसके पास note है।"
+    },
+    {
+     "cue": [
+      "b20",
+      "cash"
+     ],
+     "text": "मिला हुआ cash अगले payment में चलता है।"
+    }
+   ]
+  },
+  {
+   "id": "shorthand",
+   "kind": "board",
+   "x": 3170,
+   "y": 500,
+   "fill": "#E8DFC8",
+   "cue": [
+    "b21",
+    "zero"
+   ],
+   "until_cue": [
+    "b22",
+    "Negotiable"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b21",
+      "zero"
+     ],
+     "text": "इसे zero interest, anonymous\nbearer bond कहते हैं।"
+    },
+    {
+     "cue": [
+      "b21",
+      "holder"
+     ],
+     "text": "Holder का नाम नहीं,\nइस्तेमाल bearer करता है।"
+    },
+    {
+     "cue": [
+      "b21",
+      "nominal"
+     ],
+     "text": "Promise nominal amount का है।"
+    }
+   ]
+  },
+  {
+   "id": "legal_extract",
+   "kind": "board",
+   "x": 3170,
+   "y": 500,
+   "fill": "#DCE7E8",
+   "cue": [
+    "b22",
+    "Negotiable"
+   ],
+   "until_cue": [
+    "b23",
+    "‘फसल"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b22",
+      "Negotiable"
+     ],
+     "text": "Negotiable Instruments Act, 1881\nके Section 4 extract में\npromissory note written instrument है।"
+    },
+    {
+     "cue": [
+      "b22",
+      "unconditional"
+     ],
+     "text": "Unconditional undertaking\nयानी बिना शर्त वादा हो।"
+    },
+    {
+     "cue": [
+      "b22",
+      "‘not"
+     ],
+     "text": "‘not being a bank-note or a\ncurrency-note’ इन्हें बाहर रखता है।"
+    }
+   ]
+  },
+  {
+   "id": "distinctions",
+   "kind": "board",
+   "x": 3170,
+   "y": 500,
+   "fill": "#E8DFC8",
+   "cue": [
+    "b23",
+    "‘फसल"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b23",
+      "‘फसल"
+     ],
+     "text": "‘फसल अच्छी हुई तो दूँगा’\nunconditional नहीं है।"
+    },
+    {
+     "cue": [
+      "b23",
+      "Bearer"
+     ],
+     "text": "Bearer bond यहाँ shorthand है,\nordinary investment bond नहीं।"
+    },
+    {
+     "cue": [
+      "b23",
+      "anonymous"
+     ],
+     "text": "Anonymous से हर transaction\nuntraceable नहीं बनता।"
+    },
+    {
+     "cue": [
+      "b24",
+      "Face"
+     ],
+     "text": "Face value, bearer और\nlegal category अलग रखो।"
+    }
+   ]
+  },
+  {
+   "id": "extract_caveat",
+   "kind": "label",
+   "x": 3170,
+   "y": 740,
+   "text": "यह पूरी statutory definition नहीं।",
+   "fill": "rgba(245,237,216,1)",
+   "cue": [
+    "b24",
+    "यह"
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b20",
+    "",
+    0.0
+   ],
+   "x": 2800,
+   "y": 510,
+   "zoom": 0.85,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b20",
+    "Promise"
+   ],
+   "x": 2900,
+   "y": 500,
+   "zoom": 0.95,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b20",
+    "किसी"
+   ],
+   "x": 2770,
+   "y": 540,
+   "zoom": 0.88,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b21",
+    "zero"
+   ],
+   "x": 2890,
+   "y": 510,
+   "zoom": 0.95,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b21",
+    "इस्तेमाल"
+   ],
+   "x": 2790,
+   "y": 530,
+   "zoom": 0.88,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b22",
+    "Negotiable"
+   ],
+   "x": 2910,
+   "y": 500,
+   "zoom": 0.95,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b22",
+    "जिसमें"
+   ],
+   "x": 2960,
+   "y": 500,
+   "zoom": 1,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b22",
+    "‘not"
+   ],
+   "x": 2900,
+   "y": 510,
+   "zoom": 0.95,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b23",
+    "‘फसल"
+   ],
+   "x": 2860,
+   "y": 520,
+   "zoom": 0.9,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b23",
+    "Bearer"
+   ],
+   "x": 2920,
+   "y": 500,
+   "zoom": 0.95,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b23",
+    "anonymous"
+   ],
+   "x": 2860,
+   "y": 520,
+   "zoom": 0.9,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b24",
+    "Face"
+   ],
+   "x": 2820,
+   "y": 530,
+   "zoom": 0.85,
+   "frames": 45
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

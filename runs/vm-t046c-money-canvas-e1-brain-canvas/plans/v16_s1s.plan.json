@@ -1,0 +1,312 @@
+{
+ "id": "v16_s1s",
+ "part_id": "c40.2",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b2",
+   "say": "Seller ने 10 प्याज के sacks पहुँचाए; साझा हिसाब कैसे बनेगा? पहले कोई entry नहीं थी; अब उसने 10 sacks की entry भेजी।"
+  },
+  {
+   "beat_id": "b3",
+   "say": "Seller ने authorised record भेजा; application के rules के मुताबिक buyer की confirmation भी जोड़ी। Participating computers ने इसे जाँचा।"
+  },
+  {
+   "beat_id": "b4",
+   "say": "Authorisation और format सही मिले; network के agreement rules पूरे हुए। तभी 10 sacks की entry साझा accepted history में जुड़ी।"
+  },
+  {
+   "beat_id": "b5",
+   "say": "Viewer ने 10 मिटाकर 20 लिखा, लेकिन unsupported बदलाव accepted नहीं हुआ। यह blockchain delivery application है; validation असल delivery का proof नहीं, उसके लिए भरोसेमंद reporting चाहिए।"
+  }
+ ],
+ "kit": "shop",
+ "elements": [
+  {
+   "id": "delivery_shop",
+   "kind": "shop",
+   "x": 2600,
+   "y": 860,
+   "sign": "Seller",
+   "cue": [
+    "b2",
+    "Seller"
+   ],
+   "packets": [
+    {
+     "n": 10,
+     "cue": [
+      "b2",
+      "पहुँचाए;"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "seller",
+   "kind": "shopkeeper",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b2",
+    "Seller"
+   ]
+  },
+  {
+   "id": "shared_record",
+   "kind": "board",
+   "x": 2130,
+   "y": 460,
+   "fill": "#547968",
+   "cue": [
+    "b2",
+    "नहीं"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b2",
+      "नहीं"
+     ],
+     "text": "पहले कोई entry नहीं थी।"
+    },
+    {
+     "cue": [
+      "b2",
+      "भेजी।"
+     ],
+     "text": "10 sacks की entry भेजी।"
+    },
+    {
+     "cue": [
+      "b3",
+      "authorised"
+     ],
+     "text": "Seller ने authorised record भेजा।"
+    },
+    {
+     "cue": [
+      "b4",
+      "सही"
+     ],
+     "text": "Authorisation और format सही मिले।"
+    },
+    {
+     "cue": [
+      "b4",
+      "10"
+     ],
+     "text": "10 sacks की entry साझा\naccepted history में जुड़ी।"
+    }
+   ]
+  },
+  {
+   "id": "application_checks",
+   "kind": "board",
+   "x": 3060,
+   "y": 460,
+   "fill": "#657b96",
+   "cue": [
+    "b3",
+    "confirmation"
+   ],
+   "until_cue": [
+    "b5",
+    "Viewer"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b3",
+      "confirmation"
+     ],
+     "text": "Buyer की confirmation भी जोड़ी।"
+    },
+    {
+     "cue": [
+      "b3",
+      "जाँचा।"
+     ],
+     "text": "Participating computers ने इसे जाँचा।"
+    },
+    {
+     "cue": [
+      "b4",
+      "agreement"
+     ],
+     "text": "Network के agreement rules पूरे हुए।"
+    }
+   ]
+  },
+  {
+   "id": "viewer_edit",
+   "kind": "board",
+   "x": 3060,
+   "y": 460,
+   "fill": "#a66b58",
+   "cue": [
+    "b5",
+    "10"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b5",
+      "10"
+     ],
+     "text": "Viewer ने 10 लिखा।"
+    },
+    {
+     "cue": [
+      "b5",
+      "20"
+     ],
+     "text": "Viewer ने 20 लिखा।",
+     "dir": "up"
+    },
+    {
+     "cue": [
+      "b5",
+      "unsupported"
+     ],
+     "text": "Unsupported बदलाव accepted नहीं हुआ।"
+    },
+    {
+     "cue": [
+      "b5",
+      "blockchain"
+     ],
+     "text": "यह blockchain delivery application है।"
+    },
+    {
+     "cue": [
+      "b5",
+      "proof"
+     ],
+     "text": "Validation असल delivery का proof नहीं।"
+    },
+    {
+     "cue": [
+      "b5",
+      "reporting"
+     ],
+     "text": "भरोसेमंद reporting चाहिए।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b2",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 560,
+   "zoom": 0.85,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b2",
+    "साझा"
+   ],
+   "x": 2380,
+   "y": 535,
+   "zoom": 1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b2",
+    "अब"
+   ],
+   "x": 2290,
+   "y": 500,
+   "zoom": 1.1,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b3",
+    "Seller"
+   ],
+   "x": 2500,
+   "y": 510,
+   "zoom": 0.9,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b3",
+    "confirmation"
+   ],
+   "x": 2750,
+   "y": 510,
+   "zoom": 0.95,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b4",
+    "Authorisation"
+   ],
+   "x": 2580,
+   "y": 510,
+   "zoom": 0.9,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b4",
+    "तभी"
+   ],
+   "x": 2320,
+   "y": 510,
+   "zoom": 1.05,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b5",
+    "Viewer"
+   ],
+   "x": 2600,
+   "y": 510,
+   "zoom": 0.9,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b5",
+    "लेकिन"
+   ],
+   "x": 2630,
+   "y": 490,
+   "zoom": 1,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b5",
+    "validation"
+   ],
+   "x": 2830,
+   "y": 500,
+   "zoom": 1.1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b5",
+    "भरोसेमंद"
+   ],
+   "x": 2690,
+   "y": 540,
+   "zoom": 0.95,
+   "frames": 35
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

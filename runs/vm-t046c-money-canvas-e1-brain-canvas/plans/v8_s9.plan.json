@@ -1,0 +1,364 @@
+{
+ "id": "v8_s9",
+ "part_id": "c20.3",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b50",
+   "say": "Phone जवाब कैसे देता है? Note की image लेकर रकम sound या vibration से पहुँचाता है।"
+  },
+  {
+   "beat_id": "b51",
+   "say": "Front या back, कोई side scan करो; camera image input देता है। Audio output denomination सुनाता है, इसलिए screen पढ़ना जरूरी नहीं।"
+  },
+  {
+   "beat_id": "b52",
+   "say": "सुन भी न सकें तो? Vision-hearing impairment में vibration हाथ से महसूस होती है। Network icon installed app का offline use बताता है, offline download नहीं।"
+  },
+  {
+   "beat_id": "b53",
+   "say": "Input image है; result सुनकर या छूकर मिलता है।"
+  },
+  {
+   "beat_id": "b54",
+   "say": "Graphic का रास्ता याद रखो: camera से input, sound या vibration से output।"
+  },
+  {
+   "beat_id": "b55",
+   "say": "अब note की बनावट, उसका monetary promise और पहचान में मदद करने वाला tool अलग-अलग समझ सकते हो।"
+  }
+ ],
+ "kit": "shop",
+ "elements": [
+  {
+   "id": "shop",
+   "kind": "shop",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b50",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "shopkeeper",
+   "kind": "shopkeeper",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b50",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "input",
+   "kind": "board",
+   "x": 1800,
+   "y": 330,
+   "fill": "#F3E9D6",
+   "cue": [
+    "b50",
+    "image"
+   ],
+   "until_cue": [
+    "b55",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b50",
+      "image"
+     ],
+     "text": "Note की image लेकर\nरकम पहुँचाता है।"
+    },
+    {
+     "cue": [
+      "b51",
+      "side"
+     ],
+     "text": "Front या back,\nकोई side scan करो।"
+    },
+    {
+     "cue": [
+      "b51",
+      "input"
+     ],
+     "text": "camera image input देता है।"
+    },
+    {
+     "cue": [
+      "b53",
+      "image"
+     ],
+     "text": "Input image है।"
+    },
+    {
+     "cue": [
+      "b54",
+      "input,"
+     ],
+     "text": "camera से input।"
+    }
+   ]
+  },
+  {
+   "id": "output",
+   "kind": "board",
+   "x": 2600,
+   "y": 330,
+   "fill": "#DFEEE8",
+   "cue": [
+    "b50",
+    "vibration"
+   ],
+   "until_cue": [
+    "b55",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b50",
+      "vibration"
+     ],
+     "text": "sound या vibration से\nरकम पहुँचाता है।"
+    },
+    {
+     "cue": [
+      "b51",
+      "सुनाता"
+     ],
+     "text": "Audio output denomination सुनाता है।\nscreen पढ़ना जरूरी नहीं।"
+    },
+    {
+     "cue": [
+      "b52",
+      "vibration"
+     ],
+     "text": "Vision-hearing impairment में\nvibration हाथ से महसूस होती है।"
+    },
+    {
+     "cue": [
+      "b53",
+      "छूकर"
+     ],
+     "text": "result सुनकर या छूकर मिलता है।"
+    },
+    {
+     "cue": [
+      "b54",
+      "output।"
+     ],
+     "text": "sound या vibration से output।"
+    }
+   ]
+  },
+  {
+   "id": "offline",
+   "kind": "board",
+   "x": 3400,
+   "y": 330,
+   "fill": "#E5EBF2",
+   "cue": [
+    "b52",
+    "बताता"
+   ],
+   "until_cue": [
+    "b55",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b52",
+      "बताता"
+     ],
+     "text": "installed app का offline use है,\noffline download नहीं।"
+    }
+   ]
+  },
+  {
+   "id": "synthesis",
+   "kind": "board",
+   "x": 2600,
+   "y": 330,
+   "fill": "#F3E9D6",
+   "cue": [
+    "b55",
+    "tool"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b55",
+      "tool"
+     ],
+     "text": "note की बनावट, monetary promise\nऔर पहचान में मदद करने वाला tool\nअलग-अलग समझ सकते हो।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b50",
+    "",
+    0.0
+   ],
+   "x": 2350,
+   "y": 520,
+   "zoom": 0.9,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b50",
+    "image"
+   ],
+   "x": 1950,
+   "y": 440,
+   "zoom": 1.2,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b50",
+    "vibration"
+   ],
+   "x": 2450,
+   "y": 440,
+   "zoom": 1.2,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b51",
+    "Front"
+   ],
+   "x": 1800,
+   "y": 430,
+   "zoom": 1.3,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b51",
+    "Audio"
+   ],
+   "x": 2600,
+   "y": 430,
+   "zoom": 1.3,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b51",
+    "screen"
+   ],
+   "x": 2500,
+   "y": 450,
+   "zoom": 1.15,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b52",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 460,
+   "zoom": 1.2,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b52",
+    "हाथ"
+   ],
+   "x": 2600,
+   "y": 400,
+   "zoom": 1.35,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b52",
+    "Network"
+   ],
+   "x": 3250,
+   "y": 440,
+   "zoom": 1.15,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b52",
+    "download"
+   ],
+   "x": 3400,
+   "y": 400,
+   "zoom": 1.3,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b53",
+    "",
+    0.0
+   ],
+   "x": 2200,
+   "y": 440,
+   "zoom": 1.05,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b54",
+    "camera"
+   ],
+   "x": 1800,
+   "y": 430,
+   "zoom": 1.2,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b54",
+    "sound"
+   ],
+   "x": 2600,
+   "y": 430,
+   "zoom": 1.2,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b55",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 530,
+   "zoom": 0.9,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b55",
+    "tool"
+   ],
+   "x": 2600,
+   "y": 420,
+   "zoom": 1.2,
+   "frames": 40
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

@@ -1,0 +1,355 @@
+{
+ "id": "v16_s2",
+ "part_id": "c40.1",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b8",
+   "say": "अब यह साझा हिसाब कहाँ रहता है? Public blockchain का ledger यानी electronic हिसाब, जैसे कई लोगों के पास matching account books।"
+  },
+  {
+   "beat_id": "b9",
+   "say": "Entry की copies participating computers पर रहती हैं; accepted history network के validation और agreement rules से बनती है।"
+  },
+  {
+   "beat_id": "b10",
+   "say": "Shared rules अकेले user को accepted history बदलने नहीं देते। Public inspection यानी देख सकना, editing का अधिकार नहीं है।"
+  },
+  {
+   "beat_id": "b11",
+   "say": "Proposal पर checks होते हैं; agreement से shared history बदलती है। अपनी copy बदलने से बाकी network नहीं बदलता।"
+  },
+  {
+   "beat_id": "b12",
+   "say": "Ledger साझा है; control अकेले का नहीं है।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "ledger",
+   "kind": "text",
+   "cell": [
+    1,
+    0,
+    10,
+    1
+   ],
+   "cue": [
+    "b8",
+    "ledger"
+   ],
+   "text": "Public blockchain का ledger electronic हिसाब है।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "band",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "matching",
+   "kind": "text",
+   "cell": [
+    2,
+    2,
+    8,
+    1
+   ],
+   "cue": [
+    "b8",
+    "matching"
+   ],
+   "until_cue": [
+    "b9",
+    "copies"
+   ],
+   "text": "कई लोगों के पास matching account books हैं।",
+   "style": "note",
+   "tone": "ink",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "copies",
+   "kind": "text",
+   "cell": [
+    2,
+    2,
+    8,
+    1
+   ],
+   "cue": [
+    "b9",
+    "copies"
+   ],
+   "text": "Entry की copies participating computers पर रहती हैं।",
+   "style": "plain",
+   "tone": "ink",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "computer_left",
+   "kind": "icon",
+   "cell": [
+    2,
+    3,
+    2,
+    1
+   ],
+   "cue": [
+    "b9",
+    "computers"
+   ],
+   "tone": "accent",
+   "icon": "fa:solid/laptop-file"
+  },
+  {
+   "id": "computer_right",
+   "kind": "icon",
+   "cell": [
+    8,
+    3,
+    2,
+    1
+   ],
+   "cue": [
+    "b9",
+    "computers"
+   ],
+   "tone": "accent",
+   "icon": "fa:solid/laptop-file"
+  },
+  {
+   "id": "network",
+   "kind": "arrow",
+   "cue": [
+    "b9",
+    "network"
+   ],
+   "tone": "muted",
+   "from": "computer_left",
+   "to": "computer_right",
+   "from_side": "r",
+   "to_side": "l",
+   "dashed": true
+  },
+  {
+   "id": "acceptance",
+   "kind": "text",
+   "cell": [
+    1,
+    5,
+    10,
+    2
+   ],
+   "cue": [
+    "b9",
+    "validation"
+   ],
+   "until_cue": [
+    "b10",
+    "Shared"
+   ],
+   "text": "Accepted history validation और agreement rules से बनती है।",
+   "style": "box",
+   "tone": "accent",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "single_user",
+   "kind": "text",
+   "cell": [
+    0,
+    5,
+    6,
+    2
+   ],
+   "cue": [
+    "b10",
+    "Shared"
+   ],
+   "until_cue": [
+    "b11",
+    "Proposal"
+   ],
+   "text": "Shared rules अकेले user को history बदलने नहीं देते।",
+   "style": "box",
+   "tone": "warm",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "inspection",
+   "kind": "text",
+   "cell": [
+    6,
+    5,
+    6,
+    2
+   ],
+   "cue": [
+    "b10",
+    "inspection"
+   ],
+   "until_cue": [
+    "b11",
+    "Proposal"
+   ],
+   "text": "Public inspection editing का अधिकार नहीं है।",
+   "style": "box",
+   "tone": "warm",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "proposal",
+   "kind": "text",
+   "cell": [
+    0,
+    5,
+    4,
+    2
+   ],
+   "cue": [
+    "b11",
+    "checks"
+   ],
+   "until_cue": [
+    "b12",
+    "Ledger"
+   ],
+   "text": "Proposal पर checks होते हैं।",
+   "style": "box",
+   "tone": "accent",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "agreement",
+   "kind": "text",
+   "cell": [
+    4,
+    5,
+    4,
+    2
+   ],
+   "cue": [
+    "b11",
+    "agreement"
+   ],
+   "until_cue": [
+    "b12",
+    "Ledger"
+   ],
+   "text": "Agreement से shared history बदलती है।",
+   "style": "box",
+   "tone": "ok",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "local_copy",
+   "kind": "text",
+   "cell": [
+    8,
+    5,
+    4,
+    2
+   ],
+   "cue": [
+    "b11",
+    "copy"
+   ],
+   "until_cue": [
+    "b12",
+    "Ledger"
+   ],
+   "text": "अपनी copy बदलने से बाकी network नहीं बदलता।",
+   "style": "box",
+   "tone": "warm",
+   "align": "center",
+   "size": 26
+  },
+  {
+   "id": "takeaway",
+   "kind": "callout",
+   "cell": [
+    1,
+    5,
+    10,
+    2
+   ],
+   "cue": [
+    "b12",
+    "Ledger"
+   ],
+   "text": "Ledger साझा है; control अकेले का नहीं है।",
+   "style": "note",
+   "tone": "accent",
+   "align": "center",
+   "size": 34,
+   "marks": [
+    {
+     "phrase": "control अकेले का नहीं है।",
+     "cue": [
+      "b12",
+      "control"
+     ]
+    }
+   ]
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b10",
+    "Shared"
+   ],
+   "ids": [
+    "ledger",
+    "single_user",
+    "inspection"
+   ],
+   "until_cue": [
+    "b11",
+    "Proposal"
+   ]
+  },
+  {
+   "cue": [
+    "b11",
+    "checks"
+   ],
+   "ids": [
+    "ledger",
+    "proposal",
+    "agreement",
+    "local_copy",
+    "computer_left",
+    "computer_right",
+    "network"
+   ],
+   "until_cue": [
+    "b12",
+    "Ledger"
+   ]
+  },
+  {
+   "cue": [
+    "b12",
+    "control"
+   ],
+   "ids": [
+    "ledger",
+    "takeaway"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

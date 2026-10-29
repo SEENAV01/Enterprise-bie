@@ -1,0 +1,2306 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "canvas",
+ "unit": "v8_s3s",
+ "status": "passed",
+ "instructions_version": "canvas-plan/1",
+ "rulebook_version": "canvas_profile@2026-10-29.1+content_types@2026-10-27.1+explanations@2026-10-24.2+level_profiles@2026-10-24.1+simple_hindi@2026-10-28.1+teacher_examples@2026-10-29.1+vision-2026-10-21@2026-10-21.16+visual_grammar@2026-10-29.1+visual_levels@2026-10-26.2",
+ "rulebook_digest": "d4c7c14986b1afe4b3ce1186dd6742343ae5c2e2a2ee37fe5e6ab8981b883678",
+ "rules_used": [
+  "CV-01",
+  "CV-02",
+  "CV-03",
+  "CV-04",
+  "CV-05",
+  "CV-06",
+  "CV-07",
+  "CV-08",
+  "CV-09",
+  "CV-10",
+  "CV-11",
+  "CV-12",
+  "CV-13",
+  "CV-14",
+  "CV-15",
+  "CV-16",
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-05",
+  "G-06",
+  "G-07"
+ ],
+ "maker_route": "codex",
+ "reviewer_route": "codex-checker",
+ "maker_model": "gpt-6.1-sol",
+ "reviewer_model": "gpt-6.1-sol",
+ "reviewer_independence": "same_model_temporary",
+ "inputs_digest": "1349f96e751ba0b5a62911673422231f03d1c761d96cae9fc5a9ee8558f3216a",
+ "card": null,
+ "prefix_sha256": "70df875cc213217b02bd99129255b9e06db6145661d64ac2f15f5f8eca1511d7",
+ "review_prefix_sha256": null,
+ "inputs": {
+  "system": "You are BIE's world director for one STORY part of a video lesson of Indian Economy for UPSC / State PCS aspirants (UPSC / State PCS): actors\nact in a place (a shop with buyers on a street; its place element is kind 'shop'), so this part is shown inside a small designed world (Navin's level C, an L3 world). The script\nis already written and passed; you do not change a word of it. You place the props, the people, the effects and the\ncamera moves, each on a spoken word; code builds, times and checks the world and a refused plan comes back to you with\nthe exact error, and you answer with the whole corrected plan.\n\nCourse: \"3. Money\" · learner language: Hinglish.\n\nNavin's rules for this section (follow every one):\n[CV-01] One canvas per idea: build it piece by piece instead of cutting to a new shot every sentence. Clear the canvas only when the idea changes; otherwise re-frame with a zoom or pan to the part being explained.\n[CV-02] Something on the canvas changes about every 5 s (one change per one or two spoken phrases).\n[CV-03] The picture never stays the same for more than 15 s (the references sometimes hold 40-80 s; BIE must not).\n[CV-04] A new element appears on its own word, while it is being said (about 40% into the phrase, never in the pause after).\n[CV-05] Numbers that change are struck out and replaced on screen (50 -> 65), with an up/down arrow, on the word of the new number.\n[CV-06] Many people/things are shown as a crowd that grows or shrinks with the story (2 buyers -> 12 -> 3).\n[CV-07] A running numeric example carries the concept (price 50 -> 65, GDP 10K -> 11K -> 12.1K at 10%).\n[CV-08] Return to the topic tree and tick the branch that is done before starting the next branch.\n[CV-09] One anchor diagram stays (a band, a tree, a rate card) while the part beside or below it changes.\n[CV-10] No overlap, nothing outside the safe area, captions strip kept clear, readable text (>= 24 px at 1080p), at most 16 elements on screen.\n[CV-11] No photos or caricatures of real people, no logos, emblems or regulator marks: use a name card, a generic icon or BIE's own presenter character.\n[CV-12] Light paper theme for build-up canvases (dark theme stays for 3D/science worlds); subtitles on a dark strip.\n[CV-13] On-screen text is a short COMPLETE phrase or sentence in the learner's language (Devanagari Hinglish with the English terms the script uses), one idea per board or box; never a code: no ✓ ✗ ≠, no list of bare words ('Exchange · Account / Store · Deferred'), no line that ends on → = : / (Navin, 29 October 2026: 'teacher ki naration uske sentence aise poore ho ki banawati na lage').\n[CV-14] Every on-screen text is explained: its key words are said in the narration of the beat it appears on (the cue beat), and every board step the director adds is spoken; a text the narration never says does not go on screen.\n[CV-15] A caveat ('imagined market', 'illustrative numbers') is shown once per part on its own small note, not on every board.\n[CV-16] Numbers on screen are written the way the narration says them: every number on a board, tag or box is said in its cue beat (₹500 on screen, '500 rupaye' in the narration), no counters the narration never mentions ('Payments: 0 → 2').\n[G-01] Everything taught comes from the book. Knowledge from outside the book is allowed only to explain the book better; it is marked as outside, standard textbook-level and correct. Never invent facts, numbers, names or quotations.\n[G-02] Work like the best teacher of these learners and this exam, not like a summariser. Depth beats brevity: nothing teachable on the page is skipped or compressed away, and every explanation makes a student understand, not just remember. Depth means understanding, not length: lesson narration keeps S2-01's time by cutting repetition and side-tracks, never book content.\n[G-03] Before the output, fill 'notes' with brief notes for the reviewer and for Navin: what this unit is about, the key questions a teacher must answer about it, the main decisions you made with a one-line reason each, and anything uncertain. Keep the notes short; they explain the work, they are not the work.\n[G-05] Never drop or compress away what the book teaches to fit a length. If a unit of work is too large, it is split by BIE into smaller units; within a unit, the book's content is complete. Lesson narration has a time target (S2-01), met by cutting repetition and side-tracks, never book content.\n[G-06] BIE is the link between the learner and the book, like a teacher (Navin, 24 October 2026). The book is the base; BIE carries its text, easy or hard, into the learner's mind. Never just read the line out: every book line is opened (what its words mean, why it is so, where it is seen, what follows), at the depth of the level profile.\n[G-07] Two layers, like a film (Navin, 24 October 2026). The writer layer (understanding, plan, script) decides what is said and how deep, following the level profile and the book's own level. The presentation layer (director, video blocks, render) is the same skilled quality for every learner, from class 6 to postgraduate; only the detail shown follows the level, never the craft.\n\n# Director card: world plans (for the AI world director step, Navin's level C)\n\nYou plan ONE world for ONE story part of a passed script: actors act in a place, so the part is shown inside a small\ndesigned 2.5D street with the place at its centre. You place props, people, effects and the camera, each on a spoken\nword. Code builds, times and checks the world (`bie/brain/video/world.py`); a refused plan comes back with the exact error.\n\n## The world\n\nWorld pixels: 5200 wide, ground line at y 860; the place (the `shop` or the `bank`, the one element kind your role names\nas the kit) is usually near x 2600. The camera looks at a point\n(`x`, `y`) with a `zoom` (0.8 wide street … 1.7 close on a price tag) and takes `frames` to get there (30–60 at 30 fps).\nCamera keys are in time order, the first on the part's first beat.\n\n## Element vocabulary\n\n| kind | fields | use it for |\n| --- | --- | --- |\n| `shop` | `x`, `sign` (the shop's name, in the learner's script), `packets: [{n, cue}]` | the place of a shop story (a kirana shop, a tea stall, a market stall, a bazaar); its stock of goods on the counter (n packets) |\n| `price_tag` | `x`, `y`, `string` (hanging length), `steps: [{text, dir, cue}]`, `lift_cue` + `lift_dy` | the price that is struck out and replaced (a price only: '₹65', '₹10,000', at most 9 characters; words go on a board); lift it when demand pulls it up |\n| `crowd` | `x0`, `spacing`, `enter_x`, `exit_x`, `face` (-1 looks left), `seed`, `steps: [{n, cue}]`, `carry_cue` + `carry_n` | buyers or bank customers who walk in and out as the number changes; `carry` sends n of them away with goods |\n| `bank` | `x`, `sign` (the bank's name, generic, in the learner's script) | the place of a bank story: a stone front with pillars, a teller window and a counter; customers stand before it (`crowd` with `x0` near `x` - 270) |\n| `teller` | `x` (the bank's `x`) | the bank's clerk behind the counter (as `shopkeeper` is for the shop) |\n| `board` | `x`, `y`, `text` (the title: खाता, EMI, बचत), `fill` (header colour), `steps: [{text, dir, cue}]`, `until_cue` | a standing display whose value changes on its word: a passbook balance ₹0 → ₹500, an EMI due ₹10,000 → ₹0; the old value is struck out, `dir` \"up\" or \"down\" adds the arrow. A value is at most 3 lines of 40 characters (your own line breaks are kept, a long line is wrapped at spaces), so a complete short sentence fits; the teaching stays in the narration, a board shows the number or the one idea that changes, as a phrase the learner can read (CV-13), with the words and numbers the narration of its cue beat says (CV-14, CV-16); never codes (✓ ≠ →, \"1–3 ✓, 4 Future payment →\") |\n| `label` | `x`, `y`, `text`, `fill` (rgba colour), `cue`, `until_cue` | SUPPLY · 3, DEMAND · 12: short labels over the scene |\n| `coin_rain` | `x0`, `x1`, `count`, `cue`, `until_cue` | money arriving in people's hands |\n| `balance` | `x`, `y`, `tilt`, `cue`, `tilt_cue`, `until_cue` | supply against demand on a balance that tilts on its word |\n| `pull_arrow` | `x`, `y0`, `y1`, `text`, `cue` | the force that pulls the price (demand-pull) |\n| `title` | `text`, `cue` | the part's name, on its word (at most 30 characters) |\n| `lamp`, `foreground` | `x` | street dressing for depth (two or three of each, outside the shop) |\n\nEvery element has `cue: [beat_id, word]` with the word exactly as written in that beat (`[beat_id, \"\"]` for the beat's\nstart). Something must change at least every 15 s (the code refuses a longer still); aim for a change every 5 s.\nNever a real person, logo, emblem or regulator mark: a generic shop sign and generic people only.\n\n## On-screen text (CV-13 to CV-16; Navin's verdict on Money v1, 29 October 2026)\n\n- A board, label or tag holds ONE idea as a short COMPLETE phrase or sentence in the learner's language (Devanagari Hinglish\n  with the English terms the script uses): \"Payment में notes और coins के अलावा खाते का पैसा भी चलता है\", not\n  \"Money = balance / Device ≠ money\".\n- Never a code: no ✓ ✗ ≠; no list of bare words (\"Exchange ✓ · Account ✓ / Store · Deferred\"); no line that ends on → = : /.\n- Every text is explained: its key words and every number are said in the narration of its cue beat (the code refuses a text\n  or a number the beat does not say; move the cue to the beat that says it, or leave it to the narration).\n- A caveat (\"imagined market\", \"illustrative numbers\") once per part, on its own small label, not on every board.\n\nHow to fill the JSON (every field is present; \"\" / 0 / [] mean \"not used\"):\n- notes: the story of this part in two lines, what each camera move shows, what is uncertain.\n- elements: in story order; id (unique), kind, the fields of that kind (card), cue [beat_id, word] (word exactly as written\n  in that beat; [beat_id, \"\"] for the beat's start) and until_cue when it leaves; steps (text/n + cue) for a price tag, a\n  board or a crowd; packets (n + cue) for the shop's stock; lift_cue + lift_dy lifts a price tag; carry_cue + carry_n sends\n  buyers away with goods; tilt_cue tilts the balance. The place element (shop or bank) is the kit named above, once.\n- camera: keys in time order, each with cue, x and y in world pixels, zoom and frames (how long the move takes).\nReply with the JSON object only.",
+  "user": "Chapter: 3. Money. Part c19.1 (4 beats).\nThe part (JSON):\n{\"part\": {\"id\": \"v8_s3s\", \"part_id\": \"c19.1\", \"mode\": \"C\", \"place\": \"shop\", \"story\": true}, \"beats\": [{\"beat_id\": \"b16\", \"say\": \"किराना bill ₹100 है; genuine ₹100 note दो तो? दुकानदार ने लिया, अब ₹0 बाकी हैं; payment में कागज़ नहीं, उस पर लिखे ₹100 काम आए।\"}, {\"beat_id\": \"b17\", \"say\": \"Customer ने tea seller को ₹20 का note दिया; उसने वही milk seller को दिया। पहले दोनों के पास इस note के ₹0 थे; अब बारी-बारी ₹20 मिले, बिना नाम बदले।\"}, {\"beat_id\": \"b18\", \"say\": \"Wallet का ₹100 interest कमाएगा? नहीं। ग्राहक ने groceries के लिए वह note दिया; उसके पास ₹0 बचे। Shopkeeper के पास पहले इस note के ₹0 थे, अब ₹100 मिले।\"}, {\"beat_id\": \"b19\", \"say\": \"खरीदार ₹500 debt चुकाने का unconditional written commitment देता है। बाद में उसने currency में ₹500 चुका दिए; अब ₹0 बाकी हैं। Written commitment और payment की currency अलग हैं।\"}], \"items\": [{\"item_id\": \"p009-i24\", \"content_type\": \"definition\", \"content\": \"It is known as the Promise Clause, and it signifies that the Reserve Bank of India (RBI) guarantees the face value of the note.\", \"real_world_example\": {\"place\": \"Hypothetical kirana shop\", \"actors\": [\"buyer\", \"shopkeeper\"], \"goods\": [\"₹100 note\", \"groceries\"], \"numbers\": [{\"what\": \"unpaid grocery bill\", \"before\": \"₹100\", \"after\": \"₹0\"}], \"steps\": [{\"step\": \"A buyer has a ₹100 grocery bill and presents a genuine ₹100 note.\", \"mechanism_link\": \"The printed amount identifies its nominal monetary value.\"}, {\"step\": \"The shopkeeper accepts it as ₹100 and the bill is settled.\", \"mechanism_link\": \"The transaction uses face value, not the market value of the paper.\"}], \"term_after\": \"That stated monetary amount is the face value addressed by the promise clause.\", \"real_life_link\": \"Learners use the printed value of notes when paying bills; this illustration does not make a separate legal claim.\"}}, {\"item_id\": \"p009-i25\", \"content_type\": \"definition\", \"content\": \"Bearer means that whoever physically possesses the note can use it.\", \"real_world_example\": {\"place\": \"Hypothetical tea shop\", \"actors\": [\"customer\", \"tea seller\", \"milk seller\"], \"goods\": [\"₹20 note\", \"tea\", \"milk\"], \"numbers\": [{\"what\": \"tea seller's holding of this note\", \"before\": \"₹0\", \"after\": \"₹20\"}, {\"what\": \"milk seller's holding of this note\", \"before\": \"₹0\", \"after\": \"₹20\"}], \"steps\": [{\"step\": \"A customer lawfully gives a ₹20 note to the tea seller as payment.\", \"mechanism_link\": \"Possession transfers to a new recipient.\"}, {\"step\": \"The tea seller then uses that note to pay the milk seller.\", \"mechanism_link\": \"The next holder can use the same note without a named-payee change.\"}], \"term_after\": \"This holder-based use is what the page calls bearer use.\", \"real_life_link\": \"A cash note received as change can be used in the learner's next purchase.\"}}, {\"item_id\": \"p009-i33\", \"content_type\": \"definition\", \"content\": \"Currency note is zero interest, anonymous bearer bond.\", \"real_world_example\": {\"place\": \"Hypothetical kirana shop and customer's wallet\", \"actors\": [\"shopkeeper\", \"customer\"], \"goods\": [\"₹100 note\", \"groceries\"], \"numbers\": [{\"what\": \"customer's holding of this note after spending\", \"before\": \"₹100\", \"after\": \"₹0\"}, {\"what\": \"shopkeeper's holding of this note\", \"before\": \"₹0\", \"after\": \"₹100\"}], \"steps\": [{\"step\": \"A customer keeps a ₹100 note in a wallet; holding it does not add interest to the note.\", \"mechanism_link\": \"Zero-interest character: its face value does not accrue a return.\"}, {\"step\": \"The customer uses it for ₹100 of groceries; the shopkeeper receives the same unnamed ₹100 note.\", \"mechanism_link\": \"Bearer transfer changes the holder without printing a new holder's name.\"}], \"term_after\": \"These are the zero-interest, anonymous and bearer characteristics behind the book's shorthand.\", \"real_life_link\": \"Learners meet these characteristics when storing cash and spending it at shops.\"}}, {\"item_id\": \"p010-i2\", \"content_type\": \"definition\", \"content\": \"Section 4 of the Negotiable Instruments Act, 1881: A promissory note is: ”An instrument in writing (not being a bank-note or a currency-note) containing an unconditional undertaking.\", \"real_world_example\": {\"place\": \"Illustrative kirana shop\", \"actors\": [\"shopkeeper\", \"buyer\"], \"goods\": [\"groceries\", \"₹500 debt\"], \"numbers\": [{\"what\": \"outstanding debt after repayment\", \"before\": \"₹500\", \"after\": \"₹0\"}], \"steps\": [{\"step\": \"A buyer owing ₹500 gives an unconditional written undertaking to repay.\", \"mechanism_link\": \"Illustrates a written payment commitment rather than a conditional promise.\"}, {\"step\": \"The buyer later pays ₹500 in currency and the debt becomes ₹0.\", \"mechanism_link\": \"Separates the undertaking from the currency used to discharge it.\"}], \"term_after\": \"The written undertaking illustrates a promissory-note feature; the currency used for payment is expressly excluded by the quoted definition.\", \"real_life_link\": \"This explains why the promise printed on Indian currency does not itself determine its statutory category.\"}}], \"on_screen_hints\": [\"Hypothetical grocery bill ₹100 → ₹0.\", \"Lawful transfer: customer → tea seller → milk seller.\", \"No interest from holding; unnamed ₹100 transferred.\", \"Illustrative written repayment commitment; later currency payment.\"]}\n\nReply with the plan JSON."
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "started_at": 1793315230.396997,
+   "mode": "full",
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "9148037fbd0450711a62271b13fc096bc8d2919d35e556dad1a0ca3a59b44cef",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 8045,
+    "output_tokens": 4023,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "एक ही किराना street में note की payment value, holder बदलना, interest न मिलना और written commitment से currency का अंतर दिखता है। हर उदाहरण में वही दुकान anchor रहती है।",
+    "key_questions": [
+     "Note देने पर bill की बाकी रकम कैसे बदलती है?",
+     "वही note अगले holder तक कैसे जाता है?",
+     "Note रखने और उसे खर्च करने में क्या अंतर है?",
+     "Written commitment और currency payment अलग कैसे हैं?"
+    ],
+    "decisions": [
+     {
+      "decision": "बदलती रकम के लिए price tag के बजाय sentence boards रखें।",
+      "reason": "ये goods की prices नहीं, बाकी bill और व्यक्तियों के पास इस note की रकम हैं।"
+     },
+     {
+      "decision": "हर beat में पुराने example boards हटाकर उसी दुकान के पास नए boards रखें।",
+      "reason": "एक स्थायी जगह में अलग transactions साफ रहते हैं।"
+     },
+     {
+      "decision": "Camera पहले transaction, फिर बदलती रकम पर जाए।",
+      "reason": "लंबे स्थिर दृश्य के बिना narration का ध्यान बनाए रखना है।"
+     }
+    ],
+    "uncertain": [
+     "Passed narration में hypothetical caveat और topic-tree completion नहीं बोले गए हैं; इसलिए उनका अतिरिक्त text नहीं जोड़ा गया।",
+     "उपलब्ध vocabulary में हाथ से हाथ note देने की animation नहीं है; holder-specific boards से transfer स्पष्ट किया गया है।",
+     "Promise Clause, RBI guarantee और statutory definition की पूरी व्याख्या इस passed narration में नहीं है; director ने नया teaching text नहीं जोड़ा।"
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "एक ही किराना street में note की payment value, holder बदलना, interest न मिलना और written commitment से currency का अंतर दिखता है। हर उदाहरण में वही दुकान anchor रहती है।",
+     "key_questions": [
+      "Note देने पर bill की बाकी रकम कैसे बदलती है?",
+      "वही note अगले holder तक कैसे जाता है?",
+      "Note रखने और उसे खर्च करने में क्या अंतर है?",
+      "Written commitment और currency payment अलग कैसे हैं?"
+     ],
+     "decisions": [
+      {
+       "decision": "बदलती रकम के लिए price tag के बजाय sentence boards रखें।",
+       "reason": "ये goods की prices नहीं, बाकी bill और व्यक्तियों के पास इस note की रकम हैं।"
+      },
+      {
+       "decision": "हर beat में पुराने example boards हटाकर उसी दुकान के पास नए boards रखें।",
+       "reason": "एक स्थायी जगह में अलग transactions साफ रहते हैं।"
+      },
+      {
+       "decision": "Camera पहले transaction, फिर बदलती रकम पर जाए।",
+       "reason": "लंबे स्थिर दृश्य के बिना narration का ध्यान बनाए रखना है।"
+      }
+     ],
+     "uncertain": [
+      "Passed narration में hypothetical caveat और topic-tree completion नहीं बोले गए हैं; इसलिए उनका अतिरिक्त text नहीं जोड़ा गया।",
+      "उपलब्ध vocabulary में हाथ से हाथ note देने की animation नहीं है; holder-specific boards से transfer स्पष्ट किया गया है।",
+      "Promise Clause, RBI guarantee और statutory definition की पूरी व्याख्या इस passed narration में नहीं है; director ने नया teaching text नहीं जोड़ा।"
+     ]
+    },
+    "elements": [
+     {
+      "id": "kirana",
+      "kind": "shop",
+      "x": 2600,
+      "y": 860,
+      "sign": "किराना",
+      "text": "",
+      "fill": "",
+      "string": 0,
+      "steps": [],
+      "packets": [],
+      "cue": [
+       "b16",
+       "किराना"
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "seller",
+      "kind": "shopkeeper",
+      "x": 2600,
+      "y": 860,
+      "sign": "",
+      "text": "",
+      "fill": "",
+      "string": 0,
+      "steps": [],
+      "packets": [],
+      "cue": [
+       "b16",
+       "दुकानदार"
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "buyers",
+      "kind": "crowd",
+      "x": 0,
+      "y": 0,
+      "sign": "",
+      "text": "",
+      "fill": "",
+      "string": 0,
+      "steps": [
+       {
+        "text": "",
+        "n": 1,
+        "dir": "",
+        "cue": [
+         "b16",
+         "दो"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b16",
+       "दो"
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 2160,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 110,
+      "enter_x": 1750,
+      "exit_x": 1750,
+      "face": 1,
+      "seed": 19,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "bill",
+      "kind": "board",
+      "x": 3020,
+      "y": 470,
+      "sign": "",
+      "text": "",
+      "fill": "#EEE3CF",
+      "string": 0,
+      "steps": [
+       {
+        "text": "bill ₹100 है।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b16",
+         "₹100"
+        ]
+       },
+       {
+        "text": "₹0 बाकी हैं।",
+        "n": 0,
+        "dir": "down",
+        "cue": [
+         "b16",
+         "₹0"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b16",
+       "₹100"
+      ],
+      "until_cue": [
+       "b17",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "face_value",
+      "kind": "label",
+      "x": 2580,
+      "y": 260,
+      "sign": "",
+      "text": "लिखे ₹100 काम आए।",
+      "fill": "rgba(250,244,228,1)",
+      "string": 0,
+      "steps": [],
+      "packets": [],
+      "cue": [
+       "b16",
+       "लिखे"
+      ],
+      "until_cue": [
+       "b17",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "successive_holders",
+      "kind": "board",
+      "x": 3020,
+      "y": 460,
+      "sign": "",
+      "text": "",
+      "fill": "#E8EEDF",
+      "string": 0,
+      "steps": [
+       {
+        "text": "Customer ने tea seller को\n₹20 का note दिया।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b17",
+         "tea"
+        ]
+       },
+       {
+        "text": "वही milk seller को दिया।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b17",
+         "milk"
+        ]
+       },
+       {
+        "text": "पहले दोनों के पास\nइस note के ₹0 थे।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b17",
+         "पहले"
+        ]
+       },
+       {
+        "text": "अब बारी-बारी ₹20 मिले,\nबिना नाम बदले।",
+        "n": 0,
+        "dir": "up",
+        "cue": [
+         "b17",
+         "अब"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b17",
+       "tea"
+      ],
+      "until_cue": [
+       "b18",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "wallet",
+      "kind": "board",
+      "x": 2050,
+      "y": 450,
+      "sign": "",
+      "text": "",
+      "fill": "#EEE3CF",
+      "string": 0,
+      "steps": [
+       {
+        "text": "Wallet का ₹100\ninterest कमाएगा? नहीं।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b18",
+         "interest"
+        ]
+       },
+       {
+        "text": "ग्राहक के पास ₹0 बचे।",
+        "n": 0,
+        "dir": "down",
+        "cue": [
+         "b18",
+         "₹0"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b18",
+       "interest"
+      ],
+      "until_cue": [
+       "b19",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "shopkeeper_holding",
+      "kind": "board",
+      "x": 3050,
+      "y": 450,
+      "sign": "",
+      "text": "",
+      "fill": "#E8EEDF",
+      "string": 0,
+      "steps": [
+       {
+        "text": "Shopkeeper के पास पहले\nइस note के ₹0 थे।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b18",
+         "Shopkeeper"
+        ]
+       },
+       {
+        "text": "अब ₹100 मिले।",
+        "n": 0,
+        "dir": "up",
+        "cue": [
+         "b18",
+         "अब"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b18",
+       "Shopkeeper"
+      ],
+      "until_cue": [
+       "b19",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "commitment",
+      "kind": "board",
+      "x": 2050,
+      "y": 430,
+      "sign": "",
+      "text": "",
+      "fill": "#EEE3CF",
+      "string": 0,
+      "steps": [
+       {
+        "text": "₹500 debt चुकाने का\nunconditional written commitment।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b19",
+         "unconditional"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b19",
+       "unconditional"
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "repayment",
+      "kind": "board",
+      "x": 3050,
+      "y": 430,
+      "sign": "",
+      "text": "",
+      "fill": "#E8EEDF",
+      "string": 0,
+      "steps": [
+       {
+        "text": "currency में ₹500 चुका दिए।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b19",
+         "currency"
+        ]
+       },
+       {
+        "text": "अब ₹0 बाकी हैं।",
+        "n": 0,
+        "dir": "down",
+        "cue": [
+         "b19",
+         "₹0"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b19",
+       "currency"
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "distinction",
+      "kind": "label",
+      "x": 2550,
+      "y": 230,
+      "sign": "",
+      "text": "Written commitment और\npayment की currency अलग हैं।",
+      "fill": "rgba(250,244,228,1)",
+      "string": 0,
+      "steps": [],
+      "packets": [],
+      "cue": [
+       "b19",
+       "Written"
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     }
+    ],
+    "camera": [
+     {
+      "cue": [
+       "b16",
+       ""
+      ],
+      "x": 2580,
+      "y": 530,
+      "zoom": 0.95,
+      "frames": 30
+     },
+     {
+      "cue": [
+       "b16",
+       "genuine"
+      ],
+      "x": 2700,
+      "y": 510,
+      "zoom": 1.05,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b16",
+       "₹0"
+      ],
+      "x": 2820,
+      "y": 490,
+      "zoom": 1.15,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b16",
+       "payment"
+      ],
+      "x": 2680,
+      "y": 460,
+      "zoom": 1.05,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b17",
+       ""
+      ],
+      "x": 2610,
+      "y": 520,
+      "zoom": 0.95,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b17",
+       "milk"
+      ],
+      "x": 2820,
+      "y": 500,
+      "zoom": 1.1,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b17",
+       "पहले"
+      ],
+      "x": 2880,
+      "y": 470,
+      "zoom": 1.15,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b17",
+       "अब"
+      ],
+      "x": 2780,
+      "y": 490,
+      "zoom": 1.05,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b18",
+       ""
+      ],
+      "x": 2420,
+      "y": 500,
+      "zoom": 0.9,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b18",
+       "ग्राहक"
+      ],
+      "x": 2330,
+      "y": 510,
+      "zoom": 1,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b18",
+       "Shopkeeper"
+      ],
+      "x": 2680,
+      "y": 500,
+      "zoom": 0.9,
+      "frames": 45
+     },
+     {
+      "cue": [
+       "b18",
+       "अब"
+      ],
+      "x": 2820,
+      "y": 490,
+      "zoom": 1.05,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b19",
+       ""
+      ],
+      "x": 2450,
+      "y": 500,
+      "zoom": 0.9,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b19",
+       "बाद"
+      ],
+      "x": 2650,
+      "y": 490,
+      "zoom": 0.9,
+      "frames": 45
+     },
+     {
+      "cue": [
+       "b19",
+       "₹0"
+      ],
+      "x": 2820,
+      "y": 480,
+      "zoom": 1.05,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b19",
+       "Written"
+      ],
+      "x": 2550,
+      "y": 460,
+      "zoom": 0.9,
+      "frames": 45
+     }
+    ]
+   },
+   "code_problems": [
+    "[code] camera keys must be in time order"
+   ],
+   "passed": false,
+   "finished_at": 1793315285.0356052
+  },
+  {
+   "round": 2,
+   "started_at": 1793315285.035704,
+   "mode": "full",
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "c840feba8c0e2025bf3e98e6303bf3f93767b7b128c25416e8b7cb345d908b77",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 10738,
+    "output_tokens": 2867,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "एक ही किराना street में payment value, note का holder बदलना, interest और written commitment से currency का अंतर दिखता है। दुकान स्थायी anchor रहती है।",
+    "key_questions": [
+     "Note देने पर बाकी bill कैसे बदलता है?",
+     "वही note अगले holder तक कैसे जाता है?",
+     "Note रखने से interest मिलता है?",
+     "Written commitment और currency payment अलग कैसे हैं?"
+    ],
+    "decisions": [
+     {
+      "decision": "Camera keys को beat के क्रम में रखा और numeric cues की जगह निकट के विशिष्ट spoken words चुने।",
+      "reason": "Repeated रकम के cue resolution से camera का समयक्रम बिगड़ने की संभावना हटती है।"
+     },
+     {
+      "decision": "दुकान, actors और transaction boards यथावत रखे।",
+      "reason": "पहले से सही visual explanation को बदलने की आवश्यकता नहीं है।"
+     }
+    ],
+    "uncertain": [
+     "Passed narration में hypothetical caveat और topic-tree completion नहीं बोले गए हैं; अतिरिक्त text नहीं जोड़ा गया।",
+     "उपलब्ध vocabulary में हाथ से हाथ note देने की animation नहीं है; boards से transfer दिखाया गया है।",
+     "Promise Clause, RBI guarantee और पूरी statutory definition passed narration में नहीं हैं; नया teaching text नहीं जोड़ा गया।"
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "एक ही किराना street में payment value, note का holder बदलना, interest और written commitment से currency का अंतर दिखता है। दुकान स्थायी anchor रहती है।",
+     "key_questions": [
+      "Note देने पर बाकी bill कैसे बदलता है?",
+      "वही note अगले holder तक कैसे जाता है?",
+      "Note रखने से interest मिलता है?",
+      "Written commitment और currency payment अलग कैसे हैं?"
+     ],
+     "decisions": [
+      {
+       "decision": "Camera keys को beat के क्रम में रखा और numeric cues की जगह निकट के विशिष्ट spoken words चुने।",
+       "reason": "Repeated रकम के cue resolution से camera का समयक्रम बिगड़ने की संभावना हटती है।"
+      },
+      {
+       "decision": "दुकान, actors और transaction boards यथावत रखे।",
+       "reason": "पहले से सही visual explanation को बदलने की आवश्यकता नहीं है।"
+      }
+     ],
+     "uncertain": [
+      "Passed narration में hypothetical caveat और topic-tree completion नहीं बोले गए हैं; अतिरिक्त text नहीं जोड़ा गया।",
+      "उपलब्ध vocabulary में हाथ से हाथ note देने की animation नहीं है; boards से transfer दिखाया गया है।",
+      "Promise Clause, RBI guarantee और पूरी statutory definition passed narration में नहीं हैं; नया teaching text नहीं जोड़ा गया।"
+     ]
+    },
+    "elements": [
+     {
+      "id": "kirana",
+      "kind": "shop",
+      "x": 2600,
+      "y": 860,
+      "sign": "किराना",
+      "text": "",
+      "fill": "",
+      "string": 0,
+      "steps": [],
+      "packets": [],
+      "cue": [
+       "b16",
+       "किराना"
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "seller",
+      "kind": "shopkeeper",
+      "x": 2600,
+      "y": 860,
+      "sign": "",
+      "text": "",
+      "fill": "",
+      "string": 0,
+      "steps": [],
+      "packets": [],
+      "cue": [
+       "b16",
+       "दुकानदार"
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "buyers",
+      "kind": "crowd",
+      "x": 0,
+      "y": 0,
+      "sign": "",
+      "text": "",
+      "fill": "",
+      "string": 0,
+      "steps": [
+       {
+        "text": "",
+        "n": 1,
+        "dir": "",
+        "cue": [
+         "b16",
+         "दो"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b16",
+       "दो"
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 2160,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 110,
+      "enter_x": 1750,
+      "exit_x": 1750,
+      "face": 1,
+      "seed": 19,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "bill",
+      "kind": "board",
+      "x": 3020,
+      "y": 470,
+      "sign": "",
+      "text": "",
+      "fill": "#EEE3CF",
+      "string": 0,
+      "steps": [
+       {
+        "text": "bill ₹100 है।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b16",
+         "₹100"
+        ]
+       },
+       {
+        "text": "₹0 बाकी हैं।",
+        "n": 0,
+        "dir": "down",
+        "cue": [
+         "b16",
+         "₹0"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b16",
+       "₹100"
+      ],
+      "until_cue": [
+       "b17",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "face_value",
+      "kind": "label",
+      "x": 2580,
+      "y": 260,
+      "sign": "",
+      "text": "लिखे ₹100 काम आए।",
+      "fill": "rgba(250,244,228,1)",
+      "string": 0,
+      "steps": [],
+      "packets": [],
+      "cue": [
+       "b16",
+       "लिखे"
+      ],
+      "until_cue": [
+       "b17",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "successive_holders",
+      "kind": "board",
+      "x": 3020,
+      "y": 460,
+      "sign": "",
+      "text": "",
+      "fill": "#E8EEDF",
+      "string": 0,
+      "steps": [
+       {
+        "text": "Customer ने tea seller को\n₹20 का note दिया।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b17",
+         "tea"
+        ]
+       },
+       {
+        "text": "वही milk seller को दिया।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b17",
+         "milk"
+        ]
+       },
+       {
+        "text": "पहले दोनों के पास\nइस note के ₹0 थे।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b17",
+         "पहले"
+        ]
+       },
+       {
+        "text": "अब बारी-बारी ₹20 मिले,\nबिना नाम बदले।",
+        "n": 0,
+        "dir": "up",
+        "cue": [
+         "b17",
+         "अब"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b17",
+       "tea"
+      ],
+      "until_cue": [
+       "b18",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "wallet",
+      "kind": "board",
+      "x": 2050,
+      "y": 450,
+      "sign": "",
+      "text": "",
+      "fill": "#EEE3CF",
+      "string": 0,
+      "steps": [
+       {
+        "text": "Wallet का ₹100\ninterest कमाएगा? नहीं।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b18",
+         "interest"
+        ]
+       },
+       {
+        "text": "ग्राहक के पास ₹0 बचे।",
+        "n": 0,
+        "dir": "down",
+        "cue": [
+         "b18",
+         "₹0"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b18",
+       "interest"
+      ],
+      "until_cue": [
+       "b19",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "shopkeeper_holding",
+      "kind": "board",
+      "x": 3050,
+      "y": 450,
+      "sign": "",
+      "text": "",
+      "fill": "#E8EEDF",
+      "string": 0,
+      "steps": [
+       {
+        "text": "Shopkeeper के पास पहले\nइस note के ₹0 थे।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b18",
+         "Shopkeeper"
+        ]
+       },
+       {
+        "text": "अब ₹100 मिले।",
+        "n": 0,
+        "dir": "up",
+        "cue": [
+         "b18",
+         "अब"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b18",
+       "Shopkeeper"
+      ],
+      "until_cue": [
+       "b19",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "commitment",
+      "kind": "board",
+      "x": 2050,
+      "y": 430,
+      "sign": "",
+      "text": "",
+      "fill": "#EEE3CF",
+      "string": 0,
+      "steps": [
+       {
+        "text": "₹500 debt चुकाने का\nunconditional written commitment।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b19",
+         "unconditional"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b19",
+       "unconditional"
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "repayment",
+      "kind": "board",
+      "x": 3050,
+      "y": 430,
+      "sign": "",
+      "text": "",
+      "fill": "#E8EEDF",
+      "string": 0,
+      "steps": [
+       {
+        "text": "currency में ₹500 चुका दिए।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b19",
+         "currency"
+        ]
+       },
+       {
+        "text": "अब ₹0 बाकी हैं।",
+        "n": 0,
+        "dir": "down",
+        "cue": [
+         "b19",
+         "₹0"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b19",
+       "currency"
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "distinction",
+      "kind": "label",
+      "x": 2550,
+      "y": 230,
+      "sign": "",
+      "text": "Written commitment और\npayment की currency अलग हैं।",
+      "fill": "rgba(250,244,228,1)",
+      "string": 0,
+      "steps": [],
+      "packets": [],
+      "cue": [
+       "b19",
+       "Written"
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     }
+    ],
+    "camera": [
+     {
+      "cue": [
+       "b16",
+       ""
+      ],
+      "x": 2580,
+      "y": 530,
+      "zoom": 0.95,
+      "frames": 30
+     },
+     {
+      "cue": [
+       "b16",
+       "genuine"
+      ],
+      "x": 2700,
+      "y": 510,
+      "zoom": 1.05,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b16",
+       "बाकी"
+      ],
+      "x": 2820,
+      "y": 490,
+      "zoom": 1.15,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b16",
+       "कागज़"
+      ],
+      "x": 2680,
+      "y": 460,
+      "zoom": 1.05,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b17",
+       ""
+      ],
+      "x": 2610,
+      "y": 520,
+      "zoom": 0.95,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b17",
+       "milk"
+      ],
+      "x": 2820,
+      "y": 500,
+      "zoom": 1.1,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b17",
+       "पहले"
+      ],
+      "x": 2880,
+      "y": 470,
+      "zoom": 1.15,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b17",
+       "बारी-बारी"
+      ],
+      "x": 2780,
+      "y": 490,
+      "zoom": 1.05,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b18",
+       ""
+      ],
+      "x": 2420,
+      "y": 500,
+      "zoom": 0.9,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b18",
+       "groceries"
+      ],
+      "x": 2330,
+      "y": 510,
+      "zoom": 1,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b18",
+       "Shopkeeper"
+      ],
+      "x": 2680,
+      "y": 500,
+      "zoom": 0.9,
+      "frames": 45
+     },
+     {
+      "cue": [
+       "b18",
+       "मिले।"
+      ],
+      "x": 2820,
+      "y": 490,
+      "zoom": 1.05,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b19",
+       ""
+      ],
+      "x": 2450,
+      "y": 500,
+      "zoom": 0.9,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b19",
+       "बाद"
+      ],
+      "x": 2650,
+      "y": 490,
+      "zoom": 0.9,
+      "frames": 45
+     },
+     {
+      "cue": [
+       "b19",
+       "बाकी"
+      ],
+      "x": 2820,
+      "y": 480,
+      "zoom": 1.05,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b19",
+       "अलग"
+      ],
+      "x": 2550,
+      "y": 460,
+      "zoom": 0.9,
+      "frames": 45
+     }
+    ]
+   },
+   "code_problems": [
+    "[code] bill.step1: 'bill ₹100 है।' is not explained by the narration of b16: the words ['है।'] are not said there; say them in that beat or move the cue to the beat that says them (CV-14)",
+    "[code] bill.step2: '₹0 बाकी हैं।' is not explained by the narration of b16: the words ['हैं।'] are not said there; say them in that beat or move the cue to the beat that says them (CV-14)"
+   ],
+   "passed": false,
+   "finished_at": 1793315326.7446127
+  },
+  {
+   "round": 3,
+   "started_at": 1793315326.744737,
+   "mode": "full",
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "c9fe9755dc0ca32ee46c89c6accf4d28e4f401b76f9d51e455b0caf690d593ed",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 10806,
+    "output_tokens": 2588,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "एक किराना street में payment value, note का holder बदलना, interest और written commitment से currency का अंतर दिखता है। दुकान स्थायी anchor रहती है।",
+    "key_questions": [
+     "Note देने पर बाकी bill कैसे बदलता है?",
+     "वही note अगले holder तक कैसे जाता है?",
+     "Note रखने से interest मिलता है?",
+     "Written commitment और currency payment अलग कैसे हैं?"
+    ],
+    "decisions": [
+     {
+      "decision": "bill के दोनों steps में है। और हैं। को narration के हूबहू है; और हैं; किया।",
+      "reason": "CV-14 के exact spoken-token checks ठीक हों; बाकी सही plan अपरिवर्तित रखा।"
+     },
+     {
+      "decision": "Camera keys beat के क्रम में रखे और repeated रकम की जगह विशिष्ट spoken words चुने।",
+      "reason": "Camera का समयक्रम स्पष्ट रहता है।"
+     }
+    ],
+    "uncertain": [
+     "Passed narration में hypothetical caveat और topic-tree completion नहीं बोले गए हैं; अतिरिक्त text नहीं जोड़ा गया।",
+     "उपलब्ध vocabulary में हाथ से हाथ note देने की animation नहीं है; boards से transfer दिखाया गया है।",
+     "Promise Clause, RBI guarantee और पूरी statutory definition passed narration में नहीं हैं; नया teaching text नहीं जोड़ा गया।"
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "एक किराना street में payment value, note का holder बदलना, interest और written commitment से currency का अंतर दिखता है। दुकान स्थायी anchor रहती है।",
+     "key_questions": [
+      "Note देने पर बाकी bill कैसे बदलता है?",
+      "वही note अगले holder तक कैसे जाता है?",
+      "Note रखने से interest मिलता है?",
+      "Written commitment और currency payment अलग कैसे हैं?"
+     ],
+     "decisions": [
+      {
+       "decision": "bill के दोनों steps में है। और हैं। को narration के हूबहू है; और हैं; किया।",
+       "reason": "CV-14 के exact spoken-token checks ठीक हों; बाकी सही plan अपरिवर्तित रखा।"
+      },
+      {
+       "decision": "Camera keys beat के क्रम में रखे और repeated रकम की जगह विशिष्ट spoken words चुने।",
+       "reason": "Camera का समयक्रम स्पष्ट रहता है।"
+      }
+     ],
+     "uncertain": [
+      "Passed narration में hypothetical caveat और topic-tree completion नहीं बोले गए हैं; अतिरिक्त text नहीं जोड़ा गया।",
+      "उपलब्ध vocabulary में हाथ से हाथ note देने की animation नहीं है; boards से transfer दिखाया गया है।",
+      "Promise Clause, RBI guarantee और पूरी statutory definition passed narration में नहीं हैं; नया teaching text नहीं जोड़ा गया।"
+     ]
+    },
+    "elements": [
+     {
+      "id": "kirana",
+      "kind": "shop",
+      "x": 2600,
+      "y": 860,
+      "sign": "किराना",
+      "text": "",
+      "fill": "",
+      "string": 0,
+      "steps": [],
+      "packets": [],
+      "cue": [
+       "b16",
+       "किराना"
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "seller",
+      "kind": "shopkeeper",
+      "x": 2600,
+      "y": 860,
+      "sign": "",
+      "text": "",
+      "fill": "",
+      "string": 0,
+      "steps": [],
+      "packets": [],
+      "cue": [
+       "b16",
+       "दुकानदार"
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "buyers",
+      "kind": "crowd",
+      "x": 0,
+      "y": 0,
+      "sign": "",
+      "text": "",
+      "fill": "",
+      "string": 0,
+      "steps": [
+       {
+        "text": "",
+        "n": 1,
+        "dir": "",
+        "cue": [
+         "b16",
+         "दो"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b16",
+       "दो"
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 2160,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 110,
+      "enter_x": 1750,
+      "exit_x": 1750,
+      "face": 1,
+      "seed": 19,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "bill",
+      "kind": "board",
+      "x": 3020,
+      "y": 470,
+      "sign": "",
+      "text": "",
+      "fill": "#EEE3CF",
+      "string": 0,
+      "steps": [
+       {
+        "text": "bill ₹100 है;",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b16",
+         "₹100"
+        ]
+       },
+       {
+        "text": "₹0 बाकी हैं;",
+        "n": 0,
+        "dir": "down",
+        "cue": [
+         "b16",
+         "₹0"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b16",
+       "₹100"
+      ],
+      "until_cue": [
+       "b17",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "face_value",
+      "kind": "label",
+      "x": 2580,
+      "y": 260,
+      "sign": "",
+      "text": "लिखे ₹100 काम आए।",
+      "fill": "rgba(250,244,228,1)",
+      "string": 0,
+      "steps": [],
+      "packets": [],
+      "cue": [
+       "b16",
+       "लिखे"
+      ],
+      "until_cue": [
+       "b17",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "successive_holders",
+      "kind": "board",
+      "x": 3020,
+      "y": 460,
+      "sign": "",
+      "text": "",
+      "fill": "#E8EEDF",
+      "string": 0,
+      "steps": [
+       {
+        "text": "Customer ने tea seller को\n₹20 का note दिया।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b17",
+         "tea"
+        ]
+       },
+       {
+        "text": "वही milk seller को दिया।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b17",
+         "milk"
+        ]
+       },
+       {
+        "text": "पहले दोनों के पास\nइस note के ₹0 थे।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b17",
+         "पहले"
+        ]
+       },
+       {
+        "text": "अब बारी-बारी ₹20 मिले,\nबिना नाम बदले।",
+        "n": 0,
+        "dir": "up",
+        "cue": [
+         "b17",
+         "अब"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b17",
+       "tea"
+      ],
+      "until_cue": [
+       "b18",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "wallet",
+      "kind": "board",
+      "x": 2050,
+      "y": 450,
+      "sign": "",
+      "text": "",
+      "fill": "#EEE3CF",
+      "string": 0,
+      "steps": [
+       {
+        "text": "Wallet का ₹100\ninterest कमाएगा? नहीं।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b18",
+         "interest"
+        ]
+       },
+       {
+        "text": "ग्राहक के पास ₹0 बचे।",
+        "n": 0,
+        "dir": "down",
+        "cue": [
+         "b18",
+         "₹0"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b18",
+       "interest"
+      ],
+      "until_cue": [
+       "b19",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "shopkeeper_holding",
+      "kind": "board",
+      "x": 3050,
+      "y": 450,
+      "sign": "",
+      "text": "",
+      "fill": "#E8EEDF",
+      "string": 0,
+      "steps": [
+       {
+        "text": "Shopkeeper के पास पहले\nइस note के ₹0 थे।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b18",
+         "Shopkeeper"
+        ]
+       },
+       {
+        "text": "अब ₹100 मिले।",
+        "n": 0,
+        "dir": "up",
+        "cue": [
+         "b18",
+         "अब"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b18",
+       "Shopkeeper"
+      ],
+      "until_cue": [
+       "b19",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "commitment",
+      "kind": "board",
+      "x": 2050,
+      "y": 430,
+      "sign": "",
+      "text": "",
+      "fill": "#EEE3CF",
+      "string": 0,
+      "steps": [
+       {
+        "text": "₹500 debt चुकाने का\nunconditional written commitment।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b19",
+         "unconditional"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b19",
+       "unconditional"
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "repayment",
+      "kind": "board",
+      "x": 3050,
+      "y": 430,
+      "sign": "",
+      "text": "",
+      "fill": "#E8EEDF",
+      "string": 0,
+      "steps": [
+       {
+        "text": "currency में ₹500 चुका दिए।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b19",
+         "currency"
+        ]
+       },
+       {
+        "text": "अब ₹0 बाकी हैं।",
+        "n": 0,
+        "dir": "down",
+        "cue": [
+         "b19",
+         "₹0"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b19",
+       "currency"
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "distinction",
+      "kind": "label",
+      "x": 2550,
+      "y": 230,
+      "sign": "",
+      "text": "Written commitment और\npayment की currency अलग हैं।",
+      "fill": "rgba(250,244,228,1)",
+      "string": 0,
+      "steps": [],
+      "packets": [],
+      "cue": [
+       "b19",
+       "Written"
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     }
+    ],
+    "camera": [
+     {
+      "cue": [
+       "b16",
+       ""
+      ],
+      "x": 2580,
+      "y": 530,
+      "zoom": 0.95,
+      "frames": 30
+     },
+     {
+      "cue": [
+       "b16",
+       "genuine"
+      ],
+      "x": 2700,
+      "y": 510,
+      "zoom": 1.05,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b16",
+       "बाकी"
+      ],
+      "x": 2820,
+      "y": 490,
+      "zoom": 1.15,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b16",
+       "कागज़"
+      ],
+      "x": 2680,
+      "y": 460,
+      "zoom": 1.05,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b17",
+       ""
+      ],
+      "x": 2610,
+      "y": 520,
+      "zoom": 0.95,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b17",
+       "milk"
+      ],
+      "x": 2820,
+      "y": 500,
+      "zoom": 1.1,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b17",
+       "पहले"
+      ],
+      "x": 2880,
+      "y": 470,
+      "zoom": 1.15,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b17",
+       "बारी-बारी"
+      ],
+      "x": 2780,
+      "y": 490,
+      "zoom": 1.05,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b18",
+       ""
+      ],
+      "x": 2420,
+      "y": 500,
+      "zoom": 0.9,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b18",
+       "groceries"
+      ],
+      "x": 2330,
+      "y": 510,
+      "zoom": 1,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b18",
+       "Shopkeeper"
+      ],
+      "x": 2680,
+      "y": 500,
+      "zoom": 0.9,
+      "frames": 45
+     },
+     {
+      "cue": [
+       "b18",
+       "मिले।"
+      ],
+      "x": 2820,
+      "y": 490,
+      "zoom": 1.05,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b19",
+       ""
+      ],
+      "x": 2450,
+      "y": 500,
+      "zoom": 0.9,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b19",
+       "बाद"
+      ],
+      "x": 2650,
+      "y": 490,
+      "zoom": 0.9,
+      "frames": 45
+     },
+     {
+      "cue": [
+       "b19",
+       "बाकी"
+      ],
+      "x": 2820,
+      "y": 480,
+      "zoom": 1.05,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b19",
+       "अलग"
+      ],
+      "x": 2550,
+      "y": 460,
+      "zoom": 0.9,
+      "frames": 45
+     }
+    ]
+   },
+   "code_problems": [],
+   "passed": true,
+   "finished_at": 1793315353.9112842
+  }
+ ],
+ "avoid_rounds": [
+  1,
+  2
+ ],
+ "cost_usd": 0.0,
+ "seconds": 123.5,
+ "navin_verdict": null
+}
