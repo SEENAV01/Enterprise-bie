@@ -478,6 +478,23 @@ Deferred", "Money = balance / Device ≠ money", "EMI amount agreed ≠"), the n
   by the run on v1's real outputs; INTEGRATED when the next rendered video's page (v1d, then every Money
   video) is built with the two inputs; ACCEPTED is Navin's. ₹0.
 
+### Work C · first piece: BIE fixed for the five scripts (branch `task046c-five-scripts`, on top of work A; SEEKH_LOG entry 26)
+
+- **v2 and v4 (W-01):** `visual_grammar.json` 2026-10-29.1 knows "what the source lacks" ("dates नहीं हैं", "data not given",
+  "caption supplies no source", "source-evidence") in Hindi, Hinglish and English, and the check reads on_screen too.
+- **v10 (new S2-10, vision rulebook 2026-10-21.16):** a competitive-exam teaching beat from outside the book, or mixed and
+  naming an institution or system its book lines do not, carries its dated source in the beat's new `source` field
+  (lesson-script/6; `soul.dated_source_problems`; level `upsc_pcs`); a story, hook or question needs none.
+- **v11 and v12 (S2-08):** the first naming beat is any teaching beat of the same concept (a sister part may not explain "the
+  UPI route" before the ₹100 payment runs); the terms kept for after the example are the ones the naming sentence names plus
+  its acronyms ("…, or BBPS").
+- **Measured on resume `-d`'s 886 beats:** the five reviewer findings are now code findings (v2 W-01 4, v4 W-01 3, v10 S2-10
+  2, v11 S2-10 2 + S2-08 2, v12 S2-10 14 + S2-08 2); across the chapter W-01 12, S2-10 51, S2-08 5; the tissue passed outputs
+  still 0 problems (changed rules). Tests: `tests/test_task046c_five_scripts.py` (9) and the lesson suites with the new pins.
+  Status: IMPLEMENTED by tests; INTEGRATED when the lesson resume `-e` passes the five scripts under them. ₹0.
+- **Next:** the lesson resume `-e` on the VM (Codex, ₹0; every script continued from its last answer), then canvas plans for
+  every passed video, renders in CI, review copies and pages with table B.
+
 ## Navin's decisions of 29 October 2026 (recorded in his words in ROADMAP 046; built on branch `task046c-navin-decisions`)
 
 Status words: IMPLEMENTED by tests (`tests/test_task046c_navin_decisions.py`, 11 tests; the licence, toolbox, soul,

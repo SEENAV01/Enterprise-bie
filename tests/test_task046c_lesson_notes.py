@@ -110,7 +110,7 @@ class WordingAndWords(unittest.TestCase):
 
     def test_the_versions_are_pinned(self):
         self.assertIn("simple_hindi@2026-10-28.1", BOOK.version)
-        self.assertIn("visual_grammar@2026-10-28.1", BOOK.version)
+        self.assertIn("visual_grammar@2026-10-29.1", BOOK.version)
         data = json.loads((ROOT / "bie" / "brain" / "rulebook" / "visual_grammar.json").read_text(encoding="utf-8"))
         self.assertNotIn("answer codes?", data["wording"]["W-01"]["english"])
         self.assertIn("(?:original|source|supplied|given) answer codes?", data["wording"]["W-01"]["english"])

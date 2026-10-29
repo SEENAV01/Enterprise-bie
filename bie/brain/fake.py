@@ -174,7 +174,7 @@ def script_answer(user_text: str, system_text: str = ""):
         target = (int(time.group(1)) + int(time.group(2))) // 2
         while sum(len(b["say"].split()) for b in beats) + len(FILLER.split()) <= target:
             beats.insert(-1, {"beat_id": f"b{len(beats)}x", "part_id": "", "step": 0, "purpose": "transition", "say": FILLER,
-                              "covers_item_ids": [], "answers": [], "on_screen": "Offline.", "basis": "book"})
+                              "covers_item_ids": [], "answers": [], "on_screen": "Offline.", "basis": "book", "source": ""})
     return value
 
 
@@ -208,6 +208,8 @@ def _script(user_text: str, per_beat: int, family: str = ""):
                           "on_screen": "Offline.", "basis": "book"})
     beats.append({"beat_id": "b-end", "part_id": "", "step": 0, "purpose": "recap", "say": "तो आज हमने offline recap किया। अगली video में हम आगे की बात करेंगे।",
                   "covers_item_ids": [], "answers": [], "on_screen": "Offline.", "basis": "book"})
+    for b in beats:
+        b.setdefault("source", "")                  # S2-10: the offline script names no outside institution
     return {"notes": NOTES, "title": card["unit"]["title"], "parts": parts, "beats": beats}
 
 

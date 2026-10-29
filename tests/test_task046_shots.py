@@ -97,8 +97,8 @@ class VisualLevels(unittest.TestCase):
 
     def test_the_rulebook_counts_the_ladder_as_data_and_the_grammar_as_rules(self):
         self.assertIn("visual_levels@2026-10-26.2", BOOK.version)
-        self.assertIn("visual_grammar@2026-10-28.1", BOOK.version)
-        self.assertIn("vision-2026-10-21@2026-10-21.15", BOOK.version)
+        self.assertIn("visual_grammar@2026-10-29.1", BOOK.version)
+        self.assertIn("vision-2026-10-21@2026-10-21.16", BOOK.version)
         bench = json.loads(BENCHMARK.read_text(encoding="utf-8"))
         self.assertEqual(bench["version"], "2026-10-26.1")
         self.assertIn("3-5 seconds", next(r["rule"] for r in bench["rules"] if r["id"] == "B-01"))
@@ -170,7 +170,9 @@ class WordingRule(unittest.TestCase):
         self.assertIn("wording patch", change["upgraded_by"])
         old_set = {"rulebook": "content_types@2026-10-24.1+vision-2026-10-21@2026-10-21.12"}
         self.assertIs(regression._changed(old_set, 'beat b7: "Book waterproof कहती है।" points at the book (\'book waterproof कहती है\') (W-01)'), change)
-        new_set = {"rulebook": "visual_grammar@2026-10-26.1+vision-2026-10-21@2026-10-21.12"}
+        later = {"rulebook": "visual_grammar@2026-10-26.1+vision-2026-10-21@2026-10-21.12"}      # before the "source lacks" words
+        self.assertEqual(regression._changed(later, "beat b7: x (W-01)")["rulebook"], "visual_grammar@2026-10-29.1")
+        new_set = {"rulebook": "visual_grammar@2026-10-29.1+vision-2026-10-21@2026-10-21.12"}
         self.assertIsNone(regression._changed(new_set, "beat b7: x (W-01)"))
 
     def test_the_wording_hint_is_sent_only_when_a_beat_points_at_the_book(self):

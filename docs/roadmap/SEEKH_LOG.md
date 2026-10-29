@@ -1086,3 +1086,39 @@ page by code.
 
 Next: v1 again through BIE (script resume under S2-09, plans under CV-13 to CV-16, render), its page with the before/after,
 then the narration lock of its 11 examples.
+
+## Entry 26 · the five Money scripts the resume could not pass: what the source lacks, undated outside facts, the term named in a sister part, 29 October 2026
+
+**What the lesson resume `-d` taught** (`runs/vm-t046c-money-lesson-d-brain-lesson/`, Codex maker and reviewer, ₹0): 13 of 18
+scripts passed; five stopped on reviewer findings BIE's code never saw. v2: three beats said what the source lacks ("dates
+नहीं हैं", "Dates नहीं दी गईं"), a W-01 shape the word list did not know. v4: an on_screen text audited the source ("USD
+caption supplies no numerical shares or data source … EUR caption ends at 'second-most'"); W-01 read only the narration. v10:
+operational descriptions of UPI, NEFT, RTGS and IMPS (basis mixed or outside) with no dated source, "the explicit UPSC sourcing
+condition" (S1-16's real-life link already asks for a dated source; the beat had no place to put one). v11 and v12: the term
+named and explained in a sister part of the same concept before its example ran ("the UPI route" across b20–b25 before the
+₹100 kirana payment in b26; "BBPS" in b33 before the ₹600 bill in b44); the S2-08 check looked only at the beats that cover
+the item, and v12's item listed "interoperable" as its term, not BBPS.
+
+**What changed in BIE (branch `task046c-five-scripts`, on top of work A):** `visual_grammar.json` 2026-10-29.1: W-01 words for
+"what the source lacks" in Hindi, Hinglish and English (the story's own numbers stay allowed); `soul.wording_problems` reads
+on_screen too. Vision rulebook 2026-10-21.16: new S2-10 (a competitive-exam teaching beat whose basis is outside the book, or
+mixed and naming an institution or system its book lines do not, carries its dated source in the beat's new `source` field;
+a story, example, hook, analogy or question needs none; level `upsc_pcs` only) with `soul.dated_source_problems` in the script
+check and `source` in the script schema (lesson-script/6; the fake maker writes it); S2-08 extended: the first naming beat is
+any teaching beat of the same concept, and the terms kept for after the example are those the naming sentence names plus its
+acronyms (`soul.naming_terms`). Three regression rule-change entries, so earlier passed scripts report the new findings as
+changed rules and the resume rewrites only those beats.
+
+| Measure (all 18 Money scripts of resume `-d`, 886 beats) | Before (code findings) | Now |
+| --- | --- | --- |
+| v2's "dates नहीं हैं" beats caught by code | 0 of 3 | 3 of 3 (W-01 4 in v2) |
+| v4's source-auditing on_screen caught by code | 0 | 1 (W-01 3 in v4) |
+| v10's undated outside facts caught by code | 0 | 2 beats (S2-10) |
+| v11's and v12's term-before-example caught by code | 0 | v11 2, v12 2 (S2-08) |
+| W-01 hits across the chapter | 0 | 12 (v1 1, v2 4, v4 3, v7 1, v13 2, v15 1) |
+| S2-10 hits across the chapter | — | 51 (v12 14, v13 13, v16 9, v6 5, v14 4, v10 2, v11 2, v2 1, v17 1) |
+| S2-08 hits across the chapter | 0 | 5 (v11 2, v12 2, v7 1) |
+| Tissue passed outputs (`tests/fixtures/passed_outputs/`) | 0 problems | 0 problems (the new findings are changed rules) |
+
+After: the lesson resume `-e` on the VM (every script continued from its last answer under S2-09, S2-10, W-01 and S2-08;
+the five failed ones with the reviewer's notes), measured in STATUS when it lands.
