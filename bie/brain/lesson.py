@@ -293,6 +293,12 @@ these learners, an analogy that could fit better, an optional outside question, 
 The maker's notes are the maker's account for you, never what the learner hears: a problem only in the notes is minor. The
 measured minutes are BIE's code's and already checked: never report the length as a problem (BIE's code counts such a finding as
 minor); ask for cuts only as the way to pay for an addition.
+Three more checks are BIE's code's and passed before you read the script; never report them as blocking (BIE's code counts such a
+finding as minor): the dated source (S2-10): only a teaching beat that names an institution or system none of its book lines
+names needs `source` with a year, and the source lives in `source`, never spoken or on screen, so never ask for sources on other
+outside facts; the order of S2-08: the term the real-world example names comes after the example, a hook or a question may name
+it, and the other terms of the part are not held back; and W-01: never ask the script to say what the source lacks ("undated",
+"dates not given", "no data"), the teacher teaches what is known and leaves out what is not.
 verdict is "pass" when nothing is blocking. Fill your own brief notes first. Reply with the JSON object only."""
 
 SCRIPT_TIME_HINT = (" BIE's code measured this script at {spoken} spoken minutes; the video's narration time is {low}-{high} minutes "
@@ -313,23 +319,54 @@ TIME_FINDING = re.compile(r"\b\d+(?:\.\d+)?[\s-]*(?:spoken[\s-]+)?minutes?\b[^.]
                           + r"\b[^.]*\b\d+(?:\.\d+)?[\s-]*(?:spoken[\s-]+)?minutes?\b", re.IGNORECASE)
 
 
+SOURCE_FINDING = re.compile(r"dated (?:sources?|references?|attributions?|citations?)|(?:lacks?|lacking|without|no|missing|absent|needs?|"
+                            r"requires?|carr(?:y|ies) no|has no|have no)\b[^.]{0,50}\b(?:sources?|attributions?|citations?)\b|"
+                            r"source[- ]?less|unsourced|(?:visible|named|learner-facing) outside (?:labels?|status)", re.IGNORECASE)
+EXAMPLE_FIRST = re.compile(r"example[- ]first|\b(?:named?|names|introduced?|taught|teaches|defined?|mentioned|used|explained?|appears?|"
+                           r"presented|stated|given)\b[^.]{0,120}\bbefore\b[^.]{0,100}\bexamples?\b|\bbefore (?:its|the|their|any|a) "
+                           r"(?:[\w-]+ ){0,4}examples?\b|\bprecedes? (?:its|the) (?:\w+ ){0,3}example", re.IGNORECASE)
+EXAMPLE_CONTENT = re.compile(r"\bno numbers?\b|without (?:its |the |any )?numbers?|not (?:actually |really )?run\b|never runs?\b|wrong "
+                             r"mechanism|economically (?:wrong|incorrect)|numbers? (?:move|moves|moving) the wrong", re.IGNORECASE)
+LACK_FINDING = re.compile(r"\bundated\b|\b(?:no|without|lacks?|lacking|not (?:given|supplied|provided|stated|specified|available))\b"
+                          r"[^.]{0,30}\b(?:dates?|data|figures?|numerical shares?)\b|\b(?:dates?|data|figures?)\b[^.]{0,30}\b(?:are|is|were|was)?"
+                          r"\s*(?:not|never) (?:given|supplied|provided|stated|specified|available)|whether [^.]{0,80}\b(?:provides?|gives?|"
+                          r"supplies|has|have|contains?|offers?) (?:any |the |exact |specific )?dates?\b", re.IGNORECASE)
+
+
 def script_finding_minor(finding: dict) -> str:
     """Why a script checker's blocking finding is minor by BIE's rules, or "" when it stands (the Money resume
     t046c-money-lesson-c, 28 October 2026): "notes" when it is placed only on the maker's notes (the notes are the maker's
     account for the checker, never what the learner hears; v5 and v17 failed on nothing else); "time" when it re-measures the
     narration against the budget (the review runs only on a script whose time BIE's code has passed, so the code's S2-01
-    verdict stands; v2 11.1 against 11.0, v11 10.5 against 10.4, v14 8.9 against 8.8)."""
+    verdict stands; v2 11.1 against 11.0, v11 10.5 against 10.4, v14 8.9 against 8.8).
+
+    The Money resume -e (29 October 2026; 12 of 18 scripts failed in the checker's round after every code check had passed,
+    33 blocking findings): "source" when it asks for a dated source, attribution or a visible outside label (S2-10 is BIE's
+    code's: a teaching beat that names an institution or system none of its book lines names carries `source` with a year,
+    and the review runs only after that check passed; 10 of the 12 scripts); "example-first" when it says a term was named
+    before its example ran (S2-08's order is BIE's code's and binds the terms the real-world example's naming sentence
+    names; a hook may ask; 7 of the 12) unless it also faults the example itself (no numbers, not run, wrong mechanism: that
+    stands); "w01" when its fix asks the script to say what the source lacks (dates, data, figures), which W-01 forbids
+    (v2: "add a short clarification that this is an undated schematic sequence")."""
     where = str(finding.get("where") or "").strip()
+    problem, fix = str(finding.get("problem") or ""), str(finding.get("fix") or "")
     if where and NOTES_PLACE.match(where):
         return "notes"
-    if TIME_FINDING.search(str(finding.get("problem") or "")):
+    if TIME_FINDING.search(problem):
         return "time"
+    if LACK_FINDING.search(fix) or (LACK_FINDING.search(problem) and not SOURCE_FINDING.search(problem)):
+        return "w01"
+    if SOURCE_FINDING.search(problem):                        # the problem itself is the missing source, not only its fix
+        return "source"
+    if EXAMPLE_FIRST.search(problem) and not EXAMPLE_CONTENT.search(problem):
+        return "example-first"
     return ""
 
 
 def script_review_problems(review: dict, value: dict | None = None) -> list:
-    """The script checker's blocking findings as remake instructions, with a notes-only finding and a time re-measure read as
-    minor (``script_finding_minor``); when every blocking finding was such, the script passes. Everything else is the
+    """The script checker's blocking findings as remake instructions, with a notes-only finding, a time re-measure, a source
+    demand, an example-first demand and a "say what the source lacks" fix read as minor (``script_finding_minor``); when every
+    blocking finding was such, the script passes. Everything else is the
     checker's call as before. The review is annotated in place (``severity`` and ``minor_by_code``) so the record shows it."""
     downgraded = 0
     for finding in review.get("problems") or []:

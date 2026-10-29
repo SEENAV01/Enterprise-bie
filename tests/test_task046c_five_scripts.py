@@ -124,17 +124,17 @@ class ExampleFirstAcrossTheConcept(unittest.TestCase):
 class RulebookAndFake(unittest.TestCase):
     def test_the_rulebooks_carry_the_change(self):
         vision = json.loads((ROOT / "bie/brain/rulebook/vision-2026-10-21.json").read_text(encoding="utf-8"))
-        self.assertEqual(vision["version"], "2026-10-21.16")
+        self.assertEqual(vision["version"], "2026-10-21.17")
         rules = {r["id"]: r for r in vision["rules"]}
         self.assertIn("S2-10", rules)
         self.assertIn("dated source", rules["S2-10"]["rule"])
         self.assertIn("teaching beat of the same concept", rules["S2-08"]["rule"])
-        self.assertTrue(vision["changes"][-1].startswith("2026-10-21.16"))
+        self.assertTrue(vision["changes"][-1].startswith("2026-10-21.17"))
         grammar = json.loads((ROOT / "bie/brain/rulebook/visual_grammar.json").read_text(encoding="utf-8"))
         self.assertEqual(grammar["version"], "2026-10-29.1")
         self.assertTrue(grammar["changes"][-1].startswith("2026-10-29.1"))
         book = rulebook.load()
-        self.assertIn("vision-2026-10-21@2026-10-21.16", book.version)
+        self.assertIn("vision-2026-10-21@2026-10-21.17", book.version)
         self.assertIn("visual_grammar@2026-10-29.1", book.version)
         self.assertIn("S2-10", {r.id for r in book.for_section("lesson")})
 

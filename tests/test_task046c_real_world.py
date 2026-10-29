@@ -79,7 +79,7 @@ class Rulebook(unittest.TestCase):
         self.assertEqual((rules["S1-16"].status, rules["S1-16"].sections), ("locked", ("understand",)))
         self.assertEqual((rules["S2-08"].status, rules["S2-08"].sections), ("locked", ("lesson",)))
         self.assertIn("sugar", rules["S1-16"].rule)
-        for name in ("vision-2026-10-21@2026-10-21.16", "content_types@2026-10-27.1", "teacher_examples@2026-10-29.1", "simple_hindi@2026-10-28.1"):
+        for name in ("vision-2026-10-21@2026-10-21.17", "content_types@2026-10-27.1", "teacher_examples@2026-10-29.1", "simple_hindi@2026-10-28.1"):
             self.assertIn(name, BOOK.version)
         self.assertIn("S1-16", checklist_text(BOOK, "understand"))          # the reviewer answers it on every page
         self.assertIn("S2-08", checklist_text(BOOK, "lesson"))
