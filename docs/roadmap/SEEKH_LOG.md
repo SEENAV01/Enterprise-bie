@@ -1080,9 +1080,9 @@ page by code.
 
 | Measure | Before (v1's own outputs) | After |
 | --- | --- | --- |
-| On-screen texts the director's check refuses (v1's 8 plans, 186 texts) | 93 (not spoken 38, codes or unfinished 37, numbers not said 17, caveat twice 1) | the canvas job on the resume that passes (after entry 27) |
+| On-screen texts the director's check refuses (v1's 8 plans, 186 texts) | 93 (not spoken 38, codes or unfinished 37, numbers not said 17, caveat twice 1) | v1's 8 plans made again in canvas run e1 (29 October 2026): 0 refused at the end, 4 of 8 parts first try, 12 rounds (before: 6 first try, 11 rounds under the old rules); by id 17 texts changed, 167 gone, 481 new; narration 15 of 32 beats changed; the page with the before/after: https://claude.ai/artifact/WcctRSzADgH6ZxYNntuypz |
 | Texts with symbol codes ✓ ≠ → = · | 52 of 160 | — |
-| Beats that report a state "X से Y हुआ" (all 18 Money scripts) | 29 of 886 (v1 4 of 32) | 0 of 869 after the lesson resume `-e` (29 October 2026; v1 21 of 32 beats changed, passed); the checker then found forms the pattern missed, see entry 27 |
+| Beats that report a state "X से Y हुआ" (all 18 Money scripts) | 29 of 886 (v1 4 of 32) | 0 of 869 after the lesson resume `-e` (29 October 2026; v1 21 of 32 beats changed, passed); the checker then found forms the pattern missed (entry 27); 0 of 871 under the widened pattern after the resume `-f` (30 October 2026) |
 
 Next: v1 again through BIE (script resume under S2-09, plans under CV-13 to CV-16, render), its page with the before/after,
 then the narration lock of its 11 examples.
@@ -1168,7 +1168,7 @@ it named new ones once the earlier were fixed (v15: 6 rounds). Patches for the c
 | State reports found by code on resume -d's 886 beats | 40 | 67 |
 | State reports found by code on resume -e's 869 beats | 0 | 11 (v2 3, v5 1, v6 2, v11 4, v17 1) |
 | Passed outputs (`tests/fixtures/passed_outputs/`) | 0 S2-09 problems | 0 |
-| Scripts passed | 6 of 18 | the lesson resume `-f` (max_rounds 5), measured in STATUS when it lands |
+| Scripts passed | 6 of 18 | **18 of 18** (the lesson resume `-f`, 30 October 2026 00:08–00:22Z, 14 minutes, 51 calls, 22 minutes of call time, 1.46 M input and 60 k output tokens, ₹0, ChatGPT plan 1 → 3 % of the week; 119 beats changed; v3, v4 and v7 passed in round 0; the checker, told in its card, reported none of the three kinds of finding, so the filter downgraded nothing; S2-09 0 of 871 beats) |
 
 Not changed, for Navin to decide: whether a competitive-exam lesson should carry a dated source for every outside fact (the
 checker's reading) or only for institutions and systems (BIE's rule today), and whether every concept term must wait for an
