@@ -1,0 +1,337 @@
+{
+ "id": "v4_s2b",
+ "part_id": "c09.2",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b7",
+   "say": "यही gold-backing constraint है; gold reserves यानी वादा पूरा करने का रखा हुआ gold।"
+  },
+  {
+   "beat_id": "b8",
+   "say": "Central bank gold रखकर notes जारी करता था और माँगने पर तय gold देता था। इसलिए नए notes को backing चाहिए थी; redemption in principle था, हर जगह unrestricted नहीं।"
+  },
+  {
+   "beat_id": "b9",
+   "say": "Claims चुकाने की क्षमता घटे, तो भरोसा टूटे और लोग gold माँगें।"
+  },
+  {
+   "beat_id": "b10",
+   "say": "Gold का वादा, उसे चुकाने के reserves, फिर उन्हीं से बँधा issue; 1 gram सिर्फ उदाहरण था।"
+  },
+  {
+   "beat_id": "b11",
+   "say": "याद रखिए: issue के पीछे redemption की ज़िम्मेदारी थी।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank",
+   "kind": "bank",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b7",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "reserves",
+   "kind": "board",
+   "x": 3140,
+   "y": 540,
+   "fill": "#B28A3E",
+   "cue": [
+    "b7",
+    "reserves"
+   ],
+   "until_cue": [
+    "b8",
+    "Central"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b7",
+      "reserves"
+     ],
+     "text": "Gold reserves वादा पूरा करने\nका रखा हुआ gold है।"
+    }
+   ]
+  },
+  {
+   "id": "teller",
+   "kind": "teller",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b8",
+    "Central"
+   ]
+  },
+  {
+   "id": "mechanism",
+   "kind": "board",
+   "x": 3140,
+   "y": 540,
+   "fill": "#B28A3E",
+   "cue": [
+    "b8",
+    "notes"
+   ],
+   "until_cue": [
+    "b9",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b8",
+      "notes"
+     ],
+     "text": "Central bank gold रखकर\nnotes जारी करता था।"
+    },
+    {
+     "cue": [
+      "b8",
+      "माँगने"
+     ],
+     "text": "माँगने पर तय gold देता था।"
+    },
+    {
+     "cue": [
+      "b8",
+      "backing"
+     ],
+     "text": "नए notes को backing चाहिए थी।"
+    },
+    {
+     "cue": [
+      "b8",
+      "redemption"
+     ],
+     "text": "Redemption in principle था,\nहर जगह unrestricted नहीं।"
+    }
+   ]
+  },
+  {
+   "id": "customers",
+   "kind": "crowd",
+   "x0": 2330,
+   "spacing": 105,
+   "enter_x": 1740,
+   "exit_x": 1740,
+   "face": 1,
+   "seed": 9,
+   "cue": [
+    "b8",
+    "माँगने"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b8",
+      "माँगने"
+     ],
+     "n": 2
+    },
+    {
+     "cue": [
+      "b9",
+      "लोग"
+     ],
+     "n": 5
+    }
+   ]
+  },
+  {
+   "id": "confidence",
+   "kind": "board",
+   "x": 3140,
+   "y": 540,
+   "fill": "#A66C50",
+   "cue": [
+    "b9",
+    "भरोसा"
+   ],
+   "until_cue": [
+    "b10",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b9",
+      "भरोसा"
+     ],
+     "text": "Claims चुकाने की क्षमता घटे,\nतो भरोसा टूटे।"
+    }
+   ]
+  },
+  {
+   "id": "summary",
+   "kind": "board",
+   "x": 3140,
+   "y": 540,
+   "fill": "#B28A3E",
+   "cue": [
+    "b10",
+    "issue;"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b10",
+      "issue;"
+     ],
+     "text": "Gold का वादा चुकाने के reserves\nसे issue बँधा था।"
+    },
+    {
+     "cue": [
+      "b11",
+      "redemption"
+     ],
+     "text": "Issue के पीछे redemption\nकी ज़िम्मेदारी थी।"
+    }
+   ]
+  },
+  {
+   "id": "example_note",
+   "kind": "label",
+   "x": 2530,
+   "y": 320,
+   "text": "1 gram सिर्फ उदाहरण था।",
+   "fill": "#F1E7CE",
+   "cue": [
+    "b10",
+    "उदाहरण"
+   ],
+   "until_cue": [
+    "b11",
+    "",
+    0.0
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b7",
+    "",
+    0.0
+   ],
+   "x": 2780,
+   "y": 530,
+   "zoom": 0.95,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b7",
+    "reserves"
+   ],
+   "x": 2940,
+   "y": 520,
+   "zoom": 1.08,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b8",
+    "Central"
+   ],
+   "x": 2730,
+   "y": 540,
+   "zoom": 1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b8",
+    "माँगने"
+   ],
+   "x": 2640,
+   "y": 550,
+   "zoom": 0.95,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b8",
+    "backing"
+   ],
+   "x": 2880,
+   "y": 520,
+   "zoom": 1.08,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b8",
+    "redemption"
+   ],
+   "x": 2940,
+   "y": 520,
+   "zoom": 1.15,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b9",
+    "",
+    0.0
+   ],
+   "x": 2720,
+   "y": 540,
+   "zoom": 0.95,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b9",
+    "लोग"
+   ],
+   "x": 2580,
+   "y": 560,
+   "zoom": 1,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b10",
+    "",
+    0.0
+   ],
+   "x": 2800,
+   "y": 520,
+   "zoom": 0.95,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b10",
+    "उदाहरण"
+   ],
+   "x": 2780,
+   "y": 490,
+   "zoom": 1,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b11",
+    "",
+    0.0
+   ],
+   "x": 2920,
+   "y": 520,
+   "zoom": 1.12,
+   "frames": 40
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

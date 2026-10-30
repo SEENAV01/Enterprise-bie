@@ -1,0 +1,411 @@
+{
+ "id": "v15_s11",
+ "part_id": "c38.4",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b50",
+   "say": "दो accounts में ₹1000 हों तो ₹300 का bill देना बराबर आसान होगा? दोनों में रकम है; अब इस्तेमाल का रास्ता देखो।"
+  },
+  {
+   "beat_id": "b51",
+   "say": "मानो bank account से सीधे bill दो, पर चुने हुए Post Office access में पहले cash निकालो। रकम दोनों में है; दूसरे रास्ते में extra step है।"
+  },
+  {
+   "beat_id": "b52",
+   "say": "यह hypothetical है, universal restriction नहीं। रकम निकाल सकना liquidity है; payment के steps convenience बदलते हैं।"
+  },
+  {
+   "beat_id": "b53",
+   "say": "Fairly liquid और slightly less convenient साथ हो सकते हैं। Less convenient का मतलब inaccessible नहीं।"
+  },
+  {
+   "beat_id": "b54",
+   "say": "Post Office savings fairly liquid हैं, ordinary bank deposits से थोड़ी कम convenient; availability और access अलग हैं।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank",
+   "kind": "bank",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b50",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "teller",
+   "kind": "teller",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b50",
+    "accounts"
+   ]
+  },
+  {
+   "id": "availability",
+   "kind": "board",
+   "x": 1800,
+   "y": 430,
+   "fill": "#386D78",
+   "cue": [
+    "b50",
+    "₹1000"
+   ],
+   "until_cue": [
+    "b51",
+    "मानो"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b50",
+      "₹1000"
+     ],
+     "text": "दोनों accounts में ₹1000 हैं।"
+    }
+   ]
+  },
+  {
+   "id": "bill",
+   "kind": "label",
+   "x": 3400,
+   "y": 430,
+   "text": "₹300 का bill देना है।",
+   "fill": "rgba(250,244,226,1)",
+   "cue": [
+    "b50",
+    "₹300"
+   ],
+   "until_cue": [
+    "b51",
+    "मानो"
+   ]
+  },
+  {
+   "id": "direct_path",
+   "kind": "board",
+   "x": 1800,
+   "y": 430,
+   "fill": "#386D78",
+   "cue": [
+    "b51",
+    "सीधे"
+   ],
+   "until_cue": [
+    "b52",
+    "रकम"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b51",
+      "सीधे"
+     ],
+     "text": "Bank account से सीधे bill दो।"
+    }
+   ]
+  },
+  {
+   "id": "withdrawal_path",
+   "kind": "board",
+   "x": 3400,
+   "y": 430,
+   "fill": "#8D6842",
+   "cue": [
+    "b51",
+    "निकालो।"
+   ],
+   "until_cue": [
+    "b52",
+    "payment"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b51",
+      "निकालो।"
+     ],
+     "text": "चुने हुए Post Office access में\nपहले cash निकालो।"
+    }
+   ]
+  },
+  {
+   "id": "caveat",
+   "kind": "label",
+   "x": 2600,
+   "y": 180,
+   "text": "यह hypothetical है,\n universal restriction नहीं।",
+   "fill": "rgba(250,244,226,1)",
+   "cue": [
+    "b52",
+    "hypothetical"
+   ]
+  },
+  {
+   "id": "liquidity",
+   "kind": "board",
+   "x": 1800,
+   "y": 430,
+   "fill": "#386D78",
+   "cue": [
+    "b52",
+    "liquidity"
+   ],
+   "until_cue": [
+    "b53",
+    "Fairly"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b52",
+      "liquidity"
+     ],
+     "text": "रकम निकाल सकना liquidity है।"
+    }
+   ]
+  },
+  {
+   "id": "convenience",
+   "kind": "board",
+   "x": 3400,
+   "y": 430,
+   "fill": "#8D6842",
+   "cue": [
+    "b52",
+    "convenience"
+   ],
+   "until_cue": [
+    "b53",
+    "Less"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b52",
+      "convenience"
+     ],
+     "text": "Payment के steps\nconvenience बदलते हैं।"
+    }
+   ]
+  },
+  {
+   "id": "coexistence",
+   "kind": "board",
+   "x": 1800,
+   "y": 430,
+   "fill": "#386D78",
+   "cue": [
+    "b53",
+    "साथ"
+   ],
+   "until_cue": [
+    "b54",
+    "Post"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b53",
+      "साथ"
+     ],
+     "text": "Fairly liquid और slightly less\nconvenient साथ हो सकते हैं।"
+    }
+   ]
+  },
+  {
+   "id": "accessible",
+   "kind": "board",
+   "x": 3400,
+   "y": 430,
+   "fill": "#8D6842",
+   "cue": [
+    "b53",
+    "inaccessible"
+   ],
+   "until_cue": [
+    "b54",
+    "ordinary"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b53",
+      "inaccessible"
+     ],
+     "text": "Less convenient का मतलब\ninaccessible नहीं।"
+    }
+   ]
+  },
+  {
+   "id": "final_liquidity",
+   "kind": "board",
+   "x": 1800,
+   "y": 430,
+   "fill": "#386D78",
+   "cue": [
+    "b54",
+    "liquid"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b54",
+      "liquid"
+     ],
+     "text": "Post Office savings\nfairly liquid हैं।"
+    }
+   ]
+  },
+  {
+   "id": "final_convenience",
+   "kind": "board",
+   "x": 3400,
+   "y": 430,
+   "fill": "#8D6842",
+   "cue": [
+    "b54",
+    "convenient;"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b54",
+      "convenient;"
+     ],
+     "text": "Ordinary bank deposits से\nथोड़ी कम convenient हैं।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b50",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 490,
+   "zoom": 0.8,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b50",
+    "अब"
+   ],
+   "x": 2600,
+   "y": 460,
+   "zoom": 0.84,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b51",
+    "सीधे"
+   ],
+   "x": 2450,
+   "y": 460,
+   "zoom": 0.82,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b51",
+    "पहले"
+   ],
+   "x": 2750,
+   "y": 460,
+   "zoom": 0.82,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b51",
+    "extra"
+   ],
+   "x": 2600,
+   "y": 460,
+   "zoom": 0.8,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b52",
+    "hypothetical"
+   ],
+   "x": 2600,
+   "y": 410,
+   "zoom": 0.8,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b52",
+    "liquidity"
+   ],
+   "x": 2480,
+   "y": 430,
+   "zoom": 0.8,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b52",
+    "convenience"
+   ],
+   "x": 2600,
+   "y": 430,
+   "zoom": 0.8,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b53",
+    "साथ"
+   ],
+   "x": 2480,
+   "y": 430,
+   "zoom": 0.8,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b53",
+    "inaccessible"
+   ],
+   "x": 2700,
+   "y": 430,
+   "zoom": 0.8,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b54",
+    "Post"
+   ],
+   "x": 2500,
+   "y": 430,
+   "zoom": 0.8,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b54",
+    "availability"
+   ],
+   "x": 2600,
+   "y": 440,
+   "zoom": 0.8,
+   "frames": 45
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

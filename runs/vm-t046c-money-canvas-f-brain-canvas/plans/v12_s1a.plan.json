@@ -1,0 +1,101 @@
+{
+ "id": "v12_s1a",
+ "part_id": "c28.2",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b1",
+   "say": "किराया, बड़ी urgent payment और बिजली का bill—क्या तीनों के लिए एक ही रास्ता चुनेंगे?"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "rent",
+   "kind": "icon",
+   "cell": [
+    1,
+    1,
+    2,
+    3
+   ],
+   "cue": [
+    "b1",
+    "किराया,"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "tw:1f3e0",
+   "size": 64
+  },
+  {
+   "id": "urgent-payment",
+   "kind": "icon",
+   "cell": [
+    5,
+    1,
+    2,
+    3
+   ],
+   "cue": [
+    "b1",
+    "urgent"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "tw:1f4b8",
+   "size": 64
+  },
+  {
+   "id": "electricity-bill",
+   "kind": "icon",
+   "cell": [
+    9,
+    1,
+    2,
+    3
+   ],
+   "cue": [
+    "b1",
+    "बिजली"
+   ],
+   "tone": "ink",
+   "align": "center",
+   "icon": "fa:solid/lightbulb",
+   "size": 64
+  },
+  {
+   "id": "choice-question",
+   "kind": "callout",
+   "cell": [
+    1,
+    5,
+    10,
+    2
+   ],
+   "cue": [
+    "b1",
+    "तीनों"
+   ],
+   "text": "क्या तीनों के लिए एक ही रास्ता चुनेंगे?",
+   "style": "note",
+   "tone": "accent",
+   "align": "center",
+   "size": 36,
+   "marks": [
+    {
+     "phrase": "एक ही रास्ता",
+     "cue": [
+      "b1",
+      "एक"
+     ]
+    }
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

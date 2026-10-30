@@ -1,0 +1,265 @@
+{
+ "id": "v2_s3",
+ "part_id": "c03.3",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b12",
+   "say": "पड़ोसी सामान बदलें, तो क्या पुराना तरीका बचा है? हाँ; barter early civilizations में common था, आज छोटे आपसी exchanges में मिलता है।"
+  },
+  {
+   "beat_id": "b13",
+   "say": "पड़ोसियों की जरूरतें मिलें, तो पैसे के बिना भी swap आसान है।"
+  },
+  {
+   "beat_id": "b14",
+   "say": "पैसा आने पर barter मिटा नहीं; दोनों साथ रह सकते हैं।"
+  },
+  {
+   "beat_id": "b15",
+   "say": "पहले common था, अब सीमित है।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "neighbour-left",
+   "kind": "icon",
+   "cell": [
+    1,
+    3,
+    2,
+    2
+   ],
+   "cue": [
+    "b12",
+    "पड़ोसी"
+   ],
+   "tone": "accent",
+   "icon": "tw:1f471"
+  },
+  {
+   "id": "neighbour-right",
+   "kind": "icon",
+   "cell": [
+    9,
+    3,
+    2,
+    2
+   ],
+   "cue": [
+    "b12",
+    "सामान"
+   ],
+   "tone": "warm",
+   "icon": "tw:1f471-200d-2640-fe0f"
+  },
+  {
+   "id": "historical-anchor",
+   "kind": "text",
+   "cell": [
+    0,
+    0,
+    6,
+    2
+   ],
+   "cue": [
+    "b12",
+    "civilizations"
+   ],
+   "text": "Barter early civilizations में common था।",
+   "style": "box",
+   "tone": "ink",
+   "fill": "band",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "present-anchor",
+   "kind": "text",
+   "cell": [
+    6,
+    0,
+    6,
+    2
+   ],
+   "cue": [
+    "b12",
+    "exchanges"
+   ],
+   "text": "आज छोटे आपसी exchanges में मिलता है।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "band",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "matching-needs",
+   "kind": "text",
+   "cell": [
+    3,
+    2,
+    6,
+    1
+   ],
+   "cue": [
+    "b13",
+    "मिलें,"
+   ],
+   "until_cue": [
+    "b14",
+    "पैसा"
+   ],
+   "text": "पड़ोसियों की जरूरतें मिलें।",
+   "style": "plain",
+   "tone": "accent",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "outgoing-goods",
+   "kind": "arrow",
+   "cue": [
+    "b13",
+    "swap"
+   ],
+   "tone": "accent",
+   "from": "neighbour-left",
+   "to": "neighbour-right",
+   "from_side": "r",
+   "to_side": "l",
+   "curve": true,
+   "flow": {
+    "icon": "tw:1f4e6",
+    "count": 1,
+    "period": 2400,
+    "size": 30,
+    "cue": [
+     "b13",
+     "swap"
+    ]
+   }
+  },
+  {
+   "id": "returning-goods",
+   "kind": "arrow",
+   "cue": [
+    "b13",
+    "आसान"
+   ],
+   "tone": "warm",
+   "from": "neighbour-right",
+   "to": "neighbour-left",
+   "from_side": "b",
+   "to_side": "b",
+   "elbow": "vhv",
+   "flow": {
+    "icon": "tw:1f4e6",
+    "count": 1,
+    "period": 2400,
+    "size": 30,
+    "cue": [
+     "b13",
+     "आसान"
+    ]
+   }
+  },
+  {
+   "id": "coexistence",
+   "kind": "callout",
+   "cell": [
+    2,
+    6,
+    8,
+    1
+   ],
+   "cue": [
+    "b14",
+    "नहीं;"
+   ],
+   "text": "पैसा आने पर barter मिटा नहीं।",
+   "style": "note",
+   "tone": "ink",
+   "fill": "note",
+   "align": "center",
+   "size": 32,
+   "marks": [
+    {
+     "phrase": "barter मिटा नहीं",
+     "cue": [
+      "b14",
+      "साथ"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "past-emphasis",
+   "kind": "highlight",
+   "cue": [
+    "b15",
+    "common"
+   ],
+   "style": "box",
+   "tone": "warm",
+   "target": "historical-anchor"
+  },
+  {
+   "id": "present-summary",
+   "kind": "text",
+   "cell": [
+    3,
+    2,
+    6,
+    1
+   ],
+   "cue": [
+    "b15",
+    "सीमित"
+   ],
+   "text": "अब सीमित है।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "band",
+   "align": "center",
+   "size": 32
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b13",
+    "जरूरतें"
+   ],
+   "ids": [
+    "neighbour-left",
+    "neighbour-right",
+    "matching-needs",
+    "outgoing-goods",
+    "returning-goods"
+   ],
+   "until_cue": [
+    "b14",
+    "पैसा"
+   ]
+  },
+  {
+   "cue": [
+    "b15",
+    "पहले"
+   ],
+   "ids": [
+    "historical-anchor",
+    "present-anchor",
+    "past-emphasis",
+    "present-summary"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

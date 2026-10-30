@@ -1,0 +1,259 @@
+{
+ "id": "v6_s5b",
+ "part_id": "c15.1",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b37",
+   "say": "यह market determination और rupee depreciation है। 1993 से managed float में demand–supply भाव बनाते हैं, RBI झटके सँभाल सकता है; न fixed-rate commitment, न पूरी तरह unmanaged float।"
+  },
+  {
+   "beat_id": "b38",
+   "say": "Price label पर ₹100 क्यों लिखते हैं? ₹ rupee की छोटी written पहचान है, नई currency नहीं। D. Udaya Kumar का यह symbol 2010 में adopted हुआ; इसमें Devanagari और Roman scripts के elements हैं।"
+  },
+  {
+   "beat_id": "b39",
+   "say": "क्रम में independence, decimal subdivision, gold-link change, managed float और symbol आए। Fiat redemption का सवाल है, exchange regime foreign price का; fiat में gold reserves रह सकते हैं।"
+  }
+ ],
+ "kit": "shop",
+ "elements": [
+  {
+   "id": "shop_anchor",
+   "kind": "shop",
+   "x": 2400,
+   "y": 860,
+   "cue": [
+    "b37",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "regime_board",
+   "kind": "board",
+   "x": 3000,
+   "y": 440,
+   "fill": "#E9DFC9",
+   "cue": [
+    "b37",
+    "market"
+   ],
+   "until_cue": [
+    "b38",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b37",
+      "market"
+     ],
+     "text": "यह market determination और\nrupee depreciation है।"
+    },
+    {
+     "cue": [
+      "b37",
+      "1993"
+     ],
+     "text": "1993 से managed float में\ndemand–supply भाव बनाते हैं।"
+    },
+    {
+     "cue": [
+      "b37",
+      "RBI"
+     ],
+     "text": "RBI झटके सँभाल सकता है।"
+    },
+    {
+     "cue": [
+      "b37",
+      "fixed-rate"
+     ],
+     "text": "न fixed-rate commitment,\nन पूरी तरह unmanaged float।"
+    }
+   ]
+  },
+  {
+   "id": "rupee_price",
+   "kind": "price_tag",
+   "x": 2260,
+   "y": 460,
+   "string": 90,
+   "cue": [
+    "b38",
+    "₹100"
+   ],
+   "until_cue": [
+    "b39",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b38",
+      "₹100"
+     ],
+     "text": "₹100"
+    }
+   ]
+  },
+  {
+   "id": "symbol_board",
+   "kind": "board",
+   "x": 3000,
+   "y": 440,
+   "fill": "#E9DFC9",
+   "cue": [
+    "b38",
+    "rupee"
+   ],
+   "until_cue": [
+    "b39",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b38",
+      "rupee"
+     ],
+     "text": "₹ rupee की छोटी written पहचान है,\nनई currency नहीं।"
+    },
+    {
+     "cue": [
+      "b38",
+      "2010"
+     ],
+     "text": "D. Udaya Kumar का यह symbol\n2010 में adopted हुआ।"
+    },
+    {
+     "cue": [
+      "b38",
+      "Devanagari"
+     ],
+     "text": "इसमें Devanagari और Roman\nscripts के elements हैं।"
+    }
+   ]
+  },
+  {
+   "id": "recap_board",
+   "kind": "board",
+   "x": 3000,
+   "y": 440,
+   "fill": "#E9DFC9",
+   "cue": [
+    "b39",
+    "independence,"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b39",
+      "independence,"
+     ],
+     "text": "क्रम में independence, decimal\nsubdivision, gold-link change,\nmanaged float और symbol आए।"
+    },
+    {
+     "cue": [
+      "b39",
+      "Fiat"
+     ],
+     "text": "Fiat redemption का सवाल है।"
+    },
+    {
+     "cue": [
+      "b39",
+      "exchange"
+     ],
+     "text": "Exchange regime\nforeign price का सवाल है।"
+    },
+    {
+     "cue": [
+      "b39",
+      "gold"
+     ],
+     "text": "Fiat में gold reserves रह सकते हैं।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b37",
+    "",
+    0.0
+   ],
+   "x": 2660,
+   "y": 480,
+   "zoom": 0.9,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b37",
+    "1993"
+   ],
+   "x": 2840,
+   "y": 450,
+   "zoom": 1.1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b38",
+    "₹100"
+   ],
+   "x": 2340,
+   "y": 470,
+   "zoom": 1.3,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b38",
+    "rupee"
+   ],
+   "x": 2690,
+   "y": 460,
+   "zoom": 1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b38",
+    "2010"
+   ],
+   "x": 2850,
+   "y": 450,
+   "zoom": 1.1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b39",
+    "",
+    0.0
+   ],
+   "x": 2680,
+   "y": 470,
+   "zoom": 0.95,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b39",
+    "Fiat"
+   ],
+   "x": 2850,
+   "y": 450,
+   "zoom": 1.1,
+   "frames": 45
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

@@ -1,0 +1,221 @@
+{
+ "id": "v13_s3",
+ "part_id": "c30.3",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b15",
+   "say": "RuPay में कौन-से cards हैं? Debit, credit और prepaid; फर्क है पैसे कहाँ से आते हैं।"
+  },
+  {
+   "beat_id": "b16",
+   "say": "अपने खाते से खर्च हो तो? Debit linked bank account के पैसे इस्तेमाल करता है, जैसे अपना बटुआ।"
+  },
+  {
+   "beat_id": "b17",
+   "say": "खरीद अभी, चुकाना बाद में हो तो? Credit approved borrowing limit देता है, यानी उधार से खर्च।"
+  },
+  {
+   "beat_id": "b18",
+   "say": "पहले balance भरकर खर्च करें तो? Prepaid में value पहले load होती है, जैसे पहले कराया recharge।"
+  },
+  {
+   "beat_id": "b19",
+   "say": "Debit में खाता, credit में उधार, prepaid में loaded value है। Brand और funding अलग हैं, इसलिए RuPay तीनों में आता है।"
+  },
+  {
+   "beat_id": "b20",
+   "say": "चाबी है अपना खाता, उधार, पहले भरा पैसा; RuPay को केवल debit मत मानिए।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank",
+   "kind": "bank",
+   "x": 2400,
+   "y": 860,
+   "cue": [
+    "b15",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "teller",
+   "kind": "teller",
+   "x": 2400,
+   "y": 860,
+   "cue": [
+    "b15",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "customers",
+   "kind": "crowd",
+   "x0": 2130,
+   "spacing": 90,
+   "enter_x": 1600,
+   "exit_x": 1600,
+   "face": 1,
+   "seed": 15,
+   "cue": [
+    "b15",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b15",
+      "",
+      0.0
+     ],
+     "n": 2
+    }
+   ]
+  },
+  {
+   "id": "rupay_anchor",
+   "kind": "title",
+   "text": "RuPay में कौन-से cards हैं?",
+   "cue": [
+    "b15",
+    "RuPay"
+   ]
+  },
+  {
+   "id": "funding_board",
+   "kind": "board",
+   "x": 3060,
+   "y": 460,
+   "fill": "#DBEAE4",
+   "cue": [
+    "b15",
+    "फर्क"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b15",
+      "फर्क"
+     ],
+     "text": "फर्क है पैसे कहाँ से आते हैं।"
+    },
+    {
+     "cue": [
+      "b16",
+      "Debit"
+     ],
+     "text": "Debit linked bank account के\nपैसे इस्तेमाल करता है।"
+    },
+    {
+     "cue": [
+      "b17",
+      "Credit"
+     ],
+     "text": "Credit approved borrowing limit\nदेता है।"
+    },
+    {
+     "cue": [
+      "b18",
+      "Prepaid"
+     ],
+     "text": "Prepaid में value पहले load होती है।"
+    },
+    {
+     "cue": [
+      "b19",
+      "Brand"
+     ],
+     "text": "Brand और funding अलग हैं।"
+    },
+    {
+     "cue": [
+      "b20",
+      "RuPay"
+     ],
+     "text": "RuPay को केवल debit मत मानिए।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b15",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 510,
+   "zoom": 0.85,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b15",
+    "फर्क"
+   ],
+   "x": 2780,
+   "y": 500,
+   "zoom": 1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b16",
+    "Debit"
+   ],
+   "x": 2890,
+   "y": 495,
+   "zoom": 1.12,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b17",
+    "Credit"
+   ],
+   "x": 2930,
+   "y": 480,
+   "zoom": 1.16,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b18",
+    "Prepaid"
+   ],
+   "x": 2890,
+   "y": 495,
+   "zoom": 1.1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b19",
+    "",
+    0.0
+   ],
+   "x": 2780,
+   "y": 510,
+   "zoom": 1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b20",
+    "",
+    0.0
+   ],
+   "x": 2680,
+   "y": 510,
+   "zoom": 0.9,
+   "frames": 45
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

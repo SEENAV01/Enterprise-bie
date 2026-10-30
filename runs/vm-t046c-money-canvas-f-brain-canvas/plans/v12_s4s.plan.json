@@ -1,0 +1,202 @@
+{
+ "id": "v12_s4s",
+ "part_id": "c29.2",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b28",
+   "say": "Branch दूर हो तो पैसे कैसे निकालेंगे? गाँव के ग्राहक के खाते में ₹1000 हैं; पास के banking counter से उसे ₹500 चाहिए।"
+  },
+  {
+   "beat_id": "b29",
+   "say": "वह Aadhaar और उँगली के निशान से पहचान जाँच करवाता है। सफल authorised withdrawal पर ₹500 मिलते हैं और खाते में ₹500 बचते हैं।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "counter",
+   "kind": "bank",
+   "x": 2600,
+   "sign": "banking counter",
+   "cue": [
+    "b28",
+    "banking"
+   ]
+  },
+  {
+   "id": "opening",
+   "kind": "label",
+   "x": 2600,
+   "y": 290,
+   "text": "Branch दूर हो तो पैसे कैसे निकालेंगे?",
+   "fill": "#FFF4DC",
+   "cue": [
+    "b28",
+    "Branch"
+   ],
+   "until_cue": [
+    "b28",
+    "banking"
+   ]
+  },
+  {
+   "id": "customer",
+   "kind": "crowd",
+   "x0": 2330,
+   "spacing": 100,
+   "enter_x": 2050,
+   "exit_x": 2050,
+   "face": 1,
+   "seed": 29,
+   "cue": [
+    "b28",
+    "ग्राहक"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b28",
+      "ग्राहक"
+     ],
+     "n": 1
+    }
+   ]
+  },
+  {
+   "id": "account",
+   "kind": "board",
+   "x": 3070,
+   "y": 410,
+   "fill": "#E7F0E7",
+   "cue": [
+    "b28",
+    "₹1000"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b28",
+      "₹1000"
+     ],
+     "text": "खाते में ₹1000 हैं;"
+    },
+    {
+     "cue": [
+      "b29",
+      "बचते"
+     ],
+     "text": "खाते में ₹500 बचते हैं।",
+     "dir": "down"
+    }
+   ]
+  },
+  {
+   "id": "clerk",
+   "kind": "teller",
+   "x": 2600,
+   "cue": [
+    "b28",
+    "counter"
+   ]
+  },
+  {
+   "id": "transaction",
+   "kind": "board",
+   "x": 2110,
+   "y": 410,
+   "fill": "#F5EBD8",
+   "cue": [
+    "b28",
+    "₹500"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b28",
+      "₹500"
+     ],
+     "text": "उसे ₹500 चाहिए।"
+    },
+    {
+     "cue": [
+      "b29",
+      "निशान"
+     ],
+     "text": "Aadhaar और उँगली के निशान से\nपहचान जाँच करवाता है।"
+    },
+    {
+     "cue": [
+      "b29",
+      "मिलते"
+     ],
+     "text": "सफल authorised withdrawal पर\n₹500 मिलते हैं।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b28",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 490,
+   "zoom": 0.8,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b28",
+    "₹1000"
+   ],
+   "x": 2800,
+   "y": 520,
+   "zoom": 0.95,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b28",
+    "counter"
+   ],
+   "x": 2540,
+   "y": 530,
+   "zoom": 0.9,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b29",
+    "Aadhaar"
+   ],
+   "x": 2370,
+   "y": 520,
+   "zoom": 1.05,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b29",
+    "authorised"
+   ],
+   "x": 2590,
+   "y": 510,
+   "zoom": 0.85,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b29",
+    "बचते"
+   ],
+   "x": 2800,
+   "y": 510,
+   "zoom": 0.95,
+   "frames": 40
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

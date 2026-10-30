@@ -1,0 +1,263 @@
+{
+ "id": "v17_s4b",
+ "part_id": "c44.q",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b23",
+   "say": "Counter पर card tap या insert करने की machine देखी है? वही Point of Sale, यानी PoS machine है। Option D में Government merchants को incentive देती है, ताकि customers PoS machines और debit cards से digital payments करें; यहाँ support मिल रहा है, acceptance fee नहीं कट रही, इसलिए D गलत।"
+  },
+  {
+   "beat_id": "b24",
+   "say": "MDR question में C चुनिए: merchant पर charge। A में bank से merchant को incentive, B में customer को पैसा वापस, D में Government से merchant को support है। ये alternatives हैं, हर खरीद पर cashback या किसी incentive scheme के लागू होने का सबूत नहीं।"
+  },
+  {
+   "beat_id": "b25",
+   "say": "अब खुद जाँचिए: किसी गाँव में payment व्यवस्था आ गई, तो क्या हर व्यक्ति उसका इस्तेमाल जरूर करेगा? नहीं, access और इस्तेमाल कर पाने की शर्तें भी चाहिए। दुकानदार को reward मिला, तो क्या वह acceptance charge है? नहीं; claim कितना बड़ा है और पैसा किस दिशा में गया, यही पकड़िए।"
+  }
+ ],
+ "kit": "shop",
+ "elements": [
+  {
+   "id": "counter_shop",
+   "kind": "shop",
+   "x": 2600,
+   "y": 860,
+   "sign": "Counter",
+   "cue": [
+    "b23",
+    "Counter"
+   ]
+  },
+  {
+   "id": "merchant",
+   "kind": "shopkeeper",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b23",
+    "Counter"
+   ]
+  },
+  {
+   "id": "buyer",
+   "kind": "crowd",
+   "x0": 2160,
+   "spacing": 100,
+   "enter_x": 1750,
+   "exit_x": 1750,
+   "face": 1,
+   "seed": 7,
+   "cue": [
+    "b23",
+    "card"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b23",
+      "card"
+     ],
+     "n": 1
+    }
+   ]
+  },
+  {
+   "id": "explanation",
+   "kind": "board",
+   "x": 3160,
+   "y": 470,
+   "fill": "#F4EBDD",
+   "cue": [
+    "b23",
+    "Point"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b23",
+      "Point"
+     ],
+     "text": "यही Point of Sale,\nयानी PoS machine है।"
+    },
+    {
+     "cue": [
+      "b23",
+      "incentive"
+     ],
+     "text": "D में Government merchants को\nincentive देती है।"
+    },
+    {
+     "cue": [
+      "b23",
+      "digital"
+     ],
+     "text": "Customers PoS machines और debit cards\nसे digital payments करें।"
+    },
+    {
+     "cue": [
+      "b23",
+      "support"
+     ],
+     "text": "Support मिल रहा है,\nacceptance fee नहीं कट रही।"
+    },
+    {
+     "cue": [
+      "b24",
+      "charge।"
+     ],
+     "text": "MDR में C चुनिए।\nMerchant पर charge है।"
+    },
+    {
+     "cue": [
+      "b24",
+      "incentive,"
+     ],
+     "text": "A में bank से merchant को\nincentive मिलता है।"
+    },
+    {
+     "cue": [
+      "b24",
+      "वापस,"
+     ],
+     "text": "B में customer को पैसा वापस।"
+    },
+    {
+     "cue": [
+      "b24",
+      "support"
+     ],
+     "text": "D में Government से merchant को\nsupport है।"
+    },
+    {
+     "cue": [
+      "b24",
+      "alternatives"
+     ],
+     "text": "ये alternatives हैं।"
+    },
+    {
+     "cue": [
+      "b24",
+      "सबूत"
+     ],
+     "text": "हर खरीद पर cashback या incentive\nscheme लागू होने का सबूत नहीं।"
+    },
+    {
+     "cue": [
+      "b25",
+      "इस्तेमाल"
+     ],
+     "text": "Payment व्यवस्था आ गई,\nतो क्या हर व्यक्ति इस्तेमाल करेगा?"
+    },
+    {
+     "cue": [
+      "b25",
+      "शर्तें"
+     ],
+     "text": "Access और इस्तेमाल कर पाने की\nशर्तें भी चाहिए।"
+    },
+    {
+     "cue": [
+      "b25",
+      "acceptance"
+     ],
+     "text": "दुकानदार को reward मिला,\nतो क्या वह acceptance charge है?"
+    },
+    {
+     "cue": [
+      "b25",
+      "दिशा"
+     ],
+     "text": "नहीं; claim कितना बड़ा है और\nपैसा किस दिशा में गया, यही पकड़िए।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b23",
+    "",
+    0.0
+   ],
+   "x": 2630,
+   "y": 540,
+   "zoom": 0.85,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b23",
+    "Point"
+   ],
+   "x": 2830,
+   "y": 510,
+   "zoom": 1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b23",
+    "इसलिए"
+   ],
+   "x": 2910,
+   "y": 510,
+   "zoom": 1.08,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b24",
+    "",
+    0.0
+   ],
+   "x": 2860,
+   "y": 520,
+   "zoom": 1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b24",
+    "ये"
+   ],
+   "x": 2910,
+   "y": 500,
+   "zoom": 1.08,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b25",
+    "",
+    0.0
+   ],
+   "x": 2660,
+   "y": 540,
+   "zoom": 0.85,
+   "frames": 50
+  },
+  {
+   "cue": [
+    "b25",
+    "दुकानदार"
+   ],
+   "x": 2820,
+   "y": 520,
+   "zoom": 1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b25",
+    "claim"
+   ],
+   "x": 2910,
+   "y": 500,
+   "zoom": 1.08,
+   "frames": 45
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

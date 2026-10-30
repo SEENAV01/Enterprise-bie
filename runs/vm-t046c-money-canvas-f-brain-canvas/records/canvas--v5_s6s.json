@@ -1,0 +1,1791 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "canvas",
+ "unit": "v5_s6s",
+ "status": "passed",
+ "instructions_version": "canvas-plan/1",
+ "rulebook_version": "canvas_profile@2026-10-29.1+content_types@2026-10-27.1+explanations@2026-10-24.3+level_profiles@2026-10-24.1+simple_hindi@2026-10-28.1+teacher_examples@2026-10-29.1+vision-2026-10-21@2026-10-21.17+visual_grammar@2026-10-29.1+visual_levels@2026-10-26.2",
+ "rulebook_digest": "098fc051cc02b3130eaac1ed94bdf3c0d2d23c809b82208ab9729d71996b644f",
+ "rules_used": [
+  "CV-01",
+  "CV-02",
+  "CV-03",
+  "CV-04",
+  "CV-05",
+  "CV-06",
+  "CV-07",
+  "CV-08",
+  "CV-09",
+  "CV-10",
+  "CV-11",
+  "CV-12",
+  "CV-13",
+  "CV-14",
+  "CV-15",
+  "CV-16",
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-05",
+  "G-06",
+  "G-07"
+ ],
+ "maker_route": "codex",
+ "reviewer_route": "codex-checker",
+ "maker_model": "gpt-6.1-sol",
+ "reviewer_model": "gpt-6.1-sol",
+ "reviewer_independence": "same_model_temporary",
+ "inputs_digest": "efb9d70e7fd1ce023bb38fa1b0bee78a9109b07bcf3f87c1ddb45779ce18ff3f",
+ "card": null,
+ "prefix_sha256": "54ae297cbf5e19841b3c1747423aecf80a831b35a1599a4916ddf80ca291490f",
+ "review_prefix_sha256": null,
+ "inputs": {
+  "system": "You are BIE's canvas director for one part of a video lesson of Indian Economy for UPSC / State PCS aspirants (UPSC / State PCS). The script is\nalready written and passed; you do not change a word of it. You plan ONE build-up canvas for this part: what appears, in\nwhich grid cell, and on which spoken word. Code places, times and checks it; a refused plan comes back to you with the\nexact error, and you answer with the whole corrected plan.\n\nCourse: \"3. Money\" · learner language: Hinglish. Navin's level for this part: B (a build-up canvas with L3 touches (shadows, idle motion, walk-ins, flowing goods and money, a camera that follows)).\n\nNavin's rules for this section (follow every one):\n[CV-01] One canvas per idea: build it piece by piece instead of cutting to a new shot every sentence. Clear the canvas only when the idea changes; otherwise re-frame with a zoom or pan to the part being explained.\n[CV-02] Something on the canvas changes about every 5 s (one change per one or two spoken phrases).\n[CV-03] The picture never stays the same for more than 15 s (the references sometimes hold 40-80 s; BIE must not).\n[CV-04] A new element appears on its own word, while it is being said (about 40% into the phrase, never in the pause after).\n[CV-05] Numbers that change are struck out and replaced on screen (50 -> 65), with an up/down arrow, on the word of the new number.\n[CV-06] Many people/things are shown as a crowd that grows or shrinks with the story (2 buyers -> 12 -> 3).\n[CV-07] A running numeric example carries the concept (price 50 -> 65, GDP 10K -> 11K -> 12.1K at 10%).\n[CV-08] Return to the topic tree and tick the branch that is done before starting the next branch.\n[CV-09] One anchor diagram stays (a band, a tree, a rate card) while the part beside or below it changes.\n[CV-10] No overlap, nothing outside the safe area, captions strip kept clear, readable text (>= 24 px at 1080p), at most 16 elements on screen.\n[CV-11] No photos or caricatures of real people, no logos, emblems or regulator marks: use a name card, a generic icon or BIE's own presenter character.\n[CV-12] Light paper theme for build-up canvases (dark theme stays for 3D/science worlds); subtitles on a dark strip.\n[CV-13] On-screen text is a short COMPLETE phrase or sentence in the learner's language (Devanagari Hinglish with the English terms the script uses), one idea per board or box; never a code: no ✓ ✗ ≠, no list of bare words ('Exchange · Account / Store · Deferred'), no line that ends on → = : / (Navin, 29 October 2026: 'teacher ki naration uske sentence aise poore ho ki banawati na lage').\n[CV-14] Every on-screen text is explained: its key words are said in the narration of the beat it appears on (the cue beat), and every board step the director adds is spoken; a text the narration never says does not go on screen.\n[CV-15] A caveat ('imagined market', 'illustrative numbers') is shown once per part on its own small note, not on every board.\n[CV-16] Numbers on screen are written the way the narration says them: every number on a board, tag or box is said in its cue beat (₹500 on screen, '500 rupaye' in the narration), no counters the narration never mentions ('Payments: 0 → 2').\n[G-01] Everything taught comes from the book. Knowledge from outside the book is allowed only to explain the book better; it is marked as outside, standard textbook-level and correct. Never invent facts, numbers, names or quotations.\n[G-02] Work like the best teacher of these learners and this exam, not like a summariser. Depth beats brevity: nothing teachable on the page is skipped or compressed away, and every explanation makes a student understand, not just remember. Depth means understanding, not length: lesson narration keeps S2-01's time by cutting repetition and side-tracks, never book content.\n[G-03] Before the output, fill 'notes' with brief notes for the reviewer and for Navin: what this unit is about, the key questions a teacher must answer about it, the main decisions you made with a one-line reason each, and anything uncertain. Keep the notes short; they explain the work, they are not the work.\n[G-05] Never drop or compress away what the book teaches to fit a length. If a unit of work is too large, it is split by BIE into smaller units; within a unit, the book's content is complete. Lesson narration has a time target (S2-01), met by cutting repetition and side-tracks, never book content.\n[G-06] BIE is the link between the learner and the book, like a teacher (Navin, 24 October 2026). The book is the base; BIE carries its text, easy or hard, into the learner's mind. Never just read the line out: every book line is opened (what its words mean, why it is so, where it is seen, what follows), at the depth of the level profile.\n[G-07] Two layers, like a film (Navin, 24 October 2026). The writer layer (understanding, plan, script) decides what is said and how deep, following the level profile and the book's own level. The presentation layer (director, video blocks, render) is the same skilled quality for every learner, from class 6 to postgraduate; only the detail shown follows the level, never the craft.\n\n# Director card: build-up canvas plans (for the AI director step)\n\nYou plan ONE canvas for ONE part of a passed script. You do not write narration and you do not place pixels: you say\nwhat appears, in which grid cell, and on which spoken word. Code (`econ_canvas.compile_plan`) places, times and checks\nit; a refused plan comes back to you with the exact error.\n\n## Input you get\n\n- `beats`: the part's spoken beats `[{beat_id, say}]` (Hinglish, Devanagari with English terms). Do not change them.\n- The chapter map items this part covers (terms, numbers, causes, examples).\n- The icon search tool: `icon_index.search(\"bank\")` → ids like `tw:1f3e6` (colour) or `fa:solid/building-columns` (line).\n\n## Output you give (JSON only)\n\n```json\n{\"id\": \"<part id>\", \"theme\": \"paper\", \"grid\": [12, 8], \"beats\": <as given>,\n \"nodes\": [ ...elements... ], \"focus\": [ ... ], \"camera\": [ ... ], \"graph\": { ...optional... }}\n```\n\nGrid: 12 columns × 8 rows inside the safe area. `cell` = `[col, row, width, height]`. Two elements may share cells\nonly if they are never on screen together (use `until_cue`). Reading order: left → right, top → bottom.\n\nEvery element has `cue`: `[beat_id, \"<a word exactly as written in that beat>\"]` — the element appears while that word\nis spoken. Use `[beat_id, \"\", 0.0]` for \"at the start of the beat\" only for titles.\n\n## Element vocabulary\n\n| kind | fields | use it for |\n| --- | --- | --- |\n| `text` | `text`, `style`: `plain` / `box` / `note` / `title` / `tag`, `size`, `tone`, `fill`, `align`, `marks` | definitions (box), side notes (note), headings (title), chips (tag) |\n| `callout` | like text (style `note`), `marks: [{phrase, cue}]` | the one sentence to remember; its key phrase lights up when said |\n| `icon` | `icon` (id from the index), `label` | objects and actors: shop, factory, bank, RBI (use a bank / classical building icon), people, money, goods |\n| `crowd` | `icon`, `steps: [{n, cue}]`, `cols` | many buyers / workers / firms; the number grows or shrinks with the story |\n| `value` | `steps: [{text, cue, dir}]`, `size`, `align` | a number that changes: the old value is struck out, the new one appears with ▲/▼ |\n| `arrow` | `from`, `to` (element ids), `from_side`/`to_side` (`l r t b`), `label`, `elbow` (`hv`, `vh`, `vhv`), `curve`, `dashed`, `tone` | cause → effect, flow of goods / money, sequence |\n| `tree` | `root`, `children: [text or {text, cue}]`, `cell`, `size` | a concept and its types (Inflation → WPI / CPI) |\n| `table` | `columns`, `rows: [{cells, cue}]`, `highlights: [{row?, col?, cue, until_cue?, tone}]` | year-by-year numbers, comparisons |\n| `mark` | `mark`: `tick` / `cross`, `target`, `pos`: `c` / `tr` | right / wrong, done, rejected |\n| `highlight` | `target`, `style`: `box` / `dashed` / `band`, `tone` | \"look here\" on what is being explained |\n\n`focus: [{cue, until_cue?, ids: [...]}]` dims everything else. `camera: [{cells: [...], cue}]` zooms to a region\n(use it when the canvas is dense or to re-frame for the next sub-idea). `graph` = a `curve_story` (axes, curves as\npoints, a dot that walks to named x values, guides like NAIRU, shaded bands, notes) for any economic curve.\n\nTones: `ink`, `muted`, `accent` (blue), `warm` (orange), `danger` (red), `ok` (green), `tag` (pink), `note`, `band`.\n\n## Rules (from 20 reference videos, rules/econ_canvas_rules.json)\n\n1. One canvas per idea; build it piece by piece. Re-frame with `camera` instead of starting a new canvas.\n2. Something changes about every 5 s; never let the picture stay still more than 15 s (the code refuses it).\n3. Each element appears on ITS word, while it is said.\n4. Carry the idea with a running example with numbers (price 50 → 65; GDP 10,000 → 11,000 → 12,100); show changes\n   with `value` steps, crowds with `crowd` steps.\n5. A tree/branch overview first, then tick the branch that is done before the next.\n6. Keep one anchor (a tree, a band, a rate card) while the rest changes.\n7. On-screen text (CV-13 to CV-16, Navin's verdict on Money v1, 29 October 2026): a box holds ONE idea as a short COMPLETE\n   phrase or sentence in the learner's language (Devanagari Hinglish with the English terms the script uses), at most ~12\n   words; never a code: no ✓ ✗ ≠, no list of bare words (\"Exchange · Account / Store · Deferred\"), no line ending on → = : /;\n   every text is explained: its key words and every number are said in the narration of its cue beat (the code refuses a\n   text the beat does not say, and a number the beat does not say); a caveat (\"imagined market\") once per part on its own\n   small note. The narration says the rest.\n8. Never a photo or caricature of a real person, never a logo, emblem or regulator mark: a name tag or a generic icon.\n9. Tags must fit on one line in their cell; text must fit at ≥ 24 px (the code refuses otherwise: make the cell bigger\n   or the text shorter).\n10. A part longer than about 10 beats (real BIE plans have parts of 19 beats) becomes two or three canvases, or one\n    canvas re-framed by `camera` keys; at most 16 elements are on screen at once (the code refuses more).\n\nIcons you may use (id · name); any other id is refused:\n- fa:solid/shop-lock · Shop Lock\n- fa:solid/shop-slash · Shop Slash\n- fa:solid/shop · Shop\n- tw:1f3ea · convenience store\n- tw:1f3ec · department store\n- fa:solid/store-alt-slash · store alt slash\n- tw:1f3ed · factory\n- tw:1f468-200d-1f3ed · man + factory\n- tw:1f469-200d-1f3ed · woman + factory\n- tw:1f3e6 · bank\n- fa:solid/bank · bank\n- fa:solid/piggy-bank · Piggy Bank\n- tw:1f4b0 · money bag\n- tw:1f4b8 · money with wings\n- tw:1f911 · money-mouth face\n- tw:1fa99 · coin\n- fa:solid/bitcoin-sign · Bitcoin Sign\n- fa:solid/cent-sign · Cent Sign\n- tw:1f4b4 · banknote with yen sign\n- tw:1f4b5 · banknote with dollar sign\n- tw:1f4b6 · banknote with euro sign\n- tw:1f471-200d-2640-fe0f · person with blond hair + female sign\n- tw:1f471-200d-2642-fe0f · person with blond hair + male sign\n- tw:1f471 · person with blond hair\n- tw:1fac2 · people hugging\n- fa:solid/arrows-down-to-people · Arrows Down To People\n- fa:solid/people-arrows-left-right · people arrows left right\n- tw:1f477-200d-2640-fe0f · construction worker + female sign\n- tw:1f477-200d-2642-fe0f · construction worker + male sign\n- tw:1f477 · construction worker\n- fa:solid/building-wheat · Building Wheat\n- fa:solid/cow · Cow\n- fa:solid/egg · Egg\n- fa:solid/jar-wheat · Jar Wheat\n- fa:solid/money-bill-wheat · Money Bill Wheat\n- tw:1f69a · delivery truck\n- tw:1f6fb · pickup truck\n- fa:solid/truck-arrow-right · Truck Arrow Right\n- tw:1f6a2 · ship\n- tw:1f6f3 · passenger ship\n- fa:solid/ship · Ship\n- tw:1f468-200d-2708-fe0f · man + airplane\n- tw:1f469-200d-2708-fe0f · woman + airplane\n- tw:1f6e9 · small airplane\n- fa:solid/building-columns · Building Columns\n- fa:solid/building-flag · Building Flag\n- fa:solid/building-ngo · Building Ngo\n- tw:1f3d8 · house buildings\n- tw:1f3da · derelict house building\n- tw:1f3e0 · house building\n- fa:solid/house-laptop · House Laptop\n- fa:solid/laptop-code · Laptop Code\n- fa:solid/laptop-file · Laptop File\n- tw:1f4e6 · package\n- fa:solid/box-archive · Box Archive\n- fa:solid/box-open · Box Open\n- tw:1f9fa · basket\n- fa:solid/basket-shopping · Basket Shopping\n- fa:solid/shopping-basket · shopping basket\n- fa:solid/cart-shopping · Cart Shopping\n- fa:solid/shopping-cart · shopping cart\n- fa:solid/bag-shopping · Bag Shopping\n- tw:1f4b9 · chart with upwards trend and yen sign\n- tw:1f4c8 · chart with upwards trend\n- tw:1f4c9 · chart with downwards trend\n- fa:solid/balance-scale-left · balance scale left\n- fa:solid/balance-scale-right · balance scale right\n- fa:solid/balance-scale · balance scale\n- tw:1f6e2 · oil drum\n- fa:solid/oil-can · Oil Can\n- fa:solid/oil-well · Oil Well\n- tw:26fd · fuel pump\n- fa:solid/gas-pump · Gas Pump\n- fa:solid/arrow-up-from-water-pump · Arrow Up From Water Pump\n- fa:solid/broom-ball · Broom Ball\n- fa:solid/coins · Coins\n- fa:solid/fish · Fish\n- tw:1f4b3 · credit card\n- fa:solid/credit-card-alt · credit card alt\n- fa:solid/credit-card · Credit Card\n- tw:1f9fe · receipt\n- fa:solid/receipt · Receipt\n- fa:solid/file-invoice-dollar · File Invoice Dollar\n- tw:1f91d · handshake\n- tw:1f9d1-200d-1f91d-200d-1f9d1 · adult + handshake + adult\n- fa:solid/handshake-alt-slash · handshake alt slash\n- tw:1f30d · earth globe europe-africa\n- tw:1f30e · earth globe americas\n- tw:1f30f · earth globe asia-australia\n- fa:solid/dharmachakra · Dharmachakra\n- fa:solid/gopuram · Gopuram\n- fa:solid/indian-rupee-sign · Indian Rupee Sign\n- tw:1f3e5 · hospital\n- fa:solid/hospital-alt · hospital alt\n- fa:solid/hospital-symbol · hospital symbol\n- tw:1f392 · school satchel\n- tw:1f3eb · school\n- tw:1f468-200d-1f3eb · man + school\n- tw:1f69c · tractor\n- fa:solid/tractor · Tractor\n- fa:solid/file-zipper · File Zipper\n- fa:solid/warehouse · Warehouse\n- fa:solid/boxes-stacked · Boxes Stacked\n- fa:solid/building-circle-arrow-right · Building Circle Arrow Right\n- fa:solid/industry · Industry\n- tw:2699 · gear\n- fa:solid/gear · Gear\n- fa:solid/user-gear · User Gear\n- fa:solid/lightbulb · Lightbulb\n- fa:regular/lightbulb · Lightbulb\n\nHow to fill the JSON (every field is present; \"\" / 0 / [] / false mean \"not used\"):\n- notes: brief notes for the record: the idea of this canvas, the running example with numbers, what is uncertain.\n- nodes: the elements, in the order they appear. id (unique), kind, cell [col, row, width, height] on the 12 x 8 grid\n  (arrows, marks and highlights have no cell), cue [beat_id, word] with the word exactly as written in that beat (or\n  [beat_id, \"\"] for the start of the beat, cue_fraction 0..1 moves it into the beat). until_cue when the element leaves.\n  value/crowd use steps (text or n, with cue each; dir \"up\"/\"down\" on a value step). tree: root + children (text, cue).\n  table: columns + rows (cells, cue) + highlights (row or col, -1 when not used). callout/text: marks (phrase, cue).\n  arrow: from, to (+ from_side/to_side l r t b, elbow hv/vh/vhv). mark: mark tick/cross + target + pos c/tr.\n  highlight: target + style box/dashed/band. flow on an arrow (icon, count, period, size, reverse, cue) makes goods or\n  money travel along it.\n- camera: zoom to a region of cells on a cue (use it to re-frame instead of a new canvas). focus: dim everything but ids.\n- graph_used true + graph for an economic curve (axes, curves as [x, y] points, a dot that walks to x values, guides,\n  shades, notes); plot is the graph's box as fractions of the canvas.\nReply with the JSON object only.",
+  "user": "Chapter: 3. Money. Part c13.1 (5 beats).\nThis part is the STORY of the concept's real-world example (Navin, 27 October 2026): Mumbai oil importer's purchasing desk, hypothetical scenario; actors oil exporters, Indian oil buyers, importer's bank; goods oil barrels, dollar payments; numbers Available oil per trading period 100 barrels → 60 barrels; Illustrative price per barrel $1 → $4; Cost of a 10-barrel order $10 → $40. No world kit exists for this place yet, so build the story on the canvas with crowd, value and icon elements: the actors as icons, the buyers or workers as a crowd whose n follows the numbers, the price or amount as a value whose steps follow the numbers, the goods or money flowing on arrows; every change cued on the word that says it.\nThe part (JSON):\n{\"part\": {\"id\": \"v5_s6s\", \"part_id\": \"c13.1\", \"mode\": \"B\", \"place\": \"port\", \"story\": true}, \"beats\": [{\"beat_id\": \"b30\", \"say\": \"Oil कम मिले तो? Mumbai का example लो: पहले exporters 100 barrels भेजते थे, अब 60 भेजते हैं। मान लो $1 वाला barrel अब $4 में मिले; 10 barrels के पहले $10 देते थे, अब $40 देंगे।\"}, {\"beat_id\": \"b31\", \"say\": \"बेचने-भेजने पर रोक embargo है। 1973 के OPEC oil embargo में prices 4 गुना हुए; Arab exporters की रोक से supply घटी, fuel चाहिए रहा।\"}, {\"beat_id\": \"b32\", \"say\": \"4 गुना यानी 300% increase, 400% नहीं। Supply घटने से ठीक 4 गुना price होना कोई formula नहीं।\"}, {\"beat_id\": \"b33\", \"say\": \"Oil के Dollars कहाँ जाएँ? मान लो Saudi seller $100 पाए, नए Treasury issue में $60 लगाए, $40 रखे; सरकार $60 उधार पाए।\"}, {\"beat_id\": \"b34\", \"say\": \"यह receipts का investment है। 1974 में Saudi Arabia ने Dollar oil-pricing और revenues का बड़ा हिस्सा US Treasury securities तथा American financial markets में लगाना माना; 60/40 सिर्फ example है।\"}], \"items\": [{\"item_id\": \"p006-i2\", \"content_type\": \"timeline\", \"content\": \"In 1973, the OPEC oil embargo caused oil prices to quadruple.\", \"real_world_example\": {\"place\": \"Mumbai oil importer's purchasing desk, hypothetical scenario\", \"actors\": [\"oil exporters\", \"Indian oil buyers\", \"importer's bank\"], \"goods\": [\"oil barrels\", \"dollar payments\"], \"numbers\": [{\"what\": \"Available oil per trading period\", \"before\": \"100 barrels\", \"after\": \"60 barrels\"}, {\"what\": \"Illustrative price per barrel\", \"before\": \"$1\", \"after\": \"$4\"}, {\"what\": \"Cost of a 10-barrel order\", \"before\": \"$10\", \"after\": \"$40\"}], \"steps\": [{\"step\": \"Exporters restrict deliveries, reducing available oil from 100 to 60 barrels while buyers still need fuel.\", \"mechanism_link\": \"An embargo reduces available supply.\"}, {\"step\": \"Assume buyers' competition produces a new price of $4 instead of $1 per barrel; an unchanged 10-barrel order now costs $40.\", \"mechanism_link\": \"Scarcity raises the price and import bill; the assumed final level is fourfold, a 300% increase.\"}], \"term_after\": \"This illustrates an embargo-driven oil-price shock; the fourfold price is an assumed outcome, not a universal supply formula.\", \"real_life_link\": \"The mechanism helps explain oil-import cost news; none of these figures are actual Indian or 1973 observations.\"}}, {\"item_id\": \"p006-i5\", \"content_type\": \"timeline\", \"content\": \"Saudi Arabia agreed to: Price its oil in US dollars and Invest a large portion of its oil revenues in US Treasury securities and American financial markets.\", \"real_world_example\": {\"place\": \"Mumbai importer's bank and Saudi seller's bank, hypothetical transaction\", \"actors\": [\"Indian oil importer\", \"Saudi oil seller\", \"banks\", \"US Treasury\"], \"goods\": [\"oil\", \"dollars\", \"new US Treasury securities\"], \"numbers\": [{\"what\": \"Saudi seller's cash from this sale\", \"before\": \"$0\", \"after\": \"$100\"}, {\"what\": \"Seller's cash after partial investment\", \"before\": \"$100\", \"after\": \"$40\"}, {\"what\": \"Seller's newly acquired Treasury asset, at purchase cost\", \"before\": \"$0\", \"after\": \"$60\"}, {\"what\": \"US Treasury borrowing proceeds from this purchase\", \"before\": \"$0\", \"after\": \"$60\"}], \"steps\": [{\"step\": \"An Indian importer pays a hypothetical $100 oil invoice; the Saudi seller receives $100.\", \"mechanism_link\": \"Dollar-priced oil generates dollar receipts.\"}, {\"step\": \"Assume the seller invests $60 in a new Treasury issue and retains $40 for other uses.\", \"mechanism_link\": \"A partial allocation turns receipts into a US financial asset rather than investing all revenues.\"}, {\"step\": \"The seller holds the $60 debt asset; the US Treasury receives $60 and owes repayment under the security's terms.\", \"mechanism_link\": \"The asset on the investor's side corresponds to government borrowing and funding.\"}], \"term_after\": \"This illustrates recycling oil receipts into US financial assets.\", \"real_life_link\": \"It opens the page's oil-revenue investment link; $100 and the 60/40 allocation are not historical amounts or agreed shares.\"}}], \"on_screen_hints\": [\"Hypothetical, not 1973 data: exporters deliver 60 rather than 100 barrels; assumed price $4 rather than $1; a 10-barrel order costs $40 rather than $10.\", \"1973 oil embargo: restricted supply, continuing fuel needs, prices ×4.\", \"(4 − 1) ÷ 1 × 100 = 300%.\", \"Hypothetical: receipts $100 → cash $40 + Treasury debt asset $60; government borrowing $60.\", \"Separate Dollar pricing from subsequent investment; no historical 60/40 share claimed.\"]}\n\nReply with the plan JSON."
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "started_at": 1793322427.9097338,
+   "mode": "full",
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "688a6e9b043c40a6ba39593674e1b5624bfcbe8eb500415dc4d4580e1684604f",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 10480,
+    "output_tokens": 8476,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "Mumbai के hypothetical oil-import example से embargo का price shock दिखता है; फिर Dollar receipts के Treasury investment की ओर वही canvas बढ़ता है.",
+    "key_questions": [
+     "कम supply में unchanged order का bill कैसे बढ़ता है?",
+     "चार गुना price का अर्थ 300% increase क्यों है?",
+     "Oil receipts का investment सरकार के borrowing proceeds कैसे बनता है?"
+    ],
+    "decisions": [
+     {
+      "decision": "Oil band स्थायी anchor है; नीचे story क्षेत्र बदलता है.",
+      "reason": "Supply shock और receipts investment को बिना अलग shot के जोड़ता है."
+     },
+     {
+      "decision": "Supply, price और order cost अलग changing values हैं.",
+      "reason": "अलग quantities को मिलाए बिना पुराने numbers strike out करके replacements दिखते हैं."
+     },
+     {
+      "decision": "एक hypothetical note रखा है; कोई अतिरिक्त numerical assumption नहीं जोड़ा.",
+      "reason": "Illustrative amounts को historical facts से अलग रखना आवश्यक है."
+     },
+     {
+      "decision": "अंत में दो historical commitments अलग boxes में खुलते हैं.",
+      "reason": "Dollar pricing और receipts investment अलग निर्णय हैं."
+     }
+    ],
+    "uncertain": [
+     "Attached book page उपलब्ध नहीं है; historical claims दिए गए passed script और map तक सीमित हैं.",
+     "Script में topic-tree overview नहीं बोला गया है, इसलिए unspoken branch labels या completion ticks नहीं जोड़े गए."
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "Mumbai के hypothetical oil-import example से embargo का price shock दिखता है; फिर Dollar receipts के Treasury investment की ओर वही canvas बढ़ता है.",
+     "key_questions": [
+      "कम supply में unchanged order का bill कैसे बढ़ता है?",
+      "चार गुना price का अर्थ 300% increase क्यों है?",
+      "Oil receipts का investment सरकार के borrowing proceeds कैसे बनता है?"
+     ],
+     "decisions": [
+      {
+       "decision": "Oil band स्थायी anchor है; नीचे story क्षेत्र बदलता है.",
+       "reason": "Supply shock और receipts investment को बिना अलग shot के जोड़ता है."
+      },
+      {
+       "decision": "Supply, price और order cost अलग changing values हैं.",
+       "reason": "अलग quantities को मिलाए बिना पुराने numbers strike out करके replacements दिखते हैं."
+      },
+      {
+       "decision": "एक hypothetical note रखा है; कोई अतिरिक्त numerical assumption नहीं जोड़ा.",
+       "reason": "Illustrative amounts को historical facts से अलग रखना आवश्यक है."
+      },
+      {
+       "decision": "अंत में दो historical commitments अलग boxes में खुलते हैं.",
+       "reason": "Dollar pricing और receipts investment अलग निर्णय हैं."
+      }
+     ],
+     "uncertain": [
+      "Attached book page उपलब्ध नहीं है; historical claims दिए गए passed script और map तक सीमित हैं.",
+      "Script में topic-tree overview नहीं बोला गया है, इसलिए unspoken branch labels या completion ticks नहीं जोड़े गए."
+     ]
+    },
+    "nodes": [
+     {
+      "id": "anchor",
+      "kind": "text",
+      "cell": [
+       0,
+       0,
+       12,
+       1
+      ],
+      "cue": [
+       "b30",
+       "Oil"
+      ],
+      "cue_fraction": 0,
+      "until_cue": [],
+      "until_fraction": 0,
+      "text": "Oil कम मिले तो?",
+      "style": "title",
+      "size": 34,
+      "tone": "ink",
+      "fill": "band",
+      "align": "left",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      }
+     },
+     {
+      "id": "place",
+      "kind": "text",
+      "cell": [
+       0,
+       1,
+       6,
+       1
+      ],
+      "cue": [
+       "b30",
+       "Mumbai"
+      ],
+      "cue_fraction": 0,
+      "until_cue": [
+       "b31",
+       "बेचने-भेजने"
+      ],
+      "until_fraction": 0,
+      "text": "Mumbai का example लो.",
+      "style": "note",
+      "size": 26,
+      "tone": "muted",
+      "fill": "",
+      "align": "left",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      }
+     },
+     {
+      "id": "exporters",
+      "kind": "icon",
+      "cell": [
+       0,
+       2,
+       2,
+       2
+      ],
+      "cue": [
+       "b30",
+       "exporters"
+      ],
+      "cue_fraction": 0,
+      "until_cue": [
+       "b31",
+       "बेचने-भेजने"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 64,
+      "tone": "ink",
+      "fill": "",
+      "align": "",
+      "icon": "tw:1f6a2",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      }
+     },
+     {
+      "id": "supply",
+      "kind": "value",
+      "cell": [
+       2,
+       2,
+       6,
+       1
+      ],
+      "cue": [
+       "b30",
+       "100"
+      ],
+      "cue_fraction": 0,
+      "until_cue": [
+       "b31",
+       "बेचने-भेजने"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 30,
+      "tone": "warm",
+      "fill": "",
+      "align": "center",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [
+       {
+        "text": "Exporters 100 barrels भेजते थे.",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b30",
+         "100"
+        ]
+       },
+       {
+        "text": "अब 60 barrels भेजते हैं.",
+        "n": 0,
+        "dir": "down",
+        "cue": [
+         "b30",
+         "60"
+        ]
+       }
+      ],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      }
+     },
+     {
+      "id": "barrels",
+      "kind": "crowd",
+      "cell": [
+       2,
+       3,
+       6,
+       2
+      ],
+      "cue": [
+       "b30",
+       "100"
+      ],
+      "cue_fraction": 0,
+      "until_cue": [
+       "b31",
+       "बेचने-भेजने"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 24,
+      "tone": "ink",
+      "fill": "",
+      "align": "",
+      "icon": "tw:1f6e2",
+      "label": "",
+      "cols": 20,
+      "steps": [
+       {
+        "text": "",
+        "n": 100,
+        "dir": "",
+        "cue": [
+         "b30",
+         "100"
+        ]
+       },
+       {
+        "text": "",
+        "n": 60,
+        "dir": "",
+        "cue": [
+         "b30",
+         "60"
+        ]
+       }
+      ],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      }
+     },
+     {
+      "id": "buyer",
+      "kind": "icon",
+      "cell": [
+       10,
+       2,
+       2,
+       2
+      ],
+      "cue": [
+       "b30",
+       "भेजते"
+      ],
+      "cue_fraction": 0,
+      "until_cue": [
+       "b31",
+       "बेचने-भेजने"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 64,
+      "tone": "accent",
+      "fill": "",
+      "align": "",
+      "icon": "tw:1f471",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      }
+     },
+     {
+      "id": "delivery",
+      "kind": "arrow",
+      "cell": [],
+      "cue": [
+       "b30",
+       "भेजते"
+      ],
+      "cue_fraction": 0,
+      "until_cue": [
+       "b31",
+       "बेचने-भेजने"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 0,
+      "tone": "warm",
+      "fill": "",
+      "align": "",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "barrels",
+      "to": "buyer",
+      "from_side": "r",
+      "to_side": "l",
+      "elbow": "hv",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "tw:1f6e2",
+       "count": 2,
+       "period": 1800,
+       "size": 24,
+       "reverse": false,
+       "cue": [
+        "b30",
+        "भेजते"
+       ]
+      }
+     },
+     {
+      "id": "caveat",
+      "kind": "text",
+      "cell": [
+       7,
+       1,
+       5,
+       1
+      ],
+      "cue": [
+       "b30",
+       "लो"
+      ],
+      "cue_fraction": 0,
+      "until_cue": [],
+      "until_fraction": 0,
+      "text": "मान लो.",
+      "style": "note",
+      "size": 24,
+      "tone": "muted",
+      "fill": "",
+      "align": "right",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      }
+     },
+     {
+      "id": "price",
+      "kind": "value",
+      "cell": [
+       0,
+       5,
+       6,
+       2
+      ],
+      "cue": [
+       "b30",
+       "$1"
+      ],
+      "cue_fraction": 0,
+      "until_cue": [
+       "b31",
+       "बेचने-भेजने"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 30,
+      "tone": "warm",
+      "fill": "",
+      "align": "center",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [
+       {
+        "text": "$1 वाला barrel मिले.",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b30",
+         "$1"
+        ]
+       },
+       {
+        "text": "अब barrel $4 में मिले.",
+        "n": 0,
+        "dir": "up",
+        "cue": [
+         "b30",
+         "$4"
+        ]
+       }
+      ],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      }
+     },
+     {
+      "id": "bill",
+      "kind": "value",
+      "cell": [
+       6,
+       5,
+       6,
+       2
+      ],
+      "cue": [
+       "b30",
+       "$10"
+      ],
+      "cue_fraction": 0,
+      "until_cue": [
+       "b31",
+       "बेचने-भेजने"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 30,
+      "tone": "accent",
+      "fill": "",
+      "align": "center",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [
+       {
+        "text": "10 barrels के $10 देते थे.",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b30",
+         "$10"
+        ]
+       },
+       {
+        "text": "10 barrels के अब $40 देंगे.",
+        "n": 0,
+        "dir": "up",
+        "cue": [
+         "b30",
+         "$40"
+        ]
+       }
+      ],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      }
+     },
+     {
+      "id": "embargo",
+      "kind": "text",
+      "cell": [
+       0,
+       2,
+       12,
+       1
+      ],
+      "cue": [
+       "b31",
+       "embargo"
+      ],
+      "cue_fraction": 0,
+      "until_cue": [
+       "b33",
+       "Oil"
+      ],
+      "until_fraction": 0,
+      "text": "बेचने-भेजने पर रोक embargo है.",
+      "style": "box",
+      "size": 30,
+      "tone": "ink",
+      "fill": "",
+      "align": "center",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      }
+     },
+     {
+      "id": "history",
+      "kind": "text",
+      "cell": [
+       0,
+       3,
+       6,
+       2
+      ],
+      "cue": [
+       "b31",
+       "1973"
+      ],
+      "cue_fraction": 0,
+      "until_cue": [
+       "b33",
+       "Oil"
+      ],
+      "until_fraction": 0,
+      "text": "1973 के OPEC oil embargo में prices 4 गुना हुए.",
+      "style": "box",
+      "size": 28,
+      "tone": "warm",
+      "fill": "",
+      "align": "left",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [
+       {
+        "phrase": "4 गुना",
+        "cue": [
+         "b31",
+         "4"
+        ]
+       }
+      ],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      }
+     },
+     {
+      "id": "mechanism",
+      "kind": "text",
+      "cell": [
+       6,
+       3,
+       6,
+       2
+      ],
+      "cue": [
+       "b31",
+       "supply"
+      ],
+      "cue_fraction": 0,
+      "until_cue": [
+       "b33",
+       "Oil"
+      ],
+      "until_fraction": 0,
+      "text": "Supply घटी, fuel चाहिए रहा.",
+      "style": "box",
+      "size": 30,
+      "tone": "accent",
+      "fill": "",
+      "align": "left",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [
+       {
+        "phrase": "fuel चाहिए रहा",
+        "cue": [
+         "b31",
+         "fuel"
+        ]
+       }
+      ],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      }
+     },
+     {
+      "id": "percentage",
+      "kind": "callout",
+      "cell": [
+       0,
+       5,
+       6,
+       2
+      ],
+      "cue": [
+       "b32",
+       "300%"
+      ],
+      "cue_fraction": 0,
+      "until_cue": [
+       "b33",
+       "Oil"
+      ],
+      "until_fraction": 0,
+      "text": "4 गुना यानी 300% increase, 400% नहीं.",
+      "style": "note",
+      "size": 30,
+      "tone": "accent",
+      "fill": "",
+      "align": "left",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [
+       {
+        "phrase": "400% नहीं",
+        "cue": [
+         "b32",
+         "400%"
+        ]
+       }
+      ],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      }
+     },
+     {
+      "id": "no-formula",
+      "kind": "text",
+      "cell": [
+       6,
+       5,
+       6,
+       2
+      ],
+      "cue": [
+       "b32",
+       "formula"
+      ],
+      "cue_fraction": 0,
+      "until_cue": [
+       "b33",
+       "Oil"
+      ],
+      "until_fraction": 0,
+      "text": "ठीक 4 गुना price होना कोई formula नहीं.",
+      "style": "note",
+      "size": 28,
+      "tone": "warm",
+      "fill": "",
+      "align": "left",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      }
+     },
+     {
+      "id": "seller",
+      "kind": "icon",
+      "cell": [
+       0,
+       2,
+       2,
+       2
+      ],
+      "cue": [
+       "b33",
+       "seller"
+      ],
+      "cue_fraction": 0,
+      "until_cue": [
+       "b34",
+       "1974"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 64,
+      "tone": "ink",
+      "fill": "",
+      "align": "",
+      "icon": "tw:1f471",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      }
+     },
+     {
+      "id": "receipts",
+      "kind": "text",
+      "cell": [
+       2,
+       2,
+       5,
+       2
+      ],
+      "cue": [
+       "b33",
+       "$100"
+      ],
+      "cue_fraction": 0,
+      "until_cue": [
+       "b34",
+       "1974"
+      ],
+      "until_fraction": 0,
+      "text": "Saudi seller $100 पाए.",
+      "style": "box",
+      "size": 30,
+      "tone": "accent",
+      "fill": "",
+      "align": "left",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      }
+     },
+     {
+      "id": "treasury",
+      "kind": "icon",
+      "cell": [
+       10,
+       2,
+       2,
+       2
+      ],
+      "cue": [
+       "b33",
+       "Treasury"
+      ],
+      "cue_fraction": 0,
+      "until_cue": [
+       "b34",
+       "1974"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 64,
+      "tone": "ink",
+      "fill": "",
+      "align": "",
+      "icon": "fa:solid/building-columns",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      }
+     },
+     {
+      "id": "investment-flow",
+      "kind": "arrow",
+      "cell": [],
+      "cue": [
+       "b33",
+       "$60"
+      ],
+      "cue_fraction": 0,
+      "until_cue": [
+       "b34",
+       "1974"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 0,
+      "tone": "accent",
+      "fill": "",
+      "align": "",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "receipts",
+      "to": "treasury",
+      "from_side": "r",
+      "to_side": "l",
+      "elbow": "hv",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "tw:1f4b5",
+       "count": 2,
+       "period": 1800,
+       "size": 24,
+       "reverse": false,
+       "cue": [
+        "b33",
+        "$60"
+       ]
+      }
+     },
+     {
+      "id": "allocation",
+      "kind": "text",
+      "cell": [
+       0,
+       4,
+       6,
+       2
+      ],
+      "cue": [
+       "b33",
+       "$40"
+      ],
+      "cue_fraction": 0,
+      "until_cue": [
+       "b34",
+       "1974"
+      ],
+      "until_fraction": 0,
+      "text": "नए Treasury issue में $60 लगाए, $40 रखे.",
+      "style": "box",
+      "size": 28,
+      "tone": "accent",
+      "fill": "",
+      "align": "left",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      }
+     },
+     {
+      "id": "borrowing",
+      "kind": "text",
+      "cell": [
+       6,
+       4,
+       6,
+       2
+      ],
+      "cue": [
+       "b33",
+       "उधार"
+      ],
+      "cue_fraction": 0,
+      "until_cue": [
+       "b34",
+       "1974"
+      ],
+      "until_fraction": 0,
+      "text": "सरकार $60 उधार पाए.",
+      "style": "box",
+      "size": 30,
+      "tone": "warm",
+      "fill": "",
+      "align": "left",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      }
+     },
+     {
+      "id": "investment-anchor",
+      "kind": "callout",
+      "cell": [
+       0,
+       6,
+       12,
+       1
+      ],
+      "cue": [
+       "b34",
+       "investment"
+      ],
+      "cue_fraction": 0,
+      "until_cue": [],
+      "until_fraction": 0,
+      "text": "यह receipts का investment है.",
+      "style": "note",
+      "size": 30,
+      "tone": "accent",
+      "fill": "",
+      "align": "center",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      }
+     },
+     {
+      "id": "agreement",
+      "kind": "text",
+      "cell": [
+       0,
+       2,
+       12,
+       1
+      ],
+      "cue": [
+       "b34",
+       "1974"
+      ],
+      "cue_fraction": 0,
+      "until_cue": [],
+      "until_fraction": 0,
+      "text": "1974 में Saudi Arabia ने माना.",
+      "style": "box",
+      "size": 30,
+      "tone": "ink",
+      "fill": "",
+      "align": "left",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      }
+     },
+     {
+      "id": "pricing-agreement",
+      "kind": "text",
+      "cell": [
+       0,
+       3,
+       5,
+       2
+      ],
+      "cue": [
+       "b34",
+       "oil-pricing"
+      ],
+      "cue_fraction": 0,
+      "until_cue": [],
+      "until_fraction": 0,
+      "text": "Dollar oil-pricing माना.",
+      "style": "box",
+      "size": 30,
+      "tone": "warm",
+      "fill": "",
+      "align": "left",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      }
+     },
+     {
+      "id": "investment-agreement",
+      "kind": "text",
+      "cell": [
+       5,
+       3,
+       7,
+       2
+      ],
+      "cue": [
+       "b34",
+       "Treasury"
+      ],
+      "cue_fraction": 0,
+      "until_cue": [],
+      "until_fraction": 0,
+      "text": "Revenues का बड़ा हिस्सा US Treasury securities में लगाना माना.",
+      "style": "box",
+      "size": 28,
+      "tone": "accent",
+      "fill": "",
+      "align": "left",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      }
+     },
+     {
+      "id": "markets-agreement",
+      "kind": "text",
+      "cell": [
+       0,
+       5,
+       7,
+       1
+      ],
+      "cue": [
+       "b34",
+       "American"
+      ],
+      "cue_fraction": 0,
+      "until_cue": [],
+      "until_fraction": 0,
+      "text": "American financial markets में लगाना माना.",
+      "style": "box",
+      "size": 26,
+      "tone": "accent",
+      "fill": "",
+      "align": "left",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      }
+     },
+     {
+      "id": "allocation-reminder",
+      "kind": "text",
+      "cell": [
+       7,
+       5,
+       5,
+       1
+      ],
+      "cue": [
+       "b34",
+       "60/40"
+      ],
+      "cue_fraction": 0,
+      "until_cue": [],
+      "until_fraction": 0,
+      "text": "60/40 सिर्फ example है.",
+      "style": "note",
+      "size": 26,
+      "tone": "muted",
+      "fill": "",
+      "align": "left",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      }
+     }
+    ],
+    "camera": [
+     {
+      "cells": [
+       0,
+       0,
+       12,
+       8
+      ],
+      "cue": [
+       "b30",
+       "Oil"
+      ]
+     },
+     {
+      "cells": [
+       0,
+       0,
+       12,
+       8
+      ],
+      "cue": [
+       "b33",
+       "Dollars"
+      ]
+     }
+    ],
+    "focus": [
+     {
+      "cue": [
+       "b30",
+       "$1"
+      ],
+      "until_cue": [
+       "b30",
+       "10"
+      ],
+      "ids": [
+       "anchor",
+       "caveat",
+       "price"
+      ]
+     },
+     {
+      "cue": [
+       "b30",
+       "$10"
+      ],
+      "until_cue": [
+       "b31",
+       "बेचने-भेजने"
+      ],
+      "ids": [
+       "anchor",
+       "caveat",
+       "price",
+       "bill"
+      ]
+     },
+     {
+      "cue": [
+       "b32",
+       "300%"
+      ],
+      "until_cue": [
+       "b32",
+       "Supply"
+      ],
+      "ids": [
+       "anchor",
+       "percentage"
+      ]
+     },
+     {
+      "cue": [
+       "b32",
+       "formula"
+      ],
+      "until_cue": [
+       "b33",
+       "Oil"
+      ],
+      "ids": [
+       "anchor",
+       "no-formula"
+      ]
+     },
+     {
+      "cue": [
+       "b33",
+       "उधार"
+      ],
+      "until_cue": [
+       "b34",
+       "यह"
+      ],
+      "ids": [
+       "anchor",
+       "receipts",
+       "allocation",
+       "treasury",
+       "investment-flow",
+       "borrowing"
+      ]
+     }
+    ],
+    "graph_used": false,
+    "graph": {
+     "plot": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+     },
+     "x_label": "",
+     "y_label": "",
+     "x_domain": [],
+     "y_domain": [],
+     "axes_cue": [],
+     "curves": [],
+     "dots": [],
+     "shades": [],
+     "guides": [],
+     "notes": []
+    }
+   },
+   "code_problems": [],
+   "passed": true,
+   "finished_at": 1793322531.6156566
+  }
+ ],
+ "avoid_rounds": [],
+ "cost_usd": 0.0,
+ "seconds": 103.7,
+ "navin_verdict": null
+}

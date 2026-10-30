@@ -1,0 +1,101 @@
+{
+ "id": "v7_s3a",
+ "part_id": "c17.3",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b12",
+   "say": "वही basket याद है? पहले दुकानदार ने 1 silver Tanka लिया, फिर वैसी basket के लिए 1 copper token। अनाज उतना ही मिला, यानी payment की ताकत बराबर मानी गई; metal की कीमत नहीं।"
+  }
+ ],
+ "kit": "shop",
+ "elements": [
+  {
+   "id": "grain_shop",
+   "kind": "shop",
+   "x": 2350,
+   "y": 860,
+   "cue": [
+    "b12",
+    "",
+    0.0
+   ],
+   "packets": [
+    {
+     "n": 1,
+     "cue": [
+      "b12",
+      "basket"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "accepted_payment",
+   "kind": "board",
+   "x": 3150,
+   "y": 490,
+   "fill": "#E7D9BC",
+   "cue": [
+    "b12",
+    "Tanka"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b12",
+      "Tanka"
+     ],
+     "text": "दुकानदार ने 1 silver Tanka लिया।"
+    },
+    {
+     "cue": [
+      "b12",
+      "token।"
+     ],
+     "text": "वैसी basket के लिए\n1 copper token।"
+    },
+    {
+     "cue": [
+      "b12",
+      "बराबर"
+     ],
+     "text": "payment की ताकत बराबर मानी गई।"
+    },
+    {
+     "cue": [
+      "b12",
+      "नहीं।"
+     ],
+     "text": "payment की ताकत बराबर मानी गई;\nmetal की कीमत नहीं।"
+    }
+   ]
+  },
+  {
+   "id": "unchanged_grain",
+   "kind": "label",
+   "x": 2350,
+   "y": 430,
+   "text": "अनाज उतना ही मिला।",
+   "fill": "#F1E9D8",
+   "cue": [
+    "b12",
+    "मिला,"
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b12",
+    "",
+    0.0
+   ],
+   "x": 2700,
+   "y": 530,
+   "zoom": 0.9,
+   "frames": 30
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

@@ -1,0 +1,341 @@
+{
+ "id": "v5_s7b",
+ "part_id": "c13.2",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b40",
+   "say": "यही oil-payment channel है: US ने समझा, Dollar में oil bills हों तो gold backing बिना भी Dollars चाहिए होंगे।"
+  },
+  {
+   "beat_id": "b41",
+   "say": "Dollars export earnings, borrowing, reserves या exchange से मिलें; invoice चुकाने के लिए उनका balance चाहिए।"
+  },
+  {
+   "beat_id": "b42",
+   "say": "Oil-import news में Dollars bill भरने के लिए चाहिए, gold लेने के लिए नहीं।"
+  },
+  {
+   "beat_id": "b43",
+   "say": "Oil pricing backing नहीं: Dollar देकर fixed oil मिलने का promise नहीं। Demand से exchange value कभी न गिरने की guarantee भी नहीं।"
+  },
+  {
+   "beat_id": "b44",
+   "say": "Dollar invoice चुकाना है, इसलिए Dollars चाहिए।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "anchor",
+   "kind": "text",
+   "cell": [
+    1,
+    0,
+    10,
+    1
+   ],
+   "cue": [
+    "b40",
+    "oil-payment"
+   ],
+   "text": "यही oil-payment channel है।",
+   "style": "title",
+   "tone": "ink",
+   "align": "center",
+   "size": 34
+  },
+  {
+   "id": "invoice",
+   "kind": "text",
+   "cell": [
+    1,
+    2,
+    4,
+    2
+   ],
+   "cue": [
+    "b40",
+    "bills"
+   ],
+   "text": "Oil bills Dollar में हों।",
+   "style": "box",
+   "tone": "accent",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "demand",
+   "kind": "text",
+   "cell": [
+    7,
+    2,
+    4,
+    2
+   ],
+   "cue": [
+    "b40",
+    "चाहिए"
+   ],
+   "text": "Gold backing बिना भी Dollars चाहिए।",
+   "style": "box",
+   "tone": "accent",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "payment_link",
+   "kind": "arrow",
+   "cue": [
+    "b40",
+    "होंगे।"
+   ],
+   "tone": "accent",
+   "from": "invoice",
+   "to": "demand",
+   "from_side": "r",
+   "to_side": "l",
+   "elbow": "hv"
+  },
+  {
+   "id": "sources",
+   "kind": "text",
+   "cell": [
+    1,
+    5,
+    6,
+    2
+   ],
+   "cue": [
+    "b41",
+    "मिलें;"
+   ],
+   "until_cue": [
+    "b42",
+    "Oil-import"
+   ],
+   "text": "Dollars export earnings, borrowing, reserves या exchange से मिलें।",
+   "style": "box",
+   "tone": "ink",
+   "align": "left",
+   "size": 28
+  },
+  {
+   "id": "balance",
+   "kind": "text",
+   "cell": [
+    8,
+    5,
+    3,
+    2
+   ],
+   "cue": [
+    "b41",
+    "balance"
+   ],
+   "until_cue": [
+    "b42",
+    "Oil-import"
+   ],
+   "text": "Invoice चुकाने के लिए balance चाहिए।",
+   "style": "box",
+   "tone": "warm",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "news",
+   "kind": "text",
+   "cell": [
+    1,
+    5,
+    5,
+    2
+   ],
+   "cue": [
+    "b42",
+    "भरने"
+   ],
+   "until_cue": [
+    "b43",
+    "pricing"
+   ],
+   "text": "Dollars bill भरने के लिए चाहिए।",
+   "style": "box",
+   "tone": "accent",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "not_gold",
+   "kind": "text",
+   "cell": [
+    7,
+    5,
+    4,
+    2
+   ],
+   "cue": [
+    "b42",
+    "नहीं।"
+   ],
+   "until_cue": [
+    "b43",
+    "pricing"
+   ],
+   "text": "Gold लेने के लिए नहीं।",
+   "style": "note",
+   "tone": "warm",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "not_backing",
+   "kind": "text",
+   "cell": [
+    1,
+    5,
+    3,
+    2
+   ],
+   "cue": [
+    "b43",
+    "backing"
+   ],
+   "until_cue": [
+    "b44",
+    "Dollar"
+   ],
+   "text": "Oil pricing backing नहीं।",
+   "style": "box",
+   "tone": "warm",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "not_redemption",
+   "kind": "text",
+   "cell": [
+    4,
+    5,
+    4,
+    2
+   ],
+   "cue": [
+    "b43",
+    "promise"
+   ],
+   "until_cue": [
+    "b44",
+    "Dollar"
+   ],
+   "text": "Dollar देकर fixed oil मिलने का promise नहीं।",
+   "style": "box",
+   "tone": "warm",
+   "align": "center",
+   "size": 27
+  },
+  {
+   "id": "not_guarantee",
+   "kind": "text",
+   "cell": [
+    8,
+    5,
+    4,
+    2
+   ],
+   "cue": [
+    "b43",
+    "guarantee"
+   ],
+   "until_cue": [
+    "b44",
+    "Dollar"
+   ],
+   "text": "Exchange value कभी न गिरने की guarantee भी नहीं।",
+   "style": "box",
+   "tone": "warm",
+   "align": "center",
+   "size": 27
+  },
+  {
+   "id": "takeaway",
+   "kind": "callout",
+   "cell": [
+    2,
+    5,
+    8,
+    2
+   ],
+   "cue": [
+    "b44",
+    "इसलिए"
+   ],
+   "text": "Dollar invoice चुकाना है, इसलिए Dollars चाहिए।",
+   "style": "note",
+   "tone": "accent",
+   "align": "center",
+   "size": 34,
+   "marks": [
+    {
+     "phrase": "Dollars चाहिए।",
+     "cue": [
+      "b44",
+      "चाहिए।"
+     ]
+    }
+   ]
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b41",
+    "export"
+   ],
+   "ids": [
+    "anchor",
+    "sources",
+    "balance"
+   ],
+   "until_cue": [
+    "b42",
+    "Oil-import"
+   ]
+  },
+  {
+   "cue": [
+    "b43",
+    "pricing"
+   ],
+   "ids": [
+    "anchor",
+    "not_backing",
+    "not_redemption",
+    "not_guarantee"
+   ],
+   "until_cue": [
+    "b44",
+    "Dollar"
+   ]
+  },
+  {
+   "cue": [
+    "b44",
+    "इसलिए"
+   ],
+   "ids": [
+    "anchor",
+    "invoice",
+    "payment_link",
+    "demand",
+    "takeaway"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

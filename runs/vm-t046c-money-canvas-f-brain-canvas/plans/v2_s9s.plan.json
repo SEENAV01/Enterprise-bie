@@ -1,0 +1,237 @@
+{
+ "id": "v2_s9s",
+ "part_id": "c06.3",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b58",
+   "say": "बचाए 100 kg grain में सिर्फ 90 kg बचे, तो बाद का payment कैसे होगा? इस hypothetical spoilage से देने लायक grain घट गया।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "farmer",
+   "kind": "icon",
+   "cell": [
+    0,
+    3,
+    2,
+    2
+   ],
+   "cue": [
+    "b58",
+    "बचाए"
+   ],
+   "tone": "ink",
+   "align": "center",
+   "icon": "tw:1f477",
+   "size": 48
+  },
+  {
+   "id": "grain_amount",
+   "kind": "value",
+   "cell": [
+    3,
+    1,
+    6,
+    1
+   ],
+   "cue": [
+    "b58",
+    "100"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "size": 36,
+   "steps": [
+    {
+     "cue": [
+      "b58",
+      "100"
+     ],
+     "text": "100 kg grain बचाए।"
+    },
+    {
+     "cue": [
+      "b58",
+      "90"
+     ],
+     "text": "90 kg बचे,",
+     "dir": "down"
+    }
+   ]
+  },
+  {
+   "id": "grain",
+   "kind": "crowd",
+   "cell": [
+    3,
+    3,
+    6,
+    2
+   ],
+   "cue": [
+    "b58",
+    "100"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "fa:solid/jar-wheat",
+   "size": 24,
+   "cols": 25,
+   "steps": [
+    {
+     "cue": [
+      "b58",
+      "100"
+     ],
+     "n": 100
+    },
+    {
+     "cue": [
+      "b58",
+      "90"
+     ],
+     "n": 90
+    }
+   ]
+  },
+  {
+   "id": "trader",
+   "kind": "icon",
+   "cell": [
+    10,
+    3,
+    2,
+    2
+   ],
+   "cue": [
+    "b58",
+    "payment"
+   ],
+   "tone": "ink",
+   "align": "center",
+   "icon": "tw:1f471",
+   "size": 48
+  },
+  {
+   "id": "payment_path",
+   "kind": "arrow",
+   "cue": [
+    "b58",
+    "payment"
+   ],
+   "tone": "warm",
+   "from": "grain",
+   "to": "trader",
+   "from_side": "r",
+   "to_side": "l",
+   "elbow": "hv",
+   "dashed": true
+  },
+  {
+   "id": "payment_question",
+   "kind": "text",
+   "cell": [
+    3,
+    5,
+    6,
+    1
+   ],
+   "cue": [
+    "b58",
+    "कैसे"
+   ],
+   "until_cue": [
+    "b58",
+    "देने"
+   ],
+   "text": "बाद का payment कैसे होगा?",
+   "style": "box",
+   "tone": "warm",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "hypothetical_note",
+   "kind": "text",
+   "cell": [
+    0,
+    0,
+    5,
+    1
+   ],
+   "cue": [
+    "b58",
+    "hypothetical"
+   ],
+   "text": "यह hypothetical spoilage है।",
+   "style": "note",
+   "tone": "muted",
+   "align": "left",
+   "size": 24
+  },
+  {
+   "id": "less_payable_grain",
+   "kind": "callout",
+   "cell": [
+    3,
+    5,
+    6,
+    1
+   ],
+   "cue": [
+    "b58",
+    "देने"
+   ],
+   "text": "देने लायक grain घट गया।",
+   "style": "note",
+   "tone": "danger",
+   "align": "center",
+   "size": 30,
+   "marks": [
+    {
+     "phrase": "घट गया",
+     "cue": [
+      "b58",
+      "घट"
+     ]
+    }
+   ]
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b58",
+    "90"
+   ],
+   "ids": [
+    "grain_amount",
+    "grain"
+   ],
+   "until_cue": [
+    "b58",
+    "payment"
+   ]
+  },
+  {
+   "cue": [
+    "b58",
+    "घट"
+   ],
+   "ids": [
+    "grain_amount",
+    "grain",
+    "less_payable_grain",
+    "hypothetical_note"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

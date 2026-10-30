@@ -1,0 +1,77 @@
+{
+ "id": "v15_s1a",
+ "part_id": "c36.1",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b1",
+   "say": "Cash, bank balance और FD—क्या हमेशा सब जोड़ेंगे?"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank",
+   "kind": "bank",
+   "x": 2600,
+   "sign": "bank",
+   "cue": [
+    "b1",
+    "bank"
+   ]
+  },
+  {
+   "id": "teller",
+   "kind": "teller",
+   "x": 2600,
+   "cue": [
+    "b1",
+    "bank"
+   ]
+  },
+  {
+   "id": "question",
+   "kind": "board",
+   "x": 3100,
+   "y": 470,
+   "fill": "#E7DCC5",
+   "cue": [
+    "b1",
+    "हमेशा"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b1",
+      "हमेशा"
+     ],
+     "text": "क्या हमेशा सब जोड़ेंगे?"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b1",
+    "",
+    0.0
+   ],
+   "x": 2750,
+   "y": 490,
+   "zoom": 0.9,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b1",
+    "हमेशा"
+   ],
+   "x": 2870,
+   "y": 490,
+   "zoom": 1.1,
+   "frames": 30
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

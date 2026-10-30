@@ -1,0 +1,175 @@
+{
+ "id": "v3_s1s",
+ "part_id": "c07.1",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b2",
+   "say": "अनाज वाला यह coin क्यों लेगा? मान लो, पहले उसके पास 0 silver coins थे; आपने अनाज के बदले 1 दिया, उसने metal और पहचानी छाप देखकर स्वीकार किया।"
+  }
+ ],
+ "kit": "shop",
+ "elements": [
+  {
+   "id": "grain_shop",
+   "kind": "shop",
+   "x": 2600,
+   "sign": "अनाज",
+   "cue": [
+    "b2",
+    "अनाज"
+   ],
+   "packets": [
+    {
+     "n": 3,
+     "cue": [
+      "b2",
+      "अनाज"
+     ]
+    },
+    {
+     "n": 2,
+     "cue": [
+      "b2",
+      "दिया,"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "grain_seller",
+   "kind": "shopkeeper",
+   "x": 2600,
+   "cue": [
+    "b2",
+    "वाला"
+   ]
+  },
+  {
+   "id": "hypothetical_note",
+   "kind": "label",
+   "x": 2220,
+   "y": 320,
+   "text": "मान लो।",
+   "fill": "rgba(247,239,216,1)",
+   "cue": [
+    "b2",
+    "लो,"
+   ]
+  },
+  {
+   "id": "seller_coins",
+   "kind": "board",
+   "x": 3060,
+   "y": 470,
+   "fill": "#E9D9B6",
+   "cue": [
+    "b2",
+    "0"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b2",
+      "0"
+     ],
+     "text": "उसके पास 0 silver coins थे।"
+    },
+    {
+     "cue": [
+      "b2",
+      "1"
+     ],
+     "text": "उसके पास 1 silver coin है।",
+     "dir": "up"
+    }
+   ]
+  },
+  {
+   "id": "buyer",
+   "kind": "crowd",
+   "x0": 2230,
+   "spacing": 90,
+   "enter_x": 1900,
+   "exit_x": 1850,
+   "face": 1,
+   "seed": 7,
+   "cue": [
+    "b2",
+    "आपने"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b2",
+      "आपने"
+     ],
+     "n": 1
+    }
+   ],
+   "carry": {
+    "cue": [
+     "b2",
+     "दिया,"
+    ],
+    "n": 1
+   }
+  },
+  {
+   "id": "acceptance",
+   "kind": "label",
+   "x": 2600,
+   "y": 340,
+   "text": "metal और पहचानी छाप देखकर\nस्वीकार किया।",
+   "fill": "rgba(247,239,216,1)",
+   "cue": [
+    "b2",
+    "छाप"
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b2",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 520,
+   "zoom": 0.9,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b2",
+    "पहले"
+   ],
+   "x": 2800,
+   "y": 520,
+   "zoom": 1.05,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b2",
+    "दिया,"
+   ],
+   "x": 2650,
+   "y": 540,
+   "zoom": 0.95,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b2",
+    "metal"
+   ],
+   "x": 2680,
+   "y": 490,
+   "zoom": 1.1,
+   "frames": 40
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

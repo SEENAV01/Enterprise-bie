@@ -1,0 +1,84 @@
+{
+ "id": "v15_s5s",
+ "part_id": "c37.1",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b22",
+   "say": "Bank का RBI balance ₹200 कैसे हुआ? पहले ₹100 थे; security खरीदकर RBI ने ₹100 जोड़े थे।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank",
+   "kind": "bank",
+   "x": 2600,
+   "sign": "Bank",
+   "cue": [
+    "b22",
+    "Bank"
+   ]
+  },
+  {
+   "id": "reserve_balance",
+   "kind": "board",
+   "x": 3050,
+   "y": 460,
+   "fill": "#E5EDE6",
+   "cue": [
+    "b22",
+    "₹200"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b22",
+      "₹200"
+     ],
+     "text": "Bank का RBI balance\n₹200 कैसे हुआ?"
+    },
+    {
+     "cue": [
+      "b22",
+      "पहले"
+     ],
+     "text": "पहले ₹100 थे।",
+     "dir": "down"
+    },
+    {
+     "cue": [
+      "b22",
+      "जोड़े"
+     ],
+     "text": "Bank का RBI balance\n₹200 हुआ।",
+     "dir": "up"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b22",
+    "",
+    0.0
+   ],
+   "x": 2750,
+   "y": 490,
+   "zoom": 0.95,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b22",
+    "security"
+   ],
+   "x": 2930,
+   "y": 490,
+   "zoom": 1.2,
+   "frames": 45
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

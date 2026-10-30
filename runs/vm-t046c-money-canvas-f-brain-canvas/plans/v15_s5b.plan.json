@@ -1,0 +1,235 @@
+{
+ "id": "v15_s5b",
+ "part_id": "c37.1",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b23",
+   "say": "सीधे RBI-created base M0 है: Reserve Money या High-Powered Money। Foundation की तरह यह आगे lending से bank money बनने का आधार है।"
+  },
+  {
+   "beat_id": "b24",
+   "say": "तुम्हारा deposit और bank का RBI balance अलग claims हैं। RBI balance withdrawals और banks के बीच settlement सँभालने में मदद करता है।"
+  },
+  {
+   "beat_id": "b25",
+   "say": "M0 आधार है। उससे आगे bank lending की गुंजाइश बनती है, lending अपने-आप नहीं होती।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank",
+   "kind": "bank",
+   "x": 2600,
+   "y": 860,
+   "sign": "bank",
+   "cue": [
+    "b23",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "teller",
+   "kind": "teller",
+   "x": 2600,
+   "cue": [
+    "b23",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "m0_anchor",
+   "kind": "board",
+   "x": 2100,
+   "y": 530,
+   "text": "M0 सीधे RBI-created base है।",
+   "fill": "#527B78",
+   "cue": [
+    "b23",
+    "M0"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b23",
+      "M0"
+     ],
+     "text": "M0 सीधे RBI-created base है।"
+    },
+    {
+     "cue": [
+      "b23",
+      "Reserve"
+     ],
+     "text": "यह Reserve Money या\nHigh-Powered Money है।"
+    },
+    {
+     "cue": [
+      "b23",
+      "lending"
+     ],
+     "text": "यह lending से bank money\nबनने का आधार है।"
+    }
+   ]
+  },
+  {
+   "id": "customer",
+   "kind": "crowd",
+   "x0": 2330,
+   "spacing": 85,
+   "enter_x": 1800,
+   "exit_x": 1800,
+   "face": 1,
+   "seed": 23,
+   "cue": [
+    "b24",
+    "तुम्हारा"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b24",
+      "तुम्हारा"
+     ],
+     "n": 1
+    }
+   ]
+  },
+  {
+   "id": "claims",
+   "kind": "board",
+   "x": 3090,
+   "y": 530,
+   "text": "RBI balance",
+   "fill": "#527B78",
+   "cue": [
+    "b24",
+    "claims"
+   ],
+   "until_cue": [
+    "b25",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b24",
+      "claims"
+     ],
+     "text": "तुम्हारा deposit और bank का\nRBI balance अलग claims हैं।"
+    },
+    {
+     "cue": [
+      "b24",
+      "settlement"
+     ],
+     "text": "RBI balance withdrawals और\nbanks के बीच settlement\nसँभालने में मदद करता है।"
+    }
+   ]
+  },
+  {
+   "id": "lending_limit",
+   "kind": "board",
+   "x": 3090,
+   "y": 530,
+   "text": "M0 आधार है।",
+   "fill": "#927344",
+   "cue": [
+    "b25",
+    "आधार"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b25",
+      "आधार"
+     ],
+     "text": "M0 आधार है।"
+    },
+    {
+     "cue": [
+      "b25",
+      "गुंजाइश"
+     ],
+     "text": "Bank lending की गुंजाइश बनती है।"
+    },
+    {
+     "cue": [
+      "b25",
+      "अपने-आप"
+     ],
+     "text": "Lending अपने-आप नहीं होती।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b23",
+    "",
+    0.0
+   ],
+   "x": 2570,
+   "y": 540,
+   "zoom": 0.85,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b23",
+    "Foundation"
+   ],
+   "x": 2340,
+   "y": 550,
+   "zoom": 1.05,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b24",
+    "तुम्हारा"
+   ],
+   "x": 2600,
+   "y": 560,
+   "zoom": 0.85,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b24",
+    "withdrawals"
+   ],
+   "x": 2890,
+   "y": 550,
+   "zoom": 1.05,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b25",
+    "",
+    0.0
+   ],
+   "x": 2580,
+   "y": 550,
+   "zoom": 0.85,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b25",
+    "अपने-आप"
+   ],
+   "x": 2890,
+   "y": 550,
+   "zoom": 1.05,
+   "frames": 30
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

@@ -1,0 +1,505 @@
+{
+ "id": "v10_s3",
+ "part_id": "c23.3",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b18",
+   "say": "Payment के रास्ते कौन-से हैं? Cheques, UPI, debit cards, NEFT, RTGS और दूसरे channels हैं। Written-instrument family अलग है: Promissory Note, Bill of Exchange, Cheque।"
+  },
+  {
+   "beat_id": "b18a",
+   "say": "दुकान का QR scan करते हैं? UPI, यानी Unified Payments Interface, account payment कराता है। Debit card से जुड़े account के पैसे देते हैं। Cheque bank को written payment instruction देता है।"
+  },
+  {
+   "beat_id": "b18b",
+   "say": "Transfer form भरते हैं? NEFT, National Electronic Funds Transfer, instructions batches में निपटाता है। RTGS, Real Time Gross Settlement, हर transfer अलग, पूरी रकम का real-time settlement करता है। Balance पैसा है; channel रास्ता है।"
+  },
+  {
+   "beat_id": "b19",
+   "say": "Cards की wording देखिए: Promissory Note में “मैं दूँगा”; Bill में “तुम दो”; Cheque में “bank दे।” इसलिए promise, order और bank-directed order पहचान हैं।"
+  },
+  {
+   "beat_id": "b20",
+   "say": "Rahul वाला promise है; retailer को ₹1 लाख 90 days बाद देने को कहना order है। UPI और debit cards को इस 3-member family में मत जोड़िए।"
+  },
+  {
+   "beat_id": "b21",
+   "say": "Memory trick रखिए: खुद का promise, दूसरे को order, bank को order। तीनों की पहचान मिल गई।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank",
+   "kind": "bank",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b18",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "teller",
+   "kind": "teller",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b18",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "customers",
+   "kind": "crowd",
+   "x0": 2330,
+   "spacing": 95,
+   "enter_x": 1850,
+   "exit_x": 1850,
+   "face": 1,
+   "seed": 23,
+   "cue": [
+    "b18",
+    "Payment"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b18",
+      "Payment"
+     ],
+     "n": 2
+    }
+   ]
+  },
+  {
+   "id": "routes",
+   "kind": "board",
+   "x": 1980,
+   "y": 470,
+   "fill": "#E6EEE8",
+   "cue": [
+    "b18",
+    "Payment"
+   ],
+   "until_cue": [
+    "b18a",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b18",
+      "Payment"
+     ],
+     "text": "Payment के रास्ते कौन-से हैं?"
+    }
+   ]
+  },
+  {
+   "id": "family",
+   "kind": "board",
+   "x": 3220,
+   "y": 470,
+   "fill": "#F2E9D6",
+   "cue": [
+    "b18",
+    "Written-instrument"
+   ],
+   "until_cue": [
+    "b18a",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b18",
+      "Written-instrument"
+     ],
+     "text": "Written-instrument family अलग है।"
+    }
+   ]
+  },
+  {
+   "id": "channel_explanations",
+   "kind": "board",
+   "x": 1980,
+   "y": 470,
+   "fill": "#E6EEE8",
+   "cue": [
+    "b18a",
+    "QR"
+   ],
+   "until_cue": [
+    "b19",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b18a",
+      "QR"
+     ],
+     "text": "दुकान का QR scan करते हैं?"
+    },
+    {
+     "cue": [
+      "b18a",
+      "UPI,"
+     ],
+     "text": "UPI account payment कराता है।"
+    },
+    {
+     "cue": [
+      "b18a",
+      "Debit"
+     ],
+     "text": "Debit card से जुड़े account\nके पैसे देते हैं।"
+    },
+    {
+     "cue": [
+      "b18a",
+      "Cheque"
+     ],
+     "text": "Cheque bank को written\npayment instruction देता है।"
+    },
+    {
+     "cue": [
+      "b18b",
+      "Transfer"
+     ],
+     "text": "Transfer form भरते हैं?"
+    },
+    {
+     "cue": [
+      "b18b",
+      "NEFT,"
+     ],
+     "text": "NEFT instructions batches में\nनिपटाता है।"
+    },
+    {
+     "cue": [
+      "b18b",
+      "RTGS,"
+     ],
+     "text": "RTGS हर transfer अलग, पूरी रकम का\nreal-time settlement करता है।"
+    },
+    {
+     "cue": [
+      "b18b",
+      "Balance"
+     ],
+     "text": "Balance पैसा है;\nchannel रास्ता है।"
+    }
+   ]
+  },
+  {
+   "id": "instrument_meanings",
+   "kind": "board",
+   "x": 3220,
+   "y": 470,
+   "fill": "#F2E9D6",
+   "cue": [
+    "b19",
+    "Promissory"
+   ],
+   "until_cue": [
+    "b21",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b19",
+      "Promissory"
+     ],
+     "text": "Promissory Note में “मैं दूँगा”।"
+    },
+    {
+     "cue": [
+      "b19",
+      "Bill"
+     ],
+     "text": "Bill में “तुम दो”।"
+    },
+    {
+     "cue": [
+      "b19",
+      "Cheque"
+     ],
+     "text": "Cheque में “bank दे।”"
+    },
+    {
+     "cue": [
+      "b20",
+      "Rahul"
+     ],
+     "text": "Rahul वाला promise है।"
+    },
+    {
+     "cue": [
+      "b20",
+      "₹1"
+     ],
+     "text": "retailer को ₹1 लाख 90 days बाद\nदेने को कहना order है।"
+    },
+    {
+     "cue": [
+      "b20",
+      "UPI"
+     ],
+     "text": "UPI और debit cards को इस\n3-member family में मत जोड़िए।"
+    }
+   ]
+  },
+  {
+   "id": "recall",
+   "kind": "board",
+   "x": 1980,
+   "y": 470,
+   "fill": "#E6EEE8",
+   "cue": [
+    "b21",
+    "Memory"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b21",
+      "Memory"
+     ],
+     "text": "Memory trick रखिए।"
+    },
+    {
+     "cue": [
+      "b21",
+      "तीनों"
+     ],
+     "text": "तीनों की पहचान मिल गई।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b18",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 530,
+   "zoom": 0.8,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b18",
+    "Cheques,"
+   ],
+   "x": 2340,
+   "y": 530,
+   "zoom": 0.9,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b18",
+    "Written-instrument"
+   ],
+   "x": 2840,
+   "y": 530,
+   "zoom": 0.9,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b18a",
+    "",
+    0.0
+   ],
+   "x": 2300,
+   "y": 530,
+   "zoom": 0.95,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b18a",
+    "Unified"
+   ],
+   "x": 2210,
+   "y": 510,
+   "zoom": 1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b18a",
+    "Debit"
+   ],
+   "x": 2290,
+   "y": 530,
+   "zoom": 0.95,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b18a",
+    "Cheque"
+   ],
+   "x": 2350,
+   "y": 530,
+   "zoom": 0.9,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b18b",
+    "Transfer"
+   ],
+   "x": 2270,
+   "y": 520,
+   "zoom": 0.95,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b18b",
+    "NEFT,"
+   ],
+   "x": 2200,
+   "y": 510,
+   "zoom": 1,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b18b",
+    "RTGS,"
+   ],
+   "x": 2270,
+   "y": 520,
+   "zoom": 0.95,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b18b",
+    "Balance"
+   ],
+   "x": 2350,
+   "y": 530,
+   "zoom": 0.9,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b19",
+    "Cards"
+   ],
+   "x": 2870,
+   "y": 530,
+   "zoom": 0.9,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b19",
+    "Bill"
+   ],
+   "x": 2940,
+   "y": 510,
+   "zoom": 0.95,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b19",
+    "Cheque"
+   ],
+   "x": 2860,
+   "y": 530,
+   "zoom": 0.9,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b19",
+    "इसलिए"
+   ],
+   "x": 2800,
+   "y": 530,
+   "zoom": 0.85,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b20",
+    "Rahul"
+   ],
+   "x": 2920,
+   "y": 510,
+   "zoom": 0.95,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b20",
+    "90"
+   ],
+   "x": 2950,
+   "y": 510,
+   "zoom": 1,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b20",
+    "UPI"
+   ],
+   "x": 2860,
+   "y": 530,
+   "zoom": 0.9,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b21",
+    "Memory"
+   ],
+   "x": 2300,
+   "y": 530,
+   "zoom": 0.95,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b21",
+    "bank"
+   ],
+   "x": 2480,
+   "y": 530,
+   "zoom": 0.9,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b21",
+    "तीनों"
+   ],
+   "x": 2600,
+   "y": 530,
+   "zoom": 0.8,
+   "frames": 45
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

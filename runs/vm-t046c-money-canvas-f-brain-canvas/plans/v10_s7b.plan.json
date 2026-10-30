@@ -1,0 +1,87 @@
+{
+ "id": "v10_s7b",
+ "part_id": "c24.2",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b42",
+   "say": "Ordinary cheque customer का order है, यह guarantee नहीं।"
+  },
+  {
+   "beat_id": "b43",
+   "say": "पहले funding, फिर bank guarantee; बाद के customer balance पर निर्भर नहीं।"
+  }
+ ],
+ "kit": "shop",
+ "elements": [
+  {
+   "id": "shop",
+   "kind": "shop",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b42",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "comparison",
+   "kind": "board",
+   "x": 2600,
+   "y": 510,
+   "fill": "#F3EBDD",
+   "cue": [
+    "b42",
+    "order"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b42",
+      "order"
+     ],
+     "text": "Ordinary cheque customer का order है,\nयह guarantee नहीं।"
+    },
+    {
+     "cue": [
+      "b43",
+      "funding,"
+     ],
+     "text": "पहले funding,\nफिर bank guarantee।"
+    },
+    {
+     "cue": [
+      "b43",
+      "balance"
+     ],
+     "text": "बाद के customer balance पर\nनिर्भर नहीं।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b42",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 540,
+   "zoom": 1,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b43",
+    "funding,"
+   ],
+   "x": 2600,
+   "y": 510,
+   "zoom": 1.2,
+   "frames": 45
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

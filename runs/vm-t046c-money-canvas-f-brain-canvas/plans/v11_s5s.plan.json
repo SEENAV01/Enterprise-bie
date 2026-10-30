@@ -1,0 +1,973 @@
+{
+ "id": "v11_s5s",
+ "part_id": "c27.1",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b26",
+   "say": "अलग banks हों तो दुकान तक payment कैसे पहुँचे? Rahul app से linked account के ₹100 भेजता है; switch instruction सही bank तक पहुँचाता है, जैसे चिट्ठी सही पते पर। Confirmation आती है, दुकानदार को राशन के ₹100 मिलते हैं। यही UPI transaction route है; RBI पीछे settlement framework देखता है।"
+  },
+  {
+   "beat_id": "b27",
+   "say": "चाय के ₹20 देने हैं; Rahul के account में ₹500 हैं। Mobile app और linked account से वह PIN डालकर मंज़ूरी देता है; app request भेजती है। PIN अपनी चाबी जैसा secret code है।"
+  },
+  {
+   "beat_id": "b28",
+   "say": "Switch banks पहचानता है; Rahul का bank पैसे जाँचता है। पहले ₹500 थे; चाय के ₹20 दिए, अब ₹480 बचे और seller को ₹20 मिले। Merchant के bank को confirmation मिलता है; settlement यानी banks का आपसी बकाया चुकाना, जैसे उधार का हिसाब पूरा करना, RBI की payment infrastructure से होता है।"
+  },
+  {
+   "beat_id": "b29",
+   "say": "यही UPI payment process है, जो चाय वाले को payment के पीछे चलता है। Customer का payment experience seconds में होता है; इससे settlement का अलग exact समय तय नहीं होता। यह जिम्मेदारियों का सरल क्रम है, हर technical message की पूरी सूची नहीं।"
+  },
+  {
+   "beat_id": "b40",
+   "say": "Daughter अपने mobile से पिता के पैसे कैसे खर्च करे? पिता ₹1000 खर्च करने की permission देते हैं; वह ₹200 का राशन लेती है। पिता के ₹5000 में अब ₹4800 बचे; permission में से ₹200 इस्तेमाल हुए। ₹1000 सिर्फ उदाहरण है, official limit नहीं।"
+  },
+  {
+   "beat_id": "b41",
+   "say": "यह UPI Delegated Payments है, August 2024 से जुड़ा feature। Primary user पिता secondary user daughter को अपने account से Rs.X limit तक खर्च की सुविधा देते हैं; X की fixed रकम नहीं दी गई है। यह daughter के deposit account में transfer या नया bank account खोलने की बात नहीं है।"
+  },
+  {
+   "beat_id": "b32",
+   "say": "PIN सही, पैसा कम हो तो? चाबी होने से बटुआ भरता नहीं: मंज़ूरी और पैसे की जाँच अलग हैं। Daughter की permission भी खर्च की सीमा है, पूरे account की खुली छूट नहीं।"
+  },
+  {
+   "beat_id": "b33",
+   "say": "चाय के ₹20 का run देखिए: मंज़ूरी, request, banks की पहचान, पैसे की जाँच, confirmation; फिर banks का हिसाब चुकाना अलग है। Daughter वाले run में पिता पहले खर्च की permission देते हैं, फिर वह उनके पैसे इस्तेमाल करती है।"
+  }
+ ],
+ "kit": "shop",
+ "elements": [
+  {
+   "id": "shop",
+   "kind": "shop",
+   "x": 2600,
+   "y": 860,
+   "sign": "दुकान",
+   "cue": [
+    "b26",
+    "दुकान"
+   ],
+   "packets": [
+    {
+     "n": 4,
+     "cue": [
+      "b26",
+      "राशन"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "seller",
+   "kind": "shopkeeper",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b26",
+    "दुकान"
+   ]
+  },
+  {
+   "id": "customers",
+   "kind": "crowd",
+   "x0": 2220,
+   "spacing": 105,
+   "enter_x": 1700,
+   "exit_x": 1650,
+   "face": 1,
+   "seed": 7,
+   "cue": [
+    "b26",
+    "Rahul"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b26",
+      "Rahul"
+     ],
+     "n": 1
+    },
+    {
+     "cue": [
+      "b40",
+      "पिता"
+     ],
+     "n": 2
+    },
+    {
+     "cue": [
+      "b41",
+      "daughter"
+     ],
+     "n": 1
+    }
+   ]
+  },
+  {
+   "id": "route",
+   "kind": "board",
+   "x": 2050,
+   "y": 420,
+   "fill": "#E7EEF5",
+   "cue": [
+    "b26",
+    "₹100"
+   ],
+   "until_cue": [
+    "b27",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b26",
+      "₹100"
+     ],
+     "text": "Rahul linked account से ₹100 भेजता है।"
+    },
+    {
+     "cue": [
+      "b26",
+      "switch"
+     ],
+     "text": "Switch instruction सही bank तक पहुँचाता है।"
+    },
+    {
+     "cue": [
+      "b26",
+      "चिट्ठी"
+     ],
+     "text": "चिट्ठी सही पते पर पहुँचती है।"
+    },
+    {
+     "cue": [
+      "b26",
+      "route"
+     ],
+     "text": "यही UPI transaction route है।"
+    }
+   ]
+  },
+  {
+   "id": "receipt",
+   "kind": "board",
+   "x": 3120,
+   "y": 440,
+   "fill": "#E7F0E3",
+   "cue": [
+    "b26",
+    "मिलते"
+   ],
+   "until_cue": [
+    "b29",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b26",
+      "मिलते"
+     ],
+     "text": "दुकानदार को राशन के ₹100 मिलते हैं।"
+    },
+    {
+     "cue": [
+      "b28",
+      "seller"
+     ],
+     "text": "Seller को ₹20 मिले।"
+    },
+    {
+     "cue": [
+      "b28",
+      "confirmation"
+     ],
+     "text": "Merchant के bank को confirmation मिलता है।"
+    }
+   ]
+  },
+  {
+   "id": "framework",
+   "kind": "board",
+   "x": 2600,
+   "y": 190,
+   "fill": "#F3E9D5",
+   "cue": [
+    "b26",
+    "RBI"
+   ],
+   "until_cue": [
+    "b29",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b26",
+      "RBI"
+     ],
+     "text": "RBI पीछे settlement framework देखता है।"
+    },
+    {
+     "cue": [
+      "b28",
+      "settlement"
+     ],
+     "text": "Settlement में banks आपसी बकाया चुकाते हैं।"
+    },
+    {
+     "cue": [
+      "b28",
+      "infrastructure"
+     ],
+     "text": "Settlement RBI की payment\ninfrastructure से होता है।"
+    }
+   ]
+  },
+  {
+   "id": "tea_price",
+   "kind": "price_tag",
+   "x": 2810,
+   "y": 650,
+   "string": 65,
+   "cue": [
+    "b27",
+    "₹20"
+   ],
+   "until_cue": [
+    "b40",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b27",
+      "₹20"
+     ],
+     "text": "₹20"
+    }
+   ]
+  },
+  {
+   "id": "rahul_balance",
+   "kind": "board",
+   "x": 2050,
+   "y": 420,
+   "fill": "#E7EEF5",
+   "cue": [
+    "b27",
+    "₹500"
+   ],
+   "until_cue": [
+    "b29",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b27",
+      "₹500"
+     ],
+     "text": "Rahul के account में ₹500 हैं।"
+    },
+    {
+     "cue": [
+      "b28",
+      "₹480"
+     ],
+     "text": "अब ₹480 बचे",
+     "dir": "down"
+    }
+   ]
+  },
+  {
+   "id": "authorisation",
+   "kind": "board",
+   "x": 2600,
+   "y": 440,
+   "fill": "#FFF4DB",
+   "cue": [
+    "b27",
+    "PIN"
+   ],
+   "until_cue": [
+    "b29",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b27",
+      "PIN"
+     ],
+     "text": "PIN डालकर मंज़ूरी देता है।"
+    },
+    {
+     "cue": [
+      "b27",
+      "request"
+     ],
+     "text": "App request भेजती है।"
+    },
+    {
+     "cue": [
+      "b27",
+      "secret"
+     ],
+     "text": "PIN चाबी जैसा secret code है।"
+    },
+    {
+     "cue": [
+      "b28",
+      "Switch"
+     ],
+     "text": "Switch banks पहचानता है।"
+    },
+    {
+     "cue": [
+      "b28",
+      "जाँचता"
+     ],
+     "text": "Rahul का bank पैसे जाँचता है।"
+    }
+   ]
+  },
+  {
+   "id": "process_summary",
+   "kind": "board",
+   "x": 2600,
+   "y": 390,
+   "fill": "#E7EEF5",
+   "cue": [
+    "b29",
+    "process"
+   ],
+   "until_cue": [
+    "b40",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b29",
+      "process"
+     ],
+     "text": "यही UPI payment process है।"
+    },
+    {
+     "cue": [
+      "b29",
+      "seconds"
+     ],
+     "text": "Customer का payment experience\nseconds में होता है।"
+    },
+    {
+     "cue": [
+      "b29",
+      "exact"
+     ],
+     "text": "Settlement का अलग exact समय\nतय नहीं होता।"
+    },
+    {
+     "cue": [
+      "b29",
+      "सरल"
+     ],
+     "text": "यह जिम्मेदारियों का सरल क्रम है।"
+    }
+   ]
+  },
+  {
+   "id": "permission",
+   "kind": "board",
+   "x": 2050,
+   "y": 400,
+   "fill": "#FFF4DB",
+   "cue": [
+    "b40",
+    "₹1000"
+   ],
+   "until_cue": [
+    "b33",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b40",
+      "₹1000"
+     ],
+     "text": "पिता ₹1000 खर्च करने की\npermission देते हैं।"
+    },
+    {
+     "cue": [
+      "b40",
+      "इस्तेमाल"
+     ],
+     "text": "Permission में से ₹200 इस्तेमाल हुए।"
+    },
+    {
+     "cue": [
+      "b41",
+      "secondary"
+     ],
+     "text": "Primary user पिता secondary user\ndaughter को खर्च की सुविधा देते हैं।"
+    },
+    {
+     "cue": [
+      "b41",
+      "Rs.X"
+     ],
+     "text": "Rs.X limit की fixed रकम\nनहीं दी गई है।"
+    },
+    {
+     "cue": [
+      "b32",
+      "Daughter"
+     ],
+     "text": "Daughter की permission\nखर्च की सीमा है।"
+    }
+   ]
+  },
+  {
+   "id": "daughter_purchase",
+   "kind": "board",
+   "x": 3120,
+   "y": 420,
+   "fill": "#E7F0E3",
+   "cue": [
+    "b40",
+    "राशन"
+   ],
+   "until_cue": [
+    "b41",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b40",
+      "राशन"
+     ],
+     "text": "वह ₹200 का राशन लेती है।"
+    }
+   ]
+  },
+  {
+   "id": "father_balance",
+   "kind": "board",
+   "x": 2600,
+   "y": 400,
+   "fill": "#E7EEF5",
+   "cue": [
+    "b40",
+    "₹5000"
+   ],
+   "until_cue": [
+    "b41",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b40",
+      "₹5000"
+     ],
+     "text": "पिता के ₹5000"
+    },
+    {
+     "cue": [
+      "b40",
+      "₹4800"
+     ],
+     "text": "अब ₹4800 बचे",
+     "dir": "down"
+    }
+   ]
+  },
+  {
+   "id": "example_note",
+   "kind": "label",
+   "x": 2600,
+   "y": 185,
+   "text": "₹1000 सिर्फ उदाहरण है, official limit नहीं।",
+   "fill": "#FFF4DB",
+   "cue": [
+    "b40",
+    "उदाहरण"
+   ],
+   "until_cue": [
+    "b41",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "delegation",
+   "kind": "board",
+   "x": 2800,
+   "y": 400,
+   "fill": "#E7F0E3",
+   "cue": [
+    "b41",
+    "Delegated"
+   ],
+   "until_cue": [
+    "b33",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b41",
+      "Delegated"
+     ],
+     "text": "यह UPI Delegated Payments है।"
+    },
+    {
+     "cue": [
+      "b41",
+      "2024"
+     ],
+     "text": "यह August 2024 से जुड़ा feature है।"
+    },
+    {
+     "cue": [
+      "b41",
+      "transfer"
+     ],
+     "text": "यह daughter के deposit account\nमें transfer नहीं है।"
+    },
+    {
+     "cue": [
+      "b41",
+      "खोलने"
+     ],
+     "text": "यह नया bank account\nखोलने की बात नहीं है।"
+    },
+    {
+     "cue": [
+      "b32",
+      "मंज़ूरी"
+     ],
+     "text": "मंज़ूरी और पैसे की जाँच अलग हैं।"
+    }
+   ]
+  },
+  {
+   "id": "replay",
+   "kind": "board",
+   "x": 2600,
+   "y": 390,
+   "fill": "#E7EEF5",
+   "cue": [
+    "b33",
+    "₹20"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b33",
+      "₹20"
+     ],
+     "text": "चाय के ₹20 का run देखिए।"
+    },
+    {
+     "cue": [
+      "b33",
+      "हिसाब"
+     ],
+     "text": "Banks का हिसाब चुकाना अलग है।"
+    },
+    {
+     "cue": [
+      "b33",
+      "permission"
+     ],
+     "text": "पिता पहले खर्च की permission देते हैं।"
+    },
+    {
+     "cue": [
+      "b33",
+      "इस्तेमाल"
+     ],
+     "text": "फिर वह उनके पैसे इस्तेमाल करती है।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b26",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 490,
+   "zoom": 0.9,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b26",
+    "linked"
+   ],
+   "x": 2320,
+   "y": 480,
+   "zoom": 1.05,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b26",
+    "switch"
+   ],
+   "x": 2240,
+   "y": 440,
+   "zoom": 1.1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b26",
+    "Confirmation"
+   ],
+   "x": 2860,
+   "y": 440,
+   "zoom": 1.05,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b26",
+    "RBI"
+   ],
+   "x": 2600,
+   "y": 390,
+   "zoom": 0.95,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b27",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 520,
+   "zoom": 1.05,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b27",
+    "₹500"
+   ],
+   "x": 2300,
+   "y": 470,
+   "zoom": 1.1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b27",
+    "Mobile"
+   ],
+   "x": 2480,
+   "y": 470,
+   "zoom": 1.05,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b27",
+    "request"
+   ],
+   "x": 2600,
+   "y": 440,
+   "zoom": 1.15,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b28",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 460,
+   "zoom": 1.05,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b28",
+    "₹500"
+   ],
+   "x": 2280,
+   "y": 440,
+   "zoom": 1.1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b28",
+    "seller"
+   ],
+   "x": 2850,
+   "y": 450,
+   "zoom": 1.05,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b28",
+    "settlement"
+   ],
+   "x": 2600,
+   "y": 360,
+   "zoom": 0.95,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b28",
+    "उधार"
+   ],
+   "x": 2600,
+   "y": 330,
+   "zoom": 1.05,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b29",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 470,
+   "zoom": 1.05,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b29",
+    "seconds"
+   ],
+   "x": 2600,
+   "y": 420,
+   "zoom": 1.15,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b29",
+    "settlement"
+   ],
+   "x": 2600,
+   "y": 450,
+   "zoom": 1.05,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b29",
+    "technical"
+   ],
+   "x": 2600,
+   "y": 500,
+   "zoom": 0.95,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b40",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 510,
+   "zoom": 0.9,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b40",
+    "permission"
+   ],
+   "x": 2280,
+   "y": 440,
+   "zoom": 1.05,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b40",
+    "राशन"
+   ],
+   "x": 2850,
+   "y": 460,
+   "zoom": 1.05,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b40",
+    "₹5000"
+   ],
+   "x": 2600,
+   "y": 420,
+   "zoom": 1.15,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b40",
+    "उदाहरण"
+   ],
+   "x": 2600,
+   "y": 370,
+   "zoom": 0.95,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b41",
+    "",
+    0.0
+   ],
+   "x": 2740,
+   "y": 450,
+   "zoom": 1.05,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b41",
+    "Primary"
+   ],
+   "x": 2390,
+   "y": 450,
+   "zoom": 1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b41",
+    "Rs.X"
+   ],
+   "x": 2240,
+   "y": 430,
+   "zoom": 1.1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b41",
+    "deposit"
+   ],
+   "x": 2750,
+   "y": 430,
+   "zoom": 1.05,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b41",
+    "नया"
+   ],
+   "x": 2800,
+   "y": 440,
+   "zoom": 1.15,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b32",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 500,
+   "zoom": 0.95,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b32",
+    "चाबी"
+   ],
+   "x": 2780,
+   "y": 470,
+   "zoom": 1.05,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b32",
+    "Daughter"
+   ],
+   "x": 2300,
+   "y": 450,
+   "zoom": 1.05,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b33",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 490,
+   "zoom": 1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b33",
+    "जाँच,"
+   ],
+   "x": 2600,
+   "y": 420,
+   "zoom": 1.15,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b33",
+    "Daughter"
+   ],
+   "x": 2500,
+   "y": 500,
+   "zoom": 1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b33",
+    "इस्तेमाल"
+   ],
+   "x": 2600,
+   "y": 490,
+   "zoom": 0.95,
+   "frames": 45
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

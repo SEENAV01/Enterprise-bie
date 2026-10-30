@@ -1,0 +1,379 @@
+{
+ "id": "v14_s9s",
+ "part_id": "c35.1",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b51",
+   "say": "बिना note ownership कैसे बदले? आपकी 2 units थीं, receiver की 0। Fees छोड़कर 1 भेजी; आपको 1 बची, उसे 1 मिली। जाँच के बाद linked blocks में record बना।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "anchor",
+   "kind": "text",
+   "cell": [
+    1,
+    0,
+    10,
+    1
+   ],
+   "cue": [
+    "b51",
+    "ownership"
+   ],
+   "text": "बिना note ownership कैसे बदले?",
+   "style": "title",
+   "tone": "ink",
+   "align": "center",
+   "size": 34
+  },
+  {
+   "id": "sender",
+   "kind": "icon",
+   "cell": [
+    1,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b51",
+    "आपकी"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "tw:1f471",
+   "size": 64
+  },
+  {
+   "id": "sender_units",
+   "kind": "crowd",
+   "cell": [
+    3,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b51",
+    "2"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "fa:solid/coins",
+   "size": 36,
+   "cols": 2,
+   "steps": [
+    {
+     "cue": [
+      "b51",
+      "2"
+     ],
+     "n": 2
+    },
+    {
+     "cue": [
+      "b51",
+      "बची,"
+     ],
+     "n": 1
+    }
+   ]
+  },
+  {
+   "id": "sender_balance",
+   "kind": "value",
+   "cell": [
+    1,
+    4,
+    4,
+    1
+   ],
+   "cue": [
+    "b51",
+    "2"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "size": 28,
+   "steps": [
+    {
+     "cue": [
+      "b51",
+      "2"
+     ],
+     "text": "आपकी 2 units थीं।"
+    },
+    {
+     "cue": [
+      "b51",
+      "बची,"
+     ],
+     "text": "आपको 1 बची,",
+     "dir": "down"
+    }
+   ]
+  },
+  {
+   "id": "receiver",
+   "kind": "icon",
+   "cell": [
+    9,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b51",
+    "receiver"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "tw:1f471-200d-2640-fe0f",
+   "size": 64
+  },
+  {
+   "id": "receiver_units",
+   "kind": "crowd",
+   "cell": [
+    7,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b51",
+    "0।"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "fa:solid/coins",
+   "size": 36,
+   "cols": 2,
+   "steps": [
+    {
+     "cue": [
+      "b51",
+      "0।"
+     ],
+     "n": 0
+    },
+    {
+     "cue": [
+      "b51",
+      "मिली।"
+     ],
+     "n": 1
+    }
+   ]
+  },
+  {
+   "id": "receiver_balance",
+   "kind": "value",
+   "cell": [
+    7,
+    4,
+    4,
+    1
+   ],
+   "cue": [
+    "b51",
+    "0।"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "size": 28,
+   "steps": [
+    {
+     "cue": [
+      "b51",
+      "0।"
+     ],
+     "text": "receiver की 0 units थीं।"
+    },
+    {
+     "cue": [
+      "b51",
+      "मिली।"
+     ],
+     "text": "उसे 1 मिली।",
+     "dir": "up"
+    }
+   ]
+  },
+  {
+   "id": "fees_note",
+   "kind": "text",
+   "cell": [
+    4,
+    1,
+    4,
+    1
+   ],
+   "cue": [
+    "b51",
+    "छोड़कर"
+   ],
+   "text": "Fees छोड़कर भेजी।",
+   "style": "note",
+   "tone": "muted",
+   "align": "center",
+   "size": 24
+  },
+  {
+   "id": "transfer",
+   "kind": "arrow",
+   "cue": [
+    "b51",
+    "भेजी;"
+   ],
+   "until_cue": [
+    "b51",
+    "जाँच"
+   ],
+   "tone": "accent",
+   "from": "sender_units",
+   "to": "receiver_units",
+   "from_side": "r",
+   "to_side": "l",
+   "flow": {
+    "icon": "fa:solid/coins",
+    "count": 1,
+    "period": 1800,
+    "size": 28,
+    "cue": [
+     "b51",
+     "भेजी;"
+    ]
+   }
+  },
+  {
+   "id": "validation",
+   "kind": "text",
+   "cell": [
+    1,
+    6,
+    3,
+    1
+   ],
+   "cue": [
+    "b51",
+    "जाँच"
+   ],
+   "text": "जाँच के बाद",
+   "style": "note",
+   "tone": "ok",
+   "align": "center",
+   "size": 26
+  },
+  {
+   "id": "block_left",
+   "kind": "icon",
+   "cell": [
+    4,
+    6,
+    1,
+    1
+   ],
+   "cue": [
+    "b51",
+    "linked"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "tw:1f4e6",
+   "size": 44
+  },
+  {
+   "id": "block_right",
+   "kind": "icon",
+   "cell": [
+    6,
+    6,
+    1,
+    1
+   ],
+   "cue": [
+    "b51",
+    "blocks"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "tw:1f4e6",
+   "size": 44
+  },
+  {
+   "id": "block_link",
+   "kind": "arrow",
+   "cue": [
+    "b51",
+    "blocks"
+   ],
+   "tone": "accent",
+   "from": "block_left",
+   "to": "block_right",
+   "from_side": "r",
+   "to_side": "l"
+  },
+  {
+   "id": "record",
+   "kind": "callout",
+   "cell": [
+    7,
+    6,
+    4,
+    1
+   ],
+   "cue": [
+    "b51",
+    "record"
+   ],
+   "text": "linked blocks में record बना।",
+   "style": "note",
+   "tone": "accent",
+   "align": "center",
+   "size": 26
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b51",
+    "बची,"
+   ],
+   "ids": [
+    "anchor",
+    "sender_balance",
+    "receiver_balance",
+    "sender_units",
+    "receiver_units",
+    "transfer"
+   ],
+   "until_cue": [
+    "b51",
+    "जाँच"
+   ]
+  },
+  {
+   "cue": [
+    "b51",
+    "record"
+   ],
+   "ids": [
+    "anchor",
+    "validation",
+    "block_left",
+    "block_right",
+    "block_link",
+    "record"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

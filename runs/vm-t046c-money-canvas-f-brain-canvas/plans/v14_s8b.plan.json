@@ -1,0 +1,191 @@
+{
+ "id": "v14_s8b",
+ "part_id": "c34.5",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b46",
+   "say": "Longer life से collection और replacement घटें: यही durability से replacement costs घटाने का उद्देश्य है।"
+  },
+  {
+   "beat_id": "b47",
+   "say": "दूसरा अलग लक्ष्य counterfeiting कठिन करना है: wear रोकना और imitation रोकना अलग काम हैं।"
+  },
+  {
+   "beat_id": "b48",
+   "say": "Counts illustration हैं, measured savings नहीं।"
+  },
+  {
+   "beat_id": "b49",
+   "say": "बनाना सस्ता न भी हो, कम replacement बचत देगा। Durable होना counterfeit-proof होना नहीं।"
+  },
+  {
+   "beat_id": "b50",
+   "say": "Durability replacement घटाए; security imitation रोके।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank",
+   "kind": "bank",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b46",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "teller",
+   "kind": "teller",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b46",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "durability",
+   "kind": "board",
+   "x": 2050,
+   "y": 430,
+   "fill": "#E7EFE5",
+   "cue": [
+    "b46",
+    "durability"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b46",
+      "durability"
+     ],
+     "text": "durability से\nreplacement costs घटें।"
+    },
+    {
+     "cue": [
+      "b49",
+      "replacement"
+     ],
+     "text": "कम replacement बचत देगा।"
+    },
+    {
+     "cue": [
+      "b50",
+      "replacement"
+     ],
+     "text": "Durability replacement घटाए।"
+    }
+   ]
+  },
+  {
+   "id": "security",
+   "kind": "board",
+   "x": 3150,
+   "y": 430,
+   "fill": "#E5EBF3",
+   "cue": [
+    "b47",
+    "counterfeiting"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b47",
+      "counterfeiting"
+     ],
+     "text": "counterfeiting कठिन करना है।"
+    },
+    {
+     "cue": [
+      "b49",
+      "counterfeit-proof"
+     ],
+     "text": "Durable होना\ncounterfeit-proof होना नहीं।"
+    },
+    {
+     "cue": [
+      "b50",
+      "security"
+     ],
+     "text": "security imitation रोके।"
+    }
+   ]
+  },
+  {
+   "id": "illustration_note",
+   "kind": "label",
+   "x": 2600,
+   "y": 210,
+   "text": "Counts illustration हैं,\nmeasured savings नहीं।",
+   "fill": "rgba(250,241,212,1)",
+   "cue": [
+    "b48",
+    "illustration"
+   ],
+   "until_cue": [
+    "b49",
+    "",
+    0.0
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b46",
+    "",
+    0.0
+   ],
+   "x": 2500,
+   "y": 490,
+   "zoom": 0.9,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b47",
+    "counterfeiting"
+   ],
+   "x": 2690,
+   "y": 490,
+   "zoom": 0.9,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b48",
+    "illustration"
+   ],
+   "x": 2600,
+   "y": 450,
+   "zoom": 0.86,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b49",
+    "replacement"
+   ],
+   "x": 2520,
+   "y": 490,
+   "zoom": 0.9,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b50",
+    "Durability"
+   ],
+   "x": 2600,
+   "y": 490,
+   "zoom": 0.9,
+   "frames": 30
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

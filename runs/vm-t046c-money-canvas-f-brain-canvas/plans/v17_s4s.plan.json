@@ -1,0 +1,595 @@
+{
+ "id": "v17_s4s",
+ "part_id": "c44.q",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b16",
+   "say": "किराना दुकान पर ₹1,000 का सामान card से खरीदा; दुकानदार को पूरे पैसे न मिलें तो फर्क कहाँ गया? मान लीजिए card payment लेने की service पर 1% fee है। यह समझाने के लिए मानी गई rate है, आज की लागू rate नहीं।"
+  },
+  {
+   "beat_id": "b17",
+   "say": "₹1,000 का 1% हुआ ₹10। Taxes और दूसरे charges छोड़ दें, तो ₹10 कटकर दुकानदार को ₹990 मिलेंगे। ग्राहक की खरीद ₹1,000 की रही; fee दुकानदार के पैसे से गई, ग्राहक को cashback नहीं मिला।"
+  },
+  {
+   "beat_id": "b18",
+   "say": "यह merchant-side payment acceptance charge MDR है; पूरा नाम Merchant Discount Rate है। Merchant यानी सामान या service बेचने वाला, जैसे दुकानदार। Customers की card payments लेने के लिए bank merchant पर यह charge लगाता है; उस service में payment infrastructure और processing इस्तेमाल होती है।"
+  },
+  {
+   "beat_id": "b19",
+   "say": "IAS-Prelims 2018 ने पूछा: Merchant Discount Rate क्या है? ‘Discount’ सुनकर ग्राहक की छूट मत सोचिए; यहाँ दुकानदार की card payment लेने की cost है। दुकान की net receipt से इसे जोड़िए, लेकिन हमारे 1% से हर card या हर digital payment की rate और exemption तय मत कीजिए।"
+  },
+  {
+   "beat_id": "b20",
+   "say": "Option A में bank अपने debit cards की payments लेने पर merchant को incentive देता है। Incentive यानी काम करने के लिए मिलने वाला फायदा या पैसा। यहाँ bank से दुकानदार को पैसे मिलते हैं; MDR में दुकानदार पर charge लगता है, इसलिए A उलटी दिशा बताता है।"
+  },
+  {
+   "beat_id": "b21",
+   "say": "Option B में debit card से सामान या service खरीदने वाले customer को bank पैसे वापस देता है। यह cashback जैसा फायदा है, seller की fee नहीं। पूछिए: खरीदार को पैसे वापस मिले या seller के पैसे कटे? B में पहला मामला है, इसलिए B गलत।"
+  },
+  {
+   "beat_id": "b22",
+   "say": "Option C के शब्द हैं ‘charge to a merchant by a bank’। किस पर charge है? Merchant पर; कौन लगाता है? Bank। Customers की card payments लेने की service से जुड़ा यही charge हमारे ₹1,000 से ₹990 वाले उदाहरण में दिखा था, इसलिए C सही है।"
+  }
+ ],
+ "kit": "shop",
+ "elements": [
+  {
+   "id": "kirana",
+   "kind": "shop",
+   "x": 2600,
+   "y": 860,
+   "sign": "किराना दुकान",
+   "cue": [
+    "b16",
+    "किराना"
+   ],
+   "packets": [
+    {
+     "n": 3,
+     "cue": [
+      "b16",
+      "सामान"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "merchant",
+   "kind": "shopkeeper",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b16",
+    "दुकानदार"
+   ]
+  },
+  {
+   "id": "buyer",
+   "kind": "crowd",
+   "x0": 2160,
+   "spacing": 90,
+   "enter_x": 1750,
+   "exit_x": 1700,
+   "face": 1,
+   "seed": 8,
+   "cue": [
+    "b16",
+    "खरीदा;"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b16",
+      "खरीदा;"
+     ],
+     "n": 1
+    }
+   ]
+  },
+  {
+   "id": "receipt",
+   "kind": "board",
+   "x": 3030,
+   "y": 480,
+   "fill": "#E6D5AE",
+   "cue": [
+    "b16",
+    "card"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b16",
+      "card"
+     ],
+     "text": "₹1,000 का सामान card से खरीदा"
+    },
+    {
+     "cue": [
+      "b17",
+      "₹990"
+     ],
+     "text": "दुकानदार को ₹990 मिलेंगे",
+     "dir": "down"
+    },
+    {
+     "cue": [
+      "b22",
+      "₹990"
+     ],
+     "text": "₹1,000 से ₹990 वाले उदाहरण में\nmerchant पर charge है"
+    }
+   ]
+  },
+  {
+   "id": "explanation",
+   "kind": "board",
+   "x": 2180,
+   "y": 440,
+   "fill": "#DCE9E3",
+   "cue": [
+    "b16",
+    "1%"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b16",
+      "1%"
+     ],
+     "text": "Card payment लेने की service पर\n1% fee है"
+    },
+    {
+     "cue": [
+      "b17",
+      "₹10।"
+     ],
+     "text": "₹1,000 का 1% हुआ ₹10"
+    },
+    {
+     "cue": [
+      "b17",
+      "cashback"
+     ],
+     "text": "ग्राहक को cashback नहीं मिला"
+    },
+    {
+     "cue": [
+      "b18",
+      "MDR"
+     ],
+     "text": "यह merchant-side payment\nacceptance charge MDR है"
+    },
+    {
+     "cue": [
+      "b18",
+      "Rate"
+     ],
+     "text": "पूरा नाम Merchant Discount Rate है"
+    },
+    {
+     "cue": [
+      "b18",
+      "बेचने"
+     ],
+     "text": "Merchant सामान या service\nबेचने वाला है"
+    },
+    {
+     "cue": [
+      "b18",
+      "लगाता"
+     ],
+     "text": "Bank merchant पर charge लगाता है"
+    },
+    {
+     "cue": [
+      "b18",
+      "processing"
+     ],
+     "text": "Payment infrastructure और\nprocessing इस्तेमाल होती है"
+    },
+    {
+     "cue": [
+      "b19",
+      "Rate"
+     ],
+     "text": "Merchant Discount Rate क्या है?"
+    },
+    {
+     "cue": [
+      "b19",
+      "cost"
+     ],
+     "text": "दुकानदार की card payment\nलेने की cost है"
+    },
+    {
+     "cue": [
+      "b19",
+      "exemption"
+     ],
+     "text": "हमारे 1% से हर digital payment की\nrate और exemption तय मत कीजिए"
+    },
+    {
+     "cue": [
+      "b20",
+      "incentive"
+     ],
+     "text": "Option A में bank merchant को\nincentive देता है"
+    },
+    {
+     "cue": [
+      "b20",
+      "फायदा"
+     ],
+     "text": "Incentive काम करने के लिए\nमिलने वाला फायदा या पैसा है"
+    },
+    {
+     "cue": [
+      "b20",
+      "charge"
+     ],
+     "text": "MDR में दुकानदार पर charge लगता है"
+    },
+    {
+     "cue": [
+      "b20",
+      "उलटी"
+     ],
+     "text": "A उलटी दिशा बताता है"
+    },
+    {
+     "cue": [
+      "b21",
+      "वापस"
+     ],
+     "text": "Option B में customer को\nbank पैसे वापस देता है"
+    },
+    {
+     "cue": [
+      "b21",
+      "fee"
+     ],
+     "text": "यह cashback जैसा फायदा है,\nseller की fee नहीं"
+    },
+    {
+     "cue": [
+      "b21",
+      "कटे?"
+     ],
+     "text": "खरीदार को पैसे वापस मिले\nया seller के पैसे कटे?"
+    },
+    {
+     "cue": [
+      "b21",
+      "गलत।"
+     ],
+     "text": "B गलत है"
+    },
+    {
+     "cue": [
+      "b22",
+      "bank’।"
+     ],
+     "text": "Option C के शब्द हैं\n‘charge to a merchant by a bank’"
+    },
+    {
+     "cue": [
+      "b22",
+      "Bank।"
+     ],
+     "text": "Merchant पर charge है;\nBank लगाता है"
+    },
+    {
+     "cue": [
+      "b22",
+      "सही"
+     ],
+     "text": "C सही है"
+    }
+   ]
+  },
+  {
+   "id": "rate_caveat",
+   "kind": "label",
+   "x": 2600,
+   "y": 210,
+   "text": "यह समझाने के लिए मानी गई rate है,\nआज की लागू rate नहीं",
+   "fill": "#F2E8CF",
+   "cue": [
+    "b16",
+    "मानी"
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b16",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 510,
+   "zoom": 0.9,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b16",
+    "दुकानदार"
+   ],
+   "x": 2750,
+   "y": 520,
+   "zoom": 1.05,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b16",
+    "service"
+   ],
+   "x": 2440,
+   "y": 460,
+   "zoom": 1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b16",
+    "आज"
+   ],
+   "x": 2600,
+   "y": 400,
+   "zoom": 0.95,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b17",
+    "",
+    0.0
+   ],
+   "x": 2400,
+   "y": 470,
+   "zoom": 1.05,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b17",
+    "₹990"
+   ],
+   "x": 2800,
+   "y": 490,
+   "zoom": 1.05,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b17",
+    "ग्राहक"
+   ],
+   "x": 2450,
+   "y": 530,
+   "zoom": 0.95,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b18",
+    "",
+    0.0
+   ],
+   "x": 2420,
+   "y": 470,
+   "zoom": 1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b18",
+    "Merchant"
+   ],
+   "x": 2520,
+   "y": 490,
+   "zoom": 1.05,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b18",
+    "service"
+   ],
+   "x": 2450,
+   "y": 450,
+   "zoom": 1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b18",
+    "Customers"
+   ],
+   "x": 2450,
+   "y": 540,
+   "zoom": 0.95,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b19",
+    "",
+    0.0
+   ],
+   "x": 2450,
+   "y": 450,
+   "zoom": 1.05,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b19",
+    "ग्राहक"
+   ],
+   "x": 2380,
+   "y": 540,
+   "zoom": 0.95,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b19",
+    "net"
+   ],
+   "x": 2760,
+   "y": 480,
+   "zoom": 1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b19",
+    "हर"
+   ],
+   "x": 2450,
+   "y": 450,
+   "zoom": 1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b20",
+    "",
+    0.0
+   ],
+   "x": 2500,
+   "y": 490,
+   "zoom": 0.95,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b20",
+    "Incentive"
+   ],
+   "x": 2420,
+   "y": 450,
+   "zoom": 1.05,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b20",
+    "यहाँ"
+   ],
+   "x": 2700,
+   "y": 540,
+   "zoom": 1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b20",
+    "इसलिए"
+   ],
+   "x": 2450,
+   "y": 470,
+   "zoom": 1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b21",
+    "",
+    0.0
+   ],
+   "x": 2420,
+   "y": 540,
+   "zoom": 0.95,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b21",
+    "cashback"
+   ],
+   "x": 2380,
+   "y": 470,
+   "zoom": 1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b21",
+    "पूछिए:"
+   ],
+   "x": 2600,
+   "y": 520,
+   "zoom": 0.9,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b21",
+    "इसलिए"
+   ],
+   "x": 2430,
+   "y": 460,
+   "zoom": 1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b22",
+    "",
+    0.0
+   ],
+   "x": 2430,
+   "y": 460,
+   "zoom": 1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b22",
+    "किस"
+   ],
+   "x": 2610,
+   "y": 530,
+   "zoom": 1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b22",
+    "Customers"
+   ],
+   "x": 2500,
+   "y": 540,
+   "zoom": 0.95,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b22",
+    "₹1,000"
+   ],
+   "x": 2790,
+   "y": 470,
+   "zoom": 1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b22",
+    "इसलिए"
+   ],
+   "x": 2600,
+   "y": 490,
+   "zoom": 0.9,
+   "frames": 45
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

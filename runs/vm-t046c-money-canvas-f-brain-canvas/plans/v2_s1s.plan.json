@@ -1,0 +1,141 @@
+{
+ "id": "v2_s1s",
+ "part_id": "c03.1",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b2",
+   "say": "मानिए किसान के पास 10 kg wheat था। उसने 2 kg देकर 1 metre कपड़ा लिया; अब 8 kg wheat बचा और कपड़ा भी मिला।"
+  }
+ ],
+ "kit": "shop",
+ "elements": [
+  {
+   "id": "market",
+   "kind": "shop",
+   "x": 2600,
+   "cue": [
+    "b2",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "imagined",
+   "kind": "label",
+   "x": 2600,
+   "y": 220,
+   "text": "मानिए",
+   "fill": "rgba(248,240,216,1)",
+   "cue": [
+    "b2",
+    "मानिए"
+   ]
+  },
+  {
+   "id": "farmer",
+   "kind": "crowd",
+   "x0": 2290,
+   "spacing": 90,
+   "enter_x": 2030,
+   "exit_x": 2030,
+   "face": 1,
+   "seed": 7,
+   "cue": [
+    "b2",
+    "किसान"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b2",
+      "किसान"
+     ],
+     "n": 1
+    }
+   ]
+  },
+  {
+   "id": "wheat_holding",
+   "kind": "board",
+   "x": 2050,
+   "y": 440,
+   "fill": "#8C713D",
+   "cue": [
+    "b2",
+    "10"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b2",
+      "10"
+     ],
+     "text": "किसान के पास\n10 kg wheat था।"
+    },
+    {
+     "cue": [
+      "b2",
+      "8"
+     ],
+     "text": "अब 8 kg wheat बचा।",
+     "dir": "down"
+    }
+   ]
+  },
+  {
+   "id": "exchange",
+   "kind": "board",
+   "x": 3050,
+   "y": 440,
+   "fill": "#477D80",
+   "cue": [
+    "b2",
+    "कपड़ा"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b2",
+      "कपड़ा"
+     ],
+     "text": "2 kg देकर\n1 metre कपड़ा लिया।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b2",
+    "",
+    0.0
+   ],
+   "x": 2490,
+   "y": 490,
+   "zoom": 0.85,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b2",
+    "देकर"
+   ],
+   "x": 2770,
+   "y": 490,
+   "zoom": 0.95,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b2",
+    "अब"
+   ],
+   "x": 2520,
+   "y": 490,
+   "zoom": 0.85,
+   "frames": 30
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

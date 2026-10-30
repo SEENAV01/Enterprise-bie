@@ -1,0 +1,161 @@
+{
+ "id": "v5_s7s",
+ "part_id": "c13.2",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b39",
+   "say": "Order दोगुना हो तो? मान लो Indian importer ने उसी unit price पर दोगुना oil लिया। पहले $100 देता था; अब $200 चुकाने के लिए bank से $200 जुटाए।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank",
+   "kind": "bank",
+   "x": 2600,
+   "sign": "bank",
+   "cue": [
+    "b39",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "teller",
+   "kind": "teller",
+   "x": 2600,
+   "cue": [
+    "b39",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "hypothetical_note",
+   "kind": "label",
+   "x": 2220,
+   "y": 260,
+   "text": "मान लो…",
+   "fill": "rgba(245,237,211,1)",
+   "cue": [
+    "b39",
+    "मान"
+   ]
+  },
+  {
+   "id": "importer",
+   "kind": "crowd",
+   "x0": 2330,
+   "spacing": 90,
+   "enter_x": 2050,
+   "exit_x": 2050,
+   "face": 1,
+   "seed": 39,
+   "cue": [
+    "b39",
+    "importer"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b39",
+      "importer"
+     ],
+     "n": 1
+    }
+   ]
+  },
+  {
+   "id": "oil_order",
+   "kind": "label",
+   "x": 2290,
+   "y": 410,
+   "text": "दोगुना oil लिया।",
+   "fill": "rgba(232,241,236,1)",
+   "cue": [
+    "b39",
+    "oil"
+   ]
+  },
+  {
+   "id": "payment",
+   "kind": "board",
+   "x": 3020,
+   "y": 460,
+   "fill": "#476A76",
+   "cue": [
+    "b39",
+    "$100"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b39",
+      "$100"
+     ],
+     "text": "पहले $100 देता था।"
+    },
+    {
+     "cue": [
+      "b39",
+      "$200"
+     ],
+     "text": "अब $200 चुकाने हैं।",
+     "dir": "up"
+    },
+    {
+     "cue": [
+      "b39",
+      "जुटाए।"
+     ],
+     "text": "bank से $200 जुटाए।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b39",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 480,
+   "zoom": 0.9,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b39",
+    "importer"
+   ],
+   "x": 2460,
+   "y": 500,
+   "zoom": 1.05,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b39",
+    "$100"
+   ],
+   "x": 2760,
+   "y": 480,
+   "zoom": 1.1,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b39",
+    "bank"
+   ],
+   "x": 2700,
+   "y": 510,
+   "zoom": 1.02,
+   "frames": 35
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

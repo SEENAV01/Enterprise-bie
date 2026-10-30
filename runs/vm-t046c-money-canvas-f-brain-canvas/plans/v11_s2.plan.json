@@ -1,0 +1,515 @@
+{
+ "id": "v11_s2",
+ "part_id": "c26.2",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b6",
+   "say": "इस तस्वीर में customer कहाँ है? Payment ecosystem के role map में ऊपर RBI, फिर NPCI, नीचे Banks, Payment Apps और Users हैं। यानी आपकी payment screen के पीछे अलग जिम्मेदारियों वाले कई participants हैं।"
+  },
+  {
+   "beat_id": "b7",
+   "say": "ऊपर RBI regulator है, यानी नियम और oversight देखने वाली authority; नीचे NPCI systems चलाता है। Connector RBI से NPCI, फिर बीच के Payment Apps box तक है; Banks और Users तक अलग arrows नहीं हैं। दोनों की जिम्मेदारी अलग पहचानिए: oversight करना और व्यवस्था चलाना।"
+  },
+  {
+   "beat_id": "b8",
+   "say": "QR scan करके ₹150 देना UPI का उदाहरण है; holiday पर तुरंत ₹2000 भेजना IMPS का। UPI यानी Unified Payments Interface, IMPS यानी Immediate Payment Service: speed मिलती है, पर दोनों अलग arrangements हैं।"
+  },
+  {
+   "beat_id": "b9",
+   "say": "Card से दुकान पर payment करें तो RuPay एक Indian card network है। गाँव में bank के business correspondent की micro-ATM पर Aadhaar authentication से ₹500 निकालना AePS, यानी Aadhaar Enabled Payment System है।"
+  },
+  {
+   "beat_id": "b10",
+   "say": "बहुत से accounts में पैसे भेजने या authorised EMI collection के लिए NACH, National Automated Clearing House, bulk credits और debits देता है। NPCI के 5 नाम हैं UPI, IMPS, RuPay, AePS और NACH—5 एक जैसी apps नहीं।"
+  },
+  {
+   "beat_id": "b11",
+   "say": "Account कौन रखता है? Banks accounts और settlement सँभालते हैं, यानी banks का आपसी हिसाब चुकाना। Payment Apps box में UPI apps और gateways हैं; gateway online checkout से request आगे भेजने का दरवाजा समझिए।"
+  },
+  {
+   "beat_id": "b12",
+   "say": "Users कौन हैं? नीचे दाएँ Users box में consumers और merchants हैं: राशन खरीदने वाले आप consumer, पैसे लेने वाला दुकानदार merchant।"
+  },
+  {
+   "beat_id": "b13",
+   "say": "मुख्य बात: regulator, operator, bank, interface और user अलग roles हैं। Phone की payment screen को deposit रखने वाला bank मत समझिए।"
+  },
+  {
+   "beat_id": "b14",
+   "say": "यह roles का map है: ऊपर oversight और operation, नीचे accounts, interfaces और users।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank_place",
+   "kind": "bank",
+   "x": 2600,
+   "y": 860,
+   "sign": "Banks",
+   "cue": [
+    "b6",
+    "Banks,"
+   ]
+  },
+  {
+   "id": "rbi_role",
+   "kind": "board",
+   "x": 2600,
+   "y": 150,
+   "fill": "#E5DFD2",
+   "cue": [
+    "b6",
+    "RBI,"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b6",
+      "RBI,"
+     ],
+     "text": "ऊपर RBI है।"
+    },
+    {
+     "cue": [
+      "b7",
+      "authority;"
+     ],
+     "text": "RBI नियम और oversight\nदेखने वाली authority है।"
+    }
+   ]
+  },
+  {
+   "id": "npci_role",
+   "kind": "board",
+   "x": 2600,
+   "y": 370,
+   "fill": "#DCE9E3",
+   "cue": [
+    "b6",
+    "NPCI,"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b6",
+      "NPCI,"
+     ],
+     "text": "फिर NPCI है।"
+    },
+    {
+     "cue": [
+      "b7",
+      "चलाता"
+     ],
+     "text": "NPCI systems चलाता है।"
+    },
+    {
+     "cue": [
+      "b10",
+      "नहीं।"
+     ],
+     "text": "NPCI के 5 नाम\nएक जैसी apps नहीं हैं।"
+    }
+   ]
+  },
+  {
+   "id": "banks_role",
+   "kind": "board",
+   "x": 1900,
+   "y": 610,
+   "fill": "#E5DFD2",
+   "cue": [
+    "b6",
+    "Banks,"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b6",
+      "Banks,"
+     ],
+     "text": "नीचे Banks हैं।"
+    },
+    {
+     "cue": [
+      "b11",
+      "सँभालते"
+     ],
+     "text": "Banks accounts और\nsettlement सँभालते हैं।"
+    }
+   ]
+  },
+  {
+   "id": "apps_role",
+   "kind": "board",
+   "x": 2600,
+   "y": 610,
+   "fill": "#E4E6F1",
+   "cue": [
+    "b6",
+    "Apps"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b6",
+      "Apps"
+     ],
+     "text": "नीचे Payment Apps हैं।"
+    },
+    {
+     "cue": [
+      "b11",
+      "gateways"
+     ],
+     "text": "Payment Apps box में\nUPI apps और gateways हैं।"
+    }
+   ]
+  },
+  {
+   "id": "users_role",
+   "kind": "board",
+   "x": 3300,
+   "y": 610,
+   "fill": "#F0E3D6",
+   "cue": [
+    "b6",
+    "Users"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b6",
+      "Users"
+     ],
+     "text": "नीचे Users हैं।"
+    },
+    {
+     "cue": [
+      "b12",
+      "merchants"
+     ],
+     "text": "Users box में consumers\nऔर merchants हैं।"
+    }
+   ]
+  },
+  {
+   "id": "service_examples",
+   "kind": "board",
+   "x": 3300,
+   "y": 290,
+   "fill": "#F0E3D6",
+   "cue": [
+    "b8",
+    "UPI"
+   ],
+   "until_cue": [
+    "b11",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b8",
+      "UPI"
+     ],
+     "text": "QR scan करके ₹150 देना\nUPI का उदाहरण है।"
+    },
+    {
+     "cue": [
+      "b8",
+      "IMPS"
+     ],
+     "text": "Holiday पर तुरंत ₹2000 भेजना\nIMPS का उदाहरण है।"
+    },
+    {
+     "cue": [
+      "b8",
+      "arrangements"
+     ],
+     "text": "दोनों अलग arrangements हैं।"
+    },
+    {
+     "cue": [
+      "b9",
+      "network"
+     ],
+     "text": "RuPay एक Indian card network है।"
+    },
+    {
+     "cue": [
+      "b9",
+      "AePS,"
+     ],
+     "text": "Aadhaar authentication से\n₹500 निकालना AePS है।"
+    },
+    {
+     "cue": [
+      "b10",
+      "debits"
+     ],
+     "text": "NACH bulk credits और debits देता है।"
+    }
+   ]
+  },
+  {
+   "id": "bank_customers",
+   "kind": "crowd",
+   "x0": 2230,
+   "spacing": 110,
+   "enter_x": 1650,
+   "exit_x": 1650,
+   "face": 1,
+   "seed": 26,
+   "cue": [
+    "b6",
+    "customer"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b6",
+      "customer"
+     ],
+     "n": 2
+    }
+   ]
+  },
+  {
+   "id": "bank_clerk",
+   "kind": "teller",
+   "x": 2600,
+   "cue": [
+    "b6",
+    "Banks,"
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b6",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 440,
+   "zoom": 0.8,
+   "frames": 1
+  },
+  {
+   "cue": [
+    "b6",
+    "यानी"
+   ],
+   "x": 2600,
+   "y": 410,
+   "zoom": 0.88,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b7",
+    "regulator"
+   ],
+   "x": 2600,
+   "y": 250,
+   "zoom": 1.15,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b7",
+    "Connector"
+   ],
+   "x": 2600,
+   "y": 410,
+   "zoom": 0.9,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b7",
+    "दोनों"
+   ],
+   "x": 2600,
+   "y": 290,
+   "zoom": 1.05,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b8",
+    "QR"
+   ],
+   "x": 3050,
+   "y": 350,
+   "zoom": 1.05,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b8",
+    "holiday"
+   ],
+   "x": 3250,
+   "y": 310,
+   "zoom": 1.2,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b8",
+    "Unified"
+   ],
+   "x": 3020,
+   "y": 350,
+   "zoom": 1.05,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b9",
+    "Card"
+   ],
+   "x": 3250,
+   "y": 310,
+   "zoom": 1.18,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b9",
+    "गाँव"
+   ],
+   "x": 2910,
+   "y": 490,
+   "zoom": 0.95,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b9",
+    "Aadhaar"
+   ],
+   "x": 3250,
+   "y": 310,
+   "zoom": 1.18,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b10",
+    "accounts"
+   ],
+   "x": 3000,
+   "y": 390,
+   "zoom": 1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b10",
+    "NACH,"
+   ],
+   "x": 3250,
+   "y": 310,
+   "zoom": 1.18,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b10",
+    "NPCI"
+   ],
+   "x": 2800,
+   "y": 370,
+   "zoom": 1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b11",
+    "Banks"
+   ],
+   "x": 2050,
+   "y": 580,
+   "zoom": 1.2,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b11",
+    "Payment"
+   ],
+   "x": 2510,
+   "y": 580,
+   "zoom": 1.15,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b11",
+    "gateway"
+   ],
+   "x": 2600,
+   "y": 580,
+   "zoom": 1.3,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b12",
+    "Users"
+   ],
+   "x": 3250,
+   "y": 580,
+   "zoom": 1.2,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b12",
+    "राशन"
+   ],
+   "x": 3050,
+   "y": 650,
+   "zoom": 1.05,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b13",
+    "regulator,"
+   ],
+   "x": 2600,
+   "y": 420,
+   "zoom": 0.8,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b13",
+    "Phone"
+   ],
+   "x": 2250,
+   "y": 580,
+   "zoom": 1.05,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b14",
+    "map"
+   ],
+   "x": 2600,
+   "y": 420,
+   "zoom": 0.8,
+   "frames": 50
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

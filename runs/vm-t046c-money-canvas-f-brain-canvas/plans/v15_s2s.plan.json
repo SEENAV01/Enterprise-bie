@@ -1,0 +1,500 @@
+{
+ "id": "v15_s2s",
+ "part_id": "c36.2",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b6",
+   "say": "Hypothetical holdings लो: cash ₹1000, demand account ₹4000, bank time deposit ₹6000, Post Office savings ₹2000 और दूसरे eligible deposits ₹3000 हैं। Other RBI deposits zero मानो।"
+  },
+  {
+   "beat_id": "b7",
+   "say": "Cash और demand account के ₹5000 हुए। Post Office savings जोड़कर ₹7000 मिलेंगे। इसके बजाय ₹5000 में bank time deposit जोड़ो: ₹11000 मिलेंगे; eligible Post Office deposits भी जोड़ो तो ₹16000 होंगे।"
+  },
+  {
+   "beat_id": "b8",
+   "say": "Demand account से ₹1000 तय समय वाली deposit में रखो। अब उनमें ₹3000 और ₹7000 हैं। पहले totals ₹4000 और ₹6000 होंगे; दोनों bank balances वाले totals ₹11000 और ₹16000 ही रहेंगे।"
+  }
+ ],
+ "kit": "shop",
+ "elements": [
+  {
+   "id": "shop",
+   "kind": "shop",
+   "x": 2600,
+   "y": 860,
+   "fill": "#F6EEDD",
+   "cue": [
+    "b6",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "hypothetical",
+   "kind": "label",
+   "x": 2600,
+   "y": 160,
+   "text": "Hypothetical holdings लो",
+   "fill": "#EFE4CB",
+   "cue": [
+    "b6",
+    "Hypothetical"
+   ]
+  },
+  {
+   "id": "cash",
+   "kind": "board",
+   "x": 2000,
+   "y": 350,
+   "fill": "#DCEBDC",
+   "cue": [
+    "b6",
+    "₹1000,"
+   ],
+   "until_cue": [
+    "b7",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b6",
+      "₹1000,"
+     ],
+     "text": "Cash ₹1000 हैं।"
+    }
+   ]
+  },
+  {
+   "id": "demand",
+   "kind": "board",
+   "x": 2600,
+   "y": 350,
+   "fill": "#DCE8F1",
+   "cue": [
+    "b6",
+    "₹4000,"
+   ],
+   "until_cue": [
+    "b7",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b6",
+      "₹4000,"
+     ],
+     "text": "Demand account ₹4000 हैं।"
+    }
+   ]
+  },
+  {
+   "id": "time",
+   "kind": "board",
+   "x": 3200,
+   "y": 350,
+   "fill": "#E6DFF0",
+   "cue": [
+    "b6",
+    "₹6000,"
+   ],
+   "until_cue": [
+    "b7",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b6",
+      "₹6000,"
+     ],
+     "text": "Bank time deposit ₹6000 हैं।"
+    }
+   ]
+  },
+  {
+   "id": "post-savings",
+   "kind": "board",
+   "x": 2200,
+   "y": 600,
+   "fill": "#F1E3CE",
+   "cue": [
+    "b6",
+    "₹2000"
+   ],
+   "until_cue": [
+    "b7",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b6",
+      "₹2000"
+     ],
+     "text": "Post Office savings ₹2000 हैं।"
+    }
+   ]
+  },
+  {
+   "id": "eligible",
+   "kind": "board",
+   "x": 3000,
+   "y": 600,
+   "fill": "#F1E3CE",
+   "cue": [
+    "b6",
+    "₹3000"
+   ],
+   "until_cue": [
+    "b7",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b6",
+      "₹3000"
+     ],
+     "text": "दूसरे eligible deposits\n₹3000 हैं।"
+    }
+   ]
+  },
+  {
+   "id": "zero",
+   "kind": "label",
+   "x": 2600,
+   "y": 760,
+   "text": "Other RBI deposits zero मानो।",
+   "fill": "#EFE4CB",
+   "cue": [
+    "b6",
+    "zero"
+   ],
+   "until_cue": [
+    "b7",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "total-a",
+   "kind": "board",
+   "x": 2000,
+   "y": 610,
+   "fill": "#DCEBDC",
+   "cue": [
+    "b7",
+    "₹5000"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b7",
+      "₹5000"
+     ],
+     "text": "₹5000 हुए।"
+    },
+    {
+     "cue": [
+      "b8",
+      "₹4000"
+     ],
+     "text": "₹4000 होंगे।",
+     "dir": "down"
+    }
+   ]
+  },
+  {
+   "id": "total-b",
+   "kind": "board",
+   "x": 2400,
+   "y": 610,
+   "fill": "#F1E3CE",
+   "cue": [
+    "b7",
+    "₹7000"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b7",
+      "₹7000"
+     ],
+     "text": "₹7000 मिलेंगे।"
+    },
+    {
+     "cue": [
+      "b8",
+      "₹6000"
+     ],
+     "text": "₹6000 होंगे।",
+     "dir": "down"
+    }
+   ]
+  },
+  {
+   "id": "total-c",
+   "kind": "board",
+   "x": 2800,
+   "y": 610,
+   "fill": "#DCE8F1",
+   "cue": [
+    "b7",
+    "₹11000"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b7",
+      "₹11000"
+     ],
+     "text": "₹11000 मिलेंगे।"
+    },
+    {
+     "cue": [
+      "b8",
+      "₹11000"
+     ],
+     "text": "₹11000 ही रहेंगे।"
+    }
+   ]
+  },
+  {
+   "id": "total-d",
+   "kind": "board",
+   "x": 3200,
+   "y": 610,
+   "fill": "#E6DFF0",
+   "cue": [
+    "b7",
+    "₹16000"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b7",
+      "₹16000"
+     ],
+     "text": "₹16000 होंगे।"
+    },
+    {
+     "cue": [
+      "b8",
+      "₹16000"
+     ],
+     "text": "₹16000 ही रहेंगे।"
+    }
+   ]
+  },
+  {
+   "id": "transfer",
+   "kind": "label",
+   "x": 2600,
+   "y": 270,
+   "text": "Demand account से ₹1000\nतय समय वाली deposit में रखो।",
+   "fill": "#EFE4CB",
+   "cue": [
+    "b8",
+    "₹1000"
+   ],
+   "until_cue": [
+    "b8",
+    "पहले"
+   ]
+  },
+  {
+   "id": "new-demand",
+   "kind": "board",
+   "x": 2300,
+   "y": 390,
+   "fill": "#DCE8F1",
+   "cue": [
+    "b8",
+    "₹3000"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b8",
+      "₹3000"
+     ],
+     "text": "अब ₹3000 हैं।"
+    }
+   ]
+  },
+  {
+   "id": "new-time",
+   "kind": "board",
+   "x": 2900,
+   "y": 390,
+   "fill": "#E6DFF0",
+   "cue": [
+    "b8",
+    "₹7000"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b8",
+      "₹7000"
+     ],
+     "text": "अब ₹7000 हैं।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b6",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 470,
+   "zoom": 0.8,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b6",
+    "₹4000,"
+   ],
+   "x": 2500,
+   "y": 450,
+   "zoom": 0.85,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b6",
+    "₹2000"
+   ],
+   "x": 2600,
+   "y": 480,
+   "zoom": 0.8,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b6",
+    "zero"
+   ],
+   "x": 2600,
+   "y": 510,
+   "zoom": 0.82,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b7",
+    "",
+    0.0
+   ],
+   "x": 2400,
+   "y": 490,
+   "zoom": 0.8,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b7",
+    "₹7000"
+   ],
+   "x": 2500,
+   "y": 510,
+   "zoom": 0.85,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b7",
+    "इसके"
+   ],
+   "x": 2600,
+   "y": 510,
+   "zoom": 0.8,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b7",
+    "₹11000"
+   ],
+   "x": 2700,
+   "y": 510,
+   "zoom": 0.85,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b7",
+    "₹16000"
+   ],
+   "x": 2700,
+   "y": 490,
+   "zoom": 0.8,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b8",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 450,
+   "zoom": 0.8,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b8",
+    "₹3000"
+   ],
+   "x": 2500,
+   "y": 460,
+   "zoom": 0.85,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b8",
+    "पहले"
+   ],
+   "x": 2500,
+   "y": 500,
+   "zoom": 0.8,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b8",
+    "दोनों"
+   ],
+   "x": 2700,
+   "y": 500,
+   "zoom": 0.8,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b8",
+    "₹16000"
+   ],
+   "x": 2600,
+   "y": 480,
+   "zoom": 0.8,
+   "frames": 40
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

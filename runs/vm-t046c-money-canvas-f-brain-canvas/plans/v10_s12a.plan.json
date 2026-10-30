@@ -1,0 +1,207 @@
+{
+ "id": "v10_s12a",
+ "part_id": "c25.2",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b56",
+   "say": "जरूरत क्या थी? Cheques का ढेर जल्दी और सही process करना; MICR machine को पढ़ने लायक जानकारी देता है।"
+  },
+  {
+   "beat_id": "b57",
+   "say": "Equipment characters पढ़ता है, जानकारी के हिसाब से cheques छाँटता है और processing आगे बढ़ाता है।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "cheque_pile",
+   "kind": "crowd",
+   "cell": [
+    0,
+    2,
+    3,
+    2
+   ],
+   "cue": [
+    "b56",
+    "ढेर"
+   ],
+   "tone": "ink",
+   "align": "center",
+   "icon": "tw:1f9fe",
+   "size": 32,
+   "cols": 3,
+   "steps": [
+    {
+     "cue": [
+      "b56",
+      "ढेर"
+     ],
+     "n": 6
+    }
+   ]
+  },
+  {
+   "id": "need",
+   "kind": "text",
+   "cell": [
+    0,
+    4,
+    3,
+    2
+   ],
+   "cue": [
+    "b56",
+    "जल्दी"
+   ],
+   "text": "Cheques जल्दी और सही process करने हैं।",
+   "style": "box",
+   "tone": "ink",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "micr_anchor",
+   "kind": "callout",
+   "cell": [
+    0,
+    0,
+    12,
+    1
+   ],
+   "cue": [
+    "b56",
+    "MICR"
+   ],
+   "text": "MICR machine को पढ़ने लायक जानकारी देता है।",
+   "style": "note",
+   "tone": "accent",
+   "align": "center",
+   "size": 32,
+   "marks": [
+    {
+     "phrase": "पढ़ने लायक जानकारी",
+     "cue": [
+      "b56",
+      "जानकारी"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "reading",
+   "kind": "text",
+   "cell": [
+    4,
+    2,
+    3,
+    2
+   ],
+   "cue": [
+    "b57",
+    "characters"
+   ],
+   "text": "Equipment characters पढ़ता है।",
+   "style": "box",
+   "tone": "accent",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "input_flow",
+   "kind": "arrow",
+   "cue": [
+    "b57",
+    "पढ़ता"
+   ],
+   "tone": "accent",
+   "from": "cheque_pile",
+   "to": "reading",
+   "from_side": "r",
+   "to_side": "l",
+   "elbow": "hv",
+   "flow": {
+    "icon": "tw:1f9fe",
+    "count": 2,
+    "period": 1800,
+    "size": 24,
+    "cue": [
+     "b57",
+     "पढ़ता"
+    ]
+   }
+  },
+  {
+   "id": "sorting",
+   "kind": "text",
+   "cell": [
+    8,
+    2,
+    4,
+    2
+   ],
+   "cue": [
+    "b57",
+    "छाँटता"
+   ],
+   "text": "जानकारी के हिसाब से cheques छाँटता है।",
+   "style": "box",
+   "tone": "accent",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "read_to_sort",
+   "kind": "arrow",
+   "cue": [
+    "b57",
+    "छाँटता"
+   ],
+   "tone": "accent",
+   "from": "reading",
+   "to": "sorting",
+   "from_side": "r",
+   "to_side": "l",
+   "elbow": "hv"
+  },
+  {
+   "id": "processing",
+   "kind": "text",
+   "cell": [
+    8,
+    5,
+    4,
+    1
+   ],
+   "cue": [
+    "b57",
+    "processing"
+   ],
+   "text": "Processing आगे बढ़ाता है।",
+   "style": "box",
+   "tone": "ok",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "sort_to_process",
+   "kind": "arrow",
+   "cue": [
+    "b57",
+    "आगे"
+   ],
+   "tone": "ok",
+   "from": "sorting",
+   "to": "processing",
+   "from_side": "b",
+   "to_side": "t",
+   "elbow": "vh"
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

@@ -1,0 +1,273 @@
+{
+ "id": "v4_s10s",
+ "part_id": "c11.q",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b59",
+   "say": "₹1,000 fees बिना cash कैसे दें? खाते के ₹2,000 में से bank को ₹1,000 college पहुँचाने का लिखा instruction देते हैं। Clearing पर college को ₹1,000 मिलते हैं, आपके ₹1,000 बचते हैं। Funds कम हों तो fees बाकी है।"
+  },
+  {
+   "beat_id": "b60",
+   "say": "दूसरे रास्ते में issuer college को arrangement से payment पहुँचाता है। पहले आपका उससे कोई उधार नहीं था; अब ₹1,000 उसे लौटाने हैं, charges छोड़कर। आपने जमा पैसा नहीं, credit इस्तेमाल किया।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank",
+   "kind": "bank",
+   "x": 2600,
+   "sign": "bank",
+   "cue": [
+    "b59",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "teller",
+   "kind": "teller",
+   "x": 2600,
+   "cue": [
+    "b59",
+    "bank"
+   ]
+  },
+  {
+   "id": "student",
+   "kind": "crowd",
+   "x0": 2330,
+   "spacing": 80,
+   "enter_x": 1900,
+   "exit_x": 1900,
+   "face": 1,
+   "seed": 11,
+   "cue": [
+    "b59",
+    "fees"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b59",
+      "fees"
+     ],
+     "n": 1
+    }
+   ]
+  },
+  {
+   "id": "deposit",
+   "kind": "board",
+   "x": 2070,
+   "y": 430,
+   "fill": "#E4EEDF",
+   "cue": [
+    "b59",
+    "₹2,000"
+   ],
+   "until_cue": [
+    "b60",
+    "दूसरे"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b59",
+      "₹2,000"
+     ],
+     "text": "खाते में ₹2,000 हैं।"
+    },
+    {
+     "cue": [
+      "b59",
+      "आपके"
+     ],
+     "text": "आपके ₹1,000 बचते हैं।",
+     "dir": "down"
+    }
+   ]
+  },
+  {
+   "id": "payment_route",
+   "kind": "board",
+   "x": 3100,
+   "y": 430,
+   "fill": "#F1E8D5",
+   "cue": [
+    "b59",
+    "instruction"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b59",
+      "instruction"
+     ],
+     "text": "Bank को लिखा instruction देते हैं।"
+    },
+    {
+     "cue": [
+      "b59",
+      "Clearing"
+     ],
+     "text": "Clearing पर college को\n₹1,000 मिलते हैं।"
+    },
+    {
+     "cue": [
+      "b59",
+      "Funds"
+     ],
+     "text": "Funds कम हों तो fees बाकी है।"
+    },
+    {
+     "cue": [
+      "b60",
+      "issuer"
+     ],
+     "text": "Issuer college को\npayment पहुँचाता है।"
+    }
+   ]
+  },
+  {
+   "id": "credit",
+   "kind": "board",
+   "x": 2070,
+   "y": 430,
+   "fill": "#E8E3F3",
+   "cue": [
+    "b60",
+    "पहले"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b60",
+      "पहले"
+     ],
+     "text": "पहले कोई उधार नहीं था।"
+    },
+    {
+     "cue": [
+      "b60",
+      "₹1,000"
+     ],
+     "text": "अब ₹1,000 लौटाने हैं,\ncharges छोड़कर।",
+     "dir": "up"
+    },
+    {
+     "cue": [
+      "b60",
+      "credit"
+     ],
+     "text": "जमा पैसा नहीं,\ncredit इस्तेमाल किया।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b59",
+    "",
+    0.0
+   ],
+   "x": 2580,
+   "y": 520,
+   "zoom": 0.85,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b59",
+    "₹2,000"
+   ],
+   "x": 2350,
+   "y": 500,
+   "zoom": 1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b59",
+    "instruction"
+   ],
+   "x": 2750,
+   "y": 500,
+   "zoom": 0.95,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b59",
+    "Clearing"
+   ],
+   "x": 2840,
+   "y": 490,
+   "zoom": 1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b59",
+    "आपके"
+   ],
+   "x": 2500,
+   "y": 500,
+   "zoom": 0.9,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b59",
+    "Funds"
+   ],
+   "x": 2800,
+   "y": 490,
+   "zoom": 0.95,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b60",
+    "दूसरे"
+   ],
+   "x": 2600,
+   "y": 520,
+   "zoom": 0.85,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b60",
+    "पहले"
+   ],
+   "x": 2350,
+   "y": 490,
+   "zoom": 1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b60",
+    "₹1,000"
+   ],
+   "x": 2320,
+   "y": 480,
+   "zoom": 1.05,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b60",
+    "credit"
+   ],
+   "x": 2550,
+   "y": 510,
+   "zoom": 0.9,
+   "frames": 45
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

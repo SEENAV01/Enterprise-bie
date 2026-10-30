@@ -1,0 +1,281 @@
+{
+ "id": "v4_s4b",
+ "part_id": "c10.1",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b20",
+   "say": "यह fiat money है: value government authority और public trust से, material से नहीं। यानी आज मिला note कल groceries दिलाएगा।"
+  },
+  {
+   "beat_id": "b21",
+   "say": "Gold-backed paper का आधार redemption था; इसलिए हर paper note fiat नहीं।"
+  },
+  {
+   "beat_id": "b22",
+   "say": "Authority और trust वाला यही आधार आगे समझाएगा: gold बिना issue कैसे control होता है।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "fiat-anchor",
+   "kind": "text",
+   "cell": [
+    0,
+    0,
+    12,
+    1
+   ],
+   "cue": [
+    "b20",
+    "fiat"
+   ],
+   "text": "यह fiat money है।",
+   "style": "title",
+   "tone": "ink",
+   "fill": "paper",
+   "align": "center",
+   "size": 36
+  },
+  {
+   "id": "authority",
+   "kind": "text",
+   "cell": [
+    0,
+    2,
+    6,
+    1
+   ],
+   "cue": [
+    "b20",
+    "authority"
+   ],
+   "text": "Value government authority से है।",
+   "style": "box",
+   "tone": "accent",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "trust",
+   "kind": "text",
+   "cell": [
+    6,
+    2,
+    6,
+    1
+   ],
+   "cue": [
+    "b20",
+    "trust"
+   ],
+   "text": "Value public trust से है।",
+   "style": "box",
+   "tone": "accent",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "not-material",
+   "kind": "text",
+   "cell": [
+    2,
+    3,
+    8,
+    1
+   ],
+   "cue": [
+    "b20",
+    "material"
+   ],
+   "text": "Value material से नहीं है।",
+   "style": "note",
+   "tone": "warm",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "note",
+   "kind": "icon",
+   "cell": [
+    1,
+    5,
+    2,
+    2
+   ],
+   "cue": [
+    "b20",
+    "note"
+   ],
+   "until_cue": [
+    "b21",
+    "Gold-backed"
+   ],
+   "tone": "ink",
+   "icon": "fa:solid/coins"
+  },
+  {
+   "id": "groceries",
+   "kind": "icon",
+   "cell": [
+    9,
+    5,
+    2,
+    2
+   ],
+   "cue": [
+    "b20",
+    "groceries"
+   ],
+   "until_cue": [
+    "b21",
+    "Gold-backed"
+   ],
+   "tone": "ink",
+   "icon": "tw:1f9fa"
+  },
+  {
+   "id": "buy-groceries",
+   "kind": "arrow",
+   "cue": [
+    "b20",
+    "दिलाएगा।"
+   ],
+   "until_cue": [
+    "b21",
+    "Gold-backed"
+   ],
+   "tone": "accent",
+   "from": "note",
+   "to": "groceries",
+   "from_side": "r",
+   "to_side": "l",
+   "flow": {
+    "icon": "tw:1f4e6",
+    "count": 1,
+    "period": 2200,
+    "size": 28,
+    "reverse": true,
+    "cue": [
+     "b20",
+     "दिलाएगा।"
+    ]
+   }
+  },
+  {
+   "id": "redemption",
+   "kind": "text",
+   "cell": [
+    1,
+    5,
+    10,
+    1
+   ],
+   "cue": [
+    "b21",
+    "redemption"
+   ],
+   "until_cue": [
+    "b22",
+    "Authority"
+   ],
+   "text": "Gold-backed paper का आधार redemption था।",
+   "style": "box",
+   "tone": "warm",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "paper-distinction",
+   "kind": "callout",
+   "cell": [
+    1,
+    6,
+    10,
+    1
+   ],
+   "cue": [
+    "b21",
+    "fiat"
+   ],
+   "until_cue": [
+    "b22",
+    "Authority"
+   ],
+   "text": "हर paper note fiat नहीं।",
+   "style": "note",
+   "tone": "warm",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "issuance-question",
+   "kind": "text",
+   "cell": [
+    1,
+    5,
+    10,
+    2
+   ],
+   "cue": [
+    "b22",
+    "issue"
+   ],
+   "text": "Gold बिना issue कैसे control होता है?",
+   "style": "box",
+   "tone": "accent",
+   "align": "center",
+   "size": 32
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b21",
+    "Gold-backed"
+   ],
+   "ids": [
+    "fiat-anchor",
+    "redemption",
+    "paper-distinction"
+   ],
+   "until_cue": [
+    "b22",
+    "Authority"
+   ]
+  },
+  {
+   "cue": [
+    "b22",
+    "Authority"
+   ],
+   "ids": [
+    "fiat-anchor",
+    "authority",
+    "trust"
+   ],
+   "until_cue": [
+    "b22",
+    "issue"
+   ]
+  },
+  {
+   "cue": [
+    "b22",
+    "issue"
+   ],
+   "ids": [
+    "fiat-anchor",
+    "authority",
+    "trust",
+    "issuance-question"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

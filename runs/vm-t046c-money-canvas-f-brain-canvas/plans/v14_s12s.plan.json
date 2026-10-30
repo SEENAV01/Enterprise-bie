@@ -1,0 +1,291 @@
+{
+ "id": "v14_s12s",
+ "part_id": "c35.4",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b66",
+   "say": "Banking पर भरोसा क्यों हिले? मानो weak-credit borrower पर $100000 बाकी थे; वह हर महीने $800 देता था, फिर repayment रुक गई।"
+  },
+  {
+   "beat_id": "b67",
+   "say": "घर से net $70000 मिले: $30000 shortfall हुआ। कई loans और mortgage-backed claims के losses institutions कमजोर कर सकते हैं।"
+  },
+  {
+   "beat_id": "b68",
+   "say": "Charges से परेशानी क्यों? Hypothetical ₹100 card sale में ₹1 fee कटे; merchant को ₹99 मिले।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank",
+   "kind": "bank",
+   "x": 2600,
+   "y": 860,
+   "sign": "Banking",
+   "cue": [
+    "b66",
+    "Banking"
+   ]
+  },
+  {
+   "id": "teller",
+   "kind": "teller",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b66",
+    "Banking"
+   ]
+  },
+  {
+   "id": "borrower",
+   "kind": "crowd",
+   "x0": 2330,
+   "spacing": 90,
+   "enter_x": 1900,
+   "exit_x": 1900,
+   "face": 1,
+   "seed": 14,
+   "cue": [
+    "b66",
+    "borrower"
+   ],
+   "until_cue": [
+    "b68",
+    "Charges"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b66",
+      "borrower"
+     ],
+     "n": 1
+    }
+   ]
+  },
+  {
+   "id": "loan",
+   "kind": "board",
+   "x": 2110,
+   "y": 420,
+   "fill": "#E7D8BB",
+   "cue": [
+    "b66",
+    "$100000"
+   ],
+   "until_cue": [
+    "b68",
+    "Charges"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b66",
+      "$100000"
+     ],
+     "text": "Borrower पर $100000 बाकी थे।"
+    }
+   ]
+  },
+  {
+   "id": "repayment",
+   "kind": "board",
+   "x": 3070,
+   "y": 420,
+   "fill": "#DCE5DF",
+   "cue": [
+    "b66",
+    "$800"
+   ],
+   "until_cue": [
+    "b68",
+    "Charges"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b66",
+      "$800"
+     ],
+     "text": "हर महीने $800 देता था।"
+    },
+    {
+     "cue": [
+      "b66",
+      "रुक"
+     ],
+     "text": "फिर repayment रुक गई।"
+    },
+    {
+     "cue": [
+      "b67",
+      "$70000"
+     ],
+     "text": "घर से net $70000 मिले।"
+    },
+    {
+     "cue": [
+      "b67",
+      "$30000"
+     ],
+     "text": "$30000 shortfall हुआ।"
+    }
+   ]
+  },
+  {
+   "id": "institution_losses",
+   "kind": "label",
+   "x": 2600,
+   "y": 220,
+   "text": "Losses institutions कमजोर कर सकते हैं।",
+   "fill": "#F1E4D3",
+   "cue": [
+    "b67",
+    "कमजोर"
+   ],
+   "until_cue": [
+    "b68",
+    "Charges"
+   ]
+  },
+  {
+   "id": "hypothetical_note",
+   "kind": "label",
+   "x": 2600,
+   "y": 220,
+   "text": "यह Hypothetical card sale है।",
+   "fill": "#F3EAD6",
+   "cue": [
+    "b68",
+    "Hypothetical"
+   ]
+  },
+  {
+   "id": "card_sale",
+   "kind": "board",
+   "x": 2110,
+   "y": 420,
+   "fill": "#DCE5DF",
+   "cue": [
+    "b68",
+    "₹100"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b68",
+      "₹100"
+     ],
+     "text": "₹100 की card sale हुई।"
+    },
+    {
+     "cue": [
+      "b68",
+      "₹99"
+     ],
+     "text": "Merchant को ₹99 मिले।",
+     "dir": "down"
+    }
+   ]
+  },
+  {
+   "id": "card_fee",
+   "kind": "board",
+   "x": 3070,
+   "y": 420,
+   "fill": "#E7D8BB",
+   "cue": [
+    "b68",
+    "₹1"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b68",
+      "₹1"
+     ],
+     "text": "₹1 fee कटे;"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b66",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 520,
+   "zoom": 0.85,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b66",
+    "$100000"
+   ],
+   "x": 2390,
+   "y": 510,
+   "zoom": 1,
+   "frames": 36
+  },
+  {
+   "cue": [
+    "b66",
+    "$800"
+   ],
+   "x": 2810,
+   "y": 510,
+   "zoom": 1,
+   "frames": 36
+  },
+  {
+   "cue": [
+    "b67",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 490,
+   "zoom": 0.85,
+   "frames": 36
+  },
+  {
+   "cue": [
+    "b67",
+    "mortgage-backed"
+   ],
+   "x": 2600,
+   "y": 460,
+   "zoom": 0.9,
+   "frames": 36
+  },
+  {
+   "cue": [
+    "b68",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 520,
+   "zoom": 0.85,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b68",
+    "₹99"
+   ],
+   "x": 2430,
+   "y": 490,
+   "zoom": 0.95,
+   "frames": 30
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

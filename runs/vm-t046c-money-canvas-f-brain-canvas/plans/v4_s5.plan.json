@@ -1,0 +1,690 @@
+{
+ "id": "v4_s5",
+ "part_id": "c10.2",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b23",
+   "say": "Press से note निकलना और पैसा जारी होना क्या एक काम है? Fiat paper या digital numbers हो सकता है; face value gold-silver से नहीं बँधी, government authority, central-bank control और public trust से जुड़ी है।"
+  },
+  {
+   "beat_id": "b24",
+   "say": "और issue संभव है, मगर monetary policy control करती है। एक फर्क समझिए: printing notes बनाती है; authorised issuance circulation में लाता है। पुराने notes बदलना कुल पैसा बढ़ाना नहीं।"
+  },
+  {
+   "beat_id": "b25",
+   "say": "Policy rates और liquidity से loan महँगा हो तो दुकानदार expansion रोक सकता है। Borrowing और spending घटने से prices का दबाव घट सकता है; सस्ता credit उलटा असर करे। असर समय लेता है, missing goods नहीं बनाता।"
+  },
+  {
+   "beat_id": "b26",
+   "say": "Foreign price tags में codes क्यों देखें? $ वाला United States Dollar, USD, सबसे widely held और traded fiat currency है। € यानी Euro, EUR, कई EU देशों की shared currency है।"
+  },
+  {
+   "beat_id": "b27",
+   "say": "¥ Japan या China, कैसे पहचानेंगे? Japanese Yen, JPY, stability और global currency markets में बड़े role के लिए जाना जाता है। Chinese Yuan Renminbi, CNY, trade और international reserves में बढ़ रहा है, यानी बाहरी payments के लिए रखे foreign assets में।"
+  },
+  {
+   "beat_id": "b28",
+   "say": "Britain की दुकान में £ दिखे तो? यह British Pound Sterling, GBP है, जिसकी जड़ें 8th century में हैं। आज की fiat currencies में सबसे पुराना, लेकिन नाम पुराना होने से gold वाला वादा हमेशा गायब नहीं था।"
+  },
+  {
+   "beat_id": "b29",
+   "say": "Euro का historical count 27 EU members में 20 adopters है, सभी नहीं; इसे आज की updated गिनती मत मानिए।"
+  },
+  {
+   "beat_id": "b30",
+   "say": "इन descriptions से exact shares या हमेशा stable exchange rate मत निकालिए। पुराना currency नाम लगातार fiat होना नहीं बताता; Euro ranking के लिए measure चाहिए।"
+  },
+  {
+   "beat_id": "b31",
+   "say": "Reserve holdings backing नहीं; ज़्यादा पैसा goods नहीं बढ़ाता। Demand supply से आगे निकले तो purchasing power घट सकती है।"
+  }
+ ],
+ "kit": "shop",
+ "elements": [
+  {
+   "id": "shop",
+   "kind": "shop",
+   "x": 2500,
+   "y": 860,
+   "cue": [
+    "b23",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "keeper",
+   "kind": "shopkeeper",
+   "x": 2500,
+   "y": 860,
+   "cue": [
+    "b23",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "fiat",
+   "kind": "board",
+   "x": 3110,
+   "y": 470,
+   "fill": "#E8DCC6",
+   "cue": [
+    "b23",
+    "Fiat"
+   ],
+   "until_cue": [
+    "b24",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b23",
+      "Fiat"
+     ],
+     "text": "Fiat paper या digital numbers\nहो सकता है।"
+    },
+    {
+     "cue": [
+      "b23",
+      "gold-silver"
+     ],
+     "text": "Face value gold-silver से\nनहीं बँधी।"
+    },
+    {
+     "cue": [
+      "b23",
+      "government"
+     ],
+     "text": "Value government authority और\npublic trust से जुड़ी है।"
+    }
+   ]
+  },
+  {
+   "id": "issuance",
+   "kind": "board",
+   "x": 3110,
+   "y": 470,
+   "fill": "#E8DCC6",
+   "cue": [
+    "b24",
+    "monetary"
+   ],
+   "until_cue": [
+    "b25",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b24",
+      "monetary"
+     ],
+     "text": "Monetary policy issue को\ncontrol करती है।"
+    },
+    {
+     "cue": [
+      "b24",
+      "printing"
+     ],
+     "text": "Printing notes बनाती है।"
+    },
+    {
+     "cue": [
+      "b24",
+      "authorised"
+     ],
+     "text": "Authorised issuance\ncirculation में लाता है।"
+    },
+    {
+     "cue": [
+      "b24",
+      "पुराने"
+     ],
+     "text": "पुराने notes बदलना कुल पैसा\nबढ़ाना नहीं।"
+    }
+   ]
+  },
+  {
+   "id": "policy",
+   "kind": "board",
+   "x": 3110,
+   "y": 470,
+   "fill": "#DCE8DF",
+   "cue": [
+    "b25",
+    "loan"
+   ],
+   "until_cue": [
+    "b26",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b25",
+      "loan"
+     ],
+     "text": "Loan महँगा हो तो दुकानदार\nexpansion रोक सकता है।"
+    },
+    {
+     "cue": [
+      "b25",
+      "Borrowing"
+     ],
+     "text": "Borrowing और spending घटने से\nprices का दबाव घट सकता है।"
+    },
+    {
+     "cue": [
+      "b25",
+      "सस्ता"
+     ],
+     "text": "सस्ता credit उलटा असर करे।"
+    },
+    {
+     "cue": [
+      "b25",
+      "समय"
+     ],
+     "text": "असर समय लेता है,\nmissing goods नहीं बनाता।"
+    }
+   ]
+  },
+  {
+   "id": "dollar_euro",
+   "kind": "board",
+   "x": 3110,
+   "y": 470,
+   "fill": "#DFE7ED",
+   "cue": [
+    "b26",
+    "USD,"
+   ],
+   "until_cue": [
+    "b27",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b26",
+      "USD,"
+     ],
+     "text": "$ वाला United States Dollar,\nUSD है।"
+    },
+    {
+     "cue": [
+      "b26",
+      "widely"
+     ],
+     "text": "USD सबसे widely held और\ntraded fiat currency है।"
+    },
+    {
+     "cue": [
+      "b26",
+      "EUR,"
+     ],
+     "text": "€ यानी Euro, EUR, कई EU देशों की\nshared currency है।"
+    }
+   ]
+  },
+  {
+   "id": "yen_yuan",
+   "kind": "board",
+   "x": 3110,
+   "y": 470,
+   "fill": "#DFE7ED",
+   "cue": [
+    "b27",
+    "Japan"
+   ],
+   "until_cue": [
+    "b28",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b27",
+      "Japan"
+     ],
+     "text": "¥ Japan या China,\nकैसे पहचानेंगे?"
+    },
+    {
+     "cue": [
+      "b27",
+      "stability"
+     ],
+     "text": "Japanese Yen, JPY, stability और\nglobal markets में बड़े role के लिए\nजाना जाता है।"
+    },
+    {
+     "cue": [
+      "b27",
+      "CNY,"
+     ],
+     "text": "Chinese Yuan Renminbi, CNY,\ntrade और international reserves में\nबढ़ रहा है।"
+    },
+    {
+     "cue": [
+      "b27",
+      "बाहरी"
+     ],
+     "text": "International reserves बाहरी\npayments के लिए रखे foreign\nassets हैं।"
+    }
+   ]
+  },
+  {
+   "id": "pound",
+   "kind": "board",
+   "x": 3110,
+   "y": 470,
+   "fill": "#DFE7ED",
+   "cue": [
+    "b28",
+    "GBP"
+   ],
+   "until_cue": [
+    "b29",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b28",
+      "GBP"
+     ],
+     "text": "£ British Pound Sterling,\nGBP है।"
+    },
+    {
+     "cue": [
+      "b28",
+      "8th"
+     ],
+     "text": "इसकी जड़ें 8th century में हैं।"
+    },
+    {
+     "cue": [
+      "b28",
+      "gold"
+     ],
+     "text": "नाम पुराना होने से gold वाला\nवादा हमेशा गायब नहीं था।"
+    }
+   ]
+  },
+  {
+   "id": "historical_count",
+   "kind": "board",
+   "x": 3110,
+   "y": 470,
+   "fill": "#DFE7ED",
+   "cue": [
+    "b29",
+    "20"
+   ],
+   "until_cue": [
+    "b30",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b29",
+      "20"
+     ],
+     "text": "Euro का historical count\n27 EU members में 20 adopters है।"
+    }
+   ]
+  },
+  {
+   "id": "historical_note",
+   "kind": "label",
+   "x": 3110,
+   "y": 235,
+   "text": "इसे आज की updated गिनती मत मानिए।",
+   "fill": "#F1E5CA",
+   "cue": [
+    "b29",
+    "आज"
+   ],
+   "until_cue": [
+    "b30",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "limits",
+   "kind": "board",
+   "x": 3110,
+   "y": 470,
+   "fill": "#E8DCC6",
+   "cue": [
+    "b30",
+    "exact"
+   ],
+   "until_cue": [
+    "b31",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b30",
+      "exact"
+     ],
+     "text": "Descriptions से exact shares या\nहमेशा stable exchange rate\nमत निकालिए।"
+    },
+    {
+     "cue": [
+      "b30",
+      "पुराना"
+     ],
+     "text": "पुराना currency नाम लगातार\nfiat होना नहीं बताता।"
+    },
+    {
+     "cue": [
+      "b30",
+      "ranking"
+     ],
+     "text": "Euro ranking के लिए\nmeasure चाहिए।"
+    }
+   ]
+  },
+  {
+   "id": "closing",
+   "kind": "board",
+   "x": 3110,
+   "y": 470,
+   "fill": "#DCE8DF",
+   "cue": [
+    "b31",
+    "backing"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b31",
+      "backing"
+     ],
+     "text": "Reserve holdings backing नहीं।"
+    },
+    {
+     "cue": [
+      "b31",
+      "ज़्यादा"
+     ],
+     "text": "ज़्यादा पैसा goods नहीं बढ़ाता।"
+    },
+    {
+     "cue": [
+      "b31",
+      "Demand"
+     ],
+     "text": "Demand supply से आगे निकले तो\npurchasing power घट सकती है।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b23",
+    "",
+    0.0
+   ],
+   "x": 2700,
+   "y": 490,
+   "zoom": 0.9,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b23",
+    "Fiat"
+   ],
+   "x": 2930,
+   "y": 470,
+   "zoom": 1.1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b23",
+    "central-bank"
+   ],
+   "x": 3030,
+   "y": 465,
+   "zoom": 1.2,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b24",
+    "",
+    0.0
+   ],
+   "x": 2830,
+   "y": 490,
+   "zoom": 1.0,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b24",
+    "printing"
+   ],
+   "x": 3010,
+   "y": 470,
+   "zoom": 1.2,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b25",
+    "",
+    0.0
+   ],
+   "x": 2700,
+   "y": 500,
+   "zoom": 0.95,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b25",
+    "expansion"
+   ],
+   "x": 2600,
+   "y": 510,
+   "zoom": 1.05,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b25",
+    "Borrowing"
+   ],
+   "x": 2970,
+   "y": 470,
+   "zoom": 1.15,
+   "frames": 60
+  },
+  {
+   "cue": [
+    "b26",
+    "",
+    0.0
+   ],
+   "x": 2810,
+   "y": 490,
+   "zoom": 1.0,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b26",
+    "USD,"
+   ],
+   "x": 3030,
+   "y": 470,
+   "zoom": 1.2,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b26",
+    "EUR,"
+   ],
+   "x": 2960,
+   "y": 470,
+   "zoom": 1.12,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b27",
+    "",
+    0.0
+   ],
+   "x": 2860,
+   "y": 480,
+   "zoom": 1.02,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b27",
+    "Japanese"
+   ],
+   "x": 3020,
+   "y": 470,
+   "zoom": 1.2,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b27",
+    "Chinese"
+   ],
+   "x": 2950,
+   "y": 470,
+   "zoom": 1.12,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b27",
+    "यानी"
+   ],
+   "x": 3050,
+   "y": 470,
+   "zoom": 1.22,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b28",
+    "",
+    0.0
+   ],
+   "x": 2740,
+   "y": 490,
+   "zoom": 0.98,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b28",
+    "GBP"
+   ],
+   "x": 3000,
+   "y": 470,
+   "zoom": 1.18,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b28",
+    "आज"
+   ],
+   "x": 2930,
+   "y": 470,
+   "zoom": 1.1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b29",
+    "",
+    0.0
+   ],
+   "x": 3000,
+   "y": 440,
+   "zoom": 1.1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b29",
+    "आज"
+   ],
+   "x": 3060,
+   "y": 410,
+   "zoom": 1.16,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b30",
+    "",
+    0.0
+   ],
+   "x": 2900,
+   "y": 475,
+   "zoom": 1.06,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b30",
+    "पुराना"
+   ],
+   "x": 3020,
+   "y": 470,
+   "zoom": 1.2,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b31",
+    "",
+    0.0
+   ],
+   "x": 2890,
+   "y": 480,
+   "zoom": 1.05,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b31",
+    "Demand"
+   ],
+   "x": 2780,
+   "y": 490,
+   "zoom": 0.96,
+   "frames": 60
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

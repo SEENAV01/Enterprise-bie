@@ -1,0 +1,2631 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "canvas",
+ "unit": "v10_s1s",
+ "status": "passed",
+ "instructions_version": "canvas-plan/1",
+ "rulebook_version": "canvas_profile@2026-10-29.1+content_types@2026-10-27.1+explanations@2026-10-24.3+level_profiles@2026-10-24.1+simple_hindi@2026-10-28.1+teacher_examples@2026-10-29.1+vision-2026-10-21@2026-10-21.17+visual_grammar@2026-10-29.1+visual_levels@2026-10-26.2",
+ "rulebook_digest": "098fc051cc02b3130eaac1ed94bdf3c0d2d23c809b82208ab9729d71996b644f",
+ "rules_used": [
+  "CV-01",
+  "CV-02",
+  "CV-03",
+  "CV-04",
+  "CV-05",
+  "CV-06",
+  "CV-07",
+  "CV-08",
+  "CV-09",
+  "CV-10",
+  "CV-11",
+  "CV-12",
+  "CV-13",
+  "CV-14",
+  "CV-15",
+  "CV-16",
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-05",
+  "G-06",
+  "G-07"
+ ],
+ "maker_route": "codex",
+ "reviewer_route": "codex-checker",
+ "maker_model": "gpt-6.1-sol",
+ "reviewer_model": "gpt-6.1-sol",
+ "reviewer_independence": "same_model_temporary",
+ "inputs_digest": "f0d77b6adba689ee6e7a3b8e8a4d534963fba52ef2c9d329bba4a5825eb7a4d4",
+ "card": null,
+ "prefix_sha256": "70df875cc213217b02bd99129255b9e06db6145661d64ac2f15f5f8eca1511d7",
+ "review_prefix_sha256": null,
+ "inputs": {
+  "system": "You are BIE's world director for one STORY part of a video lesson of Indian Economy for UPSC / State PCS aspirants (UPSC / State PCS): actors\nact in a place (a shop with buyers on a street; its place element is kind 'shop'), so this part is shown inside a small designed world (Navin's level C, an L3 world). The script\nis already written and passed; you do not change a word of it. You place the props, the people, the effects and the\ncamera moves, each on a spoken word; code builds, times and checks the world and a refused plan comes back to you with\nthe exact error, and you answer with the whole corrected plan.\n\nCourse: \"3. Money\" · learner language: Hinglish.\n\nNavin's rules for this section (follow every one):\n[CV-01] One canvas per idea: build it piece by piece instead of cutting to a new shot every sentence. Clear the canvas only when the idea changes; otherwise re-frame with a zoom or pan to the part being explained.\n[CV-02] Something on the canvas changes about every 5 s (one change per one or two spoken phrases).\n[CV-03] The picture never stays the same for more than 15 s (the references sometimes hold 40-80 s; BIE must not).\n[CV-04] A new element appears on its own word, while it is being said (about 40% into the phrase, never in the pause after).\n[CV-05] Numbers that change are struck out and replaced on screen (50 -> 65), with an up/down arrow, on the word of the new number.\n[CV-06] Many people/things are shown as a crowd that grows or shrinks with the story (2 buyers -> 12 -> 3).\n[CV-07] A running numeric example carries the concept (price 50 -> 65, GDP 10K -> 11K -> 12.1K at 10%).\n[CV-08] Return to the topic tree and tick the branch that is done before starting the next branch.\n[CV-09] One anchor diagram stays (a band, a tree, a rate card) while the part beside or below it changes.\n[CV-10] No overlap, nothing outside the safe area, captions strip kept clear, readable text (>= 24 px at 1080p), at most 16 elements on screen.\n[CV-11] No photos or caricatures of real people, no logos, emblems or regulator marks: use a name card, a generic icon or BIE's own presenter character.\n[CV-12] Light paper theme for build-up canvases (dark theme stays for 3D/science worlds); subtitles on a dark strip.\n[CV-13] On-screen text is a short COMPLETE phrase or sentence in the learner's language (Devanagari Hinglish with the English terms the script uses), one idea per board or box; never a code: no ✓ ✗ ≠, no list of bare words ('Exchange · Account / Store · Deferred'), no line that ends on → = : / (Navin, 29 October 2026: 'teacher ki naration uske sentence aise poore ho ki banawati na lage').\n[CV-14] Every on-screen text is explained: its key words are said in the narration of the beat it appears on (the cue beat), and every board step the director adds is spoken; a text the narration never says does not go on screen.\n[CV-15] A caveat ('imagined market', 'illustrative numbers') is shown once per part on its own small note, not on every board.\n[CV-16] Numbers on screen are written the way the narration says them: every number on a board, tag or box is said in its cue beat (₹500 on screen, '500 rupaye' in the narration), no counters the narration never mentions ('Payments: 0 → 2').\n[G-01] Everything taught comes from the book. Knowledge from outside the book is allowed only to explain the book better; it is marked as outside, standard textbook-level and correct. Never invent facts, numbers, names or quotations.\n[G-02] Work like the best teacher of these learners and this exam, not like a summariser. Depth beats brevity: nothing teachable on the page is skipped or compressed away, and every explanation makes a student understand, not just remember. Depth means understanding, not length: lesson narration keeps S2-01's time by cutting repetition and side-tracks, never book content.\n[G-03] Before the output, fill 'notes' with brief notes for the reviewer and for Navin: what this unit is about, the key questions a teacher must answer about it, the main decisions you made with a one-line reason each, and anything uncertain. Keep the notes short; they explain the work, they are not the work.\n[G-05] Never drop or compress away what the book teaches to fit a length. If a unit of work is too large, it is split by BIE into smaller units; within a unit, the book's content is complete. Lesson narration has a time target (S2-01), met by cutting repetition and side-tracks, never book content.\n[G-06] BIE is the link between the learner and the book, like a teacher (Navin, 24 October 2026). The book is the base; BIE carries its text, easy or hard, into the learner's mind. Never just read the line out: every book line is opened (what its words mean, why it is so, where it is seen, what follows), at the depth of the level profile.\n[G-07] Two layers, like a film (Navin, 24 October 2026). The writer layer (understanding, plan, script) decides what is said and how deep, following the level profile and the book's own level. The presentation layer (director, video blocks, render) is the same skilled quality for every learner, from class 6 to postgraduate; only the detail shown follows the level, never the craft.\n\n# Director card: world plans (for the AI world director step, Navin's level C)\n\nYou plan ONE world for ONE story part of a passed script: actors act in a place, so the part is shown inside a small\ndesigned 2.5D street with the place at its centre. You place props, people, effects and the camera, each on a spoken\nword. Code builds, times and checks the world (`bie/brain/video/world.py`); a refused plan comes back with the exact error.\n\n## The world\n\nWorld pixels: 5200 wide, ground line at y 860; the place (the `shop` or the `bank`, the one element kind your role names\nas the kit) is usually near x 2600. The camera looks at a point\n(`x`, `y`) with a `zoom` (0.8 wide street … 1.7 close on a price tag) and takes `frames` to get there (30–60 at 30 fps).\nCamera keys are in time order, the first on the part's first beat.\n\n## Element vocabulary\n\n| kind | fields | use it for |\n| --- | --- | --- |\n| `shop` | `x`, `sign` (the shop's name, in the learner's script), `packets: [{n, cue}]` | the place of a shop story (a kirana shop, a tea stall, a market stall, a bazaar); its stock of goods on the counter (n packets) |\n| `price_tag` | `x`, `y`, `string` (hanging length), `steps: [{text, dir, cue}]`, `lift_cue` + `lift_dy` | the price that is struck out and replaced (a price only: '₹65', '₹10,000', at most 9 characters; words go on a board); lift it when demand pulls it up |\n| `crowd` | `x0`, `spacing`, `enter_x`, `exit_x`, `face` (-1 looks left), `seed`, `steps: [{n, cue}]`, `carry_cue` + `carry_n` | buyers or bank customers who walk in and out as the number changes; `carry` sends n of them away with goods |\n| `bank` | `x`, `sign` (the bank's name, generic, in the learner's script) | the place of a bank story: a stone front with pillars, a teller window and a counter; customers stand before it (`crowd` with `x0` near `x` - 270) |\n| `teller` | `x` (the bank's `x`) | the bank's clerk behind the counter (as `shopkeeper` is for the shop) |\n| `board` | `x`, `y`, `text` (the title: खाता, EMI, बचत), `fill` (header colour), `steps: [{text, dir, cue}]`, `until_cue` | a standing display whose value changes on its word: a passbook balance ₹0 → ₹500, an EMI due ₹10,000 → ₹0; the old value is struck out, `dir` \"up\" or \"down\" adds the arrow. A value is at most 3 lines of 40 characters (your own line breaks are kept, a long line is wrapped at spaces), so a complete short sentence fits; the teaching stays in the narration, a board shows the number or the one idea that changes, as a phrase the learner can read (CV-13), with the words and numbers the narration of its cue beat says (CV-14, CV-16); never codes (✓ ≠ →, \"1–3 ✓, 4 Future payment →\") |\n| `label` | `x`, `y`, `text`, `fill` (rgba colour), `cue`, `until_cue` | SUPPLY · 3, DEMAND · 12: short labels over the scene |\n| `coin_rain` | `x0`, `x1`, `count`, `cue`, `until_cue` | money arriving in people's hands |\n| `balance` | `x`, `y`, `tilt`, `cue`, `tilt_cue`, `until_cue` | supply against demand on a balance that tilts on its word |\n| `pull_arrow` | `x`, `y0`, `y1`, `text`, `cue` | the force that pulls the price (demand-pull) |\n| `title` | `text`, `cue` | the part's name, on its word (at most 30 characters) |\n| `lamp`, `foreground` | `x` | street dressing for depth (two or three of each, outside the shop) |\n\nEvery element has `cue: [beat_id, word]` with the word exactly as written in that beat (`[beat_id, \"\"]` for the beat's\nstart). Something must change at least every 15 s (the code refuses a longer still); aim for a change every 5 s.\nNever a real person, logo, emblem or regulator mark: a generic shop sign and generic people only.\n\n## On-screen text (CV-13 to CV-16; Navin's verdict on Money v1, 29 October 2026)\n\n- A board, label or tag holds ONE idea as a short COMPLETE phrase or sentence in the learner's language (Devanagari Hinglish\n  with the English terms the script uses): \"Payment में notes और coins के अलावा खाते का पैसा भी चलता है\", not\n  \"Money = balance / Device ≠ money\".\n- Never a code: no ✓ ✗ ≠; no list of bare words (\"Exchange ✓ · Account ✓ / Store · Deferred\"); no line that ends on → = : /.\n- Every text is explained: its key words and every number are said in the narration of its cue beat (the code refuses a text\n  or a number the beat does not say; move the cue to the beat that says it, or leave it to the narration).\n- A caveat (\"imagined market\", \"illustrative numbers\") once per part, on its own small label, not on every board.\n\nHow to fill the JSON (every field is present; \"\" / 0 / [] mean \"not used\"):\n- notes: the story of this part in two lines, what each camera move shows, what is uncertain.\n- elements: in story order; id (unique), kind, the fields of that kind (card), cue [beat_id, word] (word exactly as written\n  in that beat; [beat_id, \"\"] for the beat's start) and until_cue when it leaves; steps (text/n + cue) for a price tag, a\n  board or a crowd; packets (n + cue) for the shop's stock; lift_cue + lift_dy lifts a price tag; carry_cue + carry_n sends\n  buyers away with goods; tilt_cue tilts the balance. The place element (shop or bank) is the kit named above, once.\n- camera: keys in time order, each with cue, x and y in world pixels, zoom and frames (how long the move takes).\nReply with the JSON object only.",
+  "user": "Chapter: 3. Money. Part c23.1 (5 beats).\nThe part (JSON):\n{\"part\": {\"id\": \"v10_s1s\", \"part_id\": \"c23.1\", \"mode\": \"C\", \"place\": \"shop\", \"story\": true}, \"beats\": [{\"beat_id\": \"b2\", \"say\": \"बिना नोट निकाले ₹200 का किराना कैसे लेंगे? आपके ₹1,000 थे, दुकानदार के ₹500। Account payment के बाद आपके ₹800 बचे, उसके ₹700 हुए।\"}, {\"beat_id\": \"b3\", \"say\": \"उधार का दावा आगे कैसे जाएगा? Retailer का ₹10,000 चुकाने वाला valid written document wholesaler ने नियम से supplier को दिया। अब वह 1 document supplier के पास है।\"}, {\"beat_id\": \"b4\", \"say\": \"खुद चुकाने का वादा कैसा दिखेगा? मानिए Rahul ने ₹50,000 के चावल उधार दिए। Retailer लिखता है, “I promise to pay Rahul ₹50,000 on 1 January.” चुकाने पर बकाया ₹0 होगा।\"}, {\"beat_id\": \"b5\", \"say\": \"दूसरे को चुकाने को कहें तो? Wholesaler retailer को ₹1 लाख 90 days बाद देने का written order देता है। मानिए समय पर पूरा चुकाया; बकाया ₹0 हुआ।\"}, {\"beat_id\": \"b6\", \"say\": \"Bank को लिखें तो? ₹2,000 के किराने का cheque दुकानदार जमा करता है। सफल clearing पर आपके ₹10,000 में ₹8,000 बचे; उसके ₹5,000 बढ़कर ₹7,000 हुए। केवल cheque देने से नहीं।\"}], \"items\": [{\"item_id\": \"p011-i8\", \"content_type\": \"definition\", \"content\": \"• It is the money that exists as deposits in bank accounts and is transferred through banking instruments rather than as physical cash.\", \"real_world_example\": {\"place\": \"Hypothetical kirana shop\", \"actors\": [\"buyer\", \"shopkeeper\", \"bank\"], \"goods\": [\"groceries\", \"bank deposits\"], \"numbers\": [{\"what\": \"buyer's deposit balance\", \"before\": \"₹1,000\", \"after\": \"₹800\"}, {\"what\": \"shopkeeper's deposit balance\", \"before\": \"₹500\", \"after\": \"₹700\"}], \"steps\": [{\"step\": \"The buyer purchases ₹200 of groceries and authorises an account payment.\", \"mechanism_link\": \"Deposit used as money without withdrawing cash\"}, {\"step\": \"The buyer's account loses ₹200 and the seller's gains ₹200.\", \"mechanism_link\": \"Transfer through the banking system\"}], \"term_after\": \"The balances used in this payment are bank money or deposit money.\", \"real_life_link\": \"The page names UPI, debit cards and cheques as familiar payment channels.\"}}, {\"item_id\": \"p011-i12\", \"content_type\": \"definition\", \"content\": \"o A negotiable instrument is a written document that promises or orders payment of a specified sum and can be transferred from one person to another.\", \"real_world_example\": {\"place\": \"Hypothetical wholesaler's shop\", \"actors\": [\"retailer\", \"wholesaler\", \"supplier\"], \"goods\": [\"stock worth ₹10,000\", \"written payment promise\"], \"numbers\": [{\"what\": \"validly transferred ₹10,000 instruments held by wholesaler\", \"before\": \"1\", \"after\": \"0\"}, {\"what\": \"such instruments held by supplier\", \"before\": \"0\", \"after\": \"1\"}], \"steps\": [{\"step\": \"For stock bought on credit, the retailer issues a valid written promise to pay ₹10,000.\", \"mechanism_link\": \"Written promise for a specified sum\"}, {\"step\": \"The wholesaler validly transfers the instrument to the supplier.\", \"mechanism_link\": \"Payment claim can pass between persons\"}], \"term_after\": \"Such a transferable payment document is a negotiable instrument.\", \"real_life_link\": \"The book connects this idea to cheques, bills of exchange and promissory notes.\"}}, {\"item_id\": \"p011-i17\", \"content_type\": \"classification\", \"content\": \"Cheque — Bill of exchange drawn on a bank.\", \"real_world_example\": {\"place\": \"Hypothetical Indian grocery shop and banking system\", \"actors\": [\"customer as drawer\", \"customer's bank as drawee\", \"shopkeeper as payee\", \"shopkeeper's bank\"], \"goods\": [\"groceries worth ₹2,000\", \"bank deposits\", \"cheque\"], \"numbers\": [{\"what\": \"customer's balance after successful clearing\", \"before\": \"₹10,000\", \"after\": \"₹8,000\"}, {\"what\": \"shopkeeper's balance after successful clearing\", \"before\": \"₹5,000\", \"after\": \"₹7,000\"}], \"steps\": [{\"step\": \"The customer buys ₹2,000 of groceries and writes a cheque naming the shopkeeper.\", \"mechanism_link\": \"Customer issues a written payment order addressed to the bank\"}, {\"step\": \"The shopkeeper deposits the cheque for collection through the bank.\", \"mechanism_link\": \"Payee presents the instruction through banking arrangements\"}, {\"step\": \"Assuming successful clearing and payment, ₹2,000 leaves the customer's account and reaches the shopkeeper's account.\", \"mechanism_link\": \"Bank honours the customer's order and pays the payee\"}], \"term_after\": \"This customer-issued bill of exchange drawn on a bank is a cheque.\", \"real_life_link\": \"The page lists cheques among the channels used to pay with bank deposits; the balances here are hypothetical.\"}}, {\"item_id\": \"p011-i19\", \"content_type\": \"definition\", \"content\": \"1. Promissory Note\\n• A promissory note is a written promise by one person to pay another person a certain amount.\\n• Example: \\\"I promise to pay Rahul ₹50,000 on 1 January.”\\n• Parties involved: Maker and Payee\", \"real_world_example\": {\"place\": \"Hypothetical Indian wholesale grain market\", \"actors\": [\"retailer as maker\", \"Rahul, rice wholesaler, as payee\"], \"goods\": [\"rice stock worth ₹50,000\", \"written payment promise\", \"₹50,000 settlement\"], \"numbers\": [{\"what\": \"retailer's amount owed to Rahul when stock is supplied on credit\", \"before\": \"₹0\", \"after\": \"₹50,000\"}, {\"what\": \"amount outstanding after payment on 1 January\", \"before\": \"₹50,000\", \"after\": \"₹0\"}], \"steps\": [{\"step\": \"A retailer needs rice for the shop but cannot pay immediately; Rahul supplies ₹50,000 of stock on credit.\", \"mechanism_link\": \"A concrete credit purchase creates the need for a future payment commitment\"}, {\"step\": \"The retailer writes a promise to pay Rahul ₹50,000 on 1 January.\", \"mechanism_link\": \"Maker personally undertakes payment of a specified sum to the payee\"}, {\"step\": \"Assuming payment occurs on that date, the retailer pays Rahul ₹50,000 and the outstanding amount becomes ₹0.\", \"mechanism_link\": \"Settlement fulfils the maker's promise\"}], \"term_after\": \"The retailer's written promise to pay Rahul is a promissory note.\", \"real_life_link\": \"This hypothetical stock purchase connects the book's promise to business credit; the rice transaction is added explanation, not a printed fact.\"}}, {\"item_id\": \"p011-i20\", \"content_type\": \"definition\", \"content\": \"2. Bill of Exchange:\\n• A bill of exchange is a written order directing someone to pay another person.\\n• Example: A wholesaler orders a retailer to pay ₹1 lakh after 90 days.\\n• Parties involved: Drawer (wholesaler), Drawee (retailer), Payee (Wholesaler or any other person named by him).\", \"real_world_example\": {\"place\": \"Hypothetical wholesale market\", \"actors\": [\"wholesaler as drawer and payee\", \"retailer as drawee\"], \"goods\": [\"retail stock\", \"₹1 lakh payment\"], \"numbers\": [{\"what\": \"payment outstanding after settlement\", \"before\": \"₹1,00,000\", \"after\": \"₹0\"}, {\"what\": \"elapsed time\", \"before\": \"0 days\", \"after\": \"90 days\"}], \"steps\": [{\"step\": \"Following a hypothetical credit sale, the wholesaler writes the page's order directing the retailer to pay ₹1 lakh after 90 days.\", \"mechanism_link\": \"Drawer issues an order to the drawee\"}, {\"step\": \"In this hypothetical completion, the retailer pays the wholesaler after 90 days.\", \"mechanism_link\": \"Drawee pays the named payee, who here is also the drawer\"}], \"term_after\": \"The written payment order in this transaction is a bill of exchange.\", \"real_life_link\": \"The page's wholesaler-retailer example links the instrument to business credit payments.\"}}, {\"item_id\": \"p012-i1\", \"content_type\": \"definition\", \"content\": \"A cheque is a special type of bill of exchange drawn on a bank and payable on demand.\", \"real_world_example\": {\"place\": \"A shop and its bank\", \"actors\": [\"shopkeeper\", \"supplier\", \"bank\"], \"goods\": [\"₹2,000 supplier payment\"], \"numbers\": [{\"what\": \"shopkeeper's account balance after successful payment, ignoring charges\", \"before\": \"₹10,000\", \"after\": \"₹8,000\"}], \"steps\": [{\"step\": \"The shopkeeper gives the supplier a ₹2,000 written instruction addressed to the bank.\", \"mechanism_link\": \"The account holder draws the payment instruction on the bank.\"}, {\"step\": \"The supplier presents it; on successful payment the shopkeeper's account is debited ₹2,000.\", \"mechanism_link\": \"Presentation requests payment from the bank.\"}], \"term_after\": \"This bank-directed, payable-on-demand instrument is a cheque.\", \"real_life_link\": \"Illustrative application: supplier and household payments made using cheques.\"}}], \"on_screen_hints\": [\"₹200 paid: buyer ₹1,000 → ₹800; seller ₹500 → ₹700\", \"₹10,000 claim: wholesaler holds 1 → 0; supplier holds 0 → 1\", \"Illustrative rice credit → written promise → assumed settlement\", \"Written order → day 90 → ₹1,00,000 settled\", \"Issue → collection → successful clearing → balances change\"]}\n\nReply with the plan JSON."
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "started_at": 1793323606.9365249,
+   "mode": "full",
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "1d815c47039ceb23b7cc3f8378997d2ae80637009b95f5dd3e2d61133303cf2d",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 8956,
+    "output_tokens": 4684,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "एक ही किराना दुकान में account payment, transferable document, written promise, written order और cheque के उदाहरण खुलते हैं। हर उदाहरण का board हटने पर अगला आता है; दुकान स्थायी anchor रहती है।",
+    "key_questions": [
+     "बिना cash निकाले दोनों खातों के balances कैसे बदलते हैं?",
+     "दावा transfer करना, खुद payment का promise करना और दूसरे को payment का order देना कैसे अलग हैं?",
+     "Cheque देने और successful clearing के बीच क्या फर्क है?"
+    ],
+    "decisions": [
+     {
+      "decision": "एक स्थायी दुकान और बारी-बारी से बदलते दो side boards रखे हैं।",
+      "reason": "स्थान बना रहता है, लेकिन पिछले उदाहरण की रकम अगले उदाहरण से नहीं मिलती।"
+     },
+     {
+      "decision": "हर नई balance राशि उसी बोले गए number पर strike-through replacement से आती है।",
+      "reason": "Debit और credit का असर narration के साथ दिखता है।"
+     },
+     {
+      "decision": "Camera दुकान, document और balances के बीच चलता है।",
+      "reason": "लंबे beats में भी दृश्य लगातार बदलता है।"
+     },
+     {
+      "decision": "Topic-tree और technical classification के अतिरिक्त labels नहीं जोड़े हैं।",
+      "reason": "इस passed narration में उनके शब्द नहीं बोले गए हैं।"
+     }
+    ],
+    "uncertain": [
+     "अलग caveat के लिए केवल बोले गए ‘मानिए’ का उपयोग किया है; script में ‘illustrative numbers’ नहीं कहा गया है।",
+     "Document transfer को board की बदलती custody से दिखाया है; उपलब्ध vocabulary में हाथ से document देने का actor action नहीं है।"
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "एक ही किराना दुकान में account payment, transferable document, written promise, written order और cheque के उदाहरण खुलते हैं। हर उदाहरण का board हटने पर अगला आता है; दुकान स्थायी anchor रहती है।",
+     "key_questions": [
+      "बिना cash निकाले दोनों खातों के balances कैसे बदलते हैं?",
+      "दावा transfer करना, खुद payment का promise करना और दूसरे को payment का order देना कैसे अलग हैं?",
+      "Cheque देने और successful clearing के बीच क्या फर्क है?"
+     ],
+     "decisions": [
+      {
+       "decision": "एक स्थायी दुकान और बारी-बारी से बदलते दो side boards रखे हैं।",
+       "reason": "स्थान बना रहता है, लेकिन पिछले उदाहरण की रकम अगले उदाहरण से नहीं मिलती।"
+      },
+      {
+       "decision": "हर नई balance राशि उसी बोले गए number पर strike-through replacement से आती है।",
+       "reason": "Debit और credit का असर narration के साथ दिखता है।"
+      },
+      {
+       "decision": "Camera दुकान, document और balances के बीच चलता है।",
+       "reason": "लंबे beats में भी दृश्य लगातार बदलता है।"
+      },
+      {
+       "decision": "Topic-tree और technical classification के अतिरिक्त labels नहीं जोड़े हैं।",
+       "reason": "इस passed narration में उनके शब्द नहीं बोले गए हैं।"
+      }
+     ],
+     "uncertain": [
+      "अलग caveat के लिए केवल बोले गए ‘मानिए’ का उपयोग किया है; script में ‘illustrative numbers’ नहीं कहा गया है।",
+      "Document transfer को board की बदलती custody से दिखाया है; उपलब्ध vocabulary में हाथ से document देने का actor action नहीं है।"
+     ]
+    },
+    "elements": [
+     {
+      "id": "kirana",
+      "kind": "shop",
+      "x": 2600,
+      "y": 860,
+      "sign": "किराना",
+      "text": "",
+      "fill": "",
+      "string": 0,
+      "steps": [],
+      "packets": [
+       {
+        "n": 4,
+        "cue": [
+         "b2",
+         "किराना"
+        ]
+       }
+      ],
+      "cue": [
+       "b2",
+       ""
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "keeper",
+      "kind": "shopkeeper",
+      "x": 2600,
+      "y": 860,
+      "sign": "",
+      "text": "",
+      "fill": "",
+      "string": 0,
+      "steps": [],
+      "packets": [],
+      "cue": [
+       "b2",
+       "दुकानदार"
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "buyers",
+      "kind": "crowd",
+      "x": 0,
+      "y": 0,
+      "sign": "",
+      "text": "",
+      "fill": "",
+      "string": 0,
+      "steps": [
+       {
+        "text": "",
+        "n": 1,
+        "dir": "",
+        "cue": [
+         "b2",
+         "लेंगे?"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b2",
+       "लेंगे?"
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 2310,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 100,
+      "enter_x": 1800,
+      "exit_x": 1800,
+      "face": 1,
+      "seed": 7,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "buyer_account",
+      "kind": "board",
+      "x": 2050,
+      "y": 440,
+      "sign": "",
+      "text": "",
+      "fill": "#E8EFE7",
+      "string": 0,
+      "steps": [
+       {
+        "text": "आपके ₹1,000 थे।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b2",
+         "₹1,000"
+        ]
+       },
+       {
+        "text": "आपके ₹800 बचे।",
+        "n": 0,
+        "dir": "down",
+        "cue": [
+         "b2",
+         "₹800"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b2",
+       "₹1,000"
+      ],
+      "until_cue": [
+       "b3",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "seller_account",
+      "kind": "board",
+      "x": 3150,
+      "y": 440,
+      "sign": "",
+      "text": "",
+      "fill": "#F3E6CC",
+      "string": 0,
+      "steps": [
+       {
+        "text": "दुकानदार के ₹500 थे।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b2",
+         "₹500।"
+        ]
+       },
+       {
+        "text": "उसके ₹700 हुए।",
+        "n": 0,
+        "dir": "up",
+        "cue": [
+         "b2",
+         "₹700"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b2",
+       "₹500।"
+      ],
+      "until_cue": [
+       "b3",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "transfer_document",
+      "kind": "board",
+      "x": 3090,
+      "y": 430,
+      "sign": "",
+      "text": "",
+      "fill": "#F3E6CC",
+      "string": 0,
+      "steps": [
+       {
+        "text": "Retailer का ₹10,000\nचुकाने वाला valid written document",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b3",
+         "document"
+        ]
+       },
+       {
+        "text": "Wholesaler ने नियम से\nsupplier को दिया।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b3",
+         "दिया।"
+        ]
+       },
+       {
+        "text": "अब 1 document\nsupplier के पास है।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b3",
+         "पास"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b3",
+       "document"
+      ],
+      "until_cue": [
+       "b4",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "assumption",
+      "kind": "label",
+      "x": 2600,
+      "y": 230,
+      "sign": "",
+      "text": "मानिए",
+      "fill": "#F3E6CC",
+      "string": 0,
+      "steps": [],
+      "packets": [],
+      "cue": [
+       "b4",
+       "मानिए"
+      ],
+      "until_cue": [
+       "b5",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "promise",
+      "kind": "board",
+      "x": 3100,
+      "y": 430,
+      "sign": "",
+      "text": "",
+      "fill": "#F3E6CC",
+      "string": 0,
+      "steps": [
+       {
+        "text": "Rahul ने ₹50,000 के\nचावल उधार दिए।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b4",
+         "दिए।"
+        ]
+       },
+       {
+        "text": "I promise to pay Rahul\n₹50,000 on 1 January.",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b4",
+         "January.”"
+        ]
+       },
+       {
+        "text": "चुकाने पर बकाया ₹0 होगा।",
+        "n": 0,
+        "dir": "down",
+        "cue": [
+         "b4",
+         "₹0"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b4",
+       "दिए।"
+      ],
+      "until_cue": [
+       "b5",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "order",
+      "kind": "board",
+      "x": 3100,
+      "y": 430,
+      "sign": "",
+      "text": "",
+      "fill": "#F3E6CC",
+      "string": 0,
+      "steps": [
+       {
+        "text": "Wholesaler retailer को ₹1 लाख\n90 days बाद देने का\nwritten order देता है।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b5",
+         "order"
+        ]
+       },
+       {
+        "text": "पूरा चुकाया; बकाया ₹0 हुआ।",
+        "n": 0,
+        "dir": "down",
+        "cue": [
+         "b5",
+         "₹0"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b5",
+       "order"
+      ],
+      "until_cue": [
+       "b6",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "cheque_collection",
+      "kind": "label",
+      "x": 2600,
+      "y": 240,
+      "sign": "",
+      "text": "₹2,000 का cheque दुकानदार जमा करता है।",
+      "fill": "#F3E6CC",
+      "string": 0,
+      "steps": [],
+      "packets": [],
+      "cue": [
+       "b6",
+       "जमा"
+      ],
+      "until_cue": [
+       "b6",
+       "सफल"
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "cleared_buyer",
+      "kind": "board",
+      "x": 2050,
+      "y": 440,
+      "sign": "",
+      "text": "",
+      "fill": "#E8EFE7",
+      "string": 0,
+      "steps": [
+       {
+        "text": "आपके ₹10,000",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b6",
+         "₹10,000"
+        ]
+       },
+       {
+        "text": "सफल clearing पर\nआपके ₹8,000 बचे।",
+        "n": 0,
+        "dir": "down",
+        "cue": [
+         "b6",
+         "₹8,000"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b6",
+       "₹10,000"
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "cleared_seller",
+      "kind": "board",
+      "x": 3150,
+      "y": 440,
+      "sign": "",
+      "text": "",
+      "fill": "#F3E6CC",
+      "string": 0,
+      "steps": [
+       {
+        "text": "उसके ₹5,000",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b6",
+         "₹5,000"
+        ]
+       },
+       {
+        "text": "उसके बढ़कर ₹7,000 हुए।",
+        "n": 0,
+        "dir": "up",
+        "cue": [
+         "b6",
+         "₹7,000"
+        ]
+       },
+       {
+        "text": "केवल cheque देने से नहीं।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b6",
+         "केवल"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b6",
+       "₹5,000"
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     }
+    ],
+    "camera": [
+     {
+      "cue": [
+       "b2",
+       ""
+      ],
+      "x": 2600,
+      "y": 570,
+      "zoom": 0.9,
+      "frames": 30
+     },
+     {
+      "cue": [
+       "b2",
+       "आपके"
+      ],
+      "x": 2350,
+      "y": 530,
+      "zoom": 1.05,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b2",
+       "Account"
+      ],
+      "x": 2600,
+      "y": 530,
+      "zoom": 0.9,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b3",
+       ""
+      ],
+      "x": 2680,
+      "y": 560,
+      "zoom": 0.95,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b3",
+       "valid"
+      ],
+      "x": 2920,
+      "y": 480,
+      "zoom": 1.15,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b3",
+       "supplier"
+      ],
+      "x": 3020,
+      "y": 470,
+      "zoom": 1.2,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b4",
+       ""
+      ],
+      "x": 2600,
+      "y": 560,
+      "zoom": 0.9,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b4",
+       "चावल"
+      ],
+      "x": 2780,
+      "y": 570,
+      "zoom": 1.05,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b4",
+       "लिखता"
+      ],
+      "x": 3030,
+      "y": 470,
+      "zoom": 1.2,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b4",
+       "चुकाने"
+      ],
+      "x": 2900,
+      "y": 490,
+      "zoom": 1.1,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b5",
+       ""
+      ],
+      "x": 2600,
+      "y": 560,
+      "zoom": 0.9,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b5",
+       "90"
+      ],
+      "x": 2930,
+      "y": 490,
+      "zoom": 1.1,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b5",
+       "मानिए"
+      ],
+      "x": 3020,
+      "y": 470,
+      "zoom": 1.2,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b6",
+       ""
+      ],
+      "x": 2600,
+      "y": 540,
+      "zoom": 0.9,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b6",
+       "जमा"
+      ],
+      "x": 2600,
+      "y": 450,
+      "zoom": 1.05,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b6",
+       "आपके"
+      ],
+      "x": 2370,
+      "y": 500,
+      "zoom": 1,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b6",
+       "उसके"
+      ],
+      "x": 2800,
+      "y": 500,
+      "zoom": 1,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b6",
+       "केवल"
+      ],
+      "x": 2600,
+      "y": 540,
+      "zoom": 0.9,
+      "frames": 40
+     }
+    ]
+   },
+   "code_problems": [
+    "[code] camera keys must be in time order"
+   ],
+   "passed": false,
+   "finished_at": 1793323674.0755332
+  },
+  {
+   "round": 2,
+   "started_at": 1793323674.0756245,
+   "mode": "full",
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "ac067906bc0968499c6fe0451bc53927604c96668a72cba558e3c4a4362f8988",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 12034,
+    "output_tokens": 3063,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "एक स्थायी किराना दुकान में account payment, transferable document, written promise, written order और cheque के उदाहरण खुलते हैं। दुकान anchor रहती है और उदाहरण के boards बदलते हैं।",
+    "key_questions": [
+     "Account payment में दोनों balances कैसे बदलते हैं?",
+     "दावा transfer, अपना payment promise और दूसरे को payment order कैसे अलग हैं?",
+     "Cheque देने और successful clearing में क्या फर्क है?"
+    ],
+    "decisions": [
+     {
+      "decision": "b4 के अंतिम camera move का cue ‘चुकाने’ से ‘पर’ किया है।",
+      "reason": "‘चुकाने’ beat के आरम्भ में भी आता है; अंतिम settlement वाक्य के ‘पर’ पर cue रखने से camera keys समयक्रम में रहती हैं।"
+     },
+     {
+      "decision": "बाकी elements और camera moves यथावत रखे हैं।",
+      "reason": "पहले सही रहे दृश्य, spoken-number replacements और स्थायी दुकान का anchor सुरक्षित रहते हैं।"
+     },
+     {
+      "decision": "अतिरिक्त topic-tree और technical labels नहीं जोड़े हैं।",
+      "reason": "Passed narration में उनके शब्द नहीं बोले गए हैं।"
+     }
+    ],
+    "uncertain": [
+     "अलग caveat के लिए केवल बोले गए ‘मानिए’ का उपयोग किया है; script में ‘illustrative numbers’ नहीं कहा गया है।",
+     "Document transfer को board की बदलती custody से दिखाया है; उपलब्ध vocabulary में हाथ से document देने का actor action नहीं है।"
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "एक स्थायी किराना दुकान में account payment, transferable document, written promise, written order और cheque के उदाहरण खुलते हैं। दुकान anchor रहती है और उदाहरण के boards बदलते हैं।",
+     "key_questions": [
+      "Account payment में दोनों balances कैसे बदलते हैं?",
+      "दावा transfer, अपना payment promise और दूसरे को payment order कैसे अलग हैं?",
+      "Cheque देने और successful clearing में क्या फर्क है?"
+     ],
+     "decisions": [
+      {
+       "decision": "b4 के अंतिम camera move का cue ‘चुकाने’ से ‘पर’ किया है।",
+       "reason": "‘चुकाने’ beat के आरम्भ में भी आता है; अंतिम settlement वाक्य के ‘पर’ पर cue रखने से camera keys समयक्रम में रहती हैं।"
+      },
+      {
+       "decision": "बाकी elements और camera moves यथावत रखे हैं।",
+       "reason": "पहले सही रहे दृश्य, spoken-number replacements और स्थायी दुकान का anchor सुरक्षित रहते हैं।"
+      },
+      {
+       "decision": "अतिरिक्त topic-tree और technical labels नहीं जोड़े हैं।",
+       "reason": "Passed narration में उनके शब्द नहीं बोले गए हैं।"
+      }
+     ],
+     "uncertain": [
+      "अलग caveat के लिए केवल बोले गए ‘मानिए’ का उपयोग किया है; script में ‘illustrative numbers’ नहीं कहा गया है।",
+      "Document transfer को board की बदलती custody से दिखाया है; उपलब्ध vocabulary में हाथ से document देने का actor action नहीं है।"
+     ]
+    },
+    "elements": [
+     {
+      "id": "kirana",
+      "kind": "shop",
+      "x": 2600,
+      "y": 860,
+      "sign": "किराना",
+      "text": "",
+      "fill": "",
+      "string": 0,
+      "steps": [],
+      "packets": [
+       {
+        "n": 4,
+        "cue": [
+         "b2",
+         "किराना"
+        ]
+       }
+      ],
+      "cue": [
+       "b2",
+       ""
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "keeper",
+      "kind": "shopkeeper",
+      "x": 2600,
+      "y": 860,
+      "sign": "",
+      "text": "",
+      "fill": "",
+      "string": 0,
+      "steps": [],
+      "packets": [],
+      "cue": [
+       "b2",
+       "दुकानदार"
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "buyers",
+      "kind": "crowd",
+      "x": 0,
+      "y": 0,
+      "sign": "",
+      "text": "",
+      "fill": "",
+      "string": 0,
+      "steps": [
+       {
+        "text": "",
+        "n": 1,
+        "dir": "",
+        "cue": [
+         "b2",
+         "लेंगे?"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b2",
+       "लेंगे?"
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 2310,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 100,
+      "enter_x": 1800,
+      "exit_x": 1800,
+      "face": 1,
+      "seed": 7,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "buyer_account",
+      "kind": "board",
+      "x": 2050,
+      "y": 440,
+      "sign": "",
+      "text": "",
+      "fill": "#E8EFE7",
+      "string": 0,
+      "steps": [
+       {
+        "text": "आपके ₹1,000 थे।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b2",
+         "₹1,000"
+        ]
+       },
+       {
+        "text": "आपके ₹800 बचे।",
+        "n": 0,
+        "dir": "down",
+        "cue": [
+         "b2",
+         "₹800"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b2",
+       "₹1,000"
+      ],
+      "until_cue": [
+       "b3",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "seller_account",
+      "kind": "board",
+      "x": 3150,
+      "y": 440,
+      "sign": "",
+      "text": "",
+      "fill": "#F3E6CC",
+      "string": 0,
+      "steps": [
+       {
+        "text": "दुकानदार के ₹500 थे।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b2",
+         "₹500।"
+        ]
+       },
+       {
+        "text": "उसके ₹700 हुए।",
+        "n": 0,
+        "dir": "up",
+        "cue": [
+         "b2",
+         "₹700"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b2",
+       "₹500।"
+      ],
+      "until_cue": [
+       "b3",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "transfer_document",
+      "kind": "board",
+      "x": 3090,
+      "y": 430,
+      "sign": "",
+      "text": "",
+      "fill": "#F3E6CC",
+      "string": 0,
+      "steps": [
+       {
+        "text": "Retailer का ₹10,000\nचुकाने वाला valid written document",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b3",
+         "document"
+        ]
+       },
+       {
+        "text": "Wholesaler ने नियम से\nsupplier को दिया।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b3",
+         "दिया।"
+        ]
+       },
+       {
+        "text": "अब 1 document\nsupplier के पास है।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b3",
+         "पास"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b3",
+       "document"
+      ],
+      "until_cue": [
+       "b4",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "assumption",
+      "kind": "label",
+      "x": 2600,
+      "y": 230,
+      "sign": "",
+      "text": "मानिए",
+      "fill": "#F3E6CC",
+      "string": 0,
+      "steps": [],
+      "packets": [],
+      "cue": [
+       "b4",
+       "मानिए"
+      ],
+      "until_cue": [
+       "b5",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "promise",
+      "kind": "board",
+      "x": 3100,
+      "y": 430,
+      "sign": "",
+      "text": "",
+      "fill": "#F3E6CC",
+      "string": 0,
+      "steps": [
+       {
+        "text": "Rahul ने ₹50,000 के\nचावल उधार दिए।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b4",
+         "दिए।"
+        ]
+       },
+       {
+        "text": "I promise to pay Rahul\n₹50,000 on 1 January.",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b4",
+         "January.”"
+        ]
+       },
+       {
+        "text": "चुकाने पर बकाया ₹0 होगा।",
+        "n": 0,
+        "dir": "down",
+        "cue": [
+         "b4",
+         "₹0"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b4",
+       "दिए।"
+      ],
+      "until_cue": [
+       "b5",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "order",
+      "kind": "board",
+      "x": 3100,
+      "y": 430,
+      "sign": "",
+      "text": "",
+      "fill": "#F3E6CC",
+      "string": 0,
+      "steps": [
+       {
+        "text": "Wholesaler retailer को ₹1 लाख\n90 days बाद देने का\nwritten order देता है।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b5",
+         "order"
+        ]
+       },
+       {
+        "text": "पूरा चुकाया; बकाया ₹0 हुआ।",
+        "n": 0,
+        "dir": "down",
+        "cue": [
+         "b5",
+         "₹0"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b5",
+       "order"
+      ],
+      "until_cue": [
+       "b6",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "cheque_collection",
+      "kind": "label",
+      "x": 2600,
+      "y": 240,
+      "sign": "",
+      "text": "₹2,000 का cheque दुकानदार जमा करता है।",
+      "fill": "#F3E6CC",
+      "string": 0,
+      "steps": [],
+      "packets": [],
+      "cue": [
+       "b6",
+       "जमा"
+      ],
+      "until_cue": [
+       "b6",
+       "सफल"
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "cleared_buyer",
+      "kind": "board",
+      "x": 2050,
+      "y": 440,
+      "sign": "",
+      "text": "",
+      "fill": "#E8EFE7",
+      "string": 0,
+      "steps": [
+       {
+        "text": "आपके ₹10,000",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b6",
+         "₹10,000"
+        ]
+       },
+       {
+        "text": "सफल clearing पर\nआपके ₹8,000 बचे।",
+        "n": 0,
+        "dir": "down",
+        "cue": [
+         "b6",
+         "₹8,000"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b6",
+       "₹10,000"
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "cleared_seller",
+      "kind": "board",
+      "x": 3150,
+      "y": 440,
+      "sign": "",
+      "text": "",
+      "fill": "#F3E6CC",
+      "string": 0,
+      "steps": [
+       {
+        "text": "उसके ₹5,000",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b6",
+         "₹5,000"
+        ]
+       },
+       {
+        "text": "उसके बढ़कर ₹7,000 हुए।",
+        "n": 0,
+        "dir": "up",
+        "cue": [
+         "b6",
+         "₹7,000"
+        ]
+       },
+       {
+        "text": "केवल cheque देने से नहीं।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b6",
+         "केवल"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b6",
+       "₹5,000"
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     }
+    ],
+    "camera": [
+     {
+      "cue": [
+       "b2",
+       ""
+      ],
+      "x": 2600,
+      "y": 570,
+      "zoom": 0.9,
+      "frames": 30
+     },
+     {
+      "cue": [
+       "b2",
+       "आपके"
+      ],
+      "x": 2350,
+      "y": 530,
+      "zoom": 1.05,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b2",
+       "Account"
+      ],
+      "x": 2600,
+      "y": 530,
+      "zoom": 0.9,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b3",
+       ""
+      ],
+      "x": 2680,
+      "y": 560,
+      "zoom": 0.95,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b3",
+       "valid"
+      ],
+      "x": 2920,
+      "y": 480,
+      "zoom": 1.15,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b3",
+       "supplier"
+      ],
+      "x": 3020,
+      "y": 470,
+      "zoom": 1.2,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b4",
+       ""
+      ],
+      "x": 2600,
+      "y": 560,
+      "zoom": 0.9,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b4",
+       "चावल"
+      ],
+      "x": 2780,
+      "y": 570,
+      "zoom": 1.05,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b4",
+       "लिखता"
+      ],
+      "x": 3030,
+      "y": 470,
+      "zoom": 1.2,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b4",
+       "पर"
+      ],
+      "x": 2900,
+      "y": 490,
+      "zoom": 1.1,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b5",
+       ""
+      ],
+      "x": 2600,
+      "y": 560,
+      "zoom": 0.9,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b5",
+       "90"
+      ],
+      "x": 2930,
+      "y": 490,
+      "zoom": 1.1,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b5",
+       "मानिए"
+      ],
+      "x": 3020,
+      "y": 470,
+      "zoom": 1.2,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b6",
+       ""
+      ],
+      "x": 2600,
+      "y": 540,
+      "zoom": 0.9,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b6",
+       "जमा"
+      ],
+      "x": 2600,
+      "y": 450,
+      "zoom": 1.05,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b6",
+       "आपके"
+      ],
+      "x": 2370,
+      "y": 500,
+      "zoom": 1,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b6",
+       "उसके"
+      ],
+      "x": 2800,
+      "y": 500,
+      "zoom": 1,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b6",
+       "केवल"
+      ],
+      "x": 2600,
+      "y": 540,
+      "zoom": 0.9,
+      "frames": 40
+     }
+    ]
+   },
+   "code_problems": [
+    "[code] buyer_account.step1: 'आपके ₹1,000 थे।' is not explained by the narration of b2: the words ['थे।'] are not said there; say them in that beat or move the cue to the beat that says them (CV-14)",
+    "[code] buyer_account.step2: 'आपके ₹800 बचे।' is not explained by the narration of b2: the words ['बचे।'] are not said there; say them in that beat or move the cue to the beat that says them (CV-14)",
+    "[code] seller_account.step1: 'दुकानदार के ₹500 थे।' is not explained by the narration of b2: the words ['थे।'] are not said there; say them in that beat or move the cue to the beat that says them (CV-14)"
+   ],
+   "passed": false,
+   "finished_at": 1793323706.1240635
+  },
+  {
+   "round": 3,
+   "started_at": 1793323706.1241927,
+   "mode": "full",
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "b03c89bb47cede4c23062f5c1df9b4d688c882768a96a696566d6a21a7237aa9",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 12178,
+    "output_tokens": 3071,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "स्थायी किराना दुकान में account payment, transferable document, written promise, written order और cheque के उदाहरण खुलते हैं। दुकान anchor रहती है और उदाहरण के boards बदलते हैं।",
+    "key_questions": [
+     "Account payment में दोनों balances कैसे बदलते हैं?",
+     "दावा transfer, अपना payment promise और दूसरे को payment order कैसे अलग हैं?",
+     "Cheque देने और successful clearing में क्या फर्क है?"
+    ],
+    "decisions": [
+     {
+      "decision": "buyer_account के पहले दो steps में ‘थे।’ और ‘बचे।’ को narration के ठीक अनुसार ‘थे,’ और ‘बचे,’ किया।",
+      "reason": "CV-14 checker को बोले गए शब्द और उनका punctuation ठीक मिलना चाहिए।"
+     },
+     {
+      "decision": "seller_account के पहले step को ‘दुकानदार के ₹500।’ किया।",
+      "reason": "Narration की इस clause में ‘थे।’ नहीं बोला गया है।"
+     },
+     {
+      "decision": "बाकी elements, transitions और camera moves यथावत रखे हैं।",
+      "reason": "पहले सही रहे दृश्य, spoken-number replacements और स्थायी दुकान का anchor सुरक्षित रहते हैं।"
+     }
+    ],
+    "uncertain": [
+     "अलग caveat के लिए केवल बोले गए ‘मानिए’ का उपयोग किया है; script में ‘illustrative numbers’ नहीं कहा गया है।",
+     "Document transfer को board की बदलती custody से दिखाया है; उपलब्ध vocabulary में हाथ से document देने का actor action नहीं है।"
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "स्थायी किराना दुकान में account payment, transferable document, written promise, written order और cheque के उदाहरण खुलते हैं। दुकान anchor रहती है और उदाहरण के boards बदलते हैं।",
+     "key_questions": [
+      "Account payment में दोनों balances कैसे बदलते हैं?",
+      "दावा transfer, अपना payment promise और दूसरे को payment order कैसे अलग हैं?",
+      "Cheque देने और successful clearing में क्या फर्क है?"
+     ],
+     "decisions": [
+      {
+       "decision": "buyer_account के पहले दो steps में ‘थे।’ और ‘बचे।’ को narration के ठीक अनुसार ‘थे,’ और ‘बचे,’ किया।",
+       "reason": "CV-14 checker को बोले गए शब्द और उनका punctuation ठीक मिलना चाहिए।"
+      },
+      {
+       "decision": "seller_account के पहले step को ‘दुकानदार के ₹500।’ किया।",
+       "reason": "Narration की इस clause में ‘थे।’ नहीं बोला गया है।"
+      },
+      {
+       "decision": "बाकी elements, transitions और camera moves यथावत रखे हैं।",
+       "reason": "पहले सही रहे दृश्य, spoken-number replacements और स्थायी दुकान का anchor सुरक्षित रहते हैं।"
+      }
+     ],
+     "uncertain": [
+      "अलग caveat के लिए केवल बोले गए ‘मानिए’ का उपयोग किया है; script में ‘illustrative numbers’ नहीं कहा गया है।",
+      "Document transfer को board की बदलती custody से दिखाया है; उपलब्ध vocabulary में हाथ से document देने का actor action नहीं है।"
+     ]
+    },
+    "elements": [
+     {
+      "id": "kirana",
+      "kind": "shop",
+      "x": 2600,
+      "y": 860,
+      "sign": "किराना",
+      "text": "",
+      "fill": "",
+      "string": 0,
+      "steps": [],
+      "packets": [
+       {
+        "n": 4,
+        "cue": [
+         "b2",
+         "किराना"
+        ]
+       }
+      ],
+      "cue": [
+       "b2",
+       ""
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "keeper",
+      "kind": "shopkeeper",
+      "x": 2600,
+      "y": 860,
+      "sign": "",
+      "text": "",
+      "fill": "",
+      "string": 0,
+      "steps": [],
+      "packets": [],
+      "cue": [
+       "b2",
+       "दुकानदार"
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "buyers",
+      "kind": "crowd",
+      "x": 0,
+      "y": 0,
+      "sign": "",
+      "text": "",
+      "fill": "",
+      "string": 0,
+      "steps": [
+       {
+        "text": "",
+        "n": 1,
+        "dir": "",
+        "cue": [
+         "b2",
+         "लेंगे?"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b2",
+       "लेंगे?"
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 2310,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 100,
+      "enter_x": 1800,
+      "exit_x": 1800,
+      "face": 1,
+      "seed": 7,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "buyer_account",
+      "kind": "board",
+      "x": 2050,
+      "y": 440,
+      "sign": "",
+      "text": "",
+      "fill": "#E8EFE7",
+      "string": 0,
+      "steps": [
+       {
+        "text": "आपके ₹1,000 थे,",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b2",
+         "₹1,000"
+        ]
+       },
+       {
+        "text": "आपके ₹800 बचे,",
+        "n": 0,
+        "dir": "down",
+        "cue": [
+         "b2",
+         "₹800"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b2",
+       "₹1,000"
+      ],
+      "until_cue": [
+       "b3",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "seller_account",
+      "kind": "board",
+      "x": 3150,
+      "y": 440,
+      "sign": "",
+      "text": "",
+      "fill": "#F3E6CC",
+      "string": 0,
+      "steps": [
+       {
+        "text": "दुकानदार के ₹500।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b2",
+         "₹500।"
+        ]
+       },
+       {
+        "text": "उसके ₹700 हुए।",
+        "n": 0,
+        "dir": "up",
+        "cue": [
+         "b2",
+         "₹700"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b2",
+       "₹500।"
+      ],
+      "until_cue": [
+       "b3",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "transfer_document",
+      "kind": "board",
+      "x": 3090,
+      "y": 430,
+      "sign": "",
+      "text": "",
+      "fill": "#F3E6CC",
+      "string": 0,
+      "steps": [
+       {
+        "text": "Retailer का ₹10,000\nचुकाने वाला valid written document",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b3",
+         "document"
+        ]
+       },
+       {
+        "text": "Wholesaler ने नियम से\nsupplier को दिया।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b3",
+         "दिया।"
+        ]
+       },
+       {
+        "text": "अब 1 document\nsupplier के पास है।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b3",
+         "पास"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b3",
+       "document"
+      ],
+      "until_cue": [
+       "b4",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "assumption",
+      "kind": "label",
+      "x": 2600,
+      "y": 230,
+      "sign": "",
+      "text": "मानिए",
+      "fill": "#F3E6CC",
+      "string": 0,
+      "steps": [],
+      "packets": [],
+      "cue": [
+       "b4",
+       "मानिए"
+      ],
+      "until_cue": [
+       "b5",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "promise",
+      "kind": "board",
+      "x": 3100,
+      "y": 430,
+      "sign": "",
+      "text": "",
+      "fill": "#F3E6CC",
+      "string": 0,
+      "steps": [
+       {
+        "text": "Rahul ने ₹50,000 के\nचावल उधार दिए।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b4",
+         "दिए।"
+        ]
+       },
+       {
+        "text": "I promise to pay Rahul\n₹50,000 on 1 January.",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b4",
+         "January.”"
+        ]
+       },
+       {
+        "text": "चुकाने पर बकाया ₹0 होगा।",
+        "n": 0,
+        "dir": "down",
+        "cue": [
+         "b4",
+         "₹0"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b4",
+       "दिए।"
+      ],
+      "until_cue": [
+       "b5",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "order",
+      "kind": "board",
+      "x": 3100,
+      "y": 430,
+      "sign": "",
+      "text": "",
+      "fill": "#F3E6CC",
+      "string": 0,
+      "steps": [
+       {
+        "text": "Wholesaler retailer को ₹1 लाख\n90 days बाद देने का\nwritten order देता है।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b5",
+         "order"
+        ]
+       },
+       {
+        "text": "पूरा चुकाया; बकाया ₹0 हुआ।",
+        "n": 0,
+        "dir": "down",
+        "cue": [
+         "b5",
+         "₹0"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b5",
+       "order"
+      ],
+      "until_cue": [
+       "b6",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "cheque_collection",
+      "kind": "label",
+      "x": 2600,
+      "y": 240,
+      "sign": "",
+      "text": "₹2,000 का cheque दुकानदार जमा करता है।",
+      "fill": "#F3E6CC",
+      "string": 0,
+      "steps": [],
+      "packets": [],
+      "cue": [
+       "b6",
+       "जमा"
+      ],
+      "until_cue": [
+       "b6",
+       "सफल"
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "cleared_buyer",
+      "kind": "board",
+      "x": 2050,
+      "y": 440,
+      "sign": "",
+      "text": "",
+      "fill": "#E8EFE7",
+      "string": 0,
+      "steps": [
+       {
+        "text": "आपके ₹10,000",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b6",
+         "₹10,000"
+        ]
+       },
+       {
+        "text": "सफल clearing पर\nआपके ₹8,000 बचे।",
+        "n": 0,
+        "dir": "down",
+        "cue": [
+         "b6",
+         "₹8,000"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b6",
+       "₹10,000"
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "cleared_seller",
+      "kind": "board",
+      "x": 3150,
+      "y": 440,
+      "sign": "",
+      "text": "",
+      "fill": "#F3E6CC",
+      "string": 0,
+      "steps": [
+       {
+        "text": "उसके ₹5,000",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b6",
+         "₹5,000"
+        ]
+       },
+       {
+        "text": "उसके बढ़कर ₹7,000 हुए।",
+        "n": 0,
+        "dir": "up",
+        "cue": [
+         "b6",
+         "₹7,000"
+        ]
+       },
+       {
+        "text": "केवल cheque देने से नहीं।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b6",
+         "केवल"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b6",
+       "₹5,000"
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     }
+    ],
+    "camera": [
+     {
+      "cue": [
+       "b2",
+       ""
+      ],
+      "x": 2600,
+      "y": 570,
+      "zoom": 0.9,
+      "frames": 30
+     },
+     {
+      "cue": [
+       "b2",
+       "आपके"
+      ],
+      "x": 2350,
+      "y": 530,
+      "zoom": 1.05,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b2",
+       "Account"
+      ],
+      "x": 2600,
+      "y": 530,
+      "zoom": 0.9,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b3",
+       ""
+      ],
+      "x": 2680,
+      "y": 560,
+      "zoom": 0.95,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b3",
+       "valid"
+      ],
+      "x": 2920,
+      "y": 480,
+      "zoom": 1.15,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b3",
+       "supplier"
+      ],
+      "x": 3020,
+      "y": 470,
+      "zoom": 1.2,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b4",
+       ""
+      ],
+      "x": 2600,
+      "y": 560,
+      "zoom": 0.9,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b4",
+       "चावल"
+      ],
+      "x": 2780,
+      "y": 570,
+      "zoom": 1.05,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b4",
+       "लिखता"
+      ],
+      "x": 3030,
+      "y": 470,
+      "zoom": 1.2,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b4",
+       "पर"
+      ],
+      "x": 2900,
+      "y": 490,
+      "zoom": 1.1,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b5",
+       ""
+      ],
+      "x": 2600,
+      "y": 560,
+      "zoom": 0.9,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b5",
+       "90"
+      ],
+      "x": 2930,
+      "y": 490,
+      "zoom": 1.1,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b5",
+       "मानिए"
+      ],
+      "x": 3020,
+      "y": 470,
+      "zoom": 1.2,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b6",
+       ""
+      ],
+      "x": 2600,
+      "y": 540,
+      "zoom": 0.9,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b6",
+       "जमा"
+      ],
+      "x": 2600,
+      "y": 450,
+      "zoom": 1.05,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b6",
+       "आपके"
+      ],
+      "x": 2370,
+      "y": 500,
+      "zoom": 1,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b6",
+       "उसके"
+      ],
+      "x": 2800,
+      "y": 500,
+      "zoom": 1,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b6",
+       "केवल"
+      ],
+      "x": 2600,
+      "y": 540,
+      "zoom": 0.9,
+      "frames": 40
+     }
+    ]
+   },
+   "code_problems": [],
+   "passed": true,
+   "finished_at": 1793323736.0577729
+  }
+ ],
+ "avoid_rounds": [
+  1,
+  2
+ ],
+ "cost_usd": 0.0,
+ "seconds": 129.1,
+ "navin_verdict": null
+}

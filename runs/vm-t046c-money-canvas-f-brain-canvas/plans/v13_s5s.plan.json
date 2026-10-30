@@ -1,0 +1,468 @@
+{
+ "id": "v13_s5s",
+ "part_id": "c31.1",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b25",
+   "say": "सरकार आपकी ₹1,000 की COVID vaccination कराना चाहे तो? मान लीजिए खाते में पैसे भेजने के बजाय आपके लिए ₹1,000 का voucher SMS या QR code से भेजती है।"
+  },
+  {
+   "beat_id": "b26",
+   "say": "आप authorised centre पर वही voucher देकर vaccination लेते हैं। पूरे ₹1,000 की सेवा मिलने पर ₹0 बाकी हैं; cash निकालना या दूसरी खरीदारी करना allowed नहीं है।"
+  },
+  {
+   "beat_id": "b27",
+   "say": "यही e-RUPI है, 2021 से जुड़ा SMS / QR Code based Prepaid Cashless Electronic Voucher। National Payments Corporation of India, यानी NPCI ने इसे अपने UPI platform पर बनाया; phone इसका delivery माध्यम (medium) है।"
+  },
+  {
+   "beat_id": "b28",
+   "say": "Prepaid यानी value पहले funded; cashless यानी सेवा लेते समय cash नहीं देते। Person-specific यानी तय व्यक्ति; purpose-specific यानी तय काम, जैसे आपकी vaccination।"
+  },
+  {
+   "beat_id": "b29",
+   "say": "खाते में खुले खर्च के ₹1,000 आना इसका उदाहरण नहीं; voucher में इस्तेमाल की शर्तें रहती हैं।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank",
+   "kind": "bank",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b25",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "beneficiary",
+   "kind": "crowd",
+   "x0": 2330,
+   "spacing": 90,
+   "enter_x": 1950,
+   "exit_x": 1950,
+   "face": 1,
+   "seed": 31,
+   "cue": [
+    "b25",
+    "आपकी"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b25",
+      "आपकी"
+     ],
+     "n": 1
+    }
+   ]
+  },
+  {
+   "id": "hypothetical",
+   "kind": "label",
+   "x": 2600,
+   "y": 190,
+   "text": "मान लीजिए",
+   "fill": "rgba(245,237,210,1)",
+   "cue": [
+    "b25",
+    "मान"
+   ],
+   "until_cue": [
+    "b26",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "voucher",
+   "kind": "board",
+   "x": 3000,
+   "y": 490,
+   "fill": "#DCECE7",
+   "cue": [
+    "b25",
+    "voucher"
+   ],
+   "until_cue": [
+    "b27",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b25",
+      "voucher"
+     ],
+     "text": "₹1,000 का voucher भेजती है।"
+    },
+    {
+     "cue": [
+      "b26",
+      "₹0"
+     ],
+     "text": "₹0 बाकी हैं।",
+     "dir": "down"
+    }
+   ]
+  },
+  {
+   "id": "delivery",
+   "kind": "label",
+   "x": 2600,
+   "y": 290,
+   "text": "SMS या QR code से भेजती है।",
+   "fill": "rgba(233,240,246,1)",
+   "cue": [
+    "b25",
+    "SMS"
+   ],
+   "until_cue": [
+    "b26",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "redemption",
+   "kind": "board",
+   "x": 2070,
+   "y": 490,
+   "fill": "#F0E7D6",
+   "cue": [
+    "b26",
+    "vaccination"
+   ],
+   "until_cue": [
+    "b27",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b26",
+      "vaccination"
+     ],
+     "text": "authorised centre पर voucher देकर\nvaccination लेते हैं।"
+    },
+    {
+     "cue": [
+      "b26",
+      "खरीदारी"
+     ],
+     "text": "cash निकालना या दूसरी खरीदारी\nकरना allowed नहीं है।"
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "kind": "board",
+   "x": 2070,
+   "y": 490,
+   "fill": "#DCECE7",
+   "cue": [
+    "b27",
+    "2021"
+   ],
+   "until_cue": [
+    "b28",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b27",
+      "2021"
+     ],
+     "text": "e-RUPI 2021 से जुड़ा है।"
+    },
+    {
+     "cue": [
+      "b27",
+      "Voucher।"
+     ],
+     "text": "यह SMS / QR Code based\nPrepaid Cashless Electronic Voucher है।"
+    }
+   ]
+  },
+  {
+   "id": "platform",
+   "kind": "board",
+   "x": 3000,
+   "y": 490,
+   "fill": "#E5EAF3",
+   "cue": [
+    "b27",
+    "platform"
+   ],
+   "until_cue": [
+    "b28",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b27",
+      "platform"
+     ],
+     "text": "NPCI ने इसे अपने\nUPI platform पर बनाया।"
+    },
+    {
+     "cue": [
+      "b27",
+      "माध्यम"
+     ],
+     "text": "phone इसका delivery माध्यम है।"
+    }
+   ]
+  },
+  {
+   "id": "meaning",
+   "kind": "board",
+   "x": 2070,
+   "y": 490,
+   "fill": "#DCECE7",
+   "cue": [
+    "b28",
+    "funded;"
+   ],
+   "until_cue": [
+    "b29",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b28",
+      "funded;"
+     ],
+     "text": "Prepaid यानी value पहले funded।"
+    },
+    {
+     "cue": [
+      "b28",
+      "cashless"
+     ],
+     "text": "cashless यानी सेवा लेते समय\ncash नहीं देते।"
+    }
+   ]
+  },
+  {
+   "id": "restrictions",
+   "kind": "board",
+   "x": 3000,
+   "y": 490,
+   "fill": "#F0E7D6",
+   "cue": [
+    "b28",
+    "व्यक्ति;"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b28",
+      "व्यक्ति;"
+     ],
+     "text": "Person-specific यानी तय व्यक्ति।"
+    },
+    {
+     "cue": [
+      "b28",
+      "काम,"
+     ],
+     "text": "purpose-specific यानी तय काम,\nजैसे आपकी vaccination।"
+    },
+    {
+     "cue": [
+      "b29",
+      "₹1,000"
+     ],
+     "text": "खाते में खुले खर्च के ₹1,000 आना\nइसका उदाहरण नहीं।"
+    },
+    {
+     "cue": [
+      "b29",
+      "शर्तें"
+     ],
+     "text": "voucher में इस्तेमाल की शर्तें\nरहती हैं।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b25",
+    "",
+    0.0
+   ],
+   "x": 2550,
+   "y": 490,
+   "zoom": 0.8,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b25",
+    "खाते"
+   ],
+   "x": 2470,
+   "y": 510,
+   "zoom": 0.9,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b25",
+    "voucher"
+   ],
+   "x": 2810,
+   "y": 480,
+   "zoom": 1.05,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b26",
+    "",
+    0.0
+   ],
+   "x": 2490,
+   "y": 490,
+   "zoom": 0.8,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b26",
+    "₹0"
+   ],
+   "x": 2850,
+   "y": 490,
+   "zoom": 1.05,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b26",
+    "खरीदारी"
+   ],
+   "x": 2200,
+   "y": 490,
+   "zoom": 1.05,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b27",
+    "",
+    0.0
+   ],
+   "x": 2250,
+   "y": 490,
+   "zoom": 1.0,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b27",
+    "Cashless"
+   ],
+   "x": 2150,
+   "y": 480,
+   "zoom": 1.1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b27",
+    "National"
+   ],
+   "x": 2520,
+   "y": 490,
+   "zoom": 0.8,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b27",
+    "platform"
+   ],
+   "x": 2890,
+   "y": 490,
+   "zoom": 1.05,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b28",
+    "",
+    0.0
+   ],
+   "x": 2190,
+   "y": 490,
+   "zoom": 1.05,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b28",
+    "cashless"
+   ],
+   "x": 2140,
+   "y": 470,
+   "zoom": 1.12,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b28",
+    "Person-specific"
+   ],
+   "x": 2830,
+   "y": 490,
+   "zoom": 1.0,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b28",
+    "purpose-specific"
+   ],
+   "x": 2900,
+   "y": 480,
+   "zoom": 1.08,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b29",
+    "",
+    0.0
+   ],
+   "x": 2680,
+   "y": 490,
+   "zoom": 0.9,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b29",
+    "voucher"
+   ],
+   "x": 2880,
+   "y": 490,
+   "zoom": 1.08,
+   "frames": 45
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

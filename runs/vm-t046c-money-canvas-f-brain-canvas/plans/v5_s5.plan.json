@@ -1,0 +1,307 @@
+{
+ "id": "v5_s5",
+ "part_id": "c12.1",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b25",
+   "say": "1960s में बढ़ते claims और gold demands से 1944 का conversion वादा निभाना मुश्किल हुआ।"
+  },
+  {
+   "beat_id": "b26",
+   "say": "President Richard Nixon ने official gold conversion बंद किया, यानी Dollar claim देकर gold निकालने वाला रास्ता बंद।"
+  },
+  {
+   "beat_id": "b27",
+   "say": "Turning point था 15 August 1971: gold–Dollar की ऊपर वाली कड़ी टूटी।"
+  },
+  {
+   "beat_id": "b28",
+   "say": "Conversion बंद हुआ, Dollars या सारे institutions नहीं। अब सवाल था: gold बिना Dollars क्यों रखें? जवाब oil payments से जुड़ेगा।"
+  },
+  {
+   "beat_id": "b29",
+   "say": "1944 में ढाँचा बना; 1960s में दबाव बढ़ा; 1971 में conversion बंद हुआ।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "conversion_anchor",
+   "kind": "text",
+   "cell": [
+    1,
+    0,
+    10,
+    2
+   ],
+   "cue": [
+    "b25",
+    "1944"
+   ],
+   "until_cue": [
+    "b29",
+    "1944"
+   ],
+   "text": "1944 का conversion वादा निभाना मुश्किल हुआ।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "band",
+   "align": "center",
+   "size": 32
+  },
+  {
+   "id": "pressure",
+   "kind": "text",
+   "cell": [
+    1,
+    3,
+    10,
+    2
+   ],
+   "cue": [
+    "b25",
+    "claims"
+   ],
+   "until_cue": [
+    "b26",
+    "Nixon"
+   ],
+   "text": "1960s में claims और gold demands बढ़े।",
+   "style": "box",
+   "tone": "warm",
+   "align": "center",
+   "size": 32
+  },
+  {
+   "id": "decision",
+   "kind": "text",
+   "cell": [
+    1,
+    3,
+    10,
+    2
+   ],
+   "cue": [
+    "b26",
+    "Nixon"
+   ],
+   "until_cue": [
+    "b27",
+    "1971:"
+   ],
+   "text": "President Richard Nixon ने official gold conversion बंद किया।",
+   "style": "box",
+   "tone": "danger",
+   "align": "center",
+   "size": 30,
+   "marks": [
+    {
+     "phrase": "gold conversion बंद",
+     "cue": [
+      "b26",
+      "बंद"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "date",
+   "kind": "callout",
+   "cell": [
+    1,
+    3,
+    10,
+    2
+   ],
+   "cue": [
+    "b27",
+    "1971:"
+   ],
+   "until_cue": [
+    "b28",
+    "Conversion"
+   ],
+   "text": "15 August 1971 को gold–Dollar की कड़ी टूटी।",
+   "style": "note",
+   "tone": "danger",
+   "align": "center",
+   "size": 32,
+   "marks": [
+    {
+     "phrase": "कड़ी टूटी",
+     "cue": [
+      "b27",
+      "टूटी।"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "distinction",
+   "kind": "text",
+   "cell": [
+    1,
+    3,
+    10,
+    2
+   ],
+   "cue": [
+    "b28",
+    "Conversion"
+   ],
+   "until_cue": [
+    "b29",
+    "1944"
+   ],
+   "text": "Conversion बंद हुआ, Dollars या सारे institutions नहीं।",
+   "style": "box",
+   "tone": "accent",
+   "align": "center",
+   "size": 30,
+   "marks": [
+    {
+     "phrase": "institutions नहीं",
+     "cue": [
+      "b28",
+      "नहीं।"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "next_question",
+   "kind": "callout",
+   "cell": [
+    1,
+    5,
+    8,
+    2
+   ],
+   "cue": [
+    "b28",
+    "क्यों"
+   ],
+   "until_cue": [
+    "b29",
+    "1944"
+   ],
+   "text": "Gold बिना Dollars क्यों रखें?",
+   "style": "note",
+   "tone": "warm",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "oil",
+   "kind": "icon",
+   "cell": [
+    9,
+    5,
+    2,
+    2
+   ],
+   "cue": [
+    "b28",
+    "oil"
+   ],
+   "until_cue": [
+    "b29",
+    "1944"
+   ],
+   "tone": "warm",
+   "icon": "tw:1f6e2"
+  },
+  {
+   "id": "timeline_1944",
+   "kind": "text",
+   "cell": [
+    1,
+    1,
+    10,
+    2
+   ],
+   "cue": [
+    "b29",
+    "1944"
+   ],
+   "text": "1944 में ढाँचा बना;",
+   "style": "box",
+   "tone": "ink",
+   "align": "center",
+   "size": 32
+  },
+  {
+   "id": "timeline_1960s",
+   "kind": "text",
+   "cell": [
+    1,
+    3,
+    10,
+    2
+   ],
+   "cue": [
+    "b29",
+    "1960s"
+   ],
+   "text": "1960s में दबाव बढ़ा।",
+   "style": "box",
+   "tone": "warm",
+   "align": "center",
+   "size": 32
+  },
+  {
+   "id": "timeline_1971",
+   "kind": "text",
+   "cell": [
+    1,
+    5,
+    10,
+    2
+   ],
+   "cue": [
+    "b29",
+    "1971"
+   ],
+   "text": "1971 में conversion बंद हुआ।",
+   "style": "box",
+   "tone": "danger",
+   "align": "center",
+   "size": 32
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b26",
+    "बंद"
+   ],
+   "ids": [
+    "decision"
+   ],
+   "until_cue": [
+    "b27",
+    "1971:"
+   ]
+  },
+  {
+   "cue": [
+    "b28",
+    "क्यों"
+   ],
+   "ids": [
+    "next_question",
+    "oil"
+   ],
+   "until_cue": [
+    "b29",
+    "1944"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

@@ -1,0 +1,586 @@
+{
+ "id": "v7_s3s",
+ "part_id": "c17.3",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b13",
+   "say": "मानिए आपके पास ₹100 हैं; सारा पैसा चावल वाले को दिया, अब कुछ नहीं बचा। उसके पास पहले कुछ नहीं था, अब ₹100 हैं। वह वही note देकर ₹100 के प्याज लेता है; अब पैसा प्याज वाले के पास है।"
+  },
+  {
+   "beat_id": "b14",
+   "say": "इसी को modern fiat currency समझिए: note से चावल इसलिए मिला क्योंकि आगे प्याज वाला भी उसे लेता है, कागज़ की कीमत से नहीं। पुराने copper और brass coins के सामने आज paper और digital money हैं।"
+  },
+  {
+   "beat_id": "b15",
+   "say": "Silver Tanka intrinsically valuable था, यानी silver की अपनी कीमत थी; tokens की face value royal order पर थी। Slash brass या copper दिखाता है, equals sign payment की बराबरी; वजन या metal value की नहीं।"
+  },
+  {
+   "beat_id": "b16",
+   "say": "सुरक्षा में फर्क देखिए: Tughlaq के anti-counterfeit उपाय कमजोर थे। Modern fiat में State और Central Bank backing तथा advanced security features हैं; backing को silver में बदलने की guarantee मत समझिए।"
+  },
+  {
+   "beat_id": "b17",
+   "say": "वजह material अकेला नहीं है। सामान देने वाला आगे खर्च करने लायक पैसा चाहता है। पुराने प्रयोग में भरोसा टूटा; modern व्यवस्था institutional credibility, यानी पैसा संभालने वाले system पर भरोसे से चलती है।"
+  },
+  {
+   "beat_id": "b18",
+   "say": "Tughlaq ने tokens वापस लेकर copper coins के बदले silver देने दिया। इससे treasury पर बोझ क्यों पड़ा? Cash box में 100 silver Tankas मानिए; 20 देने पर 80 बचे। लौटी सस्ती metal, लेकिन खर्च के लिए रखा कीमती silver घटा।"
+  }
+ ],
+ "kit": "shop",
+ "elements": [
+  {
+   "id": "shop",
+   "kind": "shop",
+   "x": 2600,
+   "y": 860,
+   "sign": "चावल",
+   "cue": [
+    "b13",
+    "चावल"
+   ],
+   "packets": [
+    {
+     "n": 3,
+     "cue": [
+      "b13",
+      "चावल"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "seller",
+   "kind": "shopkeeper",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b13",
+    "चावल"
+   ]
+  },
+  {
+   "id": "buyer",
+   "kind": "crowd",
+   "x0": 2240,
+   "spacing": 80,
+   "enter_x": 1950,
+   "exit_x": 1900,
+   "face": 1,
+   "seed": 13,
+   "cue": [
+    "b13",
+    "आपके"
+   ],
+   "until_cue": [
+    "b14",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b13",
+      "आपके"
+     ],
+     "n": 1
+    }
+   ],
+   "carry": {
+    "cue": [
+     "b13",
+     "दिया,"
+    ],
+    "n": 1
+   }
+  },
+  {
+   "id": "hypothetical",
+   "kind": "label",
+   "x": 2600,
+   "y": 145,
+   "text": "मानिए आपके पास ₹100 हैं।",
+   "fill": "rgba(245,235,210,1)",
+   "cue": [
+    "b13",
+    "₹100"
+   ],
+   "until_cue": [
+    "b14",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "left_board",
+   "kind": "board",
+   "x": 2040,
+   "y": 420,
+   "fill": "#E5D9BD",
+   "cue": [
+    "b13",
+    "बचा।"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b13",
+      "बचा।"
+     ],
+     "text": "अब कुछ नहीं बचा।",
+     "dir": "down"
+    },
+    {
+     "cue": [
+      "b14",
+      "copper"
+     ],
+     "text": "पुराने copper और brass coins थे।"
+    },
+    {
+     "cue": [
+      "b15",
+      "valuable"
+     ],
+     "text": "Silver Tanka intrinsically valuable था।"
+    },
+    {
+     "cue": [
+      "b16",
+      "कमजोर"
+     ],
+     "text": "Tughlaq के anti-counterfeit\nउपाय कमजोर थे।"
+    },
+    {
+     "cue": [
+      "b17",
+      "material"
+     ],
+     "text": "वजह material अकेला नहीं है।"
+    },
+    {
+     "cue": [
+      "b18",
+      "silver"
+     ],
+     "text": "Tokens वापस लेकर\ncopper के बदले silver दिया।"
+    }
+   ]
+  },
+  {
+   "id": "middle_board",
+   "kind": "board",
+   "x": 2600,
+   "y": 360,
+   "fill": "#DCE8DF",
+   "cue": [
+    "b13",
+    "हैं।"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b13",
+      "हैं।"
+     ],
+     "text": "अब ₹100 हैं।",
+     "dir": "up"
+    },
+    {
+     "cue": [
+      "b13",
+      "प्याज"
+     ],
+     "text": "वही note देकर\n₹100 के प्याज लेता है।"
+    },
+    {
+     "cue": [
+      "b14",
+      "लेता"
+     ],
+     "text": "आगे प्याज वाला भी note लेता है।"
+    },
+    {
+     "cue": [
+      "b15",
+      "royal"
+     ],
+     "text": "Tokens की face value\nroyal order पर थी।"
+    },
+    {
+     "cue": [
+      "b16",
+      "backing"
+     ],
+     "text": "Modern fiat में State और\nCentral Bank backing है।"
+    },
+    {
+     "cue": [
+      "b17",
+      "चाहता"
+     ],
+     "text": "आगे खर्च करने लायक\nपैसा चाहिए।"
+    },
+    {
+     "cue": [
+      "b18",
+      "मानिए;"
+     ],
+     "text": "Cash box में\n100 silver Tankas मानिए।"
+    },
+    {
+     "cue": [
+      "b18",
+      "80"
+     ],
+     "text": "80 बचे।",
+     "dir": "down"
+    },
+    {
+     "cue": [
+      "b18",
+      "घटा।"
+     ],
+     "text": "खर्च के लिए रखा\nकीमती silver घटा।",
+     "dir": "down"
+    }
+   ]
+  },
+  {
+   "id": "right_board",
+   "kind": "board",
+   "x": 3160,
+   "y": 420,
+   "fill": "#DFE6EF",
+   "cue": [
+    "b13",
+    "पास"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b13",
+      "पास"
+     ],
+     "text": "अब पैसा प्याज वाले के पास है।"
+    },
+    {
+     "cue": [
+      "b14",
+      "digital"
+     ],
+     "text": "आज paper और digital money हैं।"
+    },
+    {
+     "cue": [
+      "b15",
+      "वजन"
+     ],
+     "text": "Payment की बराबरी है,\nवजन या metal value की नहीं।"
+    },
+    {
+     "cue": [
+      "b16",
+      "advanced"
+     ],
+     "text": "Advanced security features हैं।"
+    },
+    {
+     "cue": [
+      "b16",
+      "guarantee"
+     ],
+     "text": "Silver में बदलने की\nguarantee मत समझिए।"
+    },
+    {
+     "cue": [
+      "b17",
+      "टूटा;"
+     ],
+     "text": "पुराने प्रयोग में भरोसा टूटा।"
+    },
+    {
+     "cue": [
+      "b17",
+      "credibility,"
+     ],
+     "text": "Modern व्यवस्था institutional\ncredibility से चलती है।"
+    },
+    {
+     "cue": [
+      "b18",
+      "20"
+     ],
+     "text": "20 देने पर"
+    },
+    {
+     "cue": [
+      "b18",
+      "metal,"
+     ],
+     "text": "लौटी सस्ती metal।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b13",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 490,
+   "zoom": 0.8,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b13",
+    "दिया,"
+   ],
+   "x": 2350,
+   "y": 490,
+   "zoom": 1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b13",
+    "उसके"
+   ],
+   "x": 2600,
+   "y": 460,
+   "zoom": 1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b13",
+    "वह"
+   ],
+   "x": 2780,
+   "y": 460,
+   "zoom": 0.9,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b14",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 480,
+   "zoom": 0.8,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b14",
+    "कागज़"
+   ],
+   "x": 2680,
+   "y": 440,
+   "zoom": 0.9,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b14",
+    "पुराने"
+   ],
+   "x": 2600,
+   "y": 480,
+   "zoom": 0.8,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b15",
+    "",
+    0.0
+   ],
+   "x": 2370,
+   "y": 440,
+   "zoom": 0.95,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b15",
+    "tokens"
+   ],
+   "x": 2600,
+   "y": 440,
+   "zoom": 0.95,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b15",
+    "Slash"
+   ],
+   "x": 2800,
+   "y": 460,
+   "zoom": 0.9,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b15",
+    "बराबरी;"
+   ],
+   "x": 2840,
+   "y": 440,
+   "zoom": 0.95,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b16",
+    "",
+    0.0
+   ],
+   "x": 2390,
+   "y": 450,
+   "zoom": 0.9,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b16",
+    "Modern"
+   ],
+   "x": 2700,
+   "y": 450,
+   "zoom": 0.9,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b16",
+    "backing"
+   ],
+   "x": 2820,
+   "y": 450,
+   "zoom": 0.9,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b16",
+    "silver"
+   ],
+   "x": 2880,
+   "y": 450,
+   "zoom": 0.95,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b17",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 490,
+   "zoom": 0.8,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b17",
+    "आगे"
+   ],
+   "x": 2600,
+   "y": 450,
+   "zoom": 1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b17",
+    "पुराने"
+   ],
+   "x": 2840,
+   "y": 460,
+   "zoom": 0.9,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b17",
+    "यानी"
+   ],
+   "x": 2600,
+   "y": 480,
+   "zoom": 0.8,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b18",
+    "",
+    0.0
+   ],
+   "x": 2370,
+   "y": 460,
+   "zoom": 0.9,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b18",
+    "treasury"
+   ],
+   "x": 2600,
+   "y": 460,
+   "zoom": 0.8,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b18",
+    "Cash"
+   ],
+   "x": 2780,
+   "y": 440,
+   "zoom": 0.95,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b18",
+    "80"
+   ],
+   "x": 2700,
+   "y": 430,
+   "zoom": 1,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b18",
+    "लौटी"
+   ],
+   "x": 2820,
+   "y": 450,
+   "zoom": 0.9,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b18",
+    "कीमती"
+   ],
+   "x": 2600,
+   "y": 480,
+   "zoom": 0.8,
+   "frames": 45
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

@@ -1,0 +1,153 @@
+{
+ "id": "v15_s9s",
+ "part_id": "c38.2",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b41",
+   "say": "Cash ₹1000, demand balance ₹4000 और other RBI deposits zero हों तो ₹5000 हुए। Post Office savings ₹2000 भी गिनें तो ₹7000 होंगे; किस boundary में क्या आएगा?"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank",
+   "kind": "bank",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b41",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "teller",
+   "kind": "teller",
+   "x": 2600,
+   "cue": [
+    "b41",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "components",
+   "kind": "board",
+   "x": 2220,
+   "y": 490,
+   "fill": "#F3E9D5",
+   "cue": [
+    "b41",
+    "₹1000,"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b41",
+      "₹1000,"
+     ],
+     "text": "Cash ₹1000 हुए।"
+    },
+    {
+     "cue": [
+      "b41",
+      "₹4000"
+     ],
+     "text": "Cash ₹1000 और\ndemand balance ₹4000 हुए।"
+    },
+    {
+     "cue": [
+      "b41",
+      "₹5000"
+     ],
+     "text": "Cash ₹1000, demand balance ₹4000\nऔर other RBI deposits zero हों तो\n₹5000 हुए।"
+    }
+   ]
+  },
+  {
+   "id": "total",
+   "kind": "board",
+   "x": 2980,
+   "y": 490,
+   "fill": "#E2ECDD",
+   "cue": [
+    "b41",
+    "₹5000"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b41",
+      "₹5000"
+     ],
+     "text": "₹5000 हुए।"
+    },
+    {
+     "cue": [
+      "b41",
+      "₹7000"
+     ],
+     "text": "₹7000 होंगे।",
+     "dir": "up"
+    }
+   ]
+  },
+  {
+   "id": "post_office_component",
+   "kind": "label",
+   "x": 2980,
+   "y": 275,
+   "text": "Post Office savings ₹2000 भी गिनें।",
+   "fill": "#F3E9D5",
+   "cue": [
+    "b41",
+    "₹2000"
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b41",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 490,
+   "zoom": 0.8,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b41",
+    "zero"
+   ],
+   "x": 2450,
+   "y": 480,
+   "zoom": 0.9,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b41",
+    "Post"
+   ],
+   "x": 2730,
+   "y": 450,
+   "zoom": 0.85,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b41",
+    "boundary"
+   ],
+   "x": 2600,
+   "y": 470,
+   "zoom": 0.8,
+   "frames": 30
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

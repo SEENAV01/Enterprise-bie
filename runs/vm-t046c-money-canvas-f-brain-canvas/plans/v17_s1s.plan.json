@@ -1,0 +1,593 @@
+{
+ "id": "v17_s1s",
+ "part_id": "c43.1",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b2",
+   "say": "शहर में काम करने वाला व्यक्ति गाँव में घर खर्च भेजना चाहता है; सिर्फ दोनों के पास passbook होने से काम पूरा होगा? मान लीजिए उसके खाते में ₹3,000 हैं, परिवार के खाते में ₹200। जरूरत यह है कि ₹1,000 पहुँचें और परिवार उनसे किराना खरीद सके।"
+  },
+  {
+   "beat_id": "b3",
+   "say": "रुकावट कहाँ आ सकती है? अगर पैसे भेजने और पाने के लिए एक ही bank होना जरूरी हो, तो अलग banks वाले परिवार को परेशानी होगी। दोनों तरफ जरूरी access और linked accounts हों, और banks साझा payment व्यवस्था में जुड़े हों, तो यह same-bank जरूरत हट सकती है।"
+  },
+  {
+   "beat_id": "b4",
+   "say": "अब व्यक्ति अपने ₹3,000 में से ₹1,000 भेजता है, तो उसके पास ₹2,000 बचते हैं। परिवार के खाते में पहले ₹200 थे; ₹1,000 मिलने पर अब ₹1,200 हैं। परिवार उपलब्ध payment या withdrawal service से पैसे इस्तेमाल करता है; खाता घर की जरूरत पूरी करने का रास्ता बना।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "worker",
+   "kind": "icon",
+   "cell": [
+    0,
+    1,
+    2,
+    2
+   ],
+   "cue": [
+    "b2",
+    "व्यक्ति"
+   ],
+   "tone": "ink",
+   "icon": "tw:1f477"
+  },
+  {
+   "id": "village",
+   "kind": "icon",
+   "cell": [
+    10,
+    1,
+    2,
+    2
+   ],
+   "cue": [
+    "b2",
+    "गाँव"
+   ],
+   "until_cue": [
+    "b2",
+    "परिवार"
+   ],
+   "tone": "ink",
+   "icon": "tw:1f3e0"
+  },
+  {
+   "id": "passbook-question",
+   "kind": "text",
+   "cell": [
+    3,
+    0,
+    6,
+    1
+   ],
+   "cue": [
+    "b2",
+    "passbook"
+   ],
+   "until_cue": [
+    "b3",
+    "रुकावट"
+   ],
+   "text": "सिर्फ passbook होने से काम पूरा होगा?",
+   "style": "box",
+   "tone": "warm",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "assumption",
+   "kind": "text",
+   "cell": [
+    4,
+    7,
+    4,
+    1
+   ],
+   "cue": [
+    "b2",
+    "मान"
+   ],
+   "text": "मान लीजिए।",
+   "style": "note",
+   "tone": "muted",
+   "align": "center",
+   "size": 24
+  },
+  {
+   "id": "worker-balance",
+   "kind": "value",
+   "cell": [
+    0,
+    3,
+    3,
+    1
+   ],
+   "cue": [
+    "b2",
+    "₹3,000"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "size": 36,
+   "steps": [
+    {
+     "cue": [
+      "b2",
+      "₹3,000"
+     ],
+     "text": "₹3,000"
+    },
+    {
+     "cue": [
+      "b4",
+      "₹2,000"
+     ],
+     "text": "₹2,000",
+     "dir": "down"
+    }
+   ]
+  },
+  {
+   "id": "family",
+   "kind": "icon",
+   "cell": [
+    10,
+    1,
+    2,
+    2
+   ],
+   "cue": [
+    "b2",
+    "परिवार"
+   ],
+   "tone": "ink",
+   "icon": "tw:1f471"
+  },
+  {
+   "id": "family-balance",
+   "kind": "value",
+   "cell": [
+    9,
+    3,
+    3,
+    1
+   ],
+   "cue": [
+    "b2",
+    "₹200।"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "size": 36,
+   "steps": [
+    {
+     "cue": [
+      "b2",
+      "₹200।"
+     ],
+     "text": "₹200"
+    },
+    {
+     "cue": [
+      "b4",
+      "₹1,200"
+     ],
+     "text": "₹1,200",
+     "dir": "up"
+    }
+   ]
+  },
+  {
+   "id": "needed",
+   "kind": "text",
+   "cell": [
+    4,
+    1,
+    4,
+    1
+   ],
+   "cue": [
+    "b2",
+    "₹1,000"
+   ],
+   "until_cue": [
+    "b3",
+    "रुकावट"
+   ],
+   "text": "₹1,000 पहुँचें।",
+   "style": "box",
+   "tone": "warm",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "groceries",
+   "kind": "icon",
+   "cell": [
+    10,
+    5,
+    2,
+    2
+   ],
+   "cue": [
+    "b2",
+    "किराना"
+   ],
+   "tone": "ink",
+   "icon": "tw:1f9fa"
+  },
+  {
+   "id": "obstacle",
+   "kind": "text",
+   "cell": [
+    3,
+    0,
+    6,
+    1
+   ],
+   "cue": [
+    "b3",
+    "रुकावट"
+   ],
+   "until_cue": [
+    "b3",
+    "जरूरी"
+   ],
+   "text": "रुकावट कहाँ आ सकती है?",
+   "style": "box",
+   "tone": "warm",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "same-bank",
+   "kind": "text",
+   "cell": [
+    3,
+    0,
+    6,
+    1
+   ],
+   "cue": [
+    "b3",
+    "जरूरी"
+   ],
+   "until_cue": [
+    "b3",
+    "दोनों"
+   ],
+   "text": "एक ही bank होना जरूरी हो?",
+   "style": "box",
+   "tone": "warm",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "bank-left",
+   "kind": "icon",
+   "cell": [
+    3,
+    3,
+    2,
+    2
+   ],
+   "cue": [
+    "b3",
+    "अलग"
+   ],
+   "tone": "accent",
+   "icon": "tw:1f3e6"
+  },
+  {
+   "id": "bank-right",
+   "kind": "icon",
+   "cell": [
+    7,
+    3,
+    2,
+    2
+   ],
+   "cue": [
+    "b3",
+    "banks"
+   ],
+   "tone": "warm",
+   "icon": "tw:1f3e6"
+  },
+  {
+   "id": "access",
+   "kind": "text",
+   "cell": [
+    3,
+    0,
+    6,
+    2
+   ],
+   "cue": [
+    "b3",
+    "access"
+   ],
+   "until_cue": [
+    "b3",
+    "same-bank"
+   ],
+   "text": "जरूरी access और linked accounts हों।",
+   "style": "box",
+   "tone": "accent",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "shared-route",
+   "kind": "arrow",
+   "cue": [
+    "b3",
+    "जुड़े"
+   ],
+   "tone": "accent",
+   "from": "bank-left",
+   "to": "bank-right",
+   "from_side": "r",
+   "to_side": "l",
+   "flow": {
+    "icon": "tw:1fa99",
+    "count": 1,
+    "period": 1800,
+    "size": 26,
+    "cue": [
+     "b4",
+     "भेजता"
+    ]
+   }
+  },
+  {
+   "id": "barrier-removed",
+   "kind": "text",
+   "cell": [
+    3,
+    0,
+    6,
+    2
+   ],
+   "cue": [
+    "b3",
+    "same-bank"
+   ],
+   "until_cue": [
+    "b4",
+    "भेजता"
+   ],
+   "text": "same-bank जरूरत हट सकती है।",
+   "style": "box",
+   "tone": "ok",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "transfer",
+   "kind": "text",
+   "cell": [
+    3,
+    0,
+    6,
+    2
+   ],
+   "cue": [
+    "b4",
+    "भेजता"
+   ],
+   "until_cue": [
+    "b4",
+    "उपलब्ध"
+   ],
+   "text": "व्यक्ति ₹1,000 भेजता है।",
+   "style": "box",
+   "tone": "accent",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "household-use",
+   "kind": "arrow",
+   "cue": [
+    "b4",
+    "इस्तेमाल"
+   ],
+   "tone": "ok",
+   "from": "family-balance",
+   "to": "groceries",
+   "from_side": "b",
+   "to_side": "t",
+   "flow": {
+    "icon": "tw:1fa99",
+    "count": 1,
+    "period": 1800,
+    "size": 26,
+    "cue": [
+     "b4",
+     "इस्तेमाल"
+    ]
+   }
+  },
+  {
+   "id": "outcome",
+   "kind": "callout",
+   "cell": [
+    2,
+    5,
+    7,
+    2
+   ],
+   "cue": [
+    "b4",
+    "जरूरत"
+   ],
+   "text": "खाता घर की जरूरत पूरी करने का रास्ता बना।",
+   "style": "note",
+   "tone": "ok",
+   "align": "center",
+   "size": 30,
+   "marks": [
+    {
+     "phrase": "जरूरत पूरी",
+     "cue": [
+      "b4",
+      "पूरी"
+     ]
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    8
+   ],
+   "cue": [
+    "b2",
+    "शहर"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    8
+   ],
+   "cue": [
+    "b3",
+    "रुकावट"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    8
+   ],
+   "cue": [
+    "b4",
+    "अब"
+   ]
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b2",
+    "₹3,000"
+   ],
+   "ids": [
+    "worker",
+    "worker-balance"
+   ],
+   "until_cue": [
+    "b2",
+    "परिवार"
+   ]
+  },
+  {
+   "cue": [
+    "b2",
+    "₹200।"
+   ],
+   "ids": [
+    "family",
+    "family-balance"
+   ],
+   "until_cue": [
+    "b2",
+    "जरूरत"
+   ]
+  },
+  {
+   "cue": [
+    "b3",
+    "परेशानी"
+   ],
+   "ids": [
+    "same-bank",
+    "bank-left",
+    "bank-right"
+   ],
+   "until_cue": [
+    "b3",
+    "दोनों"
+   ]
+  },
+  {
+   "cue": [
+    "b3",
+    "linked"
+   ],
+   "ids": [
+    "access",
+    "worker-balance",
+    "family-balance"
+   ],
+   "until_cue": [
+    "b3",
+    "जुड़े"
+   ]
+  },
+  {
+   "cue": [
+    "b4",
+    "₹2,000"
+   ],
+   "ids": [
+    "worker",
+    "worker-balance",
+    "transfer"
+   ],
+   "until_cue": [
+    "b4",
+    "परिवार"
+   ]
+  },
+  {
+   "cue": [
+    "b4",
+    "₹200"
+   ],
+   "ids": [
+    "family",
+    "family-balance",
+    "transfer"
+   ],
+   "until_cue": [
+    "b4",
+    "उपलब्ध"
+   ]
+  },
+  {
+   "cue": [
+    "b4",
+    "उपलब्ध"
+   ],
+   "ids": [
+    "family",
+    "family-balance",
+    "household-use",
+    "groceries"
+   ],
+   "until_cue": [
+    "b4",
+    "खाता"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

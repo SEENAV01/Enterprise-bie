@@ -1,0 +1,432 @@
+{
+ "id": "v17_s1b",
+ "part_id": "c43.1",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b5",
+   "say": "काम की financial सेवाएँ लोगों तक पहुँचना और उनका इस्तेमाल कर पाना, यही financial inclusion है। NPCI, यानी National Payments Corporation of India, देश की retail payment व्यवस्था से जुड़ी organisation है। साझा payment रास्ते accounts को काम का बनाते हैं, इसलिए NPCI financial inclusion बढ़ाने में मदद करता है।"
+  },
+  {
+   "beat_id": "b6",
+   "say": "इस उदाहरण से क्या पता चला? अलग banks के बीच payment का रास्ता मिला, तो परिवार खाता इस्तेमाल कर पाया। घर पैसे भेजते समय यही जरूरत होती है; इससे पूरे देश में inclusion कितना बढ़ा, यह नहीं मापा गया।"
+  },
+  {
+   "beat_id": "b7",
+   "say": "Claim है ‘helps in promoting’, न कि ‘अकेले सबको शामिल कर देता है’। Connectivity न हो, service महँगी हो या व्यक्ति इस्तेमाल न कर पाए, तो रास्ता होते हुए भी काम रुकेगा। यहाँ न numerical measure है, न सबके शामिल होने की guarantee।"
+  },
+  {
+   "beat_id": "b8",
+   "say": "यह कारण की कड़ी याद रखिए: साझा payment रास्ता, फिर खाते में पैसा भेजना-पाना आसान, फिर खाते का असली इस्तेमाल। इसी तरह infrastructure inclusion में मदद करता है। मदद और पूरी guarantee को एक मत मानिए।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank",
+   "kind": "bank",
+   "x": 2600,
+   "sign": "बैंक",
+   "cue": [
+    "b5",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "teller",
+   "kind": "teller",
+   "x": 2600,
+   "cue": [
+    "b5",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "customers",
+   "kind": "crowd",
+   "x0": 2250,
+   "spacing": 105,
+   "enter_x": 1900,
+   "exit_x": 1900,
+   "face": 1,
+   "seed": 43,
+   "cue": [
+    "b5",
+    "लोगों"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b5",
+      "लोगों"
+     ],
+     "n": 2
+    }
+   ]
+  },
+  {
+   "id": "inclusion_board",
+   "kind": "board",
+   "x": 3280,
+   "y": 420,
+   "fill": "#E7EFE8",
+   "cue": [
+    "b5",
+    "इस्तेमाल"
+   ],
+   "until_cue": [
+    "b6",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b5",
+      "इस्तेमाल"
+     ],
+     "text": "Financial inclusion में सेवाएँ\nपहुँचना और इस्तेमाल कर पाना है।"
+    },
+    {
+     "cue": [
+      "b5",
+      "retail"
+     ],
+     "text": "NPCI देश की retail payment\nव्यवस्था से जुड़ी organisation है।"
+    },
+    {
+     "cue": [
+      "b5",
+      "साझा"
+     ],
+     "text": "साझा payment रास्ते accounts को\nकाम का बनाते हैं।"
+    },
+    {
+     "cue": [
+      "b5",
+      "इसलिए"
+     ],
+     "text": "NPCI financial inclusion\nबढ़ाने में मदद करता है।"
+    }
+   ]
+  },
+  {
+   "id": "example_board",
+   "kind": "board",
+   "x": 3280,
+   "y": 420,
+   "fill": "#EEE8D9",
+   "cue": [
+    "b6",
+    "payment"
+   ],
+   "until_cue": [
+    "b7",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b6",
+      "payment"
+     ],
+     "text": "Payment का रास्ता मिला,\nतो परिवार खाता इस्तेमाल कर पाया।"
+    },
+    {
+     "cue": [
+      "b6",
+      "पूरे"
+     ],
+     "text": "पूरे देश में inclusion कितना बढ़ा,\nयह नहीं मापा गया।"
+    }
+   ]
+  },
+  {
+   "id": "limits_board",
+   "kind": "board",
+   "x": 3280,
+   "y": 420,
+   "fill": "#F1E5DB",
+   "cue": [
+    "b7",
+    "promoting’,"
+   ],
+   "until_cue": [
+    "b8",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b7",
+      "promoting’,"
+     ],
+     "text": "Claim है ‘helps in promoting’।"
+    },
+    {
+     "cue": [
+      "b7",
+      "Connectivity"
+     ],
+     "text": "Connectivity न हो,\nतो काम रुकेगा।"
+    },
+    {
+     "cue": [
+      "b7",
+      "महँगी"
+     ],
+     "text": "Service महँगी हो या व्यक्ति\nइस्तेमाल न कर पाए,\nतो काम रुकेगा।"
+    },
+    {
+     "cue": [
+      "b7",
+      "guarantee।"
+     ],
+     "text": "सबके शामिल होने की\nguarantee नहीं है।"
+    }
+   ]
+  },
+  {
+   "id": "mechanism_board",
+   "kind": "board",
+   "x": 3280,
+   "y": 420,
+   "fill": "#E7EFE8",
+   "cue": [
+    "b8",
+    "भेजना-पाना"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b8",
+      "भेजना-पाना"
+     ],
+     "text": "साझा payment रास्ते से खाते में\nपैसा भेजना-पाना आसान है।"
+    },
+    {
+     "cue": [
+      "b8",
+      "असली"
+     ],
+     "text": "फिर खाते का असली इस्तेमाल।"
+    },
+    {
+     "cue": [
+      "b8",
+      "infrastructure"
+     ],
+     "text": "Infrastructure inclusion में\nमदद करता है।"
+    },
+    {
+     "cue": [
+      "b8",
+      "guarantee"
+     ],
+     "text": "मदद और पूरी guarantee को\nएक मत मानिए।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b5",
+    "",
+    0.0
+   ],
+   "x": 2700,
+   "y": 510,
+   "zoom": 0.8,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b5",
+    "इस्तेमाल"
+   ],
+   "x": 2940,
+   "y": 480,
+   "zoom": 0.9,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b5",
+    "NPCI,"
+   ],
+   "x": 3000,
+   "y": 470,
+   "zoom": 0.95,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b5",
+    "साझा"
+   ],
+   "x": 2830,
+   "y": 510,
+   "zoom": 0.85,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b5",
+    "इसलिए"
+   ],
+   "x": 3000,
+   "y": 470,
+   "zoom": 0.95,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b6",
+    "",
+    0.0
+   ],
+   "x": 2660,
+   "y": 530,
+   "zoom": 0.85,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b6",
+    "परिवार"
+   ],
+   "x": 2790,
+   "y": 520,
+   "zoom": 0.9,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b6",
+    "घर"
+   ],
+   "x": 2700,
+   "y": 530,
+   "zoom": 0.85,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b6",
+    "पूरे"
+   ],
+   "x": 3040,
+   "y": 460,
+   "zoom": 1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b7",
+    "",
+    0.0
+   ],
+   "x": 2920,
+   "y": 480,
+   "zoom": 0.9,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b7",
+    "अकेले"
+   ],
+   "x": 2790,
+   "y": 520,
+   "zoom": 0.85,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b7",
+    "Connectivity"
+   ],
+   "x": 3010,
+   "y": 470,
+   "zoom": 0.95,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b7",
+    "इस्तेमाल"
+   ],
+   "x": 2880,
+   "y": 500,
+   "zoom": 0.9,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b7",
+    "यहाँ"
+   ],
+   "x": 3040,
+   "y": 460,
+   "zoom": 1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b8",
+    "",
+    0.0
+   ],
+   "x": 2750,
+   "y": 510,
+   "zoom": 0.8,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b8",
+    "भेजना-पाना"
+   ],
+   "x": 2940,
+   "y": 480,
+   "zoom": 0.9,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b8",
+    "असली"
+   ],
+   "x": 2810,
+   "y": 510,
+   "zoom": 0.85,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b8",
+    "infrastructure"
+   ],
+   "x": 3000,
+   "y": 470,
+   "zoom": 0.95,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b8",
+    "मदद"
+   ],
+   "x": 2890,
+   "y": 490,
+   "zoom": 0.9,
+   "frames": 45
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

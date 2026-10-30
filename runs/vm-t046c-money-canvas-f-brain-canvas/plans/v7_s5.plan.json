@@ -1,0 +1,512 @@
+{
+ "id": "v7_s5",
+ "part_id": "c17.5",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b32",
+   "say": "Flow की शुरुआत कहाँ है? Silver Tanka पर, जिसे Established Currency कहा गया है: यानी पहले से चल रहा पैसा। यही reference है जिसके सामने नया payment arrangement आया।"
+  },
+  {
+   "beat_id": "b33",
+   "say": "Financial loss का रास्ता समझने के लिए मानिए सरकार ने 10 नकली tokens लिए और हर token के बदले 1 silver unit दिया। खजाने से 10 units निकल गए, जबकि ये tokens सरकार ने जारी ही नहीं किए थे। यह केवल conditional example है, historical redemption rule नहीं।"
+  },
+  {
+   "beat_id": "b34",
+   "say": "Arrows में breakdown की जगह देखिए। पहला खाना established Silver Tanka है; Counterfeiting & Loss of Trust तक arrow नए tokens से आता है, और वहाँ से Withdrawal & Huge Financial Loss तक जाता है। इसलिए भरोसा टूटना और अंतिम financial outcome अलग stages हैं।"
+  },
+  {
+   "beat_id": "b35",
+   "say": "पहचान मुश्किल हो तो असली token भी ठुकराया जा सकता है; acceptance बचाना जरूरी था। Private payment रुकना और treasury से silver निकलना अलग हैं। Historical outcome बड़ा नुकसान था, हमारे example की रकम नहीं।"
+  },
+  {
+   "beat_id": "b37",
+   "say": "पूरा flow जोड़िए: established silver Tanka, 1329–1330 CE में brass और copper tokens, फिर counterfeiting और भरोसा टूटना, अंत में withdrawal और बड़ा financial loss। पैसा केवल metal या सरकारी आदेश से नहीं चलता; authenticity, भरोसा और effective control चाहिए। आगे note की पहचान और उसका promise समझेंगे।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "silver",
+   "kind": "text",
+   "cell": [
+    0,
+    0,
+    3,
+    2
+   ],
+   "cue": [
+    "b32",
+    "Silver"
+   ],
+   "text": "Silver Tanka पहले से चल रहा पैसा है।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "band",
+   "align": "center",
+   "size": 26
+  },
+  {
+   "id": "reference",
+   "kind": "highlight",
+   "cue": [
+    "b32",
+    "reference"
+   ],
+   "until_cue": [
+    "b33",
+    "Financial"
+   ],
+   "style": "band",
+   "tone": "warm",
+   "target": "silver"
+  },
+  {
+   "id": "tokens-example",
+   "kind": "text",
+   "cell": [
+    0,
+    4,
+    4,
+    2
+   ],
+   "cue": [
+    "b33",
+    "10"
+   ],
+   "until_cue": [
+    "b34",
+    "Arrows"
+   ],
+   "text": "सरकार ने 10 नकली tokens लिए।",
+   "style": "box",
+   "tone": "warm",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "example-rate",
+   "kind": "text",
+   "cell": [
+    4,
+    4,
+    4,
+    2
+   ],
+   "cue": [
+    "b33",
+    "1"
+   ],
+   "until_cue": [
+    "b34",
+    "Arrows"
+   ],
+   "text": "हर token पर 1 silver unit दिया।",
+   "style": "box",
+   "tone": "accent",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "example-payout",
+   "kind": "text",
+   "cell": [
+    8,
+    4,
+    4,
+    2
+   ],
+   "cue": [
+    "b33",
+    "units"
+   ],
+   "until_cue": [
+    "b34",
+    "Arrows"
+   ],
+   "text": "खजाने से 10 units निकल गए।",
+   "style": "box",
+   "tone": "danger",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "not-issued",
+   "kind": "text",
+   "cell": [
+    0,
+    2,
+    8,
+    1
+   ],
+   "cue": [
+    "b33",
+    "जारी"
+   ],
+   "until_cue": [
+    "b34",
+    "Arrows"
+   ],
+   "text": "ये tokens सरकार ने जारी नहीं किए थे।",
+   "style": "note",
+   "tone": "danger",
+   "align": "left",
+   "size": 26
+  },
+  {
+   "id": "caveat",
+   "kind": "text",
+   "cell": [
+    0,
+    6,
+    12,
+    1
+   ],
+   "cue": [
+    "b33",
+    "conditional"
+   ],
+   "until_cue": [
+    "b34",
+    "Arrows"
+   ],
+   "text": "यह conditional example है, historical redemption rule नहीं।",
+   "style": "note",
+   "tone": "muted",
+   "align": "center",
+   "size": 24
+  },
+  {
+   "id": "tokens",
+   "kind": "text",
+   "cell": [
+    3,
+    0,
+    3,
+    2
+   ],
+   "cue": [
+    "b34",
+    "tokens"
+   ],
+   "text": "नए tokens आए।",
+   "style": "box",
+   "tone": "accent",
+   "align": "center",
+   "size": 26
+  },
+  {
+   "id": "breakdown",
+   "kind": "text",
+   "cell": [
+    6,
+    0,
+    3,
+    2
+   ],
+   "cue": [
+    "b34",
+    "Counterfeiting"
+   ],
+   "text": "Counterfeiting से भरोसा टूटना।",
+   "style": "box",
+   "tone": "danger",
+   "align": "center",
+   "size": 26
+  },
+  {
+   "id": "breakdown-arrow",
+   "kind": "arrow",
+   "cue": [
+    "b34",
+    "tokens"
+   ],
+   "tone": "danger",
+   "from": "tokens",
+   "to": "breakdown",
+   "from_side": "b",
+   "to_side": "b",
+   "elbow": "vhv"
+  },
+  {
+   "id": "outcome",
+   "kind": "text",
+   "cell": [
+    9,
+    0,
+    3,
+    2
+   ],
+   "cue": [
+    "b34",
+    "Withdrawal"
+   ],
+   "text": "Withdrawal और बड़ा financial loss हुआ।",
+   "style": "box",
+   "tone": "danger",
+   "align": "center",
+   "size": 26
+  },
+  {
+   "id": "outcome-arrow",
+   "kind": "arrow",
+   "cue": [
+    "b34",
+    "जाता"
+   ],
+   "tone": "danger",
+   "from": "breakdown",
+   "to": "outcome",
+   "from_side": "b",
+   "to_side": "b",
+   "elbow": "vhv"
+  },
+  {
+   "id": "acceptance",
+   "kind": "text",
+   "cell": [
+    0,
+    4,
+    6,
+    2
+   ],
+   "cue": [
+    "b35",
+    "ठुकराया"
+   ],
+   "until_cue": [
+    "b37",
+    "पूरा"
+   ],
+   "text": "असली token भी ठुकराया जा सकता है।",
+   "style": "box",
+   "tone": "warm",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "different-effects",
+   "kind": "text",
+   "cell": [
+    6,
+    4,
+    6,
+    2
+   ],
+   "cue": [
+    "b35",
+    "अलग"
+   ],
+   "until_cue": [
+    "b37",
+    "पूरा"
+   ],
+   "text": "Private payment रुकना और treasury से silver निकलना अलग हैं।",
+   "style": "box",
+   "tone": "accent",
+   "align": "center",
+   "size": 26
+  },
+  {
+   "id": "historical-outcome-focus",
+   "kind": "highlight",
+   "cue": [
+    "b35",
+    "Historical"
+   ],
+   "until_cue": [
+    "b37",
+    "पूरा"
+   ],
+   "style": "box",
+   "tone": "warm",
+   "target": "outcome"
+  },
+  {
+   "id": "introduction",
+   "kind": "text",
+   "cell": [
+    0,
+    3,
+    12,
+    1
+   ],
+   "cue": [
+    "b37",
+    "1329–1330"
+   ],
+   "text": "1329–1330 CE में brass और copper tokens आए।",
+   "style": "note",
+   "tone": "accent",
+   "align": "center",
+   "size": 26
+  },
+  {
+   "id": "start-arrow",
+   "kind": "arrow",
+   "cue": [
+    "b37",
+    "tokens"
+   ],
+   "tone": "accent",
+   "from": "silver",
+   "to": "tokens",
+   "from_side": "b",
+   "to_side": "b",
+   "elbow": "vhv"
+  },
+  {
+   "id": "foundation",
+   "kind": "callout",
+   "cell": [
+    0,
+    4,
+    12,
+    2
+   ],
+   "cue": [
+    "b37",
+    "authenticity,"
+   ],
+   "text": "पैसे को authenticity, भरोसा और effective control चाहिए।",
+   "style": "note",
+   "tone": "accent",
+   "fill": "band",
+   "align": "center",
+   "size": 32,
+   "marks": [
+    {
+     "phrase": "effective control",
+     "cue": [
+      "b37",
+      "effective"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "next",
+   "kind": "text",
+   "cell": [
+    0,
+    6,
+    12,
+    1
+   ],
+   "cue": [
+    "b37",
+    "note"
+   ],
+   "text": "आगे note की पहचान और उसका promise समझेंगे।",
+   "style": "note",
+   "tone": "muted",
+   "align": "center",
+   "size": 26
+  }
+ ],
+ "camera": [
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b32",
+    "Flow"
+   ]
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b34",
+    "पहला"
+   ],
+   "ids": [
+    "silver"
+   ],
+   "until_cue": [
+    "b34",
+    "Counterfeiting"
+   ]
+  },
+  {
+   "cue": [
+    "b34",
+    "tokens"
+   ],
+   "ids": [
+    "tokens",
+    "breakdown",
+    "breakdown-arrow"
+   ],
+   "until_cue": [
+    "b34",
+    "Withdrawal"
+   ]
+  },
+  {
+   "cue": [
+    "b34",
+    "Withdrawal"
+   ],
+   "ids": [
+    "breakdown",
+    "outcome",
+    "outcome-arrow"
+   ],
+   "until_cue": [
+    "b35",
+    "पहचान"
+   ]
+  },
+  {
+   "cue": [
+    "b37",
+    "established"
+   ],
+   "ids": [
+    "silver"
+   ],
+   "until_cue": [
+    "b37",
+    "1329–1330"
+   ]
+  },
+  {
+   "cue": [
+    "b37",
+    "counterfeiting"
+   ],
+   "ids": [
+    "breakdown",
+    "breakdown-arrow"
+   ],
+   "until_cue": [
+    "b37",
+    "withdrawal"
+   ]
+  },
+  {
+   "cue": [
+    "b37",
+    "withdrawal"
+   ],
+   "ids": [
+    "outcome",
+    "outcome-arrow"
+   ],
+   "until_cue": [
+    "b37",
+    "पैसा"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

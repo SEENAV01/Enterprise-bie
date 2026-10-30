@@ -1,0 +1,384 @@
+{
+ "id": "v4_s7b",
+ "part_id": "c11.2",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b45",
+   "say": "₹20 के 50 coins जोड़ें तो ₹1,000 बनते हैं; limit 1,000 coins की नहीं है। 50 paise के 20 coins जोड़ें तो ₹10 बनते हैं; denomination और total limit अलग हैं।"
+  },
+  {
+   "beat_id": "b46",
+   "say": "डिब्बे से 50 और 25 paise अलग रखिए: Coinage Act, 2011 में पहले की ₹10 limit है, दूसरे का tender status नहीं। Commemorative coins में ‘most’ यानी सभी नहीं; इससे गिनती नहीं निकाल सकते।"
+  },
+  {
+   "beat_id": "b47",
+   "say": "Limit पार करना status खोना नहीं; collector price legal status लौटाती नहीं।"
+  },
+  {
+   "beat_id": "b48",
+   "say": "Denomination × count निकालिए; फिर total limit और status जाँचिए।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "rupee_calculation",
+   "kind": "text",
+   "cell": [
+    0,
+    2,
+    6,
+    2
+   ],
+   "cue": [
+    "b45",
+    "₹20"
+   ],
+   "until_cue": [
+    "b46",
+    "डिब्बे"
+   ],
+   "text": "₹20 के 50 coins से ₹1,000 बनते हैं।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "paper",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "not_coin_count",
+   "kind": "text",
+   "cell": [
+    0,
+    4,
+    6,
+    1
+   ],
+   "cue": [
+    "b45",
+    "limit"
+   ],
+   "until_cue": [
+    "b46",
+    "डिब्बे"
+   ],
+   "text": "Limit 1,000 coins की नहीं है।",
+   "style": "note",
+   "tone": "warm",
+   "fill": "paper",
+   "align": "center",
+   "size": 26
+  },
+  {
+   "id": "paise_calculation",
+   "kind": "text",
+   "cell": [
+    6,
+    2,
+    6,
+    2
+   ],
+   "cue": [
+    "b45",
+    "paise"
+   ],
+   "until_cue": [
+    "b46",
+    "डिब्बे"
+   ],
+   "text": "50 paise के 20 coins से ₹10 बनते हैं।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "paper",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "anchor",
+   "kind": "text",
+   "cell": [
+    0,
+    0,
+    12,
+    1
+   ],
+   "cue": [
+    "b45",
+    "denomination"
+   ],
+   "text": "Denomination और total limit अलग हैं।",
+   "style": "box",
+   "tone": "ink",
+   "fill": "band",
+   "align": "center",
+   "size": 32
+  },
+  {
+   "id": "act",
+   "kind": "text",
+   "cell": [
+    0,
+    1,
+    12,
+    1
+   ],
+   "cue": [
+    "b46",
+    "Coinage"
+   ],
+   "until_cue": [
+    "b47",
+    "Limit"
+   ],
+   "text": "Coinage Act, 2011 में ₹10 limit है।",
+   "style": "note",
+   "tone": "muted",
+   "fill": "paper",
+   "align": "center",
+   "size": 26
+  },
+  {
+   "id": "fifty_rule",
+   "kind": "text",
+   "cell": [
+    0,
+    2,
+    6,
+    2
+   ],
+   "cue": [
+    "b46",
+    "₹10"
+   ],
+   "until_cue": [
+    "b47",
+    "Limit"
+   ],
+   "text": "50 paise की limit ₹10 है।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "paper",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "twentyfive_rule",
+   "kind": "text",
+   "cell": [
+    6,
+    2,
+    6,
+    2
+   ],
+   "cue": [
+    "b46",
+    "दूसरे"
+   ],
+   "until_cue": [
+    "b47",
+    "Limit"
+   ],
+   "text": "25 paise का tender status नहीं है।",
+   "style": "box",
+   "tone": "danger",
+   "fill": "paper",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "most",
+   "kind": "callout",
+   "cell": [
+    0,
+    5,
+    12,
+    1
+   ],
+   "cue": [
+    "b46",
+    "Commemorative"
+   ],
+   "until_cue": [
+    "b47",
+    "Limit"
+   ],
+   "text": "Commemorative coins में ‘most’ यानी सभी नहीं।",
+   "style": "note",
+   "tone": "warm",
+   "fill": "paper",
+   "align": "center",
+   "size": 28,
+   "marks": [
+    {
+     "phrase": "सभी नहीं",
+     "cue": [
+      "b46",
+      "सभी"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "no_count",
+   "kind": "text",
+   "cell": [
+    0,
+    6,
+    12,
+    1
+   ],
+   "cue": [
+    "b46",
+    "गिनती"
+   ],
+   "until_cue": [
+    "b47",
+    "Limit"
+   ],
+   "text": "इससे गिनती नहीं निकाल सकते।",
+   "style": "note",
+   "tone": "muted",
+   "fill": "paper",
+   "align": "center",
+   "size": 26
+  },
+  {
+   "id": "excess",
+   "kind": "callout",
+   "cell": [
+    0,
+    2,
+    6,
+    2
+   ],
+   "cue": [
+    "b47",
+    "Limit"
+   ],
+   "until_cue": [
+    "b48",
+    "Denomination"
+   ],
+   "text": "Limit पार करना status खोना नहीं।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "paper",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "collector",
+   "kind": "callout",
+   "cell": [
+    6,
+    2,
+    6,
+    2
+   ],
+   "cue": [
+    "b47",
+    "collector"
+   ],
+   "until_cue": [
+    "b48",
+    "Denomination"
+   ],
+   "text": "Collector price legal status लौटाती नहीं।",
+   "style": "box",
+   "tone": "warm",
+   "fill": "paper",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "calculate",
+   "kind": "text",
+   "cell": [
+    0,
+    2,
+    6,
+    2
+   ],
+   "cue": [
+    "b48",
+    "Denomination"
+   ],
+   "text": "Denomination × count निकालिए।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "paper",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "check",
+   "kind": "text",
+   "cell": [
+    6,
+    2,
+    6,
+    2
+   ],
+   "cue": [
+    "b48",
+    "फिर"
+   ],
+   "text": "फिर total limit और status जाँचिए।",
+   "style": "box",
+   "tone": "ok",
+   "fill": "paper",
+   "align": "center",
+   "size": 30
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b45",
+    "paise"
+   ],
+   "ids": [
+    "paise_calculation"
+   ],
+   "until_cue": [
+    "b45",
+    "denomination"
+   ]
+  },
+  {
+   "cue": [
+    "b46",
+    "Commemorative"
+   ],
+   "ids": [
+    "anchor",
+    "most",
+    "no_count"
+   ],
+   "until_cue": [
+    "b47",
+    "Limit"
+   ]
+  },
+  {
+   "cue": [
+    "b47",
+    "collector"
+   ],
+   "ids": [
+    "anchor",
+    "collector"
+   ],
+   "until_cue": [
+    "b48",
+    "Denomination"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

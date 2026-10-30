@@ -1,0 +1,414 @@
+{
+ "id": "v6_s7s",
+ "part_id": "c15.3",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b45",
+   "say": "Dollar अचानक महँगा हो तो importer कितना देगा? मान लो पहले 1 dollar ₹80 में मिलता था; अचानक demand बढ़ी तो bank ने ₹84 माँगे। अब $100 खरीदने के लिए ₹8,000 की जगह ₹8,400 देने पड़ेंगे।"
+  },
+  {
+   "beat_id": "b46",
+   "say": "अब RBI banks के foreign-exchange market में dollars बेचता है; supply बढ़ती है और बदले में rupees उसके पास आते हैं। बाकी बातें same मानो तो quote ₹82 तक नरम हुआ; $100 का bill ₹8,200 हुआ, शुरुआती ₹8,000 नहीं।"
+  },
+  {
+   "beat_id": "b47",
+   "say": "इसे volatility smoothing कहते हैं, यानी भाव के तेज़ झटके घटाना। RBI intervention का मुख्य मकसद excessive volatility घटाना है, rate fix करना नहीं; dollar sales ने supply बढ़ाकर ऊपर का pressure कम किया।"
+  },
+  {
+   "beat_id": "b48",
+   "say": "Demand pressure बड़ा रहे तो rate फिर बढ़ सकता है। कोई guaranteed result नहीं; excessive volatility condition है, ₹84 automatic intervention trigger नहीं।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank",
+   "kind": "bank",
+   "x": 2600,
+   "y": 860,
+   "sign": "bank",
+   "cue": [
+    "b45",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "teller",
+   "kind": "teller",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b45",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "importer",
+   "kind": "crowd",
+   "x0": 2330,
+   "spacing": 85,
+   "enter_x": 1900,
+   "exit_x": 1900,
+   "face": 1,
+   "seed": 15,
+   "cue": [
+    "b45",
+    "importer"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b45",
+      "importer"
+     ],
+     "n": 1
+    }
+   ]
+  },
+  {
+   "id": "assumption",
+   "kind": "label",
+   "x": 2180,
+   "y": 260,
+   "text": "मान लो।",
+   "fill": "rgba(250,240,210,1)",
+   "cue": [
+    "b45",
+    "मान"
+   ],
+   "until_cue": [
+    "b47",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "quote",
+   "kind": "price_tag",
+   "x": 2550,
+   "y": 400,
+   "string": 65,
+   "cue": [
+    "b45",
+    "₹80"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b45",
+      "₹80"
+     ],
+     "text": "₹80"
+    },
+    {
+     "cue": [
+      "b45",
+      "₹84"
+     ],
+     "text": "₹84",
+     "dir": "up"
+    },
+    {
+     "cue": [
+      "b46",
+      "₹82"
+     ],
+     "text": "₹82",
+     "dir": "down"
+    }
+   ]
+  },
+  {
+   "id": "bill",
+   "kind": "board",
+   "x": 2930,
+   "y": 580,
+   "fill": "#E6C98C",
+   "cue": [
+    "b45",
+    "₹8,000"
+   ],
+   "until_cue": [
+    "b47",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b45",
+      "₹8,000"
+     ],
+     "text": "$100 के लिए ₹8,000 देने पड़ेंगे।"
+    },
+    {
+     "cue": [
+      "b45",
+      "₹8,400"
+     ],
+     "text": "$100 के लिए ₹8,400 देने पड़ेंगे।",
+     "dir": "up"
+    },
+    {
+     "cue": [
+      "b46",
+      "₹8,200"
+     ],
+     "text": "$100 का bill ₹8,200 हुआ,\nशुरुआती ₹8,000 नहीं।",
+     "dir": "down"
+    }
+   ]
+  },
+  {
+   "id": "mechanism",
+   "kind": "board",
+   "x": 2110,
+   "y": 540,
+   "fill": "#A8CDC1",
+   "cue": [
+    "b46",
+    "बेचता"
+   ],
+   "until_cue": [
+    "b47",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b46",
+      "बेचता"
+     ],
+     "text": "RBI dollars बेचता है।"
+    },
+    {
+     "cue": [
+      "b46",
+      "बढ़ती"
+     ],
+     "text": "Supply बढ़ती है।"
+    },
+    {
+     "cue": [
+      "b46",
+      "rupees"
+     ],
+     "text": "बदले में rupees उसके पास आते हैं।"
+    }
+   ]
+  },
+  {
+   "id": "policy",
+   "kind": "board",
+   "x": 2930,
+   "y": 555,
+   "fill": "#A8CDC1",
+   "cue": [
+    "b47",
+    "झटके"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b47",
+      "झटके"
+     ],
+     "text": "Volatility smoothing यानी\nभाव के तेज़ झटके घटाना।"
+    },
+    {
+     "cue": [
+      "b47",
+      "मुख्य"
+     ],
+     "text": "मकसद excessive volatility घटाना है,\nrate fix करना नहीं।"
+    },
+    {
+     "cue": [
+      "b47",
+      "sales"
+     ],
+     "text": "Dollar sales ने supply बढ़ाकर\nऊपर का pressure कम किया।"
+    },
+    {
+     "cue": [
+      "b48",
+      "pressure"
+     ],
+     "text": "Demand pressure बड़ा रहे तो\nrate फिर बढ़ सकता है।"
+    },
+    {
+     "cue": [
+      "b48",
+      "guaranteed"
+     ],
+     "text": "कोई guaranteed result नहीं।"
+    },
+    {
+     "cue": [
+      "b48",
+      "condition"
+     ],
+     "text": "Excessive volatility condition है।"
+    },
+    {
+     "cue": [
+      "b48",
+      "₹84"
+     ],
+     "text": "₹84 automatic intervention\ntrigger नहीं।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b45",
+    "",
+    0.0
+   ],
+   "x": 2530,
+   "y": 535,
+   "zoom": 0.95,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b45",
+    "₹80"
+   ],
+   "x": 2580,
+   "y": 485,
+   "zoom": 1.15,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b45",
+    "₹84"
+   ],
+   "x": 2580,
+   "y": 485,
+   "zoom": 1.25,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b45",
+    "$100"
+   ],
+   "x": 2770,
+   "y": 535,
+   "zoom": 1.1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b46",
+    "",
+    0.0
+   ],
+   "x": 2440,
+   "y": 520,
+   "zoom": 0.95,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b46",
+    "rupees"
+   ],
+   "x": 2250,
+   "y": 540,
+   "zoom": 1.1,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b46",
+    "₹82"
+   ],
+   "x": 2690,
+   "y": 510,
+   "zoom": 1.1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b46",
+    "शुरुआती"
+   ],
+   "x": 2810,
+   "y": 550,
+   "zoom": 1.15,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b47",
+    "",
+    0.0
+   ],
+   "x": 2670,
+   "y": 525,
+   "zoom": 1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b47",
+    "मुख्य"
+   ],
+   "x": 2850,
+   "y": 540,
+   "zoom": 1.15,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b47",
+    "supply"
+   ],
+   "x": 2710,
+   "y": 520,
+   "zoom": 1.05,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b48",
+    "",
+    0.0
+   ],
+   "x": 2710,
+   "y": 520,
+   "zoom": 1,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b48",
+    "guaranteed"
+   ],
+   "x": 2850,
+   "y": 550,
+   "zoom": 1.15,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b48",
+    "₹84"
+   ],
+   "x": 2710,
+   "y": 520,
+   "zoom": 1.05,
+   "frames": 40
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

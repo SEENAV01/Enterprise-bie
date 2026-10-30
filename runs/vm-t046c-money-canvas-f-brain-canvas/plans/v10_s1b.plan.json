@@ -1,0 +1,436 @@
+{
+ "id": "v10_s1b",
+ "part_id": "c23.1",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b7",
+   "say": "Bank money या Deposit Money यानी खाते में जमा पैसा। किराने में banking instruments से यही पैसा भेजा, हाथ में नोट नहीं दिए।"
+  },
+  {
+   "beat_id": "b8",
+   "say": "Negotiable instrument transferable written document है, जिसमें तय रकम चुकाने का promise या order होता है। यानी payment का हक document के साथ आगे जाता है।"
+  },
+  {
+   "beat_id": "b9",
+   "say": "Promissory Note यानी लिखकर खुद चुकाने का वादा। Rahul को पैसे देने वाला Maker है; Rahul Payee है, यानी जिसे पैसे मिलने हैं।"
+  },
+  {
+   "beat_id": "b10",
+   "say": "Bill of Exchange यानी लिखकर दूसरे से कहना, “पैसे दो।” Wholesaler Drawer, retailer Drawee है। Payee खुद wholesaler या उसका बताया व्यक्ति होगा; इसलिए 3 roles जरूरी नहीं 3 लोग हों।"
+  },
+  {
+   "beat_id": "b11",
+   "say": "Cheque bank पर drawn, payable on demand वाला special Bill of Exchange है। यानी bank को payment order है; पेश करके payment माँगते हैं, guarantee नहीं मिलती।"
+  },
+  {
+   "beat_id": "b12",
+   "say": "“कुछ पैसे दूँगा” में रकम तय नहीं; केवल बोलने में writing नहीं। खुद देने का promise, दूसरे को order देने से अलग है।"
+  },
+  {
+   "beat_id": "b13",
+   "say": "Account में पैसा है; document में payment का promise या order है। आगे इन्हीं के legal rights और parties पहचानेंगे।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank",
+   "kind": "bank",
+   "x": 2600,
+   "y": 860,
+   "sign": "Bank",
+   "cue": [
+    "b7",
+    "Bank"
+   ]
+  },
+  {
+   "id": "teller",
+   "kind": "teller",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b7",
+    "खाते"
+   ]
+  },
+  {
+   "id": "deposit",
+   "kind": "board",
+   "x": 2000,
+   "y": 500,
+   "fill": "#E2ECE8",
+   "cue": [
+    "b7",
+    "जमा"
+   ],
+   "until_cue": [
+    "b8",
+    "Negotiable"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b7",
+      "जमा"
+     ],
+     "text": "Deposit Money खाते में जमा पैसा है।"
+    },
+    {
+     "cue": [
+      "b7",
+      "instruments"
+     ],
+     "text": "Banking instruments से पैसा भेजा,\nहाथ में नोट नहीं दिए।"
+    }
+   ]
+  },
+  {
+   "id": "instrument",
+   "kind": "board",
+   "x": 2000,
+   "y": 500,
+   "fill": "#E2ECE8",
+   "cue": [
+    "b8",
+    "Negotiable"
+   ],
+   "until_cue": [
+    "b9",
+    "Promissory"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b8",
+      "Negotiable"
+     ],
+     "text": "Negotiable instrument transferable\nwritten document है।"
+    },
+    {
+     "cue": [
+      "b8",
+      "रकम"
+     ],
+     "text": "तय रकम चुकाने का\npromise या order होता है।"
+    },
+    {
+     "cue": [
+      "b8",
+      "हक"
+     ],
+     "text": "Payment का हक document के साथ\nआगे जाता है।"
+    }
+   ]
+  },
+  {
+   "id": "promise",
+   "kind": "board",
+   "x": 2000,
+   "y": 500,
+   "fill": "#E2ECE8",
+   "cue": [
+    "b9",
+    "Promissory"
+   ],
+   "until_cue": [
+    "b10",
+    "Bill"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b9",
+      "लिखकर"
+     ],
+     "text": "Promissory Note में लिखकर\nखुद चुकाने का वादा है।"
+    },
+    {
+     "cue": [
+      "b9",
+      "Maker"
+     ],
+     "text": "Rahul को पैसे देने वाला Maker है।"
+    },
+    {
+     "cue": [
+      "b9",
+      "Payee"
+     ],
+     "text": "Rahul Payee है,\nजिसे पैसे मिलने हैं।"
+    }
+   ]
+  },
+  {
+   "id": "bill",
+   "kind": "board",
+   "x": 2000,
+   "y": 500,
+   "fill": "#E2ECE8",
+   "cue": [
+    "b10",
+    "Bill"
+   ],
+   "until_cue": [
+    "b11",
+    "Cheque"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b10",
+      "लिखकर"
+     ],
+     "text": "Bill of Exchange में लिखकर\nदूसरे से कहना, “पैसे दो।”"
+    },
+    {
+     "cue": [
+      "b10",
+      "Drawer,"
+     ],
+     "text": "Wholesaler Drawer है,\nretailer Drawee है।"
+    },
+    {
+     "cue": [
+      "b10",
+      "Payee"
+     ],
+     "text": "Payee खुद wholesaler या\nउसका बताया व्यक्ति होगा।"
+    },
+    {
+     "cue": [
+      "b10",
+      "roles"
+     ],
+     "text": "3 roles जरूरी नहीं 3 लोग हों।"
+    }
+   ]
+  },
+  {
+   "id": "cheque",
+   "kind": "board",
+   "x": 2000,
+   "y": 500,
+   "fill": "#E2ECE8",
+   "cue": [
+    "b11",
+    "Cheque"
+   ],
+   "until_cue": [
+    "b12",
+    "“कुछ"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b11",
+      "drawn,"
+     ],
+     "text": "Cheque bank पर drawn,\npayable on demand वाला\nspecial Bill of Exchange है।"
+    },
+    {
+     "cue": [
+      "b11",
+      "order"
+     ],
+     "text": "Bank को payment order है।"
+    },
+    {
+     "cue": [
+      "b11",
+      "guarantee"
+     ],
+     "text": "पेश करके payment माँगते हैं,\nguarantee नहीं मिलती।"
+    }
+   ]
+  },
+  {
+   "id": "boundaries",
+   "kind": "board",
+   "x": 2000,
+   "y": 500,
+   "fill": "#E2ECE8",
+   "cue": [
+    "b12",
+    "“कुछ"
+   ],
+   "until_cue": [
+    "b13",
+    "Account"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b12",
+      "रकम"
+     ],
+     "text": "“कुछ पैसे दूँगा” में रकम तय नहीं।"
+    },
+    {
+     "cue": [
+      "b12",
+      "बोलने"
+     ],
+     "text": "केवल बोलने में writing नहीं।"
+    },
+    {
+     "cue": [
+      "b12",
+      "promise,"
+     ],
+     "text": "खुद देने का promise,\nदूसरे को order देने से अलग है।"
+    }
+   ]
+  },
+  {
+   "id": "closing",
+   "kind": "board",
+   "x": 2000,
+   "y": 500,
+   "fill": "#E2ECE8",
+   "cue": [
+    "b13",
+    "Account"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b13",
+      "Account"
+     ],
+     "text": "Account में पैसा है।"
+    },
+    {
+     "cue": [
+      "b13",
+      "document"
+     ],
+     "text": "Document में payment का\npromise या order है।"
+    },
+    {
+     "cue": [
+      "b13",
+      "legal"
+     ],
+     "text": "आगे legal rights और\nparties पहचानेंगे।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b7",
+    "",
+    0.0
+   ],
+   "x": 2350,
+   "y": 490,
+   "zoom": 0.95,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b7",
+    "instruments"
+   ],
+   "x": 2250,
+   "y": 490,
+   "zoom": 1.05,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b8",
+    "Negotiable"
+   ],
+   "x": 2200,
+   "y": 480,
+   "zoom": 1.1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b8",
+    "हक"
+   ],
+   "x": 2250,
+   "y": 490,
+   "zoom": 1.05,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b9",
+    "Promissory"
+   ],
+   "x": 2180,
+   "y": 480,
+   "zoom": 1.12,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b10",
+    "Bill"
+   ],
+   "x": 2250,
+   "y": 490,
+   "zoom": 1.04,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b10",
+    "Payee"
+   ],
+   "x": 2180,
+   "y": 480,
+   "zoom": 1.12,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b11",
+    "Cheque"
+   ],
+   "x": 2350,
+   "y": 490,
+   "zoom": 0.96,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b11",
+    "पेश"
+   ],
+   "x": 2250,
+   "y": 490,
+   "zoom": 1.05,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b12",
+    "",
+    0.0
+   ],
+   "x": 2180,
+   "y": 480,
+   "zoom": 1.12,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b13",
+    "Account"
+   ],
+   "x": 2350,
+   "y": 490,
+   "zoom": 0.95,
+   "frames": 45
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

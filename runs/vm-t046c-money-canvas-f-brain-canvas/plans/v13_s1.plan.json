@@ -1,0 +1,599 @@
+{
+ "id": "v13_s1",
+ "part_id": "c30.1",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b1",
+   "say": "आपने पूरा bill दिया, फिर दुकानदार को कम पैसे क्यों मिले? Card, voucher और fee को अलग करके समझिए।"
+  },
+  {
+   "beat_id": "b2",
+   "say": "Card पर RuPay देखा है? Rupee और Payment जोड़कर नाम बना, यानी 2 टुकड़ों से बना नाम। NPCI ने 2012 में launch किया; यहाँ plus शब्द जोड़ता है, रुपये नहीं।"
+  },
+  {
+   "beat_id": "b3",
+   "say": "Jan Dhan खाते के साथ क्या मिलता है? PMJDY में free RuPay debit card, यानी खाते के साथ मिला card। RuPay Credit Cards को UPI से जोड़ना अलग innovation है, जैसे card और payment का रास्ता जोड़ना।"
+  },
+  {
+   "beat_id": "b4",
+   "say": "विदेश में नया card कहाँ मिला? Bhutan पहला overseas issuance देश है, 2020 में; Mauritius में शुरुआत 2024 में हुई। Issuance यानी ग्राहक को नया card देना, जैसे खाते के साथ card मिलना।"
+  },
+  {
+   "beat_id": "b5",
+   "say": "Nepal और Maldives में ATMs तथा PoS terminals पर acceptance है। यानी cash की machine और दुकान के bill counter पर card चलना। Nepal को acceptance से जोड़िए, card जारी होने के साल से नहीं।"
+  },
+  {
+   "beat_id": "b6",
+   "say": "Bhutan में ATMs और merchants पर acceptance भी है। UAE और Singapore में ATMs तथा merchant terminals हैं, यानी दुकानदार की payment लेने वाली machines।"
+  },
+  {
+   "beat_id": "b7",
+   "say": "2020 से 2024 में 4 साल का अंतर है; Bhutan पहले, Mauritius बाद में याद रखिए।"
+  },
+  {
+   "beat_id": "b8",
+   "say": "इस linkage में payment UPI से शुरू होता है, लेकिन खर्च linked RuPay credit card की borrowing facility से होता है। यानी अपना जमा पैसा नहीं, उधार इस्तेमाल किया और बाद में चुकाना होगा; सामने familiar interface होने से funding नहीं बदलती।"
+  },
+  {
+   "beat_id": "b9",
+   "say": "नाम, launch, card type और overseas activity अलग याद रखिए; इससे गलत जोड़ी पकड़ सकेंगे।"
+  }
+ ],
+ "kit": "shop",
+ "elements": [
+  {
+   "id": "shop",
+   "kind": "shop",
+   "x": 2600,
+   "y": 860,
+   "fill": "#F5EBDD",
+   "cue": [
+    "b1",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "keeper",
+   "kind": "shopkeeper",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b1",
+    "दुकानदार"
+   ]
+  },
+  {
+   "id": "opening",
+   "kind": "board",
+   "x": 2220,
+   "y": 470,
+   "fill": "#ECE1CE",
+   "cue": [
+    "b1",
+    "कम"
+   ],
+   "until_cue": [
+    "b2",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b1",
+      "कम"
+     ],
+     "text": "दुकानदार को कम पैसे क्यों मिले?"
+    }
+   ]
+  },
+  {
+   "id": "name",
+   "kind": "board",
+   "x": 2220,
+   "y": 470,
+   "fill": "#DCECE7",
+   "cue": [
+    "b2",
+    "जोड़कर"
+   ],
+   "until_cue": [
+    "b3",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b2",
+      "जोड़कर"
+     ],
+     "text": "Rupee और Payment जोड़कर नाम बना।"
+    },
+    {
+     "cue": [
+      "b2",
+      "2012"
+     ],
+     "text": "NPCI ने 2012 में launch किया।"
+    },
+    {
+     "cue": [
+      "b2",
+      "plus"
+     ],
+     "text": "plus शब्द जोड़ता है, रुपये नहीं।"
+    }
+   ]
+  },
+  {
+   "id": "types",
+   "kind": "board",
+   "x": 2220,
+   "y": 470,
+   "fill": "#DCECE7",
+   "cue": [
+    "b3",
+    "free"
+   ],
+   "until_cue": [
+    "b4",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b3",
+      "free"
+     ],
+     "text": "PMJDY में free RuPay debit card\nखाते के साथ मिलता है।"
+    },
+    {
+     "cue": [
+      "b3",
+      "UPI"
+     ],
+     "text": "RuPay Credit Cards को UPI से\nजोड़ना अलग innovation है।"
+    }
+   ]
+  },
+  {
+   "id": "issuance",
+   "kind": "board",
+   "x": 2220,
+   "y": 470,
+   "fill": "#E6E2F1",
+   "cue": [
+    "b4",
+    "2020"
+   ],
+   "until_cue": [
+    "b5",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b4",
+      "2020"
+     ],
+     "text": "Bhutan पहला overseas issuance देश है,\n2020 में।"
+    },
+    {
+     "cue": [
+      "b4",
+      "2024"
+     ],
+     "text": "Mauritius में शुरुआत 2024 में हुई।"
+    },
+    {
+     "cue": [
+      "b4",
+      "Issuance"
+     ],
+     "text": "Issuance यानी ग्राहक को नया card देना।"
+    }
+   ]
+  },
+  {
+   "id": "acceptance",
+   "kind": "board",
+   "x": 2220,
+   "y": 470,
+   "fill": "#E6E2F1",
+   "cue": [
+    "b5",
+    "ATMs"
+   ],
+   "until_cue": [
+    "b7",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b5",
+      "ATMs"
+     ],
+     "text": "Nepal और Maldives में ATMs तथा\nPoS terminals पर acceptance है।"
+    },
+    {
+     "cue": [
+      "b5",
+      "जोड़िए,"
+     ],
+     "text": "Nepal को acceptance से जोड़िए।"
+    },
+    {
+     "cue": [
+      "b6",
+      "merchants"
+     ],
+     "text": "Bhutan में ATMs और merchants पर\nacceptance भी है।"
+    },
+    {
+     "cue": [
+      "b6",
+      "Singapore"
+     ],
+     "text": "UAE और Singapore में ATMs तथा\nmerchant terminals हैं।"
+    }
+   ]
+  },
+  {
+   "id": "interval",
+   "kind": "board",
+   "x": 2220,
+   "y": 470,
+   "fill": "#E6E2F1",
+   "cue": [
+    "b7",
+    "4"
+   ],
+   "until_cue": [
+    "b8",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b7",
+      "4"
+     ],
+     "text": "2020 से 2024 में 4 साल का अंतर है।"
+    },
+    {
+     "cue": [
+      "b7",
+      "Bhutan"
+     ],
+     "text": "Bhutan पहले, Mauritius बाद में।"
+    }
+   ]
+  },
+  {
+   "id": "funding",
+   "kind": "board",
+   "x": 2220,
+   "y": 470,
+   "fill": "#F0E2D5",
+   "cue": [
+    "b8",
+    "UPI"
+   ],
+   "until_cue": [
+    "b9",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b8",
+      "UPI"
+     ],
+     "text": "Payment UPI से शुरू होता है।"
+    },
+    {
+     "cue": [
+      "b8",
+      "borrowing"
+     ],
+     "text": "खर्च linked RuPay credit card की\nborrowing facility से होता है।"
+    },
+    {
+     "cue": [
+      "b8",
+      "उधार"
+     ],
+     "text": "उधार इस्तेमाल किया और\nबाद में चुकाना होगा।"
+    },
+    {
+     "cue": [
+      "b8",
+      "familiar"
+     ],
+     "text": "Familiar interface होने से\nfunding नहीं बदलती।"
+    }
+   ]
+  },
+  {
+   "id": "recap",
+   "kind": "board",
+   "x": 2220,
+   "y": 470,
+   "fill": "#DCECE7",
+   "cue": [
+    "b9",
+    "अलग"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b9",
+      "अलग"
+     ],
+     "text": "नाम, launch, card type और\n overseas activity अलग याद रखिए।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b1",
+    "",
+    0.0
+   ],
+   "x": 2470,
+   "y": 520,
+   "zoom": 1,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b1",
+    "Card,"
+   ],
+   "x": 2370,
+   "y": 500,
+   "zoom": 1.12,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b2",
+    "",
+    0.0
+   ],
+   "x": 2410,
+   "y": 500,
+   "zoom": 1.05,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b2",
+    "2"
+   ],
+   "x": 2320,
+   "y": 490,
+   "zoom": 1.18,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b2",
+    "NPCI"
+   ],
+   "x": 2360,
+   "y": 490,
+   "zoom": 1.12,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b3",
+    "",
+    0.0
+   ],
+   "x": 2450,
+   "y": 520,
+   "zoom": 1.02,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b3",
+    "यानी"
+   ],
+   "x": 2360,
+   "y": 490,
+   "zoom": 1.15,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b3",
+    "अलग"
+   ],
+   "x": 2320,
+   "y": 490,
+   "zoom": 1.2,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b3",
+    "जैसे"
+   ],
+   "x": 2400,
+   "y": 510,
+   "zoom": 1.08,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b4",
+    "",
+    0.0
+   ],
+   "x": 2430,
+   "y": 510,
+   "zoom": 1.04,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b4",
+    "Mauritius"
+   ],
+   "x": 2320,
+   "y": 490,
+   "zoom": 1.18,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b4",
+    "जैसे"
+   ],
+   "x": 2420,
+   "y": 520,
+   "zoom": 1.05,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b5",
+    "",
+    0.0
+   ],
+   "x": 2380,
+   "y": 500,
+   "zoom": 1.12,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b5",
+    "यानी"
+   ],
+   "x": 2450,
+   "y": 530,
+   "zoom": 1.02,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b5",
+    "जोड़िए,"
+   ],
+   "x": 2340,
+   "y": 490,
+   "zoom": 1.16,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b6",
+    "",
+    0.0
+   ],
+   "x": 2390,
+   "y": 500,
+   "zoom": 1.1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b6",
+    "UAE"
+   ],
+   "x": 2320,
+   "y": 490,
+   "zoom": 1.18,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b6",
+    "यानी"
+   ],
+   "x": 2440,
+   "y": 520,
+   "zoom": 1.03,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b7",
+    "",
+    0.0
+   ],
+   "x": 2350,
+   "y": 490,
+   "zoom": 1.15,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b8",
+    "",
+    0.0
+   ],
+   "x": 2440,
+   "y": 520,
+   "zoom": 1.03,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b8",
+    "लेकिन"
+   ],
+   "x": 2350,
+   "y": 490,
+   "zoom": 1.15,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b8",
+    "यानी"
+   ],
+   "x": 2400,
+   "y": 510,
+   "zoom": 1.08,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b8",
+    "सामने"
+   ],
+   "x": 2320,
+   "y": 490,
+   "zoom": 1.18,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b9",
+    "",
+    0.0
+   ],
+   "x": 2450,
+   "y": 520,
+   "zoom": 1.02,
+   "frames": 50
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

@@ -1,0 +1,148 @@
+{
+ "id": "v10_s12b",
+ "part_id": "c25.2",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b59",
+   "say": "Quick और accurate का मतलब error-free या guaranteed payment नहीं है।"
+  },
+  {
+   "beat_id": "b60",
+   "say": "MICR की कड़ी है: readable जानकारी, machine sorting, फिर तेज और सही cheque processing।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "caveat",
+   "kind": "text",
+   "cell": [
+    1,
+    1,
+    10,
+    2
+   ],
+   "cue": [
+    "b59",
+    "error-free"
+   ],
+   "text": "Quick और accurate का मतलब error-free या guaranteed payment नहीं है।",
+   "style": "note",
+   "tone": "warm",
+   "fill": "note",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "anchor",
+   "kind": "text",
+   "cell": [
+    1,
+    3,
+    10,
+    1
+   ],
+   "cue": [
+    "b60",
+    "MICR"
+   ],
+   "text": "MICR की कड़ी",
+   "style": "title",
+   "tone": "ink",
+   "align": "center",
+   "size": 32
+  },
+  {
+   "id": "readable",
+   "kind": "text",
+   "cell": [
+    0,
+    5,
+    3,
+    2
+   ],
+   "cue": [
+    "b60",
+    "readable"
+   ],
+   "text": "जानकारी readable है।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "band",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "sorting",
+   "kind": "text",
+   "cell": [
+    4,
+    5,
+    3,
+    2
+   ],
+   "cue": [
+    "b60",
+    "sorting,"
+   ],
+   "text": "फिर machine sorting है।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "band",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "link1",
+   "kind": "arrow",
+   "cue": [
+    "b60",
+    "sorting,"
+   ],
+   "tone": "accent",
+   "from": "readable",
+   "to": "sorting",
+   "from_side": "r",
+   "to_side": "l"
+  },
+  {
+   "id": "processing",
+   "kind": "text",
+   "cell": [
+    8,
+    5,
+    4,
+    2
+   ],
+   "cue": [
+    "b60",
+    "तेज"
+   ],
+   "text": "cheque processing तेज और सही है।",
+   "style": "box",
+   "tone": "ok",
+   "fill": "band",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "link2",
+   "kind": "arrow",
+   "cue": [
+    "b60",
+    "तेज"
+   ],
+   "tone": "ok",
+   "from": "sorting",
+   "to": "processing",
+   "from_side": "r",
+   "to_side": "l"
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

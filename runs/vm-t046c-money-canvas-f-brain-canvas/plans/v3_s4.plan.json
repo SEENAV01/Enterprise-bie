@@ -1,0 +1,629 @@
+{
+ "id": "v3_s4",
+ "part_id": "c08.1",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b21",
+   "say": "Indian coins की कतार कैसे पढ़ोगे? बाएँ से दाएँ, ऊपर समय या dynasty, नीचे जुड़ी coinage देखो।"
+  },
+  {
+   "beat_id": "b22",
+   "say": "छोटे दबे निशान कैसे बने? Punch-marked में punch से निशान लगते हैं; पहला पड़ाव 6th c. BCE है, यानी छठी century, एक साल नहीं।"
+  },
+  {
+   "beat_id": "b23",
+   "say": "अगला silver coin किससे जुड़ा है? Mauryan–Imperial silver, यानी empire से जुड़ी silver coinage; Mauryan को Ashoka की Maurya dynasty से पहचानो।"
+  },
+  {
+   "beat_id": "b24",
+   "say": "Design कैसे पड़ा? तीसरा Indo-Greek–Die-struck: design वाले die की चोट metal पर छाप छोड़ती है; यह technique है, metal नहीं। Indo-Greek उत्तर-पश्चिम में Greek-origin rulers थे।"
+  },
+  {
+   "beat_id": "b25",
+   "say": "सोने के coins का नाम क्या है? चौथा Gupta–Gold dinars: dinar नाम के gold coins; Gupta को Chandragupta II की dynasty से जोड़ो।"
+  },
+  {
+   "beat_id": "b26",
+   "say": "आखिरी silver coin का नाम? 1540 CE–Rupiya, Sher Shah Suri से जुड़ा standardized silver coin; आज के rupee जैसा metal या purchasing power मत मानना।"
+  },
+  {
+   "beat_id": "b27",
+   "say": "Matching में association है, ‘केवल यही’ नहीं। बराबर gaps बराबर समय नहीं: century, dynasty और 1540 CE जैसा खास साल अलग labels हैं।"
+  },
+  {
+   "beat_id": "b28",
+   "say": "क्रम याद रखो: Punch-marked, Mauryan silver, Indo-Greek Die-struck, Gupta dinars, 1540 का Rupiya; याद का सहारा: निशान, silver, technique, gold, Rupiya।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "anchor",
+   "kind": "text",
+   "cell": [
+    0,
+    0,
+    12,
+    1
+   ],
+   "cue": [
+    "b21",
+    "Indian"
+   ],
+   "text": "Indian coins की कतार बाएँ से दाएँ पढ़ो।",
+   "style": "title",
+   "tone": "ink",
+   "fill": "paper",
+   "align": "center",
+   "size": 32
+  },
+  {
+   "id": "reading",
+   "kind": "text",
+   "cell": [
+    0,
+    5,
+    12,
+    2
+   ],
+   "cue": [
+    "b21",
+    "ऊपर"
+   ],
+   "until_cue": [
+    "b22",
+    "Punch-marked"
+   ],
+   "text": "ऊपर समय या dynasty, नीचे जुड़ी coinage देखो।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "band",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "punch_process",
+   "kind": "text",
+   "cell": [
+    0,
+    5,
+    12,
+    2
+   ],
+   "cue": [
+    "b22",
+    "Punch-marked"
+   ],
+   "until_cue": [
+    "b23",
+    "Mauryan–Imperial"
+   ],
+   "text": "Punch-marked में punch से निशान लगते हैं।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "band",
+   "align": "center",
+   "size": 28,
+   "marks": [
+    {
+     "phrase": "निशान",
+     "cue": [
+      "b22",
+      "निशान"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "first",
+   "kind": "text",
+   "cell": [
+    0,
+    2,
+    3,
+    3
+   ],
+   "cue": [
+    "b22",
+    "6th"
+   ],
+   "text": "6th c. BCE में\nPunch-marked पहला पड़ाव है।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "band",
+   "align": "center",
+   "size": 24,
+   "marks": [
+    {
+     "phrase": "6th c. BCE",
+     "cue": [
+      "b22",
+      "छठी"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "second",
+   "kind": "text",
+   "cell": [
+    3,
+    2,
+    2,
+    3
+   ],
+   "cue": [
+    "b23",
+    "Mauryan–Imperial"
+   ],
+   "text": "Mauryan से\nImperial silver\nजुड़ी है।",
+   "style": "box",
+   "tone": "ink",
+   "fill": "paper",
+   "align": "center",
+   "size": 24
+  },
+  {
+   "id": "maurya_context",
+   "kind": "text",
+   "cell": [
+    0,
+    5,
+    12,
+    2
+   ],
+   "cue": [
+    "b23",
+    "Ashoka"
+   ],
+   "until_cue": [
+    "b24",
+    "Indo-Greek–Die-struck:"
+   ],
+   "text": "Ashoka की Maurya dynasty से Mauryan को पहचानो।",
+   "style": "note",
+   "tone": "muted",
+   "fill": "paper",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "third",
+   "kind": "text",
+   "cell": [
+    5,
+    2,
+    2,
+    3
+   ],
+   "cue": [
+    "b24",
+    "Indo-Greek–Die-struck:"
+   ],
+   "text": "Indo-Greek–Die-struck\ntechnique है,\nmetal नहीं।",
+   "style": "box",
+   "tone": "ink",
+   "fill": "paper",
+   "align": "center",
+   "size": 24
+  },
+  {
+   "id": "die_process",
+   "kind": "text",
+   "cell": [
+    0,
+    5,
+    12,
+    2
+   ],
+   "cue": [
+    "b24",
+    "die"
+   ],
+   "until_cue": [
+    "b24",
+    "उत्तर-पश्चिम"
+   ],
+   "text": "Design वाले die की चोट metal पर छाप छोड़ती है।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "band",
+   "align": "center",
+   "size": 28,
+   "marks": [
+    {
+     "phrase": "die की चोट",
+     "cue": [
+      "b24",
+      "technique"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "greek_context",
+   "kind": "text",
+   "cell": [
+    0,
+    5,
+    12,
+    2
+   ],
+   "cue": [
+    "b24",
+    "उत्तर-पश्चिम"
+   ],
+   "until_cue": [
+    "b25",
+    "Gupta–Gold"
+   ],
+   "text": "Indo-Greek उत्तर-पश्चिम में Greek-origin rulers थे।",
+   "style": "note",
+   "tone": "muted",
+   "fill": "paper",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "fourth",
+   "kind": "text",
+   "cell": [
+    7,
+    2,
+    2,
+    3
+   ],
+   "cue": [
+    "b25",
+    "Gupta–Gold"
+   ],
+   "text": "Gupta से\nGold dinars\nजुड़े हैं।",
+   "style": "box",
+   "tone": "warm",
+   "fill": "paper",
+   "align": "center",
+   "size": 24,
+   "marks": [
+    {
+     "phrase": "Gold dinars",
+     "cue": [
+      "b25",
+      "coins;"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "gupta_context",
+   "kind": "text",
+   "cell": [
+    0,
+    5,
+    12,
+    2
+   ],
+   "cue": [
+    "b25",
+    "Chandragupta"
+   ],
+   "until_cue": [
+    "b26",
+    "1540"
+   ],
+   "text": "Gupta को Chandragupta II की dynasty से जोड़ो।",
+   "style": "note",
+   "tone": "muted",
+   "fill": "paper",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "fifth",
+   "kind": "text",
+   "cell": [
+    9,
+    2,
+    3,
+    3
+   ],
+   "cue": [
+    "b26",
+    "1540"
+   ],
+   "text": "1540 CE से\nRupiya जुड़ा है।",
+   "style": "box",
+   "tone": "ink",
+   "fill": "paper",
+   "align": "center",
+   "size": 24
+  },
+  {
+   "id": "suri_context",
+   "kind": "text",
+   "cell": [
+    0,
+    5,
+    12,
+    2
+   ],
+   "cue": [
+    "b26",
+    "standardized"
+   ],
+   "until_cue": [
+    "b26",
+    "आज"
+   ],
+   "text": "Sher Shah Suri से standardized silver coin जुड़ा है।",
+   "style": "note",
+   "tone": "muted",
+   "fill": "paper",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "modern_caution",
+   "kind": "text",
+   "cell": [
+    0,
+    5,
+    12,
+    2
+   ],
+   "cue": [
+    "b26",
+    "आज"
+   ],
+   "until_cue": [
+    "b27",
+    "association"
+   ],
+   "text": "आज के rupee जैसा metal या purchasing power मत मानना।",
+   "style": "note",
+   "tone": "warm",
+   "fill": "paper",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "association",
+   "kind": "callout",
+   "cell": [
+    0,
+    5,
+    12,
+    2
+   ],
+   "cue": [
+    "b27",
+    "association"
+   ],
+   "until_cue": [
+    "b27",
+    "gaps"
+   ],
+   "text": "Matching में association है, ‘केवल यही’ नहीं।",
+   "style": "note",
+   "tone": "warm",
+   "fill": "paper",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "spacing",
+   "kind": "callout",
+   "cell": [
+    0,
+    5,
+    12,
+    2
+   ],
+   "cue": [
+    "b27",
+    "gaps"
+   ],
+   "until_cue": [
+    "b28",
+    "क्रम"
+   ],
+   "text": "बराबर gaps बराबर समय नहीं बताते।",
+   "style": "note",
+   "tone": "warm",
+   "fill": "paper",
+   "align": "center",
+   "size": 28,
+   "marks": [
+    {
+     "phrase": "बराबर समय नहीं",
+     "cue": [
+      "b27",
+      "labels"
+     ]
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b21",
+    "Indian"
+   ]
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b22",
+    "छठी"
+   ],
+   "ids": [
+    "anchor",
+    "first",
+    "punch_process"
+   ],
+   "until_cue": [
+    "b23",
+    "Mauryan–Imperial"
+   ]
+  },
+  {
+   "cue": [
+    "b23",
+    "Mauryan–Imperial"
+   ],
+   "ids": [
+    "anchor",
+    "second",
+    "maurya_context"
+   ],
+   "until_cue": [
+    "b24",
+    "Indo-Greek–Die-struck:"
+   ]
+  },
+  {
+   "cue": [
+    "b24",
+    "Indo-Greek–Die-struck:"
+   ],
+   "ids": [
+    "anchor",
+    "third",
+    "die_process",
+    "greek_context"
+   ],
+   "until_cue": [
+    "b25",
+    "Gupta–Gold"
+   ]
+  },
+  {
+   "cue": [
+    "b25",
+    "Gupta–Gold"
+   ],
+   "ids": [
+    "anchor",
+    "fourth",
+    "gupta_context"
+   ],
+   "until_cue": [
+    "b26",
+    "1540"
+   ]
+  },
+  {
+   "cue": [
+    "b26",
+    "1540"
+   ],
+   "ids": [
+    "anchor",
+    "fifth",
+    "suri_context",
+    "modern_caution"
+   ],
+   "until_cue": [
+    "b27",
+    "Matching"
+   ]
+  },
+  {
+   "cue": [
+    "b28",
+    "Punch-marked,"
+   ],
+   "ids": [
+    "anchor",
+    "first"
+   ],
+   "until_cue": [
+    "b28",
+    "Mauryan"
+   ]
+  },
+  {
+   "cue": [
+    "b28",
+    "Mauryan"
+   ],
+   "ids": [
+    "anchor",
+    "second"
+   ],
+   "until_cue": [
+    "b28",
+    "Indo-Greek"
+   ]
+  },
+  {
+   "cue": [
+    "b28",
+    "Indo-Greek"
+   ],
+   "ids": [
+    "anchor",
+    "third"
+   ],
+   "until_cue": [
+    "b28",
+    "Gupta"
+   ]
+  },
+  {
+   "cue": [
+    "b28",
+    "Gupta"
+   ],
+   "ids": [
+    "anchor",
+    "fourth"
+   ],
+   "until_cue": [
+    "b28",
+    "1540"
+   ]
+  },
+  {
+   "cue": [
+    "b28",
+    "1540"
+   ],
+   "ids": [
+    "anchor",
+    "fifth"
+   ],
+   "until_cue": [
+    "b28",
+    "सहारा:"
+   ]
+  },
+  {
+   "cue": [
+    "b28",
+    "सहारा:"
+   ],
+   "ids": [
+    "anchor",
+    "first",
+    "second",
+    "third",
+    "fourth",
+    "fifth"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

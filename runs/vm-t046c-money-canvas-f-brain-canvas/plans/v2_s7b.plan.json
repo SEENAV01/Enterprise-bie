@@ -1,0 +1,232 @@
+{
+ "id": "v2_s7b",
+ "part_id": "c06.1",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b47",
+   "say": "यह commodity money है: money बनी चीज़ में intrinsic value होती है, यानी monetary use के बाहर भी कीमत, जैसे kitchen में salt।"
+  },
+  {
+   "beat_id": "b48",
+   "say": "Useful होना काफी नहीं, payment में चलना चाहिए; purchasing power अकेली note को commodity money नहीं बनाती।"
+  },
+  {
+   "beat_id": "b49",
+   "say": "Commodity money payment के बाहर भी उपयोगी है।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "anchor",
+   "kind": "text",
+   "cell": [
+    1,
+    0,
+    10,
+    1
+   ],
+   "cue": [
+    "b47",
+    "commodity"
+   ],
+   "text": "Commodity money में intrinsic value होती है।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "band",
+   "align": "center",
+   "size": 32
+  },
+  {
+   "id": "outside_value",
+   "kind": "text",
+   "cell": [
+    1,
+    2,
+    10,
+    1
+   ],
+   "cue": [
+    "b47",
+    "monetary"
+   ],
+   "text": "Monetary use के बाहर भी कीमत होती है।",
+   "style": "box",
+   "tone": "ink",
+   "fill": "note",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "salt",
+   "kind": "text",
+   "cell": [
+    3,
+    4,
+    6,
+    1
+   ],
+   "cue": [
+    "b47",
+    "kitchen"
+   ],
+   "until_cue": [
+    "b48",
+    "Useful"
+   ],
+   "text": "जैसे kitchen में salt।",
+   "style": "box",
+   "tone": "warm",
+   "fill": "note",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "useful_only",
+   "kind": "text",
+   "cell": [
+    1,
+    4,
+    10,
+    1
+   ],
+   "cue": [
+    "b48",
+    "Useful"
+   ],
+   "until_cue": [
+    "b49",
+    "Commodity"
+   ],
+   "text": "Useful होना काफी नहीं।",
+   "style": "box",
+   "tone": "warm",
+   "fill": "note",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "payment",
+   "kind": "text",
+   "cell": [
+    1,
+    5,
+    10,
+    1
+   ],
+   "cue": [
+    "b48",
+    "payment"
+   ],
+   "until_cue": [
+    "b49",
+    "Commodity"
+   ],
+   "text": "Payment में चलना चाहिए।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "band",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "note_test",
+   "kind": "text",
+   "cell": [
+    1,
+    6,
+    10,
+    1
+   ],
+   "cue": [
+    "b48",
+    "purchasing"
+   ],
+   "until_cue": [
+    "b49",
+    "Commodity"
+   ],
+   "text": "Purchasing power अकेली note को commodity money नहीं बनाती।",
+   "style": "box",
+   "tone": "danger",
+   "fill": "note",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "summary",
+   "kind": "callout",
+   "cell": [
+    1,
+    4,
+    10,
+    2
+   ],
+   "cue": [
+    "b49",
+    "Commodity"
+   ],
+   "text": "Commodity money payment के बाहर भी उपयोगी है।",
+   "style": "note",
+   "tone": "accent",
+   "fill": "band",
+   "align": "center",
+   "size": 32,
+   "marks": [
+    {
+     "phrase": "payment के बाहर भी उपयोगी",
+     "cue": [
+      "b49",
+      "payment"
+     ]
+    }
+   ]
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b47",
+    "kitchen"
+   ],
+   "ids": [
+    "anchor",
+    "salt"
+   ],
+   "until_cue": [
+    "b48",
+    "Useful"
+   ]
+  },
+  {
+   "cue": [
+    "b48",
+    "purchasing"
+   ],
+   "ids": [
+    "anchor",
+    "note_test"
+   ],
+   "until_cue": [
+    "b49",
+    "Commodity"
+   ]
+  },
+  {
+   "cue": [
+    "b49",
+    "Commodity"
+   ],
+   "ids": [
+    "anchor",
+    "summary"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

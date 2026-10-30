@@ -1,0 +1,297 @@
+{
+ "id": "v15_s7b",
+ "part_id": "c37.3",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b33",
+   "say": "यह reserves-supported deposit expansion है। Loan deposit बनाता है; दूसरे bank को payment जाने पर settlement के लिए reserves चाहिए।"
+  },
+  {
+   "beat_id": "b34",
+   "say": "Supplier रकम account में रखता है तो deposit banking system में रहता है।"
+  },
+  {
+   "beat_id": "b35",
+   "say": "Expansion guaranteed नहीं है। Withdrawals, liquidity और capital needs, lending standards तथा loan demand इसे सीमित करते हैं; reserves मिलना unlimited lending की छूट नहीं है।"
+  },
+  {
+   "beat_id": "b36",
+   "say": "Loan deposit बनाता है; payment settle होता है। आगे lending शर्तों पर निर्भर है, इसलिए expansion system-wide और conditional है।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank",
+   "kind": "bank",
+   "x": 2600,
+   "y": 860,
+   "sign": "bank",
+   "cue": [
+    "b33",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "teller",
+   "kind": "teller",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b33",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "creation_anchor",
+   "kind": "board",
+   "x": 1750,
+   "y": 470,
+   "fill": "#DFEDE7",
+   "cue": [
+    "b33",
+    "Loan"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b33",
+      "Loan"
+     ],
+     "text": "Loan deposit बनाता है।"
+    }
+   ]
+  },
+  {
+   "id": "settlement",
+   "kind": "board",
+   "x": 3450,
+   "y": 470,
+   "fill": "#E4EAF3",
+   "cue": [
+    "b33",
+    "settlement"
+   ],
+   "until_cue": [
+    "b34",
+    "Supplier"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b33",
+      "settlement"
+     ],
+     "text": "Settlement के लिए reserves चाहिए।"
+    }
+   ]
+  },
+  {
+   "id": "supplier",
+   "kind": "crowd",
+   "y": 860,
+   "x0": 2330,
+   "spacing": 90,
+   "enter_x": 2050,
+   "exit_x": 2050,
+   "face": 1,
+   "seed": 37,
+   "cue": [
+    "b34",
+    "Supplier"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b34",
+      "Supplier"
+     ],
+     "n": 1
+    }
+   ]
+  },
+  {
+   "id": "retained_deposit",
+   "kind": "board",
+   "x": 3450,
+   "y": 470,
+   "fill": "#DFEDE7",
+   "cue": [
+    "b34",
+    "deposit"
+   ],
+   "until_cue": [
+    "b35",
+    "Expansion"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b34",
+      "deposit"
+     ],
+     "text": "Deposit banking system में रहता है।"
+    }
+   ]
+  },
+  {
+   "id": "conditional_lending",
+   "kind": "board",
+   "x": 3450,
+   "y": 470,
+   "fill": "#F1E5CE",
+   "cue": [
+    "b35",
+    "Expansion"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b35",
+      "Expansion"
+     ],
+     "text": "Expansion guaranteed नहीं है।"
+    },
+    {
+     "cue": [
+      "b35",
+      "Withdrawals,"
+     ],
+     "text": "Withdrawals, liquidity और capital needs\nexpansion को सीमित करते हैं।"
+    },
+    {
+     "cue": [
+      "b35",
+      "lending"
+     ],
+     "text": "Lending standards तथा loan demand\nexpansion को सीमित करते हैं।"
+    },
+    {
+     "cue": [
+      "b35",
+      "reserves"
+     ],
+     "text": "Reserves मिलना unlimited lending\nकी छूट नहीं है।"
+    },
+    {
+     "cue": [
+      "b36",
+      "payment"
+     ],
+     "text": "Payment settle होता है।"
+    },
+    {
+     "cue": [
+      "b36",
+      "आगे"
+     ],
+     "text": "आगे lending शर्तों पर निर्भर है।"
+    },
+    {
+     "cue": [
+      "b36",
+      "इसलिए"
+     ],
+     "text": "Expansion system-wide और conditional है।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b33",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 520,
+   "zoom": 0.8,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b33",
+    "Loan"
+   ],
+   "x": 2510,
+   "y": 510,
+   "zoom": 0.8,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b33",
+    "दूसरे"
+   ],
+   "x": 2690,
+   "y": 510,
+   "zoom": 0.8,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b34",
+    "Supplier"
+   ],
+   "x": 2600,
+   "y": 540,
+   "zoom": 0.8,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b35",
+    "Expansion"
+   ],
+   "x": 2690,
+   "y": 510,
+   "zoom": 0.8,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b35",
+    "reserves"
+   ],
+   "x": 2660,
+   "y": 490,
+   "zoom": 0.8,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b36",
+    "Loan"
+   ],
+   "x": 2510,
+   "y": 510,
+   "zoom": 0.8,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b36",
+    "payment"
+   ],
+   "x": 2690,
+   "y": 510,
+   "zoom": 0.8,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b36",
+    "इसलिए"
+   ],
+   "x": 2600,
+   "y": 520,
+   "zoom": 0.8,
+   "frames": 45
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

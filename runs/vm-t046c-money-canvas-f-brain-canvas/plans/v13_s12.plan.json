@@ -1,0 +1,426 @@
+{
+ "id": "v13_s12",
+ "part_id": "c32.4",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b59",
+   "say": "तीन boxes कैसे पढ़ेंगे? Customer से Merchant, फिर Banks & Payment Network; यह payment और fee अलग दिखाता है।"
+  },
+  {
+   "beat_id": "b60",
+   "say": "बाएँ buyer है; Pays ₹1,000 arrow seller तक जाती है। यह खरीदारी की पूरी रकम है, fee नहीं।"
+  },
+  {
+   "beat_id": "b61",
+   "say": "बीच के Merchant में payment आती है; MDR shared arrow दाएँ निकलती है। Seller के पास ₹980 रहते हैं।"
+  },
+  {
+   "beat_id": "b62",
+   "say": "दायाँ box कई recipients को समेटता है: दोनों banks, network और applicable provider; एक organisation नहीं।"
+  },
+  {
+   "beat_id": "b63",
+   "say": "2% यानी हर ₹100 पर ₹2; ₹1,000 पर ₹20 कटे, इसलिए ₹980 मिले। Percent rate है, रुपये receipt हैं।"
+  },
+  {
+   "beat_id": "b64",
+   "say": "₹20 total fee है, हर recipient का हिस्सा नहीं; 2% इसी example की rate है, universal नहीं।"
+  },
+  {
+   "beat_id": "b65",
+   "say": "चित्र definition खोलता है: buyer payment करता है, merchant fee देता है, participants उसे share करते हैं।"
+  },
+  {
+   "beat_id": "b66",
+   "say": "अंत में तीन पहचान अलग रखिए: RuPay card brand, e-RUPI restricted voucher, MDR merchant की fee। एक सेवा पर रोक समझाता है, दूसरा net receipt।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank",
+   "kind": "bank",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b59",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "teller",
+   "kind": "teller",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b59",
+    "Banks"
+   ]
+  },
+  {
+   "id": "anchor",
+   "kind": "label",
+   "x": 2600,
+   "y": 180,
+   "text": "यह payment और fee अलग दिखाता है।",
+   "fill": "#FFF8E8",
+   "cue": [
+    "b59",
+    "payment"
+   ],
+   "until_cue": [
+    "b66",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "buyer",
+   "kind": "crowd",
+   "x0": 2330,
+   "spacing": 90,
+   "enter_x": 1950,
+   "exit_x": 1950,
+   "face": 1,
+   "seed": 12,
+   "cue": [
+    "b60",
+    "buyer"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b60",
+      "buyer"
+     ],
+     "n": 1
+    }
+   ]
+  },
+  {
+   "id": "customer_board",
+   "kind": "board",
+   "x": 2130,
+   "y": 390,
+   "fill": "#E3EFF8",
+   "cue": [
+    "b60",
+    "खरीदारी"
+   ],
+   "until_cue": [
+    "b66",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b60",
+      "खरीदारी"
+     ],
+     "text": "यह खरीदारी की पूरी रकम है,\nfee नहीं।"
+    },
+    {
+     "cue": [
+      "b65",
+      "payment"
+     ],
+     "text": "Buyer payment करता है।"
+    }
+   ]
+  },
+  {
+   "id": "merchant_board",
+   "kind": "board",
+   "x": 2600,
+   "y": 390,
+   "fill": "#E6F2E1",
+   "cue": [
+    "b61",
+    "₹980"
+   ],
+   "until_cue": [
+    "b66",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b61",
+      "₹980"
+     ],
+     "text": "Seller के पास ₹980 रहते हैं।"
+    },
+    {
+     "cue": [
+      "b63",
+      "₹20"
+     ],
+     "text": "₹1,000 पर ₹20 कटे,\nइसलिए ₹980 मिले।"
+    },
+    {
+     "cue": [
+      "b65",
+      "fee"
+     ],
+     "text": "Merchant fee देता है।"
+    }
+   ]
+  },
+  {
+   "id": "participants_board",
+   "kind": "board",
+   "x": 3070,
+   "y": 390,
+   "fill": "#F6E7D8",
+   "cue": [
+    "b62",
+    "recipients"
+   ],
+   "until_cue": [
+    "b66",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b62",
+      "recipients"
+     ],
+     "text": "दायाँ box कई recipients\nको समेटता है।"
+    },
+    {
+     "cue": [
+      "b62",
+      "organisation"
+     ],
+     "text": "यह एक organisation नहीं।"
+    },
+    {
+     "cue": [
+      "b64",
+      "fee"
+     ],
+     "text": "₹20 total fee है,\nहर recipient का हिस्सा नहीं।"
+    },
+    {
+     "cue": [
+      "b65",
+      "share"
+     ],
+     "text": "Participants उसे share करते हैं।"
+    }
+   ]
+  },
+  {
+   "id": "rate_note",
+   "kind": "label",
+   "x": 2600,
+   "y": 650,
+   "text": "2% इसी example की rate है,\n universal नहीं।",
+   "fill": "#FFF4D8",
+   "cue": [
+    "b64",
+    "2%"
+   ],
+   "until_cue": [
+    "b66",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "identities",
+   "kind": "board",
+   "x": 2600,
+   "y": 390,
+   "fill": "#E3EFF8",
+   "cue": [
+    "b66",
+    "RuPay"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b66",
+      "brand,"
+     ],
+     "text": "RuPay card brand है।"
+    },
+    {
+     "cue": [
+      "b66",
+      "voucher,"
+     ],
+     "text": "e-RUPI restricted voucher है।"
+    },
+    {
+     "cue": [
+      "b66",
+      "fee।"
+     ],
+     "text": "MDR merchant की fee है।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b59",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 490,
+   "zoom": 0.85,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b59",
+    "Network;"
+   ],
+   "x": 2670,
+   "y": 470,
+   "zoom": 0.9,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b60",
+    "buyer"
+   ],
+   "x": 2330,
+   "y": 490,
+   "zoom": 1.05,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b60",
+    "fee"
+   ],
+   "x": 2420,
+   "y": 460,
+   "zoom": 1,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b61",
+    "Merchant"
+   ],
+   "x": 2600,
+   "y": 470,
+   "zoom": 1.05,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b61",
+    "shared"
+   ],
+   "x": 2790,
+   "y": 470,
+   "zoom": 0.95,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b62",
+    "recipients"
+   ],
+   "x": 2960,
+   "y": 460,
+   "zoom": 1.05,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b63",
+    "2%"
+   ],
+   "x": 2600,
+   "y": 460,
+   "zoom": 1.05,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b63",
+    "Percent"
+   ],
+   "x": 2650,
+   "y": 470,
+   "zoom": 1,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b64",
+    "₹20"
+   ],
+   "x": 2900,
+   "y": 470,
+   "zoom": 1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b64",
+    "2%"
+   ],
+   "x": 2600,
+   "y": 490,
+   "zoom": 0.85,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b65",
+    "buyer"
+   ],
+   "x": 2470,
+   "y": 470,
+   "zoom": 0.9,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b65",
+    "participants"
+   ],
+   "x": 2690,
+   "y": 470,
+   "zoom": 0.85,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b66",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 460,
+   "zoom": 1.05,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b66",
+    "सेवा"
+   ],
+   "x": 2600,
+   "y": 490,
+   "zoom": 0.95,
+   "frames": 40
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

@@ -1,0 +1,164 @@
+{
+ "id": "v15_s7s",
+ "part_id": "c37.3",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b32",
+   "say": "Bank B शर्तें पूरी करके ₹60 का दूसरा loan देता है। पहले इन loans के deposits नहीं थे; repayments और cash leakage छोड़ें तो अब ₹140 बने हैं।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank_b",
+   "kind": "bank",
+   "x": 2600,
+   "y": 860,
+   "sign": "Bank B",
+   "cue": [
+    "b32",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "bank_teller",
+   "kind": "teller",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b32",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "borrower",
+   "kind": "crowd",
+   "x0": 2330,
+   "spacing": 90,
+   "enter_x": 2000,
+   "exit_x": 2000,
+   "face": 1,
+   "seed": 32,
+   "cue": [
+    "b32",
+    "शर्तें"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b32",
+      "शर्तें"
+     ],
+     "n": 1
+    }
+   ]
+  },
+  {
+   "id": "second_loan",
+   "kind": "board",
+   "x": 2040,
+   "y": 540,
+   "fill": "#E8DCC8",
+   "cue": [
+    "b32",
+    "₹60"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b32",
+      "₹60"
+     ],
+     "text": "₹60 का दूसरा loan देता है।"
+    }
+   ]
+  },
+  {
+   "id": "deposit_total",
+   "kind": "board",
+   "x": 3120,
+   "y": 540,
+   "fill": "#DCE9DF",
+   "cue": [
+    "b32",
+    "deposits"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b32",
+      "deposits"
+     ],
+     "text": "पहले इन loans के\ndeposits नहीं थे।"
+    },
+    {
+     "cue": [
+      "b32",
+      "₹140"
+     ],
+     "text": "अब ₹140 बने हैं।",
+     "dir": "up"
+    }
+   ]
+  },
+  {
+   "id": "simplification",
+   "kind": "label",
+   "x": 2860,
+   "y": 260,
+   "text": "repayments और cash leakage छोड़ें।",
+   "fill": "rgba(250,244,225,1)",
+   "cue": [
+    "b32",
+    "repayments"
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b32",
+    "",
+    0.0
+   ],
+   "x": 2530,
+   "y": 500,
+   "zoom": 0.9,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b32",
+    "₹60"
+   ],
+   "x": 2400,
+   "y": 520,
+   "zoom": 1,
+   "frames": 36
+  },
+  {
+   "cue": [
+    "b32",
+    "deposits"
+   ],
+   "x": 2780,
+   "y": 500,
+   "zoom": 0.95,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b32",
+    "₹140"
+   ],
+   "x": 2900,
+   "y": 500,
+   "zoom": 1.08,
+   "frames": 30
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

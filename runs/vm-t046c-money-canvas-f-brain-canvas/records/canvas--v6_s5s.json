@@ -1,0 +1,2965 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "canvas",
+ "unit": "v6_s5s",
+ "status": "passed",
+ "instructions_version": "canvas-plan/1",
+ "rulebook_version": "canvas_profile@2026-10-29.1+content_types@2026-10-27.1+explanations@2026-10-24.3+level_profiles@2026-10-24.1+simple_hindi@2026-10-28.1+teacher_examples@2026-10-29.1+vision-2026-10-21@2026-10-21.17+visual_grammar@2026-10-29.1+visual_levels@2026-10-26.2",
+ "rulebook_digest": "098fc051cc02b3130eaac1ed94bdf3c0d2d23c809b82208ab9729d71996b644f",
+ "rules_used": [
+  "CV-01",
+  "CV-02",
+  "CV-03",
+  "CV-04",
+  "CV-05",
+  "CV-06",
+  "CV-07",
+  "CV-08",
+  "CV-09",
+  "CV-10",
+  "CV-11",
+  "CV-12",
+  "CV-13",
+  "CV-14",
+  "CV-15",
+  "CV-16",
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-05",
+  "G-06",
+  "G-07"
+ ],
+ "maker_route": "codex",
+ "reviewer_route": "codex-checker",
+ "maker_model": "gpt-6.1-sol",
+ "reviewer_model": "gpt-6.1-sol",
+ "reviewer_independence": "same_model_temporary",
+ "inputs_digest": "2dfc7388f6da761b8273e1fcf3399c518601d45a640aa678c96ab336cf5de2d2",
+ "card": null,
+ "prefix_sha256": "70df875cc213217b02bd99129255b9e06db6145661d64ac2f15f5f8eca1511d7",
+ "review_prefix_sha256": null,
+ "inputs": {
+  "system": "You are BIE's world director for one STORY part of a video lesson of Indian Economy for UPSC / State PCS aspirants (UPSC / State PCS): actors\nact in a place (a shop with buyers on a street; its place element is kind 'shop'), so this part is shown inside a small designed world (Navin's level C, an L3 world). The script\nis already written and passed; you do not change a word of it. You place the props, the people, the effects and the\ncamera moves, each on a spoken word; code builds, times and checks the world and a refused plan comes back to you with\nthe exact error, and you answer with the whole corrected plan.\n\nCourse: \"3. Money\" · learner language: Hinglish.\n\nNavin's rules for this section (follow every one):\n[CV-01] One canvas per idea: build it piece by piece instead of cutting to a new shot every sentence. Clear the canvas only when the idea changes; otherwise re-frame with a zoom or pan to the part being explained.\n[CV-02] Something on the canvas changes about every 5 s (one change per one or two spoken phrases).\n[CV-03] The picture never stays the same for more than 15 s (the references sometimes hold 40-80 s; BIE must not).\n[CV-04] A new element appears on its own word, while it is being said (about 40% into the phrase, never in the pause after).\n[CV-05] Numbers that change are struck out and replaced on screen (50 -> 65), with an up/down arrow, on the word of the new number.\n[CV-06] Many people/things are shown as a crowd that grows or shrinks with the story (2 buyers -> 12 -> 3).\n[CV-07] A running numeric example carries the concept (price 50 -> 65, GDP 10K -> 11K -> 12.1K at 10%).\n[CV-08] Return to the topic tree and tick the branch that is done before starting the next branch.\n[CV-09] One anchor diagram stays (a band, a tree, a rate card) while the part beside or below it changes.\n[CV-10] No overlap, nothing outside the safe area, captions strip kept clear, readable text (>= 24 px at 1080p), at most 16 elements on screen.\n[CV-11] No photos or caricatures of real people, no logos, emblems or regulator marks: use a name card, a generic icon or BIE's own presenter character.\n[CV-12] Light paper theme for build-up canvases (dark theme stays for 3D/science worlds); subtitles on a dark strip.\n[CV-13] On-screen text is a short COMPLETE phrase or sentence in the learner's language (Devanagari Hinglish with the English terms the script uses), one idea per board or box; never a code: no ✓ ✗ ≠, no list of bare words ('Exchange · Account / Store · Deferred'), no line that ends on → = : / (Navin, 29 October 2026: 'teacher ki naration uske sentence aise poore ho ki banawati na lage').\n[CV-14] Every on-screen text is explained: its key words are said in the narration of the beat it appears on (the cue beat), and every board step the director adds is spoken; a text the narration never says does not go on screen.\n[CV-15] A caveat ('imagined market', 'illustrative numbers') is shown once per part on its own small note, not on every board.\n[CV-16] Numbers on screen are written the way the narration says them: every number on a board, tag or box is said in its cue beat (₹500 on screen, '500 rupaye' in the narration), no counters the narration never mentions ('Payments: 0 → 2').\n[G-01] Everything taught comes from the book. Knowledge from outside the book is allowed only to explain the book better; it is marked as outside, standard textbook-level and correct. Never invent facts, numbers, names or quotations.\n[G-02] Work like the best teacher of these learners and this exam, not like a summariser. Depth beats brevity: nothing teachable on the page is skipped or compressed away, and every explanation makes a student understand, not just remember. Depth means understanding, not length: lesson narration keeps S2-01's time by cutting repetition and side-tracks, never book content.\n[G-03] Before the output, fill 'notes' with brief notes for the reviewer and for Navin: what this unit is about, the key questions a teacher must answer about it, the main decisions you made with a one-line reason each, and anything uncertain. Keep the notes short; they explain the work, they are not the work.\n[G-05] Never drop or compress away what the book teaches to fit a length. If a unit of work is too large, it is split by BIE into smaller units; within a unit, the book's content is complete. Lesson narration has a time target (S2-01), met by cutting repetition and side-tracks, never book content.\n[G-06] BIE is the link between the learner and the book, like a teacher (Navin, 24 October 2026). The book is the base; BIE carries its text, easy or hard, into the learner's mind. Never just read the line out: every book line is opened (what its words mean, why it is so, where it is seen, what follows), at the depth of the level profile.\n[G-07] Two layers, like a film (Navin, 24 October 2026). The writer layer (understanding, plan, script) decides what is said and how deep, following the level profile and the book's own level. The presentation layer (director, video blocks, render) is the same skilled quality for every learner, from class 6 to postgraduate; only the detail shown follows the level, never the craft.\n\n# Director card: world plans (for the AI world director step, Navin's level C)\n\nYou plan ONE world for ONE story part of a passed script: actors act in a place, so the part is shown inside a small\ndesigned 2.5D street with the place at its centre. You place props, people, effects and the camera, each on a spoken\nword. Code builds, times and checks the world (`bie/brain/video/world.py`); a refused plan comes back with the exact error.\n\n## The world\n\nWorld pixels: 5200 wide, ground line at y 860; the place (the `shop` or the `bank`, the one element kind your role names\nas the kit) is usually near x 2600. The camera looks at a point\n(`x`, `y`) with a `zoom` (0.8 wide street … 1.7 close on a price tag) and takes `frames` to get there (30–60 at 30 fps).\nCamera keys are in time order, the first on the part's first beat.\n\n## Element vocabulary\n\n| kind | fields | use it for |\n| --- | --- | --- |\n| `shop` | `x`, `sign` (the shop's name, in the learner's script), `packets: [{n, cue}]` | the place of a shop story (a kirana shop, a tea stall, a market stall, a bazaar); its stock of goods on the counter (n packets) |\n| `price_tag` | `x`, `y`, `string` (hanging length), `steps: [{text, dir, cue}]`, `lift_cue` + `lift_dy` | the price that is struck out and replaced (a price only: '₹65', '₹10,000', at most 9 characters; words go on a board); lift it when demand pulls it up |\n| `crowd` | `x0`, `spacing`, `enter_x`, `exit_x`, `face` (-1 looks left), `seed`, `steps: [{n, cue}]`, `carry_cue` + `carry_n` | buyers or bank customers who walk in and out as the number changes; `carry` sends n of them away with goods |\n| `bank` | `x`, `sign` (the bank's name, generic, in the learner's script) | the place of a bank story: a stone front with pillars, a teller window and a counter; customers stand before it (`crowd` with `x0` near `x` - 270) |\n| `teller` | `x` (the bank's `x`) | the bank's clerk behind the counter (as `shopkeeper` is for the shop) |\n| `board` | `x`, `y`, `text` (the title: खाता, EMI, बचत), `fill` (header colour), `steps: [{text, dir, cue}]`, `until_cue` | a standing display whose value changes on its word: a passbook balance ₹0 → ₹500, an EMI due ₹10,000 → ₹0; the old value is struck out, `dir` \"up\" or \"down\" adds the arrow. A value is at most 3 lines of 40 characters (your own line breaks are kept, a long line is wrapped at spaces), so a complete short sentence fits; the teaching stays in the narration, a board shows the number or the one idea that changes, as a phrase the learner can read (CV-13), with the words and numbers the narration of its cue beat says (CV-14, CV-16); never codes (✓ ≠ →, \"1–3 ✓, 4 Future payment →\") |\n| `label` | `x`, `y`, `text`, `fill` (rgba colour), `cue`, `until_cue` | SUPPLY · 3, DEMAND · 12: short labels over the scene |\n| `coin_rain` | `x0`, `x1`, `count`, `cue`, `until_cue` | money arriving in people's hands |\n| `balance` | `x`, `y`, `tilt`, `cue`, `tilt_cue`, `until_cue` | supply against demand on a balance that tilts on its word |\n| `pull_arrow` | `x`, `y0`, `y1`, `text`, `cue` | the force that pulls the price (demand-pull) |\n| `title` | `text`, `cue` | the part's name, on its word (at most 30 characters) |\n| `lamp`, `foreground` | `x` | street dressing for depth (two or three of each, outside the shop) |\n\nEvery element has `cue: [beat_id, word]` with the word exactly as written in that beat (`[beat_id, \"\"]` for the beat's\nstart). Something must change at least every 15 s (the code refuses a longer still); aim for a change every 5 s.\nNever a real person, logo, emblem or regulator mark: a generic shop sign and generic people only.\n\n## On-screen text (CV-13 to CV-16; Navin's verdict on Money v1, 29 October 2026)\n\n- A board, label or tag holds ONE idea as a short COMPLETE phrase or sentence in the learner's language (Devanagari Hinglish\n  with the English terms the script uses): \"Payment में notes और coins के अलावा खाते का पैसा भी चलता है\", not\n  \"Money = balance / Device ≠ money\".\n- Never a code: no ✓ ✗ ≠; no list of bare words (\"Exchange ✓ · Account ✓ / Store · Deferred\"); no line that ends on → = : /.\n- Every text is explained: its key words and every number are said in the narration of its cue beat (the code refuses a text\n  or a number the beat does not say; move the cue to the beat that says it, or leave it to the narration).\n- A caveat (\"imagined market\", \"illustrative numbers\") once per part, on its own small label, not on every board.\n\nHow to fill the JSON (every field is present; \"\" / 0 / [] mean \"not used\"):\n- notes: the story of this part in two lines, what each camera move shows, what is uncertain.\n- elements: in story order; id (unique), kind, the fields of that kind (card), cue [beat_id, word] (word exactly as written\n  in that beat; [beat_id, \"\"] for the beat's start) and until_cue when it leaves; steps (text/n + cue) for a price tag, a\n  board or a crowd; packets (n + cue) for the shop's stock; lift_cue + lift_dy lifts a price tag; carry_cue + carry_n sends\n  buyers away with goods; tilt_cue tilts the balance. The place element (shop or bank) is the kit named above, once.\n- camera: keys in time order, each with cue, x and y in world pixels, zoom and frames (how long the move takes).\nReply with the JSON object only.",
+  "user": "Chapter: 3. Money. Part c15.1 (6 beats).\nThe part (JSON):\n{\"part\": {\"id\": \"v6_s5s\", \"part_id\": \"c15.1\", \"mode\": \"C\", \"place\": \"shop\", \"story\": true}, \"beats\": [{\"beat_id\": \"b31\", \"say\": \"Jaipur की imaginary दुकान में bill कैसे जोड़ोगे? Salt ₹12.50, soap ₹7.50: 1250 + 750 = 2000 paise, यानी ₹20; ₹50 देने पर ₹30 वापस मिलते हैं।\"}, {\"beat_id\": \"b32\", \"say\": \"यही decimal currency है: ₹1 के 100 paise, ताकि bill में annas का conversion न करना पड़े। Decimalization 1957 में हुई; anna system हटाने वाला Indian Coinage (Amendment) Act, 1955 था—पहले law, फिर बदलाव।\"}, {\"beat_id\": \"b33\", \"say\": \"Lucknow में दुकानदार note क्यों लेगा? मान लो तुम्हारे पास ₹100 हैं; पूरा note देकर 1 rice bag लिया, अब cash नहीं बची। दुकानदार के 5 bags में 4 बचे और उसे ₹100 मिले; वह आगे payment करेगा, gold नहीं माँगेगा।\"}, {\"beat_id\": \"b34\", \"say\": \"यह fiat currency है: fixed gold redemption जरूरी नहीं। Gold देने का fixed वादा हो तो authority को gold resources रखने और वादा निभाने के लिए monetary choices सीमित रखने पड़ते हैं। 1971 में dollar–gold convertibility खत्म होने से वह खास constraint हटा, inflation का risk नहीं। India की दिशा gradual थी; fiat की शुरुआत उसी साल मत मानना।\"}, {\"beat_id\": \"b35\", \"say\": \"Mumbai bank में dollar orders बढ़ें तो? Imaginary ₹80 per dollar पर demand और supply $100 थीं; import orders से demand $150 हुई, supply $100 रही—shortage बना।\"}, {\"beat_id\": \"b36\", \"say\": \"मान लो ₹84 पर demand और supply $120 हो जाएँ। $10 invoice अब ₹800 नहीं, ₹840 का है; same dollars के लिए ज़्यादा rupees लगे।\"}], \"items\": [{\"item_id\": \"p006-i17\", \"content_type\": \"timeline\", \"content\": \"Period: 1957 | Nature of the Rupee: Decimal currency\", \"real_world_example\": {\"place\": \"Jaipur kirana shop, hypothetical transaction\", \"actors\": [\"buyer\", \"shopkeeper\"], \"goods\": [\"salt packet\", \"soap\", \"rupees\"], \"numbers\": [{\"what\": \"Running bill\", \"before\": \"₹12.50 for salt\", \"after\": \"₹20.00 after ₹7.50 soap\"}, {\"what\": \"Buyer's cash after paying and receiving change\", \"before\": \"₹50.00\", \"after\": \"₹30.00\"}, {\"what\": \"Change due after tendering ₹50\", \"before\": \"₹50.00 minus ₹20.00\", \"after\": \"₹30.00\"}], \"steps\": [{\"step\": \"The buyer selects salt at an assumed ₹12.50 and soap at ₹7.50: 1250 + 750 = 2000 paise, or ₹20.00.\", \"mechanism_link\": \"100 paise per rupee provides a consistent subdivision for addition.\"}, {\"step\": \"The buyer tenders ₹50 and gets ₹30 change: 5000 − 2000 = 3000 paise.\", \"mechanism_link\": \"The same subdivision supports payment and change calculations.\"}], \"term_after\": \"This payment arithmetic illustrates decimal currency.\", \"real_life_link\": \"The learner uses this arithmetic on bills; the goods and prices here are hypothetical, not dated market observations.\"}}, {\"item_id\": \"p006-i18\", \"content_type\": \"timeline\", \"content\": \"Period: 1971 | Nature of the Rupee: Fiat currency\", \"real_world_example\": {\"place\": \"Lucknow kirana shop, hypothetical transaction\", \"actors\": [\"buyer\", \"shopkeeper\"], \"goods\": [\"rice bag\", \"₹100 note\"], \"numbers\": [{\"what\": \"Buyer's cash\", \"before\": \"₹100\", \"after\": \"₹0\"}, {\"what\": \"Buyer's rice bags\", \"before\": \"0\", \"after\": \"1\"}, {\"what\": \"Shopkeeper's cash from this sale\", \"before\": \"₹0\", \"after\": \"₹100\"}, {\"what\": \"Shopkeeper's rice stock\", \"before\": \"5 bags\", \"after\": \"4 bags\"}], \"steps\": [{\"step\": \"At an assumed price of ₹100, the buyer gives a ₹100 note and receives one rice bag.\", \"mechanism_link\": \"Accepted money transfers purchasing ability and settles the sale.\"}, {\"step\": \"The shopkeeper accepts the note expecting to use it for further payments, not to redeem it for a fixed quantity of gold.\", \"mechanism_link\": \"Payment acceptance is independent of a gold-redemption promise.\"}], \"term_after\": \"This illustrates payment using fiat currency.\", \"real_life_link\": \"Ordinary rupee-note purchases provide the familiar setting; the price and balances are illustrative and do not establish any guaranteed purchasing power.\"}}, {\"item_id\": \"p006-i19\", \"content_type\": \"timeline\", \"content\": \"Period: 1993 onwards | Nature of the Rupee: Market-determined exchange rate\", \"real_world_example\": {\"place\": \"Mumbai bank foreign-exchange dealing desk, hypothetical market\", \"actors\": [\"oil importers\", \"exporters selling dollar earnings\", \"banks\"], \"goods\": [\"dollars\", \"rupees\", \"imported oil\"], \"numbers\": [{\"what\": \"Dollar demand at the initial ₹80 rate\", \"before\": \"$100\", \"after\": \"$150\"}, {\"what\": \"Dollar supply at that initial rate\", \"before\": \"$100\", \"after\": \"$100\"}, {\"what\": \"Illustrative market rate after adjustment\", \"before\": \"₹80 per $1\", \"after\": \"₹84 per $1\"}, {\"what\": \"Orders at the assumed new clearing rate\", \"before\": \"$150 demanded versus $100 supplied at ₹80\", \"after\": \"$120 demanded and $120 supplied at ₹84\"}, {\"what\": \"Rupee cost of a $10 invoice\", \"before\": \"₹800\", \"after\": \"₹840\"}], \"steps\": [{\"step\": \"Initially $100 of demand matches $100 of supply at an assumed ₹80 per dollar. Additional import orders raise demand to $150 at that rate.\", \"mechanism_link\": \"Higher import-payment needs create excess dollar demand.\"}, {\"step\": \"Banks quote a higher rupee price; assume ₹84 brings demand down to $120 and supply up to $120.\", \"mechanism_link\": \"Price adjustment discourages some purchases and attracts additional dollar sales, restoring balance in this model.\"}, {\"step\": \"A remaining $10 import invoice now costs ₹840 instead of ₹800.\", \"mechanism_link\": \"The rupee has depreciated because more rupees buy the same dollars.\"}], \"term_after\": \"This illustrates market exchange-rate determination and rupee depreciation.\", \"real_life_link\": \"It explains the link between foreign-payment needs and exchange-rate news; all rates and order amounts are hypothetical, with other influences and intervention held aside.\"}}, {\"item_id\": \"p007-i15\", \"content_type\": \"timeline\", \"content\": \"Decimalization (1957): Anna System was aborted [abolished] via the Indian Coinage (Amendment) Act, 1955.\"}, {\"item_id\": \"p007-i16\", \"content_type\": \"timeline\", \"content\": \"1971: End of Gold Convertibility\\nThe global monetary system changed.\\nIndia gradually moved toward a fiat currency.\"}, {\"item_id\": \"p007-i17\", \"content_type\": \"timeline\", \"content\": \"1993: India adopted a market-determined managed float.\"}], \"on_screen_hints\": [\"₹12.50 + ₹7.50 = ₹20; ₹50 − ₹20 = ₹30.\", \"1955 law → 1957 reform; anna conversions replaced by hundred-paise arithmetic.\", \"Hypothetical purchase: buyer gives ₹100 and receives one rice bag; seller retains four of five bags and receives ₹100.\", \"Fixed gold promise → gold resources and constrained monetary choices; 1971 dollar–gold change removes that commitment, not inflation risk. Indian transition: gradual.\", \"At ₹80/$: demand $100 → $150; supply $100.\", \"Assumed ₹84/$ clearing: $120 each; invoice ₹800 → ₹840.\"]}\n\nReply with the plan JSON."
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "started_at": 1793322804.7742186,
+   "mode": "full",
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "cedf76ee4155fe81c9036c08ad2c8e4959d6d3ca088f4fc22942a88436f2a5e2",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 8523,
+    "output_tokens": 4711,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "एक दुकान के स्थायी world में decimal arithmetic, fiat payment और dollar की कीमत का उदाहरण खुलता है। Script अपरिवर्तित है।",
+    "key_questions": [
+     "100 paise वाली subdivision bill और change को कैसे आसान करती है?",
+     "Fiat payment को fixed gold redemption से कैसे अलग समझें?",
+     "Dollar की demand बढ़ने पर rupee cost कैसे बदलती है?"
+    ],
+    "decisions": [
+     {
+      "decision": "दुकान anchor रहेगी; Mumbai bank वाला उदाहरण उसी के बगल के boards पर खुलेगा।",
+      "reason": "इस part का kit shop है; दूसरी जगह का facade जोड़ने के बजाय camera teaching area पर जाएगा।"
+     },
+     {
+      "decision": "Prices, stock और invoice अपने बोले गए numbers पर बदलेंगे।",
+      "reason": "Arithmetic तथा purchasing-power transfer को दृश्य बनाया जा सकेगा।"
+     },
+     {
+      "decision": "एक imaginary note शुरुआत में दिखेगा।",
+      "reason": "Hypothetical examples का caveat एक बार पर्याप्त है।"
+     }
+    ],
+    "uncertain": [
+     "Narration में topic-tree return या 1993 का उल्लेख नहीं है; इसलिए नए unspoken labels और completion marks नहीं जोड़े गए।",
+     "Exact audio timing उपलब्ध नहीं है; लंबे beats में phrase-level camera keys और board changes दिए गए हैं।"
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "एक दुकान के स्थायी world में decimal arithmetic, fiat payment और dollar की कीमत का उदाहरण खुलता है। Script अपरिवर्तित है।",
+     "key_questions": [
+      "100 paise वाली subdivision bill और change को कैसे आसान करती है?",
+      "Fiat payment को fixed gold redemption से कैसे अलग समझें?",
+      "Dollar की demand बढ़ने पर rupee cost कैसे बदलती है?"
+     ],
+     "decisions": [
+      {
+       "decision": "दुकान anchor रहेगी; Mumbai bank वाला उदाहरण उसी के बगल के boards पर खुलेगा।",
+       "reason": "इस part का kit shop है; दूसरी जगह का facade जोड़ने के बजाय camera teaching area पर जाएगा।"
+      },
+      {
+       "decision": "Prices, stock और invoice अपने बोले गए numbers पर बदलेंगे।",
+       "reason": "Arithmetic तथा purchasing-power transfer को दृश्य बनाया जा सकेगा।"
+      },
+      {
+       "decision": "एक imaginary note शुरुआत में दिखेगा।",
+       "reason": "Hypothetical examples का caveat एक बार पर्याप्त है।"
+      }
+     ],
+     "uncertain": [
+      "Narration में topic-tree return या 1993 का उल्लेख नहीं है; इसलिए नए unspoken labels और completion marks नहीं जोड़े गए।",
+      "Exact audio timing उपलब्ध नहीं है; लंबे beats में phrase-level camera keys और board changes दिए गए हैं।"
+     ]
+    },
+    "elements": [
+     {
+      "id": "shop",
+      "kind": "shop",
+      "x": 2600,
+      "y": 860,
+      "sign": "दुकान",
+      "text": "",
+      "fill": "",
+      "string": 0,
+      "steps": [],
+      "packets": [
+       {
+        "n": 2,
+        "cue": [
+         "b31",
+         "Salt"
+        ]
+       },
+       {
+        "n": 5,
+        "cue": [
+         "b33",
+         "Lucknow"
+        ]
+       },
+       {
+        "n": 4,
+        "cue": [
+         "b33",
+         "4"
+        ]
+       }
+      ],
+      "cue": [
+       "b31",
+       ""
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "keeper",
+      "kind": "shopkeeper",
+      "x": 2600,
+      "y": 860,
+      "sign": "",
+      "text": "",
+      "fill": "",
+      "string": 0,
+      "steps": [],
+      "packets": [],
+      "cue": [
+       "b31",
+       ""
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "imaginary",
+      "kind": "label",
+      "x": 2600,
+      "y": 225,
+      "sign": "",
+      "text": "यह imaginary दुकान है।",
+      "fill": "rgba(250,244,223,1)",
+      "string": 0,
+      "steps": [],
+      "packets": [],
+      "cue": [
+       "b31",
+       "imaginary"
+      ],
+      "until_cue": [
+       "b32",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "bill",
+      "kind": "board",
+      "x": 3150,
+      "y": 470,
+      "sign": "",
+      "text": "",
+      "fill": "#E7D8B6",
+      "string": 0,
+      "steps": [
+       {
+        "text": "Salt ₹12.50 का है।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b31",
+         "₹12.50,"
+        ]
+       },
+       {
+        "text": "Soap ₹7.50 का है।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b31",
+         "₹7.50:"
+        ]
+       },
+       {
+        "text": "1250 और 750 जोड़कर\n2000 paise, यानी ₹20 हैं।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b31",
+         "₹20;"
+        ]
+       },
+       {
+        "text": "₹50 देने पर ₹30 वापस मिलते हैं।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b31",
+         "₹30"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b31",
+       "₹12.50,"
+      ],
+      "until_cue": [
+       "b32",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "decimal",
+      "kind": "board",
+      "x": 3150,
+      "y": 470,
+      "sign": "",
+      "text": "",
+      "fill": "#E7D8B6",
+      "string": 0,
+      "steps": [
+       {
+        "text": "Decimal currency में\n₹1 के 100 paise हैं।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b32",
+         "paise,"
+        ]
+       },
+       {
+        "text": "Bill में annas का\nconversion नहीं करना पड़ता।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b32",
+         "conversion"
+        ]
+       },
+       {
+        "text": "Decimalization 1957 में हुई।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b32",
+         "1957"
+        ]
+       },
+       {
+        "text": "Indian Coinage (Amendment) Act,\n1955 ने anna system हटाया।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b32",
+         "था—पहले"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b32",
+       "paise,"
+      ],
+      "until_cue": [
+       "b33",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "buyer",
+      "kind": "crowd",
+      "x": 0,
+      "y": 0,
+      "sign": "",
+      "text": "",
+      "fill": "",
+      "string": 0,
+      "steps": [
+       {
+        "text": "",
+        "n": 1,
+        "dir": "",
+        "cue": [
+         "b33",
+         "तुम्हारे"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b33",
+       "तुम्हारे"
+      ],
+      "until_cue": [
+       "b34",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 2230,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 100,
+      "enter_x": 1800,
+      "exit_x": 1800,
+      "face": 1,
+      "seed": 31,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [
+       "b33",
+       "लिया,"
+      ],
+      "carry_n": 1
+     },
+     {
+      "id": "payment",
+      "kind": "board",
+      "x": 3150,
+      "y": 470,
+      "sign": "",
+      "text": "",
+      "fill": "#E7D8B6",
+      "string": 0,
+      "steps": [
+       {
+        "text": "तुम्हारे पास ₹100 हैं।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b33",
+         "₹100"
+        ]
+       },
+       {
+        "text": "1 rice bag लिया;\nअब cash नहीं बची।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b33",
+         "बची।"
+        ]
+       },
+       {
+        "text": "दुकानदार के 5 bags में 4 बचे;\nउसे ₹100 मिले।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b33",
+         "मिले;"
+        ]
+       },
+       {
+        "text": "वह आगे payment करेगा,\ngold नहीं माँगेगा।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b33",
+         "gold"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b33",
+       "₹100"
+      ],
+      "until_cue": [
+       "b34",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "fiat",
+      "kind": "board",
+      "x": 3150,
+      "y": 470,
+      "sign": "",
+      "text": "",
+      "fill": "#E7D8B6",
+      "string": 0,
+      "steps": [
+       {
+        "text": "Fiat currency में fixed gold\nredemption जरूरी नहीं।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b34",
+         "नहीं।"
+        ]
+       },
+       {
+        "text": "Fixed वादे के लिए authority को\ngold resources रखने पड़ते हैं।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b34",
+         "रखने"
+        ]
+       },
+       {
+        "text": "वादा निभाने के लिए monetary\nchoices सीमित रखने पड़ते हैं।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b34",
+         "हैं।"
+        ]
+       },
+       {
+        "text": "1971 में dollar–gold\nconvertibility खत्म हुई।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b34",
+         "होने"
+        ]
+       },
+       {
+        "text": "वह खास constraint हटा,\ninflation का risk नहीं।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b34",
+         "नहीं।"
+        ]
+       },
+       {
+        "text": "India की दिशा gradual थी।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b34",
+         "gradual"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b34",
+       "currency"
+      ],
+      "until_cue": [
+       "b35",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "rate",
+      "kind": "price_tag",
+      "x": 2850,
+      "y": 350,
+      "sign": "",
+      "text": "",
+      "fill": "",
+      "string": 65,
+      "steps": [
+       {
+        "text": "₹80",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b35",
+         "₹80"
+        ]
+       },
+       {
+        "text": "₹84",
+        "n": 0,
+        "dir": "up",
+        "cue": [
+         "b36",
+         "₹84"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b35",
+       "₹80"
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "orders",
+      "kind": "board",
+      "x": 3400,
+      "y": 470,
+      "sign": "",
+      "text": "",
+      "fill": "#E7D8B6",
+      "string": 0,
+      "steps": [
+       {
+        "text": "₹80 per dollar पर demand\nऔर supply $100 थीं।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b35",
+         "थीं;"
+        ]
+       },
+       {
+        "text": "Demand $150 हुई;\nsupply $100 रही।",
+        "n": 0,
+        "dir": "up",
+        "cue": [
+         "b35",
+         "रही—shortage"
+        ]
+       },
+       {
+        "text": "₹84 पर demand और supply\n$120 हो जाएँ।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b36",
+         "$120"
+        ]
+       },
+       {
+        "text": "$10 invoice ₹800 का है।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b36",
+         "₹800"
+        ]
+       },
+       {
+        "text": "$10 invoice ₹840 का है।",
+        "n": 0,
+        "dir": "up",
+        "cue": [
+         "b36",
+         "₹840"
+        ]
+       },
+       {
+        "text": "Same dollars के लिए\nज़्यादा rupees लगे।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b36",
+         "ज़्यादा"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b35",
+       "थीं;"
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     }
+    ],
+    "camera": [
+     {
+      "cue": [
+       "b31",
+       ""
+      ],
+      "x": 2750,
+      "y": 510,
+      "zoom": 0.85,
+      "frames": 30
+     },
+     {
+      "cue": [
+       "b31",
+       "Salt"
+      ],
+      "x": 2880,
+      "y": 510,
+      "zoom": 1,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b31",
+       "1250"
+      ],
+      "x": 3050,
+      "y": 490,
+      "zoom": 1.15,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b31",
+       "देने"
+      ],
+      "x": 2940,
+      "y": 510,
+      "zoom": 1.05,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b32",
+       ""
+      ],
+      "x": 2920,
+      "y": 510,
+      "zoom": 1,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b32",
+       "annas"
+      ],
+      "x": 3090,
+      "y": 480,
+      "zoom": 1.15,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b32",
+       "Decimalization"
+      ],
+      "x": 3000,
+      "y": 490,
+      "zoom": 1.05,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b32",
+       "Indian"
+      ],
+      "x": 3090,
+      "y": 480,
+      "zoom": 1.15,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b33",
+       ""
+      ],
+      "x": 2670,
+      "y": 520,
+      "zoom": 0.85,
+      "frames": 45
+     },
+     {
+      "cue": [
+       "b33",
+       "पूरा"
+      ],
+      "x": 2590,
+      "y": 560,
+      "zoom": 1.05,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b33",
+       "दुकानदार"
+      ],
+      "x": 2770,
+      "y": 530,
+      "zoom": 1,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b33",
+       "आगे"
+      ],
+      "x": 3000,
+      "y": 490,
+      "zoom": 1.05,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b34",
+       ""
+      ],
+      "x": 2970,
+      "y": 500,
+      "zoom": 1.05,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b34",
+       "Gold"
+      ],
+      "x": 3080,
+      "y": 480,
+      "zoom": 1.15,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b34",
+       "authority"
+      ],
+      "x": 3000,
+      "y": 500,
+      "zoom": 1.05,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b34",
+       "monetary"
+      ],
+      "x": 3090,
+      "y": 480,
+      "zoom": 1.15,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b34",
+       "1971"
+      ],
+      "x": 2990,
+      "y": 500,
+      "zoom": 1.05,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b34",
+       "constraint"
+      ],
+      "x": 3090,
+      "y": 480,
+      "zoom": 1.15,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b34",
+       "India"
+      ],
+      "x": 2940,
+      "y": 510,
+      "zoom": 1,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b34",
+       "शुरुआत"
+      ],
+      "x": 3060,
+      "y": 490,
+      "zoom": 1.1,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b35",
+       ""
+      ],
+      "x": 3100,
+      "y": 510,
+      "zoom": 0.9,
+      "frames": 45
+     },
+     {
+      "cue": [
+       "b35",
+       "₹80"
+      ],
+      "x": 3020,
+      "y": 460,
+      "zoom": 1.05,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b35",
+       "import"
+      ],
+      "x": 3290,
+      "y": 490,
+      "zoom": 1.05,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b36",
+       ""
+      ],
+      "x": 3110,
+      "y": 490,
+      "zoom": 1,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b36",
+       "$10"
+      ],
+      "x": 3310,
+      "y": 490,
+      "zoom": 1.15,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b36",
+       "same"
+      ],
+      "x": 3070,
+      "y": 510,
+      "zoom": 0.9,
+      "frames": 45
+     }
+    ]
+   },
+   "code_problems": [
+    "[code] camera keys must be in time order"
+   ],
+   "passed": false,
+   "finished_at": 1793322870.924108
+  },
+  {
+   "round": 2,
+   "started_at": 1793322870.9242282,
+   "mode": "full",
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "f3c87499b7ea7634fb278ccd0955d50ce15049df69323310cf31536ddd25e07f",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 11774,
+    "output_tokens": 3403,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "एक दुकान के स्थायी world में decimal arithmetic, fiat payment और dollar की कीमत का उदाहरण खुलता है। Script अपरिवर्तित है।",
+    "key_questions": [
+     "100 paise वाली subdivision bill और change को कैसे आसान करती है?",
+     "Fiat payment को fixed gold redemption से कैसे अलग समझें?",
+     "Dollar की demand बढ़ने पर rupee cost कैसे बदलती है?"
+    ],
+    "decisions": [
+     {
+      "decision": "b33 में camera cue ‘दुकानदार’ की जगह ‘bags’ किया गया है।",
+      "reason": "‘दुकानदार’ beat की शुरुआत में भी आता है; ‘bags’ sale के बाद आता है, इसलिए camera keys अब समय के क्रम में हैं।"
+     },
+     {
+      "decision": "बाकी elements और camera moves अपरिवर्तित रखे गए हैं।",
+      "reason": "पहले से सही योजना सुरक्षित रखते हुए बताई गई timing त्रुटि सुधारी गई है।"
+     },
+     {
+      "decision": "दुकान anchor रहेगी; Mumbai bank वाला उदाहरण उसी के बगल के boards पर खुलेगा।",
+      "reason": "इस part का kit shop है; दूसरी जगह का facade जोड़ने के बजाय camera teaching area पर जाएगा।"
+     },
+     {
+      "decision": "एक imaginary note शुरुआत में दिखेगा।",
+      "reason": "Hypothetical examples का caveat एक बार पर्याप्त है।"
+     }
+    ],
+    "uncertain": [
+     "Narration में topic-tree return या 1993 का उल्लेख नहीं है; इसलिए नए unspoken labels और completion marks नहीं जोड़े गए।",
+     "Exact audio timing उपलब्ध नहीं है; लंबे beats में phrase-level camera keys और board changes दिए गए हैं।"
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "एक दुकान के स्थायी world में decimal arithmetic, fiat payment और dollar की कीमत का उदाहरण खुलता है। Script अपरिवर्तित है।",
+     "key_questions": [
+      "100 paise वाली subdivision bill और change को कैसे आसान करती है?",
+      "Fiat payment को fixed gold redemption से कैसे अलग समझें?",
+      "Dollar की demand बढ़ने पर rupee cost कैसे बदलती है?"
+     ],
+     "decisions": [
+      {
+       "decision": "b33 में camera cue ‘दुकानदार’ की जगह ‘bags’ किया गया है।",
+       "reason": "‘दुकानदार’ beat की शुरुआत में भी आता है; ‘bags’ sale के बाद आता है, इसलिए camera keys अब समय के क्रम में हैं।"
+      },
+      {
+       "decision": "बाकी elements और camera moves अपरिवर्तित रखे गए हैं।",
+       "reason": "पहले से सही योजना सुरक्षित रखते हुए बताई गई timing त्रुटि सुधारी गई है।"
+      },
+      {
+       "decision": "दुकान anchor रहेगी; Mumbai bank वाला उदाहरण उसी के बगल के boards पर खुलेगा।",
+       "reason": "इस part का kit shop है; दूसरी जगह का facade जोड़ने के बजाय camera teaching area पर जाएगा।"
+      },
+      {
+       "decision": "एक imaginary note शुरुआत में दिखेगा।",
+       "reason": "Hypothetical examples का caveat एक बार पर्याप्त है।"
+      }
+     ],
+     "uncertain": [
+      "Narration में topic-tree return या 1993 का उल्लेख नहीं है; इसलिए नए unspoken labels और completion marks नहीं जोड़े गए।",
+      "Exact audio timing उपलब्ध नहीं है; लंबे beats में phrase-level camera keys और board changes दिए गए हैं।"
+     ]
+    },
+    "elements": [
+     {
+      "id": "shop",
+      "kind": "shop",
+      "x": 2600,
+      "y": 860,
+      "sign": "दुकान",
+      "text": "",
+      "fill": "",
+      "string": 0,
+      "steps": [],
+      "packets": [
+       {
+        "n": 2,
+        "cue": [
+         "b31",
+         "Salt"
+        ]
+       },
+       {
+        "n": 5,
+        "cue": [
+         "b33",
+         "Lucknow"
+        ]
+       },
+       {
+        "n": 4,
+        "cue": [
+         "b33",
+         "4"
+        ]
+       }
+      ],
+      "cue": [
+       "b31",
+       ""
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "keeper",
+      "kind": "shopkeeper",
+      "x": 2600,
+      "y": 860,
+      "sign": "",
+      "text": "",
+      "fill": "",
+      "string": 0,
+      "steps": [],
+      "packets": [],
+      "cue": [
+       "b31",
+       ""
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "imaginary",
+      "kind": "label",
+      "x": 2600,
+      "y": 225,
+      "sign": "",
+      "text": "यह imaginary दुकान है।",
+      "fill": "rgba(250,244,223,1)",
+      "string": 0,
+      "steps": [],
+      "packets": [],
+      "cue": [
+       "b31",
+       "imaginary"
+      ],
+      "until_cue": [
+       "b32",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "bill",
+      "kind": "board",
+      "x": 3150,
+      "y": 470,
+      "sign": "",
+      "text": "",
+      "fill": "#E7D8B6",
+      "string": 0,
+      "steps": [
+       {
+        "text": "Salt ₹12.50 का है।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b31",
+         "₹12.50,"
+        ]
+       },
+       {
+        "text": "Soap ₹7.50 का है।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b31",
+         "₹7.50:"
+        ]
+       },
+       {
+        "text": "1250 और 750 जोड़कर\n2000 paise, यानी ₹20 हैं।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b31",
+         "₹20;"
+        ]
+       },
+       {
+        "text": "₹50 देने पर ₹30 वापस मिलते हैं।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b31",
+         "₹30"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b31",
+       "₹12.50,"
+      ],
+      "until_cue": [
+       "b32",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "decimal",
+      "kind": "board",
+      "x": 3150,
+      "y": 470,
+      "sign": "",
+      "text": "",
+      "fill": "#E7D8B6",
+      "string": 0,
+      "steps": [
+       {
+        "text": "Decimal currency में\n₹1 के 100 paise हैं।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b32",
+         "paise,"
+        ]
+       },
+       {
+        "text": "Bill में annas का\nconversion नहीं करना पड़ता।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b32",
+         "conversion"
+        ]
+       },
+       {
+        "text": "Decimalization 1957 में हुई।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b32",
+         "1957"
+        ]
+       },
+       {
+        "text": "Indian Coinage (Amendment) Act,\n1955 ने anna system हटाया।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b32",
+         "था—पहले"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b32",
+       "paise,"
+      ],
+      "until_cue": [
+       "b33",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "buyer",
+      "kind": "crowd",
+      "x": 0,
+      "y": 0,
+      "sign": "",
+      "text": "",
+      "fill": "",
+      "string": 0,
+      "steps": [
+       {
+        "text": "",
+        "n": 1,
+        "dir": "",
+        "cue": [
+         "b33",
+         "तुम्हारे"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b33",
+       "तुम्हारे"
+      ],
+      "until_cue": [
+       "b34",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 2230,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 100,
+      "enter_x": 1800,
+      "exit_x": 1800,
+      "face": 1,
+      "seed": 31,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [
+       "b33",
+       "लिया,"
+      ],
+      "carry_n": 1
+     },
+     {
+      "id": "payment",
+      "kind": "board",
+      "x": 3150,
+      "y": 470,
+      "sign": "",
+      "text": "",
+      "fill": "#E7D8B6",
+      "string": 0,
+      "steps": [
+       {
+        "text": "तुम्हारे पास ₹100 हैं।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b33",
+         "₹100"
+        ]
+       },
+       {
+        "text": "1 rice bag लिया;\nअब cash नहीं बची।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b33",
+         "बची।"
+        ]
+       },
+       {
+        "text": "दुकानदार के 5 bags में 4 बचे;\nउसे ₹100 मिले।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b33",
+         "मिले;"
+        ]
+       },
+       {
+        "text": "वह आगे payment करेगा,\ngold नहीं माँगेगा।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b33",
+         "gold"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b33",
+       "₹100"
+      ],
+      "until_cue": [
+       "b34",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "fiat",
+      "kind": "board",
+      "x": 3150,
+      "y": 470,
+      "sign": "",
+      "text": "",
+      "fill": "#E7D8B6",
+      "string": 0,
+      "steps": [
+       {
+        "text": "Fiat currency में fixed gold\nredemption जरूरी नहीं।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b34",
+         "नहीं।"
+        ]
+       },
+       {
+        "text": "Fixed वादे के लिए authority को\ngold resources रखने पड़ते हैं।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b34",
+         "रखने"
+        ]
+       },
+       {
+        "text": "वादा निभाने के लिए monetary\nchoices सीमित रखने पड़ते हैं।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b34",
+         "हैं।"
+        ]
+       },
+       {
+        "text": "1971 में dollar–gold\nconvertibility खत्म हुई।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b34",
+         "होने"
+        ]
+       },
+       {
+        "text": "वह खास constraint हटा,\ninflation का risk नहीं।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b34",
+         "नहीं।"
+        ]
+       },
+       {
+        "text": "India की दिशा gradual थी।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b34",
+         "gradual"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b34",
+       "currency"
+      ],
+      "until_cue": [
+       "b35",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "rate",
+      "kind": "price_tag",
+      "x": 2850,
+      "y": 350,
+      "sign": "",
+      "text": "",
+      "fill": "",
+      "string": 65,
+      "steps": [
+       {
+        "text": "₹80",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b35",
+         "₹80"
+        ]
+       },
+       {
+        "text": "₹84",
+        "n": 0,
+        "dir": "up",
+        "cue": [
+         "b36",
+         "₹84"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b35",
+       "₹80"
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "orders",
+      "kind": "board",
+      "x": 3400,
+      "y": 470,
+      "sign": "",
+      "text": "",
+      "fill": "#E7D8B6",
+      "string": 0,
+      "steps": [
+       {
+        "text": "₹80 per dollar पर demand\nऔर supply $100 थीं।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b35",
+         "थीं;"
+        ]
+       },
+       {
+        "text": "Demand $150 हुई;\nsupply $100 रही।",
+        "n": 0,
+        "dir": "up",
+        "cue": [
+         "b35",
+         "रही—shortage"
+        ]
+       },
+       {
+        "text": "₹84 पर demand और supply\n$120 हो जाएँ।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b36",
+         "$120"
+        ]
+       },
+       {
+        "text": "$10 invoice ₹800 का है।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b36",
+         "₹800"
+        ]
+       },
+       {
+        "text": "$10 invoice ₹840 का है।",
+        "n": 0,
+        "dir": "up",
+        "cue": [
+         "b36",
+         "₹840"
+        ]
+       },
+       {
+        "text": "Same dollars के लिए\nज़्यादा rupees लगे।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b36",
+         "ज़्यादा"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b35",
+       "थीं;"
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     }
+    ],
+    "camera": [
+     {
+      "cue": [
+       "b31",
+       ""
+      ],
+      "x": 2750,
+      "y": 510,
+      "zoom": 0.85,
+      "frames": 30
+     },
+     {
+      "cue": [
+       "b31",
+       "Salt"
+      ],
+      "x": 2880,
+      "y": 510,
+      "zoom": 1,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b31",
+       "1250"
+      ],
+      "x": 3050,
+      "y": 490,
+      "zoom": 1.15,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b31",
+       "देने"
+      ],
+      "x": 2940,
+      "y": 510,
+      "zoom": 1.05,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b32",
+       ""
+      ],
+      "x": 2920,
+      "y": 510,
+      "zoom": 1,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b32",
+       "annas"
+      ],
+      "x": 3090,
+      "y": 480,
+      "zoom": 1.15,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b32",
+       "Decimalization"
+      ],
+      "x": 3000,
+      "y": 490,
+      "zoom": 1.05,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b32",
+       "Indian"
+      ],
+      "x": 3090,
+      "y": 480,
+      "zoom": 1.15,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b33",
+       ""
+      ],
+      "x": 2670,
+      "y": 520,
+      "zoom": 0.85,
+      "frames": 45
+     },
+     {
+      "cue": [
+       "b33",
+       "पूरा"
+      ],
+      "x": 2590,
+      "y": 560,
+      "zoom": 1.05,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b33",
+       "bags"
+      ],
+      "x": 2770,
+      "y": 530,
+      "zoom": 1,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b33",
+       "आगे"
+      ],
+      "x": 3000,
+      "y": 490,
+      "zoom": 1.05,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b34",
+       ""
+      ],
+      "x": 2970,
+      "y": 500,
+      "zoom": 1.05,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b34",
+       "Gold"
+      ],
+      "x": 3080,
+      "y": 480,
+      "zoom": 1.15,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b34",
+       "authority"
+      ],
+      "x": 3000,
+      "y": 500,
+      "zoom": 1.05,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b34",
+       "monetary"
+      ],
+      "x": 3090,
+      "y": 480,
+      "zoom": 1.15,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b34",
+       "1971"
+      ],
+      "x": 2990,
+      "y": 500,
+      "zoom": 1.05,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b34",
+       "constraint"
+      ],
+      "x": 3090,
+      "y": 480,
+      "zoom": 1.15,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b34",
+       "India"
+      ],
+      "x": 2940,
+      "y": 510,
+      "zoom": 1,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b34",
+       "शुरुआत"
+      ],
+      "x": 3060,
+      "y": 490,
+      "zoom": 1.1,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b35",
+       ""
+      ],
+      "x": 3100,
+      "y": 510,
+      "zoom": 0.9,
+      "frames": 45
+     },
+     {
+      "cue": [
+       "b35",
+       "₹80"
+      ],
+      "x": 3020,
+      "y": 460,
+      "zoom": 1.05,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b35",
+       "import"
+      ],
+      "x": 3290,
+      "y": 490,
+      "zoom": 1.05,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b36",
+       ""
+      ],
+      "x": 3110,
+      "y": 490,
+      "zoom": 1,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b36",
+       "$10"
+      ],
+      "x": 3310,
+      "y": 490,
+      "zoom": 1.15,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b36",
+       "same"
+      ],
+      "x": 3070,
+      "y": 510,
+      "zoom": 0.9,
+      "frames": 45
+     }
+    ]
+   },
+   "code_problems": [
+    "[code] bill.step1: 'Salt ₹12.50 का है।' is not explained by the narration of b31: the words ['है।'] are not said there; say them in that beat or move the cue to the beat that says them (CV-14)",
+    "[code] bill.step2: 'Soap ₹7.50 का है।' is not explained by the narration of b31: the words ['है।'] are not said there; say them in that beat or move the cue to the beat that says them (CV-14)",
+    "[code] decimal.step3: 'Decimalization 1957 में हुई।' is not explained by the narration of b32: the words ['हुई।'] are not said there; say them in that beat or move the cue to the beat that says them (CV-14)",
+    "[code] orders.step4: '$10 invoice ₹800 का है।' is not explained by the narration of b36: the words ['है।'] are not said there; say them in that beat or move the cue to the beat that says them (CV-14)",
+    "[code] orders.step5: '$10 invoice ₹840 का है।' is not explained by the narration of b36: the words ['है।'] are not said there; say them in that beat or move the cue to the beat that says them (CV-14)"
+   ],
+   "passed": false,
+   "finished_at": 1793322908.13207
+  },
+  {
+   "round": 3,
+   "started_at": 1793322908.132169,
+   "mode": "full",
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "9eb738bbc5f0b188e00697e3e3a479caa4befb58ab237b06c9c91a2b7924880d",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 12128,
+    "output_tokens": 3342,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "एक स्थायी दुकान world में decimal arithmetic, fiat payment और dollar की कीमत के उदाहरण खुलते हैं। Script अपरिवर्तित है।",
+    "key_questions": [
+     "Decimal subdivision bill और change को कैसे आसान करती है?",
+     "Fiat payment fixed gold redemption से कैसे अलग है?",
+     "Dollar की demand बढ़ने पर rupee cost कैसे बदलती है?"
+    ],
+    "decisions": [
+     {
+      "decision": "Bill के पहले दो steps में narration के अनुरूप price phrases रखे; unspoken ‘है।’ हटाया।",
+      "reason": "CV-14 की दोनों findings ठीक करना, बिना narration बदले।"
+     },
+     {
+      "decision": "Decimalization step में ‘हुई;’ और invoice के अंतिम step में ‘है;’ रखा।",
+      "reason": "Narration के exact spoken tokens से punctuation मिलाना।"
+     },
+     {
+      "decision": "Invoice का पहला step ‘$10 invoice अब ₹800 नहीं,’ किया।",
+      "reason": "Narration का निषेध सुरक्षित रखते हुए unspoken ‘है।’ हटाना।"
+     },
+     {
+      "decision": "बाकी staging, cues और camera moves सुरक्षित रखे।",
+      "reason": "पहले से सही योजना अपरिवर्तित रखना।"
+     }
+    ],
+    "uncertain": [
+     "Narration में topic-tree return या 1993 नहीं कहा गया है; इसलिए उनके unspoken labels नहीं जोड़े गए।",
+     "Exact audio timing उपलब्ध नहीं है; phrase-level camera keys और board changes रखे हैं।"
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "एक स्थायी दुकान world में decimal arithmetic, fiat payment और dollar की कीमत के उदाहरण खुलते हैं। Script अपरिवर्तित है।",
+     "key_questions": [
+      "Decimal subdivision bill और change को कैसे आसान करती है?",
+      "Fiat payment fixed gold redemption से कैसे अलग है?",
+      "Dollar की demand बढ़ने पर rupee cost कैसे बदलती है?"
+     ],
+     "decisions": [
+      {
+       "decision": "Bill के पहले दो steps में narration के अनुरूप price phrases रखे; unspoken ‘है।’ हटाया।",
+       "reason": "CV-14 की दोनों findings ठीक करना, बिना narration बदले।"
+      },
+      {
+       "decision": "Decimalization step में ‘हुई;’ और invoice के अंतिम step में ‘है;’ रखा।",
+       "reason": "Narration के exact spoken tokens से punctuation मिलाना।"
+      },
+      {
+       "decision": "Invoice का पहला step ‘$10 invoice अब ₹800 नहीं,’ किया।",
+       "reason": "Narration का निषेध सुरक्षित रखते हुए unspoken ‘है।’ हटाना।"
+      },
+      {
+       "decision": "बाकी staging, cues और camera moves सुरक्षित रखे।",
+       "reason": "पहले से सही योजना अपरिवर्तित रखना।"
+      }
+     ],
+     "uncertain": [
+      "Narration में topic-tree return या 1993 नहीं कहा गया है; इसलिए उनके unspoken labels नहीं जोड़े गए।",
+      "Exact audio timing उपलब्ध नहीं है; phrase-level camera keys और board changes रखे हैं।"
+     ]
+    },
+    "elements": [
+     {
+      "id": "shop",
+      "kind": "shop",
+      "x": 2600,
+      "y": 860,
+      "sign": "दुकान",
+      "text": "",
+      "fill": "",
+      "string": 0,
+      "steps": [],
+      "packets": [
+       {
+        "n": 2,
+        "cue": [
+         "b31",
+         "Salt"
+        ]
+       },
+       {
+        "n": 5,
+        "cue": [
+         "b33",
+         "Lucknow"
+        ]
+       },
+       {
+        "n": 4,
+        "cue": [
+         "b33",
+         "4"
+        ]
+       }
+      ],
+      "cue": [
+       "b31",
+       ""
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "keeper",
+      "kind": "shopkeeper",
+      "x": 2600,
+      "y": 860,
+      "sign": "",
+      "text": "",
+      "fill": "",
+      "string": 0,
+      "steps": [],
+      "packets": [],
+      "cue": [
+       "b31",
+       ""
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "imaginary",
+      "kind": "label",
+      "x": 2600,
+      "y": 225,
+      "sign": "",
+      "text": "यह imaginary दुकान है।",
+      "fill": "rgba(250,244,223,1)",
+      "string": 0,
+      "steps": [],
+      "packets": [],
+      "cue": [
+       "b31",
+       "imaginary"
+      ],
+      "until_cue": [
+       "b32",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "bill",
+      "kind": "board",
+      "x": 3150,
+      "y": 470,
+      "sign": "",
+      "text": "",
+      "fill": "#E7D8B6",
+      "string": 0,
+      "steps": [
+       {
+        "text": "Salt ₹12.50",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b31",
+         "₹12.50,"
+        ]
+       },
+       {
+        "text": "Salt ₹12.50, soap ₹7.50",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b31",
+         "₹7.50:"
+        ]
+       },
+       {
+        "text": "1250 और 750 जोड़कर\n2000 paise, यानी ₹20 हैं।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b31",
+         "₹20;"
+        ]
+       },
+       {
+        "text": "₹50 देने पर ₹30 वापस मिलते हैं।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b31",
+         "₹30"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b31",
+       "₹12.50,"
+      ],
+      "until_cue": [
+       "b32",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "decimal",
+      "kind": "board",
+      "x": 3150,
+      "y": 470,
+      "sign": "",
+      "text": "",
+      "fill": "#E7D8B6",
+      "string": 0,
+      "steps": [
+       {
+        "text": "Decimal currency में\n₹1 के 100 paise हैं।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b32",
+         "paise,"
+        ]
+       },
+       {
+        "text": "Bill में annas का\nconversion नहीं करना पड़ता।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b32",
+         "conversion"
+        ]
+       },
+       {
+        "text": "Decimalization 1957 में हुई;",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b32",
+         "1957"
+        ]
+       },
+       {
+        "text": "Indian Coinage (Amendment) Act,\n1955 ने anna system हटाया।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b32",
+         "था—पहले"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b32",
+       "paise,"
+      ],
+      "until_cue": [
+       "b33",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "buyer",
+      "kind": "crowd",
+      "x": 0,
+      "y": 0,
+      "sign": "",
+      "text": "",
+      "fill": "",
+      "string": 0,
+      "steps": [
+       {
+        "text": "",
+        "n": 1,
+        "dir": "",
+        "cue": [
+         "b33",
+         "तुम्हारे"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b33",
+       "तुम्हारे"
+      ],
+      "until_cue": [
+       "b34",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 2230,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 100,
+      "enter_x": 1800,
+      "exit_x": 1800,
+      "face": 1,
+      "seed": 31,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [
+       "b33",
+       "लिया,"
+      ],
+      "carry_n": 1
+     },
+     {
+      "id": "payment",
+      "kind": "board",
+      "x": 3150,
+      "y": 470,
+      "sign": "",
+      "text": "",
+      "fill": "#E7D8B6",
+      "string": 0,
+      "steps": [
+       {
+        "text": "तुम्हारे पास ₹100 हैं।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b33",
+         "₹100"
+        ]
+       },
+       {
+        "text": "1 rice bag लिया;\nअब cash नहीं बची।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b33",
+         "बची।"
+        ]
+       },
+       {
+        "text": "दुकानदार के 5 bags में 4 बचे;\nउसे ₹100 मिले।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b33",
+         "मिले;"
+        ]
+       },
+       {
+        "text": "वह आगे payment करेगा,\ngold नहीं माँगेगा।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b33",
+         "gold"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b33",
+       "₹100"
+      ],
+      "until_cue": [
+       "b34",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "fiat",
+      "kind": "board",
+      "x": 3150,
+      "y": 470,
+      "sign": "",
+      "text": "",
+      "fill": "#E7D8B6",
+      "string": 0,
+      "steps": [
+       {
+        "text": "Fiat currency में fixed gold\nredemption जरूरी नहीं।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b34",
+         "नहीं।"
+        ]
+       },
+       {
+        "text": "Fixed वादे के लिए authority को\ngold resources रखने पड़ते हैं।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b34",
+         "रखने"
+        ]
+       },
+       {
+        "text": "वादा निभाने के लिए monetary\nchoices सीमित रखने पड़ते हैं।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b34",
+         "हैं।"
+        ]
+       },
+       {
+        "text": "1971 में dollar–gold\nconvertibility खत्म हुई।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b34",
+         "होने"
+        ]
+       },
+       {
+        "text": "वह खास constraint हटा,\ninflation का risk नहीं।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b34",
+         "नहीं।"
+        ]
+       },
+       {
+        "text": "India की दिशा gradual थी।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b34",
+         "gradual"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b34",
+       "currency"
+      ],
+      "until_cue": [
+       "b35",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "rate",
+      "kind": "price_tag",
+      "x": 2850,
+      "y": 350,
+      "sign": "",
+      "text": "",
+      "fill": "",
+      "string": 65,
+      "steps": [
+       {
+        "text": "₹80",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b35",
+         "₹80"
+        ]
+       },
+       {
+        "text": "₹84",
+        "n": 0,
+        "dir": "up",
+        "cue": [
+         "b36",
+         "₹84"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b35",
+       "₹80"
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "orders",
+      "kind": "board",
+      "x": 3400,
+      "y": 470,
+      "sign": "",
+      "text": "",
+      "fill": "#E7D8B6",
+      "string": 0,
+      "steps": [
+       {
+        "text": "₹80 per dollar पर demand\nऔर supply $100 थीं।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b35",
+         "थीं;"
+        ]
+       },
+       {
+        "text": "Demand $150 हुई;\nsupply $100 रही।",
+        "n": 0,
+        "dir": "up",
+        "cue": [
+         "b35",
+         "रही—shortage"
+        ]
+       },
+       {
+        "text": "₹84 पर demand और supply\n$120 हो जाएँ।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b36",
+         "$120"
+        ]
+       },
+       {
+        "text": "$10 invoice अब ₹800 नहीं,",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b36",
+         "₹800"
+        ]
+       },
+       {
+        "text": "$10 invoice ₹840 का है;",
+        "n": 0,
+        "dir": "up",
+        "cue": [
+         "b36",
+         "₹840"
+        ]
+       },
+       {
+        "text": "Same dollars के लिए\nज़्यादा rupees लगे।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b36",
+         "ज़्यादा"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b35",
+       "थीं;"
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     }
+    ],
+    "camera": [
+     {
+      "cue": [
+       "b31",
+       ""
+      ],
+      "x": 2750,
+      "y": 510,
+      "zoom": 0.85,
+      "frames": 30
+     },
+     {
+      "cue": [
+       "b31",
+       "Salt"
+      ],
+      "x": 2880,
+      "y": 510,
+      "zoom": 1,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b31",
+       "1250"
+      ],
+      "x": 3050,
+      "y": 490,
+      "zoom": 1.15,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b31",
+       "देने"
+      ],
+      "x": 2940,
+      "y": 510,
+      "zoom": 1.05,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b32",
+       ""
+      ],
+      "x": 2920,
+      "y": 510,
+      "zoom": 1,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b32",
+       "annas"
+      ],
+      "x": 3090,
+      "y": 480,
+      "zoom": 1.15,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b32",
+       "Decimalization"
+      ],
+      "x": 3000,
+      "y": 490,
+      "zoom": 1.05,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b32",
+       "Indian"
+      ],
+      "x": 3090,
+      "y": 480,
+      "zoom": 1.15,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b33",
+       ""
+      ],
+      "x": 2670,
+      "y": 520,
+      "zoom": 0.85,
+      "frames": 45
+     },
+     {
+      "cue": [
+       "b33",
+       "पूरा"
+      ],
+      "x": 2590,
+      "y": 560,
+      "zoom": 1.05,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b33",
+       "bags"
+      ],
+      "x": 2770,
+      "y": 530,
+      "zoom": 1,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b33",
+       "आगे"
+      ],
+      "x": 3000,
+      "y": 490,
+      "zoom": 1.05,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b34",
+       ""
+      ],
+      "x": 2970,
+      "y": 500,
+      "zoom": 1.05,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b34",
+       "Gold"
+      ],
+      "x": 3080,
+      "y": 480,
+      "zoom": 1.15,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b34",
+       "authority"
+      ],
+      "x": 3000,
+      "y": 500,
+      "zoom": 1.05,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b34",
+       "monetary"
+      ],
+      "x": 3090,
+      "y": 480,
+      "zoom": 1.15,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b34",
+       "1971"
+      ],
+      "x": 2990,
+      "y": 500,
+      "zoom": 1.05,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b34",
+       "constraint"
+      ],
+      "x": 3090,
+      "y": 480,
+      "zoom": 1.15,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b34",
+       "India"
+      ],
+      "x": 2940,
+      "y": 510,
+      "zoom": 1,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b34",
+       "शुरुआत"
+      ],
+      "x": 3060,
+      "y": 490,
+      "zoom": 1.1,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b35",
+       ""
+      ],
+      "x": 3100,
+      "y": 510,
+      "zoom": 0.9,
+      "frames": 45
+     },
+     {
+      "cue": [
+       "b35",
+       "₹80"
+      ],
+      "x": 3020,
+      "y": 460,
+      "zoom": 1.05,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b35",
+       "import"
+      ],
+      "x": 3290,
+      "y": 490,
+      "zoom": 1.05,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b36",
+       ""
+      ],
+      "x": 3110,
+      "y": 490,
+      "zoom": 1,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b36",
+       "$10"
+      ],
+      "x": 3310,
+      "y": 490,
+      "zoom": 1.15,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b36",
+       "same"
+      ],
+      "x": 3070,
+      "y": 510,
+      "zoom": 0.9,
+      "frames": 45
+     }
+    ]
+   },
+   "code_problems": [],
+   "passed": true,
+   "finished_at": 1793322948.291965
+  }
+ ],
+ "avoid_rounds": [
+  1,
+  2
+ ],
+ "cost_usd": 0.0,
+ "seconds": 143.5,
+ "navin_verdict": null
+}

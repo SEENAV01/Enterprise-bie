@@ -1,0 +1,288 @@
+{
+ "id": "v4_s7a",
+ "part_id": "c11.2",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b40",
+   "say": "क्या हर legal tender fiat ही होगा? सामान्य जोड़ ऐसा है, लेकिन universal ‘must’ गलत होगा; Bitcoin exception इसे तोड़ता है।"
+  },
+  {
+   "beat_id": "b41",
+   "say": "हर याद वाला coin payment में चलेगा? Commemorative coins fiat issues हैं; अधिकांश legal tender हैं, सभी नहीं। Metal और collector value भी अलग हैं।"
+  },
+  {
+   "beat_id": "b42",
+   "say": "Pack वाला coin खर्च क्यों नहीं होता? Government Mint collector commemorative coins proof या UNC sets में बेचती है। Proof खास finish, UNC यानी Uncirculated; condition बचाने के लिए daily payments कम होते हैं।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "anchor",
+   "kind": "text",
+   "cell": [
+    1,
+    0,
+    10,
+    2
+   ],
+   "cue": [
+    "b40",
+    "legal"
+   ],
+   "text": "क्या हर legal tender fiat ही होगा?",
+   "style": "box",
+   "tone": "ink",
+   "fill": "band",
+   "align": "center",
+   "size": 32
+  },
+  {
+   "id": "universal",
+   "kind": "text",
+   "cell": [
+    1,
+    3,
+    10,
+    1
+   ],
+   "cue": [
+    "b40",
+    "universal"
+   ],
+   "until_cue": [
+    "b41",
+    "हर"
+   ],
+   "text": "Universal ‘must’ गलत होगा।",
+   "style": "box",
+   "tone": "warm",
+   "fill": "note",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "exception",
+   "kind": "callout",
+   "cell": [
+    1,
+    5,
+    10,
+    1
+   ],
+   "cue": [
+    "b40",
+    "Bitcoin"
+   ],
+   "until_cue": [
+    "b41",
+    "हर"
+   ],
+   "text": "Bitcoin exception इसे तोड़ता है।",
+   "style": "note",
+   "tone": "accent",
+   "fill": "note",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "fiat_coins",
+   "kind": "text",
+   "cell": [
+    1,
+    2,
+    10,
+    1
+   ],
+   "cue": [
+    "b41",
+    "Commemorative"
+   ],
+   "until_cue": [
+    "b42",
+    "Pack"
+   ],
+   "text": "Commemorative coins fiat issues हैं।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "band",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "most_not_all",
+   "kind": "text",
+   "cell": [
+    1,
+    4,
+    10,
+    1
+   ],
+   "cue": [
+    "b41",
+    "अधिकांश"
+   ],
+   "until_cue": [
+    "b42",
+    "Pack"
+   ],
+   "text": "अधिकांश legal tender हैं, सभी नहीं।",
+   "style": "box",
+   "tone": "warm",
+   "fill": "note",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "separate_values",
+   "kind": "text",
+   "cell": [
+    1,
+    6,
+    10,
+    1
+   ],
+   "cue": [
+    "b41",
+    "Metal"
+   ],
+   "until_cue": [
+    "b42",
+    "Pack"
+   ],
+   "text": "Metal और collector value भी अलग हैं।",
+   "style": "note",
+   "tone": "ink",
+   "fill": "note",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "mint_sets",
+   "kind": "text",
+   "cell": [
+    1,
+    2,
+    10,
+    2
+   ],
+   "cue": [
+    "b42",
+    "Government"
+   ],
+   "text": "Government Mint collector commemorative coins proof या UNC sets में बेचती है।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "band",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "proof_finish",
+   "kind": "text",
+   "cell": [
+    1,
+    4,
+    5,
+    1
+   ],
+   "cue": [
+    "b42",
+    "खास"
+   ],
+   "text": "Proof खास finish है।",
+   "style": "box",
+   "tone": "ink",
+   "fill": "note",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "unc_condition",
+   "kind": "text",
+   "cell": [
+    6,
+    4,
+    5,
+    1
+   ],
+   "cue": [
+    "b42",
+    "Uncirculated;"
+   ],
+   "text": "UNC यानी Uncirculated।",
+   "style": "box",
+   "tone": "ink",
+   "fill": "note",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "preservation",
+   "kind": "callout",
+   "cell": [
+    1,
+    6,
+    10,
+    1
+   ],
+   "cue": [
+    "b42",
+    "condition"
+   ],
+   "text": "Condition बचाने के लिए daily payments कम होते हैं।",
+   "style": "note",
+   "tone": "warm",
+   "fill": "note",
+   "align": "center",
+   "size": 28
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b40",
+    "Bitcoin"
+   ],
+   "ids": [
+    "anchor",
+    "exception"
+   ],
+   "until_cue": [
+    "b41",
+    "हर"
+   ]
+  },
+  {
+   "cue": [
+    "b41",
+    "अधिकांश"
+   ],
+   "ids": [
+    "fiat_coins",
+    "most_not_all"
+   ],
+   "until_cue": [
+    "b41",
+    "Metal"
+   ]
+  },
+  {
+   "cue": [
+    "b42",
+    "condition"
+   ],
+   "ids": [
+    "proof_finish",
+    "unc_condition",
+    "preservation"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

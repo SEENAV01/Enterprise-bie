@@ -1,0 +1,180 @@
+{
+ "id": "v2_s8s",
+ "part_id": "c06.2",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b53",
+   "say": "अब illustrative bazaar में किसान को 2 metres कपड़ा चाहिए। उसके 10 kg grain, trader के 2 kg salt और कपड़े की value बराबर मानिए।"
+  },
+  {
+   "beat_id": "b54",
+   "say": "किसान अपना 10 kg grain देकर 2 kg salt लेता है। फिर पूरा salt देकर 2 metres कपड़ा लेता है; grain और salt उसके पास नहीं बचे।"
+  }
+ ],
+ "kit": "shop",
+ "elements": [
+  {
+   "id": "bazaar",
+   "kind": "shop",
+   "x": 2600,
+   "sign": "bazaar",
+   "cue": [
+    "b53",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "illustrative_note",
+   "kind": "label",
+   "x": 2600,
+   "y": 180,
+   "text": "यह illustrative bazaar है।",
+   "fill": "rgba(248,240,218,1)",
+   "cue": [
+    "b53",
+    "illustrative"
+   ]
+  },
+  {
+   "id": "farmer",
+   "kind": "crowd",
+   "x0": 2200,
+   "spacing": 90,
+   "enter_x": 1950,
+   "exit_x": 1950,
+   "face": 1,
+   "seed": 17,
+   "cue": [
+    "b53",
+    "किसान"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b53",
+      "किसान"
+     ],
+     "n": 1
+    }
+   ]
+  },
+  {
+   "id": "farmer_exchange",
+   "kind": "board",
+   "x": 2120,
+   "y": 390,
+   "fill": "#E4EDDC",
+   "cue": [
+    "b53",
+    "कपड़ा"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b53",
+      "कपड़ा"
+     ],
+     "text": "किसान को 2 metres कपड़ा चाहिए।"
+    },
+    {
+     "cue": [
+      "b54",
+      "salt"
+     ],
+     "text": "किसान 10 kg grain देकर\n2 kg salt लेता है।"
+    },
+    {
+     "cue": [
+      "b54",
+      "कपड़ा"
+     ],
+     "text": "पूरा salt देकर\n2 metres कपड़ा लेता है।"
+    }
+   ]
+  },
+  {
+   "id": "agreed_value_and_result",
+   "kind": "board",
+   "x": 3020,
+   "y": 390,
+   "fill": "#EEE3CE",
+   "cue": [
+    "b53",
+    "बराबर"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b53",
+      "बराबर"
+     ],
+     "text": "10 kg grain, 2 kg salt और\n2 metres कपड़े की value\nबराबर मानिए।"
+    },
+    {
+     "cue": [
+      "b54",
+      "नहीं"
+     ],
+     "text": "grain और salt\nउसके पास नहीं बचे।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b53",
+    "",
+    0.0
+   ],
+   "x": 2570,
+   "y": 490,
+   "zoom": 0.9,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b53",
+    "grain,"
+   ],
+   "x": 2670,
+   "y": 470,
+   "zoom": 0.95,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b54",
+    "",
+    0.0
+   ],
+   "x": 2440,
+   "y": 490,
+   "zoom": 1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b54",
+    "फिर"
+   ],
+   "x": 2380,
+   "y": 470,
+   "zoom": 1.05,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b54",
+    "नहीं"
+   ],
+   "x": 2660,
+   "y": 470,
+   "zoom": 0.95,
+   "frames": 30
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

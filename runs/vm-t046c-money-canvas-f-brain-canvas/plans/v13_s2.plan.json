@@ -1,0 +1,351 @@
+{
+ "id": "v13_s2",
+ "part_id": "c30.2",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b10",
+   "say": "Card पर अलग logos क्यों हैं? RuPay की तुलना Mastercard, Visa और China's Union Pay से है; ये payment व्यवस्था की पहचान हैं, जैसे card पर लगा नाम।"
+  },
+  {
+   "beat_id": "b11",
+   "say": "RuPay भारत का domestic payment system है, यानी अपनी व्यवस्था; दूसरी companies से fees कम हैं, जरूरी नहीं zero हों।"
+  },
+  {
+   "beat_id": "b12",
+   "say": "Domestic पहचान बताता है, इस्तेमाल की सीमा नहीं; इसीलिए विदेश में acceptance से टकराव नहीं है।"
+  },
+  {
+   "beat_id": "b13",
+   "say": "World's 7th payment gateway वाले परिचय को सातवाँ सबसे बड़ा मत समझिए। यह size ranking नहीं है; technical category में network और gateway अलग हैं।"
+  },
+  {
+   "beat_id": "b14",
+   "say": "Table में RuPay, Mastercard, Visa और China's Union Pay payment arrangements हैं। RuPay Indian domestic system है, fees कम हैं, zero जरूरी नहीं। Network banks को जोड़ता है; gateway merchant interface से processing तक payment जानकारी पहुँचाता है।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank",
+   "kind": "bank",
+   "x": 2350,
+   "y": 860,
+   "cue": [
+    "b10",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "teller",
+   "kind": "teller",
+   "x": 2350,
+   "y": 860,
+   "cue": [
+    "b10",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "brands",
+   "kind": "board",
+   "x": 3310,
+   "y": 470,
+   "fill": "#547D88",
+   "cue": [
+    "b10",
+    "Mastercard,"
+   ],
+   "until_cue": [
+    "b11",
+    "domestic"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b10",
+      "Mastercard,"
+     ],
+     "text": "RuPay की तुलना Mastercard,\nVisa और China's Union Pay से है।"
+    }
+   ]
+  },
+  {
+   "id": "domestic_fees",
+   "kind": "board",
+   "x": 3310,
+   "y": 470,
+   "fill": "#547D88",
+   "cue": [
+    "b11",
+    "domestic"
+   ],
+   "until_cue": [
+    "b12",
+    "पहचान"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b11",
+      "domestic"
+     ],
+     "text": "RuPay भारत का\ndomestic payment system है।"
+    },
+    {
+     "cue": [
+      "b11",
+      "fees"
+     ],
+     "text": "दूसरी companies से fees कम हैं,\nजरूरी नहीं zero हों।"
+    }
+   ]
+  },
+  {
+   "id": "domestic_scope",
+   "kind": "board",
+   "x": 3310,
+   "y": 470,
+   "fill": "#547D88",
+   "cue": [
+    "b12",
+    "पहचान"
+   ],
+   "until_cue": [
+    "b13",
+    "gateway"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b12",
+      "पहचान"
+     ],
+     "text": "Domestic पहचान बताता है,\nइस्तेमाल की सीमा नहीं।"
+    },
+    {
+     "cue": [
+      "b12",
+      "acceptance"
+     ],
+     "text": "विदेश में acceptance से\nटकराव नहीं है।"
+    }
+   ]
+  },
+  {
+   "id": "ranking",
+   "kind": "board",
+   "x": 3310,
+   "y": 470,
+   "fill": "#547D88",
+   "cue": [
+    "b13",
+    "gateway"
+   ],
+   "until_cue": [
+    "b14",
+    "arrangements"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b13",
+      "gateway"
+     ],
+     "text": "World's 7th payment gateway को\nसातवाँ सबसे बड़ा मत समझिए।"
+    },
+    {
+     "cue": [
+      "b13",
+      "ranking"
+     ],
+     "text": "यह size ranking नहीं है।"
+    },
+    {
+     "cue": [
+      "b13",
+      "network"
+     ],
+     "text": "Technical category में\nnetwork और gateway अलग हैं।"
+    }
+   ]
+  },
+  {
+   "id": "recap_roles",
+   "kind": "board",
+   "x": 3310,
+   "y": 470,
+   "fill": "#547D88",
+   "cue": [
+    "b14",
+    "arrangements"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b14",
+      "arrangements"
+     ],
+     "text": "RuPay, Mastercard, Visa और\nChina's Union Pay\npayment arrangements हैं।"
+    },
+    {
+     "cue": [
+      "b14",
+      "Indian"
+     ],
+     "text": "RuPay Indian domestic system है,\nfees कम हैं, zero जरूरी नहीं।"
+    },
+    {
+     "cue": [
+      "b14",
+      "Network"
+     ],
+     "text": "Network banks को जोड़ता है।"
+    },
+    {
+     "cue": [
+      "b14",
+      "gateway"
+     ],
+     "text": "Gateway merchant interface से\nprocessing तक payment\nजानकारी पहुँचाता है।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b10",
+    "",
+    0.0
+   ],
+   "x": 2760,
+   "y": 470,
+   "zoom": 0.8,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b10",
+    "Mastercard,"
+   ],
+   "x": 3120,
+   "y": 450,
+   "zoom": 1.1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b10",
+    "पहचान"
+   ],
+   "x": 3020,
+   "y": 470,
+   "zoom": 1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b11",
+    "domestic"
+   ],
+   "x": 3180,
+   "y": 450,
+   "zoom": 1.15,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b11",
+    "fees"
+   ],
+   "x": 3250,
+   "y": 450,
+   "zoom": 1.2,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b12",
+    "पहचान"
+   ],
+   "x": 3090,
+   "y": 460,
+   "zoom": 1.05,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b12",
+    "acceptance"
+   ],
+   "x": 3210,
+   "y": 450,
+   "zoom": 1.15,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b13",
+    "gateway"
+   ],
+   "x": 3150,
+   "y": 450,
+   "zoom": 1.1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b13",
+    "network"
+   ],
+   "x": 3240,
+   "y": 450,
+   "zoom": 1.2,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b14",
+    "arrangements"
+   ],
+   "x": 3110,
+   "y": 450,
+   "zoom": 1.1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b14",
+    "Indian"
+   ],
+   "x": 3190,
+   "y": 450,
+   "zoom": 1.15,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b14",
+    "Network"
+   ],
+   "x": 2960,
+   "y": 470,
+   "zoom": 0.95,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b14",
+    "gateway"
+   ],
+   "x": 3190,
+   "y": 450,
+   "zoom": 1.15,
+   "frames": 45
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

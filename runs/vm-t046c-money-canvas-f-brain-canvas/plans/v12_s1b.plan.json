@@ -1,0 +1,300 @@
+{
+ "id": "v12_s1b",
+ "part_id": "c28.2",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b8",
+   "say": "यह RTGS है: real-time यानी batch का इंतजार नहीं; gross यानी पूरी रकम का अलग settlement। यह 24×7 उपलब्ध है, इसलिए बड़ी urgent payment में उपयोगी है।"
+  },
+  {
+   "beat_id": "b9",
+   "say": "गलत instruction या कम funds हों, तो successful settlement नहीं मानेंगे; instant हमेशा सफलता की guarantee नहीं है।"
+  },
+  {
+   "beat_id": "b10",
+   "say": "पूरा रास्ता देखिए: instruction, processing, फिर customer credit। Processing में किराए वाले instructions साथ गए; steel वाला अलग गया।"
+  },
+  {
+   "beat_id": "b11",
+   "say": "इस flow में processing और account में पैसे मिलने को अलग रखिए।"
+  }
+ ],
+ "kit": "shop",
+ "elements": [
+  {
+   "id": "shop",
+   "kind": "shop",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b8",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "rtgs_anchor",
+   "kind": "label",
+   "x": 2600,
+   "y": 180,
+   "text": "यह RTGS है",
+   "fill": "#F3EBDD",
+   "cue": [
+    "b8",
+    "RTGS"
+   ]
+  },
+  {
+   "id": "meaning",
+   "kind": "board",
+   "x": 2180,
+   "y": 430,
+   "fill": "#E8DFCC",
+   "cue": [
+    "b8",
+    "real-time"
+   ],
+   "until_cue": [
+    "b9",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b8",
+      "real-time"
+     ],
+     "text": "real-time यानी\nbatch का इंतजार नहीं"
+    },
+    {
+     "cue": [
+      "b8",
+      "gross"
+     ],
+     "text": "gross यानी पूरी रकम का\nअलग settlement"
+    }
+   ]
+  },
+  {
+   "id": "availability",
+   "kind": "label",
+   "x": 2940,
+   "y": 350,
+   "text": "यह 24×7 उपलब्ध है",
+   "fill": "#F3EBDD",
+   "cue": [
+    "b8",
+    "24×7"
+   ],
+   "until_cue": [
+    "b9",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "urgent",
+   "kind": "label",
+   "x": 2940,
+   "y": 490,
+   "text": "बड़ी urgent payment में उपयोगी है",
+   "fill": "#F3EBDD",
+   "cue": [
+    "b8",
+    "urgent"
+   ],
+   "until_cue": [
+    "b9",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "conditions",
+   "kind": "board",
+   "x": 2600,
+   "y": 430,
+   "fill": "#EADBCB",
+   "cue": [
+    "b9",
+    "funds"
+   ],
+   "until_cue": [
+    "b10",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b9",
+      "funds"
+     ],
+     "text": "गलत instruction या कम funds हों,\nतो successful settlement नहीं मानेंगे"
+    },
+    {
+     "cue": [
+      "b9",
+      "instant"
+     ],
+     "text": "instant हमेशा सफलता की\nguarantee नहीं है"
+    }
+   ]
+  },
+  {
+   "id": "flow",
+   "kind": "label",
+   "x": 2600,
+   "y": 300,
+   "text": "instruction, processing,\nफिर customer credit",
+   "fill": "#F3EBDD",
+   "cue": [
+    "b10",
+    "instruction,"
+   ],
+   "until_cue": [
+    "b11",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "grouped_path",
+   "kind": "board",
+   "x": 2190,
+   "y": 520,
+   "fill": "#DFE7DD",
+   "cue": [
+    "b10",
+    "किराए"
+   ],
+   "until_cue": [
+    "b11",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b10",
+      "किराए"
+     ],
+     "text": "Processing में किराए वाले\ninstructions साथ गए"
+    }
+   ]
+  },
+  {
+   "id": "individual_path",
+   "kind": "board",
+   "x": 3010,
+   "y": 520,
+   "fill": "#E6DFEE",
+   "cue": [
+    "b10",
+    "steel"
+   ],
+   "until_cue": [
+    "b11",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b10",
+      "steel"
+     ],
+     "text": "steel वाला अलग गया"
+    }
+   ]
+  },
+  {
+   "id": "final_distinction",
+   "kind": "board",
+   "x": 2600,
+   "y": 430,
+   "fill": "#DFE7DD",
+   "cue": [
+    "b11",
+    "processing"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b11",
+      "processing"
+     ],
+     "text": "processing और account में\nपैसे मिलने को अलग रखिए"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b8",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 440,
+   "zoom": 0.9,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b8",
+    "gross"
+   ],
+   "x": 2450,
+   "y": 410,
+   "zoom": 1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b8",
+    "24×7"
+   ],
+   "x": 2600,
+   "y": 430,
+   "zoom": 0.9,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b9",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 400,
+   "zoom": 1.12,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b10",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 440,
+   "zoom": 0.9,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b11",
+    "processing"
+   ],
+   "x": 2600,
+   "y": 400,
+   "zoom": 1.12,
+   "frames": 45
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

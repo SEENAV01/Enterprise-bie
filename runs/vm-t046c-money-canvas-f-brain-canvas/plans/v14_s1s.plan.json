@@ -1,0 +1,128 @@
+{
+ "id": "v14_s1s",
+ "part_id": "c33.1",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b2",
+   "say": "मानो Singapore में relative को भेजने के लिए पहले ₹0 रखे थे; अब ₹10,000 रखे हैं। UPI Indian हिस्सा संभालेगा।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank",
+   "kind": "bank",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b2",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "hypothetical_note",
+   "kind": "label",
+   "x": 2600,
+   "y": 240,
+   "text": "मानो Singapore में relative को भेजने हैं।",
+   "fill": "rgba(248,240,219,1)",
+   "cue": [
+    "b2",
+    "Singapore"
+   ]
+  },
+  {
+   "id": "teller",
+   "kind": "teller",
+   "x": 2600,
+   "cue": [
+    "b2",
+    "भेजने"
+   ]
+  },
+  {
+   "id": "committed_amount",
+   "kind": "board",
+   "x": 2200,
+   "y": 520,
+   "fill": "#477C79",
+   "cue": [
+    "b2",
+    "₹0"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b2",
+      "₹0"
+     ],
+     "text": "₹0 रखे थे;"
+    },
+    {
+     "cue": [
+      "b2",
+      "₹10,000"
+     ],
+     "text": "₹10,000 रखे हैं।",
+     "dir": "up"
+    }
+   ]
+  },
+  {
+   "id": "upi_role",
+   "kind": "board",
+   "x": 3000,
+   "y": 520,
+   "fill": "#477C79",
+   "cue": [
+    "b2",
+    "Indian"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b2",
+      "Indian"
+     ],
+     "text": "UPI Indian हिस्सा संभालेगा।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b2",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 490,
+   "zoom": 0.9,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b2",
+    "₹0"
+   ],
+   "x": 2380,
+   "y": 490,
+   "zoom": 1.15,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b2",
+    "UPI"
+   ],
+   "x": 2800,
+   "y": 490,
+   "zoom": 1.1,
+   "frames": 30
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

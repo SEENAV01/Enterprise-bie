@@ -1,0 +1,303 @@
+{
+ "id": "v2_s1b",
+ "part_id": "c03.1",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b3",
+   "say": "यह barter है: goods या services का सीधा exchange, बिना medium of exchange के। यानी बीच में आगे खर्च करने वाला पैसा नहीं लिया।"
+  },
+  {
+   "beat_id": "b4",
+   "say": "Wheat बेचकर पैसे से कपड़ा खरीदना barter नहीं है। पैसे बीच में आए; बेचने और खरीदने के लोग अलग हो सकते हैं।"
+  },
+  {
+   "beat_id": "b5",
+   "say": "Barter की पहचान सीधा exchange है।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "anchor",
+   "kind": "text",
+   "cell": [
+    0,
+    0,
+    12,
+    1
+   ],
+   "cue": [
+    "b3",
+    "barter"
+   ],
+   "text": "Barter में goods या services का सीधा exchange होता है।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "band",
+   "align": "center",
+   "size": 32
+  },
+  {
+   "id": "no-medium",
+   "kind": "text",
+   "cell": [
+    1,
+    2,
+    10,
+    2
+   ],
+   "cue": [
+    "b3",
+    "बिना"
+   ],
+   "until_cue": [
+    "b4",
+    "Wheat"
+   ],
+   "text": "बीच में medium of exchange नहीं है।",
+   "style": "box",
+   "tone": "ink",
+   "fill": "note",
+   "align": "center",
+   "size": 32
+  },
+  {
+   "id": "no-money",
+   "kind": "text",
+   "cell": [
+    1,
+    5,
+    10,
+    1
+   ],
+   "cue": [
+    "b3",
+    "पैसा"
+   ],
+   "until_cue": [
+    "b4",
+    "Wheat"
+   ],
+   "text": "आगे खर्च करने वाला पैसा नहीं लिया।",
+   "style": "note",
+   "tone": "warm",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "wheat",
+   "kind": "icon",
+   "cell": [
+    0,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b4",
+    "Wheat"
+   ],
+   "until_cue": [
+    "b5",
+    "Barter"
+   ],
+   "tone": "warm",
+   "icon": "fa:solid/jar-wheat"
+  },
+  {
+   "id": "money",
+   "kind": "icon",
+   "cell": [
+    4,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b4",
+    "पैसे"
+   ],
+   "until_cue": [
+    "b5",
+    "Barter"
+   ],
+   "tone": "accent",
+   "icon": "tw:1f4b0"
+  },
+  {
+   "id": "sale",
+   "kind": "arrow",
+   "cue": [
+    "b4",
+    "पैसे"
+   ],
+   "until_cue": [
+    "b5",
+    "Barter"
+   ],
+   "tone": "accent",
+   "from": "wheat",
+   "to": "money",
+   "from_side": "r",
+   "to_side": "l"
+  },
+  {
+   "id": "cloth-purchase",
+   "kind": "text",
+   "cell": [
+    8,
+    2,
+    4,
+    2
+   ],
+   "cue": [
+    "b4",
+    "कपड़ा"
+   ],
+   "until_cue": [
+    "b5",
+    "Barter"
+   ],
+   "text": "पैसे से कपड़ा खरीदना।",
+   "style": "box",
+   "tone": "ink",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "purchase",
+   "kind": "arrow",
+   "cue": [
+    "b4",
+    "खरीदना"
+   ],
+   "until_cue": [
+    "b5",
+    "Barter"
+   ],
+   "tone": "accent",
+   "from": "money",
+   "to": "cloth-purchase",
+   "from_side": "r",
+   "to_side": "l",
+   "flow": {
+    "icon": "tw:1fa99",
+    "count": 2,
+    "period": 1800,
+    "size": 24,
+    "cue": [
+     "b4",
+     "खरीदना"
+    ]
+   }
+  },
+  {
+   "id": "not-barter",
+   "kind": "text",
+   "cell": [
+    0,
+    5,
+    4,
+    1
+   ],
+   "cue": [
+    "b4",
+    "नहीं"
+   ],
+   "until_cue": [
+    "b5",
+    "Barter"
+   ],
+   "text": "यह barter नहीं है।",
+   "style": "box",
+   "tone": "danger",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "different-people",
+   "kind": "text",
+   "cell": [
+    5,
+    5,
+    7,
+    2
+   ],
+   "cue": [
+    "b4",
+    "अलग"
+   ],
+   "until_cue": [
+    "b5",
+    "Barter"
+   ],
+   "text": "बेचने और खरीदने के लोग अलग हो सकते हैं।",
+   "style": "note",
+   "tone": "ink",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "takeaway",
+   "kind": "callout",
+   "cell": [
+    1,
+    3,
+    10,
+    2
+   ],
+   "cue": [
+    "b5",
+    "पहचान"
+   ],
+   "text": "Barter की पहचान सीधा exchange है।",
+   "style": "note",
+   "tone": "accent",
+   "fill": "band",
+   "align": "center",
+   "size": 36,
+   "marks": [
+    {
+     "phrase": "सीधा exchange",
+     "cue": [
+      "b5",
+      "सीधा"
+     ]
+    }
+   ]
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b4",
+    "आए;"
+   ],
+   "ids": [
+    "anchor",
+    "money",
+    "not-barter"
+   ],
+   "until_cue": [
+    "b4",
+    "अलग"
+   ]
+  },
+  {
+   "cue": [
+    "b5",
+    "सीधा"
+   ],
+   "ids": [
+    "anchor",
+    "takeaway"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

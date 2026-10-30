@@ -1,0 +1,779 @@
+{
+ "id": "v2_s5s",
+ "part_id": "c04.1",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b25",
+   "say": "मानिए किसान ने 2 kg wheat देकर 1 kg नमक लिया, खाने के लिए नहीं। फिर उसने सारा नमक देकर 1 metre कपड़ा खरीदा।"
+  },
+  {
+   "beat_id": "b26",
+   "say": "नमक यहाँ बीच का पुल है, इसलिए commodity money है। दूसरा पड़ाव salt, cattle, shells दिखाता है; cloth seller को wheat चाहना नहीं पड़ा।"
+  },
+  {
+   "beat_id": "b27",
+   "say": "आपके पास 5 बराबर weight और purity वाले silver coins थे। आपने 2 देकर 5 kg अनाज खरीदा; अब 3 बचे। तीसरा पड़ाव metallic money है, यानी gold या silver के सिक्के भुगतान का काम करते हैं।"
+  },
+  {
+   "beat_id": "b28",
+   "say": "टिकाऊ, बराबर measured coins गिनकर दे सकते हैं। Gold–silver का अपना material value है, इसलिए ये commodity money भी हैं।"
+  },
+  {
+   "beat_id": "b29",
+   "say": "₹300 का सामान लेकर ₹500 note दिया, ₹200 वापस मिले। यह चौथा पड़ाव paper money है; note denomination पर चला, कागज़ की कीमत पर नहीं।"
+  },
+  {
+   "beat_id": "b30",
+   "say": "हल्का note बड़ी amount पहुँचाता है; भारी metal नहीं ढोना पड़ता।"
+  },
+  {
+   "beat_id": "b31",
+   "say": "आपके ₹10,000 में से ₹1,500 का cheque settle हुआ; ₹8,500 बचे। दुकानदार के ₹2,000 में जुड़कर ₹3,500 हुए। पाँचवाँ पड़ाव bank money है: deposits यानी खाते की रकम; cheque बैंक से उसी रकम का भुगतान करवाता है, नया पैसा नहीं बनाता।"
+  },
+  {
+   "beat_id": "b32",
+   "say": "खाते के ₹2,000 में से QR scan करके ₹300 दिए; ₹1,700 बचे। दुकानदार के ₹5,000 में जुड़कर ₹5,300 हुए। छठा पड़ाव digital money है: UPI, net banking, cards; यानी यहाँ कागज़ देने के बजाय electronic instruction से भुगतान हुआ।"
+  }
+ ],
+ "kit": "shop",
+ "elements": [
+  {
+   "id": "shop",
+   "kind": "shop",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b25",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "seller",
+   "kind": "shopkeeper",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b25",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "buyer",
+   "kind": "crowd",
+   "x0": 2240,
+   "spacing": 90,
+   "enter_x": 1750,
+   "exit_x": 1750,
+   "face": 1,
+   "seed": 4,
+   "cue": [
+    "b25",
+    "किसान"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b25",
+      "किसान"
+     ],
+     "n": 1
+    }
+   ]
+  },
+  {
+   "id": "caveat",
+   "kind": "label",
+   "x": 2540,
+   "y": 180,
+   "text": "मानिए",
+   "fill": "#F4E8CA",
+   "cue": [
+    "b25",
+    "मानिए"
+   ],
+   "until_cue": [
+    "b26",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "exchange",
+   "kind": "board",
+   "x": 2950,
+   "y": 460,
+   "fill": "#E9D6AE",
+   "cue": [
+    "b25",
+    "नमक"
+   ],
+   "until_cue": [
+    "b27",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b25",
+      "नमक"
+     ],
+     "text": "2 kg wheat देकर\n1 kg नमक लिया।"
+    },
+    {
+     "cue": [
+      "b25",
+      "कपड़ा"
+     ],
+     "text": "सारा नमक देकर\n1 metre कपड़ा खरीदा।"
+    },
+    {
+     "cue": [
+      "b26",
+      "cloth"
+     ],
+     "text": "Cloth seller को\nwheat चाहना नहीं पड़ा।"
+    }
+   ]
+  },
+  {
+   "id": "anchor",
+   "kind": "board",
+   "x": 2520,
+   "y": 270,
+   "fill": "#D9E6D6",
+   "cue": [
+    "b26",
+    "commodity"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b26",
+      "commodity"
+     ],
+     "text": "नमक यहाँ commodity money है।"
+    },
+    {
+     "cue": [
+      "b27",
+      "metallic"
+     ],
+     "text": "तीसरा पड़ाव metallic money है।"
+    },
+    {
+     "cue": [
+      "b29",
+      "paper"
+     ],
+     "text": "चौथा पड़ाव paper money है।"
+    },
+    {
+     "cue": [
+      "b31",
+      "bank"
+     ],
+     "text": "पाँचवाँ पड़ाव bank money है।"
+    },
+    {
+     "cue": [
+      "b32",
+      "digital"
+     ],
+     "text": "छठा पड़ाव digital money है।"
+    }
+   ]
+  },
+  {
+   "id": "coins",
+   "kind": "board",
+   "x": 2090,
+   "y": 480,
+   "fill": "#DFE4E8",
+   "cue": [
+    "b27",
+    "coins"
+   ],
+   "until_cue": [
+    "b29",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b27",
+      "coins"
+     ],
+     "text": "5 silver coins थे।"
+    },
+    {
+     "cue": [
+      "b27",
+      "3"
+     ],
+     "text": "अब 3 बचे।",
+     "dir": "down"
+    },
+    {
+     "cue": [
+      "b28",
+      "गिनकर"
+     ],
+     "text": "बराबर measured coins\nगिनकर दे सकते हैं।"
+    }
+   ]
+  },
+  {
+   "id": "grain",
+   "kind": "board",
+   "x": 2950,
+   "y": 480,
+   "fill": "#E9D6AE",
+   "cue": [
+    "b27",
+    "अनाज"
+   ],
+   "until_cue": [
+    "b29",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b27",
+      "अनाज"
+     ],
+     "text": "2 देकर 5 kg अनाज खरीदा।"
+    },
+    {
+     "cue": [
+      "b28",
+      "value"
+     ],
+     "text": "Gold–silver का अपना\nmaterial value है।"
+    },
+    {
+     "cue": [
+      "b28",
+      "commodity"
+     ],
+     "text": "ये commodity money भी हैं।"
+    }
+   ]
+  },
+  {
+   "id": "cash",
+   "kind": "board",
+   "x": 2090,
+   "y": 480,
+   "fill": "#E9D6AE",
+   "cue": [
+    "b29",
+    "सामान"
+   ],
+   "until_cue": [
+    "b31",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b29",
+      "सामान"
+     ],
+     "text": "₹300 का सामान"
+    },
+    {
+     "cue": [
+      "b29",
+      "note"
+     ],
+     "text": "₹500 note दिया।"
+    },
+    {
+     "cue": [
+      "b29",
+      "₹200"
+     ],
+     "text": "₹200 वापस मिले।",
+     "dir": "down"
+    }
+   ]
+  },
+  {
+   "id": "paperExplanation",
+   "kind": "board",
+   "x": 2950,
+   "y": 480,
+   "fill": "#DFE8DC",
+   "cue": [
+    "b29",
+    "denomination"
+   ],
+   "until_cue": [
+    "b31",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b29",
+      "denomination"
+     ],
+     "text": "Note denomination पर चला,\nकागज़ की कीमत पर नहीं।"
+    },
+    {
+     "cue": [
+      "b30",
+      "amount"
+     ],
+     "text": "हल्का note बड़ी amount पहुँचाता है।"
+    },
+    {
+     "cue": [
+      "b30",
+      "metal"
+     ],
+     "text": "भारी metal नहीं ढोना पड़ता।"
+    }
+   ]
+  },
+  {
+   "id": "payerAccount",
+   "kind": "board",
+   "x": 2090,
+   "y": 470,
+   "fill": "#DCE5EC",
+   "cue": [
+    "b31",
+    "₹10,000"
+   ],
+   "until_cue": [
+    "b32",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b31",
+      "₹10,000"
+     ],
+     "text": "आपके खाते में ₹10,000 हैं।"
+    },
+    {
+     "cue": [
+      "b31",
+      "₹8,500"
+     ],
+     "text": "आपके खाते में ₹8,500 बचे।",
+     "dir": "down"
+    }
+   ]
+  },
+  {
+   "id": "sellerAccount",
+   "kind": "board",
+   "x": 2950,
+   "y": 470,
+   "fill": "#DCE5EC",
+   "cue": [
+    "b31",
+    "₹2,000"
+   ],
+   "until_cue": [
+    "b32",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b31",
+      "₹2,000"
+     ],
+     "text": "दुकानदार के ₹2,000"
+    },
+    {
+     "cue": [
+      "b31",
+      "₹3,500"
+     ],
+     "text": "दुकानदार के ₹3,500 हुए।",
+     "dir": "up"
+    }
+   ]
+  },
+  {
+   "id": "instruction",
+   "kind": "board",
+   "x": 2520,
+   "y": 660,
+   "fill": "#EEE4CD",
+   "cue": [
+    "b31",
+    "settle"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b31",
+      "settle"
+     ],
+     "text": "₹1,500 का cheque settle हुआ।"
+    },
+    {
+     "cue": [
+      "b31",
+      "deposits"
+     ],
+     "text": "Deposits यानी खाते की रकम।"
+    },
+    {
+     "cue": [
+      "b31",
+      "नया"
+     ],
+     "text": "Cheque उसी रकम का भुगतान करवाता है,\nनया पैसा नहीं बनाता।"
+    },
+    {
+     "cue": [
+      "b32",
+      "₹300"
+     ],
+     "text": "QR scan करके ₹300 दिए।"
+    },
+    {
+     "cue": [
+      "b32",
+      "electronic"
+     ],
+     "text": "Electronic instruction से\nभुगतान हुआ।"
+    }
+   ]
+  },
+  {
+   "id": "digitalPayer",
+   "kind": "board",
+   "x": 2090,
+   "y": 470,
+   "fill": "#DCE5EC",
+   "cue": [
+    "b32",
+    "₹2,000"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b32",
+      "₹2,000"
+     ],
+     "text": "खाते के ₹2,000"
+    },
+    {
+     "cue": [
+      "b32",
+      "₹1,700"
+     ],
+     "text": "खाते में ₹1,700 बचे।",
+     "dir": "down"
+    }
+   ]
+  },
+  {
+   "id": "digitalSeller",
+   "kind": "board",
+   "x": 2950,
+   "y": 470,
+   "fill": "#DCE5EC",
+   "cue": [
+    "b32",
+    "₹5,000"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b32",
+      "₹5,000"
+     ],
+     "text": "दुकानदार के ₹5,000"
+    },
+    {
+     "cue": [
+      "b32",
+      "₹5,300"
+     ],
+     "text": "दुकानदार के ₹5,300 हुए।",
+     "dir": "up"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b25",
+    "",
+    0.0
+   ],
+   "x": 2520,
+   "y": 490,
+   "zoom": 0.9,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b25",
+    "फिर"
+   ],
+   "x": 2730,
+   "y": 480,
+   "zoom": 1.05,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b26",
+    "पुल"
+   ],
+   "x": 2520,
+   "y": 410,
+   "zoom": 0.95,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b26",
+    "salt,"
+   ],
+   "x": 2630,
+   "y": 420,
+   "zoom": 1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b26",
+    "cloth"
+   ],
+   "x": 2750,
+   "y": 470,
+   "zoom": 1.05,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b27",
+    "",
+    0.0
+   ],
+   "x": 2400,
+   "y": 480,
+   "zoom": 0.9,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b27",
+    "अनाज"
+   ],
+   "x": 2600,
+   "y": 470,
+   "zoom": 0.95,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b27",
+    "तीसरा"
+   ],
+   "x": 2520,
+   "y": 410,
+   "zoom": 0.9,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b27",
+    "भुगतान"
+   ],
+   "x": 2600,
+   "y": 460,
+   "zoom": 0.95,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b28",
+    "",
+    0.0
+   ],
+   "x": 2360,
+   "y": 470,
+   "zoom": 1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b28",
+    "Gold–silver"
+   ],
+   "x": 2680,
+   "y": 470,
+   "zoom": 1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b29",
+    "",
+    0.0
+   ],
+   "x": 2440,
+   "y": 470,
+   "zoom": 0.9,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b29",
+    "चौथा"
+   ],
+   "x": 2520,
+   "y": 410,
+   "zoom": 0.95,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b29",
+    "denomination"
+   ],
+   "x": 2720,
+   "y": 470,
+   "zoom": 1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b30",
+    "",
+    0.0
+   ],
+   "x": 2680,
+   "y": 470,
+   "zoom": 0.95,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b31",
+    "",
+    0.0
+   ],
+   "x": 2450,
+   "y": 490,
+   "zoom": 0.85,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b31",
+    "cheque"
+   ],
+   "x": 2520,
+   "y": 550,
+   "zoom": 0.95,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b31",
+    "दुकानदार"
+   ],
+   "x": 2600,
+   "y": 490,
+   "zoom": 0.9,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b31",
+    "पाँचवाँ"
+   ],
+   "x": 2520,
+   "y": 420,
+   "zoom": 0.85,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b31",
+    "नया"
+   ],
+   "x": 2520,
+   "y": 510,
+   "zoom": 0.85,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b32",
+    "",
+    0.0
+   ],
+   "x": 2410,
+   "y": 490,
+   "zoom": 0.85,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b32",
+    "दुकानदार"
+   ],
+   "x": 2630,
+   "y": 490,
+   "zoom": 0.9,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b32",
+    "छठा"
+   ],
+   "x": 2520,
+   "y": 420,
+   "zoom": 0.85,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b32",
+    "UPI,"
+   ],
+   "x": 2520,
+   "y": 480,
+   "zoom": 0.9,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b32",
+    "electronic"
+   ],
+   "x": 2520,
+   "y": 540,
+   "zoom": 0.95,
+   "frames": 45
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

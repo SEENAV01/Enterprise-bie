@@ -1,0 +1,142 @@
+{
+ "id": "v13_s8",
+ "part_id": "c31.4",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b42",
+   "say": "सही सेवा किसी भी centre पर मिल जाए तो चलेगा? नहीं, centre authorised भी होना चाहिए।"
+  },
+  {
+   "beat_id": "b43",
+   "say": "₹1,000 का coupon और ₹1,000 cash बराबर रकम दिखाते हैं, खर्च की बराबर आजादी नहीं।"
+  },
+  {
+   "beat_id": "b44",
+   "say": "‘Only’ और ‘authorized’ दोनों पढ़िए; cash और दूसरी खरीदारी पर रोक खुले खर्च का रास्ता बंद करती है।"
+  },
+  {
+   "beat_id": "b45",
+   "say": "इसलिए exam statement में ‘कहीं भी’ जोड़ने से अर्थ बदल जाएगा।"
+  }
+ ],
+ "kit": "shop",
+ "elements": [
+  {
+   "id": "authorised_centre",
+   "kind": "shop",
+   "x": 2600,
+   "y": 860,
+   "sign": "centre",
+   "cue": [
+    "b42",
+    "centre"
+   ]
+  },
+  {
+   "id": "conditions_board",
+   "kind": "board",
+   "x": 3380,
+   "y": 440,
+   "fill": "#EEE5D3",
+   "cue": [
+    "b42",
+    "authorised"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b42",
+      "authorised"
+     ],
+     "text": "centre authorised भी होना चाहिए।"
+    },
+    {
+     "cue": [
+      "b43",
+      "cash"
+     ],
+     "text": "₹1,000 का coupon और ₹1,000 cash\nखर्च की बराबर आजादी नहीं देते।"
+    },
+    {
+     "cue": [
+      "b44",
+      "रोक"
+     ],
+     "text": "cash और दूसरी खरीदारी पर रोक\nखुले खर्च का रास्ता बंद करती है।"
+    },
+    {
+     "cue": [
+      "b45",
+      "जोड़ने"
+     ],
+     "text": "‘कहीं भी’ जोड़ने से\nअर्थ बदल जाएगा।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b42",
+    "",
+    0.0
+   ],
+   "x": 2880,
+   "y": 510,
+   "zoom": 0.8,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b42",
+    "authorised"
+   ],
+   "x": 3040,
+   "y": 490,
+   "zoom": 0.95,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b43",
+    "cash"
+   ],
+   "x": 3190,
+   "y": 470,
+   "zoom": 1.05,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b44",
+    "‘Only’"
+   ],
+   "x": 3050,
+   "y": 490,
+   "zoom": 0.95,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b44",
+    "रोक"
+   ],
+   "x": 3190,
+   "y": 470,
+   "zoom": 1.05,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b45",
+    "जोड़ने"
+   ],
+   "x": 3060,
+   "y": 490,
+   "zoom": 0.95,
+   "frames": 30
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

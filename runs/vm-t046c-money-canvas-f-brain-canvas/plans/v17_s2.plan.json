@@ -1,0 +1,303 @@
+{
+ "id": "v17_s2",
+ "part_id": "c43.2",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b9",
+   "say": "आपका और दुकानदार का bank अलग हो, तो card से ₹500 कैसे पहुँचेंगे? मान लीजिए आपके खाते में ₹2,000 हैं; खरीद के ₹500 देने के बाद ₹1,500 बचते हैं। पैसे आपके bank account में थे; दोनों participating banks को जोड़ने वाली साझा व्यवस्था payment कराती है। खाता और जोड़ने वाला रास्ता अलग हैं।"
+  },
+  {
+   "beat_id": "b10",
+   "say": "Card payments के लिए banks को जोड़ने वाले arrangements और rules की ऐसी व्यवस्था card payment scheme कहलाती है। RuPay ऐसी ही scheme है, जिसे NPCI ने launch किया। यानी दुकान पर card पर RuPay लिखा हो, तो वह payment scheme की पहचान है, पैसे रखने वाले आपके bank account का नाम नहीं।"
+  },
+  {
+   "beat_id": "b11",
+   "say": "तो जोड़ याद रखिए: NPCI ने RuPay launch किया; RuPay card payment scheme है। इसलिए दूसरा statement सही है।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank",
+   "kind": "bank",
+   "x": 2600,
+   "sign": "bank",
+   "cue": [
+    "b9",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "teller",
+   "kind": "teller",
+   "x": 2600,
+   "cue": [
+    "b9",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "customer",
+   "kind": "crowd",
+   "x0": 2330,
+   "spacing": 110,
+   "enter_x": 1850,
+   "exit_x": 1850,
+   "face": 1,
+   "seed": 17,
+   "cue": [
+    "b9",
+    "आपका"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b9",
+      "आपका"
+     ],
+     "n": 1
+    }
+   ]
+  },
+  {
+   "id": "example_note",
+   "kind": "label",
+   "x": 3150,
+   "y": 240,
+   "text": "मान लीजिए।",
+   "fill": "rgba(248,240,218,1)",
+   "cue": [
+    "b9",
+    "मान"
+   ],
+   "until_cue": [
+    "b9",
+    "पैसे"
+   ]
+  },
+  {
+   "id": "account_and_scheme",
+   "kind": "board",
+   "x": 3250,
+   "y": 480,
+   "fill": "#537B83",
+   "cue": [
+    "b9",
+    "₹2,000"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b9",
+      "₹2,000"
+     ],
+     "text": "आपके खाते में ₹2,000 हैं।"
+    },
+    {
+     "cue": [
+      "b9",
+      "₹1,500"
+     ],
+     "text": "₹1,500 बचते हैं।",
+     "dir": "down"
+    },
+    {
+     "cue": [
+      "b9",
+      "account"
+     ],
+     "text": "पैसे आपके bank account में थे।"
+    },
+    {
+     "cue": [
+      "b9",
+      "व्यवस्था"
+     ],
+     "text": "साझा व्यवस्था payment कराती है।"
+    },
+    {
+     "cue": [
+      "b9",
+      "रास्ता"
+     ],
+     "text": "खाता और जोड़ने वाला रास्ता अलग हैं।"
+    },
+    {
+     "cue": [
+      "b10",
+      "जोड़ने"
+     ],
+     "text": "Card payments के लिए\nव्यवस्था banks को जोड़ती है।"
+    },
+    {
+     "cue": [
+      "b10",
+      "कहलाती"
+     ],
+     "text": "Arrangements और rules की व्यवस्था\ncard payment scheme कहलाती है।"
+    },
+    {
+     "cue": [
+      "b10",
+      "launch"
+     ],
+     "text": "RuPay ऐसी ही scheme है,\nजिसे NPCI ने launch किया।"
+    },
+    {
+     "cue": [
+      "b10",
+      "पहचान"
+     ],
+     "text": "RuPay लिखा हो, तो वह\npayment scheme की पहचान है।"
+    },
+    {
+     "cue": [
+      "b10",
+      "account"
+     ],
+     "text": "यह पैसे रखने वाले आपके\nbank account का नाम नहीं।"
+    },
+    {
+     "cue": [
+      "b11",
+      "launch"
+     ],
+     "text": "NPCI ने RuPay launch किया।"
+    },
+    {
+     "cue": [
+      "b11",
+      "scheme"
+     ],
+     "text": "RuPay card payment scheme है।"
+    },
+    {
+     "cue": [
+      "b11",
+      "सही"
+     ],
+     "text": "दूसरा statement सही है।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b9",
+    "",
+    0.0
+   ],
+   "x": 2760,
+   "y": 520,
+   "zoom": 0.85,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b9",
+    "₹2,000"
+   ],
+   "x": 3010,
+   "y": 490,
+   "zoom": 1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b9",
+    "पैसे"
+   ],
+   "x": 2850,
+   "y": 520,
+   "zoom": 0.95,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b9",
+    "participating"
+   ],
+   "x": 2970,
+   "y": 490,
+   "zoom": 1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b10",
+    "",
+    0.0
+   ],
+   "x": 2900,
+   "y": 500,
+   "zoom": 0.9,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b10",
+    "rules"
+   ],
+   "x": 3080,
+   "y": 480,
+   "zoom": 1.05,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b10",
+    "RuPay"
+   ],
+   "x": 3190,
+   "y": 470,
+   "zoom": 1.15,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b10",
+    "दुकान"
+   ],
+   "x": 2960,
+   "y": 500,
+   "zoom": 0.95,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b10",
+    "पैसे"
+   ],
+   "x": 3050,
+   "y": 490,
+   "zoom": 1.05,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b11",
+    "",
+    0.0
+   ],
+   "x": 3160,
+   "y": 480,
+   "zoom": 1.12,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b11",
+    "इसलिए"
+   ],
+   "x": 2900,
+   "y": 510,
+   "zoom": 0.9,
+   "frames": 45
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

@@ -1,0 +1,329 @@
+{
+ "id": "v3_s3",
+ "part_id": "c07.3",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b16",
+   "say": "तौला metal और तय पहचान वाला coin एक हैं? हर अलग टुकड़े की जाँच करनी पड़ सकती थी।"
+  },
+  {
+   "beat_id": "b17",
+   "say": "Mesopotamia और Egypt में शुरुआती metallic exchange objects थे, यानी metal देकर खरीदना। First standardized coins आम तौर पर Kingdom of Lydia से जुड़े हैं; दोनों शुरुआतें अलग रखो।"
+  },
+  {
+   "beat_id": "b18",
+   "say": "Standardized यानी तय वजन, बनावट या पहचान: अलग-अलग टुकड़ों के बजाय पहचाने जाने वाले coins।"
+  },
+  {
+   "beat_id": "b19",
+   "say": "इससे हर payment में जाँच की मेहनत घट सकती थी।"
+  },
+  {
+   "beat_id": "b20",
+   "say": "याद रखो: Mesopotamia–Egypt में metal exchange; Lydia में standardized coins।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "weighed-metal",
+   "kind": "icon",
+   "cell": [
+    1,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b16",
+    "तौला"
+   ],
+   "tone": "muted",
+   "align": "center",
+   "icon": "fa:solid/balance-scale",
+   "size": 64
+  },
+  {
+   "id": "recognized-coin",
+   "kind": "icon",
+   "cell": [
+    8,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b16",
+    "coin"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "fa:solid/coins",
+   "size": 64
+  },
+  {
+   "id": "inspection",
+   "kind": "text",
+   "cell": [
+    0,
+    4,
+    5,
+    2
+   ],
+   "cue": [
+    "b16",
+    "जाँच"
+   ],
+   "until_cue": [
+    "b18",
+    "Standardized"
+   ],
+   "text": "हर अलग टुकड़े की जाँच करनी पड़ सकती थी।",
+   "style": "box",
+   "tone": "warm",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "early-exchange",
+   "kind": "text",
+   "cell": [
+    0,
+    0,
+    5,
+    2
+   ],
+   "cue": [
+    "b17",
+    "Mesopotamia"
+   ],
+   "text": "Mesopotamia और Egypt में शुरुआती metallic exchange objects थे।",
+   "style": "box",
+   "tone": "ink",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "buy-with-metal",
+   "kind": "text",
+   "cell": [
+    0,
+    6,
+    5,
+    1
+   ],
+   "cue": [
+    "b17",
+    "खरीदना।"
+   ],
+   "until_cue": [
+    "b18",
+    "Standardized"
+   ],
+   "text": "Metal देकर खरीदना।",
+   "style": "note",
+   "tone": "muted",
+   "align": "center",
+   "size": 26
+  },
+  {
+   "id": "lydia-association",
+   "kind": "text",
+   "cell": [
+    6,
+    0,
+    6,
+    2
+   ],
+   "cue": [
+    "b17",
+    "Lydia"
+   ],
+   "text": "First standardized coins आम तौर पर Kingdom of Lydia से जुड़े हैं।",
+   "style": "box",
+   "tone": "accent",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "standard-specification",
+   "kind": "text",
+   "cell": [
+    6,
+    4,
+    6,
+    1
+   ],
+   "cue": [
+    "b18",
+    "वजन,"
+   ],
+   "text": "Standardized यानी तय वजन, बनावट या पहचान।",
+   "style": "box",
+   "tone": "accent",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "recognizable",
+   "kind": "text",
+   "cell": [
+    6,
+    5,
+    6,
+    1
+   ],
+   "cue": [
+    "b18",
+    "पहचाने"
+   ],
+   "text": "पहचाने जाने वाले coins।",
+   "style": "note",
+   "tone": "ink",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "less-assessment",
+   "kind": "callout",
+   "cell": [
+    2,
+    6,
+    8,
+    1
+   ],
+   "cue": [
+    "b19",
+    "मेहनत"
+   ],
+   "text": "हर payment में जाँच की मेहनत घट सकती थी।",
+   "style": "note",
+   "tone": "ok",
+   "align": "center",
+   "size": 30,
+   "marks": [
+    {
+     "phrase": "घट सकती थी",
+     "cue": [
+      "b19",
+      "घट"
+     ]
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    8
+   ],
+   "cue": [
+    "b16",
+    "तौला"
+   ]
+  },
+  {
+   "cells": [
+    5,
+    0,
+    7,
+    7
+   ],
+   "cue": [
+    "b18",
+    "Standardized"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    8
+   ],
+   "cue": [
+    "b20",
+    "याद"
+   ]
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b17",
+    "Mesopotamia"
+   ],
+   "ids": [
+    "early-exchange",
+    "weighed-metal",
+    "buy-with-metal"
+   ],
+   "until_cue": [
+    "b17",
+    "First"
+   ]
+  },
+  {
+   "cue": [
+    "b17",
+    "First"
+   ],
+   "ids": [
+    "lydia-association",
+    "recognized-coin"
+   ],
+   "until_cue": [
+    "b17",
+    "दोनों"
+   ]
+  },
+  {
+   "cue": [
+    "b19",
+    "मेहनत"
+   ],
+   "ids": [
+    "standard-specification",
+    "recognizable",
+    "less-assessment"
+   ],
+   "until_cue": [
+    "b20",
+    "याद"
+   ]
+  },
+  {
+   "cue": [
+    "b20",
+    "Mesopotamia–Egypt"
+   ],
+   "ids": [
+    "early-exchange",
+    "weighed-metal"
+   ],
+   "until_cue": [
+    "b20",
+    "Lydia"
+   ]
+  },
+  {
+   "cue": [
+    "b20",
+    "Lydia"
+   ],
+   "ids": [
+    "lydia-association",
+    "recognized-coin"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

@@ -1,0 +1,232 @@
+{
+ "id": "v2_s8b",
+ "part_id": "c06.2",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b55",
+   "say": "Salt medium of exchange बना। किसान को खुद salt नहीं चाहिए; आगे चलने से लिया। इसलिए double coincidence हटी: पहले buyer को कपड़ा देना नहीं पड़ा।"
+  },
+  {
+   "beat_id": "b56",
+   "say": "Payment के बाहर भी उपयोग है: salt खाने में, cattle रोज़ी में काम आते हैं; tea और tobacco की अलग demand है।"
+  },
+  {
+   "beat_id": "b57",
+   "say": "अपने उपयोग और community acceptance से barter आसान हुआ, हर जगह नहीं। Metallic coins common होने से पहले यह medium था; उपयोग अकेला काफी नहीं।"
+  }
+ ],
+ "kit": "shop",
+ "elements": [
+  {
+   "id": "salt_shop",
+   "kind": "shop",
+   "x": 2600,
+   "sign": "Salt",
+   "cue": [
+    "b55",
+    "",
+    0.0
+   ],
+   "packets": [
+    {
+     "n": 3,
+     "cue": [
+      "b55",
+      "Salt"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "seller",
+   "kind": "shopkeeper",
+   "x": 2600,
+   "cue": [
+    "b55",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "farmer",
+   "kind": "crowd",
+   "x0": 2210,
+   "spacing": 90,
+   "enter_x": 1920,
+   "exit_x": 1800,
+   "face": 1,
+   "seed": 7,
+   "cue": [
+    "b55",
+    "किसान"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b55",
+      "किसान"
+     ],
+     "n": 1
+    }
+   ],
+   "carry": {
+    "cue": [
+     "b55",
+     "लिया।"
+    ],
+    "n": 1
+   }
+  },
+  {
+   "id": "explanation",
+   "kind": "board",
+   "x": 3130,
+   "y": 420,
+   "fill": "#EFE2C6",
+   "cue": [
+    "b55",
+    "exchange"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b55",
+      "exchange"
+     ],
+     "text": "Salt medium of exchange बना।"
+    },
+    {
+     "cue": [
+      "b55",
+      "हटी:"
+     ],
+     "text": "Double coincidence हटी।"
+    },
+    {
+     "cue": [
+      "b56",
+      "खाने"
+     ],
+     "text": "Salt खाने में काम आता है।"
+    },
+    {
+     "cue": [
+      "b56",
+      "रोज़ी"
+     ],
+     "text": "Cattle रोज़ी में काम आते हैं।"
+    },
+    {
+     "cue": [
+      "b56",
+      "demand"
+     ],
+     "text": "Tea और tobacco की अलग demand है।"
+    },
+    {
+     "cue": [
+      "b57",
+      "आसान"
+     ],
+     "text": "Community acceptance से\nbarter आसान हुआ।"
+    },
+    {
+     "cue": [
+      "b57",
+      "हर"
+     ],
+     "text": "हर जगह नहीं।"
+    },
+    {
+     "cue": [
+      "b57",
+      "medium"
+     ],
+     "text": "Metallic coins common होने से\nपहले यह medium था।"
+    },
+    {
+     "cue": [
+      "b57",
+      "अकेला"
+     ],
+     "text": "उपयोग अकेला काफी नहीं।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b55",
+    "",
+    0.0
+   ],
+   "x": 2670,
+   "y": 490,
+   "zoom": 0.85,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b55",
+    "खुद"
+   ],
+   "x": 2500,
+   "y": 530,
+   "zoom": 0.95,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b55",
+    "इसलिए"
+   ],
+   "x": 2830,
+   "y": 480,
+   "zoom": 0.95,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b56",
+    "Payment"
+   ],
+   "x": 2960,
+   "y": 460,
+   "zoom": 1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b56",
+    "tea"
+   ],
+   "x": 3030,
+   "y": 450,
+   "zoom": 1.1,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b57",
+    "अपने"
+   ],
+   "x": 2810,
+   "y": 490,
+   "zoom": 0.9,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b57",
+    "Metallic"
+   ],
+   "x": 2970,
+   "y": 460,
+   "zoom": 1,
+   "frames": 40
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

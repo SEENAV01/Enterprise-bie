@@ -1,0 +1,440 @@
+{
+ "id": "v9_s2s",
+ "part_id": "c21.2",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b10",
+   "say": "बैंक ₹20,000 बाँटे, तो ₹500 के 40 notes चाहिए। ₹2,000 के 10 चाहिए: total वही, गिनने-बाँटने के pieces 30 कम।"
+  },
+  {
+   "beat_id": "b11",
+   "say": "इसी तरह higher denomination मदद कर सकता है। November 2016 में RBI ने currency requirement जल्दी पूरी करने को ₹2,000 note introduce किया; यह calculation actual speed का measurement नहीं।"
+  },
+  {
+   "beat_id": "b12",
+   "say": "2018–19 में ₹2,000 notes की printing बंद हुई। यानी नए notes बनना रुका; इससे कोई खास policy reason तय नहीं होता। Printing रुकने का मतलब existing notes का legal status हटना भी नहीं है।"
+  },
+  {
+   "beat_id": "b13",
+   "say": "अब बैंक counter सोचो: 1 ₹2,000 note देकर 4 ₹500 notes मिले, तो क्या बदला? 23 May 2023 की तारीख ₹2,000 notes को दूसरे notes से exchange करने से जुड़ी है।"
+  },
+  {
+   "beat_id": "b14",
+   "say": "क्रम याद रखो: 1946, 1978, 2016 में demonetisation। ₹2,000 note आया November 2016 में; printing रुकी 2018–19 में। अब 2023 का फर्क देखो।"
+  }
+ ],
+ "kit": "shop",
+ "elements": [
+  {
+   "id": "counter",
+   "kind": "shop",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b10",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "staff",
+   "kind": "shopkeeper",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b10",
+    "बैंक"
+   ]
+  },
+  {
+   "id": "amount",
+   "kind": "board",
+   "x": 2180,
+   "y": 430,
+   "fill": "#EFE4CF",
+   "cue": [
+    "b10",
+    "₹20,000"
+   ],
+   "until_cue": [
+    "b11",
+    "इसी"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b10",
+      "₹20,000"
+     ],
+     "text": "बैंक ₹20,000 बाँटे।"
+    }
+   ]
+  },
+  {
+   "id": "pieces",
+   "kind": "board",
+   "x": 3000,
+   "y": 430,
+   "fill": "#E4EBDD",
+   "cue": [
+    "b10",
+    "40"
+   ],
+   "until_cue": [
+    "b11",
+    "इसी"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b10",
+      "40"
+     ],
+     "text": "₹500 के 40 notes चाहिए।"
+    },
+    {
+     "cue": [
+      "b10",
+      "10"
+     ],
+     "text": "₹2,000 के 10 चाहिए।",
+     "dir": "down"
+    },
+    {
+     "cue": [
+      "b10",
+      "30"
+     ],
+     "text": "गिनने-बाँटने के pieces 30 कम।",
+     "dir": "down"
+    }
+   ]
+  },
+  {
+   "id": "history",
+   "kind": "board",
+   "x": 2180,
+   "y": 430,
+   "fill": "#EFE4CF",
+   "cue": [
+    "b11",
+    "denomination"
+   ],
+   "until_cue": [
+    "b13",
+    "अब"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b11",
+      "denomination"
+     ],
+     "text": "Higher denomination मदद कर सकता है।"
+    },
+    {
+     "cue": [
+      "b11",
+      "introduce"
+     ],
+     "text": "November 2016 में RBI ने\n₹2,000 note introduce किया।"
+    },
+    {
+     "cue": [
+      "b12",
+      "बंद"
+     ],
+     "text": "2018–19 में ₹2,000 notes की\nprinting बंद हुई।"
+    },
+    {
+     "cue": [
+      "b12",
+      "रुका;"
+     ],
+     "text": "नए notes बनना रुका।"
+    }
+   ]
+  },
+  {
+   "id": "caveat",
+   "kind": "label",
+   "x": 2990,
+   "y": 380,
+   "text": "यह calculation actual speed का\nmeasurement नहीं।",
+   "fill": "#F4ECD9",
+   "cue": [
+    "b11",
+    "calculation"
+   ],
+   "until_cue": [
+    "b12",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "printing_limits",
+   "kind": "board",
+   "x": 3000,
+   "y": 430,
+   "fill": "#E4EBDD",
+   "cue": [
+    "b12",
+    "policy"
+   ],
+   "until_cue": [
+    "b13",
+    "अब"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b12",
+      "policy"
+     ],
+     "text": "इससे कोई खास policy reason\nतय नहीं होता।"
+    },
+    {
+     "cue": [
+      "b12",
+      "legal"
+     ],
+     "text": "Printing रुकने का मतलब existing notes\nका legal status हटना भी नहीं है।"
+    }
+   ]
+  },
+  {
+   "id": "exchange",
+   "kind": "board",
+   "x": 2180,
+   "y": 430,
+   "fill": "#EFE4CF",
+   "cue": [
+    "b13",
+    "मिले,"
+   ],
+   "until_cue": [
+    "b14",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b13",
+      "मिले,"
+     ],
+     "text": "1 ₹2,000 note देकर\n4 ₹500 notes मिले।"
+    }
+   ]
+  },
+  {
+   "id": "exchange_date",
+   "kind": "board",
+   "x": 3000,
+   "y": 430,
+   "fill": "#E4EBDD",
+   "cue": [
+    "b13",
+    "exchange"
+   ],
+   "until_cue": [
+    "b14",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b13",
+      "exchange"
+     ],
+     "text": "23 May 2023 की तारीख ₹2,000 notes\nको दूसरे notes से exchange\nकरने से जुड़ी है।"
+    }
+   ]
+  },
+  {
+   "id": "recap",
+   "kind": "board",
+   "x": 2180,
+   "y": 430,
+   "fill": "#EFE4CF",
+   "cue": [
+    "b14",
+    "demonetisation।"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b14",
+      "demonetisation।"
+     ],
+     "text": "1946, 1978, 2016 में demonetisation।"
+    },
+    {
+     "cue": [
+      "b14",
+      "November"
+     ],
+     "text": "₹2,000 note आया November 2016 में।"
+    },
+    {
+     "cue": [
+      "b14",
+      "2018–19"
+     ],
+     "text": "Printing रुकी 2018–19 में।"
+    }
+   ]
+  },
+  {
+   "id": "next_difference",
+   "kind": "label",
+   "x": 3000,
+   "y": 410,
+   "text": "अब 2023 का फर्क देखो।",
+   "fill": "#F4ECD9",
+   "cue": [
+    "b14",
+    "2023"
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b10",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 540,
+   "zoom": 0.9,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b10",
+    "₹500"
+   ],
+   "x": 2730,
+   "y": 480,
+   "zoom": 1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b10",
+    "वही,"
+   ],
+   "x": 2530,
+   "y": 480,
+   "zoom": 0.95,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b11",
+    "इसी"
+   ],
+   "x": 2500,
+   "y": 500,
+   "zoom": 0.9,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b11",
+    "requirement"
+   ],
+   "x": 2400,
+   "y": 480,
+   "zoom": 1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b11",
+    "calculation"
+   ],
+   "x": 2660,
+   "y": 470,
+   "zoom": 0.95,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b12",
+    "",
+    0.0
+   ],
+   "x": 2500,
+   "y": 490,
+   "zoom": 0.9,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b12",
+    "Printing"
+   ],
+   "x": 2680,
+   "y": 480,
+   "zoom": 0.95,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b13",
+    "अब"
+   ],
+   "x": 2600,
+   "y": 560,
+   "zoom": 0.9,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b13",
+    "बदला?"
+   ],
+   "x": 2400,
+   "y": 480,
+   "zoom": 1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b13",
+    "23"
+   ],
+   "x": 2600,
+   "y": 480,
+   "zoom": 0.9,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b14",
+    "",
+    0.0
+   ],
+   "x": 2500,
+   "y": 490,
+   "zoom": 0.9,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b14",
+    "2023"
+   ],
+   "x": 2660,
+   "y": 490,
+   "zoom": 0.95,
+   "frames": 40
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

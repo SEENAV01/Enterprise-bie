@@ -1,0 +1,192 @@
+{
+ "id": "v2_s8a",
+ "part_id": "c06.2",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b50",
+   "say": "नमक कहाँ चला? Salt Ancient Rome और Africa में; cattle early pastoral societies में, यानी पशु रखने से रोज़ी कमाने वाले लोगों में। दूसरा किसी country का नाम नहीं।"
+  },
+  {
+   "beat_id": "b51",
+   "say": "हथेली के छोटे खोल गिनकर payment हो सकता है? Cowrie shells, यानी कौड़ियाँ, India, China और Africa में चलीं; खाने की चीज़ होना ज़रूरी नहीं, लोगों का स्वीकार करना ज़रूरी है।"
+  },
+  {
+   "beat_id": "b52",
+   "say": "चाय का चौकोर टुकड़ा कैसे बनेगा? Tea bricks यानी दबाई हुई चाय, बनाने वाली ईंट नहीं; Central Asia और Tibet में चली। Tobacco के सूखे पत्तों वाला उदाहरण Colonial America का है।"
+  }
+ ],
+ "kit": "shop",
+ "elements": [
+  {
+   "id": "commodity_shop",
+   "kind": "shop",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b50",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "commodity_display",
+   "kind": "board",
+   "x": 3190,
+   "y": 470,
+   "fill": "#E8DCC5",
+   "cue": [
+    "b50",
+    "Salt"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b50",
+      "Salt"
+     ],
+     "text": "Salt Ancient Rome और Africa में चला।"
+    },
+    {
+     "cue": [
+      "b50",
+      "cattle"
+     ],
+     "text": "Cattle early pastoral societies में चला।"
+    },
+    {
+     "cue": [
+      "b50",
+      "यानी"
+     ],
+     "text": "ये पशु रखने से रोज़ी कमाने वाले लोग हैं।"
+    },
+    {
+     "cue": [
+      "b50",
+      "दूसरा"
+     ],
+     "text": "यह किसी country का नाम नहीं।"
+    },
+    {
+     "cue": [
+      "b51",
+      "छोटे"
+     ],
+     "text": "छोटे खोल गिनकर payment हो सकता है?"
+    },
+    {
+     "cue": [
+      "b51",
+      "Cowrie"
+     ],
+     "text": "Cowrie shells India, China और\nAfrica में चलीं।"
+    },
+    {
+     "cue": [
+      "b51",
+      "लोगों"
+     ],
+     "text": "लोगों का स्वीकार करना ज़रूरी है।"
+    },
+    {
+     "cue": [
+      "b52",
+      "Tea"
+     ],
+     "text": "Tea bricks यानी दबाई हुई चाय।"
+    },
+    {
+     "cue": [
+      "b52",
+      "Central"
+     ],
+     "text": "Central Asia और Tibet में चली।"
+    },
+    {
+     "cue": [
+      "b52",
+      "Tobacco"
+     ],
+     "text": "Tobacco के सूखे पत्तों का उदाहरण\nColonial America का है।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b50",
+    "",
+    0.0
+   ],
+   "x": 2880,
+   "y": 510,
+   "zoom": 0.9,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b50",
+    "cattle"
+   ],
+   "x": 3040,
+   "y": 490,
+   "zoom": 1.08,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b51",
+    "",
+    0.0
+   ],
+   "x": 2910,
+   "y": 510,
+   "zoom": 0.95,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b51",
+    "खाने"
+   ],
+   "x": 3070,
+   "y": 480,
+   "zoom": 1.1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b52",
+    "",
+    0.0
+   ],
+   "x": 2900,
+   "y": 510,
+   "zoom": 0.95,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b52",
+    "बनाने"
+   ],
+   "x": 3040,
+   "y": 490,
+   "zoom": 1.05,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b52",
+    "Tobacco"
+   ],
+   "x": 3070,
+   "y": 480,
+   "zoom": 1.1,
+   "frames": 40
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

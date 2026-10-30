@@ -1,0 +1,335 @@
+{
+ "id": "v4_s6b",
+ "part_id": "c11.1",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b35",
+   "say": "Legal tender government से officially recognised money है, जो उसकी territory में debts और transactions चुकाता है। Circulation commemorative coins याद में बने, लेकिन रोज़ ordinary coins जैसे इस्तेमाल होने वाले coins हैं।"
+  },
+  {
+   "beat_id": "b36",
+   "say": "Unlimited Legal Tender यानी genuine, valid notes जोड़ते जाएँ, tender की कुल रकम की ceiling नहीं आती। ₹10, ₹20, ₹50, ₹100, ₹200, ₹500 notes का यह status Reserve Bank of India Act, 1934 से जुड़ा है।"
+  },
+  {
+   "beat_id": "b37",
+   "say": "Limited Legal Tender में तय amount तक लेना ज़रूरी, आगे मर्ज़ी है; coins के लिए Coinage Act, 2011 है। यानी बड़ा coin ढेर लेने की मजबूरी limit पर रुकती है।"
+  },
+  {
+   "beat_id": "b38",
+   "say": "Unlimited हर cash transaction की छूट नहीं। खास design circulation साबित नहीं करता; collector set अलग है। Valid coins की limit पार करना status खोना नहीं।"
+  },
+  {
+   "beat_id": "b39",
+   "say": "Recognition के बाद अगला सवाल denomination और total limit है: notes की ceiling नहीं, coins की तय है।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank",
+   "kind": "bank",
+   "x": 2600,
+   "y": 860,
+   "fill": "#F5EEDF",
+   "cue": [
+    "b35",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "teller",
+   "kind": "teller",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b35",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "customers",
+   "kind": "crowd",
+   "x0": 2290,
+   "spacing": 105,
+   "enter_x": 1900,
+   "exit_x": 1900,
+   "face": 1,
+   "seed": 11,
+   "cue": [
+    "b35",
+    "transactions"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b35",
+      "transactions"
+     ],
+     "n": 2
+    }
+   ]
+  },
+  {
+   "id": "recognition_anchor",
+   "kind": "label",
+   "x": 2600,
+   "y": 250,
+   "text": "Legal tender officially recognised money है।",
+   "fill": "#EFE4CD",
+   "cue": [
+    "b35",
+    "recognised"
+   ]
+  },
+  {
+   "id": "main_board",
+   "kind": "board",
+   "x": 3020,
+   "y": 540,
+   "fill": "#47786F",
+   "cue": [
+    "b35",
+    "ordinary"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b35",
+      "ordinary"
+     ],
+     "text": "Circulation commemorative coins\nordinary coins जैसे इस्तेमाल होते हैं।"
+    },
+    {
+     "cue": [
+      "b36",
+      "ceiling"
+     ],
+     "text": "Genuine, valid notes की\nकुल रकम की ceiling नहीं आती।"
+    },
+    {
+     "cue": [
+      "b36",
+      "status"
+     ],
+     "text": "₹10, ₹20, ₹50, ₹100,\n₹200, ₹500 notes का यह status है।"
+    },
+    {
+     "cue": [
+      "b36",
+      "1934"
+     ],
+     "text": "यह status Reserve Bank of India\nAct, 1934 से जुड़ा है।"
+    },
+    {
+     "cue": [
+      "b37",
+      "ज़रूरी,"
+     ],
+     "text": "Limited Legal Tender में तय\namount तक लेना ज़रूरी है।"
+    },
+    {
+     "cue": [
+      "b37",
+      "2011"
+     ],
+     "text": "Coins के लिए\nCoinage Act, 2011 है।"
+    },
+    {
+     "cue": [
+      "b37",
+      "limit"
+     ],
+     "text": "बड़ा coin ढेर लेने की मजबूरी\nlimit पर रुकती है।"
+    },
+    {
+     "cue": [
+      "b38",
+      "छूट"
+     ],
+     "text": "Unlimited हर cash transaction\nकी छूट नहीं।"
+    },
+    {
+     "cue": [
+      "b38",
+      "collector"
+     ],
+     "text": "खास design circulation साबित\nनहीं करता; collector set अलग है।"
+    },
+    {
+     "cue": [
+      "b38",
+      "खोना"
+     ],
+     "text": "Valid coins की limit पार करना\nstatus खोना नहीं।"
+    },
+    {
+     "cue": [
+      "b39",
+      "coins"
+     ],
+     "text": "Notes की ceiling नहीं,\ncoins की तय है।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b35",
+    "",
+    0.0
+   ],
+   "x": 2640,
+   "y": 490,
+   "zoom": 0.8,
+   "frames": 1
+  },
+  {
+   "cue": [
+    "b35",
+    "territory"
+   ],
+   "x": 2600,
+   "y": 475,
+   "zoom": 0.88,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b35",
+    "ordinary"
+   ],
+   "x": 2760,
+   "y": 480,
+   "zoom": 0.95,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b36",
+    "",
+    0.0
+   ],
+   "x": 2760,
+   "y": 475,
+   "zoom": 0.9,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b36",
+    "जोड़ते"
+   ],
+   "x": 2820,
+   "y": 480,
+   "zoom": 0.95,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b36",
+    "₹10,"
+   ],
+   "x": 2880,
+   "y": 490,
+   "zoom": 1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b36",
+    "Reserve"
+   ],
+   "x": 2840,
+   "y": 475,
+   "zoom": 0.95,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b37",
+    "",
+    0.0
+   ],
+   "x": 2750,
+   "y": 480,
+   "zoom": 0.9,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b37",
+    "आगे"
+   ],
+   "x": 2820,
+   "y": 480,
+   "zoom": 0.95,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b37",
+    "यानी"
+   ],
+   "x": 2750,
+   "y": 490,
+   "zoom": 0.9,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b38",
+    "",
+    0.0
+   ],
+   "x": 2830,
+   "y": 480,
+   "zoom": 0.95,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b38",
+    "खास"
+   ],
+   "x": 2780,
+   "y": 475,
+   "zoom": 0.9,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b38",
+    "Valid"
+   ],
+   "x": 2830,
+   "y": 480,
+   "zoom": 0.95,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b39",
+    "Recognition"
+   ],
+   "x": 2640,
+   "y": 450,
+   "zoom": 0.85,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b39",
+    "notes"
+   ],
+   "x": 2750,
+   "y": 475,
+   "zoom": 0.9,
+   "frames": 45
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

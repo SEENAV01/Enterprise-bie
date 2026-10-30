@@ -1,0 +1,275 @@
+{
+ "id": "v5_s6b",
+ "part_id": "c13.1",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b35",
+   "say": "बदले में US ने क्या माना? Military protection, weapons और Saudi monarchy को security guarantees, यानी खतरे में मदद का भरोसा।"
+  },
+  {
+   "beat_id": "b36",
+   "say": "1974 में पैसे और सुरक्षा के वादे जुड़े; bill चुकाना, receipts invest करना अलग काम रहे।"
+  },
+  {
+   "beat_id": "b37",
+   "say": "Treasury securities सरकार के उधार की receipt जैसी हैं। नया issue सरकार को पैसा देता है; पुराना खरीदो तो seller को।"
+  },
+  {
+   "beat_id": "b38",
+   "say": "1973 में oil shock आया; 1974 में Saudi financial और US security commitments जुड़े।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank_anchor",
+   "kind": "bank",
+   "x": 2350,
+   "y": 860,
+   "cue": [
+    "b35",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "bank_teller",
+   "kind": "teller",
+   "x": 2350,
+   "y": 860,
+   "cue": [
+    "b35",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "security_promise",
+   "kind": "board",
+   "x": 2920,
+   "y": 520,
+   "fill": "#E6DCCB",
+   "cue": [
+    "b35",
+    "Military"
+   ],
+   "until_cue": [
+    "b36",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b35",
+      "Military"
+     ],
+     "text": "Military protection, weapons और\nSaudi monarchy को security guarantees"
+    }
+   ]
+  },
+  {
+   "id": "payment_and_investment",
+   "kind": "board",
+   "x": 2920,
+   "y": 520,
+   "fill": "#E6DCCB",
+   "cue": [
+    "b36",
+    "पैसे"
+   ],
+   "until_cue": [
+    "b37",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b36",
+      "पैसे"
+     ],
+     "text": "1974 में पैसे और सुरक्षा के वादे जुड़े"
+    },
+    {
+     "cue": [
+      "b36",
+      "receipts"
+     ],
+     "text": "bill चुकाना और receipts invest करना\nअलग काम रहे"
+    }
+   ]
+  },
+  {
+   "id": "treasury_receipt",
+   "kind": "board",
+   "x": 2920,
+   "y": 520,
+   "fill": "#E6DCCB",
+   "cue": [
+    "b37",
+    "उधार"
+   ],
+   "until_cue": [
+    "b38",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b37",
+      "उधार"
+     ],
+     "text": "Treasury securities सरकार के\nउधार की receipt जैसी हैं"
+    },
+    {
+     "cue": [
+      "b37",
+      "नया"
+     ],
+     "text": "नया issue सरकार को पैसा देता है"
+    },
+    {
+     "cue": [
+      "b37",
+      "पुराना"
+     ],
+     "text": "पुराना खरीदो तो seller को"
+    }
+   ]
+  },
+  {
+   "id": "historical_sequence",
+   "kind": "board",
+   "x": 2920,
+   "y": 520,
+   "fill": "#E6DCCB",
+   "cue": [
+    "b38",
+    "oil"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b38",
+      "oil"
+     ],
+     "text": "1973 में oil shock आया"
+    },
+    {
+     "cue": [
+      "b38",
+      "Saudi"
+     ],
+     "text": "1974 में Saudi financial और\nUS security commitments जुड़े"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b35",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 540,
+   "zoom": 0.9,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b35",
+    "Military"
+   ],
+   "x": 2700,
+   "y": 530,
+   "zoom": 1.05,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b35",
+    "यानी"
+   ],
+   "x": 2760,
+   "y": 530,
+   "zoom": 1.12,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b36",
+    "पैसे"
+   ],
+   "x": 2700,
+   "y": 530,
+   "zoom": 1.05,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b36",
+    "receipts"
+   ],
+   "x": 2780,
+   "y": 530,
+   "zoom": 1.12,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b37",
+    "उधार"
+   ],
+   "x": 2720,
+   "y": 530,
+   "zoom": 1.05,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b37",
+    "नया"
+   ],
+   "x": 2780,
+   "y": 530,
+   "zoom": 1.12,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b37",
+    "पुराना"
+   ],
+   "x": 2720,
+   "y": 530,
+   "zoom": 1.05,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b38",
+    "oil"
+   ],
+   "x": 2780,
+   "y": 530,
+   "zoom": 1.12,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b38",
+    "Saudi"
+   ],
+   "x": 2600,
+   "y": 540,
+   "zoom": 0.95,
+   "frames": 45
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

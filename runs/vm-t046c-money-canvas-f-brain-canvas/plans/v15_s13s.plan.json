@@ -1,0 +1,143 @@
+{
+ "id": "v15_s13s",
+ "part_id": "c39.2",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b63",
+   "say": "नया loan क्या बदलता है? पहले M3 में ₹1000 थे; bank ने ₹100 loan दिया, supplier ने रकम account में रखी। बाकी बदलाव न हों तो अब ₹1100 गिनेंगे।"
+  }
+ ],
+ "kit": "shop",
+ "elements": [
+  {
+   "id": "supplier_shop",
+   "kind": "shop",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b63",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "supplier",
+   "kind": "shopkeeper",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b63",
+    "supplier"
+   ]
+  },
+  {
+   "id": "m3",
+   "kind": "board",
+   "x": 2130,
+   "y": 470,
+   "fill": "#E8DCC8",
+   "cue": [
+    "b63",
+    "₹1000"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b63",
+      "₹1000"
+     ],
+     "text": "पहले M3 में ₹1000 थे"
+    },
+    {
+     "cue": [
+      "b63",
+      "₹1100"
+     ],
+     "text": "अब ₹1100 गिनेंगे",
+     "dir": "up"
+    }
+   ]
+  },
+  {
+   "id": "loan",
+   "kind": "label",
+   "x": 3010,
+   "y": 350,
+   "text": "bank ने ₹100 loan दिया",
+   "fill": "#E2ECF2",
+   "cue": [
+    "b63",
+    "₹100"
+   ]
+  },
+  {
+   "id": "deposit",
+   "kind": "label",
+   "x": 3010,
+   "y": 490,
+   "text": "supplier ने रकम account में रखी",
+   "fill": "#E5EDDA",
+   "cue": [
+    "b63",
+    "account"
+   ]
+  },
+  {
+   "id": "condition",
+   "kind": "label",
+   "x": 2600,
+   "y": 180,
+   "text": "बाकी बदलाव न हों",
+   "fill": "#F3E9D7",
+   "cue": [
+    "b63",
+    "बदलाव"
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b63",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 480,
+   "zoom": 0.9,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b63",
+    "₹1000"
+   ],
+   "x": 2420,
+   "y": 470,
+   "zoom": 1,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b63",
+    "supplier"
+   ],
+   "x": 2740,
+   "y": 470,
+   "zoom": 1,
+   "frames": 36
+  },
+  {
+   "cue": [
+    "b63",
+    "अब"
+   ],
+   "x": 2500,
+   "y": 450,
+   "zoom": 0.95,
+   "frames": 30
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

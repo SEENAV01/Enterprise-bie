@@ -1,0 +1,403 @@
+{
+ "id": "v4_s3",
+ "part_id": "c09.3",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b12",
+   "say": "सामान की जगह receipt चले तो? इतिहास में paper claims, सरकारी issue और acceptance rules अलग milestones बने।"
+  },
+  {
+   "beat_id": "b13",
+   "say": "Receipt जमा value का सबूत है: 7th century के Tang receipts paper claims दिखाते हैं। 1023 के Song state notes में सरकारी authority issuer बनी; यानी claim के साथ जारी करने वाले की पहचान बदली।"
+  },
+  {
+   "beat_id": "b14",
+   "say": "लोग note लेने से मना करें तो? 1275 का Yuan milestone compulsory acceptance है, यानी नियम से लेना ज़रूरी। Sweden के first banknotes 1661 में आए; इसे दुनिया की शुरुआत मत समझिए, Chinese developments पहले हुए।"
+  },
+  {
+   "beat_id": "b15",
+   "say": "पैसे का fixed आधार कैसे बने? Britain का 1816 Gold Standard पैसे को तय gold से जोड़ता था। 1944 Bretton Woods में dollar-gold link आया; एक फर्क समझिए: official convertibility थी, हर व्यक्ति का gold counter नहीं।"
+  },
+  {
+   "beat_id": "b16",
+   "say": "1971 में gold-redemption link टूटा; दोनों historical sequences इसी modern दौर पर पहुँचते हैं।"
+  },
+  {
+   "beat_id": "b17",
+   "say": "अब सवाल है: gold देने का वादा नहीं, तो लोग note क्यों लेंगे?"
+  },
+  {
+   "beat_id": "b18",
+   "say": "Paper claims से issuer, acceptance और gold का आधार बदलता गया।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank",
+   "kind": "bank",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b12",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "clerk",
+   "kind": "teller",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b12",
+    "receipt"
+   ]
+  },
+  {
+   "id": "customers",
+   "kind": "crowd",
+   "y": 860,
+   "x0": 2280,
+   "spacing": 90,
+   "enter_x": 1850,
+   "exit_x": 1850,
+   "face": 1,
+   "seed": 13,
+   "cue": [
+    "b14",
+    "लोग"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b14",
+      "लोग"
+     ],
+     "n": 2
+    }
+   ]
+  },
+  {
+   "id": "history_display",
+   "kind": "board",
+   "x": 3080,
+   "y": 420,
+   "fill": "#E8DCC5",
+   "cue": [
+    "b12",
+    "milestones"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b12",
+      "milestones"
+     ],
+     "text": "Paper claims अलग milestones बने।"
+    },
+    {
+     "cue": [
+      "b13",
+      "सबूत"
+     ],
+     "text": "Receipt जमा value का सबूत है।"
+    },
+    {
+     "cue": [
+      "b13",
+      "Tang"
+     ],
+     "text": "7th century के Tang receipts\npaper claims दिखाते हैं।"
+    },
+    {
+     "cue": [
+      "b13",
+      "issuer"
+     ],
+     "text": "1023 के Song state notes में\nसरकारी authority issuer बनी।"
+    },
+    {
+     "cue": [
+      "b13",
+      "पहचान"
+     ],
+     "text": "Claim के साथ जारी करने वाले की\nपहचान बदली।"
+    },
+    {
+     "cue": [
+      "b14",
+      "मना"
+     ],
+     "text": "लोग note लेने से मना करें तो?"
+    },
+    {
+     "cue": [
+      "b14",
+      "compulsory"
+     ],
+     "text": "1275 का Yuan milestone\ncompulsory acceptance है।"
+    },
+    {
+     "cue": [
+      "b14",
+      "1661"
+     ],
+     "text": "Sweden के first banknotes\n1661 में आए।"
+    },
+    {
+     "cue": [
+      "b14",
+      "Chinese"
+     ],
+     "text": "Chinese developments पहले हुए।"
+    },
+    {
+     "cue": [
+      "b15",
+      "fixed"
+     ],
+     "text": "पैसे का fixed आधार कैसे बने?"
+    },
+    {
+     "cue": [
+      "b15",
+      "Standard"
+     ],
+     "text": "Britain का 1816 Gold Standard\nपैसे को तय gold से जोड़ता था।"
+    },
+    {
+     "cue": [
+      "b15",
+      "link"
+     ],
+     "text": "1944 Bretton Woods में\ndollar-gold link आया।"
+    },
+    {
+     "cue": [
+      "b15",
+      "convertibility"
+     ],
+     "text": "Official convertibility थी,\nहर व्यक्ति का gold counter नहीं।"
+    },
+    {
+     "cue": [
+      "b16",
+      "टूटा;"
+     ],
+     "text": "1971 में gold-redemption link टूटा।"
+    },
+    {
+     "cue": [
+      "b16",
+      "modern"
+     ],
+     "text": "दोनों historical sequences\nइसी modern दौर पर पहुँचते हैं।"
+    },
+    {
+     "cue": [
+      "b17",
+      "वादा"
+     ],
+     "text": "Gold देने का वादा नहीं,\nतो लोग note क्यों लेंगे?"
+    },
+    {
+     "cue": [
+      "b18",
+      "आधार"
+     ],
+     "text": "Paper claims से issuer, acceptance\nऔर gold का आधार बदलता गया।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b12",
+    "",
+    0.0
+   ],
+   "x": 2690,
+   "y": 540,
+   "zoom": 0.85,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b12",
+    "सरकारी"
+   ],
+   "x": 2840,
+   "y": 510,
+   "zoom": 0.95,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b13",
+    "Tang"
+   ],
+   "x": 3010,
+   "y": 475,
+   "zoom": 1.1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b13",
+    "1023"
+   ],
+   "x": 2880,
+   "y": 510,
+   "zoom": 1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b13",
+    "यानी"
+   ],
+   "x": 2980,
+   "y": 480,
+   "zoom": 1.08,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b14",
+    "",
+    0.0
+   ],
+   "x": 2660,
+   "y": 550,
+   "zoom": 0.85,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b14",
+    "1275"
+   ],
+   "x": 2920,
+   "y": 495,
+   "zoom": 1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b14",
+    "Sweden"
+   ],
+   "x": 3010,
+   "y": 475,
+   "zoom": 1.1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b14",
+    "दुनिया"
+   ],
+   "x": 2900,
+   "y": 500,
+   "zoom": 1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b15",
+    "",
+    0.0
+   ],
+   "x": 2780,
+   "y": 525,
+   "zoom": 0.9,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b15",
+    "1816"
+   ],
+   "x": 2990,
+   "y": 475,
+   "zoom": 1.08,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b15",
+    "1944"
+   ],
+   "x": 2920,
+   "y": 495,
+   "zoom": 1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b15",
+    "official"
+   ],
+   "x": 3010,
+   "y": 475,
+   "zoom": 1.1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b16",
+    "1971"
+   ],
+   "x": 2880,
+   "y": 510,
+   "zoom": 0.98,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b16",
+    "दोनों"
+   ],
+   "x": 2990,
+   "y": 480,
+   "zoom": 1.08,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b17",
+    "",
+    0.0
+   ],
+   "x": 2700,
+   "y": 540,
+   "zoom": 0.86,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b17",
+    "लोग"
+   ],
+   "x": 2840,
+   "y": 510,
+   "zoom": 0.95,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b18",
+    "",
+    0.0
+   ],
+   "x": 2930,
+   "y": 490,
+   "zoom": 1.02,
+   "frames": 45
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

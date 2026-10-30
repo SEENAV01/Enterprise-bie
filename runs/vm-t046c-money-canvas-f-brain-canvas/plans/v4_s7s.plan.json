@@ -1,0 +1,274 @@
+{
+ "id": "v4_s7s",
+ "part_id": "c11.2",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b43",
+   "say": "4 पुराने 25 paise coins दें तो ₹1 bill चुक जाएगा? दुकानदार मना करे तो ₹1 बाकी रहता है; valid ₹1 coin दें तो बकाया ₹0 होता है। पुराने coins का legal-tender status हटना demonetization है।"
+  },
+  {
+   "beat_id": "b44",
+   "say": "Change के डिब्बे में कौन-से coins हैं? ₹1, ₹2, ₹5, ₹10, ₹20 को जोड़कर ₹1,000 तक की tender limit है। 50 paise जोड़ें तो ₹10 तक; उससे छोटे coins जोड़ने से legal-tender payment नहीं बनता।"
+  }
+ ],
+ "kit": "shop",
+ "elements": [
+  {
+   "id": "shop",
+   "kind": "shop",
+   "x": 2600,
+   "y": 860,
+   "sign": "दुकानदार",
+   "cue": [
+    "b43",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "keeper",
+   "kind": "shopkeeper",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b43",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "buyer",
+   "kind": "crowd",
+   "x0": 2190,
+   "spacing": 90,
+   "enter_x": 1700,
+   "exit_x": 1700,
+   "face": 1,
+   "seed": 43,
+   "cue": [
+    "b43",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b43",
+      "",
+      0.0
+     ],
+     "n": 1
+    }
+   ]
+  },
+  {
+   "id": "old_offer",
+   "kind": "label",
+   "x": 2200,
+   "y": 360,
+   "text": "4 पुराने 25 paise coins दें",
+   "fill": "rgba(255,248,230,1)",
+   "cue": [
+    "b43",
+    "coins"
+   ],
+   "until_cue": [
+    "b43",
+    "valid"
+   ]
+  },
+  {
+   "id": "outstanding",
+   "kind": "board",
+   "x": 3020,
+   "y": 490,
+   "fill": "#E5C98B",
+   "cue": [
+    "b43",
+    "बाकी"
+   ],
+   "until_cue": [
+    "b44",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b43",
+      "बाकी"
+     ],
+     "text": "₹1 बाकी रहता है"
+    },
+    {
+     "cue": [
+      "b43",
+      "₹0"
+     ],
+     "text": "बकाया ₹0 होता है",
+     "dir": "down"
+    }
+   ]
+  },
+  {
+   "id": "replacement",
+   "kind": "label",
+   "x": 2200,
+   "y": 360,
+   "text": "Valid ₹1 coin दें",
+   "fill": "rgba(235,246,235,1)",
+   "cue": [
+    "b43",
+    "valid"
+   ],
+   "until_cue": [
+    "b43",
+    "पुराने"
+   ]
+  },
+  {
+   "id": "demonetization",
+   "kind": "label",
+   "x": 2470,
+   "y": 250,
+   "text": "Legal-tender status हटना\ndemonetization है",
+   "fill": "rgba(255,248,230,1)",
+   "cue": [
+    "b43",
+    "demonetization"
+   ],
+   "until_cue": [
+    "b44",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "limits",
+   "kind": "board",
+   "x": 3020,
+   "y": 450,
+   "fill": "#B8D6CB",
+   "cue": [
+    "b44",
+    "डिब्बे"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b44",
+      "डिब्बे"
+     ],
+     "text": "Change के डिब्बे में\nकौन-से coins हैं?"
+    },
+    {
+     "cue": [
+      "b44",
+      "₹1,000"
+     ],
+     "text": "₹1, ₹2, ₹5, ₹10, ₹20 को जोड़कर\n₹1,000 तक की tender limit है"
+    },
+    {
+     "cue": [
+      "b44",
+      "50"
+     ],
+     "text": "50 paise जोड़ें तो ₹10 तक"
+    },
+    {
+     "cue": [
+      "b44",
+      "छोटे"
+     ],
+     "text": "छोटे coins जोड़ने से\nlegal-tender payment नहीं बनता"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b43",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 510,
+   "zoom": 1,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b43",
+    "मना"
+   ],
+   "x": 2740,
+   "y": 510,
+   "zoom": 1.12,
+   "frames": 36
+  },
+  {
+   "cue": [
+    "b43",
+    "valid"
+   ],
+   "x": 2570,
+   "y": 490,
+   "zoom": 1.05,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b43",
+    "legal-tender"
+   ],
+   "x": 2670,
+   "y": 440,
+   "zoom": 1,
+   "frames": 36
+  },
+  {
+   "cue": [
+    "b44",
+    "",
+    0.0
+   ],
+   "x": 2740,
+   "y": 500,
+   "zoom": 1,
+   "frames": 36
+  },
+  {
+   "cue": [
+    "b44",
+    "₹5,"
+   ],
+   "x": 2880,
+   "y": 470,
+   "zoom": 1.12,
+   "frames": 36
+  },
+  {
+   "cue": [
+    "b44",
+    "50"
+   ],
+   "x": 2900,
+   "y": 450,
+   "zoom": 1.2,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b44",
+    "छोटे"
+   ],
+   "x": 2800,
+   "y": 480,
+   "zoom": 1.08,
+   "frames": 36
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

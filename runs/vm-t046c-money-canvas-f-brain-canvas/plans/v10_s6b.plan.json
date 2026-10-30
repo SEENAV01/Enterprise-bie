@@ -1,0 +1,240 @@
+{
+ "id": "v10_s6b",
+ "part_id": "c24.1",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b35",
+   "say": "पहला Demand Draft है: prepaid, bank-issued secure transfer instrument। दूसरा Overdraft है: short-term credit facility, जिससे अपने account balance से ज्यादा निकालते हैं।"
+  },
+  {
+   "beat_id": "b36",
+   "say": "Draft में पहले पैसा देते हैं; overdraft में extra रकम उधार लेते हैं। Borrowing को अपनी savings मत गिनिए।"
+  },
+  {
+   "beat_id": "b37",
+   "say": "Draft prepaid transfer है; overdraft short-term borrowing है।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank",
+   "kind": "bank",
+   "x": 2600,
+   "sign": "bank",
+   "cue": [
+    "b35",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "clerk",
+   "kind": "teller",
+   "x": 2600,
+   "cue": [
+    "b35",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "customer",
+   "kind": "crowd",
+   "x0": 2330,
+   "spacing": 90,
+   "enter_x": 2050,
+   "exit_x": 2050,
+   "face": 1,
+   "seed": 24,
+   "cue": [
+    "b35",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b35",
+      "",
+      0.0
+     ],
+     "n": 1
+    }
+   ]
+  },
+  {
+   "id": "draft_board",
+   "kind": "board",
+   "x": 1800,
+   "y": 440,
+   "text": "Demand Draft",
+   "fill": "#347D80",
+   "cue": [
+    "b35",
+    "Demand"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b35",
+      "instrument"
+     ],
+     "text": "यह prepaid, bank-issued\nsecure transfer instrument है।"
+    },
+    {
+     "cue": [
+      "b36",
+      "पहले"
+     ],
+     "text": "Draft में पहले पैसा देते हैं।"
+    },
+    {
+     "cue": [
+      "b37",
+      "prepaid"
+     ],
+     "text": "Draft prepaid transfer है।"
+    }
+   ]
+  },
+  {
+   "id": "overdraft_board",
+   "kind": "board",
+   "x": 3400,
+   "y": 440,
+   "text": "Overdraft",
+   "fill": "#9A663C",
+   "cue": [
+    "b35",
+    "Overdraft"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b35",
+      "credit"
+     ],
+     "text": "Short-term credit facility से\naccount balance से ज्यादा\nनिकालते हैं।"
+    },
+    {
+     "cue": [
+      "b36",
+      "extra"
+     ],
+     "text": "Overdraft में extra रकम\nउधार लेते हैं।"
+    },
+    {
+     "cue": [
+      "b37",
+      "borrowing"
+     ],
+     "text": "Overdraft short-term borrowing है।"
+    }
+   ]
+  },
+  {
+   "id": "borrowing_warning",
+   "kind": "label",
+   "x": 2600,
+   "y": 230,
+   "text": "Borrowing को अपनी savings मत गिनिए।",
+   "fill": "#FFF0D9",
+   "cue": [
+    "b36",
+    "Borrowing"
+   ],
+   "until_cue": [
+    "b37",
+    "",
+    0.0
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b35",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 480,
+   "zoom": 0.8,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b35",
+    "prepaid"
+   ],
+   "x": 2350,
+   "y": 470,
+   "zoom": 0.85,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b35",
+    "Overdraft"
+   ],
+   "x": 2850,
+   "y": 470,
+   "zoom": 0.85,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b35",
+    "ज्यादा"
+   ],
+   "x": 2900,
+   "y": 500,
+   "zoom": 0.9,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b36",
+    "Draft"
+   ],
+   "x": 2350,
+   "y": 470,
+   "zoom": 0.85,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b36",
+    "overdraft"
+   ],
+   "x": 2850,
+   "y": 470,
+   "zoom": 0.85,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b36",
+    "Borrowing"
+   ],
+   "x": 2600,
+   "y": 440,
+   "zoom": 0.8,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b37",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 480,
+   "zoom": 0.8,
+   "frames": 30
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

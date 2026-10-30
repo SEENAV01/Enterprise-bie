@@ -1,0 +1,127 @@
+{
+ "id": "v2_s7s",
+ "part_id": "c06.1",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b46",
+   "say": "Payment में मिले salt का दूसरा उपयोग? मानिए grain देकर seller ने 2 packets लिए; आगे न चलें तो खाना बनाएगा।"
+  }
+ ],
+ "kit": "shop",
+ "elements": [
+  {
+   "id": "salt_shop",
+   "kind": "shop",
+   "x": 2600,
+   "y": 860,
+   "sign": "salt",
+   "cue": [
+    "b46",
+    "salt"
+   ],
+   "packets": [
+    {
+     "n": 2,
+     "cue": [
+      "b46",
+      "2"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "imagined_example",
+   "kind": "label",
+   "x": 2600,
+   "y": 260,
+   "text": "मानिए, seller ने packets लिए।",
+   "fill": "#F3EBDD",
+   "cue": [
+    "b46",
+    "मानिए"
+   ],
+   "until_cue": [
+    "b46",
+    "आगे"
+   ]
+  },
+  {
+   "id": "grain_seller",
+   "kind": "crowd",
+   "x0": 2270,
+   "spacing": 90,
+   "enter_x": 2040,
+   "exit_x": 2000,
+   "face": 1,
+   "seed": 46,
+   "cue": [
+    "b46",
+    "seller"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b46",
+      "seller"
+     ],
+     "n": 1
+    }
+   ]
+  },
+  {
+   "id": "cooking_use",
+   "kind": "board",
+   "x": 3060,
+   "y": 490,
+   "fill": "#E8DCC5",
+   "cue": [
+    "b46",
+    "खाना"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b46",
+      "खाना"
+     ],
+     "text": "आगे न चलें तो खाना बनाएगा।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b46",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 540,
+   "zoom": 0.95,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b46",
+    "2"
+   ],
+   "x": 2520,
+   "y": 590,
+   "zoom": 1.15,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b46",
+    "खाना"
+   ],
+   "x": 2790,
+   "y": 540,
+   "zoom": 1,
+   "frames": 30
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

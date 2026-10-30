@@ -1,0 +1,234 @@
+{
+ "id": "v5_s8",
+ "part_id": "c13.q",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b45",
+   "say": "Gold बिना Dollars क्यों रखें? मान लो importer ने नया oil order दिया और $100 का bill पाया। उसने bank से $100 माँगे: exam में backing और payment use अलग रखो।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "anchor",
+   "kind": "text",
+   "cell": [
+    1,
+    0,
+    10,
+    1
+   ],
+   "cue": [
+    "b45",
+    "Dollars"
+   ],
+   "text": "Gold बिना Dollars क्यों रखें?",
+   "style": "title",
+   "tone": "ink",
+   "fill": "paper",
+   "align": "center",
+   "size": 36
+  },
+  {
+   "id": "illustration",
+   "kind": "text",
+   "cell": [
+    9,
+    1,
+    3,
+    1
+   ],
+   "cue": [
+    "b45",
+    "लो"
+   ],
+   "text": "मान लो",
+   "style": "note",
+   "tone": "muted",
+   "fill": "paper",
+   "align": "center",
+   "size": 24
+  },
+  {
+   "id": "importer",
+   "kind": "crowd",
+   "cell": [
+    0,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b45",
+    "importer"
+   ],
+   "tone": "accent",
+   "icon": "tw:1f471",
+   "cols": 1,
+   "steps": [
+    {
+     "cue": [
+      "b45",
+      "importer"
+     ],
+     "n": 1
+    }
+   ]
+  },
+  {
+   "id": "seller",
+   "kind": "icon",
+   "cell": [
+    10,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b45",
+    "order"
+   ],
+   "tone": "ink",
+   "icon": "fa:solid/shop"
+  },
+  {
+   "id": "oil",
+   "kind": "icon",
+   "cell": [
+    7,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b45",
+    "oil"
+   ],
+   "tone": "warm",
+   "icon": "tw:1f6e2"
+  },
+  {
+   "id": "bill",
+   "kind": "value",
+   "cell": [
+    3,
+    2,
+    3,
+    2
+   ],
+   "cue": [
+    "b45",
+    "$100"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "size": 36,
+   "steps": [
+    {
+     "cue": [
+      "b45",
+      "$100"
+     ],
+     "text": "$100 का bill पाया।"
+    }
+   ]
+  },
+  {
+   "id": "bank",
+   "kind": "icon",
+   "cell": [
+    3,
+    5,
+    2,
+    2
+   ],
+   "cue": [
+    "b45",
+    "bank"
+   ],
+   "tone": "accent",
+   "icon": "fa:solid/building-columns"
+  },
+  {
+   "id": "request",
+   "kind": "arrow",
+   "cue": [
+    "b45",
+    "माँगे:"
+   ],
+   "tone": "accent",
+   "from": "importer",
+   "to": "bank",
+   "from_side": "b",
+   "to_side": "l",
+   "elbow": "vh",
+   "dashed": true
+  },
+  {
+   "id": "exam",
+   "kind": "callout",
+   "cell": [
+    6,
+    5,
+    6,
+    2
+   ],
+   "cue": [
+    "b45",
+    "payment"
+   ],
+   "text": "backing और payment use अलग रखो।",
+   "style": "note",
+   "tone": "ink",
+   "fill": "paper",
+   "align": "center",
+   "size": 30,
+   "marks": [
+    {
+     "phrase": "अलग रखो।",
+     "cue": [
+      "b45",
+      "अलग"
+     ]
+    }
+   ]
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b45",
+    "bank"
+   ],
+   "ids": [
+    "anchor",
+    "importer",
+    "bill",
+    "bank",
+    "request"
+   ],
+   "until_cue": [
+    "b45",
+    "exam"
+   ]
+  },
+  {
+   "cue": [
+    "b45",
+    "अलग"
+   ],
+   "ids": [
+    "anchor",
+    "bill",
+    "bank",
+    "exam"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

@@ -1,0 +1,77 @@
+{
+ "id": "v13_s5b",
+ "part_id": "c31.1",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b30",
+   "say": "Definition की चाबी है voucher; SMS delivery का तरीका है, instrument का नाम नहीं।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "voucher_anchor",
+   "kind": "text",
+   "cell": [
+    1,
+    1,
+    10,
+    2
+   ],
+   "cue": [
+    "b30",
+    "voucher;"
+   ],
+   "text": "Definition की चाबी voucher है।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "band",
+   "align": "center",
+   "size": 40
+  },
+  {
+   "id": "sms_delivery",
+   "kind": "text",
+   "cell": [
+    1,
+    4,
+    10,
+    1
+   ],
+   "cue": [
+    "b30",
+    "तरीका"
+   ],
+   "text": "SMS delivery का तरीका है।",
+   "style": "box",
+   "tone": "ink",
+   "align": "center",
+   "size": 34
+  },
+  {
+   "id": "not_instrument",
+   "kind": "callout",
+   "cell": [
+    1,
+    6,
+    10,
+    1
+   ],
+   "cue": [
+    "b30",
+    "नहीं।"
+   ],
+   "text": "SMS instrument का नाम नहीं है।",
+   "style": "note",
+   "tone": "warm",
+   "align": "center",
+   "size": 32
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

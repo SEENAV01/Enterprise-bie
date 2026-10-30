@@ -1,0 +1,376 @@
+{
+ "id": "v15_s13b",
+ "part_id": "c39.2",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b65",
+   "say": "Loan से बढ़े balances पर RBI नज़र रखता है। Certificate अलग है: वह भविष्य की बचत का डिब्बा समझो, आज किराने पर देने वाला wallet नहीं। इसलिए NSC, M4 से बाहर है।"
+  },
+  {
+   "beat_id": "b66",
+   "say": "M3 liquidity और credit conditions के संकेत देता है। अगर spending उपलब्ध सामान से तेज़ बढ़े तो दामों पर दबाव बन सकता है; इसलिए money growth को output और prices के साथ पढ़ेंगे।"
+  },
+  {
+   "beat_id": "b67",
+   "say": "Policy effectiveness जाँचने के लिए देखेंगे: RBI के कदमों के बाद money, credit और prices चाही दिशा में गए या नहीं। M3 अकेला फैसला नहीं देता।"
+  },
+  {
+   "beat_id": "b68",
+   "say": "इसलिए M3 के साथ credit और price evidence देखो; Post Office product होने भर से NSC को शामिल मत करो।"
+  },
+  {
+   "beat_id": "b69",
+   "say": "M3 बढ़ना inflation का proof नहीं; यह loans का total भी नहीं। NSC बाहर है, लेकिन bank time deposits M3 में आते हैं।"
+  },
+  {
+   "beat_id": "b70",
+   "say": "RBI के checks हैं inflationary pressures, liquidity, credit growth और policy effectiveness। NSC long-term, readily spendable नहीं; इसलिए M4 से बाहर है।"
+  },
+  {
+   "beat_id": "b71",
+   "say": "आखिरी check: किसका balance, कहाँ, कौन-सा product? इसी से सही aggregate चुनोगे।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank",
+   "kind": "bank",
+   "x": 2600,
+   "cue": [
+    "b65",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "teller",
+   "kind": "teller",
+   "x": 2600,
+   "cue": [
+    "b65",
+    "balances"
+   ]
+  },
+  {
+   "id": "evidence",
+   "kind": "board",
+   "x": 2070,
+   "y": 540,
+   "fill": "#477A83",
+   "cue": [
+    "b65",
+    "RBI"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b65",
+      "RBI"
+     ],
+     "text": "Loan से बढ़े balances पर\nRBI नज़र रखता है।"
+    },
+    {
+     "cue": [
+      "b66",
+      "liquidity"
+     ],
+     "text": "M3 liquidity और credit conditions\nके संकेत देता है।"
+    },
+    {
+     "cue": [
+      "b66",
+      "दबाव"
+     ],
+     "text": "Spending सामान से तेज़ बढ़े तो\nदामों पर दबाव बन सकता है।"
+    },
+    {
+     "cue": [
+      "b66",
+      "output"
+     ],
+     "text": "Money growth को output और\nprices के साथ पढ़ेंगे।"
+    },
+    {
+     "cue": [
+      "b67",
+      "money,"
+     ],
+     "text": "RBI के कदमों के बाद money,\ncredit और prices की दिशा देखेंगे।"
+    },
+    {
+     "cue": [
+      "b67",
+      "अकेला"
+     ],
+     "text": "M3 अकेला फैसला नहीं देता।"
+    },
+    {
+     "cue": [
+      "b68",
+      "evidence"
+     ],
+     "text": "M3 के साथ credit और\nprice evidence देखो।"
+    },
+    {
+     "cue": [
+      "b69",
+      "proof"
+     ],
+     "text": "M3 बढ़ना inflation का proof नहीं।"
+    },
+    {
+     "cue": [
+      "b69",
+      "total"
+     ],
+     "text": "यह loans का total भी नहीं।"
+    },
+    {
+     "cue": [
+      "b70",
+      "liquidity,"
+     ],
+     "text": "RBI inflationary pressures,\nliquidity और credit growth\ncheck करता है।"
+    },
+    {
+     "cue": [
+      "b70",
+      "effectiveness।"
+     ],
+     "text": "RBI policy effectiveness\ncheck करता है।"
+    },
+    {
+     "cue": [
+      "b71",
+      "balance,"
+     ],
+     "text": "किसका balance, कहाँ,\nकौन-सा product?"
+    }
+   ]
+  },
+  {
+   "id": "product",
+   "kind": "board",
+   "x": 3130,
+   "y": 540,
+   "fill": "#997343",
+   "cue": [
+    "b65",
+    "बचत"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b65",
+      "बचत"
+     ],
+     "text": "Certificate भविष्य की बचत है,\nआज का wallet नहीं।"
+    },
+    {
+     "cue": [
+      "b65",
+      "NSC,"
+     ],
+     "text": "NSC, M4 से बाहर है।"
+    },
+    {
+     "cue": [
+      "b68",
+      "NSC"
+     ],
+     "text": "Post Office product होने भर से\nNSC को शामिल मत करो।"
+    },
+    {
+     "cue": [
+      "b69",
+      "deposits"
+     ],
+     "text": "NSC बाहर है, लेकिन bank time\ndeposits M3 में आते हैं।"
+    },
+    {
+     "cue": [
+      "b70",
+      "spendable"
+     ],
+     "text": "NSC long-term है,\nreadily spendable नहीं।"
+    },
+    {
+     "cue": [
+      "b70",
+      "M4"
+     ],
+     "text": "इसलिए NSC M4 से बाहर है।"
+    },
+    {
+     "cue": [
+      "b71",
+      "aggregate"
+     ],
+     "text": "इसी से सही aggregate चुनोगे।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b65",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 500,
+   "zoom": 0.85,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b65",
+    "Certificate"
+   ],
+   "x": 2850,
+   "y": 510,
+   "zoom": 0.95,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b65",
+    "wallet"
+   ],
+   "x": 2950,
+   "y": 520,
+   "zoom": 1,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b66",
+    "",
+    0.0
+   ],
+   "x": 2300,
+   "y": 510,
+   "zoom": 1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b66",
+    "अगर"
+   ],
+   "x": 2180,
+   "y": 520,
+   "zoom": 1.1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b66",
+    "इसलिए"
+   ],
+   "x": 2300,
+   "y": 510,
+   "zoom": 1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b67",
+    "",
+    0.0
+   ],
+   "x": 2450,
+   "y": 500,
+   "zoom": 0.95,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b67",
+    "prices"
+   ],
+   "x": 2250,
+   "y": 520,
+   "zoom": 1.05,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b68",
+    "",
+    0.0
+   ],
+   "x": 2400,
+   "y": 510,
+   "zoom": 0.9,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b68",
+    "Post"
+   ],
+   "x": 2900,
+   "y": 520,
+   "zoom": 1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b69",
+    "",
+    0.0
+   ],
+   "x": 2250,
+   "y": 520,
+   "zoom": 1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b69",
+    "NSC"
+   ],
+   "x": 2900,
+   "y": 520,
+   "zoom": 1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b70",
+    "",
+    0.0
+   ],
+   "x": 2300,
+   "y": 510,
+   "zoom": 1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b70",
+    "NSC"
+   ],
+   "x": 2900,
+   "y": 520,
+   "zoom": 1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b71",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 500,
+   "zoom": 0.85,
+   "frames": 45
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

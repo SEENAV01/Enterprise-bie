@@ -1,0 +1,348 @@
+{
+ "id": "v13_s6",
+ "part_id": "c31.2",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b31",
+   "say": "Phone पर coupon दिखे तो क्या पैसा है? इसे digital gift coupon with restrictions समझिए, यानी सेवा लेने की पर्ची जिस पर ताले लगे हैं।"
+  },
+  {
+   "beat_id": "b32",
+   "say": "App payment करने का software interface है; bank transfer खाते में रकम पहुँचाता है। Currency पैसा है, जबकि यह voucher तय सेवा लेने का हक है। इसलिए phone पर दिखने वाली इन चारों चीजों को एक category में मत रखिए।"
+  },
+  {
+   "beat_id": "b33",
+   "say": "Coupon की तुलना में 2 शर्तें जोड़िए: तय beneficiary ही इस्तेमाल करे, वह भी तय सेवा के लिए।"
+  },
+  {
+   "beat_id": "b34",
+   "say": "खास trap है e-RUPI और Digital Rupee: मिलते-जुलते नाम से voucher currency नहीं बनता।"
+  },
+  {
+   "beat_id": "b35",
+   "say": "Table में app interface है, transfer रकम पहुँचाता है, currency पैसा है; e-RUPI तय सेवा का voucher है। Gift coupon समझिए, लेकिन beneficiary और purpose के दोनों ताले रखिए।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank",
+   "kind": "bank",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b31",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "coupon",
+   "kind": "board",
+   "x": 2600,
+   "y": 330,
+   "fill": "#E8DDBE",
+   "cue": [
+    "b31",
+    "digital"
+   ],
+   "until_cue": [
+    "b32",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b31",
+      "restrictions"
+     ],
+     "text": "Digital gift coupon पर\nrestrictions हैं।"
+    },
+    {
+     "cue": [
+      "b31",
+      "ताले"
+     ],
+     "text": "सेवा लेने की पर्ची पर\nताले लगे हैं।"
+    }
+   ]
+  },
+  {
+   "id": "app",
+   "kind": "board",
+   "x": 2070,
+   "y": 290,
+   "fill": "#D9E7EA",
+   "cue": [
+    "b32",
+    "App"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b32",
+      "interface"
+     ],
+     "text": "App payment करने का\nsoftware interface है।"
+    },
+    {
+     "cue": [
+      "b35",
+      "interface"
+     ],
+     "text": "App interface है।"
+    }
+   ]
+  },
+  {
+   "id": "transfer",
+   "kind": "board",
+   "x": 3130,
+   "y": 290,
+   "fill": "#D9E7EA",
+   "cue": [
+    "b32",
+    "bank"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b32",
+      "पहुँचाता"
+     ],
+     "text": "Bank transfer खाते में\nरकम पहुँचाता है।"
+    },
+    {
+     "cue": [
+      "b35",
+      "पहुँचाता"
+     ],
+     "text": "Transfer रकम पहुँचाता है।"
+    }
+   ]
+  },
+  {
+   "id": "currency",
+   "kind": "board",
+   "x": 2070,
+   "y": 570,
+   "fill": "#DDE8D5",
+   "cue": [
+    "b32",
+    "Currency"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b32",
+      "Currency"
+     ],
+     "text": "Currency पैसा है।"
+    },
+    {
+     "cue": [
+      "b35",
+      "currency"
+     ],
+     "text": "Currency पैसा है।"
+    }
+   ]
+  },
+  {
+   "id": "voucher",
+   "kind": "board",
+   "x": 3130,
+   "y": 570,
+   "fill": "#E8DDBE",
+   "cue": [
+    "b32",
+    "voucher"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b32",
+      "हक"
+     ],
+     "text": "Voucher तय सेवा लेने का हक है।"
+    },
+    {
+     "cue": [
+      "b35",
+      "e-RUPI"
+     ],
+     "text": "e-RUPI तय सेवा का voucher है।"
+    }
+   ]
+  },
+  {
+   "id": "restrictions",
+   "kind": "board",
+   "x": 2600,
+   "y": 760,
+   "fill": "#E8DDBE",
+   "cue": [
+    "b33",
+    "beneficiary"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b33",
+      "beneficiary"
+     ],
+     "text": "तय beneficiary ही इस्तेमाल करे।"
+    },
+    {
+     "cue": [
+      "b33",
+      "सेवा"
+     ],
+     "text": "तय beneficiary ही इस्तेमाल करे,\nवह भी तय सेवा के लिए।"
+    },
+    {
+     "cue": [
+      "b35",
+      "purpose"
+     ],
+     "text": "Gift coupon में beneficiary और\npurpose के दोनों ताले रखिए।"
+    }
+   ]
+  },
+  {
+   "id": "name_trap",
+   "kind": "board",
+   "x": 2600,
+   "y": 100,
+   "fill": "#EEDACF",
+   "cue": [
+    "b34",
+    "currency"
+   ],
+   "until_cue": [
+    "b35",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b34",
+      "currency"
+     ],
+     "text": "e-RUPI और Digital Rupee के\nमिलते-जुलते नाम से voucher\ncurrency नहीं बनता।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b31",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 460,
+   "zoom": 1.15,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b31",
+    "सेवा"
+   ],
+   "x": 2600,
+   "y": 380,
+   "zoom": 1.3,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b32",
+    "",
+    0.0
+   ],
+   "x": 2350,
+   "y": 440,
+   "zoom": 0.95,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b32",
+    "bank"
+   ],
+   "x": 2700,
+   "y": 440,
+   "zoom": 0.9,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b32",
+    "Currency"
+   ],
+   "x": 2600,
+   "y": 470,
+   "zoom": 0.85,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b32",
+    "इसलिए"
+   ],
+   "x": 2600,
+   "y": 450,
+   "zoom": 0.8,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b33",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 560,
+   "zoom": 0.95,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b34",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 410,
+   "zoom": 0.8,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b35",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 460,
+   "zoom": 0.85,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b35",
+    "Gift"
+   ],
+   "x": 2600,
+   "y": 570,
+   "zoom": 0.95,
+   "frames": 40
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

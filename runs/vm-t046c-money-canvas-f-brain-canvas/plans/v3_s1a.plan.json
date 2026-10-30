@@ -1,0 +1,115 @@
+{
+ "id": "v3_s1a",
+ "part_id": "c07.1",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b1",
+   "say": "कुछ सिक्के ले जाना आसान है; हजारों साथ ले जाने हों, तो क्या होगा?"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "few_coins",
+   "kind": "icon",
+   "cell": [
+    1,
+    2,
+    3,
+    3
+   ],
+   "cue": [
+    "b1",
+    "सिक्के"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "fa:solid/coins",
+   "size": 64
+  },
+  {
+   "id": "easy",
+   "kind": "text",
+   "cell": [
+    0,
+    5,
+    5,
+    1
+   ],
+   "cue": [
+    "b1",
+    "आसान"
+   ],
+   "text": "कुछ सिक्के ले जाना आसान है।",
+   "style": "box",
+   "tone": "ink",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "large_load",
+   "kind": "crowd",
+   "cell": [
+    6,
+    1,
+    6,
+    4
+   ],
+   "cue": [
+    "b1",
+    "हजारों"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "fa:solid/coins",
+   "size": 48,
+   "cols": 5,
+   "steps": [
+    {
+     "cue": [
+      "b1",
+      "हजारों"
+     ],
+     "n": 15
+    }
+   ]
+  },
+  {
+   "id": "question",
+   "kind": "callout",
+   "cell": [
+    6,
+    5,
+    6,
+    2
+   ],
+   "cue": [
+    "b1",
+    "क्या"
+   ],
+   "text": "हजारों साथ ले जाने हों, तो क्या होगा?",
+   "style": "note",
+   "tone": "warm",
+   "align": "center",
+   "size": 30
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b1",
+    "हजारों"
+   ],
+   "ids": [
+    "large_load",
+    "question"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

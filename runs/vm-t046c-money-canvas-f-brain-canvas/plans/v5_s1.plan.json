@@ -1,0 +1,153 @@
+{
+ "id": "v5_s1",
+ "part_id": "c12.1",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b1",
+   "say": "Gold link टूटने के बाद भी दुनिया को Dollars क्यों चाहिए रहे?"
+  },
+  {
+   "beat_id": "b2",
+   "say": "देशों की currencies कैसे जुड़ी थीं? 1944 के Bretton Woods System में gold से Dollar, उससे बाकी currencies जुड़ी थीं।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "opening_question",
+   "kind": "text",
+   "cell": [
+    1,
+    1,
+    10,
+    3
+   ],
+   "cue": [
+    "b1",
+    "Gold"
+   ],
+   "until_cue": [
+    "b2",
+    "देशों"
+   ],
+   "text": "Gold link टूटने के बाद भी Dollars क्यों चाहिए रहे?",
+   "style": "title",
+   "tone": "ink",
+   "fill": "paper",
+   "align": "center",
+   "size": 38,
+   "marks": [
+    {
+     "phrase": "Dollars",
+     "cue": [
+      "b1",
+      "Dollars"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "currencies_question",
+   "kind": "text",
+   "cell": [
+    1,
+    1,
+    10,
+    2
+   ],
+   "cue": [
+    "b2",
+    "देशों"
+   ],
+   "until_cue": [
+    "b2",
+    "1944"
+   ],
+   "text": "देशों की currencies कैसे जुड़ी थीं?",
+   "style": "title",
+   "tone": "ink",
+   "fill": "paper",
+   "align": "center",
+   "size": 36
+  },
+  {
+   "id": "system_anchor",
+   "kind": "text",
+   "cell": [
+    1,
+    0,
+    10,
+    2
+   ],
+   "cue": [
+    "b2",
+    "1944"
+   ],
+   "text": "1944 में Bretton Woods System था।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "band",
+   "align": "center",
+   "size": 34
+  },
+  {
+   "id": "gold_dollar",
+   "kind": "text",
+   "cell": [
+    0,
+    3,
+    5,
+    2
+   ],
+   "cue": [
+    "b2",
+    "Dollar,"
+   ],
+   "text": "gold से Dollar जुड़ा था।",
+   "style": "box",
+   "tone": "warm",
+   "fill": "paper",
+   "align": "center",
+   "size": 32
+  },
+  {
+   "id": "other_currencies",
+   "kind": "text",
+   "cell": [
+    7,
+    3,
+    5,
+    2
+   ],
+   "cue": [
+    "b2",
+    "currencies"
+   ],
+   "text": "Dollar से बाकी currencies जुड़ी थीं।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "paper",
+   "align": "center",
+   "size": 32
+  },
+  {
+   "id": "link",
+   "kind": "arrow",
+   "cue": [
+    "b2",
+    "जुड़ी"
+   ],
+   "tone": "accent",
+   "from": "gold_dollar",
+   "to": "other_currencies",
+   "from_side": "r",
+   "to_side": "l"
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

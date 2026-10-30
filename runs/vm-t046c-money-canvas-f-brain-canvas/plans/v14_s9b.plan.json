@@ -1,0 +1,225 @@
+{
+ "id": "v14_s9b",
+ "part_id": "c35.1",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b52",
+   "say": "यह cryptocurrency है: blockchain से created और stored digital/virtual currency। Blockchain जुड़े blocks का record है, जैसे जुड़े हिसाब-पन्ने।"
+  },
+  {
+   "beat_id": "b53",
+   "say": "हर phone balance crypto नहीं; wallet transfer की keys संभालता है, literal coins नहीं।"
+  },
+  {
+   "beat_id": "b54",
+   "say": "Blockchain record official money नहीं बनाता।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "definition",
+   "kind": "text",
+   "cell": [
+    0,
+    0,
+    12,
+    2
+   ],
+   "cue": [
+    "b52",
+    "cryptocurrency"
+   ],
+   "text": "Cryptocurrency blockchain से created और stored digital/virtual currency है।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "band",
+   "align": "center",
+   "size": 32
+  },
+  {
+   "id": "record",
+   "kind": "text",
+   "cell": [
+    0,
+    2,
+    8,
+    2
+   ],
+   "cue": [
+    "b52",
+    "Blockchain"
+   ],
+   "text": "Blockchain जुड़े blocks का record है।",
+   "style": "box",
+   "tone": "ink",
+   "fill": "note",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "page_left",
+   "kind": "icon",
+   "cell": [
+    8,
+    2,
+    1,
+    2
+   ],
+   "cue": [
+    "b52",
+    "जैसे"
+   ],
+   "tone": "accent",
+   "icon": "tw:1f9fe"
+  },
+  {
+   "id": "page_right",
+   "kind": "icon",
+   "cell": [
+    11,
+    2,
+    1,
+    2
+   ],
+   "cue": [
+    "b52",
+    "हिसाब-पन्ने।"
+   ],
+   "tone": "accent",
+   "icon": "tw:1f9fe"
+  },
+  {
+   "id": "linked_pages",
+   "kind": "arrow",
+   "cue": [
+    "b52",
+    "हिसाब-पन्ने।"
+   ],
+   "tone": "accent",
+   "from": "page_left",
+   "to": "page_right",
+   "from_side": "r",
+   "to_side": "l"
+  },
+  {
+   "id": "balance",
+   "kind": "text",
+   "cell": [
+    0,
+    4,
+    5,
+    2
+   ],
+   "cue": [
+    "b53",
+    "balance"
+   ],
+   "text": "हर phone balance crypto नहीं।",
+   "style": "box",
+   "tone": "warm",
+   "fill": "note",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "wallet",
+   "kind": "text",
+   "cell": [
+    5,
+    4,
+    7,
+    2
+   ],
+   "cue": [
+    "b53",
+    "keys"
+   ],
+   "text": "Wallet transfer की keys संभालता है, literal coins नहीं।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "band",
+   "align": "center",
+   "size": 28,
+   "marks": [
+    {
+     "phrase": "literal coins नहीं",
+     "cue": [
+      "b53",
+      "literal"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "status",
+   "kind": "callout",
+   "cell": [
+    0,
+    6,
+    12,
+    2
+   ],
+   "cue": [
+    "b54",
+    "official"
+   ],
+   "text": "Blockchain record official money नहीं बनाता।",
+   "style": "note",
+   "tone": "warm",
+   "fill": "note",
+   "align": "center",
+   "size": 32
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b52",
+    "Blockchain"
+   ],
+   "ids": [
+    "definition",
+    "record",
+    "page_left",
+    "page_right",
+    "linked_pages"
+   ],
+   "until_cue": [
+    "b53",
+    "हर"
+   ]
+  },
+  {
+   "cue": [
+    "b53",
+    "हर"
+   ],
+   "ids": [
+    "definition",
+    "balance",
+    "wallet"
+   ],
+   "until_cue": [
+    "b54",
+    "Blockchain"
+   ]
+  },
+  {
+   "cue": [
+    "b54",
+    "official"
+   ],
+   "ids": [
+    "record",
+    "status"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

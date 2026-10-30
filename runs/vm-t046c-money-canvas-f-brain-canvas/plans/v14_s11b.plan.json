@@ -1,0 +1,89 @@
+{
+ "id": "v14_s11b",
+ "part_id": "c35.3",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b65",
+   "say": "साझा जाँच से ownership का हिसाब मिलता है।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "shared_check",
+   "kind": "icon",
+   "cell": [
+    1,
+    2,
+    3,
+    3
+   ],
+   "cue": [
+    "b65",
+    "साझा"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "fa:solid/people-arrows-left-right",
+   "size": 64
+  },
+  {
+   "id": "ownership_record",
+   "kind": "icon",
+   "cell": [
+    8,
+    2,
+    3,
+    3
+   ],
+   "cue": [
+    "b65",
+    "ownership"
+   ],
+   "tone": "ink",
+   "align": "center",
+   "icon": "tw:1f9fe",
+   "size": 64
+  },
+  {
+   "id": "check_to_record",
+   "kind": "arrow",
+   "cue": [
+    "b65",
+    "हिसाब"
+   ],
+   "tone": "accent",
+   "from": "shared_check",
+   "to": "ownership_record",
+   "from_side": "r",
+   "to_side": "l",
+   "elbow": "hv"
+  },
+  {
+   "id": "takeaway",
+   "kind": "callout",
+   "cell": [
+    1,
+    5,
+    10,
+    2
+   ],
+   "cue": [
+    "b65",
+    "मिलता"
+   ],
+   "text": "साझा जाँच से ownership का हिसाब मिलता है।",
+   "style": "note",
+   "tone": "accent",
+   "fill": "note",
+   "align": "center",
+   "size": 32
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

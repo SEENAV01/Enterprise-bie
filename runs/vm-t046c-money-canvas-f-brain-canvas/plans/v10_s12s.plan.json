@@ -1,0 +1,73 @@
+{
+ "id": "v10_s12s",
+ "part_id": "c25.2",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b58",
+   "say": "100 cheques process हुए; इससे 1 minute की speed नहीं पता चलती।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank",
+   "kind": "bank",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b58",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "batch_statement",
+   "kind": "label",
+   "x": 2600,
+   "y": 340,
+   "text": "100 cheques process हुए।",
+   "fill": "rgba(250,246,235,1)",
+   "cue": [
+    "b58",
+    "process"
+   ]
+  },
+  {
+   "id": "speed_caveat",
+   "kind": "label",
+   "x": 2600,
+   "y": 455,
+   "text": "इससे 1 minute की speed नहीं पता चलती।",
+   "fill": "rgba(250,246,235,1)",
+   "cue": [
+    "b58",
+    "speed"
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b58",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 520,
+   "zoom": 1,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b58",
+    "speed"
+   ],
+   "x": 2600,
+   "y": 460,
+   "zoom": 1.15,
+   "frames": 30
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

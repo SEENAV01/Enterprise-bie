@@ -1,0 +1,639 @@
+{
+ "id": "v2_s9b",
+ "part_id": "c06.3",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b59",
+   "say": "यह perishability, यानी खराब होना है। बाकी limitations हैं lack of uniformity, poor divisibility, difficult transport और limited standardization; इन्हें गाय और grain से समझिए।"
+  },
+  {
+   "beat_id": "b60",
+   "say": "गायों का size और health अलग होना lack of uniformity है। Weight और quality के तय rules standardization हैं; इनके बिना बार-बार checking और bargaining चाहिए।"
+  },
+  {
+   "beat_id": "b61",
+   "say": "गाय बाँटना मुश्किल, grain खराब हो सकता है, भारी sack ढोना पड़ता है। इसलिए छोटे payments, storage और transport में extra खर्च जुड़ता है।"
+  },
+  {
+   "beat_id": "b62",
+   "say": "सब पर बराबर लागू नहीं: grain बाँट सकते हैं, गाय नहीं; shells food जैसे नहीं सड़ते। ‘सभी’ से सावधान।"
+  },
+  {
+   "beat_id": "b63",
+   "say": "Matching आसान हुई, handling नहीं; इसलिए टिकाऊ, measured metallic units उपयोगी बने।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "perishable",
+   "kind": "callout",
+   "cell": [
+    0,
+    2,
+    5,
+    2
+   ],
+   "cue": [
+    "b59",
+    "perishability,"
+   ],
+   "until_cue": [
+    "b59",
+    "lack"
+   ],
+   "text": "Perishability यानी खराब होना है।",
+   "style": "box",
+   "tone": "warm",
+   "fill": "note",
+   "align": "center",
+   "size": 30,
+   "marks": [
+    {
+     "phrase": "खराब होना",
+     "cue": [
+      "b59",
+      "खराब"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "anchor",
+   "kind": "text",
+   "cell": [
+    0,
+    0,
+    12,
+    1
+   ],
+   "cue": [
+    "b59",
+    "limitations"
+   ],
+   "text": "बाकी limitations हैं।",
+   "style": "title",
+   "tone": "ink",
+   "align": "left",
+   "size": 34
+  },
+  {
+   "id": "overview",
+   "kind": "tree",
+   "cell": [
+    0,
+    1,
+    12,
+    4
+   ],
+   "cue": [
+    "b59",
+    "lack"
+   ],
+   "until_cue": [
+    "b60",
+    "गायों"
+   ],
+   "tone": "ink",
+   "root": "बाकी limitations हैं।",
+   "size": 25,
+   "children": [
+    {
+     "text": "Lack of uniformity है।",
+     "cue": [
+      "b59",
+      "uniformity,"
+     ]
+    },
+    {
+     "text": "Poor divisibility है।",
+     "cue": [
+      "b59",
+      "divisibility,"
+     ]
+    },
+    {
+     "text": "Transport difficult है।",
+     "cue": [
+      "b59",
+      "transport"
+     ]
+    },
+    {
+     "text": "Standardization limited है।",
+     "cue": [
+      "b59",
+      "standardization;"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cow",
+   "kind": "icon",
+   "cell": [
+    0,
+    5,
+    2,
+    2
+   ],
+   "cue": [
+    "b59",
+    "गाय"
+   ],
+   "until_cue": [
+    "b63",
+    "Matching"
+   ],
+   "tone": "ink",
+   "icon": "fa:solid/cow",
+   "size": 64
+  },
+  {
+   "id": "grain",
+   "kind": "icon",
+   "cell": [
+    3,
+    5,
+    2,
+    2
+   ],
+   "cue": [
+    "b59",
+    "grain"
+   ],
+   "until_cue": [
+    "b63",
+    "Matching"
+   ],
+   "tone": "warm",
+   "icon": "fa:solid/jar-wheat",
+   "size": 64
+  },
+  {
+   "id": "uniformity",
+   "kind": "callout",
+   "cell": [
+    0,
+    2,
+    5,
+    2
+   ],
+   "cue": [
+    "b60",
+    "size"
+   ],
+   "until_cue": [
+    "b61",
+    "गाय"
+   ],
+   "text": "Size और health अलग होना lack of uniformity है।",
+   "style": "box",
+   "tone": "accent",
+   "align": "center",
+   "size": 28,
+   "marks": [
+    {
+     "phrase": "health",
+     "cue": [
+      "b60",
+      "health"
+     ]
+    },
+    {
+     "phrase": "lack of uniformity",
+     "cue": [
+      "b60",
+      "uniformity"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "standard",
+   "kind": "callout",
+   "cell": [
+    6,
+    2,
+    6,
+    2
+   ],
+   "cue": [
+    "b60",
+    "Weight"
+   ],
+   "until_cue": [
+    "b61",
+    "गाय"
+   ],
+   "text": "Weight और quality के तय rules standardization हैं।",
+   "style": "box",
+   "tone": "accent",
+   "align": "center",
+   "size": 28,
+   "marks": [
+    {
+     "phrase": "तय rules",
+     "cue": [
+      "b60",
+      "rules"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "checking",
+   "kind": "callout",
+   "cell": [
+    6,
+    5,
+    6,
+    2
+   ],
+   "cue": [
+    "b60",
+    "checking"
+   ],
+   "until_cue": [
+    "b61",
+    "गाय"
+   ],
+   "text": "इनके बिना बार-बार checking और bargaining चाहिए।",
+   "style": "box",
+   "tone": "warm",
+   "align": "center",
+   "size": 28,
+   "marks": [
+    {
+     "phrase": "bargaining",
+     "cue": [
+      "b60",
+      "bargaining"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "division",
+   "kind": "text",
+   "cell": [
+    0,
+    2,
+    4,
+    2
+   ],
+   "cue": [
+    "b61",
+    "बाँटना"
+   ],
+   "until_cue": [
+    "b62",
+    "सब"
+   ],
+   "text": "गाय बाँटना मुश्किल है।",
+   "style": "box",
+   "tone": "warm",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "spoil",
+   "kind": "text",
+   "cell": [
+    4,
+    2,
+    4,
+    2
+   ],
+   "cue": [
+    "b61",
+    "खराब"
+   ],
+   "until_cue": [
+    "b62",
+    "सब"
+   ],
+   "text": "Grain खराब हो सकता है।",
+   "style": "box",
+   "tone": "warm",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "bulk",
+   "kind": "text",
+   "cell": [
+    8,
+    2,
+    4,
+    2
+   ],
+   "cue": [
+    "b61",
+    "sack"
+   ],
+   "until_cue": [
+    "b62",
+    "सब"
+   ],
+   "text": "भारी sack ढोना पड़ता है।",
+   "style": "box",
+   "tone": "warm",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "cost",
+   "kind": "callout",
+   "cell": [
+    6,
+    5,
+    6,
+    2
+   ],
+   "cue": [
+    "b61",
+    "payments,"
+   ],
+   "until_cue": [
+    "b62",
+    "सब"
+   ],
+   "text": "छोटे payments, storage और transport में extra खर्च जुड़ता है।",
+   "style": "box",
+   "tone": "danger",
+   "align": "center",
+   "size": 28,
+   "marks": [
+    {
+     "phrase": "storage",
+     "cue": [
+      "b61",
+      "storage"
+     ]
+    },
+    {
+     "phrase": "extra खर्च",
+     "cue": [
+      "b61",
+      "खर्च"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "qualification",
+   "kind": "callout",
+   "cell": [
+    0,
+    2,
+    12,
+    1
+   ],
+   "cue": [
+    "b62",
+    "बराबर"
+   ],
+   "until_cue": [
+    "b63",
+    "Matching"
+   ],
+   "text": "सब पर बराबर लागू नहीं।",
+   "style": "note",
+   "tone": "danger",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "grain-division",
+   "kind": "text",
+   "cell": [
+    0,
+    3,
+    5,
+    2
+   ],
+   "cue": [
+    "b62",
+    "बाँट"
+   ],
+   "until_cue": [
+    "b63",
+    "Matching"
+   ],
+   "text": "Grain बाँट सकते हैं, गाय नहीं।",
+   "style": "box",
+   "tone": "accent",
+   "align": "center",
+   "size": 29
+  },
+  {
+   "id": "shells",
+   "kind": "text",
+   "cell": [
+    6,
+    3,
+    6,
+    2
+   ],
+   "cue": [
+    "b62",
+    "shells"
+   ],
+   "until_cue": [
+    "b63",
+    "Matching"
+   ],
+   "text": "Shells food जैसे नहीं सड़ते।",
+   "style": "box",
+   "tone": "accent",
+   "align": "center",
+   "size": 29
+  },
+  {
+   "id": "all-warning",
+   "kind": "text",
+   "cell": [
+    6,
+    6,
+    6,
+    1
+   ],
+   "cue": [
+    "b62",
+    "‘सभी’"
+   ],
+   "until_cue": [
+    "b63",
+    "Matching"
+   ],
+   "text": "‘सभी’ से सावधान।",
+   "style": "note",
+   "tone": "danger",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "matching",
+   "kind": "callout",
+   "cell": [
+    0,
+    2,
+    5,
+    2
+   ],
+   "cue": [
+    "b63",
+    "Matching"
+   ],
+   "text": "Matching आसान हुई, handling नहीं।",
+   "style": "box",
+   "tone": "warm",
+   "align": "center",
+   "size": 30,
+   "marks": [
+    {
+     "phrase": "handling नहीं",
+     "cue": [
+      "b63",
+      "handling"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "metal",
+   "kind": "callout",
+   "cell": [
+    7,
+    2,
+    5,
+    2
+   ],
+   "cue": [
+    "b63",
+    "टिकाऊ,"
+   ],
+   "text": "टिकाऊ, measured metallic units उपयोगी बने।",
+   "style": "box",
+   "tone": "accent",
+   "align": "center",
+   "size": 30,
+   "marks": [
+    {
+     "phrase": "measured",
+     "cue": [
+      "b63",
+      "measured"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "transition",
+   "kind": "arrow",
+   "cue": [
+    "b63",
+    "metallic"
+   ],
+   "tone": "accent",
+   "from": "matching",
+   "to": "metal",
+   "from_side": "r",
+   "to_side": "l",
+   "elbow": "hv",
+   "flow": {
+    "icon": "fa:solid/coins",
+    "count": 1,
+    "period": 1800,
+    "size": 28,
+    "cue": [
+     "b63",
+     "metallic"
+    ]
+   }
+  }
+ ],
+ "camera": [
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    8
+   ],
+   "cue": [
+    "b59",
+    "यह"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b63",
+    "Matching"
+   ]
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b60",
+    "Weight"
+   ],
+   "ids": [
+    "anchor",
+    "standard"
+   ],
+   "until_cue": [
+    "b60",
+    "इनके"
+   ]
+  },
+  {
+   "cue": [
+    "b61",
+    "इसलिए"
+   ],
+   "ids": [
+    "anchor",
+    "division",
+    "spoil",
+    "bulk",
+    "cost"
+   ],
+   "until_cue": [
+    "b62",
+    "सब"
+   ]
+  },
+  {
+   "cue": [
+    "b62",
+    "‘सभी’"
+   ],
+   "ids": [
+    "anchor",
+    "qualification",
+    "grain-division",
+    "shells",
+    "all-warning"
+   ],
+   "until_cue": [
+    "b63",
+    "Matching"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

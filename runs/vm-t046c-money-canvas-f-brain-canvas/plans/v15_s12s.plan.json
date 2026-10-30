@@ -1,0 +1,226 @@
+{
+ "id": "v15_s12s",
+ "part_id": "c39.1",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b55",
+   "say": "Bank में ₹1000 तय समय के लिए रखो तो तुरंत खर्च करोगे? जल्दी निकालने की शर्तें हो सकती हैं। ये Time Deposits हैं; FD, recurring deposits और दूसरे bank time deposits M3 में आते हैं।"
+  },
+  {
+   "beat_id": "b57",
+   "say": "M1 ₹5000 में bank time deposits ₹6000 जोड़ो: ₹11000, यानी M3 या Broad Money। फिर Post Office savings ₹2000 और दूसरे eligible deposits ₹3000 जोड़ो: ₹16000, यानी M4; NSC बाहर है।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank",
+   "kind": "bank",
+   "x": 2600,
+   "sign": "Bank",
+   "cue": [
+    "b55",
+    "Bank"
+   ]
+  },
+  {
+   "id": "clerk",
+   "kind": "teller",
+   "x": 2600,
+   "cue": [
+    "b55",
+    "Bank"
+   ]
+  },
+  {
+   "id": "depositor",
+   "kind": "crowd",
+   "x0": 2330,
+   "spacing": 75,
+   "enter_x": 2050,
+   "exit_x": 2050,
+   "face": 1,
+   "seed": 7,
+   "cue": [
+    "b55",
+    "रखो"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b55",
+      "रखो"
+     ],
+     "n": 1
+    }
+   ]
+  },
+  {
+   "id": "deposit_explanation",
+   "kind": "board",
+   "x": 3210,
+   "y": 440,
+   "fill": "#E6D9BE",
+   "cue": [
+    "b55",
+    "₹1000"
+   ],
+   "until_cue": [
+    "b57",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b55",
+      "₹1000"
+     ],
+     "text": "₹1000 तय समय के लिए रखो"
+    },
+    {
+     "cue": [
+      "b55",
+      "शर्तें"
+     ],
+     "text": "जल्दी निकालने की\nशर्तें हो सकती हैं।"
+    },
+    {
+     "cue": [
+      "b55",
+      "Time"
+     ],
+     "text": "ये Time Deposits हैं।"
+    },
+    {
+     "cue": [
+      "b55",
+      "M3"
+     ],
+     "text": "FD, recurring deposits और दूसरे\nbank time deposits M3 में आते हैं।"
+    }
+   ]
+  },
+  {
+   "id": "aggregate_calculation",
+   "kind": "board",
+   "x": 3210,
+   "y": 440,
+   "fill": "#DDE8DC",
+   "cue": [
+    "b57",
+    "₹6000"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b57",
+      "₹6000"
+     ],
+     "text": "M1 ₹5000 में bank time deposits\n₹6000 जोड़ो।"
+    },
+    {
+     "cue": [
+      "b57",
+      "₹11000,"
+     ],
+     "text": "₹11000, यानी M3 या Broad Money।",
+     "dir": "up"
+    },
+    {
+     "cue": [
+      "b57",
+      "₹3000"
+     ],
+     "text": "Post Office savings ₹2000\nऔर दूसरे eligible deposits\n₹3000 जोड़ो।"
+    },
+    {
+     "cue": [
+      "b57",
+      "₹16000,"
+     ],
+     "text": "₹16000, यानी M4।",
+     "dir": "up"
+    }
+   ]
+  },
+  {
+   "id": "nsc_exclusion",
+   "kind": "label",
+   "x": 3210,
+   "y": 690,
+   "text": "NSC बाहर है।",
+   "fill": "rgba(246,231,214,1)",
+   "cue": [
+    "b57",
+    "NSC"
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b55",
+    "",
+    0.0
+   ],
+   "x": 2770,
+   "y": 470,
+   "zoom": 0.9,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b55",
+    "जल्दी"
+   ],
+   "x": 2860,
+   "y": 470,
+   "zoom": 1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b55",
+    "FD,"
+   ],
+   "x": 2940,
+   "y": 460,
+   "zoom": 1.05,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b57",
+    "",
+    0.0
+   ],
+   "x": 2910,
+   "y": 460,
+   "zoom": 1,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b57",
+    "Post"
+   ],
+   "x": 3000,
+   "y": 470,
+   "zoom": 1.1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b57",
+    "NSC"
+   ],
+   "x": 2950,
+   "y": 490,
+   "zoom": 1,
+   "frames": 30
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

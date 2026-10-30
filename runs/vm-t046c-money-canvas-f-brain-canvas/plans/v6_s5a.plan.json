@@ -1,0 +1,243 @@
+{
+ "id": "v6_s5a",
+ "part_id": "c15.1",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b29",
+   "say": "Portrait बदले तो सारे rules बदलेंगे? 1947 में rupee independent India's currency बना; 1947–1957 transition में King's portrait की जगह Ashoka Lion Capital आया, लेकिन British monetary link कुछ समय रहा।"
+  },
+  {
+   "beat_id": "b30",
+   "say": "Ashoka Lion Capital national identity दिखाता है; monetary link external arrangement है। इसलिए दोनों का बदलाव एक दिन होना जरूरी नहीं।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "question",
+   "kind": "text",
+   "cell": [
+    0,
+    0,
+    12,
+    1
+   ],
+   "cue": [
+    "b29",
+    "Portrait"
+   ],
+   "until_cue": [
+    "b30",
+    "इसलिए"
+   ],
+   "text": "Portrait बदले तो सारे rules बदलेंगे?",
+   "style": "title",
+   "tone": "ink",
+   "fill": "paper",
+   "align": "center",
+   "size": 32
+  },
+  {
+   "id": "independence",
+   "kind": "text",
+   "cell": [
+    0,
+    1,
+    12,
+    1
+   ],
+   "cue": [
+    "b29",
+    "1947"
+   ],
+   "text": "1947 में rupee independent India's currency बना।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "paper",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "transition",
+   "kind": "text",
+   "cell": [
+    0,
+    2,
+    12,
+    1
+   ],
+   "cue": [
+    "b29",
+    "1947–1957"
+   ],
+   "text": "1947–1957 transition में King's portrait की जगह Ashoka Lion Capital आया।",
+   "style": "plain",
+   "tone": "muted",
+   "fill": "paper",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "symbol_change",
+   "kind": "text",
+   "cell": [
+    0,
+    3,
+    6,
+    2
+   ],
+   "cue": [
+    "b29",
+    "Ashoka"
+   ],
+   "until_cue": [
+    "b30",
+    "Ashoka"
+   ],
+   "text": "King's portrait की जगह Ashoka Lion Capital आया।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "paper",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "continuity",
+   "kind": "text",
+   "cell": [
+    6,
+    3,
+    6,
+    2
+   ],
+   "cue": [
+    "b29",
+    "British"
+   ],
+   "until_cue": [
+    "b30",
+    "monetary"
+   ],
+   "text": "British monetary link कुछ समय रहा।",
+   "style": "box",
+   "tone": "warm",
+   "fill": "paper",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "identity",
+   "kind": "text",
+   "cell": [
+    0,
+    3,
+    6,
+    2
+   ],
+   "cue": [
+    "b30",
+    "Ashoka"
+   ],
+   "text": "Ashoka Lion Capital national identity दिखाता है।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "paper",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "arrangement",
+   "kind": "text",
+   "cell": [
+    6,
+    3,
+    6,
+    2
+   ],
+   "cue": [
+    "b30",
+    "monetary"
+   ],
+   "text": "monetary link external arrangement है।",
+   "style": "box",
+   "tone": "warm",
+   "fill": "paper",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "conclusion",
+   "kind": "callout",
+   "cell": [
+    0,
+    5,
+    12,
+    2
+   ],
+   "cue": [
+    "b30",
+    "इसलिए"
+   ],
+   "text": "दोनों का बदलाव एक दिन होना जरूरी नहीं।",
+   "style": "note",
+   "tone": "ink",
+   "fill": "paper",
+   "align": "center",
+   "size": 32,
+   "marks": [
+    {
+     "phrase": "एक दिन होना जरूरी नहीं",
+     "cue": [
+      "b30",
+      "जरूरी"
+     ]
+    }
+   ]
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b30",
+    "Ashoka"
+   ],
+   "ids": [
+    "identity"
+   ],
+   "until_cue": [
+    "b30",
+    "monetary"
+   ]
+  },
+  {
+   "cue": [
+    "b30",
+    "monetary"
+   ],
+   "ids": [
+    "arrangement"
+   ],
+   "until_cue": [
+    "b30",
+    "इसलिए"
+   ]
+  },
+  {
+   "cue": [
+    "b30",
+    "इसलिए"
+   ],
+   "ids": [
+    "identity",
+    "arrangement",
+    "conclusion"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

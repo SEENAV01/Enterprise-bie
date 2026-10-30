@@ -1,0 +1,422 @@
+{
+ "id": "v15_s6",
+ "part_id": "c37.2",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b26",
+   "say": "Public cash ₹1000, vault cash ₹200 और bank का RBI balance ₹800 हो तो कितना base पैसा है? Other RBI deposits zero मानकर total ₹2000 है।"
+  },
+  {
+   "beat_id": "b27",
+   "say": "Bank RBI account से ₹100 के notes लेता है। Vault cash ₹300 और RBI balance ₹700 हो जाता है। M0 ₹2000 रहता है; public cash नहीं बढ़ता।"
+  },
+  {
+   "beat_id": "b28",
+   "say": "C में public और bank cash हैं। Bankers' Deposits में CRR balances भी हैं; Cash Reserve Ratio यानी relevant liabilities का तय हिस्सा bank RBI में रखता है।"
+  },
+  {
+   "beat_id": "b29",
+   "say": "Account किसका, कहाँ? Bank का RBI account Bankers' Deposits है; eligible दूसरे RBI deposits OD हैं। तुम्हारा commercial-bank account OD नहीं: वह RBI में नहीं है।"
+  },
+  {
+   "beat_id": "b30",
+   "say": "M0 = C + OD + Bankers' Deposits। एक ही date और unit के balances जोड़ो; customer के commercial-bank deposits इसमें मत डालना।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank",
+   "kind": "bank",
+   "x": 2600,
+   "y": 860,
+   "sign": "bank",
+   "cue": [
+    "b26",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "teller",
+   "kind": "teller",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b26",
+    "bank"
+   ]
+  },
+  {
+   "id": "public",
+   "kind": "board",
+   "x": 2120,
+   "y": 390,
+   "fill": "#58796C",
+   "cue": [
+    "b26",
+    "₹1000,"
+   ],
+   "until_cue": [
+    "b28",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b26",
+      "₹1000,"
+     ],
+     "text": "Public cash ₹1000 है।"
+    }
+   ]
+  },
+  {
+   "id": "vault",
+   "kind": "board",
+   "x": 2600,
+   "y": 390,
+   "fill": "#58796C",
+   "cue": [
+    "b26",
+    "₹200"
+   ],
+   "until_cue": [
+    "b28",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b26",
+      "₹200"
+     ],
+     "text": "Vault cash ₹200 है।"
+    },
+    {
+     "cue": [
+      "b27",
+      "₹300"
+     ],
+     "text": "Vault cash ₹300 है।",
+     "dir": "up"
+    }
+   ]
+  },
+  {
+   "id": "reserve",
+   "kind": "board",
+   "x": 3080,
+   "y": 390,
+   "fill": "#58796C",
+   "cue": [
+    "b26",
+    "₹800"
+   ],
+   "until_cue": [
+    "b28",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b26",
+      "₹800"
+     ],
+     "text": "Bank का RBI balance ₹800 है।"
+    },
+    {
+     "cue": [
+      "b27",
+      "₹700"
+     ],
+     "text": "RBI balance ₹700 है।",
+     "dir": "down"
+    }
+   ]
+  },
+  {
+   "id": "total",
+   "kind": "board",
+   "x": 2600,
+   "y": 130,
+   "fill": "#486C87",
+   "cue": [
+    "b26",
+    "₹2000"
+   ],
+   "until_cue": [
+    "b28",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b26",
+      "₹2000"
+     ],
+     "text": "Other RBI deposits zero हैं।\nTotal ₹2000 है।"
+    },
+    {
+     "cue": [
+      "b27",
+      "₹2000"
+     ],
+     "text": "M0 ₹2000 रहता है;\npublic cash नहीं बढ़ता।"
+    }
+   ]
+  },
+  {
+   "id": "currency",
+   "kind": "board",
+   "x": 2120,
+   "y": 390,
+   "fill": "#58796C",
+   "cue": [
+    "b28",
+    "cash"
+   ],
+   "until_cue": [
+    "b29",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b28",
+      "cash"
+     ],
+     "text": "C में public और bank cash हैं।"
+    }
+   ]
+  },
+  {
+   "id": "bankers",
+   "kind": "board",
+   "x": 3080,
+   "y": 390,
+   "fill": "#486C87",
+   "cue": [
+    "b28",
+    "balances"
+   ],
+   "until_cue": [
+    "b29",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b28",
+      "balances"
+     ],
+     "text": "Bankers' Deposits में\nCRR balances भी हैं।"
+    },
+    {
+     "cue": [
+      "b28",
+      "हिस्सा"
+     ],
+     "text": "Bank relevant liabilities का\nतय हिस्सा RBI में रखता है।"
+    }
+   ]
+  },
+  {
+   "id": "classification",
+   "kind": "board",
+   "x": 2600,
+   "y": 350,
+   "fill": "#486C87",
+   "cue": [
+    "b29",
+    "Bankers'"
+   ],
+   "until_cue": [
+    "b30",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b29",
+      "Bankers'"
+     ],
+     "text": "Bank का RBI account\nBankers' Deposits है।"
+    },
+    {
+     "cue": [
+      "b29",
+      "OD"
+     ],
+     "text": "Eligible दूसरे RBI deposits OD हैं।"
+    },
+    {
+     "cue": [
+      "b29",
+      "नहीं:"
+     ],
+     "text": "तुम्हारा commercial-bank account\nOD नहीं है; वह RBI में नहीं है।"
+    }
+   ]
+  },
+  {
+   "id": "conclusion",
+   "kind": "board",
+   "x": 2600,
+   "y": 350,
+   "fill": "#58796C",
+   "cue": [
+    "b30",
+    "Bankers'"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b30",
+      "Bankers'"
+     ],
+     "text": "M0 में C, OD और\nBankers' Deposits जोड़ो।"
+    },
+    {
+     "cue": [
+      "b30",
+      "unit"
+     ],
+     "text": "एक ही date और unit के\nbalances जोड़ो।"
+    },
+    {
+     "cue": [
+      "b30",
+      "deposits"
+     ],
+     "text": "Customer के commercial-bank\n deposits इसमें मत डालना।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b26",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 450,
+   "zoom": 0.8,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b26",
+    "कितना"
+   ],
+   "x": 2600,
+   "y": 340,
+   "zoom": 0.9,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b27",
+    "₹100"
+   ],
+   "x": 2830,
+   "y": 420,
+   "zoom": 1.05,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b27",
+    "M0"
+   ],
+   "x": 2600,
+   "y": 340,
+   "zoom": 0.8,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b28",
+    "",
+    0.0
+   ],
+   "x": 2360,
+   "y": 410,
+   "zoom": 0.95,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b28",
+    "CRR"
+   ],
+   "x": 2860,
+   "y": 410,
+   "zoom": 0.95,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b28",
+    "यानी"
+   ],
+   "x": 2970,
+   "y": 390,
+   "zoom": 1.1,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b29",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 420,
+   "zoom": 1.15,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b29",
+    "तुम्हारा"
+   ],
+   "x": 2600,
+   "y": 370,
+   "zoom": 1.25,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b30",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 420,
+   "zoom": 1.1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b30",
+    "customer"
+   ],
+   "x": 2600,
+   "y": 390,
+   "zoom": 1.25,
+   "frames": 40
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

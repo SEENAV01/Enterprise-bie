@@ -1,0 +1,323 @@
+{
+ "id": "v7_s3b",
+ "part_id": "c17.3",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b19",
+   "say": "Treasury को भारी नुकसान हुआ; इससे exact रकम या लौटे नकली coins की गिनती मत निकालिए। Example केवल silver outflow दिखाता है; net loss में लौटे coins की कीमत, issue की कमाई और खर्च भी गिनेंगे।"
+  },
+  {
+   "beat_id": "b20",
+   "say": "‘Copper नहीं चला, इसलिए paper नहीं चलेगा’—गलत। Material नहीं, पहचान और आगे acceptance देखिए। Advanced security नकल रोकने में मदद करती है; fraud असंभव नहीं बनाती।"
+  },
+  {
+   "beat_id": "b21",
+   "say": "याद रखिए: पुराने tokens में कमजोर सुरक्षा और टूटा भरोसा; modern fiat में State और Central Bank backing, advanced security और institutional credibility।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank",
+   "kind": "bank",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b19",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "teller",
+   "kind": "teller",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b19",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "loss",
+   "kind": "board",
+   "x": 2090,
+   "y": 510,
+   "fill": "#EEE4CF",
+   "cue": [
+    "b19",
+    "नुकसान"
+   ],
+   "until_cue": [
+    "b20",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b19",
+      "नुकसान"
+     ],
+     "text": "Treasury को भारी नुकसान हुआ।"
+    },
+    {
+     "cue": [
+      "b19",
+      "net"
+     ],
+     "text": "Net loss में लौटे coins की कीमत,\nissue की कमाई और खर्च भी गिनेंगे।"
+    }
+   ]
+  },
+  {
+   "id": "example_limit",
+   "kind": "label",
+   "x": 3030,
+   "y": 390,
+   "text": "Example केवल silver outflow दिखाता है।",
+   "fill": "rgba(245,237,214,1)",
+   "cue": [
+    "b19",
+    "Example"
+   ],
+   "until_cue": [
+    "b20",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "acceptance",
+   "kind": "board",
+   "x": 2090,
+   "y": 510,
+   "fill": "#EEE4CF",
+   "cue": [
+    "b20",
+    "Material"
+   ],
+   "until_cue": [
+    "b21",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b20",
+      "Material"
+     ],
+     "text": "Material नहीं, पहचान और\nआगे acceptance देखिए।"
+    }
+   ]
+  },
+  {
+   "id": "security",
+   "kind": "board",
+   "x": 3110,
+   "y": 510,
+   "fill": "#DFEADF",
+   "cue": [
+    "b20",
+    "Advanced"
+   ],
+   "until_cue": [
+    "b21",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b20",
+      "Advanced"
+     ],
+     "text": "Advanced security नकल रोकने में\nमदद करती है।"
+    },
+    {
+     "cue": [
+      "b20",
+      "fraud"
+     ],
+     "text": "Fraud असंभव नहीं बनाती।"
+    }
+   ]
+  },
+  {
+   "id": "old_tokens",
+   "kind": "board",
+   "x": 2090,
+   "y": 510,
+   "fill": "#EEE4CF",
+   "cue": [
+    "b21",
+    "tokens"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b21",
+      "tokens"
+     ],
+     "text": "पुराने tokens में कमजोर सुरक्षा\nऔर टूटा भरोसा।"
+    }
+   ]
+  },
+  {
+   "id": "modern_fiat",
+   "kind": "board",
+   "x": 3110,
+   "y": 510,
+   "fill": "#DFEADF",
+   "cue": [
+    "b21",
+    "State"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b21",
+      "State"
+     ],
+     "text": "Modern fiat में State और\nCentral Bank backing।"
+    },
+    {
+     "cue": [
+      "b21",
+      "advanced"
+     ],
+     "text": "Modern fiat में advanced security\nऔर institutional credibility।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b19",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 540,
+   "zoom": 0.85,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b19",
+    "exact"
+   ],
+   "x": 2370,
+   "y": 520,
+   "zoom": 1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b19",
+    "Example"
+   ],
+   "x": 2600,
+   "y": 510,
+   "zoom": 0.85,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b19",
+    "खर्च"
+   ],
+   "x": 2370,
+   "y": 530,
+   "zoom": 1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b20",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 540,
+   "zoom": 0.85,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b20",
+    "Material"
+   ],
+   "x": 2370,
+   "y": 520,
+   "zoom": 1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b20",
+    "Advanced"
+   ],
+   "x": 2600,
+   "y": 520,
+   "zoom": 0.85,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b20",
+    "fraud"
+   ],
+   "x": 2830,
+   "y": 520,
+   "zoom": 1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b21",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 540,
+   "zoom": 0.85,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b21",
+    "tokens"
+   ],
+   "x": 2370,
+   "y": 520,
+   "zoom": 1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b21",
+    "State"
+   ],
+   "x": 2600,
+   "y": 520,
+   "zoom": 0.85,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b21",
+    "institutional"
+   ],
+   "x": 2600,
+   "y": 540,
+   "zoom": 0.9,
+   "frames": 45
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

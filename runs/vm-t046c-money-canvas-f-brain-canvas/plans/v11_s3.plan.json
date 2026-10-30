@@ -1,0 +1,378 @@
+{
+ "id": "v11_s3",
+ "part_id": "c26.3",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b15",
+   "say": "Online दुकान से ₹200 का राशन लें तो पीछे कौन काम करता है? आप app पर payment मंज़ूर करते हैं; app request भेजती है, checkout की दूसरी service जानकारी आगे पहुँचाती है। आपका account रखने वाला bank ₹200 का debit सँभालता है; दुकानदार receiving side पर payment लेता है।"
+  },
+  {
+   "beat_id": "b16",
+   "say": "इन banks को जोड़ने वाला साझा इंतज़ाम NPCI का retail payment infrastructure है; वह customer deposits नहीं रखता। सामने की customer-facing layer में commercial banks, payments banks, small finance banks, payment apps, payment gateways और merchants आते हैं। यानी पीछे जोड़ने वाली सड़कें, आगे आपका काम करने वाले counters।"
+  },
+  {
+   "beat_id": "b17",
+   "say": "हर bank loan दे सकता है? Commercial banks deposits, payments और loans देते हैं। Payments banks तय नियमों में deposits और transfers, लेकिन lending नहीं करते; small finance banks loans भी देते हैं, खास ध्यान छोटे businesses और कम banking पहुँच वाले customers पर होता है।"
+  },
+  {
+   "beat_id": "b18",
+   "say": "उस ₹200 checkout में account इन 3 bank categories में से किसी एक में हो सकता है, eligibility के मुताबिक। App आपका interface, gateway checkout की जानकारी का रास्ता, grocer merchant है। अपना deposit खर्च करना loan लेना नहीं; इसलिए payments bank की payment सुविधा और lending पर रोक में कोई टकराव नहीं।"
+  },
+  {
+   "beat_id": "b19",
+   "say": "NPCI जोड़ता है, bank deposit रखता है, app और gateway request पहुँचाते हैं; merchant सामान बेचता है।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "account_bank",
+   "kind": "bank",
+   "x": 2600,
+   "y": 860,
+   "sign": "bank",
+   "cue": [
+    "b15",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "clerk",
+   "kind": "teller",
+   "x": 2600,
+   "cue": [
+    "b15",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "customer",
+   "kind": "crowd",
+   "x0": 2330,
+   "spacing": 90,
+   "enter_x": 1900,
+   "exit_x": 1900,
+   "face": 1,
+   "seed": 7,
+   "cue": [
+    "b15",
+    "आप"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b15",
+      "आप"
+     ],
+     "n": 1
+    }
+   ]
+  },
+  {
+   "id": "checkout_roles",
+   "kind": "board",
+   "x": 1980,
+   "y": 420,
+   "fill": "#E4EFEA",
+   "cue": [
+    "b15",
+    "₹200"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b15",
+      "₹200"
+     ],
+     "text": "₹200 का राशन लें"
+    },
+    {
+     "cue": [
+      "b15",
+      "request"
+     ],
+     "text": "App request भेजती है।"
+    },
+    {
+     "cue": [
+      "b15",
+      "दूसरी"
+     ],
+     "text": "Checkout की दूसरी service\nजानकारी आगे पहुँचाती है।"
+    },
+    {
+     "cue": [
+      "b15",
+      "debit"
+     ],
+     "text": "Bank ₹200 का debit सँभालता है।"
+    },
+    {
+     "cue": [
+      "b15",
+      "receiving"
+     ],
+     "text": "दुकानदार payment लेता है।"
+    },
+    {
+     "cue": [
+      "b16",
+      "NPCI"
+     ],
+     "text": "NPCI का infrastructure\nbanks को जोड़ता है।"
+    },
+    {
+     "cue": [
+      "b16",
+      "merchants"
+     ],
+     "text": "Customer-facing layer में\nbanks, apps, gateways\nऔर merchants आते हैं।"
+    },
+    {
+     "cue": [
+      "b17",
+      "Commercial"
+     ],
+     "text": "Commercial banks deposits,\npayments और loans देते हैं।"
+    },
+    {
+     "cue": [
+      "b17",
+      "Payments"
+     ],
+     "text": "Payments banks deposits और\ntransfers करते हैं,\nलेकिन lending नहीं करते।"
+    },
+    {
+     "cue": [
+      "b17",
+      "small"
+     ],
+     "text": "Small finance banks\nloans भी देते हैं।"
+    },
+    {
+     "cue": [
+      "b18",
+      "categories"
+     ],
+     "text": "₹200 checkout का account\n3 bank categories में से\nकिसी एक में हो सकता है।"
+    },
+    {
+     "cue": [
+      "b18",
+      "interface,"
+     ],
+     "text": "App आपका interface है।"
+    },
+    {
+     "cue": [
+      "b18",
+      "gateway"
+     ],
+     "text": "Gateway checkout की\nजानकारी का रास्ता है।"
+    },
+    {
+     "cue": [
+      "b18",
+      "merchant"
+     ],
+     "text": "Grocer merchant है।"
+    },
+    {
+     "cue": [
+      "b19",
+      "deposit"
+     ],
+     "text": "NPCI जोड़ता है;\nbank deposit रखता है।"
+    },
+    {
+     "cue": [
+      "b19",
+      "merchant"
+     ],
+     "text": "App और gateway\nrequest पहुँचाते हैं;\nmerchant सामान बेचता है।"
+    }
+   ]
+  },
+  {
+   "id": "distinctions",
+   "kind": "board",
+   "x": 3220,
+   "y": 420,
+   "fill": "#F3E8D3",
+   "cue": [
+    "b16",
+    "deposits"
+   ],
+   "until_cue": [
+    "b19",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b16",
+      "deposits"
+     ],
+     "text": "NPCI customer deposits\nनहीं रखता।"
+    },
+    {
+     "cue": [
+      "b16",
+      "सड़कें,"
+     ],
+     "text": "पीछे जोड़ने वाली सड़कें,\nआगे काम करने वाले counters हैं।"
+    },
+    {
+     "cue": [
+      "b17",
+      "loan"
+     ],
+     "text": "हर bank loan दे सकता है?"
+    },
+    {
+     "cue": [
+      "b17",
+      "businesses"
+     ],
+     "text": "खास ध्यान छोटे businesses और\nकम banking पहुँच वाले\ncustomers पर होता है।"
+    },
+    {
+     "cue": [
+      "b18",
+      "खर्च"
+     ],
+     "text": "अपना deposit खर्च करना\nloan लेना नहीं है।"
+    },
+    {
+     "cue": [
+      "b18",
+      "रोक"
+     ],
+     "text": "Payments bank की payment सुविधा\nऔर lending पर रोक में\nकोई टकराव नहीं है।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b15",
+    "",
+    0.0
+   ],
+   "x": 2510,
+   "y": 530,
+   "zoom": 0.8,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b15",
+    "payment"
+   ],
+   "x": 2360,
+   "y": 520,
+   "zoom": 0.95,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b15",
+    "account"
+   ],
+   "x": 2470,
+   "y": 530,
+   "zoom": 0.9,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b16",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 510,
+   "zoom": 0.8,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b16",
+    "commercial"
+   ],
+   "x": 2550,
+   "y": 500,
+   "zoom": 0.82,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b17",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 510,
+   "zoom": 0.8,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b17",
+    "lending"
+   ],
+   "x": 2470,
+   "y": 510,
+   "zoom": 0.88,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b17",
+    "ध्यान"
+   ],
+   "x": 2600,
+   "y": 510,
+   "zoom": 0.8,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b18",
+    "",
+    0.0
+   ],
+   "x": 2510,
+   "y": 510,
+   "zoom": 0.82,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b18",
+    "अपना"
+   ],
+   "x": 2660,
+   "y": 510,
+   "zoom": 0.8,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b19",
+    "",
+    0.0
+   ],
+   "x": 2420,
+   "y": 530,
+   "zoom": 0.88,
+   "frames": 45
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

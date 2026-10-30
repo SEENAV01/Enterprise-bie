@@ -1,0 +1,802 @@
+{
+ "id": "v6_s2s",
+ "part_id": "c14.2",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b5",
+   "say": "Agra के imaginary बाज़ार में 10 units का कपड़ा है; unfamiliar coins कैसे जाँचोगे? मान लो weights 8 g और 10 g, purity uncertain और checking fee 1 unit है; खर्च 11 हुआ।"
+  },
+  {
+   "beat_id": "b6",
+   "say": "मान लो 2 mints ने common purity वाले 10 g coins बनाए हैं। Merchant इन्हें लेता है; checking का 1 unit बचा, इसलिए तुमने 11 नहीं, 10 units दिए।"
+  },
+  {
+   "beat_id": "b7",
+   "say": "यही standardization का फायदा है; example के numbers historical नहीं। 1540 में Sher Shah Suri ने silver Rupiya दिया: लगभग 178 grains, यानी 11.5 grams, high purity और empire में uniform standard।"
+  },
+  {
+   "beat_id": "b8",
+   "say": "Grains weight की unit है, अनाज नहीं। Weight कुल mass, purity उसमें silver का हिस्सा है; common standard बार-बार तौलने और जाँचने का काम घटाता है।"
+  },
+  {
+   "beat_id": "b9",
+   "say": "Empire भर में coins कहाँ बनेंगे? Mughal standardization, 1556–1707 में Akbar ने minting बढ़ाई; hundreds of mints, यानी coin factories, standardized-weight silver coins बनाती थीं।"
+  },
+  {
+   "beat_id": "b10",
+   "say": "Emperor का नाम issuing authority बताता था। Company ने 1757–1835 में शुरुआत में familiar Mughal-style coins रखे, लेकिन Bombay, Calcutta और Madras Presidencies अलग coins बनाती थीं।"
+  },
+  {
+   "beat_id": "b11",
+   "say": "अलग coins एक जैसे कब हुए? Currency Act of 1835 ने uniform Indian Rupee, standard design और British India में single legal tender दिया—यानी कानून के नियमों से payment चुकाने में accepted पैसा।"
+  },
+  {
+   "beat_id": "b12",
+   "say": "Uniformity का मतलब decimalisation नहीं। Queen/King portrait की broad पहचान में याद रखो: original 1835 issue William IV का था, Queen Victoria का नहीं।"
+  },
+  {
+   "beat_id": "b13",
+   "say": "Notes कौन जारी करे? Paper Currency Act, 1861 ने British government को exclusive right दिया, यानी एक authorised issuer। Issuance currency बनाता है; lending वापस चुकाने की शर्त वाला loan है।"
+  },
+  {
+   "beat_id": "b14",
+   "say": "विदेशी seller को gold दिए बिना कैसे चुकाएँ? Mumbai bank के imaginary ₹10 per £1 rate पर importer के ₹100 से £10 भेजे; sterling reserve £100 से £90, seller receipt £0 से £10 हुई।"
+  },
+  {
+   "beat_id": "b15",
+   "say": "Sterling gold-linked हो तो यही indirect bridge Gold Exchange Standard है, domestic gold redemption नहीं। Silver के बदलते भाव के जवाब में Fowler Committee, 1898 ने rupee को gold से जोड़ने की recommendation दी।"
+  },
+  {
+   "beat_id": "b16",
+   "say": "1898 timeline marker है; implementation में late-1890s, खासकर 1899 भी याद रखो। ₹10 per £1 historical rate नहीं; exchange link चलाने को reserves और policy चाहिए।"
+  }
+ ],
+ "kit": "shop",
+ "elements": [
+  {
+   "id": "market",
+   "kind": "shop",
+   "x": 2350,
+   "y": 860,
+   "sign": "कपड़ा",
+   "cue": [
+    "b5",
+    "",
+    0.0
+   ],
+   "packets": [
+    {
+     "n": 1,
+     "cue": [
+      "b5",
+      "कपड़ा"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "merchant",
+   "kind": "shopkeeper",
+   "x": 2350,
+   "y": 860,
+   "cue": [
+    "b5",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "buyer",
+   "kind": "crowd",
+   "x0": 1920,
+   "spacing": 100,
+   "enter_x": 1600,
+   "exit_x": 1500,
+   "face": 1,
+   "seed": 14,
+   "cue": [
+    "b5",
+    "unfamiliar"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b5",
+      "unfamiliar"
+     ],
+     "n": 1
+    }
+   ]
+  },
+  {
+   "id": "caveat",
+   "kind": "label",
+   "x": 2450,
+   "y": 180,
+   "text": "यह imaginary बाज़ार है।",
+   "fill": "#F5E8C8",
+   "cue": [
+    "b5",
+    "imaginary"
+   ],
+   "until_cue": [
+    "b7",
+    "1540"
+   ]
+  },
+  {
+   "id": "checking",
+   "kind": "board",
+   "x": 3090,
+   "y": 410,
+   "fill": "#D9E8E1",
+   "cue": [
+    "b5",
+    "10"
+   ],
+   "until_cue": [
+    "b7",
+    "standardization"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b5",
+      "10"
+     ],
+     "text": "कपड़ा 10 units का है।"
+    },
+    {
+     "cue": [
+      "b5",
+      "weights"
+     ],
+     "text": "Weights 8 g और 10 g हैं;\npurity uncertain है।"
+    },
+    {
+     "cue": [
+      "b5",
+      "fee"
+     ],
+     "text": "Checking fee 1 unit है।"
+    },
+    {
+     "cue": [
+      "b5",
+      "11"
+     ],
+     "text": "खर्च 11 हुआ।",
+     "dir": "up"
+    },
+    {
+     "cue": [
+      "b6",
+      "mints"
+     ],
+     "text": "2 mints के 10 g coins की\npurity common है।"
+    },
+    {
+     "cue": [
+      "b6",
+      "बचा,"
+     ],
+     "text": "Checking का 1 unit बचा।",
+     "dir": "down"
+    },
+    {
+     "cue": [
+      "b6",
+      "10"
+     ],
+     "text": "तुमने 10 units दिए।",
+     "dir": "down"
+    }
+   ]
+  },
+  {
+   "id": "rupiya",
+   "kind": "board",
+   "x": 3090,
+   "y": 410,
+   "fill": "#D9E8E1",
+   "cue": [
+    "b7",
+    "standardization"
+   ],
+   "until_cue": [
+    "b9",
+    "Empire"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b7",
+      "standardization"
+     ],
+     "text": "यह standardization का फायदा है।"
+    },
+    {
+     "cue": [
+      "b7",
+      "1540"
+     ],
+     "text": "1540 में Sher Shah Suri ने\nsilver Rupiya दिया।"
+    },
+    {
+     "cue": [
+      "b7",
+      "178"
+     ],
+     "text": "लगभग 178 grains,\nयानी 11.5 grams।"
+    },
+    {
+     "cue": [
+      "b7",
+      "high"
+     ],
+     "text": "High purity और empire में\nuniform standard था।"
+    },
+    {
+     "cue": [
+      "b8",
+      "Grains"
+     ],
+     "text": "Grains weight की unit है,\nअनाज नहीं।"
+    },
+    {
+     "cue": [
+      "b8",
+      "Weight"
+     ],
+     "text": "Weight कुल mass है;\npurity उसमें silver का हिस्सा है।"
+    },
+    {
+     "cue": [
+      "b8",
+      "common"
+     ],
+     "text": "Common standard तौलने और\nजाँचने का काम घटाता है।"
+    }
+   ]
+  },
+  {
+   "id": "mint_network",
+   "kind": "board",
+   "x": 3090,
+   "y": 410,
+   "fill": "#D9E8E1",
+   "cue": [
+    "b9",
+    "Empire"
+   ],
+   "until_cue": [
+    "b11",
+    "अलग"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b9",
+      "Empire"
+     ],
+     "text": "Empire भर में coins कहाँ बनेंगे?"
+    },
+    {
+     "cue": [
+      "b9",
+      "1556–1707"
+     ],
+     "text": "1556–1707 में Akbar ने\nminting बढ़ाई।"
+    },
+    {
+     "cue": [
+      "b9",
+      "hundreds"
+     ],
+     "text": "Hundreds of mints standardized-weight\nsilver coins बनाती थीं।"
+    },
+    {
+     "cue": [
+      "b10",
+      "Emperor"
+     ],
+     "text": "Emperor का नाम\nissuing authority बताता था।"
+    },
+    {
+     "cue": [
+      "b10",
+      "1757–1835"
+     ],
+     "text": "1757–1835 में Company ने शुरू में\nMughal-style coins रखे।"
+    },
+    {
+     "cue": [
+      "b10",
+      "Bombay,"
+     ],
+     "text": "Bombay, Calcutta और Madras\nअलग coins बनाती थीं।"
+    }
+   ]
+  },
+  {
+   "id": "uniform_rupee",
+   "kind": "board",
+   "x": 3090,
+   "y": 410,
+   "fill": "#D9E8E1",
+   "cue": [
+    "b11",
+    "अलग"
+   ],
+   "until_cue": [
+    "b13",
+    "Notes"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b11",
+      "अलग"
+     ],
+     "text": "अलग coins एक जैसे कब हुए?"
+    },
+    {
+     "cue": [
+      "b11",
+      "1835"
+     ],
+     "text": "Currency Act of 1835 ने\nuniform Indian Rupee दिया।"
+    },
+    {
+     "cue": [
+      "b11",
+      "standard"
+     ],
+     "text": "British India में standard design\nऔर single legal tender मिला।"
+    },
+    {
+     "cue": [
+      "b11",
+      "कानून"
+     ],
+     "text": "कानून के नियमों से payment में\naccepted पैसा legal tender है।"
+    },
+    {
+     "cue": [
+      "b12",
+      "Uniformity"
+     ],
+     "text": "Uniformity का मतलब\ndecimalisation नहीं।"
+    },
+    {
+     "cue": [
+      "b12",
+      "original"
+     ],
+     "text": "Original 1835 issue William IV का था,\nQueen Victoria का नहीं।"
+    }
+   ]
+  },
+  {
+   "id": "issuance",
+   "kind": "board",
+   "x": 3090,
+   "y": 410,
+   "fill": "#D9E8E1",
+   "cue": [
+    "b13",
+    "Notes"
+   ],
+   "until_cue": [
+    "b14",
+    "विदेशी"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b13",
+      "Notes"
+     ],
+     "text": "Notes कौन जारी करे?"
+    },
+    {
+     "cue": [
+      "b13",
+      "1861"
+     ],
+     "text": "Paper Currency Act, 1861 ने British\ngovernment को exclusive right दिया।"
+    },
+    {
+     "cue": [
+      "b13",
+      "Issuance"
+     ],
+     "text": "Issuance currency बनाता है।"
+    },
+    {
+     "cue": [
+      "b13",
+      "lending"
+     ],
+     "text": "Lending वापस चुकाने की\nशर्त वाला loan है।"
+    }
+   ]
+  },
+  {
+   "id": "settlement",
+   "kind": "board",
+   "x": 3090,
+   "y": 410,
+   "fill": "#D9E8E1",
+   "cue": [
+    "b14",
+    "विदेशी"
+   ],
+   "until_cue": [
+    "b15",
+    "Sterling"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b14",
+      "विदेशी"
+     ],
+     "text": "विदेशी seller को gold दिए बिना\nकैसे चुकाएँ?"
+    },
+    {
+     "cue": [
+      "b14",
+      "₹10"
+     ],
+     "text": "Mumbai bank का rate\n₹10 per £1 है।"
+    },
+    {
+     "cue": [
+      "b14",
+      "₹100"
+     ],
+     "text": "Importer के ₹100 से\n£10 भेजे।"
+    },
+    {
+     "cue": [
+      "b14",
+      "£100"
+     ],
+     "text": "Sterling reserve £100 है।"
+    },
+    {
+     "cue": [
+      "b14",
+      "£90,"
+     ],
+     "text": "Sterling reserve £90 है।",
+     "dir": "down"
+    },
+    {
+     "cue": [
+      "b14",
+      "£0"
+     ],
+     "text": "Seller receipt £0 है।"
+    },
+    {
+     "cue": [
+      "b14",
+      "£10"
+     ],
+     "text": "Seller receipt £10 हुई।",
+     "dir": "up"
+    }
+   ]
+  },
+  {
+   "id": "exchange_standard",
+   "kind": "board",
+   "x": 3090,
+   "y": 410,
+   "fill": "#D9E8E1",
+   "cue": [
+    "b15",
+    "Sterling"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b15",
+      "gold-linked"
+     ],
+     "text": "Gold-linked sterling indirect bridge है।"
+    },
+    {
+     "cue": [
+      "b15",
+      "Gold"
+     ],
+     "text": "Gold Exchange Standard\ndomestic gold redemption नहीं।"
+    },
+    {
+     "cue": [
+      "b15",
+      "Fowler"
+     ],
+     "text": "Fowler Committee, 1898 ने rupee को\ngold से जोड़ने की recommendation दी।"
+    },
+    {
+     "cue": [
+      "b16",
+      "1898"
+     ],
+     "text": "1898 timeline marker है।"
+    },
+    {
+     "cue": [
+      "b16",
+      "late-1890s,"
+     ],
+     "text": "Implementation में late-1890s,\nखासकर 1899 याद रखो।"
+    },
+    {
+     "cue": [
+      "b16",
+      "₹10"
+     ],
+     "text": "₹10 per £1 historical rate नहीं।"
+    },
+    {
+     "cue": [
+      "b16",
+      "reserves"
+     ],
+     "text": "Exchange link चलाने को\nreserves और policy चाहिए।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b5",
+    "",
+    0.0
+   ],
+   "x": 2580,
+   "y": 490,
+   "zoom": 0.9,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b5",
+    "weights"
+   ],
+   "x": 2820,
+   "y": 460,
+   "zoom": 1.05,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b6",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 490,
+   "zoom": 0.95,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b6",
+    "Merchant"
+   ],
+   "x": 2490,
+   "y": 490,
+   "zoom": 1,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b7",
+    "standardization"
+   ],
+   "x": 2700,
+   "y": 460,
+   "zoom": 1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b7",
+    "1540"
+   ],
+   "x": 2830,
+   "y": 440,
+   "zoom": 1.1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b8",
+    "Grains"
+   ],
+   "x": 2860,
+   "y": 440,
+   "zoom": 1.12,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b8",
+    "common"
+   ],
+   "x": 2650,
+   "y": 480,
+   "zoom": 0.98,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b9",
+    "Empire"
+   ],
+   "x": 2600,
+   "y": 480,
+   "zoom": 0.94,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b9",
+    "coin"
+   ],
+   "x": 2820,
+   "y": 450,
+   "zoom": 1.08,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b10",
+    "Emperor"
+   ],
+   "x": 2790,
+   "y": 450,
+   "zoom": 1.06,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b10",
+    "लेकिन"
+   ],
+   "x": 2690,
+   "y": 480,
+   "zoom": 0.98,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b11",
+    "अलग"
+   ],
+   "x": 2620,
+   "y": 480,
+   "zoom": 0.95,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b11",
+    "single"
+   ],
+   "x": 2840,
+   "y": 440,
+   "zoom": 1.1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b12",
+    "Uniformity"
+   ],
+   "x": 2790,
+   "y": 450,
+   "zoom": 1.06,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b12",
+    "Queen/King"
+   ],
+   "x": 2840,
+   "y": 440,
+   "zoom": 1.1,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b13",
+    "Notes"
+   ],
+   "x": 2650,
+   "y": 480,
+   "zoom": 0.98,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b13",
+    "यानी"
+   ],
+   "x": 2820,
+   "y": 445,
+   "zoom": 1.08,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b14",
+    "विदेशी"
+   ],
+   "x": 2620,
+   "y": 480,
+   "zoom": 0.95,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b14",
+    "₹10"
+   ],
+   "x": 2850,
+   "y": 440,
+   "zoom": 1.12,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b15",
+    "Sterling"
+   ],
+   "x": 2810,
+   "y": 450,
+   "zoom": 1.08,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b15",
+    "Silver"
+   ],
+   "x": 2690,
+   "y": 475,
+   "zoom": 1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b16",
+    "1898"
+   ],
+   "x": 2820,
+   "y": 445,
+   "zoom": 1.08,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b16",
+    "exchange"
+   ],
+   "x": 2600,
+   "y": 490,
+   "zoom": 0.94,
+   "frames": 50
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

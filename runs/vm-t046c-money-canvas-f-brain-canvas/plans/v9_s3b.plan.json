@@ -1,0 +1,266 @@
+{
+ "id": "v9_s3b",
+ "part_id": "c21.3",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b18",
+   "say": "Statements जाँचो: '2023 में ₹2,000 notes वापस लिए गए' सही है। 'यह चौथा major demonetisation था' गलत है, क्योंकि legal tender status बना रहा।"
+  },
+  {
+   "beat_id": "b18a",
+   "say": "लेकिन किसी दूसरे मामले में लौटाने के साथ legal status भी हटे, तो उसे demonetisation कहेंगे।"
+  },
+  {
+   "beat_id": "b19",
+   "say": "इसलिए category पहचानने का test है: note वापस आया, या उसका legal status भी हटा?"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "heading",
+   "kind": "text",
+   "cell": [
+    1,
+    1,
+    10,
+    1
+   ],
+   "cue": [
+    "b18",
+    "Statements"
+   ],
+   "text": "Statements जाँचो",
+   "style": "title",
+   "tone": "ink",
+   "align": "left",
+   "size": 34
+  },
+  {
+   "id": "withdrawal",
+   "kind": "text",
+   "cell": [
+    1,
+    2,
+    5,
+    2
+   ],
+   "cue": [
+    "b18",
+    "2023"
+   ],
+   "text": "2023 में ₹2,000 notes वापस लिए गए",
+   "style": "box",
+   "tone": "ink",
+   "fill": "band",
+   "align": "left",
+   "size": 30
+  },
+  {
+   "id": "withdrawal_correct",
+   "kind": "mark",
+   "cue": [
+    "b18",
+    "सही"
+   ],
+   "tone": "ok",
+   "target": "withdrawal",
+   "mark": "tick",
+   "pos": "tr"
+  },
+  {
+   "id": "fourth_claim",
+   "kind": "text",
+   "cell": [
+    6,
+    2,
+    5,
+    2
+   ],
+   "cue": [
+    "b18",
+    "चौथा"
+   ],
+   "text": "यह चौथा major demonetisation था",
+   "style": "box",
+   "tone": "ink",
+   "fill": "note",
+   "align": "left",
+   "size": 30
+  },
+  {
+   "id": "fourth_incorrect",
+   "kind": "mark",
+   "cue": [
+    "b18",
+    "गलत"
+   ],
+   "tone": "danger",
+   "target": "fourth_claim",
+   "mark": "cross",
+   "pos": "tr"
+  },
+  {
+   "id": "reason",
+   "kind": "callout",
+   "cell": [
+    1,
+    4,
+    10,
+    1
+   ],
+   "cue": [
+    "b18",
+    "legal"
+   ],
+   "text": "legal tender status बना रहा",
+   "style": "note",
+   "tone": "ok",
+   "fill": "band",
+   "align": "center",
+   "size": 30,
+   "marks": [
+    {
+     "phrase": "बना रहा",
+     "cue": [
+      "b18",
+      "बना"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "boundary",
+   "kind": "text",
+   "cell": [
+    1,
+    5,
+    10,
+    1
+   ],
+   "cue": [
+    "b18a",
+    "लौटाने"
+   ],
+   "until_cue": [
+    "b19",
+    "test"
+   ],
+   "text": "लौटाने के साथ legal status भी हटे",
+   "style": "box",
+   "tone": "warm",
+   "fill": "note",
+   "align": "center",
+   "size": 30,
+   "marks": [
+    {
+     "phrase": "legal status भी हटे",
+     "cue": [
+      "b18a",
+      "हटे,"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "boundary_result",
+   "kind": "text",
+   "cell": [
+    1,
+    6,
+    10,
+    1
+   ],
+   "cue": [
+    "b18a",
+    "demonetisation"
+   ],
+   "until_cue": [
+    "b19",
+    "test"
+   ],
+   "text": "तो उसे demonetisation कहेंगे",
+   "style": "box",
+   "tone": "accent",
+   "fill": "band",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "final_test",
+   "kind": "callout",
+   "cell": [
+    1,
+    5,
+    10,
+    2
+   ],
+   "cue": [
+    "b19",
+    "note"
+   ],
+   "text": "note वापस आया, या उसका legal status भी हटा?",
+   "style": "box",
+   "tone": "accent",
+   "fill": "band",
+   "align": "center",
+   "size": 34,
+   "marks": [
+    {
+     "phrase": "legal status भी हटा?",
+     "cue": [
+      "b19",
+      "legal"
+     ]
+    }
+   ]
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b18",
+    "क्योंकि"
+   ],
+   "ids": [
+    "withdrawal",
+    "withdrawal_correct",
+    "reason"
+   ],
+   "until_cue": [
+    "b18a",
+    "लेकिन"
+   ]
+  },
+  {
+   "cue": [
+    "b18a",
+    "लौटाने"
+   ],
+   "ids": [
+    "boundary",
+    "boundary_result"
+   ],
+   "until_cue": [
+    "b19",
+    "इसलिए"
+   ]
+  },
+  {
+   "cue": [
+    "b19",
+    "note"
+   ],
+   "ids": [
+    "final_test",
+    "reason"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

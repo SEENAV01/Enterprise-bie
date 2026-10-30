@@ -1,0 +1,111 @@
+{
+ "id": "v2_s1a",
+ "part_id": "c03.1",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b1",
+   "say": "अनाज देकर shoes चाहिए, लेकिन seller अनाज नहीं चाहता। अब खरीद कैसे होगी?"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "grain",
+   "kind": "icon",
+   "cell": [
+    1,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b1",
+    "अनाज"
+   ],
+   "tone": "warm",
+   "icon": "fa:solid/jar-wheat"
+  },
+  {
+   "id": "want",
+   "kind": "text",
+   "cell": [
+    0,
+    4,
+    5,
+    1
+   ],
+   "cue": [
+    "b1",
+    "shoes"
+   ],
+   "text": "अनाज देकर shoes चाहिए।",
+   "style": "box",
+   "tone": "ink",
+   "fill": "paper",
+   "align": "center",
+   "size": 32
+  },
+  {
+   "id": "seller",
+   "kind": "icon",
+   "cell": [
+    8,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b1",
+    "seller"
+   ],
+   "tone": "accent",
+   "icon": "fa:solid/shop"
+  },
+  {
+   "id": "refusal",
+   "kind": "text",
+   "cell": [
+    6,
+    4,
+    6,
+    1
+   ],
+   "cue": [
+    "b1",
+    "नहीं"
+   ],
+   "text": "seller अनाज नहीं चाहता।",
+   "style": "box",
+   "tone": "danger",
+   "fill": "paper",
+   "align": "center",
+   "size": 32
+  },
+  {
+   "id": "question",
+   "kind": "callout",
+   "cell": [
+    2,
+    6,
+    8,
+    1
+   ],
+   "cue": [
+    "b1",
+    "खरीद"
+   ],
+   "text": "अब खरीद कैसे होगी?",
+   "style": "note",
+   "tone": "accent",
+   "fill": "paper",
+   "align": "center",
+   "size": 36
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

@@ -1,0 +1,130 @@
+{
+ "id": "v15_s7a",
+ "part_id": "c37.3",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b31",
+   "say": "Loan से balance कैसे बढ़ता है? सारी ज़रूरी शर्तें पूरी मानो: Bank A ₹80 loan deposit बनाता है; borrower Bank B के supplier को देता है।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank_a",
+   "kind": "bank",
+   "x": 2600,
+   "sign": "Bank A",
+   "cue": [
+    "b31",
+    "Bank"
+   ]
+  },
+  {
+   "id": "conditions_note",
+   "kind": "label",
+   "x": 2600,
+   "y": 210,
+   "text": "सारी ज़रूरी शर्तें पूरी मानो",
+   "fill": "rgba(247,240,220,1)",
+   "cue": [
+    "b31",
+    "शर्तें"
+   ]
+  },
+  {
+   "id": "bank_clerk",
+   "kind": "teller",
+   "x": 2600,
+   "cue": [
+    "b31",
+    "Bank"
+   ]
+  },
+  {
+   "id": "loan_payment_board",
+   "kind": "board",
+   "x": 3150,
+   "y": 490,
+   "text": "Loan",
+   "fill": "#E8DFC9",
+   "cue": [
+    "b31",
+    "₹80"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b31",
+      "₹80"
+     ],
+     "text": "Bank A ₹80 loan\ndeposit बनाता है।"
+    },
+    {
+     "cue": [
+      "b31",
+      "supplier"
+     ],
+     "text": "borrower Bank B के\nsupplier को देता है।"
+    }
+   ]
+  },
+  {
+   "id": "borrower",
+   "kind": "crowd",
+   "x0": 2330,
+   "spacing": 90,
+   "enter_x": 2000,
+   "exit_x": 2000,
+   "face": 1,
+   "seed": 31,
+   "cue": [
+    "b31",
+    "borrower"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b31",
+      "borrower"
+     ],
+     "n": 1
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b31",
+    "",
+    0.0
+   ],
+   "x": 2700,
+   "y": 500,
+   "zoom": 0.9,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b31",
+    "₹80"
+   ],
+   "x": 2820,
+   "y": 510,
+   "zoom": 1.05,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b31",
+    "supplier"
+   ],
+   "x": 2800,
+   "y": 550,
+   "zoom": 1,
+   "frames": 40
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

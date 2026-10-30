@@ -1,0 +1,302 @@
+{
+ "id": "v13_s9",
+ "part_id": "c32.1",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b46",
+   "say": "किराने का ₹1,000 bill card से दिया, फिर दुकान को कितना मिला? मान लीजिए 2% fee के ₹20 कटे; दुकानदार को ₹980 मिले।"
+  },
+  {
+   "beat_id": "b47",
+   "say": "यही Merchant Discount Rate, MDR है: seller हर card transaction पर अपने acquirer bank को fee देता है, यानी merchant की तरफ के bank को।"
+  },
+  {
+   "beat_id": "b48",
+   "say": "Discount का मतलब buyer को छूट नहीं; buyer ने पूरा ₹1,000 bill दिया है।"
+  },
+  {
+   "beat_id": "b49",
+   "say": "इसलिए gross sale और net receipt अलग हैं: यहाँ ₹1,000 की बिक्री, ₹980 की receipt।"
+  }
+ ],
+ "kit": "shop",
+ "elements": [
+  {
+   "id": "kirana",
+   "kind": "shop",
+   "x": 2600,
+   "y": 860,
+   "sign": "किराने",
+   "cue": [
+    "b46",
+    "किराने"
+   ],
+   "packets": [
+    {
+     "n": 3,
+     "cue": [
+      "b46",
+      "किराने"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "merchant",
+   "kind": "shopkeeper",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b46",
+    "किराने"
+   ]
+  },
+  {
+   "id": "buyer",
+   "kind": "crowd",
+   "x0": 2220,
+   "spacing": 90,
+   "enter_x": 1800,
+   "exit_x": 1800,
+   "face": 1,
+   "seed": 17,
+   "cue": [
+    "b46",
+    "card"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b46",
+      "card"
+     ],
+     "n": 1
+    }
+   ]
+  },
+  {
+   "id": "bill",
+   "kind": "board",
+   "x": 2060,
+   "y": 430,
+   "fill": "#E5EEE9",
+   "cue": [
+    "b46",
+    "₹1,000"
+   ],
+   "until_cue": [
+    "b49",
+    "इसलिए"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b46",
+      "₹1,000"
+     ],
+     "text": "₹1,000 bill card से दिया।"
+    },
+    {
+     "cue": [
+      "b48",
+      "₹1,000"
+     ],
+     "text": "buyer ने पूरा ₹1,000 bill दिया है।"
+    }
+   ]
+  },
+  {
+   "id": "example_note",
+   "kind": "label",
+   "x": 2600,
+   "y": 245,
+   "text": "मान लीजिए।",
+   "fill": "#F4EAD6",
+   "cue": [
+    "b46",
+    "मान"
+   ],
+   "until_cue": [
+    "b47",
+    "यही"
+   ]
+  },
+  {
+   "id": "fee",
+   "kind": "board",
+   "x": 3100,
+   "y": 430,
+   "fill": "#F3E2CC",
+   "cue": [
+    "b46",
+    "₹20"
+   ],
+   "until_cue": [
+    "b49",
+    "इसलिए"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b46",
+      "₹20"
+     ],
+     "text": "2% fee के ₹20 कटे;"
+    },
+    {
+     "cue": [
+      "b47",
+      "acquirer"
+     ],
+     "text": "seller हर card transaction पर\nअपने acquirer bank को fee देता है।"
+    },
+    {
+     "cue": [
+      "b48",
+      "छूट"
+     ],
+     "text": "Discount का मतलब\nbuyer को छूट नहीं।"
+    }
+   ]
+  },
+  {
+   "id": "receipt",
+   "kind": "board",
+   "x": 2600,
+   "y": 410,
+   "fill": "#DDEBE4",
+   "cue": [
+    "b46",
+    "₹980"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b46",
+      "₹980"
+     ],
+     "text": "दुकानदार को ₹980 मिले।"
+    },
+    {
+     "cue": [
+      "b47",
+      "MDR"
+     ],
+     "text": "यही Merchant Discount Rate,\nMDR है।"
+    },
+    {
+     "cue": [
+      "b49",
+      "अलग"
+     ],
+     "text": "gross sale और net receipt\nअलग हैं।"
+    }
+   ]
+  },
+  {
+   "id": "gross_final",
+   "kind": "board",
+   "x": 2060,
+   "y": 430,
+   "fill": "#E5EEE9",
+   "cue": [
+    "b49",
+    "₹1,000"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b49",
+      "₹1,000"
+     ],
+     "text": "₹1,000 की बिक्री।"
+    }
+   ]
+  },
+  {
+   "id": "net_final",
+   "kind": "board",
+   "x": 3100,
+   "y": 430,
+   "fill": "#F3E2CC",
+   "cue": [
+    "b49",
+    "₹980"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b49",
+      "₹980"
+     ],
+     "text": "₹980 की receipt।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b46",
+    "",
+    0.0
+   ],
+   "x": 2570,
+   "y": 520,
+   "zoom": 0.9,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b46",
+    "मान"
+   ],
+   "x": 2780,
+   "y": 480,
+   "zoom": 1,
+   "frames": 36
+  },
+  {
+   "cue": [
+    "b47",
+    "MDR"
+   ],
+   "x": 2750,
+   "y": 470,
+   "zoom": 1.05,
+   "frames": 36
+  },
+  {
+   "cue": [
+    "b47",
+    "यानी"
+   ],
+   "x": 2910,
+   "y": 470,
+   "zoom": 1.1,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b48",
+    "buyer"
+   ],
+   "x": 2500,
+   "y": 500,
+   "zoom": 0.9,
+   "frames": 42
+  },
+  {
+   "cue": [
+    "b49",
+    "इसलिए"
+   ],
+   "x": 2580,
+   "y": 490,
+   "zoom": 0.9,
+   "frames": 36
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

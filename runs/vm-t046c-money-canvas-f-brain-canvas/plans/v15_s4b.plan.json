@@ -1,0 +1,312 @@
+{
+ "id": "v15_s4b",
+ "part_id": "c36.4",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b17",
+   "say": "यह money circulation है, यानी दुकान पर दिया पैसा आगे चलता है। Households, businesses और banks जुड़े हैं; banks का RBI से connection है।"
+  },
+  {
+   "beat_id": "b18",
+   "say": "Purchases, wages, deposits और loans पर पैसे चलते हैं। RBI transactions banks को जोड़ते हैं; हर खरीदारी सीधे RBI से नहीं गुजरती।"
+  },
+  {
+   "beat_id": "b19",
+   "say": "Recipient अगला payment रोक दे तो आगे movement रुकेगा। पैसा गायब नहीं हुआ; अभी उसके पास है।"
+  },
+  {
+   "beat_id": "b20",
+   "say": "फिर देखो: खरीदार ने दिया, दुकानदार ने bank में जमा किया।"
+  },
+  {
+   "beat_id": "b21",
+   "say": "Circulation movement है; Money supply तय पल की holdings है। पैसा चलना हमेशा नया पैसा बनना नहीं है।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank",
+   "kind": "bank",
+   "x": 2600,
+   "sign": "banks",
+   "cue": [
+    "b17",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "teller",
+   "kind": "teller",
+   "x": 2600,
+   "cue": [
+    "b17",
+    "banks"
+   ]
+  },
+  {
+   "id": "movement",
+   "kind": "board",
+   "x": 1940,
+   "y": 430,
+   "fill": "#E9DCC4",
+   "cue": [
+    "b17",
+    "आगे"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b17",
+      "आगे"
+     ],
+     "text": "दुकान पर दिया पैसा\nआगे चलता है।"
+    },
+    {
+     "cue": [
+      "b18",
+      "deposits"
+     ],
+     "text": "Purchases, wages, deposits और\nloans पर पैसे चलते हैं।"
+    },
+    {
+     "cue": [
+      "b19",
+      "रोक"
+     ],
+     "text": "अगला payment रोक दे तो\nआगे movement रुकेगा।"
+    },
+    {
+     "cue": [
+      "b20",
+      "दुकानदार"
+     ],
+     "text": "खरीदार ने दिया, दुकानदार ने\nbank में जमा किया।"
+    },
+    {
+     "cue": [
+      "b21",
+      "movement"
+     ],
+     "text": "Circulation movement है।"
+    }
+   ]
+  },
+  {
+   "id": "connection",
+   "kind": "board",
+   "x": 3260,
+   "y": 430,
+   "fill": "#DDE9E5",
+   "cue": [
+    "b17",
+    "RBI"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b17",
+      "RBI"
+     ],
+     "text": "banks का RBI से connection है।"
+    },
+    {
+     "cue": [
+      "b18",
+      "खरीदारी"
+     ],
+     "text": "हर खरीदारी सीधे RBI से\nनहीं गुजरती।"
+    },
+    {
+     "cue": [
+      "b19",
+      "गायब"
+     ],
+     "text": "पैसा गायब नहीं हुआ;\nअभी उसके पास है।"
+    },
+    {
+     "cue": [
+      "b21",
+      "holdings"
+     ],
+     "text": "Money supply तय पल की holdings है।"
+    }
+   ]
+  },
+  {
+   "id": "recipient",
+   "kind": "crowd",
+   "x0": 2330,
+   "spacing": 90,
+   "enter_x": 2160,
+   "exit_x": 2160,
+   "face": 1,
+   "seed": 7,
+   "cue": [
+    "b19",
+    "Recipient"
+   ],
+   "until_cue": [
+    "b20",
+    "फिर"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b19",
+      "Recipient"
+     ],
+     "n": 1
+    },
+    {
+     "cue": [
+      "b20",
+      "फिर"
+     ],
+     "n": 0
+    }
+   ]
+  },
+  {
+   "id": "depositor",
+   "kind": "crowd",
+   "x0": 2330,
+   "spacing": 90,
+   "enter_x": 2100,
+   "exit_x": 2100,
+   "face": 1,
+   "seed": 7,
+   "cue": [
+    "b20",
+    "जमा"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b20",
+      "जमा"
+     ],
+     "n": 1
+    }
+   ]
+  },
+  {
+   "id": "conclusion",
+   "kind": "label",
+   "x": 2600,
+   "y": 180,
+   "text": "पैसा चलना हमेशा नया पैसा बनना नहीं है।",
+   "fill": "#F5EBD7",
+   "cue": [
+    "b21",
+    "नया"
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b17",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 490,
+   "zoom": 0.8,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b17",
+    "Households,"
+   ],
+   "x": 2460,
+   "y": 490,
+   "zoom": 0.85,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b17",
+    "RBI"
+   ],
+   "x": 2850,
+   "y": 460,
+   "zoom": 0.9,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b18",
+    "deposits"
+   ],
+   "x": 2230,
+   "y": 490,
+   "zoom": 0.95,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b18",
+    "खरीदारी"
+   ],
+   "x": 2910,
+   "y": 470,
+   "zoom": 0.95,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b19",
+    "Recipient"
+   ],
+   "x": 2310,
+   "y": 560,
+   "zoom": 1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b19",
+    "गायब"
+   ],
+   "x": 2810,
+   "y": 490,
+   "zoom": 0.85,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b20",
+    "दुकानदार"
+   ],
+   "x": 2350,
+   "y": 540,
+   "zoom": 1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b21",
+    "Circulation"
+   ],
+   "x": 2600,
+   "y": 480,
+   "zoom": 0.8,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b21",
+    "नया"
+   ],
+   "x": 2600,
+   "y": 430,
+   "zoom": 0.85,
+   "frames": 45
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

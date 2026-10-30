@@ -1,0 +1,1668 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "canvas",
+ "unit": "v17_s4s",
+ "status": "passed",
+ "instructions_version": "canvas-plan/1",
+ "rulebook_version": "canvas_profile@2026-10-29.1+content_types@2026-10-27.1+explanations@2026-10-24.3+level_profiles@2026-10-24.1+simple_hindi@2026-10-28.1+teacher_examples@2026-10-29.1+vision-2026-10-21@2026-10-21.17+visual_grammar@2026-10-29.1+visual_levels@2026-10-26.2",
+ "rulebook_digest": "098fc051cc02b3130eaac1ed94bdf3c0d2d23c809b82208ab9729d71996b644f",
+ "rules_used": [
+  "CV-01",
+  "CV-02",
+  "CV-03",
+  "CV-04",
+  "CV-05",
+  "CV-06",
+  "CV-07",
+  "CV-08",
+  "CV-09",
+  "CV-10",
+  "CV-11",
+  "CV-12",
+  "CV-13",
+  "CV-14",
+  "CV-15",
+  "CV-16",
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-05",
+  "G-06",
+  "G-07"
+ ],
+ "maker_route": "codex",
+ "reviewer_route": "codex-checker",
+ "maker_model": "gpt-6.1-sol",
+ "reviewer_model": "gpt-6.1-sol",
+ "reviewer_independence": "same_model_temporary",
+ "inputs_digest": "96290129799cb0142f16a586525153de469c347ee2693e3a00be46b5a8929847",
+ "card": null,
+ "prefix_sha256": "70df875cc213217b02bd99129255b9e06db6145661d64ac2f15f5f8eca1511d7",
+ "review_prefix_sha256": null,
+ "inputs": {
+  "system": "You are BIE's world director for one STORY part of a video lesson of Indian Economy for UPSC / State PCS aspirants (UPSC / State PCS): actors\nact in a place (a shop with buyers on a street; its place element is kind 'shop'), so this part is shown inside a small designed world (Navin's level C, an L3 world). The script\nis already written and passed; you do not change a word of it. You place the props, the people, the effects and the\ncamera moves, each on a spoken word; code builds, times and checks the world and a refused plan comes back to you with\nthe exact error, and you answer with the whole corrected plan.\n\nCourse: \"3. Money\" · learner language: Hinglish.\n\nNavin's rules for this section (follow every one):\n[CV-01] One canvas per idea: build it piece by piece instead of cutting to a new shot every sentence. Clear the canvas only when the idea changes; otherwise re-frame with a zoom or pan to the part being explained.\n[CV-02] Something on the canvas changes about every 5 s (one change per one or two spoken phrases).\n[CV-03] The picture never stays the same for more than 15 s (the references sometimes hold 40-80 s; BIE must not).\n[CV-04] A new element appears on its own word, while it is being said (about 40% into the phrase, never in the pause after).\n[CV-05] Numbers that change are struck out and replaced on screen (50 -> 65), with an up/down arrow, on the word of the new number.\n[CV-06] Many people/things are shown as a crowd that grows or shrinks with the story (2 buyers -> 12 -> 3).\n[CV-07] A running numeric example carries the concept (price 50 -> 65, GDP 10K -> 11K -> 12.1K at 10%).\n[CV-08] Return to the topic tree and tick the branch that is done before starting the next branch.\n[CV-09] One anchor diagram stays (a band, a tree, a rate card) while the part beside or below it changes.\n[CV-10] No overlap, nothing outside the safe area, captions strip kept clear, readable text (>= 24 px at 1080p), at most 16 elements on screen.\n[CV-11] No photos or caricatures of real people, no logos, emblems or regulator marks: use a name card, a generic icon or BIE's own presenter character.\n[CV-12] Light paper theme for build-up canvases (dark theme stays for 3D/science worlds); subtitles on a dark strip.\n[CV-13] On-screen text is a short COMPLETE phrase or sentence in the learner's language (Devanagari Hinglish with the English terms the script uses), one idea per board or box; never a code: no ✓ ✗ ≠, no list of bare words ('Exchange · Account / Store · Deferred'), no line that ends on → = : / (Navin, 29 October 2026: 'teacher ki naration uske sentence aise poore ho ki banawati na lage').\n[CV-14] Every on-screen text is explained: its key words are said in the narration of the beat it appears on (the cue beat), and every board step the director adds is spoken; a text the narration never says does not go on screen.\n[CV-15] A caveat ('imagined market', 'illustrative numbers') is shown once per part on its own small note, not on every board.\n[CV-16] Numbers on screen are written the way the narration says them: every number on a board, tag or box is said in its cue beat (₹500 on screen, '500 rupaye' in the narration), no counters the narration never mentions ('Payments: 0 → 2').\n[G-01] Everything taught comes from the book. Knowledge from outside the book is allowed only to explain the book better; it is marked as outside, standard textbook-level and correct. Never invent facts, numbers, names or quotations.\n[G-02] Work like the best teacher of these learners and this exam, not like a summariser. Depth beats brevity: nothing teachable on the page is skipped or compressed away, and every explanation makes a student understand, not just remember. Depth means understanding, not length: lesson narration keeps S2-01's time by cutting repetition and side-tracks, never book content.\n[G-03] Before the output, fill 'notes' with brief notes for the reviewer and for Navin: what this unit is about, the key questions a teacher must answer about it, the main decisions you made with a one-line reason each, and anything uncertain. Keep the notes short; they explain the work, they are not the work.\n[G-05] Never drop or compress away what the book teaches to fit a length. If a unit of work is too large, it is split by BIE into smaller units; within a unit, the book's content is complete. Lesson narration has a time target (S2-01), met by cutting repetition and side-tracks, never book content.\n[G-06] BIE is the link between the learner and the book, like a teacher (Navin, 24 October 2026). The book is the base; BIE carries its text, easy or hard, into the learner's mind. Never just read the line out: every book line is opened (what its words mean, why it is so, where it is seen, what follows), at the depth of the level profile.\n[G-07] Two layers, like a film (Navin, 24 October 2026). The writer layer (understanding, plan, script) decides what is said and how deep, following the level profile and the book's own level. The presentation layer (director, video blocks, render) is the same skilled quality for every learner, from class 6 to postgraduate; only the detail shown follows the level, never the craft.\n\n# Director card: world plans (for the AI world director step, Navin's level C)\n\nYou plan ONE world for ONE story part of a passed script: actors act in a place, so the part is shown inside a small\ndesigned 2.5D street with the place at its centre. You place props, people, effects and the camera, each on a spoken\nword. Code builds, times and checks the world (`bie/brain/video/world.py`); a refused plan comes back with the exact error.\n\n## The world\n\nWorld pixels: 5200 wide, ground line at y 860; the place (the `shop` or the `bank`, the one element kind your role names\nas the kit) is usually near x 2600. The camera looks at a point\n(`x`, `y`) with a `zoom` (0.8 wide street … 1.7 close on a price tag) and takes `frames` to get there (30–60 at 30 fps).\nCamera keys are in time order, the first on the part's first beat.\n\n## Element vocabulary\n\n| kind | fields | use it for |\n| --- | --- | --- |\n| `shop` | `x`, `sign` (the shop's name, in the learner's script), `packets: [{n, cue}]` | the place of a shop story (a kirana shop, a tea stall, a market stall, a bazaar); its stock of goods on the counter (n packets) |\n| `price_tag` | `x`, `y`, `string` (hanging length), `steps: [{text, dir, cue}]`, `lift_cue` + `lift_dy` | the price that is struck out and replaced (a price only: '₹65', '₹10,000', at most 9 characters; words go on a board); lift it when demand pulls it up |\n| `crowd` | `x0`, `spacing`, `enter_x`, `exit_x`, `face` (-1 looks left), `seed`, `steps: [{n, cue}]`, `carry_cue` + `carry_n` | buyers or bank customers who walk in and out as the number changes; `carry` sends n of them away with goods |\n| `bank` | `x`, `sign` (the bank's name, generic, in the learner's script) | the place of a bank story: a stone front with pillars, a teller window and a counter; customers stand before it (`crowd` with `x0` near `x` - 270) |\n| `teller` | `x` (the bank's `x`) | the bank's clerk behind the counter (as `shopkeeper` is for the shop) |\n| `board` | `x`, `y`, `text` (the title: खाता, EMI, बचत), `fill` (header colour), `steps: [{text, dir, cue}]`, `until_cue` | a standing display whose value changes on its word: a passbook balance ₹0 → ₹500, an EMI due ₹10,000 → ₹0; the old value is struck out, `dir` \"up\" or \"down\" adds the arrow. A value is at most 3 lines of 40 characters (your own line breaks are kept, a long line is wrapped at spaces), so a complete short sentence fits; the teaching stays in the narration, a board shows the number or the one idea that changes, as a phrase the learner can read (CV-13), with the words and numbers the narration of its cue beat says (CV-14, CV-16); never codes (✓ ≠ →, \"1–3 ✓, 4 Future payment →\") |\n| `label` | `x`, `y`, `text`, `fill` (rgba colour), `cue`, `until_cue` | SUPPLY · 3, DEMAND · 12: short labels over the scene |\n| `coin_rain` | `x0`, `x1`, `count`, `cue`, `until_cue` | money arriving in people's hands |\n| `balance` | `x`, `y`, `tilt`, `cue`, `tilt_cue`, `until_cue` | supply against demand on a balance that tilts on its word |\n| `pull_arrow` | `x`, `y0`, `y1`, `text`, `cue` | the force that pulls the price (demand-pull) |\n| `title` | `text`, `cue` | the part's name, on its word (at most 30 characters) |\n| `lamp`, `foreground` | `x` | street dressing for depth (two or three of each, outside the shop) |\n\nEvery element has `cue: [beat_id, word]` with the word exactly as written in that beat (`[beat_id, \"\"]` for the beat's\nstart). Something must change at least every 15 s (the code refuses a longer still); aim for a change every 5 s.\nNever a real person, logo, emblem or regulator mark: a generic shop sign and generic people only.\n\n## On-screen text (CV-13 to CV-16; Navin's verdict on Money v1, 29 October 2026)\n\n- A board, label or tag holds ONE idea as a short COMPLETE phrase or sentence in the learner's language (Devanagari Hinglish\n  with the English terms the script uses): \"Payment में notes और coins के अलावा खाते का पैसा भी चलता है\", not\n  \"Money = balance / Device ≠ money\".\n- Never a code: no ✓ ✗ ≠; no list of bare words (\"Exchange ✓ · Account ✓ / Store · Deferred\"); no line that ends on → = : /.\n- Every text is explained: its key words and every number are said in the narration of its cue beat (the code refuses a text\n  or a number the beat does not say; move the cue to the beat that says it, or leave it to the narration).\n- A caveat (\"imagined market\", \"illustrative numbers\") once per part, on its own small label, not on every board.\n\nHow to fill the JSON (every field is present; \"\" / 0 / [] mean \"not used\"):\n- notes: the story of this part in two lines, what each camera move shows, what is uncertain.\n- elements: in story order; id (unique), kind, the fields of that kind (card), cue [beat_id, word] (word exactly as written\n  in that beat; [beat_id, \"\"] for the beat's start) and until_cue when it leaves; steps (text/n + cue) for a price tag, a\n  board or a crowd; packets (n + cue) for the shop's stock; lift_cue + lift_dy lifts a price tag; carry_cue + carry_n sends\n  buyers away with goods; tilt_cue tilts the balance. The place element (shop or bank) is the kit named above, once.\n- camera: keys in time order, each with cue, x and y in world pixels, zoom and frames (how long the move takes).\nReply with the JSON object only.",
+  "user": "Chapter: 3. Money. Part c44.q (7 beats).\nThe part (JSON):\n{\"part\": {\"id\": \"v17_s4s\", \"part_id\": \"c44.q\", \"mode\": \"C\", \"place\": \"shop\", \"story\": true}, \"beats\": [{\"beat_id\": \"b16\", \"say\": \"किराना दुकान पर ₹1,000 का सामान card से खरीदा; दुकानदार को पूरे पैसे न मिलें तो फर्क कहाँ गया? मान लीजिए card payment लेने की service पर 1% fee है। यह समझाने के लिए मानी गई rate है, आज की लागू rate नहीं।\"}, {\"beat_id\": \"b17\", \"say\": \"₹1,000 का 1% हुआ ₹10। Taxes और दूसरे charges छोड़ दें, तो ₹10 कटकर दुकानदार को ₹990 मिलेंगे। ग्राहक की खरीद ₹1,000 की रही; fee दुकानदार के पैसे से गई, ग्राहक को cashback नहीं मिला।\"}, {\"beat_id\": \"b18\", \"say\": \"यह merchant-side payment acceptance charge MDR है; पूरा नाम Merchant Discount Rate है। Merchant यानी सामान या service बेचने वाला, जैसे दुकानदार। Customers की card payments लेने के लिए bank merchant पर यह charge लगाता है; उस service में payment infrastructure और processing इस्तेमाल होती है।\"}, {\"beat_id\": \"b19\", \"say\": \"IAS-Prelims 2018 ने पूछा: Merchant Discount Rate क्या है? ‘Discount’ सुनकर ग्राहक की छूट मत सोचिए; यहाँ दुकानदार की card payment लेने की cost है। दुकान की net receipt से इसे जोड़िए, लेकिन हमारे 1% से हर card या हर digital payment की rate और exemption तय मत कीजिए।\"}, {\"beat_id\": \"b20\", \"say\": \"Option A में bank अपने debit cards की payments लेने पर merchant को incentive देता है। Incentive यानी काम करने के लिए मिलने वाला फायदा या पैसा। यहाँ bank से दुकानदार को पैसे मिलते हैं; MDR में दुकानदार पर charge लगता है, इसलिए A उलटी दिशा बताता है।\"}, {\"beat_id\": \"b21\", \"say\": \"Option B में debit card से सामान या service खरीदने वाले customer को bank पैसे वापस देता है। यह cashback जैसा फायदा है, seller की fee नहीं। पूछिए: खरीदार को पैसे वापस मिले या seller के पैसे कटे? B में पहला मामला है, इसलिए B गलत।\"}, {\"beat_id\": \"b22\", \"say\": \"Option C के शब्द हैं ‘charge to a merchant by a bank’। किस पर charge है? Merchant पर; कौन लगाता है? Bank। Customers की card payments लेने की service से जुड़ा यही charge हमारे ₹1,000 से ₹990 वाले उदाहरण में दिखा था, इसलिए C सही है।\"}], \"items\": [{\"item_id\": \"p020-i8\", \"content_type\": \"none\", \"content\": \"What is “Merchant Discount Rate” ? (IAS-Prelims 2018)\"}, {\"item_id\": \"p020-i9\", \"content_type\": \"none\", \"content\": \"A. The incentive given by a bank to a merchant for accepting payments through debit cards pertaining to that bank.\"}, {\"item_id\": \"p020-i10\", \"content_type\": \"none\", \"content\": \"B. The amount paid back by banks to their customers when they use debit cards for financial transactions for purchasing goods or services.\"}, {\"item_id\": \"p020-i11\", \"content_type\": \"definition\", \"content\": \"C. The charge to a merchant by a bank for accepting payments from his customers through the bank’s cards.\", \"real_world_example\": {\"place\": \"Hypothetical Indian kirana shop\", \"actors\": [\"shopkeeper\", \"customer\", \"bank\"], \"goods\": [\"groceries worth ₹1,000\", \"card payment\"], \"numbers\": [{\"what\": \"Merchant proceeds before and after the assumed fee\", \"before\": \"₹1,000\", \"after\": \"₹990\"}, {\"what\": \"Fee deducted from the sale proceeds\", \"before\": \"₹0\", \"after\": \"₹10\"}], \"steps\": [{\"step\": \"A customer buys ₹1,000 of groceries and pays by card.\", \"mechanism_link\": \"The merchant uses a card-payment acceptance service.\"}, {\"step\": \"Assume a 1% acceptance fee solely for illustration: ₹10 is deducted and ₹990 reaches the merchant, ignoring taxes and other charges.\", \"mechanism_link\": \"The merchant bears the acceptance charge through reduced net proceeds.\"}], \"term_after\": \"The merchant-side acceptance charge illustrated here is MDR; its rate is called Merchant Discount Rate.\", \"real_life_link\": \"Connect this to the page's shopkeeper accepting card payments; the numbers illustrate the mechanism, not a current Indian fee schedule.\"}}], \"on_screen_hints\": [\"Hypothetical card purchase ₹1,000; assumed fee 1%; not a current-rate claim.\", \"₹1,000 × 1/100 = ₹10; merchant proceeds ₹1,000 → ₹990; fee ₹0 → ₹10.\", \"Merchant Discount Rate (MDR). Highlight: charge TO a merchant BY a bank FOR accepting card payments.\", \"2018 PYQ: merchant charge or benefit? Discount ≠ customer shopping concession. Rates/exemptions not established.\", \"A: bank → merchant incentive ✗. Contrast: merchant bears acceptance charge.\", \"B: bank → customer repayment/cashback ✗. Buyer benefit ≠ seller charge.\", \"C ✓: bank charges merchant for accepting customer card payments.\"]}\n\nReply with the plan JSON."
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "started_at": 1793329005.1505704,
+   "mode": "full",
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "5a4988ec00d7c056724123f882d0b9dcf1c6fb03f27e43391fa5815752e8bd4f",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 7838,
+    "output_tokens": 3996,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "किराना दुकान में card payment की रकम से merchant की fee कटने का उदाहरण, फिर उसी दृश्य में MDR के तीन विकल्पों की जाँच।",
+    "key_questions": [
+     "₹1,000 की खरीद में ₹10 किसके पैसे से कटे और ₹990 किसे मिले?",
+     "MDR में charge किस पर और किसके द्वारा लगाया जाता है?",
+     "Merchant incentive और customer cashback, MDR से कैसे अलग हैं?"
+    ],
+    "decisions": [
+     {
+      "decision": "एक ही दुकान और receipt board पूरे भाग का anchor हैं।",
+      "reason": "विकल्पों को उसी आर्थिक लेनदेन से जोड़ना है।"
+     },
+     {
+      "decision": "बदलती receipt को board पर strike-and-replace तथा नीचे की दिशा से दिखाएँ।",
+      "reason": "₹1,000 की खरीद और ₹990 की merchant receipt का फर्क स्पष्ट रहेगा।"
+     },
+     {
+      "decision": "Camera दुकान, खरीदार और merchant के boards के बीच घूमता है।",
+      "reason": "लंबे beats में भी दृश्य बदलता रहे और लाभ पाने वाले तथा charge देने वाले अलग दिखें।"
+     }
+    ],
+    "uncertain": [
+     "Script में topic-tree वापसी या branch completion नहीं बोली गई है; इसलिए कोई अनबोला tree label या tick नहीं जोड़ा गया।",
+     "₹1,000 और ₹990 के बीच का उदाहरण hypothetical है; यह लागू fee schedule नहीं है।"
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "किराना दुकान में card payment की रकम से merchant की fee कटने का उदाहरण, फिर उसी दृश्य में MDR के तीन विकल्पों की जाँच।",
+     "key_questions": [
+      "₹1,000 की खरीद में ₹10 किसके पैसे से कटे और ₹990 किसे मिले?",
+      "MDR में charge किस पर और किसके द्वारा लगाया जाता है?",
+      "Merchant incentive और customer cashback, MDR से कैसे अलग हैं?"
+     ],
+     "decisions": [
+      {
+       "decision": "एक ही दुकान और receipt board पूरे भाग का anchor हैं।",
+       "reason": "विकल्पों को उसी आर्थिक लेनदेन से जोड़ना है।"
+      },
+      {
+       "decision": "बदलती receipt को board पर strike-and-replace तथा नीचे की दिशा से दिखाएँ।",
+       "reason": "₹1,000 की खरीद और ₹990 की merchant receipt का फर्क स्पष्ट रहेगा।"
+      },
+      {
+       "decision": "Camera दुकान, खरीदार और merchant के boards के बीच घूमता है।",
+       "reason": "लंबे beats में भी दृश्य बदलता रहे और लाभ पाने वाले तथा charge देने वाले अलग दिखें।"
+      }
+     ],
+     "uncertain": [
+      "Script में topic-tree वापसी या branch completion नहीं बोली गई है; इसलिए कोई अनबोला tree label या tick नहीं जोड़ा गया।",
+      "₹1,000 और ₹990 के बीच का उदाहरण hypothetical है; यह लागू fee schedule नहीं है।"
+     ]
+    },
+    "elements": [
+     {
+      "id": "kirana",
+      "kind": "shop",
+      "x": 2600,
+      "y": 860,
+      "sign": "किराना दुकान",
+      "text": "",
+      "fill": "",
+      "string": 0,
+      "steps": [],
+      "packets": [
+       {
+        "n": 3,
+        "cue": [
+         "b16",
+         "सामान"
+        ]
+       }
+      ],
+      "cue": [
+       "b16",
+       "किराना"
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "merchant",
+      "kind": "shopkeeper",
+      "x": 2600,
+      "y": 860,
+      "sign": "",
+      "text": "",
+      "fill": "",
+      "string": 0,
+      "steps": [],
+      "packets": [],
+      "cue": [
+       "b16",
+       "दुकानदार"
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "buyer",
+      "kind": "crowd",
+      "x": 0,
+      "y": 0,
+      "sign": "",
+      "text": "",
+      "fill": "",
+      "string": 0,
+      "steps": [
+       {
+        "text": "",
+        "n": 1,
+        "dir": "",
+        "cue": [
+         "b16",
+         "खरीदा;"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b16",
+       "खरीदा;"
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 2160,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 90,
+      "enter_x": 1750,
+      "exit_x": 1700,
+      "face": 1,
+      "seed": 8,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "receipt",
+      "kind": "board",
+      "x": 3030,
+      "y": 480,
+      "sign": "",
+      "text": "",
+      "fill": "#E6D5AE",
+      "string": 0,
+      "steps": [
+       {
+        "text": "₹1,000 का सामान card से खरीदा",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b16",
+         "card"
+        ]
+       },
+       {
+        "text": "दुकानदार को ₹990 मिलेंगे",
+        "n": 0,
+        "dir": "down",
+        "cue": [
+         "b17",
+         "₹990"
+        ]
+       },
+       {
+        "text": "₹1,000 से ₹990 वाले उदाहरण में\nmerchant पर charge है",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b22",
+         "₹990"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b16",
+       "card"
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "explanation",
+      "kind": "board",
+      "x": 2180,
+      "y": 440,
+      "sign": "",
+      "text": "",
+      "fill": "#DCE9E3",
+      "string": 0,
+      "steps": [
+       {
+        "text": "Card payment लेने की service पर\n1% fee है",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b16",
+         "1%"
+        ]
+       },
+       {
+        "text": "₹1,000 का 1% हुआ ₹10",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b17",
+         "₹10।"
+        ]
+       },
+       {
+        "text": "ग्राहक को cashback नहीं मिला",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b17",
+         "cashback"
+        ]
+       },
+       {
+        "text": "यह merchant-side payment\nacceptance charge MDR है",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b18",
+         "MDR"
+        ]
+       },
+       {
+        "text": "पूरा नाम Merchant Discount Rate है",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b18",
+         "Rate"
+        ]
+       },
+       {
+        "text": "Merchant सामान या service\nबेचने वाला है",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b18",
+         "बेचने"
+        ]
+       },
+       {
+        "text": "Bank merchant पर charge लगाता है",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b18",
+         "लगाता"
+        ]
+       },
+       {
+        "text": "Payment infrastructure और\nprocessing इस्तेमाल होती है",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b18",
+         "processing"
+        ]
+       },
+       {
+        "text": "Merchant Discount Rate क्या है?",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b19",
+         "Rate"
+        ]
+       },
+       {
+        "text": "दुकानदार की card payment\nलेने की cost है",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b19",
+         "cost"
+        ]
+       },
+       {
+        "text": "हमारे 1% से हर digital payment की\nrate और exemption तय मत कीजिए",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b19",
+         "exemption"
+        ]
+       },
+       {
+        "text": "Option A में bank merchant को\nincentive देता है",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b20",
+         "incentive"
+        ]
+       },
+       {
+        "text": "Incentive काम करने के लिए\nमिलने वाला फायदा या पैसा है",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b20",
+         "फायदा"
+        ]
+       },
+       {
+        "text": "MDR में दुकानदार पर charge लगता है",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b20",
+         "charge"
+        ]
+       },
+       {
+        "text": "A उलटी दिशा बताता है",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b20",
+         "उलटी"
+        ]
+       },
+       {
+        "text": "Option B में customer को\nbank पैसे वापस देता है",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b21",
+         "वापस"
+        ]
+       },
+       {
+        "text": "यह cashback जैसा फायदा है,\nseller की fee नहीं",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b21",
+         "fee"
+        ]
+       },
+       {
+        "text": "खरीदार को पैसे वापस मिले\nया seller के पैसे कटे?",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b21",
+         "कटे?"
+        ]
+       },
+       {
+        "text": "B गलत है",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b21",
+         "गलत।"
+        ]
+       },
+       {
+        "text": "Option C के शब्द हैं\n‘charge to a merchant by a bank’",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b22",
+         "bank’।"
+        ]
+       },
+       {
+        "text": "Merchant पर charge है;\nBank लगाता है",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b22",
+         "Bank।"
+        ]
+       },
+       {
+        "text": "C सही है",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b22",
+         "सही"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b16",
+       "1%"
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "rate_caveat",
+      "kind": "label",
+      "x": 2600,
+      "y": 210,
+      "sign": "",
+      "text": "यह समझाने के लिए मानी गई rate है,\nआज की लागू rate नहीं",
+      "fill": "#F2E8CF",
+      "string": 0,
+      "steps": [],
+      "packets": [],
+      "cue": [
+       "b16",
+       "मानी"
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     }
+    ],
+    "camera": [
+     {
+      "cue": [
+       "b16",
+       ""
+      ],
+      "x": 2600,
+      "y": 510,
+      "zoom": 0.9,
+      "frames": 30
+     },
+     {
+      "cue": [
+       "b16",
+       "दुकानदार"
+      ],
+      "x": 2750,
+      "y": 520,
+      "zoom": 1.05,
+      "frames": 45
+     },
+     {
+      "cue": [
+       "b16",
+       "service"
+      ],
+      "x": 2440,
+      "y": 460,
+      "zoom": 1,
+      "frames": 45
+     },
+     {
+      "cue": [
+       "b16",
+       "आज"
+      ],
+      "x": 2600,
+      "y": 400,
+      "zoom": 0.95,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b17",
+       ""
+      ],
+      "x": 2400,
+      "y": 470,
+      "zoom": 1.05,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b17",
+       "₹990"
+      ],
+      "x": 2800,
+      "y": 490,
+      "zoom": 1.05,
+      "frames": 45
+     },
+     {
+      "cue": [
+       "b17",
+       "ग्राहक"
+      ],
+      "x": 2450,
+      "y": 530,
+      "zoom": 0.95,
+      "frames": 45
+     },
+     {
+      "cue": [
+       "b18",
+       ""
+      ],
+      "x": 2420,
+      "y": 470,
+      "zoom": 1,
+      "frames": 45
+     },
+     {
+      "cue": [
+       "b18",
+       "Merchant"
+      ],
+      "x": 2520,
+      "y": 490,
+      "zoom": 1.05,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b18",
+       "Customers"
+      ],
+      "x": 2450,
+      "y": 540,
+      "zoom": 0.95,
+      "frames": 45
+     },
+     {
+      "cue": [
+       "b18",
+       "service"
+      ],
+      "x": 2450,
+      "y": 450,
+      "zoom": 1,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b19",
+       ""
+      ],
+      "x": 2450,
+      "y": 450,
+      "zoom": 1.05,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b19",
+       "ग्राहक"
+      ],
+      "x": 2380,
+      "y": 540,
+      "zoom": 0.95,
+      "frames": 45
+     },
+     {
+      "cue": [
+       "b19",
+       "net"
+      ],
+      "x": 2760,
+      "y": 480,
+      "zoom": 1,
+      "frames": 45
+     },
+     {
+      "cue": [
+       "b19",
+       "हर"
+      ],
+      "x": 2450,
+      "y": 450,
+      "zoom": 1,
+      "frames": 45
+     },
+     {
+      "cue": [
+       "b20",
+       ""
+      ],
+      "x": 2500,
+      "y": 490,
+      "zoom": 0.95,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b20",
+       "Incentive"
+      ],
+      "x": 2420,
+      "y": 450,
+      "zoom": 1.05,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b20",
+       "यहाँ"
+      ],
+      "x": 2700,
+      "y": 540,
+      "zoom": 1,
+      "frames": 45
+     },
+     {
+      "cue": [
+       "b20",
+       "इसलिए"
+      ],
+      "x": 2450,
+      "y": 470,
+      "zoom": 1,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b21",
+       ""
+      ],
+      "x": 2420,
+      "y": 540,
+      "zoom": 0.95,
+      "frames": 45
+     },
+     {
+      "cue": [
+       "b21",
+       "cashback"
+      ],
+      "x": 2380,
+      "y": 470,
+      "zoom": 1,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b21",
+       "पूछिए:"
+      ],
+      "x": 2600,
+      "y": 520,
+      "zoom": 0.9,
+      "frames": 45
+     },
+     {
+      "cue": [
+       "b21",
+       "इसलिए"
+      ],
+      "x": 2430,
+      "y": 460,
+      "zoom": 1,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b22",
+       ""
+      ],
+      "x": 2430,
+      "y": 460,
+      "zoom": 1,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b22",
+       "किस"
+      ],
+      "x": 2610,
+      "y": 530,
+      "zoom": 1,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b22",
+       "Customers"
+      ],
+      "x": 2500,
+      "y": 540,
+      "zoom": 0.95,
+      "frames": 45
+     },
+     {
+      "cue": [
+       "b22",
+       "₹1,000"
+      ],
+      "x": 2790,
+      "y": 470,
+      "zoom": 1,
+      "frames": 45
+     },
+     {
+      "cue": [
+       "b22",
+       "इसलिए"
+      ],
+      "x": 2600,
+      "y": 490,
+      "zoom": 0.9,
+      "frames": 45
+     }
+    ]
+   },
+   "code_problems": [
+    "[code] camera keys must be in time order"
+   ],
+   "passed": false,
+   "finished_at": 1793329067.2676682
+  },
+  {
+   "round": 2,
+   "started_at": 1793329067.2677724,
+   "mode": "full",
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "2782f961938a1af39ce243f98fcf050b7263c0da32d94742635029429dfc1222",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 10505,
+    "output_tokens": 2762,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "किराना दुकान में card payment की रकम से merchant की fee कटने का उदाहरण, फिर उसी दृश्य में MDR के तीन विकल्पों की जाँच।",
+    "key_questions": [
+     "₹1,000 की खरीद में ₹10 किसके पैसे से कटे और ₹990 किसे मिले?",
+     "MDR में charge किस पर और किसके द्वारा लगाया जाता है?",
+     "Merchant incentive और customer cashback, MDR से कैसे अलग हैं?"
+    ],
+    "decisions": [
+     {
+      "decision": "b18 में service की camera key को Customers से पहले रखा।",
+      "reason": "service शब्द narration में Customers से पहले आता है; अब camera keys समयक्रम में हैं।"
+     },
+     {
+      "decision": "एक ही दुकान और receipt board पूरे भाग का anchor हैं।",
+      "reason": "विकल्पों को उसी आर्थिक लेनदेन से जोड़ना है।"
+     },
+     {
+      "decision": "बदलती receipt को board पर strike-and-replace तथा नीचे की दिशा से दिखाएँ।",
+      "reason": "₹1,000 की खरीद और ₹990 की merchant receipt का फर्क स्पष्ट रहेगा।"
+     },
+     {
+      "decision": "बाकी दृश्य, text और cues बनाए रखे।",
+      "reason": "बताई गई समस्या camera के समयक्रम की थी।"
+     }
+    ],
+    "uncertain": [
+     "Script में topic-tree वापसी या branch completion नहीं बोली गई है; इसलिए कोई अनबोला tree label या tick नहीं जोड़ा गया।",
+     "₹1,000 और ₹990 के बीच का उदाहरण hypothetical है; यह लागू fee schedule नहीं है।"
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "किराना दुकान में card payment की रकम से merchant की fee कटने का उदाहरण, फिर उसी दृश्य में MDR के तीन विकल्पों की जाँच।",
+     "key_questions": [
+      "₹1,000 की खरीद में ₹10 किसके पैसे से कटे और ₹990 किसे मिले?",
+      "MDR में charge किस पर और किसके द्वारा लगाया जाता है?",
+      "Merchant incentive और customer cashback, MDR से कैसे अलग हैं?"
+     ],
+     "decisions": [
+      {
+       "decision": "b18 में service की camera key को Customers से पहले रखा।",
+       "reason": "service शब्द narration में Customers से पहले आता है; अब camera keys समयक्रम में हैं।"
+      },
+      {
+       "decision": "एक ही दुकान और receipt board पूरे भाग का anchor हैं।",
+       "reason": "विकल्पों को उसी आर्थिक लेनदेन से जोड़ना है।"
+      },
+      {
+       "decision": "बदलती receipt को board पर strike-and-replace तथा नीचे की दिशा से दिखाएँ।",
+       "reason": "₹1,000 की खरीद और ₹990 की merchant receipt का फर्क स्पष्ट रहेगा।"
+      },
+      {
+       "decision": "बाकी दृश्य, text और cues बनाए रखे।",
+       "reason": "बताई गई समस्या camera के समयक्रम की थी।"
+      }
+     ],
+     "uncertain": [
+      "Script में topic-tree वापसी या branch completion नहीं बोली गई है; इसलिए कोई अनबोला tree label या tick नहीं जोड़ा गया।",
+      "₹1,000 और ₹990 के बीच का उदाहरण hypothetical है; यह लागू fee schedule नहीं है।"
+     ]
+    },
+    "elements": [
+     {
+      "id": "kirana",
+      "kind": "shop",
+      "x": 2600,
+      "y": 860,
+      "sign": "किराना दुकान",
+      "text": "",
+      "fill": "",
+      "string": 0,
+      "steps": [],
+      "packets": [
+       {
+        "n": 3,
+        "cue": [
+         "b16",
+         "सामान"
+        ]
+       }
+      ],
+      "cue": [
+       "b16",
+       "किराना"
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "merchant",
+      "kind": "shopkeeper",
+      "x": 2600,
+      "y": 860,
+      "sign": "",
+      "text": "",
+      "fill": "",
+      "string": 0,
+      "steps": [],
+      "packets": [],
+      "cue": [
+       "b16",
+       "दुकानदार"
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "buyer",
+      "kind": "crowd",
+      "x": 0,
+      "y": 0,
+      "sign": "",
+      "text": "",
+      "fill": "",
+      "string": 0,
+      "steps": [
+       {
+        "text": "",
+        "n": 1,
+        "dir": "",
+        "cue": [
+         "b16",
+         "खरीदा;"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b16",
+       "खरीदा;"
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 2160,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 90,
+      "enter_x": 1750,
+      "exit_x": 1700,
+      "face": 1,
+      "seed": 8,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "receipt",
+      "kind": "board",
+      "x": 3030,
+      "y": 480,
+      "sign": "",
+      "text": "",
+      "fill": "#E6D5AE",
+      "string": 0,
+      "steps": [
+       {
+        "text": "₹1,000 का सामान card से खरीदा",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b16",
+         "card"
+        ]
+       },
+       {
+        "text": "दुकानदार को ₹990 मिलेंगे",
+        "n": 0,
+        "dir": "down",
+        "cue": [
+         "b17",
+         "₹990"
+        ]
+       },
+       {
+        "text": "₹1,000 से ₹990 वाले उदाहरण में\nmerchant पर charge है",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b22",
+         "₹990"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b16",
+       "card"
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "explanation",
+      "kind": "board",
+      "x": 2180,
+      "y": 440,
+      "sign": "",
+      "text": "",
+      "fill": "#DCE9E3",
+      "string": 0,
+      "steps": [
+       {
+        "text": "Card payment लेने की service पर\n1% fee है",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b16",
+         "1%"
+        ]
+       },
+       {
+        "text": "₹1,000 का 1% हुआ ₹10",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b17",
+         "₹10।"
+        ]
+       },
+       {
+        "text": "ग्राहक को cashback नहीं मिला",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b17",
+         "cashback"
+        ]
+       },
+       {
+        "text": "यह merchant-side payment\nacceptance charge MDR है",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b18",
+         "MDR"
+        ]
+       },
+       {
+        "text": "पूरा नाम Merchant Discount Rate है",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b18",
+         "Rate"
+        ]
+       },
+       {
+        "text": "Merchant सामान या service\nबेचने वाला है",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b18",
+         "बेचने"
+        ]
+       },
+       {
+        "text": "Bank merchant पर charge लगाता है",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b18",
+         "लगाता"
+        ]
+       },
+       {
+        "text": "Payment infrastructure और\nprocessing इस्तेमाल होती है",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b18",
+         "processing"
+        ]
+       },
+       {
+        "text": "Merchant Discount Rate क्या है?",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b19",
+         "Rate"
+        ]
+       },
+       {
+        "text": "दुकानदार की card payment\nलेने की cost है",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b19",
+         "cost"
+        ]
+       },
+       {
+        "text": "हमारे 1% से हर digital payment की\nrate और exemption तय मत कीजिए",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b19",
+         "exemption"
+        ]
+       },
+       {
+        "text": "Option A में bank merchant को\nincentive देता है",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b20",
+         "incentive"
+        ]
+       },
+       {
+        "text": "Incentive काम करने के लिए\nमिलने वाला फायदा या पैसा है",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b20",
+         "फायदा"
+        ]
+       },
+       {
+        "text": "MDR में दुकानदार पर charge लगता है",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b20",
+         "charge"
+        ]
+       },
+       {
+        "text": "A उलटी दिशा बताता है",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b20",
+         "उलटी"
+        ]
+       },
+       {
+        "text": "Option B में customer को\nbank पैसे वापस देता है",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b21",
+         "वापस"
+        ]
+       },
+       {
+        "text": "यह cashback जैसा फायदा है,\nseller की fee नहीं",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b21",
+         "fee"
+        ]
+       },
+       {
+        "text": "खरीदार को पैसे वापस मिले\nया seller के पैसे कटे?",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b21",
+         "कटे?"
+        ]
+       },
+       {
+        "text": "B गलत है",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b21",
+         "गलत।"
+        ]
+       },
+       {
+        "text": "Option C के शब्द हैं\n‘charge to a merchant by a bank’",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b22",
+         "bank’।"
+        ]
+       },
+       {
+        "text": "Merchant पर charge है;\nBank लगाता है",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b22",
+         "Bank।"
+        ]
+       },
+       {
+        "text": "C सही है",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b22",
+         "सही"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b16",
+       "1%"
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "rate_caveat",
+      "kind": "label",
+      "x": 2600,
+      "y": 210,
+      "sign": "",
+      "text": "यह समझाने के लिए मानी गई rate है,\nआज की लागू rate नहीं",
+      "fill": "#F2E8CF",
+      "string": 0,
+      "steps": [],
+      "packets": [],
+      "cue": [
+       "b16",
+       "मानी"
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     }
+    ],
+    "camera": [
+     {
+      "cue": [
+       "b16",
+       ""
+      ],
+      "x": 2600,
+      "y": 510,
+      "zoom": 0.9,
+      "frames": 30
+     },
+     {
+      "cue": [
+       "b16",
+       "दुकानदार"
+      ],
+      "x": 2750,
+      "y": 520,
+      "zoom": 1.05,
+      "frames": 45
+     },
+     {
+      "cue": [
+       "b16",
+       "service"
+      ],
+      "x": 2440,
+      "y": 460,
+      "zoom": 1,
+      "frames": 45
+     },
+     {
+      "cue": [
+       "b16",
+       "आज"
+      ],
+      "x": 2600,
+      "y": 400,
+      "zoom": 0.95,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b17",
+       ""
+      ],
+      "x": 2400,
+      "y": 470,
+      "zoom": 1.05,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b17",
+       "₹990"
+      ],
+      "x": 2800,
+      "y": 490,
+      "zoom": 1.05,
+      "frames": 45
+     },
+     {
+      "cue": [
+       "b17",
+       "ग्राहक"
+      ],
+      "x": 2450,
+      "y": 530,
+      "zoom": 0.95,
+      "frames": 45
+     },
+     {
+      "cue": [
+       "b18",
+       ""
+      ],
+      "x": 2420,
+      "y": 470,
+      "zoom": 1,
+      "frames": 45
+     },
+     {
+      "cue": [
+       "b18",
+       "Merchant"
+      ],
+      "x": 2520,
+      "y": 490,
+      "zoom": 1.05,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b18",
+       "service"
+      ],
+      "x": 2450,
+      "y": 450,
+      "zoom": 1,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b18",
+       "Customers"
+      ],
+      "x": 2450,
+      "y": 540,
+      "zoom": 0.95,
+      "frames": 45
+     },
+     {
+      "cue": [
+       "b19",
+       ""
+      ],
+      "x": 2450,
+      "y": 450,
+      "zoom": 1.05,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b19",
+       "ग्राहक"
+      ],
+      "x": 2380,
+      "y": 540,
+      "zoom": 0.95,
+      "frames": 45
+     },
+     {
+      "cue": [
+       "b19",
+       "net"
+      ],
+      "x": 2760,
+      "y": 480,
+      "zoom": 1,
+      "frames": 45
+     },
+     {
+      "cue": [
+       "b19",
+       "हर"
+      ],
+      "x": 2450,
+      "y": 450,
+      "zoom": 1,
+      "frames": 45
+     },
+     {
+      "cue": [
+       "b20",
+       ""
+      ],
+      "x": 2500,
+      "y": 490,
+      "zoom": 0.95,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b20",
+       "Incentive"
+      ],
+      "x": 2420,
+      "y": 450,
+      "zoom": 1.05,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b20",
+       "यहाँ"
+      ],
+      "x": 2700,
+      "y": 540,
+      "zoom": 1,
+      "frames": 45
+     },
+     {
+      "cue": [
+       "b20",
+       "इसलिए"
+      ],
+      "x": 2450,
+      "y": 470,
+      "zoom": 1,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b21",
+       ""
+      ],
+      "x": 2420,
+      "y": 540,
+      "zoom": 0.95,
+      "frames": 45
+     },
+     {
+      "cue": [
+       "b21",
+       "cashback"
+      ],
+      "x": 2380,
+      "y": 470,
+      "zoom": 1,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b21",
+       "पूछिए:"
+      ],
+      "x": 2600,
+      "y": 520,
+      "zoom": 0.9,
+      "frames": 45
+     },
+     {
+      "cue": [
+       "b21",
+       "इसलिए"
+      ],
+      "x": 2430,
+      "y": 460,
+      "zoom": 1,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b22",
+       ""
+      ],
+      "x": 2430,
+      "y": 460,
+      "zoom": 1,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b22",
+       "किस"
+      ],
+      "x": 2610,
+      "y": 530,
+      "zoom": 1,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b22",
+       "Customers"
+      ],
+      "x": 2500,
+      "y": 540,
+      "zoom": 0.95,
+      "frames": 45
+     },
+     {
+      "cue": [
+       "b22",
+       "₹1,000"
+      ],
+      "x": 2790,
+      "y": 470,
+      "zoom": 1,
+      "frames": 45
+     },
+     {
+      "cue": [
+       "b22",
+       "इसलिए"
+      ],
+      "x": 2600,
+      "y": 490,
+      "zoom": 0.9,
+      "frames": 45
+     }
+    ]
+   },
+   "code_problems": [],
+   "passed": true,
+   "finished_at": 1793329111.5160065
+  }
+ ],
+ "avoid_rounds": [
+  1
+ ],
+ "cost_usd": 0.0,
+ "seconds": 106.4,
+ "navin_verdict": null
+}

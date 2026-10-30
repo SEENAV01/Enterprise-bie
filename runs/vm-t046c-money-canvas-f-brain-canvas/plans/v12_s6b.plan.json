@@ -1,0 +1,200 @@
+{
+ "id": "v12_s6b",
+ "part_id": "c29.4",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b42",
+   "say": "यह Bharat Bill Payment System, BBPS है: single interoperable platform। यानी जुड़े रास्ते साथ काम करें, जैसे common counter पर बिजली, mobile, gas और insurance bills भरना।"
+  },
+  {
+   "beat_id": "b43",
+   "say": "हर biller अपने-आप शामिल नहीं होता। और Bank Mitra से cash निकालना bill payment नहीं है।"
+  },
+  {
+   "beat_id": "b44",
+   "say": "इसलिए दूसरे bills जोड़ते समय भी common platform वाला विचार याद रखिए।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bbps_anchor",
+   "kind": "title",
+   "text": "BBPS",
+   "cue": [
+    "b42",
+    "BBPS"
+   ]
+  },
+  {
+   "id": "common_counter",
+   "kind": "bank",
+   "x": 2600,
+   "sign": "common counter",
+   "cue": [
+    "b42",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "counter_teller",
+   "kind": "teller",
+   "x": 2600,
+   "cue": [
+    "b42",
+    "counter"
+   ]
+  },
+  {
+   "id": "explanation",
+   "kind": "board",
+   "x": 3330,
+   "y": 450,
+   "fill": "#527B83",
+   "cue": [
+    "b42",
+    "single"
+   ],
+   "until_cue": [
+    "b43",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b42",
+      "single"
+     ],
+     "text": "यह single interoperable platform है।"
+    },
+    {
+     "cue": [
+      "b42",
+      "बिजली,"
+     ],
+     "text": "Common counter पर बिजली, mobile,\ngas और insurance bills भरना।"
+    }
+   ]
+  },
+  {
+   "id": "participation",
+   "kind": "board",
+   "x": 3330,
+   "y": 450,
+   "fill": "#946B45",
+   "cue": [
+    "b43",
+    "biller"
+   ],
+   "until_cue": [
+    "b44",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b43",
+      "biller"
+     ],
+     "text": "हर biller अपने-आप शामिल नहीं होता।"
+    },
+    {
+     "cue": [
+      "b43",
+      "cash"
+     ],
+     "text": "Bank Mitra से cash निकालना\nbill payment नहीं है।"
+    }
+   ]
+  },
+  {
+   "id": "recap",
+   "kind": "board",
+   "x": 3330,
+   "y": 450,
+   "fill": "#527B83",
+   "cue": [
+    "b44",
+    "common"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b44",
+      "common"
+     ],
+     "text": "दूसरे bills जोड़ते समय भी\ncommon platform वाला विचार याद रखिए।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b42",
+    "",
+    0.0
+   ],
+   "x": 2830,
+   "y": 480,
+   "zoom": 0.9,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b42",
+    "यानी"
+   ],
+   "x": 3090,
+   "y": 460,
+   "zoom": 1.05,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b42",
+    "counter"
+   ],
+   "x": 2820,
+   "y": 490,
+   "zoom": 0.95,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b43",
+    "biller"
+   ],
+   "x": 3240,
+   "y": 460,
+   "zoom": 1.15,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b43",
+    "cash"
+   ],
+   "x": 3120,
+   "y": 470,
+   "zoom": 1.05,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b44",
+    "",
+    0.0
+   ],
+   "x": 2920,
+   "y": 480,
+   "zoom": 0.9,
+   "frames": 45
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

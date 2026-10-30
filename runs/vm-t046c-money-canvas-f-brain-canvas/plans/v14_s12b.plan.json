@@ -1,0 +1,452 @@
+{
+ "id": "v14_s12b",
+ "part_id": "c35.4",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b69",
+   "say": "यह subprime distress है: losses से distrust, फिर alternatives में interest हो सकता है। Anarchist groups central authority का विरोध करते हैं।"
+  },
+  {
+   "beat_id": "b70",
+   "say": "यह merchant acceptance charge MDR, यानी Merchant Discount Rate, समझाता है: fee से दुकानदार की receipt घटी। E-banking/card charges और interoperability की परेशानी भी motives हैं; interoperability यानी अलग systems साथ काम करें।"
+  },
+  {
+   "beat_id": "b71",
+   "say": "कुछ anarchist groups ने USA की 2007 Subprime Crisis से dollar की purchasing power घटने को FIAT MONEY पर distrust का कारण माना; loan losses यह साबित नहीं करते।"
+  },
+  {
+   "beat_id": "b72",
+   "say": "FIAT MONEY monetary/legal system से चलता है, fixed-gold conversion से नहीं। Purchasing power यानी रकम कितना सामान खरीदे; loan loss इसका घटना साबित नहीं करता।"
+  },
+  {
+   "beat_id": "b73",
+   "say": "Crypto भी risky है; fees और compatibility limits मिटती नहीं।"
+  },
+  {
+   "beat_id": "b74",
+   "say": "Distrust और charges motives हैं, guarantees नहीं।"
+  },
+  {
+   "beat_id": "b75",
+   "say": "Connectivity, material, private records: तीनों अलग रखो।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank",
+   "kind": "bank",
+   "x": 2500,
+   "y": 860,
+   "cue": [
+    "b69",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "teller",
+   "kind": "teller",
+   "x": 2500,
+   "y": 860,
+   "cue": [
+    "b69",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "customers",
+   "kind": "crowd",
+   "x0": 2230,
+   "spacing": 105,
+   "enter_x": 1700,
+   "exit_x": 1700,
+   "face": 1,
+   "seed": 14,
+   "cue": [
+    "b69",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b69",
+      "",
+      0.0
+     ],
+     "n": 2
+    }
+   ]
+  },
+  {
+   "id": "distress",
+   "kind": "board",
+   "x": 3290,
+   "y": 470,
+   "fill": "#E8DFCD",
+   "cue": [
+    "b69",
+    "distrust,"
+   ],
+   "until_cue": [
+    "b70",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b69",
+      "distrust,"
+     ],
+     "text": "Losses से distrust हो सकता है।"
+    }
+   ]
+  },
+  {
+   "id": "merchant",
+   "kind": "board",
+   "x": 3290,
+   "y": 470,
+   "fill": "#E8DFCD",
+   "cue": [
+    "b70",
+    "receipt"
+   ],
+   "until_cue": [
+    "b70",
+    "interoperability"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b70",
+      "receipt"
+     ],
+     "text": "Fee से दुकानदार की receipt घटी।"
+    }
+   ]
+  },
+  {
+   "id": "systems",
+   "kind": "board",
+   "x": 3290,
+   "y": 470,
+   "fill": "#E8DFCD",
+   "cue": [
+    "b70",
+    "interoperability"
+   ],
+   "until_cue": [
+    "b71",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b70",
+      "interoperability"
+     ],
+     "text": "Interoperability में अलग systems\nसाथ काम करें।"
+    }
+   ]
+  },
+  {
+   "id": "attributed_claim",
+   "kind": "board",
+   "x": 3290,
+   "y": 470,
+   "fill": "#E8DFCD",
+   "cue": [
+    "b71",
+    "distrust"
+   ],
+   "until_cue": [
+    "b72",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b71",
+      "distrust"
+     ],
+     "text": "कुछ anarchist groups ने\nFIAT MONEY पर distrust का\nकारण माना।"
+    }
+   ]
+  },
+  {
+   "id": "fiat",
+   "kind": "board",
+   "x": 3290,
+   "y": 470,
+   "fill": "#E8DFCD",
+   "cue": [
+    "b72",
+    "monetary/legal"
+   ],
+   "until_cue": [
+    "b72",
+    "Purchasing"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b72",
+      "monetary/legal"
+     ],
+     "text": "FIAT MONEY monetary/legal\nsystem से चलता है।"
+    }
+   ]
+  },
+  {
+   "id": "purchasing",
+   "kind": "board",
+   "x": 3290,
+   "y": 470,
+   "fill": "#E8DFCD",
+   "cue": [
+    "b72",
+    "Purchasing"
+   ],
+   "until_cue": [
+    "b73",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b72",
+      "Purchasing"
+     ],
+     "text": "Purchasing power यानी रकम\nकितना सामान खरीदे।"
+    }
+   ]
+  },
+  {
+   "id": "crypto_risk",
+   "kind": "board",
+   "x": 3290,
+   "y": 470,
+   "fill": "#E8DFCD",
+   "cue": [
+    "b73",
+    "risky"
+   ],
+   "until_cue": [
+    "b74",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b73",
+      "risky"
+     ],
+     "text": "Crypto भी risky है।"
+    }
+   ]
+  },
+  {
+   "id": "motives",
+   "kind": "board",
+   "x": 3290,
+   "y": 470,
+   "fill": "#E8DFCD",
+   "cue": [
+    "b74",
+    "motives"
+   ],
+   "until_cue": [
+    "b75",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b74",
+      "motives"
+     ],
+     "text": "Distrust और charges motives हैं,\nguarantees नहीं।"
+    }
+   ]
+  },
+  {
+   "id": "distinctions",
+   "kind": "board",
+   "x": 3290,
+   "y": 470,
+   "fill": "#E8DFCD",
+   "cue": [
+    "b75",
+    "private"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b75",
+      "private"
+     ],
+     "text": "Connectivity, material,\nprivate records अलग रखो।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b69",
+    "",
+    0.0
+   ],
+   "x": 2790,
+   "y": 560,
+   "zoom": 0.9,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b69",
+    "Anarchist"
+   ],
+   "x": 2870,
+   "y": 540,
+   "zoom": 0.96,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b70",
+    "MDR,"
+   ],
+   "x": 2930,
+   "y": 540,
+   "zoom": 1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b70",
+    "E-banking/card"
+   ],
+   "x": 2810,
+   "y": 560,
+   "zoom": 0.92,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b70",
+    "systems"
+   ],
+   "x": 2930,
+   "y": 540,
+   "zoom": 1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b71",
+    "",
+    0.0
+   ],
+   "x": 2790,
+   "y": 560,
+   "zoom": 0.9,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b71",
+    "purchasing"
+   ],
+   "x": 2860,
+   "y": 550,
+   "zoom": 0.96,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b71",
+    "loan"
+   ],
+   "x": 2930,
+   "y": 540,
+   "zoom": 1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b72",
+    "",
+    0.0
+   ],
+   "x": 2810,
+   "y": 560,
+   "zoom": 0.92,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b72",
+    "Purchasing"
+   ],
+   "x": 2930,
+   "y": 540,
+   "zoom": 1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b72",
+    "loan"
+   ],
+   "x": 2870,
+   "y": 550,
+   "zoom": 0.96,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b73",
+    "",
+    0.0
+   ],
+   "x": 2790,
+   "y": 560,
+   "zoom": 0.9,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b74",
+    "",
+    0.0
+   ],
+   "x": 2930,
+   "y": 540,
+   "zoom": 1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b75",
+    "",
+    0.0
+   ],
+   "x": 2790,
+   "y": 560,
+   "zoom": 0.9,
+   "frames": 45
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

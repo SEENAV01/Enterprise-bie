@@ -1,0 +1,261 @@
+{
+ "id": "v13_s7b",
+ "part_id": "c31.3",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b38",
+   "say": "Funding पहले चाहिए ताकि voucher prepaid हो; delivery के बाद redemption में उस हक के बदले सेवा मिलती है।"
+  },
+  {
+   "beat_id": "b39",
+   "say": "Cash माँगने पर काम क्यों रुकेगा? वह तय सेवा के बदले redemption नहीं है।"
+  },
+  {
+   "beat_id": "b40",
+   "say": "एक बार तेजी से: सरकार ने voucher भेजा, आपने centre पर दिखाया, vaccination मिली।"
+  },
+  {
+   "beat_id": "b41",
+   "say": "Flow की आखिरी कड़ी redemption है, सिर्फ phone पर delivery नहीं।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "funding",
+   "kind": "text",
+   "cell": [
+    0,
+    0,
+    4,
+    2
+   ],
+   "cue": [
+    "b38",
+    "prepaid"
+   ],
+   "text": "Funding से voucher prepaid हो।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "band",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "delivery",
+   "kind": "text",
+   "cell": [
+    4,
+    0,
+    4,
+    2
+   ],
+   "cue": [
+    "b38",
+    "delivery"
+   ],
+   "text": "पहले delivery होती है।",
+   "style": "box",
+   "tone": "muted",
+   "fill": "note",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "redemption",
+   "kind": "text",
+   "cell": [
+    8,
+    0,
+    4,
+    2
+   ],
+   "cue": [
+    "b38",
+    "सेवा"
+   ],
+   "text": "Redemption में सेवा मिलती है।",
+   "style": "box",
+   "tone": "ok",
+   "fill": "band",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "cash_question",
+   "kind": "text",
+   "cell": [
+    2,
+    3,
+    8,
+    1
+   ],
+   "cue": [
+    "b39",
+    "Cash"
+   ],
+   "until_cue": [
+    "b40",
+    "सरकार"
+   ],
+   "text": "Cash माँगने पर काम क्यों रुकेगा?",
+   "style": "box",
+   "tone": "warm",
+   "fill": "note",
+   "align": "center",
+   "size": 32
+  },
+  {
+   "id": "cash_reason",
+   "kind": "callout",
+   "cell": [
+    2,
+    5,
+    8,
+    1
+   ],
+   "cue": [
+    "b39",
+    "नहीं"
+   ],
+   "until_cue": [
+    "b40",
+    "सरकार"
+   ],
+   "text": "वह तय सेवा के बदले redemption नहीं है।",
+   "style": "note",
+   "tone": "danger",
+   "fill": "note",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "replay_send",
+   "kind": "text",
+   "cell": [
+    0,
+    3,
+    4,
+    2
+   ],
+   "cue": [
+    "b40",
+    "भेजा,"
+   ],
+   "text": "सरकार ने voucher भेजा।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "note",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "replay_show",
+   "kind": "text",
+   "cell": [
+    4,
+    3,
+    4,
+    2
+   ],
+   "cue": [
+    "b40",
+    "दिखाया,"
+   ],
+   "text": "आपने centre पर दिखाया।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "note",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "replay_service",
+   "kind": "text",
+   "cell": [
+    8,
+    3,
+    4,
+    2
+   ],
+   "cue": [
+    "b40",
+    "vaccination"
+   ],
+   "text": "Vaccination मिली।",
+   "style": "box",
+   "tone": "ok",
+   "fill": "band",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "last_link",
+   "kind": "highlight",
+   "cue": [
+    "b41",
+    "redemption"
+   ],
+   "style": "band",
+   "tone": "ok",
+   "target": "redemption"
+  },
+  {
+   "id": "final_reminder",
+   "kind": "callout",
+   "cell": [
+    2,
+    6,
+    8,
+    1
+   ],
+   "cue": [
+    "b41",
+    "नहीं।"
+   ],
+   "text": "सिर्फ phone पर delivery नहीं।",
+   "style": "note",
+   "tone": "warm",
+   "fill": "note",
+   "align": "center",
+   "size": 30
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b39",
+    "Cash"
+   ],
+   "ids": [
+    "cash_question",
+    "cash_reason"
+   ],
+   "until_cue": [
+    "b40",
+    "सरकार"
+   ]
+  },
+  {
+   "cue": [
+    "b41",
+    "redemption"
+   ],
+   "ids": [
+    "redemption",
+    "replay_service",
+    "last_link"
+   ],
+   "until_cue": [
+    "b41",
+    "phone"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

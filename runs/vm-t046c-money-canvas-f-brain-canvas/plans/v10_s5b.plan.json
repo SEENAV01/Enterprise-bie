@@ -1,0 +1,439 @@
+{
+ "id": "v10_s5b",
+ "part_id": "c23.5",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b28",
+   "say": "Supplier payment माँगता है। Drawer को statutory demand notice मिला, यानी कानून के मुताबिक payment की माँग; फिर भी उसने नहीं चुकाया।"
+  },
+  {
+   "beat_id": "b29",
+   "say": "Cheque dishonour यानी बिना payment वापसी। Section 138 insufficient funds जैसे कारण और notice के बाद भी non-payment को criminal offence से जोड़ता है।"
+  },
+  {
+   "beat_id": "b30",
+   "say": "हर returned cheque अपने-आप crime नहीं बनता। Section 138 की statutory conditions भी पूरी होनी चाहिए।"
+  },
+  {
+   "beat_id": "b31",
+   "say": "Supplier बनकर देखिए: payment नहीं मिली, notice भेजा, फिर भी drawer ने नहीं चुकाया।"
+  },
+  {
+   "beat_id": "b32",
+   "say": "Return, notice, फिर non-payment याद रखिए; अकेला return पूरा legal test नहीं है।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "opening",
+   "kind": "text",
+   "cell": [
+    1,
+    0,
+    10,
+    1
+   ],
+   "cue": [
+    "b28",
+    "Supplier"
+   ],
+   "until_cue": [
+    "b29",
+    "Section"
+   ],
+   "text": "Supplier payment माँगता है।",
+   "style": "title",
+   "tone": "ink",
+   "fill": "paper",
+   "align": "center",
+   "size": 34
+  },
+  {
+   "id": "notice",
+   "kind": "text",
+   "cell": [
+    4,
+    3,
+    4,
+    2
+   ],
+   "cue": [
+    "b28",
+    "statutory"
+   ],
+   "text": "Drawer को statutory demand notice मिला।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "paper",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "unpaid",
+   "kind": "text",
+   "cell": [
+    9,
+    3,
+    3,
+    2
+   ],
+   "cue": [
+    "b28",
+    "नहीं"
+   ],
+   "text": "फिर भी उसने नहीं चुकाया।",
+   "style": "box",
+   "tone": "danger",
+   "fill": "paper",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "notice-to-unpaid",
+   "kind": "arrow",
+   "cue": [
+    "b28",
+    "चुकाया।"
+   ],
+   "tone": "danger",
+   "from": "notice",
+   "to": "unpaid",
+   "from_side": "r",
+   "to_side": "l",
+   "elbow": "hv"
+  },
+  {
+   "id": "returned",
+   "kind": "text",
+   "cell": [
+    0,
+    3,
+    3,
+    2
+   ],
+   "cue": [
+    "b29",
+    "dishonour"
+   ],
+   "text": "Cheque dishonour यानी बिना payment वापसी।",
+   "style": "box",
+   "tone": "warm",
+   "fill": "paper",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "section",
+   "kind": "text",
+   "cell": [
+    1,
+    0,
+    10,
+    1
+   ],
+   "cue": [
+    "b29",
+    "Section"
+   ],
+   "text": "Section 138 criminal offence से जोड़ता है।",
+   "style": "title",
+   "tone": "ink",
+   "fill": "paper",
+   "align": "center",
+   "size": 32
+  },
+  {
+   "id": "funds",
+   "kind": "text",
+   "cell": [
+    0,
+    1,
+    4,
+    1
+   ],
+   "cue": [
+    "b29",
+    "insufficient"
+   ],
+   "until_cue": [
+    "b30",
+    "हर"
+   ],
+   "text": "Insufficient funds जैसे कारण होते हैं।",
+   "style": "note",
+   "tone": "warm",
+   "fill": "paper",
+   "align": "center",
+   "size": 24
+  },
+  {
+   "id": "return-to-notice",
+   "kind": "arrow",
+   "cue": [
+    "b29",
+    "notice"
+   ],
+   "tone": "accent",
+   "from": "returned",
+   "to": "notice",
+   "from_side": "r",
+   "to_side": "l",
+   "elbow": "hv"
+  },
+  {
+   "id": "not-automatic",
+   "kind": "callout",
+   "cell": [
+    1,
+    6,
+    10,
+    1
+   ],
+   "cue": [
+    "b30",
+    "अपने-आप"
+   ],
+   "until_cue": [
+    "b31",
+    "Supplier"
+   ],
+   "text": "हर returned cheque अपने-आप crime नहीं बनता।",
+   "style": "note",
+   "tone": "danger",
+   "fill": "paper",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "conditions",
+   "kind": "text",
+   "cell": [
+    2,
+    1,
+    8,
+    1
+   ],
+   "cue": [
+    "b30",
+    "conditions"
+   ],
+   "text": "Section 138 की statutory conditions भी पूरी होनी चाहिए।",
+   "style": "note",
+   "tone": "warm",
+   "fill": "paper",
+   "align": "center",
+   "size": 26
+  },
+  {
+   "id": "supplier-view",
+   "kind": "text",
+   "cell": [
+    1,
+    6,
+    10,
+    1
+   ],
+   "cue": [
+    "b31",
+    "Supplier"
+   ],
+   "until_cue": [
+    "b32",
+    "Return,"
+   ],
+   "text": "Supplier बनकर देखिए: payment नहीं मिली।",
+   "style": "note",
+   "tone": "accent",
+   "fill": "paper",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "final-test",
+   "kind": "callout",
+   "cell": [
+    1,
+    6,
+    10,
+    1
+   ],
+   "cue": [
+    "b32",
+    "अकेला"
+   ],
+   "text": "अकेला return पूरा legal test नहीं है।",
+   "style": "note",
+   "tone": "danger",
+   "fill": "paper",
+   "align": "center",
+   "size": 30
+  }
+ ],
+ "camera": [
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    8
+   ],
+   "cue": [
+    "b28",
+    "Supplier"
+   ]
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b28",
+    "statutory"
+   ],
+   "ids": [
+    "opening",
+    "notice"
+   ],
+   "until_cue": [
+    "b28",
+    "नहीं"
+   ]
+  },
+  {
+   "cue": [
+    "b29",
+    "insufficient"
+   ],
+   "ids": [
+    "section",
+    "returned",
+    "funds"
+   ],
+   "until_cue": [
+    "b29",
+    "notice"
+   ]
+  },
+  {
+   "cue": [
+    "b29",
+    "non-payment"
+   ],
+   "ids": [
+    "section",
+    "notice",
+    "notice-to-unpaid",
+    "unpaid"
+   ],
+   "until_cue": [
+    "b30",
+    "हर"
+   ]
+  },
+  {
+   "cue": [
+    "b31",
+    "payment"
+   ],
+   "ids": [
+    "supplier-view",
+    "returned"
+   ],
+   "until_cue": [
+    "b31",
+    "notice"
+   ]
+  },
+  {
+   "cue": [
+    "b31",
+    "notice"
+   ],
+   "ids": [
+    "supplier-view",
+    "notice"
+   ],
+   "until_cue": [
+    "b31",
+    "drawer"
+   ]
+  },
+  {
+   "cue": [
+    "b31",
+    "drawer"
+   ],
+   "ids": [
+    "supplier-view",
+    "unpaid"
+   ],
+   "until_cue": [
+    "b32",
+    "Return,"
+   ]
+  },
+  {
+   "cue": [
+    "b32",
+    "Return,"
+   ],
+   "ids": [
+    "returned"
+   ],
+   "until_cue": [
+    "b32",
+    "notice,"
+   ]
+  },
+  {
+   "cue": [
+    "b32",
+    "notice,"
+   ],
+   "ids": [
+    "notice",
+    "return-to-notice"
+   ],
+   "until_cue": [
+    "b32",
+    "non-payment"
+   ]
+  },
+  {
+   "cue": [
+    "b32",
+    "non-payment"
+   ],
+   "ids": [
+    "unpaid",
+    "notice-to-unpaid"
+   ],
+   "until_cue": [
+    "b32",
+    "अकेला"
+   ]
+  },
+  {
+   "cue": [
+    "b32",
+    "अकेला"
+   ],
+   "ids": [
+    "section",
+    "conditions",
+    "returned",
+    "notice",
+    "unpaid",
+    "return-to-notice",
+    "notice-to-unpaid",
+    "final-test"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

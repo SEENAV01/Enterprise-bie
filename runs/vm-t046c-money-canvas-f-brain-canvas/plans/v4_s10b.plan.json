@@ -1,0 +1,244 @@
+{
+ "id": "v4_s10b",
+ "part_id": "c11.q",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b61",
+   "say": "पहला cheque, दूसरा credit card था: payment instruments, खुद currency नहीं। Cheque deposits का instruction, card credit तक पहुँच है। College का स्वीकार करना fiat या legal-tender status नहीं देता; payment method अलग सवाल है।"
+  },
+  {
+   "beat_id": "b62",
+   "say": "Value, legal status और payment method अलग हैं। आगे: gold link बिना dollar की माँग क्यों?"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "cheque_icon",
+   "kind": "icon",
+   "cell": [
+    1,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b61",
+    "cheque,"
+   ],
+   "tone": "accent",
+   "icon": "fa:solid/receipt"
+  },
+  {
+   "id": "card_icon",
+   "kind": "icon",
+   "cell": [
+    8,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b61",
+    "card"
+   ],
+   "tone": "warm",
+   "icon": "fa:solid/credit-card"
+  },
+  {
+   "id": "anchor",
+   "kind": "text",
+   "cell": [
+    1,
+    0,
+    10,
+    1
+   ],
+   "cue": [
+    "b61",
+    "instruments,"
+   ],
+   "text": "Payment instruments हैं, खुद currency नहीं।",
+   "style": "box",
+   "tone": "ink",
+   "fill": "band",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "cheque_explanation",
+   "kind": "text",
+   "cell": [
+    0,
+    4,
+    5,
+    1
+   ],
+   "cue": [
+    "b61",
+    "instruction,"
+   ],
+   "text": "Cheque deposits का instruction है।",
+   "style": "box",
+   "tone": "accent",
+   "align": "center",
+   "size": 26
+  },
+  {
+   "id": "card_explanation",
+   "kind": "text",
+   "cell": [
+    7,
+    4,
+    5,
+    1
+   ],
+   "cue": [
+    "b61",
+    "पहुँच"
+   ],
+   "text": "Card credit तक पहुँच है।",
+   "style": "box",
+   "tone": "warm",
+   "align": "center",
+   "size": 26
+  },
+  {
+   "id": "acceptance",
+   "kind": "callout",
+   "cell": [
+    1,
+    6,
+    10,
+    1
+   ],
+   "cue": [
+    "b61",
+    "स्वीकार"
+   ],
+   "until_cue": [
+    "b62",
+    "Value,"
+   ],
+   "text": "College का स्वीकार करना fiat या legal-tender status नहीं देता।",
+   "style": "note",
+   "tone": "ink",
+   "align": "center",
+   "size": 26,
+   "marks": [
+    {
+     "phrase": "legal-tender status",
+     "cue": [
+      "b61",
+      "legal-tender"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "method_highlight",
+   "kind": "highlight",
+   "cue": [
+    "b61",
+    "अलग"
+   ],
+   "until_cue": [
+    "b62",
+    "Value,"
+   ],
+   "style": "band",
+   "tone": "accent",
+   "target": "anchor"
+  },
+  {
+   "id": "distinction",
+   "kind": "callout",
+   "cell": [
+    1,
+    6,
+    10,
+    1
+   ],
+   "cue": [
+    "b62",
+    "Value,"
+   ],
+   "until_cue": [
+    "b62",
+    "gold"
+   ],
+   "text": "Value, legal status और payment method अलग हैं।",
+   "style": "note",
+   "tone": "accent",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "next_question",
+   "kind": "text",
+   "cell": [
+    1,
+    6,
+    10,
+    1
+   ],
+   "cue": [
+    "b62",
+    "gold"
+   ],
+   "text": "Gold link बिना dollar की माँग क्यों?",
+   "style": "box",
+   "tone": "warm",
+   "align": "center",
+   "size": 28
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b61",
+    "instruction,"
+   ],
+   "ids": [
+    "anchor",
+    "cheque_icon",
+    "cheque_explanation"
+   ],
+   "until_cue": [
+    "b61",
+    "पहुँच"
+   ]
+  },
+  {
+   "cue": [
+    "b61",
+    "पहुँच"
+   ],
+   "ids": [
+    "anchor",
+    "card_icon",
+    "card_explanation"
+   ],
+   "until_cue": [
+    "b61",
+    "स्वीकार"
+   ]
+  },
+  {
+   "cue": [
+    "b62",
+    "gold"
+   ],
+   "ids": [
+    "anchor",
+    "next_question"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

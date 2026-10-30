@@ -1,0 +1,199 @@
+{
+ "id": "v15_s8s",
+ "part_id": "c38.1",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b37",
+   "say": "₹200 का किराना अभी चाहिए? ₹500 cash से दोगे तो ₹300 बचेंगे; ₹1000 payment-ready account से ₹300 दो तो ₹700 बचेंगे।"
+  }
+ ],
+ "kit": "shop",
+ "elements": [
+  {
+   "id": "kirana",
+   "kind": "shop",
+   "x": 2600,
+   "y": 860,
+   "sign": "किराना",
+   "cue": [
+    "b37",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "shopkeeper",
+   "kind": "shopkeeper",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b37",
+    "किराना"
+   ]
+  },
+  {
+   "id": "buyer",
+   "kind": "crowd",
+   "x0": 2220,
+   "spacing": 100,
+   "enter_x": 1900,
+   "exit_x": 1900,
+   "face": 1,
+   "seed": 37,
+   "cue": [
+    "b37",
+    "चाहिए?"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b37",
+      "चाहिए?"
+     ],
+     "n": 1
+    }
+   ]
+  },
+  {
+   "id": "grocery_price",
+   "kind": "price_tag",
+   "x": 2780,
+   "y": 530,
+   "string": 65,
+   "cue": [
+    "b37",
+    "₹200"
+   ],
+   "until_cue": [
+    "b37",
+    "₹1000"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b37",
+      "₹200"
+     ],
+     "text": "₹200"
+    }
+   ]
+  },
+  {
+   "id": "cash_board",
+   "kind": "board",
+   "x": 3060,
+   "y": 480,
+   "fill": "#E5EEDB",
+   "cue": [
+    "b37",
+    "cash"
+   ],
+   "until_cue": [
+    "b37",
+    "₹1000"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b37",
+      "cash"
+     ],
+     "text": "₹500 cash से दोगे"
+    },
+    {
+     "cue": [
+      "b37",
+      "₹300"
+     ],
+     "text": "₹300 बचेंगे",
+     "dir": "down"
+    }
+   ]
+  },
+  {
+   "id": "account_board",
+   "kind": "board",
+   "x": 3060,
+   "y": 480,
+   "fill": "#DCEAF1",
+   "cue": [
+    "b37",
+    "₹1000"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b37",
+      "₹1000"
+     ],
+     "text": "₹1000 payment-ready\naccount से दो"
+    },
+    {
+     "cue": [
+      "b37",
+      "₹700"
+     ],
+     "text": "₹700 बचेंगे",
+     "dir": "down"
+    }
+   ]
+  },
+  {
+   "id": "account_payment",
+   "kind": "label",
+   "x": 2600,
+   "y": 350,
+   "text": "₹300 दो",
+   "fill": "#F4E8CF",
+   "cue": [
+    "b37",
+    "दो"
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b37",
+    "",
+    0.0
+   ],
+   "x": 2630,
+   "y": 530,
+   "zoom": 0.9,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b37",
+    "cash"
+   ],
+   "x": 2810,
+   "y": 510,
+   "zoom": 1.1,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b37",
+    "₹1000"
+   ],
+   "x": 2790,
+   "y": 475,
+   "zoom": 1.05,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b37",
+    "₹700"
+   ],
+   "x": 2900,
+   "y": 490,
+   "zoom": 1.15,
+   "frames": 30
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

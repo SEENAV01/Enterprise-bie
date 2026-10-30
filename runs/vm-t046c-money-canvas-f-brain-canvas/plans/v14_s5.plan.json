@@ -1,0 +1,239 @@
+{
+ "id": "v14_s5",
+ "part_id": "c34.2",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b29",
+   "say": "Plastic और banknote समान हैं? Material-family मिल सकती है; banknote specially engineered होता है।"
+  },
+  {
+   "beat_id": "b30",
+   "say": "Embedded security यानी बनावट में पहचान, जैसे ID की निशानी। Paper notes भी साथ चलेंगे, जैसे wallet में पुराने-नए designs।"
+  },
+  {
+   "beat_id": "b31",
+   "say": "पहचान imitation पकड़ने में मदद करती है। Coexistence दोनों को चलने देता है; withdrawal एक kind हटाता है।"
+  },
+  {
+   "beat_id": "b32",
+   "say": "Material change को demonetisation मत समझना: existing paper notes बेकार नहीं बताए गए हैं।"
+  },
+  {
+   "beat_id": "b33",
+   "say": "Engineered note ordinary plastic नहीं; साथ चलना replacement नहीं।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank",
+   "kind": "bank",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b29",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "teller",
+   "kind": "teller",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b29",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "construction",
+   "kind": "board",
+   "x": 2180,
+   "y": 470,
+   "fill": "#E5DCCB",
+   "cue": [
+    "b29",
+    "समान"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b29",
+      "समान"
+     ],
+     "text": "Plastic और banknote समान हैं?"
+    },
+    {
+     "cue": [
+      "b29",
+      "specially"
+     ],
+     "text": "banknote specially engineered होता है।"
+    },
+    {
+     "cue": [
+      "b30",
+      "बनावट"
+     ],
+     "text": "Embedded security यानी\nबनावट में पहचान।"
+    },
+    {
+     "cue": [
+      "b31",
+      "imitation"
+     ],
+     "text": "पहचान imitation पकड़ने में\nमदद करती है।"
+    },
+    {
+     "cue": [
+      "b33",
+      "ordinary"
+     ],
+     "text": "Engineered note\nordinary plastic नहीं।"
+    }
+   ]
+  },
+  {
+   "id": "circulation",
+   "kind": "board",
+   "x": 3020,
+   "y": 470,
+   "fill": "#DCE8DE",
+   "cue": [
+    "b30",
+    "साथ"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b30",
+      "साथ"
+     ],
+     "text": "Paper notes भी साथ चलेंगे।"
+    },
+    {
+     "cue": [
+      "b31",
+      "Coexistence"
+     ],
+     "text": "Coexistence दोनों को चलने देता है।"
+    },
+    {
+     "cue": [
+      "b31",
+      "withdrawal"
+     ],
+     "text": "withdrawal एक kind हटाता है।"
+    },
+    {
+     "cue": [
+      "b32",
+      "demonetisation"
+     ],
+     "text": "Material change को\n demonetisation मत समझना।"
+    },
+    {
+     "cue": [
+      "b32",
+      "बेकार"
+     ],
+     "text": "existing paper notes\nबेकार नहीं बताए गए हैं।"
+    },
+    {
+     "cue": [
+      "b33",
+      "replacement"
+     ],
+     "text": "साथ चलना replacement नहीं।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b29",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 510,
+   "zoom": 0.9,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b29",
+    "Material-family"
+   ],
+   "x": 2390,
+   "y": 500,
+   "zoom": 1.05,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b30",
+    "Embedded"
+   ],
+   "x": 2370,
+   "y": 490,
+   "zoom": 1.1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b30",
+    "Paper"
+   ],
+   "x": 2780,
+   "y": 490,
+   "zoom": 1.05,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b31",
+    "पहचान"
+   ],
+   "x": 2380,
+   "y": 490,
+   "zoom": 1.05,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b31",
+    "Coexistence"
+   ],
+   "x": 2790,
+   "y": 490,
+   "zoom": 1.05,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b32",
+    "Material"
+   ],
+   "x": 2790,
+   "y": 480,
+   "zoom": 1.12,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b33",
+    "Engineered"
+   ],
+   "x": 2600,
+   "y": 510,
+   "zoom": 0.9,
+   "frames": 50
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

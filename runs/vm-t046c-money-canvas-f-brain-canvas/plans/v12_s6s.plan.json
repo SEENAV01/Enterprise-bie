@@ -1,0 +1,231 @@
+{
+ "id": "v12_s6s",
+ "part_id": "c29.4",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b40",
+   "say": "अलग bills के लिए अलग व्यवस्था क्यों ढूँढें? परिवार common channel पर जुड़े बिजली provider को चुनकर बाकी ₹600 भरता है।"
+  },
+  {
+   "beat_id": "b41",
+   "say": "सफल settlement पर bill paid होता है; अब ₹0 बाकी हैं। Channel और biller ने साथ काम किया।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "question",
+   "kind": "text",
+   "cell": [
+    0,
+    0,
+    12,
+    1
+   ],
+   "cue": [
+    "b40",
+    "अलग"
+   ],
+   "until_cue": [
+    "b40",
+    "परिवार"
+   ],
+   "text": "अलग bills के लिए अलग व्यवस्था क्यों ढूँढें?",
+   "style": "title",
+   "tone": "ink",
+   "fill": "note",
+   "align": "center",
+   "size": 32
+  },
+  {
+   "id": "household",
+   "kind": "crowd",
+   "cell": [
+    0,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b40",
+    "परिवार"
+   ],
+   "tone": "ink",
+   "icon": "tw:1f3e0",
+   "cols": 1,
+   "steps": [
+    {
+     "cue": [
+      "b40",
+      "परिवार"
+     ],
+     "n": 1
+    }
+   ]
+  },
+  {
+   "id": "channel",
+   "kind": "icon",
+   "cell": [
+    5,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b40",
+    "channel"
+   ],
+   "tone": "accent",
+   "icon": "fa:solid/house-laptop"
+  },
+  {
+   "id": "biller",
+   "kind": "icon",
+   "cell": [
+    10,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b40",
+    "provider"
+   ],
+   "tone": "warm",
+   "icon": "fa:solid/industry"
+  },
+  {
+   "id": "connection",
+   "kind": "arrow",
+   "cue": [
+    "b40",
+    "चुनकर"
+   ],
+   "tone": "accent",
+   "from": "channel",
+   "to": "biller",
+   "from_side": "r",
+   "to_side": "l"
+  },
+  {
+   "id": "outstanding",
+   "kind": "value",
+   "cell": [
+    2,
+    5,
+    8,
+    1
+   ],
+   "cue": [
+    "b40",
+    "₹600"
+   ],
+   "tone": "ink",
+   "align": "center",
+   "size": 36,
+   "steps": [
+    {
+     "cue": [
+      "b40",
+      "₹600"
+     ],
+     "text": "बाकी ₹600 भरता है।"
+    },
+    {
+     "cue": [
+      "b41",
+      "₹0"
+     ],
+     "text": "₹0 बाकी हैं।",
+     "dir": "down"
+    }
+   ]
+  },
+  {
+   "id": "payment",
+   "kind": "arrow",
+   "cue": [
+    "b40",
+    "भरता"
+   ],
+   "tone": "warm",
+   "from": "household",
+   "to": "channel",
+   "from_side": "r",
+   "to_side": "l",
+   "flow": {
+    "icon": "tw:1fa99",
+    "count": 1,
+    "period": 1800,
+    "size": 28,
+    "cue": [
+     "b40",
+     "भरता"
+    ]
+   }
+  },
+  {
+   "id": "paid",
+   "kind": "callout",
+   "cell": [
+    2,
+    0,
+    8,
+    1
+   ],
+   "cue": [
+    "b41",
+    "paid"
+   ],
+   "text": "सफल settlement पर bill paid होता है।",
+   "style": "note",
+   "tone": "ok",
+   "fill": "note",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "cooperation",
+   "kind": "text",
+   "cell": [
+    2,
+    6,
+    8,
+    1
+   ],
+   "cue": [
+    "b41",
+    "साथ"
+   ],
+   "text": "Channel और biller ने साथ काम किया।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "note",
+   "align": "center",
+   "size": 28
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b41",
+    "₹0"
+   ],
+   "ids": [
+    "outstanding",
+    "paid"
+   ],
+   "until_cue": [
+    "b41",
+    "Channel"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

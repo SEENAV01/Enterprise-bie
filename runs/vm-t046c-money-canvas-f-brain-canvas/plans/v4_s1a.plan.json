@@ -1,0 +1,88 @@
+{
+ "id": "v4_s1a",
+ "part_id": "c09.1",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b1",
+   "say": "सस्ता ₹100 note चावल क्यों दिलाता है? क्या पीछे gold है? Payment में लेना और कानून से पैसा मानना क्या एक हैं?"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "note_question",
+   "kind": "text",
+   "cell": [
+    1,
+    1,
+    10,
+    2
+   ],
+   "cue": [
+    "b1",
+    "₹100"
+   ],
+   "text": "सस्ता ₹100 note चावल क्यों दिलाता है?",
+   "style": "box",
+   "tone": "ink",
+   "fill": "band",
+   "align": "center",
+   "size": 36
+  },
+  {
+   "id": "gold_question",
+   "kind": "text",
+   "cell": [
+    1,
+    3,
+    10,
+    1
+   ],
+   "cue": [
+    "b1",
+    "gold"
+   ],
+   "text": "क्या पीछे gold है?",
+   "style": "box",
+   "tone": "warm",
+   "fill": "note",
+   "align": "center",
+   "size": 34
+  },
+  {
+   "id": "recognition_question",
+   "kind": "text",
+   "cell": [
+    1,
+    5,
+    10,
+    2
+   ],
+   "cue": [
+    "b1",
+    "Payment"
+   ],
+   "text": "Payment में लेना और कानून से पैसा मानना क्या एक हैं?",
+   "style": "box",
+   "tone": "accent",
+   "fill": "band",
+   "align": "center",
+   "size": 32,
+   "marks": [
+    {
+     "phrase": "कानून से पैसा मानना",
+     "cue": [
+      "b1",
+      "कानून"
+     ]
+    }
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

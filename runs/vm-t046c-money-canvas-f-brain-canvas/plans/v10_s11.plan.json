@@ -1,0 +1,293 @@
+{
+ "id": "v10_s11",
+ "part_id": "c25.1",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b53",
+   "say": "यह MICR-enabled handling है। MICR यानी Magnetic Ink Character Recognition; automated cheque clearance के लिए 9-digit code Iron Oxide ink में छपता है।"
+  },
+  {
+   "beat_id": "b54",
+   "say": "Cheque के नीचे 9 numbered slots सोचिए। ये पहचान के digits हैं, payment की रकम नहीं।"
+  },
+  {
+   "beat_id": "b55",
+   "say": "Iron Oxide ink सजावट नहीं है; इस printing का काम automated clearance में machine reading को मदद देना है।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "anchor",
+   "kind": "text",
+   "cell": [
+    0,
+    0,
+    12,
+    1
+   ],
+   "cue": [
+    "b53",
+    "MICR-enabled"
+   ],
+   "text": "यह MICR-enabled handling है।",
+   "style": "title",
+   "tone": "ink",
+   "align": "center",
+   "size": 34
+  },
+  {
+   "id": "expansion",
+   "kind": "text",
+   "cell": [
+    0,
+    1,
+    12,
+    1
+   ],
+   "cue": [
+    "b53",
+    "Magnetic"
+   ],
+   "text": "MICR यानी Magnetic Ink Character Recognition।",
+   "style": "plain",
+   "tone": "ink",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "clearance",
+   "kind": "text",
+   "cell": [
+    8,
+    3,
+    4,
+    2
+   ],
+   "cue": [
+    "b53",
+    "clearance"
+   ],
+   "text": "Automated cheque clearance के लिए है।",
+   "style": "box",
+   "tone": "accent",
+   "align": "center",
+   "size": 26
+  },
+  {
+   "id": "code",
+   "kind": "text",
+   "cell": [
+    0,
+    3,
+    7,
+    1
+   ],
+   "cue": [
+    "b53",
+    "9-digit"
+   ],
+   "text": "यह 9-digit code है।",
+   "style": "box",
+   "tone": "ink",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "ink",
+   "kind": "text",
+   "cell": [
+    0,
+    6,
+    7,
+    1
+   ],
+   "cue": [
+    "b53",
+    "Oxide"
+   ],
+   "until_cue": [
+    "b55",
+    "सजावट"
+   ],
+   "text": "Code Iron Oxide ink में छपता है।",
+   "style": "note",
+   "tone": "warm",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "cheque",
+   "kind": "text",
+   "cell": [
+    0,
+    2,
+    7,
+    1
+   ],
+   "cue": [
+    "b54",
+    "Cheque"
+   ],
+   "text": "Cheque के नीचे slots सोचिए।",
+   "style": "plain",
+   "tone": "muted",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "slots",
+   "kind": "crowd",
+   "cell": [
+    0,
+    4,
+    7,
+    1
+   ],
+   "cue": [
+    "b54",
+    "9"
+   ],
+   "tone": "accent",
+   "icon": "fa:solid/receipt",
+   "size": 26,
+   "cols": 9,
+   "steps": [
+    {
+     "cue": [
+      "b54",
+      "9"
+     ],
+     "n": 9
+    }
+   ]
+  },
+  {
+   "id": "identity",
+   "kind": "callout",
+   "cell": [
+    0,
+    5,
+    12,
+    1
+   ],
+   "cue": [
+    "b54",
+    "पहचान"
+   ],
+   "text": "ये पहचान के digits हैं, payment की रकम नहीं।",
+   "style": "note",
+   "tone": "accent",
+   "align": "center",
+   "size": 28,
+   "marks": [
+    {
+     "phrase": "payment की रकम नहीं",
+     "cue": [
+      "b54",
+      "रकम"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "not-decoration",
+   "kind": "text",
+   "cell": [
+    0,
+    6,
+    7,
+    1
+   ],
+   "cue": [
+    "b55",
+    "सजावट"
+   ],
+   "text": "Iron Oxide ink सजावट नहीं है।",
+   "style": "note",
+   "tone": "warm",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "reading",
+   "kind": "callout",
+   "cell": [
+    0,
+    7,
+    12,
+    1
+   ],
+   "cue": [
+    "b55",
+    "reading"
+   ],
+   "text": "Printing automated clearance में machine reading को मदद देती है।",
+   "style": "note",
+   "tone": "accent",
+   "align": "center",
+   "size": 28,
+   "marks": [
+    {
+     "phrase": "machine reading",
+     "cue": [
+      "b55",
+      "मदद"
+     ]
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    8
+   ],
+   "cue": [
+    "b53",
+    "MICR-enabled"
+   ]
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b54",
+    "पहचान"
+   ],
+   "ids": [
+    "anchor",
+    "cheque",
+    "code",
+    "slots",
+    "identity"
+   ],
+   "until_cue": [
+    "b55",
+    "Iron"
+   ]
+  },
+  {
+   "cue": [
+    "b55",
+    "reading"
+   ],
+   "ids": [
+    "anchor",
+    "slots",
+    "not-decoration",
+    "clearance",
+    "reading"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

@@ -1,0 +1,208 @@
+{
+ "id": "v7_s1a",
+ "part_id": "c17.1",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b1",
+   "say": "सरकार किसी coin की payment value तय करे, लेकिन वैसा coin कोई भी बना सके, तो दुकानदार क्या करेगा? यही सवाल पैसे में भरोसे और सरकारी control की जरूरत खोलता है।"
+  },
+  {
+   "beat_id": "b2",
+   "say": "राज के खर्च बढ़ें और treasury में silver कम हो, तो payment कैसे चले? Delhi Sultanate के ruler Sultan Muhammad bin Tughlaq का 1329–1330 CE का experiment इसी मुश्किल का नया हल था।"
+  }
+ ],
+ "kit": "shop",
+ "elements": [
+  {
+   "id": "shop",
+   "kind": "shop",
+   "x": 2600,
+   "y": 860,
+   "sign": "दुकानदार",
+   "cue": [
+    "b1",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "shopkeeper",
+   "kind": "shopkeeper",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b1",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "identical_coins",
+   "kind": "coin_rain",
+   "x0": 2320,
+   "x1": 2470,
+   "seed": 4,
+   "count": 5,
+   "cue": [
+    "b1",
+    "coin"
+   ],
+   "until_cue": [
+    "b1",
+    "यही"
+   ]
+  },
+  {
+   "id": "question",
+   "kind": "board",
+   "x": 3020,
+   "y": 500,
+   "fill": "#E6D8B8",
+   "cue": [
+    "b1",
+    "दुकानदार"
+   ],
+   "until_cue": [
+    "b2",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b1",
+      "दुकानदार"
+     ],
+     "text": "दुकानदार क्या करेगा?"
+    }
+   ]
+  },
+  {
+   "id": "treasury_question",
+   "kind": "board",
+   "x": 2160,
+   "y": 490,
+   "fill": "#E6D8B8",
+   "cue": [
+    "b2",
+    "silver"
+   ],
+   "until_cue": [
+    "b2",
+    "Delhi"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b2",
+      "silver"
+     ],
+     "text": "treasury में silver कम हो,\nतो payment कैसे चले?"
+    }
+   ]
+  },
+  {
+   "id": "historical_context",
+   "kind": "board",
+   "x": 3020,
+   "y": 480,
+   "fill": "#D8E5DF",
+   "cue": [
+    "b2",
+    "Tughlaq"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b2",
+      "Tughlaq"
+     ],
+     "text": "Delhi Sultanate के ruler\nSultan Muhammad bin Tughlaq"
+    },
+    {
+     "cue": [
+      "b2",
+      "experiment"
+     ],
+     "text": "Sultan Muhammad bin Tughlaq का\n1329–1330 CE का experiment"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b1",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 540,
+   "zoom": 0.9,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b1",
+    "बना"
+   ],
+   "x": 2470,
+   "y": 570,
+   "zoom": 1.1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b1",
+    "भरोसे"
+   ],
+   "x": 2770,
+   "y": 530,
+   "zoom": 1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b2",
+    "",
+    0.0
+   ],
+   "x": 2510,
+   "y": 530,
+   "zoom": 0.9,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b2",
+    "payment"
+   ],
+   "x": 2320,
+   "y": 510,
+   "zoom": 1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b2",
+    "Tughlaq"
+   ],
+   "x": 2830,
+   "y": 510,
+   "zoom": 1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b2",
+    "हल"
+   ],
+   "x": 2740,
+   "y": 530,
+   "zoom": 0.9,
+   "frames": 40
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

@@ -1,0 +1,401 @@
+{
+ "id": "v11_s4",
+ "part_id": "c27.2",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b20",
+   "say": "Phone से दुकानदार तक request कैसे पहुँचेगी? इसमें app, आपका bank, जोड़ने वाला switch और दुकानदार का bank हैं—जैसे संदेश पहुँचाने के अलग counters।"
+  },
+  {
+   "beat_id": "b21",
+   "say": "बाएँ Rahul app पर PIN डालकर request भेजते हैं। अगला box Rahul's Bank है, यानी उनकी passbook वाला bank; यह app और NPCI के बीच है।"
+  },
+  {
+   "beat_id": "b22",
+   "say": "बीच में NPCI का switch है, जैसे सही पते की तरफ चिट्ठी भेजने वाला sorting counter। इसके दाएँ आखिरी box Merchant's Bank है, यानी दुकानदार का bank; switch से निकला arrow इसी receiving side पर पहुँचता है।"
+  },
+  {
+   "beat_id": "b23",
+   "say": "Rahul का bank उपलब्ध funds जाँचता है, switch दोनों banks पहचानकर request भेजता है, और merchant का bank confirmation पाता है। जैसे चिट्ठी पहुँचाने वाला आपका पैसा नहीं रखता, switch भी deposit account नहीं है।"
+  },
+  {
+   "beat_id": "b24",
+   "say": "दोनों banks को NPCI की routing जोड़ती है; संदेश वहाँ से गुजरता है, customer deposit नहीं रखा जाता। मगर संदेश पहुँचाना और banks का आपसी बकाया चुकाना अलग काम हैं। RBI पीछे settlement framework की oversight करता है, इसलिए वह पाँचवाँ routing box नहीं है।"
+  },
+  {
+   "beat_id": "b25",
+   "say": "नक्शा याद रखिए: app, payer bank, switch, merchant bank; RBI की oversight पीछे है।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank_place",
+   "kind": "bank",
+   "x": 2600,
+   "y": 860,
+   "sign": "bank",
+   "cue": [
+    "b20",
+    "bank,"
+   ]
+  },
+  {
+   "id": "request_intro",
+   "kind": "label",
+   "x": 2600,
+   "y": 180,
+   "text": "Phone से दुकानदार तक request कैसे पहुँचेगी?",
+   "fill": "#FFF4D6",
+   "cue": [
+    "b20",
+    "request"
+   ],
+   "until_cue": [
+    "b21",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "app_counter",
+   "kind": "board",
+   "x": 1910,
+   "y": 350,
+   "fill": "#DDECF7",
+   "cue": [
+    "b21",
+    "app"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b21",
+      "PIN"
+     ],
+     "text": "Rahul app पर PIN डालकर\nrequest भेजते हैं।"
+    }
+   ]
+  },
+  {
+   "id": "payer_counter",
+   "kind": "board",
+   "x": 2370,
+   "y": 350,
+   "fill": "#E1EFDD",
+   "cue": [
+    "b21",
+    "अगला"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b21",
+      "passbook"
+     ],
+     "text": "Rahul's Bank उनकी\npassbook वाला bank है।"
+    },
+    {
+     "cue": [
+      "b23",
+      "funds"
+     ],
+     "text": "Rahul का bank उपलब्ध\nfunds जाँचता है।"
+    }
+   ]
+  },
+  {
+   "id": "switch_counter",
+   "kind": "board",
+   "x": 2830,
+   "y": 350,
+   "fill": "#F7E7C4",
+   "cue": [
+    "b22",
+    "NPCI"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b22",
+      "switch"
+     ],
+     "text": "बीच में NPCI का switch है।"
+    },
+    {
+     "cue": [
+      "b23",
+      "पहचानकर"
+     ],
+     "text": "Switch दोनों banks पहचानकर\nrequest भेजता है।"
+    }
+   ]
+  },
+  {
+   "id": "merchant_counter",
+   "kind": "board",
+   "x": 3290,
+   "y": 350,
+   "fill": "#EADFF2",
+   "cue": [
+    "b22",
+    "Merchant's"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b22",
+      "दुकानदार"
+     ],
+     "text": "Merchant's Bank\nदुकानदार का bank है।"
+    },
+    {
+     "cue": [
+      "b23",
+      "confirmation"
+     ],
+     "text": "Merchant का bank\nconfirmation पाता है।"
+    }
+   ]
+  },
+  {
+   "id": "custody_note",
+   "kind": "label",
+   "x": 2830,
+   "y": 130,
+   "text": "Switch deposit account नहीं है।",
+   "fill": "#FFF4D6",
+   "cue": [
+    "b23",
+    "deposit"
+   ],
+   "until_cue": [
+    "b24",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "routing_note",
+   "kind": "label",
+   "x": 2600,
+   "y": 100,
+   "text": "दोनों banks को NPCI की routing जोड़ती है।",
+   "fill": "#FFF4D6",
+   "cue": [
+    "b24",
+    "routing"
+   ],
+   "until_cue": [
+    "b24",
+    "मगर"
+   ]
+  },
+  {
+   "id": "settlement_note",
+   "kind": "label",
+   "x": 2600,
+   "y": 100,
+   "text": "संदेश पहुँचाना और आपसी बकाया\nचुकाना अलग काम हैं।",
+   "fill": "#FFF4D6",
+   "cue": [
+    "b24",
+    "बकाया"
+   ],
+   "until_cue": [
+    "b24",
+    "RBI"
+   ]
+  },
+  {
+   "id": "oversight_note",
+   "kind": "label",
+   "x": 2600,
+   "y": 100,
+   "text": "RBI पीछे settlement framework की\noversight करता है।",
+   "fill": "#E8E5DF",
+   "cue": [
+    "b24",
+    "oversight"
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b20",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 440,
+   "zoom": 0.85,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b20",
+    "counters।"
+   ],
+   "x": 2450,
+   "y": 420,
+   "zoom": 0.95,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b21",
+    "बाएँ"
+   ],
+   "x": 2150,
+   "y": 410,
+   "zoom": 1.15,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b21",
+    "बीच"
+   ],
+   "x": 2450,
+   "y": 410,
+   "zoom": 1.05,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b22",
+    "बीच"
+   ],
+   "x": 2830,
+   "y": 390,
+   "zoom": 1.2,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b22",
+    "दाएँ"
+   ],
+   "x": 3070,
+   "y": 410,
+   "zoom": 1.05,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b22",
+    "receiving"
+   ],
+   "x": 3290,
+   "y": 410,
+   "zoom": 1.2,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b23",
+    "",
+    0.0
+   ],
+   "x": 2370,
+   "y": 410,
+   "zoom": 1.15,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b23",
+    "switch"
+   ],
+   "x": 2830,
+   "y": 390,
+   "zoom": 1.1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b23",
+    "merchant"
+   ],
+   "x": 3290,
+   "y": 410,
+   "zoom": 1.15,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b23",
+    "चिट्ठी"
+   ],
+   "x": 2830,
+   "y": 330,
+   "zoom": 1.05,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b24",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 410,
+   "zoom": 0.85,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b24",
+    "customer"
+   ],
+   "x": 2830,
+   "y": 370,
+   "zoom": 1.05,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b24",
+    "मगर"
+   ],
+   "x": 2600,
+   "y": 330,
+   "zoom": 0.95,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b24",
+    "पाँचवाँ"
+   ],
+   "x": 2600,
+   "y": 400,
+   "zoom": 0.85,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b25",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 410,
+   "zoom": 0.9,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b25",
+    "oversight"
+   ],
+   "x": 2600,
+   "y": 360,
+   "zoom": 0.85,
+   "frames": 40
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

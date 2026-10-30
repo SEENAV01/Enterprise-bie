@@ -1,0 +1,402 @@
+{
+ "id": "v17_s3",
+ "part_id": "c43.q",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b12",
+   "say": "अब Prelims-2017 के दोनों statements साथ जाँचिए। केवल statement 1 सही जानकर पूरा combination नहीं चुन सकते। केवल statement 2 सही जानने पर भी ‘2 only’ और ‘Both’ में फैसला नहीं होता। इसलिए पहले हर statement का सही या गलत होना तय कीजिए, फिर सही combination चुनिए।"
+  },
+  {
+   "beat_id": "b13",
+   "say": "Option a, ‘1 only’, पहले को सही और दूसरे को गलत मानता है। RuPay वाला statement सही है, इसलिए a हटेगा। Option b, ‘2 only’, दूसरे को सही लेकिन पहले को गलत मानता है; inclusion में मदद वाला statement भी सही है, इसलिए b भी हटेगा।"
+  },
+  {
+   "beat_id": "b14",
+   "say": "Option c, ‘Both 1 and 2’, दोनों को सही मानता है; हमने दोनों अलग-अलग जाँचे हैं। Option d, ‘Neither 1 nor 2’, दोनों को गलत कहता है; एक भी सही हो तो d हटेगा। इसलिए दोनों claims की जाँच से उत्तर c है।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "anchor",
+   "kind": "text",
+   "cell": [
+    1,
+    0,
+    10,
+    1
+   ],
+   "cue": [
+    "b12",
+    "Prelims-2017"
+   ],
+   "text": "Prelims-2017 के दोनों statements साथ जाँचिए।",
+   "style": "title",
+   "tone": "ink",
+   "fill": "paper",
+   "align": "center",
+   "size": 32
+  },
+  {
+   "id": "one_insufficient",
+   "kind": "text",
+   "cell": [
+    1,
+    2,
+    10,
+    2
+   ],
+   "cue": [
+    "b12",
+    "केवल"
+   ],
+   "until_cue": [
+    "b12",
+    "इसलिए"
+   ],
+   "text": "केवल statement 1 से पूरा combination नहीं चुन सकते।",
+   "style": "box",
+   "tone": "warm",
+   "align": "center",
+   "size": 30,
+   "marks": [
+    {
+     "phrase": "पूरा combination",
+     "cue": [
+      "b12",
+      "combination"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "two_insufficient",
+   "kind": "text",
+   "cell": [
+    1,
+    4,
+    10,
+    2
+   ],
+   "cue": [
+    "b12",
+    "‘2"
+   ],
+   "until_cue": [
+    "b12",
+    "इसलिए"
+   ],
+   "text": "‘2 only’ और ‘Both’ में फैसला नहीं होता।",
+   "style": "box",
+   "tone": "warm",
+   "align": "center",
+   "size": 30,
+   "marks": [
+    {
+     "phrase": "फैसला नहीं होता",
+     "cue": [
+      "b12",
+      "फैसला"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "check_rule",
+   "kind": "callout",
+   "cell": [
+    1,
+    2,
+    10,
+    2
+   ],
+   "cue": [
+    "b12",
+    "इसलिए"
+   ],
+   "until_cue": [
+    "b13",
+    "Option"
+   ],
+   "text": "पहले हर statement का सही या गलत होना तय कीजिए।",
+   "style": "note",
+   "tone": "accent",
+   "align": "center",
+   "size": 30,
+   "marks": [
+    {
+     "phrase": "सही या गलत",
+     "cue": [
+      "b12",
+      "गलत"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "choose_rule",
+   "kind": "text",
+   "cell": [
+    1,
+    4,
+    10,
+    1
+   ],
+   "cue": [
+    "b12",
+    "फिर"
+   ],
+   "until_cue": [
+    "b13",
+    "Option"
+   ],
+   "text": "फिर सही combination चुनिए।",
+   "style": "box",
+   "tone": "accent",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "option_a",
+   "kind": "text",
+   "cell": [
+    0,
+    2,
+    6,
+    2
+   ],
+   "cue": [
+    "b13",
+    "a,"
+   ],
+   "text": "a: ‘1 only’ पहले को सही, दूसरे को गलत मानता है।",
+   "style": "box",
+   "tone": "ink",
+   "align": "left",
+   "size": 26,
+   "marks": [
+    {
+     "phrase": "दूसरे को गलत",
+     "cue": [
+      "b13",
+      "दूसरे"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "reject_a",
+   "kind": "highlight",
+   "cue": [
+    "b13",
+    "हटेगा।"
+   ],
+   "style": "box",
+   "tone": "danger",
+   "target": "option_a"
+  },
+  {
+   "id": "option_b",
+   "kind": "text",
+   "cell": [
+    6,
+    2,
+    6,
+    2
+   ],
+   "cue": [
+    "b13",
+    "b,"
+   ],
+   "text": "b: ‘2 only’ दूसरे को सही, पहले को गलत मानता है।",
+   "style": "box",
+   "tone": "ink",
+   "align": "left",
+   "size": 26,
+   "marks": [
+    {
+     "phrase": "पहले को गलत",
+     "cue": [
+      "b13",
+      "inclusion"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "reject_b",
+   "kind": "highlight",
+   "cue": [
+    "b13",
+    "हटेगा।"
+   ],
+   "style": "box",
+   "tone": "danger",
+   "target": "option_b"
+  },
+  {
+   "id": "option_c",
+   "kind": "text",
+   "cell": [
+    0,
+    4,
+    6,
+    2
+   ],
+   "cue": [
+    "b14",
+    "c,"
+   ],
+   "text": "c: ‘Both 1 and 2’ दोनों को सही मानता है।",
+   "style": "box",
+   "tone": "ink",
+   "align": "left",
+   "size": 26,
+   "marks": [
+    {
+     "phrase": "दोनों को सही",
+     "cue": [
+      "b14",
+      "अलग-अलग"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "option_d",
+   "kind": "text",
+   "cell": [
+    6,
+    4,
+    6,
+    2
+   ],
+   "cue": [
+    "b14",
+    "d,"
+   ],
+   "text": "d: ‘Neither 1 nor 2’ दोनों को गलत कहता है।",
+   "style": "box",
+   "tone": "ink",
+   "align": "left",
+   "size": 26
+  },
+  {
+   "id": "reject_d",
+   "kind": "highlight",
+   "cue": [
+    "b14",
+    "हटेगा।"
+   ],
+   "style": "box",
+   "tone": "danger",
+   "target": "option_d"
+  },
+  {
+   "id": "answer",
+   "kind": "callout",
+   "cell": [
+    2,
+    6,
+    8,
+    1
+   ],
+   "cue": [
+    "b14",
+    "उत्तर"
+   ],
+   "text": "दोनों claims की जाँच से उत्तर c है।",
+   "style": "note",
+   "tone": "ok",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "select_c",
+   "kind": "highlight",
+   "cue": [
+    "b14",
+    "c"
+   ],
+   "style": "box",
+   "tone": "ok",
+   "target": "option_c"
+  }
+ ],
+ "camera": [
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    8
+   ],
+   "cue": [
+    "b12",
+    "Prelims-2017"
+   ]
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b13",
+    "RuPay"
+   ],
+   "ids": [
+    "anchor",
+    "option_a"
+   ],
+   "until_cue": [
+    "b13",
+    "b,"
+   ]
+  },
+  {
+   "cue": [
+    "b13",
+    "inclusion"
+   ],
+   "ids": [
+    "anchor",
+    "option_b"
+   ],
+   "until_cue": [
+    "b14",
+    "Option"
+   ]
+  },
+  {
+   "cue": [
+    "b14",
+    "अलग-अलग"
+   ],
+   "ids": [
+    "anchor",
+    "option_c"
+   ],
+   "until_cue": [
+    "b14",
+    "d,"
+   ]
+  },
+  {
+   "cue": [
+    "b14",
+    "उत्तर"
+   ],
+   "ids": [
+    "anchor",
+    "option_c",
+    "answer",
+    "select_c"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

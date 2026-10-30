@@ -1,0 +1,350 @@
+{
+ "id": "v6_s3",
+ "part_id": "c14.3",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b19",
+   "say": "पुराने coins को किस metal से पहचानोगे? परिवार में Mohur–gold, Rupee–silver, Dam–copper हैं; जैसे अलग metal के बर्तन पहचानते हो, वैसे इन्हें जोड़ो।"
+  },
+  {
+   "beat_id": "b20",
+   "say": "Gold वाला कौन? Mohur; चाँदी जैसा metal किसका? Rupee; ताँबे वाला कौन? Dam—यह metal पहचान है, denomination ratio नहीं।"
+  },
+  {
+   "beat_id": "b21",
+   "say": "Mohur gold है, Rupee silver, Dam copper; matching में swap मत करना। Silver Rupee की पहचान आगे silver-price trouble समझाएगी, आज की backing नहीं।"
+  },
+  {
+   "beat_id": "b22",
+   "say": "Memory के लिए 3 shelves सोचो: gold पर Mohur, silver पर Rupee, copper पर Dam। ये पहचान के shelves हैं, exchange ratios नहीं।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "anchor",
+   "kind": "text",
+   "cell": [
+    1,
+    0,
+    10,
+    1
+   ],
+   "cue": [
+    "b19",
+    "पुराने"
+   ],
+   "text": "पुराने coins को metal से पहचानो।",
+   "style": "title",
+   "tone": "ink",
+   "align": "center",
+   "size": 34
+  },
+  {
+   "id": "mohur",
+   "kind": "text",
+   "cell": [
+    0,
+    2,
+    4,
+    2
+   ],
+   "cue": [
+    "b19",
+    "Mohur–gold,"
+   ],
+   "text": "Mohur gold है।",
+   "style": "box",
+   "tone": "warm",
+   "fill": "note",
+   "align": "center",
+   "size": 32
+  },
+  {
+   "id": "rupee",
+   "kind": "text",
+   "cell": [
+    4,
+    2,
+    4,
+    2
+   ],
+   "cue": [
+    "b19",
+    "Rupee–silver,"
+   ],
+   "text": "Rupee silver है।",
+   "style": "box",
+   "tone": "ink",
+   "fill": "band",
+   "align": "center",
+   "size": 32
+  },
+  {
+   "id": "dam",
+   "kind": "text",
+   "cell": [
+    8,
+    2,
+    4,
+    2
+   ],
+   "cue": [
+    "b19",
+    "Dam–copper"
+   ],
+   "text": "Dam copper है।",
+   "style": "box",
+   "tone": "warm",
+   "fill": "note",
+   "align": "center",
+   "size": 32
+  },
+  {
+   "id": "ratio_note",
+   "kind": "text",
+   "cell": [
+    2,
+    5,
+    8,
+    1
+   ],
+   "cue": [
+    "b20",
+    "denomination"
+   ],
+   "until_cue": [
+    "b21",
+    "Silver"
+   ],
+   "text": "यह metal पहचान है, denomination ratio नहीं।",
+   "style": "note",
+   "tone": "muted",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "backing_note",
+   "kind": "callout",
+   "cell": [
+    2,
+    5,
+    8,
+    1
+   ],
+   "cue": [
+    "b21",
+    "backing"
+   ],
+   "until_cue": [
+    "b22",
+    "Memory"
+   ],
+   "text": "यह आज की backing नहीं।",
+   "style": "note",
+   "tone": "accent",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "shelves",
+   "kind": "text",
+   "cell": [
+    2,
+    5,
+    8,
+    1
+   ],
+   "cue": [
+    "b22",
+    "shelves"
+   ],
+   "text": "Memory के लिए 3 shelves सोचो।",
+   "style": "note",
+   "tone": "accent",
+   "align": "center",
+   "size": 28
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b19",
+    "बर्तन"
+   ],
+   "ids": [
+    "anchor",
+    "mohur",
+    "rupee",
+    "dam"
+   ],
+   "until_cue": [
+    "b20",
+    "Gold"
+   ]
+  },
+  {
+   "cue": [
+    "b20",
+    "Gold"
+   ],
+   "ids": [
+    "anchor",
+    "mohur"
+   ],
+   "until_cue": [
+    "b20",
+    "चाँदी"
+   ]
+  },
+  {
+   "cue": [
+    "b20",
+    "चाँदी"
+   ],
+   "ids": [
+    "anchor",
+    "rupee"
+   ],
+   "until_cue": [
+    "b20",
+    "ताँबे"
+   ]
+  },
+  {
+   "cue": [
+    "b20",
+    "ताँबे"
+   ],
+   "ids": [
+    "anchor",
+    "dam"
+   ],
+   "until_cue": [
+    "b20",
+    "denomination"
+   ]
+  },
+  {
+   "cue": [
+    "b21",
+    "Mohur"
+   ],
+   "ids": [
+    "anchor",
+    "mohur"
+   ],
+   "until_cue": [
+    "b21",
+    "Rupee"
+   ]
+  },
+  {
+   "cue": [
+    "b21",
+    "Rupee"
+   ],
+   "ids": [
+    "anchor",
+    "rupee"
+   ],
+   "until_cue": [
+    "b21",
+    "Dam"
+   ]
+  },
+  {
+   "cue": [
+    "b21",
+    "Dam"
+   ],
+   "ids": [
+    "anchor",
+    "dam"
+   ],
+   "until_cue": [
+    "b21",
+    "Silver"
+   ]
+  },
+  {
+   "cue": [
+    "b21",
+    "Silver"
+   ],
+   "ids": [
+    "anchor",
+    "rupee",
+    "backing_note"
+   ],
+   "until_cue": [
+    "b22",
+    "Memory"
+   ]
+  },
+  {
+   "cue": [
+    "b22",
+    "gold"
+   ],
+   "ids": [
+    "anchor",
+    "mohur",
+    "shelves"
+   ],
+   "until_cue": [
+    "b22",
+    "silver"
+   ]
+  },
+  {
+   "cue": [
+    "b22",
+    "silver"
+   ],
+   "ids": [
+    "anchor",
+    "rupee",
+    "shelves"
+   ],
+   "until_cue": [
+    "b22",
+    "copper"
+   ]
+  },
+  {
+   "cue": [
+    "b22",
+    "copper"
+   ],
+   "ids": [
+    "anchor",
+    "dam",
+    "shelves"
+   ],
+   "until_cue": [
+    "b22",
+    "exchange"
+   ]
+  },
+  {
+   "cue": [
+    "b22",
+    "exchange"
+   ],
+   "ids": [
+    "anchor",
+    "mohur",
+    "rupee",
+    "dam",
+    "shelves"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

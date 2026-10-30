@@ -1,0 +1,251 @@
+{
+ "id": "v11_s6s",
+ "part_id": "c27.3",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b35",
+   "say": "Payment कौन शुरू करता है? आपके पास ₹200 थे; चाय के ₹20 खुद भेजे, अब ₹180 बचे। Electricity company को पहले monthly collection की permission दी थी; ₹500 का bill आया तो company ने collection शुरू किया। Account में ₹2000 थे, अब ₹1500 बचे; नया click नहीं किया।"
+  }
+ ],
+ "kit": "shop",
+ "elements": [
+  {
+   "id": "question",
+   "kind": "title",
+   "x": 2600,
+   "y": 140,
+   "text": "Payment कौन शुरू करता है?",
+   "cue": [
+    "b35",
+    "Payment"
+   ]
+  },
+  {
+   "id": "tea_shop",
+   "kind": "shop",
+   "x": 2600,
+   "y": 860,
+   "sign": "चाय",
+   "cue": [
+    "b35",
+    "चाय"
+   ]
+  },
+  {
+   "id": "buyer",
+   "kind": "crowd",
+   "x0": 2150,
+   "spacing": 90,
+   "enter_x": 1700,
+   "exit_x": 1700,
+   "face": 1,
+   "seed": 35,
+   "cue": [
+    "b35",
+    "आपके"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b35",
+      "आपके"
+     ],
+     "n": 1
+    }
+   ]
+  },
+  {
+   "id": "tea_balance",
+   "kind": "board",
+   "x": 1930,
+   "y": 440,
+   "fill": "#E8DCC6",
+   "cue": [
+    "b35",
+    "₹200"
+   ],
+   "until_cue": [
+    "b35",
+    "Electricity"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b35",
+      "₹200"
+     ],
+     "text": "आपके पास ₹200 थे।"
+    },
+    {
+     "cue": [
+      "b35",
+      "₹180"
+     ],
+     "text": "अब ₹180 बचे।",
+     "dir": "down"
+    }
+   ]
+  },
+  {
+   "id": "tea_payment",
+   "kind": "board",
+   "x": 3220,
+   "y": 440,
+   "fill": "#E4EEDC",
+   "cue": [
+    "b35",
+    "भेजे,"
+   ],
+   "until_cue": [
+    "b35",
+    "Electricity"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b35",
+      "भेजे,"
+     ],
+     "text": "चाय के ₹20 खुद भेजे।"
+    }
+   ]
+  },
+  {
+   "id": "electricity_collection",
+   "kind": "board",
+   "x": 3220,
+   "y": 410,
+   "fill": "#E4EEDC",
+   "cue": [
+    "b35",
+    "permission"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b35",
+      "permission"
+     ],
+     "text": "Electricity company को पहले monthly\ncollection की permission दी थी।"
+    },
+    {
+     "cue": [
+      "b35",
+      "किया।"
+     ],
+     "text": "₹500 का bill आया तो company ने\ncollection शुरू किया।"
+    },
+    {
+     "cue": [
+      "b35",
+      "click"
+     ],
+     "text": "नया click नहीं किया।"
+    }
+   ]
+  },
+  {
+   "id": "electricity_balance",
+   "kind": "board",
+   "x": 1930,
+   "y": 440,
+   "fill": "#E8DCC6",
+   "cue": [
+    "b35",
+    "₹2000"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b35",
+      "₹2000"
+     ],
+     "text": "Account में ₹2000 थे,"
+    },
+    {
+     "cue": [
+      "b35",
+      "₹1500"
+     ],
+     "text": "अब ₹1500 बचे।",
+     "dir": "down"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b35",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 470,
+   "zoom": 0.8,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b35",
+    "₹200"
+   ],
+   "x": 2350,
+   "y": 480,
+   "zoom": 0.9,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b35",
+    "खुद"
+   ],
+   "x": 2700,
+   "y": 480,
+   "zoom": 0.85,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b35",
+    "Electricity"
+   ],
+   "x": 2880,
+   "y": 460,
+   "zoom": 0.85,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b35",
+    "₹500"
+   ],
+   "x": 3090,
+   "y": 430,
+   "zoom": 1.05,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b35",
+    "Account"
+   ],
+   "x": 2500,
+   "y": 460,
+   "zoom": 0.8,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b35",
+    "click"
+   ],
+   "x": 2750,
+   "y": 450,
+   "zoom": 0.85,
+   "frames": 35
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

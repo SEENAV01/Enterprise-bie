@@ -1,0 +1,161 @@
+{
+ "id": "v2_s5b",
+ "part_id": "c04.1",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b33",
+   "say": "Intermediary matching आसान करता है, आगे handling सुधरती है। UPI existing deposits भेजता है, extra पैसा नहीं बनाता।"
+  },
+  {
+   "beat_id": "b34",
+   "say": "Forms साथ रहते हैं; हर card में पैसा stored नहीं होता।"
+  },
+  {
+   "beat_id": "b35",
+   "say": "क्रम barter, commodity, metallic, paper, bank, फिर digital है।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank",
+   "kind": "bank",
+   "x": 2600,
+   "cue": [
+    "b33",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "teller",
+   "kind": "teller",
+   "x": 2600,
+   "cue": [
+    "b33",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "customers",
+   "kind": "crowd",
+   "x0": 2330,
+   "spacing": 95,
+   "enter_x": 1900,
+   "exit_x": 1900,
+   "face": 1,
+   "seed": 12,
+   "cue": [
+    "b33",
+    "Intermediary"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b33",
+      "Intermediary"
+     ],
+     "n": 2
+    }
+   ]
+  },
+  {
+   "id": "explanation",
+   "kind": "board",
+   "x": 3030,
+   "y": 460,
+   "fill": "#E8DFC9",
+   "cue": [
+    "b33",
+    "matching"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b33",
+      "matching"
+     ],
+     "text": "Intermediary matching आसान करता है।"
+    },
+    {
+     "cue": [
+      "b33",
+      "UPI"
+     ],
+     "text": "UPI existing deposits भेजता है,\nextra पैसा नहीं बनाता।"
+    },
+    {
+     "cue": [
+      "b34",
+      "साथ"
+     ],
+     "text": "Forms साथ रहते हैं;\nहर card में पैसा stored नहीं होता।"
+    },
+    {
+     "cue": [
+      "b35",
+      "commodity,"
+     ],
+     "text": "क्रम barter, commodity, metallic,\npaper, bank, फिर digital है।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b33",
+    "",
+    0.0
+   ],
+   "x": 2660,
+   "y": 510,
+   "zoom": 0.9,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b33",
+    "handling"
+   ],
+   "x": 2740,
+   "y": 510,
+   "zoom": 1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b33",
+    "UPI"
+   ],
+   "x": 2850,
+   "y": 490,
+   "zoom": 1.1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b34",
+    "साथ"
+   ],
+   "x": 2840,
+   "y": 500,
+   "zoom": 1.05,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b35",
+    "",
+    0.0
+   ],
+   "x": 2740,
+   "y": 500,
+   "zoom": 0.95,
+   "frames": 40
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

@@ -1,0 +1,277 @@
+{
+ "id": "v12_s7",
+ "part_id": "c29.1",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b45",
+   "say": "दोनों को कौन manage करता है? NPCI दोनों को manage करता है। AEPS यानी Aadhaar Enabled Payment System: Aadhaar की मदद से banking का दरवाजा खुलना, जैसे गाँव का counter; नाम पूरी procedure नहीं बताता।"
+  },
+  {
+   "beat_id": "b48",
+   "say": "यानी हमारी 2 अलग जरूरतों के पीछे एक common institutional connection है।"
+  },
+  {
+   "beat_id": "b46",
+   "say": "Matching में NPCI दोनों के साथ रखिए, काम अलग: AEPS banking access है, BBPS bill payment है।"
+  },
+  {
+   "beat_id": "b47",
+   "say": "चुनते समय रकम, urgency, recipient, channel और conditions जाँचिए। Fee कौन देगा, यह भी देखिए; banking access और bill payment अलग रखिए।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "village_bank",
+   "kind": "bank",
+   "x": 2600,
+   "y": 860,
+   "sign": "banking",
+   "cue": [
+    "b45",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "counter_teller",
+   "kind": "teller",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b45",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "customers",
+   "kind": "crowd",
+   "y": 860,
+   "x0": 2330,
+   "spacing": 110,
+   "enter_x": 2050,
+   "exit_x": 2050,
+   "face": 1,
+   "seed": 29,
+   "cue": [
+    "b45",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b45",
+      "",
+      0.0
+     ],
+     "n": 2
+    }
+   ]
+  },
+  {
+   "id": "npci_anchor",
+   "kind": "board",
+   "x": 2600,
+   "y": 220,
+   "fill": "#456D83",
+   "cue": [
+    "b45",
+    "NPCI"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b45",
+      "NPCI"
+     ],
+     "text": "NPCI दोनों को manage करता है।"
+    }
+   ]
+  },
+  {
+   "id": "aeps_explanation",
+   "kind": "board",
+   "x": 1820,
+   "y": 440,
+   "fill": "#447F78",
+   "cue": [
+    "b45",
+    "AEPS"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b45",
+      "AEPS"
+     ],
+     "text": "AEPS यानी Aadhaar Enabled\nPayment System।"
+    },
+    {
+     "cue": [
+      "b45",
+      "procedure"
+     ],
+     "text": "नाम पूरी procedure नहीं बताता।"
+    },
+    {
+     "cue": [
+      "b46",
+      "AEPS"
+     ],
+     "text": "AEPS banking access है।"
+    }
+   ]
+  },
+  {
+   "id": "bbps_function",
+   "kind": "board",
+   "x": 3380,
+   "y": 440,
+   "fill": "#94704B",
+   "cue": [
+    "b46",
+    "BBPS"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b46",
+      "BBPS"
+     ],
+     "text": "BBPS bill payment है।"
+    }
+   ]
+  },
+  {
+   "id": "payment_choice",
+   "kind": "board",
+   "x": 3380,
+   "y": 710,
+   "fill": "#456D83",
+   "cue": [
+    "b47",
+    "recipient,"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b47",
+      "recipient,"
+     ],
+     "text": "रकम, urgency, recipient,\nchannel और conditions जाँचिए।"
+    },
+    {
+     "cue": [
+      "b47",
+      "Fee"
+     ],
+     "text": "Fee कौन देगा,\nयह भी देखिए।"
+    },
+    {
+     "cue": [
+      "b47",
+      "banking"
+     ],
+     "text": "banking access और bill payment\nअलग रखिए।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b45",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 490,
+   "zoom": 0.8,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b45",
+    "AEPS"
+   ],
+   "x": 2200,
+   "y": 440,
+   "zoom": 1.05,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b45",
+    "गाँव"
+   ],
+   "x": 2470,
+   "y": 540,
+   "zoom": 1.05,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b45",
+    "procedure"
+   ],
+   "x": 2200,
+   "y": 440,
+   "zoom": 1.05,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b48",
+    "common"
+   ],
+   "x": 2600,
+   "y": 410,
+   "zoom": 0.8,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b46",
+    "Matching"
+   ],
+   "x": 2600,
+   "y": 470,
+   "zoom": 0.8,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b46",
+    "BBPS"
+   ],
+   "x": 2760,
+   "y": 460,
+   "zoom": 0.85,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b47",
+    "recipient,"
+   ],
+   "x": 3270,
+   "y": 580,
+   "zoom": 1.1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b47",
+    "banking"
+   ],
+   "x": 2600,
+   "y": 480,
+   "zoom": 0.8,
+   "frames": 45
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

@@ -1,0 +1,205 @@
+{
+ "id": "v15_s8b",
+ "part_id": "c38.1",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b38",
+   "say": "यह immediate-payment focus M1, Narrow Money की पहचान है। यह public का सबसे liquid money है, यानी जल्दी इस्तेमाल होने वाला पैसा।"
+  },
+  {
+   "beat_id": "b39",
+   "say": "FD में access की शर्तें हो सकती हैं। Narrow तुरंत इस्तेमाल वाले components हैं, पतले notes नहीं।"
+  },
+  {
+   "beat_id": "b40",
+   "say": "M1 almost immediately spendable components गिनता है। अब formula बनाओ।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "m1_anchor",
+   "kind": "text",
+   "cell": [
+    0,
+    0,
+    12,
+    2
+   ],
+   "cue": [
+    "b38",
+    "पहचान"
+   ],
+   "text": "Immediate-payment focus M1, Narrow Money की पहचान है।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "band",
+   "align": "center",
+   "size": 32
+  },
+  {
+   "id": "public_liquidity",
+   "kind": "callout",
+   "cell": [
+    1,
+    3,
+    10,
+    2
+   ],
+   "cue": [
+    "b38",
+    "liquid"
+   ],
+   "until_cue": [
+    "b39",
+    "FD"
+   ],
+   "text": "यह public का सबसे liquid money है।",
+   "style": "note",
+   "tone": "ink",
+   "fill": "note",
+   "align": "center",
+   "size": 34
+  },
+  {
+   "id": "liquidity_meaning",
+   "kind": "text",
+   "cell": [
+    1,
+    5,
+    10,
+    2
+   ],
+   "cue": [
+    "b38",
+    "जल्दी"
+   ],
+   "until_cue": [
+    "b39",
+    "FD"
+   ],
+   "text": "यानी जल्दी इस्तेमाल होने वाला पैसा।",
+   "style": "plain",
+   "tone": "accent",
+   "align": "center",
+   "size": 32
+  },
+  {
+   "id": "fd_condition",
+   "kind": "text",
+   "cell": [
+    0,
+    3,
+    6,
+    2
+   ],
+   "cue": [
+    "b39",
+    "FD"
+   ],
+   "until_cue": [
+    "b40",
+    "M1"
+   ],
+   "text": "FD में access की शर्तें हो सकती हैं।",
+   "style": "box",
+   "tone": "warm",
+   "fill": "note",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "narrow_meaning",
+   "kind": "text",
+   "cell": [
+    6,
+    3,
+    6,
+    2
+   ],
+   "cue": [
+    "b39",
+    "तुरंत"
+   ],
+   "until_cue": [
+    "b40",
+    "M1"
+   ],
+   "text": "Narrow तुरंत इस्तेमाल वाले components हैं।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "band",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "not_thin_notes",
+   "kind": "text",
+   "cell": [
+    2,
+    5,
+    8,
+    2
+   ],
+   "cue": [
+    "b39",
+    "पतले"
+   ],
+   "until_cue": [
+    "b40",
+    "M1"
+   ],
+   "text": "Narrow पतले notes नहीं।",
+   "style": "note",
+   "tone": "warm",
+   "fill": "note",
+   "align": "center",
+   "size": 32
+  },
+  {
+   "id": "spendability_summary",
+   "kind": "callout",
+   "cell": [
+    1,
+    3,
+    10,
+    2
+   ],
+   "cue": [
+    "b40",
+    "spendable"
+   ],
+   "text": "M1 almost immediately spendable components गिनता है।",
+   "style": "note",
+   "tone": "accent",
+   "fill": "band",
+   "align": "center",
+   "size": 34
+  },
+  {
+   "id": "formula_transition",
+   "kind": "text",
+   "cell": [
+    3,
+    5,
+    6,
+    2
+   ],
+   "cue": [
+    "b40",
+    "formula"
+   ],
+   "text": "अब formula बनाओ।",
+   "style": "plain",
+   "tone": "ink",
+   "align": "center",
+   "size": 32
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

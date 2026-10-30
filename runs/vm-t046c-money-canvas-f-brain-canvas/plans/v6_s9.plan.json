@@ -1,0 +1,404 @@
+{
+ "id": "v6_s9",
+ "part_id": "c16.2",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b55",
+   "say": "Banks का आपसी payment और तुम्हारी shopping एक segment हैं? 2022 में wholesale और retail pilots अलग थे; pilot यानी limited trial, ताकि technology और इस्तेमाल जाँच सकें।"
+  },
+  {
+   "beat_id": "b56",
+   "say": "e₹-W wholesale interbank settlements, यानी banks के आपसी dues चुकाने के लिए है। October 2022 के announcement context और actual launch को अलग रखो: official start 1 November 2022 है। W institutional segment बताता है, discount नहीं।"
+  },
+  {
+   "beat_id": "b57",
+   "say": "दुकान वाली payment किसकी है? December 2022 का e₹-R retail pilot public के लिए था—यानी तुम्हारी sugar खरीद जैसी payment। RBI ने participating banks, merchants और users धीरे-धीरे बढ़ाए।"
+  },
+  {
+   "beat_id": "b58",
+   "say": "बदलाव दो use cases की testing है: W banks के settlement का, R public का। दोनों में e electronic form, ₹ rupee और आखिरी letter segment बताता है।"
+  },
+  {
+   "beat_id": "b59",
+   "say": "Testing की सीख से participating banks, merchants और users बढ़ते हैं; gradual expansion का मतलब हर दुकान पर availability नहीं है।"
+  },
+  {
+   "beat_id": "b60",
+   "say": "क्रम हुआ wholesale official launch 1 November 2022, retail December 2022, फिर expansion। Exam में W को banks, R को public से जोड़ो।"
+  },
+  {
+   "beat_id": "b61",
+   "say": "पूरी यात्रा में material, issuer, subdivision, external price और payment form अलग रखो। तभी silver coin, decimal rupee, fiat, managed float और Digital Rupee आपस में नहीं उलझेंगे।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank",
+   "kind": "bank",
+   "x": 2600,
+   "sign": "Banks",
+   "cue": [
+    "b55",
+    "Banks"
+   ]
+  },
+  {
+   "id": "teller",
+   "kind": "teller",
+   "x": 2600,
+   "cue": [
+    "b55",
+    "payment"
+   ]
+  },
+  {
+   "id": "trial_note",
+   "kind": "label",
+   "x": 2600,
+   "y": 235,
+   "text": "Pilot यानी limited trial।",
+   "fill": "#F3EBDD",
+   "cue": [
+    "b55",
+    "limited"
+   ],
+   "until_cue": [
+    "b61",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "left_board",
+   "kind": "board",
+   "x": 2070,
+   "y": 450,
+   "fill": "#E7EEE9",
+   "cue": [
+    "b55",
+    "अलग"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b55",
+      "अलग"
+     ],
+     "text": "2022 में wholesale और\nretail pilots अलग थे।"
+    },
+    {
+     "cue": [
+      "b56",
+      "dues"
+     ],
+     "text": "e₹-W banks के आपसी\ndues चुकाने के लिए है।"
+    },
+    {
+     "cue": [
+      "b56",
+      "context"
+     ],
+     "text": "October 2022 का\nannouncement context अलग है।"
+    },
+    {
+     "cue": [
+      "b56",
+      "discount"
+     ],
+     "text": "W institutional segment है,\ndiscount नहीं।"
+    },
+    {
+     "cue": [
+      "b57",
+      "public"
+     ],
+     "text": "e₹-R retail pilot\npublic के लिए था।"
+    },
+    {
+     "cue": [
+      "b58",
+      "public"
+     ],
+     "text": "W banks के settlement का,\nR public का।"
+    },
+    {
+     "cue": [
+      "b59",
+      "बढ़ते"
+     ],
+     "text": "Testing की सीख से\nparticipating banks, merchants\nऔर users बढ़ते हैं।"
+    },
+    {
+     "cue": [
+      "b60",
+      "November"
+     ],
+     "text": "Wholesale official launch\n1 November 2022 हुआ।"
+    },
+    {
+     "cue": [
+      "b61",
+      "subdivision,"
+     ],
+     "text": "Material, issuer और\nsubdivision अलग रखो।"
+    },
+    {
+     "cue": [
+      "b61",
+      "fiat,"
+     ],
+     "text": "Silver coin, decimal rupee और\nfiat आपस में नहीं उलझेंगे।"
+    }
+   ]
+  },
+  {
+   "id": "right_board",
+   "kind": "board",
+   "x": 3130,
+   "y": 450,
+   "fill": "#EEE8DB",
+   "cue": [
+    "b56",
+    "November"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b56",
+      "November"
+     ],
+     "text": "Official start\n1 November 2022 है।"
+    },
+    {
+     "cue": [
+      "b57",
+      "pilot"
+     ],
+     "text": "December 2022 में\ne₹-R retail pilot था।"
+    },
+    {
+     "cue": [
+      "b57",
+      "खरीद"
+     ],
+     "text": "Sugar खरीद जैसी payment\npublic की payment है।"
+    },
+    {
+     "cue": [
+      "b58",
+      "segment"
+     ],
+     "text": "e electronic form है,\n₹ rupee है; आखिरी letter\nsegment बताता है।"
+    },
+    {
+     "cue": [
+      "b59",
+      "availability"
+     ],
+     "text": "Gradual expansion का मतलब\nहर दुकान पर availability नहीं है।"
+    },
+    {
+     "cue": [
+      "b60",
+      "expansion।"
+     ],
+     "text": "Retail December 2022,\nफिर expansion हुआ।"
+    },
+    {
+     "cue": [
+      "b60",
+      "public"
+     ],
+     "text": "W को banks,\nR को public से जोड़ो।"
+    },
+    {
+     "cue": [
+      "b61",
+      "रखो।"
+     ],
+     "text": "External price और\npayment form अलग रखो।"
+    },
+    {
+     "cue": [
+      "b61",
+      "उलझेंगे।"
+     ],
+     "text": "Managed float और Digital Rupee\nआपस में नहीं उलझेंगे।"
+    }
+   ]
+  },
+  {
+   "id": "customers",
+   "kind": "crowd",
+   "x0": 2330,
+   "spacing": 85,
+   "enter_x": 1750,
+   "exit_x": 3450,
+   "face": 1,
+   "seed": 16,
+   "cue": [
+    "b57",
+    "public"
+   ],
+   "until_cue": [
+    "b61",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b57",
+      "public"
+     ],
+     "n": 2
+    },
+    {
+     "cue": [
+      "b57",
+      "बढ़ाए।"
+     ],
+     "n": 4
+    },
+    {
+     "cue": [
+      "b59",
+      "बढ़ते"
+     ],
+     "n": 6
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b55",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 490,
+   "zoom": 0.8,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b55",
+    "जाँच"
+   ],
+   "x": 2540,
+   "y": 455,
+   "zoom": 0.85,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b56",
+    "interbank"
+   ],
+   "x": 2490,
+   "y": 470,
+   "zoom": 0.85,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b56",
+    "actual"
+   ],
+   "x": 2600,
+   "y": 450,
+   "zoom": 0.8,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b57",
+    "",
+    0.0
+   ],
+   "x": 2650,
+   "y": 490,
+   "zoom": 0.8,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b57",
+    "participating"
+   ],
+   "x": 2600,
+   "y": 520,
+   "zoom": 0.82,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b58",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 450,
+   "zoom": 0.8,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b58",
+    "electronic"
+   ],
+   "x": 2660,
+   "y": 450,
+   "zoom": 0.82,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b59",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 510,
+   "zoom": 0.8,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b60",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 450,
+   "zoom": 0.8,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b60",
+    "Exam"
+   ],
+   "x": 2650,
+   "y": 450,
+   "zoom": 0.82,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b61",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 450,
+   "zoom": 0.8,
+   "frames": 45
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

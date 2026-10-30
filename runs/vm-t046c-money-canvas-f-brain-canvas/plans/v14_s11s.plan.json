@@ -1,0 +1,483 @@
+{
+ "id": "v14_s11s",
+ "part_id": "c35.3",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b60",
+   "say": "Bank की अकेली copy बिना हिसाब कैसे चले? मानो आपकी 3 units थीं, receiver की 0। Fees छोड़कर 1 भेजी; transfer accept हुआ, आपको 2 बचीं, उसे 1 मिली।"
+  },
+  {
+   "beat_id": "b61",
+   "say": "आपकी भेजने की instruction network computers तक पहुँची; वे authorization और उपलब्ध units जाँचते हैं।"
+  },
+  {
+   "beat_id": "b62",
+   "say": "क्या instruction आपकी है और 3 units में भेजी जाने वाली 1 पहले खर्च नहीं हुई? Shared rules से जाँच सही निकले, तो computers ownership बदलना स्वीकार करते हैं। यही distributed ledger है: कई computers पर मिलता हिसाब, bank या government की अकेली copy नहीं।"
+  },
+  {
+   "beat_id": "b63",
+   "say": "गलत authorization या दोबारा वही unit खर्च करने की कोशिश reject होगी; ownership नहीं बदलेगी। Exact rules networks में अलग होते हैं।"
+  },
+  {
+   "beat_id": "b64",
+   "say": "जाँच सही थी; records बदले, आपको 2 बचीं, उसे 1 मिली।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank",
+   "kind": "bank",
+   "x": 2600,
+   "y": 860,
+   "sign": "Bank",
+   "cue": [
+    "b60",
+    "Bank"
+   ],
+   "until_cue": [
+    "b61",
+    "network"
+   ]
+  },
+  {
+   "id": "teller",
+   "kind": "teller",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b60",
+    "Bank"
+   ],
+   "until_cue": [
+    "b61",
+    "network"
+   ]
+  },
+  {
+   "id": "hypothesis",
+   "kind": "label",
+   "x": 2600,
+   "y": 190,
+   "text": "मानो आपकी 3 units थीं।",
+   "fill": "rgba(250,244,222,1)",
+   "cue": [
+    "b60",
+    "मानो"
+   ],
+   "until_cue": [
+    "b61",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "sender",
+   "kind": "board",
+   "x": 2070,
+   "y": 460,
+   "fill": "#477C85",
+   "cue": [
+    "b60",
+    "3"
+   ],
+   "until_cue": [
+    "b61",
+    "network"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b60",
+      "3"
+     ],
+     "text": "आपकी 3 units थीं।"
+    },
+    {
+     "cue": [
+      "b60",
+      "2"
+     ],
+     "text": "आपको 2 बचीं।",
+     "dir": "down"
+    }
+   ]
+  },
+  {
+   "id": "recipient",
+   "kind": "board",
+   "x": 3130,
+   "y": 460,
+   "fill": "#477C85",
+   "cue": [
+    "b60",
+    "0।"
+   ],
+   "until_cue": [
+    "b61",
+    "network"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b60",
+      "0।"
+     ],
+     "text": "Receiver की 0 units थीं।"
+    },
+    {
+     "cue": [
+      "b60",
+      "मिली।"
+     ],
+     "text": "उसे 1 मिली।",
+     "dir": "up"
+    }
+   ]
+  },
+  {
+   "id": "transfer",
+   "kind": "label",
+   "x": 2600,
+   "y": 310,
+   "text": "Fees छोड़कर 1 भेजी।",
+   "fill": "rgba(250,244,222,1)",
+   "cue": [
+    "b60",
+    "भेजी;"
+   ],
+   "until_cue": [
+    "b61",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "network",
+   "kind": "board",
+   "x": 2600,
+   "y": 260,
+   "fill": "#477C85",
+   "cue": [
+    "b61",
+    "network"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b61",
+      "network"
+     ],
+     "text": "Instruction network computers तक पहुँची।"
+    },
+    {
+     "cue": [
+      "b61",
+      "authorization"
+     ],
+     "text": "Authorization और उपलब्ध units जाँचते हैं।"
+    },
+    {
+     "cue": [
+      "b62",
+      "instruction"
+     ],
+     "text": "क्या instruction आपकी है?"
+    },
+    {
+     "cue": [
+      "b62",
+      "पहले"
+     ],
+     "text": "भेजी जाने वाली 1 पहले खर्च नहीं हुई?"
+    },
+    {
+     "cue": [
+      "b62",
+      "स्वीकार"
+     ],
+     "text": "Computers ownership बदलना\nस्वीकार करते हैं।"
+    },
+    {
+     "cue": [
+      "b62",
+      "distributed"
+     ],
+     "text": "यही distributed ledger है।"
+    },
+    {
+     "cue": [
+      "b63",
+      "reject"
+     ],
+     "text": "गलत authorization reject होगी।"
+    },
+    {
+     "cue": [
+      "b63",
+      "बदलेगी।"
+     ],
+     "text": "Ownership नहीं बदलेगी।"
+    },
+    {
+     "cue": [
+      "b63",
+      "Exact"
+     ],
+     "text": "Exact rules networks में अलग होते हैं।"
+    },
+    {
+     "cue": [
+      "b64",
+      "बदले,"
+     ],
+     "text": "जाँच सही थी; records बदले।"
+    }
+   ]
+  },
+  {
+   "id": "shared_left",
+   "kind": "board",
+   "x": 2080,
+   "y": 580,
+   "fill": "#477C85",
+   "cue": [
+    "b62",
+    "कई"
+   ],
+   "until_cue": [
+    "b64",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b62",
+      "कई"
+     ],
+     "text": "कई computers पर मिलता हिसाब।"
+    }
+   ]
+  },
+  {
+   "id": "shared_right",
+   "kind": "board",
+   "x": 3120,
+   "y": 580,
+   "fill": "#477C85",
+   "cue": [
+    "b62",
+    "हिसाब,"
+   ],
+   "until_cue": [
+    "b64",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b62",
+      "हिसाब,"
+     ],
+     "text": "कई computers पर मिलता हिसाब।"
+    }
+   ]
+  },
+  {
+   "id": "not_central",
+   "kind": "label",
+   "x": 2600,
+   "y": 740,
+   "text": "Bank या government की अकेली copy नहीं।",
+   "fill": "rgba(250,244,222,1)",
+   "cue": [
+    "b62",
+    "bank"
+   ],
+   "until_cue": [
+    "b63",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "final_sender",
+   "kind": "board",
+   "x": 2080,
+   "y": 580,
+   "fill": "#477C85",
+   "cue": [
+    "b64",
+    "2"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b64",
+      "2"
+     ],
+     "text": "आपको 2 बचीं।"
+    }
+   ]
+  },
+  {
+   "id": "final_recipient",
+   "kind": "board",
+   "x": 3120,
+   "y": 580,
+   "fill": "#477C85",
+   "cue": [
+    "b64",
+    "1"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b64",
+      "1"
+     ],
+     "text": "उसे 1 मिली।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b60",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 470,
+   "zoom": 0.85,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b60",
+    "मानो"
+   ],
+   "x": 2520,
+   "y": 430,
+   "zoom": 0.95,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b60",
+    "transfer"
+   ],
+   "x": 2600,
+   "y": 440,
+   "zoom": 0.9,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b61",
+    "network"
+   ],
+   "x": 2600,
+   "y": 390,
+   "zoom": 1.05,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b61",
+    "उपलब्ध"
+   ],
+   "x": 2600,
+   "y": 350,
+   "zoom": 1.15,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b62",
+    "क्या"
+   ],
+   "x": 2550,
+   "y": 350,
+   "zoom": 1.1,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b62",
+    "Shared"
+   ],
+   "x": 2600,
+   "y": 380,
+   "zoom": 1.05,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b62",
+    "यही"
+   ],
+   "x": 2600,
+   "y": 460,
+   "zoom": 0.9,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b62",
+    "bank"
+   ],
+   "x": 2600,
+   "y": 480,
+   "zoom": 0.85,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b63",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 400,
+   "zoom": 1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b63",
+    "दोबारा"
+   ],
+   "x": 2550,
+   "y": 380,
+   "zoom": 1.05,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b63",
+    "Exact"
+   ],
+   "x": 2600,
+   "y": 370,
+   "zoom": 1.1,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b64",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 450,
+   "zoom": 0.9,
+   "frames": 45
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

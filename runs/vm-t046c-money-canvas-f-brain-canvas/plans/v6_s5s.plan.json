@@ -1,0 +1,684 @@
+{
+ "id": "v6_s5s",
+ "part_id": "c15.1",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b31",
+   "say": "Jaipur की imaginary दुकान में bill कैसे जोड़ोगे? Salt ₹12.50, soap ₹7.50: 1250 + 750 = 2000 paise, यानी ₹20; ₹50 देने पर ₹30 वापस मिलते हैं।"
+  },
+  {
+   "beat_id": "b32",
+   "say": "यही decimal currency है: ₹1 के 100 paise, ताकि bill में annas का conversion न करना पड़े। Decimalization 1957 में हुई; anna system हटाने वाला Indian Coinage (Amendment) Act, 1955 था—पहले law, फिर बदलाव।"
+  },
+  {
+   "beat_id": "b33",
+   "say": "Lucknow में दुकानदार note क्यों लेगा? मान लो तुम्हारे पास ₹100 हैं; पूरा note देकर 1 rice bag लिया, अब cash नहीं बची। दुकानदार के 5 bags में 4 बचे और उसे ₹100 मिले; वह आगे payment करेगा, gold नहीं माँगेगा।"
+  },
+  {
+   "beat_id": "b34",
+   "say": "यह fiat currency है: fixed gold redemption जरूरी नहीं। Gold देने का fixed वादा हो तो authority को gold resources रखने और वादा निभाने के लिए monetary choices सीमित रखने पड़ते हैं। 1971 में dollar–gold convertibility खत्म होने से वह खास constraint हटा, inflation का risk नहीं। India की दिशा gradual थी; fiat की शुरुआत उसी साल मत मानना।"
+  },
+  {
+   "beat_id": "b35",
+   "say": "Mumbai bank में dollar orders बढ़ें तो? Imaginary ₹80 per dollar पर demand और supply $100 थीं; import orders से demand $150 हुई, supply $100 रही—shortage बना।"
+  },
+  {
+   "beat_id": "b36",
+   "say": "मान लो ₹84 पर demand और supply $120 हो जाएँ। $10 invoice अब ₹800 नहीं, ₹840 का है; same dollars के लिए ज़्यादा rupees लगे।"
+  }
+ ],
+ "kit": "shop",
+ "elements": [
+  {
+   "id": "shop",
+   "kind": "shop",
+   "x": 2600,
+   "y": 860,
+   "sign": "दुकान",
+   "cue": [
+    "b31",
+    "",
+    0.0
+   ],
+   "packets": [
+    {
+     "n": 2,
+     "cue": [
+      "b31",
+      "Salt"
+     ]
+    },
+    {
+     "n": 5,
+     "cue": [
+      "b33",
+      "Lucknow"
+     ]
+    },
+    {
+     "n": 4,
+     "cue": [
+      "b33",
+      "4"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "keeper",
+   "kind": "shopkeeper",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b31",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "imaginary",
+   "kind": "label",
+   "x": 2600,
+   "y": 225,
+   "text": "यह imaginary दुकान है।",
+   "fill": "rgba(250,244,223,1)",
+   "cue": [
+    "b31",
+    "imaginary"
+   ],
+   "until_cue": [
+    "b32",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "bill",
+   "kind": "board",
+   "x": 3150,
+   "y": 470,
+   "fill": "#E7D8B6",
+   "cue": [
+    "b31",
+    "₹12.50,"
+   ],
+   "until_cue": [
+    "b32",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b31",
+      "₹12.50,"
+     ],
+     "text": "Salt ₹12.50"
+    },
+    {
+     "cue": [
+      "b31",
+      "₹7.50:"
+     ],
+     "text": "Salt ₹12.50, soap ₹7.50"
+    },
+    {
+     "cue": [
+      "b31",
+      "₹20;"
+     ],
+     "text": "1250 और 750 जोड़कर\n2000 paise, यानी ₹20 हैं।"
+    },
+    {
+     "cue": [
+      "b31",
+      "₹30"
+     ],
+     "text": "₹50 देने पर ₹30 वापस मिलते हैं।"
+    }
+   ]
+  },
+  {
+   "id": "decimal",
+   "kind": "board",
+   "x": 3150,
+   "y": 470,
+   "fill": "#E7D8B6",
+   "cue": [
+    "b32",
+    "paise,"
+   ],
+   "until_cue": [
+    "b33",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b32",
+      "paise,"
+     ],
+     "text": "Decimal currency में\n₹1 के 100 paise हैं।"
+    },
+    {
+     "cue": [
+      "b32",
+      "conversion"
+     ],
+     "text": "Bill में annas का\nconversion नहीं करना पड़ता।"
+    },
+    {
+     "cue": [
+      "b32",
+      "1957"
+     ],
+     "text": "Decimalization 1957 में हुई;"
+    },
+    {
+     "cue": [
+      "b32",
+      "था—पहले"
+     ],
+     "text": "Indian Coinage (Amendment) Act,\n1955 ने anna system हटाया।"
+    }
+   ]
+  },
+  {
+   "id": "buyer",
+   "kind": "crowd",
+   "x0": 2230,
+   "spacing": 100,
+   "enter_x": 1800,
+   "exit_x": 1800,
+   "face": 1,
+   "seed": 31,
+   "cue": [
+    "b33",
+    "तुम्हारे"
+   ],
+   "until_cue": [
+    "b34",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b33",
+      "तुम्हारे"
+     ],
+     "n": 1
+    }
+   ],
+   "carry": {
+    "cue": [
+     "b33",
+     "लिया,"
+    ],
+    "n": 1
+   }
+  },
+  {
+   "id": "payment",
+   "kind": "board",
+   "x": 3150,
+   "y": 470,
+   "fill": "#E7D8B6",
+   "cue": [
+    "b33",
+    "₹100"
+   ],
+   "until_cue": [
+    "b34",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b33",
+      "₹100"
+     ],
+     "text": "तुम्हारे पास ₹100 हैं।"
+    },
+    {
+     "cue": [
+      "b33",
+      "बची।"
+     ],
+     "text": "1 rice bag लिया;\nअब cash नहीं बची।"
+    },
+    {
+     "cue": [
+      "b33",
+      "मिले;"
+     ],
+     "text": "दुकानदार के 5 bags में 4 बचे;\nउसे ₹100 मिले।"
+    },
+    {
+     "cue": [
+      "b33",
+      "gold"
+     ],
+     "text": "वह आगे payment करेगा,\ngold नहीं माँगेगा।"
+    }
+   ]
+  },
+  {
+   "id": "fiat",
+   "kind": "board",
+   "x": 3150,
+   "y": 470,
+   "fill": "#E7D8B6",
+   "cue": [
+    "b34",
+    "currency"
+   ],
+   "until_cue": [
+    "b35",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b34",
+      "नहीं।"
+     ],
+     "text": "Fiat currency में fixed gold\nredemption जरूरी नहीं।"
+    },
+    {
+     "cue": [
+      "b34",
+      "रखने"
+     ],
+     "text": "Fixed वादे के लिए authority को\ngold resources रखने पड़ते हैं।"
+    },
+    {
+     "cue": [
+      "b34",
+      "हैं।"
+     ],
+     "text": "वादा निभाने के लिए monetary\nchoices सीमित रखने पड़ते हैं।"
+    },
+    {
+     "cue": [
+      "b34",
+      "होने"
+     ],
+     "text": "1971 में dollar–gold\nconvertibility खत्म हुई।"
+    },
+    {
+     "cue": [
+      "b34",
+      "नहीं।"
+     ],
+     "text": "वह खास constraint हटा,\ninflation का risk नहीं।"
+    },
+    {
+     "cue": [
+      "b34",
+      "gradual"
+     ],
+     "text": "India की दिशा gradual थी।"
+    }
+   ]
+  },
+  {
+   "id": "rate",
+   "kind": "price_tag",
+   "x": 2850,
+   "y": 350,
+   "string": 65,
+   "cue": [
+    "b35",
+    "₹80"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b35",
+      "₹80"
+     ],
+     "text": "₹80"
+    },
+    {
+     "cue": [
+      "b36",
+      "₹84"
+     ],
+     "text": "₹84",
+     "dir": "up"
+    }
+   ]
+  },
+  {
+   "id": "orders",
+   "kind": "board",
+   "x": 3400,
+   "y": 470,
+   "fill": "#E7D8B6",
+   "cue": [
+    "b35",
+    "थीं;"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b35",
+      "थीं;"
+     ],
+     "text": "₹80 per dollar पर demand\nऔर supply $100 थीं।"
+    },
+    {
+     "cue": [
+      "b35",
+      "रही—shortage"
+     ],
+     "text": "Demand $150 हुई;\nsupply $100 रही।",
+     "dir": "up"
+    },
+    {
+     "cue": [
+      "b36",
+      "$120"
+     ],
+     "text": "₹84 पर demand और supply\n$120 हो जाएँ।"
+    },
+    {
+     "cue": [
+      "b36",
+      "₹800"
+     ],
+     "text": "$10 invoice अब ₹800 नहीं,"
+    },
+    {
+     "cue": [
+      "b36",
+      "₹840"
+     ],
+     "text": "$10 invoice ₹840 का है;",
+     "dir": "up"
+    },
+    {
+     "cue": [
+      "b36",
+      "ज़्यादा"
+     ],
+     "text": "Same dollars के लिए\nज़्यादा rupees लगे।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b31",
+    "",
+    0.0
+   ],
+   "x": 2750,
+   "y": 510,
+   "zoom": 0.85,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b31",
+    "Salt"
+   ],
+   "x": 2880,
+   "y": 510,
+   "zoom": 1,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b31",
+    "1250"
+   ],
+   "x": 3050,
+   "y": 490,
+   "zoom": 1.15,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b31",
+    "देने"
+   ],
+   "x": 2940,
+   "y": 510,
+   "zoom": 1.05,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b32",
+    "",
+    0.0
+   ],
+   "x": 2920,
+   "y": 510,
+   "zoom": 1,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b32",
+    "annas"
+   ],
+   "x": 3090,
+   "y": 480,
+   "zoom": 1.15,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b32",
+    "Decimalization"
+   ],
+   "x": 3000,
+   "y": 490,
+   "zoom": 1.05,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b32",
+    "Indian"
+   ],
+   "x": 3090,
+   "y": 480,
+   "zoom": 1.15,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b33",
+    "",
+    0.0
+   ],
+   "x": 2670,
+   "y": 520,
+   "zoom": 0.85,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b33",
+    "पूरा"
+   ],
+   "x": 2590,
+   "y": 560,
+   "zoom": 1.05,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b33",
+    "bags"
+   ],
+   "x": 2770,
+   "y": 530,
+   "zoom": 1,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b33",
+    "आगे"
+   ],
+   "x": 3000,
+   "y": 490,
+   "zoom": 1.05,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b34",
+    "",
+    0.0
+   ],
+   "x": 2970,
+   "y": 500,
+   "zoom": 1.05,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b34",
+    "Gold"
+   ],
+   "x": 3080,
+   "y": 480,
+   "zoom": 1.15,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b34",
+    "authority"
+   ],
+   "x": 3000,
+   "y": 500,
+   "zoom": 1.05,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b34",
+    "monetary"
+   ],
+   "x": 3090,
+   "y": 480,
+   "zoom": 1.15,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b34",
+    "1971"
+   ],
+   "x": 2990,
+   "y": 500,
+   "zoom": 1.05,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b34",
+    "constraint"
+   ],
+   "x": 3090,
+   "y": 480,
+   "zoom": 1.15,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b34",
+    "India"
+   ],
+   "x": 2940,
+   "y": 510,
+   "zoom": 1,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b34",
+    "शुरुआत"
+   ],
+   "x": 3060,
+   "y": 490,
+   "zoom": 1.1,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b35",
+    "",
+    0.0
+   ],
+   "x": 3100,
+   "y": 510,
+   "zoom": 0.9,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b35",
+    "₹80"
+   ],
+   "x": 3020,
+   "y": 460,
+   "zoom": 1.05,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b35",
+    "import"
+   ],
+   "x": 3290,
+   "y": 490,
+   "zoom": 1.05,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b36",
+    "",
+    0.0
+   ],
+   "x": 3110,
+   "y": 490,
+   "zoom": 1,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b36",
+    "$10"
+   ],
+   "x": 3310,
+   "y": 490,
+   "zoom": 1.15,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b36",
+    "same"
+   ],
+   "x": 3070,
+   "y": 510,
+   "zoom": 0.9,
+   "frames": 45
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

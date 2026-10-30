@@ -1,0 +1,540 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "canvas",
+ "unit": "v4_s6s",
+ "status": "passed",
+ "instructions_version": "canvas-plan/1",
+ "rulebook_version": "canvas_profile@2026-10-29.1+content_types@2026-10-27.1+explanations@2026-10-24.3+level_profiles@2026-10-24.1+simple_hindi@2026-10-28.1+teacher_examples@2026-10-29.1+vision-2026-10-21@2026-10-21.17+visual_grammar@2026-10-29.1+visual_levels@2026-10-26.2",
+ "rulebook_digest": "098fc051cc02b3130eaac1ed94bdf3c0d2d23c809b82208ab9729d71996b644f",
+ "rules_used": [
+  "CV-01",
+  "CV-02",
+  "CV-03",
+  "CV-04",
+  "CV-05",
+  "CV-06",
+  "CV-07",
+  "CV-08",
+  "CV-09",
+  "CV-10",
+  "CV-11",
+  "CV-12",
+  "CV-13",
+  "CV-14",
+  "CV-15",
+  "CV-16",
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-05",
+  "G-06",
+  "G-07"
+ ],
+ "maker_route": "codex",
+ "reviewer_route": "codex-checker",
+ "maker_model": "gpt-6.1-sol",
+ "reviewer_model": "gpt-6.1-sol",
+ "reviewer_independence": "same_model_temporary",
+ "inputs_digest": "97dd7a6b7addeaaed03a0ee199cc05b54fdef0e074ba0ebc4352750936986cd2",
+ "card": null,
+ "prefix_sha256": "70df875cc213217b02bd99129255b9e06db6145661d64ac2f15f5f8eca1511d7",
+ "review_prefix_sha256": null,
+ "inputs": {
+  "system": "You are BIE's world director for one STORY part of a video lesson of Indian Economy for UPSC / State PCS aspirants (UPSC / State PCS): actors\nact in a place (a shop with buyers on a street; its place element is kind 'shop'), so this part is shown inside a small designed world (Navin's level C, an L3 world). The script\nis already written and passed; you do not change a word of it. You place the props, the people, the effects and the\ncamera moves, each on a spoken word; code builds, times and checks the world and a refused plan comes back to you with\nthe exact error, and you answer with the whole corrected plan.\n\nCourse: \"3. Money\" · learner language: Hinglish.\n\nNavin's rules for this section (follow every one):\n[CV-01] One canvas per idea: build it piece by piece instead of cutting to a new shot every sentence. Clear the canvas only when the idea changes; otherwise re-frame with a zoom or pan to the part being explained.\n[CV-02] Something on the canvas changes about every 5 s (one change per one or two spoken phrases).\n[CV-03] The picture never stays the same for more than 15 s (the references sometimes hold 40-80 s; BIE must not).\n[CV-04] A new element appears on its own word, while it is being said (about 40% into the phrase, never in the pause after).\n[CV-05] Numbers that change are struck out and replaced on screen (50 -> 65), with an up/down arrow, on the word of the new number.\n[CV-06] Many people/things are shown as a crowd that grows or shrinks with the story (2 buyers -> 12 -> 3).\n[CV-07] A running numeric example carries the concept (price 50 -> 65, GDP 10K -> 11K -> 12.1K at 10%).\n[CV-08] Return to the topic tree and tick the branch that is done before starting the next branch.\n[CV-09] One anchor diagram stays (a band, a tree, a rate card) while the part beside or below it changes.\n[CV-10] No overlap, nothing outside the safe area, captions strip kept clear, readable text (>= 24 px at 1080p), at most 16 elements on screen.\n[CV-11] No photos or caricatures of real people, no logos, emblems or regulator marks: use a name card, a generic icon or BIE's own presenter character.\n[CV-12] Light paper theme for build-up canvases (dark theme stays for 3D/science worlds); subtitles on a dark strip.\n[CV-13] On-screen text is a short COMPLETE phrase or sentence in the learner's language (Devanagari Hinglish with the English terms the script uses), one idea per board or box; never a code: no ✓ ✗ ≠, no list of bare words ('Exchange · Account / Store · Deferred'), no line that ends on → = : / (Navin, 29 October 2026: 'teacher ki naration uske sentence aise poore ho ki banawati na lage').\n[CV-14] Every on-screen text is explained: its key words are said in the narration of the beat it appears on (the cue beat), and every board step the director adds is spoken; a text the narration never says does not go on screen.\n[CV-15] A caveat ('imagined market', 'illustrative numbers') is shown once per part on its own small note, not on every board.\n[CV-16] Numbers on screen are written the way the narration says them: every number on a board, tag or box is said in its cue beat (₹500 on screen, '500 rupaye' in the narration), no counters the narration never mentions ('Payments: 0 → 2').\n[G-01] Everything taught comes from the book. Knowledge from outside the book is allowed only to explain the book better; it is marked as outside, standard textbook-level and correct. Never invent facts, numbers, names or quotations.\n[G-02] Work like the best teacher of these learners and this exam, not like a summariser. Depth beats brevity: nothing teachable on the page is skipped or compressed away, and every explanation makes a student understand, not just remember. Depth means understanding, not length: lesson narration keeps S2-01's time by cutting repetition and side-tracks, never book content.\n[G-03] Before the output, fill 'notes' with brief notes for the reviewer and for Navin: what this unit is about, the key questions a teacher must answer about it, the main decisions you made with a one-line reason each, and anything uncertain. Keep the notes short; they explain the work, they are not the work.\n[G-05] Never drop or compress away what the book teaches to fit a length. If a unit of work is too large, it is split by BIE into smaller units; within a unit, the book's content is complete. Lesson narration has a time target (S2-01), met by cutting repetition and side-tracks, never book content.\n[G-06] BIE is the link between the learner and the book, like a teacher (Navin, 24 October 2026). The book is the base; BIE carries its text, easy or hard, into the learner's mind. Never just read the line out: every book line is opened (what its words mean, why it is so, where it is seen, what follows), at the depth of the level profile.\n[G-07] Two layers, like a film (Navin, 24 October 2026). The writer layer (understanding, plan, script) decides what is said and how deep, following the level profile and the book's own level. The presentation layer (director, video blocks, render) is the same skilled quality for every learner, from class 6 to postgraduate; only the detail shown follows the level, never the craft.\n\n# Director card: world plans (for the AI world director step, Navin's level C)\n\nYou plan ONE world for ONE story part of a passed script: actors act in a place, so the part is shown inside a small\ndesigned 2.5D street with the place at its centre. You place props, people, effects and the camera, each on a spoken\nword. Code builds, times and checks the world (`bie/brain/video/world.py`); a refused plan comes back with the exact error.\n\n## The world\n\nWorld pixels: 5200 wide, ground line at y 860; the place (the `shop` or the `bank`, the one element kind your role names\nas the kit) is usually near x 2600. The camera looks at a point\n(`x`, `y`) with a `zoom` (0.8 wide street … 1.7 close on a price tag) and takes `frames` to get there (30–60 at 30 fps).\nCamera keys are in time order, the first on the part's first beat.\n\n## Element vocabulary\n\n| kind | fields | use it for |\n| --- | --- | --- |\n| `shop` | `x`, `sign` (the shop's name, in the learner's script), `packets: [{n, cue}]` | the place of a shop story (a kirana shop, a tea stall, a market stall, a bazaar); its stock of goods on the counter (n packets) |\n| `price_tag` | `x`, `y`, `string` (hanging length), `steps: [{text, dir, cue}]`, `lift_cue` + `lift_dy` | the price that is struck out and replaced (a price only: '₹65', '₹10,000', at most 9 characters; words go on a board); lift it when demand pulls it up |\n| `crowd` | `x0`, `spacing`, `enter_x`, `exit_x`, `face` (-1 looks left), `seed`, `steps: [{n, cue}]`, `carry_cue` + `carry_n` | buyers or bank customers who walk in and out as the number changes; `carry` sends n of them away with goods |\n| `bank` | `x`, `sign` (the bank's name, generic, in the learner's script) | the place of a bank story: a stone front with pillars, a teller window and a counter; customers stand before it (`crowd` with `x0` near `x` - 270) |\n| `teller` | `x` (the bank's `x`) | the bank's clerk behind the counter (as `shopkeeper` is for the shop) |\n| `board` | `x`, `y`, `text` (the title: खाता, EMI, बचत), `fill` (header colour), `steps: [{text, dir, cue}]`, `until_cue` | a standing display whose value changes on its word: a passbook balance ₹0 → ₹500, an EMI due ₹10,000 → ₹0; the old value is struck out, `dir` \"up\" or \"down\" adds the arrow. A value is at most 3 lines of 40 characters (your own line breaks are kept, a long line is wrapped at spaces), so a complete short sentence fits; the teaching stays in the narration, a board shows the number or the one idea that changes, as a phrase the learner can read (CV-13), with the words and numbers the narration of its cue beat says (CV-14, CV-16); never codes (✓ ≠ →, \"1–3 ✓, 4 Future payment →\") |\n| `label` | `x`, `y`, `text`, `fill` (rgba colour), `cue`, `until_cue` | SUPPLY · 3, DEMAND · 12: short labels over the scene |\n| `coin_rain` | `x0`, `x1`, `count`, `cue`, `until_cue` | money arriving in people's hands |\n| `balance` | `x`, `y`, `tilt`, `cue`, `tilt_cue`, `until_cue` | supply against demand on a balance that tilts on its word |\n| `pull_arrow` | `x`, `y0`, `y1`, `text`, `cue` | the force that pulls the price (demand-pull) |\n| `title` | `text`, `cue` | the part's name, on its word (at most 30 characters) |\n| `lamp`, `foreground` | `x` | street dressing for depth (two or three of each, outside the shop) |\n\nEvery element has `cue: [beat_id, word]` with the word exactly as written in that beat (`[beat_id, \"\"]` for the beat's\nstart). Something must change at least every 15 s (the code refuses a longer still); aim for a change every 5 s.\nNever a real person, logo, emblem or regulator mark: a generic shop sign and generic people only.\n\n## On-screen text (CV-13 to CV-16; Navin's verdict on Money v1, 29 October 2026)\n\n- A board, label or tag holds ONE idea as a short COMPLETE phrase or sentence in the learner's language (Devanagari Hinglish\n  with the English terms the script uses): \"Payment में notes और coins के अलावा खाते का पैसा भी चलता है\", not\n  \"Money = balance / Device ≠ money\".\n- Never a code: no ✓ ✗ ≠; no list of bare words (\"Exchange ✓ · Account ✓ / Store · Deferred\"); no line that ends on → = : /.\n- Every text is explained: its key words and every number are said in the narration of its cue beat (the code refuses a text\n  or a number the beat does not say; move the cue to the beat that says it, or leave it to the narration).\n- A caveat (\"imagined market\", \"illustrative numbers\") once per part, on its own small label, not on every board.\n\nHow to fill the JSON (every field is present; \"\" / 0 / [] mean \"not used\"):\n- notes: the story of this part in two lines, what each camera move shows, what is uncertain.\n- elements: in story order; id (unique), kind, the fields of that kind (card), cue [beat_id, word] (word exactly as written\n  in that beat; [beat_id, \"\"] for the beat's start) and until_cue when it leaves; steps (text/n + cue) for a price tag, a\n  board or a crowd; packets (n + cue) for the shop's stock; lift_cue + lift_dy lifts a price tag; carry_cue + carry_n sends\n  buyers away with goods; tilt_cue tilts the balance. The place element (shop or bank) is the kit named above, once.\n- camera: keys in time order, each with cue, x and y in world pixels, zoom and frames (how long the move takes).\nReply with the JSON object only.",
+  "user": "Chapter: 3. Money. Part c11.1 (3 beats).\nThe part (JSON):\n{\"part\": {\"id\": \"v4_s6s\", \"part_id\": \"c11.1\", \"mode\": \"C\", \"place\": \"shop\", \"story\": true}, \"beats\": [{\"beat_id\": \"b32\", \"say\": \"₹100 उधार कैसे चुकाएँ? आप ₹100 valid currency देते हैं; दुकानदार पूरा उधार चुका मानता है। अब ₹0 बाकी हैं।\"}, {\"beat_id\": \"b33\", \"say\": \"खास design वाला valid ₹10 coin मिले तो? अपना 1 coin देकर ₹10 की चीज़ लेते हैं; पूरी कीमत चुक गई।\"}, {\"beat_id\": \"b34\", \"say\": \"₹1,000 bill के लिए आप 2 valid ₹500 notes देते हैं; ₹1,500 हो तो 3 दे सकते हैं। लेकिन 100 ₹10 coins देकर ₹1,000 चुकाएँ, फिर 101 देकर ₹1,010 देना चाहें, तो limit के ऊपर लेना मर्ज़ी है।\"}], \"items\": [{\"item_id\": \"p004-i22\", \"content_type\": \"definition\", \"content\": \"Legal tender is a form of money that a government officially recognises as acceptable for settling debts and transactions within its territory.\", \"real_world_example\": {\"place\": \"Indian kirana shop, hypothetical debt settlement\", \"actors\": [\"customer\", \"shopkeeper\"], \"goods\": [\"₹100 cash\", \"grocery debt\"], \"numbers\": [{\"what\": \"outstanding grocery debt\", \"before\": \"₹100\", \"after\": \"₹0\"}], \"steps\": [{\"step\": \"A customer owes the shopkeeper ₹100 for groceries.\", \"mechanism_link\": \"A monetary obligation requires settlement.\"}, {\"step\": \"The customer pays ₹100 in valid recognised currency and the debt is cleared.\", \"mechanism_link\": \"Recognised money settles the obligation in the illustration.\"}], \"term_after\": \"The currency's recognised debt-settling status is its legal-tender status.\", \"real_life_link\": \"The distinction matters when comparing cash, voluntary payment arrangements and the page's Bitcoin example.\"}}, {\"item_id\": \"p004-i27\", \"content_type\": \"definition\", \"content\": \"Circulation commemorative coins: Released into circulation and usable like ordinary coins.\", \"real_world_example\": {\"place\": \"Indian kirana shop, hypothetical illustration without identifying a specific issue\", \"actors\": [\"customer\", \"shopkeeper\"], \"goods\": [\"valid circulation commemorative coin of illustrative ₹10 denomination\", \"₹10 purchase\"], \"numbers\": [{\"what\": \"unpaid purchase amount\", \"before\": \"₹10\", \"after\": \"₹0\"}, {\"what\": \"customer's illustrative coin holding\", \"before\": \"1 coin\", \"after\": \"0 coins\"}], \"steps\": [{\"step\": \"A customer has a valid ₹10 circulation coin bearing a commemorative design.\", \"mechanism_link\": \"Commemorative design coexists with circulation status.\"}, {\"step\": \"The customer uses it for a ₹10 purchase at its denomination.\", \"mechanism_link\": \"It functions like an ordinary coin in payment.\"}], \"term_after\": \"A commemorative issue used this way is a circulation commemorative coin.\", \"real_life_link\": \"The learner may encounter a special-design coin among everyday change; its valid denomination and issue status matter.\"}}, {\"item_id\": \"p005-i5\", \"content_type\": \"definition\", \"content\": \"Unlimited Legal Tender:\\nMust be accepted for any amount (subject to the note being genuine and valid).\\nBanknotes are unlimited legal tender in India.\\n₹10, ₹20, ₹50, ₹100, ₹200, ₹500 notes.\\nReserve Bank of India Act, 1934\", \"real_world_example\": {\"place\": \"A kirana shop, in a hypothetical settlement of an existing bill\", \"actors\": [\"customer\", \"shopkeeper\"], \"goods\": [\"groceries\", \"valid ₹500 banknotes\"], \"numbers\": [{\"what\": \"outstanding bill\", \"before\": \"₹1,000\", \"after\": \"₹1,500\"}, {\"what\": \"₹500 notes needed\", \"before\": \"2\", \"after\": \"3\"}], \"steps\": [{\"step\": \"An existing ₹1,000 bill can be settled using 2 genuine, valid ₹500 notes.\", \"mechanism_link\": \"Recognised notes discharge a monetary obligation.\"}, {\"step\": \"If the existing bill is ₹1,500, using 3 such notes does not cross an aggregate legal-tender ceiling.\", \"mechanism_link\": \"The amount rises without exhausting the notes' tender capacity.\"}], \"term_after\": \"This absence of an aggregate tender ceiling is called Unlimited Legal Tender.\", \"real_life_link\": \"The page connects this status to the Indian banknotes people use for ordinary rupee payments.\"}}, {\"item_id\": \"p005-i6\", \"content_type\": \"definition\", \"content\": \"Limited Legal Tender:\\nMust be accepted only up to a legally prescribed limit; beyond that, acceptance is voluntary.\\nCoinage Act, 2011\", \"real_world_example\": {\"place\": \"A kirana shop, hypothetical settlement of an existing grocery bill\", \"actors\": [\"customer\", \"shopkeeper\"], \"goods\": [\"groceries\", \"₹10 coins\"], \"numbers\": [{\"what\": \"coin payment offered\", \"before\": \"₹1,000\", \"after\": \"₹1,010\"}, {\"what\": \"number of ₹10 coins\", \"before\": \"100\", \"after\": \"101\"}], \"steps\": [{\"step\": \"The customer offers 100 valid ₹10 coins, totalling ₹1,000, within the table's limit.\", \"mechanism_link\": \"The tender falls within the compulsory-acceptance ceiling.\"}, {\"step\": \"An offer of 101 ₹10 coins totals ₹1,010; acceptance beyond the ₹1,000 ceiling is voluntary.\", \"mechanism_link\": \"Crossing the ceiling removes compulsory acceptance for the excess.\"}], \"term_after\": \"This amount-bound acceptance is called Limited Legal Tender.\", \"real_life_link\": \"The page's Indian coin limits explain why a large coin payment differs from a valid banknote payment.\"}}], \"on_screen_hints\": [\"Customer pays recognised ₹100 currency → existing ₹100 debt cleared\", \"Customer hands over one illustrative valid ₹10 special-design coin → ₹10 purchase paid\", \"Existing bills: two or three ₹500 notes; compare 100 versus 101 ₹10 coins at the ₹1,000 ceiling\"]}\n\nReply with the plan JSON."
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "started_at": 1793320942.8632507,
+   "mode": "full",
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "07820f23b154eecb984fdd5ff0b468be02129fc5ef6a0e2cd33ddca8de2ab222",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 8071,
+    "output_tokens": 2637,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "एक ही दुकान पर उधार चुकाने, special-design coin से खरीद और notes बनाम coins की payment दिखाई जाती है। Camera पहले ग्राहक और दुकानदार, फिर बदलते payment boards पर जाता है।",
+    "key_questions": [
+     "Valid currency देने पर उधार कैसे समाप्त होता है?",
+     "Valid special-design coin से खरीद कैसे होती है?",
+     "Notes की बढ़ती payment और coins की limit में क्या अंतर है?"
+    ],
+    "decisions": [
+     {
+      "decision": "दुकान और एक ग्राहक पूरे भाग में बने रहते हैं।",
+      "reason": "एक ही transaction-world में तुलना स्पष्ट रहती है; अतिरिक्त भीड़ की जरूरत नहीं है।"
+     },
+     {
+      "decision": "दो boards पर देय रकम और दिए गए पैसे अलग दिखेंगे।",
+      "reason": "Bill, denomination और coins की गिनती आपस में नहीं मिलेंगे; बदलती संख्याएँ strike-and-replace होंगी।"
+     },
+     {
+      "decision": "Caveat और topic-tree text नहीं जोड़ा गया है।",
+      "reason": "Passed narration में उनके लिए कोई spoken cue नहीं है।"
+     }
+    ],
+    "uncertain": [
+     "Kit में अलग cash-handover prop नहीं है; payment को ग्राहक, सामान और cue-timed boards से दिखाया गया है।",
+     "अलग caveat दिखाने के लिए narration में hypothetical illustration का spoken cue उपलब्ध नहीं है।"
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "एक ही दुकान पर उधार चुकाने, special-design coin से खरीद और notes बनाम coins की payment दिखाई जाती है। Camera पहले ग्राहक और दुकानदार, फिर बदलते payment boards पर जाता है।",
+     "key_questions": [
+      "Valid currency देने पर उधार कैसे समाप्त होता है?",
+      "Valid special-design coin से खरीद कैसे होती है?",
+      "Notes की बढ़ती payment और coins की limit में क्या अंतर है?"
+     ],
+     "decisions": [
+      {
+       "decision": "दुकान और एक ग्राहक पूरे भाग में बने रहते हैं।",
+       "reason": "एक ही transaction-world में तुलना स्पष्ट रहती है; अतिरिक्त भीड़ की जरूरत नहीं है।"
+      },
+      {
+       "decision": "दो boards पर देय रकम और दिए गए पैसे अलग दिखेंगे।",
+       "reason": "Bill, denomination और coins की गिनती आपस में नहीं मिलेंगे; बदलती संख्याएँ strike-and-replace होंगी।"
+      },
+      {
+       "decision": "Caveat और topic-tree text नहीं जोड़ा गया है।",
+       "reason": "Passed narration में उनके लिए कोई spoken cue नहीं है।"
+      }
+     ],
+     "uncertain": [
+      "Kit में अलग cash-handover prop नहीं है; payment को ग्राहक, सामान और cue-timed boards से दिखाया गया है।",
+      "अलग caveat दिखाने के लिए narration में hypothetical illustration का spoken cue उपलब्ध नहीं है।"
+     ]
+    },
+    "elements": [
+     {
+      "id": "shop",
+      "kind": "shop",
+      "x": 2600,
+      "y": 860,
+      "sign": "",
+      "text": "",
+      "fill": "",
+      "string": 0,
+      "steps": [],
+      "packets": [
+       {
+        "n": 1,
+        "cue": [
+         "b32",
+         ""
+        ]
+       },
+       {
+        "n": 0,
+        "cue": [
+         "b33",
+         "लेते"
+        ]
+       }
+      ],
+      "cue": [
+       "b32",
+       ""
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "shopkeeper",
+      "kind": "shopkeeper",
+      "x": 2600,
+      "y": 860,
+      "sign": "",
+      "text": "",
+      "fill": "",
+      "string": 0,
+      "steps": [],
+      "packets": [],
+      "cue": [
+       "b32",
+       ""
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "customer",
+      "kind": "crowd",
+      "x": 0,
+      "y": 0,
+      "sign": "",
+      "text": "",
+      "fill": "",
+      "string": 0,
+      "steps": [
+       {
+        "text": "",
+        "n": 1,
+        "dir": "",
+        "cue": [
+         "b32",
+         "आप"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b32",
+       "आप"
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 2260,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 90,
+      "enter_x": 1800,
+      "exit_x": 1900,
+      "face": 1,
+      "seed": 11,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [
+       "b33",
+       "लेते"
+      ],
+      "carry_n": 1
+     },
+     {
+      "id": "obligation",
+      "kind": "board",
+      "x": 3020,
+      "y": 400,
+      "sign": "",
+      "text": "",
+      "fill": "#466B78",
+      "string": 0,
+      "steps": [
+       {
+        "text": "₹100 उधार कैसे चुकाएँ?",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b32",
+         "उधार"
+        ]
+       },
+       {
+        "text": "अब ₹0 बाकी हैं।",
+        "n": 0,
+        "dir": "down",
+        "cue": [
+         "b32",
+         "₹0"
+        ]
+       },
+       {
+        "text": "₹10 की चीज़ लेते हैं।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b33",
+         "चीज़"
+        ]
+       },
+       {
+        "text": "पूरी कीमत चुक गई।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b33",
+         "चुक"
+        ]
+       },
+       {
+        "text": "₹1,000 bill के लिए",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b34",
+         "₹1,000"
+        ]
+       },
+       {
+        "text": "₹1,500 हो तो",
+        "n": 0,
+        "dir": "up",
+        "cue": [
+         "b34",
+         "₹1,500"
+        ]
+       },
+       {
+        "text": "₹1,000 चुकाएँ।",
+        "n": 0,
+        "dir": "down",
+        "cue": [
+         "b34",
+         "चुकाएँ,"
+        ]
+       },
+       {
+        "text": "₹1,010 देना चाहें।",
+        "n": 0,
+        "dir": "up",
+        "cue": [
+         "b34",
+         "₹1,010"
+        ]
+       },
+       {
+        "text": "Limit के ऊपर लेना मर्ज़ी है।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b34",
+         "मर्ज़ी"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b32",
+       "उधार"
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "payment",
+      "kind": "board",
+      "x": 2150,
+      "y": 400,
+      "sign": "",
+      "text": "",
+      "fill": "#876A40",
+      "string": 0,
+      "steps": [
+       {
+        "text": "आप ₹100 valid currency देते हैं।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b32",
+         "currency"
+        ]
+       },
+       {
+        "text": "खास design वाला valid ₹10 coin",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b33",
+         "coin"
+        ]
+       },
+       {
+        "text": "अपना 1 coin देकर",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b33",
+         "1"
+        ]
+       },
+       {
+        "text": "आप 2 valid ₹500 notes देते हैं।",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b34",
+         "notes"
+        ]
+       },
+       {
+        "text": "3 दे सकते हैं।",
+        "n": 0,
+        "dir": "up",
+        "cue": [
+         "b34",
+         "3"
+        ]
+       },
+       {
+        "text": "100 ₹10 coins देकर",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b34",
+         "coins"
+        ]
+       },
+       {
+        "text": "फिर 101 देकर",
+        "n": 0,
+        "dir": "up",
+        "cue": [
+         "b34",
+         "101"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b32",
+       "currency"
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     }
+    ],
+    "camera": [
+     {
+      "cue": [
+       "b32",
+       ""
+      ],
+      "x": 2580,
+      "y": 570,
+      "zoom": 0.95,
+      "frames": 30
+     },
+     {
+      "cue": [
+       "b32",
+       "दुकानदार"
+      ],
+      "x": 2720,
+      "y": 550,
+      "zoom": 1.05,
+      "frames": 45
+     },
+     {
+      "cue": [
+       "b33",
+       "खास"
+      ],
+      "x": 2480,
+      "y": 530,
+      "zoom": 1.05,
+      "frames": 45
+     },
+     {
+      "cue": [
+       "b33",
+       "पूरी"
+      ],
+      "x": 2700,
+      "y": 530,
+      "zoom": 1,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b34",
+       ""
+      ],
+      "x": 2580,
+      "y": 510,
+      "zoom": 1,
+      "frames": 45
+     },
+     {
+      "cue": [
+       "b34",
+       "लेकिन"
+      ],
+      "x": 2520,
+      "y": 510,
+      "zoom": 1.05,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b34",
+       "limit"
+      ],
+      "x": 2730,
+      "y": 520,
+      "zoom": 1.05,
+      "frames": 45
+     }
+    ]
+   },
+   "code_problems": [],
+   "passed": true,
+   "finished_at": 1793320986.149628
+  }
+ ],
+ "avoid_rounds": [],
+ "cost_usd": 0.0,
+ "seconds": 43.3,
+ "navin_verdict": null
+}

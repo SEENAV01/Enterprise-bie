@@ -1,0 +1,195 @@
+{
+ "id": "v6_s8s",
+ "part_id": "c16.1",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b51",
+   "say": "Participating दुकान में wallet से sugar खरीदो तो? मान लो तुम्हारे पास ₹100 की digital currency है; ₹40 चुकाए तो ₹60 बचे। Merchant को ₹40 मिले; गिनती rupees में ही है।"
+  }
+ ],
+ "kit": "shop",
+ "elements": [
+  {
+   "id": "shop",
+   "kind": "shop",
+   "x": 2600,
+   "y": 860,
+   "sign": "दुकान",
+   "cue": [
+    "b51",
+    "दुकान"
+   ],
+   "packets": [
+    {
+     "n": 1,
+     "cue": [
+      "b51",
+      "sugar"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "buyer",
+   "kind": "crowd",
+   "x0": 2180,
+   "spacing": 90,
+   "enter_x": 1750,
+   "exit_x": 1750,
+   "face": 1,
+   "seed": 16,
+   "cue": [
+    "b51",
+    "wallet"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b51",
+      "wallet"
+     ],
+     "n": 1
+    }
+   ]
+  },
+  {
+   "id": "assumption",
+   "kind": "label",
+   "x": 2570,
+   "y": 260,
+   "text": "मान लो तुम्हारे पास digital currency है।",
+   "fill": "rgba(248,241,218,1)",
+   "cue": [
+    "b51",
+    "मान"
+   ]
+  },
+  {
+   "id": "wallet_balance",
+   "kind": "board",
+   "x": 2070,
+   "y": 480,
+   "text": "wallet",
+   "fill": "#42796F",
+   "cue": [
+    "b51",
+    "₹100"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b51",
+      "₹100"
+     ],
+     "text": "₹100 की digital currency है।"
+    },
+    {
+     "cue": [
+      "b51",
+      "₹60"
+     ],
+     "text": "₹60 बचे।",
+     "dir": "down"
+    }
+   ]
+  },
+  {
+   "id": "sugar_price",
+   "kind": "price_tag",
+   "x": 2580,
+   "y": 550,
+   "string": 65,
+   "cue": [
+    "b51",
+    "₹40"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b51",
+      "₹40"
+     ],
+     "text": "₹40"
+    }
+   ]
+  },
+  {
+   "id": "merchant_receipt",
+   "kind": "board",
+   "x": 3070,
+   "y": 480,
+   "text": "Merchant",
+   "fill": "#42796F",
+   "cue": [
+    "b51",
+    "Merchant"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b51",
+      "Merchant"
+     ],
+     "text": "Merchant को ₹40 मिले।"
+    }
+   ]
+  },
+  {
+   "id": "rupee_unit",
+   "kind": "label",
+   "x": 2590,
+   "y": 365,
+   "text": "गिनती rupees में ही है।",
+   "fill": "rgba(240,246,239,1)",
+   "cue": [
+    "b51",
+    "गिनती"
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b51",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 480,
+   "zoom": 0.85,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b51",
+    "₹100"
+   ],
+   "x": 2390,
+   "y": 490,
+   "zoom": 1.05,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b51",
+    "Merchant"
+   ],
+   "x": 2750,
+   "y": 490,
+   "zoom": 1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b51",
+    "गिनती"
+   ],
+   "x": 2570,
+   "y": 480,
+   "zoom": 0.85,
+   "frames": 30
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

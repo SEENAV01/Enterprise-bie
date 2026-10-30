@@ -1,0 +1,590 @@
+{
+ "id": "v3_s2b",
+ "part_id": "c07.2",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b11",
+   "say": "ये scale और transport limitations हैं। Limited supply यानी खरीद बढ़ते ही नया metal नहीं मिलता; payment के साधन बढ़ाना मुश्किल होता है।"
+  },
+  {
+   "beat_id": "b12",
+   "say": "घिसा coin देखा? Wear and tear से वजन या छाप घटती है। अब मान लो, उसी denomination के coin में पहले 10 gram silver था; बनाने वाले ने जानबूझकर सिर्फ 8 gram रखा। यह coin debasement है: बताई कीमत के मुकाबले कीमती metal घटाना, अपने-आप घिसना नहीं।"
+  },
+  {
+   "beat_id": "b13",
+   "say": "कम metal, भारी ढुलाई, चोरी और coin की quality की मुश्किलों ने बड़े व्यापार को संभालना कठिन बनाया; इसलिए paper money अपनाने की जरूरत बनी।"
+  },
+  {
+   "beat_id": "b14",
+   "say": "Paper भी चोरी हो सकता है। Gold देने का वादा हो, तो paper जारी करते समय वह वादा निभाने की क्षमता चाहिए।"
+  },
+  {
+   "beat_id": "b15",
+   "say": "कड़ी पकड़ो: आसान payment, बढ़ता व्यापार, फिर metal की सीमाओं से paper की जरूरत।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "anchor",
+   "kind": "text",
+   "cell": [
+    0,
+    0,
+    12,
+    1
+   ],
+   "cue": [
+    "b11",
+    "limitations"
+   ],
+   "until_cue": [
+    "b15",
+    "कड़ी"
+   ],
+   "text": "ये scale और transport limitations हैं।",
+   "style": "title",
+   "tone": "ink",
+   "fill": "paper",
+   "align": "center",
+   "size": 34
+  },
+  {
+   "id": "supply",
+   "kind": "text",
+   "cell": [
+    1,
+    2,
+    10,
+    2
+   ],
+   "cue": [
+    "b11",
+    "supply"
+   ],
+   "until_cue": [
+    "b12",
+    "घिसा"
+   ],
+   "text": "खरीद बढ़ते ही नया metal नहीं मिलता।",
+   "style": "box",
+   "tone": "warm",
+   "fill": "paper",
+   "align": "center",
+   "size": 34
+  },
+  {
+   "id": "payment_limit",
+   "kind": "text",
+   "cell": [
+    1,
+    5,
+    10,
+    1
+   ],
+   "cue": [
+    "b11",
+    "बढ़ाना"
+   ],
+   "until_cue": [
+    "b12",
+    "घिसा"
+   ],
+   "text": "Payment के साधन बढ़ाना मुश्किल होता है।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "paper",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "coin",
+   "kind": "icon",
+   "cell": [
+    1,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b12",
+    "coin"
+   ],
+   "until_cue": [
+    "b13",
+    "कम"
+   ],
+   "tone": "warm",
+   "icon": "tw:1fa99",
+   "size": 64
+  },
+  {
+   "id": "wear",
+   "kind": "text",
+   "cell": [
+    4,
+    2,
+    7,
+    2
+   ],
+   "cue": [
+    "b12",
+    "Wear"
+   ],
+   "until_cue": [
+    "b12",
+    "अब"
+   ],
+   "text": "Wear and tear से वजन या छाप घटती है।",
+   "style": "box",
+   "tone": "ink",
+   "fill": "paper",
+   "align": "center",
+   "size": 32
+  },
+  {
+   "id": "hypothetical",
+   "kind": "text",
+   "cell": [
+    1,
+    6,
+    10,
+    1
+   ],
+   "cue": [
+    "b12",
+    "लो,"
+   ],
+   "until_cue": [
+    "b13",
+    "कम"
+   ],
+   "text": "मान लो, उसी denomination का coin है।",
+   "style": "note",
+   "tone": "muted",
+   "fill": "paper",
+   "align": "center",
+   "size": 26
+  },
+  {
+   "id": "silver",
+   "kind": "value",
+   "cell": [
+    4,
+    2,
+    7,
+    2
+   ],
+   "cue": [
+    "b12",
+    "10"
+   ],
+   "until_cue": [
+    "b13",
+    "कम"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "size": 38,
+   "steps": [
+    {
+     "cue": [
+      "b12",
+      "10"
+     ],
+     "text": "Coin में 10 gram silver था।"
+    },
+    {
+     "cue": [
+      "b12",
+      "8"
+     ],
+     "text": "सिर्फ 8 gram silver रखा।",
+     "dir": "down"
+    }
+   ]
+  },
+  {
+   "id": "debasement",
+   "kind": "callout",
+   "cell": [
+    1,
+    4,
+    10,
+    2
+   ],
+   "cue": [
+    "b12",
+    "debasement"
+   ],
+   "until_cue": [
+    "b13",
+    "कम"
+   ],
+   "text": "Coin debasement में जानबूझकर कीमती metal घटाना है।",
+   "style": "note",
+   "tone": "danger",
+   "fill": "paper",
+   "align": "center",
+   "size": 32,
+   "marks": [
+    {
+     "phrase": "जानबूझकर",
+     "cue": [
+      "b12",
+      "घिसना"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "transport",
+   "kind": "text",
+   "cell": [
+    0,
+    2,
+    6,
+    2
+   ],
+   "cue": [
+    "b13",
+    "ढुलाई,"
+   ],
+   "until_cue": [
+    "b14",
+    "Paper"
+   ],
+   "text": "कम metal और भारी ढुलाई की मुश्किलें हैं।",
+   "style": "box",
+   "tone": "warm",
+   "fill": "paper",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "trade",
+   "kind": "text",
+   "cell": [
+    6,
+    2,
+    6,
+    2
+   ],
+   "cue": [
+    "b13",
+    "कठिन"
+   ],
+   "until_cue": [
+    "b14",
+    "Paper"
+   ],
+   "text": "बड़े व्यापार को संभालना कठिन बना।",
+   "style": "box",
+   "tone": "warm",
+   "fill": "paper",
+   "align": "center",
+   "size": 32
+  },
+  {
+   "id": "paper_need",
+   "kind": "callout",
+   "cell": [
+    2,
+    5,
+    8,
+    2
+   ],
+   "cue": [
+    "b13",
+    "paper"
+   ],
+   "until_cue": [
+    "b14",
+    "Paper"
+   ],
+   "text": "इसलिए paper money अपनाने की जरूरत बनी।",
+   "style": "note",
+   "tone": "accent",
+   "fill": "paper",
+   "align": "center",
+   "size": 34
+  },
+  {
+   "id": "paper_theft",
+   "kind": "text",
+   "cell": [
+    1,
+    2,
+    10,
+    2
+   ],
+   "cue": [
+    "b14",
+    "चोरी"
+   ],
+   "until_cue": [
+    "b15",
+    "कड़ी"
+   ],
+   "text": "Paper भी चोरी हो सकता है।",
+   "style": "box",
+   "tone": "danger",
+   "fill": "paper",
+   "align": "center",
+   "size": 34
+  },
+  {
+   "id": "promise",
+   "kind": "callout",
+   "cell": [
+    1,
+    5,
+    10,
+    2
+   ],
+   "cue": [
+    "b14",
+    "वादा"
+   ],
+   "until_cue": [
+    "b15",
+    "कड़ी"
+   ],
+   "text": "Gold देने का वादा निभाने की क्षमता चाहिए।",
+   "style": "note",
+   "tone": "warm",
+   "fill": "paper",
+   "align": "center",
+   "size": 32,
+   "marks": [
+    {
+     "phrase": "क्षमता चाहिए",
+     "cue": [
+      "b14",
+      "क्षमता"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "summary_payment",
+   "kind": "text",
+   "cell": [
+    0,
+    2,
+    3,
+    2
+   ],
+   "cue": [
+    "b15",
+    "payment,"
+   ],
+   "text": "Payment आसान हुआ।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "paper",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "summary_trade",
+   "kind": "text",
+   "cell": [
+    3,
+    2,
+    3,
+    2
+   ],
+   "cue": [
+    "b15",
+    "व्यापार,"
+   ],
+   "text": "व्यापार बढ़ता गया।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "paper",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "summary_metal",
+   "kind": "text",
+   "cell": [
+    6,
+    2,
+    3,
+    2
+   ],
+   "cue": [
+    "b15",
+    "सीमाओं"
+   ],
+   "text": "Metal की सीमाएँ थीं।",
+   "style": "box",
+   "tone": "warm",
+   "fill": "paper",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "summary_paper",
+   "kind": "text",
+   "cell": [
+    9,
+    2,
+    3,
+    2
+   ],
+   "cue": [
+    "b15",
+    "paper"
+   ],
+   "text": "Paper की जरूरत बनी।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "paper",
+   "align": "center",
+   "size": 30
+  }
+ ],
+ "camera": [
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    8
+   ],
+   "cue": [
+    "b11",
+    "scale"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    1,
+    12,
+    7
+   ],
+   "cue": [
+    "b12",
+    "10"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    8
+   ],
+   "cue": [
+    "b13",
+    "कम"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    1,
+    12,
+    7
+   ],
+   "cue": [
+    "b14",
+    "Gold"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    8
+   ],
+   "cue": [
+    "b15",
+    "कड़ी"
+   ]
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b11",
+    "मुश्किल"
+   ],
+   "ids": [
+    "anchor",
+    "payment_limit"
+   ],
+   "until_cue": [
+    "b12",
+    "घिसा"
+   ]
+  },
+  {
+   "cue": [
+    "b12",
+    "8"
+   ],
+   "ids": [
+    "coin",
+    "silver",
+    "hypothetical"
+   ],
+   "until_cue": [
+    "b12",
+    "debasement"
+   ]
+  },
+  {
+   "cue": [
+    "b12",
+    "बताई"
+   ],
+   "ids": [
+    "silver",
+    "debasement"
+   ],
+   "until_cue": [
+    "b13",
+    "कम"
+   ]
+  },
+  {
+   "cue": [
+    "b13",
+    "paper"
+   ],
+   "ids": [
+    "trade",
+    "paper_need"
+   ],
+   "until_cue": [
+    "b14",
+    "Paper"
+   ]
+  },
+  {
+   "cue": [
+    "b14",
+    "क्षमता"
+   ],
+   "ids": [
+    "promise"
+   ],
+   "until_cue": [
+    "b15",
+    "कड़ी"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

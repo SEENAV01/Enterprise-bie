@@ -1,0 +1,378 @@
+{
+ "id": "v9_s5",
+ "part_id": "c22.2",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b28",
+   "say": "दोनों coins साथ रखो: common क्या है? बराबर payment value। Good Money और Bad Money यहाँ genuine और counterfeit नहीं, intrinsic value का फर्क हैं।"
+  },
+  {
+   "beat_id": "b29",
+   "say": "Good Money का intrinsic value ज्यादा; लोग hoard, यानी जमा रखते, या melt करते हैं। Bad Money का intrinsic value कम; उसे खर्चते हैं।"
+  },
+  {
+   "beat_id": "b30",
+   "say": "क्यों? Good Money देकर ज्यादा कीमती धातु जाती है, ज्यादा सामान नहीं मिलता। रखना या melt करना धातु बचाता है; Bad Money वही bill सस्ते में चुकाता है।"
+  },
+  {
+   "beat_id": "b31",
+   "say": "इन arrows का मतलब समझो: यानी coin ग्राहक से दुकानदार की cash drawer में, वहाँ से supplier तक जाता है। यह Everyday circulation है; जमा coin डिब्बे में रहता है, दूसरा coin बन नहीं जाता।"
+  },
+  {
+   "beat_id": "b32",
+   "say": "याद रखो: ज्यादा intrinsic value वाला बचाया या melt किया; कम वाला खर्चा। जमा coin मौजूद है, बस payments में नहीं घूमता।"
+  },
+  {
+   "beat_id": "b33",
+   "say": "Legal rules payment status तय करते हैं; intrinsic value का फर्क spending का चुनाव बदलता है। Exam में नाम नहीं, conditions भी जाँचना।"
+  }
+ ],
+ "kit": "shop",
+ "elements": [
+  {
+   "id": "shop",
+   "kind": "shop",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b28",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "keeper",
+   "kind": "shopkeeper",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b28",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "comparison_anchor",
+   "kind": "label",
+   "x": 2600,
+   "y": 180,
+   "text": "दोनों coins की payment value बराबर है।",
+   "fill": "rgba(245,239,221,1)",
+   "cue": [
+    "b28",
+    "बराबर"
+   ],
+   "until_cue": [
+    "b33",
+    "Legal"
+   ]
+  },
+  {
+   "id": "meaning",
+   "kind": "label",
+   "x": 2600,
+   "y": 290,
+   "text": "यहाँ genuine और counterfeit का फर्क नहीं है।",
+   "fill": "rgba(250,245,232,1)",
+   "cue": [
+    "b28",
+    "genuine"
+   ],
+   "until_cue": [
+    "b29",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "good",
+   "kind": "board",
+   "x": 1870,
+   "y": 470,
+   "fill": "#E3C784",
+   "cue": [
+    "b29",
+    "Good"
+   ],
+   "until_cue": [
+    "b33",
+    "Legal"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b29",
+      "ज्यादा;"
+     ],
+     "text": "Good Money का\nintrinsic value ज्यादा है।"
+    },
+    {
+     "cue": [
+      "b29",
+      "hoard,"
+     ],
+     "text": "लोग Good Money\nजमा रखते या melt करते हैं।"
+    },
+    {
+     "cue": [
+      "b30",
+      "धातु"
+     ],
+     "text": "ज्यादा कीमती धातु जाती है,\nज्यादा सामान नहीं मिलता।"
+    },
+    {
+     "cue": [
+      "b30",
+      "बचाता"
+     ],
+     "text": "रखना या melt करना\nधातु बचाता है।"
+    },
+    {
+     "cue": [
+      "b31",
+      "डिब्बे"
+     ],
+     "text": "जमा coin डिब्बे में रहता है।\nदूसरा coin नहीं बनता।"
+    },
+    {
+     "cue": [
+      "b32",
+      "ज्यादा"
+     ],
+     "text": "ज्यादा intrinsic value वाला\nबचाया या melt किया।"
+    },
+    {
+     "cue": [
+      "b32",
+      "मौजूद"
+     ],
+     "text": "जमा coin मौजूद है,\npayments में नहीं घूमता।"
+    }
+   ]
+  },
+  {
+   "id": "bad",
+   "kind": "board",
+   "x": 3330,
+   "y": 470,
+   "fill": "#CBD3D8",
+   "cue": [
+    "b29",
+    "Bad"
+   ],
+   "until_cue": [
+    "b33",
+    "Legal"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b29",
+      "Bad"
+     ],
+     "text": "Bad Money का intrinsic value\nकम है; उसे खर्चते हैं।"
+    },
+    {
+     "cue": [
+      "b30",
+      "Bad"
+     ],
+     "text": "Bad Money वही bill\nसस्ते में चुकाता है।"
+    },
+    {
+     "cue": [
+      "b31",
+      "ग्राहक"
+     ],
+     "text": "Coin ग्राहक से दुकानदार की\ncash drawer में जाता है।"
+    },
+    {
+     "cue": [
+      "b31",
+      "supplier"
+     ],
+     "text": "वहाँ से supplier तक जाता है।\nयह Everyday circulation है।"
+    },
+    {
+     "cue": [
+      "b32",
+      "कम"
+     ],
+     "text": "कम intrinsic value वाला\nखर्चा।"
+    }
+   ]
+  },
+  {
+   "id": "conclusion",
+   "kind": "board",
+   "x": 1870,
+   "y": 470,
+   "fill": "#E9DFC8",
+   "cue": [
+    "b33",
+    "Legal"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b33",
+      "Legal"
+     ],
+     "text": "Legal rules\npayment status तय करते हैं।"
+    },
+    {
+     "cue": [
+      "b33",
+      "intrinsic"
+     ],
+     "text": "Intrinsic value का फर्क\nspending का चुनाव बदलता है।"
+    },
+    {
+     "cue": [
+      "b33",
+      "Exam"
+     ],
+     "text": "Exam में नाम नहीं,\nconditions भी जाँचना।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b28",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 440,
+   "zoom": 0.8,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b28",
+    "intrinsic"
+   ],
+   "x": 2600,
+   "y": 380,
+   "zoom": 0.9,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b29",
+    "Good"
+   ],
+   "x": 2220,
+   "y": 460,
+   "zoom": 1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b29",
+    "Bad"
+   ],
+   "x": 2970,
+   "y": 460,
+   "zoom": 1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b30",
+    "",
+    0.0
+   ],
+   "x": 2200,
+   "y": 460,
+   "zoom": 1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b30",
+    "Bad"
+   ],
+   "x": 2970,
+   "y": 460,
+   "zoom": 1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b31",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 460,
+   "zoom": 0.8,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b31",
+    "supplier"
+   ],
+   "x": 2970,
+   "y": 460,
+   "zoom": 1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b31",
+    "जमा"
+   ],
+   "x": 2220,
+   "y": 460,
+   "zoom": 1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b32",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 440,
+   "zoom": 0.8,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b32",
+    "मौजूद"
+   ],
+   "x": 2220,
+   "y": 460,
+   "zoom": 1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b33",
+    "Legal"
+   ],
+   "x": 2220,
+   "y": 460,
+   "zoom": 1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b33",
+    "Exam"
+   ],
+   "x": 2450,
+   "y": 440,
+   "zoom": 0.9,
+   "frames": 45
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

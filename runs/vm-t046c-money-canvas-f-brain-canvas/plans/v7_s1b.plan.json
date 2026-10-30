@@ -1,0 +1,127 @@
+{
+ "id": "v7_s1b",
+ "part_id": "c17.1",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b7",
+   "say": "समय याद रखने के लिए 1329–1330 CE को introduction से जोड़िए। Turning point लोगों का coins लेने से मना करना था; उसके बाद policy वापस लेनी पड़ी।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "introduction",
+   "kind": "text",
+   "cell": [
+    0,
+    1,
+    4,
+    2
+   ],
+   "cue": [
+    "b7",
+    "1329–1330"
+   ],
+   "text": "1329–1330 CE को introduction से जोड़िए।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "paper",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "refusal",
+   "kind": "callout",
+   "cell": [
+    5,
+    1,
+    6,
+    2
+   ],
+   "cue": [
+    "b7",
+    "Turning"
+   ],
+   "text": "Turning point लोगों का coins लेने से मना करना था।",
+   "style": "note",
+   "tone": "warm",
+   "fill": "paper",
+   "align": "center",
+   "size": 30,
+   "marks": [
+    {
+     "phrase": "मना करना",
+     "cue": [
+      "b7",
+      "मना"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "withdrawal",
+   "kind": "text",
+   "cell": [
+    5,
+    4,
+    6,
+    2
+   ],
+   "cue": [
+    "b7",
+    "वापस"
+   ],
+   "text": "Policy वापस लेनी पड़ी।",
+   "style": "box",
+   "tone": "danger",
+   "fill": "paper",
+   "align": "center",
+   "size": 32
+  },
+  {
+   "id": "cause",
+   "kind": "arrow",
+   "cue": [
+    "b7",
+    "वापस"
+   ],
+   "tone": "warm",
+   "from": "refusal",
+   "to": "withdrawal",
+   "from_side": "b",
+   "to_side": "t"
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b7",
+    "Turning"
+   ],
+   "ids": [
+    "refusal"
+   ],
+   "until_cue": [
+    "b7",
+    "वापस"
+   ]
+  },
+  {
+   "cue": [
+    "b7",
+    "वापस"
+   ],
+   "ids": [
+    "refusal",
+    "cause",
+    "withdrawal"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

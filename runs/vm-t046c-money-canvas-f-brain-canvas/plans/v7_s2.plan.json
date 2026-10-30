@@ -1,0 +1,392 @@
+{
+ "id": "v7_s2",
+ "part_id": "c17.2",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b8",
+   "say": "अनाज वाला copper coin क्यों लेगा? उसे उम्मीद है कि अगला व्यापारी भी लेगा। Basket और coins की गिनती समझाने के लिए है, historical data नहीं।"
+  },
+  {
+   "beat_id": "b9",
+   "say": "Token currency यानी ऐसा पैसा जिसकी मानी गई payment value उसके material की कीमत के बराबर होना जरूरी नहीं। यहाँ royal order ने brass और copper coins को silver coins के बराबर माना; दोनों metals की अपनी कीमत बराबर नहीं हुई।"
+  },
+  {
+   "beat_id": "b10",
+   "say": "क्या brass का हर टुकड़ा पैसा है? नहीं। बेचने वाला coin तभी लेना चाहेगा जब उसे लगे कि अगला व्यापारी भी लेगा; सस्ती metal अकेले payment नहीं चलाती।"
+  },
+  {
+   "beat_id": "b11",
+   "say": "इसलिए आगे coins की तुलना में 2 अलग सवाल रखिए: उससे कितना payment होगा, और उसके metal की अपनी कीमत क्या है?"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "grain",
+   "kind": "icon",
+   "cell": [
+    1,
+    3,
+    2,
+    2
+   ],
+   "cue": [
+    "b8",
+    "अनाज"
+   ],
+   "until_cue": [
+    "b9",
+    "Token"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "fa:solid/jar-wheat",
+   "size": 48
+  },
+  {
+   "id": "copper",
+   "kind": "icon",
+   "cell": [
+    5,
+    3,
+    2,
+    2
+   ],
+   "cue": [
+    "b8",
+    "copper"
+   ],
+   "until_cue": [
+    "b9",
+    "Token"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "tw:1fa99",
+   "size": 48
+  },
+  {
+   "id": "acceptance",
+   "kind": "callout",
+   "cell": [
+    1,
+    0,
+    10,
+    2
+   ],
+   "cue": [
+    "b8",
+    "उम्मीद"
+   ],
+   "text": "उम्मीद है कि अगला व्यापारी भी लेगा।",
+   "style": "note",
+   "tone": "accent",
+   "fill": "band",
+   "align": "center",
+   "size": 32,
+   "marks": [
+    {
+     "phrase": "अगला व्यापारी भी लेगा",
+     "cue": [
+      "b10",
+      "अगला"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "merchant",
+   "kind": "icon",
+   "cell": [
+    9,
+    3,
+    2,
+    2
+   ],
+   "cue": [
+    "b8",
+    "व्यापारी"
+   ],
+   "until_cue": [
+    "b9",
+    "Token"
+   ],
+   "tone": "ink",
+   "align": "center",
+   "icon": "fa:solid/shop",
+   "size": 48
+  },
+  {
+   "id": "onward",
+   "kind": "arrow",
+   "cue": [
+    "b8",
+    "लेगा।"
+   ],
+   "until_cue": [
+    "b9",
+    "Token"
+   ],
+   "tone": "accent",
+   "from": "copper",
+   "to": "merchant",
+   "from_side": "r",
+   "to_side": "l",
+   "flow": {
+    "icon": "tw:1fa99",
+    "count": 1,
+    "period": 2200,
+    "size": 24,
+    "cue": [
+     "b8",
+     "लेगा।"
+    ]
+   }
+  },
+  {
+   "id": "caveat",
+   "kind": "text",
+   "cell": [
+    1,
+    6,
+    10,
+    1
+   ],
+   "cue": [
+    "b8",
+    "historical"
+   ],
+   "until_cue": [
+    "b9",
+    "Token"
+   ],
+   "text": "Basket और coins की गिनती historical data नहीं है।",
+   "style": "note",
+   "tone": "muted",
+   "fill": "note",
+   "align": "center",
+   "size": 24
+  },
+  {
+   "id": "token",
+   "kind": "text",
+   "cell": [
+    1,
+    2,
+    10,
+    1
+   ],
+   "cue": [
+    "b9",
+    "पैसा"
+   ],
+   "until_cue": [
+    "b10",
+    "क्या"
+   ],
+   "text": "Token currency ऐसा पैसा है।",
+   "style": "title",
+   "tone": "ink",
+   "align": "center",
+   "size": 32
+  },
+  {
+   "id": "definition",
+   "kind": "text",
+   "cell": [
+    1,
+    3,
+    10,
+    2
+   ],
+   "cue": [
+    "b9",
+    "बराबर"
+   ],
+   "until_cue": [
+    "b10",
+    "क्या"
+   ],
+   "text": "Payment value material की कीमत के बराबर होना जरूरी नहीं।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "band",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "order",
+   "kind": "text",
+   "cell": [
+    0,
+    5,
+    6,
+    2
+   ],
+   "cue": [
+    "b9",
+    "माना;"
+   ],
+   "until_cue": [
+    "b10",
+    "क्या"
+   ],
+   "text": "Royal order ने brass और copper coins को silver बराबर माना।",
+   "style": "box",
+   "tone": "warm",
+   "fill": "note",
+   "align": "center",
+   "size": 26
+  },
+  {
+   "id": "metals",
+   "kind": "text",
+   "cell": [
+    6,
+    5,
+    6,
+    2
+   ],
+   "cue": [
+    "b9",
+    "metals"
+   ],
+   "until_cue": [
+    "b10",
+    "क्या"
+   ],
+   "text": "दोनों metals की अपनी कीमत बराबर नहीं हुई।",
+   "style": "box",
+   "tone": "ink",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "loose-metal",
+   "kind": "text",
+   "cell": [
+    1,
+    3,
+    10,
+    1
+   ],
+   "cue": [
+    "b10",
+    "नहीं।"
+   ],
+   "until_cue": [
+    "b11",
+    "इसलिए"
+   ],
+   "text": "Brass का हर टुकड़ा पैसा नहीं है।",
+   "style": "box",
+   "tone": "warm",
+   "fill": "note",
+   "align": "center",
+   "size": 32
+  },
+  {
+   "id": "acceptance-focus",
+   "kind": "highlight",
+   "cue": [
+    "b10",
+    "लगे"
+   ],
+   "until_cue": [
+    "b11",
+    "इसलिए"
+   ],
+   "style": "box",
+   "tone": "accent",
+   "target": "acceptance"
+  },
+  {
+   "id": "cheap",
+   "kind": "text",
+   "cell": [
+    1,
+    5,
+    10,
+    1
+   ],
+   "cue": [
+    "b10",
+    "सस्ती"
+   ],
+   "until_cue": [
+    "b11",
+    "इसलिए"
+   ],
+   "text": "सस्ती metal अकेले payment नहीं चलाती।",
+   "style": "box",
+   "tone": "ink",
+   "align": "center",
+   "size": 32
+  },
+  {
+   "id": "two",
+   "kind": "text",
+   "cell": [
+    1,
+    2,
+    10,
+    1
+   ],
+   "cue": [
+    "b11",
+    "2"
+   ],
+   "text": "Coins की तुलना में 2 अलग सवाल रखिए।",
+   "style": "title",
+   "tone": "ink",
+   "align": "center",
+   "size": 32
+  },
+  {
+   "id": "payment-question",
+   "kind": "text",
+   "cell": [
+    0,
+    4,
+    6,
+    2
+   ],
+   "cue": [
+    "b11",
+    "payment"
+   ],
+   "text": "उससे कितना payment होगा?",
+   "style": "box",
+   "tone": "accent",
+   "fill": "band",
+   "align": "center",
+   "size": 32
+  },
+  {
+   "id": "material-question",
+   "kind": "text",
+   "cell": [
+    6,
+    4,
+    6,
+    2
+   ],
+   "cue": [
+    "b11",
+    "metal"
+   ],
+   "text": "उसके metal की अपनी कीमत क्या है?",
+   "style": "box",
+   "tone": "warm",
+   "fill": "note",
+   "align": "center",
+   "size": 32
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

@@ -1,0 +1,229 @@
+{
+ "id": "v10_s13b",
+ "part_id": "c25.3",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b62",
+   "say": "यह Indian Financial System Code, IFSC है: electronic payments में शामिल branch का unique 11-character alphanumeric code। यानी letters और numbers वाला branch address समझिए।"
+  },
+  {
+   "beat_id": "b63",
+   "say": "IFSC branch बताता है, account number individual account। सही building मिलना सही कमरे की पहचान नहीं है।"
+  },
+  {
+   "beat_id": "b64",
+   "say": "IFSC branch बताता है; account details पाने वाला account बताती हैं।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "ifsc_title",
+   "kind": "text",
+   "cell": [
+    0,
+    0,
+    12,
+    1
+   ],
+   "cue": [
+    "b62",
+    "Indian"
+   ],
+   "text": "यह Indian Financial System Code, IFSC है।",
+   "style": "title",
+   "tone": "ink",
+   "align": "left",
+   "size": 32
+  },
+  {
+   "id": "payment_scope",
+   "kind": "text",
+   "cell": [
+    0,
+    1,
+    12,
+    1
+   ],
+   "cue": [
+    "b62",
+    "electronic"
+   ],
+   "text": "यह electronic payments में शामिल branch का code है।",
+   "style": "box",
+   "tone": "ink",
+   "fill": "band",
+   "align": "left",
+   "size": 28
+  },
+  {
+   "id": "code_definition",
+   "kind": "text",
+   "cell": [
+    0,
+    2,
+    12,
+    1
+   ],
+   "cue": [
+    "b62",
+    "11-character"
+   ],
+   "text": "यह unique 11-character alphanumeric code है।",
+   "style": "box",
+   "tone": "accent",
+   "align": "left",
+   "size": 30
+  },
+  {
+   "id": "address_meaning",
+   "kind": "text",
+   "cell": [
+    0,
+    3,
+    12,
+    1
+   ],
+   "cue": [
+    "b62",
+    "letters"
+   ],
+   "until_cue": [
+    "b63",
+    "IFSC"
+   ],
+   "text": "Letters और numbers वाला branch address समझिए।",
+   "style": "note",
+   "tone": "muted",
+   "align": "left",
+   "size": 28
+  },
+  {
+   "id": "branch_role",
+   "kind": "text",
+   "cell": [
+    0,
+    4,
+    6,
+    2
+   ],
+   "cue": [
+    "b63",
+    "branch"
+   ],
+   "text": "IFSC branch बताता है।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "band",
+   "align": "center",
+   "size": 32
+  },
+  {
+   "id": "account_number_role",
+   "kind": "text",
+   "cell": [
+    6,
+    4,
+    6,
+    2
+   ],
+   "cue": [
+    "b63",
+    "individual"
+   ],
+   "until_cue": [
+    "b64",
+    "details"
+   ],
+   "text": "Account number individual account बताता है।",
+   "style": "box",
+   "tone": "warm",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "building_room",
+   "kind": "callout",
+   "cell": [
+    0,
+    6,
+    12,
+    1
+   ],
+   "cue": [
+    "b63",
+    "building"
+   ],
+   "until_cue": [
+    "b64",
+    "IFSC"
+   ],
+   "text": "सही building मिलना सही कमरे की पहचान नहीं है।",
+   "style": "note",
+   "tone": "ink",
+   "align": "center",
+   "size": 28,
+   "marks": [
+    {
+     "phrase": "सही कमरे की पहचान नहीं है",
+     "cue": [
+      "b63",
+      "कमरे"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "recipient_account",
+   "kind": "text",
+   "cell": [
+    6,
+    4,
+    6,
+    2
+   ],
+   "cue": [
+    "b64",
+    "details"
+   ],
+   "text": "Account details पाने वाला account बताती हैं।",
+   "style": "box",
+   "tone": "warm",
+   "align": "center",
+   "size": 30
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b64",
+    "branch"
+   ],
+   "ids": [
+    "ifsc_title",
+    "branch_role"
+   ],
+   "until_cue": [
+    "b64",
+    "details"
+   ]
+  },
+  {
+   "cue": [
+    "b64",
+    "details"
+   ],
+   "ids": [
+    "ifsc_title",
+    "branch_role",
+    "recipient_account"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

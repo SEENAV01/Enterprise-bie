@@ -1,0 +1,79 @@
+{
+ "id": "v10_s1a",
+ "part_id": "c23.1",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b1",
+   "say": "Cheque दे दिया। क्या payment पूरी हुई?"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "cheque_given",
+   "kind": "text",
+   "cell": [
+    2,
+    2,
+    8,
+    2
+   ],
+   "cue": [
+    "b1",
+    "Cheque"
+   ],
+   "text": "Cheque दे दिया।",
+   "style": "box",
+   "tone": "ink",
+   "fill": "note",
+   "align": "center",
+   "size": 44
+  },
+  {
+   "id": "payment_question",
+   "kind": "callout",
+   "cell": [
+    2,
+    4,
+    8,
+    2
+   ],
+   "cue": [
+    "b1",
+    "payment"
+   ],
+   "text": "क्या payment पूरी हुई?",
+   "style": "note",
+   "tone": "accent",
+   "fill": "note",
+   "align": "center",
+   "size": 44,
+   "marks": [
+    {
+     "phrase": "पूरी",
+     "cue": [
+      "b1",
+      "पूरी"
+     ]
+    }
+   ]
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b1",
+    "payment"
+   ],
+   "ids": [
+    "payment_question"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

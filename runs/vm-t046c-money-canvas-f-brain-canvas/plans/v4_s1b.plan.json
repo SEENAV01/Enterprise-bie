@@ -1,0 +1,176 @@
+{
+ "id": "v4_s1b",
+ "part_id": "c09.1",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b3",
+   "say": "यह gold-backed paper currency है: माँगने पर तय gold मिले। Intrinsic value यानी material की कीमत; यहाँ value paper से नहीं, redemption promise से है, जैसे सामान की receipt।"
+  },
+  {
+   "beat_id": "b4",
+   "say": "सिर्फ bank के पास gold होना काफी नहीं; note पर gold पाने का claim चाहिए।"
+  },
+  {
+   "beat_id": "b5",
+   "say": "यह redemption promise आगे समझाएगा कि नए notes के लिए backing क्यों चाहिए।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank",
+   "kind": "bank",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b3",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "teller",
+   "kind": "teller",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b3",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "holder",
+   "kind": "crowd",
+   "x0": 2330,
+   "spacing": 90,
+   "enter_x": 2050,
+   "exit_x": 2050,
+   "face": 1,
+   "seed": 9,
+   "cue": [
+    "b3",
+    "माँगने"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b3",
+      "माँगने"
+     ],
+     "n": 1
+    }
+   ]
+  },
+  {
+   "id": "explanation",
+   "kind": "board",
+   "x": 3150,
+   "y": 520,
+   "fill": "#EFE3CA",
+   "cue": [
+    "b3",
+    "माँगने"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b3",
+      "माँगने"
+     ],
+     "text": "माँगने पर तय gold मिले।"
+    },
+    {
+     "cue": [
+      "b3",
+      "Intrinsic"
+     ],
+     "text": "Intrinsic value यानी\nmaterial की कीमत।"
+    },
+    {
+     "cue": [
+      "b3",
+      "redemption"
+     ],
+     "text": "Value paper से नहीं,\nredemption promise से है।"
+    },
+    {
+     "cue": [
+      "b4",
+      "gold"
+     ],
+     "text": "सिर्फ bank के पास gold\nहोना काफी नहीं।"
+    },
+    {
+     "cue": [
+      "b4",
+      "claim"
+     ],
+     "text": "Note पर gold पाने का\nclaim चाहिए।"
+    },
+    {
+     "cue": [
+      "b5",
+      "backing"
+     ],
+     "text": "नए notes के लिए\nbacking क्यों चाहिए।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b3",
+    "",
+    0.0
+   ],
+   "x": 2770,
+   "y": 560,
+   "zoom": 0.85,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b3",
+    "Intrinsic"
+   ],
+   "x": 2930,
+   "y": 550,
+   "zoom": 1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b3",
+    "receipt।"
+   ],
+   "x": 2820,
+   "y": 560,
+   "zoom": 0.9,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b4",
+    "claim"
+   ],
+   "x": 2930,
+   "y": 550,
+   "zoom": 1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b5",
+    "redemption"
+   ],
+   "x": 2800,
+   "y": 560,
+   "zoom": 0.9,
+   "frames": 45
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

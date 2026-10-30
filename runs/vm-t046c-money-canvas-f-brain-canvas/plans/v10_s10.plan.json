@@ -1,0 +1,127 @@
+{
+ "id": "v10_s10",
+ "part_id": "c25.2",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b52",
+   "say": "Bank में 100 cheques कैसे छाँटेंगे? Staff machine-readable cheques रखता है; equipment magnetic-ink characters पढ़कर batch process करता है। आखिर में pending cheques 0 बचे।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank",
+   "kind": "bank",
+   "x": 2600,
+   "sign": "Bank",
+   "cue": [
+    "b52",
+    "Bank"
+   ]
+  },
+  {
+   "id": "batch",
+   "kind": "board",
+   "x": 2010,
+   "y": 520,
+   "text": "cheques",
+   "fill": "#E5EBD9",
+   "cue": [
+    "b52",
+    "100"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b52",
+      "100"
+     ],
+     "text": "100 cheques कैसे छाँटेंगे?"
+    },
+    {
+     "cue": [
+      "b52",
+      "0"
+     ],
+     "text": "pending cheques 0 बचे।",
+     "dir": "down"
+    }
+   ]
+  },
+  {
+   "id": "staff",
+   "kind": "teller",
+   "x": 2600,
+   "cue": [
+    "b52",
+    "Staff"
+   ]
+  },
+  {
+   "id": "processing",
+   "kind": "board",
+   "x": 3190,
+   "y": 520,
+   "text": "equipment",
+   "fill": "#DFEAF0",
+   "cue": [
+    "b52",
+    "magnetic-ink"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b52",
+      "magnetic-ink"
+     ],
+     "text": "equipment magnetic-ink characters\nपढ़कर batch process करता है।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b52",
+    "",
+    0.0
+   ],
+   "x": 2560,
+   "y": 520,
+   "zoom": 0.8,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b52",
+    "Staff"
+   ],
+   "x": 2500,
+   "y": 550,
+   "zoom": 1.05,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b52",
+    "magnetic-ink"
+   ],
+   "x": 3080,
+   "y": 520,
+   "zoom": 1.15,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b52",
+    "आखिर"
+   ],
+   "x": 2130,
+   "y": 520,
+   "zoom": 1.1,
+   "frames": 30
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

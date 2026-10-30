@@ -1,0 +1,146 @@
+{
+ "id": "v14_s4s",
+ "part_id": "c34.1",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b24",
+   "say": "₹10 note की sheet बदले तो value बदलेगी? Hypothetically 1 authorized BOPP note लो; सामान ₹10 का ही है।"
+  }
+ ],
+ "kit": "shop",
+ "elements": [
+  {
+   "id": "shop",
+   "kind": "shop",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b24",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "shopkeeper",
+   "kind": "shopkeeper",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b24",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "value_question",
+   "kind": "board",
+   "x": 2220,
+   "y": 390,
+   "fill": "#EEE4CE",
+   "cue": [
+    "b24",
+    "sheet"
+   ],
+   "until_cue": [
+    "b24",
+    "Hypothetically"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b24",
+      "sheet"
+     ],
+     "text": "₹10 note की sheet बदले तो\nvalue बदलेगी?"
+    }
+   ]
+  },
+  {
+   "id": "hypothetical_note",
+   "kind": "label",
+   "x": 2600,
+   "y": 230,
+   "text": "Hypothetically",
+   "fill": "#F4ECD8",
+   "cue": [
+    "b24",
+    "Hypothetically"
+   ]
+  },
+  {
+   "id": "bopp_purchase",
+   "kind": "board",
+   "x": 2220,
+   "y": 390,
+   "fill": "#DCEAE3",
+   "cue": [
+    "b24",
+    "BOPP"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b24",
+      "BOPP"
+     ],
+     "text": "1 authorized BOPP note लो।"
+    }
+   ]
+  },
+  {
+   "id": "goods_price",
+   "kind": "price_tag",
+   "x": 2780,
+   "y": 490,
+   "string": 65,
+   "cue": [
+    "b24",
+    "₹10"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b24",
+      "₹10"
+     ],
+     "text": "₹10"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b24",
+    "",
+    0.0
+   ],
+   "x": 2520,
+   "y": 510,
+   "zoom": 0.9,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b24",
+    "BOPP"
+   ],
+   "x": 2410,
+   "y": 470,
+   "zoom": 1.05,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b24",
+    "सामान"
+   ],
+   "x": 2630,
+   "y": 510,
+   "zoom": 1.1,
+   "frames": 30
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

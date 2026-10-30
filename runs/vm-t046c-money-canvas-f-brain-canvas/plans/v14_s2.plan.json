@@ -1,0 +1,332 @@
+{
+ "id": "v14_s2",
+ "part_id": "c33.2",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b8",
+   "say": "विदेश भेजना दुकान के UPI जैसा आसान हो? यही objective है, identical fees या time की guarantee नहीं।"
+  },
+  {
+   "beat_id": "b9",
+   "say": "India से कौन? UPI founding participant है, यानी शुरुआत के group में है; leader नहीं।"
+  },
+  {
+   "beat_id": "b10",
+   "say": "Singapore और Malaysia में कौन? Singapore–PayNow और Malaysia–DuitNow हैं; Now समान होने से देश समान नहीं।"
+  },
+  {
+   "beat_id": "b11",
+   "say": "Philippines और Thailand में? Philippines–InstaPay और Thailand–PromptPay हैं; Pay देखकर interchange मत करना।"
+  },
+  {
+   "beat_id": "b12",
+   "say": "अपने UPI जैसा national system सोचो: यहाँ 5 systems हैं, एक के 5 नाम नहीं।"
+  },
+  {
+   "beat_id": "b13",
+   "say": "Country–system जोड़ी पहचानो; इससे live corridor साबित नहीं होता।"
+  },
+  {
+   "beat_id": "b15",
+   "say": "Matching trap याद रखो: Singapore–PayNow, Thailand–PromptPay; UPI participant है, leader नहीं।"
+  }
+ ],
+ "kit": "shop",
+ "elements": [
+  {
+   "id": "shop",
+   "kind": "shop",
+   "x": 2600,
+   "y": 860,
+   "sign": "दुकान",
+   "cue": [
+    "b8",
+    "दुकान"
+   ]
+  },
+  {
+   "id": "shopkeeper",
+   "kind": "shopkeeper",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b8",
+    "UPI"
+   ]
+  },
+  {
+   "id": "objective",
+   "kind": "board",
+   "x": 1900,
+   "y": 390,
+   "fill": "#E5D6B5",
+   "cue": [
+    "b8",
+    "आसान"
+   ],
+   "until_cue": [
+    "b9",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b8",
+      "आसान"
+     ],
+     "text": "विदेश भेजना दुकान के UPI जैसा आसान हो?"
+    },
+    {
+     "cue": [
+      "b8",
+      "guarantee"
+     ],
+     "text": "identical fees या time की guarantee नहीं।"
+    }
+   ]
+  },
+  {
+   "id": "india",
+   "kind": "board",
+   "x": 1900,
+   "y": 390,
+   "fill": "#D7E7E2",
+   "cue": [
+    "b9",
+    "participant"
+   ],
+   "until_cue": [
+    "b12",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b9",
+      "participant"
+     ],
+     "text": "India से UPI founding participant है।"
+    },
+    {
+     "cue": [
+      "b9",
+      "leader"
+     ],
+     "text": "UPI शुरुआत के group में है;\nleader नहीं।"
+    }
+   ]
+  },
+  {
+   "id": "now_pairs",
+   "kind": "board",
+   "x": 3300,
+   "y": 350,
+   "fill": "#DDE6EE",
+   "cue": [
+    "b10",
+    "Malaysia–DuitNow"
+   ],
+   "until_cue": [
+    "b12",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b10",
+      "Malaysia–DuitNow"
+     ],
+     "text": "Singapore–PayNow और\nMalaysia–DuitNow हैं।"
+    }
+   ]
+  },
+  {
+   "id": "pay_pairs",
+   "kind": "board",
+   "x": 3300,
+   "y": 650,
+   "fill": "#E8DFEE",
+   "cue": [
+    "b11",
+    "Thailand–PromptPay"
+   ],
+   "until_cue": [
+    "b12",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b11",
+      "Thailand–PromptPay"
+     ],
+     "text": "Philippines–InstaPay और\nThailand–PromptPay हैं।"
+    }
+   ]
+  },
+  {
+   "id": "distinction",
+   "kind": "board",
+   "x": 1900,
+   "y": 400,
+   "fill": "#E5D6B5",
+   "cue": [
+    "b12",
+    "नाम"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b12",
+      "नाम"
+     ],
+     "text": "यहाँ 5 systems हैं,\nएक के 5 नाम नहीं।"
+    },
+    {
+     "cue": [
+      "b13",
+      "corridor"
+     ],
+     "text": "Country–system जोड़ी से\nlive corridor साबित नहीं होता।"
+    },
+    {
+     "cue": [
+      "b15",
+      "participant"
+     ],
+     "text": "UPI participant है, leader नहीं।"
+    }
+   ]
+  },
+  {
+   "id": "matching_trap",
+   "kind": "board",
+   "x": 3300,
+   "y": 400,
+   "fill": "#DDE6EE",
+   "cue": [
+    "b15",
+    "Thailand–PromptPay;"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b15",
+      "Thailand–PromptPay;"
+     ],
+     "text": "Singapore–PayNow याद रखो।\nThailand–PromptPay याद रखो।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b8",
+    "",
+    0.0
+   ],
+   "x": 2550,
+   "y": 490,
+   "zoom": 0.8,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b8",
+    "objective"
+   ],
+   "x": 2350,
+   "y": 470,
+   "zoom": 0.86,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b9",
+    "participant"
+   ],
+   "x": 2350,
+   "y": 470,
+   "zoom": 0.9,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b10",
+    "Singapore–PayNow"
+   ],
+   "x": 2660,
+   "y": 470,
+   "zoom": 0.8,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b10",
+    "Now"
+   ],
+   "x": 2800,
+   "y": 450,
+   "zoom": 0.84,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b11",
+    "Philippines–InstaPay"
+   ],
+   "x": 2700,
+   "y": 500,
+   "zoom": 0.8,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b11",
+    "Pay"
+   ],
+   "x": 2800,
+   "y": 520,
+   "zoom": 0.84,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b12",
+    "",
+    0.0
+   ],
+   "x": 2500,
+   "y": 490,
+   "zoom": 0.8,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b13",
+    "जोड़ी"
+   ],
+   "x": 2350,
+   "y": 470,
+   "zoom": 0.9,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b15",
+    "Matching"
+   ],
+   "x": 2600,
+   "y": 470,
+   "zoom": 0.8,
+   "frames": 45
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

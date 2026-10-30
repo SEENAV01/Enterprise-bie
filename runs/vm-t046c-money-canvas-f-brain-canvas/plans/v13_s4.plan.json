@@ -1,0 +1,180 @@
+{
+ "id": "v13_s4",
+ "part_id": "c30.4",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b21",
+   "say": "इन flags के notes क्या दिखाते हैं? Overseas RuPay inset में issuance और acceptance देखिए, यात्रा का रास्ता नहीं।"
+  },
+  {
+   "beat_id": "b22",
+   "say": "ऊपर से Bhutan, Nepal, Mauritius, UAE, Singapore, Maldives पढ़िए। रंग matching tags जैसे हैं: देश को उसके note से जोड़ते हैं, मात्रा नहीं बताते।"
+  },
+  {
+   "beat_id": "b23",
+   "say": "Bhutan–2020 और Mauritius–2024 issuance की जोड़ियाँ हैं। नया card मिलना issuance है; दुकान पर चलना acceptance है।"
+  },
+  {
+   "beat_id": "b24",
+   "say": "चित्र domestic system के overseas links समझाता है; हर दुकान या ATM पर acceptance मत मानिए।"
+  }
+ ],
+ "kit": "shop",
+ "elements": [
+  {
+   "id": "generic_shop",
+   "kind": "shop",
+   "x": 2950,
+   "y": 860,
+   "cue": [
+    "b21",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "explanation_board",
+   "kind": "board",
+   "x": 2220,
+   "y": 390,
+   "fill": "#E6DCCB",
+   "cue": [
+    "b21",
+    "issuance"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b21",
+      "issuance"
+     ],
+     "text": "Overseas RuPay में issuance\nऔर acceptance देखिए।"
+    },
+    {
+     "cue": [
+      "b22",
+      "Bhutan,"
+     ],
+     "text": "Bhutan, Nepal, Mauritius, UAE,\nSingapore, Maldives पढ़िए।"
+    },
+    {
+     "cue": [
+      "b22",
+      "रंग"
+     ],
+     "text": "रंग देश को उसके note से जोड़ते हैं,\nमात्रा नहीं बताते।"
+    },
+    {
+     "cue": [
+      "b23",
+      "Mauritius–2024"
+     ],
+     "text": "Bhutan–2020 और Mauritius–2024\nissuance की जोड़ियाँ हैं।"
+    },
+    {
+     "cue": [
+      "b23",
+      "नया"
+     ],
+     "text": "नया card मिलना issuance है।"
+    },
+    {
+     "cue": [
+      "b23",
+      "दुकान"
+     ],
+     "text": "दुकान पर चलना acceptance है।"
+    },
+    {
+     "cue": [
+      "b24",
+      "overseas"
+     ],
+     "text": "चित्र domestic system के\noverseas links समझाता है।"
+    },
+    {
+     "cue": [
+      "b24",
+      "हर"
+     ],
+     "text": "हर दुकान या ATM पर\nacceptance मत मानिए।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b21",
+    "",
+    0.0
+   ],
+   "x": 2580,
+   "y": 470,
+   "zoom": 0.9,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b21",
+    "यात्रा"
+   ],
+   "x": 2460,
+   "y": 450,
+   "zoom": 1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b22",
+    "Bhutan,"
+   ],
+   "x": 2370,
+   "y": 430,
+   "zoom": 1.1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b22",
+    "रंग"
+   ],
+   "x": 2400,
+   "y": 450,
+   "zoom": 1.05,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b23",
+    "Bhutan–2020"
+   ],
+   "x": 2370,
+   "y": 430,
+   "zoom": 1.1,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b23",
+    "दुकान"
+   ],
+   "x": 2590,
+   "y": 470,
+   "zoom": 0.95,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b24",
+    "हर"
+   ],
+   "x": 2480,
+   "y": 450,
+   "zoom": 1.02,
+   "frames": 40
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

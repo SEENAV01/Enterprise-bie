@@ -1,0 +1,296 @@
+{
+ "id": "v14_s10",
+ "part_id": "c35.2",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b55",
+   "say": "Crypto और Digital Rupee phone पर समान लगें? Digital रूप समान है, issuer और legal status अलग।"
+  },
+  {
+   "beat_id": "b56",
+   "say": "Crypto private asset है, RBI-issued नहीं; Digital Rupee RBI-issued CBDC है। India में पहला legal tender नहीं, दूसरा है।"
+  },
+  {
+   "beat_id": "b57",
+   "say": "Legal tender यानी कानून से payment चुकाने के लिए स्वीकार किया गया money। केवल transferable होना काफी नहीं।"
+  },
+  {
+   "beat_id": "b58",
+   "say": "Not legal tender सीधे illegal नहीं; holding, trading और tax अलग सवाल हैं।"
+  },
+  {
+   "beat_id": "b59",
+   "say": "Crypto private, legal tender नहीं; Digital Rupee RBI का, legal tender है।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank",
+   "kind": "bank",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b55",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "teller",
+   "kind": "teller",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b55",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "digital_form",
+   "kind": "board",
+   "x": 2600,
+   "y": 270,
+   "fill": "#DCECE7",
+   "cue": [
+    "b55",
+    "Digital"
+   ],
+   "until_cue": [
+    "b56",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b55",
+      "Digital"
+     ],
+     "text": "Digital रूप समान है।"
+    },
+    {
+     "cue": [
+      "b55",
+      "issuer"
+     ],
+     "text": "Issuer और legal status अलग हैं।"
+    }
+   ]
+  },
+  {
+   "id": "crypto_issuer",
+   "kind": "board",
+   "x": 1920,
+   "y": 290,
+   "fill": "#EEE1CF",
+   "cue": [
+    "b56",
+    "private"
+   ],
+   "until_cue": [
+    "b57",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b56",
+      "private"
+     ],
+     "text": "Crypto private asset है,\nRBI-issued नहीं।"
+    }
+   ]
+  },
+  {
+   "id": "rupee_issuer",
+   "kind": "board",
+   "x": 3280,
+   "y": 290,
+   "fill": "#DCECE7",
+   "cue": [
+    "b56",
+    "CBDC"
+   ],
+   "until_cue": [
+    "b57",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b56",
+      "CBDC"
+     ],
+     "text": "Digital Rupee RBI-issued CBDC है।"
+    }
+   ]
+  },
+  {
+   "id": "meaning",
+   "kind": "board",
+   "x": 2600,
+   "y": 260,
+   "fill": "#DCECE7",
+   "cue": [
+    "b57",
+    "कानून"
+   ],
+   "until_cue": [
+    "b59",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b57",
+      "कानून"
+     ],
+     "text": "Legal tender कानून से payment\nचुकाने के लिए स्वीकार किया गया money है।"
+    },
+    {
+     "cue": [
+      "b57",
+      "transferable"
+     ],
+     "text": "केवल transferable होना काफी नहीं।"
+    },
+    {
+     "cue": [
+      "b58",
+      "illegal"
+     ],
+     "text": "Not legal tender सीधे illegal नहीं।"
+    },
+    {
+     "cue": [
+      "b58",
+      "holding,"
+     ],
+     "text": "Holding, trading और tax\nअलग सवाल हैं।"
+    }
+   ]
+  },
+  {
+   "id": "crypto_summary",
+   "kind": "board",
+   "x": 1920,
+   "y": 290,
+   "fill": "#EEE1CF",
+   "cue": [
+    "b59",
+    "private,"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b59",
+      "private,"
+     ],
+     "text": "Crypto private है,\nlegal tender नहीं।"
+    }
+   ]
+  },
+  {
+   "id": "rupee_summary",
+   "kind": "board",
+   "x": 3280,
+   "y": 290,
+   "fill": "#DCECE7",
+   "cue": [
+    "b59",
+    "RBI"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b59",
+      "RBI"
+     ],
+     "text": "Digital Rupee RBI का है,\nlegal tender है।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b55",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 460,
+   "zoom": 0.85,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b55",
+    "issuer"
+   ],
+   "x": 2600,
+   "y": 400,
+   "zoom": 1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b56",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 430,
+   "zoom": 0.8,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b56",
+    "India"
+   ],
+   "x": 2600,
+   "y": 360,
+   "zoom": 0.85,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b57",
+    "कानून"
+   ],
+   "x": 2600,
+   "y": 370,
+   "zoom": 1.1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b58",
+    "illegal"
+   ],
+   "x": 2600,
+   "y": 340,
+   "zoom": 1.2,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b59",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 430,
+   "zoom": 0.8,
+   "frames": 45
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

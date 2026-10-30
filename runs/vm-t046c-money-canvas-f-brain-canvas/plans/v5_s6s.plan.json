@@ -1,0 +1,819 @@
+{
+ "id": "v5_s6s",
+ "part_id": "c13.1",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b30",
+   "say": "Oil कम मिले तो? Mumbai का example लो: पहले exporters 100 barrels भेजते थे, अब 60 भेजते हैं। मान लो $1 वाला barrel अब $4 में मिले; 10 barrels के पहले $10 देते थे, अब $40 देंगे।"
+  },
+  {
+   "beat_id": "b31",
+   "say": "बेचने-भेजने पर रोक embargo है। 1973 के OPEC oil embargo में prices 4 गुना हुए; Arab exporters की रोक से supply घटी, fuel चाहिए रहा।"
+  },
+  {
+   "beat_id": "b32",
+   "say": "4 गुना यानी 300% increase, 400% नहीं। Supply घटने से ठीक 4 गुना price होना कोई formula नहीं।"
+  },
+  {
+   "beat_id": "b33",
+   "say": "Oil के Dollars कहाँ जाएँ? मान लो Saudi seller $100 पाए, नए Treasury issue में $60 लगाए, $40 रखे; सरकार $60 उधार पाए।"
+  },
+  {
+   "beat_id": "b34",
+   "say": "यह receipts का investment है। 1974 में Saudi Arabia ने Dollar oil-pricing और revenues का बड़ा हिस्सा US Treasury securities तथा American financial markets में लगाना माना; 60/40 सिर्फ example है।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "anchor",
+   "kind": "text",
+   "cell": [
+    0,
+    0,
+    12,
+    1
+   ],
+   "cue": [
+    "b30",
+    "Oil"
+   ],
+   "text": "Oil कम मिले तो?",
+   "style": "title",
+   "tone": "ink",
+   "fill": "band",
+   "align": "left",
+   "size": 34
+  },
+  {
+   "id": "place",
+   "kind": "text",
+   "cell": [
+    0,
+    1,
+    6,
+    1
+   ],
+   "cue": [
+    "b30",
+    "Mumbai"
+   ],
+   "until_cue": [
+    "b31",
+    "बेचने-भेजने"
+   ],
+   "text": "Mumbai का example लो.",
+   "style": "note",
+   "tone": "muted",
+   "align": "left",
+   "size": 26
+  },
+  {
+   "id": "exporters",
+   "kind": "icon",
+   "cell": [
+    0,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b30",
+    "exporters"
+   ],
+   "until_cue": [
+    "b31",
+    "बेचने-भेजने"
+   ],
+   "tone": "ink",
+   "icon": "tw:1f6a2",
+   "size": 64
+  },
+  {
+   "id": "supply",
+   "kind": "value",
+   "cell": [
+    2,
+    2,
+    6,
+    1
+   ],
+   "cue": [
+    "b30",
+    "100"
+   ],
+   "until_cue": [
+    "b31",
+    "बेचने-भेजने"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "size": 30,
+   "steps": [
+    {
+     "cue": [
+      "b30",
+      "100"
+     ],
+     "text": "Exporters 100 barrels भेजते थे."
+    },
+    {
+     "cue": [
+      "b30",
+      "60"
+     ],
+     "text": "अब 60 barrels भेजते हैं.",
+     "dir": "down"
+    }
+   ]
+  },
+  {
+   "id": "barrels",
+   "kind": "crowd",
+   "cell": [
+    2,
+    3,
+    6,
+    2
+   ],
+   "cue": [
+    "b30",
+    "100"
+   ],
+   "until_cue": [
+    "b31",
+    "बेचने-भेजने"
+   ],
+   "tone": "ink",
+   "icon": "tw:1f6e2",
+   "size": 24,
+   "cols": 20,
+   "steps": [
+    {
+     "cue": [
+      "b30",
+      "100"
+     ],
+     "n": 100
+    },
+    {
+     "cue": [
+      "b30",
+      "60"
+     ],
+     "n": 60
+    }
+   ]
+  },
+  {
+   "id": "buyer",
+   "kind": "icon",
+   "cell": [
+    10,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b30",
+    "भेजते"
+   ],
+   "until_cue": [
+    "b31",
+    "बेचने-भेजने"
+   ],
+   "tone": "accent",
+   "icon": "tw:1f471",
+   "size": 64
+  },
+  {
+   "id": "delivery",
+   "kind": "arrow",
+   "cue": [
+    "b30",
+    "भेजते"
+   ],
+   "until_cue": [
+    "b31",
+    "बेचने-भेजने"
+   ],
+   "tone": "warm",
+   "from": "barrels",
+   "to": "buyer",
+   "from_side": "r",
+   "to_side": "l",
+   "elbow": "hv",
+   "flow": {
+    "icon": "tw:1f6e2",
+    "count": 2,
+    "period": 1800,
+    "size": 24,
+    "cue": [
+     "b30",
+     "भेजते"
+    ]
+   }
+  },
+  {
+   "id": "caveat",
+   "kind": "text",
+   "cell": [
+    7,
+    1,
+    5,
+    1
+   ],
+   "cue": [
+    "b30",
+    "लो"
+   ],
+   "text": "मान लो.",
+   "style": "note",
+   "tone": "muted",
+   "align": "right",
+   "size": 24
+  },
+  {
+   "id": "price",
+   "kind": "value",
+   "cell": [
+    0,
+    5,
+    6,
+    2
+   ],
+   "cue": [
+    "b30",
+    "$1"
+   ],
+   "until_cue": [
+    "b31",
+    "बेचने-भेजने"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "size": 30,
+   "steps": [
+    {
+     "cue": [
+      "b30",
+      "$1"
+     ],
+     "text": "$1 वाला barrel मिले."
+    },
+    {
+     "cue": [
+      "b30",
+      "$4"
+     ],
+     "text": "अब barrel $4 में मिले.",
+     "dir": "up"
+    }
+   ]
+  },
+  {
+   "id": "bill",
+   "kind": "value",
+   "cell": [
+    6,
+    5,
+    6,
+    2
+   ],
+   "cue": [
+    "b30",
+    "$10"
+   ],
+   "until_cue": [
+    "b31",
+    "बेचने-भेजने"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "size": 30,
+   "steps": [
+    {
+     "cue": [
+      "b30",
+      "$10"
+     ],
+     "text": "10 barrels के $10 देते थे."
+    },
+    {
+     "cue": [
+      "b30",
+      "$40"
+     ],
+     "text": "10 barrels के अब $40 देंगे.",
+     "dir": "up"
+    }
+   ]
+  },
+  {
+   "id": "embargo",
+   "kind": "text",
+   "cell": [
+    0,
+    2,
+    12,
+    1
+   ],
+   "cue": [
+    "b31",
+    "embargo"
+   ],
+   "until_cue": [
+    "b33",
+    "Oil"
+   ],
+   "text": "बेचने-भेजने पर रोक embargo है.",
+   "style": "box",
+   "tone": "ink",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "history",
+   "kind": "text",
+   "cell": [
+    0,
+    3,
+    6,
+    2
+   ],
+   "cue": [
+    "b31",
+    "1973"
+   ],
+   "until_cue": [
+    "b33",
+    "Oil"
+   ],
+   "text": "1973 के OPEC oil embargo में prices 4 गुना हुए.",
+   "style": "box",
+   "tone": "warm",
+   "align": "left",
+   "size": 28,
+   "marks": [
+    {
+     "phrase": "4 गुना",
+     "cue": [
+      "b31",
+      "4"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "mechanism",
+   "kind": "text",
+   "cell": [
+    6,
+    3,
+    6,
+    2
+   ],
+   "cue": [
+    "b31",
+    "supply"
+   ],
+   "until_cue": [
+    "b33",
+    "Oil"
+   ],
+   "text": "Supply घटी, fuel चाहिए रहा.",
+   "style": "box",
+   "tone": "accent",
+   "align": "left",
+   "size": 30,
+   "marks": [
+    {
+     "phrase": "fuel चाहिए रहा",
+     "cue": [
+      "b31",
+      "fuel"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "percentage",
+   "kind": "callout",
+   "cell": [
+    0,
+    5,
+    6,
+    2
+   ],
+   "cue": [
+    "b32",
+    "300%"
+   ],
+   "until_cue": [
+    "b33",
+    "Oil"
+   ],
+   "text": "4 गुना यानी 300% increase, 400% नहीं.",
+   "style": "note",
+   "tone": "accent",
+   "align": "left",
+   "size": 30,
+   "marks": [
+    {
+     "phrase": "400% नहीं",
+     "cue": [
+      "b32",
+      "400%"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "no-formula",
+   "kind": "text",
+   "cell": [
+    6,
+    5,
+    6,
+    2
+   ],
+   "cue": [
+    "b32",
+    "formula"
+   ],
+   "until_cue": [
+    "b33",
+    "Oil"
+   ],
+   "text": "ठीक 4 गुना price होना कोई formula नहीं.",
+   "style": "note",
+   "tone": "warm",
+   "align": "left",
+   "size": 28
+  },
+  {
+   "id": "seller",
+   "kind": "icon",
+   "cell": [
+    0,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b33",
+    "seller"
+   ],
+   "until_cue": [
+    "b34",
+    "1974"
+   ],
+   "tone": "ink",
+   "icon": "tw:1f471",
+   "size": 64
+  },
+  {
+   "id": "receipts",
+   "kind": "text",
+   "cell": [
+    2,
+    2,
+    5,
+    2
+   ],
+   "cue": [
+    "b33",
+    "$100"
+   ],
+   "until_cue": [
+    "b34",
+    "1974"
+   ],
+   "text": "Saudi seller $100 पाए.",
+   "style": "box",
+   "tone": "accent",
+   "align": "left",
+   "size": 30
+  },
+  {
+   "id": "treasury",
+   "kind": "icon",
+   "cell": [
+    10,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b33",
+    "Treasury"
+   ],
+   "until_cue": [
+    "b34",
+    "1974"
+   ],
+   "tone": "ink",
+   "icon": "fa:solid/building-columns",
+   "size": 64
+  },
+  {
+   "id": "investment-flow",
+   "kind": "arrow",
+   "cue": [
+    "b33",
+    "$60"
+   ],
+   "until_cue": [
+    "b34",
+    "1974"
+   ],
+   "tone": "accent",
+   "from": "receipts",
+   "to": "treasury",
+   "from_side": "r",
+   "to_side": "l",
+   "elbow": "hv",
+   "flow": {
+    "icon": "tw:1f4b5",
+    "count": 2,
+    "period": 1800,
+    "size": 24,
+    "cue": [
+     "b33",
+     "$60"
+    ]
+   }
+  },
+  {
+   "id": "allocation",
+   "kind": "text",
+   "cell": [
+    0,
+    4,
+    6,
+    2
+   ],
+   "cue": [
+    "b33",
+    "$40"
+   ],
+   "until_cue": [
+    "b34",
+    "1974"
+   ],
+   "text": "नए Treasury issue में $60 लगाए, $40 रखे.",
+   "style": "box",
+   "tone": "accent",
+   "align": "left",
+   "size": 28
+  },
+  {
+   "id": "borrowing",
+   "kind": "text",
+   "cell": [
+    6,
+    4,
+    6,
+    2
+   ],
+   "cue": [
+    "b33",
+    "उधार"
+   ],
+   "until_cue": [
+    "b34",
+    "1974"
+   ],
+   "text": "सरकार $60 उधार पाए.",
+   "style": "box",
+   "tone": "warm",
+   "align": "left",
+   "size": 30
+  },
+  {
+   "id": "investment-anchor",
+   "kind": "callout",
+   "cell": [
+    0,
+    6,
+    12,
+    1
+   ],
+   "cue": [
+    "b34",
+    "investment"
+   ],
+   "text": "यह receipts का investment है.",
+   "style": "note",
+   "tone": "accent",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "agreement",
+   "kind": "text",
+   "cell": [
+    0,
+    2,
+    12,
+    1
+   ],
+   "cue": [
+    "b34",
+    "1974"
+   ],
+   "text": "1974 में Saudi Arabia ने माना.",
+   "style": "box",
+   "tone": "ink",
+   "align": "left",
+   "size": 30
+  },
+  {
+   "id": "pricing-agreement",
+   "kind": "text",
+   "cell": [
+    0,
+    3,
+    5,
+    2
+   ],
+   "cue": [
+    "b34",
+    "oil-pricing"
+   ],
+   "text": "Dollar oil-pricing माना.",
+   "style": "box",
+   "tone": "warm",
+   "align": "left",
+   "size": 30
+  },
+  {
+   "id": "investment-agreement",
+   "kind": "text",
+   "cell": [
+    5,
+    3,
+    7,
+    2
+   ],
+   "cue": [
+    "b34",
+    "Treasury"
+   ],
+   "text": "Revenues का बड़ा हिस्सा US Treasury securities में लगाना माना.",
+   "style": "box",
+   "tone": "accent",
+   "align": "left",
+   "size": 28
+  },
+  {
+   "id": "markets-agreement",
+   "kind": "text",
+   "cell": [
+    0,
+    5,
+    7,
+    1
+   ],
+   "cue": [
+    "b34",
+    "American"
+   ],
+   "text": "American financial markets में लगाना माना.",
+   "style": "box",
+   "tone": "accent",
+   "align": "left",
+   "size": 26
+  },
+  {
+   "id": "allocation-reminder",
+   "kind": "text",
+   "cell": [
+    7,
+    5,
+    5,
+    1
+   ],
+   "cue": [
+    "b34",
+    "60/40"
+   ],
+   "text": "60/40 सिर्फ example है.",
+   "style": "note",
+   "tone": "muted",
+   "align": "left",
+   "size": 26
+  }
+ ],
+ "camera": [
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    8
+   ],
+   "cue": [
+    "b30",
+    "Oil"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    8
+   ],
+   "cue": [
+    "b33",
+    "Dollars"
+   ]
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b30",
+    "$1"
+   ],
+   "ids": [
+    "anchor",
+    "caveat",
+    "price"
+   ],
+   "until_cue": [
+    "b30",
+    "10"
+   ]
+  },
+  {
+   "cue": [
+    "b30",
+    "$10"
+   ],
+   "ids": [
+    "anchor",
+    "caveat",
+    "price",
+    "bill"
+   ],
+   "until_cue": [
+    "b31",
+    "बेचने-भेजने"
+   ]
+  },
+  {
+   "cue": [
+    "b32",
+    "300%"
+   ],
+   "ids": [
+    "anchor",
+    "percentage"
+   ],
+   "until_cue": [
+    "b32",
+    "Supply"
+   ]
+  },
+  {
+   "cue": [
+    "b32",
+    "formula"
+   ],
+   "ids": [
+    "anchor",
+    "no-formula"
+   ],
+   "until_cue": [
+    "b33",
+    "Oil"
+   ]
+  },
+  {
+   "cue": [
+    "b33",
+    "उधार"
+   ],
+   "ids": [
+    "anchor",
+    "receipts",
+    "allocation",
+    "treasury",
+    "investment-flow",
+    "borrowing"
+   ],
+   "until_cue": [
+    "b34",
+    "यह"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

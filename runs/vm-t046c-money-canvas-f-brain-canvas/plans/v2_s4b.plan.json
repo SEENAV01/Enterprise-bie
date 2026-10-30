@@ -1,0 +1,190 @@
+{
+ "id": "v2_s4b",
+ "part_id": "c03.4",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b21",
+   "say": "अलग ratios यानी no common measure of value; गाय न बाँट पाना indivisibility है। अनाज सड़े तो wealth रखना मुश्किल; deferred payments यानी बाद में चुकाते समय वही मात्रा कम सामान दिला सकती है।"
+  },
+  {
+   "beat_id": "b22",
+   "say": "पैसे में उधार लिखना आसान, purchasing power fixed नहीं। जरूरतें मिलना और quantities मानना अलग शर्तें हैं।"
+  },
+  {
+   "beat_id": "b23",
+   "say": "Barter में matching से repayment तक मुश्किलें हैं।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank",
+   "kind": "bank",
+   "x": 2600,
+   "cue": [
+    "b21",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "clerk",
+   "kind": "teller",
+   "x": 2600,
+   "cue": [
+    "b21",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "customers",
+   "kind": "crowd",
+   "x0": 2330,
+   "spacing": 110,
+   "enter_x": 1910,
+   "exit_x": 1910,
+   "face": 1,
+   "seed": 21,
+   "cue": [
+    "b21",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b21",
+      "",
+      0.0
+     ],
+     "n": 2
+    }
+   ]
+  },
+  {
+   "id": "explanation",
+   "kind": "board",
+   "x": 3170,
+   "y": 460,
+   "fill": "#E8DEC8",
+   "cue": [
+    "b21",
+    "ratios"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b21",
+      "ratios"
+     ],
+     "text": "अलग ratios में\ncommon measure of value नहीं है।"
+    },
+    {
+     "cue": [
+      "b21",
+      "गाय"
+     ],
+     "text": "गाय न बाँट पाना\nindivisibility है।"
+    },
+    {
+     "cue": [
+      "b21",
+      "अनाज"
+     ],
+     "text": "अनाज सड़े तो\nwealth रखना मुश्किल है।"
+    },
+    {
+     "cue": [
+      "b21",
+      "deferred"
+     ],
+     "text": "बाद में चुकाते समय वही मात्रा\nकम सामान दिला सकती है।"
+    },
+    {
+     "cue": [
+      "b22",
+      "उधार"
+     ],
+     "text": "पैसे में उधार लिखना आसान है।"
+    },
+    {
+     "cue": [
+      "b22",
+      "purchasing"
+     ],
+     "text": "Purchasing power fixed नहीं है।"
+    },
+    {
+     "cue": [
+      "b22",
+      "जरूरतें"
+     ],
+     "text": "जरूरतें मिलना और quantities मानना\nअलग शर्तें हैं।"
+    },
+    {
+     "cue": [
+      "b23",
+      "matching"
+     ],
+     "text": "Barter में matching से repayment तक\nमुश्किलें हैं।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b21",
+    "",
+    0.0
+   ],
+   "x": 2780,
+   "y": 480,
+   "zoom": 0.9,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b21",
+    "अनाज"
+   ],
+   "x": 2910,
+   "y": 470,
+   "zoom": 1.05,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b21",
+    "चुकाते"
+   ],
+   "x": 3010,
+   "y": 470,
+   "zoom": 1.12,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b22",
+    "पैसे"
+   ],
+   "x": 2910,
+   "y": 470,
+   "zoom": 1.05,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b23",
+    "Barter"
+   ],
+   "x": 2780,
+   "y": 480,
+   "zoom": 0.9,
+   "frames": 40
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

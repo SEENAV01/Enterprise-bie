@@ -1,0 +1,241 @@
+{
+ "id": "v14_s6",
+ "part_id": "c34.3",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b34",
+   "say": "Small notes में किनसे शुरुआत का proposal है? RBI के ₹10, ₹20; lifespan claim up to 4x है।"
+  },
+  {
+   "beat_id": "b35",
+   "say": "Baseline 1 bar हो, तो upper comparison 4 bars है; 4 extra years नहीं।"
+  },
+  {
+   "beat_id": "b36",
+   "say": "Claim का up to upper limit बताता है, हर note का measured result नहीं।"
+  },
+  {
+   "beat_id": "b37",
+   "say": "छोटे notes बार-बार हाथ बदलते हैं; इसलिए wear और replacement की जरूरत जाँचना उपयोगी होगा।"
+  },
+  {
+   "beat_id": "b38",
+   "say": "Baseline गुणा 4 upper comparison है; denominations ₹10, ₹20 हैं।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank",
+   "kind": "bank",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b34",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "teller",
+   "kind": "teller",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b34",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "customers",
+   "kind": "crowd",
+   "y": 860,
+   "x0": 2330,
+   "spacing": 95,
+   "enter_x": 1950,
+   "exit_x": 1950,
+   "face": 1,
+   "seed": 34,
+   "cue": [
+    "b34",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b34",
+      "",
+      0.0
+     ],
+     "n": 2
+    }
+   ]
+  },
+  {
+   "id": "denominations",
+   "kind": "board",
+   "x": 2020,
+   "y": 410,
+   "fill": "#E8DCC4",
+   "cue": [
+    "b34",
+    "₹10,"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b34",
+      "₹10,"
+     ],
+     "text": "₹10, ₹20 से शुरुआत का proposal है।"
+    }
+   ]
+  },
+  {
+   "id": "comparison",
+   "kind": "board",
+   "x": 3150,
+   "y": 410,
+   "fill": "#DCE8DF",
+   "cue": [
+    "b34",
+    "4x"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b34",
+      "4x"
+     ],
+     "text": "Lifespan claim up to 4x है।"
+    },
+    {
+     "cue": [
+      "b35",
+      "bars"
+     ],
+     "text": "Baseline 1 bar हो, तो\nupper comparison 4 bars है।"
+    },
+    {
+     "cue": [
+      "b35",
+      "years"
+     ],
+     "text": "4 extra years नहीं।"
+    },
+    {
+     "cue": [
+      "b36",
+      "limit"
+     ],
+     "text": "Up to upper limit बताता है।"
+    },
+    {
+     "cue": [
+      "b36",
+      "result"
+     ],
+     "text": "हर note का measured result नहीं।"
+    },
+    {
+     "cue": [
+      "b37",
+      "बदलते"
+     ],
+     "text": "छोटे notes बार-बार हाथ बदलते हैं।"
+    },
+    {
+     "cue": [
+      "b37",
+      "जाँचना"
+     ],
+     "text": "Wear और replacement की\nजरूरत जाँचना उपयोगी होगा।"
+    },
+    {
+     "cue": [
+      "b38",
+      "comparison"
+     ],
+     "text": "Baseline गुणा 4\nupper comparison है।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b34",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 540,
+   "zoom": 0.85,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b34",
+    "proposal"
+   ],
+   "x": 2480,
+   "y": 520,
+   "zoom": 0.9,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b35",
+    "Baseline"
+   ],
+   "x": 2790,
+   "y": 490,
+   "zoom": 0.95,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b36",
+    "Claim"
+   ],
+   "x": 2860,
+   "y": 490,
+   "zoom": 1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b37",
+    "छोटे"
+   ],
+   "x": 2650,
+   "y": 550,
+   "zoom": 0.9,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b38",
+    "Baseline"
+   ],
+   "x": 2760,
+   "y": 500,
+   "zoom": 0.9,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b38",
+    "denominations"
+   ],
+   "x": 2540,
+   "y": 510,
+   "zoom": 0.85,
+   "frames": 40
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

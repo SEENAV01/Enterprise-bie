@@ -1,0 +1,409 @@
+{
+ "id": "v5_s3b",
+ "part_id": "c12.3",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b15",
+   "say": "Robert Triffin ने यही built-in contradiction बताया: यानी trade के लिए रसीदें बढ़ाओ, तो पीछे कम gold देखकर भरोसा घटे; रोकें तो payments अटकें।"
+  },
+  {
+   "beat_id": "b16",
+   "say": "France ने कमजोरी बनाई नहीं, सामने लाई: दावों के बदले gold माँगा तो पीछे रखा gold कम पड़ा।"
+  },
+  {
+   "beat_id": "b17",
+   "say": "Domestic खर्च अपने-आप foreign claim नहीं; international payments बीच की कड़ी हैं। Dollars और gold की तुलना conversion rate से करो।"
+  },
+  {
+   "beat_id": "b18",
+   "say": "Claims बढ़े, gold नहीं बढ़ा, तो conversion का भरोसा घटा।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "anchor",
+   "kind": "text",
+   "cell": [
+    1,
+    0,
+    10,
+    1
+   ],
+   "cue": [
+    "b15",
+    "Robert"
+   ],
+   "text": "Robert Triffin ने built-in contradiction बताया।",
+   "style": "title",
+   "tone": "ink",
+   "fill": "paper",
+   "align": "center",
+   "size": 32
+  },
+  {
+   "id": "supply",
+   "kind": "text",
+   "cell": [
+    0,
+    2,
+    6,
+    2
+   ],
+   "cue": [
+    "b15",
+    "रसीदें"
+   ],
+   "until_cue": [
+    "b16",
+    "France"
+   ],
+   "text": "Trade के लिए रसीदें बढ़ाओ।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "paper",
+   "align": "center",
+   "size": 32
+  },
+  {
+   "id": "confidence",
+   "kind": "text",
+   "cell": [
+    0,
+    5,
+    6,
+    2
+   ],
+   "cue": [
+    "b15",
+    "भरोसा"
+   ],
+   "until_cue": [
+    "b16",
+    "France"
+   ],
+   "text": "पीछे कम gold देखकर भरोसा घटे।",
+   "style": "box",
+   "tone": "warm",
+   "fill": "paper",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "supply_effect",
+   "kind": "arrow",
+   "cue": [
+    "b15",
+    "घटे;"
+   ],
+   "until_cue": [
+    "b16",
+    "France"
+   ],
+   "tone": "warm",
+   "from": "supply",
+   "to": "confidence",
+   "from_side": "b",
+   "to_side": "t"
+  },
+  {
+   "id": "restrict",
+   "kind": "text",
+   "cell": [
+    7,
+    2,
+    5,
+    2
+   ],
+   "cue": [
+    "b15",
+    "रोकें"
+   ],
+   "until_cue": [
+    "b16",
+    "France"
+   ],
+   "text": "रोकें तो payments अटकें।",
+   "style": "box",
+   "tone": "danger",
+   "fill": "paper",
+   "align": "center",
+   "size": 32
+  },
+  {
+   "id": "france",
+   "kind": "text",
+   "cell": [
+    1,
+    2,
+    10,
+    1
+   ],
+   "cue": [
+    "b16",
+    "France"
+   ],
+   "until_cue": [
+    "b17",
+    "Domestic"
+   ],
+   "text": "France ने कमजोरी बनाई नहीं, सामने लाई।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "paper",
+   "align": "center",
+   "size": 32
+  },
+  {
+   "id": "redemption",
+   "kind": "text",
+   "cell": [
+    0,
+    4,
+    5,
+    2
+   ],
+   "cue": [
+    "b16",
+    "माँगा"
+   ],
+   "until_cue": [
+    "b17",
+    "Domestic"
+   ],
+   "text": "दावों के बदले gold माँगा।",
+   "style": "box",
+   "tone": "ink",
+   "fill": "paper",
+   "align": "center",
+   "size": 32
+  },
+  {
+   "id": "shortfall",
+   "kind": "text",
+   "cell": [
+    7,
+    4,
+    5,
+    2
+   ],
+   "cue": [
+    "b16",
+    "कम"
+   ],
+   "until_cue": [
+    "b17",
+    "Domestic"
+   ],
+   "text": "पीछे रखा gold कम पड़ा।",
+   "style": "box",
+   "tone": "danger",
+   "fill": "paper",
+   "align": "center",
+   "size": 32
+  },
+  {
+   "id": "reveal",
+   "kind": "arrow",
+   "cue": [
+    "b16",
+    "पड़ा।"
+   ],
+   "until_cue": [
+    "b17",
+    "Domestic"
+   ],
+   "tone": "warm",
+   "from": "redemption",
+   "to": "shortfall",
+   "from_side": "r",
+   "to_side": "l"
+  },
+  {
+   "id": "domestic",
+   "kind": "text",
+   "cell": [
+    1,
+    2,
+    10,
+    1
+   ],
+   "cue": [
+    "b17",
+    "Domestic"
+   ],
+   "until_cue": [
+    "b18",
+    "Claims"
+   ],
+   "text": "Domestic खर्च अपने-आप foreign claim नहीं।",
+   "style": "box",
+   "tone": "ink",
+   "fill": "paper",
+   "align": "center",
+   "size": 32
+  },
+  {
+   "id": "payments",
+   "kind": "text",
+   "cell": [
+    1,
+    4,
+    10,
+    1
+   ],
+   "cue": [
+    "b17",
+    "international"
+   ],
+   "until_cue": [
+    "b18",
+    "Claims"
+   ],
+   "text": "International payments बीच की कड़ी हैं।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "paper",
+   "align": "center",
+   "size": 32
+  },
+  {
+   "id": "rate",
+   "kind": "callout",
+   "cell": [
+    1,
+    6,
+    10,
+    1
+   ],
+   "cue": [
+    "b17",
+    "conversion"
+   ],
+   "until_cue": [
+    "b18",
+    "Claims"
+   ],
+   "text": "Dollars और gold की तुलना conversion rate से करो।",
+   "style": "note",
+   "tone": "warm",
+   "fill": "paper",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "claims_end",
+   "kind": "text",
+   "cell": [
+    0,
+    3,
+    5,
+    2
+   ],
+   "cue": [
+    "b18",
+    "Claims"
+   ],
+   "text": "Claims बढ़े, gold नहीं बढ़ा।",
+   "style": "box",
+   "tone": "warm",
+   "fill": "paper",
+   "align": "center",
+   "size": 32
+  },
+  {
+   "id": "trust_end",
+   "kind": "callout",
+   "cell": [
+    7,
+    3,
+    5,
+    2
+   ],
+   "cue": [
+    "b18",
+    "conversion"
+   ],
+   "text": "Conversion का भरोसा घटा।",
+   "style": "note",
+   "tone": "danger",
+   "fill": "paper",
+   "align": "center",
+   "size": 32,
+   "marks": [
+    {
+     "phrase": "भरोसा घटा",
+     "cue": [
+      "b18",
+      "घटा।"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "final_link",
+   "kind": "arrow",
+   "cue": [
+    "b18",
+    "भरोसा"
+   ],
+   "tone": "danger",
+   "from": "claims_end",
+   "to": "trust_end",
+   "from_side": "r",
+   "to_side": "l"
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b15",
+    "रोकें"
+   ],
+   "ids": [
+    "anchor",
+    "restrict"
+   ],
+   "until_cue": [
+    "b16",
+    "France"
+   ]
+  },
+  {
+   "cue": [
+    "b16",
+    "कम"
+   ],
+   "ids": [
+    "anchor",
+    "redemption",
+    "shortfall",
+    "reveal"
+   ],
+   "until_cue": [
+    "b17",
+    "Domestic"
+   ]
+  },
+  {
+   "cue": [
+    "b17",
+    "conversion"
+   ],
+   "ids": [
+    "anchor",
+    "rate"
+   ],
+   "until_cue": [
+    "b18",
+    "Claims"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

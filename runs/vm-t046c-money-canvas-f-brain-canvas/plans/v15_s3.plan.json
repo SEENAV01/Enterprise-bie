@@ -1,0 +1,419 @@
+{
+ "id": "v15_s3",
+ "part_id": "c36.3",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b10",
+   "say": "Pyramid नीचे चौड़ा होता दिख रहा है? इसकी 5 tiers M0 से M4 तक cash और deposits की coverage पहचानने में मदद करती हैं।"
+  },
+  {
+   "beat_id": "b10a",
+   "say": "ऊपर से पढ़ो: M0, फिर M1 में Cash + Demand Deposits। अगले खाने में M2 के साथ PO savings हैं; PO यानी Post Office, जहाँ savings passbook रखते हो।"
+  },
+  {
+   "beat_id": "b10b",
+   "say": "फिर M3 पर Bank Time Deposits, जैसे FD दिखती है। सबसे नीचे M4 पर All PO Deposits except NSC है; savings certificate की पर्ची बाहर रखो।"
+  },
+  {
+   "beat_id": "b14",
+   "say": "अलग टोकरियाँ सोचो: M0 अलग रखो। M3 के लिए M1 वाली टोकरी में bank time deposits डालो, M2 वाली में नहीं। पूरी M1 टोकरी में OD भी आता है।"
+  },
+  {
+   "beat_id": "b15",
+   "say": "याद रखो: tiers labels पहचानने के लिए हैं; जोड़ने के लिए सही component baskets इस्तेमाल करो।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank",
+   "kind": "bank",
+   "x": 3200,
+   "y": 860,
+   "cue": [
+    "b10",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "teller",
+   "kind": "teller",
+   "x": 3200,
+   "y": 860,
+   "cue": [
+    "b10",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "coverage",
+   "kind": "board",
+   "x": 2500,
+   "y": 350,
+   "fill": "#F0E8D8",
+   "cue": [
+    "b10",
+    "coverage"
+   ],
+   "until_cue": [
+    "b10a",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b10",
+      "coverage"
+     ],
+     "text": "5 tiers cash और deposits की\ncoverage पहचानने में मदद करती हैं।"
+    }
+   ]
+  },
+  {
+   "id": "tier_m0",
+   "kind": "board",
+   "x": 2100,
+   "y": 70,
+   "fill": "#E8EDF2",
+   "cue": [
+    "b10a",
+    "M0,"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b10a",
+      "M0,"
+     ],
+     "text": "ऊपर से पढ़ो: M0"
+    }
+   ]
+  },
+  {
+   "id": "tier_m1",
+   "kind": "board",
+   "x": 2100,
+   "y": 240,
+   "fill": "#E2ECE8",
+   "cue": [
+    "b10a",
+    "Cash"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b10a",
+      "Cash"
+     ],
+     "text": "M1 में Cash + Demand Deposits हैं।"
+    }
+   ]
+  },
+  {
+   "id": "tier_m2",
+   "kind": "board",
+   "x": 2100,
+   "y": 410,
+   "fill": "#E9ECD9",
+   "cue": [
+    "b10a",
+    "savings"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b10a",
+      "savings"
+     ],
+     "text": "M2 के साथ PO savings हैं।"
+    }
+   ]
+  },
+  {
+   "id": "post_office",
+   "kind": "board",
+   "x": 3150,
+   "y": 220,
+   "fill": "#F1E8DA",
+   "cue": [
+    "b10a",
+    "Post"
+   ],
+   "until_cue": [
+    "b10b",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b10a",
+      "Post"
+     ],
+     "text": "PO यानी Post Office है।"
+    }
+   ]
+  },
+  {
+   "id": "tier_m3",
+   "kind": "board",
+   "x": 2100,
+   "y": 580,
+   "fill": "#EEE4D5",
+   "cue": [
+    "b10b",
+    "Deposits,"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b10b",
+      "Deposits,"
+     ],
+     "text": "M3 पर Bank Time Deposits हैं।"
+    }
+   ]
+  },
+  {
+   "id": "tier_m4",
+   "kind": "board",
+   "x": 2100,
+   "y": 750,
+   "fill": "#EADDD8",
+   "cue": [
+    "b10b",
+    "NSC"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b10b",
+      "NSC"
+     ],
+     "text": "M4 पर All PO Deposits\nexcept NSC है।"
+    }
+   ]
+  },
+  {
+   "id": "separate_m0",
+   "kind": "board",
+   "x": 3800,
+   "y": 190,
+   "fill": "#E8EDF2",
+   "cue": [
+    "b14",
+    "M0"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b14",
+      "M0"
+     ],
+     "text": "M0 अलग रखो।"
+    }
+   ]
+  },
+  {
+   "id": "m3_basket",
+   "kind": "board",
+   "x": 3100,
+   "y": 190,
+   "fill": "#E2ECE8",
+   "cue": [
+    "b14",
+    "डालो,"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b14",
+      "डालो,"
+     ],
+     "text": "M3 के लिए M1 में\nbank time deposits डालो।"
+    },
+    {
+     "cue": [
+      "b14",
+      "नहीं।"
+     ],
+     "text": "M3 के लिए bank time deposits\nM2 वाली टोकरी में नहीं डालो।"
+    },
+    {
+     "cue": [
+      "b14",
+      "OD"
+     ],
+     "text": "पूरी M1 टोकरी में OD भी आता है।"
+    }
+   ]
+  },
+  {
+   "id": "conclusion",
+   "kind": "board",
+   "x": 3100,
+   "y": 410,
+   "fill": "#F0E8D8",
+   "cue": [
+    "b15",
+    "labels"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b15",
+      "labels"
+     ],
+     "text": "tiers labels पहचानने के लिए हैं।"
+    },
+    {
+     "cue": [
+      "b15",
+      "baskets"
+     ],
+     "text": "जोड़ने के लिए सही component\nbaskets इस्तेमाल करो।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b10",
+    "",
+    0.0
+   ],
+   "x": 2650,
+   "y": 430,
+   "zoom": 0.8,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b10",
+    "5"
+   ],
+   "x": 2500,
+   "y": 390,
+   "zoom": 1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b10a",
+    "M0,"
+   ],
+   "x": 2250,
+   "y": 330,
+   "zoom": 0.9,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b10a",
+    "M2"
+   ],
+   "x": 2450,
+   "y": 400,
+   "zoom": 0.9,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b10a",
+    "passbook"
+   ],
+   "x": 2700,
+   "y": 400,
+   "zoom": 0.85,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b10b",
+    "M3"
+   ],
+   "x": 2250,
+   "y": 460,
+   "zoom": 0.85,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b10b",
+    "M4"
+   ],
+   "x": 2200,
+   "y": 520,
+   "zoom": 0.9,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b10b",
+    "पर्ची"
+   ],
+   "x": 2400,
+   "y": 500,
+   "zoom": 0.85,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b14",
+    "",
+    0.0
+   ],
+   "x": 3400,
+   "y": 400,
+   "zoom": 0.9,
+   "frames": 50
+  },
+  {
+   "cue": [
+    "b14",
+    "M3"
+   ],
+   "x": 3200,
+   "y": 360,
+   "zoom": 1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b14",
+    "M2"
+   ],
+   "x": 3100,
+   "y": 350,
+   "zoom": 1.1,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b14",
+    "OD"
+   ],
+   "x": 3300,
+   "y": 350,
+   "zoom": 1,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b15",
+    "",
+    0.0
+   ],
+   "x": 2800,
+   "y": 430,
+   "zoom": 0.8,
+   "frames": 50
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

@@ -1,0 +1,466 @@
+{
+ "id": "v11_s1",
+ "part_id": "c26.1",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b1",
+   "say": "आपने दुकान पर app से payment किया। पैसा app के पास था, NPCI के पास, या bank में? Screen पर एक payment दिखती है, लेकिन पीछे अलग-अलग जिम्मेदारियाँ काम करती हैं।"
+  },
+  {
+   "beat_id": "b2",
+   "say": "Payment के नियम कौन देखता है? RBI payment और settlement systems की apex authority, यानी सबसे ऊपर की authority है। NPCI अलग not-for-profit organisation है, जिसे 2008 में RBI और Indian Banks' Association ने बनाया।"
+  },
+  {
+   "beat_id": "b3",
+   "say": "2 dates अलग रखिए: Payment and Settlement Systems Act, 2007; NPCI बना 2008 में। कानून बनना और organisation बनना अलग घटनाएँ हैं, इसलिए साल मत बदलिए।"
+  },
+  {
+   "beat_id": "b4",
+   "say": "Diagram में भी RBI ऊपर है, label है Regulator: oversees settlement systems। जैसे umpire खेल के नियम देखता है, वैसे oversight और app चलाना अलग जिम्मेदारियाँ हैं।"
+  },
+  {
+   "beat_id": "b5",
+   "say": "याद रखिए: RBI oversight करता है, NPCI systems चलाता है। Not-for-profit में owners को profit बाँटना उद्देश्य नहीं; इसका मतलब सारी services free होना नहीं है।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank",
+   "kind": "bank",
+   "x": 2600,
+   "y": 860,
+   "sign": "bank",
+   "cue": [
+    "b1",
+    "bank"
+   ]
+  },
+  {
+   "id": "customers",
+   "kind": "crowd",
+   "x0": 2330,
+   "spacing": 100,
+   "enter_x": 1750,
+   "exit_x": 1750,
+   "face": 1,
+   "seed": 26,
+   "cue": [
+    "b1",
+    "payment"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b1",
+      "payment"
+     ],
+     "n": 2
+    }
+   ]
+  },
+  {
+   "id": "teller",
+   "kind": "teller",
+   "x": 2600,
+   "cue": [
+    "b1",
+    "bank"
+   ]
+  },
+  {
+   "id": "payment_question",
+   "kind": "board",
+   "x": 1950,
+   "y": 380,
+   "fill": "#F4E9D5",
+   "cue": [
+    "b1",
+    "पैसा"
+   ],
+   "until_cue": [
+    "b2",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b1",
+      "पैसा"
+     ],
+     "text": "पैसा app के पास था,\nNPCI के पास, या bank में?"
+    }
+   ]
+  },
+  {
+   "id": "rbi_anchor",
+   "kind": "board",
+   "x": 2600,
+   "y": 230,
+   "fill": "#DCEBE8",
+   "cue": [
+    "b2",
+    "apex"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b2",
+      "apex"
+     ],
+     "text": "RBI payment और settlement systems की\napex authority है।"
+    },
+    {
+     "cue": [
+      "b4",
+      "oversees"
+     ],
+     "text": "RBI oversees settlement systems।"
+    },
+    {
+     "cue": [
+      "b5",
+      "oversight"
+     ],
+     "text": "RBI oversight करता है।"
+    }
+   ]
+  },
+  {
+   "id": "npci_identity",
+   "kind": "board",
+   "x": 3250,
+   "y": 490,
+   "fill": "#EAE1F2",
+   "cue": [
+    "b2",
+    "not-for-profit"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b2",
+      "not-for-profit"
+     ],
+     "text": "NPCI अलग not-for-profit\norganisation है।"
+    },
+    {
+     "cue": [
+      "b5",
+      "systems"
+     ],
+     "text": "NPCI systems चलाता है।"
+    }
+   ]
+  },
+  {
+   "id": "npci_foundation",
+   "kind": "board",
+   "x": 1950,
+   "y": 490,
+   "fill": "#F4E9D5",
+   "cue": [
+    "b2",
+    "2008"
+   ],
+   "until_cue": [
+    "b3",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b2",
+      "2008"
+     ],
+     "text": "2008 में RBI और\nIndian Banks' Association ने\nNPCI बनाया।"
+    }
+   ]
+  },
+  {
+   "id": "act_date",
+   "kind": "board",
+   "x": 1950,
+   "y": 490,
+   "fill": "#F4E9D5",
+   "cue": [
+    "b3",
+    "2007;"
+   ],
+   "until_cue": [
+    "b4",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b3",
+      "2007;"
+     ],
+     "text": "Payment and Settlement Systems Act\n2007 में बना।"
+    }
+   ]
+  },
+  {
+   "id": "organisation_date",
+   "kind": "label",
+   "x": 3250,
+   "y": 270,
+   "text": "NPCI बना 2008 में।",
+   "fill": "#F4E9D5",
+   "cue": [
+    "b3",
+    "2008"
+   ],
+   "until_cue": [
+    "b4",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "oversight_distinction",
+   "kind": "board",
+   "x": 1950,
+   "y": 490,
+   "fill": "#F4E9D5",
+   "cue": [
+    "b4",
+    "oversight"
+   ],
+   "until_cue": [
+    "b5",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b4",
+      "oversight"
+     ],
+     "text": "Oversight और app चलाना\nअलग जिम्मेदारियाँ हैं।"
+    }
+   ]
+  },
+  {
+   "id": "profit_meaning",
+   "kind": "board",
+   "x": 1950,
+   "y": 490,
+   "fill": "#F4E9D5",
+   "cue": [
+    "b5",
+    "owners"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b5",
+      "owners"
+     ],
+     "text": "Not-for-profit में owners को\nprofit बाँटना उद्देश्य नहीं।"
+    },
+    {
+     "cue": [
+      "b5",
+      "free"
+     ],
+     "text": "इसका मतलब सारी services\nfree होना नहीं है।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b1",
+    "",
+    0.0
+   ],
+   "x": 2500,
+   "y": 480,
+   "zoom": 0.8,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b1",
+    "पैसा"
+   ],
+   "x": 2200,
+   "y": 440,
+   "zoom": 1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b1",
+    "Screen"
+   ],
+   "x": 2400,
+   "y": 470,
+   "zoom": 0.9,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b1",
+    "जिम्मेदारियाँ"
+   ],
+   "x": 2600,
+   "y": 460,
+   "zoom": 0.8,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b2",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 420,
+   "zoom": 0.85,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b2",
+    "apex"
+   ],
+   "x": 2600,
+   "y": 300,
+   "zoom": 1.1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b2",
+    "NPCI"
+   ],
+   "x": 3020,
+   "y": 430,
+   "zoom": 0.95,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b2",
+    "2008"
+   ],
+   "x": 2220,
+   "y": 430,
+   "zoom": 0.9,
+   "frames": 50
+  },
+  {
+   "cue": [
+    "b3",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 430,
+   "zoom": 0.8,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b3",
+    "2007;"
+   ],
+   "x": 2210,
+   "y": 440,
+   "zoom": 0.95,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b3",
+    "2008"
+   ],
+   "x": 2900,
+   "y": 380,
+   "zoom": 0.9,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b3",
+    "इसलिए"
+   ],
+   "x": 2600,
+   "y": 420,
+   "zoom": 0.8,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b4",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 320,
+   "zoom": 1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b4",
+    "umpire"
+   ],
+   "x": 2520,
+   "y": 420,
+   "zoom": 0.85,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b4",
+    "oversight"
+   ],
+   "x": 2200,
+   "y": 430,
+   "zoom": 0.95,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b5",
+    "",
+    0.0
+   ],
+   "x": 2700,
+   "y": 400,
+   "zoom": 0.8,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b5",
+    "owners"
+   ],
+   "x": 2200,
+   "y": 440,
+   "zoom": 1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b5",
+    "इसका"
+   ],
+   "x": 2300,
+   "y": 430,
+   "zoom": 0.9,
+   "frames": 45
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

@@ -1,0 +1,128 @@
+{
+ "id": "v17_s1a",
+ "part_id": "c43.1",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b1",
+   "say": "Card से खरीदारी पर आपको cashback मिले और दुकानदार के पैसे से fee कटे—क्या दोनों एक चीज़ हैं? आज 2 PYQ में payment व्यवस्था का काम और पैसे की दिशा जाँचेंगे।"
+  }
+ ],
+ "kit": "shop",
+ "elements": [
+  {
+   "id": "shop",
+   "kind": "shop",
+   "x": 2600,
+   "cue": [
+    "b1",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "merchant",
+   "kind": "shopkeeper",
+   "x": 2600,
+   "cue": [
+    "b1",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "cashback",
+   "kind": "board",
+   "x": 2130,
+   "y": 470,
+   "fill": "#E5F1E8",
+   "cue": [
+    "b1",
+    "cashback"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b1",
+      "cashback"
+     ],
+     "text": "आपको cashback मिले"
+    }
+   ]
+  },
+  {
+   "id": "fee",
+   "kind": "board",
+   "x": 3070,
+   "y": 470,
+   "fill": "#F4E6D9",
+   "cue": [
+    "b1",
+    "fee"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b1",
+      "fee"
+     ],
+     "text": "दुकानदार के पैसे से\nfee कटे"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b1",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 540,
+   "zoom": 0.85,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b1",
+    "cashback"
+   ],
+   "x": 2370,
+   "y": 520,
+   "zoom": 1.05,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b1",
+    "fee"
+   ],
+   "x": 2830,
+   "y": 520,
+   "zoom": 1.05,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b1",
+    "आज"
+   ],
+   "x": 2600,
+   "y": 520,
+   "zoom": 0.85,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b1",
+    "दिशा"
+   ],
+   "x": 2600,
+   "y": 490,
+   "zoom": 0.95,
+   "frames": 30
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

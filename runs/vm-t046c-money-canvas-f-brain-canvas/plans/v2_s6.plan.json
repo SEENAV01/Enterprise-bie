@@ -1,0 +1,581 @@
+{
+ "id": "v2_s6",
+ "part_id": "c05.1",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b36",
+   "say": "Salt और note की कीमत कहाँ से आई? मानिए salt packet ₹20 में बिकता और payment में चलता है; note से ₹500 चुकते हैं।"
+  },
+  {
+   "beat_id": "b36a",
+   "say": "Payment में लेना बंद हो, तो salt फिर भी उपयोगी और बेचने लायक है; कीमत बदल सकती है। Note का कागज़ ₹500 नहीं दिलाता; यह redemption का वादा नहीं है।"
+  },
+  {
+   "beat_id": "b37",
+   "say": "Intrinsic value अपनी चीज़ से है, जैसे सोना। Extrinsic value बाहर के trust और law से है, जैसे note; source में material बनाम government या authority backing का फर्क है।"
+  },
+  {
+   "beat_id": "b38",
+   "say": "Inherent worth यानी payment के बाहर उपयोग: salt खाना बनाने में लगेगा। Monetary use हटे तो भी बिकेगा; note का कागज़ ₹500 नहीं दिलाएगा। यहाँ nil का मतलब negligible material value है, valid note की purchasing power नहीं।"
+  },
+  {
+   "beat_id": "b39",
+   "say": "Gold, silver, salt, cattle, cowrie shells commodity वाले examples हैं; notes, bank deposits, digital money दूसरे। जैसे account balance में physical सामान नहीं, bank पर payment योग्य claim है।"
+  },
+  {
+   "beat_id": "b40",
+   "say": "Salt यहाँ उपलब्ध और उपयोगी है, इसलिए चलता है; बाहर seller मना कर सकता है: वहाँ buyers इसे आगे नहीं लेते। Trusted रुपये वह लेता है क्योंकि उन्हें दूसरी दुकान पर खर्च कर सकेगा।"
+  },
+  {
+   "beat_id": "b41",
+   "say": "Divisibility और portability पहले difficult, दूसरे में easy हैं: गाय बाँटने और salt ढोने के मुकाबले छोटा payment आसान है। Note के टुकड़े करना divisibility नहीं।"
+  },
+  {
+   "beat_id": "b42",
+   "say": "एक तरफ metal coins और gold bullion, यानी weight और purity वाला सोना। दूसरी तरफ rupee notes, bank balance और UPI; UPI रकम भेजने का रास्ता है, अलग रकम नहीं।"
+  },
+  {
+   "beat_id": "b43",
+   "say": "Legal tender कानून में बकाया चुकाता है; trust आगे खर्चने का भरोसा है। छोटे payments और दूरी के लिए divisibility, portability चाहिए। Durability यानी टिकना: commodities generally टिकती हैं; paper खराब होता है, digital technology पर निर्भर है।"
+  },
+  {
+   "beat_id": "b44",
+   "say": "Commodity prices बदलते हैं; backing gold redemption नहीं। हर coin intrinsic नहीं; access रुकना balance मिटना नहीं।"
+  },
+  {
+   "beat_id": "b45",
+   "say": "अपना उपयोग monetary value नहीं; cattle बीमार पड़ते हैं, salt नमी से बिगड़ता है।"
+  }
+ ],
+ "kit": "shop",
+ "elements": [
+  {
+   "id": "shop",
+   "kind": "shop",
+   "x": 2600,
+   "y": 860,
+   "sign": "Salt",
+   "fill": "#F7F1E5",
+   "cue": [
+    "b36",
+    "",
+    0.0
+   ],
+   "packets": [
+    {
+     "n": 1,
+     "cue": [
+      "b36",
+      "packet"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "keeper",
+   "kind": "shopkeeper",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b36",
+    "बिकता"
+   ]
+  },
+  {
+   "id": "hypothesis",
+   "kind": "label",
+   "x": 2600,
+   "y": 230,
+   "text": "मानिए salt packet बिकता है",
+   "fill": "#EEE5D3",
+   "cue": [
+    "b36",
+    "मानिए"
+   ],
+   "until_cue": [
+    "b36a",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "salt_price",
+   "kind": "price_tag",
+   "x": 2670,
+   "y": 490,
+   "string": 65,
+   "cue": [
+    "b36",
+    "₹20"
+   ],
+   "until_cue": [
+    "b36a",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b36",
+      "₹20"
+     ],
+     "text": "₹20"
+    }
+   ]
+  },
+  {
+   "id": "material_board",
+   "kind": "board",
+   "x": 1850,
+   "y": 470,
+   "fill": "#C7DCC5",
+   "cue": [
+    "b36a",
+    "उपयोगी"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b36a",
+      "उपयोगी"
+     ],
+     "text": "Salt फिर भी उपयोगी\nऔर बेचने लायक है"
+    },
+    {
+     "cue": [
+      "b37",
+      "Intrinsic"
+     ],
+     "text": "Intrinsic value\nअपनी चीज़ से है"
+    },
+    {
+     "cue": [
+      "b38",
+      "खाना"
+     ],
+     "text": "Salt खाना बनाने में लगेगा"
+    },
+    {
+     "cue": [
+      "b38",
+      "Monetary"
+     ],
+     "text": "Monetary use हटे\nतो भी बिकेगा"
+    },
+    {
+     "cue": [
+      "b39",
+      "commodity"
+     ],
+     "text": "Salt commodity का example है"
+    },
+    {
+     "cue": [
+      "b40",
+      "उपयोगी"
+     ],
+     "text": "Salt उपलब्ध और उपयोगी है,\nइसलिए चलता है"
+    },
+    {
+     "cue": [
+      "b40",
+      "seller"
+     ],
+     "text": "बाहर seller मना कर सकता है"
+    },
+    {
+     "cue": [
+      "b41",
+      "गाय"
+     ],
+     "text": "गाय बाँटना और\nsalt ढोना difficult है"
+    },
+    {
+     "cue": [
+      "b42",
+      "purity"
+     ],
+     "text": "Gold bullion weight और\npurity वाला सोना है"
+    },
+    {
+     "cue": [
+      "b43",
+      "divisibility,"
+     ],
+     "text": "Divisibility छोटे payments\nके लिए चाहिए"
+    },
+    {
+     "cue": [
+      "b43",
+      "commodities"
+     ],
+     "text": "Commodities generally टिकती हैं"
+    },
+    {
+     "cue": [
+      "b44",
+      "बदलते"
+     ],
+     "text": "Commodity prices बदलते हैं"
+    },
+    {
+     "cue": [
+      "b45",
+      "monetary"
+     ],
+     "text": "अपना उपयोग\nmonetary value नहीं"
+    },
+    {
+     "cue": [
+      "b45",
+      "नमी"
+     ],
+     "text": "Salt नमी से बिगड़ता है"
+    }
+   ]
+  },
+  {
+   "id": "trust_board",
+   "kind": "board",
+   "x": 3350,
+   "y": 470,
+   "fill": "#CEDCE8",
+   "cue": [
+    "b36",
+    "₹500"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b36",
+      "₹500"
+     ],
+     "text": "Note से ₹500 चुकते हैं"
+    },
+    {
+     "cue": [
+      "b36a",
+      "₹500"
+     ],
+     "text": "Note का कागज़\n₹500 नहीं दिलाता"
+    },
+    {
+     "cue": [
+      "b36a",
+      "redemption"
+     ],
+     "text": "यह redemption का वादा नहीं है"
+    },
+    {
+     "cue": [
+      "b37",
+      "Extrinsic"
+     ],
+     "text": "Extrinsic value बाहर के\ntrust और law से है"
+    },
+    {
+     "cue": [
+      "b37",
+      "source"
+     ],
+     "text": "Source में material बनाम\nauthority backing का फर्क है"
+    },
+    {
+     "cue": [
+      "b38",
+      "nil"
+     ],
+     "text": "Nil का मतलब negligible\nmaterial value है"
+    },
+    {
+     "cue": [
+      "b39",
+      "claim"
+     ],
+     "text": "Account balance bank पर\npayment योग्य claim है"
+    },
+    {
+     "cue": [
+      "b40",
+      "Trusted"
+     ],
+     "text": "Trusted रुपये दूसरी दुकान पर\nखर्च कर सकेगा"
+    },
+    {
+     "cue": [
+      "b41",
+      "टुकड़े"
+     ],
+     "text": "Note के टुकड़े करना\ndivisibility नहीं"
+    },
+    {
+     "cue": [
+      "b42",
+      "भेजने"
+     ],
+     "text": "UPI रकम भेजने का रास्ता है,\nअलग रकम नहीं"
+    },
+    {
+     "cue": [
+      "b43",
+      "कानून"
+     ],
+     "text": "Legal tender कानून में\nबकाया चुकाता है"
+    },
+    {
+     "cue": [
+      "b43",
+      "trust"
+     ],
+     "text": "Trust आगे खर्चने का भरोसा है"
+    },
+    {
+     "cue": [
+      "b43",
+      "digital"
+     ],
+     "text": "Digital technology पर निर्भर है"
+    },
+    {
+     "cue": [
+      "b44",
+      "backing"
+     ],
+     "text": "Backing gold redemption नहीं"
+    },
+    {
+     "cue": [
+      "b44",
+      "access"
+     ],
+     "text": "Access रुकना balance मिटना नहीं"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b36",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 490,
+   "zoom": 0.8,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b36",
+    "packet"
+   ],
+   "x": 2600,
+   "y": 530,
+   "zoom": 1.15,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b36",
+    "चुकते"
+   ],
+   "x": 2950,
+   "y": 490,
+   "zoom": 0.9,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b36a",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 490,
+   "zoom": 0.8,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b37",
+    "",
+    0.0
+   ],
+   "x": 2380,
+   "y": 490,
+   "zoom": 0.9,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b37",
+    "Extrinsic"
+   ],
+   "x": 2850,
+   "y": 490,
+   "zoom": 0.9,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b38",
+    "",
+    0.0
+   ],
+   "x": 2380,
+   "y": 490,
+   "zoom": 0.9,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b38",
+    "note"
+   ],
+   "x": 2850,
+   "y": 490,
+   "zoom": 0.9,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b39",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 490,
+   "zoom": 0.8,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b39",
+    "notes,"
+   ],
+   "x": 2850,
+   "y": 490,
+   "zoom": 0.9,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b40",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 490,
+   "zoom": 0.8,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b41",
+    "",
+    0.0
+   ],
+   "x": 2380,
+   "y": 490,
+   "zoom": 0.9,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b41",
+    "छोटा"
+   ],
+   "x": 2600,
+   "y": 490,
+   "zoom": 0.8,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b42",
+    "",
+    0.0
+   ],
+   "x": 2380,
+   "y": 490,
+   "zoom": 0.9,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b42",
+    "दूसरी"
+   ],
+   "x": 2850,
+   "y": 490,
+   "zoom": 0.9,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b43",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 490,
+   "zoom": 0.8,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b43",
+    "Durability"
+   ],
+   "x": 2380,
+   "y": 490,
+   "zoom": 0.9,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b44",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 490,
+   "zoom": 0.8,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b44",
+    "coin"
+   ],
+   "x": 2720,
+   "y": 490,
+   "zoom": 0.85,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b45",
+    "",
+    0.0
+   ],
+   "x": 2380,
+   "y": 490,
+   "zoom": 0.9,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b45",
+    "cattle"
+   ],
+   "x": 2600,
+   "y": 490,
+   "zoom": 0.8,
+   "frames": 40
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

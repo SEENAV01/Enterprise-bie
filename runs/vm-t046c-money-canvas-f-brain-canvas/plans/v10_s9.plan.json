@@ -1,0 +1,226 @@
+{
+ "id": "v10_s9",
+ "part_id": "c24.4",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b49",
+   "say": "Jan Dhan account हो तो overdraft मिलेगा? Pradhan Mantri Jan Dhan Yojana में eligible account holders को मिल सकता है; यानी पहले शर्तों की checklist जाँची जाएगी।"
+  },
+  {
+   "beat_id": "b50",
+   "say": "Eligible यानी शर्तें पूरी करने वाला; “may receive” का मतलब मिल सकता है, automatic हक नहीं।"
+  },
+  {
+   "beat_id": "b51",
+   "say": "Exam statement में “सबको मिलेगा” दिखे, तो eligibility की शर्त जाँचिए। Account और credit access अलग हैं।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "account",
+   "kind": "text",
+   "cell": [
+    0,
+    0,
+    12,
+    1
+   ],
+   "cue": [
+    "b49",
+    "account"
+   ],
+   "text": "Jan Dhan account हो तो overdraft मिलेगा?",
+   "style": "title",
+   "tone": "ink",
+   "fill": "paper",
+   "align": "center",
+   "size": 32
+  },
+  {
+   "id": "eligible",
+   "kind": "text",
+   "cell": [
+    0,
+    2,
+    5,
+    2
+   ],
+   "cue": [
+    "b49",
+    "eligible"
+   ],
+   "until_cue": [
+    "b50",
+    "Eligible"
+   ],
+   "text": "Eligible account holders को मिल सकता है।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "paper",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "checklist",
+   "kind": "text",
+   "cell": [
+    7,
+    2,
+    5,
+    2
+   ],
+   "cue": [
+    "b49",
+    "checklist"
+   ],
+   "until_cue": [
+    "b50",
+    "receive”"
+   ],
+   "text": "पहले शर्तों की checklist जाँची जाएगी।",
+   "style": "box",
+   "tone": "warm",
+   "fill": "paper",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "meaning",
+   "kind": "text",
+   "cell": [
+    0,
+    2,
+    5,
+    2
+   ],
+   "cue": [
+    "b50",
+    "Eligible"
+   ],
+   "text": "Eligible यानी शर्तें पूरी करने वाला।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "paper",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "possible",
+   "kind": "callout",
+   "cell": [
+    7,
+    2,
+    5,
+    2
+   ],
+   "cue": [
+    "b50",
+    "receive”"
+   ],
+   "text": "मिल सकता है, automatic हक नहीं।",
+   "style": "note",
+   "tone": "warm",
+   "fill": "paper",
+   "align": "center",
+   "size": 28,
+   "marks": [
+    {
+     "phrase": "automatic हक नहीं",
+     "cue": [
+      "b50",
+      "automatic"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "exam",
+   "kind": "text",
+   "cell": [
+    0,
+    5,
+    6,
+    2
+   ],
+   "cue": [
+    "b51",
+    "eligibility"
+   ],
+   "text": "“सबको मिलेगा” दिखे, तो eligibility की शर्त जाँचिए।",
+   "style": "box",
+   "tone": "danger",
+   "fill": "paper",
+   "align": "center",
+   "size": 26
+  },
+  {
+   "id": "distinction",
+   "kind": "callout",
+   "cell": [
+    7,
+    5,
+    5,
+    2
+   ],
+   "cue": [
+    "b51",
+    "credit"
+   ],
+   "text": "Account और credit access अलग हैं।",
+   "style": "note",
+   "tone": "accent",
+   "fill": "paper",
+   "align": "center",
+   "size": 28
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b50",
+    "Eligible"
+   ],
+   "ids": [
+    "account",
+    "meaning"
+   ],
+   "until_cue": [
+    "b50",
+    "receive”"
+   ]
+  },
+  {
+   "cue": [
+    "b50",
+    "receive”"
+   ],
+   "ids": [
+    "account",
+    "meaning",
+    "possible"
+   ],
+   "until_cue": [
+    "b51",
+    "Exam"
+   ]
+  },
+  {
+   "cue": [
+    "b51",
+    "credit"
+   ],
+   "ids": [
+    "account",
+    "exam",
+    "distinction"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

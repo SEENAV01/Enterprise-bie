@@ -1,0 +1,178 @@
+{
+ "id": "v6_s2b",
+ "part_id": "c14.2",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b17",
+   "say": "Note का issuer कौन है? RBI का establishment 1935, first banknotes 1938 में George VI वाले थे। George V फिर George VI का broader portrait क्रम initial RBI notes का क्रम नहीं है।"
+  },
+  {
+   "beat_id": "b18",
+   "say": "क्रम हुआ silver Rupiya, Mughal mints, Company coins, 1835 uniformity, 1861 note monopoly, gold-exchange reforms और RBI। Coin standard, issuer और external link अलग रखो।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank",
+   "kind": "bank",
+   "x": 2600,
+   "y": 860,
+   "sign": "बैंक",
+   "cue": [
+    "b17",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "teller",
+   "kind": "teller",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b17",
+    "issuer"
+   ]
+  },
+  {
+   "id": "history",
+   "kind": "board",
+   "x": 3090,
+   "y": 440,
+   "text": "क्रम",
+   "fill": "#F2E6CA",
+   "cue": [
+    "b17",
+    "1935,"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b17",
+      "1935,"
+     ],
+     "text": "RBI का establishment\n1935 में हुआ।"
+    },
+    {
+     "cue": [
+      "b17",
+      "1938"
+     ],
+     "text": "First banknotes 1938 में\nGeorge VI वाले थे।"
+    },
+    {
+     "cue": [
+      "b17",
+      "broader"
+     ],
+     "text": "George V फिर George VI का क्रम\ninitial RBI notes का क्रम नहीं है।"
+    },
+    {
+     "cue": [
+      "b18",
+      "Rupiya,"
+     ],
+     "text": "क्रम में silver Rupiya था।"
+    },
+    {
+     "cue": [
+      "b18",
+      "mints,"
+     ],
+     "text": "क्रम हुआ silver Rupiya,\nMughal mints।"
+    },
+    {
+     "cue": [
+      "b18",
+      "coins,"
+     ],
+     "text": "क्रम हुआ Mughal mints,\nCompany coins।"
+    },
+    {
+     "cue": [
+      "b18",
+      "1835"
+     ],
+     "text": "क्रम हुआ Company coins,\n1835 uniformity।"
+    },
+    {
+     "cue": [
+      "b18",
+      "1861"
+     ],
+     "text": "1861 में note monopoly हुई।"
+    },
+    {
+     "cue": [
+      "b18",
+      "gold-exchange"
+     ],
+     "text": "फिर gold-exchange reforms\nऔर RBI आए।"
+    },
+    {
+     "cue": [
+      "b18",
+      "external"
+     ],
+     "text": "Coin standard, issuer और\nexternal link अलग रखो।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b17",
+    "",
+    0.0
+   ],
+   "x": 2790,
+   "y": 500,
+   "zoom": 0.95,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b17",
+    "1935,"
+   ],
+   "x": 3000,
+   "y": 450,
+   "zoom": 1.2,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b17",
+    "broader"
+   ],
+   "x": 3090,
+   "y": 440,
+   "zoom": 1.35,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b18",
+    "क्रम"
+   ],
+   "x": 3000,
+   "y": 460,
+   "zoom": 1.2,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b18",
+    "Coin"
+   ],
+   "x": 2910,
+   "y": 480,
+   "zoom": 1.05,
+   "frames": 45
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

@@ -1,0 +1,140 @@
+{
+ "id": "v14_s4b",
+ "part_id": "c34.1",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b25",
+   "say": "यह polymer note है: substrate यानी आधार-sheet cotton-based paper नहीं, security-grade Biaxially Oriented Polypropylene, यानी BOPP है।"
+  },
+  {
+   "beat_id": "b26",
+   "say": "Biaxially oriented यानी बनाते समय film को लंबाई-चौड़ाई जैसी 2 दिशाओं में खींचते हैं।"
+  },
+  {
+   "beat_id": "b27",
+   "say": "Ordinary plastic पर ₹10 लिखना authorized banknote बनाना नहीं है।"
+  },
+  {
+   "beat_id": "b28",
+   "say": "आगे durability में यही material-change काम आएगा।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank",
+   "kind": "bank",
+   "x": 2600,
+   "cue": [
+    "b25",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "teller",
+   "kind": "teller",
+   "x": 2600,
+   "cue": [
+    "b25",
+    "polymer"
+   ]
+  },
+  {
+   "id": "material_board",
+   "kind": "board",
+   "x": 3180,
+   "y": 470,
+   "fill": "#E5EFE8",
+   "cue": [
+    "b25",
+    "substrate"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b25",
+      "substrate"
+     ],
+     "text": "आधार-sheet cotton-based paper नहीं,\nsecurity-grade Biaxially Oriented\nPolypropylene यानी BOPP है।"
+    },
+    {
+     "cue": [
+      "b26",
+      "film"
+     ],
+     "text": "Biaxially oriented में film को\nलंबाई-चौड़ाई जैसी 2 दिशाओं में\nखींचते हैं।"
+    },
+    {
+     "cue": [
+      "b27",
+      "₹10"
+     ],
+     "text": "Ordinary plastic पर ₹10 लिखना\nauthorized banknote बनाना नहीं है।"
+    },
+    {
+     "cue": [
+      "b28",
+      "durability"
+     ],
+     "text": "आगे durability में यही\nmaterial-change काम आएगा।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b25",
+    "",
+    0.0
+   ],
+   "x": 2850,
+   "y": 490,
+   "zoom": 1,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b25",
+    "Biaxially"
+   ],
+   "x": 3050,
+   "y": 470,
+   "zoom": 1.25,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b26",
+    "film"
+   ],
+   "x": 3120,
+   "y": 470,
+   "zoom": 1.35,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b27",
+    "₹10"
+   ],
+   "x": 3080,
+   "y": 480,
+   "zoom": 1.25,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b28",
+    "durability"
+   ],
+   "x": 2920,
+   "y": 490,
+   "zoom": 1.05,
+   "frames": 45
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

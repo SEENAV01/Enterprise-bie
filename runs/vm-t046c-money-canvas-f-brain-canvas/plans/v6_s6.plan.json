@@ -1,0 +1,614 @@
+{
+ "id": "v6_s6",
+ "part_id": "c15.2",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b40",
+   "say": "पुरानी price में anna मिले तो? Old system में 1 Rupee = 16 Annas = 64 Paise = 192 Pies; यानी same money के अलग छोटे हिस्से। New system में 100 Paise हैं।"
+  },
+  {
+   "beat_id": "b41",
+   "say": "₹1 की same पट्टी को 16, 64 या 192 हिस्सों में सोचो; new में 100 हैं। Equals same value बताता है, coins की same गिनती नहीं।"
+  },
+  {
+   "beat_id": "b42",
+   "say": "1957 reform का old/new comparison यही है। पुराने Paise, जिन्हें pice भी कहते हैं, modern decimal paise नहीं; उन्हें मिलाने से conversion गलत होगा।"
+  },
+  {
+   "beat_id": "b43",
+   "say": "₹1.25 सीधे 1 rupee और 25 paise बताता है; annas–pies conversion नहीं चाहिए। आसान subdivision से purchasing power अपने-आप नहीं बढ़ती।"
+  },
+  {
+   "beat_id": "b44",
+   "say": "64 को 16 से बाँटो तो 1 anna में 4 old paise मिलते हैं; 192 को 64 से बाँटो तो 1 old paisa में 3 pies मिलते हैं। Modern paisa ₹1 का 1/100 है; systems अलग रखो।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "anchor",
+   "kind": "text",
+   "cell": [
+    0,
+    0,
+    12,
+    1
+   ],
+   "cue": [
+    "b40",
+    "Rupee"
+   ],
+   "text": "1 Rupee के छोटे हिस्से हैं।",
+   "style": "title",
+   "tone": "ink",
+   "fill": "band",
+   "align": "center",
+   "size": 34
+  },
+  {
+   "id": "old",
+   "kind": "table",
+   "cell": [
+    0,
+    2,
+    6,
+    3
+   ],
+   "cue": [
+    "b40",
+    "16"
+   ],
+   "until_cue": [
+    "b42",
+    "1957"
+   ],
+   "tone": "warm",
+   "size": 28,
+   "columns": [
+    "Old system में हिस्से हैं।"
+   ],
+   "rows": [
+    {
+     "cells": [
+      "1 Rupee में 16 Annas हैं।"
+     ],
+     "cue": [
+      "b40",
+      "16"
+     ]
+    },
+    {
+     "cells": [
+      "1 Rupee में 64 Paise हैं।"
+     ],
+     "cue": [
+      "b40",
+      "64"
+     ]
+    },
+    {
+     "cells": [
+      "1 Rupee में 192 Pies हैं।"
+     ],
+     "cue": [
+      "b40",
+      "192"
+     ]
+    }
+   ],
+   "highlights": [
+    {
+     "cue": [
+      "b41",
+      "16,"
+     ],
+     "tone": "warm",
+     "row": 0,
+     "until_cue": [
+      "b41",
+      "64"
+     ]
+    },
+    {
+     "cue": [
+      "b41",
+      "64"
+     ],
+     "tone": "warm",
+     "row": 1,
+     "until_cue": [
+      "b41",
+      "192"
+     ]
+    },
+    {
+     "cue": [
+      "b41",
+      "192"
+     ],
+     "tone": "warm",
+     "row": 2,
+     "until_cue": [
+      "b41",
+      "100"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "new",
+   "kind": "text",
+   "cell": [
+    6,
+    2,
+    6,
+    3
+   ],
+   "cue": [
+    "b40",
+    "100"
+   ],
+   "until_cue": [
+    "b42",
+    "1957"
+   ],
+   "text": "New system में 100 Paise हैं।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "band",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "same",
+   "kind": "text",
+   "cell": [
+    0,
+    6,
+    12,
+    1
+   ],
+   "cue": [
+    "b40",
+    "same"
+   ],
+   "until_cue": [
+    "b41",
+    "Equals"
+   ],
+   "text": "Same money के अलग छोटे हिस्से हैं।",
+   "style": "note",
+   "tone": "ink",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "new-highlight",
+   "kind": "highlight",
+   "cue": [
+    "b41",
+    "100"
+   ],
+   "until_cue": [
+    "b41",
+    "Equals"
+   ],
+   "style": "box",
+   "tone": "accent",
+   "target": "new"
+  },
+  {
+   "id": "equals",
+   "kind": "callout",
+   "cell": [
+    0,
+    6,
+    12,
+    1
+   ],
+   "cue": [
+    "b41",
+    "Equals"
+   ],
+   "until_cue": [
+    "b42",
+    "1957"
+   ],
+   "text": "Equals same value बताता है, coins की same गिनती नहीं।",
+   "style": "note",
+   "tone": "accent",
+   "align": "center",
+   "size": 28,
+   "marks": [
+    {
+     "phrase": "coins की same गिनती नहीं",
+     "cue": [
+      "b41",
+      "coins"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "reform",
+   "kind": "text",
+   "cell": [
+    0,
+    2,
+    12,
+    1
+   ],
+   "cue": [
+    "b42",
+    "1957"
+   ],
+   "until_cue": [
+    "b43",
+    "₹1.25"
+   ],
+   "text": "1957 reform का old/new comparison है।",
+   "style": "box",
+   "tone": "ink",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "pice",
+   "kind": "text",
+   "cell": [
+    0,
+    4,
+    6,
+    2
+   ],
+   "cue": [
+    "b42",
+    "pice"
+   ],
+   "until_cue": [
+    "b43",
+    "₹1.25"
+   ],
+   "text": "पुराने Paise को pice भी कहते हैं।",
+   "style": "box",
+   "tone": "warm",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "different",
+   "kind": "text",
+   "cell": [
+    6,
+    4,
+    6,
+    2
+   ],
+   "cue": [
+    "b42",
+    "modern"
+   ],
+   "until_cue": [
+    "b43",
+    "₹1.25"
+   ],
+   "text": "पुराने Paise modern decimal paise नहीं हैं।",
+   "style": "box",
+   "tone": "accent",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "warning",
+   "kind": "text",
+   "cell": [
+    0,
+    6,
+    12,
+    1
+   ],
+   "cue": [
+    "b42",
+    "मिलाने"
+   ],
+   "until_cue": [
+    "b43",
+    "₹1.25"
+   ],
+   "text": "इन्हें मिलाने से conversion गलत होगा।",
+   "style": "note",
+   "tone": "danger",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "decimal",
+   "kind": "text",
+   "cell": [
+    0,
+    2,
+    12,
+    2
+   ],
+   "cue": [
+    "b43",
+    "₹1.25"
+   ],
+   "until_cue": [
+    "b44",
+    "64"
+   ],
+   "text": "₹1.25 सीधे 1 rupee और 25 paise बताता है।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "band",
+   "align": "center",
+   "size": 34,
+   "marks": [
+    {
+     "phrase": "25 paise",
+     "cue": [
+      "b43",
+      "25"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "easy",
+   "kind": "text",
+   "cell": [
+    0,
+    4,
+    12,
+    1
+   ],
+   "cue": [
+    "b43",
+    "annas–pies"
+   ],
+   "until_cue": [
+    "b44",
+    "64"
+   ],
+   "text": "Annas–pies conversion नहीं चाहिए।",
+   "style": "note",
+   "tone": "ink",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "power",
+   "kind": "callout",
+   "cell": [
+    0,
+    6,
+    12,
+    1
+   ],
+   "cue": [
+    "b43",
+    "purchasing"
+   ],
+   "until_cue": [
+    "b44",
+    "64"
+   ],
+   "text": "आसान subdivision से purchasing power अपने-आप नहीं बढ़ती।",
+   "style": "note",
+   "tone": "warm",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "divide-first",
+   "kind": "text",
+   "cell": [
+    0,
+    2,
+    6,
+    1
+   ],
+   "cue": [
+    "b44",
+    "64"
+   ],
+   "text": "64 को 16 से बाँटो।",
+   "style": "note",
+   "tone": "warm",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "anna",
+   "kind": "text",
+   "cell": [
+    0,
+    3,
+    6,
+    2
+   ],
+   "cue": [
+    "b44",
+    "4"
+   ],
+   "text": "1 anna में 4 old paise हैं।",
+   "style": "box",
+   "tone": "warm",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "divide-second",
+   "kind": "text",
+   "cell": [
+    6,
+    2,
+    6,
+    1
+   ],
+   "cue": [
+    "b44",
+    "192"
+   ],
+   "text": "192 को 64 से बाँटो।",
+   "style": "note",
+   "tone": "warm",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "pies",
+   "kind": "text",
+   "cell": [
+    6,
+    3,
+    6,
+    2
+   ],
+   "cue": [
+    "b44",
+    "3"
+   ],
+   "text": "1 old paisa में 3 pies हैं।",
+   "style": "box",
+   "tone": "warm",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "hundredth",
+   "kind": "text",
+   "cell": [
+    0,
+    5,
+    12,
+    1
+   ],
+   "cue": [
+    "b44",
+    "1/100"
+   ],
+   "text": "Modern paisa ₹1 का 1/100 है।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "band",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "separate",
+   "kind": "callout",
+   "cell": [
+    0,
+    6,
+    12,
+    1
+   ],
+   "cue": [
+    "b44",
+    "systems"
+   ],
+   "text": "Systems अलग रखो।",
+   "style": "note",
+   "tone": "danger",
+   "align": "center",
+   "size": 30
+  }
+ ],
+ "camera": [
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b40",
+    "पुरानी"
+   ]
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b41",
+    "पट्टी"
+   ],
+   "ids": [
+    "anchor",
+    "old",
+    "new"
+   ],
+   "until_cue": [
+    "b41",
+    "Equals"
+   ]
+  },
+  {
+   "cue": [
+    "b42",
+    "मिलाने"
+   ],
+   "ids": [
+    "pice",
+    "different",
+    "warning"
+   ],
+   "until_cue": [
+    "b43",
+    "₹1.25"
+   ]
+  },
+  {
+   "cue": [
+    "b43",
+    "25"
+   ],
+   "ids": [
+    "anchor",
+    "decimal"
+   ],
+   "until_cue": [
+    "b43",
+    "annas–pies"
+   ]
+  },
+  {
+   "cue": [
+    "b44",
+    "192"
+   ],
+   "ids": [
+    "anchor",
+    "divide-second",
+    "pies"
+   ],
+   "until_cue": [
+    "b44",
+    "Modern"
+   ]
+  },
+  {
+   "cue": [
+    "b44",
+    "Modern"
+   ],
+   "ids": [
+    "anchor",
+    "hundredth"
+   ],
+   "until_cue": [
+    "b44",
+    "systems"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

@@ -1,0 +1,207 @@
+{
+ "id": "v13_s11",
+ "part_id": "c32.3",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b55",
+   "say": "Direct MDR payer कौन है? Merchant है, customer नहीं; bill और fee अलग रखिए।"
+  },
+  {
+   "beat_id": "b56",
+   "say": "Buyer ने ₹1,000 दिए, ₹1,020 नहीं; ₹20 seller की receipt से कटे हैं।"
+  },
+  {
+   "beat_id": "b57",
+   "say": "इसका सबूत seller की छोटी receipt है।"
+  },
+  {
+   "beat_id": "b58",
+   "say": "Exam में payer बदलने का trap पकड़िए: purchase customer करता है, MDR merchant देता है।"
+  }
+ ],
+ "kit": "shop",
+ "elements": [
+  {
+   "id": "shop",
+   "kind": "shop",
+   "x": 2600,
+   "cue": [
+    "b55",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "merchant",
+   "kind": "shopkeeper",
+   "x": 2600,
+   "cue": [
+    "b55",
+    "Merchant"
+   ]
+  },
+  {
+   "id": "buyer",
+   "kind": "crowd",
+   "x0": 2200,
+   "spacing": 90,
+   "enter_x": 1800,
+   "exit_x": 1800,
+   "face": 1,
+   "seed": 11,
+   "cue": [
+    "b55",
+    "customer"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b55",
+      "customer"
+     ],
+     "n": 1
+    }
+   ]
+  },
+  {
+   "id": "merchant_receipt",
+   "kind": "board",
+   "x": 2960,
+   "y": 470,
+   "fill": "#F4E6CE",
+   "cue": [
+    "b55",
+    "Merchant"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b55",
+      "Merchant"
+     ],
+     "text": "MDR payer Merchant है,\ncustomer नहीं।"
+    },
+    {
+     "cue": [
+      "b56",
+      "₹20"
+     ],
+     "text": "₹20 seller की receipt से कटे हैं।"
+    },
+    {
+     "cue": [
+      "b57",
+      "receipt"
+     ],
+     "text": "सबूत seller की छोटी receipt है।"
+    },
+    {
+     "cue": [
+      "b58",
+      "MDR"
+     ],
+     "text": "MDR merchant देता है।"
+    }
+   ]
+  },
+  {
+   "id": "buyer_payment",
+   "kind": "board",
+   "x": 2150,
+   "y": 470,
+   "fill": "#E2EDE9",
+   "cue": [
+    "b56",
+    "₹1,000"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b56",
+      "₹1,000"
+     ],
+     "text": "Buyer ने ₹1,000 दिए,"
+    },
+    {
+     "cue": [
+      "b56",
+      "₹1,020"
+     ],
+     "text": "Buyer ने ₹1,000 दिए,\n₹1,020 नहीं।"
+    },
+    {
+     "cue": [
+      "b58",
+      "purchase"
+     ],
+     "text": "Purchase customer करता है।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b55",
+    "",
+    0.0
+   ],
+   "x": 2570,
+   "y": 560,
+   "zoom": 0.95,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b55",
+    "bill"
+   ],
+   "x": 2540,
+   "y": 540,
+   "zoom": 1,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b56",
+    "Buyer"
+   ],
+   "x": 2350,
+   "y": 550,
+   "zoom": 1.1,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b56",
+    "₹20"
+   ],
+   "x": 2760,
+   "y": 540,
+   "zoom": 1.1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b57",
+    "सबूत"
+   ],
+   "x": 2910,
+   "y": 510,
+   "zoom": 1.35,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b58",
+    "Exam"
+   ],
+   "x": 2560,
+   "y": 550,
+   "zoom": 0.95,
+   "frames": 40
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

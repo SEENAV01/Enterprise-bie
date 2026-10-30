@@ -1,0 +1,1167 @@
+{
+ "id": "v12_s3",
+ "part_id": "c28.3",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b17",
+   "say": "इन 4 options में समान क्या है? चारों 24×7, all days खुले हैं; रविवार की availability से अकेले चुनाव नहीं होगा।"
+  },
+  {
+   "beat_id": "b18",
+   "say": "NEFT, National Electronic Funds Transfer है; RTGS, Real-Time Gross Settlement है। IMPS, Immediate Payment Service और UPI, Unified Payments Interface है। Interface यानी payment से जुड़ने का रास्ता, जैसे phone की screen।"
+  },
+  {
+   "beat_id": "b19",
+   "say": "NEFT और RTGS को RBI से, IMPS और UPI को NPCI से जोड़िए। लेकिन network चलाने वाला operator और ऊपर से देखरेख करने वाला regulator अलग हैं; RBI का overarching regulatory role है।"
+  },
+  {
+   "beat_id": "b20",
+   "say": "NEFT batch में है, इसलिए अगला round आने तक धीमा पड़ सकता है। RTGS real-time gross है; IMPS और UPI भी real-time बताए जाते हैं। आखिरी तीनों की speed instant है; RTGS का जोर high-value पर है।"
+  },
+  {
+   "beat_id": "b21",
+   "say": "RTGS की minimum ₹2 lakh है; ₹50000 उस दरवाजे से नहीं गुजरेंगे। NEFT, IMPS और UPI की minimum row में ‘No minimum’ है।"
+  },
+  {
+   "beat_id": "b22",
+   "say": "NEFT की fixed maximum नहीं; RTGS की upper limit नहीं। IMPS में ₹5 lakh, bank-wise फर्क के साथ है। UPI में ₹1 lakh default और Person-to-Merchant के लिए ₹10 lakh है; इसे conditions वाला दरवाजा समझिए।"
+  },
+  {
+   "beat_id": "b23",
+   "say": "NEFT regular, RTGS बड़ी urgent और IMPS रोजमर्रा की urgent payment के लिए है। UPI mobile-based peer-to-peer, जैसे दोस्त को पैसे, और merchant, जैसे दुकान को payment के लिए है।"
+  },
+  {
+   "beat_id": "b24",
+   "say": "NEFT और RTGS के रास्ते internet तथा mobile banking हैं; IMPS में ATM भी है। UPI में GPay, PhonePe जैसे apps हैं—सामने का रास्ता, पीछे का system नहीं।"
+  },
+  {
+   "beat_id": "b25",
+   "say": "Availability यानी दुकान का दरवाजा खुला है; speed यानी काम में कितना इंतजार है। Gross में हर bill पूरा अलग चुकता है, सिर्फ हिसाब का अंतर नहीं; IMPS-UPI में तुरंत पैसे मिलना पूरा interbank हिसाब नहीं बताता।"
+  },
+  {
+   "beat_id": "b26",
+   "say": "‘हर merchant payment ₹10 lakh तक’ गलत है: eligible category और लागू conditions चाहिए, सिर्फ merchant QR नहीं। Bank की limit भी पूरे system की limit नहीं है।"
+  },
+  {
+   "beat_id": "b27",
+   "say": "इस table को काम, settlement, speed, limits और channel से पढ़िए। खास trap: 24×7 मतलब instant नहीं; RTGS की ₹2 lakh minimum है।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank",
+   "kind": "bank",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b17",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "teller",
+   "kind": "teller",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b17",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "customers",
+   "kind": "crowd",
+   "x0": 2230,
+   "spacing": 100,
+   "enter_x": 1600,
+   "exit_x": 1600,
+   "face": 1,
+   "seed": 17,
+   "cue": [
+    "b17",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b17",
+      "",
+      0.0
+     ],
+     "n": 2
+    }
+   ]
+  },
+  {
+   "id": "availability",
+   "kind": "board",
+   "x": 2110,
+   "y": 420,
+   "fill": "#E9E2CD",
+   "cue": [
+    "b17",
+    "24×7,"
+   ],
+   "until_cue": [
+    "b18",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b17",
+      "24×7,"
+     ],
+     "text": "चारों 24×7, all days खुले हैं।"
+    }
+   ]
+  },
+  {
+   "id": "sunday",
+   "kind": "board",
+   "x": 3090,
+   "y": 420,
+   "fill": "#E9E2CD",
+   "cue": [
+    "b17",
+    "availability"
+   ],
+   "until_cue": [
+    "b18",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b17",
+      "availability"
+     ],
+     "text": "रविवार की availability से\nअकेले चुनाव नहीं होगा।"
+    }
+   ]
+  },
+  {
+   "id": "fullforms_left",
+   "kind": "board",
+   "x": 2110,
+   "y": 420,
+   "fill": "#E9E2CD",
+   "cue": [
+    "b18",
+    "National"
+   ],
+   "until_cue": [
+    "b19",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b18",
+      "National"
+     ],
+     "text": "NEFT, National Electronic\nFunds Transfer है।"
+    },
+    {
+     "cue": [
+      "b18",
+      "Immediate"
+     ],
+     "text": "IMPS, Immediate Payment Service है।"
+    }
+   ]
+  },
+  {
+   "id": "fullforms_right",
+   "kind": "board",
+   "x": 3090,
+   "y": 420,
+   "fill": "#DDEBE7",
+   "cue": [
+    "b18",
+    "Real-Time"
+   ],
+   "until_cue": [
+    "b19",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b18",
+      "Real-Time"
+     ],
+     "text": "RTGS, Real-Time Gross Settlement है।"
+    },
+    {
+     "cue": [
+      "b18",
+      "Unified"
+     ],
+     "text": "UPI, Unified Payments Interface है।"
+    },
+    {
+     "cue": [
+      "b18",
+      "यानी"
+     ],
+     "text": "Interface यानी payment से\nजुड़ने का रास्ता।"
+    }
+   ]
+  },
+  {
+   "id": "institutions",
+   "kind": "board",
+   "x": 2110,
+   "y": 420,
+   "fill": "#E9E2CD",
+   "cue": [
+    "b19",
+    "RBI"
+   ],
+   "until_cue": [
+    "b20",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b19",
+      "RBI"
+     ],
+     "text": "NEFT और RTGS को RBI से जोड़िए।"
+    },
+    {
+     "cue": [
+      "b19",
+      "NPCI"
+     ],
+     "text": "IMPS और UPI को NPCI से जोड़िए।"
+    }
+   ]
+  },
+  {
+   "id": "roles",
+   "kind": "board",
+   "x": 3090,
+   "y": 420,
+   "fill": "#DDEBE7",
+   "cue": [
+    "b19",
+    "regulator"
+   ],
+   "until_cue": [
+    "b20",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b19",
+      "regulator"
+     ],
+     "text": "Operator और regulator अलग हैं।"
+    },
+    {
+     "cue": [
+      "b19",
+      "overarching"
+     ],
+     "text": "RBI का overarching\nregulatory role है।"
+    }
+   ]
+  },
+  {
+   "id": "batch",
+   "kind": "board",
+   "x": 2110,
+   "y": 420,
+   "fill": "#E9E2CD",
+   "cue": [
+    "b20",
+    "batch"
+   ],
+   "until_cue": [
+    "b21",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b20",
+      "batch"
+     ],
+     "text": "NEFT batch में है;\nअगले round तक धीमा पड़ सकता है।"
+    }
+   ]
+  },
+  {
+   "id": "realtime",
+   "kind": "board",
+   "x": 3090,
+   "y": 420,
+   "fill": "#DDEBE7",
+   "cue": [
+    "b20",
+    "gross"
+   ],
+   "until_cue": [
+    "b21",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b20",
+      "gross"
+     ],
+     "text": "RTGS real-time gross है।"
+    },
+    {
+     "cue": [
+      "b20",
+      "भी"
+     ],
+     "text": "IMPS और UPI भी real-time हैं।"
+    },
+    {
+     "cue": [
+      "b20",
+      "high-value"
+     ],
+     "text": "RTGS का जोर high-value पर है।"
+    }
+   ]
+  },
+  {
+   "id": "minimum_rtgs",
+   "kind": "board",
+   "x": 2110,
+   "y": 420,
+   "fill": "#E9E2CD",
+   "cue": [
+    "b21",
+    "lakh"
+   ],
+   "until_cue": [
+    "b22",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b21",
+      "lakh"
+     ],
+     "text": "RTGS की minimum ₹2 lakh है।"
+    },
+    {
+     "cue": [
+      "b21",
+      "₹50000"
+     ],
+     "text": "₹50000 उस दरवाजे से नहीं गुजरेंगे।"
+    }
+   ]
+  },
+  {
+   "id": "minimum_others",
+   "kind": "board",
+   "x": 3090,
+   "y": 420,
+   "fill": "#DDEBE7",
+   "cue": [
+    "b21",
+    "row"
+   ],
+   "until_cue": [
+    "b22",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b21",
+      "row"
+     ],
+     "text": "NEFT, IMPS और UPI की\nminimum row में ‘No minimum’ है।"
+    }
+   ]
+  },
+  {
+   "id": "maximum_left",
+   "kind": "board",
+   "x": 2110,
+   "y": 420,
+   "fill": "#E9E2CD",
+   "cue": [
+    "b22",
+    "maximum"
+   ],
+   "until_cue": [
+    "b23",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b22",
+      "maximum"
+     ],
+     "text": "NEFT की fixed maximum नहीं;\nRTGS की upper limit नहीं।"
+    },
+    {
+     "cue": [
+      "b22",
+      "bank-wise"
+     ],
+     "text": "IMPS में ₹5 lakh है;\nbank-wise फर्क है।"
+    }
+   ]
+  },
+  {
+   "id": "maximum_upi",
+   "kind": "board",
+   "x": 3090,
+   "y": 420,
+   "fill": "#DDEBE7",
+   "cue": [
+    "b22",
+    "default"
+   ],
+   "until_cue": [
+    "b23",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b22",
+      "default"
+     ],
+     "text": "UPI में ₹1 lakh default है।"
+    },
+    {
+     "cue": [
+      "b22",
+      "conditions"
+     ],
+     "text": "Person-to-Merchant के लिए ₹10 lakh है;\nयह conditions वाला दरवाजा है।"
+    }
+   ]
+  },
+  {
+   "id": "uses_bank",
+   "kind": "board",
+   "x": 2110,
+   "y": 420,
+   "fill": "#E9E2CD",
+   "cue": [
+    "b23",
+    "regular,"
+   ],
+   "until_cue": [
+    "b24",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b23",
+      "regular,"
+     ],
+     "text": "NEFT regular payment के लिए है।"
+    },
+    {
+     "cue": [
+      "b23",
+      "बड़ी"
+     ],
+     "text": "RTGS बड़ी urgent payment के लिए है।"
+    },
+    {
+     "cue": [
+      "b23",
+      "रोजमर्रा"
+     ],
+     "text": "IMPS रोजमर्रा की urgent\npayment के लिए है।"
+    }
+   ]
+  },
+  {
+   "id": "uses_upi",
+   "kind": "board",
+   "x": 3090,
+   "y": 420,
+   "fill": "#DDEBE7",
+   "cue": [
+    "b23",
+    "दोस्त"
+   ],
+   "until_cue": [
+    "b24",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b23",
+      "दोस्त"
+     ],
+     "text": "UPI mobile-based peer-to-peer है,\nजैसे दोस्त को पैसे।"
+    },
+    {
+     "cue": [
+      "b23",
+      "दुकान"
+     ],
+     "text": "UPI merchant payment के लिए है,\nजैसे दुकान को payment।"
+    }
+   ]
+  },
+  {
+   "id": "channels",
+   "kind": "board",
+   "x": 2110,
+   "y": 420,
+   "fill": "#E9E2CD",
+   "cue": [
+    "b24",
+    "internet"
+   ],
+   "until_cue": [
+    "b25",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b24",
+      "internet"
+     ],
+     "text": "NEFT और RTGS के रास्ते internet\nतथा mobile banking हैं।"
+    },
+    {
+     "cue": [
+      "b24",
+      "ATM"
+     ],
+     "text": "IMPS में ATM भी है।"
+    }
+   ]
+  },
+  {
+   "id": "apps",
+   "kind": "board",
+   "x": 3090,
+   "y": 420,
+   "fill": "#DDEBE7",
+   "cue": [
+    "b24",
+    "PhonePe"
+   ],
+   "until_cue": [
+    "b25",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b24",
+      "PhonePe"
+     ],
+     "text": "UPI में GPay, PhonePe जैसे apps हैं।"
+    },
+    {
+     "cue": [
+      "b24",
+      "पीछे"
+     ],
+     "text": "Apps सामने का रास्ता हैं,\nपीछे का system नहीं।"
+    }
+   ]
+  },
+  {
+   "id": "availability_speed",
+   "kind": "board",
+   "x": 2110,
+   "y": 420,
+   "fill": "#E9E2CD",
+   "cue": [
+    "b25",
+    "दरवाजा"
+   ],
+   "until_cue": [
+    "b26",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b25",
+      "दरवाजा"
+     ],
+     "text": "Availability यानी दरवाजा खुला है।"
+    },
+    {
+     "cue": [
+      "b25",
+      "इंतजार"
+     ],
+     "text": "Speed यानी काम में कितना इंतजार है।"
+    }
+   ]
+  },
+  {
+   "id": "settlement_distinction",
+   "kind": "board",
+   "x": 3090,
+   "y": 420,
+   "fill": "#DDEBE7",
+   "cue": [
+    "b25",
+    "bill"
+   ],
+   "until_cue": [
+    "b26",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b25",
+      "bill"
+     ],
+     "text": "Gross में हर bill पूरा अलग चुकता है,\nसिर्फ हिसाब का अंतर नहीं।"
+    },
+    {
+     "cue": [
+      "b25",
+      "interbank"
+     ],
+     "text": "IMPS-UPI में तुरंत पैसे मिलना\nपूरा interbank हिसाब नहीं बताता।"
+    }
+   ]
+  },
+  {
+   "id": "merchant_conditions",
+   "kind": "board",
+   "x": 2110,
+   "y": 420,
+   "fill": "#E9E2CD",
+   "cue": [
+    "b26",
+    "गलत"
+   ],
+   "until_cue": [
+    "b27",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b26",
+      "गलत"
+     ],
+     "text": "‘हर merchant payment ₹10 lakh तक’\nगलत है।"
+    },
+    {
+     "cue": [
+      "b26",
+      "conditions"
+     ],
+     "text": "Eligible category और लागू\nconditions चाहिए, सिर्फ merchant QR नहीं।"
+    }
+   ]
+  },
+  {
+   "id": "bank_system_limit",
+   "kind": "board",
+   "x": 3090,
+   "y": 420,
+   "fill": "#DDEBE7",
+   "cue": [
+    "b26",
+    "system"
+   ],
+   "until_cue": [
+    "b27",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b26",
+      "system"
+     ],
+     "text": "Bank की limit पूरे system\nकी limit नहीं है।"
+    }
+   ]
+  },
+  {
+   "id": "reading_method",
+   "kind": "board",
+   "x": 2110,
+   "y": 420,
+   "fill": "#E9E2CD",
+   "cue": [
+    "b27",
+    "settlement,"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b27",
+      "settlement,"
+     ],
+     "text": "Table को काम, settlement, speed,\nlimits और channel से पढ़िए।"
+    }
+   ]
+  },
+  {
+   "id": "final_traps",
+   "kind": "board",
+   "x": 3090,
+   "y": 420,
+   "fill": "#DDEBE7",
+   "cue": [
+    "b27",
+    "24×7"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b27",
+      "24×7"
+     ],
+     "text": "24×7 मतलब instant नहीं।"
+    },
+    {
+     "cue": [
+      "b27",
+      "minimum"
+     ],
+     "text": "RTGS की ₹2 lakh minimum है।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b17",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 490,
+   "zoom": 0.8,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b17",
+    "रविवार"
+   ],
+   "x": 2740,
+   "y": 460,
+   "zoom": 0.85,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b18",
+    "National"
+   ],
+   "x": 2460,
+   "y": 440,
+   "zoom": 0.88,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b18",
+    "Real-Time"
+   ],
+   "x": 2750,
+   "y": 440,
+   "zoom": 0.88,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b18",
+    "Immediate"
+   ],
+   "x": 2460,
+   "y": 440,
+   "zoom": 0.88,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b18",
+    "Unified"
+   ],
+   "x": 2750,
+   "y": 440,
+   "zoom": 0.88,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b18",
+    "screen।"
+   ],
+   "x": 2800,
+   "y": 450,
+   "zoom": 0.9,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b19",
+    "",
+    0.0
+   ],
+   "x": 2470,
+   "y": 460,
+   "zoom": 0.85,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b19",
+    "operator"
+   ],
+   "x": 2600,
+   "y": 470,
+   "zoom": 0.8,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b19",
+    "overarching"
+   ],
+   "x": 2760,
+   "y": 440,
+   "zoom": 0.88,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b20",
+    "",
+    0.0
+   ],
+   "x": 2460,
+   "y": 450,
+   "zoom": 0.88,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b20",
+    "RTGS"
+   ],
+   "x": 2740,
+   "y": 450,
+   "zoom": 0.88,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b20",
+    "instant"
+   ],
+   "x": 2600,
+   "y": 470,
+   "zoom": 0.8,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b21",
+    "",
+    0.0
+   ],
+   "x": 2460,
+   "y": 450,
+   "zoom": 0.88,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b21",
+    "₹50000"
+   ],
+   "x": 2400,
+   "y": 440,
+   "zoom": 0.92,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b21",
+    "NEFT,"
+   ],
+   "x": 2730,
+   "y": 450,
+   "zoom": 0.85,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b22",
+    "",
+    0.0
+   ],
+   "x": 2460,
+   "y": 450,
+   "zoom": 0.88,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b22",
+    "IMPS"
+   ],
+   "x": 2500,
+   "y": 460,
+   "zoom": 0.84,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b22",
+    "UPI"
+   ],
+   "x": 2730,
+   "y": 450,
+   "zoom": 0.88,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b22",
+    "Person-to-Merchant"
+   ],
+   "x": 2770,
+   "y": 440,
+   "zoom": 0.9,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b22",
+    "दरवाजा"
+   ],
+   "x": 2600,
+   "y": 480,
+   "zoom": 0.8,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b23",
+    "",
+    0.0
+   ],
+   "x": 2460,
+   "y": 450,
+   "zoom": 0.88,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b23",
+    "UPI"
+   ],
+   "x": 2720,
+   "y": 450,
+   "zoom": 0.88,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b23",
+    "merchant,"
+   ],
+   "x": 2780,
+   "y": 440,
+   "zoom": 0.9,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b24",
+    "",
+    0.0
+   ],
+   "x": 2460,
+   "y": 450,
+   "zoom": 0.88,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b24",
+    "UPI"
+   ],
+   "x": 2740,
+   "y": 450,
+   "zoom": 0.88,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b24",
+    "system"
+   ],
+   "x": 2600,
+   "y": 480,
+   "zoom": 0.8,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b25",
+    "",
+    0.0
+   ],
+   "x": 2460,
+   "y": 450,
+   "zoom": 0.88,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b25",
+    "speed"
+   ],
+   "x": 2500,
+   "y": 460,
+   "zoom": 0.84,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b25",
+    "Gross"
+   ],
+   "x": 2740,
+   "y": 450,
+   "zoom": 0.88,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b25",
+    "अंतर"
+   ],
+   "x": 2800,
+   "y": 440,
+   "zoom": 0.9,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b25",
+    "IMPS-UPI"
+   ],
+   "x": 2740,
+   "y": 460,
+   "zoom": 0.85,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b26",
+    "",
+    0.0
+   ],
+   "x": 2460,
+   "y": 450,
+   "zoom": 0.88,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b26",
+    "QR"
+   ],
+   "x": 2600,
+   "y": 480,
+   "zoom": 0.8,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b26",
+    "Bank"
+   ],
+   "x": 2740,
+   "y": 450,
+   "zoom": 0.88,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b27",
+    "",
+    0.0
+   ],
+   "x": 2460,
+   "y": 450,
+   "zoom": 0.88,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b27",
+    "trap:"
+   ],
+   "x": 2740,
+   "y": 450,
+   "zoom": 0.88,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b27",
+    "minimum"
+   ],
+   "x": 2600,
+   "y": 480,
+   "zoom": 0.8,
+   "frames": 45
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

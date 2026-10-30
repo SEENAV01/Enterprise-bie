@@ -1,0 +1,204 @@
+{
+ "id": "v10_s7s",
+ "part_id": "c24.2",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b38",
+   "say": "Recipient भरोसा क्यों करे? Customer ₹3,000 पहले देता है; bank उसी रकम का draft निकालता है। पहले मिली रकम ही उसकी backing है।"
+  },
+  {
+   "beat_id": "b39",
+   "say": "इसीलिए payment की जिम्मेदारी bank लेता है; यह उसकी guarantee है।"
+  },
+  {
+   "beat_id": "b40",
+   "say": "Draft की funding customer के बाद वाले balance पर नहीं टिकी है।"
+  },
+  {
+   "beat_id": "b41",
+   "say": "सबूत क्या है? Issue से पहले मिले ₹3,000।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank_place",
+   "kind": "bank",
+   "x": 2600,
+   "y": 860,
+   "sign": "bank",
+   "cue": [
+    "b38",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "bank_teller",
+   "kind": "teller",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b38",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "customer",
+   "kind": "crowd",
+   "x0": 2330,
+   "spacing": 85,
+   "enter_x": 1800,
+   "exit_x": 1800,
+   "face": 1,
+   "seed": 24,
+   "cue": [
+    "b38",
+    "Customer"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b38",
+      "Customer"
+     ],
+     "n": 1
+    }
+   ]
+  },
+  {
+   "id": "advance_evidence",
+   "kind": "board",
+   "x": 2020,
+   "y": 430,
+   "fill": "#47756B",
+   "cue": [
+    "b38",
+    "पहले"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b38",
+      "पहले"
+     ],
+     "text": "Customer ₹3,000 पहले देता है।"
+    },
+    {
+     "cue": [
+      "b41",
+      "₹3,000।"
+     ],
+     "text": "Issue से पहले मिले ₹3,000।"
+    }
+   ]
+  },
+  {
+   "id": "draft_reasoning",
+   "kind": "board",
+   "x": 3170,
+   "y": 430,
+   "fill": "#526B87",
+   "cue": [
+    "b38",
+    "draft"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b38",
+      "draft"
+     ],
+     "text": "Bank उसी रकम का draft निकालता है।"
+    },
+    {
+     "cue": [
+      "b38",
+      "backing"
+     ],
+     "text": "पहले मिली रकम ही उसकी backing है।"
+    },
+    {
+     "cue": [
+      "b39",
+      "जिम्मेदारी"
+     ],
+     "text": "Payment की जिम्मेदारी bank लेता है।"
+    },
+    {
+     "cue": [
+      "b40",
+      "balance"
+     ],
+     "text": "Draft की funding customer के\nबाद वाले balance पर नहीं टिकी है।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b38",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 540,
+   "zoom": 0.8,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b38",
+    "पहले"
+   ],
+   "x": 2460,
+   "y": 520,
+   "zoom": 0.85,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b38",
+    "backing"
+   ],
+   "x": 2600,
+   "y": 500,
+   "zoom": 0.85,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b39",
+    "guarantee"
+   ],
+   "x": 2700,
+   "y": 510,
+   "zoom": 0.85,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b40",
+    "funding"
+   ],
+   "x": 2740,
+   "y": 490,
+   "zoom": 0.85,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b41",
+    "सबूत"
+   ],
+   "x": 2440,
+   "y": 490,
+   "zoom": 0.85,
+   "frames": 40
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

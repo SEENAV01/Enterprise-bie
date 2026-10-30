@@ -1,0 +1,364 @@
+{
+ "id": "v12_s2",
+ "part_id": "c28.1",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b12",
+   "say": "रविवार रात घर पैसे भेजने हों? NEFT 24×7, यानी सातों दिन खुला है और free of cost है। घर का खर्च भेजना इसका regular-transfer उपयोग समझाता है।"
+  },
+  {
+   "beat_id": "b13",
+   "say": "बड़े supplier payment के लिए RTGS का उपयोग होता है। RBI इसे सीधे चलाता है; sender fee ₹50 तक लेने की अनुमति है, हर बार ₹50 जरूरी नहीं।"
+  },
+  {
+   "beat_id": "b14",
+   "say": "रात में परिवार को तुरंत पैसे चाहिए? IMPS immediate और round the clock है। Bank app, website या ATM इसके दरवाजे हैं; दरवाजा और payment system अलग हैं।"
+  },
+  {
+   "beat_id": "b15",
+   "say": "NEFT में आम तौर पर ₹5 lakh तक और bank-wise limit की बात है, fixed system ceiling नहीं। IMPS में ₹1–₹5 lakh का range मिलता है; minimum की दूसरी wording ‘No minimum’ है।"
+  },
+  {
+   "beat_id": "b16",
+   "say": "‘आम तौर पर’ का मतलब ‘सिर्फ’ नहीं है। RTGS की ₹2 lakh minimum बड़ी रकम वाला उपयोग समझाती है; fee में sender और ‘तक’ पकड़िए।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank",
+   "kind": "bank",
+   "x": 2600,
+   "sign": "Bank",
+   "cue": [
+    "b12",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "teller",
+   "kind": "teller",
+   "x": 2600,
+   "cue": [
+    "b12",
+    "पैसे"
+   ]
+  },
+  {
+   "id": "customers",
+   "kind": "crowd",
+   "x0": 2330,
+   "spacing": 95,
+   "enter_x": 1970,
+   "exit_x": 1970,
+   "face": 1,
+   "seed": 28,
+   "cue": [
+    "b12",
+    "भेजने"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b12",
+      "भेजने"
+     ],
+     "n": 2
+    }
+   ]
+  },
+  {
+   "id": "use_display",
+   "kind": "board",
+   "x": 2040,
+   "y": 490,
+   "fill": "#E4EEE8",
+   "cue": [
+    "b12",
+    "सातों"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b12",
+      "सातों"
+     ],
+     "text": "NEFT सातों दिन खुला है।"
+    },
+    {
+     "cue": [
+      "b12",
+      "regular-transfer"
+     ],
+     "text": "घर का खर्च भेजना\nregular-transfer उपयोग है।"
+    },
+    {
+     "cue": [
+      "b13",
+      "RTGS"
+     ],
+     "text": "बड़े supplier payment के लिए\nRTGS का उपयोग होता है।"
+    },
+    {
+     "cue": [
+      "b14",
+      "immediate"
+     ],
+     "text": "IMPS immediate और\nround the clock है।"
+    },
+    {
+     "cue": [
+      "b15",
+      "तक"
+     ],
+     "text": "NEFT में आम तौर पर\n₹5 lakh तक की बात है।"
+    },
+    {
+     "cue": [
+      "b15",
+      "range"
+     ],
+     "text": "IMPS में ₹1–₹5 lakh\nका range मिलता है।"
+    },
+    {
+     "cue": [
+      "b16",
+      "‘सिर्फ’"
+     ],
+     "text": "‘आम तौर पर’ का मतलब\n‘सिर्फ’ नहीं है।"
+    },
+    {
+     "cue": [
+      "b16",
+      "minimum"
+     ],
+     "text": "RTGS की ₹2 lakh minimum\nबड़ी रकम वाला उपयोग समझाती है।"
+    }
+   ]
+  },
+  {
+   "id": "conditions_display",
+   "kind": "board",
+   "x": 3160,
+   "y": 490,
+   "fill": "#F2E8D7",
+   "cue": [
+    "b12",
+    "free"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b12",
+      "free"
+     ],
+     "text": "NEFT free of cost है।"
+    },
+    {
+     "cue": [
+      "b13",
+      "सीधे"
+     ],
+     "text": "RBI इसे सीधे चलाता है।"
+    },
+    {
+     "cue": [
+      "b13",
+      "अनुमति"
+     ],
+     "text": "sender fee ₹50 तक लेने\nकी अनुमति है।"
+    },
+    {
+     "cue": [
+      "b13",
+      "जरूरी"
+     ],
+     "text": "हर बार ₹50 जरूरी नहीं।"
+    },
+    {
+     "cue": [
+      "b14",
+      "दरवाजे"
+     ],
+     "text": "Bank app, website या ATM\nइसके दरवाजे हैं।"
+    },
+    {
+     "cue": [
+      "b14",
+      "अलग"
+     ],
+     "text": "दरवाजा और payment system\nअलग हैं।"
+    },
+    {
+     "cue": [
+      "b15",
+      "ceiling"
+     ],
+     "text": "bank-wise limit है,\nfixed system ceiling नहीं।"
+    },
+    {
+     "cue": [
+      "b15",
+      "wording"
+     ],
+     "text": "minimum की दूसरी wording\n‘No minimum’ है।"
+    },
+    {
+     "cue": [
+      "b16",
+      "पकड़िए।"
+     ],
+     "text": "fee में sender और\n‘तक’ पकड़िए।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b12",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 490,
+   "zoom": 0.85,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b12",
+    "NEFT"
+   ],
+   "x": 2280,
+   "y": 490,
+   "zoom": 1.05,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b12",
+    "खर्च"
+   ],
+   "x": 2600,
+   "y": 490,
+   "zoom": 0.85,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b13",
+    "RTGS"
+   ],
+   "x": 2280,
+   "y": 490,
+   "zoom": 1.05,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b13",
+    "sender"
+   ],
+   "x": 2950,
+   "y": 490,
+   "zoom": 1.05,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b14",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 490,
+   "zoom": 0.85,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b14",
+    "IMPS"
+   ],
+   "x": 2280,
+   "y": 490,
+   "zoom": 1.05,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b14",
+    "Bank"
+   ],
+   "x": 2950,
+   "y": 490,
+   "zoom": 1.05,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b15",
+    "NEFT"
+   ],
+   "x": 2600,
+   "y": 490,
+   "zoom": 0.85,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b15",
+    "IMPS"
+   ],
+   "x": 2280,
+   "y": 490,
+   "zoom": 1.05,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b15",
+    "minimum"
+   ],
+   "x": 2950,
+   "y": 490,
+   "zoom": 1.05,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b16",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 490,
+   "zoom": 0.85,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b16",
+    "RTGS"
+   ],
+   "x": 2280,
+   "y": 490,
+   "zoom": 1.05,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b16",
+    "fee"
+   ],
+   "x": 2950,
+   "y": 490,
+   "zoom": 1.05,
+   "frames": 40
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

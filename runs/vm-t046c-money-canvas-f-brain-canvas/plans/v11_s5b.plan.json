@@ -1,0 +1,212 @@
+{
+ "id": "v11_s5b",
+ "part_id": "c27.1",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b34",
+   "say": "Flow है: मंज़ूरी, request, पहचान, funds check, confirmation, settlement। Delegation में खर्च करने वाला अलग, funds primary account के, permission सीमित है।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "approval",
+   "kind": "text",
+   "cell": [
+    0,
+    0,
+    4,
+    1
+   ],
+   "cue": [
+    "b34",
+    "मंज़ूरी,"
+   ],
+   "text": "मंज़ूरी मिलती है।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "paper",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "request",
+   "kind": "text",
+   "cell": [
+    4,
+    0,
+    4,
+    1
+   ],
+   "cue": [
+    "b34",
+    "request,"
+   ],
+   "text": "request जाती है।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "paper",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "identify",
+   "kind": "text",
+   "cell": [
+    8,
+    0,
+    4,
+    1
+   ],
+   "cue": [
+    "b34",
+    "पहचान,"
+   ],
+   "text": "पहचान होती है।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "paper",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "funds",
+   "kind": "text",
+   "cell": [
+    0,
+    2,
+    4,
+    1
+   ],
+   "cue": [
+    "b34",
+    "check,"
+   ],
+   "text": "funds check है।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "paper",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "confirmation",
+   "kind": "text",
+   "cell": [
+    4,
+    2,
+    4,
+    1
+   ],
+   "cue": [
+    "b34",
+    "confirmation,"
+   ],
+   "text": "confirmation मिलती है।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "paper",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "settlement",
+   "kind": "text",
+   "cell": [
+    8,
+    2,
+    4,
+    1
+   ],
+   "cue": [
+    "b34",
+    "settlement।"
+   ],
+   "text": "settlement होता है।",
+   "style": "box",
+   "tone": "ok",
+   "fill": "paper",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "spender",
+   "kind": "text",
+   "cell": [
+    0,
+    4,
+    4,
+    2
+   ],
+   "cue": [
+    "b34",
+    "अलग,"
+   ],
+   "text": "Delegation में खर्च करने वाला अलग है।",
+   "style": "box",
+   "tone": "warm",
+   "fill": "paper",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "primary",
+   "kind": "text",
+   "cell": [
+    4,
+    4,
+    4,
+    2
+   ],
+   "cue": [
+    "b34",
+    "account"
+   ],
+   "text": "funds primary account के हैं।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "paper",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "permission",
+   "kind": "callout",
+   "cell": [
+    8,
+    4,
+    4,
+    2
+   ],
+   "cue": [
+    "b34",
+    "सीमित"
+   ],
+   "text": "permission सीमित है।",
+   "style": "note",
+   "tone": "warm",
+   "fill": "paper",
+   "align": "center",
+   "size": 30
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b34",
+    "अलग,"
+   ],
+   "ids": [
+    "spender",
+    "primary",
+    "permission"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

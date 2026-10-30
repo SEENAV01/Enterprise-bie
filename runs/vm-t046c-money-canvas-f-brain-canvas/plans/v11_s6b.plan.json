@@ -1,0 +1,320 @@
+{
+ "id": "v11_s6b",
+ "part_id": "c27.3",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b36",
+   "say": "पहला Push Transactions है: अपनी मर्ज़ी से पैसा भेजना, friend, relative या tea seller को। दूसरा Pull transaction है: पहले आपकी command, फिर company का monthly collection। फर्क पैसे भेजने की शुरुआत में है।"
+  },
+  {
+   "beat_id": "b37",
+   "say": "दुकानदार को पैसे गए तो हमेशा pull? नहीं, चाय के पैसे खुद भेजना push है। Pull की permission घर की खुली चाबी नहीं: company सिर्फ authorised arrangement की conditions में collection कर सकती है।"
+  },
+  {
+   "beat_id": "b38",
+   "say": "खुद भेजा तो push; पहले की permission पर collection हुई तो यहाँ pull। App का नाम नहीं, payment की शुरुआत देखिए।"
+  },
+  {
+   "beat_id": "b39",
+   "say": "Exam में 3 बातें जाँचिए: institution का काम, खर्च की permission और payment शुरू करने वाला।"
+  }
+ ],
+ "kit": "shop",
+ "elements": [
+  {
+   "id": "tea_shop",
+   "kind": "shop",
+   "x": 2600,
+   "y": 860,
+   "sign": "tea seller",
+   "cue": [
+    "b36",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "seller",
+   "kind": "shopkeeper",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b36",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "buyer",
+   "kind": "crowd",
+   "x0": 2310,
+   "spacing": 90,
+   "enter_x": 1700,
+   "exit_x": 1700,
+   "face": 1,
+   "seed": 3,
+   "cue": [
+    "b36",
+    "अपनी"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b36",
+      "अपनी"
+     ],
+     "n": 1
+    }
+   ]
+  },
+  {
+   "id": "push_board",
+   "kind": "board",
+   "x": 1900,
+   "y": 390,
+   "fill": "#E3EEE8",
+   "cue": [
+    "b36",
+    "भेजना,"
+   ],
+   "until_cue": [
+    "b39",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b36",
+      "भेजना,"
+     ],
+     "text": "अपनी मर्ज़ी से पैसा भेजना\nPush Transactions है।"
+    },
+    {
+     "cue": [
+      "b37",
+      "खुद"
+     ],
+     "text": "चाय के पैसे खुद भेजना push है।"
+    },
+    {
+     "cue": [
+      "b38",
+      "push;"
+     ],
+     "text": "खुद भेजा तो push।"
+    }
+   ]
+  },
+  {
+   "id": "pull_board",
+   "kind": "board",
+   "x": 3300,
+   "y": 390,
+   "fill": "#EFE6D7",
+   "cue": [
+    "b36",
+    "monthly"
+   ],
+   "until_cue": [
+    "b39",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b36",
+      "monthly"
+     ],
+     "text": "पहले आपकी command,\nफिर company का monthly collection।"
+    },
+    {
+     "cue": [
+      "b37",
+      "चाबी"
+     ],
+     "text": "Pull की permission\nघर की खुली चाबी नहीं।"
+    },
+    {
+     "cue": [
+      "b37",
+      "conditions"
+     ],
+     "text": "Company सिर्फ authorised arrangement\nकी conditions में collection\nकर सकती है।"
+    },
+    {
+     "cue": [
+      "b38",
+      "collection"
+     ],
+     "text": "पहले की permission पर\ncollection हुई तो यहाँ pull।"
+    }
+   ]
+  },
+  {
+   "id": "exam_board",
+   "kind": "board",
+   "x": 2600,
+   "y": 320,
+   "fill": "#F3ECD9",
+   "cue": [
+    "b39",
+    "जाँचिए:"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b39",
+      "जाँचिए:"
+     ],
+     "text": "Exam में 3 बातें जाँचिए।"
+    },
+    {
+     "cue": [
+      "b39",
+      "payment"
+     ],
+     "text": "Institution का काम, खर्च की permission\nऔर payment शुरू करने वाला जाँचिए।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b36",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 490,
+   "zoom": 0.8,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b36",
+    "friend,"
+   ],
+   "x": 2370,
+   "y": 490,
+   "zoom": 0.9,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b36",
+    "दूसरा"
+   ],
+   "x": 2800,
+   "y": 460,
+   "zoom": 0.85,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b36",
+    "फर्क"
+   ],
+   "x": 2600,
+   "y": 470,
+   "zoom": 0.8,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b37",
+    "दुकानदार"
+   ],
+   "x": 2440,
+   "y": 540,
+   "zoom": 0.95,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b37",
+    "खुद"
+   ],
+   "x": 2280,
+   "y": 470,
+   "zoom": 0.95,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b37",
+    "permission"
+   ],
+   "x": 2840,
+   "y": 450,
+   "zoom": 0.9,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b37",
+    "conditions"
+   ],
+   "x": 2950,
+   "y": 450,
+   "zoom": 1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b38",
+    "",
+    0.0
+   ],
+   "x": 2360,
+   "y": 470,
+   "zoom": 0.9,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b38",
+    "collection"
+   ],
+   "x": 2820,
+   "y": 470,
+   "zoom": 0.9,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b38",
+    "App"
+   ],
+   "x": 2600,
+   "y": 470,
+   "zoom": 0.8,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b39",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 450,
+   "zoom": 1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b39",
+    "payment"
+   ],
+   "x": 2600,
+   "y": 420,
+   "zoom": 1.1,
+   "frames": 35
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

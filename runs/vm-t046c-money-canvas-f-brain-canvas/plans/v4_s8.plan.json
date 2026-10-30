@@ -1,0 +1,379 @@
+{
+ "id": "v4_s8",
+ "part_id": "c11.3",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b49",
+   "say": "Phone पर Bitcoin payment दिखे तो government-issued money है? नहीं; El-Salvador का example issuance और legal status अलग करता है।"
+  },
+  {
+   "beat_id": "b50",
+   "say": "2024 तक El-Salvador में Bitcoin non-fiat legal-tender exception था। इसका mechanism अलग समझिए: नए bitcoin mining से network rules पर बनते हैं; price demand-supply से, government के fixed-value promise से नहीं।"
+  },
+  {
+   "beat_id": "b51",
+   "say": "2025 reforms के बाद practical compulsory acceptance हटी; ownership और voluntary use legal रहे। दोनों राज़ी हों तो payment संभव है—यह ban नहीं।"
+  },
+  {
+   "beat_id": "b52",
+   "say": "कानूनी recognition बदलने से network का issuer government नहीं बनता।"
+  },
+  {
+   "beat_id": "b53",
+   "say": "अलग पूछिए: issuer कौन, ownership legal, acceptance voluntary या compulsory?"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "anchor",
+   "kind": "text",
+   "cell": [
+    0,
+    0,
+    12,
+    1
+   ],
+   "cue": [
+    "b49",
+    "government-issued"
+   ],
+   "text": "Bitcoin government-issued money है?",
+   "style": "title",
+   "tone": "ink",
+   "fill": "paper",
+   "align": "center",
+   "size": 34
+  },
+  {
+   "id": "distinction",
+   "kind": "text",
+   "cell": [
+    0,
+    2,
+    12,
+    2
+   ],
+   "cue": [
+    "b49",
+    "issuance"
+   ],
+   "until_cue": [
+    "b50",
+    "2024"
+   ],
+   "text": "Issuance और legal status अलग हैं।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "paper",
+   "align": "center",
+   "size": 32
+  },
+  {
+   "id": "historical",
+   "kind": "text",
+   "cell": [
+    0,
+    2,
+    6,
+    2
+   ],
+   "cue": [
+    "b50",
+    "2024"
+   ],
+   "until_cue": [
+    "b51",
+    "2025"
+   ],
+   "text": "2024 तक El-Salvador में Bitcoin non-fiat legal-tender exception था।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "paper",
+   "align": "left",
+   "size": 28
+  },
+  {
+   "id": "mining",
+   "kind": "text",
+   "cell": [
+    6,
+    2,
+    6,
+    2
+   ],
+   "cue": [
+    "b50",
+    "mining"
+   ],
+   "until_cue": [
+    "b51",
+    "2025"
+   ],
+   "text": "नए bitcoin mining से network rules पर बनते हैं।",
+   "style": "box",
+   "tone": "ink",
+   "fill": "paper",
+   "align": "left",
+   "size": 28
+  },
+  {
+   "id": "price",
+   "kind": "text",
+   "cell": [
+    0,
+    4,
+    6,
+    2
+   ],
+   "cue": [
+    "b50",
+    "demand-supply"
+   ],
+   "until_cue": [
+    "b51",
+    "2025"
+   ],
+   "text": "Price demand-supply से, government के fixed-value promise से नहीं।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "paper",
+   "align": "left",
+   "size": 28
+  },
+  {
+   "id": "promise",
+   "kind": "text",
+   "cell": [
+    6,
+    4,
+    6,
+    2
+   ],
+   "cue": [
+    "b50",
+    "fixed-value"
+   ],
+   "until_cue": [
+    "b51",
+    "2025"
+   ],
+   "text": "Government के fixed-value promise से नहीं।",
+   "style": "box",
+   "tone": "warm",
+   "fill": "paper",
+   "align": "left",
+   "size": 28
+  },
+  {
+   "id": "reforms",
+   "kind": "text",
+   "cell": [
+    0,
+    2,
+    6,
+    2
+   ],
+   "cue": [
+    "b51",
+    "2025"
+   ],
+   "until_cue": [
+    "b53",
+    "issuer"
+   ],
+   "text": "2025 reforms के बाद practical compulsory acceptance हटी।",
+   "style": "box",
+   "tone": "warm",
+   "fill": "paper",
+   "align": "left",
+   "size": 28
+  },
+  {
+   "id": "legal",
+   "kind": "text",
+   "cell": [
+    6,
+    2,
+    6,
+    2
+   ],
+   "cue": [
+    "b51",
+    "ownership"
+   ],
+   "until_cue": [
+    "b53",
+    "issuer"
+   ],
+   "text": "Ownership और voluntary use legal रहे।",
+   "style": "box",
+   "tone": "ok",
+   "fill": "paper",
+   "align": "left",
+   "size": 30
+  },
+  {
+   "id": "consent",
+   "kind": "callout",
+   "cell": [
+    0,
+    4,
+    12,
+    2
+   ],
+   "cue": [
+    "b51",
+    "राज़ी"
+   ],
+   "until_cue": [
+    "b52",
+    "recognition"
+   ],
+   "text": "दोनों राज़ी हों तो payment संभव है—यह ban नहीं।",
+   "style": "note",
+   "tone": "ok",
+   "fill": "paper",
+   "align": "center",
+   "size": 30,
+   "marks": [
+    {
+     "phrase": "ban नहीं",
+     "cue": [
+      "b51",
+      "ban"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "conclusion",
+   "kind": "callout",
+   "cell": [
+    0,
+    4,
+    12,
+    2
+   ],
+   "cue": [
+    "b52",
+    "recognition"
+   ],
+   "until_cue": [
+    "b53",
+    "issuer"
+   ],
+   "text": "Recognition बदलने से network का issuer government नहीं बनता।",
+   "style": "note",
+   "tone": "accent",
+   "fill": "paper",
+   "align": "center",
+   "size": 30,
+   "marks": [
+    {
+     "phrase": "government नहीं बनता",
+     "cue": [
+      "b52",
+      "government"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "qissuer",
+   "kind": "text",
+   "cell": [
+    0,
+    2,
+    4,
+    3
+   ],
+   "cue": [
+    "b53",
+    "issuer"
+   ],
+   "text": "Issuer कौन?",
+   "style": "box",
+   "tone": "accent",
+   "fill": "paper",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "qownership",
+   "kind": "text",
+   "cell": [
+    4,
+    2,
+    4,
+    3
+   ],
+   "cue": [
+    "b53",
+    "ownership"
+   ],
+   "text": "Ownership legal?",
+   "style": "box",
+   "tone": "ok",
+   "fill": "paper",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "qacceptance",
+   "kind": "text",
+   "cell": [
+    8,
+    2,
+    4,
+    3
+   ],
+   "cue": [
+    "b53",
+    "acceptance"
+   ],
+   "text": "Acceptance voluntary या compulsory?",
+   "style": "box",
+   "tone": "warm",
+   "fill": "paper",
+   "align": "center",
+   "size": 28
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b50",
+    "mining"
+   ],
+   "ids": [
+    "anchor",
+    "mining"
+   ],
+   "until_cue": [
+    "b50",
+    "demand-supply"
+   ]
+  },
+  {
+   "cue": [
+    "b52",
+    "recognition"
+   ],
+   "ids": [
+    "anchor",
+    "conclusion"
+   ],
+   "until_cue": [
+    "b53",
+    "issuer"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

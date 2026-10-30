@@ -1,0 +1,323 @@
+{
+ "id": "v9_s1s",
+ "part_id": "c21.1",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b2",
+   "say": "2016 के बदलाव पर दुकान सोचो। पहले existing ₹500 note देकर तुम ₹500 का सामान लेते थे। Cutoff के बाद उसी note से ordinary legal-tender payment में ₹0 भी नहीं चुका सकते थे।"
+  },
+  {
+   "beat_id": "b3",
+   "say": "इसे Demonetization कहते हैं: legal tender status हटाना। यानी हाथ में वही note है, लेकिन transactions के लिए invalid है। Exchange arrangements का value अलग सवाल है।"
+  },
+  {
+   "beat_id": "b4",
+   "say": "Printing machine रुके, तो नए notes बनना रुकता है। पहले से रखे notes का legal status अपने-आप नहीं बदलता; possession, printing और legal status अलग हैं।"
+  },
+  {
+   "beat_id": "b5",
+   "say": "इसलिए test है: legal status हटा या नहीं? 2016 के existing ₹500 और ₹1,000 notes में यही हुआ। अब इसका historical इस्तेमाल देखो।"
+  }
+ ],
+ "kit": "shop",
+ "elements": [
+  {
+   "id": "shop",
+   "kind": "shop",
+   "x": 2600,
+   "y": 860,
+   "sign": "दुकान",
+   "cue": [
+    "b2",
+    "दुकान"
+   ],
+   "packets": [
+    {
+     "n": 1,
+     "cue": [
+      "b2",
+      "सामान"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "keeper",
+   "kind": "shopkeeper",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b2",
+    "दुकान"
+   ]
+  },
+  {
+   "id": "buyer",
+   "kind": "crowd",
+   "x0": 2380,
+   "spacing": 90,
+   "enter_x": 1850,
+   "exit_x": 1800,
+   "face": 1,
+   "seed": 21,
+   "cue": [
+    "b2",
+    "तुम"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b2",
+      "तुम"
+     ],
+     "n": 1
+    }
+   ]
+  },
+  {
+   "id": "physical_note",
+   "kind": "board",
+   "x": 2020,
+   "y": 420,
+   "fill": "#EEE2BD",
+   "cue": [
+    "b2",
+    "existing"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b2",
+      "existing"
+     ],
+     "text": "पहले existing ₹500 note देते थे।"
+    },
+    {
+     "cue": [
+      "b3",
+      "हाथ"
+     ],
+     "text": "हाथ में वही note है।"
+    }
+   ]
+  },
+  {
+   "id": "explanation",
+   "kind": "board",
+   "x": 3180,
+   "y": 420,
+   "fill": "#DCE8E7",
+   "cue": [
+    "b2",
+    "सामान"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b2",
+      "सामान"
+     ],
+     "text": "₹500 का सामान लेते थे।"
+    },
+    {
+     "cue": [
+      "b2",
+      "₹0"
+     ],
+     "text": "Ordinary legal-tender payment में\n₹0 भी नहीं चुका सकते थे।",
+     "dir": "down"
+    },
+    {
+     "cue": [
+      "b3",
+      "हटाना।"
+     ],
+     "text": "Legal tender status हटाना।"
+    },
+    {
+     "cue": [
+      "b3",
+      "invalid"
+     ],
+     "text": "Transactions के लिए invalid है।"
+    },
+    {
+     "cue": [
+      "b3",
+      "Exchange"
+     ],
+     "text": "Exchange arrangements का value\nअलग सवाल है।"
+    },
+    {
+     "cue": [
+      "b4",
+      "रुके,"
+     ],
+     "text": "Printing machine रुके,\nतो नए notes बनना रुकता है।"
+    },
+    {
+     "cue": [
+      "b4",
+      "अपने-आप"
+     ],
+     "text": "पहले से रखे notes का legal status\nअपने-आप नहीं बदलता।"
+    },
+    {
+     "cue": [
+      "b4",
+      "possession,"
+     ],
+     "text": "Possession, printing और\nlegal status अलग हैं।"
+    },
+    {
+     "cue": [
+      "b5",
+      "test"
+     ],
+     "text": "Test है: legal status हटा या नहीं?"
+    },
+    {
+     "cue": [
+      "b5",
+      "₹1,000"
+     ],
+     "text": "2016 के existing ₹500 और ₹1,000\nnotes में यही हुआ।"
+    }
+   ]
+  },
+  {
+   "id": "definition_title",
+   "kind": "title",
+   "text": "Demonetization",
+   "cue": [
+    "b3",
+    "Demonetization"
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b2",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 520,
+   "zoom": 0.8,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b2",
+    "existing"
+   ],
+   "x": 2390,
+   "y": 500,
+   "zoom": 0.95,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b2",
+    "Cutoff"
+   ],
+   "x": 2840,
+   "y": 500,
+   "zoom": 0.95,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b3",
+    "Demonetization"
+   ],
+   "x": 2600,
+   "y": 500,
+   "zoom": 0.8,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b3",
+    "हाथ"
+   ],
+   "x": 2370,
+   "y": 480,
+   "zoom": 0.95,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b3",
+    "Exchange"
+   ],
+   "x": 2850,
+   "y": 480,
+   "zoom": 0.95,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b4",
+    "Printing"
+   ],
+   "x": 2910,
+   "y": 480,
+   "zoom": 1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b4",
+    "पहले"
+   ],
+   "x": 2600,
+   "y": 500,
+   "zoom": 0.8,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b4",
+    "possession,"
+   ],
+   "x": 2840,
+   "y": 480,
+   "zoom": 0.95,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b5",
+    "test"
+   ],
+   "x": 2910,
+   "y": 480,
+   "zoom": 1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b5",
+    "2016"
+   ],
+   "x": 2600,
+   "y": 500,
+   "zoom": 0.8,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b5",
+    "historical"
+   ],
+   "x": 2700,
+   "y": 500,
+   "zoom": 0.85,
+   "frames": 40
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

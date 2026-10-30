@@ -1,0 +1,247 @@
+{
+ "id": "v15_s12b",
+ "part_id": "c39.1",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b58",
+   "say": "News में money-supply growth आम तौर पर M3 है। M4 broadest है, यानी M3 की टोकरी में eligible Post Office deposits भी डालो, NSC नहीं। Recurring deposits ऐसे समझो: हर महीने बचत की किस्त जमा करना।"
+  },
+  {
+   "beat_id": "b58a",
+   "say": "इसलिए सबसे बड़ा घेरा हमेशा सबसे important indicator नहीं है। M4 की coverage चौड़ी है; फिर भी news में M3 देखोगे। दोनों भी सारी wealth नहीं गिनते: NSC बाहर है।"
+  },
+  {
+   "beat_id": "b62",
+   "say": "M3 में M1 और bank time deposits जोड़ो, M2 नहीं। M4 में M3 और eligible Post Office deposits जोड़ो; NSC बाहर है, savings को दोबारा मत जोड़ना।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank",
+   "kind": "bank",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b58",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "teller",
+   "kind": "teller",
+   "x": 2600,
+   "cue": [
+    "b58",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "customers",
+   "kind": "crowd",
+   "x0": 2330,
+   "spacing": 100,
+   "enter_x": 1650,
+   "exit_x": 1650,
+   "face": 1,
+   "seed": 39,
+   "cue": [
+    "b58",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b58",
+      "",
+      0.0
+     ],
+     "n": 2
+    }
+   ]
+  },
+  {
+   "id": "reporting",
+   "kind": "board",
+   "x": 1980,
+   "y": 410,
+   "fill": "#376A78",
+   "cue": [
+    "b58",
+    "M3"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b58",
+      "M3"
+     ],
+     "text": "News में money-supply growth\nआम तौर पर M3 है।"
+    },
+    {
+     "cue": [
+      "b58",
+      "महीने"
+     ],
+     "text": "Recurring deposits में हर महीने\nबचत की किस्त जमा करना।"
+    },
+    {
+     "cue": [
+      "b58a",
+      "हमेशा"
+     ],
+     "text": "सबसे बड़ा घेरा हमेशा सबसे\nimportant indicator नहीं है।"
+    },
+    {
+     "cue": [
+      "b58a",
+      "news"
+     ],
+     "text": "News में M3 देखोगे।"
+    },
+    {
+     "cue": [
+      "b62",
+      "time"
+     ],
+     "text": "M3 में M1 और bank time deposits\nजोड़ो, M2 नहीं।"
+    }
+   ]
+  },
+  {
+   "id": "coverage",
+   "kind": "board",
+   "x": 3220,
+   "y": 410,
+   "fill": "#8A6742",
+   "cue": [
+    "b58",
+    "broadest"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b58",
+      "broadest"
+     ],
+     "text": "M4 broadest है।"
+    },
+    {
+     "cue": [
+      "b58",
+      "eligible"
+     ],
+     "text": "M3 में eligible Post Office deposits\nभी डालो, NSC नहीं।"
+    },
+    {
+     "cue": [
+      "b58a",
+      "coverage"
+     ],
+     "text": "M4 की coverage चौड़ी है।"
+    },
+    {
+     "cue": [
+      "b58a",
+      "wealth"
+     ],
+     "text": "दोनों सारी wealth नहीं गिनते।\nNSC बाहर है।"
+    },
+    {
+     "cue": [
+      "b62",
+      "eligible"
+     ],
+     "text": "M4 में M3 और eligible\nPost Office deposits जोड़ो।"
+    },
+    {
+     "cue": [
+      "b62",
+      "दोबारा"
+     ],
+     "text": "NSC बाहर है।\nsavings को दोबारा मत जोड़ना।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b58",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 510,
+   "zoom": 0.8,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b58",
+    "eligible"
+   ],
+   "x": 2800,
+   "y": 490,
+   "zoom": 0.9,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b58",
+    "Recurring"
+   ],
+   "x": 2400,
+   "y": 490,
+   "zoom": 0.9,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b58a",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 510,
+   "zoom": 0.8,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b58a",
+    "wealth"
+   ],
+   "x": 2800,
+   "y": 490,
+   "zoom": 0.9,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b62",
+    "",
+    0.0
+   ],
+   "x": 2400,
+   "y": 490,
+   "zoom": 0.9,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b62",
+    "M4"
+   ],
+   "x": 2600,
+   "y": 510,
+   "zoom": 0.8,
+   "frames": 45
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

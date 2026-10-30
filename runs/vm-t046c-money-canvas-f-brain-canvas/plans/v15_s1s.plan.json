@@ -1,0 +1,547 @@
+{
+ "id": "v15_s1s",
+ "part_id": "c36.1",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b2",
+   "say": "खरीदार के ₹100, दुकानदार के ₹0 हैं। खरीदारी के बाद दोनों के balances उलट गए, लेकिन combined cash ₹100 ही रहा।"
+  },
+  {
+   "beat_id": "b3",
+   "say": "Money supply economy में एक तय पल पर spending, saving और payments के लिए उपलब्ध money है। Holdings की photo सोचो; यह stock है।"
+  },
+  {
+   "beat_id": "b4",
+   "say": "महीने के payments का total यह stock नहीं है। वही ₹100 बार-बार इस्तेमाल हो सकता है।"
+  },
+  {
+   "beat_id": "b5",
+   "say": "यानी तय पल की holdings गिनेंगे। Cash और deposits इस्तेमाल करने की आसानी अलग है, इसलिए अलग measures चाहिए।"
+  },
+  {
+   "beat_id": "b5a",
+   "say": "Bank के RBI account में ₹100 हैं। RBI उससे ₹100 की security खरीदकर account में जोड़ता है; अब ₹200 हैं। यह बढ़ा balance payments का आधार बनेगा।"
+  },
+  {
+   "beat_id": "b5b",
+   "say": "₹2000 में से ₹1000 का certificate खरीदो। किराने के लिए ₹1000 cash बचा; certificate नहीं दोगे। यह भविष्य की बचत National Savings Certificate, यानी NSC है।"
+  }
+ ],
+ "kit": "shop",
+ "elements": [
+  {
+   "id": "shop",
+   "kind": "shop",
+   "x": 2600,
+   "y": 860,
+   "sign": "खरीदारी",
+   "cue": [
+    "b2",
+    "",
+    0.0
+   ],
+   "packets": [
+    {
+     "n": 2,
+     "cue": [
+      "b2",
+      "",
+      0.0
+     ]
+    }
+   ]
+  },
+  {
+   "id": "seller",
+   "kind": "shopkeeper",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b2",
+    "दुकानदार"
+   ]
+  },
+  {
+   "id": "buyer",
+   "kind": "crowd",
+   "x0": 2240,
+   "spacing": 90,
+   "enter_x": 1900,
+   "exit_x": 1850,
+   "face": 1,
+   "seed": 7,
+   "cue": [
+    "b2",
+    "खरीदार"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b2",
+      "खरीदार"
+     ],
+     "n": 1
+    }
+   ],
+   "carry": {
+    "cue": [
+     "b2",
+     "बाद"
+    ],
+    "n": 1
+   }
+  },
+  {
+   "id": "buyer_cash",
+   "kind": "board",
+   "x": 1950,
+   "y": 410,
+   "text": "खरीदार",
+   "fill": "#E9DDBF",
+   "cue": [
+    "b2",
+    "खरीदार"
+   ],
+   "until_cue": [
+    "b3",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b2",
+      "₹100,"
+     ],
+     "text": "खरीदार के ₹100 हैं।"
+    },
+    {
+     "cue": [
+      "b2",
+      "उलट"
+     ],
+     "text": "खरीदार के ₹0 हैं।",
+     "dir": "down"
+    }
+   ]
+  },
+  {
+   "id": "seller_cash",
+   "kind": "board",
+   "x": 3230,
+   "y": 410,
+   "text": "दुकानदार",
+   "fill": "#E9DDBF",
+   "cue": [
+    "b2",
+    "दुकानदार"
+   ],
+   "until_cue": [
+    "b3",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b2",
+      "₹0"
+     ],
+     "text": "दुकानदार के ₹0 हैं।"
+    },
+    {
+     "cue": [
+      "b2",
+      "उलट"
+     ],
+     "text": "दुकानदार के ₹100 हैं।",
+     "dir": "up"
+    }
+   ]
+  },
+  {
+   "id": "stock_anchor",
+   "kind": "label",
+   "x": 2600,
+   "y": 180,
+   "text": "Combined cash ₹100 ही रहा।",
+   "fill": "#F5EBD6",
+   "cue": [
+    "b2",
+    "combined"
+   ],
+   "until_cue": [
+    "b5a",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "holdings",
+   "kind": "board",
+   "x": 3160,
+   "y": 420,
+   "fill": "#E9DDBF",
+   "cue": [
+    "b3",
+    "उपलब्ध"
+   ],
+   "until_cue": [
+    "b5a",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b3",
+      "उपलब्ध"
+     ],
+     "text": "Money supply तय पल पर\nउपलब्ध money है।"
+    },
+    {
+     "cue": [
+      "b3",
+      "photo"
+     ],
+     "text": "Holdings की photo सोचो;\nयह stock है।"
+    },
+    {
+     "cue": [
+      "b4",
+      "total"
+     ],
+     "text": "महीने के payments का total\nयह stock नहीं है।"
+    },
+    {
+     "cue": [
+      "b4",
+      "₹100"
+     ],
+     "text": "वही ₹100 बार-बार\nइस्तेमाल हो सकता है।"
+    },
+    {
+     "cue": [
+      "b5",
+      "holdings"
+     ],
+     "text": "तय पल की holdings गिनेंगे।"
+    },
+    {
+     "cue": [
+      "b5",
+      "आसानी"
+     ],
+     "text": "Cash और deposits इस्तेमाल करने\nकी आसानी अलग है।"
+    },
+    {
+     "cue": [
+      "b5",
+      "measures"
+     ],
+     "text": "अलग measures चाहिए।"
+    }
+   ]
+  },
+  {
+   "id": "reserve",
+   "kind": "board",
+   "x": 3160,
+   "y": 420,
+   "text": "Bank के RBI account में",
+   "fill": "#E9DDBF",
+   "cue": [
+    "b5a",
+    "account"
+   ],
+   "until_cue": [
+    "b5b",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b5a",
+      "₹100"
+     ],
+     "text": "₹100 हैं।"
+    },
+    {
+     "cue": [
+      "b5a",
+      "₹200"
+     ],
+     "text": "अब ₹200 हैं।",
+     "dir": "up"
+    },
+    {
+     "cue": [
+      "b5a",
+      "payments"
+     ],
+     "text": "यह बढ़ा balance\npayments का आधार बनेगा।"
+    }
+   ]
+  },
+  {
+   "id": "security",
+   "kind": "label",
+   "x": 2180,
+   "y": 340,
+   "text": "RBI ₹100 की security खरीदता है।",
+   "fill": "#F5EBD6",
+   "cue": [
+    "b5a",
+    "security"
+   ],
+   "until_cue": [
+    "b5b",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "saver_cash",
+   "kind": "board",
+   "x": 2080,
+   "y": 400,
+   "fill": "#E9DDBF",
+   "cue": [
+    "b5b",
+    "खरीदो।"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b5b",
+      "खरीदो।"
+     ],
+     "text": "₹2000 में से ₹1000 का\ncertificate खरीदो।"
+    },
+    {
+     "cue": [
+      "b5b",
+      "cash"
+     ],
+     "text": "किराने के लिए\n₹1000 cash बचा।",
+     "dir": "down"
+    }
+   ]
+  },
+  {
+   "id": "certificate",
+   "kind": "board",
+   "x": 3160,
+   "y": 400,
+   "fill": "#E9DDBF",
+   "cue": [
+    "b5b",
+    "दोगे।"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b5b",
+      "दोगे।"
+     ],
+     "text": "Certificate नहीं दोगे।"
+    },
+    {
+     "cue": [
+      "b5b",
+      "NSC"
+     ],
+     "text": "यह भविष्य की बचत\nNational Savings Certificate,\nयानी NSC है।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b2",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 480,
+   "zoom": 0.8,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b2",
+    "बाद"
+   ],
+   "x": 2600,
+   "y": 510,
+   "zoom": 0.9,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b2",
+    "combined"
+   ],
+   "x": 2600,
+   "y": 410,
+   "zoom": 0.85,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b3",
+    "Money"
+   ],
+   "x": 2820,
+   "y": 440,
+   "zoom": 0.9,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b3",
+    "saving"
+   ],
+   "x": 2940,
+   "y": 430,
+   "zoom": 1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b3",
+    "photo"
+   ],
+   "x": 3050,
+   "y": 420,
+   "zoom": 1.1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b4",
+    "total"
+   ],
+   "x": 3060,
+   "y": 420,
+   "zoom": 1.15,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b4",
+    "बार-बार"
+   ],
+   "x": 2800,
+   "y": 460,
+   "zoom": 0.95,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b5",
+    "holdings"
+   ],
+   "x": 2960,
+   "y": 420,
+   "zoom": 1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b5",
+    "आसानी"
+   ],
+   "x": 3090,
+   "y": 420,
+   "zoom": 1.12,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b5a",
+    "",
+    0.0
+   ],
+   "x": 3040,
+   "y": 430,
+   "zoom": 1.05,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b5a",
+    "security"
+   ],
+   "x": 2670,
+   "y": 420,
+   "zoom": 0.85,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b5a",
+    "₹200"
+   ],
+   "x": 3070,
+   "y": 420,
+   "zoom": 1.1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b5a",
+    "payments"
+   ],
+   "x": 2960,
+   "y": 440,
+   "zoom": 1,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b5b",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 450,
+   "zoom": 0.85,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b5b",
+    "cash"
+   ],
+   "x": 2250,
+   "y": 430,
+   "zoom": 1.05,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b5b",
+    "भविष्य"
+   ],
+   "x": 3010,
+   "y": 430,
+   "zoom": 1.05,
+   "frames": 50
+  },
+  {
+   "cue": [
+    "b5b",
+    "NSC"
+   ],
+   "x": 3070,
+   "y": 420,
+   "zoom": 1.15,
+   "frames": 35
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

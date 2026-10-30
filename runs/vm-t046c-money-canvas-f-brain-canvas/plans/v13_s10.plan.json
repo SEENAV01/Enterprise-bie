@@ -1,0 +1,259 @@
+{
+ "id": "v13_s10",
+ "part_id": "c32.2",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b50",
+   "say": "पूरी fee एक bank रखता है? नहीं, MDR कई participants में shared होता है।"
+  },
+  {
+   "beat_id": "b51",
+   "say": "Merchant का Acquiring Bank card acceptance की व्यवस्था देता है। Customer का Issuing Bank card देता है; यानी एक seller की acceptance से, दूसरा buyer के card से जुड़ा है।"
+  },
+  {
+   "beat_id": "b52",
+   "say": "Payment messages कैसे पहुँचेंगे? RuPay, Visa या Mastercard जैसा Card Network banks को जोड़ता है। जहाँ लागू हो, Payment Service Provider/Gateway merchant interface से processing तक जानकारी पहुँचाता है, जैसे checkout का दरवाजा।"
+  },
+  {
+   "beat_id": "b53",
+   "say": "Acceptance, card, messages और applicable technical interface मिलकर payment चलाते हैं। इसलिए acquirer को दी fee पूरी उसकी नहीं रहती; MDR participants में share होता है।"
+  },
+  {
+   "beat_id": "b54",
+   "say": "Acquirer, issuer, network और applicable provider अलग services देते हैं; shared fee बराबर हिस्से नहीं बताती।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank",
+   "kind": "bank",
+   "x": 2600,
+   "y": 860,
+   "sign": "bank",
+   "cue": [
+    "b50",
+    "bank"
+   ]
+  },
+  {
+   "id": "mdr_anchor",
+   "kind": "label",
+   "x": 2600,
+   "y": 180,
+   "text": "MDR कई participants में shared होता है।",
+   "fill": "rgba(250,244,225,1)",
+   "cue": [
+    "b50",
+    "MDR"
+   ]
+  },
+  {
+   "id": "acquirer",
+   "kind": "board",
+   "x": 1750,
+   "y": 360,
+   "fill": "#DCEAE3",
+   "cue": [
+    "b51",
+    "Acquiring"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b51",
+      "Acquiring"
+     ],
+     "text": "Merchant का Acquiring Bank\ncard acceptance की व्यवस्था देता है।"
+    }
+   ]
+  },
+  {
+   "id": "issuer",
+   "kind": "board",
+   "x": 3450,
+   "y": 360,
+   "fill": "#DDE8F1",
+   "cue": [
+    "b51",
+    "Issuing"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b51",
+      "Issuing"
+     ],
+     "text": "Customer का Issuing Bank\ncard देता है।"
+    }
+   ]
+  },
+  {
+   "id": "network",
+   "kind": "board",
+   "x": 1750,
+   "y": 650,
+   "fill": "#E7E0F0",
+   "cue": [
+    "b52",
+    "Network"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b52",
+      "Network"
+     ],
+     "text": "Card Network banks को जोड़ता है।"
+    }
+   ]
+  },
+  {
+   "id": "gateway",
+   "kind": "board",
+   "x": 3450,
+   "y": 650,
+   "fill": "#F0E4D5",
+   "cue": [
+    "b52",
+    "Provider/Gateway"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b52",
+      "Provider/Gateway"
+     ],
+     "text": "जहाँ लागू हो, Payment Service\nProvider/Gateway जानकारी\nprocessing तक पहुँचाता है।"
+    }
+   ]
+  },
+  {
+   "id": "sharing_caution",
+   "kind": "label",
+   "x": 2600,
+   "y": 285,
+   "text": "Shared fee बराबर हिस्से नहीं बताती।",
+   "fill": "rgba(250,244,225,1)",
+   "cue": [
+    "b54",
+    "shared"
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b50",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 440,
+   "zoom": 0.8,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b51",
+    "Acquiring"
+   ],
+   "x": 2200,
+   "y": 440,
+   "zoom": 1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b51",
+    "Issuing"
+   ],
+   "x": 3000,
+   "y": 440,
+   "zoom": 1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b51",
+    "दूसरा"
+   ],
+   "x": 2600,
+   "y": 430,
+   "zoom": 0.8,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b52",
+    "Network"
+   ],
+   "x": 2200,
+   "y": 520,
+   "zoom": 1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b52",
+    "Provider/Gateway"
+   ],
+   "x": 3000,
+   "y": 520,
+   "zoom": 1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b52",
+    "checkout"
+   ],
+   "x": 3150,
+   "y": 530,
+   "zoom": 1.1,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b53",
+    "Acceptance,"
+   ],
+   "x": 2600,
+   "y": 440,
+   "zoom": 0.8,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b53",
+    "इसलिए"
+   ],
+   "x": 2500,
+   "y": 410,
+   "zoom": 0.85,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b54",
+    "Acquirer,"
+   ],
+   "x": 2600,
+   "y": 440,
+   "zoom": 0.8,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b54",
+    "shared"
+   ],
+   "x": 2600,
+   "y": 380,
+   "zoom": 0.9,
+   "frames": 45
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

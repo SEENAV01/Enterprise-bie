@@ -1,0 +1,99 @@
+{
+ "id": "v13_s7a",
+ "part_id": "c31.3",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b36",
+   "say": "अब delivery और result अलग देखिए: message पहुँचना vaccination मिलना नहीं है।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "distinction",
+   "kind": "text",
+   "cell": [
+    1,
+    0,
+    10,
+    1
+   ],
+   "cue": [
+    "b36",
+    "delivery"
+   ],
+   "text": "delivery और result अलग देखिए",
+   "style": "title",
+   "tone": "ink",
+   "fill": "paper",
+   "align": "center",
+   "size": 36
+  },
+  {
+   "id": "message",
+   "kind": "text",
+   "cell": [
+    1,
+    2,
+    4,
+    2
+   ],
+   "cue": [
+    "b36",
+    "message"
+   ],
+   "text": "message पहुँचना",
+   "style": "box",
+   "tone": "accent",
+   "fill": "paper",
+   "align": "center",
+   "size": 32
+  },
+  {
+   "id": "service",
+   "kind": "text",
+   "cell": [
+    7,
+    2,
+    4,
+    2
+   ],
+   "cue": [
+    "b36",
+    "vaccination"
+   ],
+   "text": "vaccination मिलना",
+   "style": "box",
+   "tone": "warm",
+   "fill": "paper",
+   "align": "center",
+   "size": 32
+  },
+  {
+   "id": "takeaway",
+   "kind": "callout",
+   "cell": [
+    1,
+    5,
+    10,
+    1
+   ],
+   "cue": [
+    "b36",
+    "नहीं"
+   ],
+   "text": "message पहुँचना vaccination मिलना नहीं है।",
+   "style": "note",
+   "tone": "ink",
+   "fill": "note",
+   "align": "center",
+   "size": 30
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

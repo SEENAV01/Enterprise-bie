@@ -1,0 +1,170 @@
+{
+ "id": "v6_s4s",
+ "part_id": "c14.4",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b23",
+   "say": "Silver बढ़े, buyers उतने रहें तो? Imaginary market में पहले 100 kg था; mines ने 50 kg और भेजा, अब 150 kg है। Dealers पहले ₹100 माँगते थे, अब बेचने के लिए ₹80 per unit माँगते हैं।"
+  }
+ ],
+ "kit": "shop",
+ "elements": [
+  {
+   "id": "silver_shop",
+   "kind": "shop",
+   "x": 2600,
+   "y": 860,
+   "sign": "Silver",
+   "cue": [
+    "b23",
+    "Silver"
+   ]
+  },
+  {
+   "id": "buyers",
+   "kind": "crowd",
+   "x0": 2110,
+   "spacing": 100,
+   "enter_x": 1700,
+   "exit_x": 1700,
+   "face": 1,
+   "seed": 23,
+   "cue": [
+    "b23",
+    "buyers"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b23",
+      "buyers"
+     ],
+     "n": 3
+    }
+   ]
+  },
+  {
+   "id": "imaginary_note",
+   "kind": "label",
+   "x": 2600,
+   "y": 210,
+   "text": "यह Imaginary market है।",
+   "fill": "rgba(248,240,218,1)",
+   "cue": [
+    "b23",
+    "Imaginary"
+   ]
+  },
+  {
+   "id": "silver_supply",
+   "kind": "board",
+   "x": 3010,
+   "y": 560,
+   "fill": "#E5E0D3",
+   "cue": [
+    "b23",
+    "100"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b23",
+      "100"
+     ],
+     "text": "पहले 100 kg था;"
+    },
+    {
+     "cue": [
+      "b23",
+      "150"
+     ],
+     "text": "अब 150 kg है।",
+     "dir": "up"
+    }
+   ]
+  },
+  {
+   "id": "dealer",
+   "kind": "shopkeeper",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b23",
+    "Dealers"
+   ]
+  },
+  {
+   "id": "asking_price",
+   "kind": "price_tag",
+   "x": 2700,
+   "y": 440,
+   "string": 65,
+   "cue": [
+    "b23",
+    "₹100"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b23",
+      "₹100"
+     ],
+     "text": "₹100"
+    },
+    {
+     "cue": [
+      "b23",
+      "₹80"
+     ],
+     "text": "₹80",
+     "dir": "down"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b23",
+    "",
+    0.0
+   ],
+   "x": 2550,
+   "y": 490,
+   "zoom": 0.85,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b23",
+    "mines"
+   ],
+   "x": 2800,
+   "y": 500,
+   "zoom": 1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b23",
+    "Dealers"
+   ],
+   "x": 2680,
+   "y": 500,
+   "zoom": 1.05,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b23",
+    "₹80"
+   ],
+   "x": 2740,
+   "y": 470,
+   "zoom": 1.2,
+   "frames": 40
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

@@ -1,0 +1,217 @@
+{
+ "id": "v12_s5b",
+ "part_id": "c29.3",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b35",
+   "say": "व्यक्ति Bank Mitra पर Aadhaar-biometric जाँच से उस पैसे तक पहुँचता है। यही AEPS का Direct Benefits Transfer को सहारा देना है।"
+  },
+  {
+   "beat_id": "b36",
+   "say": "खाते में रकम होना काफी नहीं; दूर branch तक पहुँचना मुश्किल हो, तो पास का counter उसे इस्तेमाल करने देता है।"
+  },
+  {
+   "beat_id": "b37",
+   "say": "इसीलिए subsidies के grassroots तक पहुँचने में इसकी मदद है—जैसे इस गाँव के लाभ पाने वाले व्यक्ति तक।"
+  },
+  {
+   "beat_id": "b38",
+   "say": "लेकिन banking access मिलना subsidy की eligibility तय नहीं करता।"
+  },
+  {
+   "beat_id": "b39",
+   "say": "याद रखिए: benefit पहुँचाना और उसे इस्तेमाल कर पाना, दोनों जरूरी हैं।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank_mitra_counter",
+   "kind": "bank",
+   "x": 2600,
+   "y": 860,
+   "sign": "Bank Mitra",
+   "cue": [
+    "b35",
+    "Bank"
+   ]
+  },
+  {
+   "id": "mitra",
+   "kind": "teller",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b35",
+    "Bank"
+   ]
+  },
+  {
+   "id": "beneficiary",
+   "kind": "crowd",
+   "y": 860,
+   "x0": 2330,
+   "spacing": 85,
+   "enter_x": 2050,
+   "exit_x": 2050,
+   "face": 1,
+   "seed": 29,
+   "cue": [
+    "b35",
+    "व्यक्ति"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b35",
+      "व्यक्ति"
+     ],
+     "n": 1
+    }
+   ]
+  },
+  {
+   "id": "access_explanation",
+   "kind": "board",
+   "x": 3290,
+   "y": 440,
+   "fill": "#F1E5CD",
+   "cue": [
+    "b35",
+    "AEPS"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b35",
+      "AEPS"
+     ],
+     "text": "AEPS का Direct Benefits Transfer\nको सहारा देना है।"
+    },
+    {
+     "cue": [
+      "b36",
+      "counter"
+     ],
+     "text": "पास का counter उसे\nइस्तेमाल करने देता है।"
+    },
+    {
+     "cue": [
+      "b37",
+      "grassroots"
+     ],
+     "text": "subsidies के grassroots तक\nपहुँचने में इसकी मदद है।"
+    },
+    {
+     "cue": [
+      "b38",
+      "eligibility"
+     ],
+     "text": "banking access मिलना subsidy की\neligibility तय नहीं करता।"
+    },
+    {
+     "cue": [
+      "b39",
+      "इस्तेमाल"
+     ],
+     "text": "benefit पहुँचाना और उसे इस्तेमाल\nकर पाना, दोनों जरूरी हैं।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b35",
+    "",
+    0.0
+   ],
+   "x": 2750,
+   "y": 540,
+   "zoom": 0.9,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b35",
+    "Aadhaar-biometric"
+   ],
+   "x": 2510,
+   "y": 570,
+   "zoom": 1.12,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b35",
+    "AEPS"
+   ],
+   "x": 2820,
+   "y": 530,
+   "zoom": 0.9,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b36",
+    "branch"
+   ],
+   "x": 2690,
+   "y": 540,
+   "zoom": 0.86,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b36",
+    "counter"
+   ],
+   "x": 2810,
+   "y": 550,
+   "zoom": 0.94,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b37",
+    "grassroots"
+   ],
+   "x": 2820,
+   "y": 530,
+   "zoom": 0.9,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b37",
+    "व्यक्ति"
+   ],
+   "x": 2710,
+   "y": 560,
+   "zoom": 0.98,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b38",
+    "eligibility"
+   ],
+   "x": 2870,
+   "y": 520,
+   "zoom": 0.95,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b39",
+    "benefit"
+   ],
+   "x": 2770,
+   "y": 540,
+   "zoom": 0.88,
+   "frames": 45
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

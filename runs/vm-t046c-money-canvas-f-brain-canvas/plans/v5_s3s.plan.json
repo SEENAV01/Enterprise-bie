@@ -1,0 +1,687 @@
+{
+ "id": "v5_s3s",
+ "part_id": "c12.3",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b11",
+   "say": "Claims बढ़ें, gold नहीं, तो? मान लो US buyer ने French machinery के US$350 दिए। French authority ने banks से ये Dollars लिए; पहले US$350 थे, अब US$700 हैं।"
+  },
+  {
+   "beat_id": "b12",
+   "say": "US के पास 10 troy ounces ही हैं, लेकिन पूरे claims चुकाने को 20 चाहिए। Authority US$350 बदलकर 10 ounces ले जाए, तो US का gold खत्म होगा, US$350 का दावा फिर भी बचेगा।"
+  },
+  {
+   "beat_id": "b13",
+   "say": "1960s में US ने Vietnam War और welfare programs पर खूब खर्च किया। बाहर Dollars बढ़े, gold कम पड़ा; जैसे रसीदें ज्यादा, पीछे माल कम। इसलिए France ने gold माँगा।"
+  },
+  {
+   "beat_id": "b14",
+   "say": "Trade बढ़े तो? मान लो French authority को अब US$700 चाहिए; पहले US$350 थे। उसने export payments के US$350 और लिए। Gold 10 troy ounces रहा, पूरे conversion को 20 चाहिए।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "anchor",
+   "kind": "text",
+   "cell": [
+    0,
+    0,
+    12,
+    1
+   ],
+   "cue": [
+    "b11",
+    "Claims"
+   ],
+   "text": "Claims बढ़ें, gold नहीं, तो?",
+   "style": "title",
+   "tone": "ink",
+   "fill": "paper",
+   "align": "center",
+   "size": 36
+  },
+  {
+   "id": "hypothesis",
+   "kind": "text",
+   "cell": [
+    0,
+    1,
+    3,
+    1
+   ],
+   "cue": [
+    "b11",
+    "मान"
+   ],
+   "until_cue": [
+    "b13",
+    "1960s"
+   ],
+   "text": "मान लो",
+   "style": "note",
+   "tone": "muted",
+   "fill": "paper",
+   "align": "left",
+   "size": 24
+  },
+  {
+   "id": "buyer",
+   "kind": "crowd",
+   "cell": [
+    0,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b11",
+    "buyer"
+   ],
+   "until_cue": [
+    "b13",
+    "1960s"
+   ],
+   "tone": "accent",
+   "icon": "tw:1f471",
+   "size": 32,
+   "cols": 1,
+   "steps": [
+    {
+     "cue": [
+      "b11",
+      "buyer"
+     ],
+     "n": 1
+    }
+   ]
+  },
+  {
+   "id": "machinery",
+   "kind": "icon",
+   "cell": [
+    4,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b11",
+    "machinery"
+   ],
+   "until_cue": [
+    "b13",
+    "1960s"
+   ],
+   "tone": "ink",
+   "icon": "tw:1f3ed",
+   "size": 32
+  },
+  {
+   "id": "payment",
+   "kind": "arrow",
+   "cue": [
+    "b11",
+    "दिए।"
+   ],
+   "until_cue": [
+    "b12",
+    "US"
+   ],
+   "tone": "accent",
+   "from": "buyer",
+   "to": "machinery",
+   "from_side": "r",
+   "to_side": "l",
+   "elbow": "hv",
+   "flow": {
+    "icon": "tw:1f4b0",
+    "count": 1,
+    "period": 100,
+    "size": 28,
+    "cue": [
+     "b11",
+     "दिए।"
+    ]
+   }
+  },
+  {
+   "id": "paid",
+   "kind": "text",
+   "cell": [
+    0,
+    4,
+    6,
+    1
+   ],
+   "cue": [
+    "b11",
+    "US$350"
+   ],
+   "until_cue": [
+    "b12",
+    "US"
+   ],
+   "text": "French machinery के US$350 दिए।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "paper",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "france",
+   "kind": "icon",
+   "cell": [
+    10,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b11",
+    "authority"
+   ],
+   "until_cue": [
+    "b13",
+    "1960s"
+   ],
+   "tone": "accent",
+   "icon": "fa:solid/building-columns",
+   "size": 32
+  },
+  {
+   "id": "banks",
+   "kind": "icon",
+   "cell": [
+    7,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b11",
+    "banks"
+   ],
+   "until_cue": [
+    "b13",
+    "1960s"
+   ],
+   "tone": "ink",
+   "icon": "tw:1f3e6",
+   "size": 32
+  },
+  {
+   "id": "acquisition",
+   "kind": "arrow",
+   "cue": [
+    "b11",
+    "Dollars"
+   ],
+   "until_cue": [
+    "b12",
+    "US"
+   ],
+   "tone": "accent",
+   "from": "banks",
+   "to": "france",
+   "from_side": "r",
+   "to_side": "l",
+   "elbow": "hv",
+   "flow": {
+    "icon": "tw:1f4b0",
+    "count": 1,
+    "period": 100,
+    "size": 28,
+    "cue": [
+     "b11",
+     "Dollars"
+    ]
+   }
+  },
+  {
+   "id": "claims",
+   "kind": "value",
+   "cell": [
+    6,
+    4,
+    6,
+    1
+   ],
+   "cue": [
+    "b11",
+    "पहले"
+   ],
+   "until_cue": [
+    "b13",
+    "1960s"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "size": 28,
+   "steps": [
+    {
+     "cue": [
+      "b11",
+      "पहले"
+     ],
+     "text": "पहले US$350 थे,"
+    },
+    {
+     "cue": [
+      "b11",
+      "US$700"
+     ],
+     "text": "अब US$700 हैं।",
+     "dir": "up"
+    },
+    {
+     "cue": [
+      "b12",
+      "बचेगा।"
+     ],
+     "text": "US$350 का दावा फिर भी बचेगा।",
+     "dir": "down"
+    }
+   ]
+  },
+  {
+   "id": "gold",
+   "kind": "value",
+   "cell": [
+    0,
+    5,
+    6,
+    1
+   ],
+   "cue": [
+    "b12",
+    "10"
+   ],
+   "until_cue": [
+    "b13",
+    "1960s"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "size": 28,
+   "steps": [
+    {
+     "cue": [
+      "b12",
+      "10"
+     ],
+     "text": "US के पास 10 troy ounces हैं।"
+    },
+    {
+     "cue": [
+      "b12",
+      "खत्म"
+     ],
+     "text": "US का gold खत्म होगा।",
+     "dir": "down"
+    }
+   ]
+  },
+  {
+   "id": "required",
+   "kind": "text",
+   "cell": [
+    6,
+    5,
+    6,
+    1
+   ],
+   "cue": [
+    "b12",
+    "20"
+   ],
+   "until_cue": [
+    "b13",
+    "1960s"
+   ],
+   "text": "पूरे claims चुकाने को 20 चाहिए।",
+   "style": "box",
+   "tone": "danger",
+   "fill": "paper",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "redemption",
+   "kind": "text",
+   "cell": [
+    0,
+    6,
+    12,
+    1
+   ],
+   "cue": [
+    "b12",
+    "बदलकर"
+   ],
+   "until_cue": [
+    "b13",
+    "1960s"
+   ],
+   "text": "Authority US$350 बदलकर 10 ounces ले जाए।",
+   "style": "box",
+   "tone": "warm",
+   "fill": "paper",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "history",
+   "kind": "text",
+   "cell": [
+    0,
+    2,
+    12,
+    2
+   ],
+   "cue": [
+    "b13",
+    "1960s"
+   ],
+   "until_cue": [
+    "b14",
+    "Trade"
+   ],
+   "text": "1960s में Vietnam War और welfare programs पर खूब खर्च किया।",
+   "style": "box",
+   "tone": "ink",
+   "fill": "paper",
+   "align": "center",
+   "size": 32
+  },
+  {
+   "id": "imbalance",
+   "kind": "callout",
+   "cell": [
+    0,
+    4,
+    6,
+    2
+   ],
+   "cue": [
+    "b13",
+    "बढ़े,"
+   ],
+   "until_cue": [
+    "b14",
+    "Trade"
+   ],
+   "text": "बाहर Dollars बढ़े, gold कम पड़ा।",
+   "style": "note",
+   "tone": "danger",
+   "fill": "paper",
+   "align": "center",
+   "size": 30,
+   "marks": [
+    {
+     "phrase": "gold कम पड़ा।",
+     "cue": [
+      "b13",
+      "कम"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "demand",
+   "kind": "text",
+   "cell": [
+    6,
+    4,
+    6,
+    2
+   ],
+   "cue": [
+    "b13",
+    "France"
+   ],
+   "until_cue": [
+    "b14",
+    "Trade"
+   ],
+   "text": "France ने gold माँगा।",
+   "style": "box",
+   "tone": "warm",
+   "fill": "paper",
+   "align": "center",
+   "size": 32
+  },
+  {
+   "id": "trade",
+   "kind": "text",
+   "cell": [
+    0,
+    2,
+    4,
+    1
+   ],
+   "cue": [
+    "b14",
+    "Trade"
+   ],
+   "text": "Trade बढ़े तो?",
+   "style": "box",
+   "tone": "accent",
+   "fill": "paper",
+   "align": "center",
+   "size": 32
+  },
+  {
+   "id": "buffer",
+   "kind": "text",
+   "cell": [
+    4,
+    2,
+    8,
+    1
+   ],
+   "cue": [
+    "b14",
+    "US$700"
+   ],
+   "text": "French authority को अब US$700 चाहिए।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "paper",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "additional",
+   "kind": "value",
+   "cell": [
+    0,
+    3,
+    12,
+    1
+   ],
+   "cue": [
+    "b14",
+    "पहले"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "size": 30,
+   "steps": [
+    {
+     "cue": [
+      "b14",
+      "पहले"
+     ],
+     "text": "पहले US$350 थे।"
+    },
+    {
+     "cue": [
+      "b14",
+      "और"
+     ],
+     "text": "Export payments के US$350 और लिए।",
+     "dir": "up"
+    }
+   ]
+  },
+  {
+   "id": "unchanged",
+   "kind": "text",
+   "cell": [
+    0,
+    5,
+    6,
+    1
+   ],
+   "cue": [
+    "b14",
+    "10"
+   ],
+   "text": "Gold 10 troy ounces रहा।",
+   "style": "box",
+   "tone": "warm",
+   "fill": "paper",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "full",
+   "kind": "text",
+   "cell": [
+    6,
+    5,
+    6,
+    1
+   ],
+   "cue": [
+    "b14",
+    "20"
+   ],
+   "text": "पूरे conversion को 20 चाहिए।",
+   "style": "box",
+   "tone": "danger",
+   "fill": "paper",
+   "align": "center",
+   "size": 30
+  }
+ ],
+ "camera": [
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b11",
+    "Claims"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    4,
+    12,
+    3
+   ],
+   "cue": [
+    "b12",
+    "लेकिन"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b13",
+    "1960s"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b14",
+    "Trade"
+   ]
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b11",
+    "Dollars"
+   ],
+   "ids": [
+    "anchor",
+    "banks",
+    "france",
+    "acquisition",
+    "claims"
+   ],
+   "until_cue": [
+    "b12",
+    "US"
+   ]
+  },
+  {
+   "cue": [
+    "b12",
+    "खत्म"
+   ],
+   "ids": [
+    "anchor",
+    "gold",
+    "claims",
+    "redemption"
+   ],
+   "until_cue": [
+    "b13",
+    "1960s"
+   ]
+  },
+  {
+   "cue": [
+    "b13",
+    "रसीदें"
+   ],
+   "ids": [
+    "anchor",
+    "imbalance"
+   ],
+   "until_cue": [
+    "b13",
+    "France"
+   ]
+  },
+  {
+   "cue": [
+    "b14",
+    "20"
+   ],
+   "ids": [
+    "anchor",
+    "buffer",
+    "unchanged",
+    "full"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

@@ -1,0 +1,88 @@
+{
+ "id": "v2_s5a",
+ "part_id": "c04.1",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b24",
+   "say": "Wheat–cloth के बीच पैसा आया? नहीं; पहला पड़ाव barter है। Evolution of Money यानी भुगतान के तरीकों में बदलाव।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "direct_exchange",
+   "kind": "text",
+   "cell": [
+    1,
+    2,
+    10,
+    2
+   ],
+   "cue": [
+    "b24",
+    "Wheat–cloth"
+   ],
+   "text": "Wheat–cloth के बीच पैसा आया?",
+   "style": "box",
+   "tone": "ink",
+   "fill": "band",
+   "align": "center",
+   "size": 36
+  },
+  {
+   "id": "barter_answer",
+   "kind": "text",
+   "cell": [
+    2,
+    4,
+    8,
+    1
+   ],
+   "cue": [
+    "b24",
+    "barter"
+   ],
+   "text": "नहीं; पहला पड़ाव barter है।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "band",
+   "align": "center",
+   "size": 32
+  },
+  {
+   "id": "evolution_meaning",
+   "kind": "callout",
+   "cell": [
+    1,
+    6,
+    10,
+    1
+   ],
+   "cue": [
+    "b24",
+    "Evolution"
+   ],
+   "text": "Evolution of Money यानी भुगतान के तरीकों में बदलाव।",
+   "style": "note",
+   "tone": "ink",
+   "fill": "note",
+   "align": "center",
+   "size": 28,
+   "marks": [
+    {
+     "phrase": "भुगतान के तरीकों में बदलाव",
+     "cue": [
+      "b24",
+      "भुगतान"
+     ]
+    }
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

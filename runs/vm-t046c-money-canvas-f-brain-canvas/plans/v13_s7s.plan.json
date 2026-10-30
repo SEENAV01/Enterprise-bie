@@ -1,0 +1,195 @@
+{
+ "id": "v13_s7s",
+ "part_id": "c31.3",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b37",
+   "say": "सरकार fund करती है, beneficiary voucher लाता है, authorised centre सेवा देता है; ₹1,000 hypothetical रकम है, universal limit नहीं।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "government",
+   "kind": "icon",
+   "cell": [
+    0,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b37",
+    "सरकार"
+   ],
+   "tone": "ink",
+   "icon": "fa:solid/building-columns"
+  },
+  {
+   "id": "government_role",
+   "kind": "text",
+   "cell": [
+    0,
+    4,
+    3,
+    1
+   ],
+   "cue": [
+    "b37",
+    "fund"
+   ],
+   "text": "सरकार fund करती है।",
+   "style": "plain",
+   "tone": "ink",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "beneficiary",
+   "kind": "crowd",
+   "cell": [
+    5,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b37",
+    "beneficiary"
+   ],
+   "tone": "accent",
+   "icon": "tw:1f471",
+   "cols": 1,
+   "steps": [
+    {
+     "cue": [
+      "b37",
+      "beneficiary"
+     ],
+     "n": 1
+    }
+   ]
+  },
+  {
+   "id": "beneficiary_role",
+   "kind": "text",
+   "cell": [
+    4,
+    4,
+    4,
+    1
+   ],
+   "cue": [
+    "b37",
+    "voucher"
+   ],
+   "text": "beneficiary voucher लाता है।",
+   "style": "plain",
+   "tone": "ink",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "centre",
+   "kind": "icon",
+   "cell": [
+    10,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b37",
+    "authorised"
+   ],
+   "tone": "ink",
+   "icon": "tw:1f3e5"
+  },
+  {
+   "id": "voucher_flow",
+   "kind": "arrow",
+   "cue": [
+    "b37",
+    "centre"
+   ],
+   "tone": "accent",
+   "from": "beneficiary",
+   "to": "centre",
+   "from_side": "r",
+   "to_side": "l",
+   "elbow": "hv",
+   "flow": {
+    "icon": "tw:1f9fe",
+    "count": 1,
+    "period": 2200,
+    "size": 28,
+    "cue": [
+     "b37",
+     "centre"
+    ]
+   }
+  },
+  {
+   "id": "centre_role",
+   "kind": "text",
+   "cell": [
+    9,
+    4,
+    3,
+    2
+   ],
+   "cue": [
+    "b37",
+    "सेवा"
+   ],
+   "text": "authorised centre सेवा देता है।",
+   "style": "plain",
+   "tone": "ink",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "amount_note",
+   "kind": "value",
+   "cell": [
+    1,
+    6,
+    10,
+    1
+   ],
+   "cue": [
+    "b37",
+    "₹1,000"
+   ],
+   "tone": "note",
+   "align": "center",
+   "size": 30,
+   "steps": [
+    {
+     "cue": [
+      "b37",
+      "₹1,000"
+     ],
+     "text": "₹1,000 hypothetical रकम है, universal limit नहीं।"
+    }
+   ]
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b37",
+    "hypothetical"
+   ],
+   "ids": [
+    "amount_note"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

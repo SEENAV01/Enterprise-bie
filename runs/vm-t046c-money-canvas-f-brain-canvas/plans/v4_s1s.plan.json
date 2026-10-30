@@ -1,0 +1,193 @@
+{
+ "id": "v4_s1s",
+ "part_id": "c09.1",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b2",
+   "say": "पुराने hypothetical bank में 1 note लौटाएँ तो? Bank उसे लेकर 1 gram gold देता है; आपके हाथ में अब gold है। आज का rupee ऐसा नहीं।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank",
+   "kind": "bank",
+   "x": 2600,
+   "y": 860,
+   "sign": "Bank",
+   "cue": [
+    "b2",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "teller",
+   "kind": "teller",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b2",
+    "bank"
+   ]
+  },
+  {
+   "id": "hypothetical_note",
+   "kind": "label",
+   "x": 2600,
+   "y": 250,
+   "text": "Bank hypothetical है।",
+   "fill": "rgba(247,239,216,1)",
+   "cue": [
+    "b2",
+    "hypothetical"
+   ]
+  },
+  {
+   "id": "customer",
+   "kind": "crowd",
+   "x0": 2330,
+   "spacing": 100,
+   "enter_x": 1950,
+   "exit_x": 1950,
+   "face": 1,
+   "seed": 12,
+   "cue": [
+    "b2",
+    "note"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b2",
+      "note"
+     ],
+     "n": 1
+    }
+   ]
+  },
+  {
+   "id": "return_note",
+   "kind": "board",
+   "x": 2070,
+   "y": 560,
+   "fill": "#E8DCC5",
+   "cue": [
+    "b2",
+    "लौटाएँ"
+   ],
+   "until_cue": [
+    "b2",
+    "gold"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b2",
+      "लौटाएँ"
+     ],
+     "text": "1 note लौटाएँ।"
+    }
+   ]
+  },
+  {
+   "id": "receive_gold",
+   "kind": "board",
+   "x": 3090,
+   "y": 540,
+   "fill": "#E9D58E",
+   "cue": [
+    "b2",
+    "gold"
+   ],
+   "until_cue": [
+    "b2",
+    "आज"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b2",
+      "gold"
+     ],
+     "text": "Bank 1 gram gold देता है।"
+    }
+   ]
+  },
+  {
+   "id": "modern_contrast",
+   "kind": "board",
+   "x": 3090,
+   "y": 540,
+   "fill": "#DDE9E6",
+   "cue": [
+    "b2",
+    "rupee"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b2",
+      "rupee"
+     ],
+     "text": "आज का rupee ऐसा नहीं।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b2",
+    "",
+    0.0
+   ],
+   "x": 2570,
+   "y": 520,
+   "zoom": 0.9,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b2",
+    "लौटाएँ"
+   ],
+   "x": 2430,
+   "y": 550,
+   "zoom": 1.05,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b2",
+    "gold"
+   ],
+   "x": 2720,
+   "y": 530,
+   "zoom": 1.05,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b2",
+    "हाथ"
+   ],
+   "x": 2570,
+   "y": 550,
+   "zoom": 1,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b2",
+    "rupee"
+   ],
+   "x": 2720,
+   "y": 520,
+   "zoom": 1.05,
+   "frames": 30
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

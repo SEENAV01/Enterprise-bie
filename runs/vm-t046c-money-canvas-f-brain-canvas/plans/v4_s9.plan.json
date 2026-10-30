@@ -1,0 +1,263 @@
+{
+ "id": "v4_s9",
+ "part_id": "c11.4",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b54",
+   "say": "₹100 silver commemorative coin पर collector कई हज़ार क्यों दे? वही coin payment और collection में अलग role निभाता है।"
+  },
+  {
+   "beat_id": "b55",
+   "say": "Payment में ₹100; collector sale में कई हज़ार संभव। Face value और market price अलग हैं।"
+  },
+  {
+   "beat_id": "b56",
+   "say": "Collector silver, condition और collectability के लिए ज़्यादा देता है; denomination नहीं बदलती।"
+  },
+  {
+   "beat_id": "b57",
+   "say": "Collector price debt-settlement amount या compulsory coin-payment limit नहीं है।"
+  },
+  {
+   "beat_id": "b58",
+   "say": "Payment में denomination, collection में agreed price याद रखिए।"
+  }
+ ],
+ "kit": "shop",
+ "elements": [
+  {
+   "id": "collector_shop",
+   "kind": "shop",
+   "x": 2600,
+   "y": 860,
+   "sign": "collector",
+   "cue": [
+    "b54",
+    "collector"
+   ]
+  },
+  {
+   "id": "seller",
+   "kind": "shopkeeper",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b54",
+    "collector"
+   ]
+  },
+  {
+   "id": "role_board",
+   "kind": "board",
+   "x": 2600,
+   "y": 380,
+   "fill": "#F3E8CE",
+   "cue": [
+    "b54",
+    "role"
+   ],
+   "until_cue": [
+    "b58",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b54",
+      "role"
+     ],
+     "text": "वही coin अलग role निभाता है।"
+    },
+    {
+     "cue": [
+      "b55",
+      "Face"
+     ],
+     "text": "Face value और market price अलग हैं।"
+    },
+    {
+     "cue": [
+      "b56",
+      "denomination"
+     ],
+     "text": "denomination नहीं बदलती।"
+    },
+    {
+     "cue": [
+      "b57",
+      "debt-settlement"
+     ],
+     "text": "Collector price debt-settlement amount\nया compulsory coin-payment limit\nनहीं है।"
+    }
+   ]
+  },
+  {
+   "id": "payment_tag",
+   "kind": "price_tag",
+   "x": 2260,
+   "y": 570,
+   "string": 65,
+   "cue": [
+    "b55",
+    "₹100;"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b55",
+      "₹100;"
+     ],
+     "text": "₹100"
+    }
+   ]
+  },
+  {
+   "id": "payment_panel",
+   "kind": "board",
+   "x": 2040,
+   "y": 390,
+   "fill": "#E2EEE8",
+   "cue": [
+    "b55",
+    "₹100;"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b55",
+      "₹100;"
+     ],
+     "text": "Payment में ₹100।"
+    },
+    {
+     "cue": [
+      "b58",
+      "denomination,"
+     ],
+     "text": "Payment में denomination याद रखिए।"
+    }
+   ]
+  },
+  {
+   "id": "collection_panel",
+   "kind": "board",
+   "x": 3160,
+   "y": 390,
+   "fill": "#F3E5D8",
+   "cue": [
+    "b55",
+    "हज़ार"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b55",
+      "हज़ार"
+     ],
+     "text": "collector sale में कई हज़ार संभव।"
+    },
+    {
+     "cue": [
+      "b56",
+      "collectability"
+     ],
+     "text": "Collector silver, condition और\ncollectability के लिए ज़्यादा देता है।"
+    },
+    {
+     "cue": [
+      "b58",
+      "agreed"
+     ],
+     "text": "collection में agreed price याद रखिए।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b54",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 480,
+   "zoom": 0.85,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b54",
+    "payment"
+   ],
+   "x": 2600,
+   "y": 440,
+   "zoom": 0.95,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b55",
+    "₹100;"
+   ],
+   "x": 2430,
+   "y": 450,
+   "zoom": 0.95,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b55",
+    "Face"
+   ],
+   "x": 2600,
+   "y": 440,
+   "zoom": 0.85,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b56",
+    "silver,"
+   ],
+   "x": 2820,
+   "y": 440,
+   "zoom": 0.95,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b57",
+    "Collector"
+   ],
+   "x": 2600,
+   "y": 410,
+   "zoom": 0.9,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b57",
+    "compulsory"
+   ],
+   "x": 2600,
+   "y": 400,
+   "zoom": 1,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b58",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 450,
+   "zoom": 0.85,
+   "frames": 40
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

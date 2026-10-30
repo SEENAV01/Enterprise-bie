@@ -1,0 +1,783 @@
+{
+ "id": "v5_s2",
+ "part_id": "c12.2",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b3",
+   "say": "French authority Dollars देकर क्या पाएगी? मान लो उसने US$350 के claims सौंपे और बदले में 10 troy ounces gold लिया।"
+  },
+  {
+   "beat_id": "b4",
+   "say": "यही fixed gold convertibility है: यानी US$35 देकर 1 troy ounce gold लेना। वादा खासकर foreign central banks के लिए था, आम ग्राहक के लिए नहीं।"
+  },
+  {
+   "beat_id": "b5",
+   "say": "Machinery bill कैसे भरें? मान लो French importer ने bank को local payment दिया। Authority ने अपने US$700 में से US$350 दिए; bank ने exporter को चुकाए, authority के US$350 बचे।"
+  },
+  {
+   "beat_id": "b6",
+   "say": "Dollar world's reserve currency बना: यानी authorities विदेश के bills भरने लायक assets Dollar में रखती थीं।"
+  },
+  {
+   "beat_id": "b7",
+   "say": "Troy ounce gold तौलने की unit है, करीब 31.1 grams; 10 ऐसे ounces करीब 311 grams हैं।"
+  },
+  {
+   "beat_id": "b8",
+   "say": "US$35 historical rate है; French transactions teaching examples हैं। Diagram में बीच की जगह और trade की जरूरत Dollar का central role दिखाते हैं।"
+  },
+  {
+   "beat_id": "b9",
+   "say": "Gold मिलने का भरोसा confidence देता था; बढ़ते trade को payment balances चाहिए थे। Reserve stock है, payment flow है।"
+  },
+  {
+   "beat_id": "b10",
+   "say": "US$350 को US$35 per troy ounce से बाँटें तो 10 troy ounces मिलते हैं। Import payment में gold नहीं मिलता।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "dollar_anchor",
+   "kind": "text",
+   "cell": [
+    4,
+    0,
+    4,
+    1
+   ],
+   "cue": [
+    "b3",
+    "Dollars"
+   ],
+   "text": "Dollars देकर क्या पाएगी?",
+   "style": "box",
+   "tone": "accent",
+   "fill": "band",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "french_authority",
+   "kind": "icon",
+   "cell": [
+    0,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b3",
+    "French"
+   ],
+   "until_cue": [
+    "b5",
+    "Machinery"
+   ],
+   "tone": "accent",
+   "icon": "fa:solid/building-columns"
+  },
+  {
+   "id": "us_authority",
+   "kind": "icon",
+   "cell": [
+    10,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b3",
+    "देकर"
+   ],
+   "until_cue": [
+    "b5",
+    "Machinery"
+   ],
+   "tone": "muted",
+   "icon": "fa:solid/building-columns"
+  },
+  {
+   "id": "claims",
+   "kind": "text",
+   "cell": [
+    3,
+    1,
+    6,
+    1
+   ],
+   "cue": [
+    "b3",
+    "US$350"
+   ],
+   "until_cue": [
+    "b5",
+    "Machinery"
+   ],
+   "text": "US$350 के claims सौंपे।",
+   "style": "box",
+   "tone": "accent",
+   "size": 28
+  },
+  {
+   "id": "claims_flow",
+   "kind": "arrow",
+   "cue": [
+    "b3",
+    "सौंपे"
+   ],
+   "until_cue": [
+    "b5",
+    "Machinery"
+   ],
+   "tone": "accent",
+   "from": "french_authority",
+   "to": "us_authority",
+   "from_side": "r",
+   "to_side": "l",
+   "elbow": "hv",
+   "flow": {
+    "icon": "tw:1f9fe",
+    "count": 1,
+    "period": 2400,
+    "size": 28,
+    "cue": [
+     "b3",
+     "सौंपे"
+    ]
+   }
+  },
+  {
+   "id": "gold_received",
+   "kind": "text",
+   "cell": [
+    3,
+    4,
+    6,
+    1
+   ],
+   "cue": [
+    "b3",
+    "10"
+   ],
+   "until_cue": [
+    "b5",
+    "Machinery"
+   ],
+   "text": "10 troy ounces gold लिया।",
+   "style": "box",
+   "tone": "warm",
+   "size": 28
+  },
+  {
+   "id": "gold_flow",
+   "kind": "arrow",
+   "cue": [
+    "b3",
+    "gold"
+   ],
+   "until_cue": [
+    "b5",
+    "Machinery"
+   ],
+   "tone": "warm",
+   "from": "us_authority",
+   "to": "french_authority",
+   "from_side": "b",
+   "to_side": "b",
+   "elbow": "vhv",
+   "flow": {
+    "icon": "fa:solid/coins",
+    "count": 1,
+    "period": 2600,
+    "size": 28,
+    "cue": [
+     "b3",
+     "gold"
+    ]
+   }
+  },
+  {
+   "id": "fixed_rate",
+   "kind": "callout",
+   "cell": [
+    0,
+    5,
+    7,
+    1
+   ],
+   "cue": [
+    "b4",
+    "US$35"
+   ],
+   "until_cue": [
+    "b5",
+    "Machinery"
+   ],
+   "text": "US$35 देकर 1 troy ounce gold लेना।",
+   "style": "note",
+   "tone": "warm",
+   "size": 28
+  },
+  {
+   "id": "eligibility",
+   "kind": "text",
+   "cell": [
+    7,
+    5,
+    5,
+    2
+   ],
+   "cue": [
+    "b4",
+    "foreign"
+   ],
+   "until_cue": [
+    "b5",
+    "Machinery"
+   ],
+   "text": "वादा खासकर foreign central banks के लिए था।",
+   "style": "box",
+   "tone": "accent",
+   "size": 26
+  },
+  {
+   "id": "not_retail",
+   "kind": "text",
+   "cell": [
+    0,
+    6,
+    7,
+    1
+   ],
+   "cue": [
+    "b4",
+    "ग्राहक"
+   ],
+   "until_cue": [
+    "b5",
+    "Machinery"
+   ],
+   "text": "आम ग्राहक के लिए नहीं।",
+   "style": "plain",
+   "tone": "muted",
+   "size": 26
+  },
+  {
+   "id": "importer",
+   "kind": "icon",
+   "cell": [
+    0,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b5",
+    "importer"
+   ],
+   "until_cue": [
+    "b7",
+    "Troy"
+   ],
+   "tone": "ink",
+   "icon": "fa:solid/shop"
+  },
+  {
+   "id": "bank",
+   "kind": "icon",
+   "cell": [
+    5,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b5",
+    "bank"
+   ],
+   "until_cue": [
+    "b7",
+    "Troy"
+   ],
+   "tone": "accent",
+   "icon": "tw:1f3e6"
+  },
+  {
+   "id": "local_payment",
+   "kind": "arrow",
+   "cue": [
+    "b5",
+    "local"
+   ],
+   "until_cue": [
+    "b7",
+    "Troy"
+   ],
+   "tone": "muted",
+   "from": "importer",
+   "to": "bank",
+   "from_side": "r",
+   "to_side": "l",
+   "elbow": "hv",
+   "flow": {
+    "icon": "tw:1f4b0",
+    "count": 1,
+    "period": 2500,
+    "size": 26,
+    "cue": [
+     "b5",
+     "payment"
+    ]
+   }
+  },
+  {
+   "id": "reserve_value",
+   "kind": "value",
+   "cell": [
+    0,
+    4,
+    5,
+    1
+   ],
+   "cue": [
+    "b5",
+    "US$700"
+   ],
+   "until_cue": [
+    "b7",
+    "Troy"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "size": 30,
+   "steps": [
+    {
+     "cue": [
+      "b5",
+      "US$700"
+     ],
+     "text": "अपने US$700 में से"
+    },
+    {
+     "cue": [
+      "b5",
+      "बचे।"
+     ],
+     "text": "Authority के US$350 बचे।",
+     "dir": "down"
+    }
+   ]
+  },
+  {
+   "id": "exporter",
+   "kind": "icon",
+   "cell": [
+    10,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b5",
+    "exporter"
+   ],
+   "until_cue": [
+    "b7",
+    "Troy"
+   ],
+   "tone": "ink",
+   "icon": "tw:1f3ed"
+  },
+  {
+   "id": "export_payment",
+   "kind": "arrow",
+   "cue": [
+    "b5",
+    "चुकाए,"
+   ],
+   "until_cue": [
+    "b7",
+    "Troy"
+   ],
+   "tone": "accent",
+   "from": "bank",
+   "to": "exporter",
+   "from_side": "r",
+   "to_side": "l",
+   "elbow": "hv",
+   "flow": {
+    "icon": "tw:1f4b5",
+    "count": 1,
+    "period": 2200,
+    "size": 26,
+    "cue": [
+     "b5",
+     "चुकाए,"
+    ]
+   }
+  },
+  {
+   "id": "reserve_currency",
+   "kind": "callout",
+   "cell": [
+    0,
+    5,
+    12,
+    1
+   ],
+   "cue": [
+    "b6",
+    "reserve"
+   ],
+   "until_cue": [
+    "b7",
+    "Troy"
+   ],
+   "text": "Dollar world's reserve currency बना।",
+   "style": "note",
+   "tone": "accent",
+   "size": 30
+  },
+  {
+   "id": "reserve_meaning",
+   "kind": "text",
+   "cell": [
+    0,
+    6,
+    12,
+    1
+   ],
+   "cue": [
+    "b6",
+    "assets"
+   ],
+   "until_cue": [
+    "b7",
+    "Troy"
+   ],
+   "text": "विदेश के bills भरने लायक assets Dollar में रखती थीं।",
+   "style": "box",
+   "tone": "ink",
+   "size": 28
+  },
+  {
+   "id": "troy_unit",
+   "kind": "text",
+   "cell": [
+    0,
+    2,
+    12,
+    1
+   ],
+   "cue": [
+    "b7",
+    "unit"
+   ],
+   "until_cue": [
+    "b8",
+    "US$35"
+   ],
+   "text": "Troy ounce gold तौलने की unit है।",
+   "style": "box",
+   "tone": "warm",
+   "size": 30
+  },
+  {
+   "id": "gram_unit",
+   "kind": "text",
+   "cell": [
+    0,
+    4,
+    5,
+    2
+   ],
+   "cue": [
+    "b7",
+    "31.1"
+   ],
+   "until_cue": [
+    "b8",
+    "US$35"
+   ],
+   "text": "Troy ounce करीब 31.1 grams है।",
+   "style": "box",
+   "tone": "warm",
+   "size": 28
+  },
+  {
+   "id": "gram_total",
+   "kind": "text",
+   "cell": [
+    6,
+    4,
+    6,
+    2
+   ],
+   "cue": [
+    "b7",
+    "311"
+   ],
+   "until_cue": [
+    "b8",
+    "US$35"
+   ],
+   "text": "10 ऐसे ounces करीब 311 grams हैं।",
+   "style": "box",
+   "tone": "warm",
+   "size": 28
+  },
+  {
+   "id": "historical_rate",
+   "kind": "text",
+   "cell": [
+    0,
+    2,
+    5,
+    1
+   ],
+   "cue": [
+    "b8",
+    "historical"
+   ],
+   "until_cue": [
+    "b9",
+    "Gold"
+   ],
+   "text": "US$35 historical rate है।",
+   "style": "box",
+   "tone": "warm",
+   "size": 28
+  },
+  {
+   "id": "example_caveat",
+   "kind": "text",
+   "cell": [
+    6,
+    2,
+    6,
+    2
+   ],
+   "cue": [
+    "b8",
+    "teaching"
+   ],
+   "until_cue": [
+    "b9",
+    "Gold"
+   ],
+   "text": "French transactions teaching examples हैं।",
+   "style": "note",
+   "tone": "muted",
+   "size": 26
+  },
+  {
+   "id": "central_role",
+   "kind": "text",
+   "cell": [
+    2,
+    5,
+    8,
+    1
+   ],
+   "cue": [
+    "b8",
+    "central"
+   ],
+   "until_cue": [
+    "b9",
+    "Gold"
+   ],
+   "text": "Trade की जरूरत Dollar का central role दिखाती है।",
+   "style": "box",
+   "tone": "accent",
+   "size": 28
+  },
+  {
+   "id": "confidence",
+   "kind": "text",
+   "cell": [
+    0,
+    2,
+    6,
+    2
+   ],
+   "cue": [
+    "b9",
+    "confidence"
+   ],
+   "until_cue": [
+    "b10",
+    "US$350"
+   ],
+   "text": "Gold मिलने का भरोसा confidence देता था।",
+   "style": "box",
+   "tone": "warm",
+   "size": 28
+  },
+  {
+   "id": "trade_balances",
+   "kind": "text",
+   "cell": [
+    6,
+    2,
+    6,
+    2
+   ],
+   "cue": [
+    "b9",
+    "balances"
+   ],
+   "until_cue": [
+    "b10",
+    "US$350"
+   ],
+   "text": "बढ़ते trade को payment balances चाहिए थे।",
+   "style": "box",
+   "tone": "accent",
+   "size": 28
+  },
+  {
+   "id": "stock_flow",
+   "kind": "callout",
+   "cell": [
+    1,
+    5,
+    10,
+    1
+   ],
+   "cue": [
+    "b9",
+    "stock"
+   ],
+   "until_cue": [
+    "b10",
+    "US$350"
+   ],
+   "text": "Reserve stock है, payment flow है।",
+   "style": "note",
+   "tone": "accent",
+   "size": 30,
+   "marks": [
+    {
+     "phrase": "payment flow",
+     "cue": [
+      "b9",
+      "flow"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "division",
+   "kind": "text",
+   "cell": [
+    0,
+    2,
+    12,
+    2
+   ],
+   "cue": [
+    "b10",
+    "बाँटें"
+   ],
+   "text": "US$350 को US$35 per troy ounce से बाँटें।",
+   "style": "box",
+   "tone": "accent",
+   "size": 30
+  },
+  {
+   "id": "conversion_result",
+   "kind": "text",
+   "cell": [
+    0,
+    4,
+    6,
+    2
+   ],
+   "cue": [
+    "b10",
+    "10"
+   ],
+   "text": "10 troy ounces मिलते हैं।",
+   "style": "box",
+   "tone": "warm",
+   "size": 30
+  },
+  {
+   "id": "import_distinction",
+   "kind": "callout",
+   "cell": [
+    6,
+    4,
+    6,
+    2
+   ],
+   "cue": [
+    "b10",
+    "नहीं"
+   ],
+   "text": "Import payment में gold नहीं मिलता।",
+   "style": "note",
+   "tone": "accent",
+   "size": 28
+  }
+ ],
+ "camera": [
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b3",
+    "French"
+   ]
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b4",
+    "foreign"
+   ],
+   "ids": [
+    "dollar_anchor",
+    "fixed_rate",
+    "eligibility",
+    "not_retail"
+   ],
+   "until_cue": [
+    "b5",
+    "Machinery"
+   ]
+  },
+  {
+   "cue": [
+    "b6",
+    "assets"
+   ],
+   "ids": [
+    "dollar_anchor",
+    "reserve_value",
+    "reserve_currency",
+    "reserve_meaning",
+    "export_payment",
+    "bank",
+    "exporter"
+   ],
+   "until_cue": [
+    "b7",
+    "Troy"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

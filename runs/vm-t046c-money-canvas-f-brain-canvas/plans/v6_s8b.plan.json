@@ -1,0 +1,207 @@
+{
+ "id": "v6_s8b",
+ "part_id": "c16.1",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b52",
+   "say": "2022 का यह Digital Rupee है: legal tender digital currency denominated in Indian rupees। यानी payment का कानूनी status है, रूप digital है, और wallet में गिनती उसी ₹ में है।"
+  },
+  {
+   "beat_id": "b53",
+   "say": "UPI से bank deposit भेजना अपने-आप Digital Rupee नहीं है। Deposit commercial bank पर claim है; Digital Rupee central bank money है, app सिर्फ channel है। Private cryptoasset की तरह इसकी अलग floating rupee price नहीं है।"
+  },
+  {
+   "beat_id": "b54",
+   "say": "Boundary याद रखो: official currency का digital form, same rupee unit। आगे pilots में banks और public के अलग इस्तेमाल देखेंगे।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank",
+   "kind": "bank",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b52",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "definition_and_boundary",
+   "kind": "board",
+   "x": 3160,
+   "y": 535,
+   "fill": "#E7EFE8",
+   "cue": [
+    "b52",
+    "Digital"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b52",
+      "Digital"
+     ],
+     "text": "2022 का यह Digital Rupee है।"
+    },
+    {
+     "cue": [
+      "b52",
+      "कानूनी"
+     ],
+     "text": "Payment का कानूनी status है।"
+    },
+    {
+     "cue": [
+      "b52",
+      "रूप"
+     ],
+     "text": "रूप digital है।"
+    },
+    {
+     "cue": [
+      "b52",
+      "wallet"
+     ],
+     "text": "Wallet में गिनती उसी ₹ में है।"
+    },
+    {
+     "cue": [
+      "b53",
+      "भेजना"
+     ],
+     "text": "UPI से bank deposit भेजना\nअपने-आप Digital Rupee नहीं है।"
+    },
+    {
+     "cue": [
+      "b53",
+      "claim"
+     ],
+     "text": "Deposit commercial bank पर claim है।"
+    },
+    {
+     "cue": [
+      "b53",
+      "central"
+     ],
+     "text": "Digital Rupee central bank money है।"
+    },
+    {
+     "cue": [
+      "b53",
+      "app"
+     ],
+     "text": "App सिर्फ channel है।"
+    },
+    {
+     "cue": [
+      "b53",
+      "floating"
+     ],
+     "text": "Private cryptoasset की तरह अलग\nfloating rupee price नहीं है।"
+    },
+    {
+     "cue": [
+      "b54",
+      "digital"
+     ],
+     "text": "Official currency का digital form है;\nsame rupee unit है।"
+    },
+    {
+     "cue": [
+      "b54",
+      "pilots"
+     ],
+     "text": "आगे pilots में banks और public के\nअलग इस्तेमाल देखेंगे।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b52",
+    "",
+    0.0
+   ],
+   "x": 2820,
+   "y": 570,
+   "zoom": 0.9,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b52",
+    "denominated"
+   ],
+   "x": 2960,
+   "y": 550,
+   "zoom": 1.05,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b52",
+    "wallet"
+   ],
+   "x": 3070,
+   "y": 535,
+   "zoom": 1.2,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b53",
+    "UPI"
+   ],
+   "x": 2940,
+   "y": 550,
+   "zoom": 1.05,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b53",
+    "central"
+   ],
+   "x": 3040,
+   "y": 535,
+   "zoom": 1.15,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b53",
+    "Private"
+   ],
+   "x": 3100,
+   "y": 535,
+   "zoom": 1.25,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b54",
+    "Boundary"
+   ],
+   "x": 2990,
+   "y": 550,
+   "zoom": 1.1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b54",
+    "pilots"
+   ],
+   "x": 2820,
+   "y": 570,
+   "zoom": 0.9,
+   "frames": 50
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

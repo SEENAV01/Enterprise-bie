@@ -1,0 +1,233 @@
+{
+ "id": "v15_s10",
+ "part_id": "c38.3",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b46",
+   "say": "Post Office passbook और certificate दोनों जोड़ेंगे? M2 addition में savings-bank deposits included हैं; NSC और similar instruments excluded हैं।"
+  },
+  {
+   "beat_id": "b47",
+   "say": "Savings deposit खाते की रकम है; NSC लंबे समय का certificate है। जगह एक, लेकिन product और access अलग हैं; गिनती भी अलग होगी।"
+  },
+  {
+   "beat_id": "b48",
+   "say": "Deposit और certificate अलग हैं; Post Office नाम देखकर दोनों मत जोड़ना।"
+  },
+  {
+   "beat_id": "b49",
+   "say": "Exam trick: M2 में eligible savings deposit है, हर savings product नहीं।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "post_office",
+   "kind": "bank",
+   "x": 2600,
+   "y": 860,
+   "sign": "Post Office",
+   "cue": [
+    "b46",
+    "Post"
+   ]
+  },
+  {
+   "id": "postal_clerk",
+   "kind": "teller",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b46",
+    "passbook"
+   ]
+  },
+  {
+   "id": "deposit_board",
+   "kind": "board",
+   "x": 2150,
+   "y": 470,
+   "fill": "#DCEBE3",
+   "cue": [
+    "b46",
+    "savings-bank"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b46",
+      "savings-bank"
+     ],
+     "text": "M2 में savings-bank deposits\nincluded हैं।"
+    },
+    {
+     "cue": [
+      "b47",
+      "रकम"
+     ],
+     "text": "Savings deposit खाते की रकम है।"
+    },
+    {
+     "cue": [
+      "b49",
+      "eligible"
+     ],
+     "text": "M2 में eligible savings deposit है।"
+    }
+   ]
+  },
+  {
+   "id": "certificate_board",
+   "kind": "board",
+   "x": 3050,
+   "y": 470,
+   "fill": "#F1E2D6",
+   "cue": [
+    "b46",
+    "NSC"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b46",
+      "NSC"
+     ],
+     "text": "NSC और similar instruments\nexcluded हैं।"
+    },
+    {
+     "cue": [
+      "b47",
+      "certificate"
+     ],
+     "text": "NSC लंबे समय का certificate है।"
+    },
+    {
+     "cue": [
+      "b49",
+      "हर"
+     ],
+     "text": "हर savings product नहीं।"
+    }
+   ]
+  },
+  {
+   "id": "product_difference",
+   "kind": "label",
+   "x": 2600,
+   "y": 210,
+   "text": "Product और access अलग हैं।",
+   "fill": "#F5EEDFFF",
+   "cue": [
+    "b47",
+    "access"
+   ],
+   "until_cue": [
+    "b48",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "institution_warning",
+   "kind": "label",
+   "x": 2600,
+   "y": 210,
+   "text": "Post Office नाम देखकर\nदोनों मत जोड़ना।",
+   "fill": "#F5EEDFFF",
+   "cue": [
+    "b48",
+    "नाम"
+   ],
+   "until_cue": [
+    "b49",
+    "",
+    0.0
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b46",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 490,
+   "zoom": 0.9,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b46",
+    "addition"
+   ],
+   "x": 2450,
+   "y": 480,
+   "zoom": 1,
+   "frames": 36
+  },
+  {
+   "cue": [
+    "b46",
+    "NSC"
+   ],
+   "x": 2700,
+   "y": 480,
+   "zoom": 1,
+   "frames": 36
+  },
+  {
+   "cue": [
+    "b47",
+    "Savings"
+   ],
+   "x": 2300,
+   "y": 490,
+   "zoom": 1.1,
+   "frames": 36
+  },
+  {
+   "cue": [
+    "b47",
+    "NSC"
+   ],
+   "x": 2900,
+   "y": 490,
+   "zoom": 1.1,
+   "frames": 36
+  },
+  {
+   "cue": [
+    "b47",
+    "जगह"
+   ],
+   "x": 2600,
+   "y": 470,
+   "zoom": 0.9,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b48",
+    "Deposit"
+   ],
+   "x": 2600,
+   "y": 450,
+   "zoom": 0.96,
+   "frames": 36
+  },
+  {
+   "cue": [
+    "b49",
+    "Exam"
+   ],
+   "x": 2600,
+   "y": 470,
+   "zoom": 1,
+   "frames": 36
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

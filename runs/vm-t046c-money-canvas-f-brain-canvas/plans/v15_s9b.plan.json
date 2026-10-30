@@ -1,0 +1,396 @@
+{
+ "id": "v15_s9b",
+ "part_id": "c38.2",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b42",
+   "say": "Wallet के ₹500 Post Office में जमा करो। Cash ₹500, savings ₹2500 हैं। M1 में ₹4500 बचे; passbook जोड़ो तो ₹7000। यह M2, Intermediate Money है, यानी wallet से passbook में गया पैसा भी गिनेंगे।"
+  },
+  {
+   "beat_id": "b43",
+   "say": "Demand deposits में on-demand current और savings balances आते हैं। M1 में bank vault cash और Bankers' Deposits नहीं; OD दोनों formulas में है।"
+  },
+  {
+   "beat_id": "b44",
+   "say": "Original balances पर लौटो। Bank से ₹500 निकालो तो cash ₹1500, demand ₹3500: M1 ₹5000 रहा। Account की पुरानी रकम फिर जोड़ोगे तो double counting होगी।"
+  },
+  {
+   "beat_id": "b45",
+   "say": "M1 में public currency, Demand Deposits और OD जोड़ो। M2 में इसके ऊपर Post Office savings deposits जोड़ो; bank time deposits और NSC नहीं।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank",
+   "kind": "bank",
+   "x": 2600,
+   "y": 860,
+   "sign": "Bank",
+   "cue": [
+    "b42",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "teller",
+   "kind": "teller",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b42",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "customer",
+   "kind": "crowd",
+   "x0": 2330,
+   "spacing": 90,
+   "enter_x": 1900,
+   "exit_x": 1900,
+   "face": 1,
+   "seed": 42,
+   "cue": [
+    "b42",
+    "Wallet"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b42",
+      "Wallet"
+     ],
+     "n": 1
+    }
+   ]
+  },
+  {
+   "id": "example",
+   "kind": "board",
+   "x": 3050,
+   "y": 470,
+   "fill": "#E9DFC9",
+   "cue": [
+    "b42",
+    "जमा"
+   ],
+   "until_cue": [
+    "b43",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b42",
+      "जमा"
+     ],
+     "text": "Wallet के ₹500\nPost Office में जमा करो।"
+    },
+    {
+     "cue": [
+      "b42",
+      "₹2500"
+     ],
+     "text": "Cash ₹500 है।\nSavings ₹2500 हैं।"
+    },
+    {
+     "cue": [
+      "b42",
+      "₹4500"
+     ],
+     "text": "M1 में ₹4500 बचे;"
+    },
+    {
+     "cue": [
+      "b42",
+      "₹7000।"
+     ],
+     "text": "Passbook जोड़ो तो ₹7000।",
+     "dir": "up"
+    },
+    {
+     "cue": [
+      "b42",
+      "Intermediate"
+     ],
+     "text": "यह M2, Intermediate Money है।"
+    },
+    {
+     "cue": [
+      "b42",
+      "गिनेंगे।"
+     ],
+     "text": "Wallet से passbook में गया\nपैसा भी गिनेंगे।"
+    }
+   ]
+  },
+  {
+   "id": "inclusions",
+   "kind": "board",
+   "x": 3050,
+   "y": 470,
+   "fill": "#E9DFC9",
+   "cue": [
+    "b43",
+    "balances"
+   ],
+   "until_cue": [
+    "b44",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b43",
+      "balances"
+     ],
+     "text": "Demand deposits में on-demand\ncurrent और savings balances आते हैं।"
+    },
+    {
+     "cue": [
+      "b43",
+      "नहीं;"
+     ],
+     "text": "M1 में bank vault cash और\nBankers' Deposits नहीं।"
+    },
+    {
+     "cue": [
+      "b43",
+      "OD"
+     ],
+     "text": "OD दोनों formulas में है।"
+    }
+   ]
+  },
+  {
+   "id": "withdrawal",
+   "kind": "board",
+   "x": 3050,
+   "y": 470,
+   "fill": "#E9DFC9",
+   "cue": [
+    "b44",
+    "लौटो।"
+   ],
+   "until_cue": [
+    "b45",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b44",
+      "लौटो।"
+     ],
+     "text": "Original balances पर लौटो।"
+    },
+    {
+     "cue": [
+      "b44",
+      "निकालो"
+     ],
+     "text": "Bank से ₹500 निकालो।"
+    },
+    {
+     "cue": [
+      "b44",
+      "₹3500:"
+     ],
+     "text": "Cash ₹1500, demand ₹3500 हैं।"
+    },
+    {
+     "cue": [
+      "b44",
+      "₹5000"
+     ],
+     "text": "M1 ₹5000 रहा।"
+    },
+    {
+     "cue": [
+      "b44",
+      "double"
+     ],
+     "text": "Account की पुरानी रकम फिर जोड़ोगे\nतो double counting होगी।"
+    }
+   ]
+  },
+  {
+   "id": "summary",
+   "kind": "board",
+   "x": 3050,
+   "y": 470,
+   "fill": "#E9DFC9",
+   "cue": [
+    "b45",
+    "OD"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b45",
+      "OD"
+     ],
+     "text": "M1 में public currency,\nDemand Deposits और OD जोड़ो।"
+    },
+    {
+     "cue": [
+      "b45",
+      "deposits"
+     ],
+     "text": "M2 में इसके ऊपर Post Office\nsavings deposits जोड़ो।"
+    },
+    {
+     "cue": [
+      "b45",
+      "NSC"
+     ],
+     "text": "Bank time deposits और NSC नहीं।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b42",
+    "",
+    0.0
+   ],
+   "x": 2650,
+   "y": 520,
+   "zoom": 0.85,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b42",
+    "जमा"
+   ],
+   "x": 2800,
+   "y": 510,
+   "zoom": 1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b42",
+    "₹4500"
+   ],
+   "x": 2990,
+   "y": 490,
+   "zoom": 1.2,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b42",
+    "यानी"
+   ],
+   "x": 2800,
+   "y": 520,
+   "zoom": 1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b43",
+    "",
+    0.0
+   ],
+   "x": 2740,
+   "y": 520,
+   "zoom": 0.95,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b43",
+    "M1"
+   ],
+   "x": 2990,
+   "y": 490,
+   "zoom": 1.2,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b44",
+    "",
+    0.0
+   ],
+   "x": 2650,
+   "y": 520,
+   "zoom": 0.9,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b44",
+    "निकालो"
+   ],
+   "x": 2790,
+   "y": 520,
+   "zoom": 1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b44",
+    "M1"
+   ],
+   "x": 2990,
+   "y": 490,
+   "zoom": 1.2,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b44",
+    "Account"
+   ],
+   "x": 2910,
+   "y": 510,
+   "zoom": 1.1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b45",
+    "",
+    0.0
+   ],
+   "x": 2750,
+   "y": 520,
+   "zoom": 0.95,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b45",
+    "M2"
+   ],
+   "x": 2990,
+   "y": 490,
+   "zoom": 1.2,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b45",
+    "bank"
+   ],
+   "x": 2880,
+   "y": 510,
+   "zoom": 1.05,
+   "frames": 40
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

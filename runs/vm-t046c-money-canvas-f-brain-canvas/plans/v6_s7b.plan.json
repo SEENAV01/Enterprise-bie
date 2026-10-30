@@ -1,0 +1,144 @@
+{
+ "id": "v6_s7b",
+ "part_id": "c15.3",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b49",
+   "say": "फिर देखो: demand बढ़ी, dollar महँगा हुआ, RBI ने dollars बेचे, supply बढ़ी और pressure घटा।"
+  },
+  {
+   "beat_id": "b50",
+   "say": "Smoothing झटके घटाता है; fixing तय rate की commitment है। इसलिए market pricing और RBI intervention साथ चल सकते हैं।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank",
+   "kind": "bank",
+   "x": 2600,
+   "cue": [
+    "b49",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "teller",
+   "kind": "teller",
+   "x": 2600,
+   "cue": [
+    "b49",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "explanation",
+   "kind": "board",
+   "x": 3250,
+   "y": 490,
+   "fill": "#E7DFC9",
+   "cue": [
+    "b49",
+    "demand"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b49",
+      "demand"
+     ],
+     "text": "demand बढ़ी।"
+    },
+    {
+     "cue": [
+      "b49",
+      "महँगा"
+     ],
+     "text": "dollar महँगा हुआ।"
+    },
+    {
+     "cue": [
+      "b49",
+      "बेचे,"
+     ],
+     "text": "RBI ने dollars बेचे।"
+    },
+    {
+     "cue": [
+      "b49",
+      "supply"
+     ],
+     "text": "supply बढ़ी और pressure घटा।"
+    },
+    {
+     "cue": [
+      "b50",
+      "Smoothing"
+     ],
+     "text": "Smoothing झटके घटाता है।"
+    },
+    {
+     "cue": [
+      "b50",
+      "fixing"
+     ],
+     "text": "fixing तय rate की commitment है।"
+    },
+    {
+     "cue": [
+      "b50",
+      "intervention"
+     ],
+     "text": "market pricing और RBI intervention\nसाथ चल सकते हैं।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b49",
+    "",
+    0.0
+   ],
+   "x": 2820,
+   "y": 510,
+   "zoom": 0.95,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b49",
+    "RBI"
+   ],
+   "x": 2890,
+   "y": 510,
+   "zoom": 1.05,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b50",
+    "Smoothing"
+   ],
+   "x": 3130,
+   "y": 490,
+   "zoom": 1.25,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b50",
+    "इसलिए"
+   ],
+   "x": 2820,
+   "y": 510,
+   "zoom": 0.95,
+   "frames": 40
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

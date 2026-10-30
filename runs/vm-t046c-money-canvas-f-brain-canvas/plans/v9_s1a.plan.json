@@ -1,0 +1,108 @@
+{
+ "id": "v9_s1a",
+ "part_id": "c21.1",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b1",
+   "say": "बैंक note वापस ले, तो क्या उससे payment करने का legal status भी खत्म हुआ? इन दोनों decisions का फर्क समझो।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank",
+   "kind": "bank",
+   "x": 2600,
+   "sign": "बैंक",
+   "cue": [
+    "b1",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "teller",
+   "kind": "teller",
+   "x": 2600,
+   "cue": [
+    "b1",
+    "बैंक"
+   ]
+  },
+  {
+   "id": "withdrawal_question",
+   "kind": "board",
+   "x": 2200,
+   "y": 540,
+   "fill": "#E4EDE7",
+   "cue": [
+    "b1",
+    "वापस"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b1",
+      "वापस"
+     ],
+     "text": "बैंक note वापस ले।"
+    }
+   ]
+  },
+  {
+   "id": "legal_status_question",
+   "kind": "board",
+   "x": 3000,
+   "y": 540,
+   "fill": "#EFE4D3",
+   "cue": [
+    "b1",
+    "legal"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b1",
+      "legal"
+     ],
+     "text": "क्या payment करने का\nlegal status भी खत्म हुआ?"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b1",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 480,
+   "zoom": 0.85,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b1",
+    "legal"
+   ],
+   "x": 2760,
+   "y": 500,
+   "zoom": 0.95,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b1",
+    "दोनों"
+   ],
+   "x": 2600,
+   "y": 490,
+   "zoom": 0.85,
+   "frames": 30
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

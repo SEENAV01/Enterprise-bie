@@ -1,0 +1,147 @@
+{
+ "id": "v15_s2b",
+ "part_id": "c36.2",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b9",
+   "say": "ये M1, M2, M3 और M4 हैं। M3 Broad Money, M4 broadest है; RBI-created base M0, Reserve Money है। याद रखो: M2 और M3, M1 से निकलने वाली branches हैं; overlapping totals मत जोड़ना।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank",
+   "kind": "bank",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b9",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "teller",
+   "kind": "teller",
+   "x": 2600,
+   "cue": [
+    "b9",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "aggregates",
+   "kind": "board",
+   "x": 2050,
+   "y": 430,
+   "fill": "#E8DFC9",
+   "cue": [
+    "b9",
+    "M2,"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b9",
+      "M2,"
+     ],
+     "text": "ये M1, M2, M3 और M4 हैं।"
+    },
+    {
+     "cue": [
+      "b9",
+      "Broad"
+     ],
+     "text": "M3 Broad Money है।"
+    },
+    {
+     "cue": [
+      "b9",
+      "broadest"
+     ],
+     "text": "M4 broadest है।"
+    },
+    {
+     "cue": [
+      "b9",
+      "branches"
+     ],
+     "text": "M2 और M3, M1 से\nनिकलने वाली branches हैं।"
+    },
+    {
+     "cue": [
+      "b9",
+      "जोड़ना।"
+     ],
+     "text": "Overlapping totals मत जोड़ना।"
+    }
+   ]
+  },
+  {
+   "id": "base",
+   "kind": "board",
+   "x": 3150,
+   "y": 430,
+   "fill": "#DFE8E3",
+   "cue": [
+    "b9",
+    "Reserve"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b9",
+      "Reserve"
+     ],
+     "text": "RBI-created base M0,\nReserve Money है।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b9",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 500,
+   "zoom": 0.8,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b9",
+    "Broad"
+   ],
+   "x": 2230,
+   "y": 470,
+   "zoom": 1.1,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b9",
+    "Reserve"
+   ],
+   "x": 2600,
+   "y": 470,
+   "zoom": 0.9,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b9",
+    "याद"
+   ],
+   "x": 2250,
+   "y": 470,
+   "zoom": 1.1,
+   "frames": 30
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

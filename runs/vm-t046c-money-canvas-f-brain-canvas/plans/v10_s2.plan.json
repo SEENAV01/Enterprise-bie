@@ -1,0 +1,259 @@
+{
+ "id": "v10_s2",
+ "part_id": "c23.2",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b14",
+   "say": "पैसा बस बटुए के नोट हैं? Account के ₹200 ने भी किराना खरीदा। इसलिए households और businesses के spendable deposits भी गिनेंगे। Bank money modern money supply का सबसे बड़ा हिस्सा है।"
+  },
+  {
+   "beat_id": "b15",
+   "say": "Written claim को legal ताकत कहाँ मिलती है? Negotiable Instruments Act, 1881, यानी NIA, transferability और कानून से payment माँगने का framework देता है।"
+  },
+  {
+   "beat_id": "b16",
+   "say": "1881 को Act के year से जोड़िए, payment की तारीख से नहीं।"
+  },
+  {
+   "beat_id": "b17",
+   "say": "Money में deposits गिनिए; written claims के rights में NIA पहचानिए। Largest हिस्सा fixed percentage नहीं बताता।"
+  }
+ ],
+ "kit": "shop",
+ "elements": [
+  {
+   "id": "kirana",
+   "kind": "shop",
+   "x": 2420,
+   "y": 860,
+   "sign": "किराना",
+   "cue": [
+    "b14",
+    "किराना"
+   ],
+   "packets": [
+    {
+     "n": 3,
+     "cue": [
+      "b14",
+      "किराना"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "account_purchase",
+   "kind": "board",
+   "x": 3010,
+   "y": 410,
+   "fill": "#E9F1EC",
+   "cue": [
+    "b14",
+    "₹200"
+   ],
+   "until_cue": [
+    "b15",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b14",
+      "₹200"
+     ],
+     "text": "Account के ₹200 ने\nकिराना खरीदा।"
+    },
+    {
+     "cue": [
+      "b14",
+      "spendable"
+     ],
+     "text": "households और businesses के\nspendable deposits भी गिनेंगे।"
+    },
+    {
+     "cue": [
+      "b14",
+      "modern"
+     ],
+     "text": "Bank money modern money supply\nका सबसे बड़ा हिस्सा है।"
+    }
+   ]
+  },
+  {
+   "id": "legal_framework",
+   "kind": "board",
+   "x": 3010,
+   "y": 410,
+   "fill": "#F2EBDD",
+   "cue": [
+    "b15",
+    "legal"
+   ],
+   "until_cue": [
+    "b16",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b15",
+      "legal"
+     ],
+     "text": "Written claim को\nlegal ताकत कहाँ मिलती है?"
+    },
+    {
+     "cue": [
+      "b15",
+      "1881,"
+     ],
+     "text": "Negotiable Instruments Act, 1881,\nयानी NIA, framework देता है।"
+    },
+    {
+     "cue": [
+      "b15",
+      "transferability"
+     ],
+     "text": "NIA transferability और कानून से\npayment माँगने का framework देता है।"
+    }
+   ]
+  },
+  {
+   "id": "act_year",
+   "kind": "board",
+   "x": 3010,
+   "y": 410,
+   "fill": "#F2EBDD",
+   "cue": [
+    "b16",
+    "Act"
+   ],
+   "until_cue": [
+    "b17",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b16",
+      "Act"
+     ],
+     "text": "1881 को Act के year से जोड़िए,\npayment की तारीख से नहीं।"
+    }
+   ]
+  },
+  {
+   "id": "recap",
+   "kind": "board",
+   "x": 3010,
+   "y": 410,
+   "fill": "#E9F1EC",
+   "cue": [
+    "b17",
+    "deposits"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b17",
+      "deposits"
+     ],
+     "text": "Money में deposits गिनिए।"
+    },
+    {
+     "cue": [
+      "b17",
+      "NIA"
+     ],
+     "text": "Written claims के rights में\nNIA पहचानिए।"
+    },
+    {
+     "cue": [
+      "b17",
+      "percentage"
+     ],
+     "text": "Largest हिस्सा fixed percentage\nनहीं बताता।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b14",
+    "",
+    0.0
+   ],
+   "x": 2700,
+   "y": 520,
+   "zoom": 0.9,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b14",
+    "₹200"
+   ],
+   "x": 2760,
+   "y": 490,
+   "zoom": 1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b14",
+    "spendable"
+   ],
+   "x": 2830,
+   "y": 470,
+   "zoom": 1.05,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b15",
+    "",
+    0.0
+   ],
+   "x": 2780,
+   "y": 490,
+   "zoom": 1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b15",
+    "1881,"
+   ],
+   "x": 2860,
+   "y": 450,
+   "zoom": 1.1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b16",
+    "Act"
+   ],
+   "x": 2890,
+   "y": 450,
+   "zoom": 1.12,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b17",
+    "",
+    0.0
+   ],
+   "x": 2740,
+   "y": 510,
+   "zoom": 0.95,
+   "frames": 45
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

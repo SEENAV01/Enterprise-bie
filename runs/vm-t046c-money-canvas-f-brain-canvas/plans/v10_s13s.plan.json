@@ -1,0 +1,168 @@
+{
+ "id": "v10_s13s",
+ "part_id": "c25.3",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b61",
+   "say": "₹2,000 किस branch भेजेंगे? अधूरे form में 0 branches पहचानी गईं; सही 11-character code से 1 destination branch मिली। Account details भी भरिए।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank",
+   "kind": "bank",
+   "x": 2600,
+   "y": 860,
+   "sign": "branch",
+   "cue": [
+    "b61",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "teller",
+   "kind": "teller",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b61",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "payer",
+   "kind": "crowd",
+   "x0": 2330,
+   "spacing": 90,
+   "enter_x": 1950,
+   "exit_x": 1950,
+   "face": 1,
+   "seed": 61,
+   "cue": [
+    "b61",
+    "₹2,000"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b61",
+      "₹2,000"
+     ],
+     "n": 1
+    }
+   ]
+  },
+  {
+   "id": "destination",
+   "kind": "board",
+   "x": 3150,
+   "y": 470,
+   "text": "branch",
+   "fill": "#F4E8CE",
+   "cue": [
+    "b61",
+    "₹2,000"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b61",
+      "₹2,000"
+     ],
+     "text": "₹2,000 किस branch भेजेंगे?"
+    },
+    {
+     "cue": [
+      "b61",
+      "0"
+     ],
+     "text": "अधूरे form में\n0 branches पहचानी गईं।"
+    },
+    {
+     "cue": [
+      "b61",
+      "1"
+     ],
+     "text": "1 destination branch मिली।",
+     "dir": "up"
+    }
+   ]
+  },
+  {
+   "id": "code",
+   "kind": "label",
+   "x": 2600,
+   "y": 230,
+   "text": "सही 11-character code से\ndestination branch मिली।",
+   "fill": "#E7F0E6",
+   "cue": [
+    "b61",
+    "11-character"
+   ],
+   "until_cue": [
+    "b61",
+    "Account"
+   ]
+  },
+  {
+   "id": "account",
+   "kind": "label",
+   "x": 2600,
+   "y": 230,
+   "text": "Account details भी भरिए।",
+   "fill": "#E7F0E6",
+   "cue": [
+    "b61",
+    "Account"
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b61",
+    "",
+    0.0
+   ],
+   "x": 2710,
+   "y": 480,
+   "zoom": 0.95,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b61",
+    "0"
+   ],
+   "x": 2870,
+   "y": 470,
+   "zoom": 1.08,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b61",
+    "1"
+   ],
+   "x": 2920,
+   "y": 470,
+   "zoom": 1.14,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b61",
+    "Account"
+   ],
+   "x": 2760,
+   "y": 440,
+   "zoom": 1.02,
+   "frames": 30
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

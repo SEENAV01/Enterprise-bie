@@ -1,0 +1,126 @@
+{
+ "id": "v10_s5s",
+ "part_id": "c23.5",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b27",
+   "say": "₹2,000 के cheque पर account में ₹500 हों तो? पहले 0 cheques लौटे थे; bank ने यह 1 cheque बिना payment लौटाया।"
+  }
+ ],
+ "kit": "shop",
+ "elements": [
+  {
+   "id": "supplier_shop",
+   "kind": "shop",
+   "x": 2600,
+   "cue": [
+    "b27",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "cheque_amount",
+   "kind": "board",
+   "x": 2210,
+   "y": 420,
+   "fill": "#E8D9B8",
+   "cue": [
+    "b27",
+    "cheque"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b27",
+      "cheque"
+     ],
+     "text": "₹2,000 के cheque पर"
+    }
+   ]
+  },
+  {
+   "id": "available_balance",
+   "kind": "board",
+   "x": 2740,
+   "y": 420,
+   "fill": "#D9E5DC",
+   "cue": [
+    "b27",
+    "₹500"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b27",
+      "₹500"
+     ],
+     "text": "account में ₹500 हों तो?"
+    }
+   ]
+  },
+  {
+   "id": "returned_cheques",
+   "kind": "board",
+   "x": 3270,
+   "y": 420,
+   "fill": "#EBD4CC",
+   "cue": [
+    "b27",
+    "0"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b27",
+      "0"
+     ],
+     "text": "0 cheques लौटे थे।"
+    },
+    {
+     "cue": [
+      "b27",
+      "1"
+     ],
+     "text": "यह 1 cheque बिना payment लौटा।",
+     "dir": "up"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b27",
+    "",
+    0.0
+   ],
+   "x": 2480,
+   "y": 470,
+   "zoom": 1,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b27",
+    "0"
+   ],
+   "x": 2740,
+   "y": 470,
+   "zoom": 0.8,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b27",
+    "1"
+   ],
+   "x": 3050,
+   "y": 470,
+   "zoom": 1.05,
+   "frames": 30
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

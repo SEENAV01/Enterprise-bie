@@ -1,0 +1,287 @@
+{
+ "id": "v14_s1b",
+ "part_id": "c33.1",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b3",
+   "say": "Connection PayNow तक instruction पहुँचाएगा। Receipt Singapore dollars में होगी; conversion और applicable charges अलग रहेंगे।"
+  },
+  {
+   "beat_id": "b4",
+   "say": "यह Project Nexus है; Bank for International Settlements, यानी BIS का Innovation Hub इसे lead करता है।"
+  },
+  {
+   "beat_id": "b5",
+   "say": "Multilateral यानी कई देश; cross-border यानी देशों के बीच payments। यह national fast payment systems, यानी FPS, जोड़ता है।"
+  },
+  {
+   "beat_id": "b6",
+   "say": "National systems अलग रहते हैं; जोड़ना उन्हें 1 domestic system बनाना नहीं है।"
+  },
+  {
+   "beat_id": "b7",
+   "say": "Remittance में Nexus याद करो: अलग national FPS साथ काम करते हैं।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank",
+   "kind": "bank",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b3",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "teller",
+   "kind": "teller",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b3",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "receipt",
+   "kind": "board",
+   "x": 2040,
+   "y": 420,
+   "fill": "#DCEDE9",
+   "cue": [
+    "b3",
+    "PayNow"
+   ],
+   "until_cue": [
+    "b4",
+    "Project"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b3",
+      "PayNow"
+     ],
+     "text": "Connection PayNow तक\ninstruction पहुँचाएगा।"
+    },
+    {
+     "cue": [
+      "b3",
+      "Singapore"
+     ],
+     "text": "Receipt Singapore dollars में होगी।"
+    }
+   ]
+  },
+  {
+   "id": "charges",
+   "kind": "label",
+   "x": 2600,
+   "y": 230,
+   "text": "Conversion और applicable charges\nअलग रहेंगे।",
+   "fill": "#F4E7CB",
+   "cue": [
+    "b3",
+    "charges"
+   ],
+   "until_cue": [
+    "b4",
+    "Project"
+   ]
+  },
+  {
+   "id": "nexus_anchor",
+   "kind": "label",
+   "x": 2600,
+   "y": 160,
+   "text": "यह Project Nexus है।",
+   "fill": "#DCEDE9",
+   "cue": [
+    "b4",
+    "Nexus"
+   ]
+  },
+  {
+   "id": "leadership",
+   "kind": "board",
+   "x": 3160,
+   "y": 420,
+   "fill": "#E4EAF5",
+   "cue": [
+    "b4",
+    "Innovation"
+   ],
+   "until_cue": [
+    "b5",
+    "Multilateral"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b4",
+      "Innovation"
+     ],
+     "text": "BIS का Innovation Hub\nइसे lead करता है।"
+    }
+   ]
+  },
+  {
+   "id": "countries",
+   "kind": "board",
+   "x": 2040,
+   "y": 420,
+   "fill": "#E4EAF5",
+   "cue": [
+    "b5",
+    "कई"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b5",
+      "कई"
+     ],
+     "text": "Multilateral यानी कई देश।"
+    },
+    {
+     "cue": [
+      "b5",
+      "payments।"
+     ],
+     "text": "Cross-border यानी\nदेशों के बीच payments।"
+    },
+    {
+     "cue": [
+      "b6",
+      "अलग"
+     ],
+     "text": "National systems अलग रहते हैं।"
+    }
+   ]
+  },
+  {
+   "id": "systems",
+   "kind": "board",
+   "x": 3160,
+   "y": 420,
+   "fill": "#DCEDE9",
+   "cue": [
+    "b5",
+    "FPS,"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b5",
+      "FPS,"
+     ],
+     "text": "यह national fast payment systems\nयानी FPS जोड़ता है।"
+    },
+    {
+     "cue": [
+      "b6",
+      "1"
+     ],
+     "text": "जोड़ना उन्हें 1 domestic system\nबनाना नहीं है।"
+    },
+    {
+     "cue": [
+      "b7",
+      "FPS"
+     ],
+     "text": "अलग national FPS\nसाथ काम करते हैं।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b3",
+    "",
+    0.0
+   ],
+   "x": 2500,
+   "y": 470,
+   "zoom": 0.9,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b3",
+    "Singapore"
+   ],
+   "x": 2320,
+   "y": 430,
+   "zoom": 1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b4",
+    "Project"
+   ],
+   "x": 2600,
+   "y": 430,
+   "zoom": 0.9,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b4",
+    "Innovation"
+   ],
+   "x": 2860,
+   "y": 420,
+   "zoom": 1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b5",
+    "Multilateral"
+   ],
+   "x": 2470,
+   "y": 430,
+   "zoom": 0.9,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b5",
+    "FPS,"
+   ],
+   "x": 2600,
+   "y": 430,
+   "zoom": 0.85,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b6",
+    "1"
+   ],
+   "x": 2810,
+   "y": 430,
+   "zoom": 0.95,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b7",
+    "Nexus"
+   ],
+   "x": 2600,
+   "y": 430,
+   "zoom": 0.85,
+   "frames": 45
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

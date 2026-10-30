@@ -1,0 +1,248 @@
+{
+ "id": "v9_s3s",
+ "part_id": "c21.3",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b15",
+   "say": "तुमने अपना 1 ₹2,000 note बैंक को दिया और बदले में 4 ₹500 notes लिए। अब तुम्हारे पास ₹2,000 का कोई note नहीं, लेकिन रकम पूरी ₹2,000 है।"
+  },
+  {
+   "beat_id": "b16",
+   "say": "इसे withdrawal कहते हैं, यानी note circulation से वापस लेना। 2023 में Narendra Modi government के दौरान ₹2,000 notes वापस लिए गए, लेकिन legal tender रहे। इसलिए यह demonetisation नहीं था।"
+  },
+  {
+   "beat_id": "b17",
+   "say": "Exchange में तुम्हारी cash का रूप बदला: 1 बड़े note की जगह 4 छोटे notes आए। यह गिनती बताती है कि कितनी रकम मिली, legal status का फैसला नहीं।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank",
+   "kind": "bank",
+   "x": 2600,
+   "y": 860,
+   "sign": "बैंक",
+   "cue": [
+    "b15",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "teller",
+   "kind": "teller",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b15",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "customer",
+   "kind": "crowd",
+   "x0": 2330,
+   "spacing": 85,
+   "enter_x": 2050,
+   "exit_x": 2050,
+   "face": 1,
+   "seed": 21,
+   "cue": [
+    "b15",
+    "तुमने"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b15",
+      "तुमने"
+     ],
+     "n": 1
+    }
+   ]
+  },
+  {
+   "id": "cash",
+   "kind": "board",
+   "x": 2040,
+   "y": 420,
+   "fill": "#E8DCC4",
+   "cue": [
+    "b15",
+    "दिया"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b15",
+      "दिया"
+     ],
+     "text": "तुमने 1 ₹2,000 note दिया।"
+    },
+    {
+     "cue": [
+      "b15",
+      "लिए।"
+     ],
+     "text": "बदले में 4 ₹500 notes लिए।"
+    },
+    {
+     "cue": [
+      "b15",
+      "पूरी"
+     ],
+     "text": "रकम पूरी ₹2,000 है।"
+    },
+    {
+     "cue": [
+      "b17",
+      "आए।"
+     ],
+     "text": "1 बड़े note की जगह\n4 छोटे notes आए।"
+    }
+   ]
+  },
+  {
+   "id": "meaning",
+   "kind": "board",
+   "x": 3160,
+   "y": 420,
+   "fill": "#DDE8DE",
+   "cue": [
+    "b16",
+    "लेना।"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b16",
+      "लेना।"
+     ],
+     "text": "withdrawal में note circulation से\nवापस लेते हैं।"
+    },
+    {
+     "cue": [
+      "b16",
+      "गए,"
+     ],
+     "text": "2023 में Narendra Modi government\nके दौरान ₹2,000 notes वापस लिए गए।"
+    },
+    {
+     "cue": [
+      "b16",
+      "रहे।"
+     ],
+     "text": "Notes legal tender रहे।"
+    },
+    {
+     "cue": [
+      "b16",
+      "नहीं"
+     ],
+     "text": "यह demonetisation नहीं था।"
+    },
+    {
+     "cue": [
+      "b17",
+      "बदला:"
+     ],
+     "text": "Exchange में cash का रूप बदला।"
+    },
+    {
+     "cue": [
+      "b17",
+      "फैसला"
+     ],
+     "text": "गिनती legal status का\nफैसला नहीं बताती।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b15",
+    "",
+    0.0
+   ],
+   "x": 2580,
+   "y": 540,
+   "zoom": 0.85,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b15",
+    "लिए।"
+   ],
+   "x": 2450,
+   "y": 530,
+   "zoom": 0.9,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b15",
+    "लेकिन"
+   ],
+   "x": 2410,
+   "y": 510,
+   "zoom": 0.94,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b16",
+    "withdrawal"
+   ],
+   "x": 2680,
+   "y": 520,
+   "zoom": 0.85,
+   "frames": 60
+  },
+  {
+   "cue": [
+    "b16",
+    "2023"
+   ],
+   "x": 2740,
+   "y": 510,
+   "zoom": 0.88,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b16",
+    "इसलिए"
+   ],
+   "x": 2780,
+   "y": 510,
+   "zoom": 0.9,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b17",
+    "Exchange"
+   ],
+   "x": 2600,
+   "y": 520,
+   "zoom": 0.85,
+   "frames": 60
+  },
+  {
+   "cue": [
+    "b17",
+    "गिनती"
+   ],
+   "x": 2680,
+   "y": 510,
+   "zoom": 0.88,
+   "frames": 45
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

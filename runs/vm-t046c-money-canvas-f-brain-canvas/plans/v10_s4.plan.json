@@ -1,0 +1,283 @@
+{
+ "id": "v10_s4",
+ "part_id": "c23.4",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b22",
+   "say": "Supplier के cheque में कौन लिखता है, कौन चुकाता है, कौन पाता है?"
+  },
+  {
+   "beat_id": "b23",
+   "say": "आप Drawer हैं, यानी supplier का नाम लिखकर bank को पैसे देने को कहते हैं। आपका bank Drawee है; पैसे पाने वाला supplier Payee है।"
+  },
+  {
+   "beat_id": "b24",
+   "say": "लिखने वाला Drawer है, instruction पाने वाला bank Drawee है।"
+  },
+  {
+   "beat_id": "b25",
+   "say": "Supplier पेश करता है; सफल payment पर उसे पैसे मिलते हैं।"
+  },
+  {
+   "beat_id": "b26",
+   "say": "याद रखिए: customer Drawer, bank Drawee, supplier Payee है।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank",
+   "kind": "bank",
+   "x": 2600,
+   "sign": "bank",
+   "cue": [
+    "b22",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "teller",
+   "kind": "teller",
+   "x": 2600,
+   "cue": [
+    "b22",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "customer",
+   "kind": "crowd",
+   "x0": 2220,
+   "spacing": 90,
+   "enter_x": 1800,
+   "exit_x": 1800,
+   "face": 1,
+   "seed": 11,
+   "cue": [
+    "b22",
+    "लिखता"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b22",
+      "लिखता"
+     ],
+     "n": 1
+    }
+   ]
+  },
+  {
+   "id": "supplier",
+   "kind": "crowd",
+   "x0": 2980,
+   "spacing": 90,
+   "enter_x": 3400,
+   "exit_x": 3400,
+   "face": -1,
+   "seed": 29,
+   "cue": [
+    "b22",
+    "पाता"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b22",
+      "पाता"
+     ],
+     "n": 1
+    }
+   ]
+  },
+  {
+   "id": "drawer_board",
+   "kind": "board",
+   "x": 1900,
+   "y": 430,
+   "fill": "#E3EEF4",
+   "cue": [
+    "b23",
+    "Drawer"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b23",
+      "Drawer"
+     ],
+     "text": "आप Drawer हैं।"
+    },
+    {
+     "cue": [
+      "b24",
+      "Drawer"
+     ],
+     "text": "लिखने वाला Drawer है।"
+    },
+    {
+     "cue": [
+      "b26",
+      "Drawer,"
+     ],
+     "text": "Customer Drawer है।"
+    }
+   ]
+  },
+  {
+   "id": "drawee_board",
+   "kind": "board",
+   "x": 2600,
+   "y": 240,
+   "fill": "#E6EDDA",
+   "cue": [
+    "b23",
+    "Drawee"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b23",
+      "Drawee"
+     ],
+     "text": "आपका bank Drawee है।"
+    },
+    {
+     "cue": [
+      "b24",
+      "Drawee"
+     ],
+     "text": "Instruction पाने वाला\nbank Drawee है।"
+    },
+    {
+     "cue": [
+      "b26",
+      "Drawee,"
+     ],
+     "text": "Bank Drawee है।"
+    }
+   ]
+  },
+  {
+   "id": "payee_board",
+   "kind": "board",
+   "x": 3300,
+   "y": 430,
+   "fill": "#F5E8D3",
+   "cue": [
+    "b23",
+    "Payee"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b23",
+      "Payee"
+     ],
+     "text": "पैसे पाने वाला supplier Payee है।"
+    },
+    {
+     "cue": [
+      "b25",
+      "पैसे"
+     ],
+     "text": "सफल payment पर\nउसे पैसे मिलते हैं।"
+    },
+    {
+     "cue": [
+      "b26",
+      "Payee"
+     ],
+     "text": "Supplier Payee है।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b22",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 490,
+   "zoom": 0.8,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b23",
+    "आप"
+   ],
+   "x": 2310,
+   "y": 490,
+   "zoom": 0.9,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b23",
+    "bank"
+   ],
+   "x": 2500,
+   "y": 470,
+   "zoom": 0.9,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b23",
+    "पाने"
+   ],
+   "x": 2860,
+   "y": 490,
+   "zoom": 0.9,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b24",
+    "लिखने"
+   ],
+   "x": 2380,
+   "y": 470,
+   "zoom": 0.85,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b24",
+    "instruction"
+   ],
+   "x": 2600,
+   "y": 450,
+   "zoom": 0.9,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b25",
+    "Supplier"
+   ],
+   "x": 2860,
+   "y": 490,
+   "zoom": 0.9,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b26",
+    "याद"
+   ],
+   "x": 2600,
+   "y": 490,
+   "zoom": 0.8,
+   "frames": 45
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

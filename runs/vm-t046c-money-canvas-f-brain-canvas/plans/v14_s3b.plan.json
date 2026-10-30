@@ -1,0 +1,197 @@
+{
+ "id": "v14_s3b",
+ "part_id": "c33.3",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b21",
+   "say": "यही Nexus का standardized connection है: हर partner का अलग link नहीं बनाना पड़ता; counts illustrative हैं।"
+  },
+  {
+   "beat_id": "b22",
+   "say": "हर transfer की chain समान नहीं; standardization conversion, कानून या responsibilities नहीं मिटाता।"
+  },
+  {
+   "beat_id": "b23",
+   "say": "Handling खर्च बढ़ा सकती है; shared standard connection-work घटाता है।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "nexus_anchor",
+   "kind": "text",
+   "cell": [
+    1,
+    0,
+    10,
+    2
+   ],
+   "cue": [
+    "b21",
+    "standardized"
+   ],
+   "text": "Nexus का standardized connection है।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "band",
+   "align": "center",
+   "size": 32
+  },
+  {
+   "id": "separate_links",
+   "kind": "text",
+   "cell": [
+    1,
+    2,
+    10,
+    2
+   ],
+   "cue": [
+    "b21",
+    "link"
+   ],
+   "until_cue": [
+    "b22",
+    "chain"
+   ],
+   "text": "हर partner का अलग link नहीं बनाना पड़ता।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "band",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "count_caveat",
+   "kind": "text",
+   "cell": [
+    3,
+    6,
+    6,
+    1
+   ],
+   "cue": [
+    "b21",
+    "illustrative"
+   ],
+   "text": "Counts illustrative हैं।",
+   "style": "note",
+   "tone": "muted",
+   "fill": "note",
+   "align": "center",
+   "size": 24
+  },
+  {
+   "id": "chain_varies",
+   "kind": "text",
+   "cell": [
+    1,
+    2,
+    10,
+    1
+   ],
+   "cue": [
+    "b22",
+    "chain"
+   ],
+   "until_cue": [
+    "b23",
+    "Handling"
+   ],
+   "text": "हर transfer की chain समान नहीं।",
+   "style": "box",
+   "tone": "ink",
+   "fill": "note",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "obligations_remain",
+   "kind": "callout",
+   "cell": [
+    1,
+    4,
+    10,
+    2
+   ],
+   "cue": [
+    "b22",
+    "conversion,"
+   ],
+   "until_cue": [
+    "b23",
+    "Handling"
+   ],
+   "text": "Standardization conversion, कानून या responsibilities नहीं मिटाता।",
+   "style": "note",
+   "tone": "warm",
+   "fill": "note",
+   "align": "center",
+   "size": 28,
+   "marks": [
+    {
+     "phrase": "responsibilities नहीं मिटाता",
+     "cue": [
+      "b22",
+      "responsibilities"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "handling_cost",
+   "kind": "text",
+   "cell": [
+    1,
+    2,
+    10,
+    1
+   ],
+   "cue": [
+    "b23",
+    "Handling"
+   ],
+   "text": "Handling खर्च बढ़ा सकती है।",
+   "style": "box",
+   "tone": "warm",
+   "fill": "note",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "connection_work",
+   "kind": "callout",
+   "cell": [
+    1,
+    4,
+    10,
+    2
+   ],
+   "cue": [
+    "b23",
+    "shared"
+   ],
+   "text": "Shared standard connection-work घटाता है।",
+   "style": "note",
+   "tone": "accent",
+   "fill": "band",
+   "align": "center",
+   "size": 32,
+   "marks": [
+    {
+     "phrase": "connection-work घटाता है",
+     "cue": [
+      "b23",
+      "connection-work"
+     ]
+    }
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

@@ -1,0 +1,290 @@
+{
+ "id": "v6_s1",
+ "part_id": "c14.1",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b1",
+   "say": "आज ₹1 में 100 paise हैं—क्या हमेशा ऐसे ही गिनते थे? Coins से Digital Rupee तक चलकर गिनती, issuer और payment का फर्क समझेंगे।"
+  },
+  {
+   "beat_id": "b2",
+   "say": "चाँदी को आकार दो तो क्या बदलेगा? वह wrought silver, यानी worked या shaped silver बनेगी; Sanskrit Rupya का यही अर्थ है, जिससे Rupiya आया।"
+  },
+  {
+   "beat_id": "b3",
+   "say": "यह Sanskrit word-origin है, आज की backing का नियम नहीं। पुराना नाम रहने से आज के note में silver होना जरूरी नहीं।"
+  },
+  {
+   "beat_id": "b4",
+   "say": "नाम की कड़ी हुई Rupya से Rupiya, यानी आकार दिया silver। अब coin के common standard का फायदा देखो।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "subdivision",
+   "kind": "text",
+   "cell": [
+    1,
+    1,
+    10,
+    2
+   ],
+   "cue": [
+    "b1",
+    "100"
+   ],
+   "until_cue": [
+    "b2",
+    "चाँदी"
+   ],
+   "text": "आज ₹1 में 100 paise हैं।",
+   "style": "box",
+   "tone": "ink",
+   "fill": "band",
+   "align": "center",
+   "size": 38
+  },
+  {
+   "id": "journey",
+   "kind": "text",
+   "cell": [
+    1,
+    4,
+    10,
+    2
+   ],
+   "cue": [
+    "b1",
+    "Digital"
+   ],
+   "until_cue": [
+    "b2",
+    "चाँदी"
+   ],
+   "text": "Coins से Digital Rupee तक चलेंगे।",
+   "style": "box",
+   "tone": "accent",
+   "align": "center",
+   "size": 32
+  },
+  {
+   "id": "silver-question",
+   "kind": "text",
+   "cell": [
+    1,
+    1,
+    10,
+    2
+   ],
+   "cue": [
+    "b2",
+    "चाँदी"
+   ],
+   "until_cue": [
+    "b2",
+    "Sanskrit"
+   ],
+   "text": "चाँदी को आकार दो तो क्या बदलेगा?",
+   "style": "box",
+   "tone": "ink",
+   "align": "center",
+   "size": 34
+  },
+  {
+   "id": "worked-silver",
+   "kind": "text",
+   "cell": [
+    1,
+    4,
+    10,
+    2
+   ],
+   "cue": [
+    "b2",
+    "shaped"
+   ],
+   "until_cue": [
+    "b3",
+    "यह"
+   ],
+   "text": "वह worked या shaped silver बनेगी।",
+   "style": "box",
+   "tone": "accent",
+   "align": "center",
+   "size": 34
+  },
+  {
+   "id": "origin-anchor",
+   "kind": "text",
+   "cell": [
+    1,
+    1,
+    10,
+    2
+   ],
+   "cue": [
+    "b2",
+    "Rupya"
+   ],
+   "text": "Sanskrit Rupya का यही अर्थ है।",
+   "style": "box",
+   "tone": "accent",
+   "fill": "band",
+   "align": "center",
+   "size": 36
+  },
+  {
+   "id": "origin-caveat",
+   "kind": "text",
+   "cell": [
+    1,
+    3,
+    10,
+    1
+   ],
+   "cue": [
+    "b3",
+    "word-origin"
+   ],
+   "until_cue": [
+    "b4",
+    "नाम"
+   ],
+   "text": "यह word-origin है, आज की backing का नियम नहीं।",
+   "style": "note",
+   "tone": "warm",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "modern-note",
+   "kind": "callout",
+   "cell": [
+    1,
+    5,
+    10,
+    2
+   ],
+   "cue": [
+    "b3",
+    "silver"
+   ],
+   "until_cue": [
+    "b4",
+    "नाम"
+   ],
+   "text": "आज के note में silver होना जरूरी नहीं।",
+   "style": "note",
+   "tone": "ink",
+   "align": "center",
+   "size": 34
+  },
+  {
+   "id": "name-link",
+   "kind": "text",
+   "cell": [
+    1,
+    4,
+    5,
+    2
+   ],
+   "cue": [
+    "b4",
+    "Rupiya,"
+   ],
+   "text": "Rupya से Rupiya आया।",
+   "style": "box",
+   "tone": "accent",
+   "align": "center",
+   "size": 32
+  },
+  {
+   "id": "meaning-recap",
+   "kind": "text",
+   "cell": [
+    7,
+    4,
+    4,
+    2
+   ],
+   "cue": [
+    "b4",
+    "silver।"
+   ],
+   "text": "यानी आकार दिया silver।",
+   "style": "box",
+   "tone": "ink",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "meaning-link",
+   "kind": "arrow",
+   "cue": [
+    "b4",
+    "silver।"
+   ],
+   "tone": "accent",
+   "from": "name-link",
+   "to": "meaning-recap",
+   "from_side": "r",
+   "to_side": "l",
+   "elbow": "hv"
+  },
+  {
+   "id": "next-question",
+   "kind": "text",
+   "cell": [
+    1,
+    6,
+    10,
+    1
+   ],
+   "cue": [
+    "b4",
+    "standard"
+   ],
+   "text": "अब coin के common standard का फायदा देखो।",
+   "style": "note",
+   "tone": "warm",
+   "align": "center",
+   "size": 28
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b1",
+    "issuer"
+   ],
+   "ids": [
+    "journey"
+   ],
+   "until_cue": [
+    "b2",
+    "चाँदी"
+   ]
+  },
+  {
+   "cue": [
+    "b3",
+    "जरूरी"
+   ],
+   "ids": [
+    "origin-caveat",
+    "modern-note"
+   ],
+   "until_cue": [
+    "b4",
+    "नाम"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

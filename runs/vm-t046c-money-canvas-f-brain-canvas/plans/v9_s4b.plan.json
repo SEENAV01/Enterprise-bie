@@ -1,0 +1,252 @@
+{
+ "id": "v9_s4b",
+ "part_id": "c22.1",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b25",
+   "say": "Historical example Henry VIII का 16th-century England है। Coins में चाँदी घटाना debasement था। Face value बराबर रही; पुराने, ज्यादा चाँदी वाले coins से ज्यादा सामान नहीं मिलता था, इसलिए लोगों ने उन्हें जमा रखा।"
+  },
+  {
+   "beat_id": "b26",
+   "say": "Mostly debased coins चले; पुराने coins डिब्बों में रह सकते थे, मिटे नहीं। Exchange values बदलने की आज़ादी हो, तो कीमती coin का ज्यादा payment मिल सकता है; वही incentive जरूरी नहीं बचे।"
+  },
+  {
+   "beat_id": "b27",
+   "say": "बराबर तय payment और चुनने की आज़ादी में सस्ता coin खर्चा, कीमती बचा। 'Driven out' यानी रोज़ के payments से बाहर, मिट जाना नहीं।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank",
+   "kind": "bank",
+   "x": 2450,
+   "y": 860,
+   "cue": [
+    "b25",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "teller",
+   "kind": "teller",
+   "x": 2450,
+   "y": 860,
+   "cue": [
+    "b25",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "explanation",
+   "kind": "board",
+   "x": 3150,
+   "y": 540,
+   "fill": "#E8DCC4",
+   "cue": [
+    "b25",
+    "Henry"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b25",
+      "Henry"
+     ],
+     "text": "Henry VIII का\n16th-century England है।"
+    },
+    {
+     "cue": [
+      "b25",
+      "debasement"
+     ],
+     "text": "Coins में चाँदी घटाना\ndebasement था।"
+    },
+    {
+     "cue": [
+      "b25",
+      "बराबर"
+     ],
+     "text": "Face value बराबर रही।"
+    },
+    {
+     "cue": [
+      "b25",
+      "सामान"
+     ],
+     "text": "पुराने coins से\nज्यादा सामान नहीं मिलता था।"
+    },
+    {
+     "cue": [
+      "b25",
+      "जमा"
+     ],
+     "text": "लोगों ने उन्हें जमा रखा।"
+    },
+    {
+     "cue": [
+      "b26",
+      "debased"
+     ],
+     "text": "Mostly debased coins चले।"
+    },
+    {
+     "cue": [
+      "b26",
+      "डिब्बों"
+     ],
+     "text": "पुराने coins डिब्बों में\nरह सकते थे, मिटे नहीं।"
+    },
+    {
+     "cue": [
+      "b26",
+      "आज़ादी"
+     ],
+     "text": "Exchange values बदलने की\nआज़ादी हो, तो कीमती coin का\nज्यादा payment मिल सकता है।"
+    },
+    {
+     "cue": [
+      "b26",
+      "incentive"
+     ],
+     "text": "वही incentive जरूरी नहीं बचे।"
+    },
+    {
+     "cue": [
+      "b27",
+      "सस्ता"
+     ],
+     "text": "बराबर तय payment में\nसस्ता coin खर्चा, कीमती बचा।"
+    },
+    {
+     "cue": [
+      "b27",
+      "payments"
+     ],
+     "text": "'Driven out' यानी\nरोज़ के payments से बाहर,\nमिट जाना नहीं।"
+    }
+   ]
+  },
+  {
+   "id": "customers",
+   "kind": "crowd",
+   "x0": 2180,
+   "spacing": 95,
+   "enter_x": 1700,
+   "exit_x": 1700,
+   "face": 1,
+   "seed": 22,
+   "cue": [
+    "b25",
+    "लोगों"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b25",
+      "लोगों"
+     ],
+     "n": 3
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b25",
+    "",
+    0.0
+   ],
+   "x": 2690,
+   "y": 535,
+   "zoom": 0.8,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b25",
+    "चाँदी"
+   ],
+   "x": 2850,
+   "y": 535,
+   "zoom": 0.95,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b25",
+    "पुराने,"
+   ],
+   "x": 2900,
+   "y": 545,
+   "zoom": 1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b25",
+    "लोगों"
+   ],
+   "x": 2680,
+   "y": 550,
+   "zoom": 0.82,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b26",
+    "Mostly"
+   ],
+   "x": 2790,
+   "y": 540,
+   "zoom": 0.9,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b26",
+    "Exchange"
+   ],
+   "x": 2940,
+   "y": 540,
+   "zoom": 1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b26",
+    "वही"
+   ],
+   "x": 2870,
+   "y": 540,
+   "zoom": 0.95,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b27",
+    "",
+    0.0
+   ],
+   "x": 2710,
+   "y": 545,
+   "zoom": 0.85,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b27",
+    "'Driven"
+   ],
+   "x": 2920,
+   "y": 540,
+   "zoom": 1,
+   "frames": 45
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

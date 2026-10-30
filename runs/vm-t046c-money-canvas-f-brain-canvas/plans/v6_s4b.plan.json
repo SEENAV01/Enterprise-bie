@@ -1,0 +1,402 @@
+{
+ "id": "v6_s4b",
+ "part_id": "c14.4",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b24",
+   "say": "यही Silver Crisis का mechanism है: late nineteenth century में discoveries से extra silver आया और prices गिरे, जैसे हमारे बाज़ार में। Silver crisis और gold-exchange व्यवस्था का यह दौर 1873–1947 तक फैला था।"
+  },
+  {
+   "beat_id": "b25",
+   "say": "Silver gold के मुकाबले सस्ता हो तो silver-linked rupee कमजोर पड़ सकता है; same gold-linked foreign payment के लिए ज़्यादा rupees लगेंगे। इसलिए steadier anchor चाहिए था।"
+  },
+  {
+   "beat_id": "b26",
+   "say": "Historical evidence discoveries और price collapse का संबंध है। हमारे kg और prices actual data नहीं; ये extra supply का दबाव समझाते हैं।"
+  },
+  {
+   "beat_id": "b27",
+   "say": "Discovery भर से price नहीं गिरता; actual या expected supply बढ़े और demand extra silver न समेटे, तभी नीचे का दबाव बनेगा।"
+  },
+  {
+   "beat_id": "b28",
+   "say": "Chain याद रखो: discoveries, supply का दबाव, सस्ता silver, rupee की external परेशानी और gold-link की जरूरत।"
+  }
+ ],
+ "kit": "shop",
+ "elements": [
+  {
+   "id": "market",
+   "kind": "shop",
+   "x": 2600,
+   "y": 860,
+   "sign": "बाज़ार",
+   "cue": [
+    "b24",
+    "बाज़ार"
+   ]
+  },
+  {
+   "id": "anchor",
+   "kind": "title",
+   "x": 2600,
+   "y": 130,
+   "text": "Silver Crisis का mechanism",
+   "cue": [
+    "b24",
+    "mechanism"
+   ]
+  },
+  {
+   "id": "history",
+   "kind": "board",
+   "x": 2220,
+   "y": 440,
+   "fill": "#DFE9E5",
+   "cue": [
+    "b24",
+    "गिरे,"
+   ],
+   "until_cue": [
+    "b25",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b24",
+      "गिरे,"
+     ],
+     "text": "Discoveries से extra silver आया\nऔर prices गिरे।"
+    },
+    {
+     "cue": [
+      "b24",
+      "1873–1947"
+     ],
+     "text": "यह दौर 1873–1947 तक फैला था।"
+    }
+   ]
+  },
+  {
+   "id": "external",
+   "kind": "board",
+   "x": 2950,
+   "y": 440,
+   "fill": "#ECE3CF",
+   "cue": [
+    "b25",
+    "कमजोर"
+   ],
+   "until_cue": [
+    "b26",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b25",
+      "कमजोर"
+     ],
+     "text": "Silver-linked rupee\nकमजोर पड़ सकता है।"
+    },
+    {
+     "cue": [
+      "b25",
+      "ज़्यादा"
+     ],
+     "text": "Same gold-linked foreign payment\nके लिए ज़्यादा rupees लगेंगे।"
+    },
+    {
+     "cue": [
+      "b25",
+      "steadier"
+     ],
+     "text": "Steadier anchor चाहिए था।"
+    }
+   ]
+  },
+  {
+   "id": "evidence",
+   "kind": "board",
+   "x": 2220,
+   "y": 420,
+   "fill": "#DFE9E5",
+   "cue": [
+    "b26",
+    "संबंध"
+   ],
+   "until_cue": [
+    "b27",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b26",
+      "संबंध"
+     ],
+     "text": "Historical evidence discoveries\nऔर price collapse का संबंध है।"
+    },
+    {
+     "cue": [
+      "b26",
+      "दबाव"
+     ],
+     "text": "ये extra supply का दबाव समझाते हैं।"
+    }
+   ]
+  },
+  {
+   "id": "caveat",
+   "kind": "label",
+   "x": 2860,
+   "y": 650,
+   "text": "हमारे kg और prices actual data नहीं।",
+   "fill": "#F3E9D8",
+   "cue": [
+    "b26",
+    "नहीं;"
+   ],
+   "until_cue": [
+    "b27",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "condition",
+   "kind": "board",
+   "x": 2900,
+   "y": 430,
+   "fill": "#DFE9E5",
+   "cue": [
+    "b27",
+    "गिरता;"
+   ],
+   "until_cue": [
+    "b28",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b27",
+      "गिरता;"
+     ],
+     "text": "Discovery भर से price नहीं गिरता।"
+    },
+    {
+     "cue": [
+      "b27",
+      "बढ़े"
+     ],
+     "text": "Actual या expected supply बढ़े।"
+    },
+    {
+     "cue": [
+      "b27",
+      "समेटे,"
+     ],
+     "text": "Demand extra silver न समेटे,\nतभी नीचे का दबाव बनेगा।"
+    }
+   ]
+  },
+  {
+   "id": "recall",
+   "kind": "board",
+   "x": 2220,
+   "y": 440,
+   "fill": "#ECE3CF",
+   "cue": [
+    "b28",
+    "रखो:"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b28",
+      "रखो:"
+     ],
+     "text": "Chain याद रखो।"
+    },
+    {
+     "cue": [
+      "b28",
+      "external"
+     ],
+     "text": "Rupee की external परेशानी\nऔर gold-link की जरूरत।"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b24",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 450,
+   "zoom": 0.8,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b24",
+    "discoveries"
+   ],
+   "x": 2420,
+   "y": 440,
+   "zoom": 0.9,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b24",
+    "बाज़ार"
+   ],
+   "x": 2580,
+   "y": 480,
+   "zoom": 0.85,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b24",
+    "1873–1947"
+   ],
+   "x": 2380,
+   "y": 430,
+   "zoom": 0.95,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b25",
+    "कमजोर"
+   ],
+   "x": 2770,
+   "y": 440,
+   "zoom": 0.9,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b25",
+    "foreign"
+   ],
+   "x": 2830,
+   "y": 450,
+   "zoom": 0.95,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b25",
+    "steadier"
+   ],
+   "x": 2740,
+   "y": 440,
+   "zoom": 0.9,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b26",
+    "Historical"
+   ],
+   "x": 2400,
+   "y": 440,
+   "zoom": 0.9,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b26",
+    "actual"
+   ],
+   "x": 2590,
+   "y": 480,
+   "zoom": 0.8,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b26",
+    "दबाव"
+   ],
+   "x": 2450,
+   "y": 450,
+   "zoom": 0.85,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b27",
+    "Discovery"
+   ],
+   "x": 2740,
+   "y": 440,
+   "zoom": 0.9,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b27",
+    "expected"
+   ],
+   "x": 2800,
+   "y": 440,
+   "zoom": 0.95,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b27",
+    "demand"
+   ],
+   "x": 2730,
+   "y": 450,
+   "zoom": 0.9,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b28",
+    "Chain"
+   ],
+   "x": 2440,
+   "y": 450,
+   "zoom": 0.85,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b28",
+    "सस्ता"
+   ],
+   "x": 2390,
+   "y": 450,
+   "zoom": 0.9,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b28",
+    "gold-link"
+   ],
+   "x": 2520,
+   "y": 450,
+   "zoom": 0.8,
+   "frames": 45
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}
