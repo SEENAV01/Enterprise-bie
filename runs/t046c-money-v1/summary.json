@@ -1,30 +1,32 @@
 {
  "schema": "bie.render-spec.summary/1",
- "run_id": "40619059768",
- "sha": "f99b77a650a3190be8c6275d35be1bf218fe57a3",
- "run_url": "https://github.com/SEENAV01/Enterprise-bie/actions/runs/40619059768",
+ "run_id": "40976940503",
+ "sha": "a42a9ecff903cd62d34c3100347fe8c1370cc4fd",
+ "run_url": "https://github.com/SEENAV01/Enterprise-bie/actions/runs/40976940503",
  "cost": {
   "chunks": 8,
-  "frames": 12646,
-  "video_seconds": 421.53,
-  "video_minutes": 7.03,
-  "render_seconds": 1593.2,
-  "seconds_per_frame": 0.126,
-  "seconds_per_video_second": 3.78,
-  "wall_clock_minutes_parallel": 3.7,
-  "machine_minutes": 26.6,
-  "usd_at_list_price": 0.212,
-  "inr_at_list_price": 17.84,
+  "frames": 12271,
+  "video_seconds": 409.01,
+  "video_minutes": 6.82,
+  "render_seconds": 1719.4,
+  "seconds_per_frame": 0.14,
+  "seconds_per_video_second": 4.2,
+  "wall_clock_minutes_parallel": 4.0,
+  "machine_minutes": 28.7,
+  "usd_at_list_price": 0.229,
+  "inr_at_list_price": 19.26,
   "list_price_usd_per_minute": 0.008,
   "usd_to_inr": 84.0,
-  "note": "GitHub-hosted ubuntu runner, 2 vCPU, software WebGL (SwiftShader), no GPU; the public repository bills Rs 0"
+  "note": "GitHub-hosted ubuntu runner, 2 vCPU, software WebGL (SwiftShader), no GPU; the public repository bills Rs 0",
+  "schema": "bie.render.cost/1"
  },
  "join": {
   "video": "/home/runner/work/_temp/out/video.mp4",
   "review": "/home/runner/work/_temp/out/review-720p.mp4",
-  "review_bytes": 15234116,
-  "video_bytes": 50423268,
-  "seconds": 421.53,
-  "chunks": 8
+  "review_bytes": 12511259,
+  "video_bytes": 40361414,
+  "seconds": 409.03,
+  "chunks": 8,
+  "schema": "bie.render.join/1"
  }
 }
