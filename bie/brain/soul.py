@@ -633,7 +633,17 @@ def book_pointing(say: str, wording: dict | None = None) -> list:
     return found
 
 
-STATE_REPORT = re.compile(r"(?:₹\s?)?\d[\d,]*(?:\.\d+)?\s*से\s*(?:₹\s?)?\d[\d,]*(?:\.\d+)?\s*(?:हुआ|हुई|हुईं|हुए|हो\s*गया|हो\s*गई|हो\s*गईं|हो\s*गए|हो\s*जाता|हो\s*जाती|पहुँचा|पहुँची|पहुँचे|हुईं)")
+_NUM = r"(?:₹\s?)?\d[\d,]*(?:\.\d+)?"
+_UNIT = (r"(?:\s*(?:kg|किलो|grams?|g|litres?|liters?|लीटर|metres?|meters?|मीटर|%|percent|प्रतिशत|units?|branches?|coins?|notes?|"
+         r"rupees?|रुपये|रुपए|paise|पैसे|lakh|crore|लाख|करोड़))?")
+_STATE_VERB = (r"(?:हुआ|हुई|हुईं|हुए|हो\s*गया|हो\s*गई|हो\s*गईं|हो\s*गए|हो\s*जाता|हो\s*जाती|हो\s*जाते|होता\s*है|होती\s*है|होते\s*हैं|"
+               r"होती\s*हैं|मिलता\s*है|मिलती\s*है|मिलते\s*हैं|पहुँचा|पहुँची|पहुँचे|पहुंचा|पहुंची|पहुंचे|रह\s*गया|रह\s*गई|रह\s*गए|रहा|रही|रहे|"
+               r"बचा|बची|बचे|बढ़ा|बढ़ी|बढ़े|घटा|घटी|घटे|गिरा|गिरी|गिरे|आ\s*गया|आ\s*गई|आ\s*गए)")
+# "₹500 से ₹400 हुआ", "receipt ₹0 से ₹100 होती है", "seller को ₹0 से ₹20 मिलते हैं", and the verb-less ledger line "wheat 10 से 8 kg",
+# "जेब में 5 से 3।" (the Money resume -e, 29 October 2026: the checker found these after the code had passed the हुआ form). A range
+# ("6 से 8 मिनट लगते हैं", "₹100 से ₹500 के बीच", "10 से 20 तक") goes on with another word, so it is not a state report.
+_WORD_END = r"(?![\u0900-\u0963\u0966-\u097Fa-zA-Z0-9])"        # not inside a word (\b fails after a Devanagari matra)
+STATE_REPORT = re.compile(_NUM + r"\s*से\s*" + _NUM + _UNIT + r"(?:\s*" + _STATE_VERB + _WORD_END + r"|(?=\s*(?:[;।.!?)\"']|,(?!\d)|$)))")       # a clause end; the comma of 1,000 is not one
 TEACHER_NUMBERS = "pehle aapke paas 500 rupaye the, kiraane ke 100 diye, ab 400 bache"     # Navin, 29 October 2026
 
 

@@ -72,6 +72,10 @@ RULE_CHANGES = (
                  "say what the source lacks ('dates नहीं हैं', 'caption supplies no source'); the on-screen text is checked too",
      "upgraded_by": "the lesson's wording patch round: only the beats W-01 flags are rewritten (bie/brain/lesson.py)",
      "match": re.compile(r"\(W-01\)$")},
+    {"rule": "S2-09", "rulebook": f"{VISION}@2026-10-21.17",
+     "decision": "Navin's verdict on Money v1 (29 October 2026) applied in every form after the lesson resume -e: a state report without a verb ('wheat 10 से 8 kg') or with होती है / मिलते हैं is a state report too",
+     "upgraded_by": "the script is continued from its last answer; only the beats S2-09 flags are rewritten (bie/brain/lesson.py)",
+     "match": re.compile(r"\(S2-09\)$")},
     {"rule": "S2-10", "rulebook": f"{VISION}@2026-10-21.16",
      "decision": "Navin's verdict work C, 29 October 2026 (the Money lesson resume -d, v10): a competitive-exam fact from outside the "
                  "book carries its dated source in the beat's `source` field",
