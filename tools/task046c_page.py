@@ -292,7 +292,9 @@ def before_after(video_id: str, canvas_dir: Path, before_canvas: Path | None, le
 
 def build(canvas_dir: Path, render_dir: Path, *, video_path: Path | None = None, stills_dir: Path | None = None, base_url: str = "",
           status: str = "", note: str = "", before_canvas: Path | None = None, lesson_dir: Path | None = None,
-          before_lesson: Path | None = None, chapter_map: Path | None = None, records: dict | None = None) -> str:
+          before_lesson: Path | None = None, chapter_map: Path | None = None, records: dict | None = None, only: str = "") -> str:
+    """``only``: one video id, when the canvas run planned several videos and this page (and its render) is one of them
+    (the canvas run vm-t046c-money-canvas-e1 planned v0, v1, v8 and v16; each has its own render and page)."""
     e = html.escape
     canvas = json.loads((canvas_dir / "canvas.json").read_text(encoding="utf-8"))
     records = records if records is not None else coverage_records(canvas_dir, lesson_dir, chapter_map)
@@ -304,7 +306,9 @@ def build(canvas_dir: Path, render_dir: Path, *, video_path: Path | None = None,
     subscription = ((run_summary.get("cost") or {}).get("subscription")) or {}
     spent_inr = ((run_summary.get("cost") or {}).get("total_inr"))
     plans = load_plans(canvas_dir)
-    videos = canvas.get("videos") or []
+    videos = [v for v in canvas.get("videos") or [] if not only or v.get("video_id") == only]
+    if only and not videos:
+        raise SystemExit(f"NO_SUCH_VIDEO: {only} is not a video of {canvas_dir}")
     course = canvas.get("course") or {}
     review_name = Path(join.get("review") or "review-720p.mp4").name
     video_url = f"{base_url}/{review_name}" if base_url else ""
@@ -406,11 +410,14 @@ def main(argv=None):
     parser.add_argument("--chapter-map", type=Path, help="the chapter map (file, or the understanding run folder): with --lesson, the page "
                                                          "carries the table of the book lines each video taught")
     parser.add_argument("--coverage-json", type=Path, help="where the coverage record goes (default: <page>.coverage.json)")
+    parser.add_argument("--only", default="", metavar="VIDEO_ID", help="one video of a canvas run that planned several (each has its own render and page)")
     args = parser.parse_args(argv)
     records = coverage_records(args.canvas, args.lesson, args.chapter_map)
+    if args.only:
+        records = {k: v for k, v in records.items() if k == args.only}
     page = build(args.canvas, args.render, video_path=args.video, stills_dir=args.stills, base_url=args.base_url.rstrip("/"),
                  status=args.status, note=args.note, before_canvas=args.before_canvas, lesson_dir=args.lesson, before_lesson=args.before_lesson,
-                 records=records)
+                 records=records, only=args.only)
     args.html.parent.mkdir(parents=True, exist_ok=True)
     args.html.write_text(page, encoding="utf-8")
     print(f"{args.html}: {len(page.encode('utf-8')) / 1e6:.2f} MB")
