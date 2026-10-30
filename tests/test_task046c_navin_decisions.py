@@ -121,7 +121,11 @@ class TheRealLibrary(unittest.TestCase):
         lib = explanations.load()
         locked = [e for e in lib.examples if e.from_run.startswith("vm-t046c-money-understand-d-brain-understand:")]
         self.assertEqual(len(locked), 11)                 # the 11 of v1's 13 items that carry an example (two list items take none)
-        self.assertTrue(all(e.source == "Navin, 29 October 2026" and not e.narration_locked and e.narration is None for e in locked))
+        self.assertTrue(all(e.source == "Navin, 29 October 2026" for e in locked))
+        # the narration wording of all 11 locked on 29 October 2026 after the narration work, from v1 of the lesson resume -e
+        self.assertTrue(all(e.narration_locked and e.narration["video_id"] == "v1" and e.narration["beats"] for e in locked))
+        self.assertEqual({e.narration_version for e in locked}, {"2026-10-24.3"})
+        self.assertEqual(sum(len(e.narration["beats"]) for e in locked), 42)
         self.assertEqual({e.key for e in locked} & {"medium of exchange", "acceptability", "durability", "portability", "divisibility"},
                          {"medium of exchange", "acceptability", "durability", "portability", "divisibility"})
         found = lib.lookup_examples("Durability: money must not wear out; portability: easy to carry; a medium of exchange.")
