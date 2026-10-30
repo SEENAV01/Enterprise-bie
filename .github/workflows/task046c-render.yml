@@ -193,12 +193,22 @@ jobs:
           auth="AUTHORIZATION: basic $(printf 'x-access-token:%s' "$GH_TOKEN" | base64 -w0)"
           git init -q "$RUNNER_TEMP/branch" && cd "$RUNNER_TEMP/branch"
           git remote add origin "https://github.com/${GITHUB_REPOSITORY}.git"
-          git -c http.extraheader="$auth" fetch -q --depth=1 origin blindtest-results
-          git checkout -q -b blindtest-results FETCH_HEAD
-          rm -rf "$dest" && mkdir -p "$dest"
-          for f in review-720p.mp4 cost.json join.json summary.json REPORT.md video_spec.json; do cp "$RUNNER_TEMP/out/$f" "$dest/"; done
-          git add "$dest"
-          git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
-            commit -q -m "Task046c render ${GITHUB_RUN_ID} from ${GITHUB_SHA}: ${DEST}"
-          git -c http.extraheader="$auth" push -q origin HEAD:blindtest-results
-          echo "::notice title=task046c render::branch blindtest-results, folder ${dest}"
+          # Several renders publish at once since PR #108 (one concurrency group per destination): a push rejected with
+          # "fetch first" (30 October 2026: 4 of 14 Money renders lost the race) is retried on the branch's new tip, up to 6 times.
+          for attempt in 1 2 3 4 5 6; do
+            git -c http.extraheader="$auth" fetch -q --depth=1 origin blindtest-results
+            git checkout -q -B blindtest-results FETCH_HEAD
+            rm -rf "$dest" && mkdir -p "$dest"
+            for f in review-720p.mp4 cost.json join.json summary.json REPORT.md video_spec.json; do cp "$RUNNER_TEMP/out/$f" "$dest/"; done
+            git add "$dest"
+            git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
+              commit -q -m "Task046c render ${GITHUB_RUN_ID} from ${GITHUB_SHA}: ${DEST}"
+            if git -c http.extraheader="$auth" push -q origin HEAD:blindtest-results; then
+              echo "::notice title=task046c render::branch blindtest-results, folder ${dest} (push attempt ${attempt})"
+              exit 0
+            fi
+            echo "push attempt ${attempt} rejected (another render published first); fetching the new tip"
+            sleep $((attempt * 7))
+          done
+          echo "::error title=task046c render::could not publish ${dest} after 6 attempts"
+          exit 1
