@@ -54,6 +54,20 @@ class ReviewPage(unittest.TestCase):
         (render / "summary.json").write_text(json.dumps(RENDER), encoding="utf-8")
         self.canvas, self.render = canvas, render
 
+    def test_only_one_video_of_a_run_that_planned_several(self):
+        two = json.loads(json.dumps(CANVAS))
+        v2 = json.loads(json.dumps(two["videos"][0])); v2.update(video_id="v2", title="Barter से commodity money", parts=[])
+        two["videos"].append(v2)
+        (self.canvas / "canvas.json").write_text(json.dumps(two, ensure_ascii=False), encoding="utf-8")
+        both = page.build(self.canvas, self.render)
+        self.assertEqual(both.count("<h1>"), 2)
+        one = page.build(self.canvas, self.render, only="v1")
+        self.assertEqual(one.count("<h1>"), 1)
+        self.assertIn("Money क्या है?", one)
+        self.assertNotIn("Barter से commodity money", one)
+        with self.assertRaises(SystemExit):
+            page.build(self.canvas, self.render, only="v9")
+
     def test_scene_times_come_from_the_spec_durations(self):
         times = page.scene_times(SPEC_JSON)
         self.assertEqual([t["id"] for t in times], ["v1_s1s", "v1_s1b", "v1_credits"])

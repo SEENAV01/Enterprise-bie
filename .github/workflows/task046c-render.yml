@@ -33,7 +33,9 @@ permissions:
   contents: read
 
 concurrency:
-  group: task046c-render-${{ github.ref }}
+  # one run per destination, so several videos render side by side (29 October 2026: dispatching v0, v1, v8 and v16 within a
+  # minute cancelled three of the four); a second dispatch of the same destination still replaces the first
+  group: task046c-render-${{ github.ref }}-${{ inputs.dest }}
   cancel-in-progress: true
 
 env:
