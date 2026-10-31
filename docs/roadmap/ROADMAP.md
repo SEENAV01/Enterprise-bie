@@ -356,6 +356,43 @@ AI calls; ₹50 cap on paid routes); D, the video path's formats locked (schemas
 section boundary, the voice fields reserved for Task 047, the fields the game and the notes will read, the change rule); E,
 the canvas section's preflight without a reviewer route. Then STOP for his verdict.
 
+**Navin's verdict on the whole Money chapter, 30 October 2026, in his words:** "Hum level 2 ki videos bna rahe hai phir bhi ek
+hi setup use kare hai wahi bank 4 admi aur screen par ubharta text on boards ... its not an engaging video"; "Agar puri video
+mein sirf text hi text screen par dikha to video, video nhi ek book ban jaayegi"; "jo bola ja rha hai screen ke visuals se wo
+baat clear ho ... visuals tarike se user ko teacher ki baat aankhon ke jariye dimag tak pahunchate ho, is parkar se naration ka
+scene plan bnana hai". The timeline was only an example: "kya pata dusre pages mein kya naya aa jaaye use present karne ka tarika
+... bie ko khud sochna padega". "yuan milestone compulsory wali line ke liye reject krne ki baat ko cross se darshaya ja sakta
+tha"; "shershah suri ke paise ka jikr aaya to year, shershah suri ki photo aur uske mohar wale sikke ka photo yeh to common sense
+hai ... bie ne jo duniya bnayi hai uske bahar sochke wo cheejen ikathi hi nhi kar rha". Page 2: "dekho kaise icons ka use kiya ja
+rha hai khud samjh aa rha hai ki neeche likhe text ka matlb kya hai". "background mein ek check hai, visuals par to yeh cheejen na
+dikhe". Nothing is ACCEPTED.
+
+**Part D1 (branch `task046d-visual-thinking`, one PR; STATUS "Task 046 · Part D1"): the director's dikhane ki soch, the needs
+list and the gathering of things.** (A) Before any layout, the canvas section writes per beat the idea, the relation from a
+closed list (`bie/brain/rulebook/visual_verbs.json`, Navin adds entries), the things, people and places, what is seen and on
+which word; the picture type is decided by code first (the book's own diagram or table is drawn as itself; then the card part's
+type; then the maker); screen text is a name or a short phrase; the dikhane ki list of every video is a page Navin sees before
+the render; the canvas director reads `visual_grammar.json`. (B) The maker names things and code finds them in the full icon
+index and the asset library (synonyms, Hindi, emoji names; religious symbols only when asked); `needs.json` records each thing
+found nowhere; a fetch step in GitHub Actions brings images from open sources the licence policy allows (CC0, PD, CC BY with
+credit; never BY-SA or NC), licence-checked, tagged and credited, into the shared library the next run reads first; a source
+that needs a key is Navin's to approve (it is a secret); real people stay under card rule 8 (historical figures such as Sher
+Shah's portrait are Navin's decision; coins and objects from CC0 museum collections are fine); missing kits and blocks go to a
+missing-capability log for Part D2. (C) No world by keyword: a world only for a story with actors at a place taken from the
+beat's own example. (D) Code checks D1-01 to D1-06 (a non-text thing on every beat's words, no text-only screen over 10 s, short
+phrases on a 2 × 28 board, every book picture drawn, never the same kit in two consecutive parts, caution and fact-check lines
+never on screen), a per-video report, and LOOK-D1 (one still per part judged by the reviewer route under the cost guard, report
+only). (E) Proof: the director run again on Money v2 and v4 with the narration locked, rendered, before/after pages and the
+dikhane ki list published, measured (bank + shop share, distinct icons, text-only time, book pictures, first-try pass, rounds,
+tokens, ₹ per page), nothing that passed before broken. Then STOP for Navin's verdict. **Part D2** builds the missing kits and
+blocks the log names.
+
+**Navin's process decisions, 30 October 2026 (also in `CLAUDE.md`):** (1) **Learning track**: from YouTube reference videos
+Claude may make demos, each labelled "Claude's demo, not BIE output"; they never go into `tests/fixtures/passed_outputs/` and
+are not a BIE capability until BIE makes the same kind of video itself. (2) **Fast track to one button**: section by section,
+ask Navin what he expects from the section, then build it. (3) **Caution and fact-check lines** are background checks, never on
+screen.
+
 **047 · Voice** — extend Section 14: tested natural voices including a cloned voice (Navin chooses by ear);
 word timestamps drive the animation; close the AUDIO reconciliation.
 

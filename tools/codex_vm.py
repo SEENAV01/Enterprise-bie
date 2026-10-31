@@ -72,7 +72,7 @@ def validate(job: dict) -> dict:
     """The job with defaults, or JobError naming the first bad field. Unknown fields are refused."""
     if not isinstance(job, dict) or job.get("job") != JOB_SCHEMA:
         raise JobError(f"job: must be a {JOB_SCHEMA} object")
-    allowed = {"job", "id", "section", "source", "chapter_map", "from_run", "resume_from", "pages", "videos", "course",
+    allowed = {"job", "id", "section", "source", "chapter_map", "from_run", "resume_from", "library", "pages", "videos", "course",
                "maker", "reviewer", "reviewer_model", "models", "routes", "max_inr", "workers", "max_rounds", "language",
                "with_visual", "render", "fake", "note", "prompts", "request", "max_images"}
     unknown = sorted(set(job) - allowed)
@@ -83,7 +83,7 @@ def validate(job: dict) -> dict:
         raise JobError("section: one of " + ", ".join(SECTIONS))
     if out["maker"] not in MAKERS or out["reviewer"] not in REVIEWERS:
         raise JobError("maker or reviewer: not allowed")
-    for name in ("source", "chapter_map", "from_run", "resume_from", "prompts", "request"):
+    for name in ("source", "chapter_map", "from_run", "resume_from", "library", "prompts", "request"):
         if out.get(name) and not URL.match(str(out[name])):
             raise JobError(f"{name}: an https URL")
     if out["section"] == "image" and not out.get("prompts"):
@@ -132,7 +132,7 @@ def argv(job: dict, out: Path, python: str = sys.executable) -> list:
     cmd = [python, "-B", str(ROOT / "tools" / "run_brain.py"), "--section", job["section"], "--out", str(out),
            "--maker", job["maker"], "--reviewer", job["reviewer"], "--max-inr", str(job["max_inr"]),
            "--workers", str(job["workers"]), "--max-rounds", str(job["max_rounds"])]
-    flags = {"source": "--source", "chapter_map": "--chapter-map", "from_run": "--from-run", "resume_from": "--resume-from",
+    flags = {"source": "--source", "chapter_map": "--chapter-map", "from_run": "--from-run", "resume_from": "--resume-from", "library": "--library",
              "pages": "--pages", "videos": "--videos", "course": "--course", "reviewer_model": "--reviewer-model",
              "models": "--models", "routes": "--routes", "language": "--language"}
     for name, flag in flags.items():

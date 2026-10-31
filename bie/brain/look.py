@@ -79,3 +79,50 @@ def summary(results: dict) -> dict:
             rows[route] = {"mean": round(sum(scores.values()) / len(scores), 2), "same_class": scores.get("same_class"),
                            "verdict": value.get("verdict")}
     return rows
+
+
+# ---------------------------------------------------------------- LOOK-D1 (Task 046 Part D1; Navin, 30 October 2026)
+# "jo bola ja rha hai screen ke visuals se wo baat clear ho"; "agar puri video mein sirf text hi text screen par dikha to video,
+# video nhi ek book ban jaayegi". One still per part, judged without the narration: does the picture alone hint at the point,
+# and is it text only? Advice for Navin's eye, never a blocker (Part D1).
+D1_RULE = "LOOK-D1"
+D1_VERSION = "2026-10-31.1"
+D1_SCHEMA = {
+    "type": "object", "additionalProperties": False, "required": ["hints_point", "text_only", "what_it_shows", "missing"],
+    "properties": {
+        "hints_point": {"type": "integer", "minimum": 1, "maximum": 10},
+        "text_only": {"type": "boolean"},
+        "what_it_shows": {"type": "string", "minLength": 5},
+        "missing": {"type": "string"},
+    },
+}
+D1_SYSTEM = ("You are BIE's look reviewer for rule LOOK-D1. You see ONE still from one part of a lesson video for Indian learners; "
+             "you do not hear the teacher. Judge only what the eye gets from the picture: would a learner who sees this frame, "
+             "without the narration, get a hint of the teacher's point? 10 = the picture alone says it (things, marks, arrows, a "
+             "timeline or a table that carry the idea); 5 = some picture but the idea needs the words; 1 = no hint at all. "
+             "text_only is true when the frame is essentially words on a background (headings, boards, sentences) with no "
+             "picture of the things. what_it_shows: what the frame shows, in a few words. missing: the one picture that would make "
+             "the point clear, or \"\". Reply with one JSON object that matches the schema.")
+
+
+def d1_task(part: dict) -> str:
+    return (f"Lesson part {part.get('id', '')}. The teacher's point here: {part.get('point', '')}\n"
+            "Judge the still below as described.")
+
+
+def d1_messages(part: dict, media: str, data: str) -> tuple:
+    return ({"role": "system", "content": D1_SYSTEM},
+            {"role": "user", "content": [{"type": "text", "text": d1_task(part)}, {"type": "image", "media_type": media, "data": data}]})
+
+
+def d1_problems(value: dict) -> list:
+    return [] if len(str(value.get("what_it_shows", "")).split()) >= 3 else ["what_it_shows: say what the frame shows in a few words"]
+
+
+def d1_summary(results: dict) -> dict:
+    scored = {k: v for k, v in results.items() if isinstance(v, dict) and "hints_point" in v}
+    if not scored:
+        return {}
+    return {"parts": len(scored), "mean_hints_point": round(sum(v["hints_point"] for v in scored.values()) / len(scored), 2),
+            "text_only": sum(1 for v in scored.values() if v.get("text_only")),
+            "low": sorted(k for k, v in scored.items() if v["hints_point"] <= 4)}

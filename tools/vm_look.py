@@ -47,8 +47,31 @@ def media_of(data: bytes) -> str:
     return next((m for magic, m in MEDIA.items() if data.startswith(magic)), "")
 
 
+MAX_D1_PARTS = 40
+
+
+def load_d1_request(data: dict) -> dict:
+    """LOOK-D1 (Task 046 Part D1): {"rule": "LOOK-D1", "reviewer": "codex" | "google", "parts": [{"id", "point", "frame"}]},
+    one still per part (at most 40), each a PNG or JPEG of our render on blindtest-results."""
+    parts = data.get("parts")
+    if not isinstance(parts, list) or not 1 <= len(parts) <= MAX_D1_PARTS:
+        raise ValueError(f"parts: 1 to {MAX_D1_PARTS} parts")
+    for part in parts:
+        if not isinstance(part, dict) or not str(part.get("id") or "").strip() or not str(part.get("point") or "").strip():
+            raise ValueError("parts: every part needs an id and a point")
+        if not isinstance(part.get("frame"), str) or not FRAME_URL.match(part["frame"]):
+            raise ValueError(f"parts: {part.get('id')}: the frame must be a PNG or JPEG file under blindtest-results/runs/")
+    if data.get("reviewer", "codex") not in ("codex", "google"):
+        raise ValueError("reviewer: codex or google")
+    return data
+
+
 def load_request(text: str) -> dict:
     data = json.loads(text)
+    if isinstance(data, dict) and data.get("rule") == look.D1_RULE:
+        if data.get("schema") != SCHEMA:
+            raise ValueError(f"schema: must be {SCHEMA}")
+        return load_d1_request(data)
     if not isinstance(data, dict) or data.get("schema") != SCHEMA:
         raise ValueError(f"request: must be a {SCHEMA} object")
     routes = data.get("routes")
@@ -154,6 +177,60 @@ def run(request: dict, out: Path, *, max_inr: float, gateway: LiveGateway | None
     return summary
 
 
+def run_d1(request: dict, out: Path, *, max_inr: float, gateway: LiveGateway | None = None, opener=None) -> dict:
+    """LOOK-D1: one reviewer call per part on its still, through the cost guard; the Codex reviewer on the ChatGPT plan (Rs 0)
+    unless the request names google (the free tier). Report only (Task 046 Part D1)."""
+    out.mkdir(parents=True, exist_ok=True)
+    guard = CostGuard(max_inr, rate=usd_inr())
+    ledger = UsageLedger(out / "LEDGER.jsonl")
+    route = request.get("reviewer", "codex")
+    if gateway is None:
+        if route == "codex":
+            from bie.model_gateway.gpt_adapter import GPTAdapter
+            from bie.model_gateway.live.codex_client import DEFAULT_MODEL, CodexExecClient
+            routes = {"codex": GPTAdapter(CodexExecClient(), os.environ.get("BIE_CODEX_MODEL") or DEFAULT_MODEL)}
+        else:
+            routes, missing = build_routes(["google"], max_output_tokens=3000, stream=True)
+            if missing:
+                raise SystemExit("NOT_CONFIGURED:google")
+        gateway = LiveGateway(routes, ledger=ledger, guard=guard)
+    else:
+        gateway.ledger, gateway.guard = ledger, guard
+    summary = {"schema": "bie.vm-look-run/1", "section": "look", "rule": look.D1_RULE, "rule_version": look.D1_VERSION,
+               "reviewer": {"route": route, "model": gateway.model_of(route)}, "status": "ok", "error": None, "results": {}}
+    for part in request["parts"]:
+        try:
+            frame = fetch(part["frame"], opener)
+        except (ValueError, OSError) as exc:
+            summary["results"][part["id"]] = {"error": str(exc)[:300]}
+            continue
+        msgs = look.d1_messages(part, media_of(frame), base64.b64encode(frame).decode())
+        try:
+            response = gateway.complete(route, ModelRequest(request_id=f"look-d1:{part['id']}", messages=msgs, response_schema=look.D1_SCHEMA),
+                                        prompt_version=f"look-d1/{look.D1_VERSION}", check=look.d1_problems, expected_output_tokens=600)
+            summary["results"][part["id"]] = dict(response.content, frame=part["frame"], point=part["point"])
+        except ProviderError as exc:
+            summary["results"][part["id"]] = {"error": f"{exc.kind}: {str(exc)[-240:]}"}
+            if guard.stopped:
+                summary.update(status="stopped: budget", error=str(exc)[-240:])
+                break
+    summary["table"] = look.d1_summary(summary["results"])
+    if not summary["table"] and summary["status"] == "ok":
+        summary.update(status="failed", error="no part was judged")
+    summary["cost"] = {"cap": guard.report(), "total_inr": round(guard.spent_inr, 2), "note": COST_NOTE,
+                       "billed_note": "the ChatGPT plan (Codex) and the free Google tier bill Rs 0; the guard prices calls at the list price"}
+    (out / "look.json").write_text(json.dumps(summary["results"], ensure_ascii=False, indent=1), encoding="utf-8")
+    (out / "SUMMARY.json").write_text(json.dumps(summary, ensure_ascii=False, indent=1), encoding="utf-8")
+    lines = [f"# LOOK-D1 · {len(request['parts'])} parts", "", f"reviewer {summary['reviewer']['model']} ({route}); status {summary['status']}; "
+             f"{json.dumps(summary['table'], ensure_ascii=False)}", ""]
+    for pid, value in summary["results"].items():
+        lines.append(f"- {pid}: " + (f"{value['hints_point']}/10{' · TEXT ONLY' if value.get('text_only') else ''} · {value['what_it_shows']}"
+                                     + (f" · missing: {value['missing']}" if value.get("missing") else "") if "hints_point" in value else str(value.get("error"))))
+    (out / "LOOK.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
+    print(json.dumps({"status": summary["status"], "table": summary["table"]}), flush=True)
+    return summary
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--request", required=True)
@@ -173,7 +250,7 @@ def main(argv=None):
         (out / "SUMMARY.json").write_text(json.dumps({"section": "look", "status": "refused", "error": str(exc)[:300]}), encoding="utf-8")
         print(json.dumps({"status": "refused", "error": str(exc)[:300]}))
         return 2
-    summary = run(request, out, max_inr=args.max_inr)
+    summary = (run_d1 if request.get("rule") == look.D1_RULE else run)(request, out, max_inr=args.max_inr)
     return 0 if summary["status"] == "ok" else 1
 
 

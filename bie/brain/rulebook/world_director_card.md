@@ -32,6 +32,13 @@ Every element has `cue: [beat_id, word]` with the word exactly as written in tha
 start). Something must change at least every 15 s (the code refuses a longer still); aim for a change every 5 s.
 Never a real person, logo, emblem or regulator mark: a generic shop sign and generic people only.
 
+## What every beat shows (Task 046 Part D1; Navin, 30 October 2026)
+
+A world is used only for the story of the concept's real-world example, at the example's own place. In it every beat shows
+something happening that is not text (a person walking in or out, a price changing, goods or money moving, the balance
+tilting), cued on a word of that beat (D1-01). A board holds a name, a number or a short phrase, never a sentence (D1-03),
+and never a caution line ("illustrative", "imagined", "data not given"): those stay BIE's background checks (D1-06).
+
 ## On-screen text (CV-13 to CV-16; Navin's verdict on Money v1, 29 October 2026)
 
 - A board, label or tag holds ONE idea as a short COMPLETE phrase or sentence in the learner's language (Devanagari Hinglish

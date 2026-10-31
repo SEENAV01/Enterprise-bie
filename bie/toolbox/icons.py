@@ -137,13 +137,18 @@ RELIGION_WORDS = re.compile(r"religio|church|christian|crucifix|hindu|muslim|isl
 
 
 def _alias_ids(words: list) -> list:
-    """The icon ids the aliases name for a query's words (the longest alias first, then single words)."""
+    """The icon ids the aliases name for a query's words, in the order the query names the things ("Cheques and deposits":
+    the cheque first); at one place the longest alias wins ("check book" before "book")."""
     text = " ".join(words)
-    out = []
-    for key in sorted(ALIASES, key=len, reverse=True):
+    hits = []
+    for key in ALIASES:
         plural = r"(?:e?s)?" if re.fullmatch(r"[a-z ]+", key) else ""          # "cheques", "receipts", "deposits"
-        if re.search(r"(?<![a-z\u0900-\u097f])" + re.escape(key) + plural + r"(?![a-z\u0900-\u097f])", text):      # whole words: "warehouse" is not a house
-            out += [i for i in ALIASES[key] if i not in out]
+        m = re.search(r"(?<![a-z\u0900-\u097f])" + re.escape(key) + plural + r"(?![a-z\u0900-\u097f])", text)  # whole words: "warehouse" is not a house
+        if m:
+            hits.append((m.start(), -len(key), key))
+    out = []
+    for _, _, key in sorted(hits):
+        out += [i for i in ALIASES[key] if i not in out]
     return out
 
 

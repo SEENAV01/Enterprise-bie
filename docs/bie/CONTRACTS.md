@@ -133,7 +133,7 @@ Before any layout, the canvas section thinks about what the learner should SEE (
 
 - **The idea of every beat** (the maker's strict answer, checked by code): `idea`, `relation` (one of the ids of
   `bie/brain/rulebook/visual_verbs.json`: reject, accept, compulsory, limit, more_less, count, sequence, cause_effect, compare,
-  part_whole, place, change, promise, question; or `other` with a note, logged in `relations_outside_list` so Navin can add an
+  part_whole, place, change, promise, question, other; `other` carries a note, logged in `relations_outside_list` so Navin can add an
   entry), `things`, `people`, `places` (the nouns a picture can show; a real person is never drawn, card rule 8), `shows` (what is
   seen, a few words, never a sentence), `on_word` (the word of the beat the picture appears on).
 - **The picture of a part, decided by code first** (`picture_of`): a book diagram or table the part covers (the chapter map's items
@@ -151,3 +151,19 @@ Before any layout, the canvas section thinks about what the learner should SEE (
   screen over 10 s; D1-03 screen text a name or a short phrase (8 words; a board 2 lines of 28 characters), never a sentence;
   D1-04 every book picture the part covers is drawn; D1-05 a world only for the example's story at the example's place, and the
   same kit never in two consecutive parts; D1-06 a caution or fact-check line never on screen.
+- **Pictures the maker draws**: a canvas node may carry `picture` (a `timeline`, `gallery` or `flow` with its events, panels or
+  steps); `plan_from` turns it into a `picture` node the same way as the book's, so the same compiler and checks apply.
+- **Photos and objects** (`image_wanted` on a beat): a photo or museum object the beat names (a coin, a seal, a cheque) is looked
+  up in the shared library; an image not found is a need of kind `image`. A portrait or likeness of a person is never wanted
+  (card rule 8; historical figures are Navin's decision).
+- **The fetch step** (`tools/task046d_fetch_needs.py`, GitHub Actions only, `.github/workflows/task046d-fetch-needs.yml`): reads a
+  `needs.json`, looks in the shared library first, then in The Met Open Access (CC0), Openverse (CC0, CC BY, PDM) and Wikimedia
+  Commons; every file passes the licence gate (`bie/toolbox/licence.py`: never BY-SA or NC), is tagged with the need's words and
+  credited, and goes to `blindtest-results:library/`. Its report is `bie.brain.fetched/1` (per need: `fetched`, `in_library`,
+  `not_found`, `skipped`, with the sources tried). A canvas run reads that library first (`tools/run_brain.py --library <https
+  base>`, `assets.seed_library`: each file's licence and sha256 checked again on the way in). No source that needs a key.
+- **Stills and LOOK-D1**: the render workflow publishes one 640 px still per part (`runs/<dest>/stills/<scene>.jpg`, listed under
+  `stills` in `join.json`, an extra key the `bie.render.join/1` format allows, so its version stays). `tools/task046d_look_request.py` builds a `bie.look-request/1` with rule `LOOK-D1` (per part: the
+  still and the teacher's point from the dikhane ki list); the VM's look section (`tools/vm_look.py`) asks the reviewer route,
+  under the cost guard, whether the picture alone hints at the point (1–10) and whether it is text only. Report only: LOOK-D1
+  never stops a video.

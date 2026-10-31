@@ -63,6 +63,8 @@ YEAR = re.compile(r"(?<!\d)(\d{3,4})\s*(CE|BCE|BC|AD)?(?!\d)")
 CENTURY = re.compile(r"(\d{1,2})(?:st|nd|rd|th)\s*c(?:entury|\.)?\s*(BCE|BC|CE|AD)?", re.IGNORECASE)
 PANEL = re.compile(r"^\s*(\d+)\s*[.)]\s*([^|]+?)\s*(?:\||$)")
 NOUN = re.compile(r"[A-Za-z][A-Za-z'-]{1,}|[ऀ-ॿ]{2,}")
+# Card rule 8 stays (Navin, 30 October 2026: historical figures are his decision): no portrait is ever asked for or fetched.
+PORTRAIT = re.compile(r"portrait|photo of (?:a |the )?(?!coin|note|seal)|face of|painting of|statue of|likeness|पोर्ट्रेट|तस्वीर", re.IGNORECASE)
 
 
 class IdeaError(ValueError):
@@ -103,7 +105,7 @@ def verbs_text(verbs: dict | None = None) -> str:
 # ---------------------------------------------------------------- the maker's strict answer
 
 IDEA = obj({"beat_id": S, "idea": S, "relation": S, "relation_note": S, "things": arr(S), "people": arr(S), "places": arr(S),
-            "shows": S, "on_word": S})
+            "shows": S, "on_word": S, "image_wanted": S})
 IDEAS_SCHEMA = obj({"notes": NOTES_SCHEMA, "beats": arr(IDEA), "picture_type": S, "picture_note": S})
 
 ROLE = """You are BIE's visual thinker for one part of a video lesson of {subject} for {learners} ({exam}). The script is written and
@@ -125,6 +127,8 @@ For each beat give:
 - shows: what is seen, in at most {phrase_words} words, as a picture description (a cross on the old coin; a meter filling to ₹1,000
   with a red line; wheat and cloth swapping hands). Never a sentence for the screen: the sentence is the narration.
 - on_word: the word of this beat (exactly as written) on which the picture should appear ("" = the beat's start).
+- image_wanted: a real object an icon cannot show and a photograph or museum image can (a punch-marked silver coin, a cowrie
+  shell, a cheque leaf), as search words; "" when an icon is enough. Never a person's portrait (card rule 8).
 {picture_line}
 Reply with the JSON object only."""
 
@@ -234,7 +238,7 @@ def timeline_events(parent: dict, kids: list) -> list:
     if len(events) >= 2:
         return _with_icons(events)
     # the parent's chain: "A / B → C / D → …" with a date in some stages; the labels below or above the markers are its children
-    stages = [re.split(r"\.\s", st, 1)[0].strip(" .") for st in re.split(r"\s*(?:→|➔|->)\s*", re.sub(r"^[^:]*:\s*|^[^.]*\.\s*", "", parent.get("content", "")))]
+    stages = [re.split(r"\.\s", st, maxsplit=1)[0].strip(" .") for st in re.split(r"\s*(?:→|➔|->)\s*", re.sub(r"^[^:]*:\s*|^[^.]*\.\s*", "", parent.get("content", "")))]
     for st in stages:
         head, _, tail = st.partition("/")
         year = _year_of(head)
@@ -264,7 +268,7 @@ def gallery_panels(parent: dict, kids: list) -> list:
         m = PANEL.match(k["content"])
         name = m.group(2).strip() if m else (cells[1] if len(cells) > 1 and len(cells[0]) <= 2 else cells[0])
         caption = cells[1] if m and len(cells) > 1 else (cells[2] if len(cells) > 2 else (cells[1] if len(cells) > 1 else ""))
-        caption = re.split(r"\.\s", caption, 1)[0].strip(" .")
+        caption = re.split(r"\.\s", caption, maxsplit=1)[0].strip(" .")
         nouns = [w for w in re.findall(r"[A-Za-z][A-Za-z-]{2,}", (name + " " + caption))][:6]
         panels.append({"n": int(m.group(1)) if m else n, "name": name[:40], "caption": caption[:60], "nouns": nouns, "item_id": k["item_id"],
                        "numbered": bool(m)})
@@ -292,7 +296,7 @@ def table_rows(parent: dict, kids: list) -> dict:
 def flow_steps(parent: dict, kids: list) -> dict:
     """{nodes: [{id, label, item_id}], edges: [[a, b]]} from a chain of boxes joined by arrows in the parent's text."""
     text = parent.get("content", "")
-    chain = [re.split(r"\.\s", s, 1)[0].strip(" .") for s in re.split(r"\s*(?:→|➔|->)\s*", re.sub(r"^[^:]*:\s*", "", text)) if s.strip(" .")]
+    chain = [re.split(r"\.\s", s, maxsplit=1)[0].strip(" .") for s in re.split(r"\s*(?:→|➔|->)\s*", re.sub(r"^[^:]*:\s*", "", text)) if s.strip(" .")]
     if len(chain) < 3:
         return {}
     nodes = [{"id": f"n{i + 1}", "label": re.sub(r"\s*\(.*?\)\s*", " ", step).strip()[:40]} for i, step in enumerate(chain[:8])]
@@ -319,7 +323,7 @@ def book_pictures(items: dict, item_ids) -> list:
     for pid, parent in sorted(parents.items()):
         kids = children_of(items, pid)
         covered = [k["item_id"] for k in kids if k["item_id"] in wanted]
-        title = re.split(r"[.:]\s", parent.get("content", ""), 1)[0].strip()[:60]
+        title = re.split(r"[.:]\s", parent.get("content", ""), maxsplit=1)[0].strip()[:60]
         pic = {"item_id": pid, "kind": parent.get("kind"), "page": parent.get("page"), "title": title, "children": [k["item_id"] for k in kids],
                "covered_children": covered}
         if parent.get("kind") == "table":
@@ -491,6 +495,17 @@ def resolve_needs(ideas: dict, library=None, *, index=None, per_noun: int = 3) -
         if not rows and not hits:
             needs.append({"thing": noun, "beats": beats_of.get(noun, []), "kind": "icon",
                           "sources_tried": ["icon-index"] + (["asset-library"] if library is not None else [])})
+    for row in ideas.get("beats") or []:                       # the real objects the maker wants a picture of
+        want = str(row.get("image_wanted") or "").strip()
+        if not want or PORTRAIT.search(want):
+            continue
+        words = [w for w in want.lower().split() if len(w) > 2]
+        hits = library.find(words) if library is not None else []
+        hits = [a for a in hits if len(set(words) & {t.lower() for t in a.tags}) >= min(2, len(words))]
+        if hits:
+            images[want] = [a.asset_id for a in hits[:2]]
+        elif want not in {n["thing"] for n in needs}:
+            needs.append({"thing": want, "beats": [row["beat_id"]], "kind": "image", "sources_tried": ["asset-library"] if library is not None else []})
     return {"found": found, "images": images, "needs": needs}
 
 
@@ -521,7 +536,8 @@ def dikhane_list(video_id: str, parts: list) -> dict:
                                        for p in (part.get("picture") or {}).get("pictures") or []],
                      "beats": [{"beat_id": r["beat_id"], "idea": r.get("idea", ""), "relation": r.get("relation", ""),
                                 "relation_note": r.get("relation_note", ""), "nouns": [n for k in ("things", "people", "places") for n in r.get(k) or []],
-                                "shows": r.get("shows", ""), "on_word": r.get("on_word", ""), "icons": part.get("icons_by_beat", {}).get(r["beat_id"], [])}
+                                "shows": r.get("shows", ""), "on_word": r.get("on_word", ""), "image_wanted": r.get("image_wanted", ""),
+                                "icons": part.get("icons_by_beat", {}).get(r["beat_id"], [])}
                                for r in ideas.get("beats") or []],
                      "status": part.get("status", "")})
     return {"schema": SCHEMA, "video_id": video_id, "parts": rows, "relations_outside_list": outside, "needs": needs,

@@ -110,8 +110,9 @@ class WordingAndWords(unittest.TestCase):
 
     def test_the_versions_are_pinned(self):
         self.assertIn("simple_hindi@2026-10-28.1", BOOK.version)
-        self.assertIn("visual_grammar@2026-10-29.1", BOOK.version)
         data = json.loads((ROOT / "bie" / "brain" / "rulebook" / "visual_grammar.json").read_text(encoding="utf-8"))
+        self.assertGreaterEqual(data["version"], "2026-10-29.1")                   # later seekhs move it on (Part D1: 2026-10-31.1)
+        self.assertIn(f"visual_grammar@{data['version']}", BOOK.version)
         self.assertNotIn("answer codes?", data["wording"]["W-01"]["english"])
         self.assertIn("(?:original|source|supplied|given) answer codes?", data["wording"]["W-01"]["english"])
 

@@ -195,6 +195,8 @@ def main(argv=None):
     parser.add_argument("--section", choices=("understand", "lesson", "director", "notes", "game", "visual", "canvas", "chain"), default="understand")
     parser.add_argument("--source", help="chapter PDF (understand, chain)")
     parser.add_argument("--chapter-map", help="chapter_map.json from an earlier run (lesson; director, visual and canvas when --from-run has none)")
+    parser.add_argument("--library", default="", help="canvas: BIE's shared asset library (a folder or an https URL with index.json; "
+                                                     "Task 046 Part D1: the images the fetch step found for earlier needs)")
     parser.add_argument("--from-run", help="folder or https URL of an earlier run with chapter_map.json and lesson_plan.json (director)")
     parser.add_argument("--resume-from", help="folder or https URL of an earlier run: understand/chain reuse its passed pages, "
                                               "lesson reuses its passed plan and scripts (when they pass today's checks)")
@@ -385,7 +387,8 @@ def main(argv=None):
             summary.update(status=stop_status(guard), stop_reason=guard.stop_reason)
         if summary["status"] == "ok" and args.section == "canvas":
             wanted = [v.strip() for v in args.videos.split(",") if v.strip()]
-            planned = run_canvas(chapter, lesson, course, runner, out, videos=wanted or None, workers=args.workers, max_rounds=args.max_rounds)
+            planned = run_canvas(chapter, lesson, course, runner, out, videos=wanted or None, workers=args.workers, max_rounds=args.max_rounds,
+                                 shared_library=args.library or None)
             summary.update(canvas_quality=planned["quality"])
             if guard.stopped:
                 summary.update(status=stop_status(guard), stop_reason=guard.stop_reason)

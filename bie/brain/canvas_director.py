@@ -54,6 +54,10 @@ ROW = obj({"cells": STR_LIST, "cue": CUE})
 HIGHLIGHT = obj({"row": I, "col": I, "cue": CUE, "until_cue": CUE, "tone": S})
 MARK = obj({"phrase": S, "cue": CUE})
 FLOW = obj({"icon": S, "count": I, "period": I, "size": I, "reverse": B, "cue": CUE})
+# Task 046 Part D1: a picture the maker draws itself (a numbered row of things, a timeline of dates, a flow of steps); the book's
+# own pictures are placed by code before the maker plans (visual_thinking.place_pictures).
+PICTURE_ITEM = obj({"when": S, "name": S, "icon": S, "cue": CUE})
+PICTURE = obj({"type": S, "title": S, "items": arr(PICTURE_ITEM), "arrows": B})
 NODE = obj({
     "id": S, "kind": {"type": "string", "enum": list(canvas.KINDS)}, "cell": arr(I), "cue": CUE, "cue_fraction": N,
     "until_cue": CUE, "until_fraction": N,
@@ -63,7 +67,7 @@ NODE = obj({
     "target": S, "mark": S, "pos": S,
     "root": S, "children": arr(CHILD),
     "columns": STR_LIST, "rows": arr(ROW), "highlights": arr(HIGHLIGHT),
-    "marks": arr(MARK), "flow": FLOW,
+    "marks": arr(MARK), "flow": FLOW, "picture": PICTURE,
 })
 CURVE = obj({"id": S, "points": arr(arr(N)), "tone": S, "label": S, "cue": CUE, "draw_frames": I})
 DOT = obj({"id": S, "curve": S, "tone": S, "drops": S, "steps": arr(obj({"x": N, "cue": CUE}))})
@@ -97,7 +101,7 @@ Navin's rules for this section (follow every one):
 
 {card}
 
-Icons you may use (id · name); any other id is refused:
+Icons you may use (id · name): the ones listed under the part for its nouns, and these; any other id is refused:
 {icon_menu}
 
 How to fill the JSON (every field is present; "" / 0 / [] / false mean "not used"):
@@ -219,6 +223,17 @@ def card_text(path: Path = CARD_PATH) -> str:
     return head.strip()
 
 
+def relation_icons() -> list:
+    """The icons the relations are shown with (visual_verbs.json): the cross, the tick, the law scroll, the meter, the scale ..."""
+    by_id = icons.by_id()
+    ids = []
+    for r in vt.load_verbs()["relations"]:
+        for i in (r.get("canvas") or {}).get("icons") or []:
+            if i in by_id and i not in ids:
+                ids.append(i)
+    return [(i, by_id[i]["name"]) for i in ids]
+
+
 def icon_menu(queries=ICON_QUERIES, per_query: int = 3) -> list:
     out, seen = [], set()
     for q in queries:
@@ -305,6 +320,21 @@ def plan_from(stub: dict, value: dict) -> dict:
             n["highlights"] = hs
         if v.get("marks"):
             n["marks"] = [{"phrase": m.get("phrase", ""), "cue": _cue(m.get("cue"))} for m in v["marks"]]
+        pic = v.get("picture") or {}
+        if n["kind"] == "picture" and pic.get("type"):
+            items = pic.get("items") or []
+            group = {"timeline": "events", "gallery": "panels", "flow": "nodes"}.get(pic["type"], "items")
+            rows = []
+            for i, it in enumerate(items):
+                row = {"cue": _cue(it.get("cue")) or n.get("cue")}
+                if pic["type"] == "flow":
+                    row.update(id=f"n{i + 1}", label=it.get("name", ""))
+                else:
+                    row.update(name=it.get("name", ""), icon=it.get("icon", ""), numbered=False)
+                    if pic["type"] == "timeline":
+                        row["when"] = it.get("when", "")
+                rows.append(row)
+            n["picture"] = {"type": pic["type"], "title": pic.get("title", ""), "item_id": "", group: rows, "arrows": bool(pic.get("arrows", True))}
         flow = v.get("flow") or {}
         if flow.get("icon"):
             f = {"icon": flow["icon"]}
@@ -400,16 +430,19 @@ def world_from(stub: dict, value: dict, kit: str = "") -> dict:
 
 # ---------------------------------------------------------------- the code check (the exact error goes back to the maker)
 
-def _icon_problems(plan: dict) -> list:
-    bad = icons.check_ids(canvas.icons_in(plan))
-    out = []
+def _icon_problems(plan: dict, library=None) -> list:
+    ids = canvas.icons_in(plan)
+    images = [i for i in ids if str(i).startswith("asset:")]
+    out = [f"image {i!r} is not in this lesson's asset library" for i in images
+           if library is None or i.split(":", 1)[1] not in library.assets]
+    bad = icons.check_ids([i for i in ids if i not in images])
     for i in bad:
         near = ", ".join(f"{r['id']} ({r['name']})" for r in icons.search(str(i).split(":", 1)[-1].replace("/", " ").replace("-", " "), limit=3))
         out.append(f"icon {i!r} is not in the icon index" + (f"; nearest: {near}" if near else ""))
     return out
 
 
-def check_plan(stub: dict, value: dict, mode, *, picture: dict | None = None) -> list:
+def check_plan(stub: dict, value: dict, mode, *, picture: dict | None = None, library=None) -> list:
     """The code check of a maker's answer: ``mode`` is the mode dict ({"mode", "kit", ...}) or the letter alone. Part D1 adds:
     every beat shows a non-text thing on its words, no text-only screen over 10 s, screen text a name or a short phrase, the
     book's pictures drawn, no caution line on screen."""
@@ -422,7 +455,7 @@ def check_plan(stub: dict, value: dict, mode, *, picture: dict | None = None) ->
             return (report["problems"] + screen_text.problems(texts, plan["beats"])                     # CV-13 … CV-16
                     + vt.beat_cover_problems(plan, plan["beats"], "C") + vt.phrase_problems(texts) + vt.caution_problems(texts))
         plan = plan_from(stub, value)
-        problems = _icon_problems(plan)
+        problems = _icon_problems(plan, library)
         if problems:
             return problems
         scene, report = canvas.compile_plan(plan)
@@ -492,7 +525,7 @@ PICTURE_NOTE = ("\nCode has already placed the book's own picture in this plan: 
 
 
 def part_step(course: Course, stub: dict, items: list, mode: dict, *, rulebook, menu: list | None = None, max_rounds: int = 3,
-              ideas: dict | None = None, candidates: dict | None = None) -> Step:
+              ideas: dict | None = None, candidates: dict | None = None, images: dict | None = None, library=None) -> Step:
     """The maker writes this part's plan (B: canvas; C: world) and code checks it; no reviewer round for layout. With the
     dikhane ki soch (``ideas``) and the icon candidates code found for its nouns (``candidates``), and the code-placed book
     picture of the stub (``stub["picture_nodes"]``)."""
@@ -514,6 +547,9 @@ def part_step(course: Course, stub: dict, items: list, mode: dict, *, rulebook, 
         lines = "\n".join(f"- {r['beat_id']}: {r.get('idea', '')} · relation {r.get('relation', '')} · shows: {r.get('shows', '')}"
                           + (f" · on '{r['on_word']}'" if r.get("on_word") else "") for r in ideas["beats"])
         note += IDEAS_NOTE.format(ideas=lines, candidates=vt.candidates_text(candidates or {}) or "- (none found: use the general menu)")
+        if images:
+            note += ("Pictures in this lesson's asset library for the things named (use the id as an icon; the credit is added by code):\n"
+                     + "\n".join(f"- {noun}: " + "; ".join(f"asset:{a}" for a in ids) for noun, ids in images.items()) + "\n")
     for n in picture_nodes:
         note += PICTURE_NOTE.format(nid=n["id"], ptype=n["picture"]["type"], ptitle=n["picture"].get("title", ""), cell=n["cell"],
                                     row=n["cell"][1] + n["cell"][3])
@@ -523,7 +559,9 @@ def part_step(course: Course, stub: dict, items: list, mode: dict, *, rulebook, 
         system = fmt(WORLD_ROLE, course, rules=rules, card=card_text(WORLD_CARD_PATH), place=place)
         schema = WORLD_SCHEMA
     else:
-        menu = icon_menu() if menu is None else menu
+        # D1 (Navin, 30 October 2026): the maker gets the icons code found for the beats' own nouns, plus the relation icons;
+        # the fixed economy menu only when the visual-idea step gave nothing to search for.
+        menu = (relation_icons() if candidates else icon_menu()) if menu is None else menu
         system = fmt(ROLE, course, rules=rules, card=card_text(), icon_menu=_menu_text(menu), level=mode["mode"],
                      level_note=LEVEL_NOTE[mode["mode"]])
         schema = PLAN_SCHEMA
@@ -531,7 +569,7 @@ def part_step(course: Course, stub: dict, items: list, mode: dict, *, rulebook, 
             f"The part (JSON):\n{json.dumps(payload, ensure_ascii=False)}\n\nReply with the plan JSON.")
     picture = stub.get("picture") or {}
     return Step(section=SECTION, unit=stub["id"], instructions_version=VERSION, system=system, user=user, schema=schema,
-                check=lambda value: check_plan(stub, value, mode, picture=picture), max_rounds=max_rounds)
+                check=lambda value: check_plan(stub, value, mode, picture=picture, library=library), max_rounds=max_rounds)
 
 
 def split_stub(stub: dict, max_beats: int = MAX_PART_BEATS) -> list:
@@ -553,18 +591,23 @@ def split_stub(stub: dict, max_beats: int = MAX_PART_BEATS) -> list:
 # ---------------------------------------------------------------- the run
 
 def run_canvas(chapter: dict, lesson: dict, course: Course, runner, out_dir, *, videos=None, workers: int = 4, max_rounds: int = 3,
-               opener=None) -> dict:
+               opener=None, shared_library=None) -> dict:
+    """``shared_library``: a folder or an https URL of BIE's asset library (the images the fetch step found for earlier needs,
+    licence-checked and credited); its assets are copied into this run's library first, so the next run looks there first."""
     chapter = formats.accept("chapter_map", chapter, where="chapter_map.json")              # the section boundary
     lesson = formats.accept("lesson_plan", lesson, where="lesson_plan.json")
     out = Path(out_dir)
     (out / "video_specs").mkdir(parents=True, exist_ok=True)
     (out / "plans").mkdir(exist_ok=True)
     library = AssetLibrary(out / "assets")
+    if shared_library:
+        from .assets import seed_library
+        seed_library(library, shared_library, opener=opener)
     plans = {v["video_id"]: v for v in (lesson.get("plan") or {}).get("videos", [])}
     wanted = set(videos or [])
     chosen = [v for v in lesson.get("videos", []) if v.get("beats") and v["video_id"] in plans and v.get("status", "passed") == "passed"
               and (not wanted or v["video_id"] in wanted)]
-    menu = icon_menu()
+    menu = None                       # per part: the relation icons with the nouns' candidates, or the fixed menu (part_step)
     summary = {"schema": formats.tag("canvas_summary"), "course": chapter["course"], "rulebook_version": runner.rulebook.version,
                "licence_policy": licence_policy.version(), "profile": canvas.PROFILE["profile"], "profile_version": canvas.PROFILE["version"],
                "family": shots.subject_family(course.subject), "canvas_subject": profile_fits(course), "maker_route": runner.maker,
@@ -605,7 +648,8 @@ def run_canvas(chapter: dict, lesson: dict, course: Course, runner, out_dir, *, 
             ideas = runner.run(ideas_step(course, stub, items, stub["picture"], max_rounds=max_rounds))
             found = vt.resolve_needs(ideas.output, library) if ideas.passed and ideas.output else {"found": {}, "images": {}, "needs": []}
             result = runner.run(part_step(course, stub, items, mode, rulebook=runner.rulebook, menu=menu, max_rounds=max_rounds,
-                                          ideas=ideas.output if ideas.passed else None, candidates=found["found"]))
+                                          ideas=ideas.output if ideas.passed else None, candidates=found["found"], images=found["images"],
+                                          library=library))
             return stub, mode, result, ideas, found
 
         with ThreadPoolExecutor(max_workers=max(1, workers)) as pool:
@@ -647,7 +691,9 @@ def run_canvas(chapter: dict, lesson: dict, course: Course, runner, out_dir, *, 
                 else:
                     plan = plan_from(stub, result.output)
                     ids = canvas.icons_in(plan)
-                    paths = icons.add_to_library(ids, library, opener=opener) if ids else {}
+                    index_ids = [i for i in ids if not str(i).startswith("asset:")]
+                    paths = icons.add_to_library(index_ids, library, opener=opener) if index_ids else {}
+                    paths.update({i: "assets/" + library.assets[i.split(":", 1)[1]].path for i in ids if str(i).startswith("asset:")})
                     icon_ids += [i for i in ids if i not in icon_ids]
                     scene, report = canvas.compile_plan(plan, icon_paths=paths)
                     part_data["icon_ids"] = ids

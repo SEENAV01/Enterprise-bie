@@ -257,7 +257,7 @@ def ideas_answer(user_text: str):
         relation = beat.get("relation_guess") or "other"
         rows.append({"beat_id": beat["beat_id"], "idea": " ".join(words[:3]) or "offline idea", "relation": relation,
                      "relation_note": "offline" if relation == "other" else "", "things": [thing], "people": [], "places": [],
-                     "shows": f"{thing} on screen", "on_word": _first_word(beat["say"])})
+                     "shows": f"{thing} on screen", "on_word": _first_word(beat["say"]), "image_wanted": ""})
     pics = data.get("book_pictures") or []
     return {"notes": NOTES, "beats": rows, "picture_type": pics[0]["type"] if pics else "things", "picture_note": "offline"}
 
@@ -272,7 +272,8 @@ def canvas_answer(user_text: str):
     empty = {"cue_fraction": 0.0, "until_cue": [], "until_fraction": 0.0, "text": "", "style": "", "size": 0, "tone": "", "fill": "",
              "align": "", "icon": "", "label": "", "cols": 0, "steps": [], "from": "", "to": "", "from_side": "", "to_side": "", "elbow": "",
              "dashed": False, "curve": False, "target": "", "mark": "", "pos": "", "root": "", "children": [], "columns": [], "rows": [],
-             "highlights": [], "marks": [], "flow": {"icon": "", "count": 0, "period": 0, "size": 0, "reverse": False, "cue": []}}
+             "highlights": [], "marks": [], "flow": {"icon": "", "count": 0, "period": 0, "size": 0, "reverse": False, "cue": []},
+             "picture": {"type": "", "title": "", "items": [], "arrows": False}}
     top = max([n["cell"][1] + n["cell"][3] for n in data.get("picture") or []] or [0])      # the rows the book picture took
     nodes = []
     if beats:

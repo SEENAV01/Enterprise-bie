@@ -105,10 +105,33 @@ def cmd_join(args) -> int:
                     "-crf", "26", "-pix_fmt", "yuv420p", "-an", "-movflags", "+faststart", str(review)], check=True)
     info = {"video": str(final), "review": str(review), "review_bytes": review.stat().st_size, "video_bytes": final.stat().st_size,
             "seconds": ffprobe_seconds(final), "chunks": args.chunks}
+    info["stills"] = write_stills(out, review)
     formats.check("render_join", formats.stamp("render_join", info), where=str(out / "join.json"))
     (out / "join.json").write_text(json.dumps(info, indent=1), encoding="utf-8")
     print(json.dumps(info))
     return 0
+
+
+def write_stills(out: Path, review: Path) -> int:
+    """One 640-px JPEG per scene at its middle, from the review copy, into ``stills/<scene id>.jpg`` (Task 046 Part D1: the
+    LOOK-D1 check and the review pages read them by URL); the credits card is left out. Returns how many were written."""
+    spec_path = out / "video_spec.json"
+    if not spec_path.exists():
+        return 0
+    spec = json.loads(spec_path.read_text(encoding="utf-8"))
+    fps = float(spec.get("fps") or 30)
+    (out / "stills").mkdir(exist_ok=True)
+    at, written = 0, 0
+    for scene in spec.get("scenes") or []:
+        frames = int(scene.get("duration") or 0)
+        sid = str(scene.get("id") or "")
+        if sid and not sid.endswith("_credits") and frames:
+            mid = (at + frames / 2) / fps
+            run = subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-ss", f"{mid:.2f}", "-i", str(review), "-frames:v", "1",
+                                  "-vf", "scale=640:-2", "-q:v", "4", str(out / "stills" / f"{sid}.jpg")], check=False)
+            written += run.returncode == 0
+        at += frames
+    return written
 
 
 def measure(rows: list) -> dict:

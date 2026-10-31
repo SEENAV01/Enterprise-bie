@@ -257,6 +257,42 @@ def openverse_image(identifier: str, *, opener=None) -> Candidate:
     return _openverse_candidate(json.loads(raw.decode("utf-8")))
 
 
+MET_API = "https://collectionapi.metmuseum.org/public/collection/v1/"
+MET_LICENCE, MET_LICENCE_URL = "CC0 1.0", "https://creativecommons.org/publicdomain/zero/1.0/"
+
+
+def _met_candidate(obj: dict) -> Candidate | None:
+    """A Met Open Access object as a candidate: only public-domain objects (the Met releases them as CC0) with an image."""
+    if not obj.get("isPublicDomain") or not (obj.get("primaryImageSmall") or obj.get("primaryImage")):
+        return None
+    title = str(obj.get("title") or obj.get("objectName") or f"Met object {obj.get('objectID')}")[:200]
+    author = str(obj.get("artistDisplayName") or obj.get("culture") or "The Metropolitan Museum of Art")[:200]
+    return Candidate(source="met_open_access", title=title, page_url=str(obj.get("objectURL") or ""),
+                     file_url=str(obj.get("primaryImageSmall") or obj.get("primaryImage")), thumb_url=str(obj.get("primaryImageSmall") or ""),
+                     width=0, height=0, mime="image/jpeg", licence=MET_LICENCE, licence_url=MET_LICENCE_URL, author=author,
+                     credit=f"{title}, The Metropolitan Museum of Art, Open Access (CC0)")
+
+
+def search_met(query: str, *, limit: int = 6, opener=None) -> list:
+    """Image candidates from The Met's Open Access collection (CC0, no key): coins, seals, weights and other objects of
+    economic history (Task 046 Part D1). Objects not in the public domain are left out."""
+    params = {"hasImages": "true", "q": query}
+    raw = _open(MET_API + "search?" + urllib.parse.urlencode(params), opener=opener, max_bytes=4 * 1024 * 1024)
+    ids = (json.loads(raw.decode("utf-8")).get("objectIDs") or [])[: max(limit * 3, limit)]
+    found = []
+    for oid in ids:
+        if len(found) >= limit:
+            break
+        try:
+            obj = json.loads(_open(f"{MET_API}objects/{int(oid)}", opener=opener, max_bytes=2 * 1024 * 1024).decode("utf-8"))
+        except (AssetError, ValueError, OSError):
+            continue
+        candidate = _met_candidate(obj)
+        if candidate is not None and lesson_ready(candidate):
+            found.append(candidate)
+    return found
+
+
 class AssetLibrary:
     """A folder of licensed assets with an index; the same file is stored once (by content hash)."""
 
@@ -328,3 +364,29 @@ class AssetLibrary:
         if problems:
             raise policy.LicenceError(problems, where)
         return self.credits(asset_ids)
+
+
+def seed_library(library: "AssetLibrary", source, *, opener=None) -> int:
+    """Copy the assets of BIE's shared library (a folder, or an https base URL holding ``index.json`` and ``files/``; Task 046
+    Part D1: the fetch step's images, licence-checked and credited) into ``library``; a file is fetched once and kept by hash.
+    Returns how many assets were added. Every asset passes the licence policy again on the way in."""
+    source = str(source).rstrip("/")
+    remote = source.startswith("https://")
+    raw = _open(source + "/index.json", opener=opener, max_bytes=4 * 1024 * 1024) if remote else (Path(source) / "index.json").read_bytes()
+    added = 0
+    for row in json.loads(raw.decode("utf-8")).get("assets", []):
+        if row["asset_id"] in library.assets:
+            continue
+        if not re.fullmatch(r"files/[A-Za-z0-9._-]+", str(row.get("path") or "")) or ".." in row["path"]:
+            continue                                                       # only a file of the library's own files/ folder
+        verdict = policy.asset_verdict(Asset(**row))
+        if not verdict.allowed:
+            continue
+        data = _open(source + "/" + row["path"], opener=opener) if remote else (Path(source) / row["path"]).read_bytes()
+        if hashlib.sha256(data).hexdigest() != row["sha256"]:
+            raise AssetError(f"{row['asset_id']}: the file does not match its recorded hash")
+        library.add_bytes(data, mime=row["mime"], source=row["source"], title=row["title"], page_url=row["page_url"], licence=row["licence"],
+                          licence_url=row["licence_url"], author=row["author"], credit=row["credit"], tags=row.get("tags") or [],
+                          description=row.get("description", ""))
+        added += 1
+    return added
