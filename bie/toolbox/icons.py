@@ -94,6 +94,14 @@ ALIASES = {
     "card": ["tw:1f4b3"], "debit card": ["tw:1f4b3"], "credit card": ["tw:1f4b3"], "कार्ड": ["tw:1f4b3"],
     "phone": ["tw:1f4f1"], "mobile": ["tw:1f4f1"], "upi": ["tw:1f4f1", "fa:solid/qrcode"], "qr": ["fa:solid/qrcode"], "qr code": ["fa:solid/qrcode"],
     "मोबाइल": ["tw:1f4f1"], "फ़ोन": ["tw:1f4f1"], "फोन": ["tw:1f4f1"], "app": ["tw:1f4f1"],
+    # people by their role in a money story (the Money run of 31 October 2026 named them and found nothing)
+    "payer": ["fa:solid/hand-holding-dollar"], "recipient": ["fa:solid/user-check"], "payee": ["fa:solid/user-check"],
+    "receiver": ["fa:solid/user-check"], "creditor": ["fa:solid/user-tie"], "lender": ["fa:solid/user-tie"], "लेनदार": ["fa:solid/user-tie"],
+    "debtor": ["fa:solid/user"], "borrower": ["fa:solid/user"], "देनदार": ["fa:solid/user"], "कर्ज़दार": ["fa:solid/user"],
+    "porter": ["fa:solid/person-walking-luggage"], "traveller": ["fa:solid/person-walking-luggage", "tw:1f9f3"],
+    "traveler": ["fa:solid/person-walking-luggage", "tw:1f9f3"], "यात्री": ["fa:solid/person-walking-luggage"],
+    "neighbour": ["fa:solid/people-roof"], "neighbor": ["fa:solid/people-roof"], "पड़ोसी": ["fa:solid/people-roof"], "पड़ोसियों": ["fa:solid/people-roof"],
+    "valuables": ["fa:solid/gem"], "issuing authority": ["fa:solid/stamp", "fa:solid/building-columns"],
     "deposit": ["fa:solid/piggy-bank"], "savings": ["fa:solid/piggy-bank"], "जमा": ["fa:solid/piggy-bank"], "बचत": ["fa:solid/piggy-bank"],
     "loan": ["fa:solid/hand-holding-dollar"], "उधार": ["fa:solid/hand-holding-dollar"], "कर्ज़": ["fa:solid/hand-holding-dollar"], "कर्ज": ["fa:solid/hand-holding-dollar"],
     "wallet": ["tw:1f45b"], "बटुआ": ["tw:1f45b"], "receipt": ["tw:1f9fe"], "रसीद": ["tw:1f9fe"], "bill": ["tw:1f9fe"],
@@ -173,7 +181,9 @@ def search(query: str, index: str | Path = DEFAULT_INDEX, limit: int = 12, *, re
         if not keep_religious and RELIGIOUS.search(r["name"]):
             continue
         hay = (r["name"] + " " + " ".join(r["terms"])).lower()
-        s = sum(3 if re.search(rf"\b{w}\b", r["name"].lower()) else (1 if w in hay else 0) for w in latin)
+        # a word of the query counts where a word of the icon starts with it ("coin" finds "coins"), never inside another word
+        # (the Money run of 31 October 2026: "lender" found "blender")
+        s = sum(3 if re.search(rf"\b{w}\b", r["name"].lower()) else (1 if re.search(rf"\b{w}", hay) else 0) for w in latin)
         if s:
             scored.append((s + (0.5 if r["style"] == "colour" else 0), r))
     scored.sort(key=lambda t: -t[0])

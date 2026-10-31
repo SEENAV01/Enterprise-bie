@@ -381,3 +381,54 @@ class Look(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class ProofRunFixes(unittest.TestCase):
+    """What the live proof run on Money v2 and v4 (vm-t046d-money-canvas-a, 31 October 2026) taught: two v4 parts failed three
+    rounds each on BIE's own code, not on the maker's thinking."""
+
+    def test_a_currency_sign_is_a_word_a_cue_can_wait_for_and_earlier_cues_resolve_as_before(self):
+        from bie.brain.video import timing
+        say = "Foreign price tags में codes क्यों देखें? $ वाला United States Dollar, USD, सबसे ज़्यादा; € Euro; ¥ Japan या China।"
+        for sign in ("$", "€", "¥"):
+            self.assertTrue(timing.has_word(say, sign), sign)
+        self.assertFalse(timing.has_word(say, "£"))
+        self.assertLess(timing.word_fraction(say, "$"), timing.word_fraction(say, "€"))
+        self.assertGreater(timing.word_fraction(say, "€"), 0.0)
+        self.assertTrue(timing.has_word("एक ₹100 का note", "100"))                   # a cue with digits: the plain form, as before
+        self.assertTrue(timing.has_word("100 रुपये का note", "₹100"))
+        self.assertFalse(timing.has_word("Euro", "$"))
+
+    def test_a_reference_to_a_picture_node_means_the_picture_and_a_missing_id_names_the_ids(self):
+        beats = [{"beat_id": "b1", "say": "पहले commemorative coins देखिए।"}, {"beat_id": "b2", "say": "अब उनका status समझिए।"}]
+        gallery = {"id": "status", "kind": "picture", "cell": [0, 0, 12, 3], "cue": ["b1", ""],
+                   "picture": {"type": "gallery", "title": "", "panels": [{"name": "Proof set", "icon": "fa:solid/coins", "cue": ["b1", ""]},
+                                                                         {"name": "UNC set", "icon": "fa:solid/coins", "cue": ["b2", ""]}],
+                               "arrows": False, "numbered": False}}
+        mint = {"id": "mint", "kind": "icon", "cell": [0, 5, 4, 2], "cue": ["b2", "status"], "icon": "fa:solid/landmark", "label": "Mint"}
+        arrow = {"id": "sale", "kind": "arrow", "cue": ["b2", "status"], "from": {"id": "mint", "side": "top"}, "to": {"id": "status", "side": "bottom"}}
+        plan = {"id": "v4_s7a", "part_id": "c11.2", "theme": "paper", "grid": [12, 8], "touches": True, "beats": beats,
+                "nodes": [gallery, mint, arrow], "focus": [{"cue": ["b2", "status"], "ids": ["status"]}]}
+        scene, report = canvas.compile_plan(copy.deepcopy(plan))
+        focus = scene["layers"][0]["data"]["focus"][0]["ids"]
+        self.assertGreaterEqual(len(focus), 2)                                         # the picture's own elements
+        self.assertNotIn("status", focus)
+        with self.assertRaises(canvas.PlanError) as err:
+            canvas.compile_plan(dict(copy.deepcopy(plan), focus=[{"cue": ["b2", ""], "ids": ["sets"]}]))
+        self.assertIn("focus names a missing element 'sets'", str(err.exception))
+        self.assertIn("status", str(err.exception).split("ids are:")[1])               # the ids the maker can use
+
+    def test_the_ideas_step_reads_a_card_type_as_its_picture_and_names_found_by_role(self):
+        # 21 of 36 ideas answers wrote the card part's type as picture_type; the needs list held years, roles and "lender"→blender
+        stub = {"id": "v2_s1", "beats": [{"beat_id": "b1", "say": "Barter यानी सीधा लेन-देन।"}]}
+        answer = {"beats": [{"beat_id": "b1", "idea": "barter", "relation": "accept", "relation_note": "", "things": ["wheat"],
+                             "people": [], "places": [], "shows": "wheat for cloth", "on_word": "Barter", "image_wanted": ""}],
+                  "picture_type": "definition", "picture_note": ""}
+        self.assertEqual(vt.check_ideas(stub, answer), [])
+        self.assertEqual(vt.IDEAS_SCHEMA["properties"]["picture_type"]["enum"], list(vt.PICTURE_TYPES))
+        self.assertFalse(vt._is_thing("1023"))
+        self.assertTrue(vt._is_thing("1661 Sweden"))
+        self.assertEqual(icons.search("lender")[0]["id"], "fa:solid/user-tie")
+        self.assertNotIn("fa:solid/blender", [r["id"] for r in icons.search("lender")])
+        self.assertEqual(icons.search("porter")[0]["id"], "fa:solid/person-walking-luggage")
+        self.assertEqual(icons.search("coins")[0]["id"], "tw:1fa99")

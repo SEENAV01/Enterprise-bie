@@ -1210,3 +1210,39 @@ the learner should see, and it could only pick from the world BIE already had.
 | Passed outputs | 0 problems | 0 problems |
 
 Live numbers come from the v2 and v4 run after the merge; until then the after column is expected, not measured.
+
+## Entry 29 · the first live run of Part D1: a cue on "$", a picture called by its name, and the card type in the wrong field, 31 October 2026
+
+**Run:** `runs/vm-t046d-money-canvas-a-brain-canvas/` (VM job `t046d-money-canvas-a`, Money v2 and v4 with the narration of
+lesson resume `-f` locked, Codex maker and Codex checker, 56 minutes, 113 calls, 1.10 M input and 0.42 M output tokens, ₹0,
+ChatGPT plan at 8 % of the week).
+
+**Taught** (from the run's records): v2 passed 18 of 18 parts; v4 16 of 18. The two v4 parts failed three rounds each on BIE's
+own code: v4_s5 on a cue word that is a currency sign (`$`, then `¥`, then `€`: the word matcher dropped signs, so the cue
+could never be found although the beat says "$ वाला United States Dollar"), v4_s7a on references to the maker's own gallery
+by its id (`sets`, `commemorative`, `status`: a picture's id becomes many elements, and the error did not say which ids
+exist). In the new ideas step, 21 of 36 parts needed a second round, every one for the same reason: `picture_type` held the
+card part's type ("definition"). The needs list held years, roles with no icon, and "blender" found for "lender".
+
+**Changed in BIE** (branch `task046d-proof-fixes`, IMPLEMENTED): a cue of currency signs matches the sign (earlier cues
+unchanged); a picture's id in a focus, target or arrow means the picture, and a missing id error lists the plan's ids;
+`picture_type` is an enum in the ideas schema and a card type is read as its picture; a year is not a thing; role aliases
+(payer, recipient, creditor, lender, debtor, borrower, porter, traveller, neighbours, valuables, issuing authority, with Hindi
+forms); icon search matches a query word only where an icon's word starts with it. Tests in
+`tests/test_task046d_visual_thinking.py` (`ProofRunFixes`, 23 in the file).
+
+| Measure | Before (canvas run f, 29–30 Oct) | After (this run) |
+| --- | --- | --- |
+| v2 parts in a bank or shop world | 10 of 18 (56 %) | 5 of 18 (28 %) |
+| v4 parts in a bank or shop world | 12 of 18 (67 %) | 6 of 16 passed (38 %) |
+| Distinct icons (v2 / v4) | 7 / 4 | 54 / 43 |
+| Canvas parts with only text (v2 / v4) | 3 / 4 | 0 / 0 |
+| v2 text-only screen time | 91 s of 596 s, 2 stretches over 10 s | 9.9 s, 0 over 10 s |
+| The book's own pictures drawn (v2 / v4) | 0 of 3 / 0 of 4 | 3 of 3 / 3 of 4 |
+| Plans first try (v2 / v4) | 13 / 16 of 18 | 12 / 11 of 18 |
+| Rounds (v2 / v4) | 25 / 21 | 24 / 31 |
+| Ideas step first try | (new) | 15 of 36; expected 36 of 36 with the enum (all 21 second rounds had that one cause) |
+| ₹ | 0 | 0 |
+| Replays with the fixes | — | v4_s7a: 3 of 3 recorded answers pass; v4_s5: the cue error gone, CV-13 next |
+| Earlier plans recompiled (268 of runs e1, f and this) | — | 0 differences with and without the fixes; 108 refused by Part D1's 2 × 28 board (Navin's rule, PR #111) |
+| Passed outputs | 0 problems | 0 problems |

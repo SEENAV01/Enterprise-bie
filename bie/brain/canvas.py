@@ -499,10 +499,29 @@ def compile_plan(plan: dict, *, voice: dict | None = None, icon_paths: dict | No
     for dup in sorted({i for i in ids if ids.count(i) > 1}):
         raise PlanError(f"element id {dup!r} is used twice")
     ids = set(ids)
+    # A picture node becomes many elements of one group (expand_pictures), so its own id is no element: a reference to it means
+    # the picture (the Money v4 run of 31 October 2026: a focus on the maker's gallery 'status' was refused three rounds running).
+    members = {}
+    for e in els:
+        if e.get("group") and e["group"] not in ids:
+            members.setdefault(e["group"], []).append(e["id"])
+
+    def known(ref):
+        return ref in ids or ref in members
+
+    def missing(what, ref):
+        names = sorted(ids - {e["id"] for e in els if e.get("group") in members}) + sorted(members)
+        return PlanError(f"{what} a missing element {ref!r}; the plan's ids are: {', '.join(names[:40])}")
+
     for e in els:
         for ref in [e.get("target"), (e.get("from") or {}).get("id"), (e.get("to") or {}).get("id")]:
-            if ref and ref not in ids:
-                raise PlanError(f"{e['id']} refers to a missing element {ref!r}")
+            if ref and not known(ref):
+                raise missing(f"{e['id']} refers to", ref)
+        if e.get("target") in members:
+            e["target"] = members[e["target"]][0]
+        for end in ("from", "to"):
+            if (e.get(end) or {}).get("id") in members:
+                e[end] = dict(e[end], id=members[e[end]["id"]][0 if end == "to" else -1])
     # measured boxes must not overlap while on screen together (catches rounding and value/text growth)
     placed = [e for e in els if "x" in e]
     for i, a in enumerate(placed):
@@ -531,8 +550,9 @@ def compile_plan(plan: dict, *, voice: dict | None = None, icon_paths: dict | No
     for f in plan.get("focus", []):
         changes.append(frame_of(f["cue"]))
         for fid in f["ids"]:
-            if fid not in ids:
-                raise PlanError(f"focus names a missing element {fid!r}")
+            if not known(fid):
+                raise missing("focus names", fid)
+        f["ids"] = [m for fid in f["ids"] for m in (members.get(fid) or [fid])]
     g0 = plan.get("graph") or {}
     for group in ("curves", "guides", "shades", "notes"):
         for item in g0.get(group, []):
