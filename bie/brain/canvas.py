@@ -112,6 +112,36 @@ def captions_of(tl: dict, scene_id: str, beats: list) -> list:
 
 # ---------------------------------------------------------------- layout
 
+ARROW_BEND = 0.18          # a curved arrow's bend: the control point sits this share of the arrow's length off its line
+
+
+def arrow_bend(curve) -> float:
+    """The bend the block draws for an arrow's ``curve``: the maker's plan says yes or no (the director's schema has a
+    boolean), and the block reads a number, so ``True`` became a bend of 1 and the arrow swung a whole arrow-length off its
+    line, across the canvas (the Money v2 render of 31 October 2026, wheat and cloth across the book's gallery). Yes is a
+    gentle bend; a number is kept within ±0.35."""
+    if isinstance(curve, bool):
+        return ARROW_BEND if curve else 0.0
+    try:
+        return max(-0.35, min(0.35, float(curve)))
+    except (TypeError, ValueError):
+        return 0.0
+
+
+CAMERA_PAD = 0.035        # a camera box keeps this much of the frame around what it shows
+
+
+def pad_box(box: dict, pad: float = CAMERA_PAD) -> dict:
+    """A camera box grown by ``pad`` on every side (within the frame) before it is fitted: the camera fits its box edge to
+    edge, so what stood on the box's edge stood on the frame's edge and the camera's idle drift cut it (the Money v2
+    render of 31 October 2026: the book's table across the whole grid lost its first letters on the left)."""
+    x = max(0.0, float(box.get("x", 0)) - pad)
+    y = max(0.0, float(box.get("y", 0)) - pad)
+    x2 = min(1.0, float(box.get("x", 0)) + float(box.get("w", 1)) + pad)
+    y2 = min(1.0, float(box.get("y", 0)) + float(box.get("h", 1)) + pad)
+    return {"x": x, "y": y, "w": x2 - x, "h": y2 - y}
+
+
 def fit_box(box: dict) -> dict:
     """A scene camera box the core camera can show without the backdrop: the core fits a box by its larger side (in
     fractions of the frame), so the visible region is always as wide as it is tall in those fractions; a box that is not
@@ -404,6 +434,10 @@ def compile_plan(plan: dict, *, voice: dict | None = None, icon_paths: dict | No
                   "elbow", "head", "width", "cols", "stagger", "write_on", "label_size", "pad", "group"):
             if k in n:
                 el[k] = n[k]
+        if "curve" in el:
+            el["curve"] = arrow_bend(el["curve"])
+        if el.get("style") == "tag":
+            el.pop("tone", None)          # a tag's words are white on its own fill (the v2 render: blue "accent" words on pink)
         if "cue" in n:
             el["at"] = frame_of(n["cue"])
         if "until_cue" in n:
@@ -499,10 +533,29 @@ def compile_plan(plan: dict, *, voice: dict | None = None, icon_paths: dict | No
     for dup in sorted({i for i in ids if ids.count(i) > 1}):
         raise PlanError(f"element id {dup!r} is used twice")
     ids = set(ids)
+    # A picture node becomes many elements of one group (expand_pictures), so its own id is no element: a reference to it means
+    # the picture (the Money v4 run of 31 October 2026: a focus on the maker's gallery 'status' was refused three rounds running).
+    members = {}
+    for e in els:
+        if e.get("group") and e["group"] not in ids:
+            members.setdefault(e["group"], []).append(e["id"])
+
+    def known(ref):
+        return ref in ids or ref in members
+
+    def missing(what, ref):
+        names = sorted(ids - {e["id"] for e in els if e.get("group") in members}) + sorted(members)
+        return PlanError(f"{what} a missing element {ref!r}; the plan's ids are: {', '.join(names[:40])}")
+
     for e in els:
         for ref in [e.get("target"), (e.get("from") or {}).get("id"), (e.get("to") or {}).get("id")]:
-            if ref and ref not in ids:
-                raise PlanError(f"{e['id']} refers to a missing element {ref!r}")
+            if ref and not known(ref):
+                raise missing(f"{e['id']} refers to", ref)
+        if e.get("target") in members:
+            e["target"] = members[e["target"]][0]
+        for end in ("from", "to"):
+            if (e.get(end) or {}).get("id") in members:
+                e[end] = dict(e[end], id=members[e[end]["id"]][0 if end == "to" else -1])
     # measured boxes must not overlap while on screen together (catches rounding and value/text growth)
     placed = [e for e in els if "x" in e]
     for i, a in enumerate(placed):
@@ -524,15 +577,16 @@ def compile_plan(plan: dict, *, voice: dict | None = None, icon_paths: dict | No
     for k in plan.get("camera", []):
         f = frame_of(k.get("cue"))
         changes.append(f)
-        key = {"at": f, "box": fit_box(cell_box(k["cells"], grid) if "cells" in k else k.get("box", {"x": 0, "y": 0, "w": 1, "h": 1}))}
+        key = {"at": f, "box": fit_box(pad_box(cell_box(k["cells"], grid) if "cells" in k else k.get("box", {"x": 0, "y": 0, "w": 1, "h": 1})))}
         if "frames" in k:
             key["frames"] = k["frames"]
         camera_keys.append(key)
     for f in plan.get("focus", []):
         changes.append(frame_of(f["cue"]))
         for fid in f["ids"]:
-            if fid not in ids:
-                raise PlanError(f"focus names a missing element {fid!r}")
+            if not known(fid):
+                raise missing("focus names", fid)
+        f["ids"] = [m for fid in f["ids"] for m in (members.get(fid) or [fid])]
     g0 = plan.get("graph") or {}
     for group in ("curves", "guides", "shades", "notes"):
         for item in g0.get(group, []):

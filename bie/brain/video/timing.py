@@ -26,15 +26,35 @@ def _norm(text: str) -> str:
     return _NOT_WORD.sub(" ", unicodedata.normalize("NFC", text).lower())
 
 
-def has_word(say: str, word: str) -> bool:
-    """Is ``word`` spoken in ``say`` (as a whole word, case and punctuation aside)?"""
+# Currency signs ($, €, ¥, £, ₹ …) are words a cue may wait for (the Money v4 run of 31 October 2026: "$ वाला United States
+# Dollar" could never be cued on its "$"). Only a cue word made of signs alone uses this form, so every earlier cue on a word
+# with letters or digits resolves exactly as before ("₹100" still matches "100").
+_CURRENCY = "".join(ch for ch in map(chr, range(0x20, 0x2100)) if unicodedata.category(ch) == "Sc")
+_SIGN = re.compile(f"([{re.escape(_CURRENCY)}])")
+_NOT_WORD_OR_SIGN = re.compile(rf"[^\wऀ-ॣ०-ॿ{re.escape(_CURRENCY)}]+")
+
+
+def _norm_signs(text: str) -> str:
+    return _NOT_WORD_OR_SIGN.sub(" ", _SIGN.sub(r" \1 ", unicodedata.normalize("NFC", text).lower()))
+
+
+def _forms(say: str, word: str) -> tuple:
+    """(text, target) in the form a cue word is matched in: the plain form, or the sign form for a cue of signs alone."""
     target = _norm(word).strip()
-    return bool(target) and f" {target} " in f" {_norm(say)} "
+    if target:
+        return _norm(say), target
+    return _norm_signs(say), _norm_signs(word).strip()
+
+
+def has_word(say: str, word: str) -> bool:
+    """Is ``word`` spoken in ``say`` (as a whole word, case and punctuation aside; a currency sign counts as a word)?"""
+    text, target = _forms(say, word)
+    return bool(target) and f" {target} " in f" {text} "
 
 
 def word_fraction(say: str, word: str) -> float:
     """Where ``word`` starts inside ``say`` as a fraction of the text (0 when it is not found)."""
-    text, target = _norm(say), _norm(word).strip()
+    text, target = _forms(say, word)
     if not target:
         return 0.0
     i = f" {text} ".find(f" {target} ")
@@ -76,6 +96,6 @@ def cue_frame(timeline: dict, scene_id: str, beat_id: str, word: str, says: dict
     if info and info.get("words"):
         target = _norm(word).strip()
         for w in info["words"]:
-            if _norm(w.get("w", "")).strip() == target:
+            if target and _norm(w.get("w", "")).strip() == target:
                 return round((start + float(w["start"])) * fps)
     return round((start + word_fraction(says.get(beat_id, ""), word) * seconds) * fps)

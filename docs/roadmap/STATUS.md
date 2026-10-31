@@ -8,10 +8,10 @@ Updated: 31 October 2026 · Read this first in every new session, then show Navi
 | --- | --- |
 | Phase | 1 · BIE as one whole system; plan agreed on 22 October 2026 (ROADMAP, "Agreed on 22 October 2026") |
 | Current task | **Task 046 · Part D1: the director's dikhane ki soch, the needs list and the gathering of things** (Navin's verdict on the whole Money chapter, 30 October 2026: one setup, the bank and four people, text rising on boards; "bie ko khud sochna padega"). Section "Task 046 · Part D1" below. Before it: Task 046 Part C (Economy), the whole Money chapter scripted (18 of 18) and rendered, sections below. |
-| Branch | `task046d-visual-thinking` (from `main` after PR #110) |
-| State | **31 October 2026: Part D1 IMPLEMENTED on the branch** (the visual-idea step with `visual_verbs.json`, the book's own pictures drawn by code, the needs list and the fetch workflow, no world by keyword, checks D1-01…D1-06, the per-video report, LOOK-D1 and stills; 18 new tests; ₹0). Before numbers measured by code (bank + shop 69 % of 234 parts, 29 distinct icons, text-only screen 15 %, the book's pictures 0 of 37). Not yet run live. Earlier, 30 October 2026: the whole Money chapter scripted (18 of 18) and all 18 videos rendered with review pages (section "Navin's verdict on Money v1 and the work after it", work C). |
-| Next task | Merge the Part D1 PR when every check is green; then the proof (Part E): the canvas section again on Money v2 and v4 with the narration locked (VM, Codex, ₹0), the fetch workflow on its needs list, CI renders with stills, before/after pages and the dikhane ki list, LOOK-D1, the after numbers. Then **STOP for Navin's verdict**; Part D2 (the missing kits and blocks) after it; then the voice (Task 047). |
-| Canonical main | `73a07941` (PR #109: the render publish step retries) on `16c1e5fe` (PR #110: the Money chapter's report); earlier: `f99b77a6` (PR #93: PR 3, the bank kit) on `f929d5a5` (PR #92: docs, the proof's numbers and the chosen video) on `d265dc90` (PR #90: the everyday words of money and the W-01 source-packet phrases; PR #91 `abeb70b0` F-16 skyfield files in the shared asset cache; PR #89 `f03c9208` plan review; PR #88 `182c9b01` page review; PR #87 `995c808b` map review; PR #86 `8612d724` render speed; PR #85 `78a9a721` PR 2 and Navin's addition; PR #81 `d7ce8388`: F-14b, Codex image calls keep the code-mode host on, Navin's yes; PR #80 `4128cbdd` F-14; PR #77 `aa8d6519` VM image and look jobs; PR #79 `2c6c2fc5` F-13c + F-11 toolbox lane; PR #78 `c4375064` F-13b; PR #74 `39e3430e` Task 046 Part A) |
+| Branch | `task046d-proof-fixes` (from `main` after PR #111) |
+| State | **31 October 2026: Part D1 merged (PR #111, `e998f926`) and run live once** (VM job `t046d-money-canvas-a`, Codex, ₹0): v2 18 of 18 parts, video spec written (worlds 56 % → 28 %, icons 7 → 54, text-only 91 s → 9.9 s, the book's pictures 0 → 3 of 3); v4 16 of 18 (two parts stopped on BIE's own code: a cue on a currency sign, a reference to the maker's own picture; fixed on `task046d-proof-fixes`). v2's render and the fetch workflow dispatched. Nothing ACCEPTED. |
+| Next task | Merge `task046d-proof-fixes` when every check is green; then v4 again on the VM (same narration), v4's render, the before/after review pages and the dikhane ki list pages for v2 and v4, LOOK-D1 on the stills, the after numbers. Then **STOP for Navin's verdict**; Part D2 (the missing kits and blocks) after it; then the voice (Task 047). |
+| Canonical main | `e998f926` (PR #111: Part D1) on `73a07941` (PR #109: the render publish step retries) on `16c1e5fe` (PR #110: the Money chapter's report); earlier: `f99b77a6` (PR #93: PR 3, the bank kit) on `f929d5a5` (PR #92: docs, the proof's numbers and the chosen video) on `d265dc90` (PR #90: the everyday words of money and the W-01 source-packet phrases; PR #91 `abeb70b0` F-16 skyfield files in the shared asset cache; PR #89 `f03c9208` plan review; PR #88 `182c9b01` page review; PR #87 `995c808b` map review; PR #86 `8612d724` render speed; PR #85 `78a9a721` PR 2 and Navin's addition; PR #81 `d7ce8388`: F-14b, Codex image calls keep the code-mode host on, Navin's yes; PR #80 `4128cbdd` F-14; PR #77 `aa8d6519` VM image and look jobs; PR #79 `2c6c2fc5` F-13c + F-11 toolbox lane; PR #78 `c4375064` F-13b; PR #74 `39e3430e` Task 046 Part A) |
 | Keys | Never the Anthropic key. GPT API key off. Gemini key (AICredits) for the checker; it may call only `google/gemini-4-argon`. GPT only through ChatGPT Pro, signed in with Codex on Navin's machine (Hostinger KVM 2, Mumbai). On the VM, from 25 October 2026, the checker is Navin's free Google AI Studio key `GEMINI_API_KEY` in `/etc/bie/bie.env` (direct route, `gemini-3.8-flash`); the AICredits key stays there unused (a job can still choose it with `routes google=aicredits`). Since 24 October a free Google AI Studio key is the GitHub secret `GEMINI_API_KEY` (Navin's choice for now, sample content only, never student data); it serves GitHub Actions runs only and wins over AICredits there: `gemini-3.8-flash` answers (smoke run 40114580580), `gemini-4-argon` gives 429 quota and `gemini-3.1-pro` 404, so a run that uses it passes `models=google=gemini-3.8-flash` |
 
 ## Task 046 · Part D1 · dikhane ki soch, the needs list and the gathering of things (Navin's verdict of 30 October 2026)
@@ -94,7 +94,57 @@ inside the paper canvas yet; the book's pictures are drawn natively instead, and
 gap, and every kit the maker asks for that does not exist (a farm, a port, a factory …), go to the missing-capability log for
 Part D2. The after numbers come only from the live run.
 
-**Next (after the merge):** the canvas section again on Money v2 and v4 on the VM (Codex maker and checker, ₹0; the narration
+**The live proof run (31 October 2026, PR #111 merged at `e998f926`; VM job `t046d-money-canvas-a`, Codex maker and checker,
+56 minutes, ₹0, ChatGPT plan at 8 % of the week; `runs/vm-t046d-money-canvas-a-brain-canvas/`; narration locked: the scripts of
+lesson resume `-f`).** v2: 18 of 18 parts passed, video spec written. v4: 16 of 18 passed; two parts failed three rounds each
+on BIE's own code, not on the maker's thinking (fixed on branch `task046d-proof-fixes`, below). Measured by code against the
+canvas run `f` of 29–30 October:
+
+| Measure | v2 before → after | v4 before → after (16 of 18 parts) |
+| --- | --- | --- |
+| Parts in a bank or shop world | 10 of 18 (56 %) → 5 (28 %) | 12 of 18 (67 %) → 6 (38 %) |
+| Distinct icons | 7 → 54 | 4 → 43 |
+| Canvas parts with only text | 3 → 0 | 4 → 0 |
+| Text-only screen time | 91 s of 596 s, 2 stretches over 10 s → 9.9 s, 0 over 10 s | 146 s, 4 over 10 s → spec not written yet |
+| The book's own pictures drawn | 0 of 3 → 3 of 3 | 0 of 4 → 3 of 4 (the gallery was in a failed part) |
+| Plans first try / rounds | 13 of 18, 25 → 12 of 18, 24 | 16 of 18, 21 → 11 of 18, 31 |
+| Ideas step first try | (new step) 8 of 18 | (new step) 7 of 18 |
+| Relations outside the list | — | 0 (every beat used one of the 15 relations) |
+
+Tokens for the two videos: 1.10 M in and 0.42 M out over 113 calls (ideas, plans and reviews), ₹0 on the ChatGPT plan. The
+needs list named 43 things (32 icons, 11 images; one missing kit, a farm); v2's render passed (below); the fetch workflow ran out of time (below; fixed).
+
+**What the run taught, and what changed (branch `task046d-proof-fixes`, IMPLEMENTED; SEEKH_LOG entry 29):**
+
+- A cue on a currency sign ("$ वाला United States Dollar") was never found, because the word matcher dropped signs: v4_s5
+  failed three rounds on `$`, `¥`, `€`. A cue made of signs alone now matches the sign; every earlier cue on a word with letters
+  or digits resolves exactly as before. Replayed on that part's three recorded answers, the cue error is gone and the next
+  problem is CV-13 (a label that is only "$" should say "$ US Dollar"), which the maker can now see and fix.
+- A focus or arrow naming the maker's own picture (a gallery called `status`) was refused, because the picture's id becomes
+  many elements; the maker guessed a new wrong id each round. A picture's id now means the picture, and a missing id error
+  lists the ids the plan has. Replayed: v4_s7a's three recorded answers all pass now (it would have passed first try).
+- 21 of 36 ideas answers wrote the card part's type ("definition") as `picture_type`, costing a round each: the schema now
+  allows only the picture types, and a card type is read as its picture.
+- The needs list held years ("1023", "1661"), roles with no icon (payer, creditor, porter, traveller, neighbours) and a search
+  that found "blender" for "lender": a year is no longer a thing to search, the roles have aliases, and a query word now
+  matches only where a word of the icon starts with it. Places (China, Sweden, Tibet) stay as needs: a modern flag would be
+  wrong history on a timeline; Part D2's map is the right answer.
+- **v2's render** (CI run 41222648107, 5.3 minutes wall clock, 35 machine-minutes, ₹23.7 at list price, ₹0 billed; review copy and
+  18 stills at `runs/t046d-money-v2/`) showed three faults of BIE's own drawing, all fixed by code: the book's table across
+  the whole grid lost its first letters at the frame edge (a camera key for the whole grid zoomed it edge to edge and the
+  idle drift cut it: every camera box now keeps 3.5 % of the frame around it); a `curve: true` arrow swung a whole
+  arrow-length off its line across the book's gallery (the plan says yes or no, the block read a number: yes is now a gentle
+  bend of 0.18, a number at most ±0.35); a tag had blue words on its pink fill (a tag's words are now always white).
+- **The fetch workflow** (run 41222654555) ran out of its 30-minute job with nothing saved (43 needs × 3 sources, up to 18
+  museum object reads per search, a 60 s timeout with 3 tries per request). Now: a time budget (25 minutes in the workflow;
+  needs not reached are reported `not_tried`), the library saved after every need with a find, the museum asked only for
+  image needs and at most `limit + 2` objects with a 20 s timeout, and a 45-minute job.
+- Checked: all 268 plans of the canvas runs `e1`, `f` and this one pass or fail the same with these fixes as without them (0
+  differences). **Honest note:** 108 of those 268 earlier plans no longer compile under Part D1's board of 2 lines of 28
+  characters (they were made under the board of 3 lines of 40); that is Navin's rule of 30 October, merged in PR #111, not a
+  regression of a fix. Those renders stay as evidence; a re-run plans them under the new rule.
+
+**Next (written before the merge, kept):** the canvas section again on Money v2 and v4 on the VM (Codex maker and checker, ₹0; the narration
 of lesson resume `-f` locked), the fetch workflow on its `needs.json`, the canvas again with the library if it found things,
 CI renders (`t046d-money-v2`, `t046d-money-v4`) with stills, the before/after review pages and the dikhane ki list pages,
 LOOK-D1 on the stills, the after numbers in SEEKH entry 28. Then STOP for Navin's verdict.
