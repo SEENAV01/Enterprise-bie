@@ -628,14 +628,25 @@ def run_canvas(chapter: dict, lesson: dict, course: Course, runner, out_dir, *, 
                  for piece in split_stub(story)]
         # Dikhane ki soch, step 1 by code (D1-04): the book's own pictures a part covers, placed before the maker plans; and the mode of
         # every part, with the kit-sequence rule (D1-05) applied in order before the parts run side by side.
-        prev = None
         for stub in stubs:
             stub["card_type"] = card_types.get(stub.get("part_id"), "")
-            stub_items = _items_of(chapter, plans[video["video_id"]], stub)
             own = [full_beats.get(b["beat_id"], b) for b in stub["beats"]]           # the items this piece's own beats cover
             stub["picture"], stub["picture_nodes"] = vt.place_pictures(chapter["items"], own, stub["card_type"])
-            mode = mode_of(course, stub["beats"], stub_items, story=bool(stub.get("story")))
-            if prev and prev["mode"] == "C" and mode["mode"] == "C" and prev.get("kit") == mode.get("kit"):
+            stub["mode"] = mode_of(course, stub["beats"], _items_of(chapter, plans[video["video_id"]], stub), story=bool(stub.get("story")))
+        # A world piece does not draw the book's picture: when a canvas piece of the video draws the same pictures the world keeps its
+        # story (the canvas piece shows the picture); when none does, the piece goes to the canvas so the picture is drawn (D1-04).
+        on_canvas = {p["item_id"] for st in stubs if st["mode"]["mode"] != "C" for p in st["picture"]["pictures"]}
+        prev = None
+        for stub in stubs:
+            mode, own_pics = stub["mode"], {p["item_id"] for p in stub["picture"]["pictures"]}
+            if mode["mode"] == "C" and own_pics:
+                if own_pics <= on_canvas:
+                    own = [full_beats.get(b["beat_id"], b) for b in stub["beats"]]
+                    stub["picture"], stub["picture_nodes"] = vt.place_pictures({}, own, stub["card_type"])
+                else:
+                    mode = dict(mode, mode="B", kit="", missing="", note="the part covers the book's own picture, drawn on the canvas (D1-04)")
+                    on_canvas |= own_pics
+            if mode["mode"] == "C" and prev and prev["mode"] == "C" and prev.get("kit") == mode.get("kit"):
                 mode = dict(mode, mode="B", kit="", missing="", note=f"the {prev['kit']} world was used by the part before (D1-05)")
             stub["mode"] = mode
             prev = mode
@@ -700,7 +711,9 @@ def run_canvas(chapter: dict, lesson: dict, course: Course, runner, out_dir, *, 
                     part_data["text_only_seconds"] = vt.text_only_problems(scene, timing.FPS)[1]
                     pics = [n["picture"]["type"] for n in plan.get("nodes") or [] if n.get("kind") == "picture"]
                     part_data["picture_types"] = sorted(set(pics)) or (["things"] if ids else ["text"])
-                    part_data["book_pictures_drawn"] = len({(n.get("picture") or {}).get("item_id") for n in plan.get("nodes") or [] if n.get("kind") == "picture"})
+                    drawn = sorted({(n.get("picture") or {}).get("item_id") for n in plan.get("nodes") or []
+                                    if n.get("kind") == "picture" and (n.get("picture") or {}).get("item_id")})
+                    part_data["book_pictures_drawn"], part_data["book_picture_ids"] = len(drawn), drawn
                 formats.check("world_c_plan" if "elements" in plan else "canvas_b_plan", formats.stamp("world_c_plan" if "elements" in plan else "canvas_b_plan", plan),
                               where=f"plans/{stub['id']}.plan.json")
                 (out / "plans" / f"{stub['id']}.plan.json").write_text(json.dumps(plan, ensure_ascii=False, indent=1), encoding="utf-8")

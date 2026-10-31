@@ -156,9 +156,12 @@ def check_ideas(stub: dict, value: dict, *, picture: dict | None = None, verbs: 
             problems.append(f"beat {bid}: relation {row.get('relation')!r} is not in the list ({', '.join(sorted(known))}); use 'other' with a note")
         elif row.get("relation") == "other" and not (row.get("relation_note") or "").strip():
             problems.append(f"beat {bid}: relation 'other' needs relation_note (what relation the picture shows)")
-        nouns = [n for key in ("things", "people", "places") for n in (row.get(key) or []) if str(n).strip()]
+        named = [str(n).strip() for key in ("things", "people", "places") for n in (row.get(key) or []) if str(n).strip()]
+        nouns = [n for n in named if _is_thing(n)]
         if not nouns:
-            problems.append(f"beat {bid}: name at least one thing, person or place the learner sees (a picture needs a thing)")
+            grammar = [n for n in named if not _is_thing(n)]
+            problems.append(f"beat {bid}: name at least one thing, person or place the learner sees (a picture needs a thing)"
+                            + (f"; {', '.join(repr(g) for g in grammar[:3])} {'is' if len(grammar) == 1 else 'are'} only grammar, not a thing" if grammar else ""))
         shows = (row.get("shows") or "").strip()
         if not shows:
             problems.append(f"beat {bid}: shows is empty: say what is seen")
@@ -464,14 +467,29 @@ def picture_node(picture: dict, beats: list, covers: dict, *, cell=None, node_id
 
 # ---------------------------------------------------------------- the needs list
 
+# Words that are never a thing a picture can show (a pronoun, a filler, an adverb, a verb form): a "thing" that is only one of these
+# is dropped before the search, so the needs list names things, not grammar (the Money dry run, 31 October 2026).
+NOT_A_THING = frozenset("""मानिए मान मानो लीजिए लो कितना कितने कितनी यहाँ यहां वहाँ वहां सीधा सीधे पहले बाद इसे उसे इन्हें उन्हें ऐसा ऐसे वैसा
+कैसे क्या क्यों कब अब फिर यह वह ये वो इस उस इसका उसका हम आप तुम मैं कोई कुछ सब सभी बहुत ज़्यादा ज्यादा कम सिर्फ़ सिर्फ अगर तब जब
+जैसे इसलिए लेकिन मतलब यानी ठीक सही गलत बात तरीका चीज़ चीज here there this that thing things way something""".split())
+
+
+def _is_thing(noun: str) -> bool:
+    from . import soul
+    from .video import screen_text
+    words = noun.lower().split()
+    junk = NOT_A_THING | soul.STOP | soul.HINDI_VERB_WORDS | screen_text.STOP
+    return bool(words) and not all(w.strip("।,.!?") in junk for w in words)
+
+
 def nouns_of(ideas: dict) -> list:
-    """The things, people and places the ideas name, once each, in order."""
+    """The things, people and places the ideas name, once each, in order (never a word that is only grammar)."""
     out = []
     for row in ideas.get("beats") or []:
         for key in ("things", "people", "places"):
             for n in row.get(key) or []:
                 n = str(n).strip()
-                if n and n.lower() not in {o.lower() for o in out}:
+                if n and _is_thing(n) and n.lower() not in {o.lower() for o in out}:
                     out.append(n)
     return out
 
@@ -704,6 +722,6 @@ def report(parts: list) -> dict:
             "text_only_share": round(text_only / total, 3) if total else 0.0,
             "picture_types": sorted({t for p in parts for t in (p.get("picture_types") or [])}),
             "worlds": sorted({p["kit"] for p in parts if p.get("mode") == "C" and p.get("kit")}),
-            "book_pictures": sum(len((p.get("picture") or {}).get("pictures") or []) for p in parts),
-            "book_pictures_drawn": sum(p.get("book_pictures_drawn") or 0 for p in parts),
+            "book_pictures": len({b["item_id"] for p in parts for b in (p.get("picture") or {}).get("pictures") or []}),   # distinct pictures,
+            "book_pictures_drawn": len({i for p in parts for i in (p.get("book_picture_ids") or [])}),                     # each counted once
             "relations_outside_list": sum(1 for p in parts for r in ((p.get("ideas") or {}).get("beats") or []) if r.get("relation") == "other")}

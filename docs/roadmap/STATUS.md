@@ -66,8 +66,15 @@ fake maker; INTEGRATED only after the VM run and the renders below):
   still per part; `tools/task046d_look_request.py` and the VM's look section (`tools/vm_look.py`, rule LOOK-D1, Codex at ₹0
   by default, under the cost guard) judge whether each still alone hints at the teacher's point and whether it is text only.
   Report only.
-- Tests: `tests/test_task046d_visual_thinking.py` (18) and the pins of the canvas, director, screen-text, shots, five-scripts,
-  lesson-notes and money-words suites; 495 tests of Tasks 044–046 and 87 of Tasks 039 and 043 pass; the passed outputs
+- **A dry run before the live run** (the fake maker on the real Money inputs: lesson resume `-f`, chapter map `understand-d`,
+  v2 and v4; offline, ₹0) found two real bugs, both fixed with tests: a world part never draws the book's picture, so a
+  picture covered only by a story world was never shown (now such a part goes to the canvas, unless a canvas part of the
+  video draws the same picture, in which case the story keeps its world); and one picture covered by three pieces was counted
+  three times (now distinct pictures). A thing that is only grammar ("मानिए", "यहाँ", "कितना") is no longer a thing to find.
+  After the fixes the dry run passes 36 of 36 parts and writes both video specs; the book's pictures 3 of 3 (v2) and 4 of 4
+  (v4). The fake proves the path runs, not the quality.
+- Tests: `tests/test_task046d_visual_thinking.py` (20) and the pins of the canvas, director, screen-text, shots, five-scripts,
+  lesson-notes and money-words suites; 584 tests of Tasks 039 and 043–046 pass; the passed outputs
   (`tests/fixtures/passed_outputs/`) report 0 problems.
 
 **Before (measured by code on the canvas runs of 29–30 October, the same tool the after page uses):**

@@ -205,6 +205,18 @@ class Ideas(unittest.TestCase):
         self.assertEqual(needs["punch-marked silver coin"]["kind"], "image")
         self.assertNotIn("portrait of Sher Shah Suri", needs)                                        # card rule 8 stays
 
+    def test_a_word_that_is_only_grammar_is_not_a_thing(self):
+        # the Money dry run of 31 October 2026: fillers such as "मानिए", "यहाँ", "कितना" reached the needs list as things
+        ideas = {"beats": [{"beat_id": "b1", "things": ["मानिए", "यहाँ", "silver coin"], "people": ["कितना"], "places": []}]}
+        self.assertEqual(vt.nouns_of(ideas), ["silver coin"])
+        stub = {"id": "v2_s1", "beats": [{"beat_id": "b1", "say": "मानिए यहाँ एक दुकान है।"}]}
+        answer = {"beats": [{"beat_id": "b1", "idea": "a shop", "relation": "place", "relation_note": "", "things": ["मानिए"],
+                             "people": [], "places": [], "shows": "a shop", "on_word": "दुकान", "image_wanted": ""}],
+                  "picture_type": "things", "picture_note": ""}
+        problems = vt.check_ideas(stub, answer)
+        self.assertEqual(len(problems), 1, problems)
+        self.assertIn("only grammar", problems[0])
+
 
 class Director(unittest.TestCase):
     def test_a_world_only_for_the_examples_story_and_never_by_keyword(self):
@@ -231,6 +243,32 @@ class Director(unittest.TestCase):
         page = _tool("task046d_ideas_page").build(tmp, "v1", lesson=lesson, before=tmp)
         self.assertIn("dikhane ki list", page)
         self.assertIn("Pehle aur ab", page)
+
+    def test_a_story_world_that_covers_a_book_picture_keeps_its_world_only_when_a_canvas_part_draws_it(self):
+        # the Money dry run of 31 October 2026: a world part never draws the book's picture, so a picture covered only by a world
+        # part was never shown (D1-04); and the same picture in three pieces counted three times
+        import test_task046_canvas_director as T
+
+        def run(also_on_canvas):
+            chapter, lesson = T.econ_lesson()
+            chapter["items"].update({k: dict(ITEMS[k], teachable=True, teacher_understanding=[]) for k in ("p004-i3", "p004-i4", "p004-i5")})
+            beats = lesson["videos"][0]["beats"]
+            beats[0]["covers_item_ids"] = list(beats[0].get("covers_item_ids") or []) + ["p004-i4"]
+            if also_on_canvas:
+                curve = [b for b in beats if b["part_id"] == "p2"]
+                curve[0]["covers_item_ids"] = list(curve[0].get("covers_item_ids") or []) + ["p004-i4"]
+            tmp = Path(tempfile.mkdtemp())
+            summary = cd.run_canvas(chapter, lesson, T.ECON, T.runner(tmp), tmp, workers=1)
+            return summary["videos"][0]
+
+        alone = run(False)
+        self.assertEqual(alone["parts"][0]["mode"], "B")
+        self.assertIn("D1-04", alone["parts"][0].get("note", ""))
+        self.assertEqual((alone["report"]["book_pictures"], alone["report"]["book_pictures_drawn"]), (1, 1))
+        shared = run(True)
+        self.assertEqual((shared["parts"][0]["mode"], shared["parts"][0]["kit"]), ("C", "shop"))       # the story keeps its world
+        self.assertEqual(shared["parts"][1]["mode"], "B")
+        self.assertEqual((shared["report"]["book_pictures"], shared["report"]["book_pictures_drawn"]), (1, 1))   # counted once
 
     def test_two_story_parts_in_the_same_kit_one_after_the_other_the_second_is_a_canvas(self):
         import test_task046_canvas_director as T

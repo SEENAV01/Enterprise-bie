@@ -242,8 +242,10 @@ def director_answer(user_text: str):
 
 
 def _first_word(say: str) -> str:
-    words = [w for w in say.replace("।", " ").replace(",", " ").split() if w.strip("।,.!?")]
-    return words[0].strip("।,.!?") if words else ""
+    """The first word of a beat that has a letter in it (a symbol such as '¥' is not a word a cue can wait for)."""
+    words = [w.strip("।,.!?") for w in say.replace("।", " ").replace(",", " ").split()]
+    words = [w for w in words if re.search(r"[A-Za-z\u0900-\u097f]", w)]
+    return words[0] if words else ""
 
 
 def ideas_answer(user_text: str):
@@ -252,8 +254,10 @@ def ideas_answer(user_text: str):
     data = _payload(user_text)
     rows = []
     for beat in data.get("beats", []):
-        words = [w for w in beat["say"].replace("।", " ").split() if len(w) > 2 and w not in ("मान", "लीजिए")]
-        thing = words[0] if words else "coin"
+        from .visual_thinking import _is_thing
+        words = [w.strip(",.!?:;()\"'") for w in beat["say"].replace("।", " ").split() if len(w) > 2 and w not in ("मान", "लीजिए")]
+        things = [w for w in words if _is_thing(w) and re.search(r"[A-Za-z\u0900-\u097f]", w)]
+        thing = things[0] if things else "coin"
         relation = beat.get("relation_guess") or "other"
         rows.append({"beat_id": beat["beat_id"], "idea": " ".join(words[:3]) or "offline idea", "relation": relation,
                      "relation_note": "offline" if relation == "other" else "", "things": [thing], "people": [], "places": [],
@@ -276,22 +280,29 @@ def canvas_answer(user_text: str):
              "picture": {"type": "", "title": "", "items": [], "arrows": False}}
     top = max([n["cell"][1] + n["cell"][3] for n in data.get("picture") or []] or [0])      # the rows the book picture took
     nodes = []
-    if beats:
+    tag_rows = 1 if 8 - top >= 2 else 0                  # a book picture that leaves one row free: the cards take it, no title tag
+    if beats and tag_rows:
         nodes.append(dict(empty, id="tag", kind="text", cell=[0, top, 5, 1], cue=[beats[0]["beat_id"], ""], style="tag",
-                          text=f"Part {part}"[:28]))
-    rows_free = 8 - top - 1
+                          text=(re.sub(r"[\d.]+", "", f"Part {part}").strip() or "Part")[:28]))      # a number on screen is one the narration says (CV-16)
+    rows_free = 8 - top - tag_rows
     slots = max(2, 2 * rows_free)
     icons_of = {r["beat_id"]: r for r in data.get("ideas") or []}
-    for n, beat in enumerate(beats):
-        slot = n % slots
-        cell = [(slot % 2) * 6, top + 1 + slot // 2, 6, 1]
+    cards = []                                     # (beat, cue word, cue fraction, label): a long beat gets a second card half way
+    for beat in beats:
         idea = icons_of.get(beat["beat_id"]) or {}
         things = [t for t in (idea.get("things") or []) if t]
         words = [w for w in beat["say"].replace("।", " ").split() if w not in ("मान", "लीजिए", "लो")]      # never a caution phrase on screen (D1-06)
         label = (things[0] if things else " ".join(words[:2]))[:24] or "…"
+        cards.append((beat, _first_word(beat["say"]), 0.0, label))
+        if len(words) > 28:                                                         # about 12 s or more: the picture must change
+            cards.append((beat, "", 0.5, (things[1] if len(things) > 1 else label)[:24]))
+    for n, (beat, word, fraction, label) in enumerate(cards):
+        slot = n % slots
+        cell = [(slot % 2) * 6, top + tag_rows + slot // 2, 6, 1]
         if n >= slots:
-            nodes[1 + n - slots]["until_cue"] = [beat["beat_id"], ""]
-        nodes.append(dict(empty, id=f"t{n + 1}", kind="icon", cell=cell, cue=[beat["beat_id"], _first_word(beat["say"])],
+            nodes[tag_rows + n - slots]["until_cue"] = [beat["beat_id"], word]
+            nodes[tag_rows + n - slots]["until_fraction"] = fraction
+        nodes.append(dict(empty, id=f"t{n + 1}", kind="icon", cell=cell, cue=[beat["beat_id"], word], cue_fraction=fraction,
                           icon="tw:1fa99", label=label))
     graph = {"plot": {"x": 0, "y": 0, "w": 0, "h": 0}, "x_label": "", "y_label": "", "x_domain": [], "y_domain": [], "axes_cue": [],
              "curves": [], "dots": [], "shades": [], "guides": [], "notes": []}
@@ -313,7 +324,8 @@ def world_answer(user_text: str):
     said = _re.search(r"\d[\d,]*", beats[0]["say"]) if beats else None          # a number on screen is one the narration says (CV-16)
     price = f"₹{said.group(0)}" if said else ""
     street = [dict(empty, id="lamp1", kind="lamp", x=2050), dict(empty, id="fg1", kind="foreground", x=1750)]
-    if _world.place_of(" ".join(b.get("say", "") for b in beats)) == "bank":      # a bank story gets the bank kit (PR 3)
+    asked = ((data.get("part") or {}).get("place") or data.get("place") or "")     # the kit the director chose (Part D1: the example's place)
+    if (asked or _world.place_of(" ".join(b.get("say", "") for b in beats))) == "bank":      # a bank story gets the bank kit (PR 3)
         place = [dict(empty, id="bank", kind="bank", x=2600, sign="बैंक")] + street + [
                  dict(empty, id="teller", kind="teller", x=2600),
                  dict(empty, id="board", kind="board", x=3350, y=420, text="खाता", fill="#1f3a5f",
@@ -326,7 +338,13 @@ def world_answer(user_text: str):
            dict(empty, id="crowd", kind="crowd", x0=2330, spacing=120, enter_x=3950, exit_x=4300, face=-1, seed=4,
                 steps=[{"text": "", "n": 2 + n, "dir": "", "cue": [b["beat_id"], _first_word(b["say"])]} for n, b in enumerate(beats)]),
            dict(empty, id="title", kind="title", text="Story", cue=[first, ""])]
-    camera = [{"cue": [b["beat_id"], ""], "x": 2600 + 40 * n, "y": 560, "zoom": 1.0 + 0.05 * (n % 3), "frames": 30} for n, b in enumerate(beats)]
+    camera = []
+    for n, b in enumerate(beats):
+        camera.append({"cue": [b["beat_id"], ""], "x": 2600 + 40 * n, "y": 560, "zoom": 1.0 + 0.05 * (n % 3), "frames": 30})
+        words = [w.strip("।,.!?") for w in b["say"].split()]
+        words = [w for w in words if _re.search(r"[A-Za-z\u0900-\u097f]", w)]
+        if len(words) > 28:                                   # a long beat: a second, slower move half way, so the picture changes
+            camera.append({"cue": [b["beat_id"], words[len(words) // 2]], "x": 2620 + 40 * n, "y": 540, "zoom": 1.12, "frames": 45})
     return {"notes": NOTES, "elements": els, "camera": camera}
 
 

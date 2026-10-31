@@ -1197,6 +1197,8 @@ the learner should see, and it could only pick from the world BIE already had.
   CC0, PD and CC BY images, licence-checked and credited, into the library the next run reads first.
 - No world by keyword; never the same kit in two consecutive parts; checks D1-01…D1-06; a board of 2 lines of 28 characters;
   the per-video report; LOOK-D1 on one still per part, report only.
+- A dry run with the fake maker on the real v2 and v4 inputs (offline, ₹0) caught, before any live call, a book picture
+  covered only by a story world (never drawn) and a picture counted once per piece; both fixed with tests.
 
 | Measure | Before (runs e1 + f) | After |
 | --- | --- | --- |
