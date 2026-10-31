@@ -1,0 +1,550 @@
+{
+ "id": "v2_s5b",
+ "part_id": "c04.1",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b33",
+   "say": "Intermediary matching आसान करता है, आगे handling सुधरती है। UPI existing deposits भेजता है, extra पैसा नहीं बनाता।"
+  },
+  {
+   "beat_id": "b34",
+   "say": "Forms साथ रहते हैं; हर card में पैसा stored नहीं होता।"
+  },
+  {
+   "beat_id": "b35",
+   "say": "क्रम barter, commodity, metallic, paper, bank, फिर digital है।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "book_p002_i12",
+   "kind": "picture",
+   "cell": [
+    0,
+    0,
+    12,
+    3
+   ],
+   "cue": [
+    "b33",
+    ""
+   ],
+   "picture": {
+    "type": "gallery",
+    "title": "EVOLUTION OF MONEY",
+    "item_id": "p002-i12",
+    "panels": [
+     {
+      "n": 1,
+      "name": "BARTER",
+      "caption": "Wheat exchanged for cloth",
+      "nouns": [
+       "BARTER",
+       "Wheat",
+       "exchanged",
+       "for",
+       "cloth"
+      ],
+      "item_id": "p002-i13",
+      "numbered": true,
+      "cue": [
+       "b33",
+       ""
+      ],
+      "icon": "tw:1f33e"
+     },
+     {
+      "n": 2,
+      "name": "COMMODITY MONEY",
+      "caption": "Salt, cattle, shells",
+      "nouns": [
+       "COMMODITY",
+       "MONEY",
+       "Salt",
+       "cattle",
+       "shells"
+      ],
+      "item_id": "p002-i14",
+      "numbered": true,
+      "cue": [
+       "b33",
+       ""
+      ],
+      "icon": "tw:1f9c2"
+     },
+     {
+      "n": 3,
+      "name": "METALLIC MONEY",
+      "caption": "Gold and silver coins",
+      "nouns": [
+       "METALLIC",
+       "MONEY",
+       "Gold",
+       "and",
+       "silver",
+       "coins"
+      ],
+      "item_id": "p002-i15",
+      "numbered": true,
+      "cue": [
+       "b33",
+       ""
+      ],
+      "icon": "tw:1fa99"
+     },
+     {
+      "n": 4,
+      "name": "PAPER MONEY",
+      "caption": "Currency notes",
+      "nouns": [
+       "PAPER",
+       "MONEY",
+       "Currency",
+       "notes"
+      ],
+      "item_id": "p002-i16",
+      "numbered": true,
+      "cue": [
+       "b33",
+       ""
+      ],
+      "icon": "fa:solid/money-bill-1"
+     },
+     {
+      "n": 5,
+      "name": "BANK MONEY",
+      "caption": "Cheques and deposits",
+      "nouns": [
+       "BANK",
+       "MONEY",
+       "Cheques",
+       "and",
+       "deposits"
+      ],
+      "item_id": "p002-i17",
+      "numbered": true,
+      "cue": [
+       "b33",
+       ""
+      ],
+      "icon": "fa:solid/money-check"
+     },
+     {
+      "n": 6,
+      "name": "DIGITAL MONEY",
+      "caption": "UPI, net banking, cards",
+      "nouns": [
+       "DIGITAL",
+       "MONEY",
+       "UPI",
+       "net",
+       "banking",
+       "cards"
+      ],
+      "item_id": "p002-i18",
+      "numbered": true,
+      "cue": [
+       "b33",
+       ""
+      ],
+      "icon": "tw:1f4f1"
+     }
+    ]
+   }
+  },
+  {
+   "id": "exchange_wheat",
+   "kind": "icon",
+   "cell": [
+    0,
+    4,
+    2,
+    2
+   ],
+   "cue": [
+    "b33",
+    "Intermediary"
+   ],
+   "until_cue": [
+    "b33",
+    "UPI"
+   ],
+   "tone": "ink",
+   "align": "center",
+   "icon": "tw:1f33e",
+   "size": 48
+  },
+  {
+   "id": "intermediary",
+   "kind": "icon",
+   "cell": [
+    5,
+    4,
+    2,
+    2
+   ],
+   "cue": [
+    "b33",
+    "Intermediary"
+   ],
+   "until_cue": [
+    "b33",
+    "UPI"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "tw:1f4b0",
+   "label": "Intermediary",
+   "size": 48
+  },
+  {
+   "id": "exchange_cloth",
+   "kind": "icon",
+   "cell": [
+    10,
+    4,
+    2,
+    2
+   ],
+   "cue": [
+    "b33",
+    "matching"
+   ],
+   "until_cue": [
+    "b33",
+    "UPI"
+   ],
+   "tone": "ink",
+   "align": "center",
+   "icon": "tw:1f455",
+   "size": 48
+  },
+  {
+   "id": "exchange_in",
+   "kind": "arrow",
+   "cue": [
+    "b33",
+    "आसान"
+   ],
+   "until_cue": [
+    "b33",
+    "UPI"
+   ],
+   "tone": "accent",
+   "from": "exchange_wheat",
+   "to": "intermediary",
+   "from_side": "r",
+   "to_side": "l",
+   "flow": {
+    "icon": "tw:1f4b0",
+    "count": 1,
+    "period": 1800,
+    "size": 24,
+    "reverse": true,
+    "cue": [
+     "b33",
+     "आसान"
+    ]
+   }
+  },
+  {
+   "id": "exchange_out",
+   "kind": "arrow",
+   "cue": [
+    "b33",
+    "handling"
+   ],
+   "until_cue": [
+    "b33",
+    "UPI"
+   ],
+   "tone": "accent",
+   "from": "intermediary",
+   "to": "exchange_cloth",
+   "from_side": "r",
+   "to_side": "l",
+   "flow": {
+    "icon": "tw:1f4b0",
+    "count": 1,
+    "period": 1800,
+    "size": 24,
+    "cue": [
+     "b33",
+     "handling"
+    ]
+   }
+  },
+  {
+   "id": "sending_bank",
+   "kind": "icon",
+   "cell": [
+    1,
+    5,
+    2,
+    2
+   ],
+   "cue": [
+    "b33",
+    "UPI"
+   ],
+   "until_cue": [
+    "b35",
+    "क्रम"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "tw:1f3e6",
+   "size": 48
+  },
+  {
+   "id": "upi_phone",
+   "kind": "icon",
+   "cell": [
+    5,
+    3,
+    2,
+    2
+   ],
+   "cue": [
+    "b33",
+    "UPI"
+   ],
+   "until_cue": [
+    "b35",
+    "क्रम"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "tw:1f4f1",
+   "label": "UPI",
+   "size": 48
+  },
+  {
+   "id": "receiving_bank",
+   "kind": "icon",
+   "cell": [
+    9,
+    5,
+    2,
+    2
+   ],
+   "cue": [
+    "b33",
+    "deposits"
+   ],
+   "until_cue": [
+    "b35",
+    "क्रम"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "tw:1f3e6",
+   "size": 48
+  },
+  {
+   "id": "deposit_transfer",
+   "kind": "arrow",
+   "cue": [
+    "b33",
+    "भेजता"
+   ],
+   "until_cue": [
+    "b34",
+    "Forms"
+   ],
+   "tone": "accent",
+   "from": "sending_bank",
+   "to": "receiving_bank",
+   "from_side": "r",
+   "to_side": "l",
+   "flow": {
+    "icon": "fa:solid/money-bill-1",
+    "count": 1,
+    "period": 2200,
+    "size": 28,
+    "cue": [
+     "b33",
+     "भेजता"
+    ]
+   }
+  },
+  {
+   "id": "no_extra_money",
+   "kind": "text",
+   "cell": [
+    3,
+    7,
+    6,
+    1
+   ],
+   "cue": [
+    "b33",
+    "नहीं"
+   ],
+   "until_cue": [
+    "b34",
+    "Forms"
+   ],
+   "text": "extra पैसा नहीं बनाता",
+   "style": "tag",
+   "tone": "ink",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "coexisting_coin",
+   "kind": "icon",
+   "cell": [
+    1,
+    3,
+    2,
+    2
+   ],
+   "cue": [
+    "b34",
+    "Forms"
+   ],
+   "until_cue": [
+    "b35",
+    "क्रम"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "tw:1fa99",
+   "size": 48
+  },
+  {
+   "id": "coexisting_note",
+   "kind": "icon",
+   "cell": [
+    9,
+    3,
+    2,
+    2
+   ],
+   "cue": [
+    "b34",
+    "साथ"
+   ],
+   "until_cue": [
+    "b35",
+    "क्रम"
+   ],
+   "tone": "ok",
+   "align": "center",
+   "icon": "fa:solid/money-bill-1",
+   "size": 48
+  },
+  {
+   "id": "access_card",
+   "kind": "icon",
+   "cell": [
+    5,
+    5,
+    2,
+    2
+   ],
+   "cue": [
+    "b34",
+    "card"
+   ],
+   "until_cue": [
+    "b35",
+    "क्रम"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "tw:1f4b3",
+   "size": 48
+  },
+  {
+   "id": "card_access",
+   "kind": "arrow",
+   "cue": [
+    "b34",
+    "stored"
+   ],
+   "until_cue": [
+    "b35",
+    "क्रम"
+   ],
+   "tone": "accent",
+   "from": "access_card",
+   "to": "receiving_bank",
+   "from_side": "r",
+   "to_side": "l",
+   "dashed": true
+  },
+  {
+   "id": "sequence_direction",
+   "kind": "icon",
+   "cell": [
+    5,
+    3,
+    2,
+    1
+   ],
+   "cue": [
+    "b35",
+    "क्रम"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "fa:solid/code-branch",
+   "label": "क्रम",
+   "size": 40
+  }
+ ],
+ "camera": [
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    8
+   ],
+   "cue": [
+    "b33",
+    "Intermediary"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    4
+   ],
+   "cue": [
+    "b35",
+    "क्रम"
+   ]
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b33",
+    "UPI"
+   ],
+   "ids": [
+    "sending_bank",
+    "upi_phone",
+    "receiving_bank",
+    "deposit_transfer",
+    "no_extra_money"
+   ],
+   "until_cue": [
+    "b34",
+    "Forms"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

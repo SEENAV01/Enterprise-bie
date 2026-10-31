@@ -1,0 +1,481 @@
+{
+ "id": "v2_s8a",
+ "part_id": "c06.2",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b50",
+   "say": "नमक कहाँ चला? Salt Ancient Rome और Africa में; cattle early pastoral societies में, यानी पशु रखने से रोज़ी कमाने वाले लोगों में। दूसरा किसी country का नाम नहीं।"
+  },
+  {
+   "beat_id": "b51",
+   "say": "हथेली के छोटे खोल गिनकर payment हो सकता है? Cowrie shells, यानी कौड़ियाँ, India, China और Africa में चलीं; खाने की चीज़ होना ज़रूरी नहीं, लोगों का स्वीकार करना ज़रूरी है।"
+  },
+  {
+   "beat_id": "b52",
+   "say": "चाय का चौकोर टुकड़ा कैसे बनेगा? Tea bricks यानी दबाई हुई चाय, बनाने वाली ईंट नहीं; Central Asia और Tibet में चली। Tobacco के सूखे पत्तों वाला उदाहरण Colonial America का है।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "book_p003_i4",
+   "kind": "picture",
+   "cell": [
+    0,
+    0,
+    12,
+    5
+   ],
+   "cue": [
+    "b50",
+    ""
+   ],
+   "picture": {
+    "type": "table",
+    "title": "Columns",
+    "item_id": "p003-i4",
+    "columns": [
+     "Commodity",
+     "Where it was used"
+    ],
+    "rows": [
+     {
+      "cells": [
+       "Salt",
+       "Ancient Rome and Africa"
+      ],
+      "item_id": "p003-i5",
+      "cue": [
+       "b50",
+       ""
+      ]
+     },
+     {
+      "cells": [
+       "Cattle",
+       "Early pastoral societies"
+      ],
+      "item_id": "p003-i6",
+      "cue": [
+       "b50",
+       ""
+      ]
+     },
+     {
+      "cells": [
+       "Cowrie shells",
+       "India, China, and Africa"
+      ],
+      "item_id": "p003-i7",
+      "cue": [
+       "b51",
+       ""
+      ]
+     },
+     {
+      "cells": [
+       "Tea bricks",
+       "Central Asia and Tibet"
+      ],
+      "item_id": "p003-i8",
+      "cue": [
+       "b52",
+       ""
+      ]
+     },
+     {
+      "cells": [
+       "Tobacco",
+       "Colonial America"
+      ],
+      "item_id": "p003-i9",
+      "cue": [
+       "b52",
+       ""
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "salt",
+   "kind": "icon",
+   "cell": [
+    0,
+    5,
+    2,
+    2
+   ],
+   "cue": [
+    "b50",
+    "नमक"
+   ],
+   "until_cue": [
+    "b51",
+    "हथेली"
+   ],
+   "tone": "ink",
+   "align": "center",
+   "icon": "tw:1f9c2",
+   "size": 64
+  },
+  {
+   "id": "salt_places",
+   "kind": "text",
+   "cell": [
+    2,
+    5,
+    4,
+    2
+   ],
+   "cue": [
+    "b50",
+    "Rome"
+   ],
+   "until_cue": [
+    "b51",
+    "हथेली"
+   ],
+   "text": "Ancient Rome और Africa में",
+   "style": "box",
+   "tone": "accent",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "cattle",
+   "kind": "icon",
+   "cell": [
+    6,
+    5,
+    2,
+    2
+   ],
+   "cue": [
+    "b50",
+    "cattle"
+   ],
+   "until_cue": [
+    "b51",
+    "हथेली"
+   ],
+   "tone": "ink",
+   "align": "center",
+   "icon": "tw:1f404",
+   "size": 64
+  },
+  {
+   "id": "herder",
+   "kind": "icon",
+   "cell": [
+    8,
+    5,
+    2,
+    2
+   ],
+   "cue": [
+    "b50",
+    "पशु"
+   ],
+   "until_cue": [
+    "b51",
+    "हथेली"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "fa:solid/hat-cowboy",
+   "size": 56
+  },
+  {
+   "id": "society_emphasis",
+   "kind": "highlight",
+   "cue": [
+    "b50",
+    "country"
+   ],
+   "until_cue": [
+    "b51",
+    "हथेली"
+   ],
+   "style": "box",
+   "tone": "accent",
+   "target": "cattle"
+  },
+  {
+   "id": "payer",
+   "kind": "icon",
+   "cell": [
+    0,
+    5,
+    2,
+    2
+   ],
+   "cue": [
+    "b51",
+    "हथेली"
+   ],
+   "until_cue": [
+    "b52",
+    "चाय"
+   ],
+   "tone": "ink",
+   "align": "center",
+   "icon": "tw:1f450",
+   "size": 64
+  },
+  {
+   "id": "shell",
+   "kind": "icon",
+   "cell": [
+    2,
+    5,
+    2,
+    2
+   ],
+   "cue": [
+    "b51",
+    "खोल"
+   ],
+   "until_cue": [
+    "b52",
+    "चाय"
+   ],
+   "tone": "ink",
+   "align": "center",
+   "icon": "tw:1f41a",
+   "size": 64
+  },
+  {
+   "id": "recipient",
+   "kind": "icon",
+   "cell": [
+    6,
+    5,
+    2,
+    2
+   ],
+   "cue": [
+    "b51",
+    "payment"
+   ],
+   "until_cue": [
+    "b52",
+    "चाय"
+   ],
+   "tone": "ink",
+   "align": "center",
+   "icon": "tw:1f450",
+   "size": 64
+  },
+  {
+   "id": "shell_payment",
+   "kind": "arrow",
+   "cue": [
+    "b51",
+    "payment"
+   ],
+   "until_cue": [
+    "b52",
+    "चाय"
+   ],
+   "tone": "accent",
+   "from": "shell",
+   "to": "recipient",
+   "from_side": "r",
+   "to_side": "l",
+   "flow": {
+    "icon": "tw:1f41a",
+    "count": 2,
+    "period": 1800,
+    "size": 26,
+    "cue": [
+     "b51",
+     "payment"
+    ]
+   }
+  },
+  {
+   "id": "shell_regions",
+   "kind": "highlight",
+   "cue": [
+    "b51",
+    "India,"
+   ],
+   "until_cue": [
+    "b52",
+    "चाय"
+   ],
+   "style": "band",
+   "tone": "accent",
+   "target": "book_p003_i4"
+  },
+  {
+   "id": "acceptance",
+   "kind": "mark",
+   "cue": [
+    "b51",
+    "स्वीकार"
+   ],
+   "until_cue": [
+    "b52",
+    "चाय"
+   ],
+   "tone": "ok",
+   "target": "recipient",
+   "mark": "tick",
+   "pos": "tr"
+  },
+  {
+   "id": "tea",
+   "kind": "icon",
+   "cell": [
+    0,
+    5,
+    2,
+    2
+   ],
+   "cue": [
+    "b52",
+    "चाय"
+   ],
+   "tone": "ink",
+   "align": "center",
+   "icon": "tw:1f375",
+   "size": 64
+  },
+  {
+   "id": "tea_compressed",
+   "kind": "text",
+   "cell": [
+    2,
+    5,
+    4,
+    2
+   ],
+   "cue": [
+    "b52",
+    "दबाई"
+   ],
+   "text": "दबाई हुई चाय",
+   "style": "box",
+   "tone": "accent",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "construction_brick",
+   "kind": "icon",
+   "cell": [
+    6,
+    5,
+    2,
+    2
+   ],
+   "cue": [
+    "b52",
+    "ईंट"
+   ],
+   "until_cue": [
+    "b52",
+    "Tobacco"
+   ],
+   "tone": "ink",
+   "align": "center",
+   "icon": "tw:1f9f1",
+   "size": 64
+  },
+  {
+   "id": "not_construction",
+   "kind": "mark",
+   "cue": [
+    "b52",
+    "नहीं;"
+   ],
+   "until_cue": [
+    "b52",
+    "Tobacco"
+   ],
+   "tone": "danger",
+   "target": "construction_brick",
+   "mark": "cross",
+   "pos": "c"
+  },
+  {
+   "id": "tea_region_emphasis",
+   "kind": "highlight",
+   "cue": [
+    "b52",
+    "Central"
+   ],
+   "until_cue": [
+    "b52",
+    "Tobacco"
+   ],
+   "style": "band",
+   "tone": "accent",
+   "target": "book_p003_i4"
+  },
+  {
+   "id": "tobacco_emphasis",
+   "kind": "highlight",
+   "cue": [
+    "b52",
+    "Tobacco"
+   ],
+   "style": "box",
+   "tone": "warm",
+   "target": "book_p003_i4"
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b50",
+    "cattle"
+   ],
+   "ids": [
+    "book_p003_i4",
+    "cattle",
+    "herder"
+   ],
+   "until_cue": [
+    "b51",
+    "हथेली"
+   ]
+  },
+  {
+   "cue": [
+    "b51",
+    "खोल"
+   ],
+   "ids": [
+    "book_p003_i4",
+    "payer",
+    "shell",
+    "recipient",
+    "shell_payment",
+    "acceptance"
+   ],
+   "until_cue": [
+    "b52",
+    "चाय"
+   ]
+  },
+  {
+   "cue": [
+    "b52",
+    "Colonial"
+   ],
+   "ids": [
+    "book_p003_i4",
+    "tobacco_emphasis"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

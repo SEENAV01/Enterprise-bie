@@ -1,0 +1,1379 @@
+{
+ "id": "v2_s6",
+ "part_id": "c05.1",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b36",
+   "say": "Salt और note की कीमत कहाँ से आई? मानिए salt packet ₹20 में बिकता और payment में चलता है; note से ₹500 चुकते हैं।"
+  },
+  {
+   "beat_id": "b36a",
+   "say": "Payment में लेना बंद हो, तो salt फिर भी उपयोगी और बेचने लायक है; कीमत बदल सकती है। Note का कागज़ ₹500 नहीं दिलाता; यह redemption का वादा नहीं है।"
+  },
+  {
+   "beat_id": "b37",
+   "say": "Intrinsic value अपनी चीज़ से है, जैसे सोना। Extrinsic value बाहर के trust और law से है, जैसे note; source में material बनाम government या authority backing का फर्क है।"
+  },
+  {
+   "beat_id": "b38",
+   "say": "Inherent worth यानी payment के बाहर उपयोग: salt खाना बनाने में लगेगा। Monetary use हटे तो भी बिकेगा; note का कागज़ ₹500 नहीं दिलाएगा। यहाँ nil का मतलब negligible material value है, valid note की purchasing power नहीं।"
+  },
+  {
+   "beat_id": "b39",
+   "say": "Gold, silver, salt, cattle, cowrie shells commodity वाले examples हैं; notes, bank deposits, digital money दूसरे। जैसे account balance में physical सामान नहीं, bank पर payment योग्य claim है।"
+  },
+  {
+   "beat_id": "b40",
+   "say": "Salt यहाँ उपलब्ध और उपयोगी है, इसलिए चलता है; बाहर seller मना कर सकता है: वहाँ buyers इसे आगे नहीं लेते। Trusted रुपये वह लेता है क्योंकि उन्हें दूसरी दुकान पर खर्च कर सकेगा।"
+  },
+  {
+   "beat_id": "b41",
+   "say": "Divisibility और portability पहले difficult, दूसरे में easy हैं: गाय बाँटने और salt ढोने के मुकाबले छोटा payment आसान है। Note के टुकड़े करना divisibility नहीं।"
+  },
+  {
+   "beat_id": "b42",
+   "say": "एक तरफ metal coins और gold bullion, यानी weight और purity वाला सोना। दूसरी तरफ rupee notes, bank balance और UPI; UPI रकम भेजने का रास्ता है, अलग रकम नहीं।"
+  },
+  {
+   "beat_id": "b43",
+   "say": "Legal tender कानून में बकाया चुकाता है; trust आगे खर्चने का भरोसा है। छोटे payments और दूरी के लिए divisibility, portability चाहिए। Durability यानी टिकना: commodities generally टिकती हैं; paper खराब होता है, digital technology पर निर्भर है।"
+  },
+  {
+   "beat_id": "b44",
+   "say": "Commodity prices बदलते हैं; backing gold redemption नहीं। हर coin intrinsic नहीं; access रुकना balance मिटना नहीं।"
+  },
+  {
+   "beat_id": "b45",
+   "say": "अपना उपयोग monetary value नहीं; cattle बीमार पड़ते हैं, salt नमी से बिगड़ता है।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "book_p002_i1",
+   "kind": "picture",
+   "cell": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b36",
+    ""
+   ],
+   "picture": {
+    "type": "table",
+    "title": "COMPARISON",
+    "item_id": "p002-i1",
+    "columns": [
+     "ASPECT",
+     "INTRINSIC VALUE OF MONEY (Commodity / Metallic Money)",
+     "EXTRINSIC VALUE OF MONEY (Fiat / Paper / Digital Money)"
+    ],
+    "rows": [
+     {
+      "cells": [
+       "BASIS OF VALUE",
+       "Intrinsic / Natural",
+       "Trust / Legally Enforced"
+      ],
+      "item_id": "p002-i2",
+      "cue": [
+       "b36",
+       ""
+      ]
+     },
+     {
+      "cells": [
+       "SOURCE OF VALUE",
+       "Own Material Value",
+       "Government / Authority Backing"
+      ],
+      "item_id": "p002-i3",
+      "cue": [
+       "b37",
+       ""
+      ]
+     },
+     {
+      "cells": [
+       "INHERENT WORTH",
+       "Present",
+       "Not Present"
+      ],
+      "item_id": "p002-i4",
+      "cue": [
+       "b38",
+       ""
+      ]
+     },
+     {
+      "cells": [
+       "VALUE IF NOT USED AS MONEY",
+       "Retains Value",
+       "Nil Value"
+      ],
+      "item_id": "p002-i5",
+      "cue": [
+       "b38",
+       ""
+      ]
+     },
+     {
+      "cells": [
+       "EXAMPLES",
+       "Gold, Silver, Salt, Cattle, Cowrie Shells",
+       "Currency Notes, Bank Deposits, Digital Money"
+      ],
+      "item_id": "p002-i6",
+      "cue": [
+       "b39",
+       ""
+      ]
+     },
+     {
+      "cells": [
+       "ACCEPTABILITY",
+       "Limited (by Utility & Availability)",
+       "Wide (by Legal Tender & Trust)"
+      ],
+      "item_id": "p002-i7",
+      "cue": [
+       "b40",
+       ""
+      ]
+     },
+     {
+      "cells": [
+       "DURABILITY",
+       "Generally Durable",
+       "Varies (Paper perishable, Digital depends on Technology)"
+      ],
+      "item_id": "p002-i8",
+      "cue": [
+       "b43",
+       ""
+      ]
+     },
+     {
+      "cells": [
+       "DIVISIBILITY",
+       "Difficult",
+       "Easy"
+      ],
+      "item_id": "p002-i9",
+      "cue": [
+       "b41",
+       ""
+      ]
+     },
+     {
+      "cells": [
+       "PORTABILITY",
+       "Difficult (Bulky / Heavy)",
+       "Easy"
+      ],
+      "item_id": "p002-i10",
+      "cue": [
+       "b41",
+       ""
+      ]
+     },
+     {
+      "cells": [
+       "EXAMPLE IN CONTEXT",
+       "Metal Coins, Gold Bullion",
+       "Rupee Notes, Bank Balance, UPI"
+      ],
+      "item_id": "p002-i11",
+      "cue": [
+       "b42",
+       ""
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "question",
+   "kind": "icon",
+   "cell": [
+    0,
+    7,
+    3,
+    1
+   ],
+   "cue": [
+    "b36",
+    "कहाँ"
+   ],
+   "until_cue": [
+    "b36a",
+    "बंद"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "tw:2753",
+   "size": 24
+  },
+  {
+   "id": "salt20",
+   "kind": "icon",
+   "cell": [
+    3,
+    7,
+    3,
+    1
+   ],
+   "cue": [
+    "b36",
+    "₹20"
+   ],
+   "until_cue": [
+    "b36a",
+    "बंद"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "tw:1f9c2",
+   "label": "₹20",
+   "size": 24
+  },
+  {
+   "id": "note500",
+   "kind": "icon",
+   "cell": [
+    9,
+    7,
+    3,
+    1
+   ],
+   "cue": [
+    "b36",
+    "₹500"
+   ],
+   "until_cue": [
+    "b36a",
+    "बंद"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "fa:solid/money-bill-1",
+   "label": "₹500",
+   "size": 24
+  },
+  {
+   "id": "salt_use",
+   "kind": "icon",
+   "cell": [
+    0,
+    7,
+    3,
+    1
+   ],
+   "cue": [
+    "b36a",
+    "बंद"
+   ],
+   "until_cue": [
+    "b37",
+    "Intrinsic"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "tw:1f9c2",
+   "size": 24
+  },
+  {
+   "id": "still_useful",
+   "kind": "icon",
+   "cell": [
+    3,
+    7,
+    3,
+    1
+   ],
+   "cue": [
+    "b36a",
+    "उपयोगी"
+   ],
+   "until_cue": [
+    "b37",
+    "Intrinsic"
+   ],
+   "tone": "ok",
+   "align": "center",
+   "icon": "tw:1f373",
+   "size": 24
+  },
+  {
+   "id": "paper_material",
+   "kind": "icon",
+   "cell": [
+    6,
+    7,
+    3,
+    1
+   ],
+   "cue": [
+    "b36a",
+    "कागज़"
+   ],
+   "until_cue": [
+    "b37",
+    "Intrinsic"
+   ],
+   "tone": "muted",
+   "align": "center",
+   "icon": "tw:1f4c4",
+   "size": 24
+  },
+  {
+   "id": "no_redemption",
+   "kind": "icon",
+   "cell": [
+    9,
+    7,
+    3,
+    1
+   ],
+   "cue": [
+    "b36a",
+    "redemption"
+   ],
+   "until_cue": [
+    "b37",
+    "Intrinsic"
+   ],
+   "tone": "muted",
+   "align": "center",
+   "icon": "tw:1f9fe",
+   "size": 24
+  },
+  {
+   "id": "reject_redemption",
+   "kind": "mark",
+   "cue": [
+    "b36a",
+    "नहीं"
+   ],
+   "until_cue": [
+    "b37",
+    "Intrinsic"
+   ],
+   "tone": "danger",
+   "target": "no_redemption",
+   "mark": "cross",
+   "pos": "tr",
+   "size": 24
+  },
+  {
+   "id": "intrinsic_gold",
+   "kind": "icon",
+   "cell": [
+    0,
+    7,
+    3,
+    1
+   ],
+   "cue": [
+    "b37",
+    "Intrinsic"
+   ],
+   "until_cue": [
+    "b38",
+    "उपयोग:"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "fa:solid/coins",
+   "size": 24
+  },
+  {
+   "id": "external_trust",
+   "kind": "icon",
+   "cell": [
+    6,
+    7,
+    3,
+    1
+   ],
+   "cue": [
+    "b37",
+    "trust"
+   ],
+   "until_cue": [
+    "b38",
+    "उपयोग:"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "tw:1f91d",
+   "label": "trust",
+   "size": 24
+  },
+  {
+   "id": "external_law",
+   "kind": "icon",
+   "cell": [
+    9,
+    7,
+    3,
+    1
+   ],
+   "cue": [
+    "b37",
+    "law"
+   ],
+   "until_cue": [
+    "b38",
+    "उपयोग:"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "tw:1f4dc",
+   "label": "law",
+   "size": 24
+  },
+  {
+   "id": "authority",
+   "kind": "icon",
+   "cell": [
+    3,
+    7,
+    3,
+    1
+   ],
+   "cue": [
+    "b37",
+    "government"
+   ],
+   "until_cue": [
+    "b38",
+    "उपयोग:"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "fa:solid/landmark",
+   "size": 24
+  },
+  {
+   "id": "cooking_use",
+   "kind": "icon",
+   "cell": [
+    0,
+    7,
+    3,
+    1
+   ],
+   "cue": [
+    "b38",
+    "उपयोग:"
+   ],
+   "until_cue": [
+    "b39",
+    "Gold,"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "tw:1f373",
+   "size": 24
+  },
+  {
+   "id": "saleable_salt",
+   "kind": "icon",
+   "cell": [
+    3,
+    7,
+    3,
+    1
+   ],
+   "cue": [
+    "b38",
+    "बिकेगा;"
+   ],
+   "until_cue": [
+    "b39",
+    "Gold,"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "tw:1f9c2",
+   "size": 24
+  },
+  {
+   "id": "negligible_paper",
+   "kind": "icon",
+   "cell": [
+    6,
+    7,
+    3,
+    1
+   ],
+   "cue": [
+    "b38",
+    "कागज़"
+   ],
+   "until_cue": [
+    "b39",
+    "Gold,"
+   ],
+   "tone": "muted",
+   "align": "center",
+   "icon": "tw:1f4c4",
+   "size": 24
+  },
+  {
+   "id": "valid_purchasing",
+   "kind": "icon",
+   "cell": [
+    9,
+    7,
+    3,
+    1
+   ],
+   "cue": [
+    "b38",
+    "purchasing"
+   ],
+   "until_cue": [
+    "b39",
+    "Gold,"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "fa:solid/basket-shopping",
+   "label": "purchasing power",
+   "size": 24
+  },
+  {
+   "id": "commodity_examples",
+   "kind": "icon",
+   "cell": [
+    0,
+    7,
+    3,
+    1
+   ],
+   "cue": [
+    "b39",
+    "Gold,"
+   ],
+   "until_cue": [
+    "b40",
+    "Salt"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "fa:solid/coins",
+   "size": 24
+  },
+  {
+   "id": "shell_example",
+   "kind": "icon",
+   "cell": [
+    3,
+    7,
+    3,
+    1
+   ],
+   "cue": [
+    "b39",
+    "cowrie"
+   ],
+   "until_cue": [
+    "b40",
+    "Salt"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "tw:1f41a",
+   "size": 24
+  },
+  {
+   "id": "deposit_example",
+   "kind": "icon",
+   "cell": [
+    6,
+    7,
+    3,
+    1
+   ],
+   "cue": [
+    "b39",
+    "deposits,"
+   ],
+   "until_cue": [
+    "b40",
+    "Salt"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "tw:1f3e6",
+   "label": "bank deposits",
+   "size": 24
+  },
+  {
+   "id": "claim_example",
+   "kind": "icon",
+   "cell": [
+    9,
+    7,
+    3,
+    1
+   ],
+   "cue": [
+    "b39",
+    "claim"
+   ],
+   "until_cue": [
+    "b40",
+    "Salt"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "tw:1f9fe",
+   "label": "payment योग्य claim",
+   "size": 24
+  },
+  {
+   "id": "local_salt",
+   "kind": "icon",
+   "cell": [
+    0,
+    7,
+    3,
+    1
+   ],
+   "cue": [
+    "b40",
+    "Salt"
+   ],
+   "until_cue": [
+    "b41",
+    "Divisibility"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "tw:1f9c2",
+   "size": 24
+  },
+  {
+   "id": "salt_refused",
+   "kind": "mark",
+   "cue": [
+    "b40",
+    "मना"
+   ],
+   "until_cue": [
+    "b41",
+    "Divisibility"
+   ],
+   "tone": "danger",
+   "target": "local_salt",
+   "mark": "cross",
+   "pos": "tr",
+   "size": 24
+  },
+  {
+   "id": "shop_one",
+   "kind": "icon",
+   "cell": [
+    3,
+    7,
+    3,
+    1
+   ],
+   "cue": [
+    "b40",
+    "seller"
+   ],
+   "until_cue": [
+    "b41",
+    "Divisibility"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "tw:1f3ea",
+   "size": 24
+  },
+  {
+   "id": "shop_two",
+   "kind": "icon",
+   "cell": [
+    9,
+    7,
+    3,
+    1
+   ],
+   "cue": [
+    "b40",
+    "दूसरी"
+   ],
+   "until_cue": [
+    "b41",
+    "Divisibility"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "tw:1f3ea",
+   "size": 24
+  },
+  {
+   "id": "onward_money",
+   "kind": "arrow",
+   "cue": [
+    "b40",
+    "खर्च"
+   ],
+   "until_cue": [
+    "b41",
+    "Divisibility"
+   ],
+   "tone": "accent",
+   "from": "shop_one",
+   "to": "shop_two",
+   "from_side": "r",
+   "to_side": "l",
+   "size": 24,
+   "flow": {
+    "icon": "fa:solid/money-bill-1",
+    "count": 1,
+    "period": 1800,
+    "size": 24,
+    "cue": [
+     "b40",
+     "खर्च"
+    ]
+   }
+  },
+  {
+   "id": "indivisible_cow",
+   "kind": "icon",
+   "cell": [
+    0,
+    7,
+    3,
+    1
+   ],
+   "cue": [
+    "b41",
+    "Divisibility"
+   ],
+   "until_cue": [
+    "b42",
+    "एक"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "tw:1f404",
+   "size": 24
+  },
+  {
+   "id": "heavy_salt",
+   "kind": "icon",
+   "cell": [
+    3,
+    7,
+    3,
+    1
+   ],
+   "cue": [
+    "b41",
+    "ढोने"
+   ],
+   "until_cue": [
+    "b42",
+    "एक"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "fa:solid/cart-flatbed",
+   "size": 24
+  },
+  {
+   "id": "small_payment",
+   "kind": "icon",
+   "cell": [
+    6,
+    7,
+    3,
+    1
+   ],
+   "cue": [
+    "b41",
+    "payment"
+   ],
+   "until_cue": [
+    "b42",
+    "एक"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "tw:1f4f1",
+   "label": "छोटा payment",
+   "size": 24
+  },
+  {
+   "id": "cut_note",
+   "kind": "icon",
+   "cell": [
+    9,
+    7,
+    3,
+    1
+   ],
+   "cue": [
+    "b41",
+    "टुकड़े"
+   ],
+   "until_cue": [
+    "b42",
+    "एक"
+   ],
+   "tone": "muted",
+   "align": "center",
+   "icon": "fa:solid/money-bill-1",
+   "size": 24
+  },
+  {
+   "id": "reject_cutting",
+   "kind": "mark",
+   "cue": [
+    "b41",
+    "नहीं।"
+   ],
+   "until_cue": [
+    "b42",
+    "एक"
+   ],
+   "tone": "danger",
+   "target": "cut_note",
+   "mark": "cross",
+   "pos": "tr",
+   "size": 24
+  },
+  {
+   "id": "metal_context",
+   "kind": "icon",
+   "cell": [
+    0,
+    7,
+    3,
+    1
+   ],
+   "cue": [
+    "b42",
+    "एक"
+   ],
+   "until_cue": [
+    "b43",
+    "Legal"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "fa:solid/coins",
+   "size": 24
+  },
+  {
+   "id": "weight_purity",
+   "kind": "icon",
+   "cell": [
+    3,
+    7,
+    3,
+    1
+   ],
+   "cue": [
+    "b42",
+    "weight"
+   ],
+   "until_cue": [
+    "b42",
+    "UPI;"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "tw:2696",
+   "size": 24
+  },
+  {
+   "id": "context_note",
+   "kind": "icon",
+   "cell": [
+    6,
+    7,
+    3,
+    1
+   ],
+   "cue": [
+    "b42",
+    "notes,"
+   ],
+   "until_cue": [
+    "b42",
+    "UPI;"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "fa:solid/money-bill-1",
+   "size": 24
+  },
+  {
+   "id": "balance_to",
+   "kind": "icon",
+   "cell": [
+    9,
+    7,
+    3,
+    1
+   ],
+   "cue": [
+    "b42",
+    "balance"
+   ],
+   "until_cue": [
+    "b43",
+    "Legal"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "tw:1f3e6",
+   "label": "bank balance",
+   "size": 24
+  },
+  {
+   "id": "balance_from",
+   "kind": "icon",
+   "cell": [
+    3,
+    7,
+    3,
+    1
+   ],
+   "cue": [
+    "b42",
+    "UPI;"
+   ],
+   "until_cue": [
+    "b43",
+    "Legal"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "tw:1f3e6",
+   "size": 24
+  },
+  {
+   "id": "upi_route",
+   "kind": "arrow",
+   "cue": [
+    "b42",
+    "भेजने"
+   ],
+   "until_cue": [
+    "b43",
+    "Legal"
+   ],
+   "tone": "accent",
+   "label": "UPI",
+   "from": "balance_from",
+   "to": "balance_to",
+   "from_side": "r",
+   "to_side": "l",
+   "size": 24,
+   "flow": {
+    "icon": "tw:1f4f1",
+    "count": 1,
+    "period": 1600,
+    "size": 24,
+    "cue": [
+     "b42",
+     "भेजने"
+    ]
+   }
+  },
+  {
+   "id": "legal_obligation",
+   "kind": "icon",
+   "cell": [
+    0,
+    7,
+    3,
+    1
+   ],
+   "cue": [
+    "b43",
+    "Legal"
+   ],
+   "until_cue": [
+    "b43",
+    "Durability"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "tw:1f4dc",
+   "label": "Legal tender",
+   "size": 24
+  },
+  {
+   "id": "debt_stamp",
+   "kind": "icon",
+   "cell": [
+    3,
+    7,
+    3,
+    1
+   ],
+   "cue": [
+    "b43",
+    "बकाया"
+   ],
+   "until_cue": [
+    "b43",
+    "Durability"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "fa:solid/stamp",
+   "size": 24
+  },
+  {
+   "id": "trust_again",
+   "kind": "icon",
+   "cell": [
+    6,
+    7,
+    3,
+    1
+   ],
+   "cue": [
+    "b43",
+    "trust"
+   ],
+   "until_cue": [
+    "b43",
+    "Durability"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "tw:1f91d",
+   "size": 24
+  },
+  {
+   "id": "portable_payment",
+   "kind": "icon",
+   "cell": [
+    9,
+    7,
+    3,
+    1
+   ],
+   "cue": [
+    "b43",
+    "portability"
+   ],
+   "until_cue": [
+    "b43",
+    "Durability"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "tw:1f4f1",
+   "size": 24
+  },
+  {
+   "id": "durable_material",
+   "kind": "icon",
+   "cell": [
+    0,
+    7,
+    3,
+    1
+   ],
+   "cue": [
+    "b43",
+    "Durability"
+   ],
+   "until_cue": [
+    "b44",
+    "Commodity"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "tw:1fa99",
+   "size": 24
+  },
+  {
+   "id": "perishable_paper",
+   "kind": "icon",
+   "cell": [
+    3,
+    7,
+    3,
+    1
+   ],
+   "cue": [
+    "b43",
+    "खराब"
+   ],
+   "until_cue": [
+    "b44",
+    "Commodity"
+   ],
+   "tone": "muted",
+   "align": "center",
+   "icon": "tw:1f4c4",
+   "size": 24
+  },
+  {
+   "id": "technology_dependency",
+   "kind": "icon",
+   "cell": [
+    9,
+    7,
+    3,
+    1
+   ],
+   "cue": [
+    "b43",
+    "technology"
+   ],
+   "until_cue": [
+    "b44",
+    "Commodity"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "fa:solid/network-wired",
+   "size": 24
+  },
+  {
+   "id": "variable_prices",
+   "kind": "icon",
+   "cell": [
+    0,
+    7,
+    3,
+    1
+   ],
+   "cue": [
+    "b44",
+    "बदलते"
+   ],
+   "until_cue": [
+    "b45",
+    "उपयोग"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "tw:1f4c8",
+   "size": 24
+  },
+  {
+   "id": "redemption_assumption",
+   "kind": "icon",
+   "cell": [
+    3,
+    7,
+    3,
+    1
+   ],
+   "cue": [
+    "b44",
+    "redemption"
+   ],
+   "until_cue": [
+    "b45",
+    "उपयोग"
+   ],
+   "tone": "muted",
+   "align": "center",
+   "icon": "tw:1f9fe",
+   "label": "gold redemption",
+   "size": 24
+  },
+  {
+   "id": "redemption_rejected",
+   "kind": "mark",
+   "cue": [
+    "b44",
+    "नहीं।"
+   ],
+   "until_cue": [
+    "b45",
+    "उपयोग"
+   ],
+   "tone": "danger",
+   "target": "redemption_assumption",
+   "mark": "cross",
+   "pos": "tr",
+   "size": 24
+  },
+  {
+   "id": "coin_assumption",
+   "kind": "icon",
+   "cell": [
+    6,
+    7,
+    3,
+    1
+   ],
+   "cue": [
+    "b44",
+    "coin"
+   ],
+   "until_cue": [
+    "b45",
+    "उपयोग"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "tw:1fa99",
+   "size": 24
+  },
+  {
+   "id": "retained_balance",
+   "kind": "icon",
+   "cell": [
+    9,
+    7,
+    3,
+    1
+   ],
+   "cue": [
+    "b44",
+    "balance"
+   ],
+   "until_cue": [
+    "b45",
+    "उपयोग"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "tw:1f4d2",
+   "label": "balance",
+   "size": 24
+  },
+  {
+   "id": "final_use",
+   "kind": "icon",
+   "cell": [
+    0,
+    7,
+    3,
+    1
+   ],
+   "cue": [
+    "b45",
+    "उपयोग"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "tw:1f373",
+   "size": 24
+  },
+  {
+   "id": "final_payment",
+   "kind": "icon",
+   "cell": [
+    3,
+    7,
+    3,
+    1
+   ],
+   "cue": [
+    "b45",
+    "monetary"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "tw:1f9fe",
+   "label": "monetary value",
+   "size": 24
+  },
+  {
+   "id": "sick_cattle",
+   "kind": "icon",
+   "cell": [
+    6,
+    7,
+    3,
+    1
+   ],
+   "cue": [
+    "b45",
+    "बीमार"
+   ],
+   "tone": "danger",
+   "align": "center",
+   "icon": "tw:1f404",
+   "label": "बीमार",
+   "size": 24
+  },
+  {
+   "id": "damp_salt",
+   "kind": "icon",
+   "cell": [
+    9,
+    7,
+    3,
+    1
+   ],
+   "cue": [
+    "b45",
+    "नमी"
+   ],
+   "tone": "danger",
+   "align": "center",
+   "icon": "tw:1f9c2",
+   "label": "नमी से बिगड़ता",
+   "size": 24
+  }
+ ],
+ "camera": [
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    8
+   ],
+   "cue": [
+    "b36",
+    "कहाँ"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    8
+   ],
+   "cue": [
+    "b39",
+    "Gold,"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    8
+   ],
+   "cue": [
+    "b42",
+    "एक"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

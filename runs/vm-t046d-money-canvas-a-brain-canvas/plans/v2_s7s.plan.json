@@ -1,0 +1,132 @@
+{
+ "id": "v2_s7s",
+ "part_id": "c06.1",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b46",
+   "say": "Payment में मिले salt का दूसरा उपयोग? मानिए grain देकर seller ने 2 packets लिए; आगे न चलें तो खाना बनाएगा।"
+  }
+ ],
+ "kit": "shop",
+ "elements": [
+  {
+   "id": "salt_shop",
+   "kind": "shop",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b46",
+    "",
+    0.0
+   ],
+   "packets": [
+    {
+     "n": 2,
+     "cue": [
+      "b46",
+      "salt"
+     ]
+    },
+    {
+     "n": 0,
+     "cue": [
+      "b46",
+      "खाना"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "salt_trader",
+   "kind": "shopkeeper",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b46",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "grain_seller",
+   "kind": "crowd",
+   "x0": 2220,
+   "spacing": 110,
+   "enter_x": 1700,
+   "exit_x": 1850,
+   "face": 1,
+   "seed": 46,
+   "cue": [
+    "b46",
+    "seller"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b46",
+      "seller"
+     ],
+     "n": 1
+    }
+   ],
+   "carry": {
+    "cue": [
+     "b46",
+     "खाना"
+    ],
+    "n": 1
+   }
+  },
+  {
+   "id": "salt_name",
+   "kind": "label",
+   "x": 2600,
+   "y": 490,
+   "text": "salt",
+   "fill": "rgba(255,248,232,0.96)",
+   "cue": [
+    "b46",
+    "salt"
+   ],
+   "until_cue": [
+    "b46",
+    "खाना"
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b46",
+    "",
+    0.0
+   ],
+   "x": 2500,
+   "y": 580,
+   "zoom": 1,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b46",
+    "packets"
+   ],
+   "x": 2530,
+   "y": 610,
+   "zoom": 1.25,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b46",
+    "खाना"
+   ],
+   "x": 2250,
+   "y": 620,
+   "zoom": 1,
+   "frames": 45
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

@@ -1,0 +1,342 @@
+{
+ "id": "v2_s7b",
+ "part_id": "c06.1",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b47",
+   "say": "यह commodity money है: money बनी चीज़ में intrinsic value होती है, यानी monetary use के बाहर भी कीमत, जैसे kitchen में salt।"
+  },
+  {
+   "beat_id": "b48",
+   "say": "Useful होना काफी नहीं, payment में चलना चाहिए; purchasing power अकेली note को commodity money नहीं बनाती।"
+  },
+  {
+   "beat_id": "b49",
+   "say": "Commodity money payment के बाहर भी उपयोगी है।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "anchor",
+   "kind": "text",
+   "cell": [
+    0,
+    0,
+    12,
+    1
+   ],
+   "cue": [
+    "b47",
+    "commodity"
+   ],
+   "text": "Commodity money",
+   "style": "title",
+   "tone": "ink",
+   "align": "center",
+   "size": 36
+  },
+  {
+   "id": "salt",
+   "kind": "icon",
+   "cell": [
+    0,
+    2,
+    2,
+    3
+   ],
+   "cue": [
+    "b47",
+    "चीज़"
+   ],
+   "tone": "accent",
+   "icon": "tw:1f9c2"
+  },
+  {
+   "id": "intrinsic",
+   "kind": "text",
+   "cell": [
+    3,
+    1,
+    5,
+    1
+   ],
+   "cue": [
+    "b47",
+    "intrinsic"
+   ],
+   "text": "Intrinsic value",
+   "style": "tag",
+   "tone": "warm",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "goods",
+   "kind": "icon",
+   "cell": [
+    9,
+    2,
+    3,
+    1
+   ],
+   "cue": [
+    "b47",
+    "monetary"
+   ],
+   "tone": "accent",
+   "icon": "fa:solid/basket-shopping"
+  },
+  {
+   "id": "payment_path",
+   "kind": "arrow",
+   "cue": [
+    "b47",
+    "monetary"
+   ],
+   "tone": "accent",
+   "from": "salt",
+   "to": "goods",
+   "from_side": "r",
+   "to_side": "l",
+   "elbow": "hv",
+   "flow": {
+    "icon": "tw:1f9c2",
+    "count": 2,
+    "period": 2400,
+    "size": 28,
+    "cue": [
+     "b47",
+     "monetary"
+    ]
+   }
+  },
+  {
+   "id": "cooking",
+   "kind": "icon",
+   "cell": [
+    9,
+    4,
+    3,
+    1
+   ],
+   "cue": [
+    "b47",
+    "kitchen"
+   ],
+   "tone": "warm",
+   "icon": "tw:1f373"
+  },
+  {
+   "id": "cooking_path",
+   "kind": "arrow",
+   "cue": [
+    "b47",
+    "salt।"
+   ],
+   "tone": "warm",
+   "from": "salt",
+   "to": "cooking",
+   "from_side": "r",
+   "to_side": "l",
+   "elbow": "hv",
+   "flow": {
+    "icon": "tw:1f9c2",
+    "count": 2,
+    "period": 2400,
+    "size": 28,
+    "cue": [
+     "b47",
+     "salt।"
+    ]
+   }
+  },
+  {
+   "id": "payment_accepted",
+   "kind": "mark",
+   "cue": [
+    "b48",
+    "चलना"
+   ],
+   "tone": "ok",
+   "target": "goods",
+   "mark": "tick",
+   "pos": "tr"
+  },
+  {
+   "id": "note",
+   "kind": "icon",
+   "cell": [
+    0,
+    6,
+    2,
+    1
+   ],
+   "cue": [
+    "b48",
+    "note"
+   ],
+   "until_cue": [
+    "b49",
+    "Commodity"
+   ],
+   "tone": "ink",
+   "icon": "fa:solid/money-bill-1"
+  },
+  {
+   "id": "note_classification",
+   "kind": "text",
+   "cell": [
+    4,
+    6,
+    5,
+    1
+   ],
+   "cue": [
+    "b48",
+    "commodity"
+   ],
+   "until_cue": [
+    "b49",
+    "Commodity"
+   ],
+   "text": "Commodity money",
+   "style": "box",
+   "tone": "muted",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "classification_link",
+   "kind": "arrow",
+   "cue": [
+    "b48",
+    "commodity"
+   ],
+   "until_cue": [
+    "b49",
+    "Commodity"
+   ],
+   "tone": "muted",
+   "from": "note",
+   "to": "note_classification",
+   "from_side": "r",
+   "to_side": "l",
+   "elbow": "hv",
+   "dashed": true
+  },
+  {
+   "id": "classification_rejected",
+   "kind": "mark",
+   "cue": [
+    "b48",
+    "नहीं"
+   ],
+   "until_cue": [
+    "b49",
+    "Commodity"
+   ],
+   "tone": "danger",
+   "target": "note_classification",
+   "mark": "cross",
+   "pos": "tr"
+  },
+  {
+   "id": "outside_use_confirmed",
+   "kind": "mark",
+   "cue": [
+    "b49",
+    "उपयोगी"
+   ],
+   "tone": "ok",
+   "target": "cooking",
+   "mark": "tick",
+   "pos": "tr"
+  }
+ ],
+ "camera": [
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    8
+   ],
+   "cue": [
+    "b47",
+    "commodity"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    6
+   ],
+   "cue": [
+    "b49",
+    "Commodity"
+   ]
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b47",
+    "kitchen"
+   ],
+   "ids": [
+    "anchor",
+    "salt",
+    "intrinsic",
+    "cooking",
+    "cooking_path"
+   ],
+   "until_cue": [
+    "b48",
+    "Useful"
+   ]
+  },
+  {
+   "cue": [
+    "b48",
+    "note"
+   ],
+   "ids": [
+    "anchor",
+    "note",
+    "note_classification",
+    "classification_link",
+    "classification_rejected"
+   ],
+   "until_cue": [
+    "b49",
+    "Commodity"
+   ]
+  },
+  {
+   "cue": [
+    "b49",
+    "उपयोगी"
+   ],
+   "ids": [
+    "anchor",
+    "salt",
+    "intrinsic",
+    "goods",
+    "payment_path",
+    "payment_accepted",
+    "cooking",
+    "cooking_path",
+    "outside_use_confirmed"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

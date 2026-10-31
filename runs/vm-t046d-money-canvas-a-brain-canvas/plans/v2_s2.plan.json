@@ -1,0 +1,574 @@
+{
+ "id": "v2_s2",
+ "part_id": "c03.2",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b6",
+   "say": "पैसा नहीं दिया तो क्या कपड़ा free मिला? नहीं; no use of money है, लेकिन wheat देकर कीमत चुकाई।"
+  },
+  {
+   "beat_id": "b7",
+   "say": "अनाज के बदले cycle ठीक करें, तो? यह service, यानी काम का exchange है; barter सिर्फ सामान तक सीमित नहीं।"
+  },
+  {
+   "beat_id": "b8",
+   "say": "कितना wheat देकर कितना कपड़ा मिलेगा? Mutual agreement, यानी दोनों की हाँ से तय होगा; अकेला seller नहीं तय करेगा।"
+  },
+  {
+   "beat_id": "b9",
+   "say": "यहाँ 2 kg के बदले 1 metre तय हुआ। यह illustrative ratio है, हर जगह का fixed rate नहीं।"
+  },
+  {
+   "beat_id": "b10",
+   "say": "Wheat–cloth exchange में पैसा नहीं आता। Definition में goods और services दोनों होने से repair के बदले अनाज भी शामिल है।"
+  },
+  {
+   "beat_id": "b11",
+   "say": "सीधा exchange, बिना पैसे, दोनों की हाँ से।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "money",
+   "kind": "icon",
+   "cell": [
+    9,
+    0,
+    2,
+    1
+   ],
+   "cue": [
+    "b6",
+    "पैसा"
+   ],
+   "tone": "muted",
+   "icon": "tw:1f4b0"
+  },
+  {
+   "id": "money-cross",
+   "kind": "mark",
+   "cue": [
+    "b6",
+    "नहीं"
+   ],
+   "tone": "danger",
+   "target": "money",
+   "mark": "cross",
+   "pos": "c"
+  },
+  {
+   "id": "cloth",
+   "kind": "icon",
+   "cell": [
+    4,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b6",
+    "कपड़ा"
+   ],
+   "tone": "accent",
+   "icon": "tw:1f9f5"
+  },
+  {
+   "id": "free",
+   "kind": "icon",
+   "cell": [
+    4,
+    0,
+    2,
+    1
+   ],
+   "cue": [
+    "b6",
+    "free"
+   ],
+   "until_cue": [
+    "b7",
+    "अनाज"
+   ],
+   "tone": "ink",
+   "icon": "tw:1f193"
+  },
+  {
+   "id": "free-cross",
+   "kind": "mark",
+   "cue": [
+    "b6",
+    "नहीं;"
+   ],
+   "until_cue": [
+    "b7",
+    "अनाज"
+   ],
+   "tone": "danger",
+   "target": "free",
+   "mark": "cross",
+   "pos": "c"
+  },
+  {
+   "id": "wheat",
+   "kind": "icon",
+   "cell": [
+    0,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b6",
+    "wheat"
+   ],
+   "tone": "warm",
+   "icon": "tw:1f33e"
+  },
+  {
+   "id": "goods-out",
+   "kind": "arrow",
+   "cue": [
+    "b6",
+    "देकर"
+   ],
+   "tone": "warm",
+   "from": "wheat",
+   "to": "cloth",
+   "from_side": "r",
+   "to_side": "l",
+   "curve": true,
+   "flow": {
+    "icon": "tw:1f33e",
+    "count": 1,
+    "period": 2200,
+    "size": 24,
+    "cue": [
+     "b6",
+     "देकर"
+    ]
+   }
+  },
+  {
+   "id": "goods-back",
+   "kind": "arrow",
+   "cue": [
+    "b6",
+    "कीमत"
+   ],
+   "tone": "accent",
+   "from": "cloth",
+   "to": "wheat",
+   "from_side": "b",
+   "to_side": "b",
+   "curve": true,
+   "flow": {
+    "icon": "tw:1f9f5",
+    "count": 1,
+    "period": 2200,
+    "size": 24,
+    "cue": [
+     "b6",
+     "कीमत"
+    ]
+   }
+  },
+  {
+   "id": "grain",
+   "kind": "icon",
+   "cell": [
+    7,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b7",
+    "अनाज"
+   ],
+   "tone": "warm",
+   "icon": "tw:1f33e"
+  },
+  {
+   "id": "cycle",
+   "kind": "icon",
+   "cell": [
+    10,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b7",
+    "cycle"
+   ],
+   "tone": "accent",
+   "icon": "tw:1f6b2"
+  },
+  {
+   "id": "tools",
+   "kind": "icon",
+   "cell": [
+    10,
+    5,
+    2,
+    1
+   ],
+   "cue": [
+    "b7",
+    "ठीक"
+   ],
+   "tone": "ink",
+   "icon": "fa:solid/tools"
+  },
+  {
+   "id": "service-flow",
+   "kind": "arrow",
+   "cue": [
+    "b7",
+    "service,"
+   ],
+   "tone": "accent",
+   "from": "tools",
+   "to": "grain",
+   "from_side": "l",
+   "to_side": "b",
+   "curve": true,
+   "flow": {
+    "icon": "fa:solid/tools",
+    "count": 1,
+    "period": 2200,
+    "size": 24,
+    "cue": [
+     "b7",
+     "service,"
+    ]
+   }
+  },
+  {
+   "id": "grain-flow",
+   "kind": "arrow",
+   "cue": [
+    "b7",
+    "exchange"
+   ],
+   "tone": "warm",
+   "from": "grain",
+   "to": "cycle",
+   "from_side": "r",
+   "to_side": "l",
+   "flow": {
+    "icon": "tw:1f33e",
+    "count": 1,
+    "period": 2200,
+    "size": 24,
+    "cue": [
+     "b7",
+     "exchange"
+    ]
+   }
+  },
+  {
+   "id": "agreement",
+   "kind": "icon",
+   "cell": [
+    2,
+    6,
+    2,
+    1
+   ],
+   "cue": [
+    "b8",
+    "Mutual"
+   ],
+   "until_cue": [
+    "b9",
+    "यहाँ"
+   ],
+   "tone": "ok",
+   "icon": "tw:1f91d"
+  },
+  {
+   "id": "consent-left",
+   "kind": "mark",
+   "cue": [
+    "b8",
+    "दोनों"
+   ],
+   "until_cue": [
+    "b9",
+    "यहाँ"
+   ],
+   "tone": "ok",
+   "target": "wheat",
+   "mark": "tick",
+   "pos": "tr"
+  },
+  {
+   "id": "consent-right",
+   "kind": "mark",
+   "cue": [
+    "b8",
+    "हाँ"
+   ],
+   "until_cue": [
+    "b9",
+    "यहाँ"
+   ],
+   "tone": "ok",
+   "target": "cloth",
+   "mark": "tick",
+   "pos": "tr"
+  },
+  {
+   "id": "quantity-wheat",
+   "kind": "value",
+   "cell": [
+    0,
+    0,
+    2,
+    1
+   ],
+   "cue": [
+    "b9",
+    "2"
+   ],
+   "until_cue": [
+    "b10",
+    "Wheat–cloth"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "size": 26,
+   "steps": [
+    {
+     "cue": [
+      "b9",
+      "2"
+     ],
+     "text": "2 kg"
+    }
+   ]
+  },
+  {
+   "id": "quantity-cloth",
+   "kind": "value",
+   "cell": [
+    4,
+    0,
+    2,
+    1
+   ],
+   "cue": [
+    "b9",
+    "1"
+   ],
+   "until_cue": [
+    "b10",
+    "Wheat–cloth"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "size": 26,
+   "steps": [
+    {
+     "cue": [
+      "b9",
+      "1"
+     ],
+     "text": "1 metre"
+    }
+   ]
+  },
+  {
+   "id": "fixed-stamp",
+   "kind": "icon",
+   "cell": [
+    2,
+    6,
+    2,
+    1
+   ],
+   "cue": [
+    "b9",
+    "fixed"
+   ],
+   "until_cue": [
+    "b10",
+    "Wheat–cloth"
+   ],
+   "tone": "muted",
+   "icon": "fa:solid/stamp",
+   "label": "fixed rate"
+  },
+  {
+   "id": "fixed-cross",
+   "kind": "mark",
+   "cue": [
+    "b9",
+    "नहीं।"
+   ],
+   "until_cue": [
+    "b10",
+    "Wheat–cloth"
+   ],
+   "tone": "danger",
+   "target": "fixed-stamp",
+   "mark": "cross",
+   "pos": "c"
+  },
+  {
+   "id": "both-swaps",
+   "kind": "highlight",
+   "cue": [
+    "b10",
+    "दोनों"
+   ],
+   "until_cue": [
+    "b11",
+    "सीधा"
+   ],
+   "style": "box",
+   "tone": "accent",
+   "target": "service-flow"
+  },
+  {
+   "id": "direct-swap",
+   "kind": "highlight",
+   "cue": [
+    "b11",
+    "सीधा"
+   ],
+   "style": "band",
+   "tone": "accent",
+   "target": "goods-out"
+  },
+  {
+   "id": "final-consent",
+   "kind": "icon",
+   "cell": [
+    2,
+    6,
+    2,
+    1
+   ],
+   "cue": [
+    "b11",
+    "हाँ"
+   ],
+   "tone": "ok",
+   "icon": "tw:1f9d1-200d-1f91d-200d-1f9d1"
+  }
+ ],
+ "camera": [
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    8
+   ],
+   "cue": [
+    "b6",
+    "पैसा"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    7,
+    8
+   ],
+   "cue": [
+    "b8",
+    "कितना"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    8
+   ],
+   "cue": [
+    "b10",
+    "Definition"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    8
+   ],
+   "cue": [
+    "b11",
+    "सीधा"
+   ]
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b8",
+    "Mutual"
+   ],
+   "ids": [
+    "wheat",
+    "cloth",
+    "goods-out",
+    "goods-back",
+    "agreement",
+    "consent-left",
+    "consent-right"
+   ],
+   "until_cue": [
+    "b9",
+    "यहाँ"
+   ]
+  },
+  {
+   "cue": [
+    "b9",
+    "2"
+   ],
+   "ids": [
+    "wheat",
+    "cloth",
+    "goods-out",
+    "goods-back",
+    "quantity-wheat",
+    "quantity-cloth",
+    "fixed-stamp",
+    "fixed-cross"
+   ],
+   "until_cue": [
+    "b10",
+    "Wheat–cloth"
+   ]
+  },
+  {
+   "cue": [
+    "b11",
+    "बिना"
+   ],
+   "ids": [
+    "money",
+    "money-cross"
+   ],
+   "until_cue": [
+    "b11",
+    "दोनों"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

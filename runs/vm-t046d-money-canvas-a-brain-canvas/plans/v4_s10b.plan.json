@@ -1,0 +1,485 @@
+{
+ "id": "v4_s10b",
+ "part_id": "c11.q",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b61",
+   "say": "पहला cheque, दूसरा credit card था: payment instruments, खुद currency नहीं। Cheque deposits का instruction, card credit तक पहुँच है। College का स्वीकार करना fiat या legal-tender status नहीं देता; payment method अलग सवाल है।"
+  },
+  {
+   "beat_id": "b62",
+   "say": "Value, legal status और payment method अलग हैं। आगे: gold link बिना dollar की माँग क्यों?"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "cheque",
+   "kind": "icon",
+   "cell": [
+    0,
+    1,
+    3,
+    2
+   ],
+   "cue": [
+    "b61",
+    "cheque"
+   ],
+   "until_cue": [
+    "b62",
+    "Value,"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "fa:solid/money-check",
+   "label": "cheque",
+   "size": 32
+  },
+  {
+   "id": "card",
+   "kind": "icon",
+   "cell": [
+    0,
+    4,
+    3,
+    2
+   ],
+   "cue": [
+    "b61",
+    "card"
+   ],
+   "until_cue": [
+    "b62",
+    "Value,"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "tw:1f4b3",
+   "label": "credit card",
+   "size": 32
+  },
+  {
+   "id": "currency",
+   "kind": "icon",
+   "cell": [
+    8,
+    1,
+    3,
+    2
+   ],
+   "cue": [
+    "b61",
+    "currency"
+   ],
+   "until_cue": [
+    "b61",
+    "College"
+   ],
+   "tone": "muted",
+   "align": "center",
+   "icon": "fa:solid/money-bill-1",
+   "label": "currency",
+   "size": 32
+  },
+  {
+   "id": "not_currency",
+   "kind": "mark",
+   "cue": [
+    "b61",
+    "नहीं।"
+   ],
+   "until_cue": [
+    "b61",
+    "College"
+   ],
+   "tone": "danger",
+   "target": "currency",
+   "mark": "cross",
+   "pos": "c"
+  },
+  {
+   "id": "deposit",
+   "kind": "icon",
+   "cell": [
+    4,
+    1,
+    3,
+    2
+   ],
+   "cue": [
+    "b61",
+    "deposits"
+   ],
+   "until_cue": [
+    "b62",
+    "Value,"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "tw:1f3e6",
+   "label": "deposits",
+   "size": 30
+  },
+  {
+   "id": "instruction",
+   "kind": "arrow",
+   "cue": [
+    "b61",
+    "instruction,"
+   ],
+   "until_cue": [
+    "b62",
+    "Value,"
+   ],
+   "tone": "accent",
+   "label": "instruction",
+   "from": "cheque",
+   "to": "deposit",
+   "from_side": "r",
+   "to_side": "l",
+   "elbow": "hv",
+   "size": 24,
+   "flow": {
+    "icon": "fa:solid/money-check",
+    "count": 1,
+    "period": 2400,
+    "size": 24,
+    "cue": [
+     "b61",
+     "instruction,"
+    ]
+   }
+  },
+  {
+   "id": "credit",
+   "kind": "icon",
+   "cell": [
+    4,
+    4,
+    3,
+    2
+   ],
+   "cue": [
+    "b61",
+    "credit"
+   ],
+   "until_cue": [
+    "b62",
+    "Value,"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "fa:solid/credit-card",
+   "label": "credit",
+   "size": 30
+  },
+  {
+   "id": "access",
+   "kind": "arrow",
+   "cue": [
+    "b61",
+    "पहुँच"
+   ],
+   "until_cue": [
+    "b62",
+    "Value,"
+   ],
+   "tone": "warm",
+   "label": "पहुँच",
+   "from": "card",
+   "to": "credit",
+   "from_side": "r",
+   "to_side": "l",
+   "elbow": "hv",
+   "size": 24,
+   "flow": {
+    "icon": "tw:1f4b3",
+    "count": 1,
+    "period": 2400,
+    "size": 24,
+    "cue": [
+     "b61",
+     "पहुँच"
+    ]
+   }
+  },
+  {
+   "id": "college",
+   "kind": "icon",
+   "cell": [
+    8,
+    1,
+    3,
+    2
+   ],
+   "cue": [
+    "b61",
+    "College"
+   ],
+   "until_cue": [
+    "b62",
+    "Value,"
+   ],
+   "tone": "ink",
+   "align": "center",
+   "icon": "fa:solid/building-columns",
+   "label": "College",
+   "size": 30
+  },
+  {
+   "id": "accepted",
+   "kind": "mark",
+   "cue": [
+    "b61",
+    "स्वीकार"
+   ],
+   "until_cue": [
+    "b62",
+    "Value,"
+   ],
+   "tone": "ok",
+   "target": "college",
+   "mark": "tick",
+   "pos": "tr"
+  },
+  {
+   "id": "legal_badge",
+   "kind": "icon",
+   "cell": [
+    8,
+    4,
+    3,
+    2
+   ],
+   "cue": [
+    "b61",
+    "legal-tender"
+   ],
+   "until_cue": [
+    "b62",
+    "Value,"
+   ],
+   "tone": "muted",
+   "align": "center",
+   "icon": "fa:solid/id-badge",
+   "label": "legal-tender status",
+   "size": 28
+  },
+  {
+   "id": "not_conferred",
+   "kind": "mark",
+   "cue": [
+    "b61",
+    "देता;"
+   ],
+   "until_cue": [
+    "b62",
+    "Value,"
+   ],
+   "tone": "danger",
+   "target": "legal_badge",
+   "mark": "cross",
+   "pos": "c"
+  },
+  {
+   "id": "value_concept",
+   "kind": "icon",
+   "cell": [
+    0,
+    1,
+    3,
+    2
+   ],
+   "cue": [
+    "b62",
+    "Value,"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "fa:solid/tag",
+   "label": "Value",
+   "size": 30
+  },
+  {
+   "id": "law_concept",
+   "kind": "icon",
+   "cell": [
+    4,
+    1,
+    3,
+    2
+   ],
+   "cue": [
+    "b62",
+    "legal"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "tw:1f4dc",
+   "label": "legal status",
+   "size": 30
+  },
+  {
+   "id": "method_concept",
+   "kind": "icon",
+   "cell": [
+    8,
+    1,
+    3,
+    2
+   ],
+   "cue": [
+    "b62",
+    "payment"
+   ],
+   "tone": "ink",
+   "align": "center",
+   "icon": "tw:1f4b3",
+   "label": "payment method",
+   "size": 30
+  },
+  {
+   "id": "gold",
+   "kind": "icon",
+   "cell": [
+    1,
+    4,
+    3,
+    2
+   ],
+   "cue": [
+    "b62",
+    "gold"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "fa:solid/coins",
+   "label": "gold",
+   "size": 30
+  },
+  {
+   "id": "no_gold_link",
+   "kind": "text",
+   "cell": [
+    4,
+    4,
+    3,
+    1
+   ],
+   "cue": [
+    "b62",
+    "बिना"
+   ],
+   "text": "gold link बिना",
+   "style": "tag",
+   "tone": "muted",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "dollar",
+   "kind": "icon",
+   "cell": [
+    8,
+    4,
+    3,
+    2
+   ],
+   "cue": [
+    "b62",
+    "dollar"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "tw:1f4b5",
+   "label": "dollar",
+   "size": 30
+  },
+  {
+   "id": "demand_question",
+   "kind": "icon",
+   "cell": [
+    4,
+    5,
+    3,
+    2
+   ],
+   "cue": [
+    "b62",
+    "माँग"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "tw:2753",
+   "label": "माँग क्यों?",
+   "size": 30
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b61",
+    "instruction,"
+   ],
+   "ids": [
+    "cheque",
+    "deposit",
+    "instruction"
+   ],
+   "until_cue": [
+    "b61",
+    "credit"
+   ]
+  },
+  {
+   "cue": [
+    "b61",
+    "credit"
+   ],
+   "ids": [
+    "card",
+    "credit",
+    "access"
+   ],
+   "until_cue": [
+    "b61",
+    "College"
+   ]
+  },
+  {
+   "cue": [
+    "b61",
+    "College"
+   ],
+   "ids": [
+    "college",
+    "accepted",
+    "legal_badge",
+    "not_conferred"
+   ],
+   "until_cue": [
+    "b62",
+    "Value,"
+   ]
+  },
+  {
+   "cue": [
+    "b62",
+    "gold"
+   ],
+   "ids": [
+    "gold",
+    "no_gold_link",
+    "dollar",
+    "demand_question"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

@@ -1,0 +1,631 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "canvas",
+ "unit": "v4_s1a",
+ "status": "passed",
+ "instructions_version": "canvas-plan/1",
+ "rulebook_version": "canvas_profile@2026-10-29.1+content_types@2026-10-27.1+explanations@2026-10-24.3+level_profiles@2026-10-24.1+simple_hindi@2026-10-28.1+teacher_examples@2026-10-29.1+vision-2026-10-21@2026-10-21.17+visual_grammar@2026-10-31.1+visual_levels@2026-10-26.2+visual_verbs@2026-10-31.1",
+ "rulebook_digest": "0271c5cb76262d9d2239ea932af7c8d8701ae3275cbd3e1d63053dfd8a6e35e8",
+ "rules_used": [
+  "CV-01",
+  "CV-02",
+  "CV-03",
+  "CV-04",
+  "CV-05",
+  "CV-06",
+  "CV-07",
+  "CV-08",
+  "CV-09",
+  "CV-10",
+  "CV-11",
+  "CV-12",
+  "CV-13",
+  "CV-14",
+  "CV-15",
+  "CV-16",
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-05",
+  "G-06",
+  "G-07",
+  "VG-02",
+  "VG-04",
+  "VG-07",
+  "VG-08",
+  "VG-10",
+  "D1-01",
+  "D1-02",
+  "D1-03",
+  "D1-04",
+  "D1-05",
+  "D1-06"
+ ],
+ "maker_route": "codex",
+ "reviewer_route": "codex-checker",
+ "maker_model": "gpt-6.1-sol",
+ "reviewer_model": "gpt-6.1-sol",
+ "reviewer_independence": "same_model_temporary",
+ "inputs_digest": "f2ed228e027cadcc6ad38788c87cebc4992e8e716aea061edddf70c5356b2888",
+ "card": null,
+ "prefix_sha256": "80f36b86452e34780e6b4e10a81e4f840a721ce2c49bbf0a2e59e0627eeb5a45",
+ "review_prefix_sha256": null,
+ "inputs": {
+  "system": "You are BIE's canvas director for one part of a video lesson of Indian Economy for UPSC / State PCS aspirants (UPSC / State PCS). The script is\nalready written and passed; you do not change a word of it. You plan ONE build-up canvas for this part: what appears, in\nwhich grid cell, and on which spoken word. Code places, times and checks it; a refused plan comes back to you with the\nexact error, and you answer with the whole corrected plan.\n\nCourse: \"3. Money\" · learner language: Hinglish. Navin's level for this part: B (a build-up canvas with L3 touches (shadows, idle motion, walk-ins, flowing goods and money, a camera that follows)).\n\nNavin's rules for this section (follow every one):\n[CV-01] One canvas per idea: build it piece by piece instead of cutting to a new shot every sentence. Clear the canvas only when the idea changes; otherwise re-frame with a zoom or pan to the part being explained.\n[CV-02] Something on the canvas changes about every 5 s (one change per one or two spoken phrases).\n[CV-03] The picture never stays the same for more than 15 s (the references sometimes hold 40-80 s; BIE must not).\n[CV-04] A new element appears on its own word, while it is being said (about 40% into the phrase, never in the pause after).\n[CV-05] Numbers that change are struck out and replaced on screen (50 -> 65), with an up/down arrow, on the word of the new number.\n[CV-06] Many people/things are shown as a crowd that grows or shrinks with the story (2 buyers -> 12 -> 3).\n[CV-07] A running numeric example carries the concept (price 50 -> 65, GDP 10K -> 11K -> 12.1K at 10%).\n[CV-08] Return to the topic tree and tick the branch that is done before starting the next branch.\n[CV-09] One anchor diagram stays (a band, a tree, a rate card) while the part beside or below it changes.\n[CV-10] No overlap, nothing outside the safe area, captions strip kept clear, readable text (>= 24 px at 1080p), at most 16 elements on screen.\n[CV-11] No photos or caricatures of real people, no logos, emblems or regulator marks: use a name card, a generic icon or BIE's own presenter character.\n[CV-12] Light paper theme for build-up canvases (dark theme stays for 3D/science worlds); subtitles on a dark strip.\n[CV-13] On-screen text is a short COMPLETE phrase or sentence in the learner's language (Devanagari Hinglish with the English terms the script uses), one idea per board or box; never a code: no ✓ ✗ ≠, no list of bare words ('Exchange · Account / Store · Deferred'), no line that ends on → = : / (Navin, 29 October 2026: 'teacher ki naration uske sentence aise poore ho ki banawati na lage').\n[CV-14] Every on-screen text is explained: its key words are said in the narration of the beat it appears on (the cue beat), and every board step the director adds is spoken; a text the narration never says does not go on screen.\n[CV-15] A caveat ('imagined market', 'illustrative numbers') is shown once per part on its own small note, not on every board.\n[CV-16] Numbers on screen are written the way the narration says them: every number on a board, tag or box is said in its cue beat (₹500 on screen, '500 rupaye' in the narration), no counters the narration never mentions ('Payments: 0 → 2').\n[G-01] Everything taught comes from the book. Knowledge from outside the book is allowed only to explain the book better; it is marked as outside, standard textbook-level and correct. Never invent facts, numbers, names or quotations.\n[G-02] Work like the best teacher of these learners and this exam, not like a summariser. Depth beats brevity: nothing teachable on the page is skipped or compressed away, and every explanation makes a student understand, not just remember. Depth means understanding, not length: lesson narration keeps S2-01's time by cutting repetition and side-tracks, never book content.\n[G-03] Before the output, fill 'notes' with brief notes for the reviewer and for Navin: what this unit is about, the key questions a teacher must answer about it, the main decisions you made with a one-line reason each, and anything uncertain. Keep the notes short; they explain the work, they are not the work.\n[G-05] Never drop or compress away what the book teaches to fit a length. If a unit of work is too large, it is split by BIE into smaller units; within a unit, the book's content is complete. Lesson narration has a time target (S2-01), met by cutting repetition and side-tracks, never book content.\n[G-06] BIE is the link between the learner and the book, like a teacher (Navin, 24 October 2026). The book is the base; BIE carries its text, easy or hard, into the learner's mind. Never just read the line out: every book line is opened (what its words mean, why it is so, where it is seen, what follows), at the depth of the level profile.\n[G-07] Two layers, like a film (Navin, 24 October 2026). The writer layer (understanding, plan, script) decides what is said and how deep, following the level profile and the book's own level. The presentation layer (director, video blocks, render) is the same skilled quality for every learner, from class 6 to postgraduate; only the detail shown follows the level, never the craft.\n[VG-02] Labels are code text tied to their object by a leader line and move with it; a label is never baked into an image, so one asset works in every language.\n[VG-04] Size is taught by scale comparison with a thing the learner knows (one book = 1 MB; access time as a distance), never by a number alone.\n[VG-07] Two things are compared on a split screen (the split_compare block), the same slots on both sides.\n[VG-08] Processes show flow with moving arrows or particles (magma, water, concrete, ions, mucus), never a still diagram with static arrows.\n[VG-10] History and polity use a lit timeline with nodes; maps appear only through the licence gate's map rule (India's boundary waits for Navin's approval).\n[D1-01] Every beat shows at least one non-text thing tied to its nouns or its relation (an icon, a mark, an arrow, a crowd or value step, a table row, a picture event; in a world a prop, a person, a price or a crowd step), cued on a word of that beat. A beat that only adds text is refused.\n[D1-02] The screen never shows text alone for more than 10 seconds: while a beat is spoken, the thing it names is on screen (Navin, 30 October 2026: 'sirf text hi text screen par dikha to video ... ek book ban jaayegi').\n[D1-03] Screen text is a name or a short natural phrase (at most 8 words; a board 2 lines of 28 characters), never a sentence: the sentence lives in the narration and the subtitles. The picture shows the thing itself, so its label is understood without reading (page-2 principle).\n[D1-04] A book diagram or table the part covers is drawn as itself: a timeline with the book's years and labels, a table row by row, a panel of items as a gallery of icon cards, a flow as boxes and arrows. Code places it; the plan builds around it and never leaves it out.\n[D1-05] A world (C) is used only when the beats are the story of the concept's real-world example with actors at a place, and that place comes from the example itself, never from a keyword of the narration; the same world kit is never used in two consecutive parts.\n[D1-06] A caution, caveat or fact-check line ('illustrative numbers', 'imagined market', 'data not given', 'outside clarification') never appears on screen: it stays a background check in the records.\n\n# Director card: build-up canvas plans (for the AI director step)\n\nYou plan ONE canvas for ONE part of a passed script. You do not write narration and you do not place pixels: you say\nwhat appears, in which grid cell, and on which spoken word. Code (`econ_canvas.compile_plan`) places, times and checks\nit; a refused plan comes back to you with the exact error.\n\n## Input you get\n\n- `beats`: the part's spoken beats `[{beat_id, say}]` (Hinglish, Devanagari with English terms). Do not change them.\n- The chapter map items this part covers (terms, numbers, causes, examples).\n- The icon search tool: `icon_index.search(\"bank\")` → ids like `tw:1f3e6` (colour) or `fa:solid/building-columns` (line).\n\n## Output you give (JSON only)\n\n```json\n{\"id\": \"<part id>\", \"theme\": \"paper\", \"grid\": [12, 8], \"beats\": <as given>,\n \"nodes\": [ ...elements... ], \"focus\": [ ... ], \"camera\": [ ... ], \"graph\": { ...optional... }}\n```\n\nGrid: 12 columns × 8 rows inside the safe area. `cell` = `[col, row, width, height]`. Two elements may share cells\nonly if they are never on screen together (use `until_cue`). Reading order: left → right, top → bottom.\n\nEvery element has `cue`: `[beat_id, \"<a word exactly as written in that beat>\"]` — the element appears while that word\nis spoken. Use `[beat_id, \"\", 0.0]` for \"at the start of the beat\" only for titles.\n\n## Element vocabulary\n\n| kind | fields | use it for |\n| --- | --- | --- |\n| `text` | `text`, `style`: `plain` / `box` / `note` / `title` / `tag`, `size`, `tone`, `fill`, `align`, `marks` | definitions (box), side notes (note), headings (title), chips (tag) |\n| `callout` | like text (style `note`), `marks: [{phrase, cue}]` | the one sentence to remember; its key phrase lights up when said |\n| `icon` | `icon` (id from the index), `label` | objects and actors: shop, factory, bank, RBI (use a bank / classical building icon), people, money, goods |\n| `crowd` | `icon`, `steps: [{n, cue}]`, `cols` | many buyers / workers / firms; the number grows or shrinks with the story |\n| `value` | `steps: [{text, cue, dir}]`, `size`, `align` | a number that changes: the old value is struck out, the new one appears with ▲/▼ |\n| `arrow` | `from`, `to` (element ids), `from_side`/`to_side` (`l r t b`), `label`, `elbow` (`hv`, `vh`, `vhv`), `curve`, `dashed`, `tone` | cause → effect, flow of goods / money, sequence |\n| `tree` | `root`, `children: [text or {text, cue}]`, `cell`, `size` | a concept and its types (Inflation → WPI / CPI) |\n| `table` | `columns`, `rows: [{cells, cue}]`, `highlights: [{row?, col?, cue, until_cue?, tone}]` | year-by-year numbers, comparisons |\n| `mark` | `mark`: `tick` / `cross`, `target`, `pos`: `c` / `tr` | right / wrong, done, rejected |\n| `highlight` | `target`, `style`: `box` / `dashed` / `band`, `tone` | \"look here\" on what is being explained |\n| `picture` | `cell`, `picture`: `{type: timeline / gallery / flow, title, items: [{when, name, icon, cue}], arrows}` | a row of things you draw yourself: dates on a timeline (`when` = the date as said), a numbered row of things (gallery), steps joined by arrows (flow); each item appears on its own cue |\n\n`focus: [{cue, until_cue?, ids: [...]}]` dims everything else. `camera: [{cells: [...], cue}]` zooms to a region\n(use it when the canvas is dense or to re-frame for the next sub-idea). `graph` = a `curve_story` (axes, curves as\npoints, a dot that walks to named x values, guides like NAIRU, shaded bands, notes) for any economic curve.\n\nTones: `ink`, `muted`, `accent` (blue), `warm` (orange), `danger` (red), `ok` (green), `tag` (pink), `note`, `band`.\n\n## Dikhane ki soch (Navin, 30 October 2026: \"jo bola ja rha hai screen ke visuals se wo baat clear ho\")\n\nBefore you plan, BIE has thought about every beat: its idea, its relation (reject, accept, compulsory, limit, sequence,\ncompare, …) and the things it names; the part message lists them with the icons BIE found for each thing. Draw THAT:\n\n- Every beat shows at least one thing that is not text (an icon, a mark, an arrow, a crowd or value step, a table row, a\n  picture item), cued on a word of that beat (D1-01). A screen of text alone for more than 10 s is refused (D1-02): a video\n  that is only text is a book.\n- Show the relation the way BIE's visual verbs say: a cross on the thing refused, a tick on the thing accepted, a law scroll\n  and stamp for \"compulsory\", a meter with a red line for a limit, a numbered row or a timeline for a sequence, an arrow chain\n  for cause → effect, a split or a scale for a comparison, before/after for a change, a receipt or a handshake for a promise.\n- The picture shows the thing itself, so its label is understood without reading (the book's page 2): screen text is a\n  name or a short phrase of at most 8 words, never a sentence; the sentence is the narration and the subtitles (D1-03).\n- When the part message says BIE has placed the book's own picture (a timeline, a table, a gallery of the book's panels, a\n  flow), keep it: never redraw it, never reuse its cells or its id, and build your elements in the rows below it (D1-04).\n- Never put a caution or fact-check line on screen (\"illustrative numbers\", \"imagined market\", \"data not given\",\n  \"outside clarification\"): those are BIE's background checks (D1-06).\n\n## Rules (from 20 reference videos, rules/econ_canvas_rules.json)\n\n1. One canvas per idea; build it piece by piece. Re-frame with `camera` instead of starting a new canvas.\n2. Something changes about every 5 s; never let the picture stay still more than 15 s (the code refuses it).\n3. Each element appears on ITS word, while it is said.\n4. Carry the idea with a running example with numbers (price 50 → 65; GDP 10,000 → 11,000 → 12,100); show changes\n   with `value` steps, crowds with `crowd` steps.\n5. A tree/branch overview first, then tick the branch that is done before the next.\n6. Keep one anchor (a tree, a band, a rate card) while the rest changes.\n7. On-screen text (CV-13 to CV-16, Navin's verdict on Money v1, 29 October 2026): a box holds ONE idea as a short COMPLETE\n   phrase or sentence in the learner's language (Devanagari Hinglish with the English terms the script uses), at most ~12\n   words; never a code: no ✓ ✗ ≠, no list of bare words (\"Exchange · Account / Store · Deferred\"), no line ending on → = : /;\n   every text is explained: its key words and every number are said in the narration of its cue beat (the code refuses a\n   text the beat does not say, and a number the beat does not say); a caveat (\"imagined market\") once per part on its own\n   small note. The narration says the rest.\n8. Never a photo or caricature of a real person, never a logo, emblem or regulator mark: a name tag or a generic icon.\n9. Tags must fit on one line in their cell; text must fit at ≥ 24 px (the code refuses otherwise: make the cell bigger\n   or the text shorter).\n10. A part longer than about 10 beats (real BIE plans have parts of 19 beats) becomes two or three canvases, or one\n    canvas re-framed by `camera` keys; at most 16 elements are on screen at once (the code refuses more).\n\nIcons you may use (id · name): the ones listed under the part for its nouns, and these; any other id is refused:\n- tw:274c · cross mark\n- tw:2705 · white heavy check mark\n- tw:1f4dc · scroll\n- fa:solid/stamp · Stamp\n- fa:solid/gavel · Gavel\n- fa:solid/gauge-high · Gauge High\n- tw:2696 · scales\n- tw:1f5fa · world map\n- tw:1f9fe · receipt\n- tw:1f91d · handshake\n- tw:2753 · black question mark ornament\n\nHow to fill the JSON (every field is present; \"\" / 0 / [] / false mean \"not used\"):\n- notes: brief notes for the record: the idea of this canvas, the running example with numbers, what is uncertain.\n- nodes: the elements, in the order they appear. id (unique), kind, cell [col, row, width, height] on the 12 x 8 grid\n  (arrows, marks and highlights have no cell), cue [beat_id, word] with the word exactly as written in that beat (or\n  [beat_id, \"\"] for the start of the beat, cue_fraction 0..1 moves it into the beat). until_cue when the element leaves.\n  value/crowd use steps (text or n, with cue each; dir \"up\"/\"down\" on a value step). tree: root + children (text, cue).\n  table: columns + rows (cells, cue) + highlights (row or col, -1 when not used). callout/text: marks (phrase, cue).\n  arrow: from, to (+ from_side/to_side l r t b, elbow hv/vh/vhv). mark: mark tick/cross + target + pos c/tr.\n  highlight: target + style box/dashed/band. flow on an arrow (icon, count, period, size, reverse, cue) makes goods or\n  money travel along it.\n- camera: zoom to a region of cells on a cue (use it to re-frame instead of a new canvas). focus: dim everything but ids.\n- graph_used true + graph for an economic curve (axes, curves as [x, y] points, a dot that walks to x values, guides,\n  shades, notes); plot is the graph's box as fractions of the canvas.\nReply with the JSON object only.",
+  "user": "Chapter: 3. Money. Part c09.1 (1 beats).\nDikhane ki soch for this part (the visual-idea step; every beat shows its thing on its word, D1-01):\n- b1: Purchasing power, gold backing, and legal status questioned · relation question · shows: Note–rice exchange; gold question; acceptance versus law · on '₹100'\nIcons found for the things named (id · name); you may also use any id from the general menu below:\n- ₹100 note: fa:solid/money-bill-1 (Money Bill 1); tw:1f4b5 (banknote with dollar sign); tw:1f3b5 (musical note)\n- rice sack: tw:1f33e (ear of rice); tw:1f358 (rice cracker); tw:1f359 (rice ball)\n- gold bar: tw:1fa99 (coin); fa:solid/coins (Coins); tw:1f36b (chocolate bar)\n- law scroll: tw:1f4dc (scroll); fa:solid/gavel (Gavel); fa:solid/scroll (Scroll)\n- question mark: tw:2753 (black question mark ornament); tw:2049 (exclamation question mark); tw:2754 (white question mark ornament)\n- buyer: tw:1f6cd (shopping bags)\n- shopkeeper: tw:1f9d1-200d-1f4bc (adult + briefcase)\n\nThe part (JSON):\n{\"part\": {\"id\": \"v4_s1a\", \"part_id\": \"c09.1\", \"mode\": \"B\", \"place\": \"\", \"story\": false}, \"beats\": [{\"beat_id\": \"b1\", \"say\": \"सस्ता ₹100 note चावल क्यों दिलाता है? क्या पीछे gold है? Payment में लेना और कानून से पैसा मानना क्या एक हैं?\"}], \"items\": [{\"item_id\": \"p004-i1\", \"content_type\": \"definition\", \"content\": \"Gold-backed paper currency was paper money that could be exchanged for a fixed quantity of gold on demand. The paper itself had little intrinsic value; its value came from the promise that the issuing authority would redeem it in gold.\", \"real_world_example\": {\"place\": \"Hypothetical Indian bank counter under a gold-backed arrangement, not today's rupee system\", \"actors\": [\"note holder\", \"issuing bank\"], \"goods\": [\"paper note\", \"gold\"], \"numbers\": [{\"what\": \"holder's gold after redeeming one illustrative note promising 1 gram\", \"before\": \"0 grams\", \"after\": \"1 gram\"}, {\"what\": \"redeemable notes held\", \"before\": \"1\", \"after\": \"0\"}], \"steps\": [{\"step\": \"A customer presents a note whose hypothetical promise is 1 gram of gold.\", \"mechanism_link\": \"The paper represents a fixed claim rather than its material value.\"}, {\"step\": \"The bank takes back the note and gives 1 gram of gold.\", \"mechanism_link\": \"Redemption fulfils the promise supporting the note.\"}], \"term_after\": \"This is an illustration of gold-backed paper currency.\", \"real_life_link\": \"Use this historical contrast when interpreting claims that a modern rupee note is exchangeable for gold.\"}}], \"on_screen_hints\": [\"Material value | backing | acceptance | legal recognition\"], \"ideas\": [{\"beat_id\": \"b1\", \"idea\": \"Purchasing power, gold backing, and legal status questioned\", \"relation\": \"question\", \"things\": [\"₹100 note\", \"rice sack\", \"gold bar\", \"law scroll\", \"question mark\"], \"people\": [\"buyer\", \"shopkeeper\"], \"places\": [], \"shows\": \"Note–rice exchange; gold question; acceptance versus law\", \"on_word\": \"₹100\"}], \"picture\": []}\n\nReply with the plan JSON."
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "started_at": 1793464521.0567565,
+   "mode": "full",
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "3f1b7a4a7a312649f174ab91230e7e245f38f10de1d3eb5ab45aa2fd0e8e8542",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 9828,
+    "output_tokens": 2782,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "An opening question links the ₹100 note’s purchasing power to gold backing, payment acceptance and legal recognition.",
+    "key_questions": [
+     "Why does a low-material-value note buy rice?",
+     "Are gold backing, payment acceptance and legal recognition the same?"
+    ],
+    "decisions": [
+     {
+      "decision": "Build three question groups on one paper canvas.",
+      "reason": "Preserves the questioning narration without supplying answers prematurely."
+     },
+     {
+      "decision": "Show only the spoken ₹100 amount.",
+      "reason": "Gold redemption quantities belong to later explanation, not this beat."
+     }
+    ],
+    "uncertain": [
+     "Gold is a question here, not a claim about modern rupee backing."
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "An opening question links the ₹100 note’s purchasing power to gold backing, payment acceptance and legal recognition.",
+     "key_questions": [
+      "Why does a low-material-value note buy rice?",
+      "Are gold backing, payment acceptance and legal recognition the same?"
+     ],
+     "decisions": [
+      {
+       "decision": "Build three question groups on one paper canvas.",
+       "reason": "Preserves the questioning narration without supplying answers prematurely."
+      },
+      {
+       "decision": "Show only the spoken ₹100 amount.",
+       "reason": "Gold redemption quantities belong to later explanation, not this beat."
+      }
+     ],
+     "uncertain": [
+      "Gold is a question here, not a claim about modern rupee backing."
+     ]
+    },
+    "nodes": [
+     {
+      "id": "note",
+      "kind": "icon",
+      "cell": [
+       0,
+       2,
+       2,
+       2
+      ],
+      "cue": [
+       "b1",
+       "₹100"
+      ],
+      "cue_fraction": 0,
+      "until_cue": [],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 32,
+      "tone": "accent",
+      "fill": "",
+      "align": "center",
+      "icon": "fa:solid/money-bill-1",
+      "label": "₹100 note",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      }
+     },
+     {
+      "id": "rice",
+      "kind": "icon",
+      "cell": [
+       3,
+       2,
+       2,
+       2
+      ],
+      "cue": [
+       "b1",
+       "चावल"
+      ],
+      "cue_fraction": 0,
+      "until_cue": [],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 32,
+      "tone": "ink",
+      "fill": "",
+      "align": "center",
+      "icon": "tw:1f33e",
+      "label": "चावल",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      }
+     },
+     {
+      "id": "exchange",
+      "kind": "arrow",
+      "cell": [],
+      "cue": [
+       "b1",
+       "दिलाता"
+      ],
+      "cue_fraction": 0,
+      "until_cue": [],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 0,
+      "tone": "accent",
+      "fill": "",
+      "align": "",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "note",
+      "to": "rice",
+      "from_side": "r",
+      "to_side": "l",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "fa:solid/money-bill-1",
+       "count": 1,
+       "period": 1800,
+       "size": 24,
+       "reverse": false,
+       "cue": [
+        "b1",
+        "दिलाता"
+       ]
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      }
+     },
+     {
+      "id": "gold",
+      "kind": "icon",
+      "cell": [
+       6,
+       2,
+       2,
+       2
+      ],
+      "cue": [
+       "b1",
+       "gold"
+      ],
+      "cue_fraction": 0,
+      "until_cue": [],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 32,
+      "tone": "warm",
+      "fill": "",
+      "align": "center",
+      "icon": "fa:solid/coins",
+      "label": "gold",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      }
+     },
+     {
+      "id": "gold-question",
+      "kind": "icon",
+      "cell": [
+       8,
+       2,
+       1,
+       2
+      ],
+      "cue": [
+       "b1",
+       "gold"
+      ],
+      "cue_fraction": 0,
+      "until_cue": [],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 32,
+      "tone": "warm",
+      "fill": "",
+      "align": "center",
+      "icon": "tw:2753",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      }
+     },
+     {
+      "id": "acceptance",
+      "kind": "icon",
+      "cell": [
+       2,
+       5,
+       3,
+       2
+      ],
+      "cue": [
+       "b1",
+       "Payment"
+      ],
+      "cue_fraction": 0,
+      "until_cue": [],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 28,
+      "tone": "accent",
+      "fill": "",
+      "align": "center",
+      "icon": "tw:1f91d",
+      "label": "Payment में लेना",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      }
+     },
+     {
+      "id": "law",
+      "kind": "icon",
+      "cell": [
+       7,
+       5,
+       4,
+       2
+      ],
+      "cue": [
+       "b1",
+       "कानून"
+      ],
+      "cue_fraction": 0,
+      "until_cue": [],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 28,
+      "tone": "ink",
+      "fill": "",
+      "align": "center",
+      "icon": "tw:1f4dc",
+      "label": "कानून से पैसा मानना",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      }
+     },
+     {
+      "id": "same-question",
+      "kind": "icon",
+      "cell": [
+       5,
+       5,
+       2,
+       2
+      ],
+      "cue": [
+       "b1",
+       "एक"
+      ],
+      "cue_fraction": 0,
+      "until_cue": [],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 28,
+      "tone": "warm",
+      "fill": "",
+      "align": "center",
+      "icon": "tw:2753",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      }
+     }
+    ],
+    "camera": [],
+    "focus": [
+     {
+      "cue": [
+       "b1",
+       "gold"
+      ],
+      "until_cue": [
+       "b1",
+       "Payment"
+      ],
+      "ids": [
+       "note",
+       "gold",
+       "gold-question"
+      ]
+     },
+     {
+      "cue": [
+       "b1",
+       "Payment"
+      ],
+      "until_cue": [],
+      "ids": [
+       "acceptance",
+       "law",
+       "same-question"
+      ]
+     }
+    ],
+    "graph_used": false,
+    "graph": {
+     "plot": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+     },
+     "x_label": "",
+     "y_label": "",
+     "x_domain": [],
+     "y_domain": [],
+     "axes_cue": [],
+     "curves": [],
+     "dots": [],
+     "shades": [],
+     "guides": [],
+     "notes": []
+    }
+   },
+   "code_problems": [],
+   "passed": true,
+   "finished_at": 1793464562.3259637
+  }
+ ],
+ "avoid_rounds": [],
+ "cost_usd": 0.0,
+ "seconds": 41.3,
+ "navin_verdict": null
+}

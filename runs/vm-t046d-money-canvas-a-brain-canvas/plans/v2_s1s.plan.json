@@ -1,0 +1,199 @@
+{
+ "id": "v2_s1s",
+ "part_id": "c03.1",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b2",
+   "say": "मानिए किसान के पास 10 kg wheat था। उसने 2 kg देकर 1 metre कपड़ा लिया; अब 8 kg wheat बचा और कपड़ा भी मिला।"
+  }
+ ],
+ "kit": "shop",
+ "elements": [
+  {
+   "id": "cloth_shop",
+   "kind": "shop",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b2",
+    "मानिए"
+   ],
+   "packets": [
+    {
+     "n": 1,
+     "cue": [
+      "b2",
+      "मानिए"
+     ]
+    },
+    {
+     "n": 0,
+     "cue": [
+      "b2",
+      "लिया;"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cloth_seller",
+   "kind": "shopkeeper",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b2",
+    "मानिए"
+   ]
+  },
+  {
+   "id": "farmer",
+   "kind": "crowd",
+   "x0": 2190,
+   "spacing": 90,
+   "enter_x": 1770,
+   "exit_x": 1800,
+   "face": 1,
+   "seed": 31,
+   "cue": [
+    "b2",
+    "किसान"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b2",
+      "किसान"
+     ],
+     "n": 1
+    }
+   ],
+   "carry": {
+    "cue": [
+     "b2",
+     "लिया;"
+    ],
+    "n": 1
+   }
+  },
+  {
+   "id": "farmer_wheat",
+   "kind": "board",
+   "x": 1930,
+   "y": 530,
+   "text": "wheat",
+   "fill": "#B38A48",
+   "cue": [
+    "b2",
+    "10"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b2",
+      "10"
+     ],
+     "text": "10 kg wheat"
+    },
+    {
+     "cue": [
+      "b2",
+      "8"
+     ],
+     "text": "8 kg wheat",
+     "dir": "down"
+    }
+   ]
+  },
+  {
+   "id": "wheat_given",
+   "kind": "board",
+   "x": 2280,
+   "y": 340,
+   "text": "wheat",
+   "fill": "#B38A48",
+   "cue": [
+    "b2",
+    "2"
+   ],
+   "until_cue": [
+    "b2",
+    "अब"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b2",
+      "2"
+     ],
+     "text": "2 kg wheat"
+    }
+   ]
+  },
+  {
+   "id": "cloth_received",
+   "kind": "board",
+   "x": 2940,
+   "y": 530,
+   "text": "कपड़ा",
+   "fill": "#548C92",
+   "cue": [
+    "b2",
+    "1"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b2",
+      "1"
+     ],
+     "text": "1 metre कपड़ा"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b2",
+    "",
+    0.0
+   ],
+   "x": 2460,
+   "y": 570,
+   "zoom": 0.9,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b2",
+    "10"
+   ],
+   "x": 2210,
+   "y": 570,
+   "zoom": 1.05,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b2",
+    "देकर"
+   ],
+   "x": 2550,
+   "y": 550,
+   "zoom": 1,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b2",
+    "8"
+   ],
+   "x": 2410,
+   "y": 570,
+   "zoom": 0.9,
+   "frames": 30
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

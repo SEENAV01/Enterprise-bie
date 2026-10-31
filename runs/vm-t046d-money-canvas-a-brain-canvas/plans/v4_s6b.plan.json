@@ -1,0 +1,855 @@
+{
+ "id": "v4_s6b",
+ "part_id": "c11.1",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b35",
+   "say": "Legal tender government से officially recognised money है, जो उसकी territory में debts और transactions चुकाता है। Circulation commemorative coins याद में बने, लेकिन रोज़ ordinary coins जैसे इस्तेमाल होने वाले coins हैं।"
+  },
+  {
+   "beat_id": "b36",
+   "say": "Unlimited Legal Tender यानी genuine, valid notes जोड़ते जाएँ, tender की कुल रकम की ceiling नहीं आती। ₹10, ₹20, ₹50, ₹100, ₹200, ₹500 notes का यह status Reserve Bank of India Act, 1934 से जुड़ा है।"
+  },
+  {
+   "beat_id": "b37",
+   "say": "Limited Legal Tender में तय amount तक लेना ज़रूरी, आगे मर्ज़ी है; coins के लिए Coinage Act, 2011 है। यानी बड़ा coin ढेर लेने की मजबूरी limit पर रुकती है।"
+  },
+  {
+   "beat_id": "b38",
+   "say": "Unlimited हर cash transaction की छूट नहीं। खास design circulation साबित नहीं करता; collector set अलग है। Valid coins की limit पार करना status खोना नहीं।"
+  },
+  {
+   "beat_id": "b39",
+   "say": "Recognition के बाद अगला सवाल denomination और total limit है: notes की ceiling नहीं, coins की तय है।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "recognition",
+   "kind": "icon",
+   "cell": [
+    0,
+    0,
+    2,
+    2
+   ],
+   "cue": [
+    "b35",
+    "recognised"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "fa:solid/landmark",
+   "label": "Government recognition",
+   "size": 32
+  },
+  {
+   "id": "money",
+   "kind": "icon",
+   "cell": [
+    1,
+    3,
+    2,
+    2
+   ],
+   "cue": [
+    "b35",
+    "money"
+   ],
+   "until_cue": [
+    "b36",
+    "Unlimited"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "fa:solid/money-bill-1",
+   "label": "Recognised money",
+   "size": 36
+  },
+  {
+   "id": "receipt",
+   "kind": "icon",
+   "cell": [
+    5,
+    3,
+    2,
+    2
+   ],
+   "cue": [
+    "b35",
+    "debts"
+   ],
+   "until_cue": [
+    "b36",
+    "Unlimited"
+   ],
+   "tone": "ink",
+   "align": "center",
+   "icon": "tw:1f9fe",
+   "label": "Debts",
+   "size": 36
+  },
+  {
+   "id": "settle",
+   "kind": "arrow",
+   "cue": [
+    "b35",
+    "चुकाता"
+   ],
+   "until_cue": [
+    "b36",
+    "Unlimited"
+   ],
+   "tone": "ok",
+   "from": "money",
+   "to": "receipt",
+   "from_side": "r",
+   "to_side": "l",
+   "elbow": "hv",
+   "flow": {
+    "icon": "fa:solid/money-bill-1",
+    "count": 2,
+    "period": 1600,
+    "size": 24,
+    "cue": [
+     "b35",
+     "चुकाता"
+    ]
+   }
+  },
+  {
+   "id": "commemorative",
+   "kind": "icon",
+   "cell": [
+    8,
+    2,
+    4,
+    2
+   ],
+   "cue": [
+    "b35",
+    "commemorative"
+   ],
+   "until_cue": [
+    "b36",
+    "Unlimited"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "tw:1fa99",
+   "label": "Circulation commemorative coins",
+   "size": 30
+  },
+  {
+   "id": "ordinary",
+   "kind": "icon",
+   "cell": [
+    8,
+    5,
+    4,
+    2
+   ],
+   "cue": [
+    "b35",
+    "ordinary"
+   ],
+   "until_cue": [
+    "b36",
+    "Unlimited"
+   ],
+   "tone": "ink",
+   "align": "center",
+   "icon": "tw:1fa99",
+   "label": "Ordinary coins",
+   "size": 30
+  },
+  {
+   "id": "notes",
+   "kind": "crowd",
+   "cell": [
+    0,
+    3,
+    5,
+    2
+   ],
+   "cue": [
+    "b36",
+    "Unlimited"
+   ],
+   "until_cue": [
+    "b38",
+    "Unlimited"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "fa:solid/money-bill-1",
+   "size": 36,
+   "cols": 4,
+   "steps": [
+    {
+     "cue": [
+      "b36",
+      "Unlimited"
+     ],
+     "n": 2
+    },
+    {
+     "cue": [
+      "b36",
+      "जोड़ते"
+     ],
+     "n": 5
+    },
+    {
+     "cue": [
+      "b36",
+      "ceiling"
+     ],
+     "n": 8
+    }
+   ]
+  },
+  {
+   "id": "notes_heading",
+   "kind": "text",
+   "cell": [
+    2,
+    0,
+    5,
+    1
+   ],
+   "cue": [
+    "b36",
+    "Unlimited"
+   ],
+   "until_cue": [
+    "b38",
+    "Unlimited"
+   ],
+   "text": "Unlimited Legal Tender",
+   "style": "tag",
+   "tone": "accent",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "valid",
+   "kind": "mark",
+   "cue": [
+    "b36",
+    "valid"
+   ],
+   "until_cue": [
+    "b38",
+    "Unlimited"
+   ],
+   "tone": "ok",
+   "target": "notes",
+   "mark": "tick",
+   "pos": "tr"
+  },
+  {
+   "id": "denominations",
+   "kind": "picture",
+   "cell": [
+    0,
+    5,
+    6,
+    2
+   ],
+   "cue": [
+    "b36",
+    "₹10,"
+   ],
+   "until_cue": [
+    "b38",
+    "Unlimited"
+   ],
+   "tone": "ink",
+   "size": 24,
+   "picture": {
+    "type": "gallery",
+    "title": "",
+    "item_id": "",
+    "panels": [
+     {
+      "cue": [
+       "b36",
+       "₹10,"
+      ],
+      "name": "₹10",
+      "icon": "fa:solid/money-bill-1",
+      "numbered": false
+     },
+     {
+      "cue": [
+       "b36",
+       "₹20,"
+      ],
+      "name": "₹20",
+      "icon": "fa:solid/money-bill-1",
+      "numbered": false
+     },
+     {
+      "cue": [
+       "b36",
+       "₹50,"
+      ],
+      "name": "₹50",
+      "icon": "fa:solid/money-bill-1",
+      "numbered": false
+     },
+     {
+      "cue": [
+       "b36",
+       "₹100,"
+      ],
+      "name": "₹100",
+      "icon": "fa:solid/money-bill-1",
+      "numbered": false
+     },
+     {
+      "cue": [
+       "b36",
+       "₹200,"
+      ],
+      "name": "₹200",
+      "icon": "fa:solid/money-bill-1",
+      "numbered": false
+     },
+     {
+      "cue": [
+       "b36",
+       "₹500"
+      ],
+      "name": "₹500",
+      "icon": "fa:solid/money-bill-1",
+      "numbered": false
+     }
+    ],
+    "arrows": false
+   }
+  },
+  {
+   "id": "rbi_law",
+   "kind": "icon",
+   "cell": [
+    2,
+    1,
+    4,
+    2
+   ],
+   "cue": [
+    "b36",
+    "1934"
+   ],
+   "until_cue": [
+    "b38",
+    "Unlimited"
+   ],
+   "tone": "ink",
+   "align": "center",
+   "icon": "tw:1f4dc",
+   "label": "Reserve Bank of India Act, 1934",
+   "size": 24
+  },
+  {
+   "id": "coin_meter",
+   "kind": "icon",
+   "cell": [
+    7,
+    3,
+    4,
+    2
+   ],
+   "cue": [
+    "b37",
+    "तय"
+   ],
+   "until_cue": [
+    "b38",
+    "Unlimited"
+   ],
+   "tone": "danger",
+   "align": "center",
+   "icon": "fa:solid/gauge-high",
+   "label": "तय amount तक",
+   "size": 36
+  },
+  {
+   "id": "required",
+   "kind": "mark",
+   "cue": [
+    "b37",
+    "ज़रूरी,"
+   ],
+   "until_cue": [
+    "b38",
+    "Unlimited"
+   ],
+   "tone": "ok",
+   "target": "coin_meter",
+   "mark": "tick",
+   "pos": "tr"
+  },
+  {
+   "id": "choice",
+   "kind": "icon",
+   "cell": [
+    7,
+    5,
+    4,
+    2
+   ],
+   "cue": [
+    "b37",
+    "मर्ज़ी"
+   ],
+   "until_cue": [
+    "b38",
+    "Unlimited"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "tw:1f500",
+   "label": "आगे मर्ज़ी है",
+   "size": 30
+  },
+  {
+   "id": "coin_law",
+   "kind": "icon",
+   "cell": [
+    7,
+    1,
+    5,
+    2
+   ],
+   "cue": [
+    "b37",
+    "2011"
+   ],
+   "until_cue": [
+    "b38",
+    "Unlimited"
+   ],
+   "tone": "ink",
+   "align": "center",
+   "icon": "tw:1f4dc",
+   "label": "Coinage Act, 2011",
+   "size": 28
+  },
+  {
+   "id": "stop",
+   "kind": "highlight",
+   "cue": [
+    "b37",
+    "रुकती"
+   ],
+   "until_cue": [
+    "b38",
+    "Unlimited"
+   ],
+   "style": "band",
+   "tone": "danger",
+   "target": "coin_meter"
+  },
+  {
+   "id": "unlimited_check",
+   "kind": "icon",
+   "cell": [
+    1,
+    3,
+    4,
+    3
+   ],
+   "cue": [
+    "b38",
+    "Unlimited"
+   ],
+   "until_cue": [
+    "b38",
+    "खास"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "fa:solid/money-bill-1",
+   "label": "Unlimited",
+   "size": 32
+  },
+  {
+   "id": "cash_permission",
+   "kind": "icon",
+   "cell": [
+    7,
+    3,
+    4,
+    3
+   ],
+   "cue": [
+    "b38",
+    "cash"
+   ],
+   "until_cue": [
+    "b38",
+    "खास"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "fa:solid/cash-register",
+   "label": "हर cash transaction की छूट",
+   "size": 28
+  },
+  {
+   "id": "reject_permission",
+   "kind": "mark",
+   "cue": [
+    "b38",
+    "नहीं।"
+   ],
+   "until_cue": [
+    "b38",
+    "खास"
+   ],
+   "tone": "danger",
+   "target": "cash_permission",
+   "mark": "cross",
+   "pos": "c"
+  },
+  {
+   "id": "design",
+   "kind": "icon",
+   "cell": [
+    1,
+    3,
+    4,
+    3
+   ],
+   "cue": [
+    "b38",
+    "design"
+   ],
+   "until_cue": [
+    "b38",
+    "Valid"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "tw:1fa99",
+   "label": "खास design",
+   "size": 32
+  },
+  {
+   "id": "circulation_claim",
+   "kind": "icon",
+   "cell": [
+    7,
+    2,
+    4,
+    2
+   ],
+   "cue": [
+    "b38",
+    "circulation"
+   ],
+   "until_cue": [
+    "b38",
+    "Valid"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "tw:1f501",
+   "label": "Circulation साबित",
+   "size": 28
+  },
+  {
+   "id": "reject_design_inference",
+   "kind": "mark",
+   "cue": [
+    "b38",
+    "करता;"
+   ],
+   "until_cue": [
+    "b38",
+    "Valid"
+   ],
+   "tone": "danger",
+   "target": "circulation_claim",
+   "mark": "cross",
+   "pos": "c"
+  },
+  {
+   "id": "collector",
+   "kind": "icon",
+   "cell": [
+    7,
+    5,
+    4,
+    2
+   ],
+   "cue": [
+    "b38",
+    "collector"
+   ],
+   "until_cue": [
+    "b38",
+    "Valid"
+   ],
+   "tone": "muted",
+   "align": "center",
+   "icon": "tw:1f4bc",
+   "label": "Collector set अलग है",
+   "size": 28
+  },
+  {
+   "id": "still_valid",
+   "kind": "icon",
+   "cell": [
+    1,
+    3,
+    4,
+    3
+   ],
+   "cue": [
+    "b38",
+    "Valid"
+   ],
+   "until_cue": [
+    "b39",
+    "Recognition"
+   ],
+   "tone": "ok",
+   "align": "center",
+   "icon": "tw:1fa99",
+   "label": "Valid coins",
+   "size": 32
+  },
+  {
+   "id": "crossed_limit",
+   "kind": "icon",
+   "cell": [
+    7,
+    3,
+    4,
+    3
+   ],
+   "cue": [
+    "b38",
+    "पार"
+   ],
+   "until_cue": [
+    "b39",
+    "Recognition"
+   ],
+   "tone": "danger",
+   "align": "center",
+   "icon": "fa:solid/gauge-high",
+   "label": "Limit पार",
+   "size": 32
+  },
+  {
+   "id": "preserve_validity",
+   "kind": "mark",
+   "cue": [
+    "b38",
+    "खोना"
+   ],
+   "until_cue": [
+    "b39",
+    "Recognition"
+   ],
+   "tone": "ok",
+   "target": "still_valid",
+   "mark": "tick",
+   "pos": "tr"
+  },
+  {
+   "id": "recognition_return",
+   "kind": "highlight",
+   "cue": [
+    "b39",
+    "Recognition"
+   ],
+   "style": "box",
+   "tone": "accent",
+   "target": "recognition"
+  },
+  {
+   "id": "next_check",
+   "kind": "text",
+   "cell": [
+    3,
+    0,
+    8,
+    2
+   ],
+   "cue": [
+    "b39",
+    "denomination"
+   ],
+   "text": "Denomination और total limit",
+   "style": "tag",
+   "tone": "accent",
+   "align": "center",
+   "size": 32
+  },
+  {
+   "id": "final_notes",
+   "kind": "icon",
+   "cell": [
+    1,
+    3,
+    4,
+    3
+   ],
+   "cue": [
+    "b39",
+    "notes"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "fa:solid/money-bill-1",
+   "label": "Notes की ceiling नहीं",
+   "size": 32
+  },
+  {
+   "id": "final_coins",
+   "kind": "icon",
+   "cell": [
+    7,
+    3,
+    4,
+    3
+   ],
+   "cue": [
+    "b39",
+    "coins"
+   ],
+   "tone": "danger",
+   "align": "center",
+   "icon": "fa:solid/gauge-high",
+   "label": "Coins की limit तय है",
+   "size": 32
+  }
+ ],
+ "camera": [
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    8
+   ],
+   "cue": [
+    "b35",
+    "Legal"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    7,
+    8
+   ],
+   "cue": [
+    "b36",
+    "Unlimited"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    8
+   ],
+   "cue": [
+    "b37",
+    "Limited"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    8
+   ],
+   "cue": [
+    "b38",
+    "Unlimited"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    8
+   ],
+   "cue": [
+    "b39",
+    "Recognition"
+   ]
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b35",
+    "commemorative"
+   ],
+   "ids": [
+    "recognition",
+    "commemorative",
+    "ordinary"
+   ],
+   "until_cue": [
+    "b36",
+    "Unlimited"
+   ]
+  },
+  {
+   "cue": [
+    "b36",
+    "Unlimited"
+   ],
+   "ids": [
+    "recognition",
+    "notes",
+    "notes_heading",
+    "valid",
+    "rbi_law"
+   ],
+   "until_cue": [
+    "b37",
+    "Limited"
+   ]
+  },
+  {
+   "cue": [
+    "b37",
+    "तय"
+   ],
+   "ids": [
+    "recognition",
+    "coin_meter",
+    "required",
+    "choice",
+    "coin_law",
+    "stop"
+   ],
+   "until_cue": [
+    "b38",
+    "Unlimited"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

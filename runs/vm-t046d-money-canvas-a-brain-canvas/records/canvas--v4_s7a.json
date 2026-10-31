@@ -1,0 +1,4492 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "canvas",
+ "unit": "v4_s7a",
+ "status": "failed",
+ "instructions_version": "canvas-plan/1",
+ "rulebook_version": "canvas_profile@2026-10-29.1+content_types@2026-10-27.1+explanations@2026-10-24.3+level_profiles@2026-10-24.1+simple_hindi@2026-10-28.1+teacher_examples@2026-10-29.1+vision-2026-10-21@2026-10-21.17+visual_grammar@2026-10-31.1+visual_levels@2026-10-26.2+visual_verbs@2026-10-31.1",
+ "rulebook_digest": "0271c5cb76262d9d2239ea932af7c8d8701ae3275cbd3e1d63053dfd8a6e35e8",
+ "rules_used": [
+  "CV-01",
+  "CV-02",
+  "CV-03",
+  "CV-04",
+  "CV-05",
+  "CV-06",
+  "CV-07",
+  "CV-08",
+  "CV-09",
+  "CV-10",
+  "CV-11",
+  "CV-12",
+  "CV-13",
+  "CV-14",
+  "CV-15",
+  "CV-16",
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-05",
+  "G-06",
+  "G-07",
+  "VG-02",
+  "VG-04",
+  "VG-07",
+  "VG-08",
+  "VG-10",
+  "D1-01",
+  "D1-02",
+  "D1-03",
+  "D1-04",
+  "D1-05",
+  "D1-06"
+ ],
+ "maker_route": "codex",
+ "reviewer_route": "codex-checker",
+ "maker_model": "gpt-6.1-sol",
+ "reviewer_model": "gpt-6.1-sol",
+ "reviewer_independence": "same_model_temporary",
+ "inputs_digest": "72bb368204bde0e4f22403bd5642b89b698fbee493820cca088458a81a09b10b",
+ "card": null,
+ "prefix_sha256": "80f36b86452e34780e6b4e10a81e4f840a721ce2c49bbf0a2e59e0627eeb5a45",
+ "review_prefix_sha256": null,
+ "inputs": {
+  "system": "You are BIE's canvas director for one part of a video lesson of Indian Economy for UPSC / State PCS aspirants (UPSC / State PCS). The script is\nalready written and passed; you do not change a word of it. You plan ONE build-up canvas for this part: what appears, in\nwhich grid cell, and on which spoken word. Code places, times and checks it; a refused plan comes back to you with the\nexact error, and you answer with the whole corrected plan.\n\nCourse: \"3. Money\" · learner language: Hinglish. Navin's level for this part: B (a build-up canvas with L3 touches (shadows, idle motion, walk-ins, flowing goods and money, a camera that follows)).\n\nNavin's rules for this section (follow every one):\n[CV-01] One canvas per idea: build it piece by piece instead of cutting to a new shot every sentence. Clear the canvas only when the idea changes; otherwise re-frame with a zoom or pan to the part being explained.\n[CV-02] Something on the canvas changes about every 5 s (one change per one or two spoken phrases).\n[CV-03] The picture never stays the same for more than 15 s (the references sometimes hold 40-80 s; BIE must not).\n[CV-04] A new element appears on its own word, while it is being said (about 40% into the phrase, never in the pause after).\n[CV-05] Numbers that change are struck out and replaced on screen (50 -> 65), with an up/down arrow, on the word of the new number.\n[CV-06] Many people/things are shown as a crowd that grows or shrinks with the story (2 buyers -> 12 -> 3).\n[CV-07] A running numeric example carries the concept (price 50 -> 65, GDP 10K -> 11K -> 12.1K at 10%).\n[CV-08] Return to the topic tree and tick the branch that is done before starting the next branch.\n[CV-09] One anchor diagram stays (a band, a tree, a rate card) while the part beside or below it changes.\n[CV-10] No overlap, nothing outside the safe area, captions strip kept clear, readable text (>= 24 px at 1080p), at most 16 elements on screen.\n[CV-11] No photos or caricatures of real people, no logos, emblems or regulator marks: use a name card, a generic icon or BIE's own presenter character.\n[CV-12] Light paper theme for build-up canvases (dark theme stays for 3D/science worlds); subtitles on a dark strip.\n[CV-13] On-screen text is a short COMPLETE phrase or sentence in the learner's language (Devanagari Hinglish with the English terms the script uses), one idea per board or box; never a code: no ✓ ✗ ≠, no list of bare words ('Exchange · Account / Store · Deferred'), no line that ends on → = : / (Navin, 29 October 2026: 'teacher ki naration uske sentence aise poore ho ki banawati na lage').\n[CV-14] Every on-screen text is explained: its key words are said in the narration of the beat it appears on (the cue beat), and every board step the director adds is spoken; a text the narration never says does not go on screen.\n[CV-15] A caveat ('imagined market', 'illustrative numbers') is shown once per part on its own small note, not on every board.\n[CV-16] Numbers on screen are written the way the narration says them: every number on a board, tag or box is said in its cue beat (₹500 on screen, '500 rupaye' in the narration), no counters the narration never mentions ('Payments: 0 → 2').\n[G-01] Everything taught comes from the book. Knowledge from outside the book is allowed only to explain the book better; it is marked as outside, standard textbook-level and correct. Never invent facts, numbers, names or quotations.\n[G-02] Work like the best teacher of these learners and this exam, not like a summariser. Depth beats brevity: nothing teachable on the page is skipped or compressed away, and every explanation makes a student understand, not just remember. Depth means understanding, not length: lesson narration keeps S2-01's time by cutting repetition and side-tracks, never book content.\n[G-03] Before the output, fill 'notes' with brief notes for the reviewer and for Navin: what this unit is about, the key questions a teacher must answer about it, the main decisions you made with a one-line reason each, and anything uncertain. Keep the notes short; they explain the work, they are not the work.\n[G-05] Never drop or compress away what the book teaches to fit a length. If a unit of work is too large, it is split by BIE into smaller units; within a unit, the book's content is complete. Lesson narration has a time target (S2-01), met by cutting repetition and side-tracks, never book content.\n[G-06] BIE is the link between the learner and the book, like a teacher (Navin, 24 October 2026). The book is the base; BIE carries its text, easy or hard, into the learner's mind. Never just read the line out: every book line is opened (what its words mean, why it is so, where it is seen, what follows), at the depth of the level profile.\n[G-07] Two layers, like a film (Navin, 24 October 2026). The writer layer (understanding, plan, script) decides what is said and how deep, following the level profile and the book's own level. The presentation layer (director, video blocks, render) is the same skilled quality for every learner, from class 6 to postgraduate; only the detail shown follows the level, never the craft.\n[VG-02] Labels are code text tied to their object by a leader line and move with it; a label is never baked into an image, so one asset works in every language.\n[VG-04] Size is taught by scale comparison with a thing the learner knows (one book = 1 MB; access time as a distance), never by a number alone.\n[VG-07] Two things are compared on a split screen (the split_compare block), the same slots on both sides.\n[VG-08] Processes show flow with moving arrows or particles (magma, water, concrete, ions, mucus), never a still diagram with static arrows.\n[VG-10] History and polity use a lit timeline with nodes; maps appear only through the licence gate's map rule (India's boundary waits for Navin's approval).\n[D1-01] Every beat shows at least one non-text thing tied to its nouns or its relation (an icon, a mark, an arrow, a crowd or value step, a table row, a picture event; in a world a prop, a person, a price or a crowd step), cued on a word of that beat. A beat that only adds text is refused.\n[D1-02] The screen never shows text alone for more than 10 seconds: while a beat is spoken, the thing it names is on screen (Navin, 30 October 2026: 'sirf text hi text screen par dikha to video ... ek book ban jaayegi').\n[D1-03] Screen text is a name or a short natural phrase (at most 8 words; a board 2 lines of 28 characters), never a sentence: the sentence lives in the narration and the subtitles. The picture shows the thing itself, so its label is understood without reading (page-2 principle).\n[D1-04] A book diagram or table the part covers is drawn as itself: a timeline with the book's years and labels, a table row by row, a panel of items as a gallery of icon cards, a flow as boxes and arrows. Code places it; the plan builds around it and never leaves it out.\n[D1-05] A world (C) is used only when the beats are the story of the concept's real-world example with actors at a place, and that place comes from the example itself, never from a keyword of the narration; the same world kit is never used in two consecutive parts.\n[D1-06] A caution, caveat or fact-check line ('illustrative numbers', 'imagined market', 'data not given', 'outside clarification') never appears on screen: it stays a background check in the records.\n\n# Director card: build-up canvas plans (for the AI director step)\n\nYou plan ONE canvas for ONE part of a passed script. You do not write narration and you do not place pixels: you say\nwhat appears, in which grid cell, and on which spoken word. Code (`econ_canvas.compile_plan`) places, times and checks\nit; a refused plan comes back to you with the exact error.\n\n## Input you get\n\n- `beats`: the part's spoken beats `[{beat_id, say}]` (Hinglish, Devanagari with English terms). Do not change them.\n- The chapter map items this part covers (terms, numbers, causes, examples).\n- The icon search tool: `icon_index.search(\"bank\")` → ids like `tw:1f3e6` (colour) or `fa:solid/building-columns` (line).\n\n## Output you give (JSON only)\n\n```json\n{\"id\": \"<part id>\", \"theme\": \"paper\", \"grid\": [12, 8], \"beats\": <as given>,\n \"nodes\": [ ...elements... ], \"focus\": [ ... ], \"camera\": [ ... ], \"graph\": { ...optional... }}\n```\n\nGrid: 12 columns × 8 rows inside the safe area. `cell` = `[col, row, width, height]`. Two elements may share cells\nonly if they are never on screen together (use `until_cue`). Reading order: left → right, top → bottom.\n\nEvery element has `cue`: `[beat_id, \"<a word exactly as written in that beat>\"]` — the element appears while that word\nis spoken. Use `[beat_id, \"\", 0.0]` for \"at the start of the beat\" only for titles.\n\n## Element vocabulary\n\n| kind | fields | use it for |\n| --- | --- | --- |\n| `text` | `text`, `style`: `plain` / `box` / `note` / `title` / `tag`, `size`, `tone`, `fill`, `align`, `marks` | definitions (box), side notes (note), headings (title), chips (tag) |\n| `callout` | like text (style `note`), `marks: [{phrase, cue}]` | the one sentence to remember; its key phrase lights up when said |\n| `icon` | `icon` (id from the index), `label` | objects and actors: shop, factory, bank, RBI (use a bank / classical building icon), people, money, goods |\n| `crowd` | `icon`, `steps: [{n, cue}]`, `cols` | many buyers / workers / firms; the number grows or shrinks with the story |\n| `value` | `steps: [{text, cue, dir}]`, `size`, `align` | a number that changes: the old value is struck out, the new one appears with ▲/▼ |\n| `arrow` | `from`, `to` (element ids), `from_side`/`to_side` (`l r t b`), `label`, `elbow` (`hv`, `vh`, `vhv`), `curve`, `dashed`, `tone` | cause → effect, flow of goods / money, sequence |\n| `tree` | `root`, `children: [text or {text, cue}]`, `cell`, `size` | a concept and its types (Inflation → WPI / CPI) |\n| `table` | `columns`, `rows: [{cells, cue}]`, `highlights: [{row?, col?, cue, until_cue?, tone}]` | year-by-year numbers, comparisons |\n| `mark` | `mark`: `tick` / `cross`, `target`, `pos`: `c` / `tr` | right / wrong, done, rejected |\n| `highlight` | `target`, `style`: `box` / `dashed` / `band`, `tone` | \"look here\" on what is being explained |\n| `picture` | `cell`, `picture`: `{type: timeline / gallery / flow, title, items: [{when, name, icon, cue}], arrows}` | a row of things you draw yourself: dates on a timeline (`when` = the date as said), a numbered row of things (gallery), steps joined by arrows (flow); each item appears on its own cue |\n\n`focus: [{cue, until_cue?, ids: [...]}]` dims everything else. `camera: [{cells: [...], cue}]` zooms to a region\n(use it when the canvas is dense or to re-frame for the next sub-idea). `graph` = a `curve_story` (axes, curves as\npoints, a dot that walks to named x values, guides like NAIRU, shaded bands, notes) for any economic curve.\n\nTones: `ink`, `muted`, `accent` (blue), `warm` (orange), `danger` (red), `ok` (green), `tag` (pink), `note`, `band`.\n\n## Dikhane ki soch (Navin, 30 October 2026: \"jo bola ja rha hai screen ke visuals se wo baat clear ho\")\n\nBefore you plan, BIE has thought about every beat: its idea, its relation (reject, accept, compulsory, limit, sequence,\ncompare, …) and the things it names; the part message lists them with the icons BIE found for each thing. Draw THAT:\n\n- Every beat shows at least one thing that is not text (an icon, a mark, an arrow, a crowd or value step, a table row, a\n  picture item), cued on a word of that beat (D1-01). A screen of text alone for more than 10 s is refused (D1-02): a video\n  that is only text is a book.\n- Show the relation the way BIE's visual verbs say: a cross on the thing refused, a tick on the thing accepted, a law scroll\n  and stamp for \"compulsory\", a meter with a red line for a limit, a numbered row or a timeline for a sequence, an arrow chain\n  for cause → effect, a split or a scale for a comparison, before/after for a change, a receipt or a handshake for a promise.\n- The picture shows the thing itself, so its label is understood without reading (the book's page 2): screen text is a\n  name or a short phrase of at most 8 words, never a sentence; the sentence is the narration and the subtitles (D1-03).\n- When the part message says BIE has placed the book's own picture (a timeline, a table, a gallery of the book's panels, a\n  flow), keep it: never redraw it, never reuse its cells or its id, and build your elements in the rows below it (D1-04).\n- Never put a caution or fact-check line on screen (\"illustrative numbers\", \"imagined market\", \"data not given\",\n  \"outside clarification\"): those are BIE's background checks (D1-06).\n\n## Rules (from 20 reference videos, rules/econ_canvas_rules.json)\n\n1. One canvas per idea; build it piece by piece. Re-frame with `camera` instead of starting a new canvas.\n2. Something changes about every 5 s; never let the picture stay still more than 15 s (the code refuses it).\n3. Each element appears on ITS word, while it is said.\n4. Carry the idea with a running example with numbers (price 50 → 65; GDP 10,000 → 11,000 → 12,100); show changes\n   with `value` steps, crowds with `crowd` steps.\n5. A tree/branch overview first, then tick the branch that is done before the next.\n6. Keep one anchor (a tree, a band, a rate card) while the rest changes.\n7. On-screen text (CV-13 to CV-16, Navin's verdict on Money v1, 29 October 2026): a box holds ONE idea as a short COMPLETE\n   phrase or sentence in the learner's language (Devanagari Hinglish with the English terms the script uses), at most ~12\n   words; never a code: no ✓ ✗ ≠, no list of bare words (\"Exchange · Account / Store · Deferred\"), no line ending on → = : /;\n   every text is explained: its key words and every number are said in the narration of its cue beat (the code refuses a\n   text the beat does not say, and a number the beat does not say); a caveat (\"imagined market\") once per part on its own\n   small note. The narration says the rest.\n8. Never a photo or caricature of a real person, never a logo, emblem or regulator mark: a name tag or a generic icon.\n9. Tags must fit on one line in their cell; text must fit at ≥ 24 px (the code refuses otherwise: make the cell bigger\n   or the text shorter).\n10. A part longer than about 10 beats (real BIE plans have parts of 19 beats) becomes two or three canvases, or one\n    canvas re-framed by `camera` keys; at most 16 elements are on screen at once (the code refuses more).\n\nIcons you may use (id · name): the ones listed under the part for its nouns, and these; any other id is refused:\n- tw:274c · cross mark\n- tw:2705 · white heavy check mark\n- tw:1f4dc · scroll\n- fa:solid/stamp · Stamp\n- fa:solid/gavel · Gavel\n- fa:solid/gauge-high · Gauge High\n- tw:2696 · scales\n- tw:1f5fa · world map\n- tw:1f9fe · receipt\n- tw:1f91d · handshake\n- tw:2753 · black question mark ornament\n\nHow to fill the JSON (every field is present; \"\" / 0 / [] / false mean \"not used\"):\n- notes: brief notes for the record: the idea of this canvas, the running example with numbers, what is uncertain.\n- nodes: the elements, in the order they appear. id (unique), kind, cell [col, row, width, height] on the 12 x 8 grid\n  (arrows, marks and highlights have no cell), cue [beat_id, word] with the word exactly as written in that beat (or\n  [beat_id, \"\"] for the start of the beat, cue_fraction 0..1 moves it into the beat). until_cue when the element leaves.\n  value/crowd use steps (text or n, with cue each; dir \"up\"/\"down\" on a value step). tree: root + children (text, cue).\n  table: columns + rows (cells, cue) + highlights (row or col, -1 when not used). callout/text: marks (phrase, cue).\n  arrow: from, to (+ from_side/to_side l r t b, elbow hv/vh/vhv). mark: mark tick/cross + target + pos c/tr.\n  highlight: target + style box/dashed/band. flow on an arrow (icon, count, period, size, reverse, cue) makes goods or\n  money travel along it.\n- camera: zoom to a region of cells on a cue (use it to re-frame instead of a new canvas). focus: dim everything but ids.\n- graph_used true + graph for an economic curve (axes, curves as [x, y] points, a dot that walks to x values, guides,\n  shades, notes); plot is the graph's box as fractions of the canvas.\nReply with the JSON object only.",
+  "user": "Chapter: 3. Money. Part c11.2 (3 beats).\nDikhane ki soch for this part (the visual-idea step; every beat shows its thing on its word, D1-01):\n- b40: Legal tender need not always be fiat · relation reject · shows: Crossed must badge; Bitcoin beside legal-tender scroll · on 'गलत'\n- b41: Commemorative coins have differing payment status · relation part_whole · shows: Fiat coin group: mostly ticks, some crosses · on 'Commemorative'\n- b42: Preserving collector condition discourages daily spending · relation cause_effect · shows: Mint → cased sets → preservation → sparse shop payments · on 'Government'\nIcons found for the things named (id · name); you may also use any id from the general menu below:\n- law scroll: tw:1f4dc (scroll); fa:solid/gavel (Gavel); fa:solid/scroll (Scroll)\n- fiat banknote: fa:solid/money-bill-1 (Money Bill 1); tw:1f4b5 (banknote with dollar sign); tw:1f4b4 (banknote with yen sign)\n- Bitcoin symbol: tw:1f1e6-1f1e8 (regional indicator symbol letter a + regional indicator symbol letter c); tw:1f1e6-1f1e9 (regional indicator symbol letter a + regional indicator symbol letter d); tw:1f1e6-1f1ea (regional indicator symbol letter a + regional indicator symbol letter e)\n- universal must badge: tw:1f4db (name badge); tw:267b (black universal recycling symbol); fa:solid/id-badge (Id Badge)\n- commemorative coins: tw:1fa99 (coin); fa:solid/coins (Coins); fa:solid/monument (Monument)\n- fiat issue box: fa:solid/money-bill-1 (Money Bill 1); tw:1f4e6 (package); fa:solid/box-tissue (Box Tissue)\n- legal tender tick: tw:2705 (white heavy check mark); fa:solid/legal (legal); tw:1f39f (admission tickets)\n- legal tender cross: tw:274c (cross mark); tw:274e (negative squared cross mark); fa:solid/legal (legal)\n- metal ingot: fa:solid/magnet (Magnet)\n- collector display case: fa:solid/display (Display); tw:1f468-200d-1f4bc (man + briefcase); tw:1f469-200d-1f4bc (woman + briefcase)\n- Government Mint building: fa:solid/landmark (Landmark); tw:1f3ed (factory); fa:solid/coins (Coins)\n- proof coin set: tw:1fa99 (coin); fa:solid/kitchen-set (Kitchen Set); tw:1f307 (sunset over buildings)\n- UNC coin set: tw:1fa99 (coin); fa:solid/kitchen-set (Kitchen Set); tw:1f307 (sunset over buildings)\n- protective coin case: tw:1fa99 (coin); tw:1f468-200d-1f4bc (man + briefcase); tw:1f469-200d-1f4bc (woman + briefcase)\n- shop payment counter: tw:1f3ea (convenience store); fa:solid/shop-lock (Shop Lock); fa:solid/shop-slash (Shop Slash)\n\nThe part (JSON):\n{\"part\": {\"id\": \"v4_s7a\", \"part_id\": \"c11.2\", \"mode\": \"B\", \"place\": \"\", \"story\": false}, \"beats\": [{\"beat_id\": \"b40\", \"say\": \"क्या हर legal tender fiat ही होगा? सामान्य जोड़ ऐसा है, लेकिन universal ‘must’ गलत होगा; Bitcoin exception इसे तोड़ता है।\"}, {\"beat_id\": \"b41\", \"say\": \"हर याद वाला coin payment में चलेगा? Commemorative coins fiat issues हैं; अधिकांश legal tender हैं, सभी नहीं। Metal और collector value भी अलग हैं।\"}, {\"beat_id\": \"b42\", \"say\": \"Pack वाला coin खर्च क्यों नहीं होता? Government Mint collector commemorative coins proof या UNC sets में बेचती है। Proof खास finish, UNC यानी Uncirculated; condition बचाने के लिए daily payments कम होते हैं।\"}], \"items\": [{\"item_id\": \"p004-i23\", \"content_type\": \"facts_numbers\", \"content\": \"It must be Fiat Money.\"}, {\"item_id\": \"p004-i26\", \"content_type\": \"facts_numbers\", \"content\": \"Commemorative Coins = Fiat money yes but may or may not be legal tender (Most of them are).\"}, {\"item_id\": \"p005-i1\", \"content_type\": \"facts_numbers\", \"content\": \"Collector commemorative coins: Sold in proof or UNC sets by the Government Mint and rarely used in everyday transactions.\"}], \"on_screen_hints\": [\"Fiat: value basis; legal tender: legal status\", \"Commemorative purpose ≠ automatic legal-tender status; check issue conditions; metal and collector value remain separate\", \"Government Mint collector sets: proof finish / uncirculated condition → preservation\"], \"ideas\": [{\"beat_id\": \"b40\", \"idea\": \"Legal tender need not always be fiat\", \"relation\": \"reject\", \"things\": [\"law scroll\", \"fiat banknote\", \"Bitcoin symbol\", \"universal must badge\"], \"people\": [], \"places\": [], \"shows\": \"Crossed must badge; Bitcoin beside legal-tender scroll\", \"on_word\": \"गलत\"}, {\"beat_id\": \"b41\", \"idea\": \"Commemorative coins have differing payment status\", \"relation\": \"part_whole\", \"things\": [\"commemorative coins\", \"fiat issue box\", \"legal tender tick\", \"legal tender cross\", \"metal ingot\", \"collector display case\"], \"people\": [], \"places\": [], \"shows\": \"Fiat coin group: mostly ticks, some crosses\", \"on_word\": \"Commemorative\"}, {\"beat_id\": \"b42\", \"idea\": \"Preserving collector condition discourages daily spending\", \"relation\": \"cause_effect\", \"things\": [\"Government Mint building\", \"proof coin set\", \"UNC coin set\", \"protective coin case\", \"shop payment counter\"], \"people\": [\"collector\"], \"places\": [], \"shows\": \"Mint → cased sets → preservation → sparse shop payments\", \"on_word\": \"Government\"}], \"picture\": []}\n\nReply with the plan JSON."
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "started_at": 1793465303.2667212,
+   "mode": "full",
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "8b73f9986ec5bed8965194f0bbaaedc8fd33ebf89189824e95c804ef73b89f19",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 10410,
+    "output_tokens": 7252,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "यह canvas fiat और legal-tender status का फर्क, commemorative coins की payment status और collector sets के कम circulation को खोलता है।",
+    "key_questions": [
+     "क्या legal tender का fiat होना universal rule है?",
+     "क्या हर commemorative coin payment में चलता है?",
+     "Collector sets daily payments में कम क्यों आते हैं?"
+    ],
+    "decisions": [
+     {
+      "decision": "Legal-tender scroll को स्थायी anchor रखा है।",
+      "reason": "तीनों beats में payment status से संबंध बना रहता है।"
+     },
+     {
+      "decision": "Coin समूह पर अधिकांश acceptance और एक rejection दिखाया है।",
+      "reason": "यह qualitative grouping है, कोई वास्तविक अनुपात या numeric example नहीं।"
+     },
+     {
+      "decision": "Government Mint से sets और preservation तक animated flow रखा है।",
+      "reason": "Condition बचाने और कम spending का कारण दृश्य में खुलता है।"
+     },
+     {
+      "decision": "Bitcoin के लिए generic name card इस्तेमाल किया है।",
+      "reason": "दिए गए Bitcoin icon विकल्प वास्तविक Bitcoin symbols नहीं हैं।"
+     }
+    ],
+    "uncertain": [
+     "Bitcoin exception का jurisdiction और समय narration में नहीं दिया गया है; canvas कोई वर्तमान सार्वभौमिक legal status नहीं जोड़ता।"
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "यह canvas fiat और legal-tender status का फर्क, commemorative coins की payment status और collector sets के कम circulation को खोलता है।",
+     "key_questions": [
+      "क्या legal tender का fiat होना universal rule है?",
+      "क्या हर commemorative coin payment में चलता है?",
+      "Collector sets daily payments में कम क्यों आते हैं?"
+     ],
+     "decisions": [
+      {
+       "decision": "Legal-tender scroll को स्थायी anchor रखा है।",
+       "reason": "तीनों beats में payment status से संबंध बना रहता है।"
+      },
+      {
+       "decision": "Coin समूह पर अधिकांश acceptance और एक rejection दिखाया है।",
+       "reason": "यह qualitative grouping है, कोई वास्तविक अनुपात या numeric example नहीं।"
+      },
+      {
+       "decision": "Government Mint से sets और preservation तक animated flow रखा है।",
+       "reason": "Condition बचाने और कम spending का कारण दृश्य में खुलता है।"
+      },
+      {
+       "decision": "Bitcoin के लिए generic name card इस्तेमाल किया है।",
+       "reason": "दिए गए Bitcoin icon विकल्प वास्तविक Bitcoin symbols नहीं हैं।"
+      }
+     ],
+     "uncertain": [
+      "Bitcoin exception का jurisdiction और समय narration में नहीं दिया गया है; canvas कोई वर्तमान सार्वभौमिक legal status नहीं जोड़ता।"
+     ]
+    },
+    "nodes": [
+     {
+      "id": "legal_anchor",
+      "kind": "icon",
+      "cell": [
+       0,
+       0,
+       3,
+       2
+      ],
+      "cue": [
+       "b40",
+       "legal"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 28,
+      "tone": "accent",
+      "fill": "",
+      "align": "center",
+      "icon": "tw:1f4dc",
+      "label": "legal tender",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      }
+     },
+     {
+      "id": "fiat_note",
+      "kind": "icon",
+      "cell": [
+       4,
+       2,
+       3,
+       2
+      ],
+      "cue": [
+       "b40",
+       "fiat"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [
+       "b41",
+       "Commemorative"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 28,
+      "tone": "ink",
+      "fill": "",
+      "align": "center",
+      "icon": "fa:solid/money-bill-1",
+      "label": "fiat",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      }
+     },
+     {
+      "id": "must",
+      "kind": "icon",
+      "cell": [
+       8,
+       2,
+       3,
+       2
+      ],
+      "cue": [
+       "b40",
+       "universal"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [
+       "b41",
+       "Commemorative"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 28,
+      "tone": "warm",
+      "fill": "",
+      "align": "center",
+      "icon": "fa:solid/id-badge",
+      "label": "universal ‘must’",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      }
+     },
+     {
+      "id": "reject_must",
+      "kind": "mark",
+      "cell": [],
+      "cue": [
+       "b40",
+       "गलत"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [
+       "b41",
+       "Commemorative"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 0,
+      "tone": "danger",
+      "fill": "",
+      "align": "",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "must",
+      "mark": "cross",
+      "pos": "c",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      }
+     },
+     {
+      "id": "bitcoin",
+      "kind": "icon",
+      "cell": [
+       3,
+       0,
+       3,
+       2
+      ],
+      "cue": [
+       "b40",
+       "Bitcoin"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [
+       "b41",
+       "Commemorative"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 28,
+      "tone": "warm",
+      "fill": "",
+      "align": "center",
+      "icon": "fa:solid/id-badge",
+      "label": "Bitcoin exception",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      }
+     },
+     {
+      "id": "coin_question",
+      "kind": "icon",
+      "cell": [
+       0,
+       3,
+       2,
+       2
+      ],
+      "cue": [
+       "b41",
+       "coin"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [
+       "b42",
+       "Pack"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 28,
+      "tone": "warm",
+      "fill": "",
+      "align": "center",
+      "icon": "tw:1fa99",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      }
+     },
+     {
+      "id": "commemorative",
+      "kind": "picture",
+      "cell": [
+       3,
+       2,
+       8,
+       3
+      ],
+      "cue": [
+       "b41",
+       "Commemorative"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [
+       "b42",
+       "Pack"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 28,
+      "tone": "ink",
+      "fill": "",
+      "align": "",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "gallery",
+       "title": "Commemorative coins",
+       "items": [
+        {
+         "when": "",
+         "name": "",
+         "icon": "tw:1fa99",
+         "cue": [
+          "b41",
+          "Commemorative"
+         ]
+        },
+        {
+         "when": "",
+         "name": "",
+         "icon": "tw:1fa99",
+         "cue": [
+          "b41",
+          "Commemorative"
+         ]
+        },
+        {
+         "when": "",
+         "name": "",
+         "icon": "tw:1fa99",
+         "cue": [
+          "b41",
+          "Commemorative"
+         ]
+        }
+       ],
+       "arrows": false
+      }
+     },
+     {
+      "id": "fiat_issue",
+      "kind": "icon",
+      "cell": [
+       3,
+       0,
+       3,
+       2
+      ],
+      "cue": [
+       "b41",
+       "fiat"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [
+       "b42",
+       "Pack"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 28,
+      "tone": "accent",
+      "fill": "",
+      "align": "center",
+      "icon": "tw:1f4e6",
+      "label": "fiat issues",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      }
+     },
+     {
+      "id": "status",
+      "kind": "picture",
+      "cell": [
+       3,
+       5,
+       8,
+       1
+      ],
+      "cue": [
+       "b41",
+       "अधिकांश"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [
+       "b42",
+       "Pack"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 26,
+      "tone": "ink",
+      "fill": "",
+      "align": "",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "gallery",
+       "title": "",
+       "items": [
+        {
+         "when": "",
+         "name": "",
+         "icon": "tw:2705",
+         "cue": [
+          "b41",
+          "अधिकांश"
+         ]
+        },
+        {
+         "when": "",
+         "name": "",
+         "icon": "tw:2705",
+         "cue": [
+          "b41",
+          "अधिकांश"
+         ]
+        },
+        {
+         "when": "",
+         "name": "",
+         "icon": "tw:274c",
+         "cue": [
+          "b41",
+          "नहीं।"
+         ]
+        }
+       ],
+       "arrows": false
+      }
+     },
+     {
+      "id": "values",
+      "kind": "picture",
+      "cell": [
+       3,
+       6,
+       8,
+       2
+      ],
+      "cue": [
+       "b41",
+       "Metal"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [
+       "b42",
+       "Pack"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 26,
+      "tone": "muted",
+      "fill": "",
+      "align": "",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "gallery",
+       "title": "",
+       "items": [
+        {
+         "when": "",
+         "name": "Metal value",
+         "icon": "fa:solid/magnet",
+         "cue": [
+          "b41",
+          "Metal"
+         ]
+        },
+        {
+         "when": "",
+         "name": "collector value",
+         "icon": "fa:solid/display",
+         "cue": [
+          "b41",
+          "collector"
+         ]
+        }
+       ],
+       "arrows": false
+      }
+     },
+     {
+      "id": "pack",
+      "kind": "icon",
+      "cell": [
+       3,
+       0,
+       3,
+       2
+      ],
+      "cue": [
+       "b42",
+       "Pack"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 28,
+      "tone": "warm",
+      "fill": "",
+      "align": "center",
+      "icon": "tw:1f4e6",
+      "label": "Pack वाला coin",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      }
+     },
+     {
+      "id": "mint",
+      "kind": "icon",
+      "cell": [
+       0,
+       3,
+       3,
+       2
+      ],
+      "cue": [
+       "b42",
+       "Government"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 28,
+      "tone": "accent",
+      "fill": "",
+      "align": "center",
+      "icon": "fa:solid/landmark",
+      "label": "Government Mint",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      }
+     },
+     {
+      "id": "sets",
+      "kind": "picture",
+      "cell": [
+       4,
+       2,
+       4,
+       3
+      ],
+      "cue": [
+       "b42",
+       "proof"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 26,
+      "tone": "warm",
+      "fill": "",
+      "align": "",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "gallery",
+       "title": "",
+       "items": [
+        {
+         "when": "",
+         "name": "proof",
+         "icon": "tw:1fa99",
+         "cue": [
+          "b42",
+          "proof"
+         ]
+        },
+        {
+         "when": "",
+         "name": "UNC sets",
+         "icon": "tw:1fa99",
+         "cue": [
+          "b42",
+          "UNC"
+         ]
+        }
+       ],
+       "arrows": false
+      }
+     },
+     {
+      "id": "mint_sale",
+      "kind": "arrow",
+      "cell": [],
+      "cue": [
+       "b42",
+       "बेचती"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 0,
+      "tone": "accent",
+      "fill": "",
+      "align": "",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "mint",
+      "to": "sets",
+      "from_side": "r",
+      "to_side": "l",
+      "elbow": "hv",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "tw:1fa99",
+       "count": 2,
+       "period": 2200,
+       "size": 24,
+       "reverse": false,
+       "cue": [
+        "b42",
+        "बेचती"
+       ]
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      }
+     },
+     {
+      "id": "proof_finish",
+      "kind": "highlight",
+      "cell": [],
+      "cue": [
+       "b42",
+       "finish,"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [
+       "b42",
+       "condition"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "band",
+      "size": 0,
+      "tone": "warm",
+      "fill": "",
+      "align": "",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "sets",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      }
+     },
+     {
+      "id": "unc_explanation",
+      "kind": "text",
+      "cell": [
+       4,
+       5,
+       4,
+       1
+      ],
+      "cue": [
+       "b42",
+       "Uncirculated;"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [],
+      "until_fraction": 0,
+      "text": "UNC यानी Uncirculated",
+      "style": "tag",
+      "size": 26,
+      "tone": "accent",
+      "fill": "",
+      "align": "center",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      }
+     },
+     {
+      "id": "preservation",
+      "kind": "icon",
+      "cell": [
+       9,
+       2,
+       3,
+       2
+      ],
+      "cue": [
+       "b42",
+       "condition"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 26,
+      "tone": "ok",
+      "fill": "",
+      "align": "center",
+      "icon": "fa:solid/display",
+      "label": "condition बचाने के लिए",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      }
+     },
+     {
+      "id": "preserve_flow",
+      "kind": "arrow",
+      "cell": [],
+      "cue": [
+       "b42",
+       "बचाने"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 0,
+      "tone": "ok",
+      "fill": "",
+      "align": "",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "sets",
+      "to": "preservation",
+      "from_side": "r",
+      "to_side": "l",
+      "elbow": "hv",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "tw:1fa99",
+       "count": 1,
+       "period": 2600,
+       "size": 24,
+       "reverse": false,
+       "cue": [
+        "b42",
+        "बचाने"
+       ]
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      }
+     },
+     {
+      "id": "shop",
+      "kind": "icon",
+      "cell": [
+       9,
+       5,
+       3,
+       2
+      ],
+      "cue": [
+       "b42",
+       "daily"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 26,
+      "tone": "muted",
+      "fill": "",
+      "align": "center",
+      "icon": "tw:1f3ea",
+      "label": "daily payments कम",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      }
+     },
+     {
+      "id": "rare_payment",
+      "kind": "arrow",
+      "cell": [],
+      "cue": [
+       "b42",
+       "कम"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 0,
+      "tone": "muted",
+      "fill": "",
+      "align": "",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "preservation",
+      "to": "shop",
+      "from_side": "b",
+      "to_side": "t",
+      "elbow": "vh",
+      "dashed": true,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "tw:1fa99",
+       "count": 1,
+       "period": 6000,
+       "size": 24,
+       "reverse": false,
+       "cue": [
+        "b42",
+        "कम"
+       ]
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      }
+     }
+    ],
+    "camera": [
+     {
+      "cells": [
+       0,
+       0,
+       12,
+       8
+      ],
+      "cue": [
+       "b40",
+       "legal"
+      ]
+     },
+     {
+      "cells": [
+       0,
+       0,
+       12,
+       8
+      ],
+      "cue": [
+       "b41",
+       "Commemorative"
+      ]
+     },
+     {
+      "cells": [
+       0,
+       0,
+       12,
+       8
+      ],
+      "cue": [
+       "b42",
+       "Government"
+      ]
+     }
+    ],
+    "focus": [
+     {
+      "cue": [
+       "b40",
+       "गलत"
+      ],
+      "until_cue": [
+       "b40",
+       "Bitcoin"
+      ],
+      "ids": [
+       "must",
+       "reject_must"
+      ]
+     },
+     {
+      "cue": [
+       "b40",
+       "Bitcoin"
+      ],
+      "until_cue": [
+       "b41",
+       "coin"
+      ],
+      "ids": [
+       "legal_anchor",
+       "bitcoin",
+       "must",
+       "reject_must"
+      ]
+     },
+     {
+      "cue": [
+       "b41",
+       "अधिकांश"
+      ],
+      "until_cue": [
+       "b41",
+       "Metal"
+      ],
+      "ids": [
+       "legal_anchor",
+       "commemorative",
+       "fiat_issue",
+       "status"
+      ]
+     },
+     {
+      "cue": [
+       "b42",
+       "condition"
+      ],
+      "until_cue": [],
+      "ids": [
+       "sets",
+       "preservation",
+       "preserve_flow",
+       "shop",
+       "rare_payment"
+      ]
+     }
+    ],
+    "graph_used": false,
+    "graph": {
+     "plot": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+     },
+     "x_label": "",
+     "y_label": "",
+     "x_domain": [],
+     "y_domain": [],
+     "axes_cue": [],
+     "curves": [],
+     "dots": [],
+     "shades": [],
+     "guides": [],
+     "notes": []
+    }
+   },
+   "code_problems": [
+    "[code] mint_sale refers to a missing element 'sets'"
+   ],
+   "passed": false,
+   "finished_at": 1793465394.965219
+  },
+  {
+   "round": 2,
+   "started_at": 1793465394.96539,
+   "mode": "full",
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "61a0c575c6c37f5b15cf4b78cbe6ef96c42af4e56853ab4ca6a08389adc4e261",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 14591,
+    "output_tokens": 7021,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "यह canvas legal tender और fiat के संबंध, commemorative coins के payment status और collector sets के कम इस्तेमाल को समझाता है।",
+    "key_questions": [
+     "क्या हर legal tender का fiat होना जरूरी है?",
+     "क्या सभी commemorative coins payment में चलते हैं?",
+     "Collector sets daily payments में कम क्यों आते हैं?"
+    ],
+    "decisions": [
+     {
+      "decision": "sets को picture की जगह सीधे addressable icon बनाया है।",
+      "reason": "mint_sale और preserve_flow को अब मौजूद endpoint मिलता है; proof और UNC के अलग cues बनाए रखे हैं।"
+     },
+     {
+      "decision": "Legal-tender scroll स्थायी anchor है।",
+      "reason": "तीनों beats में payment status का संबंध बना रहता है।"
+     },
+     {
+      "decision": "Acceptance और rejection का समूह qualitative रखा है।",
+      "reason": "Narration कोई numeric ratio नहीं देती।"
+     },
+     {
+      "decision": "Bitcoin को generic name badge से दिखाया है।",
+      "reason": "दिए गए regional-indicator icons वास्तविक Bitcoin symbols नहीं हैं।"
+     }
+    ],
+    "uncertain": [
+     "Bitcoin exception का jurisdiction और समय narration में नहीं दिया गया है; कोई वर्तमान सार्वभौमिक legal status नहीं जोड़ा गया है।"
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "यह canvas legal tender और fiat के संबंध, commemorative coins के payment status और collector sets के कम इस्तेमाल को समझाता है।",
+     "key_questions": [
+      "क्या हर legal tender का fiat होना जरूरी है?",
+      "क्या सभी commemorative coins payment में चलते हैं?",
+      "Collector sets daily payments में कम क्यों आते हैं?"
+     ],
+     "decisions": [
+      {
+       "decision": "sets को picture की जगह सीधे addressable icon बनाया है।",
+       "reason": "mint_sale और preserve_flow को अब मौजूद endpoint मिलता है; proof और UNC के अलग cues बनाए रखे हैं।"
+      },
+      {
+       "decision": "Legal-tender scroll स्थायी anchor है।",
+       "reason": "तीनों beats में payment status का संबंध बना रहता है।"
+      },
+      {
+       "decision": "Acceptance और rejection का समूह qualitative रखा है।",
+       "reason": "Narration कोई numeric ratio नहीं देती।"
+      },
+      {
+       "decision": "Bitcoin को generic name badge से दिखाया है।",
+       "reason": "दिए गए regional-indicator icons वास्तविक Bitcoin symbols नहीं हैं।"
+      }
+     ],
+     "uncertain": [
+      "Bitcoin exception का jurisdiction और समय narration में नहीं दिया गया है; कोई वर्तमान सार्वभौमिक legal status नहीं जोड़ा गया है।"
+     ]
+    },
+    "nodes": [
+     {
+      "id": "legal_anchor",
+      "kind": "icon",
+      "cell": [
+       0,
+       0,
+       3,
+       2
+      ],
+      "cue": [
+       "b40",
+       "legal"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 28,
+      "tone": "accent",
+      "fill": "",
+      "align": "center",
+      "icon": "tw:1f4dc",
+      "label": "legal tender",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      }
+     },
+     {
+      "id": "fiat_note",
+      "kind": "icon",
+      "cell": [
+       4,
+       2,
+       3,
+       2
+      ],
+      "cue": [
+       "b40",
+       "fiat"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [
+       "b41",
+       "Commemorative"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 28,
+      "tone": "ink",
+      "fill": "",
+      "align": "center",
+      "icon": "fa:solid/money-bill-1",
+      "label": "fiat",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      }
+     },
+     {
+      "id": "must",
+      "kind": "icon",
+      "cell": [
+       8,
+       2,
+       3,
+       2
+      ],
+      "cue": [
+       "b40",
+       "universal"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [
+       "b41",
+       "Commemorative"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 28,
+      "tone": "warm",
+      "fill": "",
+      "align": "center",
+      "icon": "fa:solid/id-badge",
+      "label": "universal ‘must’",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      }
+     },
+     {
+      "id": "reject_must",
+      "kind": "mark",
+      "cell": [],
+      "cue": [
+       "b40",
+       "गलत"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [
+       "b41",
+       "Commemorative"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 0,
+      "tone": "danger",
+      "fill": "",
+      "align": "",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "must",
+      "mark": "cross",
+      "pos": "c",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      }
+     },
+     {
+      "id": "bitcoin",
+      "kind": "icon",
+      "cell": [
+       3,
+       0,
+       3,
+       2
+      ],
+      "cue": [
+       "b40",
+       "Bitcoin"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [
+       "b41",
+       "Commemorative"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 28,
+      "tone": "warm",
+      "fill": "",
+      "align": "center",
+      "icon": "fa:solid/id-badge",
+      "label": "Bitcoin exception",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      }
+     },
+     {
+      "id": "coin_question",
+      "kind": "icon",
+      "cell": [
+       0,
+       3,
+       2,
+       2
+      ],
+      "cue": [
+       "b41",
+       "coin"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [
+       "b42",
+       "Pack"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 28,
+      "tone": "warm",
+      "fill": "",
+      "align": "center",
+      "icon": "tw:1fa99",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      }
+     },
+     {
+      "id": "commemorative",
+      "kind": "picture",
+      "cell": [
+       3,
+       2,
+       8,
+       3
+      ],
+      "cue": [
+       "b41",
+       "Commemorative"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [
+       "b42",
+       "Pack"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 28,
+      "tone": "ink",
+      "fill": "",
+      "align": "",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "gallery",
+       "title": "Commemorative coins",
+       "items": [
+        {
+         "when": "",
+         "name": "",
+         "icon": "tw:1fa99",
+         "cue": [
+          "b41",
+          "Commemorative"
+         ]
+        },
+        {
+         "when": "",
+         "name": "",
+         "icon": "tw:1fa99",
+         "cue": [
+          "b41",
+          "Commemorative"
+         ]
+        },
+        {
+         "when": "",
+         "name": "",
+         "icon": "tw:1fa99",
+         "cue": [
+          "b41",
+          "Commemorative"
+         ]
+        }
+       ],
+       "arrows": false
+      }
+     },
+     {
+      "id": "fiat_issue",
+      "kind": "icon",
+      "cell": [
+       3,
+       0,
+       3,
+       2
+      ],
+      "cue": [
+       "b41",
+       "fiat"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [
+       "b42",
+       "Pack"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 28,
+      "tone": "accent",
+      "fill": "",
+      "align": "center",
+      "icon": "tw:1f4e6",
+      "label": "fiat issues",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      }
+     },
+     {
+      "id": "status",
+      "kind": "picture",
+      "cell": [
+       3,
+       5,
+       8,
+       1
+      ],
+      "cue": [
+       "b41",
+       "अधिकांश"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [
+       "b42",
+       "Pack"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 26,
+      "tone": "ink",
+      "fill": "",
+      "align": "",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "gallery",
+       "title": "",
+       "items": [
+        {
+         "when": "",
+         "name": "",
+         "icon": "tw:2705",
+         "cue": [
+          "b41",
+          "अधिकांश"
+         ]
+        },
+        {
+         "when": "",
+         "name": "",
+         "icon": "tw:2705",
+         "cue": [
+          "b41",
+          "अधिकांश"
+         ]
+        },
+        {
+         "when": "",
+         "name": "",
+         "icon": "tw:274c",
+         "cue": [
+          "b41",
+          "नहीं।"
+         ]
+        }
+       ],
+       "arrows": false
+      }
+     },
+     {
+      "id": "values",
+      "kind": "picture",
+      "cell": [
+       3,
+       6,
+       8,
+       2
+      ],
+      "cue": [
+       "b41",
+       "Metal"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [
+       "b42",
+       "Pack"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 26,
+      "tone": "muted",
+      "fill": "",
+      "align": "",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "gallery",
+       "title": "",
+       "items": [
+        {
+         "when": "",
+         "name": "Metal value",
+         "icon": "fa:solid/magnet",
+         "cue": [
+          "b41",
+          "Metal"
+         ]
+        },
+        {
+         "when": "",
+         "name": "collector value",
+         "icon": "fa:solid/display",
+         "cue": [
+          "b41",
+          "collector"
+         ]
+        }
+       ],
+       "arrows": false
+      }
+     },
+     {
+      "id": "pack",
+      "kind": "icon",
+      "cell": [
+       3,
+       0,
+       3,
+       2
+      ],
+      "cue": [
+       "b42",
+       "Pack"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 28,
+      "tone": "warm",
+      "fill": "",
+      "align": "center",
+      "icon": "tw:1f4e6",
+      "label": "Pack वाला coin",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      }
+     },
+     {
+      "id": "mint",
+      "kind": "icon",
+      "cell": [
+       0,
+       3,
+       3,
+       2
+      ],
+      "cue": [
+       "b42",
+       "Government"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 28,
+      "tone": "accent",
+      "fill": "",
+      "align": "center",
+      "icon": "fa:solid/landmark",
+      "label": "Government Mint",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      }
+     },
+     {
+      "id": "sets",
+      "kind": "icon",
+      "cell": [
+       4,
+       2,
+       2,
+       3
+      ],
+      "cue": [
+       "b42",
+       "proof"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 26,
+      "tone": "warm",
+      "fill": "",
+      "align": "center",
+      "icon": "tw:1fa99",
+      "label": "proof",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      }
+     },
+     {
+      "id": "unc_set",
+      "kind": "icon",
+      "cell": [
+       6,
+       2,
+       2,
+       3
+      ],
+      "cue": [
+       "b42",
+       "UNC"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 26,
+      "tone": "warm",
+      "fill": "",
+      "align": "center",
+      "icon": "tw:1fa99",
+      "label": "UNC sets",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      }
+     },
+     {
+      "id": "mint_sale",
+      "kind": "arrow",
+      "cell": [],
+      "cue": [
+       "b42",
+       "बेचती"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 0,
+      "tone": "accent",
+      "fill": "",
+      "align": "",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "mint",
+      "to": "sets",
+      "from_side": "r",
+      "to_side": "l",
+      "elbow": "hv",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "tw:1fa99",
+       "count": 2,
+       "period": 2200,
+       "size": 24,
+       "reverse": false,
+       "cue": [
+        "b42",
+        "बेचती"
+       ]
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      }
+     },
+     {
+      "id": "proof_finish",
+      "kind": "highlight",
+      "cell": [],
+      "cue": [
+       "b42",
+       "finish,"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [
+       "b42",
+       "condition"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "band",
+      "size": 0,
+      "tone": "warm",
+      "fill": "",
+      "align": "",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "sets",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      }
+     },
+     {
+      "id": "unc_explanation",
+      "kind": "text",
+      "cell": [
+       4,
+       5,
+       4,
+       1
+      ],
+      "cue": [
+       "b42",
+       "Uncirculated;"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [],
+      "until_fraction": 0,
+      "text": "UNC यानी Uncirculated",
+      "style": "tag",
+      "size": 26,
+      "tone": "accent",
+      "fill": "",
+      "align": "center",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      }
+     },
+     {
+      "id": "preservation",
+      "kind": "icon",
+      "cell": [
+       9,
+       2,
+       3,
+       2
+      ],
+      "cue": [
+       "b42",
+       "condition"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 26,
+      "tone": "ok",
+      "fill": "",
+      "align": "center",
+      "icon": "fa:solid/display",
+      "label": "condition बचाने के लिए",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      }
+     },
+     {
+      "id": "preserve_flow",
+      "kind": "arrow",
+      "cell": [],
+      "cue": [
+       "b42",
+       "बचाने"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 0,
+      "tone": "ok",
+      "fill": "",
+      "align": "",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "sets",
+      "to": "preservation",
+      "from_side": "t",
+      "to_side": "t",
+      "elbow": "vhv",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "tw:1fa99",
+       "count": 1,
+       "period": 2600,
+       "size": 24,
+       "reverse": false,
+       "cue": [
+        "b42",
+        "बचाने"
+       ]
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      }
+     },
+     {
+      "id": "shop",
+      "kind": "icon",
+      "cell": [
+       9,
+       5,
+       3,
+       2
+      ],
+      "cue": [
+       "b42",
+       "daily"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 26,
+      "tone": "muted",
+      "fill": "",
+      "align": "center",
+      "icon": "tw:1f3ea",
+      "label": "daily payments कम",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      }
+     },
+     {
+      "id": "rare_payment",
+      "kind": "arrow",
+      "cell": [],
+      "cue": [
+       "b42",
+       "कम"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 0,
+      "tone": "muted",
+      "fill": "",
+      "align": "",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "preservation",
+      "to": "shop",
+      "from_side": "b",
+      "to_side": "t",
+      "elbow": "vh",
+      "dashed": true,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "tw:1fa99",
+       "count": 1,
+       "period": 6000,
+       "size": 24,
+       "reverse": false,
+       "cue": [
+        "b42",
+        "कम"
+       ]
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      }
+     }
+    ],
+    "camera": [
+     {
+      "cells": [
+       0,
+       0,
+       12,
+       8
+      ],
+      "cue": [
+       "b40",
+       "legal"
+      ]
+     },
+     {
+      "cells": [
+       0,
+       0,
+       12,
+       8
+      ],
+      "cue": [
+       "b41",
+       "Commemorative"
+      ]
+     },
+     {
+      "cells": [
+       0,
+       0,
+       12,
+       8
+      ],
+      "cue": [
+       "b42",
+       "Government"
+      ]
+     }
+    ],
+    "focus": [
+     {
+      "cue": [
+       "b40",
+       "गलत"
+      ],
+      "until_cue": [
+       "b40",
+       "Bitcoin"
+      ],
+      "ids": [
+       "must",
+       "reject_must"
+      ]
+     },
+     {
+      "cue": [
+       "b40",
+       "Bitcoin"
+      ],
+      "until_cue": [
+       "b41",
+       "coin"
+      ],
+      "ids": [
+       "legal_anchor",
+       "bitcoin",
+       "must",
+       "reject_must"
+      ]
+     },
+     {
+      "cue": [
+       "b41",
+       "अधिकांश"
+      ],
+      "until_cue": [
+       "b41",
+       "Metal"
+      ],
+      "ids": [
+       "legal_anchor",
+       "commemorative",
+       "fiat_issue",
+       "status"
+      ]
+     },
+     {
+      "cue": [
+       "b42",
+       "condition"
+      ],
+      "until_cue": [],
+      "ids": [
+       "sets",
+       "unc_set",
+       "preservation",
+       "preserve_flow",
+       "shop",
+       "rare_payment"
+      ]
+     }
+    ],
+    "graph_used": false,
+    "graph": {
+     "plot": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+     },
+     "x_label": "",
+     "y_label": "",
+     "x_domain": [],
+     "y_domain": [],
+     "axes_cue": [],
+     "curves": [],
+     "dots": [],
+     "shades": [],
+     "guides": [],
+     "notes": []
+    }
+   },
+   "code_problems": [
+    "[code] focus names a missing element 'commemorative'"
+   ],
+   "passed": false,
+   "finished_at": 1793465471.5445213
+  },
+  {
+   "round": 3,
+   "started_at": 1793465471.5446575,
+   "mode": "full",
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "a29bfcf174b2d89e16c1db19a06d98e5f1073ea74a6df4a910efb2b1e354e9b8",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 14722,
+    "output_tokens": 5761,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "यह canvas legal tender, fiat और commemorative coins के payment status को collector sets के इस्तेमाल से जोड़ता है।",
+    "key_questions": [
+     "क्या हर legal tender का fiat होना जरूरी है?",
+     "क्या सभी commemorative coins payment में चलते हैं?",
+     "Collector sets daily payments में कम क्यों आते हैं?"
+    ],
+    "decisions": [
+     {
+      "decision": "Focus से 'commemorative' reference हटाया है।",
+      "reason": "Compiler इसे addressable element नहीं मानता; gallery बनी रहती है और focus अब केवल मौजूद endpoints को नाम देता है।"
+     },
+     {
+      "decision": "बाकी layout, cues और flow endpoints कायम रखे हैं।",
+      "reason": "पहले सही पाए गए build-up को बदलने की जरूरत नहीं है।"
+     },
+     {
+      "decision": "Acceptance समूह qualitative और Bitcoin generic name badge है।",
+      "reason": "Narration कोई numeric ratio नहीं देती और उपलब्ध regional-indicator icons Bitcoin symbols नहीं हैं।"
+     }
+    ],
+    "uncertain": [
+     "Bitcoin exception का jurisdiction और समय narration में नहीं दिया गया है; कोई वर्तमान सार्वभौमिक legal status नहीं जोड़ा गया है।"
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "यह canvas legal tender, fiat और commemorative coins के payment status को collector sets के इस्तेमाल से जोड़ता है।",
+     "key_questions": [
+      "क्या हर legal tender का fiat होना जरूरी है?",
+      "क्या सभी commemorative coins payment में चलते हैं?",
+      "Collector sets daily payments में कम क्यों आते हैं?"
+     ],
+     "decisions": [
+      {
+       "decision": "Focus से 'commemorative' reference हटाया है।",
+       "reason": "Compiler इसे addressable element नहीं मानता; gallery बनी रहती है और focus अब केवल मौजूद endpoints को नाम देता है।"
+      },
+      {
+       "decision": "बाकी layout, cues और flow endpoints कायम रखे हैं।",
+       "reason": "पहले सही पाए गए build-up को बदलने की जरूरत नहीं है।"
+      },
+      {
+       "decision": "Acceptance समूह qualitative और Bitcoin generic name badge है।",
+       "reason": "Narration कोई numeric ratio नहीं देती और उपलब्ध regional-indicator icons Bitcoin symbols नहीं हैं।"
+      }
+     ],
+     "uncertain": [
+      "Bitcoin exception का jurisdiction और समय narration में नहीं दिया गया है; कोई वर्तमान सार्वभौमिक legal status नहीं जोड़ा गया है।"
+     ]
+    },
+    "nodes": [
+     {
+      "id": "legal_anchor",
+      "kind": "icon",
+      "cell": [
+       0,
+       0,
+       3,
+       2
+      ],
+      "cue": [
+       "b40",
+       "legal"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 28,
+      "tone": "accent",
+      "fill": "",
+      "align": "center",
+      "icon": "tw:1f4dc",
+      "label": "legal tender",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      }
+     },
+     {
+      "id": "fiat_note",
+      "kind": "icon",
+      "cell": [
+       4,
+       2,
+       3,
+       2
+      ],
+      "cue": [
+       "b40",
+       "fiat"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [
+       "b41",
+       "Commemorative"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 28,
+      "tone": "ink",
+      "fill": "",
+      "align": "center",
+      "icon": "fa:solid/money-bill-1",
+      "label": "fiat",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      }
+     },
+     {
+      "id": "must",
+      "kind": "icon",
+      "cell": [
+       8,
+       2,
+       3,
+       2
+      ],
+      "cue": [
+       "b40",
+       "universal"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [
+       "b41",
+       "Commemorative"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 28,
+      "tone": "warm",
+      "fill": "",
+      "align": "center",
+      "icon": "fa:solid/id-badge",
+      "label": "universal ‘must’",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      }
+     },
+     {
+      "id": "reject_must",
+      "kind": "mark",
+      "cell": [],
+      "cue": [
+       "b40",
+       "गलत"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [
+       "b41",
+       "Commemorative"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 0,
+      "tone": "danger",
+      "fill": "",
+      "align": "",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "must",
+      "mark": "cross",
+      "pos": "c",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      }
+     },
+     {
+      "id": "bitcoin",
+      "kind": "icon",
+      "cell": [
+       3,
+       0,
+       3,
+       2
+      ],
+      "cue": [
+       "b40",
+       "Bitcoin"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [
+       "b41",
+       "Commemorative"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 28,
+      "tone": "warm",
+      "fill": "",
+      "align": "center",
+      "icon": "fa:solid/id-badge",
+      "label": "Bitcoin exception",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      }
+     },
+     {
+      "id": "coin_question",
+      "kind": "icon",
+      "cell": [
+       0,
+       3,
+       2,
+       2
+      ],
+      "cue": [
+       "b41",
+       "coin"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [
+       "b42",
+       "Pack"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 28,
+      "tone": "warm",
+      "fill": "",
+      "align": "center",
+      "icon": "tw:1fa99",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      }
+     },
+     {
+      "id": "commemorative",
+      "kind": "picture",
+      "cell": [
+       3,
+       2,
+       8,
+       3
+      ],
+      "cue": [
+       "b41",
+       "Commemorative"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [
+       "b42",
+       "Pack"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 28,
+      "tone": "ink",
+      "fill": "",
+      "align": "",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "gallery",
+       "title": "Commemorative coins",
+       "items": [
+        {
+         "when": "",
+         "name": "",
+         "icon": "tw:1fa99",
+         "cue": [
+          "b41",
+          "Commemorative"
+         ]
+        },
+        {
+         "when": "",
+         "name": "",
+         "icon": "tw:1fa99",
+         "cue": [
+          "b41",
+          "Commemorative"
+         ]
+        },
+        {
+         "when": "",
+         "name": "",
+         "icon": "tw:1fa99",
+         "cue": [
+          "b41",
+          "Commemorative"
+         ]
+        }
+       ],
+       "arrows": false
+      }
+     },
+     {
+      "id": "fiat_issue",
+      "kind": "icon",
+      "cell": [
+       3,
+       0,
+       3,
+       2
+      ],
+      "cue": [
+       "b41",
+       "fiat"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [
+       "b42",
+       "Pack"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 28,
+      "tone": "accent",
+      "fill": "",
+      "align": "center",
+      "icon": "tw:1f4e6",
+      "label": "fiat issues",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      }
+     },
+     {
+      "id": "status",
+      "kind": "picture",
+      "cell": [
+       3,
+       5,
+       8,
+       1
+      ],
+      "cue": [
+       "b41",
+       "अधिकांश"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [
+       "b42",
+       "Pack"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 26,
+      "tone": "ink",
+      "fill": "",
+      "align": "",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "gallery",
+       "title": "",
+       "items": [
+        {
+         "when": "",
+         "name": "",
+         "icon": "tw:2705",
+         "cue": [
+          "b41",
+          "अधिकांश"
+         ]
+        },
+        {
+         "when": "",
+         "name": "",
+         "icon": "tw:2705",
+         "cue": [
+          "b41",
+          "अधिकांश"
+         ]
+        },
+        {
+         "when": "",
+         "name": "",
+         "icon": "tw:274c",
+         "cue": [
+          "b41",
+          "नहीं।"
+         ]
+        }
+       ],
+       "arrows": false
+      }
+     },
+     {
+      "id": "values",
+      "kind": "picture",
+      "cell": [
+       3,
+       6,
+       8,
+       2
+      ],
+      "cue": [
+       "b41",
+       "Metal"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [
+       "b42",
+       "Pack"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 26,
+      "tone": "muted",
+      "fill": "",
+      "align": "",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "gallery",
+       "title": "",
+       "items": [
+        {
+         "when": "",
+         "name": "Metal value",
+         "icon": "fa:solid/magnet",
+         "cue": [
+          "b41",
+          "Metal"
+         ]
+        },
+        {
+         "when": "",
+         "name": "collector value",
+         "icon": "fa:solid/display",
+         "cue": [
+          "b41",
+          "collector"
+         ]
+        }
+       ],
+       "arrows": false
+      }
+     },
+     {
+      "id": "pack",
+      "kind": "icon",
+      "cell": [
+       3,
+       0,
+       3,
+       2
+      ],
+      "cue": [
+       "b42",
+       "Pack"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 28,
+      "tone": "warm",
+      "fill": "",
+      "align": "center",
+      "icon": "tw:1f4e6",
+      "label": "Pack वाला coin",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      }
+     },
+     {
+      "id": "mint",
+      "kind": "icon",
+      "cell": [
+       0,
+       3,
+       3,
+       2
+      ],
+      "cue": [
+       "b42",
+       "Government"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 28,
+      "tone": "accent",
+      "fill": "",
+      "align": "center",
+      "icon": "fa:solid/landmark",
+      "label": "Government Mint",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      }
+     },
+     {
+      "id": "sets",
+      "kind": "icon",
+      "cell": [
+       4,
+       2,
+       2,
+       3
+      ],
+      "cue": [
+       "b42",
+       "proof"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 26,
+      "tone": "warm",
+      "fill": "",
+      "align": "center",
+      "icon": "tw:1fa99",
+      "label": "proof",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      }
+     },
+     {
+      "id": "unc_set",
+      "kind": "icon",
+      "cell": [
+       6,
+       2,
+       2,
+       3
+      ],
+      "cue": [
+       "b42",
+       "UNC"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 26,
+      "tone": "warm",
+      "fill": "",
+      "align": "center",
+      "icon": "tw:1fa99",
+      "label": "UNC sets",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      }
+     },
+     {
+      "id": "mint_sale",
+      "kind": "arrow",
+      "cell": [],
+      "cue": [
+       "b42",
+       "बेचती"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 0,
+      "tone": "accent",
+      "fill": "",
+      "align": "",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "mint",
+      "to": "sets",
+      "from_side": "r",
+      "to_side": "l",
+      "elbow": "hv",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "tw:1fa99",
+       "count": 2,
+       "period": 2200,
+       "size": 24,
+       "reverse": false,
+       "cue": [
+        "b42",
+        "बेचती"
+       ]
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      }
+     },
+     {
+      "id": "proof_finish",
+      "kind": "highlight",
+      "cell": [],
+      "cue": [
+       "b42",
+       "finish,"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [
+       "b42",
+       "condition"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "band",
+      "size": 0,
+      "tone": "warm",
+      "fill": "",
+      "align": "",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "sets",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      }
+     },
+     {
+      "id": "unc_explanation",
+      "kind": "text",
+      "cell": [
+       4,
+       5,
+       4,
+       1
+      ],
+      "cue": [
+       "b42",
+       "Uncirculated;"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [],
+      "until_fraction": 0,
+      "text": "UNC यानी Uncirculated",
+      "style": "tag",
+      "size": 26,
+      "tone": "accent",
+      "fill": "",
+      "align": "center",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      }
+     },
+     {
+      "id": "preservation",
+      "kind": "icon",
+      "cell": [
+       9,
+       2,
+       3,
+       2
+      ],
+      "cue": [
+       "b42",
+       "condition"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 26,
+      "tone": "ok",
+      "fill": "",
+      "align": "center",
+      "icon": "fa:solid/display",
+      "label": "condition बचाने के लिए",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      }
+     },
+     {
+      "id": "preserve_flow",
+      "kind": "arrow",
+      "cell": [],
+      "cue": [
+       "b42",
+       "बचाने"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 0,
+      "tone": "ok",
+      "fill": "",
+      "align": "",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "sets",
+      "to": "preservation",
+      "from_side": "t",
+      "to_side": "t",
+      "elbow": "vhv",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "tw:1fa99",
+       "count": 1,
+       "period": 2600,
+       "size": 24,
+       "reverse": false,
+       "cue": [
+        "b42",
+        "बचाने"
+       ]
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      }
+     },
+     {
+      "id": "shop",
+      "kind": "icon",
+      "cell": [
+       9,
+       5,
+       3,
+       2
+      ],
+      "cue": [
+       "b42",
+       "daily"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 26,
+      "tone": "muted",
+      "fill": "",
+      "align": "center",
+      "icon": "tw:1f3ea",
+      "label": "daily payments कम",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      }
+     },
+     {
+      "id": "rare_payment",
+      "kind": "arrow",
+      "cell": [],
+      "cue": [
+       "b42",
+       "कम"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 0,
+      "tone": "muted",
+      "fill": "",
+      "align": "",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "preservation",
+      "to": "shop",
+      "from_side": "b",
+      "to_side": "t",
+      "elbow": "vh",
+      "dashed": true,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "tw:1fa99",
+       "count": 1,
+       "period": 6000,
+       "size": 24,
+       "reverse": false,
+       "cue": [
+        "b42",
+        "कम"
+       ]
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      }
+     }
+    ],
+    "camera": [
+     {
+      "cells": [
+       0,
+       0,
+       12,
+       8
+      ],
+      "cue": [
+       "b40",
+       "legal"
+      ]
+     },
+     {
+      "cells": [
+       0,
+       0,
+       12,
+       8
+      ],
+      "cue": [
+       "b41",
+       "Commemorative"
+      ]
+     },
+     {
+      "cells": [
+       0,
+       0,
+       12,
+       8
+      ],
+      "cue": [
+       "b42",
+       "Government"
+      ]
+     }
+    ],
+    "focus": [
+     {
+      "cue": [
+       "b40",
+       "गलत"
+      ],
+      "until_cue": [
+       "b40",
+       "Bitcoin"
+      ],
+      "ids": [
+       "must",
+       "reject_must"
+      ]
+     },
+     {
+      "cue": [
+       "b40",
+       "Bitcoin"
+      ],
+      "until_cue": [
+       "b41",
+       "coin"
+      ],
+      "ids": [
+       "legal_anchor",
+       "bitcoin",
+       "must",
+       "reject_must"
+      ]
+     },
+     {
+      "cue": [
+       "b41",
+       "अधिकांश"
+      ],
+      "until_cue": [
+       "b41",
+       "Metal"
+      ],
+      "ids": [
+       "legal_anchor",
+       "fiat_issue",
+       "status"
+      ]
+     },
+     {
+      "cue": [
+       "b42",
+       "condition"
+      ],
+      "until_cue": [],
+      "ids": [
+       "sets",
+       "unc_set",
+       "preservation",
+       "preserve_flow",
+       "shop",
+       "rare_payment"
+      ]
+     }
+    ],
+    "graph_used": false,
+    "graph": {
+     "plot": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+     },
+     "x_label": "",
+     "y_label": "",
+     "x_domain": [],
+     "y_domain": [],
+     "axes_cue": [],
+     "curves": [],
+     "dots": [],
+     "shades": [],
+     "guides": [],
+     "notes": []
+    }
+   },
+   "code_problems": [
+    "[code] focus names a missing element 'status'"
+   ],
+   "passed": false,
+   "finished_at": 1793465570.7873135
+  }
+ ],
+ "avoid_rounds": [
+  1,
+  2,
+  3
+ ],
+ "cost_usd": 0.0,
+ "seconds": 267.5,
+ "navin_verdict": null
+}

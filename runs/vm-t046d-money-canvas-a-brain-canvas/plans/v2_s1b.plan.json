@@ -1,0 +1,379 @@
+{
+ "id": "v2_s1b",
+ "part_id": "c03.1",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b3",
+   "say": "यह barter है: goods या services का सीधा exchange, बिना medium of exchange के। यानी बीच में आगे खर्च करने वाला पैसा नहीं लिया।"
+  },
+  {
+   "beat_id": "b4",
+   "say": "Wheat बेचकर पैसे से कपड़ा खरीदना barter नहीं है। पैसे बीच में आए; बेचने और खरीदने के लोग अलग हो सकते हैं।"
+  },
+  {
+   "beat_id": "b5",
+   "say": "Barter की पहचान सीधा exchange है।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "barter-label",
+   "kind": "text",
+   "cell": [
+    0,
+    0,
+    5,
+    1
+   ],
+   "cue": [
+    "b3",
+    "barter"
+   ],
+   "text": "यह barter है",
+   "style": "title",
+   "tone": "ink",
+   "align": "center",
+   "size": 32
+  },
+  {
+   "id": "direct-wheat",
+   "kind": "icon",
+   "cell": [
+    0,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b3",
+    "सीधा"
+   ],
+   "tone": "ink",
+   "icon": "tw:1f33e"
+  },
+  {
+   "id": "direct-cloth",
+   "kind": "icon",
+   "cell": [
+    3,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b3",
+    "सीधा"
+   ],
+   "tone": "ink",
+   "icon": "tw:1f455"
+  },
+  {
+   "id": "wheat-out",
+   "kind": "arrow",
+   "cue": [
+    "b3",
+    "सीधा"
+   ],
+   "tone": "accent",
+   "from": "direct-wheat",
+   "to": "direct-cloth",
+   "from_side": "t",
+   "to_side": "t",
+   "curve": true,
+   "flow": {
+    "icon": "tw:1f33e",
+    "count": 1,
+    "period": 180,
+    "size": 24,
+    "cue": [
+     "b3",
+     "सीधा"
+    ]
+   }
+  },
+  {
+   "id": "cloth-back",
+   "kind": "arrow",
+   "cue": [
+    "b3",
+    "exchange,"
+   ],
+   "tone": "warm",
+   "from": "direct-cloth",
+   "to": "direct-wheat",
+   "from_side": "b",
+   "to_side": "b",
+   "curve": true,
+   "flow": {
+    "icon": "tw:1f455",
+    "count": 1,
+    "period": 180,
+    "size": 24,
+    "cue": [
+     "b3",
+     "exchange,"
+    ]
+   }
+  },
+  {
+   "id": "excluded-money",
+   "kind": "icon",
+   "cell": [
+    2,
+    5,
+    2,
+    1
+   ],
+   "cue": [
+    "b3",
+    "medium"
+   ],
+   "until_cue": [
+    "b4",
+    "Wheat"
+   ],
+   "tone": "muted",
+   "icon": "tw:1f4b0"
+  },
+  {
+   "id": "no-money",
+   "kind": "mark",
+   "cue": [
+    "b3",
+    "नहीं"
+   ],
+   "until_cue": [
+    "b4",
+    "Wheat"
+   ],
+   "tone": "danger",
+   "target": "excluded-money",
+   "mark": "cross",
+   "pos": "c"
+  },
+  {
+   "id": "sale-wheat",
+   "kind": "icon",
+   "cell": [
+    6,
+    2,
+    1,
+    2
+   ],
+   "cue": [
+    "b4",
+    "Wheat"
+   ],
+   "tone": "ink",
+   "icon": "tw:1f33e"
+  },
+  {
+   "id": "sale-money",
+   "kind": "icon",
+   "cell": [
+    8,
+    2,
+    1,
+    2
+   ],
+   "cue": [
+    "b4",
+    "पैसे"
+   ],
+   "tone": "ink",
+   "icon": "tw:1f4b0"
+  },
+  {
+   "id": "sale-cloth",
+   "kind": "icon",
+   "cell": [
+    10,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b4",
+    "कपड़ा"
+   ],
+   "tone": "ink",
+   "icon": "tw:1f455"
+  },
+  {
+   "id": "sale-leg",
+   "kind": "arrow",
+   "cue": [
+    "b4",
+    "पैसे"
+   ],
+   "tone": "accent",
+   "from": "sale-wheat",
+   "to": "sale-money",
+   "from_side": "r",
+   "to_side": "l",
+   "flow": {
+    "icon": "tw:1f33e",
+    "count": 1,
+    "period": 160,
+    "size": 22,
+    "cue": [
+     "b4",
+     "पैसे"
+    ]
+   }
+  },
+  {
+   "id": "purchase-leg",
+   "kind": "arrow",
+   "cue": [
+    "b4",
+    "खरीदना"
+   ],
+   "tone": "warm",
+   "from": "sale-money",
+   "to": "sale-cloth",
+   "from_side": "r",
+   "to_side": "l",
+   "flow": {
+    "icon": "tw:1f4b0",
+    "count": 1,
+    "period": 160,
+    "size": 22,
+    "cue": [
+     "b4",
+     "खरीदना"
+    ]
+   }
+  },
+  {
+   "id": "not-barter",
+   "kind": "text",
+   "cell": [
+    6,
+    0,
+    6,
+    1
+   ],
+   "cue": [
+    "b4",
+    "नहीं"
+   ],
+   "text": "barter नहीं है",
+   "style": "title",
+   "tone": "danger",
+   "align": "center",
+   "size": 32
+  },
+  {
+   "id": "buyer",
+   "kind": "icon",
+   "cell": [
+    6,
+    5,
+    2,
+    1
+   ],
+   "cue": [
+    "b4",
+    "लोग"
+   ],
+   "tone": "ink",
+   "icon": "tw:1f6cd"
+  },
+  {
+   "id": "seller",
+   "kind": "icon",
+   "cell": [
+    10,
+    5,
+    2,
+    1
+   ],
+   "cue": [
+    "b4",
+    "अलग"
+   ],
+   "tone": "ink",
+   "icon": "tw:1f9d1-200d-1f4bc"
+  },
+  {
+   "id": "direct-accepted",
+   "kind": "mark",
+   "cue": [
+    "b5",
+    "सीधा"
+   ],
+   "tone": "ok",
+   "target": "direct-cloth",
+   "mark": "tick",
+   "pos": "tr"
+  }
+ ],
+ "camera": [
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b3",
+    "barter"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    6,
+    7
+   ],
+   "cue": [
+    "b5",
+    "सीधा"
+   ]
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b3",
+    "पैसा"
+   ],
+   "ids": [
+    "excluded-money",
+    "no-money",
+    "direct-wheat",
+    "direct-cloth",
+    "wheat-out",
+    "cloth-back"
+   ],
+   "until_cue": [
+    "b4",
+    "Wheat"
+   ]
+  },
+  {
+   "cue": [
+    "b5",
+    "सीधा"
+   ],
+   "ids": [
+    "barter-label",
+    "direct-wheat",
+    "direct-cloth",
+    "wheat-out",
+    "cloth-back",
+    "direct-accepted"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

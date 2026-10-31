@@ -1,0 +1,985 @@
+{
+ "id": "v4_s3",
+ "part_id": "c09.3",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b12",
+   "say": "सामान की जगह receipt चले तो? इतिहास में paper claims, सरकारी issue और acceptance rules अलग milestones बने।"
+  },
+  {
+   "beat_id": "b13",
+   "say": "Receipt जमा value का सबूत है: 7th century के Tang receipts paper claims दिखाते हैं। 1023 के Song state notes में सरकारी authority issuer बनी; यानी claim के साथ जारी करने वाले की पहचान बदली।"
+  },
+  {
+   "beat_id": "b14",
+   "say": "लोग note लेने से मना करें तो? 1275 का Yuan milestone compulsory acceptance है, यानी नियम से लेना ज़रूरी। Sweden के first banknotes 1661 में आए; इसे दुनिया की शुरुआत मत समझिए, Chinese developments पहले हुए।"
+  },
+  {
+   "beat_id": "b15",
+   "say": "पैसे का fixed आधार कैसे बने? Britain का 1816 Gold Standard पैसे को तय gold से जोड़ता था। 1944 Bretton Woods में dollar-gold link आया; एक फर्क समझिए: official convertibility थी, हर व्यक्ति का gold counter नहीं।"
+  },
+  {
+   "beat_id": "b16",
+   "say": "1971 में gold-redemption link टूटा; दोनों historical sequences इसी modern दौर पर पहुँचते हैं।"
+  },
+  {
+   "beat_id": "b17",
+   "say": "अब सवाल है: gold देने का वादा नहीं, तो लोग note क्यों लेंगे?"
+  },
+  {
+   "beat_id": "b18",
+   "say": "Paper claims से issuer, acceptance और gold का आधार बदलता गया।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "book_p004_i17",
+   "kind": "picture",
+   "cell": [
+    0,
+    0,
+    12,
+    3
+   ],
+   "cue": [
+    "b12",
+    ""
+   ],
+   "picture": {
+    "type": "timeline",
+    "title": "A horizontal line links four chronological dots",
+    "item_id": "p004-i17",
+    "events": [
+     {
+      "date": "0650-01-01",
+      "year": 650,
+      "when": "7th c.",
+      "name": "Tang",
+      "detail": "Receipts",
+      "label": "Tang — Receipts",
+      "item_id": "p004-i18",
+      "icon": "tw:1f9fe",
+      "cue": [
+       "b12",
+       ""
+      ]
+     },
+     {
+      "date": "1023-01-01",
+      "year": 1023,
+      "when": "1023",
+      "name": "Song",
+      "detail": "State notes",
+      "label": "Song — State notes",
+      "item_id": "p004-i19",
+      "icon": "fa:solid/landmark",
+      "cue": [
+       "b13",
+       ""
+      ]
+     },
+     {
+      "date": "1275-01-01",
+      "year": 1275,
+      "when": "1275",
+      "name": "Yuan",
+      "detail": "Compulsory",
+      "label": "Yuan — Compulsory",
+      "item_id": "p004-i20",
+      "icon": "tw:1f4dc",
+      "cue": [
+       "b12",
+       ""
+      ]
+     },
+     {
+      "date": "1971-01-01",
+      "year": 1971,
+      "when": "1971",
+      "name": "Modern",
+      "detail": "Fiat era",
+      "label": "Modern — Fiat era",
+      "item_id": "p004-i21",
+      "icon": "fa:solid/money-bill-1",
+      "cue": [
+       "b12",
+       ""
+      ]
+     }
+    ]
+   },
+   "until_cue": [
+    "b14",
+    ""
+   ]
+  },
+  {
+   "id": "book_p004_i3",
+   "kind": "picture",
+   "cell": [
+    0,
+    0,
+    12,
+    3
+   ],
+   "cue": [
+    "b14",
+    ""
+   ],
+   "picture": {
+    "type": "timeline",
+    "title": "A horizontal timeline connects four dots from left to right",
+    "item_id": "p004-i3",
+    "events": [
+     {
+      "date": "1661-01-01",
+      "year": 1661,
+      "when": "1661",
+      "name": "Sweden",
+      "detail": "First banknotes",
+      "label": "Sweden — First banknotes",
+      "item_id": "p004-i4",
+      "icon": "fa:solid/money-bill-1",
+      "cue": [
+       "b14",
+       ""
+      ]
+     },
+     {
+      "date": "1816-01-01",
+      "year": 1816,
+      "when": "1816",
+      "name": "Britain",
+      "detail": "Gold Standard",
+      "label": "Britain — Gold Standard",
+      "item_id": "p004-i5",
+      "icon": "tw:1fa99",
+      "cue": [
+       "b15",
+       ""
+      ]
+     },
+     {
+      "date": "1944-01-01",
+      "year": 1944,
+      "when": "1944",
+      "name": "Bretton Woods",
+      "detail": "Dollar-gold link",
+      "label": "Bretton Woods — Dollar-gold link",
+      "item_id": "p004-i6",
+      "icon": "tw:1f4b5",
+      "cue": [
+       "b15",
+       ""
+      ]
+     },
+     {
+      "date": "1971-01-01",
+      "year": 1971,
+      "when": "1971",
+      "name": "Modern fiat",
+      "detail": "No gold redemption",
+      "label": "Modern fiat — No gold redemption",
+      "item_id": "p004-i7",
+      "icon": "tw:1fa99",
+      "cue": [
+       "b16",
+       ""
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "goods",
+   "kind": "icon",
+   "cell": [
+    1,
+    4,
+    2,
+    2
+   ],
+   "cue": [
+    "b12",
+    "सामान"
+   ],
+   "until_cue": [
+    "b13",
+    "Receipt"
+   ],
+   "tone": "ink",
+   "align": "center",
+   "icon": "fa:solid/basket-shopping",
+   "label": "सामान",
+   "size": 48
+  },
+  {
+   "id": "receipt_question",
+   "kind": "icon",
+   "cell": [
+    5,
+    4,
+    2,
+    2
+   ],
+   "cue": [
+    "b12",
+    "receipt"
+   ],
+   "until_cue": [
+    "b13",
+    "Receipt"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "tw:1f9fe",
+   "label": "receipt",
+   "size": 48
+  },
+  {
+   "id": "opening_question",
+   "kind": "icon",
+   "cell": [
+    3,
+    4,
+    2,
+    2
+   ],
+   "cue": [
+    "b12",
+    "तो?"
+   ],
+   "until_cue": [
+    "b13",
+    "Receipt"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "tw:2753",
+   "size": 48
+  },
+  {
+   "id": "opening_authority",
+   "kind": "icon",
+   "cell": [
+    8,
+    4,
+    2,
+    2
+   ],
+   "cue": [
+    "b12",
+    "सरकारी"
+   ],
+   "until_cue": [
+    "b13",
+    "Receipt"
+   ],
+   "tone": "ink",
+   "align": "center",
+   "icon": "fa:solid/building-columns",
+   "label": "सरकारी issue",
+   "size": 48
+  },
+  {
+   "id": "deposit",
+   "kind": "icon",
+   "cell": [
+    0,
+    4,
+    2,
+    2
+   ],
+   "cue": [
+    "b13",
+    "जमा"
+   ],
+   "until_cue": [
+    "b14",
+    "लोग"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "fa:solid/coins",
+   "label": "जमा value",
+   "size": 48
+  },
+  {
+   "id": "tang_receipt",
+   "kind": "icon",
+   "cell": [
+    3,
+    4,
+    2,
+    2
+   ],
+   "cue": [
+    "b13",
+    "Receipt"
+   ],
+   "until_cue": [
+    "b14",
+    "लोग"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "tw:1f9fe",
+   "label": "Receipt",
+   "size": 48
+  },
+  {
+   "id": "deposit_proof",
+   "kind": "arrow",
+   "cue": [
+    "b13",
+    "सबूत"
+   ],
+   "until_cue": [
+    "b14",
+    "लोग"
+   ],
+   "tone": "accent",
+   "from": "deposit",
+   "to": "tang_receipt",
+   "from_side": "r",
+   "to_side": "l",
+   "flow": {
+    "icon": "tw:1f9fe",
+    "count": 1,
+    "period": 2400,
+    "size": 24,
+    "cue": [
+     "b13",
+     "सबूत"
+    ]
+   }
+  },
+  {
+   "id": "song_note",
+   "kind": "icon",
+   "cell": [
+    6,
+    4,
+    2,
+    2
+   ],
+   "cue": [
+    "b13",
+    "Song"
+   ],
+   "until_cue": [
+    "b14",
+    "लोग"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "fa:solid/money-bill-1",
+   "label": "Song state notes",
+   "size": 48
+  },
+  {
+   "id": "issuer",
+   "kind": "icon",
+   "cell": [
+    9,
+    4,
+    3,
+    2
+   ],
+   "cue": [
+    "b13",
+    "authority"
+   ],
+   "until_cue": [
+    "b14",
+    "लोग"
+   ],
+   "tone": "ink",
+   "align": "center",
+   "icon": "fa:solid/building-columns",
+   "label": "सरकारी authority",
+   "size": 48
+  },
+  {
+   "id": "issuer_flow",
+   "kind": "arrow",
+   "cue": [
+    "b13",
+    "issuer"
+   ],
+   "until_cue": [
+    "b14",
+    "लोग"
+   ],
+   "tone": "accent",
+   "from": "issuer",
+   "to": "song_note",
+   "from_side": "l",
+   "to_side": "r",
+   "flow": {
+    "icon": "fa:solid/money-bill-1",
+    "count": 1,
+    "period": 2400,
+    "size": 24,
+    "cue": [
+     "b13",
+     "issuer"
+    ]
+   }
+  },
+  {
+   "id": "accept_note",
+   "kind": "icon",
+   "cell": [
+    1,
+    4,
+    2,
+    2
+   ],
+   "cue": [
+    "b14",
+    "note"
+   ],
+   "until_cue": [
+    "b15",
+    "पैसे"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "fa:solid/money-bill-1",
+   "label": "note",
+   "size": 48
+  },
+  {
+   "id": "law",
+   "kind": "icon",
+   "cell": [
+    4,
+    4,
+    3,
+    2
+   ],
+   "cue": [
+    "b14",
+    "compulsory"
+   ],
+   "until_cue": [
+    "b15",
+    "पैसे"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "tw:1f4dc",
+   "label": "लेना ज़रूरी",
+   "size": 48
+  },
+  {
+   "id": "stamp",
+   "kind": "icon",
+   "cell": [
+    7,
+    4,
+    2,
+    2
+   ],
+   "cue": [
+    "b14",
+    "नियम"
+   ],
+   "until_cue": [
+    "b15",
+    "पैसे"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "fa:solid/stamp",
+   "size": 48
+  },
+  {
+   "id": "sweden_note",
+   "kind": "icon",
+   "cell": [
+    9,
+    4,
+    3,
+    2
+   ],
+   "cue": [
+    "b14",
+    "Sweden"
+   ],
+   "until_cue": [
+    "b15",
+    "पैसे"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "fa:solid/money-bill-1",
+   "label": "Sweden के banknotes",
+   "size": 48
+  },
+  {
+   "id": "britain_money",
+   "kind": "icon",
+   "cell": [
+    0,
+    3,
+    2,
+    2
+   ],
+   "cue": [
+    "b15",
+    "1816"
+   ],
+   "until_cue": [
+    "b17",
+    "अब"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "tw:1f4b0",
+   "label": "Britain",
+   "size": 48
+  },
+  {
+   "id": "britain_gold",
+   "kind": "icon",
+   "cell": [
+    4,
+    3,
+    2,
+    2
+   ],
+   "cue": [
+    "b15",
+    "gold"
+   ],
+   "until_cue": [
+    "b17",
+    "अब"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "fa:solid/coins",
+   "label": "gold",
+   "size": 48
+  },
+  {
+   "id": "britain_link",
+   "kind": "icon",
+   "cell": [
+    2,
+    3,
+    2,
+    2
+   ],
+   "cue": [
+    "b15",
+    "जोड़ता"
+   ],
+   "until_cue": [
+    "b17",
+    "अब"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "tw:1f517",
+   "size": 40
+  },
+  {
+   "id": "dollar",
+   "kind": "icon",
+   "cell": [
+    6,
+    3,
+    2,
+    2
+   ],
+   "cue": [
+    "b15",
+    "1944"
+   ],
+   "until_cue": [
+    "b17",
+    "अब"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "tw:1f4b5",
+   "label": "Bretton Woods",
+   "size": 48
+  },
+  {
+   "id": "dollar_link",
+   "kind": "icon",
+   "cell": [
+    8,
+    3,
+    2,
+    2
+   ],
+   "cue": [
+    "b15",
+    "dollar-gold"
+   ],
+   "until_cue": [
+    "b17",
+    "अब"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "tw:1f517",
+   "size": 40
+  },
+  {
+   "id": "dollar_gold",
+   "kind": "icon",
+   "cell": [
+    10,
+    3,
+    2,
+    2
+   ],
+   "cue": [
+    "b15",
+    "dollar-gold"
+   ],
+   "until_cue": [
+    "b17",
+    "अब"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "fa:solid/coins",
+   "size": 48
+  },
+  {
+   "id": "official",
+   "kind": "icon",
+   "cell": [
+    1,
+    6,
+    4,
+    2
+   ],
+   "cue": [
+    "b15",
+    "official"
+   ],
+   "until_cue": [
+    "b16",
+    "1971"
+   ],
+   "tone": "ink",
+   "align": "center",
+   "icon": "fa:solid/building-columns",
+   "label": "official convertibility",
+   "size": 40
+  },
+  {
+   "id": "public_counter",
+   "kind": "icon",
+   "cell": [
+    7,
+    6,
+    4,
+    2
+   ],
+   "cue": [
+    "b15",
+    "व्यक्ति"
+   ],
+   "until_cue": [
+    "b16",
+    "1971"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "fa:solid/coins",
+   "label": "हर व्यक्ति का gold counter",
+   "size": 40
+  },
+  {
+   "id": "no_public_counter",
+   "kind": "mark",
+   "cue": [
+    "b15",
+    "नहीं।"
+   ],
+   "until_cue": [
+    "b16",
+    "1971"
+   ],
+   "tone": "danger",
+   "target": "public_counter",
+   "mark": "cross",
+   "pos": "c"
+  },
+  {
+   "id": "break_left",
+   "kind": "mark",
+   "cue": [
+    "b16",
+    "टूटा;"
+   ],
+   "until_cue": [
+    "b17",
+    "अब"
+   ],
+   "tone": "danger",
+   "target": "britain_link",
+   "mark": "cross",
+   "pos": "c"
+  },
+  {
+   "id": "break_right",
+   "kind": "mark",
+   "cue": [
+    "b16",
+    "टूटा;"
+   ],
+   "until_cue": [
+    "b17",
+    "अब"
+   ],
+   "tone": "danger",
+   "target": "dollar_link",
+   "mark": "cross",
+   "pos": "c"
+  },
+  {
+   "id": "promise",
+   "kind": "icon",
+   "cell": [
+    1,
+    4,
+    3,
+    2
+   ],
+   "cue": [
+    "b17",
+    "वादा"
+   ],
+   "until_cue": [
+    "b18",
+    "Paper"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "tw:1f91d",
+   "label": "gold देने का वादा",
+   "size": 48
+  },
+  {
+   "id": "no_promise",
+   "kind": "mark",
+   "cue": [
+    "b17",
+    "नहीं,"
+   ],
+   "until_cue": [
+    "b18",
+    "Paper"
+   ],
+   "tone": "danger",
+   "target": "promise",
+   "mark": "cross",
+   "pos": "c"
+  },
+  {
+   "id": "fiat_note",
+   "kind": "icon",
+   "cell": [
+    5,
+    4,
+    3,
+    2
+   ],
+   "cue": [
+    "b17",
+    "note"
+   ],
+   "until_cue": [
+    "b18",
+    "Paper"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "fa:solid/money-bill-1",
+   "label": "note",
+   "size": 48
+  },
+  {
+   "id": "acceptance_question",
+   "kind": "icon",
+   "cell": [
+    9,
+    4,
+    2,
+    2
+   ],
+   "cue": [
+    "b17",
+    "क्यों"
+   ],
+   "until_cue": [
+    "b18",
+    "Paper"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "tw:2753",
+   "size": 48
+  },
+  {
+   "id": "recap",
+   "kind": "picture",
+   "cell": [
+    0,
+    4,
+    12,
+    3
+   ],
+   "cue": [
+    "b18",
+    "Paper"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "size": 32,
+   "picture": {
+    "type": "flow",
+    "title": "",
+    "item_id": "",
+    "nodes": [
+     {
+      "cue": [
+       "b18",
+       "Paper"
+      ],
+      "id": "n1",
+      "label": "Paper claims"
+     },
+     {
+      "cue": [
+       "b18",
+       "issuer,"
+      ],
+      "id": "n2",
+      "label": "issuer"
+     },
+     {
+      "cue": [
+       "b18",
+       "acceptance"
+      ],
+      "id": "n3",
+      "label": "acceptance"
+     },
+     {
+      "cue": [
+       "b18",
+       "gold"
+      ],
+      "id": "n4",
+      "label": "gold का आधार"
+     }
+    ],
+    "arrows": true
+   }
+  }
+ ],
+ "camera": [
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    8
+   ],
+   "cue": [
+    "b12",
+    "सामान"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    8
+   ],
+   "cue": [
+    "b14",
+    "Chinese"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    8
+   ],
+   "cue": [
+    "b16",
+    "दोनों"
+   ]
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b13",
+    "पहचान"
+   ],
+   "ids": [
+    "song_note",
+    "issuer",
+    "issuer_flow"
+   ],
+   "until_cue": [
+    "b14",
+    "लोग"
+   ]
+  },
+  {
+   "cue": [
+    "b15",
+    "official"
+   ],
+   "ids": [
+    "official",
+    "public_counter",
+    "no_public_counter"
+   ],
+   "until_cue": [
+    "b16",
+    "1971"
+   ]
+  },
+  {
+   "cue": [
+    "b16",
+    "दोनों"
+   ],
+   "ids": [
+    "britain_link",
+    "dollar_link",
+    "break_left",
+    "break_right"
+   ],
+   "until_cue": [
+    "b17",
+    "अब"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

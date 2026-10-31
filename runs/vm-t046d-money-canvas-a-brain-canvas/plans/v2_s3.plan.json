@@ -1,0 +1,286 @@
+{
+ "id": "v2_s3",
+ "part_id": "c03.3",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b12",
+   "say": "पड़ोसी सामान बदलें, तो क्या पुराना तरीका बचा है? हाँ; barter early civilizations में common था, आज छोटे आपसी exchanges में मिलता है।"
+  },
+  {
+   "beat_id": "b13",
+   "say": "पड़ोसियों की जरूरतें मिलें, तो पैसे के बिना भी swap आसान है।"
+  },
+  {
+   "beat_id": "b14",
+   "say": "पैसा आने पर barter मिटा नहीं; दोनों साथ रह सकते हैं।"
+  },
+  {
+   "beat_id": "b15",
+   "say": "पहले common था, अब सीमित है।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "timeline",
+   "kind": "picture",
+   "cell": [
+    0,
+    0,
+    12,
+    2
+   ],
+   "cue": [
+    "b12",
+    "हाँ"
+   ],
+   "tone": "ink",
+   "size": 28,
+   "picture": {
+    "type": "timeline",
+    "title": "",
+    "item_id": "",
+    "events": [
+     {
+      "cue": [
+       "b12",
+       "civilizations"
+      ],
+      "name": "early civilizations में common",
+      "icon": "tw:1f501",
+      "numbered": false,
+      "when": ""
+     },
+     {
+      "cue": [
+       "b12",
+       "आज"
+      ],
+      "name": "आज छोटे आपसी exchanges",
+      "icon": "tw:1f3e0",
+      "numbered": false,
+      "when": ""
+     }
+    ],
+    "arrows": true
+   }
+  },
+  {
+   "id": "survival",
+   "kind": "icon",
+   "cell": [
+    5,
+    2,
+    2,
+    1
+   ],
+   "cue": [
+    "b12",
+    "हाँ"
+   ],
+   "tone": "accent",
+   "icon": "tw:1f501",
+   "size": 48
+  },
+  {
+   "id": "grain",
+   "kind": "icon",
+   "cell": [
+    1,
+    3,
+    2,
+    2
+   ],
+   "cue": [
+    "b13",
+    "मिलें"
+   ],
+   "until_cue": [
+    "b15",
+    "पहले"
+   ],
+   "tone": "ink",
+   "icon": "tw:1f33e",
+   "size": 64
+  },
+  {
+   "id": "cloth",
+   "kind": "icon",
+   "cell": [
+    5,
+    3,
+    2,
+    2
+   ],
+   "cue": [
+    "b13",
+    "मिलें"
+   ],
+   "until_cue": [
+    "b15",
+    "पहले"
+   ],
+   "tone": "ink",
+   "icon": "tw:1f9f5",
+   "size": 64
+  },
+  {
+   "id": "grain_flow",
+   "kind": "arrow",
+   "cue": [
+    "b13",
+    "मिलें"
+   ],
+   "until_cue": [
+    "b15",
+    "पहले"
+   ],
+   "tone": "accent",
+   "from": "grain",
+   "to": "cloth",
+   "from_side": "r",
+   "to_side": "l",
+   "curve": true,
+   "flow": {
+    "icon": "tw:1f33e",
+    "count": 2,
+    "period": 2400,
+    "size": 24,
+    "cue": [
+     "b13",
+     "मिलें"
+    ]
+   }
+  },
+  {
+   "id": "cloth_flow",
+   "kind": "arrow",
+   "cue": [
+    "b13",
+    "swap"
+   ],
+   "until_cue": [
+    "b15",
+    "पहले"
+   ],
+   "tone": "warm",
+   "from": "cloth",
+   "to": "grain",
+   "from_side": "b",
+   "to_side": "b",
+   "curve": true,
+   "flow": {
+    "icon": "tw:1f9f5",
+    "count": 2,
+    "period": 2400,
+    "size": 24,
+    "cue": [
+     "b13",
+     "swap"
+    ]
+   }
+  },
+  {
+   "id": "money",
+   "kind": "icon",
+   "cell": [
+    8,
+    3,
+    2,
+    2
+   ],
+   "cue": [
+    "b14",
+    "पैसा"
+   ],
+   "until_cue": [
+    "b15",
+    "पहले"
+   ],
+   "tone": "ok",
+   "icon": "fa:solid/indian-rupee-sign",
+   "size": 56
+  },
+  {
+   "id": "purchases",
+   "kind": "icon",
+   "cell": [
+    10,
+    3,
+    2,
+    2
+   ],
+   "cue": [
+    "b14",
+    "दोनों"
+   ],
+   "until_cue": [
+    "b15",
+    "पहले"
+   ],
+   "tone": "ink",
+   "icon": "fa:solid/basket-shopping",
+   "size": 56
+  },
+  {
+   "id": "past",
+   "kind": "crowd",
+   "cell": [
+    0,
+    4,
+    5,
+    2
+   ],
+   "cue": [
+    "b15",
+    "पहले"
+   ],
+   "tone": "accent",
+   "icon": "tw:1f501",
+   "size": 42,
+   "cols": 3,
+   "steps": [
+    {
+     "cue": [
+      "b15",
+      "पहले"
+     ],
+     "n": 6
+    }
+   ]
+  },
+  {
+   "id": "present",
+   "kind": "crowd",
+   "cell": [
+    7,
+    4,
+    5,
+    2
+   ],
+   "cue": [
+    "b15",
+    "सीमित"
+   ],
+   "tone": "accent",
+   "icon": "tw:1f501",
+   "size": 42,
+   "cols": 3,
+   "steps": [
+    {
+     "cue": [
+      "b15",
+      "सीमित"
+     ],
+     "n": 2
+    }
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

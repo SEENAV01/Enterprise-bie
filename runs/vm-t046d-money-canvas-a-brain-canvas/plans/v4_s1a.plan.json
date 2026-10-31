@@ -1,0 +1,201 @@
+{
+ "id": "v4_s1a",
+ "part_id": "c09.1",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b1",
+   "say": "सस्ता ₹100 note चावल क्यों दिलाता है? क्या पीछे gold है? Payment में लेना और कानून से पैसा मानना क्या एक हैं?"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "note",
+   "kind": "icon",
+   "cell": [
+    0,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b1",
+    "₹100"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "fa:solid/money-bill-1",
+   "label": "₹100 note",
+   "size": 32
+  },
+  {
+   "id": "rice",
+   "kind": "icon",
+   "cell": [
+    3,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b1",
+    "चावल"
+   ],
+   "tone": "ink",
+   "align": "center",
+   "icon": "tw:1f33e",
+   "label": "चावल",
+   "size": 32
+  },
+  {
+   "id": "exchange",
+   "kind": "arrow",
+   "cue": [
+    "b1",
+    "दिलाता"
+   ],
+   "tone": "accent",
+   "from": "note",
+   "to": "rice",
+   "from_side": "r",
+   "to_side": "l",
+   "flow": {
+    "icon": "fa:solid/money-bill-1",
+    "count": 1,
+    "period": 1800,
+    "size": 24,
+    "cue": [
+     "b1",
+     "दिलाता"
+    ]
+   }
+  },
+  {
+   "id": "gold",
+   "kind": "icon",
+   "cell": [
+    6,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b1",
+    "gold"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "fa:solid/coins",
+   "label": "gold",
+   "size": 32
+  },
+  {
+   "id": "gold-question",
+   "kind": "icon",
+   "cell": [
+    8,
+    2,
+    1,
+    2
+   ],
+   "cue": [
+    "b1",
+    "gold"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "tw:2753",
+   "size": 32
+  },
+  {
+   "id": "acceptance",
+   "kind": "icon",
+   "cell": [
+    2,
+    5,
+    3,
+    2
+   ],
+   "cue": [
+    "b1",
+    "Payment"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "tw:1f91d",
+   "label": "Payment में लेना",
+   "size": 28
+  },
+  {
+   "id": "law",
+   "kind": "icon",
+   "cell": [
+    7,
+    5,
+    4,
+    2
+   ],
+   "cue": [
+    "b1",
+    "कानून"
+   ],
+   "tone": "ink",
+   "align": "center",
+   "icon": "tw:1f4dc",
+   "label": "कानून से पैसा मानना",
+   "size": 28
+  },
+  {
+   "id": "same-question",
+   "kind": "icon",
+   "cell": [
+    5,
+    5,
+    2,
+    2
+   ],
+   "cue": [
+    "b1",
+    "एक"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "tw:2753",
+   "size": 28
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b1",
+    "gold"
+   ],
+   "ids": [
+    "note",
+    "gold",
+    "gold-question"
+   ],
+   "until_cue": [
+    "b1",
+    "Payment"
+   ]
+  },
+  {
+   "cue": [
+    "b1",
+    "Payment"
+   ],
+   "ids": [
+    "acceptance",
+    "law",
+    "same-question"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

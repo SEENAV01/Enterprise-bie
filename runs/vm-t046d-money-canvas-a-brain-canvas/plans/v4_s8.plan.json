@@ -1,0 +1,660 @@
+{
+ "id": "v4_s8",
+ "part_id": "c11.3",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b49",
+   "say": "Phone पर Bitcoin payment दिखे तो government-issued money है? नहीं; El-Salvador का example issuance और legal status अलग करता है।"
+  },
+  {
+   "beat_id": "b50",
+   "say": "2024 तक El-Salvador में Bitcoin non-fiat legal-tender exception था। इसका mechanism अलग समझिए: नए bitcoin mining से network rules पर बनते हैं; price demand-supply से, government के fixed-value promise से नहीं।"
+  },
+  {
+   "beat_id": "b51",
+   "say": "2025 reforms के बाद practical compulsory acceptance हटी; ownership और voluntary use legal रहे। दोनों राज़ी हों तो payment संभव है—यह ban नहीं।"
+  },
+  {
+   "beat_id": "b52",
+   "say": "कानूनी recognition बदलने से network का issuer government नहीं बनता।"
+  },
+  {
+   "beat_id": "b53",
+   "say": "अलग पूछिए: issuer कौन, ownership legal, acceptance voluntary या compulsory?"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "phone",
+   "kind": "icon",
+   "cell": [
+    0,
+    2,
+    3,
+    3
+   ],
+   "cue": [
+    "b49",
+    "Phone"
+   ],
+   "until_cue": [
+    "b50",
+    "2024"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "tw:1f4f1",
+   "label": "Bitcoin payment",
+   "size": 48
+  },
+  {
+   "id": "government",
+   "kind": "icon",
+   "cell": [
+    5,
+    2,
+    3,
+    3
+   ],
+   "cue": [
+    "b49",
+    "government-issued"
+   ],
+   "until_cue": [
+    "b50",
+    "2024"
+   ],
+   "tone": "muted",
+   "align": "center",
+   "icon": "fa:solid/landmark",
+   "label": "government-issued money?",
+   "size": 40
+  },
+  {
+   "id": "not-government",
+   "kind": "mark",
+   "cue": [
+    "b49",
+    "नहीं;"
+   ],
+   "until_cue": [
+    "b50",
+    "2024"
+   ],
+   "tone": "danger",
+   "target": "government",
+   "mark": "cross",
+   "pos": "tr",
+   "size": 32
+  },
+  {
+   "id": "distinction",
+   "kind": "text",
+   "cell": [
+    1,
+    0,
+    10,
+    1
+   ],
+   "cue": [
+    "b49",
+    "अलग"
+   ],
+   "until_cue": [
+    "b50",
+    "2024"
+   ],
+   "text": "issuance और legal status अलग",
+   "style": "title",
+   "tone": "ink",
+   "align": "center",
+   "size": 32
+  },
+  {
+   "id": "legal-timeline",
+   "kind": "picture",
+   "cell": [
+    0,
+    0,
+    12,
+    2
+   ],
+   "cue": [
+    "b50",
+    "2024"
+   ],
+   "tone": "accent",
+   "size": 28,
+   "picture": {
+    "type": "timeline",
+    "title": "",
+    "item_id": "",
+    "events": [
+     {
+      "cue": [
+       "b50",
+       "exception"
+      ],
+      "name": "El-Salvador में legal-tender exception",
+      "icon": "tw:1f4dc",
+      "numbered": false,
+      "when": "2024 तक"
+     },
+     {
+      "cue": [
+       "b51",
+       "हटी;"
+      ],
+      "name": "compulsory acceptance हटी",
+      "icon": "tw:1f4dc",
+      "numbered": false,
+      "when": "2025"
+     }
+    ],
+    "arrows": true
+   }
+  },
+  {
+   "id": "mining",
+   "kind": "icon",
+   "cell": [
+    0,
+    3,
+    3,
+    2
+   ],
+   "cue": [
+    "b50",
+    "mining"
+   ],
+   "until_cue": [
+    "b51",
+    "2025"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "tw:1f4bb",
+   "label": "mining से नए bitcoin",
+   "size": 32
+  },
+  {
+   "id": "network",
+   "kind": "icon",
+   "cell": [
+    4,
+    3,
+    3,
+    2
+   ],
+   "cue": [
+    "b50",
+    "network"
+   ],
+   "until_cue": [
+    "b51",
+    "2025"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "fa:solid/network-wired",
+   "label": "network rules पर बनते हैं",
+   "size": 32
+  },
+  {
+   "id": "issuance-flow",
+   "kind": "arrow",
+   "cue": [
+    "b50",
+    "बनते"
+   ],
+   "until_cue": [
+    "b51",
+    "2025"
+   ],
+   "tone": "accent",
+   "from": "network",
+   "to": "mining",
+   "from_side": "l",
+   "to_side": "r",
+   "flow": {
+    "icon": "fa:solid/bitcoin-sign",
+    "count": 3,
+    "period": 2200,
+    "size": 24,
+    "cue": [
+     "b50",
+     "बनते"
+    ]
+   }
+  },
+  {
+   "id": "market-price",
+   "kind": "icon",
+   "cell": [
+    8,
+    3,
+    4,
+    2
+   ],
+   "cue": [
+    "b50",
+    "demand-supply"
+   ],
+   "until_cue": [
+    "b51",
+    "2025"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "tw:2696",
+   "label": "price demand-supply से",
+   "size": 30
+  },
+  {
+   "id": "promise",
+   "kind": "icon",
+   "cell": [
+    3,
+    6,
+    6,
+    2
+   ],
+   "cue": [
+    "b50",
+    "fixed-value"
+   ],
+   "until_cue": [
+    "b51",
+    "2025"
+   ],
+   "tone": "muted",
+   "align": "center",
+   "icon": "tw:1f9fe",
+   "label": "government का fixed-value promise",
+   "size": 28
+  },
+  {
+   "id": "promise-rejected",
+   "kind": "mark",
+   "cue": [
+    "b50",
+    "नहीं।"
+   ],
+   "until_cue": [
+    "b51",
+    "2025"
+   ],
+   "tone": "danger",
+   "target": "promise",
+   "mark": "cross",
+   "pos": "tr",
+   "size": 32
+  },
+  {
+   "id": "compulsion",
+   "kind": "icon",
+   "cell": [
+    0,
+    3,
+    4,
+    3
+   ],
+   "cue": [
+    "b51",
+    "compulsory"
+   ],
+   "until_cue": [
+    "b52",
+    "कानूनी"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "fa:solid/stamp",
+   "label": "compulsory acceptance",
+   "size": 30
+  },
+  {
+   "id": "compulsion-removed",
+   "kind": "mark",
+   "cue": [
+    "b51",
+    "हटी;"
+   ],
+   "until_cue": [
+    "b52",
+    "कानूनी"
+   ],
+   "tone": "danger",
+   "target": "compulsion",
+   "mark": "cross",
+   "pos": "tr",
+   "size": 32
+  },
+  {
+   "id": "wallet",
+   "kind": "icon",
+   "cell": [
+    4,
+    3,
+    4,
+    3
+   ],
+   "cue": [
+    "b51",
+    "ownership"
+   ],
+   "until_cue": [
+    "b52",
+    "कानूनी"
+   ],
+   "tone": "ok",
+   "align": "center",
+   "icon": "fa:solid/wallet",
+   "label": "ownership legal",
+   "size": 30
+  },
+  {
+   "id": "wallet-legal",
+   "kind": "mark",
+   "cue": [
+    "b51",
+    "legal"
+   ],
+   "until_cue": [
+    "b52",
+    "कानूनी"
+   ],
+   "tone": "ok",
+   "target": "wallet",
+   "mark": "tick",
+   "pos": "tr",
+   "size": 32
+  },
+  {
+   "id": "consent",
+   "kind": "icon",
+   "cell": [
+    8,
+    3,
+    4,
+    3
+   ],
+   "cue": [
+    "b51",
+    "राज़ी"
+   ],
+   "until_cue": [
+    "b52",
+    "कानूनी"
+   ],
+   "tone": "ok",
+   "align": "center",
+   "icon": "tw:1f91d",
+   "label": "दोनों राज़ी हों तो payment",
+   "size": 30
+  },
+  {
+   "id": "recognition-change",
+   "kind": "icon",
+   "cell": [
+    0,
+    2,
+    12,
+    1
+   ],
+   "cue": [
+    "b52",
+    "बदलने"
+   ],
+   "until_cue": [
+    "b53",
+    "अलग"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "tw:1f4dc",
+   "label": "कानूनी recognition बदलने से",
+   "size": 28
+  },
+  {
+   "id": "unchanged-network",
+   "kind": "icon",
+   "cell": [
+    1,
+    3,
+    4,
+    3
+   ],
+   "cue": [
+    "b52",
+    "network"
+   ],
+   "until_cue": [
+    "b53",
+    "अलग"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "fa:solid/network-wired",
+   "label": "network का issuer",
+   "size": 32
+  },
+  {
+   "id": "not-sovereign",
+   "kind": "icon",
+   "cell": [
+    7,
+    3,
+    4,
+    3
+   ],
+   "cue": [
+    "b52",
+    "government"
+   ],
+   "until_cue": [
+    "b53",
+    "अलग"
+   ],
+   "tone": "muted",
+   "align": "center",
+   "icon": "fa:solid/landmark",
+   "label": "government नहीं बनता",
+   "size": 32
+  },
+  {
+   "id": "sovereign-cross",
+   "kind": "mark",
+   "cue": [
+    "b52",
+    "नहीं"
+   ],
+   "until_cue": [
+    "b53",
+    "अलग"
+   ],
+   "tone": "danger",
+   "target": "not-sovereign",
+   "mark": "cross",
+   "pos": "tr",
+   "size": 32
+  },
+  {
+   "id": "separate-questions",
+   "kind": "icon",
+   "cell": [
+    5,
+    2,
+    2,
+    1
+   ],
+   "cue": [
+    "b53",
+    "अलग"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "tw:2753",
+   "size": 32
+  },
+  {
+   "id": "issuer-question",
+   "kind": "icon",
+   "cell": [
+    0,
+    4,
+    4,
+    3
+   ],
+   "cue": [
+    "b53",
+    "issuer"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "fa:solid/network-wired",
+   "label": "issuer कौन?",
+   "size": 30
+  },
+  {
+   "id": "ownership-question",
+   "kind": "icon",
+   "cell": [
+    4,
+    4,
+    4,
+    3
+   ],
+   "cue": [
+    "b53",
+    "ownership"
+   ],
+   "tone": "ok",
+   "align": "center",
+   "icon": "fa:solid/wallet",
+   "label": "ownership legal?",
+   "size": 30
+  },
+  {
+   "id": "acceptance-question",
+   "kind": "icon",
+   "cell": [
+    8,
+    4,
+    4,
+    3
+   ],
+   "cue": [
+    "b53",
+    "acceptance"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "tw:1f91d",
+   "label": "acceptance",
+   "size": 28
+  }
+ ],
+ "camera": [
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    8
+   ],
+   "cue": [
+    "b49",
+    "Phone"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    8
+   ],
+   "cue": [
+    "b51",
+    "2025"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b52",
+    "बदलने"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    8
+   ],
+   "cue": [
+    "b53",
+    "अलग"
+   ]
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b50",
+    "mining"
+   ],
+   "ids": [
+    "mining",
+    "network",
+    "issuance-flow"
+   ],
+   "until_cue": [
+    "b50",
+    "price"
+   ]
+  },
+  {
+   "cue": [
+    "b50",
+    "demand-supply"
+   ],
+   "ids": [
+    "market-price"
+   ],
+   "until_cue": [
+    "b50",
+    "government"
+   ]
+  },
+  {
+   "cue": [
+    "b51",
+    "राज़ी"
+   ],
+   "ids": [
+    "consent",
+    "wallet",
+    "wallet-legal"
+   ],
+   "until_cue": [
+    "b52",
+    "कानूनी"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

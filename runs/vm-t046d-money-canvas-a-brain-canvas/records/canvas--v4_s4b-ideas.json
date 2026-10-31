@@ -1,0 +1,325 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "canvas",
+ "unit": "v4_s4b-ideas",
+ "status": "passed",
+ "instructions_version": "visual-ideas/1",
+ "rulebook_version": "canvas_profile@2026-10-29.1+content_types@2026-10-27.1+explanations@2026-10-24.3+level_profiles@2026-10-24.1+simple_hindi@2026-10-28.1+teacher_examples@2026-10-29.1+vision-2026-10-21@2026-10-21.17+visual_grammar@2026-10-31.1+visual_levels@2026-10-26.2+visual_verbs@2026-10-31.1",
+ "rulebook_digest": "0271c5cb76262d9d2239ea932af7c8d8701ae3275cbd3e1d63053dfd8a6e35e8",
+ "rules_used": [
+  "CV-01",
+  "CV-02",
+  "CV-03",
+  "CV-04",
+  "CV-05",
+  "CV-06",
+  "CV-07",
+  "CV-08",
+  "CV-09",
+  "CV-10",
+  "CV-11",
+  "CV-12",
+  "CV-13",
+  "CV-14",
+  "CV-15",
+  "CV-16",
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-05",
+  "G-06",
+  "G-07",
+  "VG-02",
+  "VG-04",
+  "VG-07",
+  "VG-08",
+  "VG-10",
+  "D1-01",
+  "D1-02",
+  "D1-03",
+  "D1-04",
+  "D1-05",
+  "D1-06"
+ ],
+ "maker_route": "codex",
+ "reviewer_route": "codex-checker",
+ "maker_model": "gpt-6.1-sol",
+ "reviewer_model": "gpt-6.1-sol",
+ "reviewer_independence": "same_model_temporary",
+ "inputs_digest": "9264961a0b728488a91a528087aaf3f7c2ede63921907206011d300f6ba4dd5d",
+ "card": null,
+ "prefix_sha256": "8975f87e272cb88632a2441de6e34467a870de00ac2184fdb348e9ed0669e7c6",
+ "review_prefix_sha256": null,
+ "inputs": {
+  "system": "You are BIE's visual thinker for one part of a video lesson of Indian Economy for UPSC / State PCS aspirants (UPSC / State PCS). The script is written and\npassed; you do not change a word. Before any layout, say for EVERY beat what the learner should SEE so that the spoken point is\nclear through the eyes (Navin, 30 October 2026: \"jo bola ja rha hai screen ke visuals se wo baat clear ho\"; a screen of text alone\nis a book, not a video). Code then finds the things in BIE's icon index and asset library, places the book's own pictures, and\nchecks the layout.\n\nCourse: \"3. Money\" · learner language: Hinglish.\n\nFor each beat give:\n- idea: the key idea in a few words (what the teacher is making the learner understand right now).\n- relation: ONE id from this list, how the idea relates its things (or \"other\" with relation_note; an \"other\" is logged so Navin can\n  add it):\n- reject: a cross mark on the thing refused (the thing's icon first, then the cross on it, on the word that refuses)\n- accept: a tick on the thing accepted\n- compulsory: a law scroll with a stamp on it, beside the thing the law binds\n- limit: a meter or a stack that fills up to a red line where it stops (the limit's number on the line)\n- more_less: two sizes side by side, or a crowd / stack that grows or shrinks on the word\n- count: a counted stack or crowd whose number is the narration's number\n- sequence: a numbered row or a timeline with arrows; the book's own years and labels when the part covers a book timeline\n- cause_effect: an arrow chain: the cause's icon, an arrow, the effect's icon or number\n- compare: a split screen (the same slots on both sides) or a balance scale; the book's own table when the part covers one\n- part_whole: a grouping: the whole as a box, its parts as icons inside it, or a tree\n- place: a map with the place marked, or the place's flag beside the thing\n- change: before and after side by side, the old struck out, the new in its place\n- promise: a receipt or a handshake between the two parties, the promise's words as a short label\n- question: the thing asked about with a question mark beside it; the answer's picture replaces the mark when the answer comes\n- other: a relation outside this list: the step logs it (relations_outside_list) so Navin can add an entry; the beat still shows its things as themselves\n- things, people, places: the concrete nouns the beat names or implies, as plain English or Hindi words a picture can show (wheat,\n  cloth, salt, coin, ₹500 note, phone, law scroll, Sweden, 1661, farmer, shopkeeper). A real person is never drawn (card rule 8): name\n  the role (a king, a ruler) or the object (a coin with a seal), not the person.\n- shows: what is seen, in at most 8 words, as a picture description (a cross on the old coin; a meter filling to ₹1,000\n  with a red line; wheat and cloth swapping hands). Never a sentence for the screen: the sentence is the narration.\n- on_word: the word of this beat (exactly as written) on which the picture should appear (\"\" = the beat's start).\n- image_wanted: a real object an icon cannot show and a photograph or museum image can (a punch-marked silver coin, a cowrie\n  shell, a cheque leaf), as search words; \"\" when an icon is enough. Never a person's portrait (card rule 8).\npicture_type: the one picture this part needs most, from timeline, gallery (a row of icon cards), table, flow, tree, chart, map or things (the things themselves with the relation's mark, arrow, meter or scale); the card part's type is \"definition\". picture_note: one line on why.\nReply with the JSON object only.",
+  "user": "Chapter: 3. Money. Part c10.1 (3 beats).\nThe part (JSON):\n{\"part\": {\"id\": \"v4_s4b\", \"part_id\": \"c10.1\", \"card_type\": \"definition\", \"story\": false}, \"beats\": [{\"beat_id\": \"b20\", \"say\": \"यह fiat money है: value government authority और public trust से, material से नहीं। यानी आज मिला note कल groceries दिलाएगा।\", \"relation_guess\": \"place\"}, {\"beat_id\": \"b21\", \"say\": \"Gold-backed paper का आधार redemption था; इसलिए हर paper note fiat नहीं।\", \"relation_guess\": \"cause_effect\"}, {\"beat_id\": \"b22\", \"say\": \"Authority और trust वाला यही आधार आगे समझाएगा: gold बिना issue कैसे control होता है।\", \"relation_guess\": \"promise\"}], \"items\": [{\"item_id\": \"p004-i9\", \"content_type\": \"definition\", \"content\": \"It is money whose value comes from government authority and public trust rather than the intrinsic value of material from which it is made.\"}], \"book_pictures\": []}\n\nReply with the ideas JSON."
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "started_at": 1793464784.1203413,
+   "mode": "full",
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "7bb608ecd79a9853ee10f805e5701246decd745e36ac14cc77c12cdbe4eae423",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 4691,
+    "output_tokens": 593,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "Defines fiat money by authority and trust, contrasts it with gold-redeemable paper, and previews control of issuance without gold.",
+    "key_questions": [
+     "What supports fiat money’s value?",
+     "Why is not every paper note fiat money?",
+     "How can issuance be controlled without gold backing?"
+    ],
+    "decisions": [
+     {
+      "decision": "Show authority and trust supporting purchasing power, not paper material.",
+      "reason": "The definition concerns the source of value, not the note’s physical form."
+     },
+     {
+      "decision": "Leave issuance control as an unanswered visual question.",
+      "reason": "The final beat previews a later explanation rather than supplying its mechanism."
+     }
+    ],
+    "uncertain": []
+   },
+   "output": {
+    "notes": {
+     "about": "Defines fiat money by authority and trust, contrasts it with gold-redeemable paper, and previews control of issuance without gold.",
+     "key_questions": [
+      "What supports fiat money’s value?",
+      "Why is not every paper note fiat money?",
+      "How can issuance be controlled without gold backing?"
+     ],
+     "decisions": [
+      {
+       "decision": "Show authority and trust supporting purchasing power, not paper material.",
+       "reason": "The definition concerns the source of value, not the note’s physical form."
+      },
+      {
+       "decision": "Leave issuance control as an unanswered visual question.",
+       "reason": "The final beat previews a later explanation rather than supplying its mechanism."
+      }
+     ],
+     "uncertain": []
+    },
+    "beats": [
+     {
+      "beat_id": "b20",
+      "idea": "Fiat value comes from authority and trust",
+      "relation": "cause_effect",
+      "relation_note": "",
+      "things": [
+       "government building",
+       "handshake",
+       "paper note",
+       "paper sheet",
+       "groceries",
+       "calendar"
+      ],
+      "people": [
+       "buyer",
+       "shopkeeper"
+      ],
+      "places": [],
+      "shows": "Authority and trust support note buying tomorrow’s groceries",
+      "on_word": "fiat",
+      "image_wanted": ""
+     },
+     {
+      "beat_id": "b21",
+      "idea": "Gold-redeemable paper is not fiat",
+      "relation": "compare",
+      "relation_note": "",
+      "things": [
+       "gold-backed paper note",
+       "gold bars",
+       "redemption counter",
+       "fiat note",
+       "government building",
+       "handshake"
+      ],
+      "people": [],
+      "places": [],
+      "shows": "Gold-redemption paper versus authority-and-trust fiat note",
+      "on_word": "Gold-backed",
+      "image_wanted": ""
+     },
+     {
+      "beat_id": "b22",
+      "idea": "How is issuance controlled without gold?",
+      "relation": "question",
+      "relation_note": "",
+      "things": [
+       "government building",
+       "handshake",
+       "gold bars",
+       "banknote issuing machine",
+       "control dial",
+       "question mark"
+      ],
+      "people": [],
+      "places": [],
+      "shows": "Gold crossed out; issuance control dial questioned",
+      "on_word": "कैसे",
+      "image_wanted": ""
+     }
+    ],
+    "picture_type": "definition",
+    "picture_note": "Anchor the definition in a note supported by authority and trust, then contrast gold redemption and preview issuance control."
+   },
+   "code_problems": [
+    "[code] picture_type 'definition' is not one of timeline, gallery, table, flow, tree, chart, map, things"
+   ],
+   "passed": false,
+   "finished_at": 1793464798.6971562
+  },
+  {
+   "round": 2,
+   "started_at": 1793464798.6972082,
+   "mode": "full",
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "76024912b90e50069416244fc98292bf6489e5f1a66fba1b4517eed4c8de9e42",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 5187,
+    "output_tokens": 447,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "Defines fiat money by authority and trust, contrasts it with gold-redeemable paper, and previews control of issuance without gold.",
+    "key_questions": [
+     "What supports fiat money’s value?",
+     "Why is not every paper note fiat money?",
+     "How can issuance be controlled without gold backing?"
+    ],
+    "decisions": [
+     {
+      "decision": "Show authority and trust supporting purchasing power, not paper material.",
+      "reason": "The definition concerns the source of value, not the note’s physical form."
+     },
+     {
+      "decision": "Leave issuance control as an unanswered visual question.",
+      "reason": "The final beat previews a later explanation rather than supplying its mechanism."
+     },
+     {
+      "decision": "Change picture_type from definition to things; retain the beat visuals.",
+      "reason": "The validation requires an allowed picture type; things accommodates the concrete objects and relation marks."
+     }
+    ],
+    "uncertain": []
+   },
+   "output": {
+    "notes": {
+     "about": "Defines fiat money by authority and trust, contrasts it with gold-redeemable paper, and previews control of issuance without gold.",
+     "key_questions": [
+      "What supports fiat money’s value?",
+      "Why is not every paper note fiat money?",
+      "How can issuance be controlled without gold backing?"
+     ],
+     "decisions": [
+      {
+       "decision": "Show authority and trust supporting purchasing power, not paper material.",
+       "reason": "The definition concerns the source of value, not the note’s physical form."
+      },
+      {
+       "decision": "Leave issuance control as an unanswered visual question.",
+       "reason": "The final beat previews a later explanation rather than supplying its mechanism."
+      },
+      {
+       "decision": "Change picture_type from definition to things; retain the beat visuals.",
+       "reason": "The validation requires an allowed picture type; things accommodates the concrete objects and relation marks."
+      }
+     ],
+     "uncertain": []
+    },
+    "beats": [
+     {
+      "beat_id": "b20",
+      "idea": "Fiat value comes from authority and trust",
+      "relation": "cause_effect",
+      "relation_note": "",
+      "things": [
+       "government building",
+       "handshake",
+       "paper note",
+       "paper sheet",
+       "groceries",
+       "calendar"
+      ],
+      "people": [
+       "buyer",
+       "shopkeeper"
+      ],
+      "places": [],
+      "shows": "Authority and trust support note buying tomorrow’s groceries",
+      "on_word": "fiat",
+      "image_wanted": ""
+     },
+     {
+      "beat_id": "b21",
+      "idea": "Gold-redeemable paper is not fiat",
+      "relation": "compare",
+      "relation_note": "",
+      "things": [
+       "gold-backed paper note",
+       "gold bars",
+       "redemption counter",
+       "fiat note",
+       "government building",
+       "handshake"
+      ],
+      "people": [],
+      "places": [],
+      "shows": "Gold-redemption paper versus authority-and-trust fiat note",
+      "on_word": "Gold-backed",
+      "image_wanted": ""
+     },
+     {
+      "beat_id": "b22",
+      "idea": "How is issuance controlled without gold?",
+      "relation": "question",
+      "relation_note": "",
+      "things": [
+       "government building",
+       "handshake",
+       "gold bars",
+       "banknote issuing machine",
+       "control dial",
+       "question mark"
+      ],
+      "people": [],
+      "places": [],
+      "shows": "Gold crossed out; issuance control dial questioned",
+      "on_word": "कैसे",
+      "image_wanted": ""
+     }
+    ],
+    "picture_type": "things",
+    "picture_note": "Anchor the definition in a note supported by authority and trust, then contrast gold redemption and preview issuance control."
+   },
+   "code_problems": [],
+   "passed": true,
+   "finished_at": 1793464807.1550078
+  }
+ ],
+ "avoid_rounds": [
+  1
+ ],
+ "cost_usd": 0.0,
+ "seconds": 23.0,
+ "navin_verdict": null
+}

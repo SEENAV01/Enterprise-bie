@@ -1,0 +1,355 @@
+{
+ "id": "v4_s7s",
+ "part_id": "c11.2",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b43",
+   "say": "4 पुराने 25 paise coins दें तो ₹1 bill चुक जाएगा? दुकानदार मना करे तो ₹1 बाकी रहता है; valid ₹1 coin दें तो बकाया ₹0 होता है। पुराने coins का legal-tender status हटना demonetization है।"
+  },
+  {
+   "beat_id": "b44",
+   "say": "Change के डिब्बे में कौन-से coins हैं? ₹1, ₹2, ₹5, ₹10, ₹20 को जोड़कर ₹1,000 तक की tender limit है। 50 paise जोड़ें तो ₹10 तक; उससे छोटे coins जोड़ने से legal-tender payment नहीं बनता।"
+  }
+ ],
+ "kit": "shop",
+ "elements": [
+  {
+   "id": "shop",
+   "kind": "shop",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b43",
+    "4"
+   ]
+  },
+  {
+   "id": "keeper",
+   "kind": "shopkeeper",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b43",
+    "4"
+   ]
+  },
+  {
+   "id": "buyer",
+   "kind": "crowd",
+   "x0": 2250,
+   "spacing": 90,
+   "enter_x": 1950,
+   "exit_x": 1950,
+   "face": 1,
+   "seed": 43,
+   "cue": [
+    "b43",
+    "4"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b43",
+      "4"
+     ],
+     "n": 1
+    },
+    {
+     "cue": [
+      "b43",
+      "demonetization"
+     ],
+     "n": 0
+    }
+   ]
+  },
+  {
+   "id": "old_coins",
+   "kind": "coin_rain",
+   "x0": 2280,
+   "x1": 2390,
+   "count": 4,
+   "cue": [
+    "b43",
+    "4"
+   ],
+   "until_cue": [
+    "b43",
+    "मना"
+   ]
+  },
+  {
+   "id": "balance",
+   "kind": "board",
+   "x": 2910,
+   "y": 550,
+   "fill": "#E7D9B9",
+   "cue": [
+    "b43",
+    "bill"
+   ],
+   "until_cue": [
+    "b44",
+    "Change"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b43",
+      "bill"
+     ],
+     "text": "₹1"
+    },
+    {
+     "cue": [
+      "b43",
+      "₹0"
+     ],
+     "text": "₹0",
+     "dir": "down"
+    }
+   ]
+  },
+  {
+   "id": "valid_coin",
+   "kind": "coin_rain",
+   "x0": 2470,
+   "x1": 2500,
+   "count": 1,
+   "cue": [
+    "b43",
+    "valid"
+   ],
+   "until_cue": [
+    "b43",
+    "पुराने"
+   ]
+  },
+  {
+   "id": "status",
+   "kind": "board",
+   "x": 2110,
+   "y": 510,
+   "fill": "#EAD9CF",
+   "cue": [
+    "b43",
+    "हटना"
+   ],
+   "until_cue": [
+    "b44",
+    "Change"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b43",
+      "हटना"
+     ],
+     "text": "legal-tender status हटना"
+    },
+    {
+     "cue": [
+      "b43",
+      "demonetization"
+     ],
+     "text": "demonetization"
+    }
+   ]
+  },
+  {
+   "id": "change_coins",
+   "kind": "coin_rain",
+   "x0": 2290,
+   "x1": 2640,
+   "count": 5,
+   "cue": [
+    "b44",
+    "Change"
+   ],
+   "until_cue": [
+    "b44",
+    "50"
+   ]
+  },
+  {
+   "id": "rupee_category",
+   "kind": "board",
+   "x": 2070,
+   "y": 530,
+   "fill": "#DDE7D5",
+   "cue": [
+    "b44",
+    "₹20"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b44",
+      "₹20"
+     ],
+     "text": "₹1, ₹2, ₹5, ₹10, ₹20"
+    },
+    {
+     "cue": [
+      "b44",
+      "₹1,000"
+     ],
+     "text": "₹1,000 तक की tender limit"
+    }
+   ]
+  },
+  {
+   "id": "paise_coins",
+   "kind": "coin_rain",
+   "x0": 2730,
+   "x1": 2840,
+   "count": 3,
+   "cue": [
+    "b44",
+    "50"
+   ],
+   "until_cue": [
+    "b44",
+    "छोटे"
+   ]
+  },
+  {
+   "id": "paise_category",
+   "kind": "board",
+   "x": 3020,
+   "y": 530,
+   "fill": "#E8DFC4",
+   "cue": [
+    "b44",
+    "paise"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b44",
+      "paise"
+     ],
+     "text": "50 paise"
+    },
+    {
+     "cue": [
+      "b44",
+      "₹10"
+     ],
+     "text": "₹10 तक"
+    }
+   ]
+  },
+  {
+   "id": "smaller_coins",
+   "kind": "coin_rain",
+   "x0": 2450,
+   "x1": 2540,
+   "count": 3,
+   "cue": [
+    "b44",
+    "छोटे"
+   ],
+   "until_cue": [
+    "b44",
+    "नहीं"
+   ]
+  },
+  {
+   "id": "no_tender",
+   "kind": "label",
+   "x": 2550,
+   "y": 320,
+   "text": "legal-tender payment नहीं बनता",
+   "fill": "#F1DFD7",
+   "cue": [
+    "b44",
+    "नहीं"
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b43",
+    "4"
+   ],
+   "x": 2530,
+   "y": 580,
+   "zoom": 1,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b43",
+    "मना"
+   ],
+   "x": 2710,
+   "y": 570,
+   "zoom": 1.15,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b43",
+    "valid"
+   ],
+   "x": 2670,
+   "y": 580,
+   "zoom": 1.1,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b43",
+    "हटना"
+   ],
+   "x": 2480,
+   "y": 550,
+   "zoom": 1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b44",
+    "Change"
+   ],
+   "x": 2550,
+   "y": 570,
+   "zoom": 0.95,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b44",
+    "₹1,000"
+   ],
+   "x": 2350,
+   "y": 550,
+   "zoom": 1.05,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b44",
+    "50"
+   ],
+   "x": 2780,
+   "y": 550,
+   "zoom": 1.05,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b44",
+    "छोटे"
+   ],
+   "x": 2550,
+   "y": 520,
+   "zoom": 0.95,
+   "frames": 40
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

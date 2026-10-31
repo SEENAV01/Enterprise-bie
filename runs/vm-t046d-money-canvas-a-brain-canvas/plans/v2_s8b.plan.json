@@ -1,0 +1,419 @@
+{
+ "id": "v2_s8b",
+ "part_id": "c06.2",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b55",
+   "say": "Salt medium of exchange बना। किसान को खुद salt नहीं चाहिए; आगे चलने से लिया। इसलिए double coincidence हटी: पहले buyer को कपड़ा देना नहीं पड़ा।"
+  },
+  {
+   "beat_id": "b56",
+   "say": "Payment के बाहर भी उपयोग है: salt खाने में, cattle रोज़ी में काम आते हैं; tea और tobacco की अलग demand है।"
+  },
+  {
+   "beat_id": "b57",
+   "say": "अपने उपयोग और community acceptance से barter आसान हुआ, हर जगह नहीं। Metallic coins common होने से पहले यह medium था; उपयोग अकेला काफी नहीं।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "book_p003_i4",
+   "kind": "picture",
+   "cell": [
+    0,
+    0,
+    12,
+    5
+   ],
+   "cue": [
+    "b56",
+    ""
+   ],
+   "picture": {
+    "type": "table",
+    "title": "Columns",
+    "item_id": "p003-i4",
+    "columns": [
+     "Commodity",
+     "Where it was used"
+    ],
+    "rows": [
+     {
+      "cells": [
+       "Salt",
+       "Ancient Rome and Africa"
+      ],
+      "item_id": "p003-i5",
+      "cue": [
+       "b56",
+       ""
+      ]
+     },
+     {
+      "cells": [
+       "Cattle",
+       "Early pastoral societies"
+      ],
+      "item_id": "p003-i6",
+      "cue": [
+       "b56",
+       ""
+      ]
+     },
+     {
+      "cells": [
+       "Cowrie shells",
+       "India, China, and Africa"
+      ],
+      "item_id": "p003-i7",
+      "cue": [
+       "b56",
+       ""
+      ]
+     },
+     {
+      "cells": [
+       "Tea bricks",
+       "Central Asia and Tibet"
+      ],
+      "item_id": "p003-i8",
+      "cue": [
+       "b56",
+       ""
+      ]
+     },
+     {
+      "cells": [
+       "Tobacco",
+       "Colonial America"
+      ],
+      "item_id": "p003-i9",
+      "cue": [
+       "b56",
+       ""
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "buyer",
+   "kind": "icon",
+   "cell": [
+    0,
+    5,
+    2,
+    2
+   ],
+   "cue": [
+    "b55",
+    "Salt"
+   ],
+   "until_cue": [
+    "b56",
+    "Payment"
+   ],
+   "tone": "ink",
+   "align": "center",
+   "icon": "tw:1f6cd",
+   "size": 48
+  },
+  {
+   "id": "salt_bridge",
+   "kind": "icon",
+   "cell": [
+    4,
+    5,
+    2,
+    2
+   ],
+   "cue": [
+    "b55",
+    "Salt"
+   ],
+   "until_cue": [
+    "b56",
+    "Payment"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "tw:1f9c2",
+   "size": 48
+  },
+  {
+   "id": "farmer",
+   "kind": "icon",
+   "cell": [
+    8,
+    5,
+    2,
+    2
+   ],
+   "cue": [
+    "b55",
+    "किसान"
+   ],
+   "until_cue": [
+    "b56",
+    "Payment"
+   ],
+   "tone": "ink",
+   "align": "center",
+   "icon": "tw:1f9d1-200d-1f33e",
+   "size": 48
+  },
+  {
+   "id": "salt_transfer",
+   "kind": "arrow",
+   "cue": [
+    "b55",
+    "लिया।"
+   ],
+   "until_cue": [
+    "b56",
+    "Payment"
+   ],
+   "tone": "accent",
+   "from": "salt_bridge",
+   "to": "farmer",
+   "from_side": "r",
+   "to_side": "l",
+   "flow": {
+    "icon": "tw:1f9c2",
+    "count": 1,
+    "period": 90,
+    "size": 24,
+    "cue": [
+     "b55",
+     "लिया।"
+    ]
+   }
+  },
+  {
+   "id": "cloth_requirement",
+   "kind": "icon",
+   "cell": [
+    2,
+    7,
+    2,
+    1
+   ],
+   "cue": [
+    "b55",
+    "कपड़ा"
+   ],
+   "until_cue": [
+    "b56",
+    "Payment"
+   ],
+   "tone": "muted",
+   "align": "center",
+   "icon": "tw:1f455",
+   "size": 36
+  },
+  {
+   "id": "cloth_not_required",
+   "kind": "mark",
+   "cue": [
+    "b55",
+    "नहीं"
+   ],
+   "until_cue": [
+    "b56",
+    "Payment"
+   ],
+   "tone": "danger",
+   "target": "cloth_requirement",
+   "mark": "cross",
+   "pos": "c"
+  },
+  {
+   "id": "direct_uses",
+   "kind": "picture",
+   "cell": [
+    0,
+    5,
+    12,
+    3
+   ],
+   "cue": [
+    "b56",
+    "उपयोग"
+   ],
+   "until_cue": [
+    "b57",
+    "अपने"
+   ],
+   "tone": "ink",
+   "size": 32,
+   "picture": {
+    "type": "gallery",
+    "title": "",
+    "item_id": "",
+    "panels": [
+     {
+      "cue": [
+       "b56",
+       "salt"
+      ],
+      "name": "salt खाने में",
+      "icon": "tw:1f373",
+      "numbered": false
+     },
+     {
+      "cue": [
+       "b56",
+       "cattle"
+      ],
+      "name": "cattle रोज़ी में",
+      "icon": "tw:1f404",
+      "numbered": false
+     },
+     {
+      "cue": [
+       "b56",
+       "tea"
+      ],
+      "name": "tea की demand",
+      "icon": "tw:1f375",
+      "numbered": false
+     },
+     {
+      "cue": [
+       "b56",
+       "tobacco"
+      ],
+      "name": "tobacco की demand",
+      "icon": "fa:solid/smoking",
+      "numbered": false
+     }
+    ],
+    "arrows": false
+   }
+  },
+  {
+   "id": "utility",
+   "kind": "icon",
+   "cell": [
+    0,
+    5,
+    2,
+    2
+   ],
+   "cue": [
+    "b57",
+    "उपयोग"
+   ],
+   "tone": "ink",
+   "align": "center",
+   "icon": "tw:1f373",
+   "label": "अपने उपयोग",
+   "size": 40
+  },
+  {
+   "id": "local_acceptance",
+   "kind": "icon",
+   "cell": [
+    3,
+    5,
+    3,
+    2
+   ],
+   "cue": [
+    "b57",
+    "community"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "fa:solid/hands-holding-circle",
+   "label": "community acceptance",
+   "size": 40
+  },
+  {
+   "id": "easier_exchange",
+   "kind": "icon",
+   "cell": [
+    7,
+    5,
+    2,
+    2
+   ],
+   "cue": [
+    "b57",
+    "आसान"
+   ],
+   "tone": "ok",
+   "align": "center",
+   "icon": "tw:1f501",
+   "label": "barter आसान हुआ",
+   "size": 40
+  },
+  {
+   "id": "coins_later",
+   "kind": "icon",
+   "cell": [
+    10,
+    5,
+    2,
+    2
+   ],
+   "cue": [
+    "b57",
+    "Metallic"
+   ],
+   "tone": "muted",
+   "align": "center",
+   "icon": "tw:1fa99",
+   "label": "Metallic coins",
+   "size": 40
+  },
+  {
+   "id": "utility_not_sufficient",
+   "kind": "highlight",
+   "cue": [
+    "b57",
+    "अकेला"
+   ],
+   "style": "dashed",
+   "tone": "warm",
+   "target": "utility"
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b55",
+    "लिया।"
+   ],
+   "ids": [
+    "buyer",
+    "salt_bridge",
+    "farmer",
+    "salt_transfer"
+   ],
+   "until_cue": [
+    "b56",
+    "Payment"
+   ]
+  },
+  {
+   "cue": [
+    "b57",
+    "नहीं।"
+   ],
+   "ids": [
+    "utility",
+    "local_acceptance",
+    "easier_exchange",
+    "utility_not_sufficient"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

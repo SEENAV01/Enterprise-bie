@@ -1,0 +1,445 @@
+{
+ "id": "v4_s4b",
+ "part_id": "c10.1",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b20",
+   "say": "यह fiat money है: value government authority और public trust से, material से नहीं। यानी आज मिला note कल groceries दिलाएगा।"
+  },
+  {
+   "beat_id": "b21",
+   "say": "Gold-backed paper का आधार redemption था; इसलिए हर paper note fiat नहीं।"
+  },
+  {
+   "beat_id": "b22",
+   "say": "Authority और trust वाला यही आधार आगे समझाएगा: gold बिना issue कैसे control होता है।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "fiat-note",
+   "kind": "icon",
+   "cell": [
+    8,
+    3,
+    3,
+    2
+   ],
+   "cue": [
+    "b20",
+    "fiat"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "fa:solid/money-bill-1",
+   "label": "fiat money",
+   "size": 32
+  },
+  {
+   "id": "authority",
+   "kind": "icon",
+   "cell": [
+    6,
+    0,
+    3,
+    2
+   ],
+   "cue": [
+    "b20",
+    "authority"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "fa:solid/landmark",
+   "label": "government authority",
+   "size": 28
+  },
+  {
+   "id": "trust",
+   "kind": "icon",
+   "cell": [
+    9,
+    0,
+    3,
+    2
+   ],
+   "cue": [
+    "b20",
+    "trust"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "tw:1f91d",
+   "label": "public trust",
+   "size": 28
+  },
+  {
+   "id": "authority-support",
+   "kind": "arrow",
+   "cue": [
+    "b20",
+    "authority"
+   ],
+   "tone": "accent",
+   "from": "authority",
+   "to": "fiat-note",
+   "from_side": "b",
+   "to_side": "t",
+   "elbow": "vh"
+  },
+  {
+   "id": "trust-support",
+   "kind": "arrow",
+   "cue": [
+    "b20",
+    "trust"
+   ],
+   "tone": "accent",
+   "from": "trust",
+   "to": "fiat-note",
+   "from_side": "b",
+   "to_side": "t",
+   "elbow": "vh"
+  },
+  {
+   "id": "material",
+   "kind": "icon",
+   "cell": [
+    1,
+    3,
+    3,
+    2
+   ],
+   "cue": [
+    "b20",
+    "material"
+   ],
+   "until_cue": [
+    "b21",
+    "Gold-backed"
+   ],
+   "tone": "muted",
+   "align": "center",
+   "icon": "tw:1f4c4",
+   "label": "material",
+   "size": 28
+  },
+  {
+   "id": "not-material",
+   "kind": "mark",
+   "cue": [
+    "b20",
+    "नहीं।"
+   ],
+   "until_cue": [
+    "b21",
+    "Gold-backed"
+   ],
+   "tone": "danger",
+   "target": "material",
+   "mark": "cross",
+   "pos": "c"
+  },
+  {
+   "id": "tomorrow",
+   "kind": "icon",
+   "cell": [
+    6,
+    6,
+    2,
+    2
+   ],
+   "cue": [
+    "b20",
+    "कल"
+   ],
+   "until_cue": [
+    "b21",
+    "Gold-backed"
+   ],
+   "tone": "muted",
+   "align": "center",
+   "icon": "tw:1f5d3",
+   "label": "कल",
+   "size": 28
+  },
+  {
+   "id": "groceries",
+   "kind": "icon",
+   "cell": [
+    9,
+    6,
+    3,
+    2
+   ],
+   "cue": [
+    "b20",
+    "groceries"
+   ],
+   "until_cue": [
+    "b21",
+    "Gold-backed"
+   ],
+   "tone": "ok",
+   "align": "center",
+   "icon": "tw:1f6cd",
+   "label": "groceries",
+   "size": 28
+  },
+  {
+   "id": "purchase",
+   "kind": "arrow",
+   "cue": [
+    "b20",
+    "groceries"
+   ],
+   "until_cue": [
+    "b21",
+    "Gold-backed"
+   ],
+   "tone": "accent",
+   "from": "fiat-note",
+   "to": "groceries",
+   "from_side": "b",
+   "to_side": "t",
+   "elbow": "vh",
+   "flow": {
+    "icon": "fa:solid/money-bill-1",
+    "count": 1,
+    "period": 1800,
+    "size": 24,
+    "cue": [
+     "b20",
+     "groceries"
+    ]
+   }
+  },
+  {
+   "id": "gold-paper",
+   "kind": "icon",
+   "cell": [
+    0,
+    3,
+    3,
+    2
+   ],
+   "cue": [
+    "b21",
+    "Gold-backed"
+   ],
+   "until_cue": [
+    "b22",
+    "gold"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "tw:1f4c4",
+   "label": "Gold-backed paper",
+   "size": 28
+  },
+  {
+   "id": "gold",
+   "kind": "icon",
+   "cell": [
+    3,
+    0,
+    3,
+    2
+   ],
+   "cue": [
+    "b21",
+    "Gold-backed"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "fa:solid/coins",
+   "size": 28
+  },
+  {
+   "id": "redemption",
+   "kind": "arrow",
+   "cue": [
+    "b21",
+    "redemption"
+   ],
+   "until_cue": [
+    "b22",
+    "gold"
+   ],
+   "tone": "warm",
+   "label": "redemption",
+   "from": "gold-paper",
+   "to": "gold",
+   "from_side": "t",
+   "to_side": "b",
+   "elbow": "vh",
+   "size": 28,
+   "flow": {
+    "icon": "fa:solid/coins",
+    "count": 1,
+    "period": 1800,
+    "size": 24,
+    "reverse": true,
+    "cue": [
+     "b21",
+     "redemption"
+    ]
+   }
+  },
+  {
+   "id": "not-fiat",
+   "kind": "mark",
+   "cue": [
+    "b21",
+    "नहीं।"
+   ],
+   "until_cue": [
+    "b22",
+    "gold"
+   ],
+   "tone": "danger",
+   "target": "gold-paper",
+   "mark": "cross",
+   "pos": "tr"
+  },
+  {
+   "id": "basis",
+   "kind": "highlight",
+   "cue": [
+    "b22",
+    "आधार"
+   ],
+   "style": "band",
+   "tone": "band",
+   "target": "trust"
+  },
+  {
+   "id": "without-gold",
+   "kind": "mark",
+   "cue": [
+    "b22",
+    "बिना"
+   ],
+   "tone": "danger",
+   "target": "gold",
+   "mark": "cross",
+   "pos": "c"
+  },
+  {
+   "id": "issuance",
+   "kind": "icon",
+   "cell": [
+    0,
+    3,
+    3,
+    2
+   ],
+   "cue": [
+    "b22",
+    "issue"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "fa:solid/money-bill-1",
+   "label": "issue",
+   "size": 28
+  },
+  {
+   "id": "question",
+   "kind": "icon",
+   "cell": [
+    3,
+    6,
+    2,
+    2
+   ],
+   "cue": [
+    "b22",
+    "कैसे"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "tw:2753",
+   "size": 28
+  },
+  {
+   "id": "control",
+   "kind": "icon",
+   "cell": [
+    0,
+    6,
+    3,
+    2
+   ],
+   "cue": [
+    "b22",
+    "control"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "tw:1f39b",
+   "label": "control",
+   "size": 28
+  }
+ ],
+ "camera": [
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    8
+   ],
+   "cue": [
+    "b20",
+    "fiat"
+   ]
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b21",
+    "Gold-backed"
+   ],
+   "ids": [
+    "gold-paper",
+    "gold",
+    "redemption",
+    "not-fiat",
+    "authority",
+    "trust",
+    "authority-support",
+    "trust-support",
+    "fiat-note"
+   ],
+   "until_cue": [
+    "b22",
+    "Authority"
+   ]
+  },
+  {
+   "cue": [
+    "b22",
+    "कैसे"
+   ],
+   "ids": [
+    "issuance",
+    "control",
+    "question",
+    "gold",
+    "without-gold",
+    "authority",
+    "trust",
+    "fiat-note"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

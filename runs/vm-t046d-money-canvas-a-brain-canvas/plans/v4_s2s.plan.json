@@ -1,0 +1,191 @@
+{
+ "id": "v4_s2s",
+ "part_id": "c09.2",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b6",
+   "say": "Bank 11वाँ note कैसे दे? मानिए, 10 grams के पीछे 10 notes हैं, हर note पर 1 gram का वादा। Fully backed उदाहरण में अगला note देने को 1 gram और चाहिए।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank",
+   "kind": "bank",
+   "x": 2600,
+   "y": 860,
+   "sign": "Bank",
+   "cue": [
+    "b6",
+    "Bank"
+   ]
+  },
+  {
+   "id": "teller",
+   "kind": "teller",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b6",
+    "11वाँ"
+   ]
+  },
+  {
+   "id": "note_question",
+   "kind": "label",
+   "x": 2600,
+   "y": 310,
+   "text": "11वाँ note",
+   "fill": "#263746",
+   "cue": [
+    "b6",
+    "कैसे"
+   ],
+   "until_cue": [
+    "b6",
+    "मानिए,"
+   ]
+  },
+  {
+   "id": "gold_backing",
+   "kind": "board",
+   "x": 2180,
+   "y": 560,
+   "fill": "#BA8C30",
+   "cue": [
+    "b6",
+    "grams"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b6",
+      "grams"
+     ],
+     "text": "10 grams"
+    }
+   ]
+  },
+  {
+   "id": "existing_gold",
+   "kind": "coin_rain",
+   "x0": 2070,
+   "x1": 2290,
+   "count": 10,
+   "fill": "#D4A62D",
+   "cue": [
+    "b6",
+    "grams"
+   ],
+   "until_cue": [
+    "b6",
+    "Fully"
+   ]
+  },
+  {
+   "id": "notes",
+   "kind": "board",
+   "x": 3020,
+   "y": 560,
+   "fill": "#497568",
+   "cue": [
+    "b6",
+    "notes"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b6",
+      "notes"
+     ],
+     "text": "10 notes"
+    }
+   ]
+  },
+  {
+   "id": "promise",
+   "kind": "label",
+   "x": 2600,
+   "y": 350,
+   "text": "हर note पर 1 gram का वादा",
+   "fill": "#263746",
+   "cue": [
+    "b6",
+    "वादा।"
+   ],
+   "until_cue": [
+    "b6",
+    "अगला"
+   ]
+  },
+  {
+   "id": "additional_gold",
+   "kind": "coin_rain",
+   "x0": 2490,
+   "x1": 2550,
+   "count": 1,
+   "fill": "#D4A62D",
+   "cue": [
+    "b6",
+    "और"
+   ]
+  },
+  {
+   "id": "extra_requirement",
+   "kind": "label",
+   "x": 2600,
+   "y": 350,
+   "text": "1 gram और चाहिए",
+   "fill": "#805D20",
+   "cue": [
+    "b6",
+    "और"
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b6",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 520,
+   "zoom": 0.95,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b6",
+    "grams"
+   ],
+   "x": 2540,
+   "y": 530,
+   "zoom": 1.05,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b6",
+    "वादा।"
+   ],
+   "x": 2600,
+   "y": 490,
+   "zoom": 1.1,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b6",
+    "अगला"
+   ],
+   "x": 2520,
+   "y": 520,
+   "zoom": 1.15,
+   "frames": 45
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}
