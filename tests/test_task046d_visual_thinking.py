@@ -510,3 +510,10 @@ class ProofRunFixes(unittest.TestCase):
         self.assertNotIn("tone", els["tag"])
         cam = scene["camera"][0]["box"]
         self.assertLess(cam["x"], table["x"] - 0.03)
+
+    def test_a_currency_panel_shows_its_money_and_herders_their_herd(self):
+        # the v4 render of 31 October 2026: the book's gallery of currencies drew the Euro as a bank and the Yuan as arrows
+        self.assertEqual(vt.panel_icon({"name": "Euro", "caption": "European Union single currency, central bank"}), "tw:1f4b6")
+        self.assertEqual(vt.panel_icon({"name": "Chinese Yuan", "caption": "Trade and international reserves"}), "fa:solid/yen-sign")
+        self.assertEqual(vt.panel_icon({"name": "1. BARTER", "caption": "Wheat exchanged for cloth"}), "tw:1f33e")   # caption first still
+        self.assertEqual(icons.search("Early pastoral societies")[0]["id"], "tw:1f404")
