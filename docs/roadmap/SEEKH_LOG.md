@@ -1174,3 +1174,39 @@ Not changed, for Navin to decide: whether a competitive-exam lesson should carry
 checker's reading) or only for institutions and systems (BIE's rule today), and whether every concept term must wait for an
 example (the checker's reading) or only the term the example names (BIE's rule today). The findings stay visible as minor in
 every record and on the review pages.
+
+## Entry 28 · Navin's verdict on the whole Money chapter: one setup, text on boards, and things BIE never gathered, 30 October 2026
+
+**What the runs taught** (the canvas runs `vm-t046c-money-canvas-e1-brain-canvas` and `vm-t046c-money-canvas-f-brain-canvas`, 234
+parts of 18 videos, and Navin's verdict on the 18 review copies, in his words in STATUS "Task 046 · Part D1"): measured by code,
+162 of the 234 parts (69 %) ran in the bank or shop world, chosen by a keyword in the beats; the whole chapter used 29 distinct
+icons, from a fixed menu of icon queries; 43 canvas parts had only text on screen, and text alone held the screen for 1,400 of
+9,122 seconds (15 %), in 40 stretches over 10 s; the book's own pictures (37 placements: timelines, tables, the page-2 panel of
+icons) were drawn 0 times; a caution phrase could reach a board. The director laid out text before it had thought about what
+the learner should see, and it could only pick from the world BIE already had.
+
+**What changed in BIE** (branch `task046d-visual-thinking`, IMPLEMENTED; STATUS "Task 046 · Part D1"):
+
+- The canvas section thinks before it lays out: per beat the idea, a relation from `bie/brain/rulebook/visual_verbs.json` (15
+  relations, each with what is shown on the canvas and in a world), the things, people and places, what is seen and on which
+  word; checked by code and kept as the dikhane ki list (`visual_ideas/<video>.json`), shown on a page before the render.
+- Code decides the picture first: the book's own diagram or table is drawn as itself on the paper canvas, on the part's own
+  beats; then the card part's type; then the maker.
+- The maker names things; code finds them in the full icon index (aliases, Hindi, emoji names, whole words, religious symbols
+  only when asked) and the shared library; what is found nowhere goes to `needs.json`; a fetch workflow in GitHub Actions brings
+  CC0, PD and CC BY images, licence-checked and credited, into the library the next run reads first.
+- No world by keyword; never the same kit in two consecutive parts; checks D1-01…D1-06; a board of 2 lines of 28 characters;
+  the per-video report; LOOK-D1 on one still per part, report only.
+- A dry run with the fake maker on the real v2 and v4 inputs (offline, ₹0) caught, before any live call, a book picture
+  covered only by a story world (never drawn) and a picture counted once per piece; both fixed with tests.
+
+| Measure | Before (runs e1 + f) | After |
+| --- | --- | --- |
+| Bank + shop share of parts | 69 % (v2 56 %, v4 67 %) | expected lower: a world only for the example's story; measured on the v2 / v4 run |
+| Distinct icons | 29 (v2 7, v4 4) | from the v2 / v4 run |
+| Text-only screen time | 15 % (v2 91 s, v4 146 s); 40 stretches over 10 s | 0 stretches over 10 s by check D1-02; seconds from the run |
+| The book's own pictures drawn | 0 of 37 (v2 0 of 3, v4 0 of 4) | 37 of 37 compile offline; v2 and v4 from the run |
+| First-try pass, rounds, ₹ | canvas run f: 151 of 195 parts first try (77 %), 247 rounds, ₹0 (Codex); v2 13 of 18, 25 rounds; v4 16 of 18, 21 rounds | from the v2 / v4 run (Codex, ₹0; the ideas step adds one call per part) |
+| Passed outputs | 0 problems | 0 problems |
+
+Live numbers come from the v2 and v4 run after the merge; until then the after column is expected, not measured.

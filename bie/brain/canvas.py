@@ -42,6 +42,7 @@ from __future__ import annotations
 
 import copy
 import json
+import re
 import math
 from pathlib import Path
 
@@ -63,7 +64,9 @@ TARGET_CHANGE_EVERY_S = float(LIMITS["target_change_every_s"])   # CV-02: measur
 ASPECT = 16 / 9
 CHAR_W = 0.56            # average glyph width as a share of the font size (Noto Sans, mixed Latin/Devanagari)
 TAG_CHAR_W = 0.72        # tags are bold capitals with letter spacing
-KINDS = ("text", "callout", "icon", "crowd", "value", "arrow", "tree", "table", "mark", "highlight")
+KINDS = ("text", "callout", "icon", "crowd", "value", "arrow", "tree", "table", "mark", "highlight", "picture")
+# "picture" (Task 046 Part D1): a book diagram or table drawn as itself on the paper, placed by code
+# (bie/brain/visual_thinking.picture_node) and expanded by ``expand_pictures`` into tags, icons, boxes, arrows or a table.
 
 
 class PlanError(ValueError):
@@ -201,6 +204,107 @@ def expand_trees(nodes, grid):
     return out
 
 
+COL_PX = 1920 * (1 - SAFE["left"] - SAFE["right"]) / 12      # one grid column in pixels (the safe area over 12 columns)
+
+
+def _fit_words(text: str, max_chars: int) -> str:
+    """The book's own words, shortened to fit by code: the parenthesis dropped, then the first part before ' / ' or ',', then
+    whole words up to ``max_chars`` (a cell or a label never runs out of its box)."""
+    t = re.sub(r"\s*\([^)]*\)", "", str(text or "")).strip()
+    if len(t) > max_chars:
+        t = re.split(r"\s+/\s+|,\s*|;\s*", t)[0].strip()
+    if len(t) > max_chars:
+        cut = ""
+        for w in t.split():
+            if len(cut) + len(w) + (1 if cut else 0) > max_chars:
+                break
+            cut = f"{cut} {w}".strip()
+        t = cut or t[:max_chars]
+    return t
+
+
+def expand_pictures(nodes: list, grid, frame_of=None, block_layers=None) -> list:
+    """A picture node (Task 046 Part D1; placed by code from the book, ``bie/brain/visual_thinking.picture_node``) becomes canvas
+    elements on the paper, one group the density limit counts once (it is one anchor diagram, CV-09):
+
+    - timeline: per event a tag with the book's date (and the place or dynasty when it fits), the event's icon with its name, an
+      arrow to the next event; each event appears on the beat that covers its book line;
+    - gallery: per panel the thing's icon with its number and name, an arrow to the next panel when the book joins them;
+    - flow: per step a box with the book's words, an arrow to the next step;
+    - table: the book's table, a row on the beat that says it, a band on the row being spoken.
+    """
+    out = []
+    for n in nodes:
+        if n.get("kind") != "picture":
+            out.append(n)
+            continue
+        pic = n.get("picture") or {}
+        ptype, nid = pic.get("type"), n.get("id", "picture")
+        if "cell" not in n:
+            raise PlanError(f"{nid}: a picture needs a cell")
+        col, row, w, h = n["cell"]
+        until = n.get("until_cue")
+        group = {"group": nid, **({"until_cue": until} if until else {})}
+        if ptype in ("timeline", "gallery", "flow"):
+            seq = pic.get({"timeline": "events", "gallery": "panels", "flow": "nodes"}[ptype]) or []
+            if len(seq) < 2:
+                raise PlanError(f"{nid}: a {ptype} picture needs at least two {'events' if ptype == 'timeline' else 'panels' if ptype == 'gallery' else 'steps'}")
+            per = max(1, w // len(seq))
+            label_chars = max(6, int((per * COL_PX - 16) / (22 * 0.6)))
+            tag_chars = max(4, int((per * COL_PX - 48) / (24 * TAG_CHAR_W)))
+            main = []
+            for i, it in enumerate(seq):
+                c0, cue = col + i * per, it.get("cue") or n.get("cue")
+                if ptype == "timeline":
+                    when, name = str(it.get("when") or it.get("date", "")[:4]), str(it.get("name") or it.get("label", ""))
+                    tag = f"{when} {name}" if name and len(f"{when} {name}") <= tag_chars and it.get("detail") else when
+                    label = it.get("detail") if tag != when else name
+                    out.append({"id": f"{nid}_y{i + 1}", "kind": "text", "style": "tag", "text": _fit_words(tag, tag_chars),
+                                "cell": [c0, row, per, 1], "cue": cue, **group})
+                    out.append({"id": f"{nid}_e{i + 1}", "kind": "icon", "icon": it.get("icon") or "tw:1f4c5",
+                                "label": _fit_words(label or name, label_chars), "cell": [c0, row + 1, per, max(1, h - 1)], "cue": cue, **group})
+                    main.append(f"{nid}_e{i + 1}")
+                elif ptype == "gallery":
+                    label = (f"{it.get('n', i + 1)}. {_fit_words(it.get('name', ''), label_chars - 3)}" if it.get("numbered", True)
+                             else _fit_words(it.get("name", ""), label_chars))         # the book's numbers only when the book numbers them
+                    out.append({"id": f"{nid}_p{i + 1}", "kind": "icon", "icon": it.get("icon") or "tw:1f5bc", "label": label,
+                                "cell": [c0, row, per, h], "cue": cue, **group})
+                    main.append(f"{nid}_p{i + 1}")
+                else:
+                    out.append({"id": f"{nid}_s{i + 1}", "kind": "text", "style": "box", "text": _fit_words(it.get("label", ""), 40),
+                                "size": 24, "cell": [c0, row, per, h], "cue": cue, **group})
+                    main.append(f"{nid}_s{i + 1}")
+            if pic.get("arrows", True):
+                for i in range(1, len(main)):
+                    cue = seq[i].get("cue") or n.get("cue")
+                    out.append({"id": f"{nid}_a{i}", "kind": "arrow", "from": main[i - 1], "to": main[i], "from_side": "r", "to_side": "l",
+                                "cue": cue, "tone": "muted", **group})
+        elif ptype == "table":
+            columns, rows = list(pic.get("columns") or []), list(pic.get("rows") or [])
+            if not rows or not columns:
+                raise PlanError(f"{nid}: a table picture needs columns and rows")
+            rh = cell_box([col, row, w, h], grid)["h"] * 1080 / (len(rows) + 1)
+            size = max(MIN_FONT, min(30, int(rh * 0.42)))
+            cw = w * COL_PX / len(columns)
+            chars = max(6, int((cw - 28) / (size * 0.62)))
+            fit_rows = [{"cells": [_fit_words(c, chars) for c in r.get("cells") or []], "cue": r.get("cue") or n.get("cue")} for r in rows]
+            highlights = []
+            for i, r in enumerate(fit_rows):
+                h_ = {"row": i, "cue": r["cue"], "tone": "band"}
+                if i + 1 < len(fit_rows) and fit_rows[i + 1]["cue"] != r["cue"]:
+                    h_["until_cue"] = fit_rows[i + 1]["cue"]
+                highlights.append(h_)
+            out.append({"id": nid, "kind": "table", "cell": n["cell"], "cue": n.get("cue"), "size": size,
+                        "columns": [_fit_words(c, chars) for c in columns], "rows": fit_rows, "highlights": highlights, **group})
+        else:
+            raise PlanError(f"{nid}: unknown picture type {ptype!r} (timeline, gallery, flow, table)")
+    return out
+
+
+def _date(year: int) -> str:
+    return f"{year:04d}-01-01" if year > 0 else f"-{abs(year):06d}-01-01"
+
+
 def _elem_box(e, by_id):
     if "x" in e:
         return (e["x"], e["y"], e["x"] + e["w"], e["y"] + e["h"])
@@ -291,13 +395,13 @@ def compile_plan(plan: dict, *, voice: dict | None = None, icon_paths: dict | No
         return cue_frame(tl, scene_id, says, cue)
 
     els, boxes, cells_used = [], {}, []
-    for n in expand_trees(plan.get("nodes", []), grid):
+    for n in expand_pictures(expand_trees(plan.get("nodes", []), grid), grid):
         kind = n["kind"]
         if kind not in KINDS:
             raise PlanError(f"{n.get('id', '?')}: unknown element kind {kind!r} (kinds: {', '.join(KINDS)})")
         el = {"id": n["id"], "kind": kind}
         for k in ("tone", "style", "label", "label_tone", "mark", "pos", "dir", "fill", "border", "align", "dashed", "curve",
-                  "elbow", "head", "width", "cols", "stagger", "write_on", "label_size", "pad"):
+                  "elbow", "head", "width", "cols", "stagger", "write_on", "label_size", "pad", "group"):
             if k in n:
                 el[k] = n[k]
         if "cue" in n:
@@ -408,12 +512,14 @@ def compile_plan(plan: dict, *, voice: dict | None = None, icon_paths: dict | No
                 raise PlanError(f"{a['id']} and {b['id']} overlap on screen")
     duration = tl[scene_id]["duration"]
     # density: how many elements are visible at once (peak)
-    peak = max((sum(1 for e in els if e.get("at", 0) <= f < e.get("until", 10 ** 9)) for f in range(0, duration, 5)), default=0)
+    peak = max((len({e.get("group") or e["id"] for e in els if e.get("at", 0) <= f < e.get("until", 10 ** 9)}) for f in range(0, duration, 5)),
+               default=0)                          # a book picture (one group) is one anchor diagram (CV-09), counted once (D1)
     if peak > MAX_VISIBLE:
         problems.append(f"{peak} elements on screen at once (limit {MAX_VISIBLE}): clear the canvas or use until/focus")
     # pace: the longest stretch of speech with no visual change
     changes = sorted({e.get("at", 0) for e in els} | {s["at"] for e in els for s in e.get("steps", [])}
-                     | {m["at"] for e in els for m in e.get("marks", [])})
+                     | {m["at"] for e in els for m in e.get("marks", [])}
+                     | {r["at"] for e in els for r in e.get("rows", [])})          # a book table's rows arrive on their beats (D1)
     camera_keys = []
     for k in plan.get("camera", []):
         f = frame_of(k.get("cue"))
@@ -449,7 +555,7 @@ def compile_plan(plan: dict, *, voice: dict | None = None, icon_paths: dict | No
     if plan.get("touches"):
         data["touches"] = True
         data["cam"] = auto_camera(els, tl[scene_id]["beats"], [b["beat_id"] for b in beats], duration)
-    for e, n in zip(els, expand_trees(plan.get("nodes", []), grid)):
+    for e, n in zip(els, expand_pictures(expand_trees(plan.get("nodes", []), grid), grid)):
         if n.get("flow"):
             f = dict(n["flow"])
             f["src"] = (icon_paths or {}).get(f.get("icon", ""), f.get("icon", ""))
@@ -491,7 +597,11 @@ def icons_in(plan: dict) -> list:
     """Every icon id a plan names (icons, crowds, flows), once each, in order."""
     out = []
     for n in plan.get("nodes", []):
-        for ref in (n.get("icon"), (n.get("flow") or {}).get("icon")):
+        refs = [n.get("icon"), (n.get("flow") or {}).get("icon")]
+        if n.get("kind") == "picture":
+            pic = n.get("picture") or {}
+            refs += [p.get("icon") or ("tw:1f5bc" if group == "panels" else "tw:1f4c5") for group in ("panels", "events") for p in pic.get(group) or []]
+        for ref in refs:
             if ref and ref not in out:
                 out.append(ref)
     return out

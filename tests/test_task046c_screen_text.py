@@ -83,12 +83,12 @@ class ScreenText(unittest.TestCase):
         self.assertEqual([p for p in problems if "(CV-1" in p and "khata.step1" in p], [], problems)
 
     def test_a_board_holds_a_complete_sentence_now(self):
-        self.assertEqual((world.BOARD_LINES, world.BOARD_CHARS), (3, 40))
+        self.assertEqual((world.BOARD_LINES, world.BOARD_CHARS), (2, 28))
         lines = world.wrap_value("Payment में notes और coins के अलावा खाते का पैसा भी चलता है")
         self.assertLessEqual(len(lines), 3)
         self.assertTrue(all(len(line) <= 40 for line in lines))
         card = canvas_director.card_text(canvas_director.WORLD_CARD_PATH)
-        self.assertIn("3 lines of 40 characters", card)
+        self.assertIn("2 lines of 28 characters", card)
         self.assertIn("CV-13", card)
         self.assertIn("CV-13", canvas_director.card_text())
 

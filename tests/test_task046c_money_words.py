@@ -71,9 +71,10 @@ class SourcePointing(unittest.TestCase):
                                                           "RBI ने 1935 में पहले notes छापे; उन पर George V की तस्वीर थी।")), [])
 
     def test_the_grammar_version_moved_with_its_changes_line(self):
-        self.assertIn("visual_grammar@2026-10-29.1", BOOK.version)
         import json
         data = json.loads((ROOT / "bie/brain/rulebook/visual_grammar.json").read_text(encoding="utf-8"))
+        self.assertIn(f"visual_grammar@{data['version']}", BOOK.version)
+        self.assertTrue(any(c.startswith(data["version"]) for c in data["changes"]))   # every move has its changes line
         self.assertGreaterEqual(data["version"], "2026-10-27.1")              # later seekhs move it on
         self.assertTrue(any(c.startswith("2026-10-27.1") and "source packet" in c for c in data["changes"]))
         self.assertIn("source-listed", data["wording"]["W-01"]["english"])

@@ -97,7 +97,7 @@ class VisualLevels(unittest.TestCase):
 
     def test_the_rulebook_counts_the_ladder_as_data_and_the_grammar_as_rules(self):
         self.assertIn("visual_levels@2026-10-26.2", BOOK.version)
-        self.assertIn("visual_grammar@2026-10-29.1", BOOK.version)
+        self.assertIn("visual_grammar@2026-10-31.1", BOOK.version)
         self.assertIn("vision-2026-10-21@2026-10-21.17", BOOK.version)
         bench = json.loads(BENCHMARK.read_text(encoding="utf-8"))
         self.assertEqual(bench["version"], "2026-10-26.1")

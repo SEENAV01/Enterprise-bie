@@ -42,6 +42,14 @@ Book → LLM → Remotion shortcut.
 - Update `docs/roadmap/STATUS.md` in the same PR when a task changes state.
 - Before pushing from a shallow clone: `git fetch origin main` and rebase if needed.
 - **Seekh → BIE (standing approval, Navin, 23 Oct 2026; replaces the narrower "seekh → code").** After every live run, Claude uses what the run taught to build whatever BIE needs to make what Navin wants at the quality he wants, and to make it cheaper: any code, architecture, tools, libraries or resources. Build what is missing, improve what exists, and move work from AI to code wherever code can do it; code checks for repeated reviewer findings are one part of this, not the whole. No need to ask first. Every change ships with tests, must not break any output that passed before (re-checked against the earlier passed outputs in `tests/fixtures/passed_outputs/` before it is merged), and is measured before and after (quality, first-try pass rate, rounds, tokens, ₹ per page). `docs/roadmap/SEEKH_LOG.md` is the running log: what each run taught, what changed in BIE, and the measured effect; every run report lists the changes. Still Navin's to decide: security-sensitive changes, budget, teaching-quality verdicts and locking accepted examples.
+- **Learning track (Navin, 30 Oct 2026).** From a YouTube reference video Claude may make a demo to learn a way of showing
+  things; every demo is labelled "Claude's demo, not BIE output". A demo never goes into `tests/fixtures/passed_outputs/` and is
+  not a BIE capability until BIE makes the same kind of video itself, through its own sections.
+- **Fast track to one button (Navin, 30 Oct 2026).** Section by section: before building a section, ask Navin what he expects
+  from it (in his words), then build it to that.
+- **Caution lines stay off the screen (Navin, 30 Oct 2026).** Caution and fact-check lines ("मान लीजिए", "illustrative",
+  "the source does not say") are background checks: they live in the records and the review pages, never on the learner's
+  screen (rule D1-06 in `bie/brain/rulebook/visual_verbs.json`).
 
 ## Engineering rules (binding)
 

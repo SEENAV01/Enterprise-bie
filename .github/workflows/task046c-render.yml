@@ -200,6 +200,7 @@ jobs:
             git checkout -q -B blindtest-results FETCH_HEAD
             rm -rf "$dest" && mkdir -p "$dest"
             for f in review-720p.mp4 cost.json join.json summary.json REPORT.md video_spec.json; do cp "$RUNNER_TEMP/out/$f" "$dest/"; done
+            if [ -d "$RUNNER_TEMP/out/stills" ]; then cp -r "$RUNNER_TEMP/out/stills" "$dest/"; fi     # one still per scene (Task 046 Part D1)
             git add "$dest"
             git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
               commit -q -m "Task046c render ${GITHUB_RUN_ID} from ${GITHUB_SHA}: ${DEST}"

@@ -1,0 +1,108 @@
+# Task 046 Part D1 (Navin, 30 October 2026): the fetch step of the needs list. A canvas run writes needs.json (the things no
+# source had); this workflow looks for the images among open sources whose licence BIE's policy allows for lessons (The Met
+# Open Access CC0, Openverse CC0 / CC BY / PDM, Wikimedia Commons by each file's licence), licence-checks and credits every
+# one, and adds them to BIE's shared library on the blindtest-results branch (library/), which the next canvas run reads
+# first (tools/run_brain.py --library). No key, no AI, no rupees. Runs by hand, and once on a pull request that changes it
+# (offline: the tool's own test, no network).
+name: BIE Task046d Fetch Needs
+
+on:
+  workflow_dispatch:
+    inputs:
+      needs_url:
+        description: raw URL of a needs.json on blindtest-results (for example .../runs/vm-t046d-money-canvas-brain-canvas/needs.json)
+        required: true
+      per_need:
+        description: images per need (1 to 3)
+        default: '1'
+      sources:
+        description: sources in order
+        default: 'met,openverse,commons'
+      publish:
+        description: push the library to blindtest-results
+        type: boolean
+        default: true
+  pull_request:
+    paths:
+      - '.github/workflows/task046d-fetch-needs.yml'
+      - 'tools/task046d_fetch_needs.py'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: task046d-fetch-needs
+  cancel-in-progress: false
+
+env:
+  PYTHONDONTWRITEBYTECODE: '1'
+  PYTHONUTF8: '1'
+
+jobs:
+  fetch:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.13.5'
+      - name: The tool's offline test (a pull request stops here)
+        run: python -B -m unittest tests.test_task046d_visual_thinking.FetchNeeds -v
+      - name: The shared library from blindtest-results (library/), then the fetch
+        if: github.event_name == 'workflow_dispatch'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          NEEDS_URL: ${{ inputs.needs_url }}
+          PER_NEED: ${{ inputs.per_need }}
+          SOURCES: ${{ inputs.sources }}
+        run: |
+          set -euo pipefail
+          case "$NEEDS_URL" in
+            https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/*/needs.json) ;;
+            *) echo "::error title=task046d fetch::needs_url must be a needs.json under blindtest-results/runs/"; exit 1 ;;
+          esac
+          mkdir -p "$RUNNER_TEMP/library"
+          base="https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/blindtest-results/library"
+          if curl -fsSL "$base/index.json" -o "$RUNNER_TEMP/index.json"; then
+            python -B -c "import sys; sys.path.insert(0, '.'); from bie.brain import assets; lib = assets.AssetLibrary(sys.argv[1]); print('seeded', assets.seed_library(lib, sys.argv[2]))" \
+              "$RUNNER_TEMP/library" "$base"
+          fi
+          python -B tools/task046d_fetch_needs.py --needs "$NEEDS_URL" --library "$RUNNER_TEMP/library" \
+            --per-need "$PER_NEED" --sources "$SOURCES" --report "$RUNNER_TEMP/library/fetched.json"
+          python - <<'EOF'
+          import json, os
+          r = json.load(open(os.path.join(os.environ["RUNNER_TEMP"], "library", "fetched.json")))
+          print(f"::notice title=task046d fetch::{json.dumps(r['counts'])}; library {r['library_assets']} assets")
+          for n in r["needs"]:
+              if n["status"] in ("not_found", "skipped"):
+                  print(f"::notice title=need {n['status']}::{n['thing']} ({n['kind']}): {n.get('why') or ', '.join(n.get('tried') or [])}")
+          EOF
+      - name: Publish the library to blindtest-results (never a portrait, every file licence-checked)
+        if: github.event_name == 'workflow_dispatch' && inputs.publish
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          auth="AUTHORIZATION: basic $(printf 'x-access-token:%s' "$GH_TOKEN" | base64 -w0)"
+          git init -q "$RUNNER_TEMP/branch" && cd "$RUNNER_TEMP/branch"
+          git remote add origin "https://github.com/${GITHUB_REPOSITORY}.git"
+          # the library folder is rebuilt on the branch's newest tip on every attempt, so a render that published meanwhile is kept
+          for attempt in 1 2 3 4 5 6; do
+            git -c http.extraheader="$auth" fetch -q --depth=1 origin blindtest-results
+            git checkout -q -B blindtest-results FETCH_HEAD
+            rm -rf library && cp -r "$RUNNER_TEMP/library" library
+            git add -A library
+            if git diff --cached --quiet; then echo "nothing new"; exit 0; fi
+            git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
+              commit -q -m "Task046d fetch ${GITHUB_RUN_ID}: library"
+            if git -c http.extraheader="$auth" push -q origin HEAD:blindtest-results; then
+              echo "::notice title=task046d fetch::library published (attempt ${attempt})"; exit 0
+            fi
+            sleep $((attempt * 7))
+          done
+          echo "::error title=task046d fetch::could not publish the library"; exit 1

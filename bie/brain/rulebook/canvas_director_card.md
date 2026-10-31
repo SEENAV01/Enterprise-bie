@@ -37,12 +37,31 @@ is spoken. Use `[beat_id, "", 0.0]` for "at the start of the beat" only for titl
 | `table` | `columns`, `rows: [{cells, cue}]`, `highlights: [{row?, col?, cue, until_cue?, tone}]` | year-by-year numbers, comparisons |
 | `mark` | `mark`: `tick` / `cross`, `target`, `pos`: `c` / `tr` | right / wrong, done, rejected |
 | `highlight` | `target`, `style`: `box` / `dashed` / `band`, `tone` | "look here" on what is being explained |
+| `picture` | `cell`, `picture`: `{type: timeline / gallery / flow, title, items: [{when, name, icon, cue}], arrows}` | a row of things you draw yourself: dates on a timeline (`when` = the date as said), a numbered row of things (gallery), steps joined by arrows (flow); each item appears on its own cue |
 
 `focus: [{cue, until_cue?, ids: [...]}]` dims everything else. `camera: [{cells: [...], cue}]` zooms to a region
 (use it when the canvas is dense or to re-frame for the next sub-idea). `graph` = a `curve_story` (axes, curves as
 points, a dot that walks to named x values, guides like NAIRU, shaded bands, notes) for any economic curve.
 
 Tones: `ink`, `muted`, `accent` (blue), `warm` (orange), `danger` (red), `ok` (green), `tag` (pink), `note`, `band`.
+
+## Dikhane ki soch (Navin, 30 October 2026: "jo bola ja rha hai screen ke visuals se wo baat clear ho")
+
+Before you plan, BIE has thought about every beat: its idea, its relation (reject, accept, compulsory, limit, sequence,
+compare, …) and the things it names; the part message lists them with the icons BIE found for each thing. Draw THAT:
+
+- Every beat shows at least one thing that is not text (an icon, a mark, an arrow, a crowd or value step, a table row, a
+  picture item), cued on a word of that beat (D1-01). A screen of text alone for more than 10 s is refused (D1-02): a video
+  that is only text is a book.
+- Show the relation the way BIE's visual verbs say: a cross on the thing refused, a tick on the thing accepted, a law scroll
+  and stamp for "compulsory", a meter with a red line for a limit, a numbered row or a timeline for a sequence, an arrow chain
+  for cause → effect, a split or a scale for a comparison, before/after for a change, a receipt or a handshake for a promise.
+- The picture shows the thing itself, so its label is understood without reading (the book's page 2): screen text is a
+  name or a short phrase of at most 8 words, never a sentence; the sentence is the narration and the subtitles (D1-03).
+- When the part message says BIE has placed the book's own picture (a timeline, a table, a gallery of the book's panels, a
+  flow), keep it: never redraw it, never reuse its cells or its id, and build your elements in the rows below it (D1-04).
+- Never put a caution or fact-check line on screen ("illustrative numbers", "imagined market", "data not given",
+  "outside clarification"): those are BIE's background checks (D1-06).
 
 ## Rules (from 20 reference videos, rules/econ_canvas_rules.json)
 

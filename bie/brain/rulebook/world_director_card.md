@@ -20,7 +20,7 @@ Camera keys are in time order, the first on the part's first beat.
 | `crowd` | `x0`, `spacing`, `enter_x`, `exit_x`, `face` (-1 looks left), `seed`, `steps: [{n, cue}]`, `carry_cue` + `carry_n` | buyers or bank customers who walk in and out as the number changes; `carry` sends n of them away with goods |
 | `bank` | `x`, `sign` (the bank's name, generic, in the learner's script) | the place of a bank story: a stone front with pillars, a teller window and a counter; customers stand before it (`crowd` with `x0` near `x` - 270) |
 | `teller` | `x` (the bank's `x`) | the bank's clerk behind the counter (as `shopkeeper` is for the shop) |
-| `board` | `x`, `y`, `text` (the title: खाता, EMI, बचत), `fill` (header colour), `steps: [{text, dir, cue}]`, `until_cue` | a standing display whose value changes on its word: a passbook balance ₹0 → ₹500, an EMI due ₹10,000 → ₹0; the old value is struck out, `dir` "up" or "down" adds the arrow. A value is at most 3 lines of 40 characters (your own line breaks are kept, a long line is wrapped at spaces), so a complete short sentence fits; the teaching stays in the narration, a board shows the number or the one idea that changes, as a phrase the learner can read (CV-13), with the words and numbers the narration of its cue beat says (CV-14, CV-16); never codes (✓ ≠ →, "1–3 ✓, 4 Future payment →") |
+| `board` | `x`, `y`, `text` (the title: खाता, EMI, बचत), `fill` (header colour), `steps: [{text, dir, cue}]`, `until_cue` | a standing display whose value changes on its word: a passbook balance ₹0 → ₹500, an EMI due ₹10,000 → ₹0; the old value is struck out, `dir` "up" or "down" adds the arrow. A value is at most 2 lines of 28 characters (your own line breaks are kept, a long line is wrapped at spaces): a name, a number or a short phrase, never a sentence (D1-03); the teaching stays in the narration, with the words and numbers the narration of its cue beat says (CV-14, CV-16); never codes (✓ ≠ →, "1–3 ✓, 4 Future payment →") |
 | `label` | `x`, `y`, `text`, `fill` (rgba colour), `cue`, `until_cue` | SUPPLY · 3, DEMAND · 12: short labels over the scene |
 | `coin_rain` | `x0`, `x1`, `count`, `cue`, `until_cue` | money arriving in people's hands |
 | `balance` | `x`, `y`, `tilt`, `cue`, `tilt_cue`, `until_cue` | supply against demand on a balance that tilts on its word |
@@ -31,6 +31,13 @@ Camera keys are in time order, the first on the part's first beat.
 Every element has `cue: [beat_id, word]` with the word exactly as written in that beat (`[beat_id, ""]` for the beat's
 start). Something must change at least every 15 s (the code refuses a longer still); aim for a change every 5 s.
 Never a real person, logo, emblem or regulator mark: a generic shop sign and generic people only.
+
+## What every beat shows (Task 046 Part D1; Navin, 30 October 2026)
+
+A world is used only for the story of the concept's real-world example, at the example's own place. In it every beat shows
+something happening that is not text (a person walking in or out, a price changing, goods or money moving, the balance
+tilting), cued on a word of that beat (D1-01). A board holds a name, a number or a short phrase, never a sentence (D1-03),
+and never a caution line ("illustrative", "imagined", "data not given"): those stay BIE's background checks (D1-06).
 
 ## On-screen text (CV-13 to CV-16; Navin's verdict on Money v1, 29 October 2026)
 

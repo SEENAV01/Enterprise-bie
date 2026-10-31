@@ -106,6 +106,8 @@ BIE wrote still reads; the keys named as required and the enums are the lock.
 | render_summary | `bie.render-spec.summary/1` | `summary.json` | tools/render_spec.py summary | the review page | the run, the sha, the cost and the join | 2026-10-28 |
 | review_record | `bie.brain.coverage/1` | `<page>.coverage.json` | tools/task046c_page.py (bie/brain/coverage.py video_coverage) | Navin; the game (Task 049); the notes (Task 050) | which book lines the video taught, by which beats, when and how | 2026-10-29 |
 | chapter_review_record | `bie.brain.coverage.chapter/1` | `<page>.coverage.json` | tools/task046c_chapter_page.py (bie/brain/coverage.py chapter_coverage) | Navin | every teachable line → the video that teaches it | 2026-10-29 |
+| visual_ideas | `bie.brain.visual-ideas/1` | `visual_ideas/<video>.json` | Section 3c, the visual-idea step (bie/brain/visual_thinking.py) | the dikhane-ki-list page (tools/task046d_ideas_page.py); the review page; Navin | per part its picture (type; decided by code from the book, by the card type, or by the maker) and per beat the idea, its relation, its nouns, what is seen and on which word; the relations outside the list; the needs | 2026-10-31 |
+| needs | `bie.brain.needs/1` | `needs.json` | Section 3c (bie/brain/canvas_director.py) | the fetch step in GitHub Actions (tools/task046d_fetch_needs.py); Navin | the things no source had (thing, beats, kind, sources tried) and the capabilities BIE lacks (world kits, blocks) with the parts and beats that needed them | 2026-10-31 |
 
 **Reserved for Task 047 (voice).** Every beat of the lesson plan may carry `audio` = `{"file", "duration", "words": [{"w",
 "start", "end"}]}`, written by the voice section. `formats.voice_of(beats)` turns the beats that have it into the `voice`
@@ -125,3 +127,43 @@ video spec under its old names), (3) re-checking `tests/fixtures/passed_outputs/
 the passed outputs after migration and fails the lane if a change breaks them), and (4) updating this section (the same
 test checks that every format is named here at its current version). Never a hand edit of a run folder.
 
+## 7. Dikhane ki soch (Task 046 Part D1, Navin's verdict of 30 October 2026)
+
+Before any layout, the canvas section thinks about what the learner should SEE (`bie/brain/visual_thinking.py`):
+
+- **The idea of every beat** (the maker's strict answer, checked by code): `idea`, `relation` (one of the ids of
+  `bie/brain/rulebook/visual_verbs.json`: reject, accept, compulsory, limit, more_less, count, sequence, cause_effect, compare,
+  part_whole, place, change, promise, question, other; `other` carries a note, logged in `relations_outside_list` so Navin can add an
+  entry), `things`, `people`, `places` (the nouns a picture can show; a real person is never drawn, card rule 8), `shows` (what is
+  seen, a few words, never a sentence), `on_word` (the word of the beat the picture appears on).
+- **The picture of a part, decided by code first** (`picture_of`): a book diagram or table the part covers (the chapter map's items
+  of kind `diagram` / `table` and their `diagram_label` / `table_row` children) is drawn as itself: a timeline with the book's years
+  and labels (`timeline_build`), a table row by row, a panel of items as a gallery of icon cards (icon + name), a flow of boxes and
+  arrows (`flow_build`); code places the node (`picture_node`, kind `picture` in `bie/brain/canvas.py`) and the maker builds around
+  it. With no book picture the card part's type is the hint; the maker decides only where code cannot.
+- **The needs list** (`resolve_needs`): the nouns are searched in the full icon index (`bie/toolbox/icons.py`: aliases, Hindi words,
+  emoji names; religious symbols only when asked for) and in the lesson's asset library; a noun found nowhere is a need.
+- **The record**: `visual_ideas/<video>.json` (`bie.brain.visual-ideas/1`) is the dikhane ki list (beat → what is seen → on which
+  word → how); `needs.json` (`bie.brain.needs/1`) the needs and the missing capabilities (world kits, blocks) with the parts and
+  beats that needed them. `canvas.json` rows carry a `report` (distinct icons, text-only screen seconds and share, picture types,
+  worlds, book pictures drawn, relations outside the list) and `quality` the chapter totals.
+- **The checks** (`canvas_director.check_plan`): D1-01 every beat shows a non-text thing cued on its words; D1-02 no text-only
+  screen over 10 s; D1-03 screen text a name or a short phrase (8 words; a board 2 lines of 28 characters), never a sentence;
+  D1-04 every book picture the part covers is drawn; D1-05 a world only for the example's story at the example's place, and the
+  same kit never in two consecutive parts; D1-06 a caution or fact-check line never on screen.
+- **Pictures the maker draws**: a canvas node may carry `picture` (a `timeline`, `gallery` or `flow` with its events, panels or
+  steps); `plan_from` turns it into a `picture` node the same way as the book's, so the same compiler and checks apply.
+- **Photos and objects** (`image_wanted` on a beat): a photo or museum object the beat names (a coin, a seal, a cheque) is looked
+  up in the shared library; an image not found is a need of kind `image`. A portrait or likeness of a person is never wanted
+  (card rule 8; historical figures are Navin's decision).
+- **The fetch step** (`tools/task046d_fetch_needs.py`, GitHub Actions only, `.github/workflows/task046d-fetch-needs.yml`): reads a
+  `needs.json`, looks in the shared library first, then in The Met Open Access (CC0), Openverse (CC0, CC BY, PDM) and Wikimedia
+  Commons; every file passes the licence gate (`bie/toolbox/licence.py`: never BY-SA or NC), is tagged with the need's words and
+  credited, and goes to `blindtest-results:library/`. Its report is `bie.brain.fetched/1` (per need: `fetched`, `in_library`,
+  `not_found`, `skipped`, with the sources tried). A canvas run reads that library first (`tools/run_brain.py --library <https
+  base>`, `assets.seed_library`: each file's licence and sha256 checked again on the way in). No source that needs a key.
+- **Stills and LOOK-D1**: the render workflow publishes one 640 px still per part (`runs/<dest>/stills/<scene>.jpg`, listed under
+  `stills` in `join.json`, an extra key the `bie.render.join/1` format allows, so its version stays). `tools/task046d_look_request.py` builds a `bie.look-request/1` with rule `LOOK-D1` (per part: the
+  still and the teacher's point from the dikhane ki list); the VM's look section (`tools/vm_look.py`) asks the reviewer route,
+  under the cost guard, whether the picture alone hints at the point (1–10) and whether it is text only. Report only: LOOK-D1
+  never stops a video.
