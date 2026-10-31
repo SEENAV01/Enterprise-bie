@@ -131,11 +131,11 @@ class RulebookAndFake(unittest.TestCase):
         self.assertIn("teaching beat of the same concept", rules["S2-08"]["rule"])
         self.assertTrue(vision["changes"][-1].startswith("2026-10-21.17"))
         grammar = json.loads((ROOT / "bie/brain/rulebook/visual_grammar.json").read_text(encoding="utf-8"))
-        self.assertEqual(grammar["version"], "2026-10-29.1")
-        self.assertTrue(grammar["changes"][-1].startswith("2026-10-29.1"))
+        self.assertEqual(grammar["version"], "2026-10-31.1")
+        self.assertTrue(grammar["changes"][-1].startswith("2026-10-31.1"))
         book = rulebook.load()
         self.assertIn("vision-2026-10-21@2026-10-21.17", book.version)
-        self.assertIn("visual_grammar@2026-10-29.1", book.version)
+        self.assertIn("visual_grammar@2026-10-31.1", book.version)
         self.assertIn("S2-10", {r.id for r in book.for_section("lesson")})
 
     def test_the_regression_registry_explains_the_new_findings_for_earlier_passed_scripts(self):

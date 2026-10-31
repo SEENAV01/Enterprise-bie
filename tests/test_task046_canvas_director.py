@@ -50,9 +50,19 @@ def beats_of(name: str, part: str, *, covers=("i1",)):
              "answers": [], "on_screen": "", "basis": "book"} for b in plan["beats"]]
 
 
-def econ_lesson():
-    """A tiny economy lesson (test input, not lesson content): part p1 is the shop story, part p2 the Phillips curve."""
+# The offline real-world example of i1 (test input, never lesson content): a shop story with the numbers ₹50 → ₹65 (S1-16).
+EXAMPLE = {"place": "kirana shop", "actors": ["buyers", "shopkeeper"], "goods": ["sugar"],
+           "numbers": [{"what": "price", "before": "₹50", "after": "₹65"}],
+           "steps": [{"step": "more buyers come", "mechanism_link": "demand"}, {"step": "the price rises", "mechanism_link": "price"}],
+           "term_after": "This is demand-pull inflation.", "real_life_link": "festival prices"}
+
+
+def econ_lesson(place: str = "kirana shop"):
+    """A tiny economy lesson (test input, not lesson content): part p1 is the shop story (the real-world example of i1, whose
+    place is ``place``), part p2 the Phillips curve."""
     shop = beats_of("demand_pull_touches.plan.json", "p1")
+    shop[0]["say"] += " दाम ₹50।"                        # the example's numbers in the beats make p1 the STORY piece (S2-08, D1-05)
+    shop[-1]["say"] += " अब ₹65।"
     curve = beats_of("phillips.plan.json", "p2", covers=("i2",))
     for n, b in enumerate(curve):
         b["beat_id"] = f"c{n + 1}"
@@ -60,10 +70,12 @@ def econ_lesson():
                "course": {"title": "Inflation", "subject": "Economics", "learners": "UPSC aspirants", "exam": "UPSC", "language": "Hinglish",
                           "level": "upsc_pcs"}, "level": "upsc_pcs",
                "items": {"i1": {"item_id": "i1", "kind": "paragraph", "content": "Demand-pull inflation: demand exceeds supply.",
-                                "content_type": "cause_effect", "teachable": True, "teacher_understanding": []},
+                                "content_type": "cause_effect", "teachable": True, "teacher_understanding": [],
+                                "unpack": {"terms": [{"term": "demand-pull inflation"}], "real_world_example": EXAMPLE}},
                          "i2": {"item_id": "i2", "kind": "paragraph", "content": "Phillips curve: inflation against unemployment.",
                                 "content_type": "cause_effect", "teachable": True, "teacher_understanding": []}},
                "map": {"concepts": [{"concept_id": "c1", "name": "Inflation", "item_ids": ["i1", "i2"]}]}}
+    chapter["items"]["i1"]["unpack"]["real_world_example"] = dict(EXAMPLE, place=place)
     parts = sorted({b["part_id"] for b in shop + curve if b.get("part_id")})
     lesson = {"schema": "bie.brain.lesson/3", "course": chapter["course"], "rulebook_version": "test", "plan_status": "passed",
               "plan": {"videos": [{"video_id": "v1", "title": "Demand-pull and the Phillips curve", "concept_ids": ["c1"], "kind": "topic", "goal": "inflation"}]},
@@ -77,13 +89,19 @@ def econ_lesson():
 class Mode(unittest.TestCase):
     def test_a_canvas_subject_defaults_to_b_and_a_story_in_a_place_with_a_kit_goes_to_c(self):
         shop = beats_of("demand_pull_touches.plan.json", "p1")
-        self.assertEqual(cd.mode_of(ECON, shop), {"mode": "C", "place": "shop", "kit": "shop", "missing": "", "story": False})
+        # Task 046 Part D1 (Navin, 30 October 2026): no world by keyword; a canvas unless the part is the example's story
+        self.assertEqual(cd.mode_of(ECON, shop), {"mode": "B", "place": "", "kit": "", "missing": "", "story": False})
         gdp = beats_of("real_gdp.plan.json", "p2")
         self.assertEqual(cd.mode_of(ECON, gdp), {"mode": "B", "place": "", "kit": "", "missing": "", "story": False})
         bank = [{"beat_id": "b1", "say": "बैंक से कर्ज़ लेने वाले borrowers को ब्याज देना पड़ता है।"}]
-        self.assertEqual(cd.mode_of(ECON, bank), {"mode": "C", "place": "bank", "kit": "bank", "missing": "", "story": False})   # PR 3
+        self.assertEqual(cd.mode_of(ECON, bank)["mode"], "B")                                        # the words alone choose no world
         factory = [{"beat_id": "b1", "say": "फैक्ट्री में मज़दूर दिन में सौ जूते बनाते हैं।"}]
-        self.assertEqual(cd.mode_of(ECON, factory), {"mode": "B", "place": "factory", "kit": "", "missing": "world kit for a factory", "story": False})
+        self.assertEqual(cd.mode_of(ECON, factory), {"mode": "B", "place": "", "kit": "", "missing": "", "story": False})
+        items = [{"item_id": "i1", "real_world_example": dict(EXAMPLE, place="kirana shop")}]
+        self.assertEqual(cd.mode_of(ECON, shop, items, story=True), {"mode": "C", "place": "shop", "kit": "shop", "missing": "", "story": True})
+        self.assertEqual(cd.mode_of(ECON, shop, [{"item_id": "i1", "real_world_example": dict(EXAMPLE, place="bank")}], story=True)["kit"], "bank")
+        self.assertEqual(cd.mode_of(ECON, shop, [{"item_id": "i1", "real_world_example": dict(EXAMPLE, place="factory")}], story=True),
+                         {"mode": "B", "place": "factory", "kit": "", "missing": "world kit for a factory", "story": True})
         self.assertEqual(cd.mode_of(BIO, shop)["mode"], "")
         for subject, fits in (("Indian Economy", True), ("Polity and Constitution", True), ("Commerce", True), ("Physics", False), ("History", True)):
             self.assertEqual(cd.profile_fits(Course(title="x", subject=subject, learners="", exam="", language="Hinglish")), fits, subject)
@@ -183,8 +201,16 @@ class Run(unittest.TestCase):
         self.assertEqual(video["status"], "spec_written")
         self.assertEqual([(p["id"], p["mode"], p["level"]) for p in video["parts"]], [("v1_s1", "C", "L3"), ("v1_s2", "B", "L2 + touches")])
         spec = json.loads(Path(self.tmp, "video_specs", "v1.json").read_text(encoding="utf-8"))
-        self.assertEqual([s["layers"][0]["block"] for s in spec["scenes"]], ["world_scene", "canvas_build"])
-        self.assertTrue(spec["captions"] and all(s["captions"] for s in spec["scenes"]))
+        self.assertEqual([s["layers"][0]["block"] for s in spec["scenes"]], ["world_scene", "canvas_build", "canvas_build"])   # + the credits card
+        self.assertEqual(spec["scenes"][-1]["id"], "v1_credits")                       # the icons the beats show carry their CC BY credit
+        ideas = json.loads(Path(self.tmp, "visual_ideas", "v1.json").read_text(encoding="utf-8"))
+        self.assertEqual((ideas["schema"], ideas["video_id"], len(ideas["parts"])), ("bie.brain.visual-ideas/1", "v1", 2))
+        self.assertTrue(all(len(p["beats"]) >= 1 and all(r["nouns"] for r in p["beats"]) for p in ideas["parts"]))
+        needs = json.loads(Path(self.tmp, "needs.json").read_text(encoding="utf-8"))
+        self.assertEqual(needs["schema"], "bie.brain.needs/1")
+        self.assertIn("report", video)
+        self.assertGreaterEqual(video["report"]["distinct_icons"], 1)
+        self.assertTrue(spec["captions"] and all(s["captions"] for s in spec["scenes"] if not s["id"].endswith("_credits")))
         self.assertTrue(Path(self.tmp, "plans", "v1_s1.plan.json").exists() and Path(self.tmp, "plans", "v1_s2.plan.json").exists())
         page = Path(self.tmp, "CANVAS.md").read_text(encoding="utf-8")
         self.assertIn("2 of 2 parts passed, 2 on the first try (100%)", page)
@@ -216,7 +242,7 @@ class Run(unittest.TestCase):
         self.assertNotIn("review_problems\": [\"", text)                       # no reviewer round for layout
 
     def test_a_bank_story_gets_the_bank_kit_and_a_factory_story_falls_back_to_the_canvas(self):
-        chapter, lesson = econ_lesson()
+        chapter, lesson = econ_lesson(place="bank")                                        # the example's place, not a keyword (D1-05)
         for b in lesson["videos"][0]["beats"]:
             if b["part_id"] == "p1":
                 b["say"] = b["say"].replace("दुकान", "बैंक").replace("खरीदार", "borrower").replace("दुकानदार", "banker")
@@ -229,7 +255,7 @@ class Run(unittest.TestCase):
         self.assertNotIn("Missing world kits", Path(self.tmp, "CANVAS.md").read_text(encoding="utf-8"))
 
     def test_a_factory_story_falls_back_to_the_canvas_and_logs_the_missing_kit(self):
-        chapter, lesson = econ_lesson()
+        chapter, lesson = econ_lesson(place="factory")                                     # a story whose place has no kit yet
         for b in lesson["videos"][0]["beats"]:
             if b["part_id"] == "p1":
                 b["say"] = b["say"].replace("दुकान", "फैक्ट्री").replace("खरीदार", "worker").replace("दुकानदार", "मज़दूर")

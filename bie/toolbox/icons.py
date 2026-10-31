@@ -66,18 +66,118 @@ def by_id(index: str | Path = DEFAULT_INDEX) -> dict:
     return {r["id"]: r for r in load(index)["icons"]}
 
 
-def search(query: str, index: str | Path = DEFAULT_INDEX, limit: int = 12) -> list:
-    """Icons whose name or search terms carry the query's words; colour icons rank a little above line icons."""
+# What the maker says in words → the index's own names (Task 046 Part D1, Navin's verdict of 30 October 2026: "cross" found
+# religious crosses instead of the cross mark, "wheat" did not find the sheaf). Hindi words, everyday synonyms and the emoji
+# names of the things an economy lesson draws; an alias may name an icon id outright. Navin and the seekh log add entries.
+ALIASES = {
+    # marks
+    "cross": ["tw:274c"], "cross mark": ["tw:274c"], "reject": ["tw:274c"], "wrong": ["tw:274c"], "गलत": ["tw:274c"], "रद्द": ["tw:274c"],
+    "tick": ["tw:2705"], "check": ["tw:2705"], "accept": ["tw:2705"], "right": ["tw:2705"], "सही": ["tw:2705"], "मान्य": ["tw:2705"],
+    "question": ["tw:2753"], "सवाल": ["tw:2753"], "प्रश्न": ["tw:2753"],
+    # goods and commodities
+    "wheat": ["tw:1f33e", "fa:solid/wheat-alt"], "grain": ["tw:1f33e", "fa:solid/wheat-alt"], "sheaf": ["tw:1f33e"], "rice": ["tw:1f33e"],
+    "गेहूँ": ["tw:1f33e"], "गेहूं": ["tw:1f33e"], "अनाज": ["tw:1f33e"], "चावल": ["tw:1f35a"],
+    "salt": ["tw:1f9c2"], "नमक": ["tw:1f9c2"], "cattle": ["tw:1f404"], "cow": ["tw:1f404"], "गाय": ["tw:1f404"], "मवेशी": ["tw:1f404"],
+    "shell": ["tw:1f41a"], "shells": ["tw:1f41a"], "cowrie": ["tw:1f41a"], "कौड़ी": ["tw:1f41a"], "शंख": ["tw:1f41a"],
+    "cloth": ["tw:1f9f5", "tw:1f455"], "fabric": ["tw:1f9f5"], "कपड़ा": ["tw:1f9f5", "tw:1f455"], "कपड़े": ["tw:1f9f5", "tw:1f455"],
+    "tea": ["tw:1f375"], "चाय": ["tw:1f375"], "tobacco": ["fa:solid/smoking"], "तम्बाकू": ["fa:solid/smoking"], "तंबाकू": ["fa:solid/smoking"],
+    "oil": ["tw:1f6e2"], "तेल": ["tw:1f6e2"], "sugar": ["tw:1f36c"], "चीनी": ["tw:1f36c"], "groceries": ["tw:1f6cd"], "राशन": ["tw:1f6cd"],
+    # money
+    "coin": ["tw:1fa99"], "coins": ["tw:1fa99", "fa:solid/coins"], "सिक्का": ["tw:1fa99"], "सिक्के": ["tw:1fa99", "fa:solid/coins"],
+    "gold": ["tw:1fa99", "fa:solid/coins"], "सोना": ["tw:1fa99"], "silver": ["tw:1fa99"], "चाँदी": ["tw:1fa99"], "चांदी": ["tw:1fa99"],
+    "note": ["fa:solid/money-bill-1", "tw:1f4b5"], "notes": ["fa:solid/money-bill-1", "tw:1f4b5"], "banknote": ["fa:solid/money-bill-1", "tw:1f4b5"],
+    "currency": ["fa:solid/money-bill-1"], "नोट": ["fa:solid/money-bill-1", "tw:1f4b5"], "कागज़ी": ["fa:solid/money-bill-1"],
+    "rupee": ["fa:solid/indian-rupee-sign"], "rupees": ["fa:solid/indian-rupee-sign"], "रुपया": ["fa:solid/indian-rupee-sign"], "रुपये": ["fa:solid/indian-rupee-sign"],
+    "money": ["tw:1f4b0", "fa:solid/money-bill-1"], "पैसा": ["tw:1f4b0"], "पैसे": ["tw:1f4b0"], "cash": ["tw:1f4b5"], "नकद": ["tw:1f4b5"],
+    "dollar": ["tw:1f4b5"], "euro": ["tw:1f4b6"], "yen": ["tw:1f4b4"], "pound": ["tw:1f4b7"], "yuan": ["tw:1f4b4"],
+    "cheque": ["fa:solid/money-check"], "check book": ["fa:solid/money-check"], "चेक": ["fa:solid/money-check"],
+    "card": ["tw:1f4b3"], "debit card": ["tw:1f4b3"], "credit card": ["tw:1f4b3"], "कार्ड": ["tw:1f4b3"],
+    "phone": ["tw:1f4f1"], "mobile": ["tw:1f4f1"], "upi": ["tw:1f4f1", "fa:solid/qrcode"], "qr": ["fa:solid/qrcode"], "qr code": ["fa:solid/qrcode"],
+    "मोबाइल": ["tw:1f4f1"], "फ़ोन": ["tw:1f4f1"], "फोन": ["tw:1f4f1"], "app": ["tw:1f4f1"],
+    "deposit": ["fa:solid/piggy-bank"], "savings": ["fa:solid/piggy-bank"], "जमा": ["fa:solid/piggy-bank"], "बचत": ["fa:solid/piggy-bank"],
+    "loan": ["fa:solid/hand-holding-dollar"], "उधार": ["fa:solid/hand-holding-dollar"], "कर्ज़": ["fa:solid/hand-holding-dollar"], "कर्ज": ["fa:solid/hand-holding-dollar"],
+    "wallet": ["tw:1f45b"], "बटुआ": ["tw:1f45b"], "receipt": ["tw:1f9fe"], "रसीद": ["tw:1f9fe"], "bill": ["tw:1f9fe"],
+    # places and institutions (never a logo or an emblem, CV-11: a generic building)
+    "bank": ["tw:1f3e6"], "बैंक": ["tw:1f3e6"], "rbi": ["fa:solid/building-columns"], "central bank": ["fa:solid/building-columns"],
+    "government": ["fa:solid/landmark"], "सरकार": ["fa:solid/landmark"], "state": ["fa:solid/landmark"], "parliament": ["fa:solid/landmark"],
+    "shop": ["tw:1f3ea"], "store": ["tw:1f3ea"], "दुकान": ["tw:1f3ea"], "market": ["tw:1f3ea"], "बाज़ार": ["tw:1f3ea"], "बाजार": ["tw:1f3ea"],
+    "factory": ["tw:1f3ed"], "फैक्ट्री": ["tw:1f3ed"], "कारखाना": ["tw:1f3ed"], "mint": ["tw:1f3ed", "fa:solid/coins"], "press": ["fa:solid/industry"],
+    "house": ["tw:1f3e0"], "home": ["tw:1f3e0"], "घर": ["tw:1f3e0"], "office": ["tw:1f3e2"], "दफ़्तर": ["tw:1f3e2"],
+    "port": ["tw:2693", "tw:1f6a2"], "ship": ["tw:1f6a2"], "जहाज़": ["tw:1f6a2"], "बंदरगाह": ["tw:2693"], "farm": ["tw:1f33e", "tw:1f69c"], "खेत": ["tw:1f33e"],
+    "temple": ["tw:1f6d5"], "मंदिर": ["tw:1f6d5"], "school": ["tw:1f3eb"], "hospital": ["tw:1f3e5"], "court": ["fa:solid/gavel"], "अदालत": ["fa:solid/gavel"],
+    "map": ["tw:1f5fa"], "नक्शा": ["tw:1f5fa"], "world": ["tw:1f30d"], "globe": ["tw:1f30d"], "दुनिया": ["tw:1f30d"],
+    # people (generic figures only, card rule 8)
+    "person": ["tw:1f9d1"], "people": ["tw:1f465"], "आदमी": ["tw:1f9d1"], "व्यक्ति": ["tw:1f9d1"], "लोग": ["tw:1f465"],
+    "farmer": ["tw:1f9d1-200d-1f33e"], "किसान": ["tw:1f9d1-200d-1f33e"], "worker": ["tw:1f477"], "मज़दूर": ["tw:1f477"], "मजदूर": ["tw:1f477"],
+    "buyer": ["tw:1f6cd"], "customer": ["tw:1f6cd"], "खरीदार": ["tw:1f6cd"], "ग्राहक": ["tw:1f6cd"], "seller": ["tw:1f9d1-200d-1f4bc"], "shopkeeper": ["tw:1f9d1-200d-1f4bc"],
+    "दुकानदार": ["tw:1f9d1-200d-1f4bc"], "trader": ["tw:1f9d1-200d-1f4bc"], "king": ["tw:1f451"], "राजा": ["tw:1f451"], "ruler": ["tw:1f451"], "dynasty": ["tw:1f451"],
+    "emperor": ["tw:1f451"], "सुल्तान": ["tw:1f451"], "teller": ["tw:1f9d1-200d-1f4bc"], "cashier": ["tw:1f9d1-200d-1f4bc"],
+    # law, promise, limits, time
+    "law": ["tw:1f4dc", "fa:solid/gavel"], "act": ["tw:1f4dc"], "rule": ["tw:1f4dc"], "कानून": ["tw:1f4dc"], "क़ानून": ["tw:1f4dc"], "नियम": ["tw:1f4dc"],
+    "compulsory": ["tw:1f4dc", "fa:solid/stamp"], "mandatory": ["tw:1f4dc"], "अनिवार्य": ["tw:1f4dc"], "fiat": ["fa:solid/money-bill-1"],
+    "claim slip": ["tw:1f9fe"], "redemption": ["tw:1fa99"], "standard": ["tw:1fa99"],
+    "stamp": ["fa:solid/stamp"], "seal": ["fa:solid/stamp"], "मोहर": ["fa:solid/stamp"], "मुहर": ["fa:solid/stamp"], "scroll": ["tw:1f4dc"],
+    "handshake": ["tw:1f91d"], "promise": ["tw:1f91d"], "trust": ["tw:1f91d"], "वादा": ["tw:1f91d"], "भरोसा": ["tw:1f91d"], "agreement": ["tw:1f91d"],
+    "meter": ["fa:solid/gauge-high"], "gauge": ["fa:solid/gauge-high"], "limit": ["fa:solid/gauge-high"], "सीमा": ["fa:solid/gauge-high"],
+    "scale": ["tw:2696"], "scales": ["tw:2696"], "balance": ["tw:2696"], "तराज़ू": ["tw:2696"], "तराजू": ["tw:2696"], "compare": ["tw:2696"],
+    "calendar": ["tw:1f4c5"], "year": ["tw:1f4c5"], "date": ["tw:1f4c5"], "साल": ["tw:1f4c5"], "तारीख़": ["tw:1f4c5"], "clock": ["tw:1f550"], "time": ["tw:1f550"], "समय": ["tw:1f550"],
+    "lock": ["tw:1f512"], "ताला": ["tw:1f512"], "key": ["tw:1f511"], "चाबी": ["tw:1f511"], "arrow": ["tw:27a1"], "exchange": ["tw:1f501"], "swap": ["tw:1f501"],
+    "chart": ["tw:1f4c8"], "graph": ["tw:1f4c8"], "growth": ["tw:1f4c8"], "fall": ["tw:1f4c9"], "गिरावट": ["tw:1f4c9"], "बढ़त": ["tw:1f4c8"],
+    "truck": ["tw:1f69a"], "ट्रक": ["tw:1f69a"], "train": ["tw:1f686"], "box": ["tw:1f4e6"], "package": ["tw:1f4e6"], "डिब्बा": ["tw:1f4e6"],
+    "letter": ["tw:2709"], "envelope": ["tw:2709"], "चिट्ठी": ["tw:2709"], "document": ["tw:1f4c4"], "paper": ["tw:1f4c4"], "कागज़": ["tw:1f4c4"],
+    "computer": ["tw:1f4bb"], "laptop": ["tw:1f4bb"], "server": ["fa:solid/server"], "network": ["fa:solid/network-wired"], "internet": ["tw:1f310"],
+    "flag": ["tw:1f3f3"], "झंडा": ["tw:1f3f3"],
+}
+# Religious symbols come up only when the words ask for them (Navin, 30 October 2026: "cross" is the cross mark, not a crucifix).
+RELIGIOUS = re.compile(r"orthodox cross|latin cross|star of david|wheel of dharma|dharmachakra|menorah|om symbol|\bom\b|star and crescent|"
+                       r"yin yang|peace symbol|khanda|place of worship|church|mosque|synagogue|kaaba|hindu temple|prayer|torah|cross$|crucifix",
+                       re.IGNORECASE)
+RELIGION_WORDS = re.compile(r"religio|church|christian|crucifix|hindu|muslim|islam|jew|sikh|buddh|temple|mosque|synagogue|worship|prayer|धर्म|मंदिर|मस्जिद|गिरजा",
+                            re.IGNORECASE)
+
+
+def _alias_ids(words: list) -> list:
+    """The icon ids the aliases name for a query's words (the longest alias first, then single words)."""
+    text = " ".join(words)
+    out = []
+    for key in sorted(ALIASES, key=len, reverse=True):
+        plural = r"(?:e?s)?" if re.fullmatch(r"[a-z ]+", key) else ""          # "cheques", "receipts", "deposits"
+        if re.search(r"(?<![a-z\u0900-\u097f])" + re.escape(key) + plural + r"(?![a-z\u0900-\u097f])", text):      # whole words: "warehouse" is not a house
+            out += [i for i in ALIASES[key] if i not in out]
+    return out
+
+
+def _words(query: str) -> list:
+    return [w for w in re.findall(r"[a-z]+|[\u0900-\u097f]+", query.lower())]
+
+
+def search(query: str, index: str | Path = DEFAULT_INDEX, limit: int = 12, *, religious: bool | None = None) -> list:
+    """Icons for a thing named in words: the aliases first (Hindi words, synonyms, emoji names), then the icons whose name or
+    search terms carry the query's words; colour icons rank a little above line icons. Religious symbols only when the query
+    asks for them (``religious``: None reads the query, True keeps them, False drops them)."""
     data = load(index)["icons"]
-    q = [w for w in re.findall(r"[a-z]+", query.lower())]
+    known = {r["id"]: r for r in data}
+    q = _words(query)
+    keep_religious = RELIGION_WORDS.search(query) is not None if religious is None else religious
+    out = [known[i] for i in _alias_ids(q) if i in known]
     scored = []
+    latin = [w for w in q if re.fullmatch(r"[a-z]+", w)]
     for r in data:
+        if r["id"] in {o["id"] for o in out}:
+            continue
+        if not keep_religious and RELIGIOUS.search(r["name"]):
+            continue
         hay = (r["name"] + " " + " ".join(r["terms"])).lower()
-        s = sum(3 if re.search(rf"\b{w}\b", r["name"].lower()) else (1 if w in hay else 0) for w in q)
+        s = sum(3 if re.search(rf"\b{w}\b", r["name"].lower()) else (1 if w in hay else 0) for w in latin)
         if s:
             scored.append((s + (0.5 if r["style"] == "colour" else 0), r))
     scored.sort(key=lambda t: -t[0])
-    return [r for _, r in scored[:limit]]
+    return (out + [r for _, r in scored])[:limit]
+
+
+def search_nouns(nouns, index: str | Path = DEFAULT_INDEX, per_noun: int = 3) -> dict:
+    """{noun: [icon rows]} for the things a beat names; a noun with no icon maps to [] (the needs list picks it up)."""
+    return {n: search(n, index, limit=per_noun) for n in nouns if str(n).strip()}
 
 
 def check_ids(ids, index: str | Path = DEFAULT_INDEX) -> list:

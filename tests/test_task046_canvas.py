@@ -325,24 +325,24 @@ class World(unittest.TestCase):
         refuses more than three lines; a price tag shows a price; the title stays short."""
         self.assertEqual(world.wrap_value("₹500"), ["₹500"])
         self.assertEqual(world.wrap_value("Exchange · Account\nStore · Deferred"), ["Exchange · Account", "Store · Deferred"])
-        self.assertEqual(world.wrap_value("Digital balances = digitally recorded पैसे"), ["Digital balances = digitally recorded", "पैसे"])   # 40 since 29 Oct
-        self.assertEqual(len(world.wrap_value("Savings = आपके resources\nFuture instalment = obligation")), 2)     # 40 a line since 29 Oct
+        self.assertEqual(world.wrap_value("Digital balances = digitally recorded पैसे"), ["Digital balances = digitally", "recorded पैसे"])   # 28 a line since 31 Oct (D1)
+        self.assertEqual(len(world.wrap_value("Savings = आपके resources\nFuture instalment = obligation")), 3)     # the second line wraps at 28 (D1)
         plan = fixture("store_of_value_world.world.json")
         board = next(e for e in plan["elements"] if e["kind"] == "board")
-        board["steps"][1]["text"] = "Bank deposits = खाते में जमा पैसे"
+        board["steps"][1]["text"] = "खाते में जमा पैसे"
         scene, report = world.compile_world(copy.deepcopy(plan))
         self.assertEqual(report["problems"], [])
         compiled = next(e for e in scene["layers"][0]["data"]["elements"] if e["kind"] == "board")
-        self.assertEqual(compiled["steps"][1]["lines"], ["Bank deposits = खाते में जमा पैसे"])      # one line of 40 since 29 Oct
+        self.assertEqual(compiled["steps"][1]["lines"], ["खाते में जमा पैसे"])      # a short phrase on one line of 28 (D1)
         self.assertEqual(compiled["steps"][0]["lines"], ["₹0"])
         too_long = copy.deepcopy(plan)
         next(e for e in too_long["elements"] if e["kind"] == "board")["steps"][1]["text"] = "Savings = आपके resources\nFuture instalment = obligation\nEMI amount तय\nचौथी line नहीं"   # 4 lines
         with self.assertRaises(canvas.PlanError) as ctx:
             world.compile_world(too_long)
-        self.assertIn("a board holds at most 3 lines of 40 characters", str(ctx.exception))
+        self.assertIn("a board holds at most 2 lines of 28 characters", str(ctx.exception))
         self.assertIn("say the rest in the narration", str(ctx.exception))
         unbroken = copy.deepcopy(plan)
-        next(e for e in unbroken["elements"] if e["kind"] == "board")["steps"][1]["text"] = "x" * 41      # one unbreakable word over 40
+        next(e for e in unbroken["elements"] if e["kind"] == "board")["steps"][1]["text"] = "x" * 29      # one unbreakable word over 28
         with self.assertRaises(canvas.PlanError):
             world.compile_world(unbroken)
         tag = copy.deepcopy(fixture("demand_pull_world.world.json"))
@@ -356,7 +356,7 @@ class World(unittest.TestCase):
             world.compile_world(title)
         self.assertIn("the title is at most 30 characters", str(ctx.exception))
         card = (ROOT / "bie" / "brain" / "rulebook" / "world_director_card.md").read_text(encoding="utf-8")
-        self.assertIn("at most 3 lines of 40 characters", card)
+        self.assertIn("at most 2 lines of 28 characters", card)
         self.assertIn("at most 9 characters", card)
         self.assertIn("at most 30 characters", card)
 

@@ -16,7 +16,7 @@ import json
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
-from . import canvas, shots, soul
+from . import canvas, shots, soul, visual_thinking as vt
 from . import formats
 from .assets import AssetLibrary
 from .canvas import PlanError
@@ -164,15 +164,16 @@ def mode_of(course: Course, beats: list, items=None, *, story: bool = False) -> 
     outside the known list (a petrol pump before its kit) still goes to the missing-capability log by its own name."""
     if not profile_fits(course):
         return {"mode": "", "place": "", "kit": "", "missing": "", "story": False}
-    text = " ".join(b.get("say", "") for b in beats)
+    # D1-05 (Navin, 30 October 2026): no world by keyword. A world is used only for the STORY piece of the concept's real-world
+    # example, and its place comes from the example itself; every other part is a canvas whose picture type decides.
     example = story_of(items) if story else {}
     hint = (example.get("place") or "").strip()
-    place = (world.place_of(hint) if hint else "") or world.place_of(text)
+    place = world.place_of(hint) if hint else ""
     label = world.place_label(place) if place else hint
     kit = place if place in world.KITS else ""
-    if kit:
+    if story and kit:
         return {"mode": "C", "place": place, "kit": kit, "missing": "", "story": story}
-    return {"mode": "B", "place": place or hint, "kit": "", "missing": f"world kit for a {label}" if label else "", "story": story}
+    return {"mode": "B", "place": place or hint, "kit": "", "missing": f"world kit for a {label}" if (story and label) else "", "story": story}
 
 
 def story_split(stub: dict, full_beats: dict, items) -> list:
@@ -259,7 +260,7 @@ def plan_from(stub: dict, value: dict) -> dict:
     plan.setdefault("theme", "paper")
     plan.setdefault("grid", [12, 8])
     plan["touches"] = True
-    nodes = []
+    nodes = [json.loads(json.dumps(n)) for n in (stub.get("picture_nodes") or [])]     # the book's pictures, placed by code (D1-04)
     for v in value.get("nodes") or []:
         n = {"id": v.get("id", ""), "kind": v.get("kind", "")}
         if v.get("cell"):
@@ -408,20 +409,28 @@ def _icon_problems(plan: dict) -> list:
     return out
 
 
-def check_plan(stub: dict, value: dict, mode) -> list:
-    """The code check of a maker's answer: ``mode`` is the mode dict ({"mode", "kit", ...}) or the letter alone."""
+def check_plan(stub: dict, value: dict, mode, *, picture: dict | None = None) -> list:
+    """The code check of a maker's answer: ``mode`` is the mode dict ({"mode", "kit", ...}) or the letter alone. Part D1 adds:
+    every beat shows a non-text thing on its words, no text-only screen over 10 s, screen text a name or a short phrase, the
+    book's pictures drawn, no caution line on screen."""
     letter, kit = (mode["mode"], mode.get("kit", "")) if isinstance(mode, dict) else (mode, "")
     try:
         if letter == "C":
             plan = world_from(stub, value, kit=kit)
             _, report = world.compile_world(plan)
-            return report["problems"] + screen_text.problems(screen_text.world_texts(plan), plan["beats"])    # CV-13 … CV-16
+            texts = screen_text.world_texts(plan)
+            return (report["problems"] + screen_text.problems(texts, plan["beats"])                     # CV-13 … CV-16
+                    + vt.beat_cover_problems(plan, plan["beats"], "C") + vt.phrase_problems(texts) + vt.caution_problems(texts))
         plan = plan_from(stub, value)
         problems = _icon_problems(plan)
         if problems:
             return problems
-        _, report = canvas.compile_plan(plan)
-        return report["problems"] + screen_text.problems(screen_text.canvas_texts(plan), plan["beats"])      # CV-13 … CV-16
+        scene, report = canvas.compile_plan(plan)
+        texts = screen_text.canvas_texts(plan)
+        text_only, _ = vt.text_only_problems(scene, timing.FPS)
+        return (report["problems"] + screen_text.problems(texts, plan["beats"])                         # CV-13 … CV-16
+                + vt.beat_cover_problems(plan, plan["beats"], "B") + text_only + vt.phrase_problems(texts)
+                + vt.caution_problems(texts) + vt.book_picture_problems(plan, picture))
     except PlanError as exc:
         return [str(exc)]
     except (KeyError, TypeError, ValueError, IndexError) as exc:
@@ -452,18 +461,62 @@ STORY_NOTE = ("This part is the STORY of the concept's real-world example (Navin
               "cued on the word that says it.")
 
 
-def part_step(course: Course, stub: dict, items: list, mode: dict, *, rulebook, menu: list | None = None, max_rounds: int = 3) -> Step:
-    """The maker writes this part's plan (B: canvas; C: world) and code checks it; no reviewer round for layout."""
+def ideas_step(course: Course, stub: dict, items: list, picture: dict, *, max_rounds: int = 3) -> Step:
+    """Dikhane ki soch (Task 046 Part D1): before any layout the maker says, per beat, the idea, its relation, its things, people
+    and places, what is seen and on which word; code checks the shape and the words."""
+    beats = [{"beat_id": b["beat_id"], "say": b["say"], "relation_guess": vt.guess_relation(b["say"])} for b in stub["beats"]]
+    if picture.get("by") == "book":
+        first = picture["pictures"][0]
+        line = vt.PICTURE_BY_CODE.format(ptype=picture["type"], ptitle=first.get("title", ""), source=first.get("kind", "picture"))
+    else:
+        line = vt.PICTURE_BY_MAKER.format(card_type=stub.get("card_type") or "")
+    system = fmt(vt.ROLE, course, verbs=vt.verbs_text(), phrase_words=vt.PHRASE_WORDS, picture_line=line)
+    payload = {"part": {"id": stub["id"], "part_id": stub.get("part_id", ""), "card_type": stub.get("card_type", ""), "story": bool(stub.get("story"))},
+               "beats": beats, "items": [{k: i.get(k, "") for k in ("item_id", "content_type", "content")} for i in items],
+               "book_pictures": [{"item_id": p["item_id"], "type": p["type"], "title": p["title"]} for p in picture.get("pictures") or []]}
+    user = (f"Chapter: {course.title}. Part {stub.get('part_id') or stub['id']} ({len(beats)} beats).\nThe part (JSON):\n"
+            f"{json.dumps(payload, ensure_ascii=False)}\n\nReply with the ideas JSON.")
+    return Step(section=SECTION, unit=f"{stub['id']}-ideas", instructions_version=vt.VERSION, system=system, user=user, schema=vt.IDEAS_SCHEMA,
+                check=lambda value: vt.check_ideas(stub, value, picture=picture), max_rounds=max_rounds)
+
+
+IDEAS_NOTE = """
+Dikhane ki soch for this part (the visual-idea step; every beat shows its thing on its word, D1-01):
+{ideas}
+Icons found for the things named (id · name); you may also use any id from the general menu below:
+{candidates}
+"""
+PICTURE_NOTE = ("\nCode has already placed the book's own picture in this plan: node '{nid}' ({ptype}: {ptitle}) in cells {cell} (col, row, "
+                "width, height). Do not add another timeline, table or row for it and do not reuse its id or its cells; build your "
+                "elements in the rows below it (row {row} onward) and let the picture carry the beats that cover its items (D1-04).")
+
+
+def part_step(course: Course, stub: dict, items: list, mode: dict, *, rulebook, menu: list | None = None, max_rounds: int = 3,
+              ideas: dict | None = None, candidates: dict | None = None) -> Step:
+    """The maker writes this part's plan (B: canvas; C: world) and code checks it; no reviewer round for layout. With the
+    dikhane ki soch (``ideas``) and the icon candidates code found for its nouns (``candidates``), and the code-placed book
+    picture of the stub (``stub["picture_nodes"]``)."""
     beats = [{"beat_id": b["beat_id"], "say": b["say"]} for b in stub["beats"]]
+    picture_nodes = stub.get("picture_nodes") or []
     payload = {"part": {"id": stub["id"], "part_id": stub.get("part_id", ""), "mode": mode["mode"], "place": mode.get("place", ""),
                         "story": bool(mode.get("story"))},
-               "beats": beats, "items": items, "on_screen_hints": stub.get("on_screen_hints") or []}
+               "beats": beats, "items": items, "on_screen_hints": stub.get("on_screen_hints") or [],
+               "ideas": [{k: r.get(k) for k in ("beat_id", "idea", "relation", "things", "people", "places", "shows", "on_word")}
+                         for r in (ideas or {}).get("beats") or []],
+               "picture": [{"id": n["id"], "type": n["picture"]["type"], "cell": n["cell"]} for n in picture_nodes]}
     story = story_of(items) if mode.get("story") else {}
     note = ""
     if story and mode["mode"] == "B":
         numbers = "; ".join(f"{n.get('what', '')} {n.get('before', '')} → {n.get('after', '')}".strip() for n in story.get("numbers") or [])
         note = "\n" + STORY_NOTE.format(place=story.get("place", ""), actors=", ".join(story.get("actors") or []),
                                          goods=", ".join(story.get("goods") or []), numbers=numbers)
+    if ideas and ideas.get("beats"):
+        lines = "\n".join(f"- {r['beat_id']}: {r.get('idea', '')} · relation {r.get('relation', '')} · shows: {r.get('shows', '')}"
+                          + (f" · on '{r['on_word']}'" if r.get("on_word") else "") for r in ideas["beats"])
+        note += IDEAS_NOTE.format(ideas=lines, candidates=vt.candidates_text(candidates or {}) or "- (none found: use the general menu)")
+    for n in picture_nodes:
+        note += PICTURE_NOTE.format(nid=n["id"], ptype=n["picture"]["type"], ptitle=n["picture"].get("title", ""), cell=n["cell"],
+                                    row=n["cell"][1] + n["cell"][3])
     rules = rulebook.instructions(SECTION)
     if mode["mode"] == "C":
         place = f"{world.KITS[mode['kit']]['label']}; its place element is kind '{world.PLACE_KINDS[mode['kit']]}'"
@@ -476,8 +529,9 @@ def part_step(course: Course, stub: dict, items: list, mode: dict, *, rulebook, 
         schema = PLAN_SCHEMA
     user = (f"Chapter: {course.title}. Part {stub.get('part_id') or stub['id']} ({len(beats)} beats).{note}\n"
             f"The part (JSON):\n{json.dumps(payload, ensure_ascii=False)}\n\nReply with the plan JSON.")
+    picture = stub.get("picture") or {}
     return Step(section=SECTION, unit=stub["id"], instructions_version=VERSION, system=system, user=user, schema=schema,
-                check=lambda value: check_plan(stub, value, mode), max_rounds=max_rounds)
+                check=lambda value: check_plan(stub, value, mode, picture=picture), max_rounds=max_rounds)
 
 
 def split_stub(stub: dict, max_beats: int = MAX_PART_BEATS) -> list:
@@ -517,61 +571,115 @@ def run_canvas(chapter: dict, lesson: dict, course: Course, runner, out_dir, *, 
                "videos": [], "missing_kits": []}
     if not profile_fits(course):
         summary["note"] = "not a canvas subject: the shot-list director (Part A) applies"
-    for video in chapter.get("_unused", []):
-        pass
+    summary["missing_capabilities"] = []
+    run_needs = []
+    (out / "visual_ideas").mkdir(exist_ok=True)
     for video in chosen:
         if not profile_fits(course):
             break
         beats = video["beats"]
         full_beats = {b["beat_id"]: b for b in beats}
+        card_types = {p.get("part_id"): p.get("type", "") for p in video.get("card_parts") or []}
         stubs = [piece for stub in canvas.stubs(video)
                  for story in story_split(stub, full_beats, _items_of(chapter, plans[video["video_id"]], stub))
                  for piece in split_stub(story)]
+        # Dikhane ki soch, step 1 by code (D1-04): the book's own pictures a part covers, placed before the maker plans; and the mode of
+        # every part, with the kit-sequence rule (D1-05) applied in order before the parts run side by side.
+        prev = None
+        for stub in stubs:
+            stub["card_type"] = card_types.get(stub.get("part_id"), "")
+            stub_items = _items_of(chapter, plans[video["video_id"]], stub)
+            own = [full_beats.get(b["beat_id"], b) for b in stub["beats"]]           # the items this piece's own beats cover
+            stub["picture"], stub["picture_nodes"] = vt.place_pictures(chapter["items"], own, stub["card_type"])
+            mode = mode_of(course, stub["beats"], stub_items, story=bool(stub.get("story")))
+            if prev and prev["mode"] == "C" and mode["mode"] == "C" and prev.get("kit") == mode.get("kit"):
+                mode = dict(mode, mode="B", kit="", missing="", note=f"the {prev['kit']} world was used by the part before (D1-05)")
+            stub["mode"] = mode
+            prev = mode
 
         def work(stub):
             stub["beats"] = [dict(b, **{k: full_beats[b["beat_id"]].get(k, "") for k in ("caption",)}) if "caption" in full_beats[b["beat_id"]] else b
                              for b in stub["beats"]]
             items = _items_of(chapter, plans[video["video_id"]], stub)
-            mode = mode_of(course, stub["beats"], items, story=bool(stub.get("story")))
-            result = runner.run(part_step(course, stub, items, mode, rulebook=runner.rulebook, menu=menu, max_rounds=max_rounds))
-            return stub, mode, result
+            mode = stub["mode"]
+            ideas = runner.run(ideas_step(course, stub, items, stub["picture"], max_rounds=max_rounds))
+            found = vt.resolve_needs(ideas.output, library) if ideas.passed and ideas.output else {"found": {}, "images": {}, "needs": []}
+            result = runner.run(part_step(course, stub, items, mode, rulebook=runner.rulebook, menu=menu, max_rounds=max_rounds,
+                                          ideas=ideas.output if ideas.passed else None, candidates=found["found"]))
+            return stub, mode, result, ideas, found
 
         with ThreadPoolExecutor(max_workers=max(1, workers)) as pool:
             rows = list(pool.map(work, stubs))
-        scenes, parts, icon_ids = [], [], []
-        for stub, mode, result in rows:
+        scenes, parts, icon_ids, idea_parts = [], [], [], []
+        for stub, mode, result, ideas, found in rows:
             entry = {"id": stub["id"], "part_id": stub.get("part_id", ""), "beats": len(stub["beats"]), "mode": mode["mode"],
-                     "place": mode.get("place", ""), "story": bool(mode.get("story")), "status": result.status, "rounds": len(result.rounds),
-                     "first_try": result.passed and len(result.rounds) == 1, "cost_usd": result.cost_usd,
-                     "last_problems": (result.rounds[-1].get("code_problems") or []) if result.rounds and not result.passed else []}
+                     "place": mode.get("place", ""), "kit": mode.get("kit", ""), "story": bool(mode.get("story")), "status": result.status,
+                     "rounds": len(result.rounds), "first_try": result.passed and len(result.rounds) == 1, "cost_usd": result.cost_usd + ideas.cost_usd,
+                     "last_problems": (result.rounds[-1].get("code_problems") or []) if result.rounds and not result.passed else [],
+                     "ideas_status": ideas.status, "ideas_rounds": len(ideas.rounds), "ideas_first_try": ideas.passed and len(ideas.rounds) == 1,
+                     "picture": {"type": stub["picture"]["type"], "by": stub["picture"]["by"]},
+                     "book_pictures": len(stub["picture"]["pictures"]), "needs": len(found["needs"])}
+            if mode.get("note"):
+                entry["note"] = mode["note"]
             if mode.get("missing") and mode["missing"] not in summary["missing_kits"]:
                 summary["missing_kits"].append(mode["missing"])
+            if mode.get("missing"):
+                cap = next((c for c in summary["missing_capabilities"] if c["what"] == mode["missing"]), None)
+                if cap is None:
+                    cap = {"what": mode["missing"], "kind": "world kit", "parts": [], "beats": []}
+                    summary["missing_capabilities"].append(cap)
+                cap["parts"].append(stub["id"])
+                cap["beats"] += [b["beat_id"] for b in stub["beats"]]
+            run_needs += [dict(n, part=stub["id"], video=video["video_id"]) for n in found["needs"]]
+            icons_by_beat = {}
+            for row in (ideas.output or {}).get("beats") or [] if ideas.passed else []:
+                nouns = [n for k in ("things", "people", "places") for n in row.get(k) or []]
+                icons_by_beat[row["beat_id"]] = [i for n in nouns for i in found["found"].get(n, [])[:1]]
+            part_data = {"id": stub["id"], "part_id": stub.get("part_id", ""), "mode": mode["mode"], "kit": mode.get("kit", ""),
+                         "picture": stub["picture"], "ideas": ideas.output if ideas.passed else {}, "needs": found["needs"],
+                         "icons_by_beat": icons_by_beat, "status": result.status, "seconds": 0.0, "text_only_seconds": 0.0,
+                         "icon_ids": [], "picture_types": [], "book_pictures_drawn": 0}
             if result.passed:
                 if mode["mode"] == "C":
                     plan = world_from(stub, result.output, kit=mode.get("kit", ""))
                     scene, report = world.compile_world(plan)
+                    part_data["picture_types"] = ["world"]
                 else:
                     plan = plan_from(stub, result.output)
                     ids = canvas.icons_in(plan)
                     paths = icons.add_to_library(ids, library, opener=opener) if ids else {}
                     icon_ids += [i for i in ids if i not in icon_ids]
                     scene, report = canvas.compile_plan(plan, icon_paths=paths)
+                    part_data["icon_ids"] = ids
+                    part_data["text_only_seconds"] = vt.text_only_problems(scene, timing.FPS)[1]
+                    pics = [n["picture"]["type"] for n in plan.get("nodes") or [] if n.get("kind") == "picture"]
+                    part_data["picture_types"] = sorted(set(pics)) or (["things"] if ids else ["text"])
+                    part_data["book_pictures_drawn"] = len({(n.get("picture") or {}).get("item_id") for n in plan.get("nodes") or [] if n.get("kind") == "picture"})
                 formats.check("world_c_plan" if "elements" in plan else "canvas_b_plan", formats.stamp("world_c_plan" if "elements" in plan else "canvas_b_plan", plan),
                               where=f"plans/{stub['id']}.plan.json")
                 (out / "plans" / f"{stub['id']}.plan.json").write_text(json.dumps(plan, ensure_ascii=False, indent=1), encoding="utf-8")
                 scenes.append(scene)
+                part_data["seconds"] = report["seconds"]
                 entry.update(level=report["level"], seconds=report["seconds"], elements=report["elements"],
-                             longest_still_s=report["longest_still_s"], advisories=report.get("advisories", []))
+                             longest_still_s=report["longest_still_s"], advisories=report.get("advisories", []),
+                             text_only_seconds=part_data["text_only_seconds"], picture_types=part_data["picture_types"],
+                             distinct_icons=len(part_data["icon_ids"]))
             parts.append(entry)
+            idea_parts.append(part_data)
         asset_ids = sorted(library.assets)
         credits = library.credits(asset_ids)
         if scenes and credits:
             scenes.append(canvas.credits_scene(credits, scene_id=f"{video['video_id']}_credits"))
+        ideas_record = vt.dikhane_list(video["video_id"], idea_parts)
+        formats.check("visual_ideas", ideas_record, where=f"visual_ideas/{video['video_id']}.json")
+        (out / "visual_ideas" / f"{video['video_id']}.json").write_text(json.dumps(ideas_record, ensure_ascii=False, indent=1), encoding="utf-8")
         row = {"video_id": video["video_id"], "title": video.get("title", ""), "parts": parts,
                "parts_passed": sum(1 for p in parts if p["status"] == "passed"), "first_try_passes": sum(1 for p in parts if p["first_try"]),
                "rounds": sum(p["rounds"] for p in parts), "cost_usd": round(sum(p["cost_usd"] for p in parts), 6),
                "modes": {m: sum(1 for p in parts if p["mode"] == m) for m in ("B", "C")}, "credits": credits,
-               "seconds": round(sum(s["duration"] for s in scenes) / timing.FPS, 1)}
+               "seconds": round(sum(s["duration"] for s in scenes) / timing.FPS, 1),
+               "ideas_first_try": sum(1 for p in parts if p.get("ideas_first_try")), "ideas_rounds": sum(p.get("ideas_rounds", 0) for p in parts),
+               "report": vt.report(idea_parts)}
         if len(scenes) and all(p["status"] == "passed" for p in parts):
             spec = canvas.video_spec(scenes)
             problems = licence_policy.lesson_spec_check(spec) + library.lesson_check(asset_ids)
@@ -584,6 +692,9 @@ def run_canvas(chapter: dict, lesson: dict, course: Course, runner, out_dir, *, 
         else:
             row["status"] = "failed"
         summary["videos"].append(row)
+    needs = vt.needs_record(run_needs, summary["missing_capabilities"])
+    formats.check("needs", needs, where=str(out / "needs.json"))
+    (out / "needs.json").write_text(json.dumps(needs, ensure_ascii=False, indent=1), encoding="utf-8")
     library.save()
     parts = [p for v in summary["videos"] for p in v["parts"]]
     summary["quality"] = {"videos": len(summary["videos"]), "videos_written": sum(1 for v in summary["videos"] if v.get("status") == "spec_written"),
@@ -594,7 +705,16 @@ def run_canvas(chapter: dict, lesson: dict, course: Course, runner, out_dir, *, 
                           "story_parts": sum(1 for p in parts if p.get("story")),
                           "story_parts_in_a_world": sum(1 for p in parts if p.get("story") and p["mode"] == "C"),
                           "missing_kits": list(summary["missing_kits"]), "seconds": round(sum(v["seconds"] for v in summary["videos"]), 1),
-                          "cost_usd": round(sum(p["cost_usd"] for p in parts), 6)}
+                          "cost_usd": round(sum(p["cost_usd"] for p in parts), 6),
+                          # Task 046 Part D1 (Navin's verdict of 30 October 2026): what the learner sees
+                          "distinct_icons": len({i for v in summary["videos"] for i in (v.get("report") or {}).get("icons", [])}),
+                          "text_only_seconds": round(sum((v.get("report") or {}).get("text_only_seconds", 0) for v in summary["videos"]), 1),
+                          "book_pictures": sum((v.get("report") or {}).get("book_pictures", 0) for v in summary["videos"]),
+                          "book_pictures_drawn": sum((v.get("report") or {}).get("book_pictures_drawn", 0) for v in summary["videos"]),
+                          "world_share": round(sum(1 for p in parts if p["mode"] == "C") / len(parts), 3) if parts else 0.0,
+                          "relations_outside_list": sum((v.get("report") or {}).get("relations_outside_list", 0) for v in summary["videos"]),
+                          "ideas_first_try": sum(v.get("ideas_first_try", 0) for v in summary["videos"]),
+                          "needs": len(needs["needs"]), "missing_capabilities": len(summary["missing_capabilities"])}
     formats.check("canvas_summary", summary, where=str(out / "canvas.json"))
     (out / "canvas.json").write_text(json.dumps(summary, ensure_ascii=False, indent=1), encoding="utf-8")
     (out / "CANVAS.md").write_text(render_markdown(summary), encoding="utf-8")
@@ -614,6 +734,11 @@ def render_markdown(summary: dict) -> str:
                   f"{q['story_parts_in_a_world']} inside a world (C), the rest on the canvas with crowd, value and icon elements (B).", ""]
     if q["missing_kits"]:
         lines += ["Missing world kits (these parts fell back to the canvas): " + "; ".join(q["missing_kits"]), ""]
+    if "distinct_icons" in q:
+        lines += [f"Dikhane ki soch (Part D1): {q['distinct_icons']} distinct icons; text-only screen {q['text_only_seconds']} s; book pictures drawn "
+                  f"{q['book_pictures_drawn']} of {q['book_pictures']}; world share {q['world_share']:.0%}; relations outside the list "
+                  f"{q['relations_outside_list']}; ideas passed first try {q['ideas_first_try']}; needs {q['needs']}; missing capabilities "
+                  f"{q['missing_capabilities']}.", ""]
     for v in summary["videos"]:
         lines += [f"## {v['video_id']} · {v['title']} ({v['seconds']} s) · {v.get('status')}", ""]
         for p in v["parts"]:

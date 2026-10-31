@@ -49,7 +49,9 @@ CUE_KEYS = ("cue", "until_cue", "tilt_cue")
 # boards, 63 of 98 values over 16 characters, and they ran out of the box). A board holds up to BOARD_LINES lines of
 # BOARD_CHARS characters (its own line breaks first, then long lines wrapped at spaces by code); a price tag shows a price;
 # the title stays short. Longer text is refused with the limit named, so the maker says it in the narration or a label.
-BOARD_LINES, BOARD_CHARS, TAG_CHARS, TITLE_CHARS = 3, 40, 9, 30      # 40 since 29 October 2026: a complete sentence fits (Navin's verdict on v1)
+BOARD_LINES, BOARD_CHARS, TAG_CHARS, TITLE_CHARS = 2, 28, 9, 30      # 28 since 31 October 2026 (Task 046 Part D1): a board holds a name or a short
+# phrase, never a sentence (Navin, 30 October: "sirf text hi text screen par dikha to video ... ek book ban jaayegi"); 40 on 29 October had let
+# whole sentences sit on boards.
 
 
 def wrap_value(text: str, width: int = BOARD_CHARS) -> list:

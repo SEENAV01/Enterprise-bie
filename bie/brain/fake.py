@@ -246,9 +246,26 @@ def _first_word(say: str) -> str:
     return words[0].strip("।,.!?") if words else ""
 
 
+def ideas_answer(user_text: str):
+    """The dikhane ki soch (Task 046 Part D1) the code check accepts: per beat the idea, code's own relation guess, one thing (the
+    beat's first content word), what is seen in a few words, the first word as the cue. Offline only."""
+    data = _payload(user_text)
+    rows = []
+    for beat in data.get("beats", []):
+        words = [w for w in beat["say"].replace("।", " ").split() if len(w) > 2 and w not in ("मान", "लीजिए")]
+        thing = words[0] if words else "coin"
+        relation = beat.get("relation_guess") or "other"
+        rows.append({"beat_id": beat["beat_id"], "idea": " ".join(words[:3]) or "offline idea", "relation": relation,
+                     "relation_note": "offline" if relation == "other" else "", "things": [thing], "people": [], "places": [],
+                     "shows": f"{thing} on screen", "on_word": _first_word(beat["say"])})
+    pics = data.get("book_pictures") or []
+    return {"notes": NOTES, "beats": rows, "picture_type": pics[0]["type"] if pics else "things", "picture_note": "offline"}
+
+
 def canvas_answer(user_text: str):
-    """A plan the canvas compiler accepts: a title tag, then one short text box per beat on its first word, two columns of
-    six rows; a 13th beat onward reuses a cell after its earlier box leaves (until_cue). Offline only."""
+    """A plan the canvas compiler accepts: a title tag, then one icon card per beat on its first word (an icon with a short label,
+    so every beat shows a thing, D1-01), two columns of rows below the code-placed book picture; a later beat reuses a cell after
+    its earlier card leaves (until_cue). Offline only."""
     data = _payload(user_text)
     beats = data.get("beats", [])
     part = (data.get("part") or {}).get("part_id") or (data.get("part") or {}).get("id") or "part"
@@ -256,20 +273,25 @@ def canvas_answer(user_text: str):
              "align": "", "icon": "", "label": "", "cols": 0, "steps": [], "from": "", "to": "", "from_side": "", "to_side": "", "elbow": "",
              "dashed": False, "curve": False, "target": "", "mark": "", "pos": "", "root": "", "children": [], "columns": [], "rows": [],
              "highlights": [], "marks": [], "flow": {"icon": "", "count": 0, "period": 0, "size": 0, "reverse": False, "cue": []}}
+    top = max([n["cell"][1] + n["cell"][3] for n in data.get("picture") or []] or [0])      # the rows the book picture took
     nodes = []
     if beats:
-        nodes.append(dict(empty, id="tag", kind="text", cell=[0, 0, 5, 1], cue=[beats[0]["beat_id"], ""], style="tag",
+        nodes.append(dict(empty, id="tag", kind="text", cell=[0, top, 5, 1], cue=[beats[0]["beat_id"], ""], style="tag",
                           text=f"Part {part}"[:28]))
-    slots = 12
+    rows_free = 8 - top - 1
+    slots = max(2, 2 * rows_free)
+    icons_of = {r["beat_id"]: r for r in data.get("ideas") or []}
     for n, beat in enumerate(beats):
         slot = n % slots
-        cell = [(slot % 2) * 6, 1 + slot // 2, 6, 1]
-        words = beat["say"].replace("।", " ").split()
-        text = " ".join(words[:4])[:40] or "…"
+        cell = [(slot % 2) * 6, top + 1 + slot // 2, 6, 1]
+        idea = icons_of.get(beat["beat_id"]) or {}
+        things = [t for t in (idea.get("things") or []) if t]
+        words = [w for w in beat["say"].replace("।", " ").split() if w not in ("मान", "लीजिए", "लो")]      # never a caution phrase on screen (D1-06)
+        label = (things[0] if things else " ".join(words[:2]))[:24] or "…"
         if n >= slots:
             nodes[1 + n - slots]["until_cue"] = [beat["beat_id"], ""]
-        nodes.append(dict(empty, id=f"t{n + 1}", kind="text", cell=cell, cue=[beat["beat_id"], _first_word(beat["say"])],
-                          style="box", size=28, text=text))
+        nodes.append(dict(empty, id=f"t{n + 1}", kind="icon", cell=cell, cue=[beat["beat_id"], _first_word(beat["say"])],
+                          icon="tw:1fa99", label=label))
     graph = {"plot": {"x": 0, "y": 0, "w": 0, "h": 0}, "x_label": "", "y_label": "", "x_domain": [], "y_domain": [], "axes_cue": [],
              "curves": [], "dots": [], "shades": [], "guides": [], "notes": []}
     return {"notes": NOTES, "nodes": nodes, "camera": [], "focus": [], "graph_used": False, "graph": graph}
@@ -429,6 +451,8 @@ class BrainFakeClient:
             value = {"notes": NOTES, "replace_scenes": [], "remove_scene_ids": []}
         elif "nodes" in props and "graph_used" in props:
             value = canvas_answer(user)
+        elif "picture_type" in props and "beats" in props:
+            value = ideas_answer(user)
         elif "elements" in props and "camera" in props and "notes" in props and len(props) == 3:
             value = world_answer(user)
         elif "scenes" in props:

@@ -1,0 +1,524 @@
+{
+ "rulebook": "bie-visual-verbs",
+ "version": "2026-10-31.1",
+ "schema": "bie.rules.visual-verbs/1",
+ "status": "starting entries, not topic rules (Navin adds entries)",
+ "source": "Navin's verdict on the Money videos, 30 October 2026: 'jo bola ja rha hai screen ke visuals se wo baat clear ho ... visuals tarike se user ko teacher ki baat aankhon ke jariye dimag tak pahunchate ho'; his example: 'yuan milestone compulsory wali line ke liye reject krne ki baat ko cross se darshaya ja sakta tha'; page 2: 'dekho kaise icons ka use kiya ja rha hai khud samjh aa rha hai ki neeche likhe text ka matlb kya hai'.",
+ "how_it_is_used": "bie/brain/visual_thinking.py: the 'dikhane ki soch' step names, for every beat, its key idea, its relation (one of the ids below, or 'other' with a note, which is logged) and the things, people and places it names. The entry for the relation says how the relation is SHOWN; the things are shown as themselves (an icon or a picture found by code in the icon index and the asset library, never a word standing for the thing). Screen text is a name or a short natural phrase, never a sentence: the sentence lives in the narration and the subtitles (page-2 principle).",
+ "changes": [
+  "2026-10-31.1 (Task 046 Part D1): the first fourteen relations with how each is shown, from Navin's verdict of 30 October 2026."
+ ],
+ "relations": [
+  {
+   "id": "reject",
+   "words": [
+    "reject",
+    "refuse",
+    "not accepted",
+    "invalid",
+    "banned",
+    "demonetised",
+    "नहीं चलता",
+    "मना",
+    "अस्वीकार",
+    "रद्द",
+    "बंद"
+   ],
+   "show": "a cross mark on the thing refused (the thing's icon first, then the cross on it, on the word that refuses)",
+   "canvas": {
+    "kinds": [
+     "icon",
+     "mark"
+    ],
+    "mark": "cross",
+    "icons": [
+     "tw:274c"
+    ]
+   },
+   "world": {
+    "kinds": [
+     "label"
+    ],
+    "note": "the refused thing as a label struck through"
+   }
+  },
+  {
+   "id": "accept",
+   "words": [
+    "accept",
+    "valid",
+    "allowed",
+    "legal tender",
+    "चलता है",
+    "मान्य",
+    "स्वीकार"
+   ],
+   "show": "a tick on the thing accepted",
+   "canvas": {
+    "kinds": [
+     "icon",
+     "mark"
+    ],
+    "mark": "tick",
+    "icons": [
+     "tw:2705"
+    ]
+   },
+   "world": {
+    "kinds": [
+     "label"
+    ]
+   }
+  },
+  {
+   "id": "compulsory",
+   "words": [
+    "compulsory",
+    "must",
+    "mandatory",
+    "by law",
+    "legally",
+    "अनिवार्य",
+    "ज़रूरी",
+    "कानून",
+    "क़ानून"
+   ],
+   "show": "a law scroll with a stamp on it, beside the thing the law binds",
+   "canvas": {
+    "kinds": [
+     "icon"
+    ],
+    "icons": [
+     "tw:1f4dc",
+     "fa:solid/stamp",
+     "fa:solid/gavel"
+    ]
+   },
+   "world": {
+    "kinds": [
+     "label",
+     "board"
+    ]
+   }
+  },
+  {
+   "id": "limit",
+   "words": [
+    "limit",
+    "ceiling",
+    "cap",
+    "up to",
+    "at most",
+    "maximum",
+    "सीमा",
+    "तक",
+    "ज़्यादा नहीं",
+    "अधिकतम"
+   ],
+   "show": "a meter or a stack that fills up to a red line where it stops (the limit's number on the line)",
+   "canvas": {
+    "kinds": [
+     "value",
+     "highlight",
+     "icon"
+    ],
+    "icons": [
+     "fa:solid/gauge-high"
+    ],
+    "tone": "danger"
+   },
+   "world": {
+    "kinds": [
+     "board",
+     "crowd"
+    ]
+   }
+  },
+  {
+   "id": "more_less",
+   "words": [
+    "more",
+    "less",
+    "increase",
+    "decrease",
+    "rise",
+    "fall",
+    "grow",
+    "shrink",
+    "ज़्यादा",
+    "कम",
+    "बढ़",
+    "घट"
+   ],
+   "show": "two sizes side by side, or a crowd / stack that grows or shrinks on the word",
+   "canvas": {
+    "kinds": [
+     "crowd",
+     "value",
+     "arrow"
+    ]
+   },
+   "world": {
+    "kinds": [
+     "crowd",
+     "price_tag",
+     "pull_arrow"
+    ]
+   }
+  },
+  {
+   "id": "count",
+   "words": [
+    "count",
+    "how many",
+    "number of",
+    "कितने",
+    "गिनती",
+    "संख्या"
+   ],
+   "show": "a counted stack or crowd whose number is the narration's number",
+   "canvas": {
+    "kinds": [
+     "crowd",
+     "value"
+    ]
+   },
+   "world": {
+    "kinds": [
+     "crowd"
+    ]
+   }
+  },
+  {
+   "id": "sequence",
+   "words": [
+    "first",
+    "then",
+    "after",
+    "before",
+    "next",
+    "stage",
+    "step",
+    "evolution",
+    "timeline",
+    "year",
+    "century",
+    "पहले",
+    "फिर",
+    "बाद",
+    "पड़ाव",
+    "चरण",
+    "साल",
+    "सदी"
+   ],
+   "show": "a numbered row or a timeline with arrows; the book's own years and labels when the part covers a book timeline",
+   "canvas": {
+    "kinds": [
+     "picture"
+    ],
+    "picture": [
+     "timeline",
+     "gallery"
+    ]
+   },
+   "world": {
+    "kinds": [
+     "label"
+    ]
+   }
+  },
+  {
+   "id": "cause_effect",
+   "words": [
+    "because",
+    "so",
+    "therefore",
+    "leads to",
+    "causes",
+    "result",
+    "इसलिए",
+    "क्योंकि",
+    "जिससे",
+    "नतीजा",
+    "असर"
+   ],
+   "show": "an arrow chain: the cause's icon, an arrow, the effect's icon or number",
+   "canvas": {
+    "kinds": [
+     "icon",
+     "arrow",
+     "value"
+    ]
+   },
+   "world": {
+    "kinds": [
+     "pull_arrow",
+     "price_tag"
+    ]
+   }
+  },
+  {
+   "id": "compare",
+   "words": [
+    "compare",
+    "difference",
+    "versus",
+    "vs",
+    "unlike",
+    "whereas",
+    "both",
+    "फर्क",
+    "अंतर",
+    "तुलना",
+    "बनाम"
+   ],
+   "show": "a split screen (the same slots on both sides) or a balance scale; the book's own table when the part covers one",
+   "canvas": {
+    "kinds": [
+     "picture",
+     "table",
+     "icon"
+    ],
+    "picture": [
+     "table"
+    ],
+    "icons": [
+     "tw:2696"
+    ]
+   },
+   "world": {
+    "kinds": [
+     "balance"
+    ]
+   }
+  },
+  {
+   "id": "part_whole",
+   "words": [
+    "part of",
+    "consists of",
+    "made of",
+    "types of",
+    "kinds of",
+    "includes",
+    "हिस्सा",
+    "प्रकार",
+    "शामिल"
+   ],
+   "show": "a grouping: the whole as a box, its parts as icons inside it, or a tree",
+   "canvas": {
+    "kinds": [
+     "tree",
+     "highlight",
+     "icon"
+    ]
+   },
+   "world": {
+    "kinds": [
+     "label"
+    ]
+   }
+  },
+  {
+   "id": "place",
+   "words": [
+    "in",
+    "at",
+    "where",
+    "country",
+    "city",
+    "region",
+    "india",
+    "कहाँ",
+    "में",
+    "देश",
+    "जगह"
+   ],
+   "show": "a map with the place marked, or the place's flag beside the thing",
+   "canvas": {
+    "kinds": [
+     "picture",
+     "icon"
+    ],
+    "picture": [
+     "map"
+    ],
+    "icons": [
+     "tw:1f5fa"
+    ]
+   },
+   "world": {
+    "kinds": [
+     "shop",
+     "bank"
+    ]
+   }
+  },
+  {
+   "id": "change",
+   "words": [
+    "change",
+    "becomes",
+    "replaced",
+    "from ... to",
+    "turns into",
+    "बदल",
+    "बन",
+    "हो गया",
+    "से ... तक"
+   ],
+   "show": "before and after side by side, the old struck out, the new in its place",
+   "canvas": {
+    "kinds": [
+     "value",
+     "icon",
+     "arrow"
+    ]
+   },
+   "world": {
+    "kinds": [
+     "price_tag",
+     "board"
+    ]
+   }
+  },
+  {
+   "id": "promise",
+   "words": [
+    "promise",
+    "claim",
+    "guarantee",
+    "backed by",
+    "trust",
+    "owes",
+    "वादा",
+    "भरोसा",
+    "गारंटी",
+    "दावा"
+   ],
+   "show": "a receipt or a handshake between the two parties, the promise's words as a short label",
+   "canvas": {
+    "kinds": [
+     "icon"
+    ],
+    "icons": [
+     "tw:1f9fe",
+     "tw:1f91d"
+    ]
+   },
+   "world": {
+    "kinds": [
+     "label"
+    ]
+   }
+  },
+  {
+   "id": "question",
+   "words": [
+    "why",
+    "how",
+    "what",
+    "which",
+    "क्यों",
+    "कैसे",
+    "क्या",
+    "कौन"
+   ],
+   "show": "the thing asked about with a question mark beside it; the answer's picture replaces the mark when the answer comes",
+   "canvas": {
+    "kinds": [
+     "icon"
+    ],
+    "icons": [
+     "tw:2753"
+    ]
+   },
+   "world": {
+    "kinds": [
+     "label"
+    ]
+   }
+  },
+  {
+   "id": "other",
+   "words": [],
+   "show": "a relation outside this list: the step logs it (relations_outside_list) so Navin can add an entry; the beat still shows its things as themselves",
+   "canvas": {
+    "kinds": [
+     "icon"
+    ]
+   },
+   "world": {
+    "kinds": [
+     "label"
+    ]
+   }
+  }
+ ],
+ "picture_types": {
+  "timeline": "a book timeline (dated markers) drawn with the timeline_build block: the book's years and labels, nothing added",
+  "gallery": "a book panel of items (the six Evolution-of-Money pictures, the five currencies) drawn as a numbered row of icon cards: the thing's icon and its name under it",
+  "table": "a book table drawn as itself, row by row on the words that say the rows",
+  "flow": "a book flow (boxes joined by arrows) drawn with the flow_build block",
+  "tree": "a classification or structure drawn as a tree",
+  "chart": "numbers over years drawn as a chart",
+  "map": "a place drawn on a map (india_map, through the licence gate's map rule)",
+  "things": "the things themselves as icons, with the relation's mark, arrow, meter or scale"
+ },
+ "rules": [
+  {
+   "id": "D1-01",
+   "sections": [
+    "canvas"
+   ],
+   "status": "locked",
+   "rule": "Every beat shows at least one non-text thing tied to its nouns or its relation (an icon, a mark, an arrow, a crowd or value step, a table row, a picture event; in a world a prop, a person, a price or a crowd step), cued on a word of that beat. A beat that only adds text is refused.",
+   "check": "bie/brain/visual_thinking.beat_cover_problems in canvas_director.check_plan"
+  },
+  {
+   "id": "D1-02",
+   "sections": [
+    "canvas"
+   ],
+   "status": "locked",
+   "rule": "The screen never shows text alone for more than 10 seconds: while a beat is spoken, the thing it names is on screen (Navin, 30 October 2026: 'sirf text hi text screen par dikha to video ... ek book ban jaayegi').",
+   "check": "bie/brain/visual_thinking.text_only_problems on the compiled scene"
+  },
+  {
+   "id": "D1-03",
+   "sections": [
+    "canvas"
+   ],
+   "status": "locked",
+   "rule": "Screen text is a name or a short natural phrase (at most 8 words; a board 2 lines of 28 characters), never a sentence: the sentence lives in the narration and the subtitles. The picture shows the thing itself, so its label is understood without reading (page-2 principle).",
+   "check": "bie/brain/visual_thinking.phrase_problems; world.BOARD_LINES, BOARD_CHARS"
+  },
+  {
+   "id": "D1-04",
+   "sections": [
+    "canvas"
+   ],
+   "status": "locked",
+   "rule": "A book diagram or table the part covers is drawn as itself: a timeline with the book's years and labels, a table row by row, a panel of items as a gallery of icon cards, a flow as boxes and arrows. Code places it; the plan builds around it and never leaves it out.",
+   "check": "bie/brain/visual_thinking.book_pictures, picture_node, book_picture_problems"
+  },
+  {
+   "id": "D1-05",
+   "sections": [
+    "canvas"
+   ],
+   "status": "locked",
+   "rule": "A world (C) is used only when the beats are the story of the concept's real-world example with actors at a place, and that place comes from the example itself, never from a keyword of the narration; the same world kit is never used in two consecutive parts.",
+   "check": "canvas_director.mode_of; visual_thinking.kit_sequence_problems"
+  },
+  {
+   "id": "D1-06",
+   "sections": [
+    "canvas"
+   ],
+   "status": "locked",
+   "rule": "A caution, caveat or fact-check line ('illustrative numbers', 'imagined market', 'data not given', 'outside clarification') never appears on screen: it stays a background check in the records.",
+   "check": "bie/brain/visual_thinking.caution_problems"
+  }
+ ]
+}

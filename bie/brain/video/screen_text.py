@@ -60,10 +60,11 @@ def code_list(text: str) -> bool:
 
 
 def text_problems(text: str, say: str, *, where: str, role: str = "text", beat_id: str = "") -> list:
-    """The problems of one on-screen text against the narration of its cue beat (CV-13, CV-14, CV-16)."""
+    """The problems of one on-screen text against the narration of its cue beat (CV-13, CV-14, CV-16). A ``book`` text (the
+    book's own words in a picture code placed, Task 046 Part D1) is the book's, not the maker's: no check the maker cannot fix."""
     problems = []
     clean = (text or "").strip()
-    if not clean:
+    if not clean or role == "book":
         return problems
     bad = sorted({c for c in clean if c in NEVER})
     if bad:
@@ -75,7 +76,7 @@ def text_problems(text: str, say: str, *, where: str, role: str = "text", beat_i
                         "phrase or sentence (CV-13)")
     if code_list(clean):
         problems.append(f"{where}: '{clean[:40]}' is a list of codes; one idea per board or box, as a phrase the learner can read (CV-13)")
-    if role == "text":
+    if role == "text":                                       # "label" and "book" (a table row drawn from the book) skip the spoken check
         key = words_of(clean)
         said = [w for w in key if _said(w, say)]
         if key and (not said or len(said) < SPOKEN_SHARE * len(key)):
@@ -131,6 +132,12 @@ def canvas_texts(plan: dict) -> list:
             rows.append({"id": f"{nid}.label", "cue": cue, "text": str(n.get("label", "")), "role": "label"})
         elif kind == "arrow" and n.get("label"):
             rows.append({"id": f"{nid}.label", "cue": cue, "text": str(n.get("label", "")), "role": "label" if len(str(n["label"]).split()) <= 2 else "text"})
+        elif kind == "picture":                              # Task 046 Part D1: the book's own words, drawn as labels
+            pic = n.get("picture") or {}
+            for group in ("panels", "events", "nodes", "rows"):              # the book's own words, placed by code (role "book")
+                for i, x in enumerate(pic.get(group) or []):
+                    text = "\n".join(str(c) for c in x.get("cells") or []) if group == "rows" else str(x.get("name") or x.get("label", ""))
+                    rows.append({"id": f"{nid}.{group[:-1]}{i + 1}", "cue": x.get("cue", cue), "text": text, "role": "book"})
     return rows
 
 

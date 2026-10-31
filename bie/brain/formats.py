@@ -120,6 +120,20 @@ CHAPTER_REVIEW_RECORD = O({"schema": S, "chapter": S, "teachable": N, "assigned"
                            "unassigned": A({"type": "object"}),
                            "videos": A(O({"video_id": S, "status": S, "assigned": N, "covered": N, "uncovered": A(S), "beats": N}))})
 
+# -- the visual thinking of the canvas section (Task 046 Part D1; bie/brain/visual_thinking.py): the dikhane ki list and the needs
+IDEA_BEAT = O({"beat_id": S, "idea": S, "relation": S, "relation_note": S, "nouns": A(S), "shows": S, "on_word": S, "icons": A(S)},
+              required=["beat_id", "idea", "relation", "nouns", "shows"])
+IDEA_PART = O({"id": S, "part_id": S, "mode": S, "kit": S, "picture": {"type": "object"},
+               "book_pictures": A(O({"item_id": S, "type": S, "title": S, "page": N}, required=["item_id", "type"])),
+               "beats": A(IDEA_BEAT), "status": S}, required=["id", "picture", "beats"])
+NEED = O({"thing": S, "beats": A(S), "kind": {"type": "string", "enum": ["icon", "image", "3d", "world kit", "block"]},
+          "sources_tried": A(S), "part": S}, required=["thing", "kind"])
+VISUAL_IDEAS = O({"schema": S, "video_id": S, "parts": A(IDEA_PART), "relations_outside_list": A({"type": "object"}), "needs": A(NEED),
+                  "verbs_version": S}, required=["schema", "video_id", "parts", "relations_outside_list", "needs"])
+MISSING_CAPABILITY = O({"what": S, "kind": {"type": "string", "enum": ["world kit", "block", "icon", "image", "3d"]}, "parts": A(S), "beats": A(S)},
+                       required=["what", "kind"])
+NEEDS = O({"schema": S, "needs": A(NEED), "missing_capabilities": A(MISSING_CAPABILITY)}, required=["schema", "needs", "missing_capabilities"])
+
 
 # ---------------------------------------------------------------- the formats
 
@@ -212,6 +226,14 @@ FORMATS = {
                           "the joined MP4 and the ≤ 720p review copy with their sizes", "2026-10-29"),
     "render_summary": Format("bie.render-spec.summary", 1, RENDER_SUMMARY, "summary.json", "tools/render_spec.py summary",
                              ("the review page",), "the run, the sha, the cost and the join", "2026-10-28"),
+    "visual_ideas": Format("bie.brain.visual-ideas", 1, VISUAL_IDEAS, "visual_ideas/<video>.json",
+                           "Section 3c, the visual-idea step (bie/brain/visual_thinking.py)", ("the dikhane-ki-list page", "the review page", "Navin"),
+                           "per part its picture (type, decided by code from the book or by the maker) and per beat the idea, its relation, "
+                           "its nouns, what is seen and on which word; the relations outside the list; the needs", "2026-10-31"),
+    "needs": Format("bie.brain.needs", 1, NEEDS, "needs.json",
+                    "Section 3c (bie/brain/canvas_director.py)", ("the fetch step in GitHub Actions (tools/task046d_fetch_needs.py)", "Navin"),
+                    "the things no source had (thing, beats, kind, sources tried) and the capabilities BIE lacks (world kits, blocks) with the parts "
+                    "and beats that needed them", "2026-10-31"),
     "review_record": Format("bie.brain.coverage", 1, REVIEW_RECORD, "<page>.coverage.json",
                             "tools/task046c_page.py (bie/brain/coverage.py video_coverage)", ("Navin", "the game (Task 049)", "the notes (Task 050)"),
                             "which book lines the video taught, by which beats, when and how", "2026-10-29"),
