@@ -1250,3 +1250,9 @@ library saved after every find, the museum only for image needs with fewer, shor
 | Replays with the fixes | — | v4_s7a: 3 of 3 recorded answers pass; v4_s5: the cue error gone, CV-13 next |
 | Earlier plans recompiled (268 of runs e1, f and this) | — | 0 differences with and without the fixes; 108 refused by Part D1's 2 × 28 board (Navin's rule, PR #111) |
 | Passed outputs | 0 problems | 0 problems |
+
+**Entry 29, addendum (the second fetch, run 41230688777):** with the time budget the job finished (15 fetched, 14 not reached),
+but 12 of the 15 pictures were wrong for the lesson (galaxies for years, a protest rally for "payer", a mountain for
+"porter"). Changed (branch `task046d-proof-2`): image needs only, years and numbers skipped, a title must name the need, a
+title naming people refused, earlier fetches pruned by the same rules. Measured on the published library: 12 of 15 removed,
+3 kept. Expected on the next fetch: fewer finds, none wrong by these rules.

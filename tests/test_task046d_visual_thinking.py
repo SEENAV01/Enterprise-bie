@@ -335,13 +335,15 @@ class FetchNeeds(unittest.TestCase):
         needs = {"schema": formats.tag("needs"), "missing_capabilities": [],
                  "needs": [{"thing": "silver coin", "beats": ["b1"], "kind": "image", "sources_tried": []},
                            {"thing": "payer", "beats": ["b2"], "kind": "icon", "sources_tried": []},
-                           {"thing": "cowrie shells", "beats": ["b3"], "kind": "image", "sources_tried": []}]}
+                           {"thing": "cowrie shells", "beats": ["b3"], "kind": "image", "sources_tried": []},
+                           {"thing": "salt bag", "beats": ["b4"], "kind": "image", "sources_tried": []}]}
         asked = []
         now = [0.0]
 
         def met(q, limit, opener=None):
             asked.append(("met", q)); now[0] += 400
-            return [self.cand(f"{q}, CC0 object", "CC0 1.0")]
+            cand = self.cand(f"{q}, CC0 object", "CC0 1.0")
+            return [assets.Candidate(**{**cand.__dict__, "file_url": f"https://example.invalid/{q.replace(' ', '-')}.jpg"})]
 
         def openverse(q, limit, opener=None):
             asked.append(("openverse", q)); now[0] += 400
@@ -350,13 +352,37 @@ class FetchNeeds(unittest.TestCase):
         tmp = Path(tempfile.mkdtemp())
         lib = assets.AssetLibrary(tmp / "lib")
         with mock.patch.dict(fetch.SOURCES, {"met": met, "openverse": openverse, "commons": openverse}), \
-                mock.patch.object(assets, "_open", lambda url, **kw: b"\xff\xd8\xff\xe0jpeg"):
-            report = fetch.fetch(needs, lib, deadline_s=1000, clock=lambda: now[0])
+                mock.patch.object(assets, "_open", lambda url, **kw: b"\xff\xd8\xff\xe0" + url.encode()):
+            report = fetch.fetch(needs, lib, deadline_s=700, clock=lambda: now[0])
         status = {r["thing"]: r["status"] for r in report["needs"]}
-        self.assertEqual(status, {"silver coin": "fetched", "payer": "not_found", "cowrie shells": "not_tried"})
-        self.assertNotIn(("met", "payer"), asked)                                   # an icon need is no museum object
+        self.assertEqual(status, {"silver coin": "fetched", "payer": "skipped", "cowrie shells": "fetched", "salt bag": "not_tried"})
+        self.assertNotIn(("met", "payer"), asked)                                   # an icon is never a photo search
+        self.assertNotIn(("openverse", "payer"), asked)
         self.assertEqual(report["counts"]["not_tried"], 1)
-        self.assertEqual(len(assets.AssetLibrary(tmp / "lib").assets), 1)          # saved, not lost
+        self.assertEqual(len(assets.AssetLibrary(tmp / "lib").assets), 2)          # saved, not lost
+
+    def test_a_fetched_picture_must_name_its_need_never_shows_people_and_old_mistakes_are_pruned(self):
+        # the second live fetch (31 October 2026): galaxies for the years "1275" and "1023", a protest rally for "payer"
+        fetch = _tool("task046d_fetch_needs")
+        self.assertTrue(fetch.acceptable("punch-marked silver coin", "Punch-marked coin, silver"))
+        self.assertFalse(fetch.acceptable("payer", "Counter protest for single payer health care at a Tea Party rally"))
+        self.assertFalse(fetch.acceptable("1275", "NGC 1275 Hubble"))
+        self.assertFalse(fetch.acceptable("cowrie shells in open palm", "Kikuyu Flag (Cowrie on Ochre)"))
+        self.assertTrue(fetch.acceptable("Tibet", "Between Shigatse and Lhasa, Tibet"))
+        tmp = Path(tempfile.mkdtemp())
+        lib = assets.AssetLibrary(tmp / "lib")
+        with mock.patch.object(assets, "_open", lambda url, **kw: b"\xff\xd8\xff\xe0" + url.encode()):
+            for title, thing in (("Counter protest for single payer health care", "payer"), ("NGC 1275 Hubble", "1275"),
+                                 ("Mountain of Fire - Porter Ridge Park", "porter"), ("Punch-marked coin, silver", "punch-marked silver coin")):
+                cand = self.cand(title, "CC0 1.0")
+                cand = assets.Candidate(**{**cand.__dict__, "file_url": f"https://example.invalid/{len(title)}.jpg"})
+                lib.add_candidate(cand, tags=["fetched", "d1-need"], description=f"for '{thing}' (needs.json of run a)")
+        lib.save()
+        removed = {r["thing"]: r["why"] for r in fetch.prune(lib)}
+        self.assertEqual(set(removed), {"payer", "1275", "porter"})
+        self.assertEqual(removed["payer"], "names people")
+        self.assertIn("icon", removed["porter"])
+        self.assertEqual([a.title for a in assets.AssetLibrary(tmp / "lib").assets.values()], ["Punch-marked coin, silver"])
 
     def test_the_met_reads_only_public_domain_objects(self):
         pd = {"objectID": 1, "isPublicDomain": True, "primaryImageSmall": "https://images.metmuseum.org/x.jpg", "title": "Coin", "objectURL": "https://met/1"}

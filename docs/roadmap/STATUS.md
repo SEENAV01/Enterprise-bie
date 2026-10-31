@@ -139,6 +139,14 @@ needs list named 43 things (32 icons, 11 images; one missing kit, a farm); v2's 
   museum object reads per search, a 60 s timeout with 3 tries per request). Now: a time budget (25 minutes in the workflow;
   needs not reached are reported `not_tried`), the library saved after every need with a find, the museum asked only for
   image needs and at most `limit + 2` objects with a 20 s timeout, and a 45-minute job.
+- **The fetch again, after PR #112** (run 41230688777, `main` at `18595156`, 25-minute budget, ₹0): 15 fetched, 1 in the
+  library, 4 not found, 14 not reached. The time budget worked; the pictures did not: galaxies for the years "1275" and
+  "1023" (that needs list was written before years stopped being things), a protest rally for "payer" (real people, card
+  rule 8), a mountain for "porter", a container for "recipient". No video read that library (job `t046d-money-canvas-b`
+  does not pass `library`). Fixed on branch `task046d-proof-2`: only image needs are fetched (an icon comes from the icon
+  index, a missing one goes to Part D2), a year or number is skipped, a picture's title must name the need (two of its
+  words, one for a one-word need), a title that names people is refused, and every fetch first prunes the library's
+  earlier fetches by the same rules (on the published library: 12 of 15 removed, Bazaar, Tibet and the Great Wall kept).
 - Checked: all 268 plans of the canvas runs `e1`, `f` and this one pass or fail the same with these fixes as without them (0
   differences). **Honest note:** 108 of those 268 earlier plans no longer compile under Part D1's board of 2 lines of 28
   characters (they were made under the board of 3 lines of 40); that is Navin's rule of 30 October, merged in PR #111, not a
