@@ -1228,7 +1228,11 @@ card part's type ("definition"). The needs list held years, roles with no icon, 
 unchanged); a picture's id in a focus, target or arrow means the picture, and a missing id error lists the plan's ids;
 `picture_type` is an enum in the ideas schema and a card type is read as its picture; a year is not a thing; role aliases
 (payer, recipient, creditor, lender, debtor, borrower, porter, traveller, neighbours, valuables, issuing authority, with Hindi
-forms); icon search matches a query word only where an icon's word starts with it. Tests in
+forms); icon search matches a query word only where an icon's word starts with it. From v2's render (CI run 41222648107) and its 18
+stills: a camera box keeps 3.5 % of the frame around it (the book's table had lost its first letters at the edge), a
+`curve: true` arrow bends gently (it had swung a whole arrow-length across the gallery), a tag's words are white. From the
+fetch workflow (run 41222654555, cancelled at its 30-minute limit with nothing saved): a time budget with `not_tried`, the
+library saved after every find, the museum only for image needs with fewer, shorter object reads. Tests in
 `tests/test_task046d_visual_thinking.py` (`ProofRunFixes`, 23 in the file).
 
 | Measure | Before (canvas run f, 29–30 Oct) | After (this run) |

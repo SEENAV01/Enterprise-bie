@@ -112,6 +112,36 @@ def captions_of(tl: dict, scene_id: str, beats: list) -> list:
 
 # ---------------------------------------------------------------- layout
 
+ARROW_BEND = 0.18          # a curved arrow's bend: the control point sits this share of the arrow's length off its line
+
+
+def arrow_bend(curve) -> float:
+    """The bend the block draws for an arrow's ``curve``: the maker's plan says yes or no (the director's schema has a
+    boolean), and the block reads a number, so ``True`` became a bend of 1 and the arrow swung a whole arrow-length off its
+    line, across the canvas (the Money v2 render of 31 October 2026, wheat and cloth across the book's gallery). Yes is a
+    gentle bend; a number is kept within ±0.35."""
+    if isinstance(curve, bool):
+        return ARROW_BEND if curve else 0.0
+    try:
+        return max(-0.35, min(0.35, float(curve)))
+    except (TypeError, ValueError):
+        return 0.0
+
+
+CAMERA_PAD = 0.035        # a camera box keeps this much of the frame around what it shows
+
+
+def pad_box(box: dict, pad: float = CAMERA_PAD) -> dict:
+    """A camera box grown by ``pad`` on every side (within the frame) before it is fitted: the camera fits its box edge to
+    edge, so what stood on the box's edge stood on the frame's edge and the camera's idle drift cut it (the Money v2
+    render of 31 October 2026: the book's table across the whole grid lost its first letters on the left)."""
+    x = max(0.0, float(box.get("x", 0)) - pad)
+    y = max(0.0, float(box.get("y", 0)) - pad)
+    x2 = min(1.0, float(box.get("x", 0)) + float(box.get("w", 1)) + pad)
+    y2 = min(1.0, float(box.get("y", 0)) + float(box.get("h", 1)) + pad)
+    return {"x": x, "y": y, "w": x2 - x, "h": y2 - y}
+
+
 def fit_box(box: dict) -> dict:
     """A scene camera box the core camera can show without the backdrop: the core fits a box by its larger side (in
     fractions of the frame), so the visible region is always as wide as it is tall in those fractions; a box that is not
@@ -404,6 +434,10 @@ def compile_plan(plan: dict, *, voice: dict | None = None, icon_paths: dict | No
                   "elbow", "head", "width", "cols", "stagger", "write_on", "label_size", "pad", "group"):
             if k in n:
                 el[k] = n[k]
+        if "curve" in el:
+            el["curve"] = arrow_bend(el["curve"])
+        if el.get("style") == "tag":
+            el.pop("tone", None)          # a tag's words are white on its own fill (the v2 render: blue "accent" words on pink)
         if "cue" in n:
             el["at"] = frame_of(n["cue"])
         if "until_cue" in n:
@@ -543,7 +577,7 @@ def compile_plan(plan: dict, *, voice: dict | None = None, icon_paths: dict | No
     for k in plan.get("camera", []):
         f = frame_of(k.get("cue"))
         changes.append(f)
-        key = {"at": f, "box": fit_box(cell_box(k["cells"], grid) if "cells" in k else k.get("box", {"x": 0, "y": 0, "w": 1, "h": 1}))}
+        key = {"at": f, "box": fit_box(pad_box(cell_box(k["cells"], grid) if "cells" in k else k.get("box", {"x": 0, "y": 0, "w": 1, "h": 1})))}
         if "frames" in k:
             key["frames"] = k["frames"]
         camera_keys.append(key)

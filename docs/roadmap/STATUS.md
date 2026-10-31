@@ -112,8 +112,7 @@ canvas run `f` of 29–30 October:
 | Relations outside the list | — | 0 (every beat used one of the 15 relations) |
 
 Tokens for the two videos: 1.10 M in and 0.42 M out over 113 calls (ideas, plans and reviews), ₹0 on the ChatGPT plan. The
-needs list named 43 things (32 icons, 11 images; one missing kit, a farm); the fetch workflow (run 41222654555) and v2's render
-(run 41222648107) were dispatched on it the same evening.
+needs list named 43 things (32 icons, 11 images; one missing kit, a farm); v2's render passed (below); the fetch workflow ran out of time (below; fixed).
 
 **What the run taught, and what changed (branch `task046d-proof-fixes`, IMPLEMENTED; SEEKH_LOG entry 29):**
 
@@ -130,7 +129,17 @@ needs list named 43 things (32 icons, 11 images; one missing kit, a farm); the f
   that found "blender" for "lender": a year is no longer a thing to search, the roles have aliases, and a query word now
   matches only where a word of the icon starts with it. Places (China, Sweden, Tibet) stay as needs: a modern flag would be
   wrong history on a timeline; Part D2's map is the right answer.
-- Checked: all 268 plans of the canvas runs `e1`, `f` and this one compile the same with these fixes as without them (0
+- **v2's render** (CI run 41222648107, 5.3 minutes wall clock, 35 machine-minutes, ₹23.7 at list price, ₹0 billed; review copy and
+  18 stills at `runs/t046d-money-v2/`) showed three faults of BIE's own drawing, all fixed by code: the book's table across
+  the whole grid lost its first letters at the frame edge (a camera key for the whole grid zoomed it edge to edge and the
+  idle drift cut it: every camera box now keeps 3.5 % of the frame around it); a `curve: true` arrow swung a whole
+  arrow-length off its line across the book's gallery (the plan says yes or no, the block read a number: yes is now a gentle
+  bend of 0.18, a number at most ±0.35); a tag had blue words on its pink fill (a tag's words are now always white).
+- **The fetch workflow** (run 41222654555) ran out of its 30-minute job with nothing saved (43 needs × 3 sources, up to 18
+  museum object reads per search, a 60 s timeout with 3 tries per request). Now: a time budget (25 minutes in the workflow;
+  needs not reached are reported `not_tried`), the library saved after every need with a find, the museum asked only for
+  image needs and at most `limit + 2` objects with a 20 s timeout, and a 45-minute job.
+- Checked: all 268 plans of the canvas runs `e1`, `f` and this one pass or fail the same with these fixes as without them (0
   differences). **Honest note:** 108 of those 268 earlier plans no longer compile under Part D1's board of 2 lines of 28
   characters (they were made under the board of 3 lines of 40); that is Navin's rule of 30 October, merged in PR #111, not a
   regression of a fix. Those renders stay as evidence; a re-run plans them under the new rule.

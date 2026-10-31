@@ -319,7 +319,7 @@ class FetchNeeds(unittest.TestCase):
         self.assertIn("errors", rows["punch-marked silver coin"])
         self.assertEqual(rows["portrait of a king"]["status"], "skipped")
         self.assertEqual(rows["RBI vault"]["status"], "skipped")
-        self.assertEqual(report["counts"], {"fetched": 1, "in_library": 0, "not_found": 0, "skipped": 2})
+        self.assertEqual(report["counts"], {"fetched": 1, "in_library": 0, "not_found": 0, "skipped": 2, "not_tried": 0})
         with mock.patch.dict(fetch.SOURCES, sources), mock.patch.object(assets, "_open", lambda url, **kw: b"\xff\xd8\xff\xe0jpeg"):
             again = fetch.fetch(needs, lib)
         self.assertEqual({r["thing"]: r["status"] for r in again["needs"]}["punch-marked silver coin"], "in_library")
@@ -328,6 +328,35 @@ class FetchNeeds(unittest.TestCase):
         found = vt.resolve_needs({"beats": [{"beat_id": "b1", "things": [], "people": [], "places": [], "image_wanted": "punch-marked silver coin"}]}, run_lib)
         self.assertEqual(len(found["images"]["punch-marked silver coin"]), 1)
         self.assertEqual(found["needs"], [])
+
+    def test_a_slow_fetch_stops_at_its_time_budget_keeps_what_it_found_and_asks_the_museum_only_for_objects(self):
+        # the first live fetch (31 October 2026) ran out of its 30-minute job with nothing saved
+        fetch = _tool("task046d_fetch_needs")
+        needs = {"schema": formats.tag("needs"), "missing_capabilities": [],
+                 "needs": [{"thing": "silver coin", "beats": ["b1"], "kind": "image", "sources_tried": []},
+                           {"thing": "payer", "beats": ["b2"], "kind": "icon", "sources_tried": []},
+                           {"thing": "cowrie shells", "beats": ["b3"], "kind": "image", "sources_tried": []}]}
+        asked = []
+        now = [0.0]
+
+        def met(q, limit, opener=None):
+            asked.append(("met", q)); now[0] += 400
+            return [self.cand(f"{q}, CC0 object", "CC0 1.0")]
+
+        def openverse(q, limit, opener=None):
+            asked.append(("openverse", q)); now[0] += 400
+            return []
+
+        tmp = Path(tempfile.mkdtemp())
+        lib = assets.AssetLibrary(tmp / "lib")
+        with mock.patch.dict(fetch.SOURCES, {"met": met, "openverse": openverse, "commons": openverse}), \
+                mock.patch.object(assets, "_open", lambda url, **kw: b"\xff\xd8\xff\xe0jpeg"):
+            report = fetch.fetch(needs, lib, deadline_s=1000, clock=lambda: now[0])
+        status = {r["thing"]: r["status"] for r in report["needs"]}
+        self.assertEqual(status, {"silver coin": "fetched", "payer": "not_found", "cowrie shells": "not_tried"})
+        self.assertNotIn(("met", "payer"), asked)                                   # an icon need is no museum object
+        self.assertEqual(report["counts"]["not_tried"], 1)
+        self.assertEqual(len(assets.AssetLibrary(tmp / "lib").assets), 1)          # saved, not lost
 
     def test_the_met_reads_only_public_domain_objects(self):
         pd = {"objectID": 1, "isPublicDomain": True, "primaryImageSmall": "https://images.metmuseum.org/x.jpg", "title": "Coin", "objectURL": "https://met/1"}
@@ -432,3 +461,26 @@ class ProofRunFixes(unittest.TestCase):
         self.assertNotIn("fa:solid/blender", [r["id"] for r in icons.search("lender")])
         self.assertEqual(icons.search("porter")[0]["id"], "fa:solid/person-walking-luggage")
         self.assertEqual(icons.search("coins")[0]["id"], "tw:1fa99")
+
+    def test_the_render_keeps_the_edges_in_view_bends_arrows_gently_and_tags_readable(self):
+        # the v2 render of 31 October 2026: the book's table lost its first letters at the frame edge, a curve=True arrow swung
+        # a whole arrow-length across the book's gallery, and a tag had blue words on its pink fill
+        full = canvas.fit_box(canvas.pad_box(canvas.cell_box([0, 0, 12, 8], [12, 8])))
+        table = canvas.cell_box([0, 0, 12, 7], [12, 8])
+        self.assertGreaterEqual(table["x"] - full["x"], 0.03)                         # the table's edge is well inside the view
+        self.assertLessEqual(full["x"] + full["w"], 1.0)
+        self.assertEqual((canvas.arrow_bend(True), canvas.arrow_bend(False), canvas.arrow_bend(5)), (canvas.ARROW_BEND, 0.0, 0.35))
+        beats = [{"beat_id": "b1", "say": "पहला पड़ाव barter है: गेहूँ के बदले कपड़ा।"}]
+        plan = {"id": "v2_s5a", "part_id": "c04.1", "theme": "paper", "grid": [12, 8], "touches": True, "beats": beats,
+                "nodes": [{"id": "wheat", "kind": "icon", "cell": [1, 4, 2, 2], "cue": ["b1", ""], "icon": "tw:1f33e", "label": "गेहूँ"},
+                          {"id": "cloth", "kind": "icon", "cell": [9, 4, 2, 2], "cue": ["b1", ""], "icon": "tw:1f455", "label": "कपड़ा"},
+                          {"id": "swap", "kind": "arrow", "cue": ["b1", "बदले"], "from": {"id": "wheat"}, "to": {"id": "cloth"}, "curve": True},
+                          {"id": "tag", "kind": "text", "cell": [4, 6, 4, 1], "cue": ["b1", "barter"], "text": "पहला पड़ाव barter",
+                           "style": "tag", "tone": "accent"}],
+                "camera": [{"cells": [0, 0, 12, 8], "cue": ["b1", ""]}]}
+        scene, _ = canvas.compile_plan(plan)
+        els = {e["id"]: e for e in scene["layers"][0]["data"]["elements"]}
+        self.assertEqual(els["swap"]["curve"], canvas.ARROW_BEND)
+        self.assertNotIn("tone", els["tag"])
+        cam = scene["camera"][0]["box"]
+        self.assertLess(cam["x"], table["x"] - 0.03)
