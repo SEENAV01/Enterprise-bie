@@ -1,0 +1,366 @@
+{
+ "id": "v2_s7b",
+ "part_id": "c06.1",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b47",
+   "say": "यह commodity money है: money बनी चीज़ में intrinsic value होती है, यानी monetary use के बाहर भी कीमत, जैसे kitchen में salt।"
+  },
+  {
+   "beat_id": "b48",
+   "say": "Useful होना काफी नहीं, payment में चलना चाहिए; purchasing power अकेली note को commodity money नहीं बनाती।"
+  },
+  {
+   "beat_id": "b49",
+   "say": "Commodity money payment के बाहर भी उपयोगी है।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "anchor",
+   "kind": "text",
+   "cell": [
+    3,
+    0,
+    6,
+    1
+   ],
+   "cue": [
+    "b47",
+    "commodity"
+   ],
+   "text": "Commodity money",
+   "style": "title",
+   "tone": "ink",
+   "align": "center",
+   "size": 36
+  },
+  {
+   "id": "payment_salt",
+   "kind": "icon",
+   "cell": [
+    1,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b47",
+    "money"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "tw:1f9c2",
+   "size": 64
+  },
+  {
+   "id": "food_salt",
+   "kind": "icon",
+   "cell": [
+    7,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b47",
+    "intrinsic"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "tw:1f9c2",
+   "size": 64
+  },
+  {
+   "id": "intrinsic",
+   "kind": "text",
+   "cell": [
+    7,
+    1,
+    4,
+    1
+   ],
+   "cue": [
+    "b47",
+    "intrinsic"
+   ],
+   "text": "Intrinsic value",
+   "style": "tag",
+   "tone": "warm",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "goods",
+   "kind": "icon",
+   "cell": [
+    4,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b47",
+    "monetary"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "fa:solid/basket-shopping",
+   "size": 64
+  },
+  {
+   "id": "payment_flow",
+   "kind": "arrow",
+   "cue": [
+    "b47",
+    "use"
+   ],
+   "tone": "accent",
+   "from": "payment_salt",
+   "to": "goods",
+   "from_side": "r",
+   "to_side": "l",
+   "flow": {
+    "icon": "tw:1f9c2",
+    "count": 1,
+    "period": 2400,
+    "size": 24,
+    "cue": [
+     "b47",
+     "use"
+    ]
+   }
+  },
+  {
+   "id": "food",
+   "kind": "icon",
+   "cell": [
+    10,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b47",
+    "kitchen"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "tw:1f372",
+   "size": 64
+  },
+  {
+   "id": "seasoning_flow",
+   "kind": "arrow",
+   "cue": [
+    "b47",
+    "salt।"
+   ],
+   "tone": "warm",
+   "from": "food_salt",
+   "to": "food",
+   "from_side": "r",
+   "to_side": "l",
+   "flow": {
+    "icon": "tw:1f9c2",
+    "count": 1,
+    "period": 2400,
+    "size": 24,
+    "cue": [
+     "b47",
+     "salt।"
+    ]
+   }
+  },
+  {
+   "id": "useful_only",
+   "kind": "icon",
+   "cell": [
+    1,
+    5,
+    2,
+    2
+   ],
+   "cue": [
+    "b48",
+    "Useful"
+   ],
+   "until_cue": [
+    "b49",
+    "Commodity"
+   ],
+   "tone": "muted",
+   "align": "center",
+   "icon": "tw:1f373",
+   "label": "Useful होना",
+   "size": 56
+  },
+  {
+   "id": "useful_rejected",
+   "kind": "mark",
+   "cue": [
+    "b48",
+    "काफी"
+   ],
+   "until_cue": [
+    "b49",
+    "Commodity"
+   ],
+   "tone": "danger",
+   "target": "useful_only",
+   "mark": "cross",
+   "pos": "tr"
+  },
+  {
+   "id": "payment_accepted",
+   "kind": "mark",
+   "cue": [
+    "b48",
+    "payment"
+   ],
+   "tone": "ok",
+   "target": "payment_salt",
+   "mark": "tick",
+   "pos": "tr"
+  },
+  {
+   "id": "note",
+   "kind": "icon",
+   "cell": [
+    7,
+    5,
+    2,
+    2
+   ],
+   "cue": [
+    "b48",
+    "note"
+   ],
+   "until_cue": [
+    "b49",
+    "Commodity"
+   ],
+   "tone": "muted",
+   "align": "center",
+   "icon": "fa:solid/money-bill-1",
+   "size": 56
+  },
+  {
+   "id": "classification",
+   "kind": "icon",
+   "cell": [
+    10,
+    5,
+    2,
+    2
+   ],
+   "cue": [
+    "b48",
+    "commodity"
+   ],
+   "until_cue": [
+    "b49",
+    "Commodity"
+   ],
+   "tone": "muted",
+   "align": "center",
+   "icon": "tw:1f4b0",
+   "label": "Commodity money",
+   "size": 48
+  },
+  {
+   "id": "classification_rejected",
+   "kind": "mark",
+   "cue": [
+    "b48",
+    "नहीं"
+   ],
+   "until_cue": [
+    "b49",
+    "Commodity"
+   ],
+   "tone": "danger",
+   "target": "classification",
+   "mark": "cross",
+   "pos": "tr"
+  },
+  {
+   "id": "outside_accepted",
+   "kind": "mark",
+   "cue": [
+    "b49",
+    "बाहर"
+   ],
+   "tone": "ok",
+   "target": "food_salt",
+   "mark": "tick",
+   "pos": "tr"
+  }
+ ],
+ "camera": [
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    8
+   ],
+   "cue": [
+    "b47",
+    "commodity"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    5
+   ],
+   "cue": [
+    "b49",
+    "Commodity"
+   ]
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b48",
+    "Useful"
+   ],
+   "ids": [
+    "anchor",
+    "useful_only",
+    "useful_rejected"
+   ],
+   "until_cue": [
+    "b48",
+    "payment"
+   ]
+  },
+  {
+   "cue": [
+    "b48",
+    "note"
+   ],
+   "ids": [
+    "anchor",
+    "note",
+    "classification",
+    "classification_rejected"
+   ],
+   "until_cue": [
+    "b49",
+    "Commodity"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

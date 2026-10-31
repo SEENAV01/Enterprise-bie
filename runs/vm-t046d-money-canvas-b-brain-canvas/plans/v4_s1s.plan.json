@@ -1,0 +1,185 @@
+{
+ "id": "v4_s1s",
+ "part_id": "c09.1",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b2",
+   "say": "पुराने hypothetical bank में 1 note लौटाएँ तो? Bank उसे लेकर 1 gram gold देता है; आपके हाथ में अब gold है। आज का rupee ऐसा नहीं।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank",
+   "kind": "bank",
+   "x": 2600,
+   "y": 860,
+   "sign": "bank",
+   "cue": [
+    "b2",
+    "bank"
+   ]
+  },
+  {
+   "id": "teller",
+   "kind": "teller",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b2",
+    "bank"
+   ]
+  },
+  {
+   "id": "customer",
+   "kind": "crowd",
+   "x0": 2330,
+   "spacing": 100,
+   "enter_x": 2050,
+   "exit_x": 2050,
+   "face": 1,
+   "seed": 7,
+   "cue": [
+    "b2",
+    "लौटाएँ"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b2",
+      "लौटाएँ"
+     ],
+     "n": 1
+    },
+    {
+     "cue": [
+      "b2",
+      "हाथ"
+     ],
+     "n": 0
+    }
+   ]
+  },
+  {
+   "id": "redemption",
+   "kind": "board",
+   "x": 2920,
+   "y": 570,
+   "fill": "#D9BF79",
+   "cue": [
+    "b2",
+    "note"
+   ],
+   "until_cue": [
+    "b2",
+    "आज"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b2",
+      "note"
+     ],
+     "text": "1 note"
+    },
+    {
+     "cue": [
+      "b2",
+      "gold"
+     ],
+     "text": "1 gram gold"
+    }
+   ]
+  },
+  {
+   "id": "gold_delivery",
+   "kind": "coin_rain",
+   "x0": 2290,
+   "x1": 2390,
+   "count": 1,
+   "cue": [
+    "b2",
+    "देता"
+   ],
+   "until_cue": [
+    "b2",
+    "आज"
+   ]
+  },
+  {
+   "id": "modern_contrast",
+   "kind": "board",
+   "x": 2920,
+   "y": 570,
+   "fill": "#E9E2D4",
+   "cue": [
+    "b2",
+    "rupee"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b2",
+      "rupee"
+     ],
+     "text": "आज का rupee ऐसा नहीं"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b2",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 560,
+   "zoom": 0.85,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b2",
+    "लौटाएँ"
+   ],
+   "x": 2500,
+   "y": 620,
+   "zoom": 1.1,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b2",
+    "gold"
+   ],
+   "x": 2640,
+   "y": 600,
+   "zoom": 1.2,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b2",
+    "हाथ"
+   ],
+   "x": 2450,
+   "y": 630,
+   "zoom": 1.1,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b2",
+    "आज"
+   ],
+   "x": 2720,
+   "y": 590,
+   "zoom": 1.05,
+   "frames": 30
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

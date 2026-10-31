@@ -1,0 +1,380 @@
+{
+ "id": "v2_s5a",
+ "part_id": "c04.1",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b24",
+   "say": "Wheat–cloth के बीच पैसा आया? नहीं; पहला पड़ाव barter है। Evolution of Money यानी भुगतान के तरीकों में बदलाव।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "book_p002_i12",
+   "kind": "picture",
+   "cell": [
+    0,
+    0,
+    12,
+    3
+   ],
+   "cue": [
+    "b24",
+    ""
+   ],
+   "picture": {
+    "type": "gallery",
+    "title": "EVOLUTION OF MONEY",
+    "item_id": "p002-i12",
+    "panels": [
+     {
+      "n": 1,
+      "name": "BARTER",
+      "caption": "Wheat exchanged for cloth",
+      "nouns": [
+       "BARTER",
+       "Wheat",
+       "exchanged",
+       "for",
+       "cloth"
+      ],
+      "item_id": "p002-i13",
+      "numbered": true,
+      "cue": [
+       "b24",
+       ""
+      ],
+      "icon": "tw:1f33e"
+     },
+     {
+      "n": 2,
+      "name": "COMMODITY MONEY",
+      "caption": "Salt, cattle, shells",
+      "nouns": [
+       "COMMODITY",
+       "MONEY",
+       "Salt",
+       "cattle",
+       "shells"
+      ],
+      "item_id": "p002-i14",
+      "numbered": true,
+      "cue": [
+       "b24",
+       ""
+      ],
+      "icon": "tw:1f9c2"
+     },
+     {
+      "n": 3,
+      "name": "METALLIC MONEY",
+      "caption": "Gold and silver coins",
+      "nouns": [
+       "METALLIC",
+       "MONEY",
+       "Gold",
+       "and",
+       "silver",
+       "coins"
+      ],
+      "item_id": "p002-i15",
+      "numbered": true,
+      "cue": [
+       "b24",
+       ""
+      ],
+      "icon": "tw:1fa99"
+     },
+     {
+      "n": 4,
+      "name": "PAPER MONEY",
+      "caption": "Currency notes",
+      "nouns": [
+       "PAPER",
+       "MONEY",
+       "Currency",
+       "notes"
+      ],
+      "item_id": "p002-i16",
+      "numbered": true,
+      "cue": [
+       "b24",
+       ""
+      ],
+      "icon": "fa:solid/money-bill-1"
+     },
+     {
+      "n": 5,
+      "name": "BANK MONEY",
+      "caption": "Cheques and deposits",
+      "nouns": [
+       "BANK",
+       "MONEY",
+       "Cheques",
+       "and",
+       "deposits"
+      ],
+      "item_id": "p002-i17",
+      "numbered": true,
+      "cue": [
+       "b24",
+       ""
+      ],
+      "icon": "fa:solid/money-check"
+     },
+     {
+      "n": 6,
+      "name": "DIGITAL MONEY",
+      "caption": "UPI, net banking, cards",
+      "nouns": [
+       "DIGITAL",
+       "MONEY",
+       "UPI",
+       "net",
+       "banking",
+       "cards"
+      ],
+      "item_id": "p002-i18",
+      "numbered": true,
+      "cue": [
+       "b24",
+       ""
+      ],
+      "icon": "tw:1f4f1"
+     }
+    ]
+   }
+  },
+  {
+   "id": "barter_wheat",
+   "kind": "icon",
+   "cell": [
+    1,
+    4,
+    2,
+    2
+   ],
+   "cue": [
+    "b24",
+    "Wheat–cloth"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "tw:1f33e",
+   "size": 64
+  },
+  {
+   "id": "barter_cloth",
+   "kind": "icon",
+   "cell": [
+    9,
+    4,
+    2,
+    2
+   ],
+   "cue": [
+    "b24",
+    "Wheat–cloth"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "tw:1f455",
+   "size": 64
+  },
+  {
+   "id": "question_coin",
+   "kind": "icon",
+   "cell": [
+    5,
+    3,
+    2,
+    1
+   ],
+   "cue": [
+    "b24",
+    "पैसा"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "tw:1fa99",
+   "size": 48
+  },
+  {
+   "id": "no_coin",
+   "kind": "mark",
+   "cue": [
+    "b24",
+    "नहीं"
+   ],
+   "tone": "danger",
+   "target": "question_coin",
+   "mark": "cross",
+   "pos": "c",
+   "size": 48
+  },
+  {
+   "id": "wheat_to_cloth",
+   "kind": "arrow",
+   "cue": [
+    "b24",
+    "barter"
+   ],
+   "tone": "warm",
+   "from": "barter_wheat",
+   "to": "barter_cloth",
+   "from_side": "r",
+   "to_side": "l",
+   "curve": true,
+   "flow": {
+    "icon": "tw:1f33e",
+    "count": 2,
+    "period": 1800,
+    "size": 28,
+    "cue": [
+     "b24",
+     "barter"
+    ]
+   }
+  },
+  {
+   "id": "cloth_to_wheat",
+   "kind": "arrow",
+   "cue": [
+    "b24",
+    "barter"
+   ],
+   "tone": "accent",
+   "from": "barter_cloth",
+   "to": "barter_wheat",
+   "from_side": "b",
+   "to_side": "b",
+   "curve": true,
+   "flow": {
+    "icon": "tw:1f455",
+    "count": 2,
+    "period": 1800,
+    "size": 28,
+    "cue": [
+     "b24",
+     "barter"
+    ]
+   }
+  },
+  {
+   "id": "barter_label",
+   "kind": "text",
+   "cell": [
+    3,
+    6,
+    6,
+    1
+   ],
+   "cue": [
+    "b24",
+    "barter"
+   ],
+   "text": "पहला पड़ाव barter है",
+   "style": "tag",
+   "tone": "accent",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "first_stage_wheat",
+   "kind": "highlight",
+   "cue": [
+    "b24",
+    "पहला"
+   ],
+   "until_cue": [
+    "b24",
+    "Evolution"
+   ],
+   "style": "box",
+   "tone": "accent",
+   "target": "barter_wheat"
+  },
+  {
+   "id": "first_stage_cloth",
+   "kind": "highlight",
+   "cue": [
+    "b24",
+    "पहला"
+   ],
+   "until_cue": [
+    "b24",
+    "Evolution"
+   ],
+   "style": "box",
+   "tone": "accent",
+   "target": "barter_cloth"
+  }
+ ],
+ "camera": [
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    8
+   ],
+   "cue": [
+    "b24",
+    "Wheat–cloth"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    4
+   ],
+   "cue": [
+    "b24",
+    "Evolution"
+   ]
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b24",
+    "नहीं"
+   ],
+   "ids": [
+    "question_coin",
+    "no_coin"
+   ],
+   "until_cue": [
+    "b24",
+    "पहला"
+   ]
+  },
+  {
+   "cue": [
+    "b24",
+    "Evolution"
+   ],
+   "ids": [
+    "book_p002_i12_p1",
+    "book_p002_i12_p2",
+    "book_p002_i12_p3",
+    "book_p002_i12_p4",
+    "book_p002_i12_p5",
+    "book_p002_i12_p6",
+    "book_p002_i12_a1",
+    "book_p002_i12_a2",
+    "book_p002_i12_a3",
+    "book_p002_i12_a4",
+    "book_p002_i12_a5"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

@@ -1,0 +1,424 @@
+{
+ "id": "v2_s2",
+ "part_id": "c03.2",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b6",
+   "say": "पैसा नहीं दिया तो क्या कपड़ा free मिला? नहीं; no use of money है, लेकिन wheat देकर कीमत चुकाई।"
+  },
+  {
+   "beat_id": "b7",
+   "say": "अनाज के बदले cycle ठीक करें, तो? यह service, यानी काम का exchange है; barter सिर्फ सामान तक सीमित नहीं।"
+  },
+  {
+   "beat_id": "b8",
+   "say": "कितना wheat देकर कितना कपड़ा मिलेगा? Mutual agreement, यानी दोनों की हाँ से तय होगा; अकेला seller नहीं तय करेगा।"
+  },
+  {
+   "beat_id": "b9",
+   "say": "यहाँ 2 kg के बदले 1 metre तय हुआ। यह illustrative ratio है, हर जगह का fixed rate नहीं।"
+  },
+  {
+   "beat_id": "b10",
+   "say": "Wheat–cloth exchange में पैसा नहीं आता। Definition में goods और services दोनों होने से repair के बदले अनाज भी शामिल है।"
+  },
+  {
+   "beat_id": "b11",
+   "say": "सीधा exchange, बिना पैसे, दोनों की हाँ से।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "money",
+   "kind": "icon",
+   "cell": [
+    9,
+    0,
+    2,
+    1
+   ],
+   "cue": [
+    "b6",
+    "पैसा"
+   ],
+   "tone": "muted",
+   "align": "center",
+   "icon": "fa:solid/money-bill-1",
+   "size": 48
+  },
+  {
+   "id": "no_money",
+   "kind": "mark",
+   "cue": [
+    "b6",
+    "नहीं"
+   ],
+   "tone": "danger",
+   "target": "money",
+   "mark": "cross",
+   "pos": "c"
+  },
+  {
+   "id": "cloth",
+   "kind": "icon",
+   "cell": [
+    8,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b6",
+    "कपड़ा"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "tw:1f9f5",
+   "size": 64
+  },
+  {
+   "id": "wheat",
+   "kind": "icon",
+   "cell": [
+    1,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b6",
+    "wheat"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "fa:solid/wheat-alt",
+   "size": 64
+  },
+  {
+   "id": "wheat_payment",
+   "kind": "arrow",
+   "cue": [
+    "b6",
+    "देकर"
+   ],
+   "tone": "warm",
+   "from": "wheat",
+   "to": "cloth",
+   "from_side": "r",
+   "to_side": "l",
+   "curve": true,
+   "flow": {
+    "icon": "fa:solid/wheat-alt",
+    "count": 2,
+    "period": 2400,
+    "size": 26,
+    "cue": [
+     "b6",
+     "देकर"
+    ]
+   }
+  },
+  {
+   "id": "cloth_return",
+   "kind": "arrow",
+   "cue": [
+    "b6",
+    "कीमत"
+   ],
+   "tone": "accent",
+   "from": "cloth",
+   "to": "wheat",
+   "from_side": "b",
+   "to_side": "b",
+   "curve": true,
+   "flow": {
+    "icon": "tw:1f9f5",
+    "count": 2,
+    "period": 2600,
+    "size": 26,
+    "cue": [
+     "b6",
+     "कीमत"
+    ]
+   }
+  },
+  {
+   "id": "grain",
+   "kind": "icon",
+   "cell": [
+    1,
+    5,
+    2,
+    2
+   ],
+   "cue": [
+    "b7",
+    "अनाज"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "fa:solid/wheat-alt",
+   "size": 64
+  },
+  {
+   "id": "cycle",
+   "kind": "icon",
+   "cell": [
+    8,
+    5,
+    2,
+    2
+   ],
+   "cue": [
+    "b7",
+    "cycle"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "tw:1f6b2",
+   "size": 64
+  },
+  {
+   "id": "repair",
+   "kind": "icon",
+   "cell": [
+    10,
+    5,
+    1,
+    2
+   ],
+   "cue": [
+    "b7",
+    "ठीक"
+   ],
+   "tone": "ink",
+   "align": "center",
+   "icon": "fa:solid/wrench",
+   "size": 40
+  },
+  {
+   "id": "grain_payment",
+   "kind": "arrow",
+   "cue": [
+    "b7",
+    "service"
+   ],
+   "tone": "warm",
+   "from": "grain",
+   "to": "cycle",
+   "from_side": "r",
+   "to_side": "l",
+   "curve": true,
+   "flow": {
+    "icon": "fa:solid/wheat-alt",
+    "count": 2,
+    "period": 2500,
+    "size": 26,
+    "cue": [
+     "b7",
+     "service"
+    ]
+   }
+  },
+  {
+   "id": "service_return",
+   "kind": "arrow",
+   "cue": [
+    "b7",
+    "exchange"
+   ],
+   "tone": "accent",
+   "from": "cycle",
+   "to": "grain",
+   "from_side": "b",
+   "to_side": "b",
+   "curve": true,
+   "flow": {
+    "icon": "fa:solid/wrench",
+    "count": 1,
+    "period": 2700,
+    "size": 26,
+    "cue": [
+     "b7",
+     "exchange"
+    ]
+   }
+  },
+  {
+   "id": "agreement",
+   "kind": "icon",
+   "cell": [
+    5,
+    0,
+    2,
+    1
+   ],
+   "cue": [
+    "b8",
+    "Mutual"
+   ],
+   "tone": "ok",
+   "align": "center",
+   "icon": "tw:1f91d",
+   "size": 48
+  },
+  {
+   "id": "wheat_quantity",
+   "kind": "value",
+   "cell": [
+    1,
+    1,
+    2,
+    1
+   ],
+   "cue": [
+    "b9",
+    "2"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "size": 32,
+   "steps": [
+    {
+     "cue": [
+      "b9",
+      "2"
+     ],
+     "text": "2 kg"
+    }
+   ]
+  },
+  {
+   "id": "cloth_quantity",
+   "kind": "value",
+   "cell": [
+    8,
+    1,
+    3,
+    1
+   ],
+   "cue": [
+    "b9",
+    "1"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "size": 32,
+   "steps": [
+    {
+     "cue": [
+      "b9",
+      "1"
+     ],
+     "text": "1 metre"
+    }
+   ]
+  },
+  {
+   "id": "both_examples",
+   "kind": "highlight",
+   "cue": [
+    "b10",
+    "दोनों"
+   ],
+   "until_cue": [
+    "b11",
+    "सीधा"
+   ],
+   "style": "box",
+   "tone": "accent",
+   "target": "service_return"
+  },
+  {
+   "id": "final_agreement",
+   "kind": "highlight",
+   "cue": [
+    "b11",
+    "हाँ"
+   ],
+   "style": "band",
+   "tone": "ok",
+   "target": "agreement"
+  }
+ ],
+ "camera": [
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    8
+   ],
+   "cue": [
+    "b6",
+    "पैसा"
+   ]
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b8",
+    "कितना"
+   ],
+   "ids": [
+    "wheat",
+    "cloth",
+    "wheat_payment",
+    "cloth_return",
+    "agreement",
+    "wheat_quantity",
+    "cloth_quantity"
+   ],
+   "until_cue": [
+    "b10",
+    "Definition"
+   ]
+  },
+  {
+   "cue": [
+    "b10",
+    "दोनों"
+   ],
+   "ids": [
+    "wheat",
+    "cloth",
+    "wheat_payment",
+    "cloth_return",
+    "grain",
+    "cycle",
+    "repair",
+    "grain_payment",
+    "service_return",
+    "both_examples"
+   ],
+   "until_cue": [
+    "b11",
+    "सीधा"
+   ]
+  },
+  {
+   "cue": [
+    "b11",
+    "सीधा"
+   ],
+   "ids": [
+    "wheat",
+    "cloth",
+    "wheat_payment",
+    "cloth_return",
+    "money",
+    "no_money",
+    "agreement",
+    "final_agreement"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

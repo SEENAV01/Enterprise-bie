@@ -1,0 +1,203 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "canvas",
+ "unit": "v2_s8a-ideas",
+ "status": "passed",
+ "instructions_version": "visual-ideas/1",
+ "rulebook_version": "canvas_profile@2026-10-29.1+content_types@2026-10-27.1+explanations@2026-10-24.3+level_profiles@2026-10-24.1+simple_hindi@2026-10-28.1+teacher_examples@2026-10-29.1+vision-2026-10-21@2026-10-21.17+visual_grammar@2026-10-31.1+visual_levels@2026-10-26.2+visual_verbs@2026-10-31.1",
+ "rulebook_digest": "0271c5cb76262d9d2239ea932af7c8d8701ae3275cbd3e1d63053dfd8a6e35e8",
+ "rules_used": [
+  "CV-01",
+  "CV-02",
+  "CV-03",
+  "CV-04",
+  "CV-05",
+  "CV-06",
+  "CV-07",
+  "CV-08",
+  "CV-09",
+  "CV-10",
+  "CV-11",
+  "CV-12",
+  "CV-13",
+  "CV-14",
+  "CV-15",
+  "CV-16",
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-05",
+  "G-06",
+  "G-07",
+  "VG-02",
+  "VG-04",
+  "VG-07",
+  "VG-08",
+  "VG-10",
+  "D1-01",
+  "D1-02",
+  "D1-03",
+  "D1-04",
+  "D1-05",
+  "D1-06"
+ ],
+ "maker_route": "codex",
+ "reviewer_route": "codex-checker",
+ "maker_model": "gpt-6.1-sol",
+ "reviewer_model": "gpt-6.1-sol",
+ "reviewer_independence": "same_model_temporary",
+ "inputs_digest": "5e765cde21f5e3a313a91d4d081ed2097c6a9b75f521dd0f0c25a67c327afbf6",
+ "card": null,
+ "prefix_sha256": "9fca8d0cb14bbb9364b469ef38a6232a0f280a543f34631ddcf7af010efaf67f",
+ "review_prefix_sha256": null,
+ "inputs": {
+  "system": "You are BIE's visual thinker for one part of a video lesson of Indian Economy for UPSC / State PCS aspirants (UPSC / State PCS). The script is written and\npassed; you do not change a word. Before any layout, say for EVERY beat what the learner should SEE so that the spoken point is\nclear through the eyes (Navin, 30 October 2026: \"jo bola ja rha hai screen ke visuals se wo baat clear ho\"; a screen of text alone\nis a book, not a video). Code then finds the things in BIE's icon index and asset library, places the book's own pictures, and\nchecks the layout.\n\nCourse: \"3. Money\" · learner language: Hinglish.\n\nFor each beat give:\n- idea: the key idea in a few words (what the teacher is making the learner understand right now).\n- relation: ONE id from this list, how the idea relates its things (or \"other\" with relation_note; an \"other\" is logged so Navin can\n  add it):\n- reject: a cross mark on the thing refused (the thing's icon first, then the cross on it, on the word that refuses)\n- accept: a tick on the thing accepted\n- compulsory: a law scroll with a stamp on it, beside the thing the law binds\n- limit: a meter or a stack that fills up to a red line where it stops (the limit's number on the line)\n- more_less: two sizes side by side, or a crowd / stack that grows or shrinks on the word\n- count: a counted stack or crowd whose number is the narration's number\n- sequence: a numbered row or a timeline with arrows; the book's own years and labels when the part covers a book timeline\n- cause_effect: an arrow chain: the cause's icon, an arrow, the effect's icon or number\n- compare: a split screen (the same slots on both sides) or a balance scale; the book's own table when the part covers one\n- part_whole: a grouping: the whole as a box, its parts as icons inside it, or a tree\n- place: a map with the place marked, or the place's flag beside the thing\n- change: before and after side by side, the old struck out, the new in its place\n- promise: a receipt or a handshake between the two parties, the promise's words as a short label\n- question: the thing asked about with a question mark beside it; the answer's picture replaces the mark when the answer comes\n- other: a relation outside this list: the step logs it (relations_outside_list) so Navin can add an entry; the beat still shows its things as themselves\n- things, people, places: the concrete nouns the beat names or implies, as plain English or Hindi words a picture can show (wheat,\n  cloth, salt, coin, ₹500 note, phone, law scroll, Sweden, 1661, farmer, shopkeeper). A real person is never drawn (card rule 8): name\n  the role (a king, a ruler) or the object (a coin with a seal), not the person.\n- shows: what is seen, in at most 8 words, as a picture description (a cross on the old coin; a meter filling to ₹1,000\n  with a red line; wheat and cloth swapping hands). Never a sentence for the screen: the sentence is the narration.\n- on_word: the word of this beat (exactly as written) on which the picture should appear (\"\" = the beat's start).\n- image_wanted: a real object an icon cannot show and a photograph or museum image can (a punch-marked silver coin, a cowrie\n  shell, a cheque leaf), as search words; \"\" when an icon is enough. Never a person's portrait (card rule 8).\nCode has already decided this part's picture (table: Columns) from the book's own table; it is placed at the top of the canvas. Set picture_type to \"table\" and use picture_note for what the beats add around it.\nReply with the JSON object only.",
+  "user": "Chapter: 3. Money. Part c06.2 (3 beats).\nThe part (JSON):\n{\"part\": {\"id\": \"v2_s8a\", \"part_id\": \"c06.2\", \"card_type\": \"facts_numbers\", \"story\": false}, \"beats\": [{\"beat_id\": \"b50\", \"say\": \"नमक कहाँ चला? Salt Ancient Rome और Africa में; cattle early pastoral societies में, यानी पशु रखने से रोज़ी कमाने वाले लोगों में। दूसरा किसी country का नाम नहीं।\", \"relation_guess\": \"place\"}, {\"beat_id\": \"b51\", \"say\": \"हथेली के छोटे खोल गिनकर payment हो सकता है? Cowrie shells, यानी कौड़ियाँ, India, China और Africa में चलीं; खाने की चीज़ होना ज़रूरी नहीं, लोगों का स्वीकार करना ज़रूरी है।\", \"relation_guess\": \"place\"}, {\"beat_id\": \"b52\", \"say\": \"चाय का चौकोर टुकड़ा कैसे बनेगा? Tea bricks यानी दबाई हुई चाय, बनाने वाली ईंट नहीं; Central Asia और Tibet में चली। Tobacco के सूखे पत्तों वाला उदाहरण Colonial America का है।\", \"relation_guess\": \"place\"}], \"items\": [{\"item_id\": \"p003-i5\", \"content_type\": \"facts_numbers\", \"content\": \"Commodity: Salt | Where it was used: Ancient Rome and Africa\"}, {\"item_id\": \"p003-i6\", \"content_type\": \"facts_numbers\", \"content\": \"Commodity: Cattle | Where it was used: Early pastoral societies\"}, {\"item_id\": \"p003-i7\", \"content_type\": \"facts_numbers\", \"content\": \"Commodity: Cowrie shells | Where it was used: India, China, and Africa\"}, {\"item_id\": \"p003-i8\", \"content_type\": \"facts_numbers\", \"content\": \"Commodity: Tea bricks | Where it was used: Central Asia and Tibet\"}, {\"item_id\": \"p003-i9\", \"content_type\": \"facts_numbers\", \"content\": \"Commodity: Tobacco | Where it was used: Colonial America\"}], \"book_pictures\": [{\"item_id\": \"p003-i4\", \"type\": \"table\", \"title\": \"Columns\"}]}\n\nReply with the ideas JSON."
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "started_at": 1793472854.5744884,
+   "mode": "full",
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "93694b041673de200774c54c6a83350ae45f16345c9e9a0f8e7ba99be8c5d302",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 4926,
+    "output_tokens": 522,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "Commodity-money examples connect objects to their regions or communities of use, alongside the book’s table.",
+    "key_questions": [
+     "Which objects circulated where?",
+     "Why are pastoral societies a community rather than a country?",
+     "Why can a non-food object serve as money?"
+    ],
+    "decisions": [
+     {
+      "decision": "Keep the book table above coordinated object-and-map visuals.",
+      "reason": "Learners can connect each table row to a recognizable commodity and location."
+     },
+     {
+      "decision": "Show cattle with herders rather than a country marker.",
+      "reason": "Early pastoral societies describes livelihood-based communities, not a country."
+     },
+     {
+      "decision": "Show actual cowries and compressed tea bricks.",
+      "reason": "Their distinctive forms clarify small shells and distinguish tea bricks from construction bricks."
+     }
+    ],
+    "uncertain": []
+   },
+   "output": {
+    "notes": {
+     "about": "Commodity-money examples connect objects to their regions or communities of use, alongside the book’s table.",
+     "key_questions": [
+      "Which objects circulated where?",
+      "Why are pastoral societies a community rather than a country?",
+      "Why can a non-food object serve as money?"
+     ],
+     "decisions": [
+      {
+       "decision": "Keep the book table above coordinated object-and-map visuals.",
+       "reason": "Learners can connect each table row to a recognizable commodity and location."
+      },
+      {
+       "decision": "Show cattle with herders rather than a country marker.",
+       "reason": "Early pastoral societies describes livelihood-based communities, not a country."
+      },
+      {
+       "decision": "Show actual cowries and compressed tea bricks.",
+       "reason": "Their distinctive forms clarify small shells and distinguish tea bricks from construction bricks."
+      }
+     ],
+     "uncertain": []
+    },
+    "beats": [
+     {
+      "beat_id": "b50",
+      "idea": "Salt’s regions; cattle’s pastoral communities",
+      "relation": "place",
+      "relation_note": "",
+      "things": [
+       "salt",
+       "cattle",
+       "salt pile",
+       "map"
+      ],
+      "people": [
+       "herders"
+      ],
+      "places": [
+       "Ancient Rome",
+       "Africa"
+      ],
+      "shows": "Salt beside marked regions; cattle beside herders",
+      "on_word": "नमक",
+      "image_wanted": ""
+     },
+     {
+      "beat_id": "b51",
+      "idea": "Accepted cowries served as money across regions",
+      "relation": "place",
+      "relation_note": "",
+      "things": [
+       "cowrie shells",
+       "open palm",
+       "map",
+       "acceptance tick"
+      ],
+      "people": [
+       "payer",
+       "recipient"
+      ],
+      "places": [
+       "India",
+       "China",
+       "Africa"
+      ],
+      "shows": "Cowries on palm; three regions marked; recipient’s tick",
+      "on_word": "खोल",
+      "image_wanted": "cowrie shells in open palm"
+     },
+     {
+      "beat_id": "b52",
+      "idea": "Tea bricks and tobacco had distinct regional uses",
+      "relation": "place",
+      "relation_note": "",
+      "things": [
+       "compressed tea brick",
+       "construction brick",
+       "dried tobacco leaves",
+       "map"
+      ],
+      "people": [],
+      "places": [
+       "Central Asia",
+       "Tibet",
+       "Colonial America"
+      ],
+      "shows": "Tea brick and tobacco beside their marked regions",
+      "on_word": "चाय",
+      "image_wanted": "compressed tea brick dried tobacco leaves"
+     }
+    ],
+    "picture_type": "table",
+    "picture_note": "Keep the book’s Columns table at top; highlight corresponding rows as object-and-location pairs appear below. For b50, reveal cattle with herders on ‘cattle’, without a country pin. For b51, mark each named region and add a recipient’s acceptance tick on ‘स्वीकार’. For b52, briefly cross a separate construction brick on ‘नहीं’; show tea regions with the tea brick, then dried tobacco leaves beside Colonial America on ‘Tobacco’."
+   },
+   "code_problems": [],
+   "passed": true,
+   "finished_at": 1793472871.6540873
+  }
+ ],
+ "avoid_rounds": [],
+ "cost_usd": 0.0,
+ "seconds": 17.1,
+ "navin_verdict": null
+}

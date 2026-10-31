@@ -1,0 +1,220 @@
+# Canvas plans · 3. Money
+
+Subject family economics_commerce_management (canvas subject); 36 of 36 parts passed, 31 on the first try (86%), 42 rounds; modes B 25, C 11; 1235 s planned; cost $0.0000.
+
+Story parts (a concept's real-world example, Navin 27 October 2026): 12, 11 inside a world (C), the rest on the canvas with crowd, value and icon elements (B).
+
+Missing world kits (these parts fell back to the canvas): world kit for a farm
+
+Dikhane ki soch (Part D1): 103 distinct icons; text-only screen 2.1 s; book pictures drawn 7 of 7; world share 31%; relations outside the list 0; ideas passed first try 36; needs 30; missing capabilities 1.
+
+## v2 · Barter से commodity money: बदलाव क्यों ज़रूरी हुआ? (596.5 s) · spec_written
+
+- v2_s1a (c03.1, 1 beats): mode B L2 + touches; passed after 1 round(s) · first try · 6 elements, longest still 1.6 s
+- v2_s1s (c03.1, 1 beats): mode C L3; passed after 1 round(s) · first try · 5 elements, longest still 3.2 s · place shop · story (the real-world example)
+- v2_s1b (c03.1, 3 beats): mode B L2 + touches; passed after 1 round(s) · first try · 16 elements, longest still 4.3 s
+- v2_s2 (c03.2, 6 beats): mode B L2 + touches; passed after 1 round(s) · first try · 16 elements, longest still 10.4 s
+  - advisory: the picture stays the same for 10.4 s (target 7 s)
+- v2_s3 (c03.3, 4 beats): mode B L2 + touches; passed after 1 round(s) · first try · 15 elements, longest still 3.7 s
+- v2_s4s (c03.4, 5 beats): mode C L3; passed after 1 round(s) · first try · 13 elements, longest still 3.0 s · place shop · story (the real-world example)
+- v2_s4b (c03.4, 3 beats): mode B L2 + touches; passed after 1 round(s) · first try · 29 elements, longest still 3.9 s
+- v2_s5a (c04.1, 1 beats): mode B L2 + touches; passed after 1 round(s) · first try · 20 elements, longest still 4.6 s
+- v2_s5s (c04.1, 8 beats): mode C L3; passed after 1 round(s) · first try · 17 elements, longest still 5.6 s · place shop · story (the real-world example)
+- v2_s5b (c04.1, 3 beats): mode B L2 + touches; passed after 1 round(s) · first try · 27 elements, longest still 5.2 s
+- v2_s6 (c05.1, 11 beats): mode B L2 + touches; passed after 1 round(s) · first try · 44 elements, longest still 11.0 s
+  - advisory: the picture stays the same for 11.0 s (target 7 s)
+- v2_s7s (c06.1, 1 beats): mode C L3; passed after 1 round(s) · first try · 2 elements, longest still 2.7 s · place shop · story (the real-world example)
+- v2_s7b (c06.1, 3 beats): mode B L2 + touches; passed after 1 round(s) · first try · 15 elements, longest still 3.4 s
+- v2_s8a (c06.2, 3 beats): mode B L2 + touches; passed after 1 round(s) · first try · 13 elements, longest still 8.7 s
+  - advisory: the picture stays the same for 8.7 s (target 7 s)
+- v2_s8s (c06.2, 2 beats): mode C L3; passed after 1 round(s) · first try · 8 elements, longest still 2.7 s · place shop · story (the real-world example)
+- v2_s8b (c06.2, 3 beats): mode B L2 + touches; passed after 1 round(s) · first try · 16 elements, longest still 5.0 s
+- v2_s9s (c06.3, 1 beats): mode B L2 + touches; passed after 1 round(s) · first try · 7 elements, longest still 1.9 s · place farm · story (the real-world example)
+- v2_s9b (c06.3, 5 beats): mode B L2 + touches; passed after 1 round(s) · first try · 27 elements, longest still 4.8 s
+
+Credits:
+- building construction (tw:1f3d7) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- money bag (tw:1f4b0) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- scales (tw:2696) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- ledger (tw:1f4d2) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- coin (tw:1fa99) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- Server (fa:solid/server) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- People Roof (fa:solid/people-roof) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- cross mark (tw:274c) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- Tags (fa:solid/tags) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- Magnet (fa:solid/magnet) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- Tag (fa:solid/tag) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- mobile phone (tw:1f4f1) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- credit card (tw:1f4b3) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- spiral shell (tw:1f41a) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- t-shirt (tw:1f455) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- teacup without handle (tw:1f375) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- exchange alt (fa:solid/exchange-alt) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- bicycle (tw:1f6b2) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- Wrench (fa:solid/wrench) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- People Group (fa:solid/people-group) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- handshake (tw:1f91d) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- ear of rice (tw:1f33e) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- adult + briefcase (tw:1f9d1-200d-1f4bc) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- calendar (tw:1f4c5) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- Cow (fa:solid/cow) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- ballet shoes (tw:1fa70) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- earth america (fa:solid/earth-america) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- Clipboard List (fa:solid/clipboard-list) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- wheat alt (fa:solid/wheat-alt) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- Basket Shopping (fa:solid/basket-shopping) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- User Check (fa:solid/user-check) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- Book Journal Whills (fa:solid/book-journal-whills) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- Hat Cowboy (fa:solid/hat-cowboy) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- black rightwards arrow (tw:27a1) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- cooking (tw:1f373) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- house building (tw:1f3e0) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- cow (tw:1f404) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- Money Check (fa:solid/money-check) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- Person Walking Luggage (fa:solid/person-walking-luggage) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- bank (tw:1f3e6) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- Bowl Rice (fa:solid/bowl-rice) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- Road Barrier (fa:solid/road-barrier) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- Arrows Left Right (fa:solid/arrows-left-right) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- pot of food (tw:1f372) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- spool of thread (tw:1f9f5) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- black question mark ornament (tw:2753) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- Coins (fa:solid/coins) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- Money Bill 1 (fa:solid/money-bill-1) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- Indian Rupee Sign (fa:solid/indian-rupee-sign) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- salt shaker (tw:1f9c2) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- convenience store (tw:1f3ea) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- Droplet (fa:solid/droplet) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- open hands sign (tw:1f450) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- scroll (tw:1f4dc) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- page facing up (tw:1f4c4) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- Smoking (fa:solid/smoking) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- two men holding hands (tw:1f46c) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- clockwise rightwards and leftwards open circle arrows (tw:1f501) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+
+## v4 · Paper money, fiat money और legal tender: 3 अलग सवाल (638.2 s) · spec_written
+
+- v4_s1a (c09.1, 1 beats): mode B L2 + touches; passed after 2 round(s) · 11 elements, longest still 1.9 s
+- v4_s1s (c09.1, 1 beats): mode C L3; passed after 1 round(s) · first try · 6 elements, longest still 2.3 s · place bank · story (the real-world example)
+- v4_s1b (c09.1, 3 beats): mode B L2 + touches; passed after 1 round(s) · first try · 17 elements, longest still 3.0 s
+- v4_s2s (c09.2, 1 beats): mode C L3; passed after 1 round(s) · first try · 8 elements, longest still 3.6 s · place bank · story (the real-world example)
+- v4_s2b (c09.2, 5 beats): mode B L2 + touches; passed after 1 round(s) · first try · 20 elements, longest still 4.6 s
+- v4_s3 (c09.3, 7 beats): mode B L2 + touches; passed after 2 round(s) · 53 elements, longest still 7.1 s
+  - advisory: the picture stays the same for 7.1 s (target 7 s)
+- v4_s4s (c10.1, 1 beats): mode C L3; passed after 1 round(s) · first try · 5 elements, longest still 2.7 s · place shop · story (the real-world example)
+- v4_s4b (c10.1, 3 beats): mode B L2 + touches; passed after 1 round(s) · first try · 19 elements, longest still 3.2 s
+- v4_s5 (c10.2, 9 beats): mode B L2 + touches; passed after 3 round(s) · 59 elements, longest still 6.9 s
+- v4_s6s (c11.1, 3 beats): mode C L3; passed after 1 round(s) · first try · 12 elements, longest still 3.4 s · place shop · story (the real-world example)
+- v4_s6b (c11.1, 5 beats): mode B L2 + touches; passed after 2 round(s) · 33 elements, longest still 3.8 s
+- v4_s7a (c11.2, 3 beats): mode B L2 + touches; passed after 1 round(s) · first try · 23 elements, longest still 3.4 s
+- v4_s7s (c11.2, 2 beats): mode C L3; passed after 1 round(s) · first try · 12 elements, longest still 4.9 s · place shop · story (the real-world example)
+- v4_s7b (c11.2, 4 beats): mode B L2 + touches; passed after 1 round(s) · first try · 25 elements, longest still 3.6 s
+- v4_s8 (c11.3, 5 beats): mode B L2 + touches; passed after 2 round(s) · 38 elements, longest still 7.4 s
+  - advisory: the picture stays the same for 7.4 s (target 7 s)
+- v4_s9 (c11.4, 5 beats): mode B L2 + touches; passed after 1 round(s) · first try · 18 elements, longest still 5.0 s
+- v4_s10s (c11.q, 2 beats): mode C L3; passed after 1 round(s) · first try · 12 elements, longest still 2.7 s · place bank · story (the real-world example)
+- v4_s10b (c11.q, 2 beats): mode B L2 + touches; passed after 1 round(s) · first try · 19 elements, longest still 2.4 s
+
+Credits:
+- Building Columns (fa:solid/building-columns) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- shield (tw:1f6e1) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- Briefcase (fa:solid/briefcase) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- spiral calendar pad (tw:1f5d3) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- building construction (tw:1f3d7) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- Bitcoin Sign (fa:solid/bitcoin-sign) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- Certificate (fa:solid/certificate) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- money bag (tw:1f4b0) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- clock face one oclock (tw:1f550) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- scales (tw:2696) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- ledger (tw:1f4d2) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- Stamp (fa:solid/stamp) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- Down Left And Up Right To Center (fa:solid/down-left-and-up-right-to-center) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- Landmark (fa:solid/landmark) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- coin (tw:1fa99) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- Server (fa:solid/server) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- history (fa:solid/history) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- Chart Pie (fa:solid/chart-pie) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- People Roof (fa:solid/people-roof) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- Box Archive (fa:solid/box-archive) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- Euro Sign (fa:solid/euro-sign) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- cross mark (tw:274c) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- shopping trolley (tw:1f6d2) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- Display (fa:solid/display) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- Tags (fa:solid/tags) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- Magnet (fa:solid/magnet) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- Tag (fa:solid/tag) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- mobile phone (tw:1f4f1) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- package (tw:1f4e6) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- credit card (tw:1f4b3) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- spiral shell (tw:1f41a) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- t-shirt (tw:1f455) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- teacup without handle (tw:1f375) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- exchange alt (fa:solid/exchange-alt) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- bicycle (tw:1f6b2) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- Wrench (fa:solid/wrench) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- People Group (fa:solid/people-group) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- handshake (tw:1f91d) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- left-pointing magnifying glass (tw:1f50d) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- ear of rice (tw:1f33e) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- Circle User (fa:solid/circle-user) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- control knobs (tw:1f39b) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- adult + briefcase (tw:1f9d1-200d-1f4bc) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- calendar (tw:1f4c5) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- Dungeon (fa:solid/dungeon) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- Cow (fa:solid/cow) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- Compass Drafting (fa:solid/compass-drafting) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- ballet shoes (tw:1fa70) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- earth america (fa:solid/earth-america) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- Clipboard List (fa:solid/clipboard-list) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- wheat alt (fa:solid/wheat-alt) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- Basket Shopping (fa:solid/basket-shopping) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- Id Badge (fa:solid/id-badge) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- currency exchange (tw:1f4b1) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- Cash Register (fa:solid/cash-register) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- Link Slash (fa:solid/link-slash) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- User Check (fa:solid/user-check) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- Book Journal Whills (fa:solid/book-journal-whills) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- Hat Cowboy (fa:solid/hat-cowboy) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- black rightwards arrow (tw:27a1) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- banknote with yen sign (tw:1f4b4) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- cooking (tw:1f373) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- house building (tw:1f3e0) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- cow (tw:1f404) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- Money Check (fa:solid/money-check) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- Person Walking Luggage (fa:solid/person-walking-luggage) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- bank (tw:1f3e6) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- Bag Shopping (fa:solid/bag-shopping) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- Bowl Rice (fa:solid/bowl-rice) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- Industry (fa:solid/industry) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- Handshake Slash (fa:solid/handshake-slash) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- Road Barrier (fa:solid/road-barrier) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- Arrows Left Right (fa:solid/arrows-left-right) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- School (fa:solid/school) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- pot of food (tw:1f372) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- factory (tw:1f3ed) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- Boxes Stacked (fa:solid/boxes-stacked) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- spool of thread (tw:1f9f5) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- Hand Holding Dollar (fa:solid/hand-holding-dollar) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- Network Wired (fa:solid/network-wired) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- black question mark ornament (tw:2753) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- Coins (fa:solid/coins) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- Vault (fa:solid/vault) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- Money Bill 1 (fa:solid/money-bill-1) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- Wallet (fa:solid/wallet) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- Indian Rupee Sign (fa:solid/indian-rupee-sign) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- salt shaker (tw:1f9c2) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- personal computer (tw:1f4bb) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- banknote with dollar sign (tw:1f4b5) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- convenience store (tw:1f3ea) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- ship (tw:1f6a2) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- Droplet (fa:solid/droplet) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- Gauge High (fa:solid/gauge-high) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- open hands sign (tw:1f450) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- scroll (tw:1f4dc) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- receipt (tw:1f9fe) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- page facing up (tw:1f4c4) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- Smoking (fa:solid/smoking) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- Credit Card (fa:solid/credit-card) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- two men holding hands (tw:1f46c) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- link symbol (tw:1f517) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- clockwise rightwards and leftwards open circle arrows (tw:1f501) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji

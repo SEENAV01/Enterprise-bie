@@ -1,0 +1,193 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "canvas",
+ "unit": "v4_s6s-ideas",
+ "status": "passed",
+ "instructions_version": "visual-ideas/1",
+ "rulebook_version": "canvas_profile@2026-10-29.1+content_types@2026-10-27.1+explanations@2026-10-24.3+level_profiles@2026-10-24.1+simple_hindi@2026-10-28.1+teacher_examples@2026-10-29.1+vision-2026-10-21@2026-10-21.17+visual_grammar@2026-10-31.1+visual_levels@2026-10-26.2+visual_verbs@2026-10-31.1",
+ "rulebook_digest": "0271c5cb76262d9d2239ea932af7c8d8701ae3275cbd3e1d63053dfd8a6e35e8",
+ "rules_used": [
+  "CV-01",
+  "CV-02",
+  "CV-03",
+  "CV-04",
+  "CV-05",
+  "CV-06",
+  "CV-07",
+  "CV-08",
+  "CV-09",
+  "CV-10",
+  "CV-11",
+  "CV-12",
+  "CV-13",
+  "CV-14",
+  "CV-15",
+  "CV-16",
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-05",
+  "G-06",
+  "G-07",
+  "VG-02",
+  "VG-04",
+  "VG-07",
+  "VG-08",
+  "VG-10",
+  "D1-01",
+  "D1-02",
+  "D1-03",
+  "D1-04",
+  "D1-05",
+  "D1-06"
+ ],
+ "maker_route": "codex",
+ "reviewer_route": "codex-checker",
+ "maker_model": "gpt-6.1-sol",
+ "reviewer_model": "gpt-6.1-sol",
+ "reviewer_independence": "same_model_temporary",
+ "inputs_digest": "0d88b05267a7c22794316b14d6eed8492b42eddd1fbd9e199311fd617c2faf9f",
+ "card": null,
+ "prefix_sha256": "8975f87e272cb88632a2441de6e34467a870de00ac2184fdb348e9ed0669e7c6",
+ "review_prefix_sha256": null,
+ "inputs": {
+  "system": "You are BIE's visual thinker for one part of a video lesson of Indian Economy for UPSC / State PCS aspirants (UPSC / State PCS). The script is written and\npassed; you do not change a word. Before any layout, say for EVERY beat what the learner should SEE so that the spoken point is\nclear through the eyes (Navin, 30 October 2026: \"jo bola ja rha hai screen ke visuals se wo baat clear ho\"; a screen of text alone\nis a book, not a video). Code then finds the things in BIE's icon index and asset library, places the book's own pictures, and\nchecks the layout.\n\nCourse: \"3. Money\" · learner language: Hinglish.\n\nFor each beat give:\n- idea: the key idea in a few words (what the teacher is making the learner understand right now).\n- relation: ONE id from this list, how the idea relates its things (or \"other\" with relation_note; an \"other\" is logged so Navin can\n  add it):\n- reject: a cross mark on the thing refused (the thing's icon first, then the cross on it, on the word that refuses)\n- accept: a tick on the thing accepted\n- compulsory: a law scroll with a stamp on it, beside the thing the law binds\n- limit: a meter or a stack that fills up to a red line where it stops (the limit's number on the line)\n- more_less: two sizes side by side, or a crowd / stack that grows or shrinks on the word\n- count: a counted stack or crowd whose number is the narration's number\n- sequence: a numbered row or a timeline with arrows; the book's own years and labels when the part covers a book timeline\n- cause_effect: an arrow chain: the cause's icon, an arrow, the effect's icon or number\n- compare: a split screen (the same slots on both sides) or a balance scale; the book's own table when the part covers one\n- part_whole: a grouping: the whole as a box, its parts as icons inside it, or a tree\n- place: a map with the place marked, or the place's flag beside the thing\n- change: before and after side by side, the old struck out, the new in its place\n- promise: a receipt or a handshake between the two parties, the promise's words as a short label\n- question: the thing asked about with a question mark beside it; the answer's picture replaces the mark when the answer comes\n- other: a relation outside this list: the step logs it (relations_outside_list) so Navin can add an entry; the beat still shows its things as themselves\n- things, people, places: the concrete nouns the beat names or implies, as plain English or Hindi words a picture can show (wheat,\n  cloth, salt, coin, ₹500 note, phone, law scroll, Sweden, 1661, farmer, shopkeeper). A real person is never drawn (card rule 8): name\n  the role (a king, a ruler) or the object (a coin with a seal), not the person.\n- shows: what is seen, in at most 8 words, as a picture description (a cross on the old coin; a meter filling to ₹1,000\n  with a red line; wheat and cloth swapping hands). Never a sentence for the screen: the sentence is the narration.\n- on_word: the word of this beat (exactly as written) on which the picture should appear (\"\" = the beat's start).\n- image_wanted: a real object an icon cannot show and a photograph or museum image can (a punch-marked silver coin, a cowrie\n  shell, a cheque leaf), as search words; \"\" when an icon is enough. Never a person's portrait (card rule 8).\npicture_type: the one picture this part needs most, from timeline, gallery (a row of icon cards), table, flow, tree, chart, map or things (the things themselves with the relation's mark, arrow, meter or scale); the card part's type is \"definition\". picture_note: one line on why.\nReply with the JSON object only.",
+  "user": "Chapter: 3. Money. Part c11.1 (3 beats).\nThe part (JSON):\n{\"part\": {\"id\": \"v4_s6s\", \"part_id\": \"c11.1\", \"card_type\": \"definition\", \"story\": true}, \"beats\": [{\"beat_id\": \"b32\", \"say\": \"₹100 उधार कैसे चुकाएँ? आप ₹100 valid currency देते हैं; दुकानदार पूरा उधार चुका मानता है। अब ₹0 बाकी हैं।\", \"relation_guess\": \"accept\"}, {\"beat_id\": \"b33\", \"say\": \"खास design वाला valid ₹10 coin मिले तो? अपना 1 coin देकर ₹10 की चीज़ लेते हैं; पूरी कीमत चुक गई।\", \"relation_guess\": \"accept\"}, {\"beat_id\": \"b34\", \"say\": \"₹1,000 bill के लिए आप 2 valid ₹500 notes देते हैं; ₹1,500 हो तो 3 दे सकते हैं। लेकिन 100 ₹10 coins देकर ₹1,000 चुकाएँ, फिर 101 देकर ₹1,010 देना चाहें, तो limit के ऊपर लेना मर्ज़ी है।\", \"relation_guess\": \"accept\"}], \"items\": [{\"item_id\": \"p004-i22\", \"content_type\": \"definition\", \"content\": \"Legal tender is a form of money that a government officially recognises as acceptable for settling debts and transactions within its territory.\"}, {\"item_id\": \"p004-i27\", \"content_type\": \"definition\", \"content\": \"Circulation commemorative coins: Released into circulation and usable like ordinary coins.\"}, {\"item_id\": \"p005-i5\", \"content_type\": \"definition\", \"content\": \"Unlimited Legal Tender:\\nMust be accepted for any amount (subject to the note being genuine and valid).\\nBanknotes are unlimited legal tender in India.\\n₹10, ₹20, ₹50, ₹100, ₹200, ₹500 notes.\\nReserve Bank of India Act, 1934\"}, {\"item_id\": \"p005-i6\", \"content_type\": \"definition\", \"content\": \"Limited Legal Tender:\\nMust be accepted only up to a legally prescribed limit; beyond that, acceptance is voluntary.\\nCoinage Act, 2011\"}], \"book_pictures\": []}\n\nReply with the ideas JSON."
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "started_at": 1793474615.2748914,
+   "mode": "full",
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "0e478aa4b5560493d132db47c52aad1e615ab189e5de5ba26f95dcc10a2f7924",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 4948,
+    "output_tokens": 470,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "Shows valid money settling payments, then distinguishes banknotes from coins at the compulsory-acceptance limit.",
+    "key_questions": [
+     "How does valid currency extinguish a debt?",
+     "Can a valid commemorative ₹10 coin pay for goods?",
+     "How does compulsory acceptance differ for banknotes and coins?"
+    ],
+    "decisions": [
+     {
+      "decision": "Use things as the picture type for this definition card.",
+      "reason": "Concrete payments, acceptance ticks and a coin-limit meter make the definition visible."
+     },
+     {
+      "decision": "Show amounts above the coin limit as optional, not invalid.",
+      "reason": "The narration distinguishes voluntary acceptance from compulsory acceptance."
+     }
+    ],
+    "uncertain": []
+   },
+   "output": {
+    "notes": {
+     "about": "Shows valid money settling payments, then distinguishes banknotes from coins at the compulsory-acceptance limit.",
+     "key_questions": [
+      "How does valid currency extinguish a debt?",
+      "Can a valid commemorative ₹10 coin pay for goods?",
+      "How does compulsory acceptance differ for banknotes and coins?"
+     ],
+     "decisions": [
+      {
+       "decision": "Use things as the picture type for this definition card.",
+       "reason": "Concrete payments, acceptance ticks and a coin-limit meter make the definition visible."
+      },
+      {
+       "decision": "Show amounts above the coin limit as optional, not invalid.",
+       "reason": "The narration distinguishes voluntary acceptance from compulsory acceptance."
+      }
+     ],
+     "uncertain": []
+    },
+    "beats": [
+     {
+      "beat_id": "b32",
+      "idea": "Valid currency clears the debt",
+      "relation": "accept",
+      "relation_note": "",
+      "things": [
+       "₹100 note",
+       "₹100 debt receipt",
+       "₹0 balance",
+       "acceptance tick"
+      ],
+      "people": [
+       "customer",
+       "shopkeeper"
+      ],
+      "places": [],
+      "shows": "₹100 handed over; receipt ticked, balance becomes ₹0",
+      "on_word": "देते",
+      "image_wanted": ""
+     },
+     {
+      "beat_id": "b33",
+      "idea": "Valid special-design coins also pay",
+      "relation": "accept",
+      "relation_note": "",
+      "things": [
+       "special-design ₹10 coin",
+       "₹10 item",
+       "price tag",
+       "acceptance tick"
+      ],
+      "people": [
+       "customer",
+       "shopkeeper"
+      ],
+      "places": [],
+      "shows": "Special-design ₹10 coin exchanged for ticked ₹10 goods",
+      "on_word": "देकर",
+      "image_wanted": "Indian circulation commemorative ₹10 coin obverse and reverse"
+     },
+     {
+      "beat_id": "b34",
+      "idea": "Notes unrestricted; compulsory coin acceptance has a ceiling",
+      "relation": "limit",
+      "relation_note": "",
+      "things": [
+       "₹500 notes",
+       "₹1,000 bill",
+       "₹1,500 bill",
+       "₹10 coins",
+       "100-coin stack",
+       "101st coin",
+       "₹1,000 red limit line",
+       "law scroll",
+       "stamp"
+      ],
+      "people": [
+       "customer",
+       "shopkeeper"
+      ],
+      "places": [],
+      "shows": "Note payments ticked; coin meter stops at ₹1,000",
+      "on_word": "2",
+      "image_wanted": ""
+     }
+    ],
+    "picture_type": "things",
+    "picture_note": "Animate payments with acceptance ticks; finish with two and three banknotes beside a 100-coin meter, adding the 101st coin beyond its red ₹1,000 line as optional acceptance."
+   },
+   "code_problems": [],
+   "passed": true,
+   "finished_at": 1793474630.8272064
+  }
+ ],
+ "avoid_rounds": [],
+ "cost_usd": 0.0,
+ "seconds": 15.6,
+ "navin_verdict": null
+}

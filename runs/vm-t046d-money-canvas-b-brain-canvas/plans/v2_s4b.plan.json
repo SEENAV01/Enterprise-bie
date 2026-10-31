@@ -1,0 +1,610 @@
+{
+ "id": "v2_s4b",
+ "part_id": "c03.4",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b21",
+   "say": "अलग ratios यानी no common measure of value; गाय न बाँट पाना indivisibility है। अनाज सड़े तो wealth रखना मुश्किल; deferred payments यानी बाद में चुकाते समय वही मात्रा कम सामान दिला सकती है।"
+  },
+  {
+   "beat_id": "b22",
+   "say": "पैसे में उधार लिखना आसान, purchasing power fixed नहीं। जरूरतें मिलना और quantities मानना अलग शर्तें हैं।"
+  },
+  {
+   "beat_id": "b23",
+   "say": "Barter में matching से repayment तक मुश्किलें हैं।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "scale",
+   "kind": "icon",
+   "cell": [
+    0,
+    1,
+    2,
+    2
+   ],
+   "cue": [
+    "b21",
+    "ratios"
+   ],
+   "until_cue": [
+    "b22",
+    "पैसे"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "tw:2696",
+   "size": 64
+  },
+  {
+   "id": "measure-label",
+   "kind": "text",
+   "cell": [
+    0,
+    3,
+    3,
+    1
+   ],
+   "cue": [
+    "b21",
+    "measure"
+   ],
+   "until_cue": [
+    "b22",
+    "पैसे"
+   ],
+   "text": "no common measure",
+   "style": "tag",
+   "tone": "ink",
+   "align": "center",
+   "size": 26
+  },
+  {
+   "id": "cow",
+   "kind": "icon",
+   "cell": [
+    3,
+    1,
+    2,
+    2
+   ],
+   "cue": [
+    "b21",
+    "गाय"
+   ],
+   "until_cue": [
+    "b22",
+    "पैसे"
+   ],
+   "tone": "ink",
+   "align": "center",
+   "icon": "tw:1f404",
+   "size": 64
+  },
+  {
+   "id": "cow-cross",
+   "kind": "mark",
+   "cue": [
+    "b21",
+    "बाँट"
+   ],
+   "until_cue": [
+    "b22",
+    "पैसे"
+   ],
+   "tone": "danger",
+   "target": "cow",
+   "mark": "cross",
+   "pos": "tr"
+  },
+  {
+   "id": "cow-label",
+   "kind": "text",
+   "cell": [
+    3,
+    3,
+    3,
+    1
+   ],
+   "cue": [
+    "b21",
+    "indivisibility"
+   ],
+   "until_cue": [
+    "b22",
+    "पैसे"
+   ],
+   "text": "indivisibility",
+   "style": "tag",
+   "tone": "ink",
+   "align": "center",
+   "size": 26
+  },
+  {
+   "id": "grain",
+   "kind": "icon",
+   "cell": [
+    6,
+    1,
+    2,
+    2
+   ],
+   "cue": [
+    "b21",
+    "अनाज"
+   ],
+   "until_cue": [
+    "b22",
+    "पैसे"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "tw:1f33e",
+   "size": 64
+  },
+  {
+   "id": "spoiled",
+   "kind": "mark",
+   "cue": [
+    "b21",
+    "सड़े"
+   ],
+   "until_cue": [
+    "b22",
+    "पैसे"
+   ],
+   "tone": "danger",
+   "target": "grain",
+   "mark": "cross",
+   "pos": "tr"
+  },
+  {
+   "id": "storage-label",
+   "kind": "text",
+   "cell": [
+    6,
+    3,
+    3,
+    1
+   ],
+   "cue": [
+    "b21",
+    "मुश्किल;"
+   ],
+   "until_cue": [
+    "b22",
+    "पैसे"
+   ],
+   "text": "wealth रखना मुश्किल",
+   "style": "tag",
+   "tone": "ink",
+   "align": "center",
+   "size": 26
+  },
+  {
+   "id": "repayment",
+   "kind": "icon",
+   "cell": [
+    9,
+    1,
+    2,
+    2
+   ],
+   "cue": [
+    "b21",
+    "deferred"
+   ],
+   "until_cue": [
+    "b22",
+    "पैसे"
+   ],
+   "tone": "ink",
+   "align": "center",
+   "icon": "tw:1f4c5",
+   "size": 64
+  },
+  {
+   "id": "less-goods",
+   "kind": "icon",
+   "cell": [
+    9,
+    4,
+    2,
+    2
+   ],
+   "cue": [
+    "b21",
+    "कम"
+   ],
+   "until_cue": [
+    "b22",
+    "पैसे"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "fa:solid/basket-shopping",
+   "size": 36
+  },
+  {
+   "id": "ledger",
+   "kind": "icon",
+   "cell": [
+    0,
+    1,
+    2,
+    2
+   ],
+   "cue": [
+    "b22",
+    "पैसे"
+   ],
+   "until_cue": [
+    "b23",
+    "Barter"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "tw:1f4d2",
+   "size": 64
+  },
+  {
+   "id": "rupee",
+   "kind": "icon",
+   "cell": [
+    2,
+    1,
+    1,
+    2
+   ],
+   "cue": [
+    "b22",
+    "उधार"
+   ],
+   "until_cue": [
+    "b23",
+    "Barter"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "fa:solid/indian-rupee-sign",
+   "size": 48
+  },
+  {
+   "id": "easy",
+   "kind": "mark",
+   "cue": [
+    "b22",
+    "आसान,"
+   ],
+   "until_cue": [
+    "b23",
+    "Barter"
+   ],
+   "tone": "ok",
+   "target": "ledger",
+   "mark": "tick",
+   "pos": "tr"
+  },
+  {
+   "id": "power",
+   "kind": "icon",
+   "cell": [
+    7,
+    1,
+    2,
+    2
+   ],
+   "cue": [
+    "b22",
+    "purchasing"
+   ],
+   "until_cue": [
+    "b23",
+    "Barter"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "fa:solid/basket-shopping",
+   "size": 64
+  },
+  {
+   "id": "not-fixed",
+   "kind": "mark",
+   "cue": [
+    "b22",
+    "नहीं।"
+   ],
+   "until_cue": [
+    "b23",
+    "Barter"
+   ],
+   "tone": "danger",
+   "target": "power",
+   "mark": "cross",
+   "pos": "tr"
+  },
+  {
+   "id": "wants",
+   "kind": "icon",
+   "cell": [
+    0,
+    4,
+    2,
+    2
+   ],
+   "cue": [
+    "b22",
+    "जरूरतें"
+   ],
+   "until_cue": [
+    "b23",
+    "Barter"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "tw:1f46c",
+   "size": 56
+  },
+  {
+   "id": "wants-label",
+   "kind": "text",
+   "cell": [
+    2,
+    4,
+    3,
+    2
+   ],
+   "cue": [
+    "b22",
+    "मिलना"
+   ],
+   "until_cue": [
+    "b23",
+    "Barter"
+   ],
+   "text": "जरूरतें मिलना",
+   "style": "box",
+   "tone": "accent",
+   "fill": "band",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "quantities",
+   "kind": "icon",
+   "cell": [
+    7,
+    4,
+    2,
+    2
+   ],
+   "cue": [
+    "b22",
+    "quantities"
+   ],
+   "until_cue": [
+    "b23",
+    "Barter"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "tw:2696",
+   "size": 56
+  },
+  {
+   "id": "quantities-label",
+   "kind": "text",
+   "cell": [
+    9,
+    4,
+    3,
+    2
+   ],
+   "cue": [
+    "b22",
+    "मानना"
+   ],
+   "until_cue": [
+    "b23",
+    "Barter"
+   ],
+   "text": "quantities मानना",
+   "style": "box",
+   "tone": "warm",
+   "fill": "band",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "barter-route",
+   "kind": "picture",
+   "cell": [
+    0,
+    1,
+    12,
+    3
+   ],
+   "cue": [
+    "b23",
+    "Barter"
+   ],
+   "tone": "ink",
+   "size": 32,
+   "picture": {
+    "type": "flow",
+    "title": "Barter",
+    "item_id": "",
+    "nodes": [
+     {
+      "cue": [
+       "b23",
+       "Barter"
+      ],
+      "id": "n1",
+      "label": ""
+     },
+     {
+      "cue": [
+       "b23",
+       "matching"
+      ],
+      "id": "n2",
+      "label": "matching"
+     },
+     {
+      "cue": [
+       "b23",
+       "से"
+      ],
+      "id": "n3",
+      "label": ""
+     },
+     {
+      "cue": [
+       "b23",
+       "से"
+      ],
+      "id": "n4",
+      "label": ""
+     },
+     {
+      "cue": [
+       "b23",
+       "repayment"
+      ],
+      "id": "n5",
+      "label": "repayment"
+     }
+    ],
+    "arrows": true
+   }
+  },
+  {
+   "id": "obstacles",
+   "kind": "icon",
+   "cell": [
+    5,
+    5,
+    2,
+    2
+   ],
+   "cue": [
+    "b23",
+    "मुश्किलें"
+   ],
+   "tone": "danger",
+   "align": "center",
+   "icon": "fa:solid/road-barrier",
+   "size": 64
+  }
+ ],
+ "camera": [
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b21",
+    "ratios"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b22",
+    "पैसे"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b23",
+    "Barter"
+   ]
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b21",
+    "गाय"
+   ],
+   "ids": [
+    "cow",
+    "cow-cross",
+    "cow-label"
+   ],
+   "until_cue": [
+    "b21",
+    "अनाज"
+   ]
+  },
+  {
+   "cue": [
+    "b21",
+    "अनाज"
+   ],
+   "ids": [
+    "grain",
+    "spoiled",
+    "storage-label"
+   ],
+   "until_cue": [
+    "b21",
+    "deferred"
+   ]
+  },
+  {
+   "cue": [
+    "b21",
+    "deferred"
+   ],
+   "ids": [
+    "repayment",
+    "less-goods"
+   ],
+   "until_cue": [
+    "b22",
+    "पैसे"
+   ]
+  },
+  {
+   "cue": [
+    "b22",
+    "जरूरतें"
+   ],
+   "ids": [
+    "wants",
+    "wants-label",
+    "quantities",
+    "quantities-label"
+   ],
+   "until_cue": [
+    "b23",
+    "Barter"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

@@ -1,0 +1,166 @@
+{
+ "id": "v2_s1s",
+ "part_id": "c03.1",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b2",
+   "say": "मानिए किसान के पास 10 kg wheat था। उसने 2 kg देकर 1 metre कपड़ा लिया; अब 8 kg wheat बचा और कपड़ा भी मिला।"
+  }
+ ],
+ "kit": "shop",
+ "elements": [
+  {
+   "id": "farmer_stall",
+   "kind": "shop",
+   "x": 2600,
+   "y": 860,
+   "sign": "wheat",
+   "cue": [
+    "b2",
+    "किसान"
+   ],
+   "packets": [
+    {
+     "n": 10,
+     "cue": [
+      "b2",
+      "10"
+     ]
+    },
+    {
+     "n": 8,
+     "cue": [
+      "b2",
+      "देकर"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "farmer",
+   "kind": "shopkeeper",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b2",
+    "किसान"
+   ]
+  },
+  {
+   "id": "wheat_holding",
+   "kind": "board",
+   "x": 3070,
+   "y": 540,
+   "text": "wheat",
+   "fill": "#E6D6A8",
+   "cue": [
+    "b2",
+    "10"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b2",
+      "10"
+     ],
+     "text": "10 kg wheat"
+    },
+    {
+     "cue": [
+      "b2",
+      "8"
+     ],
+     "text": "8 kg wheat",
+     "dir": "down"
+    }
+   ]
+  },
+  {
+   "id": "exchange_partner",
+   "kind": "crowd",
+   "y": 860,
+   "x0": 2210,
+   "spacing": 90,
+   "enter_x": 1800,
+   "exit_x": 1800,
+   "face": 1,
+   "seed": 21,
+   "cue": [
+    "b2",
+    "2"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b2",
+      "2"
+     ],
+     "n": 1
+    }
+   ],
+   "carry": {
+    "cue": [
+     "b2",
+     "देकर"
+    ],
+    "n": 2
+   }
+  },
+  {
+   "id": "cloth_received",
+   "kind": "board",
+   "x": 2100,
+   "y": 530,
+   "text": "कपड़ा",
+   "fill": "#D8E8EC",
+   "cue": [
+    "b2",
+    "1"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b2",
+      "1"
+     ],
+     "text": "1 metre कपड़ा"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b2",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 580,
+   "zoom": 0.9,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b2",
+    "2"
+   ],
+   "x": 2420,
+   "y": 650,
+   "zoom": 1.05,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b2",
+    "8"
+   ],
+   "x": 2600,
+   "y": 580,
+   "zoom": 0.9,
+   "frames": 30
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

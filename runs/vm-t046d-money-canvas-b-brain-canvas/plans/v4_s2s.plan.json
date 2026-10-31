@@ -1,0 +1,179 @@
+{
+ "id": "v4_s2s",
+ "part_id": "c09.2",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b6",
+   "say": "Bank 11वाँ note कैसे दे? मानिए, 10 grams के पीछे 10 notes हैं, हर note पर 1 gram का वादा। Fully backed उदाहरण में अगला note देने को 1 gram और चाहिए।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank",
+   "kind": "bank",
+   "x": 2600,
+   "y": 860,
+   "sign": "Bank",
+   "cue": [
+    "b6",
+    "Bank"
+   ]
+  },
+  {
+   "id": "teller",
+   "kind": "teller",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b6",
+    "11वाँ"
+   ]
+  },
+  {
+   "id": "gold_backing",
+   "kind": "coin_rain",
+   "x0": 2180,
+   "x1": 2360,
+   "count": 10,
+   "cue": [
+    "b6",
+    "grams"
+   ],
+   "until_cue": [
+    "b6",
+    "Fully"
+   ]
+  },
+  {
+   "id": "reserve_board",
+   "kind": "board",
+   "x": 2220,
+   "y": 620,
+   "fill": "#B78D35",
+   "cue": [
+    "b6",
+    "grams"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b6",
+      "grams"
+     ],
+     "text": "10 grams"
+    }
+   ]
+  },
+  {
+   "id": "notes_board",
+   "kind": "board",
+   "x": 2980,
+   "y": 620,
+   "fill": "#538475",
+   "cue": [
+    "b6",
+    "notes"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b6",
+      "notes"
+     ],
+     "text": "10 notes"
+    }
+   ]
+  },
+  {
+   "id": "promise",
+   "kind": "label",
+   "x": 2980,
+   "y": 410,
+   "text": "1 gram का वादा",
+   "fill": "#F5ECD8",
+   "cue": [
+    "b6",
+    "वादा।"
+   ]
+  },
+  {
+   "id": "additional_gold",
+   "kind": "coin_rain",
+   "x0": 2410,
+   "x1": 2450,
+   "count": 1,
+   "cue": [
+    "b6",
+    "और"
+   ]
+  },
+  {
+   "id": "extra_requirement",
+   "kind": "label",
+   "x": 2220,
+   "y": 410,
+   "text": "1 gram और चाहिए",
+   "fill": "#F5ECD8",
+   "cue": [
+    "b6",
+    "चाहिए।"
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b6",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 570,
+   "zoom": 0.9,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b6",
+    "मानिए,"
+   ],
+   "x": 2530,
+   "y": 590,
+   "zoom": 1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b6",
+    "हर"
+   ],
+   "x": 2790,
+   "y": 550,
+   "zoom": 1.1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b6",
+    "Fully"
+   ],
+   "x": 2600,
+   "y": 570,
+   "zoom": 0.95,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b6",
+    "और"
+   ],
+   "x": 2390,
+   "y": 560,
+   "zoom": 1.1,
+   "frames": 30
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

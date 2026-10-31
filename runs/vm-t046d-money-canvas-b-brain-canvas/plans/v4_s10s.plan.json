@@ -1,0 +1,378 @@
+{
+ "id": "v4_s10s",
+ "part_id": "c11.q",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b59",
+   "say": "₹1,000 fees बिना cash कैसे दें? खाते के ₹2,000 में से bank को ₹1,000 college पहुँचाने का लिखा instruction देते हैं। Clearing पर college को ₹1,000 मिलते हैं, आपके ₹1,000 बचते हैं। Funds कम हों तो fees बाकी है।"
+  },
+  {
+   "beat_id": "b60",
+   "say": "दूसरे रास्ते में issuer college को arrangement से payment पहुँचाता है। पहले आपका उससे कोई उधार नहीं था; अब ₹1,000 उसे लौटाने हैं, charges छोड़कर। आपने जमा पैसा नहीं, credit इस्तेमाल किया।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank",
+   "kind": "bank",
+   "x": 2600,
+   "y": 860,
+   "fill": "#f6f0e4",
+   "cue": [
+    "b59",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "teller",
+   "kind": "teller",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b59",
+    "bank"
+   ]
+  },
+  {
+   "id": "student",
+   "kind": "crowd",
+   "x0": 2330,
+   "spacing": 110,
+   "enter_x": 1850,
+   "exit_x": 1850,
+   "face": 1,
+   "seed": 7,
+   "cue": [
+    "b59",
+    "fees"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b59",
+      "fees"
+     ],
+     "n": 1
+    },
+    {
+     "cue": [
+      "b60",
+      "दूसरे"
+     ],
+     "n": 0
+    },
+    {
+     "cue": [
+      "b60",
+      "आपने"
+     ],
+     "n": 1
+    }
+   ]
+  },
+  {
+   "id": "deposit",
+   "kind": "board",
+   "x": 2110,
+   "y": 535,
+   "text": "खाते",
+   "fill": "#387c84",
+   "cue": [
+    "b59",
+    "खाते"
+   ],
+   "until_cue": [
+    "b60",
+    "दूसरे"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b59",
+      "₹2,000"
+     ],
+     "text": "₹2,000"
+    },
+    {
+     "cue": [
+      "b59",
+      "बचते"
+     ],
+     "text": "₹1,000",
+     "dir": "down"
+    }
+   ]
+  },
+  {
+   "id": "instruction",
+   "kind": "board",
+   "x": 2600,
+   "y": 400,
+   "fill": "#587caa",
+   "cue": [
+    "b59",
+    "लिखा"
+   ],
+   "until_cue": [
+    "b59",
+    "Funds"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b59",
+      "लिखा"
+     ],
+     "text": "लिखा instruction"
+    }
+   ]
+  },
+  {
+   "id": "clearing_money",
+   "kind": "coin_rain",
+   "x0": 2960,
+   "x1": 3090,
+   "count": 5,
+   "cue": [
+    "b59",
+    "Clearing"
+   ],
+   "until_cue": [
+    "b59",
+    "Funds"
+   ]
+  },
+  {
+   "id": "college_receipt",
+   "kind": "board",
+   "x": 3080,
+   "y": 535,
+   "text": "college",
+   "fill": "#488e72",
+   "cue": [
+    "b59",
+    "Clearing"
+   ],
+   "until_cue": [
+    "b59",
+    "Funds"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b59",
+      "मिलते"
+     ],
+     "text": "₹1,000"
+    }
+   ]
+  },
+  {
+   "id": "shortfall",
+   "kind": "balance",
+   "x": 3070,
+   "y": 600,
+   "tilt": -16,
+   "cue": [
+    "b59",
+    "Funds"
+   ],
+   "until_cue": [
+    "b60",
+    "दूसरे"
+   ],
+   "tilt_cue": [
+    "b59",
+    "कम"
+   ]
+  },
+  {
+   "id": "unpaid",
+   "kind": "label",
+   "x": 3070,
+   "y": 420,
+   "text": "fees बाकी",
+   "fill": "#a65e48",
+   "cue": [
+    "b59",
+    "बाकी"
+   ],
+   "until_cue": [
+    "b60",
+    "दूसरे"
+   ]
+  },
+  {
+   "id": "issuer_payment",
+   "kind": "coin_rain",
+   "x0": 2950,
+   "x1": 3080,
+   "count": 5,
+   "cue": [
+    "b60",
+    "issuer"
+   ],
+   "until_cue": [
+    "b60",
+    "पहले"
+   ]
+  },
+  {
+   "id": "issuer_label",
+   "kind": "label",
+   "x": 2600,
+   "y": 390,
+   "text": "issuer",
+   "fill": "#66568e",
+   "cue": [
+    "b60",
+    "issuer"
+   ]
+  },
+  {
+   "id": "debt",
+   "kind": "board",
+   "x": 2110,
+   "y": 535,
+   "fill": "#93644d",
+   "cue": [
+    "b60",
+    "पहले"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b60",
+      "नहीं"
+     ],
+     "text": "कोई उधार नहीं"
+    },
+    {
+     "cue": [
+      "b60",
+      "₹1,000"
+     ],
+     "text": "₹1,000 लौटाने हैं",
+     "dir": "up"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b59",
+    "",
+    0.0
+   ],
+   "x": 2570,
+   "y": 540,
+   "zoom": 0.85,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b59",
+    "₹2,000"
+   ],
+   "x": 2300,
+   "y": 550,
+   "zoom": 1.05,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b59",
+    "लिखा"
+   ],
+   "x": 2550,
+   "y": 510,
+   "zoom": 1,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b59",
+    "Clearing"
+   ],
+   "x": 2850,
+   "y": 540,
+   "zoom": 1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b59",
+    "बचते"
+   ],
+   "x": 2520,
+   "y": 540,
+   "zoom": 0.85,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b59",
+    "Funds"
+   ],
+   "x": 2930,
+   "y": 540,
+   "zoom": 1.05,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b60",
+    "दूसरे"
+   ],
+   "x": 2600,
+   "y": 540,
+   "zoom": 0.85,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b60",
+    "payment"
+   ],
+   "x": 2850,
+   "y": 540,
+   "zoom": 1,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b60",
+    "पहले"
+   ],
+   "x": 2310,
+   "y": 540,
+   "zoom": 1.05,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b60",
+    "₹1,000"
+   ],
+   "x": 2250,
+   "y": 520,
+   "zoom": 1.15,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b60",
+    "credit"
+   ],
+   "x": 2500,
+   "y": 540,
+   "zoom": 0.9,
+   "frames": 40
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

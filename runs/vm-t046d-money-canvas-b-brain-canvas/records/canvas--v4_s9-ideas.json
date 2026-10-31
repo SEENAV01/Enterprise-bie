@@ -1,0 +1,232 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "canvas",
+ "unit": "v4_s9-ideas",
+ "status": "passed",
+ "instructions_version": "visual-ideas/1",
+ "rulebook_version": "canvas_profile@2026-10-29.1+content_types@2026-10-27.1+explanations@2026-10-24.3+level_profiles@2026-10-24.1+simple_hindi@2026-10-28.1+teacher_examples@2026-10-29.1+vision-2026-10-21@2026-10-21.17+visual_grammar@2026-10-31.1+visual_levels@2026-10-26.2+visual_verbs@2026-10-31.1",
+ "rulebook_digest": "0271c5cb76262d9d2239ea932af7c8d8701ae3275cbd3e1d63053dfd8a6e35e8",
+ "rules_used": [
+  "CV-01",
+  "CV-02",
+  "CV-03",
+  "CV-04",
+  "CV-05",
+  "CV-06",
+  "CV-07",
+  "CV-08",
+  "CV-09",
+  "CV-10",
+  "CV-11",
+  "CV-12",
+  "CV-13",
+  "CV-14",
+  "CV-15",
+  "CV-16",
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-05",
+  "G-06",
+  "G-07",
+  "VG-02",
+  "VG-04",
+  "VG-07",
+  "VG-08",
+  "VG-10",
+  "D1-01",
+  "D1-02",
+  "D1-03",
+  "D1-04",
+  "D1-05",
+  "D1-06"
+ ],
+ "maker_route": "codex",
+ "reviewer_route": "codex-checker",
+ "maker_model": "gpt-6.1-sol",
+ "reviewer_model": "gpt-6.1-sol",
+ "reviewer_independence": "same_model_temporary",
+ "inputs_digest": "7f08855809fbea3fa0a7bd922c6af29f454cdb6291617d869ff481f1819f1f17",
+ "card": null,
+ "prefix_sha256": "070a8f1c3b3bd607c8c96d04810815af840f2b42b3ab7488a42c7fa77d26834c",
+ "review_prefix_sha256": null,
+ "inputs": {
+  "system": "You are BIE's visual thinker for one part of a video lesson of Indian Economy for UPSC / State PCS aspirants (UPSC / State PCS). The script is written and\npassed; you do not change a word. Before any layout, say for EVERY beat what the learner should SEE so that the spoken point is\nclear through the eyes (Navin, 30 October 2026: \"jo bola ja rha hai screen ke visuals se wo baat clear ho\"; a screen of text alone\nis a book, not a video). Code then finds the things in BIE's icon index and asset library, places the book's own pictures, and\nchecks the layout.\n\nCourse: \"3. Money\" · learner language: Hinglish.\n\nFor each beat give:\n- idea: the key idea in a few words (what the teacher is making the learner understand right now).\n- relation: ONE id from this list, how the idea relates its things (or \"other\" with relation_note; an \"other\" is logged so Navin can\n  add it):\n- reject: a cross mark on the thing refused (the thing's icon first, then the cross on it, on the word that refuses)\n- accept: a tick on the thing accepted\n- compulsory: a law scroll with a stamp on it, beside the thing the law binds\n- limit: a meter or a stack that fills up to a red line where it stops (the limit's number on the line)\n- more_less: two sizes side by side, or a crowd / stack that grows or shrinks on the word\n- count: a counted stack or crowd whose number is the narration's number\n- sequence: a numbered row or a timeline with arrows; the book's own years and labels when the part covers a book timeline\n- cause_effect: an arrow chain: the cause's icon, an arrow, the effect's icon or number\n- compare: a split screen (the same slots on both sides) or a balance scale; the book's own table when the part covers one\n- part_whole: a grouping: the whole as a box, its parts as icons inside it, or a tree\n- place: a map with the place marked, or the place's flag beside the thing\n- change: before and after side by side, the old struck out, the new in its place\n- promise: a receipt or a handshake between the two parties, the promise's words as a short label\n- question: the thing asked about with a question mark beside it; the answer's picture replaces the mark when the answer comes\n- other: a relation outside this list: the step logs it (relations_outside_list) so Navin can add an entry; the beat still shows its things as themselves\n- things, people, places: the concrete nouns the beat names or implies, as plain English or Hindi words a picture can show (wheat,\n  cloth, salt, coin, ₹500 note, phone, law scroll, Sweden, 1661, farmer, shopkeeper). A real person is never drawn (card rule 8): name\n  the role (a king, a ruler) or the object (a coin with a seal), not the person.\n- shows: what is seen, in at most 8 words, as a picture description (a cross on the old coin; a meter filling to ₹1,000\n  with a red line; wheat and cloth swapping hands). Never a sentence for the screen: the sentence is the narration.\n- on_word: the word of this beat (exactly as written) on which the picture should appear (\"\" = the beat's start).\n- image_wanted: a real object an icon cannot show and a photograph or museum image can (a punch-marked silver coin, a cowrie\n  shell, a cheque leaf), as search words; \"\" when an icon is enough. Never a person's portrait (card rule 8).\npicture_type: the one picture this part needs most, from timeline, gallery (a row of icon cards), table, flow, tree, chart, map or things (the things themselves with the relation's mark, arrow, meter or scale); the card part's type is \"comparison\". picture_note: one line on why.\nReply with the JSON object only.",
+  "user": "Chapter: 3. Money. Part c11.4 (5 beats).\nThe part (JSON):\n{\"part\": {\"id\": \"v4_s9\", \"part_id\": \"c11.4\", \"card_type\": \"comparison\", \"story\": false}, \"beats\": [{\"beat_id\": \"b54\", \"say\": \"₹100 silver commemorative coin पर collector कई हज़ार क्यों दे? वही coin payment और collection में अलग role निभाता है।\", \"relation_guess\": \"place\"}, {\"beat_id\": \"b55\", \"say\": \"Payment में ₹100; collector sale में कई हज़ार संभव। Face value और market price अलग हैं।\", \"relation_guess\": \"place\"}, {\"beat_id\": \"b56\", \"say\": \"Collector silver, condition और collectability के लिए ज़्यादा देता है; denomination नहीं बदलती।\", \"relation_guess\": \"place\"}, {\"beat_id\": \"b57\", \"say\": \"Collector price debt-settlement amount या compulsory coin-payment limit नहीं है।\", \"relation_guess\": \"compulsory\"}, {\"beat_id\": \"b58\", \"say\": \"Payment में denomination, collection में agreed price याद रखिए।\", \"relation_guess\": \"place\"}], \"items\": [{\"item_id\": \"p005-i2\", \"content_type\": \"comparison\", \"content\": \"₹100 silver commemorative coin can legally be used to pay ₹100, but collectors may pay several thousand rupees for it.\"}], \"book_pictures\": []}\n\nReply with the ideas JSON."
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "started_at": 1793474959.3200626,
+   "mode": "full",
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "7e2b1d26e83429db6b68d592d815931c298328712d9b3cff6096fe6c7a35220c",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 4782,
+    "output_tokens": 883,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "One ₹100 silver commemorative coin has a payment denomination and a separate collector-market price.",
+    "key_questions": [
+     "How does the same coin function in payment and collection?",
+     "Why can collectors pay more without changing denomination?",
+     "Why must collector price not be confused with debt settlement or compulsory acceptance limits?"
+    ],
+    "decisions": [
+     {
+      "decision": "Use matching payment and collection columns throughout.",
+      "reason": "The same coin anchors the comparison; only its role and valuation change."
+     },
+     {
+      "decision": "Show no numerical compulsory coin-payment limit.",
+      "reason": "This part supplies no limit; collector price must only be excluded as its measure."
+     }
+    ],
+    "uncertain": [
+     "No particular commemorative issue is identified; avoid inventing a date, design, or exact collector price."
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "One ₹100 silver commemorative coin has a payment denomination and a separate collector-market price.",
+     "key_questions": [
+      "How does the same coin function in payment and collection?",
+      "Why can collectors pay more without changing denomination?",
+      "Why must collector price not be confused with debt settlement or compulsory acceptance limits?"
+     ],
+     "decisions": [
+      {
+       "decision": "Use matching payment and collection columns throughout.",
+       "reason": "The same coin anchors the comparison; only its role and valuation change."
+      },
+      {
+       "decision": "Show no numerical compulsory coin-payment limit.",
+       "reason": "This part supplies no limit; collector price must only be excluded as its measure."
+      }
+     ],
+     "uncertain": [
+      "No particular commemorative issue is identified; avoid inventing a date, design, or exact collector price."
+     ]
+    },
+    "beats": [
+     {
+      "beat_id": "b54",
+      "idea": "Same coin, two roles",
+      "relation": "compare",
+      "relation_note": "",
+      "things": [
+       "₹100 silver commemorative coin",
+       "payment counter",
+       "coin collection album",
+       "question mark"
+      ],
+      "people": [
+       "collector",
+       "payer"
+      ],
+      "places": [],
+      "shows": "Same coin at counter and collection album",
+      "on_word": "अलग",
+      "image_wanted": "Indian ₹100 silver commemorative coin obverse denomination"
+     },
+     {
+      "beat_id": "b55",
+      "idea": "Face value differs from collector price",
+      "relation": "compare",
+      "relation_note": "",
+      "things": [
+       "₹100 silver commemorative coin",
+       "₹100 payment receipt",
+       "collector sale price tag",
+       "rupee notes"
+      ],
+      "people": [
+       "collector",
+       "seller"
+      ],
+      "places": [],
+      "shows": "₹100 receipt versus several-thousand-rupee collector price tag",
+      "on_word": "Payment",
+      "image_wanted": ""
+     },
+     {
+      "beat_id": "b56",
+      "idea": "Collector appeal raises price, not denomination",
+      "relation": "cause_effect",
+      "relation_note": "",
+      "things": [
+       "silver commemorative coin",
+       "magnifying glass",
+       "coin collection album",
+       "collector price tag",
+       "₹100 denomination"
+      ],
+      "people": [
+       "collector"
+      ],
+      "places": [],
+      "shows": "Silver, condition, collectability raise price; ₹100 stays",
+      "on_word": "silver",
+      "image_wanted": ""
+     },
+     {
+      "beat_id": "b57",
+      "idea": "Collector price is not a legal payment measure",
+      "relation": "reject",
+      "relation_note": "",
+      "things": [
+       "collector price tag",
+       "debt settlement receipt",
+       "law scroll",
+       "coin payment limit meter",
+       "cross marks"
+      ],
+      "people": [],
+      "places": [],
+      "shows": "Collector-price tags crossed on debt receipt, legal-limit meter",
+      "on_word": "नहीं",
+      "image_wanted": ""
+     },
+     {
+      "beat_id": "b58",
+      "idea": "Payment denomination versus agreed collection price",
+      "relation": "compare",
+      "relation_note": "",
+      "things": [
+       "₹100 silver commemorative coin",
+       "₹100 payment receipt",
+       "agreed price tag",
+       "coin collection album",
+       "handshake"
+      ],
+      "people": [
+       "collector",
+       "seller",
+       "payer"
+      ],
+      "places": [],
+      "shows": "Payment: ₹100 receipt; collection: handshake over price",
+      "on_word": "Payment",
+      "image_wanted": ""
+     }
+    ],
+    "picture_type": "table",
+    "picture_note": "A visual two-column comparison keeps the same coin visible beside its payment denomination and separately agreed collector price."
+   },
+   "code_problems": [],
+   "passed": true,
+   "finished_at": 1793474980.5573351
+  }
+ ],
+ "avoid_rounds": [],
+ "cost_usd": 0.0,
+ "seconds": 21.2,
+ "navin_verdict": null
+}

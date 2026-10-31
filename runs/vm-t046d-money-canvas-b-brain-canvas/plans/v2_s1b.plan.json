@@ -1,0 +1,280 @@
+{
+ "id": "v2_s1b",
+ "part_id": "c03.1",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b3",
+   "say": "यह barter है: goods या services का सीधा exchange, बिना medium of exchange के। यानी बीच में आगे खर्च करने वाला पैसा नहीं लिया।"
+  },
+  {
+   "beat_id": "b4",
+   "say": "Wheat बेचकर पैसे से कपड़ा खरीदना barter नहीं है। पैसे बीच में आए; बेचने और खरीदने के लोग अलग हो सकते हैं।"
+  },
+  {
+   "beat_id": "b5",
+   "say": "Barter की पहचान सीधा exchange है।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "direct_title",
+   "kind": "text",
+   "cell": [
+    0,
+    0,
+    7,
+    1
+   ],
+   "cue": [
+    "b3",
+    "barter"
+   ],
+   "text": "यह barter है",
+   "style": "title",
+   "tone": "ink",
+   "align": "left",
+   "size": 32
+  },
+  {
+   "id": "direct_wheat",
+   "kind": "icon",
+   "cell": [
+    0,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b3",
+    "goods"
+   ],
+   "tone": "ink",
+   "icon": "tw:1f33e"
+  },
+  {
+   "id": "direct_cloth",
+   "kind": "icon",
+   "cell": [
+    5,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b3",
+    "goods"
+   ],
+   "tone": "ink",
+   "icon": "tw:1f455"
+  },
+  {
+   "id": "direct_swap",
+   "kind": "icon",
+   "cell": [
+    2,
+    2,
+    3,
+    2
+   ],
+   "cue": [
+    "b3",
+    "सीधा"
+   ],
+   "tone": "accent",
+   "icon": "fa:solid/arrows-left-right"
+  },
+  {
+   "id": "excluded_money",
+   "kind": "icon",
+   "cell": [
+    9,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b3",
+    "बिना"
+   ],
+   "tone": "muted",
+   "icon": "fa:solid/money-bill-1"
+  },
+  {
+   "id": "money_rejected",
+   "kind": "mark",
+   "cue": [
+    "b3",
+    "बिना"
+   ],
+   "tone": "danger",
+   "target": "excluded_money",
+   "mark": "cross",
+   "pos": "c"
+  },
+  {
+   "id": "money_emphasis",
+   "kind": "highlight",
+   "cue": [
+    "b3",
+    "पैसा"
+   ],
+   "until_cue": [
+    "b4",
+    "Wheat"
+   ],
+   "style": "box",
+   "tone": "danger",
+   "target": "excluded_money"
+  },
+  {
+   "id": "mediated_exchange",
+   "kind": "picture",
+   "cell": [
+    0,
+    5,
+    8,
+    2
+   ],
+   "cue": [
+    "b4",
+    "Wheat"
+   ],
+   "tone": "accent",
+   "picture": {
+    "type": "flow",
+    "title": "",
+    "item_id": "",
+    "nodes": [
+     {
+      "cue": [
+       "b4",
+       "Wheat"
+      ],
+      "id": "n1",
+      "label": ""
+     },
+     {
+      "cue": [
+       "b4",
+       "पैसे"
+      ],
+      "id": "n2",
+      "label": ""
+     },
+     {
+      "cue": [
+       "b4",
+       "कपड़ा"
+      ],
+      "id": "n3",
+      "label": ""
+     }
+    ],
+    "arrows": true
+   }
+  },
+  {
+   "id": "barter_claim",
+   "kind": "text",
+   "cell": [
+    9,
+    5,
+    2,
+    1
+   ],
+   "cue": [
+    "b4",
+    "barter"
+   ],
+   "text": "barter",
+   "style": "tag",
+   "tone": "ink",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "not_barter",
+   "kind": "mark",
+   "cue": [
+    "b4",
+    "नहीं"
+   ],
+   "tone": "danger",
+   "target": "barter_claim",
+   "mark": "cross",
+   "pos": "c"
+  },
+  {
+   "id": "different_people",
+   "kind": "icon",
+   "cell": [
+    9,
+    6,
+    2,
+    2
+   ],
+   "cue": [
+    "b4",
+    "लोग"
+   ],
+   "tone": "ink",
+   "icon": "tw:1f46c"
+  },
+  {
+   "id": "direct_accepted",
+   "kind": "mark",
+   "cue": [
+    "b5",
+    "सीधा"
+   ],
+   "tone": "ok",
+   "target": "direct_swap",
+   "mark": "tick",
+   "pos": "tr"
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b4",
+    "Wheat"
+   ],
+   "ids": [
+    "mediated_exchange_s1",
+    "mediated_exchange_s2",
+    "mediated_exchange_s3",
+    "mediated_exchange_a1",
+    "mediated_exchange_a2",
+    "barter_claim",
+    "not_barter",
+    "different_people"
+   ],
+   "until_cue": [
+    "b5",
+    "Barter"
+   ]
+  },
+  {
+   "cue": [
+    "b5",
+    "Barter"
+   ],
+   "ids": [
+    "direct_title",
+    "direct_wheat",
+    "direct_cloth",
+    "direct_swap",
+    "excluded_money",
+    "money_rejected",
+    "direct_accepted"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

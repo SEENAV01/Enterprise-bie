@@ -1,0 +1,154 @@
+{
+ "id": "v2_s9s",
+ "part_id": "c06.3",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b58",
+   "say": "बचाए 100 kg grain में सिर्फ 90 kg बचे, तो बाद का payment कैसे होगा? इस hypothetical spoilage से देने लायक grain घट गया।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "saved_grain",
+   "kind": "icon",
+   "cell": [
+    1,
+    2,
+    3,
+    3
+   ],
+   "cue": [
+    "b58",
+    "100"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "tw:1f33e",
+   "size": 64
+  },
+  {
+   "id": "usable_amount",
+   "kind": "value",
+   "cell": [
+    1,
+    5,
+    3,
+    1
+   ],
+   "cue": [
+    "b58",
+    "100"
+   ],
+   "tone": "ink",
+   "align": "center",
+   "size": 40,
+   "steps": [
+    {
+     "cue": [
+      "b58",
+      "100"
+     ],
+     "text": "100 kg"
+    },
+    {
+     "cue": [
+      "b58",
+      "90"
+     ],
+     "text": "90 kg",
+     "dir": "down"
+    }
+   ]
+  },
+  {
+   "id": "later_payment",
+   "kind": "icon",
+   "cell": [
+    8,
+    2,
+    2,
+    3
+   ],
+   "cue": [
+    "b58",
+    "payment"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "tw:1f4c5",
+   "label": "बाद का payment",
+   "size": 64
+  },
+  {
+   "id": "payment_question",
+   "kind": "icon",
+   "cell": [
+    10,
+    2,
+    1,
+    2
+   ],
+   "cue": [
+    "b58",
+    "कैसे"
+   ],
+   "tone": "danger",
+   "align": "center",
+   "icon": "tw:2753",
+   "size": 48
+  },
+  {
+   "id": "spoilage_loss",
+   "kind": "highlight",
+   "cue": [
+    "b58",
+    "spoilage"
+   ],
+   "style": "dashed",
+   "tone": "danger",
+   "target": "saved_grain"
+  },
+  {
+   "id": "grain_to_payment",
+   "kind": "arrow",
+   "cue": [
+    "b58",
+    "देने"
+   ],
+   "tone": "warm",
+   "from": "saved_grain",
+   "to": "later_payment",
+   "from_side": "r",
+   "to_side": "l",
+   "dashed": true,
+   "flow": {
+    "icon": "tw:1f33e",
+    "count": 2,
+    "period": 2400,
+    "size": 24,
+    "cue": [
+     "b58",
+     "देने"
+    ]
+   }
+  },
+  {
+   "id": "reduced_grain",
+   "kind": "highlight",
+   "cue": [
+    "b58",
+    "घट"
+   ],
+   "style": "band",
+   "tone": "danger",
+   "target": "usable_amount"
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

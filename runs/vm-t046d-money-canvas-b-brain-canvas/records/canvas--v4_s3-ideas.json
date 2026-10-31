@@ -1,0 +1,267 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "canvas",
+ "unit": "v4_s3-ideas",
+ "status": "passed",
+ "instructions_version": "visual-ideas/1",
+ "rulebook_version": "canvas_profile@2026-10-29.1+content_types@2026-10-27.1+explanations@2026-10-24.3+level_profiles@2026-10-24.1+simple_hindi@2026-10-28.1+teacher_examples@2026-10-29.1+vision-2026-10-21@2026-10-21.17+visual_grammar@2026-10-31.1+visual_levels@2026-10-26.2+visual_verbs@2026-10-31.1",
+ "rulebook_digest": "0271c5cb76262d9d2239ea932af7c8d8701ae3275cbd3e1d63053dfd8a6e35e8",
+ "rules_used": [
+  "CV-01",
+  "CV-02",
+  "CV-03",
+  "CV-04",
+  "CV-05",
+  "CV-06",
+  "CV-07",
+  "CV-08",
+  "CV-09",
+  "CV-10",
+  "CV-11",
+  "CV-12",
+  "CV-13",
+  "CV-14",
+  "CV-15",
+  "CV-16",
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-05",
+  "G-06",
+  "G-07",
+  "VG-02",
+  "VG-04",
+  "VG-07",
+  "VG-08",
+  "VG-10",
+  "D1-01",
+  "D1-02",
+  "D1-03",
+  "D1-04",
+  "D1-05",
+  "D1-06"
+ ],
+ "maker_route": "codex",
+ "reviewer_route": "codex-checker",
+ "maker_model": "gpt-6.1-sol",
+ "reviewer_model": "gpt-6.1-sol",
+ "reviewer_independence": "same_model_temporary",
+ "inputs_digest": "e4eeda2f7b30d8ff0e41eba38d6d04a539e334c18737eb4b3ab7061aaedc1824",
+ "card": null,
+ "prefix_sha256": "796b20b31c06e2c413b11eac1a5850265b9934a5dfbc098a49af5bcf77031012",
+ "review_prefix_sha256": null,
+ "inputs": {
+  "system": "You are BIE's visual thinker for one part of a video lesson of Indian Economy for UPSC / State PCS aspirants (UPSC / State PCS). The script is written and\npassed; you do not change a word. Before any layout, say for EVERY beat what the learner should SEE so that the spoken point is\nclear through the eyes (Navin, 30 October 2026: \"jo bola ja rha hai screen ke visuals se wo baat clear ho\"; a screen of text alone\nis a book, not a video). Code then finds the things in BIE's icon index and asset library, places the book's own pictures, and\nchecks the layout.\n\nCourse: \"3. Money\" · learner language: Hinglish.\n\nFor each beat give:\n- idea: the key idea in a few words (what the teacher is making the learner understand right now).\n- relation: ONE id from this list, how the idea relates its things (or \"other\" with relation_note; an \"other\" is logged so Navin can\n  add it):\n- reject: a cross mark on the thing refused (the thing's icon first, then the cross on it, on the word that refuses)\n- accept: a tick on the thing accepted\n- compulsory: a law scroll with a stamp on it, beside the thing the law binds\n- limit: a meter or a stack that fills up to a red line where it stops (the limit's number on the line)\n- more_less: two sizes side by side, or a crowd / stack that grows or shrinks on the word\n- count: a counted stack or crowd whose number is the narration's number\n- sequence: a numbered row or a timeline with arrows; the book's own years and labels when the part covers a book timeline\n- cause_effect: an arrow chain: the cause's icon, an arrow, the effect's icon or number\n- compare: a split screen (the same slots on both sides) or a balance scale; the book's own table when the part covers one\n- part_whole: a grouping: the whole as a box, its parts as icons inside it, or a tree\n- place: a map with the place marked, or the place's flag beside the thing\n- change: before and after side by side, the old struck out, the new in its place\n- promise: a receipt or a handshake between the two parties, the promise's words as a short label\n- question: the thing asked about with a question mark beside it; the answer's picture replaces the mark when the answer comes\n- other: a relation outside this list: the step logs it (relations_outside_list) so Navin can add an entry; the beat still shows its things as themselves\n- things, people, places: the concrete nouns the beat names or implies, as plain English or Hindi words a picture can show (wheat,\n  cloth, salt, coin, ₹500 note, phone, law scroll, Sweden, 1661, farmer, shopkeeper). A real person is never drawn (card rule 8): name\n  the role (a king, a ruler) or the object (a coin with a seal), not the person.\n- shows: what is seen, in at most 8 words, as a picture description (a cross on the old coin; a meter filling to ₹1,000\n  with a red line; wheat and cloth swapping hands). Never a sentence for the screen: the sentence is the narration.\n- on_word: the word of this beat (exactly as written) on which the picture should appear (\"\" = the beat's start).\n- image_wanted: a real object an icon cannot show and a photograph or museum image can (a punch-marked silver coin, a cowrie\n  shell, a cheque leaf), as search words; \"\" when an icon is enough. Never a person's portrait (card rule 8).\nCode has already decided this part's picture (timeline: A horizontal line links four chronological dots) from the book's own diagram; it is placed at the top of the canvas. Set picture_type to \"timeline\" and use picture_note for what the beats add around it.\nReply with the JSON object only.",
+  "user": "Chapter: 3. Money. Part c09.3 (7 beats).\nThe part (JSON):\n{\"part\": {\"id\": \"v4_s3\", \"part_id\": \"c09.3\", \"card_type\": \"timeline\", \"story\": false}, \"beats\": [{\"beat_id\": \"b12\", \"say\": \"सामान की जगह receipt चले तो? इतिहास में paper claims, सरकारी issue और acceptance rules अलग milestones बने।\", \"relation_guess\": \"place\"}, {\"beat_id\": \"b13\", \"say\": \"Receipt जमा value का सबूत है: 7th century के Tang receipts paper claims दिखाते हैं। 1023 के Song state notes में सरकारी authority issuer बनी; यानी claim के साथ जारी करने वाले की पहचान बदली।\", \"relation_guess\": \"place\"}, {\"beat_id\": \"b14\", \"say\": \"लोग note लेने से मना करें तो? 1275 का Yuan milestone compulsory acceptance है, यानी नियम से लेना ज़रूरी। Sweden के first banknotes 1661 में आए; इसे दुनिया की शुरुआत मत समझिए, Chinese developments पहले हुए।\", \"relation_guess\": \"compulsory\"}, {\"beat_id\": \"b15\", \"say\": \"पैसे का fixed आधार कैसे बने? Britain का 1816 Gold Standard पैसे को तय gold से जोड़ता था। 1944 Bretton Woods में dollar-gold link आया; एक फर्क समझिए: official convertibility थी, हर व्यक्ति का gold counter नहीं।\", \"relation_guess\": \"place\"}, {\"beat_id\": \"b16\", \"say\": \"1971 में gold-redemption link टूटा; दोनों historical sequences इसी modern दौर पर पहुँचते हैं।\", \"relation_guess\": \"place\"}, {\"beat_id\": \"b17\", \"say\": \"अब सवाल है: gold देने का वादा नहीं, तो लोग note क्यों लेंगे?\", \"relation_guess\": \"promise\"}, {\"beat_id\": \"b18\", \"say\": \"Paper claims से issuer, acceptance और gold का आधार बदलता गया।\", \"relation_guess\": \"accept\"}], \"items\": [{\"item_id\": \"p004-i4\", \"content_type\": \"timeline\", \"content\": \"1661 | Sweden | First banknotes\"}, {\"item_id\": \"p004-i5\", \"content_type\": \"timeline\", \"content\": \"1816 | Britain | Gold Standard\"}, {\"item_id\": \"p004-i6\", \"content_type\": \"timeline\", \"content\": \"1944 | Bretton Woods | Dollar-gold link\"}, {\"item_id\": \"p004-i7\", \"content_type\": \"timeline\", \"content\": \"1971 | Modern fiat | No gold redemption\"}, {\"item_id\": \"p004-i18\", \"content_type\": \"timeline\", \"content\": \"7th c. | Tang | Receipts\"}, {\"item_id\": \"p004-i19\", \"content_type\": \"timeline\", \"content\": \"1023 | Song | State notes\"}, {\"item_id\": \"p004-i20\", \"content_type\": \"timeline\", \"content\": \"1275 | Yuan | Compulsory\"}, {\"item_id\": \"p004-i21\", \"content_type\": \"timeline\", \"content\": \"1971 | Modern | Fiat era\"}], \"book_pictures\": [{\"item_id\": \"p004-i17\", \"type\": \"timeline\", \"title\": \"A horizontal line links four chronological dots\"}, {\"item_id\": \"p004-i3\", \"type\": \"timeline\", \"title\": \"A horizontal timeline connects four dots from left to right\"}]}\n\nReply with the ideas JSON."
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "started_at": 1793473916.009571,
+   "mode": "full",
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "5e0ecd6dc2ec9cf156f888f6b06d97c1c36a9683a4b0a45bbd065acff1a9c789",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 5194,
+    "output_tokens": 1077,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "Two historical sequences show changes in paper claims, issuers, acceptance rules and gold backing, converging in 1971.",
+    "key_questions": [
+     "How does a receipt represent deposited value?",
+     "How do state issue and compulsory acceptance differ?",
+     "Why is Sweden 1661 not the global beginning?",
+     "Who had official gold convertibility, and what ended in 1971?"
+    ],
+    "decisions": [
+     {
+      "decision": "Keep both book timelines distinct and preserve their dates and labels.",
+      "reason": "Chinese paper developments precede Sweden; both sequences end in the modern fiat era."
+     },
+     {
+      "decision": "Show official convertibility separately from an individual's gold counter.",
+      "reason": "The narration explicitly rules out universal personal gold redemption."
+     }
+    ],
+    "uncertain": []
+   },
+   "output": {
+    "notes": {
+     "about": "Two historical sequences show changes in paper claims, issuers, acceptance rules and gold backing, converging in 1971.",
+     "key_questions": [
+      "How does a receipt represent deposited value?",
+      "How do state issue and compulsory acceptance differ?",
+      "Why is Sweden 1661 not the global beginning?",
+      "Who had official gold convertibility, and what ended in 1971?"
+     ],
+     "decisions": [
+      {
+       "decision": "Keep both book timelines distinct and preserve their dates and labels.",
+       "reason": "Chinese paper developments precede Sweden; both sequences end in the modern fiat era."
+      },
+      {
+       "decision": "Show official convertibility separately from an individual's gold counter.",
+       "reason": "The narration explicitly rules out universal personal gold redemption."
+      }
+     ],
+     "uncertain": []
+    },
+    "beats": [
+     {
+      "beat_id": "b12",
+      "idea": "Receipts can stand for deposited goods",
+      "relation": "question",
+      "relation_note": "",
+      "things": [
+       "goods bundle",
+       "receipt",
+       "government seal",
+       "law scroll"
+      ],
+      "people": [],
+      "places": [],
+      "shows": "Goods beside receipt; question mark between them",
+      "on_word": "receipt",
+      "image_wanted": ""
+     },
+     {
+      "beat_id": "b13",
+      "idea": "Deposit claims acquire a state issuer",
+      "relation": "sequence",
+      "relation_note": "",
+      "things": [
+       "deposited goods",
+       "receipt",
+       "state note",
+       "government seal"
+      ],
+      "people": [],
+      "places": [
+       "Tang China",
+       "Song China"
+      ],
+      "shows": "Deposited goods, Tang receipt, then state-sealed Song note",
+      "on_word": "Receipt",
+      "image_wanted": ""
+     },
+     {
+      "beat_id": "b14",
+      "idea": "Compulsory acceptance precedes Sweden's banknotes",
+      "relation": "compulsory",
+      "relation_note": "",
+      "things": [
+       "paper note",
+       "stamped law scroll",
+       "banknote",
+       "timeline dots"
+      ],
+      "people": [
+       "note recipient"
+      ],
+      "places": [
+       "Yuan China",
+       "Sweden"
+      ],
+      "shows": "Stamped law beside note; Sweden follows Chinese milestones",
+      "on_word": "compulsory",
+      "image_wanted": ""
+     },
+     {
+      "beat_id": "b15",
+      "idea": "Gold links differ from personal redemption",
+      "relation": "compare",
+      "relation_note": "",
+      "things": [
+       "money",
+       "gold bars",
+       "dollar note",
+       "official conversion counter",
+       "public gold counter"
+      ],
+      "people": [
+       "monetary authority official",
+       "individual note holder"
+      ],
+      "places": [
+       "Britain",
+       "Bretton Woods"
+      ],
+      "shows": "Gold-linked money; official counter ticked, public counter crossed",
+      "on_word": "1816",
+      "image_wanted": ""
+     },
+     {
+      "beat_id": "b16",
+      "idea": "Gold redemption ends at the shared endpoint",
+      "relation": "change",
+      "relation_note": "",
+      "things": [
+       "dollar note",
+       "gold bar",
+       "redemption link",
+       "1971 timeline endpoints"
+      ],
+      "people": [],
+      "places": [],
+      "shows": "Gold link breaks; both timelines reach 1971",
+      "on_word": "टूटा",
+      "image_wanted": ""
+     },
+     {
+      "beat_id": "b17",
+      "idea": "Why accept notes without gold redemption?",
+      "relation": "question",
+      "relation_note": "",
+      "things": [
+       "paper note",
+       "gold redemption receipt",
+       "gold bar",
+       "question mark"
+      ],
+      "people": [
+       "note recipient"
+      ],
+      "places": [],
+      "shows": "Crossed gold promise; recipient faces note and question",
+      "on_word": "क्यों",
+      "image_wanted": ""
+     },
+     {
+      "beat_id": "b18",
+      "idea": "Three features change through paper-money history",
+      "relation": "sequence",
+      "relation_note": "",
+      "things": [
+       "paper claim",
+       "issuer seal",
+       "stamped acceptance law",
+       "gold bar",
+       "broken redemption link"
+      ],
+      "people": [],
+      "places": [],
+      "shows": "Claim, issuer, acceptance, gold-link icons follow timeline",
+      "on_word": "Paper",
+      "image_wanted": ""
+     }
+    ],
+    "picture_type": "timeline",
+    "picture_note": "Keep the book timelines above: Tang receipts → Song state notes → Yuan compulsory acceptance → 1971 fiat era, and Sweden 1661 → Britain 1816 → Bretton Woods 1944 → 1971 no gold redemption. Below, reveal receipt-and-deposit imagery, issuer seals, stamped acceptance law and gold-link changes with the narration. Visually align the two 1971 endpoints without merging earlier milestones."
+   },
+   "code_problems": [],
+   "passed": true,
+   "finished_at": 1793473938.3175135
+  }
+ ],
+ "avoid_rounds": [],
+ "cost_usd": 0.0,
+ "seconds": 22.3,
+ "navin_verdict": null
+}

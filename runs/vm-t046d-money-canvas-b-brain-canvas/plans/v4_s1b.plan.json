@@ -1,0 +1,426 @@
+{
+ "id": "v4_s1b",
+ "part_id": "c09.1",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b3",
+   "say": "यह gold-backed paper currency है: माँगने पर तय gold मिले। Intrinsic value यानी material की कीमत; यहाँ value paper से नहीं, redemption promise से है, जैसे सामान की receipt।"
+  },
+  {
+   "beat_id": "b4",
+   "say": "सिर्फ bank के पास gold होना काफी नहीं; note पर gold पाने का claim चाहिए।"
+  },
+  {
+   "beat_id": "b5",
+   "say": "यह redemption promise आगे समझाएगा कि नए notes के लिए backing क्यों चाहिए।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "note",
+   "kind": "icon",
+   "cell": [
+    1,
+    1,
+    3,
+    2
+   ],
+   "cue": [
+    "b3",
+    "gold-backed"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "fa:solid/money-bill-1",
+   "label": "paper currency",
+   "size": 32
+  },
+  {
+   "id": "gold",
+   "kind": "icon",
+   "cell": [
+    8,
+    1,
+    3,
+    2
+   ],
+   "cue": [
+    "b3",
+    "तय"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "fa:solid/coins",
+   "label": "तय gold",
+   "size": 32
+  },
+  {
+   "id": "redeem",
+   "kind": "arrow",
+   "cue": [
+    "b3",
+    "मिले।"
+   ],
+   "tone": "accent",
+   "from": "note",
+   "to": "gold",
+   "from_side": "r",
+   "to_side": "l",
+   "flow": {
+    "icon": "fa:solid/coins",
+    "count": 1,
+    "period": 2200,
+    "size": 24,
+    "cue": [
+     "b3",
+     "मिले।"
+    ]
+   }
+  },
+  {
+   "id": "paper",
+   "kind": "icon",
+   "cell": [
+    1,
+    4,
+    3,
+    2
+   ],
+   "cue": [
+    "b3",
+    "material"
+   ],
+   "until_cue": [
+    "b4",
+    "bank"
+   ],
+   "tone": "muted",
+   "align": "center",
+   "icon": "tw:1f4c4",
+   "label": "material की कीमत",
+   "size": 30
+  },
+  {
+   "id": "paper-not-source",
+   "kind": "mark",
+   "cue": [
+    "b3",
+    "नहीं,"
+   ],
+   "until_cue": [
+    "b4",
+    "bank"
+   ],
+   "tone": "danger",
+   "target": "paper",
+   "mark": "cross",
+   "pos": "tr"
+  },
+  {
+   "id": "promise",
+   "kind": "icon",
+   "cell": [
+    5,
+    3,
+    3,
+    1
+   ],
+   "cue": [
+    "b3",
+    "redemption"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "tw:1f91d",
+   "label": "redemption promise",
+   "size": 26
+  },
+  {
+   "id": "receipt",
+   "kind": "icon",
+   "cell": [
+    5,
+    5,
+    2,
+    2
+   ],
+   "cue": [
+    "b3",
+    "receipt।"
+   ],
+   "until_cue": [
+    "b4",
+    "bank"
+   ],
+   "tone": "ink",
+   "align": "center",
+   "icon": "tw:1f9fe",
+   "label": "receipt",
+   "size": 28
+  },
+  {
+   "id": "goods",
+   "kind": "icon",
+   "cell": [
+    9,
+    5,
+    2,
+    2
+   ],
+   "cue": [
+    "b3",
+    "सामान"
+   ],
+   "until_cue": [
+    "b4",
+    "bank"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "fa:solid/basket-shopping",
+   "label": "सामान",
+   "size": 28
+  },
+  {
+   "id": "receipt-goods",
+   "kind": "arrow",
+   "cue": [
+    "b3",
+    "receipt।"
+   ],
+   "until_cue": [
+    "b4",
+    "bank"
+   ],
+   "tone": "accent",
+   "from": "receipt",
+   "to": "goods",
+   "from_side": "r",
+   "to_side": "l",
+   "flow": {
+    "icon": "fa:solid/basket-shopping",
+    "count": 1,
+    "period": 2400,
+    "size": 22,
+    "cue": [
+     "b3",
+     "receipt।"
+    ]
+   }
+  },
+  {
+   "id": "bank",
+   "kind": "icon",
+   "cell": [
+    1,
+    5,
+    3,
+    2
+   ],
+   "cue": [
+    "b4",
+    "bank"
+   ],
+   "until_cue": [
+    "b5",
+    "redemption"
+   ],
+   "tone": "muted",
+   "align": "center",
+   "icon": "tw:1f3e6",
+   "label": "bank के पास gold",
+   "size": 30
+  },
+  {
+   "id": "insufficient",
+   "kind": "mark",
+   "cue": [
+    "b4",
+    "काफी"
+   ],
+   "until_cue": [
+    "b5",
+    "redemption"
+   ],
+   "tone": "danger",
+   "target": "bank",
+   "mark": "cross",
+   "pos": "tr"
+  },
+  {
+   "id": "claim",
+   "kind": "icon",
+   "cell": [
+    8,
+    5,
+    3,
+    2
+   ],
+   "cue": [
+    "b4",
+    "claim"
+   ],
+   "until_cue": [
+    "b5",
+    "redemption"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "tw:1f9fe",
+   "label": "gold पाने का claim",
+   "size": 30
+  },
+  {
+   "id": "note-claim",
+   "kind": "arrow",
+   "cue": [
+    "b4",
+    "claim"
+   ],
+   "until_cue": [
+    "b5",
+    "redemption"
+   ],
+   "tone": "accent",
+   "from": "note",
+   "to": "claim",
+   "from_side": "b",
+   "to_side": "l",
+   "elbow": "vh",
+   "flow": {
+    "icon": "tw:1f9fe",
+    "count": 1,
+    "period": 2400,
+    "size": 22,
+    "cue": [
+     "b4",
+     "claim"
+    ]
+   }
+  },
+  {
+   "id": "promise-focus",
+   "kind": "highlight",
+   "cue": [
+    "b5",
+    "redemption"
+   ],
+   "style": "box",
+   "tone": "accent",
+   "target": "promise"
+  },
+  {
+   "id": "new-notes",
+   "kind": "icon",
+   "cell": [
+    1,
+    5,
+    3,
+    2
+   ],
+   "cue": [
+    "b5",
+    "notes"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "fa:solid/money-bill-1",
+   "label": "नए notes",
+   "size": 30
+  },
+  {
+   "id": "backing",
+   "kind": "icon",
+   "cell": [
+    8,
+    5,
+    3,
+    2
+   ],
+   "cue": [
+    "b5",
+    "backing"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "fa:solid/coins",
+   "label": "backing चाहिए",
+   "size": 30
+  },
+  {
+   "id": "backing-needed",
+   "kind": "arrow",
+   "cue": [
+    "b5",
+    "backing"
+   ],
+   "tone": "accent",
+   "from": "new-notes",
+   "to": "backing",
+   "from_side": "r",
+   "to_side": "l",
+   "flow": {
+    "icon": "fa:solid/coins",
+    "count": 1,
+    "period": 2200,
+    "size": 24,
+    "cue": [
+     "b5",
+     "backing"
+    ]
+   }
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b3",
+    "redemption"
+   ],
+   "ids": [
+    "note",
+    "gold",
+    "redeem",
+    "promise"
+   ],
+   "until_cue": [
+    "b3",
+    "सामान"
+   ]
+  },
+  {
+   "cue": [
+    "b4",
+    "bank"
+   ],
+   "ids": [
+    "bank",
+    "insufficient"
+   ],
+   "until_cue": [
+    "b4",
+    "claim"
+   ]
+  },
+  {
+   "cue": [
+    "b5",
+    "redemption"
+   ],
+   "ids": [
+    "promise",
+    "promise-focus",
+    "new-notes",
+    "backing",
+    "backing-needed"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

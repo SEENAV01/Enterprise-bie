@@ -1,0 +1,133 @@
+{
+ "id": "v2_s1a",
+ "part_id": "c03.1",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b1",
+   "say": "अनाज देकर shoes चाहिए, लेकिन seller अनाज नहीं चाहता। अब खरीद कैसे होगी?"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "grain",
+   "kind": "icon",
+   "cell": [
+    1,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b1",
+    "अनाज"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "tw:1f33e",
+   "label": "अनाज",
+   "size": 80
+  },
+  {
+   "id": "shoes",
+   "kind": "icon",
+   "cell": [
+    7,
+    5,
+    2,
+    2
+   ],
+   "cue": [
+    "b1",
+    "shoes"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "tw:1fa70",
+   "label": "shoes",
+   "size": 80
+  },
+  {
+   "id": "seller",
+   "kind": "icon",
+   "cell": [
+    7,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b1",
+    "seller"
+   ],
+   "tone": "ink",
+   "align": "center",
+   "icon": "tw:1f9d1-200d-1f4bc",
+   "label": "seller",
+   "size": 80
+  },
+  {
+   "id": "grain_offer",
+   "kind": "arrow",
+   "cue": [
+    "b1",
+    "seller"
+   ],
+   "until_cue": [
+    "b1",
+    "नहीं"
+   ],
+   "tone": "warm",
+   "from": "grain",
+   "to": "seller",
+   "from_side": "r",
+   "to_side": "l",
+   "flow": {
+    "icon": "tw:1f33e",
+    "count": 1,
+    "period": 1600,
+    "size": 28,
+    "cue": [
+     "b1",
+     "seller"
+    ]
+   }
+  },
+  {
+   "id": "grain_rejected",
+   "kind": "mark",
+   "cue": [
+    "b1",
+    "नहीं"
+   ],
+   "tone": "danger",
+   "target": "grain",
+   "mark": "cross",
+   "pos": "c"
+  },
+  {
+   "id": "exchange_question",
+   "kind": "icon",
+   "cell": [
+    9,
+    5,
+    2,
+    2
+   ],
+   "cue": [
+    "b1",
+    "कैसे"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "tw:2753",
+   "size": 80
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

@@ -1,0 +1,384 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "canvas",
+ "unit": "v4_s4s",
+ "status": "passed",
+ "instructions_version": "canvas-plan/1",
+ "rulebook_version": "canvas_profile@2026-10-29.1+content_types@2026-10-27.1+explanations@2026-10-24.3+level_profiles@2026-10-24.1+simple_hindi@2026-10-28.1+teacher_examples@2026-10-29.1+vision-2026-10-21@2026-10-21.17+visual_grammar@2026-10-31.1+visual_levels@2026-10-26.2+visual_verbs@2026-10-31.1",
+ "rulebook_digest": "0271c5cb76262d9d2239ea932af7c8d8701ae3275cbd3e1d63053dfd8a6e35e8",
+ "rules_used": [
+  "CV-01",
+  "CV-02",
+  "CV-03",
+  "CV-04",
+  "CV-05",
+  "CV-06",
+  "CV-07",
+  "CV-08",
+  "CV-09",
+  "CV-10",
+  "CV-11",
+  "CV-12",
+  "CV-13",
+  "CV-14",
+  "CV-15",
+  "CV-16",
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-05",
+  "G-06",
+  "G-07",
+  "VG-02",
+  "VG-04",
+  "VG-07",
+  "VG-08",
+  "VG-10",
+  "D1-01",
+  "D1-02",
+  "D1-03",
+  "D1-04",
+  "D1-05",
+  "D1-06"
+ ],
+ "maker_route": "codex",
+ "reviewer_route": "codex-checker",
+ "maker_model": "gpt-6.1-sol",
+ "reviewer_model": "gpt-6.1-sol",
+ "reviewer_independence": "same_model_temporary",
+ "inputs_digest": "072e3897f7b84e7d10b6e71a33b33da168be18350b89ae4d5aab764f285a00c5",
+ "card": null,
+ "prefix_sha256": "95bf9786b2ef20ec5c657412ebca9880069afc8d99ae63cfbf961ee7d9938972",
+ "review_prefix_sha256": null,
+ "inputs": {
+  "system": "You are BIE's world director for one STORY part of a video lesson of Indian Economy for UPSC / State PCS aspirants (UPSC / State PCS): actors\nact in a place (a shop with buyers on a street; its place element is kind 'shop'), so this part is shown inside a small designed world (Navin's level C, an L3 world). The script\nis already written and passed; you do not change a word of it. You place the props, the people, the effects and the\ncamera moves, each on a spoken word; code builds, times and checks the world and a refused plan comes back to you with\nthe exact error, and you answer with the whole corrected plan.\n\nCourse: \"3. Money\" · learner language: Hinglish.\n\nNavin's rules for this section (follow every one):\n[CV-01] One canvas per idea: build it piece by piece instead of cutting to a new shot every sentence. Clear the canvas only when the idea changes; otherwise re-frame with a zoom or pan to the part being explained.\n[CV-02] Something on the canvas changes about every 5 s (one change per one or two spoken phrases).\n[CV-03] The picture never stays the same for more than 15 s (the references sometimes hold 40-80 s; BIE must not).\n[CV-04] A new element appears on its own word, while it is being said (about 40% into the phrase, never in the pause after).\n[CV-05] Numbers that change are struck out and replaced on screen (50 -> 65), with an up/down arrow, on the word of the new number.\n[CV-06] Many people/things are shown as a crowd that grows or shrinks with the story (2 buyers -> 12 -> 3).\n[CV-07] A running numeric example carries the concept (price 50 -> 65, GDP 10K -> 11K -> 12.1K at 10%).\n[CV-08] Return to the topic tree and tick the branch that is done before starting the next branch.\n[CV-09] One anchor diagram stays (a band, a tree, a rate card) while the part beside or below it changes.\n[CV-10] No overlap, nothing outside the safe area, captions strip kept clear, readable text (>= 24 px at 1080p), at most 16 elements on screen.\n[CV-11] No photos or caricatures of real people, no logos, emblems or regulator marks: use a name card, a generic icon or BIE's own presenter character.\n[CV-12] Light paper theme for build-up canvases (dark theme stays for 3D/science worlds); subtitles on a dark strip.\n[CV-13] On-screen text is a short COMPLETE phrase or sentence in the learner's language (Devanagari Hinglish with the English terms the script uses), one idea per board or box; never a code: no ✓ ✗ ≠, no list of bare words ('Exchange · Account / Store · Deferred'), no line that ends on → = : / (Navin, 29 October 2026: 'teacher ki naration uske sentence aise poore ho ki banawati na lage').\n[CV-14] Every on-screen text is explained: its key words are said in the narration of the beat it appears on (the cue beat), and every board step the director adds is spoken; a text the narration never says does not go on screen.\n[CV-15] A caveat ('imagined market', 'illustrative numbers') is shown once per part on its own small note, not on every board.\n[CV-16] Numbers on screen are written the way the narration says them: every number on a board, tag or box is said in its cue beat (₹500 on screen, '500 rupaye' in the narration), no counters the narration never mentions ('Payments: 0 → 2').\n[G-01] Everything taught comes from the book. Knowledge from outside the book is allowed only to explain the book better; it is marked as outside, standard textbook-level and correct. Never invent facts, numbers, names or quotations.\n[G-02] Work like the best teacher of these learners and this exam, not like a summariser. Depth beats brevity: nothing teachable on the page is skipped or compressed away, and every explanation makes a student understand, not just remember. Depth means understanding, not length: lesson narration keeps S2-01's time by cutting repetition and side-tracks, never book content.\n[G-03] Before the output, fill 'notes' with brief notes for the reviewer and for Navin: what this unit is about, the key questions a teacher must answer about it, the main decisions you made with a one-line reason each, and anything uncertain. Keep the notes short; they explain the work, they are not the work.\n[G-05] Never drop or compress away what the book teaches to fit a length. If a unit of work is too large, it is split by BIE into smaller units; within a unit, the book's content is complete. Lesson narration has a time target (S2-01), met by cutting repetition and side-tracks, never book content.\n[G-06] BIE is the link between the learner and the book, like a teacher (Navin, 24 October 2026). The book is the base; BIE carries its text, easy or hard, into the learner's mind. Never just read the line out: every book line is opened (what its words mean, why it is so, where it is seen, what follows), at the depth of the level profile.\n[G-07] Two layers, like a film (Navin, 24 October 2026). The writer layer (understanding, plan, script) decides what is said and how deep, following the level profile and the book's own level. The presentation layer (director, video blocks, render) is the same skilled quality for every learner, from class 6 to postgraduate; only the detail shown follows the level, never the craft.\n[VG-02] Labels are code text tied to their object by a leader line and move with it; a label is never baked into an image, so one asset works in every language.\n[VG-04] Size is taught by scale comparison with a thing the learner knows (one book = 1 MB; access time as a distance), never by a number alone.\n[VG-07] Two things are compared on a split screen (the split_compare block), the same slots on both sides.\n[VG-08] Processes show flow with moving arrows or particles (magma, water, concrete, ions, mucus), never a still diagram with static arrows.\n[VG-10] History and polity use a lit timeline with nodes; maps appear only through the licence gate's map rule (India's boundary waits for Navin's approval).\n[D1-01] Every beat shows at least one non-text thing tied to its nouns or its relation (an icon, a mark, an arrow, a crowd or value step, a table row, a picture event; in a world a prop, a person, a price or a crowd step), cued on a word of that beat. A beat that only adds text is refused.\n[D1-02] The screen never shows text alone for more than 10 seconds: while a beat is spoken, the thing it names is on screen (Navin, 30 October 2026: 'sirf text hi text screen par dikha to video ... ek book ban jaayegi').\n[D1-03] Screen text is a name or a short natural phrase (at most 8 words; a board 2 lines of 28 characters), never a sentence: the sentence lives in the narration and the subtitles. The picture shows the thing itself, so its label is understood without reading (page-2 principle).\n[D1-04] A book diagram or table the part covers is drawn as itself: a timeline with the book's years and labels, a table row by row, a panel of items as a gallery of icon cards, a flow as boxes and arrows. Code places it; the plan builds around it and never leaves it out.\n[D1-05] A world (C) is used only when the beats are the story of the concept's real-world example with actors at a place, and that place comes from the example itself, never from a keyword of the narration; the same world kit is never used in two consecutive parts.\n[D1-06] A caution, caveat or fact-check line ('illustrative numbers', 'imagined market', 'data not given', 'outside clarification') never appears on screen: it stays a background check in the records.\n\n# Director card: world plans (for the AI world director step, Navin's level C)\n\nYou plan ONE world for ONE story part of a passed script: actors act in a place, so the part is shown inside a small\ndesigned 2.5D street with the place at its centre. You place props, people, effects and the camera, each on a spoken\nword. Code builds, times and checks the world (`bie/brain/video/world.py`); a refused plan comes back with the exact error.\n\n## The world\n\nWorld pixels: 5200 wide, ground line at y 860; the place (the `shop` or the `bank`, the one element kind your role names\nas the kit) is usually near x 2600. The camera looks at a point\n(`x`, `y`) with a `zoom` (0.8 wide street … 1.7 close on a price tag) and takes `frames` to get there (30–60 at 30 fps).\nCamera keys are in time order, the first on the part's first beat.\n\n## Element vocabulary\n\n| kind | fields | use it for |\n| --- | --- | --- |\n| `shop` | `x`, `sign` (the shop's name, in the learner's script), `packets: [{n, cue}]` | the place of a shop story (a kirana shop, a tea stall, a market stall, a bazaar); its stock of goods on the counter (n packets) |\n| `price_tag` | `x`, `y`, `string` (hanging length), `steps: [{text, dir, cue}]`, `lift_cue` + `lift_dy` | the price that is struck out and replaced (a price only: '₹65', '₹10,000', at most 9 characters; words go on a board); lift it when demand pulls it up |\n| `crowd` | `x0`, `spacing`, `enter_x`, `exit_x`, `face` (-1 looks left), `seed`, `steps: [{n, cue}]`, `carry_cue` + `carry_n` | buyers or bank customers who walk in and out as the number changes; `carry` sends n of them away with goods |\n| `bank` | `x`, `sign` (the bank's name, generic, in the learner's script) | the place of a bank story: a stone front with pillars, a teller window and a counter; customers stand before it (`crowd` with `x0` near `x` - 270) |\n| `teller` | `x` (the bank's `x`) | the bank's clerk behind the counter (as `shopkeeper` is for the shop) |\n| `board` | `x`, `y`, `text` (the title: खाता, EMI, बचत), `fill` (header colour), `steps: [{text, dir, cue}]`, `until_cue` | a standing display whose value changes on its word: a passbook balance ₹0 → ₹500, an EMI due ₹10,000 → ₹0; the old value is struck out, `dir` \"up\" or \"down\" adds the arrow. A value is at most 2 lines of 28 characters (your own line breaks are kept, a long line is wrapped at spaces): a name, a number or a short phrase, never a sentence (D1-03); the teaching stays in the narration, with the words and numbers the narration of its cue beat says (CV-14, CV-16); never codes (✓ ≠ →, \"1–3 ✓, 4 Future payment →\") |\n| `label` | `x`, `y`, `text`, `fill` (rgba colour), `cue`, `until_cue` | SUPPLY · 3, DEMAND · 12: short labels over the scene |\n| `coin_rain` | `x0`, `x1`, `count`, `cue`, `until_cue` | money arriving in people's hands |\n| `balance` | `x`, `y`, `tilt`, `cue`, `tilt_cue`, `until_cue` | supply against demand on a balance that tilts on its word |\n| `pull_arrow` | `x`, `y0`, `y1`, `text`, `cue` | the force that pulls the price (demand-pull) |\n| `title` | `text`, `cue` | the part's name, on its word (at most 30 characters) |\n| `lamp`, `foreground` | `x` | street dressing for depth (two or three of each, outside the shop) |\n\nEvery element has `cue: [beat_id, word]` with the word exactly as written in that beat (`[beat_id, \"\"]` for the beat's\nstart). Something must change at least every 15 s (the code refuses a longer still); aim for a change every 5 s.\nNever a real person, logo, emblem or regulator mark: a generic shop sign and generic people only.\n\n## What every beat shows (Task 046 Part D1; Navin, 30 October 2026)\n\nA world is used only for the story of the concept's real-world example, at the example's own place. In it every beat shows\nsomething happening that is not text (a person walking in or out, a price changing, goods or money moving, the balance\ntilting), cued on a word of that beat (D1-01). A board holds a name, a number or a short phrase, never a sentence (D1-03),\nand never a caution line (\"illustrative\", \"imagined\", \"data not given\"): those stay BIE's background checks (D1-06).\n\n## On-screen text (CV-13 to CV-16; Navin's verdict on Money v1, 29 October 2026)\n\n- A board, label or tag holds ONE idea as a short COMPLETE phrase or sentence in the learner's language (Devanagari Hinglish\n  with the English terms the script uses): \"Payment में notes और coins के अलावा खाते का पैसा भी चलता है\", not\n  \"Money = balance / Device ≠ money\".\n- Never a code: no ✓ ✗ ≠; no list of bare words (\"Exchange ✓ · Account ✓ / Store · Deferred\"); no line that ends on → = : /.\n- Every text is explained: its key words and every number are said in the narration of its cue beat (the code refuses a text\n  or a number the beat does not say; move the cue to the beat that says it, or leave it to the narration).\n- A caveat (\"imagined market\", \"illustrative numbers\") once per part, on its own small label, not on every board.\n\nHow to fill the JSON (every field is present; \"\" / 0 / [] mean \"not used\"):\n- notes: the story of this part in two lines, what each camera move shows, what is uncertain.\n- elements: in story order; id (unique), kind, the fields of that kind (card), cue [beat_id, word] (word exactly as written\n  in that beat; [beat_id, \"\"] for the beat's start) and until_cue when it leaves; steps (text/n + cue) for a price tag, a\n  board or a crowd; packets (n + cue) for the shop's stock; lift_cue + lift_dy lifts a price tag; carry_cue + carry_n sends\n  buyers away with goods; tilt_cue tilts the balance. The place element (shop or bank) is the kit named above, once.\n- camera: keys in time order, each with cue, x and y in world pixels, zoom and frames (how long the move takes).\nReply with the JSON object only.",
+  "user": "Chapter: 3. Money. Part c10.1 (1 beats).\nDikhane ki soch for this part (the visual-idea step; every beat shows its thing on its word, D1-01):\n- b19: आगे खर्च होने का भरोसा मुद्रा स्वीकार करवाता है · relation accept · shows: नोट स्वीकार; चावल मिले; वही नोट आगे खर्च · on '₹100'\nIcons found for the things named (id · name); you may also use any id from the general menu below:\n- ₹100 note: fa:solid/money-bill-1 (Money Bill 1); tw:1f4b5 (banknote with dollar sign); tw:1f3b5 (musical note)\n- rice: tw:1f33e (ear of rice); tw:1f358 (rice cracker); tw:1f359 (rice ball)\n- rice bag: tw:1f33e (ear of rice); tw:1f358 (rice cracker); tw:1f359 (rice ball)\n- customer: tw:1f6cd (shopping bags); fa:solid/headset (Headset)\n- shopkeeper: tw:1f9d1-200d-1f4bc (adult + briefcase)\n- another seller: tw:1f9d1-200d-1f4bc (adult + briefcase)\n\nThe part (JSON):\n{\"part\": {\"id\": \"v4_s4s\", \"part_id\": \"c10.1\", \"mode\": \"C\", \"place\": \"shop\", \"story\": true}, \"beats\": [{\"beat_id\": \"b19\", \"say\": \"दुकानदार paper क्यों ले? आप अपने ₹100 देकर चावल लेते हैं। दुकानदार उन्हें स्वीकार करता है क्योंकि आगे खुद खर्च कर पाने का भरोसा है।\"}], \"items\": [{\"item_id\": \"p004-i9\", \"content_type\": \"definition\", \"content\": \"It is money whose value comes from government authority and public trust rather than the intrinsic value of material from which it is made.\", \"real_world_example\": {\"place\": \"Indian kirana shop, hypothetical transaction\", \"actors\": [\"buyer\", \"shopkeeper\"], \"goods\": [\"₹100 note\", \"rice\"], \"numbers\": [{\"what\": \"buyer's cash after purchasing ₹100 of rice\", \"before\": \"₹100\", \"after\": \"₹0\"}, {\"what\": \"shopkeeper's receipt from the sale\", \"before\": \"₹0\", \"after\": \"₹100\"}], \"steps\": [{\"step\": \"A buyer offers a ₹100 note for rice priced at ₹100.\", \"mechanism_link\": \"The note functions as payment rather than as valuable paper material.\"}, {\"step\": \"The seller accepts it expecting to use it for another payment.\", \"mechanism_link\": \"Continuing acceptance illustrates the role of public trust.\"}], \"term_after\": \"Money accepted on authority and trust rather than its material value is fiat currency.\", \"real_life_link\": \"The learner encounters this distinction whenever ordinary money buys groceries without a gold-redemption transaction.\"}}], \"on_screen_hints\": [\"Buyer hands over ₹100 for rice → seller accepts → seller can make a later payment\"], \"ideas\": [{\"beat_id\": \"b19\", \"idea\": \"आगे खर्च होने का भरोसा मुद्रा स्वीकार करवाता है\", \"relation\": \"accept\", \"things\": [\"₹100 note\", \"rice\", \"rice bag\"], \"people\": [\"customer\", \"shopkeeper\", \"another seller\"], \"places\": [], \"shows\": \"नोट स्वीकार; चावल मिले; वही नोट आगे खर्च\", \"on_word\": \"₹100\"}], \"picture\": []}\n\nReply with the plan JSON."
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "started_at": 1793474134.8030384,
+   "mode": "full",
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "a2940cd1819c9a1816ac98c284f030a8c0010e07edc46bda8a580463da9c8ddd",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 8139,
+    "output_tokens": 1840,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "किराना दुकान में ₹100 देकर चावल लेना और दुकानदार का आगे खर्च कर पाने का भरोसा दिखाना है। यही एक canvas बना रहेगा।",
+    "key_questions": [
+     "दुकानदार paper स्वीकार क्यों करता है?",
+     "आगे खर्च कर पाने का भरोसा इस स्वीकार को कैसे समझाता है?"
+    ],
+    "decisions": [
+     {
+      "decision": "खरीदार चावल लेकर जाता है; भुगतान पर एक money effect दिखता है।",
+      "reason": "स्वीकार को केवल लिखने के बजाय लेन-देन में दिखाना है।"
+     },
+     {
+      "decision": "कैमरा पहले दुकान, फिर भुगतान और अंत में दुकानदार पर जाता है।",
+      "reason": "एक ही जगह पर वस्तु मिलने से आगे खर्च के भरोसे तक ध्यान ले जाना है।"
+     },
+     {
+      "decision": "दूसरा पूरा सौदा या अतिरिक्त रकम नहीं दिखाई जाएगी।",
+      "reason": "नरेशन आगे खर्च का भरोसा बताता है, वास्तव में हुआ अगला सौदा नहीं।"
+     }
+    ],
+    "uncertain": [
+     "उपलब्ध kit में packets चावल के पैकेट दर्शाते हैं; money effect वास्तविक ₹100 नोट के हस्तांतरण का सांकेतिक विकल्प है।"
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "किराना दुकान में ₹100 देकर चावल लेना और दुकानदार का आगे खर्च कर पाने का भरोसा दिखाना है। यही एक canvas बना रहेगा।",
+     "key_questions": [
+      "दुकानदार paper स्वीकार क्यों करता है?",
+      "आगे खर्च कर पाने का भरोसा इस स्वीकार को कैसे समझाता है?"
+     ],
+     "decisions": [
+      {
+       "decision": "खरीदार चावल लेकर जाता है; भुगतान पर एक money effect दिखता है।",
+       "reason": "स्वीकार को केवल लिखने के बजाय लेन-देन में दिखाना है।"
+      },
+      {
+       "decision": "कैमरा पहले दुकान, फिर भुगतान और अंत में दुकानदार पर जाता है।",
+       "reason": "एक ही जगह पर वस्तु मिलने से आगे खर्च के भरोसे तक ध्यान ले जाना है।"
+      },
+      {
+       "decision": "दूसरा पूरा सौदा या अतिरिक्त रकम नहीं दिखाई जाएगी।",
+       "reason": "नरेशन आगे खर्च का भरोसा बताता है, वास्तव में हुआ अगला सौदा नहीं।"
+      }
+     ],
+     "uncertain": [
+      "उपलब्ध kit में packets चावल के पैकेट दर्शाते हैं; money effect वास्तविक ₹100 नोट के हस्तांतरण का सांकेतिक विकल्प है।"
+     ]
+    },
+    "elements": [
+     {
+      "id": "rice_shop",
+      "kind": "shop",
+      "x": 2600,
+      "y": 860,
+      "sign": "",
+      "text": "",
+      "fill": "",
+      "string": 0,
+      "steps": [],
+      "packets": [
+       {
+        "n": 3,
+        "cue": [
+         "b19",
+         "दुकानदार"
+        ]
+       },
+       {
+        "n": 2,
+        "cue": [
+         "b19",
+         "चावल"
+        ]
+       }
+      ],
+      "cue": [
+       "b19",
+       "दुकानदार"
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "seller",
+      "kind": "shopkeeper",
+      "x": 2600,
+      "y": 860,
+      "sign": "",
+      "text": "",
+      "fill": "",
+      "string": 0,
+      "steps": [],
+      "packets": [],
+      "cue": [
+       "b19",
+       "दुकानदार"
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "buyer",
+      "kind": "crowd",
+      "x": 0,
+      "y": 0,
+      "sign": "",
+      "text": "",
+      "fill": "",
+      "string": 0,
+      "steps": [
+       {
+        "text": "",
+        "n": 1,
+        "dir": "",
+        "cue": [
+         "b19",
+         "आप"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b19",
+       "आप"
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 2270,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 95,
+      "enter_x": 1800,
+      "exit_x": 1750,
+      "face": 1,
+      "seed": 19,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [
+       "b19",
+       "चावल"
+      ],
+      "carry_n": 1
+     },
+     {
+      "id": "payment",
+      "kind": "coin_rain",
+      "x": 0,
+      "y": 0,
+      "sign": "",
+      "text": "",
+      "fill": "",
+      "string": 0,
+      "steps": [],
+      "packets": [],
+      "cue": [
+       "b19",
+       "₹100"
+      ],
+      "until_cue": [
+       "b19",
+       "क्योंकि"
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 2440,
+      "x1": 2540,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 19,
+      "count": 1,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     },
+     {
+      "id": "payment_value",
+      "kind": "board",
+      "x": 2910,
+      "y": 510,
+      "sign": "",
+      "text": "",
+      "fill": "#E8DDC8",
+      "string": 0,
+      "steps": [
+       {
+        "text": "₹100",
+        "n": 0,
+        "dir": "",
+        "cue": [
+         "b19",
+         "₹100"
+        ]
+       }
+      ],
+      "packets": [],
+      "cue": [
+       "b19",
+       "₹100"
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0
+     }
+    ],
+    "camera": [
+     {
+      "cue": [
+       "b19",
+       ""
+      ],
+      "x": 2530,
+      "y": 570,
+      "zoom": 1,
+      "frames": 30
+     },
+     {
+      "cue": [
+       "b19",
+       "₹100"
+      ],
+      "x": 2540,
+      "y": 590,
+      "zoom": 1.2,
+      "frames": 30
+     },
+     {
+      "cue": [
+       "b19",
+       "स्वीकार"
+      ],
+      "x": 2630,
+      "y": 570,
+      "zoom": 1.3,
+      "frames": 35
+     },
+     {
+      "cue": [
+       "b19",
+       "खर्च"
+      ],
+      "x": 2690,
+      "y": 550,
+      "zoom": 1.4,
+      "frames": 35
+     }
+    ]
+   },
+   "code_problems": [],
+   "passed": true,
+   "finished_at": 1793474167.1758897
+  }
+ ],
+ "avoid_rounds": [],
+ "cost_usd": 0.0,
+ "seconds": 32.4,
+ "navin_verdict": null
+}

@@ -1,0 +1,170 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "canvas",
+ "unit": "v4_s10b-ideas",
+ "status": "passed",
+ "instructions_version": "visual-ideas/1",
+ "rulebook_version": "canvas_profile@2026-10-29.1+content_types@2026-10-27.1+explanations@2026-10-24.3+level_profiles@2026-10-24.1+simple_hindi@2026-10-28.1+teacher_examples@2026-10-29.1+vision-2026-10-21@2026-10-21.17+visual_grammar@2026-10-31.1+visual_levels@2026-10-26.2+visual_verbs@2026-10-31.1",
+ "rulebook_digest": "0271c5cb76262d9d2239ea932af7c8d8701ae3275cbd3e1d63053dfd8a6e35e8",
+ "rules_used": [
+  "CV-01",
+  "CV-02",
+  "CV-03",
+  "CV-04",
+  "CV-05",
+  "CV-06",
+  "CV-07",
+  "CV-08",
+  "CV-09",
+  "CV-10",
+  "CV-11",
+  "CV-12",
+  "CV-13",
+  "CV-14",
+  "CV-15",
+  "CV-16",
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-05",
+  "G-06",
+  "G-07",
+  "VG-02",
+  "VG-04",
+  "VG-07",
+  "VG-08",
+  "VG-10",
+  "D1-01",
+  "D1-02",
+  "D1-03",
+  "D1-04",
+  "D1-05",
+  "D1-06"
+ ],
+ "maker_route": "codex",
+ "reviewer_route": "codex-checker",
+ "maker_model": "gpt-6.1-sol",
+ "reviewer_model": "gpt-6.1-sol",
+ "reviewer_independence": "same_model_temporary",
+ "inputs_digest": "30649db84c463da6a30231c0d1e4c94ecd5a3f2d05855bc517a675def1f2c258",
+ "card": null,
+ "prefix_sha256": "c6f112feafad98f7e559d4540bd181a4ea77ac3346f1df20c826ce7825bc3a90",
+ "review_prefix_sha256": null,
+ "inputs": {
+  "system": "You are BIE's visual thinker for one part of a video lesson of Indian Economy for UPSC / State PCS aspirants (UPSC / State PCS). The script is written and\npassed; you do not change a word. Before any layout, say for EVERY beat what the learner should SEE so that the spoken point is\nclear through the eyes (Navin, 30 October 2026: \"jo bola ja rha hai screen ke visuals se wo baat clear ho\"; a screen of text alone\nis a book, not a video). Code then finds the things in BIE's icon index and asset library, places the book's own pictures, and\nchecks the layout.\n\nCourse: \"3. Money\" · learner language: Hinglish.\n\nFor each beat give:\n- idea: the key idea in a few words (what the teacher is making the learner understand right now).\n- relation: ONE id from this list, how the idea relates its things (or \"other\" with relation_note; an \"other\" is logged so Navin can\n  add it):\n- reject: a cross mark on the thing refused (the thing's icon first, then the cross on it, on the word that refuses)\n- accept: a tick on the thing accepted\n- compulsory: a law scroll with a stamp on it, beside the thing the law binds\n- limit: a meter or a stack that fills up to a red line where it stops (the limit's number on the line)\n- more_less: two sizes side by side, or a crowd / stack that grows or shrinks on the word\n- count: a counted stack or crowd whose number is the narration's number\n- sequence: a numbered row or a timeline with arrows; the book's own years and labels when the part covers a book timeline\n- cause_effect: an arrow chain: the cause's icon, an arrow, the effect's icon or number\n- compare: a split screen (the same slots on both sides) or a balance scale; the book's own table when the part covers one\n- part_whole: a grouping: the whole as a box, its parts as icons inside it, or a tree\n- place: a map with the place marked, or the place's flag beside the thing\n- change: before and after side by side, the old struck out, the new in its place\n- promise: a receipt or a handshake between the two parties, the promise's words as a short label\n- question: the thing asked about with a question mark beside it; the answer's picture replaces the mark when the answer comes\n- other: a relation outside this list: the step logs it (relations_outside_list) so Navin can add an entry; the beat still shows its things as themselves\n- things, people, places: the concrete nouns the beat names or implies, as plain English or Hindi words a picture can show (wheat,\n  cloth, salt, coin, ₹500 note, phone, law scroll, Sweden, 1661, farmer, shopkeeper). A real person is never drawn (card rule 8): name\n  the role (a king, a ruler) or the object (a coin with a seal), not the person.\n- shows: what is seen, in at most 8 words, as a picture description (a cross on the old coin; a meter filling to ₹1,000\n  with a red line; wheat and cloth swapping hands). Never a sentence for the screen: the sentence is the narration.\n- on_word: the word of this beat (exactly as written) on which the picture should appear (\"\" = the beat's start).\n- image_wanted: a real object an icon cannot show and a photograph or museum image can (a punch-marked silver coin, a cowrie\n  shell, a cheque leaf), as search words; \"\" when an icon is enough. Never a person's portrait (card rule 8).\npicture_type: the one picture this part needs most, from timeline, gallery (a row of icon cards), table, flow, tree, chart, map or things (the things themselves with the relation's mark, arrow, meter or scale); the card part's type is \"none\". picture_note: one line on why.\nReply with the JSON object only.",
+  "user": "Chapter: 3. Money. Part c11.q (2 beats).\nThe part (JSON):\n{\"part\": {\"id\": \"v4_s10b\", \"part_id\": \"c11.q\", \"card_type\": \"none\", \"story\": false}, \"beats\": [{\"beat_id\": \"b61\", \"say\": \"पहला cheque, दूसरा credit card था: payment instruments, खुद currency नहीं। Cheque deposits का instruction, card credit तक पहुँच है। College का स्वीकार करना fiat या legal-tender status नहीं देता; payment method अलग सवाल है।\", \"relation_guess\": \"place\"}, {\"beat_id\": \"b62\", \"say\": \"Value, legal status और payment method अलग हैं। आगे: gold link बिना dollar की माँग क्यों?\", \"relation_guess\": \"place\"}], \"items\": [{\"item_id\": \"p005-i3\", \"content_type\": \"comparison\", \"content\": \"We can use cheque / credit card to pay fees. So, why are they not fiat money/legal tender?\"}], \"book_pictures\": []}\n\nReply with the ideas JSON."
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "started_at": 1793475055.433612,
+   "mode": "full",
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "f166a3baaa30640c00ba5374443758ea69548cd1d5ff26317735b38f4e6d0bee",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 4683,
+    "output_tokens": 343,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "Distinguishes payment instruments from currency and legal status, then introduces demand for dollars without a gold link.",
+    "key_questions": [
+     "Why does college acceptance not make cheques or credit cards legal tender?",
+     "How do value, legal status and payment method differ?"
+    ],
+    "decisions": [
+     {
+      "decision": "Use comparison rather than place for b61.",
+      "reason": "The distinction concerns how two payment instruments work, not geography."
+     },
+     {
+      "decision": "End with a dollar-demand question, not an answer.",
+      "reason": "The explanation belongs to the next part."
+     }
+    ],
+    "uncertain": []
+   },
+   "output": {
+    "notes": {
+     "about": "Distinguishes payment instruments from currency and legal status, then introduces demand for dollars without a gold link.",
+     "key_questions": [
+      "Why does college acceptance not make cheques or credit cards legal tender?",
+      "How do value, legal status and payment method differ?"
+     ],
+     "decisions": [
+      {
+       "decision": "Use comparison rather than place for b61.",
+       "reason": "The distinction concerns how two payment instruments work, not geography."
+      },
+      {
+       "decision": "End with a dollar-demand question, not an answer.",
+       "reason": "The explanation belongs to the next part."
+      }
+     ],
+     "uncertain": []
+    },
+    "beats": [
+     {
+      "beat_id": "b61",
+      "idea": "Payment instruments are not currency or legal status",
+      "relation": "compare",
+      "relation_note": "",
+      "things": [
+       "cheque leaf",
+       "credit card",
+       "bank deposit",
+       "instruction slip",
+       "credit facility",
+       "college fee receipt",
+       "currency notes",
+       "law scroll"
+      ],
+      "people": [],
+      "places": [
+       "college"
+      ],
+      "shows": "Cheque→deposits; card→credit; college acceptance≠legal status",
+      "on_word": "cheque",
+      "image_wanted": "Indian bank cheque leaf specimen"
+     },
+     {
+      "beat_id": "b62",
+      "idea": "Separate three concepts; question dollar demand",
+      "relation": "question",
+      "relation_note": "",
+      "things": [
+       "price tag",
+       "law scroll",
+       "cheque leaf",
+       "credit card",
+       "US dollar note",
+       "gold bar",
+       "broken chain",
+       "question mark"
+      ],
+      "people": [],
+      "places": [],
+      "shows": "Separate value/law/payment icons; unlinked dollar–gold, demand question",
+      "on_word": "Value",
+      "image_wanted": ""
+     }
+    ],
+    "picture_type": "flow",
+    "picture_note": "Parallel cheque-to-deposit and card-to-credit paths distinguish payment mechanisms, followed by a dollar-demand question."
+   },
+   "code_problems": [],
+   "passed": true,
+   "finished_at": 1793475067.4186695
+  }
+ ],
+ "avoid_rounds": [],
+ "cost_usd": 0.0,
+ "seconds": 12.0,
+ "navin_verdict": null
+}

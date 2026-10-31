@@ -1,0 +1,287 @@
+{
+ "id": "v2_s8s",
+ "part_id": "c06.2",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b53",
+   "say": "अब illustrative bazaar में किसान को 2 metres कपड़ा चाहिए। उसके 10 kg grain, trader के 2 kg salt और कपड़े की value बराबर मानिए।"
+  },
+  {
+   "beat_id": "b54",
+   "say": "किसान अपना 10 kg grain देकर 2 kg salt लेता है। फिर पूरा salt देकर 2 metres कपड़ा लेता है; grain और salt उसके पास नहीं बचे।"
+  }
+ ],
+ "kit": "shop",
+ "elements": [
+  {
+   "id": "bazaar",
+   "kind": "shop",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b53",
+    "bazaar"
+   ],
+   "packets": [
+    {
+     "n": 2,
+     "cue": [
+      "b53",
+      "salt"
+     ]
+    },
+    {
+     "n": 0,
+     "cue": [
+      "b54",
+      "लेता"
+     ]
+    },
+    {
+     "n": 2,
+     "cue": [
+      "b54",
+      "फिर"
+     ]
+    },
+    {
+     "n": 0,
+     "cue": [
+      "b54",
+      "कपड़ा"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "farmer",
+   "kind": "crowd",
+   "x0": 2130,
+   "spacing": 90,
+   "enter_x": 1700,
+   "exit_x": 3300,
+   "face": 1,
+   "seed": 11,
+   "cue": [
+    "b53",
+    "किसान"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b53",
+      "किसान"
+     ],
+     "n": 1
+    }
+   ],
+   "carry": {
+    "cue": [
+     "b54",
+     "कपड़ा"
+    ],
+    "n": 1
+   }
+  },
+  {
+   "id": "wanted_cloth",
+   "kind": "board",
+   "x": 1830,
+   "y": 480,
+   "fill": "#DCEBDD",
+   "cue": [
+    "b53",
+    "कपड़ा"
+   ],
+   "until_cue": [
+    "b54",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b53",
+      "कपड़ा"
+     ],
+     "text": "2 metres कपड़ा चाहिए"
+    }
+   ]
+  },
+  {
+   "id": "farmer_holding",
+   "kind": "board",
+   "x": 2150,
+   "y": 480,
+   "fill": "#EFE1BD",
+   "cue": [
+    "b53",
+    "grain,"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b53",
+      "grain,"
+     ],
+     "text": "10 kg grain"
+    },
+    {
+     "cue": [
+      "b54",
+      "salt"
+     ],
+     "text": "2 kg salt"
+    },
+    {
+     "cue": [
+      "b54",
+      "कपड़ा"
+     ],
+     "text": "2 metres कपड़ा"
+    }
+   ]
+  },
+  {
+   "id": "salt_trader",
+   "kind": "shopkeeper",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b53",
+    "trader"
+   ]
+  },
+  {
+   "id": "trader_stock",
+   "kind": "board",
+   "x": 2800,
+   "y": 470,
+   "fill": "#DBE8EF",
+   "cue": [
+    "b53",
+    "salt"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b53",
+      "salt"
+     ],
+     "text": "2 kg salt"
+    },
+    {
+     "cue": [
+      "b54",
+      "देकर"
+     ],
+     "text": "10 kg grain"
+    }
+   ]
+  },
+  {
+   "id": "equal_value",
+   "kind": "balance",
+   "x": 2460,
+   "y": 290,
+   "cue": [
+    "b53",
+    "बराबर"
+   ],
+   "until_cue": [
+    "b54",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "cloth_seller",
+   "kind": "crowd",
+   "x0": 3000,
+   "spacing": 90,
+   "enter_x": 3400,
+   "exit_x": 3500,
+   "face": -1,
+   "seed": 24,
+   "cue": [
+    "b54",
+    "फिर"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b54",
+      "फिर"
+     ],
+     "n": 1
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b53",
+    "",
+    0.0
+   ],
+   "x": 2450,
+   "y": 520,
+   "zoom": 0.8,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b53",
+    "उसके"
+   ],
+   "x": 2450,
+   "y": 480,
+   "zoom": 0.95,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b53",
+    "बराबर"
+   ],
+   "x": 2450,
+   "y": 440,
+   "zoom": 0.85,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b54",
+    "",
+    0.0
+   ],
+   "x": 2440,
+   "y": 570,
+   "zoom": 1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b54",
+    "फिर"
+   ],
+   "x": 2750,
+   "y": 550,
+   "zoom": 0.9,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b54",
+    "नहीं"
+   ],
+   "x": 2840,
+   "y": 570,
+   "zoom": 0.8,
+   "frames": 45
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

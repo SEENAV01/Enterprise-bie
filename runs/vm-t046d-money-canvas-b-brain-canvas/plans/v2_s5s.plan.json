@@ -1,0 +1,879 @@
+{
+ "id": "v2_s5s",
+ "part_id": "c04.1",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b25",
+   "say": "मानिए किसान ने 2 kg wheat देकर 1 kg नमक लिया, खाने के लिए नहीं। फिर उसने सारा नमक देकर 1 metre कपड़ा खरीदा।"
+  },
+  {
+   "beat_id": "b26",
+   "say": "नमक यहाँ बीच का पुल है, इसलिए commodity money है। दूसरा पड़ाव salt, cattle, shells दिखाता है; cloth seller को wheat चाहना नहीं पड़ा।"
+  },
+  {
+   "beat_id": "b27",
+   "say": "आपके पास 5 बराबर weight और purity वाले silver coins थे। आपने 2 देकर 5 kg अनाज खरीदा; अब 3 बचे। तीसरा पड़ाव metallic money है, यानी gold या silver के सिक्के भुगतान का काम करते हैं।"
+  },
+  {
+   "beat_id": "b28",
+   "say": "टिकाऊ, बराबर measured coins गिनकर दे सकते हैं। Gold–silver का अपना material value है, इसलिए ये commodity money भी हैं।"
+  },
+  {
+   "beat_id": "b29",
+   "say": "₹300 का सामान लेकर ₹500 note दिया, ₹200 वापस मिले। यह चौथा पड़ाव paper money है; note denomination पर चला, कागज़ की कीमत पर नहीं।"
+  },
+  {
+   "beat_id": "b30",
+   "say": "हल्का note बड़ी amount पहुँचाता है; भारी metal नहीं ढोना पड़ता।"
+  },
+  {
+   "beat_id": "b31",
+   "say": "आपके ₹10,000 में से ₹1,500 का cheque settle हुआ; ₹8,500 बचे। दुकानदार के ₹2,000 में जुड़कर ₹3,500 हुए। पाँचवाँ पड़ाव bank money है: deposits यानी खाते की रकम; cheque बैंक से उसी रकम का भुगतान करवाता है, नया पैसा नहीं बनाता।"
+  },
+  {
+   "beat_id": "b32",
+   "say": "खाते के ₹2,000 में से QR scan करके ₹300 दिए; ₹1,700 बचे। दुकानदार के ₹5,000 में जुड़कर ₹5,300 हुए। छठा पड़ाव digital money है: UPI, net banking, cards; यानी यहाँ कागज़ देने के बजाय electronic instruction से भुगतान हुआ।"
+  }
+ ],
+ "kit": "shop",
+ "elements": [
+  {
+   "id": "market",
+   "kind": "shop",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b25",
+    "",
+    0.0
+   ],
+   "packets": [
+    {
+     "n": 2,
+     "cue": [
+      "b25",
+      "2"
+     ]
+    },
+    {
+     "n": 1,
+     "cue": [
+      "b25",
+      "नमक"
+     ]
+    },
+    {
+     "n": 1,
+     "cue": [
+      "b25",
+      "कपड़ा"
+     ]
+    },
+    {
+     "n": 5,
+     "cue": [
+      "b27",
+      "अनाज"
+     ]
+    },
+    {
+     "n": 1,
+     "cue": [
+      "b29",
+      "सामान"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "seller",
+   "kind": "shopkeeper",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b25",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "farmer",
+   "kind": "crowd",
+   "x0": 2220,
+   "spacing": 100,
+   "enter_x": 1750,
+   "exit_x": 3100,
+   "face": 1,
+   "seed": 25,
+   "cue": [
+    "b25",
+    "किसान"
+   ],
+   "until_cue": [
+    "b26",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b25",
+      "किसान"
+     ],
+     "n": 1
+    }
+   ],
+   "carry": {
+    "cue": [
+     "b25",
+     "खरीदा।"
+    ],
+    "n": 1
+   }
+  },
+  {
+   "id": "exchange",
+   "kind": "board",
+   "x": 3000,
+   "y": 500,
+   "fill": "#E7DCC4",
+   "cue": [
+    "b25",
+    "2"
+   ],
+   "until_cue": [
+    "b27",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b25",
+      "2"
+     ],
+     "text": "2 kg wheat"
+    },
+    {
+     "cue": [
+      "b25",
+      "नमक"
+     ],
+     "text": "1 kg नमक"
+    },
+    {
+     "cue": [
+      "b25",
+      "कपड़ा"
+     ],
+     "text": "1 metre कपड़ा"
+    },
+    {
+     "cue": [
+      "b26",
+      "पुल"
+     ],
+     "text": "नमक बीच का पुल"
+    },
+    {
+     "cue": [
+      "b26",
+      "commodity"
+     ],
+     "text": "commodity money"
+    }
+   ]
+  },
+  {
+   "id": "cloth_customer",
+   "kind": "crowd",
+   "x0": 2250,
+   "spacing": 100,
+   "enter_x": 1800,
+   "exit_x": 3150,
+   "face": 1,
+   "seed": 26,
+   "cue": [
+    "b26",
+    "पुल"
+   ],
+   "until_cue": [
+    "b27",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b26",
+      "पुल"
+     ],
+     "n": 1
+    }
+   ],
+   "carry": {
+    "cue": [
+     "b26",
+     "cloth"
+    ],
+    "n": 1
+   }
+  },
+  {
+   "id": "silver_coins",
+   "kind": "coin_rain",
+   "x0": 2120,
+   "x1": 2320,
+   "count": 5,
+   "cue": [
+    "b27",
+    "5"
+   ],
+   "until_cue": [
+    "b27",
+    "2"
+   ]
+  },
+  {
+   "id": "paid_coins",
+   "kind": "coin_rain",
+   "x0": 2500,
+   "x1": 2670,
+   "count": 2,
+   "cue": [
+    "b27",
+    "2"
+   ],
+   "until_cue": [
+    "b28",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "remaining_coins",
+   "kind": "coin_rain",
+   "x0": 2120,
+   "x1": 2320,
+   "count": 3,
+   "cue": [
+    "b27",
+    "3"
+   ],
+   "until_cue": [
+    "b29",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "metal",
+   "kind": "board",
+   "x": 3000,
+   "y": 500,
+   "fill": "#E7DCC4",
+   "cue": [
+    "b27",
+    "metallic"
+   ],
+   "until_cue": [
+    "b29",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b27",
+      "metallic"
+     ],
+     "text": "metallic money"
+    },
+    {
+     "cue": [
+      "b28",
+      "measured"
+     ],
+     "text": "बराबर measured coins"
+    },
+    {
+     "cue": [
+      "b28",
+      "material"
+     ],
+     "text": "अपना material value"
+    },
+    {
+     "cue": [
+      "b28",
+      "commodity"
+     ],
+     "text": "commodity money भी"
+    }
+   ]
+  },
+  {
+   "id": "measuring",
+   "kind": "balance",
+   "x": 2600,
+   "y": 580,
+   "cue": [
+    "b28",
+    "टिकाऊ,"
+   ],
+   "until_cue": [
+    "b29",
+    "",
+    0.0
+   ],
+   "tilt_cue": [
+    "b28",
+    "बराबर"
+   ]
+  },
+  {
+   "id": "cash_price",
+   "kind": "price_tag",
+   "x": 2770,
+   "y": 430,
+   "string": 70,
+   "cue": [
+    "b29",
+    "₹300"
+   ],
+   "until_cue": [
+    "b30",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b29",
+      "₹300"
+     ],
+     "text": "₹300"
+    }
+   ]
+  },
+  {
+   "id": "cash",
+   "kind": "board",
+   "x": 3050,
+   "y": 520,
+   "fill": "#DCE9D5",
+   "cue": [
+    "b29",
+    "₹500"
+   ],
+   "until_cue": [
+    "b31",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b29",
+      "₹500"
+     ],
+     "text": "₹500 note"
+    },
+    {
+     "cue": [
+      "b29",
+      "₹200"
+     ],
+     "text": "₹200",
+     "dir": "down"
+    },
+    {
+     "cue": [
+      "b29",
+      "paper"
+     ],
+     "text": "paper money"
+    },
+    {
+     "cue": [
+      "b30",
+      "हल्का"
+     ],
+     "text": "हल्का note"
+    }
+   ]
+  },
+  {
+   "id": "cash_buyer",
+   "kind": "crowd",
+   "x0": 2250,
+   "spacing": 100,
+   "enter_x": 1800,
+   "exit_x": 3250,
+   "face": 1,
+   "seed": 29,
+   "cue": [
+    "b29",
+    "सामान"
+   ],
+   "until_cue": [
+    "b31",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b29",
+      "सामान"
+     ],
+     "n": 1
+    }
+   ],
+   "carry": {
+    "cue": [
+     "b30",
+     "पहुँचाता"
+    ],
+    "n": 1
+   }
+  },
+  {
+   "id": "customer_account",
+   "kind": "board",
+   "x": 2140,
+   "y": 480,
+   "fill": "#DDEAF2",
+   "cue": [
+    "b31",
+    "₹10,000"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b31",
+      "₹10,000"
+     ],
+     "text": "₹10,000"
+    },
+    {
+     "cue": [
+      "b31",
+      "₹8,500"
+     ],
+     "text": "₹8,500",
+     "dir": "down"
+    },
+    {
+     "cue": [
+      "b32",
+      "₹2,000"
+     ],
+     "text": "₹2,000"
+    },
+    {
+     "cue": [
+      "b32",
+      "₹1,700"
+     ],
+     "text": "₹1,700",
+     "dir": "down"
+    }
+   ]
+  },
+  {
+   "id": "seller_account",
+   "kind": "board",
+   "x": 3030,
+   "y": 480,
+   "fill": "#DCE9D5",
+   "cue": [
+    "b31",
+    "₹2,000"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b31",
+      "₹2,000"
+     ],
+     "text": "₹2,000"
+    },
+    {
+     "cue": [
+      "b31",
+      "₹3,500"
+     ],
+     "text": "₹3,500",
+     "dir": "up"
+    },
+    {
+     "cue": [
+      "b32",
+      "₹5,000"
+     ],
+     "text": "₹5,000"
+    },
+    {
+     "cue": [
+      "b32",
+      "₹5,300"
+     ],
+     "text": "₹5,300",
+     "dir": "up"
+    }
+   ]
+  },
+  {
+   "id": "account_customer",
+   "kind": "crowd",
+   "x0": 2310,
+   "spacing": 100,
+   "enter_x": 1770,
+   "exit_x": 3300,
+   "face": 1,
+   "seed": 31,
+   "cue": [
+    "b31",
+    "₹10,000"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b31",
+      "₹10,000"
+     ],
+     "n": 1
+    },
+    {
+     "cue": [
+      "b31",
+      "भुगतान"
+     ],
+     "n": 0
+    },
+    {
+     "cue": [
+      "b32",
+      "₹2,000"
+     ],
+     "n": 1
+    },
+    {
+     "cue": [
+      "b32",
+      "electronic"
+     ],
+     "n": 0
+    }
+   ]
+  },
+  {
+   "id": "instruction",
+   "kind": "board",
+   "x": 2600,
+   "y": 300,
+   "fill": "#E7DCC4",
+   "cue": [
+    "b31",
+    "cheque"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b31",
+      "cheque"
+     ],
+     "text": "₹1,500 cheque"
+    },
+    {
+     "cue": [
+      "b31",
+      "bank"
+     ],
+     "text": "bank money"
+    },
+    {
+     "cue": [
+      "b31",
+      "रकम;"
+     ],
+     "text": "खाते की रकम"
+    },
+    {
+     "cue": [
+      "b32",
+      "QR"
+     ],
+     "text": "QR scan"
+    },
+    {
+     "cue": [
+      "b32",
+      "₹300"
+     ],
+     "text": "₹300"
+    },
+    {
+     "cue": [
+      "b32",
+      "digital"
+     ],
+     "text": "digital money"
+    },
+    {
+     "cue": [
+      "b32",
+      "electronic"
+     ],
+     "text": "electronic instruction"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b25",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 530,
+   "zoom": 0.95,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b25",
+    "नमक"
+   ],
+   "x": 2720,
+   "y": 520,
+   "zoom": 1.1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b25",
+    "कपड़ा"
+   ],
+   "x": 2600,
+   "y": 540,
+   "zoom": 1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b26",
+    "पुल"
+   ],
+   "x": 2680,
+   "y": 520,
+   "zoom": 1.05,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b26",
+    "cloth"
+   ],
+   "x": 2510,
+   "y": 560,
+   "zoom": 1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b27",
+    "5"
+   ],
+   "x": 2350,
+   "y": 600,
+   "zoom": 1.2,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b27",
+    "अनाज"
+   ],
+   "x": 2570,
+   "y": 570,
+   "zoom": 1.1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b27",
+    "metallic"
+   ],
+   "x": 2700,
+   "y": 530,
+   "zoom": 1,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b28",
+    "टिकाऊ,"
+   ],
+   "x": 2650,
+   "y": 530,
+   "zoom": 1.15,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b28",
+    "material"
+   ],
+   "x": 2770,
+   "y": 520,
+   "zoom": 1.05,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b29",
+    "₹300"
+   ],
+   "x": 2670,
+   "y": 520,
+   "zoom": 1.05,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b29",
+    "₹200"
+   ],
+   "x": 2800,
+   "y": 510,
+   "zoom": 1.1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b29",
+    "denomination"
+   ],
+   "x": 2750,
+   "y": 530,
+   "zoom": 1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b30",
+    "हल्का"
+   ],
+   "x": 2690,
+   "y": 540,
+   "zoom": 0.95,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b31",
+    "₹10,000"
+   ],
+   "x": 2510,
+   "y": 500,
+   "zoom": 0.95,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b31",
+    "₹8,500"
+   ],
+   "x": 2450,
+   "y": 480,
+   "zoom": 1,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b31",
+    "₹3,500"
+   ],
+   "x": 2680,
+   "y": 480,
+   "zoom": 1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b31",
+    "deposits"
+   ],
+   "x": 2580,
+   "y": 470,
+   "zoom": 0.95,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b31",
+    "नया"
+   ],
+   "x": 2580,
+   "y": 450,
+   "zoom": 1.05,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b32",
+    "₹2,000"
+   ],
+   "x": 2500,
+   "y": 480,
+   "zoom": 0.95,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b32",
+    "₹1,700"
+   ],
+   "x": 2460,
+   "y": 480,
+   "zoom": 1,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b32",
+    "₹5,300"
+   ],
+   "x": 2670,
+   "y": 480,
+   "zoom": 1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b32",
+    "UPI,"
+   ],
+   "x": 2580,
+   "y": 470,
+   "zoom": 0.95,
+   "frames": 45
+  },
+  {
+   "cue": [
+    "b32",
+    "electronic"
+   ],
+   "x": 2580,
+   "y": 450,
+   "zoom": 1.05,
+   "frames": 40
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}
