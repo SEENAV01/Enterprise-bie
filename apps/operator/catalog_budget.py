@@ -39,6 +39,12 @@ class CatalogBudget:
             # missing startup file is also valid; SQLite remains authoritative.
             try: observed=target.stat(follow_symlinks=False)
             except FileNotFoundError: continue
+            # The same last close can land between the stat's path lookup and
+            # its attribute read: the kernel then reports the sidecar's last link
+            # already gone (st_nlink 0). That is the vanished file above, not an
+            # alias; a hardlink (st_nlink >= 2), a non-regular file and the main
+            # database with no link stay rejected (CI run 41223280162).
+            if suffix and stat.S_ISREG(observed.st_mode) and observed.st_nlink==0: continue
             require(stat.S_ISREG(observed.st_mode) and observed.st_nlink==1,
                     'storage_link_rejected')
             require(observed.st_size<=limit,'catalog_storage_capacity_reached',503)

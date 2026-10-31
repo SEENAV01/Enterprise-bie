@@ -65,3 +65,30 @@ class CatalogFileSafety(unittest.TestCase):
         with self.assertRaisesRegex(OperatorError,'catalog_storage_capacity_reached'):budget.files(self.path)
         self.assertEqual(wal.read_bytes(),b'12345')
 if __name__=='__main__':unittest.main(verbosity=2)
+
+class CatalogUnlinkedDuringStat(unittest.TestCase):
+    """CI run 41223280162: SQLite's last close landed between a stat's path lookup and its attribute read, so the sidecar
+    was reported with st_nlink 0. The kernel window cannot be forced from Python, so the stat result is forged here; the
+    real last close (missing file) is covered by CatalogFileSafety above."""
+    def setUp(self):
+        self.tmp=tempfile.TemporaryDirectory(prefix='bie-s18-catalog-nlink0-');self.root=Path(self.tmp.name)
+        self.path=self.root/'operator.sqlite3';self.budget=CatalogBudget()
+        self.path.write_bytes(b'SYNTHETIC_TEST')
+    def tearDown(self):self.tmp.cleanup()
+    def forged(self,name,nlink,mode=0o100600):
+        real=Path.stat
+        def fake(path,*a,**kw):
+            if path.name==name:return os.stat_result((mode,1,1,nlink,0,0,14,0,0,0))
+            return real(path,*a,**kw)
+        return fake
+    def test_a_sidecar_unlinked_during_the_stat_is_a_vanished_file(self):
+        from unittest import mock
+        with mock.patch.object(Path,'stat',self.forged('operator.sqlite3-wal',0)):self.budget.files(self.path)
+    def test_a_hardlinked_sidecar_and_an_unlinked_main_database_stay_rejected(self):
+        from unittest import mock
+        with mock.patch.object(Path,'stat',self.forged('operator.sqlite3-wal',2)):
+            with self.assertRaisesRegex(OperatorError,'storage_link_rejected'):self.budget.files(self.path)
+        with mock.patch.object(Path,'stat',self.forged('operator.sqlite3',0)):
+            with self.assertRaisesRegex(OperatorError,'storage_link_rejected'):self.budget.files(self.path)
+        with mock.patch.object(Path,'stat',self.forged('operator.sqlite3-shm',0,mode=0o010600)):
+            with self.assertRaisesRegex(OperatorError,'storage_link_rejected'):self.budget.files(self.path)

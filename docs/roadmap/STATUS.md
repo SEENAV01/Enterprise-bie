@@ -1422,6 +1422,17 @@ PR B (only after Navin's yes): live runs on the Gemini key, maker `google/gemini
 
 ## Known technical debts
 
+- F-18 (31 October 2026, PR #112 run 41223280162, job `canonical-regression` of the Section 18 gate, head `c544c71f`): the
+  atomic lane's `test_worker_recovery … reconcile_one_intent_once_after_crash` failed once (691 of 692 passed). The child's
+  traceback (read from the job's evidence artifact): `Service()` → `catalog.tx` → `CatalogBudget.files` →
+  `storage_link_rejected`. Cause: two processes open the same catalogue; the other one's SQLite last close removed a `-wal`
+  or `-shm` sidecar between this process's stat path lookup and its attribute read, so the stat reported the sidecar with
+  `st_nlink` 0. H1-005 already treats a sidecar that vanished as valid (missing); the unlinked-during-stat moment was the
+  same event seen one step later. Not re-run (rule CI-2); not reproduced locally in 120 runs (40 plain, 80 under load).
+  Fix on branch `s18-sidecar-nlink-race`, its own PR: a sidecar that is a regular file with `st_nlink` 0 is read as
+  vanished in `CatalogBudget.files` and in the native-tree inventory; a hardlinked sidecar, a non-regular sidecar and a main
+  database with no link stay rejected (tests in `tests/section18/test_catalog_file_race.py`). It touches a storage-safety
+  check, so it waits for Navin's yes before it is merged.
 - F-11 again (26 October 2026, Task 046 one-shot render, run 40329012680 on draft PR #76): all 15 render chunks and the
   three sample-sweep frames passed (frames kept as artifacts), but the `finish` job was cancelled at its 30-minute limit
   in its plain `apt-get install ffmpeg` step (14:23 → 14:53 UTC): the same slow regional mirror as F-11(a). Not re-run.
