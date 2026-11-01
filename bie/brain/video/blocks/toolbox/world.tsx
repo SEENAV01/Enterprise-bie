@@ -12,7 +12,8 @@
 import React from "react";
 import { Easing, interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
 import { registerBlock, BlockProps } from "../registry";
-import { FONT } from "./common";
+import { FONT, assetUrl } from "./common";
+import { ActionStage, STAGE_W, FEET } from "./saanche";
 
 const ease = Easing.inOut(Easing.cubic);
 const lin = (f: number, a: number, b: number) =>
@@ -82,12 +83,14 @@ const Person: React.FC<{ x: number; y: number; s: number; facing: number; phase:
   );
 };
 
-const SugarBag: React.FC<{ x: number; y: number; s?: number }> = ({ x, y, s = 1 }) => (
+/** One of the story's goods (Task 046 Part D2, Navin's verdict of 1 November 2026: the D1 shop showed sugar while the story
+ *  bought salt and cloth): the picture the icon index or the asset library resolved for the thing the beat names, standing on
+ *  its base line. An old plan without goods gets a plain unmarked packet, never a named product. */
+const Goods: React.FC<{ src?: string; x: number; y: number; s?: number }> = ({ src, x, y, s = 1 }) => (
   <g transform={`translate(${x},${y}) scale(${s})`}>
-    <path d="M-26,0 L-30,-70 Q0,-80 30,-70 L26,0 Z" fill="#f7f7f2" stroke="#d8d4c8" strokeWidth={2} />
-    <path d="M-30,-70 Q0,-84 30,-70 L26,-78 Q0,-90 -26,-78 Z" fill="#e9e5da" />
-    <rect x={-20} y={-50} width={40} height={24} rx={4} fill="#2e86de" />
-    <text x={0} y={-33} textAnchor="middle" fontSize={14} fontWeight={800} fill="#fff" fontFamily={FONT}>चीनी</text>
+    {src ? <image href={assetUrl(src)} x={-40} y={-80} width={80} height={80} preserveAspectRatio="xMidYMax meet" />
+      : <g><path d="M-26,0 L-30,-70 Q0,-80 30,-70 L26,0 Z" fill="#efe6d2" stroke="#cdbf9f" strokeWidth={2} />
+        <path d="M-30,-70 Q0,-84 30,-70 L26,-78 Q0,-90 -26,-78 Z" fill="#e2d6bb" /></g>}
   </g>
 );
 
@@ -141,8 +144,14 @@ const Shop: React.FC<{ el: any; frame: number; fps: number }> = ({ el, frame, fp
       {[0, 1].map((i) => <rect key={i} x={x - w / 2 + 40} y={top + 270 + i * 110} width={w - 80} height={14} fill="#4e3626" />)}
       {Array.from({ length: packets }, (_, i) => {
         const k = pop(frame, fps, (el.packets?.[0]?.at ?? 0) + i * 4);
-        return <SugarBag key={i} x={x - 160 + i * 160} y={top + 270} s={1.45 * k} />;
+        const goods = el.goods ?? [];
+        const g = goods.length ? goods[i % goods.length] : null;
+        return <Goods key={i} src={g?.src} x={x - 160 + i * 160} y={top + 270} s={1.45 * k} />;
       })}
+      {(el.goods ?? []).filter((g: any) => g.label).slice(0, 1).map((g: any) => <g key="gl">
+        <rect x={x - g.label.length * 9 - 18} y={top + 292} width={g.label.length * 18 + 36} height={38} rx={19} fill="rgba(255,255,255,0.92)" />
+        <text x={x} y={top + 319} textAnchor="middle" fontSize={26} fontWeight={800} fill="#4e3626" fontFamily={FONT}>{g.label}</text>
+      </g>)}
       {/* awning */}
       {Array.from({ length: 10 }, (_, i) => (
         <path key={i} d={`M${x - w / 2 - 30 + i * ((w + 60) / 10)},${top + 60} l${(w + 60) / 10},0 l0,70 q${-(w + 60) / 20},26 ${-(w + 60) / 10},0 z`}
@@ -316,7 +325,7 @@ const Crowd: React.FC<{ el: any; frame: number; fps: number }> = ({ el, frame })
         return (
           <g key={i} opacity={alpha}>
             <Person x={x} y={y} s={s} facing={facing} phase={frame / 3.2 + i * 1.7} walking={walking} look={(el.seed ?? 1) * 100 + i} haze={sl.depth * 0.5}
-              hand={el.carry && el.carry.at <= frame && i < el.carry.n ? <SugarBag x={0} y={10} s={0.55} /> : undefined} />
+              hand={el.carry && el.carry.at <= frame && i < el.carry.n ? <Goods src={el.carry.src} x={0} y={30} s={0.6} /> : undefined} />
           </g>
         );
       })}
@@ -369,8 +378,11 @@ const Balance: React.FC<{ el: any; frame: number; fps: number }> = ({ el, frame,
       <rect x={-10} y={-10} width={20} height={250} fill="#7f8c8d" /><rect x={-80} y={230} width={160} height={22} rx={8} fill="#7f8c8d" />
       <line x1={lx} y1={ly} x2={rx} y2={ry} stroke="#566573" strokeWidth={12} strokeLinecap="round" />
       <circle cx={0} cy={0} r={16} fill="#566573" />
-      {pan(lx, ly, <>{[-34, 0, 34].map((dx) => <SugarBag key={dx} x={dx} y={0} s={0.45} />)}</>, "SUPPLY", "#2e86de")}
-      {pan(rx, ry, <>{Array.from({ length: 12 }, (_, i) => <circle key={i} cx={-60 + (i % 6) * 24} cy={-12 - Math.floor(i / 6) * 22} r={10} fill={SHIRT[i % SHIRT.length]} />)}</>, "DEMAND", "#e67e22")}
+      {pan(lx, ly, el.left?.src ? <Goods src={el.left.src} x={0} y={0} s={0.9} /> : <>{[-34, 0, 34].map((dx) => <Goods key={dx} x={dx} y={0} s={0.45} />)}</>,
+        el.left?.label ?? "SUPPLY", "#2e86de")}
+      {pan(rx, ry, el.right?.src ? <Goods src={el.right.src} x={0} y={0} s={0.9} />
+        : <>{Array.from({ length: 12 }, (_, i) => <circle key={i} cx={-60 + (i % 6) * 24} cy={-12 - Math.floor(i / 6) * 22} r={10} fill={SHIRT[i % SHIRT.length]} />)}</>,
+        el.right?.label ?? "DEMAND", "#e67e22")}
     </g>
   );
 };
@@ -403,8 +415,8 @@ const PullArrow: React.FC<{ el: any; frame: number }> = ({ el, frame }) => {
 };
 
 const Title: React.FC<{ el: any; frame: number; fps: number; W: number }> = ({ el, frame, fps, W }) => {
-  if (frame < el.at) return null;
-  const k = pop(frame, fps, el.at);
+  if (frame < el.at || (el.until !== undefined && frame > el.until + 15)) return null;
+  const k = pop(frame, fps, el.at) * (el.until !== undefined ? 1 - lin(frame, el.until, el.until + 15) : 1);
   const sweep = lin(frame, el.at + 10, el.at + 50);
   return (
     <div style={{ position: "absolute", left: 0, right: 0, top: 70, display: "flex", justifyContent: "center", transform: `translateY(${(1 - k) * -40}px)`, opacity: k }}>
@@ -499,6 +511,7 @@ const WorldScene: React.FC<BlockProps> = ({ data, width: W, height: H }) => {
           {byKind("lamp").map((e) => <g key={e.id}><rect x={e.x - 7} y={GROUND - 420} width={14} height={420} fill="#45535e" /><rect x={e.x - 40} y={GROUND - 440} width={80} height={24} rx={10} fill="#45535e" /><ellipse cx={e.x} cy={GROUND - 412} rx={30} ry={10} fill="#ffe9a8" /></g>)}
         {byKind("shopkeeper").map((e) => <Person key={e.id} x={e.x} y={GROUND - 150} s={0.9} facing={-1} phase={frame / 3} walking={false} look={e.look ?? 3} />)}
         {byKind("crowd").map((e) => <Crowd key={e.id} el={e} frame={frame} fps={fps} />)}
+        {byKind("action").map((e) => <g key={e.id} transform={`translate(${e.x - STAGE_W / 2},${GROUND - FEET})`}><ActionStage el={e} frame={frame} fps={fps} /></g>)}
         {byKind("price_tag").map((e) => <PriceTag key={e.id} el={e} frame={frame} fps={fps} />)}
         {byKind("coin_rain").map((e) => <CoinRain key={e.id} el={e} frame={frame} />)}
         {byKind("pull_arrow").map((e) => <PullArrow key={e.id} el={e} frame={frame} />)}

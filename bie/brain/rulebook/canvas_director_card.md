@@ -38,6 +38,7 @@ is spoken. Use `[beat_id, "", 0.0]` for "at the start of the beat" only for titl
 | `mark` | `mark`: `tick` / `cross`, `target`, `pos`: `c` / `tr` | right / wrong, done, rejected |
 | `highlight` | `target`, `style`: `box` / `dashed` / `band`, `tone` | "look here" on what is being explained |
 | `picture` | `cell`, `picture`: `{type: timeline / gallery / flow, title, items: [{when, name, icon, cue}], arrows}` | a row of things you draw yourself: dates on a timeline (`when` = the date as said), a numbered row of things (gallery), steps joined by arrows (flow); each item appears on its own cue |
+| `action` | `cell` (at least 3 rows tall, best 5–6 rows and 8–12 columns), `action: {template, actors, objects, amounts, steps, close_up}` | a process the learner sees happen (the saanche below): paying and getting change, a UPI scan, a card tap, a cheque, a barter swap, a refusal with a cross, counting up to a limit |
 
 `focus: [{cue, until_cue?, ids: [...]}]` dims everything else. `camera: [{cells: [...], cue}]` zooms to a region
 (use it when the canvas is dense or to re-frame for the next sub-idea). `graph` = a `curve_story` (axes, curves as
@@ -62,6 +63,43 @@ compare, …) and the things it names; the part message lists them with the icon
   flow), keep it: never redraw it, never reuse its cells or its id, and build your elements in the rows below it (D1-04).
 - Never put a caution or fact-check line on screen ("illustrative numbers", "imagined market", "data not given",
   "outside clarification"): those are BIE's background checks (D1-06).
+
+## Kriya ke saanche: processes the learner sees happen (Task 046 Part D2; Navin, 1 November 2026)
+
+Navin on the D1 videos: "process show nahi ho rahi hai, like upi payment ka jikar hai shop par, par agar wo visuals se clear
+ho jaise scanner phone scan, tab maja hai" and "mera meaning hai ki visuals dekhkar concept clear ho aur user narration se
+connect kar sake". When a beat tells a PROCESS (someone pays, scans, taps a card, writes a cheque, swaps goods, refuses a coin,
+counts coins up to a limit, counts things), show it with an `action` element: you name the template (the saancha), who does
+it, with which things, for how much, and the word of each step; code times the steps, the people act (hands give and take,
+the phone is raised to the QR stand, a head shakes, a head nods), the camera moves in to the hands and the screen and back out.
+
+| template | steps (each on its cue word) | actors (role) | objects (name: icon) | amounts (name) |
+| --- | --- | --- | --- | --- |
+| `hand_over` | give, take | giver, taker | thing | – |
+| `pay_change` | pay, goods, change | buyer, seller | goods | paid, change (price optional) |
+| `barter_swap` | offer, ask ("do they both want it?"), swap | a, b | a_thing, b_thing | – |
+| `upi` | scan, paid, received | buyer, seller | – | amount |
+| `card_tap` | tap, approved | buyer, seller | – | amount |
+| `cheque` | write, hand, balances | payer, payee | – | amount (payer_before, payer_after, payee_before, payee_after optional) |
+| `coin_count` | count, limit | – | coin | each, limit |
+| `refuse` | show, refuse (head shake, a cross on the thing) | who | thing | – |
+| `accept` | show, accept (nod, a tick on the thing) | who | thing | – |
+| `count_stack` | count (the things appear one by one) | – | thing | n (1 to 12) |
+
+- The story's own things: every object's icon is the thing the beat names (salt is salt, cloth is cloth, a cowrie is a cowrie),
+  from the icon candidates of the part; never a stand-in.
+- Numbers go on the objects (the note shows ₹500, the phone screen ₹300, the passbook its balance), never on a separate label;
+  every amount is said in the narration of the action's beats, written as the narration writes it (CV-16).
+- Change given back is `pay_change` (the change travels back to the buyer), never a struck value with an arrow: a struck value
+  with ▲/▼ is only for the SAME quantity changing (a price, a balance).
+- "Not legal tender", "refused", "no longer valid": `refuse` puts the cross on that thing; "accepted", "valid": `accept`.
+- One main character per video: the person the story follows has `who: "main"` (the same face, clothes and cap in every part);
+  everyone else is `"other"`. `mood` is neutral, pleased, unsure or refusing; the template already changes moods on its steps.
+- A process no template fits: show it with icons and arrows meanwhile and say so in notes ("missing process: …"); the visual
+  idea step logs it for Navin (the missing-capability log).
+
+Nothing sits under the subtitle strip: the bottom 14 % of the frame belongs to the captions; code moves the camera so that
+what a beat shows stays above it, and refuses a plan whose element is still under it.
 
 ## Rules (from 20 reference videos, rules/econ_canvas_rules.json)
 

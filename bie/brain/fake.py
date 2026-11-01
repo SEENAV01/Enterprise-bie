@@ -253,15 +253,22 @@ def ideas_answer(user_text: str):
     beat's first content word), what is seen in a few words, the first word as the cue. Offline only."""
     data = _payload(user_text)
     rows = []
+    story = bool((data.get("part") or {}).get("story"))
+    from .visual_thinking import STRONG_PROCESSES
+    drawable = ("count", "sequence", "cause_effect") if story else ("reject", "accept", "limit", "count", "change", "sequence", "cause_effect")
     for beat in data.get("beats", []):
-        from .visual_thinking import _is_thing
+        from .visual_thinking import REALISE, _is_thing
         words = [w.strip(",.!?:;()\"'") for w in beat["say"].replace("।", " ").split() if len(w) > 2 and w not in ("मान", "लीजिए")]
         things = [w for w in words if _is_thing(w) and re.search(r"[A-Za-z\u0900-\u097f]", w)]
         thing = things[0] if things else "coin"
         relation = beat.get("relation_guess") or "other"
+        if relation in REALISE and relation not in drawable:       # the offline plans draw only what they can realise (D2-E)
+            relation = "other"
+        guess = beat.get("template_guess") or "none"
         rows.append({"beat_id": beat["beat_id"], "idea": " ".join(words[:3]) or "offline idea", "relation": relation,
                      "relation_note": "offline" if relation == "other" else "", "things": [thing], "people": [], "places": [],
-                     "shows": f"{thing} on screen", "on_word": _first_word(beat["say"]), "image_wanted": ""})
+                     "shows": f"{thing} on screen", "on_word": _first_word(beat["say"]), "image_wanted": "",
+                     "template": "none", "template_note": f"offline: no {guess} saancha in the offline plans" if guess in STRONG_PROCESSES else ""})
     pics = data.get("book_pictures") or []
     return {"notes": NOTES, "beats": rows, "picture_type": pics[0]["type"] if pics else "things", "picture_note": "offline"}
 
@@ -277,7 +284,8 @@ def canvas_answer(user_text: str):
              "align": "", "icon": "", "label": "", "cols": 0, "steps": [], "from": "", "to": "", "from_side": "", "to_side": "", "elbow": "",
              "dashed": False, "curve": False, "target": "", "mark": "", "pos": "", "root": "", "children": [], "columns": [], "rows": [],
              "highlights": [], "marks": [], "flow": {"icon": "", "count": 0, "period": 0, "size": 0, "reverse": False, "cue": []},
-             "picture": {"type": "", "title": "", "items": [], "arrows": False}}
+             "picture": {"type": "", "title": "", "items": [], "arrows": False},
+             "action": {"template": "", "actors": [], "objects": [], "amounts": [], "steps": [], "close_up": False}}
     top = max([n["cell"][1] + n["cell"][3] for n in data.get("picture") or []] or [0])      # the rows the book picture took
     nodes = []
     tag_rows = 1 if 8 - top >= 2 else 0                  # a book picture that leaves one row free: the cards take it, no title tag
@@ -296,14 +304,31 @@ def canvas_answer(user_text: str):
         cards.append((beat, _first_word(beat["say"]), 0.0, label))
         if len(words) > 28:                                                         # about 12 s or more: the picture must change
             cards.append((beat, "", 0.5, (things[1] if len(things) > 1 else label)[:24]))
+    marks = []
     for n, (beat, word, fraction, label) in enumerate(cards):
         slot = n % slots
         cell = [(slot % 2) * 6, top + tag_rows + slot // 2, 6, 1]
         if n >= slots:
             nodes[tag_rows + n - slots]["until_cue"] = [beat["beat_id"], word]
             nodes[tag_rows + n - slots]["until_fraction"] = fraction
-        nodes.append(dict(empty, id=f"t{n + 1}", kind="icon", cell=cell, cue=[beat["beat_id"], word], cue_fraction=fraction,
-                          icon="tw:1fa99", label=label))
+        rel = (icons_of.get(beat["beat_id"]) or {}).get("relation")
+        node = dict(empty, id=f"t{n + 1}", kind="icon", cell=cell, cue=[beat["beat_id"], word], cue_fraction=fraction, icon="tw:1fa99", label=label)
+        if fraction == 0.0 and rel in ("count", "sequence", "cause_effect"):      # the relation realised on its beat (D2-E)
+            node = dict(empty, id=f"t{n + 1}", kind="crowd", cell=cell, cue=[beat["beat_id"], word], icon="tw:1f9cd",
+                        steps=[{"text": "", "n": 3, "dir": "", "cue": [beat["beat_id"], word]}])
+        elif fraction == 0.0 and rel == "limit":
+            node["icon"] = "fa:solid/gauge-high"
+        elif fraction == 0.0 and rel == "change":
+            said = [w for w in (w.strip("।,.!?:;()") for w in beat["say"].split()) if w and not re.search(r"\d", w) and re.search(r"[A-Za-z\u0900-\u097f]{2,}", w)]
+            if len(said) >= 2:
+                node = dict(empty, id=f"t{n + 1}", kind="value", cell=cell, cue=[beat["beat_id"], word], size=36,
+                            steps=[{"text": said[0][:12], "n": 0, "dir": "", "cue": [beat["beat_id"], word]},
+                                   {"text": said[1][:12], "n": 0, "dir": "", "cue": [beat["beat_id"], said[1]]}])
+        nodes.append(node)
+        if fraction == 0.0 and rel in ("reject", "accept"):
+            marks.append(dict(empty, id=f"m{n + 1}", kind="mark", cell=[], mark="cross" if rel == "reject" else "tick", target=f"t{n + 1}",
+                              pos="c", cue=[beat["beat_id"], word]))
+    nodes += marks
     graph = {"plot": {"x": 0, "y": 0, "w": 0, "h": 0}, "x_label": "", "y_label": "", "x_domain": [], "y_domain": [], "axes_cue": [],
              "curves": [], "dots": [], "shades": [], "guides": [], "notes": []}
     return {"notes": NOTES, "nodes": nodes, "camera": [], "focus": [], "graph_used": False, "graph": graph}
@@ -316,7 +341,9 @@ def world_answer(user_text: str):
     beats = data.get("beats", [])
     empty = {"x": 0, "y": 0, "sign": "", "text": "", "fill": "", "string": 0, "steps": [], "packets": [], "cue": [], "until_cue": [],
              "tilt_cue": [], "tilt": 0, "x0": 0, "x1": 0, "y0": 0, "y1": 0, "spacing": 0, "enter_x": 0, "exit_x": 0, "face": 0, "seed": 0,
-             "count": 0, "lift_cue": [], "lift_dy": 0, "carry_cue": [], "carry_n": 0}
+             "count": 0, "lift_cue": [], "lift_dy": 0, "carry_cue": [], "carry_n": 0, "carry_icon": "", "goods": [], "left_icon": "",
+             "left_label": "", "right_icon": "", "right_label": "",
+             "action": {"template": "", "actors": [], "objects": [], "amounts": [], "steps": [], "close_up": False}}
     import re as _re
     from .video import world as _world
     first = beats[0]["beat_id"] if beats else "b1"
@@ -331,13 +358,14 @@ def world_answer(user_text: str):
                  dict(empty, id="board", kind="board", x=3350, y=420, text="खाता", fill="#1f3a5f",
                       steps=[{"text": price or (_first_word(beats[0]["say"]) if beats else "खाता"), "n": 0, "dir": "", "cue": first_cue}])]
     else:
-        place = [dict(empty, id="shop", kind="shop", x=2600, sign="दुकान", packets=[{"n": 3, "cue": [first, ""]}])] + street
+        goods = [{"icon": "tw:1f4e6", "label": ""}]                 # the story's goods: the offline maker has no nouns, a plain package
+        place = [dict(empty, id="shop", kind="shop", x=2600, sign="दुकान", goods=goods, packets=[{"n": 3, "cue": [first, ""]}])] + street
         if price:
             place.append(dict(empty, id="tag", kind="price_tag", x=2870, y=560, string=60, steps=[{"text": price, "n": 0, "dir": "", "cue": first_cue}]))
     els = place + [
            dict(empty, id="crowd", kind="crowd", x0=2330, spacing=120, enter_x=3950, exit_x=4300, face=-1, seed=4,
                 steps=[{"text": "", "n": 2 + n, "dir": "", "cue": [b["beat_id"], _first_word(b["say"])]} for n, b in enumerate(beats)]),
-           dict(empty, id="title", kind="title", text="Story", cue=[first, ""])]
+           ] + ([] if any(e["kind"] == "board" for e in place) else [dict(empty, id="title", kind="title", text="Story", cue=[first, ""])])
     camera = []
     for n, b in enumerate(beats):
         camera.append({"cue": [b["beat_id"], ""], "x": 2600 + 40 * n, "y": 560, "zoom": 1.0 + 0.05 * (n % 3), "frames": 30})

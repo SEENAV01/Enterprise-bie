@@ -132,6 +132,8 @@ def canvas_texts(plan: dict) -> list:
             rows.append({"id": f"{nid}.label", "cue": cue, "text": str(n.get("label", "")), "role": "label"})
         elif kind == "arrow" and n.get("label"):
             rows.append({"id": f"{nid}.label", "cue": cue, "text": str(n.get("label", "")), "role": "label" if len(str(n["label"]).split()) <= 2 else "text"})
+        elif kind == "action":
+            rows += action_texts(n)
         elif kind == "picture":                              # Task 046 Part D1: the book's own words, drawn as labels
             pic = n.get("picture") or {}
             for group in ("panels", "events", "nodes", "rows"):              # the book's own words, placed by code (role "book")
@@ -157,4 +159,21 @@ def world_texts(plan: dict) -> list:
             rows.append({"id": nid, "cue": cue, "text": text, "role": "label" if len(text.split()) <= 2 else "text"})
         elif kind == "title":
             rows.append({"id": nid, "cue": cue, "text": str(n.get("text", "")), "role": "label"})
+        elif kind == "action":
+            rows += action_texts(n)
+    return rows
+
+
+def action_texts(n: dict) -> list:
+    """The words a kriya ka saancha puts on screen (Task 046 Part D2): the people's name tags and the things' labels (labels), the
+    amounts on the note, the screen, the passbook (labels, each cued on the step that shows it first)."""
+    nid = n.get("id", "?")
+    first = ((n.get("steps") or [{}])[0]).get("cue")
+    rows = [{"id": f"{nid}.{a.get('role', 'actor')}", "cue": first, "text": str(a["label"]), "role": "label"}
+            for a in n.get("actors") or [] if a.get("label")]
+    rows += [{"id": f"{nid}.{o.get('name', 'object')}", "cue": first, "text": str(o["label"]), "role": "label"}
+             for o in n.get("objects") or [] if o.get("label")]
+    from . import saanche                                     # lazy: saanche imports the canvas, which imports this module's users
+    rows += [{"id": f"{nid}.{a.get('name', 'amount')}", "cue": saanche.amount_cue(n, a.get("name")) or first, "text": str(a["text"]),
+              "role": "label"} for a in n.get("amounts") or [] if a.get("text") and not (n.get("template") == "count_stack" and a.get("name") == "n")]
     return rows

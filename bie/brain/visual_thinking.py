@@ -36,6 +36,7 @@ from pathlib import Path
 
 from . import formats
 from .common import S, arr, obj
+from .video import saanche
 from .runner import NOTES_SCHEMA
 from ..toolbox import icons
 
@@ -49,8 +50,8 @@ PICTURE_TYPES = ("timeline", "gallery", "table", "flow", "tree", "chart", "map",
 BOOK_PICTURE_KINDS = ("diagram", "table")
 BOOK_CHILD_KINDS = ("diagram_label", "table_row", "caption")
 # Canvas and world element kinds the learner sees as a thing (not text): what a beat must show (D1 check 1).
-NON_TEXT_CANVAS = ("icon", "crowd", "picture", "mark", "arrow", "value", "table", "tree", "highlight")
-NON_TEXT_WORLD = ("shop", "bank", "price_tag", "crowd", "coin_rain", "balance", "pull_arrow", "teller", "shopkeeper")
+NON_TEXT_CANVAS = ("icon", "crowd", "picture", "mark", "arrow", "value", "table", "tree", "highlight", "action")
+NON_TEXT_WORLD = ("shop", "bank", "price_tag", "crowd", "coin_rain", "balance", "pull_arrow", "teller", "shopkeeper", "action")
 TEXT_CANVAS = ("text", "callout")
 TEXT_WORLD = ("board", "label", "title")
 # A caution, caveat or fact-check line (Navin, 30 October 2026: "background mein ek check hai, visuals par to yeh cheejen na dikhe").
@@ -99,13 +100,16 @@ def guess_relation(say: str, verbs: dict | None = None) -> str:
 
 def verbs_text(verbs: dict | None = None) -> str:
     """The relations and how each is shown, for the maker's card."""
-    return "\n".join(f"- {r['id']}: {r['show']}" for r in (verbs or load_verbs())["relations"])
+    return "\n".join(f"- {r['id']}: {r['show']}" + (f" (saanche: {', '.join(r['templates'])})" if r.get("templates") else "")
+                     for r in (verbs or load_verbs())["relations"])
 
 
 # ---------------------------------------------------------------- the maker's strict answer
 
+TEMPLATE_CHOICES = ("none",) + tuple(saanche.TEMPLATES) + ("other",)     # Task 046 Part D2: the kriya ka saancha of the beat
+STRONG_PROCESSES = ("upi", "card_tap", "cheque", "pay_change", "barter_swap", "coin_count", "refuse")
 IDEA = obj({"beat_id": S, "idea": S, "relation": S, "relation_note": S, "things": arr(S), "people": arr(S), "places": arr(S),
-            "shows": S, "on_word": S, "image_wanted": S})
+            "shows": S, "on_word": S, "image_wanted": S, "template": {"type": "string", "enum": list(TEMPLATE_CHOICES)}, "template_note": S})
 IDEAS_SCHEMA = obj({"notes": NOTES_SCHEMA, "beats": arr(IDEA), "picture_type": {"type": "string", "enum": list(PICTURE_TYPES)},
                     "picture_note": S})            # the enum: the live run of 31 October 2026 wrote the card type there in 21 of 36 parts
 
@@ -130,6 +134,11 @@ For each beat give:
 - on_word: the word of this beat (exactly as written) on which the picture should appear ("" = the beat's start).
 - image_wanted: a real object an icon cannot show and a photograph or museum image can (a punch-marked silver coin, a cowrie
   shell, a cheque leaf), as search words; "" when an icon is enough. Never a person's portrait (card rule 8).
+- template: when the beat tells a PROCESS the learner should see happen (Navin, 1 November 2026: "process show nahi ho rahi hai
+  ... jaise scanner phone scan, tab maja hai"), the kriya ka saancha that shows it; "none" when the beat tells no process; "other"
+  when it is a process none of these fits (template_note says which process: it is logged so BIE can learn it):
+{templates}
+- template_note: for "other" the process in a few words; for "none" on a beat that names a process word, why no saancha.
 {picture_line}
 Reply with the JSON object only."""
 
@@ -171,6 +180,16 @@ def check_ideas(stub: dict, value: dict, *, picture: dict | None = None, verbs: 
         word = (row.get("on_word") or "").strip()
         if word and word not in beats[bid]:
             problems.append(f"beat {bid}: on_word {word!r} is not written in that beat")
+        template = row.get("template") or "none"
+        if template not in TEMPLATE_CHOICES:
+            problems.append(f"beat {bid}: template {template!r} is not one of {', '.join(TEMPLATE_CHOICES)}")
+        elif template == "other" and not (row.get("template_note") or "").strip():
+            problems.append(f"beat {bid}: template 'other' needs template_note (which process the beat shows), so BIE can learn it")
+        elif template == "none" and not (row.get("template_note") or "").strip():
+            named = saanche.guess_template(beats[bid])
+            if named in STRONG_PROCESSES:
+                problems.append(f"beat {bid} names a process ({named}: '{saanche._PROCESS[named].search(beats[bid]).group(0)}'); pick the "
+                                f"template {named!r} so the learner sees it happen, or say in template_note why not")
     missing = [b for b in beats if b not in seen]
     if missing:
         problems.append("every beat needs its idea; missing: " + ", ".join(missing))
@@ -560,7 +579,9 @@ def dikhane_list(video_id: str, parts: list) -> dict:
                      "beats": [{"beat_id": r["beat_id"], "idea": r.get("idea", ""), "relation": r.get("relation", ""),
                                 "relation_note": r.get("relation_note", ""), "nouns": [n for k in ("things", "people", "places") for n in r.get(k) or []],
                                 "shows": r.get("shows", ""), "on_word": r.get("on_word", ""), "image_wanted": r.get("image_wanted", ""),
-                                "icons": part.get("icons_by_beat", {}).get(r["beat_id"], [])}
+                                "icons": part.get("icons_by_beat", {}).get(r["beat_id"], []),
+                                "template": r.get("template", "none"), "template_note": r.get("template_note", ""),
+                                **({"realised": part["realised"][r["beat_id"]]} if r["beat_id"] in (part.get("realised") or {}) else {})}
                                for r in ideas.get("beats") or []],
                      "status": part.get("status", "")})
     return {"schema": SCHEMA, "video_id": video_id, "parts": rows, "relations_outside_list": outside, "needs": needs,
@@ -729,4 +750,145 @@ def report(parts: list) -> dict:
             "worlds": sorted({p["kit"] for p in parts if p.get("mode") == "C" and p.get("kit")}),
             "book_pictures": len({b["item_id"] for p in parts for b in (p.get("picture") or {}).get("pictures") or []}),   # distinct pictures,
             "book_pictures_drawn": len({i for p in parts for i in (p.get("book_picture_ids") or [])}),                     # each counted once
-            "relations_outside_list": sum(1 for p in parts for r in ((p.get("ideas") or {}).get("beats") or []) if r.get("relation") == "other")}
+            "relations_outside_list": sum(1 for p in parts for r in ((p.get("ideas") or {}).get("beats") or []) if r.get("relation") == "other"),
+            # Task 046 Part D2: processes shown, meaning realised, layout kept
+            "actions": sorted(t for p in parts for t in (p.get("actions") or [])),
+            "relations": sum(p.get("relations", 0) for p in parts),
+            "relations_realised": sum(p.get("relations_realised", 0) for p in parts),
+            "relations_realised_pct": (round(100 * sum(p.get("relations_realised", 0) for p in parts) / sum(p.get("relations", 0) for p in parts), 1)
+                                       if sum(p.get("relations", 0) for p in parts) else None),
+            "boards_in_world_parts": sum(p.get("boards", 0) for p in parts if p.get("mode") == "C"),
+            "overlaps": sum(p.get("overlaps", 0) for p in parts),
+            "subtitle_violations": sum(p.get("subtitle_violations", 0) for p in parts),
+            "icon_misfits": [m for p in parts for m in (p.get("icon_misfits") or [])]}
+
+
+# ---------------------------------------------------------------- meaning checks (Task 046 Part D2, E)
+# Navin's D1 findings 4 and 5: a struck ₹500 with "₹200 ▼" was drawn for change given back (a different thing, not the same
+# quantity going down), and "25 paise: no status" was said with no cross on the coin. The dikhane ki list names each beat's
+# relation; these checks ask whether an element on that beat realises it.
+
+CHANGE_BACK = re.compile(r"वापस|लौटा|चिल्लर|छुट्टा|खुल्ले|बाकी पैसे|बचे पैसे|\bchange\b|\bbalance return", re.IGNORECASE)
+MONEY_PROCESSES = ("hand_over", "pay_change", "barter_swap", "upi", "card_tap", "cheque")
+# what realises a relation on its beat (kinds of elements, mark styles, saanche); a relation not listed is covered by D1-01
+REALISE = {
+    "reject": {"marks": ("cross",), "templates": ("refuse", "coin_count"), "kinds": ()},
+    "accept": {"marks": ("tick",), "templates": ("accept",), "kinds": ()},
+    "limit": {"marks": (), "templates": ("coin_count",), "kinds": ("value", "highlight", "board"), "icons": ("fa:solid/gauge-high", "fa:solid/gauge")},
+    "count": {"marks": (), "templates": ("count_stack", "coin_count"), "kinds": ("crowd", "value", "picture", "table", "board", "price_tag")},
+    "change": {"marks": (), "templates": ("pay_change", "cheque"), "kinds": ("value", "board", "price_tag"), "steps": 2},
+    "sequence": {"marks": (), "templates": MONEY_PROCESSES + ("count_stack",), "kinds": ("arrow", "picture", "pull_arrow", "crowd")},
+    "cause_effect": {"marks": (), "templates": MONEY_PROCESSES, "kinds": ("arrow", "pull_arrow", "value", "price_tag", "balance", "crowd")},
+    "compare": {"marks": (), "templates": ("barter_swap",), "kinds": ("table", "picture", "balance"), "icons_min": 2},
+}
+ERA_OLD = re.compile(r"barter|वस्तु विनिमय|अदला-बदली|कौड़ी|cowrie|प्राचीन|ancient|पुराने ज़माने|पुराने जमाने|सदियों पहले|BCE|\bBC\b|राजा|सिंधु|harappa|हड़प्पा", re.IGNORECASE)
+MODERN_ICONS = {"tw:1f4f1": "mobile phone", "tw:1f4b3": "credit card", "tw:1f4bb": "laptop", "tw:1f3e7": "ATM", "tw:1f697": "car",
+                "tw:1f4f2": "mobile phone", "tw:1f5a5": "computer", "fa:solid/credit-card": "credit card", "fa:solid/mobile": "mobile phone"}
+
+
+def _beats_of(item: dict) -> set:
+    """Every beat an element (canvas node or world element) does something in: its cue, steps, marks, rows, children, picture
+    items, packets, carry, lift and the action's steps."""
+    out = {_cue_beat(item.get("cue")), _cue_beat(item.get("tilt_cue"))}
+    for key in ("steps", "marks", "rows", "highlights", "packets"):
+        out |= {_cue_beat(x.get("cue")) for x in item.get(key) or [] if isinstance(x, dict)}
+    out |= {_cue_beat(c.get("cue")) for c in item.get("children") or [] if isinstance(c, dict)}
+    for key in ("lift", "carry", "flow"):
+        if isinstance(item.get(key), dict):
+            out.add(_cue_beat(item[key].get("cue")))
+    pic = item.get("picture") or {}
+    for group in ("events", "panels", "rows", "nodes", "items"):
+        out |= {_cue_beat(x.get("cue")) for x in pic.get(group) or [] if isinstance(x, dict)}
+    return out - {None}
+
+
+def relation_rows(plan: dict, mode: str, ideas: dict | None) -> list:
+    """Per beat of the dikhane ki list: its relation and whether an element on that beat realises it (and which)."""
+    items = plan.get("elements") if mode == "C" else plan.get("nodes")
+    items = items or []
+    rows = []
+    for idea in (ideas or {}).get("beats") or []:
+        rel, bid = idea.get("relation"), idea.get("beat_id")
+        rule = REALISE.get(rel)
+        if not rule:
+            continue
+        here = [x for x in items if bid in _beats_of(x)]
+        by = []
+        for x in here:
+            kind = x.get("kind")
+            if kind == "mark" and x.get("mark") in rule["marks"]:
+                by.append(x.get("id"))
+            elif kind == "action" and x.get("template") in rule["templates"]:
+                by.append(x.get("id"))
+            elif kind in rule["kinds"] and (not rule.get("steps") or len(x.get("steps") or []) >= rule["steps"]):
+                by.append(x.get("id"))
+            elif kind == "icon" and x.get("icon") in rule.get("icons", ()):
+                by.append(x.get("id"))
+        if not by and rule.get("icons_min") and sum(1 for x in here if x.get("kind") in ("icon", "crowd")) >= rule["icons_min"]:
+            by = [x.get("id") for x in here if x.get("kind") in ("icon", "crowd")]
+        rows.append({"beat_id": bid, "relation": rel, "realised": bool(by), "by": by})
+    return rows
+
+
+SHOWS = {"reject": "a cross on the thing refused (a mark with mark 'cross' on its icon, or the refuse saancha)",
+         "accept": "a tick on the thing accepted (a mark 'tick', or the accept saancha)",
+         "limit": "a meter or stack that stops at its red line (the coin_count saancha, or a value or highlight in danger tone)",
+         "count": "a counted crowd, stack or value whose number is the narration's number (crowd, value, count_stack)",
+         "change": "the old value struck out and the new one in its place (a value or board with two steps), or the saancha",
+         "sequence": "the steps in order (arrows, a flow or timeline picture, or the process's saancha)",
+         "cause_effect": "the cause, an arrow, the effect (an arrow, a changing value, or the process's saancha)",
+         "compare": "the two things side by side (a table, a balance, two icons, or the barter saancha)"}
+
+
+def _unit(text: str) -> str:
+    return re.sub(r"[\d,.\s]+", "", str(text or "")).strip().lower()
+
+
+def struck_problems(plan: dict, mode: str) -> list:
+    """D2-E: a struck old value with an up or down arrow shows ONE quantity changing. Change given back is not that quantity
+    going down (the D1 v4 render struck ₹500 and showed '₹200 ▼'): it is the pay_change saancha. Two numbers of different
+    units ('₹500' then '2 kg') are two quantities, not one value changing."""
+    says = {b["beat_id"]: b.get("say", "") for b in plan.get("beats") or []}
+    items = (plan.get("elements") if mode == "C" else plan.get("nodes")) or []
+    change_beats = {b for x in items if x.get("kind") == "action" and x.get("template") == "pay_change" for b in _beats_of(x)}
+    out = []
+    for x in items:
+        if x.get("kind") not in ("value", "board", "price_tag"):
+            continue
+        steps = x.get("steps") or []
+        for prev, cur in zip(steps, steps[1:]):
+            bid = _cue_beat(cur.get("cue"))
+            if CHANGE_BACK.search(says.get(bid, "")) and bid not in change_beats and re.search(r"\d", str(cur.get("text", ""))):
+                out.append(f"{x.get('id')}: beat {bid} gives change back; that is the pay_change saancha (the change travels back to the "
+                           f"buyer), not '{prev.get('text', '')}' struck out for '{cur.get('text', '')}'")
+                break
+            a, b = str(prev.get("text", "")), str(cur.get("text", ""))
+            if re.search(r"\d", a) and re.search(r"\d", b) and _unit(a) and _unit(b) and _unit(a) != _unit(b):
+                out.append(f"{x.get('id')}: '{a}' struck out for '{b}' are two different quantities; a struck value with an arrow is one "
+                           "quantity changing: use two elements, or an action")
+                break
+    return out
+
+
+def meaning_problems(plan: dict, mode: str, ideas: dict | None) -> list:
+    """The meaning checks of a plan (D2-E): every relation of the dikhane ki list realised on its beat, and the struck-value rule."""
+    out = [f"beat {r['beat_id']} is '{r['relation']}' in the dikhane ki list, but nothing on that beat shows it: add {SHOWS[r['relation']]}, "
+           "cued on a word of that beat" for r in relation_rows(plan, mode, ideas) if not r["realised"]]
+    return out + struck_problems(plan, mode)
+
+
+def icon_misfits(plan: dict, mode: str) -> list:
+    """D2-E (report only): an icon that does not fit the beat's era, for Navin to see (a phone or a card in a barter story)."""
+    says = {b["beat_id"]: b.get("say", "") for b in plan.get("beats") or []}
+    items = (plan.get("elements") if mode == "C" else plan.get("nodes")) or []
+    out = []
+    for x in items:
+        refs = [x.get("icon"), (x.get("flow") or {}).get("icon"), (x.get("carry") or {}).get("icon")]
+        refs += [o.get("icon") for o in x.get("objects") or []] + [g.get("icon") for g in x.get("goods") or []]
+        for ref in refs:
+            if ref in MODERN_ICONS:
+                old = [b for b in _beats_of(x) if ERA_OLD.search(says.get(b, ""))]
+                if old:
+                    out.append({"element": x.get("id"), "icon": ref, "name": MODERN_ICONS[ref], "beats": sorted(old),
+                                "why": "a modern thing in a beat about the old days"})
+    return out
