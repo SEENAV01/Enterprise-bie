@@ -23,7 +23,9 @@ street.
 from __future__ import annotations
 
 import copy
+import json
 import re
+from pathlib import Path
 
 from .. import canvas
 from .. import formats
@@ -44,20 +46,7 @@ OVERLAY_KINDS = ("board", "label", "price_tag", "balance", "action")
 # and its workers, a port, a farm"), with the words that name them in a Hinglish script. A place with a kit in ``KITS`` goes
 # to world mode (C); a place without one falls back to the canvas (B) and goes to the missing-capability log (Part C, PR 3
 # builds the kits the chosen video needs). The director (bie/brain/canvas_director.py) decides; this module only draws.
-PLACES = {
-    # A tea stall, a market stall and the English "bazaar" are shops too (the Money chapter's v1, 28 October 2026).
-    "shop": ("दुकान", "दुकानदार", "shop", "shopkeeper", "बाज़ार", "बाजार", "bazaar", "bazar", "market", "खरीदार", "buyer", "buyers", "ग्राहक",
-             "customer", "customers", "किराना", "mandi", "मंडी", "tea stall", "stall", "stalls", "ठेला", "ठेले", "चायवाला", "चायवाले", "चाय"),
-    # The bank's own words: accounts, deposits, savings, passbooks, instalments, the teller (never the English "account" alone:
-    # money's "unit of account" is a shop story in v1).
-    "bank": ("बैंक", "bank", "banks", "कर्ज़", "कर्ज", "loan", "loans", "borrower", "borrowers", "depositor", "depositors", "जमा", "उधार", "rbi",
-             "खाता", "खाते", "passbook", "पासबुक", "savings", "बचत", "instalment", "installment", "किश्त", "क़िस्त", "teller", "cashier"),
-    "factory": ("फैक्ट्री", "फ़ैक्ट्री", "factory", "factories", "कारखाना", "कारखाने", "मज़दूर", "मजदूर", "worker", "workers", "मशीन", "machine"),
-    "port": ("बंदरगाह", "port", "ports", "ship", "ships", "जहाज़", "जहाज", "export", "exports", "import", "imports", "निर्यात", "आयात", "container"),
-    "farm": ("खेत", "किसान", "farm", "farmer", "farmers", "फसल", "crop", "crops", "harvest", "कटाई", "tractor", "बीज"),
-    # Navin's places for the real-world application (27 October 2026) add the petrol pump; a mandi and a kirana shop are shops.
-    "petrol_pump": ("petrol pump", "पेट्रोल पंप", "पेट्रोल पम्प", "fuel station", "petrol", "diesel", "पेट्रोल", "डीज़ल", "डीजल"),
-}
+PLACES = {k: tuple(v) for k, v in json.loads((Path(__file__).resolve().parents[1] / "rulebook" / "places.json").read_text(encoding="utf-8"))["places"].items()}
 PLACE_LABELS = {"shop": "shop", "bank": "bank", "factory": "factory", "port": "port", "farm": "farm", "petrol_pump": "petrol pump"}
 KITS = {"shop": {"label": "a shop with buyers on a street", "words": PLACES["shop"]},
         "bank": {"label": "a bank with its customers at the counter", "words": PLACES["bank"]}}
@@ -104,7 +93,7 @@ def _check_text(n: dict) -> None:
     elif kind == "price_tag":
         for st in n.get("steps") or []:
             if len(str(st.get("text", ""))) > TAG_CHARS:
-                raise PlanError(f"{nid}: a price tag shows a price ('₹65', '₹10,000'; at most {TAG_CHARS} characters), not "
+                raise PlanError(f"{nid}: a price tag shows a price (a number with its sign; at most {TAG_CHARS} characters), not "
                                 f"'{str(st.get('text', ''))[:30]}': use a board for words")
     elif kind == "title" and len(str(n.get("text", ""))) > TITLE_CHARS:
         raise PlanError(f"{nid}: the title is at most {TITLE_CHARS} characters ('{str(n.get('text', ''))[:40]}' has "
@@ -219,7 +208,7 @@ def _frame_actions(cam: list, els: list, fixes: list) -> tuple:
         if x0 >= k["x"] - half - 40 and x1 <= k["x"] + half + 40:
             continue
         zoom = min(k.get("zoom", 1.0), FRAME_W / (x1 - x0 + 80))
-        if any(saanche.TEMPLATES[a["template"]]["roles"] for a in live) and zoom < 0.9:
+        if any(a.get("actors") for a in live) and zoom < 0.9:
             continue                             # people would be too small: the maker places them apart in time
         k.update(x=round((x0 + x1) / 2), zoom=round(zoom, 3))
         fixes.append(f"camera key at {k['at']} widened to hold {', '.join(a['id'] for a in live)}")
@@ -542,14 +531,10 @@ def box_of(el: dict) -> tuple | None:
         sc = el.get("scale", 1.25)
         return (x - 300 * sc, y - 60 * sc, x + 300 * sc, y + 300 * sc)
     if kind == "action":
-        top = GROUND - saanche.FEET + ACTION_TOP.get(el.get("template"), 120)
+        top = GROUND - saanche.FEET + saanche.top_of(el)
         return (x - saanche.STAGE_W / 2 + 60, top, x + saanche.STAGE_W / 2 - 60, GROUND)
     return None
 
-
-# where an action's drawing starts above its stage (stage units from the stage top): its bubbles, phone cards and meter
-ACTION_TOP = {"upi": 20, "barter_swap": 90, "coin_count": 120, "cheque": 200, "pay_change": 240, "card_tap": 230, "hand_over": 240,
-              "refuse": 150, "accept": 150, "count_stack": 120}         # the name tags stand above the heads, at 248
 
 
 def _on(el: dict, duration: int) -> tuple:
@@ -589,7 +574,7 @@ def layout_problems(scene: dict, *, step: int = 6) -> list:
     for e in els:
         if e.get("kind") in ("label", "title") and NUMBER_ON_LABEL.search(str(e.get("text", ""))):
             out.append(f"{e['id']}: a {e['kind']} has no number ('{e.get('text', '')}'); in a world numbers go on objects: a price tag, "
-                       "the note or the phone screen of an action, a passbook board")
+                       "a tag, sign, screen or meter of an action, a board")
     texts = [(e, _on(e, duration)) for e in els if e.get("kind") in TEXT_KINDS]
     for f in range(0, duration, step):
         live = [e["id"] for e, (t0, t1) in texts if t0 <= f < t1]

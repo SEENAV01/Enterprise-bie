@@ -9,10 +9,8 @@ it; a refused plan comes back to you with the exact error.
 - `beats`: the part's spoken beats `[{beat_id, say}]` (Hinglish, Devanagari with English terms). Do not change them.
 - The chapter map items this part covers (terms, numbers, causes, examples).
 - The icon search tool: `icon_index.search("bank")` → ids like `tw:1f3e6` (colour), `fa:solid/building-columns` (line) or
-  `fl:bank` (Fluent 3D). BIE's own money drawings are `bie:` ids: coins and notes by denomination (`bie:coin-10`,
-  `bie:coin-50p`, `bie:note-500`), `bie:cheque`, `bie:passbook`, `bie:qr-stand`, `bie:pos-machine`, `bie:phone` (a plain
-  screen to write on), `bie:salt-sack`, `bie:cowrie-shells`, `bie:cattle`, `bie:grain-sack`, `bie:cloth-roll`, `bie:gold-bar`,
-  `bie:ledger`.
+  `fl:bank` (Fluent 3D), or a picture in the lesson's asset library; the candidates listed under the part are the ones code
+  found for the beat's own things.
 
 ## Output you give (JSON only)
 
@@ -42,7 +40,7 @@ is spoken. Use `[beat_id, "", 0.0]` for "at the start of the beat" only for titl
 | `mark` | `mark`: `tick` / `cross`, `target`, `pos`: `c` / `tr` | right / wrong, done, rejected |
 | `highlight` | `target`, `style`: `box` / `dashed` / `band`, `tone` | "look here" on what is being explained |
 | `picture` | `cell`, `picture`: `{type: timeline / gallery / flow, title, items: [{when, name, icon, cue}], arrows}` | a row of things you draw yourself: dates on a timeline (`when` = the date as said), a numbered row of things (gallery), steps joined by arrows (flow); each item appears on its own cue |
-| `action` | `cell` (at least 3 rows tall, best 5–6 rows and 8–12 columns), `action: {template, actors, objects, amounts, steps, close_up}` | a process the learner sees happen (the saanche below): paying and getting change, a UPI scan, a card tap, a cheque, a barter swap, a refusal with a cross, counting up to a limit |
+| `action` | `cell` (at least 3 rows tall, best 5–6 rows and 8–12 columns), `action: {template, actors, objects, amounts, steps, texts, parts, close_up}` | a process the learner sees happen, made of motion parts (the saanche below), with the beat's own actors, things and numbers |
 
 `focus: [{cue, until_cue?, ids: [...]}]` dims everything else. `camera: [{cells: [...], cue}]` zooms to a region
 (use it when the canvas is dense or to re-frame for the next sub-idea). `graph` = a `curve_story` (axes, curves as
@@ -68,39 +66,49 @@ compare, …) and the things it names; the part message lists them with the icon
 - Never put a caution or fact-check line on screen ("illustrative numbers", "imagined market", "data not given",
   "outside clarification"): those are BIE's background checks (D1-06).
 
-## Kriya ke saanche: processes the learner sees happen (Task 046 Part D2; Navin, 1 November 2026)
+## Kriya ke saanche: processes the learner sees happen (Task 046 Part D2; Navin, 1 and 2 November 2026)
 
-Navin on the D1 videos: "process show nahi ho rahi hai, like upi payment ka jikar hai shop par, par agar wo visuals se clear
-ho jaise scanner phone scan, tab maja hai" and "mera meaning hai ki visuals dekhkar concept clear ho aur user narration se
-connect kar sake". When a beat tells a PROCESS (someone pays, scans, taps a card, writes a cheque, swaps goods, refuses a coin,
-counts coins up to a limit, counts things), show it with an `action` element: you name the template (the saancha), who does
-it, with which things, for how much, and the word of each step; code times the steps, the people act (hands give and take,
-the phone is raised to the QR stand, a head shakes, a head nods), the camera moves in to the hands and the screen and back out.
+Navin on the D1 videos: "process show nahi ho rahi hai ... agar wo visuals se clear ho, tab maja hai"; and on 2 November 2026:
+"jis cheej ka jikar hai wohi cheej dikhe" — examples are illustrations, never a list of things to draw. When a beat tells a
+PROCESS (someone gives, pays, scans, swaps, writes, counts, refuses, accepts, turns one thing into another), show it with an
+`action` element made of general motion parts; the actors, the things and the numbers are THIS beat's own.
 
-| template | steps (each on its cue word) | actors (role) | objects (name: icon) | amounts (name) |
+The motion parts BIE draws: `hold` (a person holds a thing), `give` (a thing goes from one hand to the other), `move` (a thing
+moves along a path to a spot, a person or another thing; `back` returns it, `into` lets it go in), `transform` (A turns into B
+where it is), `show_text` (a tag, sign, screen, ok screen, thought bubble or written text shows a short text), `meter` (a bar
+fills to its limit, or a number changes with an up/down arrow), `appear` (things appear one by one, in a grid or onto a pile),
+`refuse` / `accept` (a head shake and a cross, a nod and a tick), `compare` (two things side by side with = ≠ ? vs < >).
+
+Recipes are ready compositions of these parts (`template`, each step on its cue word):
+
+| template | steps | actors (role) | objects (name; optional ones may be left out) | amounts |
 | --- | --- | --- | --- | --- |
 | `hand_over` | give, take | giver, taker | thing | – |
-| `pay_change` | pay, goods, change | buyer, seller | goods | paid, change (price optional) |
-| `barter_swap` | offer, ask ("do they both want it?"), swap | a, b | a_thing, b_thing | – |
-| `upi` | scan, paid, received | buyer, seller | – | amount |
-| `card_tap` | tap, approved | buyer, seller | – | amount |
-| `cheque` | write, hand, balances | payer, payee | – | amount (payer_before, payer_after, payee_before, payee_after optional) |
-| `coin_count` | count, limit | – | coin | each, limit |
-| `refuse` | show, refuse (head shake, a cross on the thing) | who | thing | – |
-| `accept` | show, accept (nod, a tick on the thing) | who | thing | – |
-| `count_stack` | count (the things appear one by one) | – | thing | n (1 to 12) |
+| `pay_change` | pay, goods, change | buyer, seller | goods; money, change_money (optional: else a plain chip with the amount) | paid, change (price optional) |
+| `barter_swap` | offer, ask, swap | a, b | a_thing, b_thing | – |
+| `upi` | scan, paid, received | buyer, seller | device, sign, seller_device (all optional) | amount |
+| `card_tap` | tap, approved | buyer, seller | card, machine (optional) | amount |
+| `cheque` | write, hand, balances | payer, payee | cheque, place (optional) | amount (payer/payee before and after optional) |
+| `coin_count` | count, limit | – | coin (optional) | each, limit |
+| `refuse` | show, refuse | who | thing | – |
+| `accept` | show, accept | who | thing | – |
+| `count_stack` | count | – | thing | n (1 to 12) |
+| `compose` | one per part | your own (at most two) | your own | – |
 
-- The story's own things: every object's icon is the thing the beat names (salt is salt, cloth is cloth, a cowrie is a cowrie),
-  from the icon candidates of the part; never a stand-in.
-- Numbers go on the objects (the note shows ₹500, the phone screen ₹300, the passbook its balance), never on a separate label;
-  every amount is said in the narration of the action's beats, written as the narration writes it (CV-16).
-- Change given back is `pay_change` (the change travels back to the buyer), never a struck value with an arrow: a struck value
-  with ▲/▼ is only for the SAME quantity changing (a price, a balance).
-- "Not legal tender", "refused", "no longer valid": `refuse` puts the cross on that thing; "accepted", "valid": `accept`.
-- One main character per video: the person the story follows has `who: "main"` (the same face, clothes and cap in every part);
-  everyone else is `"other"`. `mood` is neutral, pleased, unsure or refusing; the template already changes moods on its steps.
-- A process no template fits: show it with icons and arrows meanwhile and say so in notes ("missing process: …"); the visual
-  idea step logs it for Navin (the missing-capability log).
+- Every object's icon is the thing the beat names, from the icon candidates of THAT beat's things; never a thing from an
+  example, a card or another part, never a stand-in. A thing the beat names that has no icon goes to the needs list (code finds
+  or makes it); meanwhile leave the optional object out.
+- Numbers go on what carries them (a tag on the thing that travels, a screen, a meter), never on a separate label; every amount
+  is said in the narration of the action's beats, written as the narration writes it (CV-16). `texts` adds one short word the
+  narration says to a step's sign.
+- A value given back travels back in a process (a `give` with its tag), never as a struck value with an arrow: a struck value
+  with ▲/▼ is only for the SAME quantity changing.
+- "Refused", "not valid": a `refuse` part puts the cross on that thing; "accepted", "valid": `accept`.
+- One main character per video: the person the story follows has `who: "main"`; everyone else is `"other"`. `mood` is neutral,
+  pleased, unsure or refusing; the parts change moods on their steps.
+- A process no recipe fits: `template: "compose"` with its parts in order (each with its cue word and the fields it needs).
+  A motion BIE has no part for: show it with icons and arrows meanwhile; the visual-idea step names it (`template: other`) and
+  it goes to the missing-capability log.
 
 Nothing sits under the subtitle strip: the bottom 14 % of the frame belongs to the captions; code moves the camera so that
 what a beat shows stays above it, and refuses a plan whose element is still under it.

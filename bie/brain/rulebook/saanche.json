@@ -1,0 +1,836 @@
+{
+ "schema": "bie.brain.saanche/1",
+ "rulebook": "saanche",
+ "version": "2026-11-02.1",
+ "status": "IMPLEMENTED",
+ "source": "Navin, 2 November 2026 (Task 046 Part D2 addendum): \"jis cheej ka jikar hai wohi cheej dikhe\"; kriya ke saanche are built from general motion parts, not one-off scenes; the actors, objects and numbers come from the beat; UPI, cheque, change and barter are compositions of the parts; a new process is composed from the parts, a missing part goes to the missing-capability log.",
+ "how_it_is_used": "bie/brain/video/saanche.py reads this file: the parts are the motions the block (bie/brain/video/blocks/toolbox/saanche.tsx) knows how to draw; a recipe is a named composition of parts, step by step, with roles, objects and amounts the maker fills from the beat; template 'compose' lets the maker write the parts directly. No object is drawn unless the plan names its icon; an optional object the plan leaves out is a plain chip with the part's text, or its parts are skipped.",
+ "spots": {
+  "center": [
+   500,
+   300
+  ],
+  "counter": [
+   570,
+   340
+  ],
+  "far": [
+   840,
+   250
+  ],
+  "left": [
+   330,
+   330
+  ],
+  "right": [
+   670,
+   330
+  ],
+  "pile": [
+   300,
+   560
+  ],
+  "meter": [
+   650,
+   600
+  ]
+ },
+ "parts": {
+  "hold": {
+   "needs": [
+    "actor",
+    "object"
+   ],
+   "optional": [
+    "reach"
+   ],
+   "says": "a person holds a thing in the front hand (reach 0..1 lifts it towards the other)"
+  },
+  "give": {
+   "needs": [
+    "from",
+    "to",
+    "object"
+   ],
+   "optional": [
+    "text"
+   ],
+   "says": "a thing travels from one person's hand to the other's (give and take), with an optional tag of text on it"
+  },
+  "move": {
+   "needs": [
+    "object",
+    "to"
+   ],
+   "optional": [
+    "back",
+    "into",
+    "text"
+   ],
+   "says": "a thing moves along a path to a spot, a person or another thing; back returns it; into lets it go into the target"
+  },
+  "transform": {
+   "needs": [
+    "object",
+    "into"
+   ],
+   "says": "a thing turns into another thing where it is (A → B)"
+  },
+  "show_text": {
+   "needs": [
+    "on",
+    "text"
+   ],
+   "optional": [
+    "style",
+    "inside"
+   ],
+   "says": "a screen, sign, tag or thought bubble on a person or thing shows a short text (style: tag, sign, screen, ok, bubble, write)"
+  },
+  "meter": {
+   "needs": [
+    "to"
+   ],
+   "optional": [
+    "from",
+    "limit",
+    "style",
+    "title",
+    "dir",
+    "on",
+    "end"
+   ],
+   "says": "a counter or meter changes: a bar fills to its limit (style bar), or a number changes from one value to another with an up or down arrow (style number)"
+  },
+  "appear": {
+   "needs": [
+    "object"
+   ],
+   "optional": [
+    "n",
+    "spot",
+    "layout",
+    "end"
+   ],
+   "says": "things appear one by one (n of them in a grid, or dropping onto a pile until a later step)"
+  },
+  "refuse": {
+   "needs": [
+    "object"
+   ],
+   "optional": [
+    "actor"
+   ],
+   "says": "a person shakes the head and a cross lands on the thing"
+  },
+  "accept": {
+   "needs": [
+    "object"
+   ],
+   "optional": [
+    "actor"
+   ],
+   "says": "a person nods and a tick lands on the thing"
+  },
+  "compare": {
+   "needs": [
+    "left",
+    "right"
+   ],
+   "optional": [
+    "sign",
+    "left_text",
+    "right_text"
+   ],
+   "says": "two things side by side with a sign between them (=, ≠, ?, vs, <, >)"
+  }
+ },
+ "recipes": {
+  "hand_over": {
+   "roles": [
+    "giver",
+    "taker"
+   ],
+   "objects": [
+    "thing"
+   ],
+   "optional_objects": {},
+   "amounts": [],
+   "optional": [],
+   "steps": [
+    "give",
+    "take"
+   ],
+   "close": [
+    "give",
+    "take"
+   ],
+   "says": "one person gives a thing to another",
+   "start": [
+    {
+     "part": "hold",
+     "actor": "giver",
+     "object": "thing"
+    }
+   ],
+   "do": {
+    "give": [
+     {
+      "part": "hold",
+      "actor": "giver",
+      "object": "thing",
+      "reach": 1
+     }
+    ],
+    "take": [
+     {
+      "part": "give",
+      "from": "giver",
+      "to": "taker",
+      "object": "thing"
+     }
+    ]
+   }
+  },
+  "pay_change": {
+   "roles": [
+    "buyer",
+    "seller"
+   ],
+   "objects": [
+    "goods"
+   ],
+   "optional_objects": {
+    "money": "chip",
+    "change_money": "chip"
+   },
+   "amounts": [
+    "paid",
+    "change"
+   ],
+   "optional": [
+    "price"
+   ],
+   "steps": [
+    "pay",
+    "goods",
+    "change"
+   ],
+   "close": [
+    "pay",
+    "change"
+   ],
+   "says": "the buyer hands over the payment, takes the goods and gets the difference back (each amount travels as a tag on what carries it)",
+   "start": [
+    {
+     "part": "hold",
+     "actor": "buyer",
+     "object": "money",
+     "text": "{paid}"
+    },
+    {
+     "part": "appear",
+     "object": "goods",
+     "spot": "counter"
+    },
+    {
+     "part": "show_text",
+     "on": "goods",
+     "text": "{price}",
+     "style": "tag",
+     "if": "price"
+    }
+   ],
+   "do": {
+    "pay": [
+     {
+      "part": "give",
+      "from": "buyer",
+      "to": "seller",
+      "object": "money",
+      "text": "{paid}"
+     }
+    ],
+    "goods": [
+     {
+      "part": "move",
+      "object": "goods",
+      "to": "buyer"
+     }
+    ],
+    "change": [
+     {
+      "part": "hold",
+      "actor": "seller",
+      "object": "change_money",
+      "text": "{change}"
+     },
+     {
+      "part": "give",
+      "from": "seller",
+      "to": "buyer",
+      "object": "change_money",
+      "text": "{change}"
+     }
+    ]
+   }
+  },
+  "barter_swap": {
+   "roles": [
+    "a",
+    "b"
+   ],
+   "objects": [
+    "a_thing",
+    "b_thing"
+   ],
+   "optional_objects": {},
+   "amounts": [],
+   "optional": [],
+   "steps": [
+    "offer",
+    "ask",
+    "swap"
+   ],
+   "close": [
+    "ask",
+    "swap"
+   ],
+   "says": "two people swap their things; at 'ask' each wonders whether they want the other's thing",
+   "start": [
+    {
+     "part": "hold",
+     "actor": "a",
+     "object": "a_thing"
+    },
+    {
+     "part": "hold",
+     "actor": "b",
+     "object": "b_thing"
+    }
+   ],
+   "do": {
+    "offer": [
+     {
+      "part": "hold",
+      "actor": "a",
+      "object": "a_thing",
+      "reach": 1
+     },
+     {
+      "part": "hold",
+      "actor": "b",
+      "object": "b_thing",
+      "reach": 0.5
+     }
+    ],
+    "ask": [
+     {
+      "part": "show_text",
+      "on": "a",
+      "text": "?",
+      "style": "bubble",
+      "inside": "b_thing"
+     },
+     {
+      "part": "show_text",
+      "on": "b",
+      "text": "?",
+      "style": "bubble",
+      "inside": "a_thing"
+     }
+    ],
+    "swap": [
+     {
+      "part": "give",
+      "from": "a",
+      "to": "b",
+      "object": "a_thing"
+     },
+     {
+      "part": "give",
+      "from": "b",
+      "to": "a",
+      "object": "b_thing"
+     }
+    ]
+   }
+  },
+  "upi": {
+   "roles": [
+    "buyer",
+    "seller"
+   ],
+   "objects": [],
+   "optional_objects": {
+    "device": "skip",
+    "sign": "skip",
+    "seller_device": "skip"
+   },
+   "amounts": [
+    "amount"
+   ],
+   "optional": [],
+   "steps": [
+    "scan",
+    "paid",
+    "received"
+   ],
+   "close": [
+    "scan",
+    "paid"
+   ],
+   "says": "the buyer's device moves to the seller's sign and back; the buyer's device shows the amount paid, the seller's shows it received",
+   "start": [
+    {
+     "part": "hold",
+     "actor": "buyer",
+     "object": "device"
+    },
+    {
+     "part": "appear",
+     "object": "sign",
+     "spot": "counter"
+    },
+    {
+     "part": "hold",
+     "actor": "seller",
+     "object": "seller_device"
+    }
+   ],
+   "do": {
+    "scan": [
+     {
+      "part": "move",
+      "object": "device",
+      "to": [
+       "sign",
+       "counter"
+      ],
+      "back": true
+     }
+    ],
+    "paid": [
+     {
+      "part": "show_text",
+      "on": [
+       "device",
+       "buyer"
+      ],
+      "text": "{amount}",
+      "style": "ok"
+     }
+    ],
+    "received": [
+     {
+      "part": "show_text",
+      "on": [
+       "seller_device",
+       "seller"
+      ],
+      "text": "{amount}",
+      "style": "ok"
+     }
+    ]
+   }
+  },
+  "card_tap": {
+   "roles": [
+    "buyer",
+    "seller"
+   ],
+   "objects": [],
+   "optional_objects": {
+    "card": "chip",
+    "machine": "skip"
+   },
+   "amounts": [
+    "amount"
+   ],
+   "optional": [],
+   "steps": [
+    "tap",
+    "approved"
+   ],
+   "close": [
+    "tap",
+    "approved"
+   ],
+   "says": "a card moves to the seller's machine and back; the machine shows the amount approved",
+   "start": [
+    {
+     "part": "hold",
+     "actor": "buyer",
+     "object": "card"
+    },
+    {
+     "part": "appear",
+     "object": "machine",
+     "spot": "counter"
+    }
+   ],
+   "do": {
+    "tap": [
+     {
+      "part": "move",
+      "object": "card",
+      "to": [
+       "machine",
+       "counter"
+      ],
+      "back": true
+     }
+    ],
+    "approved": [
+     {
+      "part": "show_text",
+      "on": [
+       "machine",
+       "seller"
+      ],
+      "text": "{amount}",
+      "style": "ok"
+     }
+    ]
+   }
+  },
+  "cheque": {
+   "roles": [
+    "payer",
+    "payee"
+   ],
+   "objects": [],
+   "optional_objects": {
+    "cheque": "chip",
+    "place": "skip"
+   },
+   "amounts": [
+    "amount"
+   ],
+   "optional": [
+    "payer_before",
+    "payer_after",
+    "payee_before",
+    "payee_after"
+   ],
+   "steps": [
+    "write",
+    "hand",
+    "balances"
+   ],
+   "close": [
+    "write",
+    "hand"
+   ],
+   "says": "the amount is written on the instrument, it moves into the place that pays, and the two balances change (payer down, payee up)",
+   "start": [
+    {
+     "part": "hold",
+     "actor": "payer",
+     "object": "cheque"
+    },
+    {
+     "part": "appear",
+     "object": "place",
+     "spot": "far"
+    }
+   ],
+   "do": {
+    "write": [
+     {
+      "part": "show_text",
+      "on": [
+       "cheque",
+       "payer"
+      ],
+      "text": "{amount}",
+      "style": "write"
+     }
+    ],
+    "hand": [
+     {
+      "part": "move",
+      "object": "cheque",
+      "to": [
+       "place",
+       "far"
+      ],
+      "into": true
+     }
+    ],
+    "balances": [
+     {
+      "part": "meter",
+      "style": "number",
+      "on": "payer",
+      "from": "{payer_before}",
+      "to": "{payer_after|− {amount}}",
+      "dir": "down",
+      "title": "{label:payer}"
+     },
+     {
+      "part": "meter",
+      "style": "number",
+      "on": "payee",
+      "from": "{payee_before}",
+      "to": "{payee_after|+ {amount}}",
+      "dir": "up",
+      "title": "{label:payee}"
+     }
+    ]
+   }
+  },
+  "coin_count": {
+   "roles": [],
+   "objects": [],
+   "optional_objects": {
+    "coin": "chip"
+   },
+   "amounts": [
+    "each",
+    "limit"
+   ],
+   "optional": [],
+   "steps": [
+    "count",
+    "limit"
+   ],
+   "close": [
+    "limit",
+    "limit"
+   ],
+   "says": "things drop onto a pile while a meter rises; at 'limit' the meter stops at its red line and one more is refused",
+   "start": [],
+   "do": {
+    "count": [
+     {
+      "part": "appear",
+      "object": "coin",
+      "layout": "pile",
+      "end": "limit",
+      "text": "{each}"
+     },
+     {
+      "part": "meter",
+      "style": "bar",
+      "to": "{limit}",
+      "limit": "{limit}",
+      "end": "limit"
+     }
+    ],
+    "limit": [
+     {
+      "part": "refuse",
+      "object": "coin",
+      "text": "{each}"
+     }
+    ]
+   }
+  },
+  "refuse": {
+   "roles": [
+    "who"
+   ],
+   "objects": [
+    "thing"
+   ],
+   "optional_objects": {},
+   "amounts": [],
+   "optional": [],
+   "steps": [
+    "show",
+    "refuse"
+   ],
+   "close": [
+    "refuse",
+    "refuse"
+   ],
+   "says": "the person looks at the thing, shakes the head, and a cross lands on the thing",
+   "start": [],
+   "do": {
+    "show": [
+     {
+      "part": "appear",
+      "object": "thing",
+      "spot": "right"
+     }
+    ],
+    "refuse": [
+     {
+      "part": "refuse",
+      "actor": "who",
+      "object": "thing"
+     }
+    ]
+   }
+  },
+  "accept": {
+   "roles": [
+    "who"
+   ],
+   "objects": [
+    "thing"
+   ],
+   "optional_objects": {},
+   "amounts": [],
+   "optional": [],
+   "steps": [
+    "show",
+    "accept"
+   ],
+   "close": [
+    "accept",
+    "accept"
+   ],
+   "says": "the person looks at the thing, nods, and a tick lands on the thing",
+   "start": [],
+   "do": {
+    "show": [
+     {
+      "part": "appear",
+      "object": "thing",
+      "spot": "right"
+     }
+    ],
+    "accept": [
+     {
+      "part": "accept",
+      "actor": "who",
+      "object": "thing"
+     }
+    ]
+   }
+  },
+  "count_stack": {
+   "roles": [],
+   "objects": [
+    "thing"
+   ],
+   "optional_objects": {},
+   "amounts": [
+    "n"
+   ],
+   "optional": [],
+   "steps": [
+    "count"
+   ],
+   "close": [],
+   "says": "n things appear one by one as they are said",
+   "start": [],
+   "do": {
+    "count": [
+     {
+      "part": "appear",
+      "object": "thing",
+      "n": "{n}",
+      "layout": "grid",
+      "spot": "center"
+     }
+    ]
+   }
+  }
+ },
+ "realises": {
+  "reject": {
+   "any": [
+    "refuse"
+   ]
+  },
+  "accept": {
+   "any": [
+    "accept"
+   ]
+  },
+  "limit": {
+   "meter_with": "limit"
+  },
+  "count": {
+   "appear_n_min": 2
+  },
+  "change": {
+   "any": [
+    "meter",
+    "transform"
+   ],
+   "give_with_text": true
+  },
+  "more_less": {
+   "meter_style": "number"
+  },
+  "sequence": {
+   "min_parts": 2
+  },
+  "cause_effect": {
+   "min_parts": 2,
+   "any": [
+    "give",
+    "move",
+    "transform",
+    "show_text",
+    "meter"
+   ]
+  },
+  "compare": {
+   "any": [
+    "compare"
+   ],
+   "all_of": [
+    "refuse",
+    "accept"
+   ],
+   "gives_min": 2
+  },
+  "promise": {
+   "any": [
+    "give",
+    "move",
+    "show_text"
+   ]
+  }
+ },
+ "words": {
+  "_note": "Words that hint which recipe a beat's process is (Hindi, Hinglish and English), so code can suggest one to the maker; data the rulebook can extend for any subject, never a list of things to draw.",
+  "upi": "\\bupi\\b|\\bqr\\b|स्कैन|scan|scanner|स्कैनर|bhim|phonepe|paytm|gpay|google pay|क्यूआर",
+  "card_tap": "\\bcard\\b|कार्ड|\\bpos\\b|swipe|tap|टैप|debit card|credit card|rupay",
+  "cheque": "cheque|check book|चेक|चैक",
+  "pay_change": "वापस|लौटा|change|चिल्लर|छुट्टा|खुल्ले|बाकी पैसे|बचे पैसे|balance return",
+  "barter_swap": "barter|अदला-बदली|अदला बदली|बदले में|के बदले|swap|exchange of goods|वस्तु विनिमय",
+  "coin_count": "सीमा|limit|ceiling|अधिकतम|तक ही",
+  "count_stack": "गिन|count|एक-एक|एक एक करके|one by one",
+  "refuse": "मना|इनकार|refuse|reject|नहीं लेगा|नहीं लेता|नहीं लेती|नहीं चलेगा|मान्य नहीं|legal tender नहीं",
+  "accept": "स्वीकार|accept|मान लेता|ले लेता|ले लेती|मंज़ूर|मंजूर",
+  "hand_over": "दिया|देता|देती|दे दिया|थमा|हाथ में|hands? over|gives?\\b"
+ },
+ "order": [
+  "upi",
+  "card_tap",
+  "cheque",
+  "pay_change",
+  "barter_swap",
+  "coin_count",
+  "refuse",
+  "accept",
+  "count_stack",
+  "hand_over"
+ ],
+ "strong": [
+  "upi",
+  "card_tap",
+  "cheque",
+  "pay_change",
+  "barter_swap",
+  "coin_count",
+  "refuse"
+ ],
+ "top": {
+  "_note": "where a part's drawing reaches above the stage (stage units from the stage top): the layout check reads it",
+  "show_text": 20,
+  "meter": 120,
+  "appear": 120,
+  "compare": 150,
+  "refuse": 150,
+  "accept": 150,
+  "default": 240
+ },
+ "realises_note": "A relation of the dikhane ki list is realised by an action when any condition holds (and the action has at least min_parts parts): parts by name, a meter with a limit or a number style, a give with a text tag, at least n things appearing."
+}

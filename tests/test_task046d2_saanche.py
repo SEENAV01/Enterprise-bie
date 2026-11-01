@@ -50,7 +50,7 @@ class Saanche(unittest.TestCase):
         for name, t in saanche.TEMPLATES.items():
             self.assertTrue(t["steps"], name)
             self.assertTrue(set(t["close"]) <= set(t["steps"]), name)
-        self.assertIn("upi: the buyer's phone scans", saanche.templates_text())
+        self.assertIn("upi: the buyer's device moves to the seller's sign and back", saanche.templates_text())
 
     def test_the_problems_name_what_is_missing_and_numbers_must_be_said(self):
         bad = dict(copy.deepcopy(PAY), actors=[{"role": "buyer"}], objects=[], amounts=[{"name": "paid", "text": "₹700"}])
@@ -59,7 +59,7 @@ class Saanche(unittest.TestCase):
         self.assertTrue(any("needs the object 'goods'" in p for p in problems))
         self.assertTrue(any("needs the amount 'change'" in p for p in problems))
         self.assertTrue(any("'₹700' is not said" in p for p in problems))
-        self.assertIn("is not a saancha", saanche.problems_of({"id": "x", "template": "juggle"}, {})[0])
+        self.assertIn("is not a recipe", saanche.problems_of({"id": "x", "template": "juggle"}, {})[0])
         self.assertEqual(saanche.problems_of(PAY, self.says()), [])
 
     def test_steps_are_timed_in_order_with_a_close_up_and_the_main_character_keeps_one_look(self):
@@ -206,7 +206,7 @@ class Meaning(unittest.TestCase):
         ideas = {"beats": [{"beat_id": "b1", "relation": "reject"}, {"beat_id": "b2", "relation": "other"}]}
         problems = vt.meaning_problems(plan, "B", ideas)
         self.assertTrue(any("beat b1 is 'reject'" in p and "cross" in p for p in problems), problems)
-        self.assertTrue(any("pay_change saancha" in p for p in problems), problems)
+        self.assertTrue(any("travels back in a process" in p for p in problems), problems)
         plan["nodes"].append({"id": "x", "kind": "mark", "mark": "cross", "target": "coin", "cue": ["b1", "मना"]})
         plan["beats"].append({"beat_id": "b3", "say": "नमक ₹500 का है और 2 kg नमक मिलता है।"})
         plan["nodes"][1] = dict(value, steps=[{"text": "₹500", "cue": ["b3", ""]}, {"text": "2 kg", "cue": ["b3", "2"]}])
@@ -334,7 +334,7 @@ class AutoFixes(unittest.TestCase):
         frames = {"b2": 100, "b3": 200}
         a = saanche.compile_action(give, lambda cue: frames[cue[0]], self.says())
         self.assertEqual(a["step_at"], {"give": 100, "take": 200})
-        self.assertTrue(any("follow the template" in f for f in a["auto_fixes"]))
+        self.assertTrue(any("follow its order" in f for f in a["auto_fixes"]))
 
     def test_an_action_stays_until_its_last_step_has_played(self):
         give = {"id": "g", "kind": "action", "template": "hand_over", "objects": [{"name": "thing", "icon": "tw:1f9c2", "label": "नमक"}],
@@ -529,9 +529,10 @@ class AutoFixes(unittest.TestCase):
         self.assertIn("bd leaves when bal comes (same place)", fixes)
 
     def test_change_given_back_needs_money_and_a_plural_is_one_unit(self):
-        self.assertFalse(vt.gives_change_back("लौटाया 10 kg ही, लेकिन उससे तब 1 metre कपड़ा मिलता है।"))   # grain repaid
-        self.assertTrue(vt.gives_change_back("दुकानदार ₹200 वापस करता है।"))
-        self.assertTrue(vt.gives_change_back("उसके पास चिल्लर नहीं है।"))
+        repaid = "लौटाया 10 kg ही, लेकिन उससे तब 1 metre कपड़ा मिलता है।"
+        self.assertFalse(vt.gives_back(repaid, "1 metre कपड़ा"))          # grain repaid; the cloth's value is not given back
+        self.assertTrue(vt.gives_back("दुकानदार ₹200 वापस करता है।", "₹200"))
+        self.assertTrue(vt.gives_back("उसके पास चिल्लर नहीं है, 5 बचे।", "5"))
         self.assertEqual(vt._unit("2 metres कपड़ा"), vt._unit("1 metre कपड़ा"))
         self.assertEqual(vt._unit("3 सिक्के"), vt._unit("1 सिक्का"))
         self.assertNotEqual(vt._unit("₹500"), vt._unit("2 kg"))
@@ -560,15 +561,3 @@ class AutoFixes(unittest.TestCase):
         self.assertTrue(any("unfinished" in p for p in screen_text.text_problems("→", "आगे", where="l", role="label")))
 
 
-class MoneyDrawingRules(unittest.TestCase):
-    def test_the_animated_note_coin_and_qr_keep_bies_money_rules(self):
-        # docs/bie/BIE_MONEY_OBJECTS.md: the same rules as the bie: drawings (no RBI marks, 1.6 : 1 notes, "not money", no UPI mark)
-        from tests.test_task046d2_pictures import FORBIDDEN
-        tsx = (ROOT / "bie/brain/video/blocks/toolbox/saanche.tsx").read_text(encoding="utf-8")
-        body = tsx.split("export const Note", 1)[1]
-        for word in FORBIDDEN:
-            self.assertNotIn(word, body, word)
-        self.assertIn("const h = w / 1.6", body)
-        self.assertIn("नमूना · not money", body)
-        self.assertIn("SCAN · PAY", tsx)
-        self.assertNotIn("UPI</text>", tsx)

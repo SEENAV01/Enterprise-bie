@@ -1426,3 +1426,38 @@ continues from its own answer with the problems named. The VM job field `resume_
 | Passed outputs | — | 0 problems |
 
 Next: the resume job (run c) from run b, which writes both video specs if every answer still passes, then the renders.
+
+## Entry 34 · Navin's addendum: examples are illustrations, not a list; processes from general motion parts, 2 November 2026
+
+**Run:** none new for this entry; Part D2 run c (`runs/vm-t046d2-money-canvas-c-brain-canvas/`, the resume of run b: 36 of 36
+reused, 2.7 minutes, ₹0) was rendered (`t046d2-money-v2`, `t046d2-money-v4`), with LOOK-D1 5.11 (worlds 4.82, canvas 5.24;
+D1: 5.25, worlds 3.64, canvas 5.96) and LOOK-D2 3.34 (things visible 52 %, happening 14 %). Navin, 2 November 2026: "maine salt aur
+kapde ka example diya ... aise to kal kisi aur cheej ka jikar aayega to salt aur kapda hi dikhaoge, jabki mera kehna hai jis cheej
+ka jikar hai wohi cheej dikhe; yeh udaharan maine is rup mein diye the."
+
+**Taught:** D2 had turned his examples into hand-made things: the saanche drew BIE's own note, coin, QR stand, phone, POS, card,
+cheque and passbook; the director's fallback icon menu was an economy list (shop, coin, banknote, wheat, gold, ...); prompts named
+salt, cloth, coins and ₹500 notes as the "things" to list; the place signs defaulted to "किराना स्टोर" and "बैंक"; the meaning
+checks read money words in code. A scan of the director, world, canvas and template code found 123 such fixed values. LOOK-D2's
+"things visible 52 %" says the same from the other side: half of what the dikhane ki list named was not on screen.
+
+**Changed in BIE** (branch `task046d2-general-parts`, IMPLEMENTED): the saanche are compositions of general motion parts (hold,
+give/take, move along a path, transform A → B, a screen or sign shows text, a counter or meter changes, appear one by one,
+refuse/accept, compare) in `rulebook/saanche.json`; the ten recipes are compositions of them, `template: compose` lets the maker
+write a new process from the parts, a missing part goes to the missing-capability log. The block draws only the plan's own
+pictures, or a plain chip with the part's text; no object of its own. The fallback menu is the relation icons only; the prompts ask
+for exactly the beat's own things ("every thing you list is a promise"); places and the checks' word lists are rulebook data; a
+place's sign is only the plan's own. Struck-value rule: a value given back is a give in a process, judged by a return word beside
+that value, not by money words. Realisation of relations is read from an action's parts.
+
+| Measure | Before (main) | After |
+| --- | --- | --- |
+| Chapter nouns as fixed values in director, world, canvas and template code | 123 | 0 |
+| Object drawings of the block's own (note, coin, QR, phone, POS, card, cheque, passbook) | 8 | 0 |
+| Recipes run with a bicycle, a test tube and a book drawing only those | not tested | 10 of 10, and a composed process |
+| Earlier plans recompiled (415) | — | 0 differences from `main` |
+| Run a / run b answers passing within their rounds (replay) | 35 / 36 of 36 | 35 / 36 of 36 |
+| Passed outputs | — | 0 problems |
+
+Next (the addendum's points 4, 1 and 5): the mentioned-things coverage check, the general asset path with BIE's coder, and the
+generality proof on two more Money videos chosen by code.

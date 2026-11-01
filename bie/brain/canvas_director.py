@@ -40,12 +40,10 @@ CARD_PATH = Path(__file__).resolve().parent / "rulebook" / "canvas_director_card
 WORLD_CARD_PATH = Path(__file__).resolve().parent / "rulebook" / "world_director_card.md"
 FAMILIES = tuple(canvas.PROFILE.get("families") or ())
 MAX_PART_BEATS = 12          # CV: a longer part is split into two or three canvases (one plan each), never one dense canvas
-# The icon menu every plan can draw from (the maker has no search tool at run time; the menu is the index's answer to the
-# words an economy part uses most; an id outside the index is refused with the nearest matches).
-ICON_QUERIES = ("shop", "store", "factory", "bank", "money bag", "coin", "banknote", "person", "people", "worker", "farmer", "farm",
-                "wheat", "truck", "ship", "airplane", "government building", "house", "laptop", "package", "basket", "shopping cart",
-                "chart increasing", "chart decreasing", "scale balance", "oil", "fuel pump", "gold", "credit card", "receipt",
-                "handshake", "globe", "india", "hospital", "school", "tractor", "warehouse", "industry", "gear", "lightbulb")
+# The icon menu every plan can draw from besides the candidates of its own nouns: only the relation icons of the rulebook (the
+# cross, the tick, the meter, the scale ...). A fixed menu of one subject's things would show those things in every lesson
+# (Navin, 2 November 2026: "jis cheej ka jikar hai wohi cheej dikhe").
+ICON_QUERIES = ()
 
 # ---------------------------------------------------------------- schemas (strict: every field present, defaults mean "unset")
 
@@ -65,11 +63,14 @@ FLOW = obj({"icon": S, "count": I, "period": I, "size": I, "reverse": B, "cue": 
 PICTURE_ITEM = obj({"when": S, "name": S, "icon": S, "cue": CUE})
 PICTURE = obj({"type": S, "title": S, "items": arr(PICTURE_ITEM), "arrows": B})
 # Task 046 Part D2: a kriya ka saancha (the same shape in a canvas node and a world element); "" when the node is no action
-ACTION = obj({"template": {"type": "string", "enum": [""] + list(saanche.TEMPLATES)},
+PART = obj({"part": {"type": "string", "enum": [""] + list(saanche.PARTS)}, "cue": CUE, "actor": S, "from": S, "to": S, "object": S,
+            "into": S, "on": S, "text": S, "style": S, "inside": S, "n": I, "spot": S, "back": B, "left": S, "right": S, "sign": S,
+            "left_text": S, "right_text": S, "limit": S, "dir": S, "title": S, "reach": N})
+ACTION = obj({"template": {"type": "string", "enum": [""] + list(saanche.TEMPLATE_NAMES)},
               "actors": arr(obj({"role": S, "who": {"type": "string", "enum": list(saanche.WHO)}, "label": S,
                                  "mood": {"type": "string", "enum": list(saanche.MOODS)}})),
               "objects": arr(obj({"name": S, "icon": S, "label": S})), "amounts": arr(obj({"name": S, "text": S})),
-              "steps": arr(obj({"name": S, "cue": CUE})), "close_up": B})
+              "steps": arr(obj({"name": S, "cue": CUE})), "texts": arr(obj({"step": S, "text": S})), "parts": arr(PART), "close_up": B})
 NODE = obj({
     "id": S, "kind": {"type": "string", "enum": list(canvas.KINDS)}, "cell": arr(I), "cue": CUE, "cue_fraction": N,
     "until_cue": CUE, "until_fraction": N,
@@ -125,10 +126,13 @@ How to fill the JSON (every field is present; "" / 0 / [] / false mean "not used
   value/crowd use steps (text or n, with cue each; dir "up"/"down" on a value step). tree: root + children (text, cue).
   table: columns + rows (cells, cue) + highlights (row or col, -1 when not used). callout/text: marks (phrase, cue).
   arrow: from, to (+ from_side/to_side l r t b, elbow hv/vh/vhv). mark: mark tick/cross + target + pos c/tr.
-  highlight: target + style box/dashed/band. flow on an arrow (icon, count, period, size, reverse, cue) makes goods or
-  money travel along it. action (a kriya ka saancha, the card's table): cell at least 3 rows tall, action.template, actors
-  (role, who main/other, label, mood), objects (name, icon from the candidates, label), amounts (name, text as the
-  narration writes it), steps (name, cue) in the template's order, close_up; for every other kind action.template is "".
+  highlight: target + style box/dashed/band. flow on an arrow (icon, count, period, size, reverse, cue) makes the beat's
+  own things travel along it. action (a kriya ka saancha, the card's table): cell at least 3 rows tall, action.template,
+  actors (role, who main/other, label, mood), objects (name, icon from the candidates of THIS beat's things, label),
+  amounts (name, text as the narration writes it), steps (name, cue) in the recipe's order, texts (step, a short word the
+  narration says, shown with that step's sign), close_up; template "compose": parts in order (part, cue and the fields it
+  needs: actor/from/to/object/into/on/text/style/inside/n/spot/back/left/right/sign) with the action's own actors and
+  objects; for every other kind action.template is "".
 - camera: zoom to a region of cells on a cue (use it to re-frame instead of a new canvas). focus: dim everything but ids.
 - graph_used true + graph for an economic curve (axes, curves as [x, y] points, a dot that walks to x values, guides,
   shades, notes); plot is the graph's box as fractions of the canvas.
@@ -155,13 +159,15 @@ How to fill the JSON (every field is present; "" / 0 / [] mean "not used"):
   buyers away with the story's goods (carry_icon); tilt_cue tilts the balance. goods [{{icon, label}}] are the shop's stock (the
   story's own goods); left_icon/left_label and right_icon/right_label are a balance's pans. action (a kriya ka saancha, the
   card's table): x on the street beside the place, action.template, actors (role, who main/other, label, mood), objects (name,
-  icon from the candidates, label), amounts (name, text as the narration writes it), steps (name, cue) in the template's
-  order, close_up; for every other kind action.template is "". The place element (shop or bank) is the kit named above, once.
+  icon from the candidates of THIS beat's things, label), amounts (name, text as the narration writes it), steps (name, cue) in
+  the recipe's order, texts (step, a short word the narration says), close_up; template "compose": parts in order (part, cue
+  and the fields it needs) with the action's own actors and objects; for every other kind action.template is "". The place
+  element is the kit named above, once.
 - icons: only ids from the icon candidates listed under the part (the story's own things); any other id is refused.
 - camera: keys in time order, each with cue, x and y in world pixels, zoom and frames (how long the move takes).
 Reply with the JSON object only."""
 
-LEVEL_NOTE = {"B": "a build-up canvas with L3 touches (shadows, idle motion, walk-ins, flowing goods and money, a camera that follows)",
+LEVEL_NOTE = {"B": "a build-up canvas with L3 touches (shadows, idle motion, walk-ins, the beat's things flowing, a camera that follows)",
               "C": "a story told inside a small designed world"}
 
 
@@ -414,6 +420,26 @@ def _action_of(a: dict) -> dict:
            "objects": [{k: o.get(k, "") for k in ("name", "icon", "label")} for o in a.get("objects") or [] if o.get("name")],
            "amounts": [{"name": m["name"], "text": str(m.get("text", ""))} for m in a.get("amounts") or [] if m.get("name") and m.get("text")],
            "steps": [{"name": st.get("name", ""), "cue": _cue(st.get("cue"))} for st in a.get("steps") or [] if st.get("name")]}
+    texts = [{"step": t["step"], "text": str(t["text"])} for t in a.get("texts") or [] if t.get("step") and t.get("text")]
+    if texts:
+        out["texts"] = texts
+    parts = []
+    for p in a.get("parts") or []:                 # a composed process: its parts, unset fields dropped
+        if not p.get("part"):
+            continue
+        q = {"part": p["part"], "cue": _cue(p.get("cue"))}
+        for key in ("actor", "from", "to", "object", "into", "on", "text", "style", "inside", "spot", "left", "right", "sign",
+                    "left_text", "right_text", "limit", "dir", "title"):
+            if p.get(key):
+                q[key] = p[key]
+        for key in ("n", "reach"):
+            if p.get(key):
+                q[key] = p[key]
+        if p.get("back"):
+            q["back"] = True
+        parts.append(q)
+    if parts:
+        out["parts"] = parts
     if "close_up" in a and not a["close_up"]:
         out["close_up"] = False
     return out
@@ -571,7 +597,7 @@ def ideas_step(course: Course, stub: dict, items: list, picture: dict, *, max_ro
         line = vt.PICTURE_BY_CODE.format(ptype=picture["type"], ptitle=first.get("title", ""), source=first.get("kind", "picture"))
     else:
         line = vt.PICTURE_BY_MAKER.format(card_type=stub.get("card_type") or "")
-    system = fmt(vt.ROLE, course, verbs=vt.verbs_text(), phrase_words=vt.PHRASE_WORDS, picture_line=line, templates=saanche.templates_text())
+    system = fmt(vt.ROLE, course, verbs=vt.verbs_text(), phrase_words=vt.PHRASE_WORDS, picture_line=line, templates=saanche.templates_text(), parts=saanche.parts_text())
     payload = {"part": {"id": stub["id"], "part_id": stub.get("part_id", ""), "card_type": stub.get("card_type", ""), "story": bool(stub.get("story"))},
                "beats": beats, "items": [{k: i.get(k, "") for k in ("item_id", "content_type", "content")} for i in items],
                "book_pictures": [{"item_id": p["item_id"], "type": p["type"], "title": p["title"]} for p in picture.get("pictures") or []]}
@@ -631,8 +657,8 @@ def part_step(course: Course, stub: dict, items: list, mode: dict, *, rulebook, 
         schema = WORLD_SCHEMA
     else:
         # D1 (Navin, 30 October 2026): the maker gets the icons code found for the beats' own nouns, plus the relation icons;
-        # the fixed economy menu only when the visual-idea step gave nothing to search for.
-        menu = (relation_icons() if candidates else icon_menu()) if menu is None else menu
+        # no fixed menu of one subject's things, even when the visual-idea step gave nothing to search for.
+        menu = relation_icons() if menu is None else menu      # never a fixed menu of one subject's things (2 November 2026)
         system = fmt(ROLE, course, rules=rules, card=card_text(), icon_menu=_menu_text(menu), level=mode["mode"],
                      level_note=LEVEL_NOTE[mode["mode"]])
         schema = PLAN_SCHEMA
