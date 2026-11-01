@@ -319,7 +319,7 @@ class FetchNeeds(unittest.TestCase):
         self.assertIn("errors", rows["punch-marked silver coin"])
         self.assertEqual(rows["portrait of a king"]["status"], "skipped")
         self.assertEqual(rows["RBI vault"]["status"], "skipped")
-        self.assertEqual(report["counts"], {"fetched": 1, "in_library": 0, "not_found": 0, "skipped": 2})
+        self.assertEqual(report["counts"], {"fetched": 1, "in_library": 0, "not_found": 0, "skipped": 2, "not_tried": 0})
         with mock.patch.dict(fetch.SOURCES, sources), mock.patch.object(assets, "_open", lambda url, **kw: b"\xff\xd8\xff\xe0jpeg"):
             again = fetch.fetch(needs, lib)
         self.assertEqual({r["thing"]: r["status"] for r in again["needs"]}["punch-marked silver coin"], "in_library")
@@ -328,6 +328,35 @@ class FetchNeeds(unittest.TestCase):
         found = vt.resolve_needs({"beats": [{"beat_id": "b1", "things": [], "people": [], "places": [], "image_wanted": "punch-marked silver coin"}]}, run_lib)
         self.assertEqual(len(found["images"]["punch-marked silver coin"]), 1)
         self.assertEqual(found["needs"], [])
+
+    def test_a_slow_fetch_stops_at_its_time_budget_keeps_what_it_found_and_asks_the_museum_only_for_objects(self):
+        # the first live fetch (31 October 2026) ran out of its 30-minute job with nothing saved
+        fetch = _tool("task046d_fetch_needs")
+        needs = {"schema": formats.tag("needs"), "missing_capabilities": [],
+                 "needs": [{"thing": "silver coin", "beats": ["b1"], "kind": "image", "sources_tried": []},
+                           {"thing": "payer", "beats": ["b2"], "kind": "icon", "sources_tried": []},
+                           {"thing": "cowrie shells", "beats": ["b3"], "kind": "image", "sources_tried": []}]}
+        asked = []
+        now = [0.0]
+
+        def met(q, limit, opener=None):
+            asked.append(("met", q)); now[0] += 400
+            return [self.cand(f"{q}, CC0 object", "CC0 1.0")]
+
+        def openverse(q, limit, opener=None):
+            asked.append(("openverse", q)); now[0] += 400
+            return []
+
+        tmp = Path(tempfile.mkdtemp())
+        lib = assets.AssetLibrary(tmp / "lib")
+        with mock.patch.dict(fetch.SOURCES, {"met": met, "openverse": openverse, "commons": openverse}), \
+                mock.patch.object(assets, "_open", lambda url, **kw: b"\xff\xd8\xff\xe0jpeg"):
+            report = fetch.fetch(needs, lib, deadline_s=1000, clock=lambda: now[0])
+        status = {r["thing"]: r["status"] for r in report["needs"]}
+        self.assertEqual(status, {"silver coin": "fetched", "payer": "not_found", "cowrie shells": "not_tried"})
+        self.assertNotIn(("met", "payer"), asked)                                   # an icon need is no museum object
+        self.assertEqual(report["counts"]["not_tried"], 1)
+        self.assertEqual(len(assets.AssetLibrary(tmp / "lib").assets), 1)          # saved, not lost
 
     def test_the_met_reads_only_public_domain_objects(self):
         pd = {"objectID": 1, "isPublicDomain": True, "primaryImageSmall": "https://images.metmuseum.org/x.jpg", "title": "Coin", "objectURL": "https://met/1"}
@@ -381,3 +410,77 @@ class Look(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class ProofRunFixes(unittest.TestCase):
+    """What the live proof run on Money v2 and v4 (vm-t046d-money-canvas-a, 31 October 2026) taught: two v4 parts failed three
+    rounds each on BIE's own code, not on the maker's thinking."""
+
+    def test_a_currency_sign_is_a_word_a_cue_can_wait_for_and_earlier_cues_resolve_as_before(self):
+        from bie.brain.video import timing
+        say = "Foreign price tags में codes क्यों देखें? $ वाला United States Dollar, USD, सबसे ज़्यादा; € Euro; ¥ Japan या China।"
+        for sign in ("$", "€", "¥"):
+            self.assertTrue(timing.has_word(say, sign), sign)
+        self.assertFalse(timing.has_word(say, "£"))
+        self.assertLess(timing.word_fraction(say, "$"), timing.word_fraction(say, "€"))
+        self.assertGreater(timing.word_fraction(say, "€"), 0.0)
+        self.assertTrue(timing.has_word("एक ₹100 का note", "100"))                   # a cue with digits: the plain form, as before
+        self.assertTrue(timing.has_word("100 रुपये का note", "₹100"))
+        self.assertFalse(timing.has_word("Euro", "$"))
+
+    def test_a_reference_to_a_picture_node_means_the_picture_and_a_missing_id_names_the_ids(self):
+        beats = [{"beat_id": "b1", "say": "पहले commemorative coins देखिए।"}, {"beat_id": "b2", "say": "अब उनका status समझिए।"}]
+        gallery = {"id": "status", "kind": "picture", "cell": [0, 0, 12, 3], "cue": ["b1", ""],
+                   "picture": {"type": "gallery", "title": "", "panels": [{"name": "Proof set", "icon": "fa:solid/coins", "cue": ["b1", ""]},
+                                                                         {"name": "UNC set", "icon": "fa:solid/coins", "cue": ["b2", ""]}],
+                               "arrows": False, "numbered": False}}
+        mint = {"id": "mint", "kind": "icon", "cell": [0, 5, 4, 2], "cue": ["b2", "status"], "icon": "fa:solid/landmark", "label": "Mint"}
+        arrow = {"id": "sale", "kind": "arrow", "cue": ["b2", "status"], "from": {"id": "mint", "side": "top"}, "to": {"id": "status", "side": "bottom"}}
+        plan = {"id": "v4_s7a", "part_id": "c11.2", "theme": "paper", "grid": [12, 8], "touches": True, "beats": beats,
+                "nodes": [gallery, mint, arrow], "focus": [{"cue": ["b2", "status"], "ids": ["status"]}]}
+        scene, report = canvas.compile_plan(copy.deepcopy(plan))
+        focus = scene["layers"][0]["data"]["focus"][0]["ids"]
+        self.assertGreaterEqual(len(focus), 2)                                         # the picture's own elements
+        self.assertNotIn("status", focus)
+        with self.assertRaises(canvas.PlanError) as err:
+            canvas.compile_plan(dict(copy.deepcopy(plan), focus=[{"cue": ["b2", ""], "ids": ["sets"]}]))
+        self.assertIn("focus names a missing element 'sets'", str(err.exception))
+        self.assertIn("status", str(err.exception).split("ids are:")[1])               # the ids the maker can use
+
+    def test_the_ideas_step_reads_a_card_type_as_its_picture_and_names_found_by_role(self):
+        # 21 of 36 ideas answers wrote the card part's type as picture_type; the needs list held years, roles and "lender"→blender
+        stub = {"id": "v2_s1", "beats": [{"beat_id": "b1", "say": "Barter यानी सीधा लेन-देन।"}]}
+        answer = {"beats": [{"beat_id": "b1", "idea": "barter", "relation": "accept", "relation_note": "", "things": ["wheat"],
+                             "people": [], "places": [], "shows": "wheat for cloth", "on_word": "Barter", "image_wanted": ""}],
+                  "picture_type": "definition", "picture_note": ""}
+        self.assertEqual(vt.check_ideas(stub, answer), [])
+        self.assertEqual(vt.IDEAS_SCHEMA["properties"]["picture_type"]["enum"], list(vt.PICTURE_TYPES))
+        self.assertFalse(vt._is_thing("1023"))
+        self.assertTrue(vt._is_thing("1661 Sweden"))
+        self.assertEqual(icons.search("lender")[0]["id"], "fa:solid/user-tie")
+        self.assertNotIn("fa:solid/blender", [r["id"] for r in icons.search("lender")])
+        self.assertEqual(icons.search("porter")[0]["id"], "fa:solid/person-walking-luggage")
+        self.assertEqual(icons.search("coins")[0]["id"], "tw:1fa99")
+
+    def test_the_render_keeps_the_edges_in_view_bends_arrows_gently_and_tags_readable(self):
+        # the v2 render of 31 October 2026: the book's table lost its first letters at the frame edge, a curve=True arrow swung
+        # a whole arrow-length across the book's gallery, and a tag had blue words on its pink fill
+        full = canvas.fit_box(canvas.pad_box(canvas.cell_box([0, 0, 12, 8], [12, 8])))
+        table = canvas.cell_box([0, 0, 12, 7], [12, 8])
+        self.assertGreaterEqual(table["x"] - full["x"], 0.03)                         # the table's edge is well inside the view
+        self.assertLessEqual(full["x"] + full["w"], 1.0)
+        self.assertEqual((canvas.arrow_bend(True), canvas.arrow_bend(False), canvas.arrow_bend(5)), (canvas.ARROW_BEND, 0.0, 0.35))
+        beats = [{"beat_id": "b1", "say": "पहला पड़ाव barter है: गेहूँ के बदले कपड़ा।"}]
+        plan = {"id": "v2_s5a", "part_id": "c04.1", "theme": "paper", "grid": [12, 8], "touches": True, "beats": beats,
+                "nodes": [{"id": "wheat", "kind": "icon", "cell": [1, 4, 2, 2], "cue": ["b1", ""], "icon": "tw:1f33e", "label": "गेहूँ"},
+                          {"id": "cloth", "kind": "icon", "cell": [9, 4, 2, 2], "cue": ["b1", ""], "icon": "tw:1f455", "label": "कपड़ा"},
+                          {"id": "swap", "kind": "arrow", "cue": ["b1", "बदले"], "from": {"id": "wheat"}, "to": {"id": "cloth"}, "curve": True},
+                          {"id": "tag", "kind": "text", "cell": [4, 6, 4, 1], "cue": ["b1", "barter"], "text": "पहला पड़ाव barter",
+                           "style": "tag", "tone": "accent"}],
+                "camera": [{"cells": [0, 0, 12, 8], "cue": ["b1", ""]}]}
+        scene, _ = canvas.compile_plan(plan)
+        els = {e["id"]: e for e in scene["layers"][0]["data"]["elements"]}
+        self.assertEqual(els["swap"]["curve"], canvas.ARROW_BEND)
+        self.assertNotIn("tone", els["tag"])
+        cam = scene["camera"][0]["box"]
+        self.assertLess(cam["x"], table["x"] - 0.03)

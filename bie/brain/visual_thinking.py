@@ -106,7 +106,8 @@ def verbs_text(verbs: dict | None = None) -> str:
 
 IDEA = obj({"beat_id": S, "idea": S, "relation": S, "relation_note": S, "things": arr(S), "people": arr(S), "places": arr(S),
             "shows": S, "on_word": S, "image_wanted": S})
-IDEAS_SCHEMA = obj({"notes": NOTES_SCHEMA, "beats": arr(IDEA), "picture_type": S, "picture_note": S})
+IDEAS_SCHEMA = obj({"notes": NOTES_SCHEMA, "beats": arr(IDEA), "picture_type": {"type": "string", "enum": list(PICTURE_TYPES)},
+                    "picture_note": S})            # the enum: the live run of 31 October 2026 wrote the card type there in 21 of 36 parts
 
 ROLE = """You are BIE's visual thinker for one part of a video lesson of {subject} for {learners} ({exam}). The script is written and
 passed; you do not change a word. Before any layout, say for EVERY beat what the learner should SEE so that the spoken point is
@@ -177,6 +178,8 @@ def check_ideas(stub: dict, value: dict, *, picture: dict | None = None, verbs: 
     if dup:
         problems.append("a beat appears twice: " + ", ".join(dup))
     ptype = (value.get("picture_type") or "").strip()
+    if ptype not in PICTURE_TYPES and ptype in CARD_HINT:     # a card part's type ("definition") is read as its picture ("things")
+        ptype = CARD_HINT[ptype]
     if ptype and ptype not in PICTURE_TYPES:
         problems.append(f"picture_type {ptype!r} is not one of {', '.join(PICTURE_TYPES)}")
     if picture and picture.get("by") == "book" and ptype and ptype != picture["type"]:
@@ -479,6 +482,8 @@ def _is_thing(noun: str) -> bool:
     from .video import screen_text
     words = noun.lower().split()
     junk = NOT_A_THING | soul.STOP | soul.HINDI_VERB_WORDS | screen_text.STOP
+    if not re.search(r"[a-z\u0900-\u097f]", noun.lower()):     # a year or a number ("1023", "1661") is text on the picture, not a thing
+        return False
     return bool(words) and not all(w.strip("।,.!?") in junk for w in words)
 
 

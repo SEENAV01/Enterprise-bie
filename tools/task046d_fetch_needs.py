@@ -50,9 +50,18 @@ def load_needs(source: str, opener=None) -> dict:
     return data
 
 
+MUSEUM = {"met"}            # a museum holds objects (coins, seals, notes); an icon need (a role, an idea) is never one of its objects
+
+
 def fetch(needs: dict, library: assets.AssetLibrary, *, sources=("met", "openverse", "commons"), per_need: int = 1, opener=None,
-          run: str = "") -> dict:
-    """The report of one fetch: per need its status (in_library, fetched, not_found, skipped) and the assets added."""
+          run: str = "", deadline_s: float = 1200.0, clock=None) -> dict:
+    """The report of one fetch: per need its status (in_library, fetched, not_found, skipped, not_tried) and the assets added.
+    ``deadline_s`` is the time budget: the needs not reached in time are reported ``not_tried`` and the library found so far
+    is saved after every need, so a slow source never loses the work (the first live fetch, 31 October 2026, ran out of its
+    30-minute job with nothing saved)."""
+    import time as _time
+    clock = clock or _time.monotonic
+    start = clock()
     rows, seen = [], set()
     for need in needs.get("needs") or []:
         thing = str(need.get("thing") or "").strip()
@@ -61,6 +70,9 @@ def fetch(needs: dict, library: assets.AssetLibrary, *, sources=("met", "openver
             continue
         seen.add(key)
         row = {"thing": thing, "kind": need.get("kind"), "beats": need.get("beats") or [], "assets": [], "tried": []}
+        if clock() - start > deadline_s:
+            rows.append(dict(row, status="not_tried", why=f"the time budget of {deadline_s:.0f} s was spent"))
+            continue
         if need.get("kind") not in ("image", "icon"):
             rows.append(dict(row, status="skipped", why=f"a {need.get('kind')} is built by Part D2, not fetched"))
             continue
@@ -73,6 +85,10 @@ def fetch(needs: dict, library: assets.AssetLibrary, *, sources=("met", "openver
             rows.append(dict(row, status="in_library", assets=[a.asset_id for a in have[:per_need]]))
             continue
         for name in sources:
+            if name in MUSEUM and need.get("kind") != "image":
+                continue
+            if clock() - start > deadline_s:
+                break
             row["tried"].append(name)
             try:
                 candidates = SOURCES[name](" ".join(words) or thing, limit=6, opener=opener)
@@ -95,8 +111,10 @@ def fetch(needs: dict, library: assets.AssetLibrary, *, sources=("met", "openver
             if len(row["assets"]) >= per_need:
                 break
         rows.append(dict(row, status="fetched" if row["assets"] else "not_found"))
+        if row["assets"]:
+            library.save()                                    # what was found stays found, even if the job is stopped later
     library.save()
-    counts = {s: sum(1 for r in rows if r["status"] == s) for s in ("fetched", "in_library", "not_found", "skipped")}
+    counts = {s: sum(1 for r in rows if r["status"] == s) for s in ("fetched", "in_library", "not_found", "skipped", "not_tried")}
     return {"schema": SCHEMA, "run": run, "needs": rows, "counts": counts, "library_assets": len(library.assets),
             "missing_capabilities": needs.get("missing_capabilities") or []}
 
@@ -108,6 +126,7 @@ def main(argv=None) -> int:
     parser.add_argument("--per-need", type=int, default=1)
     parser.add_argument("--sources", default="met,openverse,commons")
     parser.add_argument("--report", type=Path)
+    parser.add_argument("--deadline-min", type=float, default=20.0, help="time budget in minutes (the job's own limit is longer)")
     args = parser.parse_args(argv)
     sources = [s.strip() for s in args.sources.split(",") if s.strip()]
     unknown = [s for s in sources if s not in SOURCES]
@@ -115,7 +134,8 @@ def main(argv=None) -> int:
         parser.error(f"unknown sources: {', '.join(unknown)} (known: {', '.join(SOURCES)})")
     needs = load_needs(args.needs)
     run = args.needs.rsplit("/runs/", 1)[-1].split("/")[0] if "/runs/" in args.needs else ""
-    report = fetch(needs, assets.AssetLibrary(args.library), sources=sources, per_need=max(1, min(3, args.per_need)), run=run)
+    report = fetch(needs, assets.AssetLibrary(args.library), sources=sources, per_need=max(1, min(3, args.per_need)), run=run,
+                   deadline_s=max(60.0, args.deadline_min * 60))
     out = args.report or args.library / "fetched.json"
     out.write_text(json.dumps(report, ensure_ascii=False, indent=1), encoding="utf-8")
     print(json.dumps(report["counts"]), "library:", report["library_assets"], "assets ->", out)

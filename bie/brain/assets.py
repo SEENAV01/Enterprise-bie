@@ -273,18 +273,21 @@ def _met_candidate(obj: dict) -> Candidate | None:
                      credit=f"{title}, The Metropolitan Museum of Art, Open Access (CC0)")
 
 
-def search_met(query: str, *, limit: int = 6, opener=None) -> list:
+def search_met(query: str, *, limit: int = 6, opener=None, lookups: int = 0) -> list:
     """Image candidates from The Met's Open Access collection (CC0, no key): coins, seals, weights and other objects of
-    economic history (Task 046 Part D1). Objects not in the public domain are left out."""
+    economic history (Task 046 Part D1). Objects not in the public domain are left out. Every object costs a request of its
+    own, so at most ``lookups`` objects are read (default ``limit + 2``), each with a short timeout: the first live fetch of
+    31 October 2026 spent its 30 minutes on up to 18 object reads per need."""
     params = {"hasImages": "true", "q": query}
-    raw = _open(MET_API + "search?" + urllib.parse.urlencode(params), opener=opener, max_bytes=4 * 1024 * 1024)
-    ids = (json.loads(raw.decode("utf-8")).get("objectIDs") or [])[: max(limit * 3, limit)]
+    raw = _open(MET_API + "search?" + urllib.parse.urlencode(params), opener=opener, max_bytes=4 * 1024 * 1024, timeout=30.0, tries=2)
+    ids = (json.loads(raw.decode("utf-8")).get("objectIDs") or [])[: lookups or limit + 2]
     found = []
     for oid in ids:
         if len(found) >= limit:
             break
         try:
-            obj = json.loads(_open(f"{MET_API}objects/{int(oid)}", opener=opener, max_bytes=2 * 1024 * 1024).decode("utf-8"))
+            obj = json.loads(_open(f"{MET_API}objects/{int(oid)}", opener=opener, max_bytes=2 * 1024 * 1024,
+                                   timeout=20.0, tries=2).decode("utf-8"))
         except (AssetError, ValueError, OSError):
             continue
         candidate = _met_candidate(obj)

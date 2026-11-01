@@ -41,7 +41,7 @@ env:
 jobs:
   fetch:
     runs-on: ubuntu-24.04
-    timeout-minutes: 30
+    timeout-minutes: 45
     permissions:
       contents: write
     steps:
@@ -73,7 +73,7 @@ jobs:
               "$RUNNER_TEMP/library" "$base"
           fi
           python -B tools/task046d_fetch_needs.py --needs "$NEEDS_URL" --library "$RUNNER_TEMP/library" \
-            --per-need "$PER_NEED" --sources "$SOURCES" --report "$RUNNER_TEMP/library/fetched.json"
+            --per-need "$PER_NEED" --sources "$SOURCES" --report "$RUNNER_TEMP/library/fetched.json" --deadline-min 25
           python - <<'EOF'
           import json, os
           r = json.load(open(os.path.join(os.environ["RUNNER_TEMP"], "library", "fetched.json")))
