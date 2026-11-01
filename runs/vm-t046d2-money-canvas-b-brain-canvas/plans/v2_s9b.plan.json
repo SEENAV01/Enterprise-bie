@@ -1,0 +1,683 @@
+{
+ "id": "v2_s9b",
+ "part_id": "c06.3",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b59",
+   "say": "यह perishability, यानी खराब होना है। बाकी limitations हैं lack of uniformity, poor divisibility, difficult transport और limited standardization; इन्हें गाय और grain से समझिए।"
+  },
+  {
+   "beat_id": "b60",
+   "say": "गायों का size और health अलग होना lack of uniformity है। Weight और quality के तय rules standardization हैं; इनके बिना बार-बार checking और bargaining चाहिए।"
+  },
+  {
+   "beat_id": "b61",
+   "say": "गाय बाँटना मुश्किल, grain खराब हो सकता है, भारी sack ढोना पड़ता है। इसलिए छोटे payments, storage और transport में extra खर्च जुड़ता है।"
+  },
+  {
+   "beat_id": "b62",
+   "say": "सब पर बराबर लागू नहीं: grain बाँट सकते हैं, गाय नहीं; shells food जैसे नहीं सड़ते। ‘सभी’ से सावधान।"
+  },
+  {
+   "beat_id": "b63",
+   "say": "Matching आसान हुई, handling नहीं; इसलिए टिकाऊ, measured metallic units उपयोगी बने।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "grain_anchor",
+   "kind": "icon",
+   "cell": [
+    0,
+    0,
+    2,
+    1
+   ],
+   "cue": [
+    "b59",
+    "perishability,"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "bie:grain-sack",
+   "size": 32
+  },
+  {
+   "id": "limitations",
+   "kind": "picture",
+   "cell": [
+    0,
+    2,
+    12,
+    4
+   ],
+   "cue": [
+    "b59",
+    "perishability,"
+   ],
+   "until_cue": [
+    "b60",
+    "size"
+   ],
+   "tone": "ink",
+   "align": "center",
+   "size": 28,
+   "picture": {
+    "type": "gallery",
+    "title": "",
+    "item_id": "",
+    "panels": [
+     {
+      "cue": [
+       "b59",
+       "खराब"
+      ],
+      "name": "खराब होना",
+      "icon": "bie:grain-sack",
+      "numbered": false
+     },
+     {
+      "cue": [
+       "b59",
+       "uniformity,"
+      ],
+      "name": "lack of uniformity",
+      "icon": "bie:cattle",
+      "numbered": false
+     },
+     {
+      "cue": [
+       "b59",
+       "divisibility,"
+      ],
+      "name": "poor divisibility",
+      "icon": "bie:cattle",
+      "numbered": false
+     },
+     {
+      "cue": [
+       "b59",
+       "transport"
+      ],
+      "name": "difficult transport",
+      "icon": "fa:solid/person-walking-luggage",
+      "numbered": false
+     },
+     {
+      "cue": [
+       "b59",
+       "standardization;"
+      ],
+      "name": "limited standardization",
+      "icon": "tw:2696",
+      "numbered": false
+     }
+    ],
+    "arrows": false
+   }
+  },
+  {
+   "id": "large_cow",
+   "kind": "icon",
+   "cell": [
+    0,
+    2,
+    3,
+    3
+   ],
+   "cue": [
+    "b60",
+    "size"
+   ],
+   "until_cue": [
+    "b61",
+    "गाय"
+   ],
+   "tone": "ink",
+   "align": "center",
+   "icon": "bie:cattle",
+   "size": 96
+  },
+  {
+   "id": "small_cow",
+   "kind": "icon",
+   "cell": [
+    3,
+    3,
+    2,
+    2
+   ],
+   "cue": [
+    "b60",
+    "अलग"
+   ],
+   "until_cue": [
+    "b61",
+    "गाय"
+   ],
+   "tone": "ink",
+   "align": "center",
+   "icon": "bie:cattle",
+   "size": 60
+  },
+  {
+   "id": "standards",
+   "kind": "icon",
+   "cell": [
+    6,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b60",
+    "rules"
+   ],
+   "until_cue": [
+    "b61",
+    "गाय"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "tw:1f4dc",
+   "label": "Weight और quality",
+   "size": 60
+  },
+  {
+   "id": "missing_rules",
+   "kind": "mark",
+   "cue": [
+    "b60",
+    "बिना"
+   ],
+   "until_cue": [
+    "b61",
+    "गाय"
+   ],
+   "tone": "danger",
+   "target": "standards",
+   "mark": "cross",
+   "pos": "tr",
+   "size": 32
+  },
+  {
+   "id": "checking",
+   "kind": "icon",
+   "cell": [
+    9,
+    2,
+    3,
+    2
+   ],
+   "cue": [
+    "b60",
+    "checking"
+   ],
+   "until_cue": [
+    "b61",
+    "गाय"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "tw:1f50d",
+   "label": "checking",
+   "size": 60
+  },
+  {
+   "id": "bargaining",
+   "kind": "icon",
+   "cell": [
+    9,
+    5,
+    3,
+    1
+   ],
+   "cue": [
+    "b60",
+    "bargaining"
+   ],
+   "until_cue": [
+    "b61",
+    "गाय"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "fa:solid/tags",
+   "label": "bargaining",
+   "size": 48
+  },
+  {
+   "id": "cost_causes",
+   "kind": "picture",
+   "cell": [
+    0,
+    2,
+    8,
+    3
+   ],
+   "cue": [
+    "b61",
+    "गाय"
+   ],
+   "until_cue": [
+    "b62",
+    "बराबर"
+   ],
+   "tone": "warm",
+   "size": 28,
+   "picture": {
+    "type": "gallery",
+    "title": "",
+    "item_id": "",
+    "panels": [
+     {
+      "cue": [
+       "b61",
+       "बाँटना"
+      ],
+      "name": "बाँटना मुश्किल",
+      "icon": "bie:cattle",
+      "numbered": false
+     },
+     {
+      "cue": [
+       "b61",
+       "खराब"
+      ],
+      "name": "grain खराब",
+      "icon": "bie:grain-sack",
+      "numbered": false
+     },
+     {
+      "cue": [
+       "b61",
+       "ढोना"
+      ],
+      "name": "भारी sack ढोना",
+      "icon": "fa:solid/person-walking-luggage",
+      "numbered": false
+     }
+    ],
+    "arrows": false
+   }
+  },
+  {
+   "id": "extra_cost",
+   "kind": "icon",
+   "cell": [
+    9,
+    2,
+    3,
+    3
+   ],
+   "cue": [
+    "b61",
+    "खर्च"
+   ],
+   "until_cue": [
+    "b62",
+    "बराबर"
+   ],
+   "tone": "danger",
+   "align": "center",
+   "icon": "fa:solid/coins",
+   "label": "extra खर्च",
+   "size": 64
+  },
+  {
+   "id": "cost_flow",
+   "kind": "arrow",
+   "cue": [
+    "b61",
+    "जुड़ता"
+   ],
+   "until_cue": [
+    "b62",
+    "बराबर"
+   ],
+   "tone": "warm",
+   "from": "cost_causes",
+   "to": "extra_cost",
+   "from_side": "r",
+   "to_side": "l",
+   "elbow": "hv",
+   "flow": {
+    "icon": "tw:1fa99",
+    "count": 2,
+    "period": 1600,
+    "size": 24,
+    "cue": [
+     "b61",
+     "जुड़ता"
+    ]
+   }
+  },
+  {
+   "id": "commodity_compare",
+   "kind": "picture",
+   "cell": [
+    0,
+    2,
+    12,
+    4
+   ],
+   "cue": [
+    "b62",
+    "बराबर"
+   ],
+   "until_cue": [
+    "b63",
+    "Matching"
+   ],
+   "tone": "ink",
+   "size": 28,
+   "picture": {
+    "type": "gallery",
+    "title": "",
+    "item_id": "",
+    "panels": [
+     {
+      "cue": [
+       "b62",
+       "grain"
+      ],
+      "name": "grain बाँट सकते हैं",
+      "icon": "bie:grain-sack",
+      "numbered": false
+     },
+     {
+      "cue": [
+       "b62",
+       "गाय"
+      ],
+      "name": "गाय नहीं",
+      "icon": "bie:cattle",
+      "numbered": false
+     },
+     {
+      "cue": [
+       "b62",
+       "shells"
+      ],
+      "name": "shells नहीं सड़ते",
+      "icon": "bie:cowrie-shells",
+      "numbered": false
+     },
+     {
+      "cue": [
+       "b62",
+       "food"
+      ],
+      "name": "food जैसे",
+      "icon": "fl:pot-of-food",
+      "numbered": false
+     }
+    ],
+    "arrows": false
+   }
+  },
+  {
+   "id": "all_claim",
+   "kind": "text",
+   "cell": [
+    8,
+    0,
+    3,
+    1
+   ],
+   "cue": [
+    "b62",
+    "‘सभी’"
+   ],
+   "until_cue": [
+    "b63",
+    "Matching"
+   ],
+   "text": "‘सभी’ से सावधान",
+   "style": "tag",
+   "tone": "warm",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "matching",
+   "kind": "icon",
+   "cell": [
+    0,
+    2,
+    3,
+    3
+   ],
+   "cue": [
+    "b63",
+    "Matching"
+   ],
+   "tone": "ok",
+   "align": "center",
+   "icon": "tw:1f91d",
+   "label": "Matching आसान",
+   "size": 64
+  },
+  {
+   "id": "matching_done",
+   "kind": "mark",
+   "cue": [
+    "b63",
+    "हुई,"
+   ],
+   "tone": "ok",
+   "target": "matching",
+   "mark": "tick",
+   "pos": "tr",
+   "size": 30
+  },
+  {
+   "id": "handling",
+   "kind": "icon",
+   "cell": [
+    4,
+    2,
+    3,
+    3
+   ],
+   "cue": [
+    "b63",
+    "handling"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "bie:grain-sack",
+   "label": "handling नहीं",
+   "size": 64
+  },
+  {
+   "id": "measured_metal",
+   "kind": "picture",
+   "cell": [
+    8,
+    2,
+    4,
+    3
+   ],
+   "cue": [
+    "b63",
+    "measured"
+   ],
+   "tone": "accent",
+   "size": 28,
+   "picture": {
+    "type": "gallery",
+    "title": "",
+    "item_id": "",
+    "panels": [
+     {
+      "cue": [
+       "b63",
+       "measured"
+      ],
+      "name": "measured",
+      "icon": "tw:2696",
+      "numbered": false
+     },
+     {
+      "cue": [
+       "b63",
+       "metallic"
+      ],
+      "name": "metallic units",
+      "icon": "fl:coin",
+      "numbered": false
+     }
+    ],
+    "arrows": false
+   }
+  },
+  {
+   "id": "metal_appeal",
+   "kind": "arrow",
+   "cue": [
+    "b63",
+    "उपयोगी"
+   ],
+   "tone": "accent",
+   "from": "handling",
+   "to": "measured_metal",
+   "from_side": "r",
+   "to_side": "l",
+   "elbow": "hv",
+   "flow": {
+    "icon": "fl:coin",
+    "count": 2,
+    "period": 1800,
+    "size": 22,
+    "cue": [
+     "b63",
+     "उपयोगी"
+    ]
+   }
+  },
+  {
+   "id": "auto_arrow_b60",
+   "kind": "arrow",
+   "from": "grain_anchor",
+   "to": "large_cow",
+   "cue": [
+    "b60",
+    "size"
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b59",
+    "perishability,"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    1,
+    12,
+    6
+   ],
+   "cue": [
+    "b60",
+    "size"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    1,
+    12,
+    6
+   ],
+   "cue": [
+    "b61",
+    "बाँटना"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b62",
+    "बराबर"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    1,
+    12,
+    6
+   ],
+   "cue": [
+    "b63",
+    "Matching"
+   ]
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b60",
+    "size"
+   ],
+   "ids": [
+    "large_cow",
+    "small_cow"
+   ],
+   "until_cue": [
+    "b60",
+    "Weight"
+   ]
+  },
+  {
+   "cue": [
+    "b60",
+    "rules"
+   ],
+   "ids": [
+    "standards",
+    "missing_rules",
+    "checking",
+    "bargaining"
+   ],
+   "until_cue": [
+    "b61",
+    "गाय"
+   ]
+  },
+  {
+   "cue": [
+    "b63",
+    "measured"
+   ],
+   "ids": [
+    "handling",
+    "measured_metal_p1",
+    "measured_metal_p2",
+    "metal_appeal"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

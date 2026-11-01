@@ -1,0 +1,652 @@
+{
+ "id": "v4_s7b",
+ "part_id": "c11.2",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b45",
+   "say": "₹20 के 50 coins जोड़ें तो ₹1,000 बनते हैं; limit 1,000 coins की नहीं है। 50 paise के 20 coins जोड़ें तो ₹10 बनते हैं; denomination और total limit अलग हैं।"
+  },
+  {
+   "beat_id": "b46",
+   "say": "डिब्बे से 50 और 25 paise अलग रखिए: Coinage Act, 2011 में पहले की ₹10 limit है, दूसरे का tender status नहीं। Commemorative coins में ‘most’ यानी सभी नहीं; इससे गिनती नहीं निकाल सकते।"
+  },
+  {
+   "beat_id": "b47",
+   "say": "Limit पार करना status खोना नहीं; collector price legal status लौटाती नहीं।"
+  },
+  {
+   "beat_id": "b48",
+   "say": "Denomination × count निकालिए; फिर total limit और status जाँचिए।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "book_p005_i7",
+   "kind": "picture",
+   "cell": [
+    0,
+    0,
+    12,
+    3
+   ],
+   "cue": [
+    "b45",
+    ""
+   ],
+   "picture": {
+    "type": "table",
+    "title": "Current legal limits for coins (Coinage Act, 2011)",
+    "item_id": "p005-i7",
+    "columns": [
+     "Coin",
+     "Legal Tender Limit"
+    ],
+    "rows": [
+     {
+      "cells": [
+       "₹1, ₹2, ₹5, ₹10, ₹20 coins",
+       "Up to ₹1,000"
+      ],
+      "item_id": "p005-i9",
+      "cue": [
+       "b45",
+       ""
+      ]
+     },
+     {
+      "cells": [
+       "50 paise coin",
+       "Up to ₹10"
+      ],
+      "item_id": "p005-i10",
+      "cue": [
+       "b45",
+       ""
+      ]
+     },
+     {
+      "cells": [
+       "Coins below 50 paise",
+       "No longer legal tender (demonetized)"
+      ],
+      "item_id": "p005-i11",
+      "cue": [
+       "b46",
+       ""
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "rupee_count",
+   "kind": "action",
+   "cell": [
+    0,
+    3,
+    4,
+    3
+   ],
+   "cue": [
+    "b45",
+    "₹20"
+   ],
+   "until_cue": [
+    "b46",
+    "डिब्बे"
+   ],
+   "template": "coin_count",
+   "actors": [],
+   "objects": [
+    {
+     "name": "coin",
+     "icon": "bie:coin-20",
+     "label": ""
+    }
+   ],
+   "amounts": [
+    {
+     "name": "each",
+     "text": "₹20"
+    },
+    {
+     "name": "limit",
+     "text": "₹1,000"
+    }
+   ],
+   "steps": [
+    {
+     "name": "count",
+     "cue": [
+      "b45",
+      "जोड़ें"
+     ]
+    },
+    {
+     "name": "limit",
+     "cue": [
+      "b45",
+      "₹1,000"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "rupee_quantity",
+   "kind": "text",
+   "cell": [
+    4,
+    3,
+    2,
+    1
+   ],
+   "cue": [
+    "b45",
+    "50"
+   ],
+   "until_cue": [
+    "b46",
+    "डिब्बे"
+   ],
+   "text": "50 coins",
+   "style": "tag",
+   "tone": "ink",
+   "align": "center",
+   "size": 24
+  },
+  {
+   "id": "paise_count",
+   "kind": "action",
+   "cell": [
+    6,
+    3,
+    4,
+    3
+   ],
+   "cue": [
+    "b45",
+    "paise"
+   ],
+   "until_cue": [
+    "b46",
+    "डिब्बे"
+   ],
+   "template": "coin_count",
+   "actors": [],
+   "objects": [
+    {
+     "name": "coin",
+     "icon": "bie:coin-50p",
+     "label": ""
+    }
+   ],
+   "amounts": [
+    {
+     "name": "each",
+     "text": "50 paise"
+    },
+    {
+     "name": "limit",
+     "text": "₹10"
+    }
+   ],
+   "steps": [
+    {
+     "name": "count",
+     "cue": [
+      "b45",
+      "20"
+     ]
+    },
+    {
+     "name": "limit",
+     "cue": [
+      "b45",
+      "₹10"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "paise_quantity",
+   "kind": "text",
+   "cell": [
+    10,
+    3,
+    2,
+    1
+   ],
+   "cue": [
+    "b45",
+    "20"
+   ],
+   "until_cue": [
+    "b46",
+    "डिब्बे"
+   ],
+   "text": "20 coins",
+   "style": "tag",
+   "tone": "ink",
+   "align": "center",
+   "size": 24
+  },
+  {
+   "id": "sorting_box",
+   "kind": "icon",
+   "cell": [
+    0,
+    3,
+    2,
+    2
+   ],
+   "cue": [
+    "b46",
+    "डिब्बे"
+   ],
+   "until_cue": [
+    "b47",
+    "Limit"
+   ],
+   "icon": "tw:1f4e6"
+  },
+  {
+   "id": "valid_half",
+   "kind": "icon",
+   "cell": [
+    2,
+    3,
+    2,
+    2
+   ],
+   "cue": [
+    "b46",
+    "50"
+   ],
+   "until_cue": [
+    "b48",
+    "Denomination"
+   ],
+   "icon": "bie:coin-50p"
+  },
+  {
+   "id": "withdrawn_quarter",
+   "kind": "icon",
+   "cell": [
+    7,
+    3,
+    2,
+    2
+   ],
+   "cue": [
+    "b46",
+    "25"
+   ],
+   "until_cue": [
+    "b48",
+    "Denomination"
+   ],
+   "icon": "bie:coin-25p"
+  },
+  {
+   "id": "half_limit",
+   "kind": "text",
+   "cell": [
+    1,
+    5,
+    4,
+    1
+   ],
+   "cue": [
+    "b46",
+    "₹10"
+   ],
+   "until_cue": [
+    "b46",
+    "Commemorative"
+   ],
+   "text": "₹10 limit",
+   "style": "tag",
+   "tone": "accent",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "withdrawn_cross",
+   "kind": "mark",
+   "cue": [
+    "b46",
+    "नहीं।"
+   ],
+   "until_cue": [
+    "b48",
+    "Denomination"
+   ],
+   "tone": "danger",
+   "target": "withdrawn_quarter",
+   "mark": "cross",
+   "pos": "tr"
+  },
+  {
+   "id": "commemorative",
+   "kind": "icon",
+   "cell": [
+    2,
+    5,
+    2,
+    1
+   ],
+   "cue": [
+    "b46",
+    "Commemorative"
+   ],
+   "until_cue": [
+    "b47",
+    "Limit"
+   ],
+   "icon": "tw:1fa99"
+  },
+  {
+   "id": "most_question",
+   "kind": "icon",
+   "cell": [
+    5,
+    5,
+    2,
+    1
+   ],
+   "cue": [
+    "b46",
+    "‘most’"
+   ],
+   "until_cue": [
+    "b47",
+    "Limit"
+   ],
+   "icon": "tw:2753"
+  },
+  {
+   "id": "most_text",
+   "kind": "text",
+   "cell": [
+    7,
+    5,
+    5,
+    1
+   ],
+   "cue": [
+    "b46",
+    "सभी"
+   ],
+   "until_cue": [
+    "b47",
+    "Limit"
+   ],
+   "text": "सभी नहीं",
+   "style": "box",
+   "tone": "warm",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "exceeded_meter",
+   "kind": "icon",
+   "cell": [
+    0,
+    5,
+    2,
+    2
+   ],
+   "cue": [
+    "b47",
+    "Limit"
+   ],
+   "until_cue": [
+    "b48",
+    "Denomination"
+   ],
+   "tone": "danger",
+   "icon": "fa:solid/gauge-high"
+  },
+  {
+   "id": "retained_status",
+   "kind": "icon",
+   "cell": [
+    3,
+    5,
+    2,
+    2
+   ],
+   "cue": [
+    "b47",
+    "status"
+   ],
+   "until_cue": [
+    "b48",
+    "Denomination"
+   ],
+   "tone": "ok",
+   "icon": "fa:solid/id-badge"
+  },
+  {
+   "id": "status_retained_tick",
+   "kind": "mark",
+   "cue": [
+    "b47",
+    "नहीं;"
+   ],
+   "until_cue": [
+    "b48",
+    "Denomination"
+   ],
+   "tone": "ok",
+   "target": "retained_status",
+   "mark": "tick",
+   "pos": "tr"
+  },
+  {
+   "id": "collector_tag",
+   "kind": "icon",
+   "cell": [
+    10,
+    5,
+    2,
+    2
+   ],
+   "cue": [
+    "b47",
+    "collector"
+   ],
+   "until_cue": [
+    "b48",
+    "Denomination"
+   ],
+   "tone": "warm",
+   "icon": "fa:solid/tag"
+  },
+  {
+   "id": "price_cannot_restore",
+   "kind": "arrow",
+   "cue": [
+    "b47",
+    "लौटाती"
+   ],
+   "until_cue": [
+    "b48",
+    "Denomination"
+   ],
+   "tone": "danger",
+   "from": "collector_tag",
+   "to": "withdrawn_quarter",
+   "from_side": "t",
+   "to_side": "r",
+   "elbow": "vh",
+   "dashed": true
+  },
+  {
+   "id": "restoration_cross",
+   "kind": "mark",
+   "cue": [
+    "b47",
+    "नहीं।"
+   ],
+   "until_cue": [
+    "b48",
+    "Denomination"
+   ],
+   "tone": "danger",
+   "target": "price_cannot_restore",
+   "mark": "cross",
+   "pos": "c"
+  },
+  {
+   "id": "final_sequence",
+   "kind": "picture",
+   "cell": [
+    0,
+    3,
+    12,
+    3
+   ],
+   "cue": [
+    "b48",
+    "Denomination"
+   ],
+   "tone": "accent",
+   "size": 28,
+   "picture": {
+    "type": "flow",
+    "title": "",
+    "item_id": "",
+    "nodes": [
+     {
+      "cue": [
+       "b48",
+       "Denomination"
+      ],
+      "id": "n1",
+      "label": "Denomination × count"
+     },
+     {
+      "cue": [
+       "b48",
+       "total"
+      ],
+      "id": "n2",
+      "label": "total limit"
+     },
+     {
+      "cue": [
+       "b48",
+       "status"
+      ],
+      "id": "n3",
+      "label": "status जाँचिए"
+     }
+    ],
+    "arrows": true
+   }
+  }
+ ],
+ "camera": [
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    8
+   ],
+   "cue": [
+    "b45",
+    "₹20"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    8
+   ],
+   "cue": [
+    "b46",
+    "डिब्बे"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    3,
+    12,
+    5
+   ],
+   "cue": [
+    "b47",
+    "Limit"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    8
+   ],
+   "cue": [
+    "b48",
+    "Denomination"
+   ]
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b45",
+    "₹20"
+   ],
+   "ids": [
+    "rupee_count",
+    "rupee_quantity"
+   ],
+   "until_cue": [
+    "b45",
+    "paise"
+   ]
+  },
+  {
+   "cue": [
+    "b45",
+    "paise"
+   ],
+   "ids": [
+    "paise_count",
+    "paise_quantity"
+   ],
+   "until_cue": [
+    "b46",
+    "डिब्बे"
+   ]
+  },
+  {
+   "cue": [
+    "b46",
+    "Commemorative"
+   ],
+   "ids": [
+    "commemorative",
+    "most_question",
+    "most_text"
+   ],
+   "until_cue": [
+    "b47",
+    "Limit"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

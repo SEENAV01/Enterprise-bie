@@ -1,0 +1,124 @@
+{
+ "id": "v2_s1a",
+ "part_id": "c03.1",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b1",
+   "say": "अनाज देकर shoes चाहिए, लेकिन seller अनाज नहीं चाहता। अब खरीद कैसे होगी?"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "grain_refusal",
+   "kind": "action",
+   "cell": [
+    0,
+    1,
+    9,
+    6
+   ],
+   "cue": [
+    "b1",
+    "अनाज"
+   ],
+   "tone": "ink",
+   "template": "refuse",
+   "actors": [
+    {
+     "role": "who",
+     "who": "other",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "thing",
+     "icon": "bie:grain-sack",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [
+    {
+     "name": "show",
+     "cue": [
+      "b1",
+      "अनाज"
+     ]
+    },
+    {
+     "name": "refuse",
+     "cue": [
+      "b1",
+      "नहीं"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "seller_shoes",
+   "kind": "icon",
+   "cell": [
+    9,
+    3,
+    3,
+    2
+   ],
+   "cue": [
+    "b1",
+    "shoes"
+   ],
+   "tone": "ink",
+   "icon": "fl:flat-shoe"
+  },
+  {
+   "id": "exchange_question",
+   "kind": "icon",
+   "cell": [
+    9,
+    0,
+    2,
+    2
+   ],
+   "cue": [
+    "b1",
+    "कैसे"
+   ],
+   "tone": "warm",
+   "icon": "tw:2753"
+  }
+ ],
+ "camera": [
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b1",
+    "अनाज"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b1",
+    "अब"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

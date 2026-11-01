@@ -1,0 +1,2335 @@
+{
+ "schema": "bie.brain.visual-ideas/1",
+ "video_id": "v2",
+ "parts": [
+  {
+   "id": "v2_s1a",
+   "part_id": "c03.1",
+   "mode": "B",
+   "kit": "",
+   "picture": {
+    "type": "things",
+    "by": "card",
+    "hint": "things"
+   },
+   "book_pictures": [],
+   "beats": [
+    {
+     "beat_id": "b1",
+     "idea": "Seller refuses grain; barter stalls",
+     "relation": "question",
+     "relation_note": "Cross the offered grain at नहीं; add a question mark between buyer and shoes at कैसे.",
+     "nouns": [
+      "grain sack",
+      "shoes",
+      "question mark",
+      "buyer",
+      "shoe seller"
+     ],
+     "shows": "Seller rejects grain; shoes remain; question mark appears",
+     "on_word": "अनाज",
+     "image_wanted": "",
+     "icons": [
+      "bie:grain-sack",
+      "fl:ballet-shoes",
+      "tw:2753",
+      "tw:1f6cd",
+      "tw:1f9d1-200d-1f4bc"
+     ],
+     "template": "refuse",
+     "template_note": "Buyer offers grain for shoes; seller looks, shakes head at नहीं, and a cross lands on the grain. Shoes stay with seller; question mark appears at कैसे."
+    }
+   ],
+   "status": "passed"
+  },
+  {
+   "id": "v2_s1s",
+   "part_id": "c03.1",
+   "mode": "C",
+   "kit": "shop",
+   "picture": {
+    "type": "things",
+    "by": "card",
+    "hint": "things"
+   },
+   "book_pictures": [],
+   "beats": [
+    {
+     "beat_id": "b2",
+     "idea": "Barter leaves wheat plus acquired cloth",
+     "relation": "sequence",
+     "relation_note": "Show initial stock, direct exchange, then final holdings.",
+     "nouns": [
+      "10 kg wheat",
+      "2 kg wheat",
+      "8 kg wheat",
+      "1 metre cloth",
+      "farmer",
+      "cloth seller"
+     ],
+     "shows": "Wheat exchanged for cloth; eight kilograms remain",
+     "on_word": "मानिए",
+     "image_wanted": "",
+     "icons": [
+      "tw:1f33e",
+      "tw:1f33e",
+      "tw:1f33e",
+      "bie:cloth-roll",
+      "tw:1f9d1-200d-1f33e",
+      "bie:cloth-roll"
+     ],
+     "template": "barter_swap",
+     "template_note": "Start with 10 kg wheat; separate 2 kg on '2 kg', exchange it for 1 metre cloth on 'देकर', and show 8 kg wheat plus cloth on 'बचा'. Do not add an unscripted negotiation.",
+     "realised": true
+    }
+   ],
+   "status": "passed"
+  },
+  {
+   "id": "v2_s1b",
+   "part_id": "c03.1",
+   "mode": "B",
+   "kit": "",
+   "picture": {
+    "type": "things",
+    "by": "card",
+    "hint": "things"
+   },
+   "book_pictures": [],
+   "beats": [
+    {
+     "beat_id": "b3",
+     "idea": "Barter is direct exchange without money",
+     "relation": "compare",
+     "relation_note": "Goods move directly in opposite directions; a separate crossed-out money intermediary indicates what is absent.",
+     "nouns": [
+      "wheat sack",
+      "cloth",
+      "money",
+      "wheat owner",
+      "cloth owner"
+     ],
+     "shows": "Wheat and cloth swap; money intermediary crossed out",
+     "on_word": "barter",
+     "image_wanted": "",
+     "icons": [
+      "tw:1f33e",
+      "bie:cloth-roll",
+      "tw:1f4b0",
+      "tw:1f33e",
+      "bie:cloth-roll"
+     ],
+     "template": "barter_swap",
+     "template_note": "Owners offer wheat and cloth, indicate mutual wants, then swap directly. Reveal and cross out a separate money intermediary on 'बिना'.",
+     "realised": true
+    },
+    {
+     "beat_id": "b4",
+     "idea": "Selling then buying with money is not barter",
+     "relation": "sequence",
+     "relation_note": "Two linked transactions involve a wheat seller, a wheat buyer and a separate cloth seller; cross only the barter label on 'नहीं'.",
+     "nouns": [
+      "wheat sack",
+      "money",
+      "cloth",
+      "wheat seller",
+      "wheat buyer",
+      "cloth seller"
+     ],
+     "shows": "Wheat sold; money buys cloth; barter label crossed",
+     "on_word": "Wheat",
+     "image_wanted": "",
+     "icons": [
+      "tw:1f33e",
+      "tw:1f4b0",
+      "bie:cloth-roll",
+      "tw:1f33e",
+      "tw:1f33e",
+      "bie:cloth-roll"
+     ],
+     "template": "hand_over",
+     "template_note": "Chain handovers: seller gives wheat to wheat buyer and receives money; that seller then gives the money to a different cloth seller and receives cloth.",
+     "realised": true
+    },
+    {
+     "beat_id": "b5",
+     "idea": "Direct exchange identifies barter",
+     "relation": "accept",
+     "relation_note": "Tick the direct goods-for-goods exchange as the identifying barter pattern.",
+     "nouns": [
+      "wheat sack",
+      "cloth",
+      "tick",
+      "wheat owner",
+      "cloth owner"
+     ],
+     "shows": "Direct wheat–cloth swap receives a tick",
+     "on_word": "सीधा",
+     "image_wanted": "",
+     "icons": [
+      "tw:1f33e",
+      "bie:cloth-roll",
+      "tw:2705",
+      "tw:1f33e",
+      "bie:cloth-roll"
+     ],
+     "template": "barter_swap",
+     "template_note": "Replay the direct swap briefly, then tick the paired exchange; no money or intermediary appears.",
+     "realised": true
+    }
+   ],
+   "status": "passed"
+  },
+  {
+   "id": "v2_s2",
+   "part_id": "c03.2",
+   "mode": "B",
+   "kit": "",
+   "picture": {
+    "type": "things",
+    "by": "card",
+    "hint": "things"
+   },
+   "book_pictures": [],
+   "beats": [
+    {
+     "beat_id": "b6",
+     "idea": "No money does not mean free",
+     "relation": "reject",
+     "relation_note": "Cross out money, while retaining the wheat-for-cloth exchange.",
+     "nouns": [
+      "wheat",
+      "cloth",
+      "money",
+      "wheat owner",
+      "cloth seller"
+     ],
+     "shows": "Crossed money; wheat and cloth swap hands",
+     "on_word": "नहीं",
+     "image_wanted": "",
+     "icons": [
+      "tw:1f33e",
+      "bie:cloth-roll",
+      "tw:1f4b0",
+      "tw:1f33e",
+      "bie:cloth-roll"
+     ],
+     "template": "barter_swap",
+     "template_note": "Show wheat offered and cloth returned; no cash leg.",
+     "realised": true
+    },
+    {
+     "beat_id": "b7",
+     "idea": "Services can be bartered too",
+     "relation": "sequence",
+     "relation_note": "Repairing a bicycle and receiving grain form the service-for-goods exchange.",
+     "nouns": [
+      "grain sack",
+      "bicycle",
+      "spanner",
+      "bicycle owner",
+      "cycle mechanic"
+     ],
+     "shows": "Mechanic repairs bicycle; owner hands over grain",
+     "on_word": "cycle",
+     "image_wanted": "",
+     "icons": [
+      "bie:grain-sack",
+      "fl:bicycle",
+      "fl:hammer-and-wrench",
+      "fl:bicycle",
+      "fl:man-mechanic"
+     ],
+     "template": "other",
+     "template_note": "Mechanic repairs bicycle with spanner; owner gives grain in return.",
+     "realised": true
+    },
+    {
+     "beat_id": "b8",
+     "idea": "Both parties decide the value",
+     "relation": "promise",
+     "relation_note": "Both parties approve the proposed wheat-to-cloth exchange, rather than the seller deciding alone.",
+     "nouns": [
+      "wheat",
+      "cloth",
+      "agreement slip",
+      "wheat owner",
+      "cloth seller"
+     ],
+     "shows": "Wheat–cloth proposal between two nodding traders",
+     "on_word": "Mutual agreement",
+     "image_wanted": "",
+     "icons": [
+      "tw:1f33e",
+      "bie:cloth-roll",
+      "tw:1f91d",
+      "tw:1f33e",
+      "bie:cloth-roll"
+     ],
+     "template": "accept",
+     "template_note": "Both traders inspect the exchange proposal and nod; ticks appear beside both."
+    },
+    {
+     "beat_id": "b9",
+     "idea": "An agreed example, not a fixed rate",
+     "relation": "compare",
+     "relation_note": "Pair a wheat sack marked 2 kg with cloth measured at 1 metre inside this pair's agreement.",
+     "nouns": [
+      "2 kg wheat sack",
+      "1 metre cloth",
+      "measuring tape",
+      "agreement slip",
+      "wheat owner",
+      "cloth seller"
+     ],
+     "shows": "Two-kilogram wheat swaps for one-metre cloth",
+     "on_word": "2 kg",
+     "image_wanted": "",
+     "icons": [
+      "tw:1f33e",
+      "bie:cloth-roll",
+      "fa:solid/tape",
+      "tw:1f91d",
+      "tw:1f33e",
+      "bie:cloth-roll"
+     ],
+     "template": "barter_swap",
+     "template_note": "Both approve, then swap the measured quantities; frame as this agreement only.",
+     "realised": true
+    },
+    {
+     "beat_id": "b10",
+     "idea": "Barter includes goods and services without money",
+     "relation": "part_whole",
+     "relation_note": "Group goods-for-goods and service-for-goods examples inside barter, with money crossed outside.",
+     "nouns": [
+      "wheat",
+      "cloth",
+      "bicycle",
+      "spanner",
+      "grain sack",
+      "money",
+      "wheat owner",
+      "cloth seller",
+      "bicycle owner",
+      "cycle mechanic"
+     ],
+     "shows": "Barter box contains goods swap and repair exchange",
+     "on_word": "Wheat–cloth",
+     "image_wanted": "",
+     "icons": [
+      "tw:1f33e",
+      "bie:cloth-roll",
+      "fl:bicycle",
+      "fl:hammer-and-wrench",
+      "bie:grain-sack",
+      "tw:1f4b0",
+      "tw:1f33e",
+      "bie:cloth-roll",
+      "fl:bicycle",
+      "fl:man-mechanic"
+     ],
+     "template": "none",
+     "template_note": "Recap the two already-demonstrated processes as grouped examples, not a new transaction."
+    },
+    {
+     "beat_id": "b11",
+     "idea": "Direct, moneyless, mutually agreed exchange",
+     "relation": "sequence",
+     "relation_note": "Both approve, then exchange directly; money remains crossed out.",
+     "nouns": [
+      "wheat",
+      "cloth",
+      "money",
+      "wheat owner",
+      "cloth seller"
+     ],
+     "shows": "Direct wheat–cloth swap; crossed money; two ticks",
+     "on_word": "सीधा",
+     "image_wanted": "",
+     "icons": [
+      "tw:1f33e",
+      "bie:cloth-roll",
+      "tw:1f4b0",
+      "tw:1f33e",
+      "bie:cloth-roll"
+     ],
+     "template": "barter_swap",
+     "template_note": "Show reciprocal direct transfers, cross money on बिना पैसे, and tick both parties on हाँ.",
+     "realised": true
+    }
+   ],
+   "status": "passed"
+  },
+  {
+   "id": "v2_s3",
+   "part_id": "c03.3",
+   "mode": "B",
+   "kit": "",
+   "picture": {
+    "type": "timeline",
+    "by": "card",
+    "hint": "timeline"
+   },
+   "book_pictures": [],
+   "beats": [
+    {
+     "beat_id": "b12",
+     "idea": "Barter survives from early civilizations",
+     "relation": "sequence",
+     "relation_note": "",
+     "nouns": [
+      "basket of vegetables",
+      "bag of grain",
+      "ancient settlement",
+      "neighbouring houses",
+      "ancient traders",
+      "neighbours"
+     ],
+     "shows": "Ancient barter crowd; arrow to neighbours swapping goods",
+     "on_word": "barter",
+     "image_wanted": "",
+     "icons": [
+      "bie:salt-sack",
+      "bie:grain-sack",
+      "fa:solid/ankh",
+      "tw:1f3e0",
+      "tw:1f9d1-200d-1f4bc",
+      "fa:solid/people-roof"
+     ],
+     "template": "barter_swap",
+     "template_note": "Neighbours offer vegetables and grain, check mutual interest, then exchange; connect this scene to the early-civilizations scene.",
+     "realised": true
+    },
+    {
+     "beat_id": "b13",
+     "idea": "Matching needs enable moneyless exchange",
+     "relation": "cause_effect",
+     "relation_note": "",
+     "nouns": [
+      "basket of vegetables",
+      "bag of grain",
+      "money",
+      "two neighbours"
+     ],
+     "shows": "Matching wants lead to goods swapping hands",
+     "on_word": "जरूरतें",
+     "image_wanted": "",
+     "icons": [
+      "bie:salt-sack",
+      "bie:grain-sack",
+      "tw:1f4b0",
+      "fa:solid/people-roof"
+     ],
+     "template": "barter_swap",
+     "template_note": "Each neighbour's thought bubble shows the other's goods; both nod, then swap goods without money changing hands.",
+     "realised": true
+    },
+    {
+     "beat_id": "b14",
+     "idea": "Money and barter can coexist",
+     "relation": "compare",
+     "relation_note": "",
+     "nouns": [
+      "money",
+      "basket of vegetables",
+      "bag of grain",
+      "goods",
+      "neighbours",
+      "buyer",
+      "seller"
+     ],
+     "shows": "Barter and money exchanges share today's timeline",
+     "on_word": "दोनों",
+     "image_wanted": "",
+     "icons": [
+      "tw:1f4b0",
+      "bie:salt-sack",
+      "bie:grain-sack",
+      "bie:salt-sack",
+      "fa:solid/people-roof",
+      "tw:1f6cd",
+      "tw:1f9d1-200d-1f4bc"
+     ],
+     "template": "none",
+     "template_note": "The point is coexistence, not transaction steps; show parallel static exchange scenes, neither crossed out.",
+     "realised": true
+    },
+    {
+     "beat_id": "b15",
+     "idea": "Barter became limited, not extinct",
+     "relation": "more_less",
+     "relation_note": "",
+     "nouns": [
+      "baskets of goods",
+      "grain bags",
+      "bartering pairs"
+     ],
+     "shows": "Many barter pairs before; few barter pairs today",
+     "on_word": "पहले",
+     "image_wanted": "",
+     "icons": [
+      "bie:salt-sack",
+      "bie:grain-sack"
+     ],
+     "template": "none",
+     "template_note": "A qualitative prevalence comparison, not a counted population or an exchange process."
+    }
+   ],
+   "status": "passed"
+  },
+  {
+   "id": "v2_s4s",
+   "part_id": "c03.4",
+   "mode": "C",
+   "kit": "shop",
+   "picture": {
+    "type": "things",
+    "by": "card",
+    "hint": "things"
+   },
+   "book_pictures": [],
+   "beats": [
+    {
+     "beat_id": "b16",
+     "idea": "Wheat हर cloth seller को नहीं चाहिए",
+     "relation": "reject",
+     "relation_note": "पहले seller का refusal, फिर दूसरे seller की acceptance दिखाएँ।",
+     "nouns": [
+      "2 kg wheat",
+      "1 metre cloth",
+      "oil",
+      "wheat sack",
+      "farmer",
+      "cloth seller wanting oil",
+      "cloth seller wanting wheat"
+     ],
+     "shows": "पहला seller wheat ठुकराता; दूसरा cloth देता",
+     "on_word": "तेल",
+     "image_wanted": "",
+     "icons": [
+      "tw:1f33e",
+      "bie:cloth-roll",
+      "tw:1f6e2",
+      "tw:1f33e",
+      "tw:1f9d1-200d-1f33e",
+      "bie:cloth-roll",
+      "bie:cloth-roll"
+     ],
+     "template": "other",
+     "template_note": "पहले seller की oil चाह दिखाएँ; 'मना' पर wheat पर cross। दूसरे की wheat चाह दिखाकर 'मान' पर tick और 2 kg wheat–1 metre cloth swap।"
+    },
+    {
+     "beat_id": "b17",
+     "idea": "Barter में दोनों की चाह मिलनी चाहिए",
+     "relation": "compare",
+     "relation_note": "दोनों चाह मिलने वाला pair और केवल एक चाह मिलने वाला pair समान slots में रखें।",
+     "nouns": [
+      "wheat",
+      "cloth",
+      "two-way arrows",
+      "one-way arrow",
+      "farmer",
+      "cloth seller"
+     ],
+     "shows": "दोतरफा चाह बनाम केवल एकतरफा चाह",
+     "on_word": "double coincidence of wants",
+     "image_wanted": "",
+     "icons": [
+      "tw:1f33e",
+      "bie:cloth-roll",
+      "tw:27a1",
+      "tw:27a1",
+      "tw:1f9d1-200d-1f33e",
+      "bie:cloth-roll"
+     ],
+     "template": "none",
+     "template_note": "यह सफल swap की शर्त समझाता है; नया transaction नहीं।"
+    },
+    {
+     "beat_id": "b18",
+     "idea": "Money से बेचने और खरीदने वाले अलग",
+     "relation": "cause_effect",
+     "relation_note": "Accepted money wheat buyer और cloth seller की चाहों को match करने की जरूरत हटाता है।",
+     "nouns": [
+      "wheat",
+      "money",
+      "cloth",
+      "farmer",
+      "wheat buyer",
+      "cloth seller"
+     ],
+     "shows": "Wheat बेचकर पैसा; पैसे देकर cloth",
+     "on_word": "Accepted",
+     "image_wanted": "",
+     "icons": [
+      "tw:1f33e",
+      "tw:1f4b0",
+      "bie:cloth-roll",
+      "tw:1f9d1-200d-1f33e",
+      "tw:1f33e",
+      "bie:cloth-roll"
+     ],
+     "template": "other",
+     "template_note": "Farmer wheat buyer को wheat देता और money लेता है; फिर अलग cloth seller को वही money देकर cloth लेता है। Cloth seller की wheat चाह पर cross, money पर tick; रकम न गढ़ें।"
+    },
+    {
+     "beat_id": "b19",
+     "idea": "अलग ratios और अविभाज्य गाय",
+     "relation": "question",
+     "relation_note": "ज्ञात wheat–cloth ratio के साथ गाय का अनिर्धारित ratio और छोटी खरीद का प्रश्न दिखाएँ।",
+     "nouns": [
+      "2 kg wheat",
+      "1 metre cloth",
+      "cow",
+      "small cloth piece",
+      "balance scale",
+      "question mark",
+      "farmer",
+      "cloth seller"
+     ],
+     "shows": "Wheat–cloth ratio; अखंड गाय पर प्रश्नचिह्न",
+     "on_word": "2 kg",
+     "image_wanted": "",
+     "icons": [
+      "tw:1f33e",
+      "bie:cloth-roll",
+      "bie:cattle",
+      "bie:cloth-roll",
+      "tw:2696",
+      "tw:2753",
+      "tw:1f9d1-200d-1f33e",
+      "bie:cloth-roll"
+     ],
+     "template": "none",
+     "template_note": "Exchange ratio एक तय शर्त है, completed swap नहीं; गाय बाँटने का प्रश्न है, वास्तविक विभाजन नहीं दिखाएँ।"
+    },
+    {
+     "beat_id": "b20",
+     "idea": "वही अनाज, कम cloth purchasing power",
+     "relation": "change",
+     "relation_note": "10 kg अनाज की quantity और quality स्थिर रखें; उसके बदले मिलने वाला cloth 2 metres से 1 metre करें।",
+     "nouns": [
+      "2 metres cloth",
+      "10 kg grain",
+      "agreement receipt",
+      "1 metre cloth",
+      "time arrow",
+      "cloth receiver and grain debtor",
+      "cloth giver and grain creditor"
+     ],
+     "shows": "वही अनाज; cloth बराबरी दो से एक",
+     "on_word": "अब",
+     "image_wanted": "",
+     "icons": [
+      "bie:cloth-roll",
+      "bie:grain-sack",
+      "tw:1f91d",
+      "bie:cloth-roll",
+      "tw:1f550",
+      "bie:cloth-roll",
+      "bie:cloth-roll"
+     ],
+     "template": "other",
+     "template_note": "अब 2 metres cloth handover और बाद में तय quality के 10 kg grain देने का receipt दिखाएँ। बाद में वही grain लौटे; valuation inset में 10 kg स्थिर और cloth equivalent 2 metres से 1 metre हो। अतिरिक्त cloth handover न दिखाएँ।"
+    }
+   ],
+   "status": "failed"
+  },
+  {
+   "id": "v2_s4b",
+   "part_id": "c03.4",
+   "mode": "B",
+   "kit": "",
+   "picture": {
+    "type": "things",
+    "by": "card",
+    "hint": "things"
+   },
+   "book_pictures": [],
+   "beats": [
+    {
+     "beat_id": "b21",
+     "idea": "Barter में मूल्य, विभाजन, भंडारण और repayment की बाधाएँ",
+     "relation": "cause_effect",
+     "relation_note": "",
+     "nouns": [
+      "cow",
+      "grain sacks",
+      "cloth bundles",
+      "balance scales",
+      "spoiled grain",
+      "storage bin",
+      "calendar",
+      "repayment grain sack",
+      "goods baskets",
+      "trader",
+      "borrower",
+      "lender"
+     ],
+     "shows": "Conflicting scales; whole cow; rot; shrinking repayment basket",
+     "on_word": "ratios",
+     "image_wanted": "",
+     "icons": [
+      "bie:cattle",
+      "bie:grain-sack",
+      "bie:cloth-roll",
+      "tw:2696",
+      "bie:grain-sack",
+      "fl:litter-in-bin-sign",
+      "tw:1f4c5",
+      "bie:grain-sack",
+      "bie:salt-sack",
+      "tw:1f9d1-200d-1f4bc",
+      "fa:solid/user",
+      "fa:solid/user-tie"
+     ],
+     "template": "none",
+     "template_note": "चार conceptual cause-effect reveals, कोई completed exchange नहीं: ratios पर गाय-अनाज और गाय-कपड़ा के असंगत तुला-दृश्य; indivisibility पर पूरी गाय और विभाजन पर रोक; सड़े पर भंडार का अनाज खराब; बाद में पर calendar के दोनों ओर समान repayment grain sack, लेकिन भविष्य में उससे मिलने वाला goods basket छोटा।",
+     "realised": true
+    },
+    {
+     "beat_id": "b22",
+     "idea": "Money में debt स्पष्ट, purchasing power अनिश्चित",
+     "relation": "compare",
+     "relation_note": "",
+     "nouns": [
+      "rupee-denominated debt ledger",
+      "rupee notes",
+      "calendar",
+      "goods baskets",
+      "grain sack",
+      "cloth bundle",
+      "balance scale",
+      "check marks",
+      "question mark",
+      "borrower",
+      "lender",
+      "grain trader",
+      "cloth trader"
+     ],
+     "shows": "Same debt, unequal baskets; wants versus quantities",
+     "on_word": "पैसे",
+     "image_wanted": "",
+     "icons": [
+      "fa:solid/indian-rupee-sign",
+      "fa:solid/indian-rupee-sign",
+      "tw:1f4c5",
+      "bie:salt-sack",
+      "bie:grain-sack",
+      "bie:cloth-roll",
+      "tw:2696",
+      "tw:2705",
+      "tw:2753",
+      "fa:solid/user",
+      "fa:solid/user-tie",
+      "bie:grain-sack",
+      "bie:cloth-roll"
+     ],
+     "template": "none",
+     "template_note": "Debt लिखना एक conceptual advantage है, cheque transaction नहीं। Ledger की वही rupee entry आज और बाद में रखें; fixed नहीं पर बराबर cash के सामने अलग basket sizes दिखाएँ। जरूरतें मिलना पर दोनों traders के thought bubbles में दूसरे की वस्तु और ticks; quantities पर अलग balance scale तथा agreement का question mark।",
+     "realised": true
+    },
+    {
+     "beat_id": "b23",
+     "idea": "Barter की बाधाएँ matching से repayment तक",
+     "relation": "sequence",
+     "relation_note": "",
+     "nouns": [
+      "grain sack",
+      "cloth bundle",
+      "balance scale",
+      "cow",
+      "spoiled grain",
+      "calendar",
+      "repayment goods basket",
+      "warning marks",
+      "two traders",
+      "borrower",
+      "lender"
+     ],
+     "shows": "Matching, valuation, division, storage, repayment obstacle chain",
+     "on_word": "matching",
+     "image_wanted": "",
+     "icons": [
+      "bie:grain-sack",
+      "bie:cloth-roll",
+      "tw:2696",
+      "bie:cattle",
+      "bie:grain-sack",
+      "tw:1f4c5",
+      "fa:solid/basket-shopping",
+      "fl:warning",
+      "tw:1f9d1-200d-1f4bc",
+      "fa:solid/user",
+      "fa:solid/user-tie"
+     ],
+     "template": "none",
+     "template_note": "यह पिछली कठिनाइयों का recap है, वास्तविक barter swap नहीं। Arrow-linked row में matching के traders, valuation की scale, indivisible cow, spoiled grain और calendar सहित repayment basket दिखाएँ; repayment पर अंतिम obstacle उभरे।",
+     "realised": true
+    }
+   ],
+   "status": "passed"
+  },
+  {
+   "id": "v2_s5a",
+   "part_id": "c04.1",
+   "mode": "B",
+   "kit": "",
+   "picture": {
+    "type": "gallery",
+    "by": "book",
+    "hint": "timeline"
+   },
+   "book_pictures": [
+    {
+     "item_id": "p002-i12",
+     "type": "gallery",
+     "title": "EVOLUTION OF MONEY",
+     "page": 2
+    }
+   ],
+   "beats": [
+    {
+     "beat_id": "b24",
+     "idea": "Barter first; payment methods evolve",
+     "relation": "sequence",
+     "relation_note": "Highlight the first stage, then trace the existing gallery arrows to indicate changing payment methods.",
+     "nouns": [
+      "wheat",
+      "cloth",
+      "coin",
+      "number 1",
+      "arrows",
+      "wheat owner",
+      "cloth owner"
+     ],
+     "shows": "Crossed coin; wheat–cloth swap; first stage highlighted",
+     "on_word": "Wheat–cloth",
+     "image_wanted": "",
+     "icons": [
+      "tw:1f33e",
+      "bie:cloth-roll",
+      "tw:1fa99",
+      "tw:23-20e3",
+      "tw:27a1",
+      "tw:1f33e",
+      "bie:cloth-roll"
+     ],
+     "template": "barter_swap",
+     "template_note": "Owners offer wheat and cloth and consider each other’s goods; a coin appears at ‘पैसा’ and is crossed out at ‘नहीं’; goods swap directly at ‘barter’. At ‘बदलाव’, trace the gallery’s arrows without adding money between the barter participants.",
+     "realised": true
+    }
+   ],
+   "status": "passed"
+  },
+  {
+   "id": "v2_s5s",
+   "part_id": "c04.1",
+   "mode": "C",
+   "kit": "shop",
+   "picture": {
+    "type": "timeline",
+    "by": "card",
+    "hint": "timeline"
+   },
+   "book_pictures": [],
+   "beats": [
+    {
+     "beat_id": "b25",
+     "idea": "Salt mediates two exchanges",
+     "relation": "sequence",
+     "relation_note": "",
+     "nouns": [
+      "2 kg wheat",
+      "1 kg salt",
+      "1 metre cloth",
+      "farmer",
+      "salt seller",
+      "cloth seller"
+     ],
+     "shows": "Wheat buys salt; salt then buys cloth",
+     "on_word": "2 kg wheat",
+     "image_wanted": "",
+     "icons": [
+      "tw:1f33e",
+      "bie:salt-sack",
+      "bie:cloth-roll",
+      "tw:1f9d1-200d-1f33e",
+      "bie:salt-sack",
+      "bie:cloth-roll"
+     ],
+     "template": "barter_swap",
+     "template_note": "Two successive swaps: farmer gives 2 kg wheat for 1 kg salt, then all that salt for 1 metre cloth. Keep salt visibly moving between transactions.",
+     "realised": true
+    },
+    {
+     "beat_id": "b26",
+     "idea": "Commodity money bridges different wants",
+     "relation": "sequence",
+     "relation_note": "",
+     "nouns": [
+      "salt bag",
+      "cattle",
+      "shells",
+      "wheat",
+      "cloth",
+      "bridge",
+      "farmer",
+      "cloth seller"
+     ],
+     "shows": "Salt bridges wheat and cloth; stage two highlighted",
+     "on_word": "पुल",
+     "image_wanted": "",
+     "icons": [
+      "bie:salt-sack",
+      "bie:cattle",
+      "tw:1f41a",
+      "tw:1f33e",
+      "bie:cloth-roll",
+      "fl:bridge-at-night",
+      "tw:1f9d1-200d-1f33e",
+      "bie:cloth-roll"
+     ],
+     "template": "none",
+     "template_note": "Recap the preceding exchange as a static salt bridge, not another transaction; add salt, cattle and shells at stage 2.",
+     "realised": true
+    },
+    {
+     "beat_id": "b27",
+     "idea": "Metal coins pay; remaining coins can be counted",
+     "relation": "sequence",
+     "relation_note": "",
+     "nouns": [
+      "five equal silver coins",
+      "two silver coins",
+      "three silver coins",
+      "5 kg grain",
+      "gold coin",
+      "buyer",
+      "grain seller"
+     ],
+     "shows": "Five coins; two pay; three remain",
+     "on_word": "5",
+     "image_wanted": "",
+     "icons": [
+      "tw:1fa99",
+      "tw:1fa99",
+      "tw:1fa99",
+      "bie:grain-sack",
+      "tw:1fa99",
+      "tw:1f6cd",
+      "bie:grain-sack"
+     ],
+     "template": "hand_over",
+     "template_note": "Show five matching silver coins, move two to the seller and 5 kg grain to the buyer, leaving three coins. Then highlight stage 3 with gold and silver coins.",
+     "realised": true
+    },
+    {
+     "beat_id": "b28",
+     "idea": "Standard coins are countable commodities",
+     "relation": "part_whole",
+     "relation_note": "",
+     "nouns": [
+      "matching coins",
+      "balance scale",
+      "gold",
+      "silver",
+      "commodity money group"
+     ],
+     "shows": "Matching coins counted inside commodity money group",
+     "on_word": "गिनकर",
+     "image_wanted": "",
+     "icons": [
+      "tw:1fa99",
+      "tw:2696",
+      "tw:1fa99",
+      "tw:1fa99",
+      "tw:1f4b0"
+     ],
+     "template": "count_stack",
+     "template_note": "Count matching coins individually without adding a new spoken total; equal-weight scale and matching purity marks show standardisation. Enclose gold and silver coins within commodity money."
+    },
+    {
+     "beat_id": "b29",
+     "idea": "Notes pay by denomination and return change",
+     "relation": "sequence",
+     "relation_note": "",
+     "nouns": [
+      "₹300 goods",
+      "₹500 note",
+      "₹200 change",
+      "paper",
+      "buyer",
+      "shopkeeper"
+     ],
+     "shows": "₹500 paid; goods and ₹200 returned",
+     "on_word": "₹300",
+     "image_wanted": "",
+     "icons": [
+      "bie:salt-sack",
+      "bie:note-500",
+      "bie:note-200",
+      "tw:1f4c4",
+      "tw:1f6cd",
+      "tw:1f9d1-200d-1f4bc"
+     ],
+     "template": "pay_change",
+     "template_note": "Buyer pays ₹500 for ₹300 goods and receives ₹200 change. Highlight stage 4 and the note's printed ₹500 denomination, not its paper material.",
+     "realised": true
+    },
+    {
+     "beat_id": "b30",
+     "idea": "Notes carry value without metal's weight",
+     "relation": "compare",
+     "relation_note": "",
+     "nouns": [
+      "light currency note",
+      "heavy metal coins",
+      "coin sack",
+      "note carrier",
+      "coin carrier"
+     ],
+     "shows": "Easy note carrying versus burdensome metal sack",
+     "on_word": "हल्का",
+     "image_wanted": "",
+     "icons": [
+      "fa:solid/money-bill-1",
+      "tw:1fa99",
+      "tw:1fa99",
+      "fa:solid/money-bill-1",
+      "tw:1fa99"
+     ],
+     "template": "other",
+     "template_note": "Compare a person carrying a light note easily with a person straining under a heavy sack of metal coins; do not invent a numerical equivalence.",
+     "realised": true
+    },
+    {
+     "beat_id": "b31",
+     "idea": "Cheque transfers existing bank deposits",
+     "relation": "change",
+     "relation_note": "",
+     "nouns": [
+      "₹1,500 cheque",
+      "bank",
+      "payer passbook",
+      "shopkeeper passbook",
+      "pen",
+      "payer",
+      "shopkeeper",
+      "bank clerk"
+     ],
+     "shows": "Cheque settles; payer falls, shopkeeper rises equally",
+     "on_word": "₹10,000",
+     "image_wanted": "",
+     "icons": [
+      "bie:coin-1",
+      "tw:1f3e6",
+      "fa:solid/hand-holding-dollar",
+      "tw:1f9d1-200d-1f4bc",
+      "fl:fountain-pen",
+      "fa:solid/hand-holding-dollar",
+      "tw:1f9d1-200d-1f4bc",
+      "tw:1f3e6"
+     ],
+     "template": "cheque",
+     "template_note": "Show payer ₹10,000 and shopkeeper ₹2,000; write and submit ₹1,500 cheque, then update balances to ₹8,500 and ₹3,500. Highlight stage 5; equal debit and credit show no new money created.",
+     "realised": true
+    },
+    {
+     "beat_id": "b32",
+     "idea": "Digital instructions transfer account money",
+     "relation": "sequence",
+     "relation_note": "",
+     "nouns": [
+      "buyer phone",
+      "shop QR stand",
+      "shopkeeper phone",
+      "bank account balances",
+      "net banking screen",
+      "payment card",
+      "buyer",
+      "shopkeeper"
+     ],
+     "shows": "Phone scans QR; ₹300 moves between accounts",
+     "on_word": "QR scan",
+     "image_wanted": "",
+     "icons": [
+      "tw:1f6cd",
+      "tw:1f3ea",
+      "tw:1f9d1-200d-1f4bc",
+      "bie:passbook",
+      "fa:solid/mosquito-net",
+      "tw:1f4b3",
+      "tw:1f6cd",
+      "tw:1f9d1-200d-1f4bc"
+     ],
+     "template": "upi",
+     "template_note": "Start with buyer ₹2,000 and shopkeeper ₹5,000. Phone scans shop QR, displays ₹300 paid, and seller receives ₹300; balances become ₹1,700 and ₹5,300. Highlight stage 6 with UPI, net banking and cards; no paper changes hands.",
+     "realised": true
+    }
+   ],
+   "status": "passed"
+  },
+  {
+   "id": "v2_s5b",
+   "part_id": "c04.1",
+   "mode": "B",
+   "kit": "",
+   "picture": {
+    "type": "gallery",
+    "by": "book",
+    "hint": "timeline"
+   },
+   "book_pictures": [
+    {
+     "item_id": "p002-i12",
+     "type": "gallery",
+     "title": "EVOLUTION OF MONEY",
+     "page": 2
+    }
+   ],
+   "beats": [
+    {
+     "beat_id": "b33",
+     "idea": "Intermediaries ease exchange; UPI moves existing deposits",
+     "relation": "cause_effect",
+     "relation_note": "",
+     "nouns": [
+      "money",
+      "goods",
+      "phone",
+      "QR stand",
+      "bank deposits",
+      "balance counters",
+      "buyer",
+      "seller"
+     ],
+     "shows": "Money bridges trade; UPI shifts deposits, total unchanged",
+     "on_word": "Intermediary",
+     "image_wanted": "",
+     "icons": [
+      "tw:1f4b0",
+      "bie:salt-sack",
+      "tw:1f4f1",
+      "bie:qr-stand",
+      "tw:1f3e6",
+      "tw:2696",
+      "tw:1f6cd",
+      "tw:1f9d1-200d-1f4bc"
+     ],
+     "template": "upi",
+     "template_note": "First show money bridging buyer and seller without mutual goods-matching. At UPI, scan the seller's QR; buyer deposit decreases as seller deposit increases equally. Show paid and received confirmations; hold their combined total fixed at नहीं बनाता.",
+     "realised": true
+    },
+    {
+     "beat_id": "b34",
+     "idea": "Forms coexist; cards need not contain money",
+     "relation": "compare",
+     "relation_note": "",
+     "nouns": [
+      "currency notes",
+      "coins",
+      "phone",
+      "payment card",
+      "bank account",
+      "stored-value card"
+     ],
+     "shows": "Forms coexist; account-linked card versus stored-value card",
+     "on_word": "साथ",
+     "image_wanted": "",
+     "icons": [
+      "fa:solid/money-bill-1",
+      "tw:1fa99",
+      "tw:1f4f1",
+      "tw:1f4b3",
+      "bie:passbook",
+      "tw:1f4b3"
+     ],
+     "template": "none",
+     "template_note": "No payment action is narrated. Keep notes, coins and phone together; contrast a card linked to an external bank balance with a stored-value card. Avoid portraying all cards as empty or all as money containers.",
+     "realised": true
+    },
+    {
+     "beat_id": "b35",
+     "idea": "Recall the book's six-stage ordering",
+     "relation": "sequence",
+     "relation_note": "",
+     "nouns": [
+      "wheat",
+      "cloth",
+      "salt",
+      "cattle",
+      "shells",
+      "gold coins",
+      "silver coins",
+      "currency notes",
+      "cheque",
+      "bank deposits",
+      "UPI phone",
+      "payment cards"
+     ],
+     "shows": "Six numbered money forms highlight along arrows",
+     "on_word": "क्रम",
+     "image_wanted": "",
+     "icons": [
+      "tw:1f33e",
+      "bie:cloth-roll",
+      "bie:salt-sack",
+      "bie:cattle",
+      "tw:1f41a",
+      "tw:1fa99",
+      "tw:1fa99",
+      "fa:solid/money-bill-1",
+      "bie:cheque",
+      "tw:1f3e6",
+      "bie:phone",
+      "tw:1f4b3"
+     ],
+     "template": "none",
+     "template_note": "A sequence recap, not a barter transaction. Highlight the book's numbered panels on barter, commodity, metallic, paper, bank and digital respectively; retain earlier panels.",
+     "realised": true
+    }
+   ],
+   "status": "passed"
+  },
+  {
+   "id": "v2_s6",
+   "part_id": "c05.1",
+   "mode": "B",
+   "kit": "",
+   "picture": {
+    "type": "table",
+    "by": "book",
+    "hint": "table"
+   },
+   "book_pictures": [
+    {
+     "item_id": "p002-i1",
+     "type": "table",
+     "title": "COMPARISON",
+     "page": 2
+    }
+   ],
+   "beats": [
+    {
+     "beat_id": "b36",
+     "idea": "Two sources of payment value",
+     "relation": "compare",
+     "relation_note": "",
+     "nouns": [
+      "salt packet",
+      "₹20 price tag",
+      "₹500 note",
+      "goods",
+      "buyer",
+      "seller"
+     ],
+     "shows": "Salt ₹20 and note ₹500 beside payment arrows",
+     "on_word": "Salt",
+     "image_wanted": "",
+     "icons": [
+      "bie:salt-sack",
+      "bie:note-20",
+      "bie:note-500",
+      "bie:salt-sack",
+      "tw:1f6cd",
+      "tw:1f9d1-200d-1f4bc"
+     ],
+     "template": "hand_over",
+     "template_note": "Paired exchanges: salt packet accepted as payment at assumed ₹20 value; ₹500 note handed over to settle ₹500.",
+     "realised": true
+    },
+    {
+     "beat_id": "b36a",
+     "idea": "Utility survives loss of monetary acceptance",
+     "relation": "compare",
+     "relation_note": "",
+     "nouns": [
+      "salt packet",
+      "cooking pot",
+      "₹500 note",
+      "paper",
+      "redemption receipt",
+      "seller"
+     ],
+     "shows": "Refused salt still cooks; paper lacks ₹500 worth",
+     "on_word": "बंद",
+     "image_wanted": "",
+     "icons": [
+      "bie:salt-sack",
+      "fl:cooking",
+      "bie:note-500",
+      "tw:1f4c4",
+      "tw:1fa99",
+      "tw:1f9d1-200d-1f4bc"
+     ],
+     "template": "refuse",
+     "template_note": "Seller refuses salt as payment; then salt moves beside a cooking pot and resale tag with variable price. Contrast note material with face value; cross a redemption-receipt symbol, not a valid note’s purchasing power.",
+     "realised": true
+    },
+    {
+     "beat_id": "b37",
+     "idea": "Material versus external backing",
+     "relation": "compare",
+     "relation_note": "",
+     "nouns": [
+      "gold bar",
+      "₹500 note",
+      "law scroll",
+      "authority seal",
+      "handshake"
+     ],
+     "shows": "Gold material versus note with trust and law",
+     "on_word": "Intrinsic",
+     "image_wanted": "",
+     "icons": [
+      "bie:gold-bar",
+      "bie:note-500",
+      "tw:1f4dc",
+      "fa:solid/stamp",
+      "tw:1f91d"
+     ],
+     "template": "none",
+     "template_note": "",
+     "realised": true
+    },
+    {
+     "beat_id": "b38",
+     "idea": "Material worth is not purchasing power",
+     "relation": "compare",
+     "relation_note": "",
+     "nouns": [
+      "salt packet",
+      "cooking pot",
+      "resale price tag",
+      "₹500 note",
+      "paper",
+      "shopping basket"
+     ],
+     "shows": "Salt cooks; negligible paper value, intact purchasing power",
+     "on_word": "उपयोग",
+     "image_wanted": "",
+     "icons": [
+      "bie:salt-sack",
+      "fl:cooking",
+      "fa:solid/tag",
+      "bie:note-500",
+      "tw:1f4c4",
+      "fa:solid/basket-shopping"
+     ],
+     "template": "none",
+     "template_note": "Static paired states distinguish nonmonetary utility from purchasing power; no transaction is enacted.",
+     "realised": true
+    },
+    {
+     "beat_id": "b39",
+     "idea": "Commodity examples versus monetary claims",
+     "relation": "part_whole",
+     "relation_note": "",
+     "nouns": [
+      "gold",
+      "silver",
+      "salt",
+      "cattle",
+      "cowrie shells",
+      "currency notes",
+      "bank deposit",
+      "digital balance",
+      "bank",
+      "payment claim",
+      "account holder"
+     ],
+     "shows": "Commodity group beside notes and bank claim icons",
+     "on_word": "Gold",
+     "image_wanted": "cowrie shell",
+     "icons": [
+      "tw:1fa99",
+      "tw:1fa99",
+      "bie:salt-sack",
+      "bie:cattle",
+      "bie:cowrie-shells",
+      "fa:solid/money-bill-1",
+      "tw:1f3e6",
+      "tw:2696",
+      "tw:1f3e6",
+      "fl:baggage-claim",
+      "bie:ledger"
+     ],
+     "template": "none",
+     "template_note": "Examples populate two groups as named; no narrated numerical count. Link account holder to bank through a payment-claim document, not stored physical goods."
+    },
+    {
+     "beat_id": "b40",
+     "idea": "Acceptance depends on onward spending",
+     "relation": "cause_effect",
+     "relation_note": "",
+     "nouns": [
+      "salt packet",
+      "rupee notes",
+      "shop counter",
+      "shopping basket",
+      "buyer",
+      "local seller",
+      "outside seller",
+      "next shopkeeper",
+      "local market",
+      "outside market"
+     ],
+     "shows": "Salt refused outside; rupees reach the next shop",
+     "on_word": "मना",
+     "image_wanted": "",
+     "icons": [
+      "bie:salt-sack",
+      "fa:solid/indian-rupee-sign",
+      "tw:1f3ea",
+      "fa:solid/basket-shopping",
+      "tw:1f6cd",
+      "tw:1f9d1-200d-1f4bc",
+      "tw:1f9d1-200d-1f4bc",
+      "tw:1f9d1-200d-1f4bc",
+      "tw:1f3ea",
+      "tw:1f3ea"
+     ],
+     "template": "refuse",
+     "template_note": "Outside seller examines salt, shakes head, and cross lands on salt at मना. A following arrow chain shows accepted rupees usable at another shop; local salt retains a utility cue.",
+     "realised": true
+    },
+    {
+     "beat_id": "b41",
+     "idea": "Small payments and carrying burden",
+     "relation": "compare",
+     "relation_note": "",
+     "nouns": [
+      "cow",
+      "heavy salt sack",
+      "small denomination coins",
+      "phone",
+      "₹500 note",
+      "scissors",
+      "buyer",
+      "porter"
+     ],
+     "shows": "Bulky commodities versus small payments; cutting note crossed",
+     "on_word": "Divisibility",
+     "image_wanted": "",
+     "icons": [
+      "bie:cattle",
+      "bie:salt-sack",
+      "tw:1fa99",
+      "tw:1f4f1",
+      "bie:note-500",
+      "fl:scissors",
+      "tw:1f6cd",
+      "fa:solid/person-walking-luggage"
+     ],
+     "template": "none",
+     "template_note": "Show static difficulty dividing a cow and carrying salt versus small denominations and a phone. Cross scissors beside the note; do not enact destruction as divisibility.",
+     "realised": true
+    },
+    {
+     "beat_id": "b42",
+     "idea": "UPI transfers an existing balance",
+     "relation": "compare",
+     "relation_note": "",
+     "nouns": [
+      "metal coins",
+      "gold bullion",
+      "weighing scale",
+      "purity stamp",
+      "rupee notes",
+      "bank balance",
+      "phone",
+      "QR stand",
+      "buyer",
+      "seller"
+     ],
+     "shows": "Bullion opposite notes, balances and UPI transfer",
+     "on_word": "एक",
+     "image_wanted": "gold bullion bar purity hallmark",
+     "icons": [
+      "tw:1fa99",
+      "tw:1fa99",
+      "tw:2696",
+      "fa:solid/stamp",
+      "fa:solid/indian-rupee-sign",
+      "tw:1f3e6",
+      "tw:1f4f1",
+      "bie:qr-stand",
+      "tw:1f6cd",
+      "tw:1f9d1-200d-1f4bc"
+     ],
+     "template": "upi",
+     "template_note": "After paired examples appear, phone scans QR; paid and received confirmations follow. Show linked bank balances decreasing and increasing equally, with no separate UPI money pile; no invented spoken amount.",
+     "realised": true
+    },
+    {
+     "beat_id": "b43",
+     "idea": "Law, trust and practical usability differ",
+     "relation": "compare",
+     "relation_note": "",
+     "nouns": [
+      "law scroll",
+      "stamp",
+      "rupee note",
+      "debt ledger",
+      "shop",
+      "small denomination coins",
+      "travel bag",
+      "gold bar",
+      "damaged paper note",
+      "phone",
+      "network connection",
+      "payer",
+      "creditor",
+      "shopkeeper"
+     ],
+     "shows": "Law settles debt; trust, portability, durability contrasted",
+     "on_word": "Legal",
+     "image_wanted": "",
+     "icons": [
+      "tw:1f4dc",
+      "fa:solid/stamp",
+      "fa:solid/indian-rupee-sign",
+      "bie:ledger",
+      "tw:1f3ea",
+      "tw:1fa99",
+      "fl:clutch-bag",
+      "bie:gold-bar",
+      "tw:1f4c4",
+      "tw:1f4f1",
+      "fa:solid/network-wired",
+      "fa:solid/hand-holding-dollar",
+      "fa:solid/user-tie",
+      "tw:1f9d1-200d-1f4bc"
+     ],
+     "template": "hand_over",
+     "template_note": "Stamped legal-tender scroll accompanies payment from debtor to creditor; debt ledger closes. Separate onward-shop arrow conveys trust. Then highlight small-payment, carrying and durability comparisons, with digital balance linked to technology.",
+     "realised": true
+    },
+    {
+     "beat_id": "b44",
+     "idea": "Avoid four misleading equivalences",
+     "relation": "compare",
+     "relation_note": "",
+     "nouns": [
+      "commodity",
+      "changing price tags",
+      "authority seal",
+      "gold redemption receipt",
+      "coin",
+      "metal content symbol",
+      "phone",
+      "network outage symbol",
+      "bank balance"
+     ],
+     "shows": "Moving prices; crossed equivalences; disconnected phone, intact balance",
+     "on_word": "बदलते",
+     "image_wanted": "",
+     "icons": [
+      "bie:salt-sack",
+      "fa:solid/tags",
+      "fa:solid/stamp",
+      "tw:1fa99",
+      "tw:1fa99",
+      "fl:anger-symbol",
+      "tw:1f4f1",
+      "fa:solid/network-wired",
+      "tw:1f3e6"
+     ],
+     "template": "other",
+     "template_note": "Cycle price tags on the same commodity. Cross backing-equals-gold-redemption and every-coin-equals-material-worth links. Break the phone connection while its bank balance remains visibly unchanged.",
+     "realised": true
+    },
+    {
+     "beat_id": "b45",
+     "idea": "Utility differs from money; commodities deteriorate",
+     "relation": "compare",
+     "relation_note": "",
+     "nouns": [
+      "cooking pot",
+      "salt packet",
+      "payment symbol",
+      "cow",
+      "veterinary thermometer",
+      "water droplets",
+      "clumped salt"
+     ],
+     "shows": "Utility unequal payment; sick cow and damp salt",
+     "on_word": "अपना",
+     "image_wanted": "",
+     "icons": [
+      "fl:cooking",
+      "bie:salt-sack",
+      "fl:anger-symbol",
+      "bie:cattle",
+      "fl:face-with-thermometer",
+      "fl:man-playing-water-polo",
+      "bie:salt-sack"
+     ],
+     "template": "other",
+     "template_note": "Separate cooking utility from monetary value using an unequal sign. Then show healthy cow becoming sick and dry salt becoming damp and clumped.",
+     "realised": true
+    }
+   ],
+   "status": "passed"
+  },
+  {
+   "id": "v2_s7s",
+   "part_id": "c06.1",
+   "mode": "C",
+   "kit": "shop",
+   "picture": {
+    "type": "things",
+    "by": "card",
+    "hint": "things"
+   },
+   "book_pictures": [],
+   "beats": [
+    {
+     "beat_id": "b46",
+     "idea": "Salt has value beyond payment",
+     "relation": "sequence",
+     "relation_note": "Exchange first; if onward payment fails, use the received salt in cooking.",
+     "nouns": [
+      "grain sack",
+      "two salt packets",
+      "cooking pot",
+      "spoon",
+      "buyer",
+      "grain seller",
+      "next trader"
+     ],
+     "shows": "Grain exchanged for salt; rejected payment becomes seasoning",
+     "on_word": "salt",
+     "image_wanted": "",
+     "icons": [
+      "bie:grain-sack",
+      "bie:salt-sack",
+      "fl:cooking",
+      "fl:bowl-with-spoon",
+      "tw:1f6cd",
+      "bie:grain-sack",
+      "tw:1f9d1-200d-1f4bc"
+     ],
+     "template": "other",
+     "template_note": "At 'grain', exchange grain for exactly two salt packets; at 'न चलें', the next trader refuses salt as payment; at 'खाना', the seller adds that salt to a cooking pot. Keep the refusal cross confined to the payment attempt.",
+     "realised": true
+    }
+   ],
+   "status": "passed"
+  },
+  {
+   "id": "v2_s7b",
+   "part_id": "c06.1",
+   "mode": "B",
+   "kit": "",
+   "picture": {
+    "type": "things",
+    "by": "card",
+    "hint": "things"
+   },
+   "book_pictures": [],
+   "beats": [
+    {
+     "beat_id": "b47",
+     "idea": "Salt has value beyond payment",
+     "relation": "compare",
+     "relation_note": "",
+     "nouns": [
+      "salt",
+      "goods",
+      "cooking pot",
+      "spoon",
+      "buyer",
+      "seller",
+      "cook",
+      "kitchen"
+     ],
+     "shows": "Same salt: payment handover beside cooking pot",
+     "on_word": "intrinsic value",
+     "image_wanted": "",
+     "icons": [
+      "bie:salt-sack",
+      "bie:salt-sack",
+      "fl:cooking",
+      "fl:bowl-with-spoon",
+      "tw:1f6cd",
+      "tw:1f9d1-200d-1f4bc",
+      "fl:cook",
+      "fl:kitchen-knife"
+     ],
+     "template": "other",
+     "template_note": "Split view: salt handed over as payment; salt sprinkled into cooking pot.",
+     "realised": true
+    },
+    {
+     "beat_id": "b48",
+     "idea": "Usefulness and purchasing power are insufficient separately",
+     "relation": "compare",
+     "relation_note": "",
+     "nouns": [
+      "salt",
+      "rupee note",
+      "goods",
+      "cooking pot",
+      "payment tick",
+      "commodity money classification cross",
+      "buyer",
+      "seller"
+     ],
+     "shows": "Salt passes both tests; note classification crossed",
+     "on_word": "Useful",
+     "image_wanted": "",
+     "icons": [
+      "bie:salt-sack",
+      "fa:solid/indian-rupee-sign",
+      "bie:salt-sack",
+      "fl:cooking",
+      "tw:2705",
+      "tw:1f4b0",
+      "tw:1f6cd",
+      "tw:1f9d1-200d-1f4bc"
+     ],
+     "template": "none",
+     "template_note": "Payment is a criterion here, not a narrated transaction. Reveal matched payment and outside-use slots; cross only the note's commodity-money label on नहीं.",
+     "realised": true
+    },
+    {
+     "beat_id": "b49",
+     "idea": "Outside-payment usefulness is essential",
+     "relation": "compare",
+     "relation_note": "",
+     "nouns": [
+      "salt",
+      "goods",
+      "cooking pot",
+      "buyer",
+      "seller",
+      "cook",
+      "kitchen"
+     ],
+     "shows": "Salt payment beside salt used in cooking",
+     "on_word": "बाहर",
+     "image_wanted": "",
+     "icons": [
+      "bie:salt-sack",
+      "bie:salt-sack",
+      "fl:cooking",
+      "tw:1f6cd",
+      "tw:1f9d1-200d-1f4bc",
+      "fl:cook",
+      "fl:kitchen-knife"
+     ],
+     "template": "none",
+     "template_note": "Recap of two uses, not a new transaction.",
+     "realised": true
+    }
+   ],
+   "status": "passed"
+  },
+  {
+   "id": "v2_s8a",
+   "part_id": "c06.2",
+   "mode": "B",
+   "kit": "",
+   "picture": {
+    "type": "table",
+    "by": "book",
+    "hint": "things"
+   },
+   "book_pictures": [
+    {
+     "item_id": "p003-i4",
+     "type": "table",
+     "title": "Columns",
+     "page": 3
+    }
+   ],
+   "beats": [
+    {
+     "beat_id": "b50",
+     "idea": "Salt ke regions; cattle ki communities",
+     "relation": "place",
+     "relation_note": "Salt connects to geographic regions; cattle connects to a herding-community vignette rather than a map pin.",
+     "nouns": [
+      "salt heap",
+      "cattle",
+      "pasture",
+      "map",
+      "herders",
+      "Ancient Rome",
+      "Africa"
+     ],
+     "shows": "Salt beside maps; cattle beside herders",
+     "on_word": "नमक",
+     "image_wanted": "",
+     "icons": [
+      "bie:salt-sack",
+      "bie:cattle",
+      "tw:1f5fa",
+      "tw:1f404",
+      "fa:solid/ankh",
+      "fl:globe-showing-europe-africa"
+     ],
+     "template": "none",
+     "template_note": "Historical use is stated; no counting or transfer is narrated."
+    },
+    {
+     "beat_id": "b51",
+     "idea": "Cowries: regions aur payment mein acceptance",
+     "relation": "place",
+     "relation_note": "Locate cowrie use in India, China and Africa; finish with a recipient accepting the shells.",
+     "nouns": [
+      "cowrie shells",
+      "open palm",
+      "map",
+      "tick",
+      "payer",
+      "payment recipient",
+      "India",
+      "China",
+      "Africa"
+     ],
+     "shows": "Palm-held cowries, three regions, recipient acceptance tick",
+     "on_word": "हथेली",
+     "image_wanted": "cowrie shells in open palm",
+     "icons": [
+      "bie:cowrie-shells",
+      "fl:face-with-open-eyes-and-hand-over-mouth",
+      "tw:1f5fa",
+      "tw:2705",
+      "fa:solid/hand-holding-dollar",
+      "fa:solid/user-check",
+      "fl:lotus",
+      "fl:globe-showing-europe-africa"
+     ],
+     "template": "accept",
+     "template_note": "Show recipient examining cowries, nodding, then a tick on स्वीकार."
+    },
+    {
+     "beat_id": "b52",
+     "idea": "Tea bricks aur tobacco ke alag regions",
+     "relation": "place",
+     "relation_note": "Pair compressed tea with Central Asia and Tibet; pair dried tobacco leaves with Colonial America. Contrast tea brick with a crossed-out construction brick.",
+     "nouns": [
+      "compressed tea brick",
+      "construction brick",
+      "dried tobacco leaves",
+      "map",
+      "Central Asia",
+      "Tibet",
+      "Colonial America"
+     ],
+     "shows": "Tea brick and tobacco beside their regions",
+     "on_word": "चाय",
+     "image_wanted": "compressed tea brick dried tobacco leaves",
+     "icons": [
+      "tw:1f375",
+      "fl:brick",
+      "fa:solid/smoking",
+      "tw:1f5fa",
+      "fl:globe-showing-asia-australia",
+      "fa:solid/earth-america"
+     ],
+     "template": "none",
+     "template_note": "बनेगा introduces an identification question, not a narrated manufacturing process."
+    }
+   ],
+   "status": "passed"
+  },
+  {
+   "id": "v2_s8s",
+   "part_id": "c06.2",
+   "mode": "C",
+   "kit": "shop",
+   "picture": {
+    "type": "things",
+    "by": "card",
+    "hint": "things"
+   },
+   "book_pictures": [],
+   "beats": [
+    {
+     "beat_id": "b53",
+     "idea": "Three quantities have equal assumed value",
+     "relation": "compare",
+     "relation_note": "",
+     "nouns": [
+      "10 kg grain sack",
+      "2 kg salt bundle",
+      "2 metres cloth",
+      "equal signs",
+      "cloth thought bubble",
+      "farmer",
+      "salt trader",
+      "cloth seller",
+      "illustrative bazaar"
+     ],
+     "shows": "Equal-value goods; farmer's thought bubble contains cloth",
+     "on_word": "2 metres",
+     "image_wanted": "",
+     "icons": [
+      "bie:grain-sack",
+      "bie:salt-sack",
+      "bie:cloth-roll",
+      "fa:solid/greater-than-equal",
+      "bie:cloth-roll",
+      "tw:1f9d1-200d-1f33e",
+      "bie:salt-sack",
+      "bie:cloth-roll"
+     ],
+     "template": "none",
+     "template_note": "",
+     "realised": true
+    },
+    {
+     "beat_id": "b54",
+     "idea": "Salt bridges grain and cloth exchanges",
+     "relation": "sequence",
+     "relation_note": "",
+     "nouns": [
+      "10 kg grain sack",
+      "2 kg salt bundle",
+      "2 metres cloth",
+      "empty grain slot",
+      "empty salt slot",
+      "farmer",
+      "salt trader",
+      "cloth seller",
+      "illustrative bazaar"
+     ],
+     "shows": "Grain swaps for salt; salt swaps for cloth",
+     "on_word": "देकर",
+     "image_wanted": "",
+     "icons": [
+      "bie:grain-sack",
+      "bie:salt-sack",
+      "bie:cloth-roll",
+      "bie:grain-sack",
+      "bie:salt-sack",
+      "tw:1f9d1-200d-1f33e",
+      "bie:salt-sack",
+      "bie:cloth-roll"
+     ],
+     "template": "barter_swap",
+     "template_note": "Two successive swaps: farmer gives 10 kg grain to salt trader and receives 2 kg salt; farmer gives that entire salt bundle to cloth seller and receives 2 metres cloth. End with cloth alone in farmer's holdings and visibly empty grain and salt slots.",
+     "realised": true
+    }
+   ],
+   "status": "passed"
+  },
+  {
+   "id": "v2_s8b",
+   "part_id": "c06.2",
+   "mode": "B",
+   "kit": "",
+   "picture": {
+    "type": "table",
+    "by": "book",
+    "hint": "things"
+   },
+   "book_pictures": [
+    {
+     "item_id": "p003-i4",
+     "type": "table",
+     "title": "Columns",
+     "page": 3
+    }
+   ],
+   "beats": [
+    {
+     "beat_id": "b55",
+     "idea": "Salt bridges mismatched wants",
+     "relation": "sequence",
+     "relation_note": "",
+     "nouns": [
+      "salt",
+      "grain",
+      "cloth",
+      "crossed matching-wants link",
+      "buyer",
+      "farmer",
+      "cloth seller"
+     ],
+     "shows": "Buyer→salt→farmer→salt→cloth seller; grain and cloth return",
+     "on_word": "Salt",
+     "image_wanted": "",
+     "icons": [
+      "bie:salt-sack",
+      "bie:grain-sack",
+      "bie:cloth-roll",
+      "fl:crossed-fingers",
+      "tw:1f6cd",
+      "tw:1f9d1-200d-1f33e",
+      "bie:cloth-roll"
+     ],
+     "template": "other",
+     "template_note": "Buyer gives salt for farmer's grain; farmer passes salt to cloth seller for cloth. Show farmer's own salt-use need crossed out, then remove the direct buyer-to-cloth requirement at 'हटी'.",
+     "realised": true
+    },
+    {
+     "beat_id": "b56",
+     "idea": "Commodities retain uses beyond payment",
+     "relation": "part_whole",
+     "relation_note": "",
+     "nouns": [
+      "salt",
+      "cooking pot",
+      "cattle",
+      "milk pail",
+      "tea bricks",
+      "teacup",
+      "tobacco leaves",
+      "herder",
+      "customers"
+     ],
+     "shows": "Salt beside cooking; cattle livelihood; tea, tobacco demand",
+     "on_word": "उपयोग",
+     "image_wanted": "compressed tea brick tobacco leaves",
+     "icons": [
+      "bie:salt-sack",
+      "fl:cooking",
+      "bie:cattle",
+      "fl:glass-of-milk",
+      "tw:1f375",
+      "fl:teacup-without-handle",
+      "fa:solid/smoking",
+      "tw:1f404",
+      "tw:1f6cd"
+     ],
+     "template": "none",
+     "template_note": "Uses and demand are illustrated associations, not a narrated transaction process."
+    },
+    {
+     "beat_id": "b57",
+     "idea": "Usefulness plus local acceptance enables exchange",
+     "relation": "cause_effect",
+     "relation_note": "",
+     "nouns": [
+      "salt",
+      "cooking pot",
+      "acceptance ticks",
+      "community boundary",
+      "exchange arrows",
+      "metallic coins",
+      "question mark",
+      "community traders",
+      "outside trader"
+     ],
+     "shows": "Use plus community ticks→exchange; commodities before coins",
+     "on_word": "community acceptance",
+     "image_wanted": "",
+     "icons": [
+      "bie:salt-sack",
+      "fl:cooking",
+      "tw:2705",
+      "fa:solid/arrows-down-to-people",
+      "tw:1f501",
+      "tw:1fa99",
+      "tw:2753",
+      "tw:1f9d1-200d-1f4bc",
+      "tw:1f9d1-200d-1f4bc"
+     ],
+     "template": "none",
+     "template_note": "Show conditions enabling exchange, not an invented transaction: usefulness and community acceptance jointly feed exchange arrows. Outside the community retain a question mark; add commodities-before-coins timeline, then disconnect usefulness alone from acceptance at 'अकेला'.",
+     "realised": true
+    }
+   ],
+   "status": "passed"
+  },
+  {
+   "id": "v2_s9s",
+   "part_id": "c06.3",
+   "mode": "B",
+   "kit": "",
+   "picture": {
+    "type": "things",
+    "by": "card",
+    "hint": "things"
+   },
+   "book_pictures": [],
+   "beats": [
+    {
+     "beat_id": "b58",
+     "idea": "Spoilage leaves less grain for later payment",
+     "relation": "cause_effect",
+     "relation_note": "",
+     "nouns": [
+      "stored grain",
+      "grain sack",
+      "spoiled grain",
+      "weighing scale",
+      "payment calendar",
+      "payer",
+      "recipient"
+     ],
+     "shows": "100 kg → 90 kg; future grain payment questioned",
+     "on_word": "90 kg",
+     "image_wanted": "",
+     "icons": [
+      "bie:grain-sack",
+      "bie:grain-sack",
+      "bie:grain-sack",
+      "tw:2696",
+      "tw:1f4c5",
+      "fa:solid/hand-holding-dollar",
+      "fa:solid/user-check"
+     ],
+     "template": "other",
+     "template_note": "Show 100 kg stored grain; 10 kg spoils, leaving 90 kg usable; arrow to grain payment between payer and recipient with question mark.",
+     "realised": true
+    }
+   ],
+   "status": "passed"
+  },
+  {
+   "id": "v2_s9b",
+   "part_id": "c06.3",
+   "mode": "B",
+   "kit": "",
+   "picture": {
+    "type": "things",
+    "by": "card",
+    "hint": "things"
+   },
+   "book_pictures": [],
+   "beats": [
+    {
+     "beat_id": "b59",
+     "idea": "Commodity money has physical limitations",
+     "relation": "part_whole",
+     "relation_note": "Group five pictured limitations under commodity money.",
+     "nouns": [
+      "spoiled grain",
+      "two differently sized cows",
+      "intact cow",
+      "heavy grain sack",
+      "weighing scale",
+      "unequal grain measures",
+      "porter"
+     ],
+     "shows": "Spoiled grain; cows, sack, measures show limitations",
+     "on_word": "perishability",
+     "image_wanted": "",
+     "icons": [
+      "bie:grain-sack",
+      "bie:cattle",
+      "bie:cattle",
+      "bie:grain-sack",
+      "tw:2696",
+      "bie:grain-sack",
+      "fa:solid/person-walking-luggage"
+     ],
+     "template": "none",
+     "template_note": "Names limitations rather than narrating a transaction or process."
+    },
+    {
+     "beat_id": "b60",
+     "idea": "Variation and missing standards complicate trade",
+     "relation": "cause_effect",
+     "relation_note": "Different cow sizes and health show nonuniformity; absent weight and quality rules lead to repeated inspection and bargaining.",
+     "nouns": [
+      "large healthy cow",
+      "small thin cow",
+      "weighing scale",
+      "grain samples",
+      "weight and quality rule sheet",
+      "magnifying glass",
+      "price tags",
+      "buyer",
+      "seller"
+     ],
+     "shows": "Unequal cows; absent rules trigger checks and bargaining",
+     "on_word": "size",
+     "image_wanted": "",
+     "icons": [
+      "bie:cattle",
+      "bie:cattle",
+      "tw:2696",
+      "bie:grain-sack",
+      "tw:1f4dc",
+      "fl:magnifying-glass-tilted-left",
+      "fa:solid/tags",
+      "tw:1f6cd",
+      "tw:1f9d1-200d-1f4bc"
+     ],
+     "template": "other",
+     "template_note": "Compare cows, show weight and quality rules, then absent rules causing repeated inspection and exchanged price offers.",
+     "realised": true
+    },
+    {
+     "beat_id": "b61",
+     "idea": "Handling problems add payment and storage costs",
+     "relation": "cause_effect",
+     "relation_note": "Three aligned chains connect indivisible cow to small-payment difficulty, spoiling grain to storage cost, and heavy sack to transport cost.",
+     "nouns": [
+      "intact cow",
+      "small purchase",
+      "grain",
+      "spoiled grain",
+      "storage bin",
+      "heavy grain sack",
+      "cart",
+      "expense coins",
+      "buyer",
+      "porter"
+     ],
+     "shows": "Cow, spoiling grain, heavy sack cause extra costs",
+     "on_word": "बाँटना",
+     "image_wanted": "",
+     "icons": [
+      "bie:cattle",
+      "fl:black-medium-small-square",
+      "bie:grain-sack",
+      "bie:grain-sack",
+      "fl:litter-in-bin-sign",
+      "bie:grain-sack",
+      "fl:shopping-cart",
+      "tw:1fa99",
+      "tw:1f6cd",
+      "fa:solid/person-walking-luggage"
+     ],
+     "template": "other",
+     "template_note": "Keep cow intact against small portions; grain spoils in storage; porter loads heavy sack; expense coins accumulate.",
+     "realised": true
+    },
+    {
+     "beat_id": "b62",
+     "idea": "Limitations differ across commodities",
+     "relation": "compare",
+     "relation_note": "Compare divisibility of grain and cow, then spoilage of food and shells; cross only the universal claim ‘सभी’.",
+     "nouns": [
+      "grain heap",
+      "small grain portions",
+      "intact cow",
+      "shells",
+      "spoiled food",
+      "सभी label"
+     ],
+     "shows": "Grain divides; cow stays whole; shells outlast food",
+     "on_word": "बराबर",
+     "image_wanted": "",
+     "icons": [
+      "bie:grain-sack",
+      "bie:grain-sack",
+      "bie:cattle",
+      "tw:1f41a",
+      "fl:canned-food",
+      "fl:label"
+     ],
+     "template": "other",
+     "template_note": "Split grain into portions while cow remains whole; food deteriorates while shells stay unchanged; cross ‘सभी’ on that word.",
+     "realised": true
+    },
+    {
+     "beat_id": "b63",
+     "idea": "Handling needs favour durable measured metal",
+     "relation": "cause_effect",
+     "relation_note": "Separate easier matching from unresolved handling; handling problems point toward durable metal units with measured weights.",
+     "nouns": [
+      "paired commodity offers",
+      "tick mark",
+      "heavy grain sack",
+      "spoiled grain",
+      "metal units",
+      "balance scale",
+      "standard weights",
+      "two traders"
+     ],
+     "shows": "Matching tick; handling burdens point toward weighed metal",
+     "on_word": "Matching",
+     "image_wanted": "",
+     "icons": [
+      "bie:salt-sack",
+      "tw:2705",
+      "bie:grain-sack",
+      "bie:grain-sack",
+      "fl:coin",
+      "tw:2696",
+      "tw:1fa99",
+      "tw:1f9d1-200d-1f4bc"
+     ],
+     "template": "none",
+     "template_note": "Summarizes a causal advantage, not a narrated exchange or metal-making process.",
+     "realised": true
+    }
+   ],
+   "status": "passed"
+  }
+ ],
+ "relations_outside_list": [],
+ "needs": [
+  {
+   "thing": "bartering pairs",
+   "beats": [
+    "b15"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v2_s3"
+  },
+  {
+   "thing": "cowrie shell",
+   "beats": [
+    "b39"
+   ],
+   "kind": "image",
+   "sources_tried": [
+    "asset-library"
+   ],
+   "part": "v2_s6"
+  },
+  {
+   "thing": "gold bullion bar purity hallmark",
+   "beats": [
+    "b42"
+   ],
+   "kind": "image",
+   "sources_tried": [
+    "asset-library"
+   ],
+   "part": "v2_s6"
+  },
+  {
+   "thing": "pasture",
+   "beats": [
+    "b50"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v2_s8a"
+  },
+  {
+   "thing": "cowrie shells in open palm",
+   "beats": [
+    "b51"
+   ],
+   "kind": "image",
+   "sources_tried": [
+    "asset-library"
+   ],
+   "part": "v2_s8a"
+  },
+  {
+   "thing": "illustrative bazaar",
+   "beats": [
+    "b53",
+    "b54"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v2_s8s"
+  }
+ ],
+ "verbs_version": "2026-11-01.1"
+}

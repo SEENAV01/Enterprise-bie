@@ -1,0 +1,1562 @@
+{
+ "id": "v4_s5",
+ "part_id": "c10.2",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b23",
+   "say": "Press से note निकलना और पैसा जारी होना क्या एक काम है? Fiat paper या digital numbers हो सकता है; face value gold-silver से नहीं बँधी, government authority, central-bank control और public trust से जुड़ी है।"
+  },
+  {
+   "beat_id": "b24",
+   "say": "और issue संभव है, मगर monetary policy control करती है। एक फर्क समझिए: printing notes बनाती है; authorised issuance circulation में लाता है। पुराने notes बदलना कुल पैसा बढ़ाना नहीं।"
+  },
+  {
+   "beat_id": "b25",
+   "say": "Policy rates और liquidity से loan महँगा हो तो दुकानदार expansion रोक सकता है। Borrowing और spending घटने से prices का दबाव घट सकता है; सस्ता credit उलटा असर करे। असर समय लेता है, missing goods नहीं बनाता।"
+  },
+  {
+   "beat_id": "b26",
+   "say": "Foreign price tags में codes क्यों देखें? $ वाला United States Dollar, USD, सबसे widely held और traded fiat currency है। € यानी Euro, EUR, कई EU देशों की shared currency है।"
+  },
+  {
+   "beat_id": "b27",
+   "say": "¥ Japan या China, कैसे पहचानेंगे? Japanese Yen, JPY, stability और global currency markets में बड़े role के लिए जाना जाता है। Chinese Yuan Renminbi, CNY, trade और international reserves में बढ़ रहा है, यानी बाहरी payments के लिए रखे foreign assets में।"
+  },
+  {
+   "beat_id": "b28",
+   "say": "Britain की दुकान में £ दिखे तो? यह British Pound Sterling, GBP है, जिसकी जड़ें 8th century में हैं। आज की fiat currencies में सबसे पुराना, लेकिन नाम पुराना होने से gold वाला वादा हमेशा गायब नहीं था।"
+  },
+  {
+   "beat_id": "b29",
+   "say": "Euro का historical count 27 EU members में 20 adopters है, सभी नहीं; इसे आज की updated गिनती मत मानिए।"
+  },
+  {
+   "beat_id": "b30",
+   "say": "इन descriptions से exact shares या हमेशा stable exchange rate मत निकालिए। पुराना currency नाम लगातार fiat होना नहीं बताता; Euro ranking के लिए measure चाहिए।"
+  },
+  {
+   "beat_id": "b31",
+   "say": "Reserve holdings backing नहीं; ज़्यादा पैसा goods नहीं बढ़ाता। Demand supply से आगे निकले तो purchasing power घट सकती है।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "book_p004_i11",
+   "kind": "picture",
+   "cell": [
+    0,
+    0,
+    12,
+    3
+   ],
+   "cue": [
+    "b26",
+    ""
+   ],
+   "picture": {
+    "type": "gallery",
+    "title": "Major Examples of Fiat Currency Today",
+    "item_id": "p004-i11",
+    "panels": [
+     {
+      "n": 1,
+      "name": "United States Dollar (USD)",
+      "caption": "The most widely held and traded fiat currency globally",
+      "nouns": [
+       "United",
+       "States",
+       "Dollar",
+       "USD",
+       "The",
+       "most"
+      ],
+      "item_id": "p004-i12",
+      "numbered": false,
+      "cue": [
+       "b26",
+       ""
+      ],
+      "icon": "tw:1f4b5"
+     },
+     {
+      "n": 2,
+      "name": "Euro (EUR)",
+      "caption": "Adopted by 20 of the 27 European Union member states, the eu",
+      "nouns": [
+       "Euro",
+       "EUR",
+       "Adopted",
+       "the",
+       "European",
+       "Union"
+      ],
+      "item_id": "p004-i13",
+      "numbered": false,
+      "cue": [
+       "b26",
+       ""
+      ],
+      "icon": "tw:1f4b6"
+     },
+     {
+      "n": 3,
+      "name": "Japanese Yen (JPY)",
+      "caption": "Known for its stability, the yen is a major player in global",
+      "nouns": [
+       "Japanese",
+       "Yen",
+       "JPY",
+       "Known",
+       "for",
+       "its"
+      ],
+      "item_id": "p004-i14",
+      "numbered": false,
+      "cue": [
+       "b27",
+       ""
+      ],
+      "icon": "tw:1f4b4"
+     },
+     {
+      "n": 4,
+      "name": "British Pound Sterling (GBP)",
+      "caption": "The oldest fiat currency still in use, dating back to the 8t",
+      "nouns": [
+       "British",
+       "Pound",
+       "Sterling",
+       "GBP",
+       "The",
+       "oldest"
+      ],
+      "item_id": "p004-i15",
+      "numbered": false,
+      "cue": [
+       "b28",
+       ""
+      ],
+      "icon": "tw:1f4b7"
+     },
+     {
+      "n": 5,
+      "name": "Chinese Yuan Renminbi (CNY)",
+      "caption": "Increasingly influential in global trade and international r",
+      "nouns": [
+       "Chinese",
+       "Yuan",
+       "Renminbi",
+       "CNY",
+       "Increasingly",
+       "influential"
+      ],
+      "item_id": "p004-i16",
+      "numbered": false,
+      "cue": [
+       "b27",
+       ""
+      ],
+      "icon": "fa:solid/yen-sign"
+     }
+    ]
+   }
+  },
+  {
+   "id": "press",
+   "kind": "icon",
+   "cell": [
+    0,
+    3,
+    2,
+    2
+   ],
+   "cue": [
+    "b23",
+    "Press"
+   ],
+   "until_cue": [
+    "b24",
+    "और"
+   ],
+   "tone": "muted",
+   "icon": "fa:solid/industry",
+   "size": 32
+  },
+  {
+   "id": "fiat",
+   "kind": "icon",
+   "cell": [
+    3,
+    3,
+    2,
+    2
+   ],
+   "cue": [
+    "b23",
+    "paper"
+   ],
+   "until_cue": [
+    "b24",
+    "और"
+   ],
+   "tone": "accent",
+   "icon": "fa:solid/money-bill-1",
+   "label": "Fiat paper",
+   "size": 32
+  },
+  {
+   "id": "gold",
+   "kind": "icon",
+   "cell": [
+    6,
+    3,
+    2,
+    2
+   ],
+   "cue": [
+    "b23",
+    "gold-silver"
+   ],
+   "until_cue": [
+    "b24",
+    "और"
+   ],
+   "tone": "warm",
+   "icon": "bie:gold-bar",
+   "size": 32
+  },
+  {
+   "id": "gold_link",
+   "kind": "arrow",
+   "cue": [
+    "b23",
+    "बँधी,"
+   ],
+   "until_cue": [
+    "b24",
+    "और"
+   ],
+   "tone": "danger",
+   "from": "gold",
+   "to": "fiat",
+   "from_side": "l",
+   "to_side": "r",
+   "dashed": true
+  },
+  {
+   "id": "no_gold_link",
+   "kind": "mark",
+   "cue": [
+    "b23",
+    "नहीं"
+   ],
+   "until_cue": [
+    "b24",
+    "और"
+   ],
+   "tone": "danger",
+   "target": "gold_link",
+   "mark": "cross",
+   "pos": "c"
+  },
+  {
+   "id": "authority",
+   "kind": "icon",
+   "cell": [
+    0,
+    5,
+    3,
+    2
+   ],
+   "cue": [
+    "b23",
+    "authority,"
+   ],
+   "until_cue": [
+    "b24",
+    "और"
+   ],
+   "tone": "accent",
+   "icon": "fa:solid/landmark",
+   "label": "government authority",
+   "size": 28
+  },
+  {
+   "id": "control",
+   "kind": "icon",
+   "cell": [
+    4,
+    5,
+    3,
+    2
+   ],
+   "cue": [
+    "b23",
+    "control"
+   ],
+   "until_cue": [
+    "b24",
+    "और"
+   ],
+   "tone": "accent",
+   "icon": "fa:solid/building-columns",
+   "label": "central-bank control",
+   "size": 28
+  },
+  {
+   "id": "trust",
+   "kind": "icon",
+   "cell": [
+    8,
+    5,
+    3,
+    2
+   ],
+   "cue": [
+    "b23",
+    "trust"
+   ],
+   "until_cue": [
+    "b24",
+    "और"
+   ],
+   "tone": "ok",
+   "icon": "tw:1f91d",
+   "label": "public trust",
+   "size": 28
+  },
+  {
+   "id": "policy",
+   "kind": "icon",
+   "cell": [
+    0,
+    3,
+    2,
+    2
+   ],
+   "cue": [
+    "b24",
+    "policy"
+   ],
+   "until_cue": [
+    "b25",
+    "Policy"
+   ],
+   "tone": "accent",
+   "icon": "tw:1f39b",
+   "label": "monetary policy",
+   "size": 28
+  },
+  {
+   "id": "printed",
+   "kind": "icon",
+   "cell": [
+    3,
+    3,
+    2,
+    2
+   ],
+   "cue": [
+    "b24",
+    "printing"
+   ],
+   "until_cue": [
+    "b25",
+    "Policy"
+   ],
+   "tone": "muted",
+   "icon": "fa:solid/money-bill-1",
+   "label": "printing notes",
+   "size": 28
+  },
+  {
+   "id": "approved",
+   "kind": "icon",
+   "cell": [
+    6,
+    3,
+    2,
+    2
+   ],
+   "cue": [
+    "b24",
+    "authorised"
+   ],
+   "until_cue": [
+    "b25",
+    "Policy"
+   ],
+   "tone": "ok",
+   "icon": "fa:solid/stamp",
+   "label": "authorised issuance",
+   "size": 28
+  },
+  {
+   "id": "circulating",
+   "kind": "icon",
+   "cell": [
+    9,
+    3,
+    3,
+    2
+   ],
+   "cue": [
+    "b24",
+    "circulation"
+   ],
+   "until_cue": [
+    "b25",
+    "Policy"
+   ],
+   "tone": "accent",
+   "icon": "tw:1f4b0",
+   "label": "circulation",
+   "size": 28
+  },
+  {
+   "id": "issue_flow",
+   "kind": "arrow",
+   "cue": [
+    "b24",
+    "लाता"
+   ],
+   "until_cue": [
+    "b25",
+    "Policy"
+   ],
+   "tone": "accent",
+   "from": "approved",
+   "to": "circulating",
+   "from_side": "r",
+   "to_side": "l",
+   "flow": {
+    "icon": "fa:solid/money-bill-1",
+    "count": 2,
+    "period": 1600,
+    "size": 24,
+    "cue": [
+     "b24",
+     "लाता"
+    ]
+   }
+  },
+  {
+   "id": "replacement",
+   "kind": "icon",
+   "cell": [
+    2,
+    5,
+    4,
+    2
+   ],
+   "cue": [
+    "b24",
+    "पुराने"
+   ],
+   "until_cue": [
+    "b25",
+    "Policy"
+   ],
+   "tone": "muted",
+   "icon": "tw:1f501",
+   "label": "पुराने notes बदलना",
+   "size": 28
+  },
+  {
+   "id": "stock",
+   "kind": "icon",
+   "cell": [
+    7,
+    5,
+    4,
+    2
+   ],
+   "cue": [
+    "b24",
+    "कुल"
+   ],
+   "until_cue": [
+    "b25",
+    "Policy"
+   ],
+   "tone": "ink",
+   "icon": "tw:1f4b0",
+   "label": "कुल पैसा बढ़ाना नहीं",
+   "size": 28
+  },
+  {
+   "id": "credit_policy",
+   "kind": "icon",
+   "cell": [
+    0,
+    3,
+    2,
+    2
+   ],
+   "cue": [
+    "b25",
+    "Policy"
+   ],
+   "until_cue": [
+    "b26",
+    "Foreign"
+   ],
+   "tone": "accent",
+   "icon": "tw:1f39b",
+   "label": "Policy rates",
+   "size": 24
+  },
+  {
+   "id": "credit_loan",
+   "kind": "icon",
+   "cell": [
+    3,
+    3,
+    2,
+    2
+   ],
+   "cue": [
+    "b25",
+    "महँगा"
+   ],
+   "until_cue": [
+    "b26",
+    "Foreign"
+   ],
+   "tone": "warm",
+   "icon": "tw:1f4c4",
+   "label": "loan महँगा",
+   "size": 24
+  },
+  {
+   "id": "policy_loan_arrow",
+   "kind": "arrow",
+   "cue": [
+    "b25",
+    "महँगा"
+   ],
+   "until_cue": [
+    "b26",
+    "Foreign"
+   ],
+   "tone": "accent",
+   "from": "credit_policy",
+   "to": "credit_loan",
+   "from_side": "r",
+   "to_side": "l"
+  },
+  {
+   "id": "credit_expansion",
+   "kind": "icon",
+   "cell": [
+    6,
+    3,
+    2,
+    2
+   ],
+   "cue": [
+    "b25",
+    "expansion"
+   ],
+   "until_cue": [
+    "b26",
+    "Foreign"
+   ],
+   "tone": "muted",
+   "icon": "tw:1f3ea",
+   "label": "expansion",
+   "size": 24
+  },
+  {
+   "id": "loan_expansion_arrow",
+   "kind": "arrow",
+   "cue": [
+    "b25",
+    "रोक"
+   ],
+   "until_cue": [
+    "b26",
+    "Foreign"
+   ],
+   "tone": "warm",
+   "from": "credit_loan",
+   "to": "credit_expansion",
+   "from_side": "r",
+   "to_side": "l"
+  },
+  {
+   "id": "credit_spending",
+   "kind": "icon",
+   "cell": [
+    9,
+    3,
+    3,
+    2
+   ],
+   "cue": [
+    "b25",
+    "spending"
+   ],
+   "until_cue": [
+    "b26",
+    "Foreign"
+   ],
+   "tone": "muted",
+   "icon": "fa:solid/basket-shopping",
+   "label": "spending घटने",
+   "size": 24
+  },
+  {
+   "id": "loan_spending_arrow",
+   "kind": "arrow",
+   "cue": [
+    "b25",
+    "घटने"
+   ],
+   "until_cue": [
+    "b26",
+    "Foreign"
+   ],
+   "tone": "accent",
+   "from": "credit_expansion",
+   "to": "credit_spending",
+   "from_side": "r",
+   "to_side": "l"
+  },
+  {
+   "id": "credit_prices",
+   "kind": "icon",
+   "cell": [
+    9,
+    5,
+    3,
+    2
+   ],
+   "cue": [
+    "b25",
+    "prices"
+   ],
+   "until_cue": [
+    "b26",
+    "Foreign"
+   ],
+   "tone": "ok",
+   "icon": "fa:solid/gauge-high",
+   "label": "prices का दबाव घट सकता है",
+   "size": 24
+  },
+  {
+   "id": "spending_prices_arrow",
+   "kind": "arrow",
+   "cue": [
+    "b25",
+    "दबाव"
+   ],
+   "until_cue": [
+    "b26",
+    "Foreign"
+   ],
+   "tone": "accent",
+   "from": "credit_spending",
+   "to": "credit_prices",
+   "from_side": "b",
+   "to_side": "t"
+  },
+  {
+   "id": "cheap_credit",
+   "kind": "icon",
+   "cell": [
+    0,
+    5,
+    3,
+    2
+   ],
+   "cue": [
+    "b25",
+    "सस्ता"
+   ],
+   "until_cue": [
+    "b26",
+    "Foreign"
+   ],
+   "tone": "warm",
+   "icon": "tw:1f501",
+   "label": "सस्ता credit उलटा असर करे",
+   "size": 24
+  },
+  {
+   "id": "lag",
+   "kind": "icon",
+   "cell": [
+    3,
+    5,
+    3,
+    2
+   ],
+   "cue": [
+    "b25",
+    "समय"
+   ],
+   "until_cue": [
+    "b26",
+    "Foreign"
+   ],
+   "tone": "muted",
+   "icon": "tw:1f550",
+   "label": "असर समय लेता है",
+   "size": 24
+  },
+  {
+   "id": "missing_goods",
+   "kind": "icon",
+   "cell": [
+    6,
+    5,
+    3,
+    2
+   ],
+   "cue": [
+    "b25",
+    "goods"
+   ],
+   "until_cue": [
+    "b26",
+    "Foreign"
+   ],
+   "tone": "muted",
+   "icon": "fa:solid/basket-shopping",
+   "label": "missing goods नहीं बनाता",
+   "size": 24
+  },
+  {
+   "id": "usd",
+   "kind": "icon",
+   "cell": [
+    0,
+    3,
+    5,
+    3
+   ],
+   "cue": [
+    "b26",
+    "$"
+   ],
+   "until_cue": [
+    "b27",
+    "¥"
+   ],
+   "tone": "accent",
+   "icon": "fa:solid/dollar-sign",
+   "size": 30
+  },
+  {
+   "id": "usd_role",
+   "kind": "text",
+   "cell": [
+    0,
+    6,
+    5,
+    1
+   ],
+   "cue": [
+    "b26",
+    "traded"
+   ],
+   "until_cue": [
+    "b27",
+    "¥"
+   ],
+   "text": "सबसे widely held और traded",
+   "style": "tag",
+   "tone": "accent",
+   "align": "center",
+   "size": 24
+  },
+  {
+   "id": "eur",
+   "kind": "icon",
+   "cell": [
+    7,
+    3,
+    5,
+    3
+   ],
+   "cue": [
+    "b26",
+    "€"
+   ],
+   "until_cue": [
+    "b27",
+    "¥"
+   ],
+   "tone": "warm",
+   "icon": "fa:solid/euro-sign",
+   "size": 30
+  },
+  {
+   "id": "eur_role",
+   "kind": "text",
+   "cell": [
+    7,
+    6,
+    5,
+    1
+   ],
+   "cue": [
+    "b26",
+    "shared"
+   ],
+   "until_cue": [
+    "b27",
+    "¥"
+   ],
+   "text": "कई EU देशों की shared currency",
+   "style": "tag",
+   "tone": "warm",
+   "align": "center",
+   "size": 24
+  },
+  {
+   "id": "yen_tags",
+   "kind": "icon",
+   "cell": [
+    0,
+    3,
+    2,
+    2
+   ],
+   "cue": [
+    "b27",
+    "¥"
+   ],
+   "until_cue": [
+    "b28",
+    "Britain"
+   ],
+   "tone": "accent",
+   "icon": "fa:solid/tags",
+   "label": "¥",
+   "size": 30
+  },
+  {
+   "id": "jpy",
+   "kind": "icon",
+   "cell": [
+    3,
+    3,
+    4,
+    2
+   ],
+   "cue": [
+    "b27",
+    "JPY,"
+   ],
+   "until_cue": [
+    "b28",
+    "Britain"
+   ],
+   "tone": "accent",
+   "icon": "tw:1f501",
+   "label": "Japanese Yen, JPY",
+   "size": 28
+  },
+  {
+   "id": "jpy_role",
+   "kind": "text",
+   "cell": [
+    3,
+    5,
+    4,
+    2
+   ],
+   "cue": [
+    "b27",
+    "role"
+   ],
+   "until_cue": [
+    "b28",
+    "Britain"
+   ],
+   "text": "stability और बड़े role",
+   "style": "box",
+   "tone": "accent",
+   "align": "center",
+   "size": 26
+  },
+  {
+   "id": "cny",
+   "kind": "icon",
+   "cell": [
+    8,
+    3,
+    4,
+    2
+   ],
+   "cue": [
+    "b27",
+    "CNY,"
+   ],
+   "until_cue": [
+    "b28",
+    "Britain"
+   ],
+   "tone": "warm",
+   "icon": "asset:a-93d80fd8710d41bd",
+   "label": "Chinese Yuan Renminbi, CNY",
+   "size": 26
+  },
+  {
+   "id": "reserves",
+   "kind": "icon",
+   "cell": [
+    8,
+    5,
+    4,
+    2
+   ],
+   "cue": [
+    "b27",
+    "assets"
+   ],
+   "until_cue": [
+    "b28",
+    "Britain"
+   ],
+   "tone": "warm",
+   "icon": "tw:1f4c1",
+   "label": "बाहरी payments के लिए foreign assets",
+   "size": 26
+  },
+  {
+   "id": "pound",
+   "kind": "icon",
+   "cell": [
+    0,
+    3,
+    3,
+    2
+   ],
+   "cue": [
+    "b28",
+    "£"
+   ],
+   "until_cue": [
+    "b29",
+    "Euro"
+   ],
+   "tone": "accent",
+   "icon": "fa:solid/tag",
+   "label": "£",
+   "size": 30
+  },
+  {
+   "id": "pound_roots",
+   "kind": "icon",
+   "cell": [
+    4,
+    3,
+    4,
+    2
+   ],
+   "cue": [
+    "b28",
+    "8th"
+   ],
+   "until_cue": [
+    "b29",
+    "Euro"
+   ],
+   "tone": "warm",
+   "icon": "tw:1fa99",
+   "label": "जड़ें 8th century में",
+   "size": 28
+  },
+  {
+   "id": "pound_today",
+   "kind": "icon",
+   "cell": [
+    9,
+    3,
+    3,
+    2
+   ],
+   "cue": [
+    "b28",
+    "आज"
+   ],
+   "until_cue": [
+    "b29",
+    "Euro"
+   ],
+   "tone": "accent",
+   "icon": "fa:solid/money-bill-1",
+   "label": "आज की fiat currencies",
+   "size": 28
+  },
+  {
+   "id": "gold_promise",
+   "kind": "icon",
+   "cell": [
+    3,
+    5,
+    6,
+    2
+   ],
+   "cue": [
+    "b28",
+    "वादा"
+   ],
+   "until_cue": [
+    "b29",
+    "Euro"
+   ],
+   "tone": "warm",
+   "icon": "tw:1f9fe",
+   "label": "gold वाला वादा हमेशा गायब नहीं था",
+   "size": 28
+  },
+  {
+   "id": "eu_members",
+   "kind": "crowd",
+   "cell": [
+    0,
+    3,
+    5,
+    3
+   ],
+   "cue": [
+    "b29",
+    "27"
+   ],
+   "until_cue": [
+    "b30",
+    "इन"
+   ],
+   "tone": "muted",
+   "icon": "fl:castle",
+   "label": "27 EU members",
+   "size": 26,
+   "cols": 9,
+   "steps": [
+    {
+     "cue": [
+      "b29",
+      "27"
+     ],
+     "n": 27
+    }
+   ]
+  },
+  {
+   "id": "eu_adopters",
+   "kind": "crowd",
+   "cell": [
+    7,
+    3,
+    5,
+    3
+   ],
+   "cue": [
+    "b29",
+    "20"
+   ],
+   "until_cue": [
+    "b30",
+    "इन"
+   ],
+   "tone": "accent",
+   "icon": "fa:solid/euro-sign",
+   "label": "20 adopters",
+   "size": 26,
+   "cols": 5,
+   "steps": [
+    {
+     "cue": [
+      "b29",
+      "20"
+     ],
+     "n": 20
+    }
+   ]
+  },
+  {
+   "id": "not_all",
+   "kind": "highlight",
+   "cue": [
+    "b29",
+    "सभी"
+   ],
+   "until_cue": [
+    "b30",
+    "इन"
+   ],
+   "style": "box",
+   "tone": "warm",
+   "target": "eu_adopters"
+  },
+  {
+   "id": "shares",
+   "kind": "icon",
+   "cell": [
+    0,
+    3,
+    3,
+    2
+   ],
+   "cue": [
+    "b30",
+    "shares"
+   ],
+   "until_cue": [
+    "b31",
+    "Reserve"
+   ],
+   "tone": "muted",
+   "icon": "tw:1f4c8",
+   "label": "exact shares",
+   "size": 26
+  },
+  {
+   "id": "fixed_rate",
+   "kind": "icon",
+   "cell": [
+    4,
+    3,
+    4,
+    2
+   ],
+   "cue": [
+    "b30",
+    "stable"
+   ],
+   "until_cue": [
+    "b31",
+    "Reserve"
+   ],
+   "tone": "muted",
+   "icon": "tw:1f501",
+   "label": "हमेशा stable exchange rate",
+   "size": 26
+  },
+  {
+   "id": "reject_shares",
+   "kind": "mark",
+   "cue": [
+    "b30",
+    "मत"
+   ],
+   "until_cue": [
+    "b31",
+    "Reserve"
+   ],
+   "tone": "danger",
+   "target": "shares",
+   "mark": "cross",
+   "pos": "c"
+  },
+  {
+   "id": "reject_fixed",
+   "kind": "mark",
+   "cue": [
+    "b30",
+    "निकालिए।"
+   ],
+   "until_cue": [
+    "b31",
+    "Reserve"
+   ],
+   "tone": "danger",
+   "target": "fixed_rate",
+   "mark": "cross",
+   "pos": "c"
+  },
+  {
+   "id": "continuity",
+   "kind": "icon",
+   "cell": [
+    0,
+    5,
+    5,
+    2
+   ],
+   "cue": [
+    "b30",
+    "लगातार"
+   ],
+   "until_cue": [
+    "b31",
+    "Reserve"
+   ],
+   "tone": "muted",
+   "icon": "fa:solid/money-bill-1",
+   "label": "लगातार fiat होना नहीं बताता",
+   "size": 26
+  },
+  {
+   "id": "measure",
+   "kind": "icon",
+   "cell": [
+    7,
+    5,
+    5,
+    2
+   ],
+   "cue": [
+    "b30",
+    "measure"
+   ],
+   "until_cue": [
+    "b31",
+    "Reserve"
+   ],
+   "tone": "accent",
+   "icon": "fa:solid/pen-ruler",
+   "label": "Euro ranking के लिए measure चाहिए",
+   "size": 26
+  },
+  {
+   "id": "reserve_end",
+   "kind": "icon",
+   "cell": [
+    0,
+    3,
+    3,
+    2
+   ],
+   "cue": [
+    "b31",
+    "Reserve"
+   ],
+   "tone": "accent",
+   "icon": "tw:1f4c1",
+   "label": "Reserve holdings",
+   "size": 26
+  },
+  {
+   "id": "backing",
+   "kind": "icon",
+   "cell": [
+    4,
+    3,
+    3,
+    2
+   ],
+   "cue": [
+    "b31",
+    "backing"
+   ],
+   "tone": "muted",
+   "icon": "fa:solid/certificate",
+   "label": "backing",
+   "size": 26
+  },
+  {
+   "id": "reject_backing",
+   "kind": "mark",
+   "cue": [
+    "b31",
+    "नहीं;"
+   ],
+   "tone": "danger",
+   "target": "backing",
+   "mark": "cross",
+   "pos": "c"
+  },
+  {
+   "id": "money_more",
+   "kind": "icon",
+   "cell": [
+    0,
+    5,
+    3,
+    2
+   ],
+   "cue": [
+    "b31",
+    "ज़्यादा"
+   ],
+   "tone": "warm",
+   "icon": "tw:1f4b0",
+   "label": "ज़्यादा पैसा",
+   "size": 26
+  },
+  {
+   "id": "goods_end",
+   "kind": "icon",
+   "cell": [
+    4,
+    5,
+    3,
+    2
+   ],
+   "cue": [
+    "b31",
+    "goods"
+   ],
+   "tone": "ink",
+   "icon": "fa:solid/basket-shopping",
+   "label": "goods नहीं बढ़ाता",
+   "size": 26
+  },
+  {
+   "id": "power",
+   "kind": "icon",
+   "cell": [
+    9,
+    5,
+    3,
+    2
+   ],
+   "cue": [
+    "b31",
+    "purchasing"
+   ],
+   "tone": "danger",
+   "icon": "tw:1f9fa",
+   "label": "purchasing power घट सकती है",
+   "size": 26
+  },
+  {
+   "id": "auto_arrow_b31",
+   "kind": "arrow",
+   "from": "book_p004_i11",
+   "to": "reserve_end",
+   "cue": [
+    "b31",
+    "Reserve"
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b23",
+    "Press"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    3,
+    12,
+    4
+   ],
+   "cue": [
+    "b24",
+    "printing"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    3,
+    12,
+    4
+   ],
+   "cue": [
+    "b25",
+    "Policy"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b26",
+    "$"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b27",
+    "¥"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    3,
+    12,
+    4
+   ],
+   "cue": [
+    "b28",
+    "8th"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    3,
+    12,
+    4
+   ],
+   "cue": [
+    "b29",
+    "27"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    3,
+    12,
+    4
+   ],
+   "cue": [
+    "b30",
+    "shares"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    3,
+    12,
+    4
+   ],
+   "cue": [
+    "b31",
+    "Reserve"
+   ]
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b23",
+    "authority,"
+   ],
+   "ids": [
+    "authority",
+    "control",
+    "trust",
+    "fiat"
+   ],
+   "until_cue": [
+    "b24",
+    "और"
+   ]
+  },
+  {
+   "cue": [
+    "b26",
+    "USD,"
+   ],
+   "ids": [
+    "book_p004_i11_p1",
+    "book_p004_i11_p2",
+    "book_p004_i11_p3",
+    "book_p004_i11_p4",
+    "book_p004_i11_p5",
+    "book_p004_i11_a1",
+    "book_p004_i11_a2",
+    "book_p004_i11_a3",
+    "book_p004_i11_a4",
+    "usd",
+    "usd_role"
+   ],
+   "until_cue": [
+    "b26",
+    "€"
+   ]
+  },
+  {
+   "cue": [
+    "b27",
+    "JPY,"
+   ],
+   "ids": [
+    "book_p004_i11_p1",
+    "book_p004_i11_p2",
+    "book_p004_i11_p3",
+    "book_p004_i11_p4",
+    "book_p004_i11_p5",
+    "book_p004_i11_a1",
+    "book_p004_i11_a2",
+    "book_p004_i11_a3",
+    "book_p004_i11_a4",
+    "jpy",
+    "jpy_role",
+    "yen_tags"
+   ],
+   "until_cue": [
+    "b27",
+    "Chinese"
+   ]
+  },
+  {
+   "cue": [
+    "b27",
+    "CNY,"
+   ],
+   "ids": [
+    "book_p004_i11_p1",
+    "book_p004_i11_p2",
+    "book_p004_i11_p3",
+    "book_p004_i11_p4",
+    "book_p004_i11_p5",
+    "book_p004_i11_a1",
+    "book_p004_i11_a2",
+    "book_p004_i11_a3",
+    "book_p004_i11_a4",
+    "cny",
+    "reserves",
+    "yen_tags"
+   ],
+   "until_cue": [
+    "b28",
+    "Britain"
+   ]
+  },
+  {
+   "cue": [
+    "b29",
+    "20"
+   ],
+   "ids": [
+    "eu_members",
+    "eu_adopters",
+    "not_all"
+   ],
+   "until_cue": [
+    "b30",
+    "इन"
+   ]
+  },
+  {
+   "cue": [
+    "b31",
+    "purchasing"
+   ],
+   "ids": [
+    "money_more",
+    "goods_end",
+    "power"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

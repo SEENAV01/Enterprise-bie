@@ -1,0 +1,585 @@
+{
+ "id": "v4_s1b",
+ "part_id": "c09.1",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b3",
+   "say": "यह gold-backed paper currency है: माँगने पर तय gold मिले। Intrinsic value यानी material की कीमत; यहाँ value paper से नहीं, redemption promise से है, जैसे सामान की receipt।"
+  },
+  {
+   "beat_id": "b4",
+   "say": "सिर्फ bank के पास gold होना काफी नहीं; note पर gold पाने का claim चाहिए।"
+  },
+  {
+   "beat_id": "b5",
+   "say": "यह redemption promise आगे समझाएगा कि नए notes के लिए backing क्यों चाहिए।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "anchor",
+   "kind": "text",
+   "cell": [
+    0,
+    0,
+    12,
+    1
+   ],
+   "cue": [
+    "b3",
+    "gold-backed"
+   ],
+   "text": "gold-backed paper currency",
+   "style": "title",
+   "tone": "ink",
+   "align": "center",
+   "size": 32
+  },
+  {
+   "id": "present-note",
+   "kind": "action",
+   "cell": [
+    0,
+    1,
+    6,
+    5
+   ],
+   "cue": [
+    "b3",
+    "gold-backed"
+   ],
+   "until_cue": [
+    "b3",
+    "माँगने"
+   ],
+   "template": "hand_over",
+   "actors": [
+    {
+     "role": "giver",
+     "who": "main",
+     "mood": "neutral"
+    },
+    {
+     "role": "taker",
+     "who": "other",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "thing",
+     "icon": "fa:solid/money-bill-1",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [
+    {
+     "name": "give",
+     "cue": [
+      "b3",
+      "paper"
+     ]
+    },
+    {
+     "name": "take",
+     "cue": [
+      "b3",
+      "माँगने"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "redeem-gold",
+   "kind": "action",
+   "cell": [
+    6,
+    1,
+    6,
+    5
+   ],
+   "cue": [
+    "b3",
+    "तय"
+   ],
+   "until_cue": [
+    "b3",
+    "Intrinsic"
+   ],
+   "template": "hand_over",
+   "actors": [
+    {
+     "role": "giver",
+     "who": "other",
+     "mood": "neutral"
+    },
+    {
+     "role": "taker",
+     "who": "main",
+     "mood": "pleased"
+    }
+   ],
+   "objects": [
+    {
+     "name": "thing",
+     "icon": "bie:gold-bar",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [
+    {
+     "name": "give",
+     "cue": [
+      "b3",
+      "gold"
+     ]
+    },
+    {
+     "name": "take",
+     "cue": [
+      "b3",
+      "मिले।"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "paper",
+   "kind": "icon",
+   "cell": [
+    1,
+    2,
+    3,
+    3
+   ],
+   "cue": [
+    "b3",
+    "Intrinsic"
+   ],
+   "until_cue": [
+    "b4",
+    "सिर्फ"
+   ],
+   "tone": "muted",
+   "icon": "tw:1f4c4"
+  },
+  {
+   "id": "material-label",
+   "kind": "text",
+   "cell": [
+    0,
+    5,
+    5,
+    1
+   ],
+   "cue": [
+    "b3",
+    "material"
+   ],
+   "until_cue": [
+    "b4",
+    "सिर्फ"
+   ],
+   "text": "material की कीमत",
+   "style": "plain",
+   "tone": "muted",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "promise",
+   "kind": "icon",
+   "cell": [
+    6,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b3",
+    "redemption"
+   ],
+   "until_cue": [
+    "b4",
+    "सिर्फ"
+   ],
+   "tone": "accent",
+   "icon": "tw:1f91d"
+  },
+  {
+   "id": "receipt",
+   "kind": "icon",
+   "cell": [
+    6,
+    4,
+    2,
+    2
+   ],
+   "cue": [
+    "b3",
+    "receipt।"
+   ],
+   "until_cue": [
+    "b4",
+    "सिर्फ"
+   ],
+   "icon": "tw:1f9fe"
+  },
+  {
+   "id": "goods",
+   "kind": "icon",
+   "cell": [
+    9,
+    4,
+    2,
+    2
+   ],
+   "cue": [
+    "b3",
+    "सामान"
+   ],
+   "until_cue": [
+    "b4",
+    "सिर्फ"
+   ],
+   "icon": "fa:solid/basket-shopping"
+  },
+  {
+   "id": "banks",
+   "kind": "picture",
+   "cell": [
+    0,
+    1,
+    12,
+    2
+   ],
+   "cue": [
+    "b4",
+    "सिर्फ"
+   ],
+   "until_cue": [
+    "b5",
+    "यह"
+   ],
+   "picture": {
+    "type": "gallery",
+    "title": "",
+    "item_id": "",
+    "panels": [
+     {
+      "cue": [
+       "b4",
+       "सिर्फ"
+      ],
+      "name": "",
+      "icon": "tw:1f3e6",
+      "numbered": false
+     },
+     {
+      "cue": [
+       "b4",
+       "bank"
+      ],
+      "name": "",
+      "icon": "tw:1f3e6",
+      "numbered": false
+     }
+    ],
+    "arrows": false
+   }
+  },
+  {
+   "id": "equal-reserves",
+   "kind": "picture",
+   "cell": [
+    0,
+    3,
+    12,
+    2
+   ],
+   "cue": [
+    "b4",
+    "gold"
+   ],
+   "until_cue": [
+    "b5",
+    "यह"
+   ],
+   "picture": {
+    "type": "gallery",
+    "title": "",
+    "item_id": "",
+    "panels": [
+     {
+      "cue": [
+       "b4",
+       "gold"
+      ],
+      "name": "",
+      "icon": "bie:gold-bar",
+      "numbered": false
+     },
+     {
+      "cue": [
+       "b4",
+       "gold"
+      ],
+      "name": "",
+      "icon": "bie:gold-bar",
+      "numbered": false
+     }
+    ],
+    "arrows": false
+   }
+  },
+  {
+   "id": "insufficient",
+   "kind": "text",
+   "cell": [
+    0,
+    5,
+    6,
+    1
+   ],
+   "cue": [
+    "b4",
+    "काफी"
+   ],
+   "until_cue": [
+    "b5",
+    "यह"
+   ],
+   "text": "gold होना काफी नहीं",
+   "style": "box",
+   "tone": "warm",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "claim-note",
+   "kind": "icon",
+   "cell": [
+    7,
+    5,
+    2,
+    1
+   ],
+   "cue": [
+    "b4",
+    "note"
+   ],
+   "until_cue": [
+    "b5",
+    "यह"
+   ],
+   "icon": "fa:solid/money-bill-1"
+  },
+  {
+   "id": "claim",
+   "kind": "icon",
+   "cell": [
+    10,
+    5,
+    1,
+    1
+   ],
+   "cue": [
+    "b4",
+    "claim"
+   ],
+   "until_cue": [
+    "b5",
+    "यह"
+   ],
+   "icon": "tw:1f9fe"
+  },
+  {
+   "id": "next-promise",
+   "kind": "icon",
+   "cell": [
+    0,
+    2,
+    3,
+    3
+   ],
+   "cue": [
+    "b5",
+    "redemption"
+   ],
+   "icon": "tw:1f91d"
+  },
+  {
+   "id": "new-notes",
+   "kind": "icon",
+   "cell": [
+    5,
+    2,
+    3,
+    3
+   ],
+   "cue": [
+    "b5",
+    "notes"
+   ],
+   "icon": "fa:solid/money-bill-1"
+  },
+  {
+   "id": "backing",
+   "kind": "icon",
+   "cell": [
+    9,
+    2,
+    3,
+    3
+   ],
+   "cue": [
+    "b5",
+    "backing"
+   ],
+   "icon": "bie:gold-bar"
+  },
+  {
+   "id": "promise-consequence",
+   "kind": "arrow",
+   "cue": [
+    "b5",
+    "notes"
+   ],
+   "tone": "accent",
+   "from": "next-promise",
+   "to": "new-notes",
+   "from_side": "r",
+   "to_side": "l",
+   "flow": {
+    "icon": "tw:1f9fe",
+    "count": 1,
+    "period": 1800,
+    "size": 24,
+    "cue": [
+     "b5",
+     "notes"
+    ]
+   }
+  },
+  {
+   "id": "backing-link",
+   "kind": "arrow",
+   "cue": [
+    "b5",
+    "backing"
+   ],
+   "tone": "warm",
+   "from": "backing",
+   "to": "new-notes",
+   "from_side": "l",
+   "to_side": "r",
+   "flow": {
+    "icon": "bie:gold-bar",
+    "count": 1,
+    "period": 1800,
+    "size": 24,
+    "cue": [
+     "b5",
+     "backing"
+    ]
+   }
+  }
+ ],
+ "camera": [
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b3",
+    "gold-backed"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b4",
+    "सिर्फ"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b5",
+    "redemption"
+   ]
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b3",
+    "Intrinsic"
+   ],
+   "ids": [
+    "anchor",
+    "paper",
+    "material-label"
+   ],
+   "until_cue": [
+    "b3",
+    "redemption"
+   ]
+  },
+  {
+   "cue": [
+    "b4",
+    "claim"
+   ],
+   "ids": [
+    "anchor",
+    "banks_p1",
+    "banks_p2",
+    "equal-reserves_p1",
+    "equal-reserves_p2",
+    "claim-note",
+    "claim"
+   ],
+   "until_cue": [
+    "b5",
+    "यह"
+   ]
+  },
+  {
+   "cue": [
+    "b5",
+    "backing"
+   ],
+   "ids": [
+    "anchor",
+    "next-promise",
+    "new-notes",
+    "backing",
+    "promise-consequence",
+    "backing-link"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

@@ -1,0 +1,1245 @@
+{
+ "id": "v2_s5s",
+ "part_id": "c04.1",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b25",
+   "say": "मानिए किसान ने 2 kg wheat देकर 1 kg नमक लिया, खाने के लिए नहीं। फिर उसने सारा नमक देकर 1 metre कपड़ा खरीदा।"
+  },
+  {
+   "beat_id": "b26",
+   "say": "नमक यहाँ बीच का पुल है, इसलिए commodity money है। दूसरा पड़ाव salt, cattle, shells दिखाता है; cloth seller को wheat चाहना नहीं पड़ा।"
+  },
+  {
+   "beat_id": "b27",
+   "say": "आपके पास 5 बराबर weight और purity वाले silver coins थे। आपने 2 देकर 5 kg अनाज खरीदा; अब 3 बचे। तीसरा पड़ाव metallic money है, यानी gold या silver के सिक्के भुगतान का काम करते हैं।"
+  },
+  {
+   "beat_id": "b28",
+   "say": "टिकाऊ, बराबर measured coins गिनकर दे सकते हैं। Gold–silver का अपना material value है, इसलिए ये commodity money भी हैं।"
+  },
+  {
+   "beat_id": "b29",
+   "say": "₹300 का सामान लेकर ₹500 note दिया, ₹200 वापस मिले। यह चौथा पड़ाव paper money है; note denomination पर चला, कागज़ की कीमत पर नहीं।"
+  },
+  {
+   "beat_id": "b30",
+   "say": "हल्का note बड़ी amount पहुँचाता है; भारी metal नहीं ढोना पड़ता।"
+  },
+  {
+   "beat_id": "b31",
+   "say": "आपके ₹10,000 में से ₹1,500 का cheque settle हुआ; ₹8,500 बचे। दुकानदार के ₹2,000 में जुड़कर ₹3,500 हुए। पाँचवाँ पड़ाव bank money है: deposits यानी खाते की रकम; cheque बैंक से उसी रकम का भुगतान करवाता है, नया पैसा नहीं बनाता।"
+  },
+  {
+   "beat_id": "b32",
+   "say": "खाते के ₹2,000 में से QR scan करके ₹300 दिए; ₹1,700 बचे। दुकानदार के ₹5,000 में जुड़कर ₹5,300 हुए। छठा पड़ाव digital money है: UPI, net banking, cards; यानी यहाँ कागज़ देने के बजाय electronic instruction से भुगतान हुआ।"
+  }
+ ],
+ "kit": "shop",
+ "elements": [
+  {
+   "id": "market",
+   "kind": "shop",
+   "x": 3000,
+   "cue": [
+    "b25",
+    "",
+    0.0
+   ],
+   "goods": [
+    {
+     "icon": "fa:solid/wheat-alt",
+     "label": ""
+    },
+    {
+     "icon": "bie:salt-sack",
+     "label": ""
+    },
+    {
+     "icon": "bie:cloth-roll",
+     "label": ""
+    }
+   ]
+  },
+  {
+   "id": "wheat_for_salt",
+   "kind": "action",
+   "x": 1950,
+   "cue": [
+    "b25",
+    "2"
+   ],
+   "until_cue": [
+    "b25",
+    "फिर"
+   ],
+   "template": "barter_swap",
+   "actors": [
+    {
+     "role": "a",
+     "who": "main",
+     "mood": "neutral"
+    },
+    {
+     "role": "b",
+     "who": "other",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "a_thing",
+     "icon": "fa:solid/wheat-alt",
+     "label": ""
+    },
+    {
+     "name": "b_thing",
+     "icon": "bie:salt-sack",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [
+    {
+     "name": "offer",
+     "cue": [
+      "b25",
+      "wheat"
+     ]
+    },
+    {
+     "name": "ask",
+     "cue": [
+      "b25",
+      "देकर"
+     ]
+    },
+    {
+     "name": "swap",
+     "cue": [
+      "b25",
+      "लिया,"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "salt_for_cloth",
+   "kind": "action",
+   "x": 1950,
+   "cue": [
+    "b25",
+    "फिर"
+   ],
+   "until_cue": [
+    "b26",
+    "",
+    0.0
+   ],
+   "template": "barter_swap",
+   "actors": [
+    {
+     "role": "a",
+     "who": "main",
+     "mood": "neutral"
+    },
+    {
+     "role": "b",
+     "who": "other",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "a_thing",
+     "icon": "bie:salt-sack",
+     "label": ""
+    },
+    {
+     "name": "b_thing",
+     "icon": "bie:cloth-roll",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [
+    {
+     "name": "offer",
+     "cue": [
+      "b25",
+      "सारा"
+     ]
+    },
+    {
+     "name": "ask",
+     "cue": [
+      "b25",
+      "कपड़ा"
+     ]
+    },
+    {
+     "name": "swap",
+     "cue": [
+      "b25",
+      "खरीदा।"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "bridge_first_exchange",
+   "kind": "action",
+   "x": 1950,
+   "cue": [
+    "b26",
+    "नमक"
+   ],
+   "until_cue": [
+    "b26",
+    "दूसरा"
+   ],
+   "template": "barter_swap",
+   "actors": [
+    {
+     "role": "a",
+     "who": "main",
+     "mood": "neutral"
+    },
+    {
+     "role": "b",
+     "who": "other",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "a_thing",
+     "icon": "fa:solid/wheat-alt",
+     "label": ""
+    },
+    {
+     "name": "b_thing",
+     "icon": "bie:salt-sack",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [
+    {
+     "name": "offer",
+     "cue": [
+      "b26",
+      "नमक"
+     ]
+    },
+    {
+     "name": "ask",
+     "cue": [
+      "b26",
+      "यहाँ"
+     ]
+    },
+    {
+     "name": "swap",
+     "cue": [
+      "b26",
+      "पुल"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "commodity_stage",
+   "kind": "label",
+   "x": 1950,
+   "y": 270,
+   "text": "commodity money",
+   "fill": "rgba(245,235,210,1)",
+   "cue": [
+    "b26",
+    "commodity"
+   ],
+   "until_cue": [
+    "b27",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "bridge_second_exchange",
+   "kind": "action",
+   "x": 1950,
+   "cue": [
+    "b26",
+    "दूसरा"
+   ],
+   "until_cue": [
+    "b27",
+    "",
+    0.0
+   ],
+   "template": "barter_swap",
+   "actors": [
+    {
+     "role": "a",
+     "who": "main",
+     "mood": "neutral"
+    },
+    {
+     "role": "b",
+     "who": "other",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "a_thing",
+     "icon": "bie:salt-sack",
+     "label": ""
+    },
+    {
+     "name": "b_thing",
+     "icon": "bie:cloth-roll",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [
+    {
+     "name": "offer",
+     "cue": [
+      "b26",
+      "salt,"
+     ]
+    },
+    {
+     "name": "ask",
+     "cue": [
+      "b26",
+      "cloth"
+     ]
+    },
+    {
+     "name": "swap",
+     "cue": [
+      "b26",
+      "पड़ा।"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "five_coins",
+   "kind": "action",
+   "x": 1950,
+   "cue": [
+    "b27",
+    "5"
+   ],
+   "until_cue": [
+    "b27",
+    "आपने"
+   ],
+   "template": "count_stack",
+   "actors": [],
+   "objects": [
+    {
+     "name": "thing",
+     "icon": "tw:1fa99",
+     "label": ""
+    }
+   ],
+   "amounts": [
+    {
+     "name": "n",
+     "text": "5"
+    }
+   ],
+   "steps": [
+    {
+     "name": "count",
+     "cue": [
+      "b27",
+      "5"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "coin_payment",
+   "kind": "action",
+   "x": 1950,
+   "cue": [
+    "b27",
+    "आपने"
+   ],
+   "until_cue": [
+    "b27",
+    "अनाज"
+   ],
+   "template": "hand_over",
+   "actors": [
+    {
+     "role": "giver",
+     "who": "main",
+     "mood": "neutral"
+    },
+    {
+     "role": "taker",
+     "who": "other",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "thing",
+     "icon": "fa:solid/coins",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [
+    {
+     "name": "give",
+     "cue": [
+      "b27",
+      "2"
+     ]
+    },
+    {
+     "name": "take",
+     "cue": [
+      "b27",
+      "देकर"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "grain_received",
+   "kind": "action",
+   "x": 1950,
+   "cue": [
+    "b27",
+    "अनाज"
+   ],
+   "until_cue": [
+    "b27",
+    "अब"
+   ],
+   "template": "hand_over",
+   "actors": [
+    {
+     "role": "giver",
+     "who": "other",
+     "mood": "neutral"
+    },
+    {
+     "role": "taker",
+     "who": "main",
+     "mood": "pleased"
+    }
+   ],
+   "objects": [
+    {
+     "name": "thing",
+     "icon": "bie:grain-sack",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [
+    {
+     "name": "give",
+     "cue": [
+      "b27",
+      "अनाज"
+     ]
+    },
+    {
+     "name": "take",
+     "cue": [
+      "b27",
+      "खरीदा;"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "remaining_coins",
+   "kind": "action",
+   "x": 1950,
+   "cue": [
+    "b27",
+    "अब"
+   ],
+   "until_cue": [
+    "b28",
+    "",
+    0.0
+   ],
+   "template": "count_stack",
+   "actors": [],
+   "objects": [
+    {
+     "name": "thing",
+     "icon": "tw:1fa99",
+     "label": ""
+    }
+   ],
+   "amounts": [
+    {
+     "name": "n",
+     "text": "3"
+    }
+   ],
+   "steps": [
+    {
+     "name": "count",
+     "cue": [
+      "b27",
+      "3"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "metallic_stage",
+   "kind": "label",
+   "x": 1950,
+   "y": 270,
+   "text": "metallic money",
+   "fill": "rgba(230,233,235,1)",
+   "cue": [
+    "b27",
+    "metallic"
+   ],
+   "until_cue": [
+    "b28",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "count_matching_coins",
+   "kind": "action",
+   "x": 1950,
+   "cue": [
+    "b28",
+    "गिनकर"
+   ],
+   "until_cue": [
+    "b29",
+    "",
+    0.0
+   ],
+   "template": "count_stack",
+   "actors": [],
+   "objects": [
+    {
+     "name": "thing",
+     "icon": "tw:1fa99",
+     "label": ""
+    }
+   ],
+   "amounts": [
+    {
+     "name": "n",
+     "text": "3"
+    }
+   ],
+   "steps": [
+    {
+     "name": "count",
+     "cue": [
+      "b28",
+      "गिनकर"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "metal_is_commodity",
+   "kind": "label",
+   "x": 1950,
+   "y": 270,
+   "text": "commodity money भी",
+   "fill": "rgba(245,235,210,1)",
+   "cue": [
+    "b28",
+    "commodity"
+   ],
+   "until_cue": [
+    "b29",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "cash_and_change",
+   "kind": "action",
+   "x": 1950,
+   "cue": [
+    "b29",
+    "₹300"
+   ],
+   "until_cue": [
+    "b30",
+    "",
+    0.0
+   ],
+   "template": "pay_change",
+   "actors": [
+    {
+     "role": "buyer",
+     "who": "main",
+     "mood": "neutral"
+    },
+    {
+     "role": "seller",
+     "who": "other",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "goods",
+     "icon": "fa:solid/basket-shopping",
+     "label": ""
+    }
+   ],
+   "amounts": [
+    {
+     "name": "price",
+     "text": "₹300"
+    },
+    {
+     "name": "paid",
+     "text": "₹500"
+    },
+    {
+     "name": "change",
+     "text": "₹200"
+    }
+   ],
+   "steps": [
+    {
+     "name": "pay",
+     "cue": [
+      "b29",
+      "दिया,"
+     ]
+    },
+    {
+     "name": "goods",
+     "cue": [
+      "b29",
+      "₹200"
+     ]
+    },
+    {
+     "name": "change",
+     "cue": [
+      "b29",
+      "वापस"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "paper_stage",
+   "kind": "label",
+   "x": 1950,
+   "y": 270,
+   "text": "paper money",
+   "fill": "rgba(238,232,218,1)",
+   "cue": [
+    "b29",
+    "paper"
+   ],
+   "until_cue": [
+    "b30",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "carrying_weight",
+   "kind": "balance",
+   "x": 1950,
+   "y": 550,
+   "tilt": 0.3,
+   "cue": [
+    "b30",
+    "हल्का"
+   ],
+   "until_cue": [
+    "b31",
+    "",
+    0.0
+   ],
+   "tilt_cue": [
+    "b30",
+    "भारी"
+   ],
+   "left": {
+    "icon": "fa:solid/money-bill-1",
+    "label": ""
+   },
+   "right": {
+    "icon": "fa:solid/coins",
+    "label": ""
+   }
+  },
+  {
+   "id": "cheque_transfer",
+   "kind": "action",
+   "x": 1950,
+   "cue": [
+    "b31",
+    "₹10,000"
+   ],
+   "until_cue": [
+    "b32",
+    "",
+    0.0
+   ],
+   "template": "cheque",
+   "actors": [
+    {
+     "role": "payer",
+     "who": "main",
+     "mood": "neutral"
+    },
+    {
+     "role": "payee",
+     "who": "other",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [],
+   "amounts": [
+    {
+     "name": "amount",
+     "text": "₹1,500"
+    },
+    {
+     "name": "payer_before",
+     "text": "₹10,000"
+    },
+    {
+     "name": "payer_after",
+     "text": "₹8,500"
+    },
+    {
+     "name": "payee_before",
+     "text": "₹2,000"
+    },
+    {
+     "name": "payee_after",
+     "text": "₹3,500"
+    }
+   ],
+   "steps": [
+    {
+     "name": "write",
+     "cue": [
+      "b31",
+      "₹1,500"
+     ]
+    },
+    {
+     "name": "hand",
+     "cue": [
+      "b31",
+      "cheque"
+     ]
+    },
+    {
+     "name": "balances",
+     "cue": [
+      "b31",
+      "₹8,500"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "bank_stage",
+   "kind": "label",
+   "x": 1950,
+   "y": 270,
+   "text": "खाते की रकम",
+   "fill": "rgba(225,237,229,1)",
+   "cue": [
+    "b31",
+    "खाते"
+   ],
+   "until_cue": [
+    "b32",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "qr_payment",
+   "kind": "action",
+   "x": 1950,
+   "cue": [
+    "b32",
+    "₹2,000"
+   ],
+   "template": "upi",
+   "actors": [
+    {
+     "role": "buyer",
+     "who": "main",
+     "mood": "neutral"
+    },
+    {
+     "role": "seller",
+     "who": "other",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [],
+   "amounts": [
+    {
+     "name": "amount",
+     "text": "₹300"
+    }
+   ],
+   "steps": [
+    {
+     "name": "scan",
+     "cue": [
+      "b32",
+      "QR"
+     ]
+    },
+    {
+     "name": "paid",
+     "cue": [
+      "b32",
+      "दिए;"
+     ]
+    },
+    {
+     "name": "received",
+     "cue": [
+      "b32",
+      "₹5,300"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "electronic_instruction",
+   "kind": "label",
+   "x": 1950,
+   "y": 270,
+   "text": "electronic instruction से भुगतान",
+   "fill": "rgba(225,235,242,1)",
+   "cue": [
+    "b32",
+    "electronic"
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b25",
+    "",
+    0.0
+   ],
+   "x": 2400,
+   "y": 490,
+   "zoom": 0.95,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b25",
+    "wheat"
+   ],
+   "x": 1950,
+   "y": 590,
+   "zoom": 1.2,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b25",
+    "फिर"
+   ],
+   "x": 2250,
+   "y": 500,
+   "zoom": 1,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b25",
+    "कपड़ा"
+   ],
+   "x": 1950,
+   "y": 590,
+   "zoom": 1.2,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b26",
+    "नमक"
+   ],
+   "x": 2050,
+   "y": 550,
+   "zoom": 1.1,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b26",
+    "पुल"
+   ],
+   "x": 1950,
+   "y": 590,
+   "zoom": 1.2,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b26",
+    "दूसरा"
+   ],
+   "x": 2200,
+   "y": 490,
+   "zoom": 1,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b26",
+    "cloth"
+   ],
+   "x": 1950,
+   "y": 590,
+   "zoom": 1.2,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b27",
+    "5"
+   ],
+   "x": 1950,
+   "y": 590,
+   "zoom": 1.25,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b27",
+    "आपने"
+   ],
+   "x": 1950,
+   "y": 550,
+   "zoom": 1.1,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b27",
+    "अब"
+   ],
+   "x": 1950,
+   "y": 590,
+   "zoom": 1.25,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b27",
+    "तीसरा"
+   ],
+   "x": 2250,
+   "y": 480,
+   "zoom": 1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b27",
+    "gold"
+   ],
+   "x": 1950,
+   "y": 520,
+   "zoom": 1.15,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b28",
+    "",
+    0.0
+   ],
+   "x": 2100,
+   "y": 520,
+   "zoom": 1.1,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b28",
+    "गिनकर"
+   ],
+   "x": 1950,
+   "y": 590,
+   "zoom": 1.25,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b28",
+    "material"
+   ],
+   "x": 2050,
+   "y": 500,
+   "zoom": 1.1,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b29",
+    "₹300"
+   ],
+   "x": 2100,
+   "y": 530,
+   "zoom": 1.05,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b29",
+    "₹500"
+   ],
+   "x": 1950,
+   "y": 590,
+   "zoom": 1.3,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b29",
+    "वापस"
+   ],
+   "x": 1950,
+   "y": 570,
+   "zoom": 1.2,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b29",
+    "चौथा"
+   ],
+   "x": 2250,
+   "y": 480,
+   "zoom": 1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b29",
+    "denomination"
+   ],
+   "x": 1950,
+   "y": 560,
+   "zoom": 1.2,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b30",
+    "हल्का"
+   ],
+   "x": 1950,
+   "y": 500,
+   "zoom": 1.1,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b30",
+    "भारी"
+   ],
+   "x": 2050,
+   "y": 530,
+   "zoom": 1.2,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b31",
+    "₹10,000"
+   ],
+   "x": 1950,
+   "y": 570,
+   "zoom": 1.2,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b31",
+    "cheque"
+   ],
+   "x": 1950,
+   "y": 600,
+   "zoom": 1.3,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b31",
+    "₹8,500"
+   ],
+   "x": 1800,
+   "y": 560,
+   "zoom": 1.2,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b31",
+    "दुकानदार"
+   ],
+   "x": 2100,
+   "y": 560,
+   "zoom": 1.2,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b31",
+    "पाँचवाँ"
+   ],
+   "x": 2250,
+   "y": 480,
+   "zoom": 1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b31",
+    "deposits"
+   ],
+   "x": 1950,
+   "y": 530,
+   "zoom": 1.15,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b31",
+    "उसी"
+   ],
+   "x": 1950,
+   "y": 590,
+   "zoom": 1.25,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b31",
+    "नया"
+   ],
+   "x": 2200,
+   "y": 500,
+   "zoom": 1.05,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b32",
+    "₹2,000"
+   ],
+   "x": 1950,
+   "y": 550,
+   "zoom": 1.15,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b32",
+    "QR"
+   ],
+   "x": 1950,
+   "y": 600,
+   "zoom": 1.3,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b32",
+    "₹1,700"
+   ],
+   "x": 1800,
+   "y": 560,
+   "zoom": 1.2,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b32",
+    "दुकानदार"
+   ],
+   "x": 2100,
+   "y": 560,
+   "zoom": 1.2,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b32",
+    "छठा"
+   ],
+   "x": 2250,
+   "y": 480,
+   "zoom": 1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b32",
+    "UPI,"
+   ],
+   "x": 1950,
+   "y": 560,
+   "zoom": 1.15,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b32",
+    "कागज़"
+   ],
+   "x": 2100,
+   "y": 520,
+   "zoom": 1.05,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b32",
+    "electronic"
+   ],
+   "x": 1950,
+   "y": 490,
+   "zoom": 1.1,
+   "frames": 30
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

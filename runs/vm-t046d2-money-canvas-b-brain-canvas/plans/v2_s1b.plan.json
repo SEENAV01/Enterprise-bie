@@ -1,0 +1,583 @@
+{
+ "id": "v2_s1b",
+ "part_id": "c03.1",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b3",
+   "say": "यह barter है: goods या services का सीधा exchange, बिना medium of exchange के। यानी बीच में आगे खर्च करने वाला पैसा नहीं लिया।"
+  },
+  {
+   "beat_id": "b4",
+   "say": "Wheat बेचकर पैसे से कपड़ा खरीदना barter नहीं है। पैसे बीच में आए; बेचने और खरीदने के लोग अलग हो सकते हैं।"
+  },
+  {
+   "beat_id": "b5",
+   "say": "Barter की पहचान सीधा exchange है।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "anchor",
+   "kind": "text",
+   "cell": [
+    0,
+    0,
+    8,
+    1
+   ],
+   "cue": [
+    "b3",
+    "barter"
+   ],
+   "until_cue": [
+    "b5",
+    "Barter"
+   ],
+   "text": "barter",
+   "style": "title",
+   "tone": "ink",
+   "align": "left",
+   "size": 36
+  },
+  {
+   "id": "direct_swap",
+   "kind": "action",
+   "cell": [
+    0,
+    1,
+    9,
+    5
+   ],
+   "cue": [
+    "b3",
+    "barter"
+   ],
+   "until_cue": [
+    "b4",
+    "Wheat"
+   ],
+   "template": "barter_swap",
+   "actors": [
+    {
+     "role": "a",
+     "who": "main",
+     "mood": "neutral"
+    },
+    {
+     "role": "b",
+     "who": "other",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "a_thing",
+     "icon": "bie:grain-sack",
+     "label": ""
+    },
+    {
+     "name": "b_thing",
+     "icon": "bie:cloth-roll",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [
+    {
+     "name": "offer",
+     "cue": [
+      "b3",
+      "barter"
+     ]
+    },
+    {
+     "name": "ask",
+     "cue": [
+      "b3",
+      "goods"
+     ]
+    },
+    {
+     "name": "swap",
+     "cue": [
+      "b3",
+      "सीधा"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "money",
+   "kind": "icon",
+   "cell": [
+    10,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b3",
+    "medium"
+   ],
+   "until_cue": [
+    "b4",
+    "Wheat"
+   ],
+   "icon": "tw:1f4b0"
+  },
+  {
+   "id": "no_intermediary",
+   "kind": "mark",
+   "cue": [
+    "b3",
+    "नहीं"
+   ],
+   "until_cue": [
+    "b4",
+    "Wheat"
+   ],
+   "tone": "danger",
+   "target": "money",
+   "mark": "cross",
+   "pos": "c"
+  },
+  {
+   "id": "sell_wheat",
+   "kind": "action",
+   "cell": [
+    0,
+    1,
+    12,
+    5
+   ],
+   "cue": [
+    "b4",
+    "Wheat"
+   ],
+   "until_cue": [
+    "b4",
+    "पैसे"
+   ],
+   "template": "hand_over",
+   "actors": [
+    {
+     "role": "giver",
+     "who": "main",
+     "mood": "neutral"
+    },
+    {
+     "role": "taker",
+     "who": "other",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "thing",
+     "icon": "bie:grain-sack",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [
+    {
+     "name": "give",
+     "cue": [
+      "b4",
+      "Wheat"
+     ]
+    },
+    {
+     "name": "take",
+     "cue": [
+      "b4",
+      "बेचकर"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "receive_money",
+   "kind": "action",
+   "cell": [
+    0,
+    1,
+    12,
+    5
+   ],
+   "cue": [
+    "b4",
+    "पैसे"
+   ],
+   "until_cue": [
+    "b4",
+    "कपड़ा"
+   ],
+   "template": "hand_over",
+   "actors": [
+    {
+     "role": "giver",
+     "who": "other",
+     "mood": "neutral"
+    },
+    {
+     "role": "taker",
+     "who": "main",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "thing",
+     "icon": "tw:1f4b0",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [
+    {
+     "name": "give",
+     "cue": [
+      "b4",
+      "पैसे"
+     ]
+    },
+    {
+     "name": "take",
+     "cue": [
+      "b4",
+      "से"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "spend_money",
+   "kind": "action",
+   "cell": [
+    0,
+    1,
+    12,
+    5
+   ],
+   "cue": [
+    "b4",
+    "कपड़ा"
+   ],
+   "until_cue": [
+    "b4",
+    "barter"
+   ],
+   "template": "hand_over",
+   "actors": [
+    {
+     "role": "giver",
+     "who": "main",
+     "mood": "neutral"
+    },
+    {
+     "role": "taker",
+     "who": "other",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "thing",
+     "icon": "tw:1f4b0",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [
+    {
+     "name": "give",
+     "cue": [
+      "b4",
+      "कपड़ा"
+     ]
+    },
+    {
+     "name": "take",
+     "cue": [
+      "b4",
+      "खरीदना"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "receive_cloth",
+   "kind": "action",
+   "cell": [
+    0,
+    1,
+    12,
+    5
+   ],
+   "cue": [
+    "b4",
+    "barter"
+   ],
+   "until_cue": [
+    "b5",
+    "Barter"
+   ],
+   "template": "hand_over",
+   "actors": [
+    {
+     "role": "giver",
+     "who": "other",
+     "mood": "neutral"
+    },
+    {
+     "role": "taker",
+     "who": "main",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "thing",
+     "icon": "bie:cloth-roll",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [
+    {
+     "name": "give",
+     "cue": [
+      "b4",
+      "barter"
+     ]
+    },
+    {
+     "name": "take",
+     "cue": [
+      "b4",
+      "नहीं"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "not_barter",
+   "kind": "mark",
+   "cue": [
+    "b4",
+    "नहीं"
+   ],
+   "until_cue": [
+    "b5",
+    "Barter"
+   ],
+   "tone": "danger",
+   "target": "anchor",
+   "mark": "cross",
+   "pos": "tr"
+  },
+  {
+   "id": "different_people",
+   "kind": "crowd",
+   "cell": [
+    9,
+    0,
+    3,
+    1
+   ],
+   "cue": [
+    "b4",
+    "अलग"
+   ],
+   "until_cue": [
+    "b5",
+    "Barter"
+   ],
+   "icon": "tw:1f9d1-200d-1f4bc",
+   "cols": 2,
+   "steps": [
+    {
+     "cue": [
+      "b4",
+      "अलग"
+     ],
+     "n": 2
+    }
+   ]
+  },
+  {
+   "id": "final_anchor",
+   "kind": "text",
+   "cell": [
+    0,
+    0,
+    8,
+    1
+   ],
+   "cue": [
+    "b5",
+    "Barter"
+   ],
+   "text": "Barter",
+   "style": "title",
+   "tone": "ink",
+   "align": "left",
+   "size": 36
+  },
+  {
+   "id": "final_swap",
+   "kind": "action",
+   "cell": [
+    0,
+    1,
+    12,
+    5
+   ],
+   "cue": [
+    "b5",
+    "Barter"
+   ],
+   "template": "barter_swap",
+   "actors": [
+    {
+     "role": "a",
+     "who": "main",
+     "mood": "neutral"
+    },
+    {
+     "role": "b",
+     "who": "other",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "a_thing",
+     "icon": "bie:grain-sack",
+     "label": ""
+    },
+    {
+     "name": "b_thing",
+     "icon": "bie:cloth-roll",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [
+    {
+     "name": "offer",
+     "cue": [
+      "b5",
+      "Barter"
+     ]
+    },
+    {
+     "name": "ask",
+     "cue": [
+      "b5",
+      "पहचान"
+     ]
+    },
+    {
+     "name": "swap",
+     "cue": [
+      "b5",
+      "सीधा"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "barter_confirmed",
+   "kind": "mark",
+   "cue": [
+    "b5",
+    "exchange"
+   ],
+   "tone": "ok",
+   "target": "final_swap",
+   "mark": "tick",
+   "pos": "tr"
+  }
+ ],
+ "camera": [
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b3",
+    "barter"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b4",
+    "Wheat"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b5",
+    "Barter"
+   ]
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b3",
+    "नहीं"
+   ],
+   "ids": [
+    "direct_swap",
+    "money",
+    "no_intermediary",
+    "anchor"
+   ],
+   "until_cue": [
+    "b4",
+    "Wheat"
+   ]
+  },
+  {
+   "cue": [
+    "b4",
+    "अलग"
+   ],
+   "ids": [
+    "different_people",
+    "anchor",
+    "not_barter",
+    "receive_cloth"
+   ],
+   "until_cue": [
+    "b5",
+    "Barter"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

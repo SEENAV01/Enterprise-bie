@@ -1,0 +1,230 @@
+{
+ "id": "v4_s4s",
+ "part_id": "c10.1",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b19",
+   "say": "दुकानदार paper क्यों ले? आप अपने ₹100 देकर चावल लेते हैं। दुकानदार उन्हें स्वीकार करता है क्योंकि आगे खुद खर्च कर पाने का भरोसा है।"
+  }
+ ],
+ "kit": "shop",
+ "elements": [
+  {
+   "id": "rice_shop",
+   "kind": "shop",
+   "x": 2600,
+   "cue": [
+    "b19",
+    "",
+    0.0
+   ],
+   "packets": [
+    {
+     "n": 3,
+     "cue": [
+      "b19",
+      "चावल"
+     ]
+    }
+   ],
+   "goods": [
+    {
+     "icon": "tw:1f33e",
+     "label": ""
+    }
+   ]
+  },
+  {
+   "id": "rice_given",
+   "kind": "action",
+   "x": 2200,
+   "cue": [
+    "b19",
+    "देकर"
+   ],
+   "until_cue": [
+    "b19",
+    "दुकानदार"
+   ],
+   "template": "hand_over",
+   "actors": [
+    {
+     "role": "giver",
+     "who": "other",
+     "mood": "neutral"
+    },
+    {
+     "role": "taker",
+     "who": "main",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "thing",
+     "icon": "tw:1f33e",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [
+    {
+     "name": "give",
+     "cue": [
+      "b19",
+      "चावल"
+     ]
+    },
+    {
+     "name": "take",
+     "cue": [
+      "b19",
+      "लेते"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "note_accepted",
+   "kind": "action",
+   "x": 2200,
+   "cue": [
+    "b19",
+    "",
+    0.0
+   ],
+   "until_cue": [
+    "b19",
+    "देकर"
+   ],
+   "template": "accept",
+   "actors": [
+    {
+     "role": "who",
+     "who": "other",
+     "mood": "unsure"
+    }
+   ],
+   "objects": [
+    {
+     "name": "thing",
+     "icon": "bie:note-100",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [
+    {
+     "name": "show",
+     "cue": [
+      "b19",
+      "₹100"
+     ]
+    },
+    {
+     "name": "accept",
+     "cue": [
+      "b19",
+      "₹100"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "seller_accepts",
+   "kind": "action",
+   "x": 2200,
+   "cue": [
+    "b19",
+    "उन्हें"
+   ],
+   "template": "accept",
+   "actors": [
+    {
+     "role": "who",
+     "who": "other",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "thing",
+     "icon": "bie:note-100",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [
+    {
+     "name": "show",
+     "cue": [
+      "b19",
+      "उन्हें"
+     ]
+    },
+    {
+     "name": "accept",
+     "cue": [
+      "b19",
+      "स्वीकार"
+     ]
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b19",
+    "",
+    0.0
+   ],
+   "x": 2400,
+   "y": 560,
+   "zoom": 1,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b19",
+    "₹100"
+   ],
+   "x": 2200,
+   "y": 620,
+   "zoom": 1.35,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b19",
+    "चावल"
+   ],
+   "x": 2200,
+   "y": 590,
+   "zoom": 1.2,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b19",
+    "स्वीकार"
+   ],
+   "x": 2200,
+   "y": 590,
+   "zoom": 1.4,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b19",
+    "खर्च"
+   ],
+   "x": 2350,
+   "y": 550,
+   "zoom": 1.05,
+   "frames": 45
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

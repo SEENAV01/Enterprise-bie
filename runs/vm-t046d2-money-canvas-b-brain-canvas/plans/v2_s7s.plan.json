@@ -1,0 +1,218 @@
+{
+ "id": "v2_s7s",
+ "part_id": "c06.1",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b46",
+   "say": "Payment में मिले salt का दूसरा उपयोग? मानिए grain देकर seller ने 2 packets लिए; आगे न चलें तो खाना बनाएगा।"
+  }
+ ],
+ "kit": "shop",
+ "elements": [
+  {
+   "id": "village_shop",
+   "kind": "shop",
+   "x": 2600,
+   "cue": [
+    "b46",
+    "",
+    0.0
+   ],
+   "packets": [
+    {
+     "n": 2,
+     "cue": [
+      "b46",
+      "2"
+     ]
+    }
+   ],
+   "goods": [
+    {
+     "icon": "bie:salt-sack",
+     "label": ""
+    }
+   ]
+  },
+  {
+   "id": "grain_for_salt",
+   "kind": "action",
+   "x": 2050,
+   "cue": [
+    "b46",
+    "salt"
+   ],
+   "until_cue": [
+    "b46",
+    "आगे"
+   ],
+   "template": "barter_swap",
+   "actors": [
+    {
+     "role": "a",
+     "who": "main",
+     "mood": "neutral"
+    },
+    {
+     "role": "b",
+     "who": "other",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "a_thing",
+     "icon": "bie:grain-sack",
+     "label": ""
+    },
+    {
+     "name": "b_thing",
+     "icon": "bie:salt-sack",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [
+    {
+     "name": "offer",
+     "cue": [
+      "b46",
+      "grain"
+     ]
+    },
+    {
+     "name": "ask",
+     "cue": [
+      "b46",
+      "देकर"
+     ]
+    },
+    {
+     "name": "swap",
+     "cue": [
+      "b46",
+      "लिए;"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "salt_not_passed_on",
+   "kind": "action",
+   "x": 2050,
+   "cue": [
+    "b46",
+    "आगे"
+   ],
+   "until_cue": [
+    "b46",
+    "खाना"
+   ],
+   "template": "refuse",
+   "actors": [
+    {
+     "role": "who",
+     "who": "other",
+     "mood": "unsure"
+    }
+   ],
+   "objects": [
+    {
+     "name": "thing",
+     "icon": "bie:salt-sack",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [
+    {
+     "name": "show",
+     "cue": [
+      "b46",
+      "आगे"
+     ]
+    },
+    {
+     "name": "refuse",
+     "cue": [
+      "b46",
+      "चलें"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "salt_cooking_use",
+   "kind": "balance",
+   "x": 2050,
+   "y": 490,
+   "cue": [
+    "b46",
+    "खाना"
+   ],
+   "left": {
+    "icon": "bie:salt-sack",
+    "label": ""
+   },
+   "right": {
+    "icon": "fl:cooking",
+    "label": ""
+   }
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b46",
+    "",
+    0.0
+   ],
+   "x": 2330,
+   "y": 510,
+   "zoom": 0.95,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b46",
+    "grain"
+   ],
+   "x": 2050,
+   "y": 560,
+   "zoom": 1.15,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b46",
+    "लिए;"
+   ],
+   "x": 2290,
+   "y": 510,
+   "zoom": 0.95,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b46",
+    "आगे"
+   ],
+   "x": 2050,
+   "y": 560,
+   "zoom": 1.15,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b46",
+    "बनाएगा।"
+   ],
+   "x": 2050,
+   "y": 490,
+   "zoom": 1.05,
+   "frames": 30
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

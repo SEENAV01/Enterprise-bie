@@ -1,0 +1,489 @@
+{
+ "id": "v2_s3",
+ "part_id": "c03.3",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b12",
+   "say": "पड़ोसी सामान बदलें, तो क्या पुराना तरीका बचा है? हाँ; barter early civilizations में common था, आज छोटे आपसी exchanges में मिलता है।"
+  },
+  {
+   "beat_id": "b13",
+   "say": "पड़ोसियों की जरूरतें मिलें, तो पैसे के बिना भी swap आसान है।"
+  },
+  {
+   "beat_id": "b14",
+   "say": "पैसा आने पर barter मिटा नहीं; दोनों साथ रह सकते हैं।"
+  },
+  {
+   "beat_id": "b15",
+   "say": "पहले common था, अब सीमित है।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "first_swap",
+   "kind": "action",
+   "cell": [
+    0,
+    2,
+    8,
+    5
+   ],
+   "cue": [
+    "b12",
+    "पड़ोसी"
+   ],
+   "until_cue": [
+    "b13",
+    "पड़ोसियों"
+   ],
+   "template": "barter_swap",
+   "actors": [
+    {
+     "role": "a",
+     "who": "main",
+     "mood": "neutral"
+    },
+    {
+     "role": "b",
+     "who": "other",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "a_thing",
+     "icon": "fa:solid/basket-shopping",
+     "label": ""
+    },
+    {
+     "name": "b_thing",
+     "icon": "fa:solid/basket-shopping",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [
+    {
+     "name": "offer",
+     "cue": [
+      "b12",
+      "पड़ोसी"
+     ]
+    },
+    {
+     "name": "ask",
+     "cue": [
+      "b12",
+      "सामान"
+     ]
+    },
+    {
+     "name": "swap",
+     "cue": [
+      "b12",
+      "बदलें,"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "timeline",
+   "kind": "picture",
+   "cell": [
+    0,
+    0,
+    12,
+    2
+   ],
+   "cue": [
+    "b12",
+    "barter"
+   ],
+   "until_cue": [
+    "b13",
+    "पड़ोसियों"
+   ],
+   "tone": "accent",
+   "size": 28,
+   "picture": {
+    "type": "timeline",
+    "title": "",
+    "item_id": "",
+    "events": [
+     {
+      "cue": [
+       "b12",
+       "civilizations"
+      ],
+      "name": "early civilizations में common",
+      "icon": "fa:solid/people-roof",
+      "numbered": false,
+      "when": ""
+     },
+     {
+      "cue": [
+       "b12",
+       "आज"
+      ],
+      "name": "आज छोटे आपसी exchanges",
+      "icon": "tw:1f3e0",
+      "numbered": false,
+      "when": ""
+     }
+    ],
+    "arrows": true
+   }
+  },
+  {
+   "id": "matching_swap",
+   "kind": "action",
+   "cell": [
+    0,
+    1,
+    8,
+    5
+   ],
+   "cue": [
+    "b13",
+    "पड़ोसियों"
+   ],
+   "until_cue": [
+    "b14",
+    "पैसा"
+   ],
+   "template": "barter_swap",
+   "actors": [
+    {
+     "role": "a",
+     "who": "main",
+     "mood": "neutral"
+    },
+    {
+     "role": "b",
+     "who": "other",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "a_thing",
+     "icon": "fa:solid/basket-shopping",
+     "label": ""
+    },
+    {
+     "name": "b_thing",
+     "icon": "fa:solid/basket-shopping",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [
+    {
+     "name": "offer",
+     "cue": [
+      "b13",
+      "पड़ोसियों"
+     ]
+    },
+    {
+     "name": "ask",
+     "cue": [
+      "b13",
+      "जरूरतें"
+     ]
+    },
+    {
+     "name": "swap",
+     "cue": [
+      "b13",
+      "swap"
+     ]
+    }
+   ],
+   "close_up": false
+  },
+  {
+   "id": "money_alongside",
+   "kind": "icon",
+   "cell": [
+    9,
+    2,
+    3,
+    3
+   ],
+   "cue": [
+    "b14",
+    "पैसा"
+   ],
+   "until_cue": [
+    "b15",
+    "पहले"
+   ],
+   "tone": "warm",
+   "icon": "fa:solid/money-bill-1",
+   "size": 32
+  },
+  {
+   "id": "barter_alongside",
+   "kind": "action",
+   "cell": [
+    0,
+    1,
+    8,
+    5
+   ],
+   "cue": [
+    "b14",
+    "barter"
+   ],
+   "until_cue": [
+    "b15",
+    "पहले"
+   ],
+   "template": "barter_swap",
+   "actors": [
+    {
+     "role": "a",
+     "who": "main",
+     "mood": "neutral"
+    },
+    {
+     "role": "b",
+     "who": "other",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "a_thing",
+     "icon": "fa:solid/basket-shopping",
+     "label": ""
+    },
+    {
+     "name": "b_thing",
+     "icon": "fa:solid/basket-shopping",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [
+    {
+     "name": "offer",
+     "cue": [
+      "b14",
+      "barter"
+     ]
+    },
+    {
+     "name": "ask",
+     "cue": [
+      "b14",
+      "दोनों"
+     ]
+    },
+    {
+     "name": "swap",
+     "cue": [
+      "b14",
+      "साथ"
+     ]
+    }
+   ],
+   "close_up": false
+  },
+  {
+   "id": "coexist",
+   "kind": "highlight",
+   "cue": [
+    "b14",
+    "दोनों"
+   ],
+   "until_cue": [
+    "b15",
+    "पहले"
+   ],
+   "style": "box",
+   "tone": "ok",
+   "target": "barter_alongside"
+  },
+  {
+   "id": "earlier_pairs",
+   "kind": "crowd",
+   "cell": [
+    0,
+    2,
+    5,
+    4
+   ],
+   "cue": [
+    "b15",
+    "पहले"
+   ],
+   "tone": "accent",
+   "icon": "fa:solid/people-roof",
+   "cols": 3,
+   "steps": [
+    {
+     "cue": [
+      "b15",
+      "पहले"
+     ],
+     "n": 9
+    }
+   ]
+  },
+  {
+   "id": "today_pairs",
+   "kind": "crowd",
+   "cell": [
+    7,
+    2,
+    5,
+    4
+   ],
+   "cue": [
+    "b15",
+    "अब"
+   ],
+   "tone": "accent",
+   "icon": "fa:solid/people-roof",
+   "cols": 3,
+   "steps": [
+    {
+     "cue": [
+      "b15",
+      "अब"
+     ],
+     "n": 2
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b12",
+    "पड़ोसी"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b12",
+    "आज"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b13",
+    "जरूरतें"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b14",
+    "दोनों"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b15",
+    "पहले"
+   ]
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b12",
+    "civilizations"
+   ],
+   "ids": [
+    "timeline_y1",
+    "timeline_e1",
+    "timeline_y2",
+    "timeline_e2",
+    "timeline_a1"
+   ],
+   "until_cue": [
+    "b12",
+    "आज"
+   ]
+  },
+  {
+   "cue": [
+    "b13",
+    "जरूरतें"
+   ],
+   "ids": [
+    "matching_swap"
+   ],
+   "until_cue": [
+    "b14",
+    "पैसा"
+   ]
+  },
+  {
+   "cue": [
+    "b14",
+    "दोनों"
+   ],
+   "ids": [
+    "barter_alongside",
+    "money_alongside",
+    "coexist"
+   ],
+   "until_cue": [
+    "b15",
+    "पहले"
+   ]
+  },
+  {
+   "cue": [
+    "b15",
+    "सीमित"
+   ],
+   "ids": [
+    "earlier_pairs",
+    "today_pairs"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

@@ -1,0 +1,216 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "canvas",
+ "unit": "v4_s7b-ideas",
+ "status": "passed",
+ "instructions_version": "visual-ideas/1",
+ "rulebook_version": "canvas_profile@2026-10-29.1+content_types@2026-10-27.1+explanations@2026-10-24.3+level_profiles@2026-10-24.1+simple_hindi@2026-10-28.1+teacher_examples@2026-10-29.1+vision-2026-10-21@2026-10-21.17+visual_grammar@2026-10-31.1+visual_levels@2026-10-26.2+visual_verbs@2026-11-01.1",
+ "rulebook_digest": "31f0a4500f787c62c6ac8b13a76d46bc43c9b2e60fade0e5dc48ce98ce28f511",
+ "rules_used": [
+  "CV-01",
+  "CV-02",
+  "CV-03",
+  "CV-04",
+  "CV-05",
+  "CV-06",
+  "CV-07",
+  "CV-08",
+  "CV-09",
+  "CV-10",
+  "CV-11",
+  "CV-12",
+  "CV-13",
+  "CV-14",
+  "CV-15",
+  "CV-16",
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-05",
+  "G-06",
+  "G-07",
+  "VG-02",
+  "VG-04",
+  "VG-07",
+  "VG-08",
+  "VG-10",
+  "D1-01",
+  "D1-02",
+  "D1-03",
+  "D1-04",
+  "D1-05",
+  "D1-06",
+  "D2-01",
+  "D2-02",
+  "D2-03",
+  "D2-04",
+  "D2-05"
+ ],
+ "maker_route": "codex",
+ "reviewer_route": "codex-checker",
+ "maker_model": "gpt-6.1-sol",
+ "reviewer_model": "gpt-6.1-sol",
+ "reviewer_independence": "same_model_temporary",
+ "inputs_digest": "351b5089b2eb50be2491d10035bf306116035692a7288319166e6d1a3a5188ff",
+ "card": null,
+ "prefix_sha256": "f213b7cd83f7cf862d7cef2a43d12e58d87a26c8a6e21e5e7651fc90070b889d",
+ "review_prefix_sha256": null,
+ "inputs": {
+  "system": "You are BIE's visual thinker for one part of a video lesson of Indian Economy for UPSC / State PCS aspirants (UPSC / State PCS). The script is written and\npassed; you do not change a word. Before any layout, say for EVERY beat what the learner should SEE so that the spoken point is\nclear through the eyes (Navin, 30 October 2026: \"jo bola ja rha hai screen ke visuals se wo baat clear ho\"; a screen of text alone\nis a book, not a video). Code then finds the things in BIE's icon index and asset library, places the book's own pictures, and\nchecks the layout.\n\nCourse: \"3. Money\" · learner language: Hinglish.\n\nFor each beat give:\n- idea: the key idea in a few words (what the teacher is making the learner understand right now).\n- relation: ONE id from this list, how the idea relates its things (or \"other\" with relation_note; an \"other\" is logged so Navin can\n  add it):\n- reject: a cross mark on the thing refused (the thing's icon first, then the cross on it, on the word that refuses) (saanche: refuse)\n- accept: a tick on the thing accepted (saanche: accept)\n- compulsory: a law scroll with a stamp on it, beside the thing the law binds\n- limit: a meter or a stack that fills up to a red line where it stops (the limit's number on the line) (saanche: coin_count)\n- more_less: two sizes side by side, or a crowd / stack that grows or shrinks on the word (saanche: cheque)\n- count: a counted stack or crowd whose number is the narration's number (saanche: count_stack, coin_count)\n- sequence: a numbered row or a timeline with arrows; the book's own years and labels when the part covers a book timeline (saanche: hand_over, pay_change, upi, card_tap, cheque, barter_swap)\n- cause_effect: an arrow chain: the cause's icon, an arrow, the effect's icon or number (saanche: pay_change, upi, card_tap, cheque)\n- compare: a split screen (the same slots on both sides) or a balance scale; the book's own table when the part covers one (saanche: barter_swap)\n- part_whole: a grouping: the whole as a box, its parts as icons inside it, or a tree\n- place: a map with the place marked, or the place's flag beside the thing\n- change: before and after side by side, the old struck out, the new in its place; a struck value with an arrow only when the SAME quantity changes; change given back is the pay_change saancha (saanche: pay_change, cheque)\n- promise: a receipt or a handshake between the two parties, the promise's words as a short label (saanche: cheque, hand_over)\n- question: the thing asked about with a question mark beside it; the answer's picture replaces the mark when the answer comes\n- other: a relation outside this list: the step logs it (relations_outside_list) so Navin can add an entry; the beat still shows its things as themselves\n- things, people, places: the concrete nouns the beat names or implies, as plain English or Hindi words a picture can show (wheat,\n  cloth, salt, coin, ₹500 note, phone, law scroll, Sweden, 1661, farmer, shopkeeper). A real person is never drawn (card rule 8): name\n  the role (a king, a ruler) or the object (a coin with a seal), not the person.\n- shows: what is seen, in at most 8 words, as a picture description (a cross on the old coin; a meter filling to ₹1,000\n  with a red line; wheat and cloth swapping hands). Never a sentence for the screen: the sentence is the narration.\n- on_word: the word of this beat (exactly as written) on which the picture should appear (\"\" = the beat's start).\n- image_wanted: a real object an icon cannot show and a photograph or museum image can (a punch-marked silver coin, a cowrie\n  shell, a cheque leaf), as search words; \"\" when an icon is enough. Never a person's portrait (card rule 8).\n- template: when the beat tells a PROCESS the learner should see happen (Navin, 1 November 2026: \"process show nahi ho rahi hai\n  ... jaise scanner phone scan, tab maja hai\"), the kriya ka saancha that shows it; \"none\" when the beat tells no process; \"other\"\n  when it is a process none of these fits (template_note says which process: it is logged so BIE can learn it):\n- hand_over: A gives a thing to B (steps give, take; actors giver, taker; objects thing)\n- pay_change: the buyer pays a note, takes the goods and gets the change back (₹500 in, ₹200 back) (steps pay, goods, change; actors buyer, seller; objects goods; amounts paid, change, price (optional))\n- barter_swap: two people swap their things; at 'ask' both wonder whether they want the other's thing (steps offer, ask, swap; actors a, b; objects a_thing, b_thing)\n- upi: the buyer's phone scans the shop's QR stand; the phone shows '₹300 paid', the shopkeeper's 'received' (steps scan, paid, received; actors buyer, seller; amounts amount)\n- card_tap: a card taps the shop's POS machine; the machine shows the amount approved (steps tap, approved; actors buyer, seller; amounts amount)\n- cheque: a cheque is written for the amount, handed to the bank, and the two passbooks change (payer down, payee up) (steps write, hand, balances; actors payer, payee; amounts amount, payer_before (optional), payer_after (optional), payee_before (optional), payee_after (optional))\n- coin_count: coins drop onto a pile while a meter rises; at 'limit' it stops at its red line (steps count, limit; objects coin; amounts each, limit)\n- refuse: the person looks at the thing, shakes the head, and a cross lands on the thing (steps show, refuse; actors who; objects thing)\n- accept: the person looks at the thing, nods, and a tick lands on the thing (steps show, accept; actors who; objects thing)\n- count_stack: n things appear one by one as they are said (steps count; objects thing; amounts n)\n- template_note: for \"other\" the process in a few words; for \"none\" on a beat that names a process word, why no saancha.\nCode has already decided this part's picture (table: Current legal limits for coins (Coinage Act, 2011)) from the book's own table; it is placed at the top of the canvas. Set picture_type to \"table\" and use picture_note for what the beats add around it.\nReply with the JSON object only.",
+  "user": "Chapter: 3. Money. Part c11.2 (4 beats).\nThe part (JSON):\n{\"part\": {\"id\": \"v4_s7b\", \"part_id\": \"c11.2\", \"card_type\": \"facts_numbers\", \"story\": false}, \"beats\": [{\"beat_id\": \"b45\", \"say\": \"₹20 के 50 coins जोड़ें तो ₹1,000 बनते हैं; limit 1,000 coins की नहीं है। 50 paise के 20 coins जोड़ें तो ₹10 बनते हैं; denomination और total limit अलग हैं।\", \"relation_guess\": \"place\", \"template_guess\": \"coin_count\"}, {\"beat_id\": \"b46\", \"say\": \"डिब्बे से 50 और 25 paise अलग रखिए: Coinage Act, 2011 में पहले की ₹10 limit है, दूसरे का tender status नहीं। Commemorative coins में ‘most’ यानी सभी नहीं; इससे गिनती नहीं निकाल सकते।\", \"relation_guess\": \"place\", \"template_guess\": \"coin_count\"}, {\"beat_id\": \"b47\", \"say\": \"Limit पार करना status खोना नहीं; collector price legal status लौटाती नहीं।\", \"relation_guess\": \"limit\", \"template_guess\": \"pay_change\"}, {\"beat_id\": \"b48\", \"say\": \"Denomination × count निकालिए; फिर total limit और status जाँचिए।\", \"relation_guess\": \"place\", \"template_guess\": \"coin_count\"}], \"items\": [{\"item_id\": \"p004-i26\", \"content_type\": \"facts_numbers\", \"content\": \"Commemorative Coins = Fiat money yes but may or may not be legal tender (Most of them are).\"}, {\"item_id\": \"p005-i9\", \"content_type\": \"facts_numbers\", \"content\": \"Coin: ₹1, ₹2, ₹5, ₹10, ₹20 coins | Legal Tender Limit: Up to ₹1,000\"}, {\"item_id\": \"p005-i10\", \"content_type\": \"facts_numbers\", \"content\": \"Coin: 50 paise coin | Legal Tender Limit: Up to ₹10\"}, {\"item_id\": \"p005-i11\", \"content_type\": \"facts_numbers\", \"content\": \"Coin: Coins below 50 paise | Legal Tender Limit: No longer legal tender (demonetized)\"}], \"book_pictures\": [{\"item_id\": \"p005-i7\", \"type\": \"table\", \"title\": \"Current legal limits for coins (Coinage Act, 2011)\"}]}\n\nReply with the ideas JSON."
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "started_at": 1793552752.7953367,
+   "mode": "full",
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "e5086b6d11144db079ed352913180b1ce34e59e53edc5dd8c817d32114674070",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 5701,
+    "output_tokens": 992,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "Use the book’s coin-limit table to distinguish denomination, coin count, total value and legal-tender status.",
+    "key_questions": [
+     "Is the limit on total rupee value or number of coins?",
+     "Does exceeding a payment limit remove a coin’s legal-tender status?",
+     "Can collector price establish legal-tender status?"
+    ],
+    "decisions": [
+     {
+      "decision": "Keep value limits and legal-tender status visually separate.",
+      "reason": "A payment exceeding the limit and a demonetized coin are different cases."
+     },
+     {
+      "decision": "Do not assign a numerical share to commemorative coins.",
+      "reason": "‘Most’ supplies no exact count."
+     }
+    ],
+    "uncertain": []
+   },
+   "output": {
+    "notes": {
+     "about": "Use the book’s coin-limit table to distinguish denomination, coin count, total value and legal-tender status.",
+     "key_questions": [
+      "Is the limit on total rupee value or number of coins?",
+      "Does exceeding a payment limit remove a coin’s legal-tender status?",
+      "Can collector price establish legal-tender status?"
+     ],
+     "decisions": [
+      {
+       "decision": "Keep value limits and legal-tender status visually separate.",
+       "reason": "A payment exceeding the limit and a demonetized coin are different cases."
+      },
+      {
+       "decision": "Do not assign a numerical share to commemorative coins.",
+       "reason": "‘Most’ supplies no exact count."
+      }
+     ],
+     "uncertain": []
+    },
+    "beats": [
+     {
+      "beat_id": "b45",
+      "idea": "Limits measure value, not coin count",
+      "relation": "compare",
+      "relation_note": "",
+      "things": [
+       "₹20 coin",
+       "50 paise coin",
+       "coin counter",
+       "rupee-value meter"
+      ],
+      "people": [],
+      "places": [],
+      "shows": "Two coin piles fill separate rupee-limit meters",
+      "on_word": "₹20",
+      "image_wanted": "",
+      "template": "coin_count",
+      "template_note": "Count 50 ₹20 coins as the value meter reaches ₹1,000; keep count 50 separate from the ₹1,000 red line. Cross out the mistaken label ‘1,000 coins’ at ‘नहीं’. Then count 20 fifty-paise coins to the ₹10 red line. Show denomination × count beside each pile."
+     },
+     {
+      "beat_id": "b46",
+      "idea": "Different denominations have different status",
+      "relation": "compare",
+      "relation_note": "",
+      "things": [
+       "coin box",
+       "50 paise coin",
+       "25 paise coin",
+       "₹10 limit marker",
+       "legal-tender status badge",
+       "commemorative coin",
+       "question mark"
+      ],
+      "people": [],
+      "places": [],
+      "shows": "Separated coins: value limit versus withdrawn status",
+      "on_word": "डिब्बे",
+      "image_wanted": "",
+      "template": "other",
+      "template_note": "Move 50-paise and 25-paise coins from a box into matching comparison slots. Give 50 paise a ₹10 limit marker; cross the 25-paise legal-tender badge at ‘नहीं’. Then show a commemorative coin with a status question mark; cross ‘सभी’ at ‘नहीं’ and leave its numerical count unknown."
+     },
+     {
+      "beat_id": "b47",
+      "idea": "Payment limit and collector price do not change status",
+      "relation": "compare",
+      "relation_note": "",
+      "things": [
+       "coin pile",
+       "rupee-value meter",
+       "legal-tender status badge",
+       "25 paise coin",
+       "collector price tag"
+      ],
+      "people": [],
+      "places": [],
+      "shows": "Limit exceeded; status unchanged; collector tag powerless",
+      "on_word": "Limit",
+      "image_wanted": "",
+      "template": "other",
+      "template_note": "Left: a valid-denomination pile passes the ₹1,000 line while its legal-tender status badge remains unchanged. Right: attach a collector-price tag to the withdrawn 25-paise coin; its crossed legal-tender badge remains crossed. Do not depict change being returned."
+     },
+     {
+      "beat_id": "b48",
+      "idea": "Calculate value, then check limit and status",
+      "relation": "sequence",
+      "relation_note": "",
+      "things": [
+       "coin",
+       "coin stack",
+       "multiplication sign",
+       "calculator",
+       "rupee-value meter",
+       "legal-tender status badge",
+       "checklist"
+      ],
+      "people": [],
+      "places": [],
+      "shows": "Coin value calculation leads to two checks",
+      "on_word": "Denomination",
+      "image_wanted": "",
+      "template": "other",
+      "template_note": "Reveal denomination coin × counted stack, producing total rupee value. Arrow to a comparison with the table’s total-value limit, then arrow to a separate legal-tender-status check. Number the three stages."
+     }
+    ],
+    "picture_type": "table",
+    "picture_note": "Keep the book’s table at the top. Below it, animate counted-value examples, matched denomination/status comparisons, and a final calculation-to-checks sequence; highlight the corresponding table row without replacing it."
+   },
+   "code_problems": [],
+   "passed": true,
+   "finished_at": 1793552780.857008
+  }
+ ],
+ "avoid_rounds": [],
+ "cost_usd": 0.0,
+ "seconds": 28.1,
+ "navin_verdict": null
+}
