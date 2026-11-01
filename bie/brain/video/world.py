@@ -35,7 +35,7 @@ KINDS = {"shop", "price_tag", "crowd", "coin_rain", "balance", "label", "pull_ar
 GROUND = 860                     # the street's walking line in world pixels (world.tsx); a world is 1080 tall
 FRAME_W, FRAME_H = 1920, 1080
 SUBTITLE_TOP = 1 - canvas.SAFE["bottom"]            # the subtitle strip: the bottom 14 % of the frame is kept for the captions
-CLOSE_ZOOM, CLOSE_Y = 1.6, 610                      # an action's close-up: the hands, the note, the phone screen, the passbook
+CLOSE_ZOOM, CLOSE_Y = 1.6, 630                      # an action's close-up: the hands, the note, the phone screen, the passbook
 MIN_ACTOR_SHARE = 0.25                              # Navin's D2 brief: an actor in a story piece at least about 1/4 of the frame height
 ACTOR_PX = 300                                      # an action's people are 300 world pixels tall (saanche.tsx, s = 1)
 TEXT_KINDS = ("board", "label", "title")            # at most one of these on screen at a time in a world (D2-D)
@@ -315,8 +315,8 @@ def box_of(el: dict) -> tuple | None:
 
 
 # where an action's drawing starts above its stage (stage units from the stage top): its bubbles, phone cards and meter
-ACTION_TOP = {"upi": 20, "barter_swap": 90, "coin_count": 120, "cheque": 200, "pay_change": 250, "card_tap": 230, "hand_over": 250,
-              "refuse": 150, "accept": 150, "count_stack": 120}
+ACTION_TOP = {"upi": 20, "barter_swap": 90, "coin_count": 120, "cheque": 200, "pay_change": 240, "card_tap": 230, "hand_over": 240,
+              "refuse": 150, "accept": 150, "count_stack": 120}         # the name tags stand above the heads, at 248
 
 
 def _on(el: dict, duration: int) -> tuple:
@@ -368,7 +368,7 @@ def layout_problems(scene: dict, *, step: int = 6) -> list:
         for e, box, (t0, t1) in shown:
             if not t0 + 12 <= f < t1:
                 continue
-            sb = _screen(box if e["kind"] != "action" else (box[0], box[1], box[2], GROUND - 40), c)
+            sb = _screen(box if e["kind"] != "action" else (box[0], box[1], box[2], GROUND - 10), c)
             visible = sb[2] > 0 and sb[0] < FRAME_W and sb[3] > 0 and sb[1] < FRAME_H
             if visible and sb[3] > strip + 1 and (e["id"], "strip") not in flagged:
                 flagged.add((e["id"], "strip"))

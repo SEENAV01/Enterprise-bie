@@ -73,9 +73,10 @@ export const Actor: React.FC<{ x: number; y: number; s?: number; facing: number;
           <rect x={-9} y={0} width={18} height={86} rx={9} fill={shirt} /><circle cx={0} cy={90} r={11} fill={skin} />
           {pose.hold ? <g transform={`translate(0,100) rotate(${-armAngle})`}>{pose.hold}</g> : null}
         </g>
+        {/* the name tag above the head, never at the feet (the subtitle strip is below them in a close-up) */}
         {label ? <g transform={`scale(${facing},1)`}>
-          <rect x={-70} y={14} width={140} height={34} rx={17} fill="rgba(30,40,55,0.82)" />
-          <text x={0} y={38} textAnchor="middle" fontSize={22} fontWeight={800} fill="#fff" fontFamily={FONT}>{label}</text>
+          <rect x={-70} y={-352} width={140} height={34} rx={17} fill="rgba(30,40,55,0.82)" />
+          <text x={0} y={-328} textAnchor="middle" fontSize={22} fontWeight={800} fill="#fff" fontFamily={FONT}>{label}</text>
         </g> : null}
       </g>
     );
@@ -288,7 +289,7 @@ export const ActionStage: React.FC<{ el: any; frame: number; fps: number }> = ({
     const changeIsCoin = (Number(String(amt.change ?? "").replace(/[^0-9]/g, "")) || 0) < 10;
     body = <>
       {el.on_place ? null : <Counter x={R.x - 120} w={300} />}
-      {amt.price ? <g transform={`translate(${R.x - 70},${FEET - 330})`}><rect x={-46} y={-22} width={92} height={40} rx={8} fill="#fff8e1" stroke="#e0a100" strokeWidth={4} />
+      {amt.price ? <g transform={`translate(${R.x - 270},${FEET - 300})`}><rect x={-46} y={-22} width={92} height={40} rx={8} fill="#fff8e1" stroke="#e0a100" strokeWidth={4} />
         <text x={0} y={8} textAnchor="middle" fontSize={24} fontWeight={900} fill="#2b2b2b" fontFamily={FONT}>{amt.price}</text></g> : null}
       <Actor x={R.x} y={R.y} s={S} facing={-1} look={actor(1).look} main={actor(1).main} label={actor(1).label} pose={{ reach: Math.max(pay, ch), mood: actor(1).mood }} />
       <Actor x={L.x} y={L.y} s={S} facing={1} look={actor(0).look} main={actor(0).main} label={actor(0).label}
@@ -324,8 +325,8 @@ export const ActionStage: React.FC<{ el: any; frame: number; fps: number }> = ({
         pose={{ raise: recv ? 0.55 : 0, mood: recv ? "pleased" : actor(1).mood, hold: <Phone screen={recv ? "received" : ""} ok={recv} /> }} />
       <Actor x={L.x} y={L.y} s={S} facing={1} look={actor(0).look} main={actor(0).main} label={actor(0).label}
         pose={{ raise, mood: paid ? "pleased" : actor(0).mood, hold: <Phone screen={paid ? "paid" : ""} ok={paid} glow={paid ? 1 - lin(frame, st.paid, st.paid + 40) : 0} /> }} />
-      {paid ? <g transform={`translate(${L.x - 40},${FEET - 470}) scale(${pop(frame, fps, st.paid) * 0.62})`}><PhoneCard title="paid" amount={amt.amount ?? ""} ok /></g> : null}
-      {recv ? <g transform={`translate(${R.x + 150},${FEET - 470}) scale(${pop(frame, fps, st.received) * 0.62})`}><PhoneCard title="received" amount={amt.amount ?? ""} ok /></g> : null}
+      {paid ? <g transform={`translate(${L.x - 150},${FEET - 430}) scale(${pop(frame, fps, st.paid) * 0.62})`}><PhoneCard title="paid" amount={amt.amount ?? ""} ok /></g> : null}
+      {recv ? <g transform={`translate(${R.x + 160},${FEET - 430}) scale(${pop(frame, fps, st.received) * 0.62})`}><PhoneCard title="received" amount={amt.amount ?? ""} ok /></g> : null}
     </>;
   } else if (t === "card_tap") {
     const tap = prog("tap", 22), ok = after("approved");
