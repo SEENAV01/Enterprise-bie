@@ -771,7 +771,15 @@ def report(parts: list) -> dict:
 # quantity going down), and "25 paise: no status" was said with no cross on the coin. The dikhane ki list names each beat's
 # relation; these checks ask whether an element on that beat realises it.
 
-CHANGE_BACK = re.compile(r"वापस|लौटा|चिल्लर|छुट्टा|खुल्ले|बाकी पैसे|बचे पैसे|\bchange\b|\bbalance return", re.IGNORECASE)
+CHANGE_WORDS = re.compile(r"चिल्लर|छुट्टा|खुल्ले|बाकी पैसे|बचे पैसे|\bchange\b|\bbalance return", re.IGNORECASE)
+RETURN_WORDS = re.compile(r"वापस|लौटा", re.IGNORECASE)
+MONEY_WORDS = re.compile(r"₹|रुपय|रुपए|रुपये|पैसे|paise|\brs\.?\s?\d", re.IGNORECASE)
+
+
+def gives_change_back(text: str) -> bool:
+    """Change given back: a change word, or a return word in a beat about money (seekh -> BIE, Part D2 run b: "लौटाया 10 kg ही",
+    grain repaid, was read as change given back and refused v2_s4s's board of 2 metres → 1 metre of cloth)."""
+    return bool(CHANGE_WORDS.search(text) or (RETURN_WORDS.search(text) and MONEY_WORDS.search(text)))
 MONEY_PROCESSES = ("hand_over", "pay_change", "barter_swap", "upi", "card_tap", "cheque")
 # what realises a relation on its beat (kinds of elements, mark styles, saanche); a relation not listed is covered by D1-01
 REALISE = {
@@ -828,6 +836,14 @@ def relation_rows(plan: dict, mode: str, ideas: dict | None) -> list:
                 by.append(x.get("id"))
             elif kind == "icon" and x.get("icon") in rule.get("icons", ()):
                 by.append(x.get("id"))
+        chosen = idea.get("template")
+        if not by and chosen not in (None, "", "none", "other"):    # the saancha the dikhane ki list itself chose for this beat
+            by = [x.get("id") for x in here if x.get("kind") == "action" and x.get("template") == chosen]
+        if not by and rel == "compare":                      # a refusal beside an acceptance on the beat: the two compared
+            kinds = {("refuse" if x.get("template") == "refuse" or x.get("mark") == "cross" else
+                      "accept" if x.get("template") == "accept" or x.get("mark") == "tick" else "") for x in here}
+            if {"refuse", "accept"} <= kinds:
+                by = [x.get("id") for x in here if x.get("template") in ("refuse", "accept") or x.get("mark") in ("cross", "tick")]
         if not by and rule.get("icons_min") and sum(1 for x in here if x.get("kind") in ("icon", "crowd")) >= rule["icons_min"]:
             by = [x.get("id") for x in here if x.get("kind") in ("icon", "crowd")]
         if not by and rel in ("sequence", "compare"):          # a highlight on the book's timeline, flow, gallery or table
@@ -894,7 +910,18 @@ SHOWS = {"reject": "a cross on the thing refused (a mark with mark 'cross' on it
 
 
 def _unit(text: str) -> str:
-    return re.sub(r"[\d,.\s]+", "", str(text or "")).strip().lower()
+    """The unit of an amount, singular and plural alike (seekh -> BIE, Part D2 run b: '2 metres' → '1 metre' of cloth is one
+    quantity; the plural made it look like two): the words without digits, an English plural s and a Hindi plural ending dropped."""
+    words = []
+    for w in re.split(r"[\s,]+", str(text or "").lower()):
+        w = re.sub(r"[\d.]+", "", w)
+        if not w:
+            continue
+        if re.fullmatch(r"[a-z]{2,}s", w):
+            w = w[:-1]
+        w = re.sub(r"(?<=[\u0900-\u097f])(ों|े|ा)$", "", w)
+        words.append(w)
+    return "".join(words)
 
 
 def struck_problems(plan: dict, mode: str) -> list:
@@ -911,7 +938,7 @@ def struck_problems(plan: dict, mode: str) -> list:
         steps = x.get("steps") or []
         for prev, cur in zip(steps, steps[1:]):
             bid = _cue_beat(cur.get("cue"))
-            if CHANGE_BACK.search(says.get(bid, "")) and bid not in change_beats and re.search(r"\d", str(cur.get("text", ""))):
+            if gives_change_back(says.get(bid, "")) and bid not in change_beats and re.search(r"\d", str(cur.get("text", ""))):
                 out.append(f"{x.get('id')}: beat {bid} gives change back; that is the pay_change saancha (the change travels back to the "
                            f"buyer), not '{prev.get('text', '')}' struck out for '{cur.get('text', '')}'")
                 break
