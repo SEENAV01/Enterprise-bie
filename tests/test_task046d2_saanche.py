@@ -452,12 +452,31 @@ class AutoFixes(unittest.TestCase):
         close["steps"][0]["cue"] = ["b1", "लिया।"]                               # the second gives on the first's take: refused
         with self.assertRaises(PlanError):
             canvas.compile_plan({"id": "s", "grid": [12, 8], "touches": True, "beats": beats, "nodes": [copy.deepcopy(first), close]})
-        self.assertTrue(any("then two comes on" in f for f in report["auto_fixes"]), report["auto_fixes"])
+        self.assertTrue(any("two comes on" in f for f in report["auto_fixes"]), report["auto_fixes"])
         cam = scene["layers"][0]["data"]["cam"]
         for k in cam:                                                            # no close-up outlives its action
             if k.get("close_up") == "one":
                 nxt = min(x["at"] for x in cam if x["at"] > k["at"])
                 self.assertLessEqual(nxt, one["until"])
+
+    def test_a_tree_leaves_on_its_until_and_an_action_comes_on_as_a_book_picture_leaves(self):
+        beats = [{"beat_id": "b1", "say": "barter की कमियाँ: बराबर नहीं, बाँट नहीं सकते।"}, {"beat_id": "b2", "say": "अब सिक्के आए।"},
+                 {"beat_id": "b3", "say": "फिर सीधा लेन देन हुआ, राम ने गेहूँ दिया और कपड़ा लिया।"}]
+        tree = {"id": "lim", "kind": "tree", "cell": [3, 0, 9, 3], "root": "कमियाँ", "cue": ["b1", "कमियाँ:"], "until_cue": ["b2", "अब"],
+                "children": [{"text": "बराबर नहीं", "cue": ["b1", "बराबर"]}, {"text": "बाँट नहीं", "cue": ["b1", "बाँट"]}]}
+        coins = {"id": "coins", "kind": "icon", "icon": "tw:1fa99", "cell": [3, 0, 9, 3], "cue": ["b2", "सिक्के"]}
+        scene, _ = canvas.compile_plan({"id": "s", "grid": [12, 8], "touches": True, "beats": copy.deepcopy(beats), "nodes": [tree, coins]})
+        kids = [e for e in scene["layers"][0]["data"]["elements"] if e["id"].startswith("lim_")]
+        self.assertTrue(kids and all(e["until"] == kids[0]["until"] for e in kids))
+        swap = {"id": "swap", "kind": "action", "template": "hand_over", "cell": [0, 2, 12, 5],
+                "actors": [{"role": "giver", "who": "main"}, {"role": "taker", "who": "other"}],
+                "objects": [{"name": "thing", "icon": "tw:1f33e", "label": "गेहूँ"}],
+                "steps": [{"name": "give", "cue": ["b3", "दिया"]}, {"name": "take", "cue": ["b3", "लिया।"]}]}
+        shelf = {"id": "shelf", "kind": "icon", "icon": "tw:1f9fa", "cell": [0, 2, 12, 4], "cue": ["b1", ""], "until_cue": ["b3", "दिया"],
+                 "group": "book_gallery"}
+        scene, report = canvas.compile_plan({"id": "s", "grid": [12, 8], "touches": True, "beats": copy.deepcopy(beats), "nodes": [shelf, swap]})
+        self.assertEqual(element(scene, "swap")["at"], element(scene, "shelf")["until"])     # the book picture is never moved
+        self.assertIn("swap comes on when shelf leaves (its lead-in shortened) (same place)", report["auto_fixes"])
 
     def test_a_currency_sign_alone_names_a_coin_on_a_label(self):
         from bie.brain.video import screen_text

@@ -1346,6 +1346,9 @@ in the world parts, 95 distinct icons, 9.1 s text-only, the book's 7 pictures dr
 - 6 were an action the plan's camera cut; others were camera keys out of order, an until before its own cue, an amount the
   narration says once but the maker left out of the action, a stray step or amount the template does not have, steps said in
   another order than the template's, a coin's sign (¥, £) alone on a label.
+- Two refusals were BIE's own bugs: a tree (root and children) dropped the maker's until_cue, so it never left and a later
+  picture in its place was refused as an overlap (v2_s9b, three rounds); and an action's 18-frame lead-in was counted as an
+  overlap with a book picture that leaves on the action's first step (v2_s2, three rounds).
 - In the local stills of a part (v2_s4s), the street was empty for 1.2 s between a refusal and the agreement that followed it on
   the same spot, and the camera stayed close for 1 s on a stage whose people had gone while the next process played off screen
   (code framed it, then the close-up removed that key). The layout check only looked at camera keys, not at time.
@@ -1360,20 +1363,20 @@ would cut, a key widened to hold the live actions while people stay a quarter of
 ends when its action leaves or when another framed action starts); `world.settle_layout` (the camera looks low enough that the
 feet stay above the strip; a board raised out of it); `canvas` (an element in a held cell or place follows the earlier one when it
 starts 12 frames or more later and the earlier has nothing left to show; two processes in one place hand over after the first's
-last step has begun, the second coming on by its own first step; arrows, marks and highlights leave with their ends; a canvas
-close-up ends when its action leaves); `visual_thinking.realise_relations` (an
+last step has begun, the second coming on by its own first step; an action that meets the other only in its lead-in comes on as the other leaves (a book picture
+is never moved); a tree's until_cue reaches its root, children and arrows; arrows, marks and highlights leave with their ends;
+a canvas close-up ends when its action leaves); `visual_thinking.realise_relations` (an
 arrow from the thing on screen to the thing the beat brings, canvas only) and `relation_rows` (a highlight on the book's
 timeline, flow, gallery or table; a process playing across the beat). New check: `world.empty_frames` (sampled on the
 renderer's own camera: a stretch over 0.8 s with nothing in view, or a close-up on people who have gone, is refused).
 
 | Measure | Run a (live) | The same answers with the new code |
 | --- | --- | --- |
-| Parts passing within the recorded rounds | 26 of 36 | 33 of 36 |
-| Parts passing on the first try | 6 of 36 | 19 of 36 |
+| Parts passing within the recorded rounds | 26 of 36 | 35 of 36 |
+| Parts passing on the first try | 6 of 36 | 20 of 36 |
 | Empty-street stretches in the passed world parts | 4 of 7 parts (not checked) | 0 of 7 |
 | Earlier plans recompiled (346) | — | the same 232 compile as on `main` (0 differences) |
 | Passed outputs | — | 0 problems |
 
-The three still refused: two canvas parts with an element on a book picture's cells (the picture's group is never moved by
-code), and one world part with a sequence beat shown by nothing. Rounds, tokens and ₹ per page change only with the next live
+The one still refused is a world part whose sequence beat shows only a balance (a comparison); the maker adds the steps. Rounds, tokens and ₹ per page change only with the next live
 run (run b).

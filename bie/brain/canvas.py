@@ -223,12 +223,15 @@ def overlap(a, b):
 
 
 def expand_trees(nodes, grid):
-    """A "tree" node (root + children inside one grid area) becomes text boxes and elbow arrows placed by code."""
+    """A "tree" node (root + children inside one grid area) becomes text boxes and elbow arrows placed by code; the tree's
+    until_cue goes to every one of them (seekh -> BIE, the first Part D2 run: it was dropped, so a tree never left and a
+    later picture in its place was refused as an overlap)."""
     out = []
     for n in nodes:
         if n.get("kind") != "tree":
             out.append(n)
             continue
+        leave = {"until_cue": n["until_cue"]} if n.get("until_cue") else {}
         area = cell_box(n["cell"], grid)
         kids = n["children"]
         k = len(kids)
@@ -242,15 +245,15 @@ def expand_trees(nodes, grid):
         style = n.get("style", "box")
         out.append({"id": n["id"] + "_root", "kind": "text", "style": style, "text": n["root"], "size": size + 2, "align": "center",
                     "abs": {"x": area["x"] + (area["w"] - rw) / 2, "y": area["y"], "w": rw, "h": bh}, "cue": n["cue"],
-                    **({"fill": n["root_fill"]} if "root_fill" in n else {})})
+                    **({"fill": n["root_fill"]} if "root_fill" in n else {}), **leave})
         for i, child in enumerate(kids):
             text = child["text"] if isinstance(child, dict) else child
             cue = child.get("cue", n["cue"]) if isinstance(child, dict) else n["cue"]
             cid = f"{n['id']}_{i}"
             out.append({"id": cid, "kind": "text", "style": style, "text": text, "size": size, "align": "center",
-                        "abs": {"x": area["x"] + i * (cw + gap), "y": area["y"] + area["h"] - bh, "w": cw, "h": bh}, "cue": cue})
+                        "abs": {"x": area["x"] + i * (cw + gap), "y": area["y"] + area["h"] - bh, "w": cw, "h": bh}, "cue": cue, **leave})
             out.append({"id": cid + "_a", "kind": "arrow", "from": n["id"] + "_root", "to": cid, "from_side": "b", "to_side": "t",
-                        "elbow": "vhv" if k > 1 else None, "cue": cue})
+                        "elbow": "vhv" if k > 1 else None, "cue": cue, **leave})
     return out
 
 
@@ -518,10 +521,16 @@ def _hand_over(first: dict, second: dict, later: list | None = None) -> str | No
     least 12 frames later and neither belongs to a book picture's group. The first leaves as the second comes when it has
     nothing left to do then (no value step, action step or counted item at or after the second's start); two processes on one
     place hand over after the first's last step has begun (at least 8 of its 24 motion frames, then the 15-frame fade of
-    saanche.tsx), the second coming on by its own first step.
+    saanche.tsx), the second coming on by its own first step. An action that meets the other only in its own lead-in (the
+    other leaves by the action's first step) comes on as the other leaves, whatever the other is (a book picture too).
     ``later`` gives the first's step frames while it is still being compiled. Returns what was done, or None (the maker moves
     one)."""
     at = second.get("at", 0)
+    nxt = min((second.get("step_at") or {}).values(), default=None)
+    gone = first.get("until", 10 ** 9)
+    if second.get("kind") == "action" and nxt is not None and at < gone <= nxt:
+        second["at"] = gone                   # they meet only in the action's lead-in: it comes on as the other leaves
+        return f"{second['id']} comes on when {first['id']} leaves (its lead-in shortened)"
     if at - first.get("at", 0) < 12 or first.get("group") or second.get("group"):
         return None
     if later is None:
@@ -530,7 +539,6 @@ def _hand_over(first: dict, second: dict, later: list | None = None) -> str | No
     if not any(f >= at for f in later):
         first["until"] = at
         return f"{first['id']} leaves when {second['id']} comes"
-    nxt = min((second.get("step_at") or {}).values(), default=None)
     if first.get("kind") == "action" and second.get("kind") == "action" and nxt is not None and later \
             and min(max(later) + 12, nxt) >= max(later) + 8:
         first["until"] = min(max(later) + 12, nxt)
