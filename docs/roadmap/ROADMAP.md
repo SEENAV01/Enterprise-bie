@@ -387,6 +387,26 @@ dikhane ki list published, measured (bank + shop share, distinct icons, text-onl
 tokens, ₹ per page), nothing that passed before broken. Then STOP for Navin's verdict. **Part D2** builds the missing kits and
 blocks the log names.
 
+**Part D2 (Navin's verdict on the D1 videos, 1 November 2026; branch `task046d2-process-saanche`, one PR; STATUS "Task 046 ·
+Part D2"):** "bie ne ek duniya bna li jaise bank shop par usko jyo ka tyo use kiya, baat ho rahi hai kapda khareedne ki namak
+khareedne ki aur wo wahi cheeni ko show kar rha hai"; "process show nahi ho rahi hai, like upi payment ka jikar hai shop par, par
+agar wo visuals se clear ho jaise scanner phone scan, tab maja hai"; "mera meaning hai ki visuals dekhkar concept clear ho aur
+user narration se connect kar sake". (A) Story goods from the story: no hard-coded good; the shop's stock, the bags and the
+pans are the beat's things; a thing no source has goes to needs.json. (B) Kriya ke saanche: hand over, pay and get change,
+barter with the "do they both want it?" moment, UPI (QR stand, phone scan, paid, received), card tap, cheque (written, handed
+to the bank, balances change), coins counted to a limit meter, refuse (head shake, cross), accept (nod, tick), count; in world
+and canvas; code does the timing, the camera moves in and back out; the visual-idea step picks a template per beat; a new
+process goes to the missing-capability log. (C) Characters: actors about a quarter of the frame tall or more, hands holding
+things, a phone in hand, moods, one main character per video. (D) Layout checks in every mode: no overlap, one short label at a
+time in a world with numbers on objects, a reserved subtitle zone, frame fill. (E) Meaning checks: every relation of the
+dikhane ki list realised (a refusal puts a cross on that thing), a struck value with an arrow only for the same quantity, change
+by the change template, icons that fit era and concept (reported). (F) Better pictures: Fluent Emoji 3D (MIT, pinned, credited)
+and BIE's own coins, notes and objects, clearly not replicas (RBI's rules recorded). (G) LOOK-D2: per beat noun and relation,
+"visible? happening?", the score from those answers, report only. (H) Sound effects deferred to Task 047. (I) Proof: Money v2
+and v4 again with the narration locked, rendered, pages and the dikhane ki list, measured against D1 (LOOK 5.25, worlds 3.6,
+boards in world parts, overlaps, relations realised, elements under the subtitle strip, text-only time, distinct icons,
+first-try pass, rounds, tokens, ₹ per page), nothing that passed before broken; then STOP for Navin's verdict.
+
 **Navin's process decisions, 30 October 2026 (also in `CLAUDE.md`):** (1) **Learning track**: from YouTube reference videos
 Claude may make demos, each labelled "Claude's demo, not BIE output"; they never go into `tests/fixtures/passed_outputs/` and
 are not a BIE capability until BIE makes the same kind of video itself. (2) **Fast track to one button**: section by section,

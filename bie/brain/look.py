@@ -126,3 +126,106 @@ def d1_summary(results: dict) -> dict:
     return {"parts": len(scored), "mean_hints_point": round(sum(v["hints_point"] for v in scored.values()) / len(scored), 2),
             "text_only": sum(1 for v in scored.values() if v.get("text_only")),
             "low": sorted(k for k, v in scored.items() if v["hints_point"] <= 4)}
+
+
+# ---------------------------------------------------------------- LOOK-D2 (Task 046 Part D2; Navin, 1 November 2026)
+# "mera meaning hai ki visuals dekhkar concept clear ho aur user narration se connect kar sake". LOOK-D1 asked one loose
+# question per part and scored 5.25 while Navin found the worlds empty of process. LOOK-D2 asks, per beat, about the very things
+# the dikhane ki list names (its nouns and its relation): is each one VISIBLE in the beat's still, and is it HAPPENING (an action
+# in progress or its result: the hand giving, the cross on the coin, the phone showing paid)? The reviewer only answers yes or
+# no; code computes the score from those answers. Report only, never a blocker.
+D2_RULE = "LOOK-D2"
+D2_VERSION = "2026-11-01.1"
+D2_MAX_BEATS = 8
+D2_SCHEMA = {
+    "type": "object", "additionalProperties": False, "required": ["beats", "missing"],
+    "properties": {
+        "beats": {"type": "array", "items": {
+            "type": "object", "additionalProperties": False, "required": ["beat_id", "items", "text_only", "what_it_shows"],
+            "properties": {
+                "beat_id": {"type": "string"},
+                "items": {"type": "array", "items": {"type": "object", "additionalProperties": False, "required": ["name", "visible", "happening"],
+                                                     "properties": {"name": {"type": "string"}, "visible": {"type": "boolean"},
+                                                                    "happening": {"type": "boolean"}}}},
+                "text_only": {"type": "boolean"},
+                "what_it_shows": {"type": "string"}}}},
+        "missing": {"type": "string"},
+    },
+}
+D2_SYSTEM = ("You are BIE's look reviewer for rule LOOK-D2. You see stills from one part of a lesson video for Indian learners, one "
+             "still per beat, each labelled with its beat id; you do not hear the teacher. For every beat you get the things that "
+             "beat should show (its nouns, and its relation as what should happen). For each item answer two yes/no questions "
+             "from the still alone: visible = can a learner see this thing (or this relation's mark, arrow, meter, scale) in the "
+             "frame? happening = is it shown happening or just happened: an action in progress or its result (a hand giving or "
+             "taking, a phone raised to a QR code, a paid screen, a cross landing on a coin, a meter at its red line, a value "
+             "struck and replaced)? A thing that only stands there is visible but not happening; a word naming it is neither. "
+             "text_only is true when the still is essentially words on a background. what_it_shows: a few words. missing: the one "
+             "picture that would most help the part, or \"\". Answer every beat and every item, names exactly as given. Reply with "
+             "one JSON object that matches the schema.")
+
+
+def d2_items(beat: dict) -> list:
+    """The items a beat's still is asked about: its nouns (at most three) and its relation, with what should be seen."""
+    items = [{"name": str(n), "expect": "visible"} for n in (beat.get("nouns") or [])[:3] if str(n).strip()]
+    rel = beat.get("relation") or ""
+    if rel and rel not in ("other", "place", "part_whole"):
+        items.append({"name": f"relation: {rel}", "expect": beat.get("shows") or rel})
+    if beat.get("template") not in (None, "", "none", "other"):
+        items.append({"name": f"process: {beat['template']}", "expect": beat.get("shows") or beat["template"]})
+    return items
+
+
+def d2_task(part: dict) -> str:
+    lines = [f"Lesson part {part.get('id', '')}. The stills follow in this order, one per beat."]
+    for b in part.get("beats") or []:
+        lines.append(f"- beat {b['beat_id']}: the teacher says \"{str(b.get('say', ''))[:160]}\"; it should show: {b.get('shows', '')}")
+        for it in b.get("items") or []:
+            lines.append(f"    · {it['name']} (expected: {it.get('expect', 'visible')})")
+    return "\n".join(lines)
+
+
+def d2_messages(part: dict, frames: list) -> tuple:
+    """``frames``: [(beat_id, media type, base64 data)] in the part's beat order."""
+    content = [{"type": "text", "text": d2_task(part)}]
+    for bid, media, data in frames:
+        content += [{"type": "text", "text": f"Still of beat {bid}:"}, {"type": "image", "media_type": media, "data": data}]
+    return ({"role": "system", "content": D2_SYSTEM}, {"role": "user", "content": content})
+
+
+def d2_problems(value: dict, part: dict | None = None) -> list:
+    if part is None:
+        return []
+    want = {b["beat_id"]: {it["name"] for it in b.get("items") or []} for b in part.get("beats") or []}
+    got = {b.get("beat_id"): {it.get("name") for it in b.get("items") or []} for b in value.get("beats") or []}
+    out = [f"beat {bid}: answer it" for bid in want if bid not in got]
+    out += [f"beat {bid}: answer every item ({', '.join(sorted(names - got.get(bid, set())))})" for bid, names in want.items()
+            if bid in got and names - got[bid]]
+    return out
+
+
+def d2_score(value: dict) -> dict:
+    """The part's numbers, computed by code from the yes/no answers: score = 10 x (visible answers + happening answers) / (2 x
+    items); a text-only still counts its items as neither."""
+    items = vis = hap = 0
+    text_only = 0
+    for b in value.get("beats") or []:
+        flat = bool(b.get("text_only"))
+        text_only += flat
+        for it in b.get("items") or []:
+            items += 1
+            vis += bool(it.get("visible")) and not flat
+            hap += bool(it.get("happening")) and not flat
+    return {"items": items, "visible": vis, "happening": hap, "text_only_beats": text_only,
+            "score": round(10 * (vis + hap) / (2 * items), 2) if items else None}
+
+
+def d2_summary(results: dict) -> dict:
+    scored = {k: v for k, v in results.items() if isinstance(v, dict) and (v.get("numbers") or {}).get("score") is not None}
+    if not scored:
+        return {}
+    items = sum(v["numbers"]["items"] for v in scored.values())
+    return {"parts": len(scored), "mean_score": round(sum(v["numbers"]["score"] for v in scored.values()) / len(scored), 2),
+            "items": items, "visible_pct": round(100 * sum(v["numbers"]["visible"] for v in scored.values()) / items, 1) if items else None,
+            "happening_pct": round(100 * sum(v["numbers"]["happening"] for v in scored.values()) / items, 1) if items else None,
+            "text_only_beats": sum(v["numbers"]["text_only_beats"] for v in scored.values()),
+            "low": sorted(k for k, v in scored.items() if v["numbers"]["score"] <= 4)}

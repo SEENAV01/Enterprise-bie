@@ -9,6 +9,12 @@ spoken word; ``bie/brain/canvas.py`` and ``bie/brain/video/world.py`` place, tim
 back to the maker with the exact code error (no reviewer round for layout). First-try passes and rounds are counted per
 part. The video spec of every video (scenes in part order, captions, the credits card) is written to ``video_specs/``,
 the same place the visual section writes, for the renderer.
+
+Task 046 Part D2 (Navin's verdict of 1 November 2026): both modes can play a kriya ka saancha (an ``action`` node or element,
+``video/saanche.py``) with the story's own things; a world's goods, bags and pans are the story's things (no fixed picture);
+the code check adds the stricter layout (``world.layout_problems``, ``canvas.subtitle_problems``) and the meaning checks
+(``visual_thinking.meaning_problems``: every relation of the dikhane ki list realised on its beat, a struck value with an arrow
+only for the same quantity, change given back by the change template).
 """
 from __future__ import annotations
 
@@ -25,7 +31,7 @@ from .common import S, arr, fmt, obj
 from .lesson import video_scope
 from .runner import NOTES_SCHEMA, Step
 from .understanding import Course
-from .video import timing, world
+from .video import saanche, timing, world
 from ..toolbox import icons, licence as licence_policy
 
 SECTION = "canvas"
@@ -58,6 +64,12 @@ FLOW = obj({"icon": S, "count": I, "period": I, "size": I, "reverse": B, "cue": 
 # own pictures are placed by code before the maker plans (visual_thinking.place_pictures).
 PICTURE_ITEM = obj({"when": S, "name": S, "icon": S, "cue": CUE})
 PICTURE = obj({"type": S, "title": S, "items": arr(PICTURE_ITEM), "arrows": B})
+# Task 046 Part D2: a kriya ka saancha (the same shape in a canvas node and a world element); "" when the node is no action
+ACTION = obj({"template": {"type": "string", "enum": [""] + list(saanche.TEMPLATES)},
+              "actors": arr(obj({"role": S, "who": {"type": "string", "enum": list(saanche.WHO)}, "label": S,
+                                 "mood": {"type": "string", "enum": list(saanche.MOODS)}})),
+              "objects": arr(obj({"name": S, "icon": S, "label": S})), "amounts": arr(obj({"name": S, "text": S})),
+              "steps": arr(obj({"name": S, "cue": CUE})), "close_up": B})
 NODE = obj({
     "id": S, "kind": {"type": "string", "enum": list(canvas.KINDS)}, "cell": arr(I), "cue": CUE, "cue_fraction": N,
     "until_cue": CUE, "until_fraction": N,
@@ -67,7 +79,7 @@ NODE = obj({
     "target": S, "mark": S, "pos": S,
     "root": S, "children": arr(CHILD),
     "columns": STR_LIST, "rows": arr(ROW), "highlights": arr(HIGHLIGHT),
-    "marks": arr(MARK), "flow": FLOW, "picture": PICTURE,
+    "marks": arr(MARK), "flow": FLOW, "picture": PICTURE, "action": ACTION,
 })
 CURVE = obj({"id": S, "points": arr(arr(N)), "tone": S, "label": S, "cue": CUE, "draw_frames": I})
 DOT = obj({"id": S, "curve": S, "tone": S, "drops": S, "steps": arr(obj({"x": N, "cue": CUE}))})
@@ -84,7 +96,8 @@ WELEMENT = obj({
     "id": S, "kind": {"type": "string", "enum": sorted(world.KINDS)}, "x": N, "y": N, "sign": S, "text": S, "fill": S, "string": N,
     "steps": arr(STEP), "packets": arr(obj({"n": I, "cue": CUE})), "cue": CUE, "until_cue": CUE, "tilt_cue": CUE, "tilt": N,
     "x0": N, "x1": N, "y0": N, "y1": N, "spacing": N, "enter_x": N, "exit_x": N, "face": I, "seed": I, "count": I,
-    "lift_cue": CUE, "lift_dy": N, "carry_cue": CUE, "carry_n": I,
+    "lift_cue": CUE, "lift_dy": N, "carry_cue": CUE, "carry_n": I, "carry_icon": S,
+    "goods": arr(obj({"icon": S, "label": S})), "left_icon": S, "left_label": S, "right_icon": S, "right_label": S, "action": ACTION,
 })
 WCAMERA = obj({"cue": CUE, "x": N, "y": N, "zoom": N, "frames": I})
 WORLD_SCHEMA = obj({"notes": NOTES_SCHEMA, "elements": arr(WELEMENT), "camera": arr(WCAMERA)})
@@ -113,7 +126,9 @@ How to fill the JSON (every field is present; "" / 0 / [] / false mean "not used
   table: columns + rows (cells, cue) + highlights (row or col, -1 when not used). callout/text: marks (phrase, cue).
   arrow: from, to (+ from_side/to_side l r t b, elbow hv/vh/vhv). mark: mark tick/cross + target + pos c/tr.
   highlight: target + style box/dashed/band. flow on an arrow (icon, count, period, size, reverse, cue) makes goods or
-  money travel along it.
+  money travel along it. action (a kriya ka saancha, the card's table): cell at least 3 rows tall, action.template, actors
+  (role, who main/other, label, mood), objects (name, icon from the candidates, label), amounts (name, text as the
+  narration writes it), steps (name, cue) in the template's order, close_up; for every other kind action.template is "".
 - camera: zoom to a region of cells on a cue (use it to re-frame instead of a new canvas). focus: dim everything but ids.
 - graph_used true + graph for an economic curve (axes, curves as [x, y] points, a dot that walks to x values, guides,
   shades, notes); plot is the graph's box as fractions of the canvas.
@@ -137,7 +152,12 @@ How to fill the JSON (every field is present; "" / 0 / [] mean "not used"):
 - elements: in story order; id (unique), kind, the fields of that kind (card), cue [beat_id, word] (word exactly as written
   in that beat; [beat_id, ""] for the beat's start) and until_cue when it leaves; steps (text/n + cue) for a price tag, a
   board or a crowd; packets (n + cue) for the shop's stock; lift_cue + lift_dy lifts a price tag; carry_cue + carry_n sends
-  buyers away with goods; tilt_cue tilts the balance. The place element (shop or bank) is the kit named above, once.
+  buyers away with the story's goods (carry_icon); tilt_cue tilts the balance. goods [{{icon, label}}] are the shop's stock (the
+  story's own goods); left_icon/left_label and right_icon/right_label are a balance's pans. action (a kriya ka saancha, the
+  card's table): x on the street beside the place, action.template, actors (role, who main/other, label, mood), objects (name,
+  icon from the candidates, label), amounts (name, text as the narration writes it), steps (name, cue) in the template's
+  order, close_up; for every other kind action.template is "". The place element (shop or bank) is the kit named above, once.
+- icons: only ids from the icon candidates listed under the part (the story's own things); any other id is refused.
 - camera: keys in time order, each with cue, x and y in world pixels, zoom and frames (how long the move takes).
 Reply with the JSON object only."""
 
@@ -335,6 +355,8 @@ def plan_from(stub: dict, value: dict) -> dict:
                         row["when"] = it.get("when", "")
                 rows.append(row)
             n["picture"] = {"type": pic["type"], "title": pic.get("title", ""), "item_id": "", group: rows, "arrows": bool(pic.get("arrows", True))}
+        if n["kind"] == "action":
+            n.update(_action_of(v.get("action") or {}))
         flow = v.get("flow") or {}
         if flow.get("icon"):
             f = {"icon": flow["icon"]}
@@ -385,6 +407,18 @@ def plan_from(stub: dict, value: dict) -> dict:
     return plan
 
 
+def _action_of(a: dict) -> dict:
+    """The maker's action (strict: every field present) → the saancha's own fields (unset entries dropped)."""
+    out = {"template": a.get("template", ""),
+           "actors": [{k: x[k] for k in ("role", "who", "label", "mood") if x.get(k)} for x in a.get("actors") or [] if x.get("role")],
+           "objects": [{k: o.get(k, "") for k in ("name", "icon", "label")} for o in a.get("objects") or [] if o.get("name")],
+           "amounts": [{"name": m["name"], "text": str(m.get("text", ""))} for m in a.get("amounts") or [] if m.get("name") and m.get("text")],
+           "steps": [{"name": st.get("name", ""), "cue": _cue(st.get("cue"))} for st in a.get("steps") or [] if st.get("name")]}
+    if "close_up" in a and not a["close_up"]:
+        out["close_up"] = False
+    return out
+
+
 def world_from(stub: dict, value: dict, kit: str = "") -> dict:
     plan = {"id": stub["id"], "part_id": stub.get("part_id", ""), "world_width": 5200, "beats": stub["beats"]}
     if kit:
@@ -415,6 +449,16 @@ def world_from(stub: dict, value: dict, kit: str = "") -> dict:
         carry = _cue(v.get("carry_cue"))
         if carry is not None:
             e["carry"] = {"cue": carry, "n": int(v.get("carry_n") or 0)}
+            if v.get("carry_icon"):
+                e["carry"]["icon"] = v["carry_icon"]
+        goods = [{"icon": g.get("icon", ""), "label": g.get("label", "")} for g in v.get("goods") or [] if g.get("icon")]
+        if goods:
+            e["goods"] = goods
+        for side in ("left", "right"):
+            if v.get(f"{side}_icon"):
+                e[side] = {"icon": v[f"{side}_icon"], "label": v.get(f"{side}_label", "")}
+        if e["kind"] == "action":
+            e.update(_action_of(v.get("action") or {}))
         els.append(e)
     plan["elements"] = els
     cams = []
@@ -431,7 +475,7 @@ def world_from(stub: dict, value: dict, kit: str = "") -> dict:
 # ---------------------------------------------------------------- the code check (the exact error goes back to the maker)
 
 def _icon_problems(plan: dict, library=None) -> list:
-    ids = canvas.icons_in(plan)
+    ids = canvas.icons_in(plan) if "nodes" in plan else world.icons_in(plan)
     images = [i for i in ids if str(i).startswith("asset:")]
     out = [f"image {i!r} is not in this lesson's asset library" for i in images
            if library is None or i.split(":", 1)[1] not in library.assets]
@@ -442,18 +486,24 @@ def _icon_problems(plan: dict, library=None) -> list:
     return out
 
 
-def check_plan(stub: dict, value: dict, mode, *, picture: dict | None = None, library=None) -> list:
+def check_plan(stub: dict, value: dict, mode, *, picture: dict | None = None, library=None, ideas: dict | None = None) -> list:
     """The code check of a maker's answer: ``mode`` is the mode dict ({"mode", "kit", ...}) or the letter alone. Part D1 adds:
     every beat shows a non-text thing on its words, no text-only screen over 10 s, screen text a name or a short phrase, the
-    book's pictures drawn, no caution line on screen."""
+    book's pictures drawn, no caution line on screen. Part D2 adds: the story's own goods (no fixed picture), the stricter
+    layout (overlaps, one text at a time and no number on a label in a world, the subtitle strip, the actor's size, empty
+    frames) and the meaning checks against the dikhane ki list (``ideas``)."""
     letter, kit = (mode["mode"], mode.get("kit", "")) if isinstance(mode, dict) else (mode, "")
     try:
         if letter == "C":
             plan = world_from(stub, value, kit=kit)
-            _, report = world.compile_world(plan)
+            problems = _icon_problems(plan, library) + world.goods_problems(plan)
+            if problems:
+                return problems
+            scene, report = world.compile_world(plan)
             texts = screen_text.world_texts(plan)
             return (report["problems"] + screen_text.problems(texts, plan["beats"])                     # CV-13 … CV-16
-                    + vt.beat_cover_problems(plan, plan["beats"], "C") + vt.phrase_problems(texts) + vt.caution_problems(texts))
+                    + vt.beat_cover_problems(plan, plan["beats"], "C") + vt.phrase_problems(texts) + vt.caution_problems(texts)
+                    + world.layout_problems(scene) + vt.meaning_problems(plan, "C", ideas))
         plan = plan_from(stub, value)
         problems = _icon_problems(plan, library)
         if problems:
@@ -463,7 +513,8 @@ def check_plan(stub: dict, value: dict, mode, *, picture: dict | None = None, li
         text_only, _ = vt.text_only_problems(scene, timing.FPS)
         return (report["problems"] + screen_text.problems(texts, plan["beats"])                         # CV-13 … CV-16
                 + vt.beat_cover_problems(plan, plan["beats"], "B") + text_only + vt.phrase_problems(texts)
-                + vt.caution_problems(texts) + vt.book_picture_problems(plan, picture))
+                + vt.caution_problems(texts) + vt.book_picture_problems(plan, picture)
+                + canvas.subtitle_problems(scene) + vt.meaning_problems(plan, "B", ideas))
     except PlanError as exc:
         return [str(exc)]
     except (KeyError, TypeError, ValueError, IndexError) as exc:
@@ -497,13 +548,14 @@ STORY_NOTE = ("This part is the STORY of the concept's real-world example (Navin
 def ideas_step(course: Course, stub: dict, items: list, picture: dict, *, max_rounds: int = 3) -> Step:
     """Dikhane ki soch (Task 046 Part D1): before any layout the maker says, per beat, the idea, its relation, its things, people
     and places, what is seen and on which word; code checks the shape and the words."""
-    beats = [{"beat_id": b["beat_id"], "say": b["say"], "relation_guess": vt.guess_relation(b["say"])} for b in stub["beats"]]
+    beats = [{"beat_id": b["beat_id"], "say": b["say"], "relation_guess": vt.guess_relation(b["say"]),
+              "template_guess": saanche.guess_template(b["say"]) or "none"} for b in stub["beats"]]
     if picture.get("by") == "book":
         first = picture["pictures"][0]
         line = vt.PICTURE_BY_CODE.format(ptype=picture["type"], ptitle=first.get("title", ""), source=first.get("kind", "picture"))
     else:
         line = vt.PICTURE_BY_MAKER.format(card_type=stub.get("card_type") or "")
-    system = fmt(vt.ROLE, course, verbs=vt.verbs_text(), phrase_words=vt.PHRASE_WORDS, picture_line=line)
+    system = fmt(vt.ROLE, course, verbs=vt.verbs_text(), phrase_words=vt.PHRASE_WORDS, picture_line=line, templates=saanche.templates_text())
     payload = {"part": {"id": stub["id"], "part_id": stub.get("part_id", ""), "card_type": stub.get("card_type", ""), "story": bool(stub.get("story"))},
                "beats": beats, "items": [{k: i.get(k, "") for k in ("item_id", "content_type", "content")} for i in items],
                "book_pictures": [{"item_id": p["item_id"], "type": p["type"], "title": p["title"]} for p in picture.get("pictures") or []]}
@@ -534,7 +586,7 @@ def part_step(course: Course, stub: dict, items: list, mode: dict, *, rulebook, 
     payload = {"part": {"id": stub["id"], "part_id": stub.get("part_id", ""), "mode": mode["mode"], "place": mode.get("place", ""),
                         "story": bool(mode.get("story"))},
                "beats": beats, "items": items, "on_screen_hints": stub.get("on_screen_hints") or [],
-               "ideas": [{k: r.get(k) for k in ("beat_id", "idea", "relation", "things", "people", "places", "shows", "on_word")}
+               "ideas": [{k: r.get(k) for k in ("beat_id", "idea", "relation", "things", "people", "places", "shows", "on_word", "template")}
                          for r in (ideas or {}).get("beats") or []],
                "picture": [{"id": n["id"], "type": n["picture"]["type"], "cell": n["cell"]} for n in picture_nodes]}
     story = story_of(items) if mode.get("story") else {}
@@ -545,7 +597,9 @@ def part_step(course: Course, stub: dict, items: list, mode: dict, *, rulebook, 
                                          goods=", ".join(story.get("goods") or []), numbers=numbers)
     if ideas and ideas.get("beats"):
         lines = "\n".join(f"- {r['beat_id']}: {r.get('idea', '')} · relation {r.get('relation', '')} · shows: {r.get('shows', '')}"
-                          + (f" · on '{r['on_word']}'" if r.get("on_word") else "") for r in ideas["beats"])
+                          + (f" · on '{r['on_word']}'" if r.get("on_word") else "")
+                          + (f" · saancha {r['template']}" if r.get("template") not in (None, "", "none", "other") else "")
+                          for r in ideas["beats"])
         note += IDEAS_NOTE.format(ideas=lines, candidates=vt.candidates_text(candidates or {}) or "- (none found: use the general menu)")
         if images:
             note += ("Pictures in this lesson's asset library for the things named (use the id as an icon; the credit is added by code):\n"
@@ -569,7 +623,7 @@ def part_step(course: Course, stub: dict, items: list, mode: dict, *, rulebook, 
             f"The part (JSON):\n{json.dumps(payload, ensure_ascii=False)}\n\nReply with the plan JSON.")
     picture = stub.get("picture") or {}
     return Step(section=SECTION, unit=stub["id"], instructions_version=VERSION, system=system, user=user, schema=schema,
-                check=lambda value: check_plan(stub, value, mode, picture=picture, library=library), max_rounds=max_rounds)
+                check=lambda value: check_plan(stub, value, mode, picture=picture, library=library, ideas=ideas), max_rounds=max_rounds)
 
 
 def split_stub(stub: dict, max_beats: int = MAX_PART_BEATS) -> list:
@@ -685,6 +739,15 @@ def run_canvas(chapter: dict, lesson: dict, course: Course, runner, out_dir, *, 
                     summary["missing_capabilities"].append(cap)
                 cap["parts"].append(stub["id"])
                 cap["beats"] += [b["beat_id"] for b in stub["beats"]]
+            for row in (ideas.output or {}).get("beats") or [] if ideas.passed else []:
+                if row.get("template") == "other":           # a process no saancha fits: logged so BIE can learn it (D2-B)
+                    what = f"process: {(row.get('template_note') or '').strip()[:80]}"
+                    cap = next((c for c in summary["missing_capabilities"] if c["what"] == what), None)
+                    if cap is None:
+                        cap = {"what": what, "kind": "block", "parts": [], "beats": []}
+                        summary["missing_capabilities"].append(cap)
+                    cap["parts"].append(stub["id"])
+                    cap["beats"].append(row["beat_id"])
             run_needs += [dict(n, part=stub["id"], video=video["video_id"]) for n in found["needs"]]
             icons_by_beat = {}
             for row in (ideas.output or {}).get("beats") or [] if ideas.passed else []:
@@ -697,7 +760,13 @@ def run_canvas(chapter: dict, lesson: dict, course: Course, runner, out_dir, *, 
             if result.passed:
                 if mode["mode"] == "C":
                     plan = world_from(stub, result.output, kit=mode.get("kit", ""))
-                    scene, report = world.compile_world(plan)
+                    ids = world.icons_in(plan)
+                    index_ids = [i for i in ids if not str(i).startswith("asset:")]
+                    paths = icons.add_to_library(index_ids, library, opener=opener) if index_ids else {}
+                    paths.update({i: "assets/" + library.assets[i.split(":", 1)[1]].path for i in ids if str(i).startswith("asset:")})
+                    icon_ids += [i for i in ids if i not in icon_ids]
+                    scene, report = world.compile_world(plan, icon_paths=paths)
+                    part_data["icon_ids"] = ids
                     part_data["picture_types"] = ["world"]
                 else:
                     plan = plan_from(stub, result.output)
@@ -714,6 +783,21 @@ def run_canvas(chapter: dict, lesson: dict, course: Course, runner, out_dir, *, 
                     drawn = sorted({(n.get("picture") or {}).get("item_id") for n in plan.get("nodes") or []
                                     if n.get("kind") == "picture" and (n.get("picture") or {}).get("item_id")})
                     part_data["book_pictures_drawn"], part_data["book_picture_ids"] = len(drawn), drawn
+                letter = "C" if "elements" in plan else "B"
+                ideas_value = ideas.output if ideas.passed else None
+                rel = vt.relation_rows(plan, letter, ideas_value)
+                part_data["realised"] = {r["beat_id"]: r["realised"] for r in rel}
+                part_data["relations"] = len(rel)
+                part_data["relations_realised"] = sum(1 for r in rel if r["realised"])
+                part_data["actions"] = [x.get("template") for x in (plan.get("elements") or plan.get("nodes") or []) if x.get("kind") == "action"]
+                part_data["icon_misfits"] = vt.icon_misfits(plan, letter)
+                if letter == "C":
+                    lay = world.layout_problems(scene)
+                    part_data["boards"] = sum(1 for e in plan["elements"] if e["kind"] in ("board", "label"))
+                    part_data["overlaps"] = sum(1 for x in lay if "overlap" in x)
+                    part_data["subtitle_violations"] = sum(1 for x in lay if "subtitle strip" in x)
+                else:
+                    part_data["subtitle_violations"] = len(canvas.subtitle_problems(scene))
                 formats.check("world_c_plan" if "elements" in plan else "canvas_b_plan", formats.stamp("world_c_plan" if "elements" in plan else "canvas_b_plan", plan),
                               where=f"plans/{stub['id']}.plan.json")
                 (out / "plans" / f"{stub['id']}.plan.json").write_text(json.dumps(plan, ensure_ascii=False, indent=1), encoding="utf-8")
@@ -774,6 +858,14 @@ def run_canvas(chapter: dict, lesson: dict, course: Course, runner, out_dir, *, 
                           "relations_outside_list": sum((v.get("report") or {}).get("relations_outside_list", 0) for v in summary["videos"]),
                           "ideas_first_try": sum(v.get("ideas_first_try", 0) for v in summary["videos"]),
                           "needs": len(needs["needs"]), "missing_capabilities": len(summary["missing_capabilities"])}
+    reps = [v.get("report") or {} for v in summary["videos"]]
+    rel, done = sum(r.get("relations", 0) for r in reps), sum(r.get("relations_realised", 0) for r in reps)
+    summary["quality"].update({                        # Task 046 Part D2 (Navin's verdict of 1 November 2026)
+        "actions": sum(len(r.get("actions") or []) for r in reps), "relations": rel, "relations_realised": done,
+        "relations_realised_pct": round(100 * done / rel, 1) if rel else None,
+        "boards_in_world_parts": sum(r.get("boards_in_world_parts", 0) for r in reps), "overlaps": sum(r.get("overlaps", 0) for r in reps),
+        "subtitle_violations": sum(r.get("subtitle_violations", 0) for r in reps),
+        "icon_misfits": sum(len(r.get("icon_misfits") or []) for r in reps)})
     formats.check("canvas_summary", summary, where=str(out / "canvas.json"))
     (out / "canvas.json").write_text(json.dumps(summary, ensure_ascii=False, indent=1), encoding="utf-8")
     (out / "CANVAS.md").write_text(render_markdown(summary), encoding="utf-8")
@@ -793,6 +885,11 @@ def render_markdown(summary: dict) -> str:
                   f"{q['story_parts_in_a_world']} inside a world (C), the rest on the canvas with crowd, value and icon elements (B).", ""]
     if q["missing_kits"]:
         lines += ["Missing world kits (these parts fell back to the canvas): " + "; ".join(q["missing_kits"]), ""]
+    if "actions" in q:
+        lines += [f"Kriya ke saanche (Part D2): {q['actions']} actions; relations realised {q.get('relations_realised_pct')} % "
+                  f"({q.get('relations_realised')}/{q.get('relations')}); boards in world parts {q.get('boards_in_world_parts')}; "
+                  f"overlaps {q.get('overlaps')}; elements under the subtitle strip {q.get('subtitle_violations')}; icon misfits "
+                  f"{q.get('icon_misfits')}.", ""]
     if "distinct_icons" in q:
         lines += [f"Dikhane ki soch (Part D1): {q['distinct_icons']} distinct icons; text-only screen {q['text_only_seconds']} s; book pictures drawn "
                   f"{q['book_pictures_drawn']} of {q['book_pictures']}; world share {q['world_share']:.0%}; relations outside the list "

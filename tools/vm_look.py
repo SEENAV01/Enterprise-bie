@@ -66,12 +66,32 @@ def load_d1_request(data: dict) -> dict:
     return data
 
 
+def load_d2_request(data: dict) -> dict:
+    """LOOK-D2 (Task 046 Part D2): {"rule": "LOOK-D2", "reviewer", "parts": [{"id", "beats": [{"beat_id", "say", "shows", "frame",
+    "items": [{"name", "expect"}]}]}]}, one still per beat (at most 8 beats a part, 40 parts), each a PNG or JPEG of our render."""
+    parts = data.get("parts")
+    if not isinstance(parts, list) or not 1 <= len(parts) <= MAX_D1_PARTS:
+        raise ValueError(f"parts: 1 to {MAX_D1_PARTS} parts")
+    for part in parts:
+        beats = part.get("beats") if isinstance(part, dict) else None
+        if not str((part or {}).get("id") or "").strip() or not isinstance(beats, list) or not 1 <= len(beats) <= look.D2_MAX_BEATS:
+            raise ValueError(f"parts: every part needs an id and 1 to {look.D2_MAX_BEATS} beats")
+        for b in beats:
+            if not isinstance(b.get("frame"), str) or not FRAME_URL.match(b["frame"]):
+                raise ValueError(f"parts: {part['id']} {b.get('beat_id')}: the frame must be a PNG or JPEG file under blindtest-results/runs/")
+            if not str(b.get("beat_id") or "").strip() or not isinstance(b.get("items"), list) or not b["items"]:
+                raise ValueError(f"parts: {part['id']}: every beat needs a beat_id and its items")
+    if data.get("reviewer", "codex") not in ("codex", "google"):
+        raise ValueError("reviewer: codex or google")
+    return data
+
+
 def load_request(text: str) -> dict:
     data = json.loads(text)
-    if isinstance(data, dict) and data.get("rule") == look.D1_RULE:
+    if isinstance(data, dict) and data.get("rule") in (look.D1_RULE, look.D2_RULE):
         if data.get("schema") != SCHEMA:
             raise ValueError(f"schema: must be {SCHEMA}")
-        return load_d1_request(data)
+        return load_d1_request(data) if data["rule"] == look.D1_RULE else load_d2_request(data)
     if not isinstance(data, dict) or data.get("schema") != SCHEMA:
         raise ValueError(f"request: must be a {SCHEMA} object")
     routes = data.get("routes")
@@ -177,6 +197,77 @@ def run(request: dict, out: Path, *, max_inr: float, gateway: LiveGateway | None
     return summary
 
 
+def _reviewer(request: dict, out: Path, max_inr: float, gateway: LiveGateway | None):
+    guard = CostGuard(max_inr, rate=usd_inr())
+    ledger = UsageLedger(out / "LEDGER.jsonl")
+    route = request.get("reviewer", "codex")
+    if gateway is None:
+        if route == "codex":
+            from bie.model_gateway.gpt_adapter import GPTAdapter
+            from bie.model_gateway.live.codex_client import DEFAULT_MODEL, CodexExecClient
+            routes = {"codex": GPTAdapter(CodexExecClient(), os.environ.get("BIE_CODEX_MODEL") or DEFAULT_MODEL)}
+        else:
+            routes, missing = build_routes(["google"], max_output_tokens=3000, stream=True)
+            if missing:
+                raise SystemExit("NOT_CONFIGURED:google")
+        gateway = LiveGateway(routes, ledger=ledger, guard=guard)
+    else:
+        gateway.ledger, gateway.guard = ledger, guard
+    return gateway, guard, route
+
+
+def run_d2(request: dict, out: Path, *, max_inr: float, gateway: LiveGateway | None = None, opener=None) -> dict:
+    """LOOK-D2: one reviewer call per part with its beats' stills, through the cost guard (Codex on the ChatGPT plan, Rs 0, unless
+    the request names google). The reviewer answers yes/no per item; code computes the scores. Report only (Task 046 Part D2)."""
+    out.mkdir(parents=True, exist_ok=True)
+    gateway, guard, route = _reviewer(request, out, max_inr, gateway)
+    summary = {"schema": "bie.vm-look-run/1", "section": "look", "rule": look.D2_RULE, "rule_version": look.D2_VERSION,
+               "reviewer": {"route": route, "model": gateway.model_of(route)}, "status": "ok", "error": None, "results": {}}
+    for part in request["parts"]:
+        frames = []
+        try:
+            for b in part["beats"]:
+                data = fetch(b["frame"], opener)
+                frames.append((b["beat_id"], media_of(data), base64.b64encode(data).decode()))
+        except (ValueError, OSError) as exc:
+            summary["results"][part["id"]] = {"error": str(exc)[:300]}
+            continue
+        msgs = look.d2_messages(part, frames)
+        try:
+            response = gateway.complete(route, ModelRequest(request_id=f"look-d2:{part['id']}", messages=msgs, response_schema=look.D2_SCHEMA),
+                                        prompt_version=f"look-d2/{look.D2_VERSION}", check=lambda v, p=part: look.d2_problems(v, p),
+                                        expected_output_tokens=1500)
+            summary["results"][part["id"]] = dict(response.content, numbers=look.d2_score(response.content))
+        except ProviderError as exc:
+            summary["results"][part["id"]] = {"error": f"{exc.kind}: {str(exc)[-240:]}"}
+            if guard.stopped:
+                summary.update(status="stopped: budget", error=str(exc)[-240:])
+                break
+    summary["table"] = look.d2_summary(summary["results"])
+    if not summary["table"] and summary["status"] == "ok":
+        summary.update(status="failed", error="no part was judged")
+    summary["cost"] = {"cap": guard.report(), "total_inr": round(guard.spent_inr, 2), "note": COST_NOTE,
+                       "billed_note": "the ChatGPT plan (Codex) and the free Google tier bill Rs 0; the guard prices calls at the list price"}
+    (out / "look.json").write_text(json.dumps(summary["results"], ensure_ascii=False, indent=1), encoding="utf-8")
+    (out / "SUMMARY.json").write_text(json.dumps(summary, ensure_ascii=False, indent=1), encoding="utf-8")
+    lines = [f"# LOOK-D2 · {len(request['parts'])} parts", "", f"reviewer {summary['reviewer']['model']} ({route}); status {summary['status']}; "
+             f"{json.dumps(summary['table'], ensure_ascii=False)}", ""]
+    for pid, value in summary["results"].items():
+        if "numbers" not in value:
+            lines.append(f"- {pid}: {value.get('error')}")
+            continue
+        n = value["numbers"]
+        lines.append(f"- {pid}: {n['score']}/10 · visible {n['visible']}/{n['items']} · happening {n['happening']}/{n['items']}"
+                     + (f" · text-only beats {n['text_only_beats']}" if n["text_only_beats"] else "")
+                     + (f" · missing: {value['missing']}" if value.get("missing") else ""))
+        for b in value.get("beats") or []:
+            lines.append(f"  - {b.get('beat_id')}: {b.get('what_it_shows', '')} · " + ", ".join(
+                f"{it.get('name')} {'👁' if it.get('visible') else '✗'}{'▶' if it.get('happening') else ''}" for it in b.get("items") or []))
+    (out / "LOOK.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
+    print(json.dumps({"status": summary["status"], "table": summary["table"]}), flush=True)
+    return summary
+
+
 def run_d1(request: dict, out: Path, *, max_inr: float, gateway: LiveGateway | None = None, opener=None) -> dict:
     """LOOK-D1: one reviewer call per part on its still, through the cost guard; the Codex reviewer on the ChatGPT plan (Rs 0)
     unless the request names google (the free tier). Report only (Task 046 Part D1)."""
@@ -250,7 +341,8 @@ def main(argv=None):
         (out / "SUMMARY.json").write_text(json.dumps({"section": "look", "status": "refused", "error": str(exc)[:300]}), encoding="utf-8")
         print(json.dumps({"status": "refused", "error": str(exc)[:300]}))
         return 2
-    summary = (run_d1 if request.get("rule") == look.D1_RULE else run)(request, out, max_inr=args.max_inr)
+    runner = {look.D1_RULE: run_d1, look.D2_RULE: run_d2}.get(request.get("rule"), run)
+    summary = runner(request, out, max_inr=args.max_inr)
     return 0 if summary["status"] == "ok" else 1
 
 

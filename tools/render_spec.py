@@ -112,9 +112,13 @@ def cmd_join(args) -> int:
     return 0
 
 
+BEAT_STILL_AT = 0.65          # a beat's still is taken this far into the beat: its things have appeared and its action is under way
+
+
 def write_stills(out: Path, review: Path) -> int:
     """One 640-px JPEG per scene at its middle, from the review copy, into ``stills/<scene id>.jpg`` (Task 046 Part D1: the
-    LOOK-D1 check and the review pages read them by URL); the credits card is left out. Returns how many were written."""
+    LOOK-D1 check and the review pages read them by URL), and one per beat into ``stills/<scene id>/<beat id>.jpg`` (Task 046
+    Part D2: LOOK-D2 asks about each beat's own things); the credits card is left out. Returns how many were written."""
     spec_path = out / "video_spec.json"
     if not spec_path.exists():
         return 0
@@ -130,6 +134,15 @@ def write_stills(out: Path, review: Path) -> int:
             run = subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-ss", f"{mid:.2f}", "-i", str(review), "-frames:v", "1",
                                   "-vf", "scale=640:-2", "-q:v", "4", str(out / "stills" / f"{sid}.jpg")], check=False)
             written += run.returncode == 0
+            for cap in scene.get("captions") or []:
+                bid = str(cap.get("beat_id") or "")
+                if not bid or "at" not in cap or "until" not in cap:
+                    continue
+                (out / "stills" / sid).mkdir(exist_ok=True)
+                t = (at + cap["at"] + BEAT_STILL_AT * (cap["until"] - cap["at"])) / fps
+                run = subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-ss", f"{t:.2f}", "-i", str(review), "-frames:v", "1",
+                                      "-vf", "scale=640:-2", "-q:v", "4", str(out / "stills" / sid / f"{bid}.jpg")], check=False)
+                written += run.returncode == 0
         at += frames
     return written
 

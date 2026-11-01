@@ -1,6 +1,6 @@
 {
  "schema": "bie.toolbox.registry/1",
- "version": "2026-10-27.1",
+ "version": "2026-11-01.1",
  "npm_before": "2026-10-17T12:00:00Z",
  "note": "Task 046a, BIE's toolbox (auzaar-ghar). One entry per library, tool, asset source or dataset that BIE uses to show what a scene plan asks for. A Python library computes, a BIE block shows. Versions are pinned (npm: the newest release before npm_before, the date in tools/npm_before.txt; PyPI: the newest release before the same date with a Python 3.13 Linux wheel). Licences were read from each project's own page or package metadata on 25 October 2026; licence_flags mark share-alike, GPL, custom and per-item licences for Navin's later licence decision, without blocking them. status: installed < wrapped < demo_proven < used_on_real_book; blocked_with_reason says what is missing.",
  "statuses": [
@@ -3041,6 +3041,77 @@
    },
    "notes": "About 2,300 one-colour line icons (solid and regular styles) with search terms, coloured by BIE at copy time; the brands style is never indexed (no logos in lessons, CV-11). Fetched per file from the 7.3.1 tag of FortAwesome/Font-Awesome (svgs/) into the asset cache. The Free licence: icons CC BY 4.0, fonts OFL, code MIT; only the icon SVGs are used. Credit line: 'Font Awesome Free by Fonticons, Inc., CC BY 4.0'."
   },
+ {
+  "id": "fluentui-emoji",
+  "name": "Fluent Emoji 3D icons (microsoft/fluentui-emoji)",
+  "kind": "asset_source",
+  "subjects": [
+   "all_subjects"
+  ],
+  "content_types": [
+   "figure",
+   "process",
+   "cause_effect",
+   "comparison"
+  ],
+  "capabilities": [
+   "board_build",
+   "concept_arrow"
+  ],
+  "role": "asset",
+  "path": "web",
+  "version": "1ffb34c752ecf5d402f04cfb4b392c77f57c54bc",
+  "licence": "MIT",
+  "licence_flags": [
+   "custom"
+  ],
+  "source": "https://github.com/microsoft/fluentui-emoji",
+  "install_group": "assets-on-demand",
+  "status": "wrapped",
+  "batch": 3,
+  "adapter": "bie.toolbox.icons",
+  "proof": {
+   "tests": [
+    "tests/test_task046d2_pictures.py::FluentEmoji"
+   ]
+  },
+  "notes": "Task 046 Part D2 (Navin, 1 November 2026: 'add Microsoft Fluent Emoji (MIT; licence-check, pin, record the licence, credit line) as an icon source with its 3D style, preferred for objects'). 1,595 3D PNG icons (fl:<name>; skin-tone variants left out, the default kept), indexed from the metadata of the pinned commit; each PNG (256 x 256) is fetched once from raw.githubusercontent.com at that commit into the asset cache, never into git. LICENSE at the commit: MIT License, Copyright (c) Microsoft Corporation. MIT is allowed for this source only (licence_policy.json, approved_by_navin). Ranked a little above Twemoji in the icon search. Credit line: 'Fluent Emoji by Microsoft, MIT'. Not yet in a proof clip or a real-book render."
+ },
+ {
+  "id": "bie-objects",
+  "name": "BIE's own money drawings (bie/toolbox/icons/bie)",
+  "kind": "asset_source",
+  "subjects": [
+   "economics_commerce_management",
+   "all_subjects"
+  ],
+  "content_types": [
+   "figure",
+   "process",
+   "cause_effect",
+   "comparison"
+  ],
+  "capabilities": [
+   "board_build",
+   "concept_arrow"
+  ],
+  "role": "asset",
+  "path": "web",
+  "version": "2026-11-01",
+  "licence": "CC0 1.0 (BIE's own drawings)",
+  "licence_flags": [],
+  "source": "https://github.com/SEENAV01/Enterprise-bie/tree/main/bie/toolbox/icons/bie",
+  "install_group": "in-repo",
+  "status": "wrapped",
+  "batch": 3,
+  "adapter": "bie.toolbox.icons",
+  "proof": {
+   "tests": [
+    "tests/test_task046d2_pictures.py::BieDrawings"
+   ]
+  },
+  "notes": "Task 046 Part D2: 26 flat SVG icons drawn by tools/bie_objects.py (bie:<name>): Indian coins (₹1, ₹2, ₹5, ₹10, ₹20, 50 paise, 25 paise) and notes (₹10 to ₹2000) in BIE's own shapes and colours with their denomination, a BIE mark and 'नमूना · not money', never replicas of RBI designs (docs/bie/BIE_MONEY_OBJECTS.md), and cheque, passbook, QR stand (decorative, cannot be scanned), POS machine, phone, salt sack, cowrie shells, cattle, grain sack, cloth roll, gold bar, ledger. Read from the repository (no network); the money words of the icon search prefer them. Not yet in a proof clip or a real-book render."
+ },
   {
    "id": "bie-econ-blocks",
    "name": "BIE build-up canvas and world blocks (bie/brain/video/blocks/toolbox/canvas.tsx, world.tsx)",

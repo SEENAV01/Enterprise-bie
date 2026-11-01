@@ -4,7 +4,10 @@ The VM's look section (``tools/vm_look.py``, rule LOOK-D1) judges each still wit
 (Codex on the ChatGPT plan by default, Rs 0): does the picture alone hint at the point, and is it text only? Report only.
 
     python -B tools/task046d_look_request.py --canvas <canvas run folder> --video v4 --dest t046d-money-v4 --out request.json
-        [--reviewer codex|google]
+        [--reviewer codex|google] [--rule look-d2|look-d1]
+
+LOOK-D2 (Task 046 Part D2, the default): per beat its still (``stills/<scene>/<beat>.jpg``) and the items of the dikhane ki list;
+the reviewer answers visible / happening per item and code computes the score.
 """
 from __future__ import annotations
 
@@ -19,6 +22,31 @@ sys.path.insert(0, str(ROOT))
 from bie.brain import look  # noqa: E402
 
 RAW = "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs"
+
+
+def build_d2(canvas_dir: Path, video_id: str, dest: str, *, reviewer: str = "codex") -> dict:
+    """LOOK-D2 (Task 046 Part D2): per part its beats (at most 8, spread over the part), each with the still the render workflow
+    published at 65 % of the beat (``stills/<scene>/<beat>.jpg``), what it should show and the items the dikhane ki list names."""
+    spec = json.loads((canvas_dir / "video_specs" / f"{video_id}.json").read_text(encoding="utf-8"))
+    ideas = json.loads((canvas_dir / "visual_ideas" / f"{video_id}.json").read_text(encoding="utf-8"))
+    by_part = {p["id"]: p for p in ideas.get("parts") or []}
+    parts = []
+    for scene in spec.get("scenes") or []:
+        sid = str(scene.get("id") or "")
+        if not sid or sid.endswith("_credits") or sid not in by_part:
+            continue
+        says = {c.get("beat_id"): c.get("text", "") for c in scene.get("captions") or []}
+        beats = [b for b in by_part[sid].get("beats") or [] if b.get("beat_id") in says]
+        if len(beats) > look.D2_MAX_BEATS:
+            step = len(beats) / look.D2_MAX_BEATS
+            beats = [beats[int(i * step)] for i in range(look.D2_MAX_BEATS)]
+        rows = [{"beat_id": b["beat_id"], "say": says[b["beat_id"]][:240], "shows": b.get("shows", ""), "items": look.d2_items(b),
+                 "frame": f"{RAW}/{dest}/stills/{sid}/{b['beat_id']}.jpg"} for b in beats]
+        rows = [r for r in rows if r["items"]]
+        if rows:
+            parts.append({"id": sid, "beats": rows})
+    return {"schema": "bie.look-request/1", "rule": look.D2_RULE, "reviewer": reviewer, "video": video_id, "dest": dest,
+            "parts": parts[:40]}
 
 
 def build(canvas_dir: Path, video_id: str, dest: str, *, reviewer: str = "codex") -> dict:
@@ -46,8 +74,9 @@ def main(argv=None) -> int:
     parser.add_argument("--dest", required=True)
     parser.add_argument("--out", required=True, type=Path)
     parser.add_argument("--reviewer", choices=("codex", "google"), default="codex")
+    parser.add_argument("--rule", choices=("look-d1", "look-d2"), default="look-d2")
     args = parser.parse_args(argv)
-    request = build(args.canvas, args.video, args.dest, reviewer=args.reviewer)
+    request = (build_d2 if args.rule == "look-d2" else build)(args.canvas, args.video, args.dest, reviewer=args.reviewer)
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text(json.dumps(request, ensure_ascii=False, indent=1), encoding="utf-8")
     print(f"{args.out}: {len(request['parts'])} parts")

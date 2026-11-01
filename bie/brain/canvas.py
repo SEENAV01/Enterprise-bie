@@ -64,7 +64,11 @@ TARGET_CHANGE_EVERY_S = float(LIMITS["target_change_every_s"])   # CV-02: measur
 ASPECT = 16 / 9
 CHAR_W = 0.56            # average glyph width as a share of the font size (Noto Sans, mixed Latin/Devanagari)
 TAG_CHAR_W = 0.72        # tags are bold capitals with letter spacing
-KINDS = ("text", "callout", "icon", "crowd", "value", "arrow", "tree", "table", "mark", "highlight", "picture")
+KINDS = ("text", "callout", "icon", "crowd", "value", "arrow", "tree", "table", "mark", "highlight", "picture", "action")
+# "action" (Task 046 Part D2): a kriya ka saancha, the same process templates a world plays (bie/brain/video/saanche.py), fitted
+# into the node's cells (at least MIN_ACTION_ROWS rows, so its people are never stick figures), with a camera close-up
+MIN_ACTION_ROWS = 3
+SUBTITLE_TOP = 1 - SAFE["bottom"]       # the subtitle strip starts here on the frame (D2: no content under the captions)
 # "picture" (Task 046 Part D1): a book diagram or table drawn as itself on the paper, placed by code
 # (bie/brain/visual_thinking.picture_node) and expanded by ``expand_pictures`` into tags, icons, boxes, arrows or a table.
 
@@ -152,6 +156,22 @@ def fit_box(box: dict) -> dict:
     cx, cy = float(box.get("x", 0)) + float(box.get("w", 1)) / 2, float(box.get("y", 0)) + float(box.get("h", 1)) / 2
     x = min(max(cx - side / 2, 0.0), 1.0 - side)
     y = min(max(cy - side / 2, 0.0), 1.0 - side)
+    return {"x": round(x, 4), "y": round(y, 4), "w": round(side, 4), "h": round(side, 4)}
+
+
+def above_strip(box: dict, content: dict, *, room: float = 0.85) -> dict:
+    """A square camera box moved (and grown if it must) so that ``content`` (the cells the camera was asked to show) ends above
+    the subtitle strip of the frame (Task 046 Part D2; Navin's D1 finding 7: subtitles covered content in v2_s2 and v4_s3,
+    where a camera box clamped to the top of the canvas pushed the bottom row under the captions)."""
+    side = float(box["w"])
+    top, bottom = float(content.get("y", 0)), float(content.get("y", 0)) + float(content.get("h", 1))
+    side = min(1.0, max(side, (bottom - top) / room))
+    y = float(box["y"])
+    if bottom > y + room * side:
+        y = bottom - room * side
+    y = min(max(y, 0.0), 1.0 - side)
+    cx = float(box["x"]) + float(box["w"]) / 2
+    x = min(max(cx - side / 2, 0.0), 1.0 - side)
     return {"x": round(x, 4), "y": round(y, 4), "w": round(side, 4), "h": round(side, 4)}
 
 
@@ -345,6 +365,24 @@ def _elem_box(e, by_id):
     return (min(b[0] for b in boxes), min(b[1] for b in boxes), max(b[2] for b in boxes), max(b[3] for b in boxes))
 
 
+def _strip_fix(box, hits, visible):
+    """An auto camera box [x, y, size] moved down (and grown when it must) until every element it shows ends above the
+    subtitle strip; the beat's own elements (``hits``) stay in view. A box that grows to the whole canvas is the full view."""
+    room = SUBTITLE_TOP - 0.02
+    for _ in range(4):
+        x, y, sz = box
+        if sz >= 1.0:
+            return [0.0, 0.0, 1.0]
+        inside = [b for b in visible if b[0] < x + sz and b[2] > x and b[1] < y + sz and b[3] > y]
+        low = max([b[3] for b in inside] + [h[3] for h in hits])
+        if low <= y + room * sz + 1e-6:
+            return box
+        top = min([h[1] for h in hits] + [y])
+        nsz = min(1.0, max(sz, (low - top) / room))
+        box = [min(max(x + sz / 2 - nsz / 2, 0.0), 1 - nsz), min(max(low - room * nsz, 0.0), 1 - nsz), nsz]
+    return box
+
+
 def auto_camera(els, beat_frames, beat_order, duration, min_size=0.72, margin=0.06):
     """L3 touch: a camera that frames, beat by beat, what appears in this beat and the one before (and what those point
     at); it never crops an element in half (the frame grows to take it in whole) and the last beat pulls back to the
@@ -352,7 +390,8 @@ def auto_camera(els, beat_frames, beat_order, duration, min_size=0.72, margin=0.
     by_id = {e["id"]: e for e in els}
 
     def times(e):
-        return [e.get("at", 0)] + [s["at"] for s in e.get("steps", [])] + [m["at"] for m in e.get("marks", [])]
+        return ([e.get("at", 0)] + [s["at"] for s in e.get("steps", [])] + [m["at"] for m in e.get("marks", [])]
+                + list((e.get("step_at") or {}).values()))
 
     def square(x0, y0, x1, y1):
         size = min(1.0, max(min_size, x1 - x0, y1 - y0))
@@ -376,10 +415,11 @@ def auto_camera(els, beat_frames, beat_order, duration, min_size=0.72, margin=0.
             hx0, hy0 = min(h[0] for h in hits), min(h[1] for h in hits)
             hx1, hy1 = max(h[2] for h in hits), max(h[3] for h in hits)
 
-            def cuts(bx):
+            def cuts(bx):           # an element the frame cuts, or one that would sit under the subtitle strip (D2)
                 x, y, sz = bx
+                low = y + (SUBTITLE_TOP - 0.01) * sz if sz < 1.0 else y + sz
                 return [b for b in visible if b[0] < x + sz and b[2] > x and b[1] < y + sz and b[3] > y
-                        and not (b[0] >= x - 1e-6 and b[2] <= x + sz + 1e-6 and b[1] >= y - 1e-6 and b[3] <= y + sz + 1e-6)]
+                        and not (b[0] >= x - 1e-6 and b[2] <= x + sz + 1e-6 and b[1] >= y - 1e-6 and b[3] <= low + 1e-6)]
 
             for _ in range(6):
                 cut = cuts(box)
@@ -398,12 +438,73 @@ def auto_camera(els, beat_frames, beat_order, duration, min_size=0.72, margin=0.
                         break
                 box = moved or square(min([x] + [b[0] - 0.02 for b in cut]), min([y] + [b[1] - 0.02 for b in cut]),
                                       max([x + sz] + [b[2] + 0.02 for b in cut]), max([y + sz] + [b[3] + 0.02 for b in cut]))
+            box = _strip_fix(box, hits, visible)        # D2: nothing on screen under the subtitle strip of the frame
         b = {"x": round(box[0], 4), "y": round(box[1], 4), "w": round(box[2], 4), "h": round(box[2], 4)}
         if prev and all(abs(b[k] - prev[k]) < 0.02 for k in b):
             continue
         keys.append({"at": max(0, start - 6), "box": b, "frames": 30})
         prev = b
     return keys
+
+
+def action_close_ups(keys: list, els: list) -> list:
+    """The block camera moves in to each action's close-up (its box, square, with the action above the subtitle strip) and back
+    to the auto camera's frame after it (D2: "the camera moves in to the action and back out")."""
+    out = [dict(k) for k in keys]
+    for e in sorted((e for e in els if e.get("close_up")), key=lambda e: e["close_up"]["at"]):
+        cu = e["close_up"]
+        size = min(1.0, max(e["w"], e["h"] / (SUBTITLE_TOP - 0.04)) + 0.04)
+        x = min(max(e["x"] + e["w"] / 2 - size / 2, 0.0), 1 - size)
+        y = min(max(e["y"] + e["h"] - (SUBTITLE_TOP - 0.03) * size, 0.0), 1 - size)
+        before = [k for k in out if k["at"] <= cu["until"] and not k.get("close_up")]
+        back = dict(before[-1]["box"]) if before else {"x": 0, "y": 0, "w": 1, "h": 1}
+        out = [k for k in out if not (cu["at"] <= k["at"] <= cu["until"])]
+        out.append({"at": cu["at"], "box": {"x": round(x, 4), "y": round(y, 4), "w": round(size, 4), "h": round(size, 4)}, "frames": 22,
+                    "close_up": e["id"]})
+        out.append({"at": cu["until"], "box": back, "frames": 30})
+        out.sort(key=lambda k: k["at"])
+    return out
+
+
+def _ease(t: float) -> float:
+    t = min(1.0, max(0.0, t))
+    return 4 * t * t * t if t < 0.5 else 1 - (-2 * t + 2) ** 3 / 2          # Easing.inOut(Easing.cubic)
+
+
+def _cam_box(keys: list, frame: int, *, span: int = 24, first_direct: bool = False) -> dict:
+    """A camera's box at a frame, eased between keys as the renderer does: the block camera (canvas.tsx ``camBox``, from the
+    full canvas, 24 frames a move) or the scene camera (``first_direct``: blocks/index.tsx ``cameraBox``, the first key at
+    once, 36 frames a move)."""
+    keys = [k for k in keys or [] if "box" in k]
+    box = dict(keys[0]["box"]) if first_direct and keys else {"x": 0.0, "y": 0.0, "w": 1.0, "h": 1.0}
+    for k in keys[1:] if first_direct else keys:
+        if frame < k["at"]:
+            break
+        t = _ease((frame - k["at"]) / max(1, k.get("frames", span)))
+        box = {n: box[n] + (k["box"][n] - box[n]) * t for n in ("x", "y", "w", "h")}
+    return box
+
+
+def subtitle_problems(scene: dict, *, step: int = 6) -> list:
+    """D2: nothing the canvas shows sits under the subtitle strip. The block camera (``data.cam``) and the scene camera both
+    move the canvas; an element on screen whose bottom lands below the strip's top (0.86 of the frame) is named."""
+    data = scene["layers"][0]["data"]
+    els = [e for e in data.get("elements") or [] if "x" in e]
+    out, named = [], set()
+    for f in range(0, scene["duration"], step):
+        inner, outer = _cam_box(data.get("cam"), f), _cam_box(scene.get("camera"), f, span=36, first_direct=True)
+        for e in els:
+            if e["id"] in named or not e.get("at", 0) + 12 <= f < e.get("until", 10 ** 9):
+                continue
+            x0, y0 = (e["x"] - inner["x"]) / inner["w"], (e["y"] - inner["y"]) / inner["h"]
+            x1, y1 = (e["x"] + e["w"] - inner["x"]) / inner["w"], (e["y"] + e["h"] - inner["y"]) / inner["h"]
+            x0, x1 = (x0 - outer["x"]) / outer["w"], (x1 - outer["x"]) / outer["w"]
+            y0, y1 = (y0 - outer["y"]) / outer["h"], (y1 - outer["y"]) / outer["h"]
+            if x1 > 0 and x0 < 1 and y0 < SUBTITLE_TOP and y1 > SUBTITLE_TOP + 0.01 and y1 < 1.3:
+                named.add(e["id"])
+                out.append(f"{e['id']} sits under the subtitle strip at {f / timing.FPS:.1f} s (its bottom at {y1:.2f} of the frame, the "
+                           f"strip starts at {SUBTITLE_TOP:.2f}): move it up a row or let the camera show it higher")
+    return out
 
 
 # ---------------------------------------------------------------- compile
@@ -429,6 +530,8 @@ def compile_plan(plan: dict, *, voice: dict | None = None, icon_paths: dict | No
         kind = n["kind"]
         if kind not in KINDS:
             raise PlanError(f"{n.get('id', '?')}: unknown element kind {kind!r} (kinds: {', '.join(KINDS)})")
+        if kind == "action" and "cue" not in n and n.get("steps"):
+            n = dict(n, cue=n["steps"][0].get("cue"))          # an action is on screen from its first step (the cell check reads it)
         el = {"id": n["id"], "kind": kind}
         for k in ("tone", "style", "label", "label_tone", "mark", "pos", "dir", "fill", "border", "align", "dashed", "curve",
                   "elbow", "head", "width", "cols", "stagger", "write_on", "label_size", "pad", "group"):
@@ -509,6 +612,18 @@ def compile_plan(plan: dict, *, voice: dict | None = None, icon_paths: dict | No
                 el["size"] = size
                 el["highlights"] = [{**{k: v for k, v in h.items() if k in ("row", "col", "tone")}, "at": frame_of(h["cue"]),
                                      **({"until": frame_of(h["until_cue"])} if "until_cue" in h else {})} for h in n.get("highlights", [])]
+            elif kind == "action":
+                from .video import saanche                     # lazy: saanche imports this module's PlanError
+                if n["cell"][3] < MIN_ACTION_ROWS:
+                    raise PlanError(f"{n['id']}: an action needs at least {MIN_ACTION_ROWS} rows of the grid (its people must be big "
+                                    "enough to see their hands and faces)")
+                a = saanche.compile_action(n, frame_of, says, icon_paths=icon_paths, main_look=saanche.main_look(scene_id.split("_")[0]),
+                                           beat_spans={k: tuple(v) for k, v in tl[scene_id]["beats"].items()})
+                el.update({k: v for k, v in a.items() if k not in ("id", "kind")})
+                wpx, hpx = box["w"] * 1920, box["h"] * 1080
+                k = min(wpx / saanche.STAGE_W, hpx / saanche.STAGE_H)
+                w, h = saanche.STAGE_W * k / 1920, saanche.STAGE_H * k / 1080
+                box = {"x": box["x"] + (box["w"] - w) / 2, "y": box["y"] + box["h"] - h, "w": w, "h": h}
             elif kind == "crowd":
                 el["src"] = (icon_paths or {}).get(n["icon"], n["icon"])
                 el["steps"] = [{"n": s["n"], "at": frame_of(s["cue"])} for s in n["steps"]]
@@ -571,13 +686,15 @@ def compile_plan(plan: dict, *, voice: dict | None = None, icon_paths: dict | No
         problems.append(f"{peak} elements on screen at once (limit {MAX_VISIBLE}): clear the canvas or use until/focus")
     # pace: the longest stretch of speech with no visual change
     changes = sorted({e.get("at", 0) for e in els} | {s["at"] for e in els for s in e.get("steps", [])}
+                     | {f for e in els for f in (e.get("step_at") or {}).values()} | {f for e in els for f in e.get("items", [])}
                      | {m["at"] for e in els for m in e.get("marks", [])}
                      | {r["at"] for e in els for r in e.get("rows", [])})          # a book table's rows arrive on their beats (D1)
     camera_keys = []
     for k in plan.get("camera", []):
         f = frame_of(k.get("cue"))
         changes.append(f)
-        key = {"at": f, "box": fit_box(pad_box(cell_box(k["cells"], grid) if "cells" in k else k.get("box", {"x": 0, "y": 0, "w": 1, "h": 1})))}
+        want = cell_box(k["cells"], grid) if "cells" in k else k.get("box", {"x": 0, "y": 0, "w": 1, "h": 1})
+        key = {"at": f, "box": above_strip(fit_box(pad_box(want)), want)}
         if "frames" in k:
             key["frames"] = k["frames"]
         camera_keys.append(key)
@@ -608,7 +725,7 @@ def compile_plan(plan: dict, *, voice: dict | None = None, icon_paths: dict | No
     data = {"theme": plan.get("theme", "paper"), "elements": els}
     if plan.get("touches"):
         data["touches"] = True
-        data["cam"] = auto_camera(els, tl[scene_id]["beats"], [b["beat_id"] for b in beats], duration)
+        data["cam"] = action_close_ups(auto_camera(els, tl[scene_id]["beats"], [b["beat_id"] for b in beats], duration), els)
     for e, n in zip(els, expand_pictures(expand_trees(plan.get("nodes", []), grid), grid)):
         if n.get("flow"):
             f = dict(n["flow"])
@@ -651,7 +768,7 @@ def icons_in(plan: dict) -> list:
     """Every icon id a plan names (icons, crowds, flows), once each, in order."""
     out = []
     for n in plan.get("nodes", []):
-        refs = [n.get("icon"), (n.get("flow") or {}).get("icon")]
+        refs = [n.get("icon"), (n.get("flow") or {}).get("icon")] + [o.get("icon") for o in n.get("objects") or []]
         if n.get("kind") == "picture":
             pic = n.get("picture") or {}
             refs += [p.get("icon") or ("tw:1f5bc" if group == "panels" else "tw:1f4c5") for group in ("panels", "events") for p in pic.get(group) or []]

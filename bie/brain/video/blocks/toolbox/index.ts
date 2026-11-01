@@ -18,6 +18,7 @@ import "./diagrams";
 import "./cards";
 import "./canvas";
 import "./world";
+import "./saanche";
 import "./econ";
 import "./language";
 import "./behaviour";

@@ -1,12 +1,13 @@
 {
  "rulebook": "bie-visual-verbs",
- "version": "2026-10-31.1",
+ "version": "2026-11-01.1",
  "schema": "bie.rules.visual-verbs/1",
  "status": "starting entries, not topic rules (Navin adds entries)",
  "source": "Navin's verdict on the Money videos, 30 October 2026: 'jo bola ja rha hai screen ke visuals se wo baat clear ho ... visuals tarike se user ko teacher ki baat aankhon ke jariye dimag tak pahunchate ho'; his example: 'yuan milestone compulsory wali line ke liye reject krne ki baat ko cross se darshaya ja sakta tha'; page 2: 'dekho kaise icons ka use kiya ja rha hai khud samjh aa rha hai ki neeche likhe text ka matlb kya hai'.",
  "how_it_is_used": "bie/brain/visual_thinking.py: the 'dikhane ki soch' step names, for every beat, its key idea, its relation (one of the ids below, or 'other' with a note, which is logged) and the things, people and places it names. The entry for the relation says how the relation is SHOWN; the things are shown as themselves (an icon or a picture found by code in the icon index and the asset library, never a word standing for the thing). Screen text is a name or a short natural phrase, never a sentence: the sentence lives in the narration and the subtitles (page-2 principle).",
  "changes": [
-  "2026-10-31.1 (Task 046 Part D1): the first fourteen relations with how each is shown, from Navin's verdict of 30 October 2026."
+  "2026-10-31.1 (Task 046 Part D1): the first fourteen relations with how each is shown, from Navin's verdict of 30 October 2026.",
+  "2026-11-01.1 (Task 046 Part D2, Navin's verdict of 1 November 2026): every relation names the kriya ke saanche (process templates, bie/brain/video/saanche.py) that show it; a refusal in a world is the refuse saancha with its cross; a struck value with an arrow is only for the same quantity changing (change given back is pay_change); visual_thinking.meaning_problems checks that each relation of the dikhane ki list is realised on its beat."
  ],
  "relations": [
   {
@@ -28,7 +29,8 @@
    "canvas": {
     "kinds": [
      "icon",
-     "mark"
+     "mark",
+     "action"
     ],
     "mark": "cross",
     "icons": [
@@ -37,10 +39,13 @@
    },
    "world": {
     "kinds": [
-     "label"
+     "action"
     ],
-    "note": "the refused thing as a label struck through"
-   }
+    "note": "the refuse saancha: a head shake and a cross on the thing refused (D2: the D1 v4 render said '25 paise: no status' with no cross)"
+   },
+   "templates": [
+    "refuse"
+   ]
   },
   {
    "id": "accept",
@@ -57,7 +62,8 @@
    "canvas": {
     "kinds": [
      "icon",
-     "mark"
+     "mark",
+     "action"
     ],
     "mark": "tick",
     "icons": [
@@ -66,9 +72,13 @@
    },
    "world": {
     "kinds": [
-     "label"
+     "label",
+     "action"
     ]
-   }
+   },
+   "templates": [
+    "accept"
+   ]
   },
   {
    "id": "compulsory",
@@ -120,7 +130,8 @@
     "kinds": [
      "value",
      "highlight",
-     "icon"
+     "icon",
+     "action"
     ],
     "icons": [
      "fa:solid/gauge-high"
@@ -130,9 +141,13 @@
    "world": {
     "kinds": [
      "board",
-     "crowd"
+     "crowd",
+     "action"
     ]
-   }
+   },
+   "templates": [
+    "coin_count"
+   ]
   },
   {
    "id": "more_less",
@@ -155,16 +170,21 @@
     "kinds": [
      "crowd",
      "value",
-     "arrow"
+     "arrow",
+     "action"
     ]
    },
    "world": {
     "kinds": [
      "crowd",
      "price_tag",
-     "pull_arrow"
+     "pull_arrow",
+     "action"
     ]
-   }
+   },
+   "templates": [
+    "cheque"
+   ]
   },
   {
    "id": "count",
@@ -180,14 +200,20 @@
    "canvas": {
     "kinds": [
      "crowd",
-     "value"
+     "value",
+     "action"
     ]
    },
    "world": {
     "kinds": [
-     "crowd"
+     "crowd",
+     "action"
     ]
-   }
+   },
+   "templates": [
+    "count_stack",
+    "coin_count"
+   ]
   },
   {
    "id": "sequence",
@@ -214,7 +240,8 @@
    "show": "a numbered row or a timeline with arrows; the book's own years and labels when the part covers a book timeline",
    "canvas": {
     "kinds": [
-     "picture"
+     "picture",
+     "action"
     ],
     "picture": [
      "timeline",
@@ -223,9 +250,18 @@
    },
    "world": {
     "kinds": [
-     "label"
+     "label",
+     "action"
     ]
-   }
+   },
+   "templates": [
+    "hand_over",
+    "pay_change",
+    "upi",
+    "card_tap",
+    "cheque",
+    "barter_swap"
+   ]
   },
   {
    "id": "cause_effect",
@@ -247,15 +283,23 @@
     "kinds": [
      "icon",
      "arrow",
-     "value"
+     "value",
+     "action"
     ]
    },
    "world": {
     "kinds": [
      "pull_arrow",
-     "price_tag"
+     "price_tag",
+     "action"
     ]
-   }
+   },
+   "templates": [
+    "pay_change",
+    "upi",
+    "card_tap",
+    "cheque"
+   ]
   },
   {
    "id": "compare",
@@ -277,7 +321,8 @@
     "kinds": [
      "picture",
      "table",
-     "icon"
+     "icon",
+     "action"
     ],
     "picture": [
      "table"
@@ -288,9 +333,13 @@
    },
    "world": {
     "kinds": [
-     "balance"
+     "balance",
+     "action"
     ]
-   }
+   },
+   "templates": [
+    "barter_swap"
+   ]
   },
   {
    "id": "part_whole",
@@ -367,20 +416,26 @@
     "हो गया",
     "से ... तक"
    ],
-   "show": "before and after side by side, the old struck out, the new in its place",
+   "show": "before and after side by side, the old struck out, the new in its place; a struck value with an arrow only when the SAME quantity changes; change given back is the pay_change saancha",
    "canvas": {
     "kinds": [
      "value",
      "icon",
-     "arrow"
+     "arrow",
+     "action"
     ]
    },
    "world": {
     "kinds": [
      "price_tag",
-     "board"
+     "board",
+     "action"
     ]
-   }
+   },
+   "templates": [
+    "pay_change",
+    "cheque"
+   ]
   },
   {
    "id": "promise",
@@ -399,7 +454,8 @@
    "show": "a receipt or a handshake between the two parties, the promise's words as a short label",
    "canvas": {
     "kinds": [
-     "icon"
+     "icon",
+     "action"
     ],
     "icons": [
      "tw:1f9fe",
@@ -408,9 +464,14 @@
    },
    "world": {
     "kinds": [
-     "label"
+     "label",
+     "action"
     ]
-   }
+   },
+   "templates": [
+    "cheque",
+    "hand_over"
+   ]
   },
   {
    "id": "question",
@@ -519,6 +580,129 @@
    "status": "locked",
    "rule": "A caution, caveat or fact-check line ('illustrative numbers', 'imagined market', 'data not given', 'outside clarification') never appears on screen: it stays a background check in the records.",
    "check": "bie/brain/visual_thinking.caution_problems"
+  },
+  {
+   "id": "D2-01",
+   "sections": [
+    "canvas"
+   ],
+   "status": "locked",
+   "rule": "A beat that tells a process (paying and getting change, a UPI scan, a card tap, a cheque, a barter swap, a refusal, counting up to a limit, counting) shows it HAPPENING with its kriya ka saancha: the people act on their cue words (hands give and take, the phone is raised to the QR stand, a head shakes), the camera moves in to the hands and the screen and back out (Navin, 1 November 2026: 'process show nahi ho rahi hai, like upi payment ka jikar hai shop par, par agar wo visuals se clear ho jaise scanner phone scan, tab maja hai'). A process no saancha fits goes to the missing-capability log.",
+   "check": "bie/brain/visual_thinking.py check_ideas (template per beat); bie/brain/video/saanche.py problems_of"
+  },
+  {
+   "id": "D2-02",
+   "sections": [
+    "canvas"
+   ],
+   "status": "locked",
+   "rule": "Story goods come from the story: a shop's stock, the buyers' bags, a balance's pans and an action's objects are the things the beat names (salt for salt, cloth for cloth), from the icon index and the asset library; nothing is drawn from a fixed picture (Navin, 1 November 2026: 'baat ho rahi hai kapda khareedne ki namak khareedne ki aur wo wahi cheeni ko show kar rha hai'). A thing no source has goes to needs.json.",
+   "check": "bie/brain/video/world.py goods_problems; bie/brain/canvas_director.py _icon_problems"
+  },
+  {
+   "id": "D2-03",
+   "sections": [
+    "canvas"
+   ],
+   "status": "locked",
+   "rule": "Layout in every mode: boards, labels, price tags, balances and actions never overlap while on screen together; in a world at most one board, label or title is on screen at a time and numbers go on objects (a price tag, the note, the phone screen, a passbook), never on a label; nothing sits under the subtitle strip (the bottom 14 % of the frame); an action's people are at least about a quarter of the frame tall; no camera key shows an empty street.",
+   "check": "bie/brain/video/world.py layout_problems; bie/brain/canvas.py subtitle_problems, above_strip, auto_camera"
+  },
+  {
+   "id": "D2-04",
+   "sections": [
+    "canvas"
+   ],
+   "status": "locked",
+   "rule": "Meaning: every relation of the dikhane ki list is realised by an element on its beat (a refusal or 'no status' puts a cross on that thing; an acceptance a tick; a limit a meter stopping at its red line); a struck value with an up or down arrow only when the same quantity changes, and change given back is the pay_change saancha (Navin's D1 findings 4 and 5).",
+   "check": "bie/brain/visual_thinking.py meaning_problems (relation_rows, struck_problems)"
+  },
+  {
+   "id": "D2-05",
+   "sections": [
+    "canvas"
+   ],
+   "status": "locked",
+   "rule": "One main character per video: the person the story follows keeps the same face, clothes and cap in every part; the others are generic. Icons fit the era and the concept (a phone or a card in a barter beat is reported).",
+   "check": "bie/brain/video/saanche.py main_look; bie/brain/visual_thinking.py icon_misfits (report)"
   }
- ]
+ ],
+ "processes": {
+  "how_it_is_used": "bie/brain/video/saanche.py TEMPLATES: the visual-idea step picks one per beat (template; 'none', or 'other' with a note that goes to the missing-capability log); the maker draws it as an action node (canvas) or element (world); code times the steps and moves the camera in to it.",
+  "templates": {
+   "hand_over": {
+    "steps": [
+     "give",
+     "take"
+    ],
+    "shows": "A gives a thing to B"
+   },
+   "pay_change": {
+    "steps": [
+     "pay",
+     "goods",
+     "change"
+    ],
+    "shows": "the buyer pays a note, takes the goods and gets the change back (₹500 in, ₹200 back)"
+   },
+   "barter_swap": {
+    "steps": [
+     "offer",
+     "ask",
+     "swap"
+    ],
+    "shows": "two people swap their things; at 'ask' both wonder whether they want the other's thing"
+   },
+   "upi": {
+    "steps": [
+     "scan",
+     "paid",
+     "received"
+    ],
+    "shows": "the buyer's phone scans the shop's QR stand; the phone shows '₹300 paid', the shopkeeper's 'received'"
+   },
+   "card_tap": {
+    "steps": [
+     "tap",
+     "approved"
+    ],
+    "shows": "a card taps the shop's POS machine; the machine shows the amount approved"
+   },
+   "cheque": {
+    "steps": [
+     "write",
+     "hand",
+     "balances"
+    ],
+    "shows": "a cheque is written for the amount, handed to the bank, and the two passbooks change (payer down, payee up)"
+   },
+   "coin_count": {
+    "steps": [
+     "count",
+     "limit"
+    ],
+    "shows": "coins drop onto a pile while a meter rises; at 'limit' it stops at its red line"
+   },
+   "refuse": {
+    "steps": [
+     "show",
+     "refuse"
+    ],
+    "shows": "the person looks at the thing, shakes the head, and a cross lands on the thing"
+   },
+   "accept": {
+    "steps": [
+     "show",
+     "accept"
+    ],
+    "shows": "the person looks at the thing, nods, and a tick lands on the thing"
+   },
+   "count_stack": {
+    "steps": [
+     "count"
+    ],
+    "shows": "n things appear one by one as they are said"
+   }
+  }
+ }
 }

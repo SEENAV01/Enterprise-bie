@@ -67,7 +67,7 @@ def beat(bid, say, covers=()):
 class Verbs(unittest.TestCase):
     def test_the_rulebook_of_visual_verbs_names_how_each_relation_is_shown(self):
         verbs = vt.load_verbs()
-        self.assertEqual(verbs["version"], "2026-10-31.1")
+        self.assertTrue(verbs["version"] >= "2026-10-31.1")                         # the file's own version (D2 added saanche)
         ids = vt.relations()
         for r in ("reject", "accept", "compulsory", "limit", "more_less", "count", "sequence", "cause_effect", "compare", "part_whole",
                   "place", "change", "promise", "question", "other"):
@@ -76,7 +76,7 @@ class Verbs(unittest.TestCase):
         self.assertEqual(vt.guess_relation("पुराना सिक्का अब नहीं चलता, reject हो गया"), "reject")
         self.assertEqual(vt.guess_relation("₹1,000 तक की सीमा है"), "limit")
         book = rulebook.load()
-        self.assertIn("visual_verbs@2026-10-31.1", book.version)
+        self.assertIn(f"visual_verbs@{verbs['version']}", book.version)
         canvas_rules = {r.id for r in book.for_section("canvas")}
         self.assertTrue({"D1-01", "D1-02", "D1-03", "D1-04", "D1-05", "D1-06", "VG-07", "VG-10"} <= canvas_rules)
 
@@ -88,7 +88,8 @@ class IconSearch(unittest.TestCase):
         self.assertIn("tw:2626", [r["id"] for r in icons.search("orthodox cross religious symbol")])
         self.assertEqual(icons.search("wheat")[0]["id"], "tw:1f33e")
         self.assertEqual(icons.search("गेहूँ के बदले कपड़ा")[0]["id"], "tw:1f33e")
-        self.assertEqual(icons.search("Cheques and deposits")[0]["id"], "fa:solid/money-check")
+        # the cheque first (Part D2, 1 November 2026: BIE's own cheque drawing, then the old line icon)
+        self.assertEqual([r["id"] for r in icons.search("Cheques and deposits")][:2], ["bie:cheque", "fa:solid/money-check"])
         self.assertEqual(icons.search("किसान")[0]["id"], "tw:1f9d1-200d-1f33e")
         self.assertEqual(icons.search("warehouse")[0]["id"], "fa:solid/warehouse")                  # whole words: not a house
         self.assertEqual(icons.check_ids(sorted({i for ids in icons.ALIASES.values() for i in ids})), [])
@@ -479,6 +480,9 @@ class ProofRunFixes(unittest.TestCase):
         answer = {"beats": [{"beat_id": "b1", "idea": "barter", "relation": "accept", "relation_note": "", "things": ["wheat"],
                              "people": [], "places": [], "shows": "wheat for cloth", "on_word": "Barter", "image_wanted": ""}],
                   "picture_type": "definition", "picture_note": ""}
+        # D2 (1 November 2026): a beat that names a process picks its saancha (or says why not)
+        self.assertIn("pick the template 'barter_swap'", vt.check_ideas(stub, answer)[0])
+        answer["beats"][0]["template"] = "barter_swap"
         self.assertEqual(vt.check_ideas(stub, answer), [])
         self.assertEqual(vt.IDEAS_SCHEMA["properties"]["picture_type"]["enum"], list(vt.PICTURE_TYPES))
         self.assertFalse(vt._is_thing("1023"))

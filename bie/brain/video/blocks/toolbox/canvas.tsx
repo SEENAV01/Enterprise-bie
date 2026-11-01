@@ -17,6 +17,7 @@ import React from "react";
 import { Easing, interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
 import { registerBlock, BlockProps } from "../registry";
 import { FONT, assetUrl } from "./common";
+import { ActionStage, STAGE_W, STAGE_H } from "./saanche";
 
 export const THEMES: Record<string, Record<string, string>> = {
   paper: { bg: "#fbf8f1", ink: "#1f2a36", muted: "#5d6b78", line: "#33414f", accent: "#2b7bd6", warm: "#ef8a1f",
@@ -408,6 +409,10 @@ const CanvasBuild: React.FC<BlockProps> = ({ data, width, height }) => {
           case "value": return <div key={el.id} style={{ opacity: f }}><ValueEl el={el} P={P} W={width} H={height} frame={frame} fps={fps} touches={touches} /></div>;
           case "crowd": return <div key={el.id} style={{ opacity: f }}><CrowdEl el={el} W={width} H={height} frame={frame} fps={fps} touches={touches} /></div>;
           case "table": return <div key={el.id} style={{ opacity: f }}><TableEl el={el} P={P} W={width} H={height} frame={frame} fps={fps} /></div>;
+          // a kriya ka saancha (Task 046 Part D2): the same stage a world plays, fitted into the node's box
+          case "action": return <div key={el.id} style={{ position: "absolute", left: el.x * width, top: el.y * height, width: el.w * width,
+            height: el.h * height, opacity: f }}><svg viewBox={`0 0 ${STAGE_W} ${STAGE_H}`} width="100%" height="100%" style={{ overflow: "visible" }}>
+            <ActionStage el={el} frame={frame} fps={fps} /></svg></div>;
           default: return null;
         }
       })}

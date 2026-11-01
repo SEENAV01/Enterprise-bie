@@ -1286,3 +1286,45 @@ Yuan, Dollar, Pound); currency and herder aliases; the fetch rules of entry 29's
 | ₹ | 0 | 0 | 0 |
 
 Not changed, for Navin to decide: whether story parts stay on the canvas until a world kit can draw the story's own exchange.
+
+## Entry 31 · Navin's verdict on the D1 videos: the world drew the same sugar, the process never happened, and the cameras hid content under the captions, 1 November 2026
+
+**Run:** none new; the verdict is on D1 proof run b (`t046d-money-v2b`, `t046d-money-v4b`) and its stills. Navin: "bie ne ek
+duniya bna li jaise bank shop par usko jyo ka tyo use kiya, baat ho rahi hai kapda khareedne ki namak khareedne ki aur wo wahi
+cheeni ko show kar rha hai"; "process show nahi ho rahi hai, like upi payment ka jikar hai shop par, par agar wo visuals se
+clear ho jaise scanner phone scan, tab maja hai"; "mera meaning hai ki visuals dekhkar concept clear ho aur user narration se
+connect kar sake".
+
+**Taught:**
+- A world kit that draws fixed goods (the sugar bag in `world.tsx`) shows the wrong thing in every story but one; the goods
+  must come from the beat's nouns like every icon.
+- A place with people standing in it is not a process; the learner must see the hands give, the phone scan, the head shake.
+  BIE had no way to say "this beat is a UPI payment" or to draw one.
+- Most "subtitles over content" (D1 finding 7) was BIE's own camera code, not the maker's plan: a scene camera box clamped to
+  the canvas top pushed the bottom row under the captions, and the auto camera never counted the strip. Measured on run b's
+  36 plans: 37 elements under the strip with the old cameras, 4 with the new code on the same plans.
+- The D1 checks counted "a non-text thing on the beat" but never asked whether the beat's relation was shown: 18 of 98
+  relations in run b had nothing on their beat that showed them (a "no status" with no cross), and 10 struck values were used
+  for change given back or for two different quantities.
+- LOOK-D1 asked one loose question per part; it could not see that a world showed no process.
+
+**Changed in BIE** (branch `task046d2-process-saanche`, IMPLEMENTED; STATUS "Task 046 · Part D2"): kriya ke saanche (ten process
+templates, timed by code, drawn in world and canvas, the camera moving in); story goods from the story (no fixed picture);
+characters with hands, phones, moods and one main character per video; the stricter layout check (overlaps, one text at a time
+in a world, numbers on objects, the subtitle strip on the renderer's own cameras, actor size, empty frames); the meaning checks
+(every relation realised on its beat, a struck value only for the same quantity, change by the change template); Fluent Emoji
+3D and BIE's own money drawings under RBI's reproduction rules; LOOK-D2 (visible / happening per item, score by code).
+
+| Measure (on D1 run b's 36 plans) | D1 code | D2 code |
+| --- | --- | --- |
+| Relations of the dikhane ki list realised on their beats | not checked | 80 of 98 (81.6 %): the other 18 are now refused with what to add |
+| Struck value for change given back or two quantities | not checked | 10 found, refused |
+| World overlaps / two texts together | not checked | 11 / 8 found, refused |
+| Elements under the subtitle strip | 37 (not checked) | 4 (camera code fixed; the 4 are refused) |
+| Goods drawn from a fixed picture | 22 | 0 possible (refused without the story's goods) |
+| Actions (processes shown) | 0 (no way to draw one) | the ten saanche |
+| Earlier plans recompiled (320) | 206 compile | the same 206 (0 differences) |
+| Passed outputs | 0 problems | 0 problems |
+
+The live numbers (first-try pass, rounds, tokens, ₹ per page, LOOK-D1 and LOOK-D2 against D1's 5.25) come with the VM run of
+Money v2 and v4 after the merge.
