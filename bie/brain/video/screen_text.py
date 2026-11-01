@@ -18,6 +18,7 @@ import re
 
 NEVER = "✓✔✗✘≠"                                       # never spoken; a code
 CONNECTORS = "→=+:/-–—|·"                              # allowed only inside a spoken phrase; never at the end
+CURRENCY_SIGNS = {"₹", "$", "€", "£", "¥", "元", "₨"}  # a sign alone on a label names a coin or a note (Part D2 run)
 DEVANAGARI = re.compile(r"[ऀ-ॿ]{2,}")
 LATIN = re.compile(r"[A-Za-z][A-Za-z'’-]{2,}")
 NUMBER = re.compile(r"(?<![A-Za-z\d])\d[\d,]*(?:\.\d+)?(?![A-Za-z\d])")      # an amount, not an id like c01.1 or b2
@@ -71,6 +72,8 @@ def text_problems(text: str, say: str, *, where: str, role: str = "text", beat_i
         problems.append(f"{where}: '{clean[:40]}' uses the symbol code{'s' if len(bad) > 1 else ''} {' '.join(bad)}; write the idea in "
                         "words the learner reads, or leave it to the narration (CV-13)")
     lines = [ln.strip() for ln in clean.split("\n") if ln.strip()]
+    if role == "label" and clean in CURRENCY_SIGNS:          # a coin's or a note's own sign ('¥', '£') names it (Part D2 run)
+        return problems
     if any(ln[-1] in CONNECTORS for ln in lines) or any(not (DEVANAGARI.search(ln) or LATIN.search(ln) or NUMBER.search(ln)) for ln in lines):
         problems.append(f"{where}: '{clean[:40]}' is unfinished (a line ends on a connector or is only symbols); write a complete "
                         "phrase or sentence (CV-13)")

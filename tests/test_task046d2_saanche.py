@@ -72,7 +72,7 @@ class Saanche(unittest.TestCase):
         self.assertEqual([x["look"] for x in a["actors"] if x["main"]], [42])
         self.assertEqual(saanche.main_look("v2"), saanche.main_look("v2"))
         backwards = copy.deepcopy(PAY)
-        backwards["steps"][0]["cue"] = ["b4", "अगले"]
+        backwards["steps"][0]["cue"] = ["b4", "अगले"]     # steps out of order are put in order now; ₹300 is then said in none of its beats
         with self.assertRaises(PlanError):
             saanche.compile_action(backwards, frame_of, {**self.says(), "b4": "अगले ₹500 नोट"})
 
@@ -117,9 +117,17 @@ class WorldGoodsAndLayout(unittest.TestCase):
         self.assertTrue(any("b and l overlap" in p for p in problems), problems)
         self.assertTrue(any("at most one board, label or title" in p for p in problems))
         self.assertTrue(any("l: a label has no number" in p for p in problems))
-        self.assertTrue(any("low reaches into the subtitle strip" in p for p in problems))
-        self.assertTrue(any("of the frame tall" in p for p in problems))
-        self.assertTrue(any("shows an empty street" in p for p in problems))
+        _, report = world.compile_world(plan)               # a label low in the frame is raised above the strip by code
+        self.assertTrue(any(f.startswith("low raised") for f in report["auto_fixes"]), report["auto_fixes"])
+        self.assertFalse(any("low reaches into the subtitle strip" in p for p in problems))
+        self.assertTrue(any("camera key added on pay" in f for f in report["auto_fixes"]), report["auto_fixes"])   # code frames it
+        scene, _ = world.compile_world(plan)
+        for k in scene["layers"][0]["data"]["camera"]:          # the check itself still names people too small to see
+            k["zoom"] = 0.6
+        scene["layers"][0]["data"]["camera"][-1]["x"] = 200      # and a key that looks at no one (code moves the plan's keys to the action)
+        checked = world.layout_problems(scene)
+        self.assertTrue(any("of the frame tall" in p for p in checked))
+        self.assertTrue(any("shows an empty street" in p for p in checked))
 
     def test_the_director_check_refuses_a_world_without_its_goods_and_passes_a_world_with_saanche(self):
         stub = {"id": "v9_s1", "beats": copy.deepcopy(SHOP_BEATS)}
@@ -276,6 +284,186 @@ class LookD2(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+def element(scene, eid):
+    return next(e for e in scene["layers"][0]["data"]["elements"] if e["id"] == eid)
+
+
+def act(aid, x, at, template="hand_over", **extra):
+    """A compiled world action (the shape ``saanche.compile_action`` returns), for the settle tests."""
+    steps = saanche.TEMPLATES[template]["steps"]
+    out = {"id": aid, "kind": "action", "template": template, "x": x, "at": at,
+           "step_at": {s: at + 18 + 20 * i for i, s in enumerate(steps)}, "actors": [], "objects": {}, "amounts": {}}
+    out.update(extra)
+    return out
+
+
+def world_scene(els, cam, duration=300):
+    return {"id": "s", "duration": duration, "layers": [{"data": {"elements": els, "camera": cam}}]}
+
+
+class AutoFixes(unittest.TestCase):
+    """Seekh -> BIE from the first Part D2 run (1 November 2026, 88 rounds for 36 parts): what code settles itself."""
+
+    def says(self):
+        return {b["beat_id"]: b["say"] for b in SHOP_BEATS}
+
+    def test_an_action_is_completed_from_the_narration(self):
+        upi = copy.deepcopy(UPI)
+        upi["amounts"] = [{"name": "price", "text": "₹300"}]            # an amount upi does not have, and its own one missing
+        upi["steps"] = upi["steps"][:2] + [{"name": "wave", "cue": ["b5", "paid"]}]
+        fixes = saanche.complete_action(upi, self.says())
+        self.assertEqual(upi["amounts"], [{"name": "amount", "text": "₹300"}])
+        self.assertEqual([s["name"] for s in upi["steps"]], ["scan", "paid", "received"])
+        self.assertEqual(upi["steps"][-1]["cue"], ["b5", "paid"])          # the last step takes the cue of the one before
+        self.assertEqual(len(fixes), 4, fixes)
+        self.assertEqual(saanche.problems_of(upi, self.says()), [])
+        stack = {"id": "c", "template": "count_stack", "actors": [], "objects": [{"name": "thing", "icon": "tw:1fa99"}],
+                 "steps": [{"name": "count", "cue": ["b1", "राम"]}]}
+        saanche.complete_action(stack, {"b1": "राम तीन सिक्के गिनता है।"})
+        self.assertEqual(stack["amounts"], [{"name": "n", "text": "3"}])
+        coins = {"id": "m", "template": "coin_count", "steps": []}
+        saanche.complete_action(coins, {})
+        self.assertNotIn("amounts", coins)                                  # nothing said: nothing made up
+
+    def test_steps_said_in_another_order_follow_the_template_on_their_words(self):
+        give = {"id": "g", "kind": "action", "template": "hand_over", "objects": [{"name": "thing", "icon": "tw:1f9c2", "label": "नमक"}],
+                "actors": [{"role": "giver", "who": "other"}, {"role": "taker", "who": "main"}],
+                "steps": [{"name": "give", "cue": ["b3", "नमक"]}, {"name": "take", "cue": ["b2", "नोट"]}]}
+        frames = {"b2": 100, "b3": 200}
+        a = saanche.compile_action(give, lambda cue: frames[cue[0]], self.says())
+        self.assertEqual(a["step_at"], {"give": 100, "take": 200})
+        self.assertTrue(any("follow the template" in f for f in a["auto_fixes"]))
+
+    def test_places_and_times_code_settles(self):
+        label = {"id": "l", "kind": "label", "x": 600, "y": 300, "text": "नमक", "at": 50, "until": 40}
+        a, b = act("a", 2600, 40), act("b", 2600, 45)
+        fixes = world.settle_places([label, a, b], 300)
+        self.assertNotIn("until", label)                                    # an until before its cue would hide it for good
+        self.assertEqual(b["x"], 2600 + saanche.STAGE_W)                    # two actions starting together stand side by side
+        self.assertEqual(len(fixes), 2, fixes)
+        first, second = act("first", 2600, 40, "refuse", until=100), act("second", 2600, 130, "accept")
+        fixes = world.settle_places([first, second], 300)
+        self.assertEqual(first["until"], 130)                               # no empty stage between them
+        self.assertIn("the stage was empty for 1.0 s", fixes[0])
+        first, second = act("first", 2600, 40, "refuse", until=100), act("second", 2600, 130, "accept")
+        board = {"id": "bd", "kind": "board", "x": 2600, "y": 500, "steps": [{"text": "खाता", "at": 105}], "until": 125}
+        world.settle_places([first, second, board], 300)
+        self.assertEqual(first["until"], 100)                               # something else is shown there meanwhile
+        playing = act("p", 2600, 40, "pay_change")
+        board = {"id": "bd", "kind": "board", "x": 2600, "y": 500, "steps": [{"text": "खाता", "at": 60}]}
+        world.settle_places([playing, board], 300)
+        self.assertNotIn("until", playing)                                  # an action never leaves before it has played
+
+    def test_a_close_up_ends_when_its_action_leaves_or_the_next_one_starts(self):
+        cam = [{"at": 0, "x": 2600, "y": 540, "zoom": 1.0, "frames": 30}]
+        a = act("a", 2600, 10, "refuse", until=120, close_up={"at": 50, "until": 200, "step": "refuse"})
+        fixes = []
+        keys = world._close_ups(cam, [a], fixes)
+        self.assertEqual([(k["at"], k.get("close_up")) for k in keys], [(0, None), (50, "a"), (120, None)])
+        self.assertIn("the close-up on a ends at 120, when a leaves", fixes)
+        a = act("a", 2600, 10, "refuse", close_up={"at": 50, "until": 200, "step": "refuse"})
+        cam2 = cam + [{"at": 90, "x": 3600, "y": 540, "zoom": 1.0, "frames": 24, "frame": "b"}]
+        keys = world._close_ups(cam2, [a, act("b", 3600, 90)], [])
+        self.assertEqual([(k["at"], k["x"]) for k in keys], [(0, 2600), (50, 2600), (90, 3600)])
+        self.assertFalse(any("frame" in k for k in keys))
+        short = act("s", 2600, 10, "refuse", until=60, close_up={"at": 50, "until": 200, "step": "refuse"})
+        self.assertEqual(world._close_ups(cam, [short], []), cam)          # too short to move in: the camera stays
+
+    def test_the_camera_frames_and_widens_for_the_actions_and_looks_low_enough(self):
+        a, b = act("a", 2600, 10), act("b", 3600, 20)
+        keys, fixes = world._frame_actions([{"at": 0, "x": 2600, "y": 540, "zoom": 1.0, "frames": 30}], [a, b], [])
+        self.assertIn("camera key added on b at its start (x 3600)", fixes)
+        self.assertTrue(any("widened to hold a, b" in f for f in fixes), fixes)
+        self.assertEqual(keys[-1]["x"], 3100)
+        self.assertGreaterEqual(keys[-1]["zoom"], 0.9)
+        cam = [{"at": 0, "x": 2600, "y": 540, "zoom": 1.3, "frames": 30}]
+        fixes = world.settle_layout([act("a", 2600, 10)], cam, 300)
+        self.assertEqual(cam[0]["y"], 553)                                   # the feet stay above the subtitle strip
+        self.assertTrue(fixes)
+
+    def test_an_empty_street_over_time_is_named(self):
+        shop = {"id": "shop", "kind": "shop", "x": 2600}
+        away = [{"at": 0, "x": 2600, "y": 540, "zoom": 1.0, "frames": 30}, {"at": 100, "x": 600, "y": 540, "zoom": 1.0, "frames": 10},
+                {"at": 200, "x": 2600, "y": 540, "zoom": 1.0, "frames": 10}]
+        problems = world.empty_frames(world_scene([shop], away))
+        self.assertEqual(len(problems), 1)
+        self.assertIn("empty street from 3.", problems[0])
+        glide = [dict(k) for k in away]
+        glide[2]["at"] = 115                                                 # a glide past the empty street is fine
+        self.assertEqual(world.empty_frames(world_scene([shop], glide)), [])
+        gone = world_scene([shop, act("a", 4400, 10, until=60)], [{"at": 0, "x": 4400, "y": 540, "zoom": 1.0, "frames": 30}])
+        self.assertIn("(the camera at x 4400)", world.empty_frames(gone)[0])  # the camera stays where the people have gone
+        close = world_scene([shop, act("a", 2600, 10, until=60)], [{"at": 0, "x": 2600, "y": 540, "zoom": 1.0, "frames": 30},
+                            {"at": 40, "x": 2600, "y": world.CLOSE_Y, "zoom": world.CLOSE_ZOOM, "frames": 22, "close_up": "a"}])
+        self.assertIn("from 2.0 s", world.empty_frames(close)[0])            # close on people who have gone, the shop behind
+
+    def test_code_draws_an_unshown_sequence_and_counts_highlights_and_playing_processes(self):
+        beats = [{"beat_id": "b1", "say": "राम गेहूँ लाता है।"}, {"beat_id": "b2", "say": "फिर गेहूँ से कपड़ा मिलता है।"}]
+        wheat = {"id": "wheat", "kind": "icon", "icon": "tw:1f33e", "cell": [0, 0, 2, 2], "cue": ["b1", "गेहूँ"]}
+        cloth = {"id": "cloth", "kind": "icon", "icon": "tw:1f9f5", "cell": [4, 0, 2, 2], "cue": ["b2", "कपड़ा"]}
+        plan = {"beats": beats, "nodes": [wheat, cloth]}
+        ideas = {"beats": [{"beat_id": "b1", "relation": "other"}, {"beat_id": "b2", "relation": "sequence"}]}
+        self.assertFalse(vt.relation_rows(plan, "B", ideas)[0]["realised"])
+        fixes = vt.realise_relations(plan, "B", ideas)
+        self.assertEqual(plan["nodes"][-1], {"id": "auto_arrow_b2", "kind": "arrow", "from": "wheat", "to": "cloth", "cue": ["b2", "कपड़ा"]})
+        self.assertEqual(fixes, ["arrow wheat → cloth drawn on beat b2 (sequence)"])
+        self.assertTrue(vt.relation_rows(plan, "B", ideas)[0]["realised"])
+        self.assertEqual(vt.realise_relations(plan, "C", ideas), [])           # a world shows it with a saancha, not an arrow
+        line = {"id": "tl", "kind": "picture", "cell": [0, 3, 12, 3], "cue": ["b1", ""], "picture": {"type": "timeline"}}
+        mark = {"id": "h", "kind": "highlight", "target": "tl.2", "cue": ["b2", "फिर"]}
+        rows = vt.relation_rows({"beats": beats, "nodes": [line, mark]}, "B", ideas)
+        self.assertEqual(rows[0]["by"], ["h"])
+        three = beats + [{"beat_id": "b3", "say": "कपड़ा राम के पास।"}]
+        give = {"id": "give", "kind": "action", "template": "hand_over", "steps": [{"name": "give", "cue": ["b1", ""]}, {"name": "take", "cue": ["b3", ""]}]}
+        rows = vt.relation_rows({"beats": three, "nodes": [give]}, "B", ideas)
+        self.assertEqual(rows[0]["by"], ["give"])
+
+    def test_a_canvas_element_leaves_its_cells_only_when_it_has_nothing_left_to_show(self):
+        beats = [{"beat_id": "b1", "say": "राम ₹500 देता है।"}, {"beat_id": "b2", "say": "दुकानदार नमक देता है।"},
+                 {"beat_id": "b3", "say": "राम के पास ₹200 बचते हैं।"}]
+        value = {"id": "v", "kind": "value", "cell": [0, 0, 4, 2], "steps": [{"text": "₹500", "cue": ["b1", "देता"]}]}
+        salt = {"id": "salt", "kind": "icon", "icon": "tw:1f9c2", "cell": [0, 0, 4, 2], "cue": ["b2", "नमक"]}
+        for order in ((value, salt), (salt, value)):              # either order in the plan
+            plan = {"id": "s", "grid": [12, 8], "touches": True, "beats": copy.deepcopy(beats), "nodes": copy.deepcopy(list(order))}
+            _, report = canvas.compile_plan(plan)
+            self.assertIn("v leaves when salt comes (its cells)", report["auto_fixes"])
+            busy = copy.deepcopy(list(order))
+            next(n for n in busy if n["id"] == "v")["steps"].append({"text": "₹200", "cue": ["b3", "बचते"]})
+            with self.assertRaises(PlanError):                     # its ₹200 is still to come: the maker moves one
+                canvas.compile_plan({"id": "s", "grid": [12, 8], "touches": True, "beats": copy.deepcopy(beats), "nodes": busy})
+
+    def test_two_processes_on_one_place_hand_over_after_the_first_ones_last_step(self):
+        beats = [{"beat_id": "b1", "say": "किसान ने नमक दिया और कपड़ा लिया। इसलिए अब वह आगे नमक देता है और गेहूँ लेता है।"}]
+        def give(aid, g, t, thing):
+            return {"id": aid, "kind": "action", "template": "hand_over", "cell": [0, 2, 12, 4],
+                    "actors": [{"role": "giver", "who": "main"}, {"role": "taker", "who": "other"}],
+                    "objects": [{"name": "thing", "icon": "tw:1f9c2", "label": thing}],
+                    "steps": [{"name": "give", "cue": ["b1", g]}, {"name": "take", "cue": ["b1", t]}]}
+        first, second = give("one", "दिया", "लिया।", "नमक"), give("two", "इसलिए", "लेता", "नमक")
+        first["until_cue"] = ["b1", "लेता"]                      # the maker kept the first on too long
+        scene, report = canvas.compile_plan({"id": "s", "grid": [12, 8], "touches": True, "beats": beats, "nodes": [first, second]})
+        one, two = (element(scene, i) for i in ("one", "two"))
+        self.assertGreaterEqual(one["until"], one["step_at"]["take"] + 8)        # it plays its take
+        self.assertGreaterEqual(two["at"], one["until"])
+        self.assertLessEqual(two["at"], two["step_at"]["give"])
+        close = copy.deepcopy(second)
+        close["steps"][0]["cue"] = ["b1", "लिया।"]                               # the second gives on the first's take: refused
+        with self.assertRaises(PlanError):
+            canvas.compile_plan({"id": "s", "grid": [12, 8], "touches": True, "beats": beats, "nodes": [copy.deepcopy(first), close]})
+        self.assertTrue(any("then two comes on" in f for f in report["auto_fixes"]), report["auto_fixes"])
+        cam = scene["layers"][0]["data"]["cam"]
+        for k in cam:                                                            # no close-up outlives its action
+            if k.get("close_up") == "one":
+                nxt = min(x["at"] for x in cam if x["at"] > k["at"])
+                self.assertLessEqual(nxt, one["until"])
+
+    def test_a_currency_sign_alone_names_a_coin_on_a_label(self):
+        from bie.brain.video import screen_text
+        problems = screen_text.text_problems("¥", "यह ¥ का सिक्का है।", where="l", role="label")
+        self.assertFalse(any("unfinished" in p for p in problems), problems)
+        self.assertTrue(any("unfinished" in p for p in screen_text.text_problems("→", "आगे", where="l", role="label")))
 
 
 class MoneyDrawingRules(unittest.TestCase):

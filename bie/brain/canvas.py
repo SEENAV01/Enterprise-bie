@@ -456,6 +456,10 @@ def action_close_ups(keys: list, els: list) -> list:
         size = min(1.0, max(e["w"], e["h"] / (SUBTITLE_TOP - 0.04)) + 0.04)
         x = min(max(e["x"] + e["w"] / 2 - size / 2, 0.0), 1 - size)
         y = min(max(e["y"] + e["h"] - (SUBTITLE_TOP - 0.03) * size, 0.0), 1 - size)
+        until = min(cu["until"], e.get("until", 10 ** 9))      # the camera never stays close on a box whose action has left
+        if until - cu["at"] < 24:
+            continue
+        cu = dict(cu, until=until)
         before = [k for k in out if k["at"] <= cu["until"] and not k.get("close_up")]
         back = dict(before[-1]["box"]) if before else {"x": 0, "y": 0, "w": 1, "h": 1}
         out = [k for k in out if not (cu["at"] <= k["at"] <= cu["until"])]
@@ -509,6 +513,32 @@ def subtitle_problems(scene: dict, *, step: int = 6) -> list:
 
 # ---------------------------------------------------------------- compile
 
+def _hand_over(first: dict, second: dict, later: list | None = None) -> str | None:
+    """Code lets ``first`` give its place to ``second`` (seekh -> BIE, the first Part D2 run): only when the second starts at
+    least 12 frames later and neither belongs to a book picture's group. The first leaves as the second comes when it has
+    nothing left to do then (no value step, action step or counted item at or after the second's start); two processes on one
+    place hand over after the first's last step has begun (at least 8 of its 24 motion frames, then the 15-frame fade of
+    saanche.tsx), the second coming on by its own first step.
+    ``later`` gives the first's step frames while it is still being compiled. Returns what was done, or None (the maker moves
+    one)."""
+    at = second.get("at", 0)
+    if at - first.get("at", 0) < 12 or first.get("group") or second.get("group"):
+        return None
+    if later is None:
+        later = [st.get("at", 0) for st in first.get("steps") or [] if isinstance(st, dict)]
+        later += list((first.get("step_at") or {}).values()) + list(first.get("items") or [])
+    if not any(f >= at for f in later):
+        first["until"] = at
+        return f"{first['id']} leaves when {second['id']} comes"
+    nxt = min((second.get("step_at") or {}).values(), default=None)
+    if first.get("kind") == "action" and second.get("kind") == "action" and nxt is not None and later \
+            and min(max(later) + 12, nxt) >= max(later) + 8:
+        first["until"] = min(max(later) + 12, nxt)
+        second["at"] = max(at, first["until"])
+        return f"{first['id']} plays its last step, then {second['id']} comes on in its place"
+    return None
+
+
 def compile_plan(plan: dict, *, voice: dict | None = None, icon_paths: dict | None = None, lead_in: float = timing.LEAD_IN):
     """Return (scene_spec, report). Raises PlanError for a plan that would render wrong."""
     grid = plan.get("grid", [12, 8])
@@ -525,7 +555,7 @@ def compile_plan(plan: dict, *, voice: dict | None = None, icon_paths: dict | No
     def frame_of(cue):
         return cue_frame(tl, scene_id, says, cue)
 
-    els, boxes, cells_used = [], {}, []
+    els, boxes, cells_used, fixes = [], {}, [], []
     for n in expand_pictures(expand_trees(plan.get("nodes", []), grid), grid):
         kind = n["kind"]
         if kind not in KINDS:
@@ -555,7 +585,15 @@ def compile_plan(plan: dict, *, voice: dict | None = None, icon_paths: dict | No
                     o = next(e for e in els if e["id"] == other_id)
                     b_on = (o.get("at", 0), o.get("until", 10 ** 9))
                     if a_on[0] < b_on[1] and b_on[0] < a_on[1]:
-                        raise PlanError(f"{n['id']} and {other_id} share grid cells while both are on screen")
+                        # seekh -> BIE (the first Part D2 run): a later element in the same cells takes them over, the earlier
+                        # one leaves as it comes; two that start together stay a problem for the maker
+                        first, second = (o, el) if b_on[0] <= a_on[0] else (el, o)
+                        own = [frame_of(st["cue"]) for st in n.get("steps") or [] if isinstance(st, dict) and st.get("cue")]
+                        done = _hand_over(first, second, own if first is el else None)
+                        if done:
+                            fixes.append(done + " (its cells)")
+                        else:
+                            raise PlanError(f"{n['id']} and {other_id} share grid cells while both are on screen")
             if "cell" in n:
                 cells_used.append((n["id"], n["cell"]))
             if kind == "icon":
@@ -677,7 +715,18 @@ def compile_plan(plan: dict, *, voice: dict | None = None, icon_paths: dict | No
         for b in placed[i + 1:]:
             on = max(a.get("at", 0), b.get("at", 0)) < min(a.get("until", 10 ** 9), b.get("until", 10 ** 9))
             if on and overlap(a, b):
-                raise PlanError(f"{a['id']} and {b['id']} overlap on screen")
+                first, second = (a, b) if a.get("at", 0) <= b.get("at", 0) else (b, a)
+                done = _hand_over(first, second)      # seekh -> BIE: the earlier one gives its place to the later one
+                if done:
+                    fixes.append(done + " (same place)")
+                else:
+                    raise PlanError(f"{a['id']} and {b['id']} overlap on screen")
+    by_id = {e["id"]: e for e in els}
+    for e in els:                          # an arrow, mark or highlight leaves with the element it points at
+        ends = [by_id.get(r) for r in (e.get("target"), (e.get("from") or {}).get("id"), (e.get("to") or {}).get("id")) if r]
+        untils = [x["until"] for x in ends if x and "until" in x]
+        if untils and min(untils) < e.get("until", 10 ** 9):
+            e["until"] = min(untils)
     duration = tl[scene_id]["duration"]
     # density: how many elements are visible at once (peak)
     peak = max((len({e.get("group") or e["id"] for e in els if e.get("at", 0) <= f < e.get("until", 10 ** 9)}) for f in range(0, duration, 5)),
@@ -760,7 +809,8 @@ def compile_plan(plan: dict, *, voice: dict | None = None, icon_paths: dict | No
     report = {"scene": scene_id, "seconds": round(duration / fps, 1), "elements": len(els), "peak_visible": peak,
               "longest_still_s": round(still, 1), "changes": len(changes) - 1,
               "change_every_s": round(every, 1), "problems": problems, "advisories": advisories,
-              "mode": "B" if plan.get("touches") else "A", "level": "L2 + touches" if plan.get("touches") else "L2"}
+              "mode": "B" if plan.get("touches") else "A", "level": "L2 + touches" if plan.get("touches") else "L2",
+              "auto_fixes": fixes + [f for e in els for f in e.pop("auto_fixes", [])]}
     return scene, report
 
 

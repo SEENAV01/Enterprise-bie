@@ -133,8 +133,15 @@ class Canvas(unittest.TestCase):
     def test_shared_cells_on_screen_together_are_refused_but_one_after_another_pass(self):
         plan = copy.deepcopy(BASE)
         plan["nodes"].append({"id": "x", "kind": "icon", "icon": "tw:1f4b0", "cell": [1, 3, 2, 2], "cue": ["b2", "दाम"]})
+        # Task 046 Part D2 (seekh -> BIE): a later element in the same cells takes them over, the earlier one leaves as it comes
+        scene, report = canvas.compile_plan(copy.deepcopy(plan))
+        self.assertTrue(any("comes (its cells)" in f for f in report["auto_fixes"]), report["auto_fixes"])
+        earlier = next(e for e in scene["layers"][0]["data"]["elements"] if e["id"] == plan["nodes"][0]["id"])
+        self.assertEqual(earlier["until"], element(scene, "x")["at"])
+        together = copy.deepcopy(plan)                     # two that start together stay a problem for the maker
+        together["nodes"][-1]["cue"] = list(together["nodes"][0]["cue"])
         with self.assertRaises(canvas.PlanError):
-            canvas.compile_plan(copy.deepcopy(plan))
+            canvas.compile_plan(together)
         plan["nodes"][0]["until_cue"] = ["b2", "", 0.0]
         plan["nodes"] = [n for n in plan["nodes"] if n["id"] != "a"]
         canvas.compile_plan(plan)
@@ -279,8 +286,8 @@ class World(unittest.TestCase):
             world.compile_world(bad)
         bad = copy.deepcopy(plan)
         bad["camera"][1], bad["camera"][2] = bad["camera"][2], bad["camera"][1]
-        with self.assertRaises(canvas.PlanError):
-            world.compile_world(bad)
+        _, report = world.compile_world(bad)                 # Task 046 Part D2: code puts the keys in time order
+        self.assertIn("camera keys put in time order", report["auto_fixes"])
         bad = copy.deepcopy(plan)
         bad["elements"] = [e for e in bad["elements"] if e["kind"] != "shop"]
         with self.assertRaises(canvas.PlanError):

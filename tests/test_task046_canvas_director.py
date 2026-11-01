@@ -146,6 +146,7 @@ class Plans(unittest.TestCase):
         self.assertTrue(problems[0].startswith("icon 'tw:bank' is not in the icon index; nearest: tw:1f3e6 (bank)"), problems)
         bad = json.loads(json.dumps(value))
         bad["nodes"][2]["cell"] = bad["nodes"][1]["cell"]
+        bad["nodes"][2]["cue"] = list(bad["nodes"][1]["cue"])          # together on screen from the same word (D2: one after another is settled)
         self.assertTrue(any("share grid cells" in p for p in cd.check_plan(self.stub, bad, "B")))
         self.assertEqual(cd.check_plan(self.stub, {"nodes": [{"id": "x", "kind": "text", "cell": "no"}]}, "B")[0][:11], "plan shape:")
         self.assertEqual(cd.check_plan(self.stub, value, "B"), [])
@@ -160,7 +161,8 @@ class Plans(unittest.TestCase):
         self.assertEqual((report["mode"], report["level"], report["problems"]), ("C", "L3", []))
         bad = json.loads(json.dumps(value))
         bad["camera"][1], bad["camera"][2] = bad["camera"][2], bad["camera"][1]
-        self.assertEqual(cd.check_plan(self.stub, bad, "C"), ["camera keys must be in time order"])
+        self.assertEqual(cd.check_plan(self.stub, bad, "C"), [])                      # D2: code puts the keys in time order
+        self.assertIn("camera keys put in time order", world.compile_world(cd.world_from(self.stub, bad))[1]["auto_fixes"])
 
     def test_a_long_part_is_split_into_near_equal_canvases(self):
         long = dict(self.stub, beats=[{"beat_id": f"b{n}", "say": f"beat {n} कहता है।"} for n in range(1, 20)])

@@ -9,8 +9,8 @@ Updated: 1 November 2026 · Read this first in every new session, then show Navi
 | Phase | 1 · BIE as one whole system; plan agreed on 22 October 2026 (ROADMAP, "Agreed on 22 October 2026") |
 | Current task | **Task 046 · Part D2: kriya ke saanche (process templates), story goods from the story, stricter layout and meaning checks** (Navin's verdict on the D1 videos, 1 November 2026: "baat ho rahi hai kapda khareedne ki namak khareedne ki aur wo wahi cheeni ko show kar rha hai"; "process show nahi ho rahi hai ... jaise scanner phone scan, tab maja hai"). Section "Task 046 · Part D2" below. Before it: Part D1 (section below), Part C (Economy), the whole Money chapter. |
 | Branch | `task046d2-process-saanche` (PR #115) |
-| State | **1 November 2026: Step 0 done with Navin's yes**: PR #113 (F-18, the Section 18 sidecar race) merged as `d6174636` with every check green (the race did not recur); PR #114 (Part D1 proof run b) brought up to date with main and merged as `65e87a6e`. Part D2 IMPLEMENTED on PR #115 (offline tests, local stills of test plans, the D2 checks measured on run b's plans); not yet run live. A toolbox lane fix (six pinned for psychopy.data; python-dateutil 4.0.0 of 1 November no longer brings it) rode PR #114 (PR #116 closed as merged through it). Nothing ACCEPTED. |
-| Next task | Merge PR #115 when every check is green; then the VM canvas job on Money v2 and v4 (narration locked), the renders, the review pages and the dikhane ki list pages, LOOK-D1 (like for like with D1's 5.25) and LOOK-D2, the measures against D1; then **STOP for Navin's verdict on Part D2**; then the voice (Task 047, with the sound effects). |
+| State | **1 November 2026:** Part D2 merged as PR #115 (`7e06fa1e`), IMPLEMENTED. **Live run a** (`runs/vm-t046d2-money-canvas-a-brain-canvas/`, Codex, ₹0, 101 min): 26 of 36 parts passed (6 first try, 88 rounds), so no video spec and no render; on the passed parts every relation realised (65 of 65), 41 actions, 0 overlaps, 0 under the subtitle strip. Seekh → BIE on branch `task046d2-autofix` (SEEKH_LOG entry 32): code settles what the refused rounds were about (overlaps, unshown sequences, cut actions, amounts the narration says, empty stages and close-ups on people who had gone); the same recorded answers now pass 33 of 36 (19 first try). Step 0 (PRs #113, #114) done with Navin's yes. Nothing ACCEPTED. |
+| Next task | Merge the `task046d2-autofix` PR when every check is green; then run b: the VM canvas job on Money v2 and v4 (narration locked), the renders, the review pages and the dikhane ki list pages, LOOK-D1 (like for like with D1's 5.25) and LOOK-D2, the measures against D1; then **STOP for Navin's verdict on Part D2**; then the voice (Task 047, with the sound effects). |
 | Canonical main | `65e87a6e` (PR #114: Part D1 proof run b, the fetch rules, currency icons, the six pin) on `d6174636` (PR #113: F-18, the Section 18 sidecar race) on `18595156` (PR #112: the proof fixes) on `e998f926` (PR #111: Part D1) on `73a07941` (PR #109: the render publish step retries) on `16c1e5fe` (PR #110: the Money chapter's report); earlier: `f99b77a6` (PR #93: PR 3, the bank kit) on `f929d5a5` (PR #92: docs, the proof's numbers and the chosen video) on `d265dc90` (PR #90: the everyday words of money and the W-01 source-packet phrases; PR #91 `abeb70b0` F-16 skyfield files in the shared asset cache; PR #89 `f03c9208` plan review; PR #88 `182c9b01` page review; PR #87 `995c808b` map review; PR #86 `8612d724` render speed; PR #85 `78a9a721` PR 2 and Navin's addition; PR #81 `d7ce8388`: F-14b, Codex image calls keep the code-mode host on, Navin's yes; PR #80 `4128cbdd` F-14; PR #77 `aa8d6519` VM image and look jobs; PR #79 `2c6c2fc5` F-13c + F-11 toolbox lane; PR #78 `c4375064` F-13b; PR #74 `39e3430e` Task 046 Part A) |
 | Keys | Never the Anthropic key. GPT API key off. Gemini key (AICredits) for the checker; it may call only `google/gemini-4-argon`. GPT only through ChatGPT Pro, signed in with Codex on Navin's machine (Hostinger KVM 2, Mumbai). On the VM, from 25 October 2026, the checker is Navin's free Google AI Studio key `GEMINI_API_KEY` in `/etc/bie/bie.env` (direct route, `gemini-3.8-flash`); the AICredits key stays there unused (a job can still choose it with `routes google=aicredits`). Since 24 October a free Google AI Studio key is the GitHub secret `GEMINI_API_KEY` (Navin's choice for now, sample content only, never student data); it serves GitHub Actions runs only and wins over AICredits there: `gemini-3.8-flash` answers (smoke run 40114580580), `gemini-4-argon` gives 429 quota and `gemini-3.1-pro` 404, so a run that uses it passes `models=google=gemini-3.8-flash` |
 
@@ -98,9 +98,26 @@ blindtest-results): the same 206 compile and the same 114 are refused as on `mai
 2 × 28 board, Navin's rule). Passed outputs: 0 problems. Tests: `tests/test_task046d2_saanche.py` (18),
 `tests/test_task046d2_pictures.py` (18), every Task 045/046 module (525 tests after main was merged in) and the Task 046a core lane green.
 
-**Next:** PR, every check green, merge; then the VM canvas job on Money v2 and v4 with the narration locked, the renders, the
-review pages and the dikhane ki list pages, LOOK-D1 (like for like with D1's 5.25) and LOOK-D2, the measures against D1; then
-**STOP for Navin's verdict**.
+**Merged** as PR #115 (`7e06fa1e`), every check green.
+
+**Live run a, 1 November 2026** (`runs/vm-t046d2-money-canvas-a-brain-canvas/`, Codex maker and checker, 101 minutes, 125 calls,
+1.86 M input and 0.43 M output tokens, ₹0): 26 of 36 parts passed, 6 on the first try, 88 rounds. Two videos need every part, so
+no video spec was written and nothing rendered. On the passed parts: 41 actions, relations realised 65 of 65 (100 %), overlaps
+0, elements under the subtitle strip 0, boards in world parts 2, distinct icons 95, text-only 9.1 s, the book's pictures 7 of 7.
+
+**Seekh → BIE (branch `task046d2-autofix`, IMPLEMENTED; SEEKH_LOG entry 32):** most refused rounds were things code can settle
+itself, so it does, before the check and the same in the run (every fix listed in the part's `auto_fixes`): an action completed
+from the narration (`saanche.complete_action`), steps in template order; places and times (`world.settle_places`: side by side,
+the first leaves when the second comes but never before its last step, no empty stage between two actions on one spot); the
+camera (`_frame_actions`, `_close_ups` ending when the action leaves or the next starts, `settle_layout`); canvas cells held by an
+earlier element that has nothing left to show, two canvas processes in one place handing over after the first's last step; an arrow for an unshown sequence or cause-effect beat (`visual_thinking.realise_relations`); a highlight on the
+book's timeline or a process playing across the beat counted as showing it. New check `world.empty_frames` (nothing in view
+for more than 0.8 s, or a close-up on people who have gone). Measured on run a's recorded answers: 33 of 36 pass within the
+recorded rounds (was 26), 19 on the first try (was 6); empty-street stretches in the passed world parts 4 of 7 → 0. Earlier
+plans recompiled (346): 0 differences from `main`. Passed outputs: 0 problems. Tests: every Task 045/046 module (524).
+
+**Next:** merge the auto-fix PR on green; then run b (the same job), the renders, the review pages and the dikhane ki list
+pages, LOOK-D1 (like for like with D1's 5.25) and LOOK-D2, the measures against D1; then **STOP for Navin's verdict**.
 
 ## Task 046 · Part D1 · dikhane ki soch, the needs list and the gathering of things (Navin's verdict of 30 October 2026)
 
