@@ -336,6 +336,31 @@ class AutoFixes(unittest.TestCase):
         self.assertEqual(a["step_at"], {"give": 100, "take": 200})
         self.assertTrue(any("follow the template" in f for f in a["auto_fixes"]))
 
+    def test_an_action_stays_until_its_last_step_has_played(self):
+        give = {"id": "g", "kind": "action", "template": "hand_over", "objects": [{"name": "thing", "icon": "tw:1f9c2", "label": "नमक"}],
+                "actors": [{"role": "giver", "who": "other"}, {"role": "taker", "who": "main"}],
+                "steps": [{"name": "give", "cue": ["b2", "नोट"]}, {"name": "take", "cue": ["b3", "नमक"]}], "until_cue": ["b3", "नमक"]}
+        frames = {"b2": 100, "b3": 200}
+        a = saanche.compile_action(give, lambda cue: frames[cue[0]], self.says())
+        self.assertEqual(a["until"], 200 + saanche.PLAYED)
+        self.assertTrue(any("stays until its last step has played" in f for f in a["auto_fixes"]))
+        first = act("first", 2600, 40, "refuse")                   # its refuse step at 78
+        second = act("second", 2600, 70, "accept")                 # its show step at 88: they meet on one spot
+        fixes = world.settle_places([first, second], 300)
+        self.assertEqual(first["until"], 88)                       # the refusal plays 10 frames, then the acceptance comes on
+        self.assertEqual(second["at"], 88)
+        self.assertIn("first plays its last step, then second comes on in its place", fixes)
+
+    def test_a_counted_stack_finishes_its_count_before_it_leaves(self):
+        stack = act("stack", 2600, 30, "count_stack", items=[48 + 18 * i for i in range(10)])     # code spread 10 over the beat
+        nxt = act("next", 2600, 150, "accept")
+        world.settle_places([stack, nxt], 400)
+        self.assertEqual(len(stack["items"]), 10)
+        self.assertLessEqual(stack["items"][-1] + saanche.PLAYED, stack["until"])                # all ten appear before it goes
+        crowded = act("stack", 2600, 30, "count_stack", items=[48 + 18 * i for i in range(10)])
+        self.assertFalse(saanche.fit_items(crowded, 70))                                         # 10 items in 10 frames: no
+        self.assertEqual(crowded["items"][0], 48)
+
     def test_places_and_times_code_settles(self):
         label = {"id": "l", "kind": "label", "x": 600, "y": 300, "text": "नमक", "at": 50, "until": 40}
         a, b = act("a", 2600, 40), act("b", 2600, 45)

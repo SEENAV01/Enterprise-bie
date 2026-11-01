@@ -1349,6 +1349,9 @@ in the world parts, 95 distinct icons, 9.1 s text-only, the book's 7 pictures dr
 - Two refusals were BIE's own bugs: a tree (root and children) dropped the maker's until_cue, so it never left and a later
   picture in its place was refused as an overlap (v2_s9b, three rounds); and an action's 18-frame lead-in was counted as an
   overlap with a book picture that leaves on the action's first step (v2_s2, three rounds).
+- 10 of the 41 actions on the passed parts left before their last step had played: an until_cue on the last step's own word
+  (the take never shown), or a count_stack whose items code had spread over the rest of the beat leaving after 6 of 10 (the
+  count on screen wrong). The check did not look; the stills did.
 - In the local stills of a part (v2_s4s), the street was empty for 1.2 s between a refusal and the agreement that followed it on
   the same spot, and the camera stayed close for 1 s on a stage whose people had gone while the next process played off screen
   (code framed it, then the close-up removed that key). The layout check only looked at camera keys, not at time.
@@ -1356,7 +1359,8 @@ in the world parts, 95 distinct icons, 9.1 s text-only, the book's 7 pictures dr
 **Changed in BIE** (branch `task046d2-autofix`, IMPLEMENTED): code settles these itself before the check, the same in the check
 and in the run, so the rendered video is the checked plan, and every fix is listed in the part's report (`auto_fixes`):
 `saanche.complete_action` (an amount from the narration when it says exactly one, stray steps and amounts dropped, a missing
-last step on the cue before it; steps follow the template in time order); `world.settle_places` (an until before its cue
+last step on the cue before it; steps follow the template in time order; an action stays 12 frames past its last step, and count_stack's items are brought
+closer so all of them appear before it leaves, `fit_items`); `world.settle_places` (an until before its cue
 dropped, two actions side by side, the first leaves when the second comes but never before its last step, a board raised above
 an action, no empty stage between two actions on one spot, `_fill_gaps`); `world._frame_actions` (a key on an action the camera
 would cut, a key widened to hold the live actions while people stay a quarter of the frame tall); `world._close_ups` (a close-up
@@ -1373,8 +1377,9 @@ renderer's own camera: a stretch over 0.8 s with nothing in view, or a close-up 
 | Measure | Run a (live) | The same answers with the new code |
 | --- | --- | --- |
 | Parts passing within the recorded rounds | 26 of 36 | 35 of 36 |
-| Parts passing on the first try | 6 of 36 | 20 of 36 |
+| Parts passing on the first try | 6 of 36 | 19 of 36 (one first-try pass of the earlier code hid an action's last step) |
 | Empty-street stretches in the passed world parts | 4 of 7 parts (not checked) | 0 of 7 |
+| Actions whose last step or counted items were cut by their own leaving (passed parts) | 10 of 41 (not checked) | 0 of 41 |
 | Earlier plans recompiled (346) | — | the same 232 compile as on `main` (0 differences) |
 | Passed outputs | — | 0 problems |
 

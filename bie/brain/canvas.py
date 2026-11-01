@@ -534,17 +534,31 @@ def _hand_over(first: dict, second: dict, later: list | None = None) -> str | No
     if at - first.get("at", 0) < 12 or first.get("group") or second.get("group"):
         return None
     if later is None:
+        if first.get("items"):                # code spread count_stack's items: they finish before the next thing comes
+            from .video import saanche
+            saanche.fit_items(first, at)
         later = [st.get("at", 0) for st in first.get("steps") or [] if isinstance(st, dict)]
         later += list((first.get("step_at") or {}).values()) + list(first.get("items") or [])
     if not any(f >= at for f in later):
         first["until"] = at
         return f"{first['id']} leaves when {second['id']} comes"
-    if first.get("kind") == "action" and second.get("kind") == "action" and nxt is not None and later \
-            and min(max(later) + 12, nxt) >= max(later) + 8:
-        first["until"] = min(max(later) + 12, nxt)
-        second["at"] = max(at, first["until"])
-        return f"{first['id']} plays its last step, then {second['id']} comes on in its place"
+    if first.get("kind") == "action" and second.get("kind") == "action" and nxt is not None and later:
+        return hand_over_after(first, second, max(later), nxt)
     return None
+
+
+def hand_over_after(first: dict, second: dict, last: int, nxt: int) -> str | None:
+    """A process gives its place to the next thing there, the first's last step at ``last``, the next thing's first moment at
+    ``nxt`` (an action's first step, or another element's start): the first plays its last step for at least 8 of its 24
+    motion frames (then fades in 15) and leaves by ``nxt``; a next action comes on by its own first step. None when ``nxt``
+    comes too soon (the maker moves one). Used by the canvas and the world alike."""
+    end = min(last + 12, nxt)
+    if end < last + 8:
+        return None
+    first["until"] = end
+    if second.get("kind") == "action":
+        second["at"] = max(second.get("at", 0), end)
+    return f"{first['id']} plays its last step, then {second['id']} comes on in its place"
 
 
 def compile_plan(plan: dict, *, voice: dict | None = None, icon_paths: dict | None = None, lead_in: float = timing.LEAD_IN):

@@ -247,8 +247,15 @@ def settle_places(els: list, duration: int) -> list:
                 b["x"] = a["x"] + saanche.STAGE_W
                 fixes.append(f"{b['id']} moved beside {a['id']} (x {b['x']}): they start together")
     def leave(first, second, why):
-        last_step = max((first.get("step_at") or {}).values(), default=None)
+        saanche.fit_items(first, starts[id(second)])
+        last_step = saanche.last_moment(first)
         if last_step is not None and starts[id(second)] < last_step + 30:
+            nxt = min((second.get("step_at") or {}).values(), default=starts[id(second)])
+            done = canvas.hand_over_after(first, second, last_step, nxt)
+            if done:                             # the next thing comes on after the first's last step (an action by its first step)
+                starts[id(second)] = second["at"]
+                fixes.append(done)
+                return True
             return False                         # an action never leaves before it has played: a real clash for the maker
         first["until"] = starts[id(second)]
         fixes.append(f"{first['id']} leaves when {second['id']} comes ({why})")
@@ -530,7 +537,10 @@ def layout_problems(scene: dict, *, step: int = 6) -> list:
     for i, (a, ba, (a0, a1)) in enumerate(shown):
         for b, bb, (b0, b1) in shown[i + 1:]:
             if max(a0, b0) < min(a1, b1) and ba[0] < bb[2] and bb[0] < ba[2] and ba[1] < bb[3] and bb[1] < ba[3]:
-                out.append(f"{a['id']} and {b['id']} overlap while both are on screen: move one (x, y) or let the first leave (until_cue)")
+                act = next((e for e in (a, b) if e.get("kind") == "action" and e.get("step_at")), None)
+                why = (f" ({act['id']} stays until {saanche.PLAYED} frames after its last step, at "
+                       f"{(max(act['step_at'].values()) + saanche.PLAYED) / timing.FPS:.1f} s: cue the other after that or move it)") if act else ""
+                out.append(f"{a['id']} and {b['id']} overlap while both are on screen: move one (x, y) or let the first leave (until_cue){why}")
     for e in els:
         if e.get("kind") in ("label", "title") and NUMBER_ON_LABEL.search(str(e.get("text", ""))):
             out.append(f"{e['id']}: a {e['kind']} has no number ('{e.get('text', '')}'); in a world numbers go on objects: a price tag, "

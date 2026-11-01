@@ -74,6 +74,7 @@ FEET = 600                               # the stage's walking line (saanche.tsx
 ACTOR_SHARE = 0.5
 MIN_CANVAS_ROWS = 3                      # 3 of 8 rows: an actor about 0.29 of the frame tall, so never a stick figure
 COUNT_MAX = 12
+PLAYED = 12                              # frames of a step's 24-frame motion an action shows before it may fade (15 frames)
 CLOSE_AFTER, CLOSE_MAX = 60, 240         # the camera stays close 2 s after the close-up's last step, for at most 8 s in all
 NUMBER = re.compile(r"\d[\d,]*(?:\.\d+)?")
 # words that name a process in a beat (Hindi, Hinglish and English), so code can suggest the template to the maker
@@ -300,6 +301,11 @@ def compile_action(action: dict, frame_of, says: dict, *, icon_paths: dict | Non
         out["items"] = [start + i * gap for i in range(n)]
     if action.get("until_cue"):
         out["until"] = frame_of(action["until_cue"])
+        fit_items(out, out["until"])                  # code spread the items; they finish before the action leaves
+        last = max(list(frames.values()) + out.get("items", []))
+        if out["until"] < last + PLAYED:          # seekh -> BIE: an until on the last step's own word hid that step
+            out["until"] = last + PLAYED
+            fixes.append(f"{action.get('id', '?')}: stays until its last step has played ({PLAYED} frames after it)")
     if action.get("close_up", True) and t["close"]:
         first, last = (frames[s] for s in t["close"])
         if last + CLOSE_AFTER - first > CLOSE_MAX:        # a long gap between the steps: the camera stays close on the last one
@@ -308,6 +314,31 @@ def compile_action(action: dict, frame_of, says: dict, *, icon_paths: dict | Non
     if fixes:
         out["auto_fixes"] = fixes
     return out
+
+
+ITEM_GAP_MIN = 3
+
+
+def fit_items(action: dict, end: int) -> bool:
+    """count_stack's items (spread by code over the rest of the beat) are brought closer so the last one has played by ``end``
+    (seekh -> BIE, the first Part D2 run: a stack of 10 left after 6 had appeared, so the count on screen was wrong). True when
+    they fit (at least ITEM_GAP_MIN frames apart), or there is nothing to fit."""
+    items = action.get("items") or []
+    if not items or items[-1] + PLAYED <= end:
+        return True
+    if len(items) == 1:
+        return items[0] + PLAYED <= end
+    gap = (end - PLAYED - items[0]) // (len(items) - 1)
+    if gap < ITEM_GAP_MIN:
+        return False
+    action["items"] = [items[0] + i * gap for i in range(len(items))]
+    return True
+
+
+def last_moment(action: dict) -> int | None:
+    """The frame of an action's last step or counted item."""
+    marks = list((action.get("step_at") or {}).values()) + list(action.get("items") or [])
+    return max(marks) if marks else None
 
 
 def realises(action: dict) -> set:
