@@ -1,0 +1,40 @@
+# LOOK-D1 · 36 parts
+
+reviewer gpt-6.1-sol (codex); status ok; {"parts": 36, "mean_hints_point": 5.11, "text_only": 1, "low": ["v2_s1b", "v2_s2", "v2_s3", "v2_s5s", "v4_s10s", "v4_s1b", "v4_s4s", "v4_s5", "v4_s6s", "v4_s7s", "v4_s9"]}
+
+- v2_s1a: 5/10 · A man, a sack of grain, and a shoe, with a caption about the seller not wanting grain. · missing: A shoe seller refusing the offered grain with a crossed-out exchange arrow.
+- v2_s1s: 5/10 · Two traders holding wheat and cloth, with thought bubbles showing what each wants. · missing: An after-trade picture showing the farmer with 8 kg wheat remaining plus 1 metre of acquired cloth.
+- v2_s1b: 4/10 · Two people with a wheat sack between them; subtitle says selling then buying is not barter. · missing: Side-by-side exchanges: wheat directly for cloth versus wheat sold for money, then money used to buy cloth.
+- v2_s2: 4/10 · A person beside a handshake and green check mark, suggesting agreement. · missing: Two people exchanging services without cash, with both agreeing on their equal value.
+- v2_s3: 4/10 · Two people holding shopping baskets, with a Hindi subtitle about swapping. · missing: A reciprocal exchange of different needed goods, alongside a separate purchase using money.
+- v2_s4s: 7/10 · Two traders hold wheat and money, each thinking of the other item with a question mark. · missing: A rejected wheat-for-cloth trade beside two separate money-based sales and purchases.
+- v2_s4b: 5/10 · Grain sacks, one crossed out, a July 17 calendar, and an arrow from grain to a bin. · missing: A side-by-side barter-versus-money repayment timeline showing grain spoiling and money buying less later.
+- v2_s5a: 6/10 · Two people exchanging cloth and wheat, illustrating barter. · missing: A timeline showing barter followed by coins, notes and digital payments.
+- v2_s5s: 2/10 · Buyer and seller at a stall with ₹300 goods, ₹500 payment and ₹200 change labels. · missing: A two-step salt barter exchange linking different wants, followed by payment in metal coins and counting the coins left.
+- v2_s5b: 6/10 · Six-stage money timeline above a QR-code payment between buyer and seller, with deposit indicators. · missing: Linked bank accounts showing existing deposits moving via UPI, alongside coexisting cash and a card holding no money.
+- v2_s6: 8/10 · TEXT ONLY · Comparison table of intrinsic and extrinsic money value, highlighting inherent worth and acceptability. · missing: Gold remaining useful after rejection as payment, beside a rejected currency note with no other use.
+- v2_s7s: 5/10 · Two men holding salt packets, with questioning thought bubbles outside a shop. · missing: Salt being sprinkled into a cooking pot to show its use beyond payment.
+- v2_s7b: 7/10 · Salt offered between people, with another salt bag pointing to a bowl of food. · missing: A clear comparison showing salt used both to buy goods and to season food.
+- v2_s8a: 7/10 · Table linking salt, cattle and cowries to regions or communities; small cowrie-shell illustration. · missing: A map showing all five commodities’ regions, with cowries being accepted in a payment exchange.
+- v2_s8s: 7/10 · Two balanced scales link 10 kg grain to 2 kg salt, then salt to cloth. · missing: A clear three-way equivalence showing 10 kg grain = 2 kg salt = a specified quantity of cloth.
+- v2_s8b: 5/10 · Table of commodity money and regions, with salt, cattle and cooking icons. · missing: An exchange diagram showing salt accepted between traders with mismatched wants, alongside its use in cooking.
+- v2_s9s: 8/10 · Grain sack with 100 kg crossed out and 90 kg remaining, linked to a July 17 payment date. · missing: A spoiled portion of grain beside the reduced sack.
+- v2_s9b: 6/10 · Different-sized cows, a crossed-out standards scroll, and checking and bargaining icons. · missing: A trade scene showing unequal cattle values and the extra cost of transporting and storing them.
+- v4_s1a: 5/10 · Two people, one holding a ₹100 note, and a grain sack; subtitles question its value, gold backing and legal acceptance. · missing: A diagram linking ₹100 to how much rice it buys, gold backing, and legal acceptance.
+- v4_s1s: 6/10 · Two people at a bank counter with gold labeled '1 gram gold' and a note labeled '1 note'. · missing: An arrow showing the note being returned to the bank in exchange for gold.
+- v4_s1b: 4/10 · Paper document, handshake, receipt and shopping basket under a gold-backed currency heading. · missing: A low-value paper note exchanged for gold through a redemption promise, contrasted with gold reserves offering no redemption claim.
+- v4_s2s: 6/10 · A bank with ten numbered gold bars, ten numbered notes, and a small extra note. · missing: An extra note paired with one extra gold bar labeled 1 gram.
+- v4_s2b: 5/10 · Vault, gold reserves pointing to a promise document, and a separate banknote icon; text says redemption in principle. · missing: A linked diagram showing gold reserves backing notes, limited gold redemption, and falling reserves reducing confidence.
+- v4_s3: 5/10 · Receipt scroll, official stamp, banknotes, and a crossed-out note; Sweden 1661 label. · missing: An arrowed timeline linking deposit receipts to state-issued claims, compulsory acceptance in 1275, and Sweden’s banknotes in 1661.
+- v4_s4s: 4/10 · A shopper outside a grocery store with a ₹100 note displayed. · missing: A shopkeeper accepting the note, then using it to pay another seller.
+- v4_s4b: 5/10 · Government building, handshake for public trust, and a document labeled gold-backed paper. · missing: A comparison showing fiat backed by authority and trust versus paper redeemable for gold, with central-bank controls on fiat issuance.
+- v4_s5: 2/10 · Dollar, euro and yen banknotes linked by arrows to a yuan symbol. · missing: A flow diagram showing authority and trust backing money, authorised release after printing, and delayed demand changes after credit changes.
+- v4_s6s: 3/10 · Two people at a grocery shop, one holding a basket; Hindi subtitles discuss valid coins. · missing: A payment diagram showing debt cleared by valid coins, including special-design coins, with unlimited notes versus a capped coin amount.
+- v4_s6b: 5/10 · Banknote icons, denominations and an arrow under a no-total-ceiling heading. · missing: A side-by-side payment scene showing unlimited valid banknotes accepted but coins accepted only up to a marked limit.
+- v4_s7a: 5/10 · Commemorative coin icon with fiat, legal-tender, metal-value and collector-value symbols. · missing: A collector coin set in a display case contrasted with a coin being spent, with legal-tender and fiat status marked.
+- v4_s7s: 4/10 · Two people at a kirana shop, a crossed-out coin, and captions listing coin tender limits. · missing: Coin groups with separate tender-limit markers, plus a rejected invalid-coin payment leaving the balance due unchanged.
+- v4_s7b: 6/10 · Denomination-specific legal-tender limit table, 50-paise and 25-paise coins, and a ₹10 limit label. · missing: A payment example showing different coin counts with equal total value, alongside separate legal-tender status and collector-price labels.
+- v4_s8: 5/10 · 2024 label, mining laptop linked to network rules, price tag, and government fixed-value promise icon. · missing: A 2024–2025 comparison showing privately created Bitcoin, market pricing, and mandatory acceptance changing to voluntary use.
+- v4_s9: 4/10 · ₹100 coin, smaller silver coin icon, and a magnifying glass labelled condition. · missing: One coin branching to fixed ₹100 face value and a higher collector market price.
+- v4_s10s: 4/10 · Bank counter, worried customer, and a cheque crossed out in red. · missing: Side-by-side diagram showing a cheque moving available deposits between accounts and credit payment creating a debt to repay.
+- v4_s10b: 5/10 · Cheque and credit-card icons with arrows, and a college icon with a green check; text says these are not currency. · missing: A diagram separating payment acceptance from currency status, with dollar demand shown as an open question.
