@@ -167,3 +167,40 @@ Before any layout, the canvas section thinks about what the learner should SEE (
   still and the teacher's point from the dikhane ki list); the VM's look section (`tools/vm_look.py`) asks the reviewer route,
   under the cost guard, whether the picture alone hints at the point (1–10) and whether it is text only. Report only: LOOK-D1
   never stops a video.
+
+## 8. Kriya ke saanche, story goods, layout and meaning (Task 046 Part D2, Navin's verdict of 1 November 2026)
+
+No format changes version in Part D2: every new key is optional, and the readers allow unknown keys (`formats.O`).
+
+- **An action** (a canvas node of kind `action`, or a world element of kind `action`): `template` (one of
+  `bie/brain/video/saanche.py` `TEMPLATES`: hand_over, pay_change, barter_swap, upi, card_tap, cheque, coin_count, refuse, accept,
+  count_stack), `actors` [{role, who main/other, label, mood neutral/pleased/unsure/refusing}], `objects` [{name, icon, label}],
+  `amounts` [{name, text}] (each number said in the action's beats, CV-16), `steps` [{name, cue}] in the template's order,
+  optional `close_up` (false: no camera move) and `until_cue`; a world action has `x` on the street, a canvas action a `cell` of at
+  least 3 rows. The maker's strict answer carries it as `action` {template, actors, objects, amounts, steps, close_up} on every
+  node or element (`template` "" when unused). Compiled (`saanche.compile_action`): `step_at` {step: frame}, `actors` with `look`
+  and `main`, `objects` {name: {src, icon, label}}, `amounts`, `at`, `until`, `items` (count_stack), `close_up` {at, until, step};
+  a world action also `x` and `on_place`. The block is `bie/brain/video/blocks/toolbox/saanche.tsx` (`ActionStage`, a 1000 × 620
+  stage, feet on y 600), drawn by `world_scene` and `canvas_build`.
+- **Story goods in a world**: a shop's `goods` [{icon, label}] (required when it has `packets`), a crowd's `carry.icon` (required
+  when it carries), a balance's `left` / `right` {icon, label}; compiled with `src` from the lesson's library. `world.icons_in`
+  lists them for the library and the credits.
+- **The visual-idea beat** adds `template` (one of the ten, `none`, or `other`) and `template_note`; the dikhane ki list keeps
+  both per beat and, after the plan, `realised` (whether the beat's relation is shown). A process no template fits is a missing
+  capability of kind `block` named `process: <note>` in `needs.json`.
+- **The checks** (`canvas_director.check_plan`): `world.goods_problems`, `world.layout_problems` (overlaps, one board, label or
+  title at a time, no number on a label or the title, the subtitle strip on the eased camera, the action's people at least a
+  quarter of the frame tall, no empty camera key), `canvas.subtitle_problems` (both cameras, eased as the renderer eases them),
+  `visual_thinking.meaning_problems` (relations realised on their beats, the struck-value rule); rules D2-01 … D2-05 in
+  `visual_verbs.json` (2026-11-01.1), whose relations also name their saanche. `visual_thinking.icon_misfits` is a report.
+- **Report keys**: `canvas.json` rows' `report` and `quality` add `actions`, `relations`, `relations_realised`,
+  `relations_realised_pct`, `boards_in_world_parts`, `overlaps`, `subtitle_violations`, `icon_misfits`.
+- **Stills and LOOK-D2**: the render workflow also publishes one still per beat at 65 % of the beat
+  (`runs/<dest>/stills/<scene>/<beat>.jpg`, from the captions' `beat_id`). `tools/task046d_look_request.py --rule look-d2` builds a
+  `bie.look-request/1` with rule `LOOK-D2`: per part up to 8 beats, each with its still, what it should show and its items (the
+  dikhane ki list's nouns, its relation, its process). The VM's look section asks only visible yes/no and happening yes/no per item
+  (`look.D2_SCHEMA`); `look.d2_score` computes the part's score (10 × (visible + happening) / (2 × items)). Report only.
+- **Pictures**: the icon index (`bie.icons/1`, unchanged) adds the `fl:` set (Microsoft Fluent Emoji 3D, MIT, pinned commit) and
+  the `bie:` set (BIE's own drawings, CC0, `bie/toolbox/icons/bie/`); the money drawings keep the rules of
+  `docs/bie/BIE_MONEY_OBJECTS.md`, and so do the saanche's animated note, coin and QR stand.
+
