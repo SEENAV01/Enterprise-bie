@@ -1,0 +1,3237 @@
+{
+ "schema": "bie.look-request/1",
+ "rule": "LOOK-D2",
+ "reviewer": "codex",
+ "video": "v2+v4",
+ "dest": "t046d2-money-v2+v4",
+ "parts": [
+  {
+   "id": "v2_s1a",
+   "beats": [
+    {
+     "beat_id": "b1",
+     "say": "अनाज देकर shoes चाहिए, लेकिन seller अनाज नहीं चाहता। अब खरीद कैसे होगी?",
+     "shows": "Seller rejects grain; shoes remain; question mark appears",
+     "items": [
+      {
+       "name": "grain sack",
+       "expect": "visible"
+      },
+      {
+       "name": "shoes",
+       "expect": "visible"
+      },
+      {
+       "name": "question mark",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: question",
+       "expect": "Seller rejects grain; shoes remain; question mark appears"
+      },
+      {
+       "name": "process: refuse",
+       "expect": "Seller rejects grain; shoes remain; question mark appears"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v2/stills/v2_s1a/b1.jpg"
+    }
+   ]
+  },
+  {
+   "id": "v2_s1s",
+   "beats": [
+    {
+     "beat_id": "b2",
+     "say": "मानिए किसान के पास 10 kg wheat था। उसने 2 kg देकर 1 metre कपड़ा लिया; अब 8 kg wheat बचा और कपड़ा भी मिला।",
+     "shows": "Wheat exchanged for cloth; eight kilograms remain",
+     "items": [
+      {
+       "name": "10 kg wheat",
+       "expect": "visible"
+      },
+      {
+       "name": "2 kg wheat",
+       "expect": "visible"
+      },
+      {
+       "name": "8 kg wheat",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: sequence",
+       "expect": "Wheat exchanged for cloth; eight kilograms remain"
+      },
+      {
+       "name": "process: barter_swap",
+       "expect": "Wheat exchanged for cloth; eight kilograms remain"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v2/stills/v2_s1s/b2.jpg"
+    }
+   ]
+  },
+  {
+   "id": "v2_s1b",
+   "beats": [
+    {
+     "beat_id": "b3",
+     "say": "यह barter है: goods या services का सीधा exchange, बिना medium of exchange के। यानी बीच में आगे खर्च करने वाला पैसा नहीं लिया।",
+     "shows": "Wheat and cloth swap; money intermediary crossed out",
+     "items": [
+      {
+       "name": "wheat sack",
+       "expect": "visible"
+      },
+      {
+       "name": "cloth",
+       "expect": "visible"
+      },
+      {
+       "name": "money",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: compare",
+       "expect": "Wheat and cloth swap; money intermediary crossed out"
+      },
+      {
+       "name": "process: barter_swap",
+       "expect": "Wheat and cloth swap; money intermediary crossed out"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v2/stills/v2_s1b/b3.jpg"
+    },
+    {
+     "beat_id": "b4",
+     "say": "Wheat बेचकर पैसे से कपड़ा खरीदना barter नहीं है। पैसे बीच में आए; बेचने और खरीदने के लोग अलग हो सकते हैं।",
+     "shows": "Wheat sold; money buys cloth; barter label crossed",
+     "items": [
+      {
+       "name": "wheat sack",
+       "expect": "visible"
+      },
+      {
+       "name": "money",
+       "expect": "visible"
+      },
+      {
+       "name": "cloth",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: sequence",
+       "expect": "Wheat sold; money buys cloth; barter label crossed"
+      },
+      {
+       "name": "process: hand_over",
+       "expect": "Wheat sold; money buys cloth; barter label crossed"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v2/stills/v2_s1b/b4.jpg"
+    },
+    {
+     "beat_id": "b5",
+     "say": "Barter की पहचान सीधा exchange है।",
+     "shows": "Direct wheat–cloth swap receives a tick",
+     "items": [
+      {
+       "name": "wheat sack",
+       "expect": "visible"
+      },
+      {
+       "name": "cloth",
+       "expect": "visible"
+      },
+      {
+       "name": "tick",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: accept",
+       "expect": "Direct wheat–cloth swap receives a tick"
+      },
+      {
+       "name": "process: barter_swap",
+       "expect": "Direct wheat–cloth swap receives a tick"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v2/stills/v2_s1b/b5.jpg"
+    }
+   ]
+  },
+  {
+   "id": "v2_s2",
+   "beats": [
+    {
+     "beat_id": "b6",
+     "say": "पैसा नहीं दिया तो क्या कपड़ा free मिला? नहीं; no use of money है, लेकिन wheat देकर कीमत चुकाई।",
+     "shows": "Crossed money; wheat and cloth swap hands",
+     "items": [
+      {
+       "name": "wheat",
+       "expect": "visible"
+      },
+      {
+       "name": "cloth",
+       "expect": "visible"
+      },
+      {
+       "name": "money",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: reject",
+       "expect": "Crossed money; wheat and cloth swap hands"
+      },
+      {
+       "name": "process: barter_swap",
+       "expect": "Crossed money; wheat and cloth swap hands"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v2/stills/v2_s2/b6.jpg"
+    },
+    {
+     "beat_id": "b7",
+     "say": "अनाज के बदले cycle ठीक करें, तो? यह service, यानी काम का exchange है; barter सिर्फ सामान तक सीमित नहीं।",
+     "shows": "Mechanic repairs bicycle; owner hands over grain",
+     "items": [
+      {
+       "name": "grain sack",
+       "expect": "visible"
+      },
+      {
+       "name": "bicycle",
+       "expect": "visible"
+      },
+      {
+       "name": "spanner",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: sequence",
+       "expect": "Mechanic repairs bicycle; owner hands over grain"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v2/stills/v2_s2/b7.jpg"
+    },
+    {
+     "beat_id": "b8",
+     "say": "कितना wheat देकर कितना कपड़ा मिलेगा? Mutual agreement, यानी दोनों की हाँ से तय होगा; अकेला seller नहीं तय करेगा।",
+     "shows": "Wheat–cloth proposal between two nodding traders",
+     "items": [
+      {
+       "name": "wheat",
+       "expect": "visible"
+      },
+      {
+       "name": "cloth",
+       "expect": "visible"
+      },
+      {
+       "name": "agreement slip",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: promise",
+       "expect": "Wheat–cloth proposal between two nodding traders"
+      },
+      {
+       "name": "process: accept",
+       "expect": "Wheat–cloth proposal between two nodding traders"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v2/stills/v2_s2/b8.jpg"
+    },
+    {
+     "beat_id": "b9",
+     "say": "यहाँ 2 kg के बदले 1 metre तय हुआ। यह illustrative ratio है, हर जगह का fixed rate नहीं।",
+     "shows": "Two-kilogram wheat swaps for one-metre cloth",
+     "items": [
+      {
+       "name": "2 kg wheat sack",
+       "expect": "visible"
+      },
+      {
+       "name": "1 metre cloth",
+       "expect": "visible"
+      },
+      {
+       "name": "measuring tape",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: compare",
+       "expect": "Two-kilogram wheat swaps for one-metre cloth"
+      },
+      {
+       "name": "process: barter_swap",
+       "expect": "Two-kilogram wheat swaps for one-metre cloth"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v2/stills/v2_s2/b9.jpg"
+    },
+    {
+     "beat_id": "b10",
+     "say": "Wheat–cloth exchange में पैसा नहीं आता। Definition में goods और services दोनों होने से repair के बदले अनाज भी शामिल है।",
+     "shows": "Barter box contains goods swap and repair exchange",
+     "items": [
+      {
+       "name": "wheat",
+       "expect": "visible"
+      },
+      {
+       "name": "cloth",
+       "expect": "visible"
+      },
+      {
+       "name": "bicycle",
+       "expect": "visible"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v2/stills/v2_s2/b10.jpg"
+    },
+    {
+     "beat_id": "b11",
+     "say": "सीधा exchange, बिना पैसे, दोनों की हाँ से।",
+     "shows": "Direct wheat–cloth swap; crossed money; two ticks",
+     "items": [
+      {
+       "name": "wheat",
+       "expect": "visible"
+      },
+      {
+       "name": "cloth",
+       "expect": "visible"
+      },
+      {
+       "name": "money",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: sequence",
+       "expect": "Direct wheat–cloth swap; crossed money; two ticks"
+      },
+      {
+       "name": "process: barter_swap",
+       "expect": "Direct wheat–cloth swap; crossed money; two ticks"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v2/stills/v2_s2/b11.jpg"
+    }
+   ]
+  },
+  {
+   "id": "v2_s3",
+   "beats": [
+    {
+     "beat_id": "b12",
+     "say": "पड़ोसी सामान बदलें, तो क्या पुराना तरीका बचा है? हाँ; barter early civilizations में common था, आज छोटे आपसी exchanges में मिलता है।",
+     "shows": "Ancient barter crowd; arrow to neighbours swapping goods",
+     "items": [
+      {
+       "name": "basket of vegetables",
+       "expect": "visible"
+      },
+      {
+       "name": "bag of grain",
+       "expect": "visible"
+      },
+      {
+       "name": "ancient settlement",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: sequence",
+       "expect": "Ancient barter crowd; arrow to neighbours swapping goods"
+      },
+      {
+       "name": "process: barter_swap",
+       "expect": "Ancient barter crowd; arrow to neighbours swapping goods"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v2/stills/v2_s3/b12.jpg"
+    },
+    {
+     "beat_id": "b13",
+     "say": "पड़ोसियों की जरूरतें मिलें, तो पैसे के बिना भी swap आसान है।",
+     "shows": "Matching wants lead to goods swapping hands",
+     "items": [
+      {
+       "name": "basket of vegetables",
+       "expect": "visible"
+      },
+      {
+       "name": "bag of grain",
+       "expect": "visible"
+      },
+      {
+       "name": "money",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: cause_effect",
+       "expect": "Matching wants lead to goods swapping hands"
+      },
+      {
+       "name": "process: barter_swap",
+       "expect": "Matching wants lead to goods swapping hands"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v2/stills/v2_s3/b13.jpg"
+    },
+    {
+     "beat_id": "b14",
+     "say": "पैसा आने पर barter मिटा नहीं; दोनों साथ रह सकते हैं।",
+     "shows": "Barter and money exchanges share today's timeline",
+     "items": [
+      {
+       "name": "money",
+       "expect": "visible"
+      },
+      {
+       "name": "basket of vegetables",
+       "expect": "visible"
+      },
+      {
+       "name": "bag of grain",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: compare",
+       "expect": "Barter and money exchanges share today's timeline"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v2/stills/v2_s3/b14.jpg"
+    },
+    {
+     "beat_id": "b15",
+     "say": "पहले common था, अब सीमित है।",
+     "shows": "Many barter pairs before; few barter pairs today",
+     "items": [
+      {
+       "name": "baskets of goods",
+       "expect": "visible"
+      },
+      {
+       "name": "grain bags",
+       "expect": "visible"
+      },
+      {
+       "name": "bartering pairs",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: more_less",
+       "expect": "Many barter pairs before; few barter pairs today"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v2/stills/v2_s3/b15.jpg"
+    }
+   ]
+  },
+  {
+   "id": "v2_s4s",
+   "beats": [
+    {
+     "beat_id": "b16",
+     "say": "तेल चाहने वाला seller wheat क्यों लेगा? किसान 2 kg wheat देकर 1 metre कपड़ा चाहता है। पहला seller मना करता है; wheat चाहने वाला दूसरा मान जाता है।",
+     "shows": "पहला seller wheat ठुकराता; दूसरा cloth देता",
+     "items": [
+      {
+       "name": "2 kg wheat",
+       "expect": "visible"
+      },
+      {
+       "name": "1 metre cloth",
+       "expect": "visible"
+      },
+      {
+       "name": "oil",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: reject",
+       "expect": "पहला seller wheat ठुकराता; दूसरा cloth देता"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v2/stills/v2_s4s/b16.jpg"
+    },
+    {
+     "beat_id": "b17",
+     "say": "इसे double coincidence of wants कहते हैं: मुझे आपकी चीज़ और आपको मेरी चाहिए। सिर्फ एक तरफ की जरूरत काफी नहीं।",
+     "shows": "दोतरफा चाह बनाम केवल एकतरफा चाह",
+     "items": [
+      {
+       "name": "wheat",
+       "expect": "visible"
+      },
+      {
+       "name": "cloth",
+       "expect": "visible"
+      },
+      {
+       "name": "two-way arrows",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: compare",
+       "expect": "दोतरफा चाह बनाम केवल एकतरफा चाह"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v2/stills/v2_s4s/b17.jpg"
+    },
+    {
+     "beat_id": "b18",
+     "say": "ऐसा साथी खोजना मुश्किल है। Accepted पैसे से wheat किसी को बेचें, कपड़ा दूसरे से खरीदें; cloth seller को wheat नहीं चाहिए।",
+     "shows": "Wheat बेचकर पैसा; पैसे देकर cloth",
+     "items": [
+      {
+       "name": "wheat",
+       "expect": "visible"
+      },
+      {
+       "name": "money",
+       "expect": "visible"
+      },
+      {
+       "name": "cloth",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: cause_effect",
+       "expect": "Wheat बेचकर पैसा; पैसे देकर cloth"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v2/stills/v2_s4s/b18.jpg"
+    },
+    {
+     "beat_id": "b19",
+     "say": "मानिए 2 kg wheat के बदले 1 metre कपड़ा तय किया; गाय के लिए अलग ratio चाहिए। छोटी खरीद में गाय बाँटेंगे कैसे?",
+     "shows": "Wheat–cloth ratio; अखंड गाय पर प्रश्नचिह्न",
+     "items": [
+      {
+       "name": "2 kg wheat",
+       "expect": "visible"
+      },
+      {
+       "name": "1 metre cloth",
+       "expect": "visible"
+      },
+      {
+       "name": "cow",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: question",
+       "expect": "Wheat–cloth ratio; अखंड गाय पर प्रश्नचिह्न"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v2/stills/v2_s4s/b19.jpg"
+    },
+    {
+     "beat_id": "b20",
+     "say": "अब 2 metres कपड़ा लेकर तय quality का 10 kg अनाज बाद में देना माना। लौटाया 10 kg ही, लेकिन उससे तब 1 metre कपड़ा मिलता है।",
+     "shows": "वही अनाज; cloth बराबरी दो से एक",
+     "items": [
+      {
+       "name": "2 metres cloth",
+       "expect": "visible"
+      },
+      {
+       "name": "10 kg grain",
+       "expect": "visible"
+      },
+      {
+       "name": "agreement receipt",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: change",
+       "expect": "वही अनाज; cloth बराबरी दो से एक"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v2/stills/v2_s4s/b20.jpg"
+    }
+   ]
+  },
+  {
+   "id": "v2_s4b",
+   "beats": [
+    {
+     "beat_id": "b21",
+     "say": "अलग ratios यानी no common measure of value; गाय न बाँट पाना indivisibility है। अनाज सड़े तो wealth रखना मुश्किल; deferred payments यानी बाद में चुकाते समय वही मात्रा कम सामान दिला सकती है।",
+     "shows": "Conflicting scales; whole cow; rot; shrinking repayment basket",
+     "items": [
+      {
+       "name": "cow",
+       "expect": "visible"
+      },
+      {
+       "name": "grain sacks",
+       "expect": "visible"
+      },
+      {
+       "name": "cloth bundles",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: cause_effect",
+       "expect": "Conflicting scales; whole cow; rot; shrinking repayment basket"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v2/stills/v2_s4b/b21.jpg"
+    },
+    {
+     "beat_id": "b22",
+     "say": "पैसे में उधार लिखना आसान, purchasing power fixed नहीं। जरूरतें मिलना और quantities मानना अलग शर्तें हैं।",
+     "shows": "Same debt, unequal baskets; wants versus quantities",
+     "items": [
+      {
+       "name": "rupee-denominated debt ledger",
+       "expect": "visible"
+      },
+      {
+       "name": "rupee notes",
+       "expect": "visible"
+      },
+      {
+       "name": "calendar",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: compare",
+       "expect": "Same debt, unequal baskets; wants versus quantities"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v2/stills/v2_s4b/b22.jpg"
+    },
+    {
+     "beat_id": "b23",
+     "say": "Barter में matching से repayment तक मुश्किलें हैं।",
+     "shows": "Matching, valuation, division, storage, repayment obstacle chain",
+     "items": [
+      {
+       "name": "grain sack",
+       "expect": "visible"
+      },
+      {
+       "name": "cloth bundle",
+       "expect": "visible"
+      },
+      {
+       "name": "balance scale",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: sequence",
+       "expect": "Matching, valuation, division, storage, repayment obstacle chain"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v2/stills/v2_s4b/b23.jpg"
+    }
+   ]
+  },
+  {
+   "id": "v2_s5a",
+   "beats": [
+    {
+     "beat_id": "b24",
+     "say": "Wheat–cloth के बीच पैसा आया? नहीं; पहला पड़ाव barter है। Evolution of Money यानी भुगतान के तरीकों में बदलाव।",
+     "shows": "Crossed coin; wheat–cloth swap; first stage highlighted",
+     "items": [
+      {
+       "name": "wheat",
+       "expect": "visible"
+      },
+      {
+       "name": "cloth",
+       "expect": "visible"
+      },
+      {
+       "name": "coin",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: sequence",
+       "expect": "Crossed coin; wheat–cloth swap; first stage highlighted"
+      },
+      {
+       "name": "process: barter_swap",
+       "expect": "Crossed coin; wheat–cloth swap; first stage highlighted"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v2/stills/v2_s5a/b24.jpg"
+    }
+   ]
+  },
+  {
+   "id": "v2_s5s",
+   "beats": [
+    {
+     "beat_id": "b25",
+     "say": "मानिए किसान ने 2 kg wheat देकर 1 kg नमक लिया, खाने के लिए नहीं। फिर उसने सारा नमक देकर 1 metre कपड़ा खरीदा।",
+     "shows": "Wheat buys salt; salt then buys cloth",
+     "items": [
+      {
+       "name": "2 kg wheat",
+       "expect": "visible"
+      },
+      {
+       "name": "1 kg salt",
+       "expect": "visible"
+      },
+      {
+       "name": "1 metre cloth",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: sequence",
+       "expect": "Wheat buys salt; salt then buys cloth"
+      },
+      {
+       "name": "process: barter_swap",
+       "expect": "Wheat buys salt; salt then buys cloth"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v2/stills/v2_s5s/b25.jpg"
+    },
+    {
+     "beat_id": "b26",
+     "say": "नमक यहाँ बीच का पुल है, इसलिए commodity money है। दूसरा पड़ाव salt, cattle, shells दिखाता है; cloth seller को wheat चाहना नहीं पड़ा।",
+     "shows": "Salt bridges wheat and cloth; stage two highlighted",
+     "items": [
+      {
+       "name": "salt bag",
+       "expect": "visible"
+      },
+      {
+       "name": "cattle",
+       "expect": "visible"
+      },
+      {
+       "name": "shells",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: sequence",
+       "expect": "Salt bridges wheat and cloth; stage two highlighted"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v2/stills/v2_s5s/b26.jpg"
+    },
+    {
+     "beat_id": "b27",
+     "say": "आपके पास 5 बराबर weight और purity वाले silver coins थे। आपने 2 देकर 5 kg अनाज खरीदा; अब 3 बचे। तीसरा पड़ाव metallic money है, यानी gold या silver के सिक्के भुगतान का काम करते हैं।",
+     "shows": "Five coins; two pay; three remain",
+     "items": [
+      {
+       "name": "five equal silver coins",
+       "expect": "visible"
+      },
+      {
+       "name": "two silver coins",
+       "expect": "visible"
+      },
+      {
+       "name": "three silver coins",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: sequence",
+       "expect": "Five coins; two pay; three remain"
+      },
+      {
+       "name": "process: hand_over",
+       "expect": "Five coins; two pay; three remain"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v2/stills/v2_s5s/b27.jpg"
+    },
+    {
+     "beat_id": "b28",
+     "say": "टिकाऊ, बराबर measured coins गिनकर दे सकते हैं। Gold–silver का अपना material value है, इसलिए ये commodity money भी हैं।",
+     "shows": "Matching coins counted inside commodity money group",
+     "items": [
+      {
+       "name": "matching coins",
+       "expect": "visible"
+      },
+      {
+       "name": "balance scale",
+       "expect": "visible"
+      },
+      {
+       "name": "gold",
+       "expect": "visible"
+      },
+      {
+       "name": "process: count_stack",
+       "expect": "Matching coins counted inside commodity money group"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v2/stills/v2_s5s/b28.jpg"
+    },
+    {
+     "beat_id": "b29",
+     "say": "₹300 का सामान लेकर ₹500 note दिया, ₹200 वापस मिले। यह चौथा पड़ाव paper money है; note denomination पर चला, कागज़ की कीमत पर नहीं।",
+     "shows": "₹500 paid; goods and ₹200 returned",
+     "items": [
+      {
+       "name": "₹300 goods",
+       "expect": "visible"
+      },
+      {
+       "name": "₹500 note",
+       "expect": "visible"
+      },
+      {
+       "name": "₹200 change",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: sequence",
+       "expect": "₹500 paid; goods and ₹200 returned"
+      },
+      {
+       "name": "process: pay_change",
+       "expect": "₹500 paid; goods and ₹200 returned"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v2/stills/v2_s5s/b29.jpg"
+    },
+    {
+     "beat_id": "b30",
+     "say": "हल्का note बड़ी amount पहुँचाता है; भारी metal नहीं ढोना पड़ता।",
+     "shows": "Easy note carrying versus burdensome metal sack",
+     "items": [
+      {
+       "name": "light currency note",
+       "expect": "visible"
+      },
+      {
+       "name": "heavy metal coins",
+       "expect": "visible"
+      },
+      {
+       "name": "coin sack",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: compare",
+       "expect": "Easy note carrying versus burdensome metal sack"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v2/stills/v2_s5s/b30.jpg"
+    },
+    {
+     "beat_id": "b31",
+     "say": "आपके ₹10,000 में से ₹1,500 का cheque settle हुआ; ₹8,500 बचे। दुकानदार के ₹2,000 में जुड़कर ₹3,500 हुए। पाँचवाँ पड़ाव bank money है: deposits यानी खाते की रकम; cheque बैंक से उसी रकम का भुगतान करवाता है, नया पैसा नहीं बनाता।",
+     "shows": "Cheque settles; payer falls, shopkeeper rises equally",
+     "items": [
+      {
+       "name": "₹1,500 cheque",
+       "expect": "visible"
+      },
+      {
+       "name": "bank",
+       "expect": "visible"
+      },
+      {
+       "name": "payer passbook",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: change",
+       "expect": "Cheque settles; payer falls, shopkeeper rises equally"
+      },
+      {
+       "name": "process: cheque",
+       "expect": "Cheque settles; payer falls, shopkeeper rises equally"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v2/stills/v2_s5s/b31.jpg"
+    },
+    {
+     "beat_id": "b32",
+     "say": "खाते के ₹2,000 में से QR scan करके ₹300 दिए; ₹1,700 बचे। दुकानदार के ₹5,000 में जुड़कर ₹5,300 हुए। छठा पड़ाव digital money है: UPI, net banking, cards; यानी यहाँ कागज़ देने के बजाय electronic instruction से भुगतान हुआ।",
+     "shows": "Phone scans QR; ₹300 moves between accounts",
+     "items": [
+      {
+       "name": "buyer phone",
+       "expect": "visible"
+      },
+      {
+       "name": "shop QR stand",
+       "expect": "visible"
+      },
+      {
+       "name": "shopkeeper phone",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: sequence",
+       "expect": "Phone scans QR; ₹300 moves between accounts"
+      },
+      {
+       "name": "process: upi",
+       "expect": "Phone scans QR; ₹300 moves between accounts"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v2/stills/v2_s5s/b32.jpg"
+    }
+   ]
+  },
+  {
+   "id": "v2_s5b",
+   "beats": [
+    {
+     "beat_id": "b33",
+     "say": "Intermediary matching आसान करता है, आगे handling सुधरती है। UPI existing deposits भेजता है, extra पैसा नहीं बनाता।",
+     "shows": "Money bridges trade; UPI shifts deposits, total unchanged",
+     "items": [
+      {
+       "name": "money",
+       "expect": "visible"
+      },
+      {
+       "name": "goods",
+       "expect": "visible"
+      },
+      {
+       "name": "phone",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: cause_effect",
+       "expect": "Money bridges trade; UPI shifts deposits, total unchanged"
+      },
+      {
+       "name": "process: upi",
+       "expect": "Money bridges trade; UPI shifts deposits, total unchanged"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v2/stills/v2_s5b/b33.jpg"
+    },
+    {
+     "beat_id": "b34",
+     "say": "Forms साथ रहते हैं; हर card में पैसा stored नहीं होता।",
+     "shows": "Forms coexist; account-linked card versus stored-value card",
+     "items": [
+      {
+       "name": "currency notes",
+       "expect": "visible"
+      },
+      {
+       "name": "coins",
+       "expect": "visible"
+      },
+      {
+       "name": "phone",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: compare",
+       "expect": "Forms coexist; account-linked card versus stored-value card"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v2/stills/v2_s5b/b34.jpg"
+    },
+    {
+     "beat_id": "b35",
+     "say": "क्रम barter, commodity, metallic, paper, bank, फिर digital है।",
+     "shows": "Six numbered money forms highlight along arrows",
+     "items": [
+      {
+       "name": "wheat",
+       "expect": "visible"
+      },
+      {
+       "name": "cloth",
+       "expect": "visible"
+      },
+      {
+       "name": "salt",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: sequence",
+       "expect": "Six numbered money forms highlight along arrows"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v2/stills/v2_s5b/b35.jpg"
+    }
+   ]
+  },
+  {
+   "id": "v2_s6",
+   "beats": [
+    {
+     "beat_id": "b36",
+     "say": "Salt और note की कीमत कहाँ से आई? मानिए salt packet ₹20 में बिकता और payment में चलता है; note से ₹500 चुकते हैं।",
+     "shows": "Salt ₹20 and note ₹500 beside payment arrows",
+     "items": [
+      {
+       "name": "salt packet",
+       "expect": "visible"
+      },
+      {
+       "name": "₹20 price tag",
+       "expect": "visible"
+      },
+      {
+       "name": "₹500 note",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: compare",
+       "expect": "Salt ₹20 and note ₹500 beside payment arrows"
+      },
+      {
+       "name": "process: hand_over",
+       "expect": "Salt ₹20 and note ₹500 beside payment arrows"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v2/stills/v2_s6/b36.jpg"
+    },
+    {
+     "beat_id": "b36a",
+     "say": "Payment में लेना बंद हो, तो salt फिर भी उपयोगी और बेचने लायक है; कीमत बदल सकती है। Note का कागज़ ₹500 नहीं दिलाता; यह redemption का वादा नहीं है।",
+     "shows": "Refused salt still cooks; paper lacks ₹500 worth",
+     "items": [
+      {
+       "name": "salt packet",
+       "expect": "visible"
+      },
+      {
+       "name": "cooking pot",
+       "expect": "visible"
+      },
+      {
+       "name": "₹500 note",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: compare",
+       "expect": "Refused salt still cooks; paper lacks ₹500 worth"
+      },
+      {
+       "name": "process: refuse",
+       "expect": "Refused salt still cooks; paper lacks ₹500 worth"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v2/stills/v2_s6/b36a.jpg"
+    },
+    {
+     "beat_id": "b37",
+     "say": "Intrinsic value अपनी चीज़ से है, जैसे सोना। Extrinsic value बाहर के trust और law से है, जैसे note; source में material बनाम government या authority backing का फर्क है।",
+     "shows": "Gold material versus note with trust and law",
+     "items": [
+      {
+       "name": "gold bar",
+       "expect": "visible"
+      },
+      {
+       "name": "₹500 note",
+       "expect": "visible"
+      },
+      {
+       "name": "law scroll",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: compare",
+       "expect": "Gold material versus note with trust and law"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v2/stills/v2_s6/b37.jpg"
+    },
+    {
+     "beat_id": "b39",
+     "say": "Gold, silver, salt, cattle, cowrie shells commodity वाले examples हैं; notes, bank deposits, digital money दूसरे। जैसे account balance में physical सामान नहीं, bank पर payment योग्य claim है।",
+     "shows": "Commodity group beside notes and bank claim icons",
+     "items": [
+      {
+       "name": "gold",
+       "expect": "visible"
+      },
+      {
+       "name": "silver",
+       "expect": "visible"
+      },
+      {
+       "name": "salt",
+       "expect": "visible"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v2/stills/v2_s6/b39.jpg"
+    },
+    {
+     "beat_id": "b40",
+     "say": "Salt यहाँ उपलब्ध और उपयोगी है, इसलिए चलता है; बाहर seller मना कर सकता है: वहाँ buyers इसे आगे नहीं लेते। Trusted रुपये वह लेता है क्योंकि उन्हें दूसरी दुकान पर खर्च कर सकेगा।",
+     "shows": "Salt refused outside; rupees reach the next shop",
+     "items": [
+      {
+       "name": "salt packet",
+       "expect": "visible"
+      },
+      {
+       "name": "rupee notes",
+       "expect": "visible"
+      },
+      {
+       "name": "shop counter",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: cause_effect",
+       "expect": "Salt refused outside; rupees reach the next shop"
+      },
+      {
+       "name": "process: refuse",
+       "expect": "Salt refused outside; rupees reach the next shop"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v2/stills/v2_s6/b40.jpg"
+    },
+    {
+     "beat_id": "b41",
+     "say": "Divisibility और portability पहले difficult, दूसरे में easy हैं: गाय बाँटने और salt ढोने के मुकाबले छोटा payment आसान है। Note के टुकड़े करना divisibility नहीं।",
+     "shows": "Bulky commodities versus small payments; cutting note crossed",
+     "items": [
+      {
+       "name": "cow",
+       "expect": "visible"
+      },
+      {
+       "name": "heavy salt sack",
+       "expect": "visible"
+      },
+      {
+       "name": "small denomination coins",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: compare",
+       "expect": "Bulky commodities versus small payments; cutting note crossed"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v2/stills/v2_s6/b41.jpg"
+    },
+    {
+     "beat_id": "b43",
+     "say": "Legal tender कानून में बकाया चुकाता है; trust आगे खर्चने का भरोसा है। छोटे payments और दूरी के लिए divisibility, portability चाहिए। Durability यानी टिकना: commodities generally टिकती हैं; paper खराब होता है, digital technology पर निर्भर है।",
+     "shows": "Law settles debt; trust, portability, durability contrasted",
+     "items": [
+      {
+       "name": "law scroll",
+       "expect": "visible"
+      },
+      {
+       "name": "stamp",
+       "expect": "visible"
+      },
+      {
+       "name": "rupee note",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: compare",
+       "expect": "Law settles debt; trust, portability, durability contrasted"
+      },
+      {
+       "name": "process: hand_over",
+       "expect": "Law settles debt; trust, portability, durability contrasted"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v2/stills/v2_s6/b43.jpg"
+    },
+    {
+     "beat_id": "b44",
+     "say": "Commodity prices बदलते हैं; backing gold redemption नहीं। हर coin intrinsic नहीं; access रुकना balance मिटना नहीं।",
+     "shows": "Moving prices; crossed equivalences; disconnected phone, intact balance",
+     "items": [
+      {
+       "name": "commodity",
+       "expect": "visible"
+      },
+      {
+       "name": "changing price tags",
+       "expect": "visible"
+      },
+      {
+       "name": "authority seal",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: compare",
+       "expect": "Moving prices; crossed equivalences; disconnected phone, intact balance"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v2/stills/v2_s6/b44.jpg"
+    }
+   ]
+  },
+  {
+   "id": "v2_s7s",
+   "beats": [
+    {
+     "beat_id": "b46",
+     "say": "Payment में मिले salt का दूसरा उपयोग? मानिए grain देकर seller ने 2 packets लिए; आगे न चलें तो खाना बनाएगा।",
+     "shows": "Grain exchanged for salt; rejected payment becomes seasoning",
+     "items": [
+      {
+       "name": "grain sack",
+       "expect": "visible"
+      },
+      {
+       "name": "two salt packets",
+       "expect": "visible"
+      },
+      {
+       "name": "cooking pot",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: sequence",
+       "expect": "Grain exchanged for salt; rejected payment becomes seasoning"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v2/stills/v2_s7s/b46.jpg"
+    }
+   ]
+  },
+  {
+   "id": "v2_s7b",
+   "beats": [
+    {
+     "beat_id": "b47",
+     "say": "यह commodity money है: money बनी चीज़ में intrinsic value होती है, यानी monetary use के बाहर भी कीमत, जैसे kitchen में salt।",
+     "shows": "Same salt: payment handover beside cooking pot",
+     "items": [
+      {
+       "name": "salt",
+       "expect": "visible"
+      },
+      {
+       "name": "goods",
+       "expect": "visible"
+      },
+      {
+       "name": "cooking pot",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: compare",
+       "expect": "Same salt: payment handover beside cooking pot"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v2/stills/v2_s7b/b47.jpg"
+    },
+    {
+     "beat_id": "b48",
+     "say": "Useful होना काफी नहीं, payment में चलना चाहिए; purchasing power अकेली note को commodity money नहीं बनाती।",
+     "shows": "Salt passes both tests; note classification crossed",
+     "items": [
+      {
+       "name": "salt",
+       "expect": "visible"
+      },
+      {
+       "name": "rupee note",
+       "expect": "visible"
+      },
+      {
+       "name": "goods",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: compare",
+       "expect": "Salt passes both tests; note classification crossed"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v2/stills/v2_s7b/b48.jpg"
+    },
+    {
+     "beat_id": "b49",
+     "say": "Commodity money payment के बाहर भी उपयोगी है।",
+     "shows": "Salt payment beside salt used in cooking",
+     "items": [
+      {
+       "name": "salt",
+       "expect": "visible"
+      },
+      {
+       "name": "goods",
+       "expect": "visible"
+      },
+      {
+       "name": "cooking pot",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: compare",
+       "expect": "Salt payment beside salt used in cooking"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v2/stills/v2_s7b/b49.jpg"
+    }
+   ]
+  },
+  {
+   "id": "v2_s8a",
+   "beats": [
+    {
+     "beat_id": "b50",
+     "say": "नमक कहाँ चला? Salt Ancient Rome और Africa में; cattle early pastoral societies में, यानी पशु रखने से रोज़ी कमाने वाले लोगों में। दूसरा किसी country का नाम नहीं।",
+     "shows": "Salt beside maps; cattle beside herders",
+     "items": [
+      {
+       "name": "salt heap",
+       "expect": "visible"
+      },
+      {
+       "name": "cattle",
+       "expect": "visible"
+      },
+      {
+       "name": "pasture",
+       "expect": "visible"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v2/stills/v2_s8a/b50.jpg"
+    },
+    {
+     "beat_id": "b51",
+     "say": "हथेली के छोटे खोल गिनकर payment हो सकता है? Cowrie shells, यानी कौड़ियाँ, India, China और Africa में चलीं; खाने की चीज़ होना ज़रूरी नहीं, लोगों का स्वीकार करना ज़रूरी है।",
+     "shows": "Palm-held cowries, three regions, recipient acceptance tick",
+     "items": [
+      {
+       "name": "cowrie shells",
+       "expect": "visible"
+      },
+      {
+       "name": "open palm",
+       "expect": "visible"
+      },
+      {
+       "name": "map",
+       "expect": "visible"
+      },
+      {
+       "name": "process: accept",
+       "expect": "Palm-held cowries, three regions, recipient acceptance tick"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v2/stills/v2_s8a/b51.jpg"
+    },
+    {
+     "beat_id": "b52",
+     "say": "चाय का चौकोर टुकड़ा कैसे बनेगा? Tea bricks यानी दबाई हुई चाय, बनाने वाली ईंट नहीं; Central Asia और Tibet में चली। Tobacco के सूखे पत्तों वाला उदाहरण Colonial America का है।",
+     "shows": "Tea brick and tobacco beside their regions",
+     "items": [
+      {
+       "name": "compressed tea brick",
+       "expect": "visible"
+      },
+      {
+       "name": "construction brick",
+       "expect": "visible"
+      },
+      {
+       "name": "dried tobacco leaves",
+       "expect": "visible"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v2/stills/v2_s8a/b52.jpg"
+    }
+   ]
+  },
+  {
+   "id": "v2_s8s",
+   "beats": [
+    {
+     "beat_id": "b53",
+     "say": "अब illustrative bazaar में किसान को 2 metres कपड़ा चाहिए। उसके 10 kg grain, trader के 2 kg salt और कपड़े की value बराबर मानिए।",
+     "shows": "Equal-value goods; farmer's thought bubble contains cloth",
+     "items": [
+      {
+       "name": "10 kg grain sack",
+       "expect": "visible"
+      },
+      {
+       "name": "2 kg salt bundle",
+       "expect": "visible"
+      },
+      {
+       "name": "2 metres cloth",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: compare",
+       "expect": "Equal-value goods; farmer's thought bubble contains cloth"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v2/stills/v2_s8s/b53.jpg"
+    },
+    {
+     "beat_id": "b54",
+     "say": "किसान अपना 10 kg grain देकर 2 kg salt लेता है। फिर पूरा salt देकर 2 metres कपड़ा लेता है; grain और salt उसके पास नहीं बचे।",
+     "shows": "Grain swaps for salt; salt swaps for cloth",
+     "items": [
+      {
+       "name": "10 kg grain sack",
+       "expect": "visible"
+      },
+      {
+       "name": "2 kg salt bundle",
+       "expect": "visible"
+      },
+      {
+       "name": "2 metres cloth",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: sequence",
+       "expect": "Grain swaps for salt; salt swaps for cloth"
+      },
+      {
+       "name": "process: barter_swap",
+       "expect": "Grain swaps for salt; salt swaps for cloth"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v2/stills/v2_s8s/b54.jpg"
+    }
+   ]
+  },
+  {
+   "id": "v2_s8b",
+   "beats": [
+    {
+     "beat_id": "b55",
+     "say": "Salt medium of exchange बना। किसान को खुद salt नहीं चाहिए; आगे चलने से लिया। इसलिए double coincidence हटी: पहले buyer को कपड़ा देना नहीं पड़ा।",
+     "shows": "Buyer→salt→farmer→salt→cloth seller; grain and cloth return",
+     "items": [
+      {
+       "name": "salt",
+       "expect": "visible"
+      },
+      {
+       "name": "grain",
+       "expect": "visible"
+      },
+      {
+       "name": "cloth",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: sequence",
+       "expect": "Buyer→salt→farmer→salt→cloth seller; grain and cloth return"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v2/stills/v2_s8b/b55.jpg"
+    },
+    {
+     "beat_id": "b56",
+     "say": "Payment के बाहर भी उपयोग है: salt खाने में, cattle रोज़ी में काम आते हैं; tea और tobacco की अलग demand है।",
+     "shows": "Salt beside cooking; cattle livelihood; tea, tobacco demand",
+     "items": [
+      {
+       "name": "salt",
+       "expect": "visible"
+      },
+      {
+       "name": "cooking pot",
+       "expect": "visible"
+      },
+      {
+       "name": "cattle",
+       "expect": "visible"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v2/stills/v2_s8b/b56.jpg"
+    },
+    {
+     "beat_id": "b57",
+     "say": "अपने उपयोग और community acceptance से barter आसान हुआ, हर जगह नहीं। Metallic coins common होने से पहले यह medium था; उपयोग अकेला काफी नहीं।",
+     "shows": "Use plus community ticks→exchange; commodities before coins",
+     "items": [
+      {
+       "name": "salt",
+       "expect": "visible"
+      },
+      {
+       "name": "cooking pot",
+       "expect": "visible"
+      },
+      {
+       "name": "acceptance ticks",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: cause_effect",
+       "expect": "Use plus community ticks→exchange; commodities before coins"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v2/stills/v2_s8b/b57.jpg"
+    }
+   ]
+  },
+  {
+   "id": "v2_s9s",
+   "beats": [
+    {
+     "beat_id": "b58",
+     "say": "बचाए 100 kg grain में सिर्फ 90 kg बचे, तो बाद का payment कैसे होगा? इस hypothetical spoilage से देने लायक grain घट गया।",
+     "shows": "100 kg → 90 kg; future grain payment questioned",
+     "items": [
+      {
+       "name": "stored grain",
+       "expect": "visible"
+      },
+      {
+       "name": "grain sack",
+       "expect": "visible"
+      },
+      {
+       "name": "spoiled grain",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: cause_effect",
+       "expect": "100 kg → 90 kg; future grain payment questioned"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v2/stills/v2_s9s/b58.jpg"
+    }
+   ]
+  },
+  {
+   "id": "v2_s9b",
+   "beats": [
+    {
+     "beat_id": "b59",
+     "say": "यह perishability, यानी खराब होना है। बाकी limitations हैं lack of uniformity, poor divisibility, difficult transport और limited standardization; इन्हें गाय और grain से समझिए।",
+     "shows": "Spoiled grain; cows, sack, measures show limitations",
+     "items": [
+      {
+       "name": "spoiled grain",
+       "expect": "visible"
+      },
+      {
+       "name": "two differently sized cows",
+       "expect": "visible"
+      },
+      {
+       "name": "intact cow",
+       "expect": "visible"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v2/stills/v2_s9b/b59.jpg"
+    },
+    {
+     "beat_id": "b60",
+     "say": "गायों का size और health अलग होना lack of uniformity है। Weight और quality के तय rules standardization हैं; इनके बिना बार-बार checking और bargaining चाहिए।",
+     "shows": "Unequal cows; absent rules trigger checks and bargaining",
+     "items": [
+      {
+       "name": "large healthy cow",
+       "expect": "visible"
+      },
+      {
+       "name": "small thin cow",
+       "expect": "visible"
+      },
+      {
+       "name": "weighing scale",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: cause_effect",
+       "expect": "Unequal cows; absent rules trigger checks and bargaining"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v2/stills/v2_s9b/b60.jpg"
+    },
+    {
+     "beat_id": "b61",
+     "say": "गाय बाँटना मुश्किल, grain खराब हो सकता है, भारी sack ढोना पड़ता है। इसलिए छोटे payments, storage और transport में extra खर्च जुड़ता है।",
+     "shows": "Cow, spoiling grain, heavy sack cause extra costs",
+     "items": [
+      {
+       "name": "intact cow",
+       "expect": "visible"
+      },
+      {
+       "name": "small purchase",
+       "expect": "visible"
+      },
+      {
+       "name": "grain",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: cause_effect",
+       "expect": "Cow, spoiling grain, heavy sack cause extra costs"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v2/stills/v2_s9b/b61.jpg"
+    },
+    {
+     "beat_id": "b62",
+     "say": "सब पर बराबर लागू नहीं: grain बाँट सकते हैं, गाय नहीं; shells food जैसे नहीं सड़ते। ‘सभी’ से सावधान।",
+     "shows": "Grain divides; cow stays whole; shells outlast food",
+     "items": [
+      {
+       "name": "grain heap",
+       "expect": "visible"
+      },
+      {
+       "name": "small grain portions",
+       "expect": "visible"
+      },
+      {
+       "name": "intact cow",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: compare",
+       "expect": "Grain divides; cow stays whole; shells outlast food"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v2/stills/v2_s9b/b62.jpg"
+    },
+    {
+     "beat_id": "b63",
+     "say": "Matching आसान हुई, handling नहीं; इसलिए टिकाऊ, measured metallic units उपयोगी बने।",
+     "shows": "Matching tick; handling burdens point toward weighed metal",
+     "items": [
+      {
+       "name": "paired commodity offers",
+       "expect": "visible"
+      },
+      {
+       "name": "tick mark",
+       "expect": "visible"
+      },
+      {
+       "name": "heavy grain sack",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: cause_effect",
+       "expect": "Matching tick; handling burdens point toward weighed metal"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v2/stills/v2_s9b/b63.jpg"
+    }
+   ]
+  },
+  {
+   "id": "v4_s1a",
+   "beats": [
+    {
+     "beat_id": "b1",
+     "say": "सस्ता ₹100 note चावल क्यों दिलाता है? क्या पीछे gold है? Payment में लेना और कानून से पैसा मानना क्या एक हैं?",
+     "shows": "Note–rice arrow; gold? Payment tick versus law scroll?",
+     "items": [
+      {
+       "name": "₹100 note",
+       "expect": "visible"
+      },
+      {
+       "name": "rice sack",
+       "expect": "visible"
+      },
+      {
+       "name": "gold bar",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: question",
+       "expect": "Note–rice arrow; gold? Payment tick versus law scroll?"
+      },
+      {
+       "name": "process: hand_over",
+       "expect": "Note–rice arrow; gold? Payment tick versus law scroll?"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v4/stills/v4_s1a/b1.jpg"
+    }
+   ]
+  },
+  {
+   "id": "v4_s1s",
+   "beats": [
+    {
+     "beat_id": "b2",
+     "say": "पुराने hypothetical bank में 1 note लौटाएँ तो? Bank उसे लेकर 1 gram gold देता है; आपके हाथ में अब gold है। आज का rupee ऐसा नहीं।",
+     "shows": "Note enters bank; gold reaches hand; modern redemption crossed",
+     "items": [
+      {
+       "name": "hypothetical bank",
+       "expect": "visible"
+      },
+      {
+       "name": "one paper note",
+       "expect": "visible"
+      },
+      {
+       "name": "gold piece labelled 1 gram",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: sequence",
+       "expect": "Note enters bank; gold reaches hand; modern redemption crossed"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v4/stills/v4_s1s/b2.jpg"
+    }
+   ]
+  },
+  {
+   "id": "v4_s1b",
+   "beats": [
+    {
+     "beat_id": "b3",
+     "say": "यह gold-backed paper currency है: माँगने पर तय gold मिले। Intrinsic value यानी material की कीमत; यहाँ value paper से नहीं, redemption promise से है, जैसे सामान की receipt।",
+     "shows": "Note exchanged for gold; receipt paired with goods",
+     "items": [
+      {
+       "name": "paper currency note",
+       "expect": "visible"
+      },
+      {
+       "name": "gold",
+       "expect": "visible"
+      },
+      {
+       "name": "paper sheet",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: promise",
+       "expect": "Note exchanged for gold; receipt paired with goods"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v4/stills/v4_s1b/b3.jpg"
+    },
+    {
+     "beat_id": "b4",
+     "say": "सिर्फ bank के पास gold होना काफी नहीं; note पर gold पाने का claim चाहिए।",
+     "shows": "Identical gold vaults; only one note carries claim",
+     "items": [
+      {
+       "name": "bank",
+       "expect": "visible"
+      },
+      {
+       "name": "gold reserves",
+       "expect": "visible"
+      },
+      {
+       "name": "paper currency note",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: compare",
+       "expect": "Identical gold vaults; only one note carries claim"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v4/stills/v4_s1b/b4.jpg"
+    },
+    {
+     "beat_id": "b5",
+     "say": "यह redemption promise आगे समझाएगा कि नए notes के लिए backing क्यों चाहिए।",
+     "shows": "Redemption promise points to new notes needing gold",
+     "items": [
+      {
+       "name": "redemption promise receipt",
+       "expect": "visible"
+      },
+      {
+       "name": "new currency notes",
+       "expect": "visible"
+      },
+      {
+       "name": "gold backing",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: cause_effect",
+       "expect": "Redemption promise points to new notes needing gold"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v4/stills/v4_s1b/b5.jpg"
+    }
+   ]
+  },
+  {
+   "id": "v4_s2s",
+   "beats": [
+    {
+     "beat_id": "b6",
+     "say": "Bank 11वाँ note कैसे दे? मानिए, 10 grams के पीछे 10 notes हैं, हर note पर 1 gram का वादा। Fully backed उदाहरण में अगला note देने को 1 gram और चाहिए।",
+     "shows": "Ten gold–note pairs; extra gram enables eleventh note",
+     "items": [
+      {
+       "name": "bank",
+       "expect": "visible"
+      },
+      {
+       "name": "gold reserve",
+       "expect": "visible"
+      },
+      {
+       "name": "ten paper notes",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: cause_effect",
+       "expect": "Ten gold–note pairs; extra gram enables eleventh note"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v4/stills/v4_s2s/b6.jpg"
+    }
+   ]
+  },
+  {
+   "id": "v4_s2b",
+   "beats": [
+    {
+     "beat_id": "b7",
+     "say": "यही gold-backing constraint है; gold reserves यानी वादा पूरा करने का रखा हुआ gold।",
+     "shows": "Vault gold linked to note’s promise receipt",
+     "items": [
+      {
+       "name": "gold bars",
+       "expect": "visible"
+      },
+      {
+       "name": "vault",
+       "expect": "visible"
+      },
+      {
+       "name": "paper note",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: promise",
+       "expect": "Vault gold linked to note’s promise receipt"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v4/stills/v4_s2b/b7.jpg"
+    },
+    {
+     "beat_id": "b8",
+     "say": "Central bank gold रखकर notes जारी करता था और माँगने पर तय gold देता था। इसलिए नए notes को backing चाहिए थी; redemption in principle था, हर जगह unrestricted नहीं।",
+     "shows": "Reserve-backed notes issued; notes return for gold",
+     "items": [
+      {
+       "name": "central bank",
+       "expect": "visible"
+      },
+      {
+       "name": "gold bars",
+       "expect": "visible"
+      },
+      {
+       "name": "vault",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: cause_effect",
+       "expect": "Reserve-backed notes issued; notes return for gold"
+      },
+      {
+       "name": "process: hand_over",
+       "expect": "Reserve-backed notes issued; notes return for gold"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v4/stills/v4_s2b/b8.jpg"
+    },
+    {
+     "beat_id": "b9",
+     "say": "Claims चुकाने की क्षमता घटे, तो भरोसा टूटे और लोग gold माँगें।",
+     "shows": "Capacity falls; trust breaks; holders demand gold",
+     "items": [
+      {
+       "name": "gold reserve vault",
+       "expect": "visible"
+      },
+      {
+       "name": "repayment capacity meter",
+       "expect": "visible"
+      },
+      {
+       "name": "broken trust link",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: cause_effect",
+       "expect": "Capacity falls; trust breaks; holders demand gold"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v4/stills/v4_s2b/b9.jpg"
+    },
+    {
+     "beat_id": "b10",
+     "say": "Gold का वादा, उसे चुकाने के reserves, फिर उन्हीं से बँधा issue; 1 gram सिर्फ उदाहरण था।",
+     "shows": "Promise → reserves → reserve-bound notes; 1g example tag",
+     "items": [
+      {
+       "name": "gold promise receipt",
+       "expect": "visible"
+      },
+      {
+       "name": "gold reserve vault",
+       "expect": "visible"
+      },
+      {
+       "name": "paper note stack",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: sequence",
+       "expect": "Promise → reserves → reserve-bound notes; 1g example tag"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v4/stills/v4_s2b/b10.jpg"
+    },
+    {
+     "beat_id": "b11",
+     "say": "याद रखिए: issue के पीछे redemption की ज़िम्मेदारी थी।",
+     "shows": "Issued note tethered to gold redemption promise",
+     "items": [
+      {
+       "name": "central bank",
+       "expect": "visible"
+      },
+      {
+       "name": "paper note",
+       "expect": "visible"
+      },
+      {
+       "name": "gold bars",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: promise",
+       "expect": "Issued note tethered to gold redemption promise"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v4/stills/v4_s2b/b11.jpg"
+    }
+   ]
+  },
+  {
+   "id": "v4_s3",
+   "beats": [
+    {
+     "beat_id": "b12",
+     "say": "सामान की जगह receipt चले तो? इतिहास में paper claims, सरकारी issue और acceptance rules अलग milestones बने।",
+     "shows": "Goods beside receipt; question mark above receipt",
+     "items": [
+      {
+       "name": "goods",
+       "expect": "visible"
+      },
+      {
+       "name": "receipt",
+       "expect": "visible"
+      },
+      {
+       "name": "government seal",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: question",
+       "expect": "Goods beside receipt; question mark above receipt"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v4/stills/v4_s3/b12.jpg"
+    },
+    {
+     "beat_id": "b13",
+     "say": "Receipt जमा value का सबूत है: 7th century के Tang receipts paper claims दिखाते हैं। 1023 के Song state notes में सरकारी authority issuer बनी; यानी claim के साथ जारी करने वाले की पहचान बदली।",
+     "shows": "Tang receipt precedes Song note with government seal",
+     "items": [
+      {
+       "name": "deposited valuables",
+       "expect": "visible"
+      },
+      {
+       "name": "receipt",
+       "expect": "visible"
+      },
+      {
+       "name": "paper claim",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: sequence",
+       "expect": "Tang receipt precedes Song note with government seal"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v4/stills/v4_s3/b13.jpg"
+    },
+    {
+     "beat_id": "b14",
+     "say": "लोग note लेने से मना करें तो? 1275 का Yuan milestone compulsory acceptance है, यानी नियम से लेना ज़रूरी। Sweden के first banknotes 1661 में आए; इसे दुनिया की शुरुआत मत समझिए, Chinese developments पहले हुए।",
+     "shows": "Refusal crossed note; stamped law; earlier Chinese milestones",
+     "items": [
+      {
+       "name": "paper note",
+       "expect": "visible"
+      },
+      {
+       "name": "stamped law scroll",
+       "expect": "visible"
+      },
+      {
+       "name": "Swedish banknote",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: compulsory",
+       "expect": "Refusal crossed note; stamped law; earlier Chinese milestones"
+      },
+      {
+       "name": "process: refuse",
+       "expect": "Refusal crossed note; stamped law; earlier Chinese milestones"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v4/stills/v4_s3/b14.jpg"
+    },
+    {
+     "beat_id": "b15",
+     "say": "पैसे का fixed आधार कैसे बने? Britain का 1816 Gold Standard पैसे को तय gold से जोड़ता था। 1944 Bretton Woods में dollar-gold link आया; एक फर्क समझिए: official convertibility थी, हर व्यक्ति का gold counter नहीं।",
+     "shows": "Money–gold links; official access versus crossed public counter",
+     "items": [
+      {
+       "name": "money",
+       "expect": "visible"
+      },
+      {
+       "name": "gold bar",
+       "expect": "visible"
+      },
+      {
+       "name": "fixed link",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: compare",
+       "expect": "Money–gold links; official access versus crossed public counter"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v4/stills/v4_s3/b15.jpg"
+    },
+    {
+     "beat_id": "b16",
+     "say": "1971 में gold-redemption link टूटा; दोनों historical sequences इसी modern दौर पर पहुँचते हैं।",
+     "shows": "Gold link breaks; both timelines meet at 1971",
+     "items": [
+      {
+       "name": "dollar note",
+       "expect": "visible"
+      },
+      {
+       "name": "gold bar",
+       "expect": "visible"
+      },
+      {
+       "name": "redemption link",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: change",
+       "expect": "Gold link breaks; both timelines meet at 1971"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v4/stills/v4_s3/b16.jpg"
+    },
+    {
+     "beat_id": "b17",
+     "say": "अब सवाल है: gold देने का वादा नहीं, तो लोग note क्यों लेंगे?",
+     "shows": "Recipient considers note; crossed gold promise; question mark",
+     "items": [
+      {
+       "name": "paper note",
+       "expect": "visible"
+      },
+      {
+       "name": "gold bar",
+       "expect": "visible"
+      },
+      {
+       "name": "crossed redemption promise",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: question",
+       "expect": "Recipient considers note; crossed gold promise; question mark"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v4/stills/v4_s3/b17.jpg"
+    },
+    {
+     "beat_id": "b18",
+     "say": "Paper claims से issuer, acceptance और gold का आधार बदलता गया।",
+     "shows": "Receipt, issuer seal, acceptance law, broken gold link",
+     "items": [
+      {
+       "name": "receipt",
+       "expect": "visible"
+      },
+      {
+       "name": "government seal",
+       "expect": "visible"
+      },
+      {
+       "name": "stamped law scroll",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: sequence",
+       "expect": "Receipt, issuer seal, acceptance law, broken gold link"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v4/stills/v4_s3/b18.jpg"
+    }
+   ]
+  },
+  {
+   "id": "v4_s4s",
+   "beats": [
+    {
+     "beat_id": "b19",
+     "say": "दुकानदार paper क्यों ले? आप अपने ₹100 देकर चावल लेते हैं। दुकानदार उन्हें स्वीकार करता है क्योंकि आगे खुद खर्च कर पाने का भरोसा है।",
+     "shows": "Note accepted; thought bubble shows spending it again",
+     "items": [
+      {
+       "name": "₹100 note",
+       "expect": "visible"
+      },
+      {
+       "name": "rice",
+       "expect": "visible"
+      },
+      {
+       "name": "rice bag",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: accept",
+       "expect": "Note accepted; thought bubble shows spending it again"
+      },
+      {
+       "name": "process: accept",
+       "expect": "Note accepted; thought bubble shows spending it again"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v4/stills/v4_s4s/b19.jpg"
+    }
+   ]
+  },
+  {
+   "id": "v4_s4b",
+   "beats": [
+    {
+     "beat_id": "b20",
+     "say": "यह fiat money है: value government authority और public trust से, material से नहीं। यानी आज मिला note कल groceries दिलाएगा।",
+     "shows": "Authority and trust support tomorrow’s grocery purchase",
+     "items": [
+      {
+       "name": "government seal",
+       "expect": "visible"
+      },
+      {
+       "name": "currency note",
+       "expect": "visible"
+      },
+      {
+       "name": "paper sheet",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: cause_effect",
+       "expect": "Authority and trust support tomorrow’s grocery purchase"
+      },
+      {
+       "name": "process: hand_over",
+       "expect": "Authority and trust support tomorrow’s grocery purchase"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v4/stills/v4_s4b/b20.jpg"
+    },
+    {
+     "beat_id": "b21",
+     "say": "Gold-backed paper का आधार redemption था; इसलिए हर paper note fiat नहीं।",
+     "shows": "Paper notes: gold redemption versus authority and trust",
+     "items": [
+      {
+       "name": "gold-backed paper note",
+       "expect": "visible"
+      },
+      {
+       "name": "gold bars",
+       "expect": "visible"
+      },
+      {
+       "name": "fiat note",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: compare",
+       "expect": "Paper notes: gold redemption versus authority and trust"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v4/stills/v4_s4b/b21.jpg"
+    },
+    {
+     "beat_id": "b22",
+     "say": "Authority और trust वाला यही आधार आगे समझाएगा: gold बिना issue कैसे control होता है।",
+     "shows": "Note issuance control questioned without gold backing",
+     "items": [
+      {
+       "name": "government seal",
+       "expect": "visible"
+      },
+      {
+       "name": "currency note stack",
+       "expect": "visible"
+      },
+      {
+       "name": "gold bars",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: question",
+       "expect": "Note issuance control questioned without gold backing"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v4/stills/v4_s4b/b22.jpg"
+    }
+   ]
+  },
+  {
+   "id": "v4_s5",
+   "beats": [
+    {
+     "beat_id": "b23",
+     "say": "Press से note निकलना और पैसा जारी होना क्या एक काम है? Fiat paper या digital numbers हो सकता है; face value gold-silver से नहीं बँधी, government authority, central-bank control और public trust से जुड़ी है।",
+     "shows": "Press versus issuance; authority and trust support money",
+     "items": [
+      {
+       "name": "printing press",
+       "expect": "visible"
+      },
+      {
+       "name": "banknote",
+       "expect": "visible"
+      },
+      {
+       "name": "digital balance",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: compare",
+       "expect": "Press versus issuance; authority and trust support money"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v4/stills/v4_s5/b23.jpg"
+    },
+    {
+     "beat_id": "b24",
+     "say": "और issue संभव है, मगर monetary policy control करती है। एक फर्क समझिए: printing notes बनाती है; authorised issuance circulation में लाता है। पुराने notes बदलना कुल पैसा बढ़ाना नहीं।",
+     "shows": "Printed notes await approval; replacement leaves total unchanged",
+     "items": [
+      {
+       "name": "printing press",
+       "expect": "visible"
+      },
+      {
+       "name": "new notes",
+       "expect": "visible"
+      },
+      {
+       "name": "authorisation stamp",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: compare",
+       "expect": "Printed notes await approval; replacement leaves total unchanged"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v4/stills/v4_s5/b24.jpg"
+    },
+    {
+     "beat_id": "b25",
+     "say": "Policy rates और liquidity से loan महँगा हो तो दुकानदार expansion रोक सकता है। Borrowing और spending घटने से prices का दबाव घट सकता है; सस्ता credit उलटा असर करे। असर समय लेता है, missing goods नहीं बनाता।",
+     "shows": "Costlier credit slows expansion, spending and price pressure",
+     "items": [
+      {
+       "name": "policy dial",
+       "expect": "visible"
+      },
+      {
+       "name": "loan document",
+       "expect": "visible"
+      },
+      {
+       "name": "shop extension",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: cause_effect",
+       "expect": "Costlier credit slows expansion, spending and price pressure"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v4/stills/v4_s5/b25.jpg"
+    },
+    {
+     "beat_id": "b26",
+     "say": "Foreign price tags में codes क्यों देखें? $ वाला United States Dollar, USD, सबसे widely held और traded fiat currency है। € यानी Euro, EUR, कई EU देशों की shared currency है।",
+     "shows": "USD marks America; EUR links participating EU countries",
+     "items": [
+      {
+       "name": "dollar price tag",
+       "expect": "visible"
+      },
+      {
+       "name": "USD code",
+       "expect": "visible"
+      },
+      {
+       "name": "euro price tag",
+       "expect": "visible"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v4/stills/v4_s5/b26.jpg"
+    },
+    {
+     "beat_id": "b27",
+     "say": "¥ Japan या China, कैसे पहचानेंगे? Japanese Yen, JPY, stability और global currency markets में बड़े role के लिए जाना जाता है। Chinese Yuan Renminbi, CNY, trade और international reserves में बढ़ रहा है, यानी बाहरी payments के लिए रखे foreign ",
+     "shows": "Identical ¥ tags separate into JPY and CNY",
+     "items": [
+      {
+       "name": "¥ price tags",
+       "expect": "visible"
+      },
+      {
+       "name": "JPY code",
+       "expect": "visible"
+      },
+      {
+       "name": "CNY code",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: compare",
+       "expect": "Identical ¥ tags separate into JPY and CNY"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v4/stills/v4_s5/b27.jpg"
+    },
+    {
+     "beat_id": "b28",
+     "say": "Britain की दुकान में £ दिखे तो? यह British Pound Sterling, GBP है, जिसकी जड़ें 8th century में हैं। आज की fiat currencies में सबसे पुराना, लेकिन नाम पुराना होने से gold वाला वादा हमेशा गायब नहीं था।",
+     "shows": "Pound timeline separates ancient roots from modern fiat",
+     "items": [
+      {
+       "name": "£ price tag",
+       "expect": "visible"
+      },
+      {
+       "name": "GBP code",
+       "expect": "visible"
+      },
+      {
+       "name": "historical coin",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: sequence",
+       "expect": "Pound timeline separates ancient roots from modern fiat"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v4/stills/v4_s5/b28.jpg"
+    },
+    {
+     "beat_id": "b29",
+     "say": "Euro का historical count 27 EU members में 20 adopters है, सभी नहीं; इसे आज की updated गिनती मत मानिए।",
+     "shows": "Twenty euro badges among twenty-seven historical EU tiles",
+     "items": [
+      {
+       "name": "27 EU member tiles",
+       "expect": "visible"
+      },
+      {
+       "name": "20 euro badges",
+       "expect": "visible"
+      },
+      {
+       "name": "historical count label",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: count",
+       "expect": "Twenty euro badges among twenty-seven historical EU tiles"
+      },
+      {
+       "name": "process: count_stack",
+       "expect": "Twenty euro badges among twenty-seven historical EU tiles"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v4/stills/v4_s5/b29.jpg"
+    },
+    {
+     "beat_id": "b30",
+     "say": "इन descriptions से exact shares या हमेशा stable exchange rate मत निकालिए। पुराना currency नाम लगातार fiat होना नहीं बताता; Euro ranking के लिए measure चाहिए।",
+     "shows": "Unsupported shares, fixed rates and rankings crossed out",
+     "items": [
+      {
+       "name": "unlabelled share chart",
+       "expect": "visible"
+      },
+      {
+       "name": "flat exchange-rate chart",
+       "expect": "visible"
+      },
+      {
+       "name": "currency timeline",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: reject",
+       "expect": "Unsupported shares, fixed rates and rankings crossed out"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v4/stills/v4_s5/b30.jpg"
+    }
+   ]
+  },
+  {
+   "id": "v4_s6s",
+   "beats": [
+    {
+     "beat_id": "b32",
+     "say": "₹100 उधार कैसे चुकाएँ? आप ₹100 valid currency देते हैं; दुकानदार पूरा उधार चुका मानता है। अब ₹0 बाकी हैं।",
+     "shows": "₹100 handed over; debt counter reaches ₹0",
+     "items": [
+      {
+       "name": "valid ₹100 note",
+       "expect": "visible"
+      },
+      {
+       "name": "debt ledger",
+       "expect": "visible"
+      },
+      {
+       "name": "acceptance tick",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: accept",
+       "expect": "₹100 handed over; debt counter reaches ₹0"
+      },
+      {
+       "name": "process: hand_over",
+       "expect": "₹100 handed over; debt counter reaches ₹0"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v4/stills/v4_s6s/b32.jpg"
+    },
+    {
+     "beat_id": "b33",
+     "say": "खास design वाला valid ₹10 coin मिले तो? अपना 1 coin देकर ₹10 की चीज़ लेते हैं; पूरी कीमत चुक गई।",
+     "shows": "Special-design ₹10 coin exchanged for ₹10 goods",
+     "items": [
+      {
+       "name": "valid special-design ₹10 coin",
+       "expect": "visible"
+      },
+      {
+       "name": "goods",
+       "expect": "visible"
+      },
+      {
+       "name": "₹10 price tag",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: accept",
+       "expect": "Special-design ₹10 coin exchanged for ₹10 goods"
+      },
+      {
+       "name": "process: hand_over",
+       "expect": "Special-design ₹10 coin exchanged for ₹10 goods"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v4/stills/v4_s6s/b33.jpg"
+    },
+    {
+     "beat_id": "b34",
+     "say": "₹1,000 bill के लिए आप 2 valid ₹500 notes देते हैं; ₹1,500 हो तो 3 दे सकते हैं। लेकिन 100 ₹10 coins देकर ₹1,000 चुकाएँ, फिर 101 देकर ₹1,010 देना चाहें, तो limit के ऊपर लेना मर्ज़ी है।",
+     "shows": "Notes grow; coin meter stops; extra coin optional",
+     "items": [
+      {
+       "name": "valid ₹500 notes",
+       "expect": "visible"
+      },
+      {
+       "name": "₹1,000 bill",
+       "expect": "visible"
+      },
+      {
+       "name": "₹1,500 bill",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: limit",
+       "expect": "Notes grow; coin meter stops; extra coin optional"
+      },
+      {
+       "name": "process: coin_count",
+       "expect": "Notes grow; coin meter stops; extra coin optional"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v4/stills/v4_s6s/b34.jpg"
+    }
+   ]
+  },
+  {
+   "id": "v4_s6b",
+   "beats": [
+    {
+     "beat_id": "b35",
+     "say": "Legal tender government से officially recognised money है, जो उसकी territory में debts और transactions चुकाता है। Circulation commemorative coins याद में बने, लेकिन रोज़ ordinary coins जैसे इस्तेमाल होने वाले coins हैं।",
+     "shows": "Recognised money inside India; commemorative coin buys goods",
+     "items": [
+      {
+       "name": "government recognition stamp",
+       "expect": "visible"
+      },
+      {
+       "name": "banknote",
+       "expect": "visible"
+      },
+      {
+       "name": "debt receipt",
+       "expect": "visible"
+      },
+      {
+       "name": "process: hand_over",
+       "expect": "Recognised money inside India; commemorative coin buys goods"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v4/stills/v4_s6b/b35.jpg"
+    },
+    {
+     "beat_id": "b36",
+     "say": "Unlimited Legal Tender यानी genuine, valid notes जोड़ते जाएँ, tender की कुल रकम की ceiling नहीं आती। ₹10, ₹20, ₹50, ₹100, ₹200, ₹500 notes का यह status Reserve Bank of India Act, 1934 से जुड़ा है।",
+     "shows": "Valid note stacks grow without a ceiling",
+     "items": [
+      {
+       "name": "₹10 note",
+       "expect": "visible"
+      },
+      {
+       "name": "₹20 note",
+       "expect": "visible"
+      },
+      {
+       "name": "₹50 note",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: limit",
+       "expect": "Valid note stacks grow without a ceiling"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v4/stills/v4_s6b/b36.jpg"
+    },
+    {
+     "beat_id": "b37",
+     "say": "Limited Legal Tender में तय amount तक लेना ज़रूरी, आगे मर्ज़ी है; coins के लिए Coinage Act, 2011 है। यानी बड़ा coin ढेर लेने की मजबूरी limit पर रुकती है।",
+     "shows": "Coin meter stops; extra coins await choice",
+     "items": [
+      {
+       "name": "coins",
+       "expect": "visible"
+      },
+      {
+       "name": "coin pile",
+       "expect": "visible"
+      },
+      {
+       "name": "amount meter",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: limit",
+       "expect": "Coin meter stops; extra coins await choice"
+      },
+      {
+       "name": "process: coin_count",
+       "expect": "Coin meter stops; extra coins await choice"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v4/stills/v4_s6b/b37.jpg"
+    },
+    {
+     "beat_id": "b38",
+     "say": "Unlimited हर cash transaction की छूट नहीं। खास design circulation साबित नहीं करता; collector set अलग है। Valid coins की limit पार करना status खोना नहीं।",
+     "shows": "Cash barrier; collector case; over-limit coins retain ticks",
+     "items": [
+      {
+       "name": "banknote stack",
+       "expect": "visible"
+      },
+      {
+       "name": "cash transaction",
+       "expect": "visible"
+      },
+      {
+       "name": "restriction barrier",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: compare",
+       "expect": "Cash barrier; collector case; over-limit coins retain ticks"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v4/stills/v4_s6b/b38.jpg"
+    },
+    {
+     "beat_id": "b39",
+     "say": "Recognition के बाद अगला सवाल denomination और total limit है: notes की ceiling नहीं, coins की तय है।",
+     "shows": "Recognised notes extend; recognised coins meet limit",
+     "items": [
+      {
+       "name": "recognition stamp",
+       "expect": "visible"
+      },
+      {
+       "name": "banknote denominations",
+       "expect": "visible"
+      },
+      {
+       "name": "coin denominations",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: compare",
+       "expect": "Recognised notes extend; recognised coins meet limit"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v4/stills/v4_s6b/b39.jpg"
+    }
+   ]
+  },
+  {
+   "id": "v4_s7a",
+   "beats": [
+    {
+     "beat_id": "b40",
+     "say": "क्या हर legal tender fiat ही होगा? सामान्य जोड़ ऐसा है, लेकिन universal ‘must’ गलत होगा; Bitcoin exception इसे तोड़ता है।",
+     "shows": "Fiat and Bitcoin beside crossed universal rule",
+     "items": [
+      {
+       "name": "legal tender stamp",
+       "expect": "visible"
+      },
+      {
+       "name": "fiat banknote",
+       "expect": "visible"
+      },
+      {
+       "name": "Bitcoin symbol",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: compare",
+       "expect": "Fiat and Bitcoin beside crossed universal rule"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v4/stills/v4_s7a/b40.jpg"
+    },
+    {
+     "beat_id": "b41",
+     "say": "हर याद वाला coin payment में चलेगा? Commemorative coins fiat issues हैं; अधिकांश legal tender हैं, सभी नहीं। Metal और collector value भी अलग हैं।",
+     "shows": "Coin group: mostly legal; metal and collector branches",
+     "items": [
+      {
+       "name": "commemorative coins",
+       "expect": "visible"
+      },
+      {
+       "name": "fiat issue stamp",
+       "expect": "visible"
+      },
+      {
+       "name": "legal tender stamp",
+       "expect": "visible"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v4/stills/v4_s7a/b41.jpg"
+    },
+    {
+     "beat_id": "b42",
+     "say": "Pack वाला coin खर्च क्यों नहीं होता? Government Mint collector commemorative coins proof या UNC sets में बेचती है। Proof खास finish, UNC यानी Uncirculated; condition बचाने के लिए daily payments कम होते हैं।",
+     "shows": "Mint sets enter collection; faint branch toward shopping",
+     "items": [
+      {
+       "name": "Government Mint building",
+       "expect": "visible"
+      },
+      {
+       "name": "proof coin set",
+       "expect": "visible"
+      },
+      {
+       "name": "UNC coin set",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: cause_effect",
+       "expect": "Mint sets enter collection; faint branch toward shopping"
+      },
+      {
+       "name": "process: hand_over",
+       "expect": "Mint sets enter collection; faint branch toward shopping"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v4/stills/v4_s7a/b42.jpg"
+    }
+   ]
+  },
+  {
+   "id": "v4_s7s",
+   "beats": [
+    {
+     "beat_id": "b43",
+     "say": "4 पुराने 25 paise coins दें तो ₹1 bill चुक जाएगा? दुकानदार मना करे तो ₹1 बाकी रहता है; valid ₹1 coin दें तो बकाया ₹0 होता है। पुराने coins का legal-tender status हटना demonetization है।",
+     "shows": "चार पुराने coins अस्वीकृत; valid coin स्वीकार, बकाया शून्य",
+     "items": [
+      {
+       "name": "four old 25 paise coins",
+       "expect": "visible"
+      },
+      {
+       "name": "valid ₹1 coin",
+       "expect": "visible"
+      },
+      {
+       "name": "₹1 bill",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: compare",
+       "expect": "चार पुराने coins अस्वीकृत; valid coin स्वीकार, बकाया शून्य"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v4/stills/v4_s7s/b43.jpg"
+    },
+    {
+     "beat_id": "b44",
+     "say": "Change के डिब्बे में कौन-से coins हैं? ₹1, ₹2, ₹5, ₹10, ₹20 को जोड़कर ₹1,000 तक की tender limit है। 50 paise जोड़ें तो ₹10 तक; उससे छोटे coins जोड़ने से legal-tender payment नहीं बनता।",
+     "shows": "Coin groups; ₹1,000 और ₹10 meters; छोटे coins crossed",
+     "items": [
+      {
+       "name": "change box",
+       "expect": "visible"
+      },
+      {
+       "name": "₹1 coin",
+       "expect": "visible"
+      },
+      {
+       "name": "₹2 coin",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: limit",
+       "expect": "Coin groups; ₹1,000 और ₹10 meters; छोटे coins crossed"
+      },
+      {
+       "name": "process: coin_count",
+       "expect": "Coin groups; ₹1,000 और ₹10 meters; छोटे coins crossed"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v4/stills/v4_s7s/b44.jpg"
+    }
+   ]
+  },
+  {
+   "id": "v4_s7b",
+   "beats": [
+    {
+     "beat_id": "b45",
+     "say": "₹20 के 50 coins जोड़ें तो ₹1,000 बनते हैं; limit 1,000 coins की नहीं है। 50 paise के 20 coins जोड़ें तो ₹10 बनते हैं; denomination और total limit अलग हैं।",
+     "shows": "Two coin piles fill separate rupee-limit meters",
+     "items": [
+      {
+       "name": "₹20 coin",
+       "expect": "visible"
+      },
+      {
+       "name": "50 paise coin",
+       "expect": "visible"
+      },
+      {
+       "name": "coin counter",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: compare",
+       "expect": "Two coin piles fill separate rupee-limit meters"
+      },
+      {
+       "name": "process: coin_count",
+       "expect": "Two coin piles fill separate rupee-limit meters"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v4/stills/v4_s7b/b45.jpg"
+    },
+    {
+     "beat_id": "b46",
+     "say": "डिब्बे से 50 और 25 paise अलग रखिए: Coinage Act, 2011 में पहले की ₹10 limit है, दूसरे का tender status नहीं। Commemorative coins में ‘most’ यानी सभी नहीं; इससे गिनती नहीं निकाल सकते।",
+     "shows": "Separated coins: value limit versus withdrawn status",
+     "items": [
+      {
+       "name": "coin box",
+       "expect": "visible"
+      },
+      {
+       "name": "50 paise coin",
+       "expect": "visible"
+      },
+      {
+       "name": "25 paise coin",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: compare",
+       "expect": "Separated coins: value limit versus withdrawn status"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v4/stills/v4_s7b/b46.jpg"
+    },
+    {
+     "beat_id": "b47",
+     "say": "Limit पार करना status खोना नहीं; collector price legal status लौटाती नहीं।",
+     "shows": "Limit exceeded; status unchanged; collector tag powerless",
+     "items": [
+      {
+       "name": "coin pile",
+       "expect": "visible"
+      },
+      {
+       "name": "rupee-value meter",
+       "expect": "visible"
+      },
+      {
+       "name": "legal-tender status badge",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: compare",
+       "expect": "Limit exceeded; status unchanged; collector tag powerless"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v4/stills/v4_s7b/b47.jpg"
+    },
+    {
+     "beat_id": "b48",
+     "say": "Denomination × count निकालिए; फिर total limit और status जाँचिए।",
+     "shows": "Coin value calculation leads to two checks",
+     "items": [
+      {
+       "name": "coin",
+       "expect": "visible"
+      },
+      {
+       "name": "coin stack",
+       "expect": "visible"
+      },
+      {
+       "name": "multiplication sign",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: sequence",
+       "expect": "Coin value calculation leads to two checks"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v4/stills/v4_s7b/b48.jpg"
+    }
+   ]
+  },
+  {
+   "id": "v4_s8",
+   "beats": [
+    {
+     "beat_id": "b49",
+     "say": "Phone पर Bitcoin payment दिखे तो government-issued money है? नहीं; El-Salvador का example issuance और legal status अलग करता है।",
+     "shows": "Phone Bitcoin; government issuer questioned, then crossed",
+     "items": [
+      {
+       "name": "phone",
+       "expect": "visible"
+      },
+      {
+       "name": "Bitcoin symbol",
+       "expect": "visible"
+      },
+      {
+       "name": "government building",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: question",
+       "expect": "Phone Bitcoin; government issuer questioned, then crossed"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v4/stills/v4_s8/b49.jpg"
+    },
+    {
+     "beat_id": "b50",
+     "say": "2024 तक El-Salvador में Bitcoin non-fiat legal-tender exception था। इसका mechanism अलग समझिए: नए bitcoin mining से network rules पर बनते हैं; price demand-supply से, government के fixed-value promise से नहीं।",
+     "shows": "2024 recognition; network creates Bitcoin; market sets price",
+     "items": [
+      {
+       "name": "2024 timeline marker",
+       "expect": "visible"
+      },
+      {
+       "name": "Bitcoin symbol",
+       "expect": "visible"
+      },
+      {
+       "name": "law scroll",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: cause_effect",
+       "expect": "2024 recognition; network creates Bitcoin; market sets price"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v4/stills/v4_s8/b50.jpg"
+    },
+    {
+     "beat_id": "b51",
+     "say": "2025 reforms के बाद practical compulsory acceptance हटी; ownership और voluntary use legal रहे। दोनों राज़ी हों तो payment संभव है—यह ban नहीं।",
+     "shows": "Compulsion crossed; wallet ticked; willing parties exchange Bitcoin",
+     "items": [
+      {
+       "name": "2025 timeline marker",
+       "expect": "visible"
+      },
+      {
+       "name": "law scroll",
+       "expect": "visible"
+      },
+      {
+       "name": "compulsory acceptance stamp",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: change",
+       "expect": "Compulsion crossed; wallet ticked; willing parties exchange Bitcoin"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v4/stills/v4_s8/b51.jpg"
+    },
+    {
+     "beat_id": "b52",
+     "say": "कानूनी recognition बदलने से network का issuer government नहीं बनता।",
+     "shows": "Changed law scrolls above identical Bitcoin networks",
+     "items": [
+      {
+       "name": "2024 timeline marker",
+       "expect": "visible"
+      },
+      {
+       "name": "2025 timeline marker",
+       "expect": "visible"
+      },
+      {
+       "name": "law scroll",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: compare",
+       "expect": "Changed law scrolls above identical Bitcoin networks"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v4/stills/v4_s8/b52.jpg"
+    },
+    {
+     "beat_id": "b53",
+     "say": "अलग पूछिए: issuer कौन, ownership legal, acceptance voluntary या compulsory?",
+     "shows": "Network, wallet, handshake and compulsory stamp questioned separately",
+     "items": [
+      {
+       "name": "network computers",
+       "expect": "visible"
+      },
+      {
+       "name": "wallet",
+       "expect": "visible"
+      },
+      {
+       "name": "law scroll",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: question",
+       "expect": "Network, wallet, handshake and compulsory stamp questioned separately"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v4/stills/v4_s8/b53.jpg"
+    }
+   ]
+  },
+  {
+   "id": "v4_s9",
+   "beats": [
+    {
+     "beat_id": "b54",
+     "say": "₹100 silver commemorative coin पर collector कई हज़ार क्यों दे? वही coin payment और collection में अलग role निभाता है।",
+     "shows": "Same coin, payment versus collection, price question mark",
+     "items": [
+      {
+       "name": "₹100 silver commemorative coin",
+       "expect": "visible"
+      },
+      {
+       "name": "rupee notes",
+       "expect": "visible"
+      },
+      {
+       "name": "collection display case",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: question",
+       "expect": "Same coin, payment versus collection, price question mark"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v4/stills/v4_s9/b54.jpg"
+    },
+    {
+     "beat_id": "b55",
+     "say": "Payment में ₹100; collector sale में कई हज़ार संभव। Face value और market price अलग हैं।",
+     "shows": "Matching coins: ₹100 payment, several-thousand collector price",
+     "items": [
+      {
+       "name": "₹100 silver commemorative coin",
+       "expect": "visible"
+      },
+      {
+       "name": "₹100 denomination label",
+       "expect": "visible"
+      },
+      {
+       "name": "several-thousand-rupees price tag",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: compare",
+       "expect": "Matching coins: ₹100 payment, several-thousand collector price"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v4/stills/v4_s9/b55.jpg"
+    },
+    {
+     "beat_id": "b56",
+     "say": "Collector silver, condition और collectability के लिए ज़्यादा देता है; denomination नहीं बदलती।",
+     "shows": "Silver, condition, collectability drive premium; ₹100 stays",
+     "items": [
+      {
+       "name": "₹100 silver commemorative coin",
+       "expect": "visible"
+      },
+      {
+       "name": "silver metal",
+       "expect": "visible"
+      },
+      {
+       "name": "magnifying glass",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: cause_effect",
+       "expect": "Silver, condition, collectability drive premium; ₹100 stays"
+      },
+      {
+       "name": "process: hand_over",
+       "expect": "Silver, condition, collectability drive premium; ₹100 stays"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v4/stills/v4_s9/b56.jpg"
+    },
+    {
+     "beat_id": "b57",
+     "say": "Collector price debt-settlement amount या compulsory coin-payment limit नहीं है।",
+     "shows": "Collector price unequal to debt amount or limit",
+     "items": [
+      {
+       "name": "collector price tag",
+       "expect": "visible"
+      },
+      {
+       "name": "₹100 silver commemorative coin",
+       "expect": "visible"
+      },
+      {
+       "name": "debt receipt",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: compare",
+       "expect": "Collector price unequal to debt amount or limit"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v4/stills/v4_s9/b57.jpg"
+    },
+    {
+     "beat_id": "b58",
+     "say": "Payment में denomination, collection में agreed price याद रखिए।",
+     "shows": "Payment coin denomination; collection mutually agreed price",
+     "items": [
+      {
+       "name": "₹100 silver commemorative coin",
+       "expect": "visible"
+      },
+      {
+       "name": "₹100 denomination label",
+       "expect": "visible"
+      },
+      {
+       "name": "agreed-price tag",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: compare",
+       "expect": "Payment coin denomination; collection mutually agreed price"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v4/stills/v4_s9/b58.jpg"
+    }
+   ]
+  },
+  {
+   "id": "v4_s10s",
+   "beats": [
+    {
+     "beat_id": "b59",
+     "say": "₹1,000 fees बिना cash कैसे दें? खाते के ₹2,000 में से bank को ₹1,000 college पहुँचाने का लिखा instruction देते हैं। Clearing पर college को ₹1,000 मिलते हैं, आपके ₹1,000 बचते हैं। Funds कम हों तो fees बाकी है।",
+     "shows": "Cheque clears; college gains ₹1,000, student retains ₹1,000",
+     "items": [
+      {
+       "name": "₹1,000 fee bill",
+       "expect": "visible"
+      },
+      {
+       "name": "cheque",
+       "expect": "visible"
+      },
+      {
+       "name": "bank",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: cause_effect",
+       "expect": "Cheque clears; college gains ₹1,000, student retains ₹1,000"
+      },
+      {
+       "name": "process: cheque",
+       "expect": "Cheque clears; college gains ₹1,000, student retains ₹1,000"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v4/stills/v4_s10s/b59.jpg"
+    },
+    {
+     "beat_id": "b60",
+     "say": "दूसरे रास्ते में issuer college को arrangement से payment पहुँचाता है। पहले आपका उससे कोई उधार नहीं था; अब ₹1,000 उसे लौटाने हैं, charges छोड़कर। आपने जमा पैसा नहीं, credit इस्तेमाल किया।",
+     "shows": "Issuer pays college; student debt rises to ₹1,000",
+     "items": [
+      {
+       "name": "credit card",
+       "expect": "visible"
+      },
+      {
+       "name": "card issuer",
+       "expect": "visible"
+      },
+      {
+       "name": "₹1,000 fee bill",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: cause_effect",
+       "expect": "Issuer pays college; student debt rises to ₹1,000"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v4/stills/v4_s10s/b60.jpg"
+    }
+   ]
+  },
+  {
+   "id": "v4_s10b",
+   "beats": [
+    {
+     "beat_id": "b61",
+     "say": "पहला cheque, दूसरा credit card था: payment instruments, खुद currency नहीं। Cheque deposits का instruction, card credit तक पहुँच है। College का स्वीकार करना fiat या legal-tender status नहीं देता; payment method अलग सवाल है।",
+     "shows": "Cheque accesses deposits; card accesses credit; status separate",
+     "items": [
+      {
+       "name": "cheque",
+       "expect": "visible"
+      },
+      {
+       "name": "credit card",
+       "expect": "visible"
+      },
+      {
+       "name": "bank deposit",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: compare",
+       "expect": "Cheque accesses deposits; card accesses credit; status separate"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v4/stills/v4_s10b/b61.jpg"
+    },
+    {
+     "beat_id": "b62",
+     "say": "Value, legal status और payment method अलग हैं। आगे: gold link बिना dollar की माँग क्यों?",
+     "shows": "Three separate dimensions; unlinked dollar, gold, demand question",
+     "items": [
+      {
+       "name": "value tag",
+       "expect": "visible"
+      },
+      {
+       "name": "law scroll",
+       "expect": "visible"
+      },
+      {
+       "name": "cheque",
+       "expect": "visible"
+      },
+      {
+       "name": "relation: question",
+       "expect": "Three separate dimensions; unlinked dollar, gold, demand question"
+      }
+     ],
+     "frame": "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/t046d2-money-v4/stills/v4_s10b/b62.jpg"
+    }
+   ]
+  }
+ ]
+}
