@@ -89,18 +89,20 @@ function handAt(x: number, y: number, s: number, facing: number, reach: number, 
   return { x: x + hx * s * facing, y: y + hy * s };
 }
 
-/** BIE's own banknote: a colour per amount, the amount written large, "नमूना" small; no portrait, no emblem, no bank name. */
+/** BIE's own banknote, by the rules of docs/bie/BIE_MONEY_OBJECTS.md (the same as the bie:note-* drawings): 1.6 : 1 with round
+ *  corners (real notes are 1.95-2.5 : 1), BIE's own colour per amount, the amount written large, a white band with "BIE" and
+ *  "नमूना · not money"; no portrait, emblem, issuer, promise, signature, number or security feature. */
 export const Note: React.FC<{ text: string; w?: number }> = ({ text, w = 150 }) => {
   const n = Number(String(text).replace(/[^0-9]/g, "")) || 0;
-  const col = n >= 2000 ? "#c2185b" : n >= 500 ? "#6d8b3a" : n >= 200 ? "#e6a23c" : n >= 100 ? "#7e57c2" : n >= 50 ? "#26a69a" : n >= 20 ? "#f57c00" : "#8d6e63";
-  const h = w * 0.5;
+  const col = n >= 2000 ? "#c2185b" : n >= 500 ? "#6d8b3a" : n >= 200 ? "#e6a23c" : n >= 100 ? "#7e57c2" : n >= 50 ? "#26a69a" : n >= 20 ? "#f57c00" : "#2a9d8f";
+  const h = w / 1.6;
   return (
     <g>
-      <rect x={-w / 2} y={-h / 2} width={w} height={h} rx={8} fill={col} stroke="#2b2b2b" strokeWidth={3} />
-      <rect x={-w / 2 + 8} y={-h / 2 + 8} width={w - 16} height={h - 16} rx={5} fill="none" stroke="#ffffff" strokeOpacity={0.55} strokeWidth={2} />
-      <circle cx={w / 2 - 26} cy={0} r={h / 4} fill="#ffffff" opacity={0.25} />
-      <text x={-6} y={h * 0.18} textAnchor="middle" fontSize={h * 0.5} fontWeight={900} fill="#fff" fontFamily={FONT}>{text}</text>
-      <text x={-w / 2 + 12} y={-h / 2 + 22} fontSize={12} fontWeight={700} fill="#fff" opacity={0.8} fontFamily={FONT}>नमूना</text>
+      <rect x={-w / 2} y={-h / 2} width={w} height={h} rx={14} fill={col} stroke="#2b2b2b" strokeWidth={4} />
+      <text x={0} y={h * 0.08} textAnchor="middle" fontSize={h * 0.42} fontWeight={900} fill="#fff" fontFamily={FONT}>{text}</text>
+      <rect x={-w / 2 + 6} y={h / 2 - h * 0.3} width={w - 12} height={h * 0.24} rx={6} fill="#ffffff" />
+      <text x={-w / 2 + 14} y={h / 2 - h * 0.12} fontSize={h * 0.14} fontWeight={900} fill={col} fontFamily={FONT}>BIE</text>
+      <text x={w / 2 - 10} y={h / 2 - h * 0.12} textAnchor="end" fontSize={h * 0.12} fontWeight={700} fill="#2b2b2b" fontFamily={FONT}>नमूना · not money</text>
     </g>
   );
 };
@@ -114,6 +116,7 @@ export const Coin: React.FC<{ text: string; r?: number }> = ({ text, r = 34 }) =
       <circle cx={0} cy={0} r={r} fill={col} stroke="#6b5a1e" strokeWidth={3} />
       <circle cx={0} cy={0} r={r * 0.78} fill="none" stroke="#ffffff" strokeOpacity={0.5} strokeWidth={2} />
       <text x={0} y={r * 0.22} textAnchor="middle" fontSize={r * (text.length > 4 ? 0.48 : 0.62)} fontWeight={900} fill="#3b3b3b" fontFamily={FONT}>{text}</text>
+      <text x={0} y={r * 0.66} textAnchor="middle" fontSize={r * 0.24} fontWeight={800} fill="#3b3b3b" opacity={0.75} fontFamily={FONT}>BIE</text>
     </g>
   );
 };
@@ -166,7 +169,7 @@ const QRStand: React.FC<{ scan?: number }> = ({ scan = 0 }) => {
       <rect x={-60} y={-110} width={120} height={120} rx={10} fill="#ffffff" stroke="#2c3e50" strokeWidth={4} />
       {cells}
       <rect x={-60} y={-142} width={120} height={30} rx={8} fill="#5f27cd" />
-      <text x={0} y={-120} textAnchor="middle" fontSize={20} fontWeight={900} fill="#fff" fontFamily={FONT}>SCAN · UPI</text>
+      <text x={0} y={-120} textAnchor="middle" fontSize={20} fontWeight={900} fill="#fff" fontFamily={FONT}>SCAN · PAY</text>
       {scan > 0 && scan < 1 ? <rect x={-56} y={-104 + scan * 104} width={112} height={6} fill="#e74c3c" opacity={0.85} /> : null}
     </g>
   );

@@ -276,3 +276,17 @@ class LookD2(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class MoneyDrawingRules(unittest.TestCase):
+    def test_the_animated_note_coin_and_qr_keep_bies_money_rules(self):
+        # docs/bie/BIE_MONEY_OBJECTS.md: the same rules as the bie: drawings (no RBI marks, 1.6 : 1 notes, "not money", no UPI mark)
+        from tests.test_task046d2_pictures import FORBIDDEN
+        tsx = (ROOT / "bie/brain/video/blocks/toolbox/saanche.tsx").read_text(encoding="utf-8")
+        body = tsx.split("export const Note", 1)[1]
+        for word in FORBIDDEN:
+            self.assertNotIn(word, body, word)
+        self.assertIn("const h = w / 1.6", body)
+        self.assertIn("नमूना · not money", body)
+        self.assertIn("SCAN · PAY", tsx)
+        self.assertNotIn("UPI</text>", tsx)
