@@ -1482,7 +1482,8 @@ PR B (only after Navin's yes): live runs on the Gemini key, maker `google/gemini
   Fix on branch `s18-sidecar-nlink-race`, its own PR: a sidecar that is a regular file with `st_nlink` 0 is read as
   vanished in `CatalogBudget.files` and in the native-tree inventory; a hardlinked sidecar, a non-regular sidecar and a main
   database with no link stay rejected (tests in `tests/section18/test_catalog_file_race.py`). It touches a storage-safety
-  check, so it waits for Navin's yes before it is merged.
+  check, so it waited for Navin's yes: **Navin said yes on 1 November 2026** ("PR #113 … merge it once its CI is green").
+  The race struck a second time meanwhile (PR #114, run 41236739603, the same line reached from `reconcile_worker`).
 - F-11 again (26 October 2026, Task 046 one-shot render, run 40329012680 on draft PR #76): all 15 render chunks and the
   three sample-sweep frames passed (frames kept as artifacts), but the `finish` job was cancelled at its 30-minute limit
   in its plain `apt-get install ffmpeg` step (14:23 → 14:53 UTC): the same slow regional mirror as F-11(a). Not re-run.
