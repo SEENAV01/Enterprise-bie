@@ -24,6 +24,11 @@ from .pdf_validation import inspect_source
 SAFE_REASONS = {'source_stored','worker_started','inspection_complete','pdf_inspection_failed',
                 'internal_worker_error','operator_cancelled','cas_capacity_reached','cas_blob_too_large'}
 
+# SQLite removes these on its last close; an inventory may see one vanish (missing, or unlinked during the stat).
+VOLATILE_SIDECARS=frozenset(('runs.sqlite3-wal','runs.sqlite3-shm','queue.sqlite3-wal','queue.sqlite3-shm',
+                             'idempotency.sqlite3-wal','idempotency.sqlite3-shm'))
+
+
 class Service:
     def __init__(self, root, credentials, max_pdf_bytes=MAX_PDF_BYTES,cas_limits=None):
         self.root = private_path(root)
@@ -107,12 +112,11 @@ class Service:
                     except FileNotFoundError:
                         # A volatile SQLite sidecar can vanish on last close.
                         # Native stores still verify their own opened records.
-                        require(item.name in ('runs.sqlite3-wal','runs.sqlite3-shm',
-                            'queue.sqlite3-wal','queue.sqlite3-shm',
-                            'idempotency.sqlite3-wal','idempotency.sqlite3-shm'),
-                            'native_inventory_changed',503)
+                        require(item.name in VOLATILE_SIDECARS,'native_inventory_changed',503)
                         continue
                     if stat.S_ISDIR(info.st_mode):visit(Path(item.path),depth+1)
+                    elif (item.name in VOLATILE_SIDECARS and stat.S_ISREG(info.st_mode)
+                          and info.st_nlink==0):continue        # unlinked during the stat: vanished, not an alias
                     else:require(stat.S_ISREG(info.st_mode) and info.st_nlink==1,'storage_link_rejected')
         try:
             if root.exists():visit(root)

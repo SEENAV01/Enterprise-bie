@@ -1250,3 +1250,81 @@ library saved after every find, the museum only for image needs with fewer, shor
 | Replays with the fixes | — | v4_s7a: 3 of 3 recorded answers pass; v4_s5: the cue error gone, CV-13 next |
 | Earlier plans recompiled (268 of runs e1, f and this) | — | 0 differences with and without the fixes; 108 refused by Part D1's 2 × 28 board (Navin's rule, PR #111) |
 | Passed outputs | 0 problems | 0 problems |
+
+**Entry 29, addendum (the second fetch, run 41230688777):** with the time budget the job finished (15 fetched, 14 not reached),
+but 12 of the 15 pictures were wrong for the lesson (galaxies for years, a protest rally for "payer", a mountain for
+"porter"). Changed (branch `task046d-proof-2`): image needs only, years and numbers skipped, a title must name the need, a
+title naming people refused, earlier fetches pruned by the same rules. Measured on the published library: 12 of 15 removed,
+3 kept. Expected on the next fetch: fewer finds, none wrong by these rules.
+
+## Entry 30 · proof run b: the fixes of run a measured, and LOOK-D1 says the worlds are the weakest part, 31 October 2026
+
+**Run:** `runs/vm-t046d-money-canvas-b-brain-canvas/` (Money v2 and v4, narration locked, Codex maker and checker, 50 minutes,
+79 calls, 0.68 M input and 0.27 M output tokens, ₹0); renders `t046d-money-v2b` and `t046d-money-v4b`; LOOK-D1
+`runs/vm-t046d-money-look-b-brain-look/` (Codex, ₹0).
+
+**Taught:** with entry 29's fixes the run passed 36 of 36 parts; the ideas step 36 of 36 first try; plans 31 of 36 first try;
+tokens fell from 1.10 M to 0.68 M input (fewer rounds). LOOK-D1 scored the 36 stills at 5.25 of 10: canvas parts about 6 (the
+book's own gallery 10), world parts 3.6 (the shop or bank with labels; the story's exchange not drawn). From the stills: the
+book's currency gallery got a bank for the Euro and arrows for the Yuan (the panel icon read the caption before the name), a
+cowboy hat for pastoral societies.
+
+**Changed in BIE** (branch `task046d-proof-2`, PR #114, IMPLEMENTED): a panel whose own name has an alias uses it (Euro, Yen,
+Yuan, Dollar, Pound); currency and herder aliases; the fetch rules of entry 29's addendum.
+
+| Measure | Before (canvas run f) | Run a | Run b |
+| --- | --- | --- | --- |
+| Parts passed (v2 + v4) | 36 of 36 | 34 of 36 | 36 of 36 |
+| Ideas first try | (no step) | 15 of 36 | 36 of 36 |
+| Plans first try | 29 of 36 | 23 of 36 | 31 of 36 |
+| Bank + shop share (v2 / v4) | 56 % / 67 % | 28 % / 38 % | 28 % / 33 % |
+| Distinct icons (v2 / v4) | 7 / 4 | 54 / 43 | 57 / 65 |
+| Text-only screen (v2 / v4) | 91 s / 146 s | 9.9 s / — | 6.9 s / 4.8 s |
+| The book's pictures drawn | 0 of 7 | 6 of 7 | 7 of 7 |
+| Input tokens | — | 1.10 M | 0.68 M |
+| LOOK-D1 mean (report only) | — | — | 5.25 of 10 (worlds 3.6) |
+| ₹ | 0 | 0 | 0 |
+
+Not changed, for Navin to decide: whether story parts stay on the canvas until a world kit can draw the story's own exchange.
+
+## Entry 31 · Navin's verdict on the D1 videos: the world drew the same sugar, the process never happened, and the cameras hid content under the captions, 1 November 2026
+
+**Run:** none new; the verdict is on D1 proof run b (`t046d-money-v2b`, `t046d-money-v4b`) and its stills. Navin: "bie ne ek
+duniya bna li jaise bank shop par usko jyo ka tyo use kiya, baat ho rahi hai kapda khareedne ki namak khareedne ki aur wo wahi
+cheeni ko show kar rha hai"; "process show nahi ho rahi hai, like upi payment ka jikar hai shop par, par agar wo visuals se
+clear ho jaise scanner phone scan, tab maja hai"; "mera meaning hai ki visuals dekhkar concept clear ho aur user narration se
+connect kar sake".
+
+**Taught:**
+- A world kit that draws fixed goods (the sugar bag in `world.tsx`) shows the wrong thing in every story but one; the goods
+  must come from the beat's nouns like every icon.
+- A place with people standing in it is not a process; the learner must see the hands give, the phone scan, the head shake.
+  BIE had no way to say "this beat is a UPI payment" or to draw one.
+- Most "subtitles over content" (D1 finding 7) was BIE's own camera code, not the maker's plan: a scene camera box clamped to
+  the canvas top pushed the bottom row under the captions, and the auto camera never counted the strip. Measured on run b's
+  36 plans: 37 elements under the strip with the old cameras, 4 with the new code on the same plans.
+- The D1 checks counted "a non-text thing on the beat" but never asked whether the beat's relation was shown: 18 of 98
+  relations in run b had nothing on their beat that showed them (a "no status" with no cross), and 10 struck values were used
+  for change given back or for two different quantities.
+- LOOK-D1 asked one loose question per part; it could not see that a world showed no process.
+
+**Changed in BIE** (branch `task046d2-process-saanche`, IMPLEMENTED; STATUS "Task 046 · Part D2"): kriya ke saanche (ten process
+templates, timed by code, drawn in world and canvas, the camera moving in); story goods from the story (no fixed picture);
+characters with hands, phones, moods and one main character per video; the stricter layout check (overlaps, one text at a time
+in a world, numbers on objects, the subtitle strip on the renderer's own cameras, actor size, empty frames); the meaning checks
+(every relation realised on its beat, a struck value only for the same quantity, change by the change template); Fluent Emoji
+3D and BIE's own money drawings under RBI's reproduction rules; LOOK-D2 (visible / happening per item, score by code).
+
+| Measure (on D1 run b's 36 plans) | D1 code | D2 code |
+| --- | --- | --- |
+| Relations of the dikhane ki list realised on their beats | not checked | 80 of 98 (81.6 %): the other 18 are now refused with what to add |
+| Struck value for change given back or two quantities | not checked | 10 found, refused |
+| World overlaps / two texts together | not checked | 11 / 8 found, refused |
+| Elements under the subtitle strip | 37 (not checked) | 4 (camera code fixed; the 4 are refused) |
+| Goods drawn from a fixed picture | 22 | 0 possible (refused without the story's goods) |
+| Actions (processes shown) | 0 (no way to draw one) | the ten saanche |
+| Earlier plans recompiled (320) | 206 compile | the same 206 (0 differences) |
+| Passed outputs | 0 problems | 0 problems |
+
+The live numbers (first-try pass, rounds, tokens, ₹ per page, LOOK-D1 and LOOK-D2 against D1's 5.25) come with the VM run of
+Money v2 and v4 after the merge.

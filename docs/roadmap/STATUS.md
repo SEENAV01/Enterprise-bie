@@ -1,18 +1,106 @@
 # BIE Status
 
-Updated: 31 October 2026 · Read this first in every new session, then show Navin the current task card.
+Updated: 1 November 2026 · Read this first in every new session, then show Navin the current task card.
 
 ## Now
 
 | Field | Value |
 | --- | --- |
 | Phase | 1 · BIE as one whole system; plan agreed on 22 October 2026 (ROADMAP, "Agreed on 22 October 2026") |
-| Current task | **Task 046 · Part D1: the director's dikhane ki soch, the needs list and the gathering of things** (Navin's verdict on the whole Money chapter, 30 October 2026: one setup, the bank and four people, text rising on boards; "bie ko khud sochna padega"). Section "Task 046 · Part D1" below. Before it: Task 046 Part C (Economy), the whole Money chapter scripted (18 of 18) and rendered, sections below. |
-| Branch | `task046d-proof-fixes` (from `main` after PR #111) |
-| State | **31 October 2026: Part D1 merged (PR #111, `e998f926`) and run live once** (VM job `t046d-money-canvas-a`, Codex, ₹0): v2 18 of 18 parts, video spec written (worlds 56 % → 28 %, icons 7 → 54, text-only 91 s → 9.9 s, the book's pictures 0 → 3 of 3); v4 16 of 18 (two parts stopped on BIE's own code: a cue on a currency sign, a reference to the maker's own picture; fixed on `task046d-proof-fixes`). v2's render and the fetch workflow dispatched. Nothing ACCEPTED. |
-| Next task | Merge `task046d-proof-fixes` when every check is green; then v4 again on the VM (same narration), v4's render, the before/after review pages and the dikhane ki list pages for v2 and v4, LOOK-D1 on the stills, the after numbers. Then **STOP for Navin's verdict**; Part D2 (the missing kits and blocks) after it; then the voice (Task 047). |
-| Canonical main | `e998f926` (PR #111: Part D1) on `73a07941` (PR #109: the render publish step retries) on `16c1e5fe` (PR #110: the Money chapter's report); earlier: `f99b77a6` (PR #93: PR 3, the bank kit) on `f929d5a5` (PR #92: docs, the proof's numbers and the chosen video) on `d265dc90` (PR #90: the everyday words of money and the W-01 source-packet phrases; PR #91 `abeb70b0` F-16 skyfield files in the shared asset cache; PR #89 `f03c9208` plan review; PR #88 `182c9b01` page review; PR #87 `995c808b` map review; PR #86 `8612d724` render speed; PR #85 `78a9a721` PR 2 and Navin's addition; PR #81 `d7ce8388`: F-14b, Codex image calls keep the code-mode host on, Navin's yes; PR #80 `4128cbdd` F-14; PR #77 `aa8d6519` VM image and look jobs; PR #79 `2c6c2fc5` F-13c + F-11 toolbox lane; PR #78 `c4375064` F-13b; PR #74 `39e3430e` Task 046 Part A) |
+| Current task | **Task 046 · Part D2: kriya ke saanche (process templates), story goods from the story, stricter layout and meaning checks** (Navin's verdict on the D1 videos, 1 November 2026: "baat ho rahi hai kapda khareedne ki namak khareedne ki aur wo wahi cheeni ko show kar rha hai"; "process show nahi ho rahi hai ... jaise scanner phone scan, tab maja hai"). Section "Task 046 · Part D2" below. Before it: Part D1 (section below), Part C (Economy), the whole Money chapter. |
+| Branch | `task046d2-process-saanche` (PR #115) |
+| State | **1 November 2026: Step 0 done with Navin's yes**: PR #113 (F-18, the Section 18 sidecar race) merged as `d6174636` with every check green (the race did not recur); PR #114 (Part D1 proof run b) brought up to date with main and merged as `65e87a6e`. Part D2 IMPLEMENTED on PR #115 (offline tests, local stills of test plans, the D2 checks measured on run b's plans); not yet run live. A toolbox lane fix (six pinned for psychopy.data; python-dateutil 4.0.0 of 1 November no longer brings it) rode PR #114 (PR #116 closed as merged through it). Nothing ACCEPTED. |
+| Next task | Merge PR #115 when every check is green; then the VM canvas job on Money v2 and v4 (narration locked), the renders, the review pages and the dikhane ki list pages, LOOK-D1 (like for like with D1's 5.25) and LOOK-D2, the measures against D1; then **STOP for Navin's verdict on Part D2**; then the voice (Task 047, with the sound effects). |
+| Canonical main | `65e87a6e` (PR #114: Part D1 proof run b, the fetch rules, currency icons, the six pin) on `d6174636` (PR #113: F-18, the Section 18 sidecar race) on `18595156` (PR #112: the proof fixes) on `e998f926` (PR #111: Part D1) on `73a07941` (PR #109: the render publish step retries) on `16c1e5fe` (PR #110: the Money chapter's report); earlier: `f99b77a6` (PR #93: PR 3, the bank kit) on `f929d5a5` (PR #92: docs, the proof's numbers and the chosen video) on `d265dc90` (PR #90: the everyday words of money and the W-01 source-packet phrases; PR #91 `abeb70b0` F-16 skyfield files in the shared asset cache; PR #89 `f03c9208` plan review; PR #88 `182c9b01` page review; PR #87 `995c808b` map review; PR #86 `8612d724` render speed; PR #85 `78a9a721` PR 2 and Navin's addition; PR #81 `d7ce8388`: F-14b, Codex image calls keep the code-mode host on, Navin's yes; PR #80 `4128cbdd` F-14; PR #77 `aa8d6519` VM image and look jobs; PR #79 `2c6c2fc5` F-13c + F-11 toolbox lane; PR #78 `c4375064` F-13b; PR #74 `39e3430e` Task 046 Part A) |
 | Keys | Never the Anthropic key. GPT API key off. Gemini key (AICredits) for the checker; it may call only `google/gemini-4-argon`. GPT only through ChatGPT Pro, signed in with Codex on Navin's machine (Hostinger KVM 2, Mumbai). On the VM, from 25 October 2026, the checker is Navin's free Google AI Studio key `GEMINI_API_KEY` in `/etc/bie/bie.env` (direct route, `gemini-3.8-flash`); the AICredits key stays there unused (a job can still choose it with `routes google=aicredits`). Since 24 October a free Google AI Studio key is the GitHub secret `GEMINI_API_KEY` (Navin's choice for now, sample content only, never student data); it serves GitHub Actions runs only and wins over AICredits there: `gemini-3.8-flash` answers (smoke run 40114580580), `gemini-4-argon` gives 429 quota and `gemini-3.1-pro` 404, so a run that uses it passes `models=google=gemini-3.8-flash` |
+
+## Task 046 · Part D2 · kriya ke saanche, story goods from the story, stricter layout and meaning checks (Navin's verdict of 1 November 2026)
+
+Navin's verdict on the D1 videos, 1 November 2026, in his words: "bie ne ek duniya bna li jaise bank shop par usko jyo ka tyo
+use kiya, baat ho rahi hai kapda khareedne ki namak khareedne ki aur wo wahi cheeni ko show kar rha hai"; "process show nahi ho
+rahi hai, like upi payment ka jikar hai shop par, par agar wo visuals se clear ho jaise scanner phone scan, tab maja hai"; "mera
+meaning hai ki visuals dekhkar concept clear ho aur user narration se connect kar sake". His still findings (1–9): the sugar bag
+hard-coded; worlds with no actions; boards overlapping in world mode; a struck ₹500 with "₹200 ▼" for change given back; "25
+paise: no status" said with no cross; generic or wrong icons; subtitles over content (v4_s3, v2_s2); empty frames and tiny
+people; LOOK-D1 lenient. Nothing is ACCEPTED.
+
+**Navin's approvals of 1 November 2026 (Step 0), both done:** PR #113 (F-18, the Section 18 SQLite-sidecar race fix, storage
+safety): merge it once its CI is green: merged as `d6174636`, every check green, the race did not recur. Then bring PR #114
+(Part D1 proof run b) up to date with main and merge it on green: main merged in (`3a68af29`), every check green, merged as
+`65e87a6e`. On the same day the toolbox `wrappers` job failed on PR #115 (job 124806853471, `No module named 'six'`): not the
+PR's code; python-dateutil 4.0.0 (released 1 November) no longer brings `six`, which `psychopy.data` (installed with `--no-deps`)
+imports. Reproduced in a clean venv and fixed by pinning `six==1.17.0` (MIT) in the `toolbox-behaviour` extra; the fix was opened
+as its own PR #116, ported into #114 and #115, and landed with #114 (PR #116 closed as merged through it). No rerun was used.
+
+**Built (branch `task046d2-process-saanche`, one PR), status IMPLEMENTED** (offline tests and local stills of test plans;
+INTEGRATED only after the VM run and the renders of Money v2 and v4):
+
+- **A · story goods from the story** (`bie/brain/video/world.py`, `world.tsx`): the hard-coded sugar bag is gone. A shop's stock
+  is `goods` [{icon, label}], the buyers' bags `carry.icon`, a balance's pans `left`/`right` {icon, label}: icon ids the icon
+  index or the asset library resolved for the beat's nouns, copied into the lesson's library and credited like every icon
+  (`world.icons_in`). A shop with packets and no goods, a crowd that carries without an icon, a balance without its pans are
+  refused (`goods_problems`); an old plan still compiles and draws a plain unmarked packet, never a named product.
+- **B · kriya ke saanche** (`bie/brain/video/saanche.py`, `bie/brain/video/blocks/toolbox/saanche.tsx`): ten templates, each
+  with actors, objects, amounts and the cue word of each step: `hand_over` (give, take), `pay_change` (pay, goods, change: the
+  note travels to the seller, the goods to the buyer, the change back), `barter_swap` (offer, ask with both asking "do I want
+  it?", swap), `upi` (a QR stand, the phone raised to it, "₹300 paid" on the buyer's phone, "received" on the shopkeeper's),
+  `card_tap` (the card to the POS machine, approved), `cheque` (written stroke by stroke, handed to the bank, the two
+  passbooks: payer down, payee up), `coin_count` (coins dropping on a pile beside a meter that stops at its red line ₹1,000),
+  `refuse` (a head shake and a cross on the thing), `accept` (a nod and a tick), `count_stack` (things appear one by one).
+  The same action plays in a world (an `action` element on the street, beside the place, using the place's counter) and on the
+  canvas (an `action` node of at least 3 rows, fitted at the stage's shape). Code checks it (`problems_of`: the template, its
+  actors, objects with icons, every amount said in the action's beats, CV-16) and times it (`compile_action`); the camera moves
+  in to the hands, the note and the phone screen (zoom 1.6 in a world, a square box above the subtitle strip on the canvas) and
+  back out to where the plan's camera was going. `visual_verbs.json` 2026-11-01.1 names the saanche of each relation; the
+  visual-idea step picks a template per beat (`template`: one of the ten, `none`, or `other` with a note, which goes to the
+  missing-capability log as `process: …`); a beat that names a strong process word (UPI, scan, card, cheque, change, barter,
+  limit, refuse) must pick its saancha or say why not.
+- **C · characters** (`saanche.tsx` `Actor`): people half the stage tall (300 px of a 1080 frame at zoom 1, 0.28 of the
+  frame; 0.44 in a close-up), hands that hold the note, the goods, the phone, the card; moods (neutral, pleased, unsure,
+  refusing) that the templates change on their steps; a head shake and a nod; the name tag above the head; one main character
+  per video (`saanche.main_look`: the same face, clothes, white sash and orange cap in every part of the video).
+- **D · layout checks for every mode** (`world.layout_problems`, `canvas.subtitle_problems`, `canvas.above_strip`, the auto
+  camera's `_strip_fix`): no overlap between boards, labels, price tags, balances and actions while on screen together; in a
+  world at most one board, label or title at a time and no number on a label or the title (numbers go on objects: the price
+  tag, the note, the phone screen, a passbook board); nothing in the subtitle strip, checked on the renderer's own eased
+  cameras (the world's `camAt`, the canvas block camera and the scene camera); an action's people at least a quarter of the
+  frame tall; no camera key on an empty street. The cause of D1 finding 7 was in code: a scene camera box clamped to the top
+  of the canvas pushed the bottom row under the captions, and the auto camera did not count the strip. Both now keep what
+  they show above it.
+- **E · meaning checks** (`visual_thinking.meaning_problems`, `relation_rows`, `struck_problems`, `icon_misfits`): every
+  relation of the dikhane ki list is realised by an element on its beat (reject → a cross mark or the refuse saancha; accept →
+  a tick; limit → coin_count or a meter; count, change, sequence, cause → effect, compare → their elements); a struck value
+  with an arrow only when the same quantity changes, and change given back is `pay_change`; a modern icon in an old-days beat
+  (a phone in a barter story) is reported, not refused.
+- **F · better pictures** (merged from `task046d2-pictures`): Microsoft Fluent Emoji 3D (MIT, pinned at
+  `1ffb34c752ecf5d402f04cfb4b392c77f57c54bc`, 1,595 `fl:` rows; MIT allowed for this source only, credit line and licence URL at
+  the commit) and BIE's own drawings (`bie:`, CC0, 26 files: ₹1, ₹2, ₹5, ₹10, ₹20, 50 paise, 25 paise coins; ₹10 to ₹2,000
+  notes; cheque, passbook, QR stand, POS machine, phone, salt sack, cowrie shells, cattle, grain sack, cloth roll, gold bar,
+  ledger) in the icon index, ranked first for plain word matches. `docs/bie/BIE_MONEY_OBJECTS.md` records the rules they keep
+  (BNS 2023 ss. 178–182, RBI's press release of 29 September 2000 and its own list of note features, the State Emblem Act
+  2005, the Coinage Act 2011): no portrait, emblem, issuer, promise, signature, number or security feature; notes 1.6 : 1 with
+  "BIE" and "नमूना · not money"; coins marked "BIE"; a QR pattern on a 19 × 19 grid that no reader decodes; no bank, UPI or card
+  marks. The saanche's animated note, coin and QR stand keep the same rules (a test reads them).
+- **G · LOOK-D2** (`bie/brain/look.py`, `tools/vm_look.py`, `tools/task046d_look_request.py --rule look-d2`, per-beat stills
+  from `tools/render_spec.py`): per beat its still at 65 % of the beat and the items of the dikhane ki list (its nouns, its
+  relation, its process); the reviewer (Codex, ₹0) answers only visible yes/no and happening yes/no; code computes the score
+  (10 × (visible + happening) / (2 × items)). Report only.
+- **H · sound effects: deferred to Task 047** (the voice section), so the cues land on the real voice timing.
+- **Report keys** (`canvas.json` quality, per video `report`): actions, relations realised (%), boards in world parts,
+  overlaps, elements under the subtitle strip, icon misfits.
+
+**Measured before any live run** (the D2 checks on the 36 plans of D1 proof run b, `runs/vm-t046d-money-canvas-b-brain-canvas/`):
+relations of the dikhane ki list realised on their beats 80 of 98 (81.6 %); struck values for change given back or for two
+quantities 10; world overlaps 11; two texts on screen together in a world 8; elements under the subtitle strip 37 with the old
+cameras, 4 with the new camera code on the same plans (the other 33 were the camera's fault, not the plan's); goods drawn from
+a fixed picture 22; boards and labels in the 11 world parts 39; actions 0. Earlier plans recompiled (320 on
+blindtest-results): the same 206 compile and the same 114 are refused as on `main` (0 differences; the 114 are Part D1's
+2 × 28 board, Navin's rule). Passed outputs: 0 problems. Tests: `tests/test_task046d2_saanche.py` (18),
+`tests/test_task046d2_pictures.py` (18), every Task 045/046 module (525 tests after main was merged in) and the Task 046a core lane green.
+
+**Next:** PR, every check green, merge; then the VM canvas job on Money v2 and v4 with the narration locked, the renders, the
+review pages and the dikhane ki list pages, LOOK-D1 (like for like with D1's 5.25) and LOOK-D2, the measures against D1; then
+**STOP for Navin's verdict**.
 
 ## Task 046 · Part D1 · dikhane ki soch, the needs list and the gathering of things (Navin's verdict of 30 October 2026)
 
@@ -139,10 +227,46 @@ needs list named 43 things (32 icons, 11 images; one missing kit, a farm); v2's 
   museum object reads per search, a 60 s timeout with 3 tries per request). Now: a time budget (25 minutes in the workflow;
   needs not reached are reported `not_tried`), the library saved after every need with a find, the museum asked only for
   image needs and at most `limit + 2` objects with a 20 s timeout, and a 45-minute job.
+- **The fetch again, after PR #112** (run 41230688777, `main` at `18595156`, 25-minute budget, ₹0): 15 fetched, 1 in the
+  library, 4 not found, 14 not reached. The time budget worked; the pictures did not: galaxies for the years "1275" and
+  "1023" (that needs list was written before years stopped being things), a protest rally for "payer" (real people, card
+  rule 8), a mountain for "porter", a container for "recipient". No video read that library (job `t046d-money-canvas-b`
+  does not pass `library`). Fixed on branch `task046d-proof-2`: only image needs are fetched (an icon comes from the icon
+  index, a missing one goes to Part D2), a year or number is skipped, a picture's title must name the need (two of its
+  words, one for a one-word need), a title that names people is refused, and every fetch first prunes the library's
+  earlier fetches by the same rules (on the published library: 12 of 15 removed, Bazaar, Tibet and the Great Wall kept).
 - Checked: all 268 plans of the canvas runs `e1`, `f` and this one pass or fail the same with these fixes as without them (0
   differences). **Honest note:** 108 of those 268 earlier plans no longer compile under Part D1's board of 2 lines of 28
   characters (they were made under the board of 3 lines of 40); that is Navin's rule of 30 October, merged in PR #111, not a
   regression of a fix. Those renders stay as evidence; a re-run plans them under the new rule.
+
+**Proof run b (31 October 2026, after PR #112; VM job `t046d-money-canvas-b`, Codex maker and checker, 50 minutes, 79 calls,
+0.68 M input and 0.27 M output tokens, ₹0, ChatGPT plan at 9 % of the week; narration locked):** 36 of 36 parts passed, both
+video specs written; the ideas step passed first try in 36 of 36 parts (run a: 15), plans in 31 of 36 (run a: 23). Renders:
+CI runs 41234881719 (v2, 9.9 minutes of video, 37 machine-minutes, ₹24.9 at list price) and 41234896000 (v4, 10.6 minutes,
+35.5 machine-minutes, ₹23.8), ₹0 billed; review copies and 18 stills each at `runs/t046d-money-v2b/` and
+`runs/t046d-money-v4b/`. Pages: v2 review https://claude.ai/artifact/8RydQKDAMEiUs9QcWKLyVz, v4 review
+https://claude.ai/artifact/Wu3Tq1ug433BXLqWq3ibGN, v2 dikhane ki list https://claude.ai/artifact/YC2udE5NWwxdAXCJNu76Ji, v4
+dikhane ki list https://claude.ai/artifact/VaQyWk1p5FCW12KViBFVvh.
+
+| Measure (by code) | v2 before → run b | v4 before → run b |
+| --- | --- | --- |
+| Parts in the bank or shop world | 10 of 18 (56 %) → 5 (28 %) | 12 of 18 (67 %) → 6 (33 %) |
+| Distinct icons | 7 → 57 | 4 → 65 |
+| Canvas parts with only text | 3 → 0 | 4 → 0 |
+| Text-only screen time | 91 s, 2 stretches over 10 s → 6.9 s, 0 | 146 s, 4 over 10 s → 4.8 s, 0 |
+| The book's own pictures drawn | 0 of 3 → 3 of 3 | 0 of 4 → 4 of 4 |
+| Book lines covered (table B) | 32 of 32 | 31 of 31 |
+| Plans first try / rounds | 13 of 18, 25 → 18 of 18, 18 | 16 of 18, 21 → 13 of 18, 24 |
+
+**LOOK-D1** (VM job `t046d-money-look-b`, Codex, 4.8 minutes, ₹0; report only, Navin's eye decides; `runs/vm-t046d-money-look-b-brain-look/LOOK.md`):
+mean 5.25 of 10 on whether the still alone hints at the teacher's point; 1 text only (v2_s6, the book's table); 12 low. By
+mode: the 11 world parts 3.6 (2 to 5: a generic shop or bank with labels, the story's own exchange not shown), the 8 canvas
+parts with a book picture 6.0 (v2_s5a, the page-2 gallery, 10 of 10), the 17 other canvas parts 5.9. Seen by Claude in the
+stills: v4's currency gallery drew the Euro as a bank and the Yuan as arrows (fixed on `task046d-proof-2`, PR #114: a panel
+whose name has an alias uses it), a cowboy hat for pastoral societies (herder aliases added), v2's table close to the left
+edge. **For Navin:** the world parts that remain are the weakest; whether story parts should stay on the canvas until a kit
+can show the story's own exchange, or Part D2 should build that, is his call.
 
 **Next (written before the merge, kept):** the canvas section again on Money v2 and v4 on the VM (Codex maker and checker, ₹0; the narration
 of lesson resume `-f` locked), the fetch workflow on its `needs.json`, the canvas again with the library if it found things,
@@ -1472,6 +1596,18 @@ PR B (only after Navin's yes): live runs on the Gemini key, maker `google/gemini
 
 ## Known technical debts
 
+- F-18 (31 October 2026, PR #112 run 41223280162, job `canonical-regression` of the Section 18 gate, head `c544c71f`): the
+  atomic lane's `test_worker_recovery … reconcile_one_intent_once_after_crash` failed once (691 of 692 passed). The child's
+  traceback (read from the job's evidence artifact): `Service()` → `catalog.tx` → `CatalogBudget.files` →
+  `storage_link_rejected`. Cause: two processes open the same catalogue; the other one's SQLite last close removed a `-wal`
+  or `-shm` sidecar between this process's stat path lookup and its attribute read, so the stat reported the sidecar with
+  `st_nlink` 0. H1-005 already treats a sidecar that vanished as valid (missing); the unlinked-during-stat moment was the
+  same event seen one step later. Not re-run (rule CI-2); not reproduced locally in 120 runs (40 plain, 80 under load).
+  Fix on branch `s18-sidecar-nlink-race`, its own PR: a sidecar that is a regular file with `st_nlink` 0 is read as
+  vanished in `CatalogBudget.files` and in the native-tree inventory; a hardlinked sidecar, a non-regular sidecar and a main
+  database with no link stay rejected (tests in `tests/section18/test_catalog_file_race.py`). It touches a storage-safety
+  check, so it waited for Navin's yes: **Navin said yes on 1 November 2026** ("PR #113 … merge it once its CI is green").
+  The race struck a second time meanwhile (PR #114, run 41236739603, the same line reached from `reconcile_worker`).
 - F-11 again (26 October 2026, Task 046 one-shot render, run 40329012680 on draft PR #76): all 15 render chunks and the
   three sample-sweep frames passed (frames kept as artifacts), but the `finish` job was cancelled at its 30-minute limit
   in its plain `apt-get install ffmpeg` step (14:23 → 14:53 UTC): the same slow regional mirror as F-11(a). Not re-run.
