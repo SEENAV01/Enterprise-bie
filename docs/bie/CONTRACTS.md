@@ -229,3 +229,29 @@ are optional and the readers allow unknown keys.
   (`lexicon`). A value given back is refused as a struck value only when a return word stands beside that value (or a change word
   is in the beat), and a process with a `give` on the beat shows it instead.
 
+
+### 8b. Every mentioned thing on screen (Navin's addendum of 2 November 2026, point 4)
+
+"jis cheej ka jikar hai wohi cheej dikhe": every thing the dikhane ki list names for a beat (`things`) must be on screen during
+that beat. No format changes version: the new keys are optional and the readers allow unknown keys.
+
+- **Shown** (`visual_thinking.coverage_rows`): an element is on screen from its first cue (frame 0 when it has none) to its
+  `until_cue` (or the part's end); in a world, the kit's place and the person who works there stand for the whole part
+  (`places.json` `whole_part`). A thing is shown in a beat when an element on screen then draws a picture of it (the icon
+  candidates code offered for it, the library's pictures of it, an icon whose name or terms carry its words), or, in a world, is
+  of a kind that draws it (`places.json` `draws`: a shop draws the shop, the crowd its people), or is an action whose actor is
+  it; a mark of the visual grammar (tick, cross, arrow, question mark, equal sign; `visual_verbs.json` `lexicon.mark_things`) by
+  a mark, an arrow or a motion part; a number, label or tag (`lexicon.text_things`) by the words of an element on screen.
+- **A picture OF the thing** (`toolbox.icons.fits`): an alias names the icon for it, or every content word of it starts a word of
+  the icon's name or terms ("payment claim" is not a baggage claim). Only a thing BIE has such a picture of is asked for; one
+  without is reported (and is a need for the general asset path), never refused.
+- **Code shows what it can** (`visual_thinking.show_missing_things`, canvas only): up to `AUTO_THINGS_MAX` (4) things per part
+  that BIE has a picture of but the plan leaves out get an `icon` node `auto_thing_<n>` in a free area of the grid (2 × 2, else
+  2 × 1, else one cell) during the beat, cued on the thing's word when the beat says it, leaving when the next beat starts.
+  A world is left to the maker.
+- **The check** (`canvas_director.check_plan`, both modes): a thing with a picture not on screen in its beat is refused, with the
+  thing and its pictures named.
+- **Report keys**: each passed part row of `canvas.json` adds `coverage_pct`; each part of the dikhane ki list
+  (`visual_ideas/<video>.json`) adds `coverage` {mentioned, shown, coverage_pct, not_shown [{beat_id, thing, has_picture}]}; each
+  video's `report` adds `mentioned_things`, `shown_things`, `coverage_pct` and `things_not_shown` [{beat_id, thing, has_picture,
+  part}]; `quality` adds `mentioned_things`, `shown_things`, `coverage_pct` and `things_without_a_picture`; `CANVAS.md` shows them.

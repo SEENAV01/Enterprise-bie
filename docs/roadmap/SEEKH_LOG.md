@@ -1461,3 +1461,43 @@ that value, not by money words. Realisation of relations is read from an action'
 
 Next (the addendum's points 4, 1 and 5): the mentioned-things coverage check, the general asset path with BIE's coder, and the
 generality proof on two more Money videos chosen by code.
+
+## Entry 35 · every mentioned thing on screen: the coverage check, 2 November 2026
+
+**Run:** none new; run c's plans and records (`runs/vm-t046d2-money-canvas-c-brain-canvas/`) re-read with the new code. Navin's
+addendum, point 4: "every thing the visual-idea step marks as 'to show' for a beat must appear on screen in that beat. Report
+mentioned-things coverage (%) per video."
+
+**Taught:** of the 689 things the dikhane ki list named for a beat in v2 and v4, a third were never on screen in their beat
+(v2 67.3 %, v4 81.0 %). Reading why: the plans left them out (cattle, shells, cloth, a balance scale, a spoon), and the icon search
+offered near words as if they were the thing ("payment claim" found a baggage claim, "net banking screen" a mosquito net, "goods" a
+salt sack). A check that asked for those would have pushed the maker to draw the wrong picture.
+
+**Changed in BIE** (branch `task046d2-coverage`, IMPLEMENTED):
+- `visual_thinking.coverage_rows` reads, per beat, whether each listed thing is on screen during that beat:
+  - by a picture of it, or, in a world, by an element kind that draws it (`places.json` `draws`; the place and its keeper stand
+    for the whole part);
+  - by an actor that is it;
+  - by a mark of the visual grammar;
+  - or by the words on screen for a number or a label.
+- `toolbox.icons.fits` decides what is a picture OF a thing: an alias, or every content word in the icon's name or terms. Only a
+  thing with such a picture is asked for; the rest are reported and go to the general asset path.
+- `show_missing_things`: code shows up to 4 left-out things per canvas part in a free cell during their beat, on their word. It
+  never places one under the subtitle strip: a replay found 9 parts where it had, and now the compiled plan is checked. A
+  question mark is shown as its icon, because a "?" text is refused by CV-13. Ticks, crosses and arrows say something about
+  other things, so they stay the maker's.
+- `check_plan` refuses a plan that leaves out a thing BIE has a picture of, in both modes.
+- Coverage is reported per part, per video and in `quality` and `CANVAS.md`.
+- The fake world gained the shop's keeper, so the offline run shows what its own list names.
+
+| Measure | Before | After |
+| --- | --- | --- |
+| Mentioned things on screen in their beat, run c plans: v2 | 67.3 % (226 of 336) | 78.0 % (262) with code's own placement, before any maker round |
+| Mentioned things on screen in their beat, run c plans: v4 | 81.0 % (286 of 353) | 86.7 % (306) |
+| Things with no picture OF them in BIE (needs, never refused) | not counted (any near word passed) | 16 (v2), 15 (v4) |
+| Run c's 36 last answers that pass today's check | 36 | 13: the other 23 name the things they leave out, for the maker's next round |
+| Tests (Task 045/046) | 539 | 551, all pass |
+| Earlier plans recompiled (415) | — | 0 differences |
+| Passed outputs | — | 0 problems |
+
+The measured effect on a live run (rounds, first-try passes, coverage after the maker's rounds) comes with the proof run (point 5).

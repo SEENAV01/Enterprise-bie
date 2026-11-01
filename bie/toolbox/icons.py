@@ -296,6 +296,33 @@ def search(query: str, index: str | Path = DEFAULT_INDEX, limit: int = 12, *, re
     return (out + [r for _, r in scored])[:limit]
 
 
+FIT_STOP = frozenset("of the a an and with for on in to at by from its their or".split())
+
+
+def _stem(word: str) -> str:
+    return word[:-1] if word.endswith("s") and len(word) > 3 else word
+
+
+def fits(query: str, row: dict) -> bool:
+    """An icon is a picture OF the thing (not a near word): an alias names it for the query, or every content word of the query
+    (Latin words without the small words; numbers and signs are text, not the thing) starts a word of its name or search terms
+    (Navin's addendum of 2 November 2026: "jis cheej ka jikar hai wohi cheej dikhe"; the Money run c: "payment claim" found a
+    baggage claim, "net banking screen" a mosquito net). A query with no such word fits by an alias only."""
+    q = _words(query)
+    if row.get("id") in _alias_ids(q):
+        return True
+    words = [w for w in q if re.fullmatch(r"[a-z]+", w) and w not in FIT_STOP and len(w) > 1]
+    if not words:
+        return False
+    hay = (row.get("name", "") + " " + " ".join(row.get("terms") or [])).lower()
+    return all(re.search(rf"\b{re.escape(_stem(w))}", hay) for w in words)
+
+
+def fitting(query: str, index: str | Path = DEFAULT_INDEX, limit: int = 12) -> list:
+    """The icons of ``search`` that are pictures of the thing (``fits``), best first."""
+    return [r for r in search(query, index, limit=limit) if fits(query, r)]
+
+
 def search_nouns(nouns, index: str | Path = DEFAULT_INDEX, per_noun: int = 3) -> dict:
     """{noun: [icon rows]} for the things a beat names; a noun with no icon maps to [] (the needs list picks it up)."""
     return {n: search(n, index, limit=per_noun) for n in nouns if str(n).strip()}

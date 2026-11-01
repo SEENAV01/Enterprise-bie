@@ -1,9 +1,9 @@
 {
  "schema": "bie.brain.places/1",
  "rulebook": "places",
- "version": "2026-11-02.1",
+ "version": "2026-11-02.2",
  "source": "Navin, 27 October 2026: \"a shop and its buyers, a bank and its borrowers, a factory and its workers, a port, a farm\"; the petrol pump for the real-world application. Moved out of world.py on 2 November 2026 (Task 046 Part D2 addendum: no chapter noun is a fixed value in the world code).",
- "how_it_is_used": "bie/brain/video/world.py reads the words that name each place in a part's narration; a place with a kit goes to world mode (C), one without a kit to the canvas (B) and to the missing-capability log.",
+ "how_it_is_used": "bie/brain/video/world.py reads the words that name each place in a part's narration; a place with a kit goes to world mode (C), one without a kit to the canvas (B) and to the missing-capability log. The 'draws' map says which thing each world element kind draws, and 'whole_part' which kinds stand for the whole part; the coverage check reads both.",
  "places": {
   "shop": [
    "दुकान",
@@ -115,6 +115,75 @@
    "पेट्रोल",
    "डीज़ल",
    "डीजल"
+  ]
+ },
+ "draws": {
+  "_": "What each world element kind draws, by the words that name the thing (Navin's addendum of 2 November 2026, point 4): the coverage check (bie/brain/visual_thinking.coverage_rows) counts a thing of a beat as shown when an element of that kind is on screen during the beat and a word of the thing is one of these. A kit's own vocabulary, not one chapter's: a new kit adds its kinds here.",
+  "shop": [
+   "दुकान",
+   "दुकानें",
+   "shop",
+   "shops",
+   "किराना",
+   "stall",
+   "stalls",
+   "ठेला",
+   "ठेले",
+   "tea stall"
+  ],
+  "bank": [
+   "बैंक",
+   "bank",
+   "banks",
+   "शाखा",
+   "branch"
+  ],
+  "shopkeeper": [
+   "दुकानदार",
+   "दुकानदारों",
+   "shopkeeper",
+   "shopkeepers",
+   "विक्रेता",
+   "seller",
+   "sellers",
+   "चायवाला",
+   "चायवाले"
+  ],
+  "teller": [
+   "teller",
+   "tellers",
+   "cashier",
+   "कैशियर",
+   "clerk",
+   "क्लर्क"
+  ],
+  "crowd": [
+   "लोग",
+   "लोगों",
+   "people",
+   "भीड़",
+   "crowd",
+   "खरीदार",
+   "खरीदारों",
+   "buyer",
+   "buyers",
+   "ग्राहक",
+   "ग्राहकों",
+   "customer",
+   "customers",
+   "borrower",
+   "borrowers",
+   "depositor",
+   "depositors"
+  ]
+ },
+ "whole_part": {
+  "_": "World element kinds that stand in the street for the whole part (world.py's layout check and the coverage check both read this): a kit's place and the person who works there.",
+  "kinds": [
+   "shop",
+   "bank",
+   "teller",
+   "shopkeeper"
   ]
  }
 }

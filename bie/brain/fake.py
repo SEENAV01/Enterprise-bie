@@ -359,7 +359,8 @@ def world_answer(user_text: str):
                       steps=[{"text": price or (_first_word(beats[0]["say"]) if beats else "खाता"), "n": 0, "dir": "", "cue": first_cue}])]
     else:
         goods = [{"icon": "tw:1f4e6", "label": ""}]                 # the story's goods: the offline maker has no nouns, a plain package
-        place = [dict(empty, id="shop", kind="shop", x=2600, sign="दुकान", goods=goods, packets=[{"n": 3, "cue": [first, ""]}])] + street
+        place = [dict(empty, id="shop", kind="shop", x=2600, sign="दुकान", goods=goods, packets=[{"n": 3, "cue": [first, ""]}])] + street + [
+                 dict(empty, id="keeper", kind="shopkeeper", x=2600)]             # the shop's keeper: a story names the person too
         if price:
             place.append(dict(empty, id="tag", kind="price_tag", x=2870, y=560, string=60, steps=[{"text": price, "n": 0, "dir": "", "cue": first_cue}]))
     els = place + [

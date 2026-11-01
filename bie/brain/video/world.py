@@ -46,7 +46,12 @@ OVERLAY_KINDS = ("board", "label", "price_tag", "balance", "action")
 # and its workers, a port, a farm"), with the words that name them in a Hinglish script. A place with a kit in ``KITS`` goes
 # to world mode (C); a place without one falls back to the canvas (B) and goes to the missing-capability log (Part C, PR 3
 # builds the kits the chosen video needs). The director (bie/brain/canvas_director.py) decides; this module only draws.
-PLACES = {k: tuple(v) for k, v in json.loads((Path(__file__).resolve().parents[1] / "rulebook" / "places.json").read_text(encoding="utf-8"))["places"].items()}
+_PLACES_DATA = json.loads((Path(__file__).resolve().parents[1] / "rulebook" / "places.json").read_text(encoding="utf-8"))
+PLACES = {k: tuple(v) for k, v in _PLACES_DATA["places"].items()}
+# What each element kind draws, by the words that name the thing, and the kinds that stand in the street for the whole part
+# (the kit's place and the person who works there); the coverage check (bie/brain/visual_thinking.coverage_rows) reads both.
+DRAWS = {k: frozenset(w.lower() for w in v) for k, v in _PLACES_DATA.get("draws", {}).items() if not k.startswith("_")}
+WHOLE_PART_KINDS = frozenset(_PLACES_DATA.get("whole_part", {}).get("kinds", ()))
 PLACE_LABELS = {"shop": "shop", "bank": "bank", "factory": "factory", "port": "port", "farm": "farm", "petrol_pump": "petrol pump"}
 KITS = {"shop": {"label": "a shop with buyers on a street", "words": PLACES["shop"]},
         "bank": {"label": "a bank with its customers at the counter", "words": PLACES["bank"]}}
@@ -632,7 +637,7 @@ def empty_frames(scene: dict, *, step: int = 6) -> list:
     for e in els:
         span = box_of(e) or _place_span(e)
         if span:
-            t0, t1 = (0, duration) if e.get("kind") in PLACE_KINDS.values() or e.get("kind") in ("teller", "shopkeeper") else _on(e, duration)
+            t0, t1 = (0, duration) if e.get("kind") in WHOLE_PART_KINDS | set(PLACE_KINDS.values()) else _on(e, duration)
             things.append((span[0], span[2], t0, t1))
     if not things:
         return []
