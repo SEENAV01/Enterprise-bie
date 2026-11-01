@@ -503,6 +503,56 @@ class AutoFixes(unittest.TestCase):
         self.assertEqual(element(scene, "swap")["at"], element(scene, "shelf")["until"])     # the book picture is never moved
         self.assertIn("swap comes on when shelf leaves (its lead-in shortened) (same place)", report["auto_fixes"])
 
+    def test_a_zoom_into_a_close_up_never_dips_the_feet_into_the_strip(self):
+        limit = world.SUBTITLE_TOP * world.FRAME_H - world.FRAME_H / 2 - 2
+        def worst(cam, frames):
+            return max(world.cam_at(cam, f)["zoom"] * (world.GROUND - 10 - world.cam_at(cam, f)["y"]) for f in frames)
+        cam = [{"at": 0, "x": 2600, "y": 443, "zoom": 0.95, "frames": 30},
+               {"at": 100, "x": 2600, "y": world.CLOSE_Y, "zoom": world.CLOSE_ZOOM, "frames": 22, "close_up": "a"}]
+        self.assertGreater(worst(cam, range(100, 123)), limit)             # run b's v2_s4s: the feet dip at 41.0 s
+        fixes = world._split_dips(cam, [act("a", 2600, 50)], 300)
+        self.assertEqual(len(cam), 3)
+        self.assertEqual((cam[1]["at"], cam[1]["zoom"], cam[1]["y"]), (100, 0.95, world.CLOSE_Y))   # pan first, then zoom
+        self.assertEqual((cam[2]["at"], cam[2]["close_up"]), (111, "a"))
+        self.assertLessEqual(worst(cam, range(100, 140)), limit + 0.5)
+        self.assertTrue(fixes)
+        quiet = [dict(k) for k in cam[:1]] + [{"at": 100, "x": 2600, "y": world.CLOSE_Y, "zoom": world.CLOSE_ZOOM, "frames": 22}]
+        self.assertEqual(world._split_dips(quiet, [act("a", 2600, 400)], 600), [])   # nobody on the stage: nothing to lift
+
+    def test_after_the_camera_nothing_moves_only_who_leaves_when(self):
+        board = {"id": "bd", "kind": "board", "x": 2600, "y": 300, "steps": [{"text": "2 metres", "at": 100}]}
+        pans = {"id": "bal", "kind": "balance", "x": 2600, "y": 480, "at": 300, "left": {"icon": "a"}, "right": {"icon": "b"}}
+        a, b = act("a", 3600, 40), act("b", 3600, 45)
+        fixes = world.settle_places([board, pans, a, b], 600, place=False)
+        self.assertEqual(board["until"], 300)
+        self.assertEqual(b["x"], 3600)                                     # no action moves once the camera is framed
+        self.assertIn("bd leaves when bal comes (same place)", fixes)
+
+    def test_change_given_back_needs_money_and_a_plural_is_one_unit(self):
+        self.assertFalse(vt.gives_change_back("लौटाया 10 kg ही, लेकिन उससे तब 1 metre कपड़ा मिलता है।"))   # grain repaid
+        self.assertTrue(vt.gives_change_back("दुकानदार ₹200 वापस करता है।"))
+        self.assertTrue(vt.gives_change_back("उसके पास चिल्लर नहीं है।"))
+        self.assertEqual(vt._unit("2 metres कपड़ा"), vt._unit("1 metre कपड़ा"))
+        self.assertEqual(vt._unit("3 सिक्के"), vt._unit("1 सिक्का"))
+        self.assertNotEqual(vt._unit("₹500"), vt._unit("2 kg"))
+        plan = {"beats": [{"beat_id": "b20", "say": "अब 2 metres कपड़ा लेकर 10 kg अनाज बाद में देना माना। लौटाया 10 kg ही, लेकिन उससे तब 1 metre कपड़ा मिलता है।"}],
+                "elements": [{"id": "cloth", "kind": "board", "steps": [{"text": "2 metres कपड़ा", "cue": ["b20", "2"]},
+                                                                         {"text": "1 metre कपड़ा", "cue": ["b20", "1"]}]}]}
+        self.assertEqual(vt.struck_problems(plan, "C"), [])
+
+    def test_the_lists_own_saancha_and_a_refusal_beside_an_acceptance_realise_their_beats(self):
+        beats = [{"beat_id": "b32", "say": "आप ₹100 देते हैं; दुकानदार पूरा उधार चुका मानता है।"},
+                 {"beat_id": "b43", "say": "दुकानदार पुराने coins लेने से मना करे; valid ₹1 coin दें तो बकाया ₹0 होता है।"}]
+        pay = {"id": "pay", "kind": "action", "template": "hand_over", "steps": [{"name": "give", "cue": ["b32", "देते"]}, {"name": "take", "cue": ["b32", "मानता"]}]}
+        no = {"id": "no", "kind": "action", "template": "refuse", "steps": [{"name": "show", "cue": ["b43", "पुराने"]}, {"name": "refuse", "cue": ["b43", "मना"]}]}
+        yes = {"id": "yes", "kind": "action", "template": "accept", "steps": [{"name": "show", "cue": ["b43", "valid"]}, {"name": "accept", "cue": ["b43", "बकाया"]}]}
+        ideas = {"beats": [{"beat_id": "b32", "relation": "accept", "template": "hand_over"}, {"beat_id": "b43", "relation": "compare", "template": "other"}]}
+        rows = vt.relation_rows({"beats": beats, "elements": [pay, no, yes]}, "C", ideas)
+        self.assertEqual([(r["beat_id"], r["realised"], r["by"]) for r in rows], [("b32", True, ["pay"]), ("b43", True, ["no", "yes"])])
+        ideas["beats"][0]["template"] = "none"                              # the list chose no saancha: a tick is still needed
+        self.assertFalse(vt.relation_rows({"beats": beats, "elements": [pay, no]}, "C", ideas)[0]["realised"])
+        self.assertFalse(vt.relation_rows({"beats": beats, "elements": [pay, no]}, "C", ideas)[1]["realised"])   # a refusal alone
+
     def test_a_currency_sign_alone_names_a_coin_on_a_label(self):
         from bie.brain.video import screen_text
         problems = screen_text.text_problems("¥", "यह ¥ का सिक्का है।", where="l", role="label")

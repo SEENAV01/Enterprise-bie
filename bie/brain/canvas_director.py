@@ -561,7 +561,7 @@ STORY_NOTE = ("This part is the STORY of the concept's real-world example (Navin
               "cued on the word that says it.")
 
 
-def ideas_step(course: Course, stub: dict, items: list, picture: dict, *, max_rounds: int = 3) -> Step:
+def ideas_step(course: Course, stub: dict, items: list, picture: dict, *, max_rounds: int = 3, start: dict | None = None) -> Step:
     """Dikhane ki soch (Task 046 Part D1): before any layout the maker says, per beat, the idea, its relation, its things, people
     and places, what is seen and on which word; code checks the shape and the words."""
     beats = [{"beat_id": b["beat_id"], "say": b["say"], "relation_guess": vt.guess_relation(b["say"]),
@@ -578,7 +578,7 @@ def ideas_step(course: Course, stub: dict, items: list, picture: dict, *, max_ro
     user = (f"Chapter: {course.title}. Part {stub.get('part_id') or stub['id']} ({len(beats)} beats).\nThe part (JSON):\n"
             f"{json.dumps(payload, ensure_ascii=False)}\n\nReply with the ideas JSON.")
     return Step(section=SECTION, unit=f"{stub['id']}-ideas", instructions_version=vt.VERSION, system=system, user=user, schema=vt.IDEAS_SCHEMA,
-                check=lambda value: vt.check_ideas(stub, value, picture=picture), max_rounds=max_rounds)
+                check=lambda value: vt.check_ideas(stub, value, picture=picture), max_rounds=max_rounds, start=start)
 
 
 IDEAS_NOTE = """
@@ -593,7 +593,8 @@ PICTURE_NOTE = ("\nCode has already placed the book's own picture in this plan: 
 
 
 def part_step(course: Course, stub: dict, items: list, mode: dict, *, rulebook, menu: list | None = None, max_rounds: int = 3,
-              ideas: dict | None = None, candidates: dict | None = None, images: dict | None = None, library=None) -> Step:
+              ideas: dict | None = None, candidates: dict | None = None, images: dict | None = None, library=None,
+              start: dict | None = None) -> Step:
     """The maker writes this part's plan (B: canvas; C: world) and code checks it; no reviewer round for layout. With the
     dikhane ki soch (``ideas``) and the icon candidates code found for its nouns (``candidates``), and the code-placed book
     picture of the stub (``stub["picture_nodes"]``)."""
@@ -639,7 +640,8 @@ def part_step(course: Course, stub: dict, items: list, mode: dict, *, rulebook, 
             f"The part (JSON):\n{json.dumps(payload, ensure_ascii=False)}\n\nReply with the plan JSON.")
     picture = stub.get("picture") or {}
     return Step(section=SECTION, unit=stub["id"], instructions_version=VERSION, system=system, user=user, schema=schema,
-                check=lambda value: check_plan(stub, value, mode, picture=picture, library=library, ideas=ideas), max_rounds=max_rounds)
+                check=lambda value: check_plan(stub, value, mode, picture=picture, library=library, ideas=ideas), max_rounds=max_rounds,
+                start=start)
 
 
 def split_stub(stub: dict, max_beats: int = MAX_PART_BEATS) -> list:
@@ -660,10 +662,43 @@ def split_stub(stub: dict, max_beats: int = MAX_PART_BEATS) -> list:
 
 # ---------------------------------------------------------------- the run
 
+def resume_answers(read, base: str) -> dict:
+    """The answers of an earlier canvas run to continue from (seekh -> BIE, Part D2 run b of 1 November 2026: 33 of 36 parts
+    passed, and a new run would have made all 36 again): per part id, its visual-idea answer and its plan, each the round that
+    passed or else the last answer given. ``read`` reads a path or URL under ``base`` (the run folder or its https URL). Every
+    answer is checked again by today's code in round 0 (``Step.start``): a part that still passes costs no maker call, one that
+    no longer passes continues from its own answer with the problems named. A part without records is made new."""
+    base = base.rstrip("/")
+    summary = json.loads(read(f"{base}/canvas.json"))
+    out = {}
+    for video in summary.get("videos") or []:
+        for part in video.get("parts") or []:
+            pid = part.get("id")
+            if not pid:
+                continue
+            row = {}
+            for key, unit in (("ideas", f"{pid}-ideas"), ("plan", pid)):
+                try:
+                    record = json.loads(read(f"{base}/records/{SECTION}--{unit}.json"))
+                except (OSError, ValueError):
+                    continue
+                rounds = [r for r in record.get("rounds") or [] if r.get("output")]
+                ok = [r for r in rounds if r.get("passed")]
+                if ok or rounds:
+                    row[key] = (ok or rounds)[-1]["output"]
+            if row:
+                out[pid] = row
+    return out
+
+
+def _maker_rounds(result) -> int:
+    return sum(1 for r in result.rounds if r.get("mode") != "resume")
+
 def run_canvas(chapter: dict, lesson: dict, course: Course, runner, out_dir, *, videos=None, workers: int = 4, max_rounds: int = 3,
-               opener=None, shared_library=None) -> dict:
+               opener=None, shared_library=None, previous: dict | None = None) -> dict:
     """``shared_library``: a folder or an https URL of BIE's asset library (the images the fetch step found for earlier needs,
-    licence-checked and credited); its assets are copied into this run's library first, so the next run looks there first."""
+    licence-checked and credited); its assets are copied into this run's library first, so the next run looks there first.
+    ``previous``: an earlier run's answers per part (``resume_answers``), checked again by today's code before any maker call."""
     chapter = formats.accept("chapter_map", chapter, where="chapter_map.json")              # the section boundary
     lesson = formats.accept("lesson_plan", lesson, where="lesson_plan.json")
     out = Path(out_dir)
@@ -726,11 +761,12 @@ def run_canvas(chapter: dict, lesson: dict, course: Course, runner, out_dir, *, 
                              for b in stub["beats"]]
             items = _items_of(chapter, plans[video["video_id"]], stub)
             mode = stub["mode"]
-            ideas = runner.run(ideas_step(course, stub, items, stub["picture"], max_rounds=max_rounds))
+            earlier = (previous or {}).get(stub["id"]) or {}
+            ideas = runner.run(ideas_step(course, stub, items, stub["picture"], max_rounds=max_rounds, start=earlier.get("ideas")))
             found = vt.resolve_needs(ideas.output, library) if ideas.passed and ideas.output else {"found": {}, "images": {}, "needs": []}
             result = runner.run(part_step(course, stub, items, mode, rulebook=runner.rulebook, menu=menu, max_rounds=max_rounds,
                                           ideas=ideas.output if ideas.passed else None, candidates=found["found"], images=found["images"],
-                                          library=library))
+                                          library=library, start=earlier.get("plan") if ideas.passed else None))
             return stub, mode, result, ideas, found
 
         with ThreadPoolExecutor(max_workers=max(1, workers)) as pool:
@@ -739,9 +775,11 @@ def run_canvas(chapter: dict, lesson: dict, course: Course, runner, out_dir, *, 
         for stub, mode, result, ideas, found in rows:
             entry = {"id": stub["id"], "part_id": stub.get("part_id", ""), "beats": len(stub["beats"]), "mode": mode["mode"],
                      "place": mode.get("place", ""), "kit": mode.get("kit", ""), "story": bool(mode.get("story")), "status": result.status,
-                     "rounds": len(result.rounds), "first_try": result.passed and len(result.rounds) == 1, "cost_usd": result.cost_usd + ideas.cost_usd,
+                     "rounds": _maker_rounds(result), "first_try": result.passed and _maker_rounds(result) == 1,
+                     "reused": result.passed and _maker_rounds(result) == 0, "cost_usd": result.cost_usd + ideas.cost_usd,
                      "last_problems": (result.rounds[-1].get("code_problems") or []) if result.rounds and not result.passed else [],
-                     "ideas_status": ideas.status, "ideas_rounds": len(ideas.rounds), "ideas_first_try": ideas.passed and len(ideas.rounds) == 1,
+                     "ideas_status": ideas.status, "ideas_rounds": _maker_rounds(ideas), "ideas_first_try": ideas.passed and _maker_rounds(ideas) == 1,
+                     "ideas_reused": ideas.passed and _maker_rounds(ideas) == 0,
                      "picture": {"type": stub["picture"]["type"], "by": stub["picture"]["by"]},
                      "book_pictures": len(stub["picture"]["pictures"]), "needs": len(found["needs"])}
             if mode.get("note"):
@@ -838,7 +876,7 @@ def run_canvas(chapter: dict, lesson: dict, course: Course, runner, out_dir, *, 
         (out / "visual_ideas" / f"{video['video_id']}.json").write_text(json.dumps(ideas_record, ensure_ascii=False, indent=1), encoding="utf-8")
         row = {"video_id": video["video_id"], "title": video.get("title", ""), "parts": parts,
                "parts_passed": sum(1 for p in parts if p["status"] == "passed"), "first_try_passes": sum(1 for p in parts if p["first_try"]),
-               "rounds": sum(p["rounds"] for p in parts), "cost_usd": round(sum(p["cost_usd"] for p in parts), 6),
+               "reused_parts": sum(1 for p in parts if p.get("reused")), "rounds": sum(p["rounds"] for p in parts), "cost_usd": round(sum(p["cost_usd"] for p in parts), 6),
                "modes": {m: sum(1 for p in parts if p["mode"] == m) for m in ("B", "C")}, "credits": credits,
                "seconds": round(sum(s["duration"] for s in scenes) / timing.FPS, 1),
                "ideas_first_try": sum(1 for p in parts if p.get("ideas_first_try")), "ideas_rounds": sum(p.get("ideas_rounds", 0) for p in parts),
@@ -863,6 +901,7 @@ def run_canvas(chapter: dict, lesson: dict, course: Course, runner, out_dir, *, 
     summary["quality"] = {"videos": len(summary["videos"]), "videos_written": sum(1 for v in summary["videos"] if v.get("status") == "spec_written"),
                           "parts": len(parts), "parts_passed": sum(1 for p in parts if p["status"] == "passed"),
                           "first_try_passes": sum(1 for p in parts if p["first_try"]),
+                          "reused_parts": sum(1 for p in parts if p.get("reused")),
                           "first_try_rate": round(sum(1 for p in parts if p["first_try"]) / len(parts), 3) if parts else 0.0,
                           "rounds": sum(p["rounds"] for p in parts), "modes": {m: sum(1 for p in parts if p["mode"] == m) for m in ("B", "C")},
                           "story_parts": sum(1 for p in parts if p.get("story")),

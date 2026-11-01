@@ -226,19 +226,20 @@ def _frame_actions(cam: list, els: list, fixes: list) -> tuple:
     return keys, fixes
 
 
-def settle_places(els: list, duration: int) -> list:
+def settle_places(els: list, duration: int, *, place: bool = True) -> list:
     """The places and times code settles before the camera is framed (seekh -> BIE: overlaps were 37 of the first Part D2 run's
     refusals): an until before its own cue is dropped (the element would never show); two actions starting together on one spot
     stand side by side; two overlays (board, label, price tag, balance, action) in the same place, one starting at least 12
     frames after the other, follow each other (the first leaves when the second comes, as the check's own advice says); the
-    same for two of board, label and title on screen together (one text at a time). In place; returns what was done."""
+    same for two of board, label and title on screen together (one text at a time). In place; returns what was done. With
+    ``place=False`` (the pass after the camera is framed) nothing moves: only who leaves when."""
     fixes = []
     for e in els:                                # an until before the element's own start: it would never show
         if "until" in e and e["until"] <= _on(e, duration)[0]:
             e.pop("until")
             fixes.append(f"{e['id']}: its until came before its cue and was dropped")
     starts = {id(e): _on(e, duration)[0] for e in els}
-    acts = [e for e in els if e.get("kind") == "action"]
+    acts = [e for e in els if e.get("kind") == "action"] if place else []
     for i, a in enumerate(acts):                 # two actions starting together on one spot: the second steps aside
         for b in acts[i + 1:]:
             ba, bb = box_of(a), box_of(b)
@@ -274,6 +275,8 @@ def settle_places(els: list, duration: int) -> list:
                     continue
                 if b0 - a0 >= 12 and leave(a, b, "same place"):
                     changed = True
+                elif not place:
+                    continue
                 elif a.get("kind") == "action" and b.get("kind") == "action":
                     b["x"] = a["x"] + saanche.STAGE_W            # the second process plays beside the first, not on it
                     fixes.append(f"{b['id']} moved beside {a['id']} (x {b['x']}): it starts while {a['id']} plays")
@@ -295,7 +298,8 @@ def settle_places(els: list, duration: int) -> list:
                     changed = True
         if not changed:
             break
-    fixes += _fill_gaps(els, duration)
+    if place:
+        fixes += _fill_gaps(els, duration)
     return fixes
 
 
@@ -342,6 +346,7 @@ def settle_layout(els: list, cam: list, duration: int) -> list:
             if k.get("y", 540) < need:
                 k["y"] = round(need + 0.5)
                 fixes.append(f"camera key at {k['at']} looks {round(need - 540)} px lower so the feet stay above the subtitle strip")
+    fixes += _split_dips(cam, acts, duration)
     for e in els:
         if e.get("kind") not in ("board", "label", "price_tag", "balance"):
             continue
@@ -355,6 +360,45 @@ def settle_layout(els: list, cam: list, duration: int) -> list:
         if worst:
             e["y"] = round(e.get("y", 540) - worst)
             fixes.append(f"{e['id']} raised {round(worst)} px above the subtitle strip")
+    return fixes
+
+
+def _split_dips(cam: list, acts: list, duration: int) -> list:
+    """A camera move that zooms and pans together can push the feet into the subtitle strip half-way even when both ends keep
+    them above it (seekh -> BIE, Part D2 run b: v2_s4s refused three rounds for a dip at 41.0 s while the camera moved from a wide
+    view into a close-up). Where an action plays during such a move, code splits it in two: first the change that lifts the
+    feet (the pan when zooming in, the zoom when zooming out), then the other, in the same time. In place."""
+    fixes = []
+    limit = SUBTITLE_TOP * FRAME_H - FRAME_H / 2 - 2      # zoom × (feet − camera y) must stay below this
+    feet = GROUND - 10
+    i = 1
+    while i < len(cam):
+        k = cam[i]
+        frames = k.get("frames", 36)
+        live = any(a["at"] < k["at"] + frames and a.get("until", 10 ** 9) > k["at"] for a in acts)
+        if not live or frames < 12:
+            i += 1
+            continue
+        c = cam_at(cam, k["at"])
+        z0, h0 = c["zoom"], feet - c["y"]
+        z1, h1 = k.get("zoom", 1.0), feet - k.get("y", 540)
+        worst = max((z0 + (z1 - z0) * e / 20) * (h0 + (h1 - h0) * e / 20) for e in range(21))
+        if worst <= limit + 0.5:
+            i += 1
+            continue
+        if z0 * h1 <= limit:                     # pan first, then zoom
+            mid = {"x": k["x"], "y": k.get("y", 540), "zoom": z0}
+        elif z1 * h0 <= limit:                   # zoom first, then pan
+            mid = {"x": k["x"], "y": c["y"], "zoom": z1}
+        else:
+            i += 1
+            continue
+        half = frames // 2
+        cam.insert(i, dict(mid, at=k["at"], frames=half))
+        k["at"] += half
+        k["frames"] = frames - half
+        fixes.append(f"camera move at {cam[i]['at']} split in two so the feet stay above the subtitle strip on the way")
+        i += 2
     return fixes
 
 
@@ -436,6 +480,7 @@ def compile_world(plan: dict, *, voice: dict | None = None, lead_in: float = tim
     cam = _close_ups(cam, [e for e in els if e["kind"] == "action"], fixes)
     changes += [k["at"] for k in cam]
     fixes += settle_layout(els, cam, duration)
+    fixes += settle_places(els, duration, place=False)   # a raise above the strip can meet another overlay: the first leaves
     pts = sorted(set(changes)) + [duration]
     still = max(b - a for a, b in zip(pts, pts[1:])) / fps
     problems = [f"the picture stays the same for {still:.1f} s (limit {canvas.MAX_STILL_S:.0f} s)"] if still > canvas.MAX_STILL_S else []

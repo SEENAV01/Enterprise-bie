@@ -199,7 +199,9 @@ def main(argv=None):
                                                      "Task 046 Part D1: the images the fetch step found for earlier needs)")
     parser.add_argument("--from-run", help="folder or https URL of an earlier run with chapter_map.json and lesson_plan.json (director)")
     parser.add_argument("--resume-from", help="folder or https URL of an earlier run: understand/chain reuse its passed pages, "
-                                              "lesson reuses its passed plan and scripts (when they pass today's checks)")
+                                              "lesson reuses its passed plan and scripts (when they pass today's checks), canvas "
+                                              "continues from every part's answers (checked again by today's code; a part that "
+                                              "passes costs no maker call)")
     parser.add_argument("--videos", default="", help="visual: only these video ids, for example v1,v2; lesson with --resume-from: only these scripts are worked on, the rest are kept as they were")
     parser.add_argument("--render", action="store_true", help="visual, canvas: also render a silent MP4 preview of every video")
     parser.add_argument("--with-visual", action="store_true", help="chain: also run Section 4")
@@ -387,8 +389,12 @@ def main(argv=None):
             summary.update(status=stop_status(guard), stop_reason=guard.stop_reason)
         if summary["status"] == "ok" and args.section == "canvas":
             wanted = [v.strip() for v in args.videos.split(",") if v.strip()]
+            previous = None
+            if args.resume_from:
+                from bie.brain.canvas_director import resume_answers
+                previous = resume_answers(read_text, args.resume_from)
             planned = run_canvas(chapter, lesson, course, runner, out, videos=wanted or None, workers=args.workers, max_rounds=args.max_rounds,
-                                 shared_library=args.library or None)
+                                 shared_library=args.library or None, previous=previous)
             summary.update(canvas_quality=planned["quality"])
             if guard.stopped:
                 summary.update(status=stop_status(guard), stop_reason=guard.stop_reason)

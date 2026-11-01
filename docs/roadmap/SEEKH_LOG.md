@@ -1385,3 +1385,44 @@ renderer's own camera: a stretch over 0.8 s with nothing in view, or a close-up 
 
 The one still refused is a world part whose sequence beat shows only a balance (a comparison); the maker adds the steps. Rounds, tokens and ₹ per page change only with the next live
 run (run b).
+
+## Entry 33 · Part D2 run b: 33 of 36, and the last three were refused by BIE's own checks; a canvas run now continues from the last one, 1 November 2026
+
+**Run:** `runs/vm-t046d2-money-canvas-b-brain-canvas/` (after PR #117; Money v2 and v4, narration locked, Codex maker and checker,
+max 4 rounds, 89 minutes, 110 calls, 1.53 M input and 0.43 M output tokens, ₹0). 33 of 36 parts passed, 16 on the first try,
+73 rounds (run a: 26, 6, 88 rounds, 125 calls, 1.86 M input). Again no video spec: each video had one part refused. On the
+passed parts: 61 actions, every relation of the dikhane ki list realised (90 of 90), 0 overlaps, 0 elements under the subtitle
+strip, 98 distinct icons, 9.1 s text-only, the book's 7 pictures drawn; 8 boards in the 11 world parts (run a: 2).
+
+**Taught** (the three refused parts, read round by round; every one was BIE's own check, not the maker):
+- v2_s4s (six rounds): a camera move from a wide view into a close-up zooms and pans together, and half-way the feet dipped into
+  the subtitle strip although both ends kept them above it; a balance raised out of the strip by code then met a board above
+  it; "लौटाया 10 kg ही" (grain repaid) was read as change given back; and '2 metres' → '1 metre' of cloth was called two
+  different quantities because of the plural.
+- v4_s6s (four rounds): the dikhane ki list itself chose hand_over for an 'accept' beat (a debt paid and accepted), and the
+  meaning check then refused the hand_over it had asked for.
+- v4_s7s (four rounds): a 'compare' beat (old coins refused, a valid coin accepted) shown exactly that way, refusal beside
+  acceptance, was refused for having no table, balance or barter.
+- A new run would have made all 36 parts again for the three; the runner already had a round 0 (an earlier answer checked by
+  code, no maker call) that only the lesson section used.
+
+**Changed in BIE** (branch `task046d2-resume`, IMPLEMENTED): `world._split_dips` splits such a camera move (pan first when
+zooming in, zoom first when zooming out, in the same time); `settle_places(place=False)` after the camera (a raise above the
+strip that meets another overlay: the first leaves; nothing moves); `visual_thinking.gives_change_back` (a change word, or a
+return word in a beat about money); `_unit` reads singular and plural as one unit; `relation_rows` counts the saancha the
+list chose for the beat, and a refusal beside an acceptance for 'compare'; canvas `_hand_over` lets a process show at least 6
+frames of its last step's motion before the next thing takes its place. **Canvas resume:** `canvas_director.resume_answers`
+reads an earlier canvas run's answers per part, `run_canvas(previous=...)` and `run_brain --resume-from` for the canvas section
+check every one again with today's code in round 0; a part that passes costs no maker call (`reused`), one that does not
+continues from its own answer with the problems named. The VM job field `resume_from` already reached run_brain.
+
+| Measure | Run b (live) | The same answers with the new code |
+| --- | --- | --- |
+| Parts passing within the recorded rounds | 33 of 36 | 36 of 36 |
+| Parts whose last answer passes today (what a resume reuses with no call) | — | 36 of 36 |
+| Run a's answers passing within their rounds | — | 35 of 36 (22 first try) |
+| Empty-street stretches / actions cut before their last step (runs a and b) | — | 0 / 0 |
+| Earlier plans recompiled (379, runs a and b included) | — | 0 differences from `main` |
+| Passed outputs | — | 0 problems |
+
+Next: the resume job (run c) from run b, which writes both video specs if every answer still passes, then the renders.

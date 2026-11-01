@@ -192,6 +192,31 @@ class Run(unittest.TestCase):
     def setUp(self):
         self.tmp = tempfile.mkdtemp()
 
+    def test_a_canvas_run_continues_from_an_earlier_one_without_a_maker_call(self):
+        # seekh -> BIE (Part D2 run b): 33 of 36 parts passed and the other 3 were refused by BIE's own checks; a new run would
+        # have made all 36 again. Every earlier answer is checked again by today's code first.
+        chapter, lesson = econ_lesson()
+        cd.run_canvas(chapter, lesson, ECON, runner(self.tmp), self.tmp, workers=1)
+        earlier = cd.resume_answers(lambda p: Path(p).read_text(encoding="utf-8"), self.tmp)
+        self.assertEqual(sorted(earlier), ["v1_s1", "v1_s2"])
+        self.assertTrue(all(set(v) == {"ideas", "plan"} for v in earlier.values()))
+        calls = []
+        again_dir = Path(self.tmp, "again")
+        r = runner(again_dir)
+        real = r.gateway.complete
+        r.gateway.complete = lambda *a, **k: calls.append(a[0]) or real(*a, **k)
+        again = cd.run_canvas(chapter, lesson, ECON, r, again_dir, workers=1, previous=earlier)
+        q = again["quality"]
+        self.assertEqual((q["parts_passed"], q["reused_parts"], q["rounds"], q["first_try_passes"]), (2, 2, 0, 0))
+        self.assertEqual(calls, [])
+        self.assertEqual(again["videos"][0]["status"], "spec_written")
+        broken = json.loads(json.dumps(earlier))
+        broken["v1_s2"]["plan"]["nodes"] = []                    # an answer today's code refuses: the maker continues from it
+        third = cd.run_canvas(chapter, lesson, ECON, runner(Path(self.tmp, "third")), Path(self.tmp, "third"), workers=1, previous=broken)
+        part = next(p for p in third["videos"][0]["parts"] if p["id"] == "v1_s2")
+        self.assertEqual((part["status"], part["reused"], part["rounds"]), ("passed", False, 1))
+        self.assertEqual(third["quality"]["reused_parts"], 1)
+
     def test_the_run_writes_plans_specs_and_counts_first_try_passes(self):
         chapter, lesson = econ_lesson()
         summary = cd.run_canvas(chapter, lesson, ECON, runner(self.tmp), self.tmp, workers=1)

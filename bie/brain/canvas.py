@@ -516,11 +516,14 @@ def subtitle_problems(scene: dict, *, step: int = 6) -> list:
 
 # ---------------------------------------------------------------- compile
 
+SHOWN = 6        # frames of a process's last step shown before it fades out (15 frames) for the next thing in its place
+
+
 def _hand_over(first: dict, second: dict, later: list | None = None) -> str | None:
     """Code lets ``first`` give its place to ``second`` (seekh -> BIE, the first Part D2 run): only when the second starts at
     least 12 frames later and neither belongs to a book picture's group. The first leaves as the second comes when it has
     nothing left to do then (no value step, action step or counted item at or after the second's start); two processes on one
-    place hand over after the first's last step has begun (at least 8 of its 24 motion frames, then the 15-frame fade of
+    place hand over after the first's last step has begun (at least SHOWN of its 24 motion frames, then the 15-frame fade of
     saanche.tsx), the second coming on by its own first step. An action that meets the other only in its own lead-in (the
     other leaves by the action's first step) comes on as the other leaves, whatever the other is (a book picture too).
     ``later`` gives the first's step frames while it is still being compiled. Returns what was done, or None (the maker moves
@@ -539,9 +542,12 @@ def _hand_over(first: dict, second: dict, later: list | None = None) -> str | No
             saanche.fit_items(first, at)
         later = [st.get("at", 0) for st in first.get("steps") or [] if isinstance(st, dict)]
         later += list((first.get("step_at") or {}).values()) + list(first.get("items") or [])
-    if not any(f >= at for f in later):
+    pad = SHOWN if first.get("kind") == "action" else 0       # a process shows at least SHOWN frames of its last step's motion
+    if not any(f + pad > at for f in later):
         first["until"] = at
         return f"{first['id']} leaves when {second['id']} comes"
+    if nxt is None and second.get("kind") == "action":
+        nxt = at                                 # still being compiled: it is on screen from its first step's word
     if first.get("kind") == "action" and second.get("kind") == "action" and nxt is not None and later:
         return hand_over_after(first, second, max(later), nxt)
     return None
@@ -549,11 +555,11 @@ def _hand_over(first: dict, second: dict, later: list | None = None) -> str | No
 
 def hand_over_after(first: dict, second: dict, last: int, nxt: int) -> str | None:
     """A process gives its place to the next thing there, the first's last step at ``last``, the next thing's first moment at
-    ``nxt`` (an action's first step, or another element's start): the first plays its last step for at least 8 of its 24
+    ``nxt`` (an action's first step, or another element's start): the first plays its last step for at least SHOWN of its 24
     motion frames (then fades in 15) and leaves by ``nxt``; a next action comes on by its own first step. None when ``nxt``
     comes too soon (the maker moves one). Used by the canvas and the world alike."""
     end = min(last + 12, nxt)
-    if end < last + 8:
+    if end < last + SHOWN:
         return None
     first["until"] = end
     if second.get("kind") == "action":
