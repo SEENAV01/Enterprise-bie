@@ -1,0 +1,162 @@
+# LOOK-D2 · 36 parts
+
+reviewer gpt-6.1-sol (codex); status ok; {"parts": 36, "mean_score": 3.34, "items": 518, "visible_pct": 51.4, "happening_pct": 13.9, "text_only_beats": 3, "low": ["v2_s1a", "v2_s1s", "v2_s2", "v2_s3", "v2_s4b", "v2_s4s", "v2_s5a", "v2_s5b", "v2_s6", "v2_s7s", "v2_s8a", "v2_s8b", "v2_s9b", "v4_s10s", "v4_s1b", "v4_s1s", "v4_s2s", "v4_s4b", "v4_s5", "v4_s6b", "v4_s6s", "v4_s7a", "v4_s7b", "v4_s7s", "v4_s9"]}
+
+- v2_s1a: 4.0/10 · visible 3/5 · happening 1/5 · missing: Seller rejecting grain beside shoes for sale, with a question mark above the exchange.
+  - b1: Worried person wearing shoes beside a grain sack crossed out in red. · grain sack 👁, shoes 👁, question mark ✗, relation: question ✗, process: refuse 👁▶
+- v2_s1s: 1.0/10 · visible 1/5 · happening 0/5 · missing: A before-and-after exchange showing 2 kg taken from 10 kg wheat for 1 metre cloth, leaving 8 kg wheat.
+  - b2: Two people, wheat and cloth icons, and approval marks; no quantities or exchange sequence shown. · 10 kg wheat ✗, 2 kg wheat ✗, 8 kg wheat ✗, relation: sequence ✗, process: barter_swap 👁
+- v2_s1b: 5.67/10 · visible 9/15 · happening 8/15 · missing: A two-panel comparison: direct wheat–cloth exchange ticked, versus wheat sold for money then money used to buy cloth, marked not barter.
+  - b3: Two people offer wheat and cloth; separate money bag has no cross. · wheat sack 👁▶, cloth 👁▶, money 👁, relation: compare ✗, process: barter_swap 👁▶
+  - b4: One person extends cloth toward another; no money or sale sequence. · wheat sack ✗, money ✗, cloth 👁▶, relation: sequence ✗, process: hand_over 👁▶
+  - b5: Wheat and cloth between outstretched hands; green stroke is not a complete tick. · wheat sack 👁▶, cloth 👁▶, tick ✗, relation: accept ✗, process: barter_swap 👁▶
+- v2_s2: 2.78/10 · visible 12/27 · happening 3/27 · missing: A bicycle mechanic using a spanner while the owner hands over grain as payment.
+  - b6: Two traders hold wheat and cloth beneath approval ticks. · wheat 👁, cloth 👁, money ✗, relation: reject ✗, process: barter_swap ✗
+  - b7: One trader holds grain toward an empty-handed trader. · grain sack 👁, bicycle ✗, spanner ✗, relation: sequence ✗
+  - b8: A trader beside a handshake and green tick. · wheat ✗, cloth ✗, agreement slip ✗, relation: promise 👁▶, process: accept 👁▶
+  - b9: Traders now hold opposite goods; grain marked 2 kg, cloth unmeasured. · 2 kg wheat sack 👁, 1 metre cloth ✗, measuring tape ✗, relation: compare ✗, process: barter_swap 👁▶
+  - b10: Grain, cloth and bicycle beside crossed-out money. · wheat 👁, cloth 👁, bicycle 👁
+  - b11: Two traders hold wheat and cloth separately. · wheat 👁, cloth 👁, money ✗, relation: sequence ✗, process: barter_swap ✗
+- v2_s3: 1.39/10 · visible 5/18 · happening 0/18 · missing: Neighbours visibly handing a vegetable-filled basket and a grain bag to each other.
+  - b12: Two people holding generic baskets beneath a settlement icon. · basket of vegetables ✗, bag of grain ✗, ancient settlement 👁, relation: sequence ✗, process: barter_swap ✗
+  - b13: Two basket holders with check marks in thought bubbles; no handover. · basket of vegetables ✗, bag of grain ✗, money ✗, relation: cause_effect 👁, process: barter_swap ✗
+  - b14: Boxed basket holders with question bubbles beside a banknote icon. · money 👁, basket of vegetables ✗, bag of grain ✗, relation: compare 👁
+  - b15: Nine settlement icons on the left versus two faded icons on the right. · baskets of goods ✗, grain bags ✗, bartering pairs ✗, relation: more_less 👁
+- v2_s4s: 2.5/10 · visible 8/20 · happening 2/20 · missing: A before-and-after comparison showing the same 10 kg grain exchanged for two metres of cloth initially but only one metre later.
+  - b16: A man beside wheat marked 2 kg. · 2 kg wheat 👁, 1 metre cloth ✗, oil ✗, relation: reject ✗
+  - b17: Two men extend cloth and wheat toward each other. · wheat 👁▶, cloth 👁▶, two-way arrows ✗, relation: compare ✗
+  - b18: Men hold money and cloth with questioning thought bubbles. · wheat ✗, money 👁, cloth 👁, relation: cause_effect ✗
+  - b19: A balanced scale compares a cow with cloth. · 2 kg wheat ✗, 1 metre cloth 👁, cow 👁, relation: question ✗
+  - b20: One man holds a grain sack marked 10 kg. · 2 metres cloth ✗, 10 kg grain 👁, agreement receipt ✗, relation: change ✗
+- v2_s4b: 1.25/10 · visible 3/12 · happening 0/12 · text-only beats 1 · missing: A fixed rupee debt beside a calendar and two unequal grain-filled repayment baskets.
+  - b21: Cropped cow, crossed-out grain sack, July 17 calendar. · cow 👁, grain sacks 👁, cloth bundles ✗, relation: cause_effect ✗
+  - b22: Ledger icon, rupee symbol, unequal baskets, handshake and faint scales. · rupee-denominated debt ledger ✗, rupee notes ✗, calendar ✗, relation: compare 👁
+  - b23: Arrow-linked boxes from matching to repayment; middle boxes blank. · grain sack ✗, cloth bundle ✗, balance scale ✗, relation: sequence 👁
+- v2_s5a: 4.0/10 · visible 3/5 · happening 1/5 · missing: A crossed-out coin beside a barter-first sequence with its first stage highlighted.
+  - b24: Two people extend cloth and wheat toward each other. · wheat 👁, cloth 👁, coin ✗, relation: sequence ✗, process: barter_swap 👁▶
+- v2_s5s: 4.59/10 · visible 21/37 · happening 13/37 · missing: A three-step barter exchange showing 2 kg wheat traded for 1 kg salt, then that salt traded for 1 metre cloth.
+  - b25: Two people holding a salt bag and folded cloth. · 2 kg wheat ✗, 1 kg salt 👁, 1 metre cloth 👁, relation: sequence ✗, process: barter_swap ✗
+  - b26: People extend salt bag and cloth toward each other. · salt bag 👁▶, cattle ✗, shells ✗, relation: sequence ✗
+  - b27: Two unequal gold-colored coin icons numbered one and two. · five equal silver coins ✗, two silver coins ✗, three silver coins ✗, relation: sequence ✗, process: hand_over ✗
+  - b28: Matching gold-colored coins marked one and two. · matching coins 👁, balance scale ✗, gold 👁, process: count_stack 👁▶
+  - b29: Counter exchange with ₹500 note, ₹200 change and ₹300 goods. · ₹300 goods 👁, ₹500 note 👁▶, ₹200 change 👁▶, relation: sequence 👁▶, process: pay_change 👁▶
+  - b30: Level balance compares a banknote icon and stacked coins. · light currency note 👁, heavy metal coins 👁, coin sack ✗, relation: compare 👁
+  - b31: Payer and payee balances struck out and replaced with equal debit and credit. · ₹1,500 cheque ✗, bank ✗, payer passbook 👁▶, relation: change 👁▶, process: cheque ✗
+  - b32: Phones beside QR code show ₹300 paid and received confirmations. · buyer phone 👁▶, shop QR stand 👁▶, shopkeeper phone 👁▶, relation: sequence 👁▶, process: upi 👁▶
+- v2_s5b: 1.92/10 · visible 3/13 · happening 2/13 · missing: Account-linked and stored-value cards side by side, showing where each holds its balance.
+  - b33: Customer holds paid phone beside merchant and QR code. · money ✗, goods ✗, phone 👁▶, relation: cause_effect ✗, process: upi 👁▶
+  - b34: Six money-form icons connected by arrows, with a card below. · currency notes ✗, coins ✗, phone ✗, relation: compare ✗
+  - b35: Cropped metallic, paper and bank money icons connected by arrows. · wheat ✗, cloth ✗, salt ✗, relation: sequence 👁
+- v2_s6: 1.86/10 · visible 12/35 · happening 1/35 · text-only beats 1 · missing: A seller refusing salt while accepting a ₹500 note, beside salt being used in cooking.
+  - b36: Tiny salt packet and ₹20 label beneath comparison table. · salt packet 👁, ₹20 price tag 👁, ₹500 note ✗, relation: compare ✗, process: hand_over ✗
+  - b36a: Salt packet, magnifier and paper icons beneath table. · salt packet 👁, cooking pot ✗, ₹500 note ✗, relation: compare ✗, process: refuse ✗
+  - b37: Gold, handshake and scroll icons beneath value-source table. · gold bar 👁, ₹500 note ✗, law scroll 👁, relation: compare 👁
+  - b39: Comparison table with tiny gold and account icons. · gold 👁, silver ✗, salt ✗
+  - b40: Arrow points toward crossed-out salt packet. · salt packet 👁, rupee notes ✗, shop counter ✗, relation: cause_effect ✗, process: refuse 👁▶
+  - b41: Cow, small salt packet and coin stack under comparison table. · cow 👁, heavy salt sack ✗, small denomination coins 👁, relation: compare 👁
+  - b43: Value comparison table and lone tiny gold icon. · law scroll ✗, stamp ✗, rupee note ✗, relation: compare ✗, process: hand_over ✗
+  - b44: Static tag icon and red cross beneath comparison table. · commodity ✗, changing price tags ✗, authority seal ✗, relation: compare ✗
+- v2_s7s: 3.75/10 · visible 2/4 · happening 1/4 · missing: A sequence showing grain traded for two salt packets, then rejected salt payment used in a cooking pot.
+  - b46: Two people holding sacks, salt packets on a shop shelf, and approval checkmarks. · grain sack 👁▶, two salt packets 👁, cooking pot ✗, relation: sequence ✗
+- v2_s7b: 4.58/10 · visible 7/12 · happening 4/12 · missing: Salt exchanged for goods beside salt being added to a cooking pot, with a banknote's commodity-money classification crossed out.
+  - b47: Two people with a salt bag between them. · salt 👁, goods ✗, cooking pot ✗, relation: compare ✗
+  - b48: Salt offered between people; salt-to-pot arrow, check mark and uncrossed note icons. · salt 👁▶, rupee note 👁, goods ✗, relation: compare 👁
+  - b49: Salt offered beside a salt-to-cooking-pot arrow. · salt 👁▶, goods ✗, cooking pot 👁▶, relation: compare 👁▶
+- v2_s8a: 1.5/10 · visible 3/10 · happening 0/10 · missing: A palm offering cowries to a recipient, with an acceptance tick and a map highlighting India, China and Africa.
+  - b50: Commodity table and a cartoon cow. · salt heap ✗, cattle 👁, pasture ✗
+  - b51: Commodity table, small person and separate shell illustration. · cowrie shells 👁, open palm ✗, map ✗, process: accept ✗
+  - b52: Commodity table and a small photograph of pressed tea bricks. · compressed tea brick 👁, construction brick ✗, dried tobacco leaves ✗
+- v2_s8s: 4.44/10 · visible 6/9 · happening 2/9 · missing: A two-step exchange picture: grain handed over for salt, then all salt handed over for cloth, leaving the farmer with cloth only.
+  - b53: Grain and salt balanced on an equal-arm scale; no cloth or farmer. · 10 kg grain sack 👁, 2 kg salt bundle 👁, 2 metres cloth ✗, relation: compare 👁▶
+  - b54: Farmer and trader extend hands toward salt and cloth, with check-mark thought bubbles. · 10 kg grain sack ✗, 2 kg salt bundle 👁, 2 metres cloth 👁, relation: sequence ✗, process: barter_swap 👁▶
+- v2_s8b: 2.27/10 · visible 5/11 · happening 0/11 · missing: Linked buyer–farmer–cloth seller exchange showing salt moving forward and grain and cloth returning.
+  - b55: Two people; one holds out a salt bag. · salt 👁, grain ✗, cloth ✗, relation: sequence ✗
+  - b56: Commodity table above frying pan, salt bag and cow. · salt 👁, cooking pot ✗, cattle 👁
+  - b57: Commodity table, pan, acceptance check, exchange arrows and coin icon. · salt ✗, cooking pot ✗, acceptance ticks 👁, relation: cause_effect 👁
+- v2_s9s: 5.0/10 · visible 3/4 · happening 1/4 · missing: Visibly spoiled grain explaining the loss from 100 kg to 90 kg.
+  - b58: Grain sack, 100 kg struck out for 90 kg, arrow to a future calendar with a question mark. · stored grain 👁, grain sack 👁, spoiled grain ✗, relation: cause_effect 👁▶
+- v2_s9b: 2.37/10 · visible 9/19 · happening 0/19 · missing: A cause-and-effect diagram linking bulky, indivisible or spoiling goods to extra costs, then to weighed metal units.
+  - b59: Grain sack, similar-sized cows, and transport pictogram. · spoiled grain ✗, two differently sized cows ✗, intact cow 👁
+  - b60: Faint unequal-sized cows and a rules scroll. · large healthy cow 👁, small thin cow 👁, weighing scale ✗, relation: cause_effect ✗
+  - b61: Whole cow, grain sack, and person hauling a load. · intact cow 👁, small purchase ✗, grain 👁, relation: cause_effect ✗
+  - b62: Grain sack, whole cow, shells, and soup side by side. · grain heap 👁, small grain portions ✗, intact cow 👁, relation: compare ✗
+  - b63: Faint handshake and tick beside grain sack and empty balance. · paired commodity offers ✗, tick mark 👁, heavy grain sack 👁, relation: cause_effect ✗
+- v4_s1a: 7.0/10 · visible 5/5 · happening 2/5 · missing: A payment tick contrasted with a law scroll to distinguish acceptance from legal status.
+  - b1: Two people offering a note, rice sack, gold bar, payment tick and question mark. · ₹100 note 👁▶, rice sack 👁, gold bar 👁, relation: question 👁, process: hand_over 👁▶
+- v4_s1s: 3.75/10 · visible 2/4 · happening 1/4 · missing: A note entering the bank, gold reaching the customer's hand, and modern rupee-to-gold redemption crossed out.
+  - b2: Bank teller offering gold labelled 1 gram to a customer. · hypothetical bank 👁, one paper note ✗, gold piece labelled 1 gram 👁▶, relation: sequence ✗
+- v4_s1b: 3.33/10 · visible 7/12 · happening 1/12 · missing: A note exchanged for a fixed amount of gold, alongside a receipt paired with goods.
+  - b3: Paper sheet icon labelled material value. · paper currency note ✗, gold ✗, paper sheet 👁, relation: promise ✗
+  - b4: Two matching banks and gold bars; note beneath one, without a visible claim. · bank 👁, gold reserves 👁, paper currency note 👁, relation: compare 👁
+  - b5: Handshake linked by an arrow to a banknote; no gold backing. · redemption promise receipt ✗, new currency notes 👁, gold backing ✗, relation: cause_effect 👁▶
+- v4_s2s: 1.25/10 · visible 1/4 · happening 0/4 · missing: Ten gold–note pairs, with an added gram enabling an eleventh note.
+  - b6: An empty illustrated bank counter with subtitles. · bank 👁, gold reserve ✗, ten paper notes ✗, relation: cause_effect ✗
+- v4_s2b: 4.52/10 · visible 16/21 · happening 3/21 · missing: A note holder returning a banknote to the central bank and receiving gold from its vault.
+  - b7: Vault, gold bar, and separate promise receipt. · gold bars 👁, vault 👁, paper note 👁, relation: promise ✗
+  - b8: Gold points toward a promise receipt; separate new-note icon. · central bank ✗, gold bars 👁, vault 👁, relation: cause_effect 👁, process: hand_over ✗
+  - b9: Vault points to low capacity meter beside broken trust symbol. · gold reserve vault 👁, repayment capacity meter 👁▶, broken trust link 👁▶, relation: cause_effect 👁▶
+  - b10: Gold-to-receipt arrow above a text-based three-step sequence. · gold promise receipt 👁, gold reserve vault 👁, paper note stack ✗, relation: sequence 👁
+  - b11: Vault and gold linked by an arrow to a promise receipt. · central bank ✗, paper note 👁, gold bars 👁, relation: promise 👁
+- v4_s3: 4.83/10 · visible 23/29 · happening 5/29 · missing: A connected receipt → government seal → stamped acceptance law → broken gold-link sequence converging at 1971.
+  - b12: Basket beside receipt with question mark; partial timeline. · goods 👁, receipt 👁, government seal ✗, relation: question 👁
+  - b13: Receipt-to-state-authority timeline; valuables, receipt and note below. · deposited valuables 👁, receipt 👁, paper claim 👁, relation: sequence 👁
+  - b14: Person beside crossed-out note; scroll, stamp and Swedish banknote. · paper note 👁, stamped law scroll 👁, Swedish banknote 👁, relation: compulsory 👁▶, process: refuse 👁▶
+  - b15: Money-to-gold timeline and intact chain; no public-counter comparison. · money 👁, gold bar 👁, fixed link 👁, relation: compare ✗
+  - b16: Timeline reaches 1971; severed chain between money and gold. · dollar note 👁, gold bar 👁, redemption link 👁▶, relation: change 👁▶
+  - b17: Crossed handshake and checked person beneath money–gold timeline. · paper note 👁, gold bar 👁, crossed redemption promise 👁▶, relation: question ✗
+  - b18: Sweden-to-modern-fiat timeline above empty pale sequence boxes. · receipt ✗, government seal ✗, stamped law scroll ✗, relation: sequence 👁
+- v4_s4s: 5.0/10 · visible 3/5 · happening 2/5 · missing: Shopkeeper accepting ₹100 for a rice bag, with a thought bubble showing spending the note again.
+  - b19: ₹100 note with green acceptance tick at a shop. · ₹100 note 👁, rice ✗, rice bag ✗, relation: accept 👁▶, process: accept 👁▶
+- v4_s4b: 2.31/10 · visible 6/13 · happening 0/13 · missing: A government-authorized note handed to a grocer in exchange for groceries, with authority and trust visibly linked to its acceptance.
+  - b20: Separate government, handshake and banknote icons, without purchase or handover. · government seal 👁, currency note 👁, paper sheet ✗, relation: cause_effect ✗, process: hand_over ✗
+  - b21: Document and gold bar icons beneath government and handshake icons. · gold-backed paper note 👁, gold bars 👁, fiat note ✗, relation: compare ✗
+  - b22: Government, handshake and gold bar icons; no issuance control depicted. · government seal 👁, currency note stack ✗, gold bars 👁, relation: question ✗
+- v4_s5: 2.81/10 · visible 15/32 · happening 3/32 · missing: A printing press feeding notes into a separate authorisation gate, with replacement notes leaving the total unchanged.
+  - b23: Factory silhouette, banknote and gold linked by dashed arrow.  · printing press ✗, banknote 👁, digital balance ✗, relation: compare 👁
+  - b24: Policy controls, banknote, authority silhouette and money bag. · printing press ✗, new notes 👁, authorisation stamp ✗, relation: compare ✗
+  - b25: Arrows connect policy controls, loan, shop, basket and price gauge. · policy dial 👁, loan document 👁, shop extension ✗, relation: cause_effect 👁▶
+  - b26: Dollar and euro banknote bundles above a large dollar sign. · dollar price tag ✗, USD code ✗, euro price tag ✗
+  - b27: Currency bundles, yuan symbol, tag icon and small photograph. · ¥ price tags 👁, JPY code ✗, CNY code ✗, relation: compare ✗
+  - b28: Currency row above pound tag, coin and modern banknote icons. · £ price tag 👁, GBP code ✗, historical coin 👁, relation: sequence ✗
+  - b29: Twenty-seven castle icons beside a boxed array of twenty euro symbols. · 27 EU member tiles 👁, 20 euro badges 👁, historical count label ✗, relation: count 👁, process: count_stack 👁
+  - b30: Red crosses over chart and exchange arrows; currency and euro arrays remain. · unlabelled share chart 👁▶, flat exchange-rate chart ✗, currency timeline ✗, relation: reject 👁▶
+- v4_s6s: 2.67/10 · visible 5/15 · happening 3/15 · missing: Payment exchange with debt ledger changing from ₹100 to ₹0 and an acceptance tick.
+  - b32: Shopkeeper extends ₹100 note toward customer. · valid ₹100 note 👁▶, debt ledger ✗, acceptance tick ✗, relation: accept ✗, process: hand_over 👁▶
+  - b33: Customer holds shopping basket beside shopkeeper. · valid special-design ₹10 coin ✗, goods 👁, ₹10 price tag ✗, relation: accept ✗, process: hand_over ✗
+  - b34: Stacked ₹10 coins, extra coin, and yellow meter below red limit. · valid ₹500 notes ✗, ₹1,000 bill ✗, ₹1,500 bill ✗, relation: limit 👁, process: coin_count 👁▶
+- v4_s6b: 2.62/10 · visible 11/21 · happening 0/21 · missing: Side-by-side payment scene: notes accumulate without a ceiling, while counted coins reach a marked limit and extra valid coins await acceptance.
+  - b35: Recognition stamp above empty background. · government recognition stamp 👁, banknote ✗, debt receipt ✗, process: hand_over ✗
+  - b36: Note denominations and arrow between banknote icons; no-ceiling text. · ₹10 note 👁, ₹20 note 👁, ₹50 note 👁, relation: limit 👁
+  - b37: Coin stacks beside a static amount gauge. · coins 👁, coin pile 👁, amount meter 👁, relation: limit 👁, process: coin_count ✗
+  - b38: Two faint coin icons with a green tick above. · banknote stack ✗, cash transaction ✗, restriction barrier ✗, relation: compare 👁
+  - b39: Recognition stamp, question mark and generic banknote icon. · recognition stamp 👁, banknote denominations ✗, coin denominations ✗, relation: compare ✗
+- v4_s7a: 2.08/10 · visible 5/12 · happening 0/12 · missing: Government Mint handing packaged proof and UNC sets into a collection, with a faint branch toward shopping.
+  - b40: Stamp, banknote and crossed rule scroll. · legal tender stamp 👁, fiat banknote 👁, Bitcoin symbol ✗, relation: compare ✗
+  - b41: Commemorative coin, fiat stamp and legal gavel. · commemorative coins 👁, fiat issue stamp 👁, legal tender stamp 👁
+  - b42: Two people; one holds a large loose coin. · Government Mint building ✗, proof coin set ✗, UNC coin set ✗, relation: cause_effect ✗, process: hand_over ✗
+- v4_s7s: 3.89/10 · visible 4/9 · happening 3/9 · missing: Side-by-side rejection of four 25-paise coins and acceptance of a ₹1 coin, with the balance changing to zero.
+  - b43: Shop, one 25-paise coin, and bill reduced from ₹1 to ₹0. · four old 25 paise coins ✗, valid ₹1 coin ✗, ₹1 bill 👁▶, relation: compare 👁▶
+  - b44: Stacks of 50-paise coins beside a full red ₹10 meter. · change box ✗, ₹1 coin ✗, ₹2 coin ✗, relation: limit 👁▶, process: coin_count 👁
+- v4_s7b: 3.53/10 · visible 9/17 · happening 3/17 · text-only beats 1 · missing: A counted ₹20 coin pile exceeding a rupee-limit meter while its legal-tender badge remains checked.
+  - b45: Separate filled rupee-limit meters, one coin pile, and count labels. · ₹20 coin ✗, 50 paise coin 👁, coin counter ✗, relation: compare 👁▶, process: coin_count ✗
+  - b46: Separated 50- and 25-paise coins, box, and withdrawal cross. · coin box 👁, 50 paise coin 👁, 25 paise coin 👁, relation: compare 👁▶
+  - b47: Individual coins, gauge, checked status icon, and collector tag; no exceeded limit shown. · coin pile ✗, rupee-value meter 👁, legal-tender status badge 👁▶, relation: compare 👁
+  - b48: Legal-limit table and text calculation arrow leading to total limit. · coin ✗, coin stack ✗, multiplication sign 👁, relation: sequence 👁
+- v4_s8: 5.5/10 · visible 18/20 · happening 4/20 · missing: Two willing parties exchanging a Bitcoin-marked payment, beside a crossed compulsory-acceptance stamp.
+  - b49: Blank phone beside government building crossed out. · phone 👁, Bitcoin symbol ✗, government building 👁, relation: question 👁▶
+  - b50: Mining laptop points to network beneath law scroll; no price mechanism. · 2024 timeline marker 👁, Bitcoin symbol ✗, law scroll 👁, relation: cause_effect 👁▶
+  - b51: Timeline arrow, crossed acceptance marking and person, ticked wallet; no exchange. · 2025 timeline marker 👁, law scroll 👁, compulsory acceptance stamp 👁▶, relation: change 👁▶
+  - b52: Two law scrolls linked above identical networks; faded government building below. · 2024 timeline marker 👁, 2025 timeline marker 👁, law scroll 👁, relation: compare 👁
+  - b53: Question mark beside network and wallet, with faded law timeline. · network computers 👁, wallet 👁, law scroll 👁, relation: question 👁
+- v4_s9: 2.62/10 · visible 11/21 · happening 0/21 · missing: Side-by-side payment and collector exchange of the same ₹100 coin, with ₹100 versus a several-thousand-rupee agreed price and a clear ≠ debt-settlement amount mark.
+  - b54: ₹100 coin, payment icon and question mark. · ₹100 silver commemorative coin 👁, rupee notes ✗, collection display case ✗, relation: question 👁
+  - b55: Matching coins under payment and collection icons; payment coin outlined. · ₹100 silver commemorative coin 👁, ₹100 denomination label 👁, several-thousand-rupees price tag ✗, relation: compare 👁
+  - b56: Collector holds a banknote beside another person. · ₹100 silver commemorative coin ✗, silver metal ✗, magnifying glass ✗, relation: cause_effect ✗, process: hand_over ✗
+  - b57: Price tag connected by dashed arrow to receipt; ₹100 coin above. No inequality mark. · collector price tag 👁, ₹100 silver commemorative coin 👁, debt receipt 👁, relation: compare 👁
+  - b58: ₹100 coin above larger payment denomination coin. · ₹100 silver commemorative coin 👁, ₹100 denomination label 👁, agreed-price tag ✗, relation: compare ✗
+- v4_s10s: 3.33/10 · visible 4/9 · happening 2/9 · missing: A student handing a ₹1,000 cheque to the bank, linked to the college fee bill and resulting balances.
+  - b59: Bank scene; payer balance falls to ₹1,000 and college gains ₹1,000. · ₹1,000 fee bill ✗, cheque ✗, bank 👁, relation: cause_effect 👁▶, process: cheque ✗
+  - b60: Arrow toward college beside issuer and student; ₹1,000 debt displayed. · credit card ✗, card issuer 👁, ₹1,000 fee bill ✗, relation: cause_effect 👁▶
+- v4_s10b: 4.38/10 · visible 6/8 · happening 1/8 · missing: A dollar disconnected from gold, with demand arrows and a question mark.
+  - b61: Cheque and card with downward access arrows; college acceptance check. · cheque 👁, credit card 👁, bank deposit 👁, relation: compare 👁▶
+  - b62: Separate scales, legal scroll and cheque icons above a gold bar. · value tag ✗, law scroll 👁, cheque 👁, relation: question ✗
