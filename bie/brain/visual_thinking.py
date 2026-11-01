@@ -809,6 +809,7 @@ def relation_rows(plan: dict, mode: str, ideas: dict | None) -> list:
     """Per beat of the dikhane ki list: its relation and whether an element on that beat realises it (and which)."""
     items = plan.get("elements") if mode == "C" else plan.get("nodes")
     items = items or []
+    order = {b["beat_id"]: i for i, b in enumerate(plan.get("beats") or [])}
     rows = []
     for idea in (ideas or {}).get("beats") or []:
         rel, bid = idea.get("relation"), idea.get("beat_id")
@@ -829,8 +830,57 @@ def relation_rows(plan: dict, mode: str, ideas: dict | None) -> list:
                 by.append(x.get("id"))
         if not by and rule.get("icons_min") and sum(1 for x in here if x.get("kind") in ("icon", "crowd")) >= rule["icons_min"]:
             by = [x.get("id") for x in here if x.get("kind") in ("icon", "crowd")]
+        if not by and rel in ("sequence", "compare"):          # a highlight on the book's timeline, flow, gallery or table
+            pics = {x.get("id"): (x.get("picture") or {}).get("type") for x in items if x.get("kind") == "picture"}
+            want = ("timeline", "flow", "gallery") if rel == "sequence" else ("table", "gallery")
+            by = [x.get("id") for x in here if x.get("kind") in ("highlight", "mark")
+                  and any(str(x.get("target", "")).startswith(pid) and ptype in want for pid, ptype in pics.items() if pid)]
+        if not by and rel in ("sequence", "cause_effect"):     # a process already playing across the beat shows its steps
+            by = [x.get("id") for x in items if x.get("kind") == "action" and x.get("template") in rule["templates"]
+                  and _spans(x, bid, order)]
         rows.append({"beat_id": bid, "relation": rel, "realised": bool(by), "by": by})
     return rows
+
+
+def _spans(item: dict, bid: str, order: dict) -> bool:
+    """An element whose cued beats start before (or at) ``bid`` and end after (or at) it."""
+    idx = [order[b] for b in _beats_of(item) if b in order]
+    return bool(idx) and bid in order and min(idx) <= order[bid] <= max(idx)
+
+
+def realise_relations(plan: dict, mode: str, ideas: dict | None) -> list:
+    """Code draws what it can of a relation the maker left unshown (seekh -> BIE: 19 of the first Part D2 run's refusals): on the
+    canvas, a sequence or cause-effect beat with nothing that shows it gets an arrow from the thing on screen before the beat to
+    the thing the beat brings, on that thing's word. In place; returns what was done, for the report."""
+    if mode != "B":
+        return []
+    nodes = plan.setdefault("nodes", [])
+    order = {b["beat_id"]: i for i, b in enumerate(plan.get("beats") or [])}
+    ids = {n.get("id") for n in nodes}
+    shown = ("icon", "crowd", "value", "picture", "table", "tree", "action", "text", "callout")
+    fixes = []
+    for r in relation_rows(plan, mode, ideas):
+        if r["realised"] or r["relation"] not in ("sequence", "cause_effect") or r["beat_id"] not in order:
+            continue
+        bid = r["beat_id"]
+        here = [n for n in nodes if n.get("cell") and n.get("kind") in shown and _cue_beat(n.get("cue")) == bid]
+        def still_on(n):
+            until = _cue_beat(n.get("until_cue"))
+            return until is None or order.get(until, 10 ** 6) > order[bid]
+        before = [n for n in nodes if n.get("cell") and n.get("kind") in shown and _cue_beat(n.get("cue")) in order
+                  and order[_cue_beat(n.get("cue"))] < order[bid] and still_on(n)]
+        if not here or not before:
+            continue
+        here.sort(key=lambda n: n.get("kind") in ("text", "callout"))            # a picture of the thing first, words last
+        src = max(before, key=lambda n: (order[_cue_beat(n.get("cue"))], n.get("cue_fraction") or 0))
+        dst = here[0]
+        aid = f"auto_arrow_{bid}"
+        if aid in ids:
+            continue
+        nodes.append({"id": aid, "kind": "arrow", "from": src["id"], "to": dst["id"], "cue": list(dst["cue"])})
+        ids.add(aid)
+        fixes.append(f"arrow {src['id']} → {dst['id']} drawn on beat {bid} ({r['relation']})")
+    return fixes
 
 
 SHOWS = {"reject": "a cross on the thing refused (a mark with mark 'cross' on its icon, or the refuse saancha)",

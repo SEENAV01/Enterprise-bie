@@ -486,6 +486,20 @@ def _icon_problems(plan: dict, library=None) -> list:
     return out
 
 
+def settle_plan(plan: dict, letter: str, ideas: dict | None) -> list:
+    """What code settles in a maker's plan before it is checked or compiled (seekh -> BIE, the first Part D2 run of 1 November
+    2026: 10 of 36 parts refused after three rounds, 88 rounds in all, most of them on things code can do): every action is
+    completed from the narration (``saanche.complete_action``) and, on the canvas, a sequence or cause-effect beat left unshown
+    gets its arrow (``visual_thinking.realise_relations``). The same in the check and in the run, so the rendered video is the
+    checked plan. Returns what was done."""
+    says = {b["beat_id"]: b.get("say", "") for b in plan.get("beats") or []}
+    fixes = []
+    for item in plan.get("elements") or plan.get("nodes") or []:
+        if item.get("kind") == "action":
+            fixes += saanche.complete_action(item, says)
+    return fixes + vt.realise_relations(plan, letter, ideas)
+
+
 def check_plan(stub: dict, value: dict, mode, *, picture: dict | None = None, library=None, ideas: dict | None = None) -> list:
     """The code check of a maker's answer: ``mode`` is the mode dict ({"mode", "kit", ...}) or the letter alone. Part D1 adds:
     every beat shows a non-text thing on its words, no text-only screen over 10 s, screen text a name or a short phrase, the
@@ -496,6 +510,7 @@ def check_plan(stub: dict, value: dict, mode, *, picture: dict | None = None, li
     try:
         if letter == "C":
             plan = world_from(stub, value, kit=kit)
+            settle_plan(plan, "C", ideas)
             problems = _icon_problems(plan, library) + world.goods_problems(plan)
             if problems:
                 return problems
@@ -505,6 +520,7 @@ def check_plan(stub: dict, value: dict, mode, *, picture: dict | None = None, li
                     + vt.beat_cover_problems(plan, plan["beats"], "C") + vt.phrase_problems(texts) + vt.caution_problems(texts)
                     + world.layout_problems(scene) + vt.meaning_problems(plan, "C", ideas))
         plan = plan_from(stub, value)
+        settle_plan(plan, "B", ideas)
         problems = _icon_problems(plan, library)
         if problems:
             return problems
@@ -758,8 +774,10 @@ def run_canvas(chapter: dict, lesson: dict, course: Course, runner, out_dir, *, 
                          "icons_by_beat": icons_by_beat, "status": result.status, "seconds": 0.0, "text_only_seconds": 0.0,
                          "icon_ids": [], "picture_types": [], "book_pictures_drawn": 0}
             if result.passed:
+                ideas_value = ideas.output if ideas.passed else None
                 if mode["mode"] == "C":
                     plan = world_from(stub, result.output, kit=mode.get("kit", ""))
+                    settled = settle_plan(plan, "C", ideas_value)
                     ids = world.icons_in(plan)
                     index_ids = [i for i in ids if not str(i).startswith("asset:")]
                     paths = icons.add_to_library(index_ids, library, opener=opener) if index_ids else {}
@@ -770,6 +788,7 @@ def run_canvas(chapter: dict, lesson: dict, course: Course, runner, out_dir, *, 
                     part_data["picture_types"] = ["world"]
                 else:
                     plan = plan_from(stub, result.output)
+                    settled = settle_plan(plan, "B", ideas_value)
                     ids = canvas.icons_in(plan)
                     index_ids = [i for i in ids if not str(i).startswith("asset:")]
                     paths = icons.add_to_library(index_ids, library, opener=opener) if index_ids else {}
@@ -784,7 +803,7 @@ def run_canvas(chapter: dict, lesson: dict, course: Course, runner, out_dir, *, 
                                     if n.get("kind") == "picture" and (n.get("picture") or {}).get("item_id")})
                     part_data["book_pictures_drawn"], part_data["book_picture_ids"] = len(drawn), drawn
                 letter = "C" if "elements" in plan else "B"
-                ideas_value = ideas.output if ideas.passed else None
+                part_data["auto_fixes"] = settled + report.get("auto_fixes", [])
                 rel = vt.relation_rows(plan, letter, ideas_value)
                 part_data["realised"] = {r["beat_id"]: r["realised"] for r in rel}
                 part_data["relations"] = len(rel)
@@ -803,6 +822,7 @@ def run_canvas(chapter: dict, lesson: dict, course: Course, runner, out_dir, *, 
                 (out / "plans" / f"{stub['id']}.plan.json").write_text(json.dumps(plan, ensure_ascii=False, indent=1), encoding="utf-8")
                 scenes.append(scene)
                 part_data["seconds"] = report["seconds"]
+                entry["auto_fixes"] = len(part_data.get("auto_fixes") or [])
                 entry.update(level=report["level"], seconds=report["seconds"], elements=report["elements"],
                              longest_still_s=report["longest_still_s"], advisories=report.get("advisories", []),
                              text_only_seconds=part_data["text_only_seconds"], picture_types=part_data["picture_types"],

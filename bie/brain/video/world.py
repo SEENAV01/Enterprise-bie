@@ -153,19 +153,35 @@ def main_look_of(plan: dict) -> int:
     return saanche.main_look(vid)
 
 
-def _close_ups(cam: list, actions: list) -> list:
+def _close_ups(cam: list, actions: list, fixes: list | None = None) -> list:
     """The camera moves in to each action's close-up step and back out to where the plan's camera was going: the plan's keys
-    inside a close-up are replaced by it, the key after it brings the plan's view back."""
+    inside a close-up are replaced by it, the key after it brings the plan's view back. A close-up ends when its action leaves
+    or when code framed another action that starts meanwhile (seekh -> BIE, the first Part D2 run: a close-up held on a stage
+    whose people had gone while the next process played off screen)."""
     keys = [dict(k) for k in cam]
+    fixes = fixes if fixes is not None else []
     for a in sorted(actions, key=lambda a: (a.get("close_up") or {}).get("at", 0)):
         cu = a.get("close_up")
         if not cu:
             continue
-        before = [k for k in keys if k["at"] <= cu["until"] and not k.get("close_up")]
+        end = min(cu["until"], a.get("until", 10 ** 9))
+        other = next((k for k in sorted(keys, key=lambda k: k["at"])
+                      if k.get("frame") and k["frame"] != a["id"] and cu["at"] < k["at"] < end), None)
+        if other:
+            end = other["at"]
+        if end < cu["until"]:
+            fixes.append(f"the close-up on {a['id']} ends at {end}, when " +
+                         (f"{other['frame']} starts" if other else f"{a['id']} leaves"))
+            cu["until"] = end
+        if end - cu["at"] < 24:                  # too short to move in and out: the camera stays where it is
+            a.pop("close_up")
+            continue
+        before = [k for k in keys if k["at"] <= end and not k.get("close_up")]
         back = dict(before[-1]) if before else dict(keys[0])
-        keys = [k for k in keys if not (cu["at"] <= k["at"] <= cu["until"])]
+        keys = [k for k in keys if not (cu["at"] <= k["at"] <= end) or k is other]
         keys.append({"at": cu["at"], "x": a["x"], "y": CLOSE_Y, "zoom": CLOSE_ZOOM, "frames": 22, "close_up": a["id"]})
-        keys.append({"at": cu["until"], "x": back["x"], "y": back.get("y", 540), "zoom": back.get("zoom", 1.0), "frames": 30, "back": a["id"]})
+        if not other:
+            keys.append({"at": end, "x": back["x"], "y": back.get("y", 540), "zoom": back.get("zoom", 1.0), "frames": 30, "back": a["id"]})
         keys.sort(key=lambda k: k["at"])
     # a close-up that starts within a second of the last one's way back stays close (no in-out-in jolt)
     out = []
@@ -173,7 +189,173 @@ def _close_ups(cam: list, actions: list) -> list:
         if k.get("close_up") and out and out[-1].get("back") and k["at"] - out[-1]["at"] < 36:
             out.pop()
         out.append(k)
-    return [{n: v for n, v in k.items() if n != "back"} for k in out]
+    return [{n: v for n, v in k.items() if n not in ("back", "frame")} for k in out]
+
+
+def _frame_actions(cam: list, els: list, fixes: list) -> tuple:
+    """Each action is in the frame when it starts (seekh -> BIE: 6 of 88 refused rounds in the first Part D2 run were an action
+    the plan's camera cut): where the camera at the action's start does not hold its stage, code adds a key on the action's x
+    at its start, zoomed to at least 0.9 so its people are a quarter of the frame tall."""
+    keys = [dict(k) for k in cam]
+    for a in sorted((e for e in els if e["kind"] == "action"), key=lambda e: e["at"]):
+        box = box_of(a)
+        c = cam_at(keys, a["at"] + 24)
+        half = FRAME_W / 2 / max(0.3, c["zoom"])
+        inside = box[0] >= c["x"] - half - 40 and box[2] <= c["x"] + half + 40
+        if inside and c["zoom"] >= 0.9:
+            continue
+        keys.append({"at": a["at"], "x": a["x"], "y": c["y"], "zoom": max(c["zoom"], 1.0), "frames": 24, "frame": a["id"]})
+        keys.sort(key=lambda k: k["at"])
+        fixes.append(f"camera key added on {a['id']} at its start (x {a['x']})")
+    acts = [e for e in els if e["kind"] == "action"]
+    for i, k in enumerate(keys):                 # a key whose view cuts the actions on screen while it holds is widened
+        t0 = k["at"] + k.get("frames", 36)
+        t1 = keys[i + 1]["at"] if i + 1 < len(keys) else 10 ** 9
+        live = [a for a in acts if a["at"] < t1 and a.get("until", 10 ** 9) > t0]
+        if not live:
+            continue
+        x0, x1 = min(box_of(a)[0] for a in live), max(box_of(a)[2] for a in live)
+        half = FRAME_W / 2 / max(0.3, k.get("zoom", 1.0))
+        if x0 >= k["x"] - half - 40 and x1 <= k["x"] + half + 40:
+            continue
+        zoom = min(k.get("zoom", 1.0), FRAME_W / (x1 - x0 + 80))
+        if any(saanche.TEMPLATES[a["template"]]["roles"] for a in live) and zoom < 0.9:
+            continue                             # people would be too small: the maker places them apart in time
+        k.update(x=round((x0 + x1) / 2), zoom=round(zoom, 3))
+        fixes.append(f"camera key at {k['at']} widened to hold {', '.join(a['id'] for a in live)}")
+    return keys, fixes
+
+
+def settle_places(els: list, duration: int) -> list:
+    """The places and times code settles before the camera is framed (seekh -> BIE: overlaps were 37 of the first Part D2 run's
+    refusals): an until before its own cue is dropped (the element would never show); two actions starting together on one spot
+    stand side by side; two overlays (board, label, price tag, balance, action) in the same place, one starting at least 12
+    frames after the other, follow each other (the first leaves when the second comes, as the check's own advice says); the
+    same for two of board, label and title on screen together (one text at a time). In place; returns what was done."""
+    fixes = []
+    for e in els:                                # an until before the element's own start: it would never show
+        if "until" in e and e["until"] <= _on(e, duration)[0]:
+            e.pop("until")
+            fixes.append(f"{e['id']}: its until came before its cue and was dropped")
+    starts = {id(e): _on(e, duration)[0] for e in els}
+    acts = [e for e in els if e.get("kind") == "action"]
+    for i, a in enumerate(acts):                 # two actions starting together on one spot: the second steps aside
+        for b in acts[i + 1:]:
+            ba, bb = box_of(a), box_of(b)
+            if abs(starts[id(a)] - starts[id(b)]) < 12 and ba[0] < bb[2] and bb[0] < ba[2] and \
+                    max(starts[id(a)], starts[id(b)]) < min(a.get("until", 10 ** 9), b.get("until", 10 ** 9)):
+                b["x"] = a["x"] + saanche.STAGE_W
+                fixes.append(f"{b['id']} moved beside {a['id']} (x {b['x']}): they start together")
+    def leave(first, second, why):
+        saanche.fit_items(first, starts[id(second)])
+        last_step = saanche.last_moment(first)
+        if last_step is not None and starts[id(second)] < last_step + 30:
+            nxt = min((second.get("step_at") or {}).values(), default=starts[id(second)])
+            done = canvas.hand_over_after(first, second, last_step, nxt)
+            if done:                             # the next thing comes on after the first's last step (an action by its first step)
+                starts[id(second)] = second["at"]
+                fixes.append(done)
+                return True
+            return False                         # an action never leaves before it has played: a real clash for the maker
+        first["until"] = starts[id(second)]
+        fixes.append(f"{first['id']} leaves when {second['id']} comes ({why})")
+        return True
+    for _ in range(3):
+        changed = False
+        shown = sorted((e for e in els if e.get("kind") in OVERLAY_KINDS and box_of(e)), key=lambda e: starts[id(e)])
+        for i, a in enumerate(shown):
+            for b in shown[i + 1:]:
+                a0, a1 = _on(a, duration)
+                b0, b1 = _on(b, duration)
+                ba, bb = box_of(a), box_of(b)
+                together = max(a0, b0) < min(a1, b1)
+                touching = ba[0] < bb[2] and bb[0] < ba[2] and ba[1] < bb[3] and bb[1] < ba[3]
+                if not (together and touching):
+                    continue
+                if b0 - a0 >= 12 and leave(a, b, "same place"):
+                    changed = True
+                elif a.get("kind") == "action" and b.get("kind") == "action":
+                    b["x"] = a["x"] + saanche.STAGE_W            # the second process plays beside the first, not on it
+                    fixes.append(f"{b['id']} moved beside {a['id']} (x {b['x']}): it starts while {a['id']} plays")
+                    changed = True
+                elif "action" in (a.get("kind"), b.get("kind")):
+                    act, over = (a, b) if a.get("kind") == "action" else (b, a)
+                    bo, ba_ = box_of(over), box_of(act)
+                    h = bo[3] - bo[1]
+                    if over.get("kind") in ("board", "label", "price_tag") and ba_[1] - h - 20 >= 40:
+                        over["y"] = round(ba_[1] - 20 - (bo[3] - over.get("y", 540)))   # above the action's drawing
+                        fixes.append(f"{over['id']} raised above {act['id']}")
+                        changed = True
+        texts = sorted((e for e in els if e.get("kind") in TEXT_KINDS), key=lambda e: starts[id(e)])
+        for i, a in enumerate(texts):
+            for b in texts[i + 1:]:
+                a0, a1 = _on(a, duration)
+                b0, b1 = _on(b, duration)
+                if max(a0, b0) < min(a1, b1) and b0 - a0 >= 12 and leave(a, b, "one text at a time"):
+                    changed = True
+        if not changed:
+            break
+    fixes += _fill_gaps(els, duration)
+    return fixes
+
+
+GAP_FILL = 60                    # frames: a stage left empty for up to 2 s between two actions on one spot keeps the first
+
+
+def _fill_gaps(els: list, duration: int) -> list:
+    """Two actions on one spot with a short gap between them hand over without an empty stage (seekh -> BIE, the first Part D2
+    run: v2_s4s showed an empty street for 1.2 s between a refusal and the agreement that followed it): the first stays until
+    the second comes, unless something else is shown on that spot meanwhile."""
+    fixes = []
+    acts = sorted((e for e in els if e.get("kind") == "action"), key=lambda e: _on(e, duration)[0])
+    for i, a in enumerate(acts):
+        if "until" not in a:
+            continue
+        ba = box_of(a)
+        nxt = next((b for b in acts[i + 1:] if _on(b, duration)[0] >= a["until"] and box_of(b)[0] < ba[2] and ba[0] < box_of(b)[2]), None)
+        if not nxt or _on(nxt, duration)[0] - a["until"] > GAP_FILL:
+            continue
+        t0, t1 = a["until"], _on(nxt, duration)[0]
+        busy = [o for o in els if o is not a and o is not nxt and box_of(o) and box_of(o)[0] < ba[2] and ba[0] < box_of(o)[2]
+                and max(t0, _on(o, duration)[0]) < min(t1, _on(o, duration)[1])]
+        if busy or t1 == t0:
+            continue
+        a["until"] = t1
+        if a.get("close_up") and a["close_up"]["until"] > t1:
+            a["close_up"]["until"] = t1
+        fixes.append(f"{a['id']} stays until {nxt['id']} comes (the stage was empty for {(t1 - t0) / timing.FPS:.1f} s)")
+    return fixes
+
+
+def settle_layout(els: list, cam: list, duration: int) -> list:
+    """The view code settles after the camera is framed: the camera looks low enough that an action's feet stay above the
+    subtitle strip, and a board, label, price tag or balance reaching into the strip is raised just above it."""
+    fixes = []
+    acts = [e for e in els if e.get("kind") == "action"]
+    strip = SUBTITLE_TOP * FRAME_H
+    for i, k in enumerate(cam):                  # the camera looks low enough that the action's feet stay above the strip
+        if k.get("close_up"):
+            continue
+        t1 = cam[i + 1]["at"] if i + 1 < len(cam) else duration
+        if any(a["at"] < t1 and a.get("until", 10 ** 9) > k["at"] for a in acts):
+            need = (GROUND - 10) - (strip - FRAME_H / 2 - 2) / max(0.3, k.get("zoom", 1.0))
+            if k.get("y", 540) < need:
+                k["y"] = round(need + 0.5)
+                fixes.append(f"camera key at {k['at']} looks {round(need - 540)} px lower so the feet stay above the subtitle strip")
+    for e in els:
+        if e.get("kind") not in ("board", "label", "price_tag", "balance"):
+            continue
+        t0, t1 = _on(e, duration)
+        worst = 0.0
+        for f in range(t0 + 12, min(t1, duration), 6):
+            c = cam_at(cam, f)
+            sb = _screen(box_of(e), c)
+            if sb[2] > 0 and sb[0] < FRAME_W and sb[3] > strip:
+                worst = max(worst, (sb[3] - strip + 8) / c["zoom"])
+        if worst:
+            e["y"] = round(e.get("y", 540) - worst)
+            fixes.append(f"{e['id']} raised {round(worst)} px above the subtitle strip")
+    return fixes
 
 
 def compile_world(plan: dict, *, voice: dict | None = None, lead_in: float = timing.LEAD_IN, kit: str = "",
@@ -238,17 +420,22 @@ def compile_world(plan: dict, *, voice: dict | None = None, lead_in: float = tim
     if not places:
         raise PlanError("a world needs its place: add a " + " or a ".join(PLACE_KINDS.values()) + " element (the kits so far)")
     cam = []
+    fixes = [f for e in els for f in e.pop("auto_fixes", [])]
     for k in plan.get("camera") or []:
         f = frame_of(k["cue"])
-        if cam and f < cam[-1]["at"]:
-            raise PlanError("camera keys must be in time order")
         cam.append({"at": f, "x": k["x"], "y": k.get("y", 540), "zoom": k.get("zoom", 1.0), "frames": k.get("frames", 36)})
         changes.append(f)
     if not cam:
         raise PlanError("a world needs at least one camera key")
-    cam = _close_ups(cam, [e for e in els if e["kind"] == "action"])
-    changes += [k["at"] for k in cam]
+    if [k["at"] for k in cam] != sorted(k["at"] for k in cam):          # seekh -> BIE: code puts the keys in time order
+        cam.sort(key=lambda k: k["at"])
+        fixes.append("camera keys put in time order")
     duration = tl[sid]["duration"]
+    fixes += settle_places(els, duration)
+    cam, fixes = _frame_actions(cam, els, fixes)
+    cam = _close_ups(cam, [e for e in els if e["kind"] == "action"], fixes)
+    changes += [k["at"] for k in cam]
+    fixes += settle_layout(els, cam, duration)
     pts = sorted(set(changes)) + [duration]
     still = max(b - a for a, b in zip(pts, pts[1:])) / fps
     problems = [f"the picture stays the same for {still:.1f} s (limit {canvas.MAX_STILL_S:.0f} s)"] if still > canvas.MAX_STILL_S else []
@@ -257,7 +444,8 @@ def compile_world(plan: dict, *, voice: dict | None = None, lead_in: float = tim
              "layers": [{"id": sid + "_world", "type": "block", "block": "world_scene", "at": 0, "box": {"x": 0, "y": 0, "w": 1, "h": 1}, "data": data}]}
     report = {"scene": sid, "seconds": round(duration / fps, 1), "elements": len(els), "camera_moves": len(cam),
               "longest_still_s": round(still, 1), "change_every_s": round(duration / fps / max(1, len(pts) - 1), 1), "problems": problems,
-              "mode": "C", "level": "L3", "kit": kit or places[0], "actions": [e["template"] for e in els if e["kind"] == "action"]}
+              "mode": "C", "level": "L3", "kit": kit or places[0], "actions": [e["template"] for e in els if e["kind"] == "action"],
+              "auto_fixes": fixes}
     return scene, report
 
 
@@ -349,7 +537,10 @@ def layout_problems(scene: dict, *, step: int = 6) -> list:
     for i, (a, ba, (a0, a1)) in enumerate(shown):
         for b, bb, (b0, b1) in shown[i + 1:]:
             if max(a0, b0) < min(a1, b1) and ba[0] < bb[2] and bb[0] < ba[2] and ba[1] < bb[3] and bb[1] < ba[3]:
-                out.append(f"{a['id']} and {b['id']} overlap while both are on screen: move one (x, y) or let the first leave (until_cue)")
+                act = next((e for e in (a, b) if e.get("kind") == "action" and e.get("step_at")), None)
+                why = (f" ({act['id']} stays until {saanche.PLAYED} frames after its last step, at "
+                       f"{(max(act['step_at'].values()) + saanche.PLAYED) / timing.FPS:.1f} s: cue the other after that or move it)") if act else ""
+                out.append(f"{a['id']} and {b['id']} overlap while both are on screen: move one (x, y) or let the first leave (until_cue){why}")
     for e in els:
         if e.get("kind") in ("label", "title") and NUMBER_ON_LABEL.search(str(e.get("text", ""))):
             out.append(f"{e['id']}: a {e['kind']} has no number ('{e.get('text', '')}'); in a world numbers go on objects: a price tag, "
@@ -381,15 +572,62 @@ def layout_problems(scene: dict, *, step: int = 6) -> list:
                 flagged.add((e["id"], "small"))
                 out.append(f"{e['id']}: its people are {tall:.2f} of the frame tall at {f / timing.FPS:.1f} s (at least {MIN_ACTOR_SHARE}): "
                            "zoom the camera to 0.9 or more while the action plays")
-            if not (sb[0] >= -40 and sb[2] <= FRAME_W + 40) and (e["id"], "cut") not in flagged and _settled(cam, f):
+            active = next((k for k in reversed(cam) if k["at"] <= f), None)
+            closing_on_other = bool(active and active.get("close_up") and active["close_up"] != e["id"])
+            if not (sb[0] >= -40 and sb[2] <= FRAME_W + 40) and (e["id"], "cut") not in flagged and _settled(cam, f) \
+                    and not closing_on_other:            # a close-up on its neighbour may show only part of it
                 flagged.add((e["id"], "cut"))
                 out.append(f"{e['id']} is cut by the frame at {f / timing.FPS:.1f} s: centre a camera key on its x ({e['x']})")
+    out += empty_frames(scene, step=step)
     spots = [(b[0], b[2]) for e in els for b in [box_of(e) or _place_span(e)] if b]
     for k in cam:
         half = FRAME_W / 2 / max(0.3, k.get("zoom", 1.0))
         if spots and not any(x0 < k["x"] + half and x1 > k["x"] - half for x0, x1 in spots):
             out.append(f"the camera key at {k['at'] / timing.FPS:.1f} s (x {k['x']}) shows an empty street: point it at the place, "
                        "the people or the action")
+    return out
+
+
+EMPTY_LIMIT = 24                 # frames: the frame may show an empty street at most this long (a glide between two places)
+
+
+def empty_frames(scene: dict, *, step: int = 6) -> list:
+    """The frame shows something at every moment (Navin's D2 finding 8, "empty frames"): sampled every ``step`` frames on the
+    renderer's own eased camera, a stretch longer than ``EMPTY_LIMIT`` frames in which no place, crowd, action, board, label,
+    price tag or balance on screen at that time is in view, or the camera is still close on an action that has left, is
+    reported once, with where the camera was."""
+    layer = scene["layers"][0]["data"]
+    els, cam, duration = layer["elements"], layer["camera"], scene["duration"]
+    things = []
+    for e in els:
+        span = box_of(e) or _place_span(e)
+        if span:
+            t0, t1 = (0, duration) if e.get("kind") in PLACE_KINDS.values() or e.get("kind") in ("teller", "shopkeeper") else _on(e, duration)
+            things.append((span[0], span[2], t0, t1))
+    if not things:
+        return []
+    acts = {e["id"]: _on(e, duration) for e in els if e.get("kind") == "action"}
+    out, run = [], []
+    for f in list(range(0, duration, step)) + [None]:
+        empty = False
+        if f is not None:
+            c = cam_at(cam, f)
+            half = FRAME_W / 2 / max(0.3, c["zoom"])
+            empty = not any(t0 <= f < t1 and x0 < c["x"] + half - 60 and x1 > c["x"] - half + 60 for x0, x1, t0, t1 in things)
+            active = next((k for k in reversed(cam) if k["at"] <= f), None)
+            on = acts.get((active or {}).get("close_up"))
+            if on and not on[0] <= f < on[1]:
+                empty = True                     # a close-up on people who have gone shows nothing, whatever is at its edge
+        if empty:
+            run.append(f)
+            continue
+        if run and run[-1] - run[0] + step > EMPTY_LIMIT:
+            c = cam_at(cam, run[0])
+            out.append(f"the frame shows an empty street from {run[0] / timing.FPS:.1f} s to {(run[-1] + step) / timing.FPS:.1f} s "
+                       f"(the camera at x {round(c['x'])}): keep the action there until the next comes (until_cue) or move the "
+                       "camera to what is shown")
+            break
+        run = []
     return out
 
 

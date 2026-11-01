@@ -74,6 +74,7 @@ FEET = 600                               # the stage's walking line (saanche.tsx
 ACTOR_SHARE = 0.5
 MIN_CANVAS_ROWS = 3                      # 3 of 8 rows: an actor about 0.29 of the frame tall, so never a stick figure
 COUNT_MAX = 12
+PLAYED = 12                              # frames of a step's 24-frame motion an action shows before it may fade (15 frames)
 CLOSE_AFTER, CLOSE_MAX = 60, 240         # the camera stays close 2 s after the close-up's last step, for at most 8 s in all
 NUMBER = re.compile(r"\d[\d,]*(?:\.\d+)?")
 # words that name a process in a beat (Hindi, Hinglish and English), so code can suggest the template to the maker
@@ -138,6 +139,68 @@ def icons_of(action: dict) -> list:
     return [o.get("icon") for o in action.get("objects") or [] if o.get("icon")]
 
 
+RUPEE_NUMBER = re.compile(r"₹\s?(\d[\d,]*(?:\.\d+)?)")
+NUMBER_WORDS = {"एक": 1, "दो": 2, "तीन": 3, "चार": 4, "पाँच": 5, "पांच": 5, "छह": 6, "छः": 6, "सात": 7, "आठ": 8, "नौ": 9, "दस": 10,
+                "ग्यारह": 11, "बारह": 12, "one": 1, "two": 2, "three": 3, "four": 4, "five": 5, "six": 6, "seven": 7, "eight": 8,
+                "nine": 9, "ten": 10, "eleven": 11, "twelve": 12}
+
+
+def complete_action(action: dict, says: dict) -> list:
+    """What code can settle itself before the check (seekh -> BIE, the first Part D2 run of 1 November 2026: 88 rounds for 36
+    parts, the maker losing rounds on things the narration already says). In place; returns what was done, for the report:
+    - an amount the template needs and the maker left out is taken from the action's beats when they say exactly one rupee
+      amount (upi, card_tap, cheque), the smallest and the largest of two or more (coin_count's each and limit), or a count
+      (count_stack's n);
+    - an amount or step name the template does not have is dropped (an object put under amounts, a stray step);
+    - a missing last step takes the cue of the step before it (the motion then completes on that word)."""
+    name = action.get("template")
+    if name not in TEMPLATES:
+        return []
+    t = TEMPLATES[name]
+    aid = action.get("id", "?")
+    fixes = []
+    allowed = set(t["amounts"]) | set(t["optional"])
+    kept = [a for a in action.get("amounts") or [] if a.get("name") in allowed]
+    if len(kept) != len(action.get("amounts") or []):
+        dropped = [a.get("name") for a in action.get("amounts") or [] if a.get("name") not in allowed]
+        fixes.append(f"{aid}: dropped amounts {dropped} that {name} does not have")
+        action["amounts"] = kept
+    beat_ids = [((s.get("cue") or [None])[0]) for s in action.get("steps") or []]
+    text = " ".join(says.get(b, "") for b in dict.fromkeys(beat_ids) if b)
+    have = {a.get("name") for a in action.get("amounts") or []}
+    rupees = list(dict.fromkeys(RUPEE_NUMBER.findall(text)))
+    def add(amount_name, value):
+        action.setdefault("amounts", []).append({"name": amount_name, "text": value})
+        fixes.append(f"{aid}: {amount_name} = {value!r} from the narration")
+    if name in ("upi", "card_tap", "cheque") and "amount" not in have and len(rupees) == 1:
+        add("amount", f"₹{rupees[0]}")
+    if name == "coin_count" and len(rupees) >= 2:       # one amount alone could be either: the maker names it
+        values = sorted(rupees, key=lambda r: float(r.replace(",", "")))
+        if "each" not in have:
+            add("each", f"₹{values[0]}")
+        if "limit" not in have and len(values) >= 2:
+            add("limit", f"₹{values[-1]}")
+    if name == "count_stack" and "n" not in have:
+        words = [w.strip("।,.!?:;") for w in text.split()]
+        counts = [int(w) for w in words if w.isdigit() and 1 <= int(w) <= COUNT_MAX]
+        counts += [NUMBER_WORDS[w.lower()] for w in words if w.lower() in NUMBER_WORDS]
+        if counts:
+            add("n", str(max(counts)))
+    steps = action.get("steps") or []
+    names = [s.get("name") for s in steps]
+    stray = [n for n in names if n not in t["steps"]]
+    if stray:
+        action["steps"] = [s for s in steps if s.get("name") in t["steps"]]
+        fixes.append(f"{aid}: dropped steps {stray} that {name} does not have")
+    names = [s.get("name") for s in action.get("steps") or []]
+    missing = [n for n in t["steps"] if n not in names]
+    if missing == [t["steps"][-1]] and len(t["steps"]) > 1 and action.get("steps"):
+        before = next(s for s in action["steps"] if s.get("name") == t["steps"][-2]) if t["steps"][-2] in names else action["steps"][-1]
+        action["steps"].append({"name": t["steps"][-1], "cue": list(before.get("cue") or [])})
+        fixes.append(f"{aid}: the last step '{t['steps'][-1]}' takes the cue of '{before.get('name')}'")
+    return fixes
+
+
 def problems_of(action: dict, says: dict) -> list:
     """What is wrong with an action before it is timed: the template, its actors, objects, amounts and steps (each amount a
     number said in the narration of one of the action's beats, CV-16)."""
@@ -196,6 +259,7 @@ def compile_action(action: dict, frame_of, says: dict, *, icon_paths: dict | Non
     with their looks (the video's one main character keeps the same look in every part), objects with their image sources,
     amounts, and the close-up span. ``beat_spans`` maps a beat id to its (start, length) in frames, so count_stack spreads
     its items over the rest of its beat."""
+    fixes = complete_action(action, says)
     bad = problems_of(action, says)
     if bad:
         raise PlanError("; ".join(bad))
@@ -205,8 +269,10 @@ def compile_action(action: dict, frame_of, says: dict, *, icon_paths: dict | Non
     for name in t["steps"]:
         frames[name] = frame_of(steps[name]["cue"])
     order = [frames[n] for n in t["steps"]]
-    if order != sorted(order):
-        raise PlanError(f"{action.get('id', '?')}: the steps of {action['template']} must come in this order: {', '.join(t['steps'])}")
+    if order != sorted(order):            # the cue words come in another order: the motion still follows the template, on them
+        order = sorted(order)
+        frames = dict(zip(t["steps"], order))
+        fixes.append(f"{action.get('id', '?')}: the steps of {action['template']} follow the template ({', '.join(t['steps'])}) on its cue words in time order")
     others = 0
     actors = []
     for role in t["roles"]:
@@ -235,12 +301,44 @@ def compile_action(action: dict, frame_of, says: dict, *, icon_paths: dict | Non
         out["items"] = [start + i * gap for i in range(n)]
     if action.get("until_cue"):
         out["until"] = frame_of(action["until_cue"])
+        fit_items(out, out["until"])                  # code spread the items; they finish before the action leaves
+        last = max(list(frames.values()) + out.get("items", []))
+        if out["until"] < last + PLAYED:          # seekh -> BIE: an until on the last step's own word hid that step
+            out["until"] = last + PLAYED
+            fixes.append(f"{action.get('id', '?')}: stays until its last step has played ({PLAYED} frames after it)")
     if action.get("close_up", True) and t["close"]:
         first, last = (frames[s] for s in t["close"])
         if last + CLOSE_AFTER - first > CLOSE_MAX:        # a long gap between the steps: the camera stays close on the last one
             first = last
         out["close_up"] = {"at": max(0, first - 10), "until": last + CLOSE_AFTER, "step": t["close"][-1]}
+    if fixes:
+        out["auto_fixes"] = fixes
     return out
+
+
+ITEM_GAP_MIN = 3
+
+
+def fit_items(action: dict, end: int) -> bool:
+    """count_stack's items (spread by code over the rest of the beat) are brought closer so the last one has played by ``end``
+    (seekh -> BIE, the first Part D2 run: a stack of 10 left after 6 had appeared, so the count on screen was wrong). True when
+    they fit (at least ITEM_GAP_MIN frames apart), or there is nothing to fit."""
+    items = action.get("items") or []
+    if not items or items[-1] + PLAYED <= end:
+        return True
+    if len(items) == 1:
+        return items[0] + PLAYED <= end
+    gap = (end - PLAYED - items[0]) // (len(items) - 1)
+    if gap < ITEM_GAP_MIN:
+        return False
+    action["items"] = [items[0] + i * gap for i in range(len(items))]
+    return True
+
+
+def last_moment(action: dict) -> int | None:
+    """The frame of an action's last step or counted item."""
+    marks = list((action.get("step_at") or {}).values()) + list(action.get("items") or [])
+    return max(marks) if marks else None
 
 
 def realises(action: dict) -> set:
