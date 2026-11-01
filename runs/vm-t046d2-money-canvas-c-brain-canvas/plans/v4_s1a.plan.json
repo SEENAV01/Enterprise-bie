@@ -1,0 +1,194 @@
+{
+ "id": "v4_s1a",
+ "part_id": "c09.1",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b1",
+   "say": "सस्ता ₹100 note चावल क्यों दिलाता है? क्या पीछे gold है? Payment में लेना और कानून से पैसा मानना क्या एक हैं?"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "exchange",
+   "kind": "action",
+   "cell": [
+    0,
+    1,
+    6,
+    5
+   ],
+   "cue": [
+    "b1",
+    "₹100"
+   ],
+   "template": "hand_over",
+   "actors": [
+    {
+     "role": "giver",
+     "who": "main",
+     "mood": "unsure"
+    },
+    {
+     "role": "taker",
+     "who": "other",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "thing",
+     "icon": "bie:note-100",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [
+    {
+     "name": "give",
+     "cue": [
+      "b1",
+      "₹100"
+     ]
+    },
+    {
+     "name": "take",
+     "cue": [
+      "b1",
+      "दिलाता"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "rice",
+   "kind": "icon",
+   "cell": [
+    6,
+    1,
+    2,
+    2
+   ],
+   "cue": [
+    "b1",
+    "चावल"
+   ],
+   "tone": "ink",
+   "icon": "bie:grain-sack"
+  },
+  {
+   "id": "gold",
+   "kind": "icon",
+   "cell": [
+    9,
+    1,
+    2,
+    2
+   ],
+   "cue": [
+    "b1",
+    "gold"
+   ],
+   "tone": "warm",
+   "icon": "bie:gold-bar"
+  },
+  {
+   "id": "gold-question",
+   "kind": "icon",
+   "cell": [
+    11,
+    1,
+    1,
+    1
+   ],
+   "cue": [
+    "b1",
+    "है?"
+   ],
+   "tone": "accent",
+   "icon": "tw:2753"
+  },
+  {
+   "id": "payment",
+   "kind": "icon",
+   "cell": [
+    6,
+    4,
+    2,
+    2
+   ],
+   "cue": [
+    "b1",
+    "लेना"
+   ],
+   "tone": "ok",
+   "icon": "tw:2705"
+  },
+  {
+   "id": "law",
+   "kind": "icon",
+   "cell": [
+    9,
+    4,
+    2,
+    2
+   ],
+   "cue": [
+    "b1",
+    "कानून"
+   ],
+   "tone": "ink",
+   "icon": "tw:1f4dc"
+  },
+  {
+   "id": "same-question",
+   "kind": "icon",
+   "cell": [
+    8,
+    4,
+    1,
+    1
+   ],
+   "cue": [
+    "b1",
+    "एक"
+   ],
+   "tone": "accent",
+   "icon": "tw:2753"
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b1",
+    "gold"
+   ],
+   "ids": [
+    "exchange",
+    "gold",
+    "gold-question"
+   ],
+   "until_cue": [
+    "b1",
+    "Payment"
+   ]
+  },
+  {
+   "cue": [
+    "b1",
+    "Payment"
+   ],
+   "ids": [
+    "payment",
+    "law",
+    "same-question"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

@@ -1,0 +1,193 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "canvas",
+ "unit": "v2_s8b-ideas",
+ "status": "passed",
+ "instructions_version": "visual-ideas/1",
+ "rulebook_version": "canvas_profile@2026-10-29.1+content_types@2026-10-27.1+explanations@2026-10-24.3+level_profiles@2026-10-24.1+simple_hindi@2026-10-28.1+teacher_examples@2026-10-29.1+vision-2026-10-21@2026-10-21.17+visual_grammar@2026-10-31.1+visual_levels@2026-10-26.2+visual_verbs@2026-11-01.1",
+ "rulebook_digest": "31f0a4500f787c62c6ac8b13a76d46bc43c9b2e60fade0e5dc48ce98ce28f511",
+ "rules_used": [
+  "CV-01",
+  "CV-02",
+  "CV-03",
+  "CV-04",
+  "CV-05",
+  "CV-06",
+  "CV-07",
+  "CV-08",
+  "CV-09",
+  "CV-10",
+  "CV-11",
+  "CV-12",
+  "CV-13",
+  "CV-14",
+  "CV-15",
+  "CV-16",
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-05",
+  "G-06",
+  "G-07",
+  "VG-02",
+  "VG-04",
+  "VG-07",
+  "VG-08",
+  "VG-10",
+  "D1-01",
+  "D1-02",
+  "D1-03",
+  "D1-04",
+  "D1-05",
+  "D1-06",
+  "D2-01",
+  "D2-02",
+  "D2-03",
+  "D2-04",
+  "D2-05"
+ ],
+ "maker_route": "codex",
+ "reviewer_route": "codex-checker",
+ "maker_model": "gpt-6.1-sol",
+ "reviewer_model": "gpt-6.1-sol",
+ "reviewer_independence": "same_model_temporary",
+ "inputs_digest": "cd8919b9532523945f2844e87003d33ecba193e31f22d1808ebf7844491e3464",
+ "card": null,
+ "prefix_sha256": "dcc4588cbcdf385da64664002bcbb41eff5e00fc37b0f3ed2bff35d0faa7cc08",
+ "review_prefix_sha256": null,
+ "inputs": {
+  "system": "You are BIE's visual thinker for one part of a video lesson of Indian Economy for UPSC / State PCS aspirants (UPSC / State PCS). The script is written and\npassed; you do not change a word. Before any layout, say for EVERY beat what the learner should SEE so that the spoken point is\nclear through the eyes (Navin, 30 October 2026: \"jo bola ja rha hai screen ke visuals se wo baat clear ho\"; a screen of text alone\nis a book, not a video). Code then finds the things in BIE's icon index and asset library, places the book's own pictures, and\nchecks the layout.\n\nCourse: \"3. Money\" · learner language: Hinglish.\n\nFor each beat give:\n- idea: the key idea in a few words (what the teacher is making the learner understand right now).\n- relation: ONE id from this list, how the idea relates its things (or \"other\" with relation_note; an \"other\" is logged so Navin can\n  add it):\n- reject: a cross mark on the thing refused (the thing's icon first, then the cross on it, on the word that refuses) (saanche: refuse)\n- accept: a tick on the thing accepted (saanche: accept)\n- compulsory: a law scroll with a stamp on it, beside the thing the law binds\n- limit: a meter or a stack that fills up to a red line where it stops (the limit's number on the line) (saanche: coin_count)\n- more_less: two sizes side by side, or a crowd / stack that grows or shrinks on the word (saanche: cheque)\n- count: a counted stack or crowd whose number is the narration's number (saanche: count_stack, coin_count)\n- sequence: a numbered row or a timeline with arrows; the book's own years and labels when the part covers a book timeline (saanche: hand_over, pay_change, upi, card_tap, cheque, barter_swap)\n- cause_effect: an arrow chain: the cause's icon, an arrow, the effect's icon or number (saanche: pay_change, upi, card_tap, cheque)\n- compare: a split screen (the same slots on both sides) or a balance scale; the book's own table when the part covers one (saanche: barter_swap)\n- part_whole: a grouping: the whole as a box, its parts as icons inside it, or a tree\n- place: a map with the place marked, or the place's flag beside the thing\n- change: before and after side by side, the old struck out, the new in its place; a struck value with an arrow only when the SAME quantity changes; change given back is the pay_change saancha (saanche: pay_change, cheque)\n- promise: a receipt or a handshake between the two parties, the promise's words as a short label (saanche: cheque, hand_over)\n- question: the thing asked about with a question mark beside it; the answer's picture replaces the mark when the answer comes\n- other: a relation outside this list: the step logs it (relations_outside_list) so Navin can add an entry; the beat still shows its things as themselves\n- things, people, places: the concrete nouns the beat names or implies, as plain English or Hindi words a picture can show (wheat,\n  cloth, salt, coin, ₹500 note, phone, law scroll, Sweden, 1661, farmer, shopkeeper). A real person is never drawn (card rule 8): name\n  the role (a king, a ruler) or the object (a coin with a seal), not the person.\n- shows: what is seen, in at most 8 words, as a picture description (a cross on the old coin; a meter filling to ₹1,000\n  with a red line; wheat and cloth swapping hands). Never a sentence for the screen: the sentence is the narration.\n- on_word: the word of this beat (exactly as written) on which the picture should appear (\"\" = the beat's start).\n- image_wanted: a real object an icon cannot show and a photograph or museum image can (a punch-marked silver coin, a cowrie\n  shell, a cheque leaf), as search words; \"\" when an icon is enough. Never a person's portrait (card rule 8).\n- template: when the beat tells a PROCESS the learner should see happen (Navin, 1 November 2026: \"process show nahi ho rahi hai\n  ... jaise scanner phone scan, tab maja hai\"), the kriya ka saancha that shows it; \"none\" when the beat tells no process; \"other\"\n  when it is a process none of these fits (template_note says which process: it is logged so BIE can learn it):\n- hand_over: A gives a thing to B (steps give, take; actors giver, taker; objects thing)\n- pay_change: the buyer pays a note, takes the goods and gets the change back (₹500 in, ₹200 back) (steps pay, goods, change; actors buyer, seller; objects goods; amounts paid, change, price (optional))\n- barter_swap: two people swap their things; at 'ask' both wonder whether they want the other's thing (steps offer, ask, swap; actors a, b; objects a_thing, b_thing)\n- upi: the buyer's phone scans the shop's QR stand; the phone shows '₹300 paid', the shopkeeper's 'received' (steps scan, paid, received; actors buyer, seller; amounts amount)\n- card_tap: a card taps the shop's POS machine; the machine shows the amount approved (steps tap, approved; actors buyer, seller; amounts amount)\n- cheque: a cheque is written for the amount, handed to the bank, and the two passbooks change (payer down, payee up) (steps write, hand, balances; actors payer, payee; amounts amount, payer_before (optional), payer_after (optional), payee_before (optional), payee_after (optional))\n- coin_count: coins drop onto a pile while a meter rises; at 'limit' it stops at its red line (steps count, limit; objects coin; amounts each, limit)\n- refuse: the person looks at the thing, shakes the head, and a cross lands on the thing (steps show, refuse; actors who; objects thing)\n- accept: the person looks at the thing, nods, and a tick lands on the thing (steps show, accept; actors who; objects thing)\n- count_stack: n things appear one by one as they are said (steps count; objects thing; amounts n)\n- template_note: for \"other\" the process in a few words; for \"none\" on a beat that names a process word, why no saancha.\nCode has already decided this part's picture (table: Columns) from the book's own table; it is placed at the top of the canvas. Set picture_type to \"table\" and use picture_note for what the beats add around it.\nReply with the JSON object only.",
+  "user": "Chapter: 3. Money. Part c06.2 (3 beats).\nThe part (JSON):\n{\"part\": {\"id\": \"v2_s8b\", \"part_id\": \"c06.2\", \"card_type\": \"facts_numbers\", \"story\": false}, \"beats\": [{\"beat_id\": \"b55\", \"say\": \"Salt medium of exchange बना। किसान को खुद salt नहीं चाहिए; आगे चलने से लिया। इसलिए double coincidence हटी: पहले buyer को कपड़ा देना नहीं पड़ा।\", \"relation_guess\": \"change\", \"template_guess\": \"pay_change\"}, {\"beat_id\": \"b56\", \"say\": \"Payment के बाहर भी उपयोग है: salt खाने में, cattle रोज़ी में काम आते हैं; tea और tobacco की अलग demand है।\", \"relation_guess\": \"place\", \"template_guess\": \"none\"}, {\"beat_id\": \"b57\", \"say\": \"अपने उपयोग और community acceptance से barter आसान हुआ, हर जगह नहीं। Metallic coins common होने से पहले यह medium था; उपयोग अकेला काफी नहीं।\", \"relation_guess\": \"place\", \"template_guess\": \"barter_swap\"}], \"items\": [{\"item_id\": \"p003-i5\", \"content_type\": \"facts_numbers\", \"content\": \"Commodity: Salt | Where it was used: Ancient Rome and Africa\"}, {\"item_id\": \"p003-i6\", \"content_type\": \"facts_numbers\", \"content\": \"Commodity: Cattle | Where it was used: Early pastoral societies\"}, {\"item_id\": \"p003-i8\", \"content_type\": \"facts_numbers\", \"content\": \"Commodity: Tea bricks | Where it was used: Central Asia and Tibet\"}, {\"item_id\": \"p003-i9\", \"content_type\": \"facts_numbers\", \"content\": \"Commodity: Tobacco | Where it was used: Colonial America\"}, {\"item_id\": \"p003-i10\", \"content_type\": \"facts_numbers\", \"content\": \"Characteristics:\\n• Has intrinsic value. More acceptable than barter system\\n• Widely accepted within a community.\\n• Can be used for purposes other than exchange.\\n• Acts as a medium of exchange before metallic coins became common. Removes the need of double coincidence of wants.\"}], \"book_pictures\": [{\"item_id\": \"p003-i4\", \"type\": \"table\", \"title\": \"Columns\"}]}\n\nReply with the ideas JSON."
+ },
+ "rounds": [
+  {
+   "round": 0,
+   "started_at": 1793559354.2186377,
+   "mode": "resume",
+   "notes": {
+    "about": "Commodity money bridges barter exchanges through community acceptance, while retaining non-payment uses.",
+    "key_questions": [
+     "Why accept salt without personally needing it?",
+     "How does salt remove the need for matching wants?",
+     "Why is usefulness alone insufficient for money?"
+    ],
+    "decisions": [
+     {
+      "decision": "Show salt passing onward rather than change returned.",
+      "reason": "The exchange uses an intermediary commodity, not cash payment with change."
+     },
+     {
+      "decision": "Keep community acceptance visibly bounded.",
+      "reason": "Acceptance is not universal, and intrinsic usefulness alone does not establish money."
+     }
+    ],
+    "uncertain": []
+   },
+   "output": {
+    "notes": {
+     "about": "Commodity money bridges barter exchanges through community acceptance, while retaining non-payment uses.",
+     "key_questions": [
+      "Why accept salt without personally needing it?",
+      "How does salt remove the need for matching wants?",
+      "Why is usefulness alone insufficient for money?"
+     ],
+     "decisions": [
+      {
+       "decision": "Show salt passing onward rather than change returned.",
+       "reason": "The exchange uses an intermediary commodity, not cash payment with change."
+      },
+      {
+       "decision": "Keep community acceptance visibly bounded.",
+       "reason": "Acceptance is not universal, and intrinsic usefulness alone does not establish money."
+      }
+     ],
+     "uncertain": []
+    },
+    "beats": [
+     {
+      "beat_id": "b55",
+      "idea": "Salt bridges mismatched wants",
+      "relation": "sequence",
+      "relation_note": "",
+      "things": [
+       "salt",
+       "grain",
+       "cloth",
+       "crossed matching-wants link"
+      ],
+      "people": [
+       "buyer",
+       "farmer",
+       "cloth seller"
+      ],
+      "places": [],
+      "shows": "Buyer→salt→farmer→salt→cloth seller; grain and cloth return",
+      "on_word": "Salt",
+      "image_wanted": "",
+      "template": "other",
+      "template_note": "Buyer gives salt for farmer's grain; farmer passes salt to cloth seller for cloth. Show farmer's own salt-use need crossed out, then remove the direct buyer-to-cloth requirement at 'हटी'."
+     },
+     {
+      "beat_id": "b56",
+      "idea": "Commodities retain uses beyond payment",
+      "relation": "part_whole",
+      "relation_note": "",
+      "things": [
+       "salt",
+       "cooking pot",
+       "cattle",
+       "milk pail",
+       "tea bricks",
+       "teacup",
+       "tobacco leaves"
+      ],
+      "people": [
+       "herder",
+       "customers"
+      ],
+      "places": [],
+      "shows": "Salt beside cooking; cattle livelihood; tea, tobacco demand",
+      "on_word": "उपयोग",
+      "image_wanted": "compressed tea brick tobacco leaves",
+      "template": "none",
+      "template_note": "Uses and demand are illustrated associations, not a narrated transaction process."
+     },
+     {
+      "beat_id": "b57",
+      "idea": "Usefulness plus local acceptance enables exchange",
+      "relation": "cause_effect",
+      "relation_note": "",
+      "things": [
+       "salt",
+       "cooking pot",
+       "acceptance ticks",
+       "community boundary",
+       "exchange arrows",
+       "metallic coins",
+       "question mark"
+      ],
+      "people": [
+       "community traders",
+       "outside trader"
+      ],
+      "places": [],
+      "shows": "Use plus community ticks→exchange; commodities before coins",
+      "on_word": "community acceptance",
+      "image_wanted": "",
+      "template": "none",
+      "template_note": "Show conditions enabling exchange, not an invented transaction: usefulness and community acceptance jointly feed exchange arrows. Outside the community retain a question mark; add commodities-before-coins timeline, then disconnect usefulness alone from acceptance at 'अकेला'."
+     }
+    ],
+    "picture_type": "table",
+    "picture_note": "Keep the book's Columns table at the top. Below it, add a salt-mediated exchange sequence, commodity-use vignettes linked to their rows, and a bounded community-acceptance diagram with a small commodities-before-common-coins timeline."
+   },
+   "code_problems": [],
+   "passed": true,
+   "finished_at": 1793559354.2189658
+  }
+ ],
+ "avoid_rounds": [],
+ "cost_usd": 0.0,
+ "seconds": 0.0,
+ "navin_verdict": null
+}

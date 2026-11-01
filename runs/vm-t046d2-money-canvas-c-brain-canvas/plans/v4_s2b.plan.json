@@ -1,0 +1,585 @@
+{
+ "id": "v4_s2b",
+ "part_id": "c09.2",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b7",
+   "say": "यही gold-backing constraint है; gold reserves यानी वादा पूरा करने का रखा हुआ gold।"
+  },
+  {
+   "beat_id": "b8",
+   "say": "Central bank gold रखकर notes जारी करता था और माँगने पर तय gold देता था। इसलिए नए notes को backing चाहिए थी; redemption in principle था, हर जगह unrestricted नहीं।"
+  },
+  {
+   "beat_id": "b9",
+   "say": "Claims चुकाने की क्षमता घटे, तो भरोसा टूटे और लोग gold माँगें।"
+  },
+  {
+   "beat_id": "b10",
+   "say": "Gold का वादा, उसे चुकाने के reserves, फिर उन्हीं से बँधा issue; 1 gram सिर्फ उदाहरण था।"
+  },
+  {
+   "beat_id": "b11",
+   "say": "याद रखिए: issue के पीछे redemption की ज़िम्मेदारी थी।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "vault",
+   "kind": "icon",
+   "cell": [
+    1,
+    0,
+    2,
+    2
+   ],
+   "cue": [
+    "b7",
+    "gold-backing"
+   ],
+   "tone": "ink",
+   "align": "center",
+   "icon": "fa:solid/vault",
+   "size": 32
+  },
+  {
+   "id": "reserve",
+   "kind": "icon",
+   "cell": [
+    4,
+    0,
+    2,
+    2
+   ],
+   "cue": [
+    "b7",
+    "reserves"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "bie:gold-bar",
+   "label": "gold reserves",
+   "size": 32
+  },
+  {
+   "id": "promise",
+   "kind": "icon",
+   "cell": [
+    9,
+    0,
+    2,
+    2
+   ],
+   "cue": [
+    "b7",
+    "वादा"
+   ],
+   "tone": "ink",
+   "align": "center",
+   "icon": "tw:1f9fe",
+   "label": "वादा",
+   "size": 32
+  },
+  {
+   "id": "backing",
+   "kind": "arrow",
+   "cue": [
+    "b7",
+    "पूरा"
+   ],
+   "tone": "warm",
+   "from": "reserve",
+   "to": "promise",
+   "from_side": "r",
+   "to_side": "l",
+   "flow": {
+    "icon": "bie:gold-bar",
+    "count": 1,
+    "period": 1600,
+    "size": 24,
+    "cue": [
+     "b7",
+     "gold।"
+    ]
+   }
+  },
+  {
+   "id": "issue",
+   "kind": "action",
+   "cell": [
+    0,
+    2,
+    6,
+    4
+   ],
+   "cue": [
+    "b8",
+    "Central"
+   ],
+   "until_cue": [
+    "b8",
+    "और"
+   ],
+   "tone": "ink",
+   "template": "hand_over",
+   "actors": [
+    {
+     "role": "giver",
+     "who": "other",
+     "label": "Central bank",
+     "mood": "neutral"
+    },
+    {
+     "role": "taker",
+     "who": "main",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "thing",
+     "icon": "fa:solid/money-bill-1",
+     "label": "notes"
+    }
+   ],
+   "amounts": [],
+   "steps": [
+    {
+     "name": "give",
+     "cue": [
+      "b8",
+      "जारी"
+     ]
+    },
+    {
+     "name": "take",
+     "cue": [
+      "b8",
+      "था"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "redeem",
+   "kind": "action",
+   "cell": [
+    6,
+    2,
+    6,
+    4
+   ],
+   "cue": [
+    "b8",
+    "माँगने"
+   ],
+   "until_cue": [
+    "b8",
+    "इसलिए"
+   ],
+   "tone": "warm",
+   "template": "hand_over",
+   "actors": [
+    {
+     "role": "giver",
+     "who": "other",
+     "mood": "neutral"
+    },
+    {
+     "role": "taker",
+     "who": "main",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "thing",
+     "icon": "bie:gold-bar",
+     "label": "तय gold"
+    }
+   ],
+   "amounts": [],
+   "steps": [
+    {
+     "name": "give",
+     "cue": [
+      "b8",
+      "gold"
+     ]
+    },
+    {
+     "name": "take",
+     "cue": [
+      "b8",
+      "देता"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "newnotes",
+   "kind": "icon",
+   "cell": [
+    2,
+    3,
+    3,
+    2
+   ],
+   "cue": [
+    "b8",
+    "नए"
+   ],
+   "until_cue": [
+    "b9",
+    "Claims"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "fa:solid/money-bill-1",
+   "label": "नए notes",
+   "size": 32
+  },
+  {
+   "id": "qualified",
+   "kind": "text",
+   "cell": [
+    6,
+    3,
+    5,
+    2
+   ],
+   "cue": [
+    "b8",
+    "redemption"
+   ],
+   "until_cue": [
+    "b9",
+    "Claims"
+   ],
+   "text": "redemption in principle",
+   "style": "box",
+   "tone": "ink",
+   "align": "center",
+   "size": 30,
+   "marks": [
+    {
+     "phrase": "in principle",
+     "cue": [
+      "b8",
+      "principle"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "capacity",
+   "kind": "icon",
+   "cell": [
+    1,
+    3,
+    2,
+    2
+   ],
+   "cue": [
+    "b9",
+    "घटे,"
+   ],
+   "until_cue": [
+    "b10",
+    "Gold"
+   ],
+   "tone": "danger",
+   "align": "center",
+   "icon": "fa:solid/gauge-simple",
+   "label": "चुकाने की क्षमता",
+   "size": 32
+  },
+  {
+   "id": "trust",
+   "kind": "icon",
+   "cell": [
+    5,
+    3,
+    2,
+    2
+   ],
+   "cue": [
+    "b9",
+    "टूटे"
+   ],
+   "until_cue": [
+    "b10",
+    "Gold"
+   ],
+   "tone": "danger",
+   "align": "center",
+   "icon": "fa:solid/link-slash",
+   "label": "भरोसा टूटे",
+   "size": 32
+  },
+  {
+   "id": "demand",
+   "kind": "icon",
+   "cell": [
+    9,
+    3,
+    2,
+    2
+   ],
+   "cue": [
+    "b9",
+    "माँगें।"
+   ],
+   "until_cue": [
+    "b10",
+    "Gold"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "bie:gold-bar",
+   "label": "gold माँगें",
+   "size": 32
+  },
+  {
+   "id": "sequence",
+   "kind": "picture",
+   "cell": [
+    1,
+    3,
+    10,
+    2
+   ],
+   "cue": [
+    "b10",
+    "वादा,"
+   ],
+   "until_cue": [
+    "b11",
+    "याद"
+   ],
+   "tone": "ink",
+   "size": 30,
+   "picture": {
+    "type": "flow",
+    "title": "",
+    "item_id": "",
+    "nodes": [
+     {
+      "cue": [
+       "b10",
+       "वादा,"
+      ],
+      "id": "n1",
+      "label": "Gold का वादा"
+     },
+     {
+      "cue": [
+       "b10",
+       "reserves,"
+      ],
+      "id": "n2",
+      "label": "चुकाने के reserves"
+     },
+     {
+      "cue": [
+       "b10",
+       "issue;"
+      ],
+      "id": "n3",
+      "label": "उन्हीं से बँधा issue"
+     }
+    ],
+    "arrows": true
+   }
+  },
+  {
+   "id": "gram",
+   "kind": "icon",
+   "cell": [
+    5,
+    5,
+    2,
+    1
+   ],
+   "cue": [
+    "b10",
+    "gram"
+   ],
+   "until_cue": [
+    "b11",
+    "याद"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "bie:gold-bar",
+   "label": "1 gram",
+   "size": 28
+  },
+  {
+   "id": "obligation",
+   "kind": "picture",
+   "cell": [
+    2,
+    3,
+    8,
+    3
+   ],
+   "cue": [
+    "b11",
+    "issue"
+   ],
+   "tone": "accent",
+   "size": 30,
+   "picture": {
+    "type": "flow",
+    "title": "",
+    "item_id": "",
+    "nodes": [
+     {
+      "cue": [
+       "b11",
+       "issue"
+      ],
+      "id": "n1",
+      "label": "issue"
+     },
+     {
+      "cue": [
+       "b11",
+       "ज़िम्मेदारी"
+      ],
+      "id": "n2",
+      "label": "redemption की ज़िम्मेदारी"
+     }
+    ],
+    "arrows": true
+   }
+  },
+  {
+   "id": "auto_arrow_b9",
+   "kind": "arrow",
+   "from": "vault",
+   "to": "capacity",
+   "cue": [
+    "b9",
+    "घटे,"
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b7",
+    "gold-backing"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    1,
+    12,
+    6
+   ],
+   "cue": [
+    "b8",
+    "माँगने"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b8",
+    "इसलिए"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b10",
+    "वादा,"
+   ]
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b8",
+    "जारी"
+   ],
+   "ids": [
+    "issue",
+    "reserve"
+   ],
+   "until_cue": [
+    "b8",
+    "और"
+   ]
+  },
+  {
+   "cue": [
+    "b8",
+    "माँगने"
+   ],
+   "ids": [
+    "redeem",
+    "promise"
+   ],
+   "until_cue": [
+    "b8",
+    "इसलिए"
+   ]
+  },
+  {
+   "cue": [
+    "b9",
+    "घटे,"
+   ],
+   "ids": [
+    "capacity",
+    "trust",
+    "demand"
+   ],
+   "until_cue": [
+    "b10",
+    "Gold"
+   ]
+  },
+  {
+   "cue": [
+    "b11",
+    "ज़िम्मेदारी"
+   ],
+   "ids": [
+    "obligation_s1",
+    "obligation_s2",
+    "obligation_a1",
+    "reserve",
+    "promise",
+    "backing"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

@@ -1,0 +1,644 @@
+{
+ "id": "v2_s5b",
+ "part_id": "c04.1",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b33",
+   "say": "Intermediary matching आसान करता है, आगे handling सुधरती है। UPI existing deposits भेजता है, extra पैसा नहीं बनाता।"
+  },
+  {
+   "beat_id": "b34",
+   "say": "Forms साथ रहते हैं; हर card में पैसा stored नहीं होता।"
+  },
+  {
+   "beat_id": "b35",
+   "say": "क्रम barter, commodity, metallic, paper, bank, फिर digital है।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "book_p002_i12",
+   "kind": "picture",
+   "cell": [
+    0,
+    0,
+    12,
+    3
+   ],
+   "cue": [
+    "b33",
+    ""
+   ],
+   "picture": {
+    "type": "gallery",
+    "title": "EVOLUTION OF MONEY",
+    "item_id": "p002-i12",
+    "panels": [
+     {
+      "n": 1,
+      "name": "BARTER",
+      "caption": "Wheat exchanged for cloth",
+      "nouns": [
+       "BARTER",
+       "Wheat",
+       "exchanged",
+       "for",
+       "cloth"
+      ],
+      "item_id": "p002-i13",
+      "numbered": true,
+      "cue": [
+       "b33",
+       ""
+      ],
+      "icon": "tw:1f33e"
+     },
+     {
+      "n": 2,
+      "name": "COMMODITY MONEY",
+      "caption": "Salt, cattle, shells",
+      "nouns": [
+       "COMMODITY",
+       "MONEY",
+       "Salt",
+       "cattle",
+       "shells"
+      ],
+      "item_id": "p002-i14",
+      "numbered": true,
+      "cue": [
+       "b33",
+       ""
+      ],
+      "icon": "tw:1f4b0"
+     },
+     {
+      "n": 3,
+      "name": "METALLIC MONEY",
+      "caption": "Gold and silver coins",
+      "nouns": [
+       "METALLIC",
+       "MONEY",
+       "Gold",
+       "and",
+       "silver",
+       "coins"
+      ],
+      "item_id": "p002-i15",
+      "numbered": true,
+      "cue": [
+       "b33",
+       ""
+      ],
+      "icon": "tw:1f4b0"
+     },
+     {
+      "n": 4,
+      "name": "PAPER MONEY",
+      "caption": "Currency notes",
+      "nouns": [
+       "PAPER",
+       "MONEY",
+       "Currency",
+       "notes"
+      ],
+      "item_id": "p002-i16",
+      "numbered": true,
+      "cue": [
+       "b33",
+       ""
+      ],
+      "icon": "tw:1f4c4"
+     },
+     {
+      "n": 5,
+      "name": "BANK MONEY",
+      "caption": "Cheques and deposits",
+      "nouns": [
+       "BANK",
+       "MONEY",
+       "Cheques",
+       "and",
+       "deposits"
+      ],
+      "item_id": "p002-i17",
+      "numbered": true,
+      "cue": [
+       "b33",
+       ""
+      ],
+      "icon": "tw:1f3e6"
+     },
+     {
+      "n": 6,
+      "name": "DIGITAL MONEY",
+      "caption": "UPI, net banking, cards",
+      "nouns": [
+       "DIGITAL",
+       "MONEY",
+       "UPI",
+       "net",
+       "banking",
+       "cards"
+      ],
+      "item_id": "p002-i18",
+      "numbered": true,
+      "cue": [
+       "b33",
+       ""
+      ],
+      "icon": "tw:1f4b0"
+     }
+    ]
+   }
+  },
+  {
+   "id": "trade_goods",
+   "kind": "icon",
+   "cell": [
+    0,
+    4,
+    2,
+    2
+   ],
+   "cue": [
+    "b33",
+    "Intermediary"
+   ],
+   "until_cue": [
+    "b33",
+    "UPI"
+   ],
+   "tone": "ink",
+   "align": "center",
+   "icon": "fa:solid/basket-shopping",
+   "size": 48
+  },
+  {
+   "id": "intermediary",
+   "kind": "icon",
+   "cell": [
+    5,
+    4,
+    2,
+    2
+   ],
+   "cue": [
+    "b33",
+    "Intermediary"
+   ],
+   "until_cue": [
+    "b33",
+    "UPI"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "fa:solid/money-bill-1",
+   "size": 48
+  },
+  {
+   "id": "trade_receiver",
+   "kind": "icon",
+   "cell": [
+    10,
+    4,
+    2,
+    2
+   ],
+   "cue": [
+    "b33",
+    "matching"
+   ],
+   "until_cue": [
+    "b33",
+    "UPI"
+   ],
+   "tone": "ink",
+   "align": "center",
+   "icon": "tw:1f6cd",
+   "size": 48
+  },
+  {
+   "id": "matching_link",
+   "kind": "arrow",
+   "cue": [
+    "b33",
+    "matching"
+   ],
+   "until_cue": [
+    "b33",
+    "UPI"
+   ],
+   "tone": "accent",
+   "from": "trade_goods",
+   "to": "intermediary",
+   "from_side": "r",
+   "to_side": "l",
+   "elbow": "hv"
+  },
+  {
+   "id": "handling_link",
+   "kind": "arrow",
+   "cue": [
+    "b33",
+    "handling"
+   ],
+   "until_cue": [
+    "b33",
+    "UPI"
+   ],
+   "tone": "ok",
+   "from": "intermediary",
+   "to": "trade_receiver",
+   "from_side": "r",
+   "to_side": "l",
+   "elbow": "hv",
+   "flow": {
+    "icon": "fa:solid/basket-shopping",
+    "count": 2,
+    "period": 1800,
+    "size": 28,
+    "cue": [
+     "b33",
+     "handling"
+    ]
+   }
+  },
+  {
+   "id": "upi_transfer",
+   "kind": "action",
+   "cell": [
+    0,
+    3,
+    8,
+    4
+   ],
+   "cue": [
+    "b33",
+    "UPI"
+   ],
+   "until_cue": [
+    "b34",
+    "साथ"
+   ],
+   "tone": "accent",
+   "template": "upi",
+   "actors": [
+    {
+     "role": "buyer",
+     "who": "main",
+     "mood": "neutral"
+    },
+    {
+     "role": "seller",
+     "who": "other",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [],
+   "amounts": [
+    {
+     "name": "amount",
+     "text": "existing deposits"
+    }
+   ],
+   "steps": [
+    {
+     "name": "scan",
+     "cue": [
+      "b33",
+      "UPI"
+     ]
+    },
+    {
+     "name": "paid",
+     "cue": [
+      "b33",
+      "deposits"
+     ]
+    },
+    {
+     "name": "received",
+     "cue": [
+      "b33",
+      "भेजता"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "existing_deposits",
+   "kind": "icon",
+   "cell": [
+    9,
+    3,
+    2,
+    2
+   ],
+   "cue": [
+    "b33",
+    "existing"
+   ],
+   "until_cue": [
+    "b34",
+    "साथ"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "bie:passbook",
+   "size": 48
+  },
+  {
+   "id": "extra_money",
+   "kind": "icon",
+   "cell": [
+    9,
+    5,
+    2,
+    2
+   ],
+   "cue": [
+    "b33",
+    "extra"
+   ],
+   "until_cue": [
+    "b34",
+    "साथ"
+   ],
+   "tone": "muted",
+   "align": "center",
+   "icon": "tw:1f4b0",
+   "size": 48
+  },
+  {
+   "id": "no_extra_money",
+   "kind": "mark",
+   "cue": [
+    "b33",
+    "नहीं"
+   ],
+   "until_cue": [
+    "b34",
+    "साथ"
+   ],
+   "tone": "danger",
+   "target": "extra_money",
+   "mark": "cross",
+   "pos": "c"
+  },
+  {
+   "id": "coexisting_forms",
+   "kind": "highlight",
+   "cue": [
+    "b34",
+    "साथ"
+   ],
+   "until_cue": [
+    "b35",
+    "क्रम"
+   ],
+   "style": "band",
+   "tone": "band",
+   "target": "book_p002_i12"
+  },
+  {
+   "id": "payment_card",
+   "kind": "icon",
+   "cell": [
+    1,
+    4,
+    2,
+    2
+   ],
+   "cue": [
+    "b34",
+    "card"
+   ],
+   "until_cue": [
+    "b35",
+    "क्रम"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "tw:1f4b3",
+   "size": 48
+  },
+  {
+   "id": "card_stored_claim",
+   "kind": "text",
+   "cell": [
+    4,
+    4,
+    4,
+    1
+   ],
+   "cue": [
+    "b34",
+    "stored"
+   ],
+   "until_cue": [
+    "b35",
+    "क्रम"
+   ],
+   "text": "हर card में पैसा stored",
+   "style": "box",
+   "tone": "muted",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "not_every_card",
+   "kind": "mark",
+   "cue": [
+    "b34",
+    "नहीं"
+   ],
+   "until_cue": [
+    "b35",
+    "क्रम"
+   ],
+   "tone": "danger",
+   "target": "card_stored_claim",
+   "mark": "cross",
+   "pos": "tr"
+  },
+  {
+   "id": "sequence_recall",
+   "kind": "highlight",
+   "cue": [
+    "b35",
+    "क्रम"
+   ],
+   "style": "box",
+   "tone": "accent",
+   "target": "book_p002_i12"
+  }
+ ],
+ "camera": [
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b33",
+    "Intermediary"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    3,
+    12,
+    4
+   ],
+   "cue": [
+    "b33",
+    "UPI"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b34",
+    "साथ"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    3
+   ],
+   "cue": [
+    "b35",
+    "क्रम"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    4,
+    3
+   ],
+   "cue": [
+    "b35",
+    "barter,"
+   ]
+  },
+  {
+   "cells": [
+    2,
+    0,
+    4,
+    3
+   ],
+   "cue": [
+    "b35",
+    "commodity,"
+   ]
+  },
+  {
+   "cells": [
+    4,
+    0,
+    4,
+    3
+   ],
+   "cue": [
+    "b35",
+    "metallic,"
+   ]
+  },
+  {
+   "cells": [
+    6,
+    0,
+    4,
+    3
+   ],
+   "cue": [
+    "b35",
+    "paper,"
+   ]
+  },
+  {
+   "cells": [
+    8,
+    0,
+    4,
+    3
+   ],
+   "cue": [
+    "b35",
+    "bank,"
+   ]
+  },
+  {
+   "cells": [
+    8,
+    0,
+    4,
+    3
+   ],
+   "cue": [
+    "b35",
+    "digital"
+   ]
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b33",
+    "UPI"
+   ],
+   "ids": [
+    "upi_transfer",
+    "existing_deposits",
+    "extra_money",
+    "no_extra_money"
+   ],
+   "until_cue": [
+    "b34",
+    "साथ"
+   ]
+  },
+  {
+   "cue": [
+    "b35",
+    "क्रम"
+   ],
+   "ids": [
+    "book_p002_i12_p1",
+    "book_p002_i12_p2",
+    "book_p002_i12_p3",
+    "book_p002_i12_p4",
+    "book_p002_i12_p5",
+    "book_p002_i12_p6",
+    "book_p002_i12_a1",
+    "book_p002_i12_a2",
+    "book_p002_i12_a3",
+    "book_p002_i12_a4",
+    "book_p002_i12_a5",
+    "sequence_recall"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

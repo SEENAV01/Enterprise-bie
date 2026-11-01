@@ -1,0 +1,581 @@
+{
+ "id": "v4_s7s",
+ "part_id": "c11.2",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b43",
+   "say": "4 पुराने 25 paise coins दें तो ₹1 bill चुक जाएगा? दुकानदार मना करे तो ₹1 बाकी रहता है; valid ₹1 coin दें तो बकाया ₹0 होता है। पुराने coins का legal-tender status हटना demonetization है।"
+  },
+  {
+   "beat_id": "b44",
+   "say": "Change के डिब्बे में कौन-से coins हैं? ₹1, ₹2, ₹5, ₹10, ₹20 को जोड़कर ₹1,000 तक की tender limit है। 50 paise जोड़ें तो ₹10 तक; उससे छोटे coins जोड़ने से legal-tender payment नहीं बनता।"
+  }
+ ],
+ "kit": "shop",
+ "elements": [
+  {
+   "id": "shop",
+   "kind": "shop",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b43",
+    "4"
+   ]
+  },
+  {
+   "id": "four_old_coins",
+   "kind": "action",
+   "x": 2200,
+   "y": 860,
+   "cue": [
+    "b43",
+    "4"
+   ],
+   "until_cue": [
+    "b43",
+    "दें"
+   ],
+   "template": "count_stack",
+   "actors": [],
+   "objects": [
+    {
+     "name": "thing",
+     "icon": "bie:coin-25p",
+     "label": ""
+    }
+   ],
+   "amounts": [
+    {
+     "name": "n",
+     "text": "4"
+    }
+   ],
+   "steps": [
+    {
+     "name": "count",
+     "cue": [
+      "b43",
+      "4"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "old_coins_refused",
+   "kind": "action",
+   "x": 2200,
+   "y": 860,
+   "cue": [
+    "b43",
+    "दें"
+   ],
+   "until_cue": [
+    "b43",
+    "valid"
+   ],
+   "template": "refuse",
+   "actors": [
+    {
+     "role": "who",
+     "who": "other",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "thing",
+     "icon": "bie:coin-25p",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [
+    {
+     "name": "show",
+     "cue": [
+      "b43",
+      "दें"
+     ]
+    },
+    {
+     "name": "refuse",
+     "cue": [
+      "b43",
+      "मना"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "outstanding",
+   "kind": "board",
+   "x": 3300,
+   "y": 380,
+   "text": "bill",
+   "fill": "#DCE8DC",
+   "cue": [
+    "b43",
+    "bill"
+   ],
+   "until_cue": [
+    "b43",
+    "पुराने"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b43",
+      "bill"
+     ],
+     "text": "₹1"
+    },
+    {
+     "cue": [
+      "b43",
+      "₹0"
+     ],
+     "text": "₹0",
+     "dir": "down"
+    }
+   ]
+  },
+  {
+   "id": "valid_coin_accepted",
+   "kind": "action",
+   "x": 2200,
+   "y": 860,
+   "cue": [
+    "b43",
+    "valid"
+   ],
+   "until_cue": [
+    "b43",
+    "पुराने"
+   ],
+   "template": "accept",
+   "actors": [
+    {
+     "role": "who",
+     "who": "other",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "thing",
+     "icon": "bie:coin-1",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [
+    {
+     "name": "show",
+     "cue": [
+      "b43",
+      "valid"
+     ]
+    },
+    {
+     "name": "accept",
+     "cue": [
+      "b43",
+      "बकाया"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "status_removed",
+   "kind": "action",
+   "x": 2200,
+   "y": 860,
+   "cue": [
+    "b43",
+    "पुराने"
+   ],
+   "until_cue": [
+    "b44",
+    "Change"
+   ],
+   "template": "refuse",
+   "actors": [
+    {
+     "role": "who",
+     "who": "other",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "thing",
+     "icon": "bie:coin-25p",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [
+    {
+     "name": "show",
+     "cue": [
+      "b43",
+      "पुराने"
+     ]
+    },
+    {
+     "name": "refuse",
+     "cue": [
+      "b43",
+      "हटना"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "change_box",
+   "kind": "action",
+   "x": 2200,
+   "y": 860,
+   "cue": [
+    "b44",
+    "Change"
+   ],
+   "until_cue": [
+    "b44",
+    "₹1,"
+   ],
+   "template": "hand_over",
+   "actors": [
+    {
+     "role": "giver",
+     "who": "other",
+     "mood": "neutral"
+    },
+    {
+     "role": "taker",
+     "who": "main",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "thing",
+     "icon": "tw:1f4e6",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [
+    {
+     "name": "give",
+     "cue": [
+      "b44",
+      "Change"
+     ]
+    },
+    {
+     "name": "take",
+     "cue": [
+      "b44",
+      "डिब्बे"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "rupee_group",
+   "kind": "action",
+   "x": 2200,
+   "y": 860,
+   "cue": [
+    "b44",
+    "₹1,"
+   ],
+   "until_cue": [
+    "b44",
+    "50"
+   ],
+   "template": "coin_count",
+   "actors": [],
+   "objects": [
+    {
+     "name": "coin",
+     "icon": "bie:coin-1",
+     "label": ""
+    },
+    {
+     "name": "coin_2",
+     "icon": "bie:coin-2",
+     "label": ""
+    },
+    {
+     "name": "coin_5",
+     "icon": "bie:coin-5",
+     "label": ""
+    },
+    {
+     "name": "coin_10",
+     "icon": "bie:coin-10",
+     "label": ""
+    },
+    {
+     "name": "coin_20",
+     "icon": "bie:coin-20",
+     "label": ""
+    }
+   ],
+   "amounts": [
+    {
+     "name": "each",
+     "text": "₹1"
+    },
+    {
+     "name": "limit",
+     "text": "₹1,000"
+    }
+   ],
+   "steps": [
+    {
+     "name": "count",
+     "cue": [
+      "b44",
+      "जोड़कर"
+     ]
+    },
+    {
+     "name": "limit",
+     "cue": [
+      "b44",
+      "₹1,000"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "half_rupee_group",
+   "kind": "action",
+   "x": 2200,
+   "y": 860,
+   "cue": [
+    "b44",
+    "50"
+   ],
+   "until_cue": [
+    "b44",
+    "उससे"
+   ],
+   "template": "coin_count",
+   "actors": [],
+   "objects": [
+    {
+     "name": "coin",
+     "icon": "bie:coin-50p",
+     "label": ""
+    }
+   ],
+   "amounts": [
+    {
+     "name": "each",
+     "text": "50 paise"
+    },
+    {
+     "name": "limit",
+     "text": "₹10"
+    }
+   ],
+   "steps": [
+    {
+     "name": "count",
+     "cue": [
+      "b44",
+      "जोड़ें"
+     ]
+    },
+    {
+     "name": "limit",
+     "cue": [
+      "b44",
+      "₹10"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "smaller_coins_invalid",
+   "kind": "action",
+   "x": 2200,
+   "y": 860,
+   "cue": [
+    "b44",
+    "उससे"
+   ],
+   "template": "refuse",
+   "actors": [
+    {
+     "role": "who",
+     "who": "other",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "thing",
+     "icon": "bie:coin-25p",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [
+    {
+     "name": "show",
+     "cue": [
+      "b44",
+      "छोटे"
+     ]
+    },
+    {
+     "name": "refuse",
+     "cue": [
+      "b44",
+      "नहीं"
+     ]
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b43",
+    "4"
+   ],
+   "x": 2900,
+   "y": 510,
+   "zoom": 0.9,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b43",
+    "दें"
+   ],
+   "x": 2200,
+   "y": 580,
+   "zoom": 1.25,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b43",
+    "बाकी"
+   ],
+   "x": 2720,
+   "y": 480,
+   "zoom": 0.95,
+   "frames": 36
+  },
+  {
+   "cue": [
+    "b43",
+    "valid"
+   ],
+   "x": 2200,
+   "y": 570,
+   "zoom": 1.25,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b43",
+    "₹0"
+   ],
+   "x": 2720,
+   "y": 480,
+   "zoom": 0.95,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b43",
+    "हटना"
+   ],
+   "x": 2200,
+   "y": 570,
+   "zoom": 1.2,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b44",
+    "Change"
+   ],
+   "x": 2200,
+   "y": 560,
+   "zoom": 1.15,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b44",
+    "₹5,"
+   ],
+   "x": 2200,
+   "y": 520,
+   "zoom": 1.3,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b44",
+    "₹1,000"
+   ],
+   "x": 2200,
+   "y": 520,
+   "zoom": 1.15,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b44",
+    "50"
+   ],
+   "x": 2200,
+   "y": 540,
+   "zoom": 1.3,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b44",
+    "₹10"
+   ],
+   "x": 2200,
+   "y": 520,
+   "zoom": 1.15,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b44",
+    "छोटे"
+   ],
+   "x": 2200,
+   "y": 570,
+   "zoom": 1.3,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b44",
+    "नहीं"
+   ],
+   "x": 2350,
+   "y": 530,
+   "zoom": 1.05,
+   "frames": 36
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

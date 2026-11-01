@@ -1,0 +1,579 @@
+{
+ "id": "v2_s4b",
+ "part_id": "c03.4",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b21",
+   "say": "अलग ratios यानी no common measure of value; गाय न बाँट पाना indivisibility है। अनाज सड़े तो wealth रखना मुश्किल; deferred payments यानी बाद में चुकाते समय वही मात्रा कम सामान दिला सकती है।"
+  },
+  {
+   "beat_id": "b22",
+   "say": "पैसे में उधार लिखना आसान, purchasing power fixed नहीं। जरूरतें मिलना और quantities मानना अलग शर्तें हैं।"
+  },
+  {
+   "beat_id": "b23",
+   "say": "Barter में matching से repayment तक मुश्किलें हैं।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "anchor",
+   "kind": "text",
+   "cell": [
+    0,
+    0,
+    12,
+    1
+   ],
+   "cue": [
+    "b21",
+    "",
+    0.0
+   ],
+   "until_cue": [
+    "b23",
+    "Barter"
+   ],
+   "text": "Barter की मुश्किलें",
+   "style": "title",
+   "tone": "ink",
+   "fill": "paper",
+   "align": "left beige",
+   "size": 32
+  },
+  {
+   "id": "ratios",
+   "kind": "icon",
+   "cell": [
+    0,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b21",
+    "ratios"
+   ],
+   "until_cue": [
+    "b22",
+    "पैसे"
+   ],
+   "tone": "warm",
+   "icon": "tw:2696"
+  },
+  {
+   "id": "ratio-question",
+   "kind": "icon",
+   "cell": [
+    0,
+    4,
+    2,
+    1
+   ],
+   "cue": [
+    "b21",
+    "common"
+   ],
+   "until_cue": [
+    "b22",
+    "पैसे"
+   ],
+   "tone": "danger",
+   "icon": "tw:2753"
+  },
+  {
+   "id": "whole-cow",
+   "kind": "icon",
+   "cell": [
+    2,
+    2,
+    3,
+    2
+   ],
+   "cue": [
+    "b21",
+    "गाय"
+   ],
+   "until_cue": [
+    "b22",
+    "पैसे"
+   ],
+   "tone": "ink",
+   "icon": "bie:cattle"
+  },
+  {
+   "id": "division-label",
+   "kind": "text",
+   "cell": [
+    2,
+    4,
+    3,
+    1
+   ],
+   "cue": [
+    "b21",
+    "indivisibility"
+   ],
+   "until_cue": [
+    "b22",
+    "पैसे"
+   ],
+   "text": "गाय न बाँट पाना",
+   "style": "tag",
+   "tone": "warm",
+   "fill": "paper",
+   "align": "center",
+   "size": 24
+  },
+  {
+   "id": "stored-grain",
+   "kind": "icon",
+   "cell": [
+    5,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b21",
+    "अनाज"
+   ],
+   "until_cue": [
+    "b22",
+    "पैसे"
+   ],
+   "tone": "ink",
+   "icon": "bie:grain-sack"
+  },
+  {
+   "id": "rot",
+   "kind": "mark",
+   "cue": [
+    "b21",
+    "सड़े"
+   ],
+   "until_cue": [
+    "b22",
+    "पैसे"
+   ],
+   "tone": "danger",
+   "target": "stored-grain",
+   "mark": "cross",
+   "pos": "c"
+  },
+  {
+   "id": "repayment-date",
+   "kind": "icon",
+   "cell": [
+    7,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b21",
+    "deferred"
+   ],
+   "until_cue": [
+    "b22",
+    "पैसे"
+   ],
+   "tone": "accent",
+   "icon": "tw:1f4c5"
+  },
+  {
+   "id": "same-quantity",
+   "kind": "icon",
+   "cell": [
+    9,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b21",
+    "मात्रा"
+   ],
+   "until_cue": [
+    "b22",
+    "पैसे"
+   ],
+   "tone": "ink",
+   "icon": "bie:grain-sack"
+  },
+  {
+   "id": "less-goods",
+   "kind": "icon",
+   "cell": [
+    10,
+    5,
+    1,
+    1
+   ],
+   "cue": [
+    "b21",
+    "कम"
+   ],
+   "until_cue": [
+    "b22",
+    "पैसे"
+   ],
+   "tone": "warm",
+   "icon": "fa:solid/basket-shopping"
+  },
+  {
+   "id": "repayment-effect",
+   "kind": "arrow",
+   "cue": [
+    "b21",
+    "सामान"
+   ],
+   "until_cue": [
+    "b22",
+    "पैसे"
+   ],
+   "tone": "warm",
+   "from": "same-quantity",
+   "to": "less-goods",
+   "from_side": "b",
+   "to_side": "t",
+   "elbow": "vh"
+  },
+  {
+   "id": "debt-ledger",
+   "kind": "icon",
+   "cell": [
+    0,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b22",
+    "पैसे"
+   ],
+   "until_cue": [
+    "b23",
+    "matching"
+   ],
+   "tone": "ink",
+   "icon": "bie:ledger"
+  },
+  {
+   "id": "rupee",
+   "kind": "icon",
+   "cell": [
+    2,
+    2,
+    1,
+    2
+   ],
+   "cue": [
+    "b22",
+    "उधार"
+   ],
+   "until_cue": [
+    "b23",
+    "matching"
+   ],
+   "tone": "accent",
+   "icon": "fa:solid/indian-rupee-sign"
+  },
+  {
+   "id": "debt-easy",
+   "kind": "text",
+   "cell": [
+    0,
+    4,
+    5,
+    1
+   ],
+   "cue": [
+    "b22",
+    "आसान,"
+   ],
+   "until_cue": [
+    "b23",
+    "matching"
+   ],
+   "text": "उधार लिखना आसान",
+   "style": "tag",
+   "tone": "accent",
+   "fill": "paper",
+   "align": "left",
+   "size": 26
+  },
+  {
+   "id": "basket-large",
+   "kind": "icon",
+   "cell": [
+    6,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b22",
+    "purchasing"
+   ],
+   "until_cue": [
+    "b23",
+    "matching"
+   ],
+   "tone": "accent",
+   "icon": "fa:solid/basket-shopping"
+  },
+  {
+   "id": "basket-small",
+   "kind": "icon",
+   "cell": [
+    10,
+    3,
+    1,
+    1
+   ],
+   "cue": [
+    "b22",
+    "नहीं।"
+   ],
+   "until_cue": [
+    "b23",
+    "matching"
+   ],
+   "tone": "warm",
+   "icon": "fa:solid/basket-shopping"
+  },
+  {
+   "id": "power-label",
+   "kind": "text",
+   "cell": [
+    6,
+    4,
+    6,
+    1
+   ],
+   "cue": [
+    "b22",
+    "नहीं।"
+   ],
+   "until_cue": [
+    "b23",
+    "matching"
+   ],
+   "text": "purchasing power fixed नहीं",
+   "style": "tag",
+   "tone": "warm",
+   "fill": "paper",
+   "align": "left",
+   "size": 26
+  },
+  {
+   "id": "wants",
+   "kind": "icon",
+   "cell": [
+    1,
+    5,
+    2,
+    1
+   ],
+   "cue": [
+    "b22",
+    "जरूरतें"
+   ],
+   "until_cue": [
+    "b23",
+    "matching"
+   ],
+   "tone": "ink",
+   "icon": "tw:1f91d"
+  },
+  {
+   "id": "quantities",
+   "kind": "icon",
+   "cell": [
+    8,
+    5,
+    2,
+    1
+   ],
+   "cue": [
+    "b22",
+    "quantities"
+   ],
+   "until_cue": [
+    "b23",
+    "matching"
+   ],
+   "tone": "ink",
+   "icon": "tw:2696"
+  },
+  {
+   "id": "summary",
+   "kind": "picture",
+   "cell": [
+    0,
+    2,
+    12,
+    4
+   ],
+   "cue": [
+    "b23",
+    "matching"
+   ],
+   "tone": "warm",
+   "fill": "paper",
+   "picture": {
+    "type": "flow",
+    "title": "",
+    "item_id": "",
+    "nodes": [
+     {
+      "cue": [
+       "b23",
+       "matching"
+      ],
+      "id": "n1",
+      "label": "matching"
+     },
+     {
+      "cue": [
+       "b23",
+       "से"
+      ],
+      "id": "n2",
+      "label": ""
+     },
+     {
+      "cue": [
+       "b23",
+       "से"
+      ],
+      "id": "n3",
+      "label": ""
+     },
+     {
+      "cue": [
+       "b23",
+       "से"
+      ],
+      "id": "n4",
+      "label": ""
+     },
+     {
+      "cue": [
+       "b23",
+       "repayment"
+      ],
+      "id": "n5",
+      "label": "repayment"
+     }
+    ],
+    "arrows": true
+   }
+  }
+ ],
+ "camera": [
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b21",
+    "ratios"
+   ]
+  },
+  {
+   "cells": [
+    5,
+    1,
+    7,
+    6
+   ],
+   "cue": [
+    "b21",
+    "deferred"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b22",
+    "पैसे"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    1,
+    12,
+    6
+   ],
+   "cue": [
+    "b23",
+    "matching"
+   ]
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b21",
+    "गाय"
+   ],
+   "ids": [
+    "anchor",
+    "whole-cow",
+    "division-label"
+   ],
+   "until_cue": [
+    "b21",
+    "अनाज"
+   ]
+  },
+  {
+   "cue": [
+    "b21",
+    "अनाज"
+   ],
+   "ids": [
+    "anchor",
+    "stored-grain",
+    "rot"
+   ],
+   "until_cue": [
+    "b21",
+    "deferred"
+   ]
+  },
+  {
+   "cue": [
+    "b22",
+    "जरूरतें"
+   ],
+   "ids": [
+    "anchor",
+    "wants",
+    "quantities"
+   ],
+   "until_cue": [
+    "b23",
+    "matching"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

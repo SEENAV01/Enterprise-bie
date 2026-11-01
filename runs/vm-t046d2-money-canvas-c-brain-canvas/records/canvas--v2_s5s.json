@@ -1,0 +1,2020 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "canvas",
+ "unit": "v2_s5s",
+ "status": "passed",
+ "instructions_version": "canvas-plan/1",
+ "rulebook_version": "canvas_profile@2026-10-29.1+content_types@2026-10-27.1+explanations@2026-10-24.3+level_profiles@2026-10-24.1+simple_hindi@2026-10-28.1+teacher_examples@2026-10-29.1+vision-2026-10-21@2026-10-21.17+visual_grammar@2026-10-31.1+visual_levels@2026-10-26.2+visual_verbs@2026-11-01.1",
+ "rulebook_digest": "31f0a4500f787c62c6ac8b13a76d46bc43c9b2e60fade0e5dc48ce98ce28f511",
+ "rules_used": [
+  "CV-01",
+  "CV-02",
+  "CV-03",
+  "CV-04",
+  "CV-05",
+  "CV-06",
+  "CV-07",
+  "CV-08",
+  "CV-09",
+  "CV-10",
+  "CV-11",
+  "CV-12",
+  "CV-13",
+  "CV-14",
+  "CV-15",
+  "CV-16",
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-05",
+  "G-06",
+  "G-07",
+  "VG-02",
+  "VG-04",
+  "VG-07",
+  "VG-08",
+  "VG-10",
+  "D1-01",
+  "D1-02",
+  "D1-03",
+  "D1-04",
+  "D1-05",
+  "D1-06",
+  "D2-01",
+  "D2-02",
+  "D2-03",
+  "D2-04",
+  "D2-05"
+ ],
+ "maker_route": "codex",
+ "reviewer_route": "codex-checker",
+ "maker_model": "gpt-6.1-sol",
+ "reviewer_model": "gpt-6.1-sol",
+ "reviewer_independence": "same_model_temporary",
+ "inputs_digest": "9849cbd8b8115947cffc85a46a4a82aa5bab85958d4a9f90a127587036624d83",
+ "card": null,
+ "prefix_sha256": "1d1fd3a58b10a5fad1f27f5869342a78cc81725e62a5e31ba281e08a420746fa",
+ "review_prefix_sha256": null,
+ "inputs": {
+  "system": "You are BIE's world director for one STORY part of a video lesson of Indian Economy for UPSC / State PCS aspirants (UPSC / State PCS): actors\nact in a place (a shop with buyers on a street; its place element is kind 'shop'), so this part is shown inside a small designed world (Navin's level C, an L3 world). The script\nis already written and passed; you do not change a word of it. You place the props, the people, the effects and the\ncamera moves, each on a spoken word; code builds, times and checks the world and a refused plan comes back to you with\nthe exact error, and you answer with the whole corrected plan.\n\nCourse: \"3. Money\" · learner language: Hinglish.\n\nNavin's rules for this section (follow every one):\n[CV-01] One canvas per idea: build it piece by piece instead of cutting to a new shot every sentence. Clear the canvas only when the idea changes; otherwise re-frame with a zoom or pan to the part being explained.\n[CV-02] Something on the canvas changes about every 5 s (one change per one or two spoken phrases).\n[CV-03] The picture never stays the same for more than 15 s (the references sometimes hold 40-80 s; BIE must not).\n[CV-04] A new element appears on its own word, while it is being said (about 40% into the phrase, never in the pause after).\n[CV-05] Numbers that change are struck out and replaced on screen (50 -> 65), with an up/down arrow, on the word of the new number.\n[CV-06] Many people/things are shown as a crowd that grows or shrinks with the story (2 buyers -> 12 -> 3).\n[CV-07] A running numeric example carries the concept (price 50 -> 65, GDP 10K -> 11K -> 12.1K at 10%).\n[CV-08] Return to the topic tree and tick the branch that is done before starting the next branch.\n[CV-09] One anchor diagram stays (a band, a tree, a rate card) while the part beside or below it changes.\n[CV-10] No overlap, nothing outside the safe area, captions strip kept clear, readable text (>= 24 px at 1080p), at most 16 elements on screen.\n[CV-11] No photos or caricatures of real people, no logos, emblems or regulator marks: use a name card, a generic icon or BIE's own presenter character.\n[CV-12] Light paper theme for build-up canvases (dark theme stays for 3D/science worlds); subtitles on a dark strip.\n[CV-13] On-screen text is a short COMPLETE phrase or sentence in the learner's language (Devanagari Hinglish with the English terms the script uses), one idea per board or box; never a code: no ✓ ✗ ≠, no list of bare words ('Exchange · Account / Store · Deferred'), no line that ends on → = : / (Navin, 29 October 2026: 'teacher ki naration uske sentence aise poore ho ki banawati na lage').\n[CV-14] Every on-screen text is explained: its key words are said in the narration of the beat it appears on (the cue beat), and every board step the director adds is spoken; a text the narration never says does not go on screen.\n[CV-15] A caveat ('imagined market', 'illustrative numbers') is shown once per part on its own small note, not on every board.\n[CV-16] Numbers on screen are written the way the narration says them: every number on a board, tag or box is said in its cue beat (₹500 on screen, '500 rupaye' in the narration), no counters the narration never mentions ('Payments: 0 → 2').\n[G-01] Everything taught comes from the book. Knowledge from outside the book is allowed only to explain the book better; it is marked as outside, standard textbook-level and correct. Never invent facts, numbers, names or quotations.\n[G-02] Work like the best teacher of these learners and this exam, not like a summariser. Depth beats brevity: nothing teachable on the page is skipped or compressed away, and every explanation makes a student understand, not just remember. Depth means understanding, not length: lesson narration keeps S2-01's time by cutting repetition and side-tracks, never book content.\n[G-03] Before the output, fill 'notes' with brief notes for the reviewer and for Navin: what this unit is about, the key questions a teacher must answer about it, the main decisions you made with a one-line reason each, and anything uncertain. Keep the notes short; they explain the work, they are not the work.\n[G-05] Never drop or compress away what the book teaches to fit a length. If a unit of work is too large, it is split by BIE into smaller units; within a unit, the book's content is complete. Lesson narration has a time target (S2-01), met by cutting repetition and side-tracks, never book content.\n[G-06] BIE is the link between the learner and the book, like a teacher (Navin, 24 October 2026). The book is the base; BIE carries its text, easy or hard, into the learner's mind. Never just read the line out: every book line is opened (what its words mean, why it is so, where it is seen, what follows), at the depth of the level profile.\n[G-07] Two layers, like a film (Navin, 24 October 2026). The writer layer (understanding, plan, script) decides what is said and how deep, following the level profile and the book's own level. The presentation layer (director, video blocks, render) is the same skilled quality for every learner, from class 6 to postgraduate; only the detail shown follows the level, never the craft.\n[VG-02] Labels are code text tied to their object by a leader line and move with it; a label is never baked into an image, so one asset works in every language.\n[VG-04] Size is taught by scale comparison with a thing the learner knows (one book = 1 MB; access time as a distance), never by a number alone.\n[VG-07] Two things are compared on a split screen (the split_compare block), the same slots on both sides.\n[VG-08] Processes show flow with moving arrows or particles (magma, water, concrete, ions, mucus), never a still diagram with static arrows.\n[VG-10] History and polity use a lit timeline with nodes; maps appear only through the licence gate's map rule (India's boundary waits for Navin's approval).\n[D1-01] Every beat shows at least one non-text thing tied to its nouns or its relation (an icon, a mark, an arrow, a crowd or value step, a table row, a picture event; in a world a prop, a person, a price or a crowd step), cued on a word of that beat. A beat that only adds text is refused.\n[D1-02] The screen never shows text alone for more than 10 seconds: while a beat is spoken, the thing it names is on screen (Navin, 30 October 2026: 'sirf text hi text screen par dikha to video ... ek book ban jaayegi').\n[D1-03] Screen text is a name or a short natural phrase (at most 8 words; a board 2 lines of 28 characters), never a sentence: the sentence lives in the narration and the subtitles. The picture shows the thing itself, so its label is understood without reading (page-2 principle).\n[D1-04] A book diagram or table the part covers is drawn as itself: a timeline with the book's years and labels, a table row by row, a panel of items as a gallery of icon cards, a flow as boxes and arrows. Code places it; the plan builds around it and never leaves it out.\n[D1-05] A world (C) is used only when the beats are the story of the concept's real-world example with actors at a place, and that place comes from the example itself, never from a keyword of the narration; the same world kit is never used in two consecutive parts.\n[D1-06] A caution, caveat or fact-check line ('illustrative numbers', 'imagined market', 'data not given', 'outside clarification') never appears on screen: it stays a background check in the records.\n[D2-01] A beat that tells a process (paying and getting change, a UPI scan, a card tap, a cheque, a barter swap, a refusal, counting up to a limit, counting) shows it HAPPENING with its kriya ka saancha: the people act on their cue words (hands give and take, the phone is raised to the QR stand, a head shakes), the camera moves in to the hands and the screen and back out (Navin, 1 November 2026: 'process show nahi ho rahi hai, like upi payment ka jikar hai shop par, par agar wo visuals se clear ho jaise scanner phone scan, tab maja hai'). A process no saancha fits goes to the missing-capability log.\n[D2-02] Story goods come from the story: a shop's stock, the buyers' bags, a balance's pans and an action's objects are the things the beat names (salt for salt, cloth for cloth), from the icon index and the asset library; nothing is drawn from a fixed picture (Navin, 1 November 2026: 'baat ho rahi hai kapda khareedne ki namak khareedne ki aur wo wahi cheeni ko show kar rha hai'). A thing no source has goes to needs.json.\n[D2-03] Layout in every mode: boards, labels, price tags, balances and actions never overlap while on screen together; in a world at most one board, label or title is on screen at a time and numbers go on objects (a price tag, the note, the phone screen, a passbook), never on a label; nothing sits under the subtitle strip (the bottom 14 % of the frame); an action's people are at least about a quarter of the frame tall; no camera key shows an empty street.\n[D2-04] Meaning: every relation of the dikhane ki list is realised by an element on its beat (a refusal or 'no status' puts a cross on that thing; an acceptance a tick; a limit a meter stopping at its red line); a struck value with an up or down arrow only when the same quantity changes, and change given back is the pay_change saancha (Navin's D1 findings 4 and 5).\n[D2-05] One main character per video: the person the story follows keeps the same face, clothes and cap in every part; the others are generic. Icons fit the era and the concept (a phone or a card in a barter beat is reported).\n\n# Director card: world plans (for the AI world director step, Navin's level C)\n\nYou plan ONE world for ONE story part of a passed script: actors act in a place, so the part is shown inside a small\ndesigned 2.5D street with the place at its centre. You place props, people, effects and the camera, each on a spoken\nword. Code builds, times and checks the world (`bie/brain/video/world.py`); a refused plan comes back with the exact error.\n\n## The world\n\nWorld pixels: 5200 wide, ground line at y 860; the place (the `shop` or the `bank`, the one element kind your role names\nas the kit) is usually near x 2600. The camera looks at a point\n(`x`, `y`) with a `zoom` (0.8 wide street … 1.7 close on a price tag) and takes `frames` to get there (30–60 at 30 fps).\nCamera keys are in time order, the first on the part's first beat.\n\n## Element vocabulary\n\n| kind | fields | use it for |\n| --- | --- | --- |\n| `shop` | `x`, `sign` (the shop's name, in the learner's script), `goods: [{icon, label}]`, `packets: [{n, cue}]` | the place of a shop story (a kirana shop, a tea stall, a market stall, a bazaar); its stock on the shelf (n of the story's goods: salt for a salt story, cloth for a cloth story; `goods` is required when `packets` is used) |\n| `price_tag` | `x`, `y`, `string` (hanging length), `steps: [{text, dir, cue}]`, `lift_cue` + `lift_dy` | the price that is struck out and replaced (a price only: '₹65', '₹10,000', at most 9 characters; words go on a board); lift it when demand pulls it up |\n| `crowd` | `x0`, `spacing`, `enter_x`, `exit_x`, `face` (-1 looks left), `seed`, `steps: [{n, cue}]`, `carry_cue` + `carry_n` + `carry_icon` | buyers or bank customers who walk in and out as the number changes; `carry` sends n of them away with the story's goods (`carry_icon`, required) |\n| `bank` | `x`, `sign` (the bank's name, generic, in the learner's script) | the place of a bank story: a stone front with pillars, a teller window and a counter; customers stand before it (`crowd` with `x0` near `x` - 270) |\n| `teller` | `x` (the bank's `x`) | the bank's clerk behind the counter (as `shopkeeper` is for the shop) |\n| `board` | `x`, `y`, `text` (the title: खाता, EMI, बचत), `fill` (header colour), `steps: [{text, dir, cue}]`, `until_cue` | a standing display whose value changes on its word: a passbook balance ₹0 → ₹500, an EMI due ₹10,000 → ₹0; the old value is struck out, `dir` \"up\" or \"down\" adds the arrow. A value is at most 2 lines of 28 characters (your own line breaks are kept, a long line is wrapped at spaces): a name, a number or a short phrase, never a sentence (D1-03); the teaching stays in the narration, with the words and numbers the narration of its cue beat says (CV-14, CV-16); never codes (✓ ≠ →, \"1–3 ✓, 4 Future payment →\") |\n| `label` | `x`, `y`, `text`, `fill` (rgba colour), `cue`, `until_cue` | a short name over the scene (words only: in a world a number goes on an object) |\n| `coin_rain` | `x0`, `x1`, `count`, `cue`, `until_cue` | money arriving in people's hands |\n| `balance` | `x`, `y`, `tilt`, `left_icon` + `left_label`, `right_icon` + `right_label`, `cue`, `tilt_cue`, `until_cue` | two of the story's things weighed against each other (goods against what they are exchanged for, supply against demand) on a balance that tilts on its word |\n| `action` | `x` (the stage's centre on the street, beside the place), `action: {template, actors, objects, amounts, steps, close_up}` | a process the learner sees happen: paying and getting change, a UPI scan, a card tap, a cheque, a barter swap, a refusal, counting (the saanche below) |\n| `pull_arrow` | `x`, `y0`, `y1`, `text`, `cue` | the force that pulls the price (demand-pull) |\n| `title` | `text`, `cue` | the part's name, on its word (at most 30 characters) |\n| `lamp`, `foreground` | `x` | street dressing for depth (two or three of each, outside the shop) |\n\nEvery element has `cue: [beat_id, word]` with the word exactly as written in that beat (`[beat_id, \"\"]` for the beat's\nstart). Something must change at least every 15 s (the code refuses a longer still); aim for a change every 5 s.\nNever a real person, logo, emblem or regulator mark: a generic shop sign and generic people only.\n\n## Layout (Task 046 Part D2; Navin's D1 findings 3, 7 and 8)\n\n- At most ONE board, label or title is on screen at a time: give the first an `until_cue` before the next appears.\n- Boards, labels, price tags, balances and actions never overlap while both are on screen (a board is about 440–960 px wide\n  and 310+ px tall around its x, y; an action's stage is 1000 px wide with its people about 300 px tall standing on the street).\n- Nothing in the subtitle strip: the bottom 14 % of the frame belongs to the captions (keep boards and labels high).\n- While an action plays, the camera's zoom is at least 0.9 (its people at least a quarter of the frame tall), and every camera\n  key looks at the place, the people or the action, never an empty street.\n\n## Kriya ke saanche: processes the learner sees happen (Task 046 Part D2; Navin, 1 November 2026)\n\nNavin on the D1 videos: \"process show nahi ho rahi hai, like upi payment ka jikar hai shop par, par agar wo visuals se clear\nho jaise scanner phone scan, tab maja hai\" and \"mera meaning hai ki visuals dekhkar concept clear ho aur user narration se\nconnect kar sake\". When a beat tells a PROCESS (someone pays, scans, taps a card, writes a cheque, swaps goods, refuses a coin,\ncounts coins up to a limit, counts things), show it with an `action` element: you name the template (the saancha), who does\nit, with which things, for how much, and the word of each step; code times the steps, the people act (hands give and take,\nthe phone is raised to the QR stand, a head shakes, a head nods), the camera moves in to the hands and the screen and back out.\n\n| template | steps (each on its cue word) | actors (role) | objects (name: icon) | amounts (name) |\n| --- | --- | --- | --- | --- |\n| `hand_over` | give, take | giver, taker | thing | – |\n| `pay_change` | pay, goods, change | buyer, seller | goods | paid, change (price optional) |\n| `barter_swap` | offer, ask (\"do they both want it?\"), swap | a, b | a_thing, b_thing | – |\n| `upi` | scan, paid, received | buyer, seller | – | amount |\n| `card_tap` | tap, approved | buyer, seller | – | amount |\n| `cheque` | write, hand, balances | payer, payee | – | amount (payer_before, payer_after, payee_before, payee_after optional) |\n| `coin_count` | count, limit | – | coin | each, limit |\n| `refuse` | show, refuse (head shake, a cross on the thing) | who | thing | – |\n| `accept` | show, accept (nod, a tick on the thing) | who | thing | – |\n| `count_stack` | count (the things appear one by one) | – | thing | n (1 to 12) |\n\n- The story's own things: every object's icon is the thing the beat names (salt is salt, cloth is cloth, a cowrie is a cowrie),\n  from the icon candidates of the part; never a stand-in.\n- Numbers go on the objects (the note shows ₹500, the phone screen ₹300, the passbook its balance), never on a separate label;\n  every amount is said in the narration of the action's beats, written as the narration writes it (CV-16).\n- Change given back is `pay_change` (the change travels back to the buyer), never a struck value with an arrow: a struck value\n  with ▲/▼ is only for the SAME quantity changing (a price, a balance).\n- \"Not legal tender\", \"refused\", \"no longer valid\": `refuse` puts the cross on that thing; \"accepted\", \"valid\": `accept`.\n- One main character per video: the person the story follows has `who: \"main\"` (the same face, clothes and cap in every part);\n  everyone else is `\"other\"`. `mood` is neutral, pleased, unsure or refusing; the template already changes moods on its steps.\n- A process no template fits: show it with icons and arrows meanwhile and say so in notes (\"missing process: …\"); the visual\n  idea step logs it for Navin (the missing-capability log).\n\n## What every beat shows (Task 046 Part D1; Navin, 30 October 2026)\n\nA world is used only for the story of the concept's real-world example, at the example's own place. In it every beat shows\nsomething happening that is not text (a person walking in or out, a price changing, goods or money moving, the balance\ntilting), cued on a word of that beat (D1-01). A board holds a name, a number or a short phrase, never a sentence (D1-03),\nand never a caution line (\"illustrative\", \"imagined\", \"data not given\"): those stay BIE's background checks (D1-06).\n\n## On-screen text (CV-13 to CV-16; Navin's verdict on Money v1, 29 October 2026)\n\n- A board, label or tag holds ONE idea as a short COMPLETE phrase or sentence in the learner's language (Devanagari Hinglish\n  with the English terms the script uses): \"Payment में notes और coins के अलावा खाते का पैसा भी चलता है\", not\n  \"Money = balance / Device ≠ money\".\n- Never a code: no ✓ ✗ ≠; no list of bare words (\"Exchange ✓ · Account ✓ / Store · Deferred\"); no line that ends on → = : /.\n- Every text is explained: its key words and every number are said in the narration of its cue beat (the code refuses a text\n  or a number the beat does not say; move the cue to the beat that says it, or leave it to the narration).\n- A caveat (\"imagined market\", \"illustrative numbers\") once per part, on its own small label, not on every board.\n\nHow to fill the JSON (every field is present; \"\" / 0 / [] mean \"not used\"):\n- notes: the story of this part in two lines, what each camera move shows, what is uncertain.\n- elements: in story order; id (unique), kind, the fields of that kind (card), cue [beat_id, word] (word exactly as written\n  in that beat; [beat_id, \"\"] for the beat's start) and until_cue when it leaves; steps (text/n + cue) for a price tag, a\n  board or a crowd; packets (n + cue) for the shop's stock; lift_cue + lift_dy lifts a price tag; carry_cue + carry_n sends\n  buyers away with the story's goods (carry_icon); tilt_cue tilts the balance. goods [{icon, label}] are the shop's stock (the\n  story's own goods); left_icon/left_label and right_icon/right_label are a balance's pans. action (a kriya ka saancha, the\n  card's table): x on the street beside the place, action.template, actors (role, who main/other, label, mood), objects (name,\n  icon from the candidates, label), amounts (name, text as the narration writes it), steps (name, cue) in the template's\n  order, close_up; for every other kind action.template is \"\". The place element (shop or bank) is the kit named above, once.\n- icons: only ids from the icon candidates listed under the part (the story's own things); any other id is refused.\n- camera: keys in time order, each with cue, x and y in world pixels, zoom and frames (how long the move takes).\nReply with the JSON object only.",
+  "user": "Chapter: 3. Money. Part c04.1 (8 beats).\nDikhane ki soch for this part (the visual-idea step; every beat shows its thing on its word, D1-01):\n- b25: Salt mediates two exchanges · relation sequence · shows: Wheat buys salt; salt then buys cloth · on '2 kg wheat' · saancha barter_swap\n- b26: Commodity money bridges different wants · relation sequence · shows: Salt bridges wheat and cloth; stage two highlighted · on 'पुल'\n- b27: Metal coins pay; remaining coins can be counted · relation sequence · shows: Five coins; two pay; three remain · on '5' · saancha hand_over\n- b28: Standard coins are countable commodities · relation part_whole · shows: Matching coins counted inside commodity money group · on 'गिनकर' · saancha count_stack\n- b29: Notes pay by denomination and return change · relation sequence · shows: ₹500 paid; goods and ₹200 returned · on '₹300' · saancha pay_change\n- b30: Notes carry value without metal's weight · relation compare · shows: Easy note carrying versus burdensome metal sack · on 'हल्का'\n- b31: Cheque transfers existing bank deposits · relation change · shows: Cheque settles; payer falls, shopkeeper rises equally · on '₹10,000' · saancha cheque\n- b32: Digital instructions transfer account money · relation sequence · shows: Phone scans QR; ₹300 moves between accounts · on 'QR scan' · saancha upi\nIcons found for the things named (id · name); you may also use any id from the general menu below:\n- 2 kg wheat: tw:1f33e (ear of rice); fa:solid/wheat-alt (wheat alt); fa:solid/building-wheat (Building Wheat)\n- 1 kg salt: bie:salt-sack (sack of salt · नमक की बोरी); tw:1f9c2 (salt shaker); fl:salt (salt)\n- 1 metre cloth: bie:cloth-roll (roll of cloth · कपड़े का थान); tw:1f9f5 (spool of thread); tw:1f455 (t-shirt)\n- farmer: tw:1f9d1-200d-1f33e (adult + ear of rice); fl:farmer (farmer); fl:man-farmer (man farmer)\n- salt seller: bie:salt-sack (sack of salt · नमक की बोरी); tw:1f9c2 (salt shaker); tw:1f9d1-200d-1f4bc (adult + briefcase)\n- cloth seller: bie:cloth-roll (roll of cloth · कपड़े का थान); tw:1f9f5 (spool of thread); tw:1f455 (t-shirt)\n- salt bag: bie:salt-sack (sack of salt · नमक की बोरी); tw:1f9c2 (salt shaker); fl:clutch-bag (clutch bag)\n- cattle: bie:cattle (cow · गाय); tw:1f404 (cow); fa:solid/cow (Cow)\n- shells: tw:1f41a (spiral shell); bie:cowrie-shells (cowrie shells · कौड़ियाँ)\n- wheat: tw:1f33e (ear of rice); fa:solid/wheat-alt (wheat alt); fa:solid/building-wheat (Building Wheat)\n- cloth: bie:cloth-roll (roll of cloth · कपड़े का थान); tw:1f9f5 (spool of thread); tw:1f455 (t-shirt)\n- bridge: fl:bridge-at-night (bridge at night); tw:1f309 (bridge at night); fa:solid/bridge-circle-check (Bridge Circle Check)\n- five equal silver coins: tw:1fa99 (coin); fa:solid/coins (Coins); fl:five-oclock (five o’clock)\n- two silver coins: tw:1fa99 (coin); fa:solid/coins (Coins); fl:two-hearts (two hearts)\n- three silver coins: tw:1fa99 (coin); fa:solid/coins (Coins); fl:three-oclock (three o’clock)\n- 5 kg grain: bie:grain-sack (sack of grain · अनाज की बोरी); tw:1f33e (ear of rice); fa:solid/wheat-alt (wheat alt)\n- gold coin: tw:1fa99 (coin); fa:solid/coins (Coins); fl:coin (coin)\n- buyer: tw:1f6cd (shopping bags)\n- grain seller: bie:grain-sack (sack of grain · अनाज की बोरी); tw:1f33e (ear of rice); fa:solid/wheat-alt (wheat alt)\n- matching coins: tw:1fa99 (coin); fa:solid/coins (Coins); fa:solid/wallet (Wallet)\n- balance scale: tw:2696 (scales); fl:balance-scale (balance scale); fa:solid/balance-scale-left (balance scale left)\n- gold: tw:1fa99 (coin); fa:solid/coins (Coins); bie:gold-bar (gold bar · सोने की ईंट)\n- silver: tw:1fa99 (coin); fl:2nd-place-medal (2nd place medal); fl:coin (coin)\n- commodity money group: tw:1f4b0 (money bag); fa:solid/money-bill-1 (Money Bill 1); fl:money-bag (money bag)\n- ₹300 goods: bie:salt-sack (sack of salt · नमक की बोरी); fa:solid/basket-shopping (Basket Shopping); fa:solid/square-nfi (Square Nfi)\n- ₹500 note: bie:note-500 (₹500 note · 500 रुपये का नोट); fa:solid/money-bill-1 (Money Bill 1); tw:1f4b5 (banknote with dollar sign)\n- ₹200 change: bie:note-200 (₹200 note · 200 रुपये का नोट); fa:solid/arrows-turn-to-dots (Arrows Turn To Dots); fa:solid/cash-register (Cash Register)\n- paper: tw:1f4c4 (page facing up); fl:red-paper-lantern (red paper lantern); fl:roll-of-paper (roll of paper)\n- shopkeeper: tw:1f9d1-200d-1f4bc (adult + briefcase)\n- light currency note: fa:solid/money-bill-1 (Money Bill 1); tw:1f4b5 (banknote with dollar sign); bie:note-10 (₹10 note · 10 रुपये का नोट)\n- heavy metal coins: tw:1fa99 (coin); fa:solid/coins (Coins); fl:heavy-dollar-sign (heavy dollar sign)\n- coin sack: tw:1fa99 (coin); bie:coin-25p (25 paise coin · 25 पैसे का सिक्का); bie:coin-50p (50 paise coin · 50 पैसे का सिक्का)\n- note carrier: fa:solid/money-bill-1 (Money Bill 1); tw:1f4b5 (banknote with dollar sign); bie:note-10 (₹10 note · 10 रुपये का नोट)\n- coin carrier: tw:1fa99 (coin); bie:coin-25p (25 paise coin · 25 पैसे का सिक्का); bie:coin-50p (50 paise coin · 50 पैसे का सिक्का)\n- ₹1,500 cheque: bie:coin-1 (₹1 coin · 1 रुपये का सिक्का); bie:cheque (cheque · चेक); fa:solid/money-check (Money Check)\n- bank: tw:1f3e6 (bank); bie:passbook (bank passbook · पासबुक); fl:bank (bank)\n- payer passbook: fa:solid/hand-holding-dollar (Hand Holding Dollar); bie:passbook (bank passbook · पासबुक)\n- shopkeeper passbook: tw:1f9d1-200d-1f4bc (adult + briefcase); bie:passbook (bank passbook · पासबुक)\n- pen: fl:fountain-pen (fountain pen); fl:locked-with-pen (locked with pen); fl:pen (pen)\n- payer: fa:solid/hand-holding-dollar (Hand Holding Dollar)\n- bank clerk: tw:1f3e6 (bank); bie:passbook (bank passbook · पासबुक); fl:bank (bank)\n- buyer phone: tw:1f6cd (shopping bags); tw:1f4f1 (mobile phone); fl:mobile-phone (mobile phone)\n- shop QR stand: tw:1f3ea (convenience store); bie:qr-stand (QR code stand · क्यूआर कोड स्टैंड); fa:solid/qrcode (Qrcode)\n- shopkeeper phone: tw:1f9d1-200d-1f4bc (adult + briefcase); tw:1f4f1 (mobile phone); fl:mobile-phone (mobile phone)\n- bank account balances: bie:passbook (bank passbook · पासबुक); tw:1f3e6 (bank); tw:2696 (scales)\n- net banking screen: fa:solid/mosquito-net (Mosquito Net); bie:phone (smartphone with a plain screen · मोबाइल फ़ोन); fl:goal-net (goal net)\n- payment card: tw:1f4b3 (credit card); bie:pos-machine (card machine (POS) · कार्ड मशीन); fa:solid/credit-card (Credit Card)\n\nThe part (JSON):\n{\"part\": {\"id\": \"v2_s5s\", \"part_id\": \"c04.1\", \"mode\": \"C\", \"place\": \"shop\", \"story\": true}, \"beats\": [{\"beat_id\": \"b25\", \"say\": \"मानिए किसान ने 2 kg wheat देकर 1 kg नमक लिया, खाने के लिए नहीं। फिर उसने सारा नमक देकर 1 metre कपड़ा खरीदा।\"}, {\"beat_id\": \"b26\", \"say\": \"नमक यहाँ बीच का पुल है, इसलिए commodity money है। दूसरा पड़ाव salt, cattle, shells दिखाता है; cloth seller को wheat चाहना नहीं पड़ा।\"}, {\"beat_id\": \"b27\", \"say\": \"आपके पास 5 बराबर weight और purity वाले silver coins थे। आपने 2 देकर 5 kg अनाज खरीदा; अब 3 बचे। तीसरा पड़ाव metallic money है, यानी gold या silver के सिक्के भुगतान का काम करते हैं।\"}, {\"beat_id\": \"b28\", \"say\": \"टिकाऊ, बराबर measured coins गिनकर दे सकते हैं। Gold–silver का अपना material value है, इसलिए ये commodity money भी हैं।\"}, {\"beat_id\": \"b29\", \"say\": \"₹300 का सामान लेकर ₹500 note दिया, ₹200 वापस मिले। यह चौथा पड़ाव paper money है; note denomination पर चला, कागज़ की कीमत पर नहीं।\"}, {\"beat_id\": \"b30\", \"say\": \"हल्का note बड़ी amount पहुँचाता है; भारी metal नहीं ढोना पड़ता।\"}, {\"beat_id\": \"b31\", \"say\": \"आपके ₹10,000 में से ₹1,500 का cheque settle हुआ; ₹8,500 बचे। दुकानदार के ₹2,000 में जुड़कर ₹3,500 हुए। पाँचवाँ पड़ाव bank money है: deposits यानी खाते की रकम; cheque बैंक से उसी रकम का भुगतान करवाता है, नया पैसा नहीं बनाता।\"}, {\"beat_id\": \"b32\", \"say\": \"खाते के ₹2,000 में से QR scan करके ₹300 दिए; ₹1,700 बचे। दुकानदार के ₹5,000 में जुड़कर ₹5,300 हुए। छठा पड़ाव digital money है: UPI, net banking, cards; यानी यहाँ कागज़ देने के बजाय electronic instruction से भुगतान हुआ।\"}], \"items\": [{\"item_id\": \"p002-i14\", \"content_type\": \"timeline\", \"content\": \"2. COMMODITY MONEY | Salt, cattle, shells. Points to a bag of salt, cattle and shells; between barter and metallic money.\", \"real_world_example\": {\"place\": \"An illustrative village market where traders accept salt in payment\", \"actors\": [\"Wheat farmer\", \"Wheat buyer\", \"Cloth seller\"], \"goods\": [\"Wheat\", \"Salt\", \"Cloth\"], \"numbers\": [{\"what\": \"Farmer's wheat\", \"before\": \"2 kg\", \"after\": \"0 kg\"}, {\"what\": \"Farmer's salt across both exchanges\", \"before\": \"0 kg\", \"after\": \"1 kg received, then 0 kg after payment\"}, {\"what\": \"Farmer's cloth\", \"before\": \"0 metres\", \"after\": \"1 metre\"}, {\"what\": \"Wheat buyer's salt\", \"before\": \"1 kg\", \"after\": \"0 kg\"}, {\"what\": \"Wheat buyer's wheat\", \"before\": \"0 kg\", \"after\": \"2 kg\"}, {\"what\": \"Cloth seller's salt\", \"before\": \"0 kg\", \"after\": \"1 kg\"}, {\"what\": \"Cloth seller's cloth\", \"before\": \"1 metre\", \"after\": \"0 metres\"}], \"steps\": [{\"step\": \"The farmer gives the wheat buyer 2 kg of wheat and receives 1 kg of salt, not to consume but because local traders accept it in payment.\", \"mechanism_link\": \"The commodity is accepted for onward exchange rather than as the farmer's final desired good.\"}, {\"step\": \"The farmer gives the cloth seller that 1 kg of salt and receives 1 metre of cloth.\", \"mechanism_link\": \"The same commodity bridges two transactions, removing the need for the cloth seller to want wheat.\"}], \"term_after\": \"Salt serving as this accepted intermediary is commodity money.\", \"real_life_link\": \"This illustrates the page's salt example, not a claim about current market practice; all quantities and exchange ratios are hypothetical.\"}}, {\"item_id\": \"p002-i15\", \"content_type\": \"timeline\", \"content\": \"3. METALLIC MONEY | Gold and silver coins. Points to gold- and silver-coloured coins; between commodity money and paper money.\", \"real_world_example\": {\"place\": \"An illustrative grain market using silver coins\", \"actors\": [\"Grain buyer\", \"Grain seller\"], \"goods\": [\"Grain\", \"Recognised silver coins of equal weight and purity\"], \"numbers\": [{\"what\": \"Buyer's silver coins\", \"before\": \"5 coins\", \"after\": \"3 coins\"}, {\"what\": \"Seller's silver coins\", \"before\": \"0 coins\", \"after\": \"2 coins\"}, {\"what\": \"Buyer's grain\", \"before\": \"0 kg\", \"after\": \"5 kg\"}, {\"what\": \"Seller's grain\", \"before\": \"10 kg\", \"after\": \"5 kg\"}], \"steps\": [{\"step\": \"Buyer and seller agree that 5 kg of grain costs 2 recognised silver coins of equal weight and purity.\", \"mechanism_link\": \"Measured metal units express the agreed payment amount.\"}, {\"step\": \"The buyer hands over 2 coins and receives 5 kg of grain; the seller holds the coins as payment.\", \"mechanism_link\": \"Transfer of the metallic monetary units settles the purchase.\"}], \"term_after\": \"These silver coins used to settle the purchase are metallic money.\", \"real_life_link\": \"This applies the page's silver-coin example; coin counts and the grain price are illustrative, not historical facts.\"}}, {\"item_id\": \"p002-i16\", \"content_type\": \"timeline\", \"content\": \"4. PAPER MONEY | Currency notes. Points to a bundle of currency notes, including a visible ₹500 note; between metallic money and bank money.\", \"real_world_example\": {\"place\": \"An illustrative kirana shop\", \"actors\": [\"Customer\", \"Shopkeeper\"], \"goods\": [\"Groceries priced at ₹300\", \"₹500 currency note\", \"₹200 cash change\"], \"numbers\": [{\"what\": \"Customer's cash\", \"before\": \"₹500\", \"after\": \"₹200\"}, {\"what\": \"Shopkeeper's cash\", \"before\": \"₹200\", \"after\": \"₹500\"}, {\"what\": \"Customer's grocery basket\", \"before\": \"0 baskets\", \"after\": \"1 basket priced at ₹300\"}], \"steps\": [{\"step\": \"The customer gives a valid ₹500 note for groceries priced at ₹300; the shopkeeper accepts it as ₹500 in monetary payment.\", \"mechanism_link\": \"The accepted denomination, rather than the paper's commodity value, supplies the purchasing power.\"}, {\"step\": \"The shopkeeper returns ₹200 change and hands over the groceries, retaining a net ₹300.\", \"mechanism_link\": \"Change makes the net monetary transfer equal to the purchase price.\"}], \"term_after\": \"The accepted currency note used in this purchase is paper money.\", \"real_life_link\": \"Cash purchases with change are familiar shop transactions; these amounts are illustrative and apply the page's currency-note example.\"}}, {\"item_id\": \"p002-i17\", \"content_type\": \"timeline\", \"content\": \"5. BANK MONEY | Cheques and deposits. Points to a bank building, cheque and pen; between paper money and digital money.\", \"real_world_example\": {\"place\": \"An illustrative kirana shop and the bank holding both parties' accounts\", \"actors\": [\"Customer\", \"Shopkeeper\", \"Bank\"], \"goods\": [\"Groceries priced at ₹1,500\", \"Bank deposits\", \"₹1,500 cheque\"], \"numbers\": [{\"what\": \"Customer's deposit after settlement\", \"before\": \"₹10,000\", \"after\": \"₹8,500\"}, {\"what\": \"Shopkeeper's deposit after settlement\", \"before\": \"₹2,000\", \"after\": \"₹3,500\"}, {\"what\": \"Settled payment\", \"before\": \"₹0\", \"after\": \"₹1,500\"}], \"steps\": [{\"step\": \"The customer issues a ₹1,500 cheque to pay for groceries; the shopkeeper deposits it with their bank.\", \"mechanism_link\": \"The cheque instructs payment from an existing deposit rather than creating a new monetary balance.\"}, {\"step\": \"After successful settlement, the bank debits ₹1,500 from the customer's account and credits ₹1,500 to the shopkeeper's account.\", \"mechanism_link\": \"Deposit money changes holders: ₹10,000 becomes ₹8,500 and ₹2,000 becomes ₹3,500.\"}], \"term_after\": \"The transferable deposits are bank money; the cheque is the instruction used to transfer them.\", \"real_life_link\": \"This applies the page's cheques-and-deposits example to a shop purchase; balances are illustrative, with no fees or other transactions.\"}}, {\"item_id\": \"p002-i18\", \"content_type\": \"timeline\", \"content\": \"6. DIGITAL MONEY | UPI, net banking, cards. Points to a phone showing UPI and a QR code, alongside payment cards; final panel after bank money.\", \"real_world_example\": {\"place\": \"An illustrative kirana shop accepting UPI\", \"actors\": [\"Customer\", \"Shopkeeper\", \"Account-holding banks\"], \"goods\": [\"Groceries priced at ₹300\", \"Existing bank deposits\"], \"numbers\": [{\"what\": \"Customer's bank balance\", \"before\": \"₹2,000\", \"after\": \"₹1,700\"}, {\"what\": \"Shopkeeper's bank balance\", \"before\": \"₹5,000\", \"after\": \"₹5,300\"}, {\"what\": \"Completed payment\", \"before\": \"₹0\", \"after\": \"₹300\"}], \"steps\": [{\"step\": \"The customer scans the shop's UPI QR code and authorises a ₹300 payment from an existing bank account for groceries.\", \"mechanism_link\": \"The electronic channel carries an instruction to transfer existing funds.\"}, {\"step\": \"After successful completion, the customer's account is debited ₹300 and the shopkeeper's account is credited ₹300.\", \"mechanism_link\": \"The same amount moves between holders; the channel does not create a separate stock of money.\"}], \"term_after\": \"This is a digital payment through UPI, grouped under digital money on the page; the transferred money in this example is bank deposits.\", \"real_life_link\": \"The page's UPI example connects directly to QR-code shop payments; amounts are illustrative and assume no fees or other transactions.\"}}], \"on_screen_hints\": [\"Hypothetical: farmer gives 2 kg wheat, receives 1 kg salt for onward payment, then gives all that salt for 1 metre cloth.\", \"2. COMMODITY MONEY: accepted intermediary, not merely a desired final good.\", \"Hypothetical: buyer starts with 5 recognised equal silver coins, gives 2 to the seller, receives 5 kg grain and retains 3 coins. Stage 3: METALLIC MONEY—gold and silver coins.\", \"Durable metal survives handling; equal measured units permit counting. Metallic money overlaps with commodity money.\", \"₹500 − ₹200 change = ₹300 net payment.\", \"Monetary denomination need not require equivalent commodity weight.\", \"Same bank, successful settlement, no fees: move ₹1,500 between account records. Combined deposits remain ₹12,000; cheque is the instruction arrow.\", \"Successful bank-account-funded UPI payment, no fees: scan QR, authorise ₹300, then update both balances. Electronic instruction replaces handing over cash or paper.\"], \"ideas\": [{\"beat_id\": \"b25\", \"idea\": \"Salt mediates two exchanges\", \"relation\": \"sequence\", \"things\": [\"2 kg wheat\", \"1 kg salt\", \"1 metre cloth\"], \"people\": [\"farmer\", \"salt seller\", \"cloth seller\"], \"places\": [], \"shows\": \"Wheat buys salt; salt then buys cloth\", \"on_word\": \"2 kg wheat\", \"template\": \"barter_swap\"}, {\"beat_id\": \"b26\", \"idea\": \"Commodity money bridges different wants\", \"relation\": \"sequence\", \"things\": [\"salt bag\", \"cattle\", \"shells\", \"wheat\", \"cloth\", \"bridge\"], \"people\": [\"farmer\", \"cloth seller\"], \"places\": [], \"shows\": \"Salt bridges wheat and cloth; stage two highlighted\", \"on_word\": \"पुल\", \"template\": \"none\"}, {\"beat_id\": \"b27\", \"idea\": \"Metal coins pay; remaining coins can be counted\", \"relation\": \"sequence\", \"things\": [\"five equal silver coins\", \"two silver coins\", \"three silver coins\", \"5 kg grain\", \"gold coin\"], \"people\": [\"buyer\", \"grain seller\"], \"places\": [], \"shows\": \"Five coins; two pay; three remain\", \"on_word\": \"5\", \"template\": \"hand_over\"}, {\"beat_id\": \"b28\", \"idea\": \"Standard coins are countable commodities\", \"relation\": \"part_whole\", \"things\": [\"matching coins\", \"balance scale\", \"gold\", \"silver\", \"commodity money group\"], \"people\": [], \"places\": [], \"shows\": \"Matching coins counted inside commodity money group\", \"on_word\": \"गिनकर\", \"template\": \"count_stack\"}, {\"beat_id\": \"b29\", \"idea\": \"Notes pay by denomination and return change\", \"relation\": \"sequence\", \"things\": [\"₹300 goods\", \"₹500 note\", \"₹200 change\", \"paper\"], \"people\": [\"buyer\", \"shopkeeper\"], \"places\": [], \"shows\": \"₹500 paid; goods and ₹200 returned\", \"on_word\": \"₹300\", \"template\": \"pay_change\"}, {\"beat_id\": \"b30\", \"idea\": \"Notes carry value without metal's weight\", \"relation\": \"compare\", \"things\": [\"light currency note\", \"heavy metal coins\", \"coin sack\"], \"people\": [\"note carrier\", \"coin carrier\"], \"places\": [], \"shows\": \"Easy note carrying versus burdensome metal sack\", \"on_word\": \"हल्का\", \"template\": \"other\"}, {\"beat_id\": \"b31\", \"idea\": \"Cheque transfers existing bank deposits\", \"relation\": \"change\", \"things\": [\"₹1,500 cheque\", \"bank\", \"payer passbook\", \"shopkeeper passbook\", \"pen\"], \"people\": [\"payer\", \"shopkeeper\", \"bank clerk\"], \"places\": [], \"shows\": \"Cheque settles; payer falls, shopkeeper rises equally\", \"on_word\": \"₹10,000\", \"template\": \"cheque\"}, {\"beat_id\": \"b32\", \"idea\": \"Digital instructions transfer account money\", \"relation\": \"sequence\", \"things\": [\"buyer phone\", \"shop QR stand\", \"shopkeeper phone\", \"bank account balances\", \"net banking screen\", \"payment card\"], \"people\": [\"buyer\", \"shopkeeper\"], \"places\": [], \"shows\": \"Phone scans QR; ₹300 moves between accounts\", \"on_word\": \"QR scan\", \"template\": \"upi\"}], \"picture\": []}\n\nReply with the plan JSON."
+ },
+ "rounds": [
+  {
+   "round": 0,
+   "started_at": 1793559351.4847593,
+   "mode": "resume",
+   "notes": {
+    "about": "एक market canvas पर नमक से digital payment तक money के रूप दिखते हैं। वही main ग्राहक रहता है और दुकान स्थान का anchor है।",
+    "key_questions": [
+     "नमक दो अलग जरूरतों के बीच payment कैसे बनता है?",
+     "Coins का material value और notes की denomination कैसे अलग हैं?",
+     "Cheque और UPI मौजूदा deposits कैसे transfer करते हैं?"
+    ],
+    "decisions": [
+     {
+      "decision": "b26 का salt–cloth balance हटाकर wheat–salt और salt–cloth के दो क्रमिक barter_swap actions रखे हैं।",
+      "reason": "अब sequence उसी beat के बोले गए शब्दों पर दो exchanges होते हुए दिखता है; salt main पात्र के पास पहले आता और फिर आगे जाता है।"
+     },
+     {
+      "decision": "बाकी transactions, labels और camera progression बनाए रखे हैं; b26 के camera keys अब क्रमिक exchanges पर केंद्रित हैं।",
+      "reason": "पहले सही काम को रखते हुए केवल flagged relation सुधारा गया है।"
+     },
+     {
+      "decision": "Caveats records में हैं; अतिरिक्त prices या totals नहीं जोड़े हैं।",
+      "reason": "Script अपरिवर्तित और उदाहरण illustrative हैं।"
+     },
+     {
+      "decision": "b28 में पहले बचे तीन coins ही फिर गिने जाते हैं।",
+      "reason": "यह उसी inventory का continuation है, नया numeric example नहीं।"
+     }
+    ],
+    "uncertain": [
+     "Missing capability: persistent lit book timeline और topic-tree completion के लिए world vocabulary में native element नहीं है।",
+     "Missing capability: b26 के cattle और shells तथा b32 के net banking और cards की स्वतंत्र cued prop gallery उपलब्ध नहीं है।",
+     "Missing process: b30 के note carrier बनाम burdened coin-sack carrier का split comparison उपलब्ध नहीं है; balance interim comparison है।",
+     "Cheque का single balances step accounts के अलग-अलग बोले गए updates को स्वतंत्र timing नहीं देता। UPI में अतिरिक्त balance amount names का renderer support सुनिश्चित नहीं है।",
+     "b27 की persistent five-to-two-to-three coin inventory और b28 का enclosing commodity-money group native templates में पूर्णतः उपलब्ध नहीं हैं।"
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "एक market canvas पर नमक से digital payment तक money के रूप दिखते हैं। वही main ग्राहक रहता है और दुकान स्थान का anchor है।",
+     "key_questions": [
+      "नमक दो अलग जरूरतों के बीच payment कैसे बनता है?",
+      "Coins का material value और notes की denomination कैसे अलग हैं?",
+      "Cheque और UPI मौजूदा deposits कैसे transfer करते हैं?"
+     ],
+     "decisions": [
+      {
+       "decision": "b26 का salt–cloth balance हटाकर wheat–salt और salt–cloth के दो क्रमिक barter_swap actions रखे हैं।",
+       "reason": "अब sequence उसी beat के बोले गए शब्दों पर दो exchanges होते हुए दिखता है; salt main पात्र के पास पहले आता और फिर आगे जाता है।"
+      },
+      {
+       "decision": "बाकी transactions, labels और camera progression बनाए रखे हैं; b26 के camera keys अब क्रमिक exchanges पर केंद्रित हैं।",
+       "reason": "पहले सही काम को रखते हुए केवल flagged relation सुधारा गया है।"
+      },
+      {
+       "decision": "Caveats records में हैं; अतिरिक्त prices या totals नहीं जोड़े हैं।",
+       "reason": "Script अपरिवर्तित और उदाहरण illustrative हैं।"
+      },
+      {
+       "decision": "b28 में पहले बचे तीन coins ही फिर गिने जाते हैं।",
+       "reason": "यह उसी inventory का continuation है, नया numeric example नहीं।"
+      }
+     ],
+     "uncertain": [
+      "Missing capability: persistent lit book timeline और topic-tree completion के लिए world vocabulary में native element नहीं है।",
+      "Missing capability: b26 के cattle और shells तथा b32 के net banking और cards की स्वतंत्र cued prop gallery उपलब्ध नहीं है।",
+      "Missing process: b30 के note carrier बनाम burdened coin-sack carrier का split comparison उपलब्ध नहीं है; balance interim comparison है।",
+      "Cheque का single balances step accounts के अलग-अलग बोले गए updates को स्वतंत्र timing नहीं देता। UPI में अतिरिक्त balance amount names का renderer support सुनिश्चित नहीं है।",
+      "b27 की persistent five-to-two-to-three coin inventory और b28 का enclosing commodity-money group native templates में पूर्णतः उपलब्ध नहीं हैं।"
+     ]
+    },
+    "elements": [
+     {
+      "id": "market",
+      "kind": "shop",
+      "x": 3000,
+      "y": 0,
+      "sign": "",
+      "text": "",
+      "fill": "",
+      "string": 0,
+      "steps": [],
+      "packets": [],
+      "cue": [
+       "b25",
+       ""
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0,
+      "carry_icon": "",
+      "goods": [
+       {
+        "icon": "fa:solid/wheat-alt",
+        "label": ""
+       },
+       {
+        "icon": "bie:salt-sack",
+        "label": ""
+       },
+       {
+        "icon": "bie:cloth-roll",
+        "label": ""
+       }
+      ],
+      "left_icon": "",
+      "left_label": "",
+      "right_icon": "",
+      "right_label": "",
+      "action": {
+       "template": "",
+       "actors": [],
+       "objects": [],
+       "amounts": [],
+       "steps": [],
+       "close_up": false
+      }
+     },
+     {
+      "id": "wheat_for_salt",
+      "kind": "action",
+      "x": 1950,
+      "y": 0,
+      "sign": "",
+      "text": "",
+      "fill": "",
+      "string": 0,
+      "steps": [],
+      "packets": [],
+      "cue": [
+       "b25",
+       "2"
+      ],
+      "until_cue": [
+       "b25",
+       "फिर"
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0,
+      "carry_icon": "",
+      "goods": [],
+      "left_icon": "",
+      "left_label": "",
+      "right_icon": "",
+      "right_label": "",
+      "action": {
+       "template": "barter_swap",
+       "actors": [
+        {
+         "role": "a",
+         "who": "main",
+         "label": "",
+         "mood": "neutral"
+        },
+        {
+         "role": "b",
+         "who": "other",
+         "label": "",
+         "mood": "neutral"
+        }
+       ],
+       "objects": [
+        {
+         "name": "a_thing",
+         "icon": "fa:solid/wheat-alt",
+         "label": ""
+        },
+        {
+         "name": "b_thing",
+         "icon": "bie:salt-sack",
+         "label": ""
+        }
+       ],
+       "amounts": [],
+       "steps": [
+        {
+         "name": "offer",
+         "cue": [
+          "b25",
+          "wheat"
+         ]
+        },
+        {
+         "name": "ask",
+         "cue": [
+          "b25",
+          "देकर"
+         ]
+        },
+        {
+         "name": "swap",
+         "cue": [
+          "b25",
+          "लिया,"
+         ]
+        }
+       ],
+       "close_up": true
+      }
+     },
+     {
+      "id": "salt_for_cloth",
+      "kind": "action",
+      "x": 1950,
+      "y": 0,
+      "sign": "",
+      "text": "",
+      "fill": "",
+      "string": 0,
+      "steps": [],
+      "packets": [],
+      "cue": [
+       "b25",
+       "फिर"
+      ],
+      "until_cue": [
+       "b26",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0,
+      "carry_icon": "",
+      "goods": [],
+      "left_icon": "",
+      "left_label": "",
+      "right_icon": "",
+      "right_label": "",
+      "action": {
+       "template": "barter_swap",
+       "actors": [
+        {
+         "role": "a",
+         "who": "main",
+         "label": "",
+         "mood": "neutral"
+        },
+        {
+         "role": "b",
+         "who": "other",
+         "label": "",
+         "mood": "neutral"
+        }
+       ],
+       "objects": [
+        {
+         "name": "a_thing",
+         "icon": "bie:salt-sack",
+         "label": ""
+        },
+        {
+         "name": "b_thing",
+         "icon": "bie:cloth-roll",
+         "label": ""
+        }
+       ],
+       "amounts": [],
+       "steps": [
+        {
+         "name": "offer",
+         "cue": [
+          "b25",
+          "सारा"
+         ]
+        },
+        {
+         "name": "ask",
+         "cue": [
+          "b25",
+          "कपड़ा"
+         ]
+        },
+        {
+         "name": "swap",
+         "cue": [
+          "b25",
+          "खरीदा।"
+         ]
+        }
+       ],
+       "close_up": true
+      }
+     },
+     {
+      "id": "bridge_first_exchange",
+      "kind": "action",
+      "x": 1950,
+      "y": 0,
+      "sign": "",
+      "text": "",
+      "fill": "",
+      "string": 0,
+      "steps": [],
+      "packets": [],
+      "cue": [
+       "b26",
+       "नमक"
+      ],
+      "until_cue": [
+       "b26",
+       "दूसरा"
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0,
+      "carry_icon": "",
+      "goods": [],
+      "left_icon": "",
+      "left_label": "",
+      "right_icon": "",
+      "right_label": "",
+      "action": {
+       "template": "barter_swap",
+       "actors": [
+        {
+         "role": "a",
+         "who": "main",
+         "label": "",
+         "mood": "neutral"
+        },
+        {
+         "role": "b",
+         "who": "other",
+         "label": "",
+         "mood": "neutral"
+        }
+       ],
+       "objects": [
+        {
+         "name": "a_thing",
+         "icon": "fa:solid/wheat-alt",
+         "label": ""
+        },
+        {
+         "name": "b_thing",
+         "icon": "bie:salt-sack",
+         "label": ""
+        }
+       ],
+       "amounts": [],
+       "steps": [
+        {
+         "name": "offer",
+         "cue": [
+          "b26",
+          "नमक"
+         ]
+        },
+        {
+         "name": "ask",
+         "cue": [
+          "b26",
+          "यहाँ"
+         ]
+        },
+        {
+         "name": "swap",
+         "cue": [
+          "b26",
+          "पुल"
+         ]
+        }
+       ],
+       "close_up": true
+      }
+     },
+     {
+      "id": "commodity_stage",
+      "kind": "label",
+      "x": 1950,
+      "y": 270,
+      "sign": "",
+      "text": "commodity money",
+      "fill": "rgba(245,235,210,1)",
+      "string": 0,
+      "steps": [],
+      "packets": [],
+      "cue": [
+       "b26",
+       "commodity"
+      ],
+      "until_cue": [
+       "b27",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0,
+      "carry_icon": "",
+      "goods": [],
+      "left_icon": "",
+      "left_label": "",
+      "right_icon": "",
+      "right_label": "",
+      "action": {
+       "template": "",
+       "actors": [],
+       "objects": [],
+       "amounts": [],
+       "steps": [],
+       "close_up": false
+      }
+     },
+     {
+      "id": "bridge_second_exchange",
+      "kind": "action",
+      "x": 1950,
+      "y": 0,
+      "sign": "",
+      "text": "",
+      "fill": "",
+      "string": 0,
+      "steps": [],
+      "packets": [],
+      "cue": [
+       "b26",
+       "दूसरा"
+      ],
+      "until_cue": [
+       "b27",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0,
+      "carry_icon": "",
+      "goods": [],
+      "left_icon": "",
+      "left_label": "",
+      "right_icon": "",
+      "right_label": "",
+      "action": {
+       "template": "barter_swap",
+       "actors": [
+        {
+         "role": "a",
+         "who": "main",
+         "label": "",
+         "mood": "neutral"
+        },
+        {
+         "role": "b",
+         "who": "other",
+         "label": "",
+         "mood": "neutral"
+        }
+       ],
+       "objects": [
+        {
+         "name": "a_thing",
+         "icon": "bie:salt-sack",
+         "label": ""
+        },
+        {
+         "name": "b_thing",
+         "icon": "bie:cloth-roll",
+         "label": ""
+        }
+       ],
+       "amounts": [],
+       "steps": [
+        {
+         "name": "offer",
+         "cue": [
+          "b26",
+          "salt,"
+         ]
+        },
+        {
+         "name": "ask",
+         "cue": [
+          "b26",
+          "cloth"
+         ]
+        },
+        {
+         "name": "swap",
+         "cue": [
+          "b26",
+          "पड़ा।"
+         ]
+        }
+       ],
+       "close_up": true
+      }
+     },
+     {
+      "id": "five_coins",
+      "kind": "action",
+      "x": 1950,
+      "y": 0,
+      "sign": "",
+      "text": "",
+      "fill": "",
+      "string": 0,
+      "steps": [],
+      "packets": [],
+      "cue": [
+       "b27",
+       "5"
+      ],
+      "until_cue": [
+       "b27",
+       "आपने"
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0,
+      "carry_icon": "",
+      "goods": [],
+      "left_icon": "",
+      "left_label": "",
+      "right_icon": "",
+      "right_label": "",
+      "action": {
+       "template": "count_stack",
+       "actors": [],
+       "objects": [
+        {
+         "name": "thing",
+         "icon": "tw:1fa99",
+         "label": ""
+        }
+       ],
+       "amounts": [
+        {
+         "name": "n",
+         "text": "5"
+        }
+       ],
+       "steps": [
+        {
+         "name": "count",
+         "cue": [
+          "b27",
+          "5"
+         ]
+        }
+       ],
+       "close_up": true
+      }
+     },
+     {
+      "id": "coin_payment",
+      "kind": "action",
+      "x": 1950,
+      "y": 0,
+      "sign": "",
+      "text": "",
+      "fill": "",
+      "string": 0,
+      "steps": [],
+      "packets": [],
+      "cue": [
+       "b27",
+       "आपने"
+      ],
+      "until_cue": [
+       "b27",
+       "अनाज"
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0,
+      "carry_icon": "",
+      "goods": [],
+      "left_icon": "",
+      "left_label": "",
+      "right_icon": "",
+      "right_label": "",
+      "action": {
+       "template": "hand_over",
+       "actors": [
+        {
+         "role": "giver",
+         "who": "main",
+         "label": "",
+         "mood": "neutral"
+        },
+        {
+         "role": "taker",
+         "who": "other",
+         "label": "",
+         "mood": "neutral"
+        }
+       ],
+       "objects": [
+        {
+         "name": "thing",
+         "icon": "fa:solid/coins",
+         "label": ""
+        }
+       ],
+       "amounts": [],
+       "steps": [
+        {
+         "name": "give",
+         "cue": [
+          "b27",
+          "2"
+         ]
+        },
+        {
+         "name": "take",
+         "cue": [
+          "b27",
+          "देकर"
+         ]
+        }
+       ],
+       "close_up": true
+      }
+     },
+     {
+      "id": "grain_received",
+      "kind": "action",
+      "x": 1950,
+      "y": 0,
+      "sign": "",
+      "text": "",
+      "fill": "",
+      "string": 0,
+      "steps": [],
+      "packets": [],
+      "cue": [
+       "b27",
+       "अनाज"
+      ],
+      "until_cue": [
+       "b27",
+       "अब"
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0,
+      "carry_icon": "",
+      "goods": [],
+      "left_icon": "",
+      "left_label": "",
+      "right_icon": "",
+      "right_label": "",
+      "action": {
+       "template": "hand_over",
+       "actors": [
+        {
+         "role": "giver",
+         "who": "other",
+         "label": "",
+         "mood": "neutral"
+        },
+        {
+         "role": "taker",
+         "who": "main",
+         "label": "",
+         "mood": "pleased"
+        }
+       ],
+       "objects": [
+        {
+         "name": "thing",
+         "icon": "bie:grain-sack",
+         "label": ""
+        }
+       ],
+       "amounts": [],
+       "steps": [
+        {
+         "name": "give",
+         "cue": [
+          "b27",
+          "अनाज"
+         ]
+        },
+        {
+         "name": "take",
+         "cue": [
+          "b27",
+          "खरीदा;"
+         ]
+        }
+       ],
+       "close_up": true
+      }
+     },
+     {
+      "id": "remaining_coins",
+      "kind": "action",
+      "x": 1950,
+      "y": 0,
+      "sign": "",
+      "text": "",
+      "fill": "",
+      "string": 0,
+      "steps": [],
+      "packets": [],
+      "cue": [
+       "b27",
+       "अब"
+      ],
+      "until_cue": [
+       "b28",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0,
+      "carry_icon": "",
+      "goods": [],
+      "left_icon": "",
+      "left_label": "",
+      "right_icon": "",
+      "right_label": "",
+      "action": {
+       "template": "count_stack",
+       "actors": [],
+       "objects": [
+        {
+         "name": "thing",
+         "icon": "tw:1fa99",
+         "label": ""
+        }
+       ],
+       "amounts": [
+        {
+         "name": "n",
+         "text": "3"
+        }
+       ],
+       "steps": [
+        {
+         "name": "count",
+         "cue": [
+          "b27",
+          "3"
+         ]
+        }
+       ],
+       "close_up": true
+      }
+     },
+     {
+      "id": "metallic_stage",
+      "kind": "label",
+      "x": 1950,
+      "y": 270,
+      "sign": "",
+      "text": "metallic money",
+      "fill": "rgba(230,233,235,1)",
+      "string": 0,
+      "steps": [],
+      "packets": [],
+      "cue": [
+       "b27",
+       "metallic"
+      ],
+      "until_cue": [
+       "b28",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0,
+      "carry_icon": "",
+      "goods": [],
+      "left_icon": "",
+      "left_label": "",
+      "right_icon": "",
+      "right_label": "",
+      "action": {
+       "template": "",
+       "actors": [],
+       "objects": [],
+       "amounts": [],
+       "steps": [],
+       "close_up": false
+      }
+     },
+     {
+      "id": "count_matching_coins",
+      "kind": "action",
+      "x": 1950,
+      "y": 0,
+      "sign": "",
+      "text": "",
+      "fill": "",
+      "string": 0,
+      "steps": [],
+      "packets": [],
+      "cue": [
+       "b28",
+       "गिनकर"
+      ],
+      "until_cue": [
+       "b29",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0,
+      "carry_icon": "",
+      "goods": [],
+      "left_icon": "",
+      "left_label": "",
+      "right_icon": "",
+      "right_label": "",
+      "action": {
+       "template": "count_stack",
+       "actors": [],
+       "objects": [
+        {
+         "name": "thing",
+         "icon": "tw:1fa99",
+         "label": ""
+        }
+       ],
+       "amounts": [
+        {
+         "name": "n",
+         "text": "3"
+        }
+       ],
+       "steps": [
+        {
+         "name": "count",
+         "cue": [
+          "b28",
+          "गिनकर"
+         ]
+        }
+       ],
+       "close_up": true
+      }
+     },
+     {
+      "id": "metal_is_commodity",
+      "kind": "label",
+      "x": 1950,
+      "y": 270,
+      "sign": "",
+      "text": "commodity money भी",
+      "fill": "rgba(245,235,210,1)",
+      "string": 0,
+      "steps": [],
+      "packets": [],
+      "cue": [
+       "b28",
+       "commodity"
+      ],
+      "until_cue": [
+       "b29",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0,
+      "carry_icon": "",
+      "goods": [],
+      "left_icon": "",
+      "left_label": "",
+      "right_icon": "",
+      "right_label": "",
+      "action": {
+       "template": "",
+       "actors": [],
+       "objects": [],
+       "amounts": [],
+       "steps": [],
+       "close_up": false
+      }
+     },
+     {
+      "id": "cash_and_change",
+      "kind": "action",
+      "x": 1950,
+      "y": 0,
+      "sign": "",
+      "text": "",
+      "fill": "",
+      "string": 0,
+      "steps": [],
+      "packets": [],
+      "cue": [
+       "b29",
+       "₹300"
+      ],
+      "until_cue": [
+       "b30",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0,
+      "carry_icon": "",
+      "goods": [],
+      "left_icon": "",
+      "left_label": "",
+      "right_icon": "",
+      "right_label": "",
+      "action": {
+       "template": "pay_change",
+       "actors": [
+        {
+         "role": "buyer",
+         "who": "main",
+         "label": "",
+         "mood": "neutral"
+        },
+        {
+         "role": "seller",
+         "who": "other",
+         "label": "",
+         "mood": "neutral"
+        }
+       ],
+       "objects": [
+        {
+         "name": "goods",
+         "icon": "fa:solid/basket-shopping",
+         "label": ""
+        }
+       ],
+       "amounts": [
+        {
+         "name": "price",
+         "text": "₹300"
+        },
+        {
+         "name": "paid",
+         "text": "₹500"
+        },
+        {
+         "name": "change",
+         "text": "₹200"
+        }
+       ],
+       "steps": [
+        {
+         "name": "pay",
+         "cue": [
+          "b29",
+          "दिया,"
+         ]
+        },
+        {
+         "name": "goods",
+         "cue": [
+          "b29",
+          "₹200"
+         ]
+        },
+        {
+         "name": "change",
+         "cue": [
+          "b29",
+          "वापस"
+         ]
+        }
+       ],
+       "close_up": true
+      }
+     },
+     {
+      "id": "paper_stage",
+      "kind": "label",
+      "x": 1950,
+      "y": 270,
+      "sign": "",
+      "text": "paper money",
+      "fill": "rgba(238,232,218,1)",
+      "string": 0,
+      "steps": [],
+      "packets": [],
+      "cue": [
+       "b29",
+       "paper"
+      ],
+      "until_cue": [
+       "b30",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0,
+      "carry_icon": "",
+      "goods": [],
+      "left_icon": "",
+      "left_label": "",
+      "right_icon": "",
+      "right_label": "",
+      "action": {
+       "template": "",
+       "actors": [],
+       "objects": [],
+       "amounts": [],
+       "steps": [],
+       "close_up": false
+      }
+     },
+     {
+      "id": "carrying_weight",
+      "kind": "balance",
+      "x": 1950,
+      "y": 550,
+      "sign": "",
+      "text": "",
+      "fill": "",
+      "string": 0,
+      "steps": [],
+      "packets": [],
+      "cue": [
+       "b30",
+       "हल्का"
+      ],
+      "until_cue": [
+       "b31",
+       ""
+      ],
+      "tilt_cue": [
+       "b30",
+       "भारी"
+      ],
+      "tilt": 0.3,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0,
+      "carry_icon": "",
+      "goods": [],
+      "left_icon": "fa:solid/money-bill-1",
+      "left_label": "",
+      "right_icon": "fa:solid/coins",
+      "right_label": "",
+      "action": {
+       "template": "",
+       "actors": [],
+       "objects": [],
+       "amounts": [],
+       "steps": [],
+       "close_up": false
+      }
+     },
+     {
+      "id": "cheque_transfer",
+      "kind": "action",
+      "x": 1950,
+      "y": 0,
+      "sign": "",
+      "text": "",
+      "fill": "",
+      "string": 0,
+      "steps": [],
+      "packets": [],
+      "cue": [
+       "b31",
+       "₹10,000"
+      ],
+      "until_cue": [
+       "b32",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0,
+      "carry_icon": "",
+      "goods": [],
+      "left_icon": "",
+      "left_label": "",
+      "right_icon": "",
+      "right_label": "",
+      "action": {
+       "template": "cheque",
+       "actors": [
+        {
+         "role": "payer",
+         "who": "main",
+         "label": "",
+         "mood": "neutral"
+        },
+        {
+         "role": "payee",
+         "who": "other",
+         "label": "",
+         "mood": "neutral"
+        }
+       ],
+       "objects": [],
+       "amounts": [
+        {
+         "name": "amount",
+         "text": "₹1,500"
+        },
+        {
+         "name": "payer_before",
+         "text": "₹10,000"
+        },
+        {
+         "name": "payer_after",
+         "text": "₹8,500"
+        },
+        {
+         "name": "payee_before",
+         "text": "₹2,000"
+        },
+        {
+         "name": "payee_after",
+         "text": "₹3,500"
+        }
+       ],
+       "steps": [
+        {
+         "name": "write",
+         "cue": [
+          "b31",
+          "₹1,500"
+         ]
+        },
+        {
+         "name": "hand",
+         "cue": [
+          "b31",
+          "cheque"
+         ]
+        },
+        {
+         "name": "balances",
+         "cue": [
+          "b31",
+          "₹8,500"
+         ]
+        }
+       ],
+       "close_up": true
+      }
+     },
+     {
+      "id": "bank_stage",
+      "kind": "label",
+      "x": 1950,
+      "y": 270,
+      "sign": "",
+      "text": "खाते की रकम",
+      "fill": "rgba(225,237,229,1)",
+      "string": 0,
+      "steps": [],
+      "packets": [],
+      "cue": [
+       "b31",
+       "खाते"
+      ],
+      "until_cue": [
+       "b32",
+       ""
+      ],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0,
+      "carry_icon": "",
+      "goods": [],
+      "left_icon": "",
+      "left_label": "",
+      "right_icon": "",
+      "right_label": "",
+      "action": {
+       "template": "",
+       "actors": [],
+       "objects": [],
+       "amounts": [],
+       "steps": [],
+       "close_up": false
+      }
+     },
+     {
+      "id": "qr_payment",
+      "kind": "action",
+      "x": 1950,
+      "y": 0,
+      "sign": "",
+      "text": "",
+      "fill": "",
+      "string": 0,
+      "steps": [],
+      "packets": [],
+      "cue": [
+       "b32",
+       "₹2,000"
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0,
+      "carry_icon": "",
+      "goods": [],
+      "left_icon": "",
+      "left_label": "",
+      "right_icon": "",
+      "right_label": "",
+      "action": {
+       "template": "upi",
+       "actors": [
+        {
+         "role": "buyer",
+         "who": "main",
+         "label": "",
+         "mood": "neutral"
+        },
+        {
+         "role": "seller",
+         "who": "other",
+         "label": "",
+         "mood": "neutral"
+        }
+       ],
+       "objects": [],
+       "amounts": [
+        {
+         "name": "amount",
+         "text": "₹300"
+        },
+        {
+         "name": "payer_before",
+         "text": "₹2,000"
+        },
+        {
+         "name": "payer_after",
+         "text": "₹1,700"
+        },
+        {
+         "name": "payee_before",
+         "text": "₹5,000"
+        },
+        {
+         "name": "payee_after",
+         "text": "₹5,300"
+        }
+       ],
+       "steps": [
+        {
+         "name": "scan",
+         "cue": [
+          "b32",
+          "QR"
+         ]
+        },
+        {
+         "name": "paid",
+         "cue": [
+          "b32",
+          "दिए;"
+         ]
+        },
+        {
+         "name": "received",
+         "cue": [
+          "b32",
+          "₹5,300"
+         ]
+        }
+       ],
+       "close_up": true
+      }
+     },
+     {
+      "id": "electronic_instruction",
+      "kind": "label",
+      "x": 1950,
+      "y": 270,
+      "sign": "",
+      "text": "electronic instruction से भुगतान",
+      "fill": "rgba(225,235,242,1)",
+      "string": 0,
+      "steps": [],
+      "packets": [],
+      "cue": [
+       "b32",
+       "electronic"
+      ],
+      "until_cue": [],
+      "tilt_cue": [],
+      "tilt": 0,
+      "x0": 0,
+      "x1": 0,
+      "y0": 0,
+      "y1": 0,
+      "spacing": 0,
+      "enter_x": 0,
+      "exit_x": 0,
+      "face": 0,
+      "seed": 0,
+      "count": 0,
+      "lift_cue": [],
+      "lift_dy": 0,
+      "carry_cue": [],
+      "carry_n": 0,
+      "carry_icon": "",
+      "goods": [],
+      "left_icon": "",
+      "left_label": "",
+      "right_icon": "",
+      "right_label": "",
+      "action": {
+       "template": "",
+       "actors": [],
+       "objects": [],
+       "amounts": [],
+       "steps": [],
+       "close_up": false
+      }
+     }
+    ],
+    "camera": [
+     {
+      "cue": [
+       "b25",
+       ""
+      ],
+      "x": 2400,
+      "y": 490,
+      "zoom": 0.95,
+      "frames": 30
+     },
+     {
+      "cue": [
+       "b25",
+       "wheat"
+      ],
+      "x": 1950,
+      "y": 590,
+      "zoom": 1.2,
+      "frames": 30
+     },
+     {
+      "cue": [
+       "b25",
+       "फिर"
+      ],
+      "x": 2250,
+      "y": 500,
+      "zoom": 1,
+      "frames": 30
+     },
+     {
+      "cue": [
+       "b25",
+       "कपड़ा"
+      ],
+      "x": 1950,
+      "y": 590,
+      "zoom": 1.2,
+      "frames": 30
+     },
+     {
+      "cue": [
+       "b26",
+       "नमक"
+      ],
+      "x": 2050,
+      "y": 550,
+      "zoom": 1.1,
+      "frames": 30
+     },
+     {
+      "cue": [
+       "b26",
+       "पुल"
+      ],
+      "x": 1950,
+      "y": 590,
+      "zoom": 1.2,
+      "frames": 30
+     },
+     {
+      "cue": [
+       "b26",
+       "दूसरा"
+      ],
+      "x": 2200,
+      "y": 490,
+      "zoom": 1,
+      "frames": 30
+     },
+     {
+      "cue": [
+       "b26",
+       "cloth"
+      ],
+      "x": 1950,
+      "y": 590,
+      "zoom": 1.2,
+      "frames": 30
+     },
+     {
+      "cue": [
+       "b27",
+       "5"
+      ],
+      "x": 1950,
+      "y": 590,
+      "zoom": 1.25,
+      "frames": 30
+     },
+     {
+      "cue": [
+       "b27",
+       "आपने"
+      ],
+      "x": 1950,
+      "y": 550,
+      "zoom": 1.1,
+      "frames": 30
+     },
+     {
+      "cue": [
+       "b27",
+       "अब"
+      ],
+      "x": 1950,
+      "y": 590,
+      "zoom": 1.25,
+      "frames": 30
+     },
+     {
+      "cue": [
+       "b27",
+       "तीसरा"
+      ],
+      "x": 2250,
+      "y": 480,
+      "zoom": 1,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b27",
+       "gold"
+      ],
+      "x": 1950,
+      "y": 520,
+      "zoom": 1.15,
+      "frames": 30
+     },
+     {
+      "cue": [
+       "b28",
+       ""
+      ],
+      "x": 2100,
+      "y": 520,
+      "zoom": 1.1,
+      "frames": 30
+     },
+     {
+      "cue": [
+       "b28",
+       "गिनकर"
+      ],
+      "x": 1950,
+      "y": 590,
+      "zoom": 1.25,
+      "frames": 30
+     },
+     {
+      "cue": [
+       "b28",
+       "material"
+      ],
+      "x": 2050,
+      "y": 500,
+      "zoom": 1.1,
+      "frames": 30
+     },
+     {
+      "cue": [
+       "b29",
+       "₹300"
+      ],
+      "x": 2100,
+      "y": 530,
+      "zoom": 1.05,
+      "frames": 30
+     },
+     {
+      "cue": [
+       "b29",
+       "₹500"
+      ],
+      "x": 1950,
+      "y": 590,
+      "zoom": 1.3,
+      "frames": 30
+     },
+     {
+      "cue": [
+       "b29",
+       "वापस"
+      ],
+      "x": 1950,
+      "y": 570,
+      "zoom": 1.2,
+      "frames": 30
+     },
+     {
+      "cue": [
+       "b29",
+       "चौथा"
+      ],
+      "x": 2250,
+      "y": 480,
+      "zoom": 1,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b29",
+       "denomination"
+      ],
+      "x": 1950,
+      "y": 560,
+      "zoom": 1.2,
+      "frames": 30
+     },
+     {
+      "cue": [
+       "b30",
+       "हल्का"
+      ],
+      "x": 1950,
+      "y": 500,
+      "zoom": 1.1,
+      "frames": 30
+     },
+     {
+      "cue": [
+       "b30",
+       "भारी"
+      ],
+      "x": 2050,
+      "y": 530,
+      "zoom": 1.2,
+      "frames": 30
+     },
+     {
+      "cue": [
+       "b31",
+       "₹10,000"
+      ],
+      "x": 1950,
+      "y": 570,
+      "zoom": 1.2,
+      "frames": 30
+     },
+     {
+      "cue": [
+       "b31",
+       "cheque"
+      ],
+      "x": 1950,
+      "y": 600,
+      "zoom": 1.3,
+      "frames": 30
+     },
+     {
+      "cue": [
+       "b31",
+       "₹8,500"
+      ],
+      "x": 1800,
+      "y": 560,
+      "zoom": 1.2,
+      "frames": 30
+     },
+     {
+      "cue": [
+       "b31",
+       "दुकानदार"
+      ],
+      "x": 2100,
+      "y": 560,
+      "zoom": 1.2,
+      "frames": 30
+     },
+     {
+      "cue": [
+       "b31",
+       "पाँचवाँ"
+      ],
+      "x": 2250,
+      "y": 480,
+      "zoom": 1,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b31",
+       "deposits"
+      ],
+      "x": 1950,
+      "y": 530,
+      "zoom": 1.15,
+      "frames": 30
+     },
+     {
+      "cue": [
+       "b31",
+       "उसी"
+      ],
+      "x": 1950,
+      "y": 590,
+      "zoom": 1.25,
+      "frames": 30
+     },
+     {
+      "cue": [
+       "b31",
+       "नया"
+      ],
+      "x": 2200,
+      "y": 500,
+      "zoom": 1.05,
+      "frames": 30
+     },
+     {
+      "cue": [
+       "b32",
+       "₹2,000"
+      ],
+      "x": 1950,
+      "y": 550,
+      "zoom": 1.15,
+      "frames": 30
+     },
+     {
+      "cue": [
+       "b32",
+       "QR"
+      ],
+      "x": 1950,
+      "y": 600,
+      "zoom": 1.3,
+      "frames": 30
+     },
+     {
+      "cue": [
+       "b32",
+       "₹1,700"
+      ],
+      "x": 1800,
+      "y": 560,
+      "zoom": 1.2,
+      "frames": 30
+     },
+     {
+      "cue": [
+       "b32",
+       "दुकानदार"
+      ],
+      "x": 2100,
+      "y": 560,
+      "zoom": 1.2,
+      "frames": 30
+     },
+     {
+      "cue": [
+       "b32",
+       "छठा"
+      ],
+      "x": 2250,
+      "y": 480,
+      "zoom": 1,
+      "frames": 40
+     },
+     {
+      "cue": [
+       "b32",
+       "UPI,"
+      ],
+      "x": 1950,
+      "y": 560,
+      "zoom": 1.15,
+      "frames": 30
+     },
+     {
+      "cue": [
+       "b32",
+       "कागज़"
+      ],
+      "x": 2100,
+      "y": 520,
+      "zoom": 1.05,
+      "frames": 30
+     },
+     {
+      "cue": [
+       "b32",
+       "electronic"
+      ],
+      "x": 1950,
+      "y": 490,
+      "zoom": 1.1,
+      "frames": 30
+     }
+    ]
+   },
+   "code_problems": [],
+   "passed": true,
+   "finished_at": 1793559351.5362718
+  }
+ ],
+ "avoid_rounds": [],
+ "cost_usd": 0.0,
+ "seconds": 0.1,
+ "navin_verdict": null
+}

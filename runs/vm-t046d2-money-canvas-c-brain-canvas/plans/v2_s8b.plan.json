@@ -1,0 +1,479 @@
+{
+ "id": "v2_s8b",
+ "part_id": "c06.2",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b55",
+   "say": "Salt medium of exchange बना। किसान को खुद salt नहीं चाहिए; आगे चलने से लिया। इसलिए double coincidence हटी: पहले buyer को कपड़ा देना नहीं पड़ा।"
+  },
+  {
+   "beat_id": "b56",
+   "say": "Payment के बाहर भी उपयोग है: salt खाने में, cattle रोज़ी में काम आते हैं; tea और tobacco की अलग demand है।"
+  },
+  {
+   "beat_id": "b57",
+   "say": "अपने उपयोग और community acceptance से barter आसान हुआ, हर जगह नहीं। Metallic coins common होने से पहले यह medium था; उपयोग अकेला काफी नहीं।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "book_p003_i4",
+   "kind": "picture",
+   "cell": [
+    0,
+    0,
+    12,
+    5
+   ],
+   "cue": [
+    "b56",
+    ""
+   ],
+   "picture": {
+    "type": "table",
+    "title": "Columns",
+    "item_id": "p003-i4",
+    "columns": [
+     "Commodity",
+     "Where it was used"
+    ],
+    "rows": [
+     {
+      "cells": [
+       "Salt",
+       "Ancient Rome and Africa"
+      ],
+      "item_id": "p003-i5",
+      "cue": [
+       "b56",
+       ""
+      ]
+     },
+     {
+      "cells": [
+       "Cattle",
+       "Early pastoral societies"
+      ],
+      "item_id": "p003-i6",
+      "cue": [
+       "b56",
+       ""
+      ]
+     },
+     {
+      "cells": [
+       "Cowrie shells",
+       "India, China, and Africa"
+      ],
+      "item_id": "p003-i7",
+      "cue": [
+       "b56",
+       ""
+      ]
+     },
+     {
+      "cells": [
+       "Tea bricks",
+       "Central Asia and Tibet"
+      ],
+      "item_id": "p003-i8",
+      "cue": [
+       "b56",
+       ""
+      ]
+     },
+     {
+      "cells": [
+       "Tobacco",
+       "Colonial America"
+      ],
+      "item_id": "p003-i9",
+      "cue": [
+       "b56",
+       ""
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "salt_receipt",
+   "kind": "action",
+   "cell": [
+    0,
+    5,
+    8,
+    3
+   ],
+   "cue": [
+    "b55",
+    "Salt"
+   ],
+   "until_cue": [
+    "b56",
+    "Payment"
+   ],
+   "tone": "ink",
+   "template": "hand_over",
+   "actors": [
+    {
+     "role": "giver",
+     "who": "other",
+     "mood": "neutral"
+    },
+    {
+     "role": "taker",
+     "who": "main",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "thing",
+     "icon": "bie:salt-sack",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [
+    {
+     "name": "give",
+     "cue": [
+      "b55",
+      "Salt"
+     ]
+    },
+    {
+     "name": "take",
+     "cue": [
+      "b55",
+      "लिया।"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cloth_destination",
+   "kind": "icon",
+   "cell": [
+    9,
+    5,
+    3,
+    3
+   ],
+   "cue": [
+    "b55",
+    "आगे"
+   ],
+   "until_cue": [
+    "b56",
+    "Payment"
+   ],
+   "tone": "ink",
+   "icon": "bie:cloth-roll"
+  },
+  {
+   "id": "salt_onward",
+   "kind": "arrow",
+   "cue": [
+    "b55",
+    "चलने"
+   ],
+   "until_cue": [
+    "b56",
+    "Payment"
+   ],
+   "tone": "accent",
+   "from": "salt_receipt",
+   "to": "cloth_destination",
+   "from_side": "r",
+   "to_side": "l",
+   "flow": {
+    "icon": "bie:salt-sack",
+    "count": 1,
+    "period": 2400,
+    "size": 32,
+    "cue": [
+     "b55",
+     "चलने"
+    ]
+   }
+  },
+  {
+   "id": "double_coincidence_removed",
+   "kind": "text",
+   "cell": [
+    9,
+    5,
+    3,
+    1
+   ],
+   "cue": [
+    "b55",
+    "double"
+   ],
+   "until_cue": [
+    "b56",
+    "Payment"
+   ],
+   "text": "हटी",
+   "style": "tag",
+   "tone": "accent",
+   "align": "center",
+   "size": 24
+  },
+  {
+   "id": "cooking",
+   "kind": "icon",
+   "cell": [
+    0,
+    5,
+    2,
+    3
+   ],
+   "cue": [
+    "b56",
+    "उपयोग"
+   ],
+   "until_cue": [
+    "b57",
+    "अपने"
+   ],
+   "tone": "ink",
+   "icon": "fl:cooking"
+  },
+  {
+   "id": "cooking_salt",
+   "kind": "icon",
+   "cell": [
+    2,
+    5,
+    2,
+    3
+   ],
+   "cue": [
+    "b56",
+    "salt"
+   ],
+   "until_cue": [
+    "b57",
+    "अपने"
+   ],
+   "tone": "ink",
+   "icon": "bie:salt-sack"
+  },
+  {
+   "id": "livelihood",
+   "kind": "icon",
+   "cell": [
+    4,
+    5,
+    3,
+    3
+   ],
+   "cue": [
+    "b56",
+    "cattle"
+   ],
+   "until_cue": [
+    "b57",
+    "अपने"
+   ],
+   "tone": "ink",
+   "icon": "bie:cattle"
+  },
+  {
+   "id": "tea_tobacco",
+   "kind": "icon",
+   "cell": [
+    8,
+    5,
+    4,
+    3
+   ],
+   "cue": [
+    "b56",
+    "tea"
+   ],
+   "until_cue": [
+    "b57",
+    "अपने"
+   ],
+   "tone": "ink",
+   "icon": "asset:a-f8340c6d406b2ee5"
+  },
+  {
+   "id": "use",
+   "kind": "icon",
+   "cell": [
+    0,
+    5,
+    2,
+    3
+   ],
+   "cue": [
+    "b57",
+    "उपयोग"
+   ],
+   "tone": "ink",
+   "icon": "fl:cooking"
+  },
+  {
+   "id": "community",
+   "kind": "icon",
+   "cell": [
+    3,
+    5,
+    2,
+    3
+   ],
+   "cue": [
+    "b57",
+    "community"
+   ],
+   "tone": "ink",
+   "icon": "fa:solid/hands-holding-circle"
+  },
+  {
+   "id": "local_acceptance",
+   "kind": "mark",
+   "cue": [
+    "b57",
+    "acceptance"
+   ],
+   "tone": "ok",
+   "target": "community",
+   "mark": "tick",
+   "pos": "tr"
+  },
+  {
+   "id": "exchange",
+   "kind": "icon",
+   "cell": [
+    6,
+    5,
+    2,
+    3
+   ],
+   "cue": [
+    "b57",
+    "barter"
+   ],
+   "tone": "accent",
+   "icon": "tw:1f501"
+  },
+  {
+   "id": "coins",
+   "kind": "icon",
+   "cell": [
+    10,
+    5,
+    2,
+    3
+   ],
+   "cue": [
+    "b57",
+    "coins"
+   ],
+   "tone": "ink",
+   "icon": "tw:1fa99"
+  },
+  {
+   "id": "use_not_sufficient",
+   "kind": "highlight",
+   "cue": [
+    "b57",
+    "अकेला"
+   ],
+   "style": "dashed",
+   "tone": "warm",
+   "target": "use"
+  },
+  {
+   "id": "auto_arrow_b57",
+   "kind": "arrow",
+   "from": "book_p003_i4",
+   "to": "use",
+   "cue": [
+    "b57",
+    "उपयोग"
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    8
+   ],
+   "cue": [
+    "b55",
+    "Salt"
+   ]
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b55",
+    "किसान"
+   ],
+   "ids": [
+    "salt_receipt"
+   ],
+   "until_cue": [
+    "b55",
+    "आगे"
+   ]
+  },
+  {
+   "cue": [
+    "b56",
+    "cattle"
+   ],
+   "ids": [
+    "livelihood"
+   ],
+   "until_cue": [
+    "b56",
+    "tea"
+   ]
+  },
+  {
+   "cue": [
+    "b56",
+    "demand"
+   ],
+   "ids": [
+    "tea_tobacco"
+   ],
+   "until_cue": [
+    "b57",
+    "अपने"
+   ]
+  },
+  {
+   "cue": [
+    "b57",
+    "पहले"
+   ],
+   "ids": [
+    "book_p003_i4",
+    "coins"
+   ],
+   "until_cue": [
+    "b57",
+    "यह"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

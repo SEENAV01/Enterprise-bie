@@ -1,0 +1,813 @@
+{
+ "id": "v2_s4s",
+ "part_id": "c03.4",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b16",
+   "say": "तेल चाहने वाला seller wheat क्यों लेगा? किसान 2 kg wheat देकर 1 metre कपड़ा चाहता है। पहला seller मना करता है; wheat चाहने वाला दूसरा मान जाता है।"
+  },
+  {
+   "beat_id": "b17",
+   "say": "इसे double coincidence of wants कहते हैं: मुझे आपकी चीज़ और आपको मेरी चाहिए। सिर्फ एक तरफ की जरूरत काफी नहीं।"
+  },
+  {
+   "beat_id": "b18",
+   "say": "ऐसा साथी खोजना मुश्किल है। Accepted पैसे से wheat किसी को बेचें, कपड़ा दूसरे से खरीदें; cloth seller को wheat नहीं चाहिए।"
+  },
+  {
+   "beat_id": "b19",
+   "say": "मानिए 2 kg wheat के बदले 1 metre कपड़ा तय किया; गाय के लिए अलग ratio चाहिए। छोटी खरीद में गाय बाँटेंगे कैसे?"
+  },
+  {
+   "beat_id": "b20",
+   "say": "अब 2 metres कपड़ा लेकर तय quality का 10 kg अनाज बाद में देना माना। लौटाया 10 kg ही, लेकिन उससे तब 1 metre कपड़ा मिलता है।"
+  }
+ ],
+ "kit": "shop",
+ "elements": [
+  {
+   "id": "cloth_shop",
+   "kind": "shop",
+   "x": 2600,
+   "cue": [
+    "b16",
+    "",
+    0.0
+   ],
+   "goods": [
+    {
+     "icon": "bie:cloth-roll",
+     "label": ""
+    }
+   ]
+  },
+  {
+   "id": "oil_wanted",
+   "kind": "balance",
+   "x": 2600,
+   "y": 350,
+   "tilt": 12,
+   "cue": [
+    "b16",
+    "तेल"
+   ],
+   "until_cue": [
+    "b16",
+    "किसान"
+   ],
+   "tilt_cue": [
+    "b16",
+    "क्यों"
+   ],
+   "left": {
+    "icon": "fa:solid/oil-can",
+    "label": ""
+   },
+   "right": {
+    "icon": "fa:solid/wheat-alt",
+    "label": ""
+   }
+  },
+  {
+   "id": "first_refuses",
+   "kind": "action",
+   "x": 2600,
+   "cue": [
+    "b16",
+    "किसान"
+   ],
+   "until_cue": [
+    "b16",
+    "दूसरा"
+   ],
+   "template": "refuse",
+   "actors": [
+    {
+     "role": "who",
+     "who": "other",
+     "mood": "refusing"
+    }
+   ],
+   "objects": [
+    {
+     "name": "thing",
+     "icon": "fa:solid/wheat-alt",
+     "label": "2 kg wheat"
+    }
+   ],
+   "amounts": [],
+   "steps": [
+    {
+     "name": "show",
+     "cue": [
+      "b16",
+      "2"
+     ]
+    },
+    {
+     "name": "refuse",
+     "cue": [
+      "b16",
+      "मना"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "second_agrees",
+   "kind": "action",
+   "x": 2600,
+   "cue": [
+    "b16",
+    "दूसरा"
+   ],
+   "until_cue": [
+    "b17",
+    "इसे"
+   ],
+   "template": "barter_swap",
+   "actors": [
+    {
+     "role": "a",
+     "who": "main",
+     "mood": "neutral"
+    },
+    {
+     "role": "b",
+     "who": "other",
+     "mood": "pleased"
+    }
+   ],
+   "objects": [
+    {
+     "name": "a_thing",
+     "icon": "fa:solid/wheat-alt",
+     "label": ""
+    },
+    {
+     "name": "b_thing",
+     "icon": "bie:cloth-roll",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [
+    {
+     "name": "offer",
+     "cue": [
+      "b16",
+      "दूसरा"
+     ]
+    },
+    {
+     "name": "ask",
+     "cue": [
+      "b16",
+      "मान"
+     ]
+    },
+    {
+     "name": "swap",
+     "cue": [
+      "b16",
+      "जाता"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "reciprocal_wants",
+   "kind": "action",
+   "x": 2600,
+   "cue": [
+    "b17",
+    "इसे"
+   ],
+   "until_cue": [
+    "b17",
+    "सिर्फ"
+   ],
+   "template": "barter_swap",
+   "actors": [
+    {
+     "role": "a",
+     "who": "main",
+     "mood": "pleased"
+    },
+    {
+     "role": "b",
+     "who": "other",
+     "mood": "pleased"
+    }
+   ],
+   "objects": [
+    {
+     "name": "a_thing",
+     "icon": "fa:solid/wheat-alt",
+     "label": ""
+    },
+    {
+     "name": "b_thing",
+     "icon": "bie:cloth-roll",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [
+    {
+     "name": "offer",
+     "cue": [
+      "b17",
+      "double"
+     ]
+    },
+    {
+     "name": "ask",
+     "cue": [
+      "b17",
+      "मुझे"
+     ]
+    },
+    {
+     "name": "swap",
+     "cue": [
+      "b17",
+      "मेरी"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "one_sided",
+   "kind": "action",
+   "x": 2600,
+   "cue": [
+    "b17",
+    "सिर्फ"
+   ],
+   "until_cue": [
+    "b18",
+    "Accepted"
+   ],
+   "template": "refuse",
+   "actors": [
+    {
+     "role": "who",
+     "who": "other",
+     "mood": "unsure"
+    }
+   ],
+   "objects": [
+    {
+     "name": "thing",
+     "icon": "fa:solid/wheat-alt",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [
+    {
+     "name": "show",
+     "cue": [
+      "b17",
+      "एक"
+     ]
+    },
+    {
+     "name": "refuse",
+     "cue": [
+      "b17",
+      "नहीं"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "sell_wheat",
+   "kind": "action",
+   "x": 2600,
+   "cue": [
+    "b18",
+    "Accepted"
+   ],
+   "until_cue": [
+    "b18",
+    "कपड़ा"
+   ],
+   "template": "barter_swap",
+   "actors": [
+    {
+     "role": "a",
+     "who": "main",
+     "mood": "neutral"
+    },
+    {
+     "role": "b",
+     "who": "other",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "a_thing",
+     "icon": "fa:solid/wheat-alt",
+     "label": ""
+    },
+    {
+     "name": "b_thing",
+     "icon": "fa:solid/money-bill-1",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [
+    {
+     "name": "offer",
+     "cue": [
+      "b18",
+      "Accepted"
+     ]
+    },
+    {
+     "name": "ask",
+     "cue": [
+      "b18",
+      "wheat"
+     ]
+    },
+    {
+     "name": "swap",
+     "cue": [
+      "b18",
+      "बेचें"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "buy_cloth",
+   "kind": "action",
+   "x": 2600,
+   "cue": [
+    "b18",
+    "कपड़ा"
+   ],
+   "until_cue": [
+    "b19",
+    "मानिए"
+   ],
+   "template": "barter_swap",
+   "actors": [
+    {
+     "role": "a",
+     "who": "main",
+     "mood": "neutral"
+    },
+    {
+     "role": "b",
+     "who": "other",
+     "mood": "pleased"
+    }
+   ],
+   "objects": [
+    {
+     "name": "a_thing",
+     "icon": "fa:solid/money-bill-1",
+     "label": ""
+    },
+    {
+     "name": "b_thing",
+     "icon": "bie:cloth-roll",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [
+    {
+     "name": "offer",
+     "cue": [
+      "b18",
+      "कपड़ा"
+     ]
+    },
+    {
+     "name": "ask",
+     "cue": [
+      "b18",
+      "दूसरे"
+     ]
+    },
+    {
+     "name": "swap",
+     "cue": [
+      "b18",
+      "खरीदें"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "wheat_ratio",
+   "kind": "balance",
+   "x": 2600,
+   "y": 420,
+   "cue": [
+    "b19",
+    "2"
+   ],
+   "until_cue": [
+    "b19",
+    "गाय"
+   ],
+   "tilt_cue": [
+    "b19",
+    "तय"
+   ],
+   "left": {
+    "icon": "fa:solid/wheat-alt",
+    "label": "2 kg wheat"
+   },
+   "right": {
+    "icon": "bie:cloth-roll",
+    "label": ""
+   }
+  },
+  {
+   "id": "whole_cow",
+   "kind": "balance",
+   "x": 2600,
+   "y": 420,
+   "tilt": 18,
+   "cue": [
+    "b19",
+    "गाय"
+   ],
+   "until_cue": [
+    "b20",
+    "अब"
+   ],
+   "tilt_cue": [
+    "b19",
+    "बाँटेंगे"
+   ],
+   "left": {
+    "icon": "bie:cattle",
+    "label": ""
+   },
+   "right": {
+    "icon": "bie:cloth-roll",
+    "label": ""
+   }
+  },
+  {
+   "id": "receive_cloth",
+   "kind": "action",
+   "x": 2600,
+   "cue": [
+    "b20",
+    "अब"
+   ],
+   "until_cue": [
+    "b20",
+    "10"
+   ],
+   "template": "hand_over",
+   "actors": [
+    {
+     "role": "giver",
+     "who": "other",
+     "mood": "neutral"
+    },
+    {
+     "role": "taker",
+     "who": "main",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "thing",
+     "icon": "bie:cloth-roll",
+     "label": "2 metres कपड़ा"
+    }
+   ],
+   "amounts": [],
+   "steps": [
+    {
+     "name": "give",
+     "cue": [
+      "b20",
+      "2"
+     ]
+    },
+    {
+     "name": "take",
+     "cue": [
+      "b20",
+      "लेकर"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cloth_equivalent",
+   "kind": "board",
+   "x": 2600,
+   "y": 250,
+   "cue": [
+    "b20",
+    "2"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b20",
+      "2"
+     ],
+     "text": "2 metres कपड़ा"
+    },
+    {
+     "cue": [
+      "b20",
+      "1"
+     ],
+     "text": "1 metre कपड़ा",
+     "dir": "down"
+    }
+   ]
+  },
+  {
+   "id": "repay_grain",
+   "kind": "action",
+   "x": 2600,
+   "cue": [
+    "b20",
+    "लौटाया"
+   ],
+   "until_cue": [
+    "b20",
+    "लेकिन"
+   ],
+   "template": "hand_over",
+   "actors": [
+    {
+     "role": "giver",
+     "who": "main",
+     "mood": "neutral"
+    },
+    {
+     "role": "taker",
+     "who": "other",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "thing",
+     "icon": "bie:grain-sack",
+     "label": "10 kg"
+    }
+   ],
+   "amounts": [],
+   "steps": [
+    {
+     "name": "give",
+     "cue": [
+      "b20",
+      "लौटाया"
+     ]
+    },
+    {
+     "name": "take",
+     "cue": [
+      "b20",
+      "ही"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "later_cloth_equivalent",
+   "kind": "balance",
+   "x": 2600,
+   "y": 650,
+   "cue": [
+    "b20",
+    "1"
+   ],
+   "left": {
+    "icon": "bie:grain-sack",
+    "label": "10 kg"
+   },
+   "right": {
+    "icon": "bie:cloth-roll",
+    "label": "1 metre कपड़ा"
+   }
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b16",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 485,
+   "zoom": 0.95,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b16",
+    "2"
+   ],
+   "x": 2600,
+   "y": 575,
+   "zoom": 1.2,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b16",
+    "मना"
+   ],
+   "x": 2730,
+   "y": 565,
+   "zoom": 1.3,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b16",
+    "दूसरा"
+   ],
+   "x": 2600,
+   "y": 550,
+   "zoom": 1.05,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b17",
+    "double"
+   ],
+   "x": 2600,
+   "y": 535,
+   "zoom": 1.05,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b17",
+    "मेरी"
+   ],
+   "x": 2600,
+   "y": 595,
+   "zoom": 1.3,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b17",
+    "सिर्फ"
+   ],
+   "x": 2680,
+   "y": 550,
+   "zoom": 1.15,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b18",
+    "ऐसा"
+   ],
+   "x": 2600,
+   "y": 510,
+   "zoom": 0.95,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b18",
+    "Accepted"
+   ],
+   "x": 2600,
+   "y": 580,
+   "zoom": 1.2,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b18",
+    "कपड़ा"
+   ],
+   "x": 2600,
+   "y": 555,
+   "zoom": 1.1,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b18",
+    "cloth"
+   ],
+   "x": 2710,
+   "y": 555,
+   "zoom": 1.2,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b19",
+    "मानिए"
+   ],
+   "x": 2600,
+   "y": 455,
+   "zoom": 1,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b19",
+    "गाय"
+   ],
+   "x": 2600,
+   "y": 420,
+   "zoom": 1.1,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b19",
+    "बाँटेंगे"
+   ],
+   "x": 2450,
+   "y": 410,
+   "zoom": 1.3,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b20",
+    "अब"
+   ],
+   "x": 2600,
+   "y": 500,
+   "zoom": 0.95,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b20",
+    "2"
+   ],
+   "x": 2600,
+   "y": 500,
+   "zoom": 0.95,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b20",
+    "10"
+   ],
+   "x": 2600,
+   "y": 435,
+   "zoom": 0.95,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b20",
+    "लौटाया"
+   ],
+   "x": 2600,
+   "y": 820,
+   "zoom": 0.95,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b20",
+    "लेकिन"
+   ],
+   "x": 2600,
+   "y": 480,
+   "zoom": 0.95,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b20",
+    "1"
+   ],
+   "x": 2600,
+   "y": 450,
+   "zoom": 0.95,
+   "frames": 30
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

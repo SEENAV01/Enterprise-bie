@@ -1,0 +1,234 @@
+{
+ "id": "v4_s2s",
+ "part_id": "c09.2",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b6",
+   "say": "Bank 11वाँ note कैसे दे? मानिए, 10 grams के पीछे 10 notes हैं, हर note पर 1 gram का वादा। Fully backed उदाहरण में अगला note देने को 1 gram और चाहिए।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank",
+   "kind": "bank",
+   "x": 2600,
+   "y": 860,
+   "sign": "Bank",
+   "cue": [
+    "b6",
+    "Bank"
+   ]
+  },
+  {
+   "id": "gold_stack",
+   "kind": "action",
+   "x": 2050,
+   "y": 860,
+   "cue": [
+    "b6",
+    "grams"
+   ],
+   "until_cue": [
+    "b6",
+    "Fully"
+   ],
+   "template": "count_stack",
+   "actors": [],
+   "objects": [
+    {
+     "name": "thing",
+     "icon": "bie:gold-bar",
+     "label": ""
+    }
+   ],
+   "amounts": [
+    {
+     "name": "n",
+     "text": "10"
+    }
+   ],
+   "steps": [
+    {
+     "name": "count",
+     "cue": [
+      "b6",
+      "grams"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "notes_stack",
+   "kind": "action",
+   "x": 3150,
+   "y": 860,
+   "cue": [
+    "b6",
+    "notes"
+   ],
+   "until_cue": [
+    "b6",
+    "Fully"
+   ],
+   "template": "count_stack",
+   "actors": [],
+   "objects": [
+    {
+     "name": "thing",
+     "icon": "fa:solid/money-bill-1",
+     "label": ""
+    }
+   ],
+   "amounts": [
+    {
+     "name": "n",
+     "text": "10"
+    }
+   ],
+   "steps": [
+    {
+     "name": "count",
+     "cue": [
+      "b6",
+      "notes"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "one_gram_promise",
+   "kind": "balance",
+   "x": 2600,
+   "y": 180,
+   "cue": [
+    "b6",
+    "वादा।"
+   ],
+   "until_cue": [
+    "b6",
+    "Fully"
+   ],
+   "left": {
+    "icon": "fa:solid/money-bill-1",
+    "label": ""
+   },
+   "right": {
+    "icon": "bie:gold-bar",
+    "label": ""
+   }
+  },
+  {
+   "id": "extra_gold",
+   "kind": "action",
+   "x": 2050,
+   "y": 860,
+   "cue": [
+    "b6",
+    "Fully"
+   ],
+   "template": "hand_over",
+   "actors": [
+    {
+     "role": "giver",
+     "who": "main",
+     "mood": "neutral"
+    },
+    {
+     "role": "taker",
+     "who": "other",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "thing",
+     "icon": "bie:gold-bar",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [
+    {
+     "name": "give",
+     "cue": [
+      "b6",
+      "और"
+     ]
+    },
+    {
+     "name": "take",
+     "cue": [
+      "b6",
+      "चाहिए।"
+     ]
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b6",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 540,
+   "zoom": 0.9,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b6",
+    "grams"
+   ],
+   "x": 2500,
+   "y": 530,
+   "zoom": 0.9,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b6",
+    "हर"
+   ],
+   "x": 2600,
+   "y": 480,
+   "zoom": 1,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b6",
+    "Fully"
+   ],
+   "x": 2050,
+   "y": 560,
+   "zoom": 1.15,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b6",
+    "और"
+   ],
+   "x": 2050,
+   "y": 580,
+   "zoom": 1.4,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b6",
+    "चाहिए।"
+   ],
+   "x": 2400,
+   "y": 540,
+   "zoom": 0.95,
+   "frames": 30
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}
