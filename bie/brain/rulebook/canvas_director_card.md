@@ -8,7 +8,11 @@ it; a refused plan comes back to you with the exact error.
 
 - `beats`: the part's spoken beats `[{beat_id, say}]` (Hinglish, Devanagari with English terms). Do not change them.
 - The chapter map items this part covers (terms, numbers, causes, examples).
-- The icon search tool: `icon_index.search("bank")` → ids like `tw:1f3e6` (colour) or `fa:solid/building-columns` (line).
+- The icon search tool: `icon_index.search("bank")` → ids like `tw:1f3e6` (colour), `fa:solid/building-columns` (line) or
+  `fl:bank` (Fluent 3D). BIE's own money drawings are `bie:` ids: coins and notes by denomination (`bie:coin-10`,
+  `bie:coin-50p`, `bie:note-500`), `bie:cheque`, `bie:passbook`, `bie:qr-stand`, `bie:pos-machine`, `bie:phone` (a plain
+  screen to write on), `bie:salt-sack`, `bie:cowrie-shells`, `bie:cattle`, `bie:grain-sack`, `bie:cloth-roll`, `bie:gold-bar`,
+  `bie:ledger`.
 
 ## Output you give (JSON only)
 

@@ -113,8 +113,10 @@ class Policy(unittest.TestCase):
         self.assertEqual(POLICY["decided"]["date"], "2026-10-25")
         names = {s["id"] for s in POLICY["sources"]["needs_navin"]}
         self.assertTrue({"india-code", "hipparcos", "bodyparts3d", "gmt-earth-relief"} <= names)
-        # Navin's yes of 29 October 2026: three sources approved by name, Hipparcos still waiting (ESA's terms)
-        self.assertEqual({a["id"] for a in POLICY["sources"]["approved_by_navin"]}, {"india-code", "gmt-earth-relief", "bodyparts3d"})
+        # Navin's yes of 29 October 2026: three sources approved by name, Hipparcos still waiting (ESA's terms); his brief of
+        # 1 November 2026 (Task 046 Part D2): Fluent Emoji (MIT) by name
+        self.assertEqual({a["id"] for a in POLICY["sources"]["approved_by_navin"]},
+                         {"india-code", "gmt-earth-relief", "bodyparts3d", "fluentui-emoji"})
         self.assertIsNone(POLICY["india_boundary"]["approved_boundary"])
 
     def test_a_policy_that_lets_share_alike_in_is_named(self):

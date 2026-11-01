@@ -166,10 +166,11 @@ class GeneratedImages(unittest.TestCase):
 class Licences(unittest.TestCase):
     def test_navins_approvals_of_29_october_open_three_sources_with_a_credit(self):
         pol = licence.policy()
-        self.assertEqual(pol["version"], "2026-10-29.1")
+        self.assertEqual(pol["version"], "2026-11-01.1")            # 2026-10-29.1, then Navin's brief of 1 November 2026 (Part D2)
         approved = {a["id"]: a for a in pol["sources"]["approved_by_navin"]}
-        self.assertEqual(set(approved), {"india-code", "gmt-earth-relief", "bodyparts3d"})
-        self.assertTrue(all(a["approved_on"] == "2026-10-29" and a["words"] and a["condition"] for a in approved.values()))
+        self.assertEqual(set(approved), {"india-code", "gmt-earth-relief", "bodyparts3d", "fluentui-emoji"})
+        self.assertTrue(all(a["approved_on"] == ("2026-11-01" if i == "fluentui-emoji" else "2026-10-29") and a["words"] and a["condition"]
+                            for i, a in approved.items()))
         verdicts = {t.id: licence.tool_verdict(t) for t in registry.load().tools}
         for tid in ("india-code", "gmt-earth-relief", "bodyparts3d"):
             self.assertEqual(verdicts[tid].verdict, "allowed", tid)
