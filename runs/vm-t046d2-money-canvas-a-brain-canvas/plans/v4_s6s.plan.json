@@ -1,0 +1,586 @@
+{
+ "id": "v4_s6s",
+ "part_id": "c11.1",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b32",
+   "say": "₹100 उधार कैसे चुकाएँ? आप ₹100 valid currency देते हैं; दुकानदार पूरा उधार चुका मानता है। अब ₹0 बाकी हैं।"
+  },
+  {
+   "beat_id": "b33",
+   "say": "खास design वाला valid ₹10 coin मिले तो? अपना 1 coin देकर ₹10 की चीज़ लेते हैं; पूरी कीमत चुक गई।"
+  },
+  {
+   "beat_id": "b34",
+   "say": "₹1,000 bill के लिए आप 2 valid ₹500 notes देते हैं; ₹1,500 हो तो 3 दे सकते हैं। लेकिन 100 ₹10 coins देकर ₹1,000 चुकाएँ, फिर 101 देकर ₹1,010 देना चाहें, तो limit के ऊपर लेना मर्ज़ी है।"
+  }
+ ],
+ "kit": "shop",
+ "elements": [
+  {
+   "id": "shop",
+   "kind": "shop",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b32",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "debt",
+   "kind": "board",
+   "x": 2040,
+   "y": 380,
+   "text": "उधार",
+   "fill": "#ede0bd",
+   "cue": [
+    "b32",
+    "उधार"
+   ],
+   "until_cue": [
+    "b33",
+    "",
+    0.0
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b32",
+      "₹100"
+     ],
+     "text": "₹100"
+    },
+    {
+     "cue": [
+      "b32",
+      "₹0"
+     ],
+     "text": "₹0",
+     "dir": "down"
+    }
+   ]
+  },
+  {
+   "id": "settle",
+   "kind": "action",
+   "x": 2880,
+   "y": 860,
+   "cue": [
+    "b32",
+    "आप"
+   ],
+   "until_cue": [
+    "b33",
+    "",
+    0.0
+   ],
+   "template": "hand_over",
+   "actors": [
+    {
+     "role": "giver",
+     "who": "main",
+     "mood": "neutral"
+    },
+    {
+     "role": "taker",
+     "who": "other",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "thing",
+     "icon": "bie:note-100",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [
+    {
+     "name": "give",
+     "cue": [
+      "b32",
+      "देते"
+     ]
+    },
+    {
+     "name": "take",
+     "cue": [
+      "b32",
+      "मानता"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "coin_payment",
+   "kind": "action",
+   "x": 2880,
+   "y": 860,
+   "cue": [
+    "b33",
+    "coin"
+   ],
+   "until_cue": [
+    "b33",
+    "की"
+   ],
+   "template": "hand_over",
+   "actors": [
+    {
+     "role": "giver",
+     "who": "main",
+     "mood": "neutral"
+    },
+    {
+     "role": "taker",
+     "who": "other",
+     "mood": "pleased"
+    }
+   ],
+   "objects": [
+    {
+     "name": "thing",
+     "icon": "bie:coin-10",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [
+    {
+     "name": "give",
+     "cue": [
+      "b33",
+      "देकर"
+     ]
+    },
+    {
+     "name": "take",
+     "cue": [
+      "b33",
+      "की"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "purchase",
+   "kind": "action",
+   "x": 3980,
+   "y": 860,
+   "cue": [
+    "b33",
+    "चीज़"
+   ],
+   "until_cue": [
+    "b34",
+    "",
+    0.0
+   ],
+   "template": "hand_over",
+   "actors": [
+    {
+     "role": "giver",
+     "who": "other",
+     "mood": "neutral"
+    },
+    {
+     "role": "taker",
+     "who": "main",
+     "mood": "pleased"
+    }
+   ],
+   "objects": [
+    {
+     "name": "thing",
+     "icon": "fa:solid/cart-plus",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [
+    {
+     "name": "give",
+     "cue": [
+      "b33",
+      "चीज़"
+     ]
+    },
+    {
+     "name": "take",
+     "cue": [
+      "b33",
+      "लेते"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "coin_accepted",
+   "kind": "action",
+   "x": 1780,
+   "y": 860,
+   "cue": [
+    "b33",
+    "पूरी"
+   ],
+   "until_cue": [
+    "b34",
+    "",
+    0.0
+   ],
+   "template": "accept",
+   "actors": [
+    {
+     "role": "who",
+     "who": "other",
+     "mood": "pleased"
+    }
+   ],
+   "objects": [
+    {
+     "name": "thing",
+     "icon": "bie:coin-10",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [
+    {
+     "name": "show",
+     "cue": [
+      "b33",
+      "पूरी"
+     ]
+    },
+    {
+     "name": "accept",
+     "cue": [
+      "b33",
+      "कीमत"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "two_notes",
+   "kind": "action",
+   "x": 2880,
+   "y": 860,
+   "cue": [
+    "b34",
+    "2"
+   ],
+   "until_cue": [
+    "b34",
+    "notes"
+   ],
+   "template": "count_stack",
+   "actors": [],
+   "objects": [
+    {
+     "name": "thing",
+     "icon": "bie:note-500",
+     "label": ""
+    }
+   ],
+   "amounts": [
+    {
+     "name": "n",
+     "text": "2"
+    }
+   ],
+   "steps": [
+    {
+     "name": "count",
+     "cue": [
+      "b34",
+      "2"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "notes_given",
+   "kind": "action",
+   "x": 1780,
+   "y": 860,
+   "cue": [
+    "b34",
+    "देते"
+   ],
+   "until_cue": [
+    "b34",
+    "₹1,500"
+   ],
+   "template": "hand_over",
+   "actors": [
+    {
+     "role": "giver",
+     "who": "main",
+     "mood": "neutral"
+    },
+    {
+     "role": "taker",
+     "who": "other",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "thing",
+     "icon": "bie:note-500",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [
+    {
+     "name": "give",
+     "cue": [
+      "b34",
+      "देते"
+     ]
+    },
+    {
+     "name": "take",
+     "cue": [
+      "b34",
+      "हैं;"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "three_notes",
+   "kind": "action",
+   "x": 2880,
+   "y": 860,
+   "cue": [
+    "b34",
+    "3"
+   ],
+   "until_cue": [
+    "b34",
+    "सकते"
+   ],
+   "template": "count_stack",
+   "actors": [],
+   "objects": [
+    {
+     "name": "thing",
+     "icon": "bie:note-500",
+     "label": ""
+    }
+   ],
+   "amounts": [
+    {
+     "name": "n",
+     "text": "3"
+    }
+   ],
+   "steps": [
+    {
+     "name": "count",
+     "cue": [
+      "b34",
+      "3"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "coin_limit",
+   "kind": "action",
+   "x": 2880,
+   "y": 860,
+   "cue": [
+    "b34",
+    "100"
+   ],
+   "template": "coin_count",
+   "actors": [],
+   "objects": [
+    {
+     "name": "coin",
+     "icon": "bie:coin-10",
+     "label": ""
+    }
+   ],
+   "amounts": [
+    {
+     "name": "each",
+     "text": "₹10"
+    },
+    {
+     "name": "limit",
+     "text": "₹1,000"
+    }
+   ],
+   "steps": [
+    {
+     "name": "count",
+     "cue": [
+      "b34",
+      "100"
+     ]
+    },
+    {
+     "name": "limit",
+     "cue": [
+      "b34",
+      "limit"
+     ]
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b32",
+    "",
+    0.0
+   ],
+   "x": 2570,
+   "y": 510,
+   "zoom": 0.95,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b32",
+    "देते"
+   ],
+   "x": 2830,
+   "y": 575,
+   "zoom": 1.15,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b32",
+    "₹0"
+   ],
+   "x": 2490,
+   "y": 490,
+   "zoom": 0.95,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b33",
+    "coin"
+   ],
+   "x": 2880,
+   "y": 570,
+   "zoom": 1.25,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b33",
+    "चीज़"
+   ],
+   "x": 3980,
+   "y": 570,
+   "zoom": 1.15,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b33",
+    "लेते"
+   ],
+   "x": 3980,
+   "y": 530,
+   "zoom": 1.05,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b33",
+    "पूरी"
+   ],
+   "x": 1780,
+   "y": 530,
+   "zoom": 1.05,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b34",
+    "",
+    0.0
+   ],
+   "x": 2830,
+   "y": 530,
+   "zoom": 1.05,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b34",
+    "2"
+   ],
+   "x": 2880,
+   "y": 585,
+   "zoom": 1.2,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b34",
+    "देते"
+   ],
+   "x": 1780,
+   "y": 575,
+   "zoom": 1.15,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b34",
+    "3"
+   ],
+   "x": 2880,
+   "y": 560,
+   "zoom": 1.15,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b34",
+    "100"
+   ],
+   "x": 2880,
+   "y": 545,
+   "zoom": 1.1,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b34",
+    "101"
+   ],
+   "x": 2880,
+   "y": 575,
+   "zoom": 1.3,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b34",
+    "मर्ज़ी"
+   ],
+   "x": 2810,
+   "y": 510,
+   "zoom": 1.05,
+   "frames": 30
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

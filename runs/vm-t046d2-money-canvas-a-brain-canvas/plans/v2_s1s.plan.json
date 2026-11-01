@@ -1,0 +1,232 @@
+{
+ "id": "v2_s1s",
+ "part_id": "c03.1",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b2",
+   "say": "मानिए किसान के पास 10 kg wheat था। उसने 2 kg देकर 1 metre कपड़ा लिया; अब 8 kg wheat बचा और कपड़ा भी मिला।"
+  }
+ ],
+ "kit": "shop",
+ "elements": [
+  {
+   "id": "cloth_shop",
+   "kind": "shop",
+   "x": 3000,
+   "y": 860,
+   "cue": [
+    "b2",
+    "",
+    0.0
+   ],
+   "goods": [
+    {
+     "icon": "bie:cloth-roll",
+     "label": ""
+    }
+   ]
+  },
+  {
+   "id": "initial_wheat",
+   "kind": "action",
+   "x": 1450,
+   "y": 860,
+   "cue": [
+    "b2",
+    "10 kg"
+   ],
+   "until_cue": [
+    "b2",
+    "उसने"
+   ],
+   "template": "count_stack",
+   "actors": [],
+   "objects": [
+    {
+     "name": "thing",
+     "icon": "fa:solid/wheat-alt",
+     "label": ""
+    }
+   ],
+   "amounts": [
+    {
+     "name": "n",
+     "text": "10"
+    }
+   ],
+   "steps": [
+    {
+     "name": "count",
+     "cue": [
+      "b2",
+      "10 kg"
+     ]
+    }
+   ],
+   "close_up": false
+  },
+  {
+   "id": "wheat_for_cloth",
+   "kind": "action",
+   "x": 2550,
+   "y": 860,
+   "cue": [
+    "b2",
+    "किसान"
+   ],
+   "until_cue": [
+    "b2",
+    "8 kg"
+   ],
+   "template": "barter_swap",
+   "actors": [
+    {
+     "role": "a",
+     "who": "main",
+     "mood": "neutral"
+    },
+    {
+     "role": "b",
+     "who": "other",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "a_thing",
+     "icon": "fa:solid/wheat-alt",
+     "label": ""
+    },
+    {
+     "name": "b_thing",
+     "icon": "bie:cloth-roll",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [
+    {
+     "name": "offer",
+     "cue": [
+      "b2",
+      "2 kg"
+     ]
+    },
+    {
+     "name": "ask",
+     "cue": [
+      "b2",
+      "1 metre"
+     ]
+    },
+    {
+     "name": "swap",
+     "cue": [
+      "b2",
+      "लिया;"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "remaining_wheat",
+   "kind": "action",
+   "x": 1450,
+   "y": 860,
+   "cue": [
+    "b2",
+    "8 kg"
+   ],
+   "template": "count_stack",
+   "actors": [],
+   "objects": [
+    {
+     "name": "thing",
+     "icon": "fa:solid/wheat-alt",
+     "label": ""
+    }
+   ],
+   "amounts": [
+    {
+     "name": "n",
+     "text": "8"
+    }
+   ],
+   "steps": [
+    {
+     "name": "count",
+     "cue": [
+      "b2",
+      "8 kg"
+     ]
+    }
+   ],
+   "close_up": false
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b2",
+    "",
+    0.0
+   ],
+   "x": 2550,
+   "y": 620,
+   "zoom": 0.95,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b2",
+    "किसान"
+   ],
+   "x": 2550,
+   "y": 620,
+   "zoom": 0.95,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b2",
+    "10 kg"
+   ],
+   "x": 1450,
+   "y": 620,
+   "zoom": 1,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b2",
+    "उसने"
+   ],
+   "x": 2550,
+   "y": 620,
+   "zoom": 1,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b2",
+    "2 kg"
+   ],
+   "x": 2550,
+   "y": 650,
+   "zoom": 1.25,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b2",
+    "8 kg"
+   ],
+   "x": 1450,
+   "y": 620,
+   "zoom": 0.95,
+   "frames": 30
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

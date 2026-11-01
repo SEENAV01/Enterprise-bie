@@ -1,0 +1,432 @@
+{
+ "id": "v2_s7b",
+ "part_id": "c06.1",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b47",
+   "say": "यह commodity money है: money बनी चीज़ में intrinsic value होती है, यानी monetary use के बाहर भी कीमत, जैसे kitchen में salt।"
+  },
+  {
+   "beat_id": "b48",
+   "say": "Useful होना काफी नहीं, payment में चलना चाहिए; purchasing power अकेली note को commodity money नहीं बनाती।"
+  },
+  {
+   "beat_id": "b49",
+   "say": "Commodity money payment के बाहर भी उपयोगी है।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "anchor",
+   "kind": "text",
+   "cell": [
+    3,
+    0,
+    6,
+    1
+   ],
+   "cue": [
+    "b47",
+    "commodity"
+   ],
+   "text": "Commodity money",
+   "style": "title",
+   "tone": "ink",
+   "align": "center",
+   "size": 36
+  },
+  {
+   "id": "payment_salt",
+   "kind": "icon",
+   "cell": [
+    1,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b47",
+    "intrinsic"
+   ],
+   "until_cue": [
+    "b49",
+    "बाहर"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "bie:salt-sack",
+   "size": 80
+  },
+  {
+   "id": "intrinsic_label",
+   "kind": "text",
+   "cell": [
+    7,
+    1,
+    4,
+    1
+   ],
+   "cue": [
+    "b47",
+    "intrinsic"
+   ],
+   "until_cue": [
+    "b48",
+    "Useful"
+   ],
+   "text": "Intrinsic value",
+   "style": "tag",
+   "tone": "warm",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "monetary_label",
+   "kind": "text",
+   "cell": [
+    0,
+    1,
+    4,
+    1
+   ],
+   "cue": [
+    "b47",
+    "monetary"
+   ],
+   "until_cue": [
+    "b48",
+    "payment"
+   ],
+   "text": "Monetary use",
+   "style": "tag",
+   "tone": "accent",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "cooking_pot",
+   "kind": "icon",
+   "cell": [
+    9,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b47",
+    "kitchen"
+   ],
+   "until_cue": [
+    "b49",
+    "बाहर"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "fl:pot-of-food",
+   "size": 80
+  },
+  {
+   "id": "kitchen_salt",
+   "kind": "icon",
+   "cell": [
+    6,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b47",
+    "salt।"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "bie:salt-sack",
+   "size": 80
+  },
+  {
+   "id": "useful_tick",
+   "kind": "mark",
+   "cue": [
+    "b48",
+    "Useful"
+   ],
+   "tone": "ok",
+   "target": "kitchen_salt",
+   "mark": "tick",
+   "pos": "tr"
+  },
+  {
+   "id": "usefulness_payment_compare",
+   "kind": "icon",
+   "cell": [
+    4,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b48",
+    "Useful"
+   ],
+   "until_cue": [
+    "b49",
+    "बाहर"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "tw:2696",
+   "size": 64
+  },
+  {
+   "id": "payment_tick",
+   "kind": "mark",
+   "cue": [
+    "b48",
+    "payment"
+   ],
+   "until_cue": [
+    "b49",
+    "बाहर"
+   ],
+   "tone": "ok",
+   "target": "payment_salt",
+   "mark": "tick",
+   "pos": "tr"
+  },
+  {
+   "id": "note",
+   "kind": "icon",
+   "cell": [
+    1,
+    5,
+    3,
+    2
+   ],
+   "cue": [
+    "b48",
+    "note"
+   ],
+   "until_cue": [
+    "b49",
+    "Commodity"
+   ],
+   "tone": "ink",
+   "align": "center",
+   "icon": "fa:solid/money-bill-1",
+   "size": 80
+  },
+  {
+   "id": "note_classification",
+   "kind": "text",
+   "cell": [
+    6,
+    5,
+    5,
+    1
+   ],
+   "cue": [
+    "b48",
+    "commodity"
+   ],
+   "until_cue": [
+    "b49",
+    "Commodity"
+   ],
+   "text": "Commodity money",
+   "style": "box",
+   "tone": "muted",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "classification_cross",
+   "kind": "mark",
+   "cue": [
+    "b48",
+    "नहीं"
+   ],
+   "until_cue": [
+    "b49",
+    "Commodity"
+   ],
+   "tone": "danger",
+   "target": "note_classification",
+   "mark": "cross",
+   "pos": "tr"
+  },
+  {
+   "id": "outside_payment_salt",
+   "kind": "icon",
+   "cell": [
+    1,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b49",
+    "बाहर"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "bie:salt-sack",
+   "size": 80
+  },
+  {
+   "id": "outside_cooking_pot",
+   "kind": "icon",
+   "cell": [
+    9,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b49",
+    "बाहर"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "fl:pot-of-food",
+   "size": 80
+  },
+  {
+   "id": "outside_payment_compare",
+   "kind": "icon",
+   "cell": [
+    4,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b49",
+    "बाहर"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "tw:2696",
+   "size": 64
+  },
+  {
+   "id": "salt_seasons_food",
+   "kind": "arrow",
+   "cue": [
+    "b49",
+    "बाहर"
+   ],
+   "tone": "warm",
+   "from": "kitchen_salt",
+   "to": "outside_cooking_pot",
+   "from_side": "r",
+   "to_side": "l",
+   "flow": {
+    "icon": "tw:1f9c2",
+    "count": 3,
+    "period": 90,
+    "size": 24,
+    "cue": [
+     "b49",
+     "बाहर"
+    ]
+   }
+  },
+  {
+   "id": "closing_test",
+   "kind": "text",
+   "cell": [
+    3,
+    5,
+    7,
+    1
+   ],
+   "cue": [
+    "b49",
+    "उपयोगी"
+   ],
+   "text": "Payment के बाहर भी उपयोगी",
+   "style": "box",
+   "tone": "accent",
+   "align": "center",
+   "size": 30
+  }
+ ],
+ "camera": [
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b47",
+    "commodity"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b48",
+    "Useful"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b49",
+    "Commodity"
+   ]
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b48",
+    "note"
+   ],
+   "ids": [
+    "note",
+    "note_classification",
+    "classification_cross"
+   ],
+   "until_cue": [
+    "b49",
+    "Commodity"
+   ]
+  },
+  {
+   "cue": [
+    "b49",
+    "बाहर"
+   ],
+   "ids": [
+    "anchor",
+    "outside_payment_salt",
+    "kitchen_salt",
+    "useful_tick",
+    "outside_cooking_pot",
+    "outside_payment_compare",
+    "salt_seasons_food",
+    "closing_test"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

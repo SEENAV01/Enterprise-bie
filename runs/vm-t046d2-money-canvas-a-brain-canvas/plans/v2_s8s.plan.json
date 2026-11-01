@@ -1,0 +1,295 @@
+{
+ "id": "v2_s8s",
+ "part_id": "c06.2",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b53",
+   "say": "अब illustrative bazaar में किसान को 2 metres कपड़ा चाहिए। उसके 10 kg grain, trader के 2 kg salt और कपड़े की value बराबर मानिए।"
+  },
+  {
+   "beat_id": "b54",
+   "say": "किसान अपना 10 kg grain देकर 2 kg salt लेता है। फिर पूरा salt देकर 2 metres कपड़ा लेता है; grain और salt उसके पास नहीं बचे।"
+  }
+ ],
+ "kit": "shop",
+ "elements": [
+  {
+   "id": "bazaar",
+   "kind": "shop",
+   "x": 2600,
+   "sign": "bazaar",
+   "cue": [
+    "b53",
+    "",
+    0.0
+   ],
+   "goods": [
+    {
+     "icon": "bie:cloth-roll",
+     "label": "कपड़ा"
+    }
+   ]
+  },
+  {
+   "id": "grain_salt_equal",
+   "kind": "balance",
+   "x": 2180,
+   "y": 400,
+   "cue": [
+    "b53",
+    "grain,"
+   ],
+   "until_cue": [
+    "b54",
+    "",
+    0.0
+   ],
+   "tilt_cue": [
+    "b53",
+    "बराबर"
+   ],
+   "left": {
+    "icon": "bie:grain-sack",
+    "label": "grain"
+   },
+   "right": {
+    "icon": "bie:salt-sack",
+    "label": "salt"
+   }
+  },
+  {
+   "id": "salt_cloth_equal",
+   "kind": "balance",
+   "x": 3020,
+   "y": 400,
+   "cue": [
+    "b53",
+    "कपड़े"
+   ],
+   "until_cue": [
+    "b54",
+    "",
+    0.0
+   ],
+   "tilt_cue": [
+    "b53",
+    "बराबर"
+   ],
+   "left": {
+    "icon": "bie:salt-sack",
+    "label": "salt"
+   },
+   "right": {
+    "icon": "bie:cloth-roll",
+    "label": "कपड़ा"
+   }
+  },
+  {
+   "id": "grain_for_salt",
+   "kind": "action",
+   "x": 2000,
+   "cue": [
+    "b54",
+    "किसान"
+   ],
+   "until_cue": [
+    "b54",
+    "है।"
+   ],
+   "template": "barter_swap",
+   "actors": [
+    {
+     "role": "a",
+     "who": "main",
+     "label": "किसान",
+     "mood": "neutral"
+    },
+    {
+     "role": "b",
+     "who": "other",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "a_thing",
+     "icon": "bie:grain-sack",
+     "label": "10 kg grain"
+    },
+    {
+     "name": "b_thing",
+     "icon": "bie:salt-sack",
+     "label": "2 kg salt"
+    }
+   ],
+   "amounts": [],
+   "steps": [
+    {
+     "name": "offer",
+     "cue": [
+      "b54",
+      "grain"
+     ]
+    },
+    {
+     "name": "ask",
+     "cue": [
+      "b54",
+      "देकर"
+     ]
+    },
+    {
+     "name": "swap",
+     "cue": [
+      "b54",
+      "लेता"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "salt_for_cloth",
+   "kind": "action",
+   "x": 3200,
+   "cue": [
+    "b54",
+    "फिर"
+   ],
+   "template": "barter_swap",
+   "actors": [
+    {
+     "role": "a",
+     "who": "main",
+     "mood": "neutral"
+    },
+    {
+     "role": "b",
+     "who": "other",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "a_thing",
+     "icon": "bie:salt-sack",
+     "label": "salt"
+    },
+    {
+     "name": "b_thing",
+     "icon": "bie:cloth-roll",
+     "label": "2 metres कपड़ा"
+    }
+   ],
+   "amounts": [],
+   "steps": [
+    {
+     "name": "offer",
+     "cue": [
+      "b54",
+      "फिर"
+     ]
+    },
+    {
+     "name": "ask",
+     "cue": [
+      "b54",
+      "पूरा"
+     ]
+    },
+    {
+     "name": "swap",
+     "cue": [
+      "b54",
+      "कपड़ा"
+     ]
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b53",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 540,
+   "zoom": 0.9,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b53",
+    "कपड़ा"
+   ],
+   "x": 2600,
+   "y": 470,
+   "zoom": 1.05,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b53",
+    "बराबर"
+   ],
+   "x": 2600,
+   "y": 440,
+   "zoom": 0.9,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b54",
+    "",
+    0.0
+   ],
+   "x": 2000,
+   "y": 610,
+   "zoom": 1.1,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b54",
+    "देकर"
+   ],
+   "x": 2000,
+   "y": 650,
+   "zoom": 1.35,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b54",
+    "फिर"
+   ],
+   "x": 3200,
+   "y": 610,
+   "zoom": 1.1,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b54",
+    "कपड़ा"
+   ],
+   "x": 3200,
+   "y": 650,
+   "zoom": 1.35,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b54",
+    "नहीं"
+   ],
+   "x": 3200,
+   "y": 590,
+   "zoom": 1,
+   "frames": 30
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

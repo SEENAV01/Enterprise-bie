@@ -1,0 +1,219 @@
+{
+ "id": "v4_s1a",
+ "part_id": "c09.1",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b1",
+   "say": "सस्ता ₹100 note चावल क्यों दिलाता है? क्या पीछे gold है? Payment में लेना और कानून से पैसा मानना क्या एक हैं?"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "note",
+   "kind": "icon",
+   "cell": [
+    0,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b1",
+    "₹100"
+   ],
+   "tone": "ink",
+   "align": "center",
+   "icon": "bie:note-100",
+   "size": 36
+  },
+  {
+   "id": "rice",
+   "kind": "icon",
+   "cell": [
+    2,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b1",
+    "चावल"
+   ],
+   "tone": "ink",
+   "align": "center",
+   "icon": "tw:1f33e",
+   "size": 36
+  },
+  {
+   "id": "purchasing-question",
+   "kind": "icon",
+   "cell": [
+    1,
+    4,
+    2,
+    1
+   ],
+   "cue": [
+    "b1",
+    "क्यों"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "tw:2753",
+   "size": 36
+  },
+  {
+   "id": "gold",
+   "kind": "icon",
+   "cell": [
+    4,
+    2,
+    3,
+    2
+   ],
+   "cue": [
+    "b1",
+    "gold"
+   ],
+   "tone": "ink",
+   "align": "center",
+   "icon": "bie:gold-bar",
+   "size": 36
+  },
+  {
+   "id": "gold-question",
+   "kind": "icon",
+   "cell": [
+    5,
+    4,
+    1,
+    1
+   ],
+   "cue": [
+    "b1",
+    "gold"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "tw:2753",
+   "size": 36
+  },
+  {
+   "id": "payment",
+   "kind": "icon",
+   "cell": [
+    8,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b1",
+    "Payment"
+   ],
+   "tone": "ink",
+   "align": "center",
+   "icon": "tw:1f91d",
+   "size": 36
+  },
+  {
+   "id": "law",
+   "kind": "icon",
+   "cell": [
+    10,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b1",
+    "कानून"
+   ],
+   "tone": "ink",
+   "align": "center",
+   "icon": "tw:1f4dc",
+   "size": 36
+  },
+  {
+   "id": "equivalence-question",
+   "kind": "icon",
+   "cell": [
+    9,
+    4,
+    2,
+    1
+   ],
+   "cue": [
+    "b1",
+    "एक"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "tw:2753",
+   "size": 36
+  }
+ ],
+ "camera": [
+  {
+   "cells": [
+    0,
+    1,
+    12,
+    5
+   ],
+   "cue": [
+    "b1",
+    "₹100"
+   ]
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b1",
+    "₹100"
+   ],
+   "ids": [
+    "note",
+    "rice",
+    "purchasing-question"
+   ],
+   "until_cue": [
+    "b1",
+    "gold"
+   ]
+  },
+  {
+   "cue": [
+    "b1",
+    "gold"
+   ],
+   "ids": [
+    "gold",
+    "gold-question"
+   ],
+   "until_cue": [
+    "b1",
+    "Payment"
+   ]
+  },
+  {
+   "cue": [
+    "b1",
+    "Payment"
+   ],
+   "ids": [
+    "payment",
+    "law",
+    "equivalence-question"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

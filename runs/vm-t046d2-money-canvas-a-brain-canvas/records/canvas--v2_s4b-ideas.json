@@ -1,0 +1,207 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "canvas",
+ "unit": "v2_s4b-ideas",
+ "status": "passed",
+ "instructions_version": "visual-ideas/1",
+ "rulebook_version": "canvas_profile@2026-10-29.1+content_types@2026-10-27.1+explanations@2026-10-24.3+level_profiles@2026-10-24.1+simple_hindi@2026-10-28.1+teacher_examples@2026-10-29.1+vision-2026-10-21@2026-10-21.17+visual_grammar@2026-10-31.1+visual_levels@2026-10-26.2+visual_verbs@2026-11-01.1",
+ "rulebook_digest": "31f0a4500f787c62c6ac8b13a76d46bc43c9b2e60fade0e5dc48ce98ce28f511",
+ "rules_used": [
+  "CV-01",
+  "CV-02",
+  "CV-03",
+  "CV-04",
+  "CV-05",
+  "CV-06",
+  "CV-07",
+  "CV-08",
+  "CV-09",
+  "CV-10",
+  "CV-11",
+  "CV-12",
+  "CV-13",
+  "CV-14",
+  "CV-15",
+  "CV-16",
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-05",
+  "G-06",
+  "G-07",
+  "VG-02",
+  "VG-04",
+  "VG-07",
+  "VG-08",
+  "VG-10",
+  "D1-01",
+  "D1-02",
+  "D1-03",
+  "D1-04",
+  "D1-05",
+  "D1-06",
+  "D2-01",
+  "D2-02",
+  "D2-03",
+  "D2-04",
+  "D2-05"
+ ],
+ "maker_route": "codex",
+ "reviewer_route": "codex-checker",
+ "maker_model": "gpt-6.1-sol",
+ "reviewer_model": "gpt-6.1-sol",
+ "reviewer_independence": "same_model_temporary",
+ "inputs_digest": "e8612472f9edf8acb370702fdb9dae2db8a75042fc136c8beb88644d852b3d94",
+ "card": null,
+ "prefix_sha256": "e6e05002b4031cf8c5c0ef4cb68e4fc13d1f365f3e4d8dee08b87392c37f3fc3",
+ "review_prefix_sha256": null,
+ "inputs": {
+  "system": "You are BIE's visual thinker for one part of a video lesson of Indian Economy for UPSC / State PCS aspirants (UPSC / State PCS). The script is written and\npassed; you do not change a word. Before any layout, say for EVERY beat what the learner should SEE so that the spoken point is\nclear through the eyes (Navin, 30 October 2026: \"jo bola ja rha hai screen ke visuals se wo baat clear ho\"; a screen of text alone\nis a book, not a video). Code then finds the things in BIE's icon index and asset library, places the book's own pictures, and\nchecks the layout.\n\nCourse: \"3. Money\" · learner language: Hinglish.\n\nFor each beat give:\n- idea: the key idea in a few words (what the teacher is making the learner understand right now).\n- relation: ONE id from this list, how the idea relates its things (or \"other\" with relation_note; an \"other\" is logged so Navin can\n  add it):\n- reject: a cross mark on the thing refused (the thing's icon first, then the cross on it, on the word that refuses) (saanche: refuse)\n- accept: a tick on the thing accepted (saanche: accept)\n- compulsory: a law scroll with a stamp on it, beside the thing the law binds\n- limit: a meter or a stack that fills up to a red line where it stops (the limit's number on the line) (saanche: coin_count)\n- more_less: two sizes side by side, or a crowd / stack that grows or shrinks on the word (saanche: cheque)\n- count: a counted stack or crowd whose number is the narration's number (saanche: count_stack, coin_count)\n- sequence: a numbered row or a timeline with arrows; the book's own years and labels when the part covers a book timeline (saanche: hand_over, pay_change, upi, card_tap, cheque, barter_swap)\n- cause_effect: an arrow chain: the cause's icon, an arrow, the effect's icon or number (saanche: pay_change, upi, card_tap, cheque)\n- compare: a split screen (the same slots on both sides) or a balance scale; the book's own table when the part covers one (saanche: barter_swap)\n- part_whole: a grouping: the whole as a box, its parts as icons inside it, or a tree\n- place: a map with the place marked, or the place's flag beside the thing\n- change: before and after side by side, the old struck out, the new in its place; a struck value with an arrow only when the SAME quantity changes; change given back is the pay_change saancha (saanche: pay_change, cheque)\n- promise: a receipt or a handshake between the two parties, the promise's words as a short label (saanche: cheque, hand_over)\n- question: the thing asked about with a question mark beside it; the answer's picture replaces the mark when the answer comes\n- other: a relation outside this list: the step logs it (relations_outside_list) so Navin can add an entry; the beat still shows its things as themselves\n- things, people, places: the concrete nouns the beat names or implies, as plain English or Hindi words a picture can show (wheat,\n  cloth, salt, coin, ₹500 note, phone, law scroll, Sweden, 1661, farmer, shopkeeper). A real person is never drawn (card rule 8): name\n  the role (a king, a ruler) or the object (a coin with a seal), not the person.\n- shows: what is seen, in at most 8 words, as a picture description (a cross on the old coin; a meter filling to ₹1,000\n  with a red line; wheat and cloth swapping hands). Never a sentence for the screen: the sentence is the narration.\n- on_word: the word of this beat (exactly as written) on which the picture should appear (\"\" = the beat's start).\n- image_wanted: a real object an icon cannot show and a photograph or museum image can (a punch-marked silver coin, a cowrie\n  shell, a cheque leaf), as search words; \"\" when an icon is enough. Never a person's portrait (card rule 8).\n- template: when the beat tells a PROCESS the learner should see happen (Navin, 1 November 2026: \"process show nahi ho rahi hai\n  ... jaise scanner phone scan, tab maja hai\"), the kriya ka saancha that shows it; \"none\" when the beat tells no process; \"other\"\n  when it is a process none of these fits (template_note says which process: it is logged so BIE can learn it):\n- hand_over: A gives a thing to B (steps give, take; actors giver, taker; objects thing)\n- pay_change: the buyer pays a note, takes the goods and gets the change back (₹500 in, ₹200 back) (steps pay, goods, change; actors buyer, seller; objects goods; amounts paid, change, price (optional))\n- barter_swap: two people swap their things; at 'ask' both wonder whether they want the other's thing (steps offer, ask, swap; actors a, b; objects a_thing, b_thing)\n- upi: the buyer's phone scans the shop's QR stand; the phone shows '₹300 paid', the shopkeeper's 'received' (steps scan, paid, received; actors buyer, seller; amounts amount)\n- card_tap: a card taps the shop's POS machine; the machine shows the amount approved (steps tap, approved; actors buyer, seller; amounts amount)\n- cheque: a cheque is written for the amount, handed to the bank, and the two passbooks change (payer down, payee up) (steps write, hand, balances; actors payer, payee; amounts amount, payer_before (optional), payer_after (optional), payee_before (optional), payee_after (optional))\n- coin_count: coins drop onto a pile while a meter rises; at 'limit' it stops at its red line (steps count, limit; objects coin; amounts each, limit)\n- refuse: the person looks at the thing, shakes the head, and a cross lands on the thing (steps show, refuse; actors who; objects thing)\n- accept: the person looks at the thing, nods, and a tick lands on the thing (steps show, accept; actors who; objects thing)\n- count_stack: n things appear one by one as they are said (steps count; objects thing; amounts n)\n- template_note: for \"other\" the process in a few words; for \"none\" on a beat that names a process word, why no saancha.\npicture_type: the one picture this part needs most, from timeline, gallery (a row of icon cards), table, flow, tree, chart, map or things (the things themselves with the relation's mark, arrow, meter or scale); the card part's type is \"cause_effect\". picture_note: one line on why.\nReply with the JSON object only.",
+  "user": "Chapter: 3. Money. Part c03.4 (3 beats).\nThe part (JSON):\n{\"part\": {\"id\": \"v2_s4b\", \"part_id\": \"c03.4\", \"card_type\": \"cause_effect\", \"story\": false}, \"beats\": [{\"beat_id\": \"b21\", \"say\": \"अलग ratios यानी no common measure of value; गाय न बाँट पाना indivisibility है। अनाज सड़े तो wealth रखना मुश्किल; deferred payments यानी बाद में चुकाते समय वही मात्रा कम सामान दिला सकती है।\", \"relation_guess\": \"place\", \"template_guess\": \"none\"}, {\"beat_id\": \"b22\", \"say\": \"पैसे में उधार लिखना आसान, purchasing power fixed नहीं। जरूरतें मिलना और quantities मानना अलग शर्तें हैं।\", \"relation_guess\": \"place\", \"template_guess\": \"none\"}, {\"beat_id\": \"b23\", \"say\": \"Barter में matching से repayment तक मुश्किलें हैं।\", \"relation_guess\": \"place\", \"template_guess\": \"barter_swap\"}], \"items\": [{\"item_id\": \"p002-i27\", \"content_type\": \"cause_effect\", \"content\": \"Double coincidence of wants: Both parties must want what other offers.\"}, {\"item_id\": \"p003-i1\", \"content_type\": \"cause_effect\", \"content\": \"• No common measure of value\\n• Indivisibility of goods\\n• Difficulty in storing wealth\\n• Deferred payments are difficult\"}], \"book_pictures\": []}\n\nReply with the ideas JSON."
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "started_at": 1793535724.961996,
+   "mode": "full",
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "67035981745439e121c126b91d171ddd73b781aacec642b90b348ea70d55a643",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 5496,
+    "output_tokens": 594,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "Barter की कठिनाइयों को ठोस वस्तुओं से जोड़ना और पैसे में उधार की सुविधा को purchasing power की अनिश्चितता से अलग रखना।",
+    "key_questions": [
+     "Common measure, indivisibility, storage और deferred payment की दिक्कतें कैसे अलग हैं?",
+     "क्या जरूरतों का मेल quantities पर सहमति भी सुनिश्चित करता है?",
+     "क्या पैसे में तय उधार purchasing power भी तय करता है?"
+    ],
+    "decisions": [
+     {
+      "decision": "Use linked object diagrams rather than a barter exchange animation.",
+      "reason": "These beats explain obstacles and distinctions, not a completed swap."
+     },
+     {
+      "decision": "Show unchanged repayment quantity beside fewer goods later.",
+      "reason": "The narration describes a possible loss of purchasing power, not a smaller repayment quantity."
+     }
+    ],
+    "uncertain": []
+   },
+   "output": {
+    "notes": {
+     "about": "Barter की कठिनाइयों को ठोस वस्तुओं से जोड़ना और पैसे में उधार की सुविधा को purchasing power की अनिश्चितता से अलग रखना।",
+     "key_questions": [
+      "Common measure, indivisibility, storage और deferred payment की दिक्कतें कैसे अलग हैं?",
+      "क्या जरूरतों का मेल quantities पर सहमति भी सुनिश्चित करता है?",
+      "क्या पैसे में तय उधार purchasing power भी तय करता है?"
+     ],
+     "decisions": [
+      {
+       "decision": "Use linked object diagrams rather than a barter exchange animation.",
+       "reason": "These beats explain obstacles and distinctions, not a completed swap."
+      },
+      {
+       "decision": "Show unchanged repayment quantity beside fewer goods later.",
+       "reason": "The narration describes a possible loss of purchasing power, not a smaller repayment quantity."
+      }
+     ],
+     "uncertain": []
+    },
+    "beats": [
+     {
+      "beat_id": "b21",
+      "idea": "Barter की चार अलग कठिनाइयाँ",
+      "relation": "cause_effect",
+      "relation_note": "",
+      "things": [
+       "cow",
+       "cloth",
+       "grain sacks",
+       "rotten grain",
+       "balance scale",
+       "calendar",
+       "repayment grain sack",
+       "goods basket"
+      ],
+      "people": [],
+      "places": [],
+      "shows": "Ratios clash; cow indivisible; grain rots; repayment buys less",
+      "on_word": "ratios",
+      "image_wanted": "",
+      "template": "none",
+      "template_note": "Conceptual cause-effect panels, not a narrated transaction: reveal conflicting ratios, an undivided cow, spoiled grain, and equal repayment quantities with fewer goods later."
+     },
+     {
+      "beat_id": "b22",
+      "idea": "Money fixes debt units, not purchasing power",
+      "relation": "compare",
+      "relation_note": "",
+      "things": [
+       "rupee debt ledger",
+       "calendar",
+       "rupee notes",
+       "goods baskets",
+       "wheat",
+       "cloth",
+       "balance scale"
+      ],
+      "people": [
+       "trader",
+       "trader"
+      ],
+      "places": [],
+      "shows": "Fixed rupee debt; variable baskets; wants versus quantities",
+      "on_word": "पैसे",
+      "image_wanted": "",
+      "template": "none",
+      "template_note": "Writing debt is mentioned as a convenience, not a cheque or transfer process. Show a rupee-denominated ledger beside different-sized goods baskets; separately contrast reciprocal wants with unresolved quantity scales."
+     },
+     {
+      "beat_id": "b23",
+      "idea": "Barter faces obstacles from matching through repayment",
+      "relation": "sequence",
+      "relation_note": "",
+      "things": [
+       "wheat",
+       "cloth",
+       "balance scale",
+       "cow",
+       "grain store",
+       "calendar",
+       "repayment sack",
+       "warning marks"
+      ],
+      "people": [
+       "trader",
+       "trader"
+      ],
+      "places": [],
+      "shows": "Matching, valuation, division, storage, repayment: obstacles throughout",
+      "on_word": "matching",
+      "image_wanted": "",
+      "template": "none",
+      "template_note": "Summary of barriers, not an enacted swap: numbered arrow-linked stages show matching wants, agreeing quantities, indivisibility, storage and later repayment, each with a warning mark."
+     }
+    ],
+    "picture_type": "flow",
+    "picture_note": "An obstacle flow connects barter matching to repayment, with object-based cause-effect panels and a money-debt comparison."
+   },
+   "code_problems": [],
+   "passed": true,
+   "finished_at": 1793535748.5789545
+  }
+ ],
+ "avoid_rounds": [],
+ "cost_usd": 0.0,
+ "seconds": 23.6,
+ "navin_verdict": null
+}
