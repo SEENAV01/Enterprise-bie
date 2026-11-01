@@ -260,7 +260,7 @@ def ideas_answer(user_text: str):
         from .visual_thinking import REALISE, _is_thing
         words = [w.strip(",.!?:;()\"'") for w in beat["say"].replace("।", " ").split() if len(w) > 2 and w not in ("मान", "लीजिए")]
         things = [w for w in words if _is_thing(w) and re.search(r"[A-Za-z\u0900-\u097f]", w)]
-        thing = things[0] if things else "coin"
+        thing = things[0] if things else "thing"
         relation = beat.get("relation_guess") or "other"
         if relation in REALISE and relation not in drawable:       # the offline plans draw only what they can realise (D2-E)
             relation = "other"
@@ -285,7 +285,7 @@ def canvas_answer(user_text: str):
              "dashed": False, "curve": False, "target": "", "mark": "", "pos": "", "root": "", "children": [], "columns": [], "rows": [],
              "highlights": [], "marks": [], "flow": {"icon": "", "count": 0, "period": 0, "size": 0, "reverse": False, "cue": []},
              "picture": {"type": "", "title": "", "items": [], "arrows": False},
-             "action": {"template": "", "actors": [], "objects": [], "amounts": [], "steps": [], "close_up": False}}
+             "action": {"template": "", "actors": [], "objects": [], "amounts": [], "steps": [], "texts": [], "parts": [], "close_up": False}}
     top = max([n["cell"][1] + n["cell"][3] for n in data.get("picture") or []] or [0])      # the rows the book picture took
     nodes = []
     tag_rows = 1 if 8 - top >= 2 else 0                  # a book picture that leaves one row free: the cards take it, no title tag
@@ -343,7 +343,7 @@ def world_answer(user_text: str):
              "tilt_cue": [], "tilt": 0, "x0": 0, "x1": 0, "y0": 0, "y1": 0, "spacing": 0, "enter_x": 0, "exit_x": 0, "face": 0, "seed": 0,
              "count": 0, "lift_cue": [], "lift_dy": 0, "carry_cue": [], "carry_n": 0, "carry_icon": "", "goods": [], "left_icon": "",
              "left_label": "", "right_icon": "", "right_label": "",
-             "action": {"template": "", "actors": [], "objects": [], "amounts": [], "steps": [], "close_up": False}}
+             "action": {"template": "", "actors": [], "objects": [], "amounts": [], "steps": [], "texts": [], "parts": [], "close_up": False}}
     import re as _re
     from .video import world as _world
     first = beats[0]["beat_id"] if beats else "b1"

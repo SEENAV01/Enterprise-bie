@@ -185,7 +185,7 @@ No format changes version in Part D2: every new key is optional, and the readers
 - **Story goods in a world**: a shop's `goods` [{icon, label}] (required when it has `packets`), a crowd's `carry.icon` (required
   when it carries), a balance's `left` / `right` {icon, label}; compiled with `src` from the lesson's library. `world.icons_in`
   lists them for the library and the credits.
-- **The visual-idea beat** adds `template` (one of the ten, `none`, or `other`) and `template_note`; the dikhane ki list keeps
+- **The visual-idea beat** adds `template` (a recipe, `compose`, `none`, or `other`) and `template_note`; the dikhane ki list keeps
   both per beat and, after the plan, `realised` (whether the beat's relation is shown). A process no template fits is a missing
   capability of kind `block` named `process: <note>` in `needs.json`.
 - **The checks** (`canvas_director.check_plan`): `world.goods_problems`, `world.layout_problems` (overlaps, one board, label or
@@ -202,5 +202,30 @@ No format changes version in Part D2: every new key is optional, and the readers
   (`look.D2_SCHEMA`); `look.d2_score` computes the part's score (10 × (visible + happening) / (2 × items)). Report only.
 - **Pictures**: the icon index (`bie.icons/1`, unchanged) adds the `fl:` set (Microsoft Fluent Emoji 3D, MIT, pinned commit) and
   the `bie:` set (BIE's own drawings, CC0, `bie/toolbox/icons/bie/`); the money drawings keep the rules of
-  `docs/bie/BIE_MONEY_OBJECTS.md`, and so do the saanche's animated note, coin and QR stand.
+  `docs/bie/BIE_MONEY_OBJECTS.md`.
+
+### 8a. Saanche from general motion parts (Navin's addendum of 2 November 2026)
+
+Navin: "jis cheej ka jikar hai wohi cheej dikhe" — examples are illustrations, not a list. No format changes version: the new keys
+are optional and the readers allow unknown keys.
+
+- **The parts and recipes** are data: `bie/brain/rulebook/saanche.json` (`bie.brain.saanche/1`): the motion parts (hold, give,
+  move, transform, show_text, meter, appear, refuse, accept, compare), the named spots of the stage, the recipes (each a
+  composition of parts per step, with roles, objects, optional objects and amounts), the relations each part realises, the words
+  that hint a recipe. `saanche.TEMPLATES` is read from it; `template` may also be `compose`.
+- **An action** adds `texts` [{step, text}] (a short word the narration says, shown with that step's sign) and, for
+  `template: compose`, `parts` [{part, cue, actor, from, to, object, into, on, text, style, inside, n, spot, back, left, right,
+  sign, left_text, right_text, limit, dir, title, reach}] (only the fields a part needs; actors and objects are the action's own).
+  A recipe's object the plan leaves out is optional: a plain chip with the part's text, or its parts are skipped. An object the
+  recipe has no place for is dropped (a fix in `auto_fixes`). The maker's strict `action` carries `texts` and `parts` (empty when
+  unused).
+- **Compiled** actions add `parts` [{part, at, … the resolved fields}] in time order (actors as slot numbers 0 and 1, objects by
+  name, targets as {actor} / {object} / {spot}, texts filled from the amounts and labels, `until` on a sign, `end` and `items`
+  on a meter or an appearance); `objects` may hold `{chip: text}` instead of `{src}`. The block draws only these parts and only the
+  plan's own pictures: no object of its own (`tests/test_task046d2_general.py`).
+- **Places** are data: `bie/brain/rulebook/places.json` (`bie.brain.places/1`), the words that name each place; a place's sign
+  is only the plan's own `sign` (no default name).
+- **Lexicons** of the meaning checks (return words, change words, old-days words, modern icons) are data in `visual_verbs.json`
+  (`lexicon`). A value given back is refused as a struck value only when a return word stands beside that value (or a change word
+  is in the beat), and a process with a `give` on the beat shows it instead.
 

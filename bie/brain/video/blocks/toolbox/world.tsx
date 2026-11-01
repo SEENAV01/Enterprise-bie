@@ -135,9 +135,9 @@ const Shop: React.FC<{ el: any; frame: number; fps: number }> = ({ el, frame, fp
       <rect x={x - w / 2 - 40} y={top - 220} width={w + 80} height={780} fill="#f5e6c8" />
       <rect x={x - w / 2 - 40} y={top - 220} width={w + 80} height={26} fill="#d9c49b" />
       {[0, 1, 2].map((i) => <rect key={i} x={x - w / 2 + 40 + i * 250} y={top - 170} width={150} height={110} rx={8} fill="#7d9bb5" stroke="#fff" strokeWidth={8} />)}
-      {/* sign */}
-      <rect x={x - 260} y={top - 40} width={520} height={86} rx={14} fill="#c0392b" />
-      <text x={x} y={top + 20} textAnchor="middle" fontSize={52} fontWeight={900} fill="#fff7e0" fontFamily={FONT}>{el.sign ?? "किराना स्टोर"}</text>
+      {/* sign: only the words the plan gives (no default name for a place) */}
+      {el.sign ? <><rect x={x - 260} y={top - 40} width={520} height={86} rx={14} fill="#c0392b" />
+        <text x={x} y={top + 20} textAnchor="middle" fontSize={52} fontWeight={900} fill="#fff7e0" fontFamily={FONT}>{el.sign}</text></> : null}
       {/* opening and interior */}
       <rect x={x - w / 2} y={top + 70} width={w} height={490} fill="#6b4f3a" />
       <rect x={x - w / 2 + 20} y={top + 90} width={w - 40} height={300} fill="#8a6a4f" />
@@ -176,9 +176,9 @@ const Bank: React.FC<{ el: any; teller?: any; frame: number }> = ({ el, teller, 
       <rect x={x - w / 2 - 50} y={top - 150} width={w + 100} height={750} fill="#e9e2d3" />
       <path d={`M${x - w / 2 - 80},${top - 176} L${x},${top - 280} L${x + w / 2 + 80},${top - 176} Z`} fill="#d8ccb2" stroke="#c4b79a" strokeWidth={6} />
       <rect x={x - w / 2 - 80} y={top - 182} width={w + 160} height={40} fill="#cfc4ad" />
-      {/* sign band */}
-      <rect x={x - 320} y={top - 112} width={640} height={92} rx={14} fill="#1f3a5f" />
-      <text x={x} y={top - 46} textAnchor="middle" fontSize={56} fontWeight={900} fill="#fff7e0" fontFamily={FONT}>{el.sign ?? "बैंक"}</text>
+      {/* sign band: only the words the plan gives */}
+      {el.sign ? <><rect x={x - 320} y={top - 112} width={640} height={92} rx={14} fill="#1f3a5f" />
+        <text x={x} y={top - 46} textAnchor="middle" fontSize={56} fontWeight={900} fill="#fff7e0" fontFamily={FONT}>{el.sign}</text></> : null}
       {/* hall */}
       <rect x={x - w / 2 + 70} y={top + 4} width={w - 140} height={556} fill="#2b3f55" />
       <rect x={x - w / 2 + 90} y={top + 24} width={w - 180} height={300} fill="#3b556f" />
@@ -333,7 +333,7 @@ const Crowd: React.FC<{ el: any; frame: number; fps: number }> = ({ el, frame })
   );
 };
 
-const CoinRain: React.FC<{ el: any; frame: number }> = ({ el, frame }) => {
+const Rain: React.FC<{ el: any; frame: number }> = ({ el, frame }) => {
   if (frame < el.at || frame > (el.until ?? el.at + 120) + 40) return null;
   const r = rng(el.seed ?? 7);
   return (
@@ -347,7 +347,7 @@ const CoinRain: React.FC<{ el: any; frame: number }> = ({ el, frame }) => {
         return (
           <g key={i} transform={`translate(${x},${y})`} opacity={t > 1 ? Math.max(0, 1 - (t - 1) * 3.3) : 1}>
             <ellipse cx={0} cy={0} rx={22 * Math.max(0.15, sq)} ry={22} fill="#f5b041" stroke="#b9770e" strokeWidth={4} />
-            {sq > 0.5 ? <text x={0} y={9} textAnchor="middle" fontSize={24} fontWeight={900} fill="#9a6408" fontFamily={FONT}>₹</text> : null}
+            {sq > 0.5 && el.symbol ? <text x={0} y={9} textAnchor="middle" fontSize={24} fontWeight={900} fill="#9a6408" fontFamily={FONT}>{String(el.symbol).slice(0, 2)}</text> : null}
           </g>
         );
       })}
@@ -513,7 +513,7 @@ const WorldScene: React.FC<BlockProps> = ({ data, width: W, height: H }) => {
         {byKind("crowd").map((e) => <Crowd key={e.id} el={e} frame={frame} fps={fps} />)}
         {byKind("action").map((e) => <g key={e.id} transform={`translate(${e.x - STAGE_W / 2},${GROUND - FEET})`}><ActionStage el={e} frame={frame} fps={fps} /></g>)}
         {byKind("price_tag").map((e) => <PriceTag key={e.id} el={e} frame={frame} fps={fps} />)}
-        {byKind("coin_rain").map((e) => <CoinRain key={e.id} el={e} frame={frame} />)}
+        {byKind("coin_rain").map((e) => <Rain key={e.id} el={e} frame={frame} />)}
         {byKind("pull_arrow").map((e) => <PullArrow key={e.id} el={e} frame={frame} />)}
         {byKind("balance").map((e) => <Balance key={e.id} el={e} frame={frame} fps={fps} />)}
         {byKind("board").map((e) => <Board key={e.id} el={e} frame={frame} fps={fps} />)}

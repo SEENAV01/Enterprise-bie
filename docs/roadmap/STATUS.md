@@ -9,8 +9,8 @@ Updated: 1 November 2026 · Read this first in every new session, then show Navi
 | Phase | 1 · BIE as one whole system; plan agreed on 22 October 2026 (ROADMAP, "Agreed on 22 October 2026") |
 | Current task | **Task 046 · Part D2: kriya ke saanche (process templates), story goods from the story, stricter layout and meaning checks** (Navin's verdict on the D1 videos, 1 November 2026: "baat ho rahi hai kapda khareedne ki namak khareedne ki aur wo wahi cheeni ko show kar rha hai"; "process show nahi ho rahi hai ... jaise scanner phone scan, tab maja hai"). Section "Task 046 · Part D2" below. Before it: Part D1 (section below), Part C (Economy), the whole Money chapter. |
 | Branch | `task046d2-process-saanche` (PR #115) |
-| State | **1 November 2026:** Part D2 merged as PR #115, its run-a fixes as PR #117 (`ef77d816`), IMPLEMENTED. **Live run b** (`runs/vm-t046d2-money-canvas-b-brain-canvas/`, Codex, ₹0, 89 min): 33 of 36 parts passed (16 first try, 73 rounds; run a 26, 6, 88), no video spec (one part refused in each video); on the passed parts every relation realised (90 of 90), 61 actions, 0 overlaps, 0 under the subtitle strip. The three refusals were BIE's own checks (SEEKH_LOG entry 33); branch `task046d2-resume` fixes them and adds the canvas resume (every earlier answer checked again by today's code, no maker call when it passes): run b's 36 answers all pass today. Nothing ACCEPTED. |
-| Next task | Merge the `task046d2-resume` PR on green; then run c (the canvas section resumed from run b), the renders of Money v2 and v4, the review pages and the dikhane ki list pages, LOOK-D1 (like for like with D1's 5.25) and LOOK-D2, the measures against D1; then **STOP for Navin's verdict on Part D2**; then the voice (Task 047, with the sound effects). |
+| State | **2 November 2026:** Part D2 merged (PRs #115, #117, #118); run c (the resume of run b, 36 of 36 reused, ₹0) rendered as `t046d2-money-v2` and `t046d2-money-v4`; LOOK-D1 5.11 (worlds 4.82, canvas 5.24; D1 5.25 / 3.64 / 5.96), LOOK-D2 3.34 (things visible 52 %). **Navin's addendum of 2 November 2026** ("jis cheej ka jikar hai wohi cheej dikhe"; examples are illustrations, not a list): branch `task046d2-general-parts` builds the saanche from general motion parts, removes every chapter noun from the director, world, canvas and template code (123 → 0) and proves it with a bicycle, a test tube and a book (IMPLEMENTED). Nothing ACCEPTED. |
+| Next task | The addendum, one PR at a time: (1) general motion parts and no chapter nouns (this PR); (2) the mentioned-things coverage check and report; (3) the general asset path (library → icon index → fetch → BIE's coder makes a missing SVG, tested and licence-clean, added to the library), the hand-made `bie:` list retired; then the proof: Money v2, v4 and two more videos chosen by code, narration locked, nothing by hand (mentioned vs shown, needs.json, what BIE's coder made), renders and pages; then **STOP for Navin's verdict**. |
 | Canonical main | `65e87a6e` (PR #114: Part D1 proof run b, the fetch rules, currency icons, the six pin) on `d6174636` (PR #113: F-18, the Section 18 sidecar race) on `18595156` (PR #112: the proof fixes) on `e998f926` (PR #111: Part D1) on `73a07941` (PR #109: the render publish step retries) on `16c1e5fe` (PR #110: the Money chapter's report); earlier: `f99b77a6` (PR #93: PR 3, the bank kit) on `f929d5a5` (PR #92: docs, the proof's numbers and the chosen video) on `d265dc90` (PR #90: the everyday words of money and the W-01 source-packet phrases; PR #91 `abeb70b0` F-16 skyfield files in the shared asset cache; PR #89 `f03c9208` plan review; PR #88 `182c9b01` page review; PR #87 `995c808b` map review; PR #86 `8612d724` render speed; PR #85 `78a9a721` PR 2 and Navin's addition; PR #81 `d7ce8388`: F-14b, Codex image calls keep the code-mode host on, Navin's yes; PR #80 `4128cbdd` F-14; PR #77 `aa8d6519` VM image and look jobs; PR #79 `2c6c2fc5` F-13c + F-11 toolbox lane; PR #78 `c4375064` F-13b; PR #74 `39e3430e` Task 046 Part A) |
 | Keys | Never the Anthropic key. GPT API key off. Gemini key (AICredits) for the checker; it may call only `google/gemini-4-argon`. GPT only through ChatGPT Pro, signed in with Codex on Navin's machine (Hostinger KVM 2, Mumbai). On the VM, from 25 October 2026, the checker is Navin's free Google AI Studio key `GEMINI_API_KEY` in `/etc/bie/bie.env` (direct route, `gemini-3.8-flash`); the AICredits key stays there unused (a job can still choose it with `routes google=aicredits`). Since 24 October a free Google AI Studio key is the GitHub secret `GEMINI_API_KEY` (Navin's choice for now, sample content only, never student data); it serves GitHub Actions runs only and wins over AICredits there: `gemini-3.8-flash` answers (smoke run 40114580580), `gemini-4-argon` gives 429 quota and `gemini-3.1-pro` 404, so a run that uses it passes `models=google=gemini-3.8-flash` |
 
@@ -137,6 +137,30 @@ outputs: 0 problems. Tests: every Task 045/046 module.
 
 **Next:** merge on green; run c (resume from run b); the renders, the review pages and the dikhane ki list pages, LOOK-D1 and
 LOOK-D2, the measures against D1; then **STOP for Navin's verdict**.
+
+Merged as PR #118. **Run c** (`runs/vm-t046d2-money-canvas-c-brain-canvas/`, the canvas section resumed from run b, 2.7 minutes,
+1 call, ₹0): 36 of 36 parts reused with no maker call, both video specs written. Rendered as `runs/t046d2-money-v2` (9.9 min) and
+`runs/t046d2-money-v4` (10.6 min), ₹0 billed (₹24 each at the list price). Review pages and dikhane ki list pages published as
+artifacts. LOOK-D1 (like for like with D1): 5.11 (world parts 4.82, canvas parts 5.24; D1 5.25, 3.64, 5.96). LOOK-D2: 3.34 of 10,
+things visible 52 %, happening 14 % (518 items).
+
+**Navin's addendum, 2 November 2026** (in his words: "maine salt aur kapde ka example diya ... aise to kal kisi aur cheej ka jikar
+aayega to salt aur kapda hi dikhaoge, jabki mera kehna hai jis cheej ka jikar hai wohi cheej dikhe; yeh udaharan maine is rup mein
+diye the"): 1. drop the hand-picked `bie:` list, one general path for every thing a beat names (library → icon index → fetch →
+BIE's coder makes a new SVG from a short spec, tested and licence-clean, added to the library); 2. saanche from general motion
+parts (hold, give/take, move along a path, transform A → B, a screen or sign shows text, a counter or meter changes, appear one by
+one, refuse/accept, compare), UPI, cheque, change and barter as compositions, a missing part to the missing-capability log; 3. no
+chapter noun as a fixed value in the director, world, canvas or template code, tested with a bicycle, a test tube and a book;
+4. every thing the visual-idea step marks "to show" for a beat appears on screen in that beat, coverage % per video; 5. the proof on
+Money v2, v4 and two more videos chosen by code (not v1, v2, v4), nothing by hand.
+
+**Addendum PR 1 (branch `task046d2-general-parts`, IMPLEMENTED; SEEKH_LOG entry 34):** points 2 and 3. `rulebook/saanche.json`
+(the parts, the ten recipes as compositions, `compose`, realisation by parts, the hint words); `saanche.py` composes and times
+parts; `saanche.tsx` draws parts generically and no object of its own (an optional object left out is a plain chip with text);
+places and the checks' lexicons are rulebook data; no default sign; the director's fallback menu is the relation icons only; the
+prompts ask for the beat's own things. Measured: chapter nouns as fixed values in that code 123 → 0; the ten recipes and a composed
+process with a bicycle, a test tube and a book draw only those (`tests/test_task046d2_general.py`); earlier plans recompiled (415):
+0 differences; runs a and b replay as before (35 and 36 of 36); passed outputs: 0 problems.
 
 ## Task 046 · Part D1 · dikhane ki soch, the needs list and the gathering of things (Navin's verdict of 30 October 2026)
 

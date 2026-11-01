@@ -1,13 +1,14 @@
 {
  "rulebook": "bie-visual-verbs",
- "version": "2026-11-01.1",
+ "version": "2026-11-02.1",
  "schema": "bie.rules.visual-verbs/1",
  "status": "starting entries, not topic rules (Navin adds entries)",
  "source": "Navin's verdict on the Money videos, 30 October 2026: 'jo bola ja rha hai screen ke visuals se wo baat clear ho ... visuals tarike se user ko teacher ki baat aankhon ke jariye dimag tak pahunchate ho'; his example: 'yuan milestone compulsory wali line ke liye reject krne ki baat ko cross se darshaya ja sakta tha'; page 2: 'dekho kaise icons ka use kiya ja rha hai khud samjh aa rha hai ki neeche likhe text ka matlb kya hai'.",
  "how_it_is_used": "bie/brain/visual_thinking.py: the 'dikhane ki soch' step names, for every beat, its key idea, its relation (one of the ids below, or 'other' with a note, which is logged) and the things, people and places it names. The entry for the relation says how the relation is SHOWN; the things are shown as themselves (an icon or a picture found by code in the icon index and the asset library, never a word standing for the thing). Screen text is a name or a short natural phrase, never a sentence: the sentence lives in the narration and the subtitles (page-2 principle).",
  "changes": [
   "2026-10-31.1 (Task 046 Part D1): the first fourteen relations with how each is shown, from Navin's verdict of 30 October 2026.",
-  "2026-11-01.1 (Task 046 Part D2, Navin's verdict of 1 November 2026): every relation names the kriya ke saanche (process templates, bie/brain/video/saanche.py) that show it; a refusal in a world is the refuse saancha with its cross; a struck value with an arrow is only for the same quantity changing (change given back is pay_change); visual_thinking.meaning_problems checks that each relation of the dikhane ki list is realised on its beat."
+  "2026-11-01.1 (Task 046 Part D2, Navin's verdict of 1 November 2026): every relation names the kriya ke saanche (process templates, bie/brain/video/saanche.py) that show it; a refusal in a world is the refuse saancha with its cross; a struck value with an arrow is only for the same quantity changing (change given back is pay_change); visual_thinking.meaning_problems checks that each relation of the dikhane ki list is realised on its beat.",
+  "2026-11-02.1 (Task 046 Part D2 addendum, Navin, 2 November 2026: \"jis cheej ka jikar hai wohi cheej dikhe\"): the checks' word lists move here as data (lexicon: return words, change words, old-days words, modern icons); a relation is realised by an action through its motion parts (rulebook/saanche.json), not by recipe names"
  ],
  "relations": [
   {
@@ -703,6 +704,23 @@
     ],
     "shows": "n things appear one by one as they are said"
    }
+  }
+ },
+ "lexicon": {
+  "_note": "Words and icons the meaning checks read (Task 046 Part D2 addendum, 2 November 2026): data the rulebook extends for any subject; never a list of things to draw.",
+  "return_words": "वापस|लौटा|\\bback\\b|\\breturns?\\b|\\breturned\\b",
+  "change_words": "चिल्लर|छुट्टा|खुल्ले|बाकी पैसे|बचे पैसे|\\bchange\\b|\\bbalance return",
+  "old_days": "barter|वस्तु विनिमय|अदला-बदली|कौड़ी|cowrie|प्राचीन|ancient|पुराने ज़माने|पुराने जमाने|सदियों पहले|BCE|\\bBC\\b|राजा|सिंधु|harappa|हड़प्पा",
+  "modern_icons": {
+   "tw:1f4f1": "mobile phone",
+   "tw:1f4b3": "credit card",
+   "tw:1f4bb": "laptop",
+   "tw:1f3e7": "ATM",
+   "tw:1f697": "car",
+   "tw:1f4f2": "mobile phone",
+   "tw:1f5a5": "computer",
+   "fa:solid/credit-card": "credit card",
+   "fa:solid/mobile": "mobile phone"
   }
  }
 }

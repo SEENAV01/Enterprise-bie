@@ -136,7 +136,7 @@ def canvas_texts(plan: dict) -> list:
         elif kind == "arrow" and n.get("label"):
             rows.append({"id": f"{nid}.label", "cue": cue, "text": str(n.get("label", "")), "role": "label" if len(str(n["label"]).split()) <= 2 else "text"})
         elif kind == "action":
-            rows += action_texts(n)
+            rows += action_texts(n, {b["beat_id"]: b.get("say", "") for b in plan.get("beats") or []})
         elif kind == "picture":                              # Task 046 Part D1: the book's own words, drawn as labels
             pic = n.get("picture") or {}
             for group in ("panels", "events", "nodes", "rows"):              # the book's own words, placed by code (role "book")
@@ -163,20 +163,39 @@ def world_texts(plan: dict) -> list:
         elif kind == "title":
             rows.append({"id": nid, "cue": cue, "text": str(n.get("text", "")), "role": "label"})
         elif kind == "action":
-            rows += action_texts(n)
+            rows += action_texts(n, {b["beat_id"]: b.get("say", "") for b in plan.get("beats") or []})
     return rows
 
 
-def action_texts(n: dict) -> list:
+def action_texts(n: dict, says: dict | None = None) -> list:
     """The words a kriya ka saancha puts on screen (Task 046 Part D2): the people's name tags and the things' labels (labels), the
-    amounts on the note, the screen, the passbook (labels, each cued on the step that shows it first)."""
+    amounts on the tags, signs, screens and meters, a step's own short word, a composed part's text (labels, each cued on the
+    step that shows it: an amount on the first of the action's steps whose beat says it)."""
     nid = n.get("id", "?")
-    first = ((n.get("steps") or [{}])[0]).get("cue")
+    first = ((n.get("steps") or n.get("parts") or [{}])[0]).get("cue")
     rows = [{"id": f"{nid}.{a.get('role', 'actor')}", "cue": first, "text": str(a["label"]), "role": "label"}
             for a in n.get("actors") or [] if a.get("label")]
     rows += [{"id": f"{nid}.{o.get('name', 'object')}", "cue": first, "text": str(o["label"]), "role": "label"}
              for o in n.get("objects") or [] if o.get("label")]
     from . import saanche                                     # lazy: saanche imports the canvas, which imports this module's users
-    rows += [{"id": f"{nid}.{a.get('name', 'amount')}", "cue": saanche.amount_cue(n, a.get("name")) or first, "text": str(a["text"]),
-              "role": "label"} for a in n.get("amounts") or [] if a.get("text") and not (n.get("template") == "count_stack" and a.get("name") == "n")]
+    cues = [s.get("cue") for s in n.get("steps") or [] if s.get("cue")]
+    def said_in(text):
+        numbers = [m.replace(",", "") for m in NUMBER.findall(str(text))]
+        for cue in cues:
+            spoken = {m.replace(",", "") for m in NUMBER.findall((says or {}).get((cue or [None])[0], ""))}
+            if numbers and all(x in spoken for x in numbers):
+                return cue
+        return None
+    for a in n.get("amounts") or []:
+        if not a.get("text") or a.get("name") == "n":
+            continue
+        cue = (said_in(a["text"]) if says else None) or saanche.amount_cue(n, a.get("name")) or first
+        rows.append({"id": f"{nid}.{a.get('name', 'amount')}", "cue": cue, "text": str(a["text"]), "role": "label"})
+    steps = {s.get("name"): s.get("cue") for s in n.get("steps") or []}
+    rows += [{"id": f"{nid}.{t.get('step')}.text", "cue": steps.get(t.get("step")) or first, "text": str(t["text"]), "role": "label"}
+             for t in n.get("texts") or [] if t.get("text")]
+    for i, p in enumerate(n.get("parts") or []):
+        for key in ("text", "left_text", "right_text", "title"):
+            if p.get(key) and p.get(key) != "?":
+                rows.append({"id": f"{nid}.p{i + 1}.{key}", "cue": p.get("cue") or first, "text": str(p[key]), "role": "label"})
     return rows

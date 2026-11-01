@@ -179,7 +179,8 @@ class Plans(unittest.TestCase):
         self.assertIn("[CV-01]", step.system)
         self.assertIn("## Element vocabulary", step.system)
         self.assertNotIn("## Examples", step.system)
-        self.assertIn("tw:1f3ea · convenience store", step.system)
+        self.assertNotIn("convenience store", step.system)                      # no fixed menu of one subject's things
+        self.assertTrue(any(f"{i} · {name}" in step.system for i, name in cd.relation_icons()))
         self.assertIn('"items": [{"item_id": "i1"', step.user)
         self.assertEqual(step.schema, cd.PLAN_SCHEMA)
         wstep = cd.part_step(ECON, self.stub, [], {"mode": "C", "place": "shop", "kit": "shop", "missing": ""}, rulebook=rulebook.load())

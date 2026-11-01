@@ -20,7 +20,8 @@ from pathlib import Path
 RULEBOOK_DIR = Path(__file__).resolve().parent / "rulebook"
 STATUSES = ("locked", "proposed", "retired")
 DATA_SCHEMAS = ("bie.brain.content-types/1", "bie.brain.simple-hindi/1", "bie.brain.level-profiles/1",
-                "bie.brain.teacher-examples/1", "bie.brain.explanations/1", "bie.brain.visual-levels/1")
+                "bie.brain.teacher-examples/1", "bie.brain.explanations/1", "bie.brain.visual-levels/1",
+                "bie.brain.saanche/1", "bie.brain.places/1")
 
 
 class RulebookError(ValueError):
