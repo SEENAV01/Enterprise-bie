@@ -512,7 +512,7 @@ def _icon_problems(plan: dict, library=None) -> list:
     return out
 
 
-def settle_plan(plan: dict, letter: str, ideas: dict | None) -> list:
+def settle_plan(plan: dict, letter: str, ideas: dict | None, found: dict | None = None) -> list:
     """What code settles in a maker's plan before it is checked or compiled (seekh -> BIE, the first Part D2 run of 1 November
     2026: 10 of 36 parts refused after three rounds, 88 rounds in all, most of them on things code can do): every action is
     completed from the narration (``saanche.complete_action``) and, on the canvas, a sequence or cause-effect beat left unshown
@@ -523,10 +523,13 @@ def settle_plan(plan: dict, letter: str, ideas: dict | None) -> list:
     for item in plan.get("elements") or plan.get("nodes") or []:
         if item.get("kind") == "action":
             fixes += saanche.complete_action(item, says)
-    return fixes + vt.realise_relations(plan, letter, ideas)
+    fixes += vt.realise_relations(plan, letter, ideas)
+    found = found or {}
+    return fixes + vt.show_missing_things(plan, letter, ideas, found=found.get("found"), images=found.get("images"))
 
 
-def check_plan(stub: dict, value: dict, mode, *, picture: dict | None = None, library=None, ideas: dict | None = None) -> list:
+def check_plan(stub: dict, value: dict, mode, *, picture: dict | None = None, library=None, ideas: dict | None = None,
+               found: dict | None = None) -> list:
     """The code check of a maker's answer: ``mode`` is the mode dict ({"mode", "kit", ...}) or the letter alone. Part D1 adds:
     every beat shows a non-text thing on its words, no text-only screen over 10 s, screen text a name or a short phrase, the
     book's pictures drawn, no caution line on screen. Part D2 adds: the story's own goods (no fixed picture), the stricter
@@ -536,7 +539,7 @@ def check_plan(stub: dict, value: dict, mode, *, picture: dict | None = None, li
     try:
         if letter == "C":
             plan = world_from(stub, value, kit=kit)
-            settle_plan(plan, "C", ideas)
+            settle_plan(plan, "C", ideas, found)
             problems = _icon_problems(plan, library) + world.goods_problems(plan)
             if problems:
                 return problems
@@ -544,9 +547,9 @@ def check_plan(stub: dict, value: dict, mode, *, picture: dict | None = None, li
             texts = screen_text.world_texts(plan)
             return (report["problems"] + screen_text.problems(texts, plan["beats"])                     # CV-13 … CV-16
                     + vt.beat_cover_problems(plan, plan["beats"], "C") + vt.phrase_problems(texts) + vt.caution_problems(texts)
-                    + world.layout_problems(scene) + vt.meaning_problems(plan, "C", ideas))
+                    + world.layout_problems(scene) + vt.meaning_problems(plan, "C", ideas) + _coverage(plan, "C", ideas, found))
         plan = plan_from(stub, value)
-        settle_plan(plan, "B", ideas)
+        settle_plan(plan, "B", ideas, found)
         problems = _icon_problems(plan, library)
         if problems:
             return problems
@@ -556,11 +559,19 @@ def check_plan(stub: dict, value: dict, mode, *, picture: dict | None = None, li
         return (report["problems"] + screen_text.problems(texts, plan["beats"])                         # CV-13 … CV-16
                 + vt.beat_cover_problems(plan, plan["beats"], "B") + text_only + vt.phrase_problems(texts)
                 + vt.caution_problems(texts) + vt.book_picture_problems(plan, picture)
-                + canvas.subtitle_problems(scene) + vt.meaning_problems(plan, "B", ideas))
+                + canvas.subtitle_problems(scene) + vt.meaning_problems(plan, "B", ideas) + _coverage(plan, "B", ideas, found))
     except PlanError as exc:
         return [str(exc)]
     except (KeyError, TypeError, ValueError, IndexError) as exc:
         return [f"plan shape: {type(exc).__name__}: {exc}"]
+
+
+def _coverage(plan: dict, letter: str, ideas: dict | None, found: dict | None) -> list:
+    """Navin's addendum of 2 November 2026, point 4: every thing the dikhane ki list names for a beat is on screen in that beat."""
+    if not ideas:
+        return []
+    found = found or {}
+    return vt.coverage_problems(vt.coverage_rows(plan, letter, ideas, found=found.get("found"), images=found.get("images")))
 
 
 # ---------------------------------------------------------------- the step
@@ -666,7 +677,8 @@ def part_step(course: Course, stub: dict, items: list, mode: dict, *, rulebook, 
             f"The part (JSON):\n{json.dumps(payload, ensure_ascii=False)}\n\nReply with the plan JSON.")
     picture = stub.get("picture") or {}
     return Step(section=SECTION, unit=stub["id"], instructions_version=VERSION, system=system, user=user, schema=schema,
-                check=lambda value: check_plan(stub, value, mode, picture=picture, library=library, ideas=ideas), max_rounds=max_rounds,
+                check=lambda value: check_plan(stub, value, mode, picture=picture, library=library, ideas=ideas,
+                                               found={"found": candidates or {}, "images": images or {}}), max_rounds=max_rounds,
                 start=start)
 
 
@@ -841,7 +853,7 @@ def run_canvas(chapter: dict, lesson: dict, course: Course, runner, out_dir, *, 
                 ideas_value = ideas.output if ideas.passed else None
                 if mode["mode"] == "C":
                     plan = world_from(stub, result.output, kit=mode.get("kit", ""))
-                    settled = settle_plan(plan, "C", ideas_value)
+                    settled = settle_plan(plan, "C", ideas_value, found)
                     ids = world.icons_in(plan)
                     index_ids = [i for i in ids if not str(i).startswith("asset:")]
                     paths = icons.add_to_library(index_ids, library, opener=opener) if index_ids else {}
@@ -852,7 +864,7 @@ def run_canvas(chapter: dict, lesson: dict, course: Course, runner, out_dir, *, 
                     part_data["picture_types"] = ["world"]
                 else:
                     plan = plan_from(stub, result.output)
-                    settled = settle_plan(plan, "B", ideas_value)
+                    settled = settle_plan(plan, "B", ideas_value, found)
                     ids = canvas.icons_in(plan)
                     index_ids = [i for i in ids if not str(i).startswith("asset:")]
                     paths = icons.add_to_library(index_ids, library, opener=opener) if index_ids else {}
@@ -868,6 +880,8 @@ def run_canvas(chapter: dict, lesson: dict, course: Course, runner, out_dir, *, 
                     part_data["book_pictures_drawn"], part_data["book_picture_ids"] = len(drawn), drawn
                 letter = "C" if "elements" in plan else "B"
                 part_data["auto_fixes"] = settled + report.get("auto_fixes", [])
+                part_data["coverage"] = vt.coverage_summary(vt.coverage_rows(plan, letter, ideas_value, found=found["found"], images=found["images"]))
+                entry["coverage_pct"] = part_data["coverage"]["coverage_pct"]
                 rel = vt.relation_rows(plan, letter, ideas_value)
                 part_data["realised"] = {r["beat_id"]: r["realised"] for r in rel}
                 part_data["relations"] = len(rel)
@@ -951,6 +965,10 @@ def run_canvas(chapter: dict, lesson: dict, course: Course, runner, out_dir, *, 
         "boards_in_world_parts": sum(r.get("boards_in_world_parts", 0) for r in reps), "overlaps": sum(r.get("overlaps", 0) for r in reps),
         "subtitle_violations": sum(r.get("subtitle_violations", 0) for r in reps),
         "icon_misfits": sum(len(r.get("icon_misfits") or []) for r in reps)})
+    said, seen = sum(r.get("mentioned_things", 0) for r in reps), sum(r.get("shown_things", 0) for r in reps)
+    summary["quality"].update({                        # Navin's addendum of 2 November 2026, point 4: every mentioned thing on screen
+        "mentioned_things": said, "shown_things": seen, "coverage_pct": round(100.0 * seen / said, 1) if said else None,
+        "things_without_a_picture": sum(1 for r in reps for t in r.get("things_not_shown") or [] if not t.get("has_picture"))})
     formats.check("canvas_summary", summary, where=str(out / "canvas.json"))
     (out / "canvas.json").write_text(json.dumps(summary, ensure_ascii=False, indent=1), encoding="utf-8")
     (out / "CANVAS.md").write_text(render_markdown(summary), encoding="utf-8")
@@ -980,8 +998,14 @@ def render_markdown(summary: dict) -> str:
                   f"{q['book_pictures_drawn']} of {q['book_pictures']}; world share {q['world_share']:.0%}; relations outside the list "
                   f"{q['relations_outside_list']}; ideas passed first try {q['ideas_first_try']}; needs {q['needs']}; missing capabilities "
                   f"{q['missing_capabilities']}.", ""]
+    if q.get("mentioned_things"):
+        lines += [f"Mentioned things on screen (Navin's addendum of 2 November 2026): {q['shown_things']} of {q['mentioned_things']} "
+                  f"({q['coverage_pct']} %); not shown and without a picture in BIE (needs): {q['things_without_a_picture']}.", ""]
     for v in summary["videos"]:
         lines += [f"## {v['video_id']} · {v['title']} ({v['seconds']} s) · {v.get('status')}", ""]
+        rep = v.get("report") or {}
+        if rep.get("mentioned_things"):
+            lines += [f"Mentioned things on screen: {rep['shown_things']} of {rep['mentioned_things']} ({rep['coverage_pct']} %).", ""]
         for p in v["parts"]:
             level = p.get("level", "")
             lines.append(f"- {p['id']} ({p['part_id'] or 'no part'}, {p['beats']} beats): mode {p['mode']} {level}; {p['status']} after {p['rounds']} round(s)"

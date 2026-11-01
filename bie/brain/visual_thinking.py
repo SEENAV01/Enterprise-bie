@@ -36,7 +36,7 @@ from pathlib import Path
 
 from . import formats
 from .common import S, arr, obj
-from .video import saanche
+from .video import saanche, world
 from .runner import NOTES_SCHEMA
 from ..toolbox import icons
 
@@ -768,7 +768,14 @@ def report(parts: list) -> dict:
             "boards_in_world_parts": sum(p.get("boards", 0) for p in parts if p.get("mode") == "C"),
             "overlaps": sum(p.get("overlaps", 0) for p in parts),
             "subtitle_violations": sum(p.get("subtitle_violations", 0) for p in parts),
-            "icon_misfits": [m for p in parts for m in (p.get("icon_misfits") or [])]}
+            "icon_misfits": [m for p in parts for m in (p.get("icon_misfits") or [])],
+            # Navin's addendum of 2 November 2026: the things the dikhane ki list names, on screen in their beats
+            "mentioned_things": sum((p.get("coverage") or {}).get("mentioned", 0) for p in parts),
+            "shown_things": sum((p.get("coverage") or {}).get("shown", 0) for p in parts),
+            "coverage_pct": (round(100.0 * sum((p.get("coverage") or {}).get("shown", 0) for p in parts)
+                                   / sum((p.get("coverage") or {}).get("mentioned", 0) for p in parts), 1)
+                             if sum((p.get("coverage") or {}).get("mentioned", 0) for p in parts) else None),
+            "things_not_shown": [dict(t, part=p.get("id")) for p in parts for t in (p.get("coverage") or {}).get("not_shown", [])]}
 
 
 # ---------------------------------------------------------------- meaning checks (Task 046 Part D2, E)
@@ -826,6 +833,261 @@ def _beats_of(item: dict) -> set:
     for group in ("events", "panels", "rows", "nodes", "items"):
         out |= {_cue_beat(x.get("cue")) for x in pic.get(group) or [] if isinstance(x, dict)}
     return out - {None}
+
+
+def _pictures_of(item: dict) -> list:
+    """The picture ids an element draws: its icon, a flow's, a crowd's carried goods, a shop's goods, a balance's pans, an action's
+    objects, the panels and events of a picture."""
+    ids = [item.get("icon"), (item.get("flow") or {}).get("icon"), (item.get("carry") or {}).get("icon"), item.get("carry_icon"),
+           item.get("left_icon"), item.get("right_icon"), (item.get("left") or {}).get("icon"), (item.get("right") or {}).get("icon")]
+    ids += [o.get("icon") for o in item.get("objects") or [] if isinstance(o, dict)]
+    ids += [g.get("icon") for g in item.get("goods") or [] if isinstance(g, dict)]
+    pic = item.get("picture") or {}
+    for group in ("panels", "events", "items", "nodes"):
+        ids += [x.get("icon") for x in pic.get(group) or [] if isinstance(x, dict)]
+    return [i for i in ids if isinstance(i, str) and i]
+
+
+def _present(item: dict, order: dict, mode: str = "B"):
+    """(first, last) beat index an element is on screen in: from its first cued beat to the beat of its until_cue (or the end).
+    An element with no cue is drawn from frame 0 (canvas.cue_frame); in a world, the kit's place and the person who works there
+    stand for the whole part (world.WHOLE_PART_KINDS)."""
+    if not order:
+        return None
+    last = max(order.values())
+    if mode == "C" and item.get("kind") in world.WHOLE_PART_KINDS | set(world.PLACE_KINDS.values()):
+        return 0, last
+    idx = [order[b] for b in _beats_of(item) | ({_cue_beat(s.get("cue")) for s in item.get("parts") or [] if isinstance(s, dict)} - {None})
+           if b in order]
+    until = _cue_beat(item.get("until_cue"))
+    return (min(idx) if idx else 0), order[until] if until in order else last
+
+
+def _words(text: str) -> set:
+    return {w.lower() for w in re.findall(r"[\w\u0900-\u097f]+", str(text or ""))}
+
+
+def _draws(item: dict, mode: str, thing: str) -> bool:
+    """A world element of a kind that draws the thing (places.json 'draws': a shop draws the shop, the crowd its people), or an
+    action whose actor is the thing (an actor is drawn as a person, named by its role, who or label)."""
+    words = _words(thing)
+    if mode == "C" and words & world.DRAWS.get(item.get("kind"), frozenset()):
+        return True
+    if item.get("kind") == "action":
+        named = set()
+        for a in item.get("actors") or []:
+            if isinstance(a, dict):
+                named |= _words(" ".join(str(a.get(k, "")) for k in ("role", "who", "label")))
+        return bool(words & named)
+    return False
+
+
+@lru_cache(maxsize=8192)
+def _search(thing: str, index=None) -> tuple:
+    """``icons.search`` for a thing, kept for the run (a part's check runs it for every thing in every round)."""
+    return tuple(icons.search(thing, limit=12) if index is None else icons.search(thing, index, limit=12))
+
+
+@lru_cache(maxsize=4)
+def _known_icons(index=None) -> dict:
+    return icons.by_id() if index is None else icons.by_id(index)
+
+
+def thing_pictures(thing: str, found: dict | None = None, images: dict | None = None, index=None) -> tuple:
+    """(shows, fit): the pictures that count as showing a thing (the icon candidates code offered the maker for it, the
+    library's pictures of it, the icons whose names or search terms carry its words) and, of those, the ones that are pictures
+    OF it (``icons.fits``, the library's pictures, best first). Only a thing with a fitting picture is asked for; one without
+    is a need (the general asset path finds or makes it)."""
+    lib = [f"asset:{a}" for a in (images or {}).get(thing, [])]
+    by = {r["id"]: r for r in _search(thing, index)}
+    known = _known_icons(index)
+    offered = list((found or {}).get(thing, []))
+    fit = lib + [i for i in dict.fromkeys(offered + list(by)) if icons.fits(thing, by.get(i) or known.get(i) or {"id": i})]
+    return set(offered) | set(lib) | set(by), fit
+
+
+MARK_THINGS = {k: dict(v, key=k, rx=re.compile(v["words"], re.IGNORECASE)) for k, v in (LEXICON.get("mark_things") or {}).items()
+               if not k.startswith("_")}
+TEXT_THINGS = re.compile(LEXICON.get("text_things", r"(?!x)x"), re.IGNORECASE)
+GENERIC_TEXT_WORDS = re.compile(r"\b(label|tag|marker|code|badge|stamp|symbol|sign|counter|denomination|example|timeline|dot)s?\b", re.IGNORECASE)
+
+
+def _texts_of(item: dict) -> list:
+    """The words an element puts on screen (its text, label, title, steps, an action's amounts, texts and part texts)."""
+    out = [item.get(k) for k in ("text", "label", "title", "root", "sign", "left_label", "right_label")]
+    out += [st.get("text") for st in item.get("steps") or [] if isinstance(st, dict)]
+    out += [c.get("text") if isinstance(c, dict) else c for c in item.get("children") or []]
+    out += [a.get("text") for a in item.get("amounts") or [] if isinstance(a, dict)]
+    out += [t.get("text") for t in item.get("texts") or [] if isinstance(t, dict)]
+    out += [p.get(k) for p in item.get("parts") or [] if isinstance(p, dict) for k in ("text", "left_text", "right_text", "title")]
+    out += [o.get("label") for o in item.get("objects") or [] if isinstance(o, dict)]
+    pic = item.get("picture") or {}
+    for group in ("panels", "events", "items", "nodes"):
+        out += [x.get(k) for x in pic.get(group) or [] if isinstance(x, dict) for k in ("name", "label", "caption")]
+    return [str(t) for t in out if t]
+
+
+def _shows_mark(item: dict, cls: dict) -> bool:
+    kind = item.get("kind")
+    if kind == "mark" and item.get("mark") in cls.get("marks", ()):
+        return True
+    if kind in cls.get("kinds", ()):
+        return True
+    if kind == "action" and set(saanche.parts_of(item)) & set(cls.get("parts", ())):
+        return True
+    return any(t.strip() in cls.get("texts", ()) for t in _texts_of(item))
+
+
+def _shows_text(item: dict, thing: str) -> bool:
+    """A text thing ('₹100 label', 'number 1', '2024 marker') is shown by an element whose words carry its numbers or its words."""
+    digits = re.findall(r"\d[\d,]*", thing)
+    words = [w for w in re.findall(r"[A-Za-z\u0900-\u097f]{3,}", GENERIC_TEXT_WORDS.sub(" ", thing))]
+    texts = " ".join(_texts_of(item)).lower()
+    if digits:
+        return all(d.replace(",", "") in texts.replace(",", "") for d in digits)
+    return bool(words) and all(w.lower() in texts for w in words)
+
+
+def coverage_rows(plan: dict, mode: str, ideas: dict | None, *, found: dict | None = None, images: dict | None = None, index=None) -> list:
+    """Navin's addendum of 2 November 2026, point 4: every thing the dikhane ki list names for a beat must be on screen in that
+    beat. One row per (beat, thing): shown (a picture of it on screen during the beat), by which elements, and whether BIE has a
+    picture of it at all (a thing with none is a need: the general asset path finds or makes it)."""
+    items = (plan.get("elements") if mode == "C" else plan.get("nodes")) or []
+    order = {b["beat_id"]: i for i, b in enumerate(plan.get("beats") or [])}
+    spans, present = [], []
+    for x in items:
+        span = _present(x, order, mode)
+        if not span:
+            continue
+        present.append((x, span))
+        pics = set(_pictures_of(x))
+        if pics:
+            spans.append((x.get("id"), pics, span))
+    rows, cache = [], {}
+    for idea in (ideas or {}).get("beats") or []:
+        bid = idea.get("beat_id")
+        if bid not in order:
+            continue
+        for thing in dict.fromkeys(str(t).strip() for t in idea.get("things") or []):
+            if not thing or not _is_thing(thing):
+                continue
+            here = [x for x, (first, last) in present if first <= order[bid] <= last]
+            mark = next((cls for cls in MARK_THINGS.values() if cls["rx"].search(thing)), None)
+            if mark:                          # a mark of the visual grammar: a tick, a cross, an arrow, a question mark
+                by = [x.get("id") for x in here if _shows_mark(x, mark)]
+                rows.append({"beat_id": bid, "thing": thing, "shown": bool(by), "by": by, "has_picture": True, "pictures": ["a mark"],
+                             "mark": mark["key"]})
+                continue
+            if thing not in cache:
+                cache[thing] = thing_pictures(thing, found, images, index)
+            ids, fit = cache[thing]
+            by = [eid for eid, pics, (first, last) in spans if first <= order[bid] <= last and pics & ids]
+            by += [x.get("id") for x in here if x.get("id") not in by and _draws(x, mode, thing)]
+            if not by and TEXT_THINGS.search(thing):   # a number, a label, a tag: shown by the words of an element on screen
+                by = [x.get("id") for x in here if _shows_text(x, thing)]
+            rows.append({"beat_id": bid, "thing": thing, "shown": bool(by), "by": by, "has_picture": bool(fit or by),
+                         "pictures": fit[:3]})
+    return rows
+
+
+AUTO_THINGS_MAX = 4
+AUTO_SIZES = ((2, 2), (2, 1), (1, 1))      # the area code gives a thing it shows: 2 x 2 cells, else 2 x 1, else one cell
+
+
+def _free_cell(busy: list, cols: int, rows_n: int):
+    """The first free area of the grid (left to right, top to bottom) of the largest of AUTO_SIZES that fits, or None."""
+    for w, h in AUTO_SIZES:
+        for r in range(0, rows_n - h + 1):
+            for c in range(0, cols - w + 1):
+                if not any(c < b[0] + b[2] and b[0] < c + w and r < b[1] + b[3] and b[1] < r + h for b in busy):
+                    return [c, r, w, h]
+    return None
+
+
+def _under_the_strip(plan: dict, ids: set):
+    """The ids among ``ids`` that the compiled plan shows under the subtitle strip (``canvas.subtitle_problems``), or None
+    when the plan does not compile."""
+    from . import canvas
+    try:
+        scene, _ = canvas.compile_plan(json.loads(json.dumps(plan)))
+    except (canvas.PlanError, KeyError, TypeError, ValueError, IndexError):
+        return None
+    return {i for i in ids if any(p.startswith(f"{i} sits under") for p in canvas.subtitle_problems(scene))}
+
+
+def show_missing_things(plan: dict, mode: str, ideas: dict | None, *, found: dict | None = None, images: dict | None = None) -> list:
+    """Code shows on the canvas what it can of a beat's things the maker left out (seekh -> BIE, Navin's addendum of 2 November
+    2026: on run c, a third of the things the dikhane ki list named were not on screen): the thing's best picture (or, for a mark
+    with an ``auto_icon`` in the lexicon, the first icon that fits those words) in a free area of the grid during its beat (AUTO_SIZES), on its word when the
+    beat says it, leaving when the next beat starts; never under the subtitle strip (a place the compiled plan shows there is
+    given up for the next free one), never when the plan does not compile. At most AUTO_THINGS_MAX per part; a world is left
+    to the maker. In place; returns what was done."""
+    if mode != "B":
+        return []
+    nodes = plan.setdefault("nodes", [])
+    beats = plan.get("beats") or []
+    order = {b["beat_id"]: i for i, b in enumerate(beats)}
+    says = {b["beat_id"]: b.get("say", "") for b in beats}
+    cols, rows_n = (plan.get("grid") or [12, 8])[:2]
+    taken = {n.get("id") for n in nodes}
+    fixes, added = [], 0
+    for row in coverage_rows(plan, "B", ideas, found=found, images=images):
+        if row["shown"] or not row["has_picture"] or added >= AUTO_THINGS_MAX:
+            continue
+        thing, bid = row["thing"], row["beat_id"]
+        mark = MARK_THINGS.get(row.get("mark")) if row.get("mark") else None
+        if mark is not None and not mark.get("auto_icon"):
+            continue                                      # a tick, a cross, an arrow says something about another thing: the maker's
+        if mark is not None:
+            pid = next((r["id"] for r in icons.fitting(mark["auto_icon"], limit=4)), None)
+        else:
+            pid = next(iter(row["pictures"]), None)
+        if not pid:
+            continue
+        busy = [n["cell"] for n in nodes if n.get("cell") and (_present(n, order) or (0, -1))[0] <= order[bid] <= (_present(n, order) or (0, -1))[1]]
+        tokens = [w.strip("।,.!?:;()\"'") for w in says.get(bid, "").split()]
+        word = next((w for w in tokens if w and w.lower() in thing.lower().split()), "")
+        nxt = next((b["beat_id"] for b in beats if order[b["beat_id"]] == order[bid] + 1), None)
+        k = 1
+        while f"auto_thing_{k}" in taken:
+            k += 1
+        nid = f"auto_thing_{k}"
+        for _ in range(3):                                # a place under the subtitle strip is given up for the next free one
+            spot = _free_cell(busy, cols, rows_n)
+            if not spot:
+                break
+            node = {"id": nid, "kind": "icon", "icon": pid, "cell": spot, "cue": [bid, word], **({"until_cue": [nxt, ""]} if nxt else {})}
+            nodes.append(node)
+            under = _under_the_strip(plan, {nid})
+            if under is None:                             # the plan does not compile with it: leave the plan as the maker made it
+                nodes.pop()
+                spot = None
+                break
+            if not under:
+                break
+            nodes.pop()
+            busy.append(spot)
+            spot = None
+        if not spot:
+            continue
+        taken.add(nid)
+        added += 1
+        fixes.append(f"'{thing}' shown in beat {bid} by code ({pid} in cells {spot})")
+    return fixes
+
+
+def coverage_problems(rows: list) -> list:
+    """A thing of a beat that BIE has a picture of but the plan does not show during that beat."""
+    return [f"beat {r['beat_id']}: '{r['thing']}' is a thing of this beat in the dikhane ki list, but it is not on screen during the "
+            f"beat: show it ({', '.join(r['pictures'])}), on screen during that beat (Navin: \"jis cheej ka jikar hai wohi cheej dikhe\")"
+            for r in rows if r["has_picture"] and not r["shown"]]
+
+
+def coverage_summary(rows: list) -> dict:
+    """mentioned, shown, coverage % and the things not shown (with whether BIE has a picture of them)."""
+    mentioned, shown = len(rows), sum(1 for r in rows if r["shown"])
+    return {"mentioned": mentioned, "shown": shown, "coverage_pct": round(100.0 * shown / mentioned, 1) if mentioned else 100.0,
+            "not_shown": [{"beat_id": r["beat_id"], "thing": r["thing"], "has_picture": r["has_picture"]} for r in rows if not r["shown"]]}
 
 
 def relation_rows(plan: dict, mode: str, ideas: dict | None) -> list:

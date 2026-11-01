@@ -1,6 +1,6 @@
 {
  "rulebook": "bie-visual-verbs",
- "version": "2026-11-02.1",
+ "version": "2026-11-02.2",
  "schema": "bie.rules.visual-verbs/1",
  "status": "starting entries, not topic rules (Navin adds entries)",
  "source": "Navin's verdict on the Money videos, 30 October 2026: 'jo bola ja rha hai screen ke visuals se wo baat clear ho ... visuals tarike se user ko teacher ki baat aankhon ke jariye dimag tak pahunchate ho'; his example: 'yuan milestone compulsory wali line ke liye reject krne ki baat ko cross se darshaya ja sakta tha'; page 2: 'dekho kaise icons ka use kiya ja rha hai khud samjh aa rha hai ki neeche likhe text ka matlb kya hai'.",
@@ -8,7 +8,8 @@
  "changes": [
   "2026-10-31.1 (Task 046 Part D1): the first fourteen relations with how each is shown, from Navin's verdict of 30 October 2026.",
   "2026-11-01.1 (Task 046 Part D2, Navin's verdict of 1 November 2026): every relation names the kriya ke saanche (process templates, bie/brain/video/saanche.py) that show it; a refusal in a world is the refuse saancha with its cross; a struck value with an arrow is only for the same quantity changing (change given back is pay_change); visual_thinking.meaning_problems checks that each relation of the dikhane ki list is realised on its beat.",
-  "2026-11-02.1 (Task 046 Part D2 addendum, Navin, 2 November 2026: \"jis cheej ka jikar hai wohi cheej dikhe\"): the checks' word lists move here as data (lexicon: return words, change words, old-days words, modern icons); a relation is realised by an action through its motion parts (rulebook/saanche.json), not by recipe names"
+  "2026-11-02.1 (Task 046 Part D2 addendum, Navin, 2 November 2026: \"jis cheej ka jikar hai wohi cheej dikhe\"): the checks' word lists move here as data (lexicon: return words, change words, old-days words, modern icons); a relation is realised by an action through its motion parts (rulebook/saanche.json), not by recipe names",
+  "2026-11-02.2 (Task 046 Part D2 addendum, point 4): every thing the dikhane ki list names for a beat must be on screen in that beat; the lexicon gains the marks of the visual grammar (tick, cross, arrow, question mark, equal sign: shown by a mark, an arrow or a motion part, not by a picture) and the words of text things (a number, a label, a tag: shown by the words of an element on screen)"
  ],
  "relations": [
   {
@@ -721,6 +722,58 @@
    "tw:1f5a5": "computer",
    "fa:solid/credit-card": "credit card",
    "fa:solid/mobile": "mobile phone"
-  }
+  },
+  "mark_things": {
+   "_note": "Things of the dikhane ki list that are marks of the visual grammar, shown by a mark, an arrow or a part, not by a picture. A mark with an auto_icon is one code may show itself, as the first icon that fits those words, when the maker leaves it out (a question mark); a tick, a cross, an arrow or an equal sign says something about other things, so only the maker places it.",
+   "tick": {
+    "words": "\\btick\\b|\\bcheck ?marks?\\b|\\bcheckmarks?\\b|✓|✔|सही का निशान",
+    "marks": [
+     "tick"
+    ],
+    "parts": [
+     "accept"
+    ]
+   },
+   "cross": {
+    "words": "\\bcross(?:ed)?(?: marks?)?\\b|✗|✘|\\bx mark\\b|क्रॉस",
+    "marks": [
+     "cross"
+    ],
+    "parts": [
+     "refuse"
+    ]
+   },
+   "arrow": {
+    "words": "\\barrows?\\b|तीर",
+    "kinds": [
+     "arrow",
+     "pull_arrow"
+    ],
+    "parts": [
+     "give",
+     "move"
+    ]
+   },
+   "question": {
+    "words": "question marks?|\\?|प्रश्नचिह्न|सवाल",
+    "texts": [
+     "?"
+    ],
+    "parts": [
+     "show_text"
+    ],
+    "auto_icon": "question mark"
+   },
+   "equal": {
+    "words": "\\bequal(?:s| signs?)\\b|=",
+    "texts": [
+     "="
+    ],
+    "parts": [
+     "compare"
+    ]
+   }
+  },
+  "text_things": "\\d|\\blabels?\\b|\\btags?\\b|\\bmarkers?\\b|\\bcodes?\\b|\\bbadges?\\b|\\bstamps?\\b|\\bsymbols?\\b|\\bsigns?\\b|\\bcounters?\\b"
  }
 }
