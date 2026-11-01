@@ -545,6 +545,16 @@ class BatchThreeSources(unittest.TestCase):
         self.assertIn("(https://api.worldbank.org/v2/y)", str(caught.exception))
         self.assertFalse(assets.transient(urllib.error.HTTPError("https://x", 403, "Forbidden", {}, None)))
         self.assertTrue(assets.transient(urllib.error.URLError("[Errno 110] Connection timed out")))
+        # F-19: a resolver that failed for the moment is asked again; a name that does not exist is not
+        import socket
+        nodata = socket.gaierror(getattr(socket, "EAI_NODATA", socket.EAI_AGAIN), "No address associated with hostname")
+        self.assertTrue(assets.transient(urllib.error.URLError(nodata)))
+        self.assertTrue(assets.transient(socket.gaierror(socket.EAI_AGAIN, "Temporary failure in name resolution")))
+        self.assertFalse(assets.transient(urllib.error.URLError(socket.gaierror(socket.EAI_NONAME, "Name or service not known"))))
+        answers.extend([urllib.error.URLError(nodata), FakeResponse(b"ok")])
+        with mock.patch("time.sleep") as slept:
+            self.assertEqual(sources.fetch("https://indiacode.gov.in/server/api/discover/search/objects?q=1", opener=opener), b"ok")
+        slept.assert_called_once_with(5.0)
 
     def test_font_and_indic_tables_are_pinned(self):
         import hashlib
@@ -820,13 +830,18 @@ class DemosAndPage(unittest.TestCase):
                 self.assertTrue(Path(cache, "gmt/server/earth/earth_relief/earth_relief_02m_g", tile).exists())
             from bie.toolbox.adapters import astro
             allowed = (earth.GMT_SERVER, astro.EPHEMERIS["source"], astro.BSC["source"], astro.HIPPARCOS["source"],
-                       "https://commons.wikimedia.org/", "https://api.openverse.org/")
+                       "https://commons.wikimedia.org/", "https://api.openverse.org/", sources.INDIA_CODE_SEARCH)
             self.assertTrue(all(u.startswith(allowed) for u in urls), urls)
             # F-17b: the archive demo's two pictures are asked for too (this fake server answers no JSON, so both are
             # reported as failed, never raised: the demo job fetches them itself then); a real run caches them
             self.assertEqual(set(result["archive_images"]), {"commons", "openverse"})
             self.assertTrue(all(v.startswith("failed: ") for v in result["archive_images"].values()), result["archive_images"])
             self.assertTrue(any("commons.wikimedia.org" in u for u in urls) and any("api.openverse.org" in u for u in urls))
+            # F-19: the law demos' Act is asked of India Code too (no JSON from this fake server: reported, never raised)
+            from bie.toolbox import demos as demo_list
+            self.assertEqual(list(result["india_code"]), [demo_list.BNSS])
+            self.assertTrue(result["india_code"][demo_list.BNSS].startswith("failed: "), result["india_code"])
+            self.assertTrue(any(u.startswith(sources.INDIA_CODE_SEARCH) for u in urls))
         self.assertIn("region = earth.DEFAULT_REGION", (ROOT / "bie" / "toolbox" / "demos.py").read_text(encoding="utf-8"))
         flow = (ROOT / ".github" / "workflows" / "toolbox.yml").read_text(encoding="utf-8")
         assets = flow.split("\n  assets:\n", 1)[1].split("\n  core:\n", 1)[0]

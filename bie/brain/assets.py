@@ -99,16 +99,23 @@ def _strip_html(text) -> str:
 
 TRANSIENT_HTTP = (429, 500, 502, 503, 504)   # a busy or stumbling server: asked again after a wait, never on a 4xx of our own making
 TRANSIENT_ERRNO = (errno.ECONNRESET, errno.ETIMEDOUT, errno.ECONNREFUSED, errno.EPIPE)   # the line dropped mid-way: asked again too
+# A name lookup that failed for the moment (F-19, 1 November 2026: a runner's resolver answered "No address associated with
+# hostname" for indiacode.gov.in, which answered at once from elsewhere): "try again" and "no data". A name that does not
+# exist (EAI_NONAME) is not asked again.
+TRANSIENT_DNS = tuple(n for n in (getattr(socket, "EAI_AGAIN", None), getattr(socket, "EAI_NODATA", None)) if n is not None)
 
 
 def transient(exc: BaseException) -> bool:
     """Whether an error is the server's or the line's passing trouble (asked again after a wait) rather than ours: a 429 or
     5xx, a socket read that timed out, a connection reset or refused (F-15, 27 October 2026; F-17, 29 October 2026: Commons
-    or Openverse let a read time out once and the archive demo failed). A 4xx of our own making is never transient."""
+    or Openverse let a read time out once and the archive demo failed), a name lookup that failed for the moment (F-19). A 4xx
+    of our own making is never transient."""
     if isinstance(exc, urllib.error.HTTPError):
         return exc.code in TRANSIENT_HTTP
     if isinstance(exc, (TimeoutError, socket.timeout)):
         return True
+    if isinstance(exc, socket.gaierror):
+        return exc.errno in TRANSIENT_DNS
     if isinstance(exc, urllib.error.URLError):
         return transient(exc.reason) if isinstance(exc.reason, BaseException) else "timed out" in str(exc.reason).lower()
     if isinstance(exc, OSError):

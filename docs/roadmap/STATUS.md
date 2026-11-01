@@ -1632,6 +1632,16 @@ PR B (only after Navin's yes): live runs on the Gemini key, maker `google/gemini
 
 ## Known technical debts
 
+- F-19 (1 November 2026, PR #121 run 41349009752, job `demos (3)` of the toolbox lane, head `49d5a79f`): the
+  `law-procedure-flow` demo failed with `SourceError: URLError: <urlopen error [Errno -5] No address associated with
+  hostname> (https://indiacode.gov.in/server/api/discover/search/objects)`; 21 of 22 demos passed, and the same job passed on
+  PR #119 an hour earlier. Cause: the runner's resolver failed for a moment (indiacode.gov.in answered 200 from the cloud
+  workspace at once), and two things let that fail the demo: `assets.transient` did not count a failed name lookup as passing
+  trouble, so `sources.fetch` asked only once; and the shared asset cache that every PR restores did not hold the Act, so
+  every PR run asked India Code. Not re-run (rule CI-2). Fix on branch `f19-dns-india-code`, its own PR: a lookup that failed
+  for the moment (`EAI_AGAIN`, `EAI_NODATA`) is asked again after a wait (a name that does not exist, `EAI_NONAME`, is not),
+  and the assets job on `main` fetches the Act into the shared cache (`toolbox_setup.prefetch_india_code`; reported, never
+  raised). Tests in `tests/test_task046a_toolbox.py`.
 - F-18 (31 October 2026, PR #112 run 41223280162, job `canonical-regression` of the Section 18 gate, head `c544c71f`): the
   atomic lane's `test_worker_recovery … reconcile_one_intent_once_after_crash` failed once (691 of 692 passed). The child's
   traceback (read from the job's evidence artifact): `Service()` → `catalog.tx` → `CatalogBudget.files` →

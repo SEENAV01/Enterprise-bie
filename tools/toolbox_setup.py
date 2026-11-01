@@ -102,19 +102,38 @@ def prefetch_archive_images(cache: Path, *, opener=None) -> dict:
     return done
 
 
+def prefetch_india_code(cache: Path, *, opener=None) -> dict:
+    """The Act the law demos read (the Bharatiya Nagarik Suraksha Sanhita, 2023) from India Code into ``cache``, where
+    ``sources.india_code_act`` reads it before asking India Code (F-19: a runner could not look up indiacode.gov.in and the
+    law-procedure-flow demo failed). Reported, never raised: the demo job asks India Code itself then, as before."""
+    import os
+    import tempfile
+    from bie.brain.assets import AssetLibrary
+    from bie.toolbox import demos, sources
+    os.environ["BIE_ASSET_CACHE"] = str(cache)
+    with tempfile.TemporaryDirectory() as scratch:
+        try:
+            _, act = sources.india_code_act(demos.BNSS, AssetLibrary(Path(scratch) / "library"), opener=opener)
+            return {demos.BNSS: f"fetched ({len(act['sections'])} sections)"}
+        except Exception as exc:                               # noqa: BLE001  (reported in the job's output, never fatal here)
+            return {demos.BNSS: f"failed: {type(exc).__name__}: {str(exc)[:160]}"}
+
+
 def prefetch_assets(cache: Path, *, opener=None, sleep=time.sleep) -> dict:
     """The downloads the demos need from flaky servers, into ``cache``: the SRTM15+ tables and tiles of the geo-relief demo
     from GMT's one data server (``cache``/gmt; unreachable from GitHub's runners for minutes at a time, F-13), the
-    skyfield files of the astro demos (``cache``/skyfield; CDS timed out, F-16) and the archive demo's two pictures
-    (``cache``/open-images; Openverse answered 500, F-17b). A PR's own cache starts empty; the cache saved on main is what
-    every PR restores."""
+    skyfield files of the astro demos (``cache``/skyfield; CDS timed out, F-16), the archive demo's two pictures
+    (``cache``/open-images; Openverse answered 500, F-17b) and the Act of the law demos (``cache``/india-code-*.json; a
+    runner could not look up indiacode.gov.in, F-19). A PR's own cache starts empty; the cache saved on main is what every
+    PR restores."""
     from bie.toolbox.adapters import earth
     folder = Path(cache) / "gmt"
     folder.mkdir(parents=True, exist_ok=True)
     return {"gmt_relief": earth.prefetch_relief(earth.DEFAULT_RESOLUTION, earth.DEFAULT_REGION, userdir=folder, opener=opener,
                                                 sleep=sleep),
             "skyfield": prefetch_skyfield(cache, opener=opener, sleep=sleep),
-            "archive_images": prefetch_archive_images(cache, opener=opener)}
+            "archive_images": prefetch_archive_images(cache, opener=opener),
+            "india_code": prefetch_india_code(cache, opener=opener)}
 
 
 def main(argv=None):
