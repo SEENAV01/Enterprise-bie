@@ -11,7 +11,12 @@ on:
     inputs:
       needs_url:
         description: raw URL of a needs.json on blindtest-results (for example .../runs/vm-t046d-money-canvas-brain-canvas/needs.json)
-        required: true
+        required: false
+        default: ''
+      made_url:
+        description: raw URL of a coder run's made.json on blindtest-results (BIE's coder drawings into the library)
+        required: false
+        default: ''
       per_need:
         description: images per need (1 to 3)
         default: '1'
@@ -26,6 +31,7 @@ on:
     paths:
       - '.github/workflows/task046d-fetch-needs.yml'
       - 'tools/task046d_fetch_needs.py'
+      - 'bie/brain/coder.py'
 
 permissions:
   contents: read
@@ -52,29 +58,47 @@ jobs:
         with:
           python-version: '3.13.5'
       - name: The tool's offline test (a pull request stops here)
-        run: python -B -m unittest tests.test_task046d_visual_thinking.FetchNeeds -v
+        run: python -B -m unittest tests.test_task046d_visual_thinking.FetchNeeds tests.test_task046d2_coder -v
       - name: The shared library from blindtest-results (library/), then the fetch
         if: github.event_name == 'workflow_dispatch'
         env:
           GH_TOKEN: ${{ github.token }}
           NEEDS_URL: ${{ inputs.needs_url }}
+          MADE_URL: ${{ inputs.made_url }}
           PER_NEED: ${{ inputs.per_need }}
           SOURCES: ${{ inputs.sources }}
         run: |
           set -euo pipefail
           case "$NEEDS_URL" in
-            https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/*/needs.json) ;;
+            ''|https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/*/needs.json) ;;
             *) echo "::error title=task046d fetch::needs_url must be a needs.json under blindtest-results/runs/"; exit 1 ;;
           esac
+          case "$MADE_URL" in
+            ''|https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/*/made.json) ;;
+            *) echo "::error title=task046d fetch::made_url must be a made.json under blindtest-results/runs/"; exit 1 ;;
+          esac
+          if [ -z "$NEEDS_URL" ] && [ -z "$MADE_URL" ]; then echo "::error title=task046d fetch::needs_url or made_url"; exit 1; fi
           mkdir -p "$RUNNER_TEMP/library"
           base="https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/blindtest-results/library"
           if curl -fsSL "$base/index.json" -o "$RUNNER_TEMP/index.json"; then
             python -B -c "import sys; sys.path.insert(0, '.'); from bie.brain import assets; lib = assets.AssetLibrary(sys.argv[1]); print('seeded', assets.seed_library(lib, sys.argv[2]))" \
               "$RUNNER_TEMP/library" "$base"
           fi
-          python -B tools/task046d_fetch_needs.py --needs "$NEEDS_URL" --library "$RUNNER_TEMP/library" \
-            --per-need "$PER_NEED" --sources "$SOURCES" --report "$RUNNER_TEMP/library/fetched.json" --deadline-min 25
-          python - <<'EOF'
+          if [ -n "$MADE_URL" ]; then
+            python -B tools/task046d_fetch_needs.py --made "$MADE_URL" --library "$RUNNER_TEMP/library" \
+              --report "$RUNNER_TEMP/library/made-added.json"
+            python - <<'EOF'
+          import json, os
+          r = json.load(open(os.path.join(os.environ["RUNNER_TEMP"], "library", "made-added.json")))
+          print(f"::notice title=task046d coder drawings::{json.dumps(r['counts'])}; library {r['library_assets']} assets")
+          for n in r["refused"]:
+              print(f"::warning title=coder drawing refused::{n['thing']}: {n['why'][:300]}")
+          EOF
+          fi
+          if [ -n "$NEEDS_URL" ]; then
+            python -B tools/task046d_fetch_needs.py --needs "$NEEDS_URL" --library "$RUNNER_TEMP/library" \
+              --per-need "$PER_NEED" --sources "$SOURCES" --report "$RUNNER_TEMP/library/fetched.json" --deadline-min 25
+            python - <<'EOF'
           import json, os
           r = json.load(open(os.path.join(os.environ["RUNNER_TEMP"], "library", "fetched.json")))
           print(f"::notice title=task046d fetch::{json.dumps(r['counts'])}; library {r['library_assets']} assets")
@@ -82,6 +106,7 @@ jobs:
               if n["status"] in ("not_found", "skipped"):
                   print(f"::notice title=need {n['status']}::{n['thing']} ({n['kind']}): {n.get('why') or ', '.join(n.get('tried') or [])}")
           EOF
+          fi
       - name: Publish the library to blindtest-results (never a portrait, every file licence-checked)
         if: github.event_name == 'workflow_dispatch' && inputs.publish
         env:

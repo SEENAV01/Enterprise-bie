@@ -9,6 +9,8 @@
                          one canvas (B) or world (C) plan per script part, written by the maker and checked by code
   --section visual       Section 4: --from-run (with director.json) → assets/, video_specs/, VISUAL.md, stills/; --render adds MP4 previews
   --section chain        Sections 1, 2, 3, 6 (design) and 7 in one run; --with-visual adds Section 4
+  --section coder        BIE's coder (Task 046 Part D2 addendum): --from-run (a canvas run with needs.json) [--library <shared
+                         library>] → made/, made.json, MADE.md; an SVG for each need no source had, checked by code
 
   python tools/run_brain.py --section understand --source <pdf path or https URL> --out <dir> \
       --title "10. Tissues and Its Types" --subject "Science and Technology" --learners "UPSC / State PCS aspirants" \
@@ -192,10 +194,11 @@ def plan_usage(gateway) -> dict:
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("--section", choices=("understand", "lesson", "director", "notes", "game", "visual", "canvas", "chain"), default="understand")
+    parser.add_argument("--section", choices=("understand", "lesson", "director", "notes", "game", "visual", "canvas", "chain", "coder"),
+                        default="understand")
     parser.add_argument("--source", help="chapter PDF (understand, chain)")
     parser.add_argument("--chapter-map", help="chapter_map.json from an earlier run (lesson; director, visual and canvas when --from-run has none)")
-    parser.add_argument("--library", default="", help="canvas: BIE's shared asset library (a folder or an https URL with index.json; "
+    parser.add_argument("--library", default="", help="canvas, coder: BIE's shared asset library (a folder or an https URL with index.json; "
                                                      "Task 046 Part D1: the images the fetch step found for earlier needs)")
     parser.add_argument("--from-run", help="folder or https URL of an earlier run with chapter_map.json and lesson_plan.json (director)")
     parser.add_argument("--resume-from", help="folder or https URL of an earlier run: understand/chain reuse its passed pages, "
@@ -285,6 +288,16 @@ def main(argv=None):
                 selected = set(parse_page_range(args.pages, previous.get("page_count") or pages))
                 reused = sum(1 for p in previous.get("pages") or [] if p.get("status") == "passed" and p["page"] in selected)
                 summary["resume"] = {"pages_reused": reused, "pages_to_run": pages - reused}
+        elif args.section == "coder":
+            if not args.from_run:
+                raise SystemExit("FROM_RUN_REQUIRED")
+            base = args.from_run.rstrip("/") + "/"
+            needs = formats.accept("needs", json.loads(read_text(base + "needs.json")), where=base + "needs.json")
+            try:
+                coder_course = json.loads(read_text(base + "canvas.json")).get("course") or {}
+            except Exception:                                    # a needs file alone is enough; the course only words the spec
+                coder_course = {}
+            text = ""
         elif args.section in ("lesson", "notes", "game"):
             if not args.chapter_map:
                 raise SystemExit("CHAPTER_MAP_REQUIRED")
@@ -311,7 +324,7 @@ def main(argv=None):
         # The level (Task 045d): the setting's profile, checked against the book's text; a disagreement is Navin's to settle.
         if args.level:
             course = replace(course, level=args.level)
-        chosen = level_module.choose(course, text, trust_setting=args.trust_level)
+        chosen = level_module.choose(course, text, trust_setting=args.trust_level or args.section == "coder")
         course = replace(course, level=chosen.profile_id)
         summary["level"] = chosen.as_dict()
         notice("level", f"{chosen.profile_id} ({chosen.source}; book band: {chosen.band or 'unknown'}; {chosen.evidence.get('reason', '')})")
@@ -329,7 +342,7 @@ def main(argv=None):
                "warning" if estimate["total_inr"] > args.max_inr else "notice")
         # the canvas section has no reviewer round (layout is checked by code), so only the maker's route is checked: a job
         # without a reviewer route must not stop on the VM's default reviewer (28 October 2026: gemini-3.1-pro not found)
-        routes = [args.maker] if args.section == "canvas" else None
+        routes = [args.maker] if args.section in ("canvas", "coder") else None
         checked = (preflight(gateway, routes=routes, vision=args.section in ("understand", "chain", "visual")) if summary["status"] == "ok"
                    else {"passed": False, "routes": {}, "skipped": summary["status"]})   # a level stop spends nothing
         summary["preflight"] = checked
@@ -396,6 +409,17 @@ def main(argv=None):
             planned = run_canvas(chapter, lesson, course, runner, out, videos=wanted or None, workers=args.workers, max_rounds=args.max_rounds,
                                  shared_library=args.library or None, previous=previous)
             summary.update(canvas_quality=planned["quality"])
+            if guard.stopped:
+                summary.update(status=stop_status(guard), stop_reason=guard.stop_reason)
+        if summary["status"] == "ok" and args.section == "coder":
+            from bie.brain.assets import AssetLibrary, seed_library
+            from bie.brain.coder import run_coder
+            library = None
+            if args.library:
+                library = AssetLibrary(out / "library_seen")
+                summary["library_seeded"] = seed_library(library, args.library)
+            made = run_coder(needs, runner, out, course=coder_course, library=library, workers=args.workers, max_rounds=args.max_rounds)
+            summary.update(coder_quality=made["quality"])
             if guard.stopped:
                 summary.update(status=stop_status(guard), stop_reason=guard.stop_reason)
         if summary["status"] == "ok" and (args.section == "visual" or (args.section == "chain" and args.with_visual)):

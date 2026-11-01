@@ -133,6 +133,11 @@ VISUAL_IDEAS = O({"schema": S, "video_id": S, "parts": A(IDEA_PART), "relations_
 MISSING_CAPABILITY = O({"what": S, "kind": {"type": "string", "enum": ["world kit", "block", "icon", "image", "3d"]}, "parts": A(S), "beats": A(S)},
                        required=["what", "kind"])
 NEEDS = O({"schema": S, "needs": A(NEED), "missing_capabilities": A(MISSING_CAPABILITY)}, required=["schema", "needs", "missing_capabilities"])
+# -- BIE's coder (Task 046 Part D2 addendum, Navin 2 November 2026; bie/brain/coder.py): the drawings it made for the needs
+MADE_ITEM = O({"thing": S, "slug": S, "status": S, "rounds": N, "file": S, "sha256": S, "tags": A(S), "licence": S, "source": S,
+               "generated_by": S, "prompt": S, "generated_on": S}, required=["thing", "slug", "status", "rounds"])
+CODER_MADE = O({"schema": S, "version": S, "items": A(MADE_ITEM), "skipped": A(O({"thing": S, "why": S})), "quality": {"type": "object"}},
+               required=["schema", "version", "items", "skipped", "quality"])
 
 
 # ---------------------------------------------------------------- the formats
@@ -234,6 +239,10 @@ FORMATS = {
                     "Section 3c (bie/brain/canvas_director.py)", ("the fetch step in GitHub Actions (tools/task046d_fetch_needs.py)", "Navin"),
                     "the things no source had (thing, beats, kind, sources tried) and the capabilities BIE lacks (world kits, blocks) with the parts "
                     "and beats that needed them", "2026-10-31"),
+    "coder_made": Format("bie.brain.coder-made", 1, CODER_MADE, "made.json",
+                         "the coder section (bie/brain/coder.py)", ("the fetch step in GitHub Actions (tools/task046d_fetch_needs.py --made)", "Navin"),
+                         "the drawings BIE's coder made for the needs no source had: per thing its file, hash, tags, licence and provenance "
+                         "(who drew it, the spec, the date), and the needs it did not draw with the reason", "2026-11-02"),
     "review_record": Format("bie.brain.coverage", 1, REVIEW_RECORD, "<page>.coverage.json",
                             "tools/task046c_page.py (bie/brain/coverage.py video_coverage)", ("Navin", "the game (Task 049)", "the notes (Task 050)"),
                             "which book lines the video taught, by which beats, when and how", "2026-10-29"),

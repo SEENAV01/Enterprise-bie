@@ -4,6 +4,12 @@ VM and never in the cloud workspace.
 
     python -B tools/task046d_fetch_needs.py --needs <needs.json, a file or an https URL> --library <BIE's shared library folder>
         [--per-need 1] [--sources met,openverse,commons] [--report fetched.json]
+    python -B tools/task046d_fetch_needs.py --made <made.json of a coder run, a file or an https URL> --library <folder>
+
+``--made`` (Task 046 Part D2 addendum, Navin 2 November 2026: "if still missing, BIE's own coder makes a new SVG component
+from a short spec, tested and licence-clean, and adds it to the library for every later book"): every drawing of a coder run
+(``bie/brain/coder.py``, ``made.json``) is read, checked again (its hash and ``coder.svg_problems``) and added to the shared
+library with its provenance (the licence policy's ``generated_images``); a drawing that fails is reported, never added.
 
 For every need of kind ``image`` or ``icon`` in ``needs.json`` (``bie.brain.needs/1``, written by the canvas section) it looks
 in the shared library first, then in open sources whose licence BIE's policy allows for lessons: The Met Open Access (public
@@ -28,7 +34,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-from bie.brain import assets, formats  # noqa: E402
+from bie.brain import assets, coder, formats  # noqa: E402
 from bie.brain.visual_thinking import PORTRAIT  # noqa: E402
 from bie.toolbox import icons  # noqa: E402
 
@@ -175,9 +181,33 @@ def fetch(needs: dict, library: assets.AssetLibrary, *, sources=("met", "openver
             "missing_capabilities": needs.get("missing_capabilities") or []}
 
 
+def load_made(source: str, opener=None):
+    """(made.json, files base, read(path) -> bytes) for a coder run's made.json (a file or an https URL)."""
+    if source.startswith("https://"):
+        base = source.rsplit("/", 1)[0]
+
+        def read(path: str) -> bytes:
+            if not re.fullmatch(r"made/[a-z0-9-]{1,60}\.svg", path):
+                raise ValueError(f"not a drawing of this run: {path}")
+            return assets._open(base + "/" + path, opener=opener, max_bytes=coder.MAX_BYTES + 1024)
+        with (opener or urllib.request.urlopen)(urllib.request.Request(source, headers={"user-agent": "bie-fetch/1"}), timeout=60) as r:
+            data = json.loads(r.read().decode("utf-8"))
+    else:
+        base = str(Path(source).parent)
+
+        def read(path: str) -> bytes:
+            if not re.fullmatch(r"made/[a-z0-9-]{1,60}\.svg", path):
+                raise ValueError(f"not a drawing of this run: {path}")
+            return (Path(base) / path).read_bytes()
+        data = json.loads(Path(source).read_text(encoding="utf-8"))
+    formats.check("coder_made", data, where=source)
+    return data, base, read
+
+
 def main(argv=None) -> int:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("--needs", required=True)
+    parser.add_argument("--needs", default="")
+    parser.add_argument("--made", default="", help="made.json of a coder run (a file or an https URL): its drawings into the library")
     parser.add_argument("--library", required=True, type=Path)
     parser.add_argument("--per-need", type=int, default=1)
     parser.add_argument("--sources", default="met,openverse,commons")
@@ -188,8 +218,21 @@ def main(argv=None) -> int:
     unknown = [s for s in sources if s not in SOURCES]
     if unknown:
         parser.error(f"unknown sources: {', '.join(unknown)} (known: {', '.join(SOURCES)})")
-    needs = load_needs(args.needs)
+    if not args.needs and not args.made:
+        parser.error("--needs or --made")
     library = assets.AssetLibrary(args.library)
+    if args.made:
+        made, base, read = load_made(args.made)
+        result = coder.add_made(made, base, library, read=read)
+        library.save()
+        report = {"schema": SCHEMA, "made": args.made, "added": result["added"], "refused": result["refused"],
+                  "counts": {"added": len(result["added"]), "refused": len(result["refused"])}, "library_assets": len(library.assets)}
+        out = args.report or args.library / "made-added.json"
+        out.write_text(json.dumps(report, ensure_ascii=False, indent=1), encoding="utf-8")
+        print(json.dumps(report["counts"]), "library:", report["library_assets"], "assets ->", out)
+        if not args.needs:
+            return 0
+    needs = load_needs(args.needs)
     pruned = prune(library)
     run = args.needs.rsplit("/runs/", 1)[-1].split("/")[0] if "/runs/" in args.needs else ""
     report = fetch(needs, library, sources=sources, per_need=max(1, min(3, args.per_need)), run=run,

@@ -75,6 +75,10 @@ class Asset:
     credit: str
     tags: list = field(default_factory=list)
     description: str = ""
+    # a picture BIE generated (the licence policy's generated_images: Navin, 29 October 2026): who made it, from what, when
+    generated_by: str = ""
+    prompt: str = ""
+    generated_on: str = ""
 
 
 def normalise_licence(name: str) -> str:
@@ -326,7 +330,8 @@ class AssetLibrary:
                               author=candidate.author, credit=candidate.credit, tags=list(tags), description=description)
 
     def add_bytes(self, data: bytes, *, mime: str, source: str, title: str, page_url: str, licence: str, licence_url: str,
-                  author: str, credit: str, tags=(), description: str = "") -> Asset:
+                  author: str, credit: str, tags=(), description: str = "", generated_by: str = "", prompt: str = "",
+                  generated_on: str = "") -> Asset:
         digest = hashlib.sha256(data).hexdigest()
         asset_id = "a-" + digest[:16]
         if asset_id in self.assets:
@@ -340,7 +345,8 @@ class AssetLibrary:
         path.write_bytes(data)
         asset = Asset(asset_id=asset_id, path=str(path.relative_to(self.folder)), sha256=digest, mime=mime, source=source,
                       title=title, page_url=page_url, licence=licence, licence_url=licence_url, author=author, credit=credit,
-                      tags=sorted(set(tags)), description=description)
+                      tags=sorted(set(tags)), description=description, generated_by=generated_by, prompt=prompt,
+                      generated_on=generated_on)
         self.assets[asset_id] = asset
         self.save()
         return asset
@@ -390,6 +396,7 @@ def seed_library(library: "AssetLibrary", source, *, opener=None) -> int:
             raise AssetError(f"{row['asset_id']}: the file does not match its recorded hash")
         library.add_bytes(data, mime=row["mime"], source=row["source"], title=row["title"], page_url=row["page_url"], licence=row["licence"],
                           licence_url=row["licence_url"], author=row["author"], credit=row["credit"], tags=row.get("tags") or [],
-                          description=row.get("description", ""))
+                          description=row.get("description", ""), generated_by=row.get("generated_by", ""),
+                          prompt=row.get("prompt", ""), generated_on=row.get("generated_on", ""))
         added += 1
     return added

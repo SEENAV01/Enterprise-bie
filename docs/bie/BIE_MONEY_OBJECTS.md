@@ -6,8 +6,16 @@ RBI designs (check RBI's reproduction rules and record them); cheque, passbook, 
 salt sack, cowrie shells, cattle, grain sack, cloth roll." and "add Microsoft Fluent Emoji (MIT; licence-check, pin, record
 the licence, credit line) as an icon source with its 3D style, preferred for objects".
 
-Status: IMPLEMENTED (the drawings, the index rows, the search words, the licence gate, tests). Not yet INTEGRATED: no
-real-book render has drawn them yet. Not ACCEPTED: the look and the teaching quality are Navin's verdict.
+**Retired on 2 November 2026** (Navin's addendum to Part D2: "maine salt aur kapde ka example diya ... aise to kal kisi aur
+cheej ka jikar aayega to salt aur kapda hi dikhaoge, jabki mera kehna hai jis cheej ka jikar hai wohi cheej dikhe; yeh udaharan
+maine is rup mein diye the"). The 26 drawings, `tools/bie_objects.py`, their icon index rows and the aliases that named them are
+removed; the files stay in git history (commit `ef77d816` and earlier). Nothing is hand-made for one chapter any more: a thing
+a beat names goes the general path (the shared library, the icon index, the fetch step, then BIE's coder, `bie/brain/coder.py`,
+CONTRACTS §8c). The money rules below stay in force for anything BIE draws: the coder's card (`bie/brain/rulebook/coder_card.md`)
+forbids a copy of a real banknote, coin, stamp or payment document, an emblem, a portrait or any words on the picture.
+
+Status before the retirement: IMPLEMENTED (the drawings, the index rows, the search words, the licence gate, tests); never
+INTEGRATED or ACCEPTED.
 
 ## What BIE now has
 

@@ -334,6 +334,16 @@ def canvas_answer(user_text: str):
     return {"notes": NOTES, "nodes": nodes, "camera": [], "focus": [], "graph_used": False, "graph": graph}
 
 
+def coder_answer(user: str) -> dict:
+    """A plain drawing that passes BIE's SVG checks: a round shape with an outline and two marks (the offline coder has no eyes)."""
+    import re as _re
+    thing = (_re.search(r'"thing": "([^"]+)"', user) or [None, "thing"])[1]
+    svg = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><circle cx="256" cy="256" r="200" fill="#f2c14e" '
+           'stroke="#2d3640" stroke-width="16"/><rect x="176" y="196" width="160" height="120" rx="20" fill="#5c9ead" stroke="#2d3640" '
+           'stroke-width="12"/><path d="M196 356 L316 356" stroke="#2d3640" stroke-width="16" stroke-linecap="round"/></svg>')
+    return {"name": thing, "svg": svg, "tags": [w for w in thing.lower().split() if len(w) > 2][:4], "alt": f"a plain drawing of {thing}"}
+
+
 def world_answer(user_text: str):
     """A world the world compiler accepts: a shop with a price tag (or, for beats set in a bank, a bank with its teller and a
     board), a crowd that grows, a title, and one camera key per beat."""
@@ -479,6 +489,8 @@ class BrainFakeClient:
                 value[key] = ([{"what": "offline missing row", "where_on_page": "offline", "severity": "blocking"}]
                               if key == "missing" else
                               [{"where": "offline", "problem": "offline problem", "fix": "offline fix", "severity": "blocking"}])
+        elif set(props) == {"name", "svg", "tags", "alt"}:     # BIE's coder (Task 046 Part D2 addendum): a plain drawing
+            value = coder_answer(user)
         elif "needs" in props:
             value = asset_plan_answer(user)
         elif "choice" in props:
