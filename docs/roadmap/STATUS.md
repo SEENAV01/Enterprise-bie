@@ -8,10 +8,10 @@ Updated: 31 October 2026 · Read this first in every new session, then show Navi
 | --- | --- |
 | Phase | 1 · BIE as one whole system; plan agreed on 22 October 2026 (ROADMAP, "Agreed on 22 October 2026") |
 | Current task | **Task 046 · Part D1: the director's dikhane ki soch, the needs list and the gathering of things** (Navin's verdict on the whole Money chapter, 30 October 2026: one setup, the bank and four people, text rising on boards; "bie ko khud sochna padega"). Section "Task 046 · Part D1" below. Before it: Task 046 Part C (Economy), the whole Money chapter scripted (18 of 18) and rendered, sections below. |
-| Branch | `task046d-proof-fixes` (from `main` after PR #111) |
-| State | **31 October 2026: Part D1 merged (PR #111, `e998f926`) and run live once** (VM job `t046d-money-canvas-a`, Codex, ₹0): v2 18 of 18 parts, video spec written (worlds 56 % → 28 %, icons 7 → 54, text-only 91 s → 9.9 s, the book's pictures 0 → 3 of 3); v4 16 of 18 (two parts stopped on BIE's own code: a cue on a currency sign, a reference to the maker's own picture; fixed on `task046d-proof-fixes`). v2's render and the fetch workflow dispatched. Nothing ACCEPTED. |
-| Next task | Merge `task046d-proof-fixes` when every check is green; then v4 again on the VM (same narration), v4's render, the before/after review pages and the dikhane ki list pages for v2 and v4, LOOK-D1 on the stills, the after numbers. Then **STOP for Navin's verdict**; Part D2 (the missing kits and blocks) after it; then the voice (Task 047). |
-| Canonical main | `e998f926` (PR #111: Part D1) on `73a07941` (PR #109: the render publish step retries) on `16c1e5fe` (PR #110: the Money chapter's report); earlier: `f99b77a6` (PR #93: PR 3, the bank kit) on `f929d5a5` (PR #92: docs, the proof's numbers and the chosen video) on `d265dc90` (PR #90: the everyday words of money and the W-01 source-packet phrases; PR #91 `abeb70b0` F-16 skyfield files in the shared asset cache; PR #89 `f03c9208` plan review; PR #88 `182c9b01` page review; PR #87 `995c808b` map review; PR #86 `8612d724` render speed; PR #85 `78a9a721` PR 2 and Navin's addition; PR #81 `d7ce8388`: F-14b, Codex image calls keep the code-mode host on, Navin's yes; PR #80 `4128cbdd` F-14; PR #77 `aa8d6519` VM image and look jobs; PR #79 `2c6c2fc5` F-13c + F-11 toolbox lane; PR #78 `c4375064` F-13b; PR #74 `39e3430e` Task 046 Part A) |
+| Branch | `task046d-proof-2` (PR #114); `s18-sidecar-nlink-race` (PR #113, waits for Navin) |
+| State | **31 October 2026: Part D1 merged (PR #111) and proved twice live (₹0).** Run b (after PR #112): v2 and v4 36 of 36 parts, rendered, pages published (STATUS "Task 046 · Part D1"); worlds 56/67 % → 28/33 %, icons 7/4 → 57/65, text-only 91/146 s → 6.9/4.8 s, the book's pictures 0 → 7 of 7; LOOK-D1 mean 5.25 of 10 (world parts 3.6). PR #113 (F-18, a storage-safety check) waits for Navin's yes; PR #114 (fetch rules, currency icons) in CI. Nothing ACCEPTED. |
+| Next task | **STOP for Navin's verdict on Part D1** (the two review pages and the two dikhane ki list pages): is this the way of showing he wants, what to fix first, what to lock; his yes or no on PR #113. Then Part D2 (the missing kits and blocks, and the world parts) and the rest of the chapter; then the voice (Task 047). |
+| Canonical main | `18595156` (PR #112: the proof fixes) on `e998f926` (PR #111: Part D1) on `73a07941` (PR #109: the render publish step retries) on `16c1e5fe` (PR #110: the Money chapter's report); earlier: `f99b77a6` (PR #93: PR 3, the bank kit) on `f929d5a5` (PR #92: docs, the proof's numbers and the chosen video) on `d265dc90` (PR #90: the everyday words of money and the W-01 source-packet phrases; PR #91 `abeb70b0` F-16 skyfield files in the shared asset cache; PR #89 `f03c9208` plan review; PR #88 `182c9b01` page review; PR #87 `995c808b` map review; PR #86 `8612d724` render speed; PR #85 `78a9a721` PR 2 and Navin's addition; PR #81 `d7ce8388`: F-14b, Codex image calls keep the code-mode host on, Navin's yes; PR #80 `4128cbdd` F-14; PR #77 `aa8d6519` VM image and look jobs; PR #79 `2c6c2fc5` F-13c + F-11 toolbox lane; PR #78 `c4375064` F-13b; PR #74 `39e3430e` Task 046 Part A) |
 | Keys | Never the Anthropic key. GPT API key off. Gemini key (AICredits) for the checker; it may call only `google/gemini-4-argon`. GPT only through ChatGPT Pro, signed in with Codex on Navin's machine (Hostinger KVM 2, Mumbai). On the VM, from 25 October 2026, the checker is Navin's free Google AI Studio key `GEMINI_API_KEY` in `/etc/bie/bie.env` (direct route, `gemini-3.8-flash`); the AICredits key stays there unused (a job can still choose it with `routes google=aicredits`). Since 24 October a free Google AI Studio key is the GitHub secret `GEMINI_API_KEY` (Navin's choice for now, sample content only, never student data); it serves GitHub Actions runs only and wins over AICredits there: `gemini-3.8-flash` answers (smoke run 40114580580), `gemini-4-argon` gives 429 quota and `gemini-3.1-pro` 404, so a run that uses it passes `models=google=gemini-3.8-flash` |
 
 ## Task 046 · Part D1 · dikhane ki soch, the needs list and the gathering of things (Navin's verdict of 30 October 2026)
@@ -139,10 +139,46 @@ needs list named 43 things (32 icons, 11 images; one missing kit, a farm); v2's 
   museum object reads per search, a 60 s timeout with 3 tries per request). Now: a time budget (25 minutes in the workflow;
   needs not reached are reported `not_tried`), the library saved after every need with a find, the museum asked only for
   image needs and at most `limit + 2` objects with a 20 s timeout, and a 45-minute job.
+- **The fetch again, after PR #112** (run 41230688777, `main` at `18595156`, 25-minute budget, ₹0): 15 fetched, 1 in the
+  library, 4 not found, 14 not reached. The time budget worked; the pictures did not: galaxies for the years "1275" and
+  "1023" (that needs list was written before years stopped being things), a protest rally for "payer" (real people, card
+  rule 8), a mountain for "porter", a container for "recipient". No video read that library (job `t046d-money-canvas-b`
+  does not pass `library`). Fixed on branch `task046d-proof-2`: only image needs are fetched (an icon comes from the icon
+  index, a missing one goes to Part D2), a year or number is skipped, a picture's title must name the need (two of its
+  words, one for a one-word need), a title that names people is refused, and every fetch first prunes the library's
+  earlier fetches by the same rules (on the published library: 12 of 15 removed, Bazaar, Tibet and the Great Wall kept).
 - Checked: all 268 plans of the canvas runs `e1`, `f` and this one pass or fail the same with these fixes as without them (0
   differences). **Honest note:** 108 of those 268 earlier plans no longer compile under Part D1's board of 2 lines of 28
   characters (they were made under the board of 3 lines of 40); that is Navin's rule of 30 October, merged in PR #111, not a
   regression of a fix. Those renders stay as evidence; a re-run plans them under the new rule.
+
+**Proof run b (31 October 2026, after PR #112; VM job `t046d-money-canvas-b`, Codex maker and checker, 50 minutes, 79 calls,
+0.68 M input and 0.27 M output tokens, ₹0, ChatGPT plan at 9 % of the week; narration locked):** 36 of 36 parts passed, both
+video specs written; the ideas step passed first try in 36 of 36 parts (run a: 15), plans in 31 of 36 (run a: 23). Renders:
+CI runs 41234881719 (v2, 9.9 minutes of video, 37 machine-minutes, ₹24.9 at list price) and 41234896000 (v4, 10.6 minutes,
+35.5 machine-minutes, ₹23.8), ₹0 billed; review copies and 18 stills each at `runs/t046d-money-v2b/` and
+`runs/t046d-money-v4b/`. Pages: v2 review https://claude.ai/artifact/8RydQKDAMEiUs9QcWKLyVz, v4 review
+https://claude.ai/artifact/Wu3Tq1ug433BXLqWq3ibGN, v2 dikhane ki list https://claude.ai/artifact/YC2udE5NWwxdAXCJNu76Ji, v4
+dikhane ki list https://claude.ai/artifact/VaQyWk1p5FCW12KViBFVvh.
+
+| Measure (by code) | v2 before → run b | v4 before → run b |
+| --- | --- | --- |
+| Parts in the bank or shop world | 10 of 18 (56 %) → 5 (28 %) | 12 of 18 (67 %) → 6 (33 %) |
+| Distinct icons | 7 → 57 | 4 → 65 |
+| Canvas parts with only text | 3 → 0 | 4 → 0 |
+| Text-only screen time | 91 s, 2 stretches over 10 s → 6.9 s, 0 | 146 s, 4 over 10 s → 4.8 s, 0 |
+| The book's own pictures drawn | 0 of 3 → 3 of 3 | 0 of 4 → 4 of 4 |
+| Book lines covered (table B) | 32 of 32 | 31 of 31 |
+| Plans first try / rounds | 13 of 18, 25 → 18 of 18, 18 | 16 of 18, 21 → 13 of 18, 24 |
+
+**LOOK-D1** (VM job `t046d-money-look-b`, Codex, 4.8 minutes, ₹0; report only, Navin's eye decides; `runs/vm-t046d-money-look-b-brain-look/LOOK.md`):
+mean 5.25 of 10 on whether the still alone hints at the teacher's point; 1 text only (v2_s6, the book's table); 12 low. By
+mode: the 11 world parts 3.6 (2 to 5: a generic shop or bank with labels, the story's own exchange not shown), the 8 canvas
+parts with a book picture 6.0 (v2_s5a, the page-2 gallery, 10 of 10), the 17 other canvas parts 5.9. Seen by Claude in the
+stills: v4's currency gallery drew the Euro as a bank and the Yuan as arrows (fixed on `task046d-proof-2`, PR #114: a panel
+whose name has an alias uses it), a cowboy hat for pastoral societies (herder aliases added), v2's table close to the left
+edge. **For Navin:** the world parts that remain are the weakest; whether story parts should stay on the canvas until a kit
+can show the story's own exchange, or Part D2 should build that, is his call.
 
 **Next (written before the merge, kept):** the canvas section again on Money v2 and v4 on the VM (Codex maker and checker, ₹0; the narration
 of lesson resume `-f` locked), the fetch workflow on its `needs.json`, the canvas again with the library if it found things,

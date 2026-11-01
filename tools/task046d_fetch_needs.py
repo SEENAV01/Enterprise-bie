@@ -30,6 +30,7 @@ sys.path.insert(0, str(ROOT))
 
 from bie.brain import assets, formats  # noqa: E402
 from bie.brain.visual_thinking import PORTRAIT  # noqa: E402
+from bie.toolbox import icons  # noqa: E402
 
 SCHEMA = "bie.brain.fetched/1"
 SOURCES = {"met": assets.search_met, "openverse": assets.search_openverse, "commons": assets.search_commons}
@@ -51,6 +52,55 @@ def load_needs(source: str, opener=None) -> dict:
 
 
 MUSEUM = {"met"}            # a museum holds objects (coins, seals, notes); an icon need (a role, an idea) is never one of its objects
+# A photo of people is never fetched (card rule 8: a real person is never drawn). The second live fetch (31 October 2026)
+# brought a protest rally for "payer"; a title is the only signal, so the words that name people are refused.
+PEOPLE = re.compile(r"\b(protest|protesters?|rally|crowds?|people|persons?|man|men|woman|women|boys?|girls?|child(ren)?|famil(y|ies)|"
+                    r"portraits?|selfie|wedding|festival|march|demonstration|politicians?|president|minister|king|queen|emperor|"
+                    r"sultan|actor|actress|player|team|students?|teachers?)\b", re.IGNORECASE)
+
+
+def specific_words(thing: str) -> list:
+    """The words of a need that a picture's title must carry: no stop words, no bare numbers (a year is text, not a picture)."""
+    return [w for w in words_of(thing) if not w.isdigit()][:4]
+
+
+def relevant(thing: str, title: str) -> bool:
+    """Does a candidate's title name the need? At least two of its specific words (one, for a one-word need) must start a word
+    of the title: the second live fetch took galaxies for the years "1275" and "1023" and a mountain for "porter"."""
+    need = specific_words(thing)
+    if not need:
+        return False
+    low = (title or "").lower()
+    hits = sum(1 for w in need if re.search(rf"(?<![a-z\u0900-\u097f]){re.escape(w)}", low))
+    return hits >= min(2, len(need))
+
+
+def acceptable(thing: str, title: str) -> bool:
+    return relevant(thing, title) and not PORTRAIT.search(title or "") and not PEOPLE.search(title or "")
+
+
+def prune(library: assets.AssetLibrary) -> list:
+    """Drop the fetched assets (tag ``d1-need``) that today's rules refuse: a title that does not name its need, names people
+    or a portrait, or a need that was only a number. Returns what was removed (title, thing, why)."""
+    removed = []
+    for aid, asset in list(library.assets.items()):
+        if "d1-need" not in (asset.tags or []):
+            continue
+        m = re.search(r"for '(.*?)' \(", asset.description or "")
+        thing = m.group(1) if m else ""
+        why = ("names people" if PEOPLE.search(asset.title or "") or PORTRAIT.search(asset.title or "")
+               else "does not name its need" if not relevant(thing, asset.title)
+               else "the icon index shows it (an icon, not a photo)"
+               if len(specific_words(thing)) == 1 and icons.search(thing, limit=1) else "")     # a role or a plain thing, not an object
+        if why:
+            library.assets.pop(aid)
+            path = library.folder / asset.path
+            if path.exists() and not any(a.path == asset.path for a in library.assets.values()):
+                path.unlink()
+            removed.append({"asset_id": aid, "title": asset.title, "thing": thing, "why": why})
+    if removed:
+        library.save()
+    return removed
 
 
 def fetch(needs: dict, library: assets.AssetLibrary, *, sources=("met", "openverse", "commons"), per_need: int = 1, opener=None,
@@ -73,8 +123,14 @@ def fetch(needs: dict, library: assets.AssetLibrary, *, sources=("met", "openver
         if clock() - start > deadline_s:
             rows.append(dict(row, status="not_tried", why=f"the time budget of {deadline_s:.0f} s was spent"))
             continue
-        if need.get("kind") not in ("image", "icon"):
+        if need.get("kind") == "icon":
+            rows.append(dict(row, status="skipped", why="an icon comes from the icon index; a missing one is logged for Part D2, never a photo search"))
+            continue
+        if need.get("kind") != "image":
             rows.append(dict(row, status="skipped", why=f"a {need.get('kind')} is built by Part D2, not fetched"))
+            continue
+        if not specific_words(thing):
+            rows.append(dict(row, status="skipped", why="a year or a number is text on the picture, not a picture"))
             continue
         if PORTRAIT.search(thing):
             rows.append(dict(row, status="skipped", why="a portrait or likeness of a person: card rule 8 (Navin decides historical figures)"))
@@ -96,7 +152,7 @@ def fetch(needs: dict, library: assets.AssetLibrary, *, sources=("met", "openver
                 row.setdefault("errors", []).append(f"{name}: {type(exc).__name__}: {str(exc)[:160]}")
                 continue
             for cand in candidates:
-                if PORTRAIT.search(cand.title or ""):
+                if not acceptable(thing, cand.title or ""):
                     continue
                 try:
                     asset = library.add_candidate(cand, tags=words + ["fetched", name, "d1-need"],
@@ -133,9 +189,12 @@ def main(argv=None) -> int:
     if unknown:
         parser.error(f"unknown sources: {', '.join(unknown)} (known: {', '.join(SOURCES)})")
     needs = load_needs(args.needs)
+    library = assets.AssetLibrary(args.library)
+    pruned = prune(library)
     run = args.needs.rsplit("/runs/", 1)[-1].split("/")[0] if "/runs/" in args.needs else ""
-    report = fetch(needs, assets.AssetLibrary(args.library), sources=sources, per_need=max(1, min(3, args.per_need)), run=run,
+    report = fetch(needs, library, sources=sources, per_need=max(1, min(3, args.per_need)), run=run,
                    deadline_s=max(60.0, args.deadline_min * 60))
+    report["pruned"] = pruned
     out = args.report or args.library / "fetched.json"
     out.write_text(json.dumps(report, ensure_ascii=False, indent=1), encoding="utf-8")
     print(json.dumps(report["counts"]), "library:", report["library_assets"], "assets ->", out)

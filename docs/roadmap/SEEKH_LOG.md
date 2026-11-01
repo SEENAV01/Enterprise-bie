@@ -1250,3 +1250,39 @@ library saved after every find, the museum only for image needs with fewer, shor
 | Replays with the fixes | — | v4_s7a: 3 of 3 recorded answers pass; v4_s5: the cue error gone, CV-13 next |
 | Earlier plans recompiled (268 of runs e1, f and this) | — | 0 differences with and without the fixes; 108 refused by Part D1's 2 × 28 board (Navin's rule, PR #111) |
 | Passed outputs | 0 problems | 0 problems |
+
+**Entry 29, addendum (the second fetch, run 41230688777):** with the time budget the job finished (15 fetched, 14 not reached),
+but 12 of the 15 pictures were wrong for the lesson (galaxies for years, a protest rally for "payer", a mountain for
+"porter"). Changed (branch `task046d-proof-2`): image needs only, years and numbers skipped, a title must name the need, a
+title naming people refused, earlier fetches pruned by the same rules. Measured on the published library: 12 of 15 removed,
+3 kept. Expected on the next fetch: fewer finds, none wrong by these rules.
+
+## Entry 30 · proof run b: the fixes of run a measured, and LOOK-D1 says the worlds are the weakest part, 31 October 2026
+
+**Run:** `runs/vm-t046d-money-canvas-b-brain-canvas/` (Money v2 and v4, narration locked, Codex maker and checker, 50 minutes,
+79 calls, 0.68 M input and 0.27 M output tokens, ₹0); renders `t046d-money-v2b` and `t046d-money-v4b`; LOOK-D1
+`runs/vm-t046d-money-look-b-brain-look/` (Codex, ₹0).
+
+**Taught:** with entry 29's fixes the run passed 36 of 36 parts; the ideas step 36 of 36 first try; plans 31 of 36 first try;
+tokens fell from 1.10 M to 0.68 M input (fewer rounds). LOOK-D1 scored the 36 stills at 5.25 of 10: canvas parts about 6 (the
+book's own gallery 10), world parts 3.6 (the shop or bank with labels; the story's exchange not drawn). From the stills: the
+book's currency gallery got a bank for the Euro and arrows for the Yuan (the panel icon read the caption before the name), a
+cowboy hat for pastoral societies.
+
+**Changed in BIE** (branch `task046d-proof-2`, PR #114, IMPLEMENTED): a panel whose own name has an alias uses it (Euro, Yen,
+Yuan, Dollar, Pound); currency and herder aliases; the fetch rules of entry 29's addendum.
+
+| Measure | Before (canvas run f) | Run a | Run b |
+| --- | --- | --- | --- |
+| Parts passed (v2 + v4) | 36 of 36 | 34 of 36 | 36 of 36 |
+| Ideas first try | (no step) | 15 of 36 | 36 of 36 |
+| Plans first try | 29 of 36 | 23 of 36 | 31 of 36 |
+| Bank + shop share (v2 / v4) | 56 % / 67 % | 28 % / 38 % | 28 % / 33 % |
+| Distinct icons (v2 / v4) | 7 / 4 | 54 / 43 | 57 / 65 |
+| Text-only screen (v2 / v4) | 91 s / 146 s | 9.9 s / — | 6.9 s / 4.8 s |
+| The book's pictures drawn | 0 of 7 | 6 of 7 | 7 of 7 |
+| Input tokens | — | 1.10 M | 0.68 M |
+| LOOK-D1 mean (report only) | — | — | 5.25 of 10 (worlds 3.6) |
+| ₹ | 0 | 0 | 0 |
+
+Not changed, for Navin to decide: whether story parts stay on the canvas until a world kit can draw the story's own exchange.

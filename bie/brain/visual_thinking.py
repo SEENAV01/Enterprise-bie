@@ -373,7 +373,10 @@ def picture_of(items: dict, item_ids, card_type: str = "") -> dict:
 def panel_icon(panel: dict, *, index=None, fallback: str = "tw:1f5bc") -> str:
     """The icon for a gallery panel or a timeline event: its caption's things first ('Wheat exchanged for cloth' → the sheaf), then
     its name; a frame (a calendar for a date) when the thing has no icon yet (a need)."""
-    for query in [panel.get("caption", "")] + list(panel.get("nouns") or []) + [panel.get("name", "")]:
+    name = str(panel.get("name") or "")
+    named = bool(icons._alias_ids(icons._words(_strip_label(name)))) if name else False    # "Euro", "Japanese Yen": the name says it
+    order = ([name] if named else []) + [panel.get("caption", "")] + list(panel.get("nouns") or []) + ([] if named else [name])
+    for query in order:
         if not str(query).strip():
             continue
         rows = icons.search(query, limit=1) if index is None else icons.search(query, index, limit=1)
