@@ -404,11 +404,13 @@ class Icons(unittest.TestCase):
         self.assertEqual(data["schema"], icons.SCHEMA)
         self.assertEqual(data["count"], len(data["icons"]))
         self.assertGreater(data["count"], 4000)
-        sets = {r["id"][:2] for r in data["icons"]}
-        self.assertEqual(sets, {"tw", "fa"})
+        sets = {icons.set_of(r["id"]) for r in data["icons"]}
+        # Part D2 (1 November 2026) added Fluent Emoji (MIT, approved by name) and BIE's own drawings (CC0): tests/test_task046d2_pictures.py
+        self.assertEqual(sets, {"tw", "fa", "fl", "bie"})
+        licences = {"tw": "CC BY 4.0", "fa": "CC BY 4.0", "fl": "MIT", "bie": "CC0 1.0"}
         for r in data["icons"]:
             self.assertTrue(icons.ID.match(r["id"]), r["id"])
-            self.assertEqual(r["licence"], "CC BY 4.0")
+            self.assertEqual(r["licence"], licences[icons.set_of(r["id"])])
             for key in icons.CREDIT_FIELDS + ("name", "terms", "style", "file"):
                 self.assertTrue(r.get(key), (r["id"], key))
             self.assertFalse(icons.SKIN.search(r["id"]), r["id"])

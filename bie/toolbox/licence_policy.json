@@ -1,12 +1,13 @@
 {
  "schema": "bie.toolbox.licence-policy/1",
- "version": "2026-10-29.1",
+ "version": "2026-11-01.1",
  "decided": {
   "date": "2026-10-25",
   "by": "Navin",
   "words": "Final videos mein sirf CC0 aur CC BY assets lein; CC BY-SA nahi; NC bilkul nahi."
  },
  "decisions_2026_10_29": "Navin's yes of 29 October 2026, recorded where each applies: sources.approved_by_navin (india-code, gmt-earth-relief, bodyparts3d), sources.needs_navin hipparcos (yes given, ESA's commercial terms still unchecked, kept out of lessons; the Yale Bright Star Catalogue is the default star source), india_boundary.navin_condition, software.decided (Remotion), generated_images (Route 2 images through the ChatGPT plan with their provenance).",
+ "decisions_2026_11_01": "Navin's brief of 1 November 2026 (Task 046 Part D2 item F), recorded where it applies: sources.needs_navin and sources.approved_by_navin fluentui-emoji (Microsoft Fluent Emoji, MIT, for this source only; any other MIT file still waits for Navin), own_work bie-objects (BIE's own money drawings, bie/toolbox/icons/bie/, published as CC0 1.0). Nothing else changed.",
  "about": "The only source of truth for licences in BIE (Task 046a-L). Every licence decision in code reads this file through bie/toolbox/licence.py: the asset library's licence check, the toolbox sources, the registry checks, the resolver, the toolbox page and the lesson gate (lesson_licence_check). Change a verdict here, in a reviewed PR, never in code.",
  "lesson_content": "Anything visible or audible in a lesson video, game or notes: pictures, models, maps, data drawn on screen, sounds, fonts' glyphs as shown, text quoted from a source.",
  "classes": [
@@ -31,7 +32,7 @@
  },
  "credit_fields": ["author", "licence", "licence_url", "page_url"],
  "own_work": {
-  "asset_sources": ["bie", "bie_toolbox"],
+  "asset_sources": ["bie", "bie_toolbox", "bie-objects"],
   "verdict": "allowed",
   "reason": "made by BIE's own code (drawings, models, charts); no outside licence. A file BIE made from outside data carries that data's source instead."
  },
@@ -40,12 +41,14 @@
     {"id": "india-code", "asset_sources": ["india_code"], "why": "Government of India content; Acts may be reproduced under the Copyright Act 1957, s. 52(1)(q), with the source acknowledged: own terms, not a CC licence (approved by Navin on 29 October 2026, see approved_by_navin)"},
     {"id": "hipparcos", "asset_sources": ["hipparcos"], "why": "free for scientific use with citation (CDS); commercial use under ESA's rules for the Hipparcos catalogue. Navin said yes on 29 October 2026, but ESA's commercial terms still apply: kept out of lessons until ESA's terms are checked; the default star source is yale-bsc (public domain)"},
     {"id": "bodyparts3d", "asset_sources": ["bodyparts3d"], "why": "the licence page says CC BY 4.0, but the BodyParts3D page asks users to contact DBCLS (approved by Navin on 29 October 2026 as CC BY 4.0 with the credit, see approved_by_navin)"},
-    {"id": "gmt-earth-relief", "asset_sources": ["gmt_earth_relief"], "why": "SRTM15+ relief (Tozer et al., 2019, Scripps) is free to use with citation: own terms, not a CC licence (approved by Navin on 29 October 2026 with the citation, see approved_by_navin)"}
+    {"id": "gmt-earth-relief", "asset_sources": ["gmt_earth_relief"], "why": "SRTM15+ relief (Tozer et al., 2019, Scripps) is free to use with citation: own terms, not a CC licence (approved by Navin on 29 October 2026 with the citation, see approved_by_navin)"},
+    {"id": "fluentui-emoji", "asset_sources": ["fluentui-emoji", "fluent_emoji"], "why": "Microsoft Fluent Emoji is under the MIT licence (Copyright (c) Microsoft Corporation; the copyright and permission notice go with copies of the files): own terms, not CC0 or CC BY (approved by Navin on 1 November 2026 for this source only, see approved_by_navin)"}
   ],
   "approved_by_navin": [
     {"id": "india-code", "approved_on": "2026-10-29", "words": "india-code: allowed with the source acknowledged (s. 52(1)(q))", "condition": "the source acknowledged in the credit: India Code, Legislative Department, Government of India, Copyright Act 1957 s. 52(1)(q)"},
     {"id": "gmt-earth-relief", "approved_on": "2026-10-29", "words": "gmt-earth-relief (SRTM15+): allowed with the citation", "condition": "the citation in the credit: Tozer et al., 2019 (SRTM15+), Scripps Institution of Oceanography, via GMT"},
-    {"id": "bodyparts3d", "approved_on": "2026-10-29", "words": "bodyparts3d: allowed as CC BY 4.0 with the credit, as its licence page states", "condition": "the CC BY 4.0 credit: Database Center for Life Science (DBCLS), BodyParts3D, licence URL and page URL"}
+    {"id": "bodyparts3d", "approved_on": "2026-10-29", "words": "bodyparts3d: allowed as CC BY 4.0 with the credit, as its licence page states", "condition": "the CC BY 4.0 credit: Database Center for Life Science (DBCLS), BodyParts3D, licence URL and page URL"},
+    {"id": "fluentui-emoji", "approved_on": "2026-11-01", "words": "add Microsoft Fluent Emoji (MIT; licence-check, pin, record the licence, credit line) as an icon source with its 3D style, preferred for objects", "condition": "MIT for this source only, at the pinned commit 1ffb34c752ecf5d402f04cfb4b392c77f57c54bc (bie/toolbox/icons.py, FLUENT_COMMIT; LICENSE read on 1 November 2026: MIT License, Copyright (c) Microsoft Corporation); the credit: Fluent Emoji by Microsoft, MIT, the licence URL at that commit and the repository; a game or notes package that ships the PNG files ships the MIT licence text with them"}
   ],
   "per_item": [
     {"id": "nasa-images", "asset_sources": ["nasa_images"], "rule": "each file on its own: NASA media are US government works, public domain unless the record names a third-party copyright holder; such a file is refused"},

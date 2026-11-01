@@ -88,7 +88,8 @@ class IconSearch(unittest.TestCase):
         self.assertIn("tw:2626", [r["id"] for r in icons.search("orthodox cross religious symbol")])
         self.assertEqual(icons.search("wheat")[0]["id"], "tw:1f33e")
         self.assertEqual(icons.search("गेहूँ के बदले कपड़ा")[0]["id"], "tw:1f33e")
-        self.assertEqual(icons.search("Cheques and deposits")[0]["id"], "fa:solid/money-check")
+        # the cheque first (Part D2, 1 November 2026: BIE's own cheque drawing, then the old line icon)
+        self.assertEqual([r["id"] for r in icons.search("Cheques and deposits")][:2], ["bie:cheque", "fa:solid/money-check"])
         self.assertEqual(icons.search("किसान")[0]["id"], "tw:1f9d1-200d-1f33e")
         self.assertEqual(icons.search("warehouse")[0]["id"], "fa:solid/warehouse")                  # whole words: not a house
         self.assertEqual(icons.check_ids(sorted({i for ids in icons.ALIASES.values() for i in ids})), [])
