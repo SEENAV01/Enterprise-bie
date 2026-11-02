@@ -1,0 +1,1081 @@
+{
+ "id": "v8_s5",
+ "part_id": "c19.3",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b29",
+   "say": "पुराने Dollar और Pound में क्या साझा था? Bretton Woods का Dollar और British Rule का Pound Sterling metal से जुड़े थे; यानी कागज़ के पीछे metal लेने का रास्ता था।"
+  },
+  {
+   "beat_id": "b30",
+   "say": "मान लो चावल ₹20 से ₹25 per kilogram हुए। ₹100 से 5 की जगह 4 kilograms मिलेंगे; पुराने 5 लेने को ₹125 चाहिए। क्या note बदला?"
+  },
+  {
+   "beat_id": "b31",
+   "say": "नहीं; face value वही, purchasing power कम है: note inflation adjusted नहीं। Metal redemption अलग अधिकार है; modern note gold या silver weight से linked नहीं।"
+  },
+  {
+   "beat_id": "b32",
+   "say": "Currency पर promise है, तो legal promissory note है? नहीं; Section 4 का express exclusion मिलता-जुलता wording होने पर भी category अलग करता है।"
+  },
+  {
+   "beat_id": "b33",
+   "say": "Prices बढ़ें तो cash अपने आप नहीं बढ़ता; एक good का example broader inflation नहीं। Bretton Woods में Dollar का gold redemption foreign official holders के लिए था, हर retail bearer के लिए नहीं।"
+  },
+  {
+   "beat_id": "b34",
+   "say": "सबसे confusing pair है promise की भाषा और statutory category; exam में bracket वाला exclusion देखो।"
+  },
+  {
+   "beat_id": "b35",
+   "say": "चार tests अलग हैं: face value, purchasing power, metal redemption और legal category।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "note_anchor",
+   "kind": "icon",
+   "cell": [
+    10,
+    0,
+    2,
+    1
+   ],
+   "cue": [
+    "b29",
+    "पुराने"
+   ],
+   "tone": "ink",
+   "align": "center",
+   "icon": "fa:solid/money-bill-1",
+   "size": 32
+  },
+  {
+   "id": "dollar",
+   "kind": "icon",
+   "cell": [
+    1,
+    2,
+    4,
+    2
+   ],
+   "cue": [
+    "b29",
+    "Dollar"
+   ],
+   "until_cue": [
+    "b30",
+    "मान"
+   ],
+   "tone": "ink",
+   "align": "center",
+   "icon": "tw:1f4b5",
+   "label": "Bretton Woods का Dollar",
+   "size": 32
+  },
+  {
+   "id": "pound",
+   "kind": "icon",
+   "cell": [
+    7,
+    2,
+    4,
+    2
+   ],
+   "cue": [
+    "b29",
+    "Pound"
+   ],
+   "until_cue": [
+    "b30",
+    "मान"
+   ],
+   "tone": "ink",
+   "align": "center",
+   "icon": "fa:solid/money-bill-1",
+   "label": "British Rule का Pound Sterling",
+   "size": 32
+  },
+  {
+   "id": "metal",
+   "kind": "icon",
+   "cell": [
+    5,
+    5,
+    2,
+    1
+   ],
+   "cue": [
+    "b29",
+    "metal"
+   ],
+   "until_cue": [
+    "b30",
+    "मान"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "fl:coin",
+   "label": "metal",
+   "size": 32
+  },
+  {
+   "id": "dollar_metal",
+   "kind": "arrow",
+   "cue": [
+    "b29",
+    "जुड़े"
+   ],
+   "until_cue": [
+    "b30",
+    "मान"
+   ],
+   "tone": "accent",
+   "from": "dollar",
+   "to": "metal",
+   "from_side": "b",
+   "to_side": "l",
+   "elbow": "vh",
+   "flow": {
+    "icon": "fl:coin",
+    "count": 2,
+    "period": 1800,
+    "size": 24,
+    "cue": [
+     "b29",
+     "जुड़े"
+    ]
+   }
+  },
+  {
+   "id": "pound_metal",
+   "kind": "arrow",
+   "cue": [
+    "b29",
+    "रास्ता"
+   ],
+   "until_cue": [
+    "b30",
+    "मान"
+   ],
+   "tone": "accent",
+   "from": "pound",
+   "to": "metal",
+   "from_side": "b",
+   "to_side": "r",
+   "elbow": "vh",
+   "flow": {
+    "icon": "fl:coin",
+    "count": 2,
+    "period": 1800,
+    "size": 24,
+    "cue": [
+     "b29",
+     "रास्ता"
+    ]
+   }
+  },
+  {
+   "id": "rice_price",
+   "kind": "value",
+   "cell": [
+    1,
+    1,
+    4,
+    1
+   ],
+   "cue": [
+    "b30",
+    "₹20"
+   ],
+   "until_cue": [
+    "b31",
+    "नहीं;"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "size": 36,
+   "steps": [
+    {
+     "cue": [
+      "b30",
+      "₹20"
+     ],
+     "text": "₹20"
+    },
+    {
+     "cue": [
+      "b30",
+      "₹25"
+     ],
+     "text": "₹25 per kilogram",
+     "dir": "up"
+    }
+   ]
+  },
+  {
+   "id": "rice_demo",
+   "kind": "action",
+   "cell": [
+    1,
+    2,
+    10,
+    4
+   ],
+   "cue": [
+    "b30",
+    "चावल"
+   ],
+   "until_cue": [
+    "b31",
+    "नहीं;"
+   ],
+   "tone": "ink",
+   "template": "compose",
+   "actors": [],
+   "objects": [
+    {
+     "name": "rice",
+     "icon": "tw:1f33e",
+     "label": "चावल"
+    },
+    {
+     "name": "cash",
+     "icon": "fa:solid/money-bill-1",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "appear",
+     "cue": [
+      "b30",
+      "चावल"
+     ],
+     "object": "rice",
+     "spot": "right",
+     "n": 1
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b30",
+      "₹100"
+     ],
+     "object": "cash",
+     "spot": "left",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b30",
+      "₹100"
+     ],
+     "on": "cash",
+     "text": "₹100",
+     "style": "tag"
+    },
+    {
+     "part": "meter",
+     "cue": [
+      "b30",
+      "5"
+     ],
+     "to": "5",
+     "object": "rice",
+     "on": "rice",
+     "text": "5",
+     "n": 5
+    },
+    {
+     "part": "meter",
+     "cue": [
+      "b30",
+      "4"
+     ],
+     "to": "4",
+     "object": "rice",
+     "on": "rice",
+     "text": "4 kilograms",
+     "dir": "down",
+     "n": 4
+    }
+   ]
+  },
+  {
+   "id": "old_basket_cost",
+   "kind": "text",
+   "cell": [
+    6,
+    1,
+    4,
+    1
+   ],
+   "cue": [
+    "b30",
+    "₹125"
+   ],
+   "until_cue": [
+    "b31",
+    "नहीं;"
+   ],
+   "text": "पुराने 5 को ₹125 चाहिए",
+   "style": "tag",
+   "tone": "warm",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "independent_values",
+   "kind": "action",
+   "cell": [
+    1,
+    1,
+    10,
+    5
+   ],
+   "cue": [
+    "b31",
+    "नहीं;"
+   ],
+   "until_cue": [
+    "b32",
+    "Currency"
+   ],
+   "tone": "ink",
+   "template": "compose",
+   "actors": [],
+   "objects": [
+    {
+     "name": "note",
+     "icon": "fa:solid/money-bill-1",
+     "label": ""
+    },
+    {
+     "name": "power",
+     "icon": "fa:solid/gauge-high",
+     "label": ""
+    },
+    {
+     "name": "right",
+     "icon": "tw:1f4c4",
+     "label": ""
+    },
+    {
+     "name": "gold",
+     "icon": "fa:solid/coins",
+     "label": ""
+    },
+    {
+     "name": "silver",
+     "icon": "tw:1fa99",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "appear",
+     "cue": [
+      "b31",
+      "नहीं;"
+     ],
+     "object": "note",
+     "spot": "left",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b31",
+      "वही,"
+     ],
+     "on": "note",
+     "text": "face value वही",
+     "style": "tag"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b31",
+      "purchasing"
+     ],
+     "object": "power",
+     "spot": "right",
+     "n": 1
+    },
+    {
+     "part": "meter",
+     "cue": [
+      "b31",
+      "कम"
+     ],
+     "to": "कम",
+     "object": "power",
+     "on": "power",
+     "text": "purchasing power कम",
+     "dir": "down"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b31",
+      "अधिकार"
+     ],
+     "object": "right",
+     "spot": "bottom",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b31",
+      "अधिकार"
+     ],
+     "on": "right",
+     "text": "Metal redemption अलग अधिकार",
+     "style": "tag"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b31",
+      "gold"
+     ],
+     "object": "gold",
+     "spot": "center",
+     "n": 1
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b31",
+      "silver"
+     ],
+     "object": "silver",
+     "spot": "center",
+     "n": 1
+    },
+    {
+     "part": "compare",
+     "cue": [
+      "b31",
+      "linked"
+     ],
+     "left": "note",
+     "right": "gold",
+     "sign": "≠"
+    }
+   ]
+  },
+  {
+   "id": "legal_exclusion",
+   "kind": "action",
+   "cell": [
+    1,
+    1,
+    10,
+    5
+   ],
+   "cue": [
+    "b32",
+    "Currency"
+   ],
+   "until_cue": [
+    "b33",
+    "Prices"
+   ],
+   "tone": "ink",
+   "template": "compose",
+   "actors": [],
+   "objects": [
+    {
+     "name": "note",
+     "icon": "fa:solid/money-bill-1",
+     "label": ""
+    },
+    {
+     "name": "category",
+     "icon": "tw:1f4e6",
+     "label": "legal promissory note"
+    },
+    {
+     "name": "law",
+     "icon": "tw:1f4c4",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "appear",
+     "cue": [
+      "b32",
+      "Currency"
+     ],
+     "object": "note",
+     "spot": "left",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b32",
+      "promise"
+     ],
+     "on": "note",
+     "text": "promise",
+     "style": "tag"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b32",
+      "legal"
+     ],
+     "object": "category",
+     "spot": "right",
+     "n": 1
+    },
+    {
+     "part": "refuse",
+     "cue": [
+      "b32",
+      "नहीं;"
+     ],
+     "object": "category"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b32",
+      "Section"
+     ],
+     "object": "law",
+     "spot": "bottom",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b32",
+      "exclusion"
+     ],
+     "on": "law",
+     "text": "Section 4 का express exclusion",
+     "style": "tag"
+    }
+   ]
+  },
+  {
+   "id": "promise_ring",
+   "kind": "highlight",
+   "cue": [
+    "b32",
+    "wording"
+   ],
+   "until_cue": [
+    "b33",
+    "Prices"
+   ],
+   "style": "box",
+   "tone": "accent",
+   "target": "legal_exclusion"
+  },
+  {
+   "id": "price_cash",
+   "kind": "action",
+   "cell": [
+    1,
+    1,
+    10,
+    5
+   ],
+   "cue": [
+    "b33",
+    "Prices"
+   ],
+   "until_cue": [
+    "b34",
+    "सबसे"
+   ],
+   "tone": "ink",
+   "template": "compose",
+   "actors": [
+    {
+     "role": "official",
+     "who": "other",
+     "mood": "neutral"
+    },
+    {
+     "role": "retail",
+     "who": "other",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "prices",
+     "icon": "fa:solid/tags",
+     "label": "Prices"
+    },
+    {
+     "name": "cash",
+     "icon": "fa:solid/money-bill-1",
+     "label": "cash"
+    },
+    {
+     "name": "good",
+     "icon": "tw:1f33e",
+     "label": ""
+    },
+    {
+     "name": "dollar",
+     "icon": "tw:1f4b5",
+     "label": "Dollar"
+    },
+    {
+     "name": "gold",
+     "icon": "fa:solid/coins",
+     "label": "gold"
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "appear",
+     "cue": [
+      "b33",
+      "Prices"
+     ],
+     "object": "prices",
+     "spot": "left",
+     "n": 1
+    },
+    {
+     "part": "move",
+     "cue": [
+      "b33",
+      "बढ़ें"
+     ],
+     "to": "far",
+     "object": "prices",
+     "spot": "top"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b33",
+      "cash"
+     ],
+     "object": "cash",
+     "spot": "right",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b33",
+      "बढ़ता;"
+     ],
+     "on": "cash",
+     "text": "अपने आप नहीं बढ़ता",
+     "style": "tag"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b33",
+      "good"
+     ],
+     "object": "good",
+     "spot": "bottom",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b33",
+      "inflation"
+     ],
+     "on": "good",
+     "text": "broader inflation नहीं",
+     "style": "tag"
+    },
+    {
+     "part": "move",
+     "cue": [
+      "b33",
+      "Bretton"
+     ],
+     "to": "left",
+     "object": "prices",
+     "spot": "left",
+     "reach": 2
+    },
+    {
+     "part": "move",
+     "cue": [
+      "b33",
+      "Bretton"
+     ],
+     "to": "right",
+     "object": "cash",
+     "spot": "right",
+     "reach": 2
+    },
+    {
+     "part": "move",
+     "cue": [
+      "b33",
+      "Bretton"
+     ],
+     "to": "left",
+     "object": "good",
+     "spot": "left",
+     "reach": 2
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b33",
+      "Dollar"
+     ],
+     "object": "dollar",
+     "spot": "center",
+     "n": 1
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b33",
+      "gold"
+     ],
+     "object": "gold",
+     "spot": "center",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b33",
+      "holders"
+     ],
+     "on": "official",
+     "text": "foreign official holders",
+     "style": "tag"
+    },
+    {
+     "part": "move",
+     "cue": [
+      "b33",
+      "था,"
+     ],
+     "to": "official",
+     "object": "gold"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b33",
+      "bearer"
+     ],
+     "on": "retail",
+     "text": "retail bearer",
+     "style": "tag"
+    },
+    {
+     "part": "refuse",
+     "cue": [
+      "b33",
+      "नहीं।"
+     ],
+     "actor": "retail",
+     "object": "dollar"
+    }
+   ]
+  },
+  {
+   "id": "promise_language",
+   "kind": "icon",
+   "cell": [
+    1,
+    2,
+    4,
+    3
+   ],
+   "cue": [
+    "b34",
+    "promise"
+   ],
+   "until_cue": [
+    "b35",
+    "चार"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "fa:solid/money-bill-1",
+   "label": "promise की भाषा",
+   "size": 32
+  },
+  {
+   "id": "statutory_category",
+   "kind": "icon",
+   "cell": [
+    7,
+    2,
+    4,
+    3
+   ],
+   "cue": [
+    "b34",
+    "statutory"
+   ],
+   "until_cue": [
+    "b35",
+    "चार"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "tw:1f4c4",
+   "label": "statutory category",
+   "size": 32
+  },
+  {
+   "id": "bracket_exclusion",
+   "kind": "text",
+   "cell": [
+    7,
+    5,
+    4,
+    1
+   ],
+   "cue": [
+    "b34",
+    "exclusion"
+   ],
+   "until_cue": [
+    "b35",
+    "चार"
+   ],
+   "text": "( bracket वाला exclusion )",
+   "style": "box",
+   "tone": "warm",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "exclusion_focus",
+   "kind": "highlight",
+   "cue": [
+    "b34",
+    "देखो।"
+   ],
+   "until_cue": [
+    "b35",
+    "चार"
+   ],
+   "style": "box",
+   "tone": "warm",
+   "target": "bracket_exclusion"
+  },
+  {
+   "id": "four_tests",
+   "kind": "table",
+   "cell": [
+    3,
+    1,
+    7,
+    5
+   ],
+   "cue": [
+    "b35",
+    "चार"
+   ],
+   "tone": "ink",
+   "align": "left",
+   "size": 30,
+   "columns": [
+    "चार tests अलग हैं"
+   ],
+   "rows": [
+    {
+     "cells": [
+      "face value"
+     ],
+     "cue": [
+      "b35",
+      "face"
+     ]
+    },
+    {
+     "cells": [
+      "purchasing power"
+     ],
+     "cue": [
+      "b35",
+      "purchasing"
+     ]
+    },
+    {
+     "cells": [
+      "metal redemption"
+     ],
+     "cue": [
+      "b35",
+      "metal"
+     ]
+    },
+    {
+     "cells": [
+      "legal category"
+     ],
+     "cue": [
+      "b35",
+      "legal"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "tests_note",
+   "kind": "icon",
+   "cell": [
+    0,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b35",
+    "चार"
+   ],
+   "tone": "ink",
+   "align": "center",
+   "icon": "fa:solid/money-bill-1",
+   "size": 32
+  },
+  {
+   "id": "auto_thing_1",
+   "kind": "icon",
+   "icon": "fa:solid/gauge-high",
+   "cell": [
+    0,
+    0,
+    2,
+    2
+   ],
+   "cue": [
+    "b35",
+    ""
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b29",
+    "पुराने"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b30",
+    "चावल"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b33",
+    "Bretton"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b35",
+    "चार"
+   ]
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b30",
+    "4"
+   ],
+   "ids": [
+    "rice_demo",
+    "rice_price"
+   ],
+   "until_cue": [
+    "b30",
+    "₹125"
+   ]
+  },
+  {
+   "cue": [
+    "b32",
+    "exclusion"
+   ],
+   "ids": [
+    "legal_exclusion"
+   ],
+   "until_cue": [
+    "b33",
+    "Prices"
+   ]
+  },
+  {
+   "cue": [
+    "b34",
+    "देखो।"
+   ],
+   "ids": [
+    "statutory_category",
+    "bracket_exclusion",
+    "exclusion_focus"
+   ],
+   "until_cue": [
+    "b35",
+    "चार"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

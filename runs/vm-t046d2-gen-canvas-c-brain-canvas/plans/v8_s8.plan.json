@@ -1,0 +1,596 @@
+{
+ "id": "v8_s8",
+ "part_id": "c20.2",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b45",
+   "say": "हाथ में ₹100 है या ₹500? Denomination यानी note की value पहचानना MANI का उद्देश्य है, ताकि visually impaired व्यक्ति खुद पहचान सके।"
+  },
+  {
+   "beat_id": "b46",
+   "say": "Data बंद हो तो? MANI Android और iOS पर installation के बाद offline, यानी बिना internet चलता है; Hindi-English समेत 15 languages हैं।"
+  },
+  {
+   "beat_id": "b47",
+   "say": "App की 15 languages को note के 15 plus 2 से मत मिलाना; platform और language choices access बढ़ाते हैं।"
+  },
+  {
+   "beat_id": "b48",
+   "say": "Audio और vibration icons दिखाते हैं कि जवाब बिना देखे मिलता है; network icon offline working दिखाता है।"
+  },
+  {
+   "beat_id": "b49",
+   "say": "MANI denomination पहचानता है, note genuine है या नहीं यह नहीं जाँचता; यही इसकी सीमा है।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "mani_anchor",
+   "kind": "text",
+   "cell": [
+    0,
+    0,
+    12,
+    1
+   ],
+   "cue": [
+    "b45",
+    "MANI"
+   ],
+   "text": "MANI",
+   "style": "title",
+   "tone": "accent",
+   "align": "left",
+   "size": 36
+  },
+  {
+   "id": "recognition",
+   "kind": "action",
+   "cell": [
+    0,
+    1,
+    12,
+    6
+   ],
+   "cue": [
+    "b45",
+    "₹100"
+   ],
+   "until_cue": [
+    "b46",
+    "Data"
+   ],
+   "template": "compose",
+   "actors": [
+    {
+     "role": "user",
+     "who": "main",
+     "mood": "unsure"
+    }
+   ],
+   "objects": [
+    {
+     "name": "note100",
+     "icon": "fa:solid/money-bill-1",
+     "label": ""
+    },
+    {
+     "name": "note500",
+     "icon": "fa:solid/money-bill-1",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "hold",
+     "cue": [
+      "b45",
+      "₹100"
+     ],
+     "actor": "user",
+     "object": "note100"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b45",
+      "₹100"
+     ],
+     "on": "note100",
+     "text": "₹100",
+     "style": "tag"
+    },
+    {
+     "part": "hold",
+     "cue": [
+      "b45",
+      "₹500?"
+     ],
+     "actor": "user",
+     "object": "note500"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b45",
+      "₹500?"
+     ],
+     "on": "note500",
+     "text": "₹500",
+     "style": "tag"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b45",
+      "Denomination"
+     ],
+     "on": "note100",
+     "text": "Denomination",
+     "style": "screen"
+    },
+    {
+     "part": "accept",
+     "cue": [
+      "b45",
+      "खुद"
+     ],
+     "actor": "user",
+     "object": "note100"
+    }
+   ]
+  },
+  {
+   "id": "access",
+   "kind": "action",
+   "cell": [
+    0,
+    1,
+    12,
+    6
+   ],
+   "cue": [
+    "b46",
+    "Data"
+   ],
+   "until_cue": [
+    "b47",
+    "App"
+   ],
+   "template": "compose",
+   "actors": [],
+   "objects": [
+    {
+     "name": "data_off",
+     "icon": "tw:274c",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "appear",
+     "cue": [
+      "b46",
+      "Data"
+     ],
+     "object": "data_off",
+     "spot": "center",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b46",
+      "बंद"
+     ],
+     "on": "data_off",
+     "text": "Data बंद",
+     "style": "tag"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b46",
+      "Android"
+     ],
+     "on": "left",
+     "text": "Android",
+     "style": "sign",
+     "spot": "left"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b46",
+      "iOS"
+     ],
+     "on": "right",
+     "text": "iOS",
+     "style": "sign",
+     "spot": "right"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b46",
+      "installation"
+     ],
+     "on": "center",
+     "text": "installation के बाद",
+     "style": "screen"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b46",
+      "offline,"
+     ],
+     "on": "center",
+     "text": "offline",
+     "style": "ok"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b46",
+      "15"
+     ],
+     "on": "center",
+     "text": "15 languages",
+     "style": "screen"
+    }
+   ]
+  },
+  {
+   "id": "language_compare",
+   "kind": "table",
+   "cell": [
+    0,
+    2,
+    12,
+    3
+   ],
+   "cue": [
+    "b47",
+    "App"
+   ],
+   "until_cue": [
+    "b48",
+    "Audio"
+   ],
+   "tone": "ink",
+   "align": "center",
+   "size": 30,
+   "cols": 2,
+   "columns": [
+    "App की languages",
+    "note की languages"
+   ],
+   "rows": [
+    {
+     "cells": [
+      "15",
+      ""
+     ],
+     "cue": [
+      "b47",
+      "15"
+     ]
+    },
+    {
+     "cells": [
+      "",
+      "15 plus 2"
+     ],
+     "cue": [
+      "b47",
+      "2"
+     ]
+    }
+   ],
+   "highlights": [
+    {
+     "cue": [
+      "b47",
+      "15"
+     ],
+     "tone": "accent",
+     "col": 0,
+     "until_cue": [
+      "b47",
+      "note"
+     ]
+    },
+    {
+     "cue": [
+      "b47",
+      "2"
+     ],
+     "tone": "warm",
+     "col": 1,
+     "until_cue": [
+      "b48",
+      "Audio"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "language_note",
+   "kind": "icon",
+   "cell": [
+    8,
+    5,
+    3,
+    1
+   ],
+   "cue": [
+    "b47",
+    "note"
+   ],
+   "until_cue": [
+    "b48",
+    "Audio"
+   ],
+   "tone": "ink",
+   "icon": "fa:solid/money-bill-1"
+  },
+  {
+   "id": "feedback",
+   "kind": "action",
+   "cell": [
+    0,
+    1,
+    12,
+    6
+   ],
+   "cue": [
+    "b48",
+    "Audio"
+   ],
+   "until_cue": [
+    "b49",
+    "MANI"
+   ],
+   "template": "compose",
+   "actors": [],
+   "objects": [
+    {
+     "name": "network_off",
+     "icon": "tw:274c",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "show_text",
+     "cue": [
+      "b48",
+      "Audio"
+     ],
+     "on": "left",
+     "text": "Audio",
+     "style": "screen",
+     "spot": "left"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b48",
+      "vibration"
+     ],
+     "on": "right",
+     "text": "vibration",
+     "style": "screen",
+     "spot": "right"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b48",
+      "देखे"
+     ],
+     "on": "center",
+     "text": "बिना देखे जवाब",
+     "style": "ok"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b48",
+      "network"
+     ],
+     "object": "network_off",
+     "spot": "center",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b48",
+      "offline"
+     ],
+     "on": "network_off",
+     "text": "offline working",
+     "style": "tag"
+    }
+   ]
+  },
+  {
+   "id": "scope",
+   "kind": "action",
+   "cell": [
+    0,
+    1,
+    12,
+    6
+   ],
+   "cue": [
+    "b49",
+    "MANI"
+   ],
+   "template": "compose",
+   "actors": [],
+   "objects": [
+    {
+     "name": "denomination",
+     "icon": "fa:solid/money-bill-1",
+     "label": ""
+    },
+    {
+     "name": "authentication",
+     "icon": "fa:solid/money-bill-1",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "appear",
+     "cue": [
+      "b49",
+      "MANI"
+     ],
+     "object": "denomination",
+     "spot": "left",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b49",
+      "denomination"
+     ],
+     "on": "denomination",
+     "text": "denomination पहचानता है",
+     "style": "tag"
+    },
+    {
+     "part": "accept",
+     "cue": [
+      "b49",
+      "पहचानता"
+     ],
+     "object": "denomination"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b49",
+      "genuine"
+     ],
+     "object": "authentication",
+     "spot": "right",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b49",
+      "जाँचता;"
+     ],
+     "on": "authentication",
+     "text": "genuine नहीं जाँचता",
+     "style": "tag"
+    },
+    {
+     "part": "refuse",
+     "cue": [
+      "b49",
+      "जाँचता;"
+     ],
+     "object": "authentication"
+    }
+   ],
+   "close_up": false
+  }
+ ],
+ "camera": [
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b45",
+    "₹100"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    1,
+    12,
+    6
+   ],
+   "cue": [
+    "b45",
+    "Denomination"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b46",
+    "Data"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    1,
+    12,
+    6
+   ],
+   "cue": [
+    "b47",
+    "15"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b48",
+    "Audio"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    1,
+    12,
+    6
+   ],
+   "cue": [
+    "b49",
+    "denomination"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

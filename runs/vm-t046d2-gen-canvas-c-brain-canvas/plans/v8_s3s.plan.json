@@ -1,0 +1,758 @@
+{
+ "id": "v8_s3s",
+ "part_id": "c19.1",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b16",
+   "say": "किराना bill ₹100 है; genuine ₹100 note दो तो? दुकानदार ने लिया, अब ₹0 बाकी हैं; payment में कागज़ नहीं, उस पर लिखे ₹100 काम आए।"
+  },
+  {
+   "beat_id": "b17",
+   "say": "Customer ने tea seller को ₹20 का note दिया; उसने वही milk seller को दिया। पहले दोनों के पास इस note के ₹0 थे; अब बारी-बारी ₹20 मिले, बिना नाम बदले।"
+  },
+  {
+   "beat_id": "b18",
+   "say": "Wallet का ₹100 interest कमाएगा? नहीं। ग्राहक ने groceries के लिए वह note दिया; उसके पास ₹0 बचे। Shopkeeper के पास पहले इस note के ₹0 थे, अब ₹100 मिले।"
+  },
+  {
+   "beat_id": "b19",
+   "say": "खरीदार ₹500 debt चुकाने का unconditional written commitment देता है। बाद में उसने currency में ₹500 चुका दिए; अब ₹0 बाकी हैं। Written commitment और payment की currency अलग हैं।"
+  }
+ ],
+ "kit": "shop",
+ "elements": [
+  {
+   "id": "shop",
+   "kind": "shop",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b16",
+    "किराना"
+   ],
+   "goods": [
+    {
+     "icon": "tw:1f6cd",
+     "label": ""
+    }
+   ]
+  },
+  {
+   "id": "bill_payment",
+   "kind": "action",
+   "x": 2500,
+   "y": 860,
+   "cue": [
+    "b16",
+    "किराना"
+   ],
+   "until_cue": [
+    "b17",
+    "Customer"
+   ],
+   "template": "compose",
+   "actors": [
+    {
+     "role": "buyer",
+     "who": "main",
+     "mood": "neutral"
+    },
+    {
+     "role": "seller",
+     "who": "other",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "bill",
+     "icon": "tw:1f9fe",
+     "label": ""
+    },
+    {
+     "name": "note",
+     "icon": "fa:solid/money-bill-1",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "hold",
+     "cue": [
+      "b16",
+      "किराना"
+     ],
+     "actor": "seller",
+     "object": "bill",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b16",
+      "bill"
+     ],
+     "on": "bill",
+     "text": "₹100",
+     "style": "tag"
+    },
+    {
+     "part": "hold",
+     "cue": [
+      "b16",
+      "genuine"
+     ],
+     "actor": "buyer",
+     "object": "note",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b16",
+      "note"
+     ],
+     "on": "note",
+     "text": "₹100",
+     "style": "tag"
+    },
+    {
+     "part": "give",
+     "cue": [
+      "b16",
+      "दो"
+     ],
+     "from": "buyer",
+     "to": "seller",
+     "object": "note",
+     "n": 1
+    },
+    {
+     "part": "accept",
+     "cue": [
+      "b16",
+      "लिया,"
+     ],
+     "actor": "seller",
+     "object": "note"
+    },
+    {
+     "part": "meter",
+     "cue": [
+      "b16",
+      "₹0"
+     ],
+     "to": "₹0",
+     "on": "bill",
+     "text": "₹0",
+     "dir": "down"
+    },
+    {
+     "part": "move",
+     "cue": [
+      "b16",
+      "लिखे"
+     ],
+     "from": "seller",
+     "to": "center",
+     "object": "note",
+     "spot": "center"
+    }
+   ]
+  },
+  {
+   "id": "bearer_first",
+   "kind": "action",
+   "x": 2500,
+   "y": 860,
+   "cue": [
+    "b17",
+    "Customer"
+   ],
+   "until_cue": [
+    "b17",
+    "उसने"
+   ],
+   "template": "compose",
+   "actors": [
+    {
+     "role": "customer",
+     "who": "main",
+     "mood": "neutral"
+    },
+    {
+     "role": "tea",
+     "who": "other",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "note20",
+     "icon": "fa:solid/money-bill-1",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "hold",
+     "cue": [
+      "b17",
+      "Customer"
+     ],
+     "actor": "customer",
+     "object": "note20",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b17",
+      "₹20"
+     ],
+     "on": "note20",
+     "text": "₹20",
+     "style": "tag"
+    },
+    {
+     "part": "give",
+     "cue": [
+      "b17",
+      "दिया;"
+     ],
+     "from": "customer",
+     "to": "tea",
+     "object": "note20",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "id": "bearer_second",
+   "kind": "action",
+   "x": 2500,
+   "y": 860,
+   "cue": [
+    "b17",
+    "उसने"
+   ],
+   "until_cue": [
+    "b18",
+    "Wallet"
+   ],
+   "template": "compose",
+   "actors": [
+    {
+     "role": "tea",
+     "who": "other",
+     "mood": "neutral"
+    },
+    {
+     "role": "milk",
+     "who": "other",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "note20",
+     "icon": "fa:solid/money-bill-1",
+     "label": "₹20"
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "hold",
+     "cue": [
+      "b17",
+      "उसने"
+     ],
+     "actor": "tea",
+     "object": "note20",
+     "n": 1
+    },
+    {
+     "part": "give",
+     "cue": [
+      "b17",
+      "दिया।"
+     ],
+     "from": "tea",
+     "to": "milk",
+     "object": "note20",
+     "n": 1
+    },
+    {
+     "part": "move",
+     "cue": [
+      "b17",
+      "बारी-बारी"
+     ],
+     "from": "milk",
+     "to": "center",
+     "object": "note20",
+     "spot": "center",
+     "back": true
+    }
+   ]
+  },
+  {
+   "id": "wallet_spending",
+   "kind": "action",
+   "x": 2500,
+   "y": 860,
+   "cue": [
+    "b18",
+    "Wallet"
+   ],
+   "until_cue": [
+    "b19",
+    "खरीदार"
+   ],
+   "template": "compose",
+   "actors": [
+    {
+     "role": "buyer",
+     "who": "main",
+     "mood": "neutral"
+    },
+    {
+     "role": "seller",
+     "who": "other",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "wallet",
+     "icon": "tw:1f45b",
+     "label": ""
+    },
+    {
+     "name": "note",
+     "icon": "fa:solid/money-bill-1",
+     "label": ""
+    },
+    {
+     "name": "goods",
+     "icon": "tw:1f6cd",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "hold",
+     "cue": [
+      "b18",
+      "Wallet"
+     ],
+     "actor": "buyer",
+     "object": "wallet",
+     "n": 1
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b18",
+      "₹100"
+     ],
+     "object": "note",
+     "inside": "wallet",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b18",
+      "interest"
+     ],
+     "on": "note",
+     "text": "₹100",
+     "style": "tag"
+    },
+    {
+     "part": "refuse",
+     "cue": [
+      "b18",
+      "नहीं।"
+     ],
+     "actor": "buyer",
+     "object": "wallet"
+    },
+    {
+     "part": "give",
+     "cue": [
+      "b18",
+      "दिया;"
+     ],
+     "from": "buyer",
+     "to": "seller",
+     "object": "note",
+     "n": 1
+    },
+    {
+     "part": "give",
+     "cue": [
+      "b18",
+      "groceries"
+     ],
+     "from": "seller",
+     "to": "buyer",
+     "object": "goods",
+     "n": 1
+    },
+    {
+     "part": "meter",
+     "cue": [
+      "b18",
+      "बचे।"
+     ],
+     "on": "wallet",
+     "text": "₹0",
+     "dir": "down",
+     "to": "₹0"
+    },
+    {
+     "part": "move",
+     "cue": [
+      "b18",
+      "अब"
+     ],
+     "from": "seller",
+     "object": "note",
+     "spot": "center",
+     "back": true,
+     "to": "center"
+    }
+   ]
+  },
+  {
+   "id": "commitment_payment",
+   "kind": "action",
+   "x": 2500,
+   "y": 860,
+   "cue": [
+    "b19",
+    "खरीदार"
+   ],
+   "template": "compose",
+   "actors": [
+    {
+     "role": "buyer",
+     "who": "main",
+     "mood": "neutral"
+    },
+    {
+     "role": "creditor",
+     "who": "other",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "undertaking",
+     "icon": "tw:1f9fe",
+     "label": ""
+    },
+    {
+     "name": "currency",
+     "icon": "fa:solid/money-bill-1",
+     "label": ""
+    },
+    {
+     "name": "debt",
+     "icon": "tw:1f9fe",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "hold",
+     "cue": [
+      "b19",
+      "खरीदार"
+     ],
+     "actor": "creditor",
+     "object": "debt",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b19",
+      "debt"
+     ],
+     "on": "debt",
+     "text": "₹500",
+     "style": "tag"
+    },
+    {
+     "part": "hold",
+     "cue": [
+      "b19",
+      "written"
+     ],
+     "actor": "buyer",
+     "object": "undertaking",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b19",
+      "commitment"
+     ],
+     "on": "undertaking",
+     "text": "unconditional written commitment",
+     "style": "tag"
+    },
+    {
+     "part": "give",
+     "cue": [
+      "b19",
+      "देता"
+     ],
+     "from": "buyer",
+     "to": "creditor",
+     "object": "undertaking",
+     "n": 1
+    },
+    {
+     "part": "hold",
+     "cue": [
+      "b19",
+      "currency"
+     ],
+     "actor": "buyer",
+     "object": "currency",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b19",
+      "चुका"
+     ],
+     "on": "currency",
+     "text": "₹500",
+     "style": "tag"
+    },
+    {
+     "part": "give",
+     "cue": [
+      "b19",
+      "दिए;"
+     ],
+     "from": "buyer",
+     "to": "creditor",
+     "object": "currency",
+     "n": 1
+    },
+    {
+     "part": "meter",
+     "cue": [
+      "b19",
+      "₹0"
+     ],
+     "on": "debt",
+     "text": "₹0",
+     "dir": "down",
+     "to": "₹0"
+    },
+    {
+     "part": "compare",
+     "cue": [
+      "b19",
+      "अलग"
+     ],
+     "left": "undertaking",
+     "right": "currency"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b16",
+    "किराना"
+   ],
+   "x": 2500,
+   "y": 560,
+   "zoom": 1,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b16",
+    "genuine"
+   ],
+   "x": 2500,
+   "y": 580,
+   "zoom": 1.25,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b16",
+    "₹0"
+   ],
+   "x": 2670,
+   "y": 550,
+   "zoom": 1.3,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b16",
+    "लिखे"
+   ],
+   "x": 2500,
+   "y": 560,
+   "zoom": 1.35,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b17",
+    "Customer"
+   ],
+   "x": 2500,
+   "y": 560,
+   "zoom": 1,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b17",
+    "उसने"
+   ],
+   "x": 2500,
+   "y": 560,
+   "zoom": 1.1,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b17",
+    "पहले"
+   ],
+   "x": 2500,
+   "y": 570,
+   "zoom": 1.2,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b17",
+    "बारी-बारी"
+   ],
+   "x": 2500,
+   "y": 560,
+   "zoom": 1.3,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b18",
+    "Wallet"
+   ],
+   "x": 2370,
+   "y": 570,
+   "zoom": 1.25,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b18",
+    "ग्राहक"
+   ],
+   "x": 2500,
+   "y": 560,
+   "zoom": 1,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b18",
+    "बचे।"
+   ],
+   "x": 2340,
+   "y": 550,
+   "zoom": 1.25,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b18",
+    "Shopkeeper"
+   ],
+   "x": 2660,
+   "y": 560,
+   "zoom": 1.25,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b19",
+    "खरीदार"
+   ],
+   "x": 2500,
+   "y": 560,
+   "zoom": 1,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b19",
+    "written"
+   ],
+   "x": 2460,
+   "y": 550,
+   "zoom": 1.2,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b19",
+    "बाद"
+   ],
+   "x": 2500,
+   "y": 560,
+   "zoom": 1,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b19",
+    "₹0"
+   ],
+   "x": 2670,
+   "y": 550,
+   "zoom": 1.25,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b19",
+    "Written"
+   ],
+   "x": 2500,
+   "y": 550,
+   "zoom": 1.2,
+   "frames": 30
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

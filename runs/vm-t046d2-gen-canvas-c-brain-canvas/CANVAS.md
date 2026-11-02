@@ -1,0 +1,218 @@
+# Canvas plans · 3. Money
+
+Subject family economics_commerce_management (canvas subject); 10 of 10 parts passed, 0 on the first try (0%), 0 rounds; modes B 9, C 1; 523 s planned; cost $0.0000.
+
+Story parts (a concept's real-world example, Navin 27 October 2026): 1, 1 inside a world (C), the rest on the canvas with crowd, value and icon elements (B).
+
+Kriya ke saanche (Part D2): 39 actions; relations realised 100.0 % (41/41); boards in world parts 0; overlaps 0; elements under the subtitle strip 0; icon misfits 0.
+
+Dikhane ki soch (Part D1): 39 distinct icons; text-only screen 0 s; book pictures drawn 2 of 2; world share 10%; relations outside the list 0; ideas passed first try 0; needs 103; missing capabilities 0.
+
+Mentioned things on screen (Navin's addendum of 2 November 2026): 173 of 235 (73.6 %); not shown and without a picture in BIE (needs): 62.
+
+## v8 · Note की पहचान, उसका promise और MANI (522.9 s) · spec_written
+
+Mentioned things on screen: 173 of 235 (73.6 %).
+
+- v8_s1 (c18.1, 9 beats): mode B L2 + touches; passed after 0 round(s) · 17 elements, longest still 5.4 s
+- v8_s2 (c18.2, 6 beats): mode B L2 + touches; passed after 0 round(s) · 19 elements, longest still 4.0 s
+- v8_s3s (c19.1, 4 beats): mode C L3; passed after 0 round(s) · 6 elements, longest still 3.6 s · place shop · story (the real-world example)
+- v8_s3b (c19.1, 5 beats): mode B L2 + touches; passed after 0 round(s) · 17 elements, longest still 5.9 s
+- v8_s4 (c19.2, 4 beats): mode B L2 + touches; passed after 0 round(s) · 7 elements, longest still 4.8 s
+- v8_s5 (c19.3, 7 beats): mode B L2 + touches; passed after 0 round(s) · 20 elements, longest still 5.8 s
+- v8_s6 (c19.4, 5 beats): mode B L2 + touches; passed after 0 round(s) · 19 elements, longest still 6.8 s
+- v8_s7 (c20.1, 4 beats): mode B L2 + touches; passed after 0 round(s) · 12 elements, longest still 3.7 s
+- v8_s8 (c20.2, 5 beats): mode B L2 + touches; passed after 0 round(s) · 7 elements, longest still 4.9 s
+- v8_s9 (c20.3, 6 beats): mode B L2 + touches; passed after 0 round(s) · 22 elements, longest still 5.3 s
+
+Credits:
+- Salt load · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Money backing link · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Money forms · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Magnifying lens · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Monetary link · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Computer (fa:solid/computer) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- Banknote holder · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Legal-tender status indicator · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Weight and quality rule sheet · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Other trading party · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Grain sack · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- One additional gram of gold · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Exchange participants · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Three Wheeler in Bazaar · kamshots · CC BY 2.0 (https://creativecommons.org/licenses/by/2.0/) · https://www.flickr.com/photos/32239176@N00/5727336902
+- Dollar-supply stack · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Fixed-rate commitment · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Paper claim · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- scales (tw:2696) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- Stamp (fa:solid/stamp) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- coin (fl:coin) · Microsoft · MIT · https://github.com/microsoft/fluentui-emoji
+- Landmark (fa:solid/landmark) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- coin (tw:1fa99) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- Merchants at a market stall · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Purity indicator · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Authority staff · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- crop alt (fa:solid/crop-alt) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- Written bank instruction · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Issuer payment · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- cross mark (tw:274c) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- Tags (fa:solid/tags) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- Coins below 50 paise · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Payer account · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Shaped silver piece · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Gold-linked foreign payment · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Amount to repay later · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- mobile phone (tw:1f4f1) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- Checking fee · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Coin-standard lane · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- package (tw:1f4e6) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- Bank balance display · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Small payment amount · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- vibration mode (fl:vibration-mode) · Microsoft · MIT · https://github.com/microsoft/fluentui-emoji
+- credit card (tw:1f4b3) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- Technology infrastructure · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Between Shigatse and Lhasa, Tibet · Mondo79 · CC BY 2.0 (https://creativecommons.org/licenses/by/2.0/) · https://www.flickr.com/photos/50417570@N06/26597548191
+- Goods with a price tag · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- विनिमय की वस्तुएँ · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Mandatory silver-content link · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Measured metal units · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Sender account · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Bicycle owner · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Dried tobacco leaves · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- handshake (tw:1f91d) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- ear of rice (tw:1f33e) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- Public users · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Sender · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Copper ingots · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Account holder · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Sack of grain · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Phone camera · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Financial claims · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Gold backing · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Heavy grain sack · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- ear (fl:ear) · Microsoft · MIT · https://github.com/microsoft/fluentui-emoji
+- दो विनिमयकर्ता · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Two salt packets · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Grocer · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Expected silver supply · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Barter · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Dealers · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Buyer account · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Commodity bundles · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Silver piece · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Account balance display · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Hand offering an object · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Digital money display · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Grain seeds · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- speaker with three sound waves (tw:1f50a) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- Merchant · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Generic banknote · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Money collector · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Audio Description (fa:solid/audio-description) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- External-link lane · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Repayment obligation · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Abroad · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Money stack · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Construction brick · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- File Signature (fa:solid/file-signature) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- Exchange partners · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Heavy commodity sack · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Gold-exchange reforms · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Offered object · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Exchange link · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Goods stack · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- User Check (fa:solid/user-check) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- Dollar-demand stack · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Shop expansion plan · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Government monopoly on note issuance · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Latent image on a banknote · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- File:Swiss-Commemorative-Coin-2015-CHF-50-reverse.png · www.swissmint.ch · Public domain · https://commons.wikimedia.org/wiki/File:Swiss-Commemorative-Coin-2015-CHF-50-reverse.png
+- International reserve assets · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Salt packet · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Reverse language panel · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Flat exchange-rate line · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Paper material · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Shopkeeper account ledger · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Official convertibility link · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Sterling reserve · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- One trading party · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Trust indicator · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Three shelves · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Heavy metal ingots · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- One gram gold bar · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Uniform coinage · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- China - Great Wall · iNathan · CC BY 2.0 (https://creativecommons.org/licenses/by/2.0/) · https://www.flickr.com/photos/95098029@N00/2930064710
+- मिलने वाला सामान · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Deposited value · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Gold bullion · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Receiver account · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- purse (tw:1f45b) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- bank (tw:1f3e6) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- envelope (tw:2709) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- Early pastoral cattle keepers · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Total-value display · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- खरीदा जा सकने वाला सामान · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Silver mines · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Repairer · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Sack carrier · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- shopping bags (tw:1f6cd) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- Claim holders · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Salt carrier · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Decimal division diagram · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Trade goods · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Issuer lane · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- File:50 paise coin obverse.jpg · Blazeboy124 · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0) · https://commons.wikimedia.org/wiki/File:50_paise_coin_obverse.jpg
+- Inflation warning · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Gold reserves · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Fingertip · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Sterling reserves · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Stability shield · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- उधार का बहीखाता · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- बाद में लौटाई जाने वाली वस्तुएँ · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Gold-redemption link · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Generic specimen banknote · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Silver bullion portion · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- विनिमय की वस्तुओं के ढेर · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Foreign payment · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Monetary policy control · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- black question mark ornament (tw:2753) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- Proof coin set · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Coins (fa:solid/coins) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- Monetary choice controls · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Currency history timeline · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Coin pile · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Anna-system conversion · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Money Bill 1 (fa:solid/money-bill-1) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- Debt record · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Two goods bundles · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Central bank official · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Government territory · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- light bulb (fl:light-bulb) · Microsoft · MIT · https://github.com/microsoft/fluentui-emoji
+- Importer · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- call me hand (fl:call-me-hand) · Microsoft · MIT · https://github.com/microsoft/fluentui-emoji
+- Collector coin set · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- banknote with dollar sign (tw:1f4b5) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- Two exchange partners · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Intermediary · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Gold claim · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Gauge High (fa:solid/gauge-high) · Fonticons, Inc. · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://fontawesome.com
+- Gold purity test · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- scroll (tw:1f4dc) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- receipt (tw:1f9fe) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- page facing up (tw:1f4c4) · Twitter, Inc and other contributors · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) · https://github.com/jdecked/twemoji
+- Issuer representative · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Ten grams of gold · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Account access gate · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Reserve holdings · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Commodities · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Two barter items · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Goods bundles · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Fixed quantity of gold · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Five rice bags · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Net banking screen · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Raw silver lump and shaped silver bar · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- File:Brick tea (Old Fort Erie).jpg · Pierre5018 · CC BY 4.0 (https://creativecommons.org/licenses/by/4.0) · https://commons.wikimedia.org/wiki/File:Brick_tea_(Old_Fort_Erie).jpg
+- 100 paise counting units · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Cowrie shells in palm · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Silver demand · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Goods exchange partners · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder
+- Silver supply · BIE (Book Intelligence Engine) · CC0 1.0 (drawn by BIE's coder) · https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/vm-t046d2-gen-coder-a-brain-coder

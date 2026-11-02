@@ -1,0 +1,769 @@
+{
+ "id": "v8_s9",
+ "part_id": "c20.3",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b50",
+   "say": "Phone जवाब कैसे देता है? Note की image लेकर रकम sound या vibration से पहुँचाता है।"
+  },
+  {
+   "beat_id": "b51",
+   "say": "Front या back, कोई side scan करो; camera image input देता है। Audio output denomination सुनाता है, इसलिए screen पढ़ना जरूरी नहीं।"
+  },
+  {
+   "beat_id": "b52",
+   "say": "सुन भी न सकें तो? Vision-hearing impairment में vibration हाथ से महसूस होती है। Network icon installed app का offline use बताता है, offline download नहीं।"
+  },
+  {
+   "beat_id": "b53",
+   "say": "Input image है; result सुनकर या छूकर मिलता है।"
+  },
+  {
+   "beat_id": "b54",
+   "say": "Graphic का रास्ता याद रखो: camera से input, sound या vibration से output।"
+  },
+  {
+   "beat_id": "b55",
+   "say": "अब note की बनावट, उसका monetary promise और पहचान में मदद करने वाला tool अलग-अलग समझ सकते हो।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "book_p010_i7",
+   "kind": "picture",
+   "cell": [
+    0,
+    0,
+    12,
+    3
+   ],
+   "cue": [
+    "b50",
+    ""
+   ],
+   "picture": {
+    "type": "gallery",
+    "title": "Four panels in a two-by-two grid",
+    "item_id": "p010-i7",
+    "panels": [
+     {
+      "n": 1,
+      "name": "Scans front or back of Indian banknotes.",
+      "caption": "",
+      "nouns": [
+       "Scans",
+       "front",
+       "back",
+       "Indian",
+       "banknotes"
+      ],
+      "item_id": "p010-i8",
+      "numbered": false,
+      "cue": [
+       "b50",
+       ""
+      ],
+      "icon": "fa:solid/money-bill-1"
+     },
+     {
+      "n": 2,
+      "name": "Provides audio output for denomination.",
+      "caption": "",
+      "nouns": [
+       "Provides",
+       "audio",
+       "output",
+       "for",
+       "denomination"
+      ],
+      "item_id": "p010-i9",
+      "numbered": false,
+      "cue": [
+       "b51",
+       ""
+      ],
+      "icon": "fa:solid/audio-description"
+     },
+     {
+      "n": 3,
+      "name": "Uses vibration for users with vision and",
+      "caption": "",
+      "nouns": [
+       "Uses",
+       "vibration",
+       "for",
+       "users",
+       "with",
+       "vision"
+      ],
+      "item_id": "p010-i10",
+      "numbered": false,
+      "cue": [
+       "b52",
+       ""
+      ],
+      "icon": "fl:vibration-mode"
+     },
+     {
+      "n": 4,
+      "name": "Works offline after installation.",
+      "caption": "",
+      "nouns": [
+       "Works",
+       "offline",
+       "after",
+       "installation"
+      ],
+      "item_id": "p010-i11",
+      "numbered": false,
+      "cue": [
+       "b52",
+       ""
+      ],
+      "icon": "fa:solid/computer"
+     }
+    ]
+   }
+  },
+  {
+   "id": "image_response",
+   "kind": "action",
+   "cell": [
+    0,
+    3,
+    12,
+    4
+   ],
+   "cue": [
+    "b50",
+    "Phone"
+   ],
+   "until_cue": [
+    "b51",
+    "Front"
+   ],
+   "tone": "ink",
+   "template": "compose",
+   "actors": [],
+   "objects": [
+    {
+     "name": "phone",
+     "icon": "tw:1f4f1",
+     "label": ""
+    },
+    {
+     "name": "image",
+     "icon": "fa:solid/money-bill-1",
+     "label": ""
+    },
+    {
+     "name": "sound",
+     "icon": "tw:1f50a",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "appear",
+     "cue": [
+      "b50",
+      "Phone"
+     ],
+     "object": "phone",
+     "spot": "center",
+     "n": 1
+    },
+    {
+     "part": "move",
+     "cue": [
+      "b50",
+      "image"
+     ],
+     "from": "left",
+     "to": "phone",
+     "object": "image",
+     "into": "phone"
+    },
+    {
+     "part": "move",
+     "cue": [
+      "b50",
+      "sound"
+     ],
+     "from": "phone",
+     "to": "right",
+     "object": "sound"
+    },
+    {
+     "part": "move",
+     "cue": [
+      "b50",
+      "vibration"
+     ],
+     "from": "center",
+     "to": "right",
+     "object": "phone",
+     "reach": 0.08,
+     "back": true
+    }
+   ]
+  },
+  {
+   "id": "either_side",
+   "kind": "action",
+   "cell": [
+    0,
+    3,
+    12,
+    4
+   ],
+   "cue": [
+    "b51",
+    "Front"
+   ],
+   "until_cue": [
+    "b52",
+    "सुन"
+   ],
+   "tone": "ink",
+   "template": "compose",
+   "actors": [],
+   "objects": [
+    {
+     "name": "note",
+     "icon": "fa:solid/money-bill-1",
+     "label": ""
+    },
+    {
+     "name": "phone",
+     "icon": "tw:1f4f1",
+     "label": ""
+    },
+    {
+     "name": "audio",
+     "icon": "tw:1f50a",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "appear",
+     "cue": [
+      "b51",
+      "Front"
+     ],
+     "object": "note",
+     "spot": "left",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b51",
+      "Front"
+     ],
+     "on": "note",
+     "text": "Front",
+     "style": "tag"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b51",
+      "back,"
+     ],
+     "on": "note",
+     "text": "back",
+     "style": "tag"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b51",
+      "camera"
+     ],
+     "object": "phone",
+     "spot": "center",
+     "n": 1
+    },
+    {
+     "part": "move",
+     "cue": [
+      "b51",
+      "input"
+     ],
+     "from": "left",
+     "to": "phone",
+     "object": "note",
+     "into": "phone"
+    },
+    {
+     "part": "move",
+     "cue": [
+      "b51",
+      "Audio"
+     ],
+     "from": "phone",
+     "to": "right",
+     "object": "audio"
+    }
+   ]
+  },
+  {
+   "id": "touch_offline",
+   "kind": "action",
+   "cell": [
+    0,
+    3,
+    12,
+    4
+   ],
+   "cue": [
+    "b52",
+    "सुन"
+   ],
+   "until_cue": [
+    "b53",
+    "Input"
+   ],
+   "tone": "ink",
+   "template": "compose",
+   "actors": [
+    {
+     "role": "user",
+     "who": "main",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "phone",
+     "icon": "tw:1f4f1",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "hold",
+     "cue": [
+      "b52",
+      "सुन"
+     ],
+     "actor": "user",
+     "object": "phone"
+    },
+    {
+     "part": "move",
+     "cue": [
+      "b52",
+      "vibration"
+     ],
+     "from": "user",
+     "to": "right",
+     "object": "phone",
+     "reach": 0.04,
+     "back": true
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b52",
+      "installed"
+     ],
+     "on": "phone",
+     "text": "installed app",
+     "style": "screen"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b52",
+      "offline"
+     ],
+     "on": "phone",
+     "text": "offline use",
+     "style": "screen"
+    }
+   ]
+  },
+  {
+   "id": "input_image",
+   "kind": "icon",
+   "cell": [
+    0,
+    4,
+    3,
+    2
+   ],
+   "cue": [
+    "b53",
+    "Input"
+   ],
+   "until_cue": [
+    "b55",
+    "बनावट,"
+   ],
+   "tone": "ink",
+   "icon": "fa:solid/money-bill-1",
+   "label": "Input image",
+   "size": 32
+  },
+  {
+   "id": "hearing",
+   "kind": "icon",
+   "cell": [
+    8,
+    3,
+    3,
+    2
+   ],
+   "cue": [
+    "b53",
+    "सुनकर"
+   ],
+   "until_cue": [
+    "b55",
+    "बनावट,"
+   ],
+   "tone": "accent",
+   "icon": "fl:ear",
+   "label": "सुनकर",
+   "size": 32
+  },
+  {
+   "id": "touch",
+   "kind": "icon",
+   "cell": [
+    8,
+    5,
+    3,
+    2
+   ],
+   "cue": [
+    "b53",
+    "छूकर"
+   ],
+   "until_cue": [
+    "b55",
+    "बनावट,"
+   ],
+   "tone": "warm",
+   "icon": "tw:1f4f1",
+   "label": "छूकर",
+   "size": 32
+  },
+  {
+   "id": "camera_input",
+   "kind": "action",
+   "cell": [
+    3,
+    3,
+    4,
+    4
+   ],
+   "cue": [
+    "b54",
+    "camera"
+   ],
+   "until_cue": [
+    "b55",
+    "बनावट,"
+   ],
+   "tone": "ink",
+   "template": "compose",
+   "actors": [],
+   "objects": [
+    {
+     "name": "phone",
+     "icon": "tw:1f4f1",
+     "label": ""
+    },
+    {
+     "name": "image",
+     "icon": "fa:solid/money-bill-1",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "appear",
+     "cue": [
+      "b54",
+      "camera"
+     ],
+     "object": "phone",
+     "spot": "center",
+     "n": 1
+    },
+    {
+     "part": "move",
+     "cue": [
+      "b54",
+      "input,"
+     ],
+     "from": "left",
+     "to": "phone",
+     "object": "image",
+     "into": "phone"
+    },
+    {
+     "part": "move",
+     "cue": [
+      "b54",
+      "vibration"
+     ],
+     "from": "center",
+     "to": "right",
+     "object": "phone",
+     "reach": 0.06,
+     "back": true
+    }
+   ],
+   "close_up": false
+  },
+  {
+   "id": "sound_path",
+   "kind": "arrow",
+   "cue": [
+    "b54",
+    "sound"
+   ],
+   "until_cue": [
+    "b55",
+    "बनावट,"
+   ],
+   "tone": "accent",
+   "from": "camera_input",
+   "to": "hearing",
+   "from_side": "r",
+   "to_side": "l",
+   "elbow": "hv",
+   "flow": {
+    "icon": "tw:1f50a",
+    "count": 1,
+    "period": 90,
+    "size": 28,
+    "cue": [
+     "b54",
+     "sound"
+    ]
+   }
+  },
+  {
+   "id": "touch_path",
+   "kind": "arrow",
+   "cue": [
+    "b54",
+    "vibration"
+   ],
+   "until_cue": [
+    "b55",
+    "बनावट,"
+   ],
+   "tone": "warm",
+   "from": "camera_input",
+   "to": "touch",
+   "from_side": "r",
+   "to_side": "l",
+   "elbow": "hv",
+   "flow": {
+    "icon": "tw:1f4f1",
+    "count": 1,
+    "period": 90,
+    "size": 28,
+    "cue": [
+     "b54",
+     "vibration"
+    ]
+   }
+  },
+  {
+   "id": "physical_note",
+   "kind": "icon",
+   "cell": [
+    0,
+    4,
+    4,
+    3
+   ],
+   "cue": [
+    "b55",
+    "बनावट,"
+   ],
+   "tone": "ink",
+   "icon": "fa:solid/money-bill-1",
+   "label": "note की बनावट",
+   "size": 32
+  },
+  {
+   "id": "promise",
+   "kind": "icon",
+   "cell": [
+    4,
+    4,
+    4,
+    3
+   ],
+   "cue": [
+    "b55",
+    "promise"
+   ],
+   "tone": "ink",
+   "icon": "tw:1f4dc",
+   "label": "monetary promise",
+   "size": 32
+  },
+  {
+   "id": "identification_tool",
+   "kind": "icon",
+   "cell": [
+    8,
+    4,
+    4,
+    3
+   ],
+   "cue": [
+    "b55",
+    "tool"
+   ],
+   "tone": "accent",
+   "icon": "tw:1f4f1",
+   "label": "पहचान में मदद करने वाला tool",
+   "size": 32
+  },
+  {
+   "id": "auto_arrow_b53",
+   "kind": "arrow",
+   "from": "book_p010_i7",
+   "to": "input_image",
+   "cue": [
+    "b53",
+    "Input"
+   ]
+  },
+  {
+   "id": "auto_thing_1",
+   "kind": "icon",
+   "icon": "tw:1f50a",
+   "cell": [
+    0,
+    7,
+    2,
+    1
+   ],
+   "cue": [
+    "b53",
+    ""
+   ],
+   "until_cue": [
+    "b54",
+    ""
+   ]
+  },
+  {
+   "id": "auto_thing_2",
+   "kind": "icon",
+   "icon": "fl:call-me-hand",
+   "cell": [
+    2,
+    7,
+    2,
+    1
+   ],
+   "cue": [
+    "b53",
+    ""
+   ],
+   "until_cue": [
+    "b54",
+    ""
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b50",
+    "Phone"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    3,
+    12,
+    4
+   ],
+   "cue": [
+    "b51",
+    "camera"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b54",
+    "Graphic"
+   ]
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b52",
+    "vibration"
+   ],
+   "ids": [
+    "touch_offline",
+    "book_p010_i7_p1",
+    "book_p010_i7_p2",
+    "book_p010_i7_p3",
+    "book_p010_i7_p4",
+    "book_p010_i7_a1",
+    "book_p010_i7_a2",
+    "book_p010_i7_a3"
+   ],
+   "until_cue": [
+    "b53",
+    "Input"
+   ]
+  },
+  {
+   "cue": [
+    "b55",
+    "बनावट,"
+   ],
+   "ids": [
+    "physical_note",
+    "promise",
+    "identification_tool"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

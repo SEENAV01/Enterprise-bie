@@ -1,0 +1,636 @@
+{
+ "id": "v8_s4",
+ "part_id": "c19.2",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b25",
+   "say": "Note देकर silver मिले तो? एक hypothetical counter पर holder ने ₹100 का note दिया और बदले में 10 grams silver लिया। यह historical rate नहीं है।"
+  },
+  {
+   "beat_id": "b26",
+   "say": "Authority ने अपने 100 grams stock से 10 grams दिए; अब 90 grams बचे। लौटाया note cancel करके ₹100 की liability हटाई। Colonial era में gold या silver bars अथवा coins में conversion का promise था; full bodied coin की metal value बताई कीमत के करीब थी।"
+  },
+  {
+   "beat_id": "b27",
+   "say": "Metal quantity तय नियम से मिलती थी, कागज़ के वजन से नहीं; modern note ऐसा redemption नहीं देता।"
+  },
+  {
+   "beat_id": "b28",
+   "say": "पुराना run था: note लौटाओ, metal लो, note cancel हो।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "exchange",
+   "kind": "action",
+   "cell": [
+    0,
+    1,
+    12,
+    6
+   ],
+   "cue": [
+    "b25",
+    "Note"
+   ],
+   "until_cue": [
+    "b26",
+    "Authority"
+   ],
+   "template": "compose",
+   "actors": [
+    {
+     "role": "holder",
+     "who": "main",
+     "mood": "neutral"
+    },
+    {
+     "role": "authority",
+     "who": "other",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "note",
+     "icon": "fa:solid/money-bill-1",
+     "label": ""
+    },
+    {
+     "name": "silver",
+     "icon": "tw:1fa99",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "hold",
+     "cue": [
+      "b25",
+      "Note"
+     ],
+     "actor": "holder",
+     "object": "note"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b25",
+      "₹100"
+     ],
+     "on": "note",
+     "text": "₹100",
+     "style": "tag"
+    },
+    {
+     "part": "give",
+     "cue": [
+      "b25",
+      "दिया"
+     ],
+     "from": "holder",
+     "to": "authority",
+     "object": "note"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b25",
+      "10"
+     ],
+     "on": "silver",
+     "text": "10 grams",
+     "style": "tag"
+    },
+    {
+     "part": "give",
+     "cue": [
+      "b25",
+      "लिया।"
+     ],
+     "from": "authority",
+     "to": "holder",
+     "object": "silver"
+    }
+   ]
+  },
+  {
+   "id": "stock_cancellation",
+   "kind": "action",
+   "cell": [
+    0,
+    1,
+    12,
+    6
+   ],
+   "cue": [
+    "b26",
+    "Authority"
+   ],
+   "until_cue": [
+    "b26",
+    "Colonial"
+   ],
+   "template": "compose",
+   "actors": [
+    {
+     "role": "holder",
+     "who": "main",
+     "mood": "neutral"
+    },
+    {
+     "role": "authority",
+     "who": "other",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "stock",
+     "icon": "fa:solid/coins",
+     "label": ""
+    },
+    {
+     "name": "silver",
+     "icon": "tw:1fa99",
+     "label": ""
+    },
+    {
+     "name": "note",
+     "icon": "fa:solid/money-bill-1",
+     "label": ""
+    },
+    {
+     "name": "liability",
+     "icon": "tw:1f4dc",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "hold",
+     "cue": [
+      "b26",
+      "Authority"
+     ],
+     "actor": "authority",
+     "object": "stock"
+    },
+    {
+     "part": "meter",
+     "cue": [
+      "b26",
+      "100"
+     ],
+     "to": "100 grams",
+     "on": "stock",
+     "text": "100 grams"
+    },
+    {
+     "part": "give",
+     "cue": [
+      "b26",
+      "दिए;"
+     ],
+     "from": "authority",
+     "to": "holder",
+     "object": "silver",
+     "text": "10 grams"
+    },
+    {
+     "part": "meter",
+     "cue": [
+      "b26",
+      "90"
+     ],
+     "to": "90 grams",
+     "on": "stock",
+     "text": "90 grams",
+     "dir": "down"
+    },
+    {
+     "part": "refuse",
+     "cue": [
+      "b26",
+      "cancel"
+     ],
+     "actor": "authority",
+     "object": "note",
+     "text": "cancel"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b26",
+      "₹100"
+     ],
+     "on": "liability",
+     "text": "₹100 की liability",
+     "style": "tag"
+    },
+    {
+     "part": "move",
+     "cue": [
+      "b26",
+      "हटाई।"
+     ],
+     "to": "far",
+     "object": "liability",
+     "spot": "offstage"
+    }
+   ]
+  },
+  {
+   "id": "history",
+   "kind": "icon",
+   "cell": [
+    0,
+    0,
+    8,
+    2
+   ],
+   "cue": [
+    "b26",
+    "Colonial"
+   ],
+   "until_cue": [
+    "b27",
+    "Metal"
+   ],
+   "tone": "warm",
+   "icon": "tw:1f91d",
+   "label": "Colonial era",
+   "size": 28
+  },
+  {
+   "id": "rule",
+   "kind": "icon",
+   "cell": [
+    9,
+    0,
+    3,
+    2
+   ],
+   "cue": [
+    "b26",
+    "promise"
+   ],
+   "tone": "accent",
+   "icon": "tw:1f4dc",
+   "label": "conversion का promise",
+   "size": 28
+  },
+  {
+   "id": "coin_value",
+   "kind": "action",
+   "cell": [
+    0,
+    2,
+    12,
+    5
+   ],
+   "cue": [
+    "b26",
+    "full"
+   ],
+   "until_cue": [
+    "b27",
+    "Metal"
+   ],
+   "template": "compose",
+   "actors": [],
+   "objects": [
+    {
+     "name": "coin",
+     "icon": "tw:1fa99",
+     "label": "full bodied coin"
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "appear",
+     "cue": [
+      "b26",
+      "full"
+     ],
+     "object": "coin",
+     "n": 1
+    },
+    {
+     "part": "compare",
+     "cue": [
+      "b26",
+      "करीब"
+     ],
+     "object": "coin",
+     "text": "करीब",
+     "left_text": "metal value",
+     "right_text": "बताई कीमत",
+     "left": "coin",
+     "right": "coin"
+    }
+   ]
+  },
+  {
+   "id": "rule_comparison",
+   "kind": "action",
+   "cell": [
+    0,
+    2,
+    12,
+    5
+   ],
+   "cue": [
+    "b27",
+    "Metal"
+   ],
+   "until_cue": [
+    "b28",
+    "पुराना"
+   ],
+   "template": "compose",
+   "actors": [],
+   "objects": [
+    {
+     "name": "metal",
+     "icon": "fl:coin",
+     "label": ""
+    },
+    {
+     "name": "rule",
+     "icon": "tw:1f4dc",
+     "label": ""
+    },
+    {
+     "name": "scale",
+     "icon": "tw:2696",
+     "label": ""
+    },
+    {
+     "name": "modern",
+     "icon": "fa:solid/money-bill-1",
+     "label": "modern note"
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "appear",
+     "cue": [
+      "b27",
+      "Metal"
+     ],
+     "object": "metal",
+     "n": 1
+    },
+    {
+     "part": "move",
+     "cue": [
+      "b27",
+      "नियम"
+     ],
+     "from": "rule",
+     "to": "metal",
+     "object": "rule"
+    },
+    {
+     "part": "compare",
+     "cue": [
+      "b27",
+      "वजन"
+     ],
+     "left": "rule",
+     "right": "scale",
+     "left_text": "तय नियम",
+     "right_text": "कागज़ का वजन"
+    },
+    {
+     "part": "refuse",
+     "cue": [
+      "b27",
+      "नहीं;"
+     ],
+     "object": "scale"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b27",
+      "modern"
+     ],
+     "object": "modern",
+     "n": 1
+    },
+    {
+     "part": "refuse",
+     "cue": [
+      "b27",
+      "redemption"
+     ],
+     "from": "modern",
+     "to": "metal",
+     "object": "modern",
+     "text": "redemption नहीं देता"
+    }
+   ],
+   "close_up": false
+  },
+  {
+   "id": "recap",
+   "kind": "action",
+   "cell": [
+    0,
+    2,
+    12,
+    5
+   ],
+   "cue": [
+    "b28",
+    "पुराना"
+   ],
+   "template": "compose",
+   "actors": [
+    {
+     "role": "holder",
+     "who": "main",
+     "mood": "neutral"
+    },
+    {
+     "role": "authority",
+     "who": "other",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "note",
+     "icon": "fa:solid/money-bill-1",
+     "label": ""
+    },
+    {
+     "name": "metal",
+     "icon": "fl:coin",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "hold",
+     "cue": [
+      "b28",
+      "पुराना"
+     ],
+     "actor": "holder",
+     "object": "note"
+    },
+    {
+     "part": "give",
+     "cue": [
+      "b28",
+      "लौटाओ,"
+     ],
+     "from": "holder",
+     "to": "authority",
+     "object": "note"
+    },
+    {
+     "part": "give",
+     "cue": [
+      "b28",
+      "लो,"
+     ],
+     "from": "authority",
+     "to": "holder",
+     "object": "metal"
+    },
+    {
+     "part": "refuse",
+     "cue": [
+      "b28",
+      "cancel"
+     ],
+     "actor": "authority",
+     "object": "note",
+     "text": "cancel"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b25",
+    "Note"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    1,
+    12,
+    6
+   ],
+   "cue": [
+    "b26",
+    "Authority"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b26",
+    "Colonial"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b27",
+    "Metal"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    1,
+    12,
+    6
+   ],
+   "cue": [
+    "b28",
+    "पुराना"
+   ]
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b26",
+    "90"
+   ],
+   "ids": [
+    "stock_cancellation"
+   ],
+   "until_cue": [
+    "b26",
+    "Colonial"
+   ]
+  },
+  {
+   "cue": [
+    "b26",
+    "full"
+   ],
+   "ids": [
+    "coin_value",
+    "rule"
+   ],
+   "until_cue": [
+    "b27",
+    "Metal"
+   ]
+  },
+  {
+   "cue": [
+    "b28",
+    "पुराना"
+   ],
+   "ids": [
+    "recap",
+    "rule"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}
