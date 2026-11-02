@@ -1,7 +1,7 @@
 {
  "schema": "bie.brain.places/1",
  "rulebook": "places",
- "version": "2026-11-02.2",
+ "version": "2026-11-02.3",
  "source": "Navin, 27 October 2026: \"a shop and its buyers, a bank and its borrowers, a factory and its workers, a port, a farm\"; the petrol pump for the real-world application. Moved out of world.py on 2 November 2026 (Task 046 Part D2 addendum: no chapter noun is a fixed value in the world code).",
  "how_it_is_used": "bie/brain/video/world.py reads the words that name each place in a part's narration; a place with a kit goes to world mode (C), one without a kit to the canvas (B) and to the missing-capability log. The 'draws' map says which thing each world element kind draws, and 'whole_part' which kinds stand for the whole part; the coverage check reads both.",
  "places": {
@@ -175,6 +175,14 @@
    "borrowers",
    "depositor",
    "depositors"
+  ],
+  "price_tag": [
+   "price",
+   "prices",
+   "tag",
+   "tags",
+   "price tag",
+   "price tags"
   ]
  },
  "whole_part": {

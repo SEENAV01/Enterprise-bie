@@ -81,6 +81,18 @@ class Asset:
     generated_on: str = ""
 
 
+CODER_SOURCE = "bie_coder"              # a drawing by BIE's coder (bie/brain/coder.py SOURCE)
+
+
+def drawn_thing(asset: Asset) -> str:
+    """The thing BIE's coder was asked to draw (its spec, BIE's own JSON inside the asset's prompt), or ''."""
+    match = re.search(r"\{.*\}", asset.prompt or "", re.DOTALL)
+    try:
+        return str(json.loads(match.group(0)).get("thing") or "") if match else ""
+    except (ValueError, AttributeError):
+        return ""
+
+
 def normalise_licence(name: str) -> str:
     """The licence policy's class of a licence: public-domain, cc-by, share-alike, non-commercial, no-derivatives, ..."""
     return policy.normalise(name)
@@ -362,6 +374,46 @@ class AssetLibrary:
         wanted = {t.lower() for t in tags}
         scored = [(len(wanted & {t.lower() for t in a.tags}), a) for a in self.assets.values()]
         return [a for score, a in sorted(scored, key=lambda x: (-x[0], x[1].asset_id)) if score]
+
+    def pictures_of(self, thing: str, *, every_word: bool = False) -> list:
+        """The library's pictures OF a thing, the ones named by it first (Navin, 2 November 2026: "jis cheej ka jikar hai
+        wohi cheej dikhe").
+
+        - a fetched or downloaded asset is a picture of a thing it is tagged with as a whole phrase; with ``every_word``, also
+          of one whose every word is its tag (a fetched picture carries its need's words as its tags);
+        - a drawing by BIE's coder carries tags its maker chose (65 of the addendum proof's 150 drawings were tagged "money",
+          17 "gold"), so a tag alone never names it: the thing must be the drawing's own thing, its title or one of its phrase
+          tags, or share their head noun with every word of it among the drawing's words ("grain sack": the drawing titled
+          "Sack of grain"; never "money": the banknote holder)."""
+        from bie.toolbox import icons
+
+        def phrase(text: str) -> str:
+            return " ".join(icons._stem(w) for w in icons._words(text) if w not in icons.FIT_STOP)
+
+        words = [w for w in icons._words(thing) if w not in icons.FIT_STOP]
+        if not words:
+            return []
+        want = " ".join(icons._stem(w) for w in words)
+        content = {icons._stem(w) for w in words if w not in icons.FIT_PREPS and len(w) > 1}
+        head = icons._head(words)
+        head = icons._stem(head) if head else None
+        named, near = [], []
+        for a in sorted(self.assets.values(), key=lambda a: a.asset_id):
+            tags = [str(t) for t in a.tags]
+            if a.source == CODER_SOURCE:
+                names = [n for n in [drawn_thing(a), a.title] if n] + [t for t in tags if len(icons._words(t)) > 1]
+                if want in {phrase(n) for n in names}:
+                    named.append(a)
+                    continue
+                heads = {icons._stem(h) for h in (icons._head(icons._words(n)) for n in names) if h}
+                have = {icons._stem(w) for n in names + tags for w in icons._words(n)}
+                if head and head in heads and content <= have:
+                    near.append(a)
+            elif want in {phrase(t) for t in tags}:
+                named.append(a)
+            elif every_word and content and content <= {icons._stem(w) for t in tags for w in icons._words(t)}:
+                near.append(a)
+        return named + near
 
     def credits(self, asset_ids) -> list:
         """Credit lines (title · author · licence (licence URL) · source page) for the outside assets among ``asset_ids``."""

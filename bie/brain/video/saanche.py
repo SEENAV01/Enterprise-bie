@@ -37,6 +37,10 @@ TEMPLATE_NAMES = tuple(TEMPLATES) + (COMPOSE,)
 MOODS = ("neutral", "pleased", "unsure", "refusing")
 WHO = ("main", "other")
 STYLES = ("tag", "sign", "screen", "ok", "bubble", "write")
+METER_STYLES = tuple(RULEBOOK.get("meter_styles") or ("bar", "number"))
+# A place word the maker uses ("up", "offstage") read as the named spot it means (rulebook/saanche.json spot_words).
+SPOT_WORDS = {w.lower(): spot for spot, words in (RULEBOOK.get("spot_words") or {}).items() if not spot.startswith("_")
+              for w in words}
 SIGNS = ("=", "≠", "?", "vs", "<", ">", "→")
 # The stage a template draws on, in its own units: a world places it on the street (x is the stage centre, the bottom on the
 # walking line), a canvas fits it into the node's cells. The actors stand about half the stage tall: in a world at zoom 1 that is
@@ -157,6 +161,108 @@ def _steps_of(action: dict) -> list:
     return list(TEMPLATES[action["template"]]["steps"])
 
 
+def settle_compose(action: dict, says: dict) -> list:
+    """What code settles in a composed process before the check (seekh -> BIE, the addendum proof's run a of 2 November 2026:
+    of 18 parts refused after three rounds, 9 were composed parts the maker kept sending with a field code could read). In
+    place; returns what was done:
+    - a style the part has no use for is dropped; a show_text style that is not one of STYLES becomes a tag; a meter style that is
+      not one of METER_STYLES is dropped (a bar); an appearance's style "grid" or "pile" is its layout;
+    - a count n out of 1 .. COUNT_MAX is brought into it; one that is no whole number is dropped (one thing);
+    - a target that names a place on the stage in words ("up", "offstage", "bottom") is that spot (SPOT_WORDS);
+    - a part that needs an actor, or an object, takes the action's only actor, or only object with an icon, when it left it out;
+    - a move without a target goes far (away); a meter without a target value counts to the action's last amount, else to
+      the last amount its beat says;
+    - a compare without its sides, or with the words "left" and "right" for them, takes the action's two objects with icons,
+      in order, or the action's one object twice when the sides carry their own texts;
+    - a move whose thing was named as ``from``, or whose target was named as ``spot``, and a meter whose value was given as
+      its ``text``, are read that way;
+    - an object named without its icon takes the icon that is a picture of it (``icons.fitting``), when there is one."""
+    aid = action.get("id", "?")
+    fixes = []
+    from ...toolbox import icons
+    for o in action.get("objects") or []:          # an object named without its icon takes the icon that is a picture of it
+        if o.get("name") and not o.get("icon"):
+            hits = icons.fitting(str(o.get("label") or o["name"]).replace("_", " "), limit=6)
+            if hits:
+                o["icon"] = hits[0]["id"]
+                fixes.append(f"{aid}: object {o['name']!r} drawn as {o['icon']} (a picture of it)")
+    actors = [a.get("role") for a in action.get("actors") or [] if a.get("role")]
+    objects = [o.get("name") for o in action.get("objects") or [] if o.get("name") and o.get("icon")]
+    amounts = [a.get("name") for a in action.get("amounts") or [] if a.get("name")]
+    for i, p in enumerate(action.get("parts") or []):
+        name = p.get("part") if isinstance(p, dict) else None
+        if name not in PARTS:
+            continue
+        where = f"{aid} part {i + 1}"
+        style = p.get("style")
+        if style:
+            if name == "show_text" and style not in STYLES:
+                p["style"] = "tag"
+                fixes.append(f"{where}: style {style!r} read as a tag")
+            elif name == "meter" and style not in METER_STYLES:
+                p.pop("style")
+                fixes.append(f"{where}: meter style {style!r} dropped (a bar)")
+            elif name == "appear" and style in ("grid", "pile"):
+                p.pop("style")
+                p.setdefault("layout", style)
+                fixes.append(f"{where}: style {style!r} read as the layout")
+            elif name not in ("show_text", "meter"):
+                p.pop("style")
+                fixes.append(f"{where}: style {style!r} dropped ({name} has none)")
+        if p.get("n") not in (None, "", 0):
+            raw = str(p["n"]).strip()
+            if raw.isdigit() and not 1 <= int(raw) <= COUNT_MAX:
+                p["n"] = max(1, min(COUNT_MAX, int(raw)))
+                fixes.append(f"{where}: n {raw} brought to {p['n']}")
+            elif not raw.isdigit():
+                p.pop("n")
+                fixes.append(f"{where}: n {raw!r} is no whole number: one")
+        for key in ("to", "on"):
+            value = p.get(key)
+            if value in (None, "") or (name == "meter" and key == "to"):
+                continue
+            if value in actors or value in objects or value in SPOTS:
+                continue
+            spot = SPOT_WORDS.get(str(value).strip().lower())
+            if spot:
+                p[key] = spot
+                fixes.append(f"{where}: {key} {value!r} read as the spot {spot!r}")
+        if name == "compare" and (p.get("left"), p.get("right")) in (("left", "right"), (None, None), ("", "")):
+            if len(objects) == 2:
+                p["left"], p["right"] = objects
+                fixes.append(f"{where}: the two sides are the action's two objects")
+            elif len(objects) == 1 and (p.get("left_text") or p.get("right_text")):
+                p["left"] = p["right"] = objects[0]          # two values of one thing, each with its text
+                fixes.append(f"{where}: both sides are {objects[0]!r}, with their texts")
+        if name == "move":
+            if p.get("object") in (None, "") and p.get("from") in objects:
+                p["object"] = p.pop("from")              # the thing that moves was named as where it moves from
+                fixes.append(f"{where}: object {p['object']!r} (named as from)")
+            if p.get("to") in (None, "") and p.get("spot"):
+                p["to"] = SPOT_WORDS.get(str(p["spot"]).lower(), p["spot"])
+                fixes.append(f"{where}: to {p['to']!r} (named as spot)")
+        if name == "meter" and p.get("to") in (None, "") and p.get("text"):
+            p["to"] = p["text"]                          # the value the meter shows was given as its text
+            fixes.append(f"{where}: to {p['to']!r} (its text)")
+        for field in PARTS[name]["needs"]:
+            if p.get(field) not in (None, "", []):
+                continue
+            if field in ("actor", "from") and len(actors) == 1:
+                p[field] = actors[0]
+            elif field == "object" and len(objects) == 1:
+                p[field] = objects[0]
+            elif field == "to" and name == "move":
+                p[field] = "far"
+            elif field == "to" and name == "meter" and amounts:
+                p[field] = "{" + amounts[-1] + "}"
+            elif field == "to" and name == "meter" and amount_tokens(says.get((p.get("cue") or [None])[0], "")):
+                p[field] = amount_tokens(says.get(p["cue"][0], ""))[-1]           # the last amount its beat says
+            else:
+                continue
+            fixes.append(f"{where}: {field} {p[field]!r} filled in")
+    return fixes
+
+
 def complete_action(action: dict, says: dict) -> list:
     """What code can settle itself before the check (seekh -> BIE, the first Part D2 run of 1 November 2026: 88 rounds for 36
     parts, the maker losing rounds on things the narration already says). In place; returns what was done, for the report:
@@ -165,6 +271,8 @@ def complete_action(action: dict, says: dict) -> list:
     - an amount or step name the recipe does not have is dropped (an object put under amounts, a stray step);
     - a missing last step takes the cue of the step before it (the motion then completes on that word)."""
     name = action.get("template")
+    if name == COMPOSE:
+        return settle_compose(action, says)
     if name not in TEMPLATES:
         return []
     t = TEMPLATES[name]
@@ -276,8 +384,9 @@ def _compose_problems(aid: str, action: dict, says: dict) -> list:
             elif field in ("to", "on") and name != "meter":
                 if value not in actors and not (objects.get(value) or {}).get("icon") and value not in SPOTS:
                     out.append(f"{where}: {field} {value!r} is not an actor, an object or a spot ({', '.join(SPOTS)})")
-        if p.get("style") and p["style"] not in STYLES:
-            out.append(f"{where}: style {p['style']!r} is not one of {', '.join(STYLES)}")
+        allowed = METER_STYLES if name == "meter" else STYLES
+        if p.get("style") and p["style"] not in allowed:
+            out.append(f"{where}: style {p['style']!r} is not one of {', '.join(allowed)}")
         if p.get("sign") and p["sign"] not in SIGNS:
             out.append(f"{where}: sign {p['sign']!r} is not one of {' '.join(SIGNS)}")
         if p.get("n") not in (None, "", 0) and not (str(p["n"]).isdigit() and 1 <= int(p["n"]) <= COUNT_MAX):

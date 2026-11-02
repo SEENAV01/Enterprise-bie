@@ -225,6 +225,13 @@ are optional and the readers allow unknown keys.
   plan's own pictures: no object of its own (`tests/test_task046d2_general.py`).
 - **Places** are data: `bie/brain/rulebook/places.json` (`bie.brain.places/1`), the words that name each place; a place's sign
   is only the plan's own `sign` (no default name).
+- **What code reads in a composed process** (`saanche.settle_compose`, 2 November 2026): a style the part has no use for is
+  dropped (a show_text style outside STYLES is a tag; a meter's own styles are `meter_styles`, bar and number); a place word is
+  its spot (`spot_words`); a count is brought into 1 .. 12; the only actor or object fills a part that left it out; a move named
+  by `from` or `spot`, a meter whose value is its `text` (or the last amount said), a compare of the action's two objects (or of
+  one object with two texts) are read that way; an object without its icon takes the icon that is a picture of it.
+- **One camera at a time** (`canvas.one_camera_at_a_time`): the block camera stays on the whole canvas, and an action's close-up
+  waits, while the plan's scene camera is zoomed in.
 - **Lexicons** of the meaning checks (return words, change words, old-days words, modern icons) are data in `visual_verbs.json`
   (`lexicon`). A value given back is refused as a struck value only when a return word stands beside that value (or a change word
   is in the beat), and a process with a `give` on the beat shows it instead.
@@ -250,7 +257,13 @@ that beat. No format changes version: the new keys are optional and the readers 
   2 × 1, else one cell) during the beat, cued on the thing's word when the beat says it, leaving when the next beat starts.
   A world is left to the maker.
 - **The check** (`canvas_director.check_plan`, both modes): a thing with a picture not on screen in its beat is refused, with the
-  thing and its pictures named.
+  thing and its pictures named. A thing named by a text or mark head noun (`visual_verbs.json` `lexicon.text_heads`) is shown by
+  the words on screen (its numbers, its currency or per-cent sign, its words) and is never asked for as a picture.
+- **The library's pictures of a thing** (`AssetLibrary.pictures_of`, read by the needs list and by BIE's coder alike): a fetched
+  picture by a tag that is the whole thing (the coder: or every word of it); a drawing by BIE's coder only by its own thing (the
+  spec in its `prompt`), its title or a phrase tag, or by their head noun with every word of the thing among its words, never by
+  a single tag its maker chose. One coder run draws a thing once: another phrasing with the same head noun and no new word
+  ("merchants", "silver piece" after "shaped silver piece") is left to the drawing made for it (`coder.drawn_as`).
 - **Report keys**: each passed part row of `canvas.json` adds `coverage_pct`; each part of the dikhane ki list
   (`visual_ideas/<video>.json`) adds `coverage` {mentioned, shown, coverage_pct, not_shown [{beat_id, thing, has_picture}]}; each
   video's `report` adds `mentioned_things`, `shown_things`, `coverage_pct` and `things_not_shown` [{beat_id, thing, has_picture,

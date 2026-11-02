@@ -525,7 +525,8 @@ def settle_plan(plan: dict, letter: str, ideas: dict | None, found: dict | None 
             fixes += saanche.complete_action(item, says)
     fixes += vt.realise_relations(plan, letter, ideas)
     found = found or {}
-    return fixes + vt.show_missing_things(plan, letter, ideas, found=found.get("found"), images=found.get("images"))
+    fixes += vt.show_missing_things(plan, letter, ideas, found=found.get("found"), images=found.get("images"))
+    return fixes + (vt.lift_from_strip(plan) if letter == "B" else [])
 
 
 def check_plan(stub: dict, value: dict, mode, *, picture: dict | None = None, library=None, ideas: dict | None = None,
